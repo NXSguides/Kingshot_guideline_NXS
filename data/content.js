@@ -500,6 +500,7 @@ const GUIDES = {
             green: "🟢 綠色區域 — {sanctumSE}／{abbey}",
             center: "⚪ 中央"
           }},
+          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
 
           { type: "h", text: "職責分工" },
           { type: "p", text: "R4 會依戰力，把確定參加的成員分成 3 種職責：**攻擊手、防守者、支援／集結參與者**。" },
@@ -672,6 +673,7 @@ const GUIDES = {
             green: "🟢 Green Zone — {sanctumSE} / {abbey}",
             center: "⚪ Center"
           }},
+          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
 
           { type: "h", text: "ROLES & RESPONSIBILITIES" },
           { type: "p", text: "R4 will divide confirmed members into 3 functions based on power: **Attackers, Defenders and Support/Joiners**." },
@@ -857,6 +859,7 @@ const GUIDES = {
           ]},
           { type: "p", text: "나머지 멤버들은 위 구역/팀 중 한 곳을 지원하도록 배정됩니다. 전황에 따라 로테이션이 필요할 수 있으니 — 항상 스쿼드 채팅을 예의 주시해 주세요." },
           { type: "p", text: "리더십의 지시가 있기 전까지는 배정된 구역에 머물러 주세요." },
+          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
 
           { type: "h", text: "👥 역할 및 책임" },
           { type: "p", text: "R4(임원진)가 전투력을 기준으로 참석이 확인된 멤버들을 **공격수, 방어수, 지원/참여자**의 3가지 역할로 나눌 것입니다." },
@@ -1037,6 +1040,7 @@ const GUIDES = {
           ]},
           { type: "p", text: "Verbleibende Mitglieder werden zugewiesen, eine dieser Zonen/Teams zu unterstützen. Rotation kann je nach Schlachtbedingungen erforderlich sein - überwache immer den Squad Chat für Details." },
           { type: "p", text: "Bleib bei deiner zugewiesenen Zone, es sei denn, die Führung sagt dir, dass du dich bewegen sollst." },
+          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
 
           { type: "h", text: "👥 ROLLEN & VERANTWORTLICHKEITEN" },
           { type: "p", text: "R4 wird bestätigte Mitglieder in 3 Funktionen aufteilen: **Angreifer, Verteidiger und Unterstützer/Joiner** basierend auf Stärke." },
@@ -1203,6 +1207,7 @@ const GUIDES = {
             green: "🟢 Zone verte — {sanctumSE} / {abbey}",
             center: "⚪ Centre"
           }},
+          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
 
           { type: "h", text: "RÔLES ET RESPONSABILITÉS" },
           { type: "p", text: "Les R4 répartiront les membres confirmés, selon leur puissance, en 3 fonctions : **attaquants, défenseurs et soutien/participants aux ralliements**." },
@@ -1378,6 +1383,7 @@ const GUIDES = {
 
           { type: "h", text: "ROLLER VE SORUMLULUKLAR" },
           { type: "p", text: "R4, onaylı üyeleri güce göre 3 göreve ayıracak: **Hücumcular, Savunucular ve Destek/Katılımcılar**." },
+          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
 
           { type: "sub", text: "⚔️ 1) HÜCUMCULAR" },
           { type: "p", text: "**Kimler:** En güçlü oyuncularımız. Yeterince Gelişmiş Işınlayıcı'ya sahip olanlar." },
@@ -1547,6 +1553,7 @@ const GUIDES = {
             green: "🟢 Zona Hijau — {sanctumSE} / {abbey}",
             center: "⚪ Tengah"
           }},
+          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
 
           { type: "h", text: "PERAN DAN TANGGUNG JAWAB" },
           { type: "p", text: "R4 akan membagi anggota yang terkonfirmasi ke dalam 3 fungsi berdasarkan kekuatan: **Penyerbu, Pembela, dan Pendukung/Joiner**." },
@@ -1719,6 +1726,7 @@ const GUIDES = {
             green: "🟢 Зелёная зона — {sanctumSE} / {abbey}",
             center: "⚪ Центр"
           }},
+          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
 
           { type: "h", text: "РОЛИ И ОБЯЗАННОСТИ" },
           { type: "p", text: "R4 разделит подтвержденных участников по силе на 3 функции: **атакующие, защитники и поддержка/присоединяющиеся**." },
@@ -1891,6 +1899,7 @@ const GUIDES = {
             green: "🟢 โซนเขียว — {sanctumSE} / {abbey}",
             center: "⚪ ศูนย์กลาง"
           }},
+          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
 
           { type: "h", text: "บทบาทและหน้าที่" },
           { type: "p", text: "R4 จะแบ่งสมาชิกที่ยืนยันแล้วตามพลังเป็น 3 หน้าที่: **หน่วยบุก หน่วยรับ และหน่วยสนับสนุน/ผู้เข้าร่วมระดมพล**" },
@@ -2063,6 +2072,7 @@ const GUIDES = {
             green: "🟢 المنطقة الخضراء — {sanctumSE} / {abbey}",
             center: "⚪ الوسط"
           }},
+          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
 
           { type: "h", text: "الأدوار والمسؤوليات" },
           { type: "p", text: "سيقسّم R4 الأعضاء المؤكدين بحسب القوة إلى 3 وظائف: **المقتحمون والحماة والدعم/المنضمون**." },
@@ -2235,7 +2245,8 @@ const GUIDES = {
             green: "🟢 Zona Verde — {sanctumSE} / {abbey}",
             center: "⚪ Centro"
           }},
-
+          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
+           
           { type: "h", text: "FUNÇÕES E RESPONSABILIDADES" },
           { type: "p", text: "Os R4 dividirão os membros confirmados, conforme o poder, em 3 funções: **Assaltantes, Guardiões e Apoio/Participantes**." },
 
