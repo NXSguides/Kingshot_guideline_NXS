@@ -25,10 +25,10 @@ const LANGS = [
 
 const UI = {
   siteTitle: {
-    zh: "聯盟攻略站",
-    en: "Alliance Field Guide",
-    ko: "연맹 공략 사이트",
-    de: "Allianz-Leitfaden"
+    zh: "NXS Guidelines",
+    en: "NXS Guidelines",
+    ko: "NXS Guidelines",
+    de: "NXS Guidelines"
   },
   footerNote: {
     zh: "各語言由聯盟成員協助翻譯，持續更新中。",
