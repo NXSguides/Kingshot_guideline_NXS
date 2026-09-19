@@ -1,7 +1,7 @@
 const HTML_LANG = Object.fromEntries(LANGS.map((l) => [l.code, l.htmlLang]));
 const STORAGE_KEYS = { lang: "ks-lang", theme: "ks-theme", guide: "ks-guide" };
 
-let currentLang = "zh";
+let currentLang = "en";
 let currentGuide = Object.keys(GUIDES)[0];
 
 function safeGet(key) {
@@ -12,7 +12,7 @@ function safeSet(key, val) {
 }
 
 function pickLang(code) {
-  return LANGS.some((l) => l.code === code) ? code : "zh";
+  return LANGS.some((l) => l.code === code) ? code : "en";
 }
 
 function pickGuide(id) {
