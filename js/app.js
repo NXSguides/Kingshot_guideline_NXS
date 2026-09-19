@@ -1,4 +1,6 @@
 const HTML_LANG = Object.fromEntries(LANGS.map((l) => [l.code, l.htmlLang]));
+/* Site title shown at the top of every page, in every language */
+const SITE_TITLE = "NXS Guidelines";
 const STORAGE_KEYS = { lang: "ks-lang", theme: "ks-theme", guide: "ks-guide" };
 
 let currentLang = "en";
@@ -334,9 +336,9 @@ function renderDoc() {
 }
 
 function renderAll() {
-  document.getElementById("siteTitle").textContent = t(UI.siteTitle);
+  document.getElementById("siteTitle").textContent = SITE_TITLE;
   document.getElementById("footerNote").textContent = t(UI.footerNote);
-  document.title = `${t(UI.siteTitle)} · ${t(GUIDES[currentGuide].name)}`;
+  document.title = `${SITE_TITLE} · ${t(GUIDES[currentGuide].name)}`;
   document.documentElement.lang = HTML_LANG[currentLang] || currentLang;
   const curLang = LANGS.find((l) => l.code === currentLang);
   document.documentElement.dir = (curLang && curLang.dir) || "ltr";
