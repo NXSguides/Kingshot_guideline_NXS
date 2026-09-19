@@ -1,23 +1,59 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
   <title>NXS Guide</title>
   <meta name="description" content="Kingshot multilingual alliance field guides.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Sans+Thai:wght@400;500;700;800&family=Noto+Sans+Arabic:wght@400;500;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    #gate { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center;
+            padding: 20px; background: var(--bg); color: var(--text); }
+    #gate form { width: 100%; max-width: 340px; background: var(--panel); border: 1px solid var(--rule);
+                 border-radius: 12px; padding: 24px 20px; box-shadow: 0 8px 24px var(--shadow); text-align: center; }
+    #gate h2 { margin: 0 0 6px; font-family: "Oswald", "Noto Sans TC", sans-serif; font-size: 22px; }
+    #gate p { margin: 0 0 14px; color: var(--text-muted); font-size: 14px; }
+    #gate input { width: 100%; box-sizing: border-box; padding: 10px 12px; font-size: 16px; text-align: center;
+                  border: 1px solid var(--rule); border-radius: 8px; background: var(--panel-2); color: var(--text); }
+    #gate button { margin-top: 12px; width: 100%; padding: 10px; font-size: 15px; font-weight: 700; cursor: pointer;
+                   border: 0; border-radius: 8px; background: var(--accent); color: var(--accent-ink); }
+    #gate .err { margin: 10px 0 0; color: var(--accent); font-size: 13px; }
+    #gate.bad { background: #b00020; }
+    #gate .bad-text { font-family: "Oswald", "Noto Sans", Impact, sans-serif; font-weight: 800;
+                      font-size: clamp(80px, 25vw, 260px); line-height: 1; color: #fff; letter-spacing: 0.02em;
+                      text-shadow: 0 6px 0 #5a0010, 0 0 40px rgba(0,0,0,0.5); text-align: center;
+                      animation: bad-shake 0.35s infinite; }
+    @keyframes bad-shake {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(-6px, 3px) rotate(-1.5deg); }
+      50% { transform: translate(5px, -4px) rotate(1.5deg); }
+      75% { transform: translate(-4px, -3px) rotate(-1deg); }
+    }
+    @media (prefers-reduced-motion: reduce) { #gate .bad-text { animation: none; } }
+  </style>
 </head>
 <body>
+  <div id="gate" hidden>
+    <form id="gateForm">
+      <h2>NXS Guide</h2>
+      <p>Enter password</p>
+      <input id="gatePw" type="password" autocomplete="current-password" autofocus>
+      <button type="submit">Enter</button>
+      <p class="err" id="gateErr" hidden>Wrong password</p>
+    </form>
+  </div>
+
   <div class="wrap">
     <header class="top">
       <div>
         <p class="brand-eyebrow">MULTILINGUAL GUIDELINES</p>
         <h1 class="brand-title" id="siteTitle">NXS guide</h1>
       </div>
-      <button class="theme-toggle" id="themeToggle" title="切換深色/淺色" aria-label="Toggle theme">◐</button>
+      <button class="theme-toggle" id="themeToggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
     </header>
 
     <div class="lang-row" id="langRow"></div>
@@ -27,7 +63,62 @@
 
   <footer class="note" id="footerNote"></footer>
 
-  <script src="data/content.js"></script>
-  <script src="js/app.js"></script>
+  <!-- Password gate: data/content.js is only loaded after the correct password is entered -->
+  <script>
+  (function () {
+    // SHA-256 hash of (salt + password), not the password itself.
+    var HASH = "a9dadd1938825b78c31bb62d74173a8e5e1b460ab2484d42707df7a6d5d42160";
+    var SALT = "nxs-guide:";
+    var KEY = "ks-auth";
+    var gate = document.getElementById("gate");
+    var MAX_TRIES = 3;
+    var fails = 0;
+
+    function showBad() {
+      gate.className = "bad";
+      gate.innerHTML = '<div class="bad-text">BAD!!</div>';
+    }
+
+    function sha256(text) {
+      return crypto.subtle.digest("SHA-256", new TextEncoder().encode(text)).then(function (buf) {
+        return Array.prototype.map.call(new Uint8Array(buf), function (b) {
+          return b.toString(16).padStart(2, "0");
+        }).join("");
+      });
+    }
+    function load(src) {
+      return new Promise(function (resolve, reject) {
+        var s = document.createElement("script");
+        s.src = src; s.onload = resolve; s.onerror = reject;
+        document.body.appendChild(s);
+      });
+    }
+    function unlock() {
+      gate.remove();
+      return load("data/content.js").then(function () { return load("js/app.js"); });
+    }
+    function saved() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+    function remember(h) { try { localStorage.setItem(KEY, h); } catch (e) {} }
+
+    if (saved() === HASH) { unlock(); return; }
+
+    gate.hidden = false;
+    document.getElementById("gatePw").focus();
+    document.getElementById("gateForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var pw = document.getElementById("gatePw").value;
+      sha256(SALT + pw).then(function (h) {
+        if (h === HASH) { remember(h); unlock(); }
+        else {
+          fails++;
+          if (fails >= MAX_TRIES) { showBad(); return; }
+          document.getElementById("gateErr").hidden = false;
+          document.getElementById("gatePw").value = "";
+          document.getElementById("gatePw").focus();
+        }
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
