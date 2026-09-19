@@ -99,7 +99,6 @@
     function unlock() {
       gate.remove();
       return load("data/content.js")
-        .then(function () { return load("data/terms.js"); })
         .then(function () { return load("js/app.js"); });
     }
     function saved() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
