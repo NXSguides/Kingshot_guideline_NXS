@@ -1,0 +1,404 @@
+:root {
+  /* Light mode: parchment scroll (mirrors the game's tan/khaki UI) */
+  --bg: #cdbe9a;
+  --bg-texture: #c2b28c;
+  --panel: #e6dabb;
+  --panel-2: #dbcca4;
+  --rule: #a68e5f;
+  --text: #362a1c;
+  --text-muted: #6d5c3f;
+  --accent: #a84c1a;
+  --accent-ink: #fff6e6;
+  --brass: #8a6a2a;
+  --tag-best: #8a6a2a;
+  --tag-alt: #4f6a3c;
+  --tag-f2p: #2f6b5e;
+  --shadow: rgba(54, 42, 28, 0.18);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17130f;
+    --bg-texture: #1d1811;
+    --panel: #241d15;
+    --panel-2: #2c2318;
+    --rule: #4d3f29;
+    --text: #ece1c8;
+    --text-muted: #a2957a;
+    --accent: #d9843c;
+    --accent-ink: #1c140a;
+    --brass: #c9a35a;
+    --tag-best: #c9a35a;
+    --tag-alt: #8fae7a;
+    --tag-f2p: #6fae9a;
+    --shadow: rgba(0, 0, 0, 0.45);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #17130f;
+  --bg-texture: #1d1811;
+  --panel: #241d15;
+  --panel-2: #2c2318;
+  --rule: #4d3f29;
+  --text: #ece1c8;
+  --text-muted: #a2957a;
+  --accent: #d9843c;
+  --accent-ink: #1c140a;
+  --brass: #c9a35a;
+  --tag-best: #c9a35a;
+  --tag-alt: #8fae7a;
+  --tag-f2p: #6fae9a;
+  --shadow: rgba(0, 0, 0, 0.45);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  font-family: "Noto Sans TC", "Noto Sans KR", "Noto Sans Thai", "Noto Sans Arabic", "Noto Sans", -apple-system, sans-serif;
+  line-height: 1.65;
+  background-image:
+    radial-gradient(ellipse at top, var(--bg-texture), var(--bg) 70%);
+  min-height: 100vh;
+  padding-bottom: 48px;
+}
+
+.wrap {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 20px 16px 0;
+}
+
+header.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.brand-eyebrow {
+  font-family: "Oswald", "Noto Sans TC", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin: 0 0 4px;
+}
+
+.brand-title {
+  font-family: "Oswald", "Noto Sans TC", "Noto Sans KR", "Noto Sans Thai", "Noto Sans Arabic", sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  margin: 0;
+  color: var(--text);
+}
+
+.theme-toggle {
+  border: 1px solid var(--rule);
+  background: var(--panel);
+  color: var(--text-muted);
+  border-radius: 6px;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.lang-row,
+.guide-row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.lang-row { margin-bottom: 20px; }
+.guide-row { margin-bottom: 22px; }
+
+.lang-btn {
+  flex: none;
+  font-family: "Noto Sans TC", "Noto Sans KR", "Noto Sans Thai", "Noto Sans Arabic", "Noto Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.lang-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+
+.guide-chip {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--rule);
+  background: var(--panel);
+  color: var(--text);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.guide-chip.active {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.guide-chip .emoji { font-size: 16px; }
+
+.doc {
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 22px 18px 26px;
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+.doc-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Oswald", "Noto Sans TC", "Noto Sans KR", "Noto Sans Thai", "Noto Sans Arabic", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0 0 18px;
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: 14px;
+}
+
+.doc-title .emoji { font-size: 26px; }
+
+.section { margin-bottom: 20px; }
+.section:last-child { margin-bottom: 0; }
+
+.section h3 {
+  font-family: "Oswald", "Noto Sans TC", "Noto Sans KR", "Noto Sans Thai", "Noto Sans Arabic", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--brass);
+  margin: 0 0 8px;
+  padding-inline-start: 10px;
+  border-inline-start: 3px solid var(--accent);
+}
+
+.section p { margin: 0 0 8px; color: var(--text); }
+
+.prep-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.prep-list li {
+  position: relative;
+  padding-inline-start: 22px;
+  margin-bottom: 10px;
+}
+
+.prep-list li::before {
+  content: "▸";
+  position: absolute;
+  inset-inline-start: 0;
+  color: var(--accent);
+}
+
+.callout {
+  background: var(--panel-2);
+  border-inline-start: 3px solid var(--brass);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin: 8px 0;
+  margin-inline-start: 22px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.callout a { color: var(--accent); }
+
+.gen-card {
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  background: var(--panel-2);
+}
+
+.gen-card .gen-label {
+  font-family: "Oswald", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.lineup-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  padding: 7px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.lineup-row:first-of-type { border-top: none; }
+
+.lineup-left {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-family: "Oswald", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  padding: 2px 7px;
+  border-radius: 4px;
+  color: var(--accent-ink);
+  flex: none;
+}
+
+.tag.best { background: var(--tag-best); }
+.tag.alt { background: var(--tag-alt); }
+.tag.f2p { background: var(--tag-f2p); }
+
+.heroes { font-weight: 600; font-size: 14.5px; }
+
+.ratio {
+  font-family: "Oswald", monospace;
+  font-size: 13px;
+  color: var(--text-muted);
+  flex: none;
+}
+
+.gen-note {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  padding-inline-start: 2px;
+}
+
+.tbd { color: var(--text-muted); font-size: 13.5px; font-style: italic; }
+
+.joiner-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.joiner-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--panel-2);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.joiner-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  flex: none;
+  display: grid;
+  place-items: center;
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  color: var(--brass);
+}
+
+.joiner-name {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.joiner-role {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.missing-lang {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+footer.note {
+  max-width: 620px;
+  margin: 18px auto 0;
+  padding: 0 16px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* =========================================================================
+   通用區塊（聖劍爭奪等以 blocks 撰寫的攻略）
+   ========================================================================= */
+h3.section-h {
+  font-family: "Oswald", "Noto Sans TC", "Noto Sans KR", "Noto Sans Thai", "Noto Sans Arabic", sans-serif;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.06em;
+  color: var(--brass); margin: 24px 0 8px; padding-inline-start: 10px;
+  border-inline-start: 3px solid var(--accent);
+}
+h4.sub-h { font-size: 15px; margin: 16px 0 6px; }
+.doc > div > p { margin: 0 0 8px; }
+.callout.flat { margin-inline-start: 0; margin-top: 10px; }
+.legend { font-size: 12.5px; color: var(--text-muted); margin: 0 0 8px; }
+
+.bld-card, .zone-card, .tl-card {
+  border: 1px solid var(--rule); border-radius: 10px;
+  padding: 10px 12px; margin-bottom: 10px; background: var(--panel-2);
+}
+.bld-head, .tl-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.bld-name { font-weight: 700; }
+.bld-pts { display: grid; gap: 2px; margin: 6px 0; font-size: 14px; }
+.bld-pts span { display: inline-block; min-width: 5.5em; margin-inline-end: 0.5em; color: var(--text-muted); font-size: 12.5px; }
+.bld-meta { font-size: 12.5px; color: var(--text-muted); }
+.tag.pr-top { background: var(--accent); }
+.tag.pr-high { background: var(--tag-best); }
+.tag.pr-med { background: var(--tag-alt); }
+
+.zone-card { border-inline-start: 4px solid var(--zc, var(--rule)); }
+.zone-card ul { margin: 6px 0 0; padding-inline-start: 18px; font-size: 14px; }
+.zone-title { font-weight: 700; font-size: 14.5px; }
+.zone-purple { --zc: #8a5cc2; } .zone-blue { --zc: #3f8fd0; }
+.zone-yellow { --zc: #c9a020; } .zone-green { --zc: #5a9a3c; }
+.zone-center { --zc: #8a8a8a; }
+
+.tl-head { justify-content: flex-start; font-weight: 700; }
+.tl-time { font-family: "Oswald", monospace; color: var(--accent); }
+.tl-sub { font-weight: 700; font-size: 13.5px; margin: 8px 0 4px; }
+.tl-card .prep-list { margin-top: 6px; }
+
+/* =========================================================================
+   RTL（阿拉伯文）與語言列
+   ========================================================================= */
+.lang-row, .guide-row { direction: ltr; }
+[dir="rtl"] .prep-list li::before { content: "◂"; }
+html[lang="ar"] * { letter-spacing: 0 !important; }
+.tl-time { direction: ltr; unicode-bidi: isolate; }
