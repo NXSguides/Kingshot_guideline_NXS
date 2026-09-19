@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>NXS Guide</title>
+  <title>NXS Guidelines</title>
   <meta name="description" content="Kingshot multilingual alliance field guides.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
 <body>
   <div id="gate" hidden>
     <form id="gateForm">
-      <h2>NXS Guide</h2>
+      <h2>NXS Guidelines</h2>
       <p>Enter password</p>
       <input id="gatePw" type="password" autocomplete="current-password" autofocus>
       <button type="submit">Enter</button>
@@ -51,7 +51,7 @@
     <header class="top">
       <div>
         <p class="brand-eyebrow">MULTILINGUAL GUIDELINES</p>
-        <h1 class="brand-title" id="siteTitle">NXS guide</h1>
+        <h1 class="brand-title" id="siteTitle">NXS Guidelines</h1>
       </div>
       <button class="theme-toggle" id="themeToggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
     </header>
@@ -69,6 +69,9 @@
     // SHA-256 hash of (salt + password), not the password itself.
     var HASH = "a9dadd1938825b78c31bb62d74173a8e5e1b460ab2484d42707df7a6d5d42160";
     var SALT = "nxs-guide:";
+    // true  = stay logged in on this device after entering the password once
+    // false = ask for the password every time the site is opened
+    var REMEMBER_LOGIN = false;
     var KEY = "ks-auth";
     var gate = document.getElementById("gate");
     var MAX_TRIES = 3;
@@ -100,7 +103,8 @@
     function saved() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
     function remember(h) { try { localStorage.setItem(KEY, h); } catch (e) {} }
 
-    if (saved() === HASH) { unlock(); return; }
+    if (!REMEMBER_LOGIN) { try { localStorage.removeItem(KEY); } catch (e) {} }
+    if (REMEMBER_LOGIN && saved() === HASH) { unlock(); return; }
 
     gate.hidden = false;
     document.getElementById("gatePw").focus();
@@ -108,7 +112,7 @@
       e.preventDefault();
       var pw = document.getElementById("gatePw").value;
       sha256(SALT + pw).then(function (h) {
-        if (h === HASH) { remember(h); unlock(); }
+        if (h === HASH) { if (REMEMBER_LOGIN) { remember(h); } unlock(); }
         else {
           fails++;
           if (fails >= MAX_TRIES) { showBad(); return; }
