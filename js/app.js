@@ -57,16 +57,12 @@ function writeHash() {
 }
 
 function restorePrefs() {
+  // Opening the plain site link always starts on English + the first guide.
+  // A shared link with a hash (e.g. #/ko/swordland-showdown) still opens that page.
   readHash();
-  if (!location.hash) {
-    currentLang = pickLang(safeGet(STORAGE_KEYS.lang));
-    currentGuide = pickGuide(safeGet(STORAGE_KEYS.guide));
-  }
 }
 
 function persistPrefs() {
-  safeSet(STORAGE_KEYS.lang, currentLang);
-  safeSet(STORAGE_KEYS.guide, currentGuide);
   writeHash();
 }
 
