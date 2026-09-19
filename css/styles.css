@@ -402,3 +402,5 @@ h4.sub-h { font-size: 15px; margin: 16px 0 6px; }
 [dir="rtl"] .prep-list li::before { content: "◂"; }
 html[lang="ar"] * { letter-spacing: 0 !important; }
 .tl-time { direction: ltr; unicode-bidi: isolate; }
+
+img.fig { display: block; width: 100%; height: auto; margin: 12px 0; border: 1px solid var(--rule); border-radius: 10px; }
