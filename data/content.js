@@ -16,6 +16,7 @@ const LANGS = [
   { code: "ko", label: "한국어", htmlLang: "ko" },
   { code: "de", label: "Deutsch", htmlLang: "de" },
   { code: "fr", label: "Français", htmlLang: "fr" },
+  { code: "pt", label: "Português", htmlLang: "pt-BR" },
   { code: "tr", label: "Türkçe", htmlLang: "tr" },
   { code: "id", label: "Bahasa Indonesia", htmlLang: "id" },
   { code: "ru", label: "Русский", htmlLang: "ru" },
@@ -102,6 +103,14 @@ Object.assign(UI.tags.alt, { ar: "بديل" });
 Object.assign(UI.tags.f2p, { ar: "F2P" });
 Object.assign(UI.roles.lethality, { ar: "قائد للفتك" });
 Object.assign(UI.roles.attack, { ar: "قائد للهجوم" });
+Object.assign(UI.siteTitle, { pt: "NXS Guidelines" });
+Object.assign(UI.footerNote, { pt: "Traduzido por membros da aliança. Ainda em crescimento." });
+Object.assign(UI.missingLang, { pt: "versão ainda não adicionada — volte em breve." });
+Object.assign(UI.tags.best, { pt: "MELHOR" });
+Object.assign(UI.tags.alt, { pt: "ALT." });
+Object.assign(UI.tags.f2p, { pt: "F2P" });
+Object.assign(UI.roles.lethality, { pt: "Líder de Letalidade" });
+Object.assign(UI.roles.attack, { pt: "Líder de Ataque" });
 
 /* 英雄顯示名：編組只存英文 id，畫面依語言換成譯名
    （已依對照表修正：Jabel 中/韓、Yeonwoo 中、Marlin 韓）
@@ -127,14 +136,14 @@ HEROES.Zoe.fr = "Zoé"; /* 對照表法文 */
 /* 遊戲用語：一律照對照表。內文用 {id} 引用 */
 const GLOSSARY = {
   /* 城鎮增益畫面確認的用語（反偵察、部隊＝Squad 等） */
-  counterRecon: { zh:"反偵察", en:"Counter-recon", de:"Gegenaufklärung", ko:"정찰 방지", fr:"Anti-repérage", ar:"الاستطلاع المضاد", id:"Kontra-pengintaian", th:"หน่วยป้องกันพิเศษ", ru:"Контрразведка", tr:"Gözetleme Önleyen" },
-  squad: { zh:"部隊", en:"Squad", de:"Schwadron", ko:"부대", fr:"Escouade", ar:"الفرقة", id:"Skuad", th:"ทีม", ru:"Войска", tr:"Ekip" },
-  shield: { zh:"防護罩", en:"Shield", de:"Schild", ko:"보호막", fr:"Bouclier", ar:"درع", id:"Perisai", th:"โล่", ru:"Щит", tr:"Kalkan" },
-  lethality: { zh:"殺傷力", en:"Lethality", de:"Tödlichkeit", ko:"파괴력", fr:"Létalité", ar:"قوة فتك", id:"Lethality", th:"ความแรงพลัง", ru:"Смертоносность", tr:"Öldürücülük" },
-  health: { zh:"生命值", en:"Health", de:"Gesundheit", ko:"HP", fr:"Santé", ar:"صحة", id:"Health", th:"พลังชีวิต", ru:"Здоровье", tr:"Sağlık" },
+  counterRecon: { zh:"反偵察", en:"Counter-recon", de:"Gegenaufklärung", ko:"정찰 방지", fr:"Anti-repérage", ar:"الاستطلاع المضاد", id:"Kontra-pengintaian", th:"หน่วยป้องกันพิเศษ", ru:"Контрразведка", tr:"Gözetleme Önleyen", pt:"Antirreconhecimento" },
+  squad: { zh:"部隊", en:"Squad", de:"Schwadron", ko:"부대", fr:"Escouade", ar:"الفرقة", id:"Skuad", th:"ทีม", ru:"Войска", tr:"Ekip", pt:"Esquadrão" },
+  shield: { zh:"防護罩", en:"Shield", de:"Schild", ko:"보호막", fr:"Bouclier", ar:"درع", id:"Perisai", th:"โล่", ru:"Щит", tr:"Kalkan", pt:"Escudo" },
+  lethality: { zh:"殺傷力", en:"Lethality", de:"Tödlichkeit", ko:"파괴력", fr:"Létalité", ar:"قوة فتك", id:"Lethality", th:"ความแรงพลัง", ru:"Смертоносность", tr:"Öldürücülük", pt:"Letalidade" },
+  health: { zh:"生命值", en:"Health", de:"Gesundheit", ko:"HP", fr:"Santé", ar:"صحة", id:"Health", th:"พลังชีวิต", ru:"Здоровье", tr:"Sağlık", pt:"Vida" },
   /* 遊戲截圖確認的用語（背包、熊獵畫面） */
-  rally: { zh:"集結", en:"Rally", de:"Rally", ko:"집결", fr:"Ralliement", ar:"الحشد", id:"Reli", th:"ทีมระดมพล", ru:"Рейд", tr:"Seferberlik" },
-  teleporterAdv: { zh:"高級遷城", en:"Advanced Teleporter", de:"Fortgeschrittene Umsiedlung", ko:"고급 도시 이전", fr:"Relocalisation Avancée", ar:"ناقل متقدم", id:"Teleporter Lanjutan", th:"การย้ายถิ่นฐานขั้นสูง", ru:"Продвинутый телепорт", tr:"Gelişmiş Işınlayıcı" },
+  rally: { zh:"集結", en:"Rally", de:"Rally", ko:"집결", fr:"Ralliement", ar:"الحشد", id:"Reli", th:"ทีมระดมพล", ru:"Рейд", tr:"Seferberlik", pt:"Rally" },
+  teleporterAdv: { zh:"高級遷城", en:"Advanced Teleporter", de:"Fortgeschrittene Umsiedlung", ko:"고급 도시 이전", fr:"Relocalisation Avancée", ar:"ناقل متقدم", id:"Teleporter Lanjutan", th:"การย้ายถิ่นฐานขั้นสูง", ru:"Продвинутый телепорт", tr:"Gelişmiş Işınlayıcı", pt:"Teletransportador Avançado" },
   marching: { zh:"行軍", en:"Marching", de:"Marschieren", ko:"행군", fr:"Marche", ar:"زحف", id:"Barisan", th:"เดินทัพ", ru:"Марш", tr:"İntikal" },
   gathering: { zh:"採集", en:"Gathering", de:"Sammeln", ko:"채집", fr:"Collecte", ar:"الجمع", id:"Mengumpulkan", th:"การเก็บทรัพยากร", ru:"Сбор", tr:"Toplanıyor" },
   /* 俄文格變化形（僅俄文使用）：由對照表的原形依語法變格，句中需要時引用 */
@@ -145,20 +154,20 @@ const GLOSSARY = {
   abbeyPl: { ru:"Монастыри" },
   abbeyG: { ru:"монастырей" },
   swordlandP: { ru:"Стране мечей" },
-  swordland: { zh:"聖劍戰場", en:"Swordland", de:"Schwertland", ko:"성검 전장", fr:"Terres du Glaive", ar:"أرض السيوف", id:"Swordland", th:"ดินแดนดาบ", ru:"Страна мечей", tr:"Kılıçdiyarı" },
-  swordshrine: { zh:"聖劍祭壇", en:"Swordshrine", de:"Schwertschrein", ko:"성검 제단", fr:"Tombeau du Glaive", ar:"ضريح السيوف", id:"Swordshrine", th:"วิหารดาบ", ru:"Святилище меча", tr:"Kılıç Altarı" },
-  mercenary: { zh:"傭兵駐地", en:"Mercenary Camp", de:"Söldnerlager", ko:"용병 주둔지", fr:"Camp de Mercenaires", ar:"معسكر المرتزقة", id:"Kamp Tentara Bayaran", th:"ค่ายทหารรับจ้าง", ru:"Лагерь наемников", tr:"Paralı Asker Kampı" },
-  reformation: { zh:"教化大廳", en:"Hall of Reformation", de:"Reformationshalle", ko:"교화의 홀", fr:"Salle des Réformes", ar:"قاعة الإصلاح", id:"Aula Reformasi", th:"หอปฏิรูป", ru:"Зал искупления", tr:"Devrim Salonu" },
-  sanctum: { zh:"聖所", en:"Sanctum", de:"Heiligtum", ko:"성소", fr:"Sanctuaire", ar:"مزار", id:"Sanctum", th:"วิหารศักดิ์สิทธิ์", ru:"Святилище", tr:"Tapınak" },
-  sanctumNW: { zh:"西北聖所", en:"Northwest Sanctum", de:"Nordwestliches Heiligtum", ko:"북서 성소", fr:"Sanctuaire Nord-Ouest", ar:"مزار الشمالي الغربي", id:"Sanctum Barat Laut", th:"วิหารศักดิ์สิทธิ์ตะวันตกเฉียงเหนือ", ru:"Северо-западное святилище", tr:"Kuzeybatı Tapınağı" },
-  sanctumSE: { zh:"東南聖所", en:"Southeast Sanctum", de:"Südwestliches Heiligtum" /* 遊戲德文版本身的錯誤，照截圖 */, ko:"남동 성소", fr:"Sanctuaire Sud-Est", ar:"مزار الجنوبي الشرقي", id:"Sanctum Tenggara", th:"วิหารศักดิ์สิทธิ์ตะวันออกเฉียงใต้", ru:"Юго-восточное святилище", tr:"Güneydoğu Tapınağı" },
-  abbey: { zh:"修道院", en:"Abbey", de:"Abtei", ko:"수도원", fr:"Abbaye", ar:"دير", id:"Biara", th:"อาราม", ru:"Монастырь", tr:"Manastır" },
-  belltower: { zh:"鐘塔", en:"Belltower", de:"Glockenturm", ko:"시계탑", fr:"Clocher", ar:"برج الجرس", id:"Menara Lonceng", th:"หอระฆัง", ru:"Колокольня", tr:"Çan Kulesi" },
-  stables: { zh:"馬廄", en:"Royal Stables", de:"Königliche Ställe", ko:"마구간", fr:"Écuries Royales", ar:"الاسطبلات الملكية", id:"Kandang Kuda Kerajaan", th:"คอกม้าหลวง", ru:"Королевский конный двор", tr:"Kraliyet Ahırları" },
-  undercellar: { zh:"隱蔽地窖", en:"Undercellar", de:"Untergewölbe", ko:"땅굴", fr:"Caves", ar:"الأقبية السفلية", id:"Undercellar", th:"ห้องใต้ดินลับ", ru:"подземелья", tr:"Gizli Mahzenler" },
-  arsenal: { zh:"輜重", en:"Arsenal Supplies", de:"Frachtzugvorräte", ko:"군수 물자", fr:"Provisions de Train de bagages", ar:"إمدادات أمتعة القطار", id:"Suplai Kereta Bagasi", th:"เสบียงขบวนสัมภาระ", ru:"военные запасы", tr:"Bagaj Treni Malzemeleri" },
-  allianceRelic: { zh:"聯盟聖契積分", en:"Alliance Relic Points", de:"Allianz-Reliktpunkte", ko:"연맹 성스러운 계약 포인트", fr:"Points de Relique d'Alliance", ar:"نقاط الآثار للتحالف", id:"Poin Relik Aliansi", th:"คะแนนวัตถุโบราณพันธมิตร", ru:"Очки реликвий альянса", tr:"İttifak Yadigâr Puanı" },
-  personalRelic: { zh:"個人聖契積分", en:"Personal Relic Points", de:"Persönliche Reliktpunkte", ko:"개인 성스러운 계약 포인트", fr:"Points de Relique Individuels", ar:"نقاط الآثار الشخصية", id:"Poin Relik Pribadi", th:"คะแนนวัตถุโบราณส่วนบุคคล", ru:"Личные очки реликвий", tr:"Kişisel Yadigâr Puanı" }
+  swordland: { zh:"聖劍戰場", en:"Swordland", de:"Schwertland", ko:"성검 전장", fr:"Terres du Glaive", ar:"أرض السيوف", id:"Swordland", th:"ดินแดนดาบ", ru:"Страна мечей", tr:"Kılıçdiyarı", pt:"Terra das Espadas" },
+  swordshrine: { zh:"聖劍祭壇", en:"Swordshrine", de:"Schwertschrein", ko:"성검 제단", fr:"Tombeau du Glaive", ar:"ضريح السيوف", id:"Swordshrine", th:"วิหารดาบ", ru:"Святилище меча", tr:"Kılıç Altarı", pt:"Templo da Espada" },
+  mercenary: { zh:"傭兵駐地", en:"Mercenary Camp", de:"Söldnerlager", ko:"용병 주둔지", fr:"Camp de Mercenaires", ar:"معسكر المرتزقة", id:"Kamp Tentara Bayaran", th:"ค่ายทหารรับจ้าง", ru:"Лагерь наемников", tr:"Paralı Asker Kampı", pt:"Acampamento Mercenário" },
+  reformation: { zh:"教化大廳", en:"Hall of Reformation", de:"Reformationshalle", ko:"교화의 홀", fr:"Salle des Réformes", ar:"قاعة الإصلاح", id:"Aula Reformasi", th:"หอปฏิรูป", ru:"Зал искупления", tr:"Devrim Salonu", pt:"Salão da Reforma" },
+  sanctum: { zh:"聖所", en:"Sanctum", de:"Heiligtum", ko:"성소", fr:"Sanctuaire", ar:"مزار", id:"Sanctum", th:"วิหารศักดิ์สิทธิ์", ru:"Святилище", tr:"Tapınak", pt:"Santuário" },
+  sanctumNW: { zh:"西北聖所", en:"Northwest Sanctum", de:"Nordwestliches Heiligtum", ko:"북서 성소", fr:"Sanctuaire Nord-Ouest", ar:"مزار الشمالي الغربي", id:"Sanctum Barat Laut", th:"วิหารศักดิ์สิทธิ์ตะวันตกเฉียงเหนือ", ru:"Северо-западное святилище", tr:"Kuzeybatı Tapınağı", pt:"Santuário do Noroeste" },
+  sanctumSE: { zh:"東南聖所", en:"Southeast Sanctum", de:"Südwestliches Heiligtum" /* 遊戲德文版本身的錯誤，照截圖 */, ko:"남동 성소", fr:"Sanctuaire Sud-Est", ar:"مزار الجنوبي الشرقي", id:"Sanctum Tenggara", th:"วิหารศักดิ์สิทธิ์ตะวันออกเฉียงใต้", ru:"Юго-восточное святилище", tr:"Güneydoğu Tapınağı", pt:"Santuário do Sudeste" },
+  abbey: { zh:"修道院", en:"Abbey", de:"Abtei", ko:"수도원", fr:"Abbaye", ar:"دير", id:"Biara", th:"อาราม", ru:"Монастырь", tr:"Manastır", pt:"Abadia" },
+  belltower: { zh:"鐘塔", en:"Belltower", de:"Glockenturm", ko:"시계탑", fr:"Clocher", ar:"برج الجرس", id:"Menara Lonceng", th:"หอระฆัง", ru:"Колокольня", tr:"Çan Kulesi", pt:"Torre do Sino" },
+  stables: { zh:"馬廄", en:"Royal Stables", de:"Königliche Ställe", ko:"마구간", fr:"Écuries Royales", ar:"الاسطبلات الملكية", id:"Kandang Kuda Kerajaan", th:"คอกม้าหลวง", ru:"Королевский конный двор", tr:"Kraliyet Ahırları", pt:"Estábulos da Realeza" },
+  undercellar: { zh:"隱蔽地窖", en:"Undercellar", de:"Untergewölbe", ko:"땅굴", fr:"Caves", ar:"الأقبية السفلية", id:"Undercellar", th:"ห้องใต้ดินลับ", ru:"подземелья", tr:"Gizli Mahzenler", pt:"Porões" },
+  arsenal: { zh:"輜重", en:"Arsenal Supplies", de:"Frachtzugvorräte", ko:"군수 물자", fr:"Provisions de Train de bagages", ar:"إمدادات أمتعة القطار", id:"Suplai Kereta Bagasi", th:"เสบียงขบวนสัมภาระ", ru:"военные запасы", tr:"Bagaj Treni Malzemeleri", pt:"Suprimentos de Trem de Bagagem" },
+  allianceRelic: { zh:"聯盟聖契積分", en:"Alliance Relic Points", de:"Allianz-Reliktpunkte", ko:"연맹 성스러운 계약 포인트", fr:"Points de Relique d'Alliance", ar:"نقاط الآثار للتحالف", id:"Poin Relik Aliansi", th:"คะแนนวัตถุโบราณพันธมิตร", ru:"Очки реликвий альянса", tr:"İttifak Yadigâr Puanı", pt:"Pontos de Relíquia da Aliança" },
+  personalRelic: { zh:"個人聖契積分", en:"Personal Relic Points", de:"Persönliche Reliktpunkte", ko:"개인 성스러운 계약 포인트", fr:"Points de Relique Individuels", ar:"نقاط الآثار الشخصية", id:"Poin Relik Pribadi", th:"คะแนนวัตถุโบราณส่วนบุคคล", ru:"Личные очки реликвий", tr:"Kişisel Yadigâr Puanı", pt:"Pontos de Relíquia Individuais" }
 };
 
 const GUIDES = {
@@ -415,7 +424,7 @@ const GUIDES = {
 
   "swordland-showdown": {
     emoji: "⚔️",
-    name: { zh: "聖劍爭奪", en: "Swordland Showdown", ko: "성검 쟁탈", de: "Schwertland-Showdown", fr: "Choc du Glaive", tr: "Kılıçdiyarı Hesaplaşması", id: "Swordland Showdown", ru: "Битва за Страну мечей", th: "ศึกดวลดินแดนดาบ", ar: "مواجهة أرض السيوف" },
+    name: { zh: "聖劍爭奪", en: "Swordland Showdown", ko: "성검 쟁탈", de: "Schwertland-Showdown", fr: "Choc du Glaive", tr: "Kılıçdiyarı Hesaplaşması", id: "Swordland Showdown", ru: "Битва за Страну мечей", th: "ศึกดวลดินแดนดาบ", ar: "مواجهة أرض السيوف", pt: "Confronto entre Espadas" },
     buildings: [
       { id: "swordshrine", first: [9000, 4500], hold: [1800, 900], opens: 15, priority: "top" },
       { id: "mercenary",   first: [1200, 600],  hold: [240, 120],  opens: 15, priority: "med" },
@@ -2166,6 +2175,178 @@ const GUIDES = {
             "إذا طلبت القيادة التناوب، تحرّك فورًا."
           ]},
           { type: "callout", text: "⚔️ **التنسيق يحقق النصر في {swordland}**" }
+        ]
+      },
+
+      pt: {
+        title: "Confronto entre Espadas",
+        blocks: [
+          { type: "h", text: "QUANDO" },
+          { type: "p", text: "A cada 2 semanas — evento de campo de batalha de aliança contra aliança, com 60 minutos de duração." },
+
+          { type: "h", text: "INSCRIÇÃO" },
+          { type: "callout", text: "⚠️ **Inscreva-se apenas se você pretende participar.** Jogadores inscritos que não comparecem ocupam uma vaga valiosa e podem afetar o pareamento." },
+          { type: "list", items: ["**100% disponível → Enviar solicitação de participação**", "**Não tenho certeza → Abster-se**"] },
+
+          { type: "h", text: "OBJETIVO PRINCIPAL" },
+          { type: "p", text: "Vença conquistando mais {allianceRelic} do que a aliança adversária." },
+          { type: "list", items: [
+            "Capturar e manter as construções importantes",
+            "Proteger os pontos acumulados",
+            "Recolher imediatamente os {arsenal} espalhados quando uma construção mudar de lado",
+            "Coletar os {undercellar} quando aparecerem",
+            "Reforçar as guarnições próximas quando não estiver em um rally",
+            "Não deixar nenhuma marcha parada",
+            "**NÃO persiga abates pelo mapa.** PvP aleatório nos dispersa e reduz nossa eficácia. Ataque cidades de nível mais baixo quando fizer sentido, enfraquecendo-as perto de uma construção que estamos mantendo."
+          ]},
+
+          { type: "h", text: "VISÃO GERAL DAS CONSTRUÇÕES" },
+          { type: "buildings",
+            legend: "Números na ordem: {allianceRelic} / {personalRelic}",
+            cols: { first: "Primeiro Controle", hold: "Ocupação Contínua", open: "Abertura", min: "min", perMin: "/m", sep: ": " },
+            priority: { top: "MÁXIMA", high: "ALTA", med: "MÉDIA" },
+            gather: "Locais de coleta que aparecem periodicamente (duas ondas)",
+            purposes: {
+              swordshrine: "Construção que rende mais pontos",
+              mercenary: "Enfraquece construções mantidas pelo inimigo",
+              reformation: "Bônus de combate para a aliança",
+              sanctum: "{allianceRelic} de alto valor",
+              abbey: "Gera {allianceRelic}",
+              stables: "-50% no intervalo entre teletransportes",
+              belltower: "-50% no tempo necessário para assumir o controle das construções"
+            }
+          },
+
+          { type: "h", text: "ZONAS DESIGNADAS" },
+          { type: "p", text: "Os R4 dividirão os membros confirmados em equipes/zonas antes da batalha." },
+          { type: "p", text: "Nossos **melhores atacantes** serão designados primeiro para uma zona:" },
+          { type: "list", items: [
+            "🟣 **Roxa — {belltower}**",
+            "🟡 **Amarela — {stables}**",
+            "🔵 **Azul — {sanctumNW}**",
+            "🟢 **Verde — {sanctumSE}**"
+          ]},
+          { type: "p", text: "Os demais membros serão designados para apoiar uma dessas zonas/equipes. Pode ser necessário fazer rodízio conforme a situação da batalha — acompanhe sempre o Chat do Esquadrão para saber os detalhes." },
+          { type: "p", text: "Permaneça na zona designada, a menos que a liderança mande você se mover." },
+          { type: "zones", labels: {
+            purple: "🟣 Zona Roxa — {belltower} / {mercenary}",
+            blue: "🔵 Zona Azul — {sanctumNW} / {abbey}",
+            yellow: "🟡 Zona Amarela — {stables} / {abbey}",
+            green: "🟢 Zona Verde — {sanctumSE} / {abbey}",
+            center: "⚪ Centro"
+          }},
+
+          { type: "h", text: "FUNÇÕES E RESPONSABILIDADES" },
+          { type: "p", text: "Os R4 dividirão os membros confirmados, conforme o poder, em 3 funções: **Assaltantes, Guardiões e Apoio/Participantes**." },
+
+          { type: "sub", text: "⚔️ 1) ASSALTANTES" },
+          { type: "p", text: "**Quem:** nossos jogadores mais fortes, com bastantes Teletransportadores Avançados." },
+          { type: "p", text: "**Sua missão:**" },
+          { type: "list", items: [
+            "Teletransportar-se para a zona e a construção designadas",
+            "Capturar as construções prioritárias",
+            "Atacar sozinho castelos inimigos vulneráveis",
+            "Liderar os rallies importantes",
+            "Passar para o próximo objetivo assim que um Guardião assumir",
+            "Quando inimigos se teletransportarem para perto da sua construção designada, mirar castelos mais fracos ou expostos"
+          ]},
+
+          { type: "sub", text: "🛡️ 2) GUARDIÕES" },
+          { type: "p", text: "**Quem:** nossos próximos jogadores mais fortes, com boa capacidade de rally/guarnição." },
+          { type: "p", text: "**Sua missão:**" },
+          { type: "list", items: [
+            "Seguir os Assaltantes designados (zona)",
+            "Quando um Assaltante capturar uma construção, assumir a guarnição e pedir reforços se necessário",
+            "Reforçar os objetivos ameaçados",
+            "Liberar os Assaltantes para irem ao próximo alvo"
+          ]},
+
+          { type: "sub", text: "🤝 3) APOIO / PARTICIPANTES" },
+          { type: "p", text: "**Quem:** geralmente membros com menos poder e participantes de rally." },
+          { type: "p", text: "**Sua missão:**" },
+          { type: "list", items: [
+            "**Devem** entrar nos rallies dos Guardiões designados",
+            "Reforçar as construções capturadas",
+            "Enviar reforços em marcha acelerada quando solicitado",
+            "Atuar a partir da **Zona Segura** quando não forem necessários em outro lugar ou estiverem mais longe do alcance do inimigo"
+          ]},
+          { type: "callout", text: "**IMPORTANTE:** se o inimigo atacar uma das construções que capturamos e o controle passar para ele, **teletransporte-se para perto ou faça uma marcha acelerada imediatamente** e recolha os {arsenal} espalhados antes dele." },
+          { type: "list", items: [
+            "**20 minutos após o início da batalha**, os {undercellar} aparecem. Envie as tropas disponíveis para coletá-los e ganhar pontos extras.",
+            "Não deixe nenhuma marcha parada."
+          ]},
+
+          { type: "h", text: "ANTES DA BATALHA" },
+          { type: "list", items: [
+            "Esvazie sua enfermaria. Deixe todas as marchas disponíveis",
+            "Equipe seus melhores heróis e equipamentos",
+            "Ative a capacidade de tropas, os bônus de Ataque e Defesa e o Antirreconhecimento",
+            "Deixe os Teletransportadores Avançados à mão, se sua função exigir",
+            "Mantenha o Discord aberto, se possível (para consultar o mapa, as designações e o chat de voz opcional)",
+            "Confira o chat da Aliança e as mensagens privadas"
+          ]},
+          { type: "callout", text: "⚠️ **IMPORTANTE:** uma nova aba de **Chat do Esquadrão** aparecerá no dia da batalha. **Acompanhe o Chat do Esquadrão durante toda a batalha.**" },
+
+          { type: "h", text: "LINHA DO TEMPO DA BATALHA" },
+          { type: "timeline", items: [
+            { time: "0:00–15:00", title: "ABERTURA", groups: [
+              { title: "Garanta imediatamente", lines: ["**#4 {belltower}**", "**#7 {stables}**"] },
+              { title: "Dispute", lines: ["**#8 {sanctumNW}**", "**#10 {sanctumSE}**"] },
+              { title: "", lines: [
+                "Capture as {abbey}s quando for viável, mas não sacrifique os objetivos principais por elas.",
+                "**14:30**, os jogadores mais fortes se preparam para o centro."
+              ]}
+            ]},
+            { time: "15:00", title: "CONSTRUÇÕES PODEROSAS ABREM", lines: [
+              "**#1 {swordshrine}**, **#2 {mercenary}**, **#3 {reformation}**",
+              "A liderança definirá as prioridades conforme a situação do campo de batalha."
+            ], groups: [
+              { title: "⭐ {swordshrine}", lines: [
+                "Os Assaltantes/Guardiões mais fortes se teletransportam para o centro (nem todos)",
+                "Capture o {swordshrine}",
+                "Depois de garantido, um Guardião forte mantém a guarnição",
+                "Apoio/Participantes devem fazer marcha acelerada e enviar reforços"
+              ]}
+            ], warn: "⚠️ Membros em guarnição: não abandonem sua construção pelo {swordshrine}, a menos que a liderança oriente. Continuem protegendo os {sanctum}s e as outras construções importantes." },
+            { time: "15:00–45:00", title: "💪 FASE DE CONTROLE", lines: [
+              "Objetivo principal: **manter o {swordshrine} + o {sanctumNW} + o {sanctumSE}**",
+              "Manter o controle útil da {belltower} e dos {stables}",
+              "Usar o bônus do {reformation} nos grandes confrontos",
+              "Usar o {mercenary} para pressionar as construções inimigas",
+              "Recolher os {arsenal} espalhados após TODA troca de lado de uma construção",
+              "Reforçar as guarnições enfraquecidas"
+            ]},
+            { time: "20:00–60:00", title: "⛏️ {undercellar}", lines: [
+              "Os {undercellar} começam a aparecer.",
+              "O Apoio e qualquer pessoa com marchas disponíveis devem coletá-los para ganhar pontos extras.",
+              "**Não abandone uma defesa crítica ou um rally só para coletar.**"
+            ]},
+            { time: "ÚLTIMOS 15 MINUTOS", title: "🏁 FINAL", groups: [
+              { title: "SE ESTIVERMOS À FRENTE", lines: ["Proteja o {swordshrine} e os {sanctum}s", "Reforce as construções que acumulam pontos", "Evite PvP desnecessário", "Recolha imediatamente os {arsenal} espalhados", "Não corra riscos desnecessários"] },
+              { title: "SE ESTIVERMOS ATRÁS", lines: ["Pressione as construções principais do inimigo", "Use o {mercenary} antes de ataques coordenados", "Concentre os rallies em vez de atacar aleatoriamente", "Mire as construções valiosas mantidas pelo inimigo", "Recolha cada ponto que cair após uma troca bem-sucedida"] }
+            ], warn: "**Últimos 5 minutos: pontos > abates.**" }
+          ]},
+
+          { type: "h", text: "RESUMO" },
+          { type: "p", text: "Os membros serão divididos em 3 funções e designados para uma zona:" },
+          { type: "list", items: [
+            "**ASSALTANTES** → CAPTURAR + PRESSIONAR",
+            "**GUARDIÕES** → MANTER + PROTEGER",
+            "**APOIO** → REFORÇAR + RALLY + {arsenal} + {undercellar}"
+          ]},
+          { type: "list", items: [
+            "Siga sua zona e sua função designadas.",
+            "Acompanhe o Chat do Esquadrão.",
+            "Objetivos > abates aleatórios.",
+            "Assaltantes capturam — Guardiões mantêm — Apoio reforça.",
+            "Nunca deixe marchas úteis paradas.",
+            "Recolha imediatamente os {arsenal} espalhados.",
+            "Colete os {undercellar} com as marchas disponíveis.",
+            "Proteja o {swordshrine} + os {sanctum}s.",
+            "Não abandone as construções principais por {abbey}s ou abates.",
+            "Se a liderança pedir um rodízio, MOVA-SE."
+          ]},
+          { type: "callout", text: "⚔️ **A COORDENAÇÃO É A CHAVE PARA A VITÓRIA NA {swordland}**" }
         ]
       }
     }
