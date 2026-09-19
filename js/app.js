@@ -127,6 +127,7 @@ const BLOCKS = {
   p: (b) => `<p>${rich(b.text)}</p>`,
   list: (b) => ul(b.items),
   callout: (b) => `<div class="callout flat">${rich(b.text)}</div>`,
+  img: (b) => `<img class="fig" src="${escapeHtml(b.src)}" alt="${escapeHtml(b.alt || "")}" loading="lazy">`,
 
   buildings: (b, g) => {
     const legend = b.legend ? `<p class="legend">${rich(b.legend)}</p>` : "";
