@@ -184,8 +184,419 @@ const GUIDES = {
       en: {
         title: "Recent Alliance Events",
         blocks: [
-          { type: "h", text: "📅 Legion 2 — Sunday 20.09" },
-          { type: "p", text: "Write the event notes here." }
+          { type: "h", text: "📅 LEGION 2 · SUNDAY 20.09" },
+          { type: "p", text: "**Coordinator:** PAPA (67.6M)" },
+          { type: "p", text: "Legion 2 is a separate battle. It runs at the same time but on its own battlefield. It does not affect Legion 1's result or alliance rewards." },
+          { type: "callout", text: "**No substitutes this time.** All players listed below are main roster." },
+          { type: "h", text: "🎯 DOCTRINE REMINDER" },
+          { type: "p", text: "Strongest players attack and capture. Once a building flips, a **Garrison Captain** holds it while the capture team moves on. Garrison Captains do not leave to chase kills. Capture teams stay mobile and aggressive." },
+          { type: "h", text: "📋 PLAYER ASSIGNMENTS" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Legion 2 player assignments" },
+          { type: "h", text: "📣 COORDINATOR NOTES (PAPA)" },
+          { type: "list", items: [
+            "Call targets by map number and player name: “#3 {reformation} firebaugh, rally now.” / “kyking, pressure enemy #10 {sanctum}.”",
+            "Keep capture teams mobile. Do not let kyking, 꾸리잘린 쥐, BOO and firebaugh sit inside buildings.",
+            "Rotate Garrison Captains only when necessary. Every rotation risks losing the building.",
+            "Track #2 {mercenary} cooldown. MTP uses it every 7 minutes.",
+            "In the last 10 minutes, protect #1 {swordshrine}, #8 {sanctum}, #10 {sanctum}. Do not chase kills.",
+            "Remind everyone: Legion 2 is a separate battle with its own rewards. Win your own scoreboard.",
+            "No substitutes this time. Everyone on this list is main roster. If someone is late, flex players cover their spot."
+          ]},
+          { type: "h", text: "📌 FINAL NOTES" },
+          { type: "list", items: [
+            "All players must be online at start.",
+            "R4/R5 call targets by map number in Squad Chat.",
+            "No one has to speak on voice. Following Squad Chat and the map is enough.",
+            "Remember: building names, map positions, and colour zones.",
+            "Garrison Captains stay inside their building and hold until relieved. Capture teams stay mobile and aggressive.",
+            "**Core rule:** hold #1 {swordshrine} + #8 {sanctum} + #10 {sanctum}. Use #4 {belltower}, #7 {stables}, #3 {reformation}, #2 {mercenary}. Farm {abbey}s and dropped points.",
+            "**Never trade a core building for kills.**"
+          ]},
+          { type: "p", text: "Good luck on Sunday." },
+          { type: "h", text: "🗺️ MAP" },
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Map" },
+          { type: "h", text: "🧭 ASSIGNED ZONES" },
+          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" }
+        ]
+      },
+      zh: {
+        title: "近期聯盟活動",
+        blocks: [
+          { type: "h", text: "📅 LEGION 2 · 20.09（週日）" },
+          { type: "p", text: "**協調員：** PAPA（67.6M）" },
+          { type: "p", text: "Legion 2 是獨立的戰場，與 Legion 1 同時進行，但在各自的戰場上，不會影響 Legion 1 的結果或聯盟獎勵。" },
+          { type: "callout", text: "**這次沒有替補。** 以下列出的玩家全部都是主力名單。" },
+          { type: "h", text: "🎯 作戰原則" },
+          { type: "p", text: "最強的玩家負責進攻與佔領。建築一旦易主，就由**駐防隊長**留守，佔領隊繼續前進。駐防隊長不要離開去追擊擊殺。佔領隊要保持機動、積極進攻。" },
+          { type: "h", text: "📋 玩家分配" },
+          { type: "img", src: "figures/Legion_2.png", alt: "玩家分配" },
+          { type: "h", text: "📣 協調員筆記（PAPA）" },
+          { type: "list", items: [
+            "用地圖編號和玩家名字下達目標：「#3 {reformation} firebaugh，立刻集結。」／「kyking，壓制敵方 #10 {sanctum}。」",
+            "讓佔領隊保持機動。不要讓 kyking、꾸리잘린 쥐、BOO、firebaugh 待在建築裡面。",
+            "非必要不要輪換駐防隊長。每次輪換都有可能丟掉建築。",
+            "追蹤 #2 {mercenary} 的冷卻時間。MTP 每 7 分鐘使用一次。",
+            "最後 10 分鐘，保護 #1 {swordshrine}、#8 {sanctum}、#10 {sanctum}，不要去追擊擊殺。",
+            "提醒大家：Legion 2 是獨立的戰場，有自己的獎勵。在自己的計分板上取勝。",
+            "這次沒有替補，名單上的每個人都是主力。如果有人遲到，機動（flex）成員會補上他的位置。"
+          ]},
+          { type: "h", text: "📌 最終提醒" },
+          { type: "list", items: [
+            "所有玩家開戰時必須在線上。",
+            "R4/R5 會在小隊聊天頻道用地圖編號指示目標。",
+            "不需要開語音。跟著小隊聊天頻道和地圖走就夠了。",
+            "記住：建築名稱、地圖位置和顏色分區。",
+            "駐防隊長留在建築內守住，直到被換下。佔領隊保持機動、積極進攻。",
+            "**核心原則：** 守住 #1 {swordshrine}＋#8 {sanctum}＋#10 {sanctum}。善用 #4 {belltower}、#7 {stables}、#3 {reformation}、#2 {mercenary}。刷{abbey}和掉落的積分。",
+            "**絕對不要為了擊殺而放棄核心建築。**"
+          ]},
+          { type: "p", text: "週日祝大家順利！" },
+          { type: "h", text: "🗺️ 地圖" },
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "地圖" },
+          { type: "h", text: "🧭 分配區域" },
+          { type: "img", src: "figures/assigned_zone.png", alt: "分配區域" }
+        ]
+      },
+      ko: {
+        title: "최근 연맹 이벤트",
+        blocks: [
+          { type: "h", text: "📅 LEGION 2 · 20.09 (일요일)" },
+          { type: "p", text: "**코디네이터:** PAPA (67.6M)" },
+          { type: "p", text: "Legion 2는 별도의 전투입니다. Legion 1과 동시에 진행되지만 각자의 전장에서 이루어지며, Legion 1의 결과나 연맹 보상에 영향을 주지 않습니다." },
+          { type: "callout", text: "**이번에는 교체 선수가 없습니다.** 아래에 나열된 모든 플레이어는 메인 로스터입니다." },
+          { type: "h", text: "🎯 진영 정책 (DOCTRINE REMINDER)" },
+          { type: "p", text: "가장 강한 플레이어들이 공격하고 지정 받은 건물을 점령합니다. 건물 점령/탈환에 성공하면 **수비 대장(Garrison Captain)**이 건물을 유지하고, 점령/탈환 팀은 계속 이동합니다. 수비 대장은 킬을 쫓아 이동하지 않습니다. 점령 팀은 기동성을 유지하고 공격적으로 임합니다." },
+          { type: "h", text: "📋 플레이어 배치" },
+          { type: "img", src: "figures/Legion_2.png", alt: "플레이어 배치" },
+          { type: "h", text: "📣 코디네이터 노트 (PAPA)" },
+          { type: "list", items: [
+            "맵 번호와 플레이어 이름으로 타겟 지시: “#3 {reformation} firebaugh, 지금 집결하세요.” “kyking, 적 #10 {sanctum} 압박.”",
+            "점령 팀의 기동성 유지. kyking, 꾸리잘린 쥐, BOO, firebaugh가 건물 안에 가만히 머물지 않도록 하세요.",
+            "수비 대장 교체는 꼭 필요할 때만 진행. 교체할 때마다 건물을 잃을 위험이 있습니다.",
+            "#2 {mercenary} 쿨다운 추적. MTP는 7분마다 사용합니다.",
+            "마지막 10분 동안에는 #1 {swordshrine}, #8 {sanctum}, #10 {sanctum}를 방어하세요. 킬을 쫓지 마세요.",
+            "리마인더: Legion 2는 자체 보상이 있는 독립된 전투입니다. 각자의 점수판에서 승리하세요.",
+            "이번에는 교체 선수가 없습니다. 이 명단의 모든 플레이어는 메인 로스터입니다. 참여 플레이어가 지각할 경우 유동 플레이어(flex)가 빈자리를 커버합니다."
+          ]},
+          { type: "h", text: "📌 최종 노트 (FINAL NOTES)" },
+          { type: "list", items: [
+            "모든 플레이어는 시작 시간에 온라인 상태여야 합니다.",
+            "R4/R5는 스쿼드 채팅에서 맵 번호로 타겟을 지시합니다.",
+            "음성 채팅을 사용할 필요는 없습니다. 스쿼드 채팅과 맵만 잘 따라오시면 됩니다.",
+            "건물 이름, 맵 위치, 색상 구역 기억하기!",
+            "수비 대장은 교대될 때까지 건물 안에 머물며 방어합니다. 점령 팀은 기동성을 유지하고 공격적으로 임합니다.",
+            "**핵심 규칙:** #1 {swordshrine} + #8 {sanctum} + #10 {sanctum}를 방어합니다. #4 {belltower}, #7 {stables}, #3 {reformation}, #2 {mercenary}를 활용하세요. {abbey}과 드랍된 포인트를 수집하세요.",
+            "**킬을 위해 핵심 건물을 절대 내주지 마세요.**"
+          ]},
+          { type: "p", text: "일요일에 좋은 결과가 있기를 바랍니다." },
+          { type: "h", text: "🗺️ 지도" },
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "지도" },
+          { type: "h", text: "🧭 배정 구역" },
+          { type: "img", src: "figures/assigned_zone.png", alt: "배정 구역" }
+        ]
+      },
+      de: {
+        title: "Aktuelle Allianz-Events",
+        blocks: [
+          { type: "h", text: "📅 LEGION 2 · SONNTAG, 20.09" },
+          { type: "p", text: "**Koordinator:** PAPA (67.6M)" },
+          { type: "p", text: "Legion 2 ist eine separate Schlacht. Sie läuft gleichzeitig, aber auf einem eigenen Schlachtfeld. Sie hat keinen Einfluss auf das Ergebnis von Legion 1 oder auf die Allianzbelohnungen." },
+          { type: "callout", text: "**Diesmal gibt es keine Ersatzspieler.** Alle unten aufgeführten Spieler gehören zur Hauptaufstellung." },
+          { type: "h", text: "🎯 DOKTRIN-ERINNERUNG" },
+          { type: "p", text: "Die stärksten Spieler greifen an und erobern. Sobald ein Gebäude die Seite gewechselt hat, hält ein **Garnisonskommandant** es, während das Eroberungsteam weiterzieht. Garnisonskommandanten verlassen ihren Posten nicht, um Kills nachzujagen. Eroberungsteams bleiben beweglich und aggressiv." },
+          { type: "h", text: "📋 SPIELERZUWEISUNGEN" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Spielerzuweisungen" },
+          { type: "h", text: "📣 KOORDINATOR-NOTIZEN (PAPA)" },
+          { type: "list", items: [
+            "Gib Ziele mit Kartennummer und Spielername durch: „#3 {reformation} firebaugh, Rally jetzt.“ / „kyking, Druck auf gegnerisches #10 {sanctum}.“",
+            "Halte die Eroberungsteams beweglich. Lass kyking, 꾸리잘린 쥐, BOO und firebaugh nicht in Gebäuden sitzen.",
+            "Wechsle Garnisonskommandanten nur, wenn nötig. Jeder Wechsel riskiert den Verlust des Gebäudes.",
+            "Behalte die Abklingzeit von #2 {mercenary} im Blick. MTP nutzt sie alle 7 Minuten.",
+            "In den letzten 10 Minuten: schützt #1 {swordshrine}, #8 {sanctum}, #10 {sanctum}. Jagt keinen Kills nach.",
+            "Erinnere alle: Legion 2 ist eine separate Schlacht mit eigenen Belohnungen. Gewinnt euer eigenes Scoreboard.",
+            "Diesmal gibt es keine Ersatzspieler. Alle auf der Liste gehören zur Hauptaufstellung. Kommt jemand zu spät, springen Flex-Spieler für seinen Platz ein."
+          ]},
+          { type: "h", text: "📌 ABSCHLUSSHINWEISE" },
+          { type: "list", items: [
+            "Alle Spieler müssen zum Start online sein.",
+            "R4/R5 geben Ziele per Kartennummer im Squad Chat durch.",
+            "Niemand muss im Voice sprechen. Squad Chat und Karte zu verfolgen reicht.",
+            "Merkt euch: Gebäudenamen, Kartenpositionen und Farbzonen.",
+            "Garnisonskommandanten bleiben in ihrem Gebäude und halten es, bis sie abgelöst werden. Eroberungsteams bleiben beweglich und aggressiv.",
+            "**Kernregel:** Haltet #1 {swordshrine} + #8 {sanctum} + #10 {sanctum}. Nutzt #4 {belltower}, #7 {stables}, #3 {reformation}, #2 {mercenary}. Farmt die {abbey}en und fallengelassene Punkte.",
+            "**Tauscht niemals ein Kerngebäude gegen Kills ein.**"
+          ]},
+          { type: "p", text: "Viel Glück am Sonntag!" },
+          { type: "h", text: "🗺️ KARTE" },
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Karte" },
+          { type: "h", text: "🧭 ZUGEWIESENE ZONEN" },
+          { type: "img", src: "figures/assigned_zone.png", alt: "Zugewiesene Zonen" }
+        ]
+      },
+      fr: {
+        title: "Événements récents de l'alliance",
+        blocks: [
+          { type: "h", text: "📅 LEGION 2 · DIMANCHE 20.09" },
+          { type: "p", text: "**Coordinateur :** PAPA (67.6M)" },
+          { type: "p", text: "La Legion 2 est une bataille distincte. Elle se déroule en même temps, mais sur son propre champ de bataille. Elle n'a aucun effet sur le résultat de la Legion 1 ni sur les récompenses d'alliance." },
+          { type: "callout", text: "**Pas de remplaçants cette fois.** Tous les joueurs listés ci-dessous font partie de l'équipe principale." },
+          { type: "h", text: "🎯 RAPPEL DE LA DOCTRINE" },
+          { type: "p", text: "Les joueurs les plus forts attaquent et capturent. Une fois qu'un bâtiment change de camp, un **capitaine de garnison** le tient pendant que l'équipe de capture avance. Les capitaines de garnison ne partent pas chasser des kills. Les équipes de capture restent mobiles et agressives." },
+          { type: "h", text: "📋 AFFECTATIONS DES JOUEURS" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Affectations des joueurs" },
+          { type: "h", text: "📣 NOTES DU COORDINATEUR (PAPA)" },
+          { type: "list", items: [
+            "Annoncez les cibles avec le numéro de la carte et le nom du joueur : « #3 {reformation} firebaugh, ralliement maintenant. » ; « kyking, mettez la pression sur l'ennemi en #10 {sanctum}. »",
+            "Gardez les équipes de capture mobiles. Ne laissez pas kyking, 꾸리잘린 쥐, BOO et firebaugh rester enfermés dans des bâtiments.",
+            "Ne remplacez les capitaines de garnison que si nécessaire. Chaque relève risque de faire perdre le bâtiment.",
+            "Suivez le temps de recharge de #2 {mercenary}. MTP l'utilise toutes les 7 minutes.",
+            "Pendant les 10 dernières minutes, protégez : #1 {swordshrine}, #8 {sanctum}, #10 {sanctum}. Ne chassez pas les kills.",
+            "Rappel à tous : la Legion 2 est une bataille distincte avec ses propres récompenses. Gagnez votre propre tableau des scores.",
+            "Pas de remplaçants cette fois. Tout le monde sur cette liste fait partie de l'équipe principale. Si quelqu'un est en retard, les joueurs flottants (flex) prennent sa place."
+          ]},
+          { type: "h", text: "📌 NOTES FINALES" },
+          { type: "list", items: [
+            "Tous les joueurs doivent être en ligne dès le début.",
+            "Les R4/R5 annoncent les cibles par numéro de carte dans le chat d'escouade.",
+            "Personne n'est obligé de parler en vocal. Suivre le chat d'escouade et la carte suffit.",
+            "Retenez : les noms des bâtiments, leur position sur la carte et les zones de couleur.",
+            "Les capitaines de garnison restent dans leur bâtiment et le tiennent jusqu'à leur relève. Les équipes de capture restent mobiles et agressives.",
+            "**Règle essentielle :** tenez #1 {swordshrine} + #8 {sanctum} + #10 {sanctum}. Utilisez : #4 {belltower}, #7 {stables}, #3 {reformation}, #2 {mercenary}. Farmez les {abbey}s et les points lâchés.",
+            "**Ne sacrifiez jamais un bâtiment essentiel pour des kills.**"
+          ]},
+          { type: "p", text: "Bonne chance dimanche !" },
+          { type: "h", text: "🗺️ CARTE" },
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Carte" },
+          { type: "h", text: "🧭 ZONES ASSIGNÉES" },
+          { type: "img", src: "figures/assigned_zone.png", alt: "Zones assignées" }
+        ]
+      },
+      pt: {
+        title: "Eventos Recentes da Aliança",
+        blocks: [
+          { type: "h", text: "📅 LEGION 2 · DOMINGO, 20.09" },
+          { type: "p", text: "**Coordenador:** PAPA (67.6M)" },
+          { type: "p", text: "A Legion 2 é uma batalha separada. Ela acontece ao mesmo tempo, mas em seu próprio campo de batalha. Não afeta o resultado da Legion 1 nem as recompensas da aliança." },
+          { type: "callout", text: "**Sem reservas desta vez.** Todos os jogadores listados abaixo são do elenco principal." },
+          { type: "h", text: "🎯 LEMBRETE DE DOUTRINA" },
+          { type: "p", text: "Os jogadores mais fortes atacam e capturam. Assim que uma construção muda de lado, um **Capitão da guarnição** a mantém enquanto a equipe de captura segue em frente. Capitães da guarnição não saem para perseguir abates. Equipes de captura permanecem móveis e agressivas." },
+          { type: "h", text: "📋 DESIGNAÇÕES DOS JOGADORES" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Designações dos jogadores" },
+          { type: "h", text: "📣 NOTAS DO COORDENADOR (PAPA)" },
+          { type: "list", items: [
+            "Chame os alvos pelo número do mapa e pelo nome do jogador: “#3 {reformation} firebaugh, Rally agora.” / “kyking, pressione o #10 {sanctum} inimigo.”",
+            "Mantenha as equipes de captura móveis. Não deixe kyking, 꾸리잘린 쥐, BOO e firebaugh parados dentro de construções.",
+            "Troque os Capitães da guarnição só quando necessário. Cada troca arrisca perder a construção.",
+            "Acompanhe o tempo de recarga de #2 {mercenary}. MTP o usa a cada 7 minutos.",
+            "Nos últimos 10 minutos, proteja #1 {swordshrine}, #8 {sanctum} e #10 {sanctum}. Não persiga abates.",
+            "Lembre a todos: a Legion 2 é uma batalha separada, com recompensas próprias. Vença no seu próprio placar.",
+            "Sem reservas desta vez. Todos da lista são do elenco principal. Se alguém se atrasar, os jogadores flex cobrem a vaga."
+          ]},
+          { type: "h", text: "📌 NOTAS FINAIS" },
+          { type: "list", items: [
+            "Todos os jogadores devem estar online no início.",
+            "R4/R5 chamam os alvos pelo número do mapa no Chat do Esquadrão.",
+            "Ninguém precisa falar por voz. Acompanhar o Chat do Esquadrão e o mapa é suficiente.",
+            "Lembrem-se: nomes das construções, posições no mapa e zonas de cor.",
+            "Capitães da guarnição ficam dentro da construção e a mantêm até serem substituídos. Equipes de captura permanecem móveis e agressivas.",
+            "**Regra principal:** mantenham #1 {swordshrine} + #8 {sanctum} + #10 {sanctum}. Usem #4 {belltower}, #7 {stables}, #3 {reformation} e #2 {mercenary}. Farmem as {abbey}s e os pontos derrubados.",
+            "**Nunca troque uma construção principal por abates.**"
+          ]},
+          { type: "p", text: "Boa sorte no domingo!" },
+          { type: "h", text: "🗺️ MAPA" },
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Mapa" },
+          { type: "h", text: "🧭 ZONAS DESIGNADAS" },
+          { type: "img", src: "figures/assigned_zone.png", alt: "Zonas designadas" }
+        ]
+      },
+      tr: {
+        title: "Son İttifak Etkinlikleri",
+        blocks: [
+          { type: "h", text: "📅 LEGION 2 · PAZAR, 20.09" },
+          { type: "p", text: "**Koordinatör:** PAPA (67.6M)" },
+          { type: "p", text: "Legion 2 ayrı bir savaştır. Aynı anda ama kendi savaş alanında yapılır. Legion 1'in sonucunu veya ittifak ödüllerini etkilemez." },
+          { type: "callout", text: "**Bu sefer yedek yok.** Aşağıda listelenen tüm oyuncular ana kadrodadır." },
+          { type: "h", text: "🎯 DOKTRİN HATIRLATMASI" },
+          { type: "p", text: "En güçlü oyuncular saldırır ve ele geçirir. Bir bina el değiştirdiğinde, ele geçirme ekibi ilerlerken **Garnizon Kaptanı** binayı tutar. Garnizon Kaptanları öldürme peşinde binadan ayrılmaz. Ele geçirme ekipleri hareketli ve saldırgan kalır." },
+          { type: "h", text: "📋 OYUNCU GÖREVLENDİRMELERİ" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Oyuncu görevlendirmeleri" },
+          { type: "h", text: "📣 KOORDİNATÖR NOTLARI (PAPA)" },
+          { type: "list", items: [
+            "Hedefleri harita numarası ve oyuncu adıyla bildir: “#3 {reformation} firebaugh, şimdi seferberlik.” / “kyking, düşman #10 {sanctum} üzerine baskı yap.”",
+            "Ele geçirme ekiplerini hareketli tut. kyking, 꾸리잘린 쥐, BOO ve firebaugh binaların içinde beklemesin.",
+            "Garnizon Kaptanlarını yalnızca gerekirse değiştir. Her değişim binayı kaybetme riski taşır.",
+            "#2 {mercenary} bekleme süresini takip et. MTP bunu her 7 dakikada bir kullanır.",
+            "Son 10 dakikada şunları koru: #1 {swordshrine}, #8 {sanctum}, #10 {sanctum}. Öldürme peşinde koşma.",
+            "Herkese hatırlat: Legion 2 kendi ödülleri olan ayrı bir savaştır. Kendi skor tablonuzda kazanın.",
+            "Bu sefer yedek yok. Listedeki herkes ana kadrodadır. Biri geç kalırsa esnek (flex) oyuncular yerini doldurur."
+          ]},
+          { type: "h", text: "📌 SON NOTLAR" },
+          { type: "list", items: [
+            "Tüm oyuncular başlangıçta çevrimiçi olmalı.",
+            "R4/R5 hedefleri Ekip Sohbeti'nde harita numarasıyla bildirir.",
+            "Kimsenin sesli konuşması gerekmez. Ekip Sohbeti'ni ve haritayı takip etmek yeterli.",
+            "Unutmayın: bina adları, harita konumları ve renk bölgeleri.",
+            "Garnizon Kaptanları binanın içinde kalır ve değiştirilene kadar tutar. Ele geçirme ekipleri hareketli ve saldırgan kalır.",
+            "**Ana kural:** #1 {swordshrine} + #8 {sanctum} + #10 {sanctum} elde tutulacak. Kullanın: #4 {belltower}, #7 {stables}, #3 {reformation}, #2 {mercenary}. {abbey}lar ve düşen puanlar toplanacak.",
+            "**Öldürme uğruna asla ana bir binayı feda etmeyin.**"
+          ]},
+          { type: "p", text: "Pazar günü bol şans!" },
+          { type: "h", text: "🗺️ HARİTA" },
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Harita" },
+          { type: "h", text: "🧭 ATANAN BÖLGELER" },
+          { type: "img", src: "figures/assigned_zone.png", alt: "Atanan bölgeler" }
+        ]
+      },
+      id: {
+        title: "Acara Aliansi Terbaru",
+        blocks: [
+          { type: "h", text: "📅 LEGION 2 · MINGGU, 20.09" },
+          { type: "p", text: "**Koordinator:** PAPA (67.6M)" },
+          { type: "p", text: "Legion 2 adalah pertempuran terpisah. Berlangsung bersamaan tetapi di medan perangnya sendiri. Tidak memengaruhi hasil Legion 1 maupun hadiah aliansi." },
+          { type: "callout", text: "**Kali ini tidak ada pemain cadangan.** Semua pemain yang tercantum di bawah adalah roster utama." },
+          { type: "h", text: "🎯 PENGINGAT DOKTRIN" },
+          { type: "p", text: "Pemain terkuat menyerang dan merebut. Setelah bangunan berpindah tangan, **Kapten Garnisun** menahannya sementara tim perebut melanjutkan. Kapten Garnisun tidak pergi mengejar kill. Tim perebut tetap mobile dan agresif." },
+          { type: "h", text: "📋 PENUGASAN PEMAIN" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Penugasan pemain" },
+          { type: "h", text: "📣 CATATAN KOORDINATOR (PAPA)" },
+          { type: "list", items: [
+            "Panggil target dengan nomor peta dan nama pemain: “#3 {reformation} firebaugh, Reli sekarang.” / “kyking, tekan #10 {sanctum} musuh.”",
+            "Jaga tim perebut tetap mobile. Jangan biarkan kyking, 꾸리잘린 쥐, BOO, dan firebaugh berdiam di dalam bangunan.",
+            "Ganti Kapten Garnisun hanya jika perlu. Setiap pergantian berisiko kehilangan bangunan.",
+            "Pantau cooldown #2 {mercenary}. MTP menggunakannya setiap 7 menit.",
+            "Di 10 menit terakhir, lindungi #1 {swordshrine}, #8 {sanctum}, #10 {sanctum}. Jangan mengejar kill.",
+            "Ingatkan semua: Legion 2 adalah pertempuran terpisah dengan hadiahnya sendiri. Menangkan papan skor kalian sendiri.",
+            "Kali ini tidak ada cadangan. Semua orang di daftar adalah roster utama. Jika ada yang terlambat, pemain flex menutupi posisinya."
+          ]},
+          { type: "h", text: "📌 CATATAN AKHIR" },
+          { type: "list", items: [
+            "Semua pemain harus online saat mulai.",
+            "R4/R5 memanggil target dengan nomor peta di Chat Skuad.",
+            "Tidak ada yang wajib bicara lewat voice. Mengikuti Chat Skuad dan peta sudah cukup.",
+            "Ingat: nama bangunan, posisi di peta, dan zona warna.",
+            "Kapten Garnisun tetap di dalam bangunan dan menahannya sampai digantikan. Tim perebut tetap mobile dan agresif.",
+            "**Aturan utama:** tahan #1 {swordshrine} + #8 {sanctum} + #10 {sanctum}. Gunakan #4 {belltower}, #7 {stables}, #3 {reformation}, #2 {mercenary}. Farming {abbey} dan poin yang jatuh.",
+            "**Jangan pernah menukar bangunan inti demi kill.**"
+          ]},
+          { type: "p", text: "Semoga sukses hari Minggu!" },
+          { type: "h", text: "🗺️ PETA" },
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Peta" },
+          { type: "h", text: "🧭 ZONA YANG DITUGASKAN" },
+          { type: "img", src: "figures/assigned_zone.png", alt: "Zona yang ditugaskan" }
+        ]
+      },
+      ru: {
+        title: "Последние события альянса",
+        blocks: [
+          { type: "h", text: "📅 LEGION 2 · ВОСКРЕСЕНЬЕ, 20.09" },
+          { type: "p", text: "**Координатор:** PAPA (67.6M)" },
+          { type: "p", text: "Legion 2 — отдельная битва. Она проходит одновременно, но на своём поле боя. Она не влияет на результат Legion 1 и награды альянса." },
+          { type: "callout", text: "**В этот раз без запасных.** Все перечисленные ниже игроки — основной состав." },
+          { type: "h", text: "🎯 НАПОМИНАНИЕ О ДОКТРИНЕ" },
+          { type: "p", text: "Сильнейшие игроки атакуют и захватывают. Когда здание переходит к нам, **Капитан гарнизона** удерживает его, а команда захвата идёт дальше. Капитаны гарнизона не уходят за убийствами. Команды захвата остаются мобильными и агрессивными." },
+          { type: "h", text: "📋 РАСПРЕДЕЛЕНИЕ ИГРОКОВ" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Распределение игроков" },
+          { type: "h", text: "📣 ЗАМЕТКИ КООРДИНАТОРА (PAPA)" },
+          { type: "list", items: [
+            "Называйте цели по номеру на карте и имени игрока: «#3 {reformation} firebaugh, рейд сейчас.» / «kyking, давите на вражеское #10 {sanctum}.»",
+            "Держите команды захвата мобильными. Не позволяйте kyking, 꾸리잘린 쥐, BOO и firebaugh сидеть внутри зданий.",
+            "Меняйте Капитанов гарнизона только при необходимости. Каждая ротация рискует потерей здания.",
+            "Следите за перезарядкой у #2 {mercenary}: MTP использует наёмников каждые 7 минут.",
+            "В последние 10 минут защищайте #1 {swordshrine}, #8 {sanctum}, #10 {sanctum}. Не гонитесь за убийствами.",
+            "Напомните всем: Legion 2 — отдельная битва со своими наградами. Побеждайте в собственной таблице очков.",
+            "В этот раз без запасных. Все в списке — основной состав. Если кто-то опаздывает, его место займут гибкие (flex) игроки."
+          ]},
+          { type: "h", text: "📌 ИТОГОВЫЕ ЗАМЕТКИ" },
+          { type: "list", items: [
+            "Все игроки должны быть онлайн на старте.",
+            "R4/R5 называют цели по номеру на карте в чате отряда.",
+            "Говорить в голосовом чате не обязательно. Достаточно следить за чатом отряда и картой.",
+            "Запомните: названия зданий, расположение на карте и цветовые зоны.",
+            "Капитаны гарнизона остаются внутри здания и держат его, пока их не сменят. Команды захвата остаются мобильными и агрессивными.",
+            "**Главное правило:** удерживайте #1 {swordshrine} + #8 {sanctum} + #10 {sanctum}. Задействуйте: #4 {belltower}, #7 {stables}, #3 {reformation}, #2 {mercenary}. Фармите {abbeyPl} и выпавшие очки.",
+            "**Никогда не меняйте ключевое здание на убийства.**"
+          ]},
+          { type: "p", text: "Удачи в воскресенье!" },
+          { type: "h", text: "🗺️ КАРТА" },
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Карта" },
+          { type: "h", text: "🧭 НАЗНАЧЕННЫЕ ЗОНЫ" },
+          { type: "img", src: "figures/assigned_zone.png", alt: "Назначенные зоны" }
+        ]
+      },
+      th: {
+        title: "กิจกรรมพันธมิตรล่าสุด",
+        blocks: [
+          { type: "h", text: "📅 LEGION 2 · วันอาทิตย์ที่ 20.09" },
+          { type: "p", text: "**ผู้ประสานงาน:** PAPA (67.6M)" },
+          { type: "p", text: "Legion 2 เป็นการรบแยกต่างหาก จัดขึ้นพร้อมกันแต่อยู่ในสนามรบของตัวเอง และไม่ส่งผลต่อผลของ Legion 1 หรือรางวัลของพันธมิตร" },
+          { type: "callout", text: "**ครั้งนี้ไม่มีตัวสำรอง** ผู้เล่นทุกคนที่อยู่ในรายชื่อด้านล่างเป็นรายชื่อหลักทั้งหมด" },
+          { type: "h", text: "🎯 ย้ำหลักการรบ" },
+          { type: "p", text: "ผู้เล่นที่แข็งแกร่งที่สุดโจมตีและยึดครอง เมื่อสิ่งปลูกสร้างเปลี่ยนมือแล้ว **หัวหน้ากองรักษาการณ์** จะยึดไว้ ขณะที่ทีมยึดครองเดินหน้าต่อ หัวหน้ากองรักษาการณ์ไม่ออกไปไล่ล่าการสังหาร ทีมยึดครองต้องคล่องตัวและรุกอยู่เสมอ" },
+          { type: "h", text: "📋 การมอบหมายผู้เล่น" },
+          { type: "img", src: "figures/Legion_2.png", alt: "การมอบหมายผู้เล่น" },
+          { type: "h", text: "📣 บันทึกของผู้ประสานงาน (PAPA)" },
+          { type: "list", items: [
+            "สั่งเป้าหมายด้วยหมายเลขบนแผนที่และชื่อผู้เล่น: “#3 {reformation} firebaugh ตั้งทีมระดมพลตอนนี้” / “kyking กดดัน #10 {sanctum} ของศัตรู”",
+            "ให้ทีมยึดครองคล่องตัวอยู่เสมอ อย่าให้ kyking, 꾸리잘린 쥐, BOO และ firebaugh นั่งอยู่ในสิ่งปลูกสร้าง",
+            "เปลี่ยนหัวหน้ากองรักษาการณ์เมื่อจำเป็นเท่านั้น ทุกครั้งที่สลับมีความเสี่ยงที่จะเสียสิ่งปลูกสร้าง",
+            "ติดตามคูลดาวน์ของ #2 {mercenary} MTP ใช้ทุก 7 นาที",
+            "10 นาทีสุดท้าย ปกป้อง #1 {swordshrine}, #8 {sanctum}, #10 {sanctum} อย่าไล่ล่าการสังหาร",
+            "เตือนทุกคน: Legion 2 เป็นการรบแยกต่างหากที่มีรางวัลของตัวเอง ชนะบนตารางคะแนนของตัวเอง",
+            "ครั้งนี้ไม่มีตัวสำรอง ทุกคนในรายชื่อเป็นรายชื่อหลัก หากใครมาสาย ผู้เล่นยืดหยุ่น (flex) จะเข้าไปแทนตำแหน่ง"
+          ]},
+          { type: "h", text: "📌 หมายเหตุสุดท้าย" },
+          { type: "list", items: [
+            "ผู้เล่นทุกคนต้องออนไลน์ตั้งแต่เริ่ม",
+            "R4/R5 จะสั่งเป้าหมายด้วยหมายเลขบนแผนที่ในแชททีม",
+            "ไม่จำเป็นต้องพูดผ่านเสียง แค่ตามแชททีมและแผนที่ก็เพียงพอ",
+            "จำไว้: ชื่อสิ่งปลูกสร้าง ตำแหน่งบนแผนที่ และโซนสี",
+            "หัวหน้ากองรักษาการณ์อยู่ในสิ่งปลูกสร้างและยึดไว้จนกว่าจะมีคนมาเปลี่ยน ทีมยึดครองต้องคล่องตัวและรุกอยู่เสมอ",
+            "**กฎหลัก:** ยึด #1 {swordshrine} + #8 {sanctum} + #10 {sanctum} ให้ได้ ใช้ประโยชน์จาก #4 {belltower}, #7 {stables}, #3 {reformation}, #2 {mercenary} ฟาร์ม {abbey} และแต้มที่ตกหล่น",
+            "**ห้ามแลกสิ่งปลูกสร้างหลักกับการสังหารเด็ดขาด**"
+          ]},
+          { type: "p", text: "ขอให้โชคดีในวันอาทิตย์!" },
+          { type: "h", text: "🗺️ แผนที่" },
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "แผนที่" },
+          { type: "h", text: "🧭 โซนที่ได้รับมอบหมาย" },
+          { type: "img", src: "figures/assigned_zone.png", alt: "โซนที่ได้รับมอบหมาย" }
+        ]
+      },
+      ar: {
+        title: "أحدث فعاليات التحالف",
+        blocks: [
+          { type: "h", text: "📅 LEGION 2 · الأحد 20.09" },
+          { type: "p", text: "**المنسّق:** PAPA (67.6M)" },
+          { type: "p", text: "Legion 2 معركة منفصلة. تجري في الوقت نفسه لكن في ساحة معركة خاصة بها، ولا تؤثر على نتيجة Legion 1 ولا على مكافآت التحالف." },
+          { type: "callout", text: "**لا يوجد لاعبون احتياطيون هذه المرة.** جميع اللاعبين المدرجين أدناه من القائمة الأساسية." },
+          { type: "h", text: "🎯 تذكير بالمبدأ القتالي" },
+          { type: "p", text: "يهاجم أقوى اللاعبين ويستولون على المباني. بمجرد أن يتغير مالك المبنى، يتولى **قائد الحامية** الدفاع عنه بينما يواصل فريق الاستيلاء التقدم. لا يغادر قادة الحاميات لمطاردة الإقصاءات. يبقى فريق الاستيلاء متحركًا وهجوميًا." },
+          { type: "h", text: "📋 توزيع اللاعبين" },
+          { type: "img", src: "figures/Legion_2.png", alt: "توزيع اللاعبين" },
+          { type: "h", text: "📣 ملاحظات المنسّق (PAPA)" },
+          { type: "list", items: [
+            "حدّد الأهداف برقم الخريطة واسم اللاعب: «#3 {reformation} firebaugh، الحشد الآن.» / «kyking، اضغط على #10 {sanctum} للعدو.»",
+            "أبقِ فرق الاستيلاء متحركة. لا تدع kyking و꾸리잘린 쥐 و BOO و firebaugh يجلسون داخل المباني.",
+            "بدّل قادة الحاميات عند الضرورة فقط. كل تبديل يخاطر بفقدان المبنى.",
+            "تتبّع فترة التبريد لـ #2 {mercenary}. يستخدمها MTP كل 7 دقائق.",
+            "في آخر 10 دقائق، احمِ #1 {swordshrine} و #8 {sanctum} و #10 {sanctum}. لا تطارد الإقصاءات.",
+            "ذكّر الجميع: Legion 2 معركة منفصلة لها مكافآتها الخاصة. اربحوا في لوحة نقاطكم.",
+            "لا يوجد احتياطيون هذه المرة. كل من في القائمة من التشكيلة الأساسية. إذا تأخر أحد، يغطي اللاعبون المرنون (flex) مكانه."
+          ]},
+          { type: "h", text: "📌 ملاحظات أخيرة" },
+          { type: "list", items: [
+            "يجب أن يكون جميع اللاعبين متصلين عند البداية.",
+            "يحدد R4/R5 الأهداف برقم الخريطة في دردشة الفرقة.",
+            "لا يُطلب من أحد التحدث صوتيًا. يكفي متابعة دردشة الفرقة والخريطة.",
+            "تذكّروا: أسماء المباني ومواقعها على الخريطة والمناطق اللونية.",
+            "يبقى قادة الحاميات داخل مبانيهم ويحافظون عليها حتى يتم استبدالهم. يبقى فريق الاستيلاء متحركًا وهجوميًا.",
+            "**القاعدة الأساسية:** حافظوا على #1 {swordshrine} + #8 {sanctum} + #10 {sanctum}. استخدموا #4 {belltower} و #7 {stables} و #3 {reformation} و #2 {mercenary}. اجمعوا نقاط الأديرة والنقاط المتساقطة.",
+            "**لا تضحّوا أبدًا بمبنى أساسي مقابل الإقصاءات.**"
+          ]},
+          { type: "p", text: "بالتوفيق يوم الأحد!" },
+          { type: "h", text: "🗺️ الخريطة" },
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "الخريطة" },
+          { type: "h", text: "🧭 المناطق المخصصة" },
+          { type: "img", src: "figures/assigned_zone.png", alt: "المناطق المخصصة" }
         ]
       }
     }
