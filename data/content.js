@@ -4080,7 +4080,7 @@ const GUIDES = {
           { type: "h", text: "🎬 SO WECHSELST DU VON ANGRIFFS- ZU VERTEIDIGUNGSHELDEN" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Video aus dem Internet (TikTok @yelloe_hair) – nicht unser eigenes Material." }
         ]
-      }
+      },
     }
   }
 };
