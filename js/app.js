@@ -5,6 +5,7 @@ const STORAGE_KEYS = { lang: "ks-lang", theme: "ks-theme", guide: "ks-guide" };
 
 let currentLang = "en";
 let currentGuide = Object.keys(GUIDES)[0];
+let langChosen = false; // false = show the language picker first
 
 function safeGet(key) {
   try { return localStorage.getItem(key); } catch (e) { return null; }
@@ -45,7 +46,7 @@ function formatHeroes(heroes) {
 function readHash() {
   const hash = (location.hash || "").replace(/^#\/?/, "");
   const [lang, guide] = hash.split("/");
-  if (lang) currentLang = pickLang(lang);
+  if (lang) { currentLang = pickLang(lang); langChosen = true; }
   if (guide) currentGuide = pickGuide(guide);
 }
 
@@ -179,33 +180,39 @@ function renderBlocks(guide, s) {
 function renderLangRow() {
   const row = document.getElementById("langRow");
   row.innerHTML = "";
+  const cur = LANGS.find((l) => l.code === currentLang);
+  const btn = document.createElement("button");
+  btn.className = "lang-btn";
+  btn.textContent = "🌐 " + (cur ? cur.label : currentLang);
+  btn.title = "Change language";
+  btn.onclick = () => {
+    langChosen = false;
+    try { history.replaceState(null, "", location.pathname + location.search); } catch (e) { /* ignore */ }
+    renderAll();
+  };
+  row.appendChild(btn);
+}
+
+function renderPicker() {
+  document.documentElement.lang = "en";
+  document.documentElement.dir = "ltr";
+  document.title = SITE_TITLE;
+  document.getElementById("langRow").innerHTML = "";
+  document.getElementById("guideRow").innerHTML = "";
+  const doc = document.getElementById("doc");
+  doc.innerHTML = '<div class="doc-title"><span>Select your language</span></div><div class="lang-grid" id="langGrid"></div>';
+  const grid = document.getElementById("langGrid");
   LANGS.forEach((l) => {
     const btn = document.createElement("button");
-    btn.className = "lang-btn" + (l.code === currentLang ? " active" : "");
+    btn.className = "lang-pick";
     btn.textContent = l.label;
     btn.onclick = () => {
       currentLang = l.code;
+      langChosen = true;
       persistPrefs();
       renderAll();
     };
-    row.appendChild(btn);
-  });
-}
-
-function renderGuideRow() {
-  const row = document.getElementById("guideRow");
-  row.innerHTML = "";
-  Object.keys(GUIDES).forEach((key) => {
-    const g = GUIDES[key];
-    const chip = document.createElement("button");
-    chip.className = "guide-chip" + (key === currentGuide ? " active" : "");
-    chip.innerHTML = `<span class="emoji">${g.emoji}</span><span>${escapeHtml(t(g.name) || key)}</span>`;
-    chip.onclick = () => {
-      currentGuide = key;
-      persistPrefs();
-      renderAll();
-    };
-    row.appendChild(chip);
+    grid.appendChild(btn);
   });
 }
 
@@ -339,6 +346,7 @@ function renderAll() {
   document.documentElement.lang = HTML_LANG[currentLang] || currentLang;
   const curLang = LANGS.find((l) => l.code === currentLang);
   document.documentElement.dir = (curLang && curLang.dir) || "ltr";
+  if (!langChosen) { renderPicker(); return; }
   renderLangRow();
   renderGuideRow();
   renderDoc();
