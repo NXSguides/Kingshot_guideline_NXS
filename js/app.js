@@ -122,6 +122,13 @@ function fmt(n) {
 const ul = (items) =>
   `<ul class="prep-list">${items.map((i) => `<li>${rich(i)}</li>`).join("")}</ul>`;
 
+function youtubeId(u) {
+  const str = String(u || "").trim();
+  const m = str.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:[^#]*&)?v=|embed\/|shorts\/|live\/))([\w-]{11})/);
+  if (m) return m[1];
+  return /^[\w-]{11}$/.test(str) ? str : null;
+}
+
 const BLOCKS = {
   h: (b) => `<h3 class="section-h">${rich(b.text)}</h3>`,
   sub: (b) => `<h4 class="sub-h">${rich(b.text)}</h4>`,
@@ -129,6 +136,17 @@ const BLOCKS = {
   list: (b) => ul(b.items),
   callout: (b) => `<div class="callout flat">${rich(b.text)}</div>`,
   img: (b) => `<img class="fig" src="${escapeHtml(b.src)}" alt="${escapeHtml(b.alt || "")}" loading="lazy">`,
+    video: (b) => {
+    const cap = b.caption ? `<p class="legend">${rich(b.caption)}</p>` : "";
+    const yt = b.url ? youtubeId(b.url) : null;
+    if (yt) {
+      return `<div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/${yt}" title="${escapeHtml(b.alt || "Video")}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>${cap}`;
+    }
+    if (b.src) {
+      return `<video class="fig" controls playsinline preload="metadata" src="${escapeHtml(b.src)}"></video>${cap}`;
+    }
+    return "";
+  },
 
   buildings: (b, g) => {
     const legend = b.legend ? `<p class="legend">${rich(b.legend)}</p>` : "";
