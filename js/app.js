@@ -136,7 +136,7 @@ const BLOCKS = {
   list: (b) => ul(b.items),
   callout: (b) => `<div class="callout flat">${rich(b.text)}</div>`,
   img: (b) => `<img class="fig" src="${escapeHtml(b.src)}" alt="${escapeHtml(b.alt || "")}" loading="lazy">`,
-    video: (b) => {
+  video: (b) => {
     const cap = b.caption ? `<p class="legend">${rich(b.caption)}</p>` : "";
     const yt = b.url ? youtubeId(b.url) : null;
     if (yt) {
@@ -237,35 +237,57 @@ function renderPicker() {
 function renderGuideRow() {
   const row = document.getElementById("guideRow");
   row.innerHTML = "";
+  const g = GUIDES[currentGuide];
+  const btn = document.createElement("button");
+  btn.className = "guide-chip menu-btn";
+  btn.title = "Guides";
+  btn.innerHTML = `<span class="emoji">☰</span><span class="emoji">${g.emoji}</span><span>${escapeHtml(t(g.name) || currentGuide)}</span>`;
+  btn.onclick = openMenu;
+  row.appendChild(btn);
+}
+
+/* ---- Side menu (guide list) ------------------------------------------ */
+
+function initMenu() {
+  const overlay = document.createElement("div");
+  overlay.id = "menuOverlay";
+  overlay.onclick = closeMenu;
+  const panel = document.createElement("nav");
+  panel.id = "menuPanel";
+  panel.innerHTML = '<div class="menu-head"><span>Guides</span><button type="button" id="menuClose" aria-label="Close">✕</button></div><div id="menuList"></div>';
+  document.body.appendChild(overlay);
+  document.body.appendChild(panel);
+  document.getElementById("menuClose").onclick = closeMenu;
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+}
+
+function renderMenu() {
+  const list = document.getElementById("menuList");
+  list.innerHTML = "";
   Object.keys(GUIDES).forEach((key) => {
     const g = GUIDES[key];
-    const chip = document.createElement("button");
-    chip.className = "guide-chip" + (key === currentGuide ? " active" : "");
-    chip.innerHTML = `<span class="emoji">${g.emoji}</span><span>${escapeHtml(t(g.name) || key)}</span>`;
-    chip.onclick = () => {
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className = "menu-item" + (key === currentGuide ? " active" : "");
+    item.innerHTML = `<span class="emoji">${g.emoji}</span><span dir="auto">${escapeHtml(t(g.name) || key)}</span>`;
+    item.onclick = () => {
       currentGuide = key;
       persistPrefs();
+      closeMenu();
       renderAll();
+      window.scrollTo(0, 0);
     };
-    row.appendChild(chip);
+    list.appendChild(item);
   });
 }
 
-function renderGuideRow() {
-  const row = document.getElementById("guideRow");
-  row.innerHTML = "";
-  Object.keys(GUIDES).forEach((key) => {
-    const g = GUIDES[key];
-    const chip = document.createElement("button");
-    chip.className = "guide-chip" + (key === currentGuide ? " active" : "");
-    chip.innerHTML = `<span class="emoji">${g.emoji}</span><span>${escapeHtml(t(g.name) || key)}</span>`;
-    chip.onclick = () => {
-      currentGuide = key;
-      persistPrefs();
-      renderAll();
-    };
-    row.appendChild(chip);
-  });
+function openMenu() {
+  renderMenu();
+  document.body.classList.add("menu-open");
+}
+
+function closeMenu() {
+  document.body.classList.remove("menu-open");
 }
 
 function renderLeaders(guide) {
@@ -406,6 +428,7 @@ function renderAll() {
 
 restorePrefs();
 initTheme();
+initMenu();
 renderAll();
 
 window.addEventListener("hashchange", () => {
