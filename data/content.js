@@ -1890,6 +1890,7 @@ const GUIDES = {
               belltower: "建築佔領時長 -50%"
             }
           },
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
 
           { type: "h", text: "分配區域" },
           { type: "p", text: "R4 會在開戰前，把確定參加的成員分成小隊／區域。" },
@@ -2063,7 +2064,8 @@ const GUIDES = {
               belltower: "-50% building capture time"
             }
           },
-
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
+           
           { type: "h", text: "ASSIGNED ZONES" },
           { type: "p", text: "R4 will divide confirmed members into teams/zones before battle." },
           { type: "p", text: "Our **strongest Attackers** will initially be assigned a zone:" },
@@ -2240,7 +2242,8 @@ const GUIDES = {
           { type: "list", items: ["최초 점령 보상: 연맹 1,200점 / 개인 600점", "점령 유지 보상: 연맹 +240/분 / 개인 +120/분"] },
           { type: "sub", text: "숨겨진 땅굴(Undercellars)" },
           { type: "list", items: ["주기적으로(총 2번의 웨이브로) 생성되는 채집 장소"] },
-
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
+           
           { type: "h", text: "🏛️ 건물 오픈 시간 및 우선순위" },
           { type: "sub", text: "🐎 마구간" },
           { type: "list", items: ["오픈 시간: 0분", "우선순위: 🔴 높음 (HIGH)", "효과: 도시 이전 쿨다운 -50%"] },
@@ -2437,7 +2440,8 @@ const GUIDES = {
             "Lass Märsche nicht untätig herumstehen",
             "**JAGE KEINE Kills quer über die Karte.** Zufälliges PvP zerstreut uns und verringert unsere Effektivität. Greife Städte niedrigeren Levels an, wenn es sinnvoll ist; schwäche sie in der Nähe eines gehaltenen Gebäudes."
           ]},
-
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
+           
           { type: "h", text: "🗺️ ZUGEWIESENE ZONEN" },
           { type: "p", text: "R4 wird bestätigte Mitglieder vor der Schlacht in Teams/Zonen aufteilen." },
           { type: "p", text: "Unsere **Stärksten Angreifer** werden zunächst einer Zone zugewiesen:" },
@@ -2597,7 +2601,8 @@ const GUIDES = {
               belltower: "-50 % du temps nécessaire pour contrôler les bâtiments"
             }
           },
-
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
+           
           { type: "h", text: "ZONES ASSIGNÉES" },
           { type: "p", text: "Les R4 répartiront les membres confirmés en équipes/zones avant la bataille." },
           { type: "p", text: "Nos **meilleurs attaquants** se verront d'abord attribuer une zone :" },
@@ -2770,7 +2775,8 @@ const GUIDES = {
               belltower: "Binaları kontrol etme süresi -%50"
             }
           },
-
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
+           
           { type: "h", text: "ATANAN BÖLGELER" },
           { type: "p", text: "R4, savaştan önce onaylı üyeleri takımlara/bölgelere ayıracak." },
           { type: "p", text: "En **güçlü Hücumcularımız** önce bir bölgeye atanacak:" },
@@ -2943,7 +2949,8 @@ const GUIDES = {
               belltower: "-50% waktu yang diperlukan untuk menguasai bangunan"
             }
           },
-
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
+           
           { type: "h", text: "ZONA YANG DITUGASKAN" },
           { type: "p", text: "R4 akan membagi anggota yang terkonfirmasi ke dalam tim/zona sebelum pertempuran." },
           { type: "p", text: "**Penyerbu terkuat** kita akan lebih dulu ditugaskan ke satu zona:" },
@@ -3116,7 +3123,8 @@ const GUIDES = {
               belltower: "-50% времени захвата зданий"
             }
           },
-
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
+           
           { type: "h", text: "НАЗНАЧЕННЫЕ ЗОНЫ" },
           { type: "p", text: "Офицеры R4 перед битвой разделят подтвержденных участников на команды/зоны." },
           { type: "p", text: "Наши **сильнейшие атакующие** сначала будут назначены в одну из зон:" },
@@ -3289,7 +3297,8 @@ const GUIDES = {
               belltower: "ลดเวลาที่ใช้ในการยึดครองสิ่งปลูกสร้าง 50%"
             }
           },
-
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
+           
           { type: "h", text: "โซนที่กำหนด" },
           { type: "p", text: "R4 จะแบ่งสมาชิกที่ยืนยันแล้วเป็นกลุ่ม/โซนก่อนการสู้รบ" },
           { type: "p", text: "**หน่วยบุกที่แข็งแกร่งที่สุด**ของเราจะได้รับมอบหมายโซนก่อน:" },
@@ -3462,7 +3471,8 @@ const GUIDES = {
               belltower: "تقليل الوقت المطلوب للسيطرة على المباني بنسبة 50%"
             }
           },
-
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
+           
           { type: "h", text: "المناطق المخصصة" },
           { type: "p", text: "سيقسّم R4 الأعضاء المؤكدين إلى مجموعات/مناطق قبل المعركة." },
           { type: "p", text: "سيُخصَّص **أقوى المقتحمين** لدينا لمنطقة في البداية:" },
@@ -3635,7 +3645,8 @@ const GUIDES = {
               belltower: "-50% no tempo necessário para assumir o controle das construções"
             }
           },
-
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
+           
           { type: "h", text: "ZONAS DESIGNADAS" },
           { type: "p", text: "Os R4 dividirão os membros confirmados em equipes/zonas antes da batalha." },
           { type: "p", text: "Nossos **melhores atacantes** serão designados primeiro para uma zona:" },
