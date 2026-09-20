@@ -449,3 +449,7 @@ body.menu-open { overflow: hidden; }
 }
 .menu-item .emoji { font-size: 18px; }
 .menu-item.active { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); font-weight: 700; }
+
+/* Guide buttons at the top: show all of them, wrap onto several lines (no sideways scrolling) */
+.guide-row { flex-wrap: wrap; overflow-x: visible; padding-bottom: 0; }
+.guide-row .guide-chip { flex: 0 1 auto; max-width: 100%; text-align: start; }
