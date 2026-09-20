@@ -4249,6 +4249,230 @@ const GUIDES = {
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Video internetten alınmıştır (TikTok @yelloe_hair) — kendi çekimimiz değil." }
         ]
       },
+      id: {
+        title: "Formasi Pasukan & Tips Reli",
+        blocks: [
+          { type: "h", text: "🔬 PRIORITAS RISET & PENINGKATAN" },
+          { type: "p", text: "Prioritaskan stat tempur berikut untuk riset dan peningkatan charm Gubernur (Governor Charms):" },
+          { type: "list", items: [
+            "{infantry} — {health}",
+            "{archer} — {lethality}"
+          ] },
+          { type: "h", text: "💾 SIMPAN PRESET-MU" },
+          { type: "p", text: "Tergantung progresmu, kamu bisa membuka hingga 8 slot untuk menyimpan formasi pasukan lebih dulu. Formasi yang direkomendasikan untuk disimpan:" },
+          { type: "callout", text: "Semua rasio pasukan berurutan **{infantry} : {cavalry} : {archer}**. Simpan preset terpisah dengan setiap hero di posisi paling kiri / pertama." },
+          { type: "callout", text: "💡 Hero paling kiri penting saat bergabung ke reli karena skill ekspedisi (Expedition skill) yang relevan darinya menyumbang untuk reli." },
+          { type: "list", items: [
+            "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
+            "2) {bearHunt}: {amane} — **10 : 10 : 80** (atau sedekat mungkin)",
+            "3) {bearHunt}: {yeonwoo} — **10 : 10 : 80** (atau sedekat mungkin)",
+            "4) {bearHunt}: {amadeus} — **10 : 10 : 80** (atau sedekat mungkin)",
+            "5) Serangan (PvP umum): {amadeus} (jika sudah dikembangkan) atau {chenko} — **50 : 20 : 30**",
+            "6) Pertahanan: {howard} / {gordon} — **60 : 20 : 20** adalah standar seimbang kita. Sesuaikan bila pimpinan meminta formasi tertentu."
+          ] },
+          { type: "p", text: "**Pemimpin Reli:** Gunakan susunan hero ofensif terkuat dan lengkapmu." },
+          { type: "p", text: "**Peserta Reli:** Ikuti batas pasukan yang diumumkan pimpinan." },
+          { type: "list", items: [
+            "7) Markas Viking (Viking HQ): {howard} / {gordon} — **60 : 40** Ikuti batas pasukan (~68.000)",
+            "8) PvE – Binatang / Berburu (Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
+          ] },
+          { type: "h", text: "🐺 PvE — BINATANG / BERBURU (BEASTS / HUNTING)" },
+          { type: "p", text: "Ingat untuk Netherfiend: tidak perlu banyak damage, jadi kirim pasukan sesedikit mungkin (bahkan 1) supaya lebih banyak anggota aliansi bisa bergabung dan mendapat hadiah reli." },
+          { type: "h", text: "🏰 {castleBattle} / {sanctuary} / BANGUNAN" },
+          { type: "p", text: "Saat merebut bangunan, bersiaplah untuk berganti dengan cepat:" },
+          { type: "callout", text: "**SERANGAN → PERTAHANAN**" },
+          { type: "sub", text: "⚔️ 1. REBUT" },
+          { type: "p", text: "Bergabunglah ke reli awal menggunakan preset SERANGAN-mu." },
+          { type: "p", text: "**Contoh:** {amadeus} / {chenko} **50 : 20 : 30**" },
+          { type: "sub", text: "🛡️ 2. BERALIH KE PERTAHANAN" },
+          { type: "p", text: "Setelah bangunan berhasil direbut:" },
+          { type: "list", items: [
+            "**1.** Segera kirim satu barisan lagi menggunakan preset PERTAHANAN-mu. **Contoh:** {gordon} / {howard} **60 : 20 : 20**",
+            "**2.** Perhatikan barisan pertahananmu bergerak menuju bangunan yang direbut.",
+            "**3.** Saat waktu barisan tersisa sekitar 5 detik — atau sesuai instruksi pimpinan — Panggil Kembali barisan SERANGAN awalmu.",
+            "**4.** Barisan PERTAHANAN-mu tiba dan menggantikan barisan ofensifmu di garnisun."
+          ] },
+          { type: "callout", text: "🚫 **JANGAN Panggil Kembali barisan serangan terlalu cepat.**" },
+          { type: "p", text: "**Rebut → Kirim Pertahanan → ~5 dtk → Panggil Kembali Serangan → Pertahanan Tiba**" },
+          { type: "p", text: "Ini memungkinkan kita beralih dari formasi ofensif ke garnisun defensif tanpa melemahkan bangunan secara tidak perlu." },
+          { type: "h", text: "🪖 BATAS PASUKAN GARNISUN" },
+          { type: "p", text: "Hanya 15 gubernur yang bisa masuk ke markas / Sanctuary. Jadi jangan otomatis mengirim barisan maksimalmu ke markas, Sanctuary, atau bangunan lain yang diperebutkan." },
+          { type: "p", text: "Ikuti batas pasukan yang diumumkan pimpinan." },
+          { type: "p", text: "**Target aliansi umum: ~68.000 pasukan per pemain**" },
+          { type: "p", text: "Ini memungkinkan lebih banyak anggota aliansi dengan barisan pertahanan yang terkonfigurasi baik masuk ke garnisun dan mendapat hadiah." },
+          { type: "callout", text: "⚠️ Jika pimpinan mengumumkan batas yang berbeda, selalu ikuti angka yang diumumkan." },
+          { type: "h", text: "🎬 CARA BERALIH DARI HERO SERANGAN KE HERO PERTAHANAN" },
+          { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Video ditemukan di internet (TikTok @yelloe_hair) — bukan rekaman kami sendiri." }
+        ]
+      },
+      ru: {
+        title: "Войско и советы по рейдам",
+        blocks: [
+          { type: "h", text: "🔬 ПРИОРИТЕТЫ ИССЛЕДОВАНИЙ И УЛУЧШЕНИЙ" },
+          { type: "p", text: "Отдавайте приоритет этим боевым показателям при исследованиях и улучшении чар губернатора (Governor Charms):" },
+          { type: "list", items: [
+            "{infantry} — {health}",
+            "{archer} — {lethality}"
+          ] },
+          { type: "h", text: "💾 СОХРАНЯЙТЕ ПРЕСЕТЫ" },
+          { type: "p", text: "В зависимости от прогресса можно открыть до 8 слотов для предварительного сохранения составов войск. Рекомендуемые составы для сохранения:" },
+          { type: "callout", text: "Все соотношения войск указаны в порядке **{infantry} : {cavalry} : {archer}**. Сохраняйте отдельный пресет для каждого героя, ставя его в крайнюю левую / первую позицию." },
+          { type: "callout", text: "💡 Крайний левый герой важен при присоединении к рейдам, так как его соответствующий навык похода (Expedition skill) усиливает рейд." },
+          { type: "list", items: [
+            "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
+            "2) {bearHunt}: {amane} — **10 : 10 : 80** (или максимально близко)",
+            "3) {bearHunt}: {yeonwoo} — **10 : 10 : 80** (или максимально близко)",
+            "4) {bearHunt}: {amadeus} — **10 : 10 : 80** (или максимально близко)",
+            "5) Атака (общий PvP): {amadeus} (если прокачан) или {chenko} — **50 : 20 : 30**",
+            "6) Защита: {howard} / {gordon} — **60 : 20 : 20** — наш сбалансированный вариант по умолчанию. Меняйте, если руководство просит определённый состав."
+          ] },
+          { type: "p", text: "**Лидеры рейда:** используйте свою сильнейшую полную атакующую связку героев." },
+          { type: "p", text: "**Участники рейда:** соблюдайте лимиты войск, объявленные руководством." },
+          { type: "list", items: [
+            "7) Штаб викингов (Viking HQ): {howard} / {gordon} — **60 : 40** Соблюдайте лимит войск (~68 000)",
+            "8) PvE – Звери / Охота (Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
+          ] },
+          { type: "h", text: "🐺 PvE — ЗВЕРИ / ОХОТА (BEASTS / HUNTING)" },
+          { type: "p", text: "Помните про Ужасного волка: урона нужно немного, поэтому отправляйте минимум войск (даже 1), чтобы больше участников альянса могло присоединиться и получить награды за рейд." },
+          { type: "h", text: "🏰 {castleBattle} / {sanctuary} / ЗДАНИЯ" },
+          { type: "p", text: "При захвате зданий будьте готовы быстро переключиться:" },
+          { type: "callout", text: "**АТАКА → ЗАЩИТА**" },
+          { type: "sub", text: "⚔️ 1. ЗАХВАТ" },
+          { type: "p", text: "Присоединяйтесь к первому рейду с пресетом АТАКИ." },
+          { type: "p", text: "**Пример:** {amadeus} / {chenko} **50 : 20 : 30**" },
+          { type: "sub", text: "🛡️ 2. ПЕРЕКЛЮЧЕНИЕ НА ЗАЩИТУ" },
+          { type: "p", text: "Когда здание захвачено:" },
+          { type: "list", items: [
+            "**1.** Сразу отправьте ещё один марш с пресетом ЗАЩИТЫ. **Пример:** {gordon} / {howard} **60 : 20 : 20**",
+            "**2.** Следите, как ваш марш защиты движется к захваченному зданию.",
+            "**3.** Когда останется примерно 5 секунд времени марша — или по указанию руководства — отзовите свой исходный марш АТАКИ.",
+            "**4.** Ваш марш ЗАЩИТЫ прибывает и заменяет наступательный марш в гарнизоне."
+          ] },
+          { type: "callout", text: "🚫 **НЕ отзывайте марш атаки слишком рано.**" },
+          { type: "p", text: "**Захват → Отправка защиты → ~5 сек → Отзыв атаки → Защита прибывает**" },
+          { type: "p", text: "Так мы переходим от наступательного состава к оборонительному гарнизону, не ослабляя здание без необходимости." },
+          { type: "h", text: "🪖 ЛИМИТ ВОЙСК В ГАРНИЗОНЕ" },
+          { type: "p", text: "В штаб / святилище могут войти только 15 губернаторов. Поэтому не отправляйте автоматически свой максимальный марш в штаб, святилище или другие спорные здания." },
+          { type: "p", text: "Соблюдайте лимит войск, объявленный руководством." },
+          { type: "p", text: "**Обычная цель альянса: ~68 000 войск на игрока**" },
+          { type: "p", text: "Так в гарнизон поместится больше участников альянса с правильно настроенными маршами защиты, и они получат награды." },
+          { type: "callout", text: "⚠️ Если руководство объявит другой лимит, всегда следуйте объявленной цифре." },
+          { type: "h", text: "🎬 КАК ПЕРЕКЛЮЧИТЬСЯ С АТАКУЮЩИХ ГЕРОЕВ НА ЗАЩИТНЫХ" },
+          { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Видео найдено в интернете (TikTok @yelloe_hair) — не наши собственные съёмки." }
+        ]
+      },
+      th: {
+        title: "รูปแบบการจัดวางทหารและเคล็ดลับการระดมพล",
+        blocks: [
+          { type: "h", text: "🔬 ลำดับความสำคัญของการวิจัยและอัปเกรด" },
+          { type: "p", text: "จัดลำดับความสำคัญของค่าสถานะการต่อสู้เหล่านี้สำหรับการวิจัยและอัปเกรดชาร์มของเจ้าเมือง (Governor Charms):" },
+          { type: "list", items: [
+            "{infantry} — {health}",
+            "{archer} — {lethality}"
+          ] },
+          { type: "h", text: "💾 บันทึกพรีเซ็ตของคุณ" },
+          { type: "p", text: "ขึ้นอยู่กับความก้าวหน้าของคุณ คุณสามารถปลดล็อกได้สูงสุด 8 ช่องเพื่อบันทึกรูปแบบการจัดวางทหารไว้ล่วงหน้า รูปแบบที่แนะนำให้บันทึก:" },
+          { type: "callout", text: "อัตราส่วนทหารทั้งหมดเรียงตาม **{infantry} : {cavalry} : {archer}** บันทึกพรีเซ็ตแยกสำหรับฮีโร่แต่ละตัว โดยวางฮีโร่ไว้ซ้ายสุด / ตำแหน่งแรก" },
+          { type: "callout", text: "💡 ฮีโร่ซ้ายสุดสำคัญเมื่อเข้าร่วมการระดมพล เพราะทักษะการสำรวจ (Expedition skill) ที่เกี่ยวข้องจะช่วยเสริมการระดมพลนั้น" },
+          { type: "list", items: [
+            "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
+            "2) {bearHunt}: {amane} — **10 : 10 : 80** (หรือใกล้เคียงที่สุด)",
+            "3) {bearHunt}: {yeonwoo} — **10 : 10 : 80** (หรือใกล้เคียงที่สุด)",
+            "4) {bearHunt}: {amadeus} — **10 : 10 : 80** (หรือใกล้เคียงที่สุด)",
+            "5) โจมตี (PvP ทั่วไป): {amadeus} (หากพัฒนาแล้ว) หรือ {chenko} — **50 : 20 : 30**",
+            "6) ป้องกัน: {howard} / {gordon} — **60 : 20 : 20** คือค่าเริ่มต้นที่สมดุลของเรา ปรับเปลี่ยนเมื่อผู้นำต้องการรูปแบบเฉพาะ"
+          ] },
+          { type: "p", text: "**ผู้นำการระดมพล:** ใช้ทีมฮีโร่โจมตีที่แข็งแกร่งและครบชุดที่สุดของคุณ" },
+          { type: "p", text: "**ผู้เข้าร่วมการระดมพล:** โปรดปฏิบัติตามขีดจำกัดทหารที่ผู้นำประกาศ" },
+          { type: "list", items: [
+            "7) ศูนย์บัญชาการไวกิ้ง (Viking HQ): {howard} / {gordon} — **60 : 40** ปฏิบัติตามขีดจำกัดทหาร (~68,000)",
+            "8) PvE – สัตว์ร้าย / ล่า (Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
+          ] },
+          { type: "h", text: "🐺 PvE — สัตว์ร้าย / ล่า (BEASTS / HUNTING)" },
+          { type: "p", text: "จำไว้เกี่ยวกับหมาป่าสยองขวัญ: ไม่ต้องใช้ความเสียหายมาก ดังนั้นส่งทหารให้น้อยที่สุด (แม้แต่ 1) เพื่อให้สมาชิกพันธมิตรเข้าร่วมและได้รับรางวัลจากการระดมพลมากขึ้น" },
+          { type: "h", text: "🏰 {castleBattle} / {sanctuary} / สิ่งปลูกสร้าง" },
+          { type: "p", text: "เมื่อยึดสิ่งปลูกสร้าง ให้พร้อมสลับอย่างรวดเร็ว:" },
+          { type: "callout", text: "**โจมตี → ป้องกัน**" },
+          { type: "sub", text: "⚔️ 1. ยึดครอง" },
+          { type: "p", text: "เข้าร่วมการระดมพลแรกด้วยพรีเซ็ตโจมตีของคุณ" },
+          { type: "p", text: "**ตัวอย่าง:** {amadeus} / {chenko} **50 : 20 : 30**" },
+          { type: "sub", text: "🛡️ 2. สลับเป็นป้องกัน" },
+          { type: "p", text: "เมื่อยึดสิ่งปลูกสร้างได้แล้ว:" },
+          { type: "list", items: [
+            "**1.** ส่งการเดินทัพอีกชุดทันทีด้วยพรีเซ็ตป้องกันของคุณ **ตัวอย่าง:** {gordon} / {howard} **60 : 20 : 20**",
+            "**2.** ดูการเดินทัพป้องกันของคุณเคลื่อนไปยังสิ่งปลูกสร้างที่ยึดได้",
+            "**3.** เมื่อเหลือเวลาเดินทัพประมาณ 5 วินาที — หรือตามคำสั่งของผู้นำ — ให้เรียกกลับการเดินทัพโจมตีชุดเดิมของคุณ",
+            "**4.** การเดินทัพป้องกันของคุณมาถึงและเข้าประจำการคุ้มกันแทนการเดินทัพโจมตี"
+          ] },
+          { type: "callout", text: "🚫 **ห้ามเรียกกลับการเดินทัพโจมตีเร็วเกินไป**" },
+          { type: "p", text: "**ยึดครอง → ส่งป้องกัน → ~5 วินาที → เรียกกลับโจมตี → ป้องกันมาถึง**" },
+          { type: "p", text: "วิธีนี้ทำให้เราเปลี่ยนจากรูปแบบโจมตีเป็นการคุ้มกันเชิงป้องกันได้ โดยไม่ทำให้สิ่งปลูกสร้างอ่อนแอลงโดยไม่จำเป็น" },
+          { type: "h", text: "🪖 ขีดจำกัดทหารในการคุ้มกัน" },
+          { type: "p", text: "มีเพียงเจ้าเมือง 15 คนเท่านั้นที่เข้าศูนย์บัญชาการ / วิหารได้ ดังนั้นอย่าส่งการเดินทัพสูงสุดของคุณไปยังศูนย์บัญชาการ วิหาร หรือสิ่งปลูกสร้างที่ต้องแย่งชิงอื่น ๆ โดยอัตโนมัติ" },
+          { type: "p", text: "ปฏิบัติตามขีดจำกัดทหารที่ผู้นำประกาศ" },
+          { type: "p", text: "**เป้าหมายทั่วไปของพันธมิตร: ~68,000 ทหารต่อผู้เล่น**" },
+          { type: "p", text: "วิธีนี้ทำให้สมาชิกพันธมิตรที่ตั้งค่าการเดินทัพป้องกันอย่างถูกต้องเข้าไปได้มากขึ้นและได้รับรางวัล" },
+          { type: "callout", text: "⚠️ หากผู้นำประกาศขีดจำกัดที่ต่างออกไป ให้ทำตามจำนวนที่ประกาศเสมอ" },
+          { type: "h", text: "🎬 วิธีสลับจากฮีโร่โจมตีเป็นฮีโร่ป้องกัน" },
+          { type: "video", src: "figures/switch_hero.mp4", caption: "📎 วิดีโอจากอินเทอร์เน็ต (TikTok @yelloe_hair) — ไม่ใช่ฟุตเทจของเราเอง" }
+        ]
+      },
+      ar: {
+        title: "القوات ونصائح الحشد",
+        blocks: [
+          { type: "h", text: "🔬 أولويات البحث والترقية" },
+          { type: "p", text: "أعطِ الأولوية لهذه السمات القتالية عند البحث وترقية تمائم الحاكم (Governor Charms):" },
+          { type: "list", items: [
+            "{infantry} — {health}",
+            "{archer} — {lethality}"
+          ] },
+          { type: "h", text: "💾 احفظ إعداداتك المسبقة (Presets)" },
+          { type: "p", text: "حسب تقدمك، يمكنك فتح ما يصل إلى 8 خانات لحفظ تشكيلات القوات مسبقًا. التشكيلات الموصى بحفظها:" },
+          { type: "callout", text: "جميع نسب القوات بترتيب **{infantry} : {cavalry} : {archer}**. احفظ إعدادًا مسبقًا منفصلًا لكل بطل، مع وضعه في أقصى اليسار / الموضع الأول." },
+          { type: "callout", text: "💡 البطل في أقصى اليسار مهم عند الانضمام إلى الحشود، لأن مهارة الحملة (Expedition skill) المرتبطة به تساهم في الحشد." },
+          { type: "list", items: [
+            "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
+            "2) {bearHunt}: {amane} — **10 : 10 : 80** (أو أقرب ما يمكن)",
+            "3) {bearHunt}: {yeonwoo} — **10 : 10 : 80** (أو أقرب ما يمكن)",
+            "4) {bearHunt}: {amadeus} — **10 : 10 : 80** (أو أقرب ما يمكن)",
+            "5) الهجوم (PvP عام): {amadeus} (إن تم تطويره) أو {chenko} — **50 : 20 : 30**",
+            "6) الدفاع: {howard} / {gordon} — **60 : 20 : 20** هو إعدادنا الافتراضي المتوازن. عدّله عندما تطلب القيادة تشكيلًا محددًا."
+          ] },
+          { type: "p", text: "**قادة الحشد:** استخدم أقوى تشكيلة أبطال هجومية كاملة لديك." },
+          { type: "p", text: "**المنضمون إلى الحشد:** يُرجى الالتزام بحدود القوات التي تعلنها القيادة." },
+          { type: "list", items: [
+            "7) مقر الفايكنغ (Viking HQ): {howard} / {gordon} — **60 : 40** التزم بحد القوات (~68,000)",
+            "8) PvE – الوحوش / الصيد (Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
+          ] },
+          { type: "h", text: "🐺 PvE — الوحوش / الصيد (BEASTS / HUNTING)" },
+          { type: "p", text: "تذكّر بخصوص الذئب المخيف: لا حاجة إلى ضرر كبير، لذا أرسل أقل عدد ممكن من القوات (حتى 1) ليتمكن مزيد من أعضاء التحالف من الانضمام والاستفادة من مكافآت الحشد." },
+          { type: "h", text: "🏰 {castleBattle} / {sanctuary} / المباني" },
+          { type: "p", text: "عند السيطرة على المباني، كن مستعدًا للتبديل بسرعة:" },
+          { type: "callout", text: "**هجوم ← دفاع**" },
+          { type: "sub", text: "⚔️ 1. السيطرة" },
+          { type: "p", text: "انضم إلى الحشد الأول باستخدام إعداد الهجوم المسبق." },
+          { type: "p", text: "**مثال:** {amadeus} / {chenko} **50 : 20 : 30**" },
+          { type: "sub", text: "🛡️ 2. التبديل إلى الدفاع" },
+          { type: "p", text: "بعد السيطرة على المبنى:" },
+          { type: "list", items: [
+            "**1.** أرسل فورًا طابورًا آخر باستخدام إعداد الدفاع المسبق. **مثال:** {gordon} / {howard} **60 : 20 : 20**",
+            "**2.** راقب طابور الدفاع وهو يتجه نحو المبنى الذي تمت السيطرة عليه.",
+            "**3.** عندما يتبقى نحو 5 ثوانٍ من وقت الطابور — أو حسب تعليمات القيادة — قم بـ**استدعاء** طابور الهجوم الأصلي.",
+            "**4.** يصل طابور الدفاع ويحل محل طابور الهجوم في الحامية."
+          ] },
+          { type: "callout", text: "🚫 **لا تقم بـ استدعاء طابور الهجوم مبكرًا جدًا.**" },
+          { type: "p", text: "**السيطرة ← إرسال الدفاع ← ~5 ثوانٍ ← استدعاء الهجوم ← وصول الدفاع**" },
+          { type: "p", text: "يتيح لنا ذلك الانتقال من التشكيل الهجومي إلى حامية دفاعية دون إضعاف المبنى دون داعٍ." },
+          { type: "h", text: "🪖 الحد الأقصى للقوات في الحامية" },
+          { type: "p", text: "يمكن لـ15 حاكمًا فقط دخول المقر / المأوى. لذا لا ترسل طابورك الأقصى تلقائيًا إلى المقر أو المأوى أو غيرهما من المباني المتنازع عليها." },
+          { type: "p", text: "التزم بالحد الأقصى للقوات الذي تعلنه القيادة." },
+          { type: "p", text: "**الهدف المعتاد للتحالف: ~68,000 من القوات لكل لاعب**" },
+          { type: "p", text: "يتيح ذلك لعدد أكبر من أعضاء التحالف ممن أعدّوا طوابير دفاع مضبوطة جيدًا أن يدخلوا الحامية ويحصلوا على المكافآت." },
+          { type: "callout", text: "⚠️ إذا أعلنت القيادة حدًا مختلفًا، فالتزم دائمًا بالرقم المعلن." },
+          { type: "h", text: "🎬 كيف تبدّل من أبطال الهجوم إلى أبطال الدفاع" },
+          { type: "video", src: "figures/switch_hero.mp4", caption: "📎 فيديو من الإنترنت (TikTok @yelloe_hair) — ليس من تصويرنا." }
+        ]
+      },
     }
   }
 };
