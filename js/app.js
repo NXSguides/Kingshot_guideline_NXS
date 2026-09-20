@@ -248,6 +248,14 @@ function renderGuideRow() {
 
 /* ---- Side menu (guide list) ------------------------------------------ */
 
+/* Order of guides in the side menu. Guides not listed here are added at the end. */
+const GUIDE_ORDER = ["recent-events", "formations-rally-tips", "bear-hunt", "swordland-showdown"];
+
+function guideKeys() {
+  const all = Object.keys(GUIDES);
+  return GUIDE_ORDER.filter((k) => all.includes(k)).concat(all.filter((k) => !GUIDE_ORDER.includes(k)));
+}
+
 function initMenu() {
   const overlay = document.createElement("div");
   overlay.id = "menuOverlay";
@@ -264,7 +272,7 @@ function initMenu() {
 function renderMenu() {
   const list = document.getElementById("menuList");
   list.innerHTML = "";
-  Object.keys(GUIDES).forEach((key) => {
+  guideKeys().forEach((key) => {
     const g = GUIDES[key];
     const item = document.createElement("button");
     item.type = "button";
