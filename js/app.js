@@ -237,65 +237,27 @@ function renderPicker() {
 function renderGuideRow() {
   const row = document.getElementById("guideRow");
   row.innerHTML = "";
-  const g = GUIDES[currentGuide];
-  const btn = document.createElement("button");
-  btn.className = "guide-chip menu-btn";
-  btn.title = "Guides";
-  btn.innerHTML = `<span class="emoji">☰</span><span class="emoji">${g.emoji}</span><span>${escapeHtml(t(g.name) || currentGuide)}</span>`;
-  btn.onclick = openMenu;
-  row.appendChild(btn);
+  guideKeys().forEach((key) => {
+    const g = GUIDES[key];
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "guide-chip" + (key === currentGuide ? " active" : "");
+    btn.innerHTML = `<span class="emoji">${g.emoji}</span><span dir="auto">${escapeHtml(t(g.name) || key)}</span>`;
+    btn.onclick = () => {
+      currentGuide = key;
+      persistPrefs();
+      renderAll();
+    };
+    row.appendChild(btn);
+  });
 }
 
-/* ---- Side menu (guide list) ------------------------------------------ */
-
-/* Order of guides in the side menu. Guides not listed here are added at the end. */
+/* Order of the guide buttons at the top. Guides not listed here are added at the end. */
 const GUIDE_ORDER = ["recent-events", "formations-rally-tips", "bear-hunt", "swordland-showdown"];
 
 function guideKeys() {
   const all = Object.keys(GUIDES);
   return GUIDE_ORDER.filter((k) => all.includes(k)).concat(all.filter((k) => !GUIDE_ORDER.includes(k)));
-}
-
-function initMenu() {
-  const overlay = document.createElement("div");
-  overlay.id = "menuOverlay";
-  overlay.onclick = closeMenu;
-  const panel = document.createElement("nav");
-  panel.id = "menuPanel";
-  panel.innerHTML = '<div class="menu-head"><span>Guides</span><button type="button" id="menuClose" aria-label="Close">✕</button></div><div id="menuList"></div>';
-  document.body.appendChild(overlay);
-  document.body.appendChild(panel);
-  document.getElementById("menuClose").onclick = closeMenu;
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
-}
-
-function renderMenu() {
-  const list = document.getElementById("menuList");
-  list.innerHTML = "";
-  guideKeys().forEach((key) => {
-    const g = GUIDES[key];
-    const item = document.createElement("button");
-    item.type = "button";
-    item.className = "menu-item" + (key === currentGuide ? " active" : "");
-    item.innerHTML = `<span class="emoji">${g.emoji}</span><span dir="auto">${escapeHtml(t(g.name) || key)}</span>`;
-    item.onclick = () => {
-      currentGuide = key;
-      persistPrefs();
-      closeMenu();
-      renderAll();
-      window.scrollTo(0, 0);
-    };
-    list.appendChild(item);
-  });
-}
-
-function openMenu() {
-  renderMenu();
-  document.body.classList.add("menu-open");
-}
-
-function closeMenu() {
-  document.body.classList.remove("menu-open");
 }
 
 function renderLeaders(guide) {
@@ -436,7 +398,6 @@ function renderAll() {
 
 restorePrefs();
 initTheme();
-initMenu();
 renderAll();
 
 window.addEventListener("hashchange", () => {
