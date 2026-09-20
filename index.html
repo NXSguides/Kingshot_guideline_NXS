@@ -106,6 +106,7 @@
 
     if (!REMEMBER_LOGIN) { try { localStorage.removeItem(KEY); } catch (e) {} }
     if (REMEMBER_LOGIN && saved() === HASH) { unlock(); return; }
+    unlock(); return; // 暫時關閉密碼（要恢復時刪掉這一行）
 
     gate.hidden = false;
     document.getElementById("gatePw").focus();
