@@ -565,17 +565,104 @@ const GUIDES = {
       de: {
         title: "Aktuelle Allianz-Events",
         blocks: [
-          { type: "h", text: "📅 LEGION 2 · SONNTAG, 20.09" },
-          { type: "p", text: "**Koordinator:** PAPA (67.6M)" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Legion 2" },
+          { type: "h", text: "📅 LEGION 2 — SCHWERTLAND-SHOWDOWN SPIELERZUWEISUNGEN" },
+          { type: "p", text: "**Datum:** Sonntag, 20.09 · **Koordinator:** PAPA (67.6M)" },
           { type: "p", text: "Legion 2 ist eine separate Schlacht. Sie läuft gleichzeitig, aber auf einem eigenen Schlachtfeld. Sie hat keinen Einfluss auf das Ergebnis von Legion 1 oder auf die Allianzbelohnungen." },
           { type: "callout", text: "**Diesmal gibt es keine Ersatzspieler.** Alle unten aufgeführten Spieler gehören zur Hauptaufstellung." },
+
           { type: "h", text: "🎯 DOKTRIN-ERINNERUNG" },
           { type: "p", text: "Die stärksten Spieler greifen an und erobern. Sobald ein Gebäude die Seite gewechselt hat, hält ein **Garnisonskommandant** es, während das Eroberungsteam weiterzieht. Garnisonskommandanten verlassen ihren Posten nicht, um Kills nachzujagen. Eroberungsteams bleiben beweglich und aggressiv." },
-          { type: "h", text: "📋 SPIELERZUWEISUNGEN" },
-          { type: "img", src: "figures/Legion_2.png", alt: "Spielerzuweisungen" },
-          { type: "h", text: "📣 KOORDINATOR-NOTIZEN (PAPA)" },
+
+          { type: "sub", text: "#4 {belltower} (Nia) — Eroberungsgeschwindigkeit" },
           { type: "list", items: [
-            "Gib Ziele mit Kartennummer und Spielername durch: „#3 {reformation} firebaugh, Rally jetzt.“ / „kyking, Druck auf gegnerisches #10 {sanctum}.“",
+            "**Nia (56M)** — Eroberungsleitung. Erobere #4 {belltower} gleich zu Beginn zusammen mit Garnet. Sobald es die Seite gewechselt hat, übergib an ELR als Garnisonskommandant und wechsle zur Verstärkung zu #7 {stables} (Jack) oder #8 {sanctum} (Sparrow). Bleib beweglich.",
+            "**Garnet (56M)** — Eroberungsunterstützung. Schließe dich zu Beginn Nia an und erobere #4 {belltower}. Sobald es die Seite gewechselt hat, übergib an ELR und zieh mit Nia weiter zu #7 {stables} (Jack) oder #8 {sanctum} (Sparrow). Bleib beweglich.",
+            "**ELR (55.7M)** — Garnisonskommandant. Postiere dich zu Beginn in der Nähe von #4 {belltower}. Sobald Nia es erobert hat, übernimm das Kommando und halte es. Verlasse es nicht, außer PAPA ruft eine Rotation aus. Eroberungsgeschwindigkeit zählt das ganze Match."
+          ]},
+
+          { type: "sub", text: "#7 {stables} (Jack) — Teleport-Abklingzeit" },
+          { type: "list", items: [
+            "**Jack (54.6M)** — Eroberungsleitung. Erobere #7 {stables} gleich zu Beginn zusammen mit Raccoon. Sobald es die Seite gewechselt hat, übergib an Vlad DRAC als Garnisonskommandant und verstärke die Mitte oder #8 {sanctum} (Sparrow) und #10 {sanctum} (L). Bleib beweglich.",
+            "**Raccoon (54M)** — Eroberungsunterstützung. Schließe dich zu Beginn Jack an und erobere #7 {stables}. Sobald es die Seite gewechselt hat, übergib an Vlad DRAC und verstärke mit Jack die Mitte. Bleib beweglich.",
+            "**Vlad DRAC (53.6M)** — Garnisonskommandant. Postiere dich zu Beginn in der Nähe von #7 {stables}. Sobald Jack es erobert hat, übernimm das Kommando und halte es. Verlasse es nicht, außer PAPA ruft eine Rotation aus. Die Verringerung der Teleport-Abklingzeit muss aktiv bleiben."
+          ]},
+
+          { type: "sub", text: "#1 {swordshrine} (kyking) — Kern, meiste Punkte" },
+          { type: "list", items: [
+            "**kyking (88M)** — Haupt-Rally-Anführer. Führe die Eroberungswelle auf #1 {swordshrine} zusammen mit 꾸리잘린 쥐 und BOO an. Sobald es die Seite gewechselt hat, übergib an PERCIVAL als Garnisonskommandant und setze mit 꾸리잘린 쥐 und BOO #3 {reformation} (firebaugh) oder den Gegner bei #8 {sanctum} (Sparrow) und #10 {sanctum} (L) unter Druck. Bleib nicht in einem Gebäude sitzen.",
+            "**꾸리잘린 쥐 (75M)** — Rally-Anführer. Schließe dich der Eroberungswelle von kyking auf #1 {swordshrine} an. Nach der Übergabe an PERCIVAL zieh mit kyking und BOO los, um #3 {reformation} (firebaugh) oder den gegnerischen Kern unter Druck zu setzen. Bleib beweglich.",
+            "**BOO (71.1M)** — Rally-Anführer. Schließe dich der Eroberungswelle von kyking auf #1 {swordshrine} an. Nach der Übergabe an PERCIVAL zieh mit kyking und 꾸리잘린 쥐 los, um #3 {reformation} (firebaugh) oder den gegnerischen Kern unter Druck zu setzen. Bleib beweglich.",
+            "**PERCIVAL (70.7M)** — Garnisonskommandant. Postiere dich vor 15:00 in der Nähe von #1 {swordshrine}. Sobald kyking es erobert hat, übernimm das Kommando und halte es, mit 『Noctis』 als Verstärkung. Verlasse #1 {swordshrine} nicht, außer PAPA ruft eine Rotation aus. Du bist der Anker des Kerns.",
+            "**『Noctis』 (62.6M)** — Verstärkung. Postiere dich in der Nähe von #1 {swordshrine} und verstärke PERCIVAL, sobald das Gebäude die Seite gewechselt hat. Halte zusammen mit ihm die Stellung und verlasse sie nicht, außer PAPA ruft eine Rotation aus."
+          ]},
+
+          { type: "sub", text: "#3 {reformation} (firebaugh) — Angriffs-/Verteidigungsbonus" },
+          { type: "list", items: [
+            "**firebaugh (70.5M)** — Haupt-Rally-Anführer. Führe die Eroberungswelle auf #3 {reformation} zusammen mit PAPA an. Sobald es die Seite gewechselt hat, übergib an Meow als Garnisonskommandant und verstärke mit PAPA #1 {swordshrine} (PERCIVAL) oder setze den gegnerischen Kern unter Druck. Bleib beweglich.",
+            "**PAPA (67.6M)** — Koordinator und Rally-Anführer. Gib Ziele im Squad Chat durch. Schließe dich der Eroberungswelle von firebaugh auf #3 {reformation} an. Nach der Übergabe an Meow verstärke mit firebaugh #1 {swordshrine} (PERCIVAL) oder setze den gegnerischen Kern unter Druck. Deine Aufgabe ist es, die Karte zu lesen, das nächste Ziel auszurufen und die Eroberungsteams in Bewegung zu halten.",
+            "**Meow (66.2M)** — Garnisonskommandant. Postiere dich vor 15:00 in der Nähe von #3 {reformation}. Sobald firebaugh es erobert hat, übernimm das Kommando und halte es. Verlasse #3 {reformation} nicht, außer PAPA ruft eine Rotation aus. Der Angriffs- und Verteidigungsbonus von #3 {reformation} muss aktiv bleiben."
+          ]},
+
+          { type: "sub", text: "#8 {sanctum} (Sparrow) — Kern" },
+          { type: "list", items: [
+            "**Sparrow (59.3M)** — Eroberungsleitung. Erobere #8 {sanctum} gleich zu Beginn zusammen mit BigMedicMike. Sobald es die Seite gewechselt hat, übergib an otoki als Garnisonskommandant und verstärke #10 {sanctum} (L) oder #1 {swordshrine} (PERCIVAL). Bleib beweglich.",
+            "**BigMedicMike (58.3M)** — Eroberungsunterstützung. Schließe dich zu Beginn Sparrow an und erobere #8 {sanctum}. Sobald es die Seite gewechselt hat, übergib an otoki und verstärke mit Sparrow #10 {sanctum} (L) oder #1 {swordshrine} (PERCIVAL). Bleib beweglich.",
+            "**otoki (51.9M)** — Garnisonskommandant. Postiere dich zu Beginn in der Nähe von #8 {sanctum}. Sobald Sparrow es erobert hat, übernimm das Kommando und halte es. Verlasse es nicht, außer PAPA ruft eine Rotation aus. #8 {sanctum} gehört zum Kern."
+          ]},
+
+          { type: "sub", text: "#10 {sanctum} (L) — Kern" },
+          { type: "list", items: [
+            "**L (49.4M)** — Eroberungsleitung. Erobere #10 {sanctum} gleich zu Beginn zusammen mit Beby. Sobald es die Seite gewechselt hat, übergib an Rover88 als Garnisonskommandant und verstärke #1 {swordshrine} (PERCIVAL). Bleib beweglich.",
+            "**Beby (49.3M)** — Eroberungsunterstützung. Schließe dich zu Beginn L an und erobere #10 {sanctum}. Sobald es die Seite gewechselt hat, übergib an Rover88 und verstärke mit L #1 {swordshrine} (PERCIVAL). Bleib beweglich.",
+            "**Rover88 (48.9M)** — Garnisonskommandant. Postiere dich zu Beginn in der Nähe von #10 {sanctum}. Sobald L es erobert hat, übernimm das Kommando und halte es. Verlasse es nicht, außer PAPA ruft eine Rotation aus. #10 {sanctum} gehört zum Kern."
+          ]},
+
+          { type: "sub", text: "#2 {mercenary} (MTP) — Söldnerangriffe" },
+          { type: "list", items: [
+            "**MTP (65.9M)** — Kapitän. Postiere dich vor 15:00 in der Nähe von #2 {mercenary}. Sobald es verfügbar ist, nimm es ein und setze alle 7 Minuten Söldner gegen den gegnerischen Kern ein. Stimme das Timing mit PAPA im Squad Chat ab."
+          ]},
+
+          { type: "sub", text: "#5 {abbey} (debe 06)" },
+          { type: "list", items: [
+            "**debe 06 (45.2M)** — Eroberung. Erobere #5 {abbey} zu Beginn zusammen mit beeQueen. Sobald es die Seite gewechselt hat, hält beeQueen es und du verstärkst bei Bedarf #6 {abbey} (lovely mw) oder #9 {abbey} (Cvk). Bleib beweglich.",
+            "**beeQueen (43.2M)** — Garnisonskommandant. Postiere dich zu Beginn in der Nähe von #5 {abbey}. Sobald debe 06 es erobert hat, übernimm das Kommando und halte es. Verlasse es nicht, außer PAPA ruft eine Rotation aus."
+          ]},
+
+          { type: "sub", text: "#6 {abbey} (lovely mw)" },
+          { type: "list", items: [
+            "**lovely mw (43.2M)** — Eroberung. Erobere #6 {abbey} zu Beginn zusammen mit BravuS. Sobald es die Seite gewechselt hat, hält BravuS es und du verstärkst bei Bedarf #5 {abbey} (debe 06) oder #9 {abbey} (Cvk). Bleib beweglich.",
+            "**BravuS (42.2M)** — Garnisonskommandant. Postiere dich zu Beginn in der Nähe von #6 {abbey}. Sobald lovely mw es erobert hat, übernimm das Kommando und halte es. Verlasse es nicht, außer PAPA ruft eine Rotation aus. Hilf beim Einsammeln fallengelassener Punkte, wenn es sicher ist."
+          ]},
+
+          { type: "sub", text: "#9 {abbey} (Cvk)" },
+          { type: "list", items: [
+            "**Cvk (39.2M)** — Erobern und Halten. Erobere #9 {abbey} zu Beginn und halte es. Verlasse es nicht, außer PAPA ruft eine Rotation aus. Sammle fallengelassene Punkte ein, wenn es sicher ist."
+          ]},
+
+          { type: "sub", text: "#11 {abbey} (Floating)" },
+          { type: "list", items: [
+            "**Floating** — Decke #11 {abbey} ab und sei flexibel, wo immer PAPA dich ruft. Verstärke bei Bedarf den Kern, erobere bei Bedarf {abbey}en, sammle fallengelassene Punkte ein. Flex-Truppe."
+          ]},
+
+          { type: "h", text: "🔎 SCHNELLÜBERSICHT NACH GEBÄUDE" },
+          { type: "list", items: [
+            "#4 {belltower} (Nia) — Eroberung: Nia, Garnet. Garnison: ELR.",
+            "#7 {stables} (Jack) — Eroberung: Jack, Raccoon. Garnison: Vlad DRAC.",
+            "#1 {swordshrine} (kyking) — Eroberung: kyking, 꾸리잘린 쥐, BOO. Garnison: PERCIVAL. Verstärkung: 『Noctis』.",
+            "#3 {reformation} (firebaugh) — Eroberung: firebaugh, PAPA. Garnison: Meow.",
+            "#8 {sanctum} (Sparrow) — Eroberung: Sparrow, BigMedicMike. Garnison: otoki.",
+            "#10 {sanctum} (L) — Eroberung: L, Beby. Garnison: Rover88.",
+            "#2 {mercenary} (MTP) — Kapitän: MTP.",
+            "#5 {abbey} (debe 06) — Eroberung: debe 06. Garnison: beeQueen.",
+            "#6 {abbey} (lovely mw) — Eroberung: lovely mw. Garnison: BravuS.",
+            "#9 {abbey} (Cvk) — Erobern und Halten: Cvk.",
+            "#11 {abbey} (Floating) — Floating."
+          ]},
+
+          { type: "h", text: "📣 KOORDINATOR-NOTIZEN FÜR PAPA" },
+          { type: "list", items: [
+            "Gib Ziele mit Kartennummer und Spielername durch: „#3 {reformation} firebaugh, Rally jetzt.“ / „kyking, Druck auf das gegnerische #10 {sanctum}.“",
             "Halte die Eroberungsteams beweglich. Lass kyking, 꾸리잘린 쥐, BOO und firebaugh nicht in Gebäuden sitzen.",
             "Wechsle Garnisonskommandanten nur, wenn nötig. Jeder Wechsel riskiert den Verlust des Gebäudes.",
             "Behalte die Abklingzeit von #2 {mercenary} im Blick. MTP nutzt sie alle 7 Minuten.",
@@ -583,6 +670,7 @@ const GUIDES = {
             "Erinnere alle: Legion 2 ist eine separate Schlacht mit eigenen Belohnungen. Gewinnt euer eigenes Scoreboard.",
             "Diesmal gibt es keine Ersatzspieler. Alle auf der Liste gehören zur Hauptaufstellung. Kommt jemand zu spät, springen Flex-Spieler für seinen Platz ein."
           ]},
+
           { type: "h", text: "📌 ABSCHLUSSHINWEISE" },
           { type: "list", items: [
             "Alle Spieler müssen zum Start online sein.",
@@ -594,6 +682,7 @@ const GUIDES = {
             "**Tauscht niemals ein Kerngebäude gegen Kills ein.**"
           ]},
           { type: "p", text: "Viel Glück am Sonntag!" },
+
           { type: "h", text: "🗺️ KARTE" },
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Karte" },
           { type: "h", text: "🧭 ZUGEWIESENE ZONEN" },
@@ -603,15 +692,102 @@ const GUIDES = {
       fr: {
         title: "Événements récents de l'alliance",
         blocks: [
-          { type: "h", text: "📅 LEGION 2 · DIMANCHE 20.09" },
-          { type: "p", text: "**Coordinateur :** PAPA (67.6M)" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Legion 2" },
+          { type: "h", text: "📅 LEGION 2 — AFFECTATIONS DES JOUEURS · CHOC DU GLAIVE" },
+          { type: "p", text: "**Date :** dimanche 20.09 · **Coordinateur :** PAPA (67.6M)" },
           { type: "p", text: "La Legion 2 est une bataille distincte. Elle se déroule en même temps, mais sur son propre champ de bataille. Elle n'a aucun effet sur le résultat de la Legion 1 ni sur les récompenses d'alliance." },
           { type: "callout", text: "**Pas de remplaçants cette fois.** Tous les joueurs listés ci-dessous font partie de l'équipe principale." },
+
           { type: "h", text: "🎯 RAPPEL DE LA DOCTRINE" },
           { type: "p", text: "Les joueurs les plus forts attaquent et capturent. Une fois qu'un bâtiment change de camp, un **capitaine de garnison** le tient pendant que l'équipe de capture avance. Les capitaines de garnison ne partent pas chasser des kills. Les équipes de capture restent mobiles et agressives." },
-          { type: "h", text: "📋 AFFECTATIONS DES JOUEURS" },
-          { type: "img", src: "figures/Legion_2.png", alt: "Affectations des joueurs" },
-          { type: "h", text: "📣 NOTES DU COORDINATEUR (PAPA)" },
+
+          { type: "sub", text: "#4 {belltower} (Nia) — Vitesse de capture" },
+          { type: "list", items: [
+            "**Nia (56M)** — Capture principale. Capturez #4 {belltower} dès le début avec Garnet. Une fois le bâtiment capturé, passez le relais à ELR comme capitaine de garnison et rejoignez #7 {stables} (Jack) ou #8 {sanctum} (Sparrow) en renfort. Restez mobile.",
+            "**Garnet (56M)** — Soutien à la capture. Rejoignez Nia au début et capturez #4 {belltower}. Une fois le bâtiment capturé, passez le relais à ELR et rejoignez avec Nia #7 {stables} (Jack) ou #8 {sanctum} (Sparrow). Restez mobile.",
+            "**ELR (55.7M)** — Capitaine de garnison. Placez-vous près de #4 {belltower} dès le début. Une fois la capture faite par Nia, prenez le commandement et tenez le bâtiment. Ne partez pas sauf si PAPA ordonne une rotation. La vitesse de capture compte pendant tout le match."
+          ]},
+
+          { type: "sub", text: "#7 {stables} (Jack) — Temps de recharge de téléportation" },
+          { type: "list", items: [
+            "**Jack (54.6M)** — Capture principale. Capturez #7 {stables} dès le début avec Raccoon. Une fois le bâtiment capturé, passez le relais à Vlad DRAC comme capitaine de garnison et renforcez le centre, ou #8 {sanctum} (Sparrow) et #10 {sanctum} (L). Restez mobile.",
+            "**Raccoon (54M)** — Soutien à la capture. Rejoignez Jack au début et capturez #7 {stables}. Une fois le bâtiment capturé, passez le relais à Vlad DRAC et renforcez le centre avec Jack. Restez mobile.",
+            "**Vlad DRAC (53.6M)** — Capitaine de garnison. Placez-vous près de #7 {stables} dès le début. Une fois la capture faite par Jack, prenez le commandement et tenez le bâtiment. Ne partez pas sauf si PAPA ordonne une rotation. La réduction du temps de recharge de téléportation doit rester active."
+          ]},
+
+          { type: "sub", text: "#1 {swordshrine} (kyking) — Cœur, points les plus élevés" },
+          { type: "list", items: [
+            "**kyking (88M)** — Chef de ralliement principal. Menez la vague de capture sur #1 {swordshrine} avec 꾸리잘린 쥐 et BOO. Une fois le bâtiment capturé, passez le relais à PERCIVAL comme capitaine de garnison et mettez la pression, avec 꾸리잘린 쥐 et BOO, sur #3 {reformation} (firebaugh) ou sur l'ennemi à #8 {sanctum} (Sparrow) et #10 {sanctum} (L). Ne restez pas enfermé dans un bâtiment.",
+            "**꾸리잘린 쥐 (75M)** — Chef de ralliement. Rejoignez la vague de capture de kyking sur #1 {swordshrine}. Après le relais à PERCIVAL, mettez la pression avec kyking et BOO sur #3 {reformation} (firebaugh) ou sur le cœur ennemi. Restez mobile.",
+            "**BOO (71.1M)** — Chef de ralliement. Rejoignez la vague de capture de kyking sur #1 {swordshrine}. Après le relais à PERCIVAL, mettez la pression avec kyking et 꾸리잘린 쥐 sur #3 {reformation} (firebaugh) ou sur le cœur ennemi. Restez mobile.",
+            "**PERCIVAL (70.7M)** — Capitaine de garnison. Placez-vous près de #1 {swordshrine} avant 15:00. Une fois la capture faite par kyking, prenez le commandement et tenez le bâtiment, avec 『Noctis』 en renfort. Ne quittez pas #1 {swordshrine} sauf si PAPA ordonne une rotation. Vous êtes l'ancre du cœur.",
+            "**『Noctis』 (62.6M)** — Renfort. Placez-vous près de #1 {swordshrine} et renforcez PERCIVAL dès que le bâtiment est capturé. Tenez la position avec lui et ne partez pas sauf si PAPA ordonne une rotation."
+          ]},
+
+          { type: "sub", text: "#3 {reformation} (firebaugh) — Bonus d'attaque/défense" },
+          { type: "list", items: [
+            "**firebaugh (70.5M)** — Chef de ralliement principal. Menez la vague de capture sur #3 {reformation} avec PAPA. Une fois le bâtiment capturé, passez le relais à Meow comme capitaine de garnison et renforcez avec PAPA #1 {swordshrine} (PERCIVAL) ou mettez la pression sur le cœur ennemi. Restez mobile.",
+            "**PAPA (67.6M)** — Coordinateur et chef de ralliement. Annoncez les cibles dans le chat d'escouade. Rejoignez la vague de capture de firebaugh sur #3 {reformation}. Après le relais à Meow, renforcez avec firebaugh #1 {swordshrine} (PERCIVAL) ou mettez la pression sur le cœur ennemi. Votre rôle : lire la carte, annoncer le prochain objectif et garder les équipes de capture en mouvement.",
+            "**Meow (66.2M)** — Capitaine de garnison. Placez-vous près de #3 {reformation} avant 15:00. Une fois la capture faite par firebaugh, prenez le commandement et tenez le bâtiment. Ne quittez pas #3 {reformation} sauf si PAPA ordonne une rotation. Le bonus d'attaque et de défense de #3 {reformation} doit rester actif."
+          ]},
+
+          { type: "sub", text: "#8 {sanctum} (Sparrow) — Cœur" },
+          { type: "list", items: [
+            "**Sparrow (59.3M)** — Capture principale. Capturez #8 {sanctum} dès le début avec BigMedicMike. Une fois le bâtiment capturé, passez le relais à otoki comme capitaine de garnison et renforcez #10 {sanctum} (L) ou #1 {swordshrine} (PERCIVAL). Restez mobile.",
+            "**BigMedicMike (58.3M)** — Soutien à la capture. Rejoignez Sparrow au début et capturez #8 {sanctum}. Une fois le bâtiment capturé, passez le relais à otoki et renforcez avec Sparrow #10 {sanctum} (L) ou #1 {swordshrine} (PERCIVAL). Restez mobile.",
+            "**otoki (51.9M)** — Capitaine de garnison. Placez-vous près de #8 {sanctum} dès le début. Une fois la capture faite par Sparrow, prenez le commandement et tenez le bâtiment. Ne partez pas sauf si PAPA ordonne une rotation. #8 {sanctum} fait partie du cœur."
+          ]},
+
+          { type: "sub", text: "#10 {sanctum} (L) — Cœur" },
+          { type: "list", items: [
+            "**L (49.4M)** — Capture principale. Capturez #10 {sanctum} dès le début avec Beby. Une fois le bâtiment capturé, passez le relais à Rover88 comme capitaine de garnison et renforcez #1 {swordshrine} (PERCIVAL). Restez mobile.",
+            "**Beby (49.3M)** — Soutien à la capture. Rejoignez L au début et capturez #10 {sanctum}. Une fois le bâtiment capturé, passez le relais à Rover88 et renforcez avec L #1 {swordshrine} (PERCIVAL). Restez mobile.",
+            "**Rover88 (48.9M)** — Capitaine de garnison. Placez-vous près de #10 {sanctum} dès le début. Une fois la capture faite par L, prenez le commandement et tenez le bâtiment. Ne partez pas sauf si PAPA ordonne une rotation. #10 {sanctum} fait partie du cœur."
+          ]},
+
+          { type: "sub", text: "#2 {mercenary} (MTP) — Attaques de mercenaires" },
+          { type: "list", items: [
+            "**MTP (65.9M)** — Capitaine. Placez-vous près de #2 {mercenary} avant 15:00. Dès qu'il est disponible, prenez-le et utilisez les mercenaires toutes les 7 minutes sur le cœur ennemi. Coordonnez le timing avec PAPA dans le chat d'escouade."
+          ]},
+
+          { type: "sub", text: "#5 {abbey} (debe 06)" },
+          { type: "list", items: [
+            "**debe 06 (45.2M)** — Capture. Capturez #5 {abbey} dès le début avec beeQueen. Une fois le bâtiment capturé, beeQueen le tient et vous renforcez si besoin #6 {abbey} (lovely mw) ou #9 {abbey} (Cvk). Restez mobile.",
+            "**beeQueen (43.2M)** — Capitaine de garnison. Placez-vous près de #5 {abbey} dès le début. Une fois la capture faite par debe 06, prenez le commandement et tenez le bâtiment. Ne partez pas sauf si PAPA ordonne une rotation."
+          ]},
+
+          { type: "sub", text: "#6 {abbey} (lovely mw)" },
+          { type: "list", items: [
+            "**lovely mw (43.2M)** — Capture. Capturez #6 {abbey} dès le début avec BravuS. Une fois le bâtiment capturé, BravuS le tient et vous renforcez si besoin #5 {abbey} (debe 06) ou #9 {abbey} (Cvk). Restez mobile.",
+            "**BravuS (42.2M)** — Capitaine de garnison. Placez-vous près de #6 {abbey} dès le début. Une fois la capture faite par lovely mw, prenez le commandement et tenez le bâtiment. Ne partez pas sauf si PAPA ordonne une rotation. Aidez à ramasser les points lâchés quand c'est sûr."
+          ]},
+
+          { type: "sub", text: "#9 {abbey} (Cvk)" },
+          { type: "list", items: [
+            "**Cvk (39.2M)** — Capture et maintien. Capturez #9 {abbey} dès le début et tenez-le. Ne partez pas sauf si PAPA ordonne une rotation. Ramassez les points lâchés quand c'est sûr."
+          ]},
+
+          { type: "sub", text: "#11 {abbey} (Floating)" },
+          { type: "list", items: [
+            "**Floating** — Couvrez #11 {abbey} et intervenez là où PAPA vous appelle. Renforcez le cœur si besoin, retournez des {abbey}s si besoin, récupérez les points lâchés. Escouade flex."
+          ]},
+
+          { type: "h", text: "🔎 RÉCAPITULATIF PAR BÂTIMENT" },
+          { type: "list", items: [
+            "#4 {belltower} (Nia) — Capture : Nia, Garnet. Garnison : ELR.",
+            "#7 {stables} (Jack) — Capture : Jack, Raccoon. Garnison : Vlad DRAC.",
+            "#1 {swordshrine} (kyking) — Capture : kyking, 꾸리잘린 쥐, BOO. Garnison : PERCIVAL. Renfort : 『Noctis』.",
+            "#3 {reformation} (firebaugh) — Capture : firebaugh, PAPA. Garnison : Meow.",
+            "#8 {sanctum} (Sparrow) — Capture : Sparrow, BigMedicMike. Garnison : otoki.",
+            "#10 {sanctum} (L) — Capture : L, Beby. Garnison : Rover88.",
+            "#2 {mercenary} (MTP) — Capitaine : MTP.",
+            "#5 {abbey} (debe 06) — Capture : debe 06. Garnison : beeQueen.",
+            "#6 {abbey} (lovely mw) — Capture : lovely mw. Garnison : BravuS.",
+            "#9 {abbey} (Cvk) — Capture et maintien : Cvk.",
+            "#11 {abbey} (Floating) — Floating."
+          ]},
+
+          { type: "h", text: "📣 NOTES DU COORDINATEUR POUR PAPA" },
           { type: "list", items: [
             "Annoncez les cibles avec le numéro de la carte et le nom du joueur : « #3 {reformation} firebaugh, ralliement maintenant. » ; « kyking, mettez la pression sur l'ennemi en #10 {sanctum}. »",
             "Gardez les équipes de capture mobiles. Ne laissez pas kyking, 꾸리잘린 쥐, BOO et firebaugh rester enfermés dans des bâtiments.",
@@ -619,8 +795,9 @@ const GUIDES = {
             "Suivez le temps de recharge de #2 {mercenary}. MTP l'utilise toutes les 7 minutes.",
             "Pendant les 10 dernières minutes, protégez : #1 {swordshrine}, #8 {sanctum}, #10 {sanctum}. Ne chassez pas les kills.",
             "Rappel à tous : la Legion 2 est une bataille distincte avec ses propres récompenses. Gagnez votre propre tableau des scores.",
-            "Pas de remplaçants cette fois. Tout le monde sur cette liste fait partie de l'équipe principale. Si quelqu'un est en retard, les joueurs flottants (flex) prennent sa place."
+            "Pas de remplaçants cette fois. Tout le monde sur cette liste fait partie de l'équipe principale. Si quelqu'un est en retard, les joueurs flex prennent sa place."
           ]},
+
           { type: "h", text: "📌 NOTES FINALES" },
           { type: "list", items: [
             "Tous les joueurs doivent être en ligne dès le début.",
@@ -632,6 +809,7 @@ const GUIDES = {
             "**Ne sacrifiez jamais un bâtiment essentiel pour des kills.**"
           ]},
           { type: "p", text: "Bonne chance dimanche !" },
+
           { type: "h", text: "🗺️ CARTE" },
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Carte" },
           { type: "h", text: "🧭 ZONES ASSIGNÉES" },
@@ -641,17 +819,104 @@ const GUIDES = {
       pt: {
         title: "Eventos Recentes da Aliança",
         blocks: [
-          { type: "h", text: "📅 LEGION 2 · DOMINGO, 20.09" },
-          { type: "p", text: "**Coordenador:** PAPA (67.6M)" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Legion 2" },
+          { type: "h", text: "📅 LEGION 2 — DESIGNAÇÕES DOS JOGADORES · CONFRONTO ENTRE ESPADAS" },
+          { type: "p", text: "**Data:** domingo, 20.09 · **Coordenador:** PAPA (67.6M)" },
           { type: "p", text: "A Legion 2 é uma batalha separada. Ela acontece ao mesmo tempo, mas em seu próprio campo de batalha. Não afeta o resultado da Legion 1 nem as recompensas da aliança." },
           { type: "callout", text: "**Sem reservas desta vez.** Todos os jogadores listados abaixo são do elenco principal." },
+
           { type: "h", text: "🎯 LEMBRETE DE DOUTRINA" },
           { type: "p", text: "Os jogadores mais fortes atacam e capturam. Assim que uma construção muda de lado, um **Capitão da guarnição** a mantém enquanto a equipe de captura segue em frente. Capitães da guarnição não saem para perseguir abates. Equipes de captura permanecem móveis e agressivas." },
-          { type: "h", text: "📋 DESIGNAÇÕES DOS JOGADORES" },
-          { type: "img", src: "figures/Legion_2.png", alt: "Designações dos jogadores" },
-          { type: "h", text: "📣 NOTAS DO COORDENADOR (PAPA)" },
+
+          { type: "sub", text: "#4 {belltower} (Nia) — Velocidade de captura" },
           { type: "list", items: [
-            "Chame os alvos pelo número do mapa e pelo nome do jogador: “#3 {reformation} firebaugh, Rally agora.” / “kyking, pressione o #10 {sanctum} inimigo.”",
+            "**Nia (56M)** — Líder de captura. Capture #4 {belltower} imediatamente no início com Garnet. Assim que a construção mudar de lado, passe o comando para ELR como Capitão da guarnição e vá reforçar #7 {stables} (Jack) ou #8 {sanctum} (Sparrow). Mantenha-se móvel.",
+            "**Garnet (56M)** — Apoio de captura. Junte-se a Nia no início e capture #4 {belltower}. Assim que a construção mudar de lado, passe o comando para ELR e vá com Nia para #7 {stables} (Jack) ou #8 {sanctum} (Sparrow). Mantenha-se móvel.",
+            "**ELR (55.7M)** — Capitão da guarnição. Posicione-se perto de #4 {belltower} no início. Quando Nia capturar, assuma o comando e mantenha a posição. Não saia a menos que PAPA chame um rodízio. A velocidade de captura importa durante toda a partida."
+          ]},
+
+          { type: "sub", text: "#7 {stables} (Jack) — Recarga de teleporte" },
+          { type: "list", items: [
+            "**Jack (54.6M)** — Líder de captura. Capture #7 {stables} imediatamente no início com Raccoon. Assim que a construção mudar de lado, passe o comando para Vlad DRAC como Capitão da guarnição e vá reforçar o centro ou #8 {sanctum} (Sparrow) e #10 {sanctum} (L). Mantenha-se móvel.",
+            "**Raccoon (54M)** — Apoio de captura. Junte-se a Jack no início e capture #7 {stables}. Assim que a construção mudar de lado, passe o comando para Vlad DRAC e vá com Jack reforçar o centro. Mantenha-se móvel.",
+            "**Vlad DRAC (53.6M)** — Capitão da guarnição. Posicione-se perto de #7 {stables} no início. Quando Jack capturar, assuma o comando e mantenha a posição. Não saia a menos que PAPA chame um rodízio. A redução do tempo de recarga de teleporte precisa continuar ativa."
+          ]},
+
+          { type: "sub", text: "#1 {swordshrine} (kyking) — Núcleo, mais pontos" },
+          { type: "list", items: [
+            "**kyking (88M)** — Capitão de rally principal. Lidere a onda de captura em #1 {swordshrine} com 꾸리잘린 쥐 e BOO. Assim que a construção mudar de lado, passe o comando para PERCIVAL como Capitão da guarnição e vá com 꾸리잘린 쥐 e BOO pressionar #3 {reformation} (firebaugh) ou o inimigo em #8 {sanctum} (Sparrow) e #10 {sanctum} (L). Não fique parado dentro de uma construção.",
+            "**꾸리잘린 쥐 (75M)** — Líder de rally. Junte-se à onda de captura de kyking em #1 {swordshrine}. Após passar o comando para PERCIVAL, vá com kyking e BOO pressionar #3 {reformation} (firebaugh) ou o núcleo inimigo. Mantenha-se móvel.",
+            "**BOO (71.1M)** — Líder de rally. Junte-se à onda de captura de kyking em #1 {swordshrine}. Após passar o comando para PERCIVAL, vá com kyking e 꾸리잘린 쥐 pressionar #3 {reformation} (firebaugh) ou o núcleo inimigo. Mantenha-se móvel.",
+            "**PERCIVAL (70.7M)** — Capitão da guarnição. Posicione-se perto de #1 {swordshrine} antes das 15:00. Quando kyking capturar, assuma o comando e mantenha a posição, com 『Noctis』 reforçando. Não saia de #1 {swordshrine} a menos que PAPA chame um rodízio. Você é a âncora do núcleo.",
+            "**『Noctis』 (62.6M)** — Reforço. Posicione-se perto de #1 {swordshrine} e reforce PERCIVAL assim que a construção mudar de lado. Mantenha a posição com ele e não saia a menos que PAPA chame um rodízio."
+          ]},
+
+          { type: "sub", text: "#3 {reformation} (firebaugh) — Bônus de ataque/defesa" },
+          { type: "list", items: [
+            "**firebaugh (70.5M)** — Capitão de rally principal. Lidere a onda de captura em #3 {reformation} com PAPA. Assim que a construção mudar de lado, passe o comando para Meow como Capitão da guarnição e vá com PAPA reforçar #1 {swordshrine} (PERCIVAL) ou pressionar o núcleo inimigo. Mantenha-se móvel.",
+            "**PAPA (67.6M)** — Coordenador e líder de rally. Chame os alvos no Chat do Esquadrão. Junte-se à onda de captura de firebaugh em #3 {reformation}. Após passar o comando para Meow, vá com firebaugh reforçar #1 {swordshrine} (PERCIVAL) ou pressionar o núcleo inimigo. Sua função é ler o mapa, chamar o próximo objetivo e manter as equipes de captura em movimento.",
+            "**Meow (66.2M)** — Capitão da guarnição. Posicione-se perto de #3 {reformation} antes das 15:00. Quando firebaugh capturar, assuma o comando e mantenha a posição. Não saia de #3 {reformation} a menos que PAPA chame um rodízio. O bônus de ataque e defesa de #3 {reformation} precisa continuar ativo."
+          ]},
+
+          { type: "sub", text: "#8 {sanctum} (Sparrow) — Núcleo" },
+          { type: "list", items: [
+            "**Sparrow (59.3M)** — Líder de captura. Capture #8 {sanctum} com BigMedicMike no início. Assim que a construção mudar de lado, passe o comando para otoki como Capitão da guarnição e vá reforçar #10 {sanctum} (L) ou #1 {swordshrine} (PERCIVAL). Mantenha-se móvel.",
+            "**BigMedicMike (58.3M)** — Apoio de captura. Junte-se a Sparrow no início e capture #8 {sanctum}. Assim que a construção mudar de lado, passe o comando para otoki e vá com Sparrow reforçar #10 {sanctum} (L) ou #1 {swordshrine} (PERCIVAL). Mantenha-se móvel.",
+            "**otoki (51.9M)** — Capitão da guarnição. Posicione-se perto de #8 {sanctum} no início. Quando Sparrow capturar, assuma o comando e mantenha a posição. Não saia a menos que PAPA chame um rodízio. #8 {sanctum} faz parte do núcleo."
+          ]},
+
+          { type: "sub", text: "#10 {sanctum} (L) — Núcleo" },
+          { type: "list", items: [
+            "**L (49.4M)** — Líder de captura. Capture #10 {sanctum} com Beby no início. Assim que a construção mudar de lado, passe o comando para Rover88 como Capitão da guarnição e vá reforçar #1 {swordshrine} (PERCIVAL). Mantenha-se móvel.",
+            "**Beby (49.3M)** — Apoio de captura. Junte-se a L no início e capture #10 {sanctum}. Assim que a construção mudar de lado, passe o comando para Rover88 e vá com L reforçar #1 {swordshrine} (PERCIVAL). Mantenha-se móvel.",
+            "**Rover88 (48.9M)** — Capitão da guarnição. Posicione-se perto de #10 {sanctum} no início. Quando L capturar, assuma o comando e mantenha a posição. Não saia a menos que PAPA chame um rodízio. #10 {sanctum} faz parte do núcleo."
+          ]},
+
+          { type: "sub", text: "#2 {mercenary} (MTP) — Ataques de mercenários" },
+          { type: "list", items: [
+            "**MTP (65.9M)** — Capitão. Posicione-se perto de #2 {mercenary} antes das 15:00. Assim que estiver disponível, ocupe-o e use mercenários a cada 7 minutos no núcleo inimigo. Coordene o tempo com PAPA no Chat do Esquadrão."
+          ]},
+
+          { type: "sub", text: "#5 {abbey} (debe 06)" },
+          { type: "list", items: [
+            "**debe 06 (45.2M)** — Captura. Capture #5 {abbey} no início com beeQueen. Assim que a construção mudar de lado, beeQueen a mantém e você vai reforçar #6 {abbey} (lovely mw) ou #9 {abbey} (Cvk) se necessário. Mantenha-se móvel.",
+            "**beeQueen (43.2M)** — Capitão da guarnição. Posicione-se perto de #5 {abbey} no início. Quando debe 06 capturar, assuma o comando e mantenha a posição. Não saia a menos que PAPA chame um rodízio."
+          ]},
+
+          { type: "sub", text: "#6 {abbey} (lovely mw)" },
+          { type: "list", items: [
+            "**lovely mw (43.2M)** — Captura. Capture #6 {abbey} no início com BravuS. Assim que a construção mudar de lado, BravuS a mantém e você vai reforçar #5 {abbey} (debe 06) ou #9 {abbey} (Cvk) se necessário. Mantenha-se móvel.",
+            "**BravuS (42.2M)** — Capitão da guarnição. Posicione-se perto de #6 {abbey} no início. Quando lovely mw capturar, assuma o comando e mantenha a posição. Não saia a menos que PAPA chame um rodízio. Ajude a coletar pontos derrubados quando for seguro."
+          ]},
+
+          { type: "sub", text: "#9 {abbey} (Cvk)" },
+          { type: "list", items: [
+            "**Cvk (39.2M)** — Captura e manutenção. Capture #9 {abbey} no início e mantenha-a. Não saia a menos que PAPA chame um rodízio. Colete pontos derrubados quando for seguro."
+          ]},
+
+          { type: "sub", text: "#11 {abbey} (Floating)" },
+          { type: "list", items: [
+            "**Floating** — Cubra #11 {abbey} e atue onde PAPA chamar. Reforce o núcleo se necessário, capture {abbey}s se necessário, pegue pontos derrubados. Esquadrão flex."
+          ]},
+
+          { type: "h", text: "🔎 REFERÊNCIA RÁPIDA POR CONSTRUÇÃO" },
+          { type: "list", items: [
+            "#4 {belltower} (Nia) — Captura: Nia, Garnet. Guarnição: ELR.",
+            "#7 {stables} (Jack) — Captura: Jack, Raccoon. Guarnição: Vlad DRAC.",
+            "#1 {swordshrine} (kyking) — Captura: kyking, 꾸리잘린 쥐, BOO. Guarnição: PERCIVAL. Reforço: 『Noctis』.",
+            "#3 {reformation} (firebaugh) — Captura: firebaugh, PAPA. Guarnição: Meow.",
+            "#8 {sanctum} (Sparrow) — Captura: Sparrow, BigMedicMike. Guarnição: otoki.",
+            "#10 {sanctum} (L) — Captura: L, Beby. Guarnição: Rover88.",
+            "#2 {mercenary} (MTP) — Capitão: MTP.",
+            "#5 {abbey} (debe 06) — Captura: debe 06. Guarnição: beeQueen.",
+            "#6 {abbey} (lovely mw) — Captura: lovely mw. Guarnição: BravuS.",
+            "#9 {abbey} (Cvk) — Captura e manutenção: Cvk.",
+            "#11 {abbey} (Floating) — Floating."
+          ]},
+
+          { type: "h", text: "📣 NOTAS DO COORDENADOR PARA PAPA" },
+          { type: "list", items: [
+            "Chame os alvos pelo número do mapa e pelo nome do jogador: “#3 {reformation} firebaugh, Rally agora.” / “kyking, pressione o inimigo em #10 {sanctum}.”",
             "Mantenha as equipes de captura móveis. Não deixe kyking, 꾸리잘린 쥐, BOO e firebaugh parados dentro de construções.",
             "Troque os Capitães da guarnição só quando necessário. Cada troca arrisca perder a construção.",
             "Acompanhe o tempo de recarga de #2 {mercenary}. MTP o usa a cada 7 minutos.",
@@ -659,6 +924,7 @@ const GUIDES = {
             "Lembre a todos: a Legion 2 é uma batalha separada, com recompensas próprias. Vença no seu próprio placar.",
             "Sem reservas desta vez. Todos da lista são do elenco principal. Se alguém se atrasar, os jogadores flex cobrem a vaga."
           ]},
+
           { type: "h", text: "📌 NOTAS FINAIS" },
           { type: "list", items: [
             "Todos os jogadores devem estar online no início.",
@@ -670,6 +936,7 @@ const GUIDES = {
             "**Nunca troque uma construção principal por abates.**"
           ]},
           { type: "p", text: "Boa sorte no domingo!" },
+
           { type: "h", text: "🗺️ MAPA" },
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Mapa" },
           { type: "h", text: "🧭 ZONAS DESIGNADAS" },
@@ -679,15 +946,102 @@ const GUIDES = {
       tr: {
         title: "Son İttifak Etkinlikleri",
         blocks: [
-          { type: "h", text: "📅 LEGION 2 · PAZAR, 20.09" },
-          { type: "p", text: "**Koordinatör:** PAPA (67.6M)" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Legion 2" },
+          { type: "h", text: "📅 LEGION 2 — OYUNCU GÖREVLENDİRMELERİ · KILIÇDİYARI HESAPLAŞMASI" },
+          { type: "p", text: "**Tarih:** Pazar, 20.09 · **Koordinatör:** PAPA (67.6M)" },
           { type: "p", text: "Legion 2 ayrı bir savaştır. Aynı anda ama kendi savaş alanında yapılır. Legion 1'in sonucunu veya ittifak ödüllerini etkilemez." },
           { type: "callout", text: "**Bu sefer yedek yok.** Aşağıda listelenen tüm oyuncular ana kadrodadır." },
+
           { type: "h", text: "🎯 DOKTRİN HATIRLATMASI" },
           { type: "p", text: "En güçlü oyuncular saldırır ve ele geçirir. Bir bina el değiştirdiğinde, ele geçirme ekibi ilerlerken **Garnizon Kaptanı** binayı tutar. Garnizon Kaptanları öldürme peşinde binadan ayrılmaz. Ele geçirme ekipleri hareketli ve saldırgan kalır." },
-          { type: "h", text: "📋 OYUNCU GÖREVLENDİRMELERİ" },
-          { type: "img", src: "figures/Legion_2.png", alt: "Oyuncu görevlendirmeleri" },
-          { type: "h", text: "📣 KOORDİNATÖR NOTLARI (PAPA)" },
+
+          { type: "sub", text: "#4 {belltower} (Nia) — Ele geçirme hızı" },
+          { type: "list", items: [
+            "**Nia (56M)** — Ele geçirme lideri. Başlangıçta Garnet ile birlikte #4 {belltower} binasını hemen ele geçir. Bina el değiştirince Garnizon Kaptanı olarak ELR ile görev devri yap ve takviye için #7 {stables} (Jack) veya #8 {sanctum} (Sparrow) tarafına geç. Hareketli kal.",
+            "**Garnet (56M)** — Ele geçirme desteği. Başlangıçta Nia ile birleş ve #4 {belltower} binasını ele geçir. Bina el değiştirince ELR ile görev devri yap ve Nia ile birlikte #7 {stables} (Jack) veya #8 {sanctum} (Sparrow) tarafına geç. Hareketli kal.",
+            "**ELR (55.7M)** — Garnizon Kaptanı. Başlangıçta #4 {belltower} binasının yakınında konumlan. Nia ele geçirdiğinde kaptanlığı devral ve binayı tut. PAPA rotasyon çağırmadıkça ayrılma. Ele geçirme hızı tüm maç boyunca önemli."
+          ]},
+
+          { type: "sub", text: "#7 {stables} (Jack) — Işınlanma bekleme süresi" },
+          { type: "list", items: [
+            "**Jack (54.6M)** — Ele geçirme lideri. Başlangıçta Raccoon ile birlikte #7 {stables} binasını hemen ele geçir. Bina el değiştirince Garnizon Kaptanı olarak Vlad DRAC ile görev devri yap; merkeze veya #8 {sanctum} (Sparrow) ile #10 {sanctum} (L) binalarına takviye için geç. Hareketli kal.",
+            "**Raccoon (54M)** — Ele geçirme desteği. Başlangıçta Jack ile birleş ve #7 {stables} binasını ele geçir. Bina el değiştirince Vlad DRAC ile görev devri yap ve Jack ile birlikte merkeze takviye için geç. Hareketli kal.",
+            "**Vlad DRAC (53.6M)** — Garnizon Kaptanı. Başlangıçta #7 {stables} binasının yakınında konumlan. Jack ele geçirdiğinde kaptanlığı devral ve binayı tut. PAPA rotasyon çağırmadıkça ayrılma. Işınlanma bekleme süresi azaltımı aktif kalmalı."
+          ]},
+
+          { type: "sub", text: "#1 {swordshrine} (kyking) — Çekirdek, en yüksek puan" },
+          { type: "list", items: [
+            "**kyking (88M)** — Baş seferberlik kaptanı. 꾸리잘린 쥐 ve BOO ile birlikte #1 {swordshrine} üzerindeki ele geçirme dalgasına liderlik et. Bina el değiştirince Garnizon Kaptanı olarak PERCIVAL ile görev devri yap ve 꾸리잘린 쥐 ve BOO ile birlikte #3 {reformation} (firebaugh) veya düşmanın #8 {sanctum} (Sparrow) ile #10 {sanctum} (L) binalarına baskı kurmaya git. Bir binanın içinde bekleme.",
+            "**꾸리잘린 쥐 (75M)** — Seferberlik lideri. kyking liderliğindeki #1 {swordshrine} ele geçirme dalgasına katıl. PERCIVAL ile görev devrinden sonra kyking ve BOO ile birlikte #3 {reformation} (firebaugh) veya düşman çekirdeğine baskı kurmaya git. Hareketli kal.",
+            "**BOO (71.1M)** — Seferberlik lideri. kyking liderliğindeki #1 {swordshrine} ele geçirme dalgasına katıl. PERCIVAL ile görev devrinden sonra kyking ve 꾸리잘린 쥐 ile birlikte #3 {reformation} (firebaugh) veya düşman çekirdeğine baskı kurmaya git. Hareketli kal.",
+            "**PERCIVAL (70.7M)** — Garnizon Kaptanı. 15:00 öncesinde #1 {swordshrine} binasının yakınında konumlan. kyking ele geçirdiğinde kaptanlığı devral; 『Noctis』 takviye verirken binayı tut. PAPA rotasyon çağırmadıkça #1 {swordshrine} binasından ayrılma. Çekirdeğin çıpası sensin.",
+            "**『Noctis』 (62.6M)** — Takviye. #1 {swordshrine} binasının yakınında konumlan ve bina el değiştirince PERCIVAL için takviye ol. Onunla birlikte pozisyonu tut; PAPA rotasyon çağırmadıkça ayrılma."
+          ]},
+
+          { type: "sub", text: "#3 {reformation} (firebaugh) — Saldırı/Savunma bonusu" },
+          { type: "list", items: [
+            "**firebaugh (70.5M)** — Baş seferberlik kaptanı. PAPA ile birlikte #3 {reformation} üzerindeki ele geçirme dalgasına liderlik et. Bina el değiştirince Garnizon Kaptanı olarak Meow ile görev devri yap ve PAPA ile birlikte #1 {swordshrine} (PERCIVAL) binasını takviye et veya düşman çekirdeğine baskı kur. Hareketli kal.",
+            "**PAPA (67.6M)** — Koordinatör ve seferberlik lideri. Hedefleri Ekip Sohbeti'nde bildir. firebaugh liderliğindeki #3 {reformation} ele geçirme dalgasına katıl. Meow ile görev devrinden sonra firebaugh ile birlikte #1 {swordshrine} (PERCIVAL) binasını takviye et veya düşman çekirdeğine baskı kur. Görevin haritayı okumak, sıradaki hedefi bildirmek ve ele geçirme ekiplerini hareket halinde tutmaktır.",
+            "**Meow (66.2M)** — Garnizon Kaptanı. 15:00 öncesinde #3 {reformation} binasının yakınında konumlan. firebaugh ele geçirdiğinde kaptanlığı devral ve binayı tut. PAPA rotasyon çağırmadıkça #3 {reformation} binasından ayrılma. #3 {reformation} binasının saldırı ve savunma bonusu aktif kalmalı."
+          ]},
+
+          { type: "sub", text: "#8 {sanctum} (Sparrow) — Çekirdek" },
+          { type: "list", items: [
+            "**Sparrow (59.3M)** — Ele geçirme lideri. Başlangıçta BigMedicMike ile birlikte #8 {sanctum} binasını ele geçir. Bina el değiştirince Garnizon Kaptanı olarak otoki ile görev devri yap ve #10 {sanctum} (L) veya #1 {swordshrine} (PERCIVAL) binasını takviye etmeye geç. Hareketli kal.",
+            "**BigMedicMike (58.3M)** — Ele geçirme desteği. Başlangıçta Sparrow ile birleş ve #8 {sanctum} binasını ele geçir. Bina el değiştirince otoki ile görev devri yap ve Sparrow ile birlikte #10 {sanctum} (L) veya #1 {swordshrine} (PERCIVAL) binasını takviye etmeye geç. Hareketli kal.",
+            "**otoki (51.9M)** — Garnizon Kaptanı. Başlangıçta #8 {sanctum} binasının yakınında konumlan. Sparrow ele geçirdiğinde kaptanlığı devral ve binayı tut. PAPA rotasyon çağırmadıkça ayrılma. #8 {sanctum} çekirdek bir binadır."
+          ]},
+
+          { type: "sub", text: "#10 {sanctum} (L) — Çekirdek" },
+          { type: "list", items: [
+            "**L (49.4M)** — Ele geçirme lideri. Başlangıçta Beby ile birlikte #10 {sanctum} binasını ele geçir. Bina el değiştirince Garnizon Kaptanı olarak Rover88 ile görev devri yap ve #1 {swordshrine} (PERCIVAL) binasını takviye etmeye geç. Hareketli kal.",
+            "**Beby (49.3M)** — Ele geçirme desteği. Başlangıçta L ile birleş ve #10 {sanctum} binasını ele geçir. Bina el değiştirince Rover88 ile görev devri yap ve L ile birlikte #1 {swordshrine} (PERCIVAL) binasını takviye etmeye geç. Hareketli kal.",
+            "**Rover88 (48.9M)** — Garnizon Kaptanı. Başlangıçta #10 {sanctum} binasının yakınında konumlan. L ele geçirdiğinde kaptanlığı devral ve binayı tut. PAPA rotasyon çağırmadıkça ayrılma. #10 {sanctum} çekirdek bir binadır."
+          ]},
+
+          { type: "sub", text: "#2 {mercenary} (MTP) — Paralı asker saldırıları" },
+          { type: "list", items: [
+            "**MTP (65.9M)** — Kaptan. 15:00 öncesinde #2 {mercenary} binasının yakınında konumlan. Kullanılabilir olunca ele geçir ve her 7 dakikada bir düşman çekirdeğine karşı paralı asker kullan. Zamanlamayı Ekip Sohbeti'nde PAPA ile koordine et."
+          ]},
+
+          { type: "sub", text: "#5 {abbey} (debe 06)" },
+          { type: "list", items: [
+            "**debe 06 (45.2M)** — Ele geçirme. Başlangıçta beeQueen ile birlikte #5 {abbey} binasını ele geçir. Bina el değiştirince beeQueen binayı tutar; sen gerekirse #6 {abbey} (lovely mw) veya #9 {abbey} (Cvk) binasını takviye etmeye geç. Hareketli kal.",
+            "**beeQueen (43.2M)** — Garnizon Kaptanı. Başlangıçta #5 {abbey} binasının yakınında konumlan. debe 06 ele geçirdiğinde kaptanlığı devral ve binayı tut. PAPA rotasyon çağırmadıkça ayrılma."
+          ]},
+
+          { type: "sub", text: "#6 {abbey} (lovely mw)" },
+          { type: "list", items: [
+            "**lovely mw (43.2M)** — Ele geçirme. Başlangıçta BravuS ile birlikte #6 {abbey} binasını ele geçir. Bina el değiştirince BravuS binayı tutar; sen gerekirse #5 {abbey} (debe 06) veya #9 {abbey} (Cvk) binasını takviye etmeye geç. Hareketli kal.",
+            "**BravuS (42.2M)** — Garnizon Kaptanı. Başlangıçta #6 {abbey} binasının yakınında konumlan. lovely mw ele geçirdiğinde kaptanlığı devral ve binayı tut. PAPA rotasyon çağırmadıkça ayrılma. Güvenliyse düşen puanları toplamaya yardım et."
+          ]},
+
+          { type: "sub", text: "#9 {abbey} (Cvk)" },
+          { type: "list", items: [
+            "**Cvk (39.2M)** — Ele geçirme ve tutma. Başlangıçta #9 {abbey} binasını ele geçir ve tut. PAPA rotasyon çağırmadıkça ayrılma. Güvenliyse düşen puanları topla."
+          ]},
+
+          { type: "sub", text: "#11 {abbey} (Floating)" },
+          { type: "list", items: [
+            "**Floating** — #11 {abbey} binasını koru ve PAPA nereye çağırırsa oraya esnek şekilde git. Gerekirse çekirdeği takviye et, gerekirse {abbey} binalarının kontrolünü değiştir, düşen puanları topla. Esnek ekip."
+          ]},
+
+          { type: "h", text: "🔎 BİNALARA GÖRE HIZLI BAŞVURU" },
+          { type: "list", items: [
+            "#4 {belltower} (Nia) — Ele geçirme: Nia, Garnet. Garnizon: ELR.",
+            "#7 {stables} (Jack) — Ele geçirme: Jack, Raccoon. Garnizon: Vlad DRAC.",
+            "#1 {swordshrine} (kyking) — Ele geçirme: kyking, 꾸리잘린 쥐, BOO. Garnizon: PERCIVAL. Takviye: 『Noctis』.",
+            "#3 {reformation} (firebaugh) — Ele geçirme: firebaugh, PAPA. Garnizon: Meow.",
+            "#8 {sanctum} (Sparrow) — Ele geçirme: Sparrow, BigMedicMike. Garnizon: otoki.",
+            "#10 {sanctum} (L) — Ele geçirme: L, Beby. Garnizon: Rover88.",
+            "#2 {mercenary} (MTP) — Kaptan: MTP.",
+            "#5 {abbey} (debe 06) — Ele geçirme: debe 06. Garnizon: beeQueen.",
+            "#6 {abbey} (lovely mw) — Ele geçirme: lovely mw. Garnizon: BravuS.",
+            "#9 {abbey} (Cvk) — Ele geçirme ve tutma: Cvk.",
+            "#11 {abbey} (Floating) — Esnek (Floating)."
+          ]},
+
+          { type: "h", text: "📣 PAPA İÇİN KOORDİNATÖR NOTLARI" },
           { type: "list", items: [
             "Hedefleri harita numarası ve oyuncu adıyla bildir: “#3 {reformation} firebaugh, şimdi seferberlik.” / “kyking, düşman #10 {sanctum} üzerine baskı yap.”",
             "Ele geçirme ekiplerini hareketli tut. kyking, 꾸리잘린 쥐, BOO ve firebaugh binaların içinde beklemesin.",
@@ -697,6 +1051,7 @@ const GUIDES = {
             "Herkese hatırlat: Legion 2 kendi ödülleri olan ayrı bir savaştır. Kendi skor tablonuzda kazanın.",
             "Bu sefer yedek yok. Listedeki herkes ana kadrodadır. Biri geç kalırsa esnek (flex) oyuncular yerini doldurur."
           ]},
+
           { type: "h", text: "📌 SON NOTLAR" },
           { type: "list", items: [
             "Tüm oyuncular başlangıçta çevrimiçi olmalı.",
@@ -708,6 +1063,7 @@ const GUIDES = {
             "**Öldürme uğruna asla ana bir binayı feda etmeyin.**"
           ]},
           { type: "p", text: "Pazar günü bol şans!" },
+
           { type: "h", text: "🗺️ HARİTA" },
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Harita" },
           { type: "h", text: "🧭 ATANAN BÖLGELER" },
@@ -717,15 +1073,102 @@ const GUIDES = {
       id: {
         title: "Acara Aliansi Terbaru",
         blocks: [
-          { type: "h", text: "📅 LEGION 2 · MINGGU, 20.09" },
-          { type: "p", text: "**Koordinator:** PAPA (67.6M)" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Legion 2" },
+          { type: "h", text: "📅 LEGION 2 — PENUGASAN PEMAIN · SWORDLAND SHOWDOWN" },
+          { type: "p", text: "**Tanggal:** Minggu, 20.09 · **Koordinator:** PAPA (67.6M)" },
           { type: "p", text: "Legion 2 adalah pertempuran terpisah. Berlangsung bersamaan tetapi di medan perangnya sendiri. Tidak memengaruhi hasil Legion 1 maupun hadiah aliansi." },
           { type: "callout", text: "**Kali ini tidak ada pemain cadangan.** Semua pemain yang tercantum di bawah adalah roster utama." },
+
           { type: "h", text: "🎯 PENGINGAT DOKTRIN" },
           { type: "p", text: "Pemain terkuat menyerang dan merebut. Setelah bangunan berpindah tangan, **Kapten Garnisun** menahannya sementara tim perebut melanjutkan. Kapten Garnisun tidak pergi mengejar kill. Tim perebut tetap mobile dan agresif." },
-          { type: "h", text: "📋 PENUGASAN PEMAIN" },
-          { type: "img", src: "figures/Legion_2.png", alt: "Penugasan pemain" },
-          { type: "h", text: "📣 CATATAN KOORDINATOR (PAPA)" },
+
+          { type: "sub", text: "#4 {belltower} (Nia) — Kecepatan perebutan" },
+          { type: "list", items: [
+            "**Nia (56M)** — Pemimpin perebutan. Rebut #4 {belltower} segera di awal bersama Garnet. Setelah berpindah tangan, serahkan ke ELR sebagai Kapten Garnisun dan bergerak memperkuat #7 {stables} (Jack) atau #8 {sanctum} (Sparrow). Tetap mobile.",
+            "**Garnet (56M)** — Pendukung perebutan. Bergabung dengan Nia di awal dan rebut #4 {belltower}. Setelah berpindah tangan, serahkan ke ELR dan bergerak bersama Nia ke #7 {stables} (Jack) atau #8 {sanctum} (Sparrow). Tetap mobile.",
+            "**ELR (55.7M)** — Kapten Garnisun. Bersiaga di dekat #4 {belltower} di awal. Setelah Nia merebutnya, ambil alih sebagai kapten dan tahan. Jangan pergi kecuali PAPA memanggil rotasi. Kecepatan perebutan penting sepanjang pertandingan."
+          ]},
+
+          { type: "sub", text: "#7 {stables} (Jack) — Cooldown teleportasi" },
+          { type: "list", items: [
+            "**Jack (54.6M)** — Pemimpin perebutan. Rebut #7 {stables} segera di awal bersama Raccoon. Setelah berpindah tangan, serahkan ke Vlad DRAC sebagai Kapten Garnisun dan bergerak memperkuat tengah atau #8 {sanctum} (Sparrow) dan #10 {sanctum} (L). Tetap mobile.",
+            "**Raccoon (54M)** — Pendukung perebutan. Bergabung dengan Jack di awal dan rebut #7 {stables}. Setelah berpindah tangan, serahkan ke Vlad DRAC dan bergerak bersama Jack memperkuat tengah. Tetap mobile.",
+            "**Vlad DRAC (53.6M)** — Kapten Garnisun. Bersiaga di dekat #7 {stables} di awal. Setelah Jack merebutnya, ambil alih sebagai kapten dan tahan. Jangan pergi kecuali PAPA memanggil rotasi. Pengurangan cooldown teleportasi harus tetap aktif."
+          ]},
+
+          { type: "sub", text: "#1 {swordshrine} (kyking) — Inti, poin tertinggi" },
+          { type: "list", items: [
+            "**kyking (88M)** — Kapten reli utama. Pimpin gelombang perebutan #1 {swordshrine} bersama 꾸리잘린 쥐 dan BOO. Setelah berpindah tangan, serahkan ke PERCIVAL sebagai Kapten Garnisun dan bergerak bersama 꾸리잘린 쥐 dan BOO menekan #3 {reformation} (firebaugh) atau #8 {sanctum} (Sparrow) dan #10 {sanctum} (L) milik musuh. Jangan berdiam di dalam bangunan.",
+            "**꾸리잘린 쥐 (75M)** — Pemimpin reli. Bergabung dengan gelombang perebutan kyking di #1 {swordshrine}. Setelah penyerahan ke PERCIVAL, bergerak bersama kyking dan BOO menekan #3 {reformation} (firebaugh) atau inti musuh. Tetap mobile.",
+            "**BOO (71.1M)** — Pemimpin reli. Bergabung dengan gelombang perebutan kyking di #1 {swordshrine}. Setelah penyerahan ke PERCIVAL, bergerak bersama kyking dan 꾸리잘린 쥐 menekan #3 {reformation} (firebaugh) atau inti musuh. Tetap mobile.",
+            "**PERCIVAL (70.7M)** — Kapten Garnisun. Bersiaga di dekat #1 {swordshrine} sebelum pukul 15:00. Setelah kyking merebutnya, ambil alih sebagai kapten dan tahan, dengan 『Noctis』 sebagai penguat. Jangan tinggalkan #1 {swordshrine} kecuali PAPA memanggil rotasi. Kamu adalah jangkar inti.",
+            "**『Noctis』 (62.6M)** — Penguat. Bersiaga di dekat #1 {swordshrine} dan perkuat PERCIVAL setelah bangunan berpindah tangan. Bertahan bersamanya dan jangan pergi kecuali PAPA memanggil rotasi."
+          ]},
+
+          { type: "sub", text: "#3 {reformation} (firebaugh) — Buff serangan/pertahanan" },
+          { type: "list", items: [
+            "**firebaugh (70.5M)** — Kapten reli utama. Pimpin gelombang perebutan #3 {reformation} bersama PAPA. Setelah berpindah tangan, serahkan ke Meow sebagai Kapten Garnisun dan bergerak bersama PAPA memperkuat #1 {swordshrine} (PERCIVAL) atau menekan inti musuh. Tetap mobile.",
+            "**PAPA (67.6M)** — Koordinator dan pemimpin reli. Panggil target di Chat Skuad. Bergabung dengan gelombang perebutan firebaugh di #3 {reformation}. Setelah penyerahan ke Meow, bergerak bersama firebaugh memperkuat #1 {swordshrine} (PERCIVAL) atau menekan inti musuh. Tugasmu adalah membaca peta, memanggil objektif berikutnya, dan menjaga tim perebut tetap bergerak.",
+            "**Meow (66.2M)** — Kapten Garnisun. Bersiaga di dekat #3 {reformation} sebelum pukul 15:00. Setelah firebaugh merebutnya, ambil alih sebagai kapten dan tahan. Jangan tinggalkan #3 {reformation} kecuali PAPA memanggil rotasi. Buff serangan dan pertahanan dari #3 {reformation} harus tetap aktif."
+          ]},
+
+          { type: "sub", text: "#8 {sanctum} (Sparrow) — Inti" },
+          { type: "list", items: [
+            "**Sparrow (59.3M)** — Pemimpin perebutan. Rebut #8 {sanctum} bersama BigMedicMike di awal. Setelah berpindah tangan, serahkan ke otoki sebagai Kapten Garnisun dan bergerak memperkuat #10 {sanctum} (L) atau #1 {swordshrine} (PERCIVAL). Tetap mobile.",
+            "**BigMedicMike (58.3M)** — Pendukung perebutan. Bergabung dengan Sparrow di awal dan rebut #8 {sanctum}. Setelah berpindah tangan, serahkan ke otoki dan bergerak bersama Sparrow memperkuat #10 {sanctum} (L) atau #1 {swordshrine} (PERCIVAL). Tetap mobile.",
+            "**otoki (51.9M)** — Kapten Garnisun. Bersiaga di dekat #8 {sanctum} di awal. Setelah Sparrow merebutnya, ambil alih sebagai kapten dan tahan. Jangan pergi kecuali PAPA memanggil rotasi. #8 {sanctum} adalah inti."
+          ]},
+
+          { type: "sub", text: "#10 {sanctum} (L) — Inti" },
+          { type: "list", items: [
+            "**L (49.4M)** — Pemimpin perebutan. Rebut #10 {sanctum} bersama Beby di awal. Setelah berpindah tangan, serahkan ke Rover88 sebagai Kapten Garnisun dan bergerak memperkuat #1 {swordshrine} (PERCIVAL). Tetap mobile.",
+            "**Beby (49.3M)** — Pendukung perebutan. Bergabung dengan L di awal dan rebut #10 {sanctum}. Setelah berpindah tangan, serahkan ke Rover88 dan bergerak bersama L memperkuat #1 {swordshrine} (PERCIVAL). Tetap mobile.",
+            "**Rover88 (48.9M)** — Kapten Garnisun. Bersiaga di dekat #10 {sanctum} di awal. Setelah L merebutnya, ambil alih sebagai kapten dan tahan. Jangan pergi kecuali PAPA memanggil rotasi. #10 {sanctum} adalah inti."
+          ]},
+
+          { type: "sub", text: "#2 {mercenary} (MTP) — Serangan tentara bayaran" },
+          { type: "list", items: [
+            "**MTP (65.9M)** — Kapten. Bersiaga di dekat #2 {mercenary} sebelum pukul 15:00. Setelah tersedia, ambil dan gunakan tentara bayaran setiap 7 menit ke inti musuh. Koordinasikan waktunya dengan PAPA di Chat Skuad."
+          ]},
+
+          { type: "sub", text: "#5 {abbey} (debe 06)" },
+          { type: "list", items: [
+            "**debe 06 (45.2M)** — Perebutan. Rebut #5 {abbey} di awal bersama beeQueen. Setelah berpindah tangan, beeQueen menahannya dan kamu bergerak memperkuat #6 {abbey} (lovely mw) atau #9 {abbey} (Cvk) bila perlu. Tetap mobile.",
+            "**beeQueen (43.2M)** — Kapten Garnisun. Bersiaga di dekat #5 {abbey} di awal. Setelah debe 06 merebutnya, ambil alih sebagai kapten dan tahan. Jangan pergi kecuali PAPA memanggil rotasi."
+          ]},
+
+          { type: "sub", text: "#6 {abbey} (lovely mw)" },
+          { type: "list", items: [
+            "**lovely mw (43.2M)** — Perebutan. Rebut #6 {abbey} di awal bersama BravuS. Setelah berpindah tangan, BravuS menahannya dan kamu bergerak memperkuat #5 {abbey} (debe 06) atau #9 {abbey} (Cvk) bila perlu. Tetap mobile.",
+            "**BravuS (42.2M)** — Kapten Garnisun. Bersiaga di dekat #6 {abbey} di awal. Setelah lovely mw merebutnya, ambil alih sebagai kapten dan tahan. Jangan pergi kecuali PAPA memanggil rotasi. Bantu kumpulkan poin yang jatuh saat aman."
+          ]},
+
+          { type: "sub", text: "#9 {abbey} (Cvk)" },
+          { type: "list", items: [
+            "**Cvk (39.2M)** — Rebut dan tahan. Rebut #9 {abbey} di awal dan tahan. Jangan pergi kecuali PAPA memanggil rotasi. Kumpulkan poin yang jatuh saat aman."
+          ]},
+
+          { type: "sub", text: "#11 {abbey} (Floating)" },
+          { type: "list", items: [
+            "**Floating** — Jaga #11 {abbey} dan bergeraklah fleksibel ke mana pun PAPA memanggil. Perkuat inti bila perlu, rebut {abbey} bila perlu, ambil poin yang jatuh. Skuad flex."
+          ]},
+
+          { type: "h", text: "🔎 REFERENSI CEPAT PER BANGUNAN" },
+          { type: "list", items: [
+            "#4 {belltower} (Nia) — Perebutan: Nia, Garnet. Garnisun: ELR.",
+            "#7 {stables} (Jack) — Perebutan: Jack, Raccoon. Garnisun: Vlad DRAC.",
+            "#1 {swordshrine} (kyking) — Perebutan: kyking, 꾸리잘린 쥐, BOO. Garnisun: PERCIVAL. Penguat: 『Noctis』.",
+            "#3 {reformation} (firebaugh) — Perebutan: firebaugh, PAPA. Garnisun: Meow.",
+            "#8 {sanctum} (Sparrow) — Perebutan: Sparrow, BigMedicMike. Garnisun: otoki.",
+            "#10 {sanctum} (L) — Perebutan: L, Beby. Garnisun: Rover88.",
+            "#2 {mercenary} (MTP) — Kapten: MTP.",
+            "#5 {abbey} (debe 06) — Perebutan: debe 06. Garnisun: beeQueen.",
+            "#6 {abbey} (lovely mw) — Perebutan: lovely mw. Garnisun: BravuS.",
+            "#9 {abbey} (Cvk) — Rebut dan tahan: Cvk.",
+            "#11 {abbey} (Floating) — Floating."
+          ]},
+
+          { type: "h", text: "📣 CATATAN KOORDINATOR UNTUK PAPA" },
           { type: "list", items: [
             "Panggil target dengan nomor peta dan nama pemain: “#3 {reformation} firebaugh, Reli sekarang.” / “kyking, tekan #10 {sanctum} musuh.”",
             "Jaga tim perebut tetap mobile. Jangan biarkan kyking, 꾸리잘린 쥐, BOO, dan firebaugh berdiam di dalam bangunan.",
@@ -735,6 +1178,7 @@ const GUIDES = {
             "Ingatkan semua: Legion 2 adalah pertempuran terpisah dengan hadiahnya sendiri. Menangkan papan skor kalian sendiri.",
             "Kali ini tidak ada cadangan. Semua orang di daftar adalah roster utama. Jika ada yang terlambat, pemain flex menutupi posisinya."
           ]},
+
           { type: "h", text: "📌 CATATAN AKHIR" },
           { type: "list", items: [
             "Semua pemain harus online saat mulai.",
@@ -746,6 +1190,7 @@ const GUIDES = {
             "**Jangan pernah menukar bangunan inti demi kill.**"
           ]},
           { type: "p", text: "Semoga sukses hari Minggu!" },
+
           { type: "h", text: "🗺️ PETA" },
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Peta" },
           { type: "h", text: "🧭 ZONA YANG DITUGASKAN" },
@@ -755,15 +1200,102 @@ const GUIDES = {
       ru: {
         title: "Последние события альянса",
         blocks: [
-          { type: "h", text: "📅 LEGION 2 · ВОСКРЕСЕНЬЕ, 20.09" },
-          { type: "p", text: "**Координатор:** PAPA (67.6M)" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Legion 2" },
+          { type: "h", text: "📅 LEGION 2 — РАСПРЕДЕЛЕНИЕ ИГРОКОВ · БИТВА ЗА СТРАНУ МЕЧЕЙ" },
+          { type: "p", text: "**Дата:** воскресенье, 20.09 · **Координатор:** PAPA (67.6M)" },
           { type: "p", text: "Legion 2 — отдельная битва. Она проходит одновременно, но на своём поле боя. Она не влияет на результат Legion 1 и награды альянса." },
           { type: "callout", text: "**В этот раз без запасных.** Все перечисленные ниже игроки — основной состав." },
+
           { type: "h", text: "🎯 НАПОМИНАНИЕ О ДОКТРИНЕ" },
           { type: "p", text: "Сильнейшие игроки атакуют и захватывают. Когда здание переходит к нам, **Капитан гарнизона** удерживает его, а команда захвата идёт дальше. Капитаны гарнизона не уходят за убийствами. Команды захвата остаются мобильными и агрессивными." },
-          { type: "h", text: "📋 РАСПРЕДЕЛЕНИЕ ИГРОКОВ" },
-          { type: "img", src: "figures/Legion_2.png", alt: "Распределение игроков" },
-          { type: "h", text: "📣 ЗАМЕТКИ КООРДИНАТОРА (PAPA)" },
+
+          { type: "sub", text: "#4 {belltower} (Nia) — Скорость захвата" },
+          { type: "list", items: [
+            "**Nia (56M)** — Ведущий захвата. В самом начале вместе с Garnet захватите здание #4 «{belltower}». После захвата передайте его ELR как Капитану гарнизона и отправляйтесь усиливать здание #7 «{stables}» (Jack) или #8 «{sanctum}» (Sparrow). Действуйте мобильно.",
+            "**Garnet (56M)** — Поддержка захвата. В начале присоединяйтесь к Nia и захватите здание #4 «{belltower}». После захвата передайте его ELR и вместе с Nia отправляйтесь к зданию #7 «{stables}» (Jack) или #8 «{sanctum}» (Sparrow). Действуйте мобильно.",
+            "**ELR (55.7M)** — Капитан гарнизона. В начале займите позицию рядом со зданием #4 «{belltower}». Когда Nia захватит его, примите командование и удерживайте здание. Не уходите, пока PAPA не объявит ротацию. Скорость захвата важна весь матч."
+          ]},
+
+          { type: "sub", text: "#7 {stables} (Jack) — Перезарядка телепорта" },
+          { type: "list", items: [
+            "**Jack (54.6M)** — Ведущий захвата. В самом начале вместе с Raccoon захватите здание #7 «{stables}». После захвата передайте его Vlad DRAC как Капитану гарнизона и отправляйтесь усиливать центр либо здания #8 «{sanctum}» (Sparrow) и #10 «{sanctum}» (L). Действуйте мобильно.",
+            "**Raccoon (54M)** — Поддержка захвата. В начале присоединяйтесь к Jack и захватите здание #7 «{stables}». После захвата передайте его Vlad DRAC и вместе с Jack отправляйтесь усиливать центр. Действуйте мобильно.",
+            "**Vlad DRAC (53.6M)** — Капитан гарнизона. В начале займите позицию рядом со зданием #7 «{stables}». Когда Jack захватит его, примите командование и удерживайте здание. Не уходите, пока PAPA не объявит ротацию. Эффект сокращения перезарядки телепорта должен оставаться активным."
+          ]},
+
+          { type: "sub", text: "#1 {swordshrine} (kyking) — Ядро, больше всего очков" },
+          { type: "list", items: [
+            "**kyking (88M)** — Главный капитан рейда. Возглавьте волну захвата здания #1 «{swordshrine}» вместе с 꾸리잘린 쥐 и BOO. После захвата передайте его PERCIVAL как Капитану гарнизона и вместе с 꾸리잘린 쥐 и BOO давите на здание #3 «{reformation}» (firebaugh) либо на вражеские здания #8 «{sanctum}» (Sparrow) и #10 «{sanctum}» (L). Не сидите внутри здания.",
+            "**꾸리잘린 쥐 (75M)** — Лидер рейда. Присоединяйтесь к волне захвата kyking на здание #1 «{swordshrine}». После передачи PERCIVAL вместе с kyking и BOO давите на здание #3 «{reformation}» (firebaugh) или на вражеское ядро. Действуйте мобильно.",
+            "**BOO (71.1M)** — Лидер рейда. Присоединяйтесь к волне захвата kyking на здание #1 «{swordshrine}». После передачи PERCIVAL вместе с kyking и 꾸리잘린 쥐 давите на здание #3 «{reformation}» (firebaugh) или на вражеское ядро. Действуйте мобильно.",
+            "**PERCIVAL (70.7M)** — Капитан гарнизона. До 15:00 займите позицию рядом со зданием #1 «{swordshrine}». Когда kyking захватит его, примите командование и удерживайте здание при поддержке 『Noctis』. Не покидайте здание #1 «{swordshrine}», пока PAPA не объявит ротацию. Вы — якорь ядра.",
+            "**『Noctis』 (62.6M)** — Подкрепление. Займите позицию рядом со зданием #1 «{swordshrine}» и поддержите PERCIVAL, когда здание будет захвачено. Держитесь вместе с ним и не уходите, пока PAPA не объявит ротацию."
+          ]},
+
+          { type: "sub", text: "#3 {reformation} (firebaugh) — Бонус к атаке/защите" },
+          { type: "list", items: [
+            "**firebaugh (70.5M)** — Главный капитан рейда. Возглавьте волну захвата здания #3 «{reformation}» вместе с PAPA. После захвата передайте его Meow как Капитану гарнизона и вместе с PAPA усильте здание #1 «{swordshrine}» (PERCIVAL) или давите на вражеское ядро. Действуйте мобильно.",
+            "**PAPA (67.6M)** — Координатор и лидер рейда. Называйте цели в чате отряда. Присоединяйтесь к волне захвата firebaugh на здание #3 «{reformation}». После передачи Meow вместе с firebaugh усильте здание #1 «{swordshrine}» (PERCIVAL) или давите на вражеское ядро. Ваша задача — читать карту, называть следующую цель и не давать командам захвата останавливаться.",
+            "**Meow (66.2M)** — Капитан гарнизона. До 15:00 займите позицию рядом со зданием #3 «{reformation}». Когда firebaugh захватит его, примите командование и удерживайте здание. Не покидайте здание #3 «{reformation}», пока PAPA не объявит ротацию. Бонус к атаке и защите от здания #3 «{reformation}» должен оставаться активным."
+          ]},
+
+          { type: "sub", text: "#8 {sanctum} (Sparrow) — Ядро" },
+          { type: "list", items: [
+            "**Sparrow (59.3M)** — Ведущий захвата. В самом начале вместе с BigMedicMike захватите здание #8 «{sanctum}». После захвата передайте его otoki как Капитану гарнизона и отправляйтесь усиливать здание #10 «{sanctum}» (L) или #1 «{swordshrine}» (PERCIVAL). Действуйте мобильно.",
+            "**BigMedicMike (58.3M)** — Поддержка захвата. В начале присоединяйтесь к Sparrow и захватите здание #8 «{sanctum}». После захвата передайте его otoki и вместе с Sparrow отправляйтесь усиливать здание #10 «{sanctum}» (L) или #1 «{swordshrine}» (PERCIVAL). Действуйте мобильно.",
+            "**otoki (51.9M)** — Капитан гарнизона. В начале займите позицию рядом со зданием #8 «{sanctum}». Когда Sparrow захватит его, примите командование и удерживайте здание. Не уходите, пока PAPA не объявит ротацию. Здание #8 «{sanctum}» — часть ядра."
+          ]},
+
+          { type: "sub", text: "#10 {sanctum} (L) — Ядро" },
+          { type: "list", items: [
+            "**L (49.4M)** — Ведущий захвата. В самом начале вместе с Beby захватите здание #10 «{sanctum}». После захвата передайте его Rover88 как Капитану гарнизона и отправляйтесь усиливать здание #1 «{swordshrine}» (PERCIVAL). Действуйте мобильно.",
+            "**Beby (49.3M)** — Поддержка захвата. В начале присоединяйтесь к L и захватите здание #10 «{sanctum}». После захвата передайте его Rover88 и вместе с L отправляйтесь усиливать здание #1 «{swordshrine}» (PERCIVAL). Действуйте мобильно.",
+            "**Rover88 (48.9M)** — Капитан гарнизона. В начале займите позицию рядом со зданием #10 «{sanctum}». Когда L захватит его, примите командование и удерживайте здание. Не уходите, пока PAPA не объявит ротацию. Здание #10 «{sanctum}» — часть ядра."
+          ]},
+
+          { type: "sub", text: "#2 {mercenary} (MTP) — Атаки наёмников" },
+          { type: "list", items: [
+            "**MTP (65.9M)** — Капитан. До 15:00 займите позицию рядом со зданием #2 «{mercenary}». Как только оно станет доступным, займите его и каждые 7 минут применяйте наёмников против вражеского ядра. Согласуйте тайминг с PAPA в чате отряда."
+          ]},
+
+          { type: "sub", text: "#5 {abbey} (debe 06)" },
+          { type: "list", items: [
+            "**debe 06 (45.2M)** — Захват. В начале вместе с beeQueen захватите здание #5 «{abbey}». После захвата beeQueen удерживает его, а вы при необходимости отправляйтесь усиливать здание #6 «{abbey}» (lovely mw) или #9 «{abbey}» (Cvk). Действуйте мобильно.",
+            "**beeQueen (43.2M)** — Капитан гарнизона. В начале займите позицию рядом со зданием #5 «{abbey}». Когда debe 06 захватит его, примите командование и удерживайте здание. Не уходите, пока PAPA не объявит ротацию."
+          ]},
+
+          { type: "sub", text: "#6 {abbey} (lovely mw)" },
+          { type: "list", items: [
+            "**lovely mw (43.2M)** — Захват. В начале вместе с BravuS захватите здание #6 «{abbey}». После захвата BravuS удерживает его, а вы при необходимости отправляйтесь усиливать здание #5 «{abbey}» (debe 06) или #9 «{abbey}» (Cvk). Действуйте мобильно.",
+            "**BravuS (42.2M)** — Капитан гарнизона. В начале займите позицию рядом со зданием #6 «{abbey}». Когда lovely mw захватит его, примите командование и удерживайте здание. Не уходите, пока PAPA не объявит ротацию. Помогайте собирать выпавшие очки, когда это безопасно."
+          ]},
+
+          { type: "sub", text: "#9 {abbey} (Cvk)" },
+          { type: "list", items: [
+            "**Cvk (39.2M)** — Захват и удержание. В начале захватите здание #9 «{abbey}» и удерживайте его. Не уходите, пока PAPA не объявит ротацию. Собирайте выпавшие очки, когда это безопасно."
+          ]},
+
+          { type: "sub", text: "#11 {abbey} (Floating)" },
+          { type: "list", items: [
+            "**Floating** — Прикрывайте здание #11 «{abbey}» и действуйте там, куда позовёт PAPA. При необходимости усиливайте ядро, перезахватывайте {abbeyPl}, подбирайте выпавшие очки. Гибкий отряд."
+          ]},
+
+          { type: "h", text: "🔎 КРАТКАЯ СПРАВКА ПО ЗДАНИЯМ" },
+          { type: "list", items: [
+            "#4 {belltower} (Nia) — Захват: Nia, Garnet. Гарнизон: ELR.",
+            "#7 {stables} (Jack) — Захват: Jack, Raccoon. Гарнизон: Vlad DRAC.",
+            "#1 {swordshrine} (kyking) — Захват: kyking, 꾸리잘린 쥐, BOO. Гарнизон: PERCIVAL. Подкрепление: 『Noctis』.",
+            "#3 {reformation} (firebaugh) — Захват: firebaugh, PAPA. Гарнизон: Meow.",
+            "#8 {sanctum} (Sparrow) — Захват: Sparrow, BigMedicMike. Гарнизон: otoki.",
+            "#10 {sanctum} (L) — Захват: L, Beby. Гарнизон: Rover88.",
+            "#2 {mercenary} (MTP) — Капитан: MTP.",
+            "#5 {abbey} (debe 06) — Захват: debe 06. Гарнизон: beeQueen.",
+            "#6 {abbey} (lovely mw) — Захват: lovely mw. Гарнизон: BravuS.",
+            "#9 {abbey} (Cvk) — Захват и удержание: Cvk.",
+            "#11 {abbey} (Floating) — Гибкий (Floating)."
+          ]},
+
+          { type: "h", text: "📣 ЗАМЕТКИ КООРДИНАТОРА ДЛЯ PAPA" },
           { type: "list", items: [
             "Называйте цели по номеру на карте и имени игрока: «#3 {reformation} firebaugh, рейд сейчас.» / «kyking, давите на вражеское #10 {sanctum}.»",
             "Держите команды захвата мобильными. Не позволяйте kyking, 꾸리잘린 쥐, BOO и firebaugh сидеть внутри зданий.",
@@ -773,6 +1305,7 @@ const GUIDES = {
             "Напомните всем: Legion 2 — отдельная битва со своими наградами. Побеждайте в собственной таблице очков.",
             "В этот раз без запасных. Все в списке — основной состав. Если кто-то опаздывает, его место займут гибкие (flex) игроки."
           ]},
+
           { type: "h", text: "📌 ИТОГОВЫЕ ЗАМЕТКИ" },
           { type: "list", items: [
             "Все игроки должны быть онлайн на старте.",
@@ -784,6 +1317,7 @@ const GUIDES = {
             "**Никогда не меняйте ключевое здание на убийства.**"
           ]},
           { type: "p", text: "Удачи в воскресенье!" },
+
           { type: "h", text: "🗺️ КАРТА" },
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Карта" },
           { type: "h", text: "🧭 НАЗНАЧЕННЫЕ ЗОНЫ" },
@@ -793,15 +1327,102 @@ const GUIDES = {
       th: {
         title: "กิจกรรมพันธมิตรล่าสุด",
         blocks: [
-          { type: "h", text: "📅 LEGION 2 · วันอาทิตย์ที่ 20.09" },
-          { type: "p", text: "**ผู้ประสานงาน:** PAPA (67.6M)" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Legion 2" },
+          { type: "h", text: "📅 LEGION 2 — การมอบหมายผู้เล่น · ศึกดวลดินแดนดาบ" },
+          { type: "p", text: "**วันที่:** วันอาทิตย์ที่ 20.09 · **ผู้ประสานงาน:** PAPA (67.6M)" },
           { type: "p", text: "Legion 2 เป็นการรบแยกต่างหาก จัดขึ้นพร้อมกันแต่อยู่ในสนามรบของตัวเอง และไม่ส่งผลต่อผลของ Legion 1 หรือรางวัลของพันธมิตร" },
           { type: "callout", text: "**ครั้งนี้ไม่มีตัวสำรอง** ผู้เล่นทุกคนที่อยู่ในรายชื่อด้านล่างเป็นรายชื่อหลักทั้งหมด" },
+
           { type: "h", text: "🎯 ย้ำหลักการรบ" },
           { type: "p", text: "ผู้เล่นที่แข็งแกร่งที่สุดโจมตีและยึดครอง เมื่อสิ่งปลูกสร้างเปลี่ยนมือแล้ว **หัวหน้ากองรักษาการณ์** จะยึดไว้ ขณะที่ทีมยึดครองเดินหน้าต่อ หัวหน้ากองรักษาการณ์ไม่ออกไปไล่ล่าการสังหาร ทีมยึดครองต้องคล่องตัวและรุกอยู่เสมอ" },
-          { type: "h", text: "📋 การมอบหมายผู้เล่น" },
-          { type: "img", src: "figures/Legion_2.png", alt: "การมอบหมายผู้เล่น" },
-          { type: "h", text: "📣 บันทึกของผู้ประสานงาน (PAPA)" },
+
+          { type: "sub", text: "#4 {belltower} (Nia) — ความเร็วในการยึดครอง" },
+          { type: "list", items: [
+            "**Nia (56M)** — ผู้นำการยึดครอง ยึด #4 {belltower} ทันทีตอนเริ่มพร้อมกับ Garnet เมื่อยึดได้แล้วให้ส่งต่อให้ ELR เป็นหัวหน้ากองรักษาการณ์ แล้วไปเสริมที่ #7 {stables} (Jack) หรือ #8 {sanctum} (Sparrow) คล่องตัวเข้าไว้",
+            "**Garnet (56M)** — ผู้สนับสนุนการยึดครอง เข้าร่วมกับ Nia ตอนเริ่มและยึด #4 {belltower} เมื่อยึดได้แล้วให้ส่งต่อให้ ELR แล้วไปกับ Nia ที่ #7 {stables} (Jack) หรือ #8 {sanctum} (Sparrow) คล่องตัวเข้าไว้",
+            "**ELR (55.7M)** — หัวหน้ากองรักษาการณ์ ประจำตำแหน่งใกล้ #4 {belltower} ตอนเริ่ม เมื่อ Nia ยึดได้แล้วให้รับตำแหน่งหัวหน้าและยึดไว้ ห้ามออกจากที่ เว้นแต่ PAPA เรียกสลับหมุนเวียน ความเร็วในการยึดสำคัญตลอดทั้งแมตช์"
+          ]},
+
+          { type: "sub", text: "#7 {stables} (Jack) — คูลดาวน์การเทเลพอร์ต" },
+          { type: "list", items: [
+            "**Jack (54.6M)** — ผู้นำการยึดครอง ยึด #7 {stables} ทันทีตอนเริ่มพร้อมกับ Raccoon เมื่อยึดได้แล้วให้ส่งต่อให้ Vlad DRAC เป็นหัวหน้ากองรักษาการณ์ แล้วไปเสริมตรงกลางหรือที่ #8 {sanctum} (Sparrow) และ #10 {sanctum} (L) คล่องตัวเข้าไว้",
+            "**Raccoon (54M)** — ผู้สนับสนุนการยึดครอง เข้าร่วมกับ Jack ตอนเริ่มและยึด #7 {stables} เมื่อยึดได้แล้วให้ส่งต่อให้ Vlad DRAC แล้วไปกับ Jack เพื่อเสริมตรงกลาง คล่องตัวเข้าไว้",
+            "**Vlad DRAC (53.6M)** — หัวหน้ากองรักษาการณ์ ประจำตำแหน่งใกล้ #7 {stables} ตอนเริ่ม เมื่อ Jack ยึดได้แล้วให้รับตำแหน่งหัวหน้าและยึดไว้ ห้ามออกจากที่ เว้นแต่ PAPA เรียกสลับหมุนเวียน ผลลดคูลดาวน์การเทเลพอร์ตต้องเปิดใช้งานอยู่ตลอด"
+          ]},
+
+          { type: "sub", text: "#1 {swordshrine} (kyking) — แกนหลัก คะแนนสูงสุด" },
+          { type: "list", items: [
+            "**kyking (88M)** — หัวหน้าทีมระดมพลหลัก นำการยึดครอง #1 {swordshrine} พร้อมกับ 꾸리잘린 쥐 และ BOO เมื่อยึดได้แล้วให้ส่งต่อให้ PERCIVAL เป็นหัวหน้ากองรักษาการณ์ แล้วไปกับ 꾸리잘린 쥐 และ BOO เพื่อกดดัน #3 {reformation} (firebaugh) หรือ #8 {sanctum} (Sparrow) และ #10 {sanctum} (L) ของศัตรู อย่านั่งอยู่แต่ในสิ่งปลูกสร้าง",
+            "**꾸리잘린 쥐 (75M)** — ผู้นำทีมระดมพล เข้าร่วมการยึดครอง #1 {swordshrine} ของ kyking หลังส่งต่อให้ PERCIVAL แล้วให้ไปกับ kyking และ BOO เพื่อกดดัน #3 {reformation} (firebaugh) หรือแกนหลักของศัตรู คล่องตัวเข้าไว้",
+            "**BOO (71.1M)** — ผู้นำทีมระดมพล เข้าร่วมการยึดครอง #1 {swordshrine} ของ kyking หลังส่งต่อให้ PERCIVAL แล้วให้ไปกับ kyking และ 꾸리잘린 쥐 เพื่อกดดัน #3 {reformation} (firebaugh) หรือแกนหลักของศัตรู คล่องตัวเข้าไว้",
+            "**PERCIVAL (70.7M)** — หัวหน้ากองรักษาการณ์ ประจำตำแหน่งใกล้ #1 {swordshrine} ก่อน 15:00 เมื่อ kyking ยึดได้แล้วให้รับตำแหน่งหัวหน้าและยึดไว้ โดยมี 『Noctis』 เสริม ห้ามออกจาก #1 {swordshrine} เว้นแต่ PAPA เรียกสลับหมุนเวียน คุณคือหลักยึดของแกนหลัก",
+            "**『Noctis』 (62.6M)** — กำลังเสริม ประจำตำแหน่งใกล้ #1 {swordshrine} และเสริม PERCIVAL เมื่อสิ่งปลูกสร้างเปลี่ยนมือ ยึดไว้ร่วมกับเขาและห้ามออก เว้นแต่ PAPA เรียกสลับหมุนเวียน"
+          ]},
+
+          { type: "sub", text: "#3 {reformation} (firebaugh) — บัฟโจมตี/ป้องกัน" },
+          { type: "list", items: [
+            "**firebaugh (70.5M)** — หัวหน้าทีมระดมพลหลัก นำการยึดครอง #3 {reformation} พร้อมกับ PAPA เมื่อยึดได้แล้วให้ส่งต่อให้ Meow เป็นหัวหน้ากองรักษาการณ์ แล้วไปกับ PAPA เพื่อเสริม #1 {swordshrine} (PERCIVAL) หรือกดดันแกนหลักของศัตรู คล่องตัวเข้าไว้",
+            "**PAPA (67.6M)** — ผู้ประสานงานและผู้นำทีมระดมพล สั่งเป้าหมายในแชททีม เข้าร่วมการยึดครอง #3 {reformation} ของ firebaugh หลังส่งต่อให้ Meow แล้วให้ไปกับ firebaugh เพื่อเสริม #1 {swordshrine} (PERCIVAL) หรือกดดันแกนหลักของศัตรู หน้าที่ของคุณคืออ่านแผนที่ สั่งเป้าหมายถัดไป และทำให้ทีมยึดครองเคลื่อนที่ต่อเนื่อง",
+            "**Meow (66.2M)** — หัวหน้ากองรักษาการณ์ ประจำตำแหน่งใกล้ #3 {reformation} ก่อน 15:00 เมื่อ firebaugh ยึดได้แล้วให้รับตำแหน่งหัวหน้าและยึดไว้ ห้ามออกจาก #3 {reformation} เว้นแต่ PAPA เรียกสลับหมุนเวียน บัฟโจมตีและป้องกันจาก #3 {reformation} ต้องเปิดใช้งานอยู่ตลอด"
+          ]},
+
+          { type: "sub", text: "#8 {sanctum} (Sparrow) — แกนหลัก" },
+          { type: "list", items: [
+            "**Sparrow (59.3M)** — ผู้นำการยึดครอง ยึด #8 {sanctum} พร้อมกับ BigMedicMike ตอนเริ่ม เมื่อยึดได้แล้วให้ส่งต่อให้ otoki เป็นหัวหน้ากองรักษาการณ์ แล้วไปเสริม #10 {sanctum} (L) หรือ #1 {swordshrine} (PERCIVAL) คล่องตัวเข้าไว้",
+            "**BigMedicMike (58.3M)** — ผู้สนับสนุนการยึดครอง เข้าร่วมกับ Sparrow ตอนเริ่มและยึด #8 {sanctum} เมื่อยึดได้แล้วให้ส่งต่อให้ otoki แล้วไปกับ Sparrow เพื่อเสริม #10 {sanctum} (L) หรือ #1 {swordshrine} (PERCIVAL) คล่องตัวเข้าไว้",
+            "**otoki (51.9M)** — หัวหน้ากองรักษาการณ์ ประจำตำแหน่งใกล้ #8 {sanctum} ตอนเริ่ม เมื่อ Sparrow ยึดได้แล้วให้รับตำแหน่งหัวหน้าและยึดไว้ ห้ามออกจากที่ เว้นแต่ PAPA เรียกสลับหมุนเวียน #8 {sanctum} คือแกนหลัก"
+          ]},
+
+          { type: "sub", text: "#10 {sanctum} (L) — แกนหลัก" },
+          { type: "list", items: [
+            "**L (49.4M)** — ผู้นำการยึดครอง ยึด #10 {sanctum} พร้อมกับ Beby ตอนเริ่ม เมื่อยึดได้แล้วให้ส่งต่อให้ Rover88 เป็นหัวหน้ากองรักษาการณ์ แล้วไปเสริม #1 {swordshrine} (PERCIVAL) คล่องตัวเข้าไว้",
+            "**Beby (49.3M)** — ผู้สนับสนุนการยึดครอง เข้าร่วมกับ L ตอนเริ่มและยึด #10 {sanctum} เมื่อยึดได้แล้วให้ส่งต่อให้ Rover88 แล้วไปกับ L เพื่อเสริม #1 {swordshrine} (PERCIVAL) คล่องตัวเข้าไว้",
+            "**Rover88 (48.9M)** — หัวหน้ากองรักษาการณ์ ประจำตำแหน่งใกล้ #10 {sanctum} ตอนเริ่ม เมื่อ L ยึดได้แล้วให้รับตำแหน่งหัวหน้าและยึดไว้ ห้ามออกจากที่ เว้นแต่ PAPA เรียกสลับหมุนเวียน #10 {sanctum} คือแกนหลัก"
+          ]},
+
+          { type: "sub", text: "#2 {mercenary} (MTP) — การโจมตีของทหารรับจ้าง" },
+          { type: "list", items: [
+            "**MTP (65.9M)** — หัวหน้า ประจำตำแหน่งใกล้ #2 {mercenary} ก่อน 15:00 เมื่อพร้อมใช้งานให้ยึดไว้ และใช้ทหารรับจ้างทุก 7 นาทีต่อแกนหลักของศัตรู ประสานจังหวะกับ PAPA ในแชททีม"
+          ]},
+
+          { type: "sub", text: "#5 {abbey} (debe 06)" },
+          { type: "list", items: [
+            "**debe 06 (45.2M)** — ยึดครอง ยึด #5 {abbey} พร้อมกับ beeQueen ตอนเริ่ม เมื่อยึดได้แล้ว beeQueen จะยึดไว้ ส่วนคุณไปเสริม #6 {abbey} (lovely mw) หรือ #9 {abbey} (Cvk) ตามความจำเป็น คล่องตัวเข้าไว้",
+            "**beeQueen (43.2M)** — หัวหน้ากองรักษาการณ์ ประจำตำแหน่งใกล้ #5 {abbey} ตอนเริ่ม เมื่อ debe 06 ยึดได้แล้วให้รับตำแหน่งหัวหน้าและยึดไว้ ห้ามออกจากที่ เว้นแต่ PAPA เรียกสลับหมุนเวียน"
+          ]},
+
+          { type: "sub", text: "#6 {abbey} (lovely mw)" },
+          { type: "list", items: [
+            "**lovely mw (43.2M)** — ยึดครอง ยึด #6 {abbey} พร้อมกับ BravuS ตอนเริ่ม เมื่อยึดได้แล้ว BravuS จะยึดไว้ ส่วนคุณไปเสริม #5 {abbey} (debe 06) หรือ #9 {abbey} (Cvk) ตามความจำเป็น คล่องตัวเข้าไว้",
+            "**BravuS (42.2M)** — หัวหน้ากองรักษาการณ์ ประจำตำแหน่งใกล้ #6 {abbey} ตอนเริ่ม เมื่อ lovely mw ยึดได้แล้วให้รับตำแหน่งหัวหน้าและยึดไว้ ห้ามออกจากที่ เว้นแต่ PAPA เรียกสลับหมุนเวียน ช่วยเก็บแต้มที่ตกหล่นเมื่อปลอดภัย"
+          ]},
+
+          { type: "sub", text: "#9 {abbey} (Cvk)" },
+          { type: "list", items: [
+            "**Cvk (39.2M)** — ยึดครองและยึดไว้ ยึด #9 {abbey} ตอนเริ่มและยึดไว้ ห้ามออกจากที่ เว้นแต่ PAPA เรียกสลับหมุนเวียน เก็บแต้มที่ตกหล่นเมื่อปลอดภัย"
+          ]},
+
+          { type: "sub", text: "#11 {abbey} (Floating)" },
+          { type: "list", items: [
+            "**Floating** — คุ้มครอง #11 {abbey} และเคลื่อนที่ไปตามที่ PAPA เรียก เสริมแกนหลักเมื่อจำเป็น พลิกการยึด{abbey}เมื่อจำเป็น เก็บแต้มที่ตกหล่น ทีมยืดหยุ่น (flex)"
+          ]},
+
+          { type: "h", text: "🔎 สรุปย่อตามสิ่งปลูกสร้าง" },
+          { type: "list", items: [
+            "#4 {belltower} (Nia) — ยึดครอง: Nia, Garnet. กองรักษาการณ์: ELR.",
+            "#7 {stables} (Jack) — ยึดครอง: Jack, Raccoon. กองรักษาการณ์: Vlad DRAC.",
+            "#1 {swordshrine} (kyking) — ยึดครอง: kyking, 꾸리잘린 쥐, BOO. กองรักษาการณ์: PERCIVAL. กำลังเสริม: 『Noctis』.",
+            "#3 {reformation} (firebaugh) — ยึดครอง: firebaugh, PAPA. กองรักษาการณ์: Meow.",
+            "#8 {sanctum} (Sparrow) — ยึดครอง: Sparrow, BigMedicMike. กองรักษาการณ์: otoki.",
+            "#10 {sanctum} (L) — ยึดครอง: L, Beby. กองรักษาการณ์: Rover88.",
+            "#2 {mercenary} (MTP) — หัวหน้า: MTP.",
+            "#5 {abbey} (debe 06) — ยึดครอง: debe 06. กองรักษาการณ์: beeQueen.",
+            "#6 {abbey} (lovely mw) — ยึดครอง: lovely mw. กองรักษาการณ์: BravuS.",
+            "#9 {abbey} (Cvk) — ยึดครองและยึดไว้: Cvk.",
+            "#11 {abbey} (Floating) — ยืดหยุ่น (Floating)."
+          ]},
+
+          { type: "h", text: "📣 บันทึกผู้ประสานงานสำหรับ PAPA" },
           { type: "list", items: [
             "สั่งเป้าหมายด้วยหมายเลขบนแผนที่และชื่อผู้เล่น: “#3 {reformation} firebaugh ตั้งทีมระดมพลตอนนี้” / “kyking กดดัน #10 {sanctum} ของศัตรู”",
             "ให้ทีมยึดครองคล่องตัวอยู่เสมอ อย่าให้ kyking, 꾸리잘린 쥐, BOO และ firebaugh นั่งอยู่ในสิ่งปลูกสร้าง",
@@ -811,6 +1432,7 @@ const GUIDES = {
             "เตือนทุกคน: Legion 2 เป็นการรบแยกต่างหากที่มีรางวัลของตัวเอง ชนะบนตารางคะแนนของตัวเอง",
             "ครั้งนี้ไม่มีตัวสำรอง ทุกคนในรายชื่อเป็นรายชื่อหลัก หากใครมาสาย ผู้เล่นยืดหยุ่น (flex) จะเข้าไปแทนตำแหน่ง"
           ]},
+
           { type: "h", text: "📌 หมายเหตุสุดท้าย" },
           { type: "list", items: [
             "ผู้เล่นทุกคนต้องออนไลน์ตั้งแต่เริ่ม",
@@ -822,6 +1444,7 @@ const GUIDES = {
             "**ห้ามแลกสิ่งปลูกสร้างหลักกับการสังหารเด็ดขาด**"
           ]},
           { type: "p", text: "ขอให้โชคดีในวันอาทิตย์!" },
+
           { type: "h", text: "🗺️ แผนที่" },
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "แผนที่" },
           { type: "h", text: "🧭 โซนที่ได้รับมอบหมาย" },
@@ -831,24 +1454,112 @@ const GUIDES = {
       ar: {
         title: "أحدث فعاليات التحالف",
         blocks: [
-          { type: "h", text: "📅 LEGION 2 · الأحد 20.09" },
-          { type: "p", text: "**المنسّق:** PAPA (67.6M)" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Legion 2" },
+          { type: "h", text: "📅 LEGION 2 — توزيع اللاعبين · مواجهة أرض السيوف" },
+          { type: "p", text: "**التاريخ:** الأحد 20.09 · **المنسّق:** PAPA (67.6M)" },
           { type: "p", text: "Legion 2 معركة منفصلة. تجري في الوقت نفسه لكن في ساحة معركة خاصة بها، ولا تؤثر على نتيجة Legion 1 ولا على مكافآت التحالف." },
           { type: "callout", text: "**لا يوجد لاعبون احتياطيون هذه المرة.** جميع اللاعبين المدرجين أدناه من القائمة الأساسية." },
+
           { type: "h", text: "🎯 تذكير بالمبدأ القتالي" },
           { type: "p", text: "يهاجم أقوى اللاعبين ويستولون على المباني. بمجرد أن يتغير مالك المبنى، يتولى **قائد الحامية** الدفاع عنه بينما يواصل فريق الاستيلاء التقدم. لا يغادر قادة الحاميات لمطاردة الإقصاءات. يبقى فريق الاستيلاء متحركًا وهجوميًا." },
-          { type: "h", text: "📋 توزيع اللاعبين" },
-          { type: "img", src: "figures/Legion_2.png", alt: "توزيع اللاعبين" },
-          { type: "h", text: "📣 ملاحظات المنسّق (PAPA)" },
+
+          { type: "sub", text: "#4 {belltower} (Nia) — سرعة الاستيلاء" },
+          { type: "list", items: [
+            "**Nia (56M)** — قائد الاستيلاء. استولِ على #4 {belltower} فور البداية مع Garnet. عندما يتغير مالكه، سلّمه إلى ELR بصفته قائد الحامية وانتقل لتعزيز #7 {stables} (Jack) أو #8 {sanctum} (Sparrow). ابقَ متحركًا.",
+            "**Garnet (56M)** — داعم الاستيلاء. انضم إلى Nia عند البداية واستولِ على #4 {belltower}. عندما يتغير مالكه، سلّمه إلى ELR وانتقل مع Nia إلى #7 {stables} (Jack) أو #8 {sanctum} (Sparrow). ابقَ متحركًا.",
+            "**ELR (55.7M)** — قائد الحامية. تمركز بالقرب من #4 {belltower} عند البداية. عندما يستولي Nia عليه، تولَّ القيادة وحافظ عليه. لا تغادر إلا إذا طلب PAPA تناوبًا. سرعة الاستيلاء مهمة طوال المباراة."
+          ]},
+
+          { type: "sub", text: "#7 {stables} (Jack) — فترة تبريد الانتقال الفوري" },
+          { type: "list", items: [
+            "**Jack (54.6M)** — قائد الاستيلاء. استولِ على #7 {stables} فور البداية مع Raccoon. عندما يتغير مالكه، سلّمه إلى Vlad DRAC بصفته قائد الحامية وانتقل لتعزيز الوسط أو #8 {sanctum} (Sparrow) و #10 {sanctum} (L). ابقَ متحركًا.",
+            "**Raccoon (54M)** — داعم الاستيلاء. انضم إلى Jack عند البداية واستولِ على #7 {stables}. عندما يتغير مالكه، سلّمه إلى Vlad DRAC وانتقل مع Jack لتعزيز الوسط. ابقَ متحركًا.",
+            "**Vlad DRAC (53.6M)** — قائد الحامية. تمركز بالقرب من #7 {stables} عند البداية. عندما يستولي Jack عليه، تولَّ القيادة وحافظ عليه. لا تغادر إلا إذا طلب PAPA تناوبًا. يجب أن يبقى تأثير تقليل فترة تبريد الانتقال الفوري فعّالًا."
+          ]},
+
+          { type: "sub", text: "#1 {swordshrine} (kyking) — النواة، أعلى النقاط" },
+          { type: "list", items: [
+            "**kyking (88M)** — قائد الحشد الرئيسي. قُد موجة الاستيلاء على #1 {swordshrine} مع 꾸리잘린 쥐 و BOO. عندما يتغير مالكه، سلّمه إلى PERCIVAL بصفته قائد الحامية وانتقل مع 꾸리잘린 쥐 و BOO للضغط على #3 {reformation} (firebaugh) أو على #8 {sanctum} (Sparrow) و #10 {sanctum} (L) التابعين للعدو. لا تجلس داخل مبنى.",
+            "**꾸리잘린 쥐 (75M)** — قائد حشد. انضم إلى موجة استيلاء kyking على #1 {swordshrine}. بعد التسليم إلى PERCIVAL، انتقل مع kyking و BOO للضغط على #3 {reformation} (firebaugh) أو على نواة العدو. ابقَ متحركًا.",
+            "**BOO (71.1M)** — قائد حشد. انضم إلى موجة استيلاء kyking على #1 {swordshrine}. بعد التسليم إلى PERCIVAL، انتقل مع kyking و 꾸리잘린 쥐 للضغط على #3 {reformation} (firebaugh) أو على نواة العدو. ابقَ متحركًا.",
+            "**PERCIVAL (70.7M)** — قائد الحامية. تمركز بالقرب من #1 {swordshrine} قبل 15:00. عندما يستولي kyking عليه، تولَّ القيادة وحافظ عليه بدعم من 『Noctis』. لا تغادر #1 {swordshrine} إلا إذا طلب PAPA تناوبًا. أنت مرساة النواة.",
+            "**『Noctis』 (62.6M)** — تعزيز. تمركز بالقرب من #1 {swordshrine} وعزّز PERCIVAL بمجرد تغيّر مالك المبنى. احتفظ بالموقع معه ولا تغادر إلا إذا طلب PAPA تناوبًا."
+          ]},
+
+          { type: "sub", text: "#3 {reformation} (firebaugh) — تعزيز الهجوم/الدفاع" },
+          { type: "list", items: [
+            "**firebaugh (70.5M)** — قائد الحشد الرئيسي. قُد موجة الاستيلاء على #3 {reformation} مع PAPA. عندما يتغير مالكه، سلّمه إلى Meow بصفته قائد الحامية وانتقل مع PAPA لتعزيز #1 {swordshrine} (PERCIVAL) أو للضغط على نواة العدو. ابقَ متحركًا.",
+            "**PAPA (67.6M)** — المنسّق وقائد الحشد. حدّد الأهداف في دردشة الفرقة. انضم إلى موجة استيلاء firebaugh على #3 {reformation}. بعد التسليم إلى Meow، انتقل مع firebaugh لتعزيز #1 {swordshrine} (PERCIVAL) أو للضغط على نواة العدو. مهمتك قراءة الخريطة وتحديد الهدف التالي وإبقاء فرق الاستيلاء في حركة.",
+            "**Meow (66.2M)** — قائد الحامية. تمركز بالقرب من #3 {reformation} قبل 15:00. عندما يستولي firebaugh عليه، تولَّ القيادة وحافظ عليه. لا تغادر #3 {reformation} إلا إذا طلب PAPA تناوبًا. يجب أن يبقى تعزيز الهجوم والدفاع من #3 {reformation} فعّالًا."
+          ]},
+
+          { type: "sub", text: "#8 {sanctum} (Sparrow) — النواة" },
+          { type: "list", items: [
+            "**Sparrow (59.3M)** — قائد الاستيلاء. استولِ على #8 {sanctum} مع BigMedicMike عند البداية. عندما يتغير مالكه، سلّمه إلى otoki بصفته قائد الحامية وانتقل لتعزيز #10 {sanctum} (L) أو #1 {swordshrine} (PERCIVAL). ابقَ متحركًا.",
+            "**BigMedicMike (58.3M)** — داعم الاستيلاء. انضم إلى Sparrow عند البداية واستولِ على #8 {sanctum}. عندما يتغير مالكه، سلّمه إلى otoki وانتقل مع Sparrow لتعزيز #10 {sanctum} (L) أو #1 {swordshrine} (PERCIVAL). ابقَ متحركًا.",
+            "**otoki (51.9M)** — قائد الحامية. تمركز بالقرب من #8 {sanctum} عند البداية. عندما يستولي Sparrow عليه، تولَّ القيادة وحافظ عليه. لا تغادر إلا إذا طلب PAPA تناوبًا. #8 {sanctum} جزء من النواة."
+          ]},
+
+          { type: "sub", text: "#10 {sanctum} (L) — النواة" },
+          { type: "list", items: [
+            "**L (49.4M)** — قائد الاستيلاء. استولِ على #10 {sanctum} مع Beby عند البداية. عندما يتغير مالكه، سلّمه إلى Rover88 بصفته قائد الحامية وانتقل لتعزيز #1 {swordshrine} (PERCIVAL). ابقَ متحركًا.",
+            "**Beby (49.3M)** — داعم الاستيلاء. انضم إلى L عند البداية واستولِ على #10 {sanctum}. عندما يتغير مالكه، سلّمه إلى Rover88 وانتقل مع L لتعزيز #1 {swordshrine} (PERCIVAL). ابقَ متحركًا.",
+            "**Rover88 (48.9M)** — قائد الحامية. تمركز بالقرب من #10 {sanctum} عند البداية. عندما يستولي L عليه، تولَّ القيادة وحافظ عليه. لا تغادر إلا إذا طلب PAPA تناوبًا. #10 {sanctum} جزء من النواة."
+          ]},
+
+          { type: "sub", text: "#2 {mercenary} (MTP) — هجمات المرتزقة" },
+          { type: "list", items: [
+            "**MTP (65.9M)** — القائد. تمركز بالقرب من #2 {mercenary} قبل 15:00. عندما يصبح متاحًا، استولِ عليه واستخدم المرتزقة كل 7 دقائق ضد نواة العدو. نسّق التوقيت مع PAPA في دردشة الفرقة."
+          ]},
+
+          { type: "sub", text: "#5 {abbey} (debe 06)" },
+          { type: "list", items: [
+            "**debe 06 (45.2M)** — استيلاء. استولِ على #5 {abbey} عند البداية مع beeQueen. عندما يتغير مالكه، يحتفظ به beeQueen وتنتقل أنت لتعزيز #6 {abbey} (lovely mw) أو #9 {abbey} (Cvk) عند الحاجة. ابقَ متحركًا.",
+            "**beeQueen (43.2M)** — قائد الحامية. تمركز بالقرب من #5 {abbey} عند البداية. عندما يستولي debe 06 عليه، تولَّ القيادة وحافظ عليه. لا تغادر إلا إذا طلب PAPA تناوبًا."
+          ]},
+
+          { type: "sub", text: "#6 {abbey} (lovely mw)" },
+          { type: "list", items: [
+            "**lovely mw (43.2M)** — استيلاء. استولِ على #6 {abbey} عند البداية مع BravuS. عندما يتغير مالكه، يحتفظ به BravuS وتنتقل أنت لتعزيز #5 {abbey} (debe 06) أو #9 {abbey} (Cvk) عند الحاجة. ابقَ متحركًا.",
+            "**BravuS (42.2M)** — قائد الحامية. تمركز بالقرب من #6 {abbey} عند البداية. عندما يستولي lovely mw عليه، تولَّ القيادة وحافظ عليه. لا تغادر إلا إذا طلب PAPA تناوبًا. ساعد في جمع النقاط المتساقطة عندما يكون ذلك آمنًا."
+          ]},
+
+          { type: "sub", text: "#9 {abbey} (Cvk)" },
+          { type: "list", items: [
+            "**Cvk (39.2M)** — استيلاء واحتفاظ. استولِ على #9 {abbey} عند البداية واحتفظ به. لا تغادر إلا إذا طلب PAPA تناوبًا. اجمع النقاط المتساقطة عندما يكون ذلك آمنًا."
+          ]},
+
+          { type: "sub", text: "#11 {abbey} (Floating)" },
+          { type: "list", items: [
+            "**Floating** — غطِّ #11 {abbey} وتحرّك بمرونة حيثما يستدعيك PAPA. عزّز النواة عند الحاجة، واقلب ملكية الأديرة عند الحاجة، والتقط النقاط المتساقطة. فرقة مرنة (flex)."
+          ]},
+
+          { type: "h", text: "🔎 مرجع سريع حسب المبنى" },
+          { type: "list", items: [
+            "#4 {belltower} (Nia) — الاستيلاء: Nia, Garnet. الحامية: ELR.",
+            "#7 {stables} (Jack) — الاستيلاء: Jack, Raccoon. الحامية: Vlad DRAC.",
+            "#1 {swordshrine} (kyking) — الاستيلاء: kyking, 꾸리잘린 쥐, BOO. الحامية: PERCIVAL. التعزيز: 『Noctis』.",
+            "#3 {reformation} (firebaugh) — الاستيلاء: firebaugh, PAPA. الحامية: Meow.",
+            "#8 {sanctum} (Sparrow) — الاستيلاء: Sparrow, BigMedicMike. الحامية: otoki.",
+            "#10 {sanctum} (L) — الاستيلاء: L, Beby. الحامية: Rover88.",
+            "#2 {mercenary} (MTP) — القائد: MTP.",
+            "#5 {abbey} (debe 06) — الاستيلاء: debe 06. الحامية: beeQueen.",
+            "#6 {abbey} (lovely mw) — الاستيلاء: lovely mw. الحامية: BravuS.",
+            "#9 {abbey} (Cvk) — الاستيلاء والاحتفاظ: Cvk.",
+            "#11 {abbey} (Floating) — مرن (Floating)."
+          ]},
+
+          { type: "h", text: "📣 ملاحظات المنسّق لـ PAPA" },
           { type: "list", items: [
             "حدّد الأهداف برقم الخريطة واسم اللاعب: «#3 {reformation} firebaugh، الحشد الآن.» / «kyking، اضغط على #10 {sanctum} للعدو.»",
-            "أبقِ فرق الاستيلاء متحركة. لا تدع kyking و꾸리잘린 쥐 و BOO و firebaugh يجلسون داخل المباني.",
+            "أبقِ فرق الاستيلاء متحركة. لا تدع kyking و 꾸리잘린 쥐 و BOO و firebaugh يجلسون داخل المباني.",
             "بدّل قادة الحاميات عند الضرورة فقط. كل تبديل يخاطر بفقدان المبنى.",
             "تتبّع فترة التبريد لـ #2 {mercenary}. يستخدمها MTP كل 7 دقائق.",
             "في آخر 10 دقائق، احمِ #1 {swordshrine} و #8 {sanctum} و #10 {sanctum}. لا تطارد الإقصاءات.",
             "ذكّر الجميع: Legion 2 معركة منفصلة لها مكافآتها الخاصة. اربحوا في لوحة نقاطكم.",
             "لا يوجد احتياطيون هذه المرة. كل من في القائمة من التشكيلة الأساسية. إذا تأخر أحد، يغطي اللاعبون المرنون (flex) مكانه."
           ]},
+
           { type: "h", text: "📌 ملاحظات أخيرة" },
           { type: "list", items: [
             "يجب أن يكون جميع اللاعبين متصلين عند البداية.",
@@ -860,6 +1571,7 @@ const GUIDES = {
             "**لا تضحّوا أبدًا بمبنى أساسي مقابل الإقصاءات.**"
           ]},
           { type: "p", text: "بالتوفيق يوم الأحد!" },
+
           { type: "h", text: "🗺️ الخريطة" },
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "الخريطة" },
           { type: "h", text: "🧭 المناطق المخصصة" },
