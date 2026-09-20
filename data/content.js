@@ -4081,6 +4081,174 @@ const GUIDES = {
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Video aus dem Internet (TikTok @yelloe_hair) – nicht unser eigenes Material." }
         ]
       },
+      fr: {
+        title: "Formations de troupe et conseils de ralliement",
+        blocks: [
+          { type: "h", text: "🔬 PRIORITÉS DE RECHERCHE ET D'AMÉLIORATION" },
+          { type: "p", text: "Donnez la priorité à ces stats de combat pour la recherche et l'amélioration des charmes du Chef (Governor Charms) :" },
+          { type: "list", items: [
+            "{infantry} — {health}",
+            "{archer} — {lethality}"
+          ] },
+          { type: "h", text: "💾 ENREGISTREZ VOS PRESETS" },
+          { type: "p", text: "Selon votre progression, vous pouvez débloquer jusqu'à 8 emplacements pour pré-enregistrer vos formations de troupe. Formations recommandées à enregistrer :" },
+          { type: "callout", text: "Tous les ratios de troupes suivent l'ordre **{infantry} : {cavalry} : {archer}**. Enregistrez un preset distinct pour chaque héros, en le plaçant tout à gauche / en première position." },
+          { type: "callout", text: "💡 Le héros tout à gauche est important quand vous rejoignez un ralliement, car sa compétence d'expédition (Expedition skill) pertinente contribue au ralliement." },
+          { type: "list", items: [
+            "1) {bearHunt} : {chenko} — **10 : 10 : 80**",
+            "2) {bearHunt} : {amane} — **10 : 10 : 80** (ou au plus proche)",
+            "3) {bearHunt} : {yeonwoo} — **10 : 10 : 80** (ou au plus proche)",
+            "4) {bearHunt} : {amadeus} — **10 : 10 : 80** (ou au plus proche)",
+            "5) Attaque (PvP général) : {amadeus} (si monté) ou {chenko} — **50 : 20 : 30**",
+            "6) Défense : {howard} / {gordon} — **60 : 20 : 20** est notre configuration équilibrée par défaut. Ajustez-la quand la direction demande une formation précise."
+          ] },
+          { type: "p", text: "**Leaders de ralliement :** utilisez votre meilleure composition de héros offensifs, au complet." },
+          { type: "p", text: "**Participants au ralliement :** merci de respecter les limites de troupes publiées par la direction." },
+          { type: "list", items: [
+            "7) QG Viking (Viking HQ) : {howard} / {gordon} — **60 : 40** Respectez la limite de troupes (~68 000)",
+            "8) PvE – Bêtes / Chasse (Beasts / Hunting) : {diana} + {fahd} — **50 : 20 : 30**"
+          ] },
+          { type: "h", text: "🐺 PvE — BÊTES / CHASSE (BEASTS / HUNTING)" },
+          { type: "p", text: "Pour le Loup Redoutable : peu de dégâts sont nécessaires, alors envoyez le minimum de troupes (même 1) afin que davantage de membres de l'alliance puissent rejoindre et profiter des récompenses du ralliement." },
+          { type: "h", text: "🏰 {castleBattle} / {sanctuary} / BÂTIMENTS" },
+          { type: "p", text: "Quand vous capturez des bâtiments, soyez prêt à basculer rapidement :" },
+          { type: "callout", text: "**ATTAQUE → DÉFENSE**" },
+          { type: "sub", text: "⚔️ 1. CAPTURE" },
+          { type: "p", text: "Rejoignez le ralliement initial avec votre preset d'ATTAQUE." },
+          { type: "p", text: "**Exemple :** {amadeus} / {chenko} **50 : 20 : 30**" },
+          { type: "sub", text: "🛡️ 2. PASSER EN DÉFENSE" },
+          { type: "p", text: "Une fois le bâtiment capturé :" },
+          { type: "list", items: [
+            "**1.** Envoyez immédiatement une autre marche avec votre preset de DÉFENSE. **Exemple :** {gordon} / {howard} **60 : 20 : 20**",
+            "**2.** Regardez votre marche de défense se diriger vers le bâtiment capturé.",
+            "**3.** Quand il reste environ 5 secondes de temps de marche — ou sur instruction de la direction — rappelez votre marche d'ATTAQUE d'origine.",
+            "**4.** Votre marche de DÉFENSE arrive et remplace votre marche offensive dans la garnison."
+          ] },
+          { type: "callout", text: "🚫 **NE rappelez PAS votre marche d'attaque trop tôt.**" },
+          { type: "p", text: "**Capture → Envoyer la défense → ~5 s → Rappeler l'attaque → La défense arrive**" },
+          { type: "p", text: "Cela nous permet de passer d'un dispositif offensif à une garnison défensive sans affaiblir inutilement le bâtiment." },
+          { type: "h", text: "🪖 LIMITE DE TROUPES EN GARNISON" },
+          { type: "p", text: "Seuls 15 chefs peuvent entrer dans le QG / le sanctuaire. N'envoyez donc pas automatiquement votre marche maximale vers le QG, le sanctuaire ou d'autres bâtiments disputés." },
+          { type: "p", text: "Respectez la limite de troupes annoncée par la direction." },
+          { type: "p", text: "**Objectif d'alliance habituel : ~68 000 troupes par joueur**" },
+          { type: "p", text: "Cela permet à davantage de membres de l'alliance dont les marches défensives sont bien configurées de tenir dans la garnison et d'obtenir des récompenses." },
+          { type: "callout", text: "⚠️ Si la direction annonce une limite différente, suivez toujours le montant annoncé." },
+          { type: "h", text: "🎬 COMMENT PASSER DES HÉROS D'ATTAQUE AUX HÉROS DE DÉFENSE" },
+          { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Vidéo trouvée en ligne (TikTok @yelloe_hair) — pas notre propre séquence." }
+        ]
+      },
+      pt: {
+        title: "Formações das Tropas e dicas de rally",
+        blocks: [
+          { type: "h", text: "🔬 PRIORIDADES DE PESQUISA E APRIMORAMENTO" },
+          { type: "p", text: "Priorize estes atributos de combate na pesquisa e no aprimoramento dos charms do Governador (Governor Charms):" },
+          { type: "list", items: [
+            "{infantry} — {health}",
+            "{archer} — {lethality}"
+          ] },
+          { type: "h", text: "💾 SALVE SEUS PRESETS" },
+          { type: "p", text: "Dependendo do seu progresso, você pode desbloquear até 8 espaços para salvar previamente suas formações de tropas. Formações recomendadas para salvar:" },
+          { type: "callout", text: "Todas as proporções de tropas seguem **{infantry} : {cavalry} : {archer}**. Salve presets separados com cada herói na posição mais à esquerda / primeira." },
+          { type: "callout", text: "💡 O herói mais à esquerda importa ao entrar em rallies, porque a habilidade de expedição (Expedition skill) relevante dele contribui para o rally." },
+          { type: "list", items: [
+            "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
+            "2) {bearHunt}: {amane} — **10 : 10 : 80** (ou o mais próximo possível)",
+            "3) {bearHunt}: {yeonwoo} — **10 : 10 : 80** (ou o mais próximo possível)",
+            "4) {bearHunt}: {amadeus} — **10 : 10 : 80** (ou o mais próximo possível)",
+            "5) Ataque (PvP geral): {amadeus} (se desenvolvido) ou {chenko} — **50 : 20 : 30**",
+            "6) Defesa: {howard} / {gordon} — **60 : 20 : 20** é o nosso padrão equilibrado. Ajuste quando a liderança pedir uma formação específica."
+          ] },
+          { type: "p", text: "**Líderes de Rally:** use sua melhor formação ofensiva de heróis, completa." },
+          { type: "p", text: "**Participantes de Rally:** siga os limites de tropas publicados pela liderança." },
+          { type: "list", items: [
+            "7) QG Viking (Viking HQ): {howard} / {gordon} — **60 : 40** Siga o limite de tropas (~68.000)",
+            "8) PvE – Feras / Caça (Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
+          ] },
+          { type: "h", text: "🐺 PvE — FERAS / CAÇA (BEASTS / HUNTING)" },
+          { type: "p", text: "Lembre-se para o Lobo Medonho: não é preciso muito dano, então envie o mínimo de tropas (até 1) para que mais membros da aliança possam entrar e aproveitar as recompensas do rally." },
+          { type: "h", text: "🏰 {castleBattle} / {sanctuary} / CONSTRUÇÕES" },
+          { type: "p", text: "Ao capturar construções, esteja pronto para trocar rapidamente:" },
+          { type: "callout", text: "**ATAQUE → DEFESA**" },
+          { type: "sub", text: "⚔️ 1. CAPTURA" },
+          { type: "p", text: "Entre no rally inicial usando seu preset de ATAQUE." },
+          { type: "p", text: "**Exemplo:** {amadeus} / {chenko} **50 : 20 : 30**" },
+          { type: "sub", text: "🛡️ 2. TROCAR PARA DEFESA" },
+          { type: "p", text: "Assim que a construção for capturada:" },
+          { type: "list", items: [
+            "**1.** Envie imediatamente outra marcha usando seu preset de DEFESA. **Exemplo:** {gordon} / {howard} **60 : 20 : 20**",
+            "**2.** Observe sua marcha de defesa se deslocar até a construção capturada.",
+            "**3.** Quando faltarem cerca de 5 segundos de marcha — ou conforme a liderança instruir — use **Revogar** na sua marcha de ATAQUE original.",
+            "**4.** Sua marcha de DEFESA chega e substitui sua marcha ofensiva na guarnição."
+          ] },
+          { type: "callout", text: "🚫 **NÃO use Revogar na marcha de ataque cedo demais.**" },
+          { type: "p", text: "**Capturar → Enviar Defesa → ~5 s → Revogar Ataque → Defesa Chega**" },
+          { type: "p", text: "Isso nos permite passar de uma formação ofensiva para uma guarnição defensiva sem enfraquecer a construção desnecessariamente." },
+          { type: "h", text: "🪖 LIMITE DE TROPAS NA GUARNIÇÃO" },
+          { type: "p", text: "Apenas 15 governadores podem entrar no QG / Santuário. Por isso, não envie automaticamente sua marcha máxima para o QG, o Santuário ou outras construções disputadas." },
+          { type: "p", text: "Siga o limite de tropas anunciado pela liderança." },
+          { type: "p", text: "**Meta comum da aliança: ~68.000 tropas por jogador**" },
+          { type: "p", text: "Isso permite que mais membros da aliança com marchas defensivas bem configuradas caibam na guarnição e recebam recompensas." },
+          { type: "callout", text: "⚠️ Se a liderança anunciar um limite diferente, siga sempre o valor anunciado." },
+          { type: "h", text: "🎬 COMO TROCAR DE HERÓIS DE ATAQUE PARA HERÓIS DE DEFESA" },
+          { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Vídeo encontrado online (TikTok @yelloe_hair) — não é filmagem nossa." }
+        ]
+      },
+      tr: {
+        title: "Birlik Dizilişleri ve Seferberlik İpuçları",
+        blocks: [
+          { type: "h", text: "🔬 ARAŞTIRMA VE YÜKSELTME ÖNCELİKLERİ" },
+          { type: "p", text: "Araştırma ve Vali charm'larını (Governor Charms) yükseltirken şu savaş niteliklerine öncelik verin:" },
+          { type: "list", items: [
+            "{infantry} — {health}",
+            "{archer} — {lethality}"
+          ] },
+          { type: "h", text: "💾 PRESETLERİNİZİ KAYDEDİN" },
+          { type: "p", text: "İlerlemenize bağlı olarak, birlik dizilişlerinizi önceden kaydetmek için en fazla 8 slot açabilirsiniz. Kaydedilmesi önerilen dizilişler:" },
+          { type: "callout", text: "Tüm birlik oranları **{infantry} : {cavalry} : {archer}** şeklindedir. Her kahraman için, o kahraman en soldaki / ilk konumda olacak şekilde ayrı preset kaydedin." },
+          { type: "callout", text: "💡 Seferberliklere katılırken en soldaki kahraman önemlidir, çünkü ilgili sefer becerisi (Expedition skill) seferberliğe katkı sağlar." },
+          { type: "list", items: [
+            "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
+            "2) {bearHunt}: {amane} — **10 : 10 : 80** (veya olabildiğince yakın)",
+            "3) {bearHunt}: {yeonwoo} — **10 : 10 : 80** (veya olabildiğince yakın)",
+            "4) {bearHunt}: {amadeus} — **10 : 10 : 80** (veya olabildiğince yakın)",
+            "5) Saldırı (genel PvP): {amadeus} (geliştirildiyse) veya {chenko} — **50 : 20 : 30**",
+            "6) Savunma: {howard} / {gordon} — **60 : 20 : 20** dengeli varsayılanımızdır. Yönetim belirli bir dizilişi istediğinde ayarlayın."
+          ] },
+          { type: "p", text: "**Seferberlik Liderleri:** En güçlü, eksiksiz saldırı kahraman kadronuzu kullanın." },
+          { type: "p", text: "**Seferberliğe Katılanlar:** Lütfen yönetimin duyurduğu birlik sınırlarına uyun." },
+          { type: "list", items: [
+            "7) Viking Karargahı (Viking HQ): {howard} / {gordon} — **60 : 40** Birlik sınırına uyun (~68.000)",
+            "8) PvE – Canavarlar / Av (Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
+          ] },
+          { type: "h", text: "🐺 PvE — CANAVARLAR / AV (BEASTS / HUNTING)" },
+          { type: "p", text: "Korkunç Kurt için hatırlayın: çok fazla hasar gerekmez, bu yüzden daha fazla ittifak üyesi katılıp seferberlik ödüllerinden yararlanabilsin diye en az sayıda birlik gönderin (1 bile olur)." },
+          { type: "h", text: "🏰 {castleBattle} / {sanctuary} / BİNALAR" },
+          { type: "p", text: "Binaları ele geçirirken hızla geçiş yapmaya hazır olun:" },
+          { type: "callout", text: "**SALDIRI → SAVUNMA**" },
+          { type: "sub", text: "⚔️ 1. ELE GEÇİRME" },
+          { type: "p", text: "İlk seferberliğe SALDIRI presetinizle katılın." },
+          { type: "p", text: "**Örnek:** {amadeus} / {chenko} **50 : 20 : 30**" },
+          { type: "sub", text: "🛡️ 2. SAVUNMAYA GEÇİŞ" },
+          { type: "p", text: "Bina ele geçirildikten sonra:" },
+          { type: "list", items: [
+            "**1.** SAVUNMA presetinizle hemen bir intikal daha gönderin. **Örnek:** {gordon} / {howard} **60 : 20 : 20**",
+            "**2.** Savunma intikalinizin ele geçirilen binaya doğru ilerleyişini izleyin.",
+            "**3.** Yaklaşık 5 saniyelik intikal süresi kaldığında — veya yönetimin talimatıyla — ilk SALDIRI intikalinizi geri çağırın.",
+            "**4.** SAVUNMA intikaliniz varır ve garnizonda saldırı intikalinizin yerini alır."
+          ] },
+          { type: "callout", text: "🚫 **Saldırı intikalinizi ÇOK ERKEN geri çağırmayın.**" },
+          { type: "p", text: "**Ele geçirme → Savunmayı gönder → ~5 sn → Saldırıyı geri çağır → Savunma varır**" },
+          { type: "p", text: "Bu sayede binayı gereksiz yere zayıflatmadan saldırı düzeninden savunma garnizonuna geçebiliriz." },
+          { type: "h", text: "🪖 GARNİZON BİRLİK SINIRI" },
+          { type: "p", text: "Karargaha / Tapınağa yalnızca 15 vali girebilir. Bu yüzden maksimum intikalinizi otomatik olarak karargaha, Tapınağa veya diğer çekişmeli binalara göndermeyin." },
+          { type: "p", text: "Yönetimin duyurduğu birlik sınırına uyun." },
+          { type: "p", text: "**Tipik ittifak hedefi: oyuncu başına ~68.000 birlik**" },
+          { type: "p", text: "Bu sayede savunma intikalleri doğru yapılandırılmış daha fazla ittifak üyesi garnizona sığar ve ödül alır." },
+          { type: "callout", text: "⚠️ Yönetim farklı bir sınır duyurursa her zaman duyurulan miktara uyun." },
+          { type: "h", text: "🎬 SALDIRI KAHRAMANLARINDAN SAVUNMA KAHRAMANLARINA NASIL GEÇİLİR" },
+          { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Video internetten alınmıştır (TikTok @yelloe_hair) — kendi çekimimiz değil." }
+        ]
+      },
     }
   }
 };
