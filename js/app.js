@@ -216,6 +216,23 @@ function renderPicker() {
   });
 }
 
+function renderGuideRow() {
+  const row = document.getElementById("guideRow");
+  row.innerHTML = "";
+  Object.keys(GUIDES).forEach((key) => {
+    const g = GUIDES[key];
+    const chip = document.createElement("button");
+    chip.className = "guide-chip" + (key === currentGuide ? " active" : "");
+    chip.innerHTML = `<span class="emoji">${g.emoji}</span><span>${escapeHtml(t(g.name) || key)}</span>`;
+    chip.onclick = () => {
+      currentGuide = key;
+      persistPrefs();
+      renderAll();
+    };
+    row.appendChild(chip);
+  });
+}
+
 function renderLeaders(guide) {
   const wrap = document.createElement("div");
   (guide.leaders || []).forEach((gen) => {
