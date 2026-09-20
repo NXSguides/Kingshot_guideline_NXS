@@ -167,7 +167,21 @@ const GLOSSARY = {
   undercellar: { zh:"隱蔽地窖", en:"Undercellar", de:"Untergewölbe", ko:"땅굴", fr:"Caves", ar:"الأقبية السفلية", id:"Undercellar", th:"ห้องใต้ดินลับ", ru:"подземелья", tr:"Gizli Mahzenler", pt:"Porões" },
   arsenal: { zh:"輜重", en:"Arsenal Supplies", de:"Frachtzugvorräte", ko:"군수 물자", fr:"Provisions de Train de bagages", ar:"إمدادات أمتعة القطار", id:"Suplai Kereta Bagasi", th:"เสบียงขบวนสัมภาระ", ru:"военные запасы", tr:"Bagaj Treni Malzemeleri", pt:"Suprimentos de Trem de Bagagem" },
   allianceRelic: { zh:"聯盟聖契積分", en:"Alliance Relic Points", de:"Allianz-Reliktpunkte", ko:"연맹 성스러운 계약 포인트", fr:"Points de Relique d'Alliance", ar:"نقاط الآثار للتحالف", id:"Poin Relik Aliansi", th:"คะแนนวัตถุโบราณพันธมิตร", ru:"Очки реликвий альянса", tr:"İttifak Yadigâr Puanı", pt:"Pontos de Relíquia da Aliança" },
-  personalRelic: { zh:"個人聖契積分", en:"Personal Relic Points", de:"Persönliche Reliktpunkte", ko:"개인 성스러운 계약 포인트", fr:"Points de Relique Individuels", ar:"نقاط الآثار الشخصية", id:"Poin Relik Pribadi", th:"คะแนนวัตถุโบราณส่วนบุคคล", ru:"Личные очки реликвий", tr:"Kişisel Yadigâr Puanı", pt:"Pontos de Relíquia Individuais" }
+  personalRelic: { zh:"個人聖契積分", en:"Personal Relic Points", de:"Persönliche Reliktpunkte", ko:"개인 성스러운 계약 포인트", fr:"Points de Relique Individuels", ar:"نقاط الآثار الشخصية", id:"Poin Relik Pribadi", th:"คะแนนวัตถุโบราณส่วนบุคคล", ru:"Личные очки реликвий", tr:"Kişisel Yadigâr Puanı", pt:"Pontos de Relíquia Individuais" },
+  bearHunt: { zh:"狩獵巨熊", en:"Bear Hunt", ko:"자이언트 베어 사냥", de:"Bärenjagd", fr:"Chasse à l'Ours", pt:"Caça ao Urso", tr:"Ayı Avı", id:"Bear Hunt", ru:"Охота на медведя", th:"ล่าหมี", ar:"صيد الدببة" },
+  castleBattle: { zh:"決戰王城", en:"Castle Battle", ko:"캐슬 전투", de:"Schlacht um das Schloss", fr:"Bataille du Château", pt:"Batalha do Castelo", tr:"Şato Savaşı", id:"Pertempuran Istana", ru:"Битва за замок", th:"การต่อสู้ชิงปราสาท", ar:"معركة القلعة" },
+  sanctuary: { zh:"遺跡", en:"Sanctuary", ko:"유적", de:"Heiligtum", fr:"Sanctuaire", pt:"Santuário", tr:"Tapınak", id:"Sanctuary", ru:"святилище", th:"วิหาร", ar:"المأوى" },
+  infantry: { zh:"步兵", en:"Infantry", ko:"보병", de:"Infanterie", fr:"Infanterie", pt:"Infantaria", tr:"Piyade", id:"Infanteri", ru:"Пехотинец", th:"ทหารราบ", ar:"المشاة" },
+  cavalry: { zh:"騎兵", en:"Cavalry", ko:"기병", de:"Kavallerie", fr:"Cavalerie", pt:"Cavalaria", tr:"Süvari", id:"Kavaleri", ru:"Кавалерист", th:"ทหารม้า", ar:"الفرسان" },
+  archer: { zh:"弓兵", en:"Archer", ko:"궁병", de:"Bogenschütze", fr:"Archer", pt:"Arqueiro", tr:"Okçu", id:"Pemanah", ru:"Стрелок", th:"พลธนู", ar:"الرماة" },
+  chenko: { zh:"琴科", en:"Chenko", ko:"첸코", de:"Chenko", fr:"Chenko", pt:"Chenko", tr:"Chenko", id:"Chenko", ru:"Ченко", th:"เชนโกะ", ar:"تشينكو" },
+  amane: { zh:"雨音", en:"Amane", ko:"아마네", de:"Amane", fr:"Amane", pt:"Amane", tr:"Amane", id:"Amane", ru:"Амане", th:"อามาเนะ", ar:"أماني" },
+  yeonwoo: { zh:"妍羽", en:"Yeonwoo", ko:"연우", de:"Yeonwoo", fr:"Yeonwoo", pt:"Yeonwoo", tr:"Yeonwoo", id:"Yeonwoo", ru:"Ёну", th:"ยอนอู", ar:"يونوو" },
+  amadeus: { zh:"阿瑪迪斯", en:"Amadeus", ko:"아마데우스", de:"Amadeus", fr:"Amadeus", pt:"Amadeus", tr:"Amadeus", id:"Amadeus", ru:"Амадей", th:"อมาดีอุส", ar:"أماديوس" },
+  howard: { zh:"霍華德", en:"Howard", ko:"하워드", de:"Howard", fr:"Howard", pt:"Howard", tr:"Howard", id:"Howard", ru:"Говард", th:"ฮาวเวิร์ด", ar:"هاورد" },
+  gordon: { zh:"戈登", en:"Gordon", ko:"고든", de:"Gordon", fr:"Gordon", pt:"Gordon", tr:"Gordon", id:"Gordon", ru:"Гордон", th:"กอร์ดอน", ar:"جوردن" },
+  diana: { zh:"狄安娜", en:"Diana", ko:"다이애나", de:"Diana", fr:"Diana", pt:"Diana", tr:"Diana", id:"Diana", ru:"Диана", th:"ไดอาน่า", ar:"ديانا" },
+  fahd: { zh:"法赫德", en:"Fahd", ko:"파드", de:"Fahd", fr:"Fahd", pt:"Fahd", tr:"Fahd", id:"Fahd", ru:"Фад", th:"ฟาฮ์ด", ar:"فهد" },
 };
 
 const GUIDES = {
@@ -3897,6 +3911,174 @@ const GUIDES = {
 
           { type: "h", text: "🎬 HOW TO SWITCH FROM ATTACKING TO DEFENSIVE HEROES" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Video found online (TikTok @yelloe_hair) — not our own footage." }
+        ]
+      },
+      zh: {
+        title: "陣型與集結技巧",
+        blocks: [
+          { type: "h", text: "🔬 研究與升級優先順序" },
+          { type: "p", text: "研究與升級領主魅力（Governor Charms）時，請優先提升以下戰鬥屬性：" },
+          { type: "list", items: [
+            "{infantry}{health}",
+            "{archer}{lethality}"
+          ]},
+          { type: "h", text: "💾 儲存你的預設編組" },
+          { type: "p", text: "依照你的進度，最多可解鎖 8 個欄位，預先儲存你的部隊編組。建議儲存以下編組：" },
+          { type: "callout", text: "所有兵種比例皆為 **{infantry} : {cavalry} : {archer}**。請為每位英雄各存一組預設，並將該英雄放在最左邊／第一個位置。" },
+          { type: "callout", text: "💡 參加集結時，最左邊的英雄很重要，因為他對應的遠征技能（Expedition skill）會加成該次集結。" },
+          { type: "list", items: [
+            "1) {bearHunt}：{chenko} — **10 : 10 : 80**",
+            "2) {bearHunt}：{amane} — **10 : 10 : 80**（或盡量接近）",
+            "3) {bearHunt}：{yeonwoo} — **10 : 10 : 80**（或盡量接近）",
+            "4) {bearHunt}：{amadeus} — **10 : 10 : 80**（或盡量接近）",
+            "5) 進攻（一般 PvP）：{amadeus}（若已養成）或 {chenko} — **50 : 20 : 30**",
+            "6) 防守：{howard} / {gordon} — **60 : 20 : 20** 是我們的平衡預設。幹部要求特定編組時再調整。"
+          ]},
+          { type: "p", text: "**集結隊長：** 使用你最強、最完整的進攻英雄陣容。" },
+          { type: "p", text: "**集結參與者：** 請遵守幹部公告的兵力上限。" },
+          { type: "list", items: [
+            "7) 維京總部（Viking HQ）：{howard} / {gordon} — **60 : 40** 請遵守兵力上限（約 68,000）",
+            "8) PvE — 野獸／狩獵（Beasts / Hunting）：{diana} + {fahd} — **50 : 20 : 30**"
+          ]},
+          { type: "h", text: "🐺 PvE — 野獸／狩獵（Beasts / Hunting）" },
+          { type: "p", text: "打恐狼（Dreadwolf）時請記得：不需要太多傷害，所以只要派出最少的兵力（甚至 1 個兵也可以），讓更多聯盟成員能加入集結，領取集結獎勵。" },
+          { type: "h", text: "🏰 {castleBattle}／{sanctuary}／建築" },
+          { type: "p", text: "佔領建築時，請準備好快速切換：" },
+          { type: "callout", text: "**進攻 → 防守**" },
+          { type: "sub", text: "⚔️ 1. 佔領" },
+          { type: "p", text: "使用你的「進攻」預設加入最初的集結。" },
+          { type: "p", text: "**範例：** {amadeus} / {chenko} **50 : 20 : 30**" },
+          { type: "sub", text: "🛡️ 2. 切換為防守" },
+          { type: "p", text: "建築佔領後：" },
+          { type: "list", items: [
+            "**1.** 立刻使用你的「防守」預設再派出一支部隊。**範例：** {gordon} / {howard} **60 : 20 : 20**",
+            "**2.** 看著你的防守部隊朝已佔領的建築前進。",
+            "**3.** 當行軍時間剩下約 5 秒——或依幹部指示——召回你原本的「進攻」部隊。",
+            "**4.** 你的防守部隊抵達，取代進攻部隊留在駐防中。"
+          ]},
+          { type: "callout", text: "🚫 **千萬不要太早召回進攻部隊。**" },
+          { type: "p", text: "**佔領 → 派出防守 → 約 5 秒 → 召回進攻 → 防守抵達**" },
+          { type: "p", text: "這樣我們就能從進攻編組平順切換為防守駐防，而不會不必要地削弱建築。" },
+          { type: "h", text: "🪖 駐防兵力上限" },
+          { type: "p", text: "只有 15 位領主能進入總部（HQ）／{sanctuary}。所以請不要自動把你的最大部隊派去總部、{sanctuary}或其他爭奪中的建築。" },
+          { type: "p", text: "請遵守幹部公告的兵力上限。" },
+          { type: "p", text: "**聯盟一般目標：每位玩家約 68,000 兵力**" },
+          { type: "p", text: "這樣能讓更多已配置好防守部隊的聯盟成員擠進駐防，一起領取獎勵。" },
+          { type: "callout", text: "⚠️ 若幹部公告了不同的上限，請一律以公告的數字為準。" },
+          { type: "h", text: "🎬 如何從進攻英雄切換為防守英雄" },
+          { type: "video", src: "figures/switch_hero.mp4", caption: "📎 影片來自網路（TikTok @yelloe_hair），並非我們自己拍攝。" }
+        ]
+      },
+      ko: {
+        title: "부대 편성 및 집결 팁",
+        blocks: [
+          { type: "h", text: "🔬 연구 및 강화 우선순위" },
+          { type: "p", text: "연구와 영주 매력(Governor Charms) 강화 시 다음 전투 능력치를 우선하세요:" },
+          { type: "list", items: [
+            "{infantry} {health}",
+            "{archer} {lethality}"
+          ]},
+          { type: "h", text: "💾 프리셋 저장" },
+          { type: "p", text: "진행 상황에 따라 최대 8개의 슬롯을 열어 부대 편성을 미리 저장할 수 있습니다. 저장을 권장하는 편성:" },
+          { type: "callout", text: "모든 병력 비율은 **{infantry} : {cavalry} : {archer}** 순서입니다. 각 영웅을 맨 왼쪽(첫 번째) 자리에 두고 프리셋을 따로 저장하세요." },
+          { type: "callout", text: "💡 집결에 참여할 때는 맨 왼쪽 영웅이 중요합니다. 해당 영웅의 원정 스킬(Expedition skill)이 집결에 적용되기 때문입니다." },
+          { type: "list", items: [
+            "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
+            "2) {bearHunt}: {amane} — **10 : 10 : 80** (또는 최대한 근접하게)",
+            "3) {bearHunt}: {yeonwoo} — **10 : 10 : 80** (또는 최대한 근접하게)",
+            "4) {bearHunt}: {amadeus} — **10 : 10 : 80** (또는 최대한 근접하게)",
+            "5) 공격(일반 PvP): {amadeus}(육성된 경우) 또는 {chenko} — **50 : 20 : 30**",
+            "6) 방어: {howard} / {gordon} — **60 : 20 : 20**이 기본 균형 편성입니다. 임원진이 특정 편성을 요청하면 조정하세요."
+          ]},
+          { type: "p", text: "**집결 리더:** 가장 강력한 공격 영웅 조합을 완성된 상태로 사용하세요." },
+          { type: "p", text: "**집결 참여자:** 임원진이 공지한 병력 제한을 따라주세요." },
+          { type: "list", items: [
+            "7) 바이킹 본부(Viking HQ): {howard} / {gordon} — **60 : 40** 병력 제한(약 68,000) 준수",
+            "8) PvE — 야수/사냥(Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
+          ]},
+          { type: "h", text: "🐺 PvE — 야수/사냥(Beasts / Hunting)" },
+          { type: "p", text: "드레드울프(Dreadwolf)를 잡을 때 기억하세요: 많은 피해가 필요하지 않으므로 최소한의 병력(1명도 가능)만 보내서 더 많은 연맹원이 집결에 참여해 집결 보상을 받을 수 있게 하세요." },
+          { type: "h", text: "🏰 {castleBattle} / {sanctuary} / 건물" },
+          { type: "p", text: "건물을 점령할 때는 빠르게 전환할 준비를 하세요:" },
+          { type: "callout", text: "**공격 → 방어**" },
+          { type: "sub", text: "⚔️ 1. 점령" },
+          { type: "p", text: "공격 프리셋으로 처음 집결에 참여하세요." },
+          { type: "p", text: "**예시:** {amadeus} / {chenko} **50 : 20 : 30**" },
+          { type: "sub", text: "🛡️ 2. 방어로 전환" },
+          { type: "p", text: "건물을 점령한 뒤:" },
+          { type: "list", items: [
+            "**1.** 즉시 방어 프리셋으로 행군을 하나 더 보내세요. **예시:** {gordon} / {howard} **60 : 20 : 20**",
+            "**2.** 방어 행군이 점령한 건물을 향해 이동하는 것을 지켜보세요.",
+            "**3.** 행군 시간이 약 5초 남았을 때 — 또는 임원진의 지시에 따라 — 기존 공격 행군을 회수하세요.",
+            "**4.** 방어 행군이 도착해 주둔부대에서 공격 행군을 대체합니다."
+          ]},
+          { type: "callout", text: "🚫 **공격 행군을 너무 일찍 회수하지 마세요.**" },
+          { type: "p", text: "**점령 → 방어 파견 → 약 5초 → 공격 회수 → 방어 도착**" },
+          { type: "p", text: "이렇게 하면 건물이 불필요하게 약해지지 않고 공격 구성에서 방어 주둔으로 전환할 수 있습니다." },
+          { type: "h", text: "🪖 주둔 병력 상한" },
+          { type: "p", text: "본부(HQ) / {sanctuary}에는 영주 15명만 들어갈 수 있습니다. 그러니 본부, {sanctuary}, 그 밖의 격전 건물에 무작정 최대 행군을 보내지 마세요." },
+          { type: "p", text: "임원진이 공지한 병력 상한을 따르세요." },
+          { type: "p", text: "**일반적인 연맹 목표: 1인당 약 68,000 병력**" },
+          { type: "p", text: "이렇게 하면 방어 행군을 제대로 구성한 더 많은 연맹원이 주둔지에 들어가 보상을 받을 수 있습니다." },
+          { type: "callout", text: "⚠️ 임원진이 다른 상한을 공지하면 항상 공지된 수치를 따르세요." },
+          { type: "h", text: "🎬 공격 영웅에서 방어 영웅으로 전환하는 방법" },
+          { type: "video", src: "figures/switch_hero.mp4", caption: "📎 이 영상은 인터넷에서 가져온 것으로(TikTok @yelloe_hair), 우리가 직접 촬영한 것이 아닙니다." }
+        ]
+      },
+      de: {
+        title: "Formationen & Rally-Tipps",
+        blocks: [
+          { type: "h", text: "🔬 FORSCHUNGS- & UPGRADE-PRIORITÄTEN" },
+          { type: "p", text: "Priorisiere diese Kampfwerte bei der Forschung und beim Aufwerten der Gouverneurs-Charms (Governor Charms):" },
+          { type: "list", items: [
+            "{infantry} — {health}",
+            "{archer} — {lethality}"
+          ]},
+          { type: "h", text: "💾 SPEICHERE DEINE PRESETS" },
+          { type: "p", text: "Je nach Fortschritt kannst du bis zu 8 Slots freischalten, um deine Truppenformationen vorab zu speichern. Empfohlene Formationen zum Speichern:" },
+          { type: "callout", text: "Alle Truppenverhältnisse gelten als **{infantry} : {cavalry} : {archer}**. Speichere für jeden Helden ein eigenes Preset, mit dem Helden ganz links / an erster Position." },
+          { type: "callout", text: "💡 Der Held ganz links ist beim Beitreten zu Rallys wichtig, weil seine passende Expeditionsfertigkeit (Expedition Skill) zur Rally beiträgt." },
+          { type: "list", items: [
+            "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
+            "2) {bearHunt}: {amane} — **10 : 10 : 80** (oder so nah wie möglich)",
+            "3) {bearHunt}: {yeonwoo} — **10 : 10 : 80** (oder so nah wie möglich)",
+            "4) {bearHunt}: {amadeus} — **10 : 10 : 80** (oder so nah wie möglich)",
+            "5) Angriff (allgemeines PvP): {amadeus} (falls ausgebaut) oder {chenko} — **50 : 20 : 30**",
+            "6) Verteidigung: {howard} / {gordon} — **60 : 20 : 20** ist unser ausgewogener Standard. Passe es an, wenn die Führung eine bestimmte Formation verlangt."
+          ]},
+          { type: "p", text: "**Rally-Anführer:** Nutze deine stärkste, vollständige Angriffs-Heldenaufstellung." },
+          { type: "p", text: "**Rally-Joiner:** Bitte halte dich an die von der Führung angegebenen Truppenlimits." },
+          { type: "list", items: [
+            "7) Wikinger-HQ (Viking HQ): {howard} / {gordon} — **60 : 40** Truppenlimit beachten (~68.000)",
+            "8) PvE – Bestien / Jagd (Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
+          ]},
+          { type: "h", text: "🐺 PvE — BESTIEN / JAGD (BEASTS / HUNTING)" },
+          { type: "p", text: "Denk beim Dreadwolf daran: Es ist nicht viel Schaden nötig, also schicke so wenige Truppen wie möglich (sogar nur 1), damit mehr Allianzmitglieder der Rally beitreten und von den Rally-Belohnungen profitieren können." },
+          { type: "h", text: "🏰 {castleBattle} / {sanctuary} / GEBÄUDE" },
+          { type: "p", text: "Beim Erobern von Gebäuden musst du bereit sein, schnell zu wechseln:" },
+          { type: "callout", text: "**ANGRIFF → VERTEIDIGUNG**" },
+          { type: "sub", text: "⚔️ 1. EROBERN" },
+          { type: "p", text: "Tritt der ersten Rally mit deinem ANGRIFFS-Preset bei." },
+          { type: "p", text: "**Beispiel:** {amadeus} / {chenko} **50 : 20 : 30**" },
+          { type: "sub", text: "🛡️ 2. ZUR VERTEIDIGUNG WECHSELN" },
+          { type: "p", text: "Sobald das Gebäude erobert ist:" },
+          { type: "list", items: [
+            "**1.** Sende sofort einen weiteren Marsch mit deinem VERTEIDIGUNGS-Preset. **Beispiel:** {gordon} / {howard} **60 : 20 : 20**",
+            "**2.** Beobachte, wie dein Verteidigungsmarsch zum eroberten Gebäude unterwegs ist.",
+            "**3.** Wenn noch etwa 5 Sekunden Marschzeit übrig sind — oder nach Anweisung der Führung — rufe deinen ursprünglichen ANGRIFFS-Marsch zurück.",
+            "**4.** Dein VERTEIDIGUNGS-Marsch kommt an und ersetzt deinen Angriffsmarsch in der Garnison."
+          ]},
+          { type: "callout", text: "🚫 **Rufe deinen Angriffsmarsch NICHT zu früh zurück.**" },
+          { type: "p", text: "**Erobern → Verteidigung senden → ~5 Sek. → Angriff zurückrufen → Verteidigung kommt an**" },
+          { type: "p", text: "So können wir von einer Angriffsaufstellung zu einer Verteidigungsgarnison wechseln, ohne das Gebäude unnötig zu schwächen." },
+          { type: "h", text: "🪖 GARNISONS-TRUPPENLIMIT" },
+          { type: "p", text: "Nur 15 Gouverneure können in das HQ / {sanctuary} gelangen. Schicke deshalb nicht automatisch deinen maximalen Marsch ins HQ, ins {sanctuary} oder zu anderen umkämpften Gebäuden." },
+          { type: "p", text: "Halte dich an das von der Führung angekündigte Truppenlimit." },
+          { type: "p", text: "**Typisches Allianzziel: ~68.000 Truppen pro Spieler**" },
+          { type: "p", text: "So passen mehr Allianzmitglieder mit richtig konfigurierten Verteidigungsmärschen in die Garnison und erhalten Belohnungen." },
+          { type: "callout", text: "⚠️ Wenn die Führung ein anderes Limit ankündigt, halte dich immer an die angekündigte Zahl." },
+          { type: "h", text: "🎬 SO WECHSELST DU VON ANGRIFFS- ZU VERTEIDIGUNGSHELDEN" },
+          { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Video aus dem Internet (TikTok @yelloe_hair) – nicht unser eigenes Material." }
         ]
       }
     }
