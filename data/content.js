@@ -49,7 +49,7 @@ const UI = {
     f2p: { zh: "免費", en: "F2P", ko: "무과금", de: "F2P" }
   },
   roles: {
-    lethality: { zh: "致命主將", en: "Lead for Lethality", ko: "치명 리드", de: "Lead für Letalität" },
+    lethality: { zh: "殺傷力主將", en: "Lead for Lethality", ko: "파괴력 리드", de: "Lead für Tödlichkeit" },
     attack: { zh: "攻擊主將", en: "Lead for Attack", ko: "공격 리드", de: "Lead für Angriff" }
   }
 };
@@ -1651,7 +1651,7 @@ const GUIDES = {
   },
   "bear-hunt": {
     emoji: "🐻",
-    name: { zh: "狩獵巨熊", en: "Bear Hunt", ko: "곰사냥", de: "Bärenjagd" },
+    name: { zh: "狩獵巨熊", en: "Bear Hunt", ko: "자이언트 베어 사냥", de: "Bärenjagd", fr: "Chasse à l'Ours", pt: "Caça ao Urso", tr: "Ayı Avı", id: "Bear Hunt", ru: "Охота на медведя", th: "ล่าหมี", ar: "صيد الدببة" },
     sections: {
       zh: {
         title: "狩獵巨熊",
@@ -1661,7 +1661,7 @@ const GUIDES = {
         why: "英雄裝備材料（鍛造錘）與強化經驗部件的主要來源。",
         prep_label: "準備事項",
         prep: [
-          "每次熊窩狩獵前更新部隊編組。",
+          "每次狩獵巨熊前更新部隊編組。",
           { callout: true, text: "可選擇：使用 <a href=\"https://frakinator.streamlit.app\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a> 測試士兵比例，找出最強部隊編組。" },
           "活動開始前記得召回採集中的部隊。",
           "切記：在最後 5–7 分鐘，所有人都應發起集結。這樣能讓部隊返回的玩家有更多集結位可加入，進行最後的傷害衝刺。"
@@ -1688,16 +1688,16 @@ const GUIDES = {
         joiners_ratio: "Standard / Safe Ratio: 10% Infantry, 10% Cavalry, and 80% Archers (or a variation like 20-30-50)"
       },
       ko: {
-        title: "곰사냥",
+        title: "자이언트 베어 사냥",
         when_label: "일시",
         when: "연맹에 지정된 시간에 2일마다 진행됩니다.",
         why_label: "중요성",
-        why: "영웅 장비 재료(대장간 망치) 및 강화 경험치의 주요 획득처입니다.",
+        why: "영웅 장비 재료(제작 망치) 및 강화 경험치의 주요 획득처입니다.",
         prep_label: "준비 사항",
         prep: [
-          "매번 곰사냥 시작 전에 부대 진형을 업데이트하세요.",
-          { callout: true, text: "선택 사항: <a href=\"https://frakinator.streamlit.app/\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a>를 사용하여 병사 비율을 테스트하고 가장 강력한 진형을 찾아보세요." },
-          "이벤트가 시작되기 전에 채집 중인 부대를 회수하세요.",
+          "매번 자이언트 베어 사냥 시작 전에 부대 편성을 업데이트하세요.",
+          { callout: true, text: "선택 사항: <a href=\"https://frakinator.streamlit.app/\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a>를 사용하여 병사 비율을 테스트하고 가장 강력한 부대 편성을 찾아보세요." },
+          "이벤트가 시작되기 전에 채집 중인 부대를 소환하세요.",
           "기억하세요: 마지막 5~7분 동안에는 모든 플레이어가 집결을 열어야 합니다. 이렇게 하면 병력이 복귀하는 플레이어들을 위한 자리가 더 많이 생겨 마지막 데미지 몰아치기가 가능해집니다."
         ],
         leaders_label: "집결 영웅 세대별 조합",
@@ -1709,10 +1709,10 @@ const GUIDES = {
         when_label: "WANN",
         when: "Alle 2 Tage zur geplanten Zeit eurer Allianz.",
         why_label: "WARUM ES ZÄHLT",
-        why: "Hauptquelle für Heldenausrüstungs-Material (Schmiedehammer) und Aufwertungserfahrung.",
+        why: "Hauptquelle für Heldenausrüstungs-Material (Forgehammer) und Verbesserungs-XP.",
         prep_label: "VORBEREITUNG",
         prep: [
-          "Aktualisiert eure Formationen vor jeder Bärenjagd.",
+          "Aktualisiert eure Trupp Formationen vor jeder Bärenjagd.",
           { callout: true, text: "Optional: Mit <a href=\"https://frakinator.streamlit.app\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a> Truppenverhältnisse testen und die stärkste Formation finden." },
           "Ruft sammelnde Truppen vor Eventbeginn zurück.",
           "In den letzten 5–7 Minuten sollte jeder einen Rally starten. So entstehen mehr Plätze für Spieler, deren Truppen zurückkehren — für den finalen Schadensschub."
@@ -1739,7 +1739,7 @@ const GUIDES = {
             note: {
               zh: "多數情況步兵最強，因阿瑪迪斯數值高；弓兵稍多的平均編組效果最好。",
               en: "Troop formation: 30-30-40%. In most cases you will have best stats on infantry due to Amadeus's raw stats, so an ultra-equal formation with slightly more archer troops works best.",
-              ko: "아마데우스는 기본적으로 훌륭한 보병 및 기병 능력치를 갖추고 있어, 궁병 중심의 진형에서 가장 뛰어난 효율을 발휘합니다.",
+              ko: "아마데우스는 기본적으로 훌륭한 보병 및 기병 능력치를 갖추고 있어, 궁병 중심의 부대 편성에서 가장 뛰어난 효율을 발휘합니다.",
               de: "Infanterie ist hier oft am stärksten, weil Amadeus stark ist; eine etwa gleiche Aufteilung mit etwas mehr Bogenschützen funktioniert am besten."
             }
           },
@@ -1775,10 +1775,10 @@ const GUIDES = {
             heroes: ["Amadeus", "Hilde", "Marlin"],
             ratio: "20-30-50",
             note: {
-              zh: "馬林能大幅提升傷害，因為擁有集結專屬裝備（致命加成）；步兵固定用阿瑪迪斯或赫爾加。",
+              zh: "馬林能大幅提升傷害，因為擁有集結專屬裝備（殺傷力加成）；步兵固定用阿瑪迪斯或赫爾加。",
               en: "Troop formation: 20-30-50%. Marlin will boost damage a lot due to his widget. From Gen 2 up, infantry will always be Amadeus or Helga — they are the only infantry heroes with rally widgets (lethality bonus). You send fewer infantry, so the infantry hero covers archer damage via the widget rather than matching infantry stats.",
-              ko: "말린은 집결 전용 치명 장비로 피해를 크게 올립니다. 보병은 아마데우스 또는 헬가.",
-              de: "Marlin steigert den Schaden durch seine Rally-exklusive Letalitätsausrüstung; Infanterie bleibt Amadeus oder Helga."
+              ko: "마린은 집결 전용 파괴력 장비로 피해를 크게 올립니다. 보병은 아마데우스 또는 헬가.",
+              de: "Marlin steigert den Schaden durch seine Rally-exklusive Tödlichkeitsausrüstung; Infanterie bleibt Amadeus oder Helga."
             }
           },
           {
@@ -1813,10 +1813,10 @@ const GUIDES = {
             heroes: ["Helga", "Petra", "Marlin"],
             ratio: "10-20-70",
             note: {
-              zh: "滿等赫爾加（2 致命＋1 攻擊）表現優於阿瑪迪斯（1 致命＋2 攻擊）。",
+              zh: "滿等赫爾加（2 殺傷力＋1 攻擊）表現優於阿瑪迪斯（1 殺傷力＋2 攻擊）。",
               en: "Troop formation: 10-20-70%. Maxed-out Helga performs better than Amadeus in Gen 3, due to having 2 lethality widgets and 1 attack widget compared to 1 lethality widget and 2 attack widgets in this setup.",
-              ko: "풀 장비 헬가(치명 2 + 공격 1)가 아마데우스(치명 1 + 공격 2)보다 강합니다.",
-              de: "Voll ausgerüstete Helga (2 Letalität + 1 Angriff) übertrifft hier Amadeus (1 Letalität + 2 Angriff)."
+              ko: "풀 장비 헬가(파괴력 2 + 공격 1)가 아마데우스(파괴력 1 + 공격 2)보다 강합니다.",
+              de: "Voll ausgerüstete Helga (2 Tödlichkeit + 1 Angriff) übertrifft hier Amadeus (1 Tödlichkeit + 2 Angriff)."
             }
           },
           {
@@ -1853,7 +1853,7 @@ const GUIDES = {
             note: {
               zh: "盡量拉高弓兵數量，滿級弓兵尤佳；Rosa 三技能可能提升弓兵總攻擊 30%。",
               en: "Troop formation: 10-10-80%. Force as many archer troops as you can, especially if they are T10. With a bit of luck Rosa's 3rd skill will do the work for you (Increasing Archers' total Attack by 30%).",
-              ko: "이제부터는 궁병 중심의 진형을 운영합니다. 티어 TG5 기병과 함께 로사의 3번째 스킬이 부여하는 궁병 전체 공격력 30% 증가는 매우 강력한 효과입니다.",
+              ko: "이제부터는 궁병 중심의 부대 편성을 운영합니다. 티어 TG5 기병과 함께 로사의 3번째 스킬이 부여하는 궁병 전체 공격력 30% 증가는 매우 강력한 효과입니다.",
               de: "So viele (idealerweise maxed) Bogenschützen wie möglich; Rosas 3. Skill kann den Bogenschützen-Gesamtschaden um 30% steigern."
             }
           },
@@ -2335,8 +2335,8 @@ const GUIDES = {
           { type: "list", items: [
             "🟣 **보라색(Purple) — 시계탑 (Bell Tower)**",
             "🟡 **노란색(Yellow) — 마구간 (Royal Stables)**",
-            "🔵 **파란색(Blue) — 북서 성소 (West Sanctum)**",
-            "🟢 **초록색(Green) — 남동 성소 (East Sanctum)**"
+            "🔵 **파란색(Blue) — 북서 성소 (Northwest Sanctum)**",
+            "🟢 **초록색(Green) — 남동 성소 (Southeast Sanctum)**"
           ]},
           { type: "p", text: "나머지 멤버들은 위 구역/팀 중 한 곳을 지원하도록 배정됩니다. 전황에 따라 로테이션이 필요할 수 있으니 — 항상 스쿼드 채팅을 예의 주시해 주세요." },
           { type: "p", text: "리더십의 지시가 있기 전까지는 배정된 구역에 머물러 주세요." },
@@ -2398,7 +2398,7 @@ const GUIDES = {
           { type: "timeline", items: [
             { time: "⏱️ 0:00–15:00", title: "오프닝 단계", groups: [
               { title: "즉시 확보해야 할 건물:", lines: ["**#4 시계탑 (Bell Tower)**", "**#7 마구간 (Royal Stables)**"] },
-              { title: "경쟁 구역:", lines: ["**#8 북서 성소 (West Sanctum)**", "**#10 남동 성소 (East Sanctum)**"] },
+              { title: "경쟁 구역:", lines: ["**#8 북서 성소 (Northwest Sanctum)**", "**#10 남동 성소 (Southeast Sanctum)**"] },
               { title: "", lines: [
                 "수도원(Abbey)은 여유가 될 때 점령하되, 이를 위해 핵심 목표를 희생하지 마세요.",
                 "**14:30**, 최정예 플레이어들은 중앙 지역을 준비하세요."
@@ -2517,8 +2517,8 @@ const GUIDES = {
           { type: "list", items: [
             "🟣 **Lila — Glockenturm**",
             "🟡 **Gelb — Königliche Ställe**",
-            "🔵 **Blau — Westliches Heiligtum**",
-            "🟢 **Grün — Östliches Heiligtum**"
+            "🔵 **Blau — {sanctumNW}**",
+            "🟢 **Grün — {sanctumSE}**"
           ]},
           { type: "p", text: "Verbleibende Mitglieder werden zugewiesen, eine dieser Zonen/Teams zu unterstützen. Rotation kann je nach Schlachtbedingungen erforderlich sein - überwache immer den Squad Chat für Details." },
           { type: "p", text: "Bleib bei deiner zugewiesenen Zone, es sei denn, die Führung sagt dir, dass du dich bewegen sollst." },
@@ -2580,7 +2580,7 @@ const GUIDES = {
           { type: "timeline", items: [
             { time: "0:00–15:00", title: "ERÖFFNUNG", groups: [
               { title: "Sofort sichern:", lines: ["**#4 Glockenturm**", "**#7 Königliche Ställe**"] },
-              { title: "Umkämpfen:", lines: ["**#8 Westliches Heiligtum**", "**#10 Östliches Heiligtum**"] },
+              { title: "Umkämpfen:", lines: ["**#8 {sanctumNW}**", "**#10 {sanctumSE}**"] },
               { title: "", lines: [
                 "Nehmt Abteien, wenn es praktikabel ist, aber opfert dafür keine Kernziele.",
                 "~ **14:30**, stärkste Spieler machen sich für das Zentrum bereit."
@@ -2600,7 +2600,7 @@ const GUIDES = {
               ]}
             ], warn: "⚠️ Mitglieder in Garnison - verlasst euer Gebäude nicht für den Schwertschrein, es sei denn, die Führung rät dazu. Schützt weiterhin die Heiligtums und andere wichtige Gebäude." },
             { time: "💪 15:00–45:00", title: "KONTROLLPHASE", lines: [
-              "Hauptziel: **Haltet Schwertschrein + Westliches Heiligtum + Östliches Heiligtum.**",
+              "Hauptziel: **Haltet Schwertschrein + {sanctumNW} + {sanctumSE}.**",
               "Haltet nützliche Kontrolle über Glockenturm/Königliche Ställe aufrecht",
               "Nutzt den Buff der Reformationshalle für große Gefechte",
               "Nutzt das Söldnerlager, um feindliche Gebäude unter Druck zu setzen",
@@ -3853,7 +3853,7 @@ const GUIDES = {
   },
      "formations-rally-tips": {
     emoji: "🛡️",
-    name: { en: "Formations & Rally Tips" },
+    name: { en: "Formations & Rally Tips", zh: "部隊編組與集結技巧", ko: "부대 편성 및 집결 팁", de: "Trupp-Formationen & Rally-Tipps", fr: "Formations de troupe et conseils de ralliement", pt: "Formações das Tropas e dicas de rally", tr: "Birlik Dizilişleri ve Seferberlik İpuçları", id: "Formasi Pasukan & Tips Reli", ru: "Войско и советы по рейдам", th: "รูปแบบการจัดวางทหารและเคล็ดลับการระดมพล", ar: "القوات ونصائح الحشد" },
     sections: {
       en: {
         title: "Formations & Rally Tips",
@@ -3914,7 +3914,7 @@ const GUIDES = {
         ]
       },
       zh: {
-        title: "陣型與集結技巧",
+        title: "部隊編組與集結技巧",
         blocks: [
           { type: "h", text: "🔬 研究與升級優先順序" },
           { type: "p", text: "研究與升級領主魅力（Governor Charms）時，請優先提升以下戰鬥屬性：" },
@@ -3941,7 +3941,7 @@ const GUIDES = {
             "8) PvE — 野獸／狩獵（Beasts / Hunting）：{diana} + {fahd} — **50 : 20 : 30**"
           ]},
           { type: "h", text: "🐺 PvE — 野獸／狩獵（Beasts / Hunting）" },
-          { type: "p", text: "打恐狼（Dreadwolf）時請記得：不需要太多傷害，所以只要派出最少的兵力（甚至 1 個兵也可以），讓更多聯盟成員能加入集結，領取集結獎勵。" },
+          { type: "p", text: "打恐狼時請記得：不需要太多傷害，所以只要派出最少的兵力（甚至 1 個兵也可以），讓更多聯盟成員能加入集結，領取集結獎勵。" },
           { type: "h", text: "🏰 {castleBattle}／{sanctuary}／建築" },
           { type: "p", text: "佔領建築時，請準備好快速切換：" },
           { type: "callout", text: "**進攻 → 防守**" },
@@ -3997,7 +3997,7 @@ const GUIDES = {
             "8) PvE — 야수/사냥(Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
           ]},
           { type: "h", text: "🐺 PvE — 야수/사냥(Beasts / Hunting)" },
-          { type: "p", text: "드레드울프(Dreadwolf)를 잡을 때 기억하세요: 많은 피해가 필요하지 않으므로 최소한의 병력(1명도 가능)만 보내서 더 많은 연맹원이 집결에 참여해 집결 보상을 받을 수 있게 하세요." },
+          { type: "p", text: "스케어 울프를 잡을 때 기억하세요: 많은 피해가 필요하지 않으므로 최소한의 병력(1명도 가능)만 보내서 더 많은 연맹원이 집결에 참여해 집결 보상을 받을 수 있게 하세요." },
           { type: "h", text: "🏰 {castleBattle} / {sanctuary} / 건물" },
           { type: "p", text: "건물을 점령할 때는 빠르게 전환할 준비를 하세요:" },
           { type: "callout", text: "**공격 → 방어**" },
@@ -4009,11 +4009,11 @@ const GUIDES = {
           { type: "list", items: [
             "**1.** 즉시 방어 프리셋으로 행군을 하나 더 보내세요. **예시:** {gordon} / {howard} **60 : 20 : 20**",
             "**2.** 방어 행군이 점령한 건물을 향해 이동하는 것을 지켜보세요.",
-            "**3.** 행군 시간이 약 5초 남았을 때 — 또는 임원진의 지시에 따라 — 기존 공격 행군을 회수하세요.",
+            "**3.** 행군 시간이 약 5초 남았을 때 — 또는 임원진의 지시에 따라 — 기존 공격 행군을 소환하세요.",
             "**4.** 방어 행군이 도착해 주둔부대에서 공격 행군을 대체합니다."
           ]},
-          { type: "callout", text: "🚫 **공격 행군을 너무 일찍 회수하지 마세요.**" },
-          { type: "p", text: "**점령 → 방어 파견 → 약 5초 → 공격 회수 → 방어 도착**" },
+          { type: "callout", text: "🚫 **공격 행군을 너무 일찍 소환하지 마세요.**" },
+          { type: "p", text: "**점령 → 방어 파견 → 약 5초 → 공격 소환 → 방어 도착**" },
           { type: "p", text: "이렇게 하면 건물이 불필요하게 약해지지 않고 공격 구성에서 방어 주둔으로 전환할 수 있습니다." },
           { type: "h", text: "🪖 주둔 병력 상한" },
           { type: "p", text: "본부(HQ) / {sanctuary}에는 영주 15명만 들어갈 수 있습니다. 그러니 본부, {sanctuary}, 그 밖의 격전 건물에 무작정 최대 행군을 보내지 마세요." },
@@ -4026,7 +4026,7 @@ const GUIDES = {
         ]
       },
       de: {
-        title: "Formationen & Rally-Tipps",
+        title: "Trupp-Formationen & Rally-Tipps",
         blocks: [
           { type: "h", text: "🔬 FORSCHUNGS- & UPGRADE-PRIORITÄTEN" },
           { type: "p", text: "Priorisiere diese Kampfwerte bei der Forschung und beim Aufwerten der Gouverneurs-Charms (Governor Charms):" },
@@ -4053,7 +4053,7 @@ const GUIDES = {
             "8) PvE – Bestien / Jagd (Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
           ]},
           { type: "h", text: "🐺 PvE — BESTIEN / JAGD (BEASTS / HUNTING)" },
-          { type: "p", text: "Denk beim Dreadwolf daran: Es ist nicht viel Schaden nötig, also schicke so wenige Truppen wie möglich (sogar nur 1), damit mehr Allianzmitglieder der Rally beitreten und von den Rally-Belohnungen profitieren können." },
+          { type: "p", text: "Denk beim Höllenwolf daran: Es ist nicht viel Schaden nötig, also schicke so wenige Truppen wie möglich (sogar nur 1), damit mehr Allianzmitglieder der Rally beitreten und von den Rally-Belohnungen profitieren können." },
           { type: "h", text: "🏰 {castleBattle} / {sanctuary} / GEBÄUDE" },
           { type: "p", text: "Beim Erobern von Gebäuden musst du bereit sein, schnell zu wechseln:" },
           { type: "callout", text: "**ANGRIFF → VERTEIDIGUNG**" },
