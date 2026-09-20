@@ -2269,33 +2269,33 @@ const GUIDES = {
           ]},
 
           { type: "h", text: "🎯 주요 목표" },
-          { type: "p", text: "상대 연맹보다 더 많은 **연맹 유물 점수(Alliance Relic Points)**를 획득하여 승리하세요." },
+          { type: "p", text: "상대 연맹보다 더 많은 **연맹 성스러운 계약 포인트(Alliance Relic Points)**를 획득하여 승리하세요." },
           { type: "list", items: [
             "주요 건물을 점령하고 유지하기",
             "누적된 점수 보호하기",
-            "건물의 소유권이 바뀔 때 흩어진 전리품 즉시 수집하기",
-            "숨겨진 땅굴 (Undercellars)이 나타나면 수집하기",
+            "건물의 소유권이 바뀔 때 군수 물자 즉시 수집하기",
+            "땅굴 (Untergewölbe)이 나타나면 수집하기",
             "집결중이 아닐 때는 근처 주둔지 지원하기",
             "부대가 대기 상태로 방치되지 않도록 하기",
             "**맵 전체를 돌아다니며 킬을 쫓지 마세요.** 무작위 PvP는 아군의 대형을 흩어지게 하고 전투 효율을 떨어뜨립니다. 점령 건물 근처의 적을 약화시키는 등 의미가 있을 때만 저렙 도시에 공격을 가하세요."
           ]},
 
           { type: "h", text: "🏛️ 주요 건물 및 점수 정보" },
-          { type: "sub", text: "성검제단(Swordshrine)" },
-          { type: "list", items: ["최초 점령 보상: 연맹 9,000점 / 개인 4,500점", "점령 유지 보상: 연맹 +1,800/분 / 개인 +900/분"] },
+          { type: "sub", text: "성검 제단(Swordshrine)" },
+          { type: "list", items: ["첫 점령 보상: 연맹 9,000점 / 개인 4,500점", "지속 점령 보상: 연맹 +1,800/분 / 개인 +900/분"] },
           { type: "sub", text: "성소(Sanctum)" },
-          { type: "list", items: ["최초 점령 보상: 연맹 6,000점 / 개인 3,000점", "점령 유지 보상: 연맹 +1,200/분 / 개인 +600/분"] },
+          { type: "list", items: ["첫 점령 보상: 연맹 6,000점 / 개인 3,000점", "지속 점령 보상: 연맹 +1,200/분 / 개인 +600/분"] },
           { type: "sub", text: "수도원(Abbey)" },
-          { type: "list", items: ["최초 점령 보상: 연맹 3,000점 / 개인 1,500점", "점령 유지 보상: 연맹 +600/분 / 개인 +300/분"] },
+          { type: "list", items: ["첫 점령 보상: 연맹 3,000점 / 개인 1,500점", "지속 점령 보상: 연맹 +600/분 / 개인 +300/분"] },
           { type: "sub", text: "용병 주둔지(Mercenary)" },
-          { type: "list", items: ["최초 점령 보상: 연맹 1,200점 / 개인 600점", "점령 유지 보상: 연맹 +240/분 / 개인 +120/분"] },
+          { type: "list", items: ["첫 점령 보상: 연맹 1,200점 / 개인 600점", "지속 점령 보상: 연맹 +240/분 / 개인 +120/분"] },
           { type: "sub", text: "교화의 홀(Reformation)" },
-          { type: "list", items: ["최초 점령 보상: 연맹 1,200점 / 개인 600점", "점령 유지 보상: 연맹 +240/분 / 개인 +120/분"] },
+          { type: "list", items: ["첫 점령 보상: 연맹 1,200점 / 개인 600점", "지속 점령 보상: 연맹 +240/분 / 개인 +120/분"] },
           { type: "sub", text: "마구간(Stables)" },
-          { type: "list", items: ["최초 점령 보상: 연맹 1,200점 / 개인 600점", "점령 유지 보상: 연맹 +240/분 / 개인 +120/분"] },
+          { type: "list", items: ["첫 점령 보상: 연맹 1,200점 / 개인 600점", "지속 점령 보상: 연맹 +240/분 / 개인 +120/분"] },
           { type: "sub", text: "시계탑(Bell Tower)" },
-          { type: "list", items: ["최초 점령 보상: 연맹 1,200점 / 개인 600점", "점령 유지 보상: 연맹 +240/분 / 개인 +120/분"] },
-          { type: "sub", text: "숨겨진 땅굴(Undercellars)" },
+          { type: "list", items: ["첫 점령 보상: 연맹 1,200점 / 개인 600점", "지속 점령 보상: 연맹 +240/분 / 개인 +120/분"] },
+          { type: "sub", text: "땅굴(Untergewölbe)" },
           { type: "list", items: ["주기적으로(총 2번의 웨이브로) 생성되는 채집 장소"] },
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
            
@@ -2308,7 +2308,7 @@ const GUIDES = {
           { type: "list", items: ["오픈 시간: 0분", "우선순위: 🔴 높음 (HIGH)", "효과: 고가치 연맹 점수 획득"] },
           { type: "sub", text: "⛪ 수도원" },
           { type: "list", items: ["오픈 시간: 0분", "우선순위: 🟡 보통 (MED)", "효과: 연맹 점수 생성"] },
-          { type: "sub", text: "⚔️ 성검제단" },
+          { type: "sub", text: "⚔️ 성검 제단" },
           { type: "list", items: ["오픈 시간: 15분", "우선순위: ⭐ 최고 (HIGHEST)", "효과: 가장 가치 높은 점수 건물"] },
           { type: "sub", text: "💪 교화의 홀 (Hall of Reformation)" },
           { type: "list", items: ["오픈 시간: 15분", "우선순위: 🔴 높음 (HIGH)", "효과: 연맹 전투 버프"] },
@@ -2321,8 +2321,8 @@ const GUIDES = {
           { type: "list", items: [
             "🟣 **보라색(Purple) — 시계탑 (Bell Tower)**",
             "🟡 **노란색(Yellow) — 마구간 (Royal Stables)**",
-            "🔵 **파란색(Blue) — 서쪽 성소 (West Sanctum)**",
-            "🟢 **초록색(Green) — 동쪽 성소 (East Sanctum)**"
+            "🔵 **파란색(Blue) — 북서 성소 (West Sanctum)**",
+            "🟢 **초록색(Green) — 남동 성소 (East Sanctum)**"
           ]},
           { type: "p", text: "나머지 멤버들은 위 구역/팀 중 한 곳을 지원하도록 배정됩니다. 전황에 따라 로테이션이 필요할 수 있으니 — 항상 스쿼드 채팅을 예의 주시해 주세요." },
           { type: "p", text: "리더십의 지시가 있기 전까지는 배정된 구역에 머물러 주세요." },
@@ -2364,8 +2364,8 @@ const GUIDES = {
           ]},
           { type: "p", text: "**중요 사항**:" },
           { type: "list", items: [
-            "적이 우리가 점령한 건물을 공격하여 소유권이 적에게 넘어가면, **즉시 근처로 도시 이전하거나 가속 행군을 사용하여** **적이 가져가기 전에 흩어진 전리품/포인트를 수집하기.**",
-            "**전투 시작 후 20분이 지나면** 숨겨진 땅굴(Undercellars)이 남. 가용한 병력을 보내 추가 포인트를 위해 채집하기.",
+            "적이 우리가 점령한 건물을 공격하여 소유권이 적에게 넘어가면, **즉시 근처로 도시 이전하거나 가속 행군을 사용하여** **적이 가져가기 전에 군수 물자/포인트를 수집하기.**",
+            "**전투 시작 후 20분이 지나면** 땅굴(Untergewölbe)이 남. 가용한 병력을 보내 추가 포인트를 위해 채집하기.",
             "부대를 대기 상태로 방치하지 않기."
           ]},
 
@@ -2384,14 +2384,14 @@ const GUIDES = {
           { type: "timeline", items: [
             { time: "⏱️ 0:00–15:00", title: "오프닝 단계", groups: [
               { title: "즉시 확보해야 할 건물:", lines: ["**#4 시계탑 (Bell Tower)**", "**#7 마구간 (Royal Stables)**"] },
-              { title: "경쟁 구역:", lines: ["**#8 서쪽 성소 (West Sanctum)**", "**#10 동쪽 성소 (East Sanctum)**"] },
+              { title: "경쟁 구역:", lines: ["**#8 북서 성소 (West Sanctum)**", "**#10 남동 성소 (East Sanctum)**"] },
               { title: "", lines: [
                 "수도원(Abbey)은 여유가 될 때 점령하되, 이를 위해 핵심 목표를 희생하지 마세요.",
                 "**14:30**, 최정예 플레이어들은 중앙 지역을 준비하세요."
               ]}
             ]},
             { time: "‼️ 15:00", title: "핵심 건물 오픈", lines: [
-              "**#1 성검제단 (Swordshrine)**",
+              "**#1 성검 제단 (Swordshrine)**",
               "**#2 용병 주둔지 (Mercenary Camp)**",
               "**#3 교화의 홀 (Hall of Reformation)**",
               "리더십(임원진)이 전황에 따라 우선순위를 지시할 것입니다."
@@ -2402,26 +2402,26 @@ const GUIDES = {
                 "일단 확보되면 강력한 방어수가 주둔부대를 유지하기",
                 "지원/참여자들은 가속 행군을 사용해 증원 보내기"
               ]}
-            ], warn: "⚠️ 주둔 중인 멤버들 — 임원진의 지시가 없는 한 성검제단을 위해 본인의 건물을 포기하지 마세요. 성소 및 기타 중요 건물들을 계속 보호해야 합니다." },
+            ], warn: "⚠️ 주둔 중인 멤버들 — 임원진의 지시가 없는 한 성검 제단을 위해 본인의 건물을 포기하지 마세요. 성소 및 기타 중요 건물들을 계속 보호해야 합니다." },
             { time: "💪 15:00–45:00", title: "통제 단계", lines: [
-              "주요 목표: **성검제단 + 서쪽 성소 + 동쪽 성소를 사수하세요.**",
+              "주요 목표: **성검 제단 + 북서 성소 + 남동 성소를 사수하세요.**",
               "시계탑/마구간 통제 유지하기",
               "주요 교전 시 교화의 홀 버프 활용하기",
               "적 건물을 압박하기 위해 용병 주둔지 활용하기",
-              "건물의 소유권이 바뀔 때마다(flip) 흩어진 전리품/ 즉시 수집하기",
+              "건물의 소유권이 바뀔 때마다(flip) 군수 물자/ 즉시 수집하기",
               "약화된 주둔부대 지원하기"
             ]},
-            { time: "⛏️ 20:00–60:00", title: "숨겨진 땅굴 (UNDERCELLARS)", lines: [
-              "숨겨진 땅굴이 생성되기 시작합니다.",
+            { time: "⛏️ 20:00–60:00", title: "땅굴 (Untergewölbe)", lines: [
+              "땅굴이 생성되기 시작합니다.",
               "지원 플레이어들과 가용한 부대가 있는 누구나 추가 점수를 위해 땅굴을 채집하세요.",
               "채집만을 위해 중요한 방어나 집결을 포기하지 마세요."
             ]},
             { time: "🏁 마지막 15분", title: "", groups: [
               { title: "우리가 이기고 있을 때", lines: [
-                "성검제단과 소 사수하기",
+                "성검 제단과 소 사수하기",
                 "누적 점수 건물 지원하기",
                 "불필요한 PvP 피하기",
-                "흩어진 전리품 즉시 회수하기",
+                "군수 물자 즉시 회수하기",
                 "불필요한 위험 감수하지 않기"
               ]},
               { title: "우리가 지고 있을 때", lines: [
@@ -2435,10 +2435,10 @@ const GUIDES = {
           ]},
 
           { type: "h", text: "기억해 주세요" },
-          { type: "sub", text: "📦 건물 소유권 변경 및 흩어진 전리품" },
+          { type: "sub", text: "📦 건물 소유권 변경 및 군수 물자" },
           { type: "p", text: "건물의 소유권이 바뀌면, **주위에 흩어진 포인트가 나타날 수 있습니다.**" },
           { type: "p", text: "**우리가 건물을 뺏겼을 때:** 떨어진 전리품을 최대한 빠르게 수집하세요." },
-          { type: "p", text: "**우리가 적의 건물을 점령했을 때:** 적이 되찾기 전에 흩어진 전리품을 먼저 수집하세요." },
+          { type: "p", text: "**우리가 적의 건물을 점령했을 때:** 적이 되찾기 전에 군수 물자을 먼저 수집하세요." },
           { type: "callout", text: "건물의 소유권이 바뀐 후 드랍된 포인트를 절대 그냥 지나치지 마세요." },
           { type: "sub", text: "추가 전술" },
           { type: "list", items: [
@@ -2460,7 +2460,7 @@ const GUIDES = {
             "무작위 킬보다 목표가 우선입니다.",
             "공격수는 점령하고 — 방어수는 사수하며 — 지원은 증원합니다.",
             "유용한 부대를 유휴 상태로 방치하지 마세요.",
-            "흩어진 전리품을 즉시 수집하세요.",
+            "군수 물자을 즉시 수집하세요.",
             "가용한 부대로 땅굴을 채집하세요.",
             "성검 제단 + 성소를 사수하세요.",
             "수도원이나 킬을 위해 핵심 건물을 포기하지 마세요.",
@@ -2489,8 +2489,8 @@ const GUIDES = {
           { type: "list", items: [
             "Wichtige Gebäude einnehmen und halten",
             "Angesammelte Punkte schützen",
-            "Verstreute Beute sofort einsammeln, wenn Gebäude die Seiten wechseln",
-            "Undercellars sammeln, wenn sie erscheinen",
+            "Frachtzugvorräte sofort einsammeln, wenn Gebäude die Seiten wechseln",
+            "Untergewölbe sammeln, wenn sie erscheinen",
             "Verstärke nahegelegene Garnisonen, wenn du nicht gerade eine Rally startest",
             "Lass Märsche nicht untätig herumstehen",
             "**JAGE KEINE Kills quer über die Karte.** Zufälliges PvP zerstreut uns und verringert unsere Effektivität. Greife Städte niedrigeren Levels an, wenn es sinnvoll ist; schwäche sie in der Nähe eines gehaltenen Gebäudes."
@@ -2502,9 +2502,9 @@ const GUIDES = {
           { type: "p", text: "Unsere **Stärksten Angreifer** werden zunächst einer Zone zugewiesen:" },
           { type: "list", items: [
             "🟣 **Lila — Glockenturm**",
-            "🟡 **Gelb — Königliche Stallungen**",
-            "🔵 **Blau — Westliches Sanktum**",
-            "🟢 **Grün — Östliches Sanktum**"
+            "🟡 **Gelb — Königliche Ställe**",
+            "🔵 **Blau — Westliches Heiligtum**",
+            "🟢 **Grün — Östliches Heiligtum**"
           ]},
           { type: "p", text: "Verbleibende Mitglieder werden zugewiesen, eine dieser Zonen/Teams zu unterstützen. Rotation kann je nach Schlachtbedingungen erforderlich sein - überwache immer den Squad Chat für Details." },
           { type: "p", text: "Bleib bei deiner zugewiesenen Zone, es sei denn, die Führung sagt dir, dass du dich bewegen sollst." },
@@ -2546,8 +2546,8 @@ const GUIDES = {
           ]},
           { type: "p", text: "**WICHTIG:**" },
           { type: "list", items: [
-            "Wenn der Feind eines unserer eroberten Gebäude angreift und die Kontrolle zum Feind wechselt, **teleportiere in die Nähe oder führe sofort einen Schnellmarsch aus** und sammle die **verstreute Beute/Punkte, bevor sie es tun.**",
-            "**20 Minuten nach Beginn der Schlacht**, Undercellars erscheinen. Sende verfügbare Truppen, um sie für zusätzliche Punkte zu sammeln.",
+            "Wenn der Feind eines unserer eroberten Gebäude angreift und die Kontrolle zum Feind wechselt, **teleportiere in die Nähe oder führe sofort einen Schnellmarsch aus** und sammle die **Frachtzugvorräte/Punkte, bevor sie es tun.**",
+            "**20 Minuten nach Beginn der Schlacht**, Untergewölbe erscheinen. Sende verfügbare Truppen, um sie für zusätzliche Punkte zu sammeln.",
             "Lass Märsche nicht untätig."
           ]},
 
@@ -2565,8 +2565,8 @@ const GUIDES = {
           { type: "h", text: "⏱️ SCHLACHT-ZEITPLAN" },
           { type: "timeline", items: [
             { time: "0:00–15:00", title: "ERÖFFNUNG", groups: [
-              { title: "Sofort sichern:", lines: ["**#4 Glockenturm**", "**#7 Königliche Stallungen**"] },
-              { title: "Umkämpfen:", lines: ["**#8 Westliches Sanktum**", "**#10 Östliches Sanktum**"] },
+              { title: "Sofort sichern:", lines: ["**#4 Glockenturm**", "**#7 Königliche Ställe**"] },
+              { title: "Umkämpfen:", lines: ["**#8 Westliches Heiligtum**", "**#10 Östliches Heiligtum**"] },
               { title: "", lines: [
                 "Nehmt Abteien, wenn es praktikabel ist, aber opfert dafür keine Kernziele.",
                 "~ **14:30**, stärkste Spieler machen sich für das Zentrum bereit."
@@ -2575,7 +2575,7 @@ const GUIDES = {
             { time: "15:00", title: "MACHTGEBÄUDE ÖFFNEN", lines: [
               "**#1 Schwertschrein**",
               "**#2 Söldnerlager**",
-              "**#3 Halle der Reformation**",
+              "**#3 Reformationshalle**",
               "Die Führung wird Prioritäten basierend auf den Schlachtbedingungen ansagen."
             ], groups: [
               { title: "⭐ SCHWERTSCHREIN", lines: [
@@ -2584,26 +2584,26 @@ const GUIDES = {
                 "Sobald gesichert, hält ein starker Verteidiger die Garnison",
                 "Unterstützer/Joiner müssen im Schnellmarsch Verstärkung senden"
               ]}
-            ], warn: "⚠️ Mitglieder in Garnison - verlasst euer Gebäude nicht für den Schwertschrein, es sei denn, die Führung rät dazu. Schützt weiterhin die Sanktums und andere wichtige Gebäude." },
+            ], warn: "⚠️ Mitglieder in Garnison - verlasst euer Gebäude nicht für den Schwertschrein, es sei denn, die Führung rät dazu. Schützt weiterhin die Heiligtums und andere wichtige Gebäude." },
             { time: "💪 15:00–45:00", title: "KONTROLLPHASE", lines: [
-              "Hauptziel: **Haltet Schwertschrein + Westliches Sanktum + Östliches Sanktum.**",
-              "Haltet nützliche Kontrolle über Glockenturm/Königliche Stallungen aufrecht",
-              "Nutzt den Buff der Halle der Reformation für große Gefechte",
+              "Hauptziel: **Haltet Schwertschrein + Westliches Heiligtum + Östliches Heiligtum.**",
+              "Haltet nützliche Kontrolle über Glockenturm/Königliche Ställe aufrecht",
+              "Nutzt den Buff der Reformationshalle für große Gefechte",
               "Nutzt das Söldnerlager, um feindliche Gebäude unter Druck zu setzen",
-              "Sammelt verstreute Beute nach JEDEM Gebäudewechsel ein",
+              "Sammelt Frachtzugvorräte nach JEDEM Gebäudewechsel ein",
               "Verstärkt geschwächte Garnisonen"
             ]},
-            { time: "⛏️ 20:00-60:00", title: "UNDERCELLARS", lines: [
-              "Undercellars erscheinen.",
+            { time: "⛏️ 20:00-60:00", title: "Untergewölbe", lines: [
+              "Untergewölbe erscheinen.",
               "Unterstützer und alle mit verfügbaren Märschen sollten sie für zusätzliche Punkte sammeln.",
               "**Verlasst nicht eine kritische Verteidigung oder Rally, nur um zu sammeln.**"
             ]},
             { time: "🏁 LETZTE 15 MINUTEN", title: "", groups: [
               { title: "WENN WIR VORNE LIEGEN", lines: [
-                "Schützt Schwertschrein und Sanktums",
+                "Schützt Schwertschrein und Heiligtums",
                 "Verstärkt Gebäude mit angesammelten Punkten",
                 "Vermeidet unnötiges PvP",
-                "Holt verstreute Beute sofort zurück",
+                "Holt Frachtzugvorräte sofort zurück",
                 "Geht keine unnötigen Risiken ein"
               ]},
               { title: "WENN WIR HINTEN LIEGEN", lines: [
@@ -2722,7 +2722,7 @@ const GUIDES = {
           { type: "list", items: [
             "Videz votre infirmerie. Gardez toutes vos marches disponibles",
             "Équipez vos meilleurs héros et votre meilleur équipement",
-            "Activez la capacité de troupes, les bonus d'attaque et de défense, et la Anti-repérage",
+            "Activez la capacité de troupes, les bonus d'attaque et de défense, et l'Anti-repérage",
             "Gardez des Relocalisations Avancées si votre rôle l'exige",
             "Gardez Discord ouvert si possible (carte, affectations, vocal facultatif)",
             "Consultez le chat d'alliance et vos messages privés"
