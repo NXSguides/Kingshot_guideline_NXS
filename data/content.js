@@ -3836,5 +3836,69 @@ const GUIDES = {
         ]
       }
     }
+  },
+     "formations-rally-tips": {
+    emoji: "🛡️",
+    name: { en: "Formations & Rally Tips" },
+    sections: {
+      en: {
+        title: "Formations & Rally Tips",
+        blocks: [
+          { type: "h", text: "🔬 RESEARCH & UPGRADE PRIORITIES" },
+          { type: "p", text: "Prioritize these combat stats for research and upgrading governor charms:" },
+          { type: "list", items: ["Infantry {health}", "Archer {lethality}"] },
+
+          { type: "h", text: "💾 SAVE YOUR PRESETS" },
+          { type: "p", text: "Depending on your progression, you can unlock up to 8 slots to pre-save your troop formations. Recommended formations to save:" },
+          { type: "callout", text: "All troop ratios are **Infantry : Cavalry : Archers**. Save separate presets with each hero in the far-left / first position." },
+          { type: "callout", text: "💡 The far-left hero matters when joining rallies because their relevant Expedition skill contributes to the rally." },
+          { type: "list", items: [
+            "1) Bear Hunt: Chenko — **10 : 10 : 80**",
+            "2) Bear Hunt: Amane — **10 : 10 : 80** (or closest possible)",
+            "3) Bear Hunt: Yeonwoo — **10 : 10 : 80** (or closest possible)",
+            "4) Bear Hunt: Amadeus — **10 : 10 : 80** (or closest possible)",
+            "5) Attack (General PvP): Amadeus (if built) or Chenko — **50 : 20 : 30**",
+            "6) Defense: Howard / Gordon — **60 : 20 : 20** is our balanced default. Adjust when leadership calls for a specific formation."
+          ]},
+          { type: "p", text: "**Rally Leaders:** Use your strongest complete offensive hero lineup." },
+          { type: "p", text: "**Rally Joiners:** Please follow any troop limits posted by leadership." },
+          { type: "list", items: [
+            "7) Viking HQ: Howard / Gordon — **60 : 40** Follow troop limit (~68,000)",
+            "8) PvE – Beasts / Hunting: Diana + Fahd — **50 : 20 : 30**"
+          ]},
+
+          { type: "h", text: "🐺 PvE — BEASTS / HUNTING" },
+          { type: "p", text: "Remember for Dreadwolf: Not a lot of damage is needed, so send the minimum number of troops (even 1) so more alliance members can join and benefit from the rally rewards." },
+
+          { type: "h", text: "🏰 CASTLE BATTLE / SANCTUARY / BUILDINGS" },
+          { type: "p", text: "When capturing buildings, be ready to quickly switch:" },
+          { type: "callout", text: "**ATTACK → DEFENSE**" },
+          { type: "sub", text: "⚔️ 1. CAPTURE" },
+          { type: "p", text: "Join the initial rally using your ATTACK preset." },
+          { type: "p", text: "**Example:** Amadeus / Chenko **50 : 20 : 30**" },
+          { type: "sub", text: "🛡️ 2. SWITCH TO DEFENSE" },
+          { type: "p", text: "Once the building is captured:" },
+          { type: "list", items: [
+            "**1.** Immediately send another march using your DEFENSE preset. **Example:** Gordon / Howard **60 : 20 : 20**",
+            "**2.** Watch your defense march travel toward the captured building.",
+            "**3.** When approximately 5 seconds of march time remain — or as instructed by leadership — recall your original ATTACK march.",
+            "**4.** Your DEFENSE march arrives and replaces your offensive march in the garrison."
+          ]},
+          { type: "callout", text: "🚫 **DO NOT recall your attack march too early.**" },
+          { type: "p", text: "**Capture → Send Defense → ~5 sec → Recall Attack → Defense Arrives**" },
+          { type: "p", text: "This allows us to transition from an offensive setup to a defensive garrison without unnecessarily weakening the building." },
+
+          { type: "h", text: "🪖 GARRISON TROOP CAP" },
+          { type: "p", text: "Only 15 governors can enter HQ / Sanctuary. So don’t automatically send your maximum march to HQ, Sanctuary, or other contested buildings." },
+          { type: "p", text: "Follow the troop cap announced by leadership." },
+          { type: "p", text: "**Typical alliance target: ~68,000 troops per player**" },
+          { type: "p", text: "This allows more alliance members with properly configured defensive marches to fit inside the garrison and get rewards." },
+          { type: "callout", text: "⚠️ If leadership announces a different cap, always follow the announced amount." },
+
+          { type: "h", text: "🎬 HOW TO SWITCH FROM ATTACKING TO DEFENSIVE HEROES" },
+          { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Video found online (TikTok @yelloe_hair) — not our own footage." }
+        ]
+      }
+    }
   }
 };
