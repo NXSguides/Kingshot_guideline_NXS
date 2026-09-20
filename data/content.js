@@ -346,7 +346,7 @@ const GUIDES = {
           { type: "sub", text: "#3 {reformation} (firebaugh) — 攻擊／防禦加成" },
           { type: "list", items: [
             "**firebaugh (70.5M)** — 集結主力隊長。和 PAPA 一起帶領對 #3 {reformation} 的佔領攻勢。易主後交給 Meow 擔任駐防隊長，並和 PAPA 一起前往增援 #1 {swordshrine} (PERCIVAL)，或壓制敵方核心。保持機動。",
-            "**PAPA (67.6M)** — 協調員兼集結主力。在小隊聊天頻道指揮目標。加入 firebaugh 對 #3 {reformation} 的佔領攻勢。交給 Meow 後，和 firebaugh 一起增援 #1 {swordshrine} (PERCIVAL)，或壓制敵方核心。你的工作是看地圖、指定下一個目標，並讓佔領隊持續行動。",
+            "**PAPA (67.6M)** — 協調員兼集結主力。在戰場聊天頻道指揮目標。加入 firebaugh 對 #3 {reformation} 的佔領攻勢。交給 Meow 後，和 firebaugh 一起增援 #1 {swordshrine} (PERCIVAL)，或壓制敵方核心。你的工作是看地圖、指定下一個目標，並讓佔領隊持續行動。",
             "**Meow (66.2M)** — 駐防隊長。15:00 前先在 #3 {reformation} 附近待命。firebaugh 佔領後，接任隊長並守住。除非 PAPA 下令輪調，否則不要離開 #3 {reformation}。#3 {reformation} 的攻擊與防禦加成必須一直保持。"
           ]},
 
@@ -366,7 +366,7 @@ const GUIDES = {
 
           { type: "sub", text: "#2 {mercenary} (MTP) — 傭兵攻擊" },
           { type: "list", items: [
-            "**MTP (65.9M)** — 隊長。15:00 前先在 #2 {mercenary} 附近待命。可以使用後就佔領它，每 7 分鐘對敵方核心使用一次傭兵。在小隊聊天頻道和 PAPA 協調時機。"
+            "**MTP (65.9M)** — 隊長。15:00 前先在 #2 {mercenary} 附近待命。可以使用後就佔領它，每 7 分鐘對敵方核心使用一次傭兵。在戰場聊天頻道和 PAPA 協調時機。"
           ]},
 
           { type: "sub", text: "#5 {abbey} (debe 06)" },
@@ -420,8 +420,8 @@ const GUIDES = {
           { type: "h", text: "📌 最終提醒" },
           { type: "list", items: [
             "所有玩家開戰時必須在線上。",
-            "R4/R5 會在小隊聊天頻道用地圖編號指示目標。",
-            "不需要開語音。跟著小隊聊天頻道和地圖走就夠了。",
+            "R4/R5 會在戰場聊天頻道用地圖編號指示目標。",
+            "不需要開語音。跟著戰場聊天頻道和地圖走就夠了。",
             "記住：建築名稱、地圖位置和顏色分區。",
             "駐防隊長留在建築內守住，直到被換下。佔領隊保持機動、積極進攻。",
             "**核心原則：** 守住 #1 {swordshrine}＋#8 {sanctum}＋#10 {sanctum}。善用 #4 {belltower}、#7 {stables}、#3 {reformation}、#2 {mercenary}。刷{abbey}和掉落的積分。",
@@ -1901,7 +1901,7 @@ const GUIDES = {
             "🔵 **藍色 — {sanctumNW}**",
             "🟢 **綠色 — {sanctumSE}**"
           ]},
-          { type: "p", text: "其餘成員會被分配去支援其中一區。視戰況可能需要輪調，請隨時關注小隊聊天頻道。" },
+          { type: "p", text: "其餘成員會被分配去支援其中一區。視戰況可能需要輪調，請隨時關注戰場聊天頻道。" },
           { type: "p", text: "除非幹部指示移動，否則請留在自己的區域。" },
           { type: "zones", labels: {
             purple: "🟣 紫色區域 — {belltower}／{mercenary}",
@@ -1961,7 +1961,7 @@ const GUIDES = {
             "盡量開著 Discord（查看地圖、分配，也可選擇加入語音）",
             "檢查聯盟聊天與私訊"
           ]},
-          { type: "callout", text: "⚠️ **重要：** 開戰當天會出現新的**小隊聊天**分頁。**整場戰鬥期間請隨時關注。**" },
+          { type: "callout", text: "⚠️ **重要：** 開戰當天會出現新的**戰場聊天**分頁。**整場戰鬥期間請隨時關注。**" },
 
           { type: "h", text: "戰鬥時間軸" },
           { type: "timeline", items: [
@@ -2012,7 +2012,7 @@ const GUIDES = {
           ]},
           { type: "list", items: [
             "遵守你分配到的區域與職責。",
-            "隨時關注小隊聊天頻道。",
+            "隨時關注戰場聊天頻道。",
             "目標優先於亂打擊殺。",
             "攻擊手負責攻下，防守者負責守住，支援負責增援。",
             "有用的部隊絕不閒置。",
