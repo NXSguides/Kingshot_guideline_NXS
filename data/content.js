@@ -184,24 +184,112 @@ const GUIDES = {
       en: {
         title: "Recent Alliance Events",
         blocks: [
-          { type: "h", text: "📅 LEGION 2 · SUNDAY 20.09" },
-          { type: "p", text: "**Coordinator:** PAPA (67.6M)" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Legion 2" },
+          { type: "h", text: "📅 LEGION 2 — SWORDLAND SHOWDOWN PLAYER ASSIGNMENTS" },
+          { type: "p", text: "**Date:** Sunday, 20.09 · **Coordinator:** PAPA (67.6M)" },
           { type: "p", text: "Legion 2 is a separate battle. It runs at the same time but on its own battlefield. It does not affect Legion 1's result or alliance rewards." },
           { type: "callout", text: "**No substitutes this time.** All players listed below are main roster." },
+
           { type: "h", text: "🎯 DOCTRINE REMINDER" },
           { type: "p", text: "Strongest players attack and capture. Once a building flips, a **Garrison Captain** holds it while the capture team moves on. Garrison Captains do not leave to chase kills. Capture teams stay mobile and aggressive." },
-          { type: "h", text: "📋 PLAYER ASSIGNMENTS" },
-          { type: "img", src: "figures/Legion_2.png", alt: "Legion 2 player assignments" },
-          { type: "h", text: "📣 COORDINATOR NOTES (PAPA)" },
+
+          { type: "sub", text: "#4 {belltower} (Nia) — Capture Speed" },
+          { type: "list", items: [
+            "**Nia (56M)** — Lead capture. Take #4 {belltower} immediately at the start with Garnet. Once it flips, hand off to ELR as Garrison Captain and move to #7 {stables} (Jack) or #8 {sanctum} (Sparrow) to reinforce. Stay mobile.",
+            "**Garnet (56M)** — Capture support. Join Nia at the start and take #4 {belltower}. Once it flips, hand off to ELR and move with Nia to #7 {stables} (Jack) or #8 {sanctum} (Sparrow). Stay mobile.",
+            "**ELR (55.7M)** — Garrison Captain. Station near #4 {belltower} at the start. Once Nia captures it, take captain and hold. Do not leave unless PAPA calls a rotation. Capture speed matters all match."
+          ]},
+
+          { type: "sub", text: "#7 {stables} (Jack) — Teleport Cooldown" },
+          { type: "list", items: [
+            "**Jack (54.6M)** — Lead capture. Take #7 {stables} immediately at the start with Raccoon. Once it flips, hand off to Vlad DRAC as Garrison Captain and move to reinforce center or #8 {sanctum} (Sparrow) and #10 {sanctum} (L). Stay mobile.",
+            "**Raccoon (54M)** — Capture support. Join Jack at the start and take #7 {stables}. Once it flips, hand off to Vlad DRAC and move with Jack to reinforce center. Stay mobile.",
+            "**Vlad DRAC (53.6M)** — Garrison Captain. Station near #7 {stables} at the start. Once Jack captures it, take captain and hold. Do not leave unless PAPA calls a rotation. The teleport cooldown reduction must stay active."
+          ]},
+
+          { type: "sub", text: "#1 {swordshrine} (kyking) — Core, Highest Points" },
+          { type: "list", items: [
+            "**kyking (88M)** — Lead rally captain. Lead the capture wave on #1 {swordshrine} with 꾸리잘린 쥐 and BOO. Once it flips, hand off to PERCIVAL as Garrison Captain and move with 꾸리잘린 쥐 and BOO to pressure #3 {reformation} (firebaugh) or enemy #8 {sanctum} (Sparrow) and #10 {sanctum} (L). Do not sit inside a building.",
+            "**꾸리잘린 쥐 (75M)** — Rally lead. Join kyking's capture wave on #1 {swordshrine}. After the handoff to PERCIVAL, move with kyking and BOO to pressure #3 {reformation} (firebaugh) or enemy core. Stay mobile.",
+            "**BOO (71.1M)** — Rally lead. Join kyking's capture wave on #1 {swordshrine}. After the handoff to PERCIVAL, move with kyking and 꾸리잘린 쥐 to pressure #3 {reformation} (firebaugh) or enemy core. Stay mobile.",
+            "**PERCIVAL (70.7M)** — Garrison Captain. Station near #1 {swordshrine} before 15:00. Once kyking captures it, take captain and hold with 『Noctis』 reinforcing. Do not leave #1 {swordshrine} unless PAPA calls a rotation. You are the anchor of the core.",
+            "**『Noctis』 (62.6M)** — Reinforcement. Station near #1 {swordshrine} and reinforce PERCIVAL once the building flips. Hold with him and do not leave unless PAPA calls a rotation."
+          ]},
+
+          { type: "sub", text: "#3 {reformation} (firebaugh) — Attack/Defense Buff" },
+          { type: "list", items: [
+            "**firebaugh (70.5M)** — Lead rally captain. Lead the capture wave on #3 {reformation} with PAPA. Once it flips, hand off to Meow as Garrison Captain and move with PAPA to reinforce #1 {swordshrine} (PERCIVAL) or pressure enemy core. Stay mobile.",
+            "**PAPA (67.6M)** — Coordinator and rally lead. Call targets in Squad Chat. Join firebaugh's capture wave on #3 {reformation}. After the handoff to Meow, move with firebaugh to reinforce #1 {swordshrine} (PERCIVAL) or pressure enemy core. Your job is to read the map, call the next objective, and keep the capture teams moving.",
+            "**Meow (66.2M)** — Garrison Captain. Station near #3 {reformation} before 15:00. Once firebaugh captures it, take captain and hold. Do not leave #3 {reformation} unless PAPA calls a rotation. The attack and defense buff from #3 {reformation} must stay active."
+          ]},
+
+          { type: "sub", text: "#8 {sanctum} (Sparrow) — Core" },
+          { type: "list", items: [
+            "**Sparrow (59.3M)** — Lead capture. Take #8 {sanctum} with BigMedicMike at the start. Once it flips, hand off to otoki as Garrison Captain and move to reinforce #10 {sanctum} (L) or #1 {swordshrine} (PERCIVAL). Stay mobile.",
+            "**BigMedicMike (58.3M)** — Capture support. Join Sparrow at the start and take #8 {sanctum}. Once it flips, hand off to otoki and move with Sparrow to reinforce #10 {sanctum} (L) or #1 {swordshrine} (PERCIVAL). Stay mobile.",
+            "**otoki (51.9M)** — Garrison Captain. Station near #8 {sanctum} at the start. Once Sparrow captures it, take captain and hold. Do not leave unless PAPA calls a rotation. #8 {sanctum} is core."
+          ]},
+
+          { type: "sub", text: "#10 {sanctum} (L) — Core" },
+          { type: "list", items: [
+            "**L (49.4M)** — Lead capture. Take #10 {sanctum} with Beby at the start. Once it flips, hand off to Rover88 as Garrison Captain and move to reinforce #1 {swordshrine} (PERCIVAL). Stay mobile.",
+            "**Beby (49.3M)** — Capture support. Join L at the start and take #10 {sanctum}. Once it flips, hand off to Rover88 and move to reinforce #1 {swordshrine} (PERCIVAL) with L. Stay mobile.",
+            "**Rover88 (48.9M)** — Garrison Captain. Station near #10 {sanctum} at the start. Once L captures it, take captain and hold. Do not leave unless PAPA calls a rotation. #10 {sanctum} is core."
+          ]},
+
+          { type: "sub", text: "#2 {mercenary} (MTP) — Mercenary Attacks" },
+          { type: "list", items: [
+            "**MTP (65.9M)** — Captain. Station near #2 {mercenary} before 15:00. Once it becomes available, take it and use mercenaries every 7 minutes on enemy core. Coordinate timing with PAPA in Squad Chat."
+          ]},
+
+          { type: "sub", text: "#5 {abbey} (debe 06)" },
+          { type: "list", items: [
+            "**debe 06 (45.2M)** — Capture. Take #5 {abbey} at the start with beeQueen. Once it flips, beeQueen holds and you move to reinforce #6 {abbey} (lovely mw) or #9 {abbey} (Cvk) if needed. Stay mobile.",
+            "**beeQueen (43.2M)** — Garrison Captain. Station near #5 {abbey} at the start. Once debe 06 captures it, take captain and hold. Do not leave unless PAPA calls a rotation."
+          ]},
+
+          { type: "sub", text: "#6 {abbey} (lovely mw)" },
+          { type: "list", items: [
+            "**lovely mw (43.2M)** — Capture. Take #6 {abbey} at the start with BravuS. Once it flips, BravuS holds and you move to reinforce #5 {abbey} (debe 06) or #9 {abbey} (Cvk) if needed. Stay mobile.",
+            "**BravuS (42.2M)** — Garrison Captain. Station near #6 {abbey} at the start. Once lovely mw captures it, take captain and hold. Do not leave unless PAPA calls a rotation. Help collect dropped points when safe."
+          ]},
+
+          { type: "sub", text: "#9 {abbey} (Cvk)" },
+          { type: "list", items: [
+            "**Cvk (39.2M)** — Capture and Hold. Take #9 {abbey} at the start and hold it. Do not leave unless PAPA calls a rotation. Collect dropped points when safe."
+          ]},
+
+          { type: "sub", text: "#11 {abbey} (Floating)" },
+          { type: "list", items: [
+            "**Floating** — Cover #11 {abbey} and flex wherever PAPA calls. Reinforce core if needed, flip {abbey}s if needed, grab dropped points. Flex squad."
+          ]},
+
+          { type: "h", text: "🔎 QUICK REFERENCE BY BUILDING" },
+          { type: "list", items: [
+            "#4 {belltower} (Nia) — Capture: Nia, Garnet. Garrison: ELR.",
+            "#7 {stables} (Jack) — Capture: Jack, Raccoon. Garrison: Vlad DRAC.",
+            "#1 {swordshrine} (kyking) — Capture: kyking, 꾸리잘린 쥐, BOO. Garrison: PERCIVAL. Reinforcement: 『Noctis』.",
+            "#3 {reformation} (firebaugh) — Capture: firebaugh, PAPA. Garrison: Meow.",
+            "#8 {sanctum} (Sparrow) — Capture: Sparrow, BigMedicMike. Garrison: otoki.",
+            "#10 {sanctum} (L) — Capture: L, Beby. Garrison: Rover88.",
+            "#2 {mercenary} (MTP) — Captain: MTP.",
+            "#5 {abbey} (debe 06) — Capture: debe 06. Garrison: beeQueen.",
+            "#6 {abbey} (lovely mw) — Capture: lovely mw. Garrison: BravuS.",
+            "#9 {abbey} (Cvk) — Capture and Hold: Cvk.",
+            "#11 {abbey} (Floating) — Floating."
+          ]},
+
+          { type: "h", text: "📣 COORDINATOR NOTES FOR PAPA" },
           { type: "list", items: [
             "Call targets by map number and player name: “#3 {reformation} firebaugh, rally now.” / “kyking, pressure enemy #10 {sanctum}.”",
-            "Keep capture teams mobile. Do not let kyking, 꾸리잘린 쥐, BOO and firebaugh sit inside buildings.",
+            "Keep capture teams mobile. Do not let kyking, 꾸리잘린 쥐, BOO, firebaugh sit inside buildings.",
             "Rotate Garrison Captains only when necessary. Every rotation risks losing the building.",
             "Track #2 {mercenary} cooldown. MTP uses it every 7 minutes.",
             "In the last 10 minutes, protect #1 {swordshrine}, #8 {sanctum}, #10 {sanctum}. Do not chase kills.",
             "Remind everyone: Legion 2 is a separate battle with its own rewards. Win your own scoreboard.",
             "No substitutes this time. Everyone on this list is main roster. If someone is late, flex players cover their spot."
           ]},
+
           { type: "h", text: "📌 FINAL NOTES" },
           { type: "list", items: [
             "All players must be online at start.",
@@ -213,6 +301,7 @@ const GUIDES = {
             "**Never trade a core building for kills.**"
           ]},
           { type: "p", text: "Good luck on Sunday." },
+
           { type: "h", text: "🗺️ MAP" },
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Map" },
           { type: "h", text: "🧭 ASSIGNED ZONES" },
@@ -222,15 +311,102 @@ const GUIDES = {
       zh: {
         title: "近期聯盟活動",
         blocks: [
-          { type: "h", text: "📅 LEGION 2 · 20.09（週日）" },
-          { type: "p", text: "**協調員：** PAPA（67.6M）" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Legion 2" },
+          { type: "h", text: "📅 LEGION 2 — 聖劍爭奪 玩家分配" },
+          { type: "p", text: "**日期：** 20.09（週日）· **協調員：** PAPA (67.6M)" },
           { type: "p", text: "Legion 2 是獨立的戰場，與 Legion 1 同時進行，但在各自的戰場上，不會影響 Legion 1 的結果或聯盟獎勵。" },
           { type: "callout", text: "**這次沒有替補。** 以下列出的玩家全部都是主力名單。" },
+
           { type: "h", text: "🎯 作戰原則" },
           { type: "p", text: "最強的玩家負責進攻與佔領。建築一旦易主，就由**駐防隊長**留守，佔領隊繼續前進。駐防隊長不要離開去追擊擊殺。佔領隊要保持機動、積極進攻。" },
-          { type: "h", text: "📋 玩家分配" },
-          { type: "img", src: "figures/Legion_2.png", alt: "玩家分配" },
-          { type: "h", text: "📣 協調員筆記（PAPA）" },
+
+          { type: "sub", text: "#4 {belltower} (Nia) — 佔領速度" },
+          { type: "list", items: [
+            "**Nia (56M)** — 佔領主力。開場立刻和 Garnet 一起拿下 #4 {belltower}。易主後交給 ELR 擔任駐防隊長，自己前往 #7 {stables} (Jack) 或 #8 {sanctum} (Sparrow) 增援。保持機動。",
+            "**Garnet (56M)** — 佔領支援。開場加入 Nia，一起拿下 #4 {belltower}。易主後交給 ELR，並和 Nia 一起前往 #7 {stables} (Jack) 或 #8 {sanctum} (Sparrow)。保持機動。",
+            "**ELR (55.7M)** — 駐防隊長。開場先在 #4 {belltower} 附近待命。Nia 佔領後，接任隊長並守住。除非 PAPA 下令輪調，否則不要離開。佔領速度整場都很重要。"
+          ]},
+
+          { type: "sub", text: "#7 {stables} (Jack) — 傳送冷卻" },
+          { type: "list", items: [
+            "**Jack (54.6M)** — 佔領主力。開場立刻和 Raccoon 一起拿下 #7 {stables}。易主後交給 Vlad DRAC 擔任駐防隊長，自己前往中央，或 #8 {sanctum} (Sparrow) 與 #10 {sanctum} (L) 增援。保持機動。",
+            "**Raccoon (54M)** — 佔領支援。開場加入 Jack，一起拿下 #7 {stables}。易主後交給 Vlad DRAC，並和 Jack 一起前往中央增援。保持機動。",
+            "**Vlad DRAC (53.6M)** — 駐防隊長。開場先在 #7 {stables} 附近待命。Jack 佔領後，接任隊長並守住。除非 PAPA 下令輪調，否則不要離開。傳送冷卻縮減效果必須一直保持。"
+          ]},
+
+          { type: "sub", text: "#1 {swordshrine} (kyking) — 核心，最高積分" },
+          { type: "list", items: [
+            "**kyking (88M)** — 集結主力隊長。帶領 꾸리잘린 쥐 和 BOO 對 #1 {swordshrine} 發動佔領攻勢。易主後交給 PERCIVAL 擔任駐防隊長，並和 꾸리잘린 쥐、BOO 一起前往壓制 #3 {reformation} (firebaugh)，或敵方 #8 {sanctum} (Sparrow) 與 #10 {sanctum} (L)。不要待在建築裡面。",
+            "**꾸리잘린 쥐 (75M)** — 集結主力。加入 kyking 對 #1 {swordshrine} 的佔領攻勢。交給 PERCIVAL 後，和 kyking、BOO 一起前往壓制 #3 {reformation} (firebaugh) 或敵方核心。保持機動。",
+            "**BOO (71.1M)** — 集結主力。加入 kyking 對 #1 {swordshrine} 的佔領攻勢。交給 PERCIVAL 後，和 kyking、꾸리잘린 쥐 一起前往壓制 #3 {reformation} (firebaugh) 或敵方核心。保持機動。",
+            "**PERCIVAL (70.7M)** — 駐防隊長。15:00 前先在 #1 {swordshrine} 附近待命。kyking 佔領後，接任隊長並守住，由 『Noctis』 增援。除非 PAPA 下令輪調，否則不要離開 #1 {swordshrine}。你是核心的支柱。",
+            "**『Noctis』 (62.6M)** — 增援。在 #1 {swordshrine} 附近待命，建築易主後增援 PERCIVAL。與他一起守住，除非 PAPA 下令輪調，否則不要離開。"
+          ]},
+
+          { type: "sub", text: "#3 {reformation} (firebaugh) — 攻擊／防禦加成" },
+          { type: "list", items: [
+            "**firebaugh (70.5M)** — 集結主力隊長。和 PAPA 一起帶領對 #3 {reformation} 的佔領攻勢。易主後交給 Meow 擔任駐防隊長，並和 PAPA 一起前往增援 #1 {swordshrine} (PERCIVAL)，或壓制敵方核心。保持機動。",
+            "**PAPA (67.6M)** — 協調員兼集結主力。在小隊聊天頻道指揮目標。加入 firebaugh 對 #3 {reformation} 的佔領攻勢。交給 Meow 後，和 firebaugh 一起增援 #1 {swordshrine} (PERCIVAL)，或壓制敵方核心。你的工作是看地圖、指定下一個目標，並讓佔領隊持續行動。",
+            "**Meow (66.2M)** — 駐防隊長。15:00 前先在 #3 {reformation} 附近待命。firebaugh 佔領後，接任隊長並守住。除非 PAPA 下令輪調，否則不要離開 #3 {reformation}。#3 {reformation} 的攻擊與防禦加成必須一直保持。"
+          ]},
+
+          { type: "sub", text: "#8 {sanctum} (Sparrow) — 核心" },
+          { type: "list", items: [
+            "**Sparrow (59.3M)** — 佔領主力。開場和 BigMedicMike 一起拿下 #8 {sanctum}。易主後交給 otoki 擔任駐防隊長，自己前往增援 #10 {sanctum} (L) 或 #1 {swordshrine} (PERCIVAL)。保持機動。",
+            "**BigMedicMike (58.3M)** — 佔領支援。開場加入 Sparrow，一起拿下 #8 {sanctum}。易主後交給 otoki，並和 Sparrow 一起前往增援 #10 {sanctum} (L) 或 #1 {swordshrine} (PERCIVAL)。保持機動。",
+            "**otoki (51.9M)** — 駐防隊長。開場先在 #8 {sanctum} 附近待命。Sparrow 佔領後，接任隊長並守住。除非 PAPA 下令輪調，否則不要離開。#8 {sanctum} 是核心。"
+          ]},
+
+          { type: "sub", text: "#10 {sanctum} (L) — 核心" },
+          { type: "list", items: [
+            "**L (49.4M)** — 佔領主力。開場和 Beby 一起拿下 #10 {sanctum}。易主後交給 Rover88 擔任駐防隊長，自己前往增援 #1 {swordshrine} (PERCIVAL)。保持機動。",
+            "**Beby (49.3M)** — 佔領支援。開場加入 L，一起拿下 #10 {sanctum}。易主後交給 Rover88，並和 L 一起前往增援 #1 {swordshrine} (PERCIVAL)。保持機動。",
+            "**Rover88 (48.9M)** — 駐防隊長。開場先在 #10 {sanctum} 附近待命。L 佔領後，接任隊長並守住。除非 PAPA 下令輪調，否則不要離開。#10 {sanctum} 是核心。"
+          ]},
+
+          { type: "sub", text: "#2 {mercenary} (MTP) — 傭兵攻擊" },
+          { type: "list", items: [
+            "**MTP (65.9M)** — 隊長。15:00 前先在 #2 {mercenary} 附近待命。可以使用後就佔領它，每 7 分鐘對敵方核心使用一次傭兵。在小隊聊天頻道和 PAPA 協調時機。"
+          ]},
+
+          { type: "sub", text: "#5 {abbey} (debe 06)" },
+          { type: "list", items: [
+            "**debe 06 (45.2M)** — 佔領。開場和 beeQueen 一起拿下 #5 {abbey}。易主後由 beeQueen 守住，你視需要前往增援 #6 {abbey} (lovely mw) 或 #9 {abbey} (Cvk)。保持機動。",
+            "**beeQueen (43.2M)** — 駐防隊長。開場先在 #5 {abbey} 附近待命。debe 06 佔領後，接任隊長並守住。除非 PAPA 下令輪調，否則不要離開。"
+          ]},
+
+          { type: "sub", text: "#6 {abbey} (lovely mw)" },
+          { type: "list", items: [
+            "**lovely mw (43.2M)** — 佔領。開場和 BravuS 一起拿下 #6 {abbey}。易主後由 BravuS 守住，你視需要前往增援 #5 {abbey} (debe 06) 或 #9 {abbey} (Cvk)。保持機動。",
+            "**BravuS (42.2M)** — 駐防隊長。開場先在 #6 {abbey} 附近待命。lovely mw 佔領後，接任隊長並守住。除非 PAPA 下令輪調，否則不要離開。安全時協助撿取掉落的積分。"
+          ]},
+
+          { type: "sub", text: "#9 {abbey} (Cvk)" },
+          { type: "list", items: [
+            "**Cvk (39.2M)** — 佔領並守住。開場拿下 #9 {abbey} 並守住。除非 PAPA 下令輪調，否則不要離開。安全時撿取掉落的積分。"
+          ]},
+
+          { type: "sub", text: "#11 {abbey} (Floating)" },
+          { type: "list", items: [
+            "**Floating** — 負責 #11 {abbey}，並聽 PAPA 指揮機動支援。必要時增援核心、翻轉{abbey}、撿取掉落的積分。機動小隊。"
+          ]},
+
+          { type: "h", text: "🔎 各建築快速對照" },
+          { type: "list", items: [
+            "#4 {belltower} (Nia) — 佔領：Nia、Garnet。駐防：ELR。",
+            "#7 {stables} (Jack) — 佔領：Jack、Raccoon。駐防：Vlad DRAC。",
+            "#1 {swordshrine} (kyking) — 佔領：kyking、꾸리잘린 쥐、BOO。駐防：PERCIVAL。增援：『Noctis』。",
+            "#3 {reformation} (firebaugh) — 佔領：firebaugh、PAPA。駐防：Meow。",
+            "#8 {sanctum} (Sparrow) — 佔領：Sparrow、BigMedicMike。駐防：otoki。",
+            "#10 {sanctum} (L) — 佔領：L、Beby。駐防：Rover88。",
+            "#2 {mercenary} (MTP) — 隊長：MTP。",
+            "#5 {abbey} (debe 06) — 佔領：debe 06。駐防：beeQueen。",
+            "#6 {abbey} (lovely mw) — 佔領：lovely mw。駐防：BravuS。",
+            "#9 {abbey} (Cvk) — 佔領並守住：Cvk。",
+            "#11 {abbey} (Floating) — 機動（Floating）。"
+          ]},
+
+          { type: "h", text: "📣 給 PAPA 的協調員筆記" },
           { type: "list", items: [
             "用地圖編號和玩家名字下達目標：「#3 {reformation} firebaugh，立刻集結。」／「kyking，壓制敵方 #10 {sanctum}。」",
             "讓佔領隊保持機動。不要讓 kyking、꾸리잘린 쥐、BOO、firebaugh 待在建築裡面。",
@@ -240,6 +416,7 @@ const GUIDES = {
             "提醒大家：Legion 2 是獨立的戰場，有自己的獎勵。在自己的計分板上取勝。",
             "這次沒有替補，名單上的每個人都是主力。如果有人遲到，機動（flex）成員會補上他的位置。"
           ]},
+
           { type: "h", text: "📌 最終提醒" },
           { type: "list", items: [
             "所有玩家開戰時必須在線上。",
@@ -251,6 +428,7 @@ const GUIDES = {
             "**絕對不要為了擊殺而放棄核心建築。**"
           ]},
           { type: "p", text: "週日祝大家順利！" },
+
           { type: "h", text: "🗺️ 地圖" },
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "地圖" },
           { type: "h", text: "🧭 分配區域" },
@@ -260,15 +438,102 @@ const GUIDES = {
       ko: {
         title: "최근 연맹 이벤트",
         blocks: [
-          { type: "h", text: "📅 LEGION 2 · 20.09 (일요일)" },
-          { type: "p", text: "**코디네이터:** PAPA (67.6M)" },
+          { type: "img", src: "figures/Legion_2.png", alt: "Legion 2" },
+          { type: "h", text: "📅 LEGION 2 — 성검 쟁탈 플레이어 배치" },
+          { type: "p", text: "**날짜:** 일요일, 20.09 · **코디네이터:** PAPA (67.6M)" },
           { type: "p", text: "Legion 2는 별도의 전투입니다. Legion 1과 동시에 진행되지만 각자의 전장에서 이루어지며, Legion 1의 결과나 연맹 보상에 영향을 주지 않습니다." },
           { type: "callout", text: "**이번에는 교체 선수가 없습니다.** 아래에 나열된 모든 플레이어는 메인 로스터입니다." },
+
           { type: "h", text: "🎯 진영 정책 (DOCTRINE REMINDER)" },
           { type: "p", text: "가장 강한 플레이어들이 공격하고 지정 받은 건물을 점령합니다. 건물 점령/탈환에 성공하면 **수비 대장(Garrison Captain)**이 건물을 유지하고, 점령/탈환 팀은 계속 이동합니다. 수비 대장은 킬을 쫓아 이동하지 않습니다. 점령 팀은 기동성을 유지하고 공격적으로 임합니다." },
-          { type: "h", text: "📋 플레이어 배치" },
-          { type: "img", src: "figures/Legion_2.png", alt: "플레이어 배치" },
-          { type: "h", text: "📣 코디네이터 노트 (PAPA)" },
+
+          { type: "sub", text: "#4 {belltower} (Nia) — 점령 속도" },
+          { type: "list", items: [
+            "**Nia (56M)** — 점령 리드. Garnet과 함께 시작하자마자 #4 {belltower}을 즉시 점령합니다. 점령이 완료되면 ELR에게 수비 대장을 인계하고 #7 {stables} (Jack) 또는 #8 {sanctum} (Sparrow)로 이동하여 지원합니다. 기동성을 유지하세요.",
+            "**Garnet (56M)** — 점령 서포트. 시작 시 Nia와 합류하여 #4 {belltower}을 점령합니다. 점령이 완료되면 ELR에게 인계하고 Nia와 함께 #7 {stables} (Jack) 또는 #8 {sanctum} (Sparrow)로 이동합니다. 기동성을 유지하세요.",
+            "**ELR (55.7M)** — 수비 대장. 시작 시 #4 {belltower} 근처에 배치. Nia가 점령을 완료하면 대장 자리를 이어받아 유지합니다. PAPA가 로테이션을 지시하지 않는 한 자리를 이탈하지 마세요. 경기 내내 점령 속도가 중요합니다."
+          ]},
+
+          { type: "sub", text: "#7 {stables} (Jack) — 텔레포트 쿨다운" },
+          { type: "list", items: [
+            "**Jack (54.6M)** — 점령 리드. Raccoon과 함께 시작하자마자 #7 {stables}을 즉시 점령합니다. 점령이 완료되면 Vlad DRAC에게 수비 대장을 인계하고 중앙 또는 #8 {sanctum} (Sparrow), #10 {sanctum} (L) 지원을 위해 이동합니다. 기동성을 유지하세요.",
+            "**Raccoon (54M)** — 점령 서포트. 시작 시 Jack과 합류하여 #7 {stables}을 점령합니다. 점령이 완료되면 Vlad DRAC에게 인계하고 Jack과 함께 중앙 지원을 위해 이동합니다. 기동성을 유지하세요.",
+            "**Vlad DRAC (53.6M)** — 수비 대장. 시작 시 #7 {stables} 근처에 배치됩니다. Jack이 점령을 완료하면 대장 자리를 이어받아 유지합니다. PAPA가 로테이션을 지시하지 않는 한 자리를 이탈하지 마세요. 텔레포트 쿨다운 감소 효과가 계속 활성화되어 있어야 합니다."
+          ]},
+
+          { type: "sub", text: "#1 {swordshrine} (kyking) — 코어, 최고 점수" },
+          { type: "list", items: [
+            "**kyking (88M)** — 주력 집결 리더. 꾸리잘린 쥐, BOO와 함께 #1 {swordshrine} 점령 웨이브를 리드합니다. 점령이 완료되면 PERCIVAL에게 수비 대장을 인계하고, 꾸리잘린 쥐 및 BOO와 함께 #3 {reformation} (firebaugh) 또는 적 #8 {sanctum} (Sparrow) 및 #10 {sanctum} (L)를 압박하기 위해 이동합니다. 건물 안에 가만히 머물지 마세요.",
+            "**꾸리잘린 쥐 (75M)** — 집결 리드. kyking의 #1 {swordshrine} 점령 웨이브에 합류합니다. PERCIVAL에게 인계한 후, kyking 및 BOO와 함께 #3 {reformation} (firebaugh) 또는 적진을 압박하기 위해 이동합니다. 기동성을 유지하세요.",
+            "**BOO (71.1M)** — 집결 리드. kyking의 #1 {swordshrine} 점령 웨이브에 합류합니다. PERCIVAL에게 인계한 후, kyking 및 꾸리잘린 쥐와 함께 #3 {reformation} (firebaugh) 또는 적진을 압박하기 위해 이동합니다. 기동성을 유지하세요.",
+            "**PERCIVAL (70.7M)** — 수비 대장. 15:00 전에 #1 {swordshrine} 근처에 배치. kyking이 점령하면 대장 자리를 이어받고 『Noctis』의 지원을 받으며 방어합니다. PAPA가 로테이션을 지시하지 않는 한 #1 {swordshrine}을 떠나지 마세요. 코어의 앵커입니다.",
+            "**『Noctis』 (62.6M)** — 지원병. #1 {swordshrine} 근처에 배치되며 건물이 점령/탈환되면 PERCIVAL을 지원합니다. 그와 함께 자리를 지키고 PAPA가 로테이션을 지시하지 않는 한 이탈하지 마세요."
+          ]},
+
+          { type: "sub", text: "#3 {reformation} (firebaugh) — 공격/방어 버프" },
+          { type: "list", items: [
+            "**firebaugh (70.5M)** — 주력 집결 리더. PAPA와 함께 #3 {reformation} 점령 웨이브를 리드합니다. 점령이 완료되면 Meow에게 수비 대장을 인계하고, PAPA와 함께 #1 {swordshrine} (PERCIVAL)을 지원하거나 적진을 압박하기 위해 이동합니다. 기동성을 유지하세요.",
+            "**PAPA (67.6M)** — 코디네이터 겸 집결 리드. 스쿼드 채팅에서 타겟을 지시합니다. firebaugh의 #3 {reformation} 점령 웨이브에 합류합니다. Meow에게 인계한 후, firebaugh와 함께 #1 {swordshrine} (PERCIVAL)을 지원하거나 적 코어를 압박하기 위해 이동합니다. 당신의 임무는 전장을 읽고, 다음 목표를 지시하며, 점령 팀의 기동성을 유지하는 것입니다.",
+            "**Meow (66.2M)** — 수비 대장. 15:00 전에 #3 {reformation} 근처에 배치. firebaugh가 점령하면 대장 자리를 이어받아 유지합니다. PAPA가 로테이션을 지시하지 않는 한 #3 {reformation}을 떠나지 마세요. #3 {reformation}에서 제공하는 공격력 및 방어력 버프가 계속 활성화되어 있어야 합니다."
+          ]},
+
+          { type: "sub", text: "#8 {sanctum} (Sparrow) — 코어" },
+          { type: "list", items: [
+            "**Sparrow (59.3M)** — 점령 리드. 시작 시 BigMedicMike와 함께 #8 {sanctum}를 점령합니다. 점령이 완료되면 otoki에게 수비 대장을 인계하고 #10 {sanctum} (L) 또는 #1 {swordshrine} (PERCIVAL) 지원을 위해 이동합니다. 기동성을 유지하세요.",
+            "**BigMedicMike (58.3M)** — 점령 서포트. 시작 시 Sparrow와 합류하여 #8 {sanctum}를 점령합니다. 점령이 완료되면 otoki에게 인계하고 Sparrow와 함께 #10 {sanctum} (L) 또는 #1 {swordshrine} (PERCIVAL) 지원을 위해 이동합니다. 기동성을 유지하세요.",
+            "**otoki (51.9M)** — 수비 대장. 시작 시 #8 {sanctum} 근처에 배치. Sparrow가 점령을 완료하면 대장 자리를 이어받아 유지합니다. PAPA가 로테이션을 지시하지 않는 한 자리를 이탈하지 마세요. #8 {sanctum}는 코어 건물입니다."
+          ]},
+
+          { type: "sub", text: "#10 {sanctum} (L) — 코어" },
+          { type: "list", items: [
+            "**L (49.4M)** — 점령 리드. 시작 시 Beby와 함께 #10 {sanctum}를 점령합니다. 점령이 완료되면 Rover88에게 수비 대장을 인계하고 #1 {swordshrine} (PERCIVAL) 지원을 위해 이동합니다. 기동성을 유지하세요.",
+            "**Beby (49.3M)** — 점령 서포트. 시작 시 L과 합류하여 #10 {sanctum}를 점령합니다. 점령이 완료되면 Rover88에게 인계하고 L과 함께 #1 {swordshrine} (PERCIVAL) 지원을 위해 이동합니다. 기동성을 유지하세요.",
+            "**Rover88 (48.9M)** — 수비 대장. 시작 시 #10 {sanctum} 근처에 배치. L이 점령을 완료하면 대장 자리를 이어받아 유지합니다. PAPA가 로테이션을 지시하지 않는 한 자리를 이탈하지 마세요. #10 {sanctum}는 코어 건물입니다."
+          ]},
+
+          { type: "sub", text: "#2 {mercenary} (MTP) — 용병 공격" },
+          { type: "list", items: [
+            "**MTP (65.9M)** — 대장. 15:00 전에 #2 {mercenary} 근처에 배치. 주둔지가 활성화되면 점령하고, 7분마다 적진에 용병을 출격시킵니다. 스쿼드 채팅에서 PAPA와 타이밍을 조율하세요."
+          ]},
+
+          { type: "sub", text: "#5 {abbey} (debe 06)" },
+          { type: "list", items: [
+            "**debe 06 (45.2M)** — 점령. 시작 시 beeQueen과 함께 #5 {abbey}을 점령합니다. 점령이 완료되면 beeQueen이 방어를 맡고, 필요에 따라 #6 {abbey} (lovely mw) 또는 #9 {abbey} (Cvk)을 지원하기 위해 이동합니다. 기동성을 유지하세요.",
+            "**beeQueen (43.2M)** — 수비 대장. 시작 시 #5 {abbey} 근처에 배치. debe 06이 점령을 완료하면 대장 자리를 이어받아 유지합니다. PAPA가 로테이션을 지시하지 않는 한 자리를 이탈하지 마세요."
+          ]},
+
+          { type: "sub", text: "#6 {abbey} (lovely mw)" },
+          { type: "list", items: [
+            "**lovely mw (43.2M)** — 점령. 시작 시 BravuS와 함께 #6 {abbey}을 점령합니다. 점령이 완료되면 BravuS가 방어를 맡고, 필요에 따라 #5 {abbey} (debe 06) 또는 #9 {abbey} (Cvk)을 지원하기 위해 이동합니다. 기동성을 유지하세요.",
+            "**BravuS (42.2M)** — 수비 대장. 시작 시 #6 {abbey} 근처에 배치. lovely mw가 점령을 완료하면 대장 자리를 이어받아 유지합니다. PAPA가 로테이션을 지시하지 않는 한 자리를 이탈하지 마세요. 안전할 때 드랍된 포인트를 수집하는 것을 도우세요."
+          ]},
+
+          { type: "sub", text: "#9 {abbey} (Cvk)" },
+          { type: "list", items: [
+            "**Cvk (39.2M)** — 점령 및 유지. 시작 시 #9 {abbey}을 점령하고 유지합니다. PAPA가 로테이션을 지시하지 않는 한 자리를 이탈하지 마세요. 안전할 때 드랍된 포인트를 획득하세요."
+          ]},
+
+          { type: "sub", text: "#11 {abbey} (Floating)" },
+          { type: "list", items: [
+            "**Floating** — #11 {abbey}을 커버하고 PAPA가 지시하는 곳 어디든 유동적으로 합류합니다. 필요시 코어를 지원하고, {abbey}을 탈환하거나 드랍된 포인트를 획득하세요. 유동 스쿼드입니다."
+          ]},
+
+          { type: "h", text: "🔎 건물별 요약 지침" },
+          { type: "list", items: [
+            "#4 {belltower} (Nia) — 점령: Nia, Garnet. 수비 대장: ELR.",
+            "#7 {stables} (Jack) — 점령: Jack, Raccoon. 수비 대장: Vlad DRAC.",
+            "#1 {swordshrine} (kyking) — 점령: kyking, 꾸리잘린 쥐, BOO. 수비 대장: PERCIVAL. 지원: 『Noctis』.",
+            "#3 {reformation} (firebaugh) — 점령: firebaugh, PAPA. 수비 대장: Meow.",
+            "#8 {sanctum} (Sparrow) — 점령: Sparrow, BigMedicMike. 수비 대장: otoki.",
+            "#10 {sanctum} (L) — 점령: L, Beby. 수비 대장: Rover88.",
+            "#2 {mercenary} (MTP) — 대장: MTP.",
+            "#5 {abbey} (debe 06) — 점령: debe 06. 수비 대장: beeQueen.",
+            "#6 {abbey} (lovely mw) — 점령: lovely mw. 수비 대장: BravuS.",
+            "#9 {abbey} (Cvk) — 점령 및 유지: Cvk.",
+            "#11 {abbey} (Floating) — 유동(Floating)."
+          ]},
+
+          { type: "h", text: "📣 PAPA를 위한 코디네이터 노트" },
           { type: "list", items: [
             "맵 번호와 플레이어 이름으로 타겟 지시: “#3 {reformation} firebaugh, 지금 집결하세요.” “kyking, 적 #10 {sanctum} 압박.”",
             "점령 팀의 기동성 유지. kyking, 꾸리잘린 쥐, BOO, firebaugh가 건물 안에 가만히 머물지 않도록 하세요.",
@@ -278,6 +543,7 @@ const GUIDES = {
             "리마인더: Legion 2는 자체 보상이 있는 독립된 전투입니다. 각자의 점수판에서 승리하세요.",
             "이번에는 교체 선수가 없습니다. 이 명단의 모든 플레이어는 메인 로스터입니다. 참여 플레이어가 지각할 경우 유동 플레이어(flex)가 빈자리를 커버합니다."
           ]},
+
           { type: "h", text: "📌 최종 노트 (FINAL NOTES)" },
           { type: "list", items: [
             "모든 플레이어는 시작 시간에 온라인 상태여야 합니다.",
@@ -289,6 +555,7 @@ const GUIDES = {
             "**킬을 위해 핵심 건물을 절대 내주지 마세요.**"
           ]},
           { type: "p", text: "일요일에 좋은 결과가 있기를 바랍니다." },
+
           { type: "h", text: "🗺️ 지도" },
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "지도" },
           { type: "h", text: "🧭 배정 구역" },
