@@ -171,6 +171,25 @@ const GLOSSARY = {
 };
 
 const GUIDES = {
+  "recent-events": {
+    emoji: "📢",
+    name: {
+      en: "Recent Alliance Events", zh: "近期聯盟活動", ko: "최근 연맹 이벤트",
+      de: "Aktuelle Allianz-Events", fr: "Événements récents de l'alliance",
+      pt: "Eventos Recentes da Aliança", tr: "Son İttifak Etkinlikleri",
+      id: "Acara Aliansi Terbaru", ru: "Последние события альянса",
+      th: "กิจกรรมพันธมิตรล่าสุด", ar: "أحدث فعاليات التحالف"
+    },
+    sections: {
+      en: {
+        title: "Recent Alliance Events",
+        blocks: [
+          { type: "h", text: "📅 Legion 2 — Sunday 20.09" },
+          { type: "p", text: "Write the event notes here." }
+        ]
+      }
+    }
+  },
   "bear-hunt": {
     emoji: "🐻",
     name: { zh: "狩獵巨熊", en: "Bear Hunt", ko: "곰사냥", de: "Bärenjagd" },
