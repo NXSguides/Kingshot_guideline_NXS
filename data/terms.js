@@ -14,7 +14,11 @@ const TERMS = [
    ["Battle Starts In", "戰鬥開始倒數計時", "전투 시작까지", "Schlacht beginnt in", "Début du Combat dans", "A batalha inicia em", "Savaş Başlangıcı", "Pertempuran Dimulai", "Битва начнётся через", "การต่อสู้จะเริ่มในอีก", "ستبدأ المعركة بعد"],
    ["VS", "VS", "VS", "VS", "VS", "VS", "VS", "VS", "VS", "VS", "VS"],
    ["Combatants", "參戰人員", "참전 인원", "Kämpfer", "Combattants", "Combatentes", "Savaşçılar", "Petarung", "Участники битвы", "ผู้ต่อสู้", "المقاتلين"],
-   ["Substitutes", "替補名單", "후보", "Ersatzspieler", "remplaçants", "substitutos", "yedekler", "pengganti", "запасные", "ตัวสำรอง", "البدلاء", "Seen inside sentences, not as a standalone label."]
+   ["Substitutes", "替補名單", "후보", "Ersatzspieler", "remplaçants", "substitutos", "yedekler", "pengganti", "запасные", "ตัวสำรอง", "البدلاء", "Seen inside sentences, not as a standalone label."],
+   ["Alliance Brawl", "聯盟對決", "연맹 결투", "Allianz-Gemenge", "Rif d'Alliances", "Briga da Aliança", "İttifak Kavgası", "Brawl Aliansi", "Потасовка альянсов", "ศึกพันธมิตร", "عراك التحالفات", "Event tab name."],
+   ["Merchant Empire", "貿易復興", "무역 부흥", "Händlerimperium", "Empire Marchand", "Império Mercante", "Tüccar İmparatorluğu", "Kekaisaran Pedagang", "Торговая империя", "จักรวรรดิการค้า", "إمبراطورية التجارة", "Event tab name."],
+   ["UTC Time", "UTC時間", "UTC", "UTC Zeit", "Heure UTC", "Hora UTC", "UTC Saati", "Waktu UTC", "Время UTC", "เวลา UTC", "التوقيت العالمي", "Events screen header."],
+   ["Starts in", "距離開始", "시작까지", "Beginnt in", "Commence dans", "Começa em", "Başlama", "Dimulai dalam", "Начнется через", "เริ่มใน", "يبدأ بعد", "Event pop-up countdown."]
   ]
  },
  {
@@ -35,12 +39,21 @@ const TERMS = [
    ["Skills", "技能", "스킬", "Fertigkeiten", "Compétences", "Habilidades", "Yetenekler", "Skill", "Навыки", "ทักษะ", "المهارات"],
    ["Gear", "裝備", "장비", "Ausrüstung", "Équipement", "Equipamento", "Donanım", "Gear", "Снаряж.", "อุปกรณ์", "العتاد", "Portuguese hero page tab: 'Equipamento'. The Backpack tab shows the short form 'Equip'."],
    ["Upgrade", "提升等級", "업그레이드", "Aufwerten", "Améliorer", "Aprimorar", "Yükselt", "Tingkatkan", "Улучшить", "อัปเกรด", "ترقية"],
-   ["Troops Preview", "部隊總覽", "부대 보기", "Schwadronvorschau", "Aperçu des Troupes", "—", "Birlik Önizlemesi", "Pratinjau Skuad", "Предпросмотр войск", "ตัวอย่างทีม", "معاينة القوات"],
-   ["All", "全部", "전부", "Alle", "Tout", "—", "Tümü", "Semua", "Все", "ทั้งหมด", "الكل"],
-   ["In Town", "內城", "내성", "Stadt", "Centre-Ville", "—", "Şehrin İçi", "Dalam Kota", "Внутренний город", "ค่ายชั้นใน", "داخل المدينة"],
-   ["Out of Town", "外城", "외성", "Wildnis", "Périphérie", "—", "Şehrin Çevresi", "Luar Kota", "Внешний город", "ค่ายชั้นนอก", "خارج المدينة"],
-   ["Formations", "部隊編組", "부대 편성", "Trupp Formationen", "Formations de troupe", "—", "Birlik Dizilişleri", "Formasi Pasukan", "Войско", "รูปแบบการจัดวางทหาร", "القوات"],
+   ["Troops Preview", "部隊總覽", "부대 보기", "Schwadronvorschau", "Aperçu des Troupes", "Prévia das Tropas", "Birlik Önizlemesi", "Pratinjau Skuad", "Предпросмотр войск", "ตัวอย่างทีม", "معاينة القوات"],
+   ["All", "全部", "전부", "Alle", "Tout", "Todos", "Tümü", "Semua", "Все", "ทั้งหมด", "الكل"],
+   ["In Town", "內城", "내성", "Stadt", "Centre-Ville", "Centro da Cidade", "Şehrin İçi", "Dalam Kota", "Внутренний город", "ค่ายชั้นใน", "داخل المدينة"],
+   ["Out of Town", "外城", "외성", "Wildnis", "Périphérie", "Cidade Exterior", "Şehrin Çevresi", "Luar Kota", "Внешний город", "ค่ายชั้นนอก", "خارج المدينة"],
+   ["Formations", "部隊編組", "부대 편성", "Trupp Formationen", "Formations de troupe", "Formações das Tropas", "Birlik Dizilişleri", "Formasi Pasukan", "Войско", "รูปแบบการจัดวางทหาร", "القوات", "Russian shows 'Войско' on this button too, the same word as Squad's Alliance Banner wording."],
    ["Backpack", "背包", "가방", "Rucksack", "Sac", "Mochila", "Çanta", "Ransel", "Рюкзак", "กระเป๋า", "حقيبة الظهر"],
+   ["Resources", "資源", "자원", "Ressourcen", "Ressource", "Recursos", "Kaynaklar", "Sumber Daya", "Ресурсы", "ทรัพยากร", "الموارد", "Backpack tab."],
+   ["Speedups", "加速", "가속", "Beschleunigungen", "Accélér.", "Velocidade", "Hızlandırma", "Speedup", "Ускор.", "เร่งสปีด", "عناصر التسريع", "Backpack tab."],
+   ["Bonuses", "增益", "버프", "Ertrag", "Revenu", "Lucro", "Gelir", "Pemasukan", "Доход", "รายได้", "الدخل", "Backpack tab (the 3rd one). Not the same as 'Bonus Effect'."],
+   ["Use", "使用", "사용", "Verwenden", "Utiliser", "Usar", "Kullan", "Gunakan", "Применить", "ใช้", "استخدم", "Backpack item button. Chinese shows '前往使用' (go and use) for some items."],
+   ["Recall", "召回", "소환", "Zurückrufen", "Rappeler", "Revogar", "Geri Çağır", "Panggil Kembali", "Отозвать", "เรียกกลับ", "استدعاء", "Dialog title."],
+   ["Recall squad?", "你確定要召回部隊嗎？", "정말 부대를 소환하겠습니까?", "Schwadron zurückrufen?", "Rappeler les Escouades ?", "Chamar o esquadrão?", "Ekip geri çağrılsın mı?", "Panggil Kembali Skuad?", "Отозвать отряд?", "เรียกทีมกลับหรือไม่?", "هل تريد استدعاء الفرقة؟", "Recall dialog text."],
+   ["Cancel", "取消", "취소", "Abbrechen", "Annuler", "Cancelar", "İptal", "Batal", "Отмена", "ยกเลิก", "إلغاء", "Recall dialog button."],
+   ["Confirm", "確定", "확인", "Bestätigen", "Confirmer", "Confirmar", "Onayla", "Konfirmasi", "Подтвердить", "ยืนยัน", "تأكيد", "Recall dialog button."],
+   ["Settings", "設定", "설정", "Einstellungen", "Paramètres", "Configurações", "Ayarlar", "Pengaturan", "настройки", "การตั้งค่า", "الإعدادات", "Seen inside sentences (Viking Vengeance rules). The English screenshot was cut off before this line, so the English word is a guess."],
    ["City Bonus", "城鎮增益", "도시 버프", "Stadts Bonus", "Revenu de la Ville", "Bônus da Cidade", "Şehir Bonusu", "Bonus Kota", "Бонус города", "โบนัสค่ายอพยพ", "مكافأة المدينة"]
   ]
  },
@@ -68,7 +81,7 @@ const TERMS = [
    ["Mercenary Camp", "傭兵駐地", "용병 주둔지", "Söldnerlager", "Camp de Mercenaires", "Acampamento Mercenário", "Paralı Asker Kampı", "Kamp Tentara Bayaran", "Лагерь наемников", "ค่ายทหารรับจ้าง", "معسكر المرتزقة"],
    ["Undercellar", "隱蔽地窖", "땅굴", "Untergewölbe", "Caves", "Porões", "Gizli Mahzenler", "Undercellar", "подземелья", "ห้องใต้ดินลับ", "الأقبية السفلية", "Seen in sentences, usually plural."],
    ["Drill Camp", "特訓營地", "특훈 병영", "Drillcamp", "Camp d'Entraînement", "Acampamento de Treinamento", "Tatbikat Kampı", "Pelatihan Bor", "учебный лагерь", "ค่ายฝึก", "معسكر التدريبات"],
-   ["Town Center", "城鎮中心", "도시 센터", "Stadtzentrum", "Centre", "Centro da Cidade", "Şehir Merkezi", "Pusat Kota", "центр города", "ศูนย์กลางเมือง", "مركز البلدة"]
+   ["Town Center", "城鎮中心", "도시 센터", "Stadtzentrum", "Centre", "Centro da Cidade", "Şehir Merkezi", "Pusat Kota", "центр города", "ศูนย์กลางเมือง", "مركز البلدة", "Wording varies by screen: French 'Centre' (Viking rules) vs 'Centre-Ville' (Forgehammer text); Portuguese 'Centro' (abbreviated, Forgehammer) vs 'Nível do Centro da Cidade' (Viking rules); Indonesian 'Pusat Kota' (Forgehammer) but 'Level Tungku' in the Viking Vengeance rules (Tungku = furnace)."]
   ]
  },
  {
@@ -87,7 +100,7 @@ const TERMS = [
    ["Rally", "集結", "집결", "Rally", "Ralliement", "Rally", "Seferberlik", "Reli", "Рейд", "ทีมระดมพล", "الحشد", "Confirmed from the rally button in the Bear Hunt screen."],
    ["Advanced Teleporter", "高級遷城", "고급 도시 이전", "Fortgeschrittene Umsiedlung", "Relocalisation Avancée", "Teletransportador Avançado", "Gelişmiş Işınlayıcı", "Teleporter Lanjutan", "Продвинутый телепорт", "การย้ายถิ่นฐานขั้นสูง", "ناقل متقدم", "The item in the Backpack."],
    ["Counter-recon", "反偵察", "정찰 방지", "Gegenaufklärung", "Anti-repérage", "Antirreconhecimento", "Gözetleme Önleyen", "Kontra-pengintaian", "Контрразведка", "หน่วยป้องกันพิเศษ", "الاستطلاع المضاد", "City Bonus screen. The Thai wording literally means 'special defense unit'."],
-   ["Squad", "部隊", "부대", "Schwadron", "Escouade", "Esquadrão", "Ekip", "Skuad", "Войска", "ทีม", "الفرقة", "Troop group. Not confirmed for the battle-day 'Squad Chat' tab."],
+   ["Squad", "部隊", "부대", "Schwadron", "Escouade", "Esquadrão", "Ekip", "Skuad", "Войска", "ทีม", "الفرقة", "Troop group. Not confirmed for the battle-day 'Squad Chat' tab. Wording varies by screen: Russian 'Войска' (terms) / 'Войско' (Alliance Banner, Formations) / 'отряд' (Recall dialog); Portuguese 'Esquadrão' (lowercase inside sentences); Indonesian 'Skuad'."],
    ["Shield", "防護罩", "보호막", "Schild", "Bouclier", "Escudo", "Kalkan", "Perisai", "Щит", "โล่", "درع"],
    ["Marching", "行軍", "행군", "Marschieren", "Marche", "—", "İntikal", "Barisan", "Марш", "เดินทัพ", "زحف"],
    ["Gathering", "採集", "채집", "Sammeln", "Collecte", "—", "Toplanıyor", "Mengumpulkan", "Сбор", "การเก็บทรัพยากร", "الجمع"],
@@ -96,9 +109,9 @@ const TERMS = [
    ["Defense failure", "防守失敗", "방어에 실패", "—", "défaite", "derrota", "—", "kalah", "поражение", "ตกเป็นฝ่ายแพ้", "الهزيمة", "Seen inside sentences."],
    ["Teleport / free teleports", "遷城 / 免費高級遷城", "—", "Teleports", "téléportations gratuites", "teletransportes gratuitos", "ışınlanma", "teleportasi gratis", "бесплатный телепорт", "การย้ายถิ่นฐานฟรี", "عمليات الانتقال المجانية"],
    ["Cooldown", "恢復時間", "—", "—", "intervalle (entre les téléportations)", "intervalo (entre teletransportes gratuitos)", "ışınlanmalar arasındaki süre", "interval (antara teleportasi gratis)", "время перезарядки", "คูลดาวน์", "الفاصل الزمني"],
-   ["Total Troops", "總部隊", "총 부대", "Alle Trupps", "Total troupes", "—", "Birlik Sayısı", "Total Skuad", "Общий размер войск", "ทีมทั้งหมด", "إجمالي القوات"],
-   ["March Queue", "行軍隊伍", "행군 대열", "Marschschlange", "File de Marche", "—", "İntikal Sırası", "Barisan Antrean", "Очередь марша", "คิวการเดินทัพ", "طابور القوات المتقدمة"],
-   ["Injured", "傷兵", "부상병", "Verletzt", "Blessé(s)", "—", "Yaralılar", "Terluka", "Ранено", "ได้รับบาดเจ็บ", "مصاب"]
+   ["Total Troops", "總部隊", "총 부대", "Alle Trupps", "Total troupes", "Tropas Totais", "Birlik Sayısı", "Total Skuad", "Общий размер войск", "ทีมทั้งหมด", "إجمالي القوات"],
+   ["March Queue", "行軍隊伍", "행군 대열", "Marschschlange", "File de Marche", "Fila de Marcha", "İntikal Sırası", "Barisan Antrean", "Очередь марша", "คิวการเดินทัพ", "طابور القوات المتقدمة"],
+   ["Injured", "傷兵", "부상병", "Verletzt", "Blessé(s)", "Ferido", "Yaralılar", "Terluka", "Ранено", "ได้รับบาดเจ็บ", "مصاب"]
   ]
  },
  {
@@ -119,7 +132,11 @@ const TERMS = [
   "rows": [
    ["Infantry", "步兵", "보병", "Infanterie", "Infanterie", "—", "Piyade", "Infanteri", "пехотинец", "ทหารราบ", "المشاة"],
    ["Cavalry", "騎兵", "기병", "Kavallerie", "Cavalerie", "—", "Süvari", "Kavaleri", "кавалерист", "ทหารม้า", "الفرسان"],
-   ["Archer", "弓兵", "궁병", "Bogenschütze", "Archer", "—", "Okçu", "Pemanah", "стрелок", "พลธนู", "الرماة"]
+   ["Archer", "弓兵", "궁병", "Bogenschütze", "Archer", "—", "Okçu", "Pemanah", "стрелок", "พลธนู", "الرماة", "Portuguese: the Troops Preview button shows 'Arquearia do Ápice', so the plain word is probably 'Arquearia', not 'Arqueiro'. Still unconfirmed."],
+   ["Apex Infantry", "王牌步兵", "에이스 보병", "Spitzen Infanterie", "Infanterie Extrême", "Infantaria do Ápice", "Mükemmel Piyade", "Infanteri Top", "Превосходный пехотинец", "ทหารราบเอเปกซ์", "المشاة المهيمنين", "Troops Preview button."],
+   ["Apex Cavalry", "王牌騎兵", "에이스 기병", "Spitzen Kavallerie", "Cavalerie Extrême", "Cavalaria do Ápice", "Mükemmel Süvari", "Kavaleri Top", "Превосходный кавалерист", "ทหารม้าเอเปกซ์", "الفرسان المهيمنين", "Troops Preview button."],
+   ["Apex Archer", "王牌弓兵", "에이스 궁병", "Spitzen Bogenschütze", "Archer Extrême", "Arquearia do Ápice", "Mükemmel Okçu", "Pemanah Top", "Превосходный стрелок", "พลธนูเอเปกซ์", "الرماة المهيمنين", "Troops Preview button."],
+   ["Supreme Cavalry", "榮耀騎兵", "영광의 기병", "Oberste Kavallerie", "Cavalerie Suprême", "Cavalaria Suprema", "Yüce Süvari", "Kavaleri Supreme", "Выдающийся кавалерист", "ทหารม้าสุพรีม", "الفرسان السامون", "Troops Preview button."]
   ]
  },
  {
@@ -231,6 +248,66 @@ const TERMS = [
    ["Alliance Championship", "聯盟爭霸賽", "연맹 챔피언십", "Allianzmeisterschaft", "Championnat de l'Alliance", "Campeonato da Aliança", "İttifak Şampiyonası", "Kejuaraan Aliansi", "Чемпионат альянса", "การแข่งขันชิงแชมป์พันธมิตร", "بطولة التحالف", "German sentence text says 'Allianz Champions' once."],
    ["Silver IV", "白銀IV", "실버IV", "Silber IV", "Argent IV", "Prata IV", "Gümüş IV", "Silver IV", "Серебро IV", "เงิน IV", "فضي IV", "Tier name. Existing rows have 'Tier C' and 'Gold'."],
    ["The Alliance Championship has ended!", "爭霸賽已落幕", "챔피언십이 종료되었습니다", "Die Allianzmeisterschaft ist beendet!", "Le Championnat de l'Alliance est terminé !", "O Campeonato da Aliança terminou!", "İttifak Şampiyonası sona erdi!", "Kejuaraan Aliansi telah berakhir!", "Чемпионат альянса завершился!", "การแข่งขันชิงแชมป์พันธมิตรจบลงแล้ว!", "انتهت بطولة التحالف!"]
+  ]
+ },
+ {
+  "cat": "Backpack items",
+  "rows": [
+   ["Clawshard", "斷爪", "부러진 발톱", "Klauenfragment", "Griffe Brisée", "Garra de fragmento", "Kırık Pençe", "Clawshard", "Обломок когтя", "ชิ้นส่วนกรงเล็บ", "المخالب المكسورة", "Dropped by beasts in the Desert Trial event; used to track the Dreadwolf."],
+   ["Satin", "進貢綢緞", "비단", "Satin", "Satin", "Cetim", "Saten", "Satin", "Атлас", "ผ้าซาติน", "نسيج أطلس", "A Governor Gear upgrade material. Chinese: the character 緞 was confirmed by the user; the '進貢' prefix is from the first screenshot reading."],
+   ["Gilded Threads", "金絲線", "금사", "Vergoldete Fäden", "Fils Dorés", "Fios Dourados", "Yaldızlı İplikler", "Gilded Threads", "Золоченые нити", "ด้ายทองคำ", "خيوط مذهبة", "A Governor Gear upgrade material."],
+   ["Artisan's Vision", "設計圖紙", "설계 스케치", "Die Vision des Handwerkers", "Vision de l'Artisan", "Visão do Artesão", "Zanaatkâr Vizyonu", "Artisan's Vision", "Ремесленный чертеж", "วิสัยทัศน์ของช่างฝีมือ", "رؤية الحرفي", "A Governor Gear upgrade material."],
+   ["Mithril", "秘銀", "미스릴", "Mithril", "Mithril", "Mithril", "Mithril", "Mithril", "Мифрил", "มิธริล", "ميثريل", "Infuses Hero Gear with extra power."],
+   ["Mythic General Hero Shard", "傳說通用英雄碎片", "레전드 공용 영웅 조각", "Mythisches Helden-Fragment", "Fragment Universel de Héros Mythique", "Fragmento de Herói Geral Mítico", "Mitik Genel Kahraman Parçası", "Paket Chip Keberuntungan Mitos", "Мифический общий фрагмент героя", "ชิ้นส่วนฮีโร่ทั่วไปขั้นเทพ", "شظية البطل العام الخيالي", "Excludes Helga and Amadeus. The English game text says 'an Mythic' (a game typo). Indonesian: the title says 'Paket Chip Keberuntungan Mitos' but the text says 'Shard Hero Mythic'."],
+   ["100 Enhancement XP Part", "100點強化經驗部件", "경험치 강화 부품 100점", "100 Verbesserungs-XP-Teil", "100 Points d'EXP d'Amélioration", "100 Peças de XP de Aprimoramento", "100 Geliştirme TP'si Bileşeni", "100 Enhancement XP Part", "Компонент усиления опыта (100 очк.)", "ชิ้นส่วน XP การพัฒนา x100", "100 مكون خبرة تحسين", "Gives 100 hero Gear Enhancement XP."],
+   ["Forgehammer", "鍛造錘", "제작 망치", "Forgehammer", "Marteau de Forge", "Martelo de Forja", "Demirci Çekici", "Forgehammer", "Кузнечный молот", "ค้อนตีเหล็ก", "مطرقة الحدادة", "Levels up Mythic Hero Gear Mastery. Mastery Forging unlocks at Town Center Lv. 20. German kept the English name."]
+  ]
+ },
+ {
+  "cat": "Gear terms",
+  "rows": [
+   ["Governor Gear", "領主裝備", "영주 장비", "Gouverneur-Ausrüstung", "Équipement du Chef", "Equipamento de Governador", "Vali Donanımı", "Gear Gubernur", "Снаряжение губернатора", "อุปกรณ์เจ้าเมือง", "عتاد الحاكم", "French uses 'Chef' for Governor here."],
+   ["Hero Gear", "英雄裝備", "영웅 장비", "Heldenausrüstung", "Équipement de héros", "Equipamento do Herói", "Kahraman Donanımı", "Gear Hero", "Снаряжение героя", "อุปกรณ์ฮีโร่", "عتاد البطل", "French abbreviation 'ÉQP de Héros'; Portuguese abbreviation 'Equip. de Herói'."],
+   ["Mastery Forging", "專精鍛造", "마스터리 제작", "Meisterhaftes Schmieden", "Forge de Maîtrise", "M. em Forja", "Usta İşi Dövme", "Penempaan Mastery", "Мастерство кузнеца", "การปรับความเชี่ยวชาญ", "صقل التخصص", "Portuguese seen only abbreviated ('M. em Forja'); Thai from the Forgehammer text. Portuguese 'dom.' and Indonesian 'Mastery' are the short forms of Mastery."],
+   ["Enhancement XP", "強化經驗值", "—", "Verbesserungs-XP", "EXP d'Amélioration", "XP de Aprimoramento", "Geliştirme TP", "Enhancement XP", "опыт усиления", "XP การพัฒนา", "خبرة تحسين", "Turkish 'TP' = experience points."],
+   ["Mythic", "傳說", "레전드", "Mythisch", "Mythique", "Mítico", "Mitik", "Mythic", "Мифический", "ขั้นเทพ", "خيالي", "Chinese and Korean use 傳說 / 레전드 for Mythic."]
+  ]
+ },
+ {
+  "cat": "Desert Trial",
+  "rows": [
+   ["Desert Trial", "荒野的試煉", "황야의 시련", "Wüsten Prüfung", "Épreuve du Désert", "Provação do Deserto", "Bozkır İmtihanı", "Desert Trial", "Испытание пустыни", "บททดสอบทะเลทราย", "اختبار الصحراء", "German writes it with a space ('Wüsten Prüfung'), as in the game. Chinese 荒野 also appears as Badland in the Viking rules."],
+   ["Dreadwolf", "恐狼", "스케어 울프", "Höllenwolf", "Loup Redoutable", "Lobo Medonho", "Korkunç Kurt", "Netherfiend", "Ужасный волк", "หมาป่าสยองขวัญ", "الذئب المخيف", "Indonesian text says [Netherfiend]."],
+   ["Nightmare", "夢魘", "나이트메어", "—", "—", "—", "—", "—", "—", "—", "—", "Seen only in the Chinese and Korean descriptions."]
+  ]
+ },
+ {
+  "cat": "Alliance Banner",
+  "rows": [
+   ["Alliance Banner", "聯盟旗幟", "연맹 깃발", "Allianzbanner", "Bannière d'Alliance", "Estandarte da Aliança", "İttifak Sancağı", "Spanduk Aliansi", "Стяг альянса", "ธงพันธมิตร", "لافتة التحالف", "The Arabic screen is mirrored (right-to-left)."],
+   ["Durability", "耐久度", "내구도", "Haltbarkeit", "Durabilité", "Durabilidade", "Sağlamlık", "Daya Tahan", "Прочность", "ความคงทน", "قوة التحمل"],
+   ["Garrisoned Governor", "駐守指揮官", "방어 영주", "Besetzter Gouverneur", "Chef en Garnison", "Chefe com Guarnição", "Garnizondaki Şef", "Gubernur Berjaga", "Губернатор гарнизона", "ผู้นำทหารคุ้มกัน", "حامية الحاكم", "The word for garrison differs: Chinese 駐守, Korean 방어 (defense), German besetzt (occupied), Thai คุ้มกัน (guard). The Governor word also differs from other screens: Chinese 指揮官 (commander), French 'Chef', Portuguese 'Chefe', Turkish 'Şef'."],
+   ["Not garrisoned", "未駐防", "미방어", "Nicht besetzt", "Pas en garnison", "Sem guarnição", "Garnizonda değil", "Tidak ditempati", "Без гарнизона", "ไม่ได้รับการคุ้มกัน", "غير حامية", "Orange text under the banner."],
+   ["Defender Squad", "駐守部隊", "방어 부대", "Verteidigerschwadron", "Escouade défensive", "Esquadrão de Defesa", "Savunmacı Ekip", "Skuad Bertahan", "Защитные войска", "ทีมป้องกัน", "فرقة الدفاع", "Panel title."],
+   ["No reinforcements to show", "暫無援軍", "지원군이 없습니다", "Keine Verstärkungen zum Anzeigen", "Aucun renfort à afficher", "Não há reforços para exibir", "Takviye birlikler yok", "Tidak ada bala bantuan untuk ditampilkan", "Нет подкреплений для просмотра", "ไม่มีกำลังเสริมให้แสดง", "لا توجد تعزيزات لإظهارها"],
+   ["Dispatch Troops", "派遣部隊", "부대 파견", "Schwadron entsenden", "Envoyer des Troupes", "Enviar Tropas", "Birlik Gönder", "Kirim Pasukan", "Отправить войска", "ส่งทีมออกไป", "إرسال القوات"],
+   ["Updates in", "…後更新", "…후 업데이트", "Updates in", "Mis à jour dans", "Atualizações em", "…sonra güncellenecek", "Diperbarui di", "Обновляется через:", "อัปเดตในอีก", "تحديثات في", "The countdown timer sits next to it. German keeps the English words 'Updates in'; Chinese and Korean put the words after the time."]
+  ]
+ },
+ {
+  "cat": "Viking Vengeance",
+  "rows": [
+   ["Viking Vengeance", "維京人的掠奪", "바이킹의 약탈", "Wikinger-Rache", "Vengeance Viking", "Vingança Viking", "Viking İntikamı", "Viking Vengeance", "Месть викингов", "การล้างแค้นของไวกิ้ง", "انتقام الفايكنغ", "Chinese and Korean say 'plunder' (掠奪 / 약탈), the others say 'vengeance/revenge'. Indonesian keeps the English name."],
+   ["Vikings", "維京掠奪者", "바이킹 약탈자", "Wikinger", "Vikings", "vikings", "Vikingler", "Viking", "викинги", "ไวกิ้ง", "الفايكنغ", "Chinese also says 維京人. Indonesian rules also use 'penjahat' (villains) and 'Bandit'; Russian rule 5 says 'бандиты' (bandits); Thai rules say 'เหล่าไวกิง'."],
+   ["Defense Points", "防守積分", "방어 포인트", "Verteidigungspunkte", "Points Défensifs", "Pontos de Defesa", "Savunma Puanları", "Poin Pertahanan", "очки защиты", "คะแนนการป้องกัน", "نقاط الدفاع", "Personal / Alliance: 個人 / 聯盟, 개인 / 연맹, Persönlich / Allianz, Individuel / d'Alliance, pessoal / de aliança, Kişisel / İttifak, pribadi / Aliansi, личные / альянса, ส่วนบุคคล / พันธมิตร, الشخصية / التحالف."],
+   ["Successful defense", "防守成功", "방어 성공", "erfolgreiche Verteidigung", "défense réussie", "defesa bem-sucedida", "savunmayı başarıya ulaştırır", "Pertahanan sukses", "успешно защититься", "การป้องกันนั้นสำเร็จ", "الدفاع ناجح", "Seen inside sentences. The rule: killing 50% or more of the Vikings counts as a successful defense."],
+   ["Reinforce allies", "增援盟友", "연맹원을 증원", "Verstärke Verbündete", "Renforce tes alliés", "Reforce os aliados", "müttefikleri güçlendir", "Perkuat sekutu", "Отправьте подкрепления союзникам", "ส่งกำลังเสริมให้กับพันธมิตร", "عزز الحلفاء", "Seen inside sentences."],
+   ["Kills", "擊殺", "처치", "Kills", "éliminations", "mortes", "öldürdüğün birim sayısı", "pembunuhan", "убийств", "การสังหาร", "القتلى", "Seen inside sentences. Turkish literally says 'the number of units you killed'."],
+   ["Event Rules", "活動規則", "이벤트 규칙", "Eventregeln", "Règles", "Regras do Evento", "Etkinlik Kuralları", "Aturan Event", "Правила события", "กติกาอีเวนต์", "قواعد الفعالية", "Heading inside the Rules window (in brackets in most languages, none in Turkish). The English screenshot did not show it, so the English wording is a guess from the other languages."],
+   ["Event difficulty", "活動難度", "이벤트 난이도", "Schwierigkeitsgrad des Events", "difficulté", "dificuldade do evento", "etkinlik zorluğu", "tingkat kesulitan Event", "сложность события", "ความยากของอีเวนต์", "صعوبة الفعالية", "Seen inside sentences: chosen in Settings. The English screenshot was cut off before this line, so the English wording is a guess."],
+   ["Alliance HQ", "聯盟總部", "연맹 본부", "Allianz-Hauptquartier", "QG d'Alliance", "QG da Aliança", "İttifak Karargahı", "markas aliansi", "штаб альянса", "ศูนย์บัญชาการพันธมิตร", "مقر التحالف", "Seen inside sentences."],
+   ["[Plains] HQ", "【平原】總部", "[평원] 본부", "[Ebenen]-Hauptquartier", "QG des [Plaines]", "QG das [Planícies]", "Çayır Karargahı", "markas [Plains]", "штаб на [равнинах]", "ศูนย์บัญชาการ [ที่ราบสูง]", "مقر [السهول]", "The Vikings attack this one first. Turkish is inflected in the game text (Çayır Karargahına). Indonesian keeps English [Plains]."],
+   ["[Badland] HQ", "【荒野】總部", "[황야] 본부", "[Badland]-Hauptquartier", "QG des [Bas-fonds]", "QG da [Terra Maligna]", "Çoraktoprak Karargahı", "markas [Badland]", "штаб в [дикой местности]", "ศูนย์บัญชาการ [ดินแดนกันดาร]", "مقر [أرض الشر]", "Attacked if there is no Plains HQ. Chinese 荒野 is the same word as in Desert Trial (荒野的試煉). Indonesian keeps English [Badland]."]
   ]
  }
 ];
