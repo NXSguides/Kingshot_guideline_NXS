@@ -173,7 +173,7 @@ const GLOSSARY = {
   sanctuary: { zh:"遺跡", en:"Sanctuary", ko:"유적", de:"Heiligtum", fr:"Sanctuaire", pt:"Santuário", tr:"Tapınak", id:"Sanctuary", ru:"святилище", th:"วิหาร", ar:"المأوى" },
   infantry: { zh:"步兵", en:"Infantry", ko:"보병", de:"Infanterie", fr:"Infanterie", pt:"Infantaria", tr:"Piyade", id:"Infanteri", ru:"Пехотинец", th:"ทหารราบ", ar:"المشاة" },
   cavalry: { zh:"騎兵", en:"Cavalry", ko:"기병", de:"Kavallerie", fr:"Cavalerie", pt:"Cavalaria", tr:"Süvari", id:"Kavaleri", ru:"Кавалерист", th:"ทหารม้า", ar:"الفرسان" },
-  archer: { zh:"弓兵", en:"Archer", ko:"궁병", de:"Bogenschütze", fr:"Archer", pt:"Arqueiro", tr:"Okçu", id:"Pemanah", ru:"Стрелок", th:"พลธนู", ar:"الرماة" },
+  archer: { zh:"弓兵", en:"Archer", ko:"궁병", de:"Bogenschütze", fr:"Archer", pt:"Arquearia", tr:"Okçu", id:"Pemanah", ru:"Стрелок", th:"พลธนู", ar:"الرماة" },
   chenko: { zh:"琴科", en:"Chenko", ko:"첸코", de:"Chenko", fr:"Chenko", pt:"Chenko", tr:"Chenko", id:"Chenko", ru:"Ченко", th:"เชนโกะ", ar:"تشينكو" },
   amane: { zh:"雨音", en:"Amane", ko:"아마네", de:"Amane", fr:"Amane", pt:"Amane", tr:"Amane", id:"Amane", ru:"Амане", th:"อามาเนะ", ar:"أماني" },
   yeonwoo: { zh:"妍羽", en:"Yeonwoo", ko:"연우", de:"Yeonwoo", fr:"Yeonwoo", pt:"Yeonwoo", tr:"Yeonwoo", id:"Yeonwoo", ru:"Ёну", th:"ยอนอู", ar:"يونوو" },
@@ -3917,7 +3917,7 @@ const GUIDES = {
         title: "部隊編組與集結技巧",
         blocks: [
           { type: "h", text: "🔬 研究與升級優先順序" },
-          { type: "p", text: "研究與升級領主魅力（Governor Charms）時，請優先提升以下戰鬥屬性：" },
+          { type: "p", text: "研究與升級領主寶石時，請優先提升以下戰鬥屬性：" },
           { type: "list", items: [
             "{infantry}{health}",
             "{archer}{lethality}"
@@ -3925,7 +3925,7 @@ const GUIDES = {
           { type: "h", text: "💾 儲存你的預設編組" },
           { type: "p", text: "依照你的進度，最多可解鎖 8 個欄位，預先儲存你的部隊編組。建議儲存以下編組：" },
           { type: "callout", text: "所有兵種比例皆為 **{infantry} : {cavalry} : {archer}**。請為每位英雄各存一組預設，並將該英雄放在最左邊／第一個位置。" },
-          { type: "callout", text: "💡 參加集結時，最左邊的英雄很重要，因為他對應的遠征技能（Expedition skill）會加成該次集結。" },
+          { type: "callout", text: "💡 參加集結時，最左邊的英雄很重要，因為他對應的遠征技能會加成該次集結。" },
           { type: "list", items: [
             "1) {bearHunt}：{chenko} — **10 : 10 : 80**",
             "2) {bearHunt}：{amane} — **10 : 10 : 80**（或盡量接近）",
@@ -3938,9 +3938,9 @@ const GUIDES = {
           { type: "p", text: "**集結參與者：** 請遵守幹部公告的兵力上限。" },
           { type: "list", items: [
             "7) 維京總部（Viking HQ）：{howard} / {gordon} — **60 : 40** 請遵守兵力上限（約 68,000）",
-            "8) PvE — 野獸／狩獵（Beasts / Hunting）：{diana} + {fahd} — **50 : 20 : 30**"
+            "8) PvE — 野獸／狩獵：{diana} + {fahd} — **50 : 20 : 30**"
           ]},
-          { type: "h", text: "🐺 PvE — 野獸／狩獵（Beasts / Hunting）" },
+          { type: "h", text: "🐺 PvE — 野獸／狩獵" },
           { type: "p", text: "打恐狼時請記得：不需要太多傷害，所以只要派出最少的兵力（甚至 1 個兵也可以），讓更多聯盟成員能加入集結，領取集結獎勵。" },
           { type: "h", text: "🏰 {castleBattle}／{sanctuary}／建築" },
           { type: "p", text: "佔領建築時，請準備好快速切換：" },
@@ -3973,7 +3973,7 @@ const GUIDES = {
         title: "부대 편성 및 집결 팁",
         blocks: [
           { type: "h", text: "🔬 연구 및 강화 우선순위" },
-          { type: "p", text: "연구와 영주 매력(Governor Charms) 강화 시 다음 전투 능력치를 우선하세요:" },
+          { type: "p", text: "연구와 영주 보석 강화 시 다음 전투 능력치를 우선하세요:" },
           { type: "list", items: [
             "{infantry} {health}",
             "{archer} {lethality}"
@@ -3981,7 +3981,7 @@ const GUIDES = {
           { type: "h", text: "💾 프리셋 저장" },
           { type: "p", text: "진행 상황에 따라 최대 8개의 슬롯을 열어 부대 편성을 미리 저장할 수 있습니다. 저장을 권장하는 편성:" },
           { type: "callout", text: "모든 병력 비율은 **{infantry} : {cavalry} : {archer}** 순서입니다. 각 영웅을 맨 왼쪽(첫 번째) 자리에 두고 프리셋을 따로 저장하세요." },
-          { type: "callout", text: "💡 집결에 참여할 때는 맨 왼쪽 영웅이 중요합니다. 해당 영웅의 원정 스킬(Expedition skill)이 집결에 적용되기 때문입니다." },
+          { type: "callout", text: "💡 집결에 참여할 때는 맨 왼쪽 영웅이 중요합니다. 해당 영웅의 원정 스킬이 집결에 적용되기 때문입니다." },
           { type: "list", items: [
             "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
             "2) {bearHunt}: {amane} — **10 : 10 : 80** (또는 최대한 근접하게)",
@@ -3994,9 +3994,9 @@ const GUIDES = {
           { type: "p", text: "**집결 참여자:** 임원진이 공지한 병력 제한을 따라주세요." },
           { type: "list", items: [
             "7) 바이킹 본부(Viking HQ): {howard} / {gordon} — **60 : 40** 병력 제한(약 68,000) 준수",
-            "8) PvE — 야수/사냥(Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
+            "8) PvE — 야수/사냥: {diana} + {fahd} — **50 : 20 : 30**"
           ]},
-          { type: "h", text: "🐺 PvE — 야수/사냥(Beasts / Hunting)" },
+          { type: "h", text: "🐺 PvE — 야수/사냥" },
           { type: "p", text: "스케어 울프를 잡을 때 기억하세요: 많은 피해가 필요하지 않으므로 최소한의 병력(1명도 가능)만 보내서 더 많은 연맹원이 집결에 참여해 집결 보상을 받을 수 있게 하세요." },
           { type: "h", text: "🏰 {castleBattle} / {sanctuary} / 건물" },
           { type: "p", text: "건물을 점령할 때는 빠르게 전환할 준비를 하세요:" },
@@ -4029,7 +4029,7 @@ const GUIDES = {
         title: "Trupp-Formationen & Rally-Tipps",
         blocks: [
           { type: "h", text: "🔬 FORSCHUNGS- & UPGRADE-PRIORITÄTEN" },
-          { type: "p", text: "Priorisiere diese Kampfwerte bei der Forschung und beim Aufwerten der Gouverneurs-Charms (Governor Charms):" },
+          { type: "p", text: "Priorisiere diese Kampfwerte bei der Forschung und beim Aufwerten der Gouverneur-Talismane:" },
           { type: "list", items: [
             "{infantry} — {health}",
             "{archer} — {lethality}"
@@ -4037,7 +4037,7 @@ const GUIDES = {
           { type: "h", text: "💾 SPEICHERE DEINE PRESETS" },
           { type: "p", text: "Je nach Fortschritt kannst du bis zu 8 Slots freischalten, um deine Truppenformationen vorab zu speichern. Empfohlene Formationen zum Speichern:" },
           { type: "callout", text: "Alle Truppenverhältnisse gelten als **{infantry} : {cavalry} : {archer}**. Speichere für jeden Helden ein eigenes Preset, mit dem Helden ganz links / an erster Position." },
-          { type: "callout", text: "💡 Der Held ganz links ist beim Beitreten zu Rallys wichtig, weil seine passende Expeditionsfertigkeit (Expedition Skill) zur Rally beiträgt." },
+          { type: "callout", text: "💡 Der Held ganz links ist beim Beitreten zu Rallys wichtig, weil seine passende Expeditionsfähigkeit zur Rally beiträgt." },
           { type: "list", items: [
             "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
             "2) {bearHunt}: {amane} — **10 : 10 : 80** (oder so nah wie möglich)",
@@ -4050,9 +4050,9 @@ const GUIDES = {
           { type: "p", text: "**Rally-Joiner:** Bitte halte dich an die von der Führung angegebenen Truppenlimits." },
           { type: "list", items: [
             "7) Wikinger-HQ (Viking HQ): {howard} / {gordon} — **60 : 40** Truppenlimit beachten (~68.000)",
-            "8) PvE – Bestien / Jagd (Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
+            "8) PvE – Bestien / Jagd: {diana} + {fahd} — **50 : 20 : 30**"
           ]},
-          { type: "h", text: "🐺 PvE — BESTIEN / JAGD (BEASTS / HUNTING)" },
+          { type: "h", text: "🐺 PvE — BESTIEN / JAGD" },
           { type: "p", text: "Denk beim Höllenwolf daran: Es ist nicht viel Schaden nötig, also schicke so wenige Truppen wie möglich (sogar nur 1), damit mehr Allianzmitglieder der Rally beitreten und von den Rally-Belohnungen profitieren können." },
           { type: "h", text: "🏰 {castleBattle} / {sanctuary} / GEBÄUDE" },
           { type: "p", text: "Beim Erobern von Gebäuden musst du bereit sein, schnell zu wechseln:" },
@@ -4085,7 +4085,7 @@ const GUIDES = {
         title: "Formations de troupe et conseils de ralliement",
         blocks: [
           { type: "h", text: "🔬 PRIORITÉS DE RECHERCHE ET D'AMÉLIORATION" },
-          { type: "p", text: "Donnez la priorité à ces stats de combat pour la recherche et l'amélioration des charmes du Chef (Governor Charms) :" },
+          { type: "p", text: "Donnez la priorité à ces stats de combat pour la recherche et l'amélioration des talismans du Chef :" },
           { type: "list", items: [
             "{infantry} — {health}",
             "{archer} — {lethality}"
@@ -4093,7 +4093,7 @@ const GUIDES = {
           { type: "h", text: "💾 ENREGISTREZ VOS PRESETS" },
           { type: "p", text: "Selon votre progression, vous pouvez débloquer jusqu'à 8 emplacements pour pré-enregistrer vos formations de troupe. Formations recommandées à enregistrer :" },
           { type: "callout", text: "Tous les ratios de troupes suivent l'ordre **{infantry} : {cavalry} : {archer}**. Enregistrez un preset distinct pour chaque héros, en le plaçant tout à gauche / en première position." },
-          { type: "callout", text: "💡 Le héros tout à gauche est important quand vous rejoignez un ralliement, car sa compétence d'expédition (Expedition skill) pertinente contribue au ralliement." },
+          { type: "callout", text: "💡 Le héros tout à gauche est important quand vous rejoignez un ralliement, car sa compétence d'expédition pertinente contribue au ralliement." },
           { type: "list", items: [
             "1) {bearHunt} : {chenko} — **10 : 10 : 80**",
             "2) {bearHunt} : {amane} — **10 : 10 : 80** (ou au plus proche)",
@@ -4106,9 +4106,9 @@ const GUIDES = {
           { type: "p", text: "**Participants au ralliement :** merci de respecter les limites de troupes publiées par la direction." },
           { type: "list", items: [
             "7) QG Viking (Viking HQ) : {howard} / {gordon} — **60 : 40** Respectez la limite de troupes (~68 000)",
-            "8) PvE – Bêtes / Chasse (Beasts / Hunting) : {diana} + {fahd} — **50 : 20 : 30**"
+            "8) PvE – Bêtes / CHASSE : {diana} + {fahd} — **50 : 20 : 30**"
           ] },
-          { type: "h", text: "🐺 PvE — BÊTES / CHASSE (BEASTS / HUNTING)" },
+          { type: "h", text: "🐺 PvE — BÊTES / CHASSE" },
           { type: "p", text: "Pour le Loup Redoutable : peu de dégâts sont nécessaires, alors envoyez le minimum de troupes (même 1) afin que davantage de membres de l'alliance puissent rejoindre et profiter des récompenses du ralliement." },
           { type: "h", text: "🏰 {castleBattle} / {sanctuary} / BÂTIMENTS" },
           { type: "p", text: "Quand vous capturez des bâtiments, soyez prêt à basculer rapidement :" },
@@ -4141,7 +4141,7 @@ const GUIDES = {
         title: "Formações das Tropas e dicas de rally",
         blocks: [
           { type: "h", text: "🔬 PRIORIDADES DE PESQUISA E APRIMORAMENTO" },
-          { type: "p", text: "Priorize estes atributos de combate na pesquisa e no aprimoramento dos charms do Governador (Governor Charms):" },
+          { type: "p", text: "Priorize estes atributos de combate na pesquisa e no aprimoramento dos acessórios do Governador:" },
           { type: "list", items: [
             "{infantry} — {health}",
             "{archer} — {lethality}"
@@ -4149,7 +4149,7 @@ const GUIDES = {
           { type: "h", text: "💾 SALVE SEUS PRESETS" },
           { type: "p", text: "Dependendo do seu progresso, você pode desbloquear até 8 espaços para salvar previamente suas formações de tropas. Formações recomendadas para salvar:" },
           { type: "callout", text: "Todas as proporções de tropas seguem **{infantry} : {cavalry} : {archer}**. Salve presets separados com cada herói na posição mais à esquerda / primeira." },
-          { type: "callout", text: "💡 O herói mais à esquerda importa ao entrar em rallies, porque a habilidade de expedição (Expedition skill) relevante dele contribui para o rally." },
+          { type: "callout", text: "💡 O herói mais à esquerda importa ao entrar em rallies, porque a habilidade de expedição relevante dele contribui para o rally." },
           { type: "list", items: [
             "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
             "2) {bearHunt}: {amane} — **10 : 10 : 80** (ou o mais próximo possível)",
@@ -4162,9 +4162,9 @@ const GUIDES = {
           { type: "p", text: "**Participantes de Rally:** siga os limites de tropas publicados pela liderança." },
           { type: "list", items: [
             "7) QG Viking (Viking HQ): {howard} / {gordon} — **60 : 40** Siga o limite de tropas (~68.000)",
-            "8) PvE – Feras / Caça (Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
+            "8) PvE – Feras / Caça: {diana} + {fahd} — **50 : 20 : 30**"
           ] },
-          { type: "h", text: "🐺 PvE — FERAS / CAÇA (BEASTS / HUNTING)" },
+          { type: "h", text: "🐺 PvE — FERAS / CAÇA" },
           { type: "p", text: "Lembre-se para o Lobo Medonho: não é preciso muito dano, então envie o mínimo de tropas (até 1) para que mais membros da aliança possam entrar e aproveitar as recompensas do rally." },
           { type: "h", text: "🏰 {castleBattle} / {sanctuary} / CONSTRUÇÕES" },
           { type: "p", text: "Ao capturar construções, esteja pronto para trocar rapidamente:" },
@@ -4197,7 +4197,7 @@ const GUIDES = {
         title: "Birlik Dizilişleri ve Seferberlik İpuçları",
         blocks: [
           { type: "h", text: "🔬 ARAŞTIRMA VE YÜKSELTME ÖNCELİKLERİ" },
-          { type: "p", text: "Araştırma ve Vali charm'larını (Governor Charms) yükseltirken şu savaş niteliklerine öncelik verin:" },
+          { type: "p", text: "Araştırma ve Vali Tılsımlarını yükseltirken şu savaş niteliklerine öncelik verin:" },
           { type: "list", items: [
             "{infantry} — {health}",
             "{archer} — {lethality}"
@@ -4205,7 +4205,7 @@ const GUIDES = {
           { type: "h", text: "💾 PRESETLERİNİZİ KAYDEDİN" },
           { type: "p", text: "İlerlemenize bağlı olarak, birlik dizilişlerinizi önceden kaydetmek için en fazla 8 slot açabilirsiniz. Kaydedilmesi önerilen dizilişler:" },
           { type: "callout", text: "Tüm birlik oranları **{infantry} : {cavalry} : {archer}** şeklindedir. Her kahraman için, o kahraman en soldaki / ilk konumda olacak şekilde ayrı preset kaydedin." },
-          { type: "callout", text: "💡 Seferberliklere katılırken en soldaki kahraman önemlidir, çünkü ilgili sefer becerisi (Expedition skill) seferberliğe katkı sağlar." },
+          { type: "callout", text: "💡 Seferberliklere katılırken en soldaki kahraman önemlidir, çünkü ilgili sefer yeteneği seferberliğe katkı sağlar." },
           { type: "list", items: [
             "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
             "2) {bearHunt}: {amane} — **10 : 10 : 80** (veya olabildiğince yakın)",
@@ -4218,9 +4218,9 @@ const GUIDES = {
           { type: "p", text: "**Seferberliğe Katılanlar:** Lütfen yönetimin duyurduğu birlik sınırlarına uyun." },
           { type: "list", items: [
             "7) Viking Karargahı (Viking HQ): {howard} / {gordon} — **60 : 40** Birlik sınırına uyun (~68.000)",
-            "8) PvE – Canavarlar / Av (Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
+            "8) PvE – Hayvanlar / Av: {diana} + {fahd} — **50 : 20 : 30**"
           ] },
-          { type: "h", text: "🐺 PvE — CANAVARLAR / AV (BEASTS / HUNTING)" },
+          { type: "h", text: "🐺 PvE — HAYVANLAR / AV" },
           { type: "p", text: "Korkunç Kurt için hatırlayın: çok fazla hasar gerekmez, bu yüzden daha fazla ittifak üyesi katılıp seferberlik ödüllerinden yararlanabilsin diye en az sayıda birlik gönderin (1 bile olur)." },
           { type: "h", text: "🏰 {castleBattle} / {sanctuary} / BİNALAR" },
           { type: "p", text: "Binaları ele geçirirken hızla geçiş yapmaya hazır olun:" },
@@ -4253,7 +4253,7 @@ const GUIDES = {
         title: "Formasi Pasukan & Tips Reli",
         blocks: [
           { type: "h", text: "🔬 PRIORITAS RISET & PENINGKATAN" },
-          { type: "p", text: "Prioritaskan stat tempur berikut untuk riset dan peningkatan charm Gubernur (Governor Charms):" },
+          { type: "p", text: "Prioritaskan stat tempur berikut untuk riset dan peningkatan charm Gubernur:" },
           { type: "list", items: [
             "{infantry} — {health}",
             "{archer} — {lethality}"
@@ -4261,7 +4261,7 @@ const GUIDES = {
           { type: "h", text: "💾 SIMPAN PRESET-MU" },
           { type: "p", text: "Tergantung progresmu, kamu bisa membuka hingga 8 slot untuk menyimpan formasi pasukan lebih dulu. Formasi yang direkomendasikan untuk disimpan:" },
           { type: "callout", text: "Semua rasio pasukan berurutan **{infantry} : {cavalry} : {archer}**. Simpan preset terpisah dengan setiap hero di posisi paling kiri / pertama." },
-          { type: "callout", text: "💡 Hero paling kiri penting saat bergabung ke reli karena skill ekspedisi (Expedition skill) yang relevan darinya menyumbang untuk reli." },
+          { type: "callout", text: "💡 Hero paling kiri penting saat bergabung ke reli karena Skill Ekspedisi yang relevan darinya menyumbang untuk reli." },
           { type: "list", items: [
             "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
             "2) {bearHunt}: {amane} — **10 : 10 : 80** (atau sedekat mungkin)",
@@ -4274,9 +4274,9 @@ const GUIDES = {
           { type: "p", text: "**Peserta Reli:** Ikuti batas pasukan yang diumumkan pimpinan." },
           { type: "list", items: [
             "7) Markas Viking (Viking HQ): {howard} / {gordon} — **60 : 40** Ikuti batas pasukan (~68.000)",
-            "8) PvE – Binatang / Berburu (Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
+            "8) PvE – binatang buas / Berburu: {diana} + {fahd} — **50 : 20 : 30**"
           ] },
-          { type: "h", text: "🐺 PvE — BINATANG / BERBURU (BEASTS / HUNTING)" },
+          { type: "h", text: "🐺 PvE — BINATANG BUAS / BERBURU" },
           { type: "p", text: "Ingat untuk Netherfiend: tidak perlu banyak damage, jadi kirim pasukan sesedikit mungkin (bahkan 1) supaya lebih banyak anggota aliansi bisa bergabung dan mendapat hadiah reli." },
           { type: "h", text: "🏰 {castleBattle} / {sanctuary} / BANGUNAN" },
           { type: "p", text: "Saat merebut bangunan, bersiaplah untuk berganti dengan cepat:" },
@@ -4309,7 +4309,7 @@ const GUIDES = {
         title: "Войско и советы по рейдам",
         blocks: [
           { type: "h", text: "🔬 ПРИОРИТЕТЫ ИССЛЕДОВАНИЙ И УЛУЧШЕНИЙ" },
-          { type: "p", text: "Отдавайте приоритет этим боевым показателям при исследованиях и улучшении чар губернатора (Governor Charms):" },
+          { type: "p", text: "Отдавайте приоритет этим боевым показателям при исследованиях и улучшении талисманов губернатора:" },
           { type: "list", items: [
             "{infantry} — {health}",
             "{archer} — {lethality}"
@@ -4317,7 +4317,7 @@ const GUIDES = {
           { type: "h", text: "💾 СОХРАНЯЙТЕ ПРЕСЕТЫ" },
           { type: "p", text: "В зависимости от прогресса можно открыть до 8 слотов для предварительного сохранения составов войск. Рекомендуемые составы для сохранения:" },
           { type: "callout", text: "Все соотношения войск указаны в порядке **{infantry} : {cavalry} : {archer}**. Сохраняйте отдельный пресет для каждого героя, ставя его в крайнюю левую / первую позицию." },
-          { type: "callout", text: "💡 Крайний левый герой важен при присоединении к рейдам, так как его соответствующий навык похода (Expedition skill) усиливает рейд." },
+          { type: "callout", text: "💡 Крайний левый герой важен при присоединении к рейдам, так как его соответствующий навык экспедиции усиливает рейд." },
           { type: "list", items: [
             "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
             "2) {bearHunt}: {amane} — **10 : 10 : 80** (или максимально близко)",
@@ -4330,9 +4330,9 @@ const GUIDES = {
           { type: "p", text: "**Участники рейда:** соблюдайте лимиты войск, объявленные руководством." },
           { type: "list", items: [
             "7) Штаб викингов (Viking HQ): {howard} / {gordon} — **60 : 40** Соблюдайте лимит войск (~68 000)",
-            "8) PvE – Звери / Охота (Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
+            "8) PvE – Звери / Охота: {diana} + {fahd} — **50 : 20 : 30**"
           ] },
-          { type: "h", text: "🐺 PvE — ЗВЕРИ / ОХОТА (BEASTS / HUNTING)" },
+          { type: "h", text: "🐺 PvE — ЗВЕРИ / ОХОТА" },
           { type: "p", text: "Помните про Ужасного волка: урона нужно немного, поэтому отправляйте минимум войск (даже 1), чтобы больше участников альянса могло присоединиться и получить награды за рейд." },
           { type: "h", text: "🏰 {castleBattle} / {sanctuary} / ЗДАНИЯ" },
           { type: "p", text: "При захвате зданий будьте готовы быстро переключиться:" },
@@ -4365,7 +4365,7 @@ const GUIDES = {
         title: "รูปแบบการจัดวางทหารและเคล็ดลับการระดมพล",
         blocks: [
           { type: "h", text: "🔬 ลำดับความสำคัญของการวิจัยและอัปเกรด" },
-          { type: "p", text: "จัดลำดับความสำคัญของค่าสถานะการต่อสู้เหล่านี้สำหรับการวิจัยและอัปเกรดชาร์มของเจ้าเมือง (Governor Charms):" },
+          { type: "p", text: "จัดลำดับความสำคัญของค่าสถานะการต่อสู้เหล่านี้สำหรับการวิจัยและอัปเกรดเครื่องรางของเจ้าเมือง:" },
           { type: "list", items: [
             "{infantry} — {health}",
             "{archer} — {lethality}"
@@ -4373,7 +4373,7 @@ const GUIDES = {
           { type: "h", text: "💾 บันทึกพรีเซ็ตของคุณ" },
           { type: "p", text: "ขึ้นอยู่กับความก้าวหน้าของคุณ คุณสามารถปลดล็อกได้สูงสุด 8 ช่องเพื่อบันทึกรูปแบบการจัดวางทหารไว้ล่วงหน้า รูปแบบที่แนะนำให้บันทึก:" },
           { type: "callout", text: "อัตราส่วนทหารทั้งหมดเรียงตาม **{infantry} : {cavalry} : {archer}** บันทึกพรีเซ็ตแยกสำหรับฮีโร่แต่ละตัว โดยวางฮีโร่ไว้ซ้ายสุด / ตำแหน่งแรก" },
-          { type: "callout", text: "💡 ฮีโร่ซ้ายสุดสำคัญเมื่อเข้าร่วมการระดมพล เพราะทักษะการสำรวจ (Expedition skill) ที่เกี่ยวข้องจะช่วยเสริมการระดมพลนั้น" },
+          { type: "callout", text: "💡 ฮีโร่ซ้ายสุดสำคัญเมื่อเข้าร่วมการระดมพล เพราะทักษะ (Expedition skill) ที่เกี่ยวข้องจะช่วยเสริมการระดมพลนั้น" },
           { type: "list", items: [
             "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
             "2) {bearHunt}: {amane} — **10 : 10 : 80** (หรือใกล้เคียงที่สุด)",
@@ -4386,9 +4386,9 @@ const GUIDES = {
           { type: "p", text: "**ผู้เข้าร่วมการระดมพล:** โปรดปฏิบัติตามขีดจำกัดทหารที่ผู้นำประกาศ" },
           { type: "list", items: [
             "7) ศูนย์บัญชาการไวกิ้ง (Viking HQ): {howard} / {gordon} — **60 : 40** ปฏิบัติตามขีดจำกัดทหาร (~68,000)",
-            "8) PvE – สัตว์ร้าย / ล่า (Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
+            "8) PvE – สัตว์อสูร / ล่า: {diana} + {fahd} — **50 : 20 : 30**"
           ] },
-          { type: "h", text: "🐺 PvE — สัตว์ร้าย / ล่า (BEASTS / HUNTING)" },
+          { type: "h", text: "🐺 PvE — สัตว์อสูร / ล่า" },
           { type: "p", text: "จำไว้เกี่ยวกับหมาป่าสยองขวัญ: ไม่ต้องใช้ความเสียหายมาก ดังนั้นส่งทหารให้น้อยที่สุด (แม้แต่ 1) เพื่อให้สมาชิกพันธมิตรเข้าร่วมและได้รับรางวัลจากการระดมพลมากขึ้น" },
           { type: "h", text: "🏰 {castleBattle} / {sanctuary} / สิ่งปลูกสร้าง" },
           { type: "p", text: "เมื่อยึดสิ่งปลูกสร้าง ให้พร้อมสลับอย่างรวดเร็ว:" },
@@ -4421,7 +4421,7 @@ const GUIDES = {
         title: "القوات ونصائح الحشد",
         blocks: [
           { type: "h", text: "🔬 أولويات البحث والترقية" },
-          { type: "p", text: "أعطِ الأولوية لهذه السمات القتالية عند البحث وترقية تمائم الحاكم (Governor Charms):" },
+          { type: "p", text: "أعطِ الأولوية لهذه السمات القتالية عند البحث وترقية تمائم الحاكم:" },
           { type: "list", items: [
             "{infantry} — {health}",
             "{archer} — {lethality}"
@@ -4429,7 +4429,7 @@ const GUIDES = {
           { type: "h", text: "💾 احفظ إعداداتك المسبقة (Presets)" },
           { type: "p", text: "حسب تقدمك، يمكنك فتح ما يصل إلى 8 خانات لحفظ تشكيلات القوات مسبقًا. التشكيلات الموصى بحفظها:" },
           { type: "callout", text: "جميع نسب القوات بترتيب **{infantry} : {cavalry} : {archer}**. احفظ إعدادًا مسبقًا منفصلًا لكل بطل، مع وضعه في أقصى اليسار / الموضع الأول." },
-          { type: "callout", text: "💡 البطل في أقصى اليسار مهم عند الانضمام إلى الحشود، لأن مهارة الحملة (Expedition skill) المرتبطة به تساهم في الحشد." },
+          { type: "callout", text: "💡 البطل في أقصى اليسار مهم عند الانضمام إلى الحشود، لأن مهارة الحملة المرتبطة به تساهم في الحشد." },
           { type: "list", items: [
             "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
             "2) {bearHunt}: {amane} — **10 : 10 : 80** (أو أقرب ما يمكن)",
@@ -4442,9 +4442,9 @@ const GUIDES = {
           { type: "p", text: "**المنضمون إلى الحشد:** يُرجى الالتزام بحدود القوات التي تعلنها القيادة." },
           { type: "list", items: [
             "7) مقر الفايكنغ (Viking HQ): {howard} / {gordon} — **60 : 40** التزم بحد القوات (~68,000)",
-            "8) PvE – الوحوش / الصيد (Beasts / Hunting): {diana} + {fahd} — **50 : 20 : 30**"
+            "8) PvE – الوحوش / الصيد: {diana} + {fahd} — **50 : 20 : 30**"
           ] },
-          { type: "h", text: "🐺 PvE — الوحوش / الصيد (BEASTS / HUNTING)" },
+          { type: "h", text: "🐺 PvE — الوحوش / الصيد" },
           { type: "p", text: "تذكّر بخصوص الذئب المخيف: لا حاجة إلى ضرر كبير، لذا أرسل أقل عدد ممكن من القوات (حتى 1) ليتمكن مزيد من أعضاء التحالف من الانضمام والاستفادة من مكافآت الحشد." },
           { type: "h", text: "🏰 {castleBattle} / {sanctuary} / المباني" },
           { type: "p", text: "عند السيطرة على المباني، كن مستعدًا للتبديل بسرعة:" },
@@ -4542,21 +4542,21 @@ addBear("pt", {
     ],
     leaders_label: "LÍDERES DE RALLY",
     joiners_label: "PARTICIPANTES DE RALLY",
-    joiners_ratio: "Proporção padrão / segura: 10% Infantaria, 10% Cavalaria e 80% Arqueiros (ou uma variação como 20-30-50)"
+    joiners_ratio: "Proporção padrão / segura: 10% Infantaria, 10% Cavalaria e 80% Arquearia (ou uma variação como 20-30-50)"
   },
   notes: [
-    "Formação de tropas: 30-30-40%. Na maioria dos casos, você terá os melhores atributos na Infantaria por causa dos atributos base do Amadeus, então uma formação super equilibrada com um pouco mais de Arqueiros funciona melhor.",
+    "Formação de tropas: 30-30-40%. Na maioria dos casos, você terá os melhores atributos na Infantaria por causa dos atributos base do Amadeus, então uma formação super equilibrada com um pouco mais de Arquearia funciona melhor.",
     "Formação de tropas: 20-40-40%. Principalmente para quem ainda não investiu no Amadeus, e mantém a possibilidade de usar o Amadeus para entrar em rallies.",
     "Formação de tropas: 30-30-40%. Para F2P, recomenda-se usar sempre os 3 heróis que você tiver para liderar um rally.",
-    "Formação de tropas: 20-30-50%. O Peixe Marlin aumenta muito o dano por causa do equipamento exclusivo de rally dele. A partir da Gen 2, a Infantaria será sempre o Amadeus ou a Helga — são os únicos heróis de Infantaria com equipamento exclusivo de rally (bônus de Letalidade). Você envia menos Infantaria, então o herói de Infantaria cobre o dano dos Arqueiros por meio desse equipamento, e não igualando os atributos de Infantaria.",
+    "Formação de tropas: 20-30-50%. O Peixe Marlin aumenta muito o dano por causa do equipamento exclusivo de rally dele. A partir da Gen 2, a Infantaria será sempre o Amadeus ou a Helga — são os únicos heróis de Infantaria com equipamento exclusivo de rally (bônus de Letalidade). Você envia menos Infantaria, então o herói de Infantaria cobre o dano dos Arquearia por meio desse equipamento, e não igualando os atributos de Infantaria.",
     "Formação de tropas: 20-30-50%. Outra alternativa é trocar o Quinn pelo Peixe Marlin, se ele ainda não for melhor. Use a Helga na Gen 2+ apenas se o Amadeus não estiver com 5 estrelas + equipamento exclusivo no nível máximo; também é uma chance de usar o Amadeus para entrar em rallies.",
-    "Formação de tropas: 30-30-40%. Ainda não há herói F2P com equipamento exclusivo de rally, então novamente uma formação equilibrada com um pouco mais de Arqueiros, já que os atributos dos Arqueiros serão os mais baixos sem um herói Arqueiro SSR.",
+    "Formação de tropas: 30-30-40%. Ainda não há herói F2P com equipamento exclusivo de rally, então novamente uma formação equilibrada com um pouco mais de Arquearia, já que os atributos dos Arquearia serão os mais baixos sem um herói de Arquearia SSR.",
     "Formação de tropas: 10-20-70%. A Helga no máximo rende mais que o Amadeus na Gen 3, por ter 2 equipamentos de Letalidade e 1 de Ataque, contra 1 de Letalidade e 2 de Ataque do Amadeus nesta configuração.",
     "Formação de tropas: 20-30-50%. Se você não tem a Helga no máximo (5 estrelas + equipamento exclusivo), é melhor usar o Amadeus.",
-    "Formação de tropas: 20-40-40%. Na Gen 3, os F2P recebem o primeiro herói com equipamento exclusivo de rally (Petra). Tente números equilibrados de Arqueiros e Cavalaria, porque a Petra melhora muito os Arqueiros. Os atributos dos Arqueiros continuam os mais baixos sem um Arqueiro SSR. Se você desbloquear a Cavalaria T10, a habilidade T10 combina bem com os atributos da Petra.",
-    "Formação de tropas: 10-10-80%. Force o máximo de Arqueiros possível, principalmente se forem T10. Com um pouco de sorte, a 3ª habilidade da Rosa fará o trabalho por você (aumenta o Ataque total dos Arqueiros em 30%).",
-    "Formação de tropas: 10-10-80%. Use a Helga como alternativa se ela tiver mais estrelas e um nível de equipamento exclusivo melhor que o do Amadeus. Continue forçando o máximo de Arqueiros possível, principalmente T10, para a 3ª habilidade da Rosa (aumenta o Ataque total dos Arqueiros em 30%).",
-    "Formação de tropas: 10-10-80%. Igual aos melhores heróis alternativos — os bônus da 3ª habilidade da Rosa rendem mais se você focar em formações pesadas de Arqueiros (aumenta o Ataque total dos Arqueiros em 30%).",
+    "Formação de tropas: 20-40-40%. Na Gen 3, os F2P recebem o primeiro herói com equipamento exclusivo de rally (Petra). Tente números equilibrados de Arquearia e Cavalaria, porque a Petra melhora muito os Arquearia. Os atributos dos Arquearia continuam os mais baixos sem uma Arquearia SSR. Se você desbloquear a Cavalaria T10, a habilidade T10 combina bem com os atributos da Petra.",
+    "Formação de tropas: 10-10-80%. Force o máximo de Arquearia possível, principalmente se forem T10. Com um pouco de sorte, a 3ª habilidade da Rosa fará o trabalho por você (aumenta o Ataque total dos Arquearia em 30%).",
+    "Formação de tropas: 10-10-80%. Use a Helga como alternativa se ela tiver mais estrelas e um nível de equipamento exclusivo melhor que o do Amadeus. Continue forçando o máximo de Arquearia possível, principalmente T10, para a 3ª habilidade da Rosa (aumenta o Ataque total dos Arquearia em 30%).",
+    "Formação de tropas: 10-10-80%. Igual aos melhores heróis alternativos — os bônus da 3ª habilidade da Rosa rendem mais se você focar em formações pesadas de Arquearia (aumenta o Ataque total dos Arquearia em 30%).",
     "Os demais espaços de líder ainda não foram divulgados."
   ]
 });
