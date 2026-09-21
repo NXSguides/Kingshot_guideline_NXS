@@ -2509,6 +2509,21 @@ const GUIDES = {
             "Lass Märsche nicht untätig herumstehen",
             "**JAGE KEINE Kills quer über die Karte.** Zufälliges PvP zerstreut uns und verringert unsere Effektivität. Greife Städte niedrigeren Levels an, wenn es sinnvoll ist; schwäche sie in der Nähe eines gehaltenen Gebäudes."
           ]},
+          { type: "h", text: "🏛️ GEBÄUDE IM ÜBERBLICK" },
+          { type: "buildings",
+            legend: "Zahlen in der Reihenfolge: {allianceRelic} / {personalRelic}",
+            cols: { first: "Erste Eroberung", hold: "Fortwährende Besatzung", open: "Öffnet", min: "Min.", perMin: "/M", sep: ": " },
+            priority: { top: "HÖCHSTE", high: "HOCH", med: "MITTEL" },
+            gather: "Sammelstellen, die regelmäßig erscheinen (zwei Wellen)",
+            purposes: {
+              swordshrine: "Gebäude mit dem höchsten Punktwert",
+              mercenary: "Schwächt vom Feind gehaltene Gebäude",
+              reformation: "Kampfbonus für die Allianz",
+              sanctum: "Hochwertige {allianceRelic}",
+              abbey: "Erzeugt {allianceRelic}",
+              stables: "-50 % Teleport-Cooldown",
+              belltower: "-50 % Zeit für die Kontrolle von Gebäuden"
+            } },
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
            
           { type: "h", text: "🗺️ ZUGEWIESENE ZONEN" },
@@ -2522,6 +2537,7 @@ const GUIDES = {
           ]},
           { type: "p", text: "Verbleibende Mitglieder werden zugewiesen, eine dieser Zonen/Teams zu unterstützen. Rotation kann je nach Schlachtbedingungen erforderlich sein - überwache immer den Squad Chat für Details." },
           { type: "p", text: "Bleib bei deiner zugewiesenen Zone, es sei denn, die Führung sagt dir, dass du dich bewegen sollst." },
+          { type: "zones", labels: { purple: "🟣 Lila Zone — {belltower} / {mercenary}", blue: "🔵 Blaue Zone — {sanctumNW} / {abbey}", yellow: "🟡 Gelbe Zone — {stables} / {abbey}", green: "🟢 Grüne Zone — {sanctumSE} / {abbey}", center: "⚪ Mitte" } },
           { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
 
           { type: "h", text: "👥 ROLLEN & VERANTWORTLICHKEITEN" },
@@ -2628,7 +2644,27 @@ const GUIDES = {
                 "Sammelt jeden gefallenen Punkt nach einem erfolgreichen Wechsel ein"
               ]}
             ], warn: "**Letzte 5 Minuten: Ziele > zufällige Kills.**" }
-          ]}
+          ]},
+          { type: "h", text: "📌 ZUSAMMENFASSUNG" },
+          { type: "p", text: "Die Gruppen werden in 3 Funktionen aufgeteilt und einer Zone zugewiesen:" },
+          { type: "list", items: [
+            "**ANGREIFER** → EINNEHMEN + DRUCK MACHEN",
+            "**VERTEIDIGER** → HALTEN + SCHÜTZEN",
+            "**UNTERSTÜTZER** → VERSTÄRKEN + RALLY + AUFSAMMELN + SAMMELN"
+          ] },
+          { type: "list", items: [
+            "Folge deiner zugewiesenen Zone und Rolle.",
+            "Überwache den Squad-Chat.",
+            "Ziele > zufällige Kills.",
+            "Angreifer erobern — Verteidiger halten — Unterstützer verstärkt.",
+            "Lass nützliche Märsche nie untätig.",
+            "Sammle verstreute {arsenal} sofort ein.",
+            "Sammle {undercellar} mit verfügbaren Märschen.",
+            "Schütze {swordshrine} + {sanctum}.",
+            "Verlasse Kerngebäude nicht für {abbey} oder Kills.",
+            "Wenn die Führung eine Rotation ausruft, BEWEGE DICH."
+          ] },
+          { type: "callout", text: "⚔️ **KOORDINATION GEWINNT {swordland}**" }
         ]
       },
 
