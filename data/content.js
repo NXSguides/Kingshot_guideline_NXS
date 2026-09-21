@@ -182,6 +182,10 @@ const GLOSSARY = {
   gordon: { zh:"戈登", en:"Gordon", ko:"고든", de:"Gordon", fr:"Gordon", pt:"Gordon", tr:"Gordon", id:"Gordon", ru:"Гордон", th:"กอร์ดอน", ar:"جوردن" },
   diana: { zh:"狄安娜", en:"Diana", ko:"다이애나", de:"Diana", fr:"Diana", pt:"Diana", tr:"Diana", id:"Diana", ru:"Диана", th:"ไดอาน่า", ar:"ديانا" },
   fahd: { zh:"法赫德", en:"Fahd", ko:"파드", de:"Fahd", fr:"Fahd", pt:"Fahd", tr:"Fahd", id:"Fahd", ru:"Фад", th:"ฟาฮ์ด", ar:"فهد" },
+  jabel: { zh:"潔貝爾", en:"Jabel", ko:"제이벨", de:"Jabel", fr:"Jabel", pt:"Jabel", tr:"Jabel", id:"Jabel", ru:"Явель", th:"จาเบล", ar:"جبل" },
+  quinn: { zh:"奎恩", en:"Quinn", ko:"퀸", de:"Quinn", fr:"Quinn", pt:"Quinn", tr:"Quinn", id:"Quinn", ru:"Куинн", th:"ควินน์", ar:"كوين" },
+  helga: { zh:"赫爾加", en:"Helga", ko:"헬가", de:"Helga", fr:"Helga", pt:"Helga", tr:"Helga", id:"Helga", ru:"Хельга", th:"เฮลก้า", ar:"هيلجا" },
+  saul: { zh:"薩洛", en:"Saul", ko:"살로", de:"Saul", fr:"Saul", pt:"Saul", tr:"Saul", id:"Saul", ru:"Соул", th:"ซอล", ar:"شاول" },
 };
 
 const GUIDES = {
@@ -1649,6 +1653,311 @@ const GUIDES = {
       }
     }
   },
+  "recent-events": {
+    emoji: "🛡️",
+    name: {
+      en: "Viking Vengeance", zh: "維京人的掠奪", ko: "바이킹의 약탈", de: "Wikinger-Rache", fr: "Vengeance Viking", pt: "Vingança Viking", tr: "Viking İntikamı", id: "Viking Vengeance", ru: "Месть викингов", th: "การล้างแค้นของไวกิ้ง", ar: "انتقام الفايكنغ"
+    },
+    sections: {
+      en: {
+        title: "Viking Vengeance",
+        blocks: [
+          { type: "h", text: "WHEN" },
+          { type: "p", text: "Every 2 weeks — two 30-minute sessions on Day 1 & Day 3. Scheduled by leadership, usually close to {bearHunt} times." },
+          { type: "h", text: "📌 PREPARATION" },
+          { type: "sub", text: "Empty Your City" },
+          { type: "list", items: ["Send **ALL** {infantry} & {cavalry} out to reinforce alliance members.", "Extra Archers can stay home — they won't steal reinforcement points.", "Even if you'll be offline during the event, empty your city beforehand! You can still earn points while giving other members the opportunity to earn points by reinforcing you."] },
+          { type: "sub", text: "Keep Best 3 Heroes Home" },
+          { type: "p", text: "Leave your best 3 Defense/Offense heroes in your Guard Station." },
+          { type: "list", items: ["**F2P:** {jabel} / {howard} / {quinn}", "**P2W:** {amadeus} or {helga} / {jabel} / {saul}"] },
+          { type: "sub", text: "DO NOT HEAL" },
+          { type: "p", text: "Healed troops return home and can steal kills/points from the members reinforcing you." },
+          { type: "sub", text: "Prioritize Active Members" },
+          { type: "p", text: "Reinforce online members first. Waves 7, 14 & 17 only attack online players." },
+          { type: "h", text: "⚔️ REINFORCING ALLIES" },
+          { type: "p", text: "Use {bearHunt} joiner heroes in slot 1 to maximize kill points." },
+          { type: "p", text: "**Recommended:** {chenko} / {amane} / {yeonwoo} / {amadeus}" },
+          { type: "callout", text: "Avoid defensive heroes such as {howard} or {gordon} in reinforcement marches." },
+          { type: "h", text: "🏛️ HQ — WAVES 10 & 20" },
+          { type: "p", text: "Waves 10 & 20 attack HQ **ONLY**. City attacks pause during these waves." },
+          { type: "p", text: "After Wave 9 / 19 finishes:" },
+          { type: "list", items: ["Recall **ONE** strong march.", "Send it directly to HQ.", "Max 68K troops per member.", "Use {chenko} or {amadeus} in slot 1, or your strongest raw-damage hero.", "After the HQ wave, recall and return to reinforcing your assigned member."] },
+          { type: "callout", text: "⚠️ **IMPORTANT:** You can reinforce HQ for Wave 10 **OR** Wave 20 — **NOT BOTH.**" },
+          { type: "p", text: "Coordinate with R4/R5 so everyone gets a turn and we fill HQ efficiently." }
+        ]
+      },
+      zh: {
+        title: "維京人的掠奪",
+        blocks: [
+          { type: "h", text: "活動時間" },
+          { type: "p", text: "每 2 週一次——第 1 天與第 3 天各進行一場，每場 30 分鐘。由幹部安排時間，通常接近{bearHunt}的時段。" },
+          { type: "h", text: "📌 準備工作" },
+          { type: "sub", text: "清空你的城鎮" },
+          { type: "list", items: ["把**所有**{infantry}和{cavalry}派出去增援盟友。", "多出來的{archer}可以留在家裡——不會搶走增援積分。", "就算活動期間你不在線，也要先清空城鎮！這樣你仍然能得分，同時也讓其他成員有機會透過增援你來得分。"] },
+          { type: "sub", text: "把最強的 3 名英雄留在家" },
+          { type: "p", text: "把你最強的 3 名防守／進攻英雄留在你的守衛站（Guard Station）。" },
+          { type: "list", items: ["**免費：** {jabel} / {howard} / {quinn}", "**課金：** {amadeus} 或 {helga} / {jabel} / {saul}"] },
+          { type: "sub", text: "不要治療" },
+          { type: "p", text: "治療後的部隊會回到家中，並可能搶走增援你的成員的擊殺／積分。" },
+          { type: "sub", text: "優先照顧在線成員" },
+          { type: "p", text: "優先增援在線的成員。第 7、14、17 波只會攻擊在線的玩家。" },
+          { type: "h", text: "⚔️ 增援盟友" },
+          { type: "p", text: "在第一個位置使用你在{bearHunt}中當參與者（joiner）的英雄，以取得最高的擊殺積分。" },
+          { type: "p", text: "**推薦：** {chenko} / {amane} / {yeonwoo} / {amadeus}" },
+          { type: "callout", text: "增援行軍中請避免使用{howard}或{gordon}這類防守型英雄。" },
+          { type: "h", text: "🏛️ 總部——第 10 與第 20 波" },
+          { type: "p", text: "第 10 與第 20 波**只**會攻擊總部。這兩波期間，城鎮不會受到攻擊。" },
+          { type: "p", text: "第 9／19 波結束後：" },
+          { type: "list", items: ["召回**一支**強力行軍。", "直接派往總部。", "每位成員最多 68K 兵力。", "第一個位置使用{chenko}或{amadeus}，或你最強的純輸出英雄。", "總部這波結束後，召回並回去繼續增援你被分配到的成員。"] },
+          { type: "callout", text: "⚠️ **重要：** 第 10 波或第 20 波，你只能選其中一波增援總部——**不能兩波都增援。**" },
+          { type: "p", text: "請與 R4／R5 協調，讓每個人都輪得到，並有效率地填滿總部。" }
+        ]
+      },
+      ko: {
+        title: "바이킹의 약탈",
+        blocks: [
+          { type: "h", text: "일정" },
+          { type: "p", text: "2주마다 — 1일 차와 3일 차에 각각 30분씩 진행됩니다. 임원진이 시간을 정하며, 보통 {bearHunt} 시간대와 가깝습니다." },
+          { type: "h", text: "📌 준비" },
+          { type: "sub", text: "도시 비우기" },
+          { type: "list", items: ["{infantry}과 {cavalry}은 **모두** 내보내 연맹원을 증원하세요.", "남는 {archer}은 집에 두어도 됩니다 — 증원 포인트를 빼앗지 않습니다.", "이벤트 중 오프라인이더라도 미리 도시를 비우세요! 그래도 포인트를 얻을 수 있고, 다른 연맹원이 당신을 증원해서 포인트를 얻을 기회도 생깁니다."] },
+          { type: "sub", text: "최강 영웅 3명은 집에 두기" },
+          { type: "p", text: "가장 강한 방어/공격 영웅 3명을 경비소(Guard Station)에 남겨 두세요." },
+          { type: "list", items: ["**무과금:** {jabel} / {howard} / {quinn}", "**과금:** {amadeus} 또는 {helga} / {jabel} / {saul}"] },
+          { type: "sub", text: "치료하지 마세요" },
+          { type: "p", text: "치료된 부대는 집으로 돌아와 당신을 증원하는 연맹원의 처치/포인트를 빼앗을 수 있습니다." },
+          { type: "sub", text: "활동 중인 연맹원 우선" },
+          { type: "p", text: "온라인 연맹원을 먼저 증원하세요. 7·14·17 웨이브는 온라인 플레이어만 공격합니다." },
+          { type: "h", text: "⚔️ 연맹원 증원" },
+          { type: "p", text: "처치 포인트를 극대화하려면 첫 번째 자리에 {bearHunt} 참여용 영웅을 사용하세요." },
+          { type: "p", text: "**추천:** {chenko} / {amane} / {yeonwoo} / {amadeus}" },
+          { type: "callout", text: "증원 행군에는 {howard}나 {gordon} 같은 방어형 영웅은 피하세요." },
+          { type: "h", text: "🏛️ 본부 — 10·20 웨이브" },
+          { type: "p", text: "10·20 웨이브는 **본부만** 공격합니다. 이 웨이브 동안 도시 공격은 멈춥니다." },
+          { type: "p", text: "9/19 웨이브가 끝난 뒤:" },
+          { type: "list", items: ["강력한 행군 **하나**를 소환하세요.", "곧바로 본부로 보내세요.", "인원당 최대 68K 병력.", "첫 번째 자리에 {chenko}나 {amadeus}, 또는 가장 강한 순수 딜 영웅을 사용하세요.", "본부 웨이브가 끝나면 소환한 뒤, 배정된 연맹원을 다시 증원하세요."] },
+          { type: "callout", text: "⚠️ **중요:** 10웨이브 **또는** 20웨이브 중 한 번만 본부를 증원할 수 있습니다 — **둘 다는 불가.**" },
+          { type: "p", text: "모두가 차례를 갖고 본부를 효율적으로 채울 수 있도록 R4/R5와 조율하세요." }
+        ]
+      },
+      de: {
+        title: "Wikinger-Rache",
+        blocks: [
+          { type: "h", text: "WANN" },
+          { type: "p", text: "Alle 2 Wochen — zwei 30-Minuten-Sitzungen an Tag 1 und Tag 3. Die Führung legt die Zeiten fest, meist in der Nähe der {bearHunt}-Zeiten." },
+          { type: "h", text: "📌 VORBEREITUNG" },
+          { type: "sub", text: "Leere deine Stadt" },
+          { type: "list", items: ["Schicke **ALLE** {infantry} und {cavalry} los, um Allianzmitglieder zu verstärken.", "Überzählige Bogenschützen können zu Hause bleiben — sie stehlen keine Verstärkungspunkte.", "Auch wenn du während des Events offline bist: Leere deine Stadt vorher! Du kannst trotzdem Punkte sammeln und gibst anderen Mitgliedern die Chance, Punkte zu sammeln, indem sie dich verstärken."] },
+          { type: "sub", text: "Die besten 3 Helden bleiben zu Hause" },
+          { type: "p", text: "Lass deine besten 3 Verteidigungs-/Angriffshelden in deiner Wachstation (Guard Station)." },
+          { type: "list", items: ["**F2P:** {jabel} / {howard} / {quinn}", "**P2W:** {amadeus} oder {helga} / {jabel} / {saul}"] },
+          { type: "sub", text: "NICHT HEILEN" },
+          { type: "p", text: "Geheilte Truppen kehren nach Hause zurück und können den Mitgliedern, die dich verstärken, Kills/Punkte wegnehmen." },
+          { type: "sub", text: "Aktive Mitglieder zuerst" },
+          { type: "p", text: "Verstärke zuerst Online-Mitglieder. Die Wellen 7, 14 und 17 greifen nur Online-Spieler an." },
+          { type: "h", text: "⚔️ VERBÜNDETE VERSTÄRKEN" },
+          { type: "p", text: "Nutze deine {bearHunt}-Joiner-Helden an Position 1, um die Kill-Punkte zu maximieren." },
+          { type: "p", text: "**Empfohlen:** {chenko} / {amane} / {yeonwoo} / {amadeus}" },
+          { type: "callout", text: "Vermeide Verteidigungshelden wie {howard} oder {gordon} in Verstärkungsmärschen." },
+          { type: "h", text: "🏛️ HQ — WELLEN 10 & 20" },
+          { type: "p", text: "Die Wellen 10 und 20 greifen **NUR** das HQ an. Angriffe auf Städte pausieren in diesen Wellen." },
+          { type: "p", text: "Nachdem Welle 9 / 19 vorbei ist:" },
+          { type: "list", items: ["Rufe **EINEN** starken Marsch zurück.", "Schicke ihn direkt zum HQ.", "Maximal 68K Truppen pro Mitglied.", "Nutze {chenko} oder {amadeus} an Position 1 oder deinen stärksten Helden mit reinem Schaden.", "Rufe nach der HQ-Welle zurück und verstärke wieder das dir zugewiesene Mitglied."] },
+          { type: "callout", text: "⚠️ **WICHTIG:** Du kannst das HQ in Welle 10 **ODER** Welle 20 verstärken — **NICHT BEIDE.**" },
+          { type: "p", text: "Stimme dich mit R4/R5 ab, damit jeder an die Reihe kommt und wir das HQ effizient füllen." }
+        ]
+      },
+      fr: {
+        title: "Vengeance Viking",
+        blocks: [
+          { type: "h", text: "QUAND" },
+          { type: "p", text: "Toutes les 2 semaines — deux sessions de 30 minutes, au jour 1 et au jour 3. Les horaires sont fixés par la direction, généralement proches de ceux de la {bearHunt}." },
+          { type: "h", text: "📌 PRÉPARATION" },
+          { type: "sub", text: "Videz votre village" },
+          { type: "list", items: ["Envoyez **TOUTE** l'infanterie et la cavalerie renforcer les membres de l'alliance.", "Les archers en trop peuvent rester à la maison — ils ne volent pas de points de renfort.", "Même si vous serez hors ligne pendant l'événement, videz votre village avant ! Vous pouvez quand même marquer des points, et vous laissez aux autres membres la possibilité d'en marquer en vous renforçant."] },
+          { type: "sub", text: "Gardez vos 3 meilleurs héros à la maison" },
+          { type: "p", text: "Laissez vos 3 meilleurs héros de défense/attaque dans votre poste de garde (Guard Station)." },
+          { type: "list", items: ["**F2P :** {jabel} / {howard} / {quinn}", "**P2W :** {amadeus} ou {helga} / {jabel} / {saul}"] },
+          { type: "sub", text: "NE SOIGNEZ PAS" },
+          { type: "p", text: "Les troupes soignées rentrent à la maison et peuvent voler des éliminations/points aux membres qui vous renforcent." },
+          { type: "sub", text: "Priorité aux membres actifs" },
+          { type: "p", text: "Renforcez d'abord les membres en ligne. Les vagues 7, 14 et 17 n'attaquent que les joueurs en ligne." },
+          { type: "h", text: "⚔️ RENFORCER LES ALLIÉS" },
+          { type: "p", text: "Utilisez vos héros de participants à la {bearHunt} en position 1 pour maximiser les points d'élimination." },
+          { type: "p", text: "**Recommandés :** {chenko} / {amane} / {yeonwoo} / {amadeus}" },
+          { type: "callout", text: "Évitez les héros défensifs comme {howard} ou {gordon} dans les marches de renfort." },
+          { type: "h", text: "🏛️ QG — VAGUES 10 ET 20" },
+          { type: "p", text: "Les vagues 10 et 20 attaquent **UNIQUEMENT** le QG. Les attaques sur les villages font une pause pendant ces vagues." },
+          { type: "p", text: "Une fois la vague 9 / 19 terminée :" },
+          { type: "list", items: ["Rappelez **UNE** marche puissante.", "Envoyez-la directement au QG.", "Maximum 68K troupes par membre.", "Utilisez {chenko} ou {amadeus} en position 1, ou votre héros aux dégâts bruts les plus élevés.", "Après la vague du QG, rappelez et retournez renforcer le membre qui vous est assigné."] },
+          { type: "callout", text: "⚠️ **IMPORTANT :** Vous pouvez renforcer le QG pour la vague 10 **OU** la vague 20 — **PAS LES DEUX.**" },
+          { type: "p", text: "Coordonnez-vous avec les R4/R5 pour que chacun ait son tour et que le QG se remplisse efficacement." }
+        ]
+      },
+      pt: {
+        title: "Vingança Viking",
+        blocks: [
+          { type: "h", text: "QUANDO" },
+          { type: "p", text: "A cada 2 semanas — duas sessões de 30 minutos, no Dia 1 e no Dia 3. Agendadas pela liderança, geralmente perto dos horários da {bearHunt}." },
+          { type: "h", text: "📌 PREPARAÇÃO" },
+          { type: "sub", text: "Esvazie sua cidade" },
+          { type: "list", items: ["Envie **TODA** a infantaria e a cavalaria para reforçar os membros da aliança.", "A arquearia extra pode ficar em casa — ela não rouba pontos de reforço.", "Mesmo que você fique offline durante o evento, esvazie sua cidade antes! Você ainda pode ganhar pontos e dá aos outros membros a chance de ganhar pontos ao reforçar você."] },
+          { type: "sub", text: "Mantenha os 3 melhores heróis em casa" },
+          { type: "p", text: "Deixe seus 3 melhores heróis de Defesa/Ataque no seu Posto de Guarda (Guard Station)." },
+          { type: "list", items: ["**F2P:** {jabel} / {howard} / {quinn}", "**P2W:** {amadeus} ou {helga} / {jabel} / {saul}"] },
+          { type: "sub", text: "NÃO CURE" },
+          { type: "p", text: "As tropas curadas voltam para casa e podem roubar mortes/pontos dos membros que estão reforçando você." },
+          { type: "sub", text: "Priorize os membros ativos" },
+          { type: "p", text: "Reforce primeiro os membros online. As ondas 7, 14 e 17 só atacam jogadores online." },
+          { type: "h", text: "⚔️ REFORÇAR ALIADOS" },
+          { type: "p", text: "Use heróis de participantes da {bearHunt} na posição 1 para maximizar os pontos de mortes." },
+          { type: "p", text: "**Recomendados:** {chenko} / {amane} / {yeonwoo} / {amadeus}" },
+          { type: "callout", text: "Evite heróis defensivos como {howard} ou {gordon} nas marchas de reforço." },
+          { type: "h", text: "🏛️ QG — ONDAS 10 E 20" },
+          { type: "p", text: "As ondas 10 e 20 atacam **SOMENTE** o QG. Os ataques às cidades pausam durante essas ondas." },
+          { type: "p", text: "Depois que a onda 9 / 19 terminar:" },
+          { type: "list", items: ["Revogue **UMA** marcha forte.", "Envie-a diretamente ao QG.", "Máximo de 68K tropas por membro.", "Use {chenko} ou {amadeus} na posição 1, ou seu herói de maior dano bruto.", "Depois da onda do QG, revogue e volte a reforçar o membro designado a você."] },
+          { type: "callout", text: "⚠️ **IMPORTANTE:** Você pode reforçar o QG na onda 10 **OU** na onda 20 — **NÃO NAS DUAS.**" },
+          { type: "p", text: "Combine com os R4/R5 para que todos tenham sua vez e o QG seja preenchido com eficiência." }
+        ]
+      },
+      tr: {
+        title: "Viking İntikamı",
+        blocks: [
+          { type: "h", text: "NE ZAMAN" },
+          { type: "p", text: "2 haftada bir — 1. ve 3. günde 30'ar dakikalık iki oturum. Yönetim tarafından planlanır, genellikle {bearHunt} saatlerine yakındır." },
+          { type: "h", text: "📌 HAZIRLIK" },
+          { type: "sub", text: "Şehrinizi boşaltın" },
+          { type: "list", items: ["**TÜM** piyade ve süvarileri ittifak üyelerini güçlendirmeye gönderin.", "Fazla okçular evde kalabilir — güçlendirme puanlarını çalmazlar.", "Etkinlik sırasında çevrimdışı olsanız bile şehrinizi önceden boşaltın! Yine de puan kazanabilirsiniz ve diğer üyelere sizi güçlendirerek puan kazanma fırsatı verirsiniz."] },
+          { type: "sub", text: "En iyi 3 kahramanı evde tutun" },
+          { type: "p", text: "En iyi 3 Savunma/Saldırı kahramanınızı Nöbet İstasyonunuzda (Guard Station) bırakın." },
+          { type: "list", items: ["**F2P:** {jabel} / {howard} / {quinn}", "**P2W:** {amadeus} veya {helga} / {jabel} / {saul}"] },
+          { type: "sub", text: "İYİLEŞTİRME YAPMAYIN" },
+          { type: "p", text: "İyileştirilen birlikler eve döner ve sizi güçlendiren üyelerin öldürme/puanlarını çalabilir." },
+          { type: "sub", text: "Aktif üyelere öncelik verin" },
+          { type: "p", text: "Önce çevrimiçi üyeleri güçlendirin. 7., 14. ve 17. dalgalar yalnızca çevrimiçi oyunculara saldırır." },
+          { type: "h", text: "⚔️ MÜTTEFİKLERİ GÜÇLENDİRME" },
+          { type: "p", text: "Öldürme puanlarını en üst düzeye çıkarmak için {bearHunt} etkinliğinde katılımcı olarak kullandığınız kahramanları 1. konumda kullanın." },
+          { type: "p", text: "**Önerilen:** {chenko} / {amane} / {yeonwoo} / {amadeus}" },
+          { type: "callout", text: "Güçlendirme intikallerinde {howard} veya {gordon} gibi savunma kahramanlarından kaçının." },
+          { type: "h", text: "🏛️ KARARGAH — 10. VE 20. DALGA" },
+          { type: "p", text: "10. ve 20. dalgalar **YALNIZCA** karargaha saldırır. Bu dalgalar sırasında şehir saldırıları durur." },
+          { type: "p", text: "9. / 19. dalga bittikten sonra:" },
+          { type: "list", items: ["**BİR** güçlü intikali geri çağırın.", "Doğrudan karargaha gönderin.", "Üye başına en fazla 68K birlik.", "1. konumda {chenko} veya {amadeus}, ya da en güçlü saf hasar kahramanınızı kullanın.", "Karargah dalgasından sonra geri çağırın ve size atanan üyeyi güçlendirmeye geri dönün."] },
+          { type: "callout", text: "⚠️ **ÖNEMLİ:** Karargahı 10. dalgada **VEYA** 20. dalgada güçlendirebilirsiniz — **İKİSİNDE BİRDEN DEĞİL.**" },
+          { type: "p", text: "Herkesin sırası gelsin ve karargahı verimli dolduralım diye R4/R5 ile koordine olun." }
+        ]
+      },
+      id: {
+        title: "Viking Vengeance",
+        blocks: [
+          { type: "h", text: "KAPAN" },
+          { type: "p", text: "Setiap 2 minggu — dua sesi 30 menit pada Hari 1 & Hari 3. Dijadwalkan oleh pimpinan, biasanya dekat dengan waktu {bearHunt}." },
+          { type: "h", text: "📌 PERSIAPAN" },
+          { type: "sub", text: "Kosongkan Kotamu" },
+          { type: "list", items: ["Kirim **SEMUA** {infantry} & {cavalry} keluar untuk memperkuat anggota aliansi.", "Pemanah tambahan boleh tetap di rumah — mereka tidak akan mencuri poin penguatan.", "Meski kamu offline selama event, kosongkan kotamu lebih dulu! Kamu tetap bisa mendapat poin sekaligus memberi anggota lain kesempatan mendapat poin dengan memperkuatmu."] },
+          { type: "sub", text: "Simpan 3 Hero Terbaik di Rumah" },
+          { type: "p", text: "Sisakan 3 hero Pertahanan/Serangan terbaikmu di Pos Penjagaan (Guard Station)." },
+          { type: "list", items: ["**F2P:** {jabel} / {howard} / {quinn}", "**P2W:** {amadeus} atau {helga} / {jabel} / {saul}"] },
+          { type: "sub", text: "JANGAN DISEMBUHKAN" },
+          { type: "p", text: "Pasukan yang sudah sembuh kembali ke rumah dan bisa mencuri pembunuhan/poin dari anggota yang memperkuatmu." },
+          { type: "sub", text: "Utamakan Anggota Aktif" },
+          { type: "p", text: "Perkuat anggota yang online lebih dulu. Gelombang 7, 14 & 17 hanya menyerang pemain yang online." },
+          { type: "h", text: "⚔️ MEMPERKUAT SEKUTU" },
+          { type: "p", text: "Gunakan hero joiner {bearHunt} di posisi pertama untuk memaksimalkan poin pembunuhan." },
+          { type: "p", text: "**Direkomendasikan:** {chenko} / {amane} / {yeonwoo} / {amadeus}" },
+          { type: "callout", text: "Hindari hero bertahan seperti {howard} atau {gordon} di barisan penguatan." },
+          { type: "h", text: "🏛️ MARKAS — GELOMBANG 10 & 20" },
+          { type: "p", text: "Gelombang 10 & 20 **HANYA** menyerang markas. Serangan ke kota berhenti sementara selama gelombang ini." },
+          { type: "p", text: "Setelah Gelombang 9 / 19 selesai:" },
+          { type: "list", items: ["Panggil Kembali **SATU** barisan kuat.", "Kirim langsung ke markas.", "Maksimal 68K pasukan per anggota.", "Gunakan {chenko} atau {amadeus} di posisi pertama, atau hero dengan damage mentah terkuatmu.", "Setelah gelombang markas, panggil kembali dan kembali memperkuat anggota yang ditugaskan kepadamu."] },
+          { type: "callout", text: "⚠️ **PENTING:** Kamu bisa memperkuat markas untuk Gelombang 10 **ATAU** Gelombang 20 — **BUKAN KEDUANYA.**" },
+          { type: "p", text: "Koordinasikan dengan R4/R5 agar semua kebagian giliran dan markas terisi secara efisien." }
+        ]
+      },
+      ru: {
+        title: "Месть викингов",
+        blocks: [
+          { type: "h", text: "КОГДА" },
+          { type: "p", text: "Раз в 2 недели — две 30-минутные сессии в день 1 и день 3. Время назначает руководство, обычно близко к времени события «{bearHunt}»." },
+          { type: "h", text: "📌 ПОДГОТОВКА" },
+          { type: "sub", text: "Опустошите город" },
+          { type: "list", items: ["Отправьте **ВСЕХ** пехотинцев и кавалеристов в подкрепление участникам альянса.", "Лишние стрелки могут остаться дома — они не заберут очки подкрепления.", "Даже если вас не будет в сети во время события, опустошите город заранее! Вы всё равно сможете получать очки, а другие участники получат возможность зарабатывать очки, отправляя подкрепление вам."] },
+          { type: "sub", text: "Оставьте 3 лучших героев дома" },
+          { type: "p", text: "Оставьте трёх лучших героев защиты/атаки в своём караульном посту (Guard Station)." },
+          { type: "list", items: ["**F2P:** {jabel} / {howard} / {quinn}", "**P2W:** {amadeus} или {helga} / {jabel} / {saul}"] },
+          { type: "sub", text: "НЕ ЛЕЧИТЕ ВОЙСКА" },
+          { type: "p", text: "Вылеченные войска возвращаются домой и могут забрать убийства/очки у участников, отправивших вам подкрепление." },
+          { type: "sub", text: "Приоритет активным участникам" },
+          { type: "p", text: "Сначала отправляйте подкрепление участникам, которые в сети. Волны 7, 14 и 17 атакуют только игроков в сети." },
+          { type: "h", text: "⚔️ ПОДКРЕПЛЕНИЕ СОЮЗНИКАМ" },
+          { type: "p", text: "Ставьте в первую позицию героев, которых вы используете как участников события «{bearHunt}», чтобы получить максимум очков убийств." },
+          { type: "p", text: "**Рекомендуются:** {chenko} / {amane} / {yeonwoo} / {amadeus}" },
+          { type: "callout", text: "Не используйте защитных героев, таких как {howard} или {gordon}, в маршах подкрепления." },
+          { type: "h", text: "🏛️ ШТАБ — ВОЛНЫ 10 И 20" },
+          { type: "p", text: "Волны 10 и 20 атакуют **ТОЛЬКО** штаб. Атаки на города в эти волны приостанавливаются." },
+          { type: "p", text: "После окончания волны 9 / 19:" },
+          { type: "list", items: ["Отзовите **ОДИН** сильный марш.", "Отправьте его прямо в штаб.", "Не более 68K войск на участника.", "В первую позицию поставьте {chenko} или {amadeus}, либо вашего сильнейшего героя по чистому урону.", "После волны штаба отзовите марш и вернитесь к подкреплению закреплённого за вами участника."] },
+          { type: "callout", text: "⚠️ **ВАЖНО:** Отправлять подкрепление в штаб можно в волне 10 **ИЛИ** в волне 20 — **НЕ В ОБЕ.**" },
+          { type: "p", text: "Согласуйте с R4/R5, чтобы каждому досталась очередь и штаб заполнялся эффективно." }
+        ]
+      },
+      th: {
+        title: "การล้างแค้นของไวกิ้ง",
+        blocks: [
+          { type: "h", text: "เมื่อไหร่" },
+          { type: "p", text: "ทุก 2 สัปดาห์ — 2 รอบ รอบละ 30 นาที ในวันที่ 1 และวันที่ 3 ผู้นำเป็นผู้กำหนดเวลา ซึ่งมักใกล้เคียงกับเวลา{bearHunt}" },
+          { type: "h", text: "📌 การเตรียมตัว" },
+          { type: "sub", text: "ทำให้เมืองว่าง" },
+          { type: "list", items: ["ส่ง{infantry}และ{cavalry}**ทั้งหมด**ออกไปส่งกำลังเสริมให้สมาชิกพันธมิตร", "{archer}ส่วนเกินอยู่ที่บ้านได้ — จะไม่แย่งคะแนนจากการเสริมกำลัง", "แม้คุณจะออฟไลน์ระหว่างอีเวนต์ ก็ให้ทำให้เมืองว่างไว้ก่อน! คุณยังได้รับคะแนนได้ และยังเปิดโอกาสให้สมาชิกคนอื่นได้คะแนนจากการส่งกำลังเสริมให้คุณ"] },
+          { type: "sub", text: "เก็บฮีโร่ที่ดีที่สุด 3 ตัวไว้ที่บ้าน" },
+          { type: "p", text: "ให้ฮีโร่ป้องกัน/โจมตีที่ดีที่สุด 3 ตัวอยู่ในด่านรักษาการณ์ (Guard Station) ของคุณ" },
+          { type: "list", items: ["**F2P:** {jabel} / {howard} / {quinn}", "**P2W:** {amadeus} หรือ {helga} / {jabel} / {saul}"] },
+          { type: "sub", text: "ห้ามรักษา" },
+          { type: "p", text: "ทหารที่รักษาแล้วจะกลับบ้านและอาจแย่งการสังหาร/คะแนนจากสมาชิกที่ส่งกำลังเสริมให้คุณ" },
+          { type: "sub", text: "ให้ความสำคัญกับสมาชิกที่ออนไลน์" },
+          { type: "p", text: "ส่งกำลังเสริมให้สมาชิกที่ออนไลน์ก่อน ระลอกที่ 7, 14 และ 17 โจมตีเฉพาะผู้เล่นที่ออนไลน์" },
+          { type: "h", text: "⚔️ ส่งกำลังเสริมให้พันธมิตร" },
+          { type: "p", text: "ใช้ฮีโร่ที่คุณใช้เป็นผู้เข้าร่วมใน{bearHunt}ในตำแหน่งแรก เพื่อให้ได้คะแนนการสังหารสูงสุด" },
+          { type: "p", text: "**แนะนำ:** {chenko} / {amane} / {yeonwoo} / {amadeus}" },
+          { type: "callout", text: "หลีกเลี่ยงฮีโร่สายป้องกันอย่าง{howard}หรือ{gordon}ในการเดินทัพเสริมกำลัง" },
+          { type: "h", text: "🏛️ ศูนย์บัญชาการ — ระลอกที่ 10 และ 20" },
+          { type: "p", text: "ระลอกที่ 10 และ 20 โจมตี**เฉพาะ**ศูนย์บัญชาการ การโจมตีเมืองจะหยุดชั่วคราวในระลอกเหล่านี้" },
+          { type: "p", text: "หลังจากระลอกที่ 9 / 19 จบลง:" },
+          { type: "list", items: ["เรียกกลับการเดินทัพที่แข็งแกร่ง**หนึ่ง**ชุด", "ส่งตรงไปยังศูนย์บัญชาการ", "ทหารสูงสุด 68K ต่อสมาชิก", "ใช้{chenko}หรือ{amadeus}ในตำแหน่งแรก หรือฮีโร่ที่มีความเสียหายดิบสูงที่สุดของคุณ", "หลังจบระลอกของศูนย์บัญชาการ ให้เรียกกลับแล้วกลับไปส่งกำลังเสริมให้สมาชิกที่ได้รับมอบหมาย"] },
+          { type: "callout", text: "⚠️ **สำคัญ:** คุณส่งกำลังเสริมให้ศูนย์บัญชาการได้ในระลอกที่ 10 **หรือ** ระลอกที่ 20 — **ไม่ใช่ทั้งสองระลอก**" },
+          { type: "p", text: "ประสานงานกับ R4/R5 เพื่อให้ทุกคนได้ถึงคิวและเติมศูนย์บัญชาการได้อย่างมีประสิทธิภาพ" }
+        ]
+      },
+      ar: {
+        title: "انتقام الفايكنغ",
+        blocks: [
+          { type: "h", text: "متى" },
+          { type: "p", text: "كل أسبوعين — جلستان مدة كل منهما 30 دقيقة، في اليوم 1 واليوم 3. تحددها القيادة، وغالبًا تكون قريبة من مواعيد {bearHunt}." },
+          { type: "h", text: "📌 التحضير" },
+          { type: "sub", text: "أخلِ مدينتك" },
+          { type: "list", items: ["أرسل **كل** {infantry} و{cavalry} لتعزيز أعضاء التحالف.", "يمكن أن يبقى الرماة الزائدون في المنزل — لن يسرقوا نقاط التعزيز.", "حتى لو كنت غير متصل أثناء الفعالية، أخلِ مدينتك مسبقًا! ما زال بإمكانك كسب النقاط، كما تمنح الأعضاء الآخرين فرصة كسب النقاط بتعزيزك."] },
+          { type: "sub", text: "أبقِ أفضل 3 أبطال في المنزل" },
+          { type: "p", text: "اترك أفضل 3 أبطال دفاع/هجوم في نقطة الحراسة (Guard Station) الخاصة بك." },
+          { type: "list", items: ["**F2P:** {jabel} / {howard} / {quinn}", "**P2W:** {amadeus} أو {helga} / {jabel} / {saul}"] },
+          { type: "sub", text: "لا تعالج القوات" },
+          { type: "p", text: "القوات المعالجة تعود إلى المنزل وقد تسرق القتلى/النقاط من الأعضاء الذين يعززونك." },
+          { type: "sub", text: "أعطِ الأولوية للأعضاء النشطين" },
+          { type: "p", text: "عزز الأعضاء المتصلين أولًا. الموجات 7 و14 و17 تهاجم اللاعبين المتصلين فقط." },
+          { type: "h", text: "⚔️ تعزيز الحلفاء" },
+          { type: "p", text: "استخدم أبطال المنضمين إلى {bearHunt} في الموضع الأول لتحقيق أقصى نقاط القتلى." },
+          { type: "p", text: "**موصى به:** {chenko} / {amane} / {yeonwoo} / {amadeus}" },
+          { type: "callout", text: "تجنب الأبطال الدفاعيين مثل {howard} أو {gordon} في طوابير التعزيز." },
+          { type: "h", text: "🏛️ المقر — الموجتان 10 و20" },
+          { type: "p", text: "الموجتان 10 و20 تهاجمان المقر **فقط**. تتوقف الهجمات على المدن خلال هاتين الموجتين." },
+          { type: "p", text: "بعد انتهاء الموجة 9 / 19:" },
+          { type: "list", items: ["استدعِ طابورًا قويًا **واحدًا**.", "أرسله مباشرة إلى المقر.", "بحد أقصى 68K من القوات لكل عضو.", "استخدم {chenko} أو {amadeus} في الموضع الأول، أو أقوى بطل لديك من حيث الضرر الخام.", "بعد موجة المقر، استدعِ الطابور وعُد إلى تعزيز العضو المخصص لك."] },
+          { type: "callout", text: "⚠️ **مهم:** يمكنك تعزيز المقر في الموجة 10 **أو** الموجة 20 — **وليس كلتيهما.**" },
+          { type: "p", text: "نسّق مع R4/R5 ليأخذ الجميع دورهم ونملأ المقر بكفاءة." }
+        ]
+      }
+    }
+  },
   "bear-hunt": {
     emoji: "🐻",
     name: { zh: "狩獵巨熊", en: "Bear Hunt", ko: "자이언트 베어 사냥", de: "Bärenjagd", fr: "Chasse à l'Ours", pt: "Caça ao Urso", tr: "Ayı Avı", id: "Bear Hunt", ru: "Охота на медведя", th: "ล่าหมี", ar: "صيد الدببة" },
@@ -1658,7 +1967,7 @@ const GUIDES = {
         when_label: "時間",
         when: "每 2 天，依聯盟排定的時間進行。",
         why_label: "重要性",
-        why: "英雄裝備材料（鍛造錘）與強化經驗部件的主要來源。",
+        why: "英雄裝備材料（鍛造錘）與強化經驗值的主要來源。",
         prep_label: "準備事項",
         prep: [
           "每次狩獵巨熊前更新部隊編組。",
@@ -2096,7 +2405,7 @@ const GUIDES = {
       },
 
       en: {
-        title: "Swordland Showdown",
+        title: "Schwertland-Showdown",
         blocks: [
           { type: "h", text: "WHEN" },
           { type: "p", text: "Every 2 weeks — a 60-minute Alliance vs Alliance battlefield event." },
@@ -2486,7 +2795,7 @@ const GUIDES = {
       },
 
       de: {
-        title: "SWORDLAND SHOWDOWN",
+        title: "Schwertland-Showdown",
         blocks: [
           { type: "h", text: "📅 WANN" },
           { type: "p", text: "Alle 2 Wochen — 60-minütiges Allianz-gegen-Allianz-Schlachtfeldevent." },
@@ -3017,7 +3326,7 @@ const GUIDES = {
       },
 
       id: {
-        title: "Swordland Showdown",
+        title: "Schwertland-Showdown",
         blocks: [
           { type: "h", text: "KAPAN" },
           { type: "p", text: "Setiap 2 minggu — event medan perang aliansi lawan aliansi selama 60 menit." },
@@ -3434,13 +3743,13 @@ const GUIDES = {
             "ย้ายถิ่นฐานไปยังโซนและสิ่งปลูกสร้างที่ได้รับมอบหมาย",
             "ยึดครองสิ่งปลูกสร้างที่มีความสำคัญสูง",
             "โจมตีปราสาทศัตรูที่อ่อนแอเดี่ยว ๆ",
-            "นำการระดมพลที่สำคัญ",
+            "นำทีมระดมพลที่สำคัญ",
             "ไปยังเป้าหมายถัดไปเมื่อหน่วยรับเข้ามารับช่วง",
             "เมื่อศัตรูย้ายถิ่นฐานมาใกล้สิ่งปลูกสร้างของคุณ ให้เล็งปราสาทที่อ่อนแอหรือไร้การป้องกัน"
           ]},
 
           { type: "sub", text: "🛡️ 2) หน่วยรับ" },
-          { type: "p", text: "**ใคร:** ผู้เล่นที่แข็งแกร่งรองลงมา มีความจุการระดมพล/กองรักษาการณ์ที่ดี" },
+          { type: "p", text: "**ใคร:** ผู้เล่นที่แข็งแกร่งรองลงมา มีความจุทีมระดมพล/กองรักษาการณ์ที่ดี" },
           { type: "p", text: "**หน้าที่ของคุณ:**" },
           { type: "list", items: [
             "ตามหน่วยบุกที่ได้รับมอบหมาย (โซน)",
@@ -3453,7 +3762,7 @@ const GUIDES = {
           { type: "p", text: "**ใคร:** โดยทั่วไปคือสมาชิกที่มีพลังต่ำกว่าและผู้เข้าร่วมระดมพล" },
           { type: "p", text: "**หน้าที่ของคุณ:**" },
           { type: "list", items: [
-            "**ต้อง**เข้าร่วมการระดมพลของหน่วยรับที่ได้รับมอบหมาย",
+            "**ต้อง**เข้าร่วมทีมระดมพลของหน่วยรับที่ได้รับมอบหมาย",
             "เสริมกำลังสิ่งปลูกสร้างที่ยึดได้",
             "ส่งกำลังเสริมด้วยการเดินทัพเร่งเมื่อถูกร้องขอ",
             "ปฏิบัติการจาก **เขตปลอดภัย** เมื่อไม่ได้เป็นที่ต้องการที่อื่น หรืออยู่ไกลจากระยะของศัตรู"
@@ -3507,11 +3816,11 @@ const GUIDES = {
             { time: "20:00–60:00", title: "⛏️ {undercellar}", lines: [
               "{undercellar} เริ่มปรากฏขึ้น",
               "หน่วยสนับสนุนและทุกคนที่มีการเดินทัพว่างควรไปเก็บเพื่อรับคะแนนเพิ่ม",
-              "**อย่าทิ้งการป้องกันหรือการระดมพลที่สำคัญเพียงเพื่อไปเก็บ**"
+              "**อย่าทิ้งการป้องกันหรือทีมระดมพลที่สำคัญเพียงเพื่อไปเก็บ**"
             ]},
             { time: "15 นาทีสุดท้าย", title: "🏁 ช่วงปิดท้าย", groups: [
               { title: "หากเรานำอยู่", lines: ["ปกป้อง {swordshrine} และ {sanctum}", "เสริมกำลังสิ่งปลูกสร้างที่สะสมคะแนน", "หลีกเลี่ยง PvP ที่ไม่จำเป็น", "เก็บ {arsenal} ที่กระจัดกระจายคืนทันที", "อย่าเสี่ยงโดยไม่จำเป็น"] },
-              { title: "หากเราตามอยู่", lines: ["กดดันสิ่งปลูกสร้างหลักของศัตรู", "ใช้ {mercenary} ก่อนการโจมตีแบบประสานงาน", "รวมกำลังในการระดมพลแทนการโจมตีมั่ว", "เล็งสิ่งปลูกสร้างมูลค่าสูงที่ศัตรูยึดครอง", "เก็บทุกคะแนนที่ตกหลังเปลี่ยนมือสำเร็จ"] }
+              { title: "หากเราตามอยู่", lines: ["กดดันสิ่งปลูกสร้างหลักของศัตรู", "ใช้ {mercenary} ก่อนการโจมตีแบบประสานงาน", "รวมกำลังในทีมระดมพลแทนการโจมตีมั่ว", "เล็งสิ่งปลูกสร้างมูลค่าสูงที่ศัตรูยึดครอง", "เก็บทุกคะแนนที่ตกหลังเปลี่ยนมือสำเร็จ"] }
             ], warn: "**5 นาทีสุดท้าย: คะแนน > การสังหาร**" }
           ]},
 
@@ -3889,7 +4198,7 @@ const GUIDES = {
   },
      "formations-rally-tips": {
     emoji: "🛡️",
-    name: { en: "Formations & Rally Tips", zh: "部隊編組與集結技巧", ko: "부대 편성 및 집결 팁", de: "Trupp-Formationen & Rally-Tipps", fr: "Formations de troupe et conseils de ralliement", pt: "Formações das Tropas e dicas de rally", tr: "Birlik Dizilişleri ve Seferberlik İpuçları", id: "Formasi Pasukan & Tips Reli", ru: "Войско и советы по рейдам", th: "รูปแบบการจัดวางทหารและเคล็ดลับการระดมพล", ar: "القوات ونصائح الحشد" },
+    name: { en: "Formations & Rally Tips", zh: "部隊編組與集結技巧", ko: "부대 편성 및 집결 팁", de: "Trupp-Formationen & Rally-Tipps", fr: "Formations de troupe et conseils de ralliement", pt: "Formações das Tropas e dicas de rally", tr: "Birlik Dizilişleri ve Seferberlik İpuçları", id: "Formasi Pasukan & Tips Reli", ru: "Войско и советы по рейдам", th: "รูปแบบการจัดวางทหารและเคล็ดลับทีมระดมพล", ar: "القوات ونصائح الحشد" },
     sections: {
       en: {
         title: "Formations & Rally Tips",
@@ -4008,8 +4317,8 @@ const GUIDES = {
       ko: {
         title: "부대 편성 및 집결 팁",
         blocks: [
-          { type: "h", text: "🔬 연구 및 강화 우선순위" },
-          { type: "p", text: "연구와 영주 보석 강화 시 다음 전투 능력치를 우선하세요:" },
+          { type: "h", text: "🔬 연구 및 업그레이드 우선순위" },
+          { type: "p", text: "연구와 영주 보석 레벨업 시 다음 전투 능력치를 우선하세요:" },
           { type: "list", items: [
             "{infantry} {health}",
             "{archer} {lethality}"
@@ -4398,7 +4707,7 @@ const GUIDES = {
         ]
       },
       th: {
-        title: "รูปแบบการจัดวางทหารและเคล็ดลับการระดมพล",
+        title: "รูปแบบการจัดวางทหารและเคล็ดลับทีมระดมพล",
         blocks: [
           { type: "h", text: "🔬 ลำดับความสำคัญของการวิจัยและอัปเกรด" },
           { type: "p", text: "จัดลำดับความสำคัญของค่าสถานะการต่อสู้เหล่านี้สำหรับการวิจัยและอัปเกรดเครื่องรางของเจ้าเมือง:" },
@@ -4409,7 +4718,7 @@ const GUIDES = {
           { type: "h", text: "💾 บันทึกพรีเซ็ตของคุณ" },
           { type: "p", text: "ขึ้นอยู่กับความก้าวหน้าของคุณ คุณสามารถปลดล็อกได้สูงสุด 8 ช่องเพื่อบันทึกรูปแบบการจัดวางทหารไว้ล่วงหน้า รูปแบบที่แนะนำให้บันทึก:" },
           { type: "callout", text: "อัตราส่วนทหารทั้งหมดเรียงตาม **{infantry} : {cavalry} : {archer}** บันทึกพรีเซ็ตแยกสำหรับฮีโร่แต่ละตัว โดยวางฮีโร่ไว้ซ้ายสุด / ตำแหน่งแรก" },
-          { type: "callout", text: "💡 ฮีโร่ซ้ายสุดสำคัญเมื่อเข้าร่วมการระดมพล เพราะทักษะ (Expedition skill) ที่เกี่ยวข้องจะช่วยเสริมการระดมพลนั้น" },
+          { type: "callout", text: "💡 ฮีโร่ซ้ายสุดสำคัญเมื่อเข้าร่วมทีมระดมพล เพราะทักษะ (Expedition skill) ที่เกี่ยวข้องจะช่วยเสริมทีมระดมพลนั้น" },
           { type: "list", items: [
             "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
             "2) {bearHunt}: {amane} — **10 : 10 : 80** (หรือใกล้เคียงที่สุด)",
@@ -4418,19 +4727,19 @@ const GUIDES = {
             "5) โจมตี (PvP ทั่วไป): {amadeus} (หากพัฒนาแล้ว) หรือ {chenko} — **50 : 20 : 30**",
             "6) ป้องกัน: {howard} / {gordon} — **60 : 20 : 20** คือค่าเริ่มต้นที่สมดุลของเรา ปรับเปลี่ยนเมื่อผู้นำต้องการรูปแบบเฉพาะ"
           ] },
-          { type: "p", text: "**ผู้นำการระดมพล:** ใช้ทีมฮีโร่โจมตีที่แข็งแกร่งและครบชุดที่สุดของคุณ" },
-          { type: "p", text: "**ผู้เข้าร่วมการระดมพล:** โปรดปฏิบัติตามขีดจำกัดทหารที่ผู้นำประกาศ" },
+          { type: "p", text: "**ผู้นำทีมระดมพล:** ใช้ทีมฮีโร่โจมตีที่แข็งแกร่งและครบชุดที่สุดของคุณ" },
+          { type: "p", text: "**ผู้เข้าร่วมทีมระดมพล:** โปรดปฏิบัติตามขีดจำกัดทหารที่ผู้นำประกาศ" },
           { type: "list", items: [
             "7) ศูนย์บัญชาการไวกิ้ง (Viking HQ): {howard} / {gordon} — **60 : 40** ปฏิบัติตามขีดจำกัดทหาร (~68,000)",
             "8) PvE – สัตว์อสูร / ล่า: {diana} + {fahd} — **50 : 20 : 30**"
           ] },
           { type: "h", text: "🐺 PvE — สัตว์อสูร / ล่า" },
-          { type: "p", text: "จำไว้เกี่ยวกับหมาป่าสยองขวัญ: ไม่ต้องใช้ความเสียหายมาก ดังนั้นส่งทหารให้น้อยที่สุด (แม้แต่ 1) เพื่อให้สมาชิกพันธมิตรเข้าร่วมและได้รับรางวัลจากการระดมพลมากขึ้น" },
+          { type: "p", text: "จำไว้เกี่ยวกับหมาป่าสยองขวัญ: ไม่ต้องใช้ความเสียหายมาก ดังนั้นส่งทหารให้น้อยที่สุด (แม้แต่ 1) เพื่อให้สมาชิกพันธมิตรเข้าร่วมและได้รับรางวัลจากทีมระดมพลมากขึ้น" },
           { type: "h", text: "🏰 {castleBattle} / {sanctuary} / สิ่งปลูกสร้าง" },
           { type: "p", text: "เมื่อยึดสิ่งปลูกสร้าง ให้พร้อมสลับอย่างรวดเร็ว:" },
           { type: "callout", text: "**โจมตี → ป้องกัน**" },
           { type: "sub", text: "⚔️ 1. ยึดครอง" },
-          { type: "p", text: "เข้าร่วมการระดมพลแรกด้วยพรีเซ็ตโจมตีของคุณ" },
+          { type: "p", text: "เข้าร่วมทีมระดมพลแรกด้วยพรีเซ็ตโจมตีของคุณ" },
           { type: "p", text: "**ตัวอย่าง:** {amadeus} / {chenko} **50 : 20 : 30**" },
           { type: "sub", text: "🛡️ 2. สลับเป็นป้องกัน" },
           { type: "p", text: "เมื่อยึดสิ่งปลูกสร้างได้แล้ว:" },
@@ -4737,22 +5046,22 @@ addBear("th", {
       "อัปเดตรูปแบบการจัดวางทหารของคุณก่อนล่าหมีทุกครั้ง",
       { callout: true, text: "ตัวเลือกเสริม: ใช้ <a href=\"https://frakinator.streamlit.app/\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a> เพื่อทดสอบอัตราส่วนทหารและหารูปแบบที่แข็งแกร่งที่สุดของคุณ" },
       "เรียกกลับทหารที่กำลังเก็บทรัพยากรก่อนอีเวนต์เริ่ม",
-      "โปรดจำไว้: ใน 5–7 นาทีสุดท้าย ทุกคนควรเปิดการระดมพล ซึ่งจะเพิ่มที่ว่างให้ผู้เล่นที่ทหารกำลังเดินทางกลับ ทำให้ปิดท้ายด้วยความเสียหายอีกระลอกได้"
+      "โปรดจำไว้: ใน 5–7 นาทีสุดท้าย ทุกคนควรเปิดทีมระดมพล ซึ่งจะเพิ่มที่ว่างให้ผู้เล่นที่ทหารกำลังเดินทางกลับ ทำให้ปิดท้ายด้วยความเสียหายอีกระลอกได้"
     ],
-    leaders_label: "ผู้นำการระดมพล",
-    joiners_label: "ผู้เข้าร่วมการระดมพล",
+    leaders_label: "ผู้นำทีมระดมพล",
+    joiners_label: "ผู้เข้าร่วมทีมระดมพล",
     joiners_ratio: "อัตราส่วนมาตรฐาน / ปลอดภัย: ทหารราบ 10%, ทหารม้า 10% และพลธนู 80% (หรือรูปแบบอื่นเช่น 20-30-50)"
   },
   notes: [
     "รูปแบบทหาร: 30-30-40% ในกรณีส่วนใหญ่ ทหารราบจะมีค่าสถานะดีที่สุดเพราะค่าสถานะพื้นฐานของอมาดีอุส ดังนั้นรูปแบบที่เกือบเท่ากันโดยมีพลธนูมากกว่าเล็กน้อยให้ผลดีที่สุด",
-    "รูปแบบทหาร: 20-40-40% เหมาะสำหรับคนที่ยังไม่ได้เลือกอมาดีอุส และยังเปิดโอกาสให้ใช้อมาดีอุสเข้าร่วมการระดมพลได้",
-    "รูปแบบทหาร: 30-30-40% สำหรับ F2P แนะนำให้ใช้ฮีโร่ทั้ง 3 ตัวที่มีอยู่เสมอเมื่อเปิดการระดมพล",
-    "รูปแบบทหาร: 20-30-50% มาร์ลินช่วยเพิ่มความเสียหายได้มากเพราะอุปกรณ์เฉพาะการระดมพลของเขา ตั้งแต่เจน 2 ขึ้นไป ทหารราบจะเป็นอมาดีอุสหรือเฮลก้าเสมอ — สองคนนี้เป็นฮีโร่ทหารราบเพียงกลุ่มเดียวที่มีอุปกรณ์เฉพาะการระดมพล (โบนัสความแรงพลัง) คุณส่งทหารราบน้อยลง ฮีโร่ทหารราบจึงชดเชยความเสียหายของพลธนูด้วยอุปกรณ์นี้ แทนที่จะเทียบค่าสถานะทหารราบ",
-    "รูปแบบทหาร: 20-30-50% อีกทางเลือกคือสลับควินน์เป็นมาร์ลิน หากเขายังไม่ดีกว่า ใช้เฮลก้าในเจน 2 ขึ้นไปเฉพาะเมื่ออมาดีอุสยังไม่ได้ 5 ดาว + อุปกรณ์เฉพาะระดับสูงสุด และยังเป็นโอกาสใช้อมาดีอุสเข้าร่วมการระดมพลด้วย",
-    "รูปแบบทหาร: 30-30-40% ยังไม่มีฮีโร่ F2P ที่มีอุปกรณ์เฉพาะการระดมพล จึงใช้รูปแบบที่สมดุลโดยมีพลธนูมากกว่าเล็กน้อยอีกครั้ง เพราะค่าสถานะพลธนูจะต่ำที่สุดเนื่องจากไม่มีฮีโร่พลธนู SSR",
+    "รูปแบบทหาร: 20-40-40% เหมาะสำหรับคนที่ยังไม่ได้เลือกอมาดีอุส และยังเปิดโอกาสให้ใช้อมาดีอุสเข้าร่วมทีมระดมพลได้",
+    "รูปแบบทหาร: 30-30-40% สำหรับ F2P แนะนำให้ใช้ฮีโร่ทั้ง 3 ตัวที่มีอยู่เสมอเมื่อเปิดทีมระดมพล",
+    "รูปแบบทหาร: 20-30-50% มาร์ลินช่วยเพิ่มความเสียหายได้มากเพราะอุปกรณ์เฉพาะทีมระดมพลของเขา ตั้งแต่เจน 2 ขึ้นไป ทหารราบจะเป็นอมาดีอุสหรือเฮลก้าเสมอ — สองคนนี้เป็นฮีโร่ทหารราบเพียงกลุ่มเดียวที่มีอุปกรณ์เฉพาะทีมระดมพล (โบนัสความแรงพลัง) คุณส่งทหารราบน้อยลง ฮีโร่ทหารราบจึงชดเชยความเสียหายของพลธนูด้วยอุปกรณ์นี้ แทนที่จะเทียบค่าสถานะทหารราบ",
+    "รูปแบบทหาร: 20-30-50% อีกทางเลือกคือสลับควินน์เป็นมาร์ลิน หากเขายังไม่ดีกว่า ใช้เฮลก้าในเจน 2 ขึ้นไปเฉพาะเมื่ออมาดีอุสยังไม่ได้ 5 ดาว + อุปกรณ์เฉพาะระดับสูงสุด และยังเป็นโอกาสใช้อมาดีอุสเข้าร่วมทีมระดมพลด้วย",
+    "รูปแบบทหาร: 30-30-40% ยังไม่มีฮีโร่ F2P ที่มีอุปกรณ์เฉพาะทีมระดมพล จึงใช้รูปแบบที่สมดุลโดยมีพลธนูมากกว่าเล็กน้อยอีกครั้ง เพราะค่าสถานะพลธนูจะต่ำที่สุดเนื่องจากไม่มีฮีโร่พลธนู SSR",
     "รูปแบบทหาร: 10-20-70% เฮลก้าที่พัฒนาเต็มที่ทำได้ดีกว่าอมาดีอุสในเจน 3 เพราะมีอุปกรณ์ความแรงพลัง 2 ชิ้นและอุปกรณ์พลังโจมตี 1 ชิ้น เทียบกับความแรงพลัง 1 ชิ้นและพลังโจมตี 2 ชิ้นของอมาดีอุสในชุดนี้",
     "รูปแบบทหาร: 20-30-50% หากคุณไม่มีเฮลก้าที่พัฒนาเต็มที่ (5 ดาว + อุปกรณ์เฉพาะ) ควรใช้อมาดีอุสจะดีกว่า",
-    "รูปแบบทหาร: 20-40-40% ในเจน 3 ผู้เล่น F2P จะได้ฮีโร่ตัวแรกที่มีอุปกรณ์เฉพาะการระดมพล (Petra) ลองใช้จำนวนพลธนูและทหารม้าให้สมดุล เพราะ Petra เสริมพลธนูได้มาก ค่าสถานะพลธนูยังต่ำที่สุดหากไม่มีพลธนู SSR หากคุณปลดล็อกทหารม้า T10 ทักษะ T10 เข้ากับค่าสถานะของ Petra ได้ดี",
+    "รูปแบบทหาร: 20-40-40% ในเจน 3 ผู้เล่น F2P จะได้ฮีโร่ตัวแรกที่มีอุปกรณ์เฉพาะทีมระดมพล (Petra) ลองใช้จำนวนพลธนูและทหารม้าให้สมดุล เพราะ Petra เสริมพลธนูได้มาก ค่าสถานะพลธนูยังต่ำที่สุดหากไม่มีพลธนู SSR หากคุณปลดล็อกทหารม้า T10 ทักษะ T10 เข้ากับค่าสถานะของ Petra ได้ดี",
     "รูปแบบทหาร: 10-10-80% ใส่พลธนูให้มากที่สุดเท่าที่ทำได้ โดยเฉพาะถ้าเป็น T10 หากโชคดี ทักษะที่ 3 ของ Rosa จะช่วยได้เอง (เพิ่มพลังโจมตีรวมของพลธนู 30%)",
     "รูปแบบทหาร: 10-10-80% ใช้เฮลก้าเป็นทางเลือกหากเธอมีดาวและระดับอุปกรณ์เฉพาะดีกว่าอมาดีอุส ยังคงใส่พลธนูให้มากที่สุดเท่าที่ทำได้ โดยเฉพาะ T10 เพื่อทักษะที่ 3 ของ Rosa (เพิ่มพลังโจมตีรวมของพลธนู 30%)",
     "รูปแบบทหาร: 10-10-80% เหมือนกับฮีโร่ทางเลือกที่ดีที่สุด — โบนัสทักษะที่ 3 ของ Rosa ได้ผลดีที่สุดหากคุณเน้นรูปแบบที่มีพลธนูจำนวนมาก (เพิ่มพลังโจมตีรวมของพลธนู 30%)",
