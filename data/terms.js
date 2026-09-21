@@ -102,8 +102,8 @@ const TERMS = [
    ["Counter-recon", "反偵察", "정찰 방지", "Gegenaufklärung", "Anti-repérage", "Antirreconhecimento", "Gözetleme Önleyen", "Kontra-pengintaian", "Контрразведка", "หน่วยป้องกันพิเศษ", "الاستطلاع المضاد", "City Bonus screen. The Thai wording literally means 'special defense unit'."],
    ["Squad", "部隊", "부대", "Schwadron", "Escouade", "Esquadrão", "Ekip", "Skuad", "Войска", "ทีม", "الفرقة", "Troop group. Not confirmed for the battle-day 'Squad Chat' tab. Wording varies by screen: Russian 'Войска' (terms) / 'Войско' (Alliance Banner, Formations) / 'отряд' (Recall dialog); Portuguese 'Esquadrão' (lowercase inside sentences); Indonesian 'Skuad'."],
    ["Shield", "防護罩", "보호막", "Schild", "Bouclier", "Escudo", "Kalkan", "Perisai", "Щит", "โล่", "درع"],
-   ["Marching", "行軍", "행군", "Marschieren", "Marche", "—", "İntikal", "Barisan", "Марш", "เดินทัพ", "زحف"],
-   ["Gathering", "採集", "채집", "Sammeln", "Collecte", "—", "Toplanıyor", "Mengumpulkan", "Сбор", "การเก็บทรัพยากร", "الجمع"],
+   ["Marching", "行軍", "행군", "Marschieren", "Marche", "Marchando", "İntikal", "Barisan", "Марш", "เดินทัพ", "زحف"],
+   ["Gathering", "採集", "채집", "Sammeln", "Collecte", "Coletando", "Toplanıyor", "Mengumpulkan", "Сбор", "การเก็บทรัพยากร", "الجمع"],
    ["Control", "控制 / 佔領", "제어 / 점령", "Kontrolle", "Contrôle", "Controle", "Kontrol / hakimiyet / işgal", "Penguasaan / kendali", "контроль / захват", "การควบคุม / ยึดครอง", "التحكم / السيطرة"],
    ["Building control time", "佔領時長", "점령 시간", "—", "temps nécessaire pour contrôler", "tempo necessário para assumir o controle das construções", "binaları kontrol etme süresi", "waktu yang diperlukan untuk menguasai bangunan", "время захвата зданий", "เวลาที่ใช้ในการยึดครองสิ่งปลูกสร้าง", "الوقت المطلوب للسيطرة على المباني", "Seen inside sentences."],
    ["Defense failure", "防守失敗", "방어에 실패", "—", "défaite", "derrota", "—", "kalah", "поражение", "ตกเป็นฝ่ายแพ้", "الهزيمة", "Seen inside sentences."],
@@ -123,7 +123,7 @@ const TERMS = [
    ["Health", "生命值", "HP", "Gesundheit", "Santé", "Vida", "Sağlık", "Health", "Здоровье", "พลังชีวิต", "صحة"],
    ["Combat buffs", "戰鬥增益", "—", "—", "—", "—", "—", "—", "боевые усиления", "—", "—"],
    ["Escorts", "護衛數量", "호위병 수량", "Eskorten", "Escortes", "Escoltas", "Eşlikçiler", "Pengawal", "Конвои", "หน่วยคุ้มกัน", "المواكب"],
-   ["Level", "等級", "레벨", "Level", "Niveau", "Nível", "Seviye", "Level", "Уровень", "เลเวล", "المستوى", "Portuguese label 'Nível'; abbreviated 'Nv.' in sentences (e.g. Nv. 16)."],
+   ["Level", "等級", "레벨", "Level", "Niveau", "Nível", "Seviye", "Level", "Уровень", "เลเวล", "المستوى", "Portuguese label 'Nível'; abbreviated 'Nv.' in sentences (e.g. Nv. 16). Short form 'Lv.' on most screens: Chinese 級 (28級), French Niv., Portuguese Nv., Turkish Sv., Russian Ур., Arabic المستوى."],
    ["Troops Capacity", "部隊容量", "부대 수용량", "Truppenkapazität", "Capacité de Troupes", "Capacidade de Tropa", "Birlik Kapasitesi", "Kapasitas Pasukan", "Вместимость войска", "ความจุทีม", "قدرة القوات"]
   ]
  },
@@ -132,7 +132,7 @@ const TERMS = [
   "rows": [
    ["Infantry", "步兵", "보병", "Infanterie", "Infanterie", "—", "Piyade", "Infanteri", "пехотинец", "ทหารราบ", "المشاة"],
    ["Cavalry", "騎兵", "기병", "Kavallerie", "Cavalerie", "—", "Süvari", "Kavaleri", "кавалерист", "ทหารม้า", "الفرسان"],
-   ["Archer", "弓兵", "궁병", "Bogenschütze", "Archer", "—", "Okçu", "Pemanah", "стрелок", "พลธนู", "الرماة", "Portuguese: the Troops Preview button shows 'Arquearia do Ápice', so the plain word is probably 'Arquearia', not 'Arqueiro'. Still unconfirmed."],
+   ["Archer", "弓兵", "궁병", "Bogenschütze", "Archer", "Arquearia", "Okçu", "Pemanah", "стрелок", "พลธนู", "الرماة", "Portuguese: 'Arquearia' is confirmed (Troops Preview 'Arquearia do Ápice' and Governor Gear 'Ataque da Arquearia'), not 'Arqueiro'."],
    ["Apex Infantry", "王牌步兵", "에이스 보병", "Spitzen Infanterie", "Infanterie Extrême", "Infantaria do Ápice", "Mükemmel Piyade", "Infanteri Top", "Превосходный пехотинец", "ทหารราบเอเปกซ์", "المشاة المهيمنين", "Troops Preview button."],
    ["Apex Cavalry", "王牌騎兵", "에이스 기병", "Spitzen Kavallerie", "Cavalerie Extrême", "Cavalaria do Ápice", "Mükemmel Süvari", "Kavaleri Top", "Превосходный кавалерист", "ทหารม้าเอเปกซ์", "الفرسان المهيمنين", "Troops Preview button."],
    ["Apex Archer", "王牌弓兵", "에이스 궁병", "Spitzen Bogenschütze", "Archer Extrême", "Arquearia do Ápice", "Mükemmel Okçu", "Pemanah Top", "Превосходный стрелок", "พลธนูเอเปกซ์", "الرماة المهيمنين", "Troops Preview button."],
@@ -266,11 +266,19 @@ const TERMS = [
  {
   "cat": "Gear terms",
   "rows": [
-   ["Governor Gear", "領主裝備", "영주 장비", "Gouverneur-Ausrüstung", "Équipement du Chef", "Equipamento de Governador", "Vali Donanımı", "Gear Gubernur", "Снаряжение губернатора", "อุปกรณ์เจ้าเมือง", "عتاد الحاكم", "French uses 'Chef' for Governor here."],
+   ["Governor Gear", "領主裝備", "영주 장비", "Gouverneur-Ausrüstung", "Équipement Chef", "Equipamento do Chefe", "Şef Donanımı", "Gear Gubernur", "Снаряжение губернатора", "อุปกรณ์ผู้นำค่าย", "عتاد الحاكم", "Values are the Governor Gear screen title. The item descriptions in the Backpack use other wording: French 'Équipement du Chef', Portuguese 'Equipamento de Governador', Turkish 'Vali Donanımı', Thai 'อุปกรณ์เจ้าเมือง'. French and Portuguese use 'Chef/Chefe' for Governor here."],
    ["Hero Gear", "英雄裝備", "영웅 장비", "Heldenausrüstung", "Équipement de héros", "Equipamento do Herói", "Kahraman Donanımı", "Gear Hero", "Снаряжение героя", "อุปกรณ์ฮีโร่", "عتاد البطل", "French abbreviation 'ÉQP de Héros'; Portuguese abbreviation 'Equip. de Herói'."],
    ["Mastery Forging", "專精鍛造", "마스터리 제작", "Meisterhaftes Schmieden", "Forge de Maîtrise", "M. em Forja", "Usta İşi Dövme", "Penempaan Mastery", "Мастерство кузнеца", "การปรับความเชี่ยวชาญ", "صقل التخصص", "Portuguese seen only abbreviated ('M. em Forja'); Thai from the Forgehammer text. Portuguese 'dom.' and Indonesian 'Mastery' are the short forms of Mastery."],
    ["Enhancement XP", "強化經驗值", "—", "Verbesserungs-XP", "EXP d'Amélioration", "XP de Aprimoramento", "Geliştirme TP", "Enhancement XP", "опыт усиления", "XP การพัฒนา", "خبرة تحسين", "Turkish 'TP' = experience points."],
-   ["Mythic", "傳說", "레전드", "Mythisch", "Mythique", "Mítico", "Mitik", "Mythic", "Мифический", "ขั้นเทพ", "خيالي", "Chinese and Korean use 傳說 / 레전드 for Mythic."]
+   ["Mythic", "傳說", "레전드", "Mythisch", "Mythique", "Mítico", "Mitik", "Mythic", "Мифический", "ขั้นเทพ", "خيالي", "Chinese and Korean use 傳說 / 레전드 for Mythic."],
+   ["Stat Bonuses", "屬性加成", "속성 버프", "Stat-Boni", "Bonus de Stats", "Bônus de Atributos", "Özellik Bonusları", "Bonus Stat", "Бонусы к показателям", "โบนัสสถานะ", "تعزيز السمات"],
+   ["Archer Attack", "弓兵攻擊力", "궁병 공격력", "Bogenschützen-Angriff", "Attaque de l'Arch.", "Ataque da Arquearia", "Okçu Saldırısı", "Serangan Pemanah", "Атака стрелков", "พลังโจมตีพลธนู", "هجوم الرماة"],
+   ["Archer Defense", "弓兵防禦力", "궁병 방어력", "Bogenschützen-Verteidigung", "Défense de l'Arch.", "Defesa da Arquearia", "Okçu Savunması", "Pertahanan Pemanah", "Защита стрелков", "พลังป้องกันพลธนู", "دفاع الرماة"],
+   ["Enhancement Cost", "強化消耗", "강화 소모", "Verbesserungskosten", "Coût d'Amélioration", "Custo de Melhoria", "Geliştirme Maliyeti", "Biaya Peningkatan", "Стоимость усиления", "สิ่งที่ใช้ในการพัฒนา", "تكلفة التحسين"],
+   ["Enhance", "強化", "강화", "Verbessern", "Améliorer", "Melhorar", "Geliştir", "Tingkatkan", "Усилить", "พัฒนา", "تحسين", "Button."],
+   ["Gear Enhancement", "裝備強化", "장비 강화", "Ausrüstungsverbesserung", "Amélioration d'Équipement", "Aprimoramento do Equipamento", "Donanım Geliştirmesi", "Peningkatan Gear", "Усиление снаряжения", "การพัฒนาอุปกรณ์", "تحسين العتاد", "Tab of the Governor Gear screen."],
+   ["Charm Upgrades", "寶石升級", "보석 레벨업", "Talisman-Verbesserungen", "Améliorations du Talisman", "Aprimoramentos de Acessório", "Tılsım Yükseltmeleri", "Upgrade Charm", "Улучшение талисманов", "การอัปเกรดเครื่องราง", "ترقيات التميمة", "Second tab of the Governor Gear screen. The old guides called these 'Governor Charms', which is not a game term."],
+   ["Charm", "寶石", "보석", "Talisman", "Talisman", "Acessório", "Tılsım", "Charm", "талисман", "เครื่องราง", "التميمة", "Singular form taken from the 'Charm Upgrades' titles (Russian and Arabic show it in a plural or definite form)."]
   ]
  },
  {
@@ -308,6 +316,34 @@ const TERMS = [
    ["Alliance HQ", "聯盟總部", "연맹 본부", "Allianz-Hauptquartier", "QG d'Alliance", "QG da Aliança", "İttifak Karargahı", "markas aliansi", "штаб альянса", "ศูนย์บัญชาการพันธมิตร", "مقر التحالف", "Seen inside sentences."],
    ["[Plains] HQ", "【平原】總部", "[평원] 본부", "[Ebenen]-Hauptquartier", "QG des [Plaines]", "QG das [Planícies]", "Çayır Karargahı", "markas [Plains]", "штаб на [равнинах]", "ศูนย์บัญชาการ [ที่ราบสูง]", "مقر [السهول]", "The Vikings attack this one first. Turkish is inflected in the game text (Çayır Karargahına). Indonesian keeps English [Plains]."],
    ["[Badland] HQ", "【荒野】總部", "[황야] 본부", "[Badland]-Hauptquartier", "QG des [Bas-fonds]", "QG da [Terra Maligna]", "Çoraktoprak Karargahı", "markas [Badland]", "штаб в [дикой местности]", "ศูนย์บัญชาการ [ดินแดนกันดาร]", "مقر [أرض الشر]", "Attacked if there is no Plains HQ. Chinese 荒野 is the same word as in Desert Trial (荒野的試煉). Indonesian keeps English [Badland]."]
+  ]
+ },
+ {
+  "cat": "Hero skills",
+  "rows": [
+   ["Expedition Skills", "遠征技能", "원정 스킬", "Expeditionsfähigkeiten", "Compétences d'Expédition", "habilidades de expedição", "Sefer Yetenekleri", "Skill Ekspedisi", "Навыки экспедиции", "—", "مهارات الحملة", "They take effect when heroes fight with their troops on the Wilderness map. Thai: the screenshot text was cut off; only 'ทักษะ' (skill) was visible."],
+   ["Wilderness map", "野外地圖", "야외 맵", "Wildniskarte", "Carte de la Nature", "mapa da Região Selvagem", "Yaban haritası", "peta Wilderness", "карта глуши", "แผนที่แดนเถื่อน", "خريطة البرية", "Seen inside a sentence. Indonesian keeps the English 'Wilderness'."],
+   ["Shield Strike", "劍盾猛攻", "검방패 맹공", "Schildschlag", "Frappe de Bouclier", "Ataque com Escudo", "Kalkanlı Darbe", "Shield Strike", "Удар щитом", "พิฆาตโล่", "ضربة الدرع", "Zoe's expedition skill."],
+   ["Upgrade Preview", "升級預覽", "업그레이드 보기", "Upgrade-Vorschau", "Aperçu d'Amélioration", "Prever Aprimoramento", "Yükseltme Önizlemesi", "Pratinjau Upgrade", "Предпросмотр улучшения", "ตัวอย่างการอัปเกรด", "معاينة الترقية"],
+   ["Damage Up", "造成傷害提升", "가하는 피해 증가", "Schadens-Bonus", "Dégâts +", "Aumento de Dano", "Hasar Artışı", "Damage Naik", "Повышение урона", "ความเสียหายเพิ่มขึ้น", "رفع الضرر"],
+   ["Enemy Damage Taken Up", "敵軍受到傷害提升", "적군이 받는 피해 증가", "Bonus für erlittenen feindlichen Schaden", "Dégâts Subis par l'Ennemi +", "Dano causado ao inimigo", "Düşmanın Aldığı Hasarın Artışı", "Damage yang Diterima Musuh Naik", "Пов. урона по противнику", "เพิ่มความเสียหายที่ศัตรูได้รับ", "الأضرار التي لحقت بالعدو", "The Portuguese wording says 'damage caused to the enemy', which differs slightly in meaning."],
+   ["Level maxed!", "已達最高等級", "이미 최고 레벨에 도달했습니다", "Maximales Level erreicht!", "Niveau max !", "Nível máximo atingido!", "Son seviyede!", "Tingkat maksimal!", "Максимальный уровень!", "มีเลเวลสูงสุดแล้ว", "الحد الأقصى للمستوى!"]
+  ]
+ },
+ {
+  "cat": "Map",
+  "rows": [
+   ["Beasts", "野獸", "야수", "Bestien", "Bêtes", "Feras", "Hayvanlar", "binatang buas", "Звери", "สัตว์อสูร", "الوحوش", "Map hunting tab. Indonesian is lowercase in the game."],
+   ["Terror", "巨獸", "괴수", "Terror", "Terreur", "Terror", "Dehşet", "Terror", "Ужас", "อสูรร้าย", "وحش عملاق", "Map hunting tab (the second monster type)."],
+   ["Great Iron Mine", "大型鐵礦場", "대형 철광장", "Großes Eisenbergwerk", "Grande Mine de Fer", "Grande Mina de Ferro", "Büyük Demir Madeni", "Tambang Besi Besar", "Большой железный рудник", "เหมืองเหล็กใหญ่", "منجم حديد عظيم", "Map gathering tab."],
+   ["Bread", "麵包", "빵", "Brot", "Pain", "Pão", "Ekmek", "Roti", "Хлеб", "ขนมปัง", "الخبز", "Map gathering tab."],
+   ["Search", "搜索", "검색하기", "Suche", "Rechercher", "Procurar", "Ara", "Cari", "Поиск", "ค้นหา", "بحث", "Button on the map."],
+   ["Auto Hunting", "自動狩獵", "자동 사냥", "Auto-Jagd", "Chasse Auto.", "Caçada Automática", "Otomatik Av", "Berburu Otomatis", "Автоохота", "การล่าอัตโนมัติ", "الصيد التلقائي", "Button on the map."],
+   ["Max opponent: Lv.28 Beasts", "最高可挑戰28級野獸", "최고 Lv.28 야수 도전 가능", "Maximaler Gegner: Lv.28 Bestien", "Adversaire max : Niv. 28 Bêtes", "Oponente máx.: Nv.28 Feras", "Maks rakip: Sv.28 Hayvanlar", "Lawan maksimal: Lv.28 binatang buas", "Макс. противник: Звери ур. 28", "คู่ต่อสู้สูงสุด: สัตว์อสูรเลเวล 28", "الحد الأقصى للخصم: المستوى 28 الوحوش", "Sentence pattern under the level slider."],
+   ["Hunting Trap 2", "狩獵陷阱2", "사냥 함정 2", "Jagdfalle 2", "Piège de Chasse 2", "Armadilha de Caça 2", "2. Av Tuzağı", "Perangkap Berburu 2", "2-я охотничья ловушка", "กับดักล่าสัตว์ 2", "فخ الصيد 2", "Map label of the Bear Hunt trap."],
+   ["On cooldown", "冷卻中", "쿨타임 중", "Cooldown läuft", "Se recharge", "Tempo de recarga", "Beklemede", "Saat cooldown", "Перезаряжается", "อยู่ระหว่างคูลดาวน์", "في هدنة", "Label on the trap. Arabic: read from the screenshot as 'في هدنة' (in a truce); not certain."],
+   ["My City", "我的城鎮", "나의 도시", "Meine Stadt", "Ma Ville", "Minha Cidade", "Şehrim", "Permukiman saya", "Мой город", "ค่ายอพยพของฉัน", "مدينتي"],
+   ["More (march list)", "增加行軍隊伍", "행군 대열 추가", "Mehr", "Plus", "Mais", "Daha", "Lebih Banyak", "Добавить очередь марша", "เพิ่มเติม", "المزيد", "Zh, ko and ru say 'Add march queue' here; the others say 'More'."]
   ]
  }
 ];
