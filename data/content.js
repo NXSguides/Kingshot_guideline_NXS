@@ -1654,7 +1654,7 @@ const GUIDES = {
     }
   },
   "viking-vengeance": {
-    emoji: "🛡️",
+    emoji: "🧯",
     name: {
       en: "Viking Vengeance", zh: "維京人的掠奪", ko: "바이킹의 약탈", de: "Wikinger-Rache", fr: "Vengeance Viking", pt: "Vingança Viking", tr: "Viking İntikamı", id: "Viking Vengeance", ru: "Месть викингов", th: "การล้างแค้นของไวกิ้ง", ar: "انتقام الفايكنغ"
     },
