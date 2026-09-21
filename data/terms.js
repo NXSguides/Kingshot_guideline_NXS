@@ -3,8 +3,26 @@
 const TERM_LANGS = ["en", "zh", "ko", "de", "fr", "pt", "tr", "id", "ru", "th", "ar"];
 const TERMS = [
  {
+  "cat": "Golden Glaives",
+  "rows": [
+   ["Golden Glaives","黃金與巨刃","황금과 검","Goldene Klingen","Glaives Dorés","Glaives Douradas","Altın Kılıçlar","Tombak Emas","Золотые копья","จอมโจรดาบทองคำ","الرماح الذهبية"],
+   ["Dim Goldstone","黯淡金石","탁한 금 원석","Matter Goldstein","Pépite Terne","Pedra Dourada Obscura","Mat Altıntaşı","Goldstone Redup","Тусклый авантюрин","หินทองหม่น","حجر الذهب الباهت","German text once says 'matter Diamant' (game inconsistency); main value is Goldstein."],
+   ["Watchtower Intel","瞭望塔的情報","전망대 정보","Wachturm-Geheimdienst","renseignement de l'observatoire","informações da Torre de Vigia","Bekçi Kulesi Bilgisi","Intel Menara Pengawas","данные разведки на дозорной вышке","ข่าวกรองหอคอยเฝ้าระวัง","معلومات برج المراقبة","Seen inside sentences, not as a standalone label."],
+   ["Royal Foundry","皇家工坊","황실 공방","Kaiserliche Gießerei","Fonderie Royale","Forja da Realeza","Kraliyet Dökümhanesi","Pabrik Kerajaan","королевская литейная","โรงหล่อราชวงศ์","المسبك الملكي"],
+   ["Redeem","兌換","교환","Einlösen","Échanger","Resgatar","Kullan","Tukar","Обменять","แลก","استبدال","Turkish uses the same word as 'Use'."],
+   ["Left","剩餘","잔여","Übrig","En stock","Restante","Kalan","Tersisa","Осталось","คงเหลือ","متبقي"],
+   ["Owned","持有數量","보유 수량","Im Besitz","Tu possèdes","Obtido","Stok","Dimiliki","Имеется","มีอยู่","مملوك"],
+   ["Go","前往瞭望塔","이동","Los","Aller","Ir","Git","Pergi","Вперед","ไป","انطلق","Chinese label is the longer '前往瞭望塔'."],
+   ["Tip","兌換提醒","교환 알림","Tipp","Conseil","Dica","Hatırlatıcı","Tip","Подсказка","แนะนำ","نصيحة","Label on the Golden Glaives banner."],
+   ["Bread (Secured)","麵包（安全）","빵 (안전)","Brot (Geschützt)","Pains (sécurisés)","Pão (Protegido)","Ekmek (Korumalı)","Roti (Aman)","хлеба (под защитой)","ขนมปัง (ปลอดภัย)","خبز (مضمون)","Russian seen in genitive inside a sentence; base form is хлеб."],
+  ]
+ },
+ {
   "cat": "Events",
   "rows": [
+   ["Calendar","日曆","일정","—","—","Calendário","Takvim","Kalender","Календарь","ปฏิทิน","—"],
+   ["Hero Roulette","英雄轉盤","영웅 룰렛","Helden Roulette","—","Roleta de Herói","Kahraman Ruleti","Rolet Hero","Геройская рулетка","รูเล็ตฮีโร่","روليت البطل"],
+   ["Officer Project","—","—","Offiziersprojekt","Projet d'Officier","—","—","—","—","—","مسؤول المشروع"],
    ["Swordland Showdown", "聖劍爭奪", "성검 쟁탈", "Schwertland-Showdown", "Choc du Glaive", "Confronto entre Espadas", "Kılıçdiyarı Hesaplaşması", "Swordland Showdown", "Битва за Страну мечей", "ศึกดวลดินแดนดาบ", "مواجهة أرض السيوف"],
    ["Swordland", "聖劍戰場", "성검 전장", "Schwertland", "Terres du Glaive", "Terra das Espadas", "Kılıçdiyarı", "Swordland", "Страна мечей", "ดินแดนดาบ", "أرض السيوف", "Portuguese shows both 'Terra das Espadas' and 'Terra da Espada' in the game."],
    ["Battlefield", "聖劍戰場", "성검 전장", "Schlachtfeld", "champ de bataille", "campo de batalha", "savaş alanı", "medan perang", "поле боя", "สนามรบ", "ساحة المعركة", "Seen inside sentences, not as a standalone label."],
@@ -24,6 +42,7 @@ const TERMS = [
  {
   "cat": "Interface",
   "rows": [
+   ["Rules (dialog title)","規則說明","규칙 설명","Regeln","Règles","Regras","Kurallar","Aturan","Свод правил","กติกา","القواعد","Chinese, Korean and Russian dialog titles differ from the 'Rules' tab label."],
    ["Events", "常規活動", "이벤트", "Events", "Évènements", "Eventos", "Etkinlikler", "Event", "События", "อีเวนต์", "الفعاليات"],
    ["Guide", "指南", "가이드", "Leitfaden", "Guide", "Guia", "Kılavuz", "Panduan", "Руководство", "คำแนะนำ", "الدليل"],
    ["Rules", "規則", "규칙", "Regeln", "Règles", "Regras", "Kurallar", "Aturan", "Правила", "กติกา", "القواعد", "The window title differs in some languages (e.g. 規則說明, 규칙 설명, Свод правил)."],
@@ -214,6 +233,14 @@ const TERMS = [
  {
   "cat": "Strongest Governor",
   "rows": [
+   ["Hero of the Season","本期英雄","이번 영웅","Held der Saison","Héros de la Saison","Herói da Temporada","Sezonun Kahramanı","Hero of the Season","Герой сезона","ฮีโร่แห่งฤดูกาล","بطل الموسم","Indonesian keeps the English wording in the game."],
+   ["Honor Ranking","榮耀榜","명예 랭킹","Ehrenrang","Classement d'honneur","Classificação de Honra","Onur Sıralaması","Peringkat","Рейтинг чести","อันดับเกียรติยศ","تصنيف الشرف","Indonesian label shows only 'Peringkat' (may be shortened)."],
+   ["Stage 1: City Construction","第1階段：城鎮建設","1 단계: 도시 건설","Stufe 1: Stadtsbau","Étape 1 : Construction de Ville","Estágio 1: Construção da Cidade","Aşama 1: Şehir İnşaatı","Babak 1: Konstruksi Pemukiman","Этап 1: Строительство города","ด่าน 1: การก่อสร้างค่ายอพยพ","المرحلة 1: بناء المدينة","German 'Stadtsbau' and Thai 'ค่ายอพยพ' (refugee camp) are the game's own wording. Indonesian uses 'Babak' here but 'Stage' in the reward title."],
+   ["My Ranking","我的排名","나의 랭킹","Mein Rang","Mon Classement","Meu Rank","Sıralamam","Peringkatku","Мой рейтинг","อันดับของฉัน","تصنيفي"],
+   ["Unranked","未上榜","랭킹 없음","Kein Rang","Non classé","Sem Rank","Sıralama yok","Tidak Ada Peringkat","Без рейтинга","ไม่มีอันดับ","غير مصنف"],
+   ["My Points","我的積分","나의 포인트","Meine Punkte","Mes Points","Meus Pontos","Puanım","Poin Saya","Мои очки","คะแนนของฉัน","نقاطي"],
+   ["Target Points","目標積分","목표 포인트","Zielpunkte","Points Cibles","Pontos do Objetivo","Hedef Puan","Poin Sasaran","Цель по очкам","คะแนนเป้าหมาย","النقاط المستهدفة"],
+   ["Claim","領取","수령","Einfordern","Récupérer","Coletar","Topla","Klaim","Получить","รับ","تحصيل"],
    ["Strongest Governor", "至高領主", "지고의 영주", "Stärkster Gouverneur", "Haut Gouverneur", "O Governador mais Forte", "En Güçlü Vali", "Gubernur Terkuat", "Сильнейший губернатор", "เจ้าเมืองสุดแข็งแกร่ง", "الحاكم الأقوى"],
    ["Stage", "階段", "단계", "Stufe", "étape", "estágio", "aşama", "stage", "этап", "ด่าน", "مرحلة", "Seen inside sentences. Portuguese: 'estágio' (lowercase). German: 'Stufe' (plural 'Stufen'). French: 'étape' (lowercase). Arabic: 'مرحلة' (plural 'مراحل'). Russian: 'этап' (plural 'этапов'). The Sanctuary Battle screen says 'Стадия' instead. Turkish: 'aşama' (lowercase in sentences). The Sanctuary Battle screen says 'Evre'. Thai: 'ด่าน'. Indonesian keeps English 'stage'. Thai Sanctuary Battle screen says 'ช่วง'; Indonesian says 'Fase'."],
    ["Challenge Medal", "挑戰勳章", "도전 훈장", "Herausforderungsmedaille", "Médaille de Défi", "Medalha de Desafio", "Mücadele Madalyası", "Medali Tantangan", "медаль испытаний", "เหรียญท้าทาย", "ميدالية التحدي"],
@@ -305,6 +332,13 @@ const TERMS = [
  {
   "cat": "Viking Vengeance",
   "rows": [
+   ["Event details","活動詳細資訊","이벤트 상세정보","Eventdetails","Détails de l'Évènement","Detalhes do Evento","Etkinlik detayları","Detail acara","Информация о событии","รายละเอียดอีเวนต์","تفاصيل الفعالية"],
+   ["Personal Ranking","個人排名","개인 랭킹","Persönlicher Rang","Classement Individuel","Classificação Individual","Kişisel Sıralama","Peringkat Pribadi","Личный рейтинг","อันดับส่วนบุคคล","التصنيف الشخصي"],
+   ["Alliance Ranking","聯盟排名","연맹 랭킹","Allianzrang","Classement de l'Alliance","Classificação da Aliança","İttifak Sıralaması","Peringkat Aliansi","Рейтинг альянса","อันดับพันธมิตร","تصنيف التحالف"],
+   ["Countdown to Event Start","活動開啟倒數計時","이벤트 시작 카운트다운","Countdown bis zum Beginn des Events","Compte à Rebours avant le Début de l'Évènement","Contagem Regressiva para o Início do Evento","Etkinlik Başlangıcı Geri Sayımı","Hitung Mundur untuk Memulai Acara","Отсчет до начала события","นับถอยหลังสู่การเริ่มอีเวนต์","العد التنازلي لبدء الفعالية"],
+   ["Even more rewards","更多獎勵","더 많은 보상","Noch mehr Belohnungen","Encore plus de récompenses","Ainda mais recompensas","Daha da çok ödül","Lebih banyak hadiah","Еще больше наград","ยังมีรางวัลอีก","المزيد من المكافآت"],
+   ["Only leaders and R4+ can enable","只有盟主和4階以上成員可以開啟","맹주와 4급 이상 연맹원만 오픈 가능","Nur Allianzanführer und Mitglieder mit einem R4-Rang oder höher können es aktivieren","Seuls les Leaders et les membres d'alliance de R4 ou plus peuvent activer ceci","Apenas os Líderes e membros de classificação R4 ou maior da Aliança podem habilitar","Sadece ittifak liderleri ve R4 veya üstü rütbeli üyeler etkinleştirebilir","Hanya ketua dan anggota aliansi dengan peringkat R4 atau lebih tinggi yang bisa mengaktifkan.","Включить могут только лидер альянса и участники с рангом R4 или выше","เฉพาะผู้นำพันธมิตรและสมาชิกพันธมิตรระดับ R4 ขึ้นไปเท่านั้นที่เปิดใช้งานได้","يمكن تمكين فقط قادة التحالف والأعضاء ذوي الرتب 4 أو أعلى","English: 'Only alliance leaders and members with R4 or higher ranks can enable'."],
+   ["Town Center","城鎮中心","도시 센터","Stadtzentrum","Centre","Centro da Cidade","Şehir Merkezi","Tungku","центр города","ศูนย์กลางเมือง","مركز البلدة","French shows only 'Centre' (…Niv. 7) in the rules; Portuguese full form is 'Nível do Centro da Cidade'."],
    ["Viking Vengeance", "維京人的掠奪", "바이킹의 약탈", "Wikinger-Rache", "Vengeance Viking", "Vingança Viking", "Viking İntikamı", "Viking Vengeance", "Месть викингов", "การล้างแค้นของไวกิ้ง", "انتقام الفايكنغ", "Chinese and Korean say 'plunder' (掠奪 / 약탈), the others say 'vengeance/revenge'. Indonesian keeps the English name."],
    ["Vikings", "維京掠奪者", "바이킹 약탈자", "Wikinger", "Vikings", "vikings", "Vikingler", "Viking", "викинги", "ไวกิ้ง", "الفايكنغ", "Chinese also says 維京人. Indonesian rules also use 'penjahat' (villains) and 'Bandit'; Russian rule 5 says 'бандиты' (bandits); Thai rules say 'เหล่าไวกิง'."],
    ["Defense Points", "防守積分", "방어 포인트", "Verteidigungspunkte", "Points Défensifs", "Pontos de Defesa", "Savunma Puanları", "Poin Pertahanan", "очки защиты", "คะแนนการป้องกัน", "نقاط الدفاع", "Personal / Alliance: 個人 / 聯盟, 개인 / 연맹, Persönlich / Allianz, Individuel / d'Alliance, pessoal / de aliança, Kişisel / İttifak, pribadi / Aliansi, личные / альянса, ส่วนบุคคล / พันธมิตร, الشخصية / التحالف."],
