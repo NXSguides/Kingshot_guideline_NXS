@@ -42,6 +42,13 @@ const TERMS = [
  {
   "cat": "Interface",
   "rows": [
+   ["Details","詳細資訊","상세","Details","Détails","Detalhes","Detaylar","Detail","Детали","รายละเอียด","التفاصيل"],
+   ["Conquest","討伐","토벌","Eroberung","Conquête","Conquista","Fetih","Penaklukan","Завоевание","การพิชิต","غزو"],
+   ["Heroes","英雄","영웅","Helden","Héros","Heróis","Kahramanlar","Pahlawan","Герои","ฮีโร่","الأبطال"],
+   ["Shop","商店","상점","Laden","Magasin","Loja","Mağaza","Toko","Магазин","ร้านค้า","متجر"],
+   ["Alliance (tab)","聯盟","연맹","Allianz","Alliance","Aliança","İttifak","Aliansi","Альянс","พันธมิตร","التحالف"],
+   ["World","野外","야외","Welt","Monde","Mundo","Dünya","Dunia","Мир","โลก","العالم"],
+   ["Deals","超值活動","초특가","Angebote","Offres","Ofertas","Teklifler","Deals","—","อีเวนต์สุดคุ้ม","العروض"],
    ["Rules (dialog title)","規則說明","규칙 설명","Regeln","Règles","Regras","Kurallar","Aturan","Свод правил","กติกา","القواعد","Chinese, Korean and Russian dialog titles differ from the 'Rules' tab label."],
    ["Events", "常規活動", "이벤트", "Events", "Évènements", "Eventos", "Etkinlikler", "Event", "События", "อีเวนต์", "الفعاليات"],
    ["Guide", "指南", "가이드", "Leitfaden", "Guide", "Guia", "Kılavuz", "Panduan", "Руководство", "คำแนะนำ", "الدليل"],
@@ -89,6 +96,8 @@ const TERMS = [
  {
   "cat": "Buildings",
   "rows": [
+   ["Guard Station","防衛所","방위소","Wachposten","Poste de Garde","Estação de Guarda","Muhafız İstasyonu","Pos Penjaga","Крепостная стена","สถานีคุ้มกัน","محطة الحراسة","Russian shows 'Крепостная стена' (fortress wall). The building whose buttons are Details / Upgrade / City Defense."],
+   ["City Defense","城鎮防禦","도시 방어","Stadtverteidigung","Défense de la Ville","Defesa da Cidade","Şehir Savunması","Pertahanan Kota","Защита города","การป้องกันของค่ายอพยพ","الدفاع عن المدينة","Button on the Guard Station."],
    ["Swordshrine", "聖劍祭壇", "성검 제단", "Schwertschrein", "Tombeau du Glaive", "Templo da Espada", "Kılıç Altarı", "Swordshrine", "Святилище меча", "วิหารดาบ", "ضريح السيوف"],
    ["Sanctum", "聖所", "성소", "Heiligtum", "Sanctuaire", "Santuário", "Tapınak", "Sanctum", "святилище", "วิหารศักดิ์สิทธิ์", "مزار"],
    ["Northwest Sanctum", "西北聖所", "북서 성소", "Nordwestliches Heiligtum", "Sanctuaire Nord-Ouest", "Santuário do Noroeste", "Kuzeybatı Tapınağı", "Sanctum Barat Laut", "Северо-западное святилище", "วิหารศักดิ์สิทธิ์ตะวันตกเฉียงเหนือ", "مزار الشمالي الغربي"],
