@@ -130,8 +130,8 @@ const TERMS = [
  {
   "cat": "Troop types",
   "rows": [
-   ["Infantry", "步兵", "보병", "Infanterie", "Infanterie", "—", "Piyade", "Infanteri", "пехотинец", "ทหารราบ", "المشاة"],
-   ["Cavalry", "騎兵", "기병", "Kavallerie", "Cavalerie", "—", "Süvari", "Kavaleri", "кавалерист", "ทหารม้า", "الفرسان"],
+   ["Infantry", "步兵", "보병", "Infanterie", "Infanterie", "Infantaria", "Piyade", "Infanteri", "пехотинец", "ทหารราบ", "المشاة", "Portuguese confirmed from the Troops Preview button 'Infantaria do Ápice'."],
+   ["Cavalry", "騎兵", "기병", "Kavallerie", "Cavalerie", "Cavalaria", "Süvari", "Kavaleri", "кавалерист", "ทหารม้า", "الفرسان", "Portuguese confirmed from the Troops Preview buttons 'Cavalaria do Ápice' and 'Cavalaria Suprema'."],
    ["Archer", "弓兵", "궁병", "Bogenschütze", "Archer", "Arquearia", "Okçu", "Pemanah", "стрелок", "พลธนู", "الرماة", "Portuguese: 'Arquearia' is confirmed (Troops Preview 'Arquearia do Ápice' and Governor Gear 'Ataque da Arquearia'), not 'Arqueiro'."],
    ["Apex Infantry", "王牌步兵", "에이스 보병", "Spitzen Infanterie", "Infanterie Extrême", "Infantaria do Ápice", "Mükemmel Piyade", "Infanteri Top", "Превосходный пехотинец", "ทหารราบเอเปกซ์", "المشاة المهيمنين", "Troops Preview button."],
    ["Apex Cavalry", "王牌騎兵", "에이스 기병", "Spitzen Kavallerie", "Cavalerie Extrême", "Cavalaria do Ápice", "Mükemmel Süvari", "Kavaleri Top", "Превосходный кавалерист", "ทหารม้าเอเปกซ์", "الفرسان المهيمنين", "Troops Preview button."],
@@ -321,7 +321,7 @@ const TERMS = [
  {
   "cat": "Hero skills",
   "rows": [
-   ["Expedition Skills", "遠征技能", "원정 스킬", "Expeditionsfähigkeiten", "Compétences d'Expédition", "habilidades de expedição", "Sefer Yetenekleri", "Skill Ekspedisi", "Навыки экспедиции", "—", "مهارات الحملة", "They take effect when heroes fight with their troops on the Wilderness map. Thai: the screenshot text was cut off; only 'ทักษะ' (skill) was visible."],
+   ["Expedition Skills", "遠征技能", "원정 스킬", "Expeditionsfähigkeiten", "Compétences d'Expédition", "habilidades de expedição", "Sefer Yetenekleri", "Skill Ekspedisi", "Навыки экспедиции", "—", "مهارات الحملة", "They take effect when heroes fight with their troops on the Wilderness map. Thai: the game's own Thai text is incomplete (the sentence starts without the term and ends with an unfinished 'ทักษะที่เกี่ยวข้องกับ…'), so no Thai term exists; only 'ทักษะ' (skill) appears."],
    ["Wilderness map", "野外地圖", "야외 맵", "Wildniskarte", "Carte de la Nature", "mapa da Região Selvagem", "Yaban haritası", "peta Wilderness", "карта глуши", "แผนที่แดนเถื่อน", "خريطة البرية", "Seen inside a sentence. Indonesian keeps the English 'Wilderness'."],
    ["Shield Strike", "劍盾猛攻", "검방패 맹공", "Schildschlag", "Frappe de Bouclier", "Ataque com Escudo", "Kalkanlı Darbe", "Shield Strike", "Удар щитом", "พิฆาตโล่", "ضربة الدرع", "Zoe's expedition skill."],
    ["Upgrade Preview", "升級預覽", "업그레이드 보기", "Upgrade-Vorschau", "Aperçu d'Amélioration", "Prever Aprimoramento", "Yükseltme Önizlemesi", "Pratinjau Upgrade", "Предпросмотр улучшения", "ตัวอย่างการอัปเกรด", "معاينة الترقية"],
