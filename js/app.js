@@ -292,6 +292,52 @@ function switchGuide(key) {
   renderAll();
 }
 
+let announcements = [];
+let currentAnnIndex = 0;
+
+async function loadAnnouncements() {
+  try {
+    const res = await fetch("data/announcements.json", { cache: "no-store" });
+    announcements = await res.json();
+  } catch (e) {
+    announcements = [];
+  }
+  renderAnnBoard();
+}
+
+function annLabel(a) {
+  const d = new Date(a.createdAt);
+  return `${d.getMonth() + 1}/${d.getDate()} ${a.author}`;
+}
+
+function renderAnnBoard() {
+  const board = document.getElementById("annBoard");
+  if (!announcements.length) { board.hidden = true; return; }
+  board.hidden = false;
+  if (currentAnnIndex >= announcements.length) currentAnnIndex = 0;
+
+  document.getElementById("annTabs").innerHTML = announcements.map((a, i) => `
+    <button type="button" class="ann-tab${i === currentAnnIndex ? " active" : ""}" data-i="${i}">
+      ${escapeHtml(annLabel(a))}
+    </button>
+  `).join("");
+  document.querySelectorAll(".ann-tab").forEach((btn) => {
+    btn.onclick = () => { currentAnnIndex = Number(btn.dataset.i); renderAnnBoard(); };
+  });
+
+  const a = announcements[currentAnnIndex];
+  const text = a.content[currentLang] || a.content.en || Object.values(a.content)[0] || "";
+  const imgs = (a.images || []).map((src) => `<img class="ann-img" src="${escapeHtml(src)}" loading="lazy">`).join("");
+  document.getElementById("annBody").innerHTML = `
+    <div class="ann-meta">
+      <span>${escapeHtml(a.author)}</span>
+      <span>${new Date(a.createdAt).toLocaleDateString(HTML_LANG[currentLang] || "en")}</span>
+    </div>
+    <div class="ann-text">${rich(text)}</div>
+    ${imgs}
+  `;
+}
+
 function renderLeaders(guide) {
   const wrap = document.createElement("div");
   (guide.leaders || []).forEach((gen) => {
