@@ -184,7 +184,17 @@ const BLOCKS = {
       ${it.lines ? ul(it.lines) : ""}${groups}
       ${it.warn ? `<div class="callout flat">${rich(it.warn)}</div>` : ""}
     </div>`;
-  }).join("")
+  }).join(""),
+  guideLink: (b) => {
+    const target = GUIDES[b.guide];
+    if (!target) return "";
+    const label = escapeHtml(t(target.name) || b.guide);
+    return `<button type="button" class="guide-link-btn" onclick="switchGuide('${b.guide}')">
+      <span class="emoji">${target.emoji}</span>
+      <span dir="auto">${label}</span>
+      <span class="arrow">›</span>
+    </button>`;
+  }
 };
 
 function renderBlocks(guide, s) {
@@ -258,6 +268,12 @@ const GUIDE_ORDER = ["recent-events", "formations-rally-tips", "bear-hunt", "swo
 function guideKeys() {
   const all = Object.keys(GUIDES);
   return GUIDE_ORDER.filter((k) => all.includes(k)).concat(all.filter((k) => !GUIDE_ORDER.includes(k)));
+}
+
+function switchGuide(key) {
+  currentGuide = pickGuide(key);
+  persistPrefs();
+  renderAll();
 }
 
 function renderLeaders(guide) {
