@@ -472,9 +472,9 @@ function renderAll() {
   const curLang = LANGS.find((l) => l.code === currentLang);
   document.documentElement.dir = (curLang && curLang.dir) || "ltr";
   if (!langChosen) { renderPicker(); return; }
+  renderAnnTicker();
   renderLangRow();
   renderGuideRow();
-  renderAnnBoard();
   renderDoc();
 }
 
