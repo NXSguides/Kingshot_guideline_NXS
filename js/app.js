@@ -129,6 +129,21 @@ function youtubeId(u) {
   return /^[\w-]{11}$/.test(str) ? str : null;
 }
 
+const EVENT_SCHEDULES = {
+  "eternity-reach":       { anchor: Date.UTC(2026, 8, 22), periodDays: 14, activeDays: 1 },
+  "viking-vengeance":     { anchor: Date.UTC(2026, 8, 22), periodDays: 14, activeDays: 3 },
+  "swordland-showdown":   { anchor: Date.UTC(2026, 8, 20), periodDays: 14, activeDays: 1 }
+};
+
+function isEventActive(key) {
+  const sched = EVENT_SCHEDULES[key];
+  if (!sched) return true; // 沒設定排程的攻略一律顯示
+  const msPerDay = 86400000;
+  const diffDays = Math.floor((Date.now() - sched.anchor) / msPerDay);
+  if (diffDays < 0) return false;
+  return (diffDays % sched.periodDays) < sched.activeDays;
+}
+
 const BLOCKS = {
   h: (b) => `<h3 class="section-h">${rich(b.text)}</h3>`,
   sub: (b) => `<h4 class="sub-h">${rich(b.text)}</h4>`,
@@ -186,6 +201,7 @@ const BLOCKS = {
     </div>`;
   }).join(""),
   guideLink: (b) => {
+    if (!isEventActive(b.guide)) return "";
     const target = GUIDES[b.guide];
     if (!target) return "";
     const label = escapeHtml(t(target.name) || b.guide);
