@@ -388,5 +388,34 @@ const TERMS = [
    ["My City", "我的城鎮", "나의 도시", "Meine Stadt", "Ma Ville", "Minha Cidade", "Şehrim", "Permukiman saya", "Мой город", "ค่ายอพยพของฉัน", "مدينتي"],
    ["More (march list)", "增加行軍隊伍", "행군 대열 추가", "Mehr", "Plus", "Mais", "Daha", "Lebih Banyak", "Добавить очередь марша", "เพิ่มเติม", "المزيد", "Zh, ko and ru say 'Add march queue' here; the others say 'More'."]
   ]
- }
+ },
+{
+  "cat": "Eternity's Reach",
+  "rows": [
+   ["Eternity's Reach","失落的遺跡","사라진 유적","Weiten der Ewigkeit","l'Éternité à Portée","Alcance da Eternidade","Sonsuzluğun Erişimi","Eternity's Reach","Предел бесконечности","ขอบเขตนิรันดร์","وصول الأبدية","Event name; tab icon shows a golden crown."],
+   ["Explore the Eternity's Reach for strategic resource—Copper Ores!","探索失落的遺跡，取得極具戰略價值的銅礦石！","사라진 유적을 탐험하고, 전략적 가치가 높은 청동석을 획득하세요!","Erkunde Weiten der Ewigkeit nach strategischen Ressourcen – Kupfererzen!","Explore l'Éternité à Portée pour une ressource stratégique, les minerais de cuivre !","Explore o Alcance da Eternidade em busca de um recurso estratégico: Minérios de Cobre!","Stratejik kaynak olan Bakır Cevherleri için Sonsuzluğun Erişimi'ni keşfet!","Jelajahi Eternity's Reach untuk mendapatkan sumber daya strategis - Bijih Tembaga!","Исследуйте «Предел бесконечности» и отыщите очень важный ресурс — медную руду!","สำรวจขอบเขตนิรันดร์เพื่อรับทรัพยากรเชิงกลยุทธ์—แร่ทองแดง!","استكشف وصول الأبدية للموارد الاستراتيجية - خامات النحاس!"],
+   ["Copper Ore","銅礦石","청동석","Kupfererz","Minerais de Cuivre","Minério de Cobre","Bakır Cevheri","Bijih Tembaga","медная руда","แร่ทองแดง","خامات النحاس"],
+   ["Sign up and battle on the same day","當日報名，當日參戰","당일 신청, 당일 참전","Anmelden und am gleichen Tag in die Schlacht ziehen","S'inscrire et combattre le même jour","Inscreva-se e batalhe no mesmo dia","Aynı gün kaydol ve savaş","Daftar dan bertempurlah di hari yang sama","Зарегистрируйтесь и сражайтесь в тот же день","ลงทะเบียนและต่อสู้ในวันเดียวกัน","اشترك وقاتل في نفس اليوم"],
+   ["Registration closes in","距離報名結束","신청 종료까지","Anmeldung endet in","Fin d'inscription dans","Registro acaba em","Kayıt bitişi:","Registrasi ditutup","До конца регистрации:","การลงทะเบียนจะปิดใน","سيُغلق التسجيل بعد"],
+   ["Sign up now","立即報名","바로 신청","Jetzt anmelden","S'inscrire","Inscrever-se agora","Şimdi kaydol","Daftar Sekarang","Зарегистрироваться","ลงทะเบียนเดี๋ยวนี้","اشترك الآن","Main CTA button."],
+   ["Overview (button)","說明","설명","Übersicht","Aperçu","Resumo","Özet","Ringkasan","Обзор","รายละเอียด","نظرة عامة","Side button that opens the info dialog."],
+   ["Rewards (button)","獎勵","보상","Belohnungen","Récompenses","Recompensas","Ödüller","Hadiah","Награды","รางวัล","المكافآت","Side button; opens rewards preview."],
+   ["Guide (button)","指南","가이드","Leitfaden","Guide","Guia","Kılavuz","Panduan","Руководство","คำแนะนำ","الدليل","Side button."],
+   ["Historical Ranking","排名紀錄","지난 랭킹","Historischer Rang","Historique de Classement","Classificação Histórica","Tarihsel Sıralama","Riwayat Peringkat","Рейтинг за все время","อันดับประวัติศาสตร์","التصنيف التاريخي","Side button."],
+   ["Overview (dialog tab)","基礎說明","기본 설명","Übersicht","Aperçu","Resumo","Özet","Ringkasan","Базовый обзор","ภาพรวม","نظرة عامة","English reuses the word 'Overview' for both the side button and this tab; German does the same."],
+   ["Buildings (dialog tab)","建築介紹","건물 소개","Gebäude","Bâtiments","Construções","Binalar","Bangunan","О зданиях","สิ่งปลูกสร้าง","المباني"],
+   ["Other (dialog tab)","其他","기타","Andere","Autre","Outros","Diğer","Lainnya","Другое","อื่นๆ","أخرى"],
+   ["Lv. 1 Vein","1級礦脈","Lv.1 광맥","Lv. 1 Ader","Filon de Niv. 1","Veio Nv. 1","Sv. 1 Damar","Vein Lv. 1","Ур. 1 Жила","สายแร่เลเวล 1","عرق من المستوى 1"],
+   ["Lv. 2 Vein","2級礦脈","Lv.2 광맥","Lv. 2 Ader","Filon de Niv. 2","Veio Nv. 2","Sv. 2 Damar","Vein Lv. 2","Ур. 2 Жила","สายแร่เลเวล 2","عرق من المستوى 2"],
+   ["Lv. 3 Vein","3級礦脈","Lv.3 광맥","Lv. 3 Ader","Filon de Niv. 3","Veio Nv. 3","Sv. 3 Damar","Vein Lv. 3","Ур. 3 Жила","สายแร่เลเวล 3","عرق من المستوى 3"],
+   ["Fracture Vein","不穩定礦脈","불안정한 광맥","Gebrochene Ader","Filon Fracturé","Veio Fraturado","Çatlak Damar","Fracture Vein","Прорыв жил","สายแร่ประทุ","العرق المتصدع","Higher-yield vein that appears intermittently."],
+   ["Peak of Eternity","失落宮殿","사라진 궁전","Gipfel der Ewigkeit","Pic de l'Éternité","Pico da Eternidade","Sonsuzluğun Zirvesi","Peak of Eternity","Пик бесконечности","ยอดเขานิรันดร์","قمة الأبدية","Central contested building; occupation time earns Copper Ores."],
+   ["Capacity","儲備量","저장량","Kapazität","Capacité","Capacidade","Kapasite","Kapasitas","Вместимость","ความจุ","السعة"],
+   ["Speed","速度","속도","Geschwindigkeit","Vitesse","Velocidade","Hız","Kecepatan","Скорость","สปีด","السرعة","Resource gain rate, e.g. '+8/s'."],
+   ["View Rewards","檢視獎勵","보상 보기","Belohnung ansehen","Voir Récompenses","Ver Recompensas","Ödülleri Gör","Lihat Hadiah","Обзор наград","ดูรางวัล","عرض المكافآت"],
+   ["March Queue","常規行軍欄位","일반 행군 슬롯","Marschwarteschleife","File de Marche","Fila de Marcha","İntikal Sırası","Antrean Barisan","очередь марша","คิวเดินทัพ","طابور الزحف","'does not occupy your regular March Queue' — the squad sent to loot dropped ore doesn't use a normal march slot."],
+   ["Advanced Teleporter","高級遷城","고급 도시 이전","Fortgeschrittene Umsiedlung","Téléportation Avancée","Teletransportador Avançado","Gelişmiş Işınlayıcı","Advanced Teleporter","продвинутый телепорт","ตัวช่วยย้ายถิ่นฐานขั้นสูง","الناقل المتقدم","Free relocation item usable inside the ruins."],
+   ["Cesares Guards","切薩雷守衛","체사레 수비병","Cesares Wächter","Gardes Césarès","Guardas Césares","Cesares Muhafızları","Cesares Guards","стражи цесарцев","ทหารยามซีซาเรส","حراس سيزاريس","Guards defending Lv.1–3 Veins; must be defeated to gather from them."]
+  ]
+ },
 ];
