@@ -471,12 +471,14 @@ function renderAll() {
   if (!langChosen) { renderPicker(); return; }
   renderLangRow();
   renderGuideRow();
+  renderAnnBoard();
   renderDoc();
 }
 
 restorePrefs();
 initTheme();
 renderAll();
+loadAnnouncements();
 
 window.addEventListener("hashchange", () => {
   readHash();
