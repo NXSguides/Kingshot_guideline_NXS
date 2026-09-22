@@ -302,7 +302,6 @@ async function loadAnnouncements() {
   } catch (e) {
     announcements = [];
   }
-  renderAnnBoard();
 }
 
 function annLabel(a) {
