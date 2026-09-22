@@ -313,8 +313,9 @@ const TERMS = [
    ["Enhancement Cost", "強化消耗", "강화 소모", "Verbesserungskosten", "Coût d'Amélioration", "Custo de Melhoria", "Geliştirme Maliyeti", "Biaya Peningkatan", "Стоимость усиления", "สิ่งที่ใช้ในการพัฒนา", "تكلفة التحسين"],
    ["Enhance", "強化", "강화", "Verbessern", "Améliorer", "Melhorar", "Geliştir", "Tingkatkan", "Усилить", "พัฒนา", "تحسين", "Button."],
    ["Gear Enhancement", "裝備強化", "장비 강화", "Ausrüstungsverbesserung", "Amélioration d'Équipement", "Aprimoramento do Equipamento", "Donanım Geliştirmesi", "Peningkatan Gear", "Усиление снаряжения", "การพัฒนาอุปกรณ์", "تحسين العتاد", "Tab of the Governor Gear screen."],
-   ["Charm Upgrades", "寶石升級", "보석 레벨업", "Talisman-Verbesserungen", "Améliorations du Talisman", "Aprimoramentos de Acessório", "Tılsım Yükseltmeleri", "Upgrade Charm", "Улучшение талисманов", "การอัปเกรดเครื่องราง", "ترقيات التميمة", "Second tab of the Governor Gear screen. The old guides called these 'Governor Charms', which is not a game term."],
-   ["Charm", "寶石", "보석", "Talisman", "Talisman", "Acessório", "Tılsım", "Charm", "талисман", "เครื่องราง", "التميمة", "Singular form taken from the 'Charm Upgrades' titles (Russian and Arabic show it in a plural or definite form)."]
+   ["Charm Upgrades", "寶石升級", "보석 레벨업", "Talisman-Verbesserungen", "Améliorations du Talisman", "Aprimoramentos de Acessório", "Tılsım Yükseltmeleri", "Upgrade Charm", "Улучшение талисманов", "การอัปเกรดเครื่องราง", "ترقيات التميمة", "Second tab of the Governor Gear screen."],
+   ["Charm", "寶石", "보석", "Talisman", "Talisman", "Talismã", "Tılsım", "Charm", "талисман", "เครื่องราง", "التميمة", "Confirmed: 'Governor Charm' IS a real in-game term (see item tooltip 'A Governor Charm upgrade material'). Singular form taken from the 'Charm Upgrades' titles (Russian and Arabic show it in a plural or definite form)."]
+   ["Charm Design", "寶石圖紙", "보석 도면", "Talismanpläne", "Plans de Talisman", "Design do Talismã", "Tılsım Tasarımı", "Desain Charm", "Чертеж талисмана", "แผนเครื่องราง", "تصميم تميمة"],
   ]
  },
  {
