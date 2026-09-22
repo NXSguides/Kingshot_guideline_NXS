@@ -200,37 +200,48 @@ const GUIDES = {
     },
     sections: {
       en: { title: "Recent Events", blocks: [
-        { type: "guideLink", guide: "viking-vengeance" }
+        { type: "guideLink", guide: "viking-vengeance" },
+        { type: "guideLink", guide: "eternity-reach" }
       ]},
       zh: { title: "近期活動", blocks: [
-        { type: "guideLink", guide: "viking-vengeance" }
+        { type: "guideLink", guide: "viking-vengeance" },
+        { type: "guideLink", guide: "eternity-reach" }
       ]},
       ko: { title: "최근 이벤트", blocks: [
-        { type: "guideLink", guide: "viking-vengeance" }
+        { type: "guideLink", guide: "viking-vengeance" },
+        { type: "guideLink", guide: "eternity-reach" }
       ]},
       de: { title: "Aktuelle Events", blocks: [
-        { type: "guideLink", guide: "viking-vengeance" }
+        { type: "guideLink", guide: "viking-vengeance" },
+        { type: "guideLink", guide: "eternity-reach" }
       ]},
       fr: { title: "Événements récents", blocks: [
-        { type: "guideLink", guide: "viking-vengeance" }
+        { type: "guideLink", guide: "viking-vengeance" },
+        { type: "guideLink", guide: "eternity-reach" }
       ]},
       pt: { title: "Eventos Recentes", blocks: [
-        { type: "guideLink", guide: "viking-vengeance" }
+        { type: "guideLink", guide: "viking-vengeance" },
+        { type: "guideLink", guide: "eternity-reach" }
       ]},
       tr: { title: "Son Etkinlikler", blocks: [
-        { type: "guideLink", guide: "viking-vengeance" }
+        { type: "guideLink", guide: "viking-vengeance" },
+        { type: "guideLink", guide: "eternity-reach" }
       ]},
       id: { title: "Acara Terbaru", blocks: [
-        { type: "guideLink", guide: "viking-vengeance" }
+        { type: "guideLink", guide: "viking-vengeance" },
+        { type: "guideLink", guide: "eternity-reach" }
       ]},
       ru: { title: "Последние события", blocks: [
-        { type: "guideLink", guide: "viking-vengeance" }
+        { type: "guideLink", guide: "viking-vengeance" },
+        { type: "guideLink", guide: "eternity-reach" }
       ]},
       th: { title: "กิจกรรมล่าสุด", blocks: [
-        { type: "guideLink", guide: "viking-vengeance" }
+        { type: "guideLink", guide: "viking-vengeance" },
+        { type: "guideLink", guide: "eternity-reach" }
       ]},
       ar: { title: "أحدث الفعاليات", blocks: [
-        { type: "guideLink", guide: "viking-vengeance" }
+        { type: "guideLink", guide: "viking-vengeance" },
+        { type: "guideLink", guide: "eternity-reach" }
       ]}
     }
   },
