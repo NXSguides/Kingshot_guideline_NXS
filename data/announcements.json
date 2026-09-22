@@ -1,13 +1,11 @@
 [
   {
-    "id": "a1b2c3d4",
+    "id": "Test!",
     "createdAt": "2026-09-23T10:00:00Z",
-    "author": "小明",
-    "images": ["img/announcements/a1b2c3d4-1.jpg"],
+    "author": "Unknown",
+    "images": ["figures/test.jpg"],
     "content": {
-      "zh": "各位夥伴請注意，這次的 {swordland-showdown} 開打時間是 {utc-time} 20:00，記得提前準備陣容！",
-      "en": "Attention everyone, this {swordland-showdown} starts at {utc-time} 20:00. Get your lineup ready in advance!",
-      "ko": "여러분 주목해 주세요..."
+      "en": "Testing......Nothing, just want to share this photo."
     }
   }
 ]
