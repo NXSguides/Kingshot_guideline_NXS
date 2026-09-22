@@ -311,12 +311,6 @@ function guideKeys() {
   return GUIDE_ORDER.filter((k) => all.includes(k)).concat(all.filter((k) => !GUIDE_ORDER.includes(k)));
 }
 
-function switchGuide(key) {
-  currentGuide = pickGuide(key);
-  persistPrefs();
-  renderAll();
-}
-
 let announcements = [];
 let currentAnnIndex = 0;
 
@@ -327,7 +321,7 @@ async function loadAnnouncements() {
   } catch (e) {
     announcements = [];
   }
-  renderAll(); // 資料載入完成後，如果剛好在近期活動頁，重新畫一次
+  renderAll();
 }
 
 function annLabel(a) {
@@ -339,7 +333,43 @@ function selectAnnouncement(i) {
   currentAnnIndex = i;
   renderDoc();
 }
-window.selectAnnouncement = selectAnnouncement; // 讓 innerHTML 裡的 onclick 找得到這個函式
+window.selectAnnouncement = selectAnnouncement;
+
+function selectAnnouncement(i) {
+  currentAnnIndex = i;
+  renderDoc();
+}
+window.selectAnnouncement = selectAnnouncement;
+
+function renderAnnTicker() {
+  const ticker = document.getElementById("annTicker");
+  const track = document.getElementById("annTickerTrack");
+  if (!announcements.length) { ticker.hidden = true; return; }
+  ticker.hidden = false;
+  const latest = announcements[0];
+  const text = latest.content[currentLang] || latest.content.en || Object.values(latest.content)[0] || "";
+  const plain = text.replace(/\{(\w+)\}/g, (m, id) => (GLOSSARY[id] ? t(GLOSSARY[id]) : m))
+                     .replace(/\*\*(.+?)\*\*/g, "$1");
+  track.textContent = `📢 ${plain}`;
+}
+
+function goToAnnouncements() {
+  currentGuide = "recent-events";
+  persistPrefs();
+  renderAll();
+  requestAnimationFrame(() => {
+    const el = document.querySelector(".ann-board");
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+window.goToAnnouncements = goToAnnouncements;
+
+function switchGuide(id) {
+  currentGuide = pickGuide(id);
+  persistPrefs();
+  renderAll();
+}
+window.switchGuide = switchGuide;
 
 function renderLeaders(guide) {
   const wrap = document.createElement("div");
