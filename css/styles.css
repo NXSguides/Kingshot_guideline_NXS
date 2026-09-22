@@ -453,3 +453,23 @@ body.menu-open { overflow: hidden; }
 /* Guide buttons at the top: show all of them, wrap onto several lines (no sideways scrolling) */
 .guide-row { flex-wrap: wrap; overflow-x: visible; padding-bottom: 0; }
 .guide-row .guide-chip { flex: 0 1 auto; max-width: 100%; text-align: start; }
+
+.guide-link-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin: 14px 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+  background: var(--panel-2);
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: start;
+  font-family: inherit;
+}
+.guide-link-btn .emoji { font-size: 18px; }
+.guide-link-btn .arrow { margin-inline-start: auto; color: var(--accent); font-size: 18px; }
