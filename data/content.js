@@ -201,11 +201,13 @@ const GUIDES = {
     sections: {
       en: { title: "Recent Events", blocks: [
         { type: "guideLink", guide: "viking-vengeance" },
-        { type: "guideLink", guide: "eternity-reach" }
+        { type: "guideLink", guide: "eternity-reach" },
+        { type: "announcements" }
       ]},
       zh: { title: "近期活動", blocks: [
         { type: "guideLink", guide: "viking-vengeance" },
-        { type: "guideLink", guide: "eternity-reach" }
+        { type: "guideLink", guide: "eternity-reach" },
+        { type: "announcements" }
       ]},
       ko: { title: "최근 이벤트", blocks: [
         { type: "guideLink", guide: "viking-vengeance" },
