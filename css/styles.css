@@ -473,3 +473,58 @@ body.menu-open { overflow: hidden; }
 }
 .guide-link-btn .emoji { font-size: 18px; }
 .guide-link-btn .arrow { margin-inline-start: auto; color: var(--accent); font-size: 18px; }
+
+.ann-board {
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+.ann-tabs {
+  display: flex;
+  overflow-x: auto;
+  background: var(--panel-2);
+  border-bottom: 1px solid var(--rule);
+}
+
+.ann-tab {
+  flex: none;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ann-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.ann-body { padding: 16px 18px; }
+
+.ann-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.ann-text { font-size: 14.5px; }
+
+.ann-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+}
