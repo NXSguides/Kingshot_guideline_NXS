@@ -216,7 +216,7 @@ const BLOCKS = {
     if (currentAnnIndex >= announcements.length) currentAnnIndex = 0;
     const tabs = announcements.map((a, i) => `
       <button type="button" class="ann-tab${i === currentAnnIndex ? " active" : ""}" onclick="selectAnnouncement(${i})">
-        ${escapeHtml(annLabel(a))}
+        ${escapeHtml((a))}
       </button>
     `).join("");
     const a = announcements[currentAnnIndex];
@@ -325,6 +325,8 @@ async function loadAnnouncements() {
 }
 
 function annLabel(a) {
+  const title = a.title && (a.title[currentLang] || a.title.en || Object.values(a.title)[0]);
+  if (title) return title;
   const d = new Date(a.createdAt);
   return `${d.getMonth() + 1}/${d.getDate()} ${a.author}`;
 }
