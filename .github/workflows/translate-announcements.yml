@@ -1,0 +1,25 @@
+name: Translate Announcements
+on:
+  push:
+    paths: ["data/announcements-source.md"]
+    branches: [main]
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm install js-yaml
+      - run: node scripts/translate-announcements.js
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      - run: |
+          git config user.name "translate-bot"
+          git config user.email "actions@github.com"
+          git add data/announcements.json data/announcements-processed.json
+          git diff --cached --quiet || git commit -m "自動翻譯新公告"
+          git push
