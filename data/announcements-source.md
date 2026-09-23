@@ -1,7 +1,7 @@
 ---
 author: Testing
 lang: en
-images: []
+images: ["figures/test.jpg"]
 content: |
   Testing
 ---
