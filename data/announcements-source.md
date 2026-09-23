@@ -1,1 +1,7 @@
- --- author: 小明 lang: zh images: [] content: | 各位夥伴請注意，這次的 {swordland-showdown} 開打時間是 {utc-time} 20:00，記得提前準備陣容！ ---
+---
+author: Testing
+lang: en
+images: []
+content: |
+  Testing
+---
