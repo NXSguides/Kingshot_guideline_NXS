@@ -75,19 +75,21 @@ async function translateOne(entry, glossaryText) {
 規則：
 1. 人名（"(NNM)" 前的文字）絕對不要翻譯或更動
 2. 遇到對照表列出的遊戲用語，一律使用官方譯名；沒列出的詞照字面翻譯
-3. 只回傳一個 JSON 物件，key 是語言代碼，value 是翻譯，不要其他文字，不要 markdown 標記
+3. 輸入是一個 JSON 物件 {"title": "...", "content": "..."}
+4. 只回傳一個 JSON 物件，key 是語言代碼，value 是 {"title": "翻譯後標題", "content": "翻譯後內文"} 的物件，不要其他文字，不要 markdown 標記
 
 對照表：
 ${glossaryText}`;
 
-  const json = await callGemini(entry, systemPrompt);
+  const userInput = JSON.stringify({ title: entry.title || "", content: entry.content });
+  const json = await callGemini({ ...entry, content: userInput }, systemPrompt);
 
   if (!json.candidates || !json.candidates[0]) {
     throw new Error(`Gemini API 回傳格式異常: ${JSON.stringify(json)}`);
   }
 
   const translations = JSON.parse(json.candidates[0].content.parts[0].text);
-  translations[entry.lang] = entry.content;
+  translations[entry.lang] = { title: entry.title || "", content: entry.content };
   return translations;
 }
 
@@ -98,19 +100,28 @@ async function main() {
   const glossaryText = buildGlossaryText(loadTerms());
   let changed = false;
 
-  for (const entry of entries) {
-    if (processed.includes(entry.id)) continue;
-    const content = await translateOne(entry, glossaryText);
-    published.unshift({
-      id: entry.id,
-      author: entry.author,
-      createdAt: new Date().toISOString(),
-      images: entry.images || [],
-      content,
-    });
-    processed.push(entry.id);
-    changed = true;
+for (const entry of entries) {
+  if (processed.includes(entry.id)) continue;
+  const result = await translateOne(entry, glossaryText); // { lang: {title, content} }
+
+  const titleMap = {};
+  const contentMap = {};
+  for (const [lang, v] of Object.entries(result)) {
+    titleMap[lang] = v.title;
+    contentMap[lang] = v.content;
   }
+
+  published.unshift({
+    id: entry.id,
+    author: entry.author,
+    createdAt: new Date().toISOString(),
+    images: entry.images || [],
+    title: titleMap,
+    content: contentMap,
+  });
+  processed.push(entry.id);
+  changed = true;
+}
 
   if (changed) {
     fs.writeFileSync(OUTPUT, JSON.stringify(published, null, 2));
