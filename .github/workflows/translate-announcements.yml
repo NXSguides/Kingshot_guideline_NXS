@@ -3,6 +3,7 @@ on:
   push:
     paths: ["data/announcements-source.md"]
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   translate:
