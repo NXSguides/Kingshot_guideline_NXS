@@ -53,7 +53,7 @@ async function translateOne(entry, glossaryText) {
 ${glossaryText}`;
 
   const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
     {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -64,7 +64,16 @@ ${glossaryText}`;
       }),
     }
   );
+
   const json = await res.json();
+
+  if (!res.ok) {
+    throw new Error(`Gemini API 回傳錯誤 (HTTP ${res.status}): ${JSON.stringify(json)}`);
+  }
+  if (!json.candidates || !json.candidates[0]) {
+    throw new Error(`Gemini API 回傳格式異常: ${JSON.stringify(json)}`);
+  }
+
   const translations = JSON.parse(json.candidates[0].content.parts[0].text);
   translations[entry.lang] = entry.content;
   return translations;
