@@ -216,7 +216,7 @@ const BLOCKS = {
     if (currentAnnIndex >= announcements.length) currentAnnIndex = 0;
     const tabs = announcements.map((a, i) => `
       <button type="button" class="ann-tab${i === currentAnnIndex ? " active" : ""}" onclick="selectAnnouncement(${i})">
-        ${escapeHtml((a))}
+        ${escapeHtml(annLabel(a))}
       </button>
     `).join("");
     const a = announcements[currentAnnIndex];
