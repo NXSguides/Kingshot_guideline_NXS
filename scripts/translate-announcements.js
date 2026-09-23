@@ -5,7 +5,7 @@ const crypto = require("crypto");
 
 const SOURCE = path.join(__dirname, "../data/announcements-source.md");
 const OUTPUT = path.join(__dirname, "../data/announcements.json");
-const PROCESSED = path.join(__dirname, "../data/announcements-processed.json");
+const CACHE = path.join(__dirname, "../data/announcements-cache.json");
 const TERMS_PATH = path.join(__dirname, "../data/terms.js");
 const TERM_LANGS = ["en", "zh", "ko", "de", "fr", "pt", "tr", "id", "ru", "th", "ar"];
 
@@ -56,9 +56,7 @@ async function callGemini(entry, systemPrompt, retries = 3) {
       }
     );
     const json = await res.json();
-
     if (res.ok) return json;
-
     const isRetryable = res.status === 503 || res.status === 429;
     if (isRetryable && attempt < retries) {
       console.warn(`Gemini 回傳 ${res.status}，${attempt}/${retries} 次重試，等待 ${attempt * 5} 秒...`);
@@ -94,39 +92,40 @@ ${glossaryText}`;
 }
 
 async function main() {
-  const entries = parseEntries(fs.readFileSync(SOURCE, "utf8"));
-  const processed = fs.existsSync(PROCESSED) ? JSON.parse(fs.readFileSync(PROCESSED, "utf8")) : [];
-  const published = fs.existsSync(OUTPUT) ? JSON.parse(fs.readFileSync(OUTPUT, "utf8")) : [];
+  const rawEntries = parseEntries(fs.readFileSync(SOURCE, "utf8"));
+  const cache = fs.existsSync(CACHE) ? JSON.parse(fs.readFileSync(CACHE, "utf8")) : {};
   const glossaryText = buildGlossaryText(loadTerms());
-  let changed = false;
 
-for (const entry of entries) {
-  if (processed.includes(entry.id)) continue;
-  const result = await translateOne(entry, glossaryText); // { lang: {title, content} }
-
-  const titleMap = {};
-  const contentMap = {};
-  for (const [lang, v] of Object.entries(result)) {
-    titleMap[lang] = v.title;
-    contentMap[lang] = v.content;
+  // 只翻譯快取裡還沒有的（也就是真正新增的）公告
+  for (const entry of rawEntries) {
+    if (cache[entry.id]) continue;
+    const result = await translateOne(entry, glossaryText);
+    const titleMap = {};
+    const contentMap = {};
+    for (const [lang, v] of Object.entries(result)) {
+      titleMap[lang] = v.title;
+      contentMap[lang] = v.content;
+    }
+    cache[entry.id] = {
+      author: entry.author,
+      createdAt: new Date().toISOString(),
+      images: entry.images || [],
+      title: titleMap,
+      content: contentMap,
+    };
   }
 
-  published.unshift({
-    id: entry.id,
-    author: entry.author,
-    createdAt: new Date().toISOString(),
-    images: entry.images || [],
-    title: titleMap,
-    content: contentMap,
-  });
-  processed.push(entry.id);
-  changed = true;
-}
-
-  if (changed) {
-    fs.writeFileSync(OUTPUT, JSON.stringify(published, null, 2));
-    fs.writeFileSync(PROCESSED, JSON.stringify(processed, null, 2));
+  // 清掉快取裡「來源檔案已經沒有了」的公告 → 這就是支援刪除的關鍵
+  const currentIds = new Set(rawEntries.map(e => e.id));
+  for (const id of Object.keys(cache)) {
+    if (!currentIds.has(id)) delete cache[id];
   }
+
+  // 輸出結果永遠依照來源檔案「目前實際存在」的內容重建，新的在最前面
+  const published = rawEntries.slice().reverse().map(e => ({ id: e.id, ...cache[e.id] }));
+
+  fs.writeFileSync(OUTPUT, JSON.stringify(published, null, 2));
+  fs.writeFileSync(CACHE, JSON.stringify(cache, null, 2));
 }
 
 main().catch(e => { console.error(e); process.exit(1); });
