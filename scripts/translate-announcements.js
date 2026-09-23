@@ -18,12 +18,18 @@ function loadTerms() {
 
 function buildGlossaryText(TERMS) {
   const lines = [];
-  for (const group of TERMS) for (const row of group.rows) {
-    const [en, ...rest] = row;
-    const pairs = TERM_LANGS.slice(1).map((c, i) => `${c}:${rest[i]}`).filter(p => !p.endsWith(":—"));
-    const note = row.length > TERM_LANGS.length ? ` (note: ${row[row.length - 1]})` : "";
-    lines.push(`${en} → ${pairs.join(", ")}${note}`);
+  let skipped = 0;
+  for (const group of TERMS) {
+    if (!group || !Array.isArray(group.rows)) continue;
+    for (const row of group.rows) {
+      if (!Array.isArray(row)) { skipped++; continue; }
+      const [en, ...rest] = row;
+      const pairs = TERM_LANGS.slice(1).map((c, i) => `${c}:${rest[i]}`).filter(p => !p.endsWith(":—"));
+      const note = row.length > TERM_LANGS.length ? ` (note: ${row[row.length - 1]})` : "";
+      lines.push(`${en} → ${pairs.join(", ")}${note}`);
+    }
   }
+  if (skipped > 0) console.warn(`跳過了 ${skipped} 筆格式不符的對照表項目`);
   return lines.join("\n");
 }
 
