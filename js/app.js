@@ -325,8 +325,10 @@ async function loadAnnouncements() {
 }
 
 function annLabel(a) {
-  const title = a.title && (a.title[currentLang] || a.title.en || Object.values(a.title)[0]);
-  if (title) return title;
+  if (a.title) {
+    const label = t(a.title);
+    if (label) return label;
+  }
   const d = new Date(a.createdAt);
   return `${d.getMonth() + 1}/${d.getDate()} ${a.author}`;
 }
