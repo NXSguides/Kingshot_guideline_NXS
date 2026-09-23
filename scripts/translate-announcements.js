@@ -6,7 +6,7 @@ const crypto = require("crypto");
 const SOURCE = path.join(__dirname, "../data/announcements-source.md");
 const OUTPUT = path.join(__dirname, "../data/announcements.json");
 const PROCESSED = path.join(__dirname, "../data/announcements-processed.json");
-const TERMS_PATH = path.join(__dirname, "../js/terms.js"); // 依你實際路徑調整
+const TERMS_PATH = path.join(__dirname, "../data/terms.js");
 const TERM_LANGS = ["en", "zh", "ko", "de", "fr", "pt", "tr", "id", "ru", "th", "ar"];
 
 function loadTerms() {
