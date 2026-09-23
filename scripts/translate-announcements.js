@@ -41,6 +41,34 @@ function parseEntries(md) {
   });
 }
 
+async function callGemini(entry, systemPrompt, retries = 3) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          system_instruction: { parts: [{ text: systemPrompt }] },
+          contents: [{ parts: [{ text: entry.content }] }],
+          generationConfig: { responseMimeType: "application/json" },
+        }),
+      }
+    );
+    const json = await res.json();
+
+    if (res.ok) return json;
+
+    const isRetryable = res.status === 503 || res.status === 429;
+    if (isRetryable && attempt < retries) {
+      console.warn(`Gemini 回傳 ${res.status}，${attempt}/${retries} 次重試，等待 ${attempt * 5} 秒...`);
+      await new Promise(r => setTimeout(r, attempt * 5000));
+      continue;
+    }
+    throw new Error(`Gemini API 回傳錯誤 (HTTP ${res.status}): ${JSON.stringify(json)}`);
+  }
+}
+
 async function translateOne(entry, glossaryText) {
   const targetLangs = TERM_LANGS.filter(l => l !== entry.lang);
   const systemPrompt = `你是 Kingshot 聯盟公告的翻譯員。將公告從 ${entry.lang} 翻成以下語言：${targetLangs.join(", ")}。
@@ -52,24 +80,8 @@ async function translateOne(entry, glossaryText) {
 對照表：
 ${glossaryText}`;
 
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
-    {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        system_instruction: { parts: [{ text: systemPrompt }] },
-        contents: [{ parts: [{ text: entry.content }] }],
-        generationConfig: { responseMimeType: "application/json" },
-      }),
-    }
-  );
+  const json = await callGemini(entry, systemPrompt);
 
-  const json = await res.json();
-
-  if (!res.ok) {
-    throw new Error(`Gemini API 回傳錯誤 (HTTP ${res.status}): ${JSON.stringify(json)}`);
-  }
   if (!json.candidates || !json.candidates[0]) {
     throw new Error(`Gemini API 回傳格式異常: ${JSON.stringify(json)}`);
   }
