@@ -21,6 +21,6 @@ jobs:
       - run: |
           git config user.name "translate-bot"
           git config user.email "actions@github.com"
-          git add data/announcements.json data/announcements-processed.json
+          git add data/announcements.json data/announcements-cache.json
           git diff --cached --quiet || git commit -m "自動翻譯新公告"
           git push
