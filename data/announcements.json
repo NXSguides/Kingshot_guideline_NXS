@@ -1,5 +1,24 @@
 [
   {
+    "id": "0f895d39ae",
+    "author": "Testing",
+    "createdAt": "2026-09-23T01:39:49.707Z",
+    "images": [],
+    "content": {
+      "en": "This is another test, posting an announcement in Chinese to confirm if it will be translated successfully :)",
+      "ko": "이것은 중국어로 공지를 게시하여 번역이 성공적으로 완료되는지 확인하는 또 다른 테스트입니다 :)",
+      "de": "Dies ist ein weiterer Test, bei dem eine Ankündigung auf Chinesisch veröffentlicht wird, um zu prüfen, ob sie erfolgreich übersetzt wird :)",
+      "fr": "Ceci est un autre test, publiant une annonce en chinois pour vérifier si elle sera traduite avec succès :)",
+      "pt": "Este é outro teste, enviando um anúncio em chinês para verificar se ele será traduzido com sucesso :)",
+      "tr": "Bu, başarılı bir şekilde çevrilip çevrilmeyeceğini kontrol etmek için Çince duyuru yayınlanan başka bir testtir :)",
+      "id": "Ini adalah pengujian lainnya, mengirimkan pengumuman dalam bahasa Mandarin untuk memastikan apakah akan berhasil diterjemahkan :)",
+      "ru": "Это еще один тест: публикация объявления на китайском языке, чтобы проверить, будет ли оно успешно переведено :)",
+      "th": "นี่เป็นอีกหนึ่งการทดสอบ โพสต์ประกาศเป็นภาษาจีนเพื่อตรวจสอบว่าจะได้รับการแปลสำเร็จหรือไม่ :)",
+      "ar": "هذا اختبار آخر، حيث يتم نشر إعلان باللغة الصينية للتحقق مما إذا كان سيتم ترجمته بنجاح :)",
+      "zh": "這是另外一個測試，用中文發公告，確認一下會不會被翻譯成功 :)\n"
+    }
+  },
+  {
     "id": "0e6a9b1b2a",
     "author": "Testing",
     "createdAt": "2026-09-23T01:21:53.275Z",
