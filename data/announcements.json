@@ -1,11 +1,1 @@
-[
-  {
-    "id": "Test!",
-    "createdAt": "2026-09-23T10:00:00Z",
-    "author": "Unknown",
-    "images": ["figures/test.jpg"],
-    "content": {
-      "en": "Testing......Nothing, just want to share this photo."
-    }
-  }
-]
+[]
