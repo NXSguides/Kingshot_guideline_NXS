@@ -518,7 +518,7 @@ body.menu-open { overflow: hidden; }
   margin-bottom: 8px;
 }
 
-.ann-text { font-size: 14.5px; }
+.ann-text { font-size: 14.5px; white-space: pre-wrap; }
 
 .ann-img {
   display: block;
