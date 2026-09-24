@@ -4704,28 +4704,28 @@ const GUIDES = {
     zh: { title: "KvK 準備與戰鬥指南（Gen 3 版本）", blocks: [
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
-          { label: "{truegold}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
-          { label: "{truegoldDust}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "{truegold}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
+          { label: "{truegoldDust}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroShard}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
-          { label: "⏩️ {construction}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {construction}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
           { label: "⏩️ {training}", icons: ["🚫", "🚫", "🚫", "✅", "✅"] },
-          { label: "⏩️ {research}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {research}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroRoulette}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
           { label: "{gathering}", icons: ["👍", "✅", "👍", "✅", "👍"] },
           { label: "{intel}", icons: ["✅", "👍", "✅", "👍", "✅"] },
           { label: "{petAdvancement}", icons: ["🚫", "🚫", "✅", "🚫", "✅"] },
-          { label: "{governorCharm}", icons: ["✅", "🚫", "OK", "✅", "🚫"] },
+          { label: "{governorCharm}", icons: ["✅", "🚫", "🆗", "✅", "🚫"] },
           { label: "{governorGear}", icons: ["🚫", "🚫", "🚫", "🚫", "✅"] },
-          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{masterItems}", icons: ["🚫", "✅", "OK", "🚫", "🚫"] },
+          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{masterItems}", icons: ["🚫", "✅", "🆗", "🚫", "🚫"] },
           { label: "{manuscript}", icons: ["🚫", "🚫", "✅", "🚫", "🚫"] },
-          { label: "{masterSpeeds}", icons: ["OK", "✅", "🚫", "🚫", "OK"] }
+          { label: "{masterSpeeds}", icons: ["🆗", "✅", "🚫", "🚫", "🆗"] }
         ],
         legend: [
           { icon: "✅", label: "{useIcon}" },
-          { icon: "OK", label: "{okayIfNeeded}" },
+          { icon: "🆗", label: "{okayIfNeeded}" },
           { icon: "🚫", label: "{dontUseIcon}" },
           { icon: "👍", label: "{needDaily}" }
         ]
@@ -4788,28 +4788,28 @@ const GUIDES = {
     en: { title: "KvK Prep & Battle Guide (Gen 3 Era)", blocks: [
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
-          { label: "{truegold}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
-          { label: "{truegoldDust}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "{truegold}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
+          { label: "{truegoldDust}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroShard}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
-          { label: "⏩️ {construction}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {construction}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
           { label: "⏩️ {training}", icons: ["🚫", "🚫", "🚫", "✅", "✅"] },
-          { label: "⏩️ {research}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {research}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroRoulette}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
           { label: "{gathering}", icons: ["👍", "✅", "👍", "✅", "👍"] },
           { label: "{intel}", icons: ["✅", "👍", "✅", "👍", "✅"] },
           { label: "{petAdvancement}", icons: ["🚫", "🚫", "✅", "🚫", "✅"] },
-          { label: "{governorCharm}", icons: ["✅", "🚫", "OK", "✅", "🚫"] },
+          { label: "{governorCharm}", icons: ["✅", "🚫", "🆗", "✅", "🚫"] },
           { label: "{governorGear}", icons: ["🚫", "🚫", "🚫", "🚫", "✅"] },
-          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{masterItems}", icons: ["🚫", "✅", "OK", "🚫", "🚫"] },
+          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{masterItems}", icons: ["🚫", "✅", "🆗", "🚫", "🚫"] },
           { label: "{manuscript}", icons: ["🚫", "🚫", "✅", "🚫", "🚫"] },
-          { label: "{masterSpeeds}", icons: ["OK", "✅", "🚫", "🚫", "OK"] }
+          { label: "{masterSpeeds}", icons: ["🆗", "✅", "🚫", "🚫", "🆗"] }
         ],
         legend: [
           { icon: "✅", label: "{useIcon}" },
-          { icon: "OK", label: "{okayIfNeeded}" },
+          { icon: "🆗", label: "{okayIfNeeded}" },
           { icon: "🚫", label: "{dontUseIcon}" },
           { icon: "👍", label: "{needDaily}" }
         ]
@@ -4872,28 +4872,28 @@ const GUIDES = {
     ko: { title: "KvK 준비 및 전투 가이드 (Gen 3 시대)", blocks: [
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
-          { label: "{truegold}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
-          { label: "{truegoldDust}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "{truegold}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
+          { label: "{truegoldDust}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroShard}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
-          { label: "⏩️ {construction}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {construction}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
           { label: "⏩️ {training}", icons: ["🚫", "🚫", "🚫", "✅", "✅"] },
-          { label: "⏩️ {research}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {research}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroRoulette}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
           { label: "{gathering}", icons: ["👍", "✅", "👍", "✅", "👍"] },
           { label: "{intel}", icons: ["✅", "👍", "✅", "👍", "✅"] },
           { label: "{petAdvancement}", icons: ["🚫", "🚫", "✅", "🚫", "✅"] },
-          { label: "{governorCharm}", icons: ["✅", "🚫", "OK", "✅", "🚫"] },
+          { label: "{governorCharm}", icons: ["✅", "🚫", "🆗", "✅", "🚫"] },
           { label: "{governorGear}", icons: ["🚫", "🚫", "🚫", "🚫", "✅"] },
-          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{masterItems}", icons: ["🚫", "✅", "OK", "🚫", "🚫"] },
+          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{masterItems}", icons: ["🚫", "✅", "🆗", "🚫", "🚫"] },
           { label: "{manuscript}", icons: ["🚫", "🚫", "✅", "🚫", "🚫"] },
-          { label: "{masterSpeeds}", icons: ["OK", "✅", "🚫", "🚫", "OK"] }
+          { label: "{masterSpeeds}", icons: ["🆗", "✅", "🚫", "🚫", "🆗"] }
         ],
         legend: [
           { icon: "✅", label: "{useIcon}" },
-          { icon: "OK", label: "{okayIfNeeded}" },
+          { icon: "🆗", label: "{okayIfNeeded}" },
           { icon: "🚫", label: "{dontUseIcon}" },
           { icon: "👍", label: "{needDaily}" }
         ]
@@ -4956,28 +4956,28 @@ const GUIDES = {
     de: { title: "KvK-Vorbereitungs- & Kampfguide (Gen-3-Ära)", blocks: [
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
-          { label: "{truegold}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
-          { label: "{truegoldDust}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "{truegold}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
+          { label: "{truegoldDust}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroShard}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
-          { label: "⏩️ {construction}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {construction}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
           { label: "⏩️ {training}", icons: ["🚫", "🚫", "🚫", "✅", "✅"] },
-          { label: "⏩️ {research}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {research}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroRoulette}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
           { label: "{gathering}", icons: ["👍", "✅", "👍", "✅", "👍"] },
           { label: "{intel}", icons: ["✅", "👍", "✅", "👍", "✅"] },
           { label: "{petAdvancement}", icons: ["🚫", "🚫", "✅", "🚫", "✅"] },
-          { label: "{governorCharm}", icons: ["✅", "🚫", "OK", "✅", "🚫"] },
+          { label: "{governorCharm}", icons: ["✅", "🚫", "🆗", "✅", "🚫"] },
           { label: "{governorGear}", icons: ["🚫", "🚫", "🚫", "🚫", "✅"] },
-          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{masterItems}", icons: ["🚫", "✅", "OK", "🚫", "🚫"] },
+          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{masterItems}", icons: ["🚫", "✅", "🆗", "🚫", "🚫"] },
           { label: "{manuscript}", icons: ["🚫", "🚫", "✅", "🚫", "🚫"] },
-          { label: "{masterSpeeds}", icons: ["OK", "✅", "🚫", "🚫", "OK"] }
+          { label: "{masterSpeeds}", icons: ["🆗", "✅", "🚫", "🚫", "🆗"] }
         ],
         legend: [
           { icon: "✅", label: "{useIcon}" },
-          { icon: "OK", label: "{okayIfNeeded}" },
+          { icon: "🆗", label: "{okayIfNeeded}" },
           { icon: "🚫", label: "{dontUseIcon}" },
           { icon: "👍", label: "{needDaily}" }
         ]
@@ -5040,28 +5040,28 @@ const GUIDES = {
     fr: { title: "Guide de Préparation et Combat KvK (Ère Gen 3)", blocks: [
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
-          { label: "{truegold}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
-          { label: "{truegoldDust}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "{truegold}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
+          { label: "{truegoldDust}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroShard}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
-          { label: "⏩️ {construction}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {construction}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
           { label: "⏩️ {training}", icons: ["🚫", "🚫", "🚫", "✅", "✅"] },
-          { label: "⏩️ {research}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {research}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroRoulette}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
           { label: "{gathering}", icons: ["👍", "✅", "👍", "✅", "👍"] },
           { label: "{intel}", icons: ["✅", "👍", "✅", "👍", "✅"] },
           { label: "{petAdvancement}", icons: ["🚫", "🚫", "✅", "🚫", "✅"] },
-          { label: "{governorCharm}", icons: ["✅", "🚫", "OK", "✅", "🚫"] },
+          { label: "{governorCharm}", icons: ["✅", "🚫", "🆗", "✅", "🚫"] },
           { label: "{governorGear}", icons: ["🚫", "🚫", "🚫", "🚫", "✅"] },
-          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{masterItems}", icons: ["🚫", "✅", "OK", "🚫", "🚫"] },
+          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{masterItems}", icons: ["🚫", "✅", "🆗", "🚫", "🚫"] },
           { label: "{manuscript}", icons: ["🚫", "🚫", "✅", "🚫", "🚫"] },
-          { label: "{masterSpeeds}", icons: ["OK", "✅", "🚫", "🚫", "OK"] }
+          { label: "{masterSpeeds}", icons: ["🆗", "✅", "🚫", "🚫", "🆗"] }
         ],
         legend: [
           { icon: "✅", label: "{useIcon}" },
-          { icon: "OK", label: "{okayIfNeeded}" },
+          { icon: "🆗", label: "{okayIfNeeded}" },
           { icon: "🚫", label: "{dontUseIcon}" },
           { icon: "👍", label: "{needDaily}" }
         ]
@@ -5124,28 +5124,28 @@ const GUIDES = {
     pt: { title: "Guia de Preparação e Batalha KvK (Era Gen 3)", blocks: [
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
-          { label: "{truegold}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
-          { label: "{truegoldDust}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "{truegold}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
+          { label: "{truegoldDust}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroShard}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
-          { label: "⏩️ {construction}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {construction}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
           { label: "⏩️ {training}", icons: ["🚫", "🚫", "🚫", "✅", "✅"] },
-          { label: "⏩️ {research}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {research}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroRoulette}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
           { label: "{gathering}", icons: ["👍", "✅", "👍", "✅", "👍"] },
           { label: "{intel}", icons: ["✅", "👍", "✅", "👍", "✅"] },
           { label: "{petAdvancement}", icons: ["🚫", "🚫", "✅", "🚫", "✅"] },
-          { label: "{governorCharm}", icons: ["✅", "🚫", "OK", "✅", "🚫"] },
+          { label: "{governorCharm}", icons: ["✅", "🚫", "🆗", "✅", "🚫"] },
           { label: "{governorGear}", icons: ["🚫", "🚫", "🚫", "🚫", "✅"] },
-          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{masterItems}", icons: ["🚫", "✅", "OK", "🚫", "🚫"] },
+          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{masterItems}", icons: ["🚫", "✅", "🆗", "🚫", "🚫"] },
           { label: "{manuscript}", icons: ["🚫", "🚫", "✅", "🚫", "🚫"] },
-          { label: "{masterSpeeds}", icons: ["OK", "✅", "🚫", "🚫", "OK"] }
+          { label: "{masterSpeeds}", icons: ["🆗", "✅", "🚫", "🚫", "🆗"] }
         ],
         legend: [
           { icon: "✅", label: "{useIcon}" },
-          { icon: "OK", label: "{okayIfNeeded}" },
+          { icon: "🆗", label: "{okayIfNeeded}" },
           { icon: "🚫", label: "{dontUseIcon}" },
           { icon: "👍", label: "{needDaily}" }
         ]
@@ -5208,28 +5208,28 @@ const GUIDES = {
     tr: { title: "KvK Hazırlık ve Savaş Rehberi (Gen 3 Dönemi)", blocks: [
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
-          { label: "{truegold}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
-          { label: "{truegoldDust}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "{truegold}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
+          { label: "{truegoldDust}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroShard}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
-          { label: "⏩️ {construction}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {construction}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
           { label: "⏩️ {training}", icons: ["🚫", "🚫", "🚫", "✅", "✅"] },
-          { label: "⏩️ {research}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {research}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroRoulette}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
           { label: "{gathering}", icons: ["👍", "✅", "👍", "✅", "👍"] },
           { label: "{intel}", icons: ["✅", "👍", "✅", "👍", "✅"] },
           { label: "{petAdvancement}", icons: ["🚫", "🚫", "✅", "🚫", "✅"] },
-          { label: "{governorCharm}", icons: ["✅", "🚫", "OK", "✅", "🚫"] },
+          { label: "{governorCharm}", icons: ["✅", "🚫", "🆗", "✅", "🚫"] },
           { label: "{governorGear}", icons: ["🚫", "🚫", "🚫", "🚫", "✅"] },
-          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{masterItems}", icons: ["🚫", "✅", "OK", "🚫", "🚫"] },
+          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{masterItems}", icons: ["🚫", "✅", "🆗", "🚫", "🚫"] },
           { label: "{manuscript}", icons: ["🚫", "🚫", "✅", "🚫", "🚫"] },
-          { label: "{masterSpeeds}", icons: ["OK", "✅", "🚫", "🚫", "OK"] }
+          { label: "{masterSpeeds}", icons: ["🆗", "✅", "🚫", "🚫", "🆗"] }
         ],
         legend: [
           { icon: "✅", label: "{useIcon}" },
-          { icon: "OK", label: "{okayIfNeeded}" },
+          { icon: "🆗", label: "{okayIfNeeded}" },
           { icon: "🚫", label: "{dontUseIcon}" },
           { icon: "👍", label: "{needDaily}" }
         ]
@@ -5292,28 +5292,28 @@ const GUIDES = {
     id: { title: "Panduan Persiapan & Pertempuran KvK (Era Gen 3)", blocks: [
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
-          { label: "{truegold}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
-          { label: "{truegoldDust}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "{truegold}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
+          { label: "{truegoldDust}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroShard}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
-          { label: "⏩️ {construction}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {construction}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
           { label: "⏩️ {training}", icons: ["🚫", "🚫", "🚫", "✅", "✅"] },
-          { label: "⏩️ {research}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {research}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroRoulette}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
           { label: "{gathering}", icons: ["👍", "✅", "👍", "✅", "👍"] },
           { label: "{intel}", icons: ["✅", "👍", "✅", "👍", "✅"] },
           { label: "{petAdvancement}", icons: ["🚫", "🚫", "✅", "🚫", "✅"] },
-          { label: "{governorCharm}", icons: ["✅", "🚫", "OK", "✅", "🚫"] },
+          { label: "{governorCharm}", icons: ["✅", "🚫", "🆗", "✅", "🚫"] },
           { label: "{governorGear}", icons: ["🚫", "🚫", "🚫", "🚫", "✅"] },
-          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{masterItems}", icons: ["🚫", "✅", "OK", "🚫", "🚫"] },
+          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{masterItems}", icons: ["🚫", "✅", "🆗", "🚫", "🚫"] },
           { label: "{manuscript}", icons: ["🚫", "🚫", "✅", "🚫", "🚫"] },
-          { label: "{masterSpeeds}", icons: ["OK", "✅", "🚫", "🚫", "OK"] }
+          { label: "{masterSpeeds}", icons: ["🆗", "✅", "🚫", "🚫", "🆗"] }
         ],
         legend: [
           { icon: "✅", label: "{useIcon}" },
-          { icon: "OK", label: "{okayIfNeeded}" },
+          { icon: "🆗", label: "{okayIfNeeded}" },
           { icon: "🚫", label: "{dontUseIcon}" },
           { icon: "👍", label: "{needDaily}" }
         ]
@@ -5376,28 +5376,28 @@ const GUIDES = {
     ru: { title: "Гайд по подготовке и битве KvK (Эпоха Gen 3)", blocks: [
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
-          { label: "{truegold}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
-          { label: "{truegoldDust}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "{truegold}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
+          { label: "{truegoldDust}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroShard}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
-          { label: "⏩️ {construction}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {construction}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
           { label: "⏩️ {training}", icons: ["🚫", "🚫", "🚫", "✅", "✅"] },
-          { label: "⏩️ {research}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {research}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroRoulette}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
           { label: "{gathering}", icons: ["👍", "✅", "👍", "✅", "👍"] },
           { label: "{intel}", icons: ["✅", "👍", "✅", "👍", "✅"] },
           { label: "{petAdvancement}", icons: ["🚫", "🚫", "✅", "🚫", "✅"] },
-          { label: "{governorCharm}", icons: ["✅", "🚫", "OK", "✅", "🚫"] },
+          { label: "{governorCharm}", icons: ["✅", "🚫", "🆗", "✅", "🚫"] },
           { label: "{governorGear}", icons: ["🚫", "🚫", "🚫", "🚫", "✅"] },
-          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{masterItems}", icons: ["🚫", "✅", "OK", "🚫", "🚫"] },
+          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{masterItems}", icons: ["🚫", "✅", "🆗", "🚫", "🚫"] },
           { label: "{manuscript}", icons: ["🚫", "🚫", "✅", "🚫", "🚫"] },
-          { label: "{masterSpeeds}", icons: ["OK", "✅", "🚫", "🚫", "OK"] }
+          { label: "{masterSpeeds}", icons: ["🆗", "✅", "🚫", "🚫", "🆗"] }
         ],
         legend: [
           { icon: "✅", label: "{useIcon}" },
-          { icon: "OK", label: "{okayIfNeeded}" },
+          { icon: "🆗", label: "{okayIfNeeded}" },
           { icon: "🚫", label: "{dontUseIcon}" },
           { icon: "👍", label: "{needDaily}" }
         ]
@@ -5460,28 +5460,28 @@ const GUIDES = {
     th: { title: "คู่มือเตรียมตัวและการต่อสู้ KvK (ยุค Gen 3)", blocks: [
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
-          { label: "{truegold}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
-          { label: "{truegoldDust}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "{truegold}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
+          { label: "{truegoldDust}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroShard}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
-          { label: "⏩️ {construction}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {construction}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
           { label: "⏩️ {training}", icons: ["🚫", "🚫", "🚫", "✅", "✅"] },
-          { label: "⏩️ {research}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {research}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroRoulette}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
           { label: "{gathering}", icons: ["👍", "✅", "👍", "✅", "👍"] },
           { label: "{intel}", icons: ["✅", "👍", "✅", "👍", "✅"] },
           { label: "{petAdvancement}", icons: ["🚫", "🚫", "✅", "🚫", "✅"] },
-          { label: "{governorCharm}", icons: ["✅", "🚫", "OK", "✅", "🚫"] },
+          { label: "{governorCharm}", icons: ["✅", "🚫", "🆗", "✅", "🚫"] },
           { label: "{governorGear}", icons: ["🚫", "🚫", "🚫", "🚫", "✅"] },
-          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{masterItems}", icons: ["🚫", "✅", "OK", "🚫", "🚫"] },
+          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{masterItems}", icons: ["🚫", "✅", "🆗", "🚫", "🚫"] },
           { label: "{manuscript}", icons: ["🚫", "🚫", "✅", "🚫", "🚫"] },
-          { label: "{masterSpeeds}", icons: ["OK", "✅", "🚫", "🚫", "OK"] }
+          { label: "{masterSpeeds}", icons: ["🆗", "✅", "🚫", "🚫", "🆗"] }
         ],
         legend: [
           { icon: "✅", label: "{useIcon}" },
-          { icon: "OK", label: "{okayIfNeeded}" },
+          { icon: "🆗", label: "{okayIfNeeded}" },
           { icon: "🚫", label: "{dontUseIcon}" },
           { icon: "👍", label: "{needDaily}" }
         ]
@@ -5544,28 +5544,28 @@ const GUIDES = {
     ar: { title: "دليل استعداد وقتال KvK (حقبة Gen 3)", blocks: [
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
-          { label: "{truegold}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
-          { label: "{truegoldDust}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "{truegold}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
+          { label: "{truegoldDust}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroShard}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
-          { label: "⏩️ {construction}", icons: ["✅", "OK", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {construction}", icons: ["✅", "🆗", "🚫", "🚫", "✅"] },
           { label: "⏩️ {training}", icons: ["🚫", "🚫", "🚫", "✅", "✅"] },
-          { label: "⏩️ {research}", icons: ["OK", "✅", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {research}", icons: ["🆗", "✅", "🚫", "🚫", "✅"] },
           { label: "{heroRoulette}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
           { label: "{gathering}", icons: ["👍", "✅", "👍", "✅", "👍"] },
           { label: "{intel}", icons: ["✅", "👍", "✅", "👍", "✅"] },
           { label: "{petAdvancement}", icons: ["🚫", "🚫", "✅", "🚫", "✅"] },
-          { label: "{governorCharm}", icons: ["✅", "🚫", "OK", "✅", "🚫"] },
+          { label: "{governorCharm}", icons: ["✅", "🚫", "🆗", "✅", "🚫"] },
           { label: "{governorGear}", icons: ["🚫", "🚫", "🚫", "🚫", "✅"] },
-          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "OK", "✅"] },
-          { label: "{masterItems}", icons: ["🚫", "✅", "OK", "🚫", "🚫"] },
+          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "Mithril", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "🆗", "✅"] },
+          { label: "{masterItems}", icons: ["🚫", "✅", "🆗", "🚫", "🚫"] },
           { label: "{manuscript}", icons: ["🚫", "🚫", "✅", "🚫", "🚫"] },
-          { label: "{masterSpeeds}", icons: ["OK", "✅", "🚫", "🚫", "OK"] }
+          { label: "{masterSpeeds}", icons: ["🆗", "✅", "🚫", "🚫", "🆗"] }
         ],
         legend: [
           { icon: "✅", label: "{useIcon}" },
-          { icon: "OK", label: "{okayIfNeeded}" },
+          { icon: "🆗", label: "{okayIfNeeded}" },
           { icon: "🚫", label: "{dontUseIcon}" },
           { icon: "👍", label: "{needDaily}" }
         ]
