@@ -110,6 +110,16 @@ function term(id) { return GLOSSARY[id] ? t(GLOSSARY[id]) : id; }
 function rich(str) {
   return escapeHtml(str)
     .replace(/\{(\w+)\}/g, (m, id) => (GLOSSARY[id] ? escapeHtml(term(id)) : m))
+    .replace(/\[\[link:([\w-]+)\]\]/g, (m, guideId) => {
+      const target = GUIDES[guideId];
+      if (!target) return "";
+      const label = escapeHtml(t(target.name) || guideId);
+      return `<button type="button" class="guide-link-btn ann-link-btn" onclick="switchGuide('${guideId}')">
+        <span class="emoji">${target.emoji}</span>
+        <span dir="auto">${label}</span>
+        <span class="arrow">›</span>
+      </button>`;
+    })
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
 }
@@ -232,7 +242,6 @@ const BLOCKS = {
           </div>
           <div class="ann-text">${rich(text)}</div>
           ${imgs}
-          ${linksBlock}
         </div>
       </div>
     `;
