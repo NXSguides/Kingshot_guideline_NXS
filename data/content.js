@@ -114,7 +114,7 @@ Object.assign(UI.roles.attack, { pt: "Líder de Ataque" });
 
 /* 英雄顯示名：編組只存英文 id，畫面依語言換成譯名
    （已依對照表修正：Jabel 中/韓、Yeonwoo 中、Marlin 韓）
-   Petra、Rosa 不在對照表，保留原寫法，待核對 */
+   Petra、Rosa 不在對照表，尚未驗證，一律顯示英文，待截圖確認後再補上其他語言 */
 const HEROES = {
   Amadeus: { zh: "阿瑪迪斯", en: "Amadeus", ko: "아마데우스", de: "Amadeus" },
   Jabel: { zh: "潔貝爾", en: "Jabel", ko: "제이벨", de: "Jabel" },
@@ -124,8 +124,8 @@ const HEROES = {
   Hilde: { zh: "希爾德", en: "Hilde", ko: "힐데", de: "Hilde" },
   Marlin: { zh: "馬林", en: "Marlin", ko: "마린", de: "Marlin" },
   Zoe: { zh: "佐伊", en: "Zoe", ko: "조이", de: "Zoe" },
-  Petra: { zh: "佩特拉", en: "Petra", ko: "페트라", de: "Petra" },
-  Rosa: { zh: "羅莎", en: "Rosa", ko: "로사", de: "Rosa" },
+  Petra: { en: "Petra" },
+  Rosa: { en: "Rosa" },
   Chenko: { zh: "琴科", en: "Chenko", ko: "첸코", de: "Chenko" },
   Yeonwoo: { zh: "妍羽", en: "Yeonwoo", ko: "연우", de: "Yeonwoo" },
   Amane: { zh: "雨音", en: "Amane", ko: "아마네", de: "Amane" }
@@ -3828,7 +3828,830 @@ const GUIDES = {
         { type: "img", src: "figures/eternity_reach.jpg", alt: "وصول الأبدية" }
       ]}
     }
-  }
+  },
+  "f2p-heroes": {
+    emoji: "🎯",
+    name: {
+      zh: "英雄培養指南（F2P）", en: "F2P Heroes Guide", ko: "무과금 영웅 육성 가이드", de: "F2P-Helden-Guide",
+      fr: "Guide des héros F2P", pt: "Guia de Heróis F2P", tr: "F2P Kahraman Rehberi",
+      id: "Panduan Hero F2P", ru: "Гайд по героям для F2P", th: "คู่มือฮีโร่สาย F2P", ar: "دليل الأبطال لللاعبين المجانيين"
+    },
+    sections: {
+      zh: { title: "英雄培養指南（F2P／低課金）", blocks: [
+        { type: "callout", text: "神話碎片與專屬裝置數量有限，不要每個英雄都想練。把資源集中在長期價值高的英雄上。" },
+        { type: "callout", text: "部分英雄的官方譯名尚未經截圖確認，或尚未正式上線，這篇一律保留英文原名，等日後驗證後再補上翻譯。" },
+
+        { type: "sub", text: "第 1 代" },
+        { type: "p", text: "**{jabel}**" },
+        { type: "list", items: [
+          "可農取的神話英雄；優先培養。",
+          "**{saul}**：練幾星取得成長技能即可，不用過度投資。"
+        ]},
+
+        { type: "sub", text: "第 2 代" },
+        { type: "p", text: "**{zoe} — 打造（輪盤）**" },
+        { type: "list", items: [
+          "大幅超越 {howard}。",
+          "**{marlin}**：取代 {saul}。"
+        ]},
+
+        { type: "sub", text: "第 3 代" },
+        { type: "p", text: "**Petra — 必練（輪盤）**" },
+        { type: "list", items: [
+          "優秀的狩獵巨熊英雄，價值可延續到第 7 代。",
+          "**Eric ＆ Jaeger**：除非主攻 PvP／駐防，否則可以跳過。"
+        ]},
+
+        { type: "sub", text: "第 4 代" },
+        { type: "p", text: "**Rosa — 打造（輪盤）**" },
+        { type: "list", items: [
+          "狩獵巨熊的強力升級。",
+          "**Alcar 或 Margot**：非必要，兩者在競技場／遠征都不錯。"
+        ]},
+
+        { type: "sub", text: "第 5 代" },
+        { type: "p", text: "**Long Fei — 打造（輪盤）**" },
+        { type: "list", items: [
+          "非常適合神秘試煉、三方聯盟戰、聖劍爭奪等多隊活動。",
+          "**Thrud／Vivian**：主要用於競技場／PvP。",
+          "沒抽到 Petra？可以考慮 Thrud。"
+        ]},
+
+        { type: "sub", text: "第 6 代" },
+        { type: "p", text: "**Sophia — 打造（輪盤）**" },
+        { type: "list", items: ["主要用在多隊內容。"] },
+        { type: "p", text: "**Yang — 高優先**" },
+        { type: "list", items: [
+          "狩獵巨熊實用性極佳，值得投入神話碎片。",
+          "**Triton**：如果已經練了 Long Fei，通常可以跳過。"
+        ]},
+
+        { type: "sub", text: "第 7 代" },
+        { type: "p", text: "**Wee ＆ Woo — 必練（輪盤）**" },
+        { type: "list", items: ["整體對 F2P 來說價值極高。"] },
+        { type: "p", text: "**Ava — 高優先**" },
+        { type: "list", items: [
+          "優秀的狩獵巨熊英雄，可取代 Petra。",
+          "**Charles**：通常可以放心跳過。"
+        ]},
+
+        { type: "h", text: "簡易 F2P 輪盤路線" },
+        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee ＆ Woo" },
+
+        { type: "h", text: "神話碎片優先順序" },
+        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+
+        { type: "h", text: "經驗法則" },
+        { type: "p", text: "輪盤英雄通常是 F2P 最安全的投資。省著用資源，不要把神話碎片分散得太薄，也不用有壓力覺得每個英雄都要練。" },
+
+        { type: "h", text: "總結" },
+        { type: "list", items: [
+          "**F2P 玩家：** 從英雄輪盤中優先鎖定 {zoe}（步兵坦克）、{jabel}（騎兵）、Petra（進攻型騎兵）",
+          "**課金玩家：** 優先培養 {amadeus}（VIP 7 以上）與 {hilde}，效益最大化"
+        ]}
+      ]},
+
+      en: { title: "F2P Heroes Guide", blocks: [
+        { type: "callout", text: "Mythic Shards and rally widgets are limited. Don't try to build every hero — focus your resources on heroes with strong, long-term value." },
+        { type: "callout", text: "A few heroes below either haven't been officially confirmed via screenshot or haven't been released yet — those stay in English until verified." },
+
+        { type: "sub", text: "GEN 1" },
+        { type: "p", text: "**{jabel}**" },
+        { type: "list", items: [
+          "Farmable Mythic; main priority.",
+          "**{saul}**: A few stars for the Growth skill. Don't over-invest."
+        ]},
+
+        { type: "sub", text: "GEN 2" },
+        { type: "p", text: "**{zoe} — BUILD (Roulette)**" },
+        { type: "list", items: [
+          "Major upgrade over {howard}.",
+          "**{marlin}**: Replaces {saul}."
+        ]},
+
+        { type: "sub", text: "GEN 3" },
+        { type: "p", text: "**Petra — MUST BUILD (Roulette)**" },
+        { type: "list", items: [
+          "Excellent Bear Hunt hero with value through Gen 7.",
+          "**Eric & Jaeger**: Skip unless you're focused on PvP/garrison defense."
+        ]},
+
+        { type: "sub", text: "GEN 4" },
+        { type: "p", text: "**Rosa — BUILD (Roulette)**" },
+        { type: "list", items: [
+          "Strong Bear Hunt upgrade.",
+          "**Alcar OR Margot**: Optional. Both are strong in Arena/Expedition."
+        ]},
+
+        { type: "sub", text: "GEN 5" },
+        { type: "p", text: "**Long Fei — BUILD (Roulette)**" },
+        { type: "list", items: [
+          "Great for multi-team events like Mystic Trial, Tri-Alliance & Swordland.",
+          "**Thrud/Vivian**: Mostly Arena/PvP.",
+          "Missed Petra? Consider Thrud."
+        ]},
+
+        { type: "sub", text: "GEN 6" },
+        { type: "p", text: "**Sophia — BUILD (Roulette)**" },
+        { type: "list", items: ["Mainly useful for multi-team content."] },
+        { type: "p", text: "**Yang — HIGH PRIORITY**" },
+        { type: "list", items: [
+          "Excellent Bear Hunt utility; worth investing Mythic Shards.",
+          "**Triton**: Generally skip if you built Long Fei."
+        ]},
+
+        { type: "sub", text: "GEN 7" },
+        { type: "p", text: "**Wee & Woo — MUST BUILD (Roulette)**" },
+        { type: "list", items: ["Excellent overall F2P value."] },
+        { type: "p", text: "**Ava — HIGH PRIORITY**" },
+        { type: "list", items: [
+          "Excellent Bear Hunt hero; replaces Petra.",
+          "**Charles**: Generally safe to skip."
+        ]},
+
+        { type: "h", text: "SIMPLE F2P ROULETTE PATH" },
+        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+
+        { type: "h", text: "MYTHIC SHARD PRIORITIES" },
+        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+
+        { type: "h", text: "RULE OF THUMB" },
+        { type: "p", text: "Roulette heroes are generally your safest F2P investments. Save your resources, avoid spreading Mythic Shards too thin, and don't feel pressured to build every hero." },
+
+        { type: "h", text: "SUMMARY" },
+        { type: "list", items: [
+          "**F2P Players:** Focus on {zoe} (infantry tank), {jabel} (cavalry), and Petra (offensive cavalry) from hero roulette",
+          "**P2W Players:** Prioritize {amadeus} (VIP 7+) and {hilde} for maximum impact"
+        ]}
+      ]},
+
+      ko: { title: "무과금 영웅 육성 가이드", blocks: [
+        { type: "callout", text: "신화 조각과 집결 전용 장비는 한정되어 있습니다. 모든 영웅을 다 키우려 하지 말고, 장기적으로 가치가 높은 영웅에 자원을 집중하세요." },
+        { type: "callout", text: "아래 일부 영웅은 스크린샷으로 공식 확인되지 않았거나 아직 출시되지 않았습니다. 확인되기 전까지는 영문 이름을 그대로 사용합니다." },
+
+        { type: "sub", text: "1세대" },
+        { type: "p", text: "**{jabel}**" },
+        { type: "list", items: [
+          "파밍 가능한 신화 영웅; 최우선 육성 대상.",
+          "**{saul}**: 성장 스킬을 위해 별 몇 개만. 과도하게 투자하지 마세요."
+        ]},
+
+        { type: "sub", text: "2세대" },
+        { type: "p", text: "**{zoe} — 육성 (룰렛)**" },
+        { type: "list", items: [
+          "{howard}보다 크게 업그레이드된 선택.",
+          "**{marlin}**: {saul}을 대체."
+        ]},
+
+        { type: "sub", text: "3세대" },
+        { type: "p", text: "**Petra — 필수 육성 (룰렛)**" },
+        { type: "list", items: [
+          "7세대까지 가치 있는 훌륭한 자이언트 베어 사냥 영웅.",
+          "**Eric & Jaeger**: PvP/주둔 방어에 집중하지 않는다면 건너뛰세요."
+        ]},
+
+        { type: "sub", text: "4세대" },
+        { type: "p", text: "**Rosa — 육성 (룰렛)**" },
+        { type: "list", items: [
+          "자이언트 베어 사냥에서 강력한 업그레이드.",
+          "**Alcar 또는 Margot**: 선택 사항. 둘 다 투기장/원정에서 강력합니다."
+        ]},
+
+        { type: "sub", text: "5세대" },
+        { type: "p", text: "**Long Fei — 육성 (룰렛)**" },
+        { type: "list", items: [
+          "신비한 시련, 삼자 연맹전, 성검 쟁탈 같은 다중 팀 이벤트에 매우 좋습니다.",
+          "**Thrud/Vivian**: 주로 투기장/PvP용.",
+          "Petra를 놓쳤다면 Thrud를 고려하세요."
+        ]},
+
+        { type: "sub", text: "6세대" },
+        { type: "p", text: "**Sophia — 육성 (룰렛)**" },
+        { type: "list", items: ["주로 다중 팀 콘텐츠에 유용합니다."] },
+        { type: "p", text: "**Yang — 최우선**" },
+        { type: "list", items: [
+          "자이언트 베어 사냥 활용도가 뛰어나 신화 조각을 투자할 가치가 있습니다.",
+          "**Triton**: Long Fei를 육성했다면 대체로 건너뛰어도 됩니다."
+        ]},
+
+        { type: "sub", text: "7세대" },
+        { type: "p", text: "**Wee & Woo — 필수 육성 (룰렛)**" },
+        { type: "list", items: ["무과금 유저에게 전반적으로 훌륭한 가치."] },
+        { type: "p", text: "**Ava — 최우선**" },
+        { type: "list", items: [
+          "훌륭한 자이언트 베어 사냥 영웅; Petra를 대체.",
+          "**Charles**: 대체로 안심하고 건너뛰어도 됩니다."
+        ]},
+
+        { type: "h", text: "간단한 무과금 룰렛 경로" },
+        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+
+        { type: "h", text: "신화 조각 우선순위" },
+        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+
+        { type: "h", text: "기본 원칙" },
+        { type: "p", text: "룰렛 영웅은 대체로 무과금 유저에게 가장 안전한 투자입니다. 자원을 아끼고, 신화 조각을 너무 얇게 분산시키지 말고, 모든 영웅을 키워야 한다는 부담을 가지지 마세요." },
+
+        { type: "h", text: "요약" },
+        { type: "list", items: [
+          "**무과금 유저:** 영웅 룰렛에서 {zoe}(보병 탱커), {jabel}(기병), Petra(공격형 기병)를 우선하세요",
+          "**과금 유저:** {amadeus}(VIP 7 이상)와 {hilde}를 우선 육성해 효과를 극대화하세요"
+        ]}
+      ]},
+
+      de: { title: "F2P-Helden-Guide", blocks: [
+        { type: "callout", text: "Mythische Splitter und Rally-Ausrüstungen sind begrenzt. Versuche nicht, jeden Helden aufzubauen — konzentriere deine Ressourcen auf Helden mit starkem, langfristigem Wert." },
+        { type: "callout", text: "Einige Helden unten wurden entweder nicht per Screenshot offiziell bestätigt oder sind noch nicht veröffentlicht — diese bleiben auf Englisch, bis sie bestätigt sind." },
+
+        { type: "sub", text: "GEN 1" },
+        { type: "p", text: "**{jabel}**" },
+        { type: "list", items: [
+          "Farmbarer Mythischer Held; oberste Priorität.",
+          "**{saul}**: Ein paar Sterne für die Wachstumsfähigkeit. Nicht überinvestieren."
+        ]},
+
+        { type: "sub", text: "GEN 2" },
+        { type: "p", text: "**{zoe} — AUFBAUEN (Roulette)**" },
+        { type: "list", items: [
+          "Deutliches Upgrade gegenüber {howard}.",
+          "**{marlin}**: Ersetzt {saul}."
+        ]},
+
+        { type: "sub", text: "GEN 3" },
+        { type: "p", text: "**Petra — UNBEDINGT AUFBAUEN (Roulette)**" },
+        { type: "list", items: [
+          "Exzellenter Bärenjagd-Held mit Wert bis Gen 7.",
+          "**Eric & Jaeger**: Überspringen, außer du konzentrierst dich auf PvP/Garnisonsverteidigung."
+        ]},
+
+        { type: "sub", text: "GEN 4" },
+        { type: "p", text: "**Rosa — AUFBAUEN (Roulette)**" },
+        { type: "list", items: [
+          "Starkes Upgrade für die Bärenjagd.",
+          "**Alcar ODER Margot**: Optional. Beide sind stark in Arena/Expedition."
+        ]},
+
+        { type: "sub", text: "GEN 5" },
+        { type: "p", text: "**Long Fei — AUFBAUEN (Roulette)**" },
+        { type: "list", items: [
+          "Großartig für Multi-Team-Events wie Mystic Trial, Tri-Allianz und Swordland.",
+          "**Thrud/Vivian**: Hauptsächlich Arena/PvP.",
+          "Petra verpasst? Erwäge Thrud."
+        ]},
+
+        { type: "sub", text: "GEN 6" },
+        { type: "p", text: "**Sophia — AUFBAUEN (Roulette)**" },
+        { type: "list", items: ["Hauptsächlich nützlich für Multi-Team-Inhalte."] },
+        { type: "p", text: "**Yang — HOHE PRIORITÄT**" },
+        { type: "list", items: [
+          "Exzellenter Nutzen bei der Bärenjagd; Mythische Splitter lohnen sich.",
+          "**Triton**: In der Regel überspringen, wenn du Long Fei aufgebaut hast."
+        ]},
+
+        { type: "sub", text: "GEN 7" },
+        { type: "p", text: "**Wee & Woo — UNBEDINGT AUFBAUEN (Roulette)**" },
+        { type: "list", items: ["Insgesamt exzellenter F2P-Wert."] },
+        { type: "p", text: "**Ava — HOHE PRIORITÄT**" },
+        { type: "list", items: [
+          "Exzellenter Bärenjagd-Held; ersetzt Petra.",
+          "**Charles**: In der Regel bedenkenlos überspringen."
+        ]},
+
+        { type: "h", text: "EINFACHER F2P-ROULETTE-PFAD" },
+        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+
+        { type: "h", text: "PRIORITÄTEN FÜR MYTHISCHE SPLITTER" },
+        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+
+        { type: "h", text: "FAUSTREGEL" },
+        { type: "p", text: "Roulette-Helden sind in der Regel deine sichersten F2P-Investitionen. Spare deine Ressourcen, verteile Mythische Splitter nicht zu dünn und fühl dich nicht unter Druck, jeden Helden aufzubauen." },
+
+        { type: "h", text: "ZUSAMMENFASSUNG" },
+        { type: "list", items: [
+          "**F2P-Spieler:** Konzentriere dich im Helden-Roulette auf {zoe} (Infanterie-Tank), {jabel} (Kavallerie) und Petra (offensive Kavallerie)",
+          "**P2W-Spieler:** Priorisiere {amadeus} (VIP 7+) und {hilde} für maximale Wirkung"
+        ]}
+      ]},
+
+      fr: { title: "Guide des héros F2P", blocks: [
+        { type: "callout", text: "Les Éclats mythiques et les équipements exclusifs de ralliement sont limités. N'essayez pas de développer tous les héros — concentrez vos ressources sur ceux qui ont une valeur forte et durable." },
+        { type: "callout", text: "Quelques héros ci-dessous n'ont pas encore été confirmés officiellement par capture d'écran, ou ne sont pas encore sortis — ils restent en anglais jusqu'à vérification." },
+
+        { type: "sub", text: "GEN 1" },
+        { type: "p", text: "**{jabel}**" },
+        { type: "list", items: [
+          "Héros mythique farmable ; priorité principale.",
+          "**{saul}**: Quelques étoiles pour la compétence de croissance. N'investissez pas trop."
+        ]},
+
+        { type: "sub", text: "GEN 2" },
+        { type: "p", text: "**{zoe} — À DÉVELOPPER (Roulette)**" },
+        { type: "list", items: [
+          "Grosse amélioration par rapport à {howard}.",
+          "**{marlin}**: Remplace {saul}."
+        ]},
+
+        { type: "sub", text: "GEN 3" },
+        { type: "p", text: "**Petra — À DÉVELOPPER ABSOLUMENT (Roulette)**" },
+        { type: "list", items: [
+          "Excellent héros pour la Chasse à l'Ours, avec une valeur qui dure jusqu'à la Gen 7.",
+          "**Eric & Jaeger**: À ignorer sauf si vous vous concentrez sur le PvP/la défense de garnison."
+        ]},
+
+        { type: "sub", text: "GEN 4" },
+        { type: "p", text: "**Rosa — À DÉVELOPPER (Roulette)**" },
+        { type: "list", items: [
+          "Grosse amélioration pour la Chasse à l'Ours.",
+          "**Alcar OU Margot**: Facultatif. Les deux sont solides en Arène/Expédition."
+        ]},
+
+        { type: "sub", text: "GEN 5" },
+        { type: "p", text: "**Long Fei — À DÉVELOPPER (Roulette)**" },
+        { type: "list", items: [
+          "Excellent pour les événements multi-équipes comme l'Épreuve Mystique, la guerre Tri-Alliance et le Choc du Glaive.",
+          "**Thrud/Vivian**: Surtout Arène/PvP.",
+          "Vous avez manqué Petra ? Envisagez Thrud."
+        ]},
+
+        { type: "sub", text: "GEN 6" },
+        { type: "p", text: "**Sophia — À DÉVELOPPER (Roulette)**" },
+        { type: "list", items: ["Utile surtout pour le contenu multi-équipes."] },
+        { type: "p", text: "**Yang — PRIORITÉ ÉLEVÉE**" },
+        { type: "list", items: [
+          "Excellente utilité pour la Chasse à l'Ours ; ça vaut la peine d'y investir des Éclats mythiques.",
+          "**Triton**: En général à ignorer si vous avez développé Long Fei."
+        ]},
+
+        { type: "sub", text: "GEN 7" },
+        { type: "p", text: "**Wee & Woo — À DÉVELOPPER ABSOLUMENT (Roulette)**" },
+        { type: "list", items: ["Excellente valeur globale pour les F2P."] },
+        { type: "p", text: "**Ava — PRIORITÉ ÉLEVÉE**" },
+        { type: "list", items: [
+          "Excellent héros pour la Chasse à l'Ours ; remplace Petra.",
+          "**Charles**: Généralement sûr à ignorer."
+        ]},
+
+        { type: "h", text: "PARCOURS ROULETTE F2P SIMPLIFIÉ" },
+        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+
+        { type: "h", text: "PRIORITÉS DES ÉCLATS MYTHIQUES" },
+        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+
+        { type: "h", text: "RÈGLE GÉNÉRALE" },
+        { type: "p", text: "Les héros de la roulette sont généralement vos investissements F2P les plus sûrs. Économisez vos ressources, évitez de trop disperser vos Éclats mythiques, et ne vous sentez pas obligé de développer tous les héros." },
+
+        { type: "h", text: "RÉSUMÉ" },
+        { type: "list", items: [
+          "**Joueurs F2P :** Concentrez-vous sur {zoe} (tank d'infanterie), {jabel} (cavalerie) et Petra (cavalerie offensive) via la roulette de héros",
+          "**Joueurs P2W :** Priorisez {amadeus} (VIP 7+) et {hilde} pour un impact maximal"
+        ]}
+      ]},
+
+      pt: { title: "Guia de Heróis F2P", blocks: [
+        { type: "callout", text: "Fragmentos Míticos e equipamentos exclusivos de rally são limitados. Não tente desenvolver todos os heróis — concentre seus recursos nos que têm valor forte a longo prazo." },
+        { type: "callout", text: "Alguns heróis abaixo ainda não foram confirmados oficialmente por captura de tela, ou ainda não foram lançados — eles ficam em inglês até serem confirmados." },
+
+        { type: "sub", text: "GEN 1" },
+        { type: "p", text: "**{jabel}**" },
+        { type: "list", items: [
+          "Herói mítico farmável; prioridade principal.",
+          "**{saul}**: Algumas estrelas para a habilidade de Crescimento. Não invista demais."
+        ]},
+
+        { type: "sub", text: "GEN 2" },
+        { type: "p", text: "**{zoe} — DESENVOLVER (Roleta)**" },
+        { type: "list", items: [
+          "Grande melhoria em relação a {howard}.",
+          "**{marlin}**: Substitui {saul}."
+        ]},
+
+        { type: "sub", text: "GEN 3" },
+        { type: "p", text: "**Petra — DEVE DESENVOLVER (Roleta)**" },
+        { type: "list", items: [
+          "Excelente herói para Caça ao Urso, com valor até a Gen 7.",
+          "**Eric & Jaeger**: Pule, a menos que você foque em PvP/defesa de guarnição."
+        ]},
+
+        { type: "sub", text: "GEN 4" },
+        { type: "p", text: "**Rosa — DESENVOLVER (Roleta)**" },
+        { type: "list", items: [
+          "Forte melhoria para a Caça ao Urso.",
+          "**Alcar OU Margot**: Opcional. Ambos são fortes em Arena/Expedição."
+        ]},
+
+        { type: "sub", text: "GEN 5" },
+        { type: "p", text: "**Long Fei — DESENVOLVER (Roleta)**" },
+        { type: "list", items: [
+          "Ótimo para eventos multi-equipes como Julgamento Místico, Tri-Aliança e Confronto entre Espadas.",
+          "**Thrud/Vivian**: Principalmente Arena/PvP.",
+          "Perdeu a Petra? Considere a Thrud."
+        ]},
+
+        { type: "sub", text: "GEN 6" },
+        { type: "p", text: "**Sophia — DESENVOLVER (Roleta)**" },
+        { type: "list", items: ["Útil principalmente para conteúdo multi-equipes."] },
+        { type: "p", text: "**Yang — ALTA PRIORIDADE**" },
+        { type: "list", items: [
+          "Excelente utilidade na Caça ao Urso; vale a pena investir Fragmentos Míticos.",
+          "**Triton**: Geralmente pule se você já desenvolveu o Long Fei."
+        ]},
+
+        { type: "sub", text: "GEN 7" },
+        { type: "p", text: "**Wee & Woo — DEVE DESENVOLVER (Roleta)**" },
+        { type: "list", items: ["Excelente valor geral para F2P."] },
+        { type: "p", text: "**Ava — ALTA PRIORIDADE**" },
+        { type: "list", items: [
+          "Excelente herói para Caça ao Urso; substitui a Petra.",
+          "**Charles**: Geralmente seguro pular."
+        ]},
+
+        { type: "h", text: "CAMINHO SIMPLES DE ROLETA F2P" },
+        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+
+        { type: "h", text: "PRIORIDADES DE FRAGMENTOS MÍTICOS" },
+        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+
+        { type: "h", text: "REGRA GERAL" },
+        { type: "p", text: "Heróis de roleta são geralmente seus investimentos F2P mais seguros. Economize seus recursos, evite espalhar os Fragmentos Míticos demais, e não sinta pressão para desenvolver todos os heróis." },
+
+        { type: "h", text: "RESUMO" },
+        { type: "list", items: [
+          "**Jogadores F2P:** Foque em {zoe} (tanque de infantaria), {jabel} (cavalaria) e Petra (cavalaria ofensiva) na roleta de heróis",
+          "**Jogadores P2W:** Priorize {amadeus} (VIP 7+) e {hilde} para o máximo impacto"
+        ]}
+      ]},
+
+      tr: { title: "F2P Kahraman Rehberi", blocks: [
+        { type: "callout", text: "Mitik Parçalar ve seferberliğe özel donanımlar sınırlıdır. Her kahramanı geliştirmeye çalışma — kaynaklarını uzun vadede güçlü değer sağlayan kahramanlara yoğunlaştır." },
+        { type: "callout", text: "Aşağıdaki bazı kahramanlar ya ekran görüntüsüyle resmi olarak doğrulanmadı ya da henüz yayınlanmadı — bunlar doğrulanana kadar İngilizce kalacak." },
+
+        { type: "sub", text: "GEN 1" },
+        { type: "p", text: "**{jabel}**" },
+        { type: "list", items: [
+          "Çiftçilikle elde edilebilen Mitik kahraman; ana öncelik.",
+          "**{saul}**: Gelişim yeteneği için birkaç yıldız yeterli. Fazla yatırım yapma."
+        ]},
+
+        { type: "sub", text: "GEN 2" },
+        { type: "p", text: "**{zoe} — GELİŞTİR (Rulet)**" },
+        { type: "list", items: [
+          "{howard}'a göre büyük bir yükseltme.",
+          "**{marlin}**: {saul}'un yerini alır."
+        ]},
+
+        { type: "sub", text: "GEN 3" },
+        { type: "p", text: "**Petra — MUTLAKA GELİŞTİR (Rulet)**" },
+        { type: "list", items: [
+          "Gen 7'ye kadar değerini koruyan mükemmel bir Ayı Avı kahramanı.",
+          "**Eric & Jaeger**: PvP/garnizon savunmasına odaklanmıyorsan atla."
+        ]},
+
+        { type: "sub", text: "GEN 4" },
+        { type: "p", text: "**Rosa — GELİŞTİR (Rulet)**" },
+        { type: "list", items: [
+          "Ayı Avı için güçlü bir yükseltme.",
+          "**Alcar VEYA Margot**: İsteğe bağlı. İkisi de Arena/Sefer'de güçlü."
+        ]},
+
+        { type: "sub", text: "GEN 5" },
+        { type: "p", text: "**Long Fei — GELİŞTİR (Rulet)**" },
+        { type: "list", items: [
+          "Gizemli Deneme, Üçlü İttifak ve Kılıçdiyarı gibi çok takımlı etkinlikler için harika.",
+          "**Thrud/Vivian**: Ağırlıklı olarak Arena/PvP.",
+          "Petra'yı mı kaçırdın? Thrud'u düşün."
+        ]},
+
+        { type: "sub", text: "GEN 6" },
+        { type: "p", text: "**Sophia — GELİŞTİR (Rulet)**" },
+        { type: "list", items: ["Ağırlıklı olarak çok takımlı içerikler için faydalı."] },
+        { type: "p", text: "**Yang — YÜKSEK ÖNCELİK**" },
+        { type: "list", items: [
+          "Ayı Avı'nda mükemmel fayda sağlar; Mitik Parça yatırımına değer.",
+          "**Triton**: Long Fei'yi geliştirdiysen genellikle atlanabilir."
+        ]},
+
+        { type: "sub", text: "GEN 7" },
+        { type: "p", text: "**Wee & Woo — MUTLAKA GELİŞTİR (Rulet)**" },
+        { type: "list", items: ["F2P için genel olarak mükemmel değer."] },
+        { type: "p", text: "**Ava — YÜKSEK ÖNCELİK**" },
+        { type: "list", items: [
+          "Mükemmel bir Ayı Avı kahramanı; Petra'nın yerini alır.",
+          "**Charles**: Genellikle güvenle atlanabilir."
+        ]},
+
+        { type: "h", text: "BASİT F2P RULET YOLU" },
+        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+
+        { type: "h", text: "MİTİK PARÇA ÖNCELİKLERİ" },
+        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+
+        { type: "h", text: "GENEL KURAL" },
+        { type: "p", text: "Rulet kahramanları genellikle en güvenli F2P yatırımlarındır. Kaynaklarını biriktir, Mitik Parçaları çok fazla dağıtma ve her kahramanı geliştirmen gerektiğini hissetme." },
+
+        { type: "h", text: "ÖZET" },
+        { type: "list", items: [
+          "**F2P Oyuncuları:** Kahraman ruletinde {zoe} (piyade tankı), {jabel} (süvari) ve Petra'ya (saldırı süvarisi) odaklan",
+          "**P2W Oyuncuları:** Maksimum etki için {amadeus} (VIP 7+) ve {hilde}'ya öncelik ver"
+        ]}
+      ]},
+
+      id: { title: "Panduan Hero F2P", blocks: [
+        { type: "callout", text: "Serpihan Mitos dan perlengkapan eksklusif reli jumlahnya terbatas. Jangan coba kembangkan semua hero — fokuskan sumber dayamu pada hero dengan nilai jangka panjang yang kuat." },
+        { type: "callout", text: "Beberapa hero di bawah ini belum dikonfirmasi resmi lewat screenshot, atau belum dirilis — nama-nama itu tetap dalam bahasa Inggris sampai terverifikasi." },
+
+        { type: "sub", text: "GEN 1" },
+        { type: "p", text: "**{jabel}**" },
+        { type: "list", items: [
+          "Hero Mitos yang bisa di-farm; prioritas utama.",
+          "**{saul}**: Beberapa bintang saja untuk skill Growth. Jangan investasi berlebihan."
+        ]},
+
+        { type: "sub", text: "GEN 2" },
+        { type: "p", text: "**{zoe} — KEMBANGKAN (Roulette)**" },
+        { type: "list", items: [
+          "Peningkatan besar dibanding {howard}.",
+          "**{marlin}**: Menggantikan {saul}."
+        ]},
+
+        { type: "sub", text: "GEN 3" },
+        { type: "p", text: "**Petra — WAJIB DIKEMBANGKAN (Roulette)**" },
+        { type: "list", items: [
+          "Hero Bear Hunt yang sangat baik dengan nilai hingga Gen 7.",
+          "**Eric & Jaeger**: Lewati kecuali kamu fokus pada PvP/pertahanan garnisun."
+        ]},
+
+        { type: "sub", text: "GEN 4" },
+        { type: "p", text: "**Rosa — KEMBANGKAN (Roulette)**" },
+        { type: "list", items: [
+          "Peningkatan kuat untuk Bear Hunt.",
+          "**Alcar ATAU Margot**: Opsional. Keduanya kuat di Arena/Ekspedisi."
+        ]},
+
+        { type: "sub", text: "GEN 5" },
+        { type: "p", text: "**Long Fei — KEMBANGKAN (Roulette)**" },
+        { type: "list", items: [
+          "Sangat cocok untuk event multi-tim seperti Mystic Trial, Tri-Alliance, dan Swordland.",
+          "**Thrud/Vivian**: Sebagian besar untuk Arena/PvP.",
+          "Kelewatan Petra? Pertimbangkan Thrud."
+        ]},
+
+        { type: "sub", text: "GEN 6" },
+        { type: "p", text: "**Sophia — KEMBANGKAN (Roulette)**" },
+        { type: "list", items: ["Terutama berguna untuk konten multi-tim."] },
+        { type: "p", text: "**Yang — PRIORITAS TINGGI**" },
+        { type: "list", items: [
+          "Kegunaan Bear Hunt yang sangat baik; layak diinvestasikan Serpihan Mitos.",
+          "**Triton**: Umumnya bisa dilewati jika kamu sudah mengembangkan Long Fei."
+        ]},
+
+        { type: "sub", text: "GEN 7" },
+        { type: "p", text: "**Wee & Woo — WAJIB DIKEMBANGKAN (Roulette)**" },
+        { type: "list", items: ["Nilai keseluruhan yang sangat baik untuk F2P."] },
+        { type: "p", text: "**Ava — PRIORITAS TINGGI**" },
+        { type: "list", items: [
+          "Hero Bear Hunt yang sangat baik; menggantikan Petra.",
+          "**Charles**: Umumnya aman untuk dilewati."
+        ]},
+
+        { type: "h", text: "JALUR ROULETTE F2P SEDERHANA" },
+        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+
+        { type: "h", text: "PRIORITAS SERPIHAN MITOS" },
+        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+
+        { type: "h", text: "ATURAN UMUM" },
+        { type: "p", text: "Hero roulette umumnya adalah investasi F2P paling aman. Hemat sumber dayamu, hindari menyebarkan Serpihan Mitos terlalu tipis, dan jangan merasa harus mengembangkan semua hero." },
+
+        { type: "h", text: "RINGKASAN" },
+        { type: "list", items: [
+          "**Pemain F2P:** Fokus pada {zoe} (tank infanteri), {jabel} (kavaleri), dan Petra (kavaleri ofensif) dari hero roulette",
+          "**Pemain P2W:** Prioritaskan {amadeus} (VIP 7+) dan {hilde} untuk dampak maksimal"
+        ]}
+      ]},
+
+      ru: { title: "Гайд по героям для F2P", blocks: [
+        { type: "callout", text: "Мифические осколки и эксклюзивное снаряжение для рейдов ограничены. Не пытайтесь развивать всех героев — сосредоточьте ресурсы на героях с сильной долгосрочной ценностью." },
+        { type: "callout", text: "Некоторые герои ниже либо официально не подтверждены скриншотами, либо ещё не вышли — они остаются на английском до подтверждения." },
+
+        { type: "sub", text: "ПОКОЛЕНИЕ 1" },
+        { type: "p", text: "**{jabel}**" },
+        { type: "list", items: [
+          "Фармящийся мифический герой; главный приоритет.",
+          "**{saul}**: Несколько звёзд ради навыка роста. Не вкладывайтесь чрезмерно."
+        ]},
+
+        { type: "sub", text: "ПОКОЛЕНИЕ 2" },
+        { type: "p", text: "**{zoe} — РАЗВИВАТЬ (рулетка)**" },
+        { type: "list", items: [
+          "Значительное улучшение по сравнению с {howard}.",
+          "**{marlin}**: Заменяет {saul}."
+        ]},
+
+        { type: "sub", text: "ПОКОЛЕНИЕ 3" },
+        { type: "p", text: "**Petra — ОБЯЗАТЕЛЬНО РАЗВИВАТЬ (рулетка)**" },
+        { type: "list", items: [
+          "Отличный герой для Охоты на медведя, сохраняет ценность до 7-го поколения.",
+          "**Eric и Jaeger**: Пропустите, если вы не сосредоточены на PvP/защите гарнизона."
+        ]},
+
+        { type: "sub", text: "ПОКОЛЕНИЕ 4" },
+        { type: "p", text: "**Rosa — РАЗВИВАТЬ (рулетка)**" },
+        { type: "list", items: [
+          "Сильное улучшение для Охоты на медведя.",
+          "**Alcar ИЛИ Margot**: Необязательно. Оба сильны на Арене/в Экспедициях."
+        ]},
+
+        { type: "sub", text: "ПОКОЛЕНИЕ 5" },
+        { type: "p", text: "**Long Fei — РАЗВИВАТЬ (рулетка)**" },
+        { type: "list", items: [
+          "Отлично подходит для командных событий вроде Мистического испытания, Тройственного альянса и Битвы за Страну мечей.",
+          "**Thrud/Vivian**: В основном для Арены/PvP.",
+          "Пропустили Petra? Рассмотрите Thrud."
+        ]},
+
+        { type: "sub", text: "ПОКОЛЕНИЕ 6" },
+        { type: "p", text: "**Sophia — РАЗВИВАТЬ (рулетка)**" },
+        { type: "list", items: ["В основном полезна для командного контента."] },
+        { type: "p", text: "**Yang — ВЫСОКИЙ ПРИОРИТЕТ**" },
+        { type: "list", items: [
+          "Отличная полезность в Охоте на медведя; стоит вкладывать Мифические осколки.",
+          "**Triton**: Обычно можно пропустить, если вы развили Long Fei."
+        ]},
+
+        { type: "sub", text: "ПОКОЛЕНИЕ 7" },
+        { type: "p", text: "**Wee и Woo — ОБЯЗАТЕЛЬНО РАЗВИВАТЬ (рулетка)**" },
+        { type: "list", items: ["Отличная общая ценность для F2P."] },
+        { type: "p", text: "**Ava — ВЫСОКИЙ ПРИОРИТЕТ**" },
+        { type: "list", items: [
+          "Отличный герой для Охоты на медведя; заменяет Petra.",
+          "**Charles**: Обычно можно спокойно пропустить."
+        ]},
+
+        { type: "h", text: "ПРОСТОЙ ПУТЬ РУЛЕТКИ ДЛЯ F2P" },
+        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee и Woo" },
+
+        { type: "h", text: "ПРИОРИТЕТЫ МИФИЧЕСКИХ ОСКОЛКОВ" },
+        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+
+        { type: "h", text: "ПРАВИЛО ПАЛЬЦА" },
+        { type: "p", text: "Герои рулетки обычно являются вашими самыми безопасными вложениями для F2P. Экономьте ресурсы, не распыляйте Мифические осколки слишком тонко и не чувствуйте давления развивать каждого героя." },
+
+        { type: "h", text: "ИТОГ" },
+        { type: "list", items: [
+          "**Игроки F2P:** Сосредоточьтесь на {zoe} (танк-пехотинец), {jabel} (кавалерия) и Petra (наступательная кавалерия) в рулетке героев",
+          "**Игроки P2W:** Отдайте приоритет {amadeus} (VIP 7+) и {hilde} для максимального эффекта"
+        ]}
+      ]},
+
+      th: { title: "คู่มือฮีโร่สาย F2P", blocks: [
+        { type: "callout", text: "เศษชิ้นส่วนในตำนานและอุปกรณ์เฉพาะทีมระดมพลมีจำกัด อย่าพยายามพัฒนาทุกฮีโร่ — ทุ่มทรัพยากรไปที่ฮีโร่ที่มีคุณค่าระยะยาวสูง" },
+        { type: "callout", text: "ฮีโร่บางตัวด้านล่างยังไม่ได้รับการยืนยันอย่างเป็นทางการด้วยภาพหน้าจอ หรือยังไม่เปิดตัว จึงคงชื่อเป็นภาษาอังกฤษไว้จนกว่าจะยืนยันได้" },
+
+        { type: "sub", text: "เจน 1" },
+        { type: "p", text: "**{jabel}**" },
+        { type: "list", items: [
+          "ฮีโร่ตำนานที่ฟาร์มได้; ลำดับความสำคัญหลัก",
+          "**{saul}**: อัพดาวไม่กี่ดาวเพื่อรับสกิล Growth ก็พอ ไม่ต้องลงทุนเกินความจำเป็น"
+        ]},
+
+        { type: "sub", text: "เจน 2" },
+        { type: "p", text: "**{zoe} — พัฒนา (รูเล็ต)**" },
+        { type: "list", items: [
+          "อัพเกรดที่ดีกว่า {howard} มาก",
+          "**{marlin}**: แทนที่ {saul}"
+        ]},
+
+        { type: "sub", text: "เจน 3" },
+        { type: "p", text: "**Petra — ต้องพัฒนา (รูเล็ต)**" },
+        { type: "list", items: [
+          "ฮีโร่ล่าหมีที่ยอดเยี่ยม มีคุณค่าไปจนถึงเจน 7",
+          "**Eric & Jaeger**: ข้ามได้ เว้นแต่คุณเน้น PvP/การป้องกันกองรักษาการณ์"
+        ]},
+
+        { type: "sub", text: "เจน 4" },
+        { type: "p", text: "**Rosa — พัฒนา (รูเล็ต)**" },
+        { type: "list", items: [
+          "อัพเกรดที่แข็งแกร่งสำหรับการล่าหมี",
+          "**Alcar หรือ Margot**: ไม่บังคับ ทั้งสองแข็งแกร่งในสนามประลอง/การสำรวจ"
+        ]},
+
+        { type: "sub", text: "เจน 5" },
+        { type: "p", text: "**Long Fei — พัฒนา (รูเล็ต)**" },
+        { type: "list", items: [
+          "เหมาะมากสำหรับกิจกรรมหลายทีมอย่าง Mystic Trial, Tri-Alliance และศึกดวลดินแดนดาบ",
+          "**Thrud/Vivian**: ส่วนใหญ่ใช้ในสนามประลอง/PvP",
+          "พลาด Petra ไป? ลองพิจารณา Thrud"
+        ]},
+
+        { type: "sub", text: "เจน 6" },
+        { type: "p", text: "**Sophia — พัฒนา (รูเล็ต)**" },
+        { type: "list", items: ["มีประโยชน์หลักๆ สำหรับคอนเทนต์หลายทีม"] },
+        { type: "p", text: "**Yang — ลำดับความสำคัญสูง**" },
+        { type: "list", items: [
+          "มีประโยชน์อย่างมากในการล่าหมี คุ้มค่าที่จะลงทุนเศษชิ้นส่วนในตำนาน",
+          "**Triton**: โดยทั่วไปข้ามได้หากคุณพัฒนา Long Fei แล้ว"
+        ]},
+
+        { type: "sub", text: "เจน 7" },
+        { type: "p", text: "**Wee & Woo — ต้องพัฒนา (รูเล็ต)**" },
+        { type: "list", items: ["คุ้มค่ามากโดยรวมสำหรับสาย F2P"] },
+        { type: "p", text: "**Ava — ลำดับความสำคัญสูง**" },
+        { type: "list", items: [
+          "ฮีโร่ล่าหมีที่ยอดเยี่ยม; แทนที่ Petra",
+          "**Charles**: โดยทั่วไปข้ามได้อย่างสบายใจ"
+        ]},
+
+        { type: "h", text: "เส้นทางรูเล็ต F2P แบบง่าย" },
+        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+
+        { type: "h", text: "ลำดับความสำคัญเศษชิ้นส่วนในตำนาน" },
+        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+
+        { type: "h", text: "หลักการทั่วไป" },
+        { type: "p", text: "ฮีโร่จากรูเล็ตมักเป็นการลงทุนที่ปลอดภัยที่สุดสำหรับสาย F2P เก็บทรัพยากรไว้ อย่ากระจายเศษชิ้นส่วนในตำนานให้บางเกินไป และไม่ต้องรู้สึกกดดันว่าต้องพัฒนาทุกฮีโร่" },
+
+        { type: "h", text: "สรุป" },
+        { type: "list", items: [
+          "**ผู้เล่นสาย F2P:** เน้นไปที่ {zoe} (แทงค์ทหารราบ), {jabel} (ทหารม้า) และ Petra (ทหารม้าสายโจมตี) จากรูเล็ตฮีโร่",
+          "**ผู้เล่นสายจ่าย:** จัดลำดับความสำคัญให้ {amadeus} (VIP 7 ขึ้นไป) และ {hilde} เพื่อผลลัพธ์สูงสุด"
+        ]}
+      ]},
+
+      ar: { title: "دليل الأبطال لللاعبين المجانيين", blocks: [
+        { type: "callout", text: "شظايا الأسطورة وعتاد التحالف الحصري للحشد محدودان. لا تحاول بناء كل بطل — ركّز مواردك على الأبطال ذوي القيمة القوية طويلة المدى." },
+        { type: "callout", text: "بعض الأبطال أدناه إما لم يتم تأكيدهم رسميًا بلقطة شاشة أو لم يُطرحوا بعد — يبقون بالإنجليزية حتى يتم التحقق منهم." },
+
+        { type: "sub", text: "الجيل 1" },
+        { type: "p", text: "**{jabel}**" },
+        { type: "list", items: [
+          "بطل أسطوري يمكن جمعه بالزراعة؛ الأولوية الرئيسية.",
+          "**{saul}**: بضع نجوم فقط لمهارة النمو. لا تستثمر أكثر من اللازم."
+        ]},
+
+        { type: "sub", text: "الجيل 2" },
+        { type: "p", text: "**{zoe} — طوّر (الروليت)**" },
+        { type: "list", items: [
+          "ترقية كبيرة مقارنة بـ {howard}.",
+          "**{marlin}**: يحل محل {saul}."
+        ]},
+
+        { type: "sub", text: "الجيل 3" },
+        { type: "p", text: "**Petra — يجب تطويره (الروليت)**" },
+        { type: "list", items: [
+          "بطل ممتاز لصيد الدببة بقيمة تستمر حتى الجيل 7.",
+          "**Eric وJaeger**: تخطَّهما إلا إذا كنت تركز على PvP/دفاع الحامية."
+        ]},
+
+        { type: "sub", text: "الجيل 4" },
+        { type: "p", text: "**Rosa — طوّر (الروليت)**" },
+        { type: "list", items: [
+          "ترقية قوية لصيد الدببة.",
+          "**Alcar أو Margot**: اختياري. كلاهما قوي في الساحة/الاستكشاف."
+        ]},
+
+        { type: "sub", text: "الجيل 5" },
+        { type: "p", text: "**Long Fei — طوّر (الروليت)**" },
+        { type: "list", items: [
+          "رائع لفعاليات الفرق المتعددة مثل المحاكمة الغامضة، التحالف الثلاثي، ومواجهة أرض السيوف.",
+          "**Thrud/Vivian**: غالبًا للساحة/PvP.",
+          "فاتك Petra؟ فكّر في Thrud."
+        ]},
+
+        { type: "sub", text: "الجيل 6" },
+        { type: "p", text: "**Sophia — طوّر (الروليت)**" },
+        { type: "list", items: ["مفيد بشكل أساسي لمحتوى الفرق المتعددة."] },
+        { type: "p", text: "**Yang — أولوية عالية**" },
+        { type: "list", items: [
+          "فائدة ممتازة في صيد الدببة؛ يستحق استثمار شظايا الأسطورة.",
+          "**Triton**: يمكن تخطيه عمومًا إذا طوّرت Long Fei."
+        ]},
+
+        { type: "sub", text: "الجيل 7" },
+        { type: "p", text: "**Wee وWoo — يجب تطويرهما (الروليت)**" },
+        { type: "list", items: ["قيمة ممتازة بشكل عام لللاعبين المجانيين."] },
+        { type: "p", text: "**Ava — أولوية عالية**" },
+        { type: "list", items: [
+          "بطل ممتاز لصيد الدببة؛ يحل محل Petra.",
+          "**Charles**: يمكن تخطيه بأمان عمومًا."
+        ]},
+
+        { type: "h", text: "مسار روليت مبسّط لللاعبين المجانيين" },
+        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee وWoo" },
+
+        { type: "h", text: "أولويات شظايا الأسطورة" },
+        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+
+        { type: "h", text: "القاعدة العامة" },
+        { type: "p", text: "أبطال الروليت عادةً هم استثماراتك الأكثر أمانًا كلاعب مجاني. وفّر مواردك، تجنّب توزيع شظايا الأسطورة بشكل مبعثر جدًا، ولا تشعر بضغط لتطوير كل بطل." },
+
+        { type: "h", text: "الملخص" },
+        { type: "list", items: [
+          "**اللاعبون المجانيون:** ركّزوا على {zoe} (دبابة مشاة)، {jabel} (فرسان)، وPetra (فرسان هجومية) من روليت الأبطال",
+          "**اللاعبون الداعمون:** أعطوا الأولوية لـ {amadeus} (VIP 7+) وHilde لتحقيق أقصى تأثير"
+        ]}
+      ]}
+    }
+  },
 };
 
 /* ===== Bear Hunt: extra languages (fr, pt, tr) ===== */
