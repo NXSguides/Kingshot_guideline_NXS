@@ -561,7 +561,7 @@ body.menu-open { overflow: hidden; }
   color: var(--accent);
   font-size: 13.5px;
   font-weight: 600;
-  animation: ann-marquee 30s linear infinite;
+  animation: ann-marquee 60s linear infinite;
 }
 
 @keyframes ann-marquee {
