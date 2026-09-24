@@ -245,7 +245,26 @@ const BLOCKS = {
         </div>
       </div>
     `;
-  }
+  },
+  checklist: (b) => {
+  const head = `<tr><th></th>${b.days.map((d) => `<th>${d}</th>`).join("")}</tr>`;
+  const rows = b.rows.map((r) => `
+    <tr>
+      <td class="chk-label">${rich(r.label)}</td>
+      ${r.icons.map((ic) => `<td class="chk-icon">${ic}</td>`).join("")}
+    </tr>
+  `).join("");
+  const legend = b.legend ? `
+    <div class="chk-legend">
+      ${b.legend.map((l) => `<span>${l.icon} ${rich(l.label)}</span>`).join("")}
+    </div>` : "";
+  return `
+    <div class="chk-wrap">
+      <table class="chk-table">${head}${rows}</table>
+    </div>
+    ${legend}
+  `;
+}
 };
 
 function renderBlocks(guide, s) {
