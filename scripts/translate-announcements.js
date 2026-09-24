@@ -73,8 +73,9 @@ async function translateOne(entry, glossaryText) {
 規則：
 1. 人名（"(NNM)" 前的文字）絕對不要翻譯或更動
 2. 遇到對照表列出的遊戲用語，一律使用官方譯名；沒列出的詞照字面翻譯
-3. 輸入是一個 JSON 物件 {"title": "...", "content": "..."}
-4. 只回傳一個 JSON 物件，key 是語言代碼，value 是 {"title": "翻譯後標題", "content": "翻譯後內文"} 的物件，不要其他文字，不要 markdown 標記
+3. 公告裡出現的英雄名稱、活動代號（例如 KvK、Gen 3 等）如果不在下方對照表中，代表官方譯名尚未確認，一律保留英文原文，不要翻譯或音譯
+4. 輸入是一個 JSON 物件 {"title": "...", "content": "..."}
+5. 只回傳一個 JSON 物件，key 是語言代碼，value 是 {"title": "翻譯後標題", "content": "翻譯後內文"} 的物件，不要其他文字，不要 markdown 標記
 
 對照表：
 ${glossaryText}`;
