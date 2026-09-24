@@ -1,68 +1,35 @@
 [
   {
-    "id": "b86efb8388",
-    "author": "Testing",
-    "createdAt": "2026-09-23T01:54:44.450Z",
+    "id": "195c487416",
+    "author": "Nia",
+    "createdAt": "2026-09-24T02:10:53.676Z",
     "images": [],
+    "links": [],
     "title": {
-      "en": "Another Test",
-      "ko": "또 다른 테스트",
-      "de": "Ein weiterer Test",
-      "fr": "Un autre test",
-      "pt": "Outro Teste",
-      "tr": "Başka Bir Test",
-      "id": "Tes Lainnya",
-      "ru": "Еще один тест",
-      "th": "การทดสอบอีกครั้ง",
-      "ar": "اختبار آخر",
-      "zh": "另一個測試"
+      "zh": "GEN 3 + KvK",
+      "ko": "GEN 3 + KvK",
+      "de": "GEN 3 + KvK",
+      "fr": "GEN 3 + KvK",
+      "pt": "GEN 3 + KvK",
+      "tr": "GEN 3 + KvK",
+      "id": "GEN 3 + KvK",
+      "ru": "GEN 3 + KvK",
+      "th": "GEN 3 + KvK",
+      "ar": "GEN 3 + KvK",
+      "en": "GEN 3 + KvK"
     },
     "content": {
-      "en": "This is another test, publishing the announcement in Chinese to confirm if it will be successfully translated :)\n",
-      "ko": "이것은 또 다른 테스트입니다. 중국어로 공지를 게시하여 번역이 성공적으로 완료되는지 확인합니다 :)\n",
-      "de": "Dies ist ein weiterer Test, bei dem eine Ankündigung auf Chinesisch veröffentlicht wird, um zu überprüfen, ob sie erfolgreich übersetzt wird :)\n",
-      "fr": "Ceci est un autre test, publiant une annonce en chinois pour confirmer si elle sera traduite avec succès :)\n",
-      "pt": "Este é outro teste, publicando um anúncio em chinês para confirmar se será traduzido com sucesso :)\n",
-      "tr": "Bu, başarılı bir şekilde çevrilip çevrilmeyeceğini doğrulamak için Çince duyuru yayınlanan başka bir testtir :)\n",
-      "id": "Ini adalah tes lainnya, mengirimkan pengumuman dalam bahasa Mandarin untuk memastikan apakah akan berhasil diterjemahkan :)\n",
-      "ru": "Это еще один тест. Публикуем объявление на китайском языке, чтобы проверить, будет ли перевод успешным :)\n",
-      "th": "นี่คือการทดสอบอีกครั้ง โดยส่งประกาศเป็นภาษาจีนเพื่อยืนยันว่าจะได้รับการแปลอย่างสำเร็จหรือไม่ :)\n",
-      "ar": "هذا اختبار آخر، حيث ننشر الإعلان باللغة الصينية للتأكد مما إذا كان سيتم ترجمته بنجاح أم لا :)\n",
-      "zh": "這是另外一個測試，用中文發公告，確認一下會不會被翻譯成功 :)\n"
-    }
-  },
-  {
-    "id": "cd76325a47",
-    "author": "Testing",
-    "createdAt": "2026-09-23T01:54:36.872Z",
-    "images": [
-      "figures/test.jpg"
-    ],
-    "title": {
-      "zh": "首次測試",
-      "ko": "첫 번째 테스트",
-      "de": "Erster Test",
-      "fr": "Premier test",
-      "pt": "Primeiro Teste",
-      "tr": "İlk Test",
-      "id": "Tes Pertama",
-      "ru": "Первый тест",
-      "th": "การทดสอบครั้งแรก",
-      "ar": "الاختبار الأول",
-      "en": "First Test"
-    },
-    "content": {
-      "zh": "測試\n",
-      "ko": "테스트\n",
-      "de": "Testen\n",
-      "fr": "Test\n",
-      "pt": "Teste\n",
-      "tr": "Test\n",
-      "id": "Pengujian\n",
-      "ru": "Тестирование\n",
-      "th": "การทดสอบ\n",
-      "ar": "اختبار\n",
-      "en": "Testing\n"
+      "zh": "Gen 3 英雄與 Masters 即將在 9 月 28 日登場！\n\nGEN 3 英雄概要\nPetra - 必練（英雄轉盤）。在第 7 代前非常適合用於【狩獵巨熊】。\nEric 和 Jaeger：除非專注於 PvP 或駐防防守，否則建議跳過。\n\n整體建議：\nF2P：如果【佐伊】未滿級，請專注於她，並透過英雄轉盤獲取 Petra。\nP2W：優先考慮【阿瑪迪斯】（VIP 7+）和【希爾德】。\n\n[[link:f2p-heroes]]\n\nKvK 提醒\nKvK 準備階段將於 10 月 5 日開始！距離 KvK 準備階段還有 12 天。請保留你的道具！\n\n在準備階段獲勝將使我們獲得攻擊方優勢——在戰鬥階段中，我們的王城將完全安全。\n\n請保留：真金、英雄碎片、所有加速、寵物材料、組件、秘銀、鍛造錘、Masters、手稿、領主寶石與裝備材料。\n\n後續將提供每日使用道具的更多詳細資訊！",
+      "ko": "Gen 3 영웅과 Masters가 곧 찾아옵니다 — 9월 28일!\n\nGEN 3 영웅 요약\nPetra - 필수 육성 (영웅 룰렛). Gen 7까지 【자이언트 베어 사냥】에 탁월합니다.\nEric & Jaeger: PvP 또는 주둔지 방어에 집중하지 않는 한 건너뛰세요.\n\n종합 추천:\nF2P: 【조이】가 맥스 상태가 아니라면 【조이】에 집중하고, 영웅 룰렛에서 Petra를 노리세요.\nP2W: 【아마데우스】(VIP 7+)와 【힐데】를 우선시하세요.\n\n[[link:f2p-heroes]]\n\nKvK 알림\nKvK 준비가 10월 5일에 시작됩니다! KvK 준비까지 12일 남았습니다. 아이템을 아끼세요!\n\n준비 단계에서 승리하면 공격 측 우위를 확보하여, 전투 단계 동안 우리 캐슬이 완벽하게 안전해집니다.\n\n아껴두어야 할 아이템: 진금, 영웅 조각, 모든 가속, 펫 재료, 위젯, 미스릴, 제작 망치, Masters, 원고, 영주 보석 및 장비 재료.\n\n요일별 사용 가능한 상세 정보는 추후 안내해 드리겠습니다!",
+      "de": "Gen 3 Helden & Masters werden bald hier sein — 28. Sep.!\n\nZUSAMMENFASSUNG DER GEN 3 HELDEN\nPetra - ABSOLUTES MUSS (Helden Roulette). Hervorragend für 【Bärenjagd】 bis Gen 7.\nEric & Jaeger: Überspringen, es sei denn, Sie konzentrieren sich auf PvP/Garnisonsverteidigung.\n\nInsgesamt:\nF2P: Konzentrieren Sie sich auf 【Zoe】, falls nicht maxiert, plus Petra aus dem Helden Roulette.\nP2W: Priorisieren Sie 【Amadeus】 (VIP 7+) plus 【Hilde】.\n\n[[link:f2p-heroes]]\n\nKvK-ERINNERUNG\nDie KvK-Vorbereitung beginnt am 5. Oktober! Die KvK-Vorbereitung ist noch 12 Tage entfernt. SPAREN Sie Ihre Gegenstände!\n\nDer Gewinn der Vorbereitung verschafft uns einen Angreifer-Vorteil – unser Schloss ist während der Schlachtphase absolut sicher.\n\nSPAREN: Echtes Gold, Helden-Fragmente, ALLE Beschleunigungen, Haustier-Materialien, Widgets, Mithril, Forgehammer, Masters, Manuskripte, Gouverneur-Talismane & Ausrüstungsmaterialien.\n\nWeitere Details darüber, was an welchem Tag zu verwenden ist, werden folgen!",
+      "fr": "Les Héros Gen 3 & Masters arrivent bientôt — le 28 septembre !\n\nRÉSUMÉ DES HÉROS GEN 3\nPetra - À OBTENIR ABSOLUMENT (Roulette). Excellent pour la 【Chasse à l'Ours】 jusqu'à la Gen 7.\nEric & Jaeger : À ignorer, sauf si vous vous concentrez sur le PvP/la défense de garnison.\n\nEn résumé :\nF2P : Concentrez-vous sur 【Zoé】 si elle n'est pas au max, plus Petra de la Roulette.\nP2W : Priorisez 【Amadeus】 (VIP 7+) et 【Hilde】.\n\n[[link:f2p-heroes]]\n\nRAPPEL KvK\nLa préparation KvK commence le 5 octobre ! La préparation KvK est dans 12 jours. ÉCONOMISEZ vos objets !\n\nGagner la préparation nous donne l'avantage d'attaquant - notre Château est complètement en sécurité pendant la Phase de Combat.\n\nÉCONOMISEZ : Or pur, fragments de héros, TOUS les accélér., matériaux de familier, widgets, Mithril, marteaux de forge, Masters, manuscrits, talismans de chef et matériaux d'équipement.\n\nPlus de détails sur ce qu'il faut utiliser chaque jour suivront !",
+      "pt": "Os heróis Gen 3 e Masters estarão aqui em breve — 28 de setembro!\n\nRESUMO DE HERÓIS GEN 3\nPetra - ESSENCIAL (Roleta de Herói). Excelente para 【Caça ao Urso】 até a Gen 7.\nEric e Jaeger: Ignore, a menos que seu foco seja PvP/defesa de guarnição.\n\nGeral:\nF2P: Foque em 【Zoe】 se não estiver no máximo, além de Petra da Roleta de Herói.\nP2W: Priorize 【Amadeus】 (VIP 7+) e 【Hilde】.\n\n[[link:f2p-heroes]]\n\nLEMBRETE DE KvK\nA preparação para o KvK começa em 5 de outubro! Faltam 12 dias para a preparação do KvK. GUARDE seus itens!\n\nVencer a preparação nos dá a Vantagem de Atacante - nosso Castelo fica totalmente seguro durante a Fase de Batalha.\n\nGUARDE: Ouro Verdadeiro, fragmentos de heróis, TODAS as velocidades, materiais de pet, widgets, Mithril, martelos de forja, Masters, manuscritos, talismãs de chefe e materiais de equipamento.\n\nMais detalhes sobre o que usar a cada dia virão a seguir!",
+      "tr": "Gen 3 Kahramanları & Masters yakında burada olacak — 28 Eylül!\n\nGEN 3 KAHRAMANLARI ÖZETİ\nPetra - KESİNLİKLE ALINMALI (Kahraman Ruleti). Gen 7 boyunca 【Ayı Avı】 için mükemmel.\nEric & Jaeger: PvP/garnizon savunmasına odaklanmadığınız sürece es geçin.\n\nGenel olarak:\nF2P: Maksimum seviyede değilse 【Zoe】'ye ve Kahraman Ruleti'nden Petra'ya odaklanın.\nP2W: 【Amadeus】 (VIP 7+) ve 【Hilde】'ye öncelik verin.\n\n[[link:f2p-heroes]]\n\nKvK HATIRLATMASI\nKvK Hazırlığı 5 Ekim'de başlıyor! KvK Hazırlığına 12 gün kaldı. Ögelerinizi BİRİKTİRİN!\n\nHazırlığı kazanmak bize Saldırgan Avantajı sağlar; Savaş Evresi boyunca Şatomuz tamamen güvende olur.\n\nBİRİKTİRİN: Gerçek Altın, Kahraman Parçaları, TÜM Hızlandırmalar, Evcil Hayvan Malzemeleri, Widget'lar, Mithril, Demirci Çekiçleri, Masters, El Yazmaları, Şef Tılsımları & Donanım Malzemeleri.\n\nHer gün ne kullanacağınıza dair daha fazla detay yakında paylaşılacak!",
+      "id": "Hero Gen 3 & Masters akan segera hadir di sini — 28 Sep!\n\nRINGKASAN HERO GEN 3\nPetra - WAJIB DIBUAT (Rolet Hero). Sangat bagus untuk 【Bear Hunt】 hingga Gen 7.\nEric & Jaeger: Lewati saja kecuali fokus pada PvP/pertahanan garnisun.\n\nSecara keseluruhan:\nF2P: Fokus pada 【Zoe】 jika belum maksimal, ditambah Petra dari Rolet Hero.\nP2W: Prioritaskan 【Amadeus】 (VIP 7+) ditambah 【Hilde】.\n\n[[link:f2p-heroes]]\n\nPENGINGAT KvK\nPersiapan KvK dimulai 5 Okt! Persiapan KvK tinggal 12 hari lagi. HEMAT item Anda!\n\nMemenangkan Persiapan memberi kita Keuntungan Penyerang - Kastil kita sepenuhnya aman selama Fase Pertempuran.\n\nHEMAT: True Gold, Shard Hero, SEMUA Speedup, Bahan Pet, Widget, Mithril, Forgehammer, Masters, Manuskrip, Charm Gubernur & Bahan Gear.\n\nDetail lebih lanjut tentang apa yang harus digunakan setiap hari akan menyusul!",
+      "ru": "Герои Gen 3 и Masters скоро появятся — 28 сентября!\n\nОБЗОР ГЕРОЕВ GEN 3\nPetra — ОБЯЗАТЕЛЕН К ПОЛУЧЕНИЮ (Геройская рулетка). Отлично подходит для 【Охота на медведя】 вплоть до Gen 7.\nEric и Jaeger: пропустите, если только вы не сосредоточены на PvP/обороне гарнизона.\n\nВ целом:\nF2P: сосредоточьтесь на 【Зои】, если она еще не прокачана по максимуму, плюс Petra из Геройской рулетки.\nP2W: отдайте приоритет 【Амадей】 (VIP 7+) и 【Хильда】.\n\n[[link:f2p-heroes]]\n\nНАПОМИНАНИЕ О KvK\nПодготовка к KvK начинается 5 октября! До подготовки к KvK осталось 12 дней. СОХРАНЯЙТЕ свои предметы!\n\nПобеда в подготовке дает нам преимущество нападающего — наш замок будет в полной безопасности во время стадии битвы.\n\nСОХРАНЯЙТЕ: настоящее золото, фрагменты героев, ВСЕ ускор., материалы для питомцев, виджеты, мифрил, кузнечные молоты, Masters, манускрипты, талисманы губернатора и материалы для снаряжения.\n\nБолее подробная информация о том, что использовать каждый день, появится позже!",
+      "th": "ฮีโร่ Gen 3 & Masters กำลังจะมาถึงในเร็วๆ นี้ — 28 ก.ย.!\n\nสรุปฮีโร่ GEN 3\nPetra - ต้องปั้นให้ได้ (รูเล็ตฮีโร่) ยอดเยี่ยมสำหรับ【ล่าหมี】 ไปจนถึง Gen 7\nEric & Jaeger: ข้ามไปได้เลย เว้นแต่จะเน้นที่ PvP/การป้องกันทหารคุ้มกัน\n\nภาพรวม:\nF2P: เน้นไปที่ 【โซอี้】 หากยังไม่เต็ม พร้อมด้วย Petra จากรูเล็ตฮีโร่\nP2W: จัดลำดับความสำคัญของ 【อมาดีอุส】 (VIP 7+) พร้อมด้วย 【ฮิลเดอร์】\n\n[[link:f2p-heroes]]\n\nเตือนความจำ KvK\nการเตรียมการ KvK เริ่มต้นวันที่ 5 ต.ค.! การเตรียมการ KvK เหลือเวลาอีก 12 วัน ประหยัดไอเทมของคุณไว้!\n\nการชนะการเตรียมการจะทำให้เราได้เปรียบในฐานะผู้โจมตี - ปราสาทของเราจะปลอดภัยอย่างสมบูรณ์ในช่วงด่านการต่อสู้\n\nประหยัด: ทองแท้, ชิ้นส่วนฮีโร่, เร่งสปีดทั้งหมด, วัสดุสัตว์เลี้ยง, วิดเจ็ต, มิธริล, ค้อนตีเหล็ก, Masters, ต้นฉบับเขียนมือ, เครื่องรางผู้นำค่าย & วัสดุอุปกรณ์\n\nรายละเอียดเพิ่มเติมเกี่ยวกับสิ่งที่จะใช้ในแต่ละวันจะตามมาในภายหลัง!",
+      "ar": "أبطال Gen 3 وMasters سيكونون هنا قريبًا — 28 سبتمبر!\n\nملخص أبطال GEN 3\nPetra - يجب بناؤه (روليت البطل). ممتاز لـ 【صيد الدببة】 حتى Gen 7.\nEric وJaeger: تخطَّهما إلا إذا كنت تركز على PvP/الدفاع عن الحامية.\n\nبشكل عام:\nF2P: ركز على 【زوي】 إذا لم يكن بمستواه الأقصى، بالإضافة إلى Petra من روليت البطل.\nP2W: أعطِ الأولوية لـ 【أماديوس】 (VIP 7+) بالإضافة إلى 【هيلدي】.\n\n[[link:f2p-heroes]]\n\nتذكير KvK\nيبدأ استعداد KvK في 5 أكتوبر! استعداد KvK على بعد 12 يومًا. وفِّر عناصرك!\n\nالفوز بالاستعداد يمنحنا ميزة المهاجم - ستكون قلعتنا آمنة تمامًا خلال مرحلة المعركة.\n\nوفِّر: الذهب الحقيقي، شظايا الأبطال، جميع عناصر التسريع، مواد الأليفة، الأدوات الذكية، الميثريل، مطارق الحدادة، Masters، المخطوطات، تمائم الحاكم ومواد العتاد.\n\nستتبع ذلك المزيد من التفاصيل حول ما يجب استخدامه كل يوم!",
+      "en": "Gen 3 Heroes & Masters are going to be here soon — Sep 28!\n\nGEN 3 HEROES SUMMARY\nPetra - MUST BUILD (Roulette). Excellent for {bearHunt} through Gen 7.\nEric & Jaeger: Skip unless focused on PvP/garrison defense.\n\nOverall:\nF2P: Focus on {zoe} if not maxed, plus Petra from Roulette.\nP2W: Prioritize {amadeus} (VIP 7+) plus {hilde}.\n\n[[link:f2p-heroes]]\n\nKvK REMINDER\nKvK Prep starts Oct 5! KvK Prep is 12 days away. SAVE your items!\n\nWinning Prep gives us Attacker Advantage - our Castle is completely safe during the Battle Phase.\n\nSAVE: True Gold, Hero Shards, ALL Speedups, Pet Materials, Widgets, Mithril, Hammers, Masters, Manuscripts, Governor Charms & Gear Materials.\n\nMore details on what to use each day will follow!\n"
     }
   }
 ]
