@@ -111,6 +111,7 @@ async function main() {
       author: entry.author,
       createdAt: new Date().toISOString(),
       images: entry.images || [],
+      links: entry.links || [],
       title: titleMap,
       content: contentMap,
     };
