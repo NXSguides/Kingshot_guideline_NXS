@@ -41,7 +41,7 @@ function parseEntries(md) {
   });
 }
 
-async function callGemini(entry, systemPrompt, retries = 3) {
+async function callGemini(entry, systemPrompt, retries = 5) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     const res = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
