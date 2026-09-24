@@ -3,6 +3,15 @@
 const TERM_LANGS = ["en", "zh", "ko", "de", "fr", "pt", "tr", "id", "ru", "th", "ar"];
 const TERMS = [
  {
+  "cat": "Speedup Queue Types",
+  "rows": [
+   ["Construction","建造","건설","Bau","Construction","Construção","İnşaat","Konstruksi","Строительство","การสร้าง","البناء","The queue name used in 'Construction Speedup'."],
+   ["Training","訓練","훈련","Training","Entraînement","Treinamento","Eğitim","Pelatihan","Тренировки","การฝึก","التدريب","The queue name used in 'Training Speedup'. NOT 'Troop' — that was an incorrect guess used earlier in the site's checklist; the game's own term for this queue is Training."],
+   ["Research","研究","연구","Forschung","Recherche","Pesquisa","Araştırma","Penelitian","Исследование","การวิจัย","البحث","The queue name used in 'Research Speedup'."]
+   ["Healing","治療","치료","Heilung","Soins","Cura","Tedavi","Penyembuhan","лечение","การรักษา","الشفاء","The queue name used in 'Healing Speedup' items in the Backpack's Speedups tab."]
+  ]
+ },
+ {
   "cat": "Golden Glaives",
   "rows": [
    ["Golden Glaives","黃金與巨刃","황금과 검","Goldene Klingen","Glaives Dorés","Glaives Douradas","Altın Kılıçlar","Tombak Emas","Золотые копья","จอมโจรดาบทองคำ","الرماح الذهبية"],
