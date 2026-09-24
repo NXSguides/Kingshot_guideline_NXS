@@ -415,8 +415,23 @@ const TERMS = [
    ["Speed","速度","속도","Geschwindigkeit","Vitesse","Velocidade","Hız","Kecepatan","Скорость","สปีด","السرعة","Resource gain rate, e.g. '+8/s'."],
    ["View Rewards","檢視獎勵","보상 보기","Belohnung ansehen","Voir Récompenses","Ver Recompensas","Ödülleri Gör","Lihat Hadiah","Обзор наград","ดูรางวัล","عرض المكافآت"],
    ["March Queue","常規行軍欄位","일반 행군 슬롯","Marschwarteschleife","File de Marche","Fila de Marcha","İntikal Sırası","Antrean Barisan","очередь марша","คิวเดินทัพ","طابور الزحف","'does not occupy your regular March Queue' — the squad sent to loot dropped ore doesn't use a normal march slot."],
-   ["Advanced Teleporter","高級遷城","고급 도시 이전","Fortgeschrittene Umsiedlung","Téléportation Avancée","Teletransportador Avançado","Gelişmiş Işınlayıcı","Advanced Teleporter","продвинутый телепорт","ตัวช่วยย้ายถิ่นฐานขั้นสูง","الناقل المتقدم","Free relocation item usable inside the ruins."],
-   ["Cesares Guards","切薩雷守衛","체사레 수비병","Cesares Wächter","Gardes Césarès","Guardas Césares","Cesares Muhafızları","Cesares Guards","стражи цесарцев","ทหารยามซีซาเรส","حراس سيزاريس","Guards defending Lv.1–3 Veins; must be defeated to gather from them."]
+   ["Advanced Teleporter","高級遷城","고급 도시 이전","Fortgeschrittene Umsiedlung","Téléportation Avancée","Teletransportador Avançado","Gelişmiş Işınlayıcı","Advanced Teleporter","продвинутый телепорт","ตัวช่วยย้ายถิ่นฐานขั้นสูง","الناقل المتقدم","Free relocation item usable inside the    ["Cesares Guards","切薩雷守衛","체사레 수비병","Cesares Wächter","Gardes Césarès","Guardas Césares","Cesares Muhafızları","Cesares Guards","стражи цесарцев","ทหารยามซีซาเรส","حراس سيزاريس","Guards defending Lv.1–3 Veins; must be defeated to gather from them."]
+  ]
+ },
+ {                                            ← 從這裡開始貼上新區塊
+  "cat": "KvK terms (screenshot confirmed, all 11 langs)",
+  "rows": [
+   ["Academy","學院","아카데미","Akademie","Académie","Academia","Akademi","Akademi","Университет","อาคาเดมี","الأكاديمية","俄文官方翻譯是「Университет」（大學），非「學院」，與其他語言不同，屬遊戲本身用詞差異。"],
+   ["Truegold","黃金","순금","Echtgold","Or Véritable","Adamante","Hasaltın","Truegold","Аурум","ทรูโกลด์","الذهب الخالص"],
+   ["Rare Hero Shard","稀有英雄碎片","레어 영웅 파편","Seltenes Helden-Fragment","Fragment de Héros Rare","Fragmento de Herói Raro","Ender Kahraman Parçası","Fragmen Hero Rare","редкий фрагмент героя","ชิ้นส่วนฮีโร่หายาก","شظية بطل نادر"],
+   ["Epic Hero Shard","史詩英雄碎片","에픽 영웅 파편","Episches Helden-Fragment","Fragment de Héros Épique","Fragmento de Herói Épico","Epik Kahraman Parçası","Fragmen Hero Epic","великий фрагмент героя","ชิ้นส่วนฮีโร่มหากาพย์","شظية بطل ملحمي"],
+   ["Mythic Hero Shard","傳說英雄碎片","레전드 영웅 파편","Mythisches Helden-Fragment","Fragment de Héros Mythique","Fragmento de Herói Mítico","Mitik Kahraman Parçası","Fragmen Hero Mythic","мифический фрагмент героя","ชิ้นส่วนฮีโร่ขั้นเทพ","شظية بطل خيالي","英文 Mythic／中文「傳說」／韓文「레전드(Legend)」為官方用詞差異，非誤譯。"],
+   ["Hero Gear Forgehammer","英雄裝備鍛造錘","영웅 장비 제작 망치","Heldenausrüstung Schmiedehammer","Marteau de Forge d'Équipement Héros","Martelo de forja de Equipamento de Herói","Kahraman Donanımı Demirci Çekici","Forgehammer Gear Hero","кузнечный молот для снаряжения героев","ค้อนตีเหล็กอุปกรณ์ฮีโร่","مطرقة الحدادة لعتاد البطل"],
+   ["Widget","零件","부속품","Element","Composant","Ferramenta","Alet","Widget","поделка","อุปกรณ์เสริม","جزء"],
+   ["Hero Exclusive Gear","英雄專屬裝備","영웅 전용 장비","Helden Exklusive Ausrüstung","Équipement Exclusif de Héros","Equipamento Exclusivo do Herói","Kahraman Özel Donanımı","Gear Ekslusif Hero","эксклюзивное снаряжение героя","อุปกรณ์พิเศษฮีโร่","عتاد البطل الحصري"],
+   ["Pet advancement","寵物突破","펫 돌파","Begleittier-Förderungswert","avancement des animaux","pontuação de avanço do animal de estimação","Pet ilerletme puanı","kemajuan hewan peliharaan","улучшение питомца","ความก้าวหน้าสัตว์เลี้ยง","تقدم الحيوان الأليف"],
+   ["Advanced Taming Marks","高級馴化印記","고급 훈련 기록","Fortgeschrittene Zähmungszeichen","Marque de Dressage Avancée","Marca de Domesticação Avançada","Gelişmiş Evcilleştirme İşareti","Tanda Penjinakan Advanced","продвинутая метка приручения","ตราฝึกสัตว์ขั้นสูง","علامة ترويض متقدمة"],
+   ["Common Taming Marks","普通馴化印記","일반 훈련 기록","Gewöhnliche Zähmungszeichen","Marque de Dressage Commune","Marca de Domesticação Comum","Sıradan Evcilleştirme İşareti","Tanda Penjinakan Common","обычная метка приручения","ตราฝึกสัตว์ทั่วไป","علامة ترويض شائعة"]
   ]
  },
 ];
