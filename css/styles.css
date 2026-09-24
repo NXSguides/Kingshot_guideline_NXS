@@ -572,3 +572,12 @@ body.menu-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .ann-ticker-track { animation: none; padding-left: 12px; }
 }
+
+.chk-wrap { overflow-x: auto; margin: 12px 0; }
+.chk-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.chk-table th, .chk-table td { padding: 6px 8px; text-align: center; border-bottom: 1px solid var(--rule); }
+.chk-table th { color: var(--brass); font-family: "Oswald", sans-serif; font-size: 12px; }
+.chk-label { text-align: start !important; font-size: 13.5px; white-space: nowrap; }
+.chk-icon { font-size: 16px; }
+.chk-legend { display: flex; flex-wrap: wrap; gap: 12px; margin: 8px 0 4px; font-size: 12.5px; color: var(--text-muted); }
+
