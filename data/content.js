@@ -200,6 +200,22 @@ const GLOSSARY = {
   quinn: { zh:"奎恩", en:"Quinn", ko:"퀸", de:"Quinn", fr:"Quinn", pt:"Quinn", tr:"Quinn", id:"Quinn", ru:"Куинн", th:"ควินน์", ar:"كوين" },
   helga: { zh:"赫爾加", en:"Helga", ko:"헬가", de:"Helga", fr:"Helga", pt:"Helga", tr:"Helga", id:"Helga", ru:"Хельга", th:"เฮลก้า", ar:"هيلجا" },
   saul: { zh:"薩洛", en:"Saul", ko:"살로", de:"Saul", fr:"Saul", pt:"Saul", tr:"Saul", id:"Saul", ru:"Соул", th:"ซอล", ar:"شاول" },
+  academy: { zh: "學院", en: "Academy", ko: "아카데미", de: "Akademie", fr: "Académie", pt: "Academia", tr: "Akademi", id: "Akademi", ru: "Университет", th: "อาคาเดมี", ar: "الأكاديمية" },
+  truegold: { zh: "黃金", en: "Truegold", ko: "순금", de: "Echtgold", fr: "Or Véritable", pt: "Adamante", tr: "Hasaltın", id: "Truegold", ru: "Аурум", th: "ทรูโกลด์", ar: "الذهب الخالص" },
+  governorGear: { zh: "領主裝備", en: "Governor Gear" },
+  satin: { zh: "進貢綢緞", en: "Satin" },
+  gildedThreads: { zh: "金絲線", en: "Gilded Threads" },
+  forgehammer: { zh: "鍛造錘", en: "Forgehammer", ko: "제작 망치", de: "Schmiedehammer", fr: "Marteau de Forge", pt: "Martelo de forja", tr: "Demirci Çekici", id: "Forgehammer", ru: "кузнечный молот", th: "ค้อนตีเหล็ก", ar: "مطرقة الحدادة" },
+  widget: { zh: "零件", en: "Widget", ko: "부속품", de: "Element", fr: "Composant", pt: "Ferramenta", tr: "Alet", id: "Widget", ru: "поделка", th: "อุปกรณ์เสริม", ar: "جزء" },
+  heroExclusiveGear: { zh: "英雄專屬裝備", en: "Hero Exclusive Gear", ko: "영웅 전용 장비", de: "Helden Exklusive Ausrüstung", fr: "Équipement Exclusif de Héros", pt: "Equipamento Exclusivo do Herói", tr: "Kahraman Özel Donanımı", id: "Gear Ekslusif Hero", ru: "эксклюзивное снаряжение героя", th: "อุปกรณ์พิเศษฮีโร่", ar: "عتاد البطل الحصري" },
+  petAdvancement: { zh: "寵物突破", en: "Pet advancement" },
+  advancedTamingMarks: { zh: "高級馴化印記", en: "Advanced Taming Marks" },
+  commonTamingMarks: { zh: "普通馴化印記", en: "Common Taming Marks" },
+  kingsCastle: { zh: "王城", en: "King's Castle" },
+  turret: { zh: "砲台", en: "Turret" },
+  truegoldDust: { zh: "黃金研究粉塵", en: "Truegold Dust" },
+  medicalSatchels: { zh: "醫療包", en: "Medical Satchels" },
+  rescueOrders: { zh: "救援令", en: "Rescue Orders" },
 };
 
 const GUIDES = {
