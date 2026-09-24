@@ -51,7 +51,18 @@ const UI = {
   roles: {
     lethality: { zh: "殺傷力主將", en: "Lead for Lethality", ko: "파괴력 리드", de: "Lead für Tödlichkeit" },
     attack: { zh: "攻擊主將", en: "Lead for Attack", ko: "공격 리드", de: "Lead für Angriff" }
+  },
+moreInfo: {
+    zh: "想看更多內容？", en: "Want to learn more?", ko: "더 알아보고 싶으세요?", de: "Mehr erfahren?"
   }
+};
+Object.assign(UI.moreInfo, { fr: "Envie d'en savoir plus ?" });
+Object.assign(UI.moreInfo, { pt: "Quer saber mais?" });
+Object.assign(UI.moreInfo, { tr: "Daha fazla bilgi mi istiyorsun?" });
+Object.assign(UI.moreInfo, { id: "Ingin tahu lebih lanjut?" });
+Object.assign(UI.moreInfo, { ru: "Хотите узнать больше?" });
+Object.assign(UI.moreInfo, { th: "อยากรู้เพิ่มเติมไหม?" });
+Object.assign(UI.moreInfo, { ar: "هل تريد معرفة المزيد؟" });
 };
 
 /* 新增語言的介面字串 */
