@@ -63,7 +63,7 @@ Object.assign(UI.moreInfo, { id: "Ingin tahu lebih lanjut?" });
 Object.assign(UI.moreInfo, { ru: "Хотите узнать больше?" });
 Object.assign(UI.moreInfo, { th: "อยากรู้เพิ่มเติมไหม?" });
 Object.assign(UI.moreInfo, { ar: "هل تريد معرفة المزيد؟" });
-};
+
 
 /* 新增語言的介面字串 */
 Object.assign(UI.siteTitle, { fr: "NXS Guidelines" });
