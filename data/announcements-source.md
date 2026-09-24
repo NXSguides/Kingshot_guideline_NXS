@@ -23,6 +23,8 @@ content: |
 
   **SAVE:** True Gold, Hero Shards, ALL Speedups, Pet Materials, Widgets, Mithril, Hammers, Masters, Manuscripts, Governor Charms & Gear Materials.
 
+  [[link:kvk]]
+  
   More details on what to use each day will follow!
 ---
 
