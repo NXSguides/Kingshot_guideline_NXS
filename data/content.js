@@ -2856,6 +2856,13 @@ const GUIDES = {
           { type: "p", text: "**Typical alliance target: ~68,000 troops per player**" },
           { type: "p", text: "This allows more alliance members with properly configured defensive marches to fit inside the garrison and get rewards." },
           { type: "callout", text: "⚠️ If leadership announces a different cap, always follow the announced amount." },
+          { type: "callout", text: "⚠️ If leadership announces a different cap, always follow the announced amount." },
+          { type: "p", text: "For example, with a 68K troop cap, you can plug that number into a calculator and enter it directly in the field for the matching troop type. Here are three examples:" },
+          { type: "list", items: [
+            "60/20/20 ➡️ 40,800 / 13,600 / 13,600",
+            "60/40 ➡️ 40,800 / 27,200",
+            "50/20/30 ➡️ 34,000 / 13,600 / 20,400"
+          ]},
 
           { type: "h", text: "🎬 HOW TO SWITCH FROM ATTACKING TO DEFENSIVE HEROES" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Video found online (TikTok @yelloe_hair) — not our own footage." }
@@ -2913,6 +2920,14 @@ const GUIDES = {
           { type: "p", text: "**聯盟一般目標：每位玩家約 68,000 兵力**" },
           { type: "p", text: "這樣能讓更多已配置好防守部隊的聯盟成員擠進駐防，一起領取獎勵。" },
           { type: "callout", text: "⚠️ 若幹部公告了不同的上限，請一律以公告的數字為準。" },
+          { type: "callout", text: "⚠️ 若幹部公告了不同的上限，請一律以公告的數字為準。" },
+          { type: "p", text: "舉例來說，若以 68K 兵力上限為例，可以把這個數字帶進計算機，直接在對應兵種的數字欄輸入即可。以下是三種情況：" },
+          { type: "list", items: [
+            "60/20/20 ➡️ 40,800 / 13,600 / 13,600",
+            "60/40 ➡️ 40,800 / 27,200",
+            "50/20/30 ➡️ 34,000 / 13,600 / 20,400"
+          ]},
+
           { type: "h", text: "🎬 如何從進攻英雄切換為防守英雄" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 影片來自網路（TikTok @yelloe_hair），並非我們自己拍攝。" }
         ]
@@ -2969,6 +2984,14 @@ const GUIDES = {
           { type: "p", text: "**일반적인 연맹 목표: 1인당 약 68,000 병력**" },
           { type: "p", text: "이렇게 하면 방어 행군을 제대로 구성한 더 많은 연맹원이 주둔지에 들어가 보상을 받을 수 있습니다." },
           { type: "callout", text: "⚠️ 임원진이 다른 상한을 공지하면 항상 공지된 수치를 따르세요." },
+          { type: "callout", text: "⚠️ 임원진이 다른 상한을 공지하면 항상 공지된 수치를 따르세요." },
+          { type: "p", text: "예를 들어 68K 병력 상한을 기준으로 하면, 이 숫자를 계산기에 입력한 뒤 해당 병종 칸에 그대로 넣으면 됩니다. 다음은 세 가지 예시입니다:" },
+          { type: "list", items: [
+            "60/20/20 ➡️ 40,800 / 13,600 / 13,600",
+            "60/40 ➡️ 40,800 / 27,200",
+            "50/20/30 ➡️ 34,000 / 13,600 / 20,400"
+          ]},
+
           { type: "h", text: "🎬 공격 영웅에서 방어 영웅으로 전환하는 방법" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 이 영상은 인터넷에서 가져온 것으로(TikTok @yelloe_hair), 우리가 직접 촬영한 것이 아닙니다." }
         ]
@@ -3025,6 +3048,14 @@ const GUIDES = {
           { type: "p", text: "**Typisches Allianzziel: ~68.000 Truppen pro Spieler**" },
           { type: "p", text: "So passen mehr Allianzmitglieder mit richtig konfigurierten Verteidigungsmärschen in die Garnison und erhalten Belohnungen." },
           { type: "callout", text: "⚠️ Wenn die Führung ein anderes Limit ankündigt, halte dich immer an die angekündigte Zahl." },
+          { type: "callout", text: "⚠️ Wenn die Führung ein anderes Limit ankündigt, halte dich immer an die angekündigte Zahl." },
+          { type: "p", text: "Zum Beispiel: Bei einem Truppenlimit von 68K kannst du diese Zahl in einen Taschenrechner eingeben und direkt in das Feld des jeweiligen Truppentyps übertragen. Hier sind drei Beispiele:" },
+          { type: "list", items: [
+            "60/20/20 ➡️ 40.800 / 13.600 / 13.600",
+            "60/40 ➡️ 40.800 / 27.200",
+            "50/20/30 ➡️ 34.000 / 13.600 / 20.400"
+          ]},
+
           { type: "h", text: "🎬 SO WECHSELST DU VON ANGRIFFS- ZU VERTEIDIGUNGSHELDEN" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Video aus dem Internet (TikTok @yelloe_hair) – nicht unser eigenes Material." }
         ]
@@ -3081,6 +3112,14 @@ const GUIDES = {
           { type: "p", text: "**Objectif d'alliance habituel : ~68 000 troupes par joueur**" },
           { type: "p", text: "Cela permet à davantage de membres de l'alliance dont les marches défensives sont bien configurées de tenir dans la garnison et d'obtenir des récompenses." },
           { type: "callout", text: "⚠️ Si la direction annonce une limite différente, suivez toujours le montant annoncé." },
+          { type: "callout", text: "⚠️ Si la direction annonce une limite différente, suivez toujours le montant annoncé." },
+          { type: "p", text: "Par exemple, avec une limite de 68 000 troupes, vous pouvez saisir ce chiffre dans une calculatrice et l'entrer directement dans le champ correspondant à chaque type de troupe. Voici trois exemples :" },
+          { type: "list", items: [
+            "60/20/20 ➡️ 40 800 / 13 600 / 13 600",
+            "60/40 ➡️ 40 800 / 27 200",
+            "50/20/30 ➡️ 34 000 / 13 600 / 20 400"
+          ]},
+
           { type: "h", text: "🎬 COMMENT PASSER DES HÉROS D'ATTAQUE AUX HÉROS DE DÉFENSE" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Vidéo trouvée en ligne (TikTok @yelloe_hair) — pas notre propre séquence." }
         ]
@@ -3137,6 +3176,14 @@ const GUIDES = {
           { type: "p", text: "**Meta comum da aliança: ~68.000 tropas por jogador**" },
           { type: "p", text: "Isso permite que mais membros da aliança com marchas defensivas bem configuradas caibam na guarnição e recebam recompensas." },
           { type: "callout", text: "⚠️ Se a liderança anunciar um limite diferente, siga sempre o valor anunciado." },
+          { type: "callout", text: "⚠️ Se a liderança anunciar um limite diferente, siga sempre o valor anunciado." },
+          { type: "p", text: "Por exemplo, com um limite de 68 mil tropas, você pode colocar esse número numa calculadora e digitar diretamente no campo do tipo de tropa correspondente. Aqui estão três exemplos:" },
+          { type: "list", items: [
+            "60/20/20 ➡️ 40.800 / 13.600 / 13.600",
+            "60/40 ➡️ 40.800 / 27.200",
+            "50/20/30 ➡️ 34.000 / 13.600 / 20.400"
+          ]},
+
           { type: "h", text: "🎬 COMO TROCAR DE HERÓIS DE ATAQUE PARA HERÓIS DE DEFESA" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Vídeo encontrado online (TikTok @yelloe_hair) — não é filmagem nossa." }
         ]
@@ -3193,6 +3240,14 @@ const GUIDES = {
           { type: "p", text: "**Tipik ittifak hedefi: oyuncu başına ~68.000 birlik**" },
           { type: "p", text: "Bu sayede savunma intikalleri doğru yapılandırılmış daha fazla ittifak üyesi garnizona sığar ve ödül alır." },
           { type: "callout", text: "⚠️ Yönetim farklı bir sınır duyurursa her zaman duyurulan miktara uyun." },
+          { type: "callout", text: "⚠️ Yönetim farklı bir sınır duyurursa her zaman duyurulan miktara uyun." },
+          { type: "p", text: "Örneğin, 68K birlik sınırını temel alarak bu sayıyı bir hesap makinesine girip doğrudan ilgili birlik türünün alanına yazabilirsin. İşte üç örnek:" },
+          { type: "list", items: [
+            "60/20/20 ➡️ 40.800 / 13.600 / 13.600",
+            "60/40 ➡️ 40.800 / 27.200",
+            "50/20/30 ➡️ 34.000 / 13.600 / 20.400"
+          ]},
+
           { type: "h", text: "🎬 SALDIRI KAHRAMANLARINDAN SAVUNMA KAHRAMANLARINA NASIL GEÇİLİR" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Video internetten alınmıştır (TikTok @yelloe_hair) — kendi çekimimiz değil." }
         ]
@@ -3249,6 +3304,14 @@ const GUIDES = {
           { type: "p", text: "**Target aliansi umum: ~68.000 pasukan per pemain**" },
           { type: "p", text: "Ini memungkinkan lebih banyak anggota aliansi dengan barisan pertahanan yang terkonfigurasi baik masuk ke garnisun dan mendapat hadiah." },
           { type: "callout", text: "⚠️ Jika pimpinan mengumumkan batas yang berbeda, selalu ikuti angka yang diumumkan." },
+          { type: "callout", text: "⚠️ Jika pimpinan mengumumkan batas yang berbeda, selalu ikuti angka yang diumumkan." },
+          { type: "p", text: "Contohnya, dengan batas 68K pasukan, kamu bisa memasukkan angka itu ke kalkulator dan langsung mengetiknya di kolom jenis pasukan yang sesuai. Berikut tiga contohnya:" },
+          { type: "list", items: [
+            "60/20/20 ➡️ 40.800 / 13.600 / 13.600",
+            "60/40 ➡️ 40.800 / 27.200",
+            "50/20/30 ➡️ 34.000 / 13.600 / 20.400"
+          ]},
+
           { type: "h", text: "🎬 CARA BERALIH DARI HERO SERANGAN KE HERO PERTAHANAN" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Video ditemukan di internet (TikTok @yelloe_hair) — bukan rekaman kami sendiri." }
         ]
@@ -3305,6 +3368,14 @@ const GUIDES = {
           { type: "p", text: "**Обычная цель альянса: ~68 000 войск на игрока**" },
           { type: "p", text: "Так в гарнизон поместится больше участников альянса с правильно настроенными маршами защиты, и они получат награды." },
           { type: "callout", text: "⚠️ Если руководство объявит другой лимит, всегда следуйте объявленной цифре." },
+          { type: "callout", text: "⚠️ Если руководство объявит другой лимит, всегда следуйте объявленной цифре." },
+          { type: "p", text: "Например, при лимите войск 68K это число можно ввести в калькулятор и сразу вписать в поле соответствующего типа войск. Вот три примера:" },
+          { type: "list", items: [
+            "60/20/20 ➡️ 40 800 / 13 600 / 13 600",
+            "60/40 ➡️ 40 800 / 27 200",
+            "50/20/30 ➡️ 34 000 / 13 600 / 20 400"
+          ]},
+
           { type: "h", text: "🎬 КАК ПЕРЕКЛЮЧИТЬСЯ С АТАКУЮЩИХ ГЕРОЕВ НА ЗАЩИТНЫХ" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Видео найдено в интернете (TikTok @yelloe_hair) — не наши собственные съёмки." }
         ]
@@ -3361,6 +3432,14 @@ const GUIDES = {
           { type: "p", text: "**เป้าหมายทั่วไปของพันธมิตร: ~68,000 ทหารต่อผู้เล่น**" },
           { type: "p", text: "วิธีนี้ทำให้สมาชิกพันธมิตรที่ตั้งค่าการเดินทัพป้องกันอย่างถูกต้องเข้าไปได้มากขึ้นและได้รับรางวัล" },
           { type: "callout", text: "⚠️ หากผู้นำประกาศขีดจำกัดที่ต่างออกไป ให้ทำตามจำนวนที่ประกาศเสมอ" },
+          { type: "callout", text: "⚠️ หากผู้นำประกาศขีดจำกัดที่ต่างออกไป ให้ทำตามจำนวนที่ประกาศเสมอ" },
+          { type: "p", text: "ตัวอย่างเช่น หากใช้ขีดจำกัดทหาร 68K คุณสามารถนำตัวเลขนี้ไปใส่ในเครื่องคิดเลข แล้วพิมพ์ลงในช่องของทหารแต่ละประเภทได้เลย ต่อไปนี้คือ 3 ตัวอย่าง:" },
+          { type: "list", items: [
+            "60/20/20 ➡️ 40,800 / 13,600 / 13,600",
+            "60/40 ➡️ 40,800 / 27,200",
+            "50/20/30 ➡️ 34,000 / 13,600 / 20,400"
+          ]},
+
           { type: "h", text: "🎬 วิธีสลับจากฮีโร่โจมตีเป็นฮีโร่ป้องกัน" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 วิดีโอจากอินเทอร์เน็ต (TikTok @yelloe_hair) — ไม่ใช่ฟุตเทจของเราเอง" }
         ]
@@ -3417,6 +3496,14 @@ const GUIDES = {
           { type: "p", text: "**الهدف المعتاد للتحالف: ~68,000 من القوات لكل لاعب**" },
           { type: "p", text: "يتيح ذلك لعدد أكبر من أعضاء التحالف ممن أعدّوا طوابير دفاع مضبوطة جيدًا أن يدخلوا الحامية ويحصلوا على المكافآت." },
           { type: "callout", text: "⚠️ إذا أعلنت القيادة حدًا مختلفًا، فالتزم دائمًا بالرقم المعلن." },
+          { type: "callout", text: "⚠️ إذا أعلنت القيادة حدًا مختلفًا، فالتزم دائمًا بالرقم المعلن." },
+          { type: "p", text: "على سبيل المثال: إذا كان حد القوات 68 ألفًا، يمكنك إدخال هذا الرقم في آلة حاسبة، ثم كتابته مباشرة في خانة نوع القوة المطابق. إليك ثلاثة أمثلة:" },
+          { type: "list", items: [
+            "60/20/20 ➡️ 40,800 / 13,600 / 13,600",
+            "60/40 ➡️ 40,800 / 27,200",
+            "50/20/30 ➡️ 34,000 / 13,600 / 20,400"
+          ]},
+
           { type: "h", text: "🎬 كيف تبدّل من أبطال الهجوم إلى أبطال الدفاع" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 فيديو من الإنترنت (TikTok @yelloe_hair) — ليس من تصويرنا." }
         ]
