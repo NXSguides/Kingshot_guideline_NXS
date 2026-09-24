@@ -232,6 +232,7 @@ const BLOCKS = {
           </div>
           <div class="ann-text">${rich(text)}</div>
           ${imgs}
+          ${linksBlock}
         </div>
       </div>
     `;
