@@ -545,17 +545,6 @@ function renderAll() {
   renderDoc();
 }
 
-restorePrefs();
-initTheme();
-renderAll();
-loadAnnouncements();
-
-window.addEventListener("hashchange", () => {
-  readHash();
-  persistPrefs();
-  renderAll();
-});
-
 const EVENT_POPUP = {
   key: "all-out",
   message: {
@@ -596,3 +585,10 @@ function renderEventPopup() {
     switchGuide(EVENT_POPUP.key);
   });
 }
+
+restorePrefs();
+initTheme();
+renderAll();
+loadAnnouncements();
+
+window.addEventListener("hashchange", () => { ... });
