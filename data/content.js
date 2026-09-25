@@ -5719,7 +5719,7 @@ const GUIDES = {
         { type: "list", items: [
           "❌ NAP 6 멤버 공격 금지 (NXS, RED, NBD, ESA, IDN, KGb)",
           "❌ 성이나 연맹 건물(본부, 전초기지, 깃발 등) 공격 금지.",
-          "✅ 자원 채집 타일({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} 등)은 공격 가능합니다",
+          "✅ 자원 채집 타일({mill}, {sawmill}, {quarry}, {ironMine} 등)은 공격 가능합니다",
           "✅ 상위 6위 밖의 플레이어는 공격 가능합니다."
         ]},
         { type: "list", items: [
@@ -5744,7 +5744,7 @@ const GUIDES = {
         { type: "list", items: [
           "❌ Keine Angriffe auf NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
           "❌ Keine Angriffe auf Schlösser oder Allianzgebäude (Hauptquartiere, Außenposten, Banner usw.).",
-          "✅ Ihr könnt Ressourcen-Sammelfelder angreifen ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} usw.)",
+          "✅ Ihr könnt Ressourcen-Sammelfelder angreifen ({mill}, {sawmill}, {quarry}, {ironMine} usw.)",
           "✅ Ihr könnt Spieler außerhalb der Top 6 angreifen."
         ]},
         { type: "list", items: [
@@ -5769,7 +5769,7 @@ const GUIDES = {
         { type: "list", items: [
           "❌ Aucune attaque contre le NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
           "❌ Aucune attaque contre les châteaux ou les bâtiments d'alliance (QG, avant-postes, bannières, etc.).",
-          "✅ Vous pouvez attaquer les cases de collecte de ressources ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine}, etc.)",
+          "✅ Vous pouvez attaquer les cases de collecte de ressources ({mill}, {sawmill}, {quarry}, {ironMine}, etc.)",
           "✅ Vous pouvez attaquer les joueurs en dehors du Top 6."
         ]},
         { type: "list", items: [
@@ -5794,7 +5794,7 @@ const GUIDES = {
         { type: "list", items: [
           "❌ Nenhum ataque ao NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
           "❌ Nenhum ataque a castelos ou construções da aliança (QGs, postos avançados, bandeiras, etc.).",
-          "✅ Você pode atacar blocos de coleta de recursos ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine}, etc.)",
+          "✅ Você pode atacar blocos de coleta de recursos ({mill}, {sawmill}, {quarry}, {ironMine}, etc.)",
           "✅ Você pode atacar jogadores fora do Top 6."
         ]},
         { type: "list", items: [
@@ -5819,7 +5819,7 @@ const GUIDES = {
         { type: "list", items: [
           "❌ NAP 6 üyelerine saldırı yok (NXS, RED, NBD, ESA, IDN, KGb)",
           "❌ Şatolara veya ittifak binalarına (karargahlar, ileri karakollar, flamalar vb.) saldırı yok.",
-          "✅ Kaynak toplama alanlarına saldırabilirsiniz ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} vb.)",
+          "✅ Kaynak toplama alanlarına saldırabilirsiniz ({mill}, {sawmill}, {quarry}, {ironMine} vb.)",
           "✅ İlk 6 dışındaki oyunculara saldırabilirsiniz."
         ]},
         { type: "list", items: [
@@ -5844,7 +5844,7 @@ const GUIDES = {
         { type: "list", items: [
           "❌ Dilarang menyerang anggota NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
           "❌ Dilarang menyerang kastil atau bangunan aliansi (markas, pos terdepan, spanduk, dll.).",
-          "✅ Anda boleh menyerang ubin pengumpulan sumber daya ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine}, dll.)",
+          "✅ Anda boleh menyerang ubin pengumpulan sumber daya ({mill}, {sawmill}, {quarry}, {ironMine}, dll.)",
           "✅ Anda boleh menyerang pemain di luar Top 6."
         ]},
         { type: "list", items: [
@@ -5869,7 +5869,7 @@ const GUIDES = {
         { type: "list", items: [
           "❌ Не атаковать членов NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
           "❌ Не атаковать замки или здания альянса (штабы, форпосты, знамёна и т.д.).",
-          "✅ Можно атаковать участки сбора ресурсов ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} и т.д.)",
+          "✅ Можно атаковать участки сбора ресурсов ({mill}, {sawmill}, {quarry}, {ironMine} и т.д.)",
           "✅ Можно атаковать игроков вне топ-6."
         ]},
         { type: "list", items: [
@@ -5894,7 +5894,7 @@ const GUIDES = {
         { type: "list", items: [
           "❌ ห้ามโจมตีสมาชิก NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
           "❌ ห้ามโจมตีปราสาทหรืออาคารพันธมิตร (กองบัญชาการ ด่านหน้า ธง ฯลฯ)",
-          "✅ สามารถโจมตีจุดเก็บทรัพยากรได้ ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} ฯลฯ)",
+          "✅ สามารถโจมตีจุดเก็บทรัพยากรได้ ({mill}, {sawmill}, {quarry}, {ironMine} ฯลฯ)",
           "✅ สามารถโจมตีผู้เล่นที่อยู่นอกอันดับท็อป 6 ได้"
         ]},
         { type: "list", items: [
