@@ -98,24 +98,26 @@ async function main() {
   const glossaryText = buildGlossaryText(loadTerms());
 
   // 只翻譯快取裡還沒有的（也就是真正新增的）公告
-  for (const entry of rawEntries) {
-    if (cache[entry.id]) continue;
-    const result = await translateOne(entry, glossaryText);
-    const titleMap = {};
-    const contentMap = {};
-    for (const [lang, v] of Object.entries(result)) {
-      titleMap[lang] = v.title;
-      contentMap[lang] = v.content;
-    }
-    cache[entry.id] = {
-      author: entry.author,
-      createdAt: new Date().toISOString(),
-      images: entry.images || [],
-      links: entry.links || [],
-      title: titleMap,
-      content: contentMap,
-    };
+for (const entry of rawEntries) {
+  const cached = cache[entry.id];
+  const hasAllLangs = cached && TERM_LANGS.every(l => cached.title && l in cached.title);
+  if (hasAllLangs) continue;
+  const result = await translateOne(entry, glossaryText);
+  const titleMap = {};
+  const contentMap = {};
+  for (const [lang, v] of Object.entries(result)) {
+    titleMap[lang] = v.title;
+    contentMap[lang] = v.content;
   }
+  cache[entry.id] = {
+    author: entry.author,
+    createdAt: new Date().toISOString(),
+    images: entry.images || [],
+    links: entry.links || [],
+    title: titleMap,
+    content: contentMap,
+  };
+}
 
   // 清掉快取裡「來源檔案已經沒有了」的公告 → 這就是支援刪除的關鍵
   const currentIds = new Set(rawEntries.map(e => e.id));
