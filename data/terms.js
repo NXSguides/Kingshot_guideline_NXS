@@ -389,7 +389,6 @@ const TERMS = [
   "rows": [
    ["Beasts", "野獸", "야수", "Bestien", "Bêtes", "Feras", "Hayvanlar", "binatang buas", "Звери", "สัตว์อสูร", "الوحوش", "Map hunting tab. Indonesian is lowercase in the game."],
    ["Terror", "巨獸", "괴수", "Terror", "Terreur", "Terror", "Dehşet", "Terror", "Ужас", "อสูรร้าย", "وحش عملاق", "Map hunting tab (the second monster type)."],
-   ["Great Iron Mine", "大型鐵礦場", "대형 철광장", "Großes Eisenbergwerk", "Grande Mine de Fer", "Grande Mina de Ferro", "Büyük Demir Madeni", "Tambang Besi Besar", "Большой железный рудник", "เหมืองเหล็กใหญ่", "منجم حديد عظيم", "Map gathering tab."],
    ["Bread", "麵包", "빵", "Brot", "Pain", "Pão", "Ekmek", "Roti", "Хлеб", "ขนมปัง", "الخبز", "Map gathering tab."],
    ["Search", "搜索", "검색하기", "Suche", "Rechercher", "Procurar", "Ara", "Cari", "Поиск", "ค้นหา", "بحث", "Button on the map."],
    ["Auto Hunting", "自動狩獵", "자동 사냥", "Auto-Jagd", "Chasse Auto.", "Caçada Automática", "Otomatik Av", "Berburu Otomatis", "Автоохота", "การล่าอัตโนมัติ", "الصيد التلقائي", "Button on the map."],
@@ -403,7 +402,10 @@ const TERMS = [
    ["Iron", "鐵礦", "철광", "Eisen", "Fer", "Ferro", "Demir", "Besi", "Железо", "แร่เหล็ก", "حديد", "Map gathering tab."],
    ["Great Mill", "大型磨坊", "대형 방앗간", "Große Mühle", "Grand Moulin", "Grande Moinho", "Büyük Değirmen", "Lumbung Besar", "Большая мельница", "โรงโม่ใหญ่", "طاحونة عظيمة", "Alliance resource building (bread). Full name from the Alliance mail; the map tab is cut off in most languages. Indonesian uses 'Lumbung' (granary), not 'mill'."],
    ["Great Sawmill", "大型伐木場", "대형 벌목장", "Großes Sägewerk", "Grande Scierie", "Grande Serraria", "Büyük Odun Fabrikası", "Penggergajian Kayu Besar", "Большая лесопилка", "โรงเลื่อยใหญ่", "منشرة عظيمة", "Alliance resource building (wood). From the Alliance mail."],
-   ["Secured Alliance Node", "聯盟安全採集點", "연맹 안전 채집 포인트", "Allianzknoten", "Point d'Alliance Sécurisé", "Nó de Aliança Protegido", "Korumalı İttifak Toplama Noktası", "Node Aliansi Aman", "защищенный узел", "จุดพันธมิตรปลอดภัย", "نقطة تجميع تحالف مؤمنة", "Mail text after a Great building disappears ('…ready to place!'). German sentence reads 'Allianzknoten gesichert und bereit zum…'. ⚠️ Russian text is cut off ('Можно разместить защищенный узел…'), so only 'защищенный узел' is confirmed."]
+   ["Great Quarry", "大型採石場", "대형 채석장", "Großer Steinbruch", "Grande Carrière", "Grande Pedreira", "Büyük Taş Ocağı", "Tambang Batu Besar", "Большая каменоломня", "เหมืองหินใหญ่", "محجر عظيم", "Alliance resource building (stone). From the Alliance mail."],
+   ["Great Iron Mine", "大型鐵礦場", "대형 철광장", "Großes Eisenbergwerk", "Grande Mine de Fer", "Grande Mina de Ferro", "Büyük Demir Madeni", "Tambang Besi Besar", "Большой железный рудник", "เหมืองเหล็กใหญ่", "منجم حديد عظيم", "Alliance resource building (iron). Also confirmed from the Alliance mail (placed / demolished)."],
+   ["Secured Alliance Node", "聯盟安全採集點", "연맹 안전 채집 포인트", "Allianzknoten", "Point d'Alliance Sécurisé", "Nó de Aliança Protegido", "Korumalı İttifak Toplama Noktası", "Node Aliansi Aman", "защищенный узел сбора альянса", "จุดพันธมิตรปลอดภัย", "نقطة تجميع تحالف مؤمنة", "Mail text after a Great building disappears ('…ready to place!'). German sentence reads 'Allianzknoten gesichert und bereit zum…'. Russian full text (opened mail): 'Вы можете разместить [защищенный узел сбора альянса]!' — lowercase inside brackets in the game."],
+   ["Armory", "防具庫", "방어구 창고", "Waffenkammer", "Armurerie", "Arsenal", "Cephanelik", "Armory", "Оружейная", "คลังแสง", "مخزن الدروع", "Alliance-controlled map building with levels. From the mail 'Lv. 2 Armory Controlled'. Level formats: 2級防具庫 / Lv.2 방어구 창고 / Lv. 2 Waffenkammer / Armurerie Niv. 2 / Arsenal Nv. 2 / Sv. 2 Cephanelik / Lv. 2 Armory / Оружейная ур. 2 / คลังแสงเลเวล 2 / مخزن الدروع م.2. Indonesian keeps the English 'Armory'."]
   ]
  },
 {
