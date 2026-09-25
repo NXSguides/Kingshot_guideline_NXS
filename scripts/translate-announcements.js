@@ -7,7 +7,7 @@ const SOURCE = path.join(__dirname, "../data/announcements-source.md");
 const OUTPUT = path.join(__dirname, "../data/announcements.json");
 const CACHE = path.join(__dirname, "../data/announcements-cache.json");
 const TERMS_PATH = path.join(__dirname, "../data/terms.js");
-const TERM_LANGS = ["en", "zh", "ko", "de", "fr", "pt", "tr", "id", "ru", "th", "ar"];
+const TERM_LANGS = ["en", "zh", "ko", "de", "fr", "pt", "tr", "id", "ru", "th", "ar", "es"];
 
 function loadTerms() {
   const src = fs.readFileSync(TERMS_PATH, "utf8");
