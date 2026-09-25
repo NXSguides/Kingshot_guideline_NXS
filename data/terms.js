@@ -438,6 +438,15 @@ const TERMS = [
   ]
  },
  {
+  "cat": "Resource Gathering Buildings (Wild)",
+  "rows": [
+   ["Mill","磨坊","방앗간","Mühle","Moulin","Moinho","Değirmen","Lumbung","Мельница","โรงโม่","طاحونة","Base-tier wild resource building, without the 'Great/大型' prefix — distinct from the alliance-owned Great Mill."],
+   ["Sawmill","伐木場","벌목장","Sägewerk","Scierie","Serraria","Odun Fabrikası","Penggergajian Kayu","Лесопилка","โรงเลื่อย","منشرة","Base-tier wild resource building, without the 'Great/大型' prefix — distinct from the alliance-owned Great Sawmill."],
+   ["Iron Mine","鐵礦場","철광장","Eisenbergwerk","Mine de Fer","Mina de Ferro","Demir Madeni","Tambang Besi","Железный рудник","เหมืองเหล็ก","منجم حديد","Base-tier wild resource building, without the 'Great/大型' prefix — distinct from the alliance-owned Great Iron Mine."],
+   ["Quarry","採石場","채석장","Steinbruch","Carrière","Pedreira","Taş Ocağı","Tambang Batu","Каменоломня","เหมืองหิน","محجر","Base-tier wild resource building, without the 'Great/大型' prefix — distinct from the alliance-owned Great Quarry."]
+  ]
+ },
+ {
   "cat": "KvK terms (screenshot confirmed, all 11 langs)",
   "rows": [
    ["Academy","學院","아카데미","Akademie","Académie","Academia","Akademi","Akademi","Университет","อาคาเดมี","الأكاديمية","俄文官方翻譯是「Университет」（大學），非「學院」，與其他語言不同，屬遊戲本身用詞差異。"],
