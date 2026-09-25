@@ -562,6 +562,7 @@ const EVENT_POPUP = {
     ar: "فعالية **جميع القوات تهاجم** جارية الآن، يُرجى مراجعة ملاحظات الفعالية أولاً."
   },
   confirmLabel: { zh:"確認", en:"Confirm", ko:"확인", de:"Bestätigen", fr:"Confirmer", pt:"Confirmar", es:"Confirmar", tr:"Onayla", id:"Konfirmasi", ru:"Подтвердить", th:"ยืนยัน", ar:"تأكيد" }
+};
 
 let popupShown = false;
 
