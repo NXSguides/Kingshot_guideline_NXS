@@ -5667,10 +5667,10 @@ const GUIDES = {
       en: { title: "All Out", blocks: [
         { type: "h", text: "🪖 All-Out Rules" },
         { type: "list", items: [
-          "❌ No attacks on NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ No attacks on castles or alliance buildings (HQs, outposts, banners, etc.).",
-          "✅ You can attack resource gathering tiles ({mill}, {sawmill}, {quarry}, {ironMine} etc.)",
-          "✅ You can attack players outside of the Top 6."
+          "❌ No attacks on NAP 6 including their farms/academies (NXS/nxs, RED/ReD, NBD/OFA/Nbd, ESA/EsA/UNI, IDN, KGb)",
+          "❌ No attacks on castles or alliance buildings (HQs, outposts, banners)",
+          "✅ You can attack resource gathering tiles ({mill}, {quarry}, {ironMine})",
+          "✅ You can attack players outside of NAP."
         ]},
         { type: "list", items: [
           "If your castle gets attacked by a NAP member, do not retaliate — inform R4/R5.",
@@ -5692,10 +5692,10 @@ const GUIDES = {
       zh: { title: "全軍出擊", blocks: [
         { type: "h", text: "🪖 全軍出擊規則" },
         { type: "list", items: [
-          "❌ 禁止攻擊 NAP 6 成員（NXS、RED、NBD、ESA、IDN、KGb）",
-          "❌ 禁止攻擊城堡或聯盟建築（總部、前哨站、旗幟等）。",
-          "✅ 可以攻擊資源採集點（{mill}、{sawmill}、{quarry}、{ironMine} 等）",
-          "✅ 可以攻擊排名前 6 名以外的玩家。"
+          "❌ 禁止攻擊 NAP 6 成員，包含他們的農場／學院（NXS/nxs、RED/ReD、NBD/OFA/Nbd、ESA/EsA/UNI、IDN、KGb）",
+          "❌ 禁止攻擊城堡或聯盟建築（總部、前哨站、旗幟）",
+          "✅ 可以攻擊資源採集點（{mill}、{quarry}、{ironMine}）",
+          "✅ 可以攻擊 NAP 以外的玩家。"
         ]},
         { type: "list", items: [
           "如果你的城堡被 NAP 成員攻擊，請勿報復，回報 R4/R5。",
@@ -5717,10 +5717,10 @@ const GUIDES = {
       ko: { title: "전군 출격", blocks: [
         { type: "h", text: "🪖 전군 출격 규칙" },
         { type: "list", items: [
-          "❌ NAP 6 멤버 공격 금지 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ 성이나 연맹 건물(본부, 전초기지, 깃발 등) 공격 금지.",
-          "✅ 자원 채집 타일({mill}, {sawmill}, {quarry}, {ironMine} 등)은 공격 가능합니다",
-          "✅ 상위 6위 밖의 플레이어는 공격 가능합니다."
+          "❌ NAP 6 멤버 공격 금지, 농장/아카데미 포함 (NXS/nxs, RED/ReD, NBD/OFA/Nbd, ESA/EsA/UNI, IDN, KGb)",
+          "❌ 성이나 연맹 건물(본부, 전초기지, 깃발) 공격 금지",
+          "✅ 자원 채집 타일({mill}, {quarry}, {ironMine})은 공격 가능합니다",
+          "✅ NAP 이외의 플레이어는 공격 가능합니다."
         ]},
         { type: "list", items: [
           "NAP 멤버에게 성을 공격당했다면 보복하지 말고 R4/R5에게 알리세요.",
@@ -5742,10 +5742,10 @@ const GUIDES = {
       de: { title: "Aufs Ganze", blocks: [
         { type: "h", text: "🪖 All-Out-Regeln" },
         { type: "list", items: [
-          "❌ Keine Angriffe auf NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ Keine Angriffe auf Schlösser oder Allianzgebäude (Hauptquartiere, Außenposten, Banner usw.).",
-          "✅ Ihr könnt Ressourcen-Sammelfelder angreifen ({mill}, {sawmill}, {quarry}, {ironMine} usw.)",
-          "✅ Ihr könnt Spieler außerhalb der Top 6 angreifen."
+          "❌ Keine Angriffe auf NAP 6, einschließlich ihrer Farmen/Akademien (NXS/nxs, RED/ReD, NBD/OFA/Nbd, ESA/EsA/UNI, IDN, KGb)",
+          "❌ Keine Angriffe auf Schlösser oder Allianzgebäude (Hauptquartiere, Außenposten, Banner)",
+          "✅ Ihr könnt Ressourcen-Sammelfelder angreifen ({mill}, {quarry}, {ironMine})",
+          "✅ Ihr könnt Spieler außerhalb der NAP angreifen."
         ]},
         { type: "list", items: [
           "Wenn euer Schloss von einem NAP-Mitglied angegriffen wird, nicht zurückschlagen — meldet es R4/R5.",
@@ -5767,10 +5767,10 @@ const GUIDES = {
       fr: { title: "Tous dehors", blocks: [
         { type: "h", text: "🪖 Règles de Tous dehors" },
         { type: "list", items: [
-          "❌ Aucune attaque contre le NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ Aucune attaque contre les châteaux ou les bâtiments d'alliance (QG, avant-postes, bannières, etc.).",
-          "✅ Vous pouvez attaquer les cases de collecte de ressources ({mill}, {sawmill}, {quarry}, {ironMine}, etc.)",
-          "✅ Vous pouvez attaquer les joueurs en dehors du Top 6."
+          "❌ Aucune attaque contre le NAP 6, y compris leurs fermes/académies (NXS/nxs, RED/ReD, NBD/OFA/Nbd, ESA/EsA/UNI, IDN, KGb)",
+          "❌ Aucune attaque contre les châteaux ou les bâtiments d'alliance (QG, avant-postes, bannières)",
+          "✅ Vous pouvez attaquer les cases de collecte de ressources ({mill}, {quarry}, {ironMine})",
+          "✅ Vous pouvez attaquer les joueurs en dehors du NAP."
         ]},
         { type: "list", items: [
           "Si votre château est attaqué par un membre du NAP, ne ripostez pas — informez le R4/R5.",
@@ -5792,10 +5792,10 @@ const GUIDES = {
       pt: { title: "Vai com Tudo", blocks: [
         { type: "h", text: "🪖 Regras do Vai com Tudo" },
         { type: "list", items: [
-          "❌ Nenhum ataque ao NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ Nenhum ataque a castelos ou construções da aliança (QGs, postos avançados, bandeiras, etc.).",
-          "✅ Você pode atacar blocos de coleta de recursos ({mill}, {sawmill}, {quarry}, {ironMine}, etc.)",
-          "✅ Você pode atacar jogadores fora do Top 6."
+          "❌ Nenhum ataque ao NAP 6, incluindo suas fazendas/academias (NXS/nxs, RED/ReD, NBD/OFA/Nbd, ESA/EsA/UNI, IDN, KGb)",
+          "❌ Nenhum ataque a castelos ou construções da aliança (QGs, postos avançados, bandeiras)",
+          "✅ Você pode atacar blocos de coleta de recursos ({mill}, {quarry}, {ironMine})",
+          "✅ Você pode atacar jogadores fora do NAP."
         ]},
         { type: "list", items: [
           "Se seu castelo for atacado por um membro do NAP, não revide — avise o R4/R5.",
@@ -5817,10 +5817,10 @@ const GUIDES = {
       tr: { title: "Topyekün", blocks: [
         { type: "h", text: "🪖 Topyekün Kuralları" },
         { type: "list", items: [
-          "❌ NAP 6 üyelerine saldırı yok (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ Şatolara veya ittifak binalarına (karargahlar, ileri karakollar, flamalar vb.) saldırı yok.",
-          "✅ Kaynak toplama alanlarına saldırabilirsiniz ({mill}, {sawmill}, {quarry}, {ironMine} vb.)",
-          "✅ İlk 6 dışındaki oyunculara saldırabilirsiniz."
+          "❌ NAP 6 üyelerine, çiftlikleri/akademileri dahil saldırı yok (NXS/nxs, RED/ReD, NBD/OFA/Nbd, ESA/EsA/UNI, IDN, KGb)",
+          "❌ Şatolara veya ittifak binalarına (karargahlar, ileri karakollar, flamalar) saldırı yok",
+          "✅ Kaynak toplama alanlarına saldırabilirsiniz ({mill}, {quarry}, {ironMine})",
+          "✅ NAP dışındaki oyunculara saldırabilirsiniz."
         ]},
         { type: "list", items: [
           "Şatonuza bir NAP üyesi tarafından saldırılırsa misilleme yapmayın — R4/R5'e bildirin.",
@@ -5842,10 +5842,10 @@ const GUIDES = {
       id: { title: "Serangan Penuh", blocks: [
         { type: "h", text: "🪖 Aturan Serangan Penuh" },
         { type: "list", items: [
-          "❌ Dilarang menyerang anggota NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ Dilarang menyerang kastil atau bangunan aliansi (markas, pos terdepan, spanduk, dll.).",
-          "✅ Anda boleh menyerang ubin pengumpulan sumber daya ({mill}, {sawmill}, {quarry}, {ironMine}, dll.)",
-          "✅ Anda boleh menyerang pemain di luar Top 6."
+          "❌ Dilarang menyerang anggota NAP 6, termasuk farm/akademi mereka (NXS/nxs, RED/ReD, NBD/OFA/Nbd, ESA/EsA/UNI, IDN, KGb)",
+          "❌ Dilarang menyerang kastil atau bangunan aliansi (markas, pos terdepan, spanduk)",
+          "✅ Anda boleh menyerang ubin pengumpulan sumber daya ({mill}, {quarry}, {ironMine})",
+          "✅ Anda boleh menyerang pemain di luar NAP."
         ]},
         { type: "list", items: [
           "Jika kastil Anda diserang oleh anggota NAP, jangan membalas — laporkan ke R4/R5.",
@@ -5867,10 +5867,10 @@ const GUIDES = {
       ru: { title: "Полный вперед", blocks: [
         { type: "h", text: "🪖 Правила события «Полный вперед»" },
         { type: "list", items: [
-          "❌ Не атаковать членов NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ Не атаковать замки или здания альянса (штабы, форпосты, знамёна и т.д.).",
-          "✅ Можно атаковать участки сбора ресурсов ({mill}, {sawmill}, {quarry}, {ironMine} и т.д.)",
-          "✅ Можно атаковать игроков вне топ-6."
+          "❌ Не атаковать членов NAP 6, включая их фермы/академии (NXS/nxs, RED/ReD, NBD/OFA/Nbd, ESA/EsA/UNI, IDN, KGb)",
+          "❌ Не атаковать замки или здания альянса (штабы, форпосты, знамёна)",
+          "✅ Можно атаковать участки сбора ресурсов ({mill}, {quarry}, {ironMine})",
+          "✅ Можно атаковать игроков вне NAP."
         ]},
         { type: "list", items: [
           "Если ваш замок атаковал участник NAP, не мстите — сообщите R4/R5.",
@@ -5892,10 +5892,10 @@ const GUIDES = {
       th: { title: "ลุยเลย", blocks: [
         { type: "h", text: "🪖 กฎกิจกรรมลุยเลย" },
         { type: "list", items: [
-          "❌ ห้ามโจมตีสมาชิก NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ ห้ามโจมตีปราสาทหรืออาคารพันธมิตร (กองบัญชาการ ด่านหน้า ธง ฯลฯ)",
-          "✅ สามารถโจมตีจุดเก็บทรัพยากรได้ ({mill}, {sawmill}, {quarry}, {ironMine} ฯลฯ)",
-          "✅ สามารถโจมตีผู้เล่นที่อยู่นอกอันดับท็อป 6 ได้"
+          "❌ ห้ามโจมตีสมาชิก NAP 6 รวมถึงฟาร์ม/อาคาเดมีของพวกเขา (NXS/nxs, RED/ReD, NBD/OFA/Nbd, ESA/EsA/UNI, IDN, KGb)",
+          "❌ ห้ามโจมตีปราสาทหรืออาคารพันธมิตร (กองบัญชาการ ด่านหน้า ธง)",
+          "✅ สามารถโจมตีจุดเก็บทรัพยากรได้ ({mill}, {quarry}, {ironMine})",
+          "✅ สามารถโจมตีผู้เล่นที่อยู่นอก NAP ได้"
         ]},
         { type: "list", items: [
           "หากปราสาทของคุณถูกสมาชิก NAP โจมตี อย่าตอบโต้ ให้แจ้ง R4/R5",
@@ -5917,10 +5917,10 @@ const GUIDES = {
       ar: { title: "جميع القوات تهاجم", blocks: [
         { type: "h", text: "🪖 قواعد فعالية جميع القوات تهاجم" },
         { type: "list", items: [
-          "❌ ممنوع مهاجمة أعضاء NAP 6 (NXS، RED، NBD، ESA، IDN، KGb)",
-          "❌ ممنوع مهاجمة القلاع أو مباني التحالف (المقرات، المخافر الأمامية، الرايات، إلخ).",
-          "✅ يمكنك مهاجمة نقاط جمع الموارد ({greatMill}، {greatSawmill}، {greatQuarry}، {greatIronMine} إلخ)",
-          "✅ يمكنك مهاجمة اللاعبين خارج أفضل 6."
+‎          "❌ ممنوع مهاجمة أعضاء NAP 6، بما في ذلك مزارعهم/أكاديمياتهم (NXS/nxs، RED/ReD، NBD/OFA/Nbd، ESA/EsA/UNI، IDN، KGb)",
+‎          "❌ ممنوع مهاجمة القلاع أو مباني التحالف (المقرات، المخافر الأمامية، الرايات)",
+‎          "✅ يمكنك مهاجمة نقاط جمع الموارد ({mill}، {quarry}، {ironMine})",
+‎          "✅ يمكنك مهاجمة اللاعبين خارج NAP."
         ]},
         { type: "list", items: [
           "إذا تعرضت قلعتك لهجوم من عضو NAP، لا تنتقم — أبلغ R4/R5.",
