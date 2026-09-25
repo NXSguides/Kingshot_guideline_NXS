@@ -591,5 +591,6 @@ function renderEventPopup() {
   document.body.appendChild(overlay);
   overlay.querySelector(".popup-confirm-btn").addEventListener("click", () => {
     overlay.remove();
+    switchGuide(EVENT_POPUP.key);
   });
 }
