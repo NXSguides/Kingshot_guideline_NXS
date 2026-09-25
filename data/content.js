@@ -678,7 +678,7 @@ const GUIDES = {
   },
   "bear-hunt": {
     emoji: "🐻",
-    name: { zh: "狩獵巨熊", en: "Bear Hunt", ko: "자이언트 베어 사냥", de: "Bärenjagd", fr: "Chasse à l'Ours", pt: "Caça ao Urso", tr: "Ayı Avı", id: "Bear Hunt", ru: "Охота на медведя", th: "ล่าหมี", ar: "صيد الدببة", es: "Caza del Oso" },
+    name: { zh: "狩獵巨熊", en: "Bear Hunt", ko: "자이언트 베어 사냥", de: "Bärenjagd", fr: "Chasse à l'Ours", pt: "Caça ao Urso", tr: "Ayı Avı", id: "Bear Hunt", ru: "Охота на медведя", th: "ล่าหมี", ar: "صيد الدببة", es: "Cacería del Oso" },
     sections: {
       zh: {
         title: "狩獵巨熊",
@@ -749,14 +749,14 @@ const GUIDES = {
         joiners_ratio: "Standard / sicheres Verhältnis: 10% Infanterie, 10% Kavallerie, und 80% Bogenschützen (oder Varianten wie 20-30-50)"
       },
       es: {
-        title: "Caza del Oso",
+        title: "Cacería del Oso",
         when_label: "CUÁNDO",
         when: "Cada 2 días, según el horario programado por tu alianza.",
         why_label: "POR QUÉ IMPORTA",
         why: "Fuente principal de materiales de equipo de héroe (Martillos de Forja) y XP de mejora.",
         prep_label: "PREPARACIÓN",
         prep: [
-          "Actualiza tus formaciones antes de cada Caza del Oso.",
+          "Actualiza tus formaciones antes de cada Cacería del Oso.",
           { callout: true, text: "Opcional: usa <a href=\"https://frakinator.streamlit.app/\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a> para probar proporciones de tropas y encontrar tu formación más fuerte." },
           "Recupera las tropas de recolección antes de que comience el evento.",
           "Recuerda: en los últimos 5–7 minutos, todos deben lanzar una concentración. Esto crea más espacios para los jugadores cuyas tropas están regresando, permitiendo un empuje final de daño."
