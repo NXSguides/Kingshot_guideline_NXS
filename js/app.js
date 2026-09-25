@@ -286,6 +286,7 @@ function renderLangRow() {
   btn.title = "Change language";
   btn.onclick = () => {
     langChosen = false;
+    popupShown = false;
     try { history.replaceState(null, "", location.pathname + location.search); } catch (e) { /* ignore */ }
     renderAll();
   };
