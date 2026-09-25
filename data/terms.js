@@ -7,7 +7,7 @@ const TERMS = [
   "rows": [
    ["Construction","建造","건설","Bau","Construction","Construção","İnşaat","Konstruksi","Строительство","การสร้าง","البناء","The queue name used in 'Construction Speedup'."],
    ["Training","訓練","훈련","Training","Entraînement","Treinamento","Eğitim","Pelatihan","Тренировки","การฝึก","التدريب","The queue name used in 'Training Speedup'. NOT 'Troop' — that was an incorrect guess used earlier in the site's checklist; the game's own term for this queue is Training."],
-   ["Research","研究","연구","Forschung","Recherche","Pesquisa","Araştırma","Penelitian","Исследование","การวิจัย","البحث","The queue name used in 'Research Speedup'."]
+      ["Research","研究","연구","Forschung","Recherche","Pesquisa","Araştırma","Penelitian","Исследование","การวิจัย","البحث","The queue name used in 'Research Speedup'."],
    ["Healing","治療","치료","Heilung","Soins","Cura","Tedavi","Penyembuhan","лечение","การรักษา","الشفاء","The queue name used in 'Healing Speedup' items in the Backpack's Speedups tab."]
   ]
  },
@@ -45,7 +45,8 @@ const TERMS = [
    ["Alliance Brawl", "聯盟對決", "연맹 결투", "Allianz-Gemenge", "Rif d'Alliances", "Briga da Aliança", "İttifak Kavgası", "Brawl Aliansi", "Потасовка альянсов", "ศึกพันธมิตร", "عراك التحالفات", "Event tab name."],
    ["Merchant Empire", "貿易復興", "무역 부흥", "Händlerimperium", "Empire Marchand", "Império Mercante", "Tüccar İmparatorluğu", "Kekaisaran Pedagang", "Торговая империя", "จักรวรรดิการค้า", "إمبراطورية التجارة", "Event tab name."],
    ["UTC Time", "UTC時間", "UTC", "UTC Zeit", "Heure UTC", "Hora UTC", "UTC Saati", "Waktu UTC", "Время UTC", "เวลา UTC", "التوقيت العالمي", "Events screen header."],
-   ["Starts in", "距離開始", "시작까지", "Beginnt in", "Commence dans", "Começa em", "Başlama", "Dimulai dalam", "Начнется через", "เริ่มใน", "يبدأ بعد", "Event pop-up countdown."]
+   ["Starts in", "距離開始", "시작까지", "Beginnt in", "Commence dans", "Começa em", "Başlama", "Dimulai dalam", "Начнется через", "เริ่มใน", "يبدأ بعد", "Event pop-up countdown."],
+   ["All Out", "全軍出擊", "전군 출격", "Aufs Ganze", "Tous dehors", "Vai com Tudo", "Topyekün", "Serangan Penuh", "Полный вперед", "ลุยเลย", "جميع القوات تهاجم", "Event tab (helmet icon). Tagline: 'Fight for resources to survive!'. Screen uses Honor Ranking / My Ranking / My Points / Target Points."]
   ]
  },
  {
@@ -394,9 +395,15 @@ const TERMS = [
    ["Auto Hunting", "自動狩獵", "자동 사냥", "Auto-Jagd", "Chasse Auto.", "Caçada Automática", "Otomatik Av", "Berburu Otomatis", "Автоохота", "การล่าอัตโนมัติ", "الصيد التلقائي", "Button on the map."],
    ["Max opponent: Lv.28 Beasts", "最高可挑戰28級野獸", "최고 Lv.28 야수 도전 가능", "Maximaler Gegner: Lv.28 Bestien", "Adversaire max : Niv. 28 Bêtes", "Oponente máx.: Nv.28 Feras", "Maks rakip: Sv.28 Hayvanlar", "Lawan maksimal: Lv.28 binatang buas", "Макс. противник: Звери ур. 28", "คู่ต่อสู้สูงสุด: สัตว์อสูรเลเวล 28", "الحد الأقصى للخصم: المستوى 28 الوحوش", "Sentence pattern under the level slider."],
    ["Hunting Trap 2", "狩獵陷阱2", "사냥 함정 2", "Jagdfalle 2", "Piège de Chasse 2", "Armadilha de Caça 2", "2. Av Tuzağı", "Perangkap Berburu 2", "2-я охотничья ловушка", "กับดักล่าสัตว์ 2", "فخ الصيد 2", "Map label of the Bear Hunt trap."],
-   ["On cooldown", "冷卻中", "쿨타임 중", "Cooldown läuft", "Se recharge", "Tempo de recarga", "Beklemede", "Saat cooldown", "Перезаряжается", "อยู่ระหว่างคูลดาวน์", "في هدنة", "Label on the trap. Arabic: read from the screenshot as 'في هدنة' (in a truce); not certain."],
+   ["On cooldown", "冷卻中", "쿨타임 중", "Cooldown läuft", "Se recharge", "Tempo de recarga", "Beklemede", "Saat cooldown", "Перезаряжается", "อยู่ระหว่างคูลดาวน์", "في هدنة", "Label on the trap. Arabic shows 'في هدنة' (literally 'in a truce'); confirmed on two screenshots."],
    ["My City", "我的城鎮", "나의 도시", "Meine Stadt", "Ma Ville", "Minha Cidade", "Şehrim", "Permukiman saya", "Мой город", "ค่ายอพยพของฉัน", "مدينتي"],
-   ["More (march list)", "增加行軍隊伍", "행군 대열 추가", "Mehr", "Plus", "Mais", "Daha", "Lebih Banyak", "Добавить очередь марша", "เพิ่มเติม", "المزيد", "Zh, ko and ru say 'Add march queue' here; the others say 'More'."]
+   ["More (march list)", "增加行軍隊伍", "행군 대열 추가", "Mehr", "Plus", "Mais", "Daha", "Lebih Banyak", "Добавить очередь марша", "เพิ่มเติม", "المزيد", "Zh, ko and ru say 'Add march queue' here; the others say 'More'."],
+   ["Wood", "木材", "목재", "Holz", "Bois", "Madeira", "Odun", "Kayu", "Древесина", "ไม้", "خشب", "Map gathering tab."],
+   ["Stone", "石材", "석재", "Stein", "Pierre", "Pedra", "Taş", "Batu", "Камень", "หิน", "الحجر", "Map gathering tab."],
+   ["Iron", "鐵礦", "철광", "Eisen", "Fer", "Ferro", "Demir", "Besi", "Железо", "แร่เหล็ก", "حديد", "Map gathering tab."],
+   ["Great Mill", "大型磨坊", "대형 방앗간", "Große Mühle", "Grand Moulin", "Grande Moinho", "Büyük Değirmen", "Lumbung Besar", "Большая мельница", "โรงโม่ใหญ่", "طاحونة عظيمة", "Alliance resource building (bread). Full name from the Alliance mail; the map tab is cut off in most languages. Indonesian uses 'Lumbung' (granary), not 'mill'."],
+   ["Great Sawmill", "大型伐木場", "대형 벌목장", "Großes Sägewerk", "Grande Scierie", "Grande Serraria", "Büyük Odun Fabrikası", "Penggergajian Kayu Besar", "Большая лесопилка", "โรงเลื่อยใหญ่", "منشرة عظيمة", "Alliance resource building (wood). From the Alliance mail."],
+   ["Secured Alliance Node", "聯盟安全採集點", "연맹 안전 채집 포인트", "Allianzknoten", "Point d'Alliance Sécurisé", "Nó de Aliança Protegido", "Korumalı İttifak Toplama Noktası", "Node Aliansi Aman", "защищенный узел", "จุดพันธมิตรปลอดภัย", "نقطة تجميع تحالف مؤمنة", "Mail text after a Great building disappears ('…ready to place!'). German sentence reads 'Allianzknoten gesichert und bereit zum…'. ⚠️ Russian text is cut off ('Можно разместить защищенный узел…'), so only 'защищенный узел' is confirmed."]
   ]
  },
 {
