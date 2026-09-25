@@ -5686,254 +5686,254 @@ const GUIDES = {
         { type: "callout", text: "Use these protected spots during the event. Stay safe and gather smart." }
       ]},
       zh: { title: "全軍出擊", blocks: [
-        { type: "h", text: "🪖 All-Out Rules" },
+        { type: "h", text: "🪖 全軍出擊規則" },
         { type: "list", items: [
-          "❌ No attacks on NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ No attacks on castles or alliance buildings (HQs, outposts, banners, etc.).",
-          "✅ You can attack resource gathering tiles ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} etc.)",
-          "✅ You can attack players outside of the Top 6."
+          "❌ 禁止攻擊 NAP 6 成員（NXS、RED、NBD、ESA、IDN、KGb）",
+          "❌ 禁止攻擊城堡或聯盟建築（總部、前哨站、旗幟等）。",
+          "✅ 可以攻擊資源採集點（{greatMill}、{greatSawmill}、{greatQuarry}、{greatIronMine} 等）",
+          "✅ 可以攻擊排名前 6 名以外的玩家。"
         ]},
         { type: "list", items: [
-          "If your castle gets attacked by a NAP member, do not retaliate — inform R4/R5.",
-          "Avoid gathering resources in the wild, use the {securedAllianceNode} instead.",
-          "Rule breakers will be dealt with according to alliance/NAP agreements."
+          "如果你的城堡被 NAP 成員攻擊，請勿報復，回報 R4/R5。",
+          "請避免在野外採集資源，改用{securedAllianceNode}。",
+          "違規者將依聯盟／NAP 協議處理。"
         ]},
-        { type: "h", text: "🏭 Secured Gathering Nodes" },
-        { type: "p", text: "During the **{allOut}** event, we will be rotating our secured gathering nodes every 12 hours for 48 hours." },
-        { type: "p", text: "This gives everyone a protected spot to collect resources while the event is active." },
-        { type: "sub", text: "Rotation Schedule (starting at 00:00 UTC reset)" },
+        { type: "h", text: "🏭 安全採集點" },
+        { type: "p", text: "**{allOut}**活動期間，我們會每 12 小時輪替一次安全採集點，持續 48 小時。" },
+        { type: "p", text: "這讓每個人在活動期間都有一個受保護的地點可以採集資源。" },
+        { type: "sub", text: "輪替時間表（從 UTC 00:00 重置開始）" },
         { type: "list", items: [
-          "{greatMill} – 00:00 UTC to 12:00 UTC",
-          "{greatSawmill} – 12:00 UTC to 00:00 UTC",
-          "{greatQuarry} – 00:00 UTC to 12:00 UTC",
-          "{greatIronMine} – 12:00 UTC to 00:00 UTC"
+          "{greatMill} – UTC 00:00 至 12:00",
+          "{greatSawmill} – UTC 12:00 至 00:00",
+          "{greatQuarry} – UTC 00:00 至 12:00",
+          "{greatIronMine} – UTC 12:00 至 00:00"
         ]},
-        { type: "callout", text: "Use these protected spots during the event. Stay safe and gather smart." }
+        { type: "callout", text: "活動期間請善用這些受保護的採集點，安全且聰明地採集。" }
       ]},
       ko: { title: "전군 출격", blocks: [
-        { type: "h", text: "🪖 All-Out Rules" },
+        { type: "h", text: "🪖 전군 출격 규칙" },
         { type: "list", items: [
-          "❌ No attacks on NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ No attacks on castles or alliance buildings (HQs, outposts, banners, etc.).",
-          "✅ You can attack resource gathering tiles ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} etc.)",
-          "✅ You can attack players outside of the Top 6."
+          "❌ NAP 6 멤버 공격 금지 (NXS, RED, NBD, ESA, IDN, KGb)",
+          "❌ 성이나 연맹 건물(본부, 전초기지, 깃발 등) 공격 금지.",
+          "✅ 자원 채집 타일({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} 등)은 공격 가능합니다",
+          "✅ 상위 6위 밖의 플레이어는 공격 가능합니다."
         ]},
         { type: "list", items: [
-          "If your castle gets attacked by a NAP member, do not retaliate — inform R4/R5.",
-          "Avoid gathering resources in the wild, use the {securedAllianceNode} instead.",
-          "Rule breakers will be dealt with according to alliance/NAP agreements."
+          "NAP 멤버에게 성을 공격당했다면 보복하지 말고 R4/R5에게 알리세요.",
+          "야생에서 자원을 채집하지 말고 {securedAllianceNode}를 이용하세요.",
+          "규칙 위반자는 연맹/NAP 협약에 따라 처리됩니다."
         ]},
-        { type: "h", text: "🏭 Secured Gathering Nodes" },
-        { type: "p", text: "During the **{allOut}** event, we will be rotating our secured gathering nodes every 12 hours for 48 hours." },
-        { type: "p", text: "This gives everyone a protected spot to collect resources while the event is active." },
-        { type: "sub", text: "Rotation Schedule (starting at 00:00 UTC reset)" },
+        { type: "h", text: "🏭 안전 채집 포인트" },
+        { type: "p", text: "**{allOut}** 이벤트 기간 동안, 안전 채집 포인트를 12시간마다 48시간 동안 교대로 운영합니다." },
+        { type: "p", text: "이벤트가 진행되는 동안 모두에게 보호된 채집 장소를 제공합니다." },
+        { type: "sub", text: "교대 일정 (UTC 00:00 리셋부터 시작)" },
         { type: "list", items: [
-          "{greatMill} – 00:00 UTC to 12:00 UTC",
-          "{greatSawmill} – 12:00 UTC to 00:00 UTC",
-          "{greatQuarry} – 00:00 UTC to 12:00 UTC",
-          "{greatIronMine} – 12:00 UTC to 00:00 UTC"
+          "{greatMill} – UTC 00:00 ~ 12:00",
+          "{greatSawmill} – UTC 12:00 ~ 00:00",
+          "{greatQuarry} – UTC 00:00 ~ 12:00",
+          "{greatIronMine} – UTC 12:00 ~ 00:00"
         ]},
-        { type: "callout", text: "Use these protected spots during the event. Stay safe and gather smart." }
+        { type: "callout", text: "이벤트 기간 동안 이 보호된 장소를 이용하세요. 안전하게, 현명하게 채집하세요." }
       ]},
       de: { title: "Aufs Ganze", blocks: [
-        { type: "h", text: "🪖 All-Out Rules" },
+        { type: "h", text: "🪖 All-Out-Regeln" },
         { type: "list", items: [
-          "❌ No attacks on NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ No attacks on castles or alliance buildings (HQs, outposts, banners, etc.).",
-          "✅ You can attack resource gathering tiles ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} etc.)",
-          "✅ You can attack players outside of the Top 6."
+          "❌ Keine Angriffe auf NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
+          "❌ Keine Angriffe auf Schlösser oder Allianzgebäude (Hauptquartiere, Außenposten, Banner usw.).",
+          "✅ Ihr könnt Ressourcen-Sammelfelder angreifen ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} usw.)",
+          "✅ Ihr könnt Spieler außerhalb der Top 6 angreifen."
         ]},
         { type: "list", items: [
-          "If your castle gets attacked by a NAP member, do not retaliate — inform R4/R5.",
-          "Avoid gathering resources in the wild, use the {securedAllianceNode} instead.",
-          "Rule breakers will be dealt with according to alliance/NAP agreements."
+          "Wenn euer Schloss von einem NAP-Mitglied angegriffen wird, nicht zurückschlagen — meldet es R4/R5.",
+          "Vermeidet das Sammeln in der Wildnis, nutzt stattdessen {securedAllianceNode}.",
+          "Regelverstöße werden gemäß den Allianz-/NAP-Vereinbarungen geahndet."
         ]},
-        { type: "h", text: "🏭 Secured Gathering Nodes" },
-        { type: "p", text: "During the **{allOut}** event, we will be rotating our secured gathering nodes every 12 hours for 48 hours." },
-        { type: "p", text: "This gives everyone a protected spot to collect resources while the event is active." },
-        { type: "sub", text: "Rotation Schedule (starting at 00:00 UTC reset)" },
+        { type: "h", text: "🏭 Gesicherte Sammelpunkte" },
+        { type: "p", text: "Während des Events **{allOut}** wechseln wir alle 12 Stunden für 48 Stunden unsere gesicherten Sammelpunkte." },
+        { type: "p", text: "So hat jeder während des Events einen geschützten Ort zum Sammeln von Ressourcen." },
+        { type: "sub", text: "Rotationsplan (beginnt mit dem 00:00-UTC-Reset)" },
         { type: "list", items: [
-          "{greatMill} – 00:00 UTC to 12:00 UTC",
-          "{greatSawmill} – 12:00 UTC to 00:00 UTC",
-          "{greatQuarry} – 00:00 UTC to 12:00 UTC",
-          "{greatIronMine} – 12:00 UTC to 00:00 UTC"
+          "{greatMill} – 00:00 UTC bis 12:00 UTC",
+          "{greatSawmill} – 12:00 UTC bis 00:00 UTC",
+          "{greatQuarry} – 00:00 UTC bis 12:00 UTC",
+          "{greatIronMine} – 12:00 UTC bis 00:00 UTC"
         ]},
-        { type: "callout", text: "Use these protected spots during the event. Stay safe and gather smart." }
+        { type: "callout", text: "Nutzt diese geschützten Orte während des Events. Bleibt sicher und sammelt klug." }
       ]},
       fr: { title: "Tous dehors", blocks: [
-        { type: "h", text: "🪖 All-Out Rules" },
+        { type: "h", text: "🪖 Règles de Tous dehors" },
         { type: "list", items: [
-          "❌ No attacks on NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ No attacks on castles or alliance buildings (HQs, outposts, banners, etc.).",
-          "✅ You can attack resource gathering tiles ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} etc.)",
-          "✅ You can attack players outside of the Top 6."
+          "❌ Aucune attaque contre le NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
+          "❌ Aucune attaque contre les châteaux ou les bâtiments d'alliance (QG, avant-postes, bannières, etc.).",
+          "✅ Vous pouvez attaquer les cases de collecte de ressources ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine}, etc.)",
+          "✅ Vous pouvez attaquer les joueurs en dehors du Top 6."
         ]},
         { type: "list", items: [
-          "If your castle gets attacked by a NAP member, do not retaliate — inform R4/R5.",
-          "Avoid gathering resources in the wild, use the {securedAllianceNode} instead.",
-          "Rule breakers will be dealt with according to alliance/NAP agreements."
+          "Si votre château est attaqué par un membre du NAP, ne ripostez pas — informez le R4/R5.",
+          "Évitez de récolter des ressources en pleine nature, utilisez plutôt le {securedAllianceNode}.",
+          "Les contrevenants seront traités conformément aux accords d'alliance/NAP."
         ]},
-        { type: "h", text: "🏭 Secured Gathering Nodes" },
-        { type: "p", text: "During the **{allOut}** event, we will be rotating our secured gathering nodes every 12 hours for 48 hours." },
-        { type: "p", text: "This gives everyone a protected spot to collect resources while the event is active." },
-        { type: "sub", text: "Rotation Schedule (starting at 00:00 UTC reset)" },
+        { type: "h", text: "🏭 Points de collecte sécurisés" },
+        { type: "p", text: "Pendant l'événement **{allOut}**, nous ferons tourner nos points de collecte sécurisés toutes les 12 heures pendant 48 heures." },
+        { type: "p", text: "Cela donne à chacun un endroit protégé pour récolter des ressources pendant que l'événement est actif." },
+        { type: "sub", text: "Programme de rotation (à partir de la réinitialisation de 00:00 UTC)" },
         { type: "list", items: [
-          "{greatMill} – 00:00 UTC to 12:00 UTC",
-          "{greatSawmill} – 12:00 UTC to 00:00 UTC",
-          "{greatQuarry} – 00:00 UTC to 12:00 UTC",
-          "{greatIronMine} – 12:00 UTC to 00:00 UTC"
+          "{greatMill} – 00:00 UTC à 12:00 UTC",
+          "{greatSawmill} – 12:00 UTC à 00:00 UTC",
+          "{greatQuarry} – 00:00 UTC à 12:00 UTC",
+          "{greatIronMine} – 12:00 UTC à 00:00 UTC"
         ]},
-        { type: "callout", text: "Use these protected spots during the event. Stay safe and gather smart." }
+        { type: "callout", text: "Utilisez ces emplacements protégés pendant l'événement. Restez prudents et récoltez intelligemment." }
       ]},
       pt: { title: "Vai com Tudo", blocks: [
-        { type: "h", text: "🪖 All-Out Rules" },
+        { type: "h", text: "🪖 Regras do Vai com Tudo" },
         { type: "list", items: [
-          "❌ No attacks on NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ No attacks on castles or alliance buildings (HQs, outposts, banners, etc.).",
-          "✅ You can attack resource gathering tiles ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} etc.)",
-          "✅ You can attack players outside of the Top 6."
+          "❌ Nenhum ataque ao NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
+          "❌ Nenhum ataque a castelos ou construções da aliança (QGs, postos avançados, bandeiras, etc.).",
+          "✅ Você pode atacar blocos de coleta de recursos ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine}, etc.)",
+          "✅ Você pode atacar jogadores fora do Top 6."
         ]},
         { type: "list", items: [
-          "If your castle gets attacked by a NAP member, do not retaliate — inform R4/R5.",
-          "Avoid gathering resources in the wild, use the {securedAllianceNode} instead.",
-          "Rule breakers will be dealt with according to alliance/NAP agreements."
+          "Se seu castelo for atacado por um membro do NAP, não revide — avise o R4/R5.",
+          "Evite coletar recursos no mapa aberto, use o {securedAllianceNode}.",
+          "Quem infringir as regras será tratado conforme os acordos da aliança/NAP."
         ]},
-        { type: "h", text: "🏭 Secured Gathering Nodes" },
-        { type: "p", text: "During the **{allOut}** event, we will be rotating our secured gathering nodes every 12 hours for 48 hours." },
-        { type: "p", text: "This gives everyone a protected spot to collect resources while the event is active." },
-        { type: "sub", text: "Rotation Schedule (starting at 00:00 UTC reset)" },
+        { type: "h", text: "🏭 Nós de coleta protegidos" },
+        { type: "p", text: "Durante o evento **{allOut}**, vamos revezar nossos nós de coleta protegidos a cada 12 horas, por 48 horas." },
+        { type: "p", text: "Isso dá a todos um local protegido para coletar recursos enquanto o evento estiver ativo." },
+        { type: "sub", text: "Cronograma de revezamento (começando no reset de 00:00 UTC)" },
         { type: "list", items: [
-          "{greatMill} – 00:00 UTC to 12:00 UTC",
-          "{greatSawmill} – 12:00 UTC to 00:00 UTC",
-          "{greatQuarry} – 00:00 UTC to 12:00 UTC",
-          "{greatIronMine} – 12:00 UTC to 00:00 UTC"
+          "{greatMill} – 00:00 UTC às 12:00 UTC",
+          "{greatSawmill} – 12:00 UTC às 00:00 UTC",
+          "{greatQuarry} – 00:00 UTC às 12:00 UTC",
+          "{greatIronMine} – 12:00 UTC às 00:00 UTC"
         ]},
-        { type: "callout", text: "Use these protected spots during the event. Stay safe and gather smart." }
+        { type: "callout", text: "Use esses locais protegidos durante o evento. Fique seguro e colete com inteligência." }
       ]},
       tr: { title: "Topyekün", blocks: [
-        { type: "h", text: "🪖 All-Out Rules" },
+        { type: "h", text: "🪖 Topyekün Kuralları" },
         { type: "list", items: [
-          "❌ No attacks on NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ No attacks on castles or alliance buildings (HQs, outposts, banners, etc.).",
-          "✅ You can attack resource gathering tiles ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} etc.)",
-          "✅ You can attack players outside of the Top 6."
+          "❌ NAP 6 üyelerine saldırı yok (NXS, RED, NBD, ESA, IDN, KGb)",
+          "❌ Şatolara veya ittifak binalarına (karargahlar, ileri karakollar, flamalar vb.) saldırı yok.",
+          "✅ Kaynak toplama alanlarına saldırabilirsiniz ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} vb.)",
+          "✅ İlk 6 dışındaki oyunculara saldırabilirsiniz."
         ]},
         { type: "list", items: [
-          "If your castle gets attacked by a NAP member, do not retaliate — inform R4/R5.",
-          "Avoid gathering resources in the wild, use the {securedAllianceNode} instead.",
-          "Rule breakers will be dealt with according to alliance/NAP agreements."
+          "Şatonuza bir NAP üyesi tarafından saldırılırsa misilleme yapmayın — R4/R5'e bildirin.",
+          "Yabanda kaynak toplamaktan kaçının, bunun yerine {securedAllianceNode} kullanın.",
+          "Kural ihlal edenler ittifak/NAP anlaşmalarına göre işlem görecektir."
         ]},
-        { type: "h", text: "🏭 Secured Gathering Nodes" },
-        { type: "p", text: "During the **{allOut}** event, we will be rotating our secured gathering nodes every 12 hours for 48 hours." },
-        { type: "p", text: "This gives everyone a protected spot to collect resources while the event is active." },
-        { type: "sub", text: "Rotation Schedule (starting at 00:00 UTC reset)" },
+        { type: "h", text: "🏭 Güvenli Toplama Noktaları" },
+        { type: "p", text: "**{allOut}** etkinliği boyunca, güvenli toplama noktalarımızı 48 saat boyunca her 12 saatte bir değiştireceğiz." },
+        { type: "p", text: "Bu, etkinlik aktifken herkese kaynak toplamak için korumalı bir alan sağlar." },
+        { type: "sub", text: "Rotasyon Programı (00:00 UTC sıfırlamasıyla başlar)" },
         { type: "list", items: [
-          "{greatMill} – 00:00 UTC to 12:00 UTC",
-          "{greatSawmill} – 12:00 UTC to 00:00 UTC",
-          "{greatQuarry} – 00:00 UTC to 12:00 UTC",
-          "{greatIronMine} – 12:00 UTC to 00:00 UTC"
+          "{greatMill} – 00:00 UTC - 12:00 UTC",
+          "{greatSawmill} – 12:00 UTC - 00:00 UTC",
+          "{greatQuarry} – 00:00 UTC - 12:00 UTC",
+          "{greatIronMine} – 12:00 UTC - 00:00 UTC"
         ]},
-        { type: "callout", text: "Use these protected spots during the event. Stay safe and gather smart." }
+        { type: "callout", text: "Etkinlik boyunca bu korumalı alanları kullanın. Güvende kalın ve akıllıca toplayın." }
       ]},
       id: { title: "Serangan Penuh", blocks: [
-        { type: "h", text: "🪖 All-Out Rules" },
+        { type: "h", text: "🪖 Aturan Serangan Penuh" },
         { type: "list", items: [
-          "❌ No attacks on NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ No attacks on castles or alliance buildings (HQs, outposts, banners, etc.).",
-          "✅ You can attack resource gathering tiles ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} etc.)",
-          "✅ You can attack players outside of the Top 6."
+          "❌ Dilarang menyerang anggota NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
+          "❌ Dilarang menyerang kastil atau bangunan aliansi (markas, pos terdepan, spanduk, dll.).",
+          "✅ Anda boleh menyerang ubin pengumpulan sumber daya ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine}, dll.)",
+          "✅ Anda boleh menyerang pemain di luar Top 6."
         ]},
         { type: "list", items: [
-          "If your castle gets attacked by a NAP member, do not retaliate — inform R4/R5.",
-          "Avoid gathering resources in the wild, use the {securedAllianceNode} instead.",
-          "Rule breakers will be dealt with according to alliance/NAP agreements."
+          "Jika kastil Anda diserang oleh anggota NAP, jangan membalas — laporkan ke R4/R5.",
+          "Hindari mengumpulkan sumber daya di area liar, gunakan {securedAllianceNode} sebagai gantinya.",
+          "Pelanggar aturan akan ditindak sesuai kesepakatan aliansi/NAP."
         ]},
-        { type: "h", text: "🏭 Secured Gathering Nodes" },
-        { type: "p", text: "During the **{allOut}** event, we will be rotating our secured gathering nodes every 12 hours for 48 hours." },
-        { type: "p", text: "This gives everyone a protected spot to collect resources while the event is active." },
-        { type: "sub", text: "Rotation Schedule (starting at 00:00 UTC reset)" },
+        { type: "h", text: "🏭 Titik Pengumpulan Aman" },
+        { type: "p", text: "Selama event **{allOut}**, kami akan merotasi titik pengumpulan aman setiap 12 jam selama 48 jam." },
+        { type: "p", text: "Ini memberi semua orang tempat terlindungi untuk mengumpulkan sumber daya selama event berlangsung." },
+        { type: "sub", text: "Jadwal Rotasi (dimulai dari reset 00:00 UTC)" },
         { type: "list", items: [
-          "{greatMill} – 00:00 UTC to 12:00 UTC",
-          "{greatSawmill} – 12:00 UTC to 00:00 UTC",
-          "{greatQuarry} – 00:00 UTC to 12:00 UTC",
-          "{greatIronMine} – 12:00 UTC to 00:00 UTC"
+          "{greatMill} – 00:00 UTC sampai 12:00 UTC",
+          "{greatSawmill} – 12:00 UTC sampai 00:00 UTC",
+          "{greatQuarry} – 00:00 UTC sampai 12:00 UTC",
+          "{greatIronMine} – 12:00 UTC sampai 00:00 UTC"
         ]},
-        { type: "callout", text: "Use these protected spots during the event. Stay safe and gather smart." }
+        { type: "callout", text: "Gunakan titik-titik terlindungi ini selama event berlangsung. Tetap aman dan kumpulkan dengan cerdas." }
       ]},
       ru: { title: "Полный вперед", blocks: [
-        { type: "h", text: "🪖 All-Out Rules" },
+        { type: "h", text: "🪖 Правила события «Полный вперед»" },
         { type: "list", items: [
-          "❌ No attacks on NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ No attacks on castles or alliance buildings (HQs, outposts, banners, etc.).",
-          "✅ You can attack resource gathering tiles ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} etc.)",
-          "✅ You can attack players outside of the Top 6."
+          "❌ Не атаковать членов NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
+          "❌ Не атаковать замки или здания альянса (штабы, форпосты, знамёна и т.д.).",
+          "✅ Можно атаковать участки сбора ресурсов ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} и т.д.)",
+          "✅ Можно атаковать игроков вне топ-6."
         ]},
         { type: "list", items: [
-          "If your castle gets attacked by a NAP member, do not retaliate — inform R4/R5.",
-          "Avoid gathering resources in the wild, use the {securedAllianceNode} instead.",
-          "Rule breakers will be dealt with according to alliance/NAP agreements."
+          "Если ваш замок атаковал участник NAP, не мстите — сообщите R4/R5.",
+          "Избегайте сбора ресурсов в дикой местности, используйте вместо этого {securedAllianceNode}.",
+          "Нарушители правил будут обработаны согласно соглашениям альянса/NAP."
         ]},
-        { type: "h", text: "🏭 Secured Gathering Nodes" },
-        { type: "p", text: "During the **{allOut}** event, we will be rotating our secured gathering nodes every 12 hours for 48 hours." },
-        { type: "p", text: "This gives everyone a protected spot to collect resources while the event is active." },
-        { type: "sub", text: "Rotation Schedule (starting at 00:00 UTC reset)" },
+        { type: "h", text: "🏭 Защищённые точки сбора" },
+        { type: "p", text: "Во время события **{allOut}** мы будем менять защищённые точки сбора каждые 12 часов в течение 48 часов." },
+        { type: "p", text: "Это даёт каждому защищённое место для сбора ресурсов, пока событие активно." },
+        { type: "sub", text: "Расписание ротации (начиная со сброса в 00:00 UTC)" },
         { type: "list", items: [
-          "{greatMill} – 00:00 UTC to 12:00 UTC",
-          "{greatSawmill} – 12:00 UTC to 00:00 UTC",
-          "{greatQuarry} – 00:00 UTC to 12:00 UTC",
-          "{greatIronMine} – 12:00 UTC to 00:00 UTC"
+          "{greatMill} – с 00:00 до 12:00 UTC",
+          "{greatSawmill} – с 12:00 до 00:00 UTC",
+          "{greatQuarry} – с 00:00 до 12:00 UTC",
+          "{greatIronMine} – с 12:00 до 00:00 UTC"
         ]},
-        { type: "callout", text: "Use these protected spots during the event. Stay safe and gather smart." }
+        { type: "callout", text: "Используйте эти защищённые места во время события. Будьте осторожны и собирайте с умом." }
       ]},
       th: { title: "ลุยเลย", blocks: [
-        { type: "h", text: "🪖 All-Out Rules" },
+        { type: "h", text: "🪖 กฎกิจกรรมลุยเลย" },
         { type: "list", items: [
-          "❌ No attacks on NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ No attacks on castles or alliance buildings (HQs, outposts, banners, etc.).",
-          "✅ You can attack resource gathering tiles ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} etc.)",
-          "✅ You can attack players outside of the Top 6."
+          "❌ ห้ามโจมตีสมาชิก NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
+          "❌ ห้ามโจมตีปราสาทหรืออาคารพันธมิตร (กองบัญชาการ ด่านหน้า ธง ฯลฯ)",
+          "✅ สามารถโจมตีจุดเก็บทรัพยากรได้ ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} ฯลฯ)",
+          "✅ สามารถโจมตีผู้เล่นที่อยู่นอกอันดับท็อป 6 ได้"
         ]},
         { type: "list", items: [
-          "If your castle gets attacked by a NAP member, do not retaliate — inform R4/R5.",
-          "Avoid gathering resources in the wild, use the {securedAllianceNode} instead.",
-          "Rule breakers will be dealt with according to alliance/NAP agreements."
+          "หากปราสาทของคุณถูกสมาชิก NAP โจมตี อย่าตอบโต้ ให้แจ้ง R4/R5",
+          "หลีกเลี่ยงการเก็บทรัพยากรในป่า ให้ใช้{securedAllianceNode}แทน",
+          "ผู้ฝ่าฝืนกฎจะถูกดำเนินการตามข้อตกลงพันธมิตร/NAP"
         ]},
-        { type: "h", text: "🏭 Secured Gathering Nodes" },
-        { type: "p", text: "During the **{allOut}** event, we will be rotating our secured gathering nodes every 12 hours for 48 hours." },
-        { type: "p", text: "This gives everyone a protected spot to collect resources while the event is active." },
-        { type: "sub", text: "Rotation Schedule (starting at 00:00 UTC reset)" },
+        { type: "h", text: "🏭 จุดเก็บทรัพยากรที่ปลอดภัย" },
+        { type: "p", text: "ในช่วงกิจกรรม**{allOut}** เราจะสลับจุดเก็บทรัพยากรที่ปลอดภัยทุก 12 ชั่วโมง เป็นเวลา 48 ชั่วโมง" },
+        { type: "p", text: "สิ่งนี้ทำให้ทุกคนมีจุดที่ได้รับการป้องกันสำหรับเก็บทรัพยากรในช่วงที่กิจกรรมเปิดใช้งาน" },
+        { type: "sub", text: "ตารางการสลับ (เริ่มจากรีเซ็ต 00:00 UTC)" },
         { type: "list", items: [
-          "{greatMill} – 00:00 UTC to 12:00 UTC",
-          "{greatSawmill} – 12:00 UTC to 00:00 UTC",
-          "{greatQuarry} – 00:00 UTC to 12:00 UTC",
-          "{greatIronMine} – 12:00 UTC to 00:00 UTC"
+          "{greatMill} – 00:00 น. ถึง 12:00 น. UTC",
+          "{greatSawmill} – 12:00 น. ถึง 00:00 น. UTC",
+          "{greatQuarry} – 00:00 น. ถึง 12:00 น. UTC",
+          "{greatIronMine} – 12:00 น. ถึง 00:00 น. UTC"
         ]},
-        { type: "callout", text: "Use these protected spots during the event. Stay safe and gather smart." }
+        { type: "callout", text: "ใช้จุดที่ได้รับการป้องกันเหล่านี้ในช่วงกิจกรรม ปลอดภัยและเก็บทรัพยากรอย่างชาญฉลาด" }
       ]},
       ar: { title: "جميع القوات تهاجم", blocks: [
-        { type: "h", text: "🪖 All-Out Rules" },
+        { type: "h", text: "🪖 قواعد فعالية جميع القوات تهاجم" },
         { type: "list", items: [
-          "❌ No attacks on NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
-          "❌ No attacks on castles or alliance buildings (HQs, outposts, banners, etc.).",
-          "✅ You can attack resource gathering tiles ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} etc.)",
-          "✅ You can attack players outside of the Top 6."
+          "❌ ممنوع مهاجمة أعضاء NAP 6 (NXS، RED، NBD، ESA، IDN، KGb)",
+          "❌ ممنوع مهاجمة القلاع أو مباني التحالف (المقرات، المخافر الأمامية، الرايات، إلخ).",
+          "✅ يمكنك مهاجمة نقاط جمع الموارد ({greatMill}، {greatSawmill}، {greatQuarry}، {greatIronMine} إلخ)",
+          "✅ يمكنك مهاجمة اللاعبين خارج أفضل 6."
         ]},
         { type: "list", items: [
-          "If your castle gets attacked by a NAP member, do not retaliate — inform R4/R5.",
-          "Avoid gathering resources in the wild, use the {securedAllianceNode} instead.",
-          "Rule breakers will be dealt with according to alliance/NAP agreements."
+          "إذا تعرضت قلعتك لهجوم من عضو NAP، لا تنتقم — أبلغ R4/R5.",
+          "تجنب جمع الموارد في البرية، واستخدم {securedAllianceNode} بدلاً من ذلك.",
+          "سيتم التعامل مع مخالفي القواعد وفقاً لاتفاقيات التحالف/NAP."
         ]},
-        { type: "h", text: "🏭 Secured Gathering Nodes" },
-        { type: "p", text: "During the **{allOut}** event, we will be rotating our secured gathering nodes every 12 hours for 48 hours." },
-        { type: "p", text: "This gives everyone a protected spot to collect resources while the event is active." },
-        { type: "sub", text: "Rotation Schedule (starting at 00:00 UTC reset)" },
+        { type: "h", text: "🏭 نقاط الجمع الآمنة" },
+        { type: "p", text: "خلال فعالية **{allOut}**، سنقوم بتبديل نقاط الجمع الآمنة كل 12 ساعة لمدة 48 ساعة." },
+        { type: "p", text: "هذا يمنح الجميع مكاناً محمياً لجمع الموارد أثناء نشاط الفعالية." },
+        { type: "sub", text: "جدول التبديل (يبدأ من إعادة التعيين الساعة 00:00 بتوقيت UTC)" },
         { type: "list", items: [
-          "{greatMill} – 00:00 UTC to 12:00 UTC",
-          "{greatSawmill} – 12:00 UTC to 00:00 UTC",
-          "{greatQuarry} – 00:00 UTC to 12:00 UTC",
-          "{greatIronMine} – 12:00 UTC to 00:00 UTC"
+          "{greatMill} – من 00:00 إلى 12:00 بتوقيت UTC",
+          "{greatSawmill} – من 12:00 إلى 00:00 بتوقيت UTC",
+          "{greatQuarry} – من 00:00 إلى 12:00 بتوقيت UTC",
+          "{greatIronMine} – من 12:00 إلى 00:00 بتوقيت UTC"
         ]},
-        { type: "callout", text: "Use these protected spots during the event. Stay safe and gather smart." }
+        { type: "callout", text: "استخدم هذه الأماكن المحمية خلال الفعالية. حافظ على سلامتك واجمع بذكاء." }
       ]}
     }
   },
