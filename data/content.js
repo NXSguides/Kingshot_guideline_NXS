@@ -5694,7 +5694,7 @@ const GUIDES = {
         { type: "list", items: [
           "❌ 禁止攻擊 NAP 6 成員（NXS、RED、NBD、ESA、IDN、KGb）",
           "❌ 禁止攻擊城堡或聯盟建築（總部、前哨站、旗幟等）。",
-          "✅ 可以攻擊資源採集點（{greatMill}、{greatSawmill}、{greatQuarry}、{greatIronMine} 等）",
+          "✅ 可以攻擊資源採集點（{mill}、{sawmill}、{quarry}、{ironMine} 等）",
           "✅ 可以攻擊排名前 6 名以外的玩家。"
         ]},
         { type: "list", items: [
