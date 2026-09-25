@@ -17,6 +17,7 @@ const LANGS = [
   { code: "de", label: "Deutsch", htmlLang: "de" },
   { code: "fr", label: "Français", htmlLang: "fr" },
   { code: "pt", label: "Português", htmlLang: "pt-BR" },
+  { code: "es", label: "Español", htmlLang: "es" },
   { code: "tr", label: "Türkçe", htmlLang: "tr" },
   { code: "id", label: "Bahasa Indonesia", htmlLang: "id" },
   { code: "ru", label: "Русский", htmlLang: "ru" },
@@ -122,24 +123,33 @@ Object.assign(UI.tags.alt, { pt: "ALT." });
 Object.assign(UI.tags.f2p, { pt: "F2P" });
 Object.assign(UI.roles.lethality, { pt: "Líder de Letalidade" });
 Object.assign(UI.roles.attack, { pt: "Líder de Ataque" });
+Object.assign(UI.siteTitle, { es: "NXS Guidelines" });
+Object.assign(UI.footerNote, { es: "Traducido por voluntarios de la alianza. Sigue creciendo." });
+Object.assign(UI.missingLang, { es: "versión aún no añadida — vuelve pronto." });
+Object.assign(UI.tags.best, { es: "MEJOR" });
+Object.assign(UI.tags.alt, { es: "ALT." });
+Object.assign(UI.tags.f2p, { es: "F2P" });
+Object.assign(UI.roles.lethality, { es: "Líder de Letalidad" });
+Object.assign(UI.roles.attack, { es: "Líder de Ataque" });
+Object.assign(UI.moreInfo, { es: "¿Quieres saber más?" });
 
 /* 英雄顯示名：編組只存英文 id，畫面依語言換成譯名
    （已依對照表修正：Jabel 中/韓、Yeonwoo 中、Marlin 韓）
    Petra、Rosa 不在對照表，尚未驗證，一律顯示英文，待截圖確認後再補上其他語言 */
 const HEROES = {
-  Amadeus: { zh: "阿瑪迪斯", en: "Amadeus", ko: "아마데우스", de: "Amadeus", fr: "Amadeus", pt: "Amadeus", tr: "Amadeus", id: "Amadeus", ru: "Амадей", th: "อมาดีอุส", ar: "أماديوس" },
-  Jabel: { zh: "潔貝爾", en: "Jabel", ko: "제이벨", de: "Jabel", fr: "Jabel", pt: "Jabel", tr: "Jabel", id: "Jabel", ru: "Явель", th: "จาเบล", ar: "جبل" },
-  Quinn: { zh: "奎恩", en: "Quinn", ko: "퀸", de: "Quinn", fr: "Quinn", pt: "Quinn", tr: "Quinn", id: "Quinn", ru: "Куинн", th: "ควินน์", ar: "كوين" },
-  Helga: { zh: "赫爾加", en: "Helga", ko: "헬가", de: "Helga", fr: "Helga", pt: "Helga", tr: "Helga", id: "Helga", ru: "Хельга", th: "เฮลก้า", ar: "هيلجا" },
-  Howard: { zh: "霍華德", en: "Howard", ko: "하워드", de: "Howard", fr: "Howard", pt: "Howard", tr: "Howard", id: "Howard", ru: "Говард", th: "ฮาวเวิร์ด", ar: "هاورد" },
-  Hilde: { zh: "希爾德", en: "Hilde", ko: "힐데", de: "Hilde", fr: "Hilde", pt: "Hilde", tr: "Hilde", id: "Hilde", ru: "Хильда", th: "ฮิลเดอร์", ar: "هيلدي" },
-  Marlin: { zh: "馬林", en: "Marlin", ko: "마린", de: "Marlin", fr: "Marlin", pt: "Peixe Marlin", tr: "Marlin", id: "Marlin", ru: "Марлин", th: "มาร์ลิน", ar: "مارلين" },
-  Zoe: { zh: "佐伊", en: "Zoe", ko: "조이", de: "Zoe", fr: "Zoé", pt: "Zoe", tr: "Zoe", id: "Zoe", ru: "Зои", th: "โซอี้", ar: "زوي" },
-  Petra: { en: "Petra" },
-  Rosa: { en: "Rosa" },
-  Chenko: { zh: "琴科", en: "Chenko", ko: "첸코", de: "Chenko", fr: "Chenko", pt: "Chenko", tr: "Chenko", id: "Chenko", ru: "Ченко", th: "เชนโกะ", ar: "تشينكو" },
-  Yeonwoo: { zh: "妍羽", en: "Yeonwoo", ko: "연우", de: "Yeonwoo", fr: "Yeonwoo", pt: "Yeonwoo", tr: "Yeonwoo", id: "Yeonwoo", ru: "Ёну", th: "ยอนอู", ar: "يونوو" },
-  Amane: { zh: "雨音", en: "Amane", ko: "아마네", de: "Amane", fr: "Amane", pt: "Amane", tr: "Amane", id: "Amane", ru: "Амане", th: "อามาเนะ", ar: "أماني" }
+  Amadeus: { zh: "阿瑪迪斯", en: "Amadeus", ko: "아마데우스", de: "Amadeus", fr: "Amadeus", pt: "Amadeus", tr: "Amadeus", id: "Amadeus", ru: "Амадей", th: "อมาดีอุส", ar: "أماديوس", es: "Amadeus" },
+  Jabel: { zh: "潔貝爾", en: "Jabel", ko: "제이벨", de: "Jabel", fr: "Jabel", pt: "Jabel", tr: "Jabel", id: "Jabel", ru: "Явель", th: "จาเบล", ar: "جبل", es: "Jabel" },
+  Quinn: { zh: "奎恩", en: "Quinn", ko: "퀸", de: "Quinn", fr: "Quinn", pt: "Quinn", tr: "Quinn", id: "Quinn", ru: "Куинн", th: "ควินน์", ar: "كوين", es: "Quinn" },
+  Helga: { zh: "赫爾加", en: "Helga", ko: "헬가", de: "Helga", fr: "Helga", pt: "Helga", tr: "Helga", id: "Helga", ru: "Хельга", th: "เฮลก้า", ar: "هيلجا", es: "Helga" },
+  Howard: { zh: "霍華德", en: "Howard", ko: "하워드", de: "Howard", fr: "Howard", pt: "Howard", tr: "Howard", id: "Howard", ru: "Говард", th: "ฮาวเวิร์ด", ar: "هاورد", es: "Howard" },
+  Hilde: { zh: "希爾德", en: "Hilde", ko: "힐데", de: "Hilde", fr: "Hilde", pt: "Hilde", tr: "Hilde", id: "Hilde", ru: "Хильда", th: "ฮิลเดอร์", ar: "هيلدي", es: "Hilde" },
+  Marlin: { zh: "馬林", en: "Marlin", ko: "마린", de: "Marlin", fr: "Marlin", pt: "Peixe Marlin", tr: "Marlin", id: "Marlin", ru: "Марлин", th: "มาร์ลิน", ar: "مارلين", es: "Marlin" },
+  Zoe: { zh: "佐伊", en: "Zoe", ko: "조이", de: "Zoe", fr: "Zoé", pt: "Zoe", tr: "Zoe", id: "Zoe", ru: "Зои", th: "โซอี้", ar: "زوي", es: "Zoe" },
+  Petra: { en: "Petra"},
+  Rosa: { en: "Rosa"},
+  Chenko: { zh: "琴科", en: "Chenko", ko: "첸코", de: "Chenko", fr: "Chenko", pt: "Chenko", tr: "Chenko", id: "Chenko", ru: "Ченко", th: "เชนโกะ", ar: "تشينكو", es: "Chenko" },
+  Yeonwoo: { zh: "妍羽", en: "Yeonwoo", ko: "연우", de: "Yeonwoo", fr: "Yeonwoo", pt: "Yeonwoo", tr: "Yeonwoo", id: "Yeonwoo", ru: "Ёну", th: "ยอนอู", ar: "يونوو", es: "Yeonwoo" },
+  Amane: { zh: "雨音", en: "Amane", ko: "아마네", de: "Amane", fr: "Amane", pt: "Amane", tr: "Amane", id: "Amane", ru: "Амане", th: "อามาเนะ", ar: "أماني", es: "Amane" }
 };
 
 /* 遊戲用語：一律照對照表。內文用 {id} 引用 */
@@ -291,6 +301,12 @@ const GUIDES = {
         { type: "announcements" }
       ]},
       pt: { title: "Eventos Recentes", blocks: [
+        { type: "guideLink", guide: "all-out" },
+        { type: "guideLink", guide: "viking-vengeance" },
+        { type: "guideLink", guide: "eternity-reach" },
+        { type: "announcements" }
+      ]},
+      es: { title: "Eventos Recientes", blocks: [
         { type: "guideLink", guide: "all-out" },
         { type: "guideLink", guide: "viking-vengeance" },
         { type: "guideLink", guide: "eternity-reach" },
@@ -2873,7 +2889,7 @@ const GUIDES = {
   },
      "formations-rally-tips": {
     emoji: "🛡️",
-    name: { en: "Formations & Rally Tips", zh: "部隊編組與集結技巧", ko: "부대 편성 및 집결 팁", de: "Trupp-Formationen & Rally-Tipps", fr: "Formations de troupe et conseils de ralliement", pt: "Formações das Tropas e dicas de rally", tr: "Birlik Dizilişleri ve Seferberlik İpuçları", id: "Formasi Pasukan & Tips Reli", ru: "Войско и советы по рейдам", th: "รูปแบบการจัดวางทหารและเคล็ดลับทีมระดมพล", ar: "القوات ونصائح الحشد" },
+    name: { en: "Formations & Rally Tips", zh: "部隊編組與集結技巧", ko: "부대 편성 및 집결 팁", de: "Trupp-Formationen & Rally-Tipps", fr: "Formations de troupe et conseils de ralliement", pt: "Formações das Tropas e dicas de rally", tr: "Birlik Dizilişleri ve Seferberlik İpuçları", id: "Formasi Pasukan & Tips Reli", ru: "Войско и советы по рейдам", th: "รูปแบบการจัดวางทหารและเคล็ดลับทีมระดมพล", ar: "القوات ونصائح الحشد", es: "Formaciones y Consejos de Ataque Conjunto" },
     sections: {
       en: {
         title: "Formations & Rally Tips",
@@ -2927,7 +2943,6 @@ const GUIDES = {
           { type: "p", text: "Follow the troop cap announced by leadership." },
           { type: "p", text: "**Typical alliance target: ~68,000 troops per player**" },
           { type: "p", text: "This allows more alliance members with properly configured defensive marches to fit inside the garrison and get rewards." },
-          { type: "callout", text: "⚠️ If leadership announces a different cap, always follow the announced amount." },
           { type: "callout", text: "⚠️ If leadership announces a different cap, always follow the announced amount." },
           { type: "p", text: "For example, with a 68K troop cap, you can plug that number into a calculator and enter it directly in the field for the matching troop type. Here are three examples:" },
           { type: "list", items: [
@@ -2992,7 +3007,6 @@ const GUIDES = {
           { type: "p", text: "**聯盟一般目標：每位玩家約 68,000 兵力**" },
           { type: "p", text: "這樣能讓更多已配置好防守部隊的聯盟成員擠進駐防，一起領取獎勵。" },
           { type: "callout", text: "⚠️ 若幹部公告了不同的上限，請一律以公告的數字為準。" },
-          { type: "callout", text: "⚠️ 若幹部公告了不同的上限，請一律以公告的數字為準。" },
           { type: "p", text: "舉例來說，若以 68K 兵力上限為例，可以把這個數字帶進計算機，直接在對應兵種的數字欄輸入即可。以下是三種情況：" },
           { type: "list", items: [
             "60/20/20 ➡️ 40,800 / 13,600 / 13,600",
@@ -3055,7 +3069,6 @@ const GUIDES = {
           { type: "p", text: "임원진이 공지한 병력 상한을 따르세요." },
           { type: "p", text: "**일반적인 연맹 목표: 1인당 약 68,000 병력**" },
           { type: "p", text: "이렇게 하면 방어 행군을 제대로 구성한 더 많은 연맹원이 주둔지에 들어가 보상을 받을 수 있습니다." },
-          { type: "callout", text: "⚠️ 임원진이 다른 상한을 공지하면 항상 공지된 수치를 따르세요." },
           { type: "callout", text: "⚠️ 임원진이 다른 상한을 공지하면 항상 공지된 수치를 따르세요." },
           { type: "p", text: "예를 들어 68K 병력 상한을 기준으로 하면, 이 숫자를 계산기에 입력한 뒤 해당 병종 칸에 그대로 넣으면 됩니다. 다음은 세 가지 예시입니다:" },
           { type: "list", items: [
@@ -3120,7 +3133,6 @@ const GUIDES = {
           { type: "p", text: "**Typisches Allianzziel: ~68.000 Truppen pro Spieler**" },
           { type: "p", text: "So passen mehr Allianzmitglieder mit richtig konfigurierten Verteidigungsmärschen in die Garnison und erhalten Belohnungen." },
           { type: "callout", text: "⚠️ Wenn die Führung ein anderes Limit ankündigt, halte dich immer an die angekündigte Zahl." },
-          { type: "callout", text: "⚠️ Wenn die Führung ein anderes Limit ankündigt, halte dich immer an die angekündigte Zahl." },
           { type: "p", text: "Zum Beispiel: Bei einem Truppenlimit von 68K kannst du diese Zahl in einen Taschenrechner eingeben und direkt in das Feld des jeweiligen Truppentyps übertragen. Hier sind drei Beispiele:" },
           { type: "list", items: [
             "60/20/20 ➡️ 40.800 / 13.600 / 13.600",
@@ -3183,7 +3195,6 @@ const GUIDES = {
           { type: "p", text: "Respectez la limite de troupes annoncée par la direction." },
           { type: "p", text: "**Objectif d'alliance habituel : ~68 000 troupes par joueur**" },
           { type: "p", text: "Cela permet à davantage de membres de l'alliance dont les marches défensives sont bien configurées de tenir dans la garnison et d'obtenir des récompenses." },
-          { type: "callout", text: "⚠️ Si la direction annonce une limite différente, suivez toujours le montant annoncé." },
           { type: "callout", text: "⚠️ Si la direction annonce une limite différente, suivez toujours le montant annoncé." },
           { type: "p", text: "Par exemple, avec une limite de 68 000 troupes, vous pouvez saisir ce chiffre dans une calculatrice et l'entrer directement dans le champ correspondant à chaque type de troupe. Voici trois exemples :" },
           { type: "list", items: [
@@ -3248,7 +3259,6 @@ const GUIDES = {
           { type: "p", text: "**Meta comum da aliança: ~68.000 tropas por jogador**" },
           { type: "p", text: "Isso permite que mais membros da aliança com marchas defensivas bem configuradas caibam na guarnição e recebam recompensas." },
           { type: "callout", text: "⚠️ Se a liderança anunciar um limite diferente, siga sempre o valor anunciado." },
-          { type: "callout", text: "⚠️ Se a liderança anunciar um limite diferente, siga sempre o valor anunciado." },
           { type: "p", text: "Por exemplo, com um limite de 68 mil tropas, você pode colocar esse número numa calculadora e digitar diretamente no campo do tipo de tropa correspondente. Aqui estão três exemplos:" },
           { type: "list", items: [
             "60/20/20 ➡️ 40.800 / 13.600 / 13.600",
@@ -3258,6 +3268,70 @@ const GUIDES = {
 
           { type: "h", text: "🎬 COMO TROCAR DE HERÓIS DE ATAQUE PARA HERÓIS DE DEFESA" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Vídeo encontrado online (TikTok @yelloe_hair) — não é filmagem nossa." }
+        ]
+      },
+      es: {
+        title: "Formaciones y Consejos de Ataque Conjunto",
+        blocks: [
+          { type: "h", text: "🔬 PRIORIDADES DE INVESTIGACIÓN Y MEJORA" },
+          { type: "p", text: "Prioriza estas estadísticas de combate al investigar y mejorar los talismanes de gobernador:" },
+          { type: "list", items: ["{infantry} {health}", "{archer} {lethality}"] },
+
+          { type: "h", text: "💾 GUARDA TUS FORMACIONES PREDEFINIDAS" },
+          { type: "p", text: "Según tu progreso, puedes desbloquear hasta 8 espacios para guardar previamente tus formaciones de tropas. Formaciones recomendadas para guardar:" },
+          { type: "callout", text: "Todas las proporciones de tropas son **{infantry} : {cavalry} : {archer}**. Guarda formaciones predefinidas separadas con cada héroe en la posición más a la izquierda / primera." },
+          { type: "callout", text: "💡 El héroe en la posición más a la izquierda importa al unirte a {rally}, porque su habilidad de Expedición correspondiente contribuye al ataque." },
+          { type: "list", items: [
+            "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
+            "2) {bearHunt}: {amane} — **10 : 10 : 80** (o lo más cercano posible)",
+            "3) {bearHunt}: {yeonwoo} — **10 : 10 : 80** (o lo más cercano posible)",
+            "4) {bearHunt}: {amadeus} — **10 : 10 : 80** (o lo más cercano posible)",
+            "5) Ataque (PvP general): {amadeus} (si está desarrollado) o {chenko} — **50 : 20 : 30**",
+            "6) Defensa: {howard} / {gordon} — **60 : 20 : 20** es nuestra configuración equilibrada por defecto. Ajusta cuando el liderazgo solicite una formación específica."
+          ]},
+          { type: "p", text: "**Líderes de {rally}:** Usa tu alineación ofensiva de héroes más fuerte y completa." },
+          { type: "p", text: "**Participantes de {rally}:** Sigue los límites de tropas indicados por el liderazgo." },
+          { type: "list", items: [
+            "7) Total vikingo: {howard} / {gordon} — **60 : 40** Sigue el límite de tropas (~68,000)",
+            "8) PvE — Bestias / Caza: {diana} + {fahd} — **50 : 20 : 30**"
+          ]},
+
+          { type: "h", text: "🐺 PvE — BESTIAS / CAZA" },
+          { type: "p", text: "Recuerda para el Lobo Terrible: no se necesita mucho daño, así que envía la menor cantidad de tropas posible (incluso 1) para que más miembros de la alianza puedan unirse y beneficiarse de las recompensas del {rally}." },
+
+          { type: "h", text: "🏰 {castleBattle} / {sanctuary} / EDIFICIOS" },
+          { type: "p", text: "Al capturar edificios, prepárate para cambiar rápidamente:" },
+          { type: "callout", text: "**ATAQUE → DEFENSA**" },
+          { type: "sub", text: "⚔️ 1. CAPTURA" },
+          { type: "p", text: "Únete al {rally} inicial usando tu formación de ATAQUE." },
+          { type: "p", text: "**Ejemplo:** {amadeus} / {chenko} **50 : 20 : 30**" },
+          { type: "sub", text: "🛡️ 2. CAMBIA A DEFENSA" },
+          { type: "p", text: "Una vez capturado el edificio:" },
+          { type: "list", items: [
+            "**1.** Envía inmediatamente otra marcha usando tu formación de DEFENSA. **Ejemplo:** {gordon} / {howard} **60 : 20 : 20**",
+            "**2.** Observa cómo tu marcha de defensa se dirige hacia el edificio capturado.",
+            "**3.** Cuando falten aproximadamente 5 segundos de marcha — o según las instrucciones del liderazgo — retira tu marcha de ATAQUE original.",
+            "**4.** Tu marcha de DEFENSA llega y reemplaza a tu marcha ofensiva en la guarnición."
+          ]},
+          { type: "callout", text: "🚫 **NO retires tu marcha de ataque demasiado pronto.**" },
+          { type: "p", text: "**Captura → Envía Defensa → ~5 seg → Retira Ataque → Llega Defensa**" },
+          { type: "p", text: "Esto nos permite pasar de una configuración ofensiva a una guarnición defensiva sin debilitar innecesariamente el edificio." },
+
+          { type: "h", text: "🪖 LÍMITE DE TROPAS EN LA GUARNICIÓN" },
+          { type: "p", text: "Solo 15 gobernadores pueden entrar al Cuartel General (HQ) / {sanctuary}. Así que no envíes automáticamente tu marcha máxima al HQ, {sanctuary} u otros edificios en disputa." },
+          { type: "p", text: "Sigue el límite de tropas anunciado por el liderazgo." },
+          { type: "p", text: "**Objetivo habitual de la alianza: ~68,000 tropas por jugador**" },
+          { type: "p", text: "Esto permite que más miembros de la alianza con marchas defensivas correctamente configuradas quepan dentro de la guarnición y obtengan recompensas." },
+          { type: "callout", text: "⚠️ Si el liderazgo anuncia un límite diferente, sigue siempre la cantidad anunciada." },
+          { type: "p", text: "Por ejemplo, con un límite de 68K tropas, puedes introducir ese número en una calculadora y colocarlo directamente en el campo correspondiente al tipo de tropa. Aquí tienes tres ejemplos:" },
+          { type: "list", items: [
+            "60/20/20 ➡️ 40,800 / 13,600 / 13,600",
+            "60/40 ➡️ 40,800 / 27,200",
+            "50/20/30 ➡️ 34,000 / 13,600 / 20,400"
+          ]},
+
+          { type: "h", text: "🎬 CÓMO CAMBIAR DE HÉROES OFENSIVOS A DEFENSIVOS" },
+          { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Video encontrado en línea (TikTok @yelloe_hair) — no es material propio." }
         ]
       },
       tr: {
@@ -3311,7 +3385,6 @@ const GUIDES = {
           { type: "p", text: "Yönetimin duyurduğu birlik sınırına uyun." },
           { type: "p", text: "**Tipik ittifak hedefi: oyuncu başına ~68.000 birlik**" },
           { type: "p", text: "Bu sayede savunma intikalleri doğru yapılandırılmış daha fazla ittifak üyesi garnizona sığar ve ödül alır." },
-          { type: "callout", text: "⚠️ Yönetim farklı bir sınır duyurursa her zaman duyurulan miktara uyun." },
           { type: "callout", text: "⚠️ Yönetim farklı bir sınır duyurursa her zaman duyurulan miktara uyun." },
           { type: "p", text: "Örneğin, 68K birlik sınırını temel alarak bu sayıyı bir hesap makinesine girip doğrudan ilgili birlik türünün alanına yazabilirsin. İşte üç örnek:" },
           { type: "list", items: [
@@ -3376,7 +3449,6 @@ const GUIDES = {
           { type: "p", text: "**Target aliansi umum: ~68.000 pasukan per pemain**" },
           { type: "p", text: "Ini memungkinkan lebih banyak anggota aliansi dengan barisan pertahanan yang terkonfigurasi baik masuk ke garnisun dan mendapat hadiah." },
           { type: "callout", text: "⚠️ Jika pimpinan mengumumkan batas yang berbeda, selalu ikuti angka yang diumumkan." },
-          { type: "callout", text: "⚠️ Jika pimpinan mengumumkan batas yang berbeda, selalu ikuti angka yang diumumkan." },
           { type: "p", text: "Contohnya, dengan batas 68K pasukan, kamu bisa memasukkan angka itu ke kalkulator dan langsung mengetiknya di kolom jenis pasukan yang sesuai. Berikut tiga contohnya:" },
           { type: "list", items: [
             "60/20/20 ➡️ 40.800 / 13.600 / 13.600",
@@ -3440,7 +3512,6 @@ const GUIDES = {
           { type: "p", text: "**Обычная цель альянса: ~68 000 войск на игрока**" },
           { type: "p", text: "Так в гарнизон поместится больше участников альянса с правильно настроенными маршами защиты, и они получат награды." },
           { type: "callout", text: "⚠️ Если руководство объявит другой лимит, всегда следуйте объявленной цифре." },
-          { type: "callout", text: "⚠️ Если руководство объявит другой лимит, всегда следуйте объявленной цифре." },
           { type: "p", text: "Например, при лимите войск 68K это число можно ввести в калькулятор и сразу вписать в поле соответствующего типа войск. Вот три примера:" },
           { type: "list", items: [
             "60/20/20 ➡️ 40 800 / 13 600 / 13 600",
@@ -3503,7 +3574,6 @@ const GUIDES = {
           { type: "p", text: "ปฏิบัติตามขีดจำกัดทหารที่ผู้นำประกาศ" },
           { type: "p", text: "**เป้าหมายทั่วไปของพันธมิตร: ~68,000 ทหารต่อผู้เล่น**" },
           { type: "p", text: "วิธีนี้ทำให้สมาชิกพันธมิตรที่ตั้งค่าการเดินทัพป้องกันอย่างถูกต้องเข้าไปได้มากขึ้นและได้รับรางวัล" },
-          { type: "callout", text: "⚠️ หากผู้นำประกาศขีดจำกัดที่ต่างออกไป ให้ทำตามจำนวนที่ประกาศเสมอ" },
           { type: "callout", text: "⚠️ หากผู้นำประกาศขีดจำกัดที่ต่างออกไป ให้ทำตามจำนวนที่ประกาศเสมอ" },
           { type: "p", text: "ตัวอย่างเช่น หากใช้ขีดจำกัดทหาร 68K คุณสามารถนำตัวเลขนี้ไปใส่ในเครื่องคิดเลข แล้วพิมพ์ลงในช่องของทหารแต่ละประเภทได้เลย ต่อไปนี้คือ 3 ตัวอย่าง:" },
           { type: "list", items: [
@@ -3906,7 +3976,8 @@ const GUIDES = {
     name: {
       zh: "英雄培養指南（F2P）", en: "F2P Heroes Guide", ko: "무과금 영웅 육성 가이드", de: "F2P-Helden-Guide",
       fr: "Guide des héros F2P", pt: "Guia de Heróis F2P", tr: "F2P Kahraman Rehberi",
-      id: "Panduan Hero F2P", ru: "Гайд по героям для F2P", th: "คู่มือฮีโร่สาย F2P", ar: "دليل الأبطال لللاعبين المجانيين"
+      id: "Panduan Hero F2P", ru: "Гайд по героям для F2P", th: "คู่มือฮีโร่สาย F2P", ar: "دليل الأبطال لللاعبين المجانيين",
+      es: "Guía de Héroes F2P"
     },
     sections: {
       zh: { title: "英雄培養指南（F2P／低課金）", blocks: [
@@ -4352,7 +4423,79 @@ const GUIDES = {
           "**Jogadores P2W:** Priorize {amadeus} (VIP 7+) e {hilde} para o máximo impacto"
         ]}
       ]},
+      es: { title: "Guía de Héroes F2P", blocks: [
+        { type: "callout", text: "Los Fragmentos Míticos y los dispositivos de ataque conjunto son limitados. No intentes desarrollar a todos los héroes; concentra tus recursos en héroes con valor fuerte y a largo plazo." },
+        { type: "callout", text: "Algunos héroes de abajo aún no se han confirmado oficialmente por captura de pantalla, o todavía no han salido — esos se mantienen en inglés hasta que se confirmen." },
 
+        { type: "sub", text: "GEN 1" },
+        { type: "p", text: "**{jabel}**" },
+        { type: "list", items: [
+          "Mítico farmeable; máxima prioridad.",
+          "**{saul}**: Unas pocas estrellas para la habilidad de Crecimiento. No invertir de más."
+        ]},
+
+        { type: "sub", text: "GEN 2" },
+        { type: "p", text: "**{zoe} — DESARROLLAR (Ruleta)**" },
+        { type: "list", items: [
+          "Gran mejora respecto a {howard}.",
+          "**{marlin}**: Reemplaza a {saul}."
+        ]},
+
+        { type: "sub", text: "GEN 3" },
+        { type: "p", text: "**Petra — IMPRESCINDIBLE (Ruleta)**" },
+        { type: "list", items: [
+          "Excelente héroe para la Cacería del Oso, con valor hasta la Gen 7.",
+          "**Eric & Jaeger**: Omitir salvo que te enfoques en PvP/defensa de guarnición."
+        ]},
+
+        { type: "sub", text: "GEN 4" },
+        { type: "p", text: "**Rosa — DESARROLLAR (Ruleta)**" },
+        { type: "list", items: [
+          "Gran mejora para la Cacería del Oso.",
+          "**Alcar O Margot**: Opcional. Ambos son fuertes en Arena/Expedición."
+        ]},
+
+        { type: "sub", text: "GEN 5" },
+        { type: "p", text: "**Long Fei — DESARROLLAR (Ruleta)**" },
+        { type: "list", items: [
+          "Excelente para eventos multi-equipo como el Juicio Místico, la Tri-Alianza y Swordland.",
+          "**Thrud/Vivian**: Principalmente Arena/PvP.",
+          "¿No conseguiste a Petra? Considera a Thrud."
+        ]},
+
+        { type: "sub", text: "GEN 6" },
+        { type: "p", text: "**Sophia — DESARROLLAR (Ruleta)**" },
+        { type: "list", items: ["Principalmente útil para contenido multi-equipo."] },
+        { type: "p", text: "**Yang — ALTA PRIORIDAD**" },
+        { type: "list", items: [
+          "Excelente utilidad para la Cacería del Oso; vale la pena invertir Fragmentos Míticos.",
+          "**Triton**: Generalmente omitir si ya desarrollaste a Long Fei."
+        ]},
+
+        { type: "sub", text: "GEN 7" },
+        { type: "p", text: "**Wee & Woo — IMPRESCINDIBLE (Ruleta)**" },
+        { type: "list", items: ["Excelente valor general para F2P."] },
+        { type: "p", text: "**Ava — ALTA PRIORIDAD**" },
+        { type: "list", items: [
+          "Excelente héroe para la Cacería del Oso; reemplaza a Petra.",
+          "**Charles**: Generalmente seguro de omitir."
+        ]},
+
+        { type: "h", text: "RUTA SIMPLE DE RULETA F2P" },
+        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+
+        { type: "h", text: "PRIORIDAD DE FRAGMENTOS MÍTICOS" },
+        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+
+        { type: "h", text: "REGLA GENERAL" },
+        { type: "p", text: "Los héroes de ruleta son generalmente tu inversión F2P más segura. Ahorra tus recursos, evita repartir los Fragmentos Míticos en demasiados héroes, y no sientas presión de desarrollarlos todos." },
+
+        { type: "h", text: "RESUMEN" },
+        { type: "list", items: [
+          "**Jugadores F2P:** Prioriza a {zoe} (tanque de infantería), {jabel} (caballería) y Petra (caballería ofensiva) de la ruleta de héroes",
+          "**Jugadores P2W:** Prioriza a {amadeus} (VIP 7+) y {hilde} para el máximo impacto"
+        ]}
+      ]},
       tr: { title: "F2P Kahraman Rehberi", blocks: [
         { type: "callout", text: "Mitik Parçalar ve seferberliğe özel donanımlar sınırlıdır. Her kahramanı geliştirmeye çalışma — kaynaklarını uzun vadede güçlü değer sağlayan kahramanlara yoğunlaştır." },
         { type: "callout", text: "Aşağıdaki bazı kahramanlar ya ekran görüntüsüyle resmi olarak doğrulanmadı ya da henüz yayınlanmadı — bunlar doğrulanana kadar İngilizce kalacak." },
