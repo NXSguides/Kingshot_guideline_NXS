@@ -591,4 +591,8 @@ initTheme();
 renderAll();
 loadAnnouncements();
 
-window.addEventListener("hashchange", () => { ... });
+window.addEventListener("hashchange", () => {
+  readHash();
+  persistPrefs();
+  renderAll();
+});
