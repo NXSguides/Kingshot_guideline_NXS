@@ -536,6 +536,7 @@ function renderAll() {
   const curLang = LANGS.find((l) => l.code === currentLang);
   document.documentElement.dir = (curLang && curLang.dir) || "ltr";
   if (!langChosen) { renderPicker(); return; }
+  if (shouldShowEventPopup()) renderEventPopup();
   renderAnnTicker();
   renderLangRow();
   renderGuideRow();
