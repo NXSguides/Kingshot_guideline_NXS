@@ -267,7 +267,7 @@ const GUIDES = {
       de: "Aktuelle Events", fr: "Événements récents",
       pt: "Eventos Recentes", tr: "Son Etkinlikler",
       id: "Acara Terbaru", ru: "Последние события",
-      th: "กิจกรรมล่าสุด", ar: "أحدث الفعاليات"
+      th: "กิจกรรมล่าสุด", ar: "أحدث الفعاليات", es: "Eventos Recientes"
     },
     sections: {
       en: { title: "Recent Events", blocks: [
@@ -347,7 +347,7 @@ const GUIDES = {
   "viking-vengeance": {
     emoji: "🧯",
     name: {
-      en: "Viking Vengeance", zh: "維京人的掠奪", ko: "바이킹의 약탈", de: "Wikinger-Rache", fr: "Vengeance Viking", pt: "Vingança Viking", tr: "Viking İntikamı", id: "Viking Vengeance", ru: "Месть викингов", th: "การล้างแค้นของไวกิ้ง", ar: "انتقام الفايكنغ"
+      en: "Viking Vengeance", zh: "維京人的掠奪", ko: "바이킹의 약탈", de: "Wikinger-Rache", fr: "Vengeance Viking", pt: "Vingança Viking", es: "Venganza Vikinga", tr: "Viking İntikamı", id: "Viking Vengeance", ru: "Месть викингов", th: "การล้างแค้นของไวกิ้ง", ar: "انتقام الفايكنغ"
     },
     sections: {
       en: {
@@ -512,6 +512,33 @@ const GUIDES = {
           { type: "p", text: "Combine com os R4/R5 para que todos tenham sua vez e o QG seja preenchido com eficiência." }
         ]
       },
+      es: {
+        title: "Venganza Vikinga",
+        blocks: [
+          { type: "h", text: "CUÁNDO" },
+          { type: "p", text: "Cada 2 semanas — dos sesiones de 30 minutos, el Día 1 y el Día 3. Programado por el liderazgo, generalmente cerca de los horarios de {bearHunt}." },
+          { type: "h", text: "📌 PREPARACIÓN" },
+          { type: "sub", text: "Vacía tu ciudad" },
+          { type: "list", items: ["Envía **TODA** tu {infantry} y {cavalry} a reforzar a miembros de la alianza.", "Los arqueros extra pueden quedarse en casa — no roban puntos de refuerzo.", "Aunque vayas a estar desconectado durante el evento, ¡vacía tu ciudad antes! Aun así podrás ganar puntos, y le das a otros miembros la oportunidad de ganar puntos reforzándote."] },
+          { type: "sub", text: "Deja a tus 3 mejores héroes en casa" },
+          { type: "p", text: "Deja a tus 3 mejores héroes de Defensa/Ataque en tu Puesto de Guardia." },
+          { type: "list", items: ["**F2P:** {jabel} / {howard} / {quinn}", "**P2W:** {amadeus} o {helga} / {jabel} / {saul}"] },
+          { type: "sub", text: "NO CURES" },
+          { type: "p", text: "Las tropas curadas vuelven a casa y pueden robar bajas/puntos a los miembros que te están reforzando." },
+          { type: "sub", text: "Prioriza a los miembros activos" },
+          { type: "p", text: "Refuerza primero a los miembros conectados. Las oleadas 7, 14 y 17 solo atacan a jugadores conectados." },
+          { type: "h", text: "⚔️ REFORZAR ALIADOS" },
+          { type: "p", text: "Usa tus héroes de participante de {bearHunt} en la posición 1 para maximizar los puntos de bajas." },
+          { type: "p", text: "**Recomendados:** {chenko} / {amane} / {yeonwoo} / {amadeus}" },
+          { type: "callout", text: "Evita héroes defensivos como {howard} o {gordon} en las marchas de refuerzo." },
+          { type: "h", text: "🏛️ CUARTEL GENERAL — OLEADAS 10 Y 20" },
+          { type: "p", text: "Las oleadas 10 y 20 atacan **SOLO** el Cuartel General. Los ataques a la ciudad se pausan durante estas oleadas." },
+          { type: "p", text: "Después de que termine la oleada 9 / 19:" },
+          { type: "list", items: ["Recupera **UNA** marcha fuerte.", "Envíala directamente al Cuartel General.", "Máximo 68K tropas por miembro.", "Usa {chenko} o {amadeus} en la posición 1, o tu héroe con mayor daño puro.", "Después de la oleada del Cuartel General, recupérala y vuelve a reforzar al miembro que se te asignó."] },
+          { type: "callout", text: "⚠️ **IMPORTANTE:** Puedes reforzar el Cuartel General en la oleada 10 **O** la oleada 20 — **NO AMBAS.**" },
+          { type: "p", text: "Coordínate con R4/R5 para que todos tengan su turno y llenemos el Cuartel General de forma eficiente." }
+        ]
+      },
       tr: {
         title: "Viking İntikamı",
         blocks: [
@@ -651,7 +678,7 @@ const GUIDES = {
   },
   "bear-hunt": {
     emoji: "🐻",
-    name: { zh: "狩獵巨熊", en: "Bear Hunt", ko: "자이언트 베어 사냥", de: "Bärenjagd", fr: "Chasse à l'Ours", pt: "Caça ao Urso", tr: "Ayı Avı", id: "Bear Hunt", ru: "Охота на медведя", th: "ล่าหมี", ar: "صيد الدببة" },
+    name: { zh: "狩獵巨熊", en: "Bear Hunt", ko: "자이언트 베어 사냥", de: "Bärenjagd", fr: "Chasse à l'Ours", pt: "Caça ao Urso", tr: "Ayı Avı", id: "Bear Hunt", ru: "Охота на медведя", th: "ล่าหมี", ar: "صيد الدببة", es: "Caza del Oso" },
     sections: {
       zh: {
         title: "狩獵巨熊",
@@ -720,6 +747,23 @@ const GUIDES = {
         leaders_label: "RALLY-ANFÜHRER",
         joiners_label: "RALLY-TEILNEHMER",
         joiners_ratio: "Standard / sicheres Verhältnis: 10% Infanterie, 10% Kavallerie, und 80% Bogenschützen (oder Varianten wie 20-30-50)"
+      },
+      es: {
+        title: "Caza del Oso",
+        when_label: "CUÁNDO",
+        when: "Cada 2 días, según el horario programado por tu alianza.",
+        why_label: "POR QUÉ IMPORTA",
+        why: "Fuente principal de materiales de equipo de héroe (Martillos de Forja) y XP de mejora.",
+        prep_label: "PREPARACIÓN",
+        prep: [
+          "Actualiza tus formaciones antes de cada Caza del Oso.",
+          { callout: true, text: "Opcional: usa <a href=\"https://frakinator.streamlit.app/\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a> para probar proporciones de tropas y encontrar tu formación más fuerte." },
+          "Recupera las tropas de recolección antes de que comience el evento.",
+          "Recuerda: en los últimos 5–7 minutos, todos deben lanzar una concentración. Esto crea más espacios para los jugadores cuyas tropas están regresando, permitiendo un empuje final de daño."
+        ],
+        leaders_label: "LÍDERES DE CONCENTRACIÓN",
+        joiners_label: "PARTICIPANTES DE CONCENTRACIÓN",
+        joiners_ratio: "Proporción estándar/segura: 10% Infantería, 10% Caballería y 80% Arqueros (o una variación como 20-30-50)"
       }
     },
     joiners: [
@@ -728,9 +772,9 @@ const GUIDES = {
       { hero: "Amane", role: "attack" },
       { hero: "Amadeus", role: "lethality" }
     ],
-    leaders: [
+        leaders: [
       {
-        gen: { zh: "第 1 代", en: "GEN 1", ko: "1세대", de: "GEN 1" },
+        gen: { zh: "第 1 代", en: "GEN 1", ko: "1세대", de: "GEN 1", es: "GEN 1" },
         rows: [
           {
             tag: "best",
@@ -740,7 +784,8 @@ const GUIDES = {
               zh: "多數情況步兵最強，因阿瑪迪斯數值高；弓兵稍多的平均編組效果最好。",
               en: "Troop formation: 30-30-40%. In most cases you will have best stats on infantry due to Amadeus's raw stats, so an ultra-equal formation with slightly more archer troops works best.",
               ko: "아마데우스는 기본적으로 훌륭한 보병 및 기병 능력치를 갖추고 있어, 궁병 중심의 부대 편성에서 가장 뛰어난 효율을 발휘합니다.",
-              de: "Infanterie ist hier oft am stärksten, weil Amadeus stark ist; eine etwa gleiche Aufteilung mit etwas mehr Bogenschützen funktioniert am besten."
+              de: "Infanterie ist hier oft am stärksten, weil Amadeus stark ist; eine etwa gleiche Aufteilung mit etwas mehr Bogenschützen funktioniert am besten.",
+              es: "Formación de tropas: 30-30-40%. En la mayoría de los casos tendrás las mejores estadísticas en infantería gracias a las estadísticas base de Amadeus, así que una formación casi equilibrada con un poco más de arqueros funciona mejor."
             }
           },
           {
@@ -751,7 +796,8 @@ const GUIDES = {
               zh: "適合尚未抽到阿瑪迪斯的玩家，同時讓阿瑪迪斯保留給集結。",
               en: "Troop formation: 20-40-40%. Mainly for people that didn't go for Amadeus yet, and keeps the opportunity to use Amadeus for joining rallies.",
               ko: "과금 유저에게도 훌륭한 선택이지만, 헬가의 궁병 관련 능력치는 다소 부족합니다. 레벨이 낮은 아마데우스는 집결 참여 영웅으로 활용하세요.",
-              de: "Für Spieler ohne Amadeus — so bleibt Amadeus frei, um fremde Rallys zu joinen."
+              de: "Für Spieler ohne Amadeus — so bleibt Amadeus frei, um fremde Rallys zu joinen.",
+              es: "Formación de tropas: 20-40-40%. Principalmente para quienes aún no han conseguido a Amadeus, y mantiene la posibilidad de usar a Amadeus para unirse a concentraciones."
             }
           },
           {
@@ -762,13 +808,14 @@ const GUIDES = {
               zh: "免費玩家建議永遠用手上最強的三位英雄擔任指揮。",
               en: "Troop formation: 30-30-40%. For F2P it is recommended to always use the 3 heroes you have for hosting a rally.",
               ko: "무과금 유저에게 권장되는 집결장 영웅 조합입니다. 집결 공격 시, 항상 가장 강력한 세 영웅 조합을 사용하는 것이 좋습니다.",
-              de: "F2P-Spieler sollten immer ihre drei stärksten verfügbaren Helden als Anführer nehmen."
+              de: "F2P-Spieler sollten immer ihre drei stärksten verfügbaren Helden als Anführer nehmen.",
+              es: "Formación de tropas: 30-30-40%. Para F2P se recomienda usar siempre los 3 héroes que tengas para liderar una concentración."
             }
           }
         ]
       },
       {
-        gen: { zh: "第 2 代", en: "GEN 2", ko: "2세대", de: "GEN 2" },
+        gen: { zh: "第 2 代", en: "GEN 2", ko: "2세대", de: "GEN 2", es: "GEN 2" },
         rows: [
           {
             tag: "best",
@@ -778,7 +825,8 @@ const GUIDES = {
               zh: "馬林能大幅提升傷害，因為擁有集結專屬裝備（殺傷力加成）；步兵固定用阿瑪迪斯或赫爾加。",
               en: "Troop formation: 20-30-50%. Marlin will boost damage a lot due to his widget. From Gen 2 up, infantry will always be Amadeus or Helga — they are the only infantry heroes with rally widgets (lethality bonus). You send fewer infantry, so the infantry hero covers archer damage via the widget rather than matching infantry stats.",
               ko: "마린은 집결 전용 파괴력 장비로 피해를 크게 올립니다. 보병은 아마데우스 또는 헬가.",
-              de: "Marlin steigert den Schaden durch seine Rally-exklusive Tödlichkeitsausrüstung; Infanterie bleibt Amadeus oder Helga."
+              de: "Marlin steigert den Schaden durch seine Rally-exklusive Tödlichkeitsausrüstung; Infanterie bleibt Amadeus oder Helga.",
+              es: "Formación de tropas: 20-30-50%. Marlin aumentará mucho el daño gracias a su widget. Desde la Gen 2 en adelante, la infantería siempre será Amadeus o Helga — son los únicos héroes de infantería con widgets de concentración (bono de letalidad). Envías menos infantería, así que el héroe de infantería cubre el daño de los arqueros mediante el widget en lugar de igualar las estadísticas de infantería."
             }
           },
           {
@@ -789,7 +837,8 @@ const GUIDES = {
               zh: "若馬林不夠強可換成奎恩；赫爾加只在阿瑪迪斯未滿裝時使用。",
               en: "Troop formation: 20-30-50%. Other alternative is swapping Quinn for Marlin if he isn't better yet. Use Helga in Gen 2+ only if Amadeus isn't 5-star + max widget level; also an opportunity to use Amadeus for joining rallies.",
               ko: "말린이 약하면 퀸으로 바꾸세요. 헬가는 아마데우스 장비가 덜 갖춰졌을 때만.",
-              de: "Quinn statt Marlin, wenn Marlin noch nicht stark genug ist; Helga nur, wenn Amadeus noch nicht voll ausgerüstet ist."
+              de: "Quinn statt Marlin, wenn Marlin noch nicht stark genug ist; Helga nur, wenn Amadeus noch nicht voll ausgerüstet ist.",
+              es: "Formación de tropas: 20-30-50%. Otra alternativa es cambiar Quinn por Marlin si aún no es mejor. Usa a Helga en Gen 2+ solo si Amadeus no tiene 5 estrellas + widget al máximo; también es una oportunidad para usar a Amadeus uniéndose a concentraciones."
             }
           },
           {
@@ -800,13 +849,14 @@ const GUIDES = {
               zh: "目前免費玩家仍無擁有集結裝備的弓兵，弓兵屬性最弱。",
               en: "Troop formation: 30-30-40%. Still no F2P hero with a rally widget, so again an even formation with slightly more archers, as archer stats will be lowest due to not having an SSR archer hero.",
               ko: "아직 집결 장비가 있는 무과금 궁병이 없어 궁병 스탯이 가장 약합니다.",
-              de: "Noch kein F2P-Bogenschützenheld mit Rally-Ausrüstung, daher bleiben Bogenschützen der schwächste Stat."
+              de: "Noch kein F2P-Bogenschützenheld mit Rally-Ausrüstung, daher bleiben Bogenschützen der schwächste Stat.",
+              es: "Formación de tropas: 30-30-40%. Todavía no hay ningún héroe F2P con widget de concentración, así que de nuevo una formación equilibrada con un poco más de arqueros, ya que las estadísticas de arqueros serán las más bajas al no tener un héroe arquero SSR."
             }
           }
         ]
       },
       {
-        gen: { zh: "第 3 代", en: "GEN 3", ko: "3세대", de: "GEN 3" },
+        gen: { zh: "第 3 代", en: "GEN 3", ko: "3세대", de: "GEN 3", es: "GEN 3" },
         rows: [
           {
             tag: "best",
@@ -816,7 +866,8 @@ const GUIDES = {
               zh: "滿等赫爾加（2 殺傷力＋1 攻擊）表現優於阿瑪迪斯（1 殺傷力＋2 攻擊）。",
               en: "Troop formation: 10-20-70%. Maxed-out Helga performs better than Amadeus in Gen 3, due to having 2 lethality widgets and 1 attack widget compared to 1 lethality widget and 2 attack widgets in this setup.",
               ko: "풀 장비 헬가(파괴력 2 + 공격 1)가 아마데우스(파괴력 1 + 공격 2)보다 강합니다.",
-              de: "Voll ausgerüstete Helga (2 Tödlichkeit + 1 Angriff) übertrifft hier Amadeus (1 Tödlichkeit + 2 Angriff)."
+              de: "Voll ausgerüstete Helga (2 Tödlichkeit + 1 Angriff) übertrifft hier Amadeus (1 Tödlichkeit + 2 Angriff).",
+              es: "Formación de tropas: 10-20-70%. Una Helga al máximo rinde mejor que Amadeus en la Gen 3, ya que tiene 2 widgets de letalidad y 1 de ataque, comparado con 1 de letalidad y 2 de ataque en esta configuración."
             }
           },
           {
@@ -827,7 +878,8 @@ const GUIDES = {
               zh: "若赫爾加尚未練滿，改用阿瑪迪斯較好。",
               en: "Troop formation: 20-30-50%. If you don't have maxed-out Helga (5-star + widget) it is better to use Amadeus.",
               ko: "헬가가 아직 덜 갖춰졌으면 아마데우스를 쓰세요.",
-              de: "Amadeus nehmen, wenn Helga noch nicht voll ausgerüstet ist."
+              de: "Amadeus nehmen, wenn Helga noch nicht voll ausgerüstet ist.",
+              es: "Formación de tropas: 20-30-50%. Si no tienes a Helga al máximo (5 estrellas + widget) es mejor usar a Amadeus."
             }
           },
           {
@@ -838,13 +890,14 @@ const GUIDES = {
               zh: "終於拿到第一位集結裝備英雄（Petra），弓兵屬性仍最低；滿級騎兵能發揮很好。",
               en: "Troop formation: 20-40-40%. In Gen 3, F2P get their first hero with a rally widget (Petra). Try even archer/cav numbers because Petra improves archer troops a lot. Archer stats are still lowest without an SSR archer. If you unlock T10 cavalry, the T10 skill pairs well with Petra's stats.",
               ko: "첫 무과금 집결 장비 영웅(페트라)이 나옵니다. 궁병은 여전히 약하지만, 만렙 기병이 페트라와 잘 맞습니다.",
-              de: "Erster F2P-Held mit Rally-Ausrüstung (Petra); Bogenschützen bleiben am schwächsten, maxed Kavallerie passt aber gut zu Petra."
+              de: "Erster F2P-Held mit Rally-Ausrüstung (Petra); Bogenschützen bleiben am schwächsten, maxed Kavallerie passt aber gut zu Petra.",
+              es: "Formación de tropas: 20-40-40%. En la Gen 3, los F2P consiguen su primer héroe con widget de concentración (Petra). Prueba números equilibrados de arqueros/caballería porque Petra mejora mucho a las tropas de arqueros. Las estadísticas de arqueros siguen siendo las más bajas sin un héroe arquero SSR. Si desbloqueas caballería T10, su habilidad combina bien con las estadísticas de Petra."
             }
           }
         ]
       },
       {
-        gen: { zh: "第 4 代", en: "GEN 4", ko: "4세대", de: "GEN 4" },
+        gen: { zh: "第 4 代", en: "GEN 4", ko: "4세대", de: "GEN 4", es: "GEN 4" },
         rows: [
           {
             tag: "best",
@@ -854,7 +907,8 @@ const GUIDES = {
               zh: "盡量拉高弓兵數量，滿級弓兵尤佳；Rosa 三技能可能提升弓兵總攻擊 30%。",
               en: "Troop formation: 10-10-80%. Force as many archer troops as you can, especially if they are T10. With a bit of luck Rosa's 3rd skill will do the work for you (Increasing Archers' total Attack by 30%).",
               ko: "이제부터는 궁병 중심의 부대 편성을 운영합니다. 티어 TG5 기병과 함께 로사의 3번째 스킬이 부여하는 궁병 전체 공격력 30% 증가는 매우 강력한 효과입니다.",
-              de: "So viele (idealerweise maxed) Bogenschützen wie möglich; Rosas 3. Skill kann den Bogenschützen-Gesamtschaden um 30% steigern."
+              de: "So viele (idealerweise maxed) Bogenschützen wie möglich; Rosas 3. Skill kann den Bogenschützen-Gesamtschaden um 30% steigern.",
+              es: "Formación de tropas: 10-10-80%. Fuerza tantas tropas de arqueros como puedas, especialmente si son T10. Con algo de suerte, la 3ª habilidad de Rosa hará el resto del trabajo (aumenta el ataque total de los arqueros en un 30%)."
             }
           },
           {
@@ -865,7 +919,8 @@ const GUIDES = {
               zh: "若赫爾加星級裝備高於阿瑪迪斯可替代使用。",
               en: "Troop formation: 10-10-80%. Use Helga as alternative if she has better stars and widget level than Amadeus. Still force as many archers as you can, especially T10, for Rosa's 3rd skill (Increasing Archers' total Attack by 30%).",
               ko: "헬가의 성급이나 전용 무기 레벨이 아마데우스보다 높다면 헬가를 대체 영웅으로 기용하세요. 티어 TG5 기병과 함께 로사의 3번째 스킬이 부여하는 궁병 전체 공격력 30% 증가는 매우 강력한 효과입니다.",
-              de: "Helga nehmen, wenn ihr Stern-/Ausrüstungsgrad über Amadeus liegt."
+              de: "Helga nehmen, wenn ihr Stern-/Ausrüstungsgrad über Amadeus liegt.",
+              es: "Formación de tropas: 10-10-80%. Usa a Helga como alternativa si tiene más estrellas y nivel de widget que Amadeus. Sigue forzando tantos arqueros como puedas, especialmente T10, para la 3ª habilidad de Rosa (aumenta el ataque total de los arqueros en un 30%)."
             }
           },
           {
@@ -876,13 +931,14 @@ const GUIDES = {
               zh: "與替代組合相同，Rosa 三技能在重弓兵編組下效果最佳。",
               en: "Troop formation: 10-10-80%. Same as alternative best heroes — Rosa's 3rd skill bonuses best if you focus on heavy archer formations (Increasing Archers' total Attack by 30%).",
               ko: "위의 대체 영웅 조합과 같은 병력 비율을 사용합니다. 로사의 3번째 스킬과 높은 궁병 비율의 조합은 궁병 전체 공격력을 30% 증가시킵니다.",
-              de: "Gleiche Idee wie die Alternative — Rosas 3. Skill glänzt am stärksten in bogenschützenlastigen Formationen."
+              de: "Gleiche Idee wie die Alternative — Rosas 3. Skill glänzt am stärksten in bogenschützenlastigen Formationen.",
+              es: "Formación de tropas: 10-10-80%. Igual que la alternativa de mejores héroes — la 3ª habilidad de Rosa rinde mejor si te enfocas en formaciones pesadas de arqueros (aumenta el ataque total de los arqueros en un 30%)."
             }
           }
         ]
       },
       {
-        gen: { zh: "第 5 代", en: "GEN 5", ko: "5세대", de: "GEN 5" },
+        gen: { zh: "第 5 代", en: "GEN 5", ko: "5세대", de: "GEN 5", es: "GEN 5" },
         rows: [
           {
             tag: "best",
@@ -892,7 +948,8 @@ const GUIDES = {
               zh: "其餘指揮欄位尚未公布。",
               en: "Remaining host slots not released yet.",
               ko: "나머지 지휘 자리는 아직 미공개입니다.",
-              de: "Die übrigen Anführer-Plätze sind noch nicht veröffentlicht."
+              de: "Die übrigen Anführer-Plätze sind noch nicht veröffentlicht.",
+              es: "Los demás puestos de líder aún no se han publicado."
             }
           }
         ]
@@ -902,7 +959,7 @@ const GUIDES = {
 
   "swordland-showdown": {
     emoji: "⚔️",
-    name: { zh: "聖劍爭奪", en: "Swordland Showdown", ko: "성검 쟁탈", de: "Schwertland-Showdown", fr: "Choc du Glaive", tr: "Kılıçdiyarı Hesaplaşması", id: "Swordland Showdown", ru: "Битва за Страну мечей", th: "ศึกดวลดินแดนดาบ", ar: "مواجهة أرض السيوف", pt: "Confronto entre Espadas" },
+    name: { zh: "聖劍爭奪", en: "Swordland Showdown", ko: "성검 쟁탈", de: "Schwertland-Showdown", fr: "Choc du Glaive", tr: "Kılıçdiyarı Hesaplaşması", es: "Choque del Reino de Espadas", id: "Swordland Showdown", ru: "Битва за Страну мечей", th: "ศึกดวลดินแดนดาบ", ar: "مواجهة أرض السيوف", pt: "Confronto entre Espadas" },
     buildings: [
       { id: "swordshrine", first: [9000, 4500], hold: [1800, 900], opens: 15, priority: "top" },
       { id: "mercenary",   first: [1200, 600],  hold: [240, 120],  opens: 15, priority: "med" },
@@ -1841,7 +1898,179 @@ const GUIDES = {
           { type: "callout", text: "⚔️ **LA COORDINATION, CLÉ DE LA VICTOIRE AUX {swordland}**" }
         ]
       },
+      es: {
+        title: "Choque del Reino de Espadas",
+        blocks: [
+          { type: "h", text: "CUÁNDO" },
+          { type: "p", text: "Cada 2 semanas — un evento de campo de batalla Alianza vs Alianza de 60 minutos." },
 
+          { type: "h", text: "REGISTRO" },
+          { type: "callout", text: "⚠️ **Solo regístrate si planeas asistir.** Los jugadores registrados que no aparecen ocupan un lugar valioso y pueden afectar el emparejamiento." },
+          { type: "list", items: ["**100% puedo asistir → Enviar Solicitud de Batalla**", "**No estoy seguro → Abstenerse**"] },
+
+          { type: "h", text: "OBJETIVO PRINCIPAL" },
+          { type: "p", text: "Gana obteniendo más {allianceRelic} que la alianza rival." },
+          { type: "list", items: [
+            "Captura y mantén edificios importantes",
+            "Protege los puntos acumulados",
+            "Recoge el {arsenal} disperso inmediatamente cuando los edificios cambien de bando",
+            "Recolecta {undercellar} cuando aparezcan",
+            "Refuerza guarniciones cercanas cuando no estés en una concentración",
+            "No dejes marchas inactivas",
+            "**NO persigas bajas por todo el mapa.** El PvP aleatorio nos dispersa y reduce nuestra efectividad. Ataca ciudades de nivel más bajo cuando tenga sentido, debilitándolas cerca de un edificio que mantenemos."
+          ]},
+
+          { type: "h", text: "EDIFICIOS DE UN VISTAZO" },
+          { type: "buildings",
+            legend: "Números mostrados como: {allianceRelic} / {personalRelic}",
+            cols: { first: "Primer Control", hold: "Ocupación Continua", open: "Abre", min: "min", perMin: "/m", sep: ": " },
+            priority: { top: "MÁXIMA", high: "ALTA", med: "MEDIA" },
+            gather: "Puntos de recolección que aparecen periódicamente (dos oleadas)",
+            purposes: {
+              swordshrine: "Edificio de mayor valor en puntos",
+              mercenary: "Debilita los edificios en poder del enemigo",
+              reformation: "Bono de combate para la alianza",
+              sanctum: "{allianceRelic} de alto valor",
+              abbey: "Genera {allianceRelic}",
+              stables: "-50% de enfriamiento de teletransporte",
+              belltower: "-50% de tiempo de captura de edificios"
+            }
+          },
+          { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
+
+          { type: "h", text: "ZONAS ASIGNADAS" },
+          { type: "p", text: "R4 dividirá a los miembros confirmados en equipos/zonas antes de la batalla." },
+          { type: "p", text: "Nuestros **Atacantes más fuertes** serán asignados inicialmente a una zona:" },
+          { type: "list", items: [
+            "🟣 **Morado — {belltower}**",
+            "🟡 **Amarillo — {stables}**",
+            "🔵 **Azul — {sanctumNW}**",
+            "🟢 **Verde — {sanctumSE}**"
+          ]},
+          { type: "p", text: "Los miembros restantes serán asignados para apoyar una de estas zonas/equipos. Puede ser necesaria una rotación según las condiciones de la batalla — vigila siempre el Chat de Escuadrón para más detalles." },
+          { type: "p", text: "Permanece en tu zona asignada a menos que el liderazgo te indique moverte." },
+          { type: "zones", labels: {
+            purple: "🟣 Zona Morada — {belltower} / {mercenary}",
+            blue: "🔵 Zona Azul — {sanctumNW} / {abbey}",
+            yellow: "🟡 Zona Amarilla — {stables} / {abbey}",
+            green: "🟢 Zona Verde — {sanctumSE} / {abbey}",
+            center: "⚪ Centro"
+          }},
+          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
+
+          { type: "h", text: "ROLES Y RESPONSABILIDADES" },
+          { type: "p", text: "R4 dividirá a los miembros confirmados en 3 funciones según su poder: **Atacantes, Defensores y Apoyo/Participantes**." },
+
+          { type: "sub", text: "⚔️ 1) ATACANTES" },
+          { type: "p", text: "**Quién:** Nuestros jugadores más fuertes. Tienen suficientes teletransportes avanzados." },
+          { type: "p", text: "**Tu tarea:**" },
+          { type: "list", items: [
+            "Teletranspórtate a tu zona y edificio asignados",
+            "Captura los edificios prioritarios",
+            "Ataca en solitario castillos enemigos vulnerables",
+            "Lidera concentraciones importantes",
+            "Muévete al siguiente objetivo una vez que un Defensor tome el relevo",
+            "Cuando los enemigos se teletransporten cerca de tu edificio asignado, apunta a castillos más débiles o expuestos"
+          ]},
+
+          { type: "sub", text: "🛡️ 2) DEFENSORES" },
+          { type: "p", text: "**Quién:** Nuestros siguientes jugadores más fuertes, con buena capacidad de concentración/guarnición." },
+          { type: "p", text: "**Tu tarea:**" },
+          { type: "list", items: [
+            "Sigue a tus Atacantes asignados (zona)",
+            "Una vez que un Atacante haya capturado un edificio, toma el control de las guarniciones y pide refuerzos si es necesario",
+            "Refuerza objetivos amenazados",
+            "Libera a los Atacantes para que avancen a su siguiente objetivo"
+          ]},
+
+          { type: "sub", text: "🤝 3) APOYO / PARTICIPANTES" },
+          { type: "p", text: "**Quién:** Generalmente miembros de menor poder y participantes de concentraciones." },
+          { type: "p", text: "**Tu tarea:**" },
+          { type: "list", items: [
+            "**Deben** unirse a las concentraciones de los Defensores asignados",
+            "Refuerza los edificios capturados",
+            "Realiza marchas rápidas de refuerzo cuando se solicite",
+            "Opera desde la **Zona Segura** cuando no seas necesario en otro lugar o estés más alejado del alcance enemigo"
+          ]},
+          { type: "callout", text: "**IMPORTANTE:** Si el enemigo ataca uno de nuestros edificios capturados y el control pasa al enemigo, **teletranspórtate cerca o realiza una marcha rápida de inmediato** y recoge el {arsenal} disperso antes que ellos." },
+          { type: "list", items: [
+            "**A los 20 minutos de batalla**, aparece {undercellar}. Envía tropas disponibles para recolectarlo y sumar puntos adicionales.",
+            "No dejes marchas inactivas."
+          ]},
+
+          { type: "h", text: "ANTES DE LA BATALLA" },
+          { type: "list", items: [
+            "Vacía tu Enfermería. Ten todas las marchas disponibles",
+            "Equipa tus héroes/equipo más fuertes",
+            "Activa la Capacidad de Despliegue, los bonos de Ataque y Defensa, y el Contraespionaje",
+            "Ten Teletransportes Avanzados disponibles si tu rol los requiere",
+            "Mantén Discord abierto si es posible (para consultar el mapa, las asignaciones, VC opcional)",
+            "Revisa el Chat de Alianza y los Mensajes Privados"
+          ]},
+          { type: "callout", text: "⚠️ **IMPORTANTE:** El día de la batalla aparecerá una nueva pestaña de **Chat de Escuadrón**. **Vigila el Chat de Escuadrón durante toda la batalla.**" },
+
+          { type: "h", text: "CRONOLOGÍA DE LA BATALLA" },
+          { type: "timeline", items: [
+            { time: "0:00–15:00", title: "APERTURA", groups: [
+              { title: "Asegurar de inmediato", lines: ["**#4 {belltower}**", "**#7 {stables}**"] },
+              { title: "Disputar", lines: ["**#8 {sanctumNW}**", "**#10 {sanctumSE}**"] },
+              { title: "", lines: [
+                "Toma {abbey} cuando sea práctico, pero no sacrifiques objetivos clave por ello.",
+                "**14:30**, los jugadores más fuertes se preparan para el centro."
+              ]}
+            ]},
+            { time: "15:00", title: "SE ABREN LOS EDIFICIOS DE PODER", lines: [
+              "**#1 {swordshrine}**, **#2 {mercenary}**, **#3 {reformation}**",
+              "El liderazgo indicará prioridades según las condiciones del campo de batalla."
+            ], groups: [
+              { title: "⭐ {swordshrine}", lines: [
+                "Los Atacantes/Defensores más fuertes se teletransportan hacia el centro (no todos)",
+                "Captura {swordshrine}",
+                "Una vez asegurado, un Defensor fuerte mantiene la guarnición",
+                "Apoyo/Participantes deben hacer marcha rápida y enviar refuerzos"
+              ]}
+            ], warn: "⚠️ Miembros en guarnición: no abandonen su edificio por {swordshrine} a menos que el liderazgo lo indique. Sigan protegiendo {sanctum} y otros edificios importantes." },
+            { time: "15:00–45:00", title: "💪 FASE DE CONTROL", lines: [
+              "Objetivo principal: **Mantener {swordshrine} + {sanctumNW} + {sanctumSE}**",
+              "Mantén el control útil de {belltower}/{stables}",
+              "Usa el bono de {reformation} en enfrentamientos importantes",
+              "Usa {mercenary} para presionar edificios enemigos",
+              "Recoge el {arsenal} disperso después de CADA cambio de control",
+              "Refuerza guarniciones debilitadas"
+            ]},
+            { time: "20:00–60:00", title: "⛏️ {undercellar}", lines: [
+              "Comienza a aparecer {undercellar}.",
+              "Los jugadores de apoyo y cualquiera con marchas disponibles deben recolectarlo para puntos adicionales.",
+              "**No abandones una defensa o concentración crítica solo para recolectar.**"
+            ]},
+            { time: "ÚLTIMOS 15 MINUTOS", title: "🏁 CIERRE", groups: [
+              { title: "SI VAMOS GANANDO", lines: ["Protege {swordshrine} y {sanctum}", "Refuerza edificios con puntos acumulados", "Evita el PvP innecesario", "Recupera el {arsenal} disperso de inmediato", "No tomes riesgos innecesarios"] },
+              { title: "SI VAMOS PERDIENDO", lines: ["Presiona los edificios clave del enemigo", "Usa {mercenary} antes de ataques coordinados", "Concentra las concentraciones en vez de atacar al azar", "Apunta a edificios valiosos en poder del enemigo", "Recoge todos los puntos caídos tras un cambio de control exitoso"] }
+            ], warn: "**Últimos 5 minutos: Puntos > bajas.**" }
+          ]},
+
+          { type: "h", text: "RESUMEN" },
+          { type: "p", text: "Los grupos se dividirán en 3 funciones y se asignarán a una zona:" },
+          { type: "list", items: [
+            "**ATACANTES** → TOMAR + PRESIONAR",
+            "**DEFENSORES** → MANTENER + PROTEGER",
+            "**APOYO** → REFORZAR + CONCENTRAR + SAQUEAR + RECOLECTAR"
+          ]},
+          { type: "list", items: [
+            "Sigue tu zona y rol asignados.",
+            "Vigila el Chat de Escuadrón.",
+            "Objetivos > bajas al azar.",
+            "Los Atacantes toman — los Defensores mantienen — el Apoyo refuerza.",
+            "Nunca dejes marchas útiles inactivas.",
+            "Recoge el {arsenal} disperso de inmediato.",
+            "Recolecta {undercellar} con marchas disponibles.",
+            "Protege {swordshrine} + {sanctum}.",
+            "No abandones edificios clave por {abbey} o por bajas.",
+            "Si el liderazgo indica una rotación, MUÉVETE."
+          ]},
+          { type: "callout", text: "⚔️ **LA COORDINACIÓN GANA SWORDLAND**" }
+        ]
+      },
       tr: {
         title: "Kılıçdiyarı Hesaplaşması",
         blocks: [
@@ -3656,7 +3885,7 @@ const GUIDES = {
     emoji: "⛏️",
     name: {
       en: "Eternity's Reach", zh: "失落的遺跡", ko: "사라진 유적",
-      de: "Weiten der Ewigkeit", fr: "l'Éternité à Portée", pt: "Alcance da Eternidade",
+      de: "Weiten der Ewigkeit", fr: "l'Éternité à Portée", pt: "Alcance da Eternidade", es: "Alcance de la Eternidad",
       tr: "Sonsuzluğun Erişimi", id: "Eternity's Reach", ru: "Предел бесконечности",
       th: "ขอบเขตนิรันดร์", ar: "وصول الأبدية"
     },
@@ -3828,6 +4057,34 @@ const GUIDES = {
         { type: "sub", text: "Posicionamento" },
         { type: "p", text: "Use a teletransportação gratuita para se mover perto de 3 Veios ou para uma área menos lotada." },
         { type: "img", src: "figures/eternity_reach.jpg", alt: "Alcance da Eternidade" }
+      ]},
+      es: { title: "Alcance de la Eternidad", blocks: [
+        { type: "h", text: "CUÁNDO" },
+        { type: "p", text: "Cada 2 semanas — un evento solitario de 30 minutos." },
+        { type: "h", text: "POR QUÉ IMPORTA" },
+        { type: "p", text: "Una de las mejores fuentes recurrentes de materiales para el Amuleto del Gobernador." },
+        { type: "h", text: "ESTRATEGIA" },
+        { type: "sub", text: "Habilidades" },
+        { type: "p", text: "Para cada nivel de habilidad, elige:" },
+        { type: "list", items: ["Nivel 1 → Derecha", "Nivel 2 → Derecha", "Nivel 3 → Izquierda", "Nivel 4 → Izquierda", "Nivel 5 → Derecha"] },
+        { type: "sub", text: "Inicio" },
+        { type: "p", text: "Ataca a los Guardias de Cesares → Avanza rápido hasta desbloquear la Habilidad 3." },
+        { type: "p", text: "Apunta a Guardias de Cesares Nv.2 cuando sea posible, y salta los que ya estén siendo atacados." },
+        { type: "sub", text: "Cada 60 segundos" },
+        { type: "p", text: "Entra en una Veta de Cobre → Obtén 5,000 de Cobre → Recupera de inmediato → Anota la hora → Repite cada 1 minuto." },
+        { type: "callout", text: "Solo se necesita una marcha para activar el bono de 5,000 de Cobre." },
+        { type: "sub", text: "Vetas Fracturadas" },
+        { type: "p", text: "Cuando aparezcan → Envía marchas disponibles de inmediato → Recolecta hasta que desaparezcan." },
+        { type: "sub", text: "Carreta de Botín" },
+        { type: "p", text: "Déjala recolectando el Cobre disperso durante todo el evento. No ocupa un espacio de marcha." },
+        { type: "sub", text: "Habilidad 5" },
+        { type: "p", text: "Activa la 5ª habilidad durante un estallido de veta y envía todas las tropas a recolectar en las vetas." },
+        { type: "sub", text: "Cumbre de la Eternidad" },
+        { type: "p", text: "Se abre durante los últimos 7 minutos." },
+        { type: "p", text: "Evita el PvP innecesario si no eres lo bastante fuerte para disputarla → Captura solo cuando valga la pena." },
+        { type: "sub", text: "Posicionamiento" },
+        { type: "p", text: "Usa el teletransporte gratuito para moverte cerca de 3 Vetas o hacia una zona menos concurrida." },
+        { type: "img", src: "figures/eternity_reach.jpg", alt: "Eternity's Reach" }
       ]},
       tr: { title: "Sonsuzluğun Erişimi", blocks: [
         { type: "h", text: "NE ZAMAN" },
@@ -4869,7 +5126,7 @@ const GUIDES = {
   },
 "kvk": {
   emoji: "👑",
-  name: { zh: "KvK 準備與戰鬥指南", en: "KvK Prep & Battle Guide", ko: "KvK 준비 및 전투 가이드", de: "KvK-Vorbereitungs- & Kampfguide", fr: "Guide de Préparation et Combat KvK", pt: "Guia de Preparação e Batalha KvK", tr: "KvK Hazırlık ve Savaş Rehberi", id: "Panduan Persiapan & Pertempuran KvK", ru: "Гайд по подготовке и битве KvK", th: "คู่มือเตรียมตัวและการต่อสู้ KvK", ar: "دليل استعداد وقتال KvK" },
+  name: { zh: "KvK 準備與戰鬥指南", en: "KvK Prep & Battle Guide", ko: "KvK 준비 및 전투 가이드", de: "KvK-Vorbereitungs- & Kampfguide", fr: "Guide de Préparation et Combat KvK", pt: "Guia de Preparação e Batalha KvK", es: "Guía de Preparación y Batalla KvK", tr: "KvK Hazırlık ve Savaş Rehberi", id: "Panduan Persiapan & Pertempuran KvK", ru: "Гайд по подготовке и битве KvK", th: "คู่มือเตรียมตัวและการต่อสู้ KvK", ar: "دليل استعداد وقتال KvK" },
   sections: {
     zh: { title: "KvK 準備與戰鬥指南（Gen 3 版本）", blocks: [
       { type: "checklist", days: [1, 2, 3, 4, 5],
@@ -5375,6 +5632,90 @@ const GUIDES = {
       { type: "list", items: ["{medicalSatchels}: +10% de Taxa de Resgate", "{rescueOrders}: +1% cada, até +50%"]},
       { type: "callout", text: "⚠️ **IMPORTANTE:** Todos devem trocar {rescueOrders} no chat da aliança antes que o cronômetro expire!" }
     ]},
+    es: { title: "Guía de Preparación y Batalla KvK (Era Gen 3)", blocks: [
+      { type: "checklist", days: [1, 2, 3, 4, 5],
+        rows: [
+          { label: "{truegold}", icons: ["✅", "<span class=\"chk-ok\">OK</span>", "🚫", "🚫", "✅"] },
+          { label: "{truegoldDust}", icons: ["<span class=\"chk-ok\">OK</span>", "✅", "🚫", "🚫", "✅"] },
+          { label: "{heroShard}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
+          { label: "⏩️ {construction}", icons: ["✅", "<span class=\"chk-ok\">OK</span>", "🚫", "🚫", "✅"] },
+          { label: "⏩️ {training}", icons: ["🚫", "🚫", "🚫", "✅", "✅"] },
+          { label: "⏩️ {research}", icons: ["<span class=\"chk-ok\">OK</span>", "✅", "🚫", "🚫", "✅"] },
+          { label: "{heroRoulette}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
+          { label: "{gathering}", icons: ["👍", "✅", "👍", "✅", "👍"] },
+          { label: "{intel}", icons: ["✅", "👍", "✅", "👍", "✅"] },
+          { label: "{petAdvancement}", icons: ["🚫", "🚫", "✅", "🚫", "✅"] },
+          { label: "{governorCharm}", icons: ["✅", "🚫", "<span class=\"chk-ok\">OK</span>", "✅", "🚫"] },
+          { label: "{governorGear}", icons: ["🚫", "🚫", "🚫", "🚫", "✅"] },
+          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "<span class=\"chk-ok\">OK</span>", "✅"] },
+          { label: "{mithril} ", icons: ["🚫", "🚫", "🚫", "<span class=\"chk-ok\">OK</span>", "✅"] },
+          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "<span class=\"chk-ok\">OK</span>", "✅"] },
+          { label: "{masterItems}", icons: ["🚫", "✅", "<span class=\"chk-ok\">OK</span>", "🚫", "🚫"] },
+          { label: "{manuscript}", icons: ["🚫", "🚫", "✅", "🚫", "🚫"] },
+          { label: "{masterSpeeds}", icons: ["<span class=\"chk-ok\">OK</span>", "✅", "🚫", "🚫", "<span class=\"chk-ok\">OK</span>"] }
+        ],
+        legend: [
+          { icon: "✅", label: "{useIcon}" },
+          { icon: "<span class=\"chk-ok\">OK</span>", label: "{okayIfNeeded}" },
+          { icon: "🚫", label: "{dontUseIcon}" },
+          { icon: "👍", label: "{needDaily}" }
+        ]
+      },
+      { type: "h", text: "FASE 1: FASE DE PREPARACIÓN (Días 1–5)" },
+      { type: "p", text: "Para ganar el KvK, tu Reino debe obtener más puntos totales durante la Fase de Preparación que el oponente. Ganar esta fase otorga Ventaja de Atacante (tu Castillo está completamente a salvo durante la Fase de Batalla)." },
+      { type: "sub", text: "Día 1: Construcción, Oro Verdadero y Amuletos" },
+      { type: "p", text: "Actividades que puntúan: mejoras de edificios con {truegold}, Aceleradores de Construcción, {governorCharm}, Misiones de Inteligencia, Aceleradores de Habilidad de Maestro." },
+      { type: "p", text: "**🛡️ Enfoque F2P:**" },
+      { type: "list", items: ["Gasta los Aceleradores de Construcción y {truegold} guardados.", "Usa las Guías/Diseños de Amuleto de {governorGear} guardados de semanas anteriores.", "Vacía todas las Misiones de Inteligencia de la Atalaya."]},
+      { type: "p", text: "**⚡ Enfoque P2W:**" },
+      { type: "list", items: ["Maximiza los niveles de edificios de {truegold} de alto nivel ({academy} / Academia de Guerra).", "Sube los Amuletos de {governorGear} a Nivel 8–11 para picos masivos de puntos (el Nivel 11 da 16,000 pts por subida de nivel)."]},
+      { type: "sub", text: "Día 2: Investigación, Héroes y Recolección" },
+      { type: "p", text: "Actividades que puntúan: Aceleradores de Investigación, {truegoldDust} (Tecnología), Fragmentos de Héroe (Raro/Épico/Mítico), tiradas de {heroRoulette}, Emblemas de Maestro/{manuscript}, Recolección de Recursos." },
+      { type: "p", text: "**🛡️ Enfoque F2P:**" },
+      { type: "list", items: ["Gira la {heroRoulette} usando Gemas guardadas para obtener fragmentos de Petra (Gen 3).", "Invierte los fragmentos Míticos/Épicos universales guardados en héroes clave.", "Recolecta con antelación (envía a los recolectores antes del reinicio para que regresen de inmediato al comenzar el Día 2)."]},
+      { type: "p", text: "**⚡ Enfoque P2W:**" },
+      { type: "list", items: ["Maximiza la investigación de {truegoldDust} en la {academy}.", "Usa todos los Emblemas de Maestro y {manuscript} guardados.", "Sube instantáneamente a los héroes Gen 3 (Eric y Petra) a 5 estrellas."]},
+      { type: "sub", text: "Día 3: Entrenamiento de Mascotas y Progreso de Maestro" },
+      { type: "p", text: "Actividades que puntúan: {petAdvancement}, {commonTamingMarks} y {advancedTamingMarks} (Refinamiento), {heroRoulette}, Fragmentos de Héroe, Emblemas de Maestro/{manuscript}, Misiones de Inteligencia." },
+      { type: "p", text: "**🛡️ Enfoque F2P:**" },
+      { type: "list", items: ["Sube de nivel y refina varias mascotas de nivel medio de forma equilibrada, en lugar de invertir todo en una sola.", "Usa las tiradas de {heroRoulette} restantes y las Misiones de Inteligencia diarias."]},
+      { type: "p", text: "**⚡ Enfoque P2W:**" },
+      { type: "list", items: ["Uso intensivo de {advancedTamingMarks} (15,000 pts cada uno).", "Maximiza los umbrales de {petAdvancement} para obtener multiplicadores de puntos altos."]},
+      { type: "sub", text: "Día 4: Desarrollo de Héroes y Entrenamiento de Tropas" },
+      { type: "p", text: "Actividades que puntúan: Entrenamiento/Ascensos de Tropas (T1–T11), {forgehammer}, {widget}, Mitrilo, Recolección de Recursos." },
+      { type: "p", text: "**🛡️ Enfoque F2P:**" },
+      { type: "list", items: ["Asciende las tropas de nivel inferior a tu nivel más alto (por ejemplo, de T9 a T10). Mejorar tropas es mucho más eficiente en recursos que entrenar nuevas desde cero.", "Guarda los aceleradores generales para investigación/maestros — usa aquí solo aceleradores dedicados de Entrenamiento de Tropas."]},
+      { type: "p", text: "**⚡ Enfoque P2W:**" },
+      { type: "list", items: ["Usa los {forgehammer} guardados (4,000 pts cada uno) y los {widget} de {heroExclusiveGear} (8,000 pts cada uno).", "Aplica mejoras de Mitrilo (40,000 pts cada una) para desbloquear grandes picos de puntos."]},
+      { type: "sub", text: "Día 5: Impulso de Poder y Mejoras Finales" },
+      { type: "p", text: "Actividades que puntúan: {governorGear}, Equipo de Héroe, Refinamiento de Mascotas, Mitrilo, {truegold}, Todos los aceleradores, Misiones de Inteligencia, Recolección." },
+      { type: "p", text: "**🛡️ Enfoque F2P:**" },
+      { type: "list", items: ["Vacía las Misiones de Inteligencia restantes, gasta los recursos/aceleradores sobrantes, y mejora {governorGear} usando {satin}/{gildedThreads} acumulados."]},
+      { type: "p", text: "**⚡ Enfoque P2W:**" },
+      { type: "list", items: ["Sube {governorGear} a Mítico / Mítico 3 Estrellas (6,250 pts por cada subida de nivel).", "Liquida todo el Mitrilo, {widget} y {forgehammer} restantes para asegurar las recompensas del ranking personal diario Top 2000 / Top 200."]},
+      { type: "h", text: "⚔️ FASE 2: FASE DE BATALLA (12 HORAS)" },
+      { type: "p", text: "Ventana de Batalla del Castillo: 12:00 UTC a 22:00 UTC." },
+      { type: "p", text: "Objetivo: Controlar el {kingsCastle} y 4 {turret}." },
+      { type: "h", text: "🎯 META PVP GEN 3 Y CONFIGURACIÓN DE CONCENTRACIONES" },
+      { type: "sub", text: "🛡️ Defensa de Guarnición — Castillo/Torretas" },
+      { type: "p", text: "**Héroe líder:** Eric (Gen 3) — Muralla de infantería inquebrantable con estadísticas Gen 3 superiores y mecánicas de supervivencia. Combinado con {zoe} (Gen 2) para escudos." },
+      { type: "sub", text: "⚔️ Concentraciones Ofensivas (Atacando Castillo/Torretas)" },
+      { type: "p", text: "**Héroe líder:** Petra (Gen 3) — Comandante de caballería devastador con {widget} de concentración ofensiva de alta escala." },
+      { type: "sub", text: "🤝 Participantes de Concentración (¡Crucial para F2P!)" },
+      { type: "p", text: "NO uses héroes al azar al unirte a concentraciones. Únete con:" },
+      { type: "list", items: ["{chenko} (Habilidad 1 al máximo)", "{amane}", "{yeonwoo}"]},
+      { type: "p", text: "Estos héroes acumulan multiplicadores de Letalidad." },
+      { type: "h", text: "💣 ESTRATEGIA DE DOBLE CONCENTRACIÓN \"ROMPE-BALLENAS\"" },
+      { type: "p", text: "Para guarniciones enemigas fuertes:" },
+      { type: "list", items: ["**Concentración 1 (Escudo de Carne / Limpiadora):** Se lanza 1–2 segundos antes. Se enfoca en pura letalidad para desbordar la Enfermería enemiga y eliminar las tropas defensoras.", "**Concentración 2 (Atacante Principal):** Llega justo después de la Concentración 1 para eliminar las tropas restantes y tomar el control del Castillo."]},
+      { type: "callout", text: "Ventaja de {turret}: capturar {turret} otorga hasta +20% de Letalidad de Escuadrón si es mantenida por el mismo reino que posee el Castillo." },
+      { type: "h", text: "🩺 FASE 3: TRIAJE DE CAMPO (RECUPERACIÓN DE TROPAS)" },
+      { type: "p", text: "Tasa de Rescate Base: 30% de las tropas perdidas que no llegaron a la Enfermería." },
+      { type: "p", text: "Tasa de Rescate Objetivo: 90%" },
+      { type: "p", text: "**Cómo aumentarla:**" },
+      { type: "list", items: ["{medicalSatchels}: +10% Tasa de Rescate", "{rescueOrders}: +1% cada uno, hasta +50%"]},
+      { type: "callout", text: "⚠️ **IMPORTANTE:** ¡Todos deben intercambiar {rescueOrders} en el chat de alianza antes de que expire el temporizador!" }
+    ]},
     tr: { title: "KvK Hazırlık ve Savaş Rehberi (Gen 3 Dönemi)", blocks: [
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
@@ -5802,7 +6143,7 @@ const GUIDES = {
     name: {
       en: "All Out", zh: "全軍出擊", ko: "전군 출격",
       de: "Aufs Ganze", fr: "Tous dehors",
-      pt: "Vai com Tudo", tr: "Topyekün",
+      pt: "Vai com Tudo", es: "Ataque Total", tr: "Topyekün",
       id: "Serangan Penuh", ru: "Полный вперед",
       th: "ลุยเลย", ar: "جميع القوات تهاجم"
     },
@@ -5956,6 +6297,31 @@ const GUIDES = {
           "{greatIronMine} – 12:00 UTC às 00:00 UTC"
         ]},
         { type: "callout", text: "Use esses locais protegidos durante o evento. Fique seguro e colete com inteligência." }
+      ]},
+      es: { title: "Ataque Total", blocks: [
+        { type: "h", text: "🪖 Reglas de Ataque Total" },
+        { type: "list", items: [
+          "❌ No atacar a miembros del NAP 6, incluidas sus granjas/academias (NXS/nxs, RED/ReD, NBD/OFA/Nbd, ESA/EsA/UNI, IDN, KGb)",
+          "❌ No atacar castillos ni edificios de alianza (cuarteles generales, puestos avanzados, estandartes)",
+          "✅ Puedes atacar casillas de recolección de recursos ({mill}, {quarry}, {ironMine})",
+          "✅ Puedes atacar a jugadores fuera del NAP."
+        ]},
+        { type: "list", items: [
+          "Si tu castillo es atacado por un miembro del NAP, no tomes represalias — informa a R4/R5.",
+          "Evita recolectar recursos en zona salvaje, usa en su lugar el {securedAllianceNode}.",
+          "Quien infrinja las reglas será tratado según los acuerdos de alianza/NAP."
+        ]},
+        { type: "h", text: "🏭 Puntos de Recolección Seguros" },
+        { type: "p", text: "Durante el evento **{allOut}**, rotaremos nuestros puntos de recolección seguros cada 12 horas durante 48 horas." },
+        { type: "p", text: "Esto le da a todos un lugar protegido para recolectar recursos mientras el evento está activo." },
+        { type: "sub", text: "Horario de rotación (comenzando con el reinicio de 00:00 UTC)" },
+        { type: "list", items: [
+          "{greatMill} – 00:00 UTC a 12:00 UTC",
+          "{greatSawmill} – 12:00 UTC a 00:00 UTC",
+          "{greatQuarry} – 00:00 UTC a 12:00 UTC",
+          "{greatIronMine} – 12:00 UTC a 00:00 UTC"
+        ]},
+        { type: "callout", text: "Usa estos lugares protegidos durante el evento. Mantente seguro y recolecta con inteligencia." }
       ]},
       tr: { title: "Topyekün", blocks: [
         { type: "h", text: "🪖 Topyekün Kuralları" },
