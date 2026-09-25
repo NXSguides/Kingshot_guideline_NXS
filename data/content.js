@@ -237,6 +237,10 @@ const GLOSSARY = {
   greatSawmill: { zh:"大型伐木場", en:"Great Sawmill", ko:"대형 벌목장", de:"Großes Sägewerk", fr:"Grande Scierie", pt:"Grande Serraria", tr:"Büyük Odun Fabrikası", id:"Penggergajian Kayu Besar", ru:"Большая лесопилка", th:"โรงเลื่อยใหญ่", ar:"منشرة عظيمة" },
   greatIronMine: { zh:"大型鐵礦場", en:"Great Iron Mine", ko:"대형 철광장", de:"Großes Eisenbergwerk", fr:"Grande Mine de Fer", pt:"Grande Mina de Ferro", tr:"Büyük Demir Madeni", id:"Tambang Besi Besar", ru:"Большой железный рудник", th:"เหมืองเหล็กใหญ่", ar:"منجم حديد عظيم" },
   greatQuarry: { zh:"大型採石場", en:"Great Quarry", ko:"대형 채석장", de:"Großer Steinbruch", fr:"Grande Carrière", pt:"Grande Pedreira", tr:"Büyük Taş Ocağı", id:"Tambang Batu Besar", ru:"Большая каменоломня", th:"เหมืองหินใหญ่", ar:"محجر عظيم" },
+  mill: { zh:"磨坊", en:"Mill", ko:"방앗간", de:"Mühle", fr:"Moulin", pt:"Moinho", tr:"Değirmen", id:"Lumbung", ru:"Мельница", th:"โรงโม่", ar:"طاحونة" },
+  sawmill: { zh:"伐木場", en:"Sawmill", ko:"벌목장", de:"Sägewerk", fr:"Scierie", pt:"Serraria", tr:"Odun Fabrikası", id:"Penggergajian Kayu", ru:"Лесопилка", th:"โรงเลื่อย", ar:"منشرة" },
+  ironMine: { zh:"鐵礦場", en:"Iron Mine", ko:"철광장", de:"Eisenbergwerk", fr:"Mine de Fer", pt:"Mina de Ferro", tr:"Demir Madeni", id:"Tambang Besi", ru:"Железный рудник", th:"เหมืองเหล็ก", ar:"منجم حديد" },
+  quarry: { zh:"採石場", en:"Quarry", ko:"채석장", de:"Steinbruch", fr:"Carrière", pt:"Pedreira", tr:"Taş Ocağı", id:"Tambang Batu", ru:"Каменоломня", th:"เหมืองหิน", ar:"محجر" },
   securedAllianceNode: { zh:"聯盟安全採集點", en:"Secured Alliance Node", ko:"연맹 안전 채집 포인트", de:"Allianzknoten", fr:"Point d'Alliance Sécurisé", pt:"Nó de Aliança Protegido", tr:"Korumalı İttifak Toplama Noktası", id:"Node Aliansi Aman", ru:"защищенный узел сбора альянса", th:"จุดพันธมิตรปลอดภัย", ar:"نقطة تجميع تحالف مؤمنة" },
   armory: { zh:"防具庫", en:"Armory", ko:"방어구 창고", de:"Waffenkammer", fr:"Armurerie", pt:"Arsenal", tr:"Cephanelik", id:"Armory", ru:"Оружейная", th:"คลังแสง", ar:"مخزن الدروع" },
   masters: { en:"Masters" },
@@ -5665,7 +5669,7 @@ const GUIDES = {
         { type: "list", items: [
           "❌ No attacks on NAP 6 (NXS, RED, NBD, ESA, IDN, KGb)",
           "❌ No attacks on castles or alliance buildings (HQs, outposts, banners, etc.).",
-          "✅ You can attack resource gathering tiles ({greatMill}, {greatSawmill}, {greatQuarry}, {greatIronMine} etc.)",
+          "✅ You can attack resource gathering tiles ({mill}, {sawmill}, {quarry}, {ironMine} etc.)",
           "✅ You can attack players outside of the Top 6."
         ]},
         { type: "list", items: [
