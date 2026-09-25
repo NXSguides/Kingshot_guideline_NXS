@@ -554,14 +554,14 @@ const EVENT_POPUP = {
     de: "Das Event **Aufs Ganze** läuft – bitte zuerst die Event-Hinweise lesen.",
     fr: "L'événement **Tous dehors** est en cours, merci de consulter les consignes d'abord.",
     pt: "O evento **Vai com Tudo** está ativo — confira primeiro as notas do evento.",
+    es: "El evento **Ataque Total** está activo — revisa primero las notas del evento.",
     tr: "**Topyekün** etkinliği devam ediyor, lütfen önce etkinlik notlarını inceleyin.",
     id: "Event **Serangan Penuh** sedang berlangsung — mohon baca catatan event terlebih dahulu.",
     ru: "Идёт событие **Полный вперед** — пожалуйста, ознакомьтесь с примечаниями к событию.",
     th: "กิจกรรม **ลุยเลย** กำลังดำเนินอยู่ กรุณาตรวจสอบข้อควรทราบของกิจกรรมก่อน",
     ar: "فعالية **جميع القوات تهاجم** جارية الآن، يُرجى مراجعة ملاحظات الفعالية أولاً."
   },
-  confirmLabel: { zh:"確認", en:"Confirm", ko:"확인", de:"Bestätigen", fr:"Confirmer", pt:"Confirmar", tr:"Onayla", id:"Konfirmasi", ru:"Подтвердить", th:"ยืนยัน", ar:"تأكيد" }
-};
+  confirmLabel: { zh:"確認", en:"Confirm", ko:"확인", de:"Bestätigen", fr:"Confirmer", pt:"Confirmar", es:"Confirmar", tr:"Onayla", id:"Konfirmasi", ru:"Подтвердить", th:"ยืนยัน", ar:"تأكيد" }
 
 let popupShown = false;
 
