@@ -307,6 +307,7 @@ function renderPicker() {
     btn.textContent = l.label;
     btn.onclick = () => {
       currentLang = l.code;
+      currentGuide = "recent-events";
       langChosen = true;
       persistPrefs();
       renderAll();
