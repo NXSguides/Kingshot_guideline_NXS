@@ -234,6 +234,7 @@ const BLOCKS = {
   joiners: (b, g) => `<div class="joiner-list">${(g.joiners || []).map((j) => {
     const name = heroName(j.hero || j.name);
     const role = (UI.roles[j.role] && t(UI.roles[j.role])) || "";
+    const img = r.img ? `<img class="lineup-img" src="${escapeHtml(r.img)}" alt="${escapeHtml(formatHeroes(r.heroes))}" loading="lazy" onerror="this.remove()">` : "";
     return `<div class="joiner-card">
       <div class="joiner-avatar" aria-hidden="true">${escapeHtml((name || "?").charAt(0))}</div>
       <div class="joiner-meta">
