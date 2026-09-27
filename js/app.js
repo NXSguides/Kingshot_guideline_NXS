@@ -430,11 +430,14 @@ function renderAnnTicker() {
     .replace(/\s*\n+\s*/g, " ")
     .trim();
 
+  const firstParagraph = (text) =>
+    (text.split(/\n\s*\n/).map((p) => toPlain(p)).find((p) => p) || "");
+
   const items = announcements.map((a) => {
     const title = a.title ? t(a.title) : "";
     const body = a.content[currentLang] || a.content.en || Object.values(a.content)[0] || "";
-    const plain = toPlain(body);
-    return title ? `${title}：${plain}` : plain;
+    const lead = firstParagraph(body);
+    return title && lead ? `${title}：${lead}` : (title || lead);
   });
 
   const text = `📢 ${items.join("   ✦   ")}`;
