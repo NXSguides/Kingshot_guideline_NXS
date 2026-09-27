@@ -240,6 +240,7 @@ const BLOCKS = {
         <div class="joiner-name">${escapeHtml(name)}</div>
         ${role ? `<div class="joiner-role">${escapeHtml(role)}</div>` : ""}
       </div>
+      ${img}
     </div>`;
   }).join("")}</div>`,
   guideLink: (b) => {
