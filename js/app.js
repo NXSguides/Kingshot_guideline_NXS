@@ -176,6 +176,16 @@ const BLOCKS = {
     return "";
   },
 
+  cards: (b) => `<div class="card-grid">${(b.items || []).map((c) => `
+    <div class="info-card">
+      ${c.img ? `<img class="info-card-img" src="${escapeHtml(c.img)}" alt="${escapeHtml(c.alt || "")}" loading="lazy" onerror="this.remove()">` : ""}
+      <div class="info-card-body">
+        ${c.title ? `<div class="info-card-title">${rich(c.title)}</div>` : ""}
+        ${c.meta ? `<div class="info-card-meta">${rich(c.meta)}</div>` : ""}
+        ${c.lines ? ul(c.lines) : ""}
+      </div>
+    </div>`).join("")}</div>`,
+
   buildings: (b, g) => {
     const legend = b.legend ? `<p class="legend">${rich(b.legend)}</p>` : "";
     return legend + g.buildings.map((x) => {
@@ -372,7 +382,7 @@ function renderGuideRow() {
 }
 
 /* Order of the guide buttons at the top. Guides not listed here are added at the end. */
-const GUIDE_ORDER = ["recent-events", "formations-rally-tips", "f2p-heroes", "bear-hunt", "swordland-showdown", "kvk"];
+const GUIDE_ORDER = ["recent-events", "formations-rally-tips", "f2p-heroes", "mystic-trial", "bear-hunt", "swordland-showdown", "kvk"];
 
 function guideKeys() {
   const all = Object.keys(GUIDES);
