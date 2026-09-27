@@ -144,7 +144,8 @@ const EVENT_SCHEDULES = {
   "viking-vengeance":     { anchor: Date.UTC(2026, 8, 22), periodDays: 14, activeDays: 3 },
   "swordland-showdown":   { anchor: Date.UTC(2026, 8, 20), periodDays: 14, activeDays: 1 },
   "all-out": { anchor: Date.UTC(2026, 8, 25), periodDays: 28, activeDays: 2 },
-  "fishing-tournament": { anchor: Date.UTC(2026, 8, 29), periodDays: 28, activeDays: 3 }
+  "fishing-tournament": { anchor: Date.UTC(2026, 8, 29), periodDays: 28, activeDays: 3 },
+  "tri-alliance-clash": { anchor: Date.UTC(2026, 8, 28), periodDays: 28, activeDays: 6 }
 };
 
 function isEventActive(key) {
@@ -261,7 +262,7 @@ const BLOCKS = {
     if (!announcements.length) return "";
     if (currentAnnIndex >= announcements.length) currentAnnIndex = 0;
     const tabs = announcements.map((a, i) => `
-      <button type="button" class="ann-tab${i === currentAnnIndex ? " active" : ""}" onclick="(${i})">
+      <button type="button" class="ann-tab${i === currentAnnIndex ? " active" : ""}" onclick="selectAnnouncement(${i})">
         ${escapeHtml(annLabel(a))}
       </button>
     `).join("");
