@@ -27,4 +27,32 @@ content: |
   
   More details on what to use each day will follow!
 ---
+author: ΔRMΔDΔ
+lang: en
+title: Use Wolf Paws Today – Champagne Fair Tomorrow
+images: []
+content: |
+Team,
+
+Champagne Fair starts tomorrow. If Diana is already maxed out, make sure you use all of your wolf paws today so you can exchange her shards for other goodies in the Champagne Fair shop.
+
+Don't miss out.
+---
+author: ΔRMΔDΔ
+lang: en
+title: ALLIANCE MOBILIZATION IS HERE! Tomorrow
+images: []
+content: |
+Push to stay in our current top league — we don't need to hit top 3, we just need to secure our position.
+
+DO NOT select missions using KvK Prep items: Speedups, Hero/General Shards, Governor/Hero Gear mats, True Gold or Pet items.
+
+Best picks: 120K Training, Terror Rallies (joining counts, save stamina), 30M Gathering, Beast missions (gold tier) pair with Intel.
+
+Training/Gathering: Have them nearly finished before selecting. Use pet buffs and King perks.
+
+Choose wisely!
+---
+
+
 
