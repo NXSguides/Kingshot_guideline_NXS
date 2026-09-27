@@ -20,9 +20,9 @@ const TERMS = [
    ["Royal Foundry","皇家工坊","황실 공방","Kaiserliche Gießerei","Fonderie Royale","Forja da Realeza","Kraliyet Dökümhanesi","Pabrik Kerajaan","королевская литейная","โรงหล่อราชวงศ์","المسبك الملكي","—"],
    ["Redeem","兌換","교환","Einlösen","Échanger","Resgatar","Kullan","Tukar","Обменять","แลก","استبدال","—","Turkish uses the same word as 'Use'."],
    ["Left","剩餘","잔여","Übrig","En stock","Restante","Kalan","Tersisa","Осталось","คงเหลือ","متبقي","—"],
-   ["Owned","持有數量","보유 수량","Im Besitz","Tu possèdes","Obtido","Stok","Dimiliki","Имеется","มีอยู่","مملوك","—"],
-   ["Go","前往瞭望塔","이동","Los","Aller","Ir","Git","Pergi","Вперед","ไป","انطلق","—","Chinese label is the longer '前往瞭望塔'."],
-   ["Tip","兌換提醒","교환 알림","Tipp","Conseil","Dica","Hatırlatıcı","Tip","Подсказка","แนะนำ","نصيحة","—","Label on the Golden Glaives banner."],
+   ["Owned","持有數量","보유 수량","Im Besitz","Tu possèdes","Obtido","Stok","Dimiliki","Имеется","มีอยู่","مملوك","Tienes","Get More popups: ZH '目前擁有', KO '현재 보유'."],
+   ["Go","前往瞭望塔","이동","Los","Aller","Ir","Git","Pergi","Вперед","ไป","انطلق","Ir","Chinese label is the longer '前往瞭望塔'; Get More / daily mission buttons say '前往'."],
+   ["Tip","兌換提醒","교환 알림","Tipp","Conseil","Dica","Hatırlatıcı","Tip","Подсказка","แนะนำ","نصيحة","Consejo","Label on the Golden Glaives banner. Same label on the Hall of Heroes (Deals) screen."],
    ["Bread (Secured)","麵包（安全）","빵 (안전)","Brot (Geschützt)","Pains (sécurisés)","Pão (Protegido)","Ekmek (Korumalı)","Roti (Aman)","хлеба (под защитой)","ขนมปัง (ปลอดภัย)","خبز (مضمون)","—","Russian seen in genitive inside a sentence; base form is хлеб."],
   ]
  },
@@ -569,6 +569,184 @@ const TERMS = [
    ["Skins", "裝扮", "스킨", "Verkleidung", "Thèmes", "Visuais", "Görünümler", "—", "облики", "สกิน", "المظاهر", "Apariencias", "Radiant Spire list."],
    ["Oasis Island", "綠洲島", "오아시스", "Oasen Insel", "Île Oasis", "Ilha Oásis", "Vaha Adası", "—", "остров Оазиса", "เกาะโอเอซิส", "جزيرة الواحة", "Isla del Oasis", "Radiant Spire list. KO omits 'island'."],
    ["VIP level", "VIP等級", "VIP레벨", "VIP-Level", "niveau VIP", "nível VIP", "VIP seviyesi", "—", "VIP-уровень", "เลเวล VIP", "مستوى VIP", "nivel VIP", "Radiant Spire list."]
+  ]
+ },
+ {
+  "cat": "VIP",
+  "rows": [
+   ["Current Level", "目前等級", "현재 레벨", "Aktuelles Level", "Niveau Actuel", "Nível atual", "Mevcut Seviye", "Level Saat Ini", "Текущий уровень", "เลเวลปัจจุบัน", "المستوى الحالي", "Nivel actual", "VIP page."],
+   ["VIP XP", "VIP經驗值", "VIP 경험치", "VIP XP", "EXP VIP", "XP VIP", "VIP XP", "XP VIP", "VIP-опыт", "XP VIP", "خبرة VIP", "EXP VIP", "VIP page / Backpack item. TR item name says 'VIP TP'si'. AR text also 'نقاط خبرة VIP'."],
+   ["VIP Benefits", "VIP特權", "VIP 특권", "VIP-Vorteile", "Avantages VIP", "Benefícios de VIP", "VIP Avantajları", "Keuntungan Fasilitas VIP", "Преимущества VIP-уровня", "สิทธิพิเศษ VIP", "مزايا VIP", "Ventajas de VIP", "Heading with the VIP level number (e.g. 'VIP 5 Vorteile')."],
+   ["NEW", "最新", "NEW", "NEU", "NEW", "NOVO", "—", "BARU", "NEW", "ใหม่", "جديد", "—", "Green tag in the VIP benefit list."],
+   ["Resource Production Speed", "資源生產速度", "자원 생산 속도", "Ressourcen Produktions Geschwindigkeit", "Vitesse de Production de Ressources", "Velocidade de Produção de Recursos", "Kaynak Üretim Hızı", "Kecepatan Produksi Sumber Daya", "Скорость производства ресурсов", "สปีดการผลิตทรัพยากร", "سرعة إنتاج الموارد", "Velocidad de Producción de Recursos", "VIP benefit."],
+   ["Storehouse Capacity", "倉庫容量", "창고 수용량", "Lagerkapazität", "Capacité de l'Entrepôt", "Capacidade", "Ambar Kapasitesi", "Kapasitas Gudang", "Вместимость склада", "ความจุคลังสินค้า", "سعة المستودع", "Capacidad del Almacén", "VIP benefit. PT only says 'Capacidade'."],
+   ["Construction Speed", "建造速度", "건설 속도", "Baugeschwindigkeit", "Vitesse de Construction", "Velocidade de Construção", "İnşaat Hızı", "Kecepatan Konstruksi", "Скорость строительства", "สปีดการสร้าง", "سرعة البناء", "Velocidad de Construcción", "VIP benefit."],
+   ["VIP Daily Free Bundle", "VIP每日免費禮包", "VIP 일일 무료팩", "Tägliche Gratis Bündel", "Pack Quotidien Gratuit pour VIP", "Pacote Gratuito Diário de VIP", "Günlük Ücretsiz Paketi", "Paket Gratis Harian VIP", "Ежедневный бесплатный набор VIP-уровня", "ชุดรวมฟรีประจำวัน VIP", "باقة VIP اليومية المجانية", "Paquete gratis diario de VIP", "Shown with the VIP level number."],
+   ["VIP Special Pack", "VIP專享禮包", "VIP 스페셜팩", "Spezial Paket", "Pack Spécial VIP", "Pacote Especial de VIP", "Özel Paketi", "Paket Spesial VIP", "Особый набор VIP", "แพ็กเกจพิเศษ VIP", "باقة VIP الخاصة", "Paquete especial VIP", "Shown with the VIP level number."],
+   ["Purchase limit: 1", "僅限購買1次", "한정 1회", "Kauflimit: 1", "Limite d'achat : 1", "Limite de compra: 1", "Satın alım sınırı: 1", "Batas pembelian: 1", "Лимит покупок: 1", "การซื้อสูงสุด: 1", "الحد الأقصى للشراء: 1", "Límite de compra: 1"]
+  ]
+ },
+ {
+  "cat": "Alliance menu",
+  "rows": [
+   ["Power (alliance info)", "實力", "전투력", "Kraft", "Puissance", "Poder", "Güç", "Kekuatan", "Сила", "ค่าพลัง", "القوة", "Poder", "Alliance info box."],
+   ["Members", "成員", "멤버", "Mitglieder", "Membres", "Membros", "Üyeler", "Anggota", "Участники", "สมาชิก", "الأعضاء", "Miembros", "DE bottom button is singular 'Mitglied'."],
+   ["Language", "語言", "언어", "Sprache", "Langue", "Idioma", "Dil", "Bahasa", "Язык", "ภาษา", "اللغة", "Idioma"],
+   ["All languages", "所有語言", "모든 언어", "Alle Sprachen", "Toutes les langues", "Todos os Idiomas", "Tüm diller", "Semua bahasa", "Все языки", "ทุกภาษา", "كل اللغات", "Todos los idiomas"],
+   ["Maxed", "等級已滿", "만렙", "Maximal", "Au max", "Limite alcançado", "Maksimumda", "Maks", "Макс.", "สูงสุดแล้ว", "الحد الأقصى", "Al Máximo", "Alliance level bar."],
+   ["War", "聯盟戰爭", "연맹 전쟁", "Krieg", "Guerre", "Guerra", "Savaş", "Perang", "Война", "สงคราม", "حرب", "Guerra", "Alliance menu button."],
+   ["Chests", "聯盟寶箱", "연맹 보물 상자", "Kiste", "Caisses", "Baús", "Sandıklar", "Peti", "Ящики", "หีบ", "صناديق", "Cajas", "Alliance menu button."],
+   ["Territory", "聯盟領地", "연맹 영지", "Gebiet", "Territoire", "Território", "Bölge", "Wilayah", "Территория", "อาณาเขต", "الإقليم", "Territorio", "Alliance menu button."],
+   ["Battle", "據點爭奪", "거점 쟁탈", "Schlacht", "Bataille de l'Alliance", "Batalha", "Çarpışma", "Pertarungan Aliansi", "Битва", "การต่อสู้พันธมิตร", "المعركة", "Batalla de alianza", "Alliance menu button."],
+   ["Shop (alliance)", "聯盟商店", "연맹 상점", "Laden", "Magasin", "Loja", "Mağaza", "Toko", "Магазин", "ร้านค้า", "متجر", "Tienda", "Alliance menu button. Most languages use the plain word 'Shop'."],
+   ["Tech (alliance)", "聯盟科技", "연맹 과학 기술", "Technologie", "Tech", "Tecnologia", "Teknoloji", "Teknologi", "Технологии", "เทคโนโลยี", "التقنيات", "Tecnología", "Alliance menu button. Not the same as the Tech row in Mystic Trial (DE plural there)."],
+   ["Power (ranking button)", "實力排行", "전투력 랭킹", "Kraft", "Puissance", "Poder", "Güç", "Kekuatan", "Рейтинг силы", "ค่าพลัง", "القوة", "Poder", "Alliance menu button. Only ZH/KO/RU say 'ranking'."],
+   ["Help", "聯盟互助", "연맹 협조", "Hilfe", "Aide", "Ajuda", "Yardım", "Bantuan", "Помощь", "การช่วยเหลือ", "المساعدة", "Ayuda", "Alliance menu button."],
+   ["Triumph", "激勵", "격려", "Sieg", "Triomphe", "Triunfo", "Zafer", "Triumph", "Триумф", "ชัยชนะ", "حوافز", "Incentivo", "Alliance bottom button."]
+  ]
+ },
+ {
+  "cat": "Intel Missions",
+  "rows": [
+   ["Intel Mission", "情報事件", "정보 이벤트", "Geheimdienst-Mission", "Mission de renseignements", "Missão de Informação", "Bilgi Görevi", "Misi Intel", "Разведывательная миссия", "ภารกิจข่าวกรอง", "مهمة المعلومات", "Misión de Inteligencia", "Popup title / daily mission. Page title: ZH '事件', KO '이벤트', DE 'Geheimdienst Mission', ES 'Misión de Información'. Daily mission text: ID 'Misi Intelijen'. Not the same as the older GLOSSARY key 'intel'."],
+   ["Intel Level", "情報事件", "—", "—", "—", "—", "—", "—", "Уровень разведки", "—", "—", "—", "Level popup title. ZH just repeats '情報事件'."],
+   ["Quality", "情報事件等級", "정보 이벤트 품질", "Qualität", "Qualité", "Qualidade", "Kalite", "Kualitas", "Качество", "คุณภาพ", "الجودة", "Calidad", "ZH says 'level', not 'quality'."],
+   ["Max Count", "最多情報事件更新數量", "정보 이벤트 새로고침 최대 수량", "Max. Anzahl", "Nombre max.", "Contagem Máx", "Maks. Sayı", "Jumlah Maks", "Макс. число", "จำนวนสูงสุด", "الحد الأقصى للعدد", "Cantidad Máx"],
+   ["Refreshes In", "下次更新", "다음 새로고침", "Aktualisiert in", "Actu. dans", "Atualiza em", "Yenilenme", "Diperbarui di", "До обновления", "รีเฟรชใน", "التحديث بعد", "Se actualiza en", "Countdown. Shops/daily use other forms: ES 'Refresca en' / 'Se refresca en', ID 'Diperbarui' / 'Diperbarui dalam', AR 'التحديث خلال'."]
+  ]
+ },
+ {
+  "cat": "City buildings",
+  "rows": [
+   ["Barricade", "城牆", "성벽", "Barrikade", "Barricade", "Barricada", "Barikat", "Barikade", "Баррикада", "กำแพงเมือง", "البوابة", "Barricada", "City view label. AR says 'gate'."],
+   ["Conquerors' Camp", "討伐小隊營地", "소대 영지 토벌", "Lager der Eroberer", "Camp des Conquérants", "Acampamento dos Conquistadores", "Fatihler Kampı", "Kamp Penakluk", "Лагерь завоевателя", "ค่ายผู้พิชิต", "معسكر الغزاة", "Campamento de Conquistadores", "City view label."],
+   ["Court of Justice", "司法所", "사법재판소", "Gericht", "Cour de Justice", "Corte da Justiça", "Adliye", "Mahkamah Hukum", "Суд", "ศาลยุติธรรม", "محكمة العدل", "Corte de justicia", "City view label."],
+   ["Infirmary", "野戰醫院", "야전 병원", "Krankenstation", "Infirmerie", "Enfermaria", "Revir", "Rumah Sakit", "Лазарет", "โรงพยาบาล", "المستوصف", "Enfermería", "City view label."],
+   ["Enlistment Office", "徵兵處", "징병소", "Musterungsamt", "Bureau d'Enrôlement", "Escritório de Alistamento", "Görevlendirme Ofisi", "Kantor Pendaftaran", "Призывной пункт", "—", "مكتب التجنيد", "Oficina de Reclutamiento", "City view label. TH label hidden by the chat bar."]
+  ]
+ },
+ {
+  "cat": "Alliance Tech contribution",
+  "rows": [
+   ["Covenant-Making", "聯盟永存", "영원한 연맹", "Schließen von Bündnissen", "Marché Conclu", "Fazendo Alianças", "Antlaşma", "Pembuatan Pakta", "Заключение союзов", "การทำข้อตกลง", "عقد العهد", "Establecimiento de pactos", "Contribution popup title."],
+   ["Permanent Alliance Tech Contributions", "永續聯盟科技捐贈", "영원한 연맹 과학 기술 기부", "Dauerhafte Allianztechnologie-Beiträge", "Contributions Tech de l'Alliance Permanentes", "Contribuição Tecnológica da Aliança Permanente", "Kalıcı İttifak Teknoloji Katkıları", "Kontribusi Teknologi Aliansi", "Делать взносы в технологию альянса можно постоянно.", "ความอนุเคราะห์เทคโนโลยีพันธมิตรถาวร", "مساهمات تقنيات التحالف الدائمة", "Contribuciones de tecnología de la alianza permanentes", "ID has no 'permanent'. RU is a full sentence."],
+   ["Contribution Rewards", "捐款獎勵", "기부 보상", "Beitragsbelohnungen", "Récompenses de Contribution", "Recompensas de Contribuição", "Katkı Ödülleri", "Hadiah Kontribusi", "Награды за взносы", "รางวัลความอนุเคราะห์", "مكافآت المساهمة", "Recompensa por contribución", "ZH also writes '捐獻獎勵' on the same screen; ID toggle says 'Imbalan Kontribusi'."],
+   ["Contribute", "捐獻", "기부", "Beitragen", "Contribuer", "Contribuição", "Katkı Yap", "Kontribusi", "Сделать взнос", "อนุเคราะห์", "مساهمة", "Contribución", "Button."],
+   ["Attempts", "次數", "횟수", "Versuche", "Tentatives", "Tentativas", "Deneme", "Upaya", "Количество", "จำนวนครั้ง", "المحاولات", "Intentos"],
+   ["Unlimited (∞)", "不限", "무제한", "∞", "∞", "—", "—", "∞", "∞", "ไม่จำกัด", "∞", "—", "Most languages just show the ∞ sign."],
+   ["Alliance Token", "聯盟幣", "연맹 코인", "Allianz-Token", "—", "Token da Aliança", "İttifak Jetonu", "Token Aliansi", "Жетон альянса", "เหรียญพันธมิตร", "رمز التحالف", "Ficha de la alianza", "Get More popup. DE description has the typo 'Beitrage'."]
+  ]
+ },
+ {
+  "cat": "Arena of Glory",
+  "rows": [
+   ["Arena of Glory", "萬國競技場", "만국 경기장", "Arena des Ruhms", "Arène de la Gloire", "Arena da Glória", "Şan Arenası", "Arena Kemuliaan", "Арена славы", "อารีน่าแห่งเกียรติยศ", "ساحة المجد", "Arena de la gloria"],
+   ["Season ends in", "距離賽季結束", "시즌 종료까지", "Saison endet in", "La saison se termine dans", "Temporada termina em", "Sezonun bitmesine", "Musim berakhir di", "Завершение сезона", "ฤดูกาลจะจบลงใน", "ينتهي الموسم بعد", "La temporada termina en"],
+   ["Ranking", "排名", "랭킹", "Rang", "Classement", "Rank", "Sıralama", "Peringkat", "Рейтинг", "อันดับ", "تصنيف", "Clasificación", "Column header."],
+   ["Governor", "領主", "영주", "Gouverneur", "Gouverneur", "Governador", "Vali", "Gubernur", "Губернатор", "เจ้าเมือง", "الحاكم", "Gobernador", "Column header."],
+   ["Arena Points", "競技積分", "경기 포인트", "Arenapunkte", "Points d'Arène", "Pontos de Arena", "Arena Puanı", "Poin Arena", "Очки арены", "คะแนนอารีน่า", "نقاط الساحة", "Puntos de Arena"],
+   ["Challenge", "挑戰", "도전", "Herausfordern", "Défi", "Desafio", "Mücadele Et", "Tantang", "Начать испытание", "ท้าชิง", "التحدي", "Desafiar", "Button."],
+   ["History", "紀錄", "기록", "Verlauf", "Historique", "História", "Geçmiş", "Riwayat", "История", "ประวัติ", "السجل", "Historial", "Button."],
+   ["Def. Lineup", "防守", "방어", "Defensive", "Formation Déf", "Alinhamento da Defesa", "Sav. Düzeni", "Def", "Защ. построение", "ทีมป้องกัน", "التشكيلة الدفاعية", "Def.", "Button."]
+  ]
+ },
+ {
+  "cat": "Daily missions",
+  "rows": [
+   ["Daily", "每日任務", "일일 임무", "Täglich", "Quotidien", "Diário", "Günlük", "Harian", "Ежедневные миссии", "ประจำวัน", "يومياً", "Diario", "Mission tab."],
+   ["Growth", "成長任務", "성장 임무", "Wachstum", "Expansion", "Crescimento", "Büyüme", "Pertumbuhan", "Миссии развития", "การเติบโต", "النمو", "Crecimiento", "Mission tab."],
+   ["Carry out N Intel Mission(s)", "處理N次情報事件", "정보 이벤트 N회 처리", "Führe N Geheimdienst-Mission(en) aus", "Effectue N Mission(s) de Renseignements", "Realizar N Missão(ões) de Informações", "N Bilgi Görevi yap", "Lakukan N Misi Intelijen", "Выполните разведывательные миссии: N", "ทำภารกิจข่าวกรอง N ครั้ง", "N من مهام المعلومات قيد التنفيذ", "Realiza N misión(es) de inteligencia"],
+   ["Heal N injured soldiers", "治療N個傷兵", "부상병 N명 치료", "Heile N verletzte Soldaten", "Soigner N soldats blessés", "Cure N soldados feridos", "N yaralı askeri iyileştir", "Sembuhkan N Skuad yang terluka", "Вылечите раненых солдат: N", "รักษาทหารบาดเจ็บ N คน", "شفاء N من الجنود المصابين", "Cura N soldados heridos", "ID says 'squads', not soldiers."],
+   ["Upgrade N building(s)", "提升N次建築等級", "건물 업그레이드 N회", "Verbessere N Gebäude", "Améliore N bâtiment(s)", "Aprimore N construção(ões)", "N bina yükselt", "Tingkatkan gedung N", "Улучшите строения: N", "อัปเกรดสิ่งปลูกสร้าง N แห่ง", "ترقية N من المباني", "Mejora N edificio(s)"],
+   ["Defeat Terror N time(s)", "擊敗巨獸N次", "괴수 N회 처치", "Besiege N Mal Terror", "Abats N Terreurs", "Derrotar Terror N vez(es)", "Dehşeti N kez yen", "Kalahkan Teror sebanyak N kali", "Победите ужаса N раз(а)", "เอาชนะอสูรร้าย N ครั้ง", "اهزم الوحوش العملاقة N مرات", "Derrota a Terrores N vez/veces"],
+   ["Complete Daily Missions", "完成每日任務", "일일 임무 완료하기", "Schließe tägliche Missionen ab", "Terminer les missions quotidiennes", "Conclua Missões Diárias", "Günlük Görevleri Tamamla", "Selesaikan Misi Harian", "Выполняйте ежедневные миссии", "เสร็จสิ้นภารกิจประจำวัน", "أكمل المهام اليومية", "Completa misiones diarias", "Item 'Sources' line (e.g. Truegold)."]
+  ]
+ },
+ {
+  "cat": "Island / Water Essence",
+  "rows": [
+   ["Get More", "取得更多", "추가 획득", "Erhalte mehr", "Obtenir plus", "Obter mais", "Daha çok al", "Dapatkan Lebih Banyak", "Получить еще", "รับเพิ่ม", "الحصول على المزيد", "Obtener más", "Popup title."],
+   ["Water Essence", "生命之水", "생명의 물", "Wasser-Essenz", "Essence d'Eau", "Essência da Água", "Su Özü", "Esensi Air", "Водная эссенция", "แก่นน้ำ", "جوهر الماء", "Esencia de Agua", "DE text also 'Wasseressenzen'."],
+   ["Fountain of Life", "生命之泉", "생명의 샘", "Brunnen des Lebens", "Fontaine Vitale", "Fonte da Vida", "Yaşam Pınarı", "Air Mancur Kehidupan", "Фонтан жизни", "น้ำพุแห่งชีวิต", "ينبوع الحياة", "Fuente de la Vida"],
+   ["Reservoir", "儲水小屋", "물 저장소", "Reservoir", "Réservoir", "Reservatório", "Rezervuar", "Reservoir", "Резервуар", "อ่างเก็บน้ำ", "الخزان", "Embalse"],
+   ["Island Treasure", "海島秘寶", "섬 비보", "Inselschatz", "Trésor de l'île", "Tesouro da Ilha", "Ada Hazinesi", "Harta Karun Pulau", "Сокровище острова", "สมบัติเกาะ", "كنز الجزيرة", "Tesoro de la Isla"],
+   ["Assist Allies", "協助盟友", "연맹원 돕기", "Verbündetem Helfen", "Aider des alliés", "Ajudar Aliados", "Müttefiklere Yardım Et", "Bantu Sekutu", "Помочь союзникам", "ช่วยพันธมิตร", "مساعدة الحلفاء", "Ayuda a Aliados"],
+   ["Purifier", "淨水廠", "정수 공장", "Klärwerk", "Épurateur", "Purificador", "Arıtıcı", "Purifier", "Очистная установка", "เครื่องกรองน้ำ", "جهاز التنقية", "Purificador"],
+   ["Cacti", "仙人掌", "선인장", "Kakteen", "Cactus", "Cactos", "Kaktüs", "Kaktus", "кактусов", "กระบองเพชร", "الصبار", "cactus", "Seen inside the Reservoir text."]
+  ]
+ },
+ {
+  "cat": "Deals",
+  "rows": [
+   ["Weekly Benefits Card", "優惠週卡", "혜택 주간카드", "Wöchentliche Vorteilskarte", "Carte d'Avantages Hebdo", "Carta de Vantagens Semanal", "Haftalık Avantaj Kartı", "Kartu Tunjangan Mingguan", "Преимущества недели", "การ์ดสิทธิพิเศษประจำสัปดาห์", "بطاقة المزايا الأسبوعية", "Carta de ventajas semanal", "Deals tab."],
+   ["Hall of Heroes", "英雄殿堂", "영웅의 전당", "Halle der Helden", "Temple des Héros", "Hall dos Heróis", "Kahraman Salonu", "Aula Pahlawan", "Зал героев", "หอฮีโร่", "قاعة الأبطال", "Sala de los héroes", "Deals tab."],
+   ["Intel Monthly Card", "情報月卡", "정보 월간카드", "Geheimdienst Monatskarte", "Carte mens. Renseign", "Carta de Informação Mensal", "Aylık Bilgi Kartı", "Kartu Bulanan Intel", "Карта разведки на месяц", "การ์ดประจำเดือนข่าวกรอง", "بطاقة معلومات شهرية", "Carta mensual Intel", "Deals tab."],
+   ["Remaining", "剩餘次數", "남은 횟수", "Verbleibend", "Restant(s)", "Restante", "Kalan", "Sisa", "Осталось", "คงเหลือ", "المتبقي", "Restantes", "Item stock. Shops: ID 'Tersisa', AR 'متبقي', ES 'Restante'."]
+  ]
+ },
+ {
+  "cat": "Gathering",
+  "rows": [
+   ["Expiring", "剩餘存在時間", "남은 시간", "Läuft ab", "Expiration", "Tempo Restante", "Süresi bitiyor", "Akan Kedaluwarsa", "Истекает через", "หมดอายุ", "تنتهي الصلاحية", "Expira", "Resource tile popup. PT uses the same words as Time Left."],
+   ["Gathered", "我已採集", "채집 완료", "Gesammelt", "Collectées", "Coletado", "Toplandı", "Dikumpulkan", "Собрано", "เก็บแล้ว", "ما تم جمعه", "Recolectado"],
+   ["Time Left", "我的採集剩餘時間", "나의 남은 채집 시간", "Verbleibende Zeit", "Temps Restant", "Tempo restante", "Kalan Süre", "Sisa Waktu", "Осталось времени", "เวลาคงเหลือ", "الوقت المتبقي", "Tiempo restante"],
+   ["Gathering Speed", "我的採集速度", "나의 채집 속도", "Sammelgeschwindigkeit", "Vitesse de Collecte", "Velocidade da Coleta", "Toplama Hızı", "Kecepatan Mengumpulkan", "Скорость сбора", "สปีดการเก็บทรัพยากร", "سرعة الجمع", "Velocidad de Recolección"],
+   ["Gathering Squad", "採集部隊", "부대 채집", "Sammelschwadron", "Escouade de Collecte", "Esquadrão de Coleta", "Toplama Ekibi", "Squad Pengumpul", "Отряд сборщиков", "ทีมเก็บรวบรวม", "فرقة الجمع", "Escuadrón de Recolección"],
+   ["Gather", "採集", "채집", "Sammeln", "Collecte", "Coleta", "Topla", "Kumpul", "Сбор", "การเก็บทรัพยากร", "جمع", "Recolectar", "Button. Compare the Gathering row (status)."]
+  ]
+ },
+ {
+  "cat": "Pet Adventure",
+  "rows": [
+   ["Pet Adventure", "寵物尋寶", "펫 보물찾기", "Begleittier Abenteuer", "Aventure Animalière", "Aventura do Pet", "Evcil Hayvan Macerası", "Petualangan Hewan Peliharaan", "Приключение питомца", "การผจญภัยสัตว์เลี้ยง", "مغامرة الحيوان الأليف", "Aventura de Mascotas"],
+   ["Governor Stamina", "領主體力", "영주 스태미나", "Gouverneur-Ausdauer", "Endurance du Chef", "Vigor do Chefe", "Şef Enerjisi", "Stamina Gubernur", "энергию губернатора", "ความแข็งแกร่งผู้นำ", "قدرة تحمل الحاكم", "Vigor de Líder", "Rules text."],
+   ["Treasure spot", "藏寶點", "보물 거점", "Schatzplätze", "sites au trésor", "locais de tesouro", "hazine noktası", "lokasi harta karun", "клад", "จุดสมบัติ", "بقعة الكنوز", "lugares con tesoros", "Rules text."],
+   ["Personal Treasure", "—", "나만의 보물", "persönlicher Schatz", "Trésor Individuel", "tesouro pessoal", "kişisel bir hazine", "Harta Karun Pribadi", "личные сокровища", "สมบัติส่วนบุคคล", "كنزاً شخصياً", "tesoro personal", "Rules text."],
+   ["Ally Treasure", "聯盟寶藏", "연맹 보물", "—", "Trésor d'Allié", "tesouro compartilhado com o aliado", "paylaşılabilir bir müttefik hazinesi", "Harta Karun Sekutu", "сокровища союзников", "สมบัติพันธมิตรที่แบ่งปันได้", "كنز مشترك يمكن مشاركته مع الحلفاء", "tesoro compartible con aliados", "Rules text. DE only describes it in a sentence."]
+  ]
+ },
+ {
+  "cat": "Shops",
+  "rows": [
+   ["Nomadic Merchant", "流浪商人", "떠돌이 상인", "Nomaden Händler", "Marchand Nomade", "Comerciante Nômade", "Göçebe Tüccar", "Pedagang Nomaden", "Торговец-кочевник", "พ่อค้าพเนจร", "تاجر بدوي", "Mercader nómade", "Shop tab."],
+   ["Mystery (shop)", "神秘商店", "신비한 상점", "Rätsel", "Mystère", "Mistério", "Gizem", "Misteri", "Тайный магазин", "ปริศนา", "الغموض", "Misterio", "Shop tab. DE literally 'riddle'."],
+   ["Arena (shop)", "競技商店", "경기장 상점", "Arena", "Arène", "Arena", "Arena", "Arena", "Магазин арены", "อารีน่า", "الساحة", "Arena", "Shop tab."],
+   ["VIP (shop)", "VIP商店", "VIP 상점", "VIP", "VIP", "VIP", "VIP", "VIP", "VIP-магазин", "VIP", "VIP", "VIP", "Shop tab."],
+   ["Alliance Championship Shop", "爭霸賽商店", "챔피언십 상점", "Meisterschafts Laden", "Magasin du Championnat de l'Alliance", "Loja do Campeonato da Aliança", "İttifak Şampiyonası Mağazası", "Tingkat Kejuaraan Aliansi", "Магазин чемпионата альянса", "ร้านค้าการแข่งขันชิงแชมป์พันธมิตร", "متجر بطولة التحالف", "Tienda de Campeonato de alianza", "Shop tab. ID reads 'Alliance Championship Tier'."],
+   ["Swordland (shop)", "聖劍商店", "성검 상점", "Schwertland", "Glaive", "Terra das Espadas", "Kılıçdiyarı", "Swordland", "Магазин Страны мечей", "ดินแดนดาบ", "أرض السيوف", "Tierra de Espadas", "Shop tab."],
+   ["Kingdom of Power (shop)", "最強王國商店", "최강 왕국 상점", "Königreich der Macht", "Royaume au Pouvoir", "Reino de Poder", "En Güçlü Krallık", "Kerajaan Kekuatan", "Мощь государств", "อาณาจักรแห่งอำนาจ", "مملكة القوة", "Reino del Poder", "Shop tab."],
+   ["Skin (shop)", "裝扮商店", "스킨 상점", "Verkleidung", "Thème", "Skin", "Görünüm", "Skin", "Магазин обликов", "สกิน", "مظهر", "Apariencias", "Shop tab."],
+   ["Trial Shop", "試煉挑戰商店", "시련 도전 상점", "Prüfungsladen", "Magasin du Défi", "Loja da Prova", "İmtihan Mağazası", "Toko Ujian", "Магазин испытания", "ร้านค้าบททดสอบ", "متجر الاختبارات", "Tienda de Pruebas", "Shop tab (Mystic Trial currency)."],
+   ["Gem (shop)", "鑽石商店", "다이아 상점", "Edelstein", "Gemme", "Gema", "Elmas", "Gem", "Магазин алмазов", "เพชร", "الجوهرة", "Gemas", "Shop tab."],
+   ["Trial Crystal", "試煉晶石", "시련 결정", "Prüfungskristall", "Cristal du défi", "Cristal da Prova", "İmtihan Kristali", "Kristal Ujian", "Кристалл баталий", "คริสตัลบททดสอบ", "كريستال الاختبارات", "Cristal de Pruebas", "Trial Shop currency, from Mystic Trial (Get More popup)."],
+   ["Refresh", "更新", "새로고침", "Aktualisieren", "Actualiser", "Atualizar", "Yenile", "Perbarui", "Обновить", "รีเฟรช", "تحديث", "Recargar", "Mystery shop button."],
+   ["Sold out", "已售罄", "매진", "Ausverkauft", "Épuisé", "Esgotado", "Tükendi", "Habis", "Распродано", "หมดแล้ว", "مباع", "Agotado"],
+   ["Exclusive Item", "專屬商品", "전용 상품", "Exklusiver Gegenstand", "Objet Exclusif", "Item Exclusivo", "Özel Öge", "Item Eksklusif", "Эксклюзивный предмет", "ไอเทมพิเศษ", "عنصر حصري", "Artículo exclusivo"],
+   ["Today", "今日", "오늘", "Heute", "Aujourd'hui", "Hoje", "Bugün", "Hari ini", "Сегодня", "วันนี้", "اليوم", "Hoy", "Alliance shop tab."],
+   ["Week", "本週", "이번주", "Woche", "Semaine", "Semana", "Hafta", "Mingguan", "Неделя", "สัปดาห์", "أسبوع", "Semana", "Alliance shop tab."]
+  ]
+ },
+ {
+  "cat": "Items",
+  "rows": [
+   ["Gen 2 Custom Hero Widget Chest", "第2代英雄零件客製化箱子", "제2세대 영웅 부속품 선택 상자", "2. Gen.Held Elementkiste", "Boîte Comp Héros Myth Pers Gén. 2", "Baú de Ferramenta do Herói Personalizado 2ª Geração", "2. Nesil Özel Kahraman Aleti Sandığı", "Peti Widget Custom Gen 2", "Персонализированный ящик 2-го поколения с поделкой героя", "หีบอุปกรณ์เสริมฮีโร่กำหนดเองรุ่นที่ 2", "صندوق أجزاء البطل المخصص من الجيل الثاني", "Cofre Compl Héroe Pers Gen 2", "Mystery shop. FR/ES are abbreviated in-game. PT text calls the widget 'Dispositivo'."],
+   ["Custom Mythic Hero Gear Chest", "傳說英雄裝備客製化箱子", "레전드 영웅 장비 상자", "Mythische Heldenausrüstungs Kiste", "Caisse d'Équipement de Héros Mythique Personnalisée", "Baú de Equip. de Herói Mítico Personalizado", "Özel Mitik Kahraman Donanımı Sandığı", "Peti Perlengkapan Pahlawan Mitos Khusus", "Личное мифическое снаряжение героя", "หีบอุปกรณ์ฮีโร่ขั้นเทพกำหนดเอง", "صندوق عتاد البطل الخيالي المخصص", "Caja de equipo de héroe mítico personalizada", "Arena shop."],
+   ["Mythic Hero Gear", "傳說品質英雄裝備", "레전드 품질 영웅 아이템", "Mythische Heldenausrüstung", "Équipement de Héros Mythique", "Equipamento do Herói Mítico", "Mitik Kahraman Donanımı", "Perlengkapan Pahlawan Mitos", "снаряжение мифического героя", "อุปกรณ์ฮีโร่ขั้นเทพ", "عتاد البطل الخيالي", "Equipo de héroe mítico", "Chest description."],
+   ["Transfer Pass", "移民授權書", "이민 허가증", "Transfer-Pass", "Passe de Transfert", "Passe de Transferência", "Transfer Bileti", "Transfer Pass", "Пропуск переноса", "บัตรผ่านการย้าย", "تذكرة الانتقال", "Pase de transferencia", "Alliance shop."],
+   ["Kingdom Transfer", "王國移民", "왕국 이민 이벤트", "Königreichsmigration Event", "Transfert de Royaume", "Transferência de Reino", "Krallık Transferi", "Transfer Kerajaan", "«Перенос города»", "อีเวนต์การย้ายอาณาจักร", "فعالية نقل المملكة", "Transferencia de Reino", "Transfer Pass description. RU says 'city transfer'."],
+   ["Sources", "取得來源", "획득처", "Quelle", "Source", "Fonte", "Kaynak", "Sumber", "Источник", "แหล่งที่มา", "المصدر", "Fuente", "Item tooltip."],
+   ["Buy Packs", "禮包購買", "패키지 구매", "Pakete kaufen", "Acheter des Packs", "Comprar Pacotes", "Paket Satın Al", "Beli Paket", "Покупка наборов", "ซื้อแพ็กเกจ", "شراء باقات", "Comprar paquetes", "Item tooltip source line."]
+  ]
+ },
+ {
+  "cat": "City Skin",
+  "rows": [
+   ["City Skin", "城鎮裝扮", "도시 스킨", "Siedlung Verkleidung", "Thème de Ville", "Skin da Cidade", "Şehir Görünümü", "Skin Pemukiman", "Облик города", "สกินค่าย", "مظهر المدينة", "Apariencia Ciudad", "Skin popup title. Not the same as March Skin (KO 행군 스킨)."],
+   ["House of Cacti (Permanent)", "仙人掌小屋（永久）", "선인장 오두막(영구)", "Haus der Kakteen (Dauerhaft)", "Maison des Cactus (Perm)", "Casa dos Cactos (Permanente)", "Kaktüs Evi (Kalıcı)", "House of Cacti (Permanen)", "Обитель кактусов (бессрочно)", "อาณาจักรกระบองเพชร (ถาวร)", "بيت الصبار (دائم)", "Casa de los cactus (permanente)", "ID is left in English. TH reads 'Cactus Kingdom'."],
+   ["In Wilderness", "野外展示", "야외 보기", "Wildnisanzeige", "Affichage Nature", "Exibição na Região Selvagem", "Yaban Görünümü", "Tampilan Alam Liar", "Вид с высоты", "ภาพแดนเถื่อน", "عرض البرية", "En el campo"],
+   ["Preview", "預覽", "미리보기", "Vorschau", "Aperçu", "Prever", "Önizleme", "Pratinjau", "Предпросм.", "ดูตัวอย่าง", "معاينة", "Vista previa"],
+   ["Stat Bonus (Activated upon Acquisition)", "屬性加成（擁有即啟用）", "속성 버프(보유 즉시 활성화됨)", "Wert-Bonus (Aktiviert bei Erwerb)", "Bonus de stat (Actif dès l'acquisition)", "Bônus de Estatísticas (Ativado na Aquisição)", "Nitelik Bonusu (Edinildiğinde Etkinleştirilir)", "Bonus Stats (Diaktifkan setelah Akuisisi)", "Бонус к показателям (получите и активируйте)", "โบนัสสถานะ (เปิดใช้งานเมื่อได้รับ)", "مكافأة إحصائية (يتم تفعيلها عند الاستحواذ)", "Bonus de estadísticas (se activa al recibir)"],
+   ["Squads' Attack", "部隊攻擊力", "부대 공격력", "Schwadron Angriff", "Attaque des escouades", "Ataque dos Esquadrões", "Ekiplerin Saldırısı", "Attack Skuad", "Атака войск", "พลังโจมตีทีม", "هجوم الفرق", "Ataque de los Escuadrones", "Skin stat bonus."]
   ]
  },
 ];
