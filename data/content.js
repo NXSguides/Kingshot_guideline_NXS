@@ -173,20 +173,20 @@ const GLOSSARY = {
   abbeyPl: { ru:"Монастыри" },
   abbeyG: { ru:"монастырей" },
   swordlandP: { ru:"Стране мечей" },
-  swordland: { zh:"聖劍戰場", en:"Swordland", de:"Schwertland", ko:"성검 전장", fr:"Terres du Glaive", ar:"أرض السيوف", id:"Swordland", th:"ดินแดนดาบ", ru:"Страна мечей", tr:"Kılıçdiyarı", pt:"Terra das Espadas" },
-  swordshrine: { zh:"聖劍祭壇", en:"Swordshrine", de:"Schwertschrein", ko:"성검 제단", fr:"Tombeau du Glaive", ar:"ضريح السيوف", id:"Swordshrine", th:"วิหารดาบ", ru:"Святилище меча", tr:"Kılıç Altarı", pt:"Templo da Espada" },
-  mercenary: { zh:"傭兵駐地", en:"Mercenary Camp", de:"Söldnerlager", ko:"용병 주둔지", fr:"Camp de Mercenaires", ar:"معسكر المرتزقة", id:"Kamp Tentara Bayaran", th:"ค่ายทหารรับจ้าง", ru:"Лагерь наемников", tr:"Paralı Asker Kampı", pt:"Acampamento Mercenário" },
-  reformation: { zh:"教化大廳", en:"Hall of Reformation", de:"Reformationshalle", ko:"교화의 홀", fr:"Salle des Réformes", ar:"قاعة الإصلاح", id:"Aula Reformasi", th:"หอปฏิรูป", ru:"Зал искупления", tr:"Devrim Salonu", pt:"Salão da Reforma" },
-  sanctum: { zh:"聖所", en:"Sanctum", de:"Heiligtum", ko:"성소", fr:"Sanctuaire", ar:"مزار", id:"Sanctum", th:"วิหารศักดิ์สิทธิ์", ru:"Святилище", tr:"Tapınak", pt:"Santuário" },
-  sanctumNW: { zh:"西北聖所", en:"Northwest Sanctum", de:"Nordwestliches Heiligtum", ko:"북서 성소", fr:"Sanctuaire Nord-Ouest", ar:"مزار الشمالي الغربي", id:"Sanctum Barat Laut", th:"วิหารศักดิ์สิทธิ์ตะวันตกเฉียงเหนือ", ru:"Северо-западное святилище", tr:"Kuzeybatı Tapınağı", pt:"Santuário do Noroeste" },
-  sanctumSE: { zh:"東南聖所", en:"Southeast Sanctum", de:"Südwestliches Heiligtum" /* 遊戲德文版本身的錯誤，照截圖 */, ko:"남동 성소", fr:"Sanctuaire Sud-Est", ar:"مزار الجنوبي الشرقي", id:"Sanctum Tenggara", th:"วิหารศักดิ์สิทธิ์ตะวันออกเฉียงใต้", ru:"Юго-восточное святилище", tr:"Güneydoğu Tapınağı", pt:"Santuário do Sudeste" },
-  abbey: { zh:"修道院", en:"Abbey", de:"Abtei", ko:"수도원", fr:"Abbaye", ar:"دير", id:"Biara", th:"อาราม", ru:"Монастырь", tr:"Manastır", pt:"Abadia" },
-  belltower: { zh:"鐘塔", en:"Belltower", de:"Glockenturm", ko:"시계탑", fr:"Clocher", ar:"برج الجرس", id:"Menara Lonceng", th:"หอระฆัง", ru:"Колокольня", tr:"Çan Kulesi", pt:"Torre do Sino" },
-  stables: { zh:"馬廄", en:"Royal Stables", de:"Königliche Ställe", ko:"마구간", fr:"Écuries Royales", ar:"الاسطبلات الملكية", id:"Kandang Kuda Kerajaan", th:"คอกม้าหลวง", ru:"Королевский конный двор", tr:"Kraliyet Ahırları", pt:"Estábulos da Realeza" },
-  undercellar: { zh:"隱蔽地窖", en:"Undercellar", de:"Untergewölbe", ko:"땅굴", fr:"Caves", ar:"الأقبية السفلية", id:"Undercellar", th:"ห้องใต้ดินลับ", ru:"подземелья", tr:"Gizli Mahzenler", pt:"Porões" },
+  swordland: { zh:"聖劍戰場", en:"Swordland", de:"Schwertland", ko:"성검 전장", fr:"Terres du Glaive", ar:"أرض السيوف", id:"Swordland", th:"ดินแดนดาบ", ru:"Страна мечей", tr:"Kılıçdiyarı", pt:"Terra das Espadas", es:"Tierra de espadas" },
+  swordshrine: { zh:"聖劍祭壇", en:"Swordshrine", de:"Schwertschrein", ko:"성검 제단", fr:"Tombeau du Glaive", ar:"ضريح السيوف", id:"Swordshrine", th:"วิหารดาบ", ru:"Святилище меча", tr:"Kılıç Altarı", pt:"Templo da Espada", es:"Ermita de la Espada" },
+  mercenary: { zh:"傭兵駐地", en:"Mercenary Camp", de:"Söldnerlager", ko:"용병 주둔지", fr:"Camp de Mercenaires", ar:"معسكر المرتزقة", id:"Kamp Tentara Bayaran", th:"ค่ายทหารรับจ้าง", ru:"Лагерь наемников", tr:"Paralı Asker Kampı", pt:"Acampamento Mercenário", es:"Campamento de Mercenarios" },
+  reformation: { zh:"教化大廳", en:"Hall of Reformation", de:"Reformationshalle", ko:"교화의 홀", fr:"Salle des Réformes", ar:"قاعة الإصلاح", id:"Aula Reformasi", th:"หอปฏิรูป", ru:"Зал искупления", tr:"Devrim Salonu", pt:"Salão da Reforma", es:"Salón de la Reforma" },
+  sanctum: { zh:"聖所", en:"Sanctum", de:"Heiligtum", ko:"성소", fr:"Sanctuaire", ar:"مزار", id:"Sanctum", th:"วิหารศักดิ์สิทธิ์", ru:"Святилище", tr:"Tapınak", pt:"Santuário", es:"Santuario" },
+  sanctumNW: { zh:"西北聖所", en:"Northwest Sanctum", de:"Nordwestliches Heiligtum", ko:"북서 성소", fr:"Sanctuaire Nord-Ouest", ar:"مزار الشمالي الغربي", id:"Sanctum Barat Laut", th:"วิหารศักดิ์สิทธิ์ตะวันตกเฉียงเหนือ", ru:"Северо-западное святилище", tr:"Kuzeybatı Tapınağı", pt:"Santuário do Noroeste", es:"Santuario del Noroeste" },
+  sanctumSE: { zh:"東南聖所", en:"Southeast Sanctum", de:"Südwestliches Heiligtum" /* 遊戲德文版本身的錯誤，照截圖 */, ko:"남동 성소", fr:"Sanctuaire Sud-Est", ar:"مزار الجنوبي الشرقي", id:"Sanctum Tenggara", th:"วิหารศักดิ์สิทธิ์ตะวันออกเฉียงใต้", ru:"Юго-восточное святилище", tr:"Güneydoğu Tapınağı", pt:"Santuário do Sudeste", es:"Santuario del Sureste" },
+  abbey: { zh:"修道院", en:"Abbey", de:"Abtei", ko:"수도원", fr:"Abbaye", ar:"دير", id:"Biara", th:"อาราม", ru:"Монастырь", tr:"Manastır", pt:"Abadia", es:"Abadía" },
+  belltower: { zh:"鐘塔", en:"Belltower", de:"Glockenturm", ko:"시계탑", fr:"Clocher", ar:"برج الجرس", id:"Menara Lonceng", th:"หอระฆัง", ru:"Колокольня", tr:"Çan Kulesi", pt:"Torre do Sino", es:"Campanario" },
+  stables: { zh:"馬廄", en:"Royal Stables", de:"Königliche Ställe", ko:"마구간", fr:"Écuries Royales", ar:"الاسطبلات الملكية", id:"Kandang Kuda Kerajaan", th:"คอกม้าหลวง", ru:"Королевский конный двор", tr:"Kraliyet Ahırları", pt:"Estábulos da Realeza", es:"Establos Reales" },
+  undercellar: { zh:"隱蔽地窖", en:"Undercellar", de:"Untergewölbe", ko:"땅굴", fr:"Caves", ar:"الأقبية السفلية", id:"Undercellar", th:"ห้องใต้ดินลับ", ru:"подземелья", tr:"Gizli Mahzenler", pt:"Porões", es:"Bodegas subterráneas" },
   arsenal: { zh:"輜重", en:"Arsenal Supplies", de:"Frachtzugvorräte", ko:"군수 물자", fr:"Provisions de Train de bagages", ar:"إمدادات أمتعة القطار", id:"Suplai Kereta Bagasi", th:"เสบียงขบวนสัมภาระ", ru:"военные запасы", tr:"Bagaj Treni Malzemeleri", pt:"Suprimentos de Trem de Bagagem" },
-  allianceRelic: { zh:"聯盟聖契積分", en:"Alliance Relic Points", de:"Allianz-Reliktpunkte", ko:"연맹 성스러운 계약 포인트", fr:"Points de Relique d'Alliance", ar:"نقاط الآثار للتحالف", id:"Poin Relik Aliansi", th:"คะแนนวัตถุโบราณพันธมิตร", ru:"Очки реликвий альянса", tr:"İttifak Yadigâr Puanı", pt:"Pontos de Relíquia da Aliança" },
-  personalRelic: { zh:"個人聖契積分", en:"Personal Relic Points", de:"Persönliche Reliktpunkte", ko:"개인 성스러운 계약 포인트", fr:"Points de Relique Individuels", ar:"نقاط الآثار الشخصية", id:"Poin Relik Pribadi", th:"คะแนนวัตถุโบราณส่วนบุคคล", ru:"Личные очки реликвий", tr:"Kişisel Yadigâr Puanı", pt:"Pontos de Relíquia Individuais" },
+  allianceRelic: { zh:"聯盟聖契積分", en:"Alliance Relic Points", de:"Allianz-Reliktpunkte", ko:"연맹 성스러운 계약 포인트", fr:"Points de Relique d'Alliance", ar:"نقاط الآثار للتحالف", id:"Poin Relik Aliansi", th:"คะแนนวัตถุโบราณพันธมิตร", ru:"Очки реликвий альянса", tr:"İttifak Yadigâr Puanı", pt:"Pontos de Relíquia da Aliança", es:"Puntos de Reliquia de Alianza" },
+  personalRelic: { zh:"個人聖契積分", en:"Personal Relic Points", de:"Persönliche Reliktpunkte", ko:"개인 성스러운 계약 포인트", fr:"Points de Relique Individuels", ar:"نقاط الآثار الشخصية", id:"Poin Relik Pribadi", th:"คะแนนวัตถุโบราณส่วนบุคคล", ru:"Личные очки реликвий", tr:"Kişisel Yadigâr Puanı", pt:"Pontos de Relíquia Individuais", es:"Puntos de Reliquia personales" },
   bearHunt: { zh:"狩獵巨熊", en:"Bear Hunt", ko:"자이언트 베어 사냥", de:"Bärenjagd", fr:"Chasse à l'Ours", pt:"Caça ao Urso", tr:"Ayı Avı", id:"Bear Hunt", ru:"Охота на медведя", th:"ล่าหมี", ar:"صيد الدببة", es:"Cacería del Oso" },
   castleBattle: { zh:"決戰王城", en:"Castle Battle", ko:"캐슬 전투", de:"Schlacht um das Schloss", fr:"Bataille du Château", pt:"Batalha do Castelo", tr:"Şato Savaşı", id:"Pertempuran Istana", ru:"Битва за замок", th:"การต่อสู้ชิงปราสาท", ar:"معركة القلعة", es:"Batalla del castillo" },
   sanctuary: { zh:"遺跡", en:"Sanctuary", ko:"유적", de:"Heiligtum", fr:"Sanctuaire", pt:"Santuário", tr:"Tapınak", id:"Sanctuary", ru:"святилище", th:"วิหาร", ar:"المأوى", es:"santuario" },
@@ -715,24 +715,24 @@ const GUIDES = {
     /* 主將陣容（各語言共用）；說明文字在各語言 blocks 的 leaders 區塊 */
     leaders: [
       { rows: [
-        { tag: "best", heroes: ["Amadeus", "Jabel", "Quinn"], ratio: "30-30-40" },
-        { tag: "alt", heroes: ["Helga", "Jabel", "Quinn"], ratio: "20-40-40" },
-        { tag: "f2p", heroes: ["Howard", "Jabel", "Quinn"], ratio: "30-30-40" }
+        { tag: "best", heroes: ["Amadeus", "Jabel", "Quinn"], ratio: "30-30-40", img: "figures/Gen1_best.png" },
+        { tag: "alt", heroes: ["Helga", "Jabel", "Quinn"], ratio: "20-40-40", img: "figures/Gen1_alternative.png" },
+        { tag: "f2p", heroes: ["Howard", "Jabel", "Quinn"], ratio: "30-30-40", img: "figures/Gen1_F2P.png" }
       ]},
       { rows: [
-        { tag: "best", heroes: ["Amadeus", "Hilde", "Marlin"], ratio: "20-30-50" },
-        { tag: "alt", heroes: ["Helga", "Jabel", "Marlin"], ratio: "20-30-50" },
-        { tag: "f2p", heroes: ["Zoe", "Jabel", "Quinn"], ratio: "30-30-40" }
+        { tag: "best", heroes: ["Amadeus", "Hilde", "Marlin"], ratio: "20-30-50", img: "figures/Gen2_best.png" },
+        { tag: "alt", heroes: ["Helga", "Jabel", "Marlin"], ratio: "20-30-50", img: "figures/Gen2_alternative.png" },
+        { tag: "f2p", heroes: ["Zoe", "Jabel", "Quinn"], ratio: "30-30-40", img: "figures/Gen2_F2P.png" }
       ]},
       { rows: [
-        { tag: "best", heroes: ["Helga", "Petra", "Marlin"], ratio: "10-20-70" },
-        { tag: "alt", heroes: ["Amadeus", "Petra", "Marlin"], ratio: "20-30-50" },
-        { tag: "f2p", heroes: ["Zoe", "Petra", "Quinn"], ratio: "20-40-40" }
+        { tag: "best", heroes: ["Helga", "Petra", "Marlin"], ratio: "10-20-70", img: "figures/Gen3_best.png" },
+        { tag: "alt", heroes: ["Amadeus", "Petra", "Marlin"], ratio: "20-30-50", img: "figures/Gen3_alternative.png" },
+        { tag: "f2p", heroes: ["Zoe", "Petra", "Quinn"], ratio: "20-40-40", img: "figures/Gen3_F2P.png" }
       ]},
       { rows: [
-        { tag: "best", heroes: ["Amadeus", "Petra", "Rosa"], ratio: "10-10-80" },
-        { tag: "alt", heroes: ["Helga", "Petra", "Rosa"], ratio: "10-10-80" },
-        { tag: "f2p", heroes: ["Zoe", "Petra", "Rosa"], ratio: "10-10-80" }
+        { tag: "best", heroes: ["Amadeus", "Petra", "Rosa"], ratio: "10-10-80", img: "figures/Gen4_best.png" },
+        { tag: "alt", heroes: ["Helga", "Petra", "Rosa"], ratio: "10-10-80", img: "figures/Gen4_alternative.png" },
+        { tag: "f2p", heroes: ["Zoe", "Petra", "Rosa"], ratio: "10-10-80", img: "figures/Gen4_F2P.png" }
       ]},
       { rows: [
         { tag: "best", heroes: ["Amadeus", "", ""], ratio: "" }
@@ -1027,26 +1027,26 @@ const GUIDES = {
         { type: "callout", text: "Opcional: usa https://frakinator.streamlit.app/ para probar proporciones de tropas y encontrar tu formación más fuerte." },
         { type: "list", items: [
           "Recupera las tropas de recolección antes de que comience el evento.",
-          "Recuerda: en los últimos 5–7 minutos, todos deben lanzar una concentración. Esto crea más espacios para los jugadores cuyas tropas están regresando, permitiendo un empuje final de daño."
+          "Recuerda: en los últimos 5–7 minutos, todos deben lanzar un Ataque Conjunto. Esto crea más espacios para los jugadores cuyas tropas están regresando, permitiendo un empuje final de daño."
         ]},
-        { type: "h", text: "LÍDERES DE CONCENTRACIÓN" },
+        { type: "h", text: "LÍDERES DE ATAQUE CONJUNTO" },
         { type: "leaders",
           gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
           notes: [
             [
               "Formación de tropas: 30-30-40%. En la mayoría de los casos tendrás las mejores estadísticas en infantería gracias a las estadísticas base de Amadeus, así que una formación casi equilibrada con un poco más de arqueros funciona mejor.",
-              "Formación de tropas: 20-40-40%. Principalmente para quienes aún no han conseguido a Amadeus, y mantiene la posibilidad de usar a Amadeus para unirse a concentraciones.",
-              "Formación de tropas: 30-30-40%. Para F2P se recomienda usar siempre los 3 héroes que tengas para liderar una concentración."
+              "Formación de tropas: 20-40-40%. Principalmente para quienes aún no han conseguido a Amadeus, y mantiene la posibilidad de usar a Amadeus para unirse a Ataques Conjuntos.",
+              "Formación de tropas: 30-30-40%. Para F2P se recomienda usar siempre los 3 héroes que tengas para liderar un Ataque Conjunto."
             ],
             [
-              "Formación de tropas: 20-30-50%. Marlin aumentará mucho el daño gracias a su widget. Desde la Gen 2 en adelante, la infantería siempre será Amadeus o Helga — son los únicos héroes de infantería con widgets de concentración (bono de letalidad). Envías menos infantería, así que el héroe de infantería cubre el daño de los arqueros mediante el widget en lugar de igualar las estadísticas de infantería.",
-              "Formación de tropas: 20-30-50%. Otra alternativa es cambiar Quinn por Marlin si aún no es mejor. Usa a Helga en Gen 2+ solo si Amadeus no tiene 5 estrellas + widget al máximo; también es una oportunidad para usar a Amadeus uniéndose a concentraciones.",
-              "Formación de tropas: 30-30-40%. Todavía no hay ningún héroe F2P con widget de concentración, así que de nuevo una formación equilibrada con un poco más de arqueros, ya que las estadísticas de arqueros serán las más bajas al no tener un héroe arquero SSR."
+              "Formación de tropas: 20-30-50%. Marlin aumentará mucho el daño gracias a su {widget}. Desde la Gen 2 en adelante, la infantería siempre será Amadeus o Helga — son los únicos héroes de infantería con {widget} de Ataque Conjunto (bono de letalidad). Envías menos infantería, así que el héroe de infantería cubre el daño de los arqueros mediante el {widget} en lugar de igualar las estadísticas de infantería.",
+              "Formación de tropas: 20-30-50%. Otra alternativa es cambiar Quinn por Marlin si aún no es mejor. Usa a Helga en Gen 2+ solo si Amadeus no tiene 5 estrellas + {widget} al máximo; también es una oportunidad para usar a Amadeus uniéndose a Ataques Conjuntos.",
+              "Formación de tropas: 30-30-40%. Todavía no hay ningún héroe F2P con {widget} de Ataque Conjunto, así que de nuevo una formación equilibrada con un poco más de arqueros, ya que las estadísticas de arqueros serán las más bajas al no tener un héroe arquero SSR."
             ],
             [
               "Formación de tropas: 10-20-70%. Una Helga al máximo rinde mejor que Amadeus en la Gen 3, ya que tiene 2 widgets de letalidad y 1 de ataque, comparado con 1 de letalidad y 2 de ataque en esta configuración.",
               "Formación de tropas: 20-30-50%. Si no tienes a Helga al máximo (5 estrellas + widget) es mejor usar a Amadeus.",
-              "Formación de tropas: 20-40-40%. En la Gen 3, los F2P consiguen su primer héroe con widget de concentración (Petra). Prueba números equilibrados de arqueros/caballería porque Petra mejora mucho a las tropas de arqueros. Las estadísticas de arqueros siguen siendo las más bajas sin un héroe arquero SSR. Si desbloqueas caballería T10, su habilidad combina bien con las estadísticas de Petra."
+              "Formación de tropas: 20-40-40%. En la Gen 3, los F2P consiguen su primer héroe con {widget} de Ataque Conjunto (Petra). Prueba números equilibrados de arqueros/caballería porque Petra mejora mucho a las tropas de arqueros. Las estadísticas de arqueros siguen siendo las más bajas sin un héroe arquero SSR. Si desbloqueas caballería T10, su habilidad combina bien con las estadísticas de Petra."
             ],
             [
               "Formación de tropas: 10-10-80%. Fuerza tantas tropas de arqueros como puedas, especialmente si son T10. Con algo de suerte, la 3ª habilidad de Rosa hará el resto del trabajo (aumenta el ataque total de los arqueros en un 30%).",
@@ -1057,7 +1057,7 @@ const GUIDES = {
               "Los demás puestos de líder aún no se han publicado."
             ]
           ]},
-        { type: "h", text: "PARTICIPANTES DE CONCENTRACIÓN" },
+        { type: "h", text: "PARTICIPANTES DE ATAQUE CONJUNTO" },
         { type: "p", text: "Proporción estándar/segura: 10% Infantería, 10% Caballería y 80% Arqueros (o una variación como 20-30-50)" },
         { type: "joiners" }
       ]},
@@ -1296,7 +1296,7 @@ const GUIDES = {
 
   "swordland-showdown": {
     emoji: "⚔️",
-    name: { zh: "聖劍爭奪", en: "Swordland Showdown", ko: "성검 쟁탈", de: "Schwertland-Showdown", fr: "Choc du Glaive", tr: "Kılıçdiyarı Hesaplaşması", es: "Choque del Reino de Espadas", id: "Swordland Showdown", ru: "Битва за Страну мечей", th: "ศึกดวลดินแดนดาบ", ar: "مواجهة أرض السيوف", pt: "Confronto entre Espadas" },
+    name: { zh: "聖劍爭奪", en: "Swordland Showdown", ko: "성검 쟁탈", de: "Schwertland-Showdown", fr: "Choc du Glaive", tr: "Kılıçdiyarı Hesaplaşması", es: "Enfrentamiento en Tierra de espadas", id: "Swordland Showdown", ru: "Битва за Страну мечей", th: "ศึกดวลดินแดนดาบ", ar: "مواجهة أرض السيوف", pt: "Confronto entre Espadas" },
     buildings: [
       { id: "swordshrine", first: [9000, 4500], hold: [1800, 900], opens: 15, priority: "top" },
       { id: "mercenary",   first: [1200, 600],  hold: [240, 120],  opens: 15, priority: "med" },
@@ -2236,7 +2236,7 @@ const GUIDES = {
         ]
       },
       es: {
-        title: "Choque del Reino de Espadas",
+        title: "Enfrentamiento en Tierra de espadas",
         blocks: [
           { type: "h", text: "CUÁNDO" },
           { type: "p", text: "Cada 2 semanas — un evento de campo de batalla Alianza vs Alianza de 60 minutos." },
@@ -2252,7 +2252,7 @@ const GUIDES = {
             "Protege los puntos acumulados",
             "Recoge el {arsenal} disperso inmediatamente cuando los edificios cambien de bando",
             "Recolecta {undercellar} cuando aparezcan",
-            "Refuerza guarniciones cercanas cuando no estés en una concentración",
+            "Refuerza guarniciones cercanas cuando no estés en un Ataque Conjunto",
             "No dejes marchas inactivas",
             "**NO persigas bajas por todo el mapa.** El PvP aleatorio nos dispersa y reduce nuestra efectividad. Ataca ciudades de nivel más bajo cuando tenga sentido, debilitándolas cerca de un edificio que mantenemos."
           ]},
@@ -2260,7 +2260,7 @@ const GUIDES = {
           { type: "h", text: "EDIFICIOS DE UN VISTAZO" },
           { type: "buildings",
             legend: "Números mostrados como: {allianceRelic} / {personalRelic}",
-            cols: { first: "Primer Control", hold: "Ocupación Continua", open: "Abre", min: "min", perMin: "/m", sep: ": " },
+            cols: { first: "Primer control", hold: "Ocupación en curso", open: "Abre", min: "min", perMin: "/m", sep: ": " },
             priority: { top: "MÁXIMA", high: "ALTA", med: "MEDIA" },
             gather: "Puntos de recolección que aparecen periódicamente (dos oleadas)",
             purposes: {
@@ -2299,19 +2299,19 @@ const GUIDES = {
           { type: "p", text: "R4 dividirá a los miembros confirmados en 3 funciones según su poder: **Atacantes, Defensores y Apoyo/Participantes**." },
 
           { type: "sub", text: "⚔️ 1) ATACANTES" },
-          { type: "p", text: "**Quién:** Nuestros jugadores más fuertes. Tienen suficientes teletransportes avanzados." },
+          { type: "p", text: "**Quién:** Nuestros jugadores más fuertes. Tienen suficientes Teletransportadores Avanzados." },
           { type: "p", text: "**Tu tarea:**" },
           { type: "list", items: [
             "Teletranspórtate a tu zona y edificio asignados",
             "Captura los edificios prioritarios",
             "Ataca en solitario castillos enemigos vulnerables",
-            "Lidera concentraciones importantes",
+            "Lidera Ataques Conjuntos importantes",
             "Muévete al siguiente objetivo una vez que un Defensor tome el relevo",
             "Cuando los enemigos se teletransporten cerca de tu edificio asignado, apunta a castillos más débiles o expuestos"
           ]},
 
           { type: "sub", text: "🛡️ 2) DEFENSORES" },
-          { type: "p", text: "**Quién:** Nuestros siguientes jugadores más fuertes, con buena capacidad de concentración/guarnición." },
+          { type: "p", text: "**Quién:** Nuestros siguientes jugadores más fuertes, con buena capacidad de Ataque Conjunto/guarnición." },
           { type: "p", text: "**Tu tarea:**" },
           { type: "list", items: [
             "Sigue a tus Atacantes asignados (zona)",
@@ -2321,10 +2321,10 @@ const GUIDES = {
           ]},
 
           { type: "sub", text: "🤝 3) APOYO / PARTICIPANTES" },
-          { type: "p", text: "**Quién:** Generalmente miembros de menor poder y participantes de concentraciones." },
+          { type: "p", text: "**Quién:** Generalmente miembros de menor poder y participantes de Ataques Conjuntos." },
           { type: "p", text: "**Tu tarea:**" },
           { type: "list", items: [
-            "**Deben** unirse a las concentraciones de los Defensores asignados",
+            "**Deben** unirse a los Ataques Conjuntos de los Defensores asignados",
             "Refuerza los edificios capturados",
             "Realiza marchas rápidas de refuerzo cuando se solicite",
             "Opera desde la **Zona Segura** cuando no seas necesario en otro lugar o estés más alejado del alcance enemigo"
@@ -2339,8 +2339,8 @@ const GUIDES = {
           { type: "list", items: [
             "Vacía tu Enfermería. Ten todas las marchas disponibles",
             "Equipa tus héroes/equipo más fuertes",
-            "Activa la Capacidad de Despliegue, los bonos de Ataque y Defensa, y el Contraespionaje",
-            "Ten Teletransportes Avanzados disponibles si tu rol los requiere",
+            "Activa la Capacidad de Despliegue, los bonos de Ataque y Defensa, y el Antirreconocimiento",
+            "Ten Teletransportadores Avanzados disponibles si tu rol los requiere",
             "Mantén Discord abierto si es posible (para consultar el mapa, las asignaciones, VC opcional)",
             "Revisa el Chat de Alianza y los Mensajes Privados"
           ]},
@@ -2378,11 +2378,11 @@ const GUIDES = {
             { time: "20:00–60:00", title: "⛏️ {undercellar}", lines: [
               "Comienza a aparecer {undercellar}.",
               "Los jugadores de apoyo y cualquiera con marchas disponibles deben recolectarlo para puntos adicionales.",
-              "**No abandones una defensa o concentración crítica solo para recolectar.**"
+              "**No abandones una defensa o Ataque Conjunto crítico solo para recolectar.**"
             ]},
             { time: "ÚLTIMOS 15 MINUTOS", title: "🏁 CIERRE", groups: [
               { title: "SI VAMOS GANANDO", lines: ["Protege {swordshrine} y {sanctum}", "Refuerza edificios con puntos acumulados", "Evita el PvP innecesario", "Recupera el {arsenal} disperso de inmediato", "No tomes riesgos innecesarios"] },
-              { title: "SI VAMOS PERDIENDO", lines: ["Presiona los edificios clave del enemigo", "Usa {mercenary} antes de ataques coordinados", "Concentra las concentraciones en vez de atacar al azar", "Apunta a edificios valiosos en poder del enemigo", "Recoge todos los puntos caídos tras un cambio de control exitoso"] }
+              { title: "SI VAMOS PERDIENDO", lines: ["Presiona los edificios clave del enemigo", "Usa {mercenary} antes de ataques coordinados", "Concentra los Ataques Conjuntos en vez de atacar al azar", "Apunta a edificios valiosos en poder del enemigo", "Recoge todos los puntos caídos tras un cambio de control exitoso"] }
             ], warn: "**Últimos 5 minutos: Puntos > bajas.**" }
           ]},
 
@@ -2391,7 +2391,7 @@ const GUIDES = {
           { type: "list", items: [
             "**ATACANTES** → TOMAR + PRESIONAR",
             "**DEFENSORES** → MANTENER + PROTEGER",
-            "**APOYO** → REFORZAR + CONCENTRAR + SAQUEAR + RECOLECTAR"
+            "**APOYO** → REFORZAR + UNIRSE A ATAQUES CONJUNTOS + SAQUEAR + RECOLECTAR"
           ]},
           { type: "list", items: [
             "Sigue tu zona y rol asignados.",
@@ -2405,7 +2405,7 @@ const GUIDES = {
             "No abandones edificios clave por {abbey} o por bajas.",
             "Si el liderazgo indica una rotación, MUÉVETE."
           ]},
-          { type: "callout", text: "⚔️ **LA COORDINACIÓN GANA SWORDLAND**" }
+          { type: "callout", text: "⚔️ **LA COORDINACIÓN GANA EN {swordland}**" }
         ]
       },
       tr: {
@@ -6033,18 +6033,18 @@ const GUIDES = {
       { type: "h", text: "⚔️ FASE 2: FASE DE BATALLA (12 HORAS)" },
       { type: "p", text: "Ventana de Batalla del Castillo: 12:00 UTC a 22:00 UTC." },
       { type: "p", text: "Objetivo: Controlar el {kingsCastle} y 4 {turret}." },
-      { type: "h", text: "🎯 META PVP GEN 3 Y CONFIGURACIÓN DE CONCENTRACIONES" },
+      { type: "h", text: "🎯 META PVP GEN 3 Y CONFIGURACIÓN DE ATAQUES CONJUNTOS" },
       { type: "sub", text: "🛡️ Defensa de Guarnición — Castillo/Torretas" },
       { type: "p", text: "**Héroe líder:** Eric (Gen 3) — Muralla de infantería inquebrantable con estadísticas Gen 3 superiores y mecánicas de supervivencia. Combinado con {zoe} (Gen 2) para escudos." },
-      { type: "sub", text: "⚔️ Concentraciones Ofensivas (Atacando Castillo/Torretas)" },
-      { type: "p", text: "**Héroe líder:** Petra (Gen 3) — Comandante de caballería devastador con {widget} de concentración ofensiva de alta escala." },
-      { type: "sub", text: "🤝 Participantes de Concentración (¡Crucial para F2P!)" },
-      { type: "p", text: "NO uses héroes al azar al unirte a concentraciones. Únete con:" },
+      { type: "sub", text: "⚔️ Ataques Conjuntos Ofensivos (Atacando Castillo/Torretas)" },
+      { type: "p", text: "**Héroe líder:** Petra (Gen 3) — Comandante de caballería devastador con {widget} de Ataque Conjunto ofensivo de alta escala." },
+      { type: "sub", text: "🤝 Participantes de Ataque Conjunto (¡Crucial para F2P!)" },
+      { type: "p", text: "NO uses héroes al azar al unirte a Ataques Conjuntos. Únete con:" },
       { type: "list", items: ["{chenko} (Habilidad 1 al máximo)", "{amane}", "{yeonwoo}"]},
       { type: "p", text: "Estos héroes acumulan multiplicadores de Letalidad." },
-      { type: "h", text: "💣 ESTRATEGIA DE DOBLE CONCENTRACIÓN \"ROMPE-BALLENAS\"" },
+      { type: "h", text: "💣 ESTRATEGIA DE DOBLE ATAQUE CONJUNTO \"ROMPE-BALLENAS\"" },
       { type: "p", text: "Para guarniciones enemigas fuertes:" },
-      { type: "list", items: ["**Concentración 1 (Escudo de Carne / Limpiadora):** Se lanza 1–2 segundos antes. Se enfoca en pura letalidad para desbordar la Enfermería enemiga y eliminar las tropas defensoras.", "**Concentración 2 (Atacante Principal):** Llega justo después de la Concentración 1 para eliminar las tropas restantes y tomar el control del Castillo."]},
+      { type: "list", items: ["**Ataque Conjunto 1 (Escudo de Carne / Limpiadora):** Se lanza 1–2 segundos antes. Se enfoca en pura letalidad para desbordar la Enfermería enemiga y eliminar las tropas defensoras.", "**Ataque Conjunto 2 (Atacante Principal):** Llega justo después del Ataque Conjunto 1 para eliminar las tropas restantes y tomar el control del Castillo."]},
       { type: "callout", text: "Ventaja de {turret}: capturar {turret} otorga hasta +20% de Letalidad de Escuadrón si es mantenida por el mismo reino que posee el Castillo." },
       { type: "h", text: "🩺 FASE 3: TRIAJE DE CAMPO (RECUPERACIÓN DE TROPAS)" },
       { type: "p", text: "Tasa de Rescate Base: 30% de las tropas perdidas que no llegaron a la Enfermería." },
