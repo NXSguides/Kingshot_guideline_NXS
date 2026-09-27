@@ -285,6 +285,36 @@ const GLOSSARY = {
   masterItems: { en:"Master items" },
   manuscript: { en:"Manuscript" },
   masterSpeeds: { en:"Master speeds" },
+  vipXp: { zh:"VIP經驗值", en:"VIP XP", ko:"VIP 경험치", de:"VIP XP", fr:"EXP VIP", pt:"XP VIP", tr:"VIP XP", id:"XP VIP", ru:"VIP-опыт", th:"XP VIP", ar:"خبرة VIP", es:"EXP VIP" },
+  trialCrystal: { zh:"試煉晶石", en:"Trial Crystal", ko:"시련 결정", de:"Prüfungskristall", fr:"Cristal du défi", pt:"Cristal da Prova", tr:"İmtihan Kristali", id:"Kristal Ujian", ru:"Кристалл баталий", th:"คริสตัลบททดสอบ", ar:"كريستال الاختبارات", es:"Cristal de Pruebas" },
+  customMythicGearChest: { zh:"傳說英雄裝備客製化箱子", en:"Custom Mythic Hero Gear Chest", ko:"레전드 영웅 장비 상자", de:"Mythische Heldenausrüstungs Kiste", fr:"Caisse d'Équipement de Héros Mythique Personnalisée", pt:"Baú de Equip. de Herói Mítico Personalizado", tr:"Özel Mitik Kahraman Donanımı Sandığı", id:"Peti Perlengkapan Pahlawan Mitos Khusus", ru:"Личное мифическое снаряжение героя", th:"หีบอุปกรณ์ฮีโร่ขั้นเทพกำหนดเอง", ar:"صندوق عتاد البطل الخيالي المخصص", es:"Caja de equipo de héroe mítico personalizada" },
+  widgetChest: { zh:"第2代英雄零件客製化箱子", en:"Gen 2 Custom Hero Widget Chest", ko:"제2세대 영웅 부속품 선택 상자", de:"2. Gen.Held Elementkiste", fr:"Boîte Comp Héros Myth Pers Gén. 2", pt:"Baú de Ferramenta do Herói Personalizado 2ª Geração", tr:"2. Nesil Özel Kahraman Aleti Sandığı", id:"Peti Widget Custom Gen 2", ru:"Персонализированный ящик 2-го поколения с поделкой героя", th:"หีบอุปกรณ์เสริมฮีโร่กำหนดเองรุ่นที่ 2", ar:"صندوق أجزاء البطل المخصص من الجيل الثاني", es:"Cofre Compl Héroe Pers Gen 2" },
+  transferPass: { zh:"移民授權書", en:"Transfer Pass", ko:"이민 허가증", de:"Transfer-Pass", fr:"Passe de Transfert", pt:"Passe de Transferência", tr:"Transfer Bileti", id:"Transfer Pass", ru:"Пропуск переноса", th:"บัตรผ่านการย้าย", ar:"تذكرة الانتقال", es:"Pase de transferencia" },
+  hallOfHeroes: { zh:"英雄殿堂", en:"Hall of Heroes", ko:"영웅의 전당", de:"Halle der Helden", fr:"Temple des Héros", pt:"Hall dos Heróis", tr:"Kahraman Salonu", id:"Aula Pahlawan", ru:"Зал героев", th:"หอฮีโร่", ar:"قاعة الأبطال", es:"Sala de los héroes" },
+  arenaOfGlory: { zh:"萬國競技場", en:"Arena of Glory", ko:"만국 경기장", de:"Arena des Ruhms", fr:"Arène de la Gloire", pt:"Arena da Glória", tr:"Şan Arenası", id:"Arena Kemuliaan", ru:"Арена славы", th:"อารีน่าแห่งเกียรติยศ", ar:"ساحة المجد", es:"Arena de la gloria" },
+  intelMission: { zh:"情報事件", en:"Intel Mission", ko:"정보 이벤트", de:"Geheimdienst-Mission", fr:"Mission de renseignements", pt:"Missão de Informação", tr:"Bilgi Görevi", id:"Misi Intel", ru:"Разведывательная миссия", th:"ภารกิจข่าวกรอง", ar:"مهمة المعلومات", es:"Misión de Inteligencia" },
+  waterEssence: { zh:"生命之水", en:"Water Essence", ko:"생명의 물", de:"Wasser-Essenz", fr:"Essence d'Eau", pt:"Essência da Água", tr:"Su Özü", id:"Esensi Air", ru:"Водная эссенция", th:"แก่นน้ำ", ar:"جوهر الماء", es:"Esencia de Agua" },
+  petAdventure: { zh:"寵物尋寶", en:"Pet Adventure", ko:"펫 보물찾기", de:"Begleittier Abenteuer", fr:"Aventure Animalière", pt:"Aventura do Pet", tr:"Evcil Hayvan Macerası", id:"Petualangan Hewan Peliharaan", ru:"Приключение питомца", th:"การผจญภัยสัตว์เลี้ยง", ar:"مغامرة الحيوان الأليف", es:"Aventura de Mascotas" },
+  conquerorsCamp: { zh:"討伐小隊營地", en:"Conquerors' Camp", ko:"소대 영지 토벌", de:"Lager der Eroberer", fr:"Camp des Conquérants", pt:"Acampamento dos Conquistadores", tr:"Fatihler Kampı", id:"Kamp Penakluk", ru:"Лагерь завоевателя", th:"ค่ายผู้พิชิต", ar:"معسكر الغزاة", es:"Campamento de Conquistadores" },
+  dailyMissions: { zh:"每日任務", en:"Daily", ko:"일일 임무", de:"Täglich", fr:"Quotidien", pt:"Diário", tr:"Günlük", id:"Harian", ru:"Ежедневные миссии", th:"ประจำวัน", ar:"يومياً", es:"Diario" },
+  allianceHelp: { zh:"聯盟互助", en:"Help", ko:"연맹 협조", de:"Hilfe", fr:"Aide", pt:"Ajuda", tr:"Yardım", id:"Bantuan", ru:"Помощь", th:"การช่วยเหลือ", ar:"المساعدة", es:"Ayuda" },
+  allianceTech: { zh:"聯盟科技", en:"Tech", ko:"연맹 과학 기술", de:"Technologie", fr:"Tech", pt:"Tecnologia", tr:"Teknoloji", id:"Teknologi", ru:"Технологии", th:"เทคโนโลยี", ar:"التقنيات", es:"Tecnología" },
+  allianceToken: { zh:"聯盟幣", en:"Alliance Token", ko:"연맹 코인", de:"Allianz-Token", pt:"Token da Aliança", tr:"İttifak Jetonu", id:"Token Aliansi", ru:"Жетон альянса", th:"เหรียญพันธมิตร", ar:"رمز التحالف", es:"Ficha de la alianza" },
+  houseOfCacti: { zh:"仙人掌小屋", en:"House of Cacti", ko:"선인장 오두막", de:"Haus der Kakteen", fr:"Maison des Cactus", pt:"Casa dos Cactos", tr:"Kaktüs Evi", id:"House of Cacti", ru:"Обитель кактусов", th:"อาณาจักรกระบองเพชร", ar:"بيت الصبار", es:"Casa de los cactus" },
+  squadsAttack: { zh:"部隊攻擊力", en:"Squads' Attack", ko:"부대 공격력", de:"Schwadron Angriff", fr:"Attaque des escouades", pt:"Ataque dos Esquadrões", tr:"Ekiplerin Saldırısı", id:"Attack Skuad", ru:"Атака войск", th:"พลังโจมตีทีม", ar:"هجوم الفرق", es:"Ataque de los Escuadrones" },
+  charmDesign: { zh:"寶石圖紙", en:"Charm Design", ko:"보석 도면", de:"Talismanpläne", fr:"Plans de Talisman", pt:"Design do Talismã", tr:"Tılsım Tasarımı", id:"Desain Charm", ru:"Чертеж талисмана", th:"แผนเครื่องราง", ar:"تصميم تميمة", es:"Planos de talismán" },
+  masterEmblem: { en:"Master Emblems" },
+  nomadicMerchant: { zh:"流浪商人", en:"Nomadic Merchant", ko:"떠돌이 상인", de:"Nomaden Händler", fr:"Marchand Nomade", pt:"Comerciante Nômade", tr:"Göçebe Tüccar", id:"Pedagang Nomaden", ru:"Торговец-кочевник", th:"พ่อค้าพเนจร", ar:"تاجر بدوي", es:"Mercader nómade" },
+  mysteryShop: { zh:"神秘商店", en:"Mystery Shop", ko:"신비한 상점", de:"Rätsel", fr:"Mystère", pt:"Mistério", tr:"Gizem", id:"Misteri", ru:"Тайный магазин", th:"ปริศนา", ar:"الغموض", es:"Misterio" },
+  arenaShop: { zh:"競技商店", en:"Arena Shop", ko:"경기장 상점", de:"Arena", fr:"Arène", pt:"Arena", tr:"Arena", id:"Arena", ru:"Магазин арены", th:"อารีน่า", ar:"الساحة", es:"Arena" },
+  vipShop: { zh:"VIP商店", en:"VIP Shop", ko:"VIP 상점", de:"VIP", fr:"VIP", pt:"VIP", tr:"VIP", id:"VIP", ru:"VIP-магазин", th:"VIP", ar:"VIP", es:"VIP" },
+  championshipShop: { zh:"爭霸賽商店", en:"Alliance Championship Shop", ko:"챔피언십 상점", de:"Meisterschafts Laden", fr:"Magasin du Championnat de l'Alliance", pt:"Loja do Campeonato da Aliança", tr:"İttifak Şampiyonası Mağazası", id:"Tingkat Kejuaraan Aliansi", ru:"Магазин чемпионата альянса", th:"ร้านค้าการแข่งขันชิงแชมป์พันธมิตร", ar:"متجر بطولة التحالف", es:"Tienda de Campeonato de alianza" },
+  swordlandShop: { zh:"聖劍商店", en:"Swordland Shop", ko:"성검 상점", de:"Schwertland", fr:"Glaive", pt:"Terra das Espadas", tr:"Kılıçdiyarı", id:"Swordland", ru:"Магазин Страны мечей", th:"ดินแดนดาบ", ar:"أرض السيوف", es:"Tierra de Espadas" },
+  kopShop: { zh:"最強王國商店", en:"Kingdom of Power Shop", ko:"최강 왕국 상점", de:"Königreich der Macht", fr:"Royaume au Pouvoir", pt:"Reino de Poder", tr:"En Güçlü Krallık", id:"Kerajaan Kekuatan", ru:"Мощь государств", th:"อาณาจักรแห่งอำนาจ", ar:"مملكة القوة", es:"Reino del Poder" },
+  skinShop: { zh:"裝扮商店", en:"Skin Shop", ko:"스킨 상점", de:"Verkleidung", fr:"Thème", pt:"Skin", tr:"Görünüm", id:"Skin", ru:"Магазин обликов", th:"สกิน", ar:"مظهر", es:"Apariencias" },
+  trialShop: { zh:"試煉挑戰商店", en:"Trial Shop", ko:"시련 도전 상점", de:"Prüfungsladen", fr:"Magasin du Défi", pt:"Loja da Prova", tr:"İmtihan Mağazası", id:"Toko Ujian", ru:"Магазин испытания", th:"ร้านค้าบททดสอบ", ar:"متجر الاختبارات", es:"Tienda de Pruebas" },
+  gemShop: { zh:"鑽石商店", en:"Gem Shop", ko:"다이아 상점", de:"Edelstein", fr:"Gemme", pt:"Gema", tr:"Elmas", id:"Gem", ru:"Магазин алмазов", th:"เพชร", ar:"الجوهرة", es:"Gemas" },
+  allianceShop: { zh:"聯盟商店", en:"Alliance Shop", ko:"연맹 상점", de:"Laden", fr:"Magasin", pt:"Loja", tr:"Mağaza", id:"Toko", ru:"Магазин", th:"ร้านค้า", ar:"متجر", es:"Tienda" },
   mysticTrial: { zh:"秘境試煉", en:"Mystic Trial", ko:"신비한 시련", de:"Mystische Prüfung", fr:"Épreuve Mystique", pt:"Prova Mística", tr:"Mistik İmtihan", id:"Ujian Mistis", ru:"Волшебное испытание", th:"บททดสอบลี้ลับ", ar:"الاختبارات الغامضة", es:"Prueba Mística" },
   coliseum: { zh:"角鬥賽場", en:"Coliseum", ko:"결투장", de:"Kolosseum", fr:"Colisée", pt:"Coliseu", tr:"Kolezyum", id:"Koloseum", ru:"Колизей", th:"โคลอสเซียม", ar:"الكولوسيوم", es:"Coliseo" },
   forestOfLife: { zh:"生命森林", en:"Forest of Life", ko:"생명의 숲", de:"Wald des Lebens", fr:"Forêt de la Vie", pt:"Floresta da Vida", tr:"Yaşam Ormanı", id:"Alas Kehidupan", ru:"Лес жизни", th:"ป่าแห่งชีวิต", ar:"غابة الحياة", es:"Bosque de la Vida" },
@@ -743,6 +773,1116 @@ const GUIDES = {
           { type: "p", text: "نسّق مع R4/R5 ليأخذ الجميع دورهم ونملأ المقر بكفاءة." }
         ]
       }
+    }
+  },
+  "general-tips": {
+    emoji: "🔍",
+    name: { en: "General Tips", zh: "通用小技巧", ko: "일반 팁", de: "Allgemeine Tipps", fr: "Conseils Généraux", pt: "Dicas Gerais", tr: "Genel İpuçları", id: "Tips Umum", ru: "Общие советы", th: "เคล็ดลับทั่วไป", ar: "نصائح عامة", es: "Consejos Generales" },
+    sections: {
+      en: { title: "General Tips", blocks: [
+        { type: "h", text: "🔗 RESOURCES" },
+        { type: "sub", text: "🗓️ KINGDOM TIMELINE" },
+        { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
+        { type: "p", text: "See what's coming next so you can plan events, upgrades and resources ahead of time." },
+        { type: "sub", text: "⚔️ HERO GEAR OPTIMIZER" },
+        { type: "p", text: "https://kingshotoptimizer.com/hero-gear" },
+        { type: "p", text: "Plan your {heroGear} upgrades and avoid wasting valuable materials." },
+        { type: "sub", text: "🎥 YOUTUBE – STRAT GAME SLOTH" },
+        { type: "p", text: "https://www.youtube.com/watch?v=NMrS3MTSFUU" },
+        { type: "p", text: "Recommended strategy videos, gameplay tips and progression advice." },
+        { type: "h", text: "🛒 IN-GAME SHOPS" },
+        { type: "p", text: "What to prioritize for the best value from each shop." },
+        { type: "sub", text: "🐪 {nomadicMerchant}" },
+        { type: "list", items: [
+          "{teleporterAdv} for resources / free",
+          "Favourable resource trades",
+          "Discounted {vipXp}"
+        ] },
+        { type: "sub", text: "🎲 {mysteryShop}" },
+        { type: "list", items: [
+          "Free daily refresh",
+          "{widgetChest} at 50% OFF",
+          "20% OFF only if urgently needed"
+        ] },
+        { type: "sub", text: "🏟️ {arenaShop}" },
+        { type: "list", items: [
+          "{customMythicGearChest} weekly → {mithril} once the Mythic Gear foundation of your main heroes is done"
+        ] },
+        { type: "sub", text: "👑 {vipShop}" },
+        { type: "list", items: [
+          "Spend {gems} selectively on discounts: {teleporterAdv} • 100 {enhancementXp} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏆 {championshipShop}" },
+        { type: "list", items: [
+          "**Before {masters}:** {artisansVision} • {gildedThreads} / {satin} as needed",
+          "**After {masters}:** {masterEmblem} are the #1 priority — late game, save tokens for these"
+        ] },
+        { type: "sub", text: "⚔️ {swordlandShop}" },
+        { type: "list", items: [
+          "{artisansVision} → then whatever is your bottleneck: {governorCharm} / {governorGear} materials • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏰 {kopShop}" },
+        { type: "list", items: [
+          "**{truegold}** — a major long-term progression bottleneck"
+        ] },
+        { type: "sub", text: "🎨 {skinShop}" },
+        { type: "list", items: [
+          "Prioritize permanent stat bonuses, e.g. {houseOfCacti}: +2% {squadsAttack}"
+        ] },
+        { type: "sub", text: "🧪 {trialShop}" },
+        { type: "list", items: [
+          "**Before {truegoldDust}:** SAVE your {trialCrystal}",
+          "**After:** {truegoldDust} → {mithril} → {enhancementXp} → {charmDesign}"
+        ] },
+        { type: "sub", text: "💎 {gemShop}" },
+        { type: "p", text: "Only spend {gems} on important progression breakpoints or hard-to-get materials." },
+        { type: "callout", text: "**When in doubt: SAVE YOUR GEMS.** See the Gem Spending Guide below." },
+        { type: "sub", text: "🤝 {allianceShop}" },
+        { type: "list", items: [
+          "{transferPass} • {vipXp} • Pet food / materials • {teleporterAdv} • Useful 70% discounts • Speedups only with excess {allianceToken}"
+        ] },
+        { type: "h", text: "💎 GEM SPENDING GUIDE" },
+        { type: "p", text: "Save your {gems} for:" },
+        { type: "list", items: [
+          "**1) 🎡 {heroRoulette}** → ~162,000 {gems} for 120 spins",
+          "**2) 👑 VIP activation** → 10,000 {gems}/month (from VIP 4)"
+        ] },
+        { type: "callout", text: "🏛️ {hallOfHeroes} → ~13,500–14,850 {gems}, **ONLY if {marlin} is not unlocked yet.** Stop once unlocked — after that, general shards are better value for upgrades." },
+        { type: "h", text: "✅ DAILY CHECKLIST" },
+        { type: "sub", text: "☀️ WHILE ONLINE" },
+        { type: "list", items: [
+          "☐ 🎁 Collect the VIP chest + use {vipXp}",
+          "☐ 🤝 Alliance {allianceHelp} + contribute to Alliance {allianceTech}",
+          "☐ 📊 Use Hero XP items",
+          "☐ ⚔️ Conquer camps ({conquerorsCamp})",
+          "☐ 🔎 Complete {intelMission}s",
+          "☐ 🏝️ Collect {waterEssence} on the island + assist allies",
+          "☐ 🔮 Use your {mysticTrial} attempts",
+          "☐ 📋 Complete {dailyMissions} missions",
+          "☐ 🏟️ Do {arenaOfGlory} 3 minutes before reset",
+          "☐ 🐻 {bearHunt} — every other day + update formations",
+          "☐ 📅 Register for and join active events"
+        ] },
+        { type: "sub", text: "🌙 BEFORE LOGGING OFF" },
+        { type: "list", items: [
+          "☐ 🐉 Send pets on {petAdventure}",
+          "☐ 🌾 Send {gathering} marches",
+          "☐ ⚔️ Keep troop {training} running",
+          "☐ 🔬 Keep {research} / {construction} running as needed"
+        ] }
+      ]},
+      zh: { title: "通用小技巧", blocks: [
+        { type: "h", text: "🔗 實用資源" },
+        { type: "sub", text: "🗓️ 王國時間軸" },
+        { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
+        { type: "p", text: "查看接下來的時程，提前規劃活動、升級與資源。" },
+        { type: "sub", text: "⚔️ 英雄裝備規劃工具" },
+        { type: "p", text: "https://kingshotoptimizer.com/hero-gear" },
+        { type: "p", text: "規劃{heroGear}升級，避免浪費珍貴材料。" },
+        { type: "sub", text: "🎥 YOUTUBE – STRAT GAME SLOTH" },
+        { type: "p", text: "https://www.youtube.com/watch?v=NMrS3MTSFUU" },
+        { type: "p", text: "推薦的攻略影片、遊戲技巧與養成建議。" },
+        { type: "h", text: "🛒 遊戲內商店" },
+        { type: "p", text: "各商店優先購買什麼最划算。" },
+        { type: "sub", text: "🐪 {nomadicMerchant}" },
+        { type: "list", items: [
+          "{teleporterAdv}（用資源購買／免費）",
+          "划算的資源交換",
+          "折扣{vipXp}"
+        ] },
+        { type: "sub", text: "🎲 {mysteryShop}" },
+        { type: "list", items: [
+          "每日免費更新",
+          "{widgetChest} 5折時購買",
+          "8折只在急需時才買"
+        ] },
+        { type: "sub", text: "🏟️ {arenaShop}" },
+        { type: "list", items: [
+          "每週買{customMythicGearChest} → 主力英雄的傳說裝備基礎完成後改買{mithril}"
+        ] },
+        { type: "sub", text: "👑 {vipShop}" },
+        { type: "list", items: [
+          "{gems}只挑折扣商品買：{teleporterAdv} • 100 {enhancementXp} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏆 {championshipShop}" },
+        { type: "list", items: [
+          "**{masters}前：** {artisansVision} • 視需要買{gildedThreads}／{satin}",
+          "**{masters}後：** {masterEmblem}是第一優先 — 後期請把代幣留給它"
+        ] },
+        { type: "sub", text: "⚔️ {swordlandShop}" },
+        { type: "list", items: [
+          "{artisansVision} → 接著買你的瓶頸材料：{governorCharm}／{governorGear}材料 • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏰 {kopShop}" },
+        { type: "list", items: [
+          "**{truegold}** — 長期養成的主要瓶頸"
+        ] },
+        { type: "sub", text: "🎨 {skinShop}" },
+        { type: "list", items: [
+          "優先買有永久屬性加成的，例如{houseOfCacti}：{squadsAttack} +2%"
+        ] },
+        { type: "sub", text: "🧪 {trialShop}" },
+        { type: "list", items: [
+          "**解鎖{truegoldDust}前：** 先存{trialCrystal}",
+          "**之後：** {truegoldDust} → {mithril} → {enhancementXp} → {charmDesign}"
+        ] },
+        { type: "sub", text: "💎 {gemShop}" },
+        { type: "p", text: "只在重要的養成關卡或難取得的材料上使用{gems}。" },
+        { type: "callout", text: "**拿不定主意時：先存鑽石。** 請看下方的鑽石使用指南。" },
+        { type: "sub", text: "🤝 {allianceShop}" },
+        { type: "list", items: [
+          "{transferPass} • {vipXp} • 寵物食物／材料 • {teleporterAdv} • 實用的3折商品 • {allianceToken}有剩時才買加速"
+        ] },
+        { type: "h", text: "💎 鑽石使用指南" },
+        { type: "p", text: "把{gems}留給：" },
+        { type: "list", items: [
+          "**1) 🎡 {heroRoulette}** → 約162,000{gems}可轉120次",
+          "**2) 👑 VIP啟用** → 每月10,000{gems}（VIP 4以上）"
+        ] },
+        { type: "callout", text: "🏛️ {hallOfHeroes} → 約13,500–14,850{gems}，**只在還沒解鎖{marlin}時才買。** 解鎖後就停，之後用通用碎片升級更划算。" },
+        { type: "h", text: "✅ 每日清單" },
+        { type: "sub", text: "☀️ 上線時" },
+        { type: "list", items: [
+          "☐ 🎁 領取VIP寶箱＋使用{vipXp}",
+          "☐ 🤝 {allianceHelp}＋{allianceTech}捐獻",
+          "☐ 📊 使用英雄經驗道具",
+          "☐ ⚔️ 派兵討伐（{conquerorsCamp}）",
+          "☐ 🔎 完成{intelMission}",
+          "☐ 🏝️ 收集島上的{waterEssence}＋協助盟友",
+          "☐ 🔮 用完{mysticTrial}的次數",
+          "☐ 📋 完成{dailyMissions}",
+          "☐ 🏟️ 在重置前3分鐘打{arenaOfGlory}",
+          "☐ 🐻 {bearHunt} — 每兩天一次＋更新部隊編組",
+          "☐ 📅 報名並參加進行中的活動"
+        ] },
+        { type: "sub", text: "🌙 下線前" },
+        { type: "list", items: [
+          "☐ 🐉 派寵物去{petAdventure}",
+          "☐ 🌾 派出{gathering}部隊",
+          "☐ ⚔️ 保持部隊{training}不中斷",
+          "☐ 🔬 視需要保持{research}／{construction}進行中"
+        ] }
+      ]},
+      ko: { title: "일반 팁", blocks: [
+        { type: "h", text: "🔗 유용한 자료" },
+        { type: "sub", text: "🗓️ 왕국 타임라인" },
+        { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
+        { type: "p", text: "다음 일정을 확인하고 이벤트, 업그레이드, 자원을 미리 계획하세요." },
+        { type: "sub", text: "⚔️ 영웅 장비 최적화 도구" },
+        { type: "p", text: "https://kingshotoptimizer.com/hero-gear" },
+        { type: "p", text: "{heroGear} 업그레이드를 계획하고 귀중한 재료 낭비를 막으세요." },
+        { type: "sub", text: "🎥 YOUTUBE – STRAT GAME SLOTH" },
+        { type: "p", text: "https://www.youtube.com/watch?v=NMrS3MTSFUU" },
+        { type: "p", text: "추천 공략 영상, 게임 팁, 성장 조언." },
+        { type: "h", text: "🛒 게임 내 상점" },
+        { type: "p", text: "각 상점에서 가장 가성비 좋은 우선 구매 항목." },
+        { type: "sub", text: "🐪 {nomadicMerchant}" },
+        { type: "list", items: [
+          "{teleporterAdv} (자원 구매/무료)",
+          "유리한 자원 교환",
+          "할인된 {vipXp}"
+        ] },
+        { type: "sub", text: "🎲 {mysteryShop}" },
+        { type: "list", items: [
+          "매일 무료 새로고침",
+          "{widgetChest} 50% 할인 시 구매",
+          "20% 할인은 급할 때만"
+        ] },
+        { type: "sub", text: "🏟️ {arenaShop}" },
+        { type: "list", items: [
+          "매주 {customMythicGearChest} → 주력 영웅의 레전드 장비 기반이 완성되면 {mithril}"
+        ] },
+        { type: "sub", text: "👑 {vipShop}" },
+        { type: "list", items: [
+          "{gems}는 할인 상품에만 골라서: {teleporterAdv} • 100 {enhancementXp} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏆 {championshipShop}" },
+        { type: "list", items: [
+          "**{masters} 이전:** {artisansVision} • 필요에 따라 {gildedThreads} / {satin}",
+          "**{masters} 이후:** {masterEmblem}이 최우선 — 후반에는 토큰을 여기에 모으세요"
+        ] },
+        { type: "sub", text: "⚔️ {swordlandShop}" },
+        { type: "list", items: [
+          "{artisansVision} → 이후 병목이 되는 재료: {governorCharm} / {governorGear} 재료 • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏰 {kopShop}" },
+        { type: "list", items: [
+          "**{truegold}** — 장기 성장의 주요 병목"
+        ] },
+        { type: "sub", text: "🎨 {skinShop}" },
+        { type: "list", items: [
+          "영구 속성 버프를 우선하세요. 예: {houseOfCacti}: {squadsAttack} +2%"
+        ] },
+        { type: "sub", text: "🧪 {trialShop}" },
+        { type: "list", items: [
+          "**{truegoldDust} 이전:** {trialCrystal}을 모으세요",
+          "**이후:** {truegoldDust} → {mithril} → {enhancementXp} → {charmDesign}"
+        ] },
+        { type: "sub", text: "💎 {gemShop}" },
+        { type: "p", text: "{gems}는 중요한 성장 구간이나 구하기 어려운 재료에만 쓰세요." },
+        { type: "callout", text: "**고민될 때는 다이아를 아끼세요.** 아래 다이아 사용 가이드를 참고하세요." },
+        { type: "sub", text: "🤝 {allianceShop}" },
+        { type: "list", items: [
+          "{transferPass} • {vipXp} • 펫 먹이/재료 • {teleporterAdv} • 유용한 70% 할인 • 가속은 {allianceToken}이 남을 때만"
+        ] },
+        { type: "h", text: "💎 다이아 사용 가이드" },
+        { type: "p", text: "{gems}는 여기에 아끼세요:" },
+        { type: "list", items: [
+          "**1) 🎡 {heroRoulette}** → 120회에 약 162,000 {gems}",
+          "**2) 👑 VIP 활성화** → 매월 10,000 {gems} (VIP 4 이상)"
+        ] },
+        { type: "callout", text: "🏛️ {hallOfHeroes} → 약 13,500–14,850 {gems}, **{marlin}을 아직 해제하지 않았을 때만.** 해제 후에는 멈추세요 — 그 뒤로는 공용 파편이 더 효율적입니다." },
+        { type: "h", text: "✅ 일일 체크리스트" },
+        { type: "sub", text: "☀️ 접속 중" },
+        { type: "list", items: [
+          "☐ 🎁 VIP 상자 받기 + {vipXp} 사용",
+          "☐ 🤝 {allianceHelp} + {allianceTech} 기부",
+          "☐ 📊 영웅 경험치 아이템 사용",
+          "☐ ⚔️ 토벌 보내기 ({conquerorsCamp})",
+          "☐ 🔎 {intelMission} 완료",
+          "☐ 🏝️ 섬의 {waterEssence} 수집 + 연맹원 돕기",
+          "☐ 🔮 {mysticTrial} 도전 횟수 사용",
+          "☐ 📋 {dailyMissions} 완료",
+          "☐ 🏟️ 초기화 3분 전에 {arenaOfGlory} 진행",
+          "☐ 🐻 {bearHunt} — 이틀에 한 번 + 부대 편성 갱신",
+          "☐ 📅 진행 중인 이벤트 등록 및 참여"
+        ] },
+        { type: "sub", text: "🌙 접속 종료 전" },
+        { type: "list", items: [
+          "☐ 🐉 펫을 {petAdventure}에 보내기",
+          "☐ 🌾 {gathering} 행군 보내기",
+          "☐ ⚔️ 부대 {training} 유지",
+          "☐ 🔬 필요에 따라 {research} / {construction} 유지"
+        ] }
+      ]},
+      de: { title: "Allgemeine Tipps", blocks: [
+        { type: "h", text: "🔗 RESSOURCEN" },
+        { type: "sub", text: "🗓️ KÖNIGREICH-ZEITPLAN" },
+        { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
+        { type: "p", text: "Sieh, was als Nächstes kommt, und plane Events, Upgrades und Ressourcen im Voraus." },
+        { type: "sub", text: "⚔️ HELDENAUSRÜSTUNGS-OPTIMIERER" },
+        { type: "p", text: "https://kingshotoptimizer.com/hero-gear" },
+        { type: "p", text: "Plane deine {heroGear}-Upgrades und verschwende keine wertvollen Materialien." },
+        { type: "sub", text: "🎥 YOUTUBE – STRAT GAME SLOTH" },
+        { type: "p", text: "https://www.youtube.com/watch?v=NMrS3MTSFUU" },
+        { type: "p", text: "Empfohlene Strategievideos, Spieltipps und Fortschrittsratschläge." },
+        { type: "h", text: "🛒 SHOPS IM SPIEL" },
+        { type: "p", text: "Was du in jedem Shop für den besten Wert priorisieren solltest." },
+        { type: "sub", text: "🐪 {nomadicMerchant}" },
+        { type: "list", items: [
+          "{teleporterAdv} für Ressourcen / gratis",
+          "Günstige Ressourcentausche",
+          "Reduzierte {vipXp}"
+        ] },
+        { type: "sub", text: "🎲 {mysteryShop}" },
+        { type: "list", items: [
+          "Tägliche Gratis-Aktualisierung",
+          "{widgetChest} bei 50 % Rabatt",
+          "20 % Rabatt nur bei dringendem Bedarf"
+        ] },
+        { type: "sub", text: "🏟️ {arenaShop}" },
+        { type: "list", items: [
+          "Wöchentlich {customMythicGearChest} → danach {mithril}, sobald die mythische Ausrüstungsbasis deiner Haupthelden steht"
+        ] },
+        { type: "sub", text: "👑 {vipShop}" },
+        { type: "list", items: [
+          "{gems} gezielt für Rabatte ausgeben: {teleporterAdv} • 100 {enhancementXp} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏆 {championshipShop}" },
+        { type: "list", items: [
+          "**Vor {masters}:** {artisansVision} • {gildedThreads} / {satin} nach Bedarf",
+          "**Nach {masters}:** {masterEmblem} haben Priorität Nr. 1 — im Late Game Token dafür sparen"
+        ] },
+        { type: "sub", text: "⚔️ {swordlandShop}" },
+        { type: "list", items: [
+          "{artisansVision} → dann, was dich gerade bremst: {governorCharm}- / {governorGear}-Materialien • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏰 {kopShop}" },
+        { type: "list", items: [
+          "**{truegold}** — ein großer langfristiger Engpass"
+        ] },
+        { type: "sub", text: "🎨 {skinShop}" },
+        { type: "list", items: [
+          "Dauerhafte Wert-Boni zuerst, z. B. {houseOfCacti}: +2 % {squadsAttack}"
+        ] },
+        { type: "sub", text: "🧪 {trialShop}" },
+        { type: "list", items: [
+          "**Vor {truegoldDust}:** {trialCrystal} SPAREN",
+          "**Danach:** {truegoldDust} → {mithril} → {enhancementXp} → {charmDesign}"
+        ] },
+        { type: "sub", text: "💎 {gemShop}" },
+        { type: "p", text: "Gib {gems} nur für wichtige Fortschrittsschwellen oder schwer erhältliche Materialien aus." },
+        { type: "callout", text: "**Im Zweifel: EDELSTEINE SPAREN.** Siehe den Edelstein-Leitfaden unten." },
+        { type: "sub", text: "🤝 Allianz – {allianceShop}" },
+        { type: "list", items: [
+          "{transferPass} • {vipXp} • Begleittier-Futter / -Materialien • {teleporterAdv} • nützliche 70 %-Rabatte • Beschleunigungen nur mit überschüssigen {allianceToken}"
+        ] },
+        { type: "h", text: "💎 EDELSTEIN-LEITFADEN" },
+        { type: "p", text: "Spare {gems} für:" },
+        { type: "list", items: [
+          "**1) 🎡 {heroRoulette}** → ca. 162.000 {gems} für 120 Drehungen",
+          "**2) 👑 VIP-Aktivierung** → 10.000 {gems}/Monat (ab VIP 4)"
+        ] },
+        { type: "callout", text: "🏛️ {hallOfHeroes} → ca. 13.500–14.850 {gems}, **NUR wenn {marlin} noch nicht freigeschaltet ist.** Danach aufhören — dann sind allgemeine Fragmente für Upgrades wertvoller." },
+        { type: "h", text: "✅ TÄGLICHE CHECKLISTE" },
+        { type: "sub", text: "☀️ WÄHREND DU ONLINE BIST" },
+        { type: "list", items: [
+          "☐ 🎁 VIP-Truhe abholen + {vipXp} verwenden",
+          "☐ 🤝 Allianz-{allianceHelp} + zur Allianz-{allianceTech} beitragen",
+          "☐ 📊 Helden-EP-Gegenstände verwenden",
+          "☐ ⚔️ Lager erobern ({conquerorsCamp})",
+          "☐ 🔎 {intelMission}en abschließen",
+          "☐ 🏝️ {waterEssence} auf der Insel sammeln + Verbündeten helfen",
+          "☐ 🔮 Versuche der {mysticTrial} nutzen",
+          "☐ 📋 Tägliche Missionen ({dailyMissions}) erledigen",
+          "☐ 🏟️ {arenaOfGlory} 3 Minuten vor dem Reset spielen",
+          "☐ 🐻 {bearHunt} — jeden zweiten Tag + Formationen aktualisieren",
+          "☐ 📅 Für aktive Events anmelden und teilnehmen"
+        ] },
+        { type: "sub", text: "🌙 VOR DEM AUSLOGGEN" },
+        { type: "list", items: [
+          "☐ 🐉 Begleittiere auf {petAdventure} schicken",
+          "☐ 🌾 {gathering}-Märsche losschicken",
+          "☐ ⚔️ Truppen-{training} aktiv halten",
+          "☐ 🔬 {research} / {construction} nach Bedarf aktiv halten"
+        ] }
+      ]},
+      fr: { title: "Conseils Généraux", blocks: [
+        { type: "h", text: "🔗 RESSOURCES" },
+        { type: "sub", text: "🗓️ CHRONOLOGIE DU ROYAUME" },
+        { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
+        { type: "p", text: "Vois ce qui arrive ensuite pour planifier événements, améliorations et ressources à l'avance." },
+        { type: "sub", text: "⚔️ OPTIMISEUR D'ÉQUIPEMENT DE HÉROS" },
+        { type: "p", text: "https://kingshotoptimizer.com/hero-gear" },
+        { type: "p", text: "Planifie tes améliorations d'{heroGear} et évite de gaspiller des matériaux précieux." },
+        { type: "sub", text: "🎥 YOUTUBE – STRAT GAME SLOTH" },
+        { type: "p", text: "https://www.youtube.com/watch?v=NMrS3MTSFUU" },
+        { type: "p", text: "Vidéos de stratégie recommandées, astuces de jeu et conseils de progression." },
+        { type: "h", text: "🛒 MAGASINS DU JEU" },
+        { type: "p", text: "Quoi acheter en priorité dans chaque magasin pour le meilleur rapport qualité-prix." },
+        { type: "sub", text: "🐪 {nomadicMerchant}" },
+        { type: "list", items: [
+          "{teleporterAdv} contre ressources / gratuit",
+          "Échanges de ressources avantageux",
+          "{vipXp} en réduction"
+        ] },
+        { type: "sub", text: "🎲 {mysteryShop}" },
+        { type: "list", items: [
+          "Actualisation quotidienne gratuite",
+          "{widgetChest} à -50 %",
+          "-20 % seulement en cas d'urgence"
+        ] },
+        { type: "sub", text: "🏟️ {arenaShop}" },
+        { type: "list", items: [
+          "{customMythicGearChest} chaque semaine → {mithril} une fois la base d'équipement mythique de tes héros principaux terminée"
+        ] },
+        { type: "sub", text: "👑 {vipShop}" },
+        { type: "list", items: [
+          "Dépense tes {gems} seulement sur les réductions : {teleporterAdv} • 100 {enhancementXp} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏆 {championshipShop}" },
+        { type: "list", items: [
+          "**Avant {masters} :** {artisansVision} • {gildedThreads} / {satin} selon les besoins",
+          "**Après {masters} :** {masterEmblem} en priorité n°1 — en fin de partie, garde tes jetons pour ça"
+        ] },
+        { type: "sub", text: "⚔️ {swordlandShop}" },
+        { type: "list", items: [
+          "{artisansVision} → puis ce qui te bloque : matériaux de {governorCharm} / d'{governorGear} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏰 {kopShop}" },
+        { type: "list", items: [
+          "**{truegold}** — un goulot d'étranglement majeur à long terme"
+        ] },
+        { type: "sub", text: "🎨 {skinShop}" },
+        { type: "list", items: [
+          "Priorise les bonus de stats permanents, ex. {houseOfCacti} : +2 % {squadsAttack}"
+        ] },
+        { type: "sub", text: "🧪 {trialShop}" },
+        { type: "list", items: [
+          "**Avant {truegoldDust} :** ÉCONOMISE tes {trialCrystal}",
+          "**Après :** {truegoldDust} → {mithril} → {enhancementXp} → {charmDesign}"
+        ] },
+        { type: "sub", text: "💎 {gemShop}" },
+        { type: "p", text: "Ne dépense tes {gems} que pour des paliers de progression importants ou des matériaux rares." },
+        { type: "callout", text: "**Dans le doute : GARDE TES GEMMES.** Voir le guide des gemmes ci-dessous." },
+        { type: "sub", text: "🤝 Alliance – {allianceShop}" },
+        { type: "list", items: [
+          "{transferPass} • {vipXp} • Nourriture / matériaux pour animaux • {teleporterAdv} • Réductions utiles de 70 % • Accélérateurs seulement avec un surplus de {allianceToken}"
+        ] },
+        { type: "h", text: "💎 GUIDE DES GEMMES" },
+        { type: "p", text: "Garde tes {gems} pour :" },
+        { type: "list", items: [
+          "**1) 🎡 {heroRoulette}** → ~162 000 {gems} pour 120 tours",
+          "**2) 👑 Activation VIP** → 10 000 {gems}/mois (à partir de VIP 4)"
+        ] },
+        { type: "callout", text: "🏛️ {hallOfHeroes} → ~13 500–14 850 {gems}, **SEULEMENT si {marlin} n'est pas encore débloqué.** Arrête après le déblocage — ensuite, les fragments universels sont plus rentables." },
+        { type: "h", text: "✅ CHECKLIST QUOTIDIENNE" },
+        { type: "sub", text: "☀️ PENDANT QUE TU ES EN LIGNE" },
+        { type: "list", items: [
+          "☐ 🎁 Récupère le coffre VIP + utilise l'{vipXp}",
+          "☐ 🤝 {allianceHelp} d'alliance + contribue à la {allianceTech} d'alliance",
+          "☐ 📊 Utilise les objets d'EXP de héros",
+          "☐ ⚔️ Conquiers des camps ({conquerorsCamp})",
+          "☐ 🔎 Termine tes missions ({intelMission})",
+          "☐ 🏝️ Récupère l'{waterEssence} de l'île + aide tes alliés",
+          "☐ 🔮 Utilise tes tentatives de l'{mysticTrial}",
+          "☐ 📋 Termine les missions quotidiennes ({dailyMissions})",
+          "☐ 🏟️ Fais l'{arenaOfGlory} 3 minutes avant la réinitialisation",
+          "☐ 🐻 {bearHunt} — un jour sur deux + mets à jour tes formations",
+          "☐ 📅 Inscris-toi et participe aux événements en cours"
+        ] },
+        { type: "sub", text: "🌙 AVANT DE TE DÉCONNECTER" },
+        { type: "list", items: [
+          "☐ 🐉 Envoie tes animaux en {petAdventure}",
+          "☐ 🌾 Envoie des marches de {gathering}",
+          "☐ ⚔️ Garde l'{training} des troupes actif",
+          "☐ 🔬 Garde {research} / {construction} actives au besoin"
+        ] }
+      ]},
+      pt: { title: "Dicas Gerais", blocks: [
+        { type: "h", text: "🔗 RECURSOS" },
+        { type: "sub", text: "🗓️ LINHA DO TEMPO DO REINO" },
+        { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
+        { type: "p", text: "Veja o que vem a seguir para planejar eventos, aprimoramentos e recursos com antecedência." },
+        { type: "sub", text: "⚔️ OTIMIZADOR DE EQUIPAMENTO DE HERÓI" },
+        { type: "p", text: "https://kingshotoptimizer.com/hero-gear" },
+        { type: "p", text: "Planeje os aprimoramentos do {heroGear} e evite desperdiçar materiais valiosos." },
+        { type: "sub", text: "🎥 YOUTUBE – STRAT GAME SLOTH" },
+        { type: "p", text: "https://www.youtube.com/watch?v=NMrS3MTSFUU" },
+        { type: "p", text: "Vídeos de estratégia recomendados, dicas de jogo e conselhos de progressão." },
+        { type: "h", text: "🛒 LOJAS DO JOGO" },
+        { type: "p", text: "O que priorizar em cada loja para o melhor custo-benefício." },
+        { type: "sub", text: "🐪 {nomadicMerchant}" },
+        { type: "list", items: [
+          "{teleporterAdv} por recursos / grátis",
+          "Trocas de recursos vantajosas",
+          "{vipXp} com desconto"
+        ] },
+        { type: "sub", text: "🎲 {mysteryShop}" },
+        { type: "list", items: [
+          "Atualização diária grátis",
+          "{widgetChest} com 50% OFF",
+          "20% OFF só se precisar com urgência"
+        ] },
+        { type: "sub", text: "🏟️ {arenaShop}" },
+        { type: "list", items: [
+          "{customMythicGearChest} toda semana → {mithril} quando a base de Equipamento Mítico dos seus heróis principais estiver pronta"
+        ] },
+        { type: "sub", text: "👑 {vipShop}" },
+        { type: "list", items: [
+          "Gaste {gems} só em descontos: {teleporterAdv} • 100 {enhancementXp} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏆 {championshipShop}" },
+        { type: "list", items: [
+          "**Antes dos {masters}:** {artisansVision} • {gildedThreads} / {satin} conforme necessário",
+          "**Depois dos {masters}:** {masterEmblem} são prioridade nº 1 — no fim de jogo, guarde as fichas para eles"
+        ] },
+        { type: "sub", text: "⚔️ {swordlandShop}" },
+        { type: "list", items: [
+          "{artisansVision} → depois o que estiver travando você: materiais de {governorCharm} / {governorGear} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏰 {kopShop}" },
+        { type: "list", items: [
+          "**{truegold}** — grande gargalo de progressão a longo prazo"
+        ] },
+        { type: "sub", text: "🎨 {skinShop}" },
+        { type: "list", items: [
+          "Priorize bônus de atributos permanentes, ex.: {houseOfCacti}: +2% {squadsAttack}"
+        ] },
+        { type: "sub", text: "🧪 {trialShop}" },
+        { type: "list", items: [
+          "**Antes do {truegoldDust}:** GUARDE os {trialCrystal}",
+          "**Depois:** {truegoldDust} → {mithril} → {enhancementXp} → {charmDesign}"
+        ] },
+        { type: "sub", text: "💎 {gemShop}" },
+        { type: "p", text: "Só gaste {gems} em marcos importantes de progressão ou materiais difíceis de obter." },
+        { type: "callout", text: "**Na dúvida: GUARDE SUAS GEMAS.** Veja o guia de gemas abaixo." },
+        { type: "sub", text: "🤝 Aliança – {allianceShop}" },
+        { type: "list", items: [
+          "{transferPass} • {vipXp} • Comida / materiais de pet • {teleporterAdv} • Descontos úteis de 70% • Aceleradores só com {allianceToken} sobrando"
+        ] },
+        { type: "h", text: "💎 GUIA DE GASTO DE GEMAS" },
+        { type: "p", text: "Guarde {gems} para:" },
+        { type: "list", items: [
+          "**1) 🎡 {heroRoulette}** → ~162.000 {gems} para 120 giros",
+          "**2) 👑 Ativação VIP** → 10.000 {gems}/mês (a partir do VIP 4)"
+        ] },
+        { type: "callout", text: "🏛️ {hallOfHeroes} → ~13.500–14.850 {gems}, **SÓ se {marlin} ainda não estiver desbloqueado.** Pare após desbloquear — depois disso, fragmentos gerais valem mais para aprimorar." },
+        { type: "h", text: "✅ CHECKLIST DIÁRIO" },
+        { type: "sub", text: "☀️ ENQUANTO ESTIVER ONLINE" },
+        { type: "list", items: [
+          "☐ 🎁 Colete o baú VIP + use o {vipXp}",
+          "☐ 🤝 {allianceHelp} da aliança + contribua com a {allianceTech} da aliança",
+          "☐ 📊 Use itens de XP de herói",
+          "☐ ⚔️ Conquiste acampamentos ({conquerorsCamp})",
+          "☐ 🔎 Complete as missões ({intelMission})",
+          "☐ 🏝️ Colete a {waterEssence} da ilha + ajude aliados",
+          "☐ 🔮 Use as tentativas da {mysticTrial}",
+          "☐ 📋 Complete as missões diárias ({dailyMissions})",
+          "☐ 🏟️ Faça a {arenaOfGlory} 3 minutos antes do reset",
+          "☐ 🐻 {bearHunt} — dia sim, dia não + atualize as formações",
+          "☐ 📅 Inscreva-se e participe dos eventos ativos"
+        ] },
+        { type: "sub", text: "🌙 ANTES DE SAIR" },
+        { type: "list", items: [
+          "☐ 🐉 Envie os pets na {petAdventure}",
+          "☐ 🌾 Envie marchas de {gathering}",
+          "☐ ⚔️ Mantenha o {training} de tropas ativo",
+          "☐ 🔬 Mantenha {research} / {construction} ativas conforme necessário"
+        ] }
+      ]},
+      tr: { title: "Genel İpuçları", blocks: [
+        { type: "h", text: "🔗 KAYNAKLAR" },
+        { type: "sub", text: "🗓️ KRALLIK ZAMAN ÇİZELGESİ" },
+        { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
+        { type: "p", text: "Sırada ne olduğunu gör; etkinlikleri, yükseltmeleri ve kaynakları önceden planla." },
+        { type: "sub", text: "⚔️ KAHRAMAN DONANIMI OPTİMİZASYONU" },
+        { type: "p", text: "https://kingshotoptimizer.com/hero-gear" },
+        { type: "p", text: "{heroGear} yükseltmelerini planla, değerli malzemeleri boşa harcama." },
+        { type: "sub", text: "🎥 YOUTUBE – STRAT GAME SLOTH" },
+        { type: "p", text: "https://www.youtube.com/watch?v=NMrS3MTSFUU" },
+        { type: "p", text: "Önerilen strateji videoları, oyun ipuçları ve gelişim tavsiyeleri." },
+        { type: "h", text: "🛒 OYUN İÇİ MAĞAZALAR" },
+        { type: "p", text: "Her mağazada en iyi değer için neye öncelik vermelisin." },
+        { type: "sub", text: "🐪 {nomadicMerchant}" },
+        { type: "list", items: [
+          "Kaynakla / ücretsiz {teleporterAdv}",
+          "Avantajlı kaynak takasları",
+          "İndirimli {vipXp}"
+        ] },
+        { type: "sub", text: "🎲 {mysteryShop}" },
+        { type: "list", items: [
+          "Günlük ücretsiz yenileme",
+          "%50 İNDİRİMLİ {widgetChest}",
+          "%20 indirim sadece acil ihtiyaçta"
+        ] },
+        { type: "sub", text: "🏟️ {arenaShop}" },
+        { type: "list", items: [
+          "Her hafta {customMythicGearChest} → ana kahramanlarının Mitik Donanım temeli tamamlanınca {mithril}"
+        ] },
+        { type: "sub", text: "👑 {vipShop}" },
+        { type: "list", items: [
+          "{gems} sadece indirimlerde harca: {teleporterAdv} • 100 {enhancementXp} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏆 {championshipShop}" },
+        { type: "list", items: [
+          "**{masters} öncesi:** {artisansVision} • gerektikçe {gildedThreads} / {satin}",
+          "**{masters} sonrası:** {masterEmblem} 1 numaralı öncelik — oyun sonunda jetonları bunlara sakla"
+        ] },
+        { type: "sub", text: "⚔️ {swordlandShop}" },
+        { type: "list", items: [
+          "{artisansVision} → sonra seni ne tıkıyorsa: {governorCharm} / {governorGear} malzemeleri • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏰 {kopShop}" },
+        { type: "list", items: [
+          "**{truegold}** — uzun vadede en büyük darboğazlardan biri"
+        ] },
+        { type: "sub", text: "🎨 {skinShop}" },
+        { type: "list", items: [
+          "Kalıcı nitelik bonuslarına öncelik ver, ör. {houseOfCacti}: +%2 {squadsAttack}"
+        ] },
+        { type: "sub", text: "🧪 {trialShop}" },
+        { type: "list", items: [
+          "**{truegoldDust} öncesi:** {trialCrystal} BİRİKTİR",
+          "**Sonrası:** {truegoldDust} → {mithril} → {enhancementXp} → {charmDesign}"
+        ] },
+        { type: "sub", text: "💎 {gemShop}" },
+        { type: "p", text: "{gems} sadece önemli gelişim eşikleri veya zor bulunan malzemeler için harca." },
+        { type: "callout", text: "**Emin değilsen: ELMASLARINI SAKLA.** Aşağıdaki elmas rehberine bak." },
+        { type: "sub", text: "🤝 İttifak – {allianceShop}" },
+        { type: "list", items: [
+          "{transferPass} • {vipXp} • Evcil hayvan yemi / malzemeleri • {teleporterAdv} • İşe yarar %70 indirimler • Hızlandırmalar sadece fazla {allianceToken} varsa"
+        ] },
+        { type: "h", text: "💎 ELMAS HARCAMA REHBERİ" },
+        { type: "p", text: "{gems} şunlar için sakla:" },
+        { type: "list", items: [
+          "**1) 🎡 {heroRoulette}** → 120 çevirme için ~162.000 {gems}",
+          "**2) 👑 VIP aktivasyonu** → ayda 10.000 {gems} (VIP 4 ve üstü)"
+        ] },
+        { type: "callout", text: "🏛️ {hallOfHeroes} → ~13.500–14.850 {gems}, **SADECE {marlin} henüz açılmadıysa.** Açıldıktan sonra dur — sonrasında genel parçalar yükseltme için daha değerli." },
+        { type: "h", text: "✅ GÜNLÜK KONTROL LİSTESİ" },
+        { type: "sub", text: "☀️ ÇEVRİMİÇİYKEN" },
+        { type: "list", items: [
+          "☐ 🎁 VIP sandığını al + {vipXp} kullan",
+          "☐ 🤝 İttifak {allianceHelp} + ittifak {allianceTech} katkısı",
+          "☐ 📊 Kahraman XP eşyalarını kullan",
+          "☐ ⚔️ Kampları fethet ({conquerorsCamp})",
+          "☐ 🔎 {intelMission} listesini bitir",
+          "☐ 🏝️ Adadaki {waterEssence} topla + müttefiklere yardım et",
+          "☐ 🔮 {mysticTrial} haklarını kullan",
+          "☐ 📋 Günlük görevleri ({dailyMissions}) tamamla",
+          "☐ 🏟️ {arenaOfGlory}'nı sıfırlamadan 3 dakika önce yap",
+          "☐ 🐻 {bearHunt} — gün aşırı + dizilişleri güncelle",
+          "☐ 📅 Aktif etkinliklere kaydol ve katıl"
+        ] },
+        { type: "sub", text: "🌙 ÇIKMADAN ÖNCE" },
+        { type: "list", items: [
+          "☐ 🐉 Evcil hayvanları {petAdventure}'na gönder",
+          "☐ 🌾 {gathering} seferleri gönder",
+          "☐ ⚔️ Birlik {training}ini aktif tut",
+          "☐ 🔬 Gerektikçe {research} / {construction} aktif tut"
+        ] }
+      ]},
+      id: { title: "Tips Umum", blocks: [
+        { type: "h", text: "🔗 REFERENSI" },
+        { type: "sub", text: "🗓️ LINIMASA KERAJAAN" },
+        { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
+        { type: "p", text: "Lihat apa yang akan datang agar bisa merencanakan event, upgrade, dan sumber daya lebih awal." },
+        { type: "sub", text: "⚔️ OPTIMIZER GEAR HERO" },
+        { type: "p", text: "https://kingshotoptimizer.com/hero-gear" },
+        { type: "p", text: "Rencanakan upgrade {heroGear} dan hindari membuang material berharga." },
+        { type: "sub", text: "🎥 YOUTUBE – STRAT GAME SLOTH" },
+        { type: "p", text: "https://www.youtube.com/watch?v=NMrS3MTSFUU" },
+        { type: "p", text: "Video strategi rekomendasi, tips bermain, dan saran progres." },
+        { type: "h", text: "🛒 TOKO DALAM GAME" },
+        { type: "p", text: "Apa yang perlu diprioritaskan di setiap toko agar paling hemat." },
+        { type: "sub", text: "🐪 {nomadicMerchant}" },
+        { type: "list", items: [
+          "{teleporterAdv} dengan sumber daya / gratis",
+          "Tukar sumber daya yang menguntungkan",
+          "{vipXp} diskon"
+        ] },
+        { type: "sub", text: "🎲 {mysteryShop}" },
+        { type: "list", items: [
+          "Perbarui gratis setiap hari",
+          "{widgetChest} saat diskon 50%",
+          "Diskon 20% hanya jika sangat butuh"
+        ] },
+        { type: "sub", text: "🏟️ {arenaShop}" },
+        { type: "list", items: [
+          "{customMythicGearChest} setiap minggu → {mithril} setelah fondasi Gear Mitos hero utamamu selesai"
+        ] },
+        { type: "sub", text: "👑 {vipShop}" },
+        { type: "list", items: [
+          "Pakai {gems} hanya untuk diskon: {teleporterAdv} • 100 {enhancementXp} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏆 {championshipShop}" },
+        { type: "list", items: [
+          "**Sebelum {masters}:** {artisansVision} • {gildedThreads} / {satin} sesuai kebutuhan",
+          "**Setelah {masters}:** {masterEmblem} prioritas utama — di late game, simpan token untuk ini"
+        ] },
+        { type: "sub", text: "⚔️ {swordlandShop}" },
+        { type: "list", items: [
+          "{artisansVision} → lalu apa pun yang jadi hambatan: material {governorCharm} / {governorGear} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏰 {kopShop}" },
+        { type: "list", items: [
+          "**{truegold}** — hambatan progres jangka panjang yang besar"
+        ] },
+        { type: "sub", text: "🎨 {skinShop}" },
+        { type: "list", items: [
+          "Utamakan bonus stat permanen, mis. {houseOfCacti}: +2% {squadsAttack}"
+        ] },
+        { type: "sub", text: "🧪 {trialShop}" },
+        { type: "list", items: [
+          "**Sebelum {truegoldDust}:** SIMPAN {trialCrystal}",
+          "**Sesudahnya:** {truegoldDust} → {mithril} → {enhancementXp} → {charmDesign}"
+        ] },
+        { type: "sub", text: "💎 {gemShop}" },
+        { type: "p", text: "Gunakan {gems} hanya untuk titik progres penting atau material yang sulit didapat." },
+        { type: "callout", text: "**Kalau ragu: SIMPAN GEM-MU.** Lihat panduan penggunaan Gem di bawah." },
+        { type: "sub", text: "🤝 Aliansi – {allianceShop}" },
+        { type: "list", items: [
+          "{transferPass} • {vipXp} • Makanan / material peliharaan • {teleporterAdv} • Diskon 70% yang berguna • Speedup hanya jika {allianceToken} berlebih"
+        ] },
+        { type: "h", text: "💎 PANDUAN MENGGUNAKAN GEM" },
+        { type: "p", text: "Simpan {gems} untuk:" },
+        { type: "list", items: [
+          "**1) 🎡 {heroRoulette}** → ~162.000 {gems} untuk 120 putaran",
+          "**2) 👑 Aktivasi VIP** → 10.000 {gems}/bulan (mulai VIP 4)"
+        ] },
+        { type: "callout", text: "🏛️ {hallOfHeroes} → ~13.500–14.850 {gems}, **HANYA jika {marlin} belum terbuka.** Berhenti setelah terbuka — sesudah itu shard umum lebih bernilai untuk upgrade." },
+        { type: "h", text: "✅ CHECKLIST HARIAN" },
+        { type: "sub", text: "☀️ SAAT ONLINE" },
+        { type: "list", items: [
+          "☐ 🎁 Ambil peti VIP + gunakan {vipXp}",
+          "☐ 🤝 {allianceHelp} aliansi + kontribusi {allianceTech} aliansi",
+          "☐ 📊 Gunakan item XP Hero",
+          "☐ ⚔️ Taklukkan kamp ({conquerorsCamp})",
+          "☐ 🔎 Selesaikan {intelMission}",
+          "☐ 🏝️ Kumpulkan {waterEssence} di pulau + bantu sekutu",
+          "☐ 🔮 Gunakan kesempatan {mysticTrial}",
+          "☐ 📋 Selesaikan misi {dailyMissions}",
+          "☐ 🏟️ Main {arenaOfGlory} 3 menit sebelum reset",
+          "☐ 🐻 {bearHunt} — dua hari sekali + perbarui formasi",
+          "☐ 📅 Daftar dan ikuti event yang sedang aktif"
+        ] },
+        { type: "sub", text: "🌙 SEBELUM LOGOUT" },
+        { type: "list", items: [
+          "☐ 🐉 Kirim peliharaan ke {petAdventure}",
+          "☐ 🌾 Kirim barisan {gathering}",
+          "☐ ⚔️ Pastikan {training} pasukan tetap berjalan",
+          "☐ 🔬 Jaga {research} / {construction} tetap berjalan sesuai kebutuhan"
+        ] }
+      ]},
+      ru: { title: "Общие советы", blocks: [
+        { type: "h", text: "🔗 ПОЛЕЗНЫЕ РЕСУРСЫ" },
+        { type: "sub", text: "🗓️ ХРОНОЛОГИЯ КОРОЛЕВСТВА" },
+        { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
+        { type: "p", text: "Смотрите, что будет дальше, чтобы заранее планировать события, улучшения и ресурсы." },
+        { type: "sub", text: "⚔️ ОПТИМИЗАТОР СНАРЯЖЕНИЯ ГЕРОЕВ" },
+        { type: "p", text: "https://kingshotoptimizer.com/hero-gear" },
+        { type: "p", text: "Планируйте улучшения ({heroGear}) и не тратьте ценные материалы впустую." },
+        { type: "sub", text: "🎥 YOUTUBE – STRAT GAME SLOTH" },
+        { type: "p", text: "https://www.youtube.com/watch?v=NMrS3MTSFUU" },
+        { type: "p", text: "Рекомендуемые видео по стратегии, игровые советы и советы по развитию." },
+        { type: "h", text: "🛒 ИГРОВЫЕ МАГАЗИНЫ" },
+        { type: "p", text: "Что брать в первую очередь в каждом магазине ради максимальной выгоды." },
+        { type: "sub", text: "🐪 {nomadicMerchant}" },
+        { type: "list", items: [
+          "{teleporterAdv} за ресурсы / бесплатно",
+          "Выгодный обмен ресурсов",
+          "{vipXp} со скидкой"
+        ] },
+        { type: "sub", text: "🎲 {mysteryShop}" },
+        { type: "list", items: [
+          "Бесплатное ежедневное обновление",
+          "{widgetChest} со скидкой 50%",
+          "Скидка 20% — только при срочной необходимости"
+        ] },
+        { type: "sub", text: "🏟️ {arenaShop}" },
+        { type: "list", items: [
+          "Каждую неделю: {customMythicGearChest} → {mithril}, когда база мифического снаряжения основных героев готова"
+        ] },
+        { type: "sub", text: "👑 {vipShop}" },
+        { type: "list", items: [
+          "Тратьте {gems} только на скидки: {teleporterAdv} • 100 {enhancementXp} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏆 {championshipShop}" },
+        { type: "list", items: [
+          "**До {masters}:** {artisansVision} • {gildedThreads} / {satin} по необходимости",
+          "**После {masters}:** {masterEmblem} — приоритет №1; в поздней игре копите жетоны на них"
+        ] },
+        { type: "sub", text: "⚔️ {swordlandShop}" },
+        { type: "list", items: [
+          "{artisansVision} → затем то, что сейчас тормозит развитие: материалы ({governorCharm} / {governorGear}) • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏰 {kopShop}" },
+        { type: "list", items: [
+          "**{truegold}** — главное узкое место долгосрочного развития"
+        ] },
+        { type: "sub", text: "🎨 {skinShop}" },
+        { type: "list", items: [
+          "В приоритете постоянные бонусы к показателям, напр. {houseOfCacti}: +2% ({squadsAttack})"
+        ] },
+        { type: "sub", text: "🧪 {trialShop}" },
+        { type: "list", items: [
+          "**До открытия ({truegoldDust}):** КОПИТЕ {trialCrystal}",
+          "**После:** {truegoldDust} → {mithril} → {enhancementXp} → {charmDesign}"
+        ] },
+        { type: "sub", text: "💎 {gemShop}" },
+        { type: "p", text: "Тратьте {gems} только на важные этапы развития или редкие материалы." },
+        { type: "callout", text: "**Если сомневаетесь — ЭКОНОМЬТЕ АЛМАЗЫ.** См. руководство по алмазам ниже." },
+        { type: "sub", text: "🤝 Альянс – {allianceShop}" },
+        { type: "list", items: [
+          "{transferPass} • {vipXp} • Корм / материалы для питомцев • {teleporterAdv} • Полезные скидки 70% • Ускорения — только при избытке ({allianceToken})"
+        ] },
+        { type: "h", text: "💎 НА ЧТО ТРАТИТЬ АЛМАЗЫ" },
+        { type: "p", text: "Копите {gems} на:" },
+        { type: "list", items: [
+          "**1) 🎡 {heroRoulette}** → ~162 000 алмазов за 120 вращений",
+          "**2) 👑 Активация VIP** → 10 000 алмазов в месяц (с VIP 4)"
+        ] },
+        { type: "callout", text: "🏛️ {hallOfHeroes} → ~13 500–14 850 алмазов, **ТОЛЬКО если {marlin} ещё не открыт.** После открытия остановитесь — дальше универсальные фрагменты выгоднее для улучшений." },
+        { type: "h", text: "✅ ЕЖЕДНЕВНЫЙ ЧЕК-ЛИСТ" },
+        { type: "sub", text: "☀️ ПОКА ВЫ В ИГРЕ" },
+        { type: "list", items: [
+          "☐ 🎁 Заберите VIP-сундук + используйте {vipXp}",
+          "☐ 🤝 {allianceHelp} альянсу + взносы в {allianceTech}",
+          "☐ 📊 Используйте предметы опыта героев",
+          "☐ ⚔️ Захватывайте лагеря ({conquerorsCamp})",
+          "☐ 🔎 Выполните задания: {intelMission}",
+          "☐ 🏝️ Соберите {waterEssence} на острове + помогите союзникам",
+          "☐ 🔮 Используйте попытки: {mysticTrial}",
+          "☐ 📋 Выполните {dailyMissions}",
+          "☐ 🏟️ {arenaOfGlory} — за 3 минуты до сброса",
+          "☐ 🐻 {bearHunt} — через день + обновляйте построения",
+          "☐ 📅 Регистрируйтесь и участвуйте в активных событиях"
+        ] },
+        { type: "sub", text: "🌙 ПЕРЕД ВЫХОДОМ" },
+        { type: "list", items: [
+          "☐ 🐉 Отправьте питомцев: {petAdventure}",
+          "☐ 🌾 Отправьте отряды на сбор ({gathering})",
+          "☐ ⚔️ Держите {training} войск активными",
+          "☐ 🔬 По необходимости держите {research} / {construction} активными"
+        ] }
+      ]},
+      th: { title: "เคล็ดลับทั่วไป", blocks: [
+        { type: "h", text: "🔗 แหล่งข้อมูล" },
+        { type: "sub", text: "🗓️ ไทม์ไลน์อาณาจักร" },
+        { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
+        { type: "p", text: "ดูว่าจะมีอะไรต่อไป เพื่อวางแผนกิจกรรม การอัปเกรด และทรัพยากรล่วงหน้า" },
+        { type: "sub", text: "⚔️ เครื่องมือวางแผนอุปกรณ์ฮีโร่" },
+        { type: "p", text: "https://kingshotoptimizer.com/hero-gear" },
+        { type: "p", text: "วางแผนอัปเกรด{heroGear} และไม่ใช้วัตถุดิบมีค่าอย่างสูญเปล่า" },
+        { type: "sub", text: "🎥 YOUTUBE – STRAT GAME SLOTH" },
+        { type: "p", text: "https://www.youtube.com/watch?v=NMrS3MTSFUU" },
+        { type: "p", text: "วิดีโอกลยุทธ์แนะนำ เคล็ดลับการเล่น และคำแนะนำในการพัฒนา" },
+        { type: "h", text: "🛒 ร้านค้าในเกม" },
+        { type: "p", text: "ควรซื้ออะไรก่อนในแต่ละร้านเพื่อความคุ้มค่าที่สุด" },
+        { type: "sub", text: "🐪 {nomadicMerchant}" },
+        { type: "list", items: [
+          "{teleporterAdv}ด้วยทรัพยากร / ฟรี",
+          "แลกทรัพยากรที่คุ้มค่า",
+          "{vipXp}ลดราคา"
+        ] },
+        { type: "sub", text: "🎲 {mysteryShop}" },
+        { type: "list", items: [
+          "รีเฟรชฟรีทุกวัน",
+          "{widgetChest}ตอนลด 50%",
+          "ลด 20% ซื้อเฉพาะตอนจำเป็นจริงๆ"
+        ] },
+        { type: "sub", text: "🏟️ {arenaShop}" },
+        { type: "list", items: [
+          "{customMythicGearChest}ทุกสัปดาห์ → {mithril} เมื่อพื้นฐานอุปกรณ์ขั้นเทพของฮีโร่หลักเสร็จแล้ว"
+        ] },
+        { type: "sub", text: "👑 {vipShop}" },
+        { type: "list", items: [
+          "ใช้{gems}เฉพาะของลดราคา: {teleporterAdv} • 100 {enhancementXp} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏆 {championshipShop}" },
+        { type: "list", items: [
+          "**ก่อน {masters}:** {artisansVision} • {gildedThreads} / {satin} ตามต้องการ",
+          "**หลัง {masters}:** {masterEmblem} สำคัญที่สุด — ช่วงท้ายเกมให้เก็บเหรียญไว้ซื้อ"
+        ] },
+        { type: "sub", text: "⚔️ {swordlandShop}" },
+        { type: "list", items: [
+          "{artisansVision} → จากนั้นซื้อสิ่งที่เป็นคอขวด: วัตถุดิบ{governorCharm} / {governorGear} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏰 {kopShop}" },
+        { type: "list", items: [
+          "**{truegold}** — คอขวดสำคัญของการพัฒนาระยะยาว"
+        ] },
+        { type: "sub", text: "🎨 {skinShop}" },
+        { type: "list", items: [
+          "เลือกโบนัสสถานะถาวรก่อน เช่น {houseOfCacti}: {squadsAttack} +2%"
+        ] },
+        { type: "sub", text: "🧪 {trialShop}" },
+        { type: "list", items: [
+          "**ก่อนปลดล็อก{truegoldDust}:** เก็บ{trialCrystal}ไว้",
+          "**หลังจากนั้น:** {truegoldDust} → {mithril} → {enhancementXp} → {charmDesign}"
+        ] },
+        { type: "sub", text: "💎 {gemShop}" },
+        { type: "p", text: "ใช้{gems}เฉพาะช่วงพัฒนาสำคัญหรือวัตถุดิบที่หายาก" },
+        { type: "callout", text: "**ถ้าไม่แน่ใจ: เก็บเพชรไว้ก่อน** ดูคู่มือการใช้เพชรด้านล่าง" },
+        { type: "sub", text: "🤝 พันธมิตร – {allianceShop}" },
+        { type: "list", items: [
+          "{transferPass} • {vipXp} • อาหาร / วัตถุดิบสัตว์เลี้ยง • {teleporterAdv} • ส่วนลด 70% ที่มีประโยชน์ • เร่งสปีดเฉพาะตอน{allianceToken}เหลือ"
+        ] },
+        { type: "h", text: "💎 คู่มือการใช้เพชร" },
+        { type: "p", text: "เก็บ{gems}ไว้สำหรับ:" },
+        { type: "list", items: [
+          "**1) 🎡 {heroRoulette}** → ประมาณ 162,000 {gems} สำหรับ 120 ครั้ง",
+          "**2) 👑 เปิดใช้งาน VIP** → 10,000 {gems}/เดือน (ตั้งแต่ VIP 4)"
+        ] },
+        { type: "callout", text: "🏛️ {hallOfHeroes} → ประมาณ 13,500–14,850 {gems} **เฉพาะตอนที่ยังไม่ได้ปลดล็อก{marlin}** ปลดล็อกแล้วให้หยุด — หลังจากนั้นชิ้นส่วนทั่วไปคุ้มกว่าสำหรับการอัปเกรด" },
+        { type: "h", text: "✅ เช็กลิสต์ประจำวัน" },
+        { type: "sub", text: "☀️ ระหว่างออนไลน์" },
+        { type: "list", items: [
+          "☐ 🎁 รับหีบ VIP + ใช้{vipXp}",
+          "☐ 🤝 {allianceHelp}พันธมิตร + อนุเคราะห์{allianceTech}พันธมิตร",
+          "☐ 📊 ใช้ไอเทม EXP ฮีโร่",
+          "☐ ⚔️ พิชิตค่าย ({conquerorsCamp})",
+          "☐ 🔎 ทำ{intelMission}ให้ครบ",
+          "☐ 🏝️ เก็บ{waterEssence}บนเกาะ + ช่วยพันธมิตร",
+          "☐ 🔮 ใช้สิทธิ์{mysticTrial}ให้หมด",
+          "☐ 📋 ทำภารกิจ{dailyMissions}ให้ครบ",
+          "☐ 🏟️ เล่น{arenaOfGlory} 3 นาทีก่อนรีเซ็ต",
+          "☐ 🐻 {bearHunt} — วันเว้นวัน + อัปเดตการจัดทัพ",
+          "☐ 📅 ลงทะเบียนและเข้าร่วมกิจกรรมที่เปิดอยู่"
+        ] },
+        { type: "sub", text: "🌙 ก่อนออฟไลน์" },
+        { type: "list", items: [
+          "☐ 🐉 ส่งสัตว์เลี้ยงไป{petAdventure}",
+          "☐ 🌾 ส่งทีม{gathering}",
+          "☐ ⚔️ ให้{training}ทหารทำงานตลอด",
+          "☐ 🔬 ให้{research} / {construction}ทำงานตามต้องการ"
+        ] }
+      ]},
+      ar: { title: "نصائح عامة", blocks: [
+        { type: "h", text: "🔗 مصادر مفيدة" },
+        { type: "sub", text: "🗓️ الجدول الزمني للمملكة" },
+        { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
+        { type: "p", text: "اطّلع على ما هو قادم لتخطط للفعاليات والترقيات والموارد مسبقًا." },
+        { type: "sub", text: "⚔️ أداة تحسين عتاد الأبطال" },
+        { type: "p", text: "https://kingshotoptimizer.com/hero-gear" },
+        { type: "p", text: "خطط لترقيات {heroGear} وتجنب إهدار المواد الثمينة." },
+        { type: "sub", text: "🎥 YOUTUBE – STRAT GAME SLOTH" },
+        { type: "p", text: "https://www.youtube.com/watch?v=NMrS3MTSFUU" },
+        { type: "p", text: "فيديوهات استراتيجية موصى بها ونصائح لعب وإرشادات للتقدم." },
+        { type: "h", text: "🛒 متاجر اللعبة" },
+        { type: "p", text: "ما الذي يجب شراؤه أولًا في كل متجر للحصول على أفضل قيمة." },
+        { type: "sub", text: "🐪 {nomadicMerchant}" },
+        { type: "list", items: [
+          "{teleporterAdv} مقابل الموارد / مجانًا",
+          "مقايضات موارد مربحة",
+          "{vipXp} بخصم"
+        ] },
+        { type: "sub", text: "🎲 {mysteryShop}" },
+        { type: "list", items: [
+          "تحديث يومي مجاني",
+          "{widgetChest} بخصم 50%",
+          "خصم 20% فقط عند الحاجة الملحّة"
+        ] },
+        { type: "sub", text: "🏟️ {arenaShop}" },
+        { type: "list", items: [
+          "{customMythicGearChest} أسبوعيًا ← ثم {mithril} بعد اكتمال أساس العتاد الخيالي لأبطالك الأساسيين"
+        ] },
+        { type: "sub", text: "👑 {vipShop}" },
+        { type: "list", items: [
+          "أنفق {gems} على الخصومات فقط: {teleporterAdv} • 100 {enhancementXp} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏆 {championshipShop}" },
+        { type: "list", items: [
+          "**قبل {masters}:** {artisansVision} • {gildedThreads} / {satin} حسب الحاجة",
+          "**بعد {masters}:** {masterEmblem} الأولوية رقم 1 — في المراحل المتأخرة ادّخر الرموز لها"
+        ] },
+        { type: "sub", text: "⚔️ {swordlandShop}" },
+        { type: "list", items: [
+          "{artisansVision} ← ثم ما يعيق تقدمك: مواد {governorCharm} / {governorGear} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏰 {kopShop}" },
+        { type: "list", items: [
+          "**{truegold}** — عائق رئيسي للتقدم على المدى الطويل"
+        ] },
+        { type: "sub", text: "🎨 {skinShop}" },
+        { type: "list", items: [
+          "أعطِ الأولوية لمكافآت السمات الدائمة، مثل {houseOfCacti}: +2% {squadsAttack}"
+        ] },
+        { type: "sub", text: "🧪 {trialShop}" },
+        { type: "list", items: [
+          "**قبل {truegoldDust}:** ادّخر {trialCrystal}",
+          "**بعد ذلك:** {truegoldDust} ← {mithril} ← {enhancementXp} ← {charmDesign}"
+        ] },
+        { type: "sub", text: "💎 {gemShop}" },
+        { type: "p", text: "لا تنفق {gems} إلا على مراحل التقدم المهمة أو المواد صعبة الحصول." },
+        { type: "callout", text: "**عند الشك: ادّخر جواهرك.** راجع دليل إنفاق الجواهر أدناه." },
+        { type: "sub", text: "🤝 التحالف – {allianceShop}" },
+        { type: "list", items: [
+          "{transferPass} • {vipXp} • طعام / مواد الحيوانات الأليفة • {teleporterAdv} • خصومات 70% مفيدة • التسريعات فقط عند وجود فائض من {allianceToken}"
+        ] },
+        { type: "h", text: "💎 دليل إنفاق الجواهر" },
+        { type: "p", text: "ادّخر {gems} من أجل:" },
+        { type: "list", items: [
+          "**1) 🎡 {heroRoulette}** ← نحو 162,000 من {gems} مقابل 120 دورة",
+          "**2) 👑 تفعيل VIP** ← 10,000 من {gems} شهريًا (من VIP 4 فما فوق)"
+        ] },
+        { type: "callout", text: "🏛️ {hallOfHeroes} ← نحو 13,500–14,850 من {gems}، **فقط إذا لم يُفتح {marlin} بعد.** توقف بعد فتحه — بعدها تكون الشظايا العامة أفضل قيمة للترقيات." },
+        { type: "h", text: "✅ قائمة المهام اليومية" },
+        { type: "sub", text: "☀️ أثناء الاتصال" },
+        { type: "list", items: [
+          "☐ 🎁 استلم صندوق VIP + استخدم {vipXp}",
+          "☐ 🤝 {allianceHelp} في التحالف + ساهم في {allianceTech}",
+          "☐ 📊 استخدم عناصر خبرة الأبطال",
+          "☐ ⚔️ اغزُ المعسكرات ({conquerorsCamp})",
+          "☐ 🔎 أكمل {intelMission}",
+          "☐ 🏝️ اجمع {waterEssence} في الجزيرة + ساعد الحلفاء",
+          "☐ 🔮 استخدم محاولات {mysticTrial}",
+          "☐ 📋 أكمل المهام اليومية ({dailyMissions})",
+          "☐ 🏟️ العب {arenaOfGlory} قبل إعادة الضبط بـ3 دقائق",
+          "☐ 🐻 {bearHunt} — كل يومين + حدّث التشكيلات",
+          "☐ 📅 سجّل وشارك في الفعاليات النشطة"
+        ] },
+        { type: "sub", text: "🌙 قبل تسجيل الخروج" },
+        { type: "list", items: [
+          "☐ 🐉 أرسل الحيوانات الأليفة إلى {petAdventure}",
+          "☐ 🌾 أرسل مسيرات {gathering}",
+          "☐ ⚔️ أبقِ {training} القوات نشطًا",
+          "☐ 🔬 أبقِ {research} / {construction} نشطين حسب الحاجة"
+        ] }
+      ]},
+      es: { title: "Consejos Generales", blocks: [
+        { type: "h", text: "🔗 RECURSOS" },
+        { type: "sub", text: "🗓️ CRONOLOGÍA DEL REINO" },
+        { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
+        { type: "p", text: "Mira lo que viene para planificar eventos, mejoras y recursos con antelación." },
+        { type: "sub", text: "⚔️ OPTIMIZADOR DE EQUIPO DE HÉROE" },
+        { type: "p", text: "https://kingshotoptimizer.com/hero-gear" },
+        { type: "p", text: "Planifica las mejoras del {heroGear} y evita desperdiciar materiales valiosos." },
+        { type: "sub", text: "🎥 YOUTUBE – STRAT GAME SLOTH" },
+        { type: "p", text: "https://www.youtube.com/watch?v=NMrS3MTSFUU" },
+        { type: "p", text: "Videos de estrategia recomendados, consejos de juego y de progreso." },
+        { type: "h", text: "🛒 TIENDAS DEL JUEGO" },
+        { type: "p", text: "Qué priorizar en cada tienda para sacar el mejor valor." },
+        { type: "sub", text: "🐪 {nomadicMerchant}" },
+        { type: "list", items: [
+          "{teleporterAdv} por recursos / gratis",
+          "Intercambios de recursos favorables",
+          "{vipXp} con descuento"
+        ] },
+        { type: "sub", text: "🎲 {mysteryShop}" },
+        { type: "list", items: [
+          "Actualización diaria gratis",
+          "{widgetChest} al 50% de descuento",
+          "20% de descuento solo si lo necesitas con urgencia"
+        ] },
+        { type: "sub", text: "🏟️ {arenaShop}" },
+        { type: "list", items: [
+          "{customMythicGearChest} cada semana → {mithril} cuando la base de equipo mítico de tus héroes principales esté lista"
+        ] },
+        { type: "sub", text: "👑 {vipShop}" },
+        { type: "list", items: [
+          "Gasta {gems} solo en descuentos: {teleporterAdv} • 100 {enhancementXp} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏆 {championshipShop}" },
+        { type: "list", items: [
+          "**Antes de {masters}:** {artisansVision} • {gildedThreads} / {satin} según necesites",
+          "**Después de {masters}:** {masterEmblem} son la prioridad n.º 1 — al final del juego, guarda fichas para ellos"
+        ] },
+        { type: "sub", text: "⚔️ {swordlandShop}" },
+        { type: "list", items: [
+          "{artisansVision} → luego lo que te esté frenando: materiales de {governorCharm} / {governorGear} • {forgehammer}"
+        ] },
+        { type: "sub", text: "🏰 {kopShop}" },
+        { type: "list", items: [
+          "**{truegold}** — gran cuello de botella de progreso a largo plazo"
+        ] },
+        { type: "sub", text: "🎨 {skinShop}" },
+        { type: "list", items: [
+          "Prioriza bonus de estadísticas permanentes, p. ej. {houseOfCacti}: +2% {squadsAttack}"
+        ] },
+        { type: "sub", text: "🧪 {trialShop}" },
+        { type: "list", items: [
+          "**Antes de {truegoldDust}:** AHORRA {trialCrystal}",
+          "**Después:** {truegoldDust} → {mithril} → {enhancementXp} → {charmDesign}"
+        ] },
+        { type: "sub", text: "💎 {gemShop}" },
+        { type: "p", text: "Gasta {gems} solo en hitos importantes de progreso o en materiales difíciles de conseguir." },
+        { type: "callout", text: "**Si dudas: AHORRA TUS GEMAS.** Consulta la guía de gemas más abajo." },
+        { type: "sub", text: "🤝 Alianza – {allianceShop}" },
+        { type: "list", items: [
+          "{transferPass} • {vipXp} • Comida / materiales de mascota • {teleporterAdv} • Descuentos útiles del 70% • Aceleradores solo con {allianceToken} de sobra"
+        ] },
+        { type: "h", text: "💎 GUÍA DE GASTO DE GEMAS" },
+        { type: "p", text: "Ahorra {gems} para:" },
+        { type: "list", items: [
+          "**1) 🎡 {heroRoulette}** → ~162.000 {gems} por 120 giros",
+          "**2) 👑 Activación VIP** → 10.000 {gems}/mes (desde VIP 4)"
+        ] },
+        { type: "callout", text: "🏛️ {hallOfHeroes} → ~13.500–14.850 {gems}, **SOLO si {marlin} aún no está desbloqueado.** Para después de desbloquearlo — a partir de ahí, los fragmentos generales rinden más para mejorar." },
+        { type: "h", text: "✅ LISTA DIARIA" },
+        { type: "sub", text: "☀️ MIENTRAS ESTÁS EN LÍNEA" },
+        { type: "list", items: [
+          "☐ 🎁 Recoge el cofre VIP + usa la {vipXp}",
+          "☐ 🤝 {allianceHelp} de alianza + contribuye a la {allianceTech} de alianza",
+          "☐ 📊 Usa objetos de EXP de héroe",
+          "☐ ⚔️ Conquista campamentos ({conquerorsCamp})",
+          "☐ 🔎 Completa las misiones ({intelMission})",
+          "☐ 🏝️ Recoge la {waterEssence} de la isla + ayuda a aliados",
+          "☐ 🔮 Usa los intentos de la {mysticTrial}",
+          "☐ 📋 Completa las misiones diarias ({dailyMissions})",
+          "☐ 🏟️ Haz la {arenaOfGlory} 3 minutos antes del reinicio",
+          "☐ 🐻 {bearHunt} — cada dos días + actualiza las formaciones",
+          "☐ 📅 Inscríbete y participa en los eventos activos"
+        ] },
+        { type: "sub", text: "🌙 ANTES DE DESCONECTARTE" },
+        { type: "list", items: [
+          "☐ 🐉 Envía mascotas a la {petAdventure}",
+          "☐ 🌾 Envía marchas de {gathering}",
+          "☐ ⚔️ Mantén el {training} de tropas activo",
+          "☐ 🔬 Mantén {research} / {construction} activas según necesites"
+        ] }
+      ]}
     }
   },
   "mystic-trial": {
