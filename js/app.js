@@ -422,11 +422,24 @@ function renderAnnTicker() {
   const track = document.getElementById("annTickerTrack");
   if (!announcements.length) { ticker.hidden = true; return; }
   ticker.hidden = false;
-  const latest = announcements[0];
-  const text = latest.content[currentLang] || latest.content.en || Object.values(latest.content)[0] || "";
-  const plain = text.replace(/\{(\w+)\}/g, (m, id) => (GLOSSARY[id] ? t(GLOSSARY[id]) : m))
-                     .replace(/\*\*(.+?)\*\*/g, "$1");
-  track.textContent = `📢 ${plain}`;
+
+  const toPlain = (text) => text
+    .replace(/\[\[link:[\w-]+\]\]/g, "")
+    .replace(/\{(\w+)\}/g, (m, id) => (GLOSSARY[id] ? t(GLOSSARY[id]) : m))
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/\s*\n+\s*/g, " ")
+    .trim();
+
+  const items = announcements.map((a) => {
+    const title = a.title ? t(a.title) : "";
+    const body = a.content[currentLang] || a.content.en || Object.values(a.content)[0] || "";
+    const plain = toPlain(body);
+    return title ? `${title}：${plain}` : plain;
+  });
+
+  const text = `📢 ${items.join("   ✦   ")}`;
+  track.textContent = text;
+  track.style.animationDuration = `${Math.max(20, Math.round(text.length * 0.18))}s`;
 }
 
 function goToAnnouncements() {
