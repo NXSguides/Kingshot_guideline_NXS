@@ -212,6 +212,34 @@ const BLOCKS = {
       ${it.warn ? `<div class="callout flat">${rich(it.warn)}</div>` : ""}
     </div>`;
   }).join(""),
+  leaders: (b, g) => (g.leaders || []).map((gen, i) => {
+    const rows = gen.rows.map((r, j) => {
+      const note = (b.notes && b.notes[i] && b.notes[i][j]) || "";
+      const tagLabel = (UI.tags[r.tag] && t(UI.tags[r.tag])) || r.tag.toUpperCase();
+      const ratio = r.ratio ? `<span class="ratio">${escapeHtml(r.ratio)}</span>` : "";
+      return `
+        <div class="lineup-row">
+          <div class="lineup-left">
+            <span class="tag ${escapeHtml(r.tag)}">${escapeHtml(tagLabel)}</span>
+            <span class="heroes">${escapeHtml(formatHeroes(r.heroes))}</span>
+          </div>
+          ${ratio}
+        </div>
+        ${note ? `<div class="gen-note">${rich(note)}</div>` : ""}`;
+    }).join("");
+    return `<div class="gen-card"><div class="gen-label">${escapeHtml((b.gens && b.gens[i]) || "")}</div>${rows}</div>`;
+  }).join(""),
+  joiners: (b, g) => `<div class="joiner-list">${(g.joiners || []).map((j) => {
+    const name = heroName(j.hero || j.name);
+    const role = (UI.roles[j.role] && t(UI.roles[j.role])) || "";
+    return `<div class="joiner-card">
+      <div class="joiner-avatar" aria-hidden="true">${escapeHtml((name || "?").charAt(0))}</div>
+      <div class="joiner-meta">
+        <div class="joiner-name">${escapeHtml(name)}</div>
+        ${role ? `<div class="joiner-role">${escapeHtml(role)}</div>` : ""}
+      </div>
+    </div>`;
+  }).join("")}</div>`,
   guideLink: (b) => {
     if (!isEventActive(b.guide)) return "";
     const target = GUIDES[b.guide];
@@ -486,49 +514,8 @@ function renderDoc() {
     return;
   }
 
-  /* 新式攻略：以 blocks 撰寫（聖劍爭奪） */
-  if (s.blocks) {
-    doc.innerHTML = `<div class="doc-title"><span class="emoji">${guide.emoji}</span><span>${escapeHtml(s.title)}</span></div>`;
-    doc.appendChild(renderBlocks(guide, s));
-    return;
-  }
-
-  /* 舊式攻略：熊獵流程（不變） */
-  doc.innerHTML = `
-    <div class="doc-title"><span class="emoji">${guide.emoji}</span><span>${escapeHtml(s.title)}</span></div>
-    <div class="section">
-      <h3>${escapeHtml(s.when_label)}</h3>
-      <p>${escapeHtml(s.when)}</p>
-    </div>
-    <div class="section">
-      <h3>${escapeHtml(s.why_label)}</h3>
-      <p>${escapeHtml(s.why)}</p>
-    </div>
-    <div class="section">
-      <h3>${escapeHtml(s.prep_label)}</h3>
-      <ul class="prep-list">${renderPrep(s.prep)}</ul>
-    </div>
-    <div class="section">
-      <h3>${escapeHtml(s.leaders_label)}</h3>
-    </div>
-  `;
-  doc.appendChild(renderLeaders(guide));
-
-  const joinersSection = document.createElement("div");
-  joinersSection.className = "section";
-  joinersSection.style.marginTop = "20px";
-  joinersSection.innerHTML = `
-    <h3>${escapeHtml(s.joiners_label)}</h3>
-    <p>${escapeHtml(s.joiners_ratio)}</p>
-  `;
-  if (s.joiners_note) {
-    const note = document.createElement("p");
-    note.className = "tbd";
-    note.textContent = s.joiners_note;
-    joinersSection.appendChild(note);
-  }
-  joinersSection.appendChild(renderJoiners(guide));
-  doc.appendChild(joinersSection);
+  doc.innerHTML = `<div class="doc-title"><span class="emoji">${guide.emoji}</span><span>${escapeHtml(s.title)}</span></div>`;
+  doc.appendChild(renderBlocks(guide, s));
 }
 
 function renderAll() {
