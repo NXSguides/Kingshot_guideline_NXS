@@ -707,10 +707,10 @@ const GUIDES = {
     emoji: "🐻",
     name: { en: "Bear Hunt", zh: "狩獵巨熊", ko: "자이언트 베어 사냥", de: "Bärenjagd", fr: "Chasse à l'Ours", pt: "Caça ao Urso", es: "Cacería del Oso", tr: "Ayı Avı", id: "Bear Hunt", ru: "Охота на медведя", th: "ล่าหมี", ar: "صيد الدببة" },
     joiners: [
-      { hero: "Chenko", role: "lethality" },
-      { hero: "Yeonwoo", role: "lethality" },
-      { hero: "Amane", role: "attack" },
-      { hero: "Amadeus", role: "lethality" }
+      { hero: "Chenko", role: "lethality", img: "figures/chenko.png" },
+      { hero: "Yeonwoo", role: "lethality", img: "figures/yeonwoo.png" },
+      { hero: "Amane", role: "attack", img: "figures/amene.png" },
+      { hero: "Amadeus", role: "lethality", img: "figures/amadeus.png" }
     ],
     /* 主將陣容（各語言共用）；說明文字在各語言 blocks 的 leaders 區塊 */
     leaders: [
