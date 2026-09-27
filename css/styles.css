@@ -653,3 +653,6 @@ body.menu-open { overflow: hidden; }
 
 .ann-ticker-item{display:inline-block;margin-right:6em;cursor:pointer;}
 .ann-ticker-item:hover{text-decoration:underline;}
+
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+.ann-ticker-item{font-size:inherit;white-space:nowrap;line-height:1.4;vertical-align:middle;}
