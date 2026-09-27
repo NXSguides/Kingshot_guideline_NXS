@@ -785,4 +785,22 @@ const TERMS = [
    ["Hero Rally", "英雄集結", "영웅 집결", "Helden-Rally", "Ralliement de Héros", "Rally do Herói", "Kahraman Seferberliği", "Reli Pahlawan", "Героический рейд", "ทีมระดมพลฮีโร่", "حشد البطل", "—", "Events calendar bar. ES bar is cut off ('Ataque conjunto de…')."]
   ]
  },
+ {
+  "cat": "Appointment (King's Castle)",
+  "rows": [
+   ["Appointment", "官職任命", "관직 임명", "Ernennung", "Nomination", "Nomeação", "Atama", "Pertemuan", "Назначение", "การแต่งตั้ง", "التعيين", "Designación", "Window title (King's Castle). ID literally 'meeting' — game mistranslation. Used in guides as 'King Appointments' buffs."],
+   ["Ministers (tab)", "官員", "관료", "Minister", "Ministres", "Ministros", "Bakanlar", "Menteri", "Министры", "รัฐมนตรี", "الوزراء", "Ministros", "Appointment window tab."],
+   ["Offender (tab)", "罪人", "죄수", "Täter", "Criminel", "Infrator", "Suçlu", "Pelanggar", "Преступники", "ผู้กระทำผิด", "الخطاة", "Infractor", "Appointment window tab."],
+   ["The King may appoint Ministers", "國王可以任命官員", "국왕은 관료를 임명할 수 있습니다.", "Der König kann Minister ernennen", "Le Roi peut nommer des Ministres", "O Rei pode nomear Ministros", "Kral, Bakanlar atayabilir", "Raja dapat menunjuk Menteri", "Король может назначать министров", "ประธานาธิบดีสามารถแต่งตั้งเสนาบดี", "يجوز للملك تعيين الوزراء", "El Rey puede designar ministros", "Banner text. TH says 'President' instead of King."],
+   ["Chief Minister", "總理大臣", "총리대신", "Höchster Minister", "Premier Ministre", "Primeiro-ministro", "Başbakan", "Perdana Menteri", "Премьер-министр", "อัครเสนาบดี", "رئيس الوزراء", "Ministro principal", "Position."],
+   ["Minister of Justice", "司法大臣", "사법대신", "Justizminister", "Ministre de la Justice", "Ministro da Justiça", "Adalet Bakanı", "Menteri Kehakiman", "Министр юстиции", "เสนาบดียุติธรรม", "وزير العدل", "Ministro de justicia", "Position."],
+   ["Minister of the Interior", "內務大臣", "내무대신", "Innenminister", "Ministre de l'Intérieur", "Ministro do Interior", "İçişleri Bakanı", "Menteri Dalam Negeri", "Министр внутренних дел", "เสนาบดีมหาดไทย", "وزير الداخلية", "Ministro del interior", "Position."],
+   ["Field Commander", "軍團長", "군단장", "Einsatzkommandant", "Commandant Militaire", "Comandante de Campo", "Saha Komutanı", "Komandan Lapangan", "Войсковой командир", "ผู้บัญชาการสนาม", "قائد ميداني", "Comandante de campo", "Position."],
+   ["Marshal", "統帥", "원수", "Marschall", "Maréchal", "Marechal", "Mareşal", "Marshal", "Маршал", "จอมพล", "مشير", "Mariscal", "Position."],
+   ["Noble Advisor", "參謀長", "참모장", "Nobler Berater", "Noble Conseiller", "Conselheiro Nobre", "Asil Danışman", "Penasihat Kerajaan", "Советник", "ขุนนางที่ปรึกษา", "مستشار نبيل", "Noble asesor", "Position. ZH/KO literally 'Chief of Staff'; RU just 'Advisor'; ID 'Royal Advisor'."],
+   ["Not Appointed", "未任命", "미임명", "Keine Ernennung", "Aucune Nomination", "Nenhuma Nomeação", "Kimse Atanmadı", "Tidak ada yang ditunjuk", "Не назначено", "ไม่ได้แต่งตั้งผู้ใด", "لم يتم تعيين أحد", "Nadie designado", "Empty position label."],
+   ["Reserved", "已成功預約", "예약에 성공했습니다", "Reservierungen", "Retenu(e) pour", "Reservado", "Rezerve Edildi", "Direservasi", "Зарезервировано", "จองแล้ว", "تم الحجز", "Reservado", "Bottom bar after booking a position. ZH/KO are full sentences ('successfully reserved'); DE is plural."],
+   ["Appointed in", "距離任命", "임명까지", "Ernennung in", "Nommé(e) dans", "Indicou em", "Atanma zamanı", "Ditunjuk dalam", "Назначается на", "ได้รับการแต่งตั้งใน", "سيتم تعيين بعد", "Designado en", "Countdown on the bottom bar. AR text order is garbled in-game."]
+  ]
+ },
 ];
