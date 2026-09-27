@@ -231,8 +231,6 @@ const BLOCKS = {
     }).join("");
     return `<div class="gen-card"><div class="gen-label">${escapeHtml((b.gens && b.gens[i]) || "")}</div>${rows}</div>`;
   }).join(""),
-    return `<div class="gen-card"><div class="gen-label">${escapeHtml((b.gens && b.gens[i]) || "")}</div>${rows}</div>`;
-  }).join(""),
   joiners: (b, g) => `<div class="joiner-list">${(g.joiners || []).map((j) => {
     const name = heroName(j.hero || j.name);
     const role = (UI.roles[j.role] && t(UI.roles[j.role])) || "";
@@ -240,7 +238,7 @@ const BLOCKS = {
       <div class="joiner-avatar" aria-hidden="true">${escapeHtml((name || "?").charAt(0))}</div>
       <div class="joiner-meta">
         <div class="joiner-name">${escapeHtml(name)}</div>
-        ${role ? `<div class="joiner-role">${escapeHtml(role)}</div>` : ""};
+        ${role ? `<div class="joiner-role">${escapeHtml(role)}</div>` : ""}
       </div>
     </div>`;
   }).join("")}</div>`,
