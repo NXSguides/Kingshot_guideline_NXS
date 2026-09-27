@@ -382,7 +382,7 @@ function renderGuideRow() {
 }
 
 /* Order of the guide buttons at the top. Guides not listed here are added at the end. */
-const GUIDE_ORDER = ["recent-events", "formations-rally-tips", "f2p-heroes", "mystic-trial", "bear-hunt", "swordland-showdown", "kvk"];
+const GUIDE_ORDER = ["recent-events", "formations-rally-tips", "f2p-heroes", "general-tips", "mystic-trial", "bear-hunt", "swordland-showdown", "kvk"];
 
 function guideKeys() {
   const all = Object.keys(GUIDES);
