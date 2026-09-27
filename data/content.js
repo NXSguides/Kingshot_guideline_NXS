@@ -705,283 +705,593 @@ const GUIDES = {
   },
   "bear-hunt": {
     emoji: "🐻",
-    name: { zh: "狩獵巨熊", en: "Bear Hunt", ko: "자이언트 베어 사냥", de: "Bärenjagd", fr: "Chasse à l'Ours", pt: "Caça ao Urso", tr: "Ayı Avı", id: "Bear Hunt", ru: "Охота на медведя", th: "ล่าหมี", ar: "صيد الدببة", es: "Cacería del Oso" },
-    sections: {
-      zh: {
-        title: "狩獵巨熊",
-        when_label: "時間",
-        when: "每 2 天，依聯盟排定的時間進行。",
-        why_label: "重要性",
-        why: "英雄裝備材料（鍛造錘）與強化經驗值的主要來源。",
-        prep_label: "準備事項",
-        prep: [
-          "每次狩獵巨熊前更新部隊編組。",
-          { callout: true, text: "可選擇：使用 <a href=\"https://frakinator.streamlit.app\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a> 測試士兵比例，找出最強部隊編組。" },
-          "活動開始前記得召回採集中的部隊。",
-          "切記：在最後 5–7 分鐘，所有人都應發起集結。這樣能讓部隊返回的玩家有更多集結位可加入，進行最後的傷害衝刺。"
-        ],
-        leaders_label: "集結指揮",
-        joiners_label: "集結參與者",
-        joiners_ratio: "標準／安全比例：10% 步兵、10% 騎兵、80% 弓兵（也可用 20-30-50 等變化版本）"
-      },
-      en: {
-        title: "Bear Hunt",
-        when_label: "WHEN",
-        when: "Every 2 days at your Alliance's scheduled time.",
-        why_label: "WHY IT MATTERS",
-        why: "Major source of Hero Gear materials (Forge Hammers), Enhancement XP.",
-        prep_label: "PREP",
-        prep: [
-          "Update your formations before every Bear Hunt.",
-          { callout: true, text: "Optional: use <a href=\"https://frakinator.streamlit.app/\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a> to test troop ratios and find your strongest formation." },
-          "Recall gathering troops before the event starts.",
-          "Remember: In the final 5–7 minutes, everyone should launch a rally. This creates more spots for players whose troops are returning, allowing for a final damage push."
-        ],
-        leaders_label: "RALLY LEADERS",
-        joiners_label: "RALLY JOINERS",
-        joiners_ratio: "Standard / Safe Ratio: 10% Infantry, 10% Cavalry, and 80% Archers (or a variation like 20-30-50)"
-      },
-      ko: {
-        title: "자이언트 베어 사냥",
-        when_label: "일시",
-        when: "연맹에 지정된 시간에 2일마다 진행됩니다.",
-        why_label: "중요성",
-        why: "영웅 장비 재료(제작 망치) 및 강화 경험치의 주요 획득처입니다.",
-        prep_label: "준비 사항",
-        prep: [
-          "매번 자이언트 베어 사냥 시작 전에 부대 편성을 업데이트하세요.",
-          { callout: true, text: "선택 사항: <a href=\"https://frakinator.streamlit.app/\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a>를 사용하여 병사 비율을 테스트하고 가장 강력한 부대 편성을 찾아보세요." },
-          "이벤트가 시작되기 전에 채집 중인 부대를 소환하세요.",
-          "기억하세요: 마지막 5~7분 동안에는 모든 플레이어가 집결을 열어야 합니다. 이렇게 하면 병력이 복귀하는 플레이어들을 위한 자리가 더 많이 생겨 마지막 데미지 몰아치기가 가능해집니다."
-        ],
-        leaders_label: "집결 영웅 세대별 조합",
-        joiners_label: "집결 참여 영웅",
-        joiners_ratio: "표준 / 안전 비율: 보병 10%, 기병 10%, 궁병 80% (또는 20-30-50과 같은 변형 비율)"
-      },
-      de: {
-        title: "Bärenjagd",
-        when_label: "WANN",
-        when: "Alle 2 Tage zur geplanten Zeit eurer Allianz.",
-        why_label: "WARUM ES ZÄHLT",
-        why: "Hauptquelle für Heldenausrüstungs-Material (Forgehammer) und Verbesserungs-XP.",
-        prep_label: "VORBEREITUNG",
-        prep: [
-          "Aktualisiert eure Trupp Formationen vor jeder Bärenjagd.",
-          { callout: true, text: "Optional: Mit <a href=\"https://frakinator.streamlit.app\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a> Truppenverhältnisse testen und die stärkste Formation finden." },
-          "Ruft sammelnde Truppen vor Eventbeginn zurück.",
-          "In den letzten 5–7 Minuten sollte jeder einen Rally starten. So entstehen mehr Plätze für Spieler, deren Truppen zurückkehren — für den finalen Schadensschub."
-        ],
-        leaders_label: "RALLY-ANFÜHRER",
-        joiners_label: "RALLY-TEILNEHMER",
-        joiners_ratio: "Standard / sicheres Verhältnis: 10% Infanterie, 10% Kavallerie, und 80% Bogenschützen (oder Varianten wie 20-30-50)"
-      },
-      es: {
-        title: "Cacería del Oso",
-        when_label: "CUÁNDO",
-        when: "Cada 2 días, según el horario programado por tu alianza.",
-        why_label: "POR QUÉ IMPORTA",
-        why: "Fuente principal de materiales de equipo de héroe (Martillos de Forja) y XP de mejora.",
-        prep_label: "PREPARACIÓN",
-        prep: [
-          "Actualiza tus formaciones antes de cada Cacería del Oso.",
-          { callout: true, text: "Opcional: usa <a href=\"https://frakinator.streamlit.app/\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a> para probar proporciones de tropas y encontrar tu formación más fuerte." },
-          "Recupera las tropas de recolección antes de que comience el evento.",
-          "Recuerda: en los últimos 5–7 minutos, todos deben lanzar una concentración. Esto crea más espacios para los jugadores cuyas tropas están regresando, permitiendo un empuje final de daño."
-        ],
-        leaders_label: "LÍDERES DE CONCENTRACIÓN",
-        joiners_label: "PARTICIPANTES DE CONCENTRACIÓN",
-        joiners_ratio: "Proporción estándar/segura: 10% Infantería, 10% Caballería y 80% Arqueros (o una variación como 20-30-50)"
-      }
-    },
+    name: { en: "Bear Hunt", zh: "狩獵巨熊", ko: "자이언트 베어 사냥", de: "Bärenjagd", fr: "Chasse à l'Ours", pt: "Caça ao Urso", es: "Cacería del Oso", tr: "Ayı Avı", id: "Bear Hunt", ru: "Охота на медведя", th: "ล่าหมี", ar: "صيد الدببة" },
     joiners: [
       { hero: "Chenko", role: "lethality" },
       { hero: "Yeonwoo", role: "lethality" },
       { hero: "Amane", role: "attack" },
       { hero: "Amadeus", role: "lethality" }
     ],
-        leaders: [
-      {
-        gen: { zh: "第 1 代", en: "GEN 1", ko: "1세대", de: "GEN 1", es: "GEN 1" },
-        rows: [
-          {
-            tag: "best",
-            heroes: ["Amadeus", "Jabel", "Quinn"],
-            ratio: "30-30-40",
-            note: {
-              zh: "多數情況步兵最強，因阿瑪迪斯數值高；弓兵稍多的平均編組效果最好。",
-              en: "Troop formation: 30-30-40%. In most cases you will have best stats on infantry due to Amadeus's raw stats, so an ultra-equal formation with slightly more archer troops works best.",
-              ko: "아마데우스는 기본적으로 훌륭한 보병 및 기병 능력치를 갖추고 있어, 궁병 중심의 부대 편성에서 가장 뛰어난 효율을 발휘합니다.",
-              de: "Infanterie ist hier oft am stärksten, weil Amadeus stark ist; eine etwa gleiche Aufteilung mit etwas mehr Bogenschützen funktioniert am besten.",
-              es: "Formación de tropas: 30-30-40%. En la mayoría de los casos tendrás las mejores estadísticas en infantería gracias a las estadísticas base de Amadeus, así que una formación casi equilibrada con un poco más de arqueros funciona mejor."
-            }
-          },
-          {
-            tag: "alt",
-            heroes: ["Helga", "Jabel", "Quinn"],
-            ratio: "20-40-40",
-            note: {
-              zh: "適合尚未抽到阿瑪迪斯的玩家，同時讓阿瑪迪斯保留給集結。",
-              en: "Troop formation: 20-40-40%. Mainly for people that didn't go for Amadeus yet, and keeps the opportunity to use Amadeus for joining rallies.",
-              ko: "과금 유저에게도 훌륭한 선택이지만, 헬가의 궁병 관련 능력치는 다소 부족합니다. 레벨이 낮은 아마데우스는 집결 참여 영웅으로 활용하세요.",
-              de: "Für Spieler ohne Amadeus — so bleibt Amadeus frei, um fremde Rallys zu joinen.",
-              es: "Formación de tropas: 20-40-40%. Principalmente para quienes aún no han conseguido a Amadeus, y mantiene la posibilidad de usar a Amadeus para unirse a concentraciones."
-            }
-          },
-          {
-            tag: "f2p",
-            heroes: ["Howard", "Jabel", "Quinn"],
-            ratio: "30-30-40",
-            note: {
-              zh: "免費玩家建議永遠用手上最強的三位英雄擔任指揮。",
-              en: "Troop formation: 30-30-40%. For F2P it is recommended to always use the 3 heroes you have for hosting a rally.",
-              ko: "무과금 유저에게 권장되는 집결장 영웅 조합입니다. 집결 공격 시, 항상 가장 강력한 세 영웅 조합을 사용하는 것이 좋습니다.",
-              de: "F2P-Spieler sollten immer ihre drei stärksten verfügbaren Helden als Anführer nehmen.",
-              es: "Formación de tropas: 30-30-40%. Para F2P se recomienda usar siempre los 3 héroes que tengas para liderar una concentración."
-            }
-          }
-        ]
-      },
-      {
-        gen: { zh: "第 2 代", en: "GEN 2", ko: "2세대", de: "GEN 2", es: "GEN 2" },
-        rows: [
-          {
-            tag: "best",
-            heroes: ["Amadeus", "Hilde", "Marlin"],
-            ratio: "20-30-50",
-            note: {
-              zh: "馬林能大幅提升傷害，因為擁有集結專屬裝備（殺傷力加成）；步兵固定用阿瑪迪斯或赫爾加。",
-              en: "Troop formation: 20-30-50%. Marlin will boost damage a lot due to his widget. From Gen 2 up, infantry will always be Amadeus or Helga — they are the only infantry heroes with rally widgets (lethality bonus). You send fewer infantry, so the infantry hero covers archer damage via the widget rather than matching infantry stats.",
-              ko: "마린은 집결 전용 파괴력 장비로 피해를 크게 올립니다. 보병은 아마데우스 또는 헬가.",
-              de: "Marlin steigert den Schaden durch seine Rally-exklusive Tödlichkeitsausrüstung; Infanterie bleibt Amadeus oder Helga.",
-              es: "Formación de tropas: 20-30-50%. Marlin aumentará mucho el daño gracias a su widget. Desde la Gen 2 en adelante, la infantería siempre será Amadeus o Helga — son los únicos héroes de infantería con widgets de concentración (bono de letalidad). Envías menos infantería, así que el héroe de infantería cubre el daño de los arqueros mediante el widget en lugar de igualar las estadísticas de infantería."
-            }
-          },
-          {
-            tag: "alt",
-            heroes: ["Helga", "Jabel", "Marlin"],
-            ratio: "20-30-50",
-            note: {
-              zh: "若馬林不夠強可換成奎恩；赫爾加只在阿瑪迪斯未滿裝時使用。",
-              en: "Troop formation: 20-30-50%. Other alternative is swapping Quinn for Marlin if he isn't better yet. Use Helga in Gen 2+ only if Amadeus isn't 5-star + max widget level; also an opportunity to use Amadeus for joining rallies.",
-              ko: "말린이 약하면 퀸으로 바꾸세요. 헬가는 아마데우스 장비가 덜 갖춰졌을 때만.",
-              de: "Quinn statt Marlin, wenn Marlin noch nicht stark genug ist; Helga nur, wenn Amadeus noch nicht voll ausgerüstet ist.",
-              es: "Formación de tropas: 20-30-50%. Otra alternativa es cambiar Quinn por Marlin si aún no es mejor. Usa a Helga en Gen 2+ solo si Amadeus no tiene 5 estrellas + widget al máximo; también es una oportunidad para usar a Amadeus uniéndose a concentraciones."
-            }
-          },
-          {
-            tag: "f2p",
-            heroes: ["Zoe", "Jabel", "Quinn"],
-            ratio: "30-30-40",
-            note: {
-              zh: "目前免費玩家仍無擁有集結裝備的弓兵，弓兵屬性最弱。",
-              en: "Troop formation: 30-30-40%. Still no F2P hero with a rally widget, so again an even formation with slightly more archers, as archer stats will be lowest due to not having an SSR archer hero.",
-              ko: "아직 집결 장비가 있는 무과금 궁병이 없어 궁병 스탯이 가장 약합니다.",
-              de: "Noch kein F2P-Bogenschützenheld mit Rally-Ausrüstung, daher bleiben Bogenschützen der schwächste Stat.",
-              es: "Formación de tropas: 30-30-40%. Todavía no hay ningún héroe F2P con widget de concentración, así que de nuevo una formación equilibrada con un poco más de arqueros, ya que las estadísticas de arqueros serán las más bajas al no tener un héroe arquero SSR."
-            }
-          }
-        ]
-      },
-      {
-        gen: { zh: "第 3 代", en: "GEN 3", ko: "3세대", de: "GEN 3", es: "GEN 3" },
-        rows: [
-          {
-            tag: "best",
-            heroes: ["Helga", "Petra", "Marlin"],
-            ratio: "10-20-70",
-            note: {
-              zh: "滿等赫爾加（2 殺傷力＋1 攻擊）表現優於阿瑪迪斯（1 殺傷力＋2 攻擊）。",
-              en: "Troop formation: 10-20-70%. Maxed-out Helga performs better than Amadeus in Gen 3, due to having 2 lethality widgets and 1 attack widget compared to 1 lethality widget and 2 attack widgets in this setup.",
-              ko: "풀 장비 헬가(파괴력 2 + 공격 1)가 아마데우스(파괴력 1 + 공격 2)보다 강합니다.",
-              de: "Voll ausgerüstete Helga (2 Tödlichkeit + 1 Angriff) übertrifft hier Amadeus (1 Tödlichkeit + 2 Angriff).",
-              es: "Formación de tropas: 10-20-70%. Una Helga al máximo rinde mejor que Amadeus en la Gen 3, ya que tiene 2 widgets de letalidad y 1 de ataque, comparado con 1 de letalidad y 2 de ataque en esta configuración."
-            }
-          },
-          {
-            tag: "alt",
-            heroes: ["Amadeus", "Petra", "Marlin"],
-            ratio: "20-30-50",
-            note: {
-              zh: "若赫爾加尚未練滿，改用阿瑪迪斯較好。",
-              en: "Troop formation: 20-30-50%. If you don't have maxed-out Helga (5-star + widget) it is better to use Amadeus.",
-              ko: "헬가가 아직 덜 갖춰졌으면 아마데우스를 쓰세요.",
-              de: "Amadeus nehmen, wenn Helga noch nicht voll ausgerüstet ist.",
-              es: "Formación de tropas: 20-30-50%. Si no tienes a Helga al máximo (5 estrellas + widget) es mejor usar a Amadeus."
-            }
-          },
-          {
-            tag: "f2p",
-            heroes: ["Zoe", "Petra", "Quinn"],
-            ratio: "20-40-40",
-            note: {
-              zh: "終於拿到第一位集結裝備英雄（Petra），弓兵屬性仍最低；滿級騎兵能發揮很好。",
-              en: "Troop formation: 20-40-40%. In Gen 3, F2P get their first hero with a rally widget (Petra). Try even archer/cav numbers because Petra improves archer troops a lot. Archer stats are still lowest without an SSR archer. If you unlock T10 cavalry, the T10 skill pairs well with Petra's stats.",
-              ko: "첫 무과금 집결 장비 영웅(페트라)이 나옵니다. 궁병은 여전히 약하지만, 만렙 기병이 페트라와 잘 맞습니다.",
-              de: "Erster F2P-Held mit Rally-Ausrüstung (Petra); Bogenschützen bleiben am schwächsten, maxed Kavallerie passt aber gut zu Petra.",
-              es: "Formación de tropas: 20-40-40%. En la Gen 3, los F2P consiguen su primer héroe con widget de concentración (Petra). Prueba números equilibrados de arqueros/caballería porque Petra mejora mucho a las tropas de arqueros. Las estadísticas de arqueros siguen siendo las más bajas sin un héroe arquero SSR. Si desbloqueas caballería T10, su habilidad combina bien con las estadísticas de Petra."
-            }
-          }
-        ]
-      },
-      {
-        gen: { zh: "第 4 代", en: "GEN 4", ko: "4세대", de: "GEN 4", es: "GEN 4" },
-        rows: [
-          {
-            tag: "best",
-            heroes: ["Amadeus", "Petra", "Rosa"],
-            ratio: "10-10-80",
-            note: {
-              zh: "盡量拉高弓兵數量，滿級弓兵尤佳；Rosa 三技能可能提升弓兵總攻擊 30%。",
-              en: "Troop formation: 10-10-80%. Force as many archer troops as you can, especially if they are T10. With a bit of luck Rosa's 3rd skill will do the work for you (Increasing Archers' total Attack by 30%).",
-              ko: "이제부터는 궁병 중심의 부대 편성을 운영합니다. 티어 TG5 기병과 함께 로사의 3번째 스킬이 부여하는 궁병 전체 공격력 30% 증가는 매우 강력한 효과입니다.",
-              de: "So viele (idealerweise maxed) Bogenschützen wie möglich; Rosas 3. Skill kann den Bogenschützen-Gesamtschaden um 30% steigern.",
-              es: "Formación de tropas: 10-10-80%. Fuerza tantas tropas de arqueros como puedas, especialmente si son T10. Con algo de suerte, la 3ª habilidad de Rosa hará el resto del trabajo (aumenta el ataque total de los arqueros en un 30%)."
-            }
-          },
-          {
-            tag: "alt",
-            heroes: ["Helga", "Petra", "Rosa"],
-            ratio: "10-10-80",
-            note: {
-              zh: "若赫爾加星級裝備高於阿瑪迪斯可替代使用。",
-              en: "Troop formation: 10-10-80%. Use Helga as alternative if she has better stars and widget level than Amadeus. Still force as many archers as you can, especially T10, for Rosa's 3rd skill (Increasing Archers' total Attack by 30%).",
-              ko: "헬가의 성급이나 전용 무기 레벨이 아마데우스보다 높다면 헬가를 대체 영웅으로 기용하세요. 티어 TG5 기병과 함께 로사의 3번째 스킬이 부여하는 궁병 전체 공격력 30% 증가는 매우 강력한 효과입니다.",
-              de: "Helga nehmen, wenn ihr Stern-/Ausrüstungsgrad über Amadeus liegt.",
-              es: "Formación de tropas: 10-10-80%. Usa a Helga como alternativa si tiene más estrellas y nivel de widget que Amadeus. Sigue forzando tantos arqueros como puedas, especialmente T10, para la 3ª habilidad de Rosa (aumenta el ataque total de los arqueros en un 30%)."
-            }
-          },
-          {
-            tag: "f2p",
-            heroes: ["Zoe", "Petra", "Rosa"],
-            ratio: "10-10-80",
-            note: {
-              zh: "與替代組合相同，Rosa 三技能在重弓兵編組下效果最佳。",
-              en: "Troop formation: 10-10-80%. Same as alternative best heroes — Rosa's 3rd skill bonuses best if you focus on heavy archer formations (Increasing Archers' total Attack by 30%).",
-              ko: "위의 대체 영웅 조합과 같은 병력 비율을 사용합니다. 로사의 3번째 스킬과 높은 궁병 비율의 조합은 궁병 전체 공격력을 30% 증가시킵니다.",
-              de: "Gleiche Idee wie die Alternative — Rosas 3. Skill glänzt am stärksten in bogenschützenlastigen Formationen.",
-              es: "Formación de tropas: 10-10-80%. Igual que la alternativa de mejores héroes — la 3ª habilidad de Rosa rinde mejor si te enfocas en formaciones pesadas de arqueros (aumenta el ataque total de los arqueros en un 30%)."
-            }
-          }
-        ]
-      },
-      {
-        gen: { zh: "第 5 代", en: "GEN 5", ko: "5세대", de: "GEN 5", es: "GEN 5" },
-        rows: [
-          {
-            tag: "best",
-            heroes: ["Amadeus", "", ""],
-            ratio: "",
-            note: {
-              zh: "其餘指揮欄位尚未公布。",
-              en: "Remaining host slots not released yet.",
-              ko: "나머지 지휘 자리는 아직 미공개입니다.",
-              de: "Die übrigen Anführer-Plätze sind noch nicht veröffentlicht.",
-              es: "Los demás puestos de líder aún no se han publicado."
-            }
-          }
-        ]
-      }
-    ]
+    /* 主將陣容（各語言共用）；說明文字在各語言 blocks 的 leaders 區塊 */
+    leaders: [
+      { rows: [
+        { tag: "best", heroes: ["Amadeus", "Jabel", "Quinn"], ratio: "30-30-40" },
+        { tag: "alt", heroes: ["Helga", "Jabel", "Quinn"], ratio: "20-40-40" },
+        { tag: "f2p", heroes: ["Howard", "Jabel", "Quinn"], ratio: "30-30-40" }
+      ]},
+      { rows: [
+        { tag: "best", heroes: ["Amadeus", "Hilde", "Marlin"], ratio: "20-30-50" },
+        { tag: "alt", heroes: ["Helga", "Jabel", "Marlin"], ratio: "20-30-50" },
+        { tag: "f2p", heroes: ["Zoe", "Jabel", "Quinn"], ratio: "30-30-40" }
+      ]},
+      { rows: [
+        { tag: "best", heroes: ["Helga", "Petra", "Marlin"], ratio: "10-20-70" },
+        { tag: "alt", heroes: ["Amadeus", "Petra", "Marlin"], ratio: "20-30-50" },
+        { tag: "f2p", heroes: ["Zoe", "Petra", "Quinn"], ratio: "20-40-40" }
+      ]},
+      { rows: [
+        { tag: "best", heroes: ["Amadeus", "Petra", "Rosa"], ratio: "10-10-80" },
+        { tag: "alt", heroes: ["Helga", "Petra", "Rosa"], ratio: "10-10-80" },
+        { tag: "f2p", heroes: ["Zoe", "Petra", "Rosa"], ratio: "10-10-80" }
+      ]},
+      { rows: [
+        { tag: "best", heroes: ["Amadeus", "", ""], ratio: "" }
+      ]}
+    ],
+    sections: {
+      en: { title: "Bear Hunt", blocks: [
+        { type: "h", text: "WHEN" },
+        { type: "p", text: "Every 2 days at your Alliance's scheduled time." },
+        { type: "h", text: "WHY IT MATTERS" },
+        { type: "p", text: "Major source of Hero Gear materials (Forge Hammers), Enhancement XP." },
+        { type: "h", text: "PREP" },
+        { type: "list", items: [
+          "Update your formations before every Bear Hunt."
+        ]},
+        { type: "callout", text: "Optional: use https://frakinator.streamlit.app/ to test troop ratios and find your strongest formation." },
+        { type: "list", items: [
+          "Recall gathering troops before the event starts.",
+          "Remember: In the final 5–7 minutes, everyone should launch a rally. This creates more spots for players whose troops are returning, allowing for a final damage push."
+        ]},
+        { type: "h", text: "RALLY LEADERS" },
+        { type: "leaders",
+          gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
+          notes: [
+            [
+              "Troop formation: 30-30-40%. In most cases you will have best stats on infantry due to Amadeus's raw stats, so an ultra-equal formation with slightly more archer troops works best.",
+              "Troop formation: 20-40-40%. Mainly for people that didn't go for Amadeus yet, and keeps the opportunity to use Amadeus for joining rallies.",
+              "Troop formation: 30-30-40%. For F2P it is recommended to always use the 3 heroes you have for hosting a rally."
+            ],
+            [
+              "Troop formation: 20-30-50%. Marlin will boost damage a lot due to his widget. From Gen 2 up, infantry will always be Amadeus or Helga — they are the only infantry heroes with rally widgets (lethality bonus). You send fewer infantry, so the infantry hero covers archer damage via the widget rather than matching infantry stats.",
+              "Troop formation: 20-30-50%. Other alternative is swapping Quinn for Marlin if he isn't better yet. Use Helga in Gen 2+ only if Amadeus isn't 5-star + max widget level; also an opportunity to use Amadeus for joining rallies.",
+              "Troop formation: 30-30-40%. Still no F2P hero with a rally widget, so again an even formation with slightly more archers, as archer stats will be lowest due to not having an SSR archer hero."
+            ],
+            [
+              "Troop formation: 10-20-70%. Maxed-out Helga performs better than Amadeus in Gen 3, due to having 2 lethality widgets and 1 attack widget compared to 1 lethality widget and 2 attack widgets in this setup.",
+              "Troop formation: 20-30-50%. If you don't have maxed-out Helga (5-star + widget) it is better to use Amadeus.",
+              "Troop formation: 20-40-40%. In Gen 3, F2P get their first hero with a rally widget (Petra). Try even archer/cav numbers because Petra improves archer troops a lot. Archer stats are still lowest without an SSR archer. If you unlock T10 cavalry, the T10 skill pairs well with Petra's stats."
+            ],
+            [
+              "Troop formation: 10-10-80%. Force as many archer troops as you can, especially if they are T10. With a bit of luck Rosa's 3rd skill will do the work for you (Increasing Archers' total Attack by 30%).",
+              "Troop formation: 10-10-80%. Use Helga as alternative if she has better stars and widget level than Amadeus. Still force as many archers as you can, especially T10, for Rosa's 3rd skill (Increasing Archers' total Attack by 30%).",
+              "Troop formation: 10-10-80%. Same as alternative best heroes — Rosa's 3rd skill bonuses best if you focus on heavy archer formations (Increasing Archers' total Attack by 30%)."
+            ],
+            [
+              "Remaining host slots not released yet."
+            ]
+          ]},
+        { type: "h", text: "RALLY JOINERS" },
+        { type: "p", text: "Standard / Safe Ratio: 10% Infantry, 10% Cavalry, and 80% Archers (or a variation like 20-30-50)" },
+        { type: "joiners" }
+      ]},
+      zh: { title: "狩獵巨熊", blocks: [
+        { type: "h", text: "時間" },
+        { type: "p", text: "每 2 天，依聯盟排定的時間進行。" },
+        { type: "h", text: "重要性" },
+        { type: "p", text: "英雄裝備材料（鍛造錘）與強化經驗值的主要來源。" },
+        { type: "h", text: "準備事項" },
+        { type: "list", items: [
+          "每次狩獵巨熊前更新部隊編組。"
+        ]},
+        { type: "callout", text: "可選擇：使用 https://frakinator.streamlit.app 測試士兵比例，找出最強部隊編組。" },
+        { type: "list", items: [
+          "活動開始前記得召回採集中的部隊。",
+          "切記：在最後 5–7 分鐘，所有人都應發起集結。這樣能讓部隊返回的玩家有更多集結位可加入，進行最後的傷害衝刺。"
+        ]},
+        { type: "h", text: "集結指揮" },
+        { type: "leaders",
+          gens: ["第 1 代","第 2 代","第 3 代","第 4 代","第 5 代"],
+          notes: [
+            [
+              "多數情況步兵最強，因阿瑪迪斯數值高；弓兵稍多的平均編組效果最好。",
+              "適合尚未抽到阿瑪迪斯的玩家，同時讓阿瑪迪斯保留給集結。",
+              "免費玩家建議永遠用手上最強的三位英雄擔任指揮。"
+            ],
+            [
+              "馬林能大幅提升傷害，因為擁有集結專屬裝備（殺傷力加成）；步兵固定用阿瑪迪斯或赫爾加。",
+              "若馬林不夠強可換成奎恩；赫爾加只在阿瑪迪斯未滿裝時使用。",
+              "目前免費玩家仍無擁有集結裝備的弓兵，弓兵屬性最弱。"
+            ],
+            [
+              "滿等赫爾加（2 殺傷力＋1 攻擊）表現優於阿瑪迪斯（1 殺傷力＋2 攻擊）。",
+              "若赫爾加尚未練滿，改用阿瑪迪斯較好。",
+              "終於拿到第一位集結裝備英雄（Petra），弓兵屬性仍最低；滿級騎兵能發揮很好。"
+            ],
+            [
+              "盡量拉高弓兵數量，滿級弓兵尤佳；Rosa 三技能可能提升弓兵總攻擊 30%。",
+              "若赫爾加星級裝備高於阿瑪迪斯可替代使用。",
+              "與替代組合相同，Rosa 三技能在重弓兵編組下效果最佳。"
+            ],
+            [
+              "其餘指揮欄位尚未公布。"
+            ]
+          ]},
+        { type: "h", text: "集結參與者" },
+        { type: "p", text: "標準／安全比例：10% 步兵、10% 騎兵、80% 弓兵（也可用 20-30-50 等變化版本）" },
+        { type: "joiners" }
+      ]},
+      ko: { title: "자이언트 베어 사냥", blocks: [
+        { type: "h", text: "일시" },
+        { type: "p", text: "연맹에 지정된 시간에 2일마다 진행됩니다." },
+        { type: "h", text: "중요성" },
+        { type: "p", text: "영웅 장비 재료(제작 망치) 및 강화 경험치의 주요 획득처입니다." },
+        { type: "h", text: "준비 사항" },
+        { type: "list", items: [
+          "매번 자이언트 베어 사냥 시작 전에 부대 편성을 업데이트하세요."
+        ]},
+        { type: "callout", text: "선택 사항: https://frakinator.streamlit.app/를 사용하여 병사 비율을 테스트하고 가장 강력한 부대 편성을 찾아보세요." },
+        { type: "list", items: [
+          "이벤트가 시작되기 전에 채집 중인 부대를 소환하세요.",
+          "기억하세요: 마지막 5~7분 동안에는 모든 플레이어가 집결을 열어야 합니다. 이렇게 하면 병력이 복귀하는 플레이어들을 위한 자리가 더 많이 생겨 마지막 데미지 몰아치기가 가능해집니다."
+        ]},
+        { type: "h", text: "집결 영웅 세대별 조합" },
+        { type: "leaders",
+          gens: ["1세대","2세대","3세대","4세대","5세대"],
+          notes: [
+            [
+              "아마데우스는 기본적으로 훌륭한 보병 및 기병 능력치를 갖추고 있어, 궁병 중심의 부대 편성에서 가장 뛰어난 효율을 발휘합니다.",
+              "과금 유저에게도 훌륭한 선택이지만, 헬가의 궁병 관련 능력치는 다소 부족합니다. 레벨이 낮은 아마데우스는 집결 참여 영웅으로 활용하세요.",
+              "무과금 유저에게 권장되는 집결장 영웅 조합입니다. 집결 공격 시, 항상 가장 강력한 세 영웅 조합을 사용하는 것이 좋습니다."
+            ],
+            [
+              "마린은 집결 전용 파괴력 장비로 피해를 크게 올립니다. 보병은 아마데우스 또는 헬가.",
+              "말린이 약하면 퀸으로 바꾸세요. 헬가는 아마데우스 장비가 덜 갖춰졌을 때만.",
+              "아직 집결 장비가 있는 무과금 궁병이 없어 궁병 스탯이 가장 약합니다."
+            ],
+            [
+              "풀 장비 헬가(파괴력 2 + 공격 1)가 아마데우스(파괴력 1 + 공격 2)보다 강합니다.",
+              "헬가가 아직 덜 갖춰졌으면 아마데우스를 쓰세요.",
+              "첫 무과금 집결 장비 영웅(페트라)이 나옵니다. 궁병은 여전히 약하지만, 만렙 기병이 페트라와 잘 맞습니다."
+            ],
+            [
+              "이제부터는 궁병 중심의 부대 편성을 운영합니다. 티어 TG5 기병과 함께 로사의 3번째 스킬이 부여하는 궁병 전체 공격력 30% 증가는 매우 강력한 효과입니다.",
+              "헬가의 성급이나 전용 무기 레벨이 아마데우스보다 높다면 헬가를 대체 영웅으로 기용하세요. 티어 TG5 기병과 함께 로사의 3번째 스킬이 부여하는 궁병 전체 공격력 30% 증가는 매우 강력한 효과입니다.",
+              "위의 대체 영웅 조합과 같은 병력 비율을 사용합니다. 로사의 3번째 스킬과 높은 궁병 비율의 조합은 궁병 전체 공격력을 30% 증가시킵니다."
+            ],
+            [
+              "나머지 지휘 자리는 아직 미공개입니다."
+            ]
+          ]},
+        { type: "h", text: "집결 참여 영웅" },
+        { type: "p", text: "표준 / 안전 비율: 보병 10%, 기병 10%, 궁병 80% (또는 20-30-50과 같은 변형 비율)" },
+        { type: "joiners" }
+      ]},
+      de: { title: "Bärenjagd", blocks: [
+        { type: "h", text: "WANN" },
+        { type: "p", text: "Alle 2 Tage zur geplanten Zeit eurer Allianz." },
+        { type: "h", text: "WARUM ES ZÄHLT" },
+        { type: "p", text: "Hauptquelle für Heldenausrüstungs-Material (Forgehammer) und Verbesserungs-XP." },
+        { type: "h", text: "VORBEREITUNG" },
+        { type: "list", items: [
+          "Aktualisiert eure Trupp Formationen vor jeder Bärenjagd."
+        ]},
+        { type: "callout", text: "Optional: Mit https://frakinator.streamlit.app Truppenverhältnisse testen und die stärkste Formation finden." },
+        { type: "list", items: [
+          "Ruft sammelnde Truppen vor Eventbeginn zurück.",
+          "In den letzten 5–7 Minuten sollte jeder einen Rally starten. So entstehen mehr Plätze für Spieler, deren Truppen zurückkehren — für den finalen Schadensschub."
+        ]},
+        { type: "h", text: "RALLY-ANFÜHRER" },
+        { type: "leaders",
+          gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
+          notes: [
+            [
+              "Infanterie ist hier oft am stärksten, weil Amadeus stark ist; eine etwa gleiche Aufteilung mit etwas mehr Bogenschützen funktioniert am besten.",
+              "Für Spieler ohne Amadeus — so bleibt Amadeus frei, um fremde Rallys zu joinen.",
+              "F2P-Spieler sollten immer ihre drei stärksten verfügbaren Helden als Anführer nehmen."
+            ],
+            [
+              "Marlin steigert den Schaden durch seine Rally-exklusive Tödlichkeitsausrüstung; Infanterie bleibt Amadeus oder Helga.",
+              "Quinn statt Marlin, wenn Marlin noch nicht stark genug ist; Helga nur, wenn Amadeus noch nicht voll ausgerüstet ist.",
+              "Noch kein F2P-Bogenschützenheld mit Rally-Ausrüstung, daher bleiben Bogenschützen der schwächste Stat."
+            ],
+            [
+              "Voll ausgerüstete Helga (2 Tödlichkeit + 1 Angriff) übertrifft hier Amadeus (1 Tödlichkeit + 2 Angriff).",
+              "Amadeus nehmen, wenn Helga noch nicht voll ausgerüstet ist.",
+              "Erster F2P-Held mit Rally-Ausrüstung (Petra); Bogenschützen bleiben am schwächsten, maxed Kavallerie passt aber gut zu Petra."
+            ],
+            [
+              "So viele (idealerweise maxed) Bogenschützen wie möglich; Rosas 3. Skill kann den Bogenschützen-Gesamtschaden um 30% steigern.",
+              "Helga nehmen, wenn ihr Stern-/Ausrüstungsgrad über Amadeus liegt.",
+              "Gleiche Idee wie die Alternative — Rosas 3. Skill glänzt am stärksten in bogenschützenlastigen Formationen."
+            ],
+            [
+              "Die übrigen Anführer-Plätze sind noch nicht veröffentlicht."
+            ]
+          ]},
+        { type: "h", text: "RALLY-TEILNEHMER" },
+        { type: "p", text: "Standard / sicheres Verhältnis: 10% Infanterie, 10% Kavallerie, und 80% Bogenschützen (oder Varianten wie 20-30-50)" },
+        { type: "joiners" }
+      ]},
+      fr: { title: "Chasse à l'Ours", blocks: [
+        { type: "h", text: "QUAND" },
+        { type: "p", text: "Tous les 2 jours, à l'heure prévue par votre Alliance." },
+        { type: "h", text: "POURQUOI C'EST IMPORTANT" },
+        { type: "p", text: "Source principale de matériaux d'Équipement de héros (Marteaux de Forge) et d'EXP d'Amélioration." },
+        { type: "h", text: "PRÉPARATION" },
+        { type: "list", items: [
+          "Mettez à jour vos formations de troupe avant chaque Chasse à l'Ours."
+        ]},
+        { type: "callout", text: "Optionnel : utilisez https://frakinator.streamlit.app/ pour tester les ratios de troupes et trouver votre meilleure formation." },
+        { type: "list", items: [
+          "Rappelez les troupes en collecte avant le début de l'événement.",
+          "N'oubliez pas : pendant les 5 à 7 dernières minutes, tout le monde devrait lancer un ralliement. Cela libère davantage de places pour les joueurs dont les troupes reviennent et permet un dernier coup de collier de dégâts."
+        ]},
+        { type: "h", text: "LEADERS DE RALLIEMENT" },
+        { type: "leaders",
+          gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
+          notes: [
+            [
+              "Formation de troupe : 30-30-40 %. Dans la plupart des cas, l'Infanterie aura les meilleures stats grâce aux stats brutes d'Amadeus, donc une formation ultra-équilibrée avec un peu plus d'Archers fonctionne le mieux.",
+              "Formation de troupe : 20-40-40 %. Principalement pour ceux qui n'ont pas encore misé sur Amadeus, et cela permet d'utiliser Amadeus pour rejoindre des ralliements.",
+              "Formation de troupe : 30-30-40 %. Pour les F2P, il est recommandé d'utiliser toujours les 3 héros dont vous disposez pour lancer un ralliement."
+            ],
+            [
+              "Formation de troupe : 20-30-50 %. Marlin augmentera fortement les dégâts grâce à son équipement exclusif de ralliement. À partir de la Gen 2, l'Infanterie sera toujours Amadeus ou Helga : ce sont les seuls héros d'Infanterie avec un équipement exclusif de ralliement (bonus de Létalité). Vous envoyez moins d'Infanterie, donc le héros d'Infanterie compense les dégâts des Archers grâce à cet équipement plutôt qu'en égalant les stats d'Infanterie.",
+              "Formation de troupe : 20-30-50 %. Autre option : remplacer Quinn par Marlin s'il n'est pas encore meilleur. N'utilisez Helga à partir de la Gen 2 que si Amadeus n'est pas à 5 étoiles avec l'équipement exclusif au niveau maximum ; c'est aussi l'occasion d'utiliser Amadeus pour rejoindre des ralliements.",
+              "Formation de troupe : 30-30-40 %. Toujours aucun héros F2P avec un équipement exclusif de ralliement, donc encore une formation équilibrée avec un peu plus d'Archers, car les stats d'Archer seront les plus basses faute de héros Archer SSR."
+            ],
+            [
+              "Formation de troupe : 10-20-70 %. Helga au maximum est plus performante qu'Amadeus en Gen 3, avec 2 équipements de Létalité et 1 d'Attaque, contre 1 de Létalité et 2 d'Attaque pour Amadeus dans cette configuration.",
+              "Formation de troupe : 20-30-50 %. Si vous n'avez pas Helga au maximum (5 étoiles + équipement exclusif), il vaut mieux utiliser Amadeus.",
+              "Formation de troupe : 20-40-40 %. En Gen 3, les F2P obtiennent leur premier héros avec un équipement exclusif de ralliement (Petra). Essayez des nombres équilibrés d'Archers et de Cavalerie, car Petra améliore beaucoup les Archers. Les stats d'Archer restent les plus basses sans Archer SSR. Si vous débloquez la Cavalerie T10, la compétence T10 s'accorde bien avec les stats de Petra."
+            ],
+            [
+              "Formation de troupe : 10-10-80 %. Alignez autant d'Archers que possible, surtout s'ils sont T10. Avec un peu de chance, la 3e compétence de Rosa fera le travail pour vous (augmente l'Attaque totale des Archers de 30 %).",
+              "Formation de troupe : 10-10-80 %. Utilisez Helga en alternative si elle a plus d'étoiles et un meilleur niveau d'équipement exclusif qu'Amadeus. Alignez toujours autant d'Archers que possible, surtout T10, pour la 3e compétence de Rosa (augmente l'Attaque totale des Archers de 30 %).",
+              "Formation de troupe : 10-10-80 %. Comme pour les héros alternatifs — les bonus de la 3e compétence de Rosa sont meilleurs si vous misez sur des formations très orientées Archers (augmente l'Attaque totale des Archers de 30 %)."
+            ],
+            [
+              "Les autres emplacements de leader ne sont pas encore disponibles."
+            ]
+          ]},
+        { type: "h", text: "PARTICIPANTS AU RALLIEMENT" },
+        { type: "p", text: "Ratio standard / sûr : 10 % d'Infanterie, 10 % de Cavalerie et 80 % d'Archers (ou une variante comme 20-30-50)" },
+        { type: "joiners" }
+      ]},
+      pt: { title: "Caça ao Urso", blocks: [
+        { type: "h", text: "QUANDO" },
+        { type: "p", text: "A cada 2 dias, no horário marcado pela sua Aliança." },
+        { type: "h", text: "POR QUE IMPORTA" },
+        { type: "p", text: "Principal fonte de materiais de Equipamento do Herói (Martelos de Forja) e XP de Aprimoramento." },
+        { type: "h", text: "PREPARAÇÃO" },
+        { type: "list", items: [
+          "Atualize suas Formações das Tropas antes de cada Caça ao Urso."
+        ]},
+        { type: "callout", text: "Opcional: use https://frakinator.streamlit.app/ para testar proporções de tropas e encontrar sua formação mais forte." },
+        { type: "list", items: [
+          "Revogue as tropas que estão coletando antes do início do evento.",
+          "Lembre-se: nos últimos 5–7 minutos, todos devem iniciar um rally. Isso cria mais vagas para jogadores cujas tropas estão retornando, permitindo um último impulso de dano."
+        ]},
+        { type: "h", text: "LÍDERES DE RALLY" },
+        { type: "leaders",
+          gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
+          notes: [
+            [
+              "Formação de tropas: 30-30-40%. Na maioria dos casos, você terá os melhores atributos na Infantaria por causa dos atributos base do Amadeus, então uma formação super equilibrada com um pouco mais de Arquearia funciona melhor.",
+              "Formação de tropas: 20-40-40%. Principalmente para quem ainda não investiu no Amadeus, e mantém a possibilidade de usar o Amadeus para entrar em rallies.",
+              "Formação de tropas: 30-30-40%. Para F2P, recomenda-se usar sempre os 3 heróis que você tiver para liderar um rally."
+            ],
+            [
+              "Formação de tropas: 20-30-50%. O Peixe Marlin aumenta muito o dano por causa do equipamento exclusivo de rally dele. A partir da Gen 2, a Infantaria será sempre o Amadeus ou a Helga — são os únicos heróis de Infantaria com equipamento exclusivo de rally (bônus de Letalidade). Você envia menos Infantaria, então o herói de Infantaria cobre o dano dos Arquearia por meio desse equipamento, e não igualando os atributos de Infantaria.",
+              "Formação de tropas: 20-30-50%. Outra alternativa é trocar o Quinn pelo Peixe Marlin, se ele ainda não for melhor. Use a Helga na Gen 2+ apenas se o Amadeus não estiver com 5 estrelas + equipamento exclusivo no nível máximo; também é uma chance de usar o Amadeus para entrar em rallies.",
+              "Formação de tropas: 30-30-40%. Ainda não há herói F2P com equipamento exclusivo de rally, então novamente uma formação equilibrada com um pouco mais de Arquearia, já que os atributos dos Arquearia serão os mais baixos sem um herói de Arquearia SSR."
+            ],
+            [
+              "Formação de tropas: 10-20-70%. A Helga no máximo rende mais que o Amadeus na Gen 3, por ter 2 equipamentos de Letalidade e 1 de Ataque, contra 1 de Letalidade e 2 de Ataque do Amadeus nesta configuração.",
+              "Formação de tropas: 20-30-50%. Se você não tem a Helga no máximo (5 estrelas + equipamento exclusivo), é melhor usar o Amadeus.",
+              "Formação de tropas: 20-40-40%. Na Gen 3, os F2P recebem o primeiro herói com equipamento exclusivo de rally (Petra). Tente números equilibrados de Arquearia e Cavalaria, porque a Petra melhora muito os Arquearia. Os atributos dos Arquearia continuam os mais baixos sem uma Arquearia SSR. Se você desbloquear a Cavalaria T10, a habilidade T10 combina bem com os atributos da Petra."
+            ],
+            [
+              "Formação de tropas: 10-10-80%. Force o máximo de Arquearia possível, principalmente se forem T10. Com um pouco de sorte, a 3ª habilidade da Rosa fará o trabalho por você (aumenta o Ataque total dos Arquearia em 30%).",
+              "Formação de tropas: 10-10-80%. Use a Helga como alternativa se ela tiver mais estrelas e um nível de equipamento exclusivo melhor que o do Amadeus. Continue forçando o máximo de Arquearia possível, principalmente T10, para a 3ª habilidade da Rosa (aumenta o Ataque total dos Arquearia em 30%).",
+              "Formação de tropas: 10-10-80%. Igual aos melhores heróis alternativos — os bônus da 3ª habilidade da Rosa rendem mais se você focar em formações pesadas de Arquearia (aumenta o Ataque total dos Arquearia em 30%)."
+            ],
+            [
+              "Os demais espaços de líder ainda não foram divulgados."
+            ]
+          ]},
+        { type: "h", text: "PARTICIPANTES DE RALLY" },
+        { type: "p", text: "Proporção padrão / segura: 10% Infantaria, 10% Cavalaria e 80% Arquearia (ou uma variação como 20-30-50)" },
+        { type: "joiners" }
+      ]},
+      es: { title: "Cacería del Oso", blocks: [
+        { type: "h", text: "CUÁNDO" },
+        { type: "p", text: "Cada 2 días, según el horario programado por tu alianza." },
+        { type: "h", text: "POR QUÉ IMPORTA" },
+        { type: "p", text: "Fuente principal de materiales de equipo de héroe (Martillos de Forja) y XP de mejora." },
+        { type: "h", text: "PREPARACIÓN" },
+        { type: "list", items: [
+          "Actualiza tus formaciones antes de cada Cacería del Oso."
+        ]},
+        { type: "callout", text: "Opcional: usa https://frakinator.streamlit.app/ para probar proporciones de tropas y encontrar tu formación más fuerte." },
+        { type: "list", items: [
+          "Recupera las tropas de recolección antes de que comience el evento.",
+          "Recuerda: en los últimos 5–7 minutos, todos deben lanzar una concentración. Esto crea más espacios para los jugadores cuyas tropas están regresando, permitiendo un empuje final de daño."
+        ]},
+        { type: "h", text: "LÍDERES DE CONCENTRACIÓN" },
+        { type: "leaders",
+          gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
+          notes: [
+            [
+              "Formación de tropas: 30-30-40%. En la mayoría de los casos tendrás las mejores estadísticas en infantería gracias a las estadísticas base de Amadeus, así que una formación casi equilibrada con un poco más de arqueros funciona mejor.",
+              "Formación de tropas: 20-40-40%. Principalmente para quienes aún no han conseguido a Amadeus, y mantiene la posibilidad de usar a Amadeus para unirse a concentraciones.",
+              "Formación de tropas: 30-30-40%. Para F2P se recomienda usar siempre los 3 héroes que tengas para liderar una concentración."
+            ],
+            [
+              "Formación de tropas: 20-30-50%. Marlin aumentará mucho el daño gracias a su widget. Desde la Gen 2 en adelante, la infantería siempre será Amadeus o Helga — son los únicos héroes de infantería con widgets de concentración (bono de letalidad). Envías menos infantería, así que el héroe de infantería cubre el daño de los arqueros mediante el widget en lugar de igualar las estadísticas de infantería.",
+              "Formación de tropas: 20-30-50%. Otra alternativa es cambiar Quinn por Marlin si aún no es mejor. Usa a Helga en Gen 2+ solo si Amadeus no tiene 5 estrellas + widget al máximo; también es una oportunidad para usar a Amadeus uniéndose a concentraciones.",
+              "Formación de tropas: 30-30-40%. Todavía no hay ningún héroe F2P con widget de concentración, así que de nuevo una formación equilibrada con un poco más de arqueros, ya que las estadísticas de arqueros serán las más bajas al no tener un héroe arquero SSR."
+            ],
+            [
+              "Formación de tropas: 10-20-70%. Una Helga al máximo rinde mejor que Amadeus en la Gen 3, ya que tiene 2 widgets de letalidad y 1 de ataque, comparado con 1 de letalidad y 2 de ataque en esta configuración.",
+              "Formación de tropas: 20-30-50%. Si no tienes a Helga al máximo (5 estrellas + widget) es mejor usar a Amadeus.",
+              "Formación de tropas: 20-40-40%. En la Gen 3, los F2P consiguen su primer héroe con widget de concentración (Petra). Prueba números equilibrados de arqueros/caballería porque Petra mejora mucho a las tropas de arqueros. Las estadísticas de arqueros siguen siendo las más bajas sin un héroe arquero SSR. Si desbloqueas caballería T10, su habilidad combina bien con las estadísticas de Petra."
+            ],
+            [
+              "Formación de tropas: 10-10-80%. Fuerza tantas tropas de arqueros como puedas, especialmente si son T10. Con algo de suerte, la 3ª habilidad de Rosa hará el resto del trabajo (aumenta el ataque total de los arqueros en un 30%).",
+              "Formación de tropas: 10-10-80%. Usa a Helga como alternativa si tiene más estrellas y nivel de widget que Amadeus. Sigue forzando tantos arqueros como puedas, especialmente T10, para la 3ª habilidad de Rosa (aumenta el ataque total de los arqueros en un 30%).",
+              "Formación de tropas: 10-10-80%. Igual que la alternativa de mejores héroes — la 3ª habilidad de Rosa rinde mejor si te enfocas en formaciones pesadas de arqueros (aumenta el ataque total de los arqueros en un 30%)."
+            ],
+            [
+              "Los demás puestos de líder aún no se han publicado."
+            ]
+          ]},
+        { type: "h", text: "PARTICIPANTES DE CONCENTRACIÓN" },
+        { type: "p", text: "Proporción estándar/segura: 10% Infantería, 10% Caballería y 80% Arqueros (o una variación como 20-30-50)" },
+        { type: "joiners" }
+      ]},
+      tr: { title: "Ayı Avı", blocks: [
+        { type: "h", text: "NE ZAMAN" },
+        { type: "p", text: "2 günde bir, İttifakınızın belirlediği saatte." },
+        { type: "h", text: "NEDEN ÖNEMLİ" },
+        { type: "p", text: "Kahraman Donanımı malzemelerinin (Demirci Çekiçleri) ve Geliştirme TP'sinin ana kaynağı." },
+        { type: "h", text: "HAZIRLIK" },
+        { type: "list", items: [
+          "Her Ayı Avı'ndan önce birlik dizilişlerinizi güncelleyin."
+        ]},
+        { type: "callout", text: "İsteğe bağlı: birlik oranlarını test edip en güçlü dizilişinizi bulmak için https://frakinator.streamlit.app/ adresini kullanın." },
+        { type: "list", items: [
+          "Etkinlik başlamadan önce kaynak toplayan birlikleri geri çağırın.",
+          "Unutmayın: son 5–7 dakikada herkes bir seferberlik başlatmalı. Bu, birlikleri geri dönen oyuncular için daha fazla yer açar ve son bir hasar atağına olanak tanır."
+        ]},
+        { type: "h", text: "SEFERBERLİK LİDERLERİ" },
+        { type: "leaders",
+          gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
+          notes: [
+            [
+              "Birlik dizilişi: %30-30-40. Çoğu durumda Amadeus'un ham nitelikleri sayesinde en iyi niteliklere Piyade'de sahip olacaksınız; bu yüzden biraz daha fazla Okçu içeren, neredeyse eşit bir dizilim en iyi sonucu verir.",
+              "Birlik dizilişi: %20-40-40. Amadeus'u henüz tercih etmemiş oyuncular için; ayrıca Amadeus'u seferberliklere katılmak için kullanma imkânı bırakır.",
+              "Birlik dizilişi: %30-30-40. F2P için seferberlik başlatırken her zaman elinizdeki 3 kahramanı kullanmanız önerilir."
+            ],
+            [
+              "Birlik dizilişi: %20-30-50. Marlin, seferberliğe özel donanımı sayesinde hasarı çok artırır. 2. Nesil'den itibaren Piyade her zaman Amadeus veya Helga olacaktır — seferberliğe özel donanımı (Öldürücülük bonusu) olan tek Piyade kahramanları onlardır. Daha az Piyade gönderirsiniz; bu yüzden Piyade kahramanı, Piyade niteliklerine denk gelmek yerine bu donanım sayesinde Okçu hasarını karşılar.",
+              "Birlik dizilişi: %20-30-50. Diğer alternatif, Marlin henüz daha iyi değilse Quinn yerine onu koymaktır. Helga'yı 2. Nesil ve sonrasında yalnızca Amadeus 5 yıldızlı + özel donanım azami seviyede değilse kullanın; ayrıca Amadeus'u seferberliklere katılmak için kullanma fırsatıdır.",
+              "Birlik dizilişi: %30-30-40. Seferberliğe özel donanımı olan bir F2P kahraman hâlâ yok; bu yüzden yine biraz daha fazla Okçu içeren dengeli bir dizilim kullanın, çünkü SSR Okçu kahramanı olmadığı için Okçu nitelikleri en düşük olacaktır."
+            ],
+            [
+              "Birlik dizilişi: %10-20-70. Azami seviyedeki Helga, bu dizilimde 2 Öldürücülük ve 1 Saldırı donanımına sahipken Amadeus'un 1 Öldürücülük ve 2 Saldırı donanımı olması nedeniyle 3. Nesil'de Amadeus'tan daha iyi performans gösterir.",
+              "Birlik dizilişi: %20-30-50. Azami seviyede Helga'nız (5 yıldız + özel donanım) yoksa Amadeus kullanmak daha iyidir.",
+              "Birlik dizilişi: %20-40-40. 3. Nesil'de F2P oyuncular seferberliğe özel donanımı olan ilk kahramanlarını (Petra) alır. Okçu ve Süvari sayılarını dengeli tutmayı deneyin; çünkü Petra Okçuları çok güçlendirir. SSR Okçu olmadan Okçu nitelikleri hâlâ en düşüktür. T10 Süvari açarsanız, T10 becerisi Petra'nın nitelikleriyle iyi uyum sağlar."
+            ],
+            [
+              "Birlik dizilişi: %10-10-80. Özellikle T10 iseler, olabildiğince fazla Okçu koyun. Biraz şansla Rosa'nın 3. becerisi işi sizin yerinize halleder (Okçuların toplam Saldırısını %30 artırır).",
+              "Birlik dizilişi: %10-10-80. Helga'nın yıldızı ve özel donanım seviyesi Amadeus'tan iyiyse alternatif olarak kullanın. Rosa'nın 3. becerisi için yine olabildiğince fazla Okçu, özellikle T10 koyun (Okçuların toplam Saldırısını %30 artırır).",
+              "Birlik dizilişi: %10-10-80. Alternatif en iyi kahramanlarla aynı — Rosa'nın 3. becerisi, ağırlıklı Okçu dizilişlerine odaklanırsanız en iyi bonusu verir (Okçuların toplam Saldırısını %30 artırır)."
+            ],
+            [
+              "Kalan lider slotları henüz açıklanmadı."
+            ]
+          ]},
+        { type: "h", text: "SEFERBERLİĞE KATILANLAR" },
+        { type: "p", text: "Standart / Güvenli Oran: %10 Piyade, %10 Süvari ve %80 Okçu (veya 20-30-50 gibi bir varyasyon)" },
+        { type: "joiners" }
+      ]},
+      id: { title: "Bear Hunt", blocks: [
+        { type: "h", text: "KAPAN" },
+        { type: "p", text: "Setiap 2 hari pada waktu yang dijadwalkan Aliansimu." },
+        { type: "h", text: "MENGAPA PENTING" },
+        { type: "p", text: "Sumber utama material Gear Hero (Forgehammer) dan Enhancement XP." },
+        { type: "h", text: "PERSIAPAN" },
+        { type: "list", items: [
+          "Perbarui Formasi Pasukanmu sebelum setiap Bear Hunt."
+        ]},
+        { type: "callout", text: "Opsional: gunakan https://frakinator.streamlit.app/ untuk menguji rasio pasukan dan menemukan formasi terkuatmu." },
+        { type: "list", items: [
+          "Panggil Kembali pasukan yang sedang mengumpulkan sebelum event dimulai.",
+          "Ingat: di 5–7 menit terakhir, semua orang sebaiknya memulai reli. Ini membuka lebih banyak slot bagi pemain yang pasukannya sedang kembali, sehingga bisa melakukan dorongan damage terakhir."
+        ]},
+        { type: "h", text: "PEMIMPIN RELI" },
+        { type: "leaders",
+          gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
+          notes: [
+            [
+              "Formasi pasukan: 30-30-40%. Pada kebanyakan kasus, Infanteri akan punya stat terbaik berkat stat dasar Amadeus, jadi formasi yang hampir seimbang dengan Pemanah sedikit lebih banyak bekerja paling baik.",
+              "Formasi pasukan: 20-40-40%. Terutama untuk yang belum memilih Amadeus, dan tetap membuka peluang memakai Amadeus untuk bergabung ke reli.",
+              "Formasi pasukan: 30-30-40%. Untuk F2P, disarankan selalu memakai 3 hero yang dimiliki untuk memimpin reli."
+            ],
+            [
+              "Formasi pasukan: 20-30-50%. Marlin akan menambah damage besar berkat perlengkapan khusus reli miliknya. Mulai Gen 2, Infanteri akan selalu Amadeus atau Helga — mereka satu-satunya hero Infanteri dengan perlengkapan khusus reli (bonus Lethality). Kamu mengirim lebih sedikit Infanteri, jadi hero Infanteri menutup damage Pemanah lewat perlengkapan itu, bukan dengan menyamai stat Infanteri.",
+              "Formasi pasukan: 20-30-50%. Alternatif lain adalah mengganti Quinn dengan Marlin jika ia belum lebih baik. Pakai Helga di Gen 2+ hanya jika Amadeus belum bintang 5 + perlengkapan khusus level maks; ini juga kesempatan memakai Amadeus untuk bergabung ke reli.",
+              "Formasi pasukan: 30-30-40%. Masih belum ada hero F2P dengan perlengkapan khusus reli, jadi sekali lagi formasi seimbang dengan Pemanah sedikit lebih banyak, karena stat Pemanah akan paling rendah tanpa hero Pemanah SSR."
+            ],
+            [
+              "Formasi pasukan: 10-20-70%. Helga yang sudah maksimal lebih baik daripada Amadeus di Gen 3, karena punya 2 perlengkapan Lethality dan 1 perlengkapan Attack, dibandingkan 1 Lethality dan 2 Attack milik Amadeus pada susunan ini.",
+              "Formasi pasukan: 20-30-50%. Jika kamu belum punya Helga maksimal (bintang 5 + perlengkapan khusus), lebih baik pakai Amadeus.",
+              "Formasi pasukan: 20-40-40%. Di Gen 3, F2P mendapat hero pertama dengan perlengkapan khusus reli (Petra). Coba jumlah Pemanah dan Kavaleri yang seimbang karena Petra sangat meningkatkan Pemanah. Stat Pemanah tetap paling rendah tanpa Pemanah SSR. Jika kamu membuka Kavaleri T10, skill T10 cocok dengan stat Petra."
+            ],
+            [
+              "Formasi pasukan: 10-10-80%. Paksakan sebanyak mungkin Pemanah, terutama jika T10. Dengan sedikit keberuntungan, skill ke-3 Rosa akan bekerja untukmu (meningkatkan total Attack Pemanah sebesar 30%).",
+              "Formasi pasukan: 10-10-80%. Pakai Helga sebagai alternatif jika bintang dan level perlengkapan khususnya lebih baik dari Amadeus. Tetap paksakan sebanyak mungkin Pemanah, terutama T10, untuk skill ke-3 Rosa (meningkatkan total Attack Pemanah sebesar 30%).",
+              "Formasi pasukan: 10-10-80%. Sama seperti hero alternatif terbaik — bonus skill ke-3 Rosa paling maksimal jika kamu fokus pada formasi yang berat di Pemanah (meningkatkan total Attack Pemanah sebesar 30%)."
+            ],
+            [
+              "Slot pemimpin lainnya belum dirilis."
+            ]
+          ]},
+        { type: "h", text: "PESERTA RELI" },
+        { type: "p", text: "Rasio Standar / Aman: 10% Infanteri, 10% Kavaleri, dan 80% Pemanah (atau variasi seperti 20-30-50)" },
+        { type: "joiners" }
+      ]},
+      ru: { title: "Охота на медведя", blocks: [
+        { type: "h", text: "КОГДА" },
+        { type: "p", text: "Каждые 2 дня в назначенное вашим альянсом время." },
+        { type: "h", text: "ПОЧЕМУ ЭТО ВАЖНО" },
+        { type: "p", text: "Основной источник материалов для снаряжения героя (Кузнечные молоты) и опыта усиления." },
+        { type: "h", text: "ПОДГОТОВКА" },
+        { type: "list", items: [
+          "Обновляйте свои составы войск перед каждой Охотой на медведя."
+        ]},
+        { type: "callout", text: "Необязательно: используйте https://frakinator.streamlit.app/, чтобы проверить соотношения войск и найти свой сильнейший состав." },
+        { type: "list", items: [
+          "Отзовите войска, находящиеся на сборе, до начала события.",
+          "Помните: в последние 5–7 минут каждый должен запустить рейд. Это освобождает больше мест для игроков, чьи войска возвращаются, и позволяет сделать финальный рывок по урону."
+        ]},
+        { type: "h", text: "ЛИДЕРЫ РЕЙДА" },
+        { type: "leaders",
+          gens: ["ПОКОЛЕНИЕ 1","ПОКОЛЕНИЕ 2","ПОКОЛЕНИЕ 3","ПОКОЛЕНИЕ 4","ПОКОЛЕНИЕ 5"],
+          notes: [
+            [
+              "Состав войск: 30-30-40%. В большинстве случаев лучшие показатели будут у пехотинцев благодаря базовым показателям героя Амадей, поэтому лучше всего работает почти равный состав с чуть большим числом стрелков.",
+              "Состав войск: 20-40-40%. В основном для тех, кто ещё не выбрал героя Амадей; также сохраняет возможность использовать героя Амадей для присоединения к рейдам.",
+              "Состав войск: 30-30-40%. Для F2P рекомендуется всегда использовать 3 имеющихся героя для проведения рейда."
+            ],
+            [
+              "Состав войск: 20-30-50%. Герой Марлин сильно повышает урон благодаря своему эксклюзивному для рейдов снаряжению. Начиная со 2-го поколения пехотинцами всегда командует герой Амадей или Хельга — только у них среди героев-пехотинцев есть эксклюзивное для рейдов снаряжение (бонус Смертоносности). Вы отправляете меньше пехотинцев, поэтому герой-пехотинец компенсирует урон стрелков за счёт этого снаряжения, а не за счёт равных показателей пехотинцев.",
+              "Состав войск: 20-30-50%. Другой вариант — поменять Куинн на Марлин, если он пока не лучше. Используйте героя Хельга со 2-го поколения и выше, только если у героя Амадей нет 5 звёзд и максимального уровня эксклюзивного снаряжения; это также возможность использовать героя Амадей для присоединения к рейдам.",
+              "Состав войск: 30-30-40%. У героев F2P по-прежнему нет эксклюзивного для рейдов снаряжения, поэтому снова подходит равномерный состав с чуть большим числом стрелков, так как показатели стрелков будут самыми низкими из-за отсутствия SSR-героя-стрелка."
+            ],
+            [
+              "Состав войск: 10-20-70%. Герой Хельга с максимальной прокачкой в 3-м поколении показывает себя лучше, чем герой Амадей, так как в этой связке у неё 2 снаряжения Смертоносности и 1 снаряжение Атаки против 1 снаряжения Смертоносности и 2 снаряжений Атаки у героя Амадей.",
+              "Состав войск: 20-30-50%. Если у вас нет героя Хельга с максимальной прокачкой (5 звёзд + эксклюзивное снаряжение), лучше использовать героя Амадей.",
+              "Состав войск: 20-40-40%. В 3-м поколении F2P получают первого героя с эксклюзивным для рейдов снаряжением (Petra). Старайтесь держать баланс между числом стрелков и кавалеристов, так как Petra сильно усиливает стрелков. Показатели стрелков всё равно самые низкие без SSR-стрелка. Если вы откроете кавалеристов T10, навык T10 хорошо сочетается с показателями Petra."
+            ],
+            [
+              "Состав войск: 10-10-80%. Отправляйте как можно больше стрелков, особенно если они T10. При некоторой удаче 3-й навык героя Rosa сделает всё за вас (увеличивает общую Атаку стрелков на 30%).",
+              "Состав войск: 10-10-80%. Используйте героя Хельга как альтернативу, если у неё больше звёзд и выше уровень эксклюзивного снаряжения, чем у героя Амадей. По-прежнему отправляйте как можно больше стрелков, особенно T10, ради 3-го навыка героя Rosa (увеличивает общую Атаку стрелков на 30%).",
+              "Состав войск: 10-10-80%. То же, что и у альтернативных лучших героев: бонусы 3-го навыка героя Rosa максимальны, если делать упор на составы с большим числом стрелков (увеличивает общую Атаку стрелков на 30%)."
+            ],
+            [
+              "Остальные места лидеров пока не опубликованы."
+            ]
+          ]},
+        { type: "h", text: "УЧАСТНИКИ РЕЙДА" },
+        { type: "p", text: "Стандартное / безопасное соотношение: 10% пехотинцев, 10% кавалеристов и 80% стрелков (или вариант вроде 20-30-50)" },
+        { type: "joiners" }
+      ]},
+      th: { title: "ล่าหมี", blocks: [
+        { type: "h", text: "เมื่อไหร่" },
+        { type: "p", text: "ทุก 2 วัน ตามเวลาที่พันธมิตรของคุณกำหนด" },
+        { type: "h", text: "ทำไมถึงสำคัญ" },
+        { type: "p", text: "แหล่งวัสดุอุปกรณ์ฮีโร่หลัก (ค้อนตีเหล็ก) และ XP การพัฒนา" },
+        { type: "h", text: "การเตรียมตัว" },
+        { type: "list", items: [
+          "อัปเดตรูปแบบการจัดวางทหารของคุณก่อนล่าหมีทุกครั้ง"
+        ]},
+        { type: "callout", text: "ตัวเลือกเสริม: ใช้ https://frakinator.streamlit.app/ เพื่อทดสอบอัตราส่วนทหารและหารูปแบบที่แข็งแกร่งที่สุดของคุณ" },
+        { type: "list", items: [
+          "เรียกกลับทหารที่กำลังเก็บทรัพยากรก่อนอีเวนต์เริ่ม",
+          "โปรดจำไว้: ใน 5–7 นาทีสุดท้าย ทุกคนควรเปิดทีมระดมพล ซึ่งจะเพิ่มที่ว่างให้ผู้เล่นที่ทหารกำลังเดินทางกลับ ทำให้ปิดท้ายด้วยความเสียหายอีกระลอกได้"
+        ]},
+        { type: "h", text: "ผู้นำทีมระดมพล" },
+        { type: "leaders",
+          gens: ["เจน 1","เจน 2","เจน 3","เจน 4","เจน 5"],
+          notes: [
+            [
+              "รูปแบบทหาร: 30-30-40% ในกรณีส่วนใหญ่ ทหารราบจะมีค่าสถานะดีที่สุดเพราะค่าสถานะพื้นฐานของอมาดีอุส ดังนั้นรูปแบบที่เกือบเท่ากันโดยมีพลธนูมากกว่าเล็กน้อยให้ผลดีที่สุด",
+              "รูปแบบทหาร: 20-40-40% เหมาะสำหรับคนที่ยังไม่ได้เลือกอมาดีอุส และยังเปิดโอกาสให้ใช้อมาดีอุสเข้าร่วมทีมระดมพลได้",
+              "รูปแบบทหาร: 30-30-40% สำหรับ F2P แนะนำให้ใช้ฮีโร่ทั้ง 3 ตัวที่มีอยู่เสมอเมื่อเปิดทีมระดมพล"
+            ],
+            [
+              "รูปแบบทหาร: 20-30-50% มาร์ลินช่วยเพิ่มความเสียหายได้มากเพราะอุปกรณ์เฉพาะทีมระดมพลของเขา ตั้งแต่เจน 2 ขึ้นไป ทหารราบจะเป็นอมาดีอุสหรือเฮลก้าเสมอ — สองคนนี้เป็นฮีโร่ทหารราบเพียงกลุ่มเดียวที่มีอุปกรณ์เฉพาะทีมระดมพล (โบนัสความแรงพลัง) คุณส่งทหารราบน้อยลง ฮีโร่ทหารราบจึงชดเชยความเสียหายของพลธนูด้วยอุปกรณ์นี้ แทนที่จะเทียบค่าสถานะทหารราบ",
+              "รูปแบบทหาร: 20-30-50% อีกทางเลือกคือสลับควินน์เป็นมาร์ลิน หากเขายังไม่ดีกว่า ใช้เฮลก้าในเจน 2 ขึ้นไปเฉพาะเมื่ออมาดีอุสยังไม่ได้ 5 ดาว + อุปกรณ์เฉพาะระดับสูงสุด และยังเป็นโอกาสใช้อมาดีอุสเข้าร่วมทีมระดมพลด้วย",
+              "รูปแบบทหาร: 30-30-40% ยังไม่มีฮีโร่ F2P ที่มีอุปกรณ์เฉพาะทีมระดมพล จึงใช้รูปแบบที่สมดุลโดยมีพลธนูมากกว่าเล็กน้อยอีกครั้ง เพราะค่าสถานะพลธนูจะต่ำที่สุดเนื่องจากไม่มีฮีโร่พลธนู SSR"
+            ],
+            [
+              "รูปแบบทหาร: 10-20-70% เฮลก้าที่พัฒนาเต็มที่ทำได้ดีกว่าอมาดีอุสในเจน 3 เพราะมีอุปกรณ์ความแรงพลัง 2 ชิ้นและอุปกรณ์พลังโจมตี 1 ชิ้น เทียบกับความแรงพลัง 1 ชิ้นและพลังโจมตี 2 ชิ้นของอมาดีอุสในชุดนี้",
+              "รูปแบบทหาร: 20-30-50% หากคุณไม่มีเฮลก้าที่พัฒนาเต็มที่ (5 ดาว + อุปกรณ์เฉพาะ) ควรใช้อมาดีอุสจะดีกว่า",
+              "รูปแบบทหาร: 20-40-40% ในเจน 3 ผู้เล่น F2P จะได้ฮีโร่ตัวแรกที่มีอุปกรณ์เฉพาะทีมระดมพล (Petra) ลองใช้จำนวนพลธนูและทหารม้าให้สมดุล เพราะ Petra เสริมพลธนูได้มาก ค่าสถานะพลธนูยังต่ำที่สุดหากไม่มีพลธนู SSR หากคุณปลดล็อกทหารม้า T10 ทักษะ T10 เข้ากับค่าสถานะของ Petra ได้ดี"
+            ],
+            [
+              "รูปแบบทหาร: 10-10-80% ใส่พลธนูให้มากที่สุดเท่าที่ทำได้ โดยเฉพาะถ้าเป็น T10 หากโชคดี ทักษะที่ 3 ของ Rosa จะช่วยได้เอง (เพิ่มพลังโจมตีรวมของพลธนู 30%)",
+              "รูปแบบทหาร: 10-10-80% ใช้เฮลก้าเป็นทางเลือกหากเธอมีดาวและระดับอุปกรณ์เฉพาะดีกว่าอมาดีอุส ยังคงใส่พลธนูให้มากที่สุดเท่าที่ทำได้ โดยเฉพาะ T10 เพื่อทักษะที่ 3 ของ Rosa (เพิ่มพลังโจมตีรวมของพลธนู 30%)",
+              "รูปแบบทหาร: 10-10-80% เหมือนกับฮีโร่ทางเลือกที่ดีที่สุด — โบนัสทักษะที่ 3 ของ Rosa ได้ผลดีที่สุดหากคุณเน้นรูปแบบที่มีพลธนูจำนวนมาก (เพิ่มพลังโจมตีรวมของพลธนู 30%)"
+            ],
+            [
+              "ช่องผู้นำที่เหลือยังไม่เปิดเผย"
+            ]
+          ]},
+        { type: "h", text: "ผู้เข้าร่วมทีมระดมพล" },
+        { type: "p", text: "อัตราส่วนมาตรฐาน / ปลอดภัย: ทหารราบ 10%, ทหารม้า 10% และพลธนู 80% (หรือรูปแบบอื่นเช่น 20-30-50)" },
+        { type: "joiners" }
+      ]},
+      ar: { title: "صيد الدببة", blocks: [
+        { type: "h", text: "متى" },
+        { type: "p", text: "كل يومين في الوقت الذي يحدده تحالفك." },
+        { type: "h", text: "لماذا هو مهم" },
+        { type: "p", text: "مصدر رئيسي لمواد عتاد البطل (مطرقة الحدادة) وخبرة تحسين." },
+        { type: "h", text: "التحضير" },
+        { type: "list", items: [
+          "حدّث تشكيلات القوات قبل كل صيد للدببة."
+        ]},
+        { type: "callout", text: "اختياري: استخدم https://frakinator.streamlit.app/ لاختبار نسب القوات وإيجاد أقوى تشكيلة لديك." },
+        { type: "list", items: [
+          "قم باستدعاء القوات التي تقوم بالجمع قبل بدء الفعالية.",
+          "تذكّر: في آخر 5–7 دقائق، على الجميع إطلاق حشد. يوفّر هذا أماكن أكثر للاعبين الذين تعود قواتهم، مما يتيح دفعة ضرر أخيرة."
+        ]},
+        { type: "h", text: "قادة الحشد" },
+        { type: "leaders",
+          gens: ["الجيل 1","الجيل 2","الجيل 3","الجيل 4","الجيل 5"],
+          notes: [
+            [
+              "تشكيلة القوات: 30-30-40%. في معظم الحالات ستكون أفضل سمات لديك في المشاة بسبب سمات أماديوس الأساسية، لذا تعمل التشكيلة المتقاربة جدًا مع زيادة طفيفة في الرماة بأفضل شكل.",
+              "تشكيلة القوات: 20-40-40%. مخصصة أساسًا لمن لم يستثمروا في أماديوس بعد، وتُبقي إمكانية استخدام أماديوس للانضمام إلى الحشود.",
+              "تشكيلة القوات: 30-30-40%. للاعبين F2P يُنصح دائمًا باستخدام الأبطال الثلاثة المتاحين لديك لإطلاق الحشد."
+            ],
+            [
+              "تشكيلة القوات: 20-30-50%. سيزيد مارلين الضرر كثيرًا بفضل عتاده الخاص بالحشد. ابتداءً من الجيل 2، سيكون قائد المشاة دائمًا أماديوس أو هيلجا — فهما البطلان الوحيدان من المشاة اللذان يملكان عتادًا خاصًا بالحشد (مكافأة قوة فتك). ترسل عددًا أقل من المشاة، لذا يغطي بطل المشاة ضرر الرماة عبر هذا العتاد بدلًا من مجاراة سمات المشاة.",
+              "تشكيلة القوات: 20-30-50%. بديل آخر هو استبدال كوين بمارلين إذا لم يكن أفضل بعد. استخدم هيلجا في الجيل 2 وما بعده فقط إذا لم يكن أماديوس بـ 5 نجوم مع عتاد خاص بأعلى مستوى؛ وهي أيضًا فرصة لاستخدام أماديوس للانضمام إلى الحشود.",
+              "تشكيلة القوات: 30-30-40%. لا يزال لا يوجد بطل F2P بعتاد خاص بالحشد، لذا مرة أخرى تشكيلة متوازنة مع زيادة طفيفة في الرماة، لأن سمات الرماة ستكون الأدنى لعدم وجود بطل رماة SSR."
+            ],
+            [
+              "تشكيلة القوات: 10-20-70%. تتفوق هيلجا المكتملة التطوير على أماديوس في الجيل 3، لأن لديها قطعتي عتاد قوة فتك وقطعة عتاد هجوم واحدة، مقابل قطعة قوة فتك واحدة وقطعتي هجوم لدى أماديوس في هذه التشكيلة.",
+              "تشكيلة القوات: 20-30-50%. إذا لم تكن لديك هيلجا مكتملة التطوير (5 نجوم + عتاد خاص)، فمن الأفضل استخدام أماديوس.",
+              "تشكيلة القوات: 20-40-40%. في الجيل 3، يحصل لاعبو F2P على أول بطل بعتاد خاص بالحشد (Petra). جرّب أعدادًا متوازنة من الرماة والفرسان لأن Petra تحسّن الرماة كثيرًا. تبقى سمات الرماة الأدنى بدون رماة SSR. إذا فتحت فرسان T10، فإن مهارة T10 تتناسب جيدًا مع سمات Petra."
+            ],
+            [
+              "تشكيلة القوات: 10-10-80%. ادفع بأكبر عدد ممكن من الرماة، خاصة إذا كانوا T10. مع قليل من الحظ ستقوم المهارة الثالثة لـ Rosa بالمهمة عنك (تزيد إجمالي هجوم الرماة بنسبة 30%).",
+              "تشكيلة القوات: 10-10-80%. استخدم هيلجا كبديل إذا كانت نجومها ومستوى عتادها الخاص أفضل من أماديوس. واصل الدفع بأكبر عدد ممكن من الرماة، خاصة T10، من أجل المهارة الثالثة لـ Rosa (تزيد إجمالي هجوم الرماة بنسبة 30%).",
+              "تشكيلة القوات: 10-10-80%. مثل الأبطال البدلاء الأفضل — تحقق المهارة الثالثة لـ Rosa أفضل مكافأة إذا ركّزت على تشكيلات ثقيلة بالرماة (تزيد إجمالي هجوم الرماة بنسبة 30%)."
+            ],
+            [
+              "خانات القادة المتبقية لم تُعلن بعد."
+            ]
+          ]},
+        { type: "h", text: "المنضمون إلى الحشد" },
+        { type: "p", text: "النسبة القياسية / الآمنة: 10% مشاة، 10% فرسان، و80% رماة (أو تنويع مثل 20-30-50)" },
+        { type: "joiners" }
+      ]}
+    }
   },
 
   "swordland-showdown": {
@@ -6742,273 +7052,7 @@ const GUIDES = {
   }
 };
 
-/* ===== Bear Hunt: extra languages (fr, pt, tr) ===== */
-function addBear(lang, d) {
-  const g = GUIDES["bear-hunt"];
-  g.sections[lang] = d.section;
-  let k = 0;
-  g.leaders.forEach((gen, i) => {
-    gen.gen[lang] = d.gen + " " + (i + 1);
-    gen.rows.forEach((r) => { r.note[lang] = d.notes[k++]; });
-  });
-}
-HEROES.Marlin.pt = "Peixe Marlin"; /* 對照表葡文 */
-
-addBear("fr", {
-  gen: "GEN",
-  section: {
-    title: "Chasse à l'Ours",
-    when_label: "QUAND",
-    when: "Tous les 2 jours, à l'heure prévue par votre Alliance.",
-    why_label: "POURQUOI C'EST IMPORTANT",
-    why: "Source principale de matériaux d'Équipement de héros (Marteaux de Forge) et d'EXP d'Amélioration.",
-    prep_label: "PRÉPARATION",
-    prep: [
-      "Mettez à jour vos formations de troupe avant chaque Chasse à l'Ours.",
-      { callout: true, text: "Optionnel : utilisez <a href=\"https://frakinator.streamlit.app/\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a> pour tester les ratios de troupes et trouver votre meilleure formation." },
-      "Rappelez les troupes en collecte avant le début de l'événement.",
-      "N'oubliez pas : pendant les 5 à 7 dernières minutes, tout le monde devrait lancer un ralliement. Cela libère davantage de places pour les joueurs dont les troupes reviennent et permet un dernier coup de collier de dégâts."
-    ],
-    leaders_label: "LEADERS DE RALLIEMENT",
-    joiners_label: "PARTICIPANTS AU RALLIEMENT",
-    joiners_ratio: "Ratio standard / sûr : 10 % d'Infanterie, 10 % de Cavalerie et 80 % d'Archers (ou une variante comme 20-30-50)"
-  },
-  notes: [
-    "Formation de troupe : 30-30-40 %. Dans la plupart des cas, l'Infanterie aura les meilleures stats grâce aux stats brutes d'Amadeus, donc une formation ultra-équilibrée avec un peu plus d'Archers fonctionne le mieux.",
-    "Formation de troupe : 20-40-40 %. Principalement pour ceux qui n'ont pas encore misé sur Amadeus, et cela permet d'utiliser Amadeus pour rejoindre des ralliements.",
-    "Formation de troupe : 30-30-40 %. Pour les F2P, il est recommandé d'utiliser toujours les 3 héros dont vous disposez pour lancer un ralliement.",
-    "Formation de troupe : 20-30-50 %. Marlin augmentera fortement les dégâts grâce à son équipement exclusif de ralliement. À partir de la Gen 2, l'Infanterie sera toujours Amadeus ou Helga : ce sont les seuls héros d'Infanterie avec un équipement exclusif de ralliement (bonus de Létalité). Vous envoyez moins d'Infanterie, donc le héros d'Infanterie compense les dégâts des Archers grâce à cet équipement plutôt qu'en égalant les stats d'Infanterie.",
-    "Formation de troupe : 20-30-50 %. Autre option : remplacer Quinn par Marlin s'il n'est pas encore meilleur. N'utilisez Helga à partir de la Gen 2 que si Amadeus n'est pas à 5 étoiles avec l'équipement exclusif au niveau maximum ; c'est aussi l'occasion d'utiliser Amadeus pour rejoindre des ralliements.",
-    "Formation de troupe : 30-30-40 %. Toujours aucun héros F2P avec un équipement exclusif de ralliement, donc encore une formation équilibrée avec un peu plus d'Archers, car les stats d'Archer seront les plus basses faute de héros Archer SSR.",
-    "Formation de troupe : 10-20-70 %. Helga au maximum est plus performante qu'Amadeus en Gen 3, avec 2 équipements de Létalité et 1 d'Attaque, contre 1 de Létalité et 2 d'Attaque pour Amadeus dans cette configuration.",
-    "Formation de troupe : 20-30-50 %. Si vous n'avez pas Helga au maximum (5 étoiles + équipement exclusif), il vaut mieux utiliser Amadeus.",
-    "Formation de troupe : 20-40-40 %. En Gen 3, les F2P obtiennent leur premier héros avec un équipement exclusif de ralliement (Petra). Essayez des nombres équilibrés d'Archers et de Cavalerie, car Petra améliore beaucoup les Archers. Les stats d'Archer restent les plus basses sans Archer SSR. Si vous débloquez la Cavalerie T10, la compétence T10 s'accorde bien avec les stats de Petra.",
-    "Formation de troupe : 10-10-80 %. Alignez autant d'Archers que possible, surtout s'ils sont T10. Avec un peu de chance, la 3e compétence de Rosa fera le travail pour vous (augmente l'Attaque totale des Archers de 30 %).",
-    "Formation de troupe : 10-10-80 %. Utilisez Helga en alternative si elle a plus d'étoiles et un meilleur niveau d'équipement exclusif qu'Amadeus. Alignez toujours autant d'Archers que possible, surtout T10, pour la 3e compétence de Rosa (augmente l'Attaque totale des Archers de 30 %).",
-    "Formation de troupe : 10-10-80 %. Comme pour les héros alternatifs — les bonus de la 3e compétence de Rosa sont meilleurs si vous misez sur des formations très orientées Archers (augmente l'Attaque totale des Archers de 30 %).",
-    "Les autres emplacements de leader ne sont pas encore disponibles."
-  ]
-});
-
-addBear("pt", {
-  gen: "GEN",
-  section: {
-    title: "Caça ao Urso",
-    when_label: "QUANDO",
-    when: "A cada 2 dias, no horário marcado pela sua Aliança.",
-    why_label: "POR QUE IMPORTA",
-    why: "Principal fonte de materiais de Equipamento do Herói (Martelos de Forja) e XP de Aprimoramento.",
-    prep_label: "PREPARAÇÃO",
-    prep: [
-      "Atualize suas Formações das Tropas antes de cada Caça ao Urso.",
-      { callout: true, text: "Opcional: use <a href=\"https://frakinator.streamlit.app/\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a> para testar proporções de tropas e encontrar sua formação mais forte." },
-      "Revogue as tropas que estão coletando antes do início do evento.",
-      "Lembre-se: nos últimos 5–7 minutos, todos devem iniciar um rally. Isso cria mais vagas para jogadores cujas tropas estão retornando, permitindo um último impulso de dano."
-    ],
-    leaders_label: "LÍDERES DE RALLY",
-    joiners_label: "PARTICIPANTES DE RALLY",
-    joiners_ratio: "Proporção padrão / segura: 10% Infantaria, 10% Cavalaria e 80% Arquearia (ou uma variação como 20-30-50)"
-  },
-  notes: [
-    "Formação de tropas: 30-30-40%. Na maioria dos casos, você terá os melhores atributos na Infantaria por causa dos atributos base do Amadeus, então uma formação super equilibrada com um pouco mais de Arquearia funciona melhor.",
-    "Formação de tropas: 20-40-40%. Principalmente para quem ainda não investiu no Amadeus, e mantém a possibilidade de usar o Amadeus para entrar em rallies.",
-    "Formação de tropas: 30-30-40%. Para F2P, recomenda-se usar sempre os 3 heróis que você tiver para liderar um rally.",
-    "Formação de tropas: 20-30-50%. O Peixe Marlin aumenta muito o dano por causa do equipamento exclusivo de rally dele. A partir da Gen 2, a Infantaria será sempre o Amadeus ou a Helga — são os únicos heróis de Infantaria com equipamento exclusivo de rally (bônus de Letalidade). Você envia menos Infantaria, então o herói de Infantaria cobre o dano dos Arquearia por meio desse equipamento, e não igualando os atributos de Infantaria.",
-    "Formação de tropas: 20-30-50%. Outra alternativa é trocar o Quinn pelo Peixe Marlin, se ele ainda não for melhor. Use a Helga na Gen 2+ apenas se o Amadeus não estiver com 5 estrelas + equipamento exclusivo no nível máximo; também é uma chance de usar o Amadeus para entrar em rallies.",
-    "Formação de tropas: 30-30-40%. Ainda não há herói F2P com equipamento exclusivo de rally, então novamente uma formação equilibrada com um pouco mais de Arquearia, já que os atributos dos Arquearia serão os mais baixos sem um herói de Arquearia SSR.",
-    "Formação de tropas: 10-20-70%. A Helga no máximo rende mais que o Amadeus na Gen 3, por ter 2 equipamentos de Letalidade e 1 de Ataque, contra 1 de Letalidade e 2 de Ataque do Amadeus nesta configuração.",
-    "Formação de tropas: 20-30-50%. Se você não tem a Helga no máximo (5 estrelas + equipamento exclusivo), é melhor usar o Amadeus.",
-    "Formação de tropas: 20-40-40%. Na Gen 3, os F2P recebem o primeiro herói com equipamento exclusivo de rally (Petra). Tente números equilibrados de Arquearia e Cavalaria, porque a Petra melhora muito os Arquearia. Os atributos dos Arquearia continuam os mais baixos sem uma Arquearia SSR. Se você desbloquear a Cavalaria T10, a habilidade T10 combina bem com os atributos da Petra.",
-    "Formação de tropas: 10-10-80%. Force o máximo de Arquearia possível, principalmente se forem T10. Com um pouco de sorte, a 3ª habilidade da Rosa fará o trabalho por você (aumenta o Ataque total dos Arquearia em 30%).",
-    "Formação de tropas: 10-10-80%. Use a Helga como alternativa se ela tiver mais estrelas e um nível de equipamento exclusivo melhor que o do Amadeus. Continue forçando o máximo de Arquearia possível, principalmente T10, para a 3ª habilidade da Rosa (aumenta o Ataque total dos Arquearia em 30%).",
-    "Formação de tropas: 10-10-80%. Igual aos melhores heróis alternativos — os bônus da 3ª habilidade da Rosa rendem mais se você focar em formações pesadas de Arquearia (aumenta o Ataque total dos Arquearia em 30%).",
-    "Os demais espaços de líder ainda não foram divulgados."
-  ]
-});
-
-addBear("tr", {
-  gen: "GEN",
-  section: {
-    title: "Ayı Avı",
-    when_label: "NE ZAMAN",
-    when: "2 günde bir, İttifakınızın belirlediği saatte.",
-    why_label: "NEDEN ÖNEMLİ",
-    why: "Kahraman Donanımı malzemelerinin (Demirci Çekiçleri) ve Geliştirme TP'sinin ana kaynağı.",
-    prep_label: "HAZIRLIK",
-    prep: [
-      "Her Ayı Avı'ndan önce birlik dizilişlerinizi güncelleyin.",
-      { callout: true, text: "İsteğe bağlı: birlik oranlarını test edip en güçlü dizilişinizi bulmak için <a href=\"https://frakinator.streamlit.app/\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a> adresini kullanın." },
-      "Etkinlik başlamadan önce kaynak toplayan birlikleri geri çağırın.",
-      "Unutmayın: son 5–7 dakikada herkes bir seferberlik başlatmalı. Bu, birlikleri geri dönen oyuncular için daha fazla yer açar ve son bir hasar atağına olanak tanır."
-    ],
-    leaders_label: "SEFERBERLİK LİDERLERİ",
-    joiners_label: "SEFERBERLİĞE KATILANLAR",
-    joiners_ratio: "Standart / Güvenli Oran: %10 Piyade, %10 Süvari ve %80 Okçu (veya 20-30-50 gibi bir varyasyon)"
-  },
-  notes: [
-    "Birlik dizilişi: %30-30-40. Çoğu durumda Amadeus'un ham nitelikleri sayesinde en iyi niteliklere Piyade'de sahip olacaksınız; bu yüzden biraz daha fazla Okçu içeren, neredeyse eşit bir dizilim en iyi sonucu verir.",
-    "Birlik dizilişi: %20-40-40. Amadeus'u henüz tercih etmemiş oyuncular için; ayrıca Amadeus'u seferberliklere katılmak için kullanma imkânı bırakır.",
-    "Birlik dizilişi: %30-30-40. F2P için seferberlik başlatırken her zaman elinizdeki 3 kahramanı kullanmanız önerilir.",
-    "Birlik dizilişi: %20-30-50. Marlin, seferberliğe özel donanımı sayesinde hasarı çok artırır. 2. Nesil'den itibaren Piyade her zaman Amadeus veya Helga olacaktır — seferberliğe özel donanımı (Öldürücülük bonusu) olan tek Piyade kahramanları onlardır. Daha az Piyade gönderirsiniz; bu yüzden Piyade kahramanı, Piyade niteliklerine denk gelmek yerine bu donanım sayesinde Okçu hasarını karşılar.",
-    "Birlik dizilişi: %20-30-50. Diğer alternatif, Marlin henüz daha iyi değilse Quinn yerine onu koymaktır. Helga'yı 2. Nesil ve sonrasında yalnızca Amadeus 5 yıldızlı + özel donanım azami seviyede değilse kullanın; ayrıca Amadeus'u seferberliklere katılmak için kullanma fırsatıdır.",
-    "Birlik dizilişi: %30-30-40. Seferberliğe özel donanımı olan bir F2P kahraman hâlâ yok; bu yüzden yine biraz daha fazla Okçu içeren dengeli bir dizilim kullanın, çünkü SSR Okçu kahramanı olmadığı için Okçu nitelikleri en düşük olacaktır.",
-    "Birlik dizilişi: %10-20-70. Azami seviyedeki Helga, bu dizilimde 2 Öldürücülük ve 1 Saldırı donanımına sahipken Amadeus'un 1 Öldürücülük ve 2 Saldırı donanımı olması nedeniyle 3. Nesil'de Amadeus'tan daha iyi performans gösterir.",
-    "Birlik dizilişi: %20-30-50. Azami seviyede Helga'nız (5 yıldız + özel donanım) yoksa Amadeus kullanmak daha iyidir.",
-    "Birlik dizilişi: %20-40-40. 3. Nesil'de F2P oyuncular seferberliğe özel donanımı olan ilk kahramanlarını (Petra) alır. Okçu ve Süvari sayılarını dengeli tutmayı deneyin; çünkü Petra Okçuları çok güçlendirir. SSR Okçu olmadan Okçu nitelikleri hâlâ en düşüktür. T10 Süvari açarsanız, T10 becerisi Petra'nın nitelikleriyle iyi uyum sağlar.",
-    "Birlik dizilişi: %10-10-80. Özellikle T10 iseler, olabildiğince fazla Okçu koyun. Biraz şansla Rosa'nın 3. becerisi işi sizin yerinize halleder (Okçuların toplam Saldırısını %30 artırır).",
-    "Birlik dizilişi: %10-10-80. Helga'nın yıldızı ve özel donanım seviyesi Amadeus'tan iyiyse alternatif olarak kullanın. Rosa'nın 3. becerisi için yine olabildiğince fazla Okçu, özellikle T10 koyun (Okçuların toplam Saldırısını %30 artırır).",
-    "Birlik dizilişi: %10-10-80. Alternatif en iyi kahramanlarla aynı — Rosa'nın 3. becerisi, ağırlıklı Okçu dizilişlerine odaklanırsanız en iyi bonusu verir (Okçuların toplam Saldırısını %30 artırır).",
-    "Kalan lider slotları henüz açıklanmadı."
-  ]
-});
-
-
-/* ===== Bear Hunt: extra languages (id, ru, th, ar) ===== */
 /* 主將標籤：泰文、阿拉伯文改成對照表用詞 */
 UI.roles.lethality.th = "ตัวนำสายความแรงพลัง";
 UI.roles.attack.th = "ตัวนำสายพลังโจมตี";
 UI.roles.lethality.ar = "قائد قوة الفتك";
-
-addBear("id", {
-  gen: "GEN",
-  section: {
-    title: "Bear Hunt",
-    when_label: "KAPAN",
-    when: "Setiap 2 hari pada waktu yang dijadwalkan Aliansimu.",
-    why_label: "MENGAPA PENTING",
-    why: "Sumber utama material Gear Hero (Forgehammer) dan Enhancement XP.",
-    prep_label: "PERSIAPAN",
-    prep: [
-      "Perbarui Formasi Pasukanmu sebelum setiap Bear Hunt.",
-      { callout: true, text: "Opsional: gunakan <a href=\"https://frakinator.streamlit.app/\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a> untuk menguji rasio pasukan dan menemukan formasi terkuatmu." },
-      "Panggil Kembali pasukan yang sedang mengumpulkan sebelum event dimulai.",
-      "Ingat: di 5–7 menit terakhir, semua orang sebaiknya memulai reli. Ini membuka lebih banyak slot bagi pemain yang pasukannya sedang kembali, sehingga bisa melakukan dorongan damage terakhir."
-    ],
-    leaders_label: "PEMIMPIN RELI",
-    joiners_label: "PESERTA RELI",
-    joiners_ratio: "Rasio Standar / Aman: 10% Infanteri, 10% Kavaleri, dan 80% Pemanah (atau variasi seperti 20-30-50)"
-  },
-  notes: [
-    "Formasi pasukan: 30-30-40%. Pada kebanyakan kasus, Infanteri akan punya stat terbaik berkat stat dasar Amadeus, jadi formasi yang hampir seimbang dengan Pemanah sedikit lebih banyak bekerja paling baik.",
-    "Formasi pasukan: 20-40-40%. Terutama untuk yang belum memilih Amadeus, dan tetap membuka peluang memakai Amadeus untuk bergabung ke reli.",
-    "Formasi pasukan: 30-30-40%. Untuk F2P, disarankan selalu memakai 3 hero yang dimiliki untuk memimpin reli.",
-    "Formasi pasukan: 20-30-50%. Marlin akan menambah damage besar berkat perlengkapan khusus reli miliknya. Mulai Gen 2, Infanteri akan selalu Amadeus atau Helga — mereka satu-satunya hero Infanteri dengan perlengkapan khusus reli (bonus Lethality). Kamu mengirim lebih sedikit Infanteri, jadi hero Infanteri menutup damage Pemanah lewat perlengkapan itu, bukan dengan menyamai stat Infanteri.",
-    "Formasi pasukan: 20-30-50%. Alternatif lain adalah mengganti Quinn dengan Marlin jika ia belum lebih baik. Pakai Helga di Gen 2+ hanya jika Amadeus belum bintang 5 + perlengkapan khusus level maks; ini juga kesempatan memakai Amadeus untuk bergabung ke reli.",
-    "Formasi pasukan: 30-30-40%. Masih belum ada hero F2P dengan perlengkapan khusus reli, jadi sekali lagi formasi seimbang dengan Pemanah sedikit lebih banyak, karena stat Pemanah akan paling rendah tanpa hero Pemanah SSR.",
-    "Formasi pasukan: 10-20-70%. Helga yang sudah maksimal lebih baik daripada Amadeus di Gen 3, karena punya 2 perlengkapan Lethality dan 1 perlengkapan Attack, dibandingkan 1 Lethality dan 2 Attack milik Amadeus pada susunan ini.",
-    "Formasi pasukan: 20-30-50%. Jika kamu belum punya Helga maksimal (bintang 5 + perlengkapan khusus), lebih baik pakai Amadeus.",
-    "Formasi pasukan: 20-40-40%. Di Gen 3, F2P mendapat hero pertama dengan perlengkapan khusus reli (Petra). Coba jumlah Pemanah dan Kavaleri yang seimbang karena Petra sangat meningkatkan Pemanah. Stat Pemanah tetap paling rendah tanpa Pemanah SSR. Jika kamu membuka Kavaleri T10, skill T10 cocok dengan stat Petra.",
-    "Formasi pasukan: 10-10-80%. Paksakan sebanyak mungkin Pemanah, terutama jika T10. Dengan sedikit keberuntungan, skill ke-3 Rosa akan bekerja untukmu (meningkatkan total Attack Pemanah sebesar 30%).",
-    "Formasi pasukan: 10-10-80%. Pakai Helga sebagai alternatif jika bintang dan level perlengkapan khususnya lebih baik dari Amadeus. Tetap paksakan sebanyak mungkin Pemanah, terutama T10, untuk skill ke-3 Rosa (meningkatkan total Attack Pemanah sebesar 30%).",
-    "Formasi pasukan: 10-10-80%. Sama seperti hero alternatif terbaik — bonus skill ke-3 Rosa paling maksimal jika kamu fokus pada formasi yang berat di Pemanah (meningkatkan total Attack Pemanah sebesar 30%).",
-    "Slot pemimpin lainnya belum dirilis."
-  ]
-});
-
-addBear("ru", {
-  gen: "ПОКОЛЕНИЕ",
-  section: {
-    title: "Охота на медведя",
-    when_label: "КОГДА",
-    when: "Каждые 2 дня в назначенное вашим альянсом время.",
-    why_label: "ПОЧЕМУ ЭТО ВАЖНО",
-    why: "Основной источник материалов для снаряжения героя (Кузнечные молоты) и опыта усиления.",
-    prep_label: "ПОДГОТОВКА",
-    prep: [
-      "Обновляйте свои составы войск перед каждой Охотой на медведя.",
-      { callout: true, text: "Необязательно: используйте <a href=\"https://frakinator.streamlit.app/\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a>, чтобы проверить соотношения войск и найти свой сильнейший состав." },
-      "Отзовите войска, находящиеся на сборе, до начала события.",
-      "Помните: в последние 5–7 минут каждый должен запустить рейд. Это освобождает больше мест для игроков, чьи войска возвращаются, и позволяет сделать финальный рывок по урону."
-    ],
-    leaders_label: "ЛИДЕРЫ РЕЙДА",
-    joiners_label: "УЧАСТНИКИ РЕЙДА",
-    joiners_ratio: "Стандартное / безопасное соотношение: 10% пехотинцев, 10% кавалеристов и 80% стрелков (или вариант вроде 20-30-50)"
-  },
-  notes: [
-    "Состав войск: 30-30-40%. В большинстве случаев лучшие показатели будут у пехотинцев благодаря базовым показателям героя Амадей, поэтому лучше всего работает почти равный состав с чуть большим числом стрелков.",
-    "Состав войск: 20-40-40%. В основном для тех, кто ещё не выбрал героя Амадей; также сохраняет возможность использовать героя Амадей для присоединения к рейдам.",
-    "Состав войск: 30-30-40%. Для F2P рекомендуется всегда использовать 3 имеющихся героя для проведения рейда.",
-    "Состав войск: 20-30-50%. Герой Марлин сильно повышает урон благодаря своему эксклюзивному для рейдов снаряжению. Начиная со 2-го поколения пехотинцами всегда командует герой Амадей или Хельга — только у них среди героев-пехотинцев есть эксклюзивное для рейдов снаряжение (бонус Смертоносности). Вы отправляете меньше пехотинцев, поэтому герой-пехотинец компенсирует урон стрелков за счёт этого снаряжения, а не за счёт равных показателей пехотинцев.",
-    "Состав войск: 20-30-50%. Другой вариант — поменять Куинн на Марлин, если он пока не лучше. Используйте героя Хельга со 2-го поколения и выше, только если у героя Амадей нет 5 звёзд и максимального уровня эксклюзивного снаряжения; это также возможность использовать героя Амадей для присоединения к рейдам.",
-    "Состав войск: 30-30-40%. У героев F2P по-прежнему нет эксклюзивного для рейдов снаряжения, поэтому снова подходит равномерный состав с чуть большим числом стрелков, так как показатели стрелков будут самыми низкими из-за отсутствия SSR-героя-стрелка.",
-    "Состав войск: 10-20-70%. Герой Хельга с максимальной прокачкой в 3-м поколении показывает себя лучше, чем герой Амадей, так как в этой связке у неё 2 снаряжения Смертоносности и 1 снаряжение Атаки против 1 снаряжения Смертоносности и 2 снаряжений Атаки у героя Амадей.",
-    "Состав войск: 20-30-50%. Если у вас нет героя Хельга с максимальной прокачкой (5 звёзд + эксклюзивное снаряжение), лучше использовать героя Амадей.",
-    "Состав войск: 20-40-40%. В 3-м поколении F2P получают первого героя с эксклюзивным для рейдов снаряжением (Petra). Старайтесь держать баланс между числом стрелков и кавалеристов, так как Petra сильно усиливает стрелков. Показатели стрелков всё равно самые низкие без SSR-стрелка. Если вы откроете кавалеристов T10, навык T10 хорошо сочетается с показателями Petra.",
-    "Состав войск: 10-10-80%. Отправляйте как можно больше стрелков, особенно если они T10. При некоторой удаче 3-й навык героя Rosa сделает всё за вас (увеличивает общую Атаку стрелков на 30%).",
-    "Состав войск: 10-10-80%. Используйте героя Хельга как альтернативу, если у неё больше звёзд и выше уровень эксклюзивного снаряжения, чем у героя Амадей. По-прежнему отправляйте как можно больше стрелков, особенно T10, ради 3-го навыка героя Rosa (увеличивает общую Атаку стрелков на 30%).",
-    "Состав войск: 10-10-80%. То же, что и у альтернативных лучших героев: бонусы 3-го навыка героя Rosa максимальны, если делать упор на составы с большим числом стрелков (увеличивает общую Атаку стрелков на 30%).",
-    "Остальные места лидеров пока не опубликованы."
-  ]
-});
-
-addBear("th", {
-  gen: "เจน",
-  section: {
-    title: "ล่าหมี",
-    when_label: "เมื่อไหร่",
-    when: "ทุก 2 วัน ตามเวลาที่พันธมิตรของคุณกำหนด",
-    why_label: "ทำไมถึงสำคัญ",
-    why: "แหล่งวัสดุอุปกรณ์ฮีโร่หลัก (ค้อนตีเหล็ก) และ XP การพัฒนา",
-    prep_label: "การเตรียมตัว",
-    prep: [
-      "อัปเดตรูปแบบการจัดวางทหารของคุณก่อนล่าหมีทุกครั้ง",
-      { callout: true, text: "ตัวเลือกเสริม: ใช้ <a href=\"https://frakinator.streamlit.app/\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a> เพื่อทดสอบอัตราส่วนทหารและหารูปแบบที่แข็งแกร่งที่สุดของคุณ" },
-      "เรียกกลับทหารที่กำลังเก็บทรัพยากรก่อนอีเวนต์เริ่ม",
-      "โปรดจำไว้: ใน 5–7 นาทีสุดท้าย ทุกคนควรเปิดทีมระดมพล ซึ่งจะเพิ่มที่ว่างให้ผู้เล่นที่ทหารกำลังเดินทางกลับ ทำให้ปิดท้ายด้วยความเสียหายอีกระลอกได้"
-    ],
-    leaders_label: "ผู้นำทีมระดมพล",
-    joiners_label: "ผู้เข้าร่วมทีมระดมพล",
-    joiners_ratio: "อัตราส่วนมาตรฐาน / ปลอดภัย: ทหารราบ 10%, ทหารม้า 10% และพลธนู 80% (หรือรูปแบบอื่นเช่น 20-30-50)"
-  },
-  notes: [
-    "รูปแบบทหาร: 30-30-40% ในกรณีส่วนใหญ่ ทหารราบจะมีค่าสถานะดีที่สุดเพราะค่าสถานะพื้นฐานของอมาดีอุส ดังนั้นรูปแบบที่เกือบเท่ากันโดยมีพลธนูมากกว่าเล็กน้อยให้ผลดีที่สุด",
-    "รูปแบบทหาร: 20-40-40% เหมาะสำหรับคนที่ยังไม่ได้เลือกอมาดีอุส และยังเปิดโอกาสให้ใช้อมาดีอุสเข้าร่วมทีมระดมพลได้",
-    "รูปแบบทหาร: 30-30-40% สำหรับ F2P แนะนำให้ใช้ฮีโร่ทั้ง 3 ตัวที่มีอยู่เสมอเมื่อเปิดทีมระดมพล",
-    "รูปแบบทหาร: 20-30-50% มาร์ลินช่วยเพิ่มความเสียหายได้มากเพราะอุปกรณ์เฉพาะทีมระดมพลของเขา ตั้งแต่เจน 2 ขึ้นไป ทหารราบจะเป็นอมาดีอุสหรือเฮลก้าเสมอ — สองคนนี้เป็นฮีโร่ทหารราบเพียงกลุ่มเดียวที่มีอุปกรณ์เฉพาะทีมระดมพล (โบนัสความแรงพลัง) คุณส่งทหารราบน้อยลง ฮีโร่ทหารราบจึงชดเชยความเสียหายของพลธนูด้วยอุปกรณ์นี้ แทนที่จะเทียบค่าสถานะทหารราบ",
-    "รูปแบบทหาร: 20-30-50% อีกทางเลือกคือสลับควินน์เป็นมาร์ลิน หากเขายังไม่ดีกว่า ใช้เฮลก้าในเจน 2 ขึ้นไปเฉพาะเมื่ออมาดีอุสยังไม่ได้ 5 ดาว + อุปกรณ์เฉพาะระดับสูงสุด และยังเป็นโอกาสใช้อมาดีอุสเข้าร่วมทีมระดมพลด้วย",
-    "รูปแบบทหาร: 30-30-40% ยังไม่มีฮีโร่ F2P ที่มีอุปกรณ์เฉพาะทีมระดมพล จึงใช้รูปแบบที่สมดุลโดยมีพลธนูมากกว่าเล็กน้อยอีกครั้ง เพราะค่าสถานะพลธนูจะต่ำที่สุดเนื่องจากไม่มีฮีโร่พลธนู SSR",
-    "รูปแบบทหาร: 10-20-70% เฮลก้าที่พัฒนาเต็มที่ทำได้ดีกว่าอมาดีอุสในเจน 3 เพราะมีอุปกรณ์ความแรงพลัง 2 ชิ้นและอุปกรณ์พลังโจมตี 1 ชิ้น เทียบกับความแรงพลัง 1 ชิ้นและพลังโจมตี 2 ชิ้นของอมาดีอุสในชุดนี้",
-    "รูปแบบทหาร: 20-30-50% หากคุณไม่มีเฮลก้าที่พัฒนาเต็มที่ (5 ดาว + อุปกรณ์เฉพาะ) ควรใช้อมาดีอุสจะดีกว่า",
-    "รูปแบบทหาร: 20-40-40% ในเจน 3 ผู้เล่น F2P จะได้ฮีโร่ตัวแรกที่มีอุปกรณ์เฉพาะทีมระดมพล (Petra) ลองใช้จำนวนพลธนูและทหารม้าให้สมดุล เพราะ Petra เสริมพลธนูได้มาก ค่าสถานะพลธนูยังต่ำที่สุดหากไม่มีพลธนู SSR หากคุณปลดล็อกทหารม้า T10 ทักษะ T10 เข้ากับค่าสถานะของ Petra ได้ดี",
-    "รูปแบบทหาร: 10-10-80% ใส่พลธนูให้มากที่สุดเท่าที่ทำได้ โดยเฉพาะถ้าเป็น T10 หากโชคดี ทักษะที่ 3 ของ Rosa จะช่วยได้เอง (เพิ่มพลังโจมตีรวมของพลธนู 30%)",
-    "รูปแบบทหาร: 10-10-80% ใช้เฮลก้าเป็นทางเลือกหากเธอมีดาวและระดับอุปกรณ์เฉพาะดีกว่าอมาดีอุส ยังคงใส่พลธนูให้มากที่สุดเท่าที่ทำได้ โดยเฉพาะ T10 เพื่อทักษะที่ 3 ของ Rosa (เพิ่มพลังโจมตีรวมของพลธนู 30%)",
-    "รูปแบบทหาร: 10-10-80% เหมือนกับฮีโร่ทางเลือกที่ดีที่สุด — โบนัสทักษะที่ 3 ของ Rosa ได้ผลดีที่สุดหากคุณเน้นรูปแบบที่มีพลธนูจำนวนมาก (เพิ่มพลังโจมตีรวมของพลธนู 30%)",
-    "ช่องผู้นำที่เหลือยังไม่เปิดเผย"
-  ]
-});
-
-addBear("ar", {
-  gen: "الجيل",
-  section: {
-    title: "صيد الدببة",
-    when_label: "متى",
-    when: "كل يومين في الوقت الذي يحدده تحالفك.",
-    why_label: "لماذا هو مهم",
-    why: "مصدر رئيسي لمواد عتاد البطل (مطرقة الحدادة) وخبرة تحسين.",
-    prep_label: "التحضير",
-    prep: [
-      "حدّث تشكيلات القوات قبل كل صيد للدببة.",
-      { callout: true, text: "اختياري: استخدم <a href=\"https://frakinator.streamlit.app/\" target=\"_blank\" rel=\"noopener\">frakinator.streamlit.app</a> لاختبار نسب القوات وإيجاد أقوى تشكيلة لديك." },
-      "قم باستدعاء القوات التي تقوم بالجمع قبل بدء الفعالية.",
-      "تذكّر: في آخر 5–7 دقائق، على الجميع إطلاق حشد. يوفّر هذا أماكن أكثر للاعبين الذين تعود قواتهم، مما يتيح دفعة ضرر أخيرة."
-    ],
-    leaders_label: "قادة الحشد",
-    joiners_label: "المنضمون إلى الحشد",
-    joiners_ratio: "النسبة القياسية / الآمنة: 10% مشاة، 10% فرسان، و80% رماة (أو تنويع مثل 20-30-50)"
-  },
-  notes: [
-    "تشكيلة القوات: 30-30-40%. في معظم الحالات ستكون أفضل سمات لديك في المشاة بسبب سمات أماديوس الأساسية، لذا تعمل التشكيلة المتقاربة جدًا مع زيادة طفيفة في الرماة بأفضل شكل.",
-    "تشكيلة القوات: 20-40-40%. مخصصة أساسًا لمن لم يستثمروا في أماديوس بعد، وتُبقي إمكانية استخدام أماديوس للانضمام إلى الحشود.",
-    "تشكيلة القوات: 30-30-40%. للاعبين F2P يُنصح دائمًا باستخدام الأبطال الثلاثة المتاحين لديك لإطلاق الحشد.",
-    "تشكيلة القوات: 20-30-50%. سيزيد مارلين الضرر كثيرًا بفضل عتاده الخاص بالحشد. ابتداءً من الجيل 2، سيكون قائد المشاة دائمًا أماديوس أو هيلجا — فهما البطلان الوحيدان من المشاة اللذان يملكان عتادًا خاصًا بالحشد (مكافأة قوة فتك). ترسل عددًا أقل من المشاة، لذا يغطي بطل المشاة ضرر الرماة عبر هذا العتاد بدلًا من مجاراة سمات المشاة.",
-    "تشكيلة القوات: 20-30-50%. بديل آخر هو استبدال كوين بمارلين إذا لم يكن أفضل بعد. استخدم هيلجا في الجيل 2 وما بعده فقط إذا لم يكن أماديوس بـ 5 نجوم مع عتاد خاص بأعلى مستوى؛ وهي أيضًا فرصة لاستخدام أماديوس للانضمام إلى الحشود.",
-    "تشكيلة القوات: 30-30-40%. لا يزال لا يوجد بطل F2P بعتاد خاص بالحشد، لذا مرة أخرى تشكيلة متوازنة مع زيادة طفيفة في الرماة، لأن سمات الرماة ستكون الأدنى لعدم وجود بطل رماة SSR.",
-    "تشكيلة القوات: 10-20-70%. تتفوق هيلجا المكتملة التطوير على أماديوس في الجيل 3، لأن لديها قطعتي عتاد قوة فتك وقطعة عتاد هجوم واحدة، مقابل قطعة قوة فتك واحدة وقطعتي هجوم لدى أماديوس في هذه التشكيلة.",
-    "تشكيلة القوات: 20-30-50%. إذا لم تكن لديك هيلجا مكتملة التطوير (5 نجوم + عتاد خاص)، فمن الأفضل استخدام أماديوس.",
-    "تشكيلة القوات: 20-40-40%. في الجيل 3، يحصل لاعبو F2P على أول بطل بعتاد خاص بالحشد (Petra). جرّب أعدادًا متوازنة من الرماة والفرسان لأن Petra تحسّن الرماة كثيرًا. تبقى سمات الرماة الأدنى بدون رماة SSR. إذا فتحت فرسان T10، فإن مهارة T10 تتناسب جيدًا مع سمات Petra.",
-    "تشكيلة القوات: 10-10-80%. ادفع بأكبر عدد ممكن من الرماة، خاصة إذا كانوا T10. مع قليل من الحظ ستقوم المهارة الثالثة لـ Rosa بالمهمة عنك (تزيد إجمالي هجوم الرماة بنسبة 30%).",
-    "تشكيلة القوات: 10-10-80%. استخدم هيلجا كبديل إذا كانت نجومها ومستوى عتادها الخاص أفضل من أماديوس. واصل الدفع بأكبر عدد ممكن من الرماة، خاصة T10، من أجل المهارة الثالثة لـ Rosa (تزيد إجمالي هجوم الرماة بنسبة 30%).",
-    "تشكيلة القوات: 10-10-80%. مثل الأبطال البدلاء الأفضل — تحقق المهارة الثالثة لـ Rosa أفضل مكافأة إذا ركّزت على تشكيلات ثقيلة بالرماة (تزيد إجمالي هجوم الرماة بنسبة 30%).",
-    "خانات القادة المتبقية لم تُعلن بعد."
-  ]
-});
