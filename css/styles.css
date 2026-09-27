@@ -632,3 +632,10 @@ body.menu-open { overflow: hidden; }
 .popup-confirm-btn:hover {
   filter: brightness(1.1);
 }
+
+.lineup-img {
+  display: block;
+  max-width: 180px;
+  height: auto;
+  margin: 6px 0 4px;
+}
