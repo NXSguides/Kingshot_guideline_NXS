@@ -650,3 +650,6 @@ body.menu-open { overflow: hidden; }
 .info-card-title{font-weight:700;font-size:1.05em;}
 .info-card-meta{font-size:.85em;opacity:.75;margin:2px 0 6px;}
 .info-card-body .prep-list{margin:0;padding-inline-start:18px;}
+
+.ann-ticker-item{display:inline-block;margin-right:6em;cursor:pointer;}
+.ann-ticker-item:hover{text-decoration:underline;}
