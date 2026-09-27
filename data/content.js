@@ -285,6 +285,23 @@ const GLOSSARY = {
   masterItems: { en:"Master items" },
   manuscript: { en:"Manuscript" },
   masterSpeeds: { en:"Master speeds" },
+  mysticTrial: { zh:"秘境試煉", en:"Mystic Trial", ko:"신비한 시련", de:"Mystische Prüfung", fr:"Épreuve Mystique", pt:"Prova Mística", tr:"Mistik İmtihan", id:"Ujian Mistis", ru:"Волшебное испытание", th:"บททดสอบลี้ลับ", ar:"الاختبارات الغامضة", es:"Prueba Mística" },
+  coliseum: { zh:"角鬥賽場", en:"Coliseum", ko:"결투장", de:"Kolosseum", fr:"Colisée", pt:"Coliseu", tr:"Kolezyum", id:"Koloseum", ru:"Колизей", th:"โคลอสเซียม", ar:"الكولوسيوم", es:"Coliseo" },
+  forestOfLife: { zh:"生命森林", en:"Forest of Life", ko:"생명의 숲", de:"Wald des Lebens", fr:"Forêt de la Vie", pt:"Floresta da Vida", tr:"Yaşam Ormanı", id:"Alas Kehidupan", ru:"Лес жизни", th:"ป่าแห่งชีวิต", ar:"غابة الحياة", es:"Bosque de la Vida" },
+  crystalCave: { zh:"水晶礦洞", en:"Crystal Cave", ko:"수정 광산", de:"Kristallhöhle", fr:"Grotte de Cristal", pt:"Caverna de Cristal", tr:"Kristal Mağara", id:"Gua Kristal", ru:"Кристальная пещера", th:"ถ้ำคริสตัล", ar:"كهف الكريستال", es:"Cueva de Cristal" },
+  knowledgeNexus: { zh:"知識樞紐", en:"Knowledge Nexus", ko:"지식의 전당", de:"Wissensverbund", fr:"Nexus de la Connaissance", pt:"Nexo do Conhecimento", tr:"Bilgi Noktası", id:"Nexus Pengetahuan", ru:"Очаг знаний", th:"เน็กซัสความรู้", ar:"مركز المعرفة", es:"Nexo del Conocimiento" },
+  moltenFort: { zh:"熔岩要塞", en:"Molten Fort", ko:"용암 요새", de:"Geschmolzenes Fort", fr:"Fort en Fusion", pt:"Forte Derretido", tr:"Erimiş Kale", id:"Benteng Lava", ru:"Раскалённый форт", th:"ป้อมเพลิงหลอม", ar:"الحصن المصهور", es:"Fuerte Fundido" },
+  radiantSpire: { zh:"輝光尖塔", en:"Radiant Spire", ko:"빛나는 첨탑", de:"Strahlende Spitze", fr:"Flèche Éclatante", pt:"Pináculo Radiante", tr:"Parlayan Kule", id:"Menara Radiant", ru:"Блистающий шпиль", th:"เจดีย์ส่องสว่าง", ar:"برج الإشعاع", es:"Aguja Radiante" },
+  trialExplorers: { zh:"試煉探險隊", en:"Trial Explorers", ko:"시련 탐험대", de:"Prüferkunder", fr:"Explorateurs de l'Épreuve", pt:"Exploradores de Prova", tr:"İmtihan Kaşifleri", id:"Penjelajah Ujian", ru:"исследователи испытаний", th:"นักสำรวจบททดสอบ", ar:"مستكشفو الاختبارات", es:"Exploradores de la Prueba" },
+  pets: { zh:"寵物", en:"Pets", ko:"펫", de:"Begleittiere", fr:"Animaux", pt:"Mascotes", tr:"Pet", id:"Peliharaan", ru:"питомцы", th:"สัตว์เลี้ยง", ar:"الحيوانات الأليفة", es:"Mascotas" },
+  petSkills: { zh:"寵物技能", en:"Pet Skills", ko:"펫 스킬", de:"Begleittierfähigkeiten", fr:"Compétences animalières", pt:"Habilidades dos Mascotes", tr:"Pet Yetenekleri", id:"Skill Peliharaan", ru:"навыки питомцев", th:"ทักษะของสัตว์เลี้ยง", ar:"مهارات الحيوانات الأليفة", es:"Habilidades de las Mascotas" },
+  tech: { zh:"科技", en:"Tech", ko:"과학 기술", de:"Technologien", fr:"Techs", pt:"Tecnologia", tr:"Teknoloji", id:"Teknologi", ru:"технологии", th:"เทคโนโลยี", ar:"التقنية", es:"Tecnología" },
+  truegoldTech: { zh:"黃金科技", en:"Truegold Tech", ko:"순금 과학 기술", de:"Echtgold-Technologie", fr:"Techs d'Or Véritable", pt:"Tecnologia Ouro Verdadeiro", tr:"Hasaltın Teknolojisi", ru:"аурумные технологии", th:"เทคโนโลยีทรูโกลด์", ar:"تقنية الذهب الحقيقي", es:"Tecnología de Oro Puro" },
+  skins: { zh:"裝扮", en:"Skins", ko:"스킨", de:"Verkleidung", fr:"Thèmes", pt:"Visuais", tr:"Görünümler", ru:"облики", th:"สกิน", ar:"المظاهر", es:"Apariencias" },
+  oasisIsland: { zh:"綠洲島", en:"Oasis Island", ko:"오아시스", de:"Oasen Insel", fr:"Île Oasis", pt:"Ilha Oásis", tr:"Vaha Adası", ru:"остров Оазиса", th:"เกาะโอเอซิส", ar:"جزيرة الواحة", es:"Isla del Oasis" },
+  vipLevel: { zh:"VIP等級", en:"VIP level", ko:"VIP레벨", de:"VIP-Level", fr:"niveau VIP", pt:"nível VIP", tr:"VIP seviyesi", ru:"VIP-уровень", th:"เลเวล VIP", ar:"مستوى VIP", es:"nivel VIP" },
+  warAcademy: { zh:"戰爭學院", en:"War Academy", ko:"전쟁 아카데미", de:"Kriegsakademie", fr:"Académie de Guerre", pt:"Academia de Guerra", tr:"Savaş Akademisi", id:"Akademi Perang", ru:"Военная академия", th:"วิทยาลัยสงคราม", ar:"أكاديمية الحرب", es:"Academia de Guerra" },
+  raid: { zh:"關卡掃蕩", en:"Raid", ko:"스테이지 소탕", de:"Überfall", fr:"Pillage", pt:"Ataque", tr:"Yağmala", id:"Raid", ru:"Рейд", th:"บุกโจมตี", ar:"الغارة", es:"Asalto" },
 };
 
 const GUIDES = {
@@ -726,6 +743,456 @@ const GUIDES = {
           { type: "p", text: "نسّق مع R4/R5 ليأخذ الجميع دورهم ونملأ المقر بكفاءة." }
         ]
       }
+    }
+  },
+  "mystic-trial": {
+    emoji: "🔮",
+    name: { en: "Mystic Trial", zh: "秘境試煉", ko: "신비한 시련", de: "Mystische Prüfung", fr: "Épreuve Mystique", pt: "Prova Mística", tr: "Mistik İmtihan", id: "Ujian Mistis", ru: "Волшебное испытание", th: "บททดสอบลี้ลับ", ar: "الاختبارات الغامضة", es: "Prueba Mística" },
+    sections: {
+      en: { title: "Mystic Trial", blocks: [
+        { type: "h", text: "WHEN" },
+        { type: "p", text: "Available every day. Each zone has 5 attempts per day, reset at 00:00 UTC. Which zones are open depends on the weekday." },
+        { type: "h", text: "WHY IT MATTERS" },
+        { type: "p", text: "An important source of {heroShard}, Hero XP and other progression rewards." },
+        { type: "h", text: "TRIAL ZONES" },
+        { type: "cards", items: [
+          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Mon · Tue",
+            lines: [
+              "Only the stats of Heroes, {heroGear} and {heroExclusiveGear} count."
+            ] },
+          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Wed · Thu",
+            lines: [
+              "Only {pets} stats count.",
+              "{petSkills} are active by default; their effects don't stack."
+            ] },
+          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Wed · Thu",
+            lines: [
+              "Only {governorCharm} stats count."
+            ] },
+          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Fri · Sat",
+            lines: [
+              "Only {academy} and {warAcademy} tech stats count.",
+              "Higher-level soldiers are used here if you've unlocked them."
+            ] },
+          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Fri · Sat",
+            lines: [
+              "Only {governorGear} stats count."
+            ] },
+          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Sun",
+            lines: [
+              "Almost everything counts: Heroes, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} active by default), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} and {vipLevel}.",
+              "You fight with your own troops — no losses, and your world-map deployment isn't affected."
+            ] }
+        ] },
+        { type: "callout", text: "In the other five zones the {trialExplorers} supply Lv.10 soldiers, so just raise the stats that zone uses. Clearing stages 1–10 of a zone unlocks {raid}." }
+      ]},
+      zh: { title: "秘境試煉", blocks: [
+        { type: "h", text: "開放時間" },
+        { type: "p", text: "每天開放。每個區域每天可挑戰 5 次，於 00:00（UTC+0）重置；開放的區域依星期而定。" },
+        { type: "h", text: "為什麼重要" },
+        { type: "p", text: "{heroShard}、英雄經驗與其他養成資源的重要來源。" },
+        { type: "h", text: "試煉區域" },
+        { type: "cards", items: [
+          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "週一、週二",
+            lines: [
+              "只有英雄、{heroGear}和{heroExclusiveGear}的屬性生效。"
+            ] },
+          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "週三、週四",
+            lines: [
+              "只有{pets}屬性生效。",
+              "{petSkills}預設生效（主動使用技能效果不疊加）。"
+            ] },
+          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "週三、週四",
+            lines: [
+              "只有{governorCharm}的屬性生效。"
+            ] },
+          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "週五、週六",
+            lines: [
+              "只有{academy}以及{warAcademy}的科技屬性生效。",
+              "若已解鎖更高等級的士兵科技，可使用更高等級的士兵。"
+            ] },
+          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "週五、週六",
+            lines: [
+              "只有{governorGear}的屬性生效。"
+            ] },
+          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "週日",
+            lines: [
+              "英雄、{heroGear}、{heroExclusiveGear}、{pets}（{petSkills}預設生效）、{governorCharm}、{tech}、{truegoldTech}、{governorGear}、{skins}、{oasisIsland}以及{vipLevel}、建築提供的屬性都將生效。",
+              "使用自己的部隊，不影響野外的部隊調度，士兵也不會受傷。"
+            ] }
+        ] },
+        { type: "callout", text: "其他五個區域由{trialExplorers}提供 10 級士兵，專心提升該區域需要的屬性即可。通過區域的 1–10 關後可解鎖{raid}。" }
+      ]},
+      ko: { title: "신비한 시련", blocks: [
+        { type: "h", text: "개최 시기" },
+        { type: "p", text: "매일 오픈됩니다. 각 구역은 하루 5회 도전할 수 있으며 매일 UTC 00:00에 갱신됩니다. 요일마다 열리는 구역이 다릅니다." },
+        { type: "h", text: "중요한 이유" },
+        { type: "p", text: "{heroShard}, 영웅 경험치 및 기타 육성 보상의 중요한 획득처입니다." },
+        { type: "h", text: "시련 구역" },
+        { type: "cards", items: [
+          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "월요일, 화요일",
+            lines: [
+              "영웅, {heroGear}, {heroExclusiveGear} 속성만 적용됩니다."
+            ] },
+          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "수요일, 목요일",
+            lines: [
+              "{pets} 속성만 적용됩니다.",
+              "{petSkills}은 자동으로 적용됩니다(스킬을 사용해도 중첩되지 않음)."
+            ] },
+          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "수요일, 목요일",
+            lines: [
+              "{governorCharm} 속성만 적용됩니다."
+            ] },
+          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "금요일, 토요일",
+            lines: [
+              "{academy} 및 {warAcademy}의 과학 기술 속성만 적용됩니다.",
+              "더 높은 레벨의 병사 과학 기술을 해제하면 더 높은 레벨의 병사를 사용할 수 있습니다."
+            ] },
+          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "금요일, 토요일",
+            lines: [
+              "{governorGear} 속성만 적용됩니다."
+            ] },
+          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "일요일",
+            lines: [
+              "영웅, {heroGear}, {heroExclusiveGear}, {pets}({petSkills} 기본 적용), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} 및 {vipLevel}, 건물이 제공하는 속성이 모두 적용됩니다.",
+              "자신의 부대를 사용하지만 야외 부대에 영향을 주지 않으며, 병사가 부상당하지도 않습니다."
+            ] }
+        ] },
+        { type: "callout", text: "나머지 다섯 구역에서는 {trialExplorers}가 Lv.10 병사를 제공하므로 해당 구역에 필요한 속성만 올리면 됩니다. 구역의 1-10 스테이지를 클리어하면 {raid}이 해제됩니다." }
+      ]},
+      de: { title: "Mystische Prüfung", blocks: [
+        { type: "h", text: "WANN" },
+        { type: "p", text: "Jeden Tag verfügbar. Jede Zone hat 5 Versuche pro Tag, zurückgesetzt um 00:00 UTC. Welche Zonen offen sind, hängt vom Wochentag ab." },
+        { type: "h", text: "WARUM ES WICHTIG IST" },
+        { type: "p", text: "Wichtige Quelle für {heroShard}, Helden-EP und weitere Fortschrittsbelohnungen." },
+        { type: "h", text: "PRÜFUNGSZONEN" },
+        { type: "cards", items: [
+          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Montag & Dienstag",
+            lines: [
+              "Es zählen nur die Werte von Helden, {heroGear} und {heroExclusiveGear}."
+            ] },
+          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Mittwoch & Donnerstag",
+            lines: [
+              "Es zählen nur die Werte der {pets}.",
+              "{petSkills} sind standardmäßig aktiv; ihre Effekte sind nicht stapelbar."
+            ] },
+          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Mittwoch & Donnerstag",
+            lines: [
+              "Es zählen nur die Werte von {governorCharm}."
+            ] },
+          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Freitag & Samstag",
+            lines: [
+              "Es zählen nur die Technologie-Werte von {academy} und {warAcademy}.",
+              "Falls freigeschaltet, werden hier Soldaten höherer Level eingesetzt."
+            ] },
+          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Freitag & Samstag",
+            lines: [
+              "Es zählen nur die Werte von {governorGear}."
+            ] },
+          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Sonntag",
+            lines: [
+              "Fast alles zählt: Helden, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} standardmäßig aktiv), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} und {vipLevel}.",
+              "Du kämpfst mit deinen eigenen Soldaten – ohne Verluste und ohne Auswirkung auf deinen Einsatz auf der Weltkarte."
+            ] }
+        ] },
+        { type: "callout", text: "In den anderen fünf Zonen stellen die {trialExplorers} Lv.10-Soldaten bereit – verbessere einfach die Werte, die die Zone braucht. Wer die Stufen 1–10 einer Zone abschließt, schaltet die {raid}-Funktion frei." }
+      ]},
+      fr: { title: "Épreuve Mystique", blocks: [
+        { type: "h", text: "QUAND" },
+        { type: "p", text: "Disponible tous les jours. Chaque zone offre 5 tentatives par jour, réinitialisées à 00:00 UTC. Les zones ouvertes dépendent du jour de la semaine." },
+        { type: "h", text: "POURQUOI C'EST IMPORTANT" },
+        { type: "p", text: "Une source importante de {heroShard}, d'XP de héros et d'autres récompenses de progression." },
+        { type: "h", text: "ZONES DE L'ÉPREUVE" },
+        { type: "cards", items: [
+          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Lundi & Mardi",
+            lines: [
+              "Seules les stats des Héros, de l'{heroGear} et de l'{heroExclusiveGear} comptent."
+            ] },
+          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Mercredi & Jeudi",
+            lines: [
+              "Seules les stats des {pets} comptent.",
+              "Les {petSkills} sont actives par défaut, mais leurs effets ne se cumulent pas."
+            ] },
+          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Mercredi & Jeudi",
+            lines: [
+              "Seules les stats du {governorCharm} comptent."
+            ] },
+          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Vendredi & Samedi",
+            lines: [
+              "Seules les stats des Techs de l'{academy} et de l'{warAcademy} comptent.",
+              "Des soldats de plus haut niveau sont utilisés ici s'ils sont débloqués."
+            ] },
+          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Vendredi & Samedi",
+            lines: [
+              "Seules les stats de l'{governorGear} comptent."
+            ] },
+          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Dimanche",
+            lines: [
+              "Presque tout compte : Héros, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} actives par défaut), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} et {vipLevel}.",
+              "Tu utilises tes propres soldats — sans pertes et sans affecter ton déploiement sur la carte du monde."
+            ] }
+        ] },
+        { type: "callout", text: "Dans les cinq autres zones, les {trialExplorers} fournissent des soldats de Niv. 10 : concentre-toi sur les stats requises par la zone. Terminer les étapes 1 à 10 d'une zone débloque le {raid}." }
+      ]},
+      pt: { title: "Prova Mística", blocks: [
+        { type: "h", text: "QUANDO" },
+        { type: "p", text: "Disponível todos os dias. Cada zona tem 5 tentativas por dia, renovadas às 00:00 UTC. As zonas abertas dependem do dia da semana." },
+        { type: "h", text: "POR QUE IMPORTA" },
+        { type: "p", text: "Fonte importante de {heroShard}, XP de Herói e outras recompensas de progressão." },
+        { type: "h", text: "ZONAS DA PROVA" },
+        { type: "cards", items: [
+          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Segunda e Terça",
+            lines: [
+              "Apenas as estatísticas de Heróis, {heroGear} e {heroExclusiveGear} contam."
+            ] },
+          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Quarta e Quinta",
+            lines: [
+              "Apenas as estatísticas dos {pets} contam.",
+              "As {petSkills} são eficazes por padrão, e seus efeitos não são cumulativos."
+            ] },
+          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Quarta e Quinta",
+            lines: [
+              "Apenas as estatísticas do {governorCharm} contam."
+            ] },
+          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Sexta e Sábado",
+            lines: [
+              "Apenas as estatísticas de Tecnologia da {academy} e da {warAcademy} contam.",
+              "Soldados de nível superior são usados aqui, se desbloqueados."
+            ] },
+          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Sexta e Sábado",
+            lines: [
+              "Apenas as estatísticas do {governorGear} contam."
+            ] },
+          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Domingo",
+            lines: [
+              "Quase tudo conta: Heróis, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} efetivas por padrão), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} e {vipLevel}.",
+              "Você usa seus próprios soldados — sem baixas e sem afetar sua implantação no mapa-múndi."
+            ] }
+        ] },
+        { type: "callout", text: "Nas outras cinco zonas, os {trialExplorers} fornecem soldados de nível 10: foque em aprimorar as estatísticas que a zona exige. Concluir as Etapas 1 a 10 de uma zona desbloqueia o recurso de {raid}." }
+      ]},
+      tr: { title: "Mistik İmtihan", blocks: [
+        { type: "h", text: "NE ZAMAN" },
+        { type: "p", text: "Her gün açık. Her bölge için günde 5 mücadele hakkı vardır; haklar UTC 00:00'da yenilenir. Açık bölgeler haftanın gününe göre değişir." },
+        { type: "h", text: "NEDEN ÖNEMLİ" },
+        { type: "p", text: "{heroShard}, Kahraman XP'si ve diğer gelişim ödülleri için önemli bir kaynak." },
+        { type: "h", text: "İMTİHAN BÖLGELERİ" },
+        { type: "cards", items: [
+          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Pazartesi & Salı",
+            lines: [
+              "Sadece Kahraman, {heroGear} ve {heroExclusiveGear} nitelikleri geçerlidir."
+            ] },
+          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Çarşamba & Perşembe",
+            lines: [
+              "Sadece {pets} nitelikleri geçerlidir.",
+              "{petSkills} varsayılan olarak devrededir; etkileri birikmez."
+            ] },
+          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Çarşamba & Perşembe",
+            lines: [
+              "Sadece {governorCharm} nitelikleri geçerlidir."
+            ] },
+          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Cuma & Cumartesi",
+            lines: [
+              "Sadece {academy} ve {warAcademy} nitelikleri geçerlidir.",
+              "Kilidi açılmışsa burada daha yüksek seviyeli askerler kullanılır."
+            ] },
+          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Cuma & Cumartesi",
+            lines: [
+              "Sadece {governorGear} nitelikleri geçerlidir."
+            ] },
+          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Pazar",
+            lines: [
+              "Neredeyse her şey geçerlidir: Kahraman, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} varsayılan olarak geçerli), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} ve {vipLevel}.",
+              "Kendi askerlerini kullanırsın; kayıp vermezsin ve dünya haritasındaki konuşlanman etkilenmez."
+            ] }
+        ] },
+        { type: "callout", text: "Diğer beş bölgede {trialExplorers} Seviye 10 asker sağlar; sadece bölgenin istediği nitelikleri geliştir. Bir bölgenin 1-10. aşamalarını geçmek {raid} özelliğini açar." }
+      ]},
+      id: { title: "Ujian Mistis", blocks: [
+        { type: "h", text: "KAPAN" },
+        { type: "p", text: "Tersedia setiap hari. Setiap zona punya 5 percobaan per hari, direset pukul 00:00 UTC. Zona yang dibuka tergantung harinya." },
+        { type: "h", text: "KENAPA PENTING" },
+        { type: "p", text: "Sumber penting {heroShard}, XP Hero, dan hadiah progres lainnya." },
+        { type: "h", text: "ZONA UJIAN" },
+        { type: "cards", items: [
+          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Senin & Selasa",
+            lines: [
+              "Hanya Stat Hero, {heroGear}, dan {heroExclusiveGear} yang berlaku."
+            ] },
+          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Rabu & Kamis",
+            lines: [
+              "Hanya Stat {pets} yang berlaku.",
+              "{petSkills} aktif secara default, dan efeknya tidak bisa ditumpuk."
+            ] },
+          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Rabu & Kamis",
+            lines: [
+              "Hanya Stat {governorCharm} yang berlaku."
+            ] },
+          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Jumat & Sabtu",
+            lines: [
+              "Hanya Stat Teknologi {academy} dan {warAcademy} yang berlaku.",
+              "Prajurit level lebih tinggi dipakai di sini jika sudah dibuka."
+            ] },
+          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Jumat & Sabtu",
+            lines: [
+              "Hanya Stat {governorGear} yang berlaku."
+            ] },
+          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Minggu",
+            lines: [
+              "Hampir semua stat berlaku: Hero, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} aktif secara default), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland}, dan {vipLevel}.",
+              "Kamu memakai prajurit sendiri — tanpa kerugian dan tanpa memengaruhi pengerahan di peta dunia."
+            ] }
+        ] },
+        { type: "callout", text: "Di lima zona lainnya, {trialExplorers} menyediakan prajurit Lv.10 — cukup tingkatkan stat yang dibutuhkan zona itu. Menyelesaikan Stage 1–10 di sebuah zona membuka fitur {raid}." }
+      ]},
+      ru: { title: "Волшебное испытание", blocks: [
+        { type: "h", text: "КОГДА" },
+        { type: "p", text: "Доступно каждый день. В каждой зоне 5 попыток в день, обновление в 00:00 (UTC+0). Открытые зоны зависят от дня недели." },
+        { type: "h", text: "ПОЧЕМУ ЭТО ВАЖНО" },
+        { type: "p", text: "Важный источник: {heroShard}, опыт героев и другие награды для развития." },
+        { type: "h", text: "ЗОНЫ ИСПЫТАНИЯ" },
+        { type: "cards", items: [
+          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "понедельник и вторник",
+            lines: [
+              "Действуют только показатели: герои, {heroGear}, {heroExclusiveGear}."
+            ] },
+          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "среда и четверг",
+            lines: [
+              "Действуют только показатели: {pets}.",
+              "По умолчанию действуют {petSkills}; их эффекты не суммируются."
+            ] },
+          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "среда и четверг",
+            lines: [
+              "Действуют только показатели: {governorCharm}."
+            ] },
+          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "пятница и суббота",
+            lines: [
+              "Действуют только показатели технологий: {academy} и {warAcademy}.",
+              "Если открыты солдаты более высокого уровня, здесь используются они."
+            ] },
+          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "пятница и суббота",
+            lines: [
+              "Действуют только показатели: {governorGear}."
+            ] },
+          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "воскресенье",
+            lines: [
+              "Действует почти всё: герои, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} действуют по умолчанию), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} и {vipLevel}.",
+              "Вы используете своих солдат — без потерь и без влияния на отправления на карте мира."
+            ] }
+        ] },
+        { type: "callout", text: "В остальных пяти зонах {trialExplorers} предоставляют солдат ур. 10 — просто улучшайте показатели, нужные зоне. Прохождение этапов 1–10 зоны открывает функцию «{raid}»." }
+      ]},
+      th: { title: "บททดสอบลี้ลับ", blocks: [
+        { type: "h", text: "เมื่อไหร่" },
+        { type: "p", text: "เปิดทุกวัน แต่ละโซนท้าทายได้ 5 ครั้งต่อวัน รีเฟรชทุกวันเวลา UTC 00:00 โซนที่เปิดจะเปลี่ยนไปตามวันในสัปดาห์" },
+        { type: "h", text: "ทำไมถึงสำคัญ" },
+        { type: "p", text: "แหล่งสำคัญของ{heroShard} EXP ฮีโร่ และรางวัลพัฒนาอื่นๆ" },
+        { type: "h", text: "โซนบททดสอบ" },
+        { type: "cards", items: [
+          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "วันจันทร์และวันอังคาร",
+            lines: [
+              "มีผลเฉพาะค่าสถานะของฮีโร่ {heroGear} และ{heroExclusiveGear}"
+            ] },
+          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "วันพุธและวันพฤหัสบดี",
+            lines: [
+              "มีผลเฉพาะค่าสถานะของ{pets}",
+              "{petSkills}มีผลโดยอัตโนมัติ และไม่สามารถซ้อนทับได้"
+            ] },
+          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "วันพุธและวันพฤหัสบดี",
+            lines: [
+              "มีผลเฉพาะค่าสถานะของ{governorCharm}"
+            ] },
+          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "วันศุกร์และวันเสาร์",
+            lines: [
+              "มีผลเฉพาะค่าสถานะจากเทคโนโลยีของ{academy}และ{warAcademy}",
+              "หากปลดล็อกแล้ว จะใช้กองทหารเลเวลที่สูงกว่า"
+            ] },
+          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "วันศุกร์และวันเสาร์",
+            lines: [
+              "มีผลเฉพาะค่าสถานะของ{governorGear}"
+            ] },
+          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "วันอาทิตย์",
+            lines: [
+              "เกือบทุกอย่างมีผล: ฮีโร่, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills}มีผลโดยอัตโนมัติ), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} และ{vipLevel}",
+              "ใช้กองทหารของคุณเอง โดยไม่กระทบการเดินทัพในแผนที่โลก และไม่สูญเสียกองทหาร"
+            ] }
+        ] },
+        { type: "callout", text: "ในอีกห้าโซน {trialExplorers}จะจัดเตรียมกองทหารเลเวล 10 ให้ จึงโฟกัสเพิ่มค่าสถานะที่โซนนั้นต้องการได้เลย ผ่านด่านที่ 1-10 ของโซนเพื่อปลดล็อกฟีเจอร์{raid}" }
+      ]},
+      ar: { title: "الاختبارات الغامضة", blocks: [
+        { type: "h", text: "متى" },
+        { type: "p", text: "متاح يوميًا. لكل منطقة 5 محاولات تحدٍّ يوميًا، تُحدَّث عند الساعة 00:00 بتوقيت UTC. تختلف المناطق المفتوحة حسب يوم الأسبوع." },
+        { type: "h", text: "لماذا هي مهمة" },
+        { type: "p", text: "مصدر مهم لـ{heroShard} وخبرة الأبطال ومكافآت التطور الأخرى." },
+        { type: "h", text: "مناطق الاختبار" },
+        { type: "cards", items: [
+          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "الاثنين والثلاثاء",
+            lines: [
+              "فقط سمات الأبطال و{heroGear} و{heroExclusiveGear} تصبح سارية هنا."
+            ] },
+          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "الأربعاء والخميس",
+            lines: [
+              "فقط سمات {pets} تصبح سارية هنا.",
+              "{petSkills} فعالة افتراضيًا، وتأثيراتها غير قابلة للتراكم."
+            ] },
+          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "الأربعاء والخميس",
+            lines: [
+              "فقط سمات {governorCharm} تصبح سارية هنا."
+            ] },
+          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "الجمعة والسبت",
+            lines: [
+              "فقط سمات تقنية {academy} و{warAcademy} تصبح سارية هنا.",
+              "يُستخدم جنود بمستوى أعلى هنا إذا تم فتحهم."
+            ] },
+          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "الجمعة والسبت",
+            lines: [
+              "فقط سمات {governorGear} تصبح سارية هنا."
+            ] },
+          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "الأحد",
+            lines: [
+              "تقريبًا كل شيء يسري هنا: الأبطال، {heroGear}، {heroExclusiveGear}، {pets} ({petSkills} فعالة افتراضيًا)، {governorCharm}، {tech}، {truegoldTech}، {governorGear}، {skins}، {oasisIsland}، و{vipLevel}.",
+              "تستخدم جنودك دون التأثير على نشر قواتك على خريطة العالم ودون تكبد أي خسائر."
+            ] }
+        ] },
+        { type: "callout", text: "في المناطق الخمس الأخرى، يزودك {trialExplorers} بجنود مستوى 10، فركّز على تعزيز السمات المطلوبة لكل منطقة. أكمل المراحل 1-10 في المنطقة لفتح ميزة {raid}." }
+      ]},
+      es: { title: "Prueba Mística", blocks: [
+        { type: "h", text: "CUÁNDO" },
+        { type: "p", text: "Disponible todos los días. Cada zona tiene 5 intentos de desafío diarios, que se restablecen a las 00:00 UTC. Las zonas abiertas dependen del día de la semana." },
+        { type: "h", text: "POR QUÉ IMPORTA" },
+        { type: "p", text: "Fuente importante de {heroShard}, EXP de Héroe y otras recompensas de progreso." },
+        { type: "h", text: "ZONAS DE LA PRUEBA" },
+        { type: "cards", items: [
+          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "lunes y martes",
+            lines: [
+              "Solo surten efecto los atributos de los Héroes, el {heroGear} y el {heroExclusiveGear}."
+            ] },
+          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "miércoles y jueves",
+            lines: [
+              "Solo surten efecto los atributos de las {pets}.",
+              "Las {petSkills} están activas por defecto, y sus efectos no son acumulables."
+            ] },
+          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "miércoles y jueves",
+            lines: [
+              "Solo surten efecto los atributos del {governorCharm}."
+            ] },
+          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "viernes y sábado",
+            lines: [
+              "Solo surten efecto los atributos de Tecnologías de la {academy} y la {warAcademy}.",
+              "Si están desbloqueados, aquí se usan soldados de nivel superior."
+            ] },
+          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "viernes y sábado",
+            lines: [
+              "Solo surten efecto los atributos del {governorGear}."
+            ] },
+          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "domingo",
+            lines: [
+              "Casi todo surte efecto: Héroes, {heroGear}, {heroExclusiveGear}, {pets} (con sus habilidades activas por defecto), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} y {vipLevel}.",
+              "Usas tus propios soldados, sin afectar tu despliegue en el mapa mundial ni sufrir bajas."
+            ] }
+        ] },
+        { type: "callout", text: "En las otras cinco zonas, los {trialExplorers} proporcionan Soldados Nv. 10: céntrate en mejorar los atributos que pide cada zona. Superar las Etapas 1-10 de una zona desbloquea la función de {raid}." }
+      ]}
     }
   },
   "bear-hunt": {
