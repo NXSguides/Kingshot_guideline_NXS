@@ -749,4 +749,40 @@ const TERMS = [
    ["Squads' Attack", "部隊攻擊力", "부대 공격력", "Schwadron Angriff", "Attaque des escouades", "Ataque dos Esquadrões", "Ekiplerin Saldırısı", "Attack Skuad", "Атака войск", "พลังโจมตีทีม", "هجوم الفرق", "Ataque de los Escuadrones", "Skin stat bonus."]
   ]
  },
+ {
+  "cat": "Alliance Mobilization",
+  "rows": [
+   ["Alliance Mobilization", "聯盟總動員", "연맹 총동원", "Allianzmobilisierung", "Mobilisation de l'Alliance", "Mobilização da Aliança", "İttifak Harekatı", "Pergerakan Aliansi", "Мобилизация альянса", "การระดมพลของพันธมิตร", "تعبئة التحالف", "Movilización de Alianzas", "Event title. ES rules text also says 'Movilización de la Alianza'. New season every two weeks."],
+   ["Event Period", "活動時間", "이벤트 기간", "Zeitraum des Events", "Période", "Período do Evento", "Etkinlik Süresi", "Periode Event", "Время события", "ระยะเวลาอีเวนต์", "فترة الفعالية", "Período del Evento", "Rules item 1."],
+   ["Participation Requirement", "參與條件", "참여 조건", "Teilnahmevoraussetzung", "Conditions de Participation", "Requisito de Participação", "Katılım Şartı", "Syarat Partisipasi", "Условия участия", "ข้อกำหนดการเข้าร่วม", "متطلبات المشاركة", "Requisito de Participación", "Rules item 2. EN/DE/FR/PT/TR/AR/ES: alliance with MORE THAN 15 members; ZH/KO/RU: 15 or more. TH/ID: TH '15 or more', ID 'more than 15'."],
+   ["Obtain Points", "積分取得", "포인트 획득", "Erhalt von Punkten", "Obtenir des Points", "Obter Pontos", "Puan Kazanımı", "Mendapatkan Poin", "Получение очков", "การรับคะแนน", "الحصول على النقاط", "Obtención de Puntos", "Rules item 3."],
+   ["Alliance Points", "聯盟積分", "연맹 포인트", "Allianzpunkte", "Points d'Alliance", "Pontos da Aliança", "İttifak Puanı", "Poin Aliansi", "очки альянса", "คะแนนพันธมิตร", "نقاط تحالف", "Puntos de Alianza", "Points each member earns, summed per alliance."],
+   ["Refresh Event Mission", "更新活動任務", "이벤트 임무 새로고침", "Eventmission aktualisieren", "Actualiser une Mission d'Évènement", "Atualizar Missão do Evento", "Etkinlik Görevini Yenileme", "Refresh Misi Event", "Обновление миссий события", "การรีเฟรชภารกิจอีเวนต์", "تحديث مهام الفعالية", "Actualizar la Misión del Evento", "Rules item 4. KO says only 1 refresh per day can roll a 200% mission; other languages say only 1 exclusive mission per day gives 200%."],
+   ["Exclusive mission", "專屬任務", "전용 임무", "exklusive Mission", "mission exclusive", "missão exclusiva", "özel görev", "misi eksklusif", "личная миссия", "ภารกิจพิเศษ", "مهمة حصرية", "misión exclusiva", "RU literally 'personal mission'. ES item 4 first says 'misiones personales', then 'misión exclusiva'."],
+   ["Public mission", "公共任務", "공통 임무", "öffentliche Mission", "mission publique", "missão pública", "herkese açık görev", "misi publik", "общая миссия", "ภารกิจส่วนรวม", "المهام العامة", "misión pública", "R4+ can refresh these."],
+   ["Abandon Event Mission", "放棄活動任務", "이벤트 임무 포기", "Eventmission aufgeben", "Abandonner une Mission de l'Évènement", "Abandonar Missão do Evento", "Etkinlik Görevini İptal Etme", "Membatalkan Misi Event", "Отказ от миссии", "การยกเลิกภารกิจอีเวนต์", "ترك مهام الفعالية", "Abandonar Misión del Evento", "Rules item 5."],
+   ["Custom Mission Voucher", "自選任務券", "임무 선택권", "Benutzerdefiniertes Missionsticket", "Coupon de Mission Personnalisée", "Voucher de Missão Personalizada", "Özel Görev Kuponu", "Voucher Misi Custom", "ваучер пользовательской миссии", "บัตรภารกิจแบบกำหนดเอง", "قسيمة مهمة مخصصة", "Cupón de misión personalizada", "Rules item 6: first exclusive mission of the day gives double points, later ones 120%."],
+   ["Ranking Display Phase", "排名展示階段", "랭킹 표시 단계", "Anzeigephase der Rangliste", "phase d'Affichage du classement", "Fase de Exibição do Ranking", "Görüntüleme Aşaması", "Fase Tampilan", "фаза отображения", "ช่วงแสดงอันดับ", "مرحلة عرض الترتيب", "Fase de visualización de la clasificación", "Rules item 7."],
+   ["League Overview", "聯賽說明", "리그 설명", "Ligaübersicht", "Aperçu de la Ligue", "Visão Geral da Liga", "Lig Genel Bakış", "Ringkasan Liga", "Обзор лиг", "ภาพรวมการแข่งขันชิงแชม", "نظرة عامة على الدوري", "Resumen de la Liga", "Rules section heading. TH heading drops the final 'ป์' (ชิงแชม)."],
+   ["League Event", "活動聯賽", "이벤트 리그", "Ligaevent", "Évènement de Ligue", "Evento da Liga", "Lig Etkinliği", "Event Liga", "Лиги события", "อีเวนต์การแข่งขันชิงแชมป์", "فعالية الدوري", "Evento de Liga", "League item 1."],
+   ["League Tier Ranking", "聯賽升級", "리그 레벨업", "Liga-Stufenrang", "Classement des Paliers de Ligue", "Classificação de Nível da Liga", "Lig Kademe Sıralaması", "Peringkat Tier Liga", "Рейтинг лиг", "อันดับการแข่งขันชิงแชมป์", "ترتيب مستويات الدوري", "Categorías de Liga", "League item 2. Promotion: reach milestone Lv. 8 and finish top 3."],
+   ["Rookie (league tier)", "新手", "초보", "Anfänger", "Débutant", "Novato", "Çaylak", "Rookie", "Начальная", "มือใหม่", "المبتدئ", "Principiante", "Tier 1 (lowest). PT demote text says 'Liga Rookie'. AR demote text names 'الناشئين' (tier 2) as the lowest — game error. ID keeps the English tier names."],
+   ["Junior (league tier)", "初級", "초급", "Junior", "Cadet", "Junior", "Ast", "Junior", "Младшая", "รุ่นเล็ก", "الناشئ", "Iniciada", "Tier 2."],
+   ["Senior (league tier)", "菁英", "엘리트", "Senior", "Supérieur", "Senior", "Kıdemli", "Senior", "Старшая", "รุ่นเดอะ", "المتمرس", "Experimentada", "Tier 3. ⚠️ ZH/KO words look like 'Elite' — match by order, not meaning."],
+   ["Elite (league tier)", "榮耀", "명예", "Elite", "Élite", "Elite", "Seçkin", "Elite", "Элитная", "ชั้นยอด", "النخبة", "Élite", "Tier 4. ⚠️ ZH/KO words mean 'Honor' — match by order, not meaning."],
+   ["Legendary (league tier)", "傳奇", "레전드", "Legendär", "Légende", "Lendário", "Efsanevi", "Legendary", "Легендарная", "ระดับตำนาน", "الأسطوري", "Legendaria", "Tier 5 (highest)."],
+   ["Milestone (promotion level)", "里程碑獎勵", "이정표 보상", "Meilenstein", "étape", "marco", "Eşik noktası", "milestone", "уровень прогресса", "—", "الإنجاز", "objetivo", "Inside League item 2 ('milestone level 8'). TH text just says 'ระดับ 8'."],
+   ["Tier Demote", "聯賽降級", "리그 강등", "Zurückstufen", "Rétrogradation", "Rebaixamento de Tier", "Kademe Düşürme", "Penurunan Tier", "Понижение ступени", "การลดขั้น", "تخفيض الرتبة", "Descenso de Categoría", "League item 3: bottom 3 of each tier drop one tier."],
+   ["Ranking Rule", "排名規則", "랭크 규칙", "Rangregeln", "Règle du Classement", "Regra de Classificação", "Sıralama Kuralı", "Aturan Peringkat", "Правило присвоения рейтинга", "กติกาอันดับ", "قواعد الترتيب", "Regla de Clasificación", "League item 4: ties go to whoever reached the points first."],
+   ["Note (rules)", "注意", "주의", "Hinweis", "Remarque", "Observação", "Not", "Catatan", "Примечание", "หมายเหตุ", "ملاحظة", "Nota", "Rules label (Alliance Mobilization item 7 / Champagne Fair rules)."]
+  ]
+ },
+ {
+  "cat": "Champagne Fair",
+  "rows": [
+   ["Champagne Fair", "香檳市集", "샴페인 시장", "Champagner-Messe", "Foire au Champagne", "Feira do Champanhe", "Şampanya Fuarı", "Champagne Fair", "Шипучая ярмарка", "เทศกาลแชมเปญ", "معرض العصير", "Feria del champán", "Events calendar. RU literally 'Sparkling Fair', AR 'Juice Fair'. Exchange unneeded items; shards of heroes not at max stars can't be exchanged. ID keeps the English name. ID keeps the English name."],
+   ["Fair Vouchers", "市集商券", "시장 티켓", "Messe-Gutscheine", "coupons de foire", "Vouchers da Feira", "Fuar Kuponları", "Kupon Pameran", "купоны ярмарки", "บัตรกำนัลเทศกาล", "قسائم المعرض", "Cupones de la Feria", "Champagne Fair currency (rules text)."],
+   ["Hero Rally", "英雄集結", "영웅 집결", "Helden-Rally", "Ralliement de Héros", "Rally do Herói", "Kahraman Seferberliği", "Reli Pahlawan", "Героический рейд", "ทีมระดมพลฮีโร่", "حشد البطل", "—", "Events calendar bar. ES bar is cut off ('Ataque conjunto de…')."]
+  ]
+ },
 ];
