@@ -240,7 +240,7 @@ const BLOCKS = {
       <div class="joiner-avatar" aria-hidden="true">${escapeHtml((name || "?").charAt(0))}</div>
       <div class="joiner-meta">
         <div class="joiner-name">${escapeHtml(name)}</div>
-        ${role ? `<div class="joiner-role">${escapeHtml(role)}</div>` : ""}
+        ${role ? `<div class="joiner-role">${escapeHtml(role)}</div>` : ""};
       </div>
     </div>`;
   }).join("")}</div>`,
