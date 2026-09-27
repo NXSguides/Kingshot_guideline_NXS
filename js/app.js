@@ -365,6 +365,7 @@ function renderPicker() {
 
 function renderGuideRow() {
   const row = document.getElementById("guideRow");
+  const keepScroll = row.scrollLeft;
   row.innerHTML = "";
   guideKeys().forEach((key) => {
     const g = GUIDES[key];
@@ -379,6 +380,7 @@ function renderGuideRow() {
     };
     row.appendChild(btn);
   });
+  row.scrollLeft = keepScroll;
 }
 
 /* Order of the guide buttons at the top. Guides not listed here are added at the end. */
@@ -412,8 +414,14 @@ function annLabel(a) {
 }
 
 function selectAnnouncement(i) {
+  const tabs = document.querySelector(".ann-tabs");
+  const tabScroll = tabs ? tabs.scrollLeft : 0;
+  const pageY = window.scrollY;
   currentAnnIndex = i;
   renderDoc();
+  const newTabs = document.querySelector(".ann-tabs");
+  if (newTabs) newTabs.scrollLeft = tabScroll;
+  window.scrollTo(0, pageY);
 }
 window.selectAnnouncement = selectAnnouncement;
 
@@ -429,27 +437,34 @@ function renderAnnTicker() {
     .replace(/\*\*(.+?)\*\*/g, "$1")
     .replace(/\s*\n+\s*/g, " ")
     .trim();
-
   const firstParagraph = (text) =>
     (text.split(/\n\s*\n/).map((p) => toPlain(p)).find((p) => p) || "");
 
-  const items = announcements.map((a) => {
+  track.innerHTML = "";
+  let totalLen = 0;
+  announcements.forEach((a, i) => {
     const title = a.title ? t(a.title) : "";
     const body = a.content[currentLang] || a.content.en || Object.values(a.content)[0] || "";
     const lead = firstParagraph(body);
-    return title && lead ? `${title}：${lead}` : (title || lead);
+    const label = `📢 ${title && lead ? `${title}：${lead}` : (title || lead)}`;
+    totalLen += label.length;
+    const item = document.createElement("span");
+    item.className = "ann-ticker-item";
+    item.textContent = label;
+    item.onclick = (e) => { e.stopPropagation(); goToAnnouncements(i); };
+    track.appendChild(item);
   });
-
-  const text = `📢 ${items.join("   ✦   ")}`;
-  track.textContent = text;
-  track.style.animationDuration = `${Math.max(20, Math.round(text.length * 0.18))}s`;
+  track.style.animationDuration = `${Math.max(20, Math.round(totalLen * 0.2))}s`;
 }
 
-function goToAnnouncements() {
+function goToAnnouncements(i) {
+  if (typeof i === "number") currentAnnIndex = i;
   currentGuide = "recent-events";
   persistPrefs();
   renderAll();
   requestAnimationFrame(() => {
+    const tab = document.querySelector(".ann-tab.active");
+    if (tab) tab.scrollIntoView({ block: "nearest", inline: "center" });
     const el = document.querySelector(".ann-board");
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   });
