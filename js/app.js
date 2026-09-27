@@ -217,6 +217,7 @@ const BLOCKS = {
       const note = (b.notes && b.notes[i] && b.notes[i][j]) || "";
       const tagLabel = (UI.tags[r.tag] && t(UI.tags[r.tag])) || r.tag.toUpperCase();
       const ratio = r.ratio ? `<span class="ratio">${escapeHtml(r.ratio)}</span>` : "";
+      const img = r.img ? `<img class="lineup-img" src="${escapeHtml(r.img)}" alt="${escapeHtml(formatHeroes(r.heroes))}" loading="lazy" onerror="this.remove()">` : "";
       return `
         <div class="lineup-row">
           <div class="lineup-left">
@@ -225,8 +226,11 @@ const BLOCKS = {
           </div>
           ${ratio}
         </div>
+        ${img}
         ${note ? `<div class="gen-note">${rich(note)}</div>` : ""}`;
     }).join("");
+    return `<div class="gen-card"><div class="gen-label">${escapeHtml((b.gens && b.gens[i]) || "")}</div>${rows}</div>`;
+  }).join(""),
     return `<div class="gen-card"><div class="gen-label">${escapeHtml((b.gens && b.gens[i]) || "")}</div>${rows}</div>`;
   }).join(""),
   joiners: (b, g) => `<div class="joiner-list">${(g.joiners || []).map((j) => {
