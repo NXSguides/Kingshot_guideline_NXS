@@ -622,7 +622,10 @@ const TERMS = [
    ["Conquerors' Camp", "討伐小隊營地", "소대 영지 토벌", "Lager der Eroberer", "Camp des Conquérants", "Acampamento dos Conquistadores", "Fatihler Kampı", "Kamp Penakluk", "Лагерь завоевателя", "ค่ายผู้พิชิต", "معسكر الغزاة", "Campamento de Conquistadores", "City view label."],
    ["Court of Justice", "司法所", "사법재판소", "Gericht", "Cour de Justice", "Corte da Justiça", "Adliye", "Mahkamah Hukum", "Суд", "ศาลยุติธรรม", "محكمة العدل", "Corte de justicia", "City view label."],
    ["Infirmary", "野戰醫院", "야전 병원", "Krankenstation", "Infirmerie", "Enfermaria", "Revir", "Rumah Sakit", "Лазарет", "โรงพยาบาล", "المستوصف", "Enfermería", "City view label."],
-   ["Enlistment Office", "徵兵處", "징병소", "Musterungsamt", "Bureau d'Enrôlement", "Escritório de Alistamento", "Görevlendirme Ofisi", "Kantor Pendaftaran", "Призывной пункт", "—", "مكتب التجنيد", "Oficina de Reclutamiento", "City view label. TH label hidden by the chat bar."]
+   ["Enlistment Office", "徵兵處", "징병소", "Musterungsamt", "Bureau d'Enrôlement", "Escritório de Alistamento", "Görevlendirme Ofisi", "Kantor Pendaftaran", "Призывной пункт", "ศูนย์เกณฑ์ทหาร", "مكتب التجنيد", "Oficina de Reclutamiento", "City view label. TH confirmed from the Gen 3 city screenshot."],
+   ["Storehouse", "倉庫", "창고", "Lagerhaus", "L'Entrepôt", "Armazém", "Ambar", "Gudang", "Склад", "โกดัง", "المستودع", "Almacén", "City view label."],
+   ["Defense Tower", "防禦塔", "방어탑", "Verteidigungstürme", "Tours de Défense", "Torres de Defesa", "Savunma Kuleleri", "Menara Pertahanan", "Защитная башня", "หอคอยป้องกัน", "أبراج الدفاع", "Torres defensivas", "City view label with a number (e.g. 'Verteidigungstürme 5'). Most languages use the plural; ZH/KO/RU/TH singular."],
+   ["Beast Cage", "獸欄", "사육장", "Bestienkäfig", "Enclos", "Jaula da Fera", "Hayvan Kafesi", "Beast Cage", "Загон для зверей", "กรงสัตว์", "قفص الوحش", "Jaula de bestias", "City view label. ID left in English."]
   ]
  },
  {
@@ -801,6 +804,64 @@ const TERMS = [
    ["Not Appointed", "未任命", "미임명", "Keine Ernennung", "Aucune Nomination", "Nenhuma Nomeação", "Kimse Atanmadı", "Tidak ada yang ditunjuk", "Не назначено", "ไม่ได้แต่งตั้งผู้ใด", "لم يتم تعيين أحد", "Nadie designado", "Empty position label."],
    ["Reserved", "已成功預約", "예약에 성공했습니다", "Reservierungen", "Retenu(e) pour", "Reservado", "Rezerve Edildi", "Direservasi", "Зарезервировано", "จองแล้ว", "تم الحجز", "Reservado", "Bottom bar after booking a position. ZH/KO are full sentences ('successfully reserved'); DE is plural."],
    ["Appointed in", "距離任命", "임명까지", "Ernennung in", "Nommé(e) dans", "Indicou em", "Atanma zamanı", "Ditunjuk dalam", "Назначается на", "ได้รับการแต่งตั้งใน", "سيتم تعيين بعد", "Designado en", "Countdown on the bottom bar. AR text order is garbled in-game."]
+  ]
+ },
+ {
+  "cat": "Gen 3 Heroes",
+  "rows": [
+   ["Eric", "艾瑞克", "에릭", "Eric", "Éric", "Eric", "Eric", "Eric", "Эрик", "อีริค", "إيريك", "Eric", "Gen 3 SSR infantry hero (S3)."],
+   ["Petra", "小佩拉", "리틀 페라", "Petra", "Petra", "Petra", "Petra", "Petra", "Петра", "เพตรา", "بيترا", "Petra", "Gen 3 SSR cavalry hero (S3). ZH/KO add 'Little' (小 / 리틀)."],
+   ["Jaeger", "耶格爾", "예거", "Jaeger", "Jaeger", "Jaeger", "Jaeger", "Jaeger", "Йегер", "เยเกอร์", "ييجر", "Jaeger", "Gen 3 SSR archer hero (S3)."],
+   ["At Max Level & Stars", "最高等級和星級屬性", "최대 레벨 및 성급 속성", "Max Level und Sterne-Bewertung", "Niveau et Nombre d'Étoiles au Max", "Nível Máx. e Classificação de Estrelas", "Maks Seviye ve Yıldız Derecesi", "Saat Level & Bintang Maks", "Макс. ур. и звездный рейтинг", "เลเวลและดาวสูงสุด", "أقصى مستوى وتصنيف النجوم", "Nv. y estrellas máx.", "Hero stat preview banner."],
+   ["Hero Attack", "英雄攻擊力", "영웅 공격", "Heldenangriff", "Attaque du Héros", "Ataque do Herói", "Kahraman Saldırısı", "Attack Hero", "Атака героя", "พลังโจมตีฮีโร่", "هجوم البطل", "Ataque de héroe", "Conquest stat."],
+   ["Hero Defense", "英雄防禦力", "영웅 방어", "Heldenverteidigung", "Défense du Héros", "Defesa do Herói", "Kahraman Savunması", "Defense Hero", "Защита героя", "พลังป้องกันฮีโร่", "دفاع البطل", "Defensa de héroe", "Conquest stat."],
+   ["Hero Health", "英雄生命值", "영웅 HP", "Heldengesundheit", "Santé du Héros", "Vida do Herói", "Kahraman Sağlığı", "Health Hero", "Здоровье героя", "พลังชีวิตฮีโร่", "صحة البطل", "Salud de héroe", "Conquest stat."],
+   ["Expedition", "遠征", "원정", "Expedition", "Expédition", "Expedição", "Sefer", "Ekspedisi", "Экспедиция", "การออกเดินทาง", "الحملة الاستكشافية", "Expedición", "Stat section heading on hero and master pages (same word as in Expedition Skills / Stats)."],
+   ["Infantry Attack", "步兵攻擊力", "보병 공격력", "Infanterie-Angriff", "Attaque de l'Infant.", "Ataque da Infantaria", "Piyade Saldırısı", "Serangan Infanteri", "Атака пехоты", "พลังโจมตีทหารราบ", "هجوم المشاة", "Ataque de Infantería", "Expedition stat. FR abbreviated."],
+   ["Infantry Defense", "步兵防禦力", "보병 방어력", "Infanterie-Verteidigung", "Défense de l'Infant.", "Defesa da Infantaria", "Piyade Savunması", "Pertahanan Infanteri", "Защита пехоты", "พลังป้องกันทหารราบ", "دفاع المشاة", "Defensa de Infantería", "Expedition stat. FR abbreviated."],
+   ["Cavalry Attack", "騎兵攻擊力", "기병 공격력", "Kavallerie-Angriff", "Attaque de la Caval.", "Ataque da Cavalaria", "Süvari Saldırısı", "Attack Kavaleri", "Атака кавалерии", "พลังโจมตีทหารม้า", "هجوم الفرسان", "Ataque de Caballería", "Expedition stat. ID mixes English 'Attack'."],
+   ["Cavalry Defense", "騎兵防禦力", "기병 방어력", "Kavallerie-Verteidigung", "Défense de la Caval.", "Defesa da Cavalaria", "Süvari Savunması", "Defense Kavaleri", "Защита кавалерии", "พลังป้องกันทหารม้า", "دفاع الفرسان", "Defensa de Caballería", "Expedition stat. ID mixes English 'Defense'."]
+  ]
+ },
+ {
+  "cat": "Master Academy",
+  "rows": [
+   ["Master Academy", "大師學院", "거장 아카데미", "Meisterakademie", "Académie des Experts", "Academia dos Mestres", "Usta Akademisi", "Akademi Master", "Университет мастеров", "สถาบันมาสเตอร์", "أكاديمية المتخصصين", "Academia de Maestros", "City building, unlocks at Town Center 25 (Gen 3). Master = KO 거장, FR Expert, AR متخصص (specialist), RU uses Университет like the Academy row."],
+   ["Master List", "大師列表", "거장 리스트", "Meisterliste", "Liste d'experts", "Listra de Mestre", "Usta Listesi", "Daftar Master", "Список мастеров", "รายชื่อมาสเตอร์", "قائمة المتخصصين", "Lista de maestros", "Journey screen button. PT 'Listra' is a game typo for 'Lista'."],
+   ["Master Stats", "大師總屬性", "거장 총 속성", "Meister-Werte", "Stats d'expert", "Atributos de Mestre", "Usta Nitelikleri", "Stat Master", "Показатели мастера", "ค่าสถานะมาสเตอร์", "سمات المتخصص", "Atributos de maestro", "Master page pop-up. ZH/KO say 'total'."],
+   ["Max Affinity Stats", "好感度滿級屬性", "호감도 최대 레벨 속성", "Max. Affinität-Werte", "Stats d'Affinité Max", "Atributos de Afinidade Máxima", "Maks. Yakınlık Nitelikleri", "Stat Kedekatan Maks", "Макс. показатели сближения", "ค่าสถานะความสัมพันธ์สูงสุด", "إحصائيات التقارب القصوى", "Atributos de Afinidad máx.", "Master info banner."],
+   ["Talent", "天賦", "재능", "Talent", "Talent", "Talento", "Yetenek", "Talenta", "Талант", "ความสามารถ", "المواهب", "Talento", "Master passive. TR is the singular of 'Yetenekler' (Skills)."],
+   ["Reach 1000 Affinity and the Master will settle in the Town.", "好感度達到1,000，大師將進駐城鎮", "호감도가 1000에 도달해 거장을 도시에 입주시킬 수 있습니다.", "Erreiche 1000 Affinität und der Meister wird sich in der Stadt niederlassen.", "Atteins 1000 en affinité et l'expert s'installera dans le village.", "Alcance 1000 de Afinidade, e o Mestre vai se estabelecer na cidade.", "1000 Yakınlığa ulaştığında Usta Şehre yerleşecektir.", "Capai 1000 Kedekatan dan Master akan menetap di Kota.", "Получите 1000 очк. сближения, и мастер поселится в городе.", "เมื่อค่าความสัมพันธ์ถึง 1,000 หน่วย มาสเตอร์จะตั้งถิ่นฐานในเมือง", "عند الوصول إلى 1000 تقارب، سيستقر المتخصص في البلدة.", "Alcanza 1000 de Afinidad y el maestro se establecerá en la colonia.", "Unlock condition text. Use it to find each language's word for Affinity."],
+   ["Relationship Advancement", "關係進階", "관계 진급", "Beziehungs-fortschritt", "Progrès de la Relation", "Avanço no Relacionamento", "İlişki İlerlemesi", "Peningkatan Hubungan", "Улучшение отношений", "พัฒนาความสัมพันธ์", "تقدم العلاقة", "Avance de relación", "Master page button. DE hyphenated on the button."],
+   ["Relationship Advancement Preview", "關係進階預覽", "관계 진급 예측", "Beziehungsfortschritt-Vorschau", "Aperçu du Progrès de la Relation", "Prévia do Avanço no Relacionamento", "İlişki İlerlemesi Önizlemesi", "Pratinjau Peningkatan Hubungan", "Предпросмотр улучшения отношений", "ดูตัวอย่างการพัฒนาความสัมพันธ์", "معاينة تقدم العلاقة", "Vista previa de Avance de relación", "Window title."],
+   ["Expertise Level Up", "精通等級提升", "전문 분야 레벨 상승", "Fachwissen-Levelaufstieg", "Expertise : Niv. sup.", "Especialidade Subiu de Nível", "Uzmanlık Seviyesi Artışı", "Keahlian Naik Level", "Повышение уровня экспертности", "เลเวลความชำนาญเพิ่มขึ้น", "الارتقاء بمستوى الإتقان", "Mejor de nivel de experiencia", "Relationship reward line. ES 'Mejor' is a game typo for 'Mejora'."],
+   ["Raise Master Affinity to upgrade Status", "提升好感度等級，可進階與大師的關係", "호감도 레벨을 올려서 거장 관계를 진급시키세요.", "Erhöhe die Meisteraffinität, um den Status zu verbessern", "Augmente l'affinité d'expert pour améliorer le statut", "Aumente a Afinidade de Mestre para aprimorar o status", "Durumu yükseltmek için Uzman Yakınlığını artır", "Tingkatkan Kedekatan Master untuk meningkatkan Status", "Сближайтесь с мастерами, чтобы улучшить статус", "เพิ่มค่าความสัมพันธ์มาสเตอร์เพื่ออัปเกรดสถานะ", "رفع مستوى تقارب المتخصص لترقية الحالة", "Aumenta la Afinidad con el maestro para mejorar el Estado", "Relationship preview footer. TR uses 'Uzman' here but 'Usta' for the building/list."],
+   ["Stranger", "素不相識", "모르는 사이", "Fremder", "Étranger", "Estranho", "Yabancı", "Asing", "Незнакомец", "คนแปลกหน้า", "غريب", "Desconocido", "Relationship status (Lv.1)."],
+   ["Acquaintance", "點頭之交", "깊지 않은 교제", "Bekannter", "Relation", "Conhecido", "Tanıdık", "Kenalan", "Знакомый", "คนรู้จัก", "معرفة", "Conocido", "Relationship status 1–3 (Lv.10–30). FR 'Relation' is the same word as in Relationship Advancement."],
+   ["Casual", "志同道合", "의기투합", "Zwanglos", "Connaissance", "Casual", "Sıradan", "Akrab", "Друг", "ผิวเผิน", "عابرة", "Cordial", "Relationship status 1–3 (Lv.40–60). Meanings differ a lot: ZH 'like-minded', AR 'passing', ID 'close'."],
+   ["Close", "赤誠相待", "마음 터놓기", "Eng", "Proche", "Fechado", "Yakın", "Dekat", "Лучший друг", "ใกล้ชิด", "قريبة", "Cercano", "Relationship status 1–3 (Lv.70–90). PT 'Fechado' ('closed') is a game mistranslation."],
+   ["Kindred Soul", "莫逆之交", "평생의 친구", "Seelenverwandter", "Alter ego", "Alma Irmã", "Ruh Eşi", "Belahan Jiwa", "Родственная душа", "มิตรแท้", "روح متآلفة", "Alma gemela", "Relationship status (Lv.100)."],
+   ["Squads' Defense", "部隊防禦力", "부대 방어력", "Schwadron Verteidigung", "Défense des escouades", "Defesa dos Esquadrões", "Ekiplerin Savunması", "Defense Skuad", "Защита войск", "พลังป้องกันทีม", "دفاع الفرق", "Defensa de los Escuadrones", "Master Expedition stat (Pan). Squads' Attack is in the City Skin category."],
+   ["Reserve Chests", "儲備寶箱", "예비 보물상자", "Reserve-Truhen", "Coffres de Réserve", "Baús de Reserva", "Yedek Sandık", "Peti Cadangan", "сундуки резервов", "หีบกองหนุน", "صناديق الاحتياطي", "cofres de reserva", "Pan's Talent: 5 per 120 min of gathering, daily cap 30."],
+   ["Pan", "潘", "판", "Pan", "Pan", "Pan", "Pan", "Pan", "Пан", "แพน", "بان", "Pan", "Master."],
+   ["Palace Administrator", "皇室總管", "황실 총지배인", "Palastverwalter", "Administrateur du palais", "Administrador do Palácio", "Saray Yöneticisi", "Administrator Istana", "Дворцовый распорядитель", "ผู้ดูแลพระราชวัง", "مدير القصر", "Administrador de palacio", "Pan's title."],
+   ["Valora", "維拉", "베라", "Valora", "Valora", "Valora", "Valora", "Valora", "Валора", "วาโลร่า", "فالورا", "Valora", "Master."],
+   ["Bear Hunter", "巨熊主宰", "자이언트 베어 주석", "Bärenjäger", "Chasseur d'ours", "Caça ao Urso", "Ayı Avcısı", "Pemburu Beruang", "Охотница на медведей", "ล่าหมี", "صيد الدببة", "Cazador de osos", "Valora's title. PT/TH/AR show the event name 'Bear Hunt' instead. FR/ES masculine, RU feminine."],
+   ["Bear Hunt Damage Points (effective for self only)", "狩獵巨熊所獲得的傷害積分（僅對自己生效）", "자이언트 베어 사냥에서 획득하는 피해 포인트 (자신에게만 적용)", "Bärenjagd-Schadenspunkte (wirkt nur für sich selbst)", "points de dégâts supplémentaires lors de la chasse à l'ours (valable uniquement pour elle-même)", "pontos de danos adicionais para a caça ao urso (eficaz apenas para si mesmo)", "Ayı Avı Hasar Puanı (yalnızca kendi için geçerlidir)", "Poin Damage Perburuan Beruang (hanya berlaku untuk diri sendiri)", "дополнительного урона в «Охоте на медведя» (действует только на себя)", "คะแนนความเสียหายล่าหมีเพิ่มเติม (มีผลกับตัวเองเท่านั้น)", "نقاط الضرر الإضافية في صيد الدببة (يسري التأثير على الذات فقط)", "puntos de daño de Cacería del Oso adicionales (efectivo solo para sí misma)", "Valora's Talent text (+30%)."],
+   ["Master's Manuscript", "大師手稿", "거장의 원고", "Meister-Manuskript", "Manuscrit d'expert", "Manuscrito de Mestre", "Uzmanın El Yazması", "Manuskrip Master", "Рукопись мастера", "ตำรามาสเตอร์", "مخطوطة المتخصص", "Manuscrito del maestro", "Item: used to enhance skill levels taught by Masters. PT description starts with the typo 'Usou'."],
+   ["General Master Emblem", "通用大師徽記", "공용 거장 배지", "Allgemeines Meister-Emblem", "Emblème d'expert général", "Emblema de Mestre Geral", "Genel Usta Amblemi", "Emblem Master Umum", "Общая эмблема мастера", "ตรามาสเตอร์ทั่วไป", "شعار متخصص عام", "Emblema de Maestro General", "Item: redeem Master Emblems of Masters in your Town. Master Emblem = the word without 'General'."],
+   ["Achievements", "成就", "성과", "Erfolge", "Réussites", "Conquistas", "Başarılar", "Pencapaian", "Достижения", "ความสำเร็จ", "الإنجازات", "Logros", "Item source. PT 'Conquistas' is close to Conquest ('Conquista')."]
+  ]
+ },
+ {
+  "cat": "Realm Journey",
+  "rows": [
+   ["Realm Journey", "荒野冒險", "황야 모험", "Reichsreise", "Voyage dans le royaume", "Jornada do Reino", "Krallık Yolculuğu", "Perjalanan Alam", "Тропа приключений", "การเดินทางอาณาจักร", "رحلة العالم", "Travesía por el reino", "Signboard on the journey road."],
+   ["Journey", "冒險", "모험", "Reise", "Voyage", "Jornada", "Yolculuk", "Perjalanan", "Путешествие", "การเดินทาง", "الرحلة", "Travesía", "Item source name (short form of Realm Journey)."],
+   ["Frontier Encounter", "荒野奇遇", "황야에서의 우연한 만남", "Grenzbegegnung", "Rencontre frontalière", "Encontro Fronteiriço", "Sınır Karşılaşması", "Pertemuan Frontier", "Встреча заставы", "การผจญภัยชายแดน", "مواجهة الطليعة", "Encuentro en la frontera", "Journey screen button / item source."],
+   ["Next Stop", "下一站", "다음 역", "Nächste Station", "Prochain Arrêt", "Próxima Estação", "Sonraki Durak", "Stasiun Berikutnya", "Следующая станция", "สถานีถัดไป", "المحطة التالية", "Siguiente estación", "Journey main button."],
+   ["Idle", "掛機", "자동 진행", "Untätig", "Inactif(ve)", "Inativo", "Boşta", "Idle", "Пассивн.", "บอท", "خامل", "Inactivo/a", "Journey toggle. TH literally 'bot'."],
+   ["Auto", "自動", "자동", "Auto", "Auto", "Auto", "Oto.", "Otomatis", "Авто", "อัตโนมัติ", "تلقائي", "Automático", "Journey toggle."]
   ]
  },
 ];
