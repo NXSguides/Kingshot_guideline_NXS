@@ -1,3 +1,4 @@
+---
 author: Nia
 lang: en   # en / zh / ko / de / fr / pt / tr / id / ru / th / ar / es
 title: REMINDER
@@ -30,3 +31,38 @@ content: |
 
   **Thank you for understanding!**
 ---
+author: Nia
+lang: en   # en / zh / ko / de / fr / pt / tr / id / ru / th / ar / es
+title: Gen 3 Heroes Guide
+images: []
+content: |
+  Not sure what to invest in? New Heroes & Masters guides are available on Discord and our multilingual website.
+
+  **Summary GEN 3**
+  🔥 Petra - MUST BUILD ({heroRoulette}). Excellent {bearHunt} hero with value through Gen 7.
+  - Eric & Jaeger: Skip unless focused on PvP/garrison defense
+
+  **Overall:**
+  🔹 F2P Players: Focus on {zoe} if not maxed already (Infantry tank) and Petra (offensive Cavalry) from {heroRoulette}
+  🔹 P2W Players: Prioritize {amadeus} (VIP 7+) and {hilde}
+
+  [[link:f2p-heroes]]
+---
+author: Nia
+lang: en   # en / zh / ko / de / fr / pt / tr / id / ru / th / ar / es
+title: 🏆 Gen 3 Masters Guide
+images: []
+content: |
+  Masters are characters you unlock & level for special skills, bonuses and rewards. They are separate from Heroes.
+
+  🔹 F2P Priority: PAN > VALORA > ROMAN
+  🔹 Whale/Rally Lead: VALORA > ROMAN > PAN
+
+  **TIPS:**
+  🔹 Don’t use Supplies on Valora—free Journeys unlock her.
+  🔹 Save Supplies for Pan in Lostlands.
+  🔹 Pan -> Lv60: Falconer = max daily {truegold}/speedups.
+  🔹 Valora -> Lv30: {bearHunt} {forgehammer}s.
+  🔹 Roman -> Unlock only for passive Arena Chest drops.
+---
+
