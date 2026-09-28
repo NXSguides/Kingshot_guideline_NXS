@@ -65,4 +65,19 @@ content: |
   🔹 Valora -> Lv30: {bearHunt} {forgehammer}s.
   🔹 Roman -> Unlock only for passive Arena Chest drops.
 ---
+author: Nia 
+lang: en
+title: 🔥 ALLIANCE MOBILIZATION IS HERE! 🔥
+images: [] 
+content: |
+  🏆 Push for TOP 3 to secure our statue and position!
+
+  🚨 DO NOT select missions using KvK Prep items: Speedups, Hero/General Shards, Governor/Hero Gear mats, True Gold or Pet items.
+
+  ✅ Best picks: 120K Training, Terror Rallies (joining counts, save stamina), 30M Gathering, Beast missions (gold tier) pair with Intel.
+
+  ⚠️ Training/Gathering: have them nearly finished before selecting. Use pet buffs & King perks.
+
+  **Choose wisely and maximize every attempt!**
+---
 
