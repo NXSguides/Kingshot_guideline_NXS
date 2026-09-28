@@ -41,30 +41,48 @@ function parseEntries(md) {
   });
 }
 
-async function callGemini(entry, systemPrompt, retries = 5) {
-  for (let attempt = 1; attempt <= retries; attempt++) {
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
-      {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          system_instruction: { parts: [{ text: systemPrompt }] },
-          contents: [{ parts: [{ text: entry.content }] }],
-          generationConfig: { responseMimeType: "application/json" },
-        }),
+const MODELS = [
+  "gemini-3.5-flash",
+  "gemini-3-flash-preview",
+  "gemini-2.5-flash",
+  "gemini-2.5-flash-lite",
+];
+
+async function callGemini(entry, systemPrompt) {
+  const errors = [];
+  for (const model of MODELS) {
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${process.env.GEMINI_API_KEY}`,
+        {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            system_instruction: { parts: [{ text: systemPrompt }] },
+            contents: [{ parts: [{ text: entry.content }] }],
+            generationConfig: { responseMimeType: "application/json" },
+          }),
+        }
+      );
+      const json = await res.json();
+      if (res.ok) {
+        console.log(`使用模型：${model}`);
+        return json;
       }
-    );
-    const json = await res.json();
-    if (res.ok) return json;
-    const isRetryable = res.status === 503 || res.status === 429;
-    if (isRetryable && attempt < retries) {
-      console.warn(`Gemini 回傳 ${res.status}，${attempt}/${retries} 次重試，等待 ${attempt * 5} 秒...`);
-      await new Promise(r => setTimeout(r, attempt * 5000));
-      continue;
+      if (res.status === 503 && attempt < 3) {
+        console.warn(`${model} 忙碌中 (503)，${attempt * 5} 秒後重試...`);
+        await new Promise(r => setTimeout(r, attempt * 5000));
+        continue;
+      }
+      if (res.status === 429 || res.status === 404 || res.status === 503) {
+        console.warn(`${model} 無法使用 (HTTP ${res.status})，改用下一個模型`);
+        errors.push(`${model}: ${res.status}`);
+        break;
+      }
+      throw new Error(`Gemini API 回傳錯誤 (${model}, HTTP ${res.status}): ${JSON.stringify(json)}`);
     }
-    throw new Error(`Gemini API 回傳錯誤 (HTTP ${res.status}): ${JSON.stringify(json)}`);
   }
+  throw new Error(`所有模型都無法使用：${errors.join(", ")}`);
 }
 
 async function translateOne(entry, glossaryText) {
