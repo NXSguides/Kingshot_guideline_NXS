@@ -285,6 +285,26 @@ const GLOSSARY = {
   masterItems: { en:"Master items" },
   manuscript: { en:"Manuscript" },
   masterSpeeds: { en:"Master speeds" },
+  masterAcademy: { zh:"大師學院", en:"Master Academy", ko:"거장 아카데미", de:"Meisterakademie", fr:"Académie des Experts", pt:"Academia dos Mestres", tr:"Usta Akademisi", ru:"Университет мастеров", th:"สถาบันมาสเตอร์", ar:"أكاديمية المتخصصين", es:"Academia de Maestros" },
+  pan: { zh:"潘", en:"Pan", ko:"판", de:"Pan", fr:"Pan", pt:"Pan", tr:"Pan", id:"Pan", ru:"Пан", th:"แพน", ar:"بان", es:"Pan" },
+  valora: { zh:"維拉", en:"Valora", ko:"베라", de:"Valora", fr:"Valora", pt:"Valora", tr:"Valora", id:"Valora", ru:"Валора", th:"วาโลร่า", ar:"فالورا", es:"Valora" },
+  roman: { en:"Roman" },
+  petra: { zh:"小佩拉", en:"Petra", ko:"리틀 페라", de:"Petra", fr:"Petra", pt:"Petra", tr:"Petra", ru:"Петра", th:"เพตรา", ar:"بيترا", es:"Petra" },
+  realmJourney: { zh:"荒野冒險", en:"Realm Journey", ko:"황야 모험", de:"Reichsreise", fr:"Voyage dans le royaume", pt:"Jornada do Reino", tr:"Krallık Yolculuğu", id:"Perjalanan Alam", ru:"Тропа приключений", th:"การเดินทางอาณาจักร", ar:"رحلة العالم", es:"Travesía por el reino" },
+  journeySupplies: { zh:"冒險物資", en:"Journey Supplies", ko:"모험 물자", de:"Reisevorräte", fr:"Provisions de voyage", pt:"Suprimentos da Jornada", tr:"Yolculuk Malzemeleri", id:"Perbekalan Perjalanan", ru:"Припасы путешествия", th:"เสบียงการเดินทาง", ar:"إمدادات الرحلة", es:"Suministros de Travesía" },
+  adventureSupply: { zh:"征程補給", en:"Adventure Supply", ko:"원정 보급", de:"Abenteuervorrat", fr:"Provision d'Aventure", pt:"Suprimentos de Aventura", tr:"Macera Tedariki", id:"Suplai Petualangan", ru:"Припасы для приключений", th:"เสบียงการผจญภัย", ar:"إمدادات المغامرة", es:"Suministro de Aventura" },
+  lostlands: { zh:"遺忘之地", en:"Lostlands", ko:"잊혀버린 땅", de:"Verlorene Lande", fr:"Terres Perdues", pt:"Terras Perdidas", tr:"Kayıp Diyarlar", id:"Tanah Terlupakan", ru:"Забытые земли", th:"ดินแดนสาบสูญ", ar:"الأراضي المفقودة", es:"Tierras Perdidas" },
+  reserveChests: { zh:"儲備寶箱", en:"Reserve Chests", ko:"예비 보물상자", de:"Reserve-Truhen", fr:"Coffres de Réserve", pt:"Baús de Reserva", tr:"Yedek Sandık", id:"Peti Cadangan", ru:"сундуки резервов", th:"หีบกองหนุน", ar:"صناديق الاحتياطي", es:"cofres de reserva" },
+  mysteryBadge: { zh:"神秘徽章", en:"Mystery Badges", ko:"신비한 휘장", de:"mysteriöse Abzeichen", fr:"insignes mystères", pt:"Insígnias Misteriosas", tr:"Gizem Rozeti", id:"Lencana Misteri", ru:"тайные жетоны", th:"ตราปริศนา", ar:"الشارات الغامضة", es:"insignias de misterio" },
+  ragingBear: { zh:"暴怒巨熊", en:"Raging Bear", ko:"분노한 곰", de:"Wütender Bär", fr:"Ours Enragé", pt:"Urso Furioso", tr:"Öfkeli Ayı", id:"Raging Bear", ru:"свирепый медведь", th:"หมีคลั่ง", ar:"الدب الهائج", es:"Oso Enfurecido" },
+  acquaintance: { zh:"點頭之交", en:"Acquaintance", ko:"깊지 않은 교제", de:"Bekannter", fr:"Relation", pt:"Conhecido", tr:"Tanıdık", ru:"Знакомый", th:"คนรู้จัก", ar:"معرفة", es:"Conocido" },
+  casual: { zh:"志同道合", en:"Casual", ko:"의기투합", de:"Zwanglos", fr:"Connaissance", pt:"Casual", tr:"Sıradan", ru:"Друг", th:"ผิวเผิน", ar:"عابرة", es:"Cordial" },
+  savageAdvantage: { zh:"人數優勢", en:"Savage Advantage", ko:"수적 우위", de:"Vorteil des Wilden", fr:"Avantage primitif", pt:"Vantagem Selvagem", tr:"Vahşi Avantaj", id:"Savage Advantage", ru:"Беспощадное преимущество", th:"ความได้เปรียบอันดุร้าย", ar:"الأفضلية الوحشية", es:"Ventaja salvaje" },
+  leaderByExample: { zh:"經驗傳承", en:"Leader By Example", ko:"경험 전승", de:"Vorbildlicher Anführer", fr:"Donner l'exemple", pt:"Líder por Exemplo", tr:"Örnek Lider", id:"Leader By Example", ru:"Образцовый лидер", th:"ผู้นำตัวอย่าง", ar:"القائد القدوة", es:"Liderazgo ejemplar" },
+  weaponObsession: { zh:"武器專精", en:"Weapon Obsession", ko:"무기 마스터리", de:"Waffenbesessenheit", fr:"Attrait pour les armes", pt:"Obsessão por Armas", tr:"Silah Takıntısı", id:"Weapon Obsession", ru:"Одержимость снаряжением", th:"ความหลงไหลในอาวุธ", ar:"هوس السلاح", es:"Obsesión por las armas" },
+  danceOfTheHunt: { zh:"狩獵之舞", en:"Dance of the Hunt", ko:"사냥의 춤", de:"Tanz der Jagd", fr:"Danse de la chasse", pt:"Dança da Caçada", tr:"Av Dansı", id:"Dance of the Hunt", ru:"Танец охоты", th:"ระบำแห่งการล่า", ar:"رقصة الصيد", es:"Danza de la cacería" },
+  falconer: { zh:"獵鷹偵查", en:"Falconer", ko:"사냥용 매 정찰", de:"Falkner", fr:"Fauconnier", pt:"Falcoeiro", tr:"Doğancı", id:"Falconer", ru:"Сокольник", th:"ผู้ฝึกเหยี่ยว", ar:"الصقار", es:"Cetrero" },
+  waysAndMeans: { zh:"特殊管道", en:"Ways and Means", ko:"특별한 경로", de:"Mittel und Wege", fr:"L'art et la manière", pt:"Jeitos e Maneiras", tr:"Yollar ve Yöntemler", id:"Ways and Means", ru:"Методы и средства", th:"วิธีการและหนทาง", ar:"السبل والوسائل", es:"Formas y medios" },
   vipXp: { zh:"VIP經驗值", en:"VIP XP", ko:"VIP 경험치", de:"VIP XP", fr:"EXP VIP", pt:"XP VIP", tr:"VIP XP", id:"XP VIP", ru:"VIP-опыт", th:"XP VIP", ar:"خبرة VIP", es:"EXP VIP" },
   trialCrystal: { zh:"試煉晶石", en:"Trial Crystal", ko:"시련 결정", de:"Prüfungskristall", fr:"Cristal du défi", pt:"Cristal da Prova", tr:"İmtihan Kristali", id:"Kristal Ujian", ru:"Кристалл баталий", th:"คริสตัลบททดสอบ", ar:"كريستال الاختبارات", es:"Cristal de Pruebas" },
   customMythicGearChest: { zh:"傳說英雄裝備客製化箱子", en:"Custom Mythic Hero Gear Chest", ko:"레전드 영웅 장비 상자", de:"Mythische Heldenausrüstungs Kiste", fr:"Caisse d'Équipement de Héros Mythique Personnalisée", pt:"Baú de Equip. de Herói Mítico Personalizado", tr:"Özel Mitik Kahraman Donanımı Sandığı", id:"Peti Perlengkapan Pahlawan Mitos Khusus", ru:"Личное мифическое снаряжение героя", th:"หีบอุปกรณ์ฮีโร่ขั้นเทพกำหนดเอง", ar:"صندوق عتاد البطل الخيالي المخصص", es:"Caja de equipo de héroe mítico personalizada" },
@@ -303,7 +323,7 @@ const GLOSSARY = {
   houseOfCacti: { zh:"仙人掌小屋", en:"House of Cacti", ko:"선인장 오두막", de:"Haus der Kakteen", fr:"Maison des Cactus", pt:"Casa dos Cactos", tr:"Kaktüs Evi", id:"House of Cacti", ru:"Обитель кактусов", th:"อาณาจักรกระบองเพชร", ar:"بيت الصبار", es:"Casa de los cactus" },
   squadsAttack: { zh:"部隊攻擊力", en:"Squads' Attack", ko:"부대 공격력", de:"Schwadron Angriff", fr:"Attaque des escouades", pt:"Ataque dos Esquadrões", tr:"Ekiplerin Saldırısı", id:"Attack Skuad", ru:"Атака войск", th:"พลังโจมตีทีม", ar:"هجوم الفرق", es:"Ataque de los Escuadrones" },
   charmDesign: { zh:"寶石圖紙", en:"Charm Design", ko:"보석 도면", de:"Talismanpläne", fr:"Plans de Talisman", pt:"Design do Talismã", tr:"Tılsım Tasarımı", id:"Desain Charm", ru:"Чертеж талисмана", th:"แผนเครื่องราง", ar:"تصميم تميمة", es:"Planos de talismán" },
-  masterEmblem: { en:"Master Emblems" },
+  masterEmblem: { zh:"大師徽記", en:"Master Emblems", ko:"거장 배지", de:"Meister-Embleme", fr:"emblèmes d'expert", pt:"Emblemas Mestres", tr:"Usta Amblemleri", ru:"эмблемы мастера", th:"ตรามาสเตอร์", ar:"شعارات المتخصصين", es:"emblemas de maestro" },
   nomadicMerchant: { zh:"流浪商人", en:"Nomadic Merchant", ko:"떠돌이 상인", de:"Nomaden Händler", fr:"Marchand Nomade", pt:"Comerciante Nômade", tr:"Göçebe Tüccar", id:"Pedagang Nomaden", ru:"Торговец-кочевник", th:"พ่อค้าพเนจร", ar:"تاجر بدوي", es:"Mercader nómade" },
   mysteryShop: { zh:"神秘商店", en:"Mystery Shop", ko:"신비한 상점", de:"Rätsel", fr:"Mystère", pt:"Mistério", tr:"Gizem", id:"Misteri", ru:"Тайный магазин", th:"ปริศนา", ar:"الغموض", es:"Misterio" },
   arenaShop: { zh:"競技商店", en:"Arena Shop", ko:"경기장 상점", de:"Arena", fr:"Arène", pt:"Arena", tr:"Arena", id:"Arena", ru:"Магазин арены", th:"อารีน่า", ar:"الساحة", es:"Arena" },
@@ -773,6 +793,468 @@ const GUIDES = {
           { type: "p", text: "نسّق مع R4/R5 ليأخذ الجميع دورهم ونملأ المقر بكفاءة." }
         ]
       }
+    }
+  },
+  "master-academy": {
+    emoji: "🎓",
+    name: { en: "Gen 3 Master Academy Guide", zh: "第3代大師學院指南", ko: "3세대 거장 아카데미 가이드", de: "Gen-3-Meisterakademie-Leitfaden", fr: "Guide de l'Académie des Experts (Gén 3)", pt: "Guia da Academia dos Mestres (Gen 3)", tr: "3. Nesil Usta Akademisi Rehberi", id: "Panduan Akademi Master Gen 3", ru: "Гайд по Университету мастеров (3-е поколение)", th: "คู่มือสถาบันมาสเตอร์รุ่นที่ 3", ar: "دليل أكاديمية المتخصصين (الجيل الثالث)", es: "Guía de la Academia de Maestros (Gen 3)" },
+    sections: {
+      en: { title: "Gen 3 Master Academy Guide", blocks: [
+        { type: "h", text: "WHEN" },
+        { type: "p", text: "Gen 3 arrives on Sep 28 and unlocks the {masterAcademy} at Town Center 25. Masters give permanent passive account buffs, extra resources and event rewards. They are separate from Heroes." },
+        { type: "h", text: "HOW UNLOCKING WORKS" },
+        { type: "list", items: [
+          "{valora} is ALWAYS your first Master, discovered through normal {realmJourney}s.",
+          "Do NOT spend {adventureSupply} on {valora} — the free {journeySupplies} (20 per day, refreshed at 00:00 UTC) will unlock her naturally.",
+          "SAVE your {adventureSupply} for {pan} and Roman in the {lostlands} once they are discovered.",
+          "A Master settles in your Town once you reach 1,000 Affinity."
+        ] },
+        { type: "h", text: "PRIORITY FOR F2P & LOW SPENDERS" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "sub", text: "1. {pan} — the economy Master (top priority)" },
+        { type: "list", items: [
+          "Push {pan} to **Lv. 60**.",
+          "Talent: 5 {reserveChests} for every 120 minutes of gathering (up to 30 per day) — free {truegold}, {gems} and speedups.",
+          "Skill 1 **{falconer}**: +8 {intelMission}s per day → lots of free daily {truegold}.",
+          "Skill 4 **{waysAndMeans}**: +120 {mysteryBadge} from daily missions and +4 free {mysteryShop} refreshes → discounted {widget}s."
+        ] },
+        { type: "sub", text: "2. {valora} — Bear Hunt gear materials" },
+        { type: "list", items: [
+          "Get her to **Lv. 30** ({acquaintance} 3 / {casual} 1).",
+          "Skill 2 **{leaderByExample}**: +5 × 100 {enhancementXp} per {bearHunt}.",
+          "Skill 3 **{weaponObsession}**: +5 {forgehammer}s per {bearHunt}."
+        ] },
+        { type: "sub", text: "3. Roman — Arena passive" },
+        { type: "list", items: [
+          "Just unlock him (1,000 Affinity): his passive gives a 50% chance to drop Arena Chests ({heroShard}s & {forgehammer}s). No heavy {masterEmblem} investment needed early on."
+        ] },
+        { type: "h", text: "PRIORITY FOR WHALES & RALLY LEADERS" },
+        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "list", items: [
+          "**{valora}**: max Skill 1 **{savageAdvantage}** (+30,000 {bearHunt} squad capacity) and Skill 4 **{danceOfTheHunt}** (+300,000 {ragingBear} rally squad capacity) for huge leaderboard scores.",
+          "**Roman**: push for Arena battle stats, {arenaShop} discounts and extra token generation.",
+          "**{pan}**: level him up second for passive {truegold}."
+        ] },
+        { type: "callout", text: "ℹ️ Skill names follow the game. Some guides call {valora}'s skill 1 \"Hunter Instinct\" — in-game it is **{savageAdvantage}** (+30,000). Only **{danceOfTheHunt}** gives +300,000." }
+      ]},
+      zh: { title: "第3代大師學院指南", blocks: [
+        { type: "h", text: "開放時間" },
+        { type: "p", text: "第3代於 9/28 開放，城鎮中心 25 級解鎖{masterAcademy}。大師提供永久的帳號被動加成、額外資源和活動獎勵，和英雄是分開的系統。" },
+        { type: "h", text: "解鎖方式" },
+        { type: "list", items: [
+          "第一位大師**一定是{valora}**，透過一般的{realmJourney}就會遇到。",
+          "**不要**把{adventureSupply}用在{valora}身上——每天免費的{journeySupplies}（每日 20 個，UTC 00:00 恢復）就會自然解鎖她。",
+          "把{adventureSupply}**存起來**，等發現{pan}和 Roman 後在{lostlands}使用。",
+          "好感度達到 1,000，大師就會進駐城鎮。"
+        ] },
+        { type: "h", text: "無課與小課玩家的優先順序" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "sub", text: "1. {pan}——經濟型大師（最優先）" },
+        { type: "list", items: [
+          "把{pan}練到 **Lv. 60**。",
+          "天賦：每採集 120 分鐘獲得 5 個{reserveChests}（每日上限 30）——免費的{truegold}、{gems}和加速。",
+          "技能 1 **{falconer}**：每天多 8 個{intelMission}→ 每天大量免費{truegold}。",
+          "技能 4 **{waysAndMeans}**：完成每日任務多得 120 個{mysteryBadge}，{mysteryShop}免費更新多 4 次 → 買折扣{widget}。"
+        ] },
+        { type: "sub", text: "2. {valora}——狩獵巨熊的裝備材料" },
+        { type: "list", items: [
+          "練到 **Lv. 30**（{acquaintance}3／{casual}1）。",
+          "技能 2 **{leaderByExample}**：每次{bearHunt}多 5 個 100 點{enhancementXp}。",
+          "技能 3 **{weaponObsession}**：每次{bearHunt}多 5 個{forgehammer}。"
+        ] },
+        { type: "sub", text: "3. Roman——競技場被動" },
+        { type: "list", items: [
+          "只要解鎖他（好感度 1,000）：被動有 50% 機率掉落競技場寶箱（{heroShard}和{forgehammer}）。前期不用大量投入{masterEmblem}。"
+        ] },
+        { type: "h", text: "大課與集結指揮的優先順序" },
+        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "list", items: [
+          "**{valora}**：技能 1 **{savageAdvantage}**（{bearHunt}出征部隊容量 +30,000）和技能 4 **{danceOfTheHunt}**（{ragingBear}集結部隊容量 +300,000）練滿，衝排行榜高分。",
+          "**Roman**：衝競技場戰鬥屬性、{arenaShop}折扣和額外代幣產出。",
+          "**{pan}**：第二順位升級，拿被動{truegold}。"
+        ] },
+        { type: "callout", text: "ℹ️ 技能名稱以遊戲為準。有些攻略把{valora}的技能 1 寫成「Hunter Instinct」——遊戲裡是**{savageAdvantage}**（+30,000），只有**{danceOfTheHunt}**才是 +300,000。" }
+      ]},
+      ko: { title: "3세대 거장 아카데미 가이드", blocks: [
+        { type: "h", text: "일시" },
+        { type: "p", text: "3세대는 9/28에 오픈되며, 도시 센터 25레벨에서 {masterAcademy}가 해제됩니다. 거장은 영구적인 계정 패시브 버프, 추가 자원, 이벤트 보상을 제공하며 영웅과는 별개입니다." },
+        { type: "h", text: "해제 방법" },
+        { type: "list", items: [
+          "첫 번째 거장은 **항상 {valora}**이며, 일반 {realmJourney}에서 만납니다.",
+          "{valora}에게 {adventureSupply}를 **쓰지 마세요** — 무료 {journeySupplies}(매일 20개, UTC 00:00 회복)로 자연스럽게 해제됩니다.",
+          "{adventureSupply}는 {pan}과 Roman을 발견한 뒤 {lostlands}에서 쓰도록 **모아 두세요**.",
+          "호감도 1,000에 도달하면 거장이 도시에 입주합니다."
+        ] },
+        { type: "h", text: "무과금·소과금 우선순위" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "sub", text: "1. {pan} — 경제형 거장 (최우선)" },
+        { type: "list", items: [
+          "{pan}을 **Lv. 60**까지 올리세요.",
+          "재능: 채집 120분마다 {reserveChests} 5개 (하루 최대 30개) — 무료 {truegold}, {gems}, 가속.",
+          "스킬 1 **{falconer}**: {intelMission} 하루 +8개 → 매일 많은 무료 {truegold}.",
+          "스킬 4 **{waysAndMeans}**: 일일 임무 완료 시 {mysteryBadge} +120개, {mysteryShop} 무료 새로고침 +4회 → 할인 {widget} 구매."
+        ] },
+        { type: "sub", text: "2. {valora} — 베어 사냥 장비 재료" },
+        { type: "list", items: [
+          "**Lv. 30**까지 올리세요 ({acquaintance} 3 / {casual} 1).",
+          "스킬 2 **{leaderByExample}**: {bearHunt}마다 100 {enhancementXp} 부품 +5개.",
+          "스킬 3 **{weaponObsession}**: {bearHunt}마다 {forgehammer} +5개."
+        ] },
+        { type: "sub", text: "3. Roman — 경기장 패시브" },
+        { type: "list", items: [
+          "해제만 하세요 (호감도 1,000): 패시브로 50% 확률로 경기장 상자({heroShard}, {forgehammer})가 드롭됩니다. 초반에 {masterEmblem}을 많이 투자할 필요는 없습니다."
+        ] },
+        { type: "h", text: "고과금·집결장 우선순위" },
+        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "list", items: [
+          "**{valora}**: 스킬 1 **{savageAdvantage}**({bearHunt} 부대 수용량 +30,000)과 스킬 4 **{danceOfTheHunt}**({ragingBear} 집결 부대 수용량 +300,000)을 최대로 올려 랭킹 점수를 크게 올리세요.",
+          "**Roman**: 경기장 전투 속성, {arenaShop} 할인, 추가 토큰 획득 위주로.",
+          "**{pan}**: 두 번째로 올려서 패시브 {truegold}를 챙기세요."
+        ] },
+        { type: "callout", text: "ℹ️ 스킬 이름은 게임 기준입니다. 일부 가이드는 {valora}의 스킬 1을 \"Hunter Instinct\"라고 쓰지만, 게임에서는 **{savageAdvantage}**(+30,000)입니다. +300,000은 **{danceOfTheHunt}**뿐입니다." }
+      ]},
+      de: { title: "Gen-3-Meisterakademie-Leitfaden", blocks: [
+        { type: "h", text: "WANN" },
+        { type: "p", text: "Gen 3 startet am 28.09. und schaltet die {masterAcademy} ab Stadtzentrum 25 frei. Meister geben dauerhafte passive Konto-Boni, zusätzliche Ressourcen und Event-Belohnungen. Sie sind unabhängig von den Helden." },
+        { type: "h", text: "SO FUNKTIONIERT DAS FREISCHALTEN" },
+        { type: "list", items: [
+          "{valora} ist IMMER dein erster Meister und wird über die normale {realmJourney} entdeckt.",
+          "Verwende KEINEN {adventureSupply} für {valora} — die kostenlosen {journeySupplies} (20 pro Tag, Reset um 00:00 UTC) schalten sie von selbst frei.",
+          "SPARE deinen {adventureSupply} für {pan} und Roman in den {lostlands}, sobald sie entdeckt sind.",
+          "Ab 1.000 Affinität lässt sich ein Meister in deiner Stadt nieder."
+        ] },
+        { type: "h", text: "PRIORITÄT FÜR F2P & WENIGZAHLER" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "sub", text: "1. {pan} — der Wirtschafts-Meister (höchste Priorität)" },
+        { type: "list", items: [
+          "Bring {pan} auf **Lv. 60**.",
+          "Talent: 5 {reserveChests} pro 120 Minuten Sammeln (max. 30 pro Tag) — gratis {truegold}, {gems} und Beschleunigungen.",
+          "Fertigkeit 1 **{falconer}**: +8 {intelMission}en pro Tag → viel kostenloses tägliches {truegold}.",
+          "Fertigkeit 4 **{waysAndMeans}**: +120 {mysteryBadge} aus täglichen Missionen und +4 kostenlose Aktualisierungen im {mysteryShop}-Laden → vergünstigte {widget}e."
+        ] },
+        { type: "sub", text: "2. {valora} — Bärenjagd-Ausrüstungsmaterialien" },
+        { type: "list", items: [
+          "Bring sie auf **Lv. 30** ({acquaintance} 3 / {casual} 1).",
+          "Fertigkeit 2 **{leaderByExample}**: +5 × 100 {enhancementXp} pro {bearHunt}.",
+          "Fertigkeit 3 **{weaponObsession}**: +5 {forgehammer} pro {bearHunt}."
+        ] },
+        { type: "sub", text: "3. Roman — Arena-Passiv" },
+        { type: "list", items: [
+          "Nur freischalten (1.000 Affinität): Sein Passiv hat eine 50%-Chance, Arena-Truhen ({heroShard}e & {forgehammer}) fallen zu lassen. Früh ist keine große {masterEmblem}-Investition nötig."
+        ] },
+        { type: "h", text: "PRIORITÄT FÜR WALE & RALLY-ANFÜHRER" },
+        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "list", items: [
+          "**{valora}**: Fertigkeit 1 **{savageAdvantage}** (+30.000 {bearHunt}-Schwadronkapazität) und Fertigkeit 4 **{danceOfTheHunt}** (+300.000 Rally-Schwadronkapazität gegen den {ragingBear}) maximieren — für hohe Ranglistenpunkte.",
+          "**Roman**: auf Arena-Kampfwerte, Rabatte in der {arenaShop} und zusätzliche Token setzen.",
+          "**{pan}**: als Zweites leveln für passives {truegold}."
+        ] },
+        { type: "callout", text: "ℹ️ Die Fertigkeitsnamen folgen dem Spiel. Manche Guides nennen {valora}s Fertigkeit 1 \"Hunter Instinct\" — im Spiel heißt sie **{savageAdvantage}** (+30.000). Nur **{danceOfTheHunt}** gibt +300.000." }
+      ]},
+      fr: { title: "Guide de l'Académie des Experts (Gén 3)", blocks: [
+        { type: "h", text: "QUAND" },
+        { type: "p", text: "La Gén 3 arrive le 28/09 et débloque l'{masterAcademy} au Centre niv. 25. Les experts donnent des bonus passifs permanents au compte, des ressources en plus et des récompenses d'événements. Ils sont distincts des héros." },
+        { type: "h", text: "COMMENT LES DÉBLOQUER" },
+        { type: "list", items: [
+          "{valora} est TOUJOURS votre premier expert, découvert via le {realmJourney} normal.",
+          "Ne dépensez PAS de {adventureSupply} pour {valora} — les {journeySupplies} gratuites (20 par jour, réinitialisées à 00:00 UTC) la débloquent naturellement.",
+          "GARDEZ vos {adventureSupply} pour {pan} et Roman dans les {lostlands} une fois découverts.",
+          "Un expert s'installe dans votre village à 1 000 d'affinité."
+        ] },
+        { type: "h", text: "PRIORITÉ POUR LES F2P & PETITS PAYEURS" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "sub", text: "1. {pan} — l'expert économie (priorité absolue)" },
+        { type: "list", items: [
+          "Montez {pan} au **niv. 60**.",
+          "Talent : 5 {reserveChests} toutes les 120 min de collecte (max. 30 par jour) — {truegold}, {gems} et accélérateurs gratuits.",
+          "Compétence 1 **{falconer}** : +8 {intelMission} par jour → beaucoup d'{truegold} gratuit chaque jour.",
+          "Compétence 4 **{waysAndMeans}** : +120 {mysteryBadge} via les missions quotidiennes et +4 actualisations gratuites du magasin {mysteryShop} → {widget}s à prix réduit."
+        ] },
+        { type: "sub", text: "2. {valora} — matériaux d'équipement de la Chasse à l'Ours" },
+        { type: "list", items: [
+          "Montez-la au **niv. 30** ({acquaintance} 3 / {casual} 1).",
+          "Compétence 2 **{leaderByExample}** : +5 × 100 {enhancementXp} par {bearHunt}.",
+          "Compétence 3 **{weaponObsession}** : +5 {forgehammer}s par {bearHunt}."
+        ] },
+        { type: "sub", text: "3. Roman — passif d'Arène" },
+        { type: "list", items: [
+          "Débloquez-le simplement (1 000 d'affinité) : son passif a 50 % de chances de faire tomber des coffres d'Arène ({heroShard}s & {forgehammer}s). Pas besoin d'investir beaucoup d'{masterEmblem} au début."
+        ] },
+        { type: "h", text: "PRIORITÉ POUR LES GROS PAYEURS & LEADERS DE RALLIEMENT" },
+        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "list", items: [
+          "**{valora}** : maximisez la compétence 1 **{savageAdvantage}** (+30 000 de capacité d'escouade en {bearHunt}) et la compétence 4 **{danceOfTheHunt}** (+300 000 de capacité d'escouade de ralliement contre l'{ragingBear}) pour de gros scores au classement.",
+          "**Roman** : visez les stats de combat d'Arène, les réductions du {arenaShop} et la génération de jetons en plus.",
+          "**{pan}** : à monter en second pour l'{truegold} passif."
+        ] },
+        { type: "callout", text: "ℹ️ Les noms de compétences suivent le jeu. Certains guides appellent la compétence 1 de {valora} « Hunter Instinct » — en jeu, c'est **{savageAdvantage}** (+30 000). Seule **{danceOfTheHunt}** donne +300 000." }
+      ]},
+      pt: { title: "Guia da Academia dos Mestres (Gen 3)", blocks: [
+        { type: "h", text: "QUANDO" },
+        { type: "p", text: "A Gen 3 chega em 28/09 e desbloqueia a {masterAcademy} no Centro da Cidade 25. Os Mestres dão bônus passivos permanentes à conta, recursos extras e recompensas de eventos. Eles são separados dos Heróis." },
+        { type: "h", text: "COMO DESBLOQUEAR" },
+        { type: "list", items: [
+          "{valora} é SEMPRE o seu primeiro Mestre, encontrada na {realmJourney} normal.",
+          "NÃO gaste {adventureSupply} com {valora} — os {journeySupplies} grátis (20 por dia, renovados às 00:00 UTC) a desbloqueiam naturalmente.",
+          "GUARDE seus {adventureSupply} para {pan} e Roman nas {lostlands} depois de descobri-los.",
+          "Um Mestre se estabelece na sua cidade com 1.000 de Afinidade."
+        ] },
+        { type: "h", text: "PRIORIDADE PARA F2P & QUEM GASTA POUCO" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "sub", text: "1. {pan} — o Mestre da economia (prioridade máxima)" },
+        { type: "list", items: [
+          "Leve {pan} ao **Nv. 60**.",
+          "Talento: 5 {reserveChests} a cada 120 minutos de coleta (até 30 por dia) — {truegold}, {gems} e aceleradores grátis.",
+          "Habilidade 1 **{falconer}**: +8 {intelMission} por dia → muito {truegold} grátis todo dia.",
+          "Habilidade 4 **{waysAndMeans}**: +120 {mysteryBadge} nas missões diárias e +4 atualizações grátis na loja {mysteryShop} → {widget}s com desconto."
+        ] },
+        { type: "sub", text: "2. {valora} — materiais de equipamento da Caça ao Urso" },
+        { type: "list", items: [
+          "Leve-a ao **Nv. 30** ({acquaintance} 3 / {casual} 1).",
+          "Habilidade 2 **{leaderByExample}**: +5 × 100 {enhancementXp} por {bearHunt}.",
+          "Habilidade 3 **{weaponObsession}**: +5 {forgehammer}s por {bearHunt}."
+        ] },
+        { type: "sub", text: "3. Roman — passiva da Arena" },
+        { type: "list", items: [
+          "Só desbloqueie (1.000 de Afinidade): a passiva dele tem 50% de chance de dropar Baús da Arena ({heroShard}s e {forgehammer}s). Não precisa investir muito em {masterEmblem} no começo."
+        ] },
+        { type: "h", text: "PRIORIDADE PARA BALEIAS & LÍDERES DE RALLY" },
+        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "list", items: [
+          "**{valora}**: maximize a habilidade 1 **{savageAdvantage}** (+30.000 de capacidade do esquadrão na {bearHunt}) e a habilidade 4 **{danceOfTheHunt}** (+300.000 de capacidade do esquadrão de rally contra o {ragingBear}) para grandes pontuações no ranking.",
+          "**Roman**: foque em atributos de batalha da Arena, descontos na {arenaShop} e geração extra de fichas.",
+          "**{pan}**: suba em segundo para {truegold} passivo."
+        ] },
+        { type: "callout", text: "ℹ️ Os nomes das habilidades seguem o jogo. Alguns guias chamam a habilidade 1 de {valora} de \"Hunter Instinct\" — no jogo ela é **{savageAdvantage}** (+30.000). Só **{danceOfTheHunt}** dá +300.000." }
+      ]},
+      tr: { title: "3. Nesil Usta Akademisi Rehberi", blocks: [
+        { type: "h", text: "NE ZAMAN" },
+        { type: "p", text: "3. Nesil 28 Eylül'de geliyor ve {masterAcademy} Şehir Merkezi 25'te açılıyor. Ustalar kalıcı pasif hesap bonusları, ekstra kaynak ve etkinlik ödülleri verir. Kahramanlardan ayrıdır." },
+        { type: "h", text: "NASIL AÇILIR" },
+        { type: "list", items: [
+          "İlk Ustan HER ZAMAN {valora}'dır; normal {realmJourney} ile bulunur.",
+          "{valora} için {adventureSupply} HARCAMA — ücretsiz {journeySupplies} (günde 20, UTC 00:00'da yenilenir) onu kendiliğinden açar.",
+          "{adventureSupply}'ni {pan} ve Roman keşfedildiğinde {lostlands}'da kullanmak için SAKLA.",
+          "1.000 Yakınlığa ulaşınca Usta şehrine yerleşir."
+        ] },
+        { type: "h", text: "F2P VE AZ HARCAYANLAR İÇİN ÖNCELİK" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "sub", text: "1. {pan} — ekonomi Ustası (en yüksek öncelik)" },
+        { type: "list", items: [
+          "{pan}'ı **Sv. 60**'a çıkar.",
+          "Yetenek: her 120 dakikalık toplamada 5 {reserveChests} (günde en fazla 30) — ücretsiz {truegold}, {gems} ve hızlandırmalar.",
+          "Yetenek 1 **{falconer}**: günde +8 {intelMission} → her gün bol ücretsiz {truegold}.",
+          "Yetenek 4 **{waysAndMeans}**: günlük görevlerden +120 {mysteryBadge} ve {mysteryShop} mağazasında +4 ücretsiz yenileme → indirimli {widget}."
+        ] },
+        { type: "sub", text: "2. {valora} — Ayı Avı donanım malzemeleri" },
+        { type: "list", items: [
+          "Onu **Sv. 30**'a çıkar ({acquaintance} 3 / {casual} 1).",
+          "Yetenek 2 **{leaderByExample}**: her {bearHunt} için +5 × 100 {enhancementXp}.",
+          "Yetenek 3 **{weaponObsession}**: her {bearHunt} için +5 {forgehammer}."
+        ] },
+        { type: "sub", text: "3. Roman — Arena pasifi" },
+        { type: "list", items: [
+          "Sadece aç (1.000 Yakınlık): pasifi %50 ihtimalle Arena Sandığı ({heroShard} ve {forgehammer}) düşürür. Başta çok fazla {masterEmblem} yatırımı gerekmez."
+        ] },
+        { type: "h", text: "BALİNALAR VE SEFERBERLİK LİDERLERİ İÇİN ÖNCELİK" },
+        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "list", items: [
+          "**{valora}**: Yetenek 1 **{savageAdvantage}** (+30.000 {bearHunt} ekip kapasitesi) ve Yetenek 4 **{danceOfTheHunt}**'nı (+300.000 {ragingBear} seferberlik ekip kapasitesi) maksimuma çıkar, sıralamada yüksek puan al.",
+          "**Roman**: Arena savaş nitelikleri, {arenaShop} indirimleri ve ekstra jeton üretimine odaklan.",
+          "**{pan}**: pasif {truegold} için ikinci sırada yükselt."
+        ] },
+        { type: "callout", text: "ℹ️ Yetenek adları oyundaki gibidir. Bazı rehberler {valora}'nın 1. yeteneğine \"Hunter Instinct\" der — oyunda adı **{savageAdvantage}** (+30.000). +300.000 veren sadece **{danceOfTheHunt}**." }
+      ]},
+      id: { title: "Panduan Akademi Master Gen 3", blocks: [
+        { type: "h", text: "KAPAN" },
+        { type: "p", text: "Gen 3 hadir 28 Sep dan membuka {masterAcademy} di Pusat Kota 25. Master memberi buff pasif permanen untuk akun, sumber daya tambahan, dan hadiah event. Master terpisah dari Hero." },
+        { type: "h", text: "CARA MEMBUKA" },
+        { type: "list", items: [
+          "{valora} SELALU menjadi Master pertamamu, ditemukan lewat {realmJourney} biasa.",
+          "JANGAN pakai {adventureSupply} untuk {valora} — {journeySupplies} gratis (20 per hari, diperbarui 00:00 UTC) akan membukanya dengan sendirinya.",
+          "SIMPAN {adventureSupply} untuk {pan} dan Roman di {lostlands} setelah mereka ditemukan.",
+          "Master akan menetap di Kota setelah mencapai 1.000 Kedekatan."
+        ] },
+        { type: "h", text: "PRIORITAS F2P & LOW SPENDER" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "sub", text: "1. {pan} — Master ekonomi (prioritas utama)" },
+        { type: "list", items: [
+          "Naikkan {pan} ke **Lv. 60**.",
+          "Talenta: 5 {reserveChests} setiap 120 menit mengumpulkan (maks. 30 per hari) — {truegold}, {gems}, dan speedup gratis.",
+          "Skill 1 **{falconer}**: +8 {intelMission} per hari → banyak {truegold} gratis setiap hari.",
+          "Skill 4 **{waysAndMeans}**: +120 {mysteryBadge} dari misi harian dan +4 refresh gratis di {mysteryShop} → {widget} diskon."
+        ] },
+        { type: "sub", text: "2. {valora} — material gear Bear Hunt" },
+        { type: "list", items: [
+          "Naikkan ke **Lv. 30**.",
+          "Skill 2 **{leaderByExample}**: +5 × 100 {enhancementXp} per {bearHunt}.",
+          "Skill 3 **{weaponObsession}**: +5 {forgehammer} per {bearHunt}."
+        ] },
+        { type: "sub", text: "3. Roman — pasif Arena" },
+        { type: "list", items: [
+          "Cukup buka (1.000 Kedekatan): pasifnya punya peluang 50% menjatuhkan Peti Arena ({heroShard} & {forgehammer}). Tidak perlu investasi {masterEmblem} besar di awal."
+        ] },
+        { type: "h", text: "PRIORITAS WHALE & PEMIMPIN RELI" },
+        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "list", items: [
+          "**{valora}**: maksimalkan Skill 1 **{savageAdvantage}** (+30.000 kapasitas skuad {bearHunt}) dan Skill 4 **{danceOfTheHunt}** (+300.000 kapasitas skuad reli {ragingBear}) untuk skor leaderboard besar.",
+          "**Roman**: fokus ke stat tempur Arena, diskon {arenaShop}, dan token tambahan.",
+          "**{pan}**: naikkan di urutan kedua untuk {truegold} pasif."
+        ] },
+        { type: "callout", text: "ℹ️ Nama skill mengikuti game. Beberapa panduan menyebut skill 1 {valora} \"Hunter Instinct\" — di game namanya **{savageAdvantage}** (+30.000). Hanya **{danceOfTheHunt}** yang memberi +300.000." }
+      ]},
+      ru: { title: "Гайд по Университету мастеров (3-е поколение)", blocks: [
+        { type: "h", text: "КОГДА" },
+        { type: "p", text: "3-е поколение выходит 28.09 и открывает {masterAcademy} на 25-м уровне центра города. Мастера дают постоянные пассивные бонусы аккаунту, дополнительные ресурсы и награды событий. Они не связаны с героями." },
+        { type: "h", text: "КАК ОТКРЫТЬ" },
+        { type: "list", items: [
+          "Первый мастер — ВСЕГДА {valora}; её находят на обычной «{realmJourney}».",
+          "НЕ тратьте {adventureSupply} на {valora} — бесплатные {journeySupplies} (20 в день, обновление в 00:00 UTC) откроют её сами.",
+          "БЕРЕГИТЕ {adventureSupply} для {pan} и Роман в «{lostlands}», когда они будут найдены.",
+          "При 1000 очк. сближения мастер поселится в городе."
+        ] },
+        { type: "h", text: "ПРИОРИТЕТ ДЛЯ F2P И МАЛОДОНАТНЫХ" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "sub", text: "1. {pan} — мастер экономики (главный приоритет)" },
+        { type: "list", items: [
+          "Прокачайте {pan} до **ур. 60**.",
+          "Талант: 5 шт. «{reserveChests}» за каждые 120 мин сбора (до 30 в день) — бесплатные {truegold}, {gems} и ускорения.",
+          "Навык 1 **{falconer}**: +8 миссий в день ({intelMission}) → много бесплатного {truegold} ежедневно.",
+          "Навык 4 **{waysAndMeans}**: +120 {mysteryBadge} за ежедневные миссии и +4 бесплатных обновления ({mysteryShop}) → {widget} со скидкой."
+        ] },
+        { type: "sub", text: "2. {valora} — материалы снаряжения для охоты на медведя" },
+        { type: "list", items: [
+          "Прокачайте до **ур. 30** ({acquaintance} 3 / {casual} 1).",
+          "Навык 2 **{leaderByExample}**: +5 × 100 ({enhancementXp}) за каждую «{bearHunt}».",
+          "Навык 3 **{weaponObsession}**: +5 ({forgehammer}) за каждую «{bearHunt}»."
+        ] },
+        { type: "sub", text: "3. Roman — пассивка арены" },
+        { type: "list", items: [
+          "Просто откройте его (1000 очк. сближения): пассивка с шансом 50% даёт сундуки арены ({heroShard}, {forgehammer}). В начале не нужно много вкладывать в {masterEmblem}."
+        ] },
+        { type: "h", text: "ПРИОРИТЕТ ДЛЯ КИТОВ И ЛИДЕРОВ РЕЙДОВ" },
+        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "list", items: [
+          "**{valora}**: максимально прокачайте навык 1 **{savageAdvantage}** (+30 000 к вместимости отряда в «{bearHunt}») и навык 4 **{danceOfTheHunt}** (+300 000 к вместимости отряда в рейде против {ragingBear}) ради высоких мест в рейтинге.",
+          "**Roman**: боевые показатели арены, скидки ({arenaShop}) и дополнительные жетоны.",
+          "**{pan}**: качайте вторым ради пассивного {truegold}."
+        ] },
+        { type: "callout", text: "ℹ️ Названия навыков — как в игре. В некоторых гайдах навык 1 {valora} называют «Hunter Instinct» — в игре это **{savageAdvantage}** (+30 000). +300 000 даёт только **{danceOfTheHunt}**." }
+      ]},
+      th: { title: "คู่มือสถาบันมาสเตอร์รุ่นที่ 3", blocks: [
+        { type: "h", text: "เมื่อไหร่" },
+        { type: "p", text: "รุ่นที่ 3 มาวันที่ 28 ก.ย. และปลดล็อก{masterAcademy}ที่ศูนย์กลางเมืองเลเวล 25 มาสเตอร์ให้บัฟพาสซีฟถาวรกับบัญชี ทรัพยากรเพิ่ม และรางวัลกิจกรรม แยกจากฮีโร่" },
+        { type: "h", text: "วิธีปลดล็อก" },
+        { type: "list", items: [
+          "มาสเตอร์คนแรก**เป็น{valora}เสมอ** เจอได้จาก{realmJourney}ปกติ",
+          "**อย่า**ใช้{adventureSupply}กับ{valora} — {journeySupplies}ฟรี (วันละ 20 รีเฟรช 00:00 UTC) จะปลดล็อกเธอเอง",
+          "**เก็บ**{adventureSupply}ไว้ใช้กับ{pan}และ Roman ใน{lostlands}เมื่อค้นพบแล้ว",
+          "เมื่อค่าความสัมพันธ์ถึง 1,000 มาสเตอร์จะตั้งถิ่นฐานในเมือง"
+        ] },
+        { type: "h", text: "ลำดับสำหรับสายฟรีและสายเติมน้อย" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "sub", text: "1. {pan} — มาสเตอร์สายเศรษฐกิจ (สำคัญที่สุด)" },
+        { type: "list", items: [
+          "อัป{pan}ถึง **เลเวล 60**",
+          "ความสามารถ: ได้{reserveChests} 5 ทุกการเก็บรวบรวม 120 นาที (สูงสุดวันละ 30) — {truegold} {gems} และเร่งสปีดฟรี",
+          "ทักษะ 1 **{falconer}**: {intelMission}เพิ่มวันละ 8 → ได้{truegold}ฟรีทุกวันจำนวนมาก",
+          "ทักษะ 4 **{waysAndMeans}**: ได้{mysteryBadge}เพิ่ม 120 จากภารกิจประจำวัน และรีเฟรช{mysteryShop}ฟรีเพิ่ม 4 ครั้ง → ซื้อ{widget}ลดราคา"
+        ] },
+        { type: "sub", text: "2. {valora} — วัตถุดิบอุปกรณ์จากล่าหมี" },
+        { type: "list", items: [
+          "อัปถึง **เลเวล 30** ({acquaintance} 3 / {casual} 1)",
+          "ทักษะ 2 **{leaderByExample}**: {enhancementXp} x100 เพิ่ม 5 ต่อ{bearHunt}",
+          "ทักษะ 3 **{weaponObsession}**: {forgehammer}เพิ่ม 5 ต่อ{bearHunt}"
+        ] },
+        { type: "sub", text: "3. Roman — พาสซีฟอารีน่า" },
+        { type: "list", items: [
+          "แค่ปลดล็อก (ค่าความสัมพันธ์ 1,000): พาสซีฟมีโอกาส 50% ดรอปหีบอารีน่า ({heroShard} และ{forgehammer}) ช่วงแรกไม่ต้องลง{masterEmblem}เยอะ"
+        ] },
+        { type: "h", text: "ลำดับสำหรับสายเติมหนักและผู้นำทีมระดมพล" },
+        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "list", items: [
+          "**{valora}**: อัปทักษะ 1 **{savageAdvantage}** (ความจุทีม{bearHunt} +30,000) และทักษะ 4 **{danceOfTheHunt}** (ความจุทีมระดมพล{ragingBear} +300,000) ให้เต็ม เพื่อคะแนนอันดับสูง",
+          "**Roman**: เน้นค่าสถานะการต่อสู้อารีน่า ส่วนลด{arenaShop} และโทเค็นเพิ่ม",
+          "**{pan}**: อัปเป็นอันดับสองเพื่อ{truegold}แบบพาสซีฟ"
+        ] },
+        { type: "callout", text: "ℹ️ ชื่อทักษะใช้ตามเกม บางคู่มือเรียกทักษะ 1 ของ{valora}ว่า \"Hunter Instinct\" — ในเกมคือ **{savageAdvantage}** (+30,000) มีแค่ **{danceOfTheHunt}** ที่ให้ +300,000" }
+      ]},
+      ar: { title: "دليل أكاديمية المتخصصين (الجيل الثالث)", blocks: [
+        { type: "h", text: "متى" },
+        { type: "p", text: "يصل الجيل الثالث في 28/9 ويفتح {masterAcademy} عند مركز البلدة 25. يمنح المتخصصون تعزيزات سلبية دائمة للحساب وموارد إضافية ومكافآت فعاليات، وهم منفصلون عن الأبطال." },
+        { type: "h", text: "طريقة الفتح" },
+        { type: "list", items: [
+          "أول متخصص هو **دائمًا {valora}**، وتجدها عبر {realmJourney} العادية.",
+          "**لا** تنفق {adventureSupply} على {valora} — {journeySupplies} المجانية (20 يوميًا، تتجدد 00:00 UTC) ستفتحها تلقائيًا.",
+          "**ادّخر** {adventureSupply} لـ{pan} و Roman في {lostlands} بعد اكتشافهما.",
+          "عند الوصول إلى 1000 تقارب، سيستقر المتخصص في البلدة."
+        ] },
+        { type: "h", text: "الأولوية للاعبين المجانيين وقليلي الإنفاق" },
+        { type: "callout", text: "**{pan} ← {valora} ← Roman**" },
+        { type: "sub", text: "1. {pan} — متخصص الاقتصاد (الأولوية القصوى)" },
+        { type: "list", items: [
+          "ارفع {pan} إلى **المستوى 60**.",
+          "المواهب: 5 من {reserveChests} لكل 120 دقيقة جمع (حتى 30 يوميًا) — {truegold} و{gems} وتسريعات مجانية.",
+          "المهارة 1 **{falconer}**: +8 من {intelMission} يوميًا ← الكثير من {truegold} المجاني يوميًا.",
+          "المهارة 4 **{waysAndMeans}**: +120 من {mysteryBadge} من المهام اليومية و+4 تحديثات مجانية في متجر {mysteryShop} ← {widget} بخصم."
+        ] },
+        { type: "sub", text: "2. {valora} — مواد عتاد صيد الدببة" },
+        { type: "list", items: [
+          "ارفعها إلى **المستوى 30** ({acquaintance} 3 / {casual} 1).",
+          "المهارة 2 **{leaderByExample}**: +5 × 100 من {enhancementXp} لكل {bearHunt}.",
+          "المهارة 3 **{weaponObsession}**: +5 من {forgehammer} لكل {bearHunt}."
+        ] },
+        { type: "sub", text: "3. Roman — مهارة الساحة السلبية" },
+        { type: "list", items: [
+          "افتحه فقط (1000 تقارب): مهارته السلبية تمنح فرصة 50% لإسقاط صناديق الساحة ({heroShard} و{forgehammer}). لا حاجة لاستثمار كبير في {masterEmblem} في البداية."
+        ] },
+        { type: "h", text: "الأولوية لكبار المنفقين وقادة الحشد" },
+        { type: "callout", text: "**{valora} ← Roman ← {pan}**" },
+        { type: "list", items: [
+          "**{valora}**: ارفع المهارة 1 **{savageAdvantage}** (+30,000 سعة فرقة {bearHunt}) والمهارة 4 **{danceOfTheHunt}** (+300,000 سعة فرقة حشد {ragingBear}) للحد الأقصى لتحقيق نقاط عالية في التصنيف.",
+          "**Roman**: ركّز على سمات قتال الساحة وخصومات {arenaShop} وتوليد رموز إضافية.",
+          "**{pan}**: ارفعه ثانيًا للحصول على {truegold} سلبيًا."
+        ] },
+        { type: "callout", text: "ℹ️ أسماء المهارات حسب اللعبة. بعض الأدلة تسمي المهارة 1 لـ{valora} \"Hunter Instinct\" — اسمها في اللعبة **{savageAdvantage}** (+30,000). فقط **{danceOfTheHunt}** تمنح +300,000." }
+      ]},
+      es: { title: "Guía de la Academia de Maestros (Gen 3)", blocks: [
+        { type: "h", text: "CUÁNDO" },
+        { type: "p", text: "La Gen 3 llega el 28/09 y desbloquea la {masterAcademy} con el Centro de pueblo 25. Los maestros dan bonificaciones pasivas permanentes a la cuenta, recursos extra y recompensas de eventos. Son independientes de los héroes." },
+        { type: "h", text: "CÓMO SE DESBLOQUEAN" },
+        { type: "list", items: [
+          "{valora} es SIEMPRE tu primer maestro; aparece en la {realmJourney} normal.",
+          "NO gastes {adventureSupply} en {valora}: los {journeySupplies} gratis (20 al día, se renuevan a las 00:00 UTC) la desbloquean de forma natural.",
+          "GUARDA tus {adventureSupply} para {pan} y Roman en las {lostlands} cuando los descubras.",
+          "Con 1000 de Afinidad, el maestro se establece en tu colonia."
+        ] },
+        { type: "h", text: "PRIORIDAD PARA F2P Y QUIEN GASTA POCO" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "sub", text: "1. {pan} — el maestro de la economía (máxima prioridad)" },
+        { type: "list", items: [
+          "Sube a {pan} al **Nv. 60**.",
+          "Talento: 5 {reserveChests} por cada 120 minutos de recolección (hasta 30 al día): {truegold}, {gems} y aceleradores gratis.",
+          "Habilidad 1 **{falconer}**: +8 {intelMission} al día → mucha {truegold} gratis a diario.",
+          "Habilidad 4 **{waysAndMeans}**: +120 {mysteryBadge} al completar misiones diarias y +4 actualizaciones gratis en la tienda {mysteryShop} → {widget}s con descuento."
+        ] },
+        { type: "sub", text: "2. {valora} — materiales de equipo de la Cacería del Oso" },
+        { type: "list", items: [
+          "Súbela al **Nv. 30** ({acquaintance} 3 / {casual} 1).",
+          "Habilidad 2 **{leaderByExample}**: +5 × 100 {enhancementXp} por {bearHunt}.",
+          "Habilidad 3 **{weaponObsession}**: +5 {forgehammer}s por {bearHunt}."
+        ] },
+        { type: "sub", text: "3. Roman — pasiva de Arena" },
+        { type: "list", items: [
+          "Solo desbloquéalo (1000 de Afinidad): su pasiva tiene un 50% de probabilidad de soltar cofres de Arena ({heroShard}s y {forgehammer}s). Al principio no hace falta invertir mucho en {masterEmblem}."
+        ] },
+        { type: "h", text: "PRIORIDAD PARA BALLENAS Y LÍDERES DE ATAQUE CONJUNTO" },
+        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "list", items: [
+          "**{valora}**: maximiza la habilidad 1 **{savageAdvantage}** (+30.000 de capacidad del escuadrón en la {bearHunt}) y la habilidad 4 **{danceOfTheHunt}** (+300.000 de capacidad del escuadrón de ataque conjunto contra el {ragingBear}) para grandes puntuaciones en la clasificación.",
+          "**Roman**: prioriza atributos de combate de Arena, descuentos de la {arenaShop} y fichas extra.",
+          "**{pan}**: súbelo en segundo lugar para {truegold} pasiva."
+        ] },
+        { type: "callout", text: "ℹ️ Los nombres de las habilidades son los del juego. Algunas guías llaman a la habilidad 1 de {valora} \"Hunter Instinct\"; en el juego es **{savageAdvantage}** (+30.000). Solo **{danceOfTheHunt}** da +300.000." }
+      ]}
     }
   },
   "general-tips": {
