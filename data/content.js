@@ -2913,6 +2913,60 @@ const GUIDES = {
       ]}
     }
   },
+  "pet": {
+    emoji: "🦁",
+    name: { en: "Pets", zh: "寵物", ko: "펫", de: "Begleittiere", fr: "Animaux", pt: "Mascotes", tr: "Pet", id: "Peliharaan", ru: "Питомцы", th: "สัตว์เลี้ยง", ar: "الحيوانات الأليفة", es: "Mascotas" },
+    sections: {
+      en: { title: "Pets", blocks: [
+        { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
+        { type: "p", text: "Full guide: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+      ]},
+      zh: { title: "寵物", blocks: [
+        { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
+        { type: "p", text: "完整攻略： https://kingshotmastery.com/guides/kingshot-pet-guide" }
+      ]},
+      ko: { title: "펫", blocks: [
+        { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
+        { type: "p", text: "전체 가이드: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+      ]},
+      de: { title: "Begleittiere", blocks: [
+        { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
+        { type: "p", text: "Vollständiger Guide: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+      ]},
+      fr: { title: "Animaux", blocks: [
+        { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
+        { type: "p", text: "Guide complet : https://kingshotmastery.com/guides/kingshot-pet-guide" }
+      ]},
+      pt: { title: "Mascotes", blocks: [
+        { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
+        { type: "p", text: "Guia completo: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+      ]},
+      tr: { title: "Pet", blocks: [
+        { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
+        { type: "p", text: "Tam rehber: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+      ]},
+      id: { title: "Peliharaan", blocks: [
+        { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
+        { type: "p", text: "Panduan lengkap: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+      ]},
+      ru: { title: "Питомцы", blocks: [
+        { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
+        { type: "p", text: "Полный гайд: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+      ]},
+      th: { title: "สัตว์เลี้ยง", blocks: [
+        { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
+        { type: "p", text: "คู่มือฉบับเต็ม: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+      ]},
+      ar: { title: "الحيوانات الأليفة", blocks: [
+        { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
+        { type: "p", text: "الدليل الكامل: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+      ]},
+      es: { title: "Mascotas", blocks: [
+        { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
+        { type: "p", text: "Guía completa: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+      ]}
+    }
+  },
   "bear-hunt": {
     emoji: "🐻",
     name: { en: "Bear Hunt", zh: "狩獵巨熊", ko: "자이언트 베어 사냥", de: "Bärenjagd", fr: "Chasse à l'Ours", pt: "Caça ao Urso", es: "Cacería del Oso", tr: "Ayı Avı", id: "Bear Hunt", ru: "Охота на медведя", th: "ล่าหมี", ar: "صيد الدببة" },
