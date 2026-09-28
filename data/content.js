@@ -2967,6 +2967,277 @@ const GUIDES = {
       ]}
     }
   },
+  "install-app": {
+    emoji: "📲",
+    hidden: true,
+    name: { en: "How to install as an app", zh: "如何下載成應用程式", ko: "앱으로 설치하는 방법", de: "Als App installieren", fr: "Comment l'installer comme application", pt: "Como instalar como aplicativo", tr: "Uygulama olarak nasıl yüklenir", id: "Cara memasang sebagai aplikasi", ru: "Как установить как приложение", th: "วิธีติดตั้งเป็นแอป", ar: "كيفية التثبيت كتطبيق", es: "Cómo instalarla como aplicación" },
+    sections: {
+      en: { title: "How to install as an app", blocks: [
+        { type: "h", text: "iPhone / iPad" },
+        { type: "list", items: [
+          "1. Open this site in **Safari** (other browsers can't install it).",
+          "2. Tap the Share button (square with an arrow) at the bottom.",
+          "3. Scroll down, tap **Add to Home Screen**, then **Add**."
+        ] },
+        { type: "h", text: "Android" },
+        { type: "list", items: [
+          "1. Open this site in **Chrome**.",
+          "2. Tap **⋮** at the top right.",
+          "3. Tap **Install app** (or **Add to Home screen**), then **Install**."
+        ] },
+        { type: "h", text: "Good to know" },
+        { type: "list", items: [
+          "The NXS icon appears on your home screen and opens full-screen like an app.",
+          "The first time you open it, pick your language — it's remembered after that. Tap 🌐 to change it.",
+          "Pages you've opened before can be read offline.",
+          "Updates are automatic — no need to reinstall.",
+          "Button names may differ slightly depending on your phone and system version."
+        ] }
+      ]},
+      zh: { title: "如何下載成應用程式", blocks: [
+        { type: "h", text: "iPhone / iPad" },
+        { type: "list", items: [
+          "1. 用 **Safari** 打開這個網站（其他瀏覽器無法安裝）。",
+          "2. 點下方的「分享」按鈕（方框加向上箭頭）。",
+          "3. 往下滑，點 **加入主畫面**，再點 **加入**。"
+        ] },
+        { type: "h", text: "Android" },
+        { type: "list", items: [
+          "1. 用 **Chrome** 打開這個網站。",
+          "2. 點右上角的 **⋮**。",
+          "3. 點 **安裝應用程式**（或 **加到主畫面**），再點 **安裝**。"
+        ] },
+        { type: "h", text: "小提醒" },
+        { type: "list", items: [
+          "桌面會出現 NXS 圖示，打開是全螢幕，就像 App 一樣。",
+          "第一次打開時選好語言，之後會自動記住；點 🌐 可以更換。",
+          "看過的頁面沒有網路也能看。",
+          "內容會自動更新，不需要重新安裝。",
+          "按鈕名稱可能因手機和系統版本略有不同。"
+        ] }
+      ]},
+      ko: { title: "앱으로 설치하는 방법", blocks: [
+        { type: "h", text: "iPhone / iPad" },
+        { type: "list", items: [
+          "1. **Safari**로 이 사이트를 여세요 (다른 브라우저로는 설치할 수 없습니다).",
+          "2. 하단의 공유 버튼(화살표가 있는 네모)을 누르세요.",
+          "3. 아래로 스크롤해 **홈 화면에 추가**를 누른 뒤 **추가**를 누르세요."
+        ] },
+        { type: "h", text: "Android" },
+        { type: "list", items: [
+          "1. **Chrome**으로 이 사이트를 여세요.",
+          "2. 오른쪽 위의 **⋮**를 누르세요.",
+          "3. **앱 설치**(또는 **홈 화면에 추가**)를 누른 뒤 **설치**를 누르세요."
+        ] },
+        { type: "h", text: "참고" },
+        { type: "list", items: [
+          "홈 화면에 NXS 아이콘이 생기고, 앱처럼 전체 화면으로 열립니다.",
+          "처음 열 때 언어를 선택하면 다음부터 기억됩니다. 🌐을 눌러 변경할 수 있습니다.",
+          "한 번 열어 본 페이지는 오프라인에서도 볼 수 있습니다.",
+          "업데이트는 자동으로 적용되며 다시 설치할 필요가 없습니다.",
+          "휴대폰과 시스템 버전에 따라 버튼 이름이 조금 다를 수 있습니다."
+        ] }
+      ]},
+      de: { title: "Als App installieren", blocks: [
+        { type: "h", text: "iPhone / iPad" },
+        { type: "list", items: [
+          "1. Öffne diese Seite in **Safari** (andere Browser können sie nicht installieren).",
+          "2. Tippe unten auf die Teilen-Taste (Quadrat mit Pfeil).",
+          "3. Scrolle nach unten, tippe auf **Zum Home-Bildschirm** und dann auf **Hinzufügen**."
+        ] },
+        { type: "h", text: "Android" },
+        { type: "list", items: [
+          "1. Öffne diese Seite in **Chrome**.",
+          "2. Tippe oben rechts auf **⋮**.",
+          "3. Tippe auf **App installieren** (oder **Zum Startbildschirm hinzufügen**) und dann auf **Installieren**."
+        ] },
+        { type: "h", text: "Gut zu wissen" },
+        { type: "list", items: [
+          "Das NXS-Symbol erscheint auf deinem Startbildschirm und öffnet sich im Vollbild wie eine App.",
+          "Beim ersten Öffnen wählst du deine Sprache – danach wird sie gespeichert. Mit 🌐 kannst du sie ändern.",
+          "Bereits geöffnete Seiten kannst du auch offline lesen.",
+          "Updates kommen automatisch – keine Neuinstallation nötig.",
+          "Je nach Handy und Systemversion können die Tasten etwas anders heißen."
+        ] }
+      ]},
+      fr: { title: "Comment l'installer comme application", blocks: [
+        { type: "h", text: "iPhone / iPad" },
+        { type: "list", items: [
+          "1. Ouvrez ce site dans **Safari** (les autres navigateurs ne permettent pas l'installation).",
+          "2. Touchez le bouton Partager (carré avec une flèche) en bas.",
+          "3. Faites défiler, touchez **Sur l'écran d'accueil**, puis **Ajouter**."
+        ] },
+        { type: "h", text: "Android" },
+        { type: "list", items: [
+          "1. Ouvrez ce site dans **Chrome**.",
+          "2. Touchez **⋮** en haut à droite.",
+          "3. Touchez **Installer l'application** (ou **Ajouter à l'écran d'accueil**), puis **Installer**."
+        ] },
+        { type: "h", text: "À savoir" },
+        { type: "list", items: [
+          "L'icône NXS apparaît sur votre écran d'accueil et s'ouvre en plein écran comme une application.",
+          "À la première ouverture, choisissez votre langue — elle sera mémorisée. Touchez 🌐 pour la changer.",
+          "Les pages déjà ouvertes restent lisibles hors ligne.",
+          "Les mises à jour sont automatiques — pas besoin de réinstaller.",
+          "Le nom des boutons peut varier légèrement selon le téléphone et la version du système."
+        ] }
+      ]},
+      pt: { title: "Como instalar como aplicativo", blocks: [
+        { type: "h", text: "iPhone / iPad" },
+        { type: "list", items: [
+          "1. Abra este site no **Safari** (outros navegadores não conseguem instalar).",
+          "2. Toque no botão Compartilhar (quadrado com uma seta) na parte inferior.",
+          "3. Role para baixo, toque em **Adicionar à Tela de Início** e depois em **Adicionar**."
+        ] },
+        { type: "h", text: "Android" },
+        { type: "list", items: [
+          "1. Abra este site no **Chrome**.",
+          "2. Toque em **⋮** no canto superior direito.",
+          "3. Toque em **Instalar app** (ou **Adicionar à tela inicial**) e depois em **Instalar**."
+        ] },
+        { type: "h", text: "Bom saber" },
+        { type: "list", items: [
+          "O ícone do NXS aparece na tela inicial e abre em tela cheia, como um app.",
+          "Na primeira vez, escolha seu idioma — ele fica salvo depois. Toque em 🌐 para mudar.",
+          "Páginas que você já abriu podem ser lidas offline.",
+          "As atualizações são automáticas — não é preciso reinstalar.",
+          "Os nomes dos botões podem variar um pouco conforme o celular e a versão do sistema."
+        ] }
+      ]},
+      tr: { title: "Uygulama olarak nasıl yüklenir", blocks: [
+        { type: "h", text: "iPhone / iPad" },
+        { type: "list", items: [
+          "1. Bu siteyi **Safari** ile açın (diğer tarayıcılar yükleyemez).",
+          "2. Alttaki Paylaş düğmesine (oklu kare) dokunun.",
+          "3. Aşağı kaydırıp **Ana Ekrana Ekle**'ye, ardından **Ekle**'ye dokunun."
+        ] },
+        { type: "h", text: "Android" },
+        { type: "list", items: [
+          "1. Bu siteyi **Chrome** ile açın.",
+          "2. Sağ üstteki **⋮** simgesine dokunun.",
+          "3. **Uygulamayı yükle** (veya **Ana ekrana ekle**) seçeneğine, ardından **Yükle**'ye dokunun."
+        ] },
+        { type: "h", text: "Bilmekte fayda var" },
+        { type: "list", items: [
+          "NXS simgesi ana ekranınızda görünür ve bir uygulama gibi tam ekran açılır.",
+          "İlk açılışta dilinizi seçin — sonra hatırlanır. Değiştirmek için 🌐'ye dokunun.",
+          "Daha önce açtığınız sayfalar çevrimdışı da okunabilir.",
+          "Güncellemeler otomatiktir — yeniden yüklemeye gerek yok.",
+          "Düğme adları telefona ve sistem sürümüne göre biraz farklı olabilir."
+        ] }
+      ]},
+      id: { title: "Cara memasang sebagai aplikasi", blocks: [
+        { type: "h", text: "iPhone / iPad" },
+        { type: "list", items: [
+          "1. Buka situs ini di **Safari** (browser lain tidak bisa memasang).",
+          "2. Ketuk tombol Bagikan (kotak dengan panah) di bawah.",
+          "3. Gulir ke bawah, ketuk **Tambahkan ke Layar Utama**, lalu **Tambah**."
+        ] },
+        { type: "h", text: "Android" },
+        { type: "list", items: [
+          "1. Buka situs ini di **Chrome**.",
+          "2. Ketuk **⋮** di kanan atas.",
+          "3. Ketuk **Instal aplikasi** (atau **Tambahkan ke layar utama**), lalu **Instal**."
+        ] },
+        { type: "h", text: "Perlu diketahui" },
+        { type: "list", items: [
+          "Ikon NXS muncul di layar utama dan terbuka layar penuh seperti aplikasi.",
+          "Saat pertama dibuka, pilih bahasamu — setelah itu akan diingat. Ketuk 🌐 untuk menggantinya.",
+          "Halaman yang pernah dibuka bisa dibaca secara offline.",
+          "Pembaruan otomatis — tidak perlu memasang ulang.",
+          "Nama tombol bisa sedikit berbeda tergantung ponsel dan versi sistem."
+        ] }
+      ]},
+      ru: { title: "Как установить как приложение", blocks: [
+        { type: "h", text: "iPhone / iPad" },
+        { type: "list", items: [
+          "1. Откройте сайт в **Safari** (другие браузеры не могут его установить).",
+          "2. Нажмите кнопку «Поделиться» (квадрат со стрелкой) внизу.",
+          "3. Прокрутите вниз, нажмите **На экран «Домой»**, затем **Добавить**."
+        ] },
+        { type: "h", text: "Android" },
+        { type: "list", items: [
+          "1. Откройте сайт в **Chrome**.",
+          "2. Нажмите **⋮** в правом верхнем углу.",
+          "3. Нажмите **Установить приложение** (или **Добавить на главный экран**), затем **Установить**."
+        ] },
+        { type: "h", text: "Полезно знать" },
+        { type: "list", items: [
+          "Значок NXS появится на главном экране и откроется на весь экран, как приложение.",
+          "При первом запуске выберите язык — он запомнится. Нажмите 🌐, чтобы сменить его.",
+          "Уже открытые страницы можно читать без интернета.",
+          "Обновления приходят автоматически — переустанавливать не нужно.",
+          "Названия кнопок могут немного отличаться в зависимости от телефона и версии системы."
+        ] }
+      ]},
+      th: { title: "วิธีติดตั้งเป็นแอป", blocks: [
+        { type: "h", text: "iPhone / iPad" },
+        { type: "list", items: [
+          "1. เปิดเว็บไซต์นี้ใน **Safari** (เบราว์เซอร์อื่นติดตั้งไม่ได้)",
+          "2. แตะปุ่มแชร์ (สี่เหลี่ยมมีลูกศร) ด้านล่าง",
+          "3. เลื่อนลง แตะ **เพิ่มไปยังหน้าจอโฮม** แล้วแตะ **เพิ่ม**"
+        ] },
+        { type: "h", text: "Android" },
+        { type: "list", items: [
+          "1. เปิดเว็บไซต์นี้ใน **Chrome**",
+          "2. แตะ **⋮** ที่มุมขวาบน",
+          "3. แตะ **ติดตั้งแอป** (หรือ **เพิ่มลงในหน้าจอหลัก**) แล้วแตะ **ติดตั้ง**"
+        ] },
+        { type: "h", text: "ควรรู้" },
+        { type: "list", items: [
+          "ไอคอน NXS จะปรากฏบนหน้าจอหลักและเปิดแบบเต็มจอเหมือนแอป",
+          "ครั้งแรกที่เปิดให้เลือกภาษา หลังจากนั้นจะจำไว้ แตะ 🌐 เพื่อเปลี่ยน",
+          "หน้าที่เคยเปิดแล้วสามารถอ่านแบบออฟไลน์ได้",
+          "อัปเดตอัตโนมัติ ไม่ต้องติดตั้งใหม่",
+          "ชื่อปุ่มอาจต่างกันเล็กน้อยตามรุ่นโทรศัพท์และเวอร์ชันระบบ"
+        ] }
+      ]},
+      ar: { title: "كيفية التثبيت كتطبيق", blocks: [
+        { type: "h", text: "iPhone / iPad" },
+        { type: "list", items: [
+          "1. افتح هذا الموقع في **Safari** (المتصفحات الأخرى لا يمكنها تثبيته).",
+          "2. اضغط زر المشاركة (مربع به سهم) في الأسفل.",
+          "3. مرّر للأسفل، واضغط **إضافة إلى الشاشة الرئيسية** ثم **إضافة**."
+        ] },
+        { type: "h", text: "Android" },
+        { type: "list", items: [
+          "1. افتح هذا الموقع في **Chrome**.",
+          "2. اضغط **⋮** في أعلى اليمين.",
+          "3. اضغط **تثبيت التطبيق** (أو **إضافة إلى الشاشة الرئيسية**) ثم **تثبيت**."
+        ] },
+        { type: "h", text: "معلومات مفيدة" },
+        { type: "list", items: [
+          "تظهر أيقونة NXS على الشاشة الرئيسية وتفتح بملء الشاشة مثل التطبيق.",
+          "عند الفتح لأول مرة اختر لغتك، وسيتم حفظها بعد ذلك. اضغط 🌐 لتغييرها.",
+          "يمكن قراءة الصفحات التي فتحتها سابقًا دون اتصال بالإنترنت.",
+          "التحديثات تلقائية، ولا حاجة لإعادة التثبيت.",
+          "قد تختلف أسماء الأزرار قليلًا حسب الهاتف وإصدار النظام."
+        ] }
+      ]},
+      es: { title: "Cómo instalarla como aplicación", blocks: [
+        { type: "h", text: "iPhone / iPad" },
+        { type: "list", items: [
+          "1. Abre este sitio en **Safari** (otros navegadores no pueden instalarlo).",
+          "2. Toca el botón Compartir (cuadrado con una flecha) en la parte inferior.",
+          "3. Desplázate hacia abajo, toca **Añadir a pantalla de inicio** y luego **Añadir**."
+        ] },
+        { type: "h", text: "Android" },
+        { type: "list", items: [
+          "1. Abre este sitio en **Chrome**.",
+          "2. Toca **⋮** arriba a la derecha.",
+          "3. Toca **Instalar aplicación** (o **Añadir a pantalla de inicio**) y luego **Instalar**."
+        ] },
+        { type: "h", text: "Bueno saber" },
+        { type: "list", items: [
+          "El icono de NXS aparece en tu pantalla de inicio y se abre a pantalla completa como una app.",
+          "La primera vez que la abras, elige tu idioma; después se recordará. Toca 🌐 para cambiarlo.",
+          "Las páginas que ya abriste se pueden leer sin conexión.",
+          "Las actualizaciones son automáticas; no hace falta reinstalar.",
+          "Los nombres de los botones pueden variar un poco según el teléfono y la versión del sistema."
+        ] }
+      ]}
+    }
+  },
   "bear-hunt": {
     emoji: "🐻",
     name: { en: "Bear Hunt", zh: "狩獵巨熊", ko: "자이언트 베어 사냥", de: "Bärenjagd", fr: "Chasse à l'Ours", pt: "Caça ao Urso", es: "Cacería del Oso", tr: "Ayı Avı", id: "Bear Hunt", ru: "Охота на медведя", th: "ล่าหมี", ar: "صيد الدببة" },
