@@ -57,14 +57,33 @@ function writeHash() {
   }
 }
 
+/* true when opened from the home-screen app (PWA), not from a browser tab */
+function isInstalledApp() {
+  try {
+    return window.matchMedia("(display-mode: standalone)").matches ||
+      window.matchMedia("(display-mode: fullscreen)").matches ||
+      window.navigator.standalone === true;
+  } catch (e) { return false; }
+}
+
 function restorePrefs() {
-  // Opening the plain site link always starts on English + the first guide.
+  // Opening the plain site link in a browser always starts on the language picker.
   // A shared link with a hash (e.g. #/ko/swordland-showdown) still opens that page.
   readHash();
+  // The home-screen app remembers the last language chosen in it.
+  if (!langChosen && isInstalledApp()) {
+    const saved = safeGet(STORAGE_KEYS.lang);
+    if (saved && LANGS.some((l) => l.code === saved)) {
+      currentLang = saved;
+      currentGuide = "recent-events";
+      langChosen = true;
+    }
+  }
 }
 
 function persistPrefs() {
   writeHash();
+  if (langChosen) safeSet(STORAGE_KEYS.lang, currentLang);
 }
 
 function applyTheme(theme) {
