@@ -365,6 +365,7 @@ function renderPicker() {
 
 function renderGuideRow() {
   const row = document.getElementById("guideRow");
+  const keepScroll = row.scrollLeft;
   row.innerHTML = "";
   guideKeys().forEach((key) => {
     const g = GUIDES[key];
@@ -379,6 +380,7 @@ function renderGuideRow() {
     };
     row.appendChild(btn);
   });
+  row.scrollLeft = keepScroll;
 }
 
 /* Order of the guide buttons at the top. Guides not listed here are added at the end. */
@@ -412,8 +414,14 @@ function annLabel(a) {
 }
 
 function selectAnnouncement(i) {
+  const tabs = document.querySelector(".ann-tabs");
+  const tabScroll = tabs ? tabs.scrollLeft : 0;
+  const pageY = window.scrollY;
   currentAnnIndex = i;
   renderDoc();
+  const newTabs = document.querySelector(".ann-tabs");
+  if (newTabs) newTabs.scrollLeft = tabScroll;
+  window.scrollTo(0, pageY);
 }
 window.selectAnnouncement = selectAnnouncement;
 
@@ -422,18 +430,41 @@ function renderAnnTicker() {
   const track = document.getElementById("annTickerTrack");
   if (!announcements.length) { ticker.hidden = true; return; }
   ticker.hidden = false;
-  const latest = announcements[0];
-  const text = latest.content[currentLang] || latest.content.en || Object.values(latest.content)[0] || "";
-  const plain = text.replace(/\{(\w+)\}/g, (m, id) => (GLOSSARY[id] ? t(GLOSSARY[id]) : m))
-                     .replace(/\*\*(.+?)\*\*/g, "$1");
-  track.textContent = `📢 ${plain}`;
+
+  const toPlain = (text) => text
+    .replace(/\[\[link:[\w-]+\]\]/g, "")
+    .replace(/\{(\w+)\}/g, (m, id) => (GLOSSARY[id] ? t(GLOSSARY[id]) : m))
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/\s*\n+\s*/g, " ")
+    .trim();
+  const firstParagraph = (text) =>
+    (text.split(/\n\s*\n/).map((p) => toPlain(p)).find((p) => p) || "");
+
+  track.innerHTML = "";
+  let totalLen = 0;
+  announcements.forEach((a, i) => {
+    const title = a.title ? t(a.title) : "";
+    const body = a.content[currentLang] || a.content.en || Object.values(a.content)[0] || "";
+    const lead = firstParagraph(body);
+    const label = `📢 ${title && lead ? `${title}：${lead}` : (title || lead)}`;
+    totalLen += label.length;
+    const item = document.createElement("span");
+    item.className = "ann-ticker-item";
+    item.textContent = label;
+    item.onclick = (e) => { e.stopPropagation(); goToAnnouncements(i); };
+    track.appendChild(item);
+  });
+  track.style.animationDuration = `${Math.max(20, Math.round(totalLen * 0.2))}s`;
 }
 
-function goToAnnouncements() {
+function goToAnnouncements(i) {
+  if (typeof i === "number") currentAnnIndex = i;
   currentGuide = "recent-events";
   persistPrefs();
   renderAll();
   requestAnimationFrame(() => {
+    const tab = document.querySelector(".ann-tab.active");
+    if (tab) tab.scrollIntoView({ block: "nearest", inline: "center" });
     const el = document.querySelector(".ann-board");
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   });
