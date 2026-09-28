@@ -2380,28 +2380,34 @@ const GUIDES = {
         { type: "cards", items: [
           { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Mon · Tue",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
               "Only the stats of Heroes, {heroGear} and {heroExclusiveGear} count."
             ] },
           { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Wed · Thu",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "Only {pets} stats count.",
               "{petSkills} are active by default; their effects don't stack."
             ] },
           { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Wed · Thu",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
               "Only {governorCharm} stats count."
             ] },
           { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Fri · Sat",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
               "Only {academy} and {warAcademy} tech stats count.",
               "Higher-level soldiers are used here if you've unlocked them."
             ] },
           { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Fri · Sat",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
               "Only {governorGear} stats count."
             ] },
           { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Sun",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "Almost everything counts: Heroes, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} active by default), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} and {vipLevel}.",
               "You fight with your own troops — no losses, and your world-map deployment isn't affected."
             ] }
@@ -2417,28 +2423,34 @@ const GUIDES = {
         { type: "cards", items: [
           { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "週一、週二",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
               "只有英雄、{heroGear}和{heroExclusiveGear}的屬性生效。"
             ] },
           { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "週三、週四",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "只有{pets}屬性生效。",
               "{petSkills}預設生效（主動使用技能效果不疊加）。"
             ] },
           { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "週三、週四",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
               "只有{governorCharm}的屬性生效。"
             ] },
           { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "週五、週六",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
               "只有{academy}以及{warAcademy}的科技屬性生效。",
               "若已解鎖更高等級的士兵科技，可使用更高等級的士兵。"
             ] },
           { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "週五、週六",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
               "只有{governorGear}的屬性生效。"
             ] },
           { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "週日",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "英雄、{heroGear}、{heroExclusiveGear}、{pets}（{petSkills}預設生效）、{governorCharm}、{tech}、{truegoldTech}、{governorGear}、{skins}、{oasisIsland}以及{vipLevel}、建築提供的屬性都將生效。",
               "使用自己的部隊，不影響野外的部隊調度，士兵也不會受傷。"
             ] }
@@ -2454,28 +2466,34 @@ const GUIDES = {
         { type: "cards", items: [
           { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "월요일, 화요일",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
               "영웅, {heroGear}, {heroExclusiveGear} 속성만 적용됩니다."
             ] },
           { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "수요일, 목요일",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "{pets} 속성만 적용됩니다.",
               "{petSkills}은 자동으로 적용됩니다(스킬을 사용해도 중첩되지 않음)."
             ] },
           { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "수요일, 목요일",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
               "{governorCharm} 속성만 적용됩니다."
             ] },
           { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "금요일, 토요일",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
               "{academy} 및 {warAcademy}의 과학 기술 속성만 적용됩니다.",
               "더 높은 레벨의 병사 과학 기술을 해제하면 더 높은 레벨의 병사를 사용할 수 있습니다."
             ] },
           { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "금요일, 토요일",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
               "{governorGear} 속성만 적용됩니다."
             ] },
           { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "일요일",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "영웅, {heroGear}, {heroExclusiveGear}, {pets}({petSkills} 기본 적용), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} 및 {vipLevel}, 건물이 제공하는 속성이 모두 적용됩니다.",
               "자신의 부대를 사용하지만 야외 부대에 영향을 주지 않으며, 병사가 부상당하지도 않습니다."
             ] }
@@ -2491,28 +2509,34 @@ const GUIDES = {
         { type: "cards", items: [
           { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Montag & Dienstag",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
               "Es zählen nur die Werte von Helden, {heroGear} und {heroExclusiveGear}."
             ] },
           { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Mittwoch & Donnerstag",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "Es zählen nur die Werte der {pets}.",
               "{petSkills} sind standardmäßig aktiv; ihre Effekte sind nicht stapelbar."
             ] },
           { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Mittwoch & Donnerstag",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
               "Es zählen nur die Werte von {governorCharm}."
             ] },
           { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Freitag & Samstag",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
               "Es zählen nur die Technologie-Werte von {academy} und {warAcademy}.",
               "Falls freigeschaltet, werden hier Soldaten höherer Level eingesetzt."
             ] },
           { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Freitag & Samstag",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
               "Es zählen nur die Werte von {governorGear}."
             ] },
           { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Sonntag",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "Fast alles zählt: Helden, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} standardmäßig aktiv), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} und {vipLevel}.",
               "Du kämpfst mit deinen eigenen Soldaten – ohne Verluste und ohne Auswirkung auf deinen Einsatz auf der Weltkarte."
             ] }
@@ -2528,28 +2552,34 @@ const GUIDES = {
         { type: "cards", items: [
           { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Lundi & Mardi",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
               "Seules les stats des Héros, de l'{heroGear} et de l'{heroExclusiveGear} comptent."
             ] },
           { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Mercredi & Jeudi",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "Seules les stats des {pets} comptent.",
               "Les {petSkills} sont actives par défaut, mais leurs effets ne se cumulent pas."
             ] },
           { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Mercredi & Jeudi",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
               "Seules les stats du {governorCharm} comptent."
             ] },
           { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Vendredi & Samedi",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
               "Seules les stats des Techs de l'{academy} et de l'{warAcademy} comptent.",
               "Des soldats de plus haut niveau sont utilisés ici s'ils sont débloqués."
             ] },
           { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Vendredi & Samedi",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
               "Seules les stats de l'{governorGear} comptent."
             ] },
           { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Dimanche",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "Presque tout compte : Héros, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} actives par défaut), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} et {vipLevel}.",
               "Tu utilises tes propres soldats — sans pertes et sans affecter ton déploiement sur la carte du monde."
             ] }
@@ -2565,28 +2595,34 @@ const GUIDES = {
         { type: "cards", items: [
           { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Segunda e Terça",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
               "Apenas as estatísticas de Heróis, {heroGear} e {heroExclusiveGear} contam."
             ] },
           { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Quarta e Quinta",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "Apenas as estatísticas dos {pets} contam.",
               "As {petSkills} são eficazes por padrão, e seus efeitos não são cumulativos."
             ] },
           { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Quarta e Quinta",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
               "Apenas as estatísticas do {governorCharm} contam."
             ] },
           { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Sexta e Sábado",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
               "Apenas as estatísticas de Tecnologia da {academy} e da {warAcademy} contam.",
               "Soldados de nível superior são usados aqui, se desbloqueados."
             ] },
           { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Sexta e Sábado",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
               "Apenas as estatísticas do {governorGear} contam."
             ] },
           { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Domingo",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "Quase tudo conta: Heróis, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} efetivas por padrão), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} e {vipLevel}.",
               "Você usa seus próprios soldados — sem baixas e sem afetar sua implantação no mapa-múndi."
             ] }
@@ -2602,28 +2638,34 @@ const GUIDES = {
         { type: "cards", items: [
           { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Pazartesi & Salı",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
               "Sadece Kahraman, {heroGear} ve {heroExclusiveGear} nitelikleri geçerlidir."
             ] },
           { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Çarşamba & Perşembe",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "Sadece {pets} nitelikleri geçerlidir.",
               "{petSkills} varsayılan olarak devrededir; etkileri birikmez."
             ] },
           { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Çarşamba & Perşembe",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
               "Sadece {governorCharm} nitelikleri geçerlidir."
             ] },
           { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Cuma & Cumartesi",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
               "Sadece {academy} ve {warAcademy} nitelikleri geçerlidir.",
               "Kilidi açılmışsa burada daha yüksek seviyeli askerler kullanılır."
             ] },
           { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Cuma & Cumartesi",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
               "Sadece {governorGear} nitelikleri geçerlidir."
             ] },
           { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Pazar",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "Neredeyse her şey geçerlidir: Kahraman, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} varsayılan olarak geçerli), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} ve {vipLevel}.",
               "Kendi askerlerini kullanırsın; kayıp vermezsin ve dünya haritasındaki konuşlanman etkilenmez."
             ] }
@@ -2639,28 +2681,34 @@ const GUIDES = {
         { type: "cards", items: [
           { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Senin & Selasa",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
               "Hanya Stat Hero, {heroGear}, dan {heroExclusiveGear} yang berlaku."
             ] },
           { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Rabu & Kamis",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "Hanya Stat {pets} yang berlaku.",
               "{petSkills} aktif secara default, dan efeknya tidak bisa ditumpuk."
             ] },
           { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Rabu & Kamis",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
               "Hanya Stat {governorCharm} yang berlaku."
             ] },
           { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Jumat & Sabtu",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
               "Hanya Stat Teknologi {academy} dan {warAcademy} yang berlaku.",
               "Prajurit level lebih tinggi dipakai di sini jika sudah dibuka."
             ] },
           { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Jumat & Sabtu",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
               "Hanya Stat {governorGear} yang berlaku."
             ] },
           { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Minggu",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "Hampir semua stat berlaku: Hero, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} aktif secara default), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland}, dan {vipLevel}.",
               "Kamu memakai prajurit sendiri — tanpa kerugian dan tanpa memengaruhi pengerahan di peta dunia."
             ] }
@@ -2676,28 +2724,34 @@ const GUIDES = {
         { type: "cards", items: [
           { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "понедельник и вторник",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
               "Действуют только показатели: герои, {heroGear}, {heroExclusiveGear}."
             ] },
           { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "среда и четверг",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "Действуют только показатели: {pets}.",
               "По умолчанию действуют {petSkills}; их эффекты не суммируются."
             ] },
           { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "среда и четверг",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
               "Действуют только показатели: {governorCharm}."
             ] },
           { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "пятница и суббота",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
               "Действуют только показатели технологий: {academy} и {warAcademy}.",
               "Если открыты солдаты более высокого уровня, здесь используются они."
             ] },
           { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "пятница и суббота",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
               "Действуют только показатели: {governorGear}."
             ] },
           { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "воскресенье",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "Действует почти всё: герои, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} действуют по умолчанию), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} и {vipLevel}.",
               "Вы используете своих солдат — без потерь и без влияния на отправления на карте мира."
             ] }
@@ -2713,28 +2767,34 @@ const GUIDES = {
         { type: "cards", items: [
           { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "วันจันทร์และวันอังคาร",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
               "มีผลเฉพาะค่าสถานะของฮีโร่ {heroGear} และ{heroExclusiveGear}"
             ] },
           { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "วันพุธและวันพฤหัสบดี",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "มีผลเฉพาะค่าสถานะของ{pets}",
               "{petSkills}มีผลโดยอัตโนมัติ และไม่สามารถซ้อนทับได้"
             ] },
           { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "วันพุธและวันพฤหัสบดี",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
               "มีผลเฉพาะค่าสถานะของ{governorCharm}"
             ] },
           { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "วันศุกร์และวันเสาร์",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
               "มีผลเฉพาะค่าสถานะจากเทคโนโลยีของ{academy}และ{warAcademy}",
               "หากปลดล็อกแล้ว จะใช้กองทหารเลเวลที่สูงกว่า"
             ] },
           { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "วันศุกร์และวันเสาร์",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
               "มีผลเฉพาะค่าสถานะของ{governorGear}"
             ] },
           { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "วันอาทิตย์",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "เกือบทุกอย่างมีผล: ฮีโร่, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills}มีผลโดยอัตโนมัติ), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} และ{vipLevel}",
               "ใช้กองทหารของคุณเอง โดยไม่กระทบการเดินทัพในแผนที่โลก และไม่สูญเสียกองทหาร"
             ] }
@@ -2750,28 +2810,34 @@ const GUIDES = {
         { type: "cards", items: [
           { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "الاثنين والثلاثاء",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
               "فقط سمات الأبطال و{heroGear} و{heroExclusiveGear} تصبح سارية هنا."
             ] },
           { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "الأربعاء والخميس",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "فقط سمات {pets} تصبح سارية هنا.",
               "{petSkills} فعالة افتراضيًا، وتأثيراتها غير قابلة للتراكم."
             ] },
           { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "الأربعاء والخميس",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
               "فقط سمات {governorCharm} تصبح سارية هنا."
             ] },
           { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "الجمعة والسبت",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
               "فقط سمات تقنية {academy} و{warAcademy} تصبح سارية هنا.",
               "يُستخدم جنود بمستوى أعلى هنا إذا تم فتحهم."
             ] },
           { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "الجمعة والسبت",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
               "فقط سمات {governorGear} تصبح سارية هنا."
             ] },
           { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "الأحد",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "تقريبًا كل شيء يسري هنا: الأبطال، {heroGear}، {heroExclusiveGear}، {pets} ({petSkills} فعالة افتراضيًا)، {governorCharm}، {tech}، {truegoldTech}، {governorGear}، {skins}، {oasisIsland}، و{vipLevel}.",
               "تستخدم جنودك دون التأثير على نشر قواتك على خريطة العالم ودون تكبد أي خسائر."
             ] }
@@ -2787,28 +2853,34 @@ const GUIDES = {
         { type: "cards", items: [
           { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "lunes y martes",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
               "Solo surten efecto los atributos de los Héroes, el {heroGear} y el {heroExclusiveGear}."
             ] },
           { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "miércoles y jueves",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "Solo surten efecto los atributos de las {pets}.",
               "Las {petSkills} están activas por defecto, y sus efectos no son acumulables."
             ] },
           { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "miércoles y jueves",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
               "Solo surten efecto los atributos del {governorCharm}."
             ] },
           { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "viernes y sábado",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
               "Solo surten efecto los atributos de Tecnologías de la {academy} y la {warAcademy}.",
               "Si están desbloqueados, aquí se usan soldados de nivel superior."
             ] },
           { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "viernes y sábado",
             lines: [
+              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
               "Solo surten efecto los atributos del {governorGear}."
             ] },
           { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "domingo",
             lines: [
+              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
               "Casi todo surte efecto: Héroes, {heroGear}, {heroExclusiveGear}, {pets} (con sus habilidades activas por defecto), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} y {vipLevel}.",
               "Usas tus propios soldados, sin afectar tu despliegue en el mapa mundial ni sufrir bajas."
             ] }
