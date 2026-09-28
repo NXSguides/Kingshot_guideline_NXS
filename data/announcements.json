@@ -1,5 +1,75 @@
 [
   {
+    "id": "0ff95ae289",
+    "author": "Nia",
+    "createdAt": "2026-09-28T02:07:29.759Z",
+    "images": [],
+    "links": [],
+    "title": {
+      "zh": "🏆 Gen 3 大師指南",
+      "ko": "🏆 Gen 3 거장 가이드",
+      "de": "🏆 Gen 3 Meister-Leitfaden",
+      "fr": "🏆 Guide des Experts Gen 3",
+      "pt": "🏆 Guia de Mestres Gen 3",
+      "tr": "🏆 Gen 3 Usta Kılavuzu",
+      "id": "🏆 Panduan Master Gen 3",
+      "ru": "🏆 Руководство по мастерам Gen 3",
+      "th": "🏆 คำแนะนำมาสเตอร์ Gen 3",
+      "ar": "🏆 دليل المتخصصين Gen 3",
+      "es": "🏆 Guía de Maestros Gen 3",
+      "en": "🏆 Gen 3 Masters Guide"
+    },
+    "content": {
+      "zh": "大師是您可以解鎖並提升等級以獲得特殊技能、加成和獎勵的角色。他們與英雄不同。\n\n🔹 F2P 優先順序：潘 > 維拉 > ROMAN\n🔹 課長/集結手：維拉 > ROMAN > 潘\n\n**提示：**\n🔹 不要將物資用在維拉身上——免費的冒險即可解鎖她。\n🔹 為 Lostlands 的潘保留物資。\n🔹 潘 -> 60級：Falconer = 每日最高的黃金/加速。\n🔹 維拉 -> 30級：狩獵巨熊 鍛造錘。\n🔹 ROMAN -> 僅為被動的競技商店寶箱掉落而解鎖。",
+      "ko": "거장은 특별한 스킬, 버프 및 보상을 위해 잠금 해제하고 레벨을 올리는 캐릭터입니다. 영웅과는 별개입니다.\n\n🔹 F2P 우선순위: 판 > 베라 > ROMAN\n🔹 핵과금/집결장: 베라 > ROMAN > 판\n\n**팁:**\n🔹 베라에게 물자를 사용하지 마세요. 무료 모험을 통해 잠금 해제할 수 있습니다.\n🔹 Lostlands의 판을 위해 물자를 아껴두세요.\n🔹 판 -> 레벨 60: Falconer = 일일 최대 순금/가속.\n🔹 베라 -> 레벨 30: 자이언트 베어 사냥 제작 망치.\n🔹 ROMAN -> 패시브 경기장 상점 보물 상자 드롭을 위해서만 잠금 해제하세요.",
+      "de": "Meister sind Charaktere, die du freischaltest und aufwertest, um spezielle Fertigkeiten, Boni und Belohnungen zu erhalten. Sie sind von den Helden getrennt.\n\n🔹 F2P-Priorität: Pan > Valora > ROMAN\n🔹 Whale/Rally-Leiter: Valora > ROMAN > Pan\n\n**TIPPS:**\n🔹 Verwende keine Vorräte für Valora – kostenlose Reisen schalten sie frei.\n🔹 Spare Vorräte für Pan in Lostlands.\n🔹 Pan -> Level 60: Falconer = max. tägliches Echtgold/Beschleunigungen.\n🔹 Valora -> Level 30: Bärenjagd Forgehammer.\n🔹 ROMAN -> Nur für passive Arena-Kisten-Drops freischalten.",
+      "fr": "Les experts sont des personnages que vous débloquez et améliorez pour obtenir des compétences spéciales, des bonus et des récompenses. Ils sont distincts des Héros.\n\n🔹 Priorité F2P : Pan > Valora > ROMAN\n🔹 Whale/Chef de Ralliement : Valora > ROMAN > Pan\n\n**CONSEILS :**\n🔹 N'utilisez pas de provisions pour Valora — les Voyages gratuits permettent de la débloquer.\n🔹 Gardez vos provisions pour Pan dans Lostlands.\n🔹 Pan -> Niveau 60 : Falconer = max. Or Véritable/Accélér. quotidiens.\n🔹 Valora -> Niveau 30 : Chasse à l'Ours Marteaux de Forge.\n🔹 ROMAN -> À débloquer uniquement pour les drops passifs de Caisses d'Arène.",
+      "pt": "Mestres são personagens que você desbloqueia e aprimora para obter habilidades especiais, bônus e recompensas. Eles são separados dos Heróis.\n\n🔹 Prioridade F2P: Pan > Valora > ROMAN\n🔹 Whale/Líder de Rally: Valora > ROMAN > Pan\n\n**DICAS:**\n🔹 Não use suprimentos em Valora — Jornadas gratuitas a desbloqueiam.\n🔹 Economize suprimentos para Pan em Lostlands.\n🔹 Pan -> Nível 60: Falconer = máximo de Adamante/Velocidade diários.\n🔹 Valora -> Nível 30: Caça ao Urso Martelos de Forja.\n🔹 ROMAN -> Desbloqueie apenas para drops passivos de Baús da Arena.",
+      "tr": "Ustalar; özel yetenekler, bonuslar ve ödüller için kilidini açtığınız ve seviye atlattığınız karakterlerdir. Kahramanlar'dan ayrıdırlar.\n\n🔹 F2P Önceliği: Pan > Valora > ROMAN\n🔹 Whale/Seferberlik Lideri: Valora > ROMAN > Pan\n\n**İPUÇLARI:**\n🔹 Valora için malzeme kullanmayın; ücretsiz Yolculuklar onun kilidini açar.\n🔹 Malzemeleri Lostlands'deki Pan için saklayın.\n🔹 Pan -> Seviye 60: Falconer = günlük maks. Hasaltın/Hızlandırma.\n🔹 Valora -> Seviye 30: Ayı Avı Demirci Çekici'leri.\n🔹 ROMAN -> Sadece pasif Arena Sandıkları dropları için kilidini açın.",
+      "id": "Master adalah karakter yang kamu buka & tingkatkan levelnya untuk skill spesial, bonus, dan hadiah. Mereka terpisah dari Pahlawan.\n\n🔹 Prioritas F2P: Pan > Valora > ROMAN\n🔹 Whale/Pemimpin Reli: Valora > ROMAN > Pan\n\n**TIPS:**\n🔹 Jangan gunakan suplai pada Valora—Perjalanan gratis akan membukanya.\n🔹 Simpan suplai untuk Pan di Lostlands.\n🔹 Pan -> Level 60: Falconer = maks. Truegold/Speedup harian.\n🔹 Valora -> Level 30: Bear Hunt Forgehammer.\n🔹 ROMAN -> Buka hanya untuk drop Peti Arena pasif.",
+      "ru": "Мастеры — это персонажи, которых вы открываете и уровень которых повышаете для получения специальных навыков, бонусов и наград. Они существуют отдельно от Героев.\n\n🔹 Приоритет для F2P: Пан > Валора > ROMAN\n🔹 Для «китов» / лидеров Рейдов: Валора > ROMAN > Пан\n\n**ПОДСКАЗКИ:**\n🔹 Не тратьте припасы на Валору — ее можно открыть через бесплатные Путешествия.\n🔹 Берегите припасы для Пана в Lostlands.\n🔹 Пан -> Уровень 60: Falconer = макс. ежедневного Аурума/Ускор.\n🔹 Валора -> Уровень 30: Охота на медведя Кузнечные молоты.\n🔹 ROMAN -> Открывайте только ради пассивного выпадения Ящиков арены.",
+      "th": "มาสเตอร์คือตัวละครที่คุณปลดล็อกและอัปเกรดเพื่อรับทักษะพิเศษ โบนัส และรางวัล พวกเขาแยกจากฮีโร่\n\n🔹 ลำดับความสำคัญ F2P: แพน > วาโลร่า > ROMAN\n🔹 สายเปย์/ผู้นำทีมระดมพล: วาโลร่า > ROMAN > แพน\n\n**แนะนำ:**\n🔹 อย่าใช้เสบียงกับวาโลร่า—การเดินทางฟรีจะปลดล็อกเธอเอง\n🔹 เก็บเสบียงไว้ให้แพนใน Lostlands\n🔹 แพน -> เลเวล 60: Falconer = ทรูโกลด์/เร่งสปีดรายวันสูงสุด\n🔹 วาโลร่า -> เลเวล 30: ล่าหมี ค้อนตีเหล็ก\n🔹 ROMAN -> ปลดล็อกเพื่อรับการดรอปหีบอารีน่าแบบพาสซีฟเท่านั้น",
+      "ar": "المتخصصون هم شخصيات تقوم بفتحها وترقيتها للحصول على مهارات ومكافآت وجوائز خاصة. إنهم منفصلون عن الأبطال.\n\n🔹 أولوية F2P: بان > فالورا > ROMAN\n🔹 الحيتان/قادة الحشد: فالورا > ROMAN > بان\n\n**نصائح:**\n🔹 لا تستخدم الإمدادات على فالورا—الرحلة المجانية تفتحها.\n🔹 وفر الإمدادات لبان في Lostlands.\n🔹 بان -> المستوى 60: Falconer = أقصى قدر يومي من الذهب الخالص/عناصر التسريع.\n🔹 فالورا -> المستوى 30: صيد الدببة مطرقة الحدادة.\n🔹 ROMAN -> افتحه فقط من أجل الحصول على صناديق الساحة السلبية.",
+      "es": "Los maestros son personajes que desbloqueas y mejoras para obtener habilidades especiales, bonificaciones y recompensas. Son independientes de los Héroes.\n\n🔹 Prioridad F2P: Pan > Valora > ROMAN\n🔹 Whale/Líder de Ataque Conjunto: Valora > ROMAN > Pan\n\n**CONSEJOS:**\n🔹 No uses suministros en Valora; las Travesías gratuitas la desbloquean.\n🔹 Guarda los suministros para Pan en Lostlands.\n🔹 Pan -> Nv. 60: Falconer = máx. Adamantina/Acelerar diarios.\n🔹 Valora -> Nv. 30: Cacería del Oso Martillo de Forja.\n🔹 ROMAN -> Desbloquéalo solo por la aparición pasiva de Cajas de Arena.",
+      "en": "Masters are characters you unlock & level for special skills, bonuses and rewards. They are separate from Heroes.\n\n🔹 F2P Priority: PAN > VALORA > ROMAN\n🔹 Whale/Rally Lead: VALORA > ROMAN > PAN\n\n**TIPS:**\n🔹 Don’t use Supplies on Valora—free Journeys unlock her.\n🔹 Save Supplies for Pan in Lostlands.\n🔹 Pan -> Lv60: Falconer = max daily {truegold}/speedups.\n🔹 Valora -> Lv30: {bearHunt} {forgehammer}s.\n🔹 Roman -> Unlock only for passive Arena Chest drops.\n"
+    }
+  },
+  {
+    "id": "6b2f4cfaad",
+    "author": "Nia",
+    "createdAt": "2026-09-28T02:07:07.695Z",
+    "images": [],
+    "links": [],
+    "title": {
+      "zh": "Gen 3 英雄指南",
+      "ko": "Gen 3 영웅 가이드",
+      "de": "Gen 3 Helden Leitfaden",
+      "fr": "Guide des Héros Gen 3",
+      "pt": "Guia de Heróis Gen 3",
+      "tr": "Gen 3 Kahramanlar Kılavuzu",
+      "id": "Panduan Pahlawan Gen 3",
+      "ru": "Руководство по героям Gen 3",
+      "th": "คำแนะนำฮีโร่ Gen 3",
+      "ar": "دليل الأبطال Gen 3",
+      "es": "Guía de Héroes Gen 3",
+      "en": "Gen 3 Heroes Guide"
+    },
+    "content": {
+      "zh": "不確定要投資什麼？最新的英雄與大師指南已在 Discord 和我們的多語言網站上線。\n\n**Gen 3 總結**\n🔥 小佩拉 - 必練（{heroRoulette}）。優秀的 {bearHunt} 英雄，價值可持續至 Gen 7。\n- 艾瑞克 & 耶格爾：除非專注於 PvP 或防衛所防禦，否則建議跳過\n\n**整體建議：**\n🔹 F2P 玩家：如果尚未升滿，請專注於 {zoe}（步兵坦克）以及來自 {heroRoulette} 的小佩拉（進攻型騎兵）\n🔹 P2W 玩家：優先考慮 {amadeus}（VIP 7+）和 {hilde}\n\n[[link:f2p-heroes]]",
+      "ko": "무엇에 투자해야 할지 모르겠나요? 새로운 영웅 & 거장 가이드가 Discord와 다국어 웹사이트에서 제공됩니다.\n\n**Gen 3 요약**\n🔥 리틀 페라 - 필수 제작 ({heroRoulette}). Gen 7까지 가치가 지속되는 뛰어난 {bearHunt} 영웅입니다.\n- 에릭 & 예거: PvP 또는 방위소 방어에 집중하지 않는 한 건너뛰세요\n\n**종합:**\n🔹 무과금 플레이어: 아직 만렙이 아니라면 {zoe}(보병 탱커)와 {heroRoulette}의 리틀 페라(공격형 기병)에 집중하세요\n🔹 과금 플레이어: 아마데우스(VIP 7+)와 힐데를 우선순위에 두세요\n\n[[link:f2p-heroes]]",
+      "de": "Sie sind sich nicht sicher, worin Sie investieren sollen? Neue Helden- und Meister-Leitfäden sind auf Discord und unserer mehrsprachigen Website verfügbar.\n\n**Zusammenfassung Gen 3**\n🔥 Petra - ABSOLUTES MUSS ({heroRoulette}). Ausgezeichneter {bearHunt}-Held mit Wert bis Gen 7.\n- Eric & Jaeger: Überspringen, außer man konzentriert sich auf PvP/Wachposten-Verteidigung\n\n**Insgesamt:**\n🔹 F2P-Spieler: Konzentriere dich auf {zoe} (Infanterie-Tank), falls noch nicht auf Max, und Petra (offensive Kavallerie) aus dem {heroRoulette}\n🔹 P2W-Spieler: Priorisiere {amadeus} (VIP 7+) und {hilde}\n\n[[link:f2p-heroes]]",
+      "fr": "Vous ne savez pas dans quoi investir ? De nouveaux guides pour les Héros et les Experts sont disponibles sur Discord et sur notre site web multilingue.\n\n**Résumé Gen 3**\n🔥 Petra - À CONSTRUIRE ABSOLUMENT ({heroRoulette}). Excellent héros de {bearHunt} avec une valeur jusqu'à la Gen 7.\n- Éric & Jaeger : À ignorer sauf si vous vous concentrez sur le PvP/la défense du Poste de Garde\n\n**Dans l'ensemble :**\n🔹 Joueurs F2P : Concentrez-vous sur {zoe} (tank Infanterie) si elle n'est pas encore au max, et Petra (Cavalerie offensive) de la {heroRoulette}\n🔹 Joueurs P2W : Priorisez {amadeus} (VIP 7+) et {hilde}\n\n[[link:f2p-heroes]]",
+      "pt": "Não tem certeza em que investir? Novos guias de Heróis e Mestres estão disponíveis no Discord e em nosso site multilíngue.\n\n**Resumo Gen 3**\n🔥 Petra - CONSTRUÇÃO OBRIGATÓRIA ({heroRoulette}). Excelente herói de {bearHunt} com valor até a Gen 7.\n- Eric & Jaeger: Ignore, a menos que seu foco seja PvP/defesa da Estação de Guarda\n\n**No geral:**\n🔹 Jogadores F2P: Foque em {zoe} (tanque de Infantaria) se ainda não estiver no máximo e Petra (Cavalaria ofensiva) da {heroRoulette}\n🔹 Jogadores P2W: Priorize {amadeus} (VIP 7+) e {hilde}\n\n[[link:f2p-heroes]]",
+      "tr": "Neye yatırım yapacağınızdan emin değil misiniz? Yeni Kahramanlar ve Ustalar kılavuzları Discord'da ve çok dilli web sitemizde mevcut.\n\n**Özet Gen 3**\n🔥 Petra - MUTLAKA GELİŞTİRİLMELİ ({heroRoulette}). Gen 7'ye kadar değeri olan mükemmel bir {bearHunt} kahramanı.\n- Eric & Jaeger: PvP/Muhafız İstasyonu savunmasına odaklanmıyorsanız atlayın\n\n**Genel:**\n🔹 F2P Oyuncuları: Eğer henüz maksimum seviyede değilse {zoe}'ye (Piyade tankı) ve {heroRoulette}'den Petra'ya (saldırı Süvarisi) odaklanın\n🔹 P2W Oyuncuları: {amadeus} (VIP 7+) ve {hilde}'ye öncelik verin\n\n[[link:f2p-heroes]]",
+      "id": "Bingung mau investasi di mana? Panduan Pahlawan & Master baru tersedia di Discord dan situs web multibahasa kami.\n\n**Ringkasan Gen 3**\n🔥 Petra - WAJIB DIBANGUN ({heroRoulette}). Pahlawan {bearHunt} yang luar biasa dengan nilai hingga Gen 7.\n- Eric & Jaeger: Lewati saja kecuali fokus pada PvP/pertahanan Pos Penjaga\n\n**Keseluruhan:**\n🔹 Pemain F2P: Fokus pada {zoe} (tank Infanteri) jika belum maksimal dan Petra (Kavaleri ofensif) dari {heroRoulette}\n🔹 Pemain P2W: Prioritaskan {amadeus} (VIP 7+) dan {hilde}\n\n[[link:f2p-heroes]]",
+      "ru": "Не знаете, во что инвестировать? Новые руководства по Героям и Мастерам доступны в Discord и на нашем многоязычном сайте.\n\n**Итоги Gen 3**\n🔥 Петра - ОБЯЗАТЕЛЬНО К ПРОКАЧКЕ ({heroRoulette}). Отличный герой для {bearHunt}, сохраняющий ценность до Gen 7.\n- Эрик и Йегер: Пропускайте, если не сосредоточены на PvP или защите Крепостной стены\n\n**В целом:**\n🔹 F2P-игроки: Сосредоточьтесь на {zoe} (пехотинец-танк), если она еще не прокачана на максимум, и Петре (атакующий кавалерист) из {heroRoulette}\n🔹 P2W-игроки: Отдайте приоритет {amadeus} (VIP 7+) и {hilde}\n\n[[link:f2p-heroes]]",
+      "th": "ไม่แน่ใจว่าจะลงทุนกับอะไรดี? คำแนะนำฮีโร่และมาสเตอร์ใหม่มีให้อ่านแล้วที่ Discord และเว็บไซต์หลายภาษาของเรา\n\n**สรุป Gen 3**\n🔥 เพตรา - ต้องปั้น ({heroRoulette}) ฮีโร่ {bearHunt} ที่ยอดเยี่ยมและใช้ได้ยาวถึง Gen 7\n- อีริค และ เยเกอร์: ข้ามได้เลย เว้นแต่จะเน้นที่ PvP หรือการป้องกันสถานีคุ้มกัน\n\n**ภาพรวม:**\n🔹 ผู้เล่น F2P: เน้นที่ {zoe} (ทหารราบสายแทงค์) หากยังไม่เต็ม และเพตรา (ทหารม้าสายบุก) จาก {heroRoulette}\n🔹 ผู้เล่น P2W: ให้ความสำคัญกับ {amadeus} (VIP 7+) และ {hilde} ก่อน\n\n[[link:f2p-heroes]]",
+      "ar": "لست متأكدًا مما يجب استثماره؟ أدلة الأبطال والمتخصصين الجديدة متاحة على Discord وموقعنا الإلكتروني متعدد اللغات.\n\n**ملخص Gen 3**\n🔥 بيترا - يجب بناؤها ({heroRoulette}). بطل {bearHunt} ممتاز ذو قيمة حتى Gen 7.\n- إيريك وييجر: تخطاهما إلا إذا كنت تركز على PvP أو دفاع محطة الحراسة\n\n**بشكل عام:**\n🔹 لاعبو F2P: ركز على {zoe} (المشاة) إذا لم تكن في الحد الأقصى بالفعل، وبيترا (الفرسان) من {heroRoulette}\n🔹 لاعبو P2W: أعطِ الأولوية لـ {amadeus} (VIP 7+) و {hilde}\n\n[[link:f2p-heroes]]",
+      "es": "¿No sabes en qué invertir? Las nuevas guías de Héroes y Maestros están disponibles en Discord y en nuestro sitio web multilingüe.\n\n**Resumen Gen 3**\n🔥 Petra - IMPRESCINDIBLE ({heroRoulette}). Excelente héroe de {bearHunt} con valor hasta la Gen 7.\n- Eric y Jaeger: Ignóralos a menos que te centres en el PvP o la defensa de la Estación de Guardia\n\n**En general:**\n🔹 Jugadores F2P: Céntrate en {zoe} (Infantería) si aún no está al máximo, y Petra (Caballería) de la {heroRoulette}\n🔹 Jugadores P2W: Prioriza a {amadeus} (VIP 7+) y {hilde}\n\n[[link:f2p-heroes]]",
+      "en": "Not sure what to invest in? New Heroes & Masters guides are available on Discord and our multilingual website.\n\n**Summary GEN 3**\n🔥 Petra - MUST BUILD ({heroRoulette}). Excellent {bearHunt} hero with value through Gen 7.\n- Eric & Jaeger: Skip unless focused on PvP/garrison defense\n\n**Overall:**\n🔹 F2P Players: Focus on {zoe} if not maxed already (Infantry tank) and Petra (offensive Cavalry) from {heroRoulette}\n🔹 P2W Players: Prioritize {amadeus} (VIP 7+) and {hilde}\n\n[[link:f2p-heroes]]\n"
+    }
+  },
+  {
     "id": "9040670592",
     "author": "Nia",
     "createdAt": "2026-09-28T00:47:26.236Z",
