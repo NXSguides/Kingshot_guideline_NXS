@@ -522,6 +522,37 @@ function renderDoc() {
   doc.appendChild(renderBlocks(guide, s));
 }
 
+/* ---- Anonymous counting (GoatCounter) ------------------------------ */
+const COUNTED_INSTALL_KEY = "ks-install-counted";
+let lastCountedGuide = null;
+
+function gcCount(opts, tries = 0) {
+  try {
+    if (window.goatcounter && typeof window.goatcounter.count === "function") {
+      window.goatcounter.count(opts);
+    } else if (tries < 20) {
+      setTimeout(() => gcCount(opts, tries + 1), 500); // wait for count.js to load
+    }
+  } catch (e) { /* counting must never break the site */ }
+}
+
+function countVisit() {
+  // One "App installed" per device, the first time the home-screen app is opened
+  if (isInstalledApp() && !safeGet(COUNTED_INSTALL_KEY)) {
+    safeSet(COUNTED_INSTALL_KEY, "1");
+    gcCount({ path: "app-installed", title: "App installed", event: true });
+  }
+  // One view each time someone opens a guide page
+  if (langChosen && currentGuide !== lastCountedGuide) {
+    lastCountedGuide = currentGuide;
+    const g = GUIDES[currentGuide];
+    gcCount({
+      path: "/" + currentGuide,
+      title: (g && g.name && (g.name.en || g.name.zh)) || currentGuide
+    });
+  }
+}
+
 function renderAll() {
   document.getElementById("siteTitle").textContent = SITE_TITLE;
   document.getElementById("footerNote").textContent = t(UI.footerNote);
@@ -535,6 +566,7 @@ function renderAll() {
   renderLangRow();
   renderGuideRow();
   renderDoc();
+  countVisit();
 }
 
 const EVENT_POPUP = {
