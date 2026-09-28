@@ -356,6 +356,16 @@ function renderLangRow() {
     renderAll();
   };
   row.appendChild(btn);
+
+  // "How to install as an app" page — hidden from the guide list; not shown inside the installed app
+  if (GUIDES["install-app"] && !isInstalledApp()) {
+    const inst = document.createElement("button");
+    inst.className = "lang-btn install-btn" + (currentGuide === "install-app" ? " active" : "");
+    inst.textContent = "📲 " + t(GUIDES["install-app"].name);
+    inst.style.marginInlineStart = "8px";
+    inst.onclick = () => switchGuide("install-app");
+    row.appendChild(inst);
+  }
 }
 
 function renderPicker() {
@@ -406,7 +416,7 @@ function renderGuideRow() {
 const GUIDE_ORDER = ["recent-events", "formations-rally-tips", "f2p-heroes", "master-academy", "general-tips", "mystic-trial", "pet", "bear-hunt", "swordland-showdown", "kvk"];
 
 function guideKeys() {
-  const all = Object.keys(GUIDES);
+  const all = Object.keys(GUIDES).filter((k) => !GUIDES[k].hidden);
   return GUIDE_ORDER.filter((k) => all.includes(k)).concat(all.filter((k) => !GUIDE_ORDER.includes(k)));
 }
 
