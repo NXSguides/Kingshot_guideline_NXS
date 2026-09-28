@@ -837,7 +837,10 @@ const GUIDES = {
           "**Roman**: push for Arena battle stats, {arenaShop} discounts and extra token generation.",
           "**{pan}**: level him up second for passive {truegold}."
         ] },
-        { type: "callout", text: "ℹ️ Skill 1 {danceOfTheHunt} raises the capacity of the whole rally you launch. Skill 4 {savageAdvantage} only raises your own squad — the rally's total capacity still depends on what the rally leader can open." }
+        { type: "callout", text: "ℹ️ Skill 1 {danceOfTheHunt} raises the capacity of the whole rally you launch. Skill 4 {savageAdvantage} only raises your own squad — the rally's total capacity still depends on what the rally leader can open." },
+        { type: "h", text: "💬 Journey Q&A rewards" },
+        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
+        { type: "p", text: "ℹ️ The content is too long to translate, so please open the link and read it there." }
       ]},
       zh: { title: "第3代大師學院指南", blocks: [
         { type: "h", text: "開放時間" },
@@ -877,7 +880,10 @@ const GUIDES = {
           "**Roman**：衝競技場戰鬥屬性、{arenaShop}折扣和額外代幣產出。",
           "**{pan}**：第二順位升級，拿被動{truegold}。"
         ] },
-        { type: "callout", text: "ℹ️ 技能 1 {danceOfTheHunt}提升的是自己發動的整個集結容量；技能 4 {savageAdvantage}只增加自己的部隊，整體集結能裝多少還是看發動的人能開多少。" }
+        { type: "callout", text: "ℹ️ 技能 1 {danceOfTheHunt}提升的是自己發動的整個集結容量；技能 4 {savageAdvantage}只增加自己的部隊，整體集結能裝多少還是看發動的人能開多少。" },
+        { type: "h", text: "💬 {realmJourney}問答獎勵" },
+        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
+        { type: "p", text: "ℹ️ 內容太長無法翻譯，請大家自行點進連結查看。" }
       ]},
       ko: { title: "3세대 거장 아카데미 가이드", blocks: [
         { type: "h", text: "일시" },
@@ -917,7 +923,10 @@ const GUIDES = {
           "**Roman**: 경기장 전투 속성, {arenaShop} 할인, 추가 토큰 획득 위주로.",
           "**{pan}**: 두 번째로 올려서 패시브 {truegold}를 챙기세요."
         ] },
-        { type: "callout", text: "ℹ️ 스킬 1 {danceOfTheHunt}은 자신이 발동한 집결 전체의 수용량을 올립니다. 스킬 4 {savageAdvantage}은 자신의 부대만 늘리며, 집결 전체 수용량은 집결을 발동한 사람에 따라 정해집니다." }
+        { type: "callout", text: "ℹ️ 스킬 1 {danceOfTheHunt}은 자신이 발동한 집결 전체의 수용량을 올립니다. 스킬 4 {savageAdvantage}은 자신의 부대만 늘리며, 집결 전체 수용량은 집결을 발동한 사람에 따라 정해집니다." },
+        { type: "h", text: "💬 {realmJourney} 문답 보상" },
+        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
+        { type: "p", text: "ℹ️ 내용이 너무 길어 번역할 수 없습니다. 링크를 눌러 직접 확인해 주세요." }
       ]},
       de: { title: "Gen-3-Meisterakademie-Leitfaden", blocks: [
         { type: "h", text: "WANN" },
@@ -957,7 +966,10 @@ const GUIDES = {
           "**Roman**: auf Arena-Kampfwerte, Rabatte in der {arenaShop} und zusätzliche Token setzen.",
           "**{pan}**: als Zweites leveln für passives {truegold}."
         ] },
-        { type: "callout", text: "ℹ️ Fertigkeit 1 {danceOfTheHunt} erhöht die Kapazität des gesamten Rallys, den du startest. Fertigkeit 4 {savageAdvantage} erhöht nur deine eigene Schwadron — wie viel der Rally insgesamt fasst, hängt vom Rally-Leiter ab." }
+        { type: "callout", text: "ℹ️ Fertigkeit 1 {danceOfTheHunt} erhöht die Kapazität des gesamten Rallys, den du startest. Fertigkeit 4 {savageAdvantage} erhöht nur deine eigene Schwadron — wie viel der Rally insgesamt fasst, hängt vom Rally-Leiter ab." },
+        { type: "h", text: "💬 {realmJourney}: Q&A-Belohnungen" },
+        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
+        { type: "p", text: "ℹ️ Der Inhalt ist zu lang zum Übersetzen – bitte öffne den Link und lies ihn dort." }
       ]},
       fr: { title: "Guide de l'Académie des Experts (Gén 3)", blocks: [
         { type: "h", text: "QUAND" },
@@ -997,7 +1009,10 @@ const GUIDES = {
           "**Roman** : visez les stats de combat d'Arène, les réductions du {arenaShop} et la génération de jetons en plus.",
           "**{pan}** : à monter en second pour l'{truegold} passif."
         ] },
-        { type: "callout", text: "ℹ️ La compétence 1 {danceOfTheHunt} augmente la capacité de tout le ralliement que vous lancez. La compétence 4 {savageAdvantage} n'augmente que votre propre escouade — la capacité totale du ralliement dépend de celui qui le lance." }
+        { type: "callout", text: "ℹ️ La compétence 1 {danceOfTheHunt} augmente la capacité de tout le ralliement que vous lancez. La compétence 4 {savageAdvantage} n'augmente que votre propre escouade — la capacité totale du ralliement dépend de celui qui le lance." },
+        { type: "h", text: "💬 {realmJourney} : récompenses des questions-réponses" },
+        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
+        { type: "p", text: "ℹ️ Le contenu est trop long pour être traduit, merci d'ouvrir le lien pour le consulter." }
       ]},
       pt: { title: "Guia da Academia dos Mestres (Gen 3)", blocks: [
         { type: "h", text: "QUANDO" },
@@ -1037,7 +1052,10 @@ const GUIDES = {
           "**Roman**: foque em atributos de batalha da Arena, descontos na {arenaShop} e geração extra de fichas.",
           "**{pan}**: suba em segundo para {truegold} passivo."
         ] },
-        { type: "callout", text: "ℹ️ A habilidade 1 {danceOfTheHunt} aumenta a capacidade de todo o rally que você inicia. A habilidade 4 {savageAdvantage} só aumenta o seu próprio esquadrão — a capacidade total do rally depende de quem o inicia." }
+        { type: "callout", text: "ℹ️ A habilidade 1 {danceOfTheHunt} aumenta a capacidade de todo o rally que você inicia. A habilidade 4 {savageAdvantage} só aumenta o seu próprio esquadrão — a capacidade total do rally depende de quem o inicia." },
+        { type: "h", text: "💬 {realmJourney}: recompensas de perguntas e respostas" },
+        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
+        { type: "p", text: "ℹ️ O conteúdo é longo demais para traduzir, então abra o link e confira por lá." }
       ]},
       tr: { title: "3. Nesil Usta Akademisi Rehberi", blocks: [
         { type: "h", text: "NE ZAMAN" },
@@ -1077,7 +1095,10 @@ const GUIDES = {
           "**Roman**: Arena savaş nitelikleri, {arenaShop} indirimleri ve ekstra jeton üretimine odaklan.",
           "**{pan}**: pasif {truegold} için ikinci sırada yükselt."
         ] },
-        { type: "callout", text: "ℹ️ Yetenek 1 {danceOfTheHunt}, başlattığın seferberliğin toplam kapasitesini artırır. Yetenek 4 {savageAdvantage} sadece kendi ekibini artırır — seferberliğin toplam kapasitesi başlatan kişiye bağlıdır." }
+        { type: "callout", text: "ℹ️ Yetenek 1 {danceOfTheHunt}, başlattığın seferberliğin toplam kapasitesini artırır. Yetenek 4 {savageAdvantage} sadece kendi ekibini artırır — seferberliğin toplam kapasitesi başlatan kişiye bağlıdır." },
+        { type: "h", text: "💬 {realmJourney}: soru-cevap ödülleri" },
+        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
+        { type: "p", text: "ℹ️ İçerik çevrilemeyecek kadar uzun, lütfen bağlantıyı açıp oradan okuyun." }
       ]},
       id: { title: "Panduan Akademi Master Gen 3", blocks: [
         { type: "h", text: "KAPAN" },
@@ -1117,7 +1138,10 @@ const GUIDES = {
           "**Roman**: fokus ke stat tempur Arena, diskon {arenaShop}, dan token tambahan.",
           "**{pan}**: naikkan di urutan kedua untuk {truegold} pasif."
         ] },
-        { type: "callout", text: "ℹ️ Skill 1 {danceOfTheHunt} menaikkan kapasitas seluruh reli yang kamu mulai. Skill 4 {savageAdvantage} hanya menambah skuadmu sendiri — kapasitas total reli tetap tergantung pada pemimpin reli." }
+        { type: "callout", text: "ℹ️ Skill 1 {danceOfTheHunt} menaikkan kapasitas seluruh reli yang kamu mulai. Skill 4 {savageAdvantage} hanya menambah skuadmu sendiri — kapasitas total reli tetap tergantung pada pemimpin reli." },
+        { type: "h", text: "💬 {realmJourney}: hadiah tanya jawab" },
+        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
+        { type: "p", text: "ℹ️ Kontennya terlalu panjang untuk diterjemahkan, silakan buka tautannya dan baca di sana." }
       ]},
       ru: { title: "Гайд по Университету мастеров (3-е поколение)", blocks: [
         { type: "h", text: "КОГДА" },
@@ -1157,7 +1181,10 @@ const GUIDES = {
           "**Roman**: боевые показатели арены, скидки ({arenaShop}) и дополнительные жетоны.",
           "**{pan}**: качайте вторым ради пассивного {truegold}."
         ] },
-        { type: "callout", text: "ℹ️ Навык 1 {danceOfTheHunt} увеличивает вместимость всего рейда, который вы запускаете. Навык 4 {savageAdvantage} увеличивает только ваш отряд — общая вместимость рейда зависит от того, кто его запустил." }
+        { type: "callout", text: "ℹ️ Навык 1 {danceOfTheHunt} увеличивает вместимость всего рейда, который вы запускаете. Навык 4 {savageAdvantage} увеличивает только ваш отряд — общая вместимость рейда зависит от того, кто его запустил." },
+        { type: "h", text: "💬 «{realmJourney}»: награды за вопросы и ответы" },
+        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
+        { type: "p", text: "ℹ️ Текст слишком длинный для перевода — откройте ссылку и прочитайте его там." }
       ]},
       th: { title: "คู่มือสถาบันมาสเตอร์รุ่นที่ 3", blocks: [
         { type: "h", text: "เมื่อไหร่" },
@@ -1197,7 +1224,10 @@ const GUIDES = {
           "**Roman**: เน้นค่าสถานะการต่อสู้อารีน่า ส่วนลด{arenaShop} และโทเค็นเพิ่ม",
           "**{pan}**: อัปเป็นอันดับสองเพื่อ{truegold}แบบพาสซีฟ"
         ] },
-        { type: "callout", text: "ℹ️ ทักษะ 1 {danceOfTheHunt} เพิ่มความจุของทั้งระดมพลที่คุณเปิด ส่วนทักษะ 4 {savageAdvantage} เพิ่มแค่ทีมของตัวเอง ความจุรวมของระดมพลยังขึ้นกับคนที่เปิดระดมพล" }
+        { type: "callout", text: "ℹ️ ทักษะ 1 {danceOfTheHunt} เพิ่มความจุของทั้งระดมพลที่คุณเปิด ส่วนทักษะ 4 {savageAdvantage} เพิ่มแค่ทีมของตัวเอง ความจุรวมของระดมพลยังขึ้นกับคนที่เปิดระดมพล" },
+        { type: "h", text: "💬 {realmJourney}: รางวัลถาม-ตอบ" },
+        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
+        { type: "p", text: "ℹ️ เนื้อหายาวเกินกว่าจะแปลได้ กรุณากดลิงก์เพื่ออ่านเอง" }
       ]},
       ar: { title: "دليل أكاديمية المتخصصين (الجيل الثالث)", blocks: [
         { type: "h", text: "متى" },
@@ -1237,7 +1267,10 @@ const GUIDES = {
           "**Roman**: ركّز على سمات قتال الساحة وخصومات {arenaShop} وتوليد رموز إضافية.",
           "**{pan}**: ارفعه ثانيًا للحصول على {truegold} سلبيًا."
         ] },
-        { type: "callout", text: "ℹ️ المهارة 1 {danceOfTheHunt} تزيد سعة الحشد بالكامل الذي تطلقه. المهارة 4 {savageAdvantage} تزيد فرقتك فقط، أما السعة الإجمالية للحشد فتعتمد على من أطلقه." }
+        { type: "callout", text: "ℹ️ المهارة 1 {danceOfTheHunt} تزيد سعة الحشد بالكامل الذي تطلقه. المهارة 4 {savageAdvantage} تزيد فرقتك فقط، أما السعة الإجمالية للحشد فتعتمد على من أطلقه." },
+        { type: "h", text: "💬 {realmJourney}: مكافآت الأسئلة والأجوبة" },
+        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
+        { type: "p", text: "ℹ️ المحتوى طويل جدًا للترجمة، لذا يُرجى فتح الرابط وقراءته هناك." }
       ]},
       es: { title: "Guía de la Academia de Maestros (Gen 3)", blocks: [
         { type: "h", text: "CUÁNDO" },
@@ -1277,7 +1310,10 @@ const GUIDES = {
           "**Roman**: prioriza atributos de combate de Arena, descuentos de la {arenaShop} y fichas extra.",
           "**{pan}**: súbelo en segundo lugar para {truegold} pasiva."
         ] },
-        { type: "callout", text: "ℹ️ La habilidad 1 {danceOfTheHunt} aumenta la capacidad de todo el ataque conjunto que inicias. La habilidad 4 {savageAdvantage} solo aumenta tu propio escuadrón; la capacidad total del ataque depende de quien lo inicia." }
+        { type: "callout", text: "ℹ️ La habilidad 1 {danceOfTheHunt} aumenta la capacidad de todo el ataque conjunto que inicias. La habilidad 4 {savageAdvantage} solo aumenta tu propio escuadrón; la capacidad total del ataque depende de quien lo inicia." },
+        { type: "h", text: "💬 {realmJourney}: recompensas de preguntas y respuestas" },
+        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
+        { type: "p", text: "ℹ️ El contenido es demasiado largo para traducirlo, así que abre el enlace y léelo allí." }
       ]}
     }
   },
@@ -2919,51 +2955,63 @@ const GUIDES = {
     sections: {
       en: { title: "Pets", blocks: [
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
-        { type: "p", text: "Full guide: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+        { type: "p", text: "Full guide: https://kingshotmastery.com/guides/kingshot-pet-guide" },
+        { type: "p", text: "ℹ️ The content is too long to translate, so please open the link and read it there." }
       ]},
       zh: { title: "寵物", blocks: [
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
-        { type: "p", text: "完整攻略： https://kingshotmastery.com/guides/kingshot-pet-guide" }
+        { type: "p", text: "完整攻略： https://kingshotmastery.com/guides/kingshot-pet-guide" },
+        { type: "p", text: "ℹ️ 內容太長無法翻譯，請大家自行點進連結查看。" }
       ]},
       ko: { title: "펫", blocks: [
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
-        { type: "p", text: "전체 가이드: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+        { type: "p", text: "전체 가이드: https://kingshotmastery.com/guides/kingshot-pet-guide" },
+        { type: "p", text: "ℹ️ 내용이 너무 길어 번역할 수 없습니다. 링크를 눌러 직접 확인해 주세요." }
       ]},
       de: { title: "Begleittiere", blocks: [
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
-        { type: "p", text: "Vollständiger Guide: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+        { type: "p", text: "Vollständiger Guide: https://kingshotmastery.com/guides/kingshot-pet-guide" },
+        { type: "p", text: "ℹ️ Der Inhalt ist zu lang zum Übersetzen – bitte öffne den Link und lies ihn dort." }
       ]},
       fr: { title: "Animaux", blocks: [
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
-        { type: "p", text: "Guide complet : https://kingshotmastery.com/guides/kingshot-pet-guide" }
+        { type: "p", text: "Guide complet : https://kingshotmastery.com/guides/kingshot-pet-guide" },
+        { type: "p", text: "ℹ️ Le contenu est trop long pour être traduit, merci d'ouvrir le lien pour le consulter." }
       ]},
       pt: { title: "Mascotes", blocks: [
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
-        { type: "p", text: "Guia completo: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+        { type: "p", text: "Guia completo: https://kingshotmastery.com/guides/kingshot-pet-guide" },
+        { type: "p", text: "ℹ️ O conteúdo é longo demais para traduzir, então abra o link e confira por lá." }
       ]},
       tr: { title: "Pet", blocks: [
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
-        { type: "p", text: "Tam rehber: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+        { type: "p", text: "Tam rehber: https://kingshotmastery.com/guides/kingshot-pet-guide" },
+        { type: "p", text: "ℹ️ İçerik çevrilemeyecek kadar uzun, lütfen bağlantıyı açıp oradan okuyun." }
       ]},
       id: { title: "Peliharaan", blocks: [
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
-        { type: "p", text: "Panduan lengkap: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+        { type: "p", text: "Panduan lengkap: https://kingshotmastery.com/guides/kingshot-pet-guide" },
+        { type: "p", text: "ℹ️ Kontennya terlalu panjang untuk diterjemahkan, silakan buka tautannya dan baca di sana." }
       ]},
       ru: { title: "Питомцы", blocks: [
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
-        { type: "p", text: "Полный гайд: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+        { type: "p", text: "Полный гайд: https://kingshotmastery.com/guides/kingshot-pet-guide" },
+        { type: "p", text: "ℹ️ Текст слишком длинный для перевода — откройте ссылку и прочитайте его там." }
       ]},
       th: { title: "สัตว์เลี้ยง", blocks: [
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
-        { type: "p", text: "คู่มือฉบับเต็ม: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+        { type: "p", text: "คู่มือฉบับเต็ม: https://kingshotmastery.com/guides/kingshot-pet-guide" },
+        { type: "p", text: "ℹ️ เนื้อหายาวเกินกว่าจะแปลได้ กรุณากดลิงก์เพื่ออ่านเอง" }
       ]},
       ar: { title: "الحيوانات الأليفة", blocks: [
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
-        { type: "p", text: "الدليل الكامل: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+        { type: "p", text: "الدليل الكامل: https://kingshotmastery.com/guides/kingshot-pet-guide" },
+        { type: "p", text: "ℹ️ المحتوى طويل جدًا للترجمة، لذا يُرجى فتح الرابط وقراءته هناك." }
       ]},
       es: { title: "Mascotas", blocks: [
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
-        { type: "p", text: "Guía completa: https://kingshotmastery.com/guides/kingshot-pet-guide" }
+        { type: "p", text: "Guía completa: https://kingshotmastery.com/guides/kingshot-pet-guide" },
+        { type: "p", text: "ℹ️ El contenido es demasiado largo para traducirlo, así que abre el enlace y léelo allí." }
       ]}
     }
   },
