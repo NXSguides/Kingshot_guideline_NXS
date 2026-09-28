@@ -2973,6 +2973,13 @@ const GUIDES = {
     name: { en: "How to install as an app", zh: "如何下載成應用程式", ko: "앱으로 설치하는 방법", de: "Als App installieren", fr: "Comment l'installer comme application", pt: "Como instalar como aplicativo", tr: "Uygulama olarak nasıl yüklenir", id: "Cara memasang sebagai aplikasi", ru: "Как установить как приложение", th: "วิธีติดตั้งเป็นแอป", ar: "كيفية التثبيت كتطبيق", es: "Cómo instalarla como aplicación" },
     sections: {
       en: { title: "How to install as an app", blocks: [
+        { type: "h", text: "Is it safe?" },
+        { type: "list", items: [
+          "It isn't a downloaded program (no APK) — it's this website saved to your home screen, running inside Safari/Chrome like any web page.",
+          "It asks for no permissions: no camera, contacts, location, files or notifications.",
+          "No account, no login, no personal data collected. Only the guide content and your language choice are stored on your phone.",
+          "Remove it anytime: long-press the icon and delete it, like any app."
+        ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "list", items: [
           "1. Open this site in **Safari** (other browsers can't install it).",
@@ -2995,6 +3002,13 @@ const GUIDES = {
         ] }
       ]},
       zh: { title: "如何下載成應用程式", blocks: [
+        { type: "h", text: "安全嗎？" },
+        { type: "list", items: [
+          "這不是下載的程式（不是 APK），只是把這個網站存到主畫面，跟平常用 Safari/Chrome 看網頁一樣在瀏覽器裡執行。",
+          "不會要求任何權限：不用相機、聯絡人、位置、檔案或通知。",
+          "不用註冊、不用登入，也不收集任何個人資料。手機裡只會存攻略內容和你選的語言。",
+          "隨時可以刪除：長按圖示就能像一般 App 一樣移除。"
+        ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "list", items: [
           "1. 用 **Safari** 打開這個網站（其他瀏覽器無法安裝）。",
@@ -3017,6 +3031,13 @@ const GUIDES = {
         ] }
       ]},
       ko: { title: "앱으로 설치하는 방법", blocks: [
+        { type: "h", text: "안전한가요?" },
+        { type: "list", items: [
+          "다운로드하는 프로그램(APK)이 아니라, 이 웹사이트를 홈 화면에 저장한 것으로 일반 웹페이지처럼 Safari/Chrome 안에서 실행됩니다.",
+          "어떤 권한도 요청하지 않습니다: 카메라, 연락처, 위치, 파일, 알림 모두 사용하지 않습니다.",
+          "가입이나 로그인이 없고 개인정보를 수집하지 않습니다. 휴대폰에는 공략 내용과 선택한 언어만 저장됩니다.",
+          "언제든 삭제 가능: 일반 앱처럼 아이콘을 길게 눌러 삭제하면 됩니다."
+        ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "list", items: [
           "1. **Safari**로 이 사이트를 여세요 (다른 브라우저로는 설치할 수 없습니다).",
@@ -3039,6 +3060,13 @@ const GUIDES = {
         ] }
       ]},
       de: { title: "Als App installieren", blocks: [
+        { type: "h", text: "Ist das sicher?" },
+        { type: "list", items: [
+          "Es ist kein heruntergeladenes Programm (keine APK), sondern diese Website auf deinem Startbildschirm – sie läuft wie jede Webseite in Safari/Chrome.",
+          "Sie fragt nach keinen Berechtigungen: keine Kamera, Kontakte, Standort, Dateien oder Benachrichtigungen.",
+          "Kein Konto, kein Login, keine persönlichen Daten. Auf dem Handy werden nur die Guide-Inhalte und deine Sprachwahl gespeichert.",
+          "Jederzeit entfernbar: Symbol lange drücken und löschen, wie bei jeder App."
+        ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "list", items: [
           "1. Öffne diese Seite in **Safari** (andere Browser können sie nicht installieren).",
@@ -3061,6 +3089,13 @@ const GUIDES = {
         ] }
       ]},
       fr: { title: "Comment l'installer comme application", blocks: [
+        { type: "h", text: "Est-ce sûr ?" },
+        { type: "list", items: [
+          "Ce n'est pas un programme téléchargé (pas d'APK) : c'est ce site enregistré sur votre écran d'accueil, qui fonctionne dans Safari/Chrome comme n'importe quelle page web.",
+          "Aucune autorisation demandée : ni caméra, ni contacts, ni position, ni fichiers, ni notifications.",
+          "Pas de compte, pas de connexion, aucune donnée personnelle collectée. Seuls le contenu des guides et votre langue sont stockés sur votre téléphone.",
+          "Supprimable à tout moment : appui long sur l'icône puis supprimer, comme une application."
+        ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "list", items: [
           "1. Ouvrez ce site dans **Safari** (les autres navigateurs ne permettent pas l'installation).",
@@ -3083,6 +3118,13 @@ const GUIDES = {
         ] }
       ]},
       pt: { title: "Como instalar como aplicativo", blocks: [
+        { type: "h", text: "É seguro?" },
+        { type: "list", items: [
+          "Não é um programa baixado (não é APK) — é este site salvo na tela inicial, rodando no Safari/Chrome como qualquer página.",
+          "Não pede nenhuma permissão: nada de câmera, contatos, localização, arquivos ou notificações.",
+          "Sem conta, sem login e sem coleta de dados pessoais. Só o conteúdo dos guias e o idioma escolhido ficam no celular.",
+          "Remova quando quiser: segure o ícone e exclua, como qualquer app."
+        ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "list", items: [
           "1. Abra este site no **Safari** (outros navegadores não conseguem instalar).",
@@ -3105,6 +3147,13 @@ const GUIDES = {
         ] }
       ]},
       tr: { title: "Uygulama olarak nasıl yüklenir", blocks: [
+        { type: "h", text: "Güvenli mi?" },
+        { type: "list", items: [
+          "İndirilen bir program (APK) değildir; bu sitenin ana ekrana kaydedilmiş hâlidir ve her web sayfası gibi Safari/Chrome içinde çalışır.",
+          "Hiçbir izin istemez: kamera, kişiler, konum, dosyalar veya bildirimler yok.",
+          "Hesap yok, giriş yok, kişisel veri toplanmaz. Telefonda yalnızca rehber içeriği ve seçtiğiniz dil saklanır.",
+          "İstediğiniz zaman kaldırın: simgeye uzun basıp her uygulama gibi silin."
+        ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "list", items: [
           "1. Bu siteyi **Safari** ile açın (diğer tarayıcılar yükleyemez).",
@@ -3127,6 +3176,13 @@ const GUIDES = {
         ] }
       ]},
       id: { title: "Cara memasang sebagai aplikasi", blocks: [
+        { type: "h", text: "Apakah aman?" },
+        { type: "list", items: [
+          "Ini bukan program yang diunduh (bukan APK), melainkan situs ini yang disimpan di layar utama dan berjalan di Safari/Chrome seperti halaman web biasa.",
+          "Tidak meminta izin apa pun: tanpa kamera, kontak, lokasi, file, atau notifikasi.",
+          "Tanpa akun, tanpa login, dan tidak mengumpulkan data pribadi. Hanya konten panduan dan bahasa pilihanmu yang disimpan di ponsel.",
+          "Bisa dihapus kapan saja: tekan lama ikonnya lalu hapus, seperti aplikasi biasa."
+        ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "list", items: [
           "1. Buka situs ini di **Safari** (browser lain tidak bisa memasang).",
@@ -3149,6 +3205,13 @@ const GUIDES = {
         ] }
       ]},
       ru: { title: "Как установить как приложение", blocks: [
+        { type: "h", text: "Это безопасно?" },
+        { type: "list", items: [
+          "Это не скачанная программа (не APK), а этот сайт на главном экране — он работает внутри Safari/Chrome, как обычная веб-страница.",
+          "Не запрашивает никаких разрешений: ни камеры, ни контактов, ни геолокации, ни файлов, ни уведомлений.",
+          "Без аккаунта и входа, личные данные не собираются. На телефоне хранятся только гайды и выбранный язык.",
+          "Удалить можно в любой момент: удерживайте значок и удалите, как обычное приложение."
+        ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "list", items: [
           "1. Откройте сайт в **Safari** (другие браузеры не могут его установить).",
@@ -3171,6 +3234,13 @@ const GUIDES = {
         ] }
       ]},
       th: { title: "วิธีติดตั้งเป็นแอป", blocks: [
+        { type: "h", text: "ปลอดภัยไหม?" },
+        { type: "list", items: [
+          "นี่ไม่ใช่โปรแกรมที่ดาวน์โหลด (ไม่ใช่ APK) แต่เป็นเว็บไซต์นี้ที่บันทึกไว้บนหน้าจอหลัก และทำงานใน Safari/Chrome เหมือนหน้าเว็บทั่วไป",
+          "ไม่ขอสิทธิ์ใด ๆ: ไม่ใช้กล้อง รายชื่อติดต่อ ตำแหน่ง ไฟล์ หรือการแจ้งเตือน",
+          "ไม่ต้องสมัคร ไม่ต้องล็อกอิน และไม่เก็บข้อมูลส่วนตัว เครื่องจะเก็บแค่เนื้อหาคู่มือและภาษาที่คุณเลือก",
+          "ลบได้ทุกเมื่อ: กดค้างที่ไอคอนแล้วลบ เหมือนแอปทั่วไป"
+        ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "list", items: [
           "1. เปิดเว็บไซต์นี้ใน **Safari** (เบราว์เซอร์อื่นติดตั้งไม่ได้)",
@@ -3193,6 +3263,13 @@ const GUIDES = {
         ] }
       ]},
       ar: { title: "كيفية التثبيت كتطبيق", blocks: [
+        { type: "h", text: "هل هو آمن؟" },
+        { type: "list", items: [
+          "ليس برنامجًا يتم تنزيله (ليس APK)، بل هو هذا الموقع محفوظًا على الشاشة الرئيسية ويعمل داخل Safari/Chrome مثل أي صفحة ويب.",
+          "لا يطلب أي أذونات: لا كاميرا ولا جهات اتصال ولا موقع ولا ملفات ولا إشعارات.",
+          "لا حساب ولا تسجيل دخول، ولا يجمع أي بيانات شخصية. يُحفظ على هاتفك محتوى الأدلة واللغة التي اخترتها فقط.",
+          "يمكنك حذفه في أي وقت: اضغط مطولًا على الأيقونة واحذفها مثل أي تطبيق."
+        ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "list", items: [
           "1. افتح هذا الموقع في **Safari** (المتصفحات الأخرى لا يمكنها تثبيته).",
@@ -3215,6 +3292,13 @@ const GUIDES = {
         ] }
       ]},
       es: { title: "Cómo instalarla como aplicación", blocks: [
+        { type: "h", text: "¿Es seguro?" },
+        { type: "list", items: [
+          "No es un programa descargado (no es un APK): es este sitio guardado en tu pantalla de inicio y funciona dentro de Safari/Chrome como cualquier página web.",
+          "No pide ningún permiso: ni cámara, ni contactos, ni ubicación, ni archivos, ni notificaciones.",
+          "Sin cuenta, sin inicio de sesión y sin recopilar datos personales. En el teléfono solo se guardan las guías y el idioma que elegiste.",
+          "Puedes quitarla cuando quieras: mantén pulsado el icono y elimínala, como cualquier app."
+        ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "list", items: [
           "1. Abre este sitio en **Safari** (otros navegadores no pueden instalarlo).",
