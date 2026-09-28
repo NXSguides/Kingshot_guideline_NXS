@@ -64,6 +64,8 @@ content: |
   🔹 Pan -> Lv60: Falconer = max daily {truegold}/speedups.
   🔹 Valora -> Lv30: {bearHunt} {forgehammer}s.
   🔹 Roman -> Unlock only for passive Arena Chest drops.
+  
+  [[link:master-academy]]
 ---
 author: Nia 
 lang: en
