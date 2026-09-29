@@ -145,7 +145,9 @@ const HEROES = {
   Hilde: { zh: "希爾德", en: "Hilde", ko: "힐데", de: "Hilde", fr: "Hilde", pt: "Hilde", tr: "Hilde", id: "Hilde", ru: "Хильда", th: "ฮิลเดอร์", ar: "هيلدي", es: "Hilde" },
   Marlin: { zh: "馬林", en: "Marlin", ko: "마린", de: "Marlin", fr: "Marlin", pt: "Peixe Marlin", tr: "Marlin", id: "Marlin", ru: "Марлин", th: "มาร์ลิน", ar: "مارلين", es: "Marlin" },
   Zoe: { zh: "佐伊", en: "Zoe", ko: "조이", de: "Zoe", fr: "Zoé", pt: "Zoe", tr: "Zoe", id: "Zoe", ru: "Зои", th: "โซอี้", ar: "زوي", es: "Zoe" },
-  Petra: { en: "Petra"},
+  Petra: { zh: "小佩拉", en: "Petra", ko: "리틀 페라", de: "Petra", fr: "Petra", pt: "Petra", tr: "Petra", ru: "Петра", th: "เพตรา", ar: "بيترا", es: "Petra" },
+  Eric: { zh: "艾瑞克", en: "Eric", ko: "에릭", de: "Eric", fr: "Éric", pt: "Eric", tr: "Eric", ru: "Эрик", th: "อีริค", ar: "إيريك", es: "Eric" },
+  Jaeger: { zh: "耶格爾", en: "Jaeger", ko: "예거", de: "Jaeger", fr: "Jaeger", pt: "Jaeger", tr: "Jaeger", ru: "Йегер", th: "เยเกอร์", ar: "ييجر", es: "Jaeger" },
   Rosa: { en: "Rosa"},
   Chenko: { zh: "琴科", en: "Chenko", ko: "첸코", de: "Chenko", fr: "Chenko", pt: "Chenko", tr: "Chenko", id: "Chenko", ru: "Ченко", th: "เชนโกะ", ar: "تشينكو", es: "Chenko" },
   Yeonwoo: { zh: "妍羽", en: "Yeonwoo", ko: "연우", de: "Yeonwoo", fr: "Yeonwoo", pt: "Yeonwoo", tr: "Yeonwoo", id: "Yeonwoo", ru: "Ёну", th: "ยอนอู", ar: "يونوو", es: "Yeonwoo" },
@@ -297,6 +299,8 @@ const GLOSSARY = {
   crowdFavorite: { zh:"邁向榮耀", en:"Crowd Favorite", ko:"명예를 향해", de:"Held der Massen", fr:"Favori du public", tr:"Seyircilerin Gözdesi", ru:"Любимец публики", ar:"محبوب الجماهير", pt:"Favorito do Público", id:"Crowd Favorite", th:"ขวัญใจมหาชน", es:"El favorito de la multitud" },
   oneDesire: { zh:"萬眾矚目", en:"One Desire", ko:"만인의 주목", de:"Ein Verlangen", fr:"Unique souhait", tr:"Tek Arzu", ru:"Единственное желание", ar:"رغبة واحدة", pt:"Um Desejo", id:"One Desire", th:"ปรารถนาหนึ่งเดียว", es:"Un deseo" },
   petra: { zh:"小佩拉", en:"Petra", ko:"리틀 페라", de:"Petra", fr:"Petra", pt:"Petra", tr:"Petra", ru:"Петра", th:"เพตรา", ar:"بيترا", es:"Petra" },
+  eric: { zh:"艾瑞克", en:"Eric", ko:"에릭", de:"Eric", fr:"Éric", pt:"Eric", tr:"Eric", ru:"Эрик", th:"อีริค", ar:"إيريك", es:"Eric" },
+  jaeger: { zh:"耶格爾", en:"Jaeger", ko:"예거", de:"Jaeger", fr:"Jaeger", pt:"Jaeger", tr:"Jaeger", ru:"Йегер", th:"เยเกอร์", ar:"ييجر", es:"Jaeger" },
   realmJourney: { zh:"荒野冒險", en:"Realm Journey", ko:"황야 모험", de:"Reichsreise", fr:"Voyage dans le royaume", pt:"Jornada do Reino", tr:"Krallık Yolculuğu", id:"Perjalanan Alam", ru:"Тропа приключений", th:"การเดินทางอาณาจักร", ar:"رحلة العالم", es:"Travesía por el reino" },
   journeySupplies: { zh:"冒險物資", en:"Journey Supplies", ko:"모험 물자", de:"Reisevorräte", fr:"Provisions de voyage", pt:"Suprimentos da Jornada", tr:"Yolculuk Malzemeleri", id:"Perbekalan Perjalanan", ru:"Припасы путешествия", th:"เสบียงการเดินทาง", ar:"إمدادات الرحلة", es:"Suministros de Travesía" },
   adventureSupply: { zh:"征程補給", en:"Adventure Supply", ko:"원정 보급", de:"Abenteuervorrat", fr:"Provision d'Aventure", pt:"Suprimentos de Aventura", tr:"Macera Tedariki", id:"Suplai Petualangan", ru:"Припасы для приключений", th:"เสบียงการผจญภัย", ar:"إمدادات المغامرة", es:"Suministro de Aventura" },
@@ -3529,7 +3533,7 @@ const GUIDES = {
             [
               "滿等赫爾加（2 殺傷力＋1 攻擊）表現優於阿瑪迪斯（1 殺傷力＋2 攻擊）。",
               "若赫爾加尚未練滿，改用阿瑪迪斯較好。",
-              "終於拿到第一位集結裝備英雄（Petra），弓兵屬性仍最低；滿級騎兵能發揮很好。"
+              "終於拿到第一位集結裝備英雄（{petra}），弓兵屬性仍最低；滿級騎兵能發揮很好。"
             ],
             [
               "盡量拉高弓兵數量，滿級弓兵尤佳；Rosa 三技能可能提升弓兵總攻擊 30%。",
@@ -3625,7 +3629,7 @@ const GUIDES = {
             [
               "Voll ausgerüstete Helga (2 Tödlichkeit + 1 Angriff) übertrifft hier Amadeus (1 Tödlichkeit + 2 Angriff).",
               "Amadeus nehmen, wenn Helga noch nicht voll ausgerüstet ist.",
-              "Erster F2P-Held mit Rally-Ausrüstung (Petra); Bogenschützen bleiben am schwächsten, maxed Kavallerie passt aber gut zu Petra."
+              "Erster F2P-Held mit Rally-Ausrüstung ({petra}); Bogenschützen bleiben am schwächsten, maxed Kavallerie passt aber gut zu {petra}."
             ],
             [
               "So viele (idealerweise maxed) Bogenschützen wie möglich; Rosas 3. Skill kann den Bogenschützen-Gesamtschaden um 30% steigern.",
@@ -3673,7 +3677,7 @@ const GUIDES = {
             [
               "Formation de troupe : 10-20-70 %. Helga au maximum est plus performante qu'Amadeus en Gen 3, avec 2 équipements de Létalité et 1 d'Attaque, contre 1 de Létalité et 2 d'Attaque pour Amadeus dans cette configuration.",
               "Formation de troupe : 20-30-50 %. Si vous n'avez pas Helga au maximum (5 étoiles + équipement exclusif), il vaut mieux utiliser Amadeus.",
-              "Formation de troupe : 20-40-40 %. En Gen 3, les F2P obtiennent leur premier héros avec un équipement exclusif de ralliement (Petra). Essayez des nombres équilibrés d'Archers et de Cavalerie, car Petra améliore beaucoup les Archers. Les stats d'Archer restent les plus basses sans Archer SSR. Si vous débloquez la Cavalerie T10, la compétence T10 s'accorde bien avec les stats de Petra."
+              "Formation de troupe : 20-40-40 %. En Gen 3, les F2P obtiennent leur premier héros avec un équipement exclusif de ralliement ({petra}). Essayez des nombres équilibrés d'Archers et de Cavalerie, car {petra} améliore beaucoup les Archers. Les stats d'Archer restent les plus basses sans Archer SSR. Si vous débloquez la Cavalerie T10, la compétence T10 s'accorde bien avec les stats de {petra}."
             ],
             [
               "Formation de troupe : 10-10-80 %. Alignez autant d'Archers que possible, surtout s'ils sont T10. Avec un peu de chance, la 3e compétence de Rosa fera le travail pour vous (augmente l'Attaque totale des Archers de 30 %).",
@@ -3721,7 +3725,7 @@ const GUIDES = {
             [
               "Formação de tropas: 10-20-70%. A Helga no máximo rende mais que o Amadeus na Gen 3, por ter 2 equipamentos de Letalidade e 1 de Ataque, contra 1 de Letalidade e 2 de Ataque do Amadeus nesta configuração.",
               "Formação de tropas: 20-30-50%. Se você não tem a Helga no máximo (5 estrelas + equipamento exclusivo), é melhor usar o Amadeus.",
-              "Formação de tropas: 20-40-40%. Na Gen 3, os F2P recebem o primeiro herói com equipamento exclusivo de rally (Petra). Tente números equilibrados de Arquearia e Cavalaria, porque a Petra melhora muito os Arquearia. Os atributos dos Arquearia continuam os mais baixos sem uma Arquearia SSR. Se você desbloquear a Cavalaria T10, a habilidade T10 combina bem com os atributos da Petra."
+              "Formação de tropas: 20-40-40%. Na Gen 3, os F2P recebem o primeiro herói com equipamento exclusivo de rally ({petra}). Tente números equilibrados de Arquearia e Cavalaria, porque a {petra} melhora muito os Arquearia. Os atributos dos Arquearia continuam os mais baixos sem uma Arquearia SSR. Se você desbloquear a Cavalaria T10, a habilidade T10 combina bem com os atributos da {petra}."
             ],
             [
               "Formação de tropas: 10-10-80%. Force o máximo de Arquearia possível, principalmente se forem T10. Com um pouco de sorte, a 3ª habilidade da Rosa fará o trabalho por você (aumenta o Ataque total dos Arquearia em 30%).",
@@ -3769,7 +3773,7 @@ const GUIDES = {
             [
               "Formación de tropas: 10-20-70%. Una Helga al máximo rinde mejor que Amadeus en la Gen 3, ya que tiene 2 widgets de letalidad y 1 de ataque, comparado con 1 de letalidad y 2 de ataque en esta configuración.",
               "Formación de tropas: 20-30-50%. Si no tienes a Helga al máximo (5 estrellas + widget) es mejor usar a Amadeus.",
-              "Formación de tropas: 20-40-40%. En la Gen 3, los F2P consiguen su primer héroe con {widget} de Ataque Conjunto (Petra). Prueba números equilibrados de arqueros/caballería porque Petra mejora mucho a las tropas de arqueros. Las estadísticas de arqueros siguen siendo las más bajas sin un héroe arquero SSR. Si desbloqueas caballería T10, su habilidad combina bien con las estadísticas de Petra."
+              "Formación de tropas: 20-40-40%. En la Gen 3, los F2P consiguen su primer héroe con {widget} de Ataque Conjunto ({petra}). Prueba números equilibrados de arqueros/caballería porque {petra} mejora mucho a las tropas de arqueros. Las estadísticas de arqueros siguen siendo las más bajas sin un héroe arquero SSR. Si desbloqueas caballería T10, su habilidad combina bien con las estadísticas de {petra}."
             ],
             [
               "Formación de tropas: 10-10-80%. Fuerza tantas tropas de arqueros como puedas, especialmente si son T10. Con algo de suerte, la 3ª habilidad de Rosa hará el resto del trabajo (aumenta el ataque total de los arqueros en un 30%).",
@@ -3817,7 +3821,7 @@ const GUIDES = {
             [
               "Birlik dizilişi: %10-20-70. Azami seviyedeki Helga, bu dizilimde 2 Öldürücülük ve 1 Saldırı donanımına sahipken Amadeus'un 1 Öldürücülük ve 2 Saldırı donanımı olması nedeniyle 3. Nesil'de Amadeus'tan daha iyi performans gösterir.",
               "Birlik dizilişi: %20-30-50. Azami seviyede Helga'nız (5 yıldız + özel donanım) yoksa Amadeus kullanmak daha iyidir.",
-              "Birlik dizilişi: %20-40-40. 3. Nesil'de F2P oyuncular seferberliğe özel donanımı olan ilk kahramanlarını (Petra) alır. Okçu ve Süvari sayılarını dengeli tutmayı deneyin; çünkü Petra Okçuları çok güçlendirir. SSR Okçu olmadan Okçu nitelikleri hâlâ en düşüktür. T10 Süvari açarsanız, T10 becerisi Petra'nın nitelikleriyle iyi uyum sağlar."
+              "Birlik dizilişi: %20-40-40. 3. Nesil'de F2P oyuncular seferberliğe özel donanımı olan ilk kahramanlarını ({petra}) alır. Okçu ve Süvari sayılarını dengeli tutmayı deneyin; çünkü {petra} Okçuları çok güçlendirir. SSR Okçu olmadan Okçu nitelikleri hâlâ en düşüktür. T10 Süvari açarsanız, T10 becerisi {petra}'nın nitelikleriyle iyi uyum sağlar."
             ],
             [
               "Birlik dizilişi: %10-10-80. Özellikle T10 iseler, olabildiğince fazla Okçu koyun. Biraz şansla Rosa'nın 3. becerisi işi sizin yerinize halleder (Okçuların toplam Saldırısını %30 artırır).",
@@ -3865,7 +3869,7 @@ const GUIDES = {
             [
               "Formasi pasukan: 10-20-70%. Helga yang sudah maksimal lebih baik daripada Amadeus di Gen 3, karena punya 2 perlengkapan Lethality dan 1 perlengkapan Attack, dibandingkan 1 Lethality dan 2 Attack milik Amadeus pada susunan ini.",
               "Formasi pasukan: 20-30-50%. Jika kamu belum punya Helga maksimal (bintang 5 + perlengkapan khusus), lebih baik pakai Amadeus.",
-              "Formasi pasukan: 20-40-40%. Di Gen 3, F2P mendapat hero pertama dengan perlengkapan khusus reli (Petra). Coba jumlah Pemanah dan Kavaleri yang seimbang karena Petra sangat meningkatkan Pemanah. Stat Pemanah tetap paling rendah tanpa Pemanah SSR. Jika kamu membuka Kavaleri T10, skill T10 cocok dengan stat Petra."
+              "Formasi pasukan: 20-40-40%. Di Gen 3, F2P mendapat hero pertama dengan perlengkapan khusus reli ({petra}). Coba jumlah Pemanah dan Kavaleri yang seimbang karena {petra} sangat meningkatkan Pemanah. Stat Pemanah tetap paling rendah tanpa Pemanah SSR. Jika kamu membuka Kavaleri T10, skill T10 cocok dengan stat {petra}."
             ],
             [
               "Formasi pasukan: 10-10-80%. Paksakan sebanyak mungkin Pemanah, terutama jika T10. Dengan sedikit keberuntungan, skill ke-3 Rosa akan bekerja untukmu (meningkatkan total Attack Pemanah sebesar 30%).",
@@ -3913,7 +3917,7 @@ const GUIDES = {
             [
               "Состав войск: 10-20-70%. Герой Хельга с максимальной прокачкой в 3-м поколении показывает себя лучше, чем герой Амадей, так как в этой связке у неё 2 снаряжения Смертоносности и 1 снаряжение Атаки против 1 снаряжения Смертоносности и 2 снаряжений Атаки у героя Амадей.",
               "Состав войск: 20-30-50%. Если у вас нет героя Хельга с максимальной прокачкой (5 звёзд + эксклюзивное снаряжение), лучше использовать героя Амадей.",
-              "Состав войск: 20-40-40%. В 3-м поколении F2P получают первого героя с эксклюзивным для рейдов снаряжением (Petra). Старайтесь держать баланс между числом стрелков и кавалеристов, так как Petra сильно усиливает стрелков. Показатели стрелков всё равно самые низкие без SSR-стрелка. Если вы откроете кавалеристов T10, навык T10 хорошо сочетается с показателями Petra."
+              "Состав войск: 20-40-40%. В 3-м поколении F2P получают первого героя с эксклюзивным для рейдов снаряжением ({petra}). Старайтесь держать баланс между числом стрелков и кавалеристов, так как {petra} сильно усиливает стрелков. Показатели стрелков всё равно самые низкие без SSR-стрелка. Если вы откроете кавалеристов T10, навык T10 хорошо сочетается с показателями {petra}."
             ],
             [
               "Состав войск: 10-10-80%. Отправляйте как можно больше стрелков, особенно если они T10. При некоторой удаче 3-й навык героя Rosa сделает всё за вас (увеличивает общую Атаку стрелков на 30%).",
@@ -3961,7 +3965,7 @@ const GUIDES = {
             [
               "รูปแบบทหาร: 10-20-70% เฮลก้าที่พัฒนาเต็มที่ทำได้ดีกว่าอมาดีอุสในเจน 3 เพราะมีอุปกรณ์ความแรงพลัง 2 ชิ้นและอุปกรณ์พลังโจมตี 1 ชิ้น เทียบกับความแรงพลัง 1 ชิ้นและพลังโจมตี 2 ชิ้นของอมาดีอุสในชุดนี้",
               "รูปแบบทหาร: 20-30-50% หากคุณไม่มีเฮลก้าที่พัฒนาเต็มที่ (5 ดาว + อุปกรณ์เฉพาะ) ควรใช้อมาดีอุสจะดีกว่า",
-              "รูปแบบทหาร: 20-40-40% ในเจน 3 ผู้เล่น F2P จะได้ฮีโร่ตัวแรกที่มีอุปกรณ์เฉพาะทีมระดมพล (Petra) ลองใช้จำนวนพลธนูและทหารม้าให้สมดุล เพราะ Petra เสริมพลธนูได้มาก ค่าสถานะพลธนูยังต่ำที่สุดหากไม่มีพลธนู SSR หากคุณปลดล็อกทหารม้า T10 ทักษะ T10 เข้ากับค่าสถานะของ Petra ได้ดี"
+              "รูปแบบทหาร: 20-40-40% ในเจน 3 ผู้เล่น F2P จะได้ฮีโร่ตัวแรกที่มีอุปกรณ์เฉพาะทีมระดมพล ({petra}) ลองใช้จำนวนพลธนูและทหารม้าให้สมดุล เพราะ {petra} เสริมพลธนูได้มาก ค่าสถานะพลธนูยังต่ำที่สุดหากไม่มีพลธนู SSR หากคุณปลดล็อกทหารม้า T10 ทักษะ T10 เข้ากับค่าสถานะของ {petra} ได้ดี"
             ],
             [
               "รูปแบบทหาร: 10-10-80% ใส่พลธนูให้มากที่สุดเท่าที่ทำได้ โดยเฉพาะถ้าเป็น T10 หากโชคดี ทักษะที่ 3 ของ Rosa จะช่วยได้เอง (เพิ่มพลังโจมตีรวมของพลธนู 30%)",
@@ -4009,7 +4013,7 @@ const GUIDES = {
             [
               "تشكيلة القوات: 10-20-70%. تتفوق هيلجا المكتملة التطوير على أماديوس في الجيل 3، لأن لديها قطعتي عتاد قوة فتك وقطعة عتاد هجوم واحدة، مقابل قطعة قوة فتك واحدة وقطعتي هجوم لدى أماديوس في هذه التشكيلة.",
               "تشكيلة القوات: 20-30-50%. إذا لم تكن لديك هيلجا مكتملة التطوير (5 نجوم + عتاد خاص)، فمن الأفضل استخدام أماديوس.",
-              "تشكيلة القوات: 20-40-40%. في الجيل 3، يحصل لاعبو F2P على أول بطل بعتاد خاص بالحشد (Petra). جرّب أعدادًا متوازنة من الرماة والفرسان لأن Petra تحسّن الرماة كثيرًا. تبقى سمات الرماة الأدنى بدون رماة SSR. إذا فتحت فرسان T10، فإن مهارة T10 تتناسب جيدًا مع سمات Petra."
+              "تشكيلة القوات: 20-40-40%. في الجيل 3، يحصل لاعبو F2P على أول بطل بعتاد خاص بالحشد ({petra}). جرّب أعدادًا متوازنة من الرماة والفرسان لأن {petra} تحسّن الرماة كثيرًا. تبقى سمات الرماة الأدنى بدون رماة SSR. إذا فتحت فرسان T10، فإن مهارة T10 تتناسب جيدًا مع سمات {petra}."
             ],
             [
               "تشكيلة القوات: 10-10-80%. ادفع بأكبر عدد ممكن من الرماة، خاصة إذا كانوا T10. مع قليل من الحظ ستقوم المهارة الثالثة لـ Rosa بالمهمة عنك (تزيد إجمالي هجوم الرماة بنسبة 30%).",
@@ -7327,10 +7331,10 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "第 3 代" },
-        { type: "p", text: "**Petra — 必練（輪盤）**" },
+        { type: "p", text: "**{petra} — 必練（輪盤）**" },
         { type: "list", items: [
           "優秀的狩獵巨熊英雄，價值可延續到第 7 代。",
-          "**Eric ＆ Jaeger**：除非主攻 PvP／駐防，否則可以跳過。"
+          "**{eric} ＆ {jaeger}**：除非主攻 PvP／駐防，否則可以跳過。"
         ]},
 
         { type: "sub", text: "第 4 代" },
@@ -7345,7 +7349,7 @@ const GUIDES = {
         { type: "list", items: [
           "非常適合神秘試煉、三方聯盟戰、聖劍爭奪等多隊活動。",
           "**Thrud／Vivian**：主要用於競技場／PvP。",
-          "沒抽到 Petra？可以考慮 Thrud。"
+          "沒抽到 {petra}？可以考慮 Thrud。"
         ]},
 
         { type: "sub", text: "第 6 代" },
@@ -7362,22 +7366,22 @@ const GUIDES = {
         { type: "list", items: ["整體對 F2P 來說價值極高。"] },
         { type: "p", text: "**Ava — 高優先**" },
         { type: "list", items: [
-          "優秀的狩獵巨熊英雄，可取代 Petra。",
+          "優秀的狩獵巨熊英雄，可取代 {petra}。",
           "**Charles**：通常可以放心跳過。"
         ]},
 
         { type: "h", text: "簡易 F2P 輪盤路線" },
-        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee ＆ Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee ＆ Woo" },
 
         { type: "h", text: "神話碎片優先順序" },
-        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
 
         { type: "h", text: "經驗法則" },
         { type: "p", text: "輪盤英雄通常是 F2P 最安全的投資。省著用資源，不要把神話碎片分散得太薄，也不用有壓力覺得每個英雄都要練。" },
 
         { type: "h", text: "總結" },
         { type: "list", items: [
-          "**F2P 玩家：** 從英雄輪盤中優先鎖定 {zoe}（步兵坦克）、{jabel}（騎兵）、Petra（進攻型騎兵）",
+          "**F2P 玩家：** 從英雄輪盤中優先鎖定 {zoe}（步兵坦克）、{jabel}（騎兵）、{petra}（進攻型騎兵）",
           "**課金玩家：** 優先培養 {amadeus}（VIP 7 以上）與 {hilde}，效益最大化"
         ]}
       ]},
@@ -7475,10 +7479,10 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "3세대" },
-        { type: "p", text: "**Petra — 필수 육성 (룰렛)**" },
+        { type: "p", text: "**{petra} — 필수 육성 (룰렛)**" },
         { type: "list", items: [
           "7세대까지 가치 있는 훌륭한 자이언트 베어 사냥 영웅.",
-          "**Eric & Jaeger**: PvP/주둔 방어에 집중하지 않는다면 건너뛰세요."
+          "**{eric} & {jaeger}**: PvP/주둔 방어에 집중하지 않는다면 건너뛰세요."
         ]},
 
         { type: "sub", text: "4세대" },
@@ -7493,7 +7497,7 @@ const GUIDES = {
         { type: "list", items: [
           "신비한 시련, 삼자 연맹전, 성검 쟁탈 같은 다중 팀 이벤트에 매우 좋습니다.",
           "**Thrud/Vivian**: 주로 투기장/PvP용.",
-          "Petra를 놓쳤다면 Thrud를 고려하세요."
+          "{petra}를 놓쳤다면 Thrud를 고려하세요."
         ]},
 
         { type: "sub", text: "6세대" },
@@ -7510,22 +7514,22 @@ const GUIDES = {
         { type: "list", items: ["무과금 유저에게 전반적으로 훌륭한 가치."] },
         { type: "p", text: "**Ava — 최우선**" },
         { type: "list", items: [
-          "훌륭한 자이언트 베어 사냥 영웅; Petra를 대체.",
+          "훌륭한 자이언트 베어 사냥 영웅; {petra}를 대체.",
           "**Charles**: 대체로 안심하고 건너뛰어도 됩니다."
         ]},
 
         { type: "h", text: "간단한 무과금 룰렛 경로" },
-        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
 
         { type: "h", text: "신화 조각 우선순위" },
-        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
 
         { type: "h", text: "기본 원칙" },
         { type: "p", text: "룰렛 영웅은 대체로 무과금 유저에게 가장 안전한 투자입니다. 자원을 아끼고, 신화 조각을 너무 얇게 분산시키지 말고, 모든 영웅을 키워야 한다는 부담을 가지지 마세요." },
 
         { type: "h", text: "요약" },
         { type: "list", items: [
-          "**무과금 유저:** 영웅 룰렛에서 {zoe}(보병 탱커), {jabel}(기병), Petra(공격형 기병)를 우선하세요",
+          "**무과금 유저:** 영웅 룰렛에서 {zoe}(보병 탱커), {jabel}(기병), {petra}(공격형 기병)를 우선하세요",
           "**과금 유저:** {amadeus}(VIP 7 이상)와 {hilde}를 우선 육성해 효과를 극대화하세요"
         ]}
       ]},
@@ -7549,10 +7553,10 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "GEN 3" },
-        { type: "p", text: "**Petra — UNBEDINGT AUFBAUEN (Roulette)**" },
+        { type: "p", text: "**{petra} — UNBEDINGT AUFBAUEN (Roulette)**" },
         { type: "list", items: [
           "Exzellenter Bärenjagd-Held mit Wert bis Gen 7.",
-          "**Eric & Jaeger**: Überspringen, außer du konzentrierst dich auf PvP/Garnisonsverteidigung."
+          "**{eric} & {jaeger}**: Überspringen, außer du konzentrierst dich auf PvP/Garnisonsverteidigung."
         ]},
 
         { type: "sub", text: "GEN 4" },
@@ -7567,7 +7571,7 @@ const GUIDES = {
         { type: "list", items: [
           "Großartig für Multi-Team-Events wie Mystic Trial, Tri-Allianz und Swordland.",
           "**Thrud/Vivian**: Hauptsächlich Arena/PvP.",
-          "Petra verpasst? Erwäge Thrud."
+          "{petra} verpasst? Erwäge Thrud."
         ]},
 
         { type: "sub", text: "GEN 6" },
@@ -7584,22 +7588,22 @@ const GUIDES = {
         { type: "list", items: ["Insgesamt exzellenter F2P-Wert."] },
         { type: "p", text: "**Ava — HOHE PRIORITÄT**" },
         { type: "list", items: [
-          "Exzellenter Bärenjagd-Held; ersetzt Petra.",
+          "Exzellenter Bärenjagd-Held; ersetzt {petra}.",
           "**Charles**: In der Regel bedenkenlos überspringen."
         ]},
 
         { type: "h", text: "EINFACHER F2P-ROULETTE-PFAD" },
-        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
 
         { type: "h", text: "PRIORITÄTEN FÜR MYTHISCHE SPLITTER" },
-        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
 
         { type: "h", text: "FAUSTREGEL" },
         { type: "p", text: "Roulette-Helden sind in der Regel deine sichersten F2P-Investitionen. Spare deine Ressourcen, verteile Mythische Splitter nicht zu dünn und fühl dich nicht unter Druck, jeden Helden aufzubauen." },
 
         { type: "h", text: "ZUSAMMENFASSUNG" },
         { type: "list", items: [
-          "**F2P-Spieler:** Konzentriere dich im Helden-Roulette auf {zoe} (Infanterie-Tank), {jabel} (Kavallerie) und Petra (offensive Kavallerie)",
+          "**F2P-Spieler:** Konzentriere dich im Helden-Roulette auf {zoe} (Infanterie-Tank), {jabel} (Kavallerie) und {petra} (offensive Kavallerie)",
           "**P2W-Spieler:** Priorisiere {amadeus} (VIP 7+) und {hilde} für maximale Wirkung"
         ]}
       ]},
@@ -7623,10 +7627,10 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "GEN 3" },
-        { type: "p", text: "**Petra — À DÉVELOPPER ABSOLUMENT (Roulette)**" },
+        { type: "p", text: "**{petra} — À DÉVELOPPER ABSOLUMENT (Roulette)**" },
         { type: "list", items: [
           "Excellent héros pour la Chasse à l'Ours, avec une valeur qui dure jusqu'à la Gen 7.",
-          "**Eric & Jaeger**: À ignorer sauf si vous vous concentrez sur le PvP/la défense de garnison."
+          "**{eric} & {jaeger}**: À ignorer sauf si vous vous concentrez sur le PvP/la défense de garnison."
         ]},
 
         { type: "sub", text: "GEN 4" },
@@ -7641,7 +7645,7 @@ const GUIDES = {
         { type: "list", items: [
           "Excellent pour les événements multi-équipes comme l'Épreuve Mystique, la guerre Tri-Alliance et le Choc du Glaive.",
           "**Thrud/Vivian**: Surtout Arène/PvP.",
-          "Vous avez manqué Petra ? Envisagez Thrud."
+          "Vous avez manqué {petra} ? Envisagez Thrud."
         ]},
 
         { type: "sub", text: "GEN 6" },
@@ -7658,22 +7662,22 @@ const GUIDES = {
         { type: "list", items: ["Excellente valeur globale pour les F2P."] },
         { type: "p", text: "**Ava — PRIORITÉ ÉLEVÉE**" },
         { type: "list", items: [
-          "Excellent héros pour la Chasse à l'Ours ; remplace Petra.",
+          "Excellent héros pour la Chasse à l'Ours ; remplace {petra}.",
           "**Charles**: Généralement sûr à ignorer."
         ]},
 
         { type: "h", text: "PARCOURS ROULETTE F2P SIMPLIFIÉ" },
-        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
 
         { type: "h", text: "PRIORITÉS DES ÉCLATS MYTHIQUES" },
-        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
 
         { type: "h", text: "RÈGLE GÉNÉRALE" },
         { type: "p", text: "Les héros de la roulette sont généralement vos investissements F2P les plus sûrs. Économisez vos ressources, évitez de trop disperser vos Éclats mythiques, et ne vous sentez pas obligé de développer tous les héros." },
 
         { type: "h", text: "RÉSUMÉ" },
         { type: "list", items: [
-          "**Joueurs F2P :** Concentrez-vous sur {zoe} (tank d'infanterie), {jabel} (cavalerie) et Petra (cavalerie offensive) via la roulette de héros",
+          "**Joueurs F2P :** Concentrez-vous sur {zoe} (tank d'infanterie), {jabel} (cavalerie) et {petra} (cavalerie offensive) via la roulette de héros",
           "**Joueurs P2W :** Priorisez {amadeus} (VIP 7+) et {hilde} pour un impact maximal"
         ]}
       ]},
@@ -7697,10 +7701,10 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "GEN 3" },
-        { type: "p", text: "**Petra — DEVE DESENVOLVER (Roleta)**" },
+        { type: "p", text: "**{petra} — DEVE DESENVOLVER (Roleta)**" },
         { type: "list", items: [
           "Excelente herói para Caça ao Urso, com valor até a Gen 7.",
-          "**Eric & Jaeger**: Pule, a menos que você foque em PvP/defesa de guarnição."
+          "**{eric} & {jaeger}**: Pule, a menos que você foque em PvP/defesa de guarnição."
         ]},
 
         { type: "sub", text: "GEN 4" },
@@ -7715,7 +7719,7 @@ const GUIDES = {
         { type: "list", items: [
           "Ótimo para eventos multi-equipes como Julgamento Místico, Tri-Aliança e Confronto entre Espadas.",
           "**Thrud/Vivian**: Principalmente Arena/PvP.",
-          "Perdeu a Petra? Considere a Thrud."
+          "Perdeu a {petra}? Considere a Thrud."
         ]},
 
         { type: "sub", text: "GEN 6" },
@@ -7732,22 +7736,22 @@ const GUIDES = {
         { type: "list", items: ["Excelente valor geral para F2P."] },
         { type: "p", text: "**Ava — ALTA PRIORIDADE**" },
         { type: "list", items: [
-          "Excelente herói para Caça ao Urso; substitui a Petra.",
+          "Excelente herói para Caça ao Urso; substitui a {petra}.",
           "**Charles**: Geralmente seguro pular."
         ]},
 
         { type: "h", text: "CAMINHO SIMPLES DE ROLETA F2P" },
-        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
 
         { type: "h", text: "PRIORIDADES DE FRAGMENTOS MÍTICOS" },
-        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
 
         { type: "h", text: "REGRA GERAL" },
         { type: "p", text: "Heróis de roleta são geralmente seus investimentos F2P mais seguros. Economize seus recursos, evite espalhar os Fragmentos Míticos demais, e não sinta pressão para desenvolver todos os heróis." },
 
         { type: "h", text: "RESUMO" },
         { type: "list", items: [
-          "**Jogadores F2P:** Foque em {zoe} (tanque de infantaria), {jabel} (cavalaria) e Petra (cavalaria ofensiva) na roleta de heróis",
+          "**Jogadores F2P:** Foque em {zoe} (tanque de infantaria), {jabel} (cavalaria) e {petra} (cavalaria ofensiva) na roleta de heróis",
           "**Jogadores P2W:** Priorize {amadeus} (VIP 7+) e {hilde} para o máximo impacto"
         ]}
       ]},
@@ -7770,10 +7774,10 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "GEN 3" },
-        { type: "p", text: "**Petra — IMPRESCINDIBLE (Ruleta)**" },
+        { type: "p", text: "**{petra} — IMPRESCINDIBLE (Ruleta)**" },
         { type: "list", items: [
           "Excelente héroe para la Cacería del Oso, con valor hasta la Gen 7.",
-          "**Eric & Jaeger**: Omitir salvo que te enfoques en PvP/defensa de guarnición."
+          "**{eric} & {jaeger}**: Omitir salvo que te enfoques en PvP/defensa de guarnición."
         ]},
 
         { type: "sub", text: "GEN 4" },
@@ -7788,7 +7792,7 @@ const GUIDES = {
         { type: "list", items: [
           "Excelente para eventos multi-equipo como el Juicio Místico, la Tri-Alianza y Swordland.",
           "**Thrud/Vivian**: Principalmente Arena/PvP.",
-          "¿No conseguiste a Petra? Considera a Thrud."
+          "¿No conseguiste a {petra}? Considera a Thrud."
         ]},
 
         { type: "sub", text: "GEN 6" },
@@ -7805,22 +7809,22 @@ const GUIDES = {
         { type: "list", items: ["Excelente valor general para F2P."] },
         { type: "p", text: "**Ava — ALTA PRIORIDAD**" },
         { type: "list", items: [
-          "Excelente héroe para la Cacería del Oso; reemplaza a Petra.",
+          "Excelente héroe para la Cacería del Oso; reemplaza a {petra}.",
           "**Charles**: Generalmente seguro de omitir."
         ]},
 
         { type: "h", text: "RUTA SIMPLE DE RULETA F2P" },
-        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
 
         { type: "h", text: "PRIORIDAD DE FRAGMENTOS MÍTICOS" },
-        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
 
         { type: "h", text: "REGLA GENERAL" },
         { type: "p", text: "Los héroes de ruleta son generalmente tu inversión F2P más segura. Ahorra tus recursos, evita repartir los Fragmentos Míticos en demasiados héroes, y no sientas presión de desarrollarlos todos." },
 
         { type: "h", text: "RESUMEN" },
         { type: "list", items: [
-          "**Jugadores F2P:** Prioriza a {zoe} (tanque de infantería), {jabel} (caballería) y Petra (caballería ofensiva) de la ruleta de héroes",
+          "**Jugadores F2P:** Prioriza a {zoe} (tanque de infantería), {jabel} (caballería) y {petra} (caballería ofensiva) de la ruleta de héroes",
           "**Jugadores P2W:** Prioriza a {amadeus} (VIP 7+) y {hilde} para el máximo impacto"
         ]}
       ]},
@@ -7843,10 +7847,10 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "GEN 3" },
-        { type: "p", text: "**Petra — MUTLAKA GELİŞTİR (Rulet)**" },
+        { type: "p", text: "**{petra} — MUTLAKA GELİŞTİR (Rulet)**" },
         { type: "list", items: [
           "Gen 7'ye kadar değerini koruyan mükemmel bir Ayı Avı kahramanı.",
-          "**Eric & Jaeger**: PvP/garnizon savunmasına odaklanmıyorsan atla."
+          "**{eric} & {jaeger}**: PvP/garnizon savunmasına odaklanmıyorsan atla."
         ]},
 
         { type: "sub", text: "GEN 4" },
@@ -7861,7 +7865,7 @@ const GUIDES = {
         { type: "list", items: [
           "Gizemli Deneme, Üçlü İttifak ve Kılıçdiyarı gibi çok takımlı etkinlikler için harika.",
           "**Thrud/Vivian**: Ağırlıklı olarak Arena/PvP.",
-          "Petra'yı mı kaçırdın? Thrud'u düşün."
+          "{petra}'yı mı kaçırdın? Thrud'u düşün."
         ]},
 
         { type: "sub", text: "GEN 6" },
@@ -7878,22 +7882,22 @@ const GUIDES = {
         { type: "list", items: ["F2P için genel olarak mükemmel değer."] },
         { type: "p", text: "**Ava — YÜKSEK ÖNCELİK**" },
         { type: "list", items: [
-          "Mükemmel bir Ayı Avı kahramanı; Petra'nın yerini alır.",
+          "Mükemmel bir Ayı Avı kahramanı; {petra}'nın yerini alır.",
           "**Charles**: Genellikle güvenle atlanabilir."
         ]},
 
         { type: "h", text: "BASİT F2P RULET YOLU" },
-        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
 
         { type: "h", text: "MİTİK PARÇA ÖNCELİKLERİ" },
-        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
 
         { type: "h", text: "GENEL KURAL" },
         { type: "p", text: "Rulet kahramanları genellikle en güvenli F2P yatırımlarındır. Kaynaklarını biriktir, Mitik Parçaları çok fazla dağıtma ve her kahramanı geliştirmen gerektiğini hissetme." },
 
         { type: "h", text: "ÖZET" },
         { type: "list", items: [
-          "**F2P Oyuncuları:** Kahraman ruletinde {zoe} (piyade tankı), {jabel} (süvari) ve Petra'ya (saldırı süvarisi) odaklan",
+          "**F2P Oyuncuları:** Kahraman ruletinde {zoe} (piyade tankı), {jabel} (süvari) ve {petra}'ya (saldırı süvarisi) odaklan",
           "**P2W Oyuncuları:** Maksimum etki için {amadeus} (VIP 7+) ve {hilde}'ya öncelik ver"
         ]}
       ]},
@@ -7917,10 +7921,10 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "GEN 3" },
-        { type: "p", text: "**Petra — WAJIB DIKEMBANGKAN (Roulette)**" },
+        { type: "p", text: "**{petra} — WAJIB DIKEMBANGKAN (Roulette)**" },
         { type: "list", items: [
           "Hero Bear Hunt yang sangat baik dengan nilai hingga Gen 7.",
-          "**Eric & Jaeger**: Lewati kecuali kamu fokus pada PvP/pertahanan garnisun."
+          "**{eric} & {jaeger}**: Lewati kecuali kamu fokus pada PvP/pertahanan garnisun."
         ]},
 
         { type: "sub", text: "GEN 4" },
@@ -7935,7 +7939,7 @@ const GUIDES = {
         { type: "list", items: [
           "Sangat cocok untuk event multi-tim seperti Mystic Trial, Tri-Alliance, dan Swordland.",
           "**Thrud/Vivian**: Sebagian besar untuk Arena/PvP.",
-          "Kelewatan Petra? Pertimbangkan Thrud."
+          "Kelewatan {petra}? Pertimbangkan Thrud."
         ]},
 
         { type: "sub", text: "GEN 6" },
@@ -7952,22 +7956,22 @@ const GUIDES = {
         { type: "list", items: ["Nilai keseluruhan yang sangat baik untuk F2P."] },
         { type: "p", text: "**Ava — PRIORITAS TINGGI**" },
         { type: "list", items: [
-          "Hero Bear Hunt yang sangat baik; menggantikan Petra.",
+          "Hero Bear Hunt yang sangat baik; menggantikan {petra}.",
           "**Charles**: Umumnya aman untuk dilewati."
         ]},
 
         { type: "h", text: "JALUR ROULETTE F2P SEDERHANA" },
-        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
 
         { type: "h", text: "PRIORITAS SERPIHAN MITOS" },
-        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
 
         { type: "h", text: "ATURAN UMUM" },
         { type: "p", text: "Hero roulette umumnya adalah investasi F2P paling aman. Hemat sumber dayamu, hindari menyebarkan Serpihan Mitos terlalu tipis, dan jangan merasa harus mengembangkan semua hero." },
 
         { type: "h", text: "RINGKASAN" },
         { type: "list", items: [
-          "**Pemain F2P:** Fokus pada {zoe} (tank infanteri), {jabel} (kavaleri), dan Petra (kavaleri ofensif) dari hero roulette",
+          "**Pemain F2P:** Fokus pada {zoe} (tank infanteri), {jabel} (kavaleri), dan {petra} (kavaleri ofensif) dari hero roulette",
           "**Pemain P2W:** Prioritaskan {amadeus} (VIP 7+) dan {hilde} untuk dampak maksimal"
         ]}
       ]},
@@ -7991,10 +7995,10 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "ПОКОЛЕНИЕ 3" },
-        { type: "p", text: "**Petra — ОБЯЗАТЕЛЬНО РАЗВИВАТЬ (рулетка)**" },
+        { type: "p", text: "**{petra} — ОБЯЗАТЕЛЬНО РАЗВИВАТЬ (рулетка)**" },
         { type: "list", items: [
           "Отличный герой для Охоты на медведя, сохраняет ценность до 7-го поколения.",
-          "**Eric и Jaeger**: Пропустите, если вы не сосредоточены на PvP/защите гарнизона."
+          "**{eric} и {jaeger}**: Пропустите, если вы не сосредоточены на PvP/защите гарнизона."
         ]},
 
         { type: "sub", text: "ПОКОЛЕНИЕ 4" },
@@ -8009,7 +8013,7 @@ const GUIDES = {
         { type: "list", items: [
           "Отлично подходит для командных событий вроде Мистического испытания, Тройственного альянса и Битвы за Страну мечей.",
           "**Thrud/Vivian**: В основном для Арены/PvP.",
-          "Пропустили Petra? Рассмотрите Thrud."
+          "Пропустили {petra}? Рассмотрите Thrud."
         ]},
 
         { type: "sub", text: "ПОКОЛЕНИЕ 6" },
@@ -8026,22 +8030,22 @@ const GUIDES = {
         { type: "list", items: ["Отличная общая ценность для F2P."] },
         { type: "p", text: "**Ava — ВЫСОКИЙ ПРИОРИТЕТ**" },
         { type: "list", items: [
-          "Отличный герой для Охоты на медведя; заменяет Petra.",
+          "Отличный герой для Охоты на медведя; заменяет {petra}.",
           "**Charles**: Обычно можно спокойно пропустить."
         ]},
 
         { type: "h", text: "ПРОСТОЙ ПУТЬ РУЛЕТКИ ДЛЯ F2P" },
-        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee и Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee и Woo" },
 
         { type: "h", text: "ПРИОРИТЕТЫ МИФИЧЕСКИХ ОСКОЛКОВ" },
-        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
 
         { type: "h", text: "ПРАВИЛО ПАЛЬЦА" },
         { type: "p", text: "Герои рулетки обычно являются вашими самыми безопасными вложениями для F2P. Экономьте ресурсы, не распыляйте Мифические осколки слишком тонко и не чувствуйте давления развивать каждого героя." },
 
         { type: "h", text: "ИТОГ" },
         { type: "list", items: [
-          "**Игроки F2P:** Сосредоточьтесь на {zoe} (танк-пехотинец), {jabel} (кавалерия) и Petra (наступательная кавалерия) в рулетке героев",
+          "**Игроки F2P:** Сосредоточьтесь на {zoe} (танк-пехотинец), {jabel} (кавалерия) и {petra} (наступательная кавалерия) в рулетке героев",
           "**Игроки P2W:** Отдайте приоритет {amadeus} (VIP 7+) и {hilde} для максимального эффекта"
         ]}
       ]},
@@ -8065,10 +8069,10 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "เจน 3" },
-        { type: "p", text: "**Petra — ต้องพัฒนา (รูเล็ต)**" },
+        { type: "p", text: "**{petra} — ต้องพัฒนา (รูเล็ต)**" },
         { type: "list", items: [
           "ฮีโร่ล่าหมีที่ยอดเยี่ยม มีคุณค่าไปจนถึงเจน 7",
-          "**Eric & Jaeger**: ข้ามได้ เว้นแต่คุณเน้น PvP/การป้องกันกองรักษาการณ์"
+          "**{eric} & {jaeger}**: ข้ามได้ เว้นแต่คุณเน้น PvP/การป้องกันกองรักษาการณ์"
         ]},
 
         { type: "sub", text: "เจน 4" },
@@ -8083,7 +8087,7 @@ const GUIDES = {
         { type: "list", items: [
           "เหมาะมากสำหรับกิจกรรมหลายทีมอย่าง Mystic Trial, Tri-Alliance และศึกดวลดินแดนดาบ",
           "**Thrud/Vivian**: ส่วนใหญ่ใช้ในสนามประลอง/PvP",
-          "พลาด Petra ไป? ลองพิจารณา Thrud"
+          "พลาด {petra} ไป? ลองพิจารณา Thrud"
         ]},
 
         { type: "sub", text: "เจน 6" },
@@ -8100,22 +8104,22 @@ const GUIDES = {
         { type: "list", items: ["คุ้มค่ามากโดยรวมสำหรับสาย F2P"] },
         { type: "p", text: "**Ava — ลำดับความสำคัญสูง**" },
         { type: "list", items: [
-          "ฮีโร่ล่าหมีที่ยอดเยี่ยม; แทนที่ Petra",
+          "ฮีโร่ล่าหมีที่ยอดเยี่ยม; แทนที่ {petra}",
           "**Charles**: โดยทั่วไปข้ามได้อย่างสบายใจ"
         ]},
 
         { type: "h", text: "เส้นทางรูเล็ต F2P แบบง่าย" },
-        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
 
         { type: "h", text: "ลำดับความสำคัญเศษชิ้นส่วนในตำนาน" },
-        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
 
         { type: "h", text: "หลักการทั่วไป" },
         { type: "p", text: "ฮีโร่จากรูเล็ตมักเป็นการลงทุนที่ปลอดภัยที่สุดสำหรับสาย F2P เก็บทรัพยากรไว้ อย่ากระจายเศษชิ้นส่วนในตำนานให้บางเกินไป และไม่ต้องรู้สึกกดดันว่าต้องพัฒนาทุกฮีโร่" },
 
         { type: "h", text: "สรุป" },
         { type: "list", items: [
-          "**ผู้เล่นสาย F2P:** เน้นไปที่ {zoe} (แทงค์ทหารราบ), {jabel} (ทหารม้า) และ Petra (ทหารม้าสายโจมตี) จากรูเล็ตฮีโร่",
+          "**ผู้เล่นสาย F2P:** เน้นไปที่ {zoe} (แทงค์ทหารราบ), {jabel} (ทหารม้า) และ {petra} (ทหารม้าสายโจมตี) จากรูเล็ตฮีโร่",
           "**ผู้เล่นสายจ่าย:** จัดลำดับความสำคัญให้ {amadeus} (VIP 7 ขึ้นไป) และ {hilde} เพื่อผลลัพธ์สูงสุด"
         ]}
       ]},
@@ -8139,10 +8143,10 @@ const GUIDES = {
         ]},
 
         { type: "sub", text: "الجيل 3" },
-        { type: "p", text: "**Petra — يجب تطويره (الروليت)**" },
+        { type: "p", text: "**{petra} — يجب تطويره (الروليت)**" },
         { type: "list", items: [
           "بطل ممتاز لصيد الدببة بقيمة تستمر حتى الجيل 7.",
-          "**Eric وJaeger**: تخطَّهما إلا إذا كنت تركز على PvP/دفاع الحامية."
+          "**{eric} و{jaeger}**: تخطَّهما إلا إذا كنت تركز على PvP/دفاع الحامية."
         ]},
 
         { type: "sub", text: "الجيل 4" },
@@ -8157,7 +8161,7 @@ const GUIDES = {
         { type: "list", items: [
           "رائع لفعاليات الفرق المتعددة مثل المحاكمة الغامضة، التحالف الثلاثي، ومواجهة أرض السيوف.",
           "**Thrud/Vivian**: غالبًا للساحة/PvP.",
-          "فاتك Petra؟ فكّر في Thrud."
+          "فاتك {petra}؟ فكّر في Thrud."
         ]},
 
         { type: "sub", text: "الجيل 6" },
@@ -8174,22 +8178,22 @@ const GUIDES = {
         { type: "list", items: ["قيمة ممتازة بشكل عام لللاعبين المجانيين."] },
         { type: "p", text: "**Ava — أولوية عالية**" },
         { type: "list", items: [
-          "بطل ممتاز لصيد الدببة؛ يحل محل Petra.",
+          "بطل ممتاز لصيد الدببة؛ يحل محل {petra}.",
           "**Charles**: يمكن تخطيه بأمان عمومًا."
         ]},
 
         { type: "h", text: "مسار روليت مبسّط لللاعبين المجانيين" },
-        { type: "p", text: "{zoe} ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee وWoo" },
+        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee وWoo" },
 
         { type: "h", text: "أولويات شظايا الأسطورة" },
-        { type: "p", text: "Petra ➜ Yang ➜ Ava" },
+        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
 
         { type: "h", text: "القاعدة العامة" },
         { type: "p", text: "أبطال الروليت عادةً هم استثماراتك الأكثر أمانًا كلاعب مجاني. وفّر مواردك، تجنّب توزيع شظايا الأسطورة بشكل مبعثر جدًا، ولا تشعر بضغط لتطوير كل بطل." },
 
         { type: "h", text: "الملخص" },
         { type: "list", items: [
-          "**اللاعبون المجانيون:** ركّزوا على {zoe} (دبابة مشاة)، {jabel} (فرسان)، وPetra (فرسان هجومية) من روليت الأبطال",
+          "**اللاعبون المجانيون:** ركّزوا على {zoe} (دبابة مشاة)، {jabel} (فرسان)، و{petra} (فرسان هجومية) من روليت الأبطال",
           "**اللاعبون الداعمون:** أعطوا الأولوية لـ {amadeus} (VIP 7+) وHilde لتحقيق أقصى تأثير"
         ]}
       ]}
@@ -8239,9 +8243,9 @@ const GUIDES = {
       { type: "sub", text: "第 2 天：研究、英雄與採集" },
       { type: "p", text: "計分項目：研究加速、{truegoldDust}（科技）、英雄碎片（稀有／史詩／傳說）、英雄轉盤、{masters} 徽章／手稿、資源採集。" },
       { type: "p", text: "**🛡️ F2P 重點：**" },
-      { type: "list", items: ["用存下來的鑽石轉英雄轉盤，取得 Petra（Gen 3）碎片。", "把存下來的通用傳說／史詩碎片投入核心英雄。", "提前派出採集部隊（在每日重置前送出，這樣第 2 天一開始就會立刻返回）。"]},
+      { type: "list", items: ["用存下來的鑽石轉英雄轉盤，取得 {petra}（Gen 3）碎片。", "把存下來的通用傳說／史詩碎片投入核心英雄。", "提前派出採集部隊（在每日重置前送出，這樣第 2 天一開始就會立刻返回）。"]},
       { type: "p", text: "**⚡ P2W 重點：**" },
-      { type: "list", items: ["把{academy}裡的{truegoldDust}研究練滿。", "把存下來的 {masters} 徽章與手稿全部用完。", "把 Gen 3 英雄（Eric 與 Petra）立刻升到 5 星。"]},
+      { type: "list", items: ["把{academy}裡的{truegoldDust}研究練滿。", "把存下來的 {masters} 徽章與手稿全部用完。", "把 Gen 3 英雄（{eric} 與 {petra}）立刻升到 5 星。"]},
       { type: "sub", text: "第 3 天：寵物訓練與 {masters} 進度" },
       { type: "p", text: "計分項目：{petAdvancement}、{commonTamingMarks}與{advancedTamingMarks}（洗煉）、英雄轉盤、英雄碎片、{masters} 徽章／手稿、情報任務。" },
       { type: "p", text: "**🛡️ F2P 重點：**" },
@@ -8265,9 +8269,9 @@ const GUIDES = {
       { type: "p", text: "目標：控制{kingsCastle}與 4 座{turret}。" },
       { type: "h", text: "🎯 GEN 3 PVP 主流打法與集結配置" },
       { type: "sub", text: "🛡️ 駐防防守 — 王城／砲台" },
-      { type: "p", text: "**指揮英雄：** Eric（Gen 3）——擁有優秀 Gen 3 屬性與生存機制的步兵鐵壁，搭配 {zoe}（Gen 2）提供防護罩。" },
+      { type: "p", text: "**指揮英雄：** {eric}（Gen 3）——擁有優秀 Gen 3 屬性與生存機制的步兵鐵壁，搭配 {zoe}（Gen 2）提供防護罩。" },
       { type: "sub", text: "⚔️ 進攻集結（攻打王城／砲台）" },
-      { type: "p", text: "**指揮英雄：** Petra（Gen 3）——具備高倍率進攻集結{widget}的毀滅性騎兵指揮官。" },
+      { type: "p", text: "**指揮英雄：** {petra}（Gen 3）——具備高倍率進攻集結{widget}的毀滅性騎兵指揮官。" },
       { type: "sub", text: "🤝 集結參與者（F2P 關鍵！）" },
       { type: "p", text: "加入集結時**不要**隨便帶英雄。請帶：" },
       { type: "list", items: ["{chenko}（技能 1 練滿）", "{amane}", "{yeonwoo}"]},
@@ -8323,9 +8327,9 @@ const GUIDES = {
       { type: "sub", text: "Day 2: Research, Heroes & Gathering" },
       { type: "p", text: "Scoring Activities: Research Speedups, {truegoldDust} (Tech), Hero Shards (Rare/Epic/Mythic), Hero Roulette spins, Master Emblems/{manuscript}s, Gathering Resources." },
       { type: "p", text: "**🛡️ F2P Focus:**" },
-      { type: "list", items: ["Spin the Hero Roulette using saved Gems to gain Petra (Gen 3) shards.", "Dump saved universal Mythic/Epic shards into core heroes.", "Pre-gather resources (send gatherers out before reset so they return immediately at Day 2 start)."]},
+      { type: "list", items: ["Spin the Hero Roulette using saved Gems to gain {petra} (Gen 3) shards.", "Dump saved universal Mythic/Epic shards into core heroes.", "Pre-gather resources (send gatherers out before reset so they return immediately at Day 2 start)."]},
       { type: "p", text: "**⚡ P2W Focus:**" },
-      { type: "list", items: ["Max out {truegoldDust} research in the {academy}.", "Burn all saved Master Emblems and {manuscript}s.", "Rank up Gen 3 heroes (Eric & Petra) to 5-star instantly."]},
+      { type: "list", items: ["Max out {truegoldDust} research in the {academy}.", "Burn all saved Master Emblems and {manuscript}s.", "Rank up Gen 3 heroes ({eric} & {petra}) to 5-star instantly."]},
       { type: "sub", text: "Day 3: Pet Training & Master Progression" },
       { type: "p", text: "Scoring Activities: {petAdvancement}, {commonTamingMarks} & {advancedTamingMarks} (Refining), Hero Roulette, Hero Shards, Master Emblems/{manuscript}s, Intel Missions." },
       { type: "p", text: "**🛡️ F2P Focus:**" },
@@ -8349,9 +8353,9 @@ const GUIDES = {
       { type: "p", text: "Target: Control the {kingsCastle} and 4 {turret}s." },
       { type: "h", text: "🎯 GEN 3 PVP META & RALLY SETUP" },
       { type: "sub", text: "🛡️ Garrison Defense — Castle/Turrets" },
-      { type: "p", text: "**Lead Hero:** Eric (Gen 3) — Unbreakable infantry wall with superior Gen 3 stats and survival mechanics. Paired with {zoe} (Gen 2) for shields." },
+      { type: "p", text: "**Lead Hero:** {eric} (Gen 3) — Unbreakable infantry wall with superior Gen 3 stats and survival mechanics. Paired with {zoe} (Gen 2) for shields." },
       { type: "sub", text: "⚔️ Offensive Rallies (Attacking Castle/Turrets)" },
-      { type: "p", text: "**Lead Hero:** Petra (Gen 3) — Devastating Cavalry leader with high-scaling offensive rally {widget}s." },
+      { type: "p", text: "**Lead Hero:** {petra} (Gen 3) — Devastating Cavalry leader with high-scaling offensive rally {widget}s." },
       { type: "sub", text: "🤝 Rally Joiners (Crucial for F2P!)" },
       { type: "p", text: "Do NOT use random heroes when joining rallies. Join with:" },
       { type: "list", items: ["{chenko} (Skill 1 maxed)", "{amane}", "{yeonwoo}"]},
@@ -8407,9 +8411,9 @@ const GUIDES = {
       { type: "sub", text: "2일차: 연구, 영웅 및 채집" },
       { type: "p", text: "점수 활동: 연구 가속, {truegoldDust} (기술), 영웅 조각 (레어/에픽/레전드), 영웅 룰렛, {masters} 문양/원고, 자원 채집." },
       { type: "p", text: "**🛡️ F2P 중점:**" },
-      { type: "list", items: ["아껴둔 다이아로 영웅 룰렛을 돌려 Petra(Gen 3) 조각을 획득하세요.", "아껴둔 범용 레전드/에픽 조각을 핵심 영웅에게 투입하세요.", "미리 채집 부대를 보내세요 (초기화 전에 보내서 2일차 시작과 동시에 즉시 복귀하도록)."]},
+      { type: "list", items: ["아껴둔 다이아로 영웅 룰렛을 돌려 {petra}(Gen 3) 조각을 획득하세요.", "아껴둔 범용 레전드/에픽 조각을 핵심 영웅에게 투입하세요.", "미리 채집 부대를 보내세요 (초기화 전에 보내서 2일차 시작과 동시에 즉시 복귀하도록)."]},
       { type: "p", text: "**⚡ P2W 중점:**" },
-      { type: "list", items: ["{academy}의 {truegoldDust} 연구를 최대치로 올리세요.", "아껴둔 {masters} 문양과 원고를 모두 사용하세요.", "Gen 3 영웅(Eric & Petra)을 즉시 5성으로 올리세요."]},
+      { type: "list", items: ["{academy}의 {truegoldDust} 연구를 최대치로 올리세요.", "아껴둔 {masters} 문양과 원고를 모두 사용하세요.", "Gen 3 영웅({eric} & {petra})을 즉시 5성으로 올리세요."]},
       { type: "sub", text: "3일차: 펫 훈련 및 {masters} 진행" },
       { type: "p", text: "점수 활동: {petAdvancement}, {commonTamingMarks} 및 {advancedTamingMarks} (단련), 영웅 룰렛, 영웅 조각, {masters} 문양/원고, 정보 임무." },
       { type: "p", text: "**🛡️ F2P 중점:**" },
@@ -8433,9 +8437,9 @@ const GUIDES = {
       { type: "p", text: "목표: {kingsCastle}와 4개의 {turret} 점령." },
       { type: "h", text: "🎯 GEN 3 PVP 메타 및 집결 세팅" },
       { type: "sub", text: "🛡️ 주둔 방어 — 캐슬/포탑" },
-      { type: "p", text: "**리드 영웅:** Eric (Gen 3) — 뛰어난 Gen 3 스탯과 생존 메커니즘을 가진 무너지지 않는 보병 벽. {zoe}(Gen 2)와 조합해 보호막 제공." },
+      { type: "p", text: "**리드 영웅:** {eric} (Gen 3) — 뛰어난 Gen 3 스탯과 생존 메커니즘을 가진 무너지지 않는 보병 벽. {zoe}(Gen 2)와 조합해 보호막 제공." },
       { type: "sub", text: "⚔️ 공격 집결 (캐슬/포탑 공격)" },
-      { type: "p", text: "**리드 영웅:** Petra (Gen 3) — 고배율 공격 집결 {widget}을 갖춘 파괴적인 기병 리더." },
+      { type: "p", text: "**리드 영웅:** {petra} (Gen 3) — 고배율 공격 집결 {widget}을 갖춘 파괴적인 기병 리더." },
       { type: "sub", text: "🤝 집결 참가자 (F2P에게 중요!)" },
       { type: "p", text: "집결에 참가할 때 아무 영웅이나 사용하지 마세요. 다음 영웅으로 참가하세요:" },
       { type: "list", items: ["{chenko} (스킬 1 만렙)", "{amane}", "{yeonwoo}"]},
@@ -8491,9 +8495,9 @@ const GUIDES = {
       { type: "sub", text: "Tag 2: Forschung, Helden & Sammeln" },
       { type: "p", text: "Punktebringende Aktivitäten: Forschungs-Beschleunigungen, {truegoldDust} (Technologie), Helden-Fragmente (Selten/Episch/Mythisch), Helden-Roulette-Drehungen, Master-Embleme/Manuskripte, Ressourcensammeln." },
       { type: "p", text: "**🛡️ F2P-Fokus:**" },
-      { type: "list", items: ["Drehe das Helden-Roulette mit gesparten Edelsteinen, um Petra-(Gen-3)-Fragmente zu erhalten.", "Setze gesparte universelle mythische/epische Fragmente für Kernhelden ein.", "Sammle im Voraus Ressourcen (schicke Sammler vor dem Reset los, damit sie zu Beginn von Tag 2 sofort zurückkehren)."]},
+      { type: "list", items: ["Drehe das Helden-Roulette mit gesparten Edelsteinen, um {petra}-(Gen-3)-Fragmente zu erhalten.", "Setze gesparte universelle mythische/epische Fragmente für Kernhelden ein.", "Sammle im Voraus Ressourcen (schicke Sammler vor dem Reset los, damit sie zu Beginn von Tag 2 sofort zurückkehren)."]},
       { type: "p", text: "**⚡ P2W-Fokus:**" },
-      { type: "list", items: ["Maximiere die {truegoldDust}-Forschung in der {academy}.", "Verbrauche alle gesparten Master-Embleme und Manuskripte.", "Bringe Gen-3-Helden (Eric & Petra) sofort auf 5 Sterne."]},
+      { type: "list", items: ["Maximiere die {truegoldDust}-Forschung in der {academy}.", "Verbrauche alle gesparten Master-Embleme und Manuskripte.", "Bringe Gen-3-Helden ({eric} & {petra}) sofort auf 5 Sterne."]},
       { type: "sub", text: "Tag 3: Haustiertraining & Master-Fortschritt" },
       { type: "p", text: "Punktebringende Aktivitäten: {petAdvancement}, {commonTamingMarks} & {advancedTamingMarks} (Verfeinerung), Helden-Roulette, Helden-Fragmente, Master-Embleme/Manuskripte, Geheimdienstmissionen." },
       { type: "p", text: "**🛡️ F2P-Fokus:**" },
@@ -8517,9 +8521,9 @@ const GUIDES = {
       { type: "p", text: "Ziel: Kontrolliere das {kingsCastle} und 4 {turret}." },
       { type: "h", text: "🎯 GEN-3-PVP-META & RALLY-SETUP" },
       { type: "sub", text: "🛡️ Garnisonsverteidigung — Schloss/Türme" },
-      { type: "p", text: "**Anführer-Held:** Eric (Gen 3) — Unzerstörbare Infanteriewand mit überlegenen Gen-3-Werten und Überlebensmechanik. Kombiniert mit {zoe} (Gen 2) für Schilde." },
+      { type: "p", text: "**Anführer-Held:** {eric} (Gen 3) — Unzerstörbare Infanteriewand mit überlegenen Gen-3-Werten und Überlebensmechanik. Kombiniert mit {zoe} (Gen 2) für Schilde." },
       { type: "sub", text: "⚔️ Offensive Rallys (Angriff auf Schloss/Türme)" },
-      { type: "p", text: "**Anführer-Held:** Petra (Gen 3) — Verheerender Kavallerie-Anführer mit stark skalierenden offensiven Rally-{widget}." },
+      { type: "p", text: "**Anführer-Held:** {petra} (Gen 3) — Verheerender Kavallerie-Anführer mit stark skalierenden offensiven Rally-{widget}." },
       { type: "sub", text: "🤝 Rally-Teilnehmer (entscheidend für F2P!)" },
       { type: "p", text: "Nutze NICHT irgendwelche Helden beim Beitritt zu Rallys. Tritt bei mit:" },
       { type: "list", items: ["{chenko} (Fähigkeit 1 maximiert)", "{amane}", "{yeonwoo}"]},
@@ -8575,9 +8579,9 @@ const GUIDES = {
       { type: "sub", text: "Jour 2 : Recherche, Héros et Récolte" },
       { type: "p", text: "Activités notées : Accélérations de Recherche, {truegoldDust} (Tech), Fragments de Héros (Rare/Épique/Mythique), tours de Roulette de Héros, Emblèmes/Manuscrits Master, récolte de ressources." },
       { type: "p", text: "**🛡️ Priorité F2P :**" },
-      { type: "list", items: ["Tournez la Roulette de Héros avec des Gemmes économisées pour obtenir des fragments de Petra (Gen 3).", "Investissez les fragments mythiques/épiques universels économisés dans vos héros principaux.", "Récoltez à l'avance (envoyez les récolteurs avant la réinitialisation pour qu'ils reviennent immédiatement au début du Jour 2)."]},
+      { type: "list", items: ["Tournez la Roulette de Héros avec des Gemmes économisées pour obtenir des fragments de {petra} (Gen 3).", "Investissez les fragments mythiques/épiques universels économisés dans vos héros principaux.", "Récoltez à l'avance (envoyez les récolteurs avant la réinitialisation pour qu'ils reviennent immédiatement au début du Jour 2)."]},
       { type: "p", text: "**⚡ Priorité P2W :**" },
-      { type: "list", items: ["Maximisez la recherche {truegoldDust} à l'{academy}.", "Utilisez tous les Emblèmes et Manuscrits Master économisés.", "Faites passer instantanément les héros Gen 3 (Eric et Petra) à 5 étoiles."]},
+      { type: "list", items: ["Maximisez la recherche {truegoldDust} à l'{academy}.", "Utilisez tous les Emblèmes et Manuscrits Master économisés.", "Faites passer instantanément les héros Gen 3 ({eric} et {petra}) à 5 étoiles."]},
       { type: "sub", text: "Jour 3 : Entraînement des Animaux et Progression Master" },
       { type: "p", text: "Activités notées : {petAdvancement}, {commonTamingMarks} et {advancedTamingMarks} (Raffinage), Roulette de Héros, Fragments de Héros, Emblèmes/Manuscrits Master, Missions de Renseignement." },
       { type: "p", text: "**🛡️ Priorité F2P :**" },
@@ -8601,9 +8605,9 @@ const GUIDES = {
       { type: "p", text: "Objectif : Contrôler le {kingsCastle} et 4 {turret}." },
       { type: "h", text: "🎯 META PVP GEN 3 ET CONFIGURATION DE RASSEMBLEMENT" },
       { type: "sub", text: "🛡️ Défense de Garnison — Château/Tourelles" },
-      { type: "p", text: "**Héros Leader :** Eric (Gen 3) — Mur d'infanterie incassable avec des statistiques Gen 3 supérieures et des mécanismes de survie. Associé à {zoe} (Gen 2) pour les boucliers." },
+      { type: "p", text: "**Héros Leader :** {eric} (Gen 3) — Mur d'infanterie incassable avec des statistiques Gen 3 supérieures et des mécanismes de survie. Associé à {zoe} (Gen 2) pour les boucliers." },
       { type: "sub", text: "⚔️ Rassemblements Offensifs (Attaque du Château/Tourelles)" },
-      { type: "p", text: "**Héros Leader :** Petra (Gen 3) — Leader de Cavalerie dévastateur avec des {widget} de rassemblement offensif à forte montée en puissance." },
+      { type: "p", text: "**Héros Leader :** {petra} (Gen 3) — Leader de Cavalerie dévastateur avec des {widget} de rassemblement offensif à forte montée en puissance." },
       { type: "sub", text: "🤝 Participants au Rassemblement (Crucial pour les F2P !)" },
       { type: "p", text: "N'utilisez PAS de héros au hasard en rejoignant les rassemblements. Rejoignez avec :" },
       { type: "list", items: ["{chenko} (Compétence 1 maximisée)", "{amane}", "{yeonwoo}"]},
@@ -8659,9 +8663,9 @@ const GUIDES = {
       { type: "sub", text: "Dia 2: Pesquisa, Heróis e Coleta" },
       { type: "p", text: "Atividades que pontuam: Velocidades de Pesquisa, {truegoldDust} (Tecnologia), Fragmentos de Herói (Raro/Épico/Mítico), giros na Roleta de Herói, Emblemas/Manuscritos Master, Coleta de Recursos." },
       { type: "p", text: "**🛡️ Foco F2P:**" },
-      { type: "list", items: ["Gire a Roleta de Herói usando Gemas guardadas para obter fragmentos de Petra (Gen 3).", "Invista fragmentos míticos/épicos universais guardados nos heróis principais.", "Colete recursos com antecedência (envie coletores antes da reinicialização para que retornem imediatamente no início do Dia 2)."]},
+      { type: "list", items: ["Gire a Roleta de Herói usando Gemas guardadas para obter fragmentos de {petra} (Gen 3).", "Invista fragmentos míticos/épicos universais guardados nos heróis principais.", "Colete recursos com antecedência (envie coletores antes da reinicialização para que retornem imediatamente no início do Dia 2)."]},
       { type: "p", text: "**⚡ Foco P2W:**" },
-      { type: "list", items: ["Maximize a pesquisa de {truegoldDust} na {academy}.", "Use todos os Emblemas e Manuscritos Master guardados.", "Suba os heróis Gen 3 (Eric e Petra) para 5 estrelas instantaneamente."]},
+      { type: "list", items: ["Maximize a pesquisa de {truegoldDust} na {academy}.", "Use todos os Emblemas e Manuscritos Master guardados.", "Suba os heróis Gen 3 ({eric} e {petra}) para 5 estrelas instantaneamente."]},
       { type: "sub", text: "Dia 3: Treinamento de Pets e Progressão Master" },
       { type: "p", text: "Atividades que pontuam: {petAdvancement}, {commonTamingMarks} e {advancedTamingMarks} (Refinamento), Roleta de Herói, Fragmentos de Herói, Emblemas/Manuscritos Master, Missões de Inteligência." },
       { type: "p", text: "**🛡️ Foco F2P:**" },
@@ -8685,9 +8689,9 @@ const GUIDES = {
       { type: "p", text: "Objetivo: Controlar o {kingsCastle} e 4 {turret}." },
       { type: "h", text: "🎯 META PVP GEN 3 E CONFIGURAÇÃO DE ARREGIMENTAÇÃO" },
       { type: "sub", text: "🛡️ Defesa de Guarnição — Castelo/Torres" },
-      { type: "p", text: "**Herói Líder:** Eric (Gen 3) — Muro de infantaria inquebrável com estatísticas Gen 3 superiores e mecânicas de sobrevivência. Combinado com {zoe} (Gen 2) para escudos." },
+      { type: "p", text: "**Herói Líder:** {eric} (Gen 3) — Muro de infantaria inquebrável com estatísticas Gen 3 superiores e mecânicas de sobrevivência. Combinado com {zoe} (Gen 2) para escudos." },
       { type: "sub", text: "⚔️ Arregimentações Ofensivas (Atacando Castelo/Torres)" },
-      { type: "p", text: "**Herói Líder:** Petra (Gen 3) — Líder de Cavalaria devastador com {widget} de arregimentação ofensiva de alto escalonamento." },
+      { type: "p", text: "**Herói Líder:** {petra} (Gen 3) — Líder de Cavalaria devastador com {widget} de arregimentação ofensiva de alto escalonamento." },
       { type: "sub", text: "🤝 Participantes de Arregimentação (Crucial para F2P!)" },
       { type: "p", text: "NÃO use heróis aleatórios ao entrar em arregimentações. Entre com:" },
       { type: "list", items: ["{chenko} (Habilidade 1 no máximo)", "{amane}", "{yeonwoo}"]},
@@ -8743,9 +8747,9 @@ const GUIDES = {
       { type: "sub", text: "Día 2: Investigación, Héroes y Recolección" },
       { type: "p", text: "Actividades que puntúan: Aceleradores de Investigación, {truegoldDust} (Tecnología), Fragmentos de Héroe (Raro/Épico/Mítico), tiradas de {heroRoulette}, Emblemas de Maestro/{manuscript}, Recolección de Recursos." },
       { type: "p", text: "**🛡️ Enfoque F2P:**" },
-      { type: "list", items: ["Gira la {heroRoulette} usando Gemas guardadas para obtener fragmentos de Petra (Gen 3).", "Invierte los fragmentos Míticos/Épicos universales guardados en héroes clave.", "Recolecta con antelación (envía a los recolectores antes del reinicio para que regresen de inmediato al comenzar el Día 2)."]},
+      { type: "list", items: ["Gira la {heroRoulette} usando Gemas guardadas para obtener fragmentos de {petra} (Gen 3).", "Invierte los fragmentos Míticos/Épicos universales guardados en héroes clave.", "Recolecta con antelación (envía a los recolectores antes del reinicio para que regresen de inmediato al comenzar el Día 2)."]},
       { type: "p", text: "**⚡ Enfoque P2W:**" },
-      { type: "list", items: ["Maximiza la investigación de {truegoldDust} en la {academy}.", "Usa todos los Emblemas de Maestro y {manuscript} guardados.", "Sube instantáneamente a los héroes Gen 3 (Eric y Petra) a 5 estrellas."]},
+      { type: "list", items: ["Maximiza la investigación de {truegoldDust} en la {academy}.", "Usa todos los Emblemas de Maestro y {manuscript} guardados.", "Sube instantáneamente a los héroes Gen 3 ({eric} y {petra}) a 5 estrellas."]},
       { type: "sub", text: "Día 3: Entrenamiento de Mascotas y Progreso de Maestro" },
       { type: "p", text: "Actividades que puntúan: {petAdvancement}, {commonTamingMarks} y {advancedTamingMarks} (Refinamiento), {heroRoulette}, Fragmentos de Héroe, Emblemas de Maestro/{manuscript}, Misiones de Inteligencia." },
       { type: "p", text: "**🛡️ Enfoque F2P:**" },
@@ -8769,9 +8773,9 @@ const GUIDES = {
       { type: "p", text: "Objetivo: Controlar el {kingsCastle} y 4 {turret}." },
       { type: "h", text: "🎯 META PVP GEN 3 Y CONFIGURACIÓN DE ATAQUES CONJUNTOS" },
       { type: "sub", text: "🛡️ Defensa de Guarnición — Castillo/Torretas" },
-      { type: "p", text: "**Héroe líder:** Eric (Gen 3) — Muralla de infantería inquebrantable con estadísticas Gen 3 superiores y mecánicas de supervivencia. Combinado con {zoe} (Gen 2) para escudos." },
+      { type: "p", text: "**Héroe líder:** {eric} (Gen 3) — Muralla de infantería inquebrantable con estadísticas Gen 3 superiores y mecánicas de supervivencia. Combinado con {zoe} (Gen 2) para escudos." },
       { type: "sub", text: "⚔️ Ataques Conjuntos Ofensivos (Atacando Castillo/Torretas)" },
-      { type: "p", text: "**Héroe líder:** Petra (Gen 3) — Comandante de caballería devastador con {widget} de Ataque Conjunto ofensivo de alta escala." },
+      { type: "p", text: "**Héroe líder:** {petra} (Gen 3) — Comandante de caballería devastador con {widget} de Ataque Conjunto ofensivo de alta escala." },
       { type: "sub", text: "🤝 Participantes de Ataque Conjunto (¡Crucial para F2P!)" },
       { type: "p", text: "NO uses héroes al azar al unirte a Ataques Conjuntos. Únete con:" },
       { type: "list", items: ["{chenko} (Habilidad 1 al máximo)", "{amane}", "{yeonwoo}"]},
@@ -8827,9 +8831,9 @@ const GUIDES = {
       { type: "sub", text: "2. Gün: Araştırma, Kahramanlar ve Toplama" },
       { type: "p", text: "Puan Kazandıran Aktiviteler: Araştırma Hızlandırmaları, {truegoldDust} (Teknoloji), Kahraman Parçaları (Ender/Epik/Mitik), Kahraman Ruleti çevirmeleri, Master Nişanları/El Yazmaları, Kaynak Toplama." },
       { type: "p", text: "**🛡️ F2P Odağı:**" },
-      { type: "list", items: ["Petra (Gen 3) parçaları kazanmak için biriktirdiğiniz Elmaslarla Kahraman Ruleti'ni çevirin.", "Biriktirdiğiniz evrensel Mitik/Epik parçaları ana kahramanlarınıza harcayın.", "Kaynakları önceden toplayın (2. Gün başlangıcında hemen dönmeleri için toplayıcıları sıfırlamadan önce gönderin)."]},
+      { type: "list", items: ["{petra} (Gen 3) parçaları kazanmak için biriktirdiğiniz Elmaslarla Kahraman Ruleti'ni çevirin.", "Biriktirdiğiniz evrensel Mitik/Epik parçaları ana kahramanlarınıza harcayın.", "Kaynakları önceden toplayın (2. Gün başlangıcında hemen dönmeleri için toplayıcıları sıfırlamadan önce gönderin)."]},
       { type: "p", text: "**⚡ P2W Odağı:**" },
-      { type: "list", items: ["{academy}'deki {truegoldDust} araştırmasını maksimuma çıkarın.", "Biriktirdiğiniz tüm Master Nişanlarını ve El Yazmalarını harcayın.", "Gen 3 kahramanlarını (Eric ve Petra) anında 5 yıldıza çıkarın."]},
+      { type: "list", items: ["{academy}'deki {truegoldDust} araştırmasını maksimuma çıkarın.", "Biriktirdiğiniz tüm Master Nişanlarını ve El Yazmalarını harcayın.", "Gen 3 kahramanlarını ({eric} ve {petra}) anında 5 yıldıza çıkarın."]},
       { type: "sub", text: "3. Gün: Evcil Hayvan Eğitimi ve Master İlerlemesi" },
       { type: "p", text: "Puan Kazandıran Aktiviteler: {petAdvancement}, {commonTamingMarks} ve {advancedTamingMarks} (İyileştirme), Kahraman Ruleti, Kahraman Parçaları, Master Nişanları/El Yazmaları, İstihbarat Görevleri." },
       { type: "p", text: "**🛡️ F2P Odağı:**" },
@@ -8853,9 +8857,9 @@ const GUIDES = {
       { type: "p", text: "Hedef: {kingsCastle} ve 4 {turret}'ı kontrol edin." },
       { type: "h", text: "🎯 GEN 3 PVP META VE İNTİKAL KURULUMU" },
       { type: "sub", text: "🛡️ Garnizon Savunması — Şato/Kuleler" },
-      { type: "p", text: "**Lider Kahraman:** Eric (Gen 3) — Üstün Gen 3 istatistiklerine ve hayatta kalma mekaniklerine sahip yıkılmaz piyade duvarı. Kalkan için {zoe} (Gen 2) ile eşleştirilir." },
+      { type: "p", text: "**Lider Kahraman:** {eric} (Gen 3) — Üstün Gen 3 istatistiklerine ve hayatta kalma mekaniklerine sahip yıkılmaz piyade duvarı. Kalkan için {zoe} (Gen 2) ile eşleştirilir." },
       { type: "sub", text: "⚔️ Saldırı İntikalleri (Şato/Kulelere Saldırı)" },
-      { type: "p", text: "**Lider Kahraman:** Petra (Gen 3) — Yüksek ölçekli saldırı intikal {widget}'larına sahip yıkıcı Süvari lideri." },
+      { type: "p", text: "**Lider Kahraman:** {petra} (Gen 3) — Yüksek ölçekli saldırı intikal {widget}'larına sahip yıkıcı Süvari lideri." },
       { type: "sub", text: "🤝 İntikale Katılanlar (F2P İçin Çok Önemli!)" },
       { type: "p", text: "İntikale katılırken rastgele kahraman KULLANMAYIN. Şunlarla katılın:" },
       { type: "list", items: ["{chenko} (1. Yetenek maksimum)", "{amane}", "{yeonwoo}"]},
@@ -8911,9 +8915,9 @@ const GUIDES = {
       { type: "sub", text: "Hari 2: Riset, Hero & Pengumpulan" },
       { type: "p", text: "Aktivitas Bernilai: Speedup Riset, {truegoldDust} (Tech), Shard Hero (Rare/Epic/Mythic), putaran Rolet Hero, Emblem/Manuskrip Master, Pengumpulan Sumber Daya." },
       { type: "p", text: "**🛡️ Fokus F2P:**" },
-      { type: "list", items: ["Putar Rolet Hero menggunakan Gems yang disimpan untuk mendapatkan shard Petra (Gen 3).", "Habiskan shard Mythic/Epic universal yang disimpan untuk hero inti.", "Kumpulkan sumber daya lebih awal (kirim pengumpul sebelum reset agar segera kembali di awal Hari 2)."]},
+      { type: "list", items: ["Putar Rolet Hero menggunakan Gems yang disimpan untuk mendapatkan shard {petra} (Gen 3).", "Habiskan shard Mythic/Epic universal yang disimpan untuk hero inti.", "Kumpulkan sumber daya lebih awal (kirim pengumpul sebelum reset agar segera kembali di awal Hari 2)."]},
       { type: "p", text: "**⚡ Fokus P2W:**" },
-      { type: "list", items: ["Maksimalkan riset {truegoldDust} di {academy}.", "Habiskan semua Emblem dan Manuskrip Master yang disimpan.", "Naikkan hero Gen 3 (Eric & Petra) langsung ke bintang 5."]},
+      { type: "list", items: ["Maksimalkan riset {truegoldDust} di {academy}.", "Habiskan semua Emblem dan Manuskrip Master yang disimpan.", "Naikkan hero Gen 3 ({eric} & {petra}) langsung ke bintang 5."]},
       { type: "sub", text: "Hari 3: Pelatihan Pet & Progres Master" },
       { type: "p", text: "Aktivitas Bernilai: {petAdvancement}, {commonTamingMarks} & {advancedTamingMarks} (Penyempurnaan), Rolet Hero, Shard Hero, Emblem/Manuskrip Master, Misi Intel." },
       { type: "p", text: "**🛡️ Fokus F2P:**" },
@@ -8937,9 +8941,9 @@ const GUIDES = {
       { type: "p", text: "Target: Kuasai {kingsCastle} dan 4 {turret}." },
       { type: "h", text: "🎯 META PVP GEN 3 & SETUP RALLY" },
       { type: "sub", text: "🛡️ Pertahanan Garnisun — Kastil/Menara" },
-      { type: "p", text: "**Hero Utama:** Eric (Gen 3) — Tembok infanteri tak tertembus dengan statistik Gen 3 unggul dan mekanisme bertahan hidup. Dipasangkan dengan {zoe} (Gen 2) untuk perisai." },
+      { type: "p", text: "**Hero Utama:** {eric} (Gen 3) — Tembok infanteri tak tertembus dengan statistik Gen 3 unggul dan mekanisme bertahan hidup. Dipasangkan dengan {zoe} (Gen 2) untuk perisai." },
       { type: "sub", text: "⚔️ Rally Ofensif (Menyerang Kastil/Menara)" },
-      { type: "p", text: "**Hero Utama:** Petra (Gen 3) — Pemimpin Kavaleri mematikan dengan {widget} rally ofensif berskala tinggi." },
+      { type: "p", text: "**Hero Utama:** {petra} (Gen 3) — Pemimpin Kavaleri mematikan dengan {widget} rally ofensif berskala tinggi." },
       { type: "sub", text: "🤝 Peserta Rally (Krusial untuk F2P!)" },
       { type: "p", text: "JANGAN gunakan hero sembarangan saat bergabung rally. Bergabunglah dengan:" },
       { type: "list", items: ["{chenko} (Skill 1 maksimal)", "{amane}", "{yeonwoo}"]},
@@ -8995,9 +8999,9 @@ const GUIDES = {
       { type: "sub", text: "День 2: Исследования, герои и сбор" },
       { type: "p", text: "Активности, приносящие очки: ускорения исследований, {truegoldDust} (технологии), фрагменты героев (редкий/великий/мифический), прокрутки Геройской рулетки, эмблемы/манускрипты {masters}, сбор ресурсов." },
       { type: "p", text: "**🛡️ Фокус F2P:**" },
-      { type: "list", items: ["Крутите Геройскую рулетку на накопленные самоцветы, чтобы получить фрагменты Petra (Gen 3).", "Вложите накопленные универсальные мифические/великие фрагменты в основных героев.", "Соберите ресурсы заранее (отправьте сборщиков до сброса, чтобы они сразу вернулись в начале дня 2)."]},
+      { type: "list", items: ["Крутите Геройскую рулетку на накопленные самоцветы, чтобы получить фрагменты {petra} (Gen 3).", "Вложите накопленные универсальные мифические/великие фрагменты в основных героев.", "Соберите ресурсы заранее (отправьте сборщиков до сброса, чтобы они сразу вернулись в начале дня 2)."]},
       { type: "p", text: "**⚡ Фокус P2W:**" },
-      { type: "list", items: ["Максимизируйте исследование {truegoldDust} в {academy}.", "Потратьте все накопленные эмблемы и манускрипты {masters}.", "Мгновенно повысьте героев Gen 3 (Eric и Petra) до 5 звёзд."]},
+      { type: "list", items: ["Максимизируйте исследование {truegoldDust} в {academy}.", "Потратьте все накопленные эмблемы и манускрипты {masters}.", "Мгновенно повысьте героев Gen 3 ({eric} и {petra}) до 5 звёзд."]},
       { type: "sub", text: "День 3: Тренировка питомцев и прогресс {masters}" },
       { type: "p", text: "Активности, приносящие очки: {petAdvancement}, {commonTamingMarks} и {advancedTamingMarks} (улучшение), Геройская рулетка, фрагменты героев, эмблемы/манускрипты {masters}, разведывательные задания." },
       { type: "p", text: "**🛡️ Фокус F2P:**" },
@@ -9021,9 +9025,9 @@ const GUIDES = {
       { type: "p", text: "Цель: контролировать {kingsCastle} и 4 {turret}." },
       { type: "h", text: "🎯 МЕТА PVP GEN 3 И НАСТРОЙКА СБОРОВ" },
       { type: "sub", text: "🛡️ Оборона гарнизона — замок/башни" },
-      { type: "p", text: "**Ведущий герой:** Eric (Gen 3) — несокрушимая пехотная стена с превосходными характеристиками Gen 3 и механиками выживания. В паре с {zoe} (Gen 2) для щитов." },
+      { type: "p", text: "**Ведущий герой:** {eric} (Gen 3) — несокрушимая пехотная стена с превосходными характеристиками Gen 3 и механиками выживания. В паре с {zoe} (Gen 2) для щитов." },
       { type: "sub", text: "⚔️ Атакующие сборы (атака замка/башен)" },
-      { type: "p", text: "**Ведущий герой:** Petra (Gen 3) — разрушительный лидер кавалерии с сильно масштабируемыми {widget} для атакующих сборов." },
+      { type: "p", text: "**Ведущий герой:** {petra} (Gen 3) — разрушительный лидер кавалерии с сильно масштабируемыми {widget} для атакующих сборов." },
       { type: "sub", text: "🤝 Участники сбора (критично для F2P!)" },
       { type: "p", text: "НЕ используйте случайных героев при присоединении к сборам. Присоединяйтесь с:" },
       { type: "list", items: ["{chenko} (1-й навык прокачан)", "{amane}", "{yeonwoo}"]},
@@ -9079,9 +9083,9 @@ const GUIDES = {
       { type: "sub", text: "วันที่ 2: การวิจัย ฮีโร่ และการเก็บเกี่ยว" },
       { type: "p", text: "กิจกรรมที่ได้คะแนน: เร่งสปีดการวิจัย, {truegoldDust} (เทค), ชิ้นส่วนฮีโร่ (หายาก/มหากาพย์/ขั้นเทพ), หมุนรูเล็ตฮีโร่, ตรา/ต้นฉบับเขียนมือ {masters}, การเก็บเกี่ยวทรัพยากร" },
       { type: "p", text: "**🛡️ เน้น F2P:**" },
-      { type: "list", items: ["หมุนรูเล็ตฮีโร่โดยใช้เพชรที่เก็บไว้เพื่อรับชิ้นส่วน Petra (Gen 3)", "ทุ่มชิ้นส่วนขั้นเทพ/มหากาพย์ทั่วไปที่เก็บไว้ให้กับฮีโร่หลัก", "เก็บเกี่ยวทรัพยากรล่วงหน้า (ส่งผู้เก็บเกี่ยวออกไปก่อนรีเซ็ตเพื่อให้กลับมาทันทีเมื่อวันที่ 2 เริ่มต้น)"]},
+      { type: "list", items: ["หมุนรูเล็ตฮีโร่โดยใช้เพชรที่เก็บไว้เพื่อรับชิ้นส่วน {petra} (Gen 3)", "ทุ่มชิ้นส่วนขั้นเทพ/มหากาพย์ทั่วไปที่เก็บไว้ให้กับฮีโร่หลัก", "เก็บเกี่ยวทรัพยากรล่วงหน้า (ส่งผู้เก็บเกี่ยวออกไปก่อนรีเซ็ตเพื่อให้กลับมาทันทีเมื่อวันที่ 2 เริ่มต้น)"]},
       { type: "p", text: "**⚡ เน้น P2W:**" },
-      { type: "list", items: ["อัปเกรดการวิจัย {truegoldDust} ใน {academy} ให้เต็มขั้น", "ใช้ตราและต้นฉบับเขียนมือ {masters} ที่เก็บไว้ทั้งหมด", "อัปฮีโร่ Gen 3 (Eric & Petra) ให้เป็น 5 ดาวทันที"]},
+      { type: "list", items: ["อัปเกรดการวิจัย {truegoldDust} ใน {academy} ให้เต็มขั้น", "ใช้ตราและต้นฉบับเขียนมือ {masters} ที่เก็บไว้ทั้งหมด", "อัปฮีโร่ Gen 3 ({eric} & {petra}) ให้เป็น 5 ดาวทันที"]},
       { type: "sub", text: "วันที่ 3: การฝึกสัตว์เลี้ยงและความคืบหน้า {masters}" },
       { type: "p", text: "กิจกรรมที่ได้คะแนน: {petAdvancement}, {commonTamingMarks} และ {advancedTamingMarks} (การปรับแต่ง), รูเล็ตฮีโร่, ชิ้นส่วนฮีโร่, ตรา/ต้นฉบับเขียนมือ {masters}, ภารกิจข่าวกรอง" },
       { type: "p", text: "**🛡️ เน้น F2P:**" },
@@ -9105,9 +9109,9 @@ const GUIDES = {
       { type: "p", text: "เป้าหมาย: ควบคุม {kingsCastle} และ {turret} ทั้ง 4 จุด" },
       { type: "h", text: "🎯 มาตรฐาน PVP GEN 3 และการตั้งค่าการรวมพล" },
       { type: "sub", text: "🛡️ การป้องกันทหารคุ้มกัน — ปราสาท/ป้อมปืน" },
-      { type: "p", text: "**ฮีโร่นำ:** Eric (Gen 3) — กำแพงทหารราบที่ไม่มีวันแตกด้วยสถิติ Gen 3 ที่เหนือกว่าและกลไกการเอาชีวิตรอด จับคู่กับ {zoe} (Gen 2) เพื่อโล่ป้องกัน" },
+      { type: "p", text: "**ฮีโร่นำ:** {eric} (Gen 3) — กำแพงทหารราบที่ไม่มีวันแตกด้วยสถิติ Gen 3 ที่เหนือกว่าและกลไกการเอาชีวิตรอด จับคู่กับ {zoe} (Gen 2) เพื่อโล่ป้องกัน" },
       { type: "sub", text: "⚔️ การรวมพลโจมตี (โจมตีปราสาท/ป้อมปืน)" },
-      { type: "p", text: "**ฮีโร่นำ:** Petra (Gen 3) — ผู้นำทหารม้าที่ทำลายล้างด้วย {widget} การรวมพลโจมตีที่ปรับสเกลได้สูง" },
+      { type: "p", text: "**ฮีโร่นำ:** {petra} (Gen 3) — ผู้นำทหารม้าที่ทำลายล้างด้วย {widget} การรวมพลโจมตีที่ปรับสเกลได้สูง" },
       { type: "sub", text: "🤝 ผู้เข้าร่วมรวมพล (สำคัญมากสำหรับ F2P!)" },
       { type: "p", text: "ห้ามใช้ฮีโร่แบบสุ่มเมื่อเข้าร่วมรวมพล เข้าร่วมด้วย:" },
       { type: "list", items: ["{chenko} (สกิล 1 เต็ม)", "{amane}", "{yeonwoo}"]},
@@ -9163,9 +9167,9 @@ const GUIDES = {
       { type: "sub", text: "اليوم 2: البحث، الأبطال والجمع" },
       { type: "p", text: "الأنشطة المحتسبة: تسريعات البحث، {truegoldDust} (تقنية)، شظايا الأبطال (نادر/ملحمي/خيالي)، دورات روليت البطل، أوسمة/مخطوطات {masters}، جمع الموارد." },
       { type: "p", text: "**🛡️ تركيز F2P:**" },
-      { type: "list", items: ["أدر روليت البطل باستخدام الجواهر المدخرة للحصول على شظايا Petra (Gen 3).", "استثمر الشظايا الخيالية/الملحمية العامة المدخرة في الأبطال الأساسيين.", "اجمع الموارد مسبقًا (أرسل جامعي الموارد قبل إعادة التعيين ليعودوا فورًا عند بداية اليوم 2)."]},
+      { type: "list", items: ["أدر روليت البطل باستخدام الجواهر المدخرة للحصول على شظايا {petra} (Gen 3).", "استثمر الشظايا الخيالية/الملحمية العامة المدخرة في الأبطال الأساسيين.", "اجمع الموارد مسبقًا (أرسل جامعي الموارد قبل إعادة التعيين ليعودوا فورًا عند بداية اليوم 2)."]},
       { type: "p", text: "**⚡ تركيز P2W:**" },
-      { type: "list", items: ["ارفع بحث {truegoldDust} في {academy} إلى الحد الأقصى.", "استخدم جميع أوسمة ومخطوطات {masters} المدخرة.", "ارفع أبطال Gen 3 (Eric وPetra) إلى 5 نجوم فورًا."]},
+      { type: "list", items: ["ارفع بحث {truegoldDust} في {academy} إلى الحد الأقصى.", "استخدم جميع أوسمة ومخطوطات {masters} المدخرة.", "ارفع أبطال Gen 3 ({eric} و{petra}) إلى 5 نجوم فورًا."]},
       { type: "sub", text: "اليوم 3: تدريب الحيوانات الأليفة وتقدم {masters}" },
       { type: "p", text: "الأنشطة المحتسبة: {petAdvancement}، {commonTamingMarks} و{advancedTamingMarks} (التحسين)، روليت البطل، شظايا الأبطال، أوسمة/مخطوطات {masters}، مهام الاستخبارات." },
       { type: "p", text: "**🛡️ تركيز F2P:**" },
@@ -9189,9 +9193,9 @@ const GUIDES = {
       { type: "p", text: "الهدف: السيطرة على {kingsCastle} و4 من {turret}." },
       { type: "h", text: "🎯 ميتا PVP لـ Gen 3 وإعداد التجمعات" },
       { type: "sub", text: "🛡️ دفاع الحامية — القلعة/الأبراج" },
-      { type: "p", text: "**البطل القائد:** Eric (Gen 3) — جدار مشاة لا يُكسر بإحصائيات Gen 3 متفوقة وآليات بقاء. يُقرن مع {zoe} (Gen 2) للدروع." },
+      { type: "p", text: "**البطل القائد:** {eric} (Gen 3) — جدار مشاة لا يُكسر بإحصائيات Gen 3 متفوقة وآليات بقاء. يُقرن مع {zoe} (Gen 2) للدروع." },
       { type: "sub", text: "⚔️ التجمعات الهجومية (مهاجمة القلعة/الأبراج)" },
-      { type: "p", text: "**البطل القائد:** Petra (Gen 3) — قائد فرسان مدمّر بـ{widget} تجمع هجومي عالي التصعيد." },
+      { type: "p", text: "**البطل القائد:** {petra} (Gen 3) — قائد فرسان مدمّر بـ{widget} تجمع هجومي عالي التصعيد." },
       { type: "sub", text: "🤝 المنضمون للتجمع (حاسم لـ F2P!)" },
       { type: "p", text: "لا تستخدم أبطالًا عشوائيين عند الانضمام للتجمعات. انضم مع:" },
       { type: "list", items: ["{chenko} (المهارة 1 مكتملة)", "{amane}", "{yeonwoo}"]},
