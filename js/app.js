@@ -195,6 +195,13 @@ const BLOCKS = {
     return "";
   },
 
+  /* Numbered steps, each with an optional screenshot (screenshots of any shape are shown at a similar size) */
+  steps: (b) => `<ol class="shot-steps" style="padding-inline-start:1.4em;margin:0 0 1em">${(b.items || []).map((it) => `
+    <li style="margin:0 0 1.2em">${rich(it.text)}${it.img ? `
+      <img src="${escapeHtml(it.img)}" alt="${escapeHtml(it.alt || "")}" loading="lazy" onerror="this.remove()"
+        style="display:block;margin:.6em auto 0;width:auto;height:auto;max-width:min(100%,360px);max-height:420px;border-radius:12px;border:1px solid var(--rule);box-shadow:0 2px 8px var(--shadow)">` : ""}
+    </li>`).join("")}</ol>`,
+
   cards: (b) => `<div class="card-grid">${(b.items || []).map((c) => `
     <div class="info-card">
       ${c.img ? `<img class="info-card-img" src="${escapeHtml(c.img)}" alt="${escapeHtml(c.alt || "")}" loading="lazy" onerror="this.remove()">` : ""}
