@@ -490,7 +490,13 @@ function renderAnnTicker() {
     item.onclick = (e) => { e.stopPropagation(); goToAnnouncements(i); };
     track.appendChild(item);
   });
-  track.style.animationDuration = `${Math.max(15, Math.round(totalLen * 0.15))}s`;
+  // Same on-screen speed for every language: measure the real width instead of counting characters
+  const TICKER_PX_PER_SEC = 100; // bigger = faster
+  track.style.animationDuration = `${Math.max(15, Math.round(totalLen * 0.15))}s`; // fallback
+  requestAnimationFrame(() => {
+    const width = track.scrollWidth + ticker.clientWidth;
+    if (width > 0) track.style.animationDuration = `${Math.max(10, Math.round(width / TICKER_PX_PER_SEC))}s`;
+  });
 }
 
 function goToAnnouncements(i) {
