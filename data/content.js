@@ -3454,6 +3454,12 @@ const GUIDES = {
     ],
     sections: {
       en: { title: "Bear Hunt", blocks: [
+        { type: "box", title: "🆕 GEN 3 UPDATE", items: [
+          "**Rally leaders:** Best — {helga} + {petra} + {marlin} (10:20:70), only if {helga} is 5★ + max {widget}. Alternative — {amadeus} + {petra} + {marlin} (20:30:50). F2P — {zoe} + {petra} + {quinn} (20:40:40).",
+          "**Joiners — send first:** {chenko}, {yeonwoo}, {amadeus}, {amane} (flat {lethality} bonus).",
+          "⚠️ **Only ONE per rally:** {marlin}, {zoe}, {jaeger}, {petra} — their chance-based damage does NOT stack.",
+          "Details below ↓"
+        ] },
         { type: "h", text: "WHEN" },
         { type: "p", text: "Every 2 days at your Alliance's scheduled time." },
         { type: "h", text: "WHY IT MATTERS" },
@@ -3485,7 +3491,7 @@ const GUIDES = {
             [
               "Troop formation: 10-20-70%. Maxed-out Helga performs better than Amadeus in Gen 3, due to having 2 lethality widgets and 1 attack widget compared to 1 lethality widget and 2 attack widgets in this setup.",
               "Troop formation: 20-30-50%. If you don't have maxed-out Helga (5-star + widget) it is better to use Amadeus.",
-              "Troop formation: 20-40-40%. In Gen 3, F2P get their first hero with a rally widget (Petra). Try even archer/cav numbers because Petra improves archer troops a lot. Archer stats are still lowest without an SSR archer. If you unlock T10 cavalry, the T10 skill pairs well with Petra's stats."
+              "Troop formation: 20-40-40%. In Gen 3, F2P get their first hero with a rally widget (Petra). Try even archer/cav numbers because Petra improves archer troops a lot. Archer stats are still lowest without an SSR archer. If you unlock T10 cavalry, the T10 skill pairs well with Petra's stats." + " If you unlock **T3 Cavalry**, {petra} becomes even stronger, because her 3rd skill works very well with their stats."
             ],
             [
               "Troop formation: 10-10-80%. Force as many archer troops as you can, especially if they are T10. With a bit of luck Rosa's 3rd skill will do the work for you (Increasing Archers' total Attack by 30%).",
@@ -3499,9 +3505,18 @@ const GUIDES = {
         { type: "h", text: "RALLY JOINERS" },
         { type: "callout", text: "⚠️ **Rule:** all joiners must send exactly **90,000 troops** to rallies — pre-save your marches. At **6:30 remaining**, all joiners start their own rally using their **3 strongest heroes**. 🔪 Wrong heroes or wrong troop numbers will be kicked and asked to rejoin." },
         { type: "p", text: "Standard / Safe Ratio: 10% Infantry, 10% Cavalry, and 80% Archers (or a variation like 20-30-50)" },
-        { type: "joiners" }
+        { type: "p", text: "**Priority — send these first:** these heroes give a **flat {lethality} bonus**, the most valuable bonus for Bear Hunt." },
+        { type: "joiners" },
+        { type: "sub", text: "USE WITH CAUTION" },
+        { type: "callout", text: "⚠️ **Chance-based damage heroes:** strong effects, but they do **NOT stack**. Only use **ONE** of these heroes in the same rally: {marlin}, {zoe}, {jaeger}, {petra}." }
       ]},
       zh: { title: "狩獵巨熊", blocks: [
+        { type: "box", title: "🆕 第 3 代更新", items: [
+          "**集結隊長：**最佳 — {helga} + {petra} + {marlin}（10:20:70），前提是{helga}已 5★ + {widget}滿級。替代 — {amadeus} + {petra} + {marlin}（20:30:50）。F2P — {zoe} + {petra} + {quinn}（20:40:40）。",
+          "**參與者優先派出：**{chenko}、{yeonwoo}、{amadeus}、{amane}（固定{lethality}加成）。",
+          "⚠️ **同一個集結只能派一位：**{marlin}、{zoe}、{jaeger}、{petra} — 機率觸發的傷害**不會疊加**。",
+          "詳細內容請往下看 ↓"
+        ] },
         { type: "h", text: "時間" },
         { type: "p", text: "每 2 天，依聯盟排定的時間進行。" },
         { type: "h", text: "重要性" },
@@ -3533,7 +3548,7 @@ const GUIDES = {
             [
               "滿等赫爾加（2 殺傷力＋1 攻擊）表現優於阿瑪迪斯（1 殺傷力＋2 攻擊）。",
               "若赫爾加尚未練滿，改用阿瑪迪斯較好。",
-              "終於拿到第一位集結裝備英雄（{petra}），弓兵屬性仍最低；滿級騎兵能發揮很好。"
+              "終於拿到第一位集結裝備英雄（{petra}），弓兵屬性仍最低；滿級騎兵能發揮很好。" + "如果解鎖了 **T3 騎兵**，{petra}會更強，因為她的第 3 個技能和 T3 騎兵的屬性非常搭。"
             ],
             [
               "盡量拉高弓兵數量，滿級弓兵尤佳；Rosa 三技能可能提升弓兵總攻擊 30%。",
@@ -3547,9 +3562,18 @@ const GUIDES = {
         { type: "h", text: "集結參與者" },
         { type: "callout", text: "⚠️ **規定：**所有參與者加入集結時都必須派出**剛好 90,000 人**，請先把出征編組存好。剩下 **6:30** 時，所有參與者用自己**最強的 3 位英雄**發起自己的集結。🔪 英雄錯誤或人數不對會被踢出，請重新加入。" },
         { type: "p", text: "標準／安全比例：10% 步兵、10% 騎兵、80% 弓兵（也可用 20-30-50 等變化版本）" },
-        { type: "joiners" }
+        { type: "p", text: "**優先派出：**這些英雄提供**固定{lethality}加成**，是狩獵巨熊最有價值的加成。" },
+        { type: "joiners" },
+        { type: "sub", text: "謹慎使用" },
+        { type: "callout", text: "⚠️ **機率觸發傷害的英雄：**效果很強，但**不會疊加**。同一個集結中只能派其中**一位**：{marlin}、{zoe}、{jaeger}、{petra}。" }
       ]},
       ko: { title: "자이언트 베어 사냥", blocks: [
+        { type: "box", title: "🆕 3세대 업데이트", items: [
+          "**집결장:** 최적 — {helga} + {petra} + {marlin} (10:20:70), {helga}가 5★ + {widget} 최대 레벨일 때만. 대안 — {amadeus} + {petra} + {marlin} (20:30:50). 무과금 — {zoe} + {petra} + {quinn} (20:40:40).",
+          "**참여자 우선 파견:** {chenko}, {yeonwoo}, {amadeus}, {amane} (고정 {lethality} 보너스).",
+          "⚠️ **한 집결에 한 명만:** {marlin}, {zoe}, {jaeger}, {petra} — 확률 발동 피해는 **중첩되지 않습니다**.",
+          "자세한 내용은 아래 ↓"
+        ] },
         { type: "h", text: "일시" },
         { type: "p", text: "연맹에 지정된 시간에 2일마다 진행됩니다." },
         { type: "h", text: "중요성" },
@@ -3581,7 +3605,7 @@ const GUIDES = {
             [
               "풀 장비 헬가(파괴력 2 + 공격 1)가 아마데우스(파괴력 1 + 공격 2)보다 강합니다.",
               "헬가가 아직 덜 갖춰졌으면 아마데우스를 쓰세요.",
-              "첫 무과금 집결 장비 영웅(페트라)이 나옵니다. 궁병은 여전히 약하지만, 만렙 기병이 페트라와 잘 맞습니다."
+              "첫 무과금 집결 장비 영웅(페트라)이 나옵니다. 궁병은 여전히 약하지만, 만렙 기병이 페트라와 잘 맞습니다." + " **T3 기병**을 해제하면 {petra}가 더 강해집니다. 3번째 스킬이 T3 기병의 속성과 잘 맞기 때문입니다."
             ],
             [
               "이제부터는 궁병 중심의 부대 편성을 운영합니다. 티어 TG5 기병과 함께 로사의 3번째 스킬이 부여하는 궁병 전체 공격력 30% 증가는 매우 강력한 효과입니다.",
@@ -3595,9 +3619,18 @@ const GUIDES = {
         { type: "h", text: "집결 참여 영웅" },
         { type: "callout", text: "⚠️ **규칙:** 모든 참여자는 집결에 **정확히 90,000명**을 보내야 합니다. 출정 편성을 미리 저장해 두세요. **6:30 남았을 때** 모든 참여자는 **가장 강한 영웅 3명**으로 자신의 집결을 시작합니다. 🔪 영웅이나 병력 수가 틀리면 강퇴 후 재참여를 요청합니다." },
         { type: "p", text: "표준 / 안전 비율: 보병 10%, 기병 10%, 궁병 80% (또는 20-30-50과 같은 변형 비율)" },
-        { type: "joiners" }
+        { type: "p", text: "**우선 파견:** 이 영웅들은 **고정 {lethality} 보너스**를 주며, 베어 사냥에서 가장 가치 있는 보너스입니다." },
+        { type: "joiners" },
+        { type: "sub", text: "주의해서 사용" },
+        { type: "callout", text: "⚠️ **확률 발동 피해 영웅:** 효과는 강하지만 **중첩되지 않습니다**. 같은 집결에는 이 중 **한 명만** 보내세요: {marlin}, {zoe}, {jaeger}, {petra}." }
       ]},
       de: { title: "Bärenjagd", blocks: [
+        { type: "box", title: "🆕 GEN-3-UPDATE", items: [
+          "**Rally-Anführer:** Beste — {helga} + {petra} + {marlin} (10:20:70), nur wenn {helga} 5★ + max. {widget} hat. Alternative — {amadeus} + {petra} + {marlin} (20:30:50). F2P — {zoe} + {petra} + {quinn} (20:40:40).",
+          "**Teilnehmer – zuerst schicken:** {chenko}, {yeonwoo}, {amadeus}, {amane} (fester {lethality}-Bonus).",
+          "⚠️ **Nur EINER pro Rally:** {marlin}, {zoe}, {jaeger}, {petra} – ihr zufallsbasierter Schaden stapelt sich NICHT.",
+          "Details weiter unten ↓"
+        ] },
         { type: "h", text: "WANN" },
         { type: "p", text: "Alle 2 Tage zur geplanten Zeit eurer Allianz." },
         { type: "h", text: "WARUM ES ZÄHLT" },
@@ -3629,7 +3662,7 @@ const GUIDES = {
             [
               "Voll ausgerüstete Helga (2 Tödlichkeit + 1 Angriff) übertrifft hier Amadeus (1 Tödlichkeit + 2 Angriff).",
               "Amadeus nehmen, wenn Helga noch nicht voll ausgerüstet ist.",
-              "Erster F2P-Held mit Rally-Ausrüstung ({petra}); Bogenschützen bleiben am schwächsten, maxed Kavallerie passt aber gut zu {petra}."
+              "Erster F2P-Held mit Rally-Ausrüstung ({petra}); Bogenschützen bleiben am schwächsten, maxed Kavallerie passt aber gut zu {petra}." + " Wenn du **T3-Kavallerie** freischaltest, wird {petra} noch stärker, weil ihre 3. Fertigkeit sehr gut zu deren Werten passt."
             ],
             [
               "So viele (idealerweise maxed) Bogenschützen wie möglich; Rosas 3. Skill kann den Bogenschützen-Gesamtschaden um 30% steigern.",
@@ -3643,9 +3676,18 @@ const GUIDES = {
         { type: "h", text: "RALLY-TEILNEHMER" },
         { type: "callout", text: "⚠️ **Regel:** Alle Beitretenden schicken genau **90.000 Truppen** in Rallys – speichert eure Märsche vorher. Bei **6:30 verbleibend** starten alle Beitretenden ihre eigene Rally mit ihren **3 stärksten Helden**. 🔪 Falsche Helden oder falsche Truppenzahl: Kick und Bitte um erneuten Beitritt." },
         { type: "p", text: "Standard / sicheres Verhältnis: 10% Infanterie, 10% Kavallerie, und 80% Bogenschützen (oder Varianten wie 20-30-50)" },
-        { type: "joiners" }
+        { type: "p", text: "**Priorität – diese zuerst schicken:** Diese Helden geben einen **festen {lethality}-Bonus**, den wertvollsten Bonus für die Bärenjagd." },
+        { type: "joiners" },
+        { type: "sub", text: "MIT VORSICHT VERWENDEN" },
+        { type: "callout", text: "⚠️ **Helden mit zufallsbasiertem Schaden:** starke Effekte, aber sie **stapeln sich NICHT**. Setze nur **EINEN** dieser Helden in derselben Rally ein: {marlin}, {zoe}, {jaeger}, {petra}." }
       ]},
       fr: { title: "Chasse à l'Ours", blocks: [
+        { type: "box", title: "🆕 MISE À JOUR GEN 3", items: [
+          "**Chefs de ralliement :** Meilleur — {helga} + {petra} + {marlin} (10:20:70), seulement si {helga} est 5★ + {widget} max. Alternative — {amadeus} + {petra} + {marlin} (20:30:50). F2P — {zoe} + {petra} + {quinn} (20:40:40).",
+          "**Participants – à envoyer en premier :** {chenko}, {yeonwoo}, {amadeus}, {amane} (bonus de {lethality} fixe).",
+          "⚠️ **UN SEUL par ralliement :** {marlin}, {zoe}, {jaeger}, {petra} — leurs dégâts basés sur une probabilité ne se cumulent PAS.",
+          "Détails ci-dessous ↓"
+        ] },
         { type: "h", text: "QUAND" },
         { type: "p", text: "Tous les 2 jours, à l'heure prévue par votre Alliance." },
         { type: "h", text: "POURQUOI C'EST IMPORTANT" },
@@ -3677,7 +3719,7 @@ const GUIDES = {
             [
               "Formation de troupe : 10-20-70 %. Helga au maximum est plus performante qu'Amadeus en Gen 3, avec 2 équipements de Létalité et 1 d'Attaque, contre 1 de Létalité et 2 d'Attaque pour Amadeus dans cette configuration.",
               "Formation de troupe : 20-30-50 %. Si vous n'avez pas Helga au maximum (5 étoiles + équipement exclusif), il vaut mieux utiliser Amadeus.",
-              "Formation de troupe : 20-40-40 %. En Gen 3, les F2P obtiennent leur premier héros avec un équipement exclusif de ralliement ({petra}). Essayez des nombres équilibrés d'Archers et de Cavalerie, car {petra} améliore beaucoup les Archers. Les stats d'Archer restent les plus basses sans Archer SSR. Si vous débloquez la Cavalerie T10, la compétence T10 s'accorde bien avec les stats de {petra}."
+              "Formation de troupe : 20-40-40 %. En Gen 3, les F2P obtiennent leur premier héros avec un équipement exclusif de ralliement ({petra}). Essayez des nombres équilibrés d'Archers et de Cavalerie, car {petra} améliore beaucoup les Archers. Les stats d'Archer restent les plus basses sans Archer SSR. Si vous débloquez la Cavalerie T10, la compétence T10 s'accorde bien avec les stats de {petra}." + " Si vous débloquez la **Cavalerie T3**, {petra} devient encore plus forte, car sa 3e compétence fonctionne très bien avec leurs stats."
             ],
             [
               "Formation de troupe : 10-10-80 %. Alignez autant d'Archers que possible, surtout s'ils sont T10. Avec un peu de chance, la 3e compétence de Rosa fera le travail pour vous (augmente l'Attaque totale des Archers de 30 %).",
@@ -3691,9 +3733,18 @@ const GUIDES = {
         { type: "h", text: "PARTICIPANTS AU RALLIEMENT" },
         { type: "callout", text: "⚠️ **Règle :** tous les participants doivent envoyer exactement **90 000 troupes** aux ralliements — enregistrez vos marches à l'avance. À **6:30 restantes**, tous les participants lancent leur propre ralliement avec leurs **3 héros les plus forts**. 🔪 Mauvais héros ou mauvais nombre de troupes : exclusion, puis demande de rejoindre à nouveau." },
         { type: "p", text: "Ratio standard / sûr : 10 % d'Infanterie, 10 % de Cavalerie et 80 % d'Archers (ou une variante comme 20-30-50)" },
-        { type: "joiners" }
+        { type: "p", text: "**Priorité – à envoyer en premier :** ces héros donnent un **bonus de {lethality} fixe**, le bonus le plus précieux pour la Chasse à l'Ours." },
+        { type: "joiners" },
+        { type: "sub", text: "À UTILISER AVEC PRUDENCE" },
+        { type: "callout", text: "⚠️ **Héros à dégâts basés sur une probabilité :** effets puissants, mais ils **ne se cumulent PAS**. N'utilisez qu'**UN SEUL** de ces héros dans un même ralliement : {marlin}, {zoe}, {jaeger}, {petra}." }
       ]},
       pt: { title: "Caça ao Urso", blocks: [
+        { type: "box", title: "🆕 ATUALIZAÇÃO GEN 3", items: [
+          "**Líderes de rally:** Melhor — {helga} + {petra} + {marlin} (10:20:70), só se {helga} estiver 5★ + {widget} no máximo. Alternativa — {amadeus} + {petra} + {marlin} (20:30:50). F2P — {zoe} + {petra} + {quinn} (20:40:40).",
+          "**Participantes – envie primeiro:** {chenko}, {yeonwoo}, {amadeus}, {amane} (bônus fixo de {lethality}).",
+          "⚠️ **Só UM por rally:** {marlin}, {zoe}, {jaeger}, {petra} — o dano baseado em chance NÃO acumula.",
+          "Detalhes abaixo ↓"
+        ] },
         { type: "h", text: "QUANDO" },
         { type: "p", text: "A cada 2 dias, no horário marcado pela sua Aliança." },
         { type: "h", text: "POR QUE IMPORTA" },
@@ -3725,7 +3776,7 @@ const GUIDES = {
             [
               "Formação de tropas: 10-20-70%. A Helga no máximo rende mais que o Amadeus na Gen 3, por ter 2 equipamentos de Letalidade e 1 de Ataque, contra 1 de Letalidade e 2 de Ataque do Amadeus nesta configuração.",
               "Formação de tropas: 20-30-50%. Se você não tem a Helga no máximo (5 estrelas + equipamento exclusivo), é melhor usar o Amadeus.",
-              "Formação de tropas: 20-40-40%. Na Gen 3, os F2P recebem o primeiro herói com equipamento exclusivo de rally ({petra}). Tente números equilibrados de Arquearia e Cavalaria, porque a {petra} melhora muito os Arquearia. Os atributos dos Arquearia continuam os mais baixos sem uma Arquearia SSR. Se você desbloquear a Cavalaria T10, a habilidade T10 combina bem com os atributos da {petra}."
+              "Formação de tropas: 20-40-40%. Na Gen 3, os F2P recebem o primeiro herói com equipamento exclusivo de rally ({petra}). Tente números equilibrados de Arquearia e Cavalaria, porque a {petra} melhora muito os Arquearia. Os atributos dos Arquearia continuam os mais baixos sem uma Arquearia SSR. Se você desbloquear a Cavalaria T10, a habilidade T10 combina bem com os atributos da {petra}." + " Se você desbloquear a **Cavalaria T3**, {petra} fica ainda mais forte, porque a 3ª habilidade dela combina muito bem com os atributos deles."
             ],
             [
               "Formação de tropas: 10-10-80%. Force o máximo de Arquearia possível, principalmente se forem T10. Com um pouco de sorte, a 3ª habilidade da Rosa fará o trabalho por você (aumenta o Ataque total dos Arquearia em 30%).",
@@ -3739,9 +3790,18 @@ const GUIDES = {
         { type: "h", text: "PARTICIPANTES DE RALLY" },
         { type: "callout", text: "⚠️ **Regra:** todos que entram em rallies devem enviar exatamente **90.000 tropas** — salve suas marchas antes. Com **6:30 restantes**, todos iniciam o próprio rally usando seus **3 heróis mais fortes**. 🔪 Heróis errados ou número de tropas errado: expulsão e pedido para entrar de novo." },
         { type: "p", text: "Proporção padrão / segura: 10% Infantaria, 10% Cavalaria e 80% Arquearia (ou uma variação como 20-30-50)" },
-        { type: "joiners" }
+        { type: "p", text: "**Prioridade – envie estes primeiro:** esses heróis dão um **bônus fixo de {lethality}**, o bônus mais valioso na Caça ao Urso." },
+        { type: "joiners" },
+        { type: "sub", text: "USE COM CUIDADO" },
+        { type: "callout", text: "⚠️ **Heróis de dano baseado em chance:** efeitos fortes, mas **NÃO acumulam**. Use apenas **UM** desses heróis no mesmo rally: {marlin}, {zoe}, {jaeger}, {petra}." }
       ]},
       es: { title: "Cacería del Oso", blocks: [
+        { type: "box", title: "🆕 ACTUALIZACIÓN GEN 3", items: [
+          "**Líderes:** Mejor — {helga} + {petra} + {marlin} (10:20:70), solo si {helga} tiene 5★ + {widget} al máximo. Alternativa — {amadeus} + {petra} + {marlin} (20:30:50). F2P — {zoe} + {petra} + {quinn} (20:40:40).",
+          "**Participantes – envía primero:** {chenko}, {yeonwoo}, {amadeus}, {amane} (bonificación fija de {lethality}).",
+          "⚠️ **Solo UNO por ataque conjunto:** {marlin}, {zoe}, {jaeger}, {petra}: su daño por probabilidad NO se acumula.",
+          "Detalles abajo ↓"
+        ] },
         { type: "h", text: "CUÁNDO" },
         { type: "p", text: "Cada 2 días, según el horario programado por tu alianza." },
         { type: "h", text: "POR QUÉ IMPORTA" },
@@ -3773,7 +3833,7 @@ const GUIDES = {
             [
               "Formación de tropas: 10-20-70%. Una Helga al máximo rinde mejor que Amadeus en la Gen 3, ya que tiene 2 widgets de letalidad y 1 de ataque, comparado con 1 de letalidad y 2 de ataque en esta configuración.",
               "Formación de tropas: 20-30-50%. Si no tienes a Helga al máximo (5 estrellas + widget) es mejor usar a Amadeus.",
-              "Formación de tropas: 20-40-40%. En la Gen 3, los F2P consiguen su primer héroe con {widget} de Ataque Conjunto ({petra}). Prueba números equilibrados de arqueros/caballería porque {petra} mejora mucho a las tropas de arqueros. Las estadísticas de arqueros siguen siendo las más bajas sin un héroe arquero SSR. Si desbloqueas caballería T10, su habilidad combina bien con las estadísticas de {petra}."
+              "Formación de tropas: 20-40-40%. En la Gen 3, los F2P consiguen su primer héroe con {widget} de Ataque Conjunto ({petra}). Prueba números equilibrados de arqueros/caballería porque {petra} mejora mucho a las tropas de arqueros. Las estadísticas de arqueros siguen siendo las más bajas sin un héroe arquero SSR. Si desbloqueas caballería T10, su habilidad combina bien con las estadísticas de {petra}." + " Si desbloqueas la **Caballería T3**, {petra} se vuelve aún más fuerte, porque su 3.ª habilidad encaja muy bien con sus atributos."
             ],
             [
               "Formación de tropas: 10-10-80%. Fuerza tantas tropas de arqueros como puedas, especialmente si son T10. Con algo de suerte, la 3ª habilidad de Rosa hará el resto del trabajo (aumenta el ataque total de los arqueros en un 30%).",
@@ -3787,9 +3847,18 @@ const GUIDES = {
         { type: "h", text: "PARTICIPANTES DE ATAQUE CONJUNTO" },
         { type: "callout", text: "⚠️ **Regla:** todos los que se unen deben enviar exactamente **90.000 tropas** a los ataques conjuntos; guarda tus marchas antes. Con **6:30 restantes**, todos inician su propio ataque conjunto con sus **3 héroes más fuertes**. 🔪 Héroes o número de tropas incorrectos: expulsión y petición de volver a unirse." },
         { type: "p", text: "Proporción estándar/segura: 10% Infantería, 10% Caballería y 80% Arqueros (o una variación como 20-30-50)" },
-        { type: "joiners" }
+        { type: "p", text: "**Prioridad – envía estos primero:** estos héroes dan una **bonificación fija de {lethality}**, la más valiosa para la Cacería del Oso." },
+        { type: "joiners" },
+        { type: "sub", text: "ÚSALOS CON CUIDADO" },
+        { type: "callout", text: "⚠️ **Héroes de daño por probabilidad:** efectos fuertes, pero **NO se acumulan**. Usa solo **UNO** de estos héroes en el mismo ataque conjunto: {marlin}, {zoe}, {jaeger}, {petra}." }
       ]},
       tr: { title: "Ayı Avı", blocks: [
+        { type: "box", title: "🆕 3. NESİL GÜNCELLEMESİ", items: [
+          "**Seferberlik liderleri:** En iyi — {helga} + {petra} + {marlin} (10:20:70), yalnızca {helga} 5★ + maks. {widget} ise. Alternatif — {amadeus} + {petra} + {marlin} (20:30:50). F2P — {zoe} + {petra} + {quinn} (20:40:40).",
+          "**Katılımcılar – önce bunları gönderin:** {chenko}, {yeonwoo}, {amadeus}, {amane} (sabit {lethality} bonusu).",
+          "⚠️ **Seferberlik başına yalnızca BİR tane:** {marlin}, {zoe}, {jaeger}, {petra} — şansa bağlı hasarları birikmez.",
+          "Ayrıntılar aşağıda ↓"
+        ] },
         { type: "h", text: "NE ZAMAN" },
         { type: "p", text: "2 günde bir, İttifakınızın belirlediği saatte." },
         { type: "h", text: "NEDEN ÖNEMLİ" },
@@ -3821,7 +3890,7 @@ const GUIDES = {
             [
               "Birlik dizilişi: %10-20-70. Azami seviyedeki Helga, bu dizilimde 2 Öldürücülük ve 1 Saldırı donanımına sahipken Amadeus'un 1 Öldürücülük ve 2 Saldırı donanımı olması nedeniyle 3. Nesil'de Amadeus'tan daha iyi performans gösterir.",
               "Birlik dizilişi: %20-30-50. Azami seviyede Helga'nız (5 yıldız + özel donanım) yoksa Amadeus kullanmak daha iyidir.",
-              "Birlik dizilişi: %20-40-40. 3. Nesil'de F2P oyuncular seferberliğe özel donanımı olan ilk kahramanlarını ({petra}) alır. Okçu ve Süvari sayılarını dengeli tutmayı deneyin; çünkü {petra} Okçuları çok güçlendirir. SSR Okçu olmadan Okçu nitelikleri hâlâ en düşüktür. T10 Süvari açarsanız, T10 becerisi {petra}'nın nitelikleriyle iyi uyum sağlar."
+              "Birlik dizilişi: %20-40-40. 3. Nesil'de F2P oyuncular seferberliğe özel donanımı olan ilk kahramanlarını ({petra}) alır. Okçu ve Süvari sayılarını dengeli tutmayı deneyin; çünkü {petra} Okçuları çok güçlendirir. SSR Okçu olmadan Okçu nitelikleri hâlâ en düşüktür. T10 Süvari açarsanız, T10 becerisi {petra}'nın nitelikleriyle iyi uyum sağlar." + " **T3 Süvari**'nin kilidini açarsan {petra} daha da güçlenir, çünkü 3. yeteneği onların nitelikleriyle çok iyi çalışır."
             ],
             [
               "Birlik dizilişi: %10-10-80. Özellikle T10 iseler, olabildiğince fazla Okçu koyun. Biraz şansla Rosa'nın 3. becerisi işi sizin yerinize halleder (Okçuların toplam Saldırısını %30 artırır).",
@@ -3835,9 +3904,18 @@ const GUIDES = {
         { type: "h", text: "SEFERBERLİĞE KATILANLAR" },
         { type: "callout", text: "⚠️ **Kural:** Tüm katılımcılar seferberliklere tam **90.000 asker** göndermelidir — yürüyüşlerini önceden kaydet. **6:30 kala** tüm katılımcılar **en güçlü 3 kahramanıyla** kendi seferberliğini başlatır. 🔪 Yanlış kahraman veya yanlış asker sayısı: atılır ve yeniden katılması istenir." },
         { type: "p", text: "Standart / Güvenli Oran: %10 Piyade, %10 Süvari ve %80 Okçu (veya 20-30-50 gibi bir varyasyon)" },
-        { type: "joiners" }
+        { type: "p", text: "**Öncelik – önce bunları gönderin:** Bu kahramanlar **sabit {lethality} bonusu** verir; Ayı Avı için en değerli bonus budur." },
+        { type: "joiners" },
+        { type: "sub", text: "DİKKATLİ KULLANIN" },
+        { type: "callout", text: "⚠️ **Şansa bağlı hasar veren kahramanlar:** güçlü etkiler, ama **birikmezler**. Aynı seferberlikte bunlardan yalnızca **BİRİNİ** kullanın: {marlin}, {zoe}, {jaeger}, {petra}." }
       ]},
       id: { title: "Bear Hunt", blocks: [
+        { type: "box", title: "🆕 UPDATE GEN 3", items: [
+          "**Pemimpin reli:** Terbaik — {helga} + {petra} + {marlin} (10:20:70), hanya jika {helga} 5★ + {widget} maks. Alternatif — {amadeus} + {petra} + {marlin} (20:30:50). F2P — {zoe} + {petra} + {quinn} (20:40:40).",
+          "**Peserta – kirim ini dulu:** {chenko}, {yeonwoo}, {amadeus}, {amane} (bonus {lethality} tetap).",
+          "⚠️ **Hanya SATU per reli:** {marlin}, {zoe}, {jaeger}, {petra} — damage berbasis peluang TIDAK menumpuk.",
+          "Detail di bawah ↓"
+        ] },
         { type: "h", text: "KAPAN" },
         { type: "p", text: "Setiap 2 hari pada waktu yang dijadwalkan Aliansimu." },
         { type: "h", text: "MENGAPA PENTING" },
@@ -3869,7 +3947,7 @@ const GUIDES = {
             [
               "Formasi pasukan: 10-20-70%. Helga yang sudah maksimal lebih baik daripada Amadeus di Gen 3, karena punya 2 perlengkapan Lethality dan 1 perlengkapan Attack, dibandingkan 1 Lethality dan 2 Attack milik Amadeus pada susunan ini.",
               "Formasi pasukan: 20-30-50%. Jika kamu belum punya Helga maksimal (bintang 5 + perlengkapan khusus), lebih baik pakai Amadeus.",
-              "Formasi pasukan: 20-40-40%. Di Gen 3, F2P mendapat hero pertama dengan perlengkapan khusus reli ({petra}). Coba jumlah Pemanah dan Kavaleri yang seimbang karena {petra} sangat meningkatkan Pemanah. Stat Pemanah tetap paling rendah tanpa Pemanah SSR. Jika kamu membuka Kavaleri T10, skill T10 cocok dengan stat {petra}."
+              "Formasi pasukan: 20-40-40%. Di Gen 3, F2P mendapat hero pertama dengan perlengkapan khusus reli ({petra}). Coba jumlah Pemanah dan Kavaleri yang seimbang karena {petra} sangat meningkatkan Pemanah. Stat Pemanah tetap paling rendah tanpa Pemanah SSR. Jika kamu membuka Kavaleri T10, skill T10 cocok dengan stat {petra}." + " Jika kamu membuka **Kavaleri T3**, {petra} jadi lebih kuat karena skill ke-3 miliknya sangat cocok dengan stat mereka."
             ],
             [
               "Formasi pasukan: 10-10-80%. Paksakan sebanyak mungkin Pemanah, terutama jika T10. Dengan sedikit keberuntungan, skill ke-3 Rosa akan bekerja untukmu (meningkatkan total Attack Pemanah sebesar 30%).",
@@ -3883,9 +3961,18 @@ const GUIDES = {
         { type: "h", text: "PESERTA RELI" },
         { type: "callout", text: "⚠️ **Aturan:** semua yang bergabung wajib mengirim tepat **90.000 pasukan** ke reli — simpan formasi pasukan lebih dulu. Saat **sisa 6:30**, semua yang bergabung memulai reli sendiri dengan **3 pahlawan terkuat**. 🔪 Pahlawan salah atau jumlah pasukan salah akan dikeluarkan dan diminta bergabung ulang." },
         { type: "p", text: "Rasio Standar / Aman: 10% Infanteri, 10% Kavaleri, dan 80% Pemanah (atau variasi seperti 20-30-50)" },
-        { type: "joiners" }
+        { type: "p", text: "**Prioritas – kirim ini dulu:** pahlawan ini memberi **bonus {lethality} tetap**, bonus paling berharga untuk Bear Hunt." },
+        { type: "joiners" },
+        { type: "sub", text: "GUNAKAN DENGAN HATI-HATI" },
+        { type: "callout", text: "⚠️ **Pahlawan damage berbasis peluang:** efeknya kuat, tapi **TIDAK menumpuk**. Gunakan hanya **SATU** dari pahlawan ini dalam reli yang sama: {marlin}, {zoe}, {jaeger}, {petra}." }
       ]},
       ru: { title: "Охота на медведя", blocks: [
+        { type: "box", title: "🆕 ОБНОВЛЕНИЕ 3-ГО ПОКОЛЕНИЯ", items: [
+          "**Лидеры рейдов:** Лучший — {helga} + {petra} + {marlin} (10:20:70), только если у Хельги 5★ + макс. {widget}. Альтернатива — {amadeus} + {petra} + {marlin} (20:30:50). F2P — {zoe} + {petra} + {quinn} (20:40:40).",
+          "**Участники – отправляйте первыми:** {chenko}, {yeonwoo}, {amadeus}, {amane} (фиксированный бонус к {lethality}).",
+          "⚠️ **Только ОДИН на рейд:** {marlin}, {zoe}, {jaeger}, {petra} — их урон с шансом срабатывания НЕ суммируется.",
+          "Подробности ниже ↓"
+        ] },
         { type: "h", text: "КОГДА" },
         { type: "p", text: "Каждые 2 дня в назначенное вашим альянсом время." },
         { type: "h", text: "ПОЧЕМУ ЭТО ВАЖНО" },
@@ -3917,7 +4004,7 @@ const GUIDES = {
             [
               "Состав войск: 10-20-70%. Герой Хельга с максимальной прокачкой в 3-м поколении показывает себя лучше, чем герой Амадей, так как в этой связке у неё 2 снаряжения Смертоносности и 1 снаряжение Атаки против 1 снаряжения Смертоносности и 2 снаряжений Атаки у героя Амадей.",
               "Состав войск: 20-30-50%. Если у вас нет героя Хельга с максимальной прокачкой (5 звёзд + эксклюзивное снаряжение), лучше использовать героя Амадей.",
-              "Состав войск: 20-40-40%. В 3-м поколении F2P получают первого героя с эксклюзивным для рейдов снаряжением ({petra}). Старайтесь держать баланс между числом стрелков и кавалеристов, так как {petra} сильно усиливает стрелков. Показатели стрелков всё равно самые низкие без SSR-стрелка. Если вы откроете кавалеристов T10, навык T10 хорошо сочетается с показателями {petra}."
+              "Состав войск: 20-40-40%. В 3-м поколении F2P получают первого героя с эксклюзивным для рейдов снаряжением ({petra}). Старайтесь держать баланс между числом стрелков и кавалеристов, так как {petra} сильно усиливает стрелков. Показатели стрелков всё равно самые низкие без SSR-стрелка. Если вы откроете кавалеристов T10, навык T10 хорошо сочетается с показателями {petra}." + " Если откроете **кавалерию T3**, {petra} станет ещё сильнее: её 3-й навык отлично сочетается с их показателями."
             ],
             [
               "Состав войск: 10-10-80%. Отправляйте как можно больше стрелков, особенно если они T10. При некоторой удаче 3-й навык героя Rosa сделает всё за вас (увеличивает общую Атаку стрелков на 30%).",
@@ -3931,9 +4018,18 @@ const GUIDES = {
         { type: "h", text: "УЧАСТНИКИ РЕЙДА" },
         { type: "callout", text: "⚠️ **Правило:** все участники отправляют в рейды ровно **90 000 войск** — сохраните отряды заранее. Когда останется **6:30**, все участники запускают свой рейд с **3 сильнейшими героями**. 🔪 Неверные герои или неверное число войск — кик и просьба присоединиться заново." },
         { type: "p", text: "Стандартное / безопасное соотношение: 10% пехотинцев, 10% кавалеристов и 80% стрелков (или вариант вроде 20-30-50)" },
-        { type: "joiners" }
+        { type: "p", text: "**Приоритет – отправляйте первыми:** эти герои дают **фиксированный бонус к {lethality}** — самый ценный бонус в охоте на медведя." },
+        { type: "joiners" },
+        { type: "sub", text: "ИСПОЛЬЗУЙТЕ С ОСТОРОЖНОСТЬЮ" },
+        { type: "callout", text: "⚠️ **Герои с уроном по шансу:** сильные эффекты, но они **НЕ суммируются**. В одном рейде используйте только **ОДНОГО** из них: {marlin}, {zoe}, {jaeger}, {petra}." }
       ]},
       th: { title: "ล่าหมี", blocks: [
+        { type: "box", title: "🆕 อัปเดตรุ่นที่ 3", items: [
+          "**ผู้นำระดมพล:** ดีที่สุด — {helga} + {petra} + {marlin} (10:20:70) เฉพาะเมื่อ{helga} 5★ + {widget}เต็ม ทางเลือก — {amadeus} + {petra} + {marlin} (20:30:50) F2P — {zoe} + {petra} + {quinn} (20:40:40)",
+          "**ผู้เข้าร่วม – ส่งก่อน:** {chenko}, {yeonwoo}, {amadeus}, {amane} (โบนัส{lethality}แบบคงที่)",
+          "⚠️ **หนึ่งทีมระดมพลส่งได้แค่ตัวเดียว:** {marlin}, {zoe}, {jaeger}, {petra} — ความเสียหายแบบสุ่มโอกาส**ไม่ซ้อนกัน**",
+          "รายละเอียดด้านล่าง ↓"
+        ] },
         { type: "h", text: "เมื่อไหร่" },
         { type: "p", text: "ทุก 2 วัน ตามเวลาที่พันธมิตรของคุณกำหนด" },
         { type: "h", text: "ทำไมถึงสำคัญ" },
@@ -3965,7 +4061,7 @@ const GUIDES = {
             [
               "รูปแบบทหาร: 10-20-70% เฮลก้าที่พัฒนาเต็มที่ทำได้ดีกว่าอมาดีอุสในเจน 3 เพราะมีอุปกรณ์ความแรงพลัง 2 ชิ้นและอุปกรณ์พลังโจมตี 1 ชิ้น เทียบกับความแรงพลัง 1 ชิ้นและพลังโจมตี 2 ชิ้นของอมาดีอุสในชุดนี้",
               "รูปแบบทหาร: 20-30-50% หากคุณไม่มีเฮลก้าที่พัฒนาเต็มที่ (5 ดาว + อุปกรณ์เฉพาะ) ควรใช้อมาดีอุสจะดีกว่า",
-              "รูปแบบทหาร: 20-40-40% ในเจน 3 ผู้เล่น F2P จะได้ฮีโร่ตัวแรกที่มีอุปกรณ์เฉพาะทีมระดมพล ({petra}) ลองใช้จำนวนพลธนูและทหารม้าให้สมดุล เพราะ {petra} เสริมพลธนูได้มาก ค่าสถานะพลธนูยังต่ำที่สุดหากไม่มีพลธนู SSR หากคุณปลดล็อกทหารม้า T10 ทักษะ T10 เข้ากับค่าสถานะของ {petra} ได้ดี"
+              "รูปแบบทหาร: 20-40-40% ในเจน 3 ผู้เล่น F2P จะได้ฮีโร่ตัวแรกที่มีอุปกรณ์เฉพาะทีมระดมพล ({petra}) ลองใช้จำนวนพลธนูและทหารม้าให้สมดุล เพราะ {petra} เสริมพลธนูได้มาก ค่าสถานะพลธนูยังต่ำที่สุดหากไม่มีพลธนู SSR หากคุณปลดล็อกทหารม้า T10 ทักษะ T10 เข้ากับค่าสถานะของ {petra} ได้ดี" + " ถ้าปลดล็อก **ทหารม้า T3** {petra}จะแข็งแกร่งขึ้นอีก เพราะทักษะที่ 3 ของเธอเข้ากับค่าสถานะของพวกเขาได้ดีมาก"
             ],
             [
               "รูปแบบทหาร: 10-10-80% ใส่พลธนูให้มากที่สุดเท่าที่ทำได้ โดยเฉพาะถ้าเป็น T10 หากโชคดี ทักษะที่ 3 ของ Rosa จะช่วยได้เอง (เพิ่มพลังโจมตีรวมของพลธนู 30%)",
@@ -3979,9 +4075,18 @@ const GUIDES = {
         { type: "h", text: "ผู้เข้าร่วมทีมระดมพล" },
         { type: "callout", text: "⚠️ **กฎ:** ผู้เข้าร่วมทุกคนต้องส่งทหาร **90,000 นายพอดี** เข้าระดมพล — บันทึกทัพไว้ล่วงหน้า เมื่อเหลือเวลา **6:30** ผู้เข้าร่วมทุกคนเปิดระดมพลของตัวเองด้วย**ฮีโร่ที่แข็งแกร่งที่สุด 3 ตัว** 🔪 ฮีโร่ผิดหรือจำนวนทหารผิดจะถูกเตะออกและให้เข้าร่วมใหม่" },
         { type: "p", text: "อัตราส่วนมาตรฐาน / ปลอดภัย: ทหารราบ 10%, ทหารม้า 10% และพลธนู 80% (หรือรูปแบบอื่นเช่น 20-30-50)" },
-        { type: "joiners" }
+        { type: "p", text: "**ลำดับแรก – ส่งฮีโร่เหล่านี้ก่อน:** ให้**โบนัส{lethality}แบบคงที่** ซึ่งเป็นโบนัสที่มีค่าที่สุดสำหรับล่าหมี" },
+        { type: "joiners" },
+        { type: "sub", text: "ใช้อย่างระมัดระวัง" },
+        { type: "callout", text: "⚠️ **ฮีโร่ที่สร้างความเสียหายแบบสุ่มโอกาส:** ผลแรง แต่**ไม่ซ้อนกัน** ในทีมระดมพลเดียวกันใช้ได้แค่**ตัวเดียว**: {marlin}, {zoe}, {jaeger}, {petra}" }
       ]},
       ar: { title: "صيد الدببة", blocks: [
+        { type: "box", title: "🆕 تحديث الجيل الثالث", items: [
+          "**قادة الحشد:** الأفضل — {helga} + {petra} + {marlin} (10:20:70)، فقط إذا كانت {helga} 5★ + {widget} بأقصى مستوى. البديل — {amadeus} + {petra} + {marlin} (20:30:50). F2P — {zoe} + {petra} + {quinn} (20:40:40).",
+          "**المنضمون – أرسلوا هؤلاء أولًا:** {chenko}، {yeonwoo}، {amadeus}، {amane} (مكافأة {lethality} ثابتة).",
+          "⚠️ **واحد فقط في كل حشد:** {marlin}، {zoe}، {jaeger}، {petra} — الضرر القائم على الفرصة **لا يتراكم**.",
+          "التفاصيل بالأسفل ↓"
+        ] },
         { type: "h", text: "متى" },
         { type: "p", text: "كل يومين في الوقت الذي يحدده تحالفك." },
         { type: "h", text: "لماذا هو مهم" },
@@ -4013,7 +4118,7 @@ const GUIDES = {
             [
               "تشكيلة القوات: 10-20-70%. تتفوق هيلجا المكتملة التطوير على أماديوس في الجيل 3، لأن لديها قطعتي عتاد قوة فتك وقطعة عتاد هجوم واحدة، مقابل قطعة قوة فتك واحدة وقطعتي هجوم لدى أماديوس في هذه التشكيلة.",
               "تشكيلة القوات: 20-30-50%. إذا لم تكن لديك هيلجا مكتملة التطوير (5 نجوم + عتاد خاص)، فمن الأفضل استخدام أماديوس.",
-              "تشكيلة القوات: 20-40-40%. في الجيل 3، يحصل لاعبو F2P على أول بطل بعتاد خاص بالحشد ({petra}). جرّب أعدادًا متوازنة من الرماة والفرسان لأن {petra} تحسّن الرماة كثيرًا. تبقى سمات الرماة الأدنى بدون رماة SSR. إذا فتحت فرسان T10، فإن مهارة T10 تتناسب جيدًا مع سمات {petra}."
+              "تشكيلة القوات: 20-40-40%. في الجيل 3، يحصل لاعبو F2P على أول بطل بعتاد خاص بالحشد ({petra}). جرّب أعدادًا متوازنة من الرماة والفرسان لأن {petra} تحسّن الرماة كثيرًا. تبقى سمات الرماة الأدنى بدون رماة SSR. إذا فتحت فرسان T10، فإن مهارة T10 تتناسب جيدًا مع سمات {petra}." + " إذا فتحت **فرسان T3**، تصبح {petra} أقوى، لأن مهارتها الثالثة تتناسب جيدًا مع سماتهم."
             ],
             [
               "تشكيلة القوات: 10-10-80%. ادفع بأكبر عدد ممكن من الرماة، خاصة إذا كانوا T10. مع قليل من الحظ ستقوم المهارة الثالثة لـ Rosa بالمهمة عنك (تزيد إجمالي هجوم الرماة بنسبة 30%).",
@@ -4027,7 +4132,10 @@ const GUIDES = {
         { type: "h", text: "المنضمون إلى الحشد" },
         { type: "callout", text: "⚠️ **قاعدة:** يجب على جميع المنضمين إرسال **90,000 جندي بالضبط** إلى الحشود — احفظ مسيراتك مسبقًا. عند بقاء **6:30**، يبدأ جميع المنضمين حشدهم الخاص باستخدام **أقوى 3 أبطال** لديهم. 🔪 الأبطال الخطأ أو العدد الخطأ من القوات: طرد وطلب الانضمام من جديد." },
         { type: "p", text: "النسبة القياسية / الآمنة: 10% مشاة، 10% فرسان، و80% رماة (أو تنويع مثل 20-30-50)" },
-        { type: "joiners" }
+        { type: "p", text: "**الأولوية – أرسلوا هؤلاء أولًا:** يمنح هؤلاء الأبطال **مكافأة {lethality} ثابتة**، وهي أثمن مكافأة في صيد الدببة." },
+        { type: "joiners" },
+        { type: "sub", text: "استخدم بحذر" },
+        { type: "callout", text: "⚠️ **أبطال الضرر القائم على الفرصة:** تأثيرات قوية، لكنها **لا تتراكم**. استخدم **واحدًا فقط** من هؤلاء الأبطال في الحشد نفسه: {marlin}، {zoe}، {jaeger}، {petra}." }
       ]}
     }
   },
