@@ -3047,10 +3047,13 @@ const GUIDES = {
           "Remove it anytime: long-press the icon and delete it, like any app."
         ] },
         { type: "h", text: "iPhone / iPad" },
-        { type: "list", items: [
-          "1. Open this site in **Safari** (other browsers can't install it).",
-          "2. Tap the Share button (square with an arrow) at the bottom.",
-          "3. Scroll down, tap **Add to Home Screen**, then **Add**."
+        { type: "steps", items: [
+          { text: "Open this site in **Safari** (other browsers can't install it)." },
+          { text: "Tap the Share button (square with an arrow) at the bottom.", img: "figures/file.png" },
+          { text: "Tap **View More** (the ⌄ button) to open the full menu. On older iOS versions, just scroll down.", img: "figures/IMG_8466.png" },
+          { text: "Tap **Add to Home Screen**.", img: "figures/IMG_8467.png" },
+          { text: "Keep **Open as Web App** turned on, then tap **Add**.", img: "figures/IMG_8468.png" },
+          { text: "The NXS icon now appears on your home screen.", img: "figures/IMG_8469.png" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -3075,10 +3078,13 @@ const GUIDES = {
           "隨時可以刪除：長按圖示就能像一般 App 一樣移除。"
         ] },
         { type: "h", text: "iPhone / iPad" },
-        { type: "list", items: [
-          "1. 用 **Safari** 打開這個網站（其他瀏覽器無法安裝）。",
-          "2. 點下方的「分享」按鈕（方框加向上箭頭）。",
-          "3. 往下滑，點 **加入主畫面**，再點 **加入**。"
+        { type: "steps", items: [
+          { text: "用 **Safari** 打開這個網站（其他瀏覽器無法安裝）。" },
+          { text: "點下方的「分享」按鈕（方框加向上箭頭）。", img: "figures/file.png" },
+          { text: "點 **View More**（⌄ 按鈕）展開完整選單；較舊的 iOS 版本直接往下滑即可。", img: "figures/IMG_8466.png" },
+          { text: "點 **加入主畫面**。", img: "figures/IMG_8467.png" },
+          { text: "保持 **Open as Web App**（以網頁 App 開啟）開啟，再點 **加入**。", img: "figures/IMG_8468.png" },
+          { text: "主畫面就會出現 NXS 圖示。", img: "figures/IMG_8469.png" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -3103,10 +3109,13 @@ const GUIDES = {
           "언제든 삭제 가능: 일반 앱처럼 아이콘을 길게 눌러 삭제하면 됩니다."
         ] },
         { type: "h", text: "iPhone / iPad" },
-        { type: "list", items: [
-          "1. **Safari**로 이 사이트를 여세요 (다른 브라우저로는 설치할 수 없습니다).",
-          "2. 하단의 공유 버튼(화살표가 있는 네모)을 누르세요.",
-          "3. 아래로 스크롤해 **홈 화면에 추가**를 누른 뒤 **추가**를 누르세요."
+        { type: "steps", items: [
+          { text: "**Safari**로 이 사이트를 여세요 (다른 브라우저로는 설치할 수 없습니다)." },
+          { text: "하단의 공유 버튼(화살표가 있는 네모)을 누르세요.", img: "figures/file.png" },
+          { text: "**View More**(⌄ 버튼)를 눌러 전체 메뉴를 여세요. 이전 iOS 버전에서는 아래로 스크롤하면 됩니다.", img: "figures/IMG_8466.png" },
+          { text: "**홈 화면에 추가**를 누르세요.", img: "figures/IMG_8467.png" },
+          { text: "**Open as Web App**(웹 앱으로 열기)을 켠 상태로 두고 **추가**를 누르세요.", img: "figures/IMG_8468.png" },
+          { text: "홈 화면에 NXS 아이콘이 생깁니다.", img: "figures/IMG_8469.png" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -3131,10 +3140,13 @@ const GUIDES = {
           "Jederzeit entfernbar: Symbol lange drücken und löschen, wie bei jeder App."
         ] },
         { type: "h", text: "iPhone / iPad" },
-        { type: "list", items: [
-          "1. Öffne diese Seite in **Safari** (andere Browser können sie nicht installieren).",
-          "2. Tippe unten auf die Teilen-Taste (Quadrat mit Pfeil).",
-          "3. Scrolle nach unten, tippe auf **Zum Home-Bildschirm** und dann auf **Hinzufügen**."
+        { type: "steps", items: [
+          { text: "Öffne diese Seite in **Safari** (andere Browser können sie nicht installieren)." },
+          { text: "Tippe unten auf die Teilen-Taste (Quadrat mit Pfeil).", img: "figures/file.png" },
+          { text: "Tippe auf **View More** (die ⌄-Taste), um das ganze Menü zu öffnen. Bei älteren iOS-Versionen einfach nach unten scrollen.", img: "figures/IMG_8466.png" },
+          { text: "Tippe auf **Zum Home-Bildschirm**.", img: "figures/IMG_8467.png" },
+          { text: "Lass **Open as Web App** (Als Web-App öffnen) eingeschaltet und tippe auf **Hinzufügen**.", img: "figures/IMG_8468.png" },
+          { text: "Das NXS-Symbol erscheint jetzt auf deinem Home-Bildschirm.", img: "figures/IMG_8469.png" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -3159,10 +3171,13 @@ const GUIDES = {
           "Supprimable à tout moment : appui long sur l'icône puis supprimer, comme une application."
         ] },
         { type: "h", text: "iPhone / iPad" },
-        { type: "list", items: [
-          "1. Ouvrez ce site dans **Safari** (les autres navigateurs ne permettent pas l'installation).",
-          "2. Touchez le bouton Partager (carré avec une flèche) en bas.",
-          "3. Faites défiler, touchez **Sur l'écran d'accueil**, puis **Ajouter**."
+        { type: "steps", items: [
+          { text: "Ouvrez ce site dans **Safari** (les autres navigateurs ne permettent pas l'installation)." },
+          { text: "Touchez le bouton Partager (carré avec une flèche) en bas.", img: "figures/file.png" },
+          { text: "Touchez **View More** (le bouton ⌄) pour ouvrir le menu complet. Sur les anciennes versions d'iOS, faites simplement défiler vers le bas.", img: "figures/IMG_8466.png" },
+          { text: "Touchez **Sur l'écran d'accueil**.", img: "figures/IMG_8467.png" },
+          { text: "Laissez **Open as Web App** (Ouvrir comme app web) activé, puis touchez **Ajouter**.", img: "figures/IMG_8468.png" },
+          { text: "L'icône NXS apparaît sur votre écran d'accueil.", img: "figures/IMG_8469.png" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -3187,10 +3202,13 @@ const GUIDES = {
           "Remova quando quiser: segure o ícone e exclua, como qualquer app."
         ] },
         { type: "h", text: "iPhone / iPad" },
-        { type: "list", items: [
-          "1. Abra este site no **Safari** (outros navegadores não conseguem instalar).",
-          "2. Toque no botão Compartilhar (quadrado com uma seta) na parte inferior.",
-          "3. Role para baixo, toque em **Adicionar à Tela de Início** e depois em **Adicionar**."
+        { type: "steps", items: [
+          { text: "Abra este site no **Safari** (outros navegadores não conseguem instalar)." },
+          { text: "Toque no botão Compartilhar (quadrado com uma seta) na parte inferior.", img: "figures/file.png" },
+          { text: "Toque em **View More** (o botão ⌄) para abrir o menu completo. Em versões mais antigas do iOS, basta rolar para baixo.", img: "figures/IMG_8466.png" },
+          { text: "Toque em **Adicionar à Tela de Início**.", img: "figures/IMG_8467.png" },
+          { text: "Deixe **Open as Web App** (Abrir como app web) ativado e toque em **Adicionar**.", img: "figures/IMG_8468.png" },
+          { text: "O ícone do NXS aparece na sua tela de início.", img: "figures/IMG_8469.png" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -3215,10 +3233,13 @@ const GUIDES = {
           "İstediğiniz zaman kaldırın: simgeye uzun basıp her uygulama gibi silin."
         ] },
         { type: "h", text: "iPhone / iPad" },
-        { type: "list", items: [
-          "1. Bu siteyi **Safari** ile açın (diğer tarayıcılar yükleyemez).",
-          "2. Alttaki Paylaş düğmesine (oklu kare) dokunun.",
-          "3. Aşağı kaydırıp **Ana Ekrana Ekle**'ye, ardından **Ekle**'ye dokunun."
+        { type: "steps", items: [
+          { text: "Bu siteyi **Safari** ile açın (diğer tarayıcılar yükleyemez)." },
+          { text: "Alttaki Paylaş düğmesine (oklu kare) dokunun.", img: "figures/file.png" },
+          { text: "Tüm menüyü açmak için **View More**'a (⌄ düğmesi) dokunun. Eski iOS sürümlerinde aşağı kaydırmanız yeterli.", img: "figures/IMG_8466.png" },
+          { text: "**Ana Ekrana Ekle**'ye dokunun.", img: "figures/IMG_8467.png" },
+          { text: "**Open as Web App** (Web Uygulaması olarak aç) açık kalsın, ardından **Ekle**'ye dokunun.", img: "figures/IMG_8468.png" },
+          { text: "NXS simgesi artık ana ekranınızda.", img: "figures/IMG_8469.png" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -3243,10 +3264,13 @@ const GUIDES = {
           "Bisa dihapus kapan saja: tekan lama ikonnya lalu hapus, seperti aplikasi biasa."
         ] },
         { type: "h", text: "iPhone / iPad" },
-        { type: "list", items: [
-          "1. Buka situs ini di **Safari** (browser lain tidak bisa memasang).",
-          "2. Ketuk tombol Bagikan (kotak dengan panah) di bawah.",
-          "3. Gulir ke bawah, ketuk **Tambahkan ke Layar Utama**, lalu **Tambah**."
+        { type: "steps", items: [
+          { text: "Buka situs ini di **Safari** (browser lain tidak bisa memasang)." },
+          { text: "Ketuk tombol Bagikan (kotak dengan panah) di bawah.", img: "figures/file.png" },
+          { text: "Ketuk **View More** (tombol ⌄) untuk membuka menu lengkap. Di iOS versi lama, cukup gulir ke bawah.", img: "figures/IMG_8466.png" },
+          { text: "Ketuk **Tambahkan ke Layar Utama**.", img: "figures/IMG_8467.png" },
+          { text: "Biarkan **Open as Web App** tetap aktif, lalu ketuk **Tambah**.", img: "figures/IMG_8468.png" },
+          { text: "Ikon NXS sekarang muncul di layar utama.", img: "figures/IMG_8469.png" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -3271,10 +3295,13 @@ const GUIDES = {
           "Удалить можно в любой момент: удерживайте значок и удалите, как обычное приложение."
         ] },
         { type: "h", text: "iPhone / iPad" },
-        { type: "list", items: [
-          "1. Откройте сайт в **Safari** (другие браузеры не могут его установить).",
-          "2. Нажмите кнопку «Поделиться» (квадрат со стрелкой) внизу.",
-          "3. Прокрутите вниз, нажмите **На экран «Домой»**, затем **Добавить**."
+        { type: "steps", items: [
+          { text: "Откройте сайт в **Safari** (другие браузеры не могут его установить)." },
+          { text: "Нажмите кнопку «Поделиться» (квадрат со стрелкой) внизу.", img: "figures/file.png" },
+          { text: "Нажмите **View More** (кнопка ⌄), чтобы открыть всё меню. В старых версиях iOS просто прокрутите вниз.", img: "figures/IMG_8466.png" },
+          { text: "Нажмите **На экран «Домой»**.", img: "figures/IMG_8467.png" },
+          { text: "Оставьте **Open as Web App** (открывать как веб-приложение) включённым и нажмите **Добавить**.", img: "figures/IMG_8468.png" },
+          { text: "Значок NXS появится на главном экране.", img: "figures/IMG_8469.png" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -3299,10 +3326,13 @@ const GUIDES = {
           "ลบได้ทุกเมื่อ: กดค้างที่ไอคอนแล้วลบ เหมือนแอปทั่วไป"
         ] },
         { type: "h", text: "iPhone / iPad" },
-        { type: "list", items: [
-          "1. เปิดเว็บไซต์นี้ใน **Safari** (เบราว์เซอร์อื่นติดตั้งไม่ได้)",
-          "2. แตะปุ่มแชร์ (สี่เหลี่ยมมีลูกศร) ด้านล่าง",
-          "3. เลื่อนลง แตะ **เพิ่มไปยังหน้าจอโฮม** แล้วแตะ **เพิ่ม**"
+        { type: "steps", items: [
+          { text: "เปิดเว็บไซต์นี้ใน **Safari** (เบราว์เซอร์อื่นติดตั้งไม่ได้)" },
+          { text: "แตะปุ่มแชร์ (สี่เหลี่ยมมีลูกศร) ด้านล่าง", img: "figures/file.png" },
+          { text: "แตะ **View More** (ปุ่ม ⌄) เพื่อเปิดเมนูทั้งหมด ถ้าเป็น iOS รุ่นเก่า ให้เลื่อนลงแทน", img: "figures/IMG_8466.png" },
+          { text: "แตะ **เพิ่มไปยังหน้าจอโฮม**", img: "figures/IMG_8467.png" },
+          { text: "เปิด **Open as Web App** ไว้ แล้วแตะ **เพิ่ม**", img: "figures/IMG_8468.png" },
+          { text: "ไอคอน NXS จะปรากฏบนหน้าจอโฮม", img: "figures/IMG_8469.png" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -3327,10 +3357,13 @@ const GUIDES = {
           "يمكنك حذفه في أي وقت: اضغط مطولًا على الأيقونة واحذفها مثل أي تطبيق."
         ] },
         { type: "h", text: "iPhone / iPad" },
-        { type: "list", items: [
-          "1. افتح هذا الموقع في **Safari** (المتصفحات الأخرى لا يمكنها تثبيته).",
-          "2. اضغط زر المشاركة (مربع به سهم) في الأسفل.",
-          "3. مرّر للأسفل، واضغط **إضافة إلى الشاشة الرئيسية** ثم **إضافة**."
+        { type: "steps", items: [
+          { text: "افتح هذا الموقع في **Safari** (المتصفحات الأخرى لا يمكنها تثبيته)." },
+          { text: "اضغط زر المشاركة (مربع به سهم) في الأسفل.", img: "figures/file.png" },
+          { text: "اضغط **View More** (زر ⌄) لفتح القائمة كاملة. في إصدارات iOS الأقدم، مرّر للأسفل فقط.", img: "figures/IMG_8466.png" },
+          { text: "اضغط **إضافة إلى الشاشة الرئيسية**.", img: "figures/IMG_8467.png" },
+          { text: "أبقِ خيار **Open as Web App** مفعّلًا، ثم اضغط **إضافة**.", img: "figures/IMG_8468.png" },
+          { text: "تظهر الآن أيقونة NXS على الشاشة الرئيسية.", img: "figures/IMG_8469.png" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -3355,10 +3388,13 @@ const GUIDES = {
           "Puedes quitarla cuando quieras: mantén pulsado el icono y elimínala, como cualquier app."
         ] },
         { type: "h", text: "iPhone / iPad" },
-        { type: "list", items: [
-          "1. Abre este sitio en **Safari** (otros navegadores no pueden instalarlo).",
-          "2. Toca el botón Compartir (cuadrado con una flecha) en la parte inferior.",
-          "3. Desplázate hacia abajo, toca **Añadir a pantalla de inicio** y luego **Añadir**."
+        { type: "steps", items: [
+          { text: "Abre este sitio en **Safari** (otros navegadores no pueden instalarlo)." },
+          { text: "Toca el botón Compartir (cuadrado con una flecha) en la parte inferior.", img: "figures/file.png" },
+          { text: "Toca **View More** (el botón ⌄) para abrir el menú completo. En versiones anteriores de iOS, solo desplázate hacia abajo.", img: "figures/IMG_8466.png" },
+          { text: "Toca **Añadir a pantalla de inicio**.", img: "figures/IMG_8467.png" },
+          { text: "Deja activado **Open as Web App** y toca **Añadir**.", img: "figures/IMG_8468.png" },
+          { text: "El icono de NXS aparecerá en tu pantalla de inicio.", img: "figures/IMG_8469.png" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
