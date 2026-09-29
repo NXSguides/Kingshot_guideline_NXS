@@ -288,7 +288,14 @@ const GLOSSARY = {
   masterAcademy: { zh:"大師學院", en:"Master Academy", ko:"거장 아카데미", de:"Meisterakademie", fr:"Académie des Experts", pt:"Academia dos Mestres", tr:"Usta Akademisi", ru:"Университет мастеров", th:"สถาบันมาสเตอร์", ar:"أكاديمية المتخصصين", es:"Academia de Maestros" },
   pan: { zh:"潘", en:"Pan", ko:"판", de:"Pan", fr:"Pan", pt:"Pan", tr:"Pan", id:"Pan", ru:"Пан", th:"แพน", ar:"بان", es:"Pan" },
   valora: { zh:"維拉", en:"Valora", ko:"베라", de:"Valora", fr:"Valora", pt:"Valora", tr:"Valora", id:"Valora", ru:"Валора", th:"วาโลร่า", ar:"فالورا", es:"Valora" },
-  roman: { en:"Roman" },
+  roman: { zh:"羅曼", en:"Roman", ko:"로만", de:"Roman", fr:"Roman", tr:"Roman", ru:"Роман", ar:"رومان", pt:"Roman", id:"Roman", th:"โรมัน", es:"Roman" },
+  arenaChampion: { zh:"競技之王", en:"Arena Champion", ko:"경기의 왕", de:"Arena-Champion", fr:"Champion de l'arène", tr:"Arena Şampiyonu", ru:"Чемпион арены", ar:"بطل الساحة", pt:"Campeão da Arena", id:"Juara Arena", th:"แชมป์อารีน่า", es:"Campeón de la arena" },
+  arenaStarChest: { zh:"競技明星寶箱", en:"Arena Star Chest", ko:"경기 스타 보물상자", de:"Arenastern-Truhe", fr:"Coffres d'Étoile de l'Arène", tr:"Arena Yıldızı Sandığı", ru:"сундук звезды арены", ar:"صناديق نجم الساحة", pt:"Baús de Estrela da Arena", id:"Peti Bintang Arena", th:"หีบดาวเด่นแห่งอารีน่า", es:"cofres de Estrella de la Arena" },
+  arenaToken: { zh:"競技幣", en:"Arena Token", ko:"경기장 코인", de:"Arenatoken", fr:"jetons d'arène", tr:"Arena Jetonu", ru:"жетоны арены", ar:"رموز الساحة", pt:"Tokens da Arena", id:"Token Arena", th:"เหรียญอารีน่า", es:"fichas de arena" },
+  teacherOfChampions: { zh:"勇者無懼", en:"Teacher of Champions", ko:"두려움 없는 용사", de:"Lehrer der Champions", fr:"Formateur de Champions", tr:"Şampiyonların Hocası", ru:"Учитель чемпионов", ar:"معلم الأبطال", pt:"Professor dos Campeões", id:"Teacher of Champions", th:"ผู้ฝึกสอนแห่งแชมป์", es:"Maestro de campeones" },
+  winnerTakeAll: { zh:"享受勝利", en:"Winner Take All", ko:"승리 만끽", de:"Alles oder nichts", fr:"Le gagnant rafle tout", tr:"Kazanan Hepsini Alır", ru:"Победитель получает всё", ar:"الفائز ينال كل شيء", pt:"Quem Vence Leva Tudo", id:"Winner Take All", th:"ดื่มด่ำกับชัยชนะ", es:"El ganador se queda con todo" },
+  crowdFavorite: { zh:"邁向榮耀", en:"Crowd Favorite", ko:"명예를 향해", de:"Held der Massen", fr:"Favori du public", tr:"Seyircilerin Gözdesi", ru:"Любимец публики", ar:"محبوب الجماهير", pt:"Favorito do Público", id:"Crowd Favorite", th:"ขวัญใจมหาชน", es:"El favorito de la multitud" },
+  oneDesire: { zh:"萬眾矚目", en:"One Desire", ko:"만인의 주목", de:"Ein Verlangen", fr:"Unique souhait", tr:"Tek Arzu", ru:"Единственное желание", ar:"رغبة واحدة", pt:"Um Desejo", id:"One Desire", th:"ปรารถนาหนึ่งเดียว", es:"Un deseo" },
   petra: { zh:"小佩拉", en:"Petra", ko:"리틀 페라", de:"Petra", fr:"Petra", pt:"Petra", tr:"Petra", ru:"Петра", th:"เพตรา", ar:"بيترا", es:"Petra" },
   realmJourney: { zh:"荒野冒險", en:"Realm Journey", ko:"황야 모험", de:"Reichsreise", fr:"Voyage dans le royaume", pt:"Jornada do Reino", tr:"Krallık Yolculuğu", id:"Perjalanan Alam", ru:"Тропа приключений", th:"การเดินทางอาณาจักร", ar:"رحلة العالم", es:"Travesía por el reino" },
   journeySupplies: { zh:"冒險物資", en:"Journey Supplies", ko:"모험 물자", de:"Reisevorräte", fr:"Provisions de voyage", pt:"Suprimentos da Jornada", tr:"Yolculuk Malzemeleri", id:"Perbekalan Perjalanan", ru:"Припасы путешествия", th:"เสบียงการเดินทาง", ar:"إمدادات الرحلة", es:"Suministros de Travesía" },
@@ -818,11 +825,11 @@ const GUIDES = {
         { type: "list", items: [
           "{valora} is ALWAYS your first Master, discovered through normal {realmJourney}s.",
           "Do NOT spend {adventureSupply} on {valora} — the free {journeySupplies} (20 per day, refreshed at 00:00 UTC) will unlock her naturally.",
-          "SAVE your {adventureSupply} for {pan} and Roman in the {lostlands} once they are discovered.",
+          "SAVE your {adventureSupply} for {pan} and {roman} in the {lostlands} once they are discovered.",
           "A Master settles in your Town once you reach 1,000 Affinity."
         ] },
         { type: "h", text: "PRIORITY FOR F2P & LOW SPENDERS" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
         { type: "sub", text: "1. {pan} — the economy Master (top priority)" },
         { type: "list", items: [
           "Push {pan} to **Lv. 60**.",
@@ -836,17 +843,17 @@ const GUIDES = {
           "Skill 2 **{leaderByExample}**: +5 × 100 {enhancementXp} per {bearHunt}.",
           "Skill 3 **{weaponObsession}**: +5 {forgehammer}s per {bearHunt}."
         ] },
-        { type: "sub", text: "3. Roman — Arena passive" },
+        { type: "sub", text: "3. {roman} — Arena passive" },
         { type: "list", items: [
-          "Just unlock him (1,000 Affinity): his passive gives a 50% chance to drop Arena Chests ({heroShard}s & {forgehammer}s). No heavy {masterEmblem} investment needed early on."
+          "Just unlock him (1,000 Affinity): his Talent already gives a 50% chance of extra {arenaStarChest}s after each Arena match ({heroShard}s & {forgehammer}s); only at max level does it become a 100% chance of 3. No heavy {masterEmblem} investment needed early on."
         ] },
         { type: "h", text: "PRIORITY FOR WHALES & RALLY LEADERS" },
-        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
         { type: "list", items: [
           "**{valora}**: max **{savageAdvantage}** and **{danceOfTheHunt}** for huge leaderboard scores.",
           "**{danceOfTheHunt}** (Skill 1): when you launch the {ragingBear} rally, the whole rally's squad capacity +30,000 per level (Lv.10: +300,000) — more members' troops fit in.",
           "**{savageAdvantage}** (Skill 4): your own march squad capacity when taking part in {bearHunt} +3,000 per level (Lv.10: +30,000).",
-          "**Roman**: push for Arena battle stats, {arenaShop} discounts and extra token generation.",
+          "**{roman}**: {teacherOfChampions} & {oneDesire} (+20% Arena battle Attack & Health), {winnerTakeAll} (+50% daily/weekly {arenaToken} rewards), {crowdFavorite} (3 extra {arenaShop} items at 50% off).",
           "**{pan}**: level him up second for passive {truegold}."
         ] },
         { type: "callout", text: "ℹ️ Skill 1 {danceOfTheHunt} raises the capacity of the whole rally you launch. Skill 4 {savageAdvantage} only raises your own squad — the rally's total capacity still depends on what the rally leader can open." },
@@ -861,11 +868,11 @@ const GUIDES = {
         { type: "list", items: [
           "第一位大師**一定是{valora}**，透過一般的{realmJourney}就會遇到。",
           "**不要**把{adventureSupply}用在{valora}身上——每天免費的{journeySupplies}（每日 20 個，UTC 00:00 恢復）就會自然解鎖她。",
-          "把{adventureSupply}**存起來**，等發現{pan}和 Roman 後在{lostlands}使用。",
+          "把{adventureSupply}**存起來**，等發現{pan}和{roman}後在{lostlands}使用。",
           "好感度達到 1,000，大師就會進駐城鎮。"
         ] },
         { type: "h", text: "無課與小課玩家的優先順序" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
         { type: "sub", text: "1. {pan}——經濟型大師（最優先）" },
         { type: "list", items: [
           "把{pan}練到 **Lv. 60**。",
@@ -879,17 +886,17 @@ const GUIDES = {
           "技能 2 **{leaderByExample}**：每次{bearHunt}多 5 個 100 點{enhancementXp}。",
           "技能 3 **{weaponObsession}**：每次{bearHunt}多 5 個{forgehammer}。"
         ] },
-        { type: "sub", text: "3. Roman——競技場被動" },
+        { type: "sub", text: "3. {roman}——競技場被動" },
         { type: "list", items: [
-          "只要解鎖他（好感度 1,000）：被動有 50% 機率掉落競技場寶箱（{heroShard}和{forgehammer}）。前期不用大量投入{masterEmblem}。"
+          "只要解鎖他（好感度 1,000）：天賦一開始就有 50% 機率在每場競技後額外獲得{arenaStarChest}（{heroShard}和{forgehammer}），要升到最高才會變成 100% 機率拿 3 個。前期不用大量投入{masterEmblem}。"
         ] },
         { type: "h", text: "大課與集結指揮的優先順序" },
-        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
         { type: "list", items: [
           "**{valora}**：**{savageAdvantage}**和**{danceOfTheHunt}**練滿，衝排行榜高分。",
           "**{danceOfTheHunt}**（技能 1）：發動{ragingBear}集結時，整個集結的部隊容量上限每級 +30,000（10 級 +300,000），能讓更多盟友的部隊加入。",
           "**{savageAdvantage}**（技能 4）：參與{bearHunt}時，自己的出征部隊容量上限每級 +3,000（10 級 +30,000）。",
-          "**Roman**：衝競技場戰鬥屬性、{arenaShop}折扣和額外代幣產出。",
+          "**{roman}**：{teacherOfChampions}和{oneDesire}（競技場戰鬥攻擊力與生命值 +20%）、{winnerTakeAll}（每日／每週結算{arenaToken}獎勵 +50%）、{crowdFavorite}（{arenaShop}多 3 個 5 折商品）。",
           "**{pan}**：第二順位升級，拿被動{truegold}。"
         ] },
         { type: "callout", text: "ℹ️ 技能 1 {danceOfTheHunt}提升的是自己發動的整個集結容量；技能 4 {savageAdvantage}只增加自己的部隊，整體集結能裝多少還是看發動的人能開多少。" },
@@ -904,11 +911,11 @@ const GUIDES = {
         { type: "list", items: [
           "첫 번째 거장은 **항상 {valora}**이며, 일반 {realmJourney}에서 만납니다.",
           "{valora}에게 {adventureSupply}를 **쓰지 마세요** — 무료 {journeySupplies}(매일 20개, UTC 00:00 회복)로 자연스럽게 해제됩니다.",
-          "{adventureSupply}는 {pan}과 Roman을 발견한 뒤 {lostlands}에서 쓰도록 **모아 두세요**.",
+          "{adventureSupply}는 {pan}과 {roman}을 발견한 뒤 {lostlands}에서 쓰도록 **모아 두세요**.",
           "호감도 1,000에 도달하면 거장이 도시에 입주합니다."
         ] },
         { type: "h", text: "무과금·소과금 우선순위" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
         { type: "sub", text: "1. {pan} — 경제형 거장 (최우선)" },
         { type: "list", items: [
           "{pan}을 **Lv. 60**까지 올리세요.",
@@ -922,17 +929,17 @@ const GUIDES = {
           "스킬 2 **{leaderByExample}**: {bearHunt}마다 100 {enhancementXp} 부품 +5개.",
           "스킬 3 **{weaponObsession}**: {bearHunt}마다 {forgehammer} +5개."
         ] },
-        { type: "sub", text: "3. Roman — 경기장 패시브" },
+        { type: "sub", text: "3. {roman} — 경기장 패시브" },
         { type: "list", items: [
-          "해제만 하세요 (호감도 1,000): 패시브로 50% 확률로 경기장 상자({heroShard}, {forgehammer})가 드롭됩니다. 초반에 {masterEmblem}을 많이 투자할 필요는 없습니다."
+          "해제만 하세요 (호감도 1,000): 재능만으로도 매 경기 후 50% 확률로 {arenaStarChest}({heroShard}, {forgehammer})를 추가로 얻습니다. 최고 레벨이 되어야 100% 확률로 3개가 됩니다. 초반에 {masterEmblem}을 많이 투자할 필요는 없습니다."
         ] },
         { type: "h", text: "고과금·집결장 우선순위" },
-        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
         { type: "list", items: [
           "**{valora}**: **{savageAdvantage}**과 **{danceOfTheHunt}**을 최대로 올려 랭킹 점수를 크게 올리세요.",
           "**{danceOfTheHunt}** (스킬 1): {ragingBear} 집결을 발동하면 집결 전체의 부대 수용량이 레벨당 +30,000 (Lv.10: +300,000) — 더 많은 연맹원의 부대가 들어갈 수 있습니다.",
           "**{savageAdvantage}** (스킬 4): {bearHunt} 참여 시 자신의 출정 부대 수용량 레벨당 +3,000 (Lv.10: +30,000).",
-          "**Roman**: 경기장 전투 속성, {arenaShop} 할인, 추가 토큰 획득 위주로.",
+          "**{roman}**: {teacherOfChampions}·{oneDesire}(경기장 전투 공격력·HP +20%), {winnerTakeAll}(일일/주간 {arenaToken} 보상 +50%), {crowdFavorite}({arenaShop}에 50% 할인 상품 3개 추가).",
           "**{pan}**: 두 번째로 올려서 패시브 {truegold}를 챙기세요."
         ] },
         { type: "callout", text: "ℹ️ 스킬 1 {danceOfTheHunt}은 자신이 발동한 집결 전체의 수용량을 올립니다. 스킬 4 {savageAdvantage}은 자신의 부대만 늘리며, 집결 전체 수용량은 집결을 발동한 사람에 따라 정해집니다." },
@@ -947,11 +954,11 @@ const GUIDES = {
         { type: "list", items: [
           "{valora} ist IMMER dein erster Meister und wird über die normale {realmJourney} entdeckt.",
           "Verwende KEINEN {adventureSupply} für {valora} — die kostenlosen {journeySupplies} (20 pro Tag, Reset um 00:00 UTC) schalten sie von selbst frei.",
-          "SPARE deinen {adventureSupply} für {pan} und Roman in den {lostlands}, sobald sie entdeckt sind.",
+          "SPARE deinen {adventureSupply} für {pan} und {roman} in den {lostlands}, sobald sie entdeckt sind.",
           "Ab 1.000 Affinität lässt sich ein Meister in deiner Stadt nieder."
         ] },
         { type: "h", text: "PRIORITÄT FÜR F2P & WENIGZAHLER" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
         { type: "sub", text: "1. {pan} — der Wirtschafts-Meister (höchste Priorität)" },
         { type: "list", items: [
           "Bring {pan} auf **Lv. 60**.",
@@ -965,17 +972,17 @@ const GUIDES = {
           "Fertigkeit 2 **{leaderByExample}**: +5 × 100 {enhancementXp} pro {bearHunt}.",
           "Fertigkeit 3 **{weaponObsession}**: +5 {forgehammer} pro {bearHunt}."
         ] },
-        { type: "sub", text: "3. Roman — Arena-Passiv" },
+        { type: "sub", text: "3. {roman} — Arena-Passiv" },
         { type: "list", items: [
-          "Nur freischalten (1.000 Affinität): Sein Passiv hat eine 50%-Chance, Arena-Truhen ({heroShard}e & {forgehammer}) fallen zu lassen. Früh ist keine große {masterEmblem}-Investition nötig."
+          "Nur freischalten (1.000 Affinität): Sein Talent gibt schon mit 50 % Chance zusätzliche {arenaStarChest}n nach jedem Arenakampf ({heroShard}e & {forgehammer}); erst auf Maximalstufe sind es 3 Stück mit 100 % Chance. Früh ist keine große {masterEmblem}-Investition nötig."
         ] },
         { type: "h", text: "PRIORITÄT FÜR WALE & RALLY-ANFÜHRER" },
-        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
         { type: "list", items: [
           "**{valora}**: **{savageAdvantage}** und **{danceOfTheHunt}** maximieren — für hohe Ranglistenpunkte.",
           "**{danceOfTheHunt}** (Fertigkeit 1): Wenn du den Rally gegen den {ragingBear} startest, steigt die Kapazität des gesamten Rallys um +30.000 pro Stufe (Stufe 10: +300.000) — mehr Truppen deiner Mitglieder passen hinein.",
           "**{savageAdvantage}** (Fertigkeit 4): Kapazität deiner eigenen Schwadron bei Teilnahme an der {bearHunt} +3.000 pro Stufe (Stufe 10: +30.000).",
-          "**Roman**: auf Arena-Kampfwerte, Rabatte in der {arenaShop} und zusätzliche Token setzen.",
+          "**{roman}**: {teacherOfChampions} & {oneDesire} (+20 % Angriff & Gesundheit in Arenaschlachten), {winnerTakeAll} (+50 % tägliche/wöchentliche {arenaToken}-Belohnungen), {crowdFavorite} (3 zusätzliche Gegenstände in der {arenaShop} mit 50 % Rabatt).",
           "**{pan}**: als Zweites leveln für passives {truegold}."
         ] },
         { type: "callout", text: "ℹ️ Fertigkeit 1 {danceOfTheHunt} erhöht die Kapazität des gesamten Rallys, den du startest. Fertigkeit 4 {savageAdvantage} erhöht nur deine eigene Schwadron — wie viel der Rally insgesamt fasst, hängt vom Rally-Leiter ab." },
@@ -990,11 +997,11 @@ const GUIDES = {
         { type: "list", items: [
           "{valora} est TOUJOURS votre premier expert, découvert via le {realmJourney} normal.",
           "Ne dépensez PAS de {adventureSupply} pour {valora} — les {journeySupplies} gratuites (20 par jour, réinitialisées à 00:00 UTC) la débloquent naturellement.",
-          "GARDEZ vos {adventureSupply} pour {pan} et Roman dans les {lostlands} une fois découverts.",
+          "GARDEZ vos {adventureSupply} pour {pan} et {roman} dans les {lostlands} une fois découverts.",
           "Un expert s'installe dans votre village à 1 000 d'affinité."
         ] },
         { type: "h", text: "PRIORITÉ POUR LES F2P & PETITS PAYEURS" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
         { type: "sub", text: "1. {pan} — l'expert économie (priorité absolue)" },
         { type: "list", items: [
           "Montez {pan} au **niv. 60**.",
@@ -1008,17 +1015,17 @@ const GUIDES = {
           "Compétence 2 **{leaderByExample}** : +5 × 100 {enhancementXp} par {bearHunt}.",
           "Compétence 3 **{weaponObsession}** : +5 {forgehammer}s par {bearHunt}."
         ] },
-        { type: "sub", text: "3. Roman — passif d'Arène" },
+        { type: "sub", text: "3. {roman} — passif d'Arène" },
         { type: "list", items: [
-          "Débloquez-le simplement (1 000 d'affinité) : son passif a 50 % de chances de faire tomber des coffres d'Arène ({heroShard}s & {forgehammer}s). Pas besoin d'investir beaucoup d'{masterEmblem} au début."
+          "Débloquez-le simplement (1 000 d'affinité) : son talent donne déjà 50 % de chances d'obtenir des {arenaStarChest} en plus après chaque combat d'Arène ({heroShard}s & {forgehammer}s) ; ce n'est qu'au niveau max que cela devient 100 % pour 3 coffres. Pas besoin d'investir beaucoup d'{masterEmblem} au début."
         ] },
         { type: "h", text: "PRIORITÉ POUR LES GROS PAYEURS & LEADERS DE RALLIEMENT" },
-        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
         { type: "list", items: [
           "**{valora}** : maximisez **{savageAdvantage}** et **{danceOfTheHunt}** pour de gros scores au classement.",
           "**{danceOfTheHunt}** (compétence 1) : quand vous lancez le ralliement contre l'{ragingBear}, la capacité de tout le ralliement augmente de +30 000 par niveau (niv. 10 : +300 000) — plus de troupes de vos membres peuvent y entrer.",
           "**{savageAdvantage}** (compétence 4) : capacité de votre propre escouade en participant à la {bearHunt} +3 000 par niveau (niv. 10 : +30 000).",
-          "**Roman** : visez les stats de combat d'Arène, les réductions du {arenaShop} et la génération de jetons en plus.",
+          "**{roman}** : {teacherOfChampions} et {oneDesire} (+20 % d'attaque et de PV en combat d'Arène), {winnerTakeAll} (+50 % de {arenaToken} quotidiens/hebdomadaires), {crowdFavorite} (3 articles en plus à -50 % dans l'{arenaShop}).",
           "**{pan}** : à monter en second pour l'{truegold} passif."
         ] },
         { type: "callout", text: "ℹ️ La compétence 1 {danceOfTheHunt} augmente la capacité de tout le ralliement que vous lancez. La compétence 4 {savageAdvantage} n'augmente que votre propre escouade — la capacité totale du ralliement dépend de celui qui le lance." },
@@ -1033,11 +1040,11 @@ const GUIDES = {
         { type: "list", items: [
           "{valora} é SEMPRE o seu primeiro Mestre, encontrada na {realmJourney} normal.",
           "NÃO gaste {adventureSupply} com {valora} — os {journeySupplies} grátis (20 por dia, renovados às 00:00 UTC) a desbloqueiam naturalmente.",
-          "GUARDE seus {adventureSupply} para {pan} e Roman nas {lostlands} depois de descobri-los.",
+          "GUARDE seus {adventureSupply} para {pan} e {roman} nas {lostlands} depois de descobri-los.",
           "Um Mestre se estabelece na sua cidade com 1.000 de Afinidade."
         ] },
         { type: "h", text: "PRIORIDADE PARA F2P & QUEM GASTA POUCO" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
         { type: "sub", text: "1. {pan} — o Mestre da economia (prioridade máxima)" },
         { type: "list", items: [
           "Leve {pan} ao **Nv. 60**.",
@@ -1051,17 +1058,17 @@ const GUIDES = {
           "Habilidade 2 **{leaderByExample}**: +5 × 100 {enhancementXp} por {bearHunt}.",
           "Habilidade 3 **{weaponObsession}**: +5 {forgehammer}s por {bearHunt}."
         ] },
-        { type: "sub", text: "3. Roman — passiva da Arena" },
+        { type: "sub", text: "3. {roman} — passiva da Arena" },
         { type: "list", items: [
-          "Só desbloqueie (1.000 de Afinidade): a passiva dele tem 50% de chance de dropar Baús da Arena ({heroShard}s e {forgehammer}s). Não precisa investir muito em {masterEmblem} no começo."
+          "Só desbloqueie (1.000 de Afinidade): o talento dele já dá 50% de chance de {arenaStarChest} extras após cada partida da Arena ({heroShard}s e {forgehammer}s); só no nível máximo vira 100% de chance de ganhar 3. Não precisa investir muito em {masterEmblem} no começo."
         ] },
         { type: "h", text: "PRIORIDADE PARA BALEIAS & LÍDERES DE RALLY" },
-        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
         { type: "list", items: [
           "**{valora}**: maximize **{savageAdvantage}** e **{danceOfTheHunt}** para grandes pontuações no ranking.",
           "**{danceOfTheHunt}** (habilidade 1): ao iniciar o rally contra o {ragingBear}, a capacidade de todo o rally aumenta +30.000 por nível (Nv. 10: +300.000) — cabem mais tropas dos membros.",
           "**{savageAdvantage}** (habilidade 4): capacidade do seu próprio esquadrão ao participar da {bearHunt} +3.000 por nível (Nv. 10: +30.000).",
-          "**Roman**: foque em atributos de batalha da Arena, descontos na {arenaShop} e geração extra de fichas.",
+          "**{roman}**: {teacherOfChampions} e {oneDesire} (+20% de Ataque e Vida nas batalhas da Arena), {winnerTakeAll} (+50% de {arenaToken} diários/semanais), {crowdFavorite} (3 itens extras na {arenaShop} com 50% de desconto).",
           "**{pan}**: suba em segundo para {truegold} passivo."
         ] },
         { type: "callout", text: "ℹ️ A habilidade 1 {danceOfTheHunt} aumenta a capacidade de todo o rally que você inicia. A habilidade 4 {savageAdvantage} só aumenta o seu próprio esquadrão — a capacidade total do rally depende de quem o inicia." },
@@ -1076,11 +1083,11 @@ const GUIDES = {
         { type: "list", items: [
           "İlk Ustan HER ZAMAN {valora}'dır; normal {realmJourney} ile bulunur.",
           "{valora} için {adventureSupply} HARCAMA — ücretsiz {journeySupplies} (günde 20, UTC 00:00'da yenilenir) onu kendiliğinden açar.",
-          "{adventureSupply}'ni {pan} ve Roman keşfedildiğinde {lostlands}'da kullanmak için SAKLA.",
+          "{adventureSupply}'ni {pan} ve {roman} keşfedildiğinde {lostlands}'da kullanmak için SAKLA.",
           "1.000 Yakınlığa ulaşınca Usta şehrine yerleşir."
         ] },
         { type: "h", text: "F2P VE AZ HARCAYANLAR İÇİN ÖNCELİK" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
         { type: "sub", text: "1. {pan} — ekonomi Ustası (en yüksek öncelik)" },
         { type: "list", items: [
           "{pan}'ı **Sv. 60**'a çıkar.",
@@ -1094,17 +1101,17 @@ const GUIDES = {
           "Yetenek 2 **{leaderByExample}**: her {bearHunt} için +5 × 100 {enhancementXp}.",
           "Yetenek 3 **{weaponObsession}**: her {bearHunt} için +5 {forgehammer}."
         ] },
-        { type: "sub", text: "3. Roman — Arena pasifi" },
+        { type: "sub", text: "3. {roman} — Arena pasifi" },
         { type: "list", items: [
-          "Sadece aç (1.000 Yakınlık): pasifi %50 ihtimalle Arena Sandığı ({heroShard} ve {forgehammer}) düşürür. Başta çok fazla {masterEmblem} yatırımı gerekmez."
+          "Sadece aç (1.000 Yakınlık): yeteneği zaten her Arena maçından sonra %50 ihtimalle ekstra {arenaStarChest} ({heroShard} ve {forgehammer}) verir; ancak maks. seviyede %100 ihtimalle 3 adet olur. Başta çok fazla {masterEmblem} yatırımı gerekmez."
         ] },
         { type: "h", text: "BALİNALAR VE SEFERBERLİK LİDERLERİ İÇİN ÖNCELİK" },
-        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
         { type: "list", items: [
           "**{valora}**: **{savageAdvantage}** ve **{danceOfTheHunt}** yeteneklerini maksimuma çıkar, sıralamada yüksek puan al.",
           "**{danceOfTheHunt}** (Yetenek 1): {ragingBear} seferberliğini başlattığında tüm seferberliğin kapasitesi seviye başına +30.000 artar (Sv. 10: +300.000) — daha fazla üyenin askeri katılabilir.",
           "**{savageAdvantage}** (Yetenek 4): {bearHunt}'na katılırken kendi ekibinin kapasitesi seviye başına +3.000 (Sv. 10: +30.000).",
-          "**Roman**: Arena savaş nitelikleri, {arenaShop} indirimleri ve ekstra jeton üretimine odaklan.",
+          "**{roman}**: {teacherOfChampions} ve {oneDesire} (Arena savaşlarında Saldırı ve Can +%20), {winnerTakeAll} (günlük/haftalık {arenaToken} ödülleri +%50), {crowdFavorite} ({arenaShop}'da %50 indirimli 3 ekstra ürün).",
           "**{pan}**: pasif {truegold} için ikinci sırada yükselt."
         ] },
         { type: "callout", text: "ℹ️ Yetenek 1 {danceOfTheHunt}, başlattığın seferberliğin toplam kapasitesini artırır. Yetenek 4 {savageAdvantage} sadece kendi ekibini artırır — seferberliğin toplam kapasitesi başlatan kişiye bağlıdır." },
@@ -1119,11 +1126,11 @@ const GUIDES = {
         { type: "list", items: [
           "{valora} SELALU menjadi Master pertamamu, ditemukan lewat {realmJourney} biasa.",
           "JANGAN pakai {adventureSupply} untuk {valora} — {journeySupplies} gratis (20 per hari, diperbarui 00:00 UTC) akan membukanya dengan sendirinya.",
-          "SIMPAN {adventureSupply} untuk {pan} dan Roman di {lostlands} setelah mereka ditemukan.",
+          "SIMPAN {adventureSupply} untuk {pan} dan {roman} di {lostlands} setelah mereka ditemukan.",
           "Master akan menetap di Kota setelah mencapai 1.000 Kedekatan."
         ] },
         { type: "h", text: "PRIORITAS F2P & LOW SPENDER" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
         { type: "sub", text: "1. {pan} — Master ekonomi (prioritas utama)" },
         { type: "list", items: [
           "Naikkan {pan} ke **Lv. 60**.",
@@ -1137,17 +1144,17 @@ const GUIDES = {
           "Skill 2 **{leaderByExample}**: +5 × 100 {enhancementXp} per {bearHunt}.",
           "Skill 3 **{weaponObsession}**: +5 {forgehammer} per {bearHunt}."
         ] },
-        { type: "sub", text: "3. Roman — pasif Arena" },
+        { type: "sub", text: "3. {roman} — pasif Arena" },
         { type: "list", items: [
-          "Cukup buka (1.000 Kedekatan): pasifnya punya peluang 50% menjatuhkan Peti Arena ({heroShard} & {forgehammer}). Tidak perlu investasi {masterEmblem} besar di awal."
+          "Cukup buka (1.000 Kedekatan): talentanya sudah memberi peluang 50% dapat {arenaStarChest} tambahan setelah tiap pertandingan Arena ({heroShard} & {forgehammer}); baru di level maks menjadi peluang 100% dapat 3. Tidak perlu investasi {masterEmblem} besar di awal."
         ] },
         { type: "h", text: "PRIORITAS WHALE & PEMIMPIN RELI" },
-        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
         { type: "list", items: [
           "**{valora}**: maksimalkan **{savageAdvantage}** dan **{danceOfTheHunt}** untuk skor leaderboard besar.",
           "**{danceOfTheHunt}** (Skill 1): saat kamu memulai reli {ragingBear}, kapasitas seluruh reli +30.000 per level (Lv.10: +300.000) — lebih banyak pasukan anggota bisa masuk.",
           "**{savageAdvantage}** (Skill 4): kapasitas skuadmu sendiri saat ikut {bearHunt} +3.000 per level (Lv.10: +30.000).",
-          "**Roman**: fokus ke stat tempur Arena, diskon {arenaShop}, dan token tambahan.",
+          "**{roman}**: {teacherOfChampions} & {oneDesire} (+20% Serangan & HP di pertempuran Arena), {winnerTakeAll} (+50% hadiah {arenaToken} harian/mingguan), {crowdFavorite} (3 item ekstra di {arenaShop} dengan diskon 50%).",
           "**{pan}**: naikkan di urutan kedua untuk {truegold} pasif."
         ] },
         { type: "callout", text: "ℹ️ Skill 1 {danceOfTheHunt} menaikkan kapasitas seluruh reli yang kamu mulai. Skill 4 {savageAdvantage} hanya menambah skuadmu sendiri — kapasitas total reli tetap tergantung pada pemimpin reli." },
@@ -1166,7 +1173,7 @@ const GUIDES = {
           "При 1000 очк. сближения мастер поселится в городе."
         ] },
         { type: "h", text: "ПРИОРИТЕТ ДЛЯ F2P И МАЛОДОНАТНЫХ" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
         { type: "sub", text: "1. {pan} — мастер экономики (главный приоритет)" },
         { type: "list", items: [
           "Прокачайте {pan} до **ур. 60**.",
@@ -1180,17 +1187,17 @@ const GUIDES = {
           "Навык 2 **{leaderByExample}**: +5 × 100 ({enhancementXp}) за каждую «{bearHunt}».",
           "Навык 3 **{weaponObsession}**: +5 ({forgehammer}) за каждую «{bearHunt}»."
         ] },
-        { type: "sub", text: "3. Roman — пассивка арены" },
+        { type: "sub", text: "3. {roman} — пассивка арены" },
         { type: "list", items: [
-          "Просто откройте его (1000 очк. сближения): пассивка с шансом 50% даёт сундуки арены ({heroShard}, {forgehammer}). В начале не нужно много вкладывать в {masterEmblem}."
+          "Просто откройте его (1000 очк. сближения): его талант уже даёт 50% шанс получить дополнительные «{arenaStarChest}» после каждого боя на арене ({heroShard}, {forgehammer}); только на макс. уровне это 3 шт. со 100% шансом. В начале не нужно много вкладывать в {masterEmblem}."
         ] },
         { type: "h", text: "ПРИОРИТЕТ ДЛЯ КИТОВ И ЛИДЕРОВ РЕЙДОВ" },
-        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
         { type: "list", items: [
           "**{valora}**: максимально прокачайте **{savageAdvantage}** и **{danceOfTheHunt}** ради высоких мест в рейтинге.",
           "**{danceOfTheHunt}** (навык 1): когда вы запускаете рейд против {ragingBear}, вместимость всего рейда растёт на +30 000 за уровень (ур. 10: +300 000) — в рейд помещается больше войск союзников.",
           "**{savageAdvantage}** (навык 4): вместимость вашего собственного отряда при участии в «{bearHunt}» +3 000 за уровень (ур. 10: +30 000).",
-          "**Roman**: боевые показатели арены, скидки ({arenaShop}) и дополнительные жетоны.",
+          "**{roman}**: {teacherOfChampions} и {oneDesire} (+20% к атаке и здоровью в боях арены), {winnerTakeAll} (+50% к ежедневным/еженедельным наградам «{arenaToken}»), {crowdFavorite} (3 доп. товара в «{arenaShop}» со скидкой 50%).",
           "**{pan}**: качайте вторым ради пассивного {truegold}."
         ] },
         { type: "callout", text: "ℹ️ Навык 1 {danceOfTheHunt} увеличивает вместимость всего рейда, который вы запускаете. Навык 4 {savageAdvantage} увеличивает только ваш отряд — общая вместимость рейда зависит от того, кто его запустил." },
@@ -1205,11 +1212,11 @@ const GUIDES = {
         { type: "list", items: [
           "มาสเตอร์คนแรก**เป็น{valora}เสมอ** เจอได้จาก{realmJourney}ปกติ",
           "**อย่า**ใช้{adventureSupply}กับ{valora} — {journeySupplies}ฟรี (วันละ 20 รีเฟรช 00:00 UTC) จะปลดล็อกเธอเอง",
-          "**เก็บ**{adventureSupply}ไว้ใช้กับ{pan}และ Roman ใน{lostlands}เมื่อค้นพบแล้ว",
+          "**เก็บ**{adventureSupply}ไว้ใช้กับ{pan}และ{roman}ใน{lostlands}เมื่อค้นพบแล้ว",
           "เมื่อค่าความสัมพันธ์ถึง 1,000 มาสเตอร์จะตั้งถิ่นฐานในเมือง"
         ] },
         { type: "h", text: "ลำดับสำหรับสายฟรีและสายเติมน้อย" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
         { type: "sub", text: "1. {pan} — มาสเตอร์สายเศรษฐกิจ (สำคัญที่สุด)" },
         { type: "list", items: [
           "อัป{pan}ถึง **เลเวล 60**",
@@ -1223,17 +1230,17 @@ const GUIDES = {
           "ทักษะ 2 **{leaderByExample}**: {enhancementXp} x100 เพิ่ม 5 ต่อ{bearHunt}",
           "ทักษะ 3 **{weaponObsession}**: {forgehammer}เพิ่ม 5 ต่อ{bearHunt}"
         ] },
-        { type: "sub", text: "3. Roman — พาสซีฟอารีน่า" },
+        { type: "sub", text: "3. {roman} — พาสซีฟอารีน่า" },
         { type: "list", items: [
-          "แค่ปลดล็อก (ค่าความสัมพันธ์ 1,000): พาสซีฟมีโอกาส 50% ดรอปหีบอารีน่า ({heroShard} และ{forgehammer}) ช่วงแรกไม่ต้องลง{masterEmblem}เยอะ"
+          "แค่ปลดล็อก (ค่าความสัมพันธ์ 1,000): พรสวรรค์ของเขามีโอกาส 50% ได้{arenaStarChest}เพิ่มหลังแข่งอารีน่าทุกครั้งอยู่แล้ว ({heroShard} และ{forgehammer}) ต้องอัปถึงเลเวลสูงสุดจึงจะได้ 3 หีบ 100% ช่วงแรกไม่ต้องลง{masterEmblem}เยอะ"
         ] },
         { type: "h", text: "ลำดับสำหรับสายเติมหนักและผู้นำทีมระดมพล" },
-        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
         { type: "list", items: [
           "**{valora}**: อัป **{savageAdvantage}** และ **{danceOfTheHunt}** ให้เต็ม เพื่อคะแนนอันดับสูง",
           "**{danceOfTheHunt}** (ทักษะ 1): เมื่อเปิดระดมพล{ragingBear} ความจุของทั้งระดมพล +30,000 ต่อเลเวล (Lv.10: +300,000) ทำให้ทหารของสมาชิกเข้าร่วมได้มากขึ้น",
           "**{savageAdvantage}** (ทักษะ 4): ความจุทีมของตัวเองเมื่อเข้าร่วม{bearHunt} +3,000 ต่อเลเวล (Lv.10: +30,000)",
-          "**Roman**: เน้นค่าสถานะการต่อสู้อารีน่า ส่วนลด{arenaShop} และโทเค็นเพิ่ม",
+          "**{roman}**: {teacherOfChampions} และ {oneDesire} (พลังโจมตีและพลังชีวิตในการต่อสู้อารีน่า +20%), {winnerTakeAll} (รางวัล{arenaToken}รายวัน/รายสัปดาห์ +50%), {crowdFavorite} (สินค้าเพิ่ม 3 ชิ้นใน{arenaShop} ลด 50%)",
           "**{pan}**: อัปเป็นอันดับสองเพื่อ{truegold}แบบพาสซีฟ"
         ] },
         { type: "callout", text: "ℹ️ ทักษะ 1 {danceOfTheHunt} เพิ่มความจุของทั้งระดมพลที่คุณเปิด ส่วนทักษะ 4 {savageAdvantage} เพิ่มแค่ทีมของตัวเอง ความจุรวมของระดมพลยังขึ้นกับคนที่เปิดระดมพล" },
@@ -1248,11 +1255,11 @@ const GUIDES = {
         { type: "list", items: [
           "أول متخصص هو **دائمًا {valora}**، وتجدها عبر {realmJourney} العادية.",
           "**لا** تنفق {adventureSupply} على {valora} — {journeySupplies} المجانية (20 يوميًا، تتجدد 00:00 UTC) ستفتحها تلقائيًا.",
-          "**ادّخر** {adventureSupply} لـ{pan} و Roman في {lostlands} بعد اكتشافهما.",
+          "**ادّخر** {adventureSupply} لـ{pan} و{roman} في {lostlands} بعد اكتشافهما.",
           "عند الوصول إلى 1000 تقارب، سيستقر المتخصص في البلدة."
         ] },
         { type: "h", text: "الأولوية للاعبين المجانيين وقليلي الإنفاق" },
-        { type: "callout", text: "**{pan} ← {valora} ← Roman**" },
+        { type: "callout", text: "**{pan} ← {valora} ← {roman}**" },
         { type: "sub", text: "1. {pan} — متخصص الاقتصاد (الأولوية القصوى)" },
         { type: "list", items: [
           "ارفع {pan} إلى **المستوى 60**.",
@@ -1266,17 +1273,17 @@ const GUIDES = {
           "المهارة 2 **{leaderByExample}**: +5 × 100 من {enhancementXp} لكل {bearHunt}.",
           "المهارة 3 **{weaponObsession}**: +5 من {forgehammer} لكل {bearHunt}."
         ] },
-        { type: "sub", text: "3. Roman — مهارة الساحة السلبية" },
+        { type: "sub", text: "3. {roman} — مهارة الساحة السلبية" },
         { type: "list", items: [
-          "افتحه فقط (1000 تقارب): مهارته السلبية تمنح فرصة 50% لإسقاط صناديق الساحة ({heroShard} و{forgehammer}). لا حاجة لاستثمار كبير في {masterEmblem} في البداية."
+          "افتحه فقط (1000 تقارب): موهبته تمنح منذ البداية فرصة 50% للحصول على {arenaStarChest} إضافية بعد كل مباراة في الساحة ({heroShard} و{forgehammer})، ولا تصبح فرصة 100% للحصول على 3 إلا في المستوى الأقصى. لا حاجة لاستثمار كبير في {masterEmblem} في البداية."
         ] },
         { type: "h", text: "الأولوية لكبار المنفقين وقادة الحشد" },
-        { type: "callout", text: "**{valora} ← Roman ← {pan}**" },
+        { type: "callout", text: "**{valora} ← {roman} ← {pan}**" },
         { type: "list", items: [
           "**{valora}**: ارفع **{savageAdvantage}** و**{danceOfTheHunt}** للحد الأقصى لتحقيق نقاط عالية في التصنيف.",
           "**{danceOfTheHunt}** (المهارة 1): عند إطلاق حشد {ragingBear} تزيد سعة الحشد بالكامل +30,000 لكل مستوى (المستوى 10: +300,000)، فتتسع لقوات أكثر من الأعضاء.",
           "**{savageAdvantage}** (المهارة 4): سعة فرقتك الخاصة عند المشاركة في {bearHunt} +3,000 لكل مستوى (المستوى 10: +30,000).",
-          "**Roman**: ركّز على سمات قتال الساحة وخصومات {arenaShop} وتوليد رموز إضافية.",
+          "**{roman}**: {teacherOfChampions} و{oneDesire} (+20% للهجوم والصحة في معارك الساحة)، {winnerTakeAll} (+50% لمكافآت {arenaToken} اليومية/الأسبوعية)، {crowdFavorite} (3 عناصر إضافية في {arenaShop} بخصم 50%).",
           "**{pan}**: ارفعه ثانيًا للحصول على {truegold} سلبيًا."
         ] },
         { type: "callout", text: "ℹ️ المهارة 1 {danceOfTheHunt} تزيد سعة الحشد بالكامل الذي تطلقه. المهارة 4 {savageAdvantage} تزيد فرقتك فقط، أما السعة الإجمالية للحشد فتعتمد على من أطلقه." },
@@ -1291,11 +1298,11 @@ const GUIDES = {
         { type: "list", items: [
           "{valora} es SIEMPRE tu primer maestro; aparece en la {realmJourney} normal.",
           "NO gastes {adventureSupply} en {valora}: los {journeySupplies} gratis (20 al día, se renuevan a las 00:00 UTC) la desbloquean de forma natural.",
-          "GUARDA tus {adventureSupply} para {pan} y Roman en las {lostlands} cuando los descubras.",
+          "GUARDA tus {adventureSupply} para {pan} y {roman} en las {lostlands} cuando los descubras.",
           "Con 1000 de Afinidad, el maestro se establece en tu colonia."
         ] },
         { type: "h", text: "PRIORIDAD PARA F2P Y QUIEN GASTA POCO" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ Roman**" },
+        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
         { type: "sub", text: "1. {pan} — el maestro de la economía (máxima prioridad)" },
         { type: "list", items: [
           "Sube a {pan} al **Nv. 60**.",
@@ -1309,17 +1316,17 @@ const GUIDES = {
           "Habilidad 2 **{leaderByExample}**: +5 × 100 {enhancementXp} por {bearHunt}.",
           "Habilidad 3 **{weaponObsession}**: +5 {forgehammer}s por {bearHunt}."
         ] },
-        { type: "sub", text: "3. Roman — pasiva de Arena" },
+        { type: "sub", text: "3. {roman} — pasiva de Arena" },
         { type: "list", items: [
-          "Solo desbloquéalo (1000 de Afinidad): su pasiva tiene un 50% de probabilidad de soltar cofres de Arena ({heroShard}s y {forgehammer}s). Al principio no hace falta invertir mucho en {masterEmblem}."
+          "Solo desbloquéalo (1000 de Afinidad): su talento ya da un 50% de probabilidad de {arenaStarChest} extra después de cada combate de Arena ({heroShard}s y {forgehammer}s); solo al nivel máximo pasa a 100% de probabilidad de conseguir 3. Al principio no hace falta invertir mucho en {masterEmblem}."
         ] },
         { type: "h", text: "PRIORIDAD PARA BALLENAS Y LÍDERES DE ATAQUE CONJUNTO" },
-        { type: "callout", text: "**{valora} ➔ Roman ➔ {pan}**" },
+        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
         { type: "list", items: [
           "**{valora}**: maximiza **{savageAdvantage}** y **{danceOfTheHunt}** para grandes puntuaciones en la clasificación.",
           "**{danceOfTheHunt}** (habilidad 1): al iniciar el ataque conjunto contra el {ragingBear}, la capacidad de todo el ataque aumenta +30.000 por nivel (Nv. 10: +300.000) — caben más tropas de los miembros.",
           "**{savageAdvantage}** (habilidad 4): capacidad de tu propio escuadrón al participar en la {bearHunt} +3.000 por nivel (Nv. 10: +30.000).",
-          "**Roman**: prioriza atributos de combate de Arena, descuentos de la {arenaShop} y fichas extra.",
+          "**{roman}**: {teacherOfChampions} y {oneDesire} (+20% de Ataque y Salud en combates de Arena), {winnerTakeAll} (+50% en recompensas diarias/semanales de {arenaToken}), {crowdFavorite} (3 artículos extra en la {arenaShop} con 50% de descuento).",
           "**{pan}**: súbelo en segundo lugar para {truegold} pasiva."
         ] },
         { type: "callout", text: "ℹ️ La habilidad 1 {danceOfTheHunt} aumenta la capacidad de todo el ataque conjunto que inicias. La habilidad 4 {savageAdvantage} solo aumenta tu propio escuadrón; la capacidad total del ataque depende de quien lo inicia." },
