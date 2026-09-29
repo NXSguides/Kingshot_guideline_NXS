@@ -490,7 +490,7 @@ function renderAnnTicker() {
     item.onclick = (e) => { e.stopPropagation(); goToAnnouncements(i); };
     track.appendChild(item);
   });
-  track.style.animationDuration = `${Math.max(20, Math.round(totalLen * 0.2))}s`;
+  track.style.animationDuration = `${Math.max(20, Math.round(totalLen * 0.3))}s`;
 }
 
 function goToAnnouncements(i) {
