@@ -4,13 +4,6 @@ lang: en   # en / zh / ko / de / fr / pt / tr / id / ru / th / ar / es
 title: REMINDER
 images: []
 content: |
-  • New {bearHunt} rules are now in effect.
-    Joiners: Please save your formations now and make sure they do not exceed 80,000 troops.
-    Leaders: Only the rally you are leading may use your maximum troop capacity. When joining another player’s rally, you must also limit your formation to 80,000 troops.
-  Please update your formations ahead of time so there are no mistakes during {bearHunt}.
-
-  [[link:bear-hunt]]
-
   • NAP 6 is in full effect. Do not attack top 6 alliances or their farms & academies.
 
   [[link:all-out]]
@@ -82,4 +75,18 @@ content: |
 
   **Choose wisely and maximize every attempt!**
 ---
+author: Nia
+lang: en   # en / zh / ko / de / fr / pt / tr / id / ru / th / ar / es
+title: ❗Reminder - Bear Trap Troop Limits & Staggering Marches
+images: []
+content: |
+  🔹 All joiners must send exactly 90,000 troops to rallies. Pre-save your marches.
+  🔹 Leaders initiate your rally with maximum troops but when you join other rallies you must also follow the troop limit.
 
+  🔹 At the start: Main Rally Leaders send their first rally at their assigned staggered time.
+  🔹 At 6:30 remaining: All joiners start their own rally using their 3 strongest heroes.
+
+  🔪 Incorrect heroes & wrong troop numbers - kick and ask to rejoin
+
+  [[link:bear-hunt]]
+---
