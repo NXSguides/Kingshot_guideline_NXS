@@ -195,6 +195,10 @@ const BLOCKS = {
     return "";
   },
 
+  /* Highlighted summary box: a bold title and a bullet list, with an accent border so it stands out */
+  box: (b) => `<div class="callout flat" style="border:2px solid var(--accent);border-radius:12px">
+    ${b.title ? `<div style="font-weight:800;font-size:1.05em;margin-bottom:.4em">${rich(b.title)}</div>` : ""}${ul(b.items || [])}</div>`,
+
   /* Numbered steps, each with an optional screenshot (screenshots of any shape are shown at a similar size) */
   steps: (b) => `<ol class="shot-steps" style="padding-inline-start:1.4em;margin:0 0 1em">${(b.items || []).map((it) => `
     <li style="margin:0 0 1.2em">${rich(it.text)}${it.img ? `
