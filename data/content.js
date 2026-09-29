@@ -3464,7 +3464,7 @@ const GUIDES = {
           "Remember: In the final 5–7 minutes, everyone should launch a rally. This creates more spots for players whose troops are returning, allowing for a final damage push."
         ]},
         { type: "h", text: "RALLY LEADERS" },
-        { type: "callout", text: "⚠️ **New rule:** your maximum troop capacity may only be used in the rally you are leading. When you join someone else's rally, you must also limit your formation to **80,000 troops**." },
+        { type: "callout", text: "⚠️ **Rule:** start your own rally with maximum troops, but when you join other rallies you must also follow the limit of exactly **90,000 troops**. At the start, main rally leaders send their first rally at their **assigned staggered time**." },
         { type: "leaders",
           gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
           notes: [
@@ -3493,7 +3493,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "RALLY JOINERS" },
-        { type: "callout", text: "⚠️ **New rule:** save your joining formations now and make sure they do **not exceed 80,000 troops**. Update them ahead of time so there are no mistakes during Bear Hunt." },
+        { type: "callout", text: "⚠️ **Rule:** all joiners must send exactly **90,000 troops** to rallies — pre-save your marches. At **6:30 remaining**, all joiners start their own rally using their **3 strongest heroes**. 🔪 Wrong heroes or wrong troop numbers will be kicked and asked to rejoin." },
         { type: "p", text: "Standard / Safe Ratio: 10% Infantry, 10% Cavalry, and 80% Archers (or a variation like 20-30-50)" },
         { type: "joiners" }
       ]},
@@ -3512,7 +3512,7 @@ const GUIDES = {
           "切記：在最後 5–7 分鐘，所有人都應發起集結。這樣能讓部隊返回的玩家有更多集結位可加入，進行最後的傷害衝刺。"
         ]},
         { type: "h", text: "集結指揮" },
-        { type: "callout", text: "⚠️ **新規定：**只有你自己發起的集結可以派出最大部隊容量。加入別人的集結時，部隊也必須限制在 **80,000 人**以內。" },
+        { type: "callout", text: "⚠️ **規定：**自己發起的集結用最大部隊容量；但加入別人的集結時，也必須遵守**剛好 90,000 人**的限制。活動開始時，主要集結隊長依照**分配好的錯開時間**發出第一次集結。" },
         { type: "leaders",
           gens: ["第 1 代","第 2 代","第 3 代","第 4 代","第 5 代"],
           notes: [
@@ -3541,7 +3541,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "集結參與者" },
-        { type: "callout", text: "⚠️ **新規定：**請現在就把參與集結用的部隊編組存好，並確認**不超過 80,000 人**。請提前更新，避免狩獵巨熊時出錯。" },
+        { type: "callout", text: "⚠️ **規定：**所有參與者加入集結時都必須派出**剛好 90,000 人**，請先把出征編組存好。剩下 **6:30** 時，所有參與者用自己**最強的 3 位英雄**發起自己的集結。🔪 英雄錯誤或人數不對會被踢出，請重新加入。" },
         { type: "p", text: "標準／安全比例：10% 步兵、10% 騎兵、80% 弓兵（也可用 20-30-50 等變化版本）" },
         { type: "joiners" }
       ]},
@@ -3560,7 +3560,7 @@ const GUIDES = {
           "기억하세요: 마지막 5~7분 동안에는 모든 플레이어가 집결을 열어야 합니다. 이렇게 하면 병력이 복귀하는 플레이어들을 위한 자리가 더 많이 생겨 마지막 데미지 몰아치기가 가능해집니다."
         ]},
         { type: "h", text: "집결 영웅 세대별 조합" },
-        { type: "callout", text: "⚠️ **새 규칙:** 최대 부대 수용량은 본인이 주도하는 집결에서만 사용할 수 있습니다. 다른 사람의 집결에 참여할 때는 부대를 **80,000명** 이하로 제한해야 합니다." },
+        { type: "callout", text: "⚠️ **규칙:** 본인이 주도하는 집결은 최대 부대로 시작하되, 다른 집결에 참여할 때는 **정확히 90,000명** 제한을 지켜야 합니다. 시작 시 메인 집결장은 **배정된 시차 시간**에 첫 집결을 보냅니다." },
         { type: "leaders",
           gens: ["1세대","2세대","3세대","4세대","5세대"],
           notes: [
@@ -3589,7 +3589,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "집결 참여 영웅" },
-        { type: "callout", text: "⚠️ **새 규칙:** 집결 참여용 부대 편성을 지금 저장하고 **80,000명을 넘지 않도록** 확인하세요. 베어 사냥 중 실수가 없도록 미리 업데이트해 두세요." },
+        { type: "callout", text: "⚠️ **규칙:** 모든 참여자는 집결에 **정확히 90,000명**을 보내야 합니다. 출정 편성을 미리 저장해 두세요. **6:30 남았을 때** 모든 참여자는 **가장 강한 영웅 3명**으로 자신의 집결을 시작합니다. 🔪 영웅이나 병력 수가 틀리면 강퇴 후 재참여를 요청합니다." },
         { type: "p", text: "표준 / 안전 비율: 보병 10%, 기병 10%, 궁병 80% (또는 20-30-50과 같은 변형 비율)" },
         { type: "joiners" }
       ]},
@@ -3608,7 +3608,7 @@ const GUIDES = {
           "In den letzten 5–7 Minuten sollte jeder einen Rally starten. So entstehen mehr Plätze für Spieler, deren Truppen zurückkehren — für den finalen Schadensschub."
         ]},
         { type: "h", text: "RALLY-ANFÜHRER" },
-        { type: "callout", text: "⚠️ **Neue Regel:** Deine maximale Truppenkapazität darfst du nur in der Rally einsetzen, die du selbst anführst. Wenn du der Rally eines anderen beitrittst, musst du deine Formation ebenfalls auf **80.000 Truppen** begrenzen." },
+        { type: "callout", text: "⚠️ **Regel:** Starte deine eigene Rally mit maximalen Truppen, aber wenn du anderen Rallys beitrittst, gilt auch für dich das Limit von genau **90.000 Truppen**. Zu Beginn schicken die Haupt-Rallyleiter ihre erste Rally zu ihrer **zugewiesenen, versetzten Zeit**." },
         { type: "leaders",
           gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
           notes: [
@@ -3637,7 +3637,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "RALLY-TEILNEHMER" },
-        { type: "callout", text: "⚠️ **Neue Regel:** Speichere jetzt deine Beitritts-Formationen und achte darauf, dass sie **80.000 Truppen nicht überschreiten**. Aktualisiere sie rechtzeitig, damit bei der Bärenjagd keine Fehler passieren." },
+        { type: "callout", text: "⚠️ **Regel:** Alle Beitretenden schicken genau **90.000 Truppen** in Rallys – speichert eure Märsche vorher. Bei **6:30 verbleibend** starten alle Beitretenden ihre eigene Rally mit ihren **3 stärksten Helden**. 🔪 Falsche Helden oder falsche Truppenzahl: Kick und Bitte um erneuten Beitritt." },
         { type: "p", text: "Standard / sicheres Verhältnis: 10% Infanterie, 10% Kavallerie, und 80% Bogenschützen (oder Varianten wie 20-30-50)" },
         { type: "joiners" }
       ]},
@@ -3656,7 +3656,7 @@ const GUIDES = {
           "N'oubliez pas : pendant les 5 à 7 dernières minutes, tout le monde devrait lancer un ralliement. Cela libère davantage de places pour les joueurs dont les troupes reviennent et permet un dernier coup de collier de dégâts."
         ]},
         { type: "h", text: "LEADERS DE RALLIEMENT" },
-        { type: "callout", text: "⚠️ **Nouvelle règle :** votre capacité de troupes maximale ne peut être utilisée que dans le ralliement que vous menez. Quand vous rejoignez le ralliement d'un autre joueur, limitez aussi votre formation à **80 000 troupes**." },
+        { type: "callout", text: "⚠️ **Règle :** lancez votre propre ralliement avec le maximum de troupes, mais quand vous rejoignez d'autres ralliements, respectez aussi la limite d'exactement **90 000 troupes**. Au début, les chefs de ralliement principaux lancent leur premier ralliement à leur **horaire décalé attribué**." },
         { type: "leaders",
           gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
           notes: [
@@ -3685,7 +3685,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "PARTICIPANTS AU RALLIEMENT" },
-        { type: "callout", text: "⚠️ **Nouvelle règle :** enregistrez dès maintenant vos formations de participation et vérifiez qu'elles **ne dépassent pas 80 000 troupes**. Mettez-les à jour à l'avance pour éviter toute erreur pendant la Chasse à l'Ours." },
+        { type: "callout", text: "⚠️ **Règle :** tous les participants doivent envoyer exactement **90 000 troupes** aux ralliements — enregistrez vos marches à l'avance. À **6:30 restantes**, tous les participants lancent leur propre ralliement avec leurs **3 héros les plus forts**. 🔪 Mauvais héros ou mauvais nombre de troupes : exclusion, puis demande de rejoindre à nouveau." },
         { type: "p", text: "Ratio standard / sûr : 10 % d'Infanterie, 10 % de Cavalerie et 80 % d'Archers (ou une variante comme 20-30-50)" },
         { type: "joiners" }
       ]},
@@ -3704,7 +3704,7 @@ const GUIDES = {
           "Lembre-se: nos últimos 5–7 minutos, todos devem iniciar um rally. Isso cria mais vagas para jogadores cujas tropas estão retornando, permitindo um último impulso de dano."
         ]},
         { type: "h", text: "LÍDERES DE RALLY" },
-        { type: "callout", text: "⚠️ **Nova regra:** sua capacidade máxima de tropas só pode ser usada no rally que você está liderando. Ao entrar no rally de outro jogador, você também deve limitar sua formação a **80.000 tropas**." },
+        { type: "callout", text: "⚠️ **Regra:** inicie seu próprio rally com o máximo de tropas, mas ao entrar em outros rallies você também deve seguir o limite de exatamente **90.000 tropas**. No início, os líderes principais enviam o primeiro rally no **horário escalonado atribuído**." },
         { type: "leaders",
           gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
           notes: [
@@ -3733,7 +3733,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "PARTICIPANTES DE RALLY" },
-        { type: "callout", text: "⚠️ **Nova regra:** salve agora suas formações de participação e confirme que elas **não passam de 80.000 tropas**. Atualize com antecedência para não haver erros durante a Caça ao Urso." },
+        { type: "callout", text: "⚠️ **Regra:** todos que entram em rallies devem enviar exatamente **90.000 tropas** — salve suas marchas antes. Com **6:30 restantes**, todos iniciam o próprio rally usando seus **3 heróis mais fortes**. 🔪 Heróis errados ou número de tropas errado: expulsão e pedido para entrar de novo." },
         { type: "p", text: "Proporção padrão / segura: 10% Infantaria, 10% Cavalaria e 80% Arquearia (ou uma variação como 20-30-50)" },
         { type: "joiners" }
       ]},
@@ -3752,7 +3752,7 @@ const GUIDES = {
           "Recuerda: en los últimos 5–7 minutos, todos deben lanzar un Ataque Conjunto. Esto crea más espacios para los jugadores cuyas tropas están regresando, permitiendo un empuje final de daño."
         ]},
         { type: "h", text: "LÍDERES DE ATAQUE CONJUNTO" },
-        { type: "callout", text: "⚠️ **Nueva regla:** tu capacidad máxima de tropas solo se puede usar en el ataque conjunto que tú lideras. Al unirte al ataque conjunto de otro jugador, también debes limitar tu formación a **80.000 tropas**." },
+        { type: "callout", text: "⚠️ **Regla:** inicia tu propio ataque conjunto con el máximo de tropas, pero al unirte a otros ataques también debes respetar el límite de exactamente **90.000 tropas**. Al inicio, los líderes principales envían su primer ataque en su **hora escalonada asignada**." },
         { type: "leaders",
           gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
           notes: [
@@ -3781,7 +3781,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "PARTICIPANTES DE ATAQUE CONJUNTO" },
-        { type: "callout", text: "⚠️ **Nueva regla:** guarda ya tus formaciones para unirte y asegúrate de que **no superen las 80.000 tropas**. Actualízalas con antelación para evitar errores durante la Cacería del Oso." },
+        { type: "callout", text: "⚠️ **Regla:** todos los que se unen deben enviar exactamente **90.000 tropas** a los ataques conjuntos; guarda tus marchas antes. Con **6:30 restantes**, todos inician su propio ataque conjunto con sus **3 héroes más fuertes**. 🔪 Héroes o número de tropas incorrectos: expulsión y petición de volver a unirse." },
         { type: "p", text: "Proporción estándar/segura: 10% Infantería, 10% Caballería y 80% Arqueros (o una variación como 20-30-50)" },
         { type: "joiners" }
       ]},
@@ -3800,7 +3800,7 @@ const GUIDES = {
           "Unutmayın: son 5–7 dakikada herkes bir seferberlik başlatmalı. Bu, birlikleri geri dönen oyuncular için daha fazla yer açar ve son bir hasar atağına olanak tanır."
         ]},
         { type: "h", text: "SEFERBERLİK LİDERLERİ" },
-        { type: "callout", text: "⚠️ **Yeni kural:** Maksimum birlik kapasiteni yalnızca kendi liderlik ettiğin seferberlikte kullanabilirsin. Başka bir oyuncunun seferberliğine katılırken dizilişini de **80.000 asker** ile sınırlamalısın." },
+        { type: "callout", text: "⚠️ **Kural:** Kendi seferberliğini maksimum askerle başlat, ancak başka seferberliklere katılırken sen de tam **90.000 asker** sınırına uymalısın. Başlangıçta ana seferberlik liderleri ilk seferberliklerini **kendilerine atanan kademeli saatte** gönderir." },
         { type: "leaders",
           gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
           notes: [
@@ -3829,7 +3829,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "SEFERBERLİĞE KATILANLAR" },
-        { type: "callout", text: "⚠️ **Yeni kural:** Katılım dizilişlerini şimdi kaydet ve **80.000 askeri geçmediğinden** emin ol. Ayı Avı sırasında hata olmaması için önceden güncelle." },
+        { type: "callout", text: "⚠️ **Kural:** Tüm katılımcılar seferberliklere tam **90.000 asker** göndermelidir — yürüyüşlerini önceden kaydet. **6:30 kala** tüm katılımcılar **en güçlü 3 kahramanıyla** kendi seferberliğini başlatır. 🔪 Yanlış kahraman veya yanlış asker sayısı: atılır ve yeniden katılması istenir." },
         { type: "p", text: "Standart / Güvenli Oran: %10 Piyade, %10 Süvari ve %80 Okçu (veya 20-30-50 gibi bir varyasyon)" },
         { type: "joiners" }
       ]},
@@ -3848,7 +3848,7 @@ const GUIDES = {
           "Ingat: di 5–7 menit terakhir, semua orang sebaiknya memulai reli. Ini membuka lebih banyak slot bagi pemain yang pasukannya sedang kembali, sehingga bisa melakukan dorongan damage terakhir."
         ]},
         { type: "h", text: "PEMIMPIN RELI" },
-        { type: "callout", text: "⚠️ **Aturan baru:** kapasitas pasukan maksimal hanya boleh dipakai di reli yang kamu pimpin. Saat bergabung ke reli pemain lain, formasi kamu juga harus dibatasi **80.000 pasukan**." },
+        { type: "callout", text: "⚠️ **Aturan:** mulai reli sendiri dengan pasukan maksimal, tapi saat bergabung ke reli lain kamu juga harus mengikuti batas tepat **90.000 pasukan**. Di awal, pemimpin reli utama mengirim reli pertama pada **waktu bergiliran yang sudah ditentukan**." },
         { type: "leaders",
           gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
           notes: [
@@ -3877,7 +3877,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "PESERTA RELI" },
-        { type: "callout", text: "⚠️ **Aturan baru:** simpan formasi untuk bergabung sekarang dan pastikan **tidak melebihi 80.000 pasukan**. Perbarui lebih awal agar tidak ada kesalahan saat Bear Hunt." },
+        { type: "callout", text: "⚠️ **Aturan:** semua yang bergabung wajib mengirim tepat **90.000 pasukan** ke reli — simpan formasi pasukan lebih dulu. Saat **sisa 6:30**, semua yang bergabung memulai reli sendiri dengan **3 pahlawan terkuat**. 🔪 Pahlawan salah atau jumlah pasukan salah akan dikeluarkan dan diminta bergabung ulang." },
         { type: "p", text: "Rasio Standar / Aman: 10% Infanteri, 10% Kavaleri, dan 80% Pemanah (atau variasi seperti 20-30-50)" },
         { type: "joiners" }
       ]},
@@ -3896,7 +3896,7 @@ const GUIDES = {
           "Помните: в последние 5–7 минут каждый должен запустить рейд. Это освобождает больше мест для игроков, чьи войска возвращаются, и позволяет сделать финальный рывок по урону."
         ]},
         { type: "h", text: "ЛИДЕРЫ РЕЙДА" },
-        { type: "callout", text: "⚠️ **Новое правило:** максимальную вместимость войска можно использовать только в рейде, который ведете вы. Присоединяясь к чужому рейду, ограничьте свой состав **80 000 войск**." },
+        { type: "callout", text: "⚠️ **Правило:** свой рейд запускайте с максимумом войск, но при присоединении к чужим рейдам тоже соблюдайте лимит — ровно **90 000 войск**. В начале главные лидеры рейдов отправляют первый рейд в **назначенное им смещённое время**." },
         { type: "leaders",
           gens: ["ПОКОЛЕНИЕ 1","ПОКОЛЕНИЕ 2","ПОКОЛЕНИЕ 3","ПОКОЛЕНИЕ 4","ПОКОЛЕНИЕ 5"],
           notes: [
@@ -3925,7 +3925,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "УЧАСТНИКИ РЕЙДА" },
-        { type: "callout", text: "⚠️ **Новое правило:** сохраните составы для присоединения уже сейчас и проверьте, что они **не превышают 80 000 войск**. Обновите их заранее, чтобы во время охоты на медведя не было ошибок." },
+        { type: "callout", text: "⚠️ **Правило:** все участники отправляют в рейды ровно **90 000 войск** — сохраните отряды заранее. Когда останется **6:30**, все участники запускают свой рейд с **3 сильнейшими героями**. 🔪 Неверные герои или неверное число войск — кик и просьба присоединиться заново." },
         { type: "p", text: "Стандартное / безопасное соотношение: 10% пехотинцев, 10% кавалеристов и 80% стрелков (или вариант вроде 20-30-50)" },
         { type: "joiners" }
       ]},
@@ -3944,7 +3944,7 @@ const GUIDES = {
           "โปรดจำไว้: ใน 5–7 นาทีสุดท้าย ทุกคนควรเปิดทีมระดมพล ซึ่งจะเพิ่มที่ว่างให้ผู้เล่นที่ทหารกำลังเดินทางกลับ ทำให้ปิดท้ายด้วยความเสียหายอีกระลอกได้"
         ]},
         { type: "h", text: "ผู้นำทีมระดมพล" },
-        { type: "callout", text: "⚠️ **กฎใหม่:** ใช้ความจุทหารสูงสุดได้เฉพาะในทีมระดมพลที่คุณเป็นผู้นำเท่านั้น เมื่อเข้าร่วมทีมระดมพลของผู้อื่น ต้องจำกัดทหารไว้ไม่เกิน **80,000 นาย**" },
+        { type: "callout", text: "⚠️ **กฎ:** เปิดระดมพลของตัวเองด้วยทหารเต็มความจุ แต่เมื่อเข้าร่วมระดมพลของคนอื่นต้องทำตามข้อจำกัด **90,000 นายพอดี** เช่นกัน ตอนเริ่ม ผู้นำระดมพลหลักจะส่งระดมพลแรกตาม**เวลาที่แบ่งไว้ให้แต่ละคน**" },
         { type: "leaders",
           gens: ["เจน 1","เจน 2","เจน 3","เจน 4","เจน 5"],
           notes: [
@@ -3973,7 +3973,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "ผู้เข้าร่วมทีมระดมพล" },
-        { type: "callout", text: "⚠️ **กฎใหม่:** บันทึกรูปแบบการจัดทัพสำหรับเข้าร่วมไว้ตั้งแต่ตอนนี้ และตรวจสอบว่า**ไม่เกิน 80,000 นาย** อัปเดตไว้ล่วงหน้าเพื่อไม่ให้ผิดพลาดระหว่างล่าหมี" },
+        { type: "callout", text: "⚠️ **กฎ:** ผู้เข้าร่วมทุกคนต้องส่งทหาร **90,000 นายพอดี** เข้าระดมพล — บันทึกทัพไว้ล่วงหน้า เมื่อเหลือเวลา **6:30** ผู้เข้าร่วมทุกคนเปิดระดมพลของตัวเองด้วย**ฮีโร่ที่แข็งแกร่งที่สุด 3 ตัว** 🔪 ฮีโร่ผิดหรือจำนวนทหารผิดจะถูกเตะออกและให้เข้าร่วมใหม่" },
         { type: "p", text: "อัตราส่วนมาตรฐาน / ปลอดภัย: ทหารราบ 10%, ทหารม้า 10% และพลธนู 80% (หรือรูปแบบอื่นเช่น 20-30-50)" },
         { type: "joiners" }
       ]},
@@ -3992,7 +3992,7 @@ const GUIDES = {
           "تذكّر: في آخر 5–7 دقائق، على الجميع إطلاق حشد. يوفّر هذا أماكن أكثر للاعبين الذين تعود قواتهم، مما يتيح دفعة ضرر أخيرة."
         ]},
         { type: "h", text: "قادة الحشد" },
-        { type: "callout", text: "⚠️ **قاعدة جديدة:** لا يمكنك استخدام السعة القصوى لقواتك إلا في الحشد الذي تقوده بنفسك. عند الانضمام إلى حشد لاعب آخر، يجب أيضًا أن تحدّ تشكيلتك بـ **80,000 جندي**." },
+        { type: "callout", text: "⚠️ **قاعدة:** ابدأ حشدك الخاص بأقصى عدد من القوات، لكن عند الانضمام إلى حشود أخرى يجب عليك أيضًا الالتزام بحد **90,000 جندي بالضبط**. في البداية، يرسل قادة الحشود الرئيسيون أول حشد لهم في **وقتهم المتدرج المحدد**." },
         { type: "leaders",
           gens: ["الجيل 1","الجيل 2","الجيل 3","الجيل 4","الجيل 5"],
           notes: [
@@ -4021,7 +4021,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "المنضمون إلى الحشد" },
-        { type: "callout", text: "⚠️ **قاعدة جديدة:** احفظ تشكيلات الانضمام الآن وتأكد من أنها **لا تتجاوز 80,000 جندي**. حدّثها مسبقًا حتى لا تحدث أخطاء أثناء صيد الدببة." },
+        { type: "callout", text: "⚠️ **قاعدة:** يجب على جميع المنضمين إرسال **90,000 جندي بالضبط** إلى الحشود — احفظ مسيراتك مسبقًا. عند بقاء **6:30**، يبدأ جميع المنضمين حشدهم الخاص باستخدام **أقوى 3 أبطال** لديهم. 🔪 الأبطال الخطأ أو العدد الخطأ من القوات: طرد وطلب الانضمام من جديد." },
         { type: "p", text: "النسبة القياسية / الآمنة: 10% مشاة، 10% فرسان، و80% رماة (أو تنويع مثل 20-30-50)" },
         { type: "joiners" }
       ]}
