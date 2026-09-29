@@ -367,6 +367,7 @@ const GUIDES = {
     sections: {
       en: { title: "Recent Events", blocks: [
         { type: "guideLink", guide: "all-out" },
+        { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
         { type: "guideLink", guide: "viking-vengeance" },
@@ -375,6 +376,7 @@ const GUIDES = {
       ]},
       zh: { title: "近期活動", blocks: [
         { type: "guideLink", guide: "all-out" },
+        { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
         { type: "guideLink", guide: "viking-vengeance" },
@@ -383,6 +385,7 @@ const GUIDES = {
       ]},
       ko: { title: "최근 이벤트", blocks: [
         { type: "guideLink", guide: "all-out" },
+        { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
         { type: "guideLink", guide: "viking-vengeance" },
@@ -391,6 +394,7 @@ const GUIDES = {
       ]},
       de: { title: "Aktuelle Events", blocks: [
         { type: "guideLink", guide: "all-out" },
+        { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
         { type: "guideLink", guide: "viking-vengeance" },
@@ -399,6 +403,7 @@ const GUIDES = {
       ]},
       fr: { title: "Événements récents", blocks: [
         { type: "guideLink", guide: "all-out" },
+        { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
         { type: "guideLink", guide: "viking-vengeance" },
@@ -407,6 +412,7 @@ const GUIDES = {
       ]},
       pt: { title: "Eventos Recentes", blocks: [
         { type: "guideLink", guide: "all-out" },
+        { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
         { type: "guideLink", guide: "viking-vengeance" },
@@ -415,6 +421,7 @@ const GUIDES = {
       ]},
       es: { title: "Eventos Recientes", blocks: [
         { type: "guideLink", guide: "all-out" },
+        { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
         { type: "guideLink", guide: "viking-vengeance" },
@@ -423,6 +430,7 @@ const GUIDES = {
       ]},
       tr: { title: "Son Etkinlikler", blocks: [
         { type: "guideLink", guide: "all-out" },
+        { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
         { type: "guideLink", guide: "viking-vengeance" },
@@ -431,6 +439,7 @@ const GUIDES = {
       ]},
       id: { title: "Acara Terbaru", blocks: [
         { type: "guideLink", guide: "all-out" },
+        { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
         { type: "guideLink", guide: "viking-vengeance" },
@@ -439,6 +448,7 @@ const GUIDES = {
       ]},
       ru: { title: "Последние события", blocks: [
         { type: "guideLink", guide: "all-out" },
+        { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
         { type: "guideLink", guide: "viking-vengeance" },
@@ -447,6 +457,7 @@ const GUIDES = {
       ]},
       th: { title: "กิจกรรมล่าสุด", blocks: [
         { type: "guideLink", guide: "all-out" },
+        { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
         { type: "guideLink", guide: "viking-vengeance" },
@@ -455,6 +466,7 @@ const GUIDES = {
       ]},
       ar: { title: "أحدث الفعاليات", blocks: [
         { type: "guideLink", guide: "all-out" },
+        { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
         { type: "guideLink", guide: "viking-vengeance" },
