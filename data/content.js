@@ -839,17 +839,20 @@ const GUIDES = {
           "Push {pan} to **Lv. 60**.",
           "Talent: 5 {reserveChests} for every 120 minutes of gathering (up to 30 per day) — free {truegold}, {gems} and speedups.",
           "Skill 1 **{falconer}**: +8 {intelMission}s per day → lots of free daily {truegold}.",
-          "Skill 4 **{waysAndMeans}**: +120 {mysteryBadge} from daily missions and +4 free {mysteryShop} refreshes → discounted {widget}s."
+          "Skill 4 **{waysAndMeans}**: +120 {mysteryBadge} from daily missions and +4 free {mysteryShop} refreshes → discounted {widget}s.",
+          "🔗 Details: https://kingshotoptimizer.com/masters/pan/"
         ] },
         { type: "sub", text: "2. {valora} — Bear Hunt gear materials" },
         { type: "list", items: [
           "Get her to **Lv. 30** ({acquaintance} 3 / {casual} 1).",
           "Skill 2 **{leaderByExample}**: +5 × 100 {enhancementXp} per {bearHunt}.",
-          "Skill 3 **{weaponObsession}**: +5 {forgehammer}s per {bearHunt}."
+          "Skill 3 **{weaponObsession}**: +5 {forgehammer}s per {bearHunt}.",
+          "🔗 Details: https://kingshotoptimizer.com/masters/valora/"
         ] },
         { type: "sub", text: "3. {roman} — Arena passive" },
         { type: "list", items: [
-          "Just unlock him (1,000 Affinity): his Talent already gives a 50% chance of extra {arenaStarChest}s after each Arena match ({heroShard}s & {forgehammer}s); only at max level does it become a 100% chance of 3. No heavy {masterEmblem} investment needed early on."
+          "Just unlock him (1,000 Affinity): his Talent already gives a 50% chance of extra {arenaStarChest}s after each Arena match ({heroShard}s & {forgehammer}s); only at max level does it become a 100% chance of 3. No heavy {masterEmblem} investment needed early on.",
+          "🔗 Details: https://kingshotoptimizer.com/masters/roman/"
         ] },
         { type: "h", text: "PRIORITY FOR WHALES & RALLY LEADERS" },
         { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
@@ -882,17 +885,20 @@ const GUIDES = {
           "把{pan}練到 **Lv. 60**。",
           "天賦：每採集 120 分鐘獲得 5 個{reserveChests}（每日上限 30）——免費的{truegold}、{gems}和加速。",
           "技能 1 **{falconer}**：每天多 8 個{intelMission}→ 每天大量免費{truegold}。",
-          "技能 4 **{waysAndMeans}**：完成每日任務多得 120 個{mysteryBadge}，{mysteryShop}免費更新多 4 次 → 買折扣{widget}。"
+          "技能 4 **{waysAndMeans}**：完成每日任務多得 120 個{mysteryBadge}，{mysteryShop}免費更新多 4 次 → 買折扣{widget}。",
+          "🔗 詳細資料： https://kingshotoptimizer.com/masters/pan/"
         ] },
         { type: "sub", text: "2. {valora}——狩獵巨熊的裝備材料" },
         { type: "list", items: [
           "練到 **Lv. 30**（{acquaintance}3／{casual}1）。",
           "技能 2 **{leaderByExample}**：每次{bearHunt}多 5 個 100 點{enhancementXp}。",
-          "技能 3 **{weaponObsession}**：每次{bearHunt}多 5 個{forgehammer}。"
+          "技能 3 **{weaponObsession}**：每次{bearHunt}多 5 個{forgehammer}。",
+          "🔗 詳細資料： https://kingshotoptimizer.com/masters/valora/"
         ] },
         { type: "sub", text: "3. {roman}——競技場被動" },
         { type: "list", items: [
-          "只要解鎖他（好感度 1,000）：天賦一開始就有 50% 機率在每場競技後額外獲得{arenaStarChest}（{heroShard}和{forgehammer}），要升到最高才會變成 100% 機率拿 3 個。前期不用大量投入{masterEmblem}。"
+          "只要解鎖他（好感度 1,000）：天賦一開始就有 50% 機率在每場競技後額外獲得{arenaStarChest}（{heroShard}和{forgehammer}），要升到最高才會變成 100% 機率拿 3 個。前期不用大量投入{masterEmblem}。",
+          "🔗 詳細資料： https://kingshotoptimizer.com/masters/roman/"
         ] },
         { type: "h", text: "大課與集結指揮的優先順序" },
         { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
@@ -925,17 +931,20 @@ const GUIDES = {
           "{pan}을 **Lv. 60**까지 올리세요.",
           "재능: 채집 120분마다 {reserveChests} 5개 (하루 최대 30개) — 무료 {truegold}, {gems}, 가속.",
           "스킬 1 **{falconer}**: {intelMission} 하루 +8개 → 매일 많은 무료 {truegold}.",
-          "스킬 4 **{waysAndMeans}**: 일일 임무 완료 시 {mysteryBadge} +120개, {mysteryShop} 무료 새로고침 +4회 → 할인 {widget} 구매."
+          "스킬 4 **{waysAndMeans}**: 일일 임무 완료 시 {mysteryBadge} +120개, {mysteryShop} 무료 새로고침 +4회 → 할인 {widget} 구매.",
+          "🔗 자세히: https://kingshotoptimizer.com/masters/pan/"
         ] },
         { type: "sub", text: "2. {valora} — 베어 사냥 장비 재료" },
         { type: "list", items: [
           "**Lv. 30**까지 올리세요 ({acquaintance} 3 / {casual} 1).",
           "스킬 2 **{leaderByExample}**: {bearHunt}마다 100 {enhancementXp} 부품 +5개.",
-          "스킬 3 **{weaponObsession}**: {bearHunt}마다 {forgehammer} +5개."
+          "스킬 3 **{weaponObsession}**: {bearHunt}마다 {forgehammer} +5개.",
+          "🔗 자세히: https://kingshotoptimizer.com/masters/valora/"
         ] },
         { type: "sub", text: "3. {roman} — 경기장 패시브" },
         { type: "list", items: [
-          "해제만 하세요 (호감도 1,000): 재능만으로도 매 경기 후 50% 확률로 {arenaStarChest}({heroShard}, {forgehammer})를 추가로 얻습니다. 최고 레벨이 되어야 100% 확률로 3개가 됩니다. 초반에 {masterEmblem}을 많이 투자할 필요는 없습니다."
+          "해제만 하세요 (호감도 1,000): 재능만으로도 매 경기 후 50% 확률로 {arenaStarChest}({heroShard}, {forgehammer})를 추가로 얻습니다. 최고 레벨이 되어야 100% 확률로 3개가 됩니다. 초반에 {masterEmblem}을 많이 투자할 필요는 없습니다.",
+          "🔗 자세히: https://kingshotoptimizer.com/masters/roman/"
         ] },
         { type: "h", text: "고과금·집결장 우선순위" },
         { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
@@ -968,17 +977,20 @@ const GUIDES = {
           "Bring {pan} auf **Lv. 60**.",
           "Talent: 5 {reserveChests} pro 120 Minuten Sammeln (max. 30 pro Tag) — gratis {truegold}, {gems} und Beschleunigungen.",
           "Fertigkeit 1 **{falconer}**: +8 {intelMission}en pro Tag → viel kostenloses tägliches {truegold}.",
-          "Fertigkeit 4 **{waysAndMeans}**: +120 {mysteryBadge} aus täglichen Missionen und +4 kostenlose Aktualisierungen im {mysteryShop}-Laden → vergünstigte {widget}e."
+          "Fertigkeit 4 **{waysAndMeans}**: +120 {mysteryBadge} aus täglichen Missionen und +4 kostenlose Aktualisierungen im {mysteryShop}-Laden → vergünstigte {widget}e.",
+          "🔗 Details: https://kingshotoptimizer.com/masters/pan/"
         ] },
         { type: "sub", text: "2. {valora} — Bärenjagd-Ausrüstungsmaterialien" },
         { type: "list", items: [
           "Bring sie auf **Lv. 30** ({acquaintance} 3 / {casual} 1).",
           "Fertigkeit 2 **{leaderByExample}**: +5 × 100 {enhancementXp} pro {bearHunt}.",
-          "Fertigkeit 3 **{weaponObsession}**: +5 {forgehammer} pro {bearHunt}."
+          "Fertigkeit 3 **{weaponObsession}**: +5 {forgehammer} pro {bearHunt}.",
+          "🔗 Details: https://kingshotoptimizer.com/masters/valora/"
         ] },
         { type: "sub", text: "3. {roman} — Arena-Passiv" },
         { type: "list", items: [
-          "Nur freischalten (1.000 Affinität): Sein Talent gibt schon mit 50 % Chance zusätzliche {arenaStarChest}n nach jedem Arenakampf ({heroShard}e & {forgehammer}); erst auf Maximalstufe sind es 3 Stück mit 100 % Chance. Früh ist keine große {masterEmblem}-Investition nötig."
+          "Nur freischalten (1.000 Affinität): Sein Talent gibt schon mit 50 % Chance zusätzliche {arenaStarChest}n nach jedem Arenakampf ({heroShard}e & {forgehammer}); erst auf Maximalstufe sind es 3 Stück mit 100 % Chance. Früh ist keine große {masterEmblem}-Investition nötig.",
+          "🔗 Details: https://kingshotoptimizer.com/masters/roman/"
         ] },
         { type: "h", text: "PRIORITÄT FÜR WALE & RALLY-ANFÜHRER" },
         { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
@@ -1011,17 +1023,20 @@ const GUIDES = {
           "Montez {pan} au **niv. 60**.",
           "Talent : 5 {reserveChests} toutes les 120 min de collecte (max. 30 par jour) — {truegold}, {gems} et accélérateurs gratuits.",
           "Compétence 1 **{falconer}** : +8 {intelMission} par jour → beaucoup d'{truegold} gratuit chaque jour.",
-          "Compétence 4 **{waysAndMeans}** : +120 {mysteryBadge} via les missions quotidiennes et +4 actualisations gratuites du magasin {mysteryShop} → {widget}s à prix réduit."
+          "Compétence 4 **{waysAndMeans}** : +120 {mysteryBadge} via les missions quotidiennes et +4 actualisations gratuites du magasin {mysteryShop} → {widget}s à prix réduit.",
+          "🔗 Détails : https://kingshotoptimizer.com/masters/pan/"
         ] },
         { type: "sub", text: "2. {valora} — matériaux d'équipement de la Chasse à l'Ours" },
         { type: "list", items: [
           "Montez-la au **niv. 30** ({acquaintance} 3 / {casual} 1).",
           "Compétence 2 **{leaderByExample}** : +5 × 100 {enhancementXp} par {bearHunt}.",
-          "Compétence 3 **{weaponObsession}** : +5 {forgehammer}s par {bearHunt}."
+          "Compétence 3 **{weaponObsession}** : +5 {forgehammer}s par {bearHunt}.",
+          "🔗 Détails : https://kingshotoptimizer.com/masters/valora/"
         ] },
         { type: "sub", text: "3. {roman} — passif d'Arène" },
         { type: "list", items: [
-          "Débloquez-le simplement (1 000 d'affinité) : son talent donne déjà 50 % de chances d'obtenir des {arenaStarChest} en plus après chaque combat d'Arène ({heroShard}s & {forgehammer}s) ; ce n'est qu'au niveau max que cela devient 100 % pour 3 coffres. Pas besoin d'investir beaucoup d'{masterEmblem} au début."
+          "Débloquez-le simplement (1 000 d'affinité) : son talent donne déjà 50 % de chances d'obtenir des {arenaStarChest} en plus après chaque combat d'Arène ({heroShard}s & {forgehammer}s) ; ce n'est qu'au niveau max que cela devient 100 % pour 3 coffres. Pas besoin d'investir beaucoup d'{masterEmblem} au début.",
+          "🔗 Détails : https://kingshotoptimizer.com/masters/roman/"
         ] },
         { type: "h", text: "PRIORITÉ POUR LES GROS PAYEURS & LEADERS DE RALLIEMENT" },
         { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
@@ -1054,17 +1069,20 @@ const GUIDES = {
           "Leve {pan} ao **Nv. 60**.",
           "Talento: 5 {reserveChests} a cada 120 minutos de coleta (até 30 por dia) — {truegold}, {gems} e aceleradores grátis.",
           "Habilidade 1 **{falconer}**: +8 {intelMission} por dia → muito {truegold} grátis todo dia.",
-          "Habilidade 4 **{waysAndMeans}**: +120 {mysteryBadge} nas missões diárias e +4 atualizações grátis na loja {mysteryShop} → {widget}s com desconto."
+          "Habilidade 4 **{waysAndMeans}**: +120 {mysteryBadge} nas missões diárias e +4 atualizações grátis na loja {mysteryShop} → {widget}s com desconto.",
+          "🔗 Detalhes: https://kingshotoptimizer.com/masters/pan/"
         ] },
         { type: "sub", text: "2. {valora} — materiais de equipamento da Caça ao Urso" },
         { type: "list", items: [
           "Leve-a ao **Nv. 30** ({acquaintance} 3 / {casual} 1).",
           "Habilidade 2 **{leaderByExample}**: +5 × 100 {enhancementXp} por {bearHunt}.",
-          "Habilidade 3 **{weaponObsession}**: +5 {forgehammer}s por {bearHunt}."
+          "Habilidade 3 **{weaponObsession}**: +5 {forgehammer}s por {bearHunt}.",
+          "🔗 Detalhes: https://kingshotoptimizer.com/masters/valora/"
         ] },
         { type: "sub", text: "3. {roman} — passiva da Arena" },
         { type: "list", items: [
-          "Só desbloqueie (1.000 de Afinidade): o talento dele já dá 50% de chance de {arenaStarChest} extras após cada partida da Arena ({heroShard}s e {forgehammer}s); só no nível máximo vira 100% de chance de ganhar 3. Não precisa investir muito em {masterEmblem} no começo."
+          "Só desbloqueie (1.000 de Afinidade): o talento dele já dá 50% de chance de {arenaStarChest} extras após cada partida da Arena ({heroShard}s e {forgehammer}s); só no nível máximo vira 100% de chance de ganhar 3. Não precisa investir muito em {masterEmblem} no começo.",
+          "🔗 Detalhes: https://kingshotoptimizer.com/masters/roman/"
         ] },
         { type: "h", text: "PRIORIDADE PARA BALEIAS & LÍDERES DE RALLY" },
         { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
@@ -1097,17 +1115,20 @@ const GUIDES = {
           "{pan}'ı **Sv. 60**'a çıkar.",
           "Yetenek: her 120 dakikalık toplamada 5 {reserveChests} (günde en fazla 30) — ücretsiz {truegold}, {gems} ve hızlandırmalar.",
           "Yetenek 1 **{falconer}**: günde +8 {intelMission} → her gün bol ücretsiz {truegold}.",
-          "Yetenek 4 **{waysAndMeans}**: günlük görevlerden +120 {mysteryBadge} ve {mysteryShop} mağazasında +4 ücretsiz yenileme → indirimli {widget}."
+          "Yetenek 4 **{waysAndMeans}**: günlük görevlerden +120 {mysteryBadge} ve {mysteryShop} mağazasında +4 ücretsiz yenileme → indirimli {widget}.",
+          "🔗 Ayrıntılar: https://kingshotoptimizer.com/masters/pan/"
         ] },
         { type: "sub", text: "2. {valora} — Ayı Avı donanım malzemeleri" },
         { type: "list", items: [
           "Onu **Sv. 30**'a çıkar ({acquaintance} 3 / {casual} 1).",
           "Yetenek 2 **{leaderByExample}**: her {bearHunt} için +5 × 100 {enhancementXp}.",
-          "Yetenek 3 **{weaponObsession}**: her {bearHunt} için +5 {forgehammer}."
+          "Yetenek 3 **{weaponObsession}**: her {bearHunt} için +5 {forgehammer}.",
+          "🔗 Ayrıntılar: https://kingshotoptimizer.com/masters/valora/"
         ] },
         { type: "sub", text: "3. {roman} — Arena pasifi" },
         { type: "list", items: [
-          "Sadece aç (1.000 Yakınlık): yeteneği zaten her Arena maçından sonra %50 ihtimalle ekstra {arenaStarChest} ({heroShard} ve {forgehammer}) verir; ancak maks. seviyede %100 ihtimalle 3 adet olur. Başta çok fazla {masterEmblem} yatırımı gerekmez."
+          "Sadece aç (1.000 Yakınlık): yeteneği zaten her Arena maçından sonra %50 ihtimalle ekstra {arenaStarChest} ({heroShard} ve {forgehammer}) verir; ancak maks. seviyede %100 ihtimalle 3 adet olur. Başta çok fazla {masterEmblem} yatırımı gerekmez.",
+          "🔗 Ayrıntılar: https://kingshotoptimizer.com/masters/roman/"
         ] },
         { type: "h", text: "BALİNALAR VE SEFERBERLİK LİDERLERİ İÇİN ÖNCELİK" },
         { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
@@ -1140,17 +1161,20 @@ const GUIDES = {
           "Naikkan {pan} ke **Lv. 60**.",
           "Talenta: 5 {reserveChests} setiap 120 menit mengumpulkan (maks. 30 per hari) — {truegold}, {gems}, dan speedup gratis.",
           "Skill 1 **{falconer}**: +8 {intelMission} per hari → banyak {truegold} gratis setiap hari.",
-          "Skill 4 **{waysAndMeans}**: +120 {mysteryBadge} dari misi harian dan +4 refresh gratis di {mysteryShop} → {widget} diskon."
+          "Skill 4 **{waysAndMeans}**: +120 {mysteryBadge} dari misi harian dan +4 refresh gratis di {mysteryShop} → {widget} diskon.",
+          "🔗 Detail: https://kingshotoptimizer.com/masters/pan/"
         ] },
         { type: "sub", text: "2. {valora} — material gear Bear Hunt" },
         { type: "list", items: [
           "Naikkan ke **Lv. 30**.",
           "Skill 2 **{leaderByExample}**: +5 × 100 {enhancementXp} per {bearHunt}.",
-          "Skill 3 **{weaponObsession}**: +5 {forgehammer} per {bearHunt}."
+          "Skill 3 **{weaponObsession}**: +5 {forgehammer} per {bearHunt}.",
+          "🔗 Detail: https://kingshotoptimizer.com/masters/valora/"
         ] },
         { type: "sub", text: "3. {roman} — pasif Arena" },
         { type: "list", items: [
-          "Cukup buka (1.000 Kedekatan): talentanya sudah memberi peluang 50% dapat {arenaStarChest} tambahan setelah tiap pertandingan Arena ({heroShard} & {forgehammer}); baru di level maks menjadi peluang 100% dapat 3. Tidak perlu investasi {masterEmblem} besar di awal."
+          "Cukup buka (1.000 Kedekatan): talentanya sudah memberi peluang 50% dapat {arenaStarChest} tambahan setelah tiap pertandingan Arena ({heroShard} & {forgehammer}); baru di level maks menjadi peluang 100% dapat 3. Tidak perlu investasi {masterEmblem} besar di awal.",
+          "🔗 Detail: https://kingshotoptimizer.com/masters/roman/"
         ] },
         { type: "h", text: "PRIORITAS WHALE & PEMIMPIN RELI" },
         { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
@@ -1183,17 +1207,20 @@ const GUIDES = {
           "Прокачайте {pan} до **ур. 60**.",
           "Талант: 5 шт. «{reserveChests}» за каждые 120 мин сбора (до 30 в день) — бесплатные {truegold}, {gems} и ускорения.",
           "Навык 1 **{falconer}**: +8 миссий в день ({intelMission}) → много бесплатного {truegold} ежедневно.",
-          "Навык 4 **{waysAndMeans}**: +120 {mysteryBadge} за ежедневные миссии и +4 бесплатных обновления ({mysteryShop}) → {widget} со скидкой."
+          "Навык 4 **{waysAndMeans}**: +120 {mysteryBadge} за ежедневные миссии и +4 бесплатных обновления ({mysteryShop}) → {widget} со скидкой.",
+          "🔗 Подробнее: https://kingshotoptimizer.com/masters/pan/"
         ] },
         { type: "sub", text: "2. {valora} — материалы снаряжения для охоты на медведя" },
         { type: "list", items: [
           "Прокачайте до **ур. 30** ({acquaintance} 3 / {casual} 1).",
           "Навык 2 **{leaderByExample}**: +5 × 100 ({enhancementXp}) за каждую «{bearHunt}».",
-          "Навык 3 **{weaponObsession}**: +5 ({forgehammer}) за каждую «{bearHunt}»."
+          "Навык 3 **{weaponObsession}**: +5 ({forgehammer}) за каждую «{bearHunt}».",
+          "🔗 Подробнее: https://kingshotoptimizer.com/masters/valora/"
         ] },
         { type: "sub", text: "3. {roman} — пассивка арены" },
         { type: "list", items: [
-          "Просто откройте его (1000 очк. сближения): его талант уже даёт 50% шанс получить дополнительные «{arenaStarChest}» после каждого боя на арене ({heroShard}, {forgehammer}); только на макс. уровне это 3 шт. со 100% шансом. В начале не нужно много вкладывать в {masterEmblem}."
+          "Просто откройте его (1000 очк. сближения): его талант уже даёт 50% шанс получить дополнительные «{arenaStarChest}» после каждого боя на арене ({heroShard}, {forgehammer}); только на макс. уровне это 3 шт. со 100% шансом. В начале не нужно много вкладывать в {masterEmblem}.",
+          "🔗 Подробнее: https://kingshotoptimizer.com/masters/roman/"
         ] },
         { type: "h", text: "ПРИОРИТЕТ ДЛЯ КИТОВ И ЛИДЕРОВ РЕЙДОВ" },
         { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
@@ -1226,17 +1253,20 @@ const GUIDES = {
           "อัป{pan}ถึง **เลเวล 60**",
           "ความสามารถ: ได้{reserveChests} 5 ทุกการเก็บรวบรวม 120 นาที (สูงสุดวันละ 30) — {truegold} {gems} และเร่งสปีดฟรี",
           "ทักษะ 1 **{falconer}**: {intelMission}เพิ่มวันละ 8 → ได้{truegold}ฟรีทุกวันจำนวนมาก",
-          "ทักษะ 4 **{waysAndMeans}**: ได้{mysteryBadge}เพิ่ม 120 จากภารกิจประจำวัน และรีเฟรช{mysteryShop}ฟรีเพิ่ม 4 ครั้ง → ซื้อ{widget}ลดราคา"
+          "ทักษะ 4 **{waysAndMeans}**: ได้{mysteryBadge}เพิ่ม 120 จากภารกิจประจำวัน และรีเฟรช{mysteryShop}ฟรีเพิ่ม 4 ครั้ง → ซื้อ{widget}ลดราคา",
+          "🔗 รายละเอียด: https://kingshotoptimizer.com/masters/pan/"
         ] },
         { type: "sub", text: "2. {valora} — วัตถุดิบอุปกรณ์จากล่าหมี" },
         { type: "list", items: [
           "อัปถึง **เลเวล 30** ({acquaintance} 3 / {casual} 1)",
           "ทักษะ 2 **{leaderByExample}**: {enhancementXp} x100 เพิ่ม 5 ต่อ{bearHunt}",
-          "ทักษะ 3 **{weaponObsession}**: {forgehammer}เพิ่ม 5 ต่อ{bearHunt}"
+          "ทักษะ 3 **{weaponObsession}**: {forgehammer}เพิ่ม 5 ต่อ{bearHunt}",
+          "🔗 รายละเอียด: https://kingshotoptimizer.com/masters/valora/"
         ] },
         { type: "sub", text: "3. {roman} — พาสซีฟอารีน่า" },
         { type: "list", items: [
-          "แค่ปลดล็อก (ค่าความสัมพันธ์ 1,000): พรสวรรค์ของเขามีโอกาส 50% ได้{arenaStarChest}เพิ่มหลังแข่งอารีน่าทุกครั้งอยู่แล้ว ({heroShard} และ{forgehammer}) ต้องอัปถึงเลเวลสูงสุดจึงจะได้ 3 หีบ 100% ช่วงแรกไม่ต้องลง{masterEmblem}เยอะ"
+          "แค่ปลดล็อก (ค่าความสัมพันธ์ 1,000): พรสวรรค์ของเขามีโอกาส 50% ได้{arenaStarChest}เพิ่มหลังแข่งอารีน่าทุกครั้งอยู่แล้ว ({heroShard} และ{forgehammer}) ต้องอัปถึงเลเวลสูงสุดจึงจะได้ 3 หีบ 100% ช่วงแรกไม่ต้องลง{masterEmblem}เยอะ",
+          "🔗 รายละเอียด: https://kingshotoptimizer.com/masters/roman/"
         ] },
         { type: "h", text: "ลำดับสำหรับสายเติมหนักและผู้นำทีมระดมพล" },
         { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
@@ -1269,17 +1299,20 @@ const GUIDES = {
           "ارفع {pan} إلى **المستوى 60**.",
           "المواهب: 5 من {reserveChests} لكل 120 دقيقة جمع (حتى 30 يوميًا) — {truegold} و{gems} وتسريعات مجانية.",
           "المهارة 1 **{falconer}**: +8 من {intelMission} يوميًا ← الكثير من {truegold} المجاني يوميًا.",
-          "المهارة 4 **{waysAndMeans}**: +120 من {mysteryBadge} من المهام اليومية و+4 تحديثات مجانية في متجر {mysteryShop} ← {widget} بخصم."
+          "المهارة 4 **{waysAndMeans}**: +120 من {mysteryBadge} من المهام اليومية و+4 تحديثات مجانية في متجر {mysteryShop} ← {widget} بخصم.",
+          "🔗 التفاصيل: https://kingshotoptimizer.com/masters/pan/"
         ] },
         { type: "sub", text: "2. {valora} — مواد عتاد صيد الدببة" },
         { type: "list", items: [
           "ارفعها إلى **المستوى 30** ({acquaintance} 3 / {casual} 1).",
           "المهارة 2 **{leaderByExample}**: +5 × 100 من {enhancementXp} لكل {bearHunt}.",
-          "المهارة 3 **{weaponObsession}**: +5 من {forgehammer} لكل {bearHunt}."
+          "المهارة 3 **{weaponObsession}**: +5 من {forgehammer} لكل {bearHunt}.",
+          "🔗 التفاصيل: https://kingshotoptimizer.com/masters/valora/"
         ] },
         { type: "sub", text: "3. {roman} — مهارة الساحة السلبية" },
         { type: "list", items: [
-          "افتحه فقط (1000 تقارب): موهبته تمنح منذ البداية فرصة 50% للحصول على {arenaStarChest} إضافية بعد كل مباراة في الساحة ({heroShard} و{forgehammer})، ولا تصبح فرصة 100% للحصول على 3 إلا في المستوى الأقصى. لا حاجة لاستثمار كبير في {masterEmblem} في البداية."
+          "افتحه فقط (1000 تقارب): موهبته تمنح منذ البداية فرصة 50% للحصول على {arenaStarChest} إضافية بعد كل مباراة في الساحة ({heroShard} و{forgehammer})، ولا تصبح فرصة 100% للحصول على 3 إلا في المستوى الأقصى. لا حاجة لاستثمار كبير في {masterEmblem} في البداية.",
+          "🔗 التفاصيل: https://kingshotoptimizer.com/masters/roman/"
         ] },
         { type: "h", text: "الأولوية لكبار المنفقين وقادة الحشد" },
         { type: "callout", text: "**{valora} ← {roman} ← {pan}**" },
@@ -1312,17 +1345,20 @@ const GUIDES = {
           "Sube a {pan} al **Nv. 60**.",
           "Talento: 5 {reserveChests} por cada 120 minutos de recolección (hasta 30 al día): {truegold}, {gems} y aceleradores gratis.",
           "Habilidad 1 **{falconer}**: +8 {intelMission} al día → mucha {truegold} gratis a diario.",
-          "Habilidad 4 **{waysAndMeans}**: +120 {mysteryBadge} al completar misiones diarias y +4 actualizaciones gratis en la tienda {mysteryShop} → {widget}s con descuento."
+          "Habilidad 4 **{waysAndMeans}**: +120 {mysteryBadge} al completar misiones diarias y +4 actualizaciones gratis en la tienda {mysteryShop} → {widget}s con descuento.",
+          "🔗 Detalles: https://kingshotoptimizer.com/masters/pan/"
         ] },
         { type: "sub", text: "2. {valora} — materiales de equipo de la Cacería del Oso" },
         { type: "list", items: [
           "Súbela al **Nv. 30** ({acquaintance} 3 / {casual} 1).",
           "Habilidad 2 **{leaderByExample}**: +5 × 100 {enhancementXp} por {bearHunt}.",
-          "Habilidad 3 **{weaponObsession}**: +5 {forgehammer}s por {bearHunt}."
+          "Habilidad 3 **{weaponObsession}**: +5 {forgehammer}s por {bearHunt}.",
+          "🔗 Detalles: https://kingshotoptimizer.com/masters/valora/"
         ] },
         { type: "sub", text: "3. {roman} — pasiva de Arena" },
         { type: "list", items: [
-          "Solo desbloquéalo (1000 de Afinidad): su talento ya da un 50% de probabilidad de {arenaStarChest} extra después de cada combate de Arena ({heroShard}s y {forgehammer}s); solo al nivel máximo pasa a 100% de probabilidad de conseguir 3. Al principio no hace falta invertir mucho en {masterEmblem}."
+          "Solo desbloquéalo (1000 de Afinidad): su talento ya da un 50% de probabilidad de {arenaStarChest} extra después de cada combate de Arena ({heroShard}s y {forgehammer}s); solo al nivel máximo pasa a 100% de probabilidad de conseguir 3. Al principio no hace falta invertir mucho en {masterEmblem}.",
+          "🔗 Detalles: https://kingshotoptimizer.com/masters/roman/"
         ] },
         { type: "h", text: "PRIORIDAD PARA BALLENAS Y LÍDERES DE ATAQUE CONJUNTO" },
         { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
@@ -3508,7 +3544,8 @@ const GUIDES = {
         { type: "p", text: "**Priority — send these first:** these heroes give a **flat {lethality} bonus**, the most valuable bonus for Bear Hunt." },
         { type: "joiners" },
         { type: "sub", text: "USE WITH CAUTION" },
-        { type: "callout", text: "⚠️ **Chance-based damage heroes:** strong effects, but they do **NOT stack**. Only use **ONE** of these heroes in the same rally: {marlin}, {zoe}, {jaeger}, {petra}." }
+        { type: "callout", text: "⚠️ **Chance-based damage heroes:** strong effects, but they do **NOT stack**. Only use **ONE** of these heroes in the same rally: {marlin}, {zoe}, {jaeger}, {petra}." },
+        { type: "p", text: "🔗 More: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
       ]},
       zh: { title: "狩獵巨熊", blocks: [
         { type: "box", title: "🆕 第 3 代更新", items: [
@@ -3565,7 +3602,8 @@ const GUIDES = {
         { type: "p", text: "**優先派出：**這些英雄提供**固定{lethality}加成**，是狩獵巨熊最有價值的加成。" },
         { type: "joiners" },
         { type: "sub", text: "謹慎使用" },
-        { type: "callout", text: "⚠️ **機率觸發傷害的英雄：**效果很強，但**不會疊加**。同一個集結中只能派其中**一位**：{marlin}、{zoe}、{jaeger}、{petra}。" }
+        { type: "callout", text: "⚠️ **機率觸發傷害的英雄：**效果很強，但**不會疊加**。同一個集結中只能派其中**一位**：{marlin}、{zoe}、{jaeger}、{petra}。" },
+        { type: "p", text: "🔗 更多資訊： https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
       ]},
       ko: { title: "자이언트 베어 사냥", blocks: [
         { type: "box", title: "🆕 3세대 업데이트", items: [
@@ -3622,7 +3660,8 @@ const GUIDES = {
         { type: "p", text: "**우선 파견:** 이 영웅들은 **고정 {lethality} 보너스**를 주며, 베어 사냥에서 가장 가치 있는 보너스입니다." },
         { type: "joiners" },
         { type: "sub", text: "주의해서 사용" },
-        { type: "callout", text: "⚠️ **확률 발동 피해 영웅:** 효과는 강하지만 **중첩되지 않습니다**. 같은 집결에는 이 중 **한 명만** 보내세요: {marlin}, {zoe}, {jaeger}, {petra}." }
+        { type: "callout", text: "⚠️ **확률 발동 피해 영웅:** 효과는 강하지만 **중첩되지 않습니다**. 같은 집결에는 이 중 **한 명만** 보내세요: {marlin}, {zoe}, {jaeger}, {petra}." },
+        { type: "p", text: "🔗 더 보기: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
       ]},
       de: { title: "Bärenjagd", blocks: [
         { type: "box", title: "🆕 GEN-3-UPDATE", items: [
@@ -3679,7 +3718,8 @@ const GUIDES = {
         { type: "p", text: "**Priorität – diese zuerst schicken:** Diese Helden geben einen **festen {lethality}-Bonus**, den wertvollsten Bonus für die Bärenjagd." },
         { type: "joiners" },
         { type: "sub", text: "MIT VORSICHT VERWENDEN" },
-        { type: "callout", text: "⚠️ **Helden mit zufallsbasiertem Schaden:** starke Effekte, aber sie **stapeln sich NICHT**. Setze nur **EINEN** dieser Helden in derselben Rally ein: {marlin}, {zoe}, {jaeger}, {petra}." }
+        { type: "callout", text: "⚠️ **Helden mit zufallsbasiertem Schaden:** starke Effekte, aber sie **stapeln sich NICHT**. Setze nur **EINEN** dieser Helden in derselben Rally ein: {marlin}, {zoe}, {jaeger}, {petra}." },
+        { type: "p", text: "🔗 Mehr dazu: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
       ]},
       fr: { title: "Chasse à l'Ours", blocks: [
         { type: "box", title: "🆕 MISE À JOUR GEN 3", items: [
@@ -3736,7 +3776,8 @@ const GUIDES = {
         { type: "p", text: "**Priorité – à envoyer en premier :** ces héros donnent un **bonus de {lethality} fixe**, le bonus le plus précieux pour la Chasse à l'Ours." },
         { type: "joiners" },
         { type: "sub", text: "À UTILISER AVEC PRUDENCE" },
-        { type: "callout", text: "⚠️ **Héros à dégâts basés sur une probabilité :** effets puissants, mais ils **ne se cumulent PAS**. N'utilisez qu'**UN SEUL** de ces héros dans un même ralliement : {marlin}, {zoe}, {jaeger}, {petra}." }
+        { type: "callout", text: "⚠️ **Héros à dégâts basés sur une probabilité :** effets puissants, mais ils **ne se cumulent PAS**. N'utilisez qu'**UN SEUL** de ces héros dans un même ralliement : {marlin}, {zoe}, {jaeger}, {petra}." },
+        { type: "p", text: "🔗 En savoir plus : https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
       ]},
       pt: { title: "Caça ao Urso", blocks: [
         { type: "box", title: "🆕 ATUALIZAÇÃO GEN 3", items: [
@@ -3793,7 +3834,8 @@ const GUIDES = {
         { type: "p", text: "**Prioridade – envie estes primeiro:** esses heróis dão um **bônus fixo de {lethality}**, o bônus mais valioso na Caça ao Urso." },
         { type: "joiners" },
         { type: "sub", text: "USE COM CUIDADO" },
-        { type: "callout", text: "⚠️ **Heróis de dano baseado em chance:** efeitos fortes, mas **NÃO acumulam**. Use apenas **UM** desses heróis no mesmo rally: {marlin}, {zoe}, {jaeger}, {petra}." }
+        { type: "callout", text: "⚠️ **Heróis de dano baseado em chance:** efeitos fortes, mas **NÃO acumulam**. Use apenas **UM** desses heróis no mesmo rally: {marlin}, {zoe}, {jaeger}, {petra}." },
+        { type: "p", text: "🔗 Saiba mais: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
       ]},
       es: { title: "Cacería del Oso", blocks: [
         { type: "box", title: "🆕 ACTUALIZACIÓN GEN 3", items: [
@@ -3850,7 +3892,8 @@ const GUIDES = {
         { type: "p", text: "**Prioridad – envía estos primero:** estos héroes dan una **bonificación fija de {lethality}**, la más valiosa para la Cacería del Oso." },
         { type: "joiners" },
         { type: "sub", text: "ÚSALOS CON CUIDADO" },
-        { type: "callout", text: "⚠️ **Héroes de daño por probabilidad:** efectos fuertes, pero **NO se acumulan**. Usa solo **UNO** de estos héroes en el mismo ataque conjunto: {marlin}, {zoe}, {jaeger}, {petra}." }
+        { type: "callout", text: "⚠️ **Héroes de daño por probabilidad:** efectos fuertes, pero **NO se acumulan**. Usa solo **UNO** de estos héroes en el mismo ataque conjunto: {marlin}, {zoe}, {jaeger}, {petra}." },
+        { type: "p", text: "🔗 Más información: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
       ]},
       tr: { title: "Ayı Avı", blocks: [
         { type: "box", title: "🆕 3. NESİL GÜNCELLEMESİ", items: [
@@ -3907,7 +3950,8 @@ const GUIDES = {
         { type: "p", text: "**Öncelik – önce bunları gönderin:** Bu kahramanlar **sabit {lethality} bonusu** verir; Ayı Avı için en değerli bonus budur." },
         { type: "joiners" },
         { type: "sub", text: "DİKKATLİ KULLANIN" },
-        { type: "callout", text: "⚠️ **Şansa bağlı hasar veren kahramanlar:** güçlü etkiler, ama **birikmezler**. Aynı seferberlikte bunlardan yalnızca **BİRİNİ** kullanın: {marlin}, {zoe}, {jaeger}, {petra}." }
+        { type: "callout", text: "⚠️ **Şansa bağlı hasar veren kahramanlar:** güçlü etkiler, ama **birikmezler**. Aynı seferberlikte bunlardan yalnızca **BİRİNİ** kullanın: {marlin}, {zoe}, {jaeger}, {petra}." },
+        { type: "p", text: "🔗 Daha fazlası: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
       ]},
       id: { title: "Bear Hunt", blocks: [
         { type: "box", title: "🆕 UPDATE GEN 3", items: [
@@ -3964,7 +4008,8 @@ const GUIDES = {
         { type: "p", text: "**Prioritas – kirim ini dulu:** pahlawan ini memberi **bonus {lethality} tetap**, bonus paling berharga untuk Bear Hunt." },
         { type: "joiners" },
         { type: "sub", text: "GUNAKAN DENGAN HATI-HATI" },
-        { type: "callout", text: "⚠️ **Pahlawan damage berbasis peluang:** efeknya kuat, tapi **TIDAK menumpuk**. Gunakan hanya **SATU** dari pahlawan ini dalam reli yang sama: {marlin}, {zoe}, {jaeger}, {petra}." }
+        { type: "callout", text: "⚠️ **Pahlawan damage berbasis peluang:** efeknya kuat, tapi **TIDAK menumpuk**. Gunakan hanya **SATU** dari pahlawan ini dalam reli yang sama: {marlin}, {zoe}, {jaeger}, {petra}." },
+        { type: "p", text: "🔗 Selengkapnya: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
       ]},
       ru: { title: "Охота на медведя", blocks: [
         { type: "box", title: "🆕 ОБНОВЛЕНИЕ 3-ГО ПОКОЛЕНИЯ", items: [
@@ -4021,7 +4066,8 @@ const GUIDES = {
         { type: "p", text: "**Приоритет – отправляйте первыми:** эти герои дают **фиксированный бонус к {lethality}** — самый ценный бонус в охоте на медведя." },
         { type: "joiners" },
         { type: "sub", text: "ИСПОЛЬЗУЙТЕ С ОСТОРОЖНОСТЬЮ" },
-        { type: "callout", text: "⚠️ **Герои с уроном по шансу:** сильные эффекты, но они **НЕ суммируются**. В одном рейде используйте только **ОДНОГО** из них: {marlin}, {zoe}, {jaeger}, {petra}." }
+        { type: "callout", text: "⚠️ **Герои с уроном по шансу:** сильные эффекты, но они **НЕ суммируются**. В одном рейде используйте только **ОДНОГО** из них: {marlin}, {zoe}, {jaeger}, {petra}." },
+        { type: "p", text: "🔗 Подробнее: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
       ]},
       th: { title: "ล่าหมี", blocks: [
         { type: "box", title: "🆕 อัปเดตรุ่นที่ 3", items: [
@@ -4078,7 +4124,8 @@ const GUIDES = {
         { type: "p", text: "**ลำดับแรก – ส่งฮีโร่เหล่านี้ก่อน:** ให้**โบนัส{lethality}แบบคงที่** ซึ่งเป็นโบนัสที่มีค่าที่สุดสำหรับล่าหมี" },
         { type: "joiners" },
         { type: "sub", text: "ใช้อย่างระมัดระวัง" },
-        { type: "callout", text: "⚠️ **ฮีโร่ที่สร้างความเสียหายแบบสุ่มโอกาส:** ผลแรง แต่**ไม่ซ้อนกัน** ในทีมระดมพลเดียวกันใช้ได้แค่**ตัวเดียว**: {marlin}, {zoe}, {jaeger}, {petra}" }
+        { type: "callout", text: "⚠️ **ฮีโร่ที่สร้างความเสียหายแบบสุ่มโอกาส:** ผลแรง แต่**ไม่ซ้อนกัน** ในทีมระดมพลเดียวกันใช้ได้แค่**ตัวเดียว**: {marlin}, {zoe}, {jaeger}, {petra}" },
+        { type: "p", text: "🔗 ข้อมูลเพิ่มเติม: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
       ]},
       ar: { title: "صيد الدببة", blocks: [
         { type: "box", title: "🆕 تحديث الجيل الثالث", items: [
@@ -4135,7 +4182,8 @@ const GUIDES = {
         { type: "p", text: "**الأولوية – أرسلوا هؤلاء أولًا:** يمنح هؤلاء الأبطال **مكافأة {lethality} ثابتة**، وهي أثمن مكافأة في صيد الدببة." },
         { type: "joiners" },
         { type: "sub", text: "استخدم بحذر" },
-        { type: "callout", text: "⚠️ **أبطال الضرر القائم على الفرصة:** تأثيرات قوية، لكنها **لا تتراكم**. استخدم **واحدًا فقط** من هؤلاء الأبطال في الحشد نفسه: {marlin}، {zoe}، {jaeger}، {petra}." }
+        { type: "callout", text: "⚠️ **أبطال الضرر القائم على الفرصة:** تأثيرات قوية، لكنها **لا تتراكم**. استخدم **واحدًا فقط** من هؤلاء الأبطال في الحشد نفسه: {marlin}، {zoe}، {jaeger}، {petra}." },
+        { type: "p", text: "🔗 المزيد: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
       ]}
     }
   },
