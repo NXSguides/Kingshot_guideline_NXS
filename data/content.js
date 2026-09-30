@@ -363,6 +363,26 @@ const GLOSSARY = {
   vipLevel: { zh:"VIP等級", en:"VIP level", ko:"VIP레벨", de:"VIP-Level", fr:"niveau VIP", pt:"nível VIP", tr:"VIP seviyesi", ru:"VIP-уровень", th:"เลเวล VIP", ar:"مستوى VIP", es:"nivel VIP" },
   warAcademy: { zh:"戰爭學院", en:"War Academy", ko:"전쟁 아카데미", de:"Kriegsakademie", fr:"Académie de Guerre", pt:"Academia de Guerra", tr:"Savaş Akademisi", id:"Akademi Perang", ru:"Военная академия", th:"วิทยาลัยสงคราม", ar:"أكاديمية الحرب", es:"Academia de Guerra" },
   raid: { zh:"關卡掃蕩", en:"Raid", ko:"스테이지 소탕", de:"Überfall", fr:"Pillage", pt:"Ataque", tr:"Yağmala", id:"Raid", ru:"Рейд", th:"บุกโจมตี", ar:"الغارة", es:"Asalto" },
+  grayWolf: { en:"Gray Wolf", zh:"灰狼", ko:"회색늑대", de:"Grauer Wolf", fr:"Loup Gris", pt:"Lobo Cinza", tr:"Gri Kurt", id:"Gray Wolf", ru:"Волк", th:"หมาป่าสีเทา", ar:"الذئب الرمادي", es:"Lobo gris" },
+  lynx: { en:"Lynx", zh:"猞猁", ko:"스라소니", de:"Luchs", fr:"Lynx", pt:"Lince", tr:"Vaşak", id:"Lynx", ru:"Рысь", th:"ลิงซ์", ar:"الوشق", es:"Lince" },
+  bison: { en:"Bison", zh:"野牛", ko:"들소", de:"Bison", fr:"Bison", pt:"Bisão", tr:"Bizon", id:"Bison", ru:"Зубр", th:"ควายไบซัน", ar:"الثور", es:"Búfalo" },
+  cheetah: { en:"Cheetah", zh:"獵豹", ko:"치타", de:"Cheetah", fr:"Guépard", pt:"Chita", tr:"Çita", id:"Cheetah", ru:"Гепард", th:"เสือชีตาห์", ar:"النمر الصيّاد", es:"Guepardo" },
+  moose: { en:"Moose", zh:"駝鹿", ko:"엘크", de:"Elch", fr:"Élan", pt:"Alce", tr:"Geyik", id:"Moose", ru:"Лось", th:"กวางมูส", ar:"الأيل", es:"Alce" },
+  lion: { en:"Lion", zh:"獅子", ko:"사자", de:"Löwe", fr:"Lion", pt:"Leão", tr:"Aslan", id:"Lion", ru:"Лев", th:"สิงโต", ar:"الأسد", es:"León" },
+  grizzlyBear: { en:"Grizzly Bear", zh:"棕熊", ko:"불곰", de:"Grizzlybär", fr:"Grizzly", pt:"Urso Pardo", tr:"Boz Ayı", id:"Grizzly Bear", ru:"Медведь", th:"หมีกริซลี่", ar:"الدب الأشيب", es:"Oso pardo" },
+  constructionAide: { en:"Construction Aide", zh:"建造助手", ko:"건설 조수", de:"Bauhilfe", fr:"Aide à la Construction", pt:"Auxiliar de construção", tr:"İnşaat Yardımcısı", id:"Construction Aide", ru:"Помощь строителю", th:"ตัวช่วยก่อสร้าง", ar:"مساعد البناء", es:"Ayudante de construcción" },
+  comfortingEmbrace: { en:"Comforting Embrace", zh:"安撫心靈", ko:"마음 다스리기", de:"Tröstliche Umarmung", fr:"Étreinte Réconfortante", pt:"Abraço reconfortante", tr:"Rahatlatıcı Dokunuş", id:"Comforting Embrace", ru:"Успокаивающие объятия", th:"อ้อมกอดที่อบอุ่น", ar:"احتضان الأمان", es:"Abrazo reconfortante" },
+  gripOfTheTitan: { en:"Grip of the Titan", zh:"巨力", ko:"거대한 힘", de:"Griff des Titanen", fr:"Poignée du Titan", pt:"Agarrão do Titã", tr:"Titanın Eli", id:"Grip of the Titan", ru:"Хватка гиганта", th:"พลังแห่งไททัน", ar:"قبضة العملاق", es:"Agarre del titán" },
+  scentMastery: { en:"Scent Mastery", zh:"敏銳嗅覺", ko:"예민한 후각", de:"Beherrschung der Düfte", fr:"Maîtrise des odeurs", pt:"Domínio do Aroma", tr:"Koku Ustalığı", id:"Scent Mastery", ru:"Отменное чутье", th:"เชี่ยวชาญด้านกลิ่น", ar:"تخصص العطور", es:"Maestría Olfativa" },
+  horrorStare: { en:"Horror Stare", zh:"恐怖凝視", ko:"공포의 응시", de:"Horrorblick", fr:"Regard d'Épouvante", pt:"Olhar de Terror", tr:"Korku Bakışı", id:"Horror Stare", ru:"Ужасающий взгляд", th:"จ้องมองพิฆาต", ar:"تحديق الرعب", es:"Mirada Aterradora" },
+  giftOfTheKing: { en:"Gift of the King", zh:"獅王贈禮", ko:"라이언 킹의 선물", de:"Geschenk des Königs", fr:"Cadeau du Roi", pt:"Presente do Rei", tr:"Kralın Hediyesi", id:"Gift of the King", ru:"Дар короля", th:"ของขวัญจากราชา", ar:"هدية الملك", es:"Regalo del rey" },
+  theHowler: { en:"The Howler", zh:"恐怖咆哮", ko:"공포의 포효", de:"Der Heuler", fr:"Le Hurleur", pt:"O Uivador", tr:"Korkunç Kükreme", id:"The Howler", ru:"Ревун", th:"ผู้คำรามแห่งป่า", ar:"العاوي", es:"El aullador" },
+  petSkill: { en:"Pet Skill", zh:"寵物技能", ko:"펫 스킬", de:"Begleittierfertigkeit", fr:"Compétence de l'Animal", pt:"Habilidade de Animal", tr:"Pet Yeteneği", id:"Skill Hewan Peliharaan", ru:"Навык питомца", th:"ทักษะสัตว์เลี้ยง", ar:"مهارة الحيوان الأليف", es:"Habilidad de mascota" },
+  petFood: { en:"Pet Food", zh:"寵物口糧", ko:"펫 먹이", de:"Begleittier-Futter", fr:"aliments pour animaux", pt:"Alimento para Pets", tr:"Evcil Hayvan Maması", id:"Makanan Peliharaan", ru:"корм для животных", th:"อาหารสัตว์", ar:"طعام حيوان أليف", es:"Comidas para Mascotas" },
+  beasts: { en:"Beasts", zh:"野獸", ko:"야수", de:"Bestien", fr:"Bêtes", pt:"Feras", tr:"Hayvanlar", id:"binatang buas", ru:"Звери", th:"สัตว์อสูร", ar:"الوحوش", es:"Bestias" },
+  terror: { en:"Terror", zh:"巨獸", ko:"괴수", de:"Terror", fr:"Terreur", pt:"Terror", tr:"Dehşet", id:"Terror", ru:"Ужас", th:"อสูรร้าย", ar:"وحش عملاق", es:"Terror" },
+  dreadwolf: { en:"Dreadwolf", zh:"恐狼", ko:"스케어 울프", de:"Höllenwolf", fr:"Loup Redoutable", pt:"Lobo Medonho", tr:"Korkunç Kurt", id:"Netherfiend", ru:"Ужасный волк", th:"หมาป่าสยองขวัญ", ar:"الذئب المخيف", es:"Lobo Aterrador" },
+  governorStamina: { en:"Governor Stamina", zh:"領主體力", ko:"영주 스태미나", de:"Gouverneur-Ausdauer", fr:"Endurance du Chef", pt:"Vigor do Chefe", tr:"Şef Enerjisi", id:"Stamina Gubernur", ru:"энергию губернатора", th:"ความแข็งแกร่งผู้นำ", ar:"قدرة تحمل الحاكم", es:"Vigor de Líder" },
 };
 
 const GUIDES = {
@@ -3013,61 +3033,289 @@ const GUIDES = {
     name: { en: "Pets", zh: "寵物", ko: "펫", de: "Begleittiere", fr: "Animaux", pt: "Mascotes", tr: "Pet", id: "Peliharaan", ru: "Питомцы", th: "สัตว์เลี้ยง", ar: "الحيوانات الأليفة", es: "Mascotas" },
     sections: {
       en: { title: "Pets", blocks: [
+        { type: "h", text: "🔧 {petSkill}s (non-battle)" },
+        { type: "list", items: [
+          "🔹 **{grayWolf}** – {constructionAide}: Construction & Upgrade speed ↑ for 5 min",
+          "🔹 **{lynx}** – {comfortingEmbrace}: restores {governorStamina} instantly",
+          "🔹 **{bison}** – {gripOfTheTitan}: instantly finishes gathering at the next wild resource tile (not {securedAllianceNode}s)",
+          "🔹 **{cheetah}** – {scentMastery}: instantly finds {petFood}",
+          "🔹 **{lion}** – {giftOfTheKing}: digs up a lost item in the Badlands (e.g. {forgehammer}s, {truegold}, charm & gear materials)"
+        ] },
+        { type: "h", text: "⚔️ {petSkill}s (battle)" },
+        { type: "list", items: [
+          "🔹 **{moose}** – {horrorStare}: enemy squad {health} ↓ for 2h",
+          "🔹 **{grizzlyBear}** – {theHowler}: March Speed ↑ + enemy squad {lethality} ↓ for 2h"
+        ] },
+        { type: "h", text: "📍 Where do ⚔️ {petSkill}s work?" },
+        { type: "list", items: [
+          "✅ {beasts}, Rebels, {terror} rallies & {dreadwolf} — works (tested)",
+          "❌ {bearHunt} — enemy debuffs don't work (the bear has no health bar)",
+          "👑 {rally}: the rally leader's ⚔️ {petSkill}s work (tested); online guides say only the leader's count"
+        ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "Full guide: https://kingshotmastery.com/guides/kingshot-pet-guide" },
         { type: "p", text: "ℹ️ The content is too long to translate, so please open the link and read it there." }
       ]},
       zh: { title: "寵物", blocks: [
+        { type: "h", text: "🔧 {petSkill}（非戰鬥）" },
+        { type: "list", items: [
+          "🔹 **{grayWolf}** – {constructionAide}：建造與升級速度提升，持續 5 分鐘",
+          "🔹 **{lynx}** – {comfortingEmbrace}：立刻恢復{governorStamina}",
+          "🔹 **{bison}** – {gripOfTheTitan}：下一次野外資源採集瞬間完成（{securedAllianceNode}不生效）",
+          "🔹 **{cheetah}** – {scentMastery}：立即獲得{petFood}",
+          "🔹 **{lion}** – {giftOfTheKing}：挖出遺失的寶物（例如{forgehammer}、{truegold}、寶石與裝備材料）"
+        ] },
+        { type: "h", text: "⚔️ {petSkill}（戰鬥）" },
+        { type: "list", items: [
+          "🔹 **{moose}** – {horrorStare}：敵方部隊{health}降低，持續 2 小時",
+          "🔹 **{grizzlyBear}** – {theHowler}：發動急襲時行軍速度提升，敵方部隊{lethality}降低，持續 2 小時"
+        ] },
+        { type: "h", text: "📍 ⚔️ {petSkill}在哪裡有效？" },
+        { type: "list", items: [
+          "✅ {beasts}、叛軍、{terror}{rally}、{dreadwolf} — 有效（已實測）",
+          "❌ {bearHunt} — 降低敵方屬性的效果無效（巨熊沒有血條）",
+          "👑 {rally}：發起人的 ⚔️ {petSkill}有效（已實測）；網路攻略說只有發起人的會生效"
+        ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "完整攻略： https://kingshotmastery.com/guides/kingshot-pet-guide" },
         { type: "p", text: "ℹ️ 內容太長無法翻譯，請大家自行點進連結查看。" }
       ]},
       ko: { title: "펫", blocks: [
+        { type: "h", text: "🔧 {petSkill} (비전투)" },
+        { type: "list", items: [
+          "🔹 **{grayWolf}** – {constructionAide}: 건설 및 업그레이드 속도 ↑ (5분)",
+          "🔹 **{lynx}** – {comfortingEmbrace}: {governorStamina} 즉시 회복",
+          "🔹 **{bison}** – {gripOfTheTitan}: 다음 야외 자원지 채집을 즉시 완료 ({securedAllianceNode} 제외)",
+          "🔹 **{cheetah}** – {scentMastery}: {petFood} 즉시 획득",
+          "🔹 **{lion}** – {giftOfTheKing}: 잃어버린 아이템 발굴 (예: {forgehammer}, {truegold}, 보석 및 장비 재료)"
+        ] },
+        { type: "h", text: "⚔️ {petSkill} (전투)" },
+        { type: "list", items: [
+          "🔹 **{moose}** – {horrorStare}: 적 부대 {health} ↓ (2시간)",
+          "🔹 **{grizzlyBear}** – {theHowler}: 행군 속도 ↑ + 적 부대 {lethality} ↓ (2시간)"
+        ] },
+        { type: "h", text: "📍 ⚔️ {petSkill}은 어디서 효과가 있나요?" },
+        { type: "list", items: [
+          "✅ {beasts}, 반군, {terror} {rally}, {dreadwolf} — 효과 있음 (직접 테스트)",
+          "❌ {bearHunt} — 적 약화 효과 없음 (곰에게 HP 바가 없음)",
+          "👑 {rally}: 집결 발동자의 ⚔️ {petSkill} 효과 있음 (직접 테스트); 온라인 가이드에 따르면 발동자의 스킬만 적용됨"
+        ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "전체 가이드: https://kingshotmastery.com/guides/kingshot-pet-guide" },
         { type: "p", text: "ℹ️ 내용이 너무 길어 번역할 수 없습니다. 링크를 눌러 직접 확인해 주세요." }
       ]},
       de: { title: "Begleittiere", blocks: [
+        { type: "h", text: "🔧 {petSkill} (außerhalb des Kampfes)" },
+        { type: "list", items: [
+          "🔹 **{grayWolf}** – {constructionAide}: Bau- & Aufwertungsgeschwindigkeit ↑ für 5 Min.",
+          "🔹 **{lynx}** – {comfortingEmbrace}: stellt sofort {governorStamina} wieder her",
+          "🔹 **{bison}** – {gripOfTheTitan}: schließt das Sammeln am nächsten Ressourcenfeld in der Wildnis sofort ab (nicht bei {securedAllianceNode})",
+          "🔹 **{cheetah}** – {scentMastery}: findet sofort {petFood}",
+          "🔹 **{lion}** – {giftOfTheKing}: gräbt einen verlorenen Gegenstand aus (z. B. {forgehammer}, {truegold}, Talisman- & Ausrüstungsmaterialien)"
+        ] },
+        { type: "h", text: "⚔️ {petSkill} (Kampf)" },
+        { type: "list", items: [
+          "🔹 **{moose}** – {horrorStare}: {health} der gegnerischen Schwadron ↓ für 2 Std.",
+          "🔹 **{grizzlyBear}** – {theHowler}: Marschgeschwindigkeit ↑ + {lethality} der gegnerischen Schwadron ↓ für 2 Std."
+        ] },
+        { type: "h", text: "📍 Wo wirkt eine ⚔️ {petSkill}?" },
+        { type: "list", items: [
+          "✅ {beasts}, Rebellen, {terror}-{rally}s & {dreadwolf} — wirkt (getestet)",
+          "❌ {bearHunt} — Schwächungen des Gegners wirken nicht (der Bär hat keine Lebensleiste)",
+          "👑 {rally}: Die ⚔️ {petSkill} des Rally-Anführers wirkt (getestet); laut Online-Guides zählt nur die des Anführers"
+        ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "Vollständiger Guide: https://kingshotmastery.com/guides/kingshot-pet-guide" },
         { type: "p", text: "ℹ️ Der Inhalt ist zu lang zum Übersetzen – bitte öffne den Link und lies ihn dort." }
       ]},
       fr: { title: "Animaux", blocks: [
+        { type: "h", text: "🔧 {petSkill} (hors combat)" },
+        { type: "list", items: [
+          "🔹 **{grayWolf}** – {constructionAide} : vitesse de Construction & d'Amélioration ↑ pendant 5 min",
+          "🔹 **{lynx}** – {comfortingEmbrace} : restaure instantanément l'{governorStamina}",
+          "🔹 **{bison}** – {gripOfTheTitan} : termine instantanément la collecte sur la prochaine case de ressources sauvage (sauf {securedAllianceNode})",
+          "🔹 **{cheetah}** – {scentMastery} : trouve instantanément des {petFood}",
+          "🔹 **{lion}** – {giftOfTheKing} : déterre un objet perdu (ex. {forgehammer}, {truegold}, matériaux de talisman & d'équipement)"
+        ] },
+        { type: "h", text: "⚔️ {petSkill} (combat)" },
+        { type: "list", items: [
+          "🔹 **{moose}** – {horrorStare} : {health} de l'escouade ennemie ↓ pendant 2 h",
+          "🔹 **{grizzlyBear}** – {theHowler} : Vitesse de marche ↑ + {lethality} de l'escouade ennemie ↓ pendant 2 h"
+        ] },
+        { type: "h", text: "📍 Où fonctionne une ⚔️ {petSkill} ?" },
+        { type: "list", items: [
+          "✅ {beasts}, Rebelles, {rally} contre la {terror} & {dreadwolf} — fonctionne (testé)",
+          "❌ {bearHunt} — les malus infligés à l'ennemi ne fonctionnent pas (l'ours n'a pas de barre de vie)",
+          "👑 {rally} : la ⚔️ {petSkill} du lanceur du ralliement fonctionne (testé) ; selon les guides en ligne, seule celle du lanceur compte"
+        ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "Guide complet : https://kingshotmastery.com/guides/kingshot-pet-guide" },
         { type: "p", text: "ℹ️ Le contenu est trop long pour être traduit, merci d'ouvrir le lien pour le consulter." }
       ]},
       pt: { title: "Mascotes", blocks: [
+        { type: "h", text: "🔧 {petSkill} (fora de batalha)" },
+        { type: "list", items: [
+          "🔹 **{grayWolf}** – {constructionAide}: velocidade de Construção & Aprimoramento ↑ por 5 min",
+          "🔹 **{lynx}** – {comfortingEmbrace}: restaura {governorStamina} instantaneamente",
+          "🔹 **{bison}** – {gripOfTheTitan}: conclui instantaneamente a coleta no próximo campo de recursos selvagem (exceto {securedAllianceNode})",
+          "🔹 **{cheetah}** – {scentMastery}: encontra {petFood} instantaneamente",
+          "🔹 **{lion}** – {giftOfTheKing}: desenterra um item perdido (ex.: {forgehammer}, {truegold}, materiais de talismã & equipamento)"
+        ] },
+        { type: "h", text: "⚔️ {petSkill} (batalha)" },
+        { type: "list", items: [
+          "🔹 **{moose}** – {horrorStare}: {health} do esquadrão inimigo ↓ por 2h",
+          "🔹 **{grizzlyBear}** – {theHowler}: Velocidade de Marcha ↑ + {lethality} do esquadrão inimigo ↓ por 2h"
+        ] },
+        { type: "h", text: "📍 Onde a ⚔️ {petSkill} funciona?" },
+        { type: "list", items: [
+          "✅ {beasts}, Rebeldes, {rally} de {terror} & {dreadwolf} — funciona (testado)",
+          "❌ {bearHunt} — as reduções no inimigo não funcionam (o urso não tem barra de vida)",
+          "👑 {rally}: a ⚔️ {petSkill} de quem inicia o rally funciona (testado); segundo guias online, só a de quem inicia conta"
+        ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "Guia completo: https://kingshotmastery.com/guides/kingshot-pet-guide" },
         { type: "p", text: "ℹ️ O conteúdo é longo demais para traduzir, então abra o link e confira por lá." }
       ]},
       tr: { title: "Pet", blocks: [
+        { type: "h", text: "🔧 {petSkill} (savaş dışı)" },
+        { type: "list", items: [
+          "🔹 **{grayWolf}** – {constructionAide}: İnşaat & Yükseltme hızı ↑ (5 dk)",
+          "🔹 **{lynx}** – {comfortingEmbrace}: {governorStamina} anında yenilenir",
+          "🔹 **{bison}** – {gripOfTheTitan}: sonraki vahşi kaynak alanında toplamayı anında bitirir ({securedAllianceNode} hariç)",
+          "🔹 **{cheetah}** – {scentMastery}: anında {petFood} bulur",
+          "🔹 **{lion}** – {giftOfTheKing}: kayıp bir eşya çıkarır (ör. {forgehammer}, {truegold}, tılsım & teçhizat malzemeleri)"
+        ] },
+        { type: "h", text: "⚔️ {petSkill} (savaş)" },
+        { type: "list", items: [
+          "🔹 **{moose}** – {horrorStare}: düşman ekibin {health} değeri ↓ (2 saat)",
+          "🔹 **{grizzlyBear}** – {theHowler}: Yürüyüş Hızı ↑ + düşman ekibin {lethality} değeri ↓ (2 saat)"
+        ] },
+        { type: "h", text: "📍 ⚔️ {petSkill} nerede işe yarar?" },
+        { type: "list", items: [
+          "✅ {beasts}, İsyancılar, {terror} ({rally}) & {dreadwolf} — işe yarar (test edildi)",
+          "❌ {bearHunt} — düşmanı zayıflatma etkileri işe yaramaz (ayının can barı yok)",
+          "👑 {rally}: Seferberliği başlatanın ⚔️ {petSkill} işe yarar (test edildi); çevrimiçi rehberlere göre yalnızca başlatanınki geçerlidir"
+        ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "Tam rehber: https://kingshotmastery.com/guides/kingshot-pet-guide" },
         { type: "p", text: "ℹ️ İçerik çevrilemeyecek kadar uzun, lütfen bağlantıyı açıp oradan okuyun." }
       ]},
       id: { title: "Peliharaan", blocks: [
+        { type: "h", text: "🔧 {petSkill} (non-pertempuran)" },
+        { type: "list", items: [
+          "🔹 **{grayWolf}** – {constructionAide}: kecepatan Konstruksi & Upgrade ↑ selama 5 menit",
+          "🔹 **{lynx}** – {comfortingEmbrace}: langsung memulihkan {governorStamina}",
+          "🔹 **{bison}** – {gripOfTheTitan}: langsung menyelesaikan pengumpulan di petak sumber daya liar berikutnya (tidak berlaku untuk {securedAllianceNode})",
+          "🔹 **{cheetah}** – {scentMastery}: langsung menemukan {petFood}",
+          "🔹 **{lion}** – {giftOfTheKing}: menggali item yang hilang (mis. {forgehammer}, {truegold}, material charm & gear)"
+        ] },
+        { type: "h", text: "⚔️ {petSkill} (pertempuran)" },
+        { type: "list", items: [
+          "🔹 **{moose}** – {horrorStare}: {health} skuad musuh ↓ selama 2 jam",
+          "🔹 **{grizzlyBear}** – {theHowler}: Kecepatan March ↑ + {lethality} skuad musuh ↓ selama 2 jam"
+        ] },
+        { type: "h", text: "📍 Di mana ⚔️ {petSkill} berlaku?" },
+        { type: "list", items: [
+          "✅ {beasts}, Rebel, {rally} {terror} & {dreadwolf} — berlaku (sudah diuji)",
+          "❌ {bearHunt} — efek pelemahan musuh tidak berlaku (beruang tidak punya bar HP)",
+          "👑 {rally}: ⚔️ {petSkill} milik pemimpin reli berlaku (sudah diuji); menurut panduan online, hanya milik pemimpin yang dihitung"
+        ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "Panduan lengkap: https://kingshotmastery.com/guides/kingshot-pet-guide" },
         { type: "p", text: "ℹ️ Kontennya terlalu panjang untuk diterjemahkan, silakan buka tautannya dan baca di sana." }
       ]},
       ru: { title: "Питомцы", blocks: [
+        { type: "h", text: "🔧 {petSkill} (вне боя)" },
+        { type: "list", items: [
+          "🔹 **{grayWolf}** – {constructionAide}: скорость строительства и улучшения ↑ на 5 мин",
+          "🔹 **{lynx}** – {comfortingEmbrace}: мгновенно восстанавливает {governorStamina}",
+          "🔹 **{bison}** – {gripOfTheTitan}: мгновенно завершает сбор на следующей клетке ресурсов в дикой местности (не действует на {securedAllianceNode})",
+          "🔹 **{cheetah}** – {scentMastery}: мгновенно находит {petFood}",
+          "🔹 **{lion}** – {giftOfTheKing}: выкапывает потерянный предмет (напр. {forgehammer}, {truegold}, материалы для талисманов и снаряжения)"
+        ] },
+        { type: "h", text: "⚔️ {petSkill} (в бою)" },
+        { type: "list", items: [
+          "🔹 **{moose}** – {horrorStare}: {health} вражеского отряда ↓ на 2 ч",
+          "🔹 **{grizzlyBear}** – {theHowler}: скорость марша ↑ + {lethality} вражеского отряда ↓ на 2 ч"
+        ] },
+        { type: "h", text: "📍 Где работает ⚔️ {petSkill}?" },
+        { type: "list", items: [
+          "✅ {beasts}, мятежники, {terror} ({rally}) и {dreadwolf} — работает (проверено)",
+          "❌ {bearHunt} — ослабления врага не работают (у медведя нет полоски здоровья)",
+          "👑 {rally}: ⚔️ {petSkill} организатора рейда работает (проверено); по данным онлайн-гайдов, учитывается только навык организатора"
+        ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "Полный гайд: https://kingshotmastery.com/guides/kingshot-pet-guide" },
         { type: "p", text: "ℹ️ Текст слишком длинный для перевода — откройте ссылку и прочитайте его там." }
       ]},
       th: { title: "สัตว์เลี้ยง", blocks: [
+        { type: "h", text: "🔧 {petSkill} (นอกการต่อสู้)" },
+        { type: "list", items: [
+          "🔹 **{grayWolf}** – {constructionAide}: สปีดการสร้างและอัปเกรด ↑ 5 นาที",
+          "🔹 **{lynx}** – {comfortingEmbrace}: ฟื้นฟู{governorStamina}ทันที",
+          "🔹 **{bison}** – {gripOfTheTitan}: เก็บทรัพยากรที่จุดทรัพยากรในป่าจุดถัดไปเสร็จทันที (ใช้ไม่ได้กับ{securedAllianceNode})",
+          "🔹 **{cheetah}** – {scentMastery}: ได้รับ{petFood}ทันที",
+          "🔹 **{lion}** – {giftOfTheKing}: ขุดพบไอเทมที่สูญหาย (เช่น {forgehammer}, {truegold}, วัสดุเครื่องรางและอุปกรณ์)"
+        ] },
+        { type: "h", text: "⚔️ {petSkill} (การต่อสู้)" },
+        { type: "list", items: [
+          "🔹 **{moose}** – {horrorStare}: {health}ของทีมศัตรู ↓ 2 ชม.",
+          "🔹 **{grizzlyBear}** – {theHowler}: สปีดเดินทัพ ↑ + {lethality}ของทีมศัตรู ↓ 2 ชม."
+        ] },
+        { type: "h", text: "📍 ⚔️ {petSkill}ใช้ได้ที่ไหน?" },
+        { type: "list", items: [
+          "✅ {beasts}, กบฏ, {rally}{terror} และ{dreadwolf} — ใช้ได้ (ทดสอบแล้ว)",
+          "❌ {bearHunt} — เอฟเฟกต์ลดค่าสถานะศัตรูใช้ไม่ได้ (หมีไม่มีแถบพลังชีวิต)",
+          "👑 {rally}: ⚔️ {petSkill}ของผู้เริ่มระดมพลใช้ได้ (ทดสอบแล้ว); ตามคู่มือออนไลน์ นับเฉพาะของผู้เริ่มเท่านั้น"
+        ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "คู่มือฉบับเต็ม: https://kingshotmastery.com/guides/kingshot-pet-guide" },
         { type: "p", text: "ℹ️ เนื้อหายาวเกินกว่าจะแปลได้ กรุณากดลิงก์เพื่ออ่านเอง" }
       ]},
       ar: { title: "الحيوانات الأليفة", blocks: [
+        { type: "h", text: "🔧 {petSkill} (خارج المعركة)" },
+        { type: "list", items: [
+          "🔹 **{grayWolf}** – {constructionAide}: سرعة البناء والترقية ↑ لمدة 5 دقائق",
+          "🔹 **{lynx}** – {comfortingEmbrace}: يستعيد {governorStamina} فورًا",
+          "🔹 **{bison}** – {gripOfTheTitan}: ينهي الجمع فورًا في مربع الموارد البري التالي (لا يسري على {securedAllianceNode})",
+          "🔹 **{cheetah}** – {scentMastery}: يعثر فورًا على {petFood}",
+          "🔹 **{lion}** – {giftOfTheKing}: يستخرج عنصرًا مفقودًا (مثل {forgehammer}، {truegold}، مواد التمائم والعتاد)"
+        ] },
+        { type: "h", text: "⚔️ {petSkill} (المعركة)" },
+        { type: "list", items: [
+          "🔹 **{moose}** – {horrorStare}: {health} فرقة العدو ↓ لمدة ساعتين",
+          "🔹 **{grizzlyBear}** – {theHowler}: سرعة المسير ↑ + {lethality} فرقة العدو ↓ لمدة ساعتين"
+        ] },
+        { type: "h", text: "📍 أين تعمل ⚔️ {petSkill}؟" },
+        { type: "list", items: [
+          "✅ {beasts}، المتمردون، {rally} {terror} و{dreadwolf} — تعمل (تم اختبارها)",
+          "❌ {bearHunt} — تأثيرات إضعاف العدو لا تعمل (الدب ليس لديه شريط صحة)",
+          "👑 {rally}: ⚔️ {petSkill} الخاصة بقائد الحشد تعمل (تم اختبارها)؛ وفقًا للأدلة على الإنترنت، تُحتسب مهارة القائد فقط"
+        ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "الدليل الكامل: https://kingshotmastery.com/guides/kingshot-pet-guide" },
         { type: "p", text: "ℹ️ المحتوى طويل جدًا للترجمة، لذا يُرجى فتح الرابط وقراءته هناك." }
       ]},
       es: { title: "Mascotas", blocks: [
+        { type: "h", text: "🔧 {petSkill} (fuera de combate)" },
+        { type: "list", items: [
+          "🔹 **{grayWolf}** – {constructionAide}: velocidad de Construcción y Mejora ↑ durante 5 min",
+          "🔹 **{lynx}** – {comfortingEmbrace}: restaura {governorStamina} al instante",
+          "🔹 **{bison}** – {gripOfTheTitan}: completa al instante la recolección en la siguiente casilla de recursos salvaje (no en {securedAllianceNode})",
+          "🔹 **{cheetah}** – {scentMastery}: encuentra {petFood} al instante",
+          "🔹 **{lion}** – {giftOfTheKing}: desentierra un objeto perdido (p. ej. {forgehammer}, {truegold}, materiales de talismán y equipo)"
+        ] },
+        { type: "h", text: "⚔️ {petSkill} (combate)" },
+        { type: "list", items: [
+          "🔹 **{moose}** – {horrorStare}: {health} del escuadrón enemigo ↓ durante 2 h",
+          "🔹 **{grizzlyBear}** – {theHowler}: Velocidad de Marcha ↑ + {lethality} del escuadrón enemigo ↓ durante 2 h"
+        ] },
+        { type: "h", text: "📍 ¿Dónde funciona una ⚔️ {petSkill}?" },
+        { type: "list", items: [
+          "✅ {beasts}, Rebeldes, {rally} de {terror} y {dreadwolf} — funciona (probado)",
+          "❌ {bearHunt} — los debuffs al enemigo no funcionan (el oso no tiene barra de vida)",
+          "👑 {rally}: la ⚔️ {petSkill} de quien inicia el ataque funciona (probado); según guías en línea, solo cuenta la de quien lo inicia"
+        ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "Guía completa: https://kingshotmastery.com/guides/kingshot-pet-guide" },
         { type: "p", text: "ℹ️ El contenido es demasiado largo para traducirlo, así que abre el enlace y léelo allí." }
