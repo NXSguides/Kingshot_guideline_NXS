@@ -608,6 +608,7 @@ const TERMS = [
  {
   "cat": "Intel Missions",
   "rows": [
+   ["Rebel Bounty: Elite", "叛軍懸賞：大師", "반군 현상금: 마스터", "Rebellenkopfgeld: Elite", "Prime Rebelle : Élite", "Recompensa Rebelde: Elite", "İsyancı Ödülü: Seçkin", "Rebel Bounty: Elite", "Поимка мятежников (элитн.)", "รางวัลกบฏ: ชั้นยอด", "جائزة المتمردين: نخبة", "Recompensa de Rebelde: de élite", "Intel Mission target (pop-up title). ZH/KO say 'Master' for Elite."],
    ["Intel Mission", "情報事件", "정보 이벤트", "Geheimdienst-Mission", "Mission de renseignements", "Missão de Informação", "Bilgi Görevi", "Misi Intel", "Разведывательная миссия", "ภารกิจข่าวกรอง", "مهمة المعلومات", "Misión de Inteligencia", "Popup title / daily mission. Page title: ZH '事件', KO '이벤트', DE 'Geheimdienst Mission', ES 'Misión de Información'. Daily mission text: ID 'Misi Intelijen'. Not the same as the older GLOSSARY key 'intel'."],
    ["Intel Level", "情報事件", "—", "—", "—", "—", "—", "—", "Уровень разведки", "—", "—", "—", "Level popup title. ZH just repeats '情報事件'."],
    ["Quality", "情報事件等級", "정보 이벤트 품질", "Qualität", "Qualité", "Qualidade", "Kalite", "Kualitas", "Качество", "คุณภาพ", "الجودة", "Calidad", "ZH says 'level', not 'quality'."],
@@ -625,7 +626,7 @@ const TERMS = [
    ["Enlistment Office", "徵兵處", "징병소", "Musterungsamt", "Bureau d'Enrôlement", "Escritório de Alistamento", "Görevlendirme Ofisi", "Kantor Pendaftaran", "Призывной пункт", "ศูนย์เกณฑ์ทหาร", "مكتب التجنيد", "Oficina de Reclutamiento", "City view label. TH confirmed from the Gen 3 city screenshot."],
    ["Storehouse", "倉庫", "창고", "Lagerhaus", "L'Entrepôt", "Armazém", "Ambar", "—", "Склад", "โกดัง", "المستودع", "Almacén", "City view label."],
    ["Defense Tower", "防禦塔", "방어탑", "Verteidigungstürme", "Tours de Défense", "Torres de Defesa", "Savunma Kuleleri", "—", "Защитная башня", "หอคอยป้องกัน", "أبراج الدفاع", "Torres defensivas", "City view label with a number (e.g. 'Verteidigungstürme 5'). Most languages use the plural; ZH/KO/RU/TH singular."],
-   ["Beast Cage", "獸欄", "사육장", "Bestienkäfig", "Enclos", "Jaula da Fera", "Hayvan Kafesi", "—", "Загон для зверей", "กรงสัตว์", "قفص الوحش", "Jaula de bestias", "City view label."]
+   ["Beast Cage", "獸欄", "사육장", "Bestienkäfig", "Enclos", "Jaula da Fera", "Hayvan Kafesi", "Beast Cage", "Загон для зверей", "กรงสัตว์", "قفص الوحش", "Jaula de bestias", "City view label. Pet Skill panel button: ZH 前往獸欄, KO 사육장으로 이동, FR Cage à bête, TH กรงสัตว์อสูร, AR قفص الوحوش, ES Jaula de Bestias."]
   ]
  },
  {
@@ -889,6 +890,43 @@ const TERMS = [
    ["Adventure Supply", "征程補給", "원정 보급", "Abenteuervorrat", "Provision d'Aventure", "Suprimentos de Aventura", "Macera Tedariki", "Suplai Petualangan", "Припасы для приключений", "เสบียงการผจญภัย", "إمدادات المغامرة", "Suministro de Aventura", "Lostlands item (VIP shop, Frontier Encounter, packs): each journey there consumes 1. NOT the same as Journey Supplies."],
    ["Lostlands", "遺忘之地", "잊혀버린 땅", "Verlorene Lande", "terres perdues", "Terras Perdidas", "Kayıp Diyarlar", "Tanah Terlupakan", "Забытые земли", "ดินแดนสาบสูญ", "الأراضي المفقودة", "Tierras Perdidas", "Seen in the Adventure Supply description (where Pan and Roman are found)."],
    ["Master Emblem", "大師徽記", "거장 배지", "Meister-Emblem", "emblème d'expert", "Emblema Mestre", "Usta Amblemi", "—", "эмблема мастера", "ตรามาสเตอร์", "شعار المتخصص", "emblema de maestro", "From the General Master Emblem description (redeem Master Emblems of Masters in your Town). ZH text: 大師的徽記."]
+  ]
+ },
+{
+  "cat": "Pets",
+  "rows": [
+   ["Gray Wolf", "灰狼", "회색늑대", "Grauer Wolf", "Loup Gris", "Lobo Cinza", "Gri Kurt", "Gray Wolf", "Волк", "หมาป่าสีเทา", "الذئب الرمادي", "Lobo gris", "Pet (Gen 1). RU just 'Wolf'."],
+   ["Lynx", "猞猁", "스라소니", "Luchs", "Lynx", "Lince", "Vaşak", "Lynx", "Рысь", "ลิงซ์", "الوشق", "Lince", "Pet, N."],
+   ["Bison", "野牛", "들소", "Bison", "Bison", "Bisão", "Bizon", "Bison", "Зубр", "ควายไบซัน", "الثور", "Búfalo", "Pet, N."],
+   ["Cheetah", "獵豹", "치타", "Cheetah", "Guépard", "Chita", "Çita", "Cheetah", "Гепард", "เสือชีตาห์", "النمر الصيّاد", "Guepardo", "Pet, R. DE keeps English."],
+   ["Moose", "駝鹿", "엘크", "Elch", "Élan", "Alce", "Geyik", "Moose", "Лось", "กวางมูส", "الأيل", "Alce", "Pet, R."],
+   ["Lion", "獅子", "사자", "Löwe", "Lion", "Leão", "Aslan", "Lion", "Лев", "สิงโต", "الأسد", "León", "Pet, SR."],
+   ["Grizzly Bear", "棕熊", "불곰", "Grizzlybär", "Grizzly", "Urso Pardo", "Boz Ayı", "Grizzly Bear", "Медведь", "หมีกริซลี่", "الدب الأشيب", "Oso pardo", "Pet, SR. PT skill text says 'Urso Cinzento'. FR text 'grizzli'."],
+   ["Construction Aide", "建造助手", "건설 조수", "Bauhilfe", "Aide à la Construction", "Auxiliar de construção", "İnşaat Yardımcısı", "Construction Aide", "Помощь строителю", "ตัวช่วยก่อสร้าง", "مساعد البناء", "Ayudante de construcción", "Gray Wolf skill (utility): construction & upgrade speed +12% (Lv.4) for 5 min; CD 23h. DE name ends with a period in game. ID skill names are in English."],
+   ["Comforting Embrace", "安撫心靈", "마음 다스리기", "Tröstliche Umarmung", "Étreinte Réconfortante", "Abraço reconfortante", "Rahatlatıcı Dokunuş", "Comforting Embrace", "Успокаивающие объятия", "อ้อมกอดที่อบอุ่น", "احتضان الأمان", "Abrazo reconfortante", "Lynx skill (utility): restore 50 Stamina; CD 23h."],
+   ["Grip of the Titan", "巨力", "거대한 힘", "Griff des Titanen", "Poignée du Titan", "Agarrão do Titã", "Titanın Eli", "Grip of the Titan", "Хватка гиганта", "พลังแห่งไททัน", "قبضة العملاق", "Agarre del titán", "Bison skill (utility): next wild resource tile gathered instantly (not Secured Alliance Gathering Nodes); CD 23h."],
+   ["Scent Mastery", "敏銳嗅覺", "예민한 후각", "Beherrschung der Düfte", "Maîtrise des odeurs", "Domínio do Aroma", "Koku Ustalığı", "Scent Mastery", "Отменное чутье", "เชี่ยวชาญด้านกลิ่น", "تخصص العطور", "Maestría Olfativa", "Cheetah skill (utility): 400 Pet Food (Lv.5); CD 23h."],
+   ["Horror Stare", "恐怖凝視", "공포의 응시", "Horrorblick", "Regard d'Épouvante", "Olhar de Terror", "Korku Bakışı", "Horror Stare", "Ужасающий взгляд", "จ้องมองพิฆาต", "تحديق الرعب", "Mirada Aterradora", "Moose skill (COMBAT): enemy squad Health -3% (Lv.4) for 2h; CD 20h. Tested: works vs Beasts and Greedy Duke; not vs Bear Hunt."],
+   ["Gift of the King", "獅王贈禮", "라이언 킹의 선물", "Geschenk des Königs", "Cadeau du Roi", "Presente do Rei", "Kralın Hediyesi", "Gift of the King", "Дар короля", "ของขวัญจากราชา", "هدية الملك", "Regalo del rey", "Lion skill (utility): dig up a lost item in the Badlands; CD 2d 3h."],
+   ["The Howler", "恐怖咆哮", "공포의 포효", "Der Heuler", "Le Hurleur", "O Uivador", "Korkunç Kükreme", "The Howler", "Ревун", "ผู้คำรามแห่งป่า", "العاوي", "El aullador", "Grizzly Bear skill (COMBAT): march speed +15% and enemy squad Lethality -1.5% (Lv.1) for 2h; CD 20h."],
+   ["Pet Skill", "寵物技能", "펫 스킬", "Begleittierfertigkeit", "Compétence de l'Animal", "Habilidade de Animal", "Pet Yeteneği", "Skill Hewan Peliharaan", "Навык питомца", "ทักษะสัตว์เลี้ยง", "مهارة الحيوان الأليف", "Habilidad de mascota", "Skill panel title. Green hammer icon = utility skill, red crossed swords = combat skill."],
+   ["Skill Effect", "技能效果", "스킬 효과", "Fertigkeitseffekt", "Effet de Compétence", "Efeito de Habilidade", "Yetenek Etkisi", "Efek Skill", "Эффект навыка", "เอฟเฟกต์ทักษะ", "تأثير المهارة", "Efecto de la habilidad", "Pet skill description prefix."],
+   ["Quick Use", "快捷使用", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Pet skill button (combat skills)."],
+   ["Cooldown (Pet Skill)", "冷卻時間", "재사용 대기시간", "Abklingzeit", "Temps de Recharge", "Tempo de recarga", "Bekleme", "Waktu Tunggu", "Перезарядка", "คูลดาวน์", "فترة التهدئة", "Tiempo de enfriamiento", "Pet skill description. See also the teleport 'Cooldown' row."],
+   ["On Cooldown", "冷卻中", "쿨타임 중", "Abklingzeit läuft", "Se recharge", "Tempo de recarga", "Beklemede", "Sedang cooldown", "Перезаряжается", "อยู่ระหว่างคูลดาวน์", "في فترة التهدئة", "En enfriamiento", "Pet skill status. PT uses the same words as Cooldown."],
+   ["Active", "—", "활성화 중", "Aktiv", "Actif", "Ativo(a)", "Aktif", "Aktif", "Активно", "เปิดใช้งาน", "نشط", "Activo", "Pet skill status while the effect runs."],
+   ["Pet List", "寵物列表", "펫 목록", "Begleittier Liste", "Liste Animaux", "Lista Pets", "Evcil Hayvan Listesi", "Daftar Peliharaan", "Список питомцев", "รายการสัตว์เลี้ยง", "قائمة الحيوان الأليف", "Lista de Mascotas", "Pet page button."],
+   ["Display", "展示", "표시", "Anzeigen", "Affichage", "Mostrar", "Görüntüle", "Tampilkan", "В загон", "แสดง", "عرض", "Mostrar", "Pet page button (show the pet in your city). RU literally 'into the pen'."],
+   ["Advance", "突破", "돌파", "Fortschreiten", "Avancer", "Avançar", "İlerlet", "Tingkatkan", "Улучшить", "เพิ่มความก้าวหน้า", "تقدم", "Avanzar", "Pet page button at a level cap. ID/RU use the same word as Upgrade."],
+   ["Refine", "洗煉", "단련", "Veredeln", "Affiner", "Refinar", "Geliştir", "Sempurnakan", "Соверш.", "ปรับแต่ง", "تحسين", "Refinar", "Pet page tab. RU abbreviated."],
+   ["X Overall Stats", "X總屬性", "X 총 속성", "X Gesamtwerte", "Stats Globales : X", "Atributos Gerais do(a) X", "Genel X Nitelikleri", "Stats Keseluruhan X", "Общие показатели: X", "ค่าสถานะโดยรวมของX", "إحصائيات X الشاملة", "X Atributos generales", "Pet stats pop-up title (X = pet name)."],
+   ["Pet Food", "寵物口糧", "펫 먹이", "Begleittier-Futter", "aliments pour animaux", "Alimento para Pets", "Evcil Hayvan Maması", "Makanan Peliharaan", "корм для животных", "อาหารสัตว์", "طعام حيوان أليف", "Comidas para Mascotas", "Seen in Scent Mastery text. ES plural."],
+   ["Infantry Lethality", "步兵殺傷力", "보병 파괴력", "Infanterie-Tödlichkeit", "Létalité de l'Infant.", "Letalidade da Infantaria", "Piyade Öldürücülüğü", "Letalitas Infanteri", "Смертоносность пехоты", "ความแรงพลังทหารราบ", "قوة فتك المشاة", "Letalidad de Infantería", "Pet stat. FR abbreviated."],
+   ["Infantry Health", "步兵生命值", "보병 HP", "Infanterie-Gesundheit", "Santé de l'Infant.", "Vida da Infantaria", "Piyade Sağlığı", "Nyawa Infanteri", "Здоровье пехоты", "พลังชีวิตทหารราบ", "صحة المشاة", "Salud de Infantería", "Pet stat."],
+   ["Cavalry Lethality", "騎兵殺傷力", "기병 파괴력", "Kavallerie-Tödlichkeit", "Létalité de la Caval.", "Letalidade da Cavalaria", "Süvari Öldürücülüğü", "Letalitas Kavaleri", "Смертоносность кавалерии", "ความแรงพลังทหารม้า", "قوة فتك الفرسان", "Letalidad de Caballería", "Pet stat."],
+   ["Cavalry Health", "騎兵生命值", "기병 HP", "Kavallerie-Gesundheit", "Santé de la Caval.", "Vida da Cavalaria", "Süvari Sağlığı", "Nyawa Kavaleri", "Здоровье кавалерии", "พลังชีวิตทหารม้า", "صحة الفرسان", "Salud de Caballería", "Pet stat."],
+   ["Archer Lethality", "弓兵殺傷力", "궁병 파괴력", "Bogenschützen-Tödlichkeit", "Létalité de l'Arch.", "Letalidade da Arquearia", "Okçu Öldürücülüğü", "Letalitas Pemanah", "Смертоносность стрелков", "ความแรงพลังพลธนู", "قوة فتك الرماة", "Letalidad de Arquero", "Pet stat."],
+   ["Archer Health", "弓兵生命值", "궁병 HP", "Bogenschützen-Gesundheit", "Santé de l'Arch.", "Vida da Arquearia", "Okçu Sağlığı", "Nyawa Pemanah", "Здоровье стрелков", "พลังชีวิตพลธนู", "صحة الرماة", "Salud de Arquero", "Pet stat."]
   ]
  },
 ];
