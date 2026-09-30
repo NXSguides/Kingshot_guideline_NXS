@@ -140,7 +140,11 @@ function rich(str) {
       </button>`;
     })
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-    .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+    .replace(/(https?:\/\/[^\s<]+)/g, (m, url) => {
+      // Long links wrap instead of running off the screen; "https://" and the trailing "/" are hidden
+      const shown = url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+      return `<a href="${url}" target="_blank" rel="noopener" style="overflow-wrap:anywhere;word-break:break-word">${shown}</a>`;
+    });
 }
 
 function fmt(n) {
