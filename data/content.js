@@ -3048,9 +3048,9 @@ const GUIDES = {
         ] },
         { type: "h", text: "📍 Where do ⚔️ {petSkill}s work?" },
         { type: "list", items: [
-          "✅ {beasts}, Rebels, {terror} rallies & {dreadwolf} — works (tested)",
+          "✅ {beasts}, Rebels, {terror} rallies & {dreadwolf} — works",
           "❌ {bearHunt} — enemy debuffs don't work (the bear has no health bar)",
-          "👑 {rally}: the rally leader's ⚔️ {petSkill}s work (tested); online guides say only the leader's count"
+          "👑 {rally}: only the rally leader's ⚔️ {petSkill}s count"
         ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "Full guide: https://kingshotmastery.com/guides/kingshot-pet-guide" },
@@ -3072,9 +3072,9 @@ const GUIDES = {
         ] },
         { type: "h", text: "📍 ⚔️ {petSkill}在哪裡有效？" },
         { type: "list", items: [
-          "✅ {beasts}、叛軍、{terror}{rally}、{dreadwolf} — 有效（已實測）",
+          "✅ {beasts}、叛軍、{terror}{rally}、{dreadwolf} — 有效",
           "❌ {bearHunt} — 降低敵方屬性的效果無效（巨熊沒有血條）",
-          "👑 {rally}：發起人的 ⚔️ {petSkill}有效（已實測）；網路攻略說只有發起人的會生效"
+          "👑 {rally}：只有發起人的 ⚔️ {petSkill}會生效"
         ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "完整攻略： https://kingshotmastery.com/guides/kingshot-pet-guide" },
@@ -3096,9 +3096,9 @@ const GUIDES = {
         ] },
         { type: "h", text: "📍 ⚔️ {petSkill}은 어디서 효과가 있나요?" },
         { type: "list", items: [
-          "✅ {beasts}, 반군, {terror} {rally}, {dreadwolf} — 효과 있음 (직접 테스트)",
+          "✅ {beasts}, 반군, {terror} {rally}, {dreadwolf} — 효과 있음",
           "❌ {bearHunt} — 적 약화 효과 없음 (곰에게 HP 바가 없음)",
-          "👑 {rally}: 집결 발동자의 ⚔️ {petSkill} 효과 있음 (직접 테스트); 온라인 가이드에 따르면 발동자의 스킬만 적용됨"
+          "👑 {rally}: 집결 발동자의 ⚔️ {petSkill}만 적용됨"
         ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "전체 가이드: https://kingshotmastery.com/guides/kingshot-pet-guide" },
@@ -3120,9 +3120,9 @@ const GUIDES = {
         ] },
         { type: "h", text: "📍 Wo wirkt eine ⚔️ {petSkill}?" },
         { type: "list", items: [
-          "✅ {beasts}, Rebellen, {terror}-{rally}s & {dreadwolf} — wirkt (getestet)",
+          "✅ {beasts}, Rebellen, {terror}-{rally}s & {dreadwolf} — wirkt",
           "❌ {bearHunt} — Schwächungen des Gegners wirken nicht (der Bär hat keine Lebensleiste)",
-          "👑 {rally}: Die ⚔️ {petSkill} des Rally-Anführers wirkt (getestet); laut Online-Guides zählt nur die des Anführers"
+          "👑 {rally}: Nur die ⚔️ {petSkill} des Rally-Anführers zählt"
         ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "Vollständiger Guide: https://kingshotmastery.com/guides/kingshot-pet-guide" },
@@ -3144,9 +3144,9 @@ const GUIDES = {
         ] },
         { type: "h", text: "📍 Où fonctionne une ⚔️ {petSkill} ?" },
         { type: "list", items: [
-          "✅ {beasts}, Rebelles, {rally} contre la {terror} & {dreadwolf} — fonctionne (testé)",
+          "✅ {beasts}, Rebelles, {rally} contre la {terror} & {dreadwolf} — fonctionne",
           "❌ {bearHunt} — les malus infligés à l'ennemi ne fonctionnent pas (l'ours n'a pas de barre de vie)",
-          "👑 {rally} : la ⚔️ {petSkill} du lanceur du ralliement fonctionne (testé) ; selon les guides en ligne, seule celle du lanceur compte"
+          "👑 {rally} : seule la ⚔️ {petSkill} du lanceur du ralliement compte"
         ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "Guide complet : https://kingshotmastery.com/guides/kingshot-pet-guide" },
@@ -3168,9 +3168,9 @@ const GUIDES = {
         ] },
         { type: "h", text: "📍 Onde a ⚔️ {petSkill} funciona?" },
         { type: "list", items: [
-          "✅ {beasts}, Rebeldes, {rally} de {terror} & {dreadwolf} — funciona (testado)",
+          "✅ {beasts}, Rebeldes, {rally} de {terror} & {dreadwolf} — funciona",
           "❌ {bearHunt} — as reduções no inimigo não funcionam (o urso não tem barra de vida)",
-          "👑 {rally}: a ⚔️ {petSkill} de quem inicia o rally funciona (testado); segundo guias online, só a de quem inicia conta"
+          "👑 {rally}: só conta a ⚔️ {petSkill} de quem inicia o rally"
         ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "Guia completo: https://kingshotmastery.com/guides/kingshot-pet-guide" },
@@ -3192,9 +3192,9 @@ const GUIDES = {
         ] },
         { type: "h", text: "📍 ⚔️ {petSkill} nerede işe yarar?" },
         { type: "list", items: [
-          "✅ {beasts}, İsyancılar, {terror} ({rally}) & {dreadwolf} — işe yarar (test edildi)",
+          "✅ {beasts}, İsyancılar, {terror} ({rally}) & {dreadwolf} — işe yarar",
           "❌ {bearHunt} — düşmanı zayıflatma etkileri işe yaramaz (ayının can barı yok)",
-          "👑 {rally}: Seferberliği başlatanın ⚔️ {petSkill} işe yarar (test edildi); çevrimiçi rehberlere göre yalnızca başlatanınki geçerlidir"
+          "👑 {rally}: Yalnızca seferberliği başlatanın ⚔️ {petSkill} geçerlidir"
         ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "Tam rehber: https://kingshotmastery.com/guides/kingshot-pet-guide" },
@@ -3216,9 +3216,9 @@ const GUIDES = {
         ] },
         { type: "h", text: "📍 Di mana ⚔️ {petSkill} berlaku?" },
         { type: "list", items: [
-          "✅ {beasts}, Rebel, {rally} {terror} & {dreadwolf} — berlaku (sudah diuji)",
+          "✅ {beasts}, Rebel, {rally} {terror} & {dreadwolf} — berlaku",
           "❌ {bearHunt} — efek pelemahan musuh tidak berlaku (beruang tidak punya bar HP)",
-          "👑 {rally}: ⚔️ {petSkill} milik pemimpin reli berlaku (sudah diuji); menurut panduan online, hanya milik pemimpin yang dihitung"
+          "👑 {rally}: hanya ⚔️ {petSkill} milik pemimpin reli yang dihitung"
         ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "Panduan lengkap: https://kingshotmastery.com/guides/kingshot-pet-guide" },
@@ -3240,9 +3240,9 @@ const GUIDES = {
         ] },
         { type: "h", text: "📍 Где работает ⚔️ {petSkill}?" },
         { type: "list", items: [
-          "✅ {beasts}, мятежники, {terror} ({rally}) и {dreadwolf} — работает (проверено)",
+          "✅ {beasts}, мятежники, {terror} ({rally}) и {dreadwolf} — работает",
           "❌ {bearHunt} — ослабления врага не работают (у медведя нет полоски здоровья)",
-          "👑 {rally}: ⚔️ {petSkill} организатора рейда работает (проверено); по данным онлайн-гайдов, учитывается только навык организатора"
+          "👑 {rally}: учитывается только ⚔️ {petSkill} организатора рейда"
         ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "Полный гайд: https://kingshotmastery.com/guides/kingshot-pet-guide" },
@@ -3264,9 +3264,9 @@ const GUIDES = {
         ] },
         { type: "h", text: "📍 ⚔️ {petSkill}ใช้ได้ที่ไหน?" },
         { type: "list", items: [
-          "✅ {beasts}, กบฏ, {rally}{terror} และ{dreadwolf} — ใช้ได้ (ทดสอบแล้ว)",
+          "✅ {beasts}, กบฏ, {rally}{terror} และ{dreadwolf} — ใช้ได้",
           "❌ {bearHunt} — เอฟเฟกต์ลดค่าสถานะศัตรูใช้ไม่ได้ (หมีไม่มีแถบพลังชีวิต)",
-          "👑 {rally}: ⚔️ {petSkill}ของผู้เริ่มระดมพลใช้ได้ (ทดสอบแล้ว); ตามคู่มือออนไลน์ นับเฉพาะของผู้เริ่มเท่านั้น"
+          "👑 {rally}: นับเฉพาะ⚔️ {petSkill}ของผู้เริ่มระดมพลเท่านั้น"
         ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "คู่มือฉบับเต็ม: https://kingshotmastery.com/guides/kingshot-pet-guide" },
@@ -3288,9 +3288,9 @@ const GUIDES = {
         ] },
         { type: "h", text: "📍 أين تعمل ⚔️ {petSkill}؟" },
         { type: "list", items: [
-          "✅ {beasts}، المتمردون، {rally} {terror} و{dreadwolf} — تعمل (تم اختبارها)",
+          "✅ {beasts}، المتمردون، {rally} {terror} و{dreadwolf} — تعمل",
           "❌ {bearHunt} — تأثيرات إضعاف العدو لا تعمل (الدب ليس لديه شريط صحة)",
-          "👑 {rally}: ⚔️ {petSkill} الخاصة بقائد الحشد تعمل (تم اختبارها)؛ وفقًا للأدلة على الإنترنت، تُحتسب مهارة القائد فقط"
+          "👑 {rally}: تُحتسب ⚔️ {petSkill} الخاصة بقائد الحشد فقط"
         ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "الدليل الكامل: https://kingshotmastery.com/guides/kingshot-pet-guide" },
@@ -3312,9 +3312,9 @@ const GUIDES = {
         ] },
         { type: "h", text: "📍 ¿Dónde funciona una ⚔️ {petSkill}?" },
         { type: "list", items: [
-          "✅ {beasts}, Rebeldes, {rally} de {terror} y {dreadwolf} — funciona (probado)",
+          "✅ {beasts}, Rebeldes, {rally} de {terror} y {dreadwolf} — funciona",
           "❌ {bearHunt} — los debuffs al enemigo no funcionan (el oso no tiene barra de vida)",
-          "👑 {rally}: la ⚔️ {petSkill} de quien inicia el ataque funciona (probado); según guías en línea, solo cuenta la de quien lo inicia"
+          "👑 {rally}: solo cuenta la ⚔️ {petSkill} de quien inicia el ataque"
         ] },
         { type: "img", src: "figures/pets.jpeg", alt: "Pets" },
         { type: "p", text: "Guía completa: https://kingshotmastery.com/guides/kingshot-pet-guide" },
