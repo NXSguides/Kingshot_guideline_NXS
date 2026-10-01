@@ -168,7 +168,8 @@ const EVENT_SCHEDULES = {
   "swordland-showdown":   { anchor: Date.UTC(2026, 8, 28), periodDays: 14, activeDays: 7 },
   "all-out": { anchor: Date.UTC(2026, 8, 25), periodDays: 28, activeDays: 2 },
   "fishing-tournament": { anchor: Date.UTC(2026, 8, 29), periodDays: 28, activeDays: 3 },
-  "tri-alliance-clash": { anchor: Date.UTC(2026, 8, 28), periodDays: 28, activeDays: 6 }
+  "tri-alliance-clash": { anchor: Date.UTC(2026, 8, 28), periodDays: 28, activeDays: 6 },
+  "kvk": { anchor: Date.UTC(2026, 9, 5), periodDays: 28, activeDays: 6 }
 };
 
 function isEventActive(key) {
