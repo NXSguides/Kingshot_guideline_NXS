@@ -8,7 +8,9 @@ const TERMS = [
    ["Construction","建造","건설","Bau","Construction","Construção","İnşaat","Konstruksi","Строительство","การสร้าง","البناء","Construcción","The queue name used in 'Construction Speedup'. ES: Backpack tooltip 'Acelerador de Construcción de 1 h'."],
    ["Training","訓練","훈련","Training","Entraînement","Treinamento","Eğitim","Pelatihan","Тренировки","การฝึก","التدريب","Entrenamiento","The queue name used in 'Training Speedup'. NOT 'Troop' — that was an incorrect guess used earlier in the site's checklist; the game's own term for this queue is Training. ES: 'Acelerador de Entrenamiento de 1 h'."],
    ["Research","研究","연구","Forschung","Recherche","Pesquisa","Araştırma","Penelitian","Исследование","การวิจัย","البحث","Investigación","The queue name used in 'Research Speedup'. ES: 'Acelerador de Investigación de 1 h'."],
-   ["Healing","治療","치료","Heilung","Soins","Cura","Tedavi","Penyembuhan","лечение","การรักษา","الشفاء","Curación","The queue name used in 'Healing Speedup' items in the Backpack's Speedups tab. ES: 'Acelerador de Curación de 1 h'."]
+   ["Healing","治療","치료","Heilung","Soins","Cura","Tedavi","Penyembuhan","лечение","การรักษา","الشفاء","Curación","The queue name used in 'Healing Speedup' items in the Backpack's Speedups tab. ES: 'Acelerador de Curación de 1 h'."],
+   ["Learning","學習","학습","Lern","Apprentissage","Aprendizado","Öğrenme","Pembelajaran","обучения","การเรียนรู้","التعلم","Aprendizaje","The queue name used in 'Learning Speedup' (Master Academy skills; icon = graduation cap). Backpack tooltip: [Learning] queue. DE 'Lern-Warteschlange'; RU genitive [обучения] but the item name says 'изучения'; FR '[d'Apprentissage]'."],
+   ["Learning Speedup","學習加速","학습 가속","Lern-Beschleunigung","Accélérateurs d'Apprentissage","Acelerador de Aprendizado","Öğrenme Hızlandırması","Percepatan Pembelajaran","Ускорение изучения","เร่งสปีดการเรียนรู้","مسرعات التعلم","Acelerador de aprendizaje","Backpack Speedups item (e.g. 1h Learning Speedup / 1小時學習加速). FR/AR item names are plural."]
   ]
  },
  {
