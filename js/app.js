@@ -544,67 +544,6 @@ function renderDoc() {
   doc.appendChild(renderBlocks(guide, s));
 }
 
-/* ---- Anonymous counting (GoatCounter) ------------------------------ */
-const COUNTED_INSTALL_KEY = "ks-install-counted";
-let lastCountedGuide = null;
-
-/* Exclude your own visits: tap the site title 5 times quickly (or open the site with #toggle-goatcounter).
-   Works per device/browser; tap 5 times again to turn counting back on. */
-function isCountingDisabled() { return safeGet("skipgc") === "t"; }
-
-function toggleCounting() {
-  const off = !isCountingDisabled();
-  try { if (off) localStorage.setItem("skipgc", "t"); else localStorage.removeItem("skipgc"); } catch (e) { /* ignore */ }
-  const toast = document.createElement("div");
-  toast.textContent = off ? "📊 Stats: this device is now excluded" : "📊 Stats: this device is counted again";
-  toast.style.cssText = "position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;padding:10px 16px;border-radius:10px;background:var(--panel);color:var(--text);border:1px solid var(--rule);box-shadow:0 4px 16px var(--shadow);font-size:14px";
-  document.body.appendChild(toast);
-  setTimeout(() => toast.remove(), 2500);
-}
-
-(function setupCountingToggle() {
-  if ((location.hash || "").includes("toggle-goatcounter")) {
-    toggleCounting();
-    try { history.replaceState(null, "", location.pathname + location.search); } catch (e) { /* ignore */ }
-  }
-  let taps = 0, timer = null;
-  const title = document.getElementById("siteTitle");
-  if (title) title.addEventListener("click", () => {
-    taps++;
-    clearTimeout(timer);
-    timer = setTimeout(() => { taps = 0; }, 1500);
-    if (taps >= 5) { taps = 0; toggleCounting(); }
-  });
-})();
-
-function gcCount(opts, tries = 0) {
-  if (isCountingDisabled()) return;
-  try {
-    if (window.goatcounter && typeof window.goatcounter.count === "function") {
-      window.goatcounter.count(opts);
-    } else if (tries < 20) {
-      setTimeout(() => gcCount(opts, tries + 1), 500); // wait for count.js to load
-    }
-  } catch (e) { /* counting must never break the site */ }
-}
-
-function countVisit() {
-  // One "App installed" per device, the first time the home-screen app is opened
-  if (isInstalledApp() && !safeGet(COUNTED_INSTALL_KEY)) {
-    safeSet(COUNTED_INSTALL_KEY, "1");
-    gcCount({ path: "app-installed", title: "App installed", event: true });
-  }
-  // One view each time someone opens a guide page
-  if (langChosen && currentGuide !== lastCountedGuide) {
-    lastCountedGuide = currentGuide;
-    const g = GUIDES[currentGuide];
-    gcCount({
-      path: "/" + currentGuide,
-      title: (g && g.name && (g.name.en || g.name.zh)) || currentGuide
-    });
-  }
-}
-
 function renderAll() {
   document.getElementById("siteTitle").textContent = SITE_TITLE;
   document.getElementById("footerNote").textContent = t(UI.footerNote);
@@ -618,7 +557,6 @@ function renderAll() {
   renderLangRow();
   renderGuideRow();
   renderDoc();
-  countVisit();
 }
 
 const EVENT_POPUP = {
