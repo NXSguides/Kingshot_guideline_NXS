@@ -591,33 +591,30 @@ const GUIDES = {
           { type: "p", text: "請與 R4／R5 協調，讓每個人都輪得到，並有效率地填滿總部。" }
         ]
       },
-      ko: {
-        title: "바이킹의 약탈",
-        blocks: [
-          { type: "h", text: "일정" },
-          { type: "p", text: "2주마다 — 1일 차와 3일 차에 각각 30분씩 진행됩니다. 임원진이 시간을 정하며, 보통 {bearHunt} 시간대와 가깝습니다." },
-          { type: "h", text: "📌 준비" },
-          { type: "sub", text: "도시 비우기" },
-          { type: "list", items: ["{infantry}과 {cavalry}은 **모두** 내보내 연맹원을 증원하세요.", "남는 {archer}은 집에 두어도 됩니다 — 증원 포인트를 빼앗지 않습니다.", "이벤트 중 오프라인이더라도 미리 도시를 비우세요! 그래도 포인트를 얻을 수 있고, 다른 연맹원이 당신을 증원해서 포인트를 얻을 기회도 생깁니다."] },
-          { type: "sub", text: "최강 영웅 3명은 집에 두기" },
-          { type: "p", text: "가장 강한 방어/공격 영웅 3명을 방위소에 남겨 두세요." },
-          { type: "list", items: ["**무과금:** {jabel} / {howard} / {quinn}", "**과금:** {amadeus} 또는 {helga} / {jabel} / {saul}"] },
-          { type: "sub", text: "치료하지 마세요" },
-          { type: "p", text: "치료된 부대는 집으로 돌아와 당신을 증원하는 연맹원의 처치/포인트를 빼앗을 수 있습니다." },
-          { type: "sub", text: "활동 중인 연맹원 우선" },
-          { type: "p", text: "온라인 연맹원을 먼저 증원하세요. 7·14·17 웨이브는 온라인 플레이어만 공격합니다." },
-          { type: "h", text: "⚔️ 연맹원 증원" },
-          { type: "p", text: "처치 포인트를 극대화하려면 첫 번째 자리에 {bearHunt} 참여용 영웅을 사용하세요." },
-          { type: "p", text: "**추천:** {chenko} / {amane} / {yeonwoo} / {amadeus}" },
-          { type: "callout", text: "증원 행군에는 {howard}나 {gordon} 같은 방어형 영웅은 피하세요." },
-          { type: "h", text: "🏛️ 본부 — 10·20 웨이브" },
-          { type: "p", text: "10·20 웨이브는 **본부만** 공격합니다. 이 웨이브 동안 도시 공격은 멈춥니다." },
-          { type: "p", text: "9/19 웨이브가 끝난 뒤:" },
-          { type: "list", items: ["강력한 행군 **하나**를 소환하세요.", "곧바로 본부로 보내세요.", "인원당 최대 68K 병력.", "첫 번째 자리에 {chenko}나 {amadeus}, 또는 가장 강한 순수 딜 영웅을 사용하세요.", "본부 웨이브가 끝나면 소환한 뒤, 배정된 연맹원을 다시 증원하세요."] },
-          { type: "callout", text: "⚠️ **중요:** 10웨이브 **또는** 20웨이브 중 한 번만 본부를 증원할 수 있습니다 — **둘 다는 불가.**" },
-          { type: "p", text: "모두가 차례를 갖고 본부를 효율적으로 채울 수 있도록 R4/R5와 조율하세요." }
-        ]
-      },
+      ko: { title: "바이킹의 약탈", blocks: [
+        {"type":"h","text":"📌 일정"},
+        {"type":"p","text":"2주에 한 번 — 1일 차와 3일 차에 각각 30분씩 진행됩니다. 보통 {bearHunt} 시간에 맞춰 일정을 잡습니다."},
+        {"type":"h","text":"📌 준비 사항"},
+        {"type":"sub","text":"도시 비우기"},
+        {"type":"list","items":["모든 {infantry}과 {cavalry}을 연맹원 지원군으로 내보내세요.","{archer}은 상위 영웅들과 함께 본진 방어를 위해 내부에 남겨 둡니다 — {archer}은 지원 점수를 뺏어가지 않습니다.","이벤트 동안 접속하지 못하더라도 미리 도시를 비워두세요! 다른 연맹원들이 본진을 지원하며 점수를 얻을 수 있도록 도우면서 본인도 점수를 획득할 수 있습니다."]},
+        {"type":"sub","text":"최고의 영웅 3명은 도시에 남기기"},
+        {"type":"p","text":"수비/공격력 기준 가장 강력한 영웅 3명을 방위소에 배치해 두세요 — 본진에 남겨두면 자동 배치됩니다."},
+        {"type":"list","items":["**무과금(F2P):** {jabel} / {howard} / {quinn}","**과금(P2W):** {amadeus} 또는 {helga} / {jabel} / {saul}"]},
+        {"type":"sub","text":"치유 금지"},
+        {"type":"p","text":"치유되어 돌아온 병력은 본진을 지원 중인 다른 연맹원의 킬/점수를 가로챌 수 있습니다. 이벤트가 종료될 때까지 치유 금지."},
+        {"type":"sub","text":"활성화된 멤버 우선 지원"},
+        {"type":"p","text":"접속 중인 멤버를 먼저 지원하세요. 7, 14, 17 웨이브는 접속 중인 플레이어만 공격합니다."},
+        {"type":"h","text":"⚔️ 연맹원 지원하기"},
+        {"type":"p","text":"킬 점수를 극대화하려면 1번 슬롯에 {bearHunt} 참여 영웅을 배치하세요."},
+        {"type":"p","text":"**추천 영웅:** {chenko} / {amane} / {yeonwoo} / {amadeus}"},
+        {"type":"callout","text":"지원 부대에는 {howard}나 {gordon} 같은 방어형 영웅을 피하세요."},
+        {"type":"h","text":"🏛️ 본부(HQ) — 10 & 20 웨이브"},
+        {"type":"p","text":"10 및 20 웨이브는 **오직 본부(HQ)만** 공격합니다. 이 웨이브 동안에는 도시 공격이 일시 중지됩니다."},
+        {"type":"p","text":"9 또는 19 웨이브가 끝난 후:"},
+        {"type":"list","items":["강력한 부대 **하나**를 회수합니다.","본부(HQ)로 직접 보냅니다.","멤버당 최대 68k(68,000) 병력을 보냅니다.","1번 슬롯에 {chenko} 또는 {amadeus} 혹은 가장 강력한 순수 공격형 영웅을 배치합니다.","본부 웨이브가 끝난 후, 부대를 회수하여 다시 연맹원을 지원하러 돌아갑니다."]},
+        {"type":"callout","text":"⚠️ **중요:** 본부 지원/참여는 10 웨이브 **혹은** 20 웨이브 중 한 번만 가능합니다 — **둘 다 참여할 수는 없습니다.**"},
+        {"type":"p","text":"모든 멤버가 골고루 참여하고 본부를 효율적으로 채울 수 있도록 R4/R5 운영진과 조율하세요."}
+      ]},
       de: {
         title: "Wikinger-Rache",
         blocks: [
@@ -868,556 +865,256 @@ const GUIDES = {
     name: { en: "Gen 3 Master Academy Guide", zh: "第3代大師學院指南", ko: "3세대 거장 아카데미 가이드", de: "Gen-3-Meisterakademie-Leitfaden", fr: "Guide de l'Académie des Experts (Gén 3)", pt: "Guia da Academia dos Mestres (Gen 3)", tr: "3. Nesil Usta Akademisi Rehberi", id: "Panduan Akademi Master Gen 3", ru: "Гайд по Университету мастеров (3-е поколение)", th: "คู่มือสถาบันมาสเตอร์รุ่นที่ 3", ar: "دليل أكاديمية المتخصصين (الجيل الثالث)", es: "Guía de la Academia de Maestros (Gen 3)" },
     sections: {
       en: { title: "Gen 3 Master Academy Guide", blocks: [
-        { type: "h", text: "WHEN" },
-        { type: "p", text: "Gen 3 arrives on Sep 28 and unlocks the {masterAcademy} at Town Center 25. Masters give permanent passive account buffs, extra resources and event rewards. They are separate from Heroes." },
-        { type: "h", text: "HOW UNLOCKING WORKS" },
-        { type: "list", items: [
-          "{valora} is ALWAYS your first Master, discovered through normal {realmJourney}s.",
-          "Do NOT spend {adventureSupply} on {valora} — the free {journeySupplies} (20 per day, refreshed at 00:00 UTC) will unlock her naturally.",
-          "SAVE your {adventureSupply} for {pan} and {roman} in the {lostlands} once they are discovered.",
-          "A Master settles in your Town once you reach 1,000 Affinity."
-        ] },
-        { type: "h", text: "PRIORITY FOR F2P & LOW SPENDERS" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
-        { type: "sub", text: "1. {pan} — the economy Master (top priority)" },
-        { type: "list", items: [
-          "Push {pan} to **Lv. 60**.",
-          "Talent: 5 {reserveChests} for every 120 minutes of gathering (up to 30 per day) — free {truegold}, {gems} and speedups.",
-          "Skill 1 **{falconer}**: +8 {intelMission}s per day → lots of free daily {truegold}.",
-          "Skill 4 **{waysAndMeans}**: +120 {mysteryBadge} from daily missions and +4 free {mysteryShop} refreshes → discounted {widget}s.",
-          "🔗 Details: https://kingshotoptimizer.com/masters/pan/"
-        ] },
-        { type: "sub", text: "2. {valora} — Bear Hunt gear materials" },
-        { type: "list", items: [
-          "Get her to **Lv. 30** ({acquaintance} 3 / {casual} 1).",
-          "Skill 2 **{leaderByExample}**: +5 × 100 {enhancementXp} per {bearHunt}.",
-          "Skill 3 **{weaponObsession}**: +5 {forgehammer}s per {bearHunt}.",
-          "🔗 Details: https://kingshotoptimizer.com/masters/valora/"
-        ] },
-        { type: "sub", text: "3. {roman} — Arena passive" },
-        { type: "list", items: [
-          "Just unlock him (1,000 Affinity): his Talent already gives a 50% chance of extra {arenaStarChest}s after each Arena match ({heroShard}s & {forgehammer}s); only at max level does it become a 100% chance of 3. No heavy {masterEmblem} investment needed early on.",
-          "🔗 Details: https://kingshotoptimizer.com/masters/roman/"
-        ] },
-        { type: "h", text: "PRIORITY FOR WHALES & RALLY LEADERS" },
-        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
-        { type: "list", items: [
-          "**{valora}**: max **{savageAdvantage}** and **{danceOfTheHunt}** for huge leaderboard scores.",
-          "**{danceOfTheHunt}** (Skill 1): when you launch the {ragingBear} rally, the whole rally's squad capacity +30,000 per level (Lv.10: +300,000) — more members' troops fit in.",
-          "**{savageAdvantage}** (Skill 4): your own march squad capacity when taking part in {bearHunt} +3,000 per level (Lv.10: +30,000).",
-          "**{roman}**: {teacherOfChampions} & {oneDesire} (+20% Arena battle Attack & Health), {winnerTakeAll} (+50% daily/weekly {arenaToken} rewards), {crowdFavorite} (3 extra {arenaShop} items at 50% off).",
-          "**{pan}**: level him up second for passive {truegold}."
-        ] },
-        { type: "callout", text: "ℹ️ Skill 1 {danceOfTheHunt} raises the capacity of the whole rally you launch. Skill 4 {savageAdvantage} only raises your own squad — the rally's total capacity still depends on what the rally leader can open." },
-        { type: "h", text: "💬 Journey Q&A rewards" },
-        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
-        { type: "p", text: "ℹ️ The content is too long to translate, so please open the link and read it there." }
+        {"type":"h","text":"WHEN"},
+        {"type":"p","text":"Gen 3 arrives on Sep 28 and unlocks the {masterAcademy} at Town Center 25. Masters give permanent passive account buffs, extra resources and event rewards. They are separate from Heroes."},
+        {"type":"h","text":"HOW UNLOCKING WORKS"},
+        {"type":"list","items":["{valora} is ALWAYS your first Master, discovered through normal {realmJourney}s.","Free {journeySupplies}: 20 refill automatically at 00:00 UTC, plus 10 at 08:00 and 10 at 16:00 that you must claim manually — 40 per day. You can buy up to 20 more per day with {gems} (1,000 {gems} per 5). They stop refilling once storage is full, so use them regularly.","Do NOT spend {adventureSupply} on {valora} — the free {journeySupplies} will unlock her naturally.","SAVE your {adventureSupply} for {pan} and {roman} in the {lostlands} once they are discovered.","A Master settles in your Town once you reach 1,000 Affinity."]},
+        {"type":"h","text":"PRIORITY FOR F2P & LOW SPENDERS"},
+        {"type":"callout","text":"**{pan} ➔ {valora} ➔ {roman}**"},
+        {"type":"sub","text":"1. {pan} — the economy Master (top priority)"},
+        {"type":"list","items":["Push {pan} to **Lv. 60**.","Talent: 5 {reserveChests} for every 120 minutes of gathering (up to 30 per day) — free {truegold}, {gems} and speedups.","Skill 1 **{falconer}**: +8 {intelMission}s per day → lots of free daily {truegold}.","Skill 4 **{waysAndMeans}**: +120 {mysteryBadge} from daily missions and +4 free {mysteryShop} refreshes → discounted {widget}s.","🔗 Details: https://kingshotoptimizer.com/masters/pan/"]},
+        {"type":"sub","text":"2. {valora} — Bear Hunt gear materials"},
+        {"type":"list","items":["Get her to **Lv. 30** ({acquaintance} 3 / {casual} 1).","Skill 2 **{leaderByExample}**: +5 × 100 {enhancementXp} per {bearHunt}.","Skill 3 **{weaponObsession}**: +5 {forgehammer}s per {bearHunt}.","🔗 Details: https://kingshotoptimizer.com/masters/valora/"]},
+        {"type":"sub","text":"3. {roman} — Arena passive"},
+        {"type":"list","items":["Just unlock him (1,000 Affinity): his Talent already gives a 50% chance of extra {arenaStarChest}s after each Arena match ({heroShard}s & {forgehammer}s); only at max level does it become a 100% chance of 3. No heavy {masterEmblem} investment needed early on.","🔗 Details: https://kingshotoptimizer.com/masters/roman/"]},
+        {"type":"h","text":"PRIORITY FOR WHALES & RALLY LEADERS"},
+        {"type":"callout","text":"**{valora} ➔ {roman} ➔ {pan}**"},
+        {"type":"list","items":["**{valora}**: max **{savageAdvantage}** and **{danceOfTheHunt}** for huge leaderboard scores.","**{danceOfTheHunt}** (Skill 1): when you launch the {ragingBear} rally, the whole rally's squad capacity +30,000 per level (Lv.10: +300,000) — more members' troops fit in.","**{savageAdvantage}** (Skill 4): your own march squad capacity when taking part in {bearHunt} +3,000 per level (Lv.10: +30,000).","**{roman}**: {teacherOfChampions} & {oneDesire} (+20% Arena battle Attack & Health), {winnerTakeAll} (+50% daily/weekly {arenaToken} rewards), {crowdFavorite} (3 extra {arenaShop} items at 50% off).","**{pan}**: level him up second for passive {truegold}."]},
+        {"type":"callout","text":"ℹ️ Skill 1 {danceOfTheHunt} raises the capacity of the whole rally you launch. Skill 4 {savageAdvantage} only raises your own squad — the rally's total capacity still depends on what the rally leader can open."},
+        {"type":"h","text":"💬 Journey Q&A rewards"},
+        {"type":"p","text":"https://g2384.github.io/Kingshot-Data/journey.html"},
+        {"type":"p","text":"ℹ️ The content is too long to translate, so please open the link and read it there."}
       ]},
       zh: { title: "第3代大師學院指南", blocks: [
-        { type: "h", text: "開放時間" },
-        { type: "p", text: "第3代於 9/28 開放，城鎮中心 25 級解鎖{masterAcademy}。大師提供永久的帳號被動加成、額外資源和活動獎勵，和英雄是分開的系統。" },
-        { type: "h", text: "解鎖方式" },
-        { type: "list", items: [
-          "第一位大師**一定是{valora}**，透過一般的{realmJourney}就會遇到。",
-          "**不要**把{adventureSupply}用在{valora}身上——每天免費的{journeySupplies}（每日 20 個，UTC 00:00 恢復）就會自然解鎖她。",
-          "把{adventureSupply}**存起來**，等發現{pan}和{roman}後在{lostlands}使用。",
-          "好感度達到 1,000，大師就會進駐城鎮。"
-        ] },
-        { type: "h", text: "無課與小課玩家的優先順序" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
-        { type: "sub", text: "1. {pan}——經濟型大師（最優先）" },
-        { type: "list", items: [
-          "把{pan}練到 **Lv. 60**。",
-          "天賦：每採集 120 分鐘獲得 5 個{reserveChests}（每日上限 30）——免費的{truegold}、{gems}和加速。",
-          "技能 1 **{falconer}**：每天多 8 個{intelMission}→ 每天大量免費{truegold}。",
-          "技能 4 **{waysAndMeans}**：完成每日任務多得 120 個{mysteryBadge}，{mysteryShop}免費更新多 4 次 → 買折扣{widget}。",
-          "🔗 詳細資料： https://kingshotoptimizer.com/masters/pan/"
-        ] },
-        { type: "sub", text: "2. {valora}——狩獵巨熊的裝備材料" },
-        { type: "list", items: [
-          "練到 **Lv. 30**（{acquaintance}3／{casual}1）。",
-          "技能 2 **{leaderByExample}**：每次{bearHunt}多 5 個 100 點{enhancementXp}。",
-          "技能 3 **{weaponObsession}**：每次{bearHunt}多 5 個{forgehammer}。",
-          "🔗 詳細資料： https://kingshotoptimizer.com/masters/valora/"
-        ] },
-        { type: "sub", text: "3. {roman}——競技場被動" },
-        { type: "list", items: [
-          "只要解鎖他（好感度 1,000）：天賦一開始就有 50% 機率在每場競技後額外獲得{arenaStarChest}（{heroShard}和{forgehammer}），要升到最高才會變成 100% 機率拿 3 個。前期不用大量投入{masterEmblem}。",
-          "🔗 詳細資料： https://kingshotoptimizer.com/masters/roman/"
-        ] },
-        { type: "h", text: "大課與集結指揮的優先順序" },
-        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
-        { type: "list", items: [
-          "**{valora}**：**{savageAdvantage}**和**{danceOfTheHunt}**練滿，衝排行榜高分。",
-          "**{danceOfTheHunt}**（技能 1）：發動{ragingBear}集結時，整個集結的部隊容量上限每級 +30,000（10 級 +300,000），能讓更多盟友的部隊加入。",
-          "**{savageAdvantage}**（技能 4）：參與{bearHunt}時，自己的出征部隊容量上限每級 +3,000（10 級 +30,000）。",
-          "**{roman}**：{teacherOfChampions}和{oneDesire}（競技場戰鬥攻擊力與生命值 +20%）、{winnerTakeAll}（每日／每週結算{arenaToken}獎勵 +50%）、{crowdFavorite}（{arenaShop}多 3 個 5 折商品）。",
-          "**{pan}**：第二順位升級，拿被動{truegold}。"
-        ] },
-        { type: "callout", text: "ℹ️ 技能 1 {danceOfTheHunt}提升的是自己發動的整個集結容量；技能 4 {savageAdvantage}只增加自己的部隊，整體集結能裝多少還是看發動的人能開多少。" },
-        { type: "h", text: "💬 {realmJourney}問答獎勵" },
-        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
-        { type: "p", text: "ℹ️ 內容太長無法翻譯，請大家自行點進連結查看。" }
+        {"type":"h","text":"開放時間"},
+        {"type":"p","text":"第3代於 9/28 開放，城鎮中心 25 級解鎖{masterAcademy}。大師提供永久的帳號被動加成、額外資源和活動獎勵，和英雄是分開的系統。"},
+        {"type":"h","text":"解鎖方式"},
+        {"type":"list","items":["第一位大師**一定是{valora}**，透過一般的{realmJourney}就會遇到。","免費{journeySupplies}：UTC 00:00 自動補 20 個，08:00 和 16:00 各有 10 個要手動領取，每天共 40 個。另外每天最多可用{gems}加買 20 個（每 5 個 1,000 {gems}）。存量滿了就不會再補，記得定期使用。","**不要**把{adventureSupply}用在{valora}身上——每天免費的{journeySupplies}就會自然解鎖她。","把{adventureSupply}**存起來**，等發現{pan}和{roman}後在{lostlands}使用。","好感度達到 1,000，大師就會進駐城鎮。"]},
+        {"type":"h","text":"無課與小課玩家的優先順序"},
+        {"type":"callout","text":"**{pan} ➔ {valora} ➔ {roman}**"},
+        {"type":"sub","text":"1. {pan}——經濟型大師（最優先）"},
+        {"type":"list","items":["把{pan}練到 **Lv. 60**。","天賦：每採集 120 分鐘獲得 5 個{reserveChests}（每日上限 30）——免費的{truegold}、{gems}和加速。","技能 1 **{falconer}**：每天多 8 個{intelMission}→ 每天大量免費{truegold}。","技能 4 **{waysAndMeans}**：完成每日任務多得 120 個{mysteryBadge}，{mysteryShop}免費更新多 4 次 → 買折扣{widget}。","🔗 詳細資料： https://kingshotoptimizer.com/masters/pan/"]},
+        {"type":"sub","text":"2. {valora}——狩獵巨熊的裝備材料"},
+        {"type":"list","items":["練到 **Lv. 30**（{acquaintance}3／{casual}1）。","技能 2 **{leaderByExample}**：每次{bearHunt}多 5 個 100 點{enhancementXp}。","技能 3 **{weaponObsession}**：每次{bearHunt}多 5 個{forgehammer}。","🔗 詳細資料： https://kingshotoptimizer.com/masters/valora/"]},
+        {"type":"sub","text":"3. {roman}——競技場被動"},
+        {"type":"list","items":["只要解鎖他（好感度 1,000）：天賦一開始就有 50% 機率在每場競技後額外獲得{arenaStarChest}（{heroShard}和{forgehammer}），要升到最高才會變成 100% 機率拿 3 個。前期不用大量投入{masterEmblem}。","🔗 詳細資料： https://kingshotoptimizer.com/masters/roman/"]},
+        {"type":"h","text":"大課與集結指揮的優先順序"},
+        {"type":"callout","text":"**{valora} ➔ {roman} ➔ {pan}**"},
+        {"type":"list","items":["**{valora}**：**{savageAdvantage}**和**{danceOfTheHunt}**練滿，衝排行榜高分。","**{danceOfTheHunt}**（技能 1）：發動{ragingBear}集結時，整個集結的部隊容量上限每級 +30,000（10 級 +300,000），能讓更多盟友的部隊加入。","**{savageAdvantage}**（技能 4）：參與{bearHunt}時，自己的出征部隊容量上限每級 +3,000（10 級 +30,000）。","**{roman}**：{teacherOfChampions}和{oneDesire}（競技場戰鬥攻擊力與生命值 +20%）、{winnerTakeAll}（每日／每週結算{arenaToken}獎勵 +50%）、{crowdFavorite}（{arenaShop}多 3 個 5 折商品）。","**{pan}**：第二順位升級，拿被動{truegold}。"]},
+        {"type":"callout","text":"ℹ️ 技能 1 {danceOfTheHunt}提升的是自己發動的整個集結容量；技能 4 {savageAdvantage}只增加自己的部隊，整體集結能裝多少還是看發動的人能開多少。"},
+        {"type":"h","text":"💬 {realmJourney}問答獎勵"},
+        {"type":"p","text":"https://g2384.github.io/Kingshot-Data/journey.html"},
+        {"type":"p","text":"ℹ️ 內容太長無法翻譯，請大家自行點進連結查看。"}
       ]},
-      ko: { title: "3세대 거장 아카데미 가이드", blocks: [
-        { type: "h", text: "일시" },
-        { type: "p", text: "3세대는 9/28에 오픈되며, 도시 센터 25레벨에서 {masterAcademy}가 해제됩니다. 거장은 영구적인 계정 패시브 버프, 추가 자원, 이벤트 보상을 제공하며 영웅과는 별개입니다." },
-        { type: "h", text: "해제 방법" },
-        { type: "list", items: [
-          "첫 번째 거장은 **항상 {valora}**이며, 일반 {realmJourney}에서 만납니다.",
-          "{valora}에게 {adventureSupply}를 **쓰지 마세요** — 무료 {journeySupplies}(매일 20개, UTC 00:00 회복)로 자연스럽게 해제됩니다.",
-          "{adventureSupply}는 {pan}과 {roman}을 발견한 뒤 {lostlands}에서 쓰도록 **모아 두세요**.",
-          "호감도 1,000에 도달하면 거장이 도시에 입주합니다."
-        ] },
-        { type: "h", text: "무과금·소과금 우선순위" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
-        { type: "sub", text: "1. {pan} — 경제형 거장 (최우선)" },
-        { type: "list", items: [
-          "{pan}을 **Lv. 60**까지 올리세요.",
-          "재능: 채집 120분마다 {reserveChests} 5개 (하루 최대 30개) — 무료 {truegold}, {gems}, 가속.",
-          "스킬 1 **{falconer}**: {intelMission} 하루 +8개 → 매일 많은 무료 {truegold}.",
-          "스킬 4 **{waysAndMeans}**: 일일 임무 완료 시 {mysteryBadge} +120개, {mysteryShop} 무료 새로고침 +4회 → 할인 {widget} 구매.",
-          "🔗 자세히: https://kingshotoptimizer.com/masters/pan/"
-        ] },
-        { type: "sub", text: "2. {valora} — 베어 사냥 장비 재료" },
-        { type: "list", items: [
-          "**Lv. 30**까지 올리세요 ({acquaintance} 3 / {casual} 1).",
-          "스킬 2 **{leaderByExample}**: {bearHunt}마다 100 {enhancementXp} 부품 +5개.",
-          "스킬 3 **{weaponObsession}**: {bearHunt}마다 {forgehammer} +5개.",
-          "🔗 자세히: https://kingshotoptimizer.com/masters/valora/"
-        ] },
-        { type: "sub", text: "3. {roman} — 경기장 패시브" },
-        { type: "list", items: [
-          "해제만 하세요 (호감도 1,000): 재능만으로도 매 경기 후 50% 확률로 {arenaStarChest}({heroShard}, {forgehammer})를 추가로 얻습니다. 최고 레벨이 되어야 100% 확률로 3개가 됩니다. 초반에 {masterEmblem}을 많이 투자할 필요는 없습니다.",
-          "🔗 자세히: https://kingshotoptimizer.com/masters/roman/"
-        ] },
-        { type: "h", text: "고과금·집결장 우선순위" },
-        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
-        { type: "list", items: [
-          "**{valora}**: **{savageAdvantage}**과 **{danceOfTheHunt}**을 최대로 올려 랭킹 점수를 크게 올리세요.",
-          "**{danceOfTheHunt}** (스킬 1): {ragingBear} 집결을 발동하면 집결 전체의 부대 수용량이 레벨당 +30,000 (Lv.10: +300,000) — 더 많은 연맹원의 부대가 들어갈 수 있습니다.",
-          "**{savageAdvantage}** (스킬 4): {bearHunt} 참여 시 자신의 출정 부대 수용량 레벨당 +3,000 (Lv.10: +30,000).",
-          "**{roman}**: {teacherOfChampions}·{oneDesire}(경기장 전투 공격력·HP +20%), {winnerTakeAll}(일일/주간 {arenaToken} 보상 +50%), {crowdFavorite}({arenaShop}에 50% 할인 상품 3개 추가).",
-          "**{pan}**: 두 번째로 올려서 패시브 {truegold}를 챙기세요."
-        ] },
-        { type: "callout", text: "ℹ️ 스킬 1 {danceOfTheHunt}은 자신이 발동한 집결 전체의 수용량을 올립니다. 스킬 4 {savageAdvantage}은 자신의 부대만 늘리며, 집결 전체 수용량은 집결을 발동한 사람에 따라 정해집니다." },
-        { type: "h", text: "💬 {realmJourney} 문답 보상" },
-        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
-        { type: "p", text: "ℹ️ 내용이 너무 길어 번역할 수 없습니다. 링크를 눌러 직접 확인해 주세요." }
+      ko: { title: "킹샷 3세대 거장 아카데미 완벽 가이드", blocks: [
+        {"type":"p","text":"왕국이 3세대에 진입하고 (9월 28일) 도시 센터 레벨 25에 도달하면, {masterAcademy}가 생성됩니다! 거장은 영구적인 패시브 버프, 추가 자원, 그리고 이벤트 보상을 제공합니다."},
+        {"type":"h","text":"🗺️ 거장 진행 방식"},
+        {"type":"list","items":["핵심 진행 방식은 여정으로, 크게 {realmJourney}과 {lostlands} 두 가지 모드로 나뉩니다.","{realmJourney}은 새로운 거장을 발견하는 기본 이벤트입니다. {journeySupplies}를 소비하여 다양한 이벤트를 진행할 수 있으며, 완료 시 보상과 함께 거장과 건설, 그리고 시련 포인트를 획득할 수 있습니다.","{journeySupplies}는 매일 자동으로 충전되고, 하루 동안 무료로 총 40개를 획득할 수 있으며, 0:00에는 20개가 자동 지급되고, 8:00과 16:00에는 10개씩 직접 수령해야 합니다.","{gems}를 사용하여 하루 최대 20개를 추가 구매할 수 있습니다 (5개당 1,000 {gems}). {journeySupplies}는 최대 보관량에 도달하면 더 이상 충전되지 않으므로, 가능한 꾸준히 사용하는 것이 중요합니다.","{realmJourney}에서 처음 마주치는 거장은 무조건 **{valora}**로 고정되어 있습니다.","**{valora}에게 {adventureSupply}를 사용하지 마세요!** 매일 주는 무료 {journeySupplies}만 돌려도 자연스럽게 업그레이드 가능합니다.","아껴둔 {adventureSupply}는 나중에 {lostlands}에서 등장하는 {pan}과 {roman}에게 몰아주셔야 합니다.","호감도 1,000에 도달하면 거장이 도시에 입주합니다."]},
+        {"type":"h","text":"🎯 무소과금 육성 순서"},
+        {"type":"callout","text":"추천 순서: **{pan} ➔ {valora} ➔ {roman}**"},
+        {"type":"sub","text":"1. {pan} — 무소과금의 구세주 (1순위 최우선)"},
+        {"type":"list","items":["**60레벨**까지 빠르게 찍어주세요.","패시브: 자원 채집할 때 {reserveChests} 드롭 (채집 120분마다 5개, 하루 최대 30개 — {truegold}, {gems}, 가속템).","1스킬 **{falconer}**: {intelMission}을 최대 +8개 추가하여 매일 대량의 {truegold}을 얻을 수 있습니다.","4스킬 **{waysAndMeans}**: 일일 임무 완료 시 {mysteryBadge} +120개, {mysteryShop} 무료 새로고침 +4회 — 할인된 {widget} 획득 기회가 증가합니다.","🔗 자세히: https://kingshotoptimizer.com/masters/pan/"]},
+        {"type":"sub","text":"2. {valora} — 곰 사냥 스펙업용"},
+        {"type":"list","items":["**30레벨**까지만 육성 ({acquaintance} 3 / {casual} 1).","2스킬 **{leaderByExample}** & 3스킬 **{weaponObsession}**: {bearHunt}마다 100 {enhancementXp} 부품 +5개, {forgehammer} +5개를 추가로 지급.","🔗 자세히: https://kingshotoptimizer.com/masters/valora/"]},
+        {"type":"sub","text":"3. {roman} — 경기장/아레나 패시브"},
+        {"type":"list","items":["단순 해금, 추가 투자 X (호감도 1,000). 경기장 전투 후 50% 확률로 {arenaStarChest}({heroShard}, {forgehammer})가 나오는 패시브가 활성화됩니다 (최고 레벨에서는 100% 확률로 3개). 극초반부터 {masterEmblem}를 투자할 필요는 없습니다.","🔗 자세히: https://kingshotoptimizer.com/masters/roman/"]},
+        {"type":"h","text":"🐳 핵과금 / 집결장 육성 순서"},
+        {"type":"callout","text":"추천 순서: **{valora} ➔ {roman} ➔ {pan}**"},
+        {"type":"list","items":["**{valora}**: 1스킬 **{danceOfTheHunt}**과 4스킬 **{savageAdvantage}**을 맥스로 찍어주세요. 곰 딜 랭킹 올리기 필수입니다.","**{danceOfTheHunt}** (1스킬): {ragingBear} 집결을 발동하면 집결 전체의 부대 수용량이 레벨당 +30,000 (Lv.10: +300,000) — 더 많은 연맹원의 부대가 들어갈 수 있습니다.","**{savageAdvantage}** (4스킬): {bearHunt} 참여 시 자신의 출정 부대 수용량 레벨당 +3,000 (Lv.10: +30,000).","**{roman}**: 경기장 전투 스탯, 상점 할인, 코인 수급을 위해 빠르게 올려줍니다 — {teacherOfChampions}·{oneDesire}(경기장 전투 공격력·HP +20%), {winnerTakeAll}(일일/주간 {arenaToken} 보상 +50%), {crowdFavorite}({arenaShop}에 50% 할인 상품 3개 추가).","**{pan}**: {truegold} 패시브 수급용으로 육성해주시면 됩니다."]},
+        {"type":"callout","text":"ℹ️ 스킬 1 {danceOfTheHunt}은 자신이 발동한 집결 전체의 수용량을 올립니다. 스킬 4 {savageAdvantage}은 자신의 부대만 늘리며, 집결 전체 수용량은 집결을 발동한 사람에 따라 정해집니다."},
+        {"type":"h","text":"💬 {realmJourney} 문답 보상"},
+        {"type":"p","text":"https://g2384.github.io/Kingshot-Data/journey.html"},
+        {"type":"p","text":"ℹ️ 내용이 너무 길어 번역할 수 없습니다. 링크를 눌러 직접 확인해 주세요."},
+        {"type":"p","text":"🔗 참고: https://kingshotwiki.com/ko/buildings/master-academy-ko/"}
       ]},
       de: { title: "Gen-3-Meisterakademie-Leitfaden", blocks: [
-        { type: "h", text: "WANN" },
-        { type: "p", text: "Gen 3 startet am 28.09. und schaltet die {masterAcademy} ab Stadtzentrum 25 frei. Meister geben dauerhafte passive Konto-Boni, zusätzliche Ressourcen und Event-Belohnungen. Sie sind unabhängig von den Helden." },
-        { type: "h", text: "SO FUNKTIONIERT DAS FREISCHALTEN" },
-        { type: "list", items: [
-          "{valora} ist IMMER dein erster Meister und wird über die normale {realmJourney} entdeckt.",
-          "Verwende KEINEN {adventureSupply} für {valora} — die kostenlosen {journeySupplies} (20 pro Tag, Reset um 00:00 UTC) schalten sie von selbst frei.",
-          "SPARE deinen {adventureSupply} für {pan} und {roman} in den {lostlands}, sobald sie entdeckt sind.",
-          "Ab 1.000 Affinität lässt sich ein Meister in deiner Stadt nieder."
-        ] },
-        { type: "h", text: "PRIORITÄT FÜR F2P & WENIGZAHLER" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
-        { type: "sub", text: "1. {pan} — der Wirtschafts-Meister (höchste Priorität)" },
-        { type: "list", items: [
-          "Bring {pan} auf **Lv. 60**.",
-          "Talent: 5 {reserveChests} pro 120 Minuten Sammeln (max. 30 pro Tag) — gratis {truegold}, {gems} und Beschleunigungen.",
-          "Fertigkeit 1 **{falconer}**: +8 {intelMission}en pro Tag → viel kostenloses tägliches {truegold}.",
-          "Fertigkeit 4 **{waysAndMeans}**: +120 {mysteryBadge} aus täglichen Missionen und +4 kostenlose Aktualisierungen im {mysteryShop}-Laden → vergünstigte {widget}e.",
-          "🔗 Details: https://kingshotoptimizer.com/masters/pan/"
-        ] },
-        { type: "sub", text: "2. {valora} — Bärenjagd-Ausrüstungsmaterialien" },
-        { type: "list", items: [
-          "Bring sie auf **Lv. 30** ({acquaintance} 3 / {casual} 1).",
-          "Fertigkeit 2 **{leaderByExample}**: +5 × 100 {enhancementXp} pro {bearHunt}.",
-          "Fertigkeit 3 **{weaponObsession}**: +5 {forgehammer} pro {bearHunt}.",
-          "🔗 Details: https://kingshotoptimizer.com/masters/valora/"
-        ] },
-        { type: "sub", text: "3. {roman} — Arena-Passiv" },
-        { type: "list", items: [
-          "Nur freischalten (1.000 Affinität): Sein Talent gibt schon mit 50 % Chance zusätzliche {arenaStarChest}n nach jedem Arenakampf ({heroShard}e & {forgehammer}); erst auf Maximalstufe sind es 3 Stück mit 100 % Chance. Früh ist keine große {masterEmblem}-Investition nötig.",
-          "🔗 Details: https://kingshotoptimizer.com/masters/roman/"
-        ] },
-        { type: "h", text: "PRIORITÄT FÜR WALE & RALLY-ANFÜHRER" },
-        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
-        { type: "list", items: [
-          "**{valora}**: **{savageAdvantage}** und **{danceOfTheHunt}** maximieren — für hohe Ranglistenpunkte.",
-          "**{danceOfTheHunt}** (Fertigkeit 1): Wenn du den Rally gegen den {ragingBear} startest, steigt die Kapazität des gesamten Rallys um +30.000 pro Stufe (Stufe 10: +300.000) — mehr Truppen deiner Mitglieder passen hinein.",
-          "**{savageAdvantage}** (Fertigkeit 4): Kapazität deiner eigenen Schwadron bei Teilnahme an der {bearHunt} +3.000 pro Stufe (Stufe 10: +30.000).",
-          "**{roman}**: {teacherOfChampions} & {oneDesire} (+20 % Angriff & Gesundheit in Arenaschlachten), {winnerTakeAll} (+50 % tägliche/wöchentliche {arenaToken}-Belohnungen), {crowdFavorite} (3 zusätzliche Gegenstände in der {arenaShop} mit 50 % Rabatt).",
-          "**{pan}**: als Zweites leveln für passives {truegold}."
-        ] },
-        { type: "callout", text: "ℹ️ Fertigkeit 1 {danceOfTheHunt} erhöht die Kapazität des gesamten Rallys, den du startest. Fertigkeit 4 {savageAdvantage} erhöht nur deine eigene Schwadron — wie viel der Rally insgesamt fasst, hängt vom Rally-Leiter ab." },
-        { type: "h", text: "💬 {realmJourney}: Q&A-Belohnungen" },
-        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
-        { type: "p", text: "ℹ️ Der Inhalt ist zu lang zum Übersetzen – bitte öffne den Link und lies ihn dort." }
+        {"type":"h","text":"WANN"},
+        {"type":"p","text":"Gen 3 startet am 28.09. und schaltet die {masterAcademy} ab Stadtzentrum 25 frei. Meister geben dauerhafte passive Konto-Boni, zusätzliche Ressourcen und Event-Belohnungen. Sie sind unabhängig von den Helden."},
+        {"type":"h","text":"SO FUNKTIONIERT DAS FREISCHALTEN"},
+        {"type":"list","items":["{valora} ist IMMER dein erster Meister und wird über die normale {realmJourney} entdeckt.","Kostenlose {journeySupplies}: um 00:00 UTC kommen automatisch 20, um 08:00 und 16:00 je 10, die du manuell abholen musst — insgesamt 40 pro Tag. Zusätzlich kannst du bis zu 20 pro Tag mit {gems} kaufen (1.000 {gems} pro 5). Bei vollem Lager wird nicht mehr aufgefüllt, also regelmäßig verwenden.","Verwende KEINEN {adventureSupply} für {valora} — die kostenlosen {journeySupplies} schalten sie von selbst frei.","SPARE deinen {adventureSupply} für {pan} und {roman} in den {lostlands}, sobald sie entdeckt sind.","Ab 1.000 Affinität lässt sich ein Meister in deiner Stadt nieder."]},
+        {"type":"h","text":"PRIORITÄT FÜR F2P & WENIGZAHLER"},
+        {"type":"callout","text":"**{pan} ➔ {valora} ➔ {roman}**"},
+        {"type":"sub","text":"1. {pan} — der Wirtschafts-Meister (höchste Priorität)"},
+        {"type":"list","items":["Bring {pan} auf **Lv. 60**.","Talent: 5 {reserveChests} pro 120 Minuten Sammeln (max. 30 pro Tag) — gratis {truegold}, {gems} und Beschleunigungen.","Fertigkeit 1 **{falconer}**: +8 {intelMission}en pro Tag → viel kostenloses tägliches {truegold}.","Fertigkeit 4 **{waysAndMeans}**: +120 {mysteryBadge} aus täglichen Missionen und +4 kostenlose Aktualisierungen im {mysteryShop}-Laden → vergünstigte {widget}e.","🔗 Details: https://kingshotoptimizer.com/masters/pan/"]},
+        {"type":"sub","text":"2. {valora} — Bärenjagd-Ausrüstungsmaterialien"},
+        {"type":"list","items":["Bring sie auf **Lv. 30** ({acquaintance} 3 / {casual} 1).","Fertigkeit 2 **{leaderByExample}**: +5 × 100 {enhancementXp} pro {bearHunt}.","Fertigkeit 3 **{weaponObsession}**: +5 {forgehammer} pro {bearHunt}.","🔗 Details: https://kingshotoptimizer.com/masters/valora/"]},
+        {"type":"sub","text":"3. {roman} — Arena-Passiv"},
+        {"type":"list","items":["Nur freischalten (1.000 Affinität): Sein Talent gibt schon mit 50 % Chance zusätzliche {arenaStarChest}n nach jedem Arenakampf ({heroShard}e & {forgehammer}); erst auf Maximalstufe sind es 3 Stück mit 100 % Chance. Früh ist keine große {masterEmblem}-Investition nötig.","🔗 Details: https://kingshotoptimizer.com/masters/roman/"]},
+        {"type":"h","text":"PRIORITÄT FÜR WALE & RALLY-ANFÜHRER"},
+        {"type":"callout","text":"**{valora} ➔ {roman} ➔ {pan}**"},
+        {"type":"list","items":["**{valora}**: **{savageAdvantage}** und **{danceOfTheHunt}** maximieren — für hohe Ranglistenpunkte.","**{danceOfTheHunt}** (Fertigkeit 1): Wenn du den Rally gegen den {ragingBear} startest, steigt die Kapazität des gesamten Rallys um +30.000 pro Stufe (Stufe 10: +300.000) — mehr Truppen deiner Mitglieder passen hinein.","**{savageAdvantage}** (Fertigkeit 4): Kapazität deiner eigenen Schwadron bei Teilnahme an der {bearHunt} +3.000 pro Stufe (Stufe 10: +30.000).","**{roman}**: {teacherOfChampions} & {oneDesire} (+20 % Angriff & Gesundheit in Arenaschlachten), {winnerTakeAll} (+50 % tägliche/wöchentliche {arenaToken}-Belohnungen), {crowdFavorite} (3 zusätzliche Gegenstände in der {arenaShop} mit 50 % Rabatt).","**{pan}**: als Zweites leveln für passives {truegold}."]},
+        {"type":"callout","text":"ℹ️ Fertigkeit 1 {danceOfTheHunt} erhöht die Kapazität des gesamten Rallys, den du startest. Fertigkeit 4 {savageAdvantage} erhöht nur deine eigene Schwadron — wie viel der Rally insgesamt fasst, hängt vom Rally-Leiter ab."},
+        {"type":"h","text":"💬 {realmJourney}: Q&A-Belohnungen"},
+        {"type":"p","text":"https://g2384.github.io/Kingshot-Data/journey.html"},
+        {"type":"p","text":"ℹ️ Der Inhalt ist zu lang zum Übersetzen – bitte öffne den Link und lies ihn dort."}
       ]},
       fr: { title: "Guide de l'Académie des Experts (Gén 3)", blocks: [
-        { type: "h", text: "QUAND" },
-        { type: "p", text: "La Gén 3 arrive le 28/09 et débloque l'{masterAcademy} au Centre niv. 25. Les experts donnent des bonus passifs permanents au compte, des ressources en plus et des récompenses d'événements. Ils sont distincts des héros." },
-        { type: "h", text: "COMMENT LES DÉBLOQUER" },
-        { type: "list", items: [
-          "{valora} est TOUJOURS votre premier expert, découvert via le {realmJourney} normal.",
-          "Ne dépensez PAS de {adventureSupply} pour {valora} — les {journeySupplies} gratuites (20 par jour, réinitialisées à 00:00 UTC) la débloquent naturellement.",
-          "GARDEZ vos {adventureSupply} pour {pan} et {roman} dans les {lostlands} une fois découverts.",
-          "Un expert s'installe dans votre village à 1 000 d'affinité."
-        ] },
-        { type: "h", text: "PRIORITÉ POUR LES F2P & PETITS PAYEURS" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
-        { type: "sub", text: "1. {pan} — l'expert économie (priorité absolue)" },
-        { type: "list", items: [
-          "Montez {pan} au **niv. 60**.",
-          "Talent : 5 {reserveChests} toutes les 120 min de collecte (max. 30 par jour) — {truegold}, {gems} et accélérateurs gratuits.",
-          "Compétence 1 **{falconer}** : +8 {intelMission} par jour → beaucoup d'{truegold} gratuit chaque jour.",
-          "Compétence 4 **{waysAndMeans}** : +120 {mysteryBadge} via les missions quotidiennes et +4 actualisations gratuites du magasin {mysteryShop} → {widget}s à prix réduit.",
-          "🔗 Détails : https://kingshotoptimizer.com/masters/pan/"
-        ] },
-        { type: "sub", text: "2. {valora} — matériaux d'équipement de la Chasse à l'Ours" },
-        { type: "list", items: [
-          "Montez-la au **niv. 30** ({acquaintance} 3 / {casual} 1).",
-          "Compétence 2 **{leaderByExample}** : +5 × 100 {enhancementXp} par {bearHunt}.",
-          "Compétence 3 **{weaponObsession}** : +5 {forgehammer}s par {bearHunt}.",
-          "🔗 Détails : https://kingshotoptimizer.com/masters/valora/"
-        ] },
-        { type: "sub", text: "3. {roman} — passif d'Arène" },
-        { type: "list", items: [
-          "Débloquez-le simplement (1 000 d'affinité) : son talent donne déjà 50 % de chances d'obtenir des {arenaStarChest} en plus après chaque combat d'Arène ({heroShard}s & {forgehammer}s) ; ce n'est qu'au niveau max que cela devient 100 % pour 3 coffres. Pas besoin d'investir beaucoup d'{masterEmblem} au début.",
-          "🔗 Détails : https://kingshotoptimizer.com/masters/roman/"
-        ] },
-        { type: "h", text: "PRIORITÉ POUR LES GROS PAYEURS & LEADERS DE RALLIEMENT" },
-        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
-        { type: "list", items: [
-          "**{valora}** : maximisez **{savageAdvantage}** et **{danceOfTheHunt}** pour de gros scores au classement.",
-          "**{danceOfTheHunt}** (compétence 1) : quand vous lancez le ralliement contre l'{ragingBear}, la capacité de tout le ralliement augmente de +30 000 par niveau (niv. 10 : +300 000) — plus de troupes de vos membres peuvent y entrer.",
-          "**{savageAdvantage}** (compétence 4) : capacité de votre propre escouade en participant à la {bearHunt} +3 000 par niveau (niv. 10 : +30 000).",
-          "**{roman}** : {teacherOfChampions} et {oneDesire} (+20 % d'attaque et de PV en combat d'Arène), {winnerTakeAll} (+50 % de {arenaToken} quotidiens/hebdomadaires), {crowdFavorite} (3 articles en plus à -50 % dans l'{arenaShop}).",
-          "**{pan}** : à monter en second pour l'{truegold} passif."
-        ] },
-        { type: "callout", text: "ℹ️ La compétence 1 {danceOfTheHunt} augmente la capacité de tout le ralliement que vous lancez. La compétence 4 {savageAdvantage} n'augmente que votre propre escouade — la capacité totale du ralliement dépend de celui qui le lance." },
-        { type: "h", text: "💬 {realmJourney} : récompenses des questions-réponses" },
-        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
-        { type: "p", text: "ℹ️ Le contenu est trop long pour être traduit, merci d'ouvrir le lien pour le consulter." }
+        {"type":"h","text":"QUAND"},
+        {"type":"p","text":"La Gén 3 arrive le 28/09 et débloque l'{masterAcademy} au Centre niv. 25. Les experts donnent des bonus passifs permanents au compte, des ressources en plus et des récompenses d'événements. Ils sont distincts des héros."},
+        {"type":"h","text":"COMMENT LES DÉBLOQUER"},
+        {"type":"list","items":["{valora} est TOUJOURS votre premier expert, découvert via le {realmJourney} normal.","{journeySupplies} gratuites : 20 rechargées automatiquement à 00:00 UTC, plus 10 à 08:00 et 10 à 16:00 à récupérer manuellement — 40 par jour. Vous pouvez en acheter jusqu'à 20 de plus par jour avec des {gems} (1 000 {gems} les 5). Elles ne se rechargent plus une fois le stock plein : utilisez-les régulièrement.","Ne dépensez PAS de {adventureSupply} pour {valora} — les {journeySupplies} gratuites la débloquent naturellement.","GARDEZ vos {adventureSupply} pour {pan} et {roman} dans les {lostlands} une fois découverts.","Un expert s'installe dans votre village à 1 000 d'affinité."]},
+        {"type":"h","text":"PRIORITÉ POUR LES F2P & PETITS PAYEURS"},
+        {"type":"callout","text":"**{pan} ➔ {valora} ➔ {roman}**"},
+        {"type":"sub","text":"1. {pan} — l'expert économie (priorité absolue)"},
+        {"type":"list","items":["Montez {pan} au **niv. 60**.","Talent : 5 {reserveChests} toutes les 120 min de collecte (max. 30 par jour) — {truegold}, {gems} et accélérateurs gratuits.","Compétence 1 **{falconer}** : +8 {intelMission} par jour → beaucoup d'{truegold} gratuit chaque jour.","Compétence 4 **{waysAndMeans}** : +120 {mysteryBadge} via les missions quotidiennes et +4 actualisations gratuites du magasin {mysteryShop} → {widget}s à prix réduit.","🔗 Détails : https://kingshotoptimizer.com/masters/pan/"]},
+        {"type":"sub","text":"2. {valora} — matériaux d'équipement de la Chasse à l'Ours"},
+        {"type":"list","items":["Montez-la au **niv. 30** ({acquaintance} 3 / {casual} 1).","Compétence 2 **{leaderByExample}** : +5 × 100 {enhancementXp} par {bearHunt}.","Compétence 3 **{weaponObsession}** : +5 {forgehammer}s par {bearHunt}.","🔗 Détails : https://kingshotoptimizer.com/masters/valora/"]},
+        {"type":"sub","text":"3. {roman} — passif d'Arène"},
+        {"type":"list","items":["Débloquez-le simplement (1 000 d'affinité) : son talent donne déjà 50 % de chances d'obtenir des {arenaStarChest} en plus après chaque combat d'Arène ({heroShard}s & {forgehammer}s) ; ce n'est qu'au niveau max que cela devient 100 % pour 3 coffres. Pas besoin d'investir beaucoup d'{masterEmblem} au début.","🔗 Détails : https://kingshotoptimizer.com/masters/roman/"]},
+        {"type":"h","text":"PRIORITÉ POUR LES GROS PAYEURS & LEADERS DE RALLIEMENT"},
+        {"type":"callout","text":"**{valora} ➔ {roman} ➔ {pan}**"},
+        {"type":"list","items":["**{valora}** : maximisez **{savageAdvantage}** et **{danceOfTheHunt}** pour de gros scores au classement.","**{danceOfTheHunt}** (compétence 1) : quand vous lancez le ralliement contre l'{ragingBear}, la capacité de tout le ralliement augmente de +30 000 par niveau (niv. 10 : +300 000) — plus de troupes de vos membres peuvent y entrer.","**{savageAdvantage}** (compétence 4) : capacité de votre propre escouade en participant à la {bearHunt} +3 000 par niveau (niv. 10 : +30 000).","**{roman}** : {teacherOfChampions} et {oneDesire} (+20 % d'attaque et de PV en combat d'Arène), {winnerTakeAll} (+50 % de {arenaToken} quotidiens/hebdomadaires), {crowdFavorite} (3 articles en plus à -50 % dans l'{arenaShop}).","**{pan}** : à monter en second pour l'{truegold} passif."]},
+        {"type":"callout","text":"ℹ️ La compétence 1 {danceOfTheHunt} augmente la capacité de tout le ralliement que vous lancez. La compétence 4 {savageAdvantage} n'augmente que votre propre escouade — la capacité totale du ralliement dépend de celui qui le lance."},
+        {"type":"h","text":"💬 {realmJourney} : récompenses des questions-réponses"},
+        {"type":"p","text":"https://g2384.github.io/Kingshot-Data/journey.html"},
+        {"type":"p","text":"ℹ️ Le contenu est trop long pour être traduit, merci d'ouvrir le lien pour le consulter."}
       ]},
       pt: { title: "Guia da Academia dos Mestres (Gen 3)", blocks: [
-        { type: "h", text: "QUANDO" },
-        { type: "p", text: "A Gen 3 chega em 28/09 e desbloqueia a {masterAcademy} no Centro da Cidade 25. Os Mestres dão bônus passivos permanentes à conta, recursos extras e recompensas de eventos. Eles são separados dos Heróis." },
-        { type: "h", text: "COMO DESBLOQUEAR" },
-        { type: "list", items: [
-          "{valora} é SEMPRE o seu primeiro Mestre, encontrada na {realmJourney} normal.",
-          "NÃO gaste {adventureSupply} com {valora} — os {journeySupplies} grátis (20 por dia, renovados às 00:00 UTC) a desbloqueiam naturalmente.",
-          "GUARDE seus {adventureSupply} para {pan} e {roman} nas {lostlands} depois de descobri-los.",
-          "Um Mestre se estabelece na sua cidade com 1.000 de Afinidade."
-        ] },
-        { type: "h", text: "PRIORIDADE PARA F2P & QUEM GASTA POUCO" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
-        { type: "sub", text: "1. {pan} — o Mestre da economia (prioridade máxima)" },
-        { type: "list", items: [
-          "Leve {pan} ao **Nv. 60**.",
-          "Talento: 5 {reserveChests} a cada 120 minutos de coleta (até 30 por dia) — {truegold}, {gems} e aceleradores grátis.",
-          "Habilidade 1 **{falconer}**: +8 {intelMission} por dia → muito {truegold} grátis todo dia.",
-          "Habilidade 4 **{waysAndMeans}**: +120 {mysteryBadge} nas missões diárias e +4 atualizações grátis na loja {mysteryShop} → {widget}s com desconto.",
-          "🔗 Detalhes: https://kingshotoptimizer.com/masters/pan/"
-        ] },
-        { type: "sub", text: "2. {valora} — materiais de equipamento da Caça ao Urso" },
-        { type: "list", items: [
-          "Leve-a ao **Nv. 30** ({acquaintance} 3 / {casual} 1).",
-          "Habilidade 2 **{leaderByExample}**: +5 × 100 {enhancementXp} por {bearHunt}.",
-          "Habilidade 3 **{weaponObsession}**: +5 {forgehammer}s por {bearHunt}.",
-          "🔗 Detalhes: https://kingshotoptimizer.com/masters/valora/"
-        ] },
-        { type: "sub", text: "3. {roman} — passiva da Arena" },
-        { type: "list", items: [
-          "Só desbloqueie (1.000 de Afinidade): o talento dele já dá 50% de chance de {arenaStarChest} extras após cada partida da Arena ({heroShard}s e {forgehammer}s); só no nível máximo vira 100% de chance de ganhar 3. Não precisa investir muito em {masterEmblem} no começo.",
-          "🔗 Detalhes: https://kingshotoptimizer.com/masters/roman/"
-        ] },
-        { type: "h", text: "PRIORIDADE PARA BALEIAS & LÍDERES DE RALLY" },
-        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
-        { type: "list", items: [
-          "**{valora}**: maximize **{savageAdvantage}** e **{danceOfTheHunt}** para grandes pontuações no ranking.",
-          "**{danceOfTheHunt}** (habilidade 1): ao iniciar o rally contra o {ragingBear}, a capacidade de todo o rally aumenta +30.000 por nível (Nv. 10: +300.000) — cabem mais tropas dos membros.",
-          "**{savageAdvantage}** (habilidade 4): capacidade do seu próprio esquadrão ao participar da {bearHunt} +3.000 por nível (Nv. 10: +30.000).",
-          "**{roman}**: {teacherOfChampions} e {oneDesire} (+20% de Ataque e Vida nas batalhas da Arena), {winnerTakeAll} (+50% de {arenaToken} diários/semanais), {crowdFavorite} (3 itens extras na {arenaShop} com 50% de desconto).",
-          "**{pan}**: suba em segundo para {truegold} passivo."
-        ] },
-        { type: "callout", text: "ℹ️ A habilidade 1 {danceOfTheHunt} aumenta a capacidade de todo o rally que você inicia. A habilidade 4 {savageAdvantage} só aumenta o seu próprio esquadrão — a capacidade total do rally depende de quem o inicia." },
-        { type: "h", text: "💬 {realmJourney}: recompensas de perguntas e respostas" },
-        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
-        { type: "p", text: "ℹ️ O conteúdo é longo demais para traduzir, então abra o link e confira por lá." }
+        {"type":"h","text":"QUANDO"},
+        {"type":"p","text":"A Gen 3 chega em 28/09 e desbloqueia a {masterAcademy} no Centro da Cidade 25. Os Mestres dão bônus passivos permanentes à conta, recursos extras e recompensas de eventos. Eles são separados dos Heróis."},
+        {"type":"h","text":"COMO DESBLOQUEAR"},
+        {"type":"list","items":["{valora} é SEMPRE o seu primeiro Mestre, encontrada na {realmJourney} normal.","{journeySupplies} grátis: 20 recarregam automaticamente às 00:00 UTC, mais 10 às 08:00 e 10 às 16:00 que você precisa coletar manualmente — 40 por dia. Dá para comprar até mais 20 por dia com {gems} (1.000 {gems} a cada 5). Com o estoque cheio elas param de recarregar, então use com frequência.","NÃO gaste {adventureSupply} com {valora} — os {journeySupplies} grátis a desbloqueiam naturalmente.","GUARDE seus {adventureSupply} para {pan} e {roman} nas {lostlands} depois de descobri-los.","Um Mestre se estabelece na sua cidade com 1.000 de Afinidade."]},
+        {"type":"h","text":"PRIORIDADE PARA F2P & QUEM GASTA POUCO"},
+        {"type":"callout","text":"**{pan} ➔ {valora} ➔ {roman}**"},
+        {"type":"sub","text":"1. {pan} — o Mestre da economia (prioridade máxima)"},
+        {"type":"list","items":["Leve {pan} ao **Nv. 60**.","Talento: 5 {reserveChests} a cada 120 minutos de coleta (até 30 por dia) — {truegold}, {gems} e aceleradores grátis.","Habilidade 1 **{falconer}**: +8 {intelMission} por dia → muito {truegold} grátis todo dia.","Habilidade 4 **{waysAndMeans}**: +120 {mysteryBadge} nas missões diárias e +4 atualizações grátis na loja {mysteryShop} → {widget}s com desconto.","🔗 Detalhes: https://kingshotoptimizer.com/masters/pan/"]},
+        {"type":"sub","text":"2. {valora} — materiais de equipamento da Caça ao Urso"},
+        {"type":"list","items":["Leve-a ao **Nv. 30** ({acquaintance} 3 / {casual} 1).","Habilidade 2 **{leaderByExample}**: +5 × 100 {enhancementXp} por {bearHunt}.","Habilidade 3 **{weaponObsession}**: +5 {forgehammer}s por {bearHunt}.","🔗 Detalhes: https://kingshotoptimizer.com/masters/valora/"]},
+        {"type":"sub","text":"3. {roman} — passiva da Arena"},
+        {"type":"list","items":["Só desbloqueie (1.000 de Afinidade): o talento dele já dá 50% de chance de {arenaStarChest} extras após cada partida da Arena ({heroShard}s e {forgehammer}s); só no nível máximo vira 100% de chance de ganhar 3. Não precisa investir muito em {masterEmblem} no começo.","🔗 Detalhes: https://kingshotoptimizer.com/masters/roman/"]},
+        {"type":"h","text":"PRIORIDADE PARA BALEIAS & LÍDERES DE RALLY"},
+        {"type":"callout","text":"**{valora} ➔ {roman} ➔ {pan}**"},
+        {"type":"list","items":["**{valora}**: maximize **{savageAdvantage}** e **{danceOfTheHunt}** para grandes pontuações no ranking.","**{danceOfTheHunt}** (habilidade 1): ao iniciar o rally contra o {ragingBear}, a capacidade de todo o rally aumenta +30.000 por nível (Nv. 10: +300.000) — cabem mais tropas dos membros.","**{savageAdvantage}** (habilidade 4): capacidade do seu próprio esquadrão ao participar da {bearHunt} +3.000 por nível (Nv. 10: +30.000).","**{roman}**: {teacherOfChampions} e {oneDesire} (+20% de Ataque e Vida nas batalhas da Arena), {winnerTakeAll} (+50% de {arenaToken} diários/semanais), {crowdFavorite} (3 itens extras na {arenaShop} com 50% de desconto).","**{pan}**: suba em segundo para {truegold} passivo."]},
+        {"type":"callout","text":"ℹ️ A habilidade 1 {danceOfTheHunt} aumenta a capacidade de todo o rally que você inicia. A habilidade 4 {savageAdvantage} só aumenta o seu próprio esquadrão — a capacidade total do rally depende de quem o inicia."},
+        {"type":"h","text":"💬 {realmJourney}: recompensas de perguntas e respostas"},
+        {"type":"p","text":"https://g2384.github.io/Kingshot-Data/journey.html"},
+        {"type":"p","text":"ℹ️ O conteúdo é longo demais para traduzir, então abra o link e confira por lá."}
       ]},
       tr: { title: "3. Nesil Usta Akademisi Rehberi", blocks: [
-        { type: "h", text: "NE ZAMAN" },
-        { type: "p", text: "3. Nesil 28 Eylül'de geliyor ve {masterAcademy} Şehir Merkezi 25'te açılıyor. Ustalar kalıcı pasif hesap bonusları, ekstra kaynak ve etkinlik ödülleri verir. Kahramanlardan ayrıdır." },
-        { type: "h", text: "NASIL AÇILIR" },
-        { type: "list", items: [
-          "İlk Ustan HER ZAMAN {valora}'dır; normal {realmJourney} ile bulunur.",
-          "{valora} için {adventureSupply} HARCAMA — ücretsiz {journeySupplies} (günde 20, UTC 00:00'da yenilenir) onu kendiliğinden açar.",
-          "{adventureSupply}'ni {pan} ve {roman} keşfedildiğinde {lostlands}'da kullanmak için SAKLA.",
-          "1.000 Yakınlığa ulaşınca Usta şehrine yerleşir."
-        ] },
-        { type: "h", text: "F2P VE AZ HARCAYANLAR İÇİN ÖNCELİK" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
-        { type: "sub", text: "1. {pan} — ekonomi Ustası (en yüksek öncelik)" },
-        { type: "list", items: [
-          "{pan}'ı **Sv. 60**'a çıkar.",
-          "Yetenek: her 120 dakikalık toplamada 5 {reserveChests} (günde en fazla 30) — ücretsiz {truegold}, {gems} ve hızlandırmalar.",
-          "Yetenek 1 **{falconer}**: günde +8 {intelMission} → her gün bol ücretsiz {truegold}.",
-          "Yetenek 4 **{waysAndMeans}**: günlük görevlerden +120 {mysteryBadge} ve {mysteryShop} mağazasında +4 ücretsiz yenileme → indirimli {widget}.",
-          "🔗 Ayrıntılar: https://kingshotoptimizer.com/masters/pan/"
-        ] },
-        { type: "sub", text: "2. {valora} — Ayı Avı donanım malzemeleri" },
-        { type: "list", items: [
-          "Onu **Sv. 30**'a çıkar ({acquaintance} 3 / {casual} 1).",
-          "Yetenek 2 **{leaderByExample}**: her {bearHunt} için +5 × 100 {enhancementXp}.",
-          "Yetenek 3 **{weaponObsession}**: her {bearHunt} için +5 {forgehammer}.",
-          "🔗 Ayrıntılar: https://kingshotoptimizer.com/masters/valora/"
-        ] },
-        { type: "sub", text: "3. {roman} — Arena pasifi" },
-        { type: "list", items: [
-          "Sadece aç (1.000 Yakınlık): yeteneği zaten her Arena maçından sonra %50 ihtimalle ekstra {arenaStarChest} ({heroShard} ve {forgehammer}) verir; ancak maks. seviyede %100 ihtimalle 3 adet olur. Başta çok fazla {masterEmblem} yatırımı gerekmez.",
-          "🔗 Ayrıntılar: https://kingshotoptimizer.com/masters/roman/"
-        ] },
-        { type: "h", text: "BALİNALAR VE SEFERBERLİK LİDERLERİ İÇİN ÖNCELİK" },
-        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
-        { type: "list", items: [
-          "**{valora}**: **{savageAdvantage}** ve **{danceOfTheHunt}** yeteneklerini maksimuma çıkar, sıralamada yüksek puan al.",
-          "**{danceOfTheHunt}** (Yetenek 1): {ragingBear} seferberliğini başlattığında tüm seferberliğin kapasitesi seviye başına +30.000 artar (Sv. 10: +300.000) — daha fazla üyenin askeri katılabilir.",
-          "**{savageAdvantage}** (Yetenek 4): {bearHunt}'na katılırken kendi ekibinin kapasitesi seviye başına +3.000 (Sv. 10: +30.000).",
-          "**{roman}**: {teacherOfChampions} ve {oneDesire} (Arena savaşlarında Saldırı ve Can +%20), {winnerTakeAll} (günlük/haftalık {arenaToken} ödülleri +%50), {crowdFavorite} ({arenaShop}'da %50 indirimli 3 ekstra ürün).",
-          "**{pan}**: pasif {truegold} için ikinci sırada yükselt."
-        ] },
-        { type: "callout", text: "ℹ️ Yetenek 1 {danceOfTheHunt}, başlattığın seferberliğin toplam kapasitesini artırır. Yetenek 4 {savageAdvantage} sadece kendi ekibini artırır — seferberliğin toplam kapasitesi başlatan kişiye bağlıdır." },
-        { type: "h", text: "💬 {realmJourney}: soru-cevap ödülleri" },
-        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
-        { type: "p", text: "ℹ️ İçerik çevrilemeyecek kadar uzun, lütfen bağlantıyı açıp oradan okuyun." }
+        {"type":"h","text":"NE ZAMAN"},
+        {"type":"p","text":"3. Nesil 28 Eylül'de geliyor ve {masterAcademy} Şehir Merkezi 25'te açılıyor. Ustalar kalıcı pasif hesap bonusları, ekstra kaynak ve etkinlik ödülleri verir. Kahramanlardan ayrıdır."},
+        {"type":"h","text":"NASIL AÇILIR"},
+        {"type":"list","items":["İlk Ustan HER ZAMAN {valora}'dır; normal {realmJourney} ile bulunur.","Ücretsiz {journeySupplies}: UTC 00:00'da otomatik 20, 08:00 ve 16:00'da elle alınması gereken 10'ar tane — günde toplam 40. Ayrıca {gems} ile günde 20 tane daha alabilirsin (her 5 tanesi 1.000 {gems}). Depo dolunca yenilenmez, düzenli kullan.","{valora} için {adventureSupply} HARCAMA — ücretsiz {journeySupplies} onu kendiliğinden açar.","{adventureSupply}'ni {pan} ve {roman} keşfedildiğinde {lostlands}'da kullanmak için SAKLA.","1.000 Yakınlığa ulaşınca Usta şehrine yerleşir."]},
+        {"type":"h","text":"F2P VE AZ HARCAYANLAR İÇİN ÖNCELİK"},
+        {"type":"callout","text":"**{pan} ➔ {valora} ➔ {roman}**"},
+        {"type":"sub","text":"1. {pan} — ekonomi Ustası (en yüksek öncelik)"},
+        {"type":"list","items":["{pan}'ı **Sv. 60**'a çıkar.","Yetenek: her 120 dakikalık toplamada 5 {reserveChests} (günde en fazla 30) — ücretsiz {truegold}, {gems} ve hızlandırmalar.","Yetenek 1 **{falconer}**: günde +8 {intelMission} → her gün bol ücretsiz {truegold}.","Yetenek 4 **{waysAndMeans}**: günlük görevlerden +120 {mysteryBadge} ve {mysteryShop} mağazasında +4 ücretsiz yenileme → indirimli {widget}.","🔗 Ayrıntılar: https://kingshotoptimizer.com/masters/pan/"]},
+        {"type":"sub","text":"2. {valora} — Ayı Avı donanım malzemeleri"},
+        {"type":"list","items":["Onu **Sv. 30**'a çıkar ({acquaintance} 3 / {casual} 1).","Yetenek 2 **{leaderByExample}**: her {bearHunt} için +5 × 100 {enhancementXp}.","Yetenek 3 **{weaponObsession}**: her {bearHunt} için +5 {forgehammer}.","🔗 Ayrıntılar: https://kingshotoptimizer.com/masters/valora/"]},
+        {"type":"sub","text":"3. {roman} — Arena pasifi"},
+        {"type":"list","items":["Sadece aç (1.000 Yakınlık): yeteneği zaten her Arena maçından sonra %50 ihtimalle ekstra {arenaStarChest} ({heroShard} ve {forgehammer}) verir; ancak maks. seviyede %100 ihtimalle 3 adet olur. Başta çok fazla {masterEmblem} yatırımı gerekmez.","🔗 Ayrıntılar: https://kingshotoptimizer.com/masters/roman/"]},
+        {"type":"h","text":"BALİNALAR VE SEFERBERLİK LİDERLERİ İÇİN ÖNCELİK"},
+        {"type":"callout","text":"**{valora} ➔ {roman} ➔ {pan}**"},
+        {"type":"list","items":["**{valora}**: **{savageAdvantage}** ve **{danceOfTheHunt}** yeteneklerini maksimuma çıkar, sıralamada yüksek puan al.","**{danceOfTheHunt}** (Yetenek 1): {ragingBear} seferberliğini başlattığında tüm seferberliğin kapasitesi seviye başına +30.000 artar (Sv. 10: +300.000) — daha fazla üyenin askeri katılabilir.","**{savageAdvantage}** (Yetenek 4): {bearHunt}'na katılırken kendi ekibinin kapasitesi seviye başına +3.000 (Sv. 10: +30.000).","**{roman}**: {teacherOfChampions} ve {oneDesire} (Arena savaşlarında Saldırı ve Can +%20), {winnerTakeAll} (günlük/haftalık {arenaToken} ödülleri +%50), {crowdFavorite} ({arenaShop}'da %50 indirimli 3 ekstra ürün).","**{pan}**: pasif {truegold} için ikinci sırada yükselt."]},
+        {"type":"callout","text":"ℹ️ Yetenek 1 {danceOfTheHunt}, başlattığın seferberliğin toplam kapasitesini artırır. Yetenek 4 {savageAdvantage} sadece kendi ekibini artırır — seferberliğin toplam kapasitesi başlatan kişiye bağlıdır."},
+        {"type":"h","text":"💬 {realmJourney}: soru-cevap ödülleri"},
+        {"type":"p","text":"https://g2384.github.io/Kingshot-Data/journey.html"},
+        {"type":"p","text":"ℹ️ İçerik çevrilemeyecek kadar uzun, lütfen bağlantıyı açıp oradan okuyun."}
       ]},
       id: { title: "Panduan Akademi Master Gen 3", blocks: [
-        { type: "h", text: "KAPAN" },
-        { type: "p", text: "Gen 3 hadir 28 Sep dan membuka {masterAcademy} di Pusat Kota 25. Master memberi buff pasif permanen untuk akun, sumber daya tambahan, dan hadiah event. Master terpisah dari Hero." },
-        { type: "h", text: "CARA MEMBUKA" },
-        { type: "list", items: [
-          "{valora} SELALU menjadi Master pertamamu, ditemukan lewat {realmJourney} biasa.",
-          "JANGAN pakai {adventureSupply} untuk {valora} — {journeySupplies} gratis (20 per hari, diperbarui 00:00 UTC) akan membukanya dengan sendirinya.",
-          "SIMPAN {adventureSupply} untuk {pan} dan {roman} di {lostlands} setelah mereka ditemukan.",
-          "Master akan menetap di Kota setelah mencapai 1.000 Kedekatan."
-        ] },
-        { type: "h", text: "PRIORITAS F2P & LOW SPENDER" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
-        { type: "sub", text: "1. {pan} — Master ekonomi (prioritas utama)" },
-        { type: "list", items: [
-          "Naikkan {pan} ke **Lv. 60**.",
-          "Talenta: 5 {reserveChests} setiap 120 menit mengumpulkan (maks. 30 per hari) — {truegold}, {gems}, dan speedup gratis.",
-          "Skill 1 **{falconer}**: +8 {intelMission} per hari → banyak {truegold} gratis setiap hari.",
-          "Skill 4 **{waysAndMeans}**: +120 {mysteryBadge} dari misi harian dan +4 refresh gratis di {mysteryShop} → {widget} diskon.",
-          "🔗 Detail: https://kingshotoptimizer.com/masters/pan/"
-        ] },
-        { type: "sub", text: "2. {valora} — material gear Bear Hunt" },
-        { type: "list", items: [
-          "Naikkan ke **Lv. 30**.",
-          "Skill 2 **{leaderByExample}**: +5 × 100 {enhancementXp} per {bearHunt}.",
-          "Skill 3 **{weaponObsession}**: +5 {forgehammer} per {bearHunt}.",
-          "🔗 Detail: https://kingshotoptimizer.com/masters/valora/"
-        ] },
-        { type: "sub", text: "3. {roman} — pasif Arena" },
-        { type: "list", items: [
-          "Cukup buka (1.000 Kedekatan): talentanya sudah memberi peluang 50% dapat {arenaStarChest} tambahan setelah tiap pertandingan Arena ({heroShard} & {forgehammer}); baru di level maks menjadi peluang 100% dapat 3. Tidak perlu investasi {masterEmblem} besar di awal.",
-          "🔗 Detail: https://kingshotoptimizer.com/masters/roman/"
-        ] },
-        { type: "h", text: "PRIORITAS WHALE & PEMIMPIN RELI" },
-        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
-        { type: "list", items: [
-          "**{valora}**: maksimalkan **{savageAdvantage}** dan **{danceOfTheHunt}** untuk skor leaderboard besar.",
-          "**{danceOfTheHunt}** (Skill 1): saat kamu memulai reli {ragingBear}, kapasitas seluruh reli +30.000 per level (Lv.10: +300.000) — lebih banyak pasukan anggota bisa masuk.",
-          "**{savageAdvantage}** (Skill 4): kapasitas skuadmu sendiri saat ikut {bearHunt} +3.000 per level (Lv.10: +30.000).",
-          "**{roman}**: {teacherOfChampions} & {oneDesire} (+20% Serangan & HP di pertempuran Arena), {winnerTakeAll} (+50% hadiah {arenaToken} harian/mingguan), {crowdFavorite} (3 item ekstra di {arenaShop} dengan diskon 50%).",
-          "**{pan}**: naikkan di urutan kedua untuk {truegold} pasif."
-        ] },
-        { type: "callout", text: "ℹ️ Skill 1 {danceOfTheHunt} menaikkan kapasitas seluruh reli yang kamu mulai. Skill 4 {savageAdvantage} hanya menambah skuadmu sendiri — kapasitas total reli tetap tergantung pada pemimpin reli." },
-        { type: "h", text: "💬 {realmJourney}: hadiah tanya jawab" },
-        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
-        { type: "p", text: "ℹ️ Kontennya terlalu panjang untuk diterjemahkan, silakan buka tautannya dan baca di sana." }
+        {"type":"h","text":"KAPAN"},
+        {"type":"p","text":"Gen 3 hadir 28 Sep dan membuka {masterAcademy} di Pusat Kota 25. Master memberi buff pasif permanen untuk akun, sumber daya tambahan, dan hadiah event. Master terpisah dari Hero."},
+        {"type":"h","text":"CARA MEMBUKA"},
+        {"type":"list","items":["{valora} SELALU menjadi Master pertamamu, ditemukan lewat {realmJourney} biasa.","{journeySupplies} gratis: 20 terisi otomatis pukul 00:00 UTC, ditambah 10 pukul 08:00 dan 10 pukul 16:00 yang harus diklaim manual — total 40 per hari. Kamu bisa membeli hingga 20 lagi per hari dengan {gems} (1.000 {gems} per 5). Jika penyimpanan penuh, tidak akan terisi lagi, jadi gunakan secara rutin.","JANGAN pakai {adventureSupply} untuk {valora} — {journeySupplies} gratis akan membukanya dengan sendirinya.","SIMPAN {adventureSupply} untuk {pan} dan {roman} di {lostlands} setelah mereka ditemukan.","Master akan menetap di Kota setelah mencapai 1.000 Kedekatan."]},
+        {"type":"h","text":"PRIORITAS F2P & LOW SPENDER"},
+        {"type":"callout","text":"**{pan} ➔ {valora} ➔ {roman}**"},
+        {"type":"sub","text":"1. {pan} — Master ekonomi (prioritas utama)"},
+        {"type":"list","items":["Naikkan {pan} ke **Lv. 60**.","Talenta: 5 {reserveChests} setiap 120 menit mengumpulkan (maks. 30 per hari) — {truegold}, {gems}, dan speedup gratis.","Skill 1 **{falconer}**: +8 {intelMission} per hari → banyak {truegold} gratis setiap hari.","Skill 4 **{waysAndMeans}**: +120 {mysteryBadge} dari misi harian dan +4 refresh gratis di {mysteryShop} → {widget} diskon.","🔗 Detail: https://kingshotoptimizer.com/masters/pan/"]},
+        {"type":"sub","text":"2. {valora} — material gear Bear Hunt"},
+        {"type":"list","items":["Naikkan ke **Lv. 30**.","Skill 2 **{leaderByExample}**: +5 × 100 {enhancementXp} per {bearHunt}.","Skill 3 **{weaponObsession}**: +5 {forgehammer} per {bearHunt}.","🔗 Detail: https://kingshotoptimizer.com/masters/valora/"]},
+        {"type":"sub","text":"3. {roman} — pasif Arena"},
+        {"type":"list","items":["Cukup buka (1.000 Kedekatan): talentanya sudah memberi peluang 50% dapat {arenaStarChest} tambahan setelah tiap pertandingan Arena ({heroShard} & {forgehammer}); baru di level maks menjadi peluang 100% dapat 3. Tidak perlu investasi {masterEmblem} besar di awal.","🔗 Detail: https://kingshotoptimizer.com/masters/roman/"]},
+        {"type":"h","text":"PRIORITAS WHALE & PEMIMPIN RELI"},
+        {"type":"callout","text":"**{valora} ➔ {roman} ➔ {pan}**"},
+        {"type":"list","items":["**{valora}**: maksimalkan **{savageAdvantage}** dan **{danceOfTheHunt}** untuk skor leaderboard besar.","**{danceOfTheHunt}** (Skill 1): saat kamu memulai reli {ragingBear}, kapasitas seluruh reli +30.000 per level (Lv.10: +300.000) — lebih banyak pasukan anggota bisa masuk.","**{savageAdvantage}** (Skill 4): kapasitas skuadmu sendiri saat ikut {bearHunt} +3.000 per level (Lv.10: +30.000).","**{roman}**: {teacherOfChampions} & {oneDesire} (+20% Serangan & HP di pertempuran Arena), {winnerTakeAll} (+50% hadiah {arenaToken} harian/mingguan), {crowdFavorite} (3 item ekstra di {arenaShop} dengan diskon 50%).","**{pan}**: naikkan di urutan kedua untuk {truegold} pasif."]},
+        {"type":"callout","text":"ℹ️ Skill 1 {danceOfTheHunt} menaikkan kapasitas seluruh reli yang kamu mulai. Skill 4 {savageAdvantage} hanya menambah skuadmu sendiri — kapasitas total reli tetap tergantung pada pemimpin reli."},
+        {"type":"h","text":"💬 {realmJourney}: hadiah tanya jawab"},
+        {"type":"p","text":"https://g2384.github.io/Kingshot-Data/journey.html"},
+        {"type":"p","text":"ℹ️ Kontennya terlalu panjang untuk diterjemahkan, silakan buka tautannya dan baca di sana."}
       ]},
       ru: { title: "Гайд по Университету мастеров (3-е поколение)", blocks: [
-        { type: "h", text: "КОГДА" },
-        { type: "p", text: "3-е поколение выходит 28.09 и открывает {masterAcademy} на 25-м уровне центра города. Мастера дают постоянные пассивные бонусы аккаунту, дополнительные ресурсы и награды событий. Они не связаны с героями." },
-        { type: "h", text: "КАК ОТКРЫТЬ" },
-        { type: "list", items: [
-          "Первый мастер — ВСЕГДА {valora}; её находят на обычной «{realmJourney}».",
-          "НЕ тратьте {adventureSupply} на {valora} — бесплатные {journeySupplies} (20 в день, обновление в 00:00 UTC) откроют её сами.",
-          "БЕРЕГИТЕ {adventureSupply} для {pan} и Роман в «{lostlands}», когда они будут найдены.",
-          "При 1000 очк. сближения мастер поселится в городе."
-        ] },
-        { type: "h", text: "ПРИОРИТЕТ ДЛЯ F2P И МАЛОДОНАТНЫХ" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
-        { type: "sub", text: "1. {pan} — мастер экономики (главный приоритет)" },
-        { type: "list", items: [
-          "Прокачайте {pan} до **ур. 60**.",
-          "Талант: 5 шт. «{reserveChests}» за каждые 120 мин сбора (до 30 в день) — бесплатные {truegold}, {gems} и ускорения.",
-          "Навык 1 **{falconer}**: +8 миссий в день ({intelMission}) → много бесплатного {truegold} ежедневно.",
-          "Навык 4 **{waysAndMeans}**: +120 {mysteryBadge} за ежедневные миссии и +4 бесплатных обновления ({mysteryShop}) → {widget} со скидкой.",
-          "🔗 Подробнее: https://kingshotoptimizer.com/masters/pan/"
-        ] },
-        { type: "sub", text: "2. {valora} — материалы снаряжения для охоты на медведя" },
-        { type: "list", items: [
-          "Прокачайте до **ур. 30** ({acquaintance} 3 / {casual} 1).",
-          "Навык 2 **{leaderByExample}**: +5 × 100 ({enhancementXp}) за каждую «{bearHunt}».",
-          "Навык 3 **{weaponObsession}**: +5 ({forgehammer}) за каждую «{bearHunt}».",
-          "🔗 Подробнее: https://kingshotoptimizer.com/masters/valora/"
-        ] },
-        { type: "sub", text: "3. {roman} — пассивка арены" },
-        { type: "list", items: [
-          "Просто откройте его (1000 очк. сближения): его талант уже даёт 50% шанс получить дополнительные «{arenaStarChest}» после каждого боя на арене ({heroShard}, {forgehammer}); только на макс. уровне это 3 шт. со 100% шансом. В начале не нужно много вкладывать в {masterEmblem}.",
-          "🔗 Подробнее: https://kingshotoptimizer.com/masters/roman/"
-        ] },
-        { type: "h", text: "ПРИОРИТЕТ ДЛЯ КИТОВ И ЛИДЕРОВ РЕЙДОВ" },
-        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
-        { type: "list", items: [
-          "**{valora}**: максимально прокачайте **{savageAdvantage}** и **{danceOfTheHunt}** ради высоких мест в рейтинге.",
-          "**{danceOfTheHunt}** (навык 1): когда вы запускаете рейд против {ragingBear}, вместимость всего рейда растёт на +30 000 за уровень (ур. 10: +300 000) — в рейд помещается больше войск союзников.",
-          "**{savageAdvantage}** (навык 4): вместимость вашего собственного отряда при участии в «{bearHunt}» +3 000 за уровень (ур. 10: +30 000).",
-          "**{roman}**: {teacherOfChampions} и {oneDesire} (+20% к атаке и здоровью в боях арены), {winnerTakeAll} (+50% к ежедневным/еженедельным наградам «{arenaToken}»), {crowdFavorite} (3 доп. товара в «{arenaShop}» со скидкой 50%).",
-          "**{pan}**: качайте вторым ради пассивного {truegold}."
-        ] },
-        { type: "callout", text: "ℹ️ Навык 1 {danceOfTheHunt} увеличивает вместимость всего рейда, который вы запускаете. Навык 4 {savageAdvantage} увеличивает только ваш отряд — общая вместимость рейда зависит от того, кто его запустил." },
-        { type: "h", text: "💬 «{realmJourney}»: награды за вопросы и ответы" },
-        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
-        { type: "p", text: "ℹ️ Текст слишком длинный для перевода — откройте ссылку и прочитайте его там." }
+        {"type":"h","text":"КОГДА"},
+        {"type":"p","text":"3-е поколение выходит 28.09 и открывает {masterAcademy} на 25-м уровне центра города. Мастера дают постоянные пассивные бонусы аккаунту, дополнительные ресурсы и награды событий. Они не связаны с героями."},
+        {"type":"h","text":"КАК ОТКРЫТЬ"},
+        {"type":"list","items":["Первый мастер — ВСЕГДА {valora}; её находят на обычной «{realmJourney}».","Бесплатные {journeySupplies}: в 00:00 UTC автоматически начисляется 20, а в 08:00 и 16:00 — ещё по 10, которые нужно забрать вручную, итого 40 в день. Дополнительно можно купить до 20 в день за алмазы (1000 алмазов за 5). При полном запасе они перестают пополняться, так что тратьте их регулярно.","НЕ тратьте {adventureSupply} на {valora} — бесплатные {journeySupplies} откроют её сами.","БЕРЕГИТЕ {adventureSupply} для {pan} и Роман в «{lostlands}», когда они будут найдены.","При 1000 очк. сближения мастер поселится в городе."]},
+        {"type":"h","text":"ПРИОРИТЕТ ДЛЯ F2P И МАЛОДОНАТНЫХ"},
+        {"type":"callout","text":"**{pan} ➔ {valora} ➔ {roman}**"},
+        {"type":"sub","text":"1. {pan} — мастер экономики (главный приоритет)"},
+        {"type":"list","items":["Прокачайте {pan} до **ур. 60**.","Талант: 5 шт. «{reserveChests}» за каждые 120 мин сбора (до 30 в день) — бесплатные {truegold}, {gems} и ускорения.","Навык 1 **{falconer}**: +8 миссий в день ({intelMission}) → много бесплатного {truegold} ежедневно.","Навык 4 **{waysAndMeans}**: +120 {mysteryBadge} за ежедневные миссии и +4 бесплатных обновления ({mysteryShop}) → {widget} со скидкой.","🔗 Подробнее: https://kingshotoptimizer.com/masters/pan/"]},
+        {"type":"sub","text":"2. {valora} — материалы снаряжения для охоты на медведя"},
+        {"type":"list","items":["Прокачайте до **ур. 30** ({acquaintance} 3 / {casual} 1).","Навык 2 **{leaderByExample}**: +5 × 100 ({enhancementXp}) за каждую «{bearHunt}».","Навык 3 **{weaponObsession}**: +5 ({forgehammer}) за каждую «{bearHunt}».","🔗 Подробнее: https://kingshotoptimizer.com/masters/valora/"]},
+        {"type":"sub","text":"3. {roman} — пассивка арены"},
+        {"type":"list","items":["Просто откройте его (1000 очк. сближения): его талант уже даёт 50% шанс получить дополнительные «{arenaStarChest}» после каждого боя на арене ({heroShard}, {forgehammer}); только на макс. уровне это 3 шт. со 100% шансом. В начале не нужно много вкладывать в {masterEmblem}.","🔗 Подробнее: https://kingshotoptimizer.com/masters/roman/"]},
+        {"type":"h","text":"ПРИОРИТЕТ ДЛЯ КИТОВ И ЛИДЕРОВ РЕЙДОВ"},
+        {"type":"callout","text":"**{valora} ➔ {roman} ➔ {pan}**"},
+        {"type":"list","items":["**{valora}**: максимально прокачайте **{savageAdvantage}** и **{danceOfTheHunt}** ради высоких мест в рейтинге.","**{danceOfTheHunt}** (навык 1): когда вы запускаете рейд против {ragingBear}, вместимость всего рейда растёт на +30 000 за уровень (ур. 10: +300 000) — в рейд помещается больше войск союзников.","**{savageAdvantage}** (навык 4): вместимость вашего собственного отряда при участии в «{bearHunt}» +3 000 за уровень (ур. 10: +30 000).","**{roman}**: {teacherOfChampions} и {oneDesire} (+20% к атаке и здоровью в боях арены), {winnerTakeAll} (+50% к ежедневным/еженедельным наградам «{arenaToken}»), {crowdFavorite} (3 доп. товара в «{arenaShop}» со скидкой 50%).","**{pan}**: качайте вторым ради пассивного {truegold}."]},
+        {"type":"callout","text":"ℹ️ Навык 1 {danceOfTheHunt} увеличивает вместимость всего рейда, который вы запускаете. Навык 4 {savageAdvantage} увеличивает только ваш отряд — общая вместимость рейда зависит от того, кто его запустил."},
+        {"type":"h","text":"💬 «{realmJourney}»: награды за вопросы и ответы"},
+        {"type":"p","text":"https://g2384.github.io/Kingshot-Data/journey.html"},
+        {"type":"p","text":"ℹ️ Текст слишком длинный для перевода — откройте ссылку и прочитайте его там."}
       ]},
       th: { title: "คู่มือสถาบันมาสเตอร์รุ่นที่ 3", blocks: [
-        { type: "h", text: "เมื่อไหร่" },
-        { type: "p", text: "รุ่นที่ 3 มาวันที่ 28 ก.ย. และปลดล็อก{masterAcademy}ที่ศูนย์กลางเมืองเลเวล 25 มาสเตอร์ให้บัฟพาสซีฟถาวรกับบัญชี ทรัพยากรเพิ่ม และรางวัลกิจกรรม แยกจากฮีโร่" },
-        { type: "h", text: "วิธีปลดล็อก" },
-        { type: "list", items: [
-          "มาสเตอร์คนแรก**เป็น{valora}เสมอ** เจอได้จาก{realmJourney}ปกติ",
-          "**อย่า**ใช้{adventureSupply}กับ{valora} — {journeySupplies}ฟรี (วันละ 20 รีเฟรช 00:00 UTC) จะปลดล็อกเธอเอง",
-          "**เก็บ**{adventureSupply}ไว้ใช้กับ{pan}และ{roman}ใน{lostlands}เมื่อค้นพบแล้ว",
-          "เมื่อค่าความสัมพันธ์ถึง 1,000 มาสเตอร์จะตั้งถิ่นฐานในเมือง"
-        ] },
-        { type: "h", text: "ลำดับสำหรับสายฟรีและสายเติมน้อย" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
-        { type: "sub", text: "1. {pan} — มาสเตอร์สายเศรษฐกิจ (สำคัญที่สุด)" },
-        { type: "list", items: [
-          "อัป{pan}ถึง **เลเวล 60**",
-          "ความสามารถ: ได้{reserveChests} 5 ทุกการเก็บรวบรวม 120 นาที (สูงสุดวันละ 30) — {truegold} {gems} และเร่งสปีดฟรี",
-          "ทักษะ 1 **{falconer}**: {intelMission}เพิ่มวันละ 8 → ได้{truegold}ฟรีทุกวันจำนวนมาก",
-          "ทักษะ 4 **{waysAndMeans}**: ได้{mysteryBadge}เพิ่ม 120 จากภารกิจประจำวัน และรีเฟรช{mysteryShop}ฟรีเพิ่ม 4 ครั้ง → ซื้อ{widget}ลดราคา",
-          "🔗 รายละเอียด: https://kingshotoptimizer.com/masters/pan/"
-        ] },
-        { type: "sub", text: "2. {valora} — วัตถุดิบอุปกรณ์จากล่าหมี" },
-        { type: "list", items: [
-          "อัปถึง **เลเวล 30** ({acquaintance} 3 / {casual} 1)",
-          "ทักษะ 2 **{leaderByExample}**: {enhancementXp} x100 เพิ่ม 5 ต่อ{bearHunt}",
-          "ทักษะ 3 **{weaponObsession}**: {forgehammer}เพิ่ม 5 ต่อ{bearHunt}",
-          "🔗 รายละเอียด: https://kingshotoptimizer.com/masters/valora/"
-        ] },
-        { type: "sub", text: "3. {roman} — พาสซีฟอารีน่า" },
-        { type: "list", items: [
-          "แค่ปลดล็อก (ค่าความสัมพันธ์ 1,000): พรสวรรค์ของเขามีโอกาส 50% ได้{arenaStarChest}เพิ่มหลังแข่งอารีน่าทุกครั้งอยู่แล้ว ({heroShard} และ{forgehammer}) ต้องอัปถึงเลเวลสูงสุดจึงจะได้ 3 หีบ 100% ช่วงแรกไม่ต้องลง{masterEmblem}เยอะ",
-          "🔗 รายละเอียด: https://kingshotoptimizer.com/masters/roman/"
-        ] },
-        { type: "h", text: "ลำดับสำหรับสายเติมหนักและผู้นำทีมระดมพล" },
-        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
-        { type: "list", items: [
-          "**{valora}**: อัป **{savageAdvantage}** และ **{danceOfTheHunt}** ให้เต็ม เพื่อคะแนนอันดับสูง",
-          "**{danceOfTheHunt}** (ทักษะ 1): เมื่อเปิดระดมพล{ragingBear} ความจุของทั้งระดมพล +30,000 ต่อเลเวล (Lv.10: +300,000) ทำให้ทหารของสมาชิกเข้าร่วมได้มากขึ้น",
-          "**{savageAdvantage}** (ทักษะ 4): ความจุทีมของตัวเองเมื่อเข้าร่วม{bearHunt} +3,000 ต่อเลเวล (Lv.10: +30,000)",
-          "**{roman}**: {teacherOfChampions} และ {oneDesire} (พลังโจมตีและพลังชีวิตในการต่อสู้อารีน่า +20%), {winnerTakeAll} (รางวัล{arenaToken}รายวัน/รายสัปดาห์ +50%), {crowdFavorite} (สินค้าเพิ่ม 3 ชิ้นใน{arenaShop} ลด 50%)",
-          "**{pan}**: อัปเป็นอันดับสองเพื่อ{truegold}แบบพาสซีฟ"
-        ] },
-        { type: "callout", text: "ℹ️ ทักษะ 1 {danceOfTheHunt} เพิ่มความจุของทั้งระดมพลที่คุณเปิด ส่วนทักษะ 4 {savageAdvantage} เพิ่มแค่ทีมของตัวเอง ความจุรวมของระดมพลยังขึ้นกับคนที่เปิดระดมพล" },
-        { type: "h", text: "💬 {realmJourney}: รางวัลถาม-ตอบ" },
-        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
-        { type: "p", text: "ℹ️ เนื้อหายาวเกินกว่าจะแปลได้ กรุณากดลิงก์เพื่ออ่านเอง" }
+        {"type":"h","text":"เมื่อไหร่"},
+        {"type":"p","text":"รุ่นที่ 3 มาวันที่ 28 ก.ย. และปลดล็อก{masterAcademy}ที่ศูนย์กลางเมืองเลเวล 25 มาสเตอร์ให้บัฟพาสซีฟถาวรกับบัญชี ทรัพยากรเพิ่ม และรางวัลกิจกรรม แยกจากฮีโร่"},
+        {"type":"h","text":"วิธีปลดล็อก"},
+        {"type":"list","items":["มาสเตอร์คนแรก**เป็น{valora}เสมอ** เจอได้จาก{realmJourney}ปกติ","{journeySupplies}ฟรี: เติมอัตโนมัติ 20 อันตอน 00:00 UTC และมีอีก 10 อันตอน 08:00 กับ 16:00 ที่ต้องกดรับเอง รวมวันละ 40 อัน ซื้อเพิ่มด้วย{gems}ได้อีกวันละไม่เกิน 20 อัน (5 อันต่อ 1,000 {gems}) ถ้าคลังเต็มจะไม่เติมเพิ่ม จึงควรใช้อย่างสม่ำเสมอ","**อย่า**ใช้{adventureSupply}กับ{valora} — {journeySupplies}ฟรี จะปลดล็อกเธอเอง","**เก็บ**{adventureSupply}ไว้ใช้กับ{pan}และ{roman}ใน{lostlands}เมื่อค้นพบแล้ว","เมื่อค่าความสัมพันธ์ถึง 1,000 มาสเตอร์จะตั้งถิ่นฐานในเมือง"]},
+        {"type":"h","text":"ลำดับสำหรับสายฟรีและสายเติมน้อย"},
+        {"type":"callout","text":"**{pan} ➔ {valora} ➔ {roman}**"},
+        {"type":"sub","text":"1. {pan} — มาสเตอร์สายเศรษฐกิจ (สำคัญที่สุด)"},
+        {"type":"list","items":["อัป{pan}ถึง **เลเวล 60**","ความสามารถ: ได้{reserveChests} 5 ทุกการเก็บรวบรวม 120 นาที (สูงสุดวันละ 30) — {truegold} {gems} และเร่งสปีดฟรี","ทักษะ 1 **{falconer}**: {intelMission}เพิ่มวันละ 8 → ได้{truegold}ฟรีทุกวันจำนวนมาก","ทักษะ 4 **{waysAndMeans}**: ได้{mysteryBadge}เพิ่ม 120 จากภารกิจประจำวัน และรีเฟรช{mysteryShop}ฟรีเพิ่ม 4 ครั้ง → ซื้อ{widget}ลดราคา","🔗 รายละเอียด: https://kingshotoptimizer.com/masters/pan/"]},
+        {"type":"sub","text":"2. {valora} — วัตถุดิบอุปกรณ์จากล่าหมี"},
+        {"type":"list","items":["อัปถึง **เลเวล 30** ({acquaintance} 3 / {casual} 1)","ทักษะ 2 **{leaderByExample}**: {enhancementXp} x100 เพิ่ม 5 ต่อ{bearHunt}","ทักษะ 3 **{weaponObsession}**: {forgehammer}เพิ่ม 5 ต่อ{bearHunt}","🔗 รายละเอียด: https://kingshotoptimizer.com/masters/valora/"]},
+        {"type":"sub","text":"3. {roman} — พาสซีฟอารีน่า"},
+        {"type":"list","items":["แค่ปลดล็อก (ค่าความสัมพันธ์ 1,000): พรสวรรค์ของเขามีโอกาส 50% ได้{arenaStarChest}เพิ่มหลังแข่งอารีน่าทุกครั้งอยู่แล้ว ({heroShard} และ{forgehammer}) ต้องอัปถึงเลเวลสูงสุดจึงจะได้ 3 หีบ 100% ช่วงแรกไม่ต้องลง{masterEmblem}เยอะ","🔗 รายละเอียด: https://kingshotoptimizer.com/masters/roman/"]},
+        {"type":"h","text":"ลำดับสำหรับสายเติมหนักและผู้นำทีมระดมพล"},
+        {"type":"callout","text":"**{valora} ➔ {roman} ➔ {pan}**"},
+        {"type":"list","items":["**{valora}**: อัป **{savageAdvantage}** และ **{danceOfTheHunt}** ให้เต็ม เพื่อคะแนนอันดับสูง","**{danceOfTheHunt}** (ทักษะ 1): เมื่อเปิดระดมพล{ragingBear} ความจุของทั้งระดมพล +30,000 ต่อเลเวล (Lv.10: +300,000) ทำให้ทหารของสมาชิกเข้าร่วมได้มากขึ้น","**{savageAdvantage}** (ทักษะ 4): ความจุทีมของตัวเองเมื่อเข้าร่วม{bearHunt} +3,000 ต่อเลเวล (Lv.10: +30,000)","**{roman}**: {teacherOfChampions} และ {oneDesire} (พลังโจมตีและพลังชีวิตในการต่อสู้อารีน่า +20%), {winnerTakeAll} (รางวัล{arenaToken}รายวัน/รายสัปดาห์ +50%), {crowdFavorite} (สินค้าเพิ่ม 3 ชิ้นใน{arenaShop} ลด 50%)","**{pan}**: อัปเป็นอันดับสองเพื่อ{truegold}แบบพาสซีฟ"]},
+        {"type":"callout","text":"ℹ️ ทักษะ 1 {danceOfTheHunt} เพิ่มความจุของทั้งระดมพลที่คุณเปิด ส่วนทักษะ 4 {savageAdvantage} เพิ่มแค่ทีมของตัวเอง ความจุรวมของระดมพลยังขึ้นกับคนที่เปิดระดมพล"},
+        {"type":"h","text":"💬 {realmJourney}: รางวัลถาม-ตอบ"},
+        {"type":"p","text":"https://g2384.github.io/Kingshot-Data/journey.html"},
+        {"type":"p","text":"ℹ️ เนื้อหายาวเกินกว่าจะแปลได้ กรุณากดลิงก์เพื่ออ่านเอง"}
       ]},
       ar: { title: "دليل أكاديمية المتخصصين (الجيل الثالث)", blocks: [
-        { type: "h", text: "متى" },
-        { type: "p", text: "يصل الجيل الثالث في 28/9 ويفتح {masterAcademy} عند مركز البلدة 25. يمنح المتخصصون تعزيزات سلبية دائمة للحساب وموارد إضافية ومكافآت فعاليات، وهم منفصلون عن الأبطال." },
-        { type: "h", text: "طريقة الفتح" },
-        { type: "list", items: [
-          "أول متخصص هو **دائمًا {valora}**، وتجدها عبر {realmJourney} العادية.",
-          "**لا** تنفق {adventureSupply} على {valora} — {journeySupplies} المجانية (20 يوميًا، تتجدد 00:00 UTC) ستفتحها تلقائيًا.",
-          "**ادّخر** {adventureSupply} لـ{pan} و{roman} في {lostlands} بعد اكتشافهما.",
-          "عند الوصول إلى 1000 تقارب، سيستقر المتخصص في البلدة."
-        ] },
-        { type: "h", text: "الأولوية للاعبين المجانيين وقليلي الإنفاق" },
-        { type: "callout", text: "**{pan} ← {valora} ← {roman}**" },
-        { type: "sub", text: "1. {pan} — متخصص الاقتصاد (الأولوية القصوى)" },
-        { type: "list", items: [
-          "ارفع {pan} إلى **المستوى 60**.",
-          "المواهب: 5 من {reserveChests} لكل 120 دقيقة جمع (حتى 30 يوميًا) — {truegold} و{gems} وتسريعات مجانية.",
-          "المهارة 1 **{falconer}**: +8 من {intelMission} يوميًا ← الكثير من {truegold} المجاني يوميًا.",
-          "المهارة 4 **{waysAndMeans}**: +120 من {mysteryBadge} من المهام اليومية و+4 تحديثات مجانية في متجر {mysteryShop} ← {widget} بخصم.",
-          "🔗 التفاصيل: https://kingshotoptimizer.com/masters/pan/"
-        ] },
-        { type: "sub", text: "2. {valora} — مواد عتاد صيد الدببة" },
-        { type: "list", items: [
-          "ارفعها إلى **المستوى 30** ({acquaintance} 3 / {casual} 1).",
-          "المهارة 2 **{leaderByExample}**: +5 × 100 من {enhancementXp} لكل {bearHunt}.",
-          "المهارة 3 **{weaponObsession}**: +5 من {forgehammer} لكل {bearHunt}.",
-          "🔗 التفاصيل: https://kingshotoptimizer.com/masters/valora/"
-        ] },
-        { type: "sub", text: "3. {roman} — مهارة الساحة السلبية" },
-        { type: "list", items: [
-          "افتحه فقط (1000 تقارب): موهبته تمنح منذ البداية فرصة 50% للحصول على {arenaStarChest} إضافية بعد كل مباراة في الساحة ({heroShard} و{forgehammer})، ولا تصبح فرصة 100% للحصول على 3 إلا في المستوى الأقصى. لا حاجة لاستثمار كبير في {masterEmblem} في البداية.",
-          "🔗 التفاصيل: https://kingshotoptimizer.com/masters/roman/"
-        ] },
-        { type: "h", text: "الأولوية لكبار المنفقين وقادة الحشد" },
-        { type: "callout", text: "**{valora} ← {roman} ← {pan}**" },
-        { type: "list", items: [
-          "**{valora}**: ارفع **{savageAdvantage}** و**{danceOfTheHunt}** للحد الأقصى لتحقيق نقاط عالية في التصنيف.",
-          "**{danceOfTheHunt}** (المهارة 1): عند إطلاق حشد {ragingBear} تزيد سعة الحشد بالكامل +30,000 لكل مستوى (المستوى 10: +300,000)، فتتسع لقوات أكثر من الأعضاء.",
-          "**{savageAdvantage}** (المهارة 4): سعة فرقتك الخاصة عند المشاركة في {bearHunt} +3,000 لكل مستوى (المستوى 10: +30,000).",
-          "**{roman}**: {teacherOfChampions} و{oneDesire} (+20% للهجوم والصحة في معارك الساحة)، {winnerTakeAll} (+50% لمكافآت {arenaToken} اليومية/الأسبوعية)، {crowdFavorite} (3 عناصر إضافية في {arenaShop} بخصم 50%).",
-          "**{pan}**: ارفعه ثانيًا للحصول على {truegold} سلبيًا."
-        ] },
-        { type: "callout", text: "ℹ️ المهارة 1 {danceOfTheHunt} تزيد سعة الحشد بالكامل الذي تطلقه. المهارة 4 {savageAdvantage} تزيد فرقتك فقط، أما السعة الإجمالية للحشد فتعتمد على من أطلقه." },
-        { type: "h", text: "💬 {realmJourney}: مكافآت الأسئلة والأجوبة" },
-        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
-        { type: "p", text: "ℹ️ المحتوى طويل جدًا للترجمة، لذا يُرجى فتح الرابط وقراءته هناك." }
+        {"type":"h","text":"متى"},
+        {"type":"p","text":"يصل الجيل الثالث في 28/9 ويفتح {masterAcademy} عند مركز البلدة 25. يمنح المتخصصون تعزيزات سلبية دائمة للحساب وموارد إضافية ومكافآت فعاليات، وهم منفصلون عن الأبطال."},
+        {"type":"h","text":"طريقة الفتح"},
+        {"type":"list","items":["أول متخصص هو **دائمًا {valora}**، وتجدها عبر {realmJourney} العادية.","{journeySupplies} المجانية: تُضاف 20 تلقائيًا عند 00:00 UTC، بالإضافة إلى 10 عند 08:00 و10 عند 16:00 يجب استلامها يدويًا — أي 40 يوميًا. يمكنك شراء ما يصل إلى 20 إضافية يوميًا بـ{gems} (1,000 {gems} لكل 5). عند امتلاء المخزون تتوقف عن التعبئة، لذا استخدمها بانتظام.","**لا** تنفق {adventureSupply} على {valora} — {journeySupplies} المجانية ستفتحها تلقائيًا.","**ادّخر** {adventureSupply} لـ{pan} و{roman} في {lostlands} بعد اكتشافهما.","عند الوصول إلى 1000 تقارب، سيستقر المتخصص في البلدة."]},
+        {"type":"h","text":"الأولوية للاعبين المجانيين وقليلي الإنفاق"},
+        {"type":"callout","text":"**{pan} ← {valora} ← {roman}**"},
+        {"type":"sub","text":"1. {pan} — متخصص الاقتصاد (الأولوية القصوى)"},
+        {"type":"list","items":["ارفع {pan} إلى **المستوى 60**.","المواهب: 5 من {reserveChests} لكل 120 دقيقة جمع (حتى 30 يوميًا) — {truegold} و{gems} وتسريعات مجانية.","المهارة 1 **{falconer}**: +8 من {intelMission} يوميًا ← الكثير من {truegold} المجاني يوميًا.","المهارة 4 **{waysAndMeans}**: +120 من {mysteryBadge} من المهام اليومية و+4 تحديثات مجانية في متجر {mysteryShop} ← {widget} بخصم.","🔗 التفاصيل: https://kingshotoptimizer.com/masters/pan/"]},
+        {"type":"sub","text":"2. {valora} — مواد عتاد صيد الدببة"},
+        {"type":"list","items":["ارفعها إلى **المستوى 30** ({acquaintance} 3 / {casual} 1).","المهارة 2 **{leaderByExample}**: +5 × 100 من {enhancementXp} لكل {bearHunt}.","المهارة 3 **{weaponObsession}**: +5 من {forgehammer} لكل {bearHunt}.","🔗 التفاصيل: https://kingshotoptimizer.com/masters/valora/"]},
+        {"type":"sub","text":"3. {roman} — مهارة الساحة السلبية"},
+        {"type":"list","items":["افتحه فقط (1000 تقارب): موهبته تمنح منذ البداية فرصة 50% للحصول على {arenaStarChest} إضافية بعد كل مباراة في الساحة ({heroShard} و{forgehammer})، ولا تصبح فرصة 100% للحصول على 3 إلا في المستوى الأقصى. لا حاجة لاستثمار كبير في {masterEmblem} في البداية.","🔗 التفاصيل: https://kingshotoptimizer.com/masters/roman/"]},
+        {"type":"h","text":"الأولوية لكبار المنفقين وقادة الحشد"},
+        {"type":"callout","text":"**{valora} ← {roman} ← {pan}**"},
+        {"type":"list","items":["**{valora}**: ارفع **{savageAdvantage}** و**{danceOfTheHunt}** للحد الأقصى لتحقيق نقاط عالية في التصنيف.","**{danceOfTheHunt}** (المهارة 1): عند إطلاق حشد {ragingBear} تزيد سعة الحشد بالكامل +30,000 لكل مستوى (المستوى 10: +300,000)، فتتسع لقوات أكثر من الأعضاء.","**{savageAdvantage}** (المهارة 4): سعة فرقتك الخاصة عند المشاركة في {bearHunt} +3,000 لكل مستوى (المستوى 10: +30,000).","**{roman}**: {teacherOfChampions} و{oneDesire} (+20% للهجوم والصحة في معارك الساحة)، {winnerTakeAll} (+50% لمكافآت {arenaToken} اليومية/الأسبوعية)، {crowdFavorite} (3 عناصر إضافية في {arenaShop} بخصم 50%).","**{pan}**: ارفعه ثانيًا للحصول على {truegold} سلبيًا."]},
+        {"type":"callout","text":"ℹ️ المهارة 1 {danceOfTheHunt} تزيد سعة الحشد بالكامل الذي تطلقه. المهارة 4 {savageAdvantage} تزيد فرقتك فقط، أما السعة الإجمالية للحشد فتعتمد على من أطلقه."},
+        {"type":"h","text":"💬 {realmJourney}: مكافآت الأسئلة والأجوبة"},
+        {"type":"p","text":"https://g2384.github.io/Kingshot-Data/journey.html"},
+        {"type":"p","text":"ℹ️ المحتوى طويل جدًا للترجمة، لذا يُرجى فتح الرابط وقراءته هناك."}
       ]},
       es: { title: "Guía de la Academia de Maestros (Gen 3)", blocks: [
-        { type: "h", text: "CUÁNDO" },
-        { type: "p", text: "La Gen 3 llega el 28/09 y desbloquea la {masterAcademy} con el Centro de pueblo 25. Los maestros dan bonificaciones pasivas permanentes a la cuenta, recursos extra y recompensas de eventos. Son independientes de los héroes." },
-        { type: "h", text: "CÓMO SE DESBLOQUEAN" },
-        { type: "list", items: [
-          "{valora} es SIEMPRE tu primer maestro; aparece en la {realmJourney} normal.",
-          "NO gastes {adventureSupply} en {valora}: los {journeySupplies} gratis (20 al día, se renuevan a las 00:00 UTC) la desbloquean de forma natural.",
-          "GUARDA tus {adventureSupply} para {pan} y {roman} en las {lostlands} cuando los descubras.",
-          "Con 1000 de Afinidad, el maestro se establece en tu colonia."
-        ] },
-        { type: "h", text: "PRIORIDAD PARA F2P Y QUIEN GASTA POCO" },
-        { type: "callout", text: "**{pan} ➔ {valora} ➔ {roman}**" },
-        { type: "sub", text: "1. {pan} — el maestro de la economía (máxima prioridad)" },
-        { type: "list", items: [
-          "Sube a {pan} al **Nv. 60**.",
-          "Talento: 5 {reserveChests} por cada 120 minutos de recolección (hasta 30 al día): {truegold}, {gems} y aceleradores gratis.",
-          "Habilidad 1 **{falconer}**: +8 {intelMission} al día → mucha {truegold} gratis a diario.",
-          "Habilidad 4 **{waysAndMeans}**: +120 {mysteryBadge} al completar misiones diarias y +4 actualizaciones gratis en la tienda {mysteryShop} → {widget}s con descuento.",
-          "🔗 Detalles: https://kingshotoptimizer.com/masters/pan/"
-        ] },
-        { type: "sub", text: "2. {valora} — materiales de equipo de la Cacería del Oso" },
-        { type: "list", items: [
-          "Súbela al **Nv. 30** ({acquaintance} 3 / {casual} 1).",
-          "Habilidad 2 **{leaderByExample}**: +5 × 100 {enhancementXp} por {bearHunt}.",
-          "Habilidad 3 **{weaponObsession}**: +5 {forgehammer}s por {bearHunt}.",
-          "🔗 Detalles: https://kingshotoptimizer.com/masters/valora/"
-        ] },
-        { type: "sub", text: "3. {roman} — pasiva de Arena" },
-        { type: "list", items: [
-          "Solo desbloquéalo (1000 de Afinidad): su talento ya da un 50% de probabilidad de {arenaStarChest} extra después de cada combate de Arena ({heroShard}s y {forgehammer}s); solo al nivel máximo pasa a 100% de probabilidad de conseguir 3. Al principio no hace falta invertir mucho en {masterEmblem}.",
-          "🔗 Detalles: https://kingshotoptimizer.com/masters/roman/"
-        ] },
-        { type: "h", text: "PRIORIDAD PARA BALLENAS Y LÍDERES DE ATAQUE CONJUNTO" },
-        { type: "callout", text: "**{valora} ➔ {roman} ➔ {pan}**" },
-        { type: "list", items: [
-          "**{valora}**: maximiza **{savageAdvantage}** y **{danceOfTheHunt}** para grandes puntuaciones en la clasificación.",
-          "**{danceOfTheHunt}** (habilidad 1): al iniciar el ataque conjunto contra el {ragingBear}, la capacidad de todo el ataque aumenta +30.000 por nivel (Nv. 10: +300.000) — caben más tropas de los miembros.",
-          "**{savageAdvantage}** (habilidad 4): capacidad de tu propio escuadrón al participar en la {bearHunt} +3.000 por nivel (Nv. 10: +30.000).",
-          "**{roman}**: {teacherOfChampions} y {oneDesire} (+20% de Ataque y Salud en combates de Arena), {winnerTakeAll} (+50% en recompensas diarias/semanales de {arenaToken}), {crowdFavorite} (3 artículos extra en la {arenaShop} con 50% de descuento).",
-          "**{pan}**: súbelo en segundo lugar para {truegold} pasiva."
-        ] },
-        { type: "callout", text: "ℹ️ La habilidad 1 {danceOfTheHunt} aumenta la capacidad de todo el ataque conjunto que inicias. La habilidad 4 {savageAdvantage} solo aumenta tu propio escuadrón; la capacidad total del ataque depende de quien lo inicia." },
-        { type: "h", text: "💬 {realmJourney}: recompensas de preguntas y respuestas" },
-        { type: "p", text: "https://g2384.github.io/Kingshot-Data/journey.html" },
-        { type: "p", text: "ℹ️ El contenido es demasiado largo para traducirlo, así que abre el enlace y léelo allí." }
+        {"type":"h","text":"CUÁNDO"},
+        {"type":"p","text":"La Gen 3 llega el 28/09 y desbloquea la {masterAcademy} con el Centro de pueblo 25. Los maestros dan bonificaciones pasivas permanentes a la cuenta, recursos extra y recompensas de eventos. Son independientes de los héroes."},
+        {"type":"h","text":"CÓMO SE DESBLOQUEAN"},
+        {"type":"list","items":["{valora} es SIEMPRE tu primer maestro; aparece en la {realmJourney} normal.","{journeySupplies} gratis: se recargan 20 automáticamente a las 00:00 UTC, más 10 a las 08:00 y 10 a las 16:00 que debes reclamar manualmente: 40 al día. Puedes comprar hasta 20 más al día con {gems} (1.000 {gems} por cada 5). Si el almacén está lleno dejan de recargarse, así que úsalos con regularidad.","NO gastes {adventureSupply} en {valora}: los {journeySupplies} gratis la desbloquean de forma natural.","GUARDA tus {adventureSupply} para {pan} y {roman} en las {lostlands} cuando los descubras.","Con 1000 de Afinidad, el maestro se establece en tu colonia."]},
+        {"type":"h","text":"PRIORIDAD PARA F2P Y QUIEN GASTA POCO"},
+        {"type":"callout","text":"**{pan} ➔ {valora} ➔ {roman}**"},
+        {"type":"sub","text":"1. {pan} — el maestro de la economía (máxima prioridad)"},
+        {"type":"list","items":["Sube a {pan} al **Nv. 60**.","Talento: 5 {reserveChests} por cada 120 minutos de recolección (hasta 30 al día): {truegold}, {gems} y aceleradores gratis.","Habilidad 1 **{falconer}**: +8 {intelMission} al día → mucha {truegold} gratis a diario.","Habilidad 4 **{waysAndMeans}**: +120 {mysteryBadge} al completar misiones diarias y +4 actualizaciones gratis en la tienda {mysteryShop} → {widget}s con descuento.","🔗 Detalles: https://kingshotoptimizer.com/masters/pan/"]},
+        {"type":"sub","text":"2. {valora} — materiales de equipo de la Cacería del Oso"},
+        {"type":"list","items":["Súbela al **Nv. 30** ({acquaintance} 3 / {casual} 1).","Habilidad 2 **{leaderByExample}**: +5 × 100 {enhancementXp} por {bearHunt}.","Habilidad 3 **{weaponObsession}**: +5 {forgehammer}s por {bearHunt}.","🔗 Detalles: https://kingshotoptimizer.com/masters/valora/"]},
+        {"type":"sub","text":"3. {roman} — pasiva de Arena"},
+        {"type":"list","items":["Solo desbloquéalo (1000 de Afinidad): su talento ya da un 50% de probabilidad de {arenaStarChest} extra después de cada combate de Arena ({heroShard}s y {forgehammer}s); solo al nivel máximo pasa a 100% de probabilidad de conseguir 3. Al principio no hace falta invertir mucho en {masterEmblem}.","🔗 Detalles: https://kingshotoptimizer.com/masters/roman/"]},
+        {"type":"h","text":"PRIORIDAD PARA BALLENAS Y LÍDERES DE ATAQUE CONJUNTO"},
+        {"type":"callout","text":"**{valora} ➔ {roman} ➔ {pan}**"},
+        {"type":"list","items":["**{valora}**: maximiza **{savageAdvantage}** y **{danceOfTheHunt}** para grandes puntuaciones en la clasificación.","**{danceOfTheHunt}** (habilidad 1): al iniciar el ataque conjunto contra el {ragingBear}, la capacidad de todo el ataque aumenta +30.000 por nivel (Nv. 10: +300.000) — caben más tropas de los miembros.","**{savageAdvantage}** (habilidad 4): capacidad de tu propio escuadrón al participar en la {bearHunt} +3.000 por nivel (Nv. 10: +30.000).","**{roman}**: {teacherOfChampions} y {oneDesire} (+20% de Ataque y Salud en combates de Arena), {winnerTakeAll} (+50% en recompensas diarias/semanales de {arenaToken}), {crowdFavorite} (3 artículos extra en la {arenaShop} con 50% de descuento).","**{pan}**: súbelo en segundo lugar para {truegold} pasiva."]},
+        {"type":"callout","text":"ℹ️ La habilidad 1 {danceOfTheHunt} aumenta la capacidad de todo el ataque conjunto que inicias. La habilidad 4 {savageAdvantage} solo aumenta tu propio escuadrón; la capacidad total del ataque depende de quien lo inicia."},
+        {"type":"h","text":"💬 {realmJourney}: recompensas de preguntas y respuestas"},
+        {"type":"p","text":"https://g2384.github.io/Kingshot-Data/journey.html"},
+        {"type":"p","text":"ℹ️ El contenido es demasiado largo para traducirlo, así que abre el enlace y léelo allí."}
       ]}
     }
   },
@@ -1610,96 +1307,50 @@ const GUIDES = {
         ] }
       ]},
       ko: { title: "일반 팁", blocks: [
-        { type: "h", text: "🔗 유용한 자료" },
-        { type: "sub", text: "🗓️ 왕국 타임라인" },
-        { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
-        { type: "p", text: "다음 일정을 확인하고 이벤트, 업그레이드, 자원을 미리 계획하세요." },
-        { type: "sub", text: "⚔️ 영웅 장비 최적화 도구" },
-        { type: "p", text: "https://kingshotoptimizer.com/hero-gear" },
-        { type: "p", text: "{heroGear} 업그레이드를 계획하고 귀중한 재료 낭비를 막으세요." },
-        { type: "sub", text: "🎥 YOUTUBE – STRAT GAME SLOTH" },
-        { type: "p", text: "https://www.youtube.com/watch?v=NMrS3MTSFUU" },
-        { type: "p", text: "추천 공략 영상, 게임 팁, 성장 조언." },
-        { type: "h", text: "🛒 게임 내 상점" },
-        { type: "p", text: "각 상점에서 가장 가성비 좋은 우선 구매 항목." },
-        { type: "sub", text: "🐪 {nomadicMerchant}" },
-        { type: "list", items: [
-          "{teleporterAdv} (자원 구매/무료)",
-          "유리한 자원 교환",
-          "할인된 {vipXp}"
-        ] },
-        { type: "sub", text: "🎲 {mysteryShop}" },
-        { type: "list", items: [
-          "매일 무료 새로고침",
-          "{widgetChest} 50% 할인 시 구매",
-          "20% 할인은 급할 때만"
-        ] },
-        { type: "sub", text: "🏟️ {arenaShop}" },
-        { type: "list", items: [
-          "매주 {customMythicGearChest} → 주력 영웅의 레전드 장비 기반이 완성되면 {mithril}"
-        ] },
-        { type: "sub", text: "👑 {vipShop}" },
-        { type: "list", items: [
-          "{gems}는 할인 상품에만 골라서: {teleporterAdv} • 100 {enhancementXp} • {forgehammer}"
-        ] },
-        { type: "sub", text: "🏆 {championshipShop}" },
-        { type: "list", items: [
-          "**{masterAcademy} 해금 전:** {artisansVision} • 필요에 따라 {gildedThreads} / {satin}",
-          "**해금 후:** {masterEmblem}이 최우선 — 후반에는 토큰을 여기에 모으세요"
-        ] },
-        { type: "sub", text: "⚔️ {swordlandShop}" },
-        { type: "list", items: [
-          "{artisansVision} → 이후 병목이 되는 재료: {governorCharm} / {governorGear} 재료 • {forgehammer}"
-        ] },
-        { type: "sub", text: "🏰 {kopShop}" },
-        { type: "list", items: [
-          "**{truegold}** — 장기 성장의 주요 병목"
-        ] },
-        { type: "sub", text: "🎨 {skinShop}" },
-        { type: "list", items: [
-          "영구 속성 버프를 우선하세요. 예: {houseOfCacti}: {squadsAttack} +2%"
-        ] },
-        { type: "sub", text: "🧪 {trialShop}" },
-        { type: "list", items: [
-          "**{truegoldDust} 이전:** {trialCrystal}을 모으세요",
-          "**이후:** {truegoldDust} → {mithril} → {enhancementXp} → {charmDesign}"
-        ] },
-        { type: "sub", text: "💎 {gemShop}" },
-        { type: "p", text: "{gems}는 중요한 성장 구간이나 구하기 어려운 재료에만 쓰세요." },
-        { type: "callout", text: "**고민될 때는 다이아를 아끼세요.** 아래 다이아 사용 가이드를 참고하세요." },
-        { type: "sub", text: "🤝 {allianceShop}" },
-        { type: "list", items: [
-          "{transferPass} • {vipXp} • 펫 먹이/재료 • {teleporterAdv} • 유용한 70% 할인 • 가속은 {allianceToken}이 남을 때만"
-        ] },
-        { type: "h", text: "💎 다이아 사용 가이드" },
-        { type: "p", text: "{gems}는 여기에 아끼세요:" },
-        { type: "list", items: [
-          "**1) 🎡 {heroRoulette}** → 120회에 약 162,000 {gems}",
-          "**2) 👑 VIP 활성화** → 매월 10,000 {gems} (VIP 4 이상)"
-        ] },
-        { type: "callout", text: "🏛️ {hallOfHeroes} → 약 13,500–14,850 {gems}, **{marlin}을 아직 해제하지 않았을 때만.** 해제 후에는 멈추세요 — 그 뒤로는 공용 파편이 더 효율적입니다." },
-        { type: "h", text: "✅ 일일 체크리스트" },
-        { type: "sub", text: "☀️ 접속 중" },
-        { type: "list", items: [
-          "☐ 🎁 VIP 상자 받기 + {vipXp} 사용",
-          "☐ 🤝 {allianceHelp} + {allianceTech} 기부",
-          "☐ 📊 영웅 경험치 아이템 사용",
-          "☐ ⚔️ 토벌 보내기 ({conquerorsCamp})",
-          "☐ 🔎 {intelMission} 완료",
-          "☐ 🏝️ 섬의 {waterEssence} 수집 + 연맹원 돕기",
-          "☐ 🔮 {mysticTrial} 도전 횟수 사용",
-          "☐ 📋 {dailyMissions} 완료",
-          "☐ 🏟️ 초기화 3분 전에 {arenaOfGlory} 진행",
-          "☐ 🐻 {bearHunt} — 이틀에 한 번 + 부대 편성 갱신",
-          "☐ 📅 진행 중인 이벤트 등록 및 참여"
-        ] },
-        { type: "sub", text: "🌙 접속 종료 전" },
-        { type: "list", items: [
-          "☐ 🐉 펫을 {petAdventure}에 보내기",
-          "☐ 🌾 {gathering} 행군 보내기",
-          "☐ ⚔️ 부대 {training} 유지",
-          "☐ 🔬 필요에 따라 {research} / {construction} 유지"
-        ] }
+        {"type":"h","text":"🔗 리소스"},
+        {"type":"sub","text":"🗓️ 킹덤 타임라인"},
+        {"type":"p","text":"https://kingshotoptimizer.com/kingdom-timeline/2189"},
+        {"type":"p","text":"다가오는 일정을 미리 확인하고 이벤트, 업그레이드, 자원을 미리 계획하세요."},
+        {"type":"sub","text":"⚔️ 영웅 장비 최적화 도구"},
+        {"type":"p","text":"https://kingshotoptimizer.com/hero-gear"},
+        {"type":"p","text":"{heroGear} 업그레이드를 계획하고 소중한 재료가 낭비되는 것을 방지하세요."},
+        {"type":"sub","text":"🎥 유튜브 - 스트랫 게임 슬로스 (STRAT GAME SLOTH)"},
+        {"type":"p","text":"https://www.youtube.com/watch?v=NMrS3MTSFUU"},
+        {"type":"p","text":"추천 전략 영상, 게임플레이 팁, 그리고 성장 조언을 확인하세요."},
+        {"type":"h","text":"🛒 게임 내 상점"},
+        {"type":"p","text":"각 상점에서 가장 가성비 좋은 우선 구매 항목."},
+        {"type":"sub","text":"🐪 {nomadicMerchant}"},
+        {"type":"list","items":["{teleporterAdv} (자원 구매/무료)","유리한 자원 교환","할인된 {vipXp}"]},
+        {"type":"sub","text":"🎲 {mysteryShop}"},
+        {"type":"list","items":["매일 무료 새로고침","{widgetChest} 50% 할인 시 구매","20% 할인은 급할 때만"]},
+        {"type":"sub","text":"🏟️ {arenaShop}"},
+        {"type":"list","items":["매주 {customMythicGearChest} → 주력 영웅의 레전드 장비 기반이 완성되면 {mithril}"]},
+        {"type":"sub","text":"👑 {vipShop}"},
+        {"type":"list","items":["{gems}는 할인 상품에만 골라서: {teleporterAdv} • 100 {enhancementXp} • {forgehammer}"]},
+        {"type":"sub","text":"🏆 {championshipShop}"},
+        {"type":"list","items":["**{masterAcademy} 해금 전:** {artisansVision} • 필요에 따라 {gildedThreads} / {satin}","**해금 후:** {masterEmblem}이 최우선 — 후반에는 토큰을 여기에 모으세요"]},
+        {"type":"sub","text":"⚔️ {swordlandShop}"},
+        {"type":"list","items":["{artisansVision} → 이후 병목이 되는 재료: {governorCharm} / {governorGear} 재료 • {forgehammer}"]},
+        {"type":"sub","text":"🏰 {kopShop}"},
+        {"type":"list","items":["**{truegold}** — 장기 성장의 주요 병목"]},
+        {"type":"sub","text":"🎨 {skinShop}"},
+        {"type":"list","items":["영구 속성 버프를 우선하세요. 예: {houseOfCacti}: {squadsAttack} +2%"]},
+        {"type":"sub","text":"🧪 {trialShop}"},
+        {"type":"list","items":["**{truegoldDust} 이전:** {trialCrystal}을 모으세요","**이후:** {truegoldDust} → {mithril} → {enhancementXp} → {charmDesign}"]},
+        {"type":"sub","text":"💎 {gemShop}"},
+        {"type":"p","text":"{gems}는 중요한 성장 구간이나 구하기 어려운 재료에만 쓰세요."},
+        {"type":"callout","text":"**고민될 때는 다이아를 아끼세요.** 아래 다이아 사용 가이드를 참고하세요."},
+        {"type":"sub","text":"🤝 {allianceShop}"},
+        {"type":"list","items":["{transferPass} • {vipXp} • 펫 먹이/재료 • {teleporterAdv} • 유용한 70% 할인 • 가속은 {allianceToken}이 남을 때만"]},
+        {"type":"h","text":"💎 {gems} 사용 가이드"},
+        {"type":"p","text":"{gems}를 아껴 써야 할 곳:"},
+        {"type":"list","items":["**1) 🎡 {heroRoulette}** → 120회 뽑기에 약 162,000 {gems}","**2) 👑 VIP 활성화** → 월 10,000 {gems} (VIP 4 이상 달성 후)"]},
+        {"type":"callout","text":"🏛️ {hallOfHeroes} → {marlin}이 해제되지 않은 경우에만 약 13,500~14,850 {gems} 사용. 해제 직후 중단할 것 — 이후에는 공용 조각이 업그레이드에 더 좋은 가치를 지닙니다."},
+        {"type":"h","text":"✅ 일일 체크리스트"},
+        {"type":"sub","text":"☀️ 접속 중일 때"},
+        {"type":"list","items":["☐ 🎁 VIP 상자 수집 + {vipXp} 사용","☐ 🤝 {allianceHelp} + {allianceTech} 기여","☐ 📊 영웅 경험치 아이템 사용","☐ ⚔️ {conquerorsCamp}","☐ 🔎 {intelMission} 완료","☐ 🏝️ 섬의 {waterEssence} 수집 + 기여","☐ 🔮 {mysticTrial} 도전 횟수 소모","☐ 📋 {dailyMissions} 완료","☐ 🏟️ 초기화 3분 전 {arenaOfGlory} 진행","☐ 🐻 {bearHunt} — 격일 진행 + 부대 편성 업데이트","☐ 📅 활성 이벤트 등록 및 참여"]},
+        {"type":"sub","text":"🌙 접속 종료 전"},
+        {"type":"list","items":["☐ 🐉 {petAdventure} 보내기","☐ 🌾 {gathering} 부대 보내기","☐ ⚔️ 부대 {training} 계속 유지하기","☐ 🔬 필요에 따라 {research} / {construction} 계속 유지하기"]}
       ]},
       de: { title: "Allgemeine Tipps", blocks: [
         { type: "h", text: "🔗 RESSOURCEN" },
@@ -2536,520 +2187,112 @@ const GUIDES = {
     name: { en: "Mystic Trial", zh: "秘境試煉", ko: "신비한 시련", de: "Mystische Prüfung", fr: "Épreuve Mystique", pt: "Prova Mística", tr: "Mistik İmtihan", id: "Ujian Mistis", ru: "Волшебное испытание", th: "บททดสอบลี้ลับ", ar: "الاختبارات الغامضة", es: "Prueba Mística" },
     sections: {
       en: { title: "Mystic Trial", blocks: [
-        { type: "h", text: "WHEN" },
-        { type: "p", text: "Available every day. Each zone has 5 attempts per day, reset at 00:00 UTC. Which zones are open depends on the weekday." },
-        { type: "h", text: "WHY IT MATTERS" },
-        { type: "p", text: "An important source of {heroShard}, Hero XP and other progression rewards." },
-        { type: "h", text: "TRIAL ZONES" },
-        { type: "cards", items: [
-          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Mon · Tue",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
-              "Only the stats of Heroes, {heroGear} and {heroExclusiveGear} count."
-            ] },
-          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Wed · Thu",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "Only {pets} stats count.",
-              "{petSkills} are active by default; their effects don't stack."
-            ] },
-          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Wed · Thu",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
-              "Only {governorCharm} stats count."
-            ] },
-          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Fri · Sat",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
-              "Only {academy} and {warAcademy} tech stats count.",
-              "Higher-level soldiers are used here if you've unlocked them."
-            ] },
-          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Fri · Sat",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
-              "Only {governorGear} stats count."
-            ] },
-          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Sun",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "Almost everything counts: Heroes, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} active by default), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} and {vipLevel}.",
-              "You fight with your own troops — no losses, and your world-map deployment isn't affected."
-            ] }
-        ] },
-        { type: "callout", text: "In the other five zones the {trialExplorers} supply Lv.10 soldiers, so just raise the stats that zone uses. Clearing stages 1–10 of a zone unlocks {raid}." }
+        {"type":"h","text":"WHEN"},
+        {"type":"p","text":"Available every day. Each zone has 5 attempts per day, reset at 00:00 UTC. Which zones are open depends on the weekday."},
+        {"type":"h","text":"WHY IT MATTERS"},
+        {"type":"p","text":"An important source of {heroShard}, Hero XP and other progression rewards."},
+        {"type":"h","text":"TRIAL ZONES"},
+        {"type":"cards","items":[{"img":"figures/coliseum.webp","alt":"Coliseum","title":"{coliseum}","meta":"Mon · Tue","lines":["⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%","⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","Only the stats of Heroes, {heroGear} and {heroExclusiveGear} count."]},{"img":"figures/forest_of_life.webp","alt":"Forest of Life","title":"{forestOfLife}","meta":"Wed · Thu","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","⚔️ {infantry} 55% · {cavalry} 10% · {archer} 35%","Only {pets} stats count.","{petSkills} are active by default; their effects don't stack."]},{"img":"figures/crystal_cave.webp","alt":"Crystal Cave","title":"{crystalCave}","meta":"Wed · Thu","lines":["⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%","⚔️ {infantry} 55% · {cavalry} 5% · {archer} 40%","Only {governorCharm} stats count."]},{"img":"figures/knowledge_nexus.webp","alt":"Knowledge Nexus","title":"{knowledgeNexus}","meta":"Fri · Sat","lines":["⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%","⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","Only {academy} and {warAcademy} tech stats count.","Higher-level soldiers are used here if you've unlocked them."]},{"img":"figures/molten_fort.webp","alt":"Molten Fort","title":"{moltenFort}","meta":"Fri · Sat","lines":["⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","⚔️ {infantry} 50% · {cavalry} 18% · {archer} 32%","Only {governorGear} stats count."]},{"img":"figures/radiant_spire.webp","alt":"Radiant Spire","title":"{radiantSpire}","meta":"Sun","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","Almost everything counts: Heroes, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} active by default), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} and {vipLevel}.","You fight with your own troops — no losses, and your world-map deployment isn't affected."]}]},
+        {"type":"callout","text":"In the other five zones the {trialExplorers} supply Lv.10 soldiers, so just raise the stats that zone uses. Clearing stages 1–10 of a zone unlocks {raid}."}
       ]},
       zh: { title: "秘境試煉", blocks: [
-        { type: "h", text: "開放時間" },
-        { type: "p", text: "每天開放。每個區域每天可挑戰 5 次，於 00:00（UTC+0）重置；開放的區域依星期而定。" },
-        { type: "h", text: "為什麼重要" },
-        { type: "p", text: "{heroShard}、英雄經驗與其他養成資源的重要來源。" },
-        { type: "h", text: "試煉區域" },
-        { type: "cards", items: [
-          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "週一、週二",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
-              "只有英雄、{heroGear}和{heroExclusiveGear}的屬性生效。"
-            ] },
-          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "週三、週四",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "只有{pets}屬性生效。",
-              "{petSkills}預設生效（主動使用技能效果不疊加）。"
-            ] },
-          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "週三、週四",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
-              "只有{governorCharm}的屬性生效。"
-            ] },
-          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "週五、週六",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
-              "只有{academy}以及{warAcademy}的科技屬性生效。",
-              "若已解鎖更高等級的士兵科技，可使用更高等級的士兵。"
-            ] },
-          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "週五、週六",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
-              "只有{governorGear}的屬性生效。"
-            ] },
-          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "週日",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "英雄、{heroGear}、{heroExclusiveGear}、{pets}（{petSkills}預設生效）、{governorCharm}、{tech}、{truegoldTech}、{governorGear}、{skins}、{oasisIsland}以及{vipLevel}、建築提供的屬性都將生效。",
-              "使用自己的部隊，不影響野外的部隊調度，士兵也不會受傷。"
-            ] }
-        ] },
-        { type: "callout", text: "其他五個區域由{trialExplorers}提供 10 級士兵，專心提升該區域需要的屬性即可。通過區域的 1–10 關後可解鎖{raid}。" }
+        {"type":"h","text":"開放時間"},
+        {"type":"p","text":"每天開放。每個區域每天可挑戰 5 次，於 00:00（UTC+0）重置；開放的區域依星期而定。"},
+        {"type":"h","text":"為什麼重要"},
+        {"type":"p","text":"{heroShard}、英雄經驗與其他養成資源的重要來源。"},
+        {"type":"h","text":"試煉區域"},
+        {"type":"cards","items":[{"img":"figures/coliseum.webp","alt":"Coliseum","title":"{coliseum}","meta":"週一、週二","lines":["⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%","⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","只有英雄、{heroGear}和{heroExclusiveGear}的屬性生效。"]},{"img":"figures/forest_of_life.webp","alt":"Forest of Life","title":"{forestOfLife}","meta":"週三、週四","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","⚔️ {infantry} 55% · {cavalry} 10% · {archer} 35%","只有{pets}屬性生效。","{petSkills}預設生效（主動使用技能效果不疊加）。"]},{"img":"figures/crystal_cave.webp","alt":"Crystal Cave","title":"{crystalCave}","meta":"週三、週四","lines":["⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%","⚔️ {infantry} 55% · {cavalry} 5% · {archer} 40%","只有{governorCharm}的屬性生效。"]},{"img":"figures/knowledge_nexus.webp","alt":"Knowledge Nexus","title":"{knowledgeNexus}","meta":"週五、週六","lines":["⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%","⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","只有{academy}以及{warAcademy}的科技屬性生效。","若已解鎖更高等級的士兵科技，可使用更高等級的士兵。"]},{"img":"figures/molten_fort.webp","alt":"Molten Fort","title":"{moltenFort}","meta":"週五、週六","lines":["⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","⚔️ {infantry} 50% · {cavalry} 18% · {archer} 32%","只有{governorGear}的屬性生效。"]},{"img":"figures/radiant_spire.webp","alt":"Radiant Spire","title":"{radiantSpire}","meta":"週日","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","英雄、{heroGear}、{heroExclusiveGear}、{pets}（{petSkills}預設生效）、{governorCharm}、{tech}、{truegoldTech}、{governorGear}、{skins}、{oasisIsland}以及{vipLevel}、建築提供的屬性都將生效。","使用自己的部隊，不影響野外的部隊調度，士兵也不會受傷。"]}]},
+        {"type":"callout","text":"其他五個區域由{trialExplorers}提供 10 級士兵，專心提升該區域需要的屬性即可。通過區域的 1–10 關後可解鎖{raid}。"}
       ]},
       ko: { title: "신비한 시련", blocks: [
-        { type: "h", text: "개최 시기" },
-        { type: "p", text: "매일 오픈됩니다. 각 구역은 하루 5회 도전할 수 있으며 매일 UTC 00:00에 갱신됩니다. 요일마다 열리는 구역이 다릅니다." },
-        { type: "h", text: "중요한 이유" },
-        { type: "p", text: "{heroShard}, 영웅 경험치 및 기타 육성 보상의 중요한 획득처입니다." },
-        { type: "h", text: "시련 구역" },
-        { type: "cards", items: [
-          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "월요일, 화요일",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
-              "영웅, {heroGear}, {heroExclusiveGear} 속성만 적용됩니다."
-            ] },
-          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "수요일, 목요일",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "{pets} 속성만 적용됩니다.",
-              "{petSkills}은 자동으로 적용됩니다(스킬을 사용해도 중첩되지 않음)."
-            ] },
-          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "수요일, 목요일",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
-              "{governorCharm} 속성만 적용됩니다."
-            ] },
-          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "금요일, 토요일",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
-              "{academy} 및 {warAcademy}의 과학 기술 속성만 적용됩니다.",
-              "더 높은 레벨의 병사 과학 기술을 해제하면 더 높은 레벨의 병사를 사용할 수 있습니다."
-            ] },
-          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "금요일, 토요일",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
-              "{governorGear} 속성만 적용됩니다."
-            ] },
-          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "일요일",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "영웅, {heroGear}, {heroExclusiveGear}, {pets}({petSkills} 기본 적용), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} 및 {vipLevel}, 건물이 제공하는 속성이 모두 적용됩니다.",
-              "자신의 부대를 사용하지만 야외 부대에 영향을 주지 않으며, 병사가 부상당하지도 않습니다."
-            ] }
-        ] },
-        { type: "callout", text: "나머지 다섯 구역에서는 {trialExplorers}가 Lv.10 병사를 제공하므로 해당 구역에 필요한 속성만 올리면 됩니다. 구역의 1-10 스테이지를 클리어하면 {raid}이 해제됩니다." }
+        {"type":"h","text":"개최 시기"},
+        {"type":"p","text":"매일 참여 가능하며, 각 구역은 하루 5회 도전할 수 있고 도전 횟수는 매일 UTC 00:00에 초기화됩니다. 요일마다 열리는 구역이 다릅니다."},
+        {"type":"h","text":"중요한 이유"},
+        {"type":"p","text":"{heroShard}, 영웅 경험치 및 기타 성장에 필요한 보상을 얻을 수 있는 중요한 획득처입니다."},
+        {"type":"h","text":"시련 구역"},
+        {"type":"cards","items":[{"img":"figures/coliseum.webp","alt":"Coliseum","title":"{coliseum}","meta":"월요일, 화요일","lines":["⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%","⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","영웅, {heroGear}, {heroExclusiveGear} 속성만 적용됩니다."]},{"img":"figures/forest_of_life.webp","alt":"Forest of Life","title":"{forestOfLife}","meta":"수요일, 목요일","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","⚔️ {infantry} 55% · {cavalry} 10% · {archer} 35%","{pets} 속성만 적용됩니다.","{petSkills}은 자동으로 적용됩니다(스킬을 사용해도 중첩되지 않음)."]},{"img":"figures/crystal_cave.webp","alt":"Crystal Cave","title":"{crystalCave}","meta":"수요일, 목요일","lines":["⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%","⚔️ {infantry} 55% · {cavalry} 5% · {archer} 40%","{governorCharm} 속성만 적용됩니다."]},{"img":"figures/knowledge_nexus.webp","alt":"Knowledge Nexus","title":"{knowledgeNexus}","meta":"금요일, 토요일","lines":["⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%","⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","{academy} 및 {warAcademy}의 과학 기술 속성만 적용됩니다.","더 높은 레벨의 병사 과학 기술을 해제하면 더 높은 레벨의 병사를 사용할 수 있습니다."]},{"img":"figures/molten_fort.webp","alt":"Molten Fort","title":"{moltenFort}","meta":"금요일, 토요일","lines":["⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","⚔️ {infantry} 50% · {cavalry} 18% · {archer} 32%","{governorGear} 속성만 적용됩니다."]},{"img":"figures/radiant_spire.webp","alt":"Radiant Spire","title":"{radiantSpire}","meta":"일요일","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","영웅, {heroGear}, {heroExclusiveGear}, {pets}({petSkills} 기본 적용), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} 및 {vipLevel}, 건물이 제공하는 속성이 모두 적용됩니다.","자신의 부대를 사용하지만 야외 부대에 영향을 주지 않으며, 병사가 부상당하지도 않습니다."]}]},
+        {"type":"callout","text":"나머지 다섯 구역에서는 {trialExplorers}가 Lv.10 병사를 제공하므로 해당 구역에 필요한 속성만 올리면 됩니다. 구역의 1-10 스테이지를 클리어하면 {raid}이 해제됩니다."}
       ]},
       de: { title: "Mystische Prüfung", blocks: [
-        { type: "h", text: "WANN" },
-        { type: "p", text: "Jeden Tag verfügbar. Jede Zone hat 5 Versuche pro Tag, zurückgesetzt um 00:00 UTC. Welche Zonen offen sind, hängt vom Wochentag ab." },
-        { type: "h", text: "WARUM ES WICHTIG IST" },
-        { type: "p", text: "Wichtige Quelle für {heroShard}, Helden-EP und weitere Fortschrittsbelohnungen." },
-        { type: "h", text: "PRÜFUNGSZONEN" },
-        { type: "cards", items: [
-          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Montag & Dienstag",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
-              "Es zählen nur die Werte von Helden, {heroGear} und {heroExclusiveGear}."
-            ] },
-          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Mittwoch & Donnerstag",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "Es zählen nur die Werte der {pets}.",
-              "{petSkills} sind standardmäßig aktiv; ihre Effekte sind nicht stapelbar."
-            ] },
-          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Mittwoch & Donnerstag",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
-              "Es zählen nur die Werte von {governorCharm}."
-            ] },
-          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Freitag & Samstag",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
-              "Es zählen nur die Technologie-Werte von {academy} und {warAcademy}.",
-              "Falls freigeschaltet, werden hier Soldaten höherer Level eingesetzt."
-            ] },
-          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Freitag & Samstag",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
-              "Es zählen nur die Werte von {governorGear}."
-            ] },
-          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Sonntag",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "Fast alles zählt: Helden, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} standardmäßig aktiv), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} und {vipLevel}.",
-              "Du kämpfst mit deinen eigenen Soldaten – ohne Verluste und ohne Auswirkung auf deinen Einsatz auf der Weltkarte."
-            ] }
-        ] },
-        { type: "callout", text: "In den anderen fünf Zonen stellen die {trialExplorers} Lv.10-Soldaten bereit – verbessere einfach die Werte, die die Zone braucht. Wer die Stufen 1–10 einer Zone abschließt, schaltet die {raid}-Funktion frei." }
+        {"type":"h","text":"WANN"},
+        {"type":"p","text":"Jeden Tag verfügbar. Jede Zone hat 5 Versuche pro Tag, zurückgesetzt um 00:00 UTC. Welche Zonen offen sind, hängt vom Wochentag ab."},
+        {"type":"h","text":"WARUM ES WICHTIG IST"},
+        {"type":"p","text":"Wichtige Quelle für {heroShard}, Helden-EP und weitere Fortschrittsbelohnungen."},
+        {"type":"h","text":"PRÜFUNGSZONEN"},
+        {"type":"cards","items":[{"img":"figures/coliseum.webp","alt":"Coliseum","title":"{coliseum}","meta":"Montag & Dienstag","lines":["⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%","⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","Es zählen nur die Werte von Helden, {heroGear} und {heroExclusiveGear}."]},{"img":"figures/forest_of_life.webp","alt":"Forest of Life","title":"{forestOfLife}","meta":"Mittwoch & Donnerstag","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","⚔️ {infantry} 55% · {cavalry} 10% · {archer} 35%","Es zählen nur die Werte der {pets}.","{petSkills} sind standardmäßig aktiv; ihre Effekte sind nicht stapelbar."]},{"img":"figures/crystal_cave.webp","alt":"Crystal Cave","title":"{crystalCave}","meta":"Mittwoch & Donnerstag","lines":["⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%","⚔️ {infantry} 55% · {cavalry} 5% · {archer} 40%","Es zählen nur die Werte von {governorCharm}."]},{"img":"figures/knowledge_nexus.webp","alt":"Knowledge Nexus","title":"{knowledgeNexus}","meta":"Freitag & Samstag","lines":["⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%","⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","Es zählen nur die Technologie-Werte von {academy} und {warAcademy}.","Falls freigeschaltet, werden hier Soldaten höherer Level eingesetzt."]},{"img":"figures/molten_fort.webp","alt":"Molten Fort","title":"{moltenFort}","meta":"Freitag & Samstag","lines":["⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","⚔️ {infantry} 50% · {cavalry} 18% · {archer} 32%","Es zählen nur die Werte von {governorGear}."]},{"img":"figures/radiant_spire.webp","alt":"Radiant Spire","title":"{radiantSpire}","meta":"Sonntag","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","Fast alles zählt: Helden, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} standardmäßig aktiv), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} und {vipLevel}.","Du kämpfst mit deinen eigenen Soldaten – ohne Verluste und ohne Auswirkung auf deinen Einsatz auf der Weltkarte."]}]},
+        {"type":"callout","text":"In den anderen fünf Zonen stellen die {trialExplorers} Lv.10-Soldaten bereit – verbessere einfach die Werte, die die Zone braucht. Wer die Stufen 1–10 einer Zone abschließt, schaltet die {raid}-Funktion frei."}
       ]},
       fr: { title: "Épreuve Mystique", blocks: [
-        { type: "h", text: "QUAND" },
-        { type: "p", text: "Disponible tous les jours. Chaque zone offre 5 tentatives par jour, réinitialisées à 00:00 UTC. Les zones ouvertes dépendent du jour de la semaine." },
-        { type: "h", text: "POURQUOI C'EST IMPORTANT" },
-        { type: "p", text: "Une source importante de {heroShard}, d'XP de héros et d'autres récompenses de progression." },
-        { type: "h", text: "ZONES DE L'ÉPREUVE" },
-        { type: "cards", items: [
-          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Lundi & Mardi",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
-              "Seules les stats des Héros, de l'{heroGear} et de l'{heroExclusiveGear} comptent."
-            ] },
-          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Mercredi & Jeudi",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "Seules les stats des {pets} comptent.",
-              "Les {petSkills} sont actives par défaut, mais leurs effets ne se cumulent pas."
-            ] },
-          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Mercredi & Jeudi",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
-              "Seules les stats du {governorCharm} comptent."
-            ] },
-          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Vendredi & Samedi",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
-              "Seules les stats des Techs de l'{academy} et de l'{warAcademy} comptent.",
-              "Des soldats de plus haut niveau sont utilisés ici s'ils sont débloqués."
-            ] },
-          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Vendredi & Samedi",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
-              "Seules les stats de l'{governorGear} comptent."
-            ] },
-          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Dimanche",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "Presque tout compte : Héros, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} actives par défaut), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} et {vipLevel}.",
-              "Tu utilises tes propres soldats — sans pertes et sans affecter ton déploiement sur la carte du monde."
-            ] }
-        ] },
-        { type: "callout", text: "Dans les cinq autres zones, les {trialExplorers} fournissent des soldats de Niv. 10 : concentre-toi sur les stats requises par la zone. Terminer les étapes 1 à 10 d'une zone débloque le {raid}." }
+        {"type":"h","text":"QUAND"},
+        {"type":"p","text":"Disponible tous les jours. Chaque zone offre 5 tentatives par jour, réinitialisées à 00:00 UTC. Les zones ouvertes dépendent du jour de la semaine."},
+        {"type":"h","text":"POURQUOI C'EST IMPORTANT"},
+        {"type":"p","text":"Une source importante de {heroShard}, d'XP de héros et d'autres récompenses de progression."},
+        {"type":"h","text":"ZONES DE L'ÉPREUVE"},
+        {"type":"cards","items":[{"img":"figures/coliseum.webp","alt":"Coliseum","title":"{coliseum}","meta":"Lundi & Mardi","lines":["⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%","⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","Seules les stats des Héros, de l'{heroGear} et de l'{heroExclusiveGear} comptent."]},{"img":"figures/forest_of_life.webp","alt":"Forest of Life","title":"{forestOfLife}","meta":"Mercredi & Jeudi","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","⚔️ {infantry} 55% · {cavalry} 10% · {archer} 35%","Seules les stats des {pets} comptent.","Les {petSkills} sont actives par défaut, mais leurs effets ne se cumulent pas."]},{"img":"figures/crystal_cave.webp","alt":"Crystal Cave","title":"{crystalCave}","meta":"Mercredi & Jeudi","lines":["⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%","⚔️ {infantry} 55% · {cavalry} 5% · {archer} 40%","Seules les stats du {governorCharm} comptent."]},{"img":"figures/knowledge_nexus.webp","alt":"Knowledge Nexus","title":"{knowledgeNexus}","meta":"Vendredi & Samedi","lines":["⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%","⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","Seules les stats des Techs de l'{academy} et de l'{warAcademy} comptent.","Des soldats de plus haut niveau sont utilisés ici s'ils sont débloqués."]},{"img":"figures/molten_fort.webp","alt":"Molten Fort","title":"{moltenFort}","meta":"Vendredi & Samedi","lines":["⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","⚔️ {infantry} 50% · {cavalry} 18% · {archer} 32%","Seules les stats de l'{governorGear} comptent."]},{"img":"figures/radiant_spire.webp","alt":"Radiant Spire","title":"{radiantSpire}","meta":"Dimanche","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","Presque tout compte : Héros, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} actives par défaut), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} et {vipLevel}.","Tu utilises tes propres soldats — sans pertes et sans affecter ton déploiement sur la carte du monde."]}]},
+        {"type":"callout","text":"Dans les cinq autres zones, les {trialExplorers} fournissent des soldats de Niv. 10 : concentre-toi sur les stats requises par la zone. Terminer les étapes 1 à 10 d'une zone débloque le {raid}."}
       ]},
       pt: { title: "Prova Mística", blocks: [
-        { type: "h", text: "QUANDO" },
-        { type: "p", text: "Disponível todos os dias. Cada zona tem 5 tentativas por dia, renovadas às 00:00 UTC. As zonas abertas dependem do dia da semana." },
-        { type: "h", text: "POR QUE IMPORTA" },
-        { type: "p", text: "Fonte importante de {heroShard}, XP de Herói e outras recompensas de progressão." },
-        { type: "h", text: "ZONAS DA PROVA" },
-        { type: "cards", items: [
-          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Segunda e Terça",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
-              "Apenas as estatísticas de Heróis, {heroGear} e {heroExclusiveGear} contam."
-            ] },
-          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Quarta e Quinta",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "Apenas as estatísticas dos {pets} contam.",
-              "As {petSkills} são eficazes por padrão, e seus efeitos não são cumulativos."
-            ] },
-          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Quarta e Quinta",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
-              "Apenas as estatísticas do {governorCharm} contam."
-            ] },
-          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Sexta e Sábado",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
-              "Apenas as estatísticas de Tecnologia da {academy} e da {warAcademy} contam.",
-              "Soldados de nível superior são usados aqui, se desbloqueados."
-            ] },
-          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Sexta e Sábado",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
-              "Apenas as estatísticas do {governorGear} contam."
-            ] },
-          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Domingo",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "Quase tudo conta: Heróis, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} efetivas por padrão), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} e {vipLevel}.",
-              "Você usa seus próprios soldados — sem baixas e sem afetar sua implantação no mapa-múndi."
-            ] }
-        ] },
-        { type: "callout", text: "Nas outras cinco zonas, os {trialExplorers} fornecem soldados de nível 10: foque em aprimorar as estatísticas que a zona exige. Concluir as Etapas 1 a 10 de uma zona desbloqueia o recurso de {raid}." }
+        {"type":"h","text":"QUANDO"},
+        {"type":"p","text":"Disponível todos os dias. Cada zona tem 5 tentativas por dia, renovadas às 00:00 UTC. As zonas abertas dependem do dia da semana."},
+        {"type":"h","text":"POR QUE IMPORTA"},
+        {"type":"p","text":"Fonte importante de {heroShard}, XP de Herói e outras recompensas de progressão."},
+        {"type":"h","text":"ZONAS DA PROVA"},
+        {"type":"cards","items":[{"img":"figures/coliseum.webp","alt":"Coliseum","title":"{coliseum}","meta":"Segunda e Terça","lines":["⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%","⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","Apenas as estatísticas de Heróis, {heroGear} e {heroExclusiveGear} contam."]},{"img":"figures/forest_of_life.webp","alt":"Forest of Life","title":"{forestOfLife}","meta":"Quarta e Quinta","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","⚔️ {infantry} 55% · {cavalry} 10% · {archer} 35%","Apenas as estatísticas dos {pets} contam.","As {petSkills} são eficazes por padrão, e seus efeitos não são cumulativos."]},{"img":"figures/crystal_cave.webp","alt":"Crystal Cave","title":"{crystalCave}","meta":"Quarta e Quinta","lines":["⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%","⚔️ {infantry} 55% · {cavalry} 5% · {archer} 40%","Apenas as estatísticas do {governorCharm} contam."]},{"img":"figures/knowledge_nexus.webp","alt":"Knowledge Nexus","title":"{knowledgeNexus}","meta":"Sexta e Sábado","lines":["⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%","⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","Apenas as estatísticas de Tecnologia da {academy} e da {warAcademy} contam.","Soldados de nível superior são usados aqui, se desbloqueados."]},{"img":"figures/molten_fort.webp","alt":"Molten Fort","title":"{moltenFort}","meta":"Sexta e Sábado","lines":["⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","⚔️ {infantry} 50% · {cavalry} 18% · {archer} 32%","Apenas as estatísticas do {governorGear} contam."]},{"img":"figures/radiant_spire.webp","alt":"Radiant Spire","title":"{radiantSpire}","meta":"Domingo","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","Quase tudo conta: Heróis, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} efetivas por padrão), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} e {vipLevel}.","Você usa seus próprios soldados — sem baixas e sem afetar sua implantação no mapa-múndi."]}]},
+        {"type":"callout","text":"Nas outras cinco zonas, os {trialExplorers} fornecem soldados de nível 10: foque em aprimorar as estatísticas que a zona exige. Concluir as Etapas 1 a 10 de uma zona desbloqueia o recurso de {raid}."}
       ]},
       tr: { title: "Mistik İmtihan", blocks: [
-        { type: "h", text: "NE ZAMAN" },
-        { type: "p", text: "Her gün açık. Her bölge için günde 5 mücadele hakkı vardır; haklar UTC 00:00'da yenilenir. Açık bölgeler haftanın gününe göre değişir." },
-        { type: "h", text: "NEDEN ÖNEMLİ" },
-        { type: "p", text: "{heroShard}, Kahraman XP'si ve diğer gelişim ödülleri için önemli bir kaynak." },
-        { type: "h", text: "İMTİHAN BÖLGELERİ" },
-        { type: "cards", items: [
-          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Pazartesi & Salı",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
-              "Sadece Kahraman, {heroGear} ve {heroExclusiveGear} nitelikleri geçerlidir."
-            ] },
-          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Çarşamba & Perşembe",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "Sadece {pets} nitelikleri geçerlidir.",
-              "{petSkills} varsayılan olarak devrededir; etkileri birikmez."
-            ] },
-          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Çarşamba & Perşembe",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
-              "Sadece {governorCharm} nitelikleri geçerlidir."
-            ] },
-          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Cuma & Cumartesi",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
-              "Sadece {academy} ve {warAcademy} nitelikleri geçerlidir.",
-              "Kilidi açılmışsa burada daha yüksek seviyeli askerler kullanılır."
-            ] },
-          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Cuma & Cumartesi",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
-              "Sadece {governorGear} nitelikleri geçerlidir."
-            ] },
-          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Pazar",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "Neredeyse her şey geçerlidir: Kahraman, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} varsayılan olarak geçerli), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} ve {vipLevel}.",
-              "Kendi askerlerini kullanırsın; kayıp vermezsin ve dünya haritasındaki konuşlanman etkilenmez."
-            ] }
-        ] },
-        { type: "callout", text: "Diğer beş bölgede {trialExplorers} Seviye 10 asker sağlar; sadece bölgenin istediği nitelikleri geliştir. Bir bölgenin 1-10. aşamalarını geçmek {raid} özelliğini açar." }
+        {"type":"h","text":"NE ZAMAN"},
+        {"type":"p","text":"Her gün açık. Her bölge için günde 5 mücadele hakkı vardır; haklar UTC 00:00'da yenilenir. Açık bölgeler haftanın gününe göre değişir."},
+        {"type":"h","text":"NEDEN ÖNEMLİ"},
+        {"type":"p","text":"{heroShard}, Kahraman XP'si ve diğer gelişim ödülleri için önemli bir kaynak."},
+        {"type":"h","text":"İMTİHAN BÖLGELERİ"},
+        {"type":"cards","items":[{"img":"figures/coliseum.webp","alt":"Coliseum","title":"{coliseum}","meta":"Pazartesi & Salı","lines":["⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%","⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","Sadece Kahraman, {heroGear} ve {heroExclusiveGear} nitelikleri geçerlidir."]},{"img":"figures/forest_of_life.webp","alt":"Forest of Life","title":"{forestOfLife}","meta":"Çarşamba & Perşembe","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","⚔️ {infantry} 55% · {cavalry} 10% · {archer} 35%","Sadece {pets} nitelikleri geçerlidir.","{petSkills} varsayılan olarak devrededir; etkileri birikmez."]},{"img":"figures/crystal_cave.webp","alt":"Crystal Cave","title":"{crystalCave}","meta":"Çarşamba & Perşembe","lines":["⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%","⚔️ {infantry} 55% · {cavalry} 5% · {archer} 40%","Sadece {governorCharm} nitelikleri geçerlidir."]},{"img":"figures/knowledge_nexus.webp","alt":"Knowledge Nexus","title":"{knowledgeNexus}","meta":"Cuma & Cumartesi","lines":["⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%","⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","Sadece {academy} ve {warAcademy} nitelikleri geçerlidir.","Kilidi açılmışsa burada daha yüksek seviyeli askerler kullanılır."]},{"img":"figures/molten_fort.webp","alt":"Molten Fort","title":"{moltenFort}","meta":"Cuma & Cumartesi","lines":["⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","⚔️ {infantry} 50% · {cavalry} 18% · {archer} 32%","Sadece {governorGear} nitelikleri geçerlidir."]},{"img":"figures/radiant_spire.webp","alt":"Radiant Spire","title":"{radiantSpire}","meta":"Pazar","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","Neredeyse her şey geçerlidir: Kahraman, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} varsayılan olarak geçerli), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} ve {vipLevel}.","Kendi askerlerini kullanırsın; kayıp vermezsin ve dünya haritasındaki konuşlanman etkilenmez."]}]},
+        {"type":"callout","text":"Diğer beş bölgede {trialExplorers} Seviye 10 asker sağlar; sadece bölgenin istediği nitelikleri geliştir. Bir bölgenin 1-10. aşamalarını geçmek {raid} özelliğini açar."}
       ]},
       id: { title: "Ujian Mistis", blocks: [
-        { type: "h", text: "KAPAN" },
-        { type: "p", text: "Tersedia setiap hari. Setiap zona punya 5 percobaan per hari, direset pukul 00:00 UTC. Zona yang dibuka tergantung harinya." },
-        { type: "h", text: "KENAPA PENTING" },
-        { type: "p", text: "Sumber penting {heroShard}, XP Hero, dan hadiah progres lainnya." },
-        { type: "h", text: "ZONA UJIAN" },
-        { type: "cards", items: [
-          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "Senin & Selasa",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
-              "Hanya Stat Hero, {heroGear}, dan {heroExclusiveGear} yang berlaku."
-            ] },
-          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "Rabu & Kamis",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "Hanya Stat {pets} yang berlaku.",
-              "{petSkills} aktif secara default, dan efeknya tidak bisa ditumpuk."
-            ] },
-          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "Rabu & Kamis",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
-              "Hanya Stat {governorCharm} yang berlaku."
-            ] },
-          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "Jumat & Sabtu",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
-              "Hanya Stat Teknologi {academy} dan {warAcademy} yang berlaku.",
-              "Prajurit level lebih tinggi dipakai di sini jika sudah dibuka."
-            ] },
-          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "Jumat & Sabtu",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
-              "Hanya Stat {governorGear} yang berlaku."
-            ] },
-          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "Minggu",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "Hampir semua stat berlaku: Hero, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} aktif secara default), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland}, dan {vipLevel}.",
-              "Kamu memakai prajurit sendiri — tanpa kerugian dan tanpa memengaruhi pengerahan di peta dunia."
-            ] }
-        ] },
-        { type: "callout", text: "Di lima zona lainnya, {trialExplorers} menyediakan prajurit Lv.10 — cukup tingkatkan stat yang dibutuhkan zona itu. Menyelesaikan Stage 1–10 di sebuah zona membuka fitur {raid}." }
+        {"type":"h","text":"KAPAN"},
+        {"type":"p","text":"Tersedia setiap hari. Setiap zona punya 5 percobaan per hari, direset pukul 00:00 UTC. Zona yang dibuka tergantung harinya."},
+        {"type":"h","text":"KENAPA PENTING"},
+        {"type":"p","text":"Sumber penting {heroShard}, XP Hero, dan hadiah progres lainnya."},
+        {"type":"h","text":"ZONA UJIAN"},
+        {"type":"cards","items":[{"img":"figures/coliseum.webp","alt":"Coliseum","title":"{coliseum}","meta":"Senin & Selasa","lines":["⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%","⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","Hanya Stat Hero, {heroGear}, dan {heroExclusiveGear} yang berlaku."]},{"img":"figures/forest_of_life.webp","alt":"Forest of Life","title":"{forestOfLife}","meta":"Rabu & Kamis","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","⚔️ {infantry} 55% · {cavalry} 10% · {archer} 35%","Hanya Stat {pets} yang berlaku.","{petSkills} aktif secara default, dan efeknya tidak bisa ditumpuk."]},{"img":"figures/crystal_cave.webp","alt":"Crystal Cave","title":"{crystalCave}","meta":"Rabu & Kamis","lines":["⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%","⚔️ {infantry} 55% · {cavalry} 5% · {archer} 40%","Hanya Stat {governorCharm} yang berlaku."]},{"img":"figures/knowledge_nexus.webp","alt":"Knowledge Nexus","title":"{knowledgeNexus}","meta":"Jumat & Sabtu","lines":["⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%","⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","Hanya Stat Teknologi {academy} dan {warAcademy} yang berlaku.","Prajurit level lebih tinggi dipakai di sini jika sudah dibuka."]},{"img":"figures/molten_fort.webp","alt":"Molten Fort","title":"{moltenFort}","meta":"Jumat & Sabtu","lines":["⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","⚔️ {infantry} 50% · {cavalry} 18% · {archer} 32%","Hanya Stat {governorGear} yang berlaku."]},{"img":"figures/radiant_spire.webp","alt":"Radiant Spire","title":"{radiantSpire}","meta":"Minggu","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","Hampir semua stat berlaku: Hero, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} aktif secara default), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland}, dan {vipLevel}.","Kamu memakai prajurit sendiri — tanpa kerugian dan tanpa memengaruhi pengerahan di peta dunia."]}]},
+        {"type":"callout","text":"Di lima zona lainnya, {trialExplorers} menyediakan prajurit Lv.10 — cukup tingkatkan stat yang dibutuhkan zona itu. Menyelesaikan Stage 1–10 di sebuah zona membuka fitur {raid}."}
       ]},
       ru: { title: "Волшебное испытание", blocks: [
-        { type: "h", text: "КОГДА" },
-        { type: "p", text: "Доступно каждый день. В каждой зоне 5 попыток в день, обновление в 00:00 (UTC+0). Открытые зоны зависят от дня недели." },
-        { type: "h", text: "ПОЧЕМУ ЭТО ВАЖНО" },
-        { type: "p", text: "Важный источник: {heroShard}, опыт героев и другие награды для развития." },
-        { type: "h", text: "ЗОНЫ ИСПЫТАНИЯ" },
-        { type: "cards", items: [
-          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "понедельник и вторник",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
-              "Действуют только показатели: герои, {heroGear}, {heroExclusiveGear}."
-            ] },
-          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "среда и четверг",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "Действуют только показатели: {pets}.",
-              "По умолчанию действуют {petSkills}; их эффекты не суммируются."
-            ] },
-          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "среда и четверг",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
-              "Действуют только показатели: {governorCharm}."
-            ] },
-          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "пятница и суббота",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
-              "Действуют только показатели технологий: {academy} и {warAcademy}.",
-              "Если открыты солдаты более высокого уровня, здесь используются они."
-            ] },
-          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "пятница и суббота",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
-              "Действуют только показатели: {governorGear}."
-            ] },
-          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "воскресенье",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "Действует почти всё: герои, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} действуют по умолчанию), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} и {vipLevel}.",
-              "Вы используете своих солдат — без потерь и без влияния на отправления на карте мира."
-            ] }
-        ] },
-        { type: "callout", text: "В остальных пяти зонах {trialExplorers} предоставляют солдат ур. 10 — просто улучшайте показатели, нужные зоне. Прохождение этапов 1–10 зоны открывает функцию «{raid}»." }
+        {"type":"h","text":"КОГДА"},
+        {"type":"p","text":"Доступно каждый день. В каждой зоне 5 попыток в день, обновление в 00:00 (UTC+0). Открытые зоны зависят от дня недели."},
+        {"type":"h","text":"ПОЧЕМУ ЭТО ВАЖНО"},
+        {"type":"p","text":"Важный источник: {heroShard}, опыт героев и другие награды для развития."},
+        {"type":"h","text":"ЗОНЫ ИСПЫТАНИЯ"},
+        {"type":"cards","items":[{"img":"figures/coliseum.webp","alt":"Coliseum","title":"{coliseum}","meta":"понедельник и вторник","lines":["⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%","⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","Действуют только показатели: герои, {heroGear}, {heroExclusiveGear}."]},{"img":"figures/forest_of_life.webp","alt":"Forest of Life","title":"{forestOfLife}","meta":"среда и четверг","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","⚔️ {infantry} 55% · {cavalry} 10% · {archer} 35%","Действуют только показатели: {pets}.","По умолчанию действуют {petSkills}; их эффекты не суммируются."]},{"img":"figures/crystal_cave.webp","alt":"Crystal Cave","title":"{crystalCave}","meta":"среда и четверг","lines":["⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%","⚔️ {infantry} 55% · {cavalry} 5% · {archer} 40%","Действуют только показатели: {governorCharm}."]},{"img":"figures/knowledge_nexus.webp","alt":"Knowledge Nexus","title":"{knowledgeNexus}","meta":"пятница и суббота","lines":["⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%","⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","Действуют только показатели технологий: {academy} и {warAcademy}.","Если открыты солдаты более высокого уровня, здесь используются они."]},{"img":"figures/molten_fort.webp","alt":"Molten Fort","title":"{moltenFort}","meta":"пятница и суббота","lines":["⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","⚔️ {infantry} 50% · {cavalry} 18% · {archer} 32%","Действуют только показатели: {governorGear}."]},{"img":"figures/radiant_spire.webp","alt":"Radiant Spire","title":"{radiantSpire}","meta":"воскресенье","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","Действует почти всё: герои, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills} действуют по умолчанию), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} и {vipLevel}.","Вы используете своих солдат — без потерь и без влияния на отправления на карте мира."]}]},
+        {"type":"callout","text":"В остальных пяти зонах {trialExplorers} предоставляют солдат ур. 10 — просто улучшайте показатели, нужные зоне. Прохождение этапов 1–10 зоны открывает функцию «{raid}»."}
       ]},
       th: { title: "บททดสอบลี้ลับ", blocks: [
-        { type: "h", text: "เมื่อไหร่" },
-        { type: "p", text: "เปิดทุกวัน แต่ละโซนท้าทายได้ 5 ครั้งต่อวัน รีเฟรชทุกวันเวลา UTC 00:00 โซนที่เปิดจะเปลี่ยนไปตามวันในสัปดาห์" },
-        { type: "h", text: "ทำไมถึงสำคัญ" },
-        { type: "p", text: "แหล่งสำคัญของ{heroShard} EXP ฮีโร่ และรางวัลพัฒนาอื่นๆ" },
-        { type: "h", text: "โซนบททดสอบ" },
-        { type: "cards", items: [
-          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "วันจันทร์และวันอังคาร",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
-              "มีผลเฉพาะค่าสถานะของฮีโร่ {heroGear} และ{heroExclusiveGear}"
-            ] },
-          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "วันพุธและวันพฤหัสบดี",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "มีผลเฉพาะค่าสถานะของ{pets}",
-              "{petSkills}มีผลโดยอัตโนมัติ และไม่สามารถซ้อนทับได้"
-            ] },
-          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "วันพุธและวันพฤหัสบดี",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
-              "มีผลเฉพาะค่าสถานะของ{governorCharm}"
-            ] },
-          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "วันศุกร์และวันเสาร์",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
-              "มีผลเฉพาะค่าสถานะจากเทคโนโลยีของ{academy}และ{warAcademy}",
-              "หากปลดล็อกแล้ว จะใช้กองทหารเลเวลที่สูงกว่า"
-            ] },
-          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "วันศุกร์และวันเสาร์",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
-              "มีผลเฉพาะค่าสถานะของ{governorGear}"
-            ] },
-          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "วันอาทิตย์",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "เกือบทุกอย่างมีผล: ฮีโร่, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills}มีผลโดยอัตโนมัติ), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} และ{vipLevel}",
-              "ใช้กองทหารของคุณเอง โดยไม่กระทบการเดินทัพในแผนที่โลก และไม่สูญเสียกองทหาร"
-            ] }
-        ] },
-        { type: "callout", text: "ในอีกห้าโซน {trialExplorers}จะจัดเตรียมกองทหารเลเวล 10 ให้ จึงโฟกัสเพิ่มค่าสถานะที่โซนนั้นต้องการได้เลย ผ่านด่านที่ 1-10 ของโซนเพื่อปลดล็อกฟีเจอร์{raid}" }
+        {"type":"h","text":"เมื่อไหร่"},
+        {"type":"p","text":"เปิดทุกวัน แต่ละโซนท้าทายได้ 5 ครั้งต่อวัน รีเฟรชทุกวันเวลา UTC 00:00 โซนที่เปิดจะเปลี่ยนไปตามวันในสัปดาห์"},
+        {"type":"h","text":"ทำไมถึงสำคัญ"},
+        {"type":"p","text":"แหล่งสำคัญของ{heroShard} EXP ฮีโร่ และรางวัลพัฒนาอื่นๆ"},
+        {"type":"h","text":"โซนบททดสอบ"},
+        {"type":"cards","items":[{"img":"figures/coliseum.webp","alt":"Coliseum","title":"{coliseum}","meta":"วันจันทร์และวันอังคาร","lines":["⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%","⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","มีผลเฉพาะค่าสถานะของฮีโร่ {heroGear} และ{heroExclusiveGear}"]},{"img":"figures/forest_of_life.webp","alt":"Forest of Life","title":"{forestOfLife}","meta":"วันพุธและวันพฤหัสบดี","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","⚔️ {infantry} 55% · {cavalry} 10% · {archer} 35%","มีผลเฉพาะค่าสถานะของ{pets}","{petSkills}มีผลโดยอัตโนมัติ และไม่สามารถซ้อนทับได้"]},{"img":"figures/crystal_cave.webp","alt":"Crystal Cave","title":"{crystalCave}","meta":"วันพุธและวันพฤหัสบดี","lines":["⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%","⚔️ {infantry} 55% · {cavalry} 5% · {archer} 40%","มีผลเฉพาะค่าสถานะของ{governorCharm}"]},{"img":"figures/knowledge_nexus.webp","alt":"Knowledge Nexus","title":"{knowledgeNexus}","meta":"วันศุกร์และวันเสาร์","lines":["⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%","⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","มีผลเฉพาะค่าสถานะจากเทคโนโลยีของ{academy}และ{warAcademy}","หากปลดล็อกแล้ว จะใช้กองทหารเลเวลที่สูงกว่า"]},{"img":"figures/molten_fort.webp","alt":"Molten Fort","title":"{moltenFort}","meta":"วันศุกร์และวันเสาร์","lines":["⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","⚔️ {infantry} 50% · {cavalry} 18% · {archer} 32%","มีผลเฉพาะค่าสถานะของ{governorGear}"]},{"img":"figures/radiant_spire.webp","alt":"Radiant Spire","title":"{radiantSpire}","meta":"วันอาทิตย์","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","เกือบทุกอย่างมีผล: ฮีโร่, {heroGear}, {heroExclusiveGear}, {pets} ({petSkills}มีผลโดยอัตโนมัติ), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} และ{vipLevel}","ใช้กองทหารของคุณเอง โดยไม่กระทบการเดินทัพในแผนที่โลก และไม่สูญเสียกองทหาร"]}]},
+        {"type":"callout","text":"ในอีกห้าโซน {trialExplorers}จะจัดเตรียมกองทหารเลเวล 10 ให้ จึงโฟกัสเพิ่มค่าสถานะที่โซนนั้นต้องการได้เลย ผ่านด่านที่ 1-10 ของโซนเพื่อปลดล็อกฟีเจอร์{raid}"}
       ]},
       ar: { title: "الاختبارات الغامضة", blocks: [
-        { type: "h", text: "متى" },
-        { type: "p", text: "متاح يوميًا. لكل منطقة 5 محاولات تحدٍّ يوميًا، تُحدَّث عند الساعة 00:00 بتوقيت UTC. تختلف المناطق المفتوحة حسب يوم الأسبوع." },
-        { type: "h", text: "لماذا هي مهمة" },
-        { type: "p", text: "مصدر مهم لـ{heroShard} وخبرة الأبطال ومكافآت التطور الأخرى." },
-        { type: "h", text: "مناطق الاختبار" },
-        { type: "cards", items: [
-          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "الاثنين والثلاثاء",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
-              "فقط سمات الأبطال و{heroGear} و{heroExclusiveGear} تصبح سارية هنا."
-            ] },
-          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "الأربعاء والخميس",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "فقط سمات {pets} تصبح سارية هنا.",
-              "{petSkills} فعالة افتراضيًا، وتأثيراتها غير قابلة للتراكم."
-            ] },
-          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "الأربعاء والخميس",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
-              "فقط سمات {governorCharm} تصبح سارية هنا."
-            ] },
-          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "الجمعة والسبت",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
-              "فقط سمات تقنية {academy} و{warAcademy} تصبح سارية هنا.",
-              "يُستخدم جنود بمستوى أعلى هنا إذا تم فتحهم."
-            ] },
-          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "الجمعة والسبت",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
-              "فقط سمات {governorGear} تصبح سارية هنا."
-            ] },
-          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "الأحد",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "تقريبًا كل شيء يسري هنا: الأبطال، {heroGear}، {heroExclusiveGear}، {pets} ({petSkills} فعالة افتراضيًا)، {governorCharm}، {tech}، {truegoldTech}، {governorGear}، {skins}، {oasisIsland}، و{vipLevel}.",
-              "تستخدم جنودك دون التأثير على نشر قواتك على خريطة العالم ودون تكبد أي خسائر."
-            ] }
-        ] },
-        { type: "callout", text: "في المناطق الخمس الأخرى، يزودك {trialExplorers} بجنود مستوى 10، فركّز على تعزيز السمات المطلوبة لكل منطقة. أكمل المراحل 1-10 في المنطقة لفتح ميزة {raid}." }
+        {"type":"h","text":"متى"},
+        {"type":"p","text":"متاح يوميًا. لكل منطقة 5 محاولات تحدٍّ يوميًا، تُحدَّث عند الساعة 00:00 بتوقيت UTC. تختلف المناطق المفتوحة حسب يوم الأسبوع."},
+        {"type":"h","text":"لماذا هي مهمة"},
+        {"type":"p","text":"مصدر مهم لـ{heroShard} وخبرة الأبطال ومكافآت التطور الأخرى."},
+        {"type":"h","text":"مناطق الاختبار"},
+        {"type":"cards","items":[{"img":"figures/coliseum.webp","alt":"Coliseum","title":"{coliseum}","meta":"الاثنين والثلاثاء","lines":["⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%","⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","فقط سمات الأبطال و{heroGear} و{heroExclusiveGear} تصبح سارية هنا."]},{"img":"figures/forest_of_life.webp","alt":"Forest of Life","title":"{forestOfLife}","meta":"الأربعاء والخميس","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","⚔️ {infantry} 55% · {cavalry} 10% · {archer} 35%","فقط سمات {pets} تصبح سارية هنا.","{petSkills} فعالة افتراضيًا، وتأثيراتها غير قابلة للتراكم."]},{"img":"figures/crystal_cave.webp","alt":"Crystal Cave","title":"{crystalCave}","meta":"الأربعاء والخميس","lines":["⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%","⚔️ {infantry} 55% · {cavalry} 5% · {archer} 40%","فقط سمات {governorCharm} تصبح سارية هنا."]},{"img":"figures/knowledge_nexus.webp","alt":"Knowledge Nexus","title":"{knowledgeNexus}","meta":"الجمعة والسبت","lines":["⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%","⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","فقط سمات تقنية {academy} و{warAcademy} تصبح سارية هنا.","يُستخدم جنود بمستوى أعلى هنا إذا تم فتحهم."]},{"img":"figures/molten_fort.webp","alt":"Molten Fort","title":"{moltenFort}","meta":"الجمعة والسبت","lines":["⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","⚔️ {infantry} 50% · {cavalry} 18% · {archer} 32%","فقط سمات {governorGear} تصبح سارية هنا."]},{"img":"figures/radiant_spire.webp","alt":"Radiant Spire","title":"{radiantSpire}","meta":"الأحد","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","تقريبًا كل شيء يسري هنا: الأبطال، {heroGear}، {heroExclusiveGear}، {pets} ({petSkills} فعالة افتراضيًا)، {governorCharm}، {tech}، {truegoldTech}، {governorGear}، {skins}، {oasisIsland}، و{vipLevel}.","تستخدم جنودك دون التأثير على نشر قواتك على خريطة العالم ودون تكبد أي خسائر."]}]},
+        {"type":"callout","text":"في المناطق الخمس الأخرى، يزودك {trialExplorers} بجنود مستوى 10، فركّز على تعزيز السمات المطلوبة لكل منطقة. أكمل المراحل 1-10 في المنطقة لفتح ميزة {raid}."}
       ]},
       es: { title: "Prueba Mística", blocks: [
-        { type: "h", text: "CUÁNDO" },
-        { type: "p", text: "Disponible todos los días. Cada zona tiene 5 intentos de desafío diarios, que se restablecen a las 00:00 UTC. Las zonas abiertas dependen del día de la semana." },
-        { type: "h", text: "POR QUÉ IMPORTA" },
-        { type: "p", text: "Fuente importante de {heroShard}, EXP de Héroe y otras recompensas de progreso." },
-        { type: "h", text: "ZONAS DE LA PRUEBA" },
-        { type: "cards", items: [
-          { img: "figures/coliseum.webp", alt: "Coliseum", title: "{coliseum}", meta: "lunes y martes",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%",
-              "Solo surten efecto los atributos de los Héroes, el {heroGear} y el {heroExclusiveGear}."
-            ] },
-          { img: "figures/forest_of_life.webp", alt: "Forest of Life", title: "{forestOfLife}", meta: "miércoles y jueves",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "Solo surten efecto los atributos de las {pets}.",
-              "Las {petSkills} están activas por defecto, y sus efectos no son acumulables."
-            ] },
-          { img: "figures/crystal_cave.webp", alt: "Crystal Cave", title: "{crystalCave}", meta: "miércoles y jueves",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%",
-              "Solo surten efecto los atributos del {governorCharm}."
-            ] },
-          { img: "figures/knowledge_nexus.webp", alt: "Knowledge Nexus", title: "{knowledgeNexus}", meta: "viernes y sábado",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%",
-              "Solo surten efecto los atributos de Tecnologías de la {academy} y la {warAcademy}.",
-              "Si están desbloqueados, aquí se usan soldados de nivel superior."
-            ] },
-          { img: "figures/molten_fort.webp", alt: "Molten Fort", title: "{moltenFort}", meta: "viernes y sábado",
-            lines: [
-              "⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%",
-              "Solo surten efecto los atributos del {governorGear}."
-            ] },
-          { img: "figures/radiant_spire.webp", alt: "Radiant Spire", title: "{radiantSpire}", meta: "domingo",
-            lines: [
-              "⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%",
-              "Casi todo surte efecto: Héroes, {heroGear}, {heroExclusiveGear}, {pets} (con sus habilidades activas por defecto), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} y {vipLevel}.",
-              "Usas tus propios soldados, sin afectar tu despliegue en el mapa mundial ni sufrir bajas."
-            ] }
-        ] },
-        { type: "callout", text: "En las otras cinco zonas, los {trialExplorers} proporcionan Soldados Nv. 10: céntrate en mejorar los atributos que pide cada zona. Superar las Etapas 1-10 de una zona desbloquea la función de {raid}." }
+        {"type":"h","text":"CUÁNDO"},
+        {"type":"p","text":"Disponible todos los días. Cada zona tiene 5 intentos de desafío diarios, que se restablecen a las 00:00 UTC. Las zonas abiertas dependen del día de la semana."},
+        {"type":"h","text":"POR QUÉ IMPORTA"},
+        {"type":"p","text":"Fuente importante de {heroShard}, EXP de Héroe y otras recompensas de progreso."},
+        {"type":"h","text":"ZONAS DE LA PRUEBA"},
+        {"type":"cards","items":[{"img":"figures/coliseum.webp","alt":"Coliseum","title":"{coliseum}","meta":"lunes y martes","lines":["⚔️ {infantry} 50% · {cavalry} 10% · {archer} 40%","⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","Solo surten efecto los atributos de los Héroes, el {heroGear} y el {heroExclusiveGear}."]},{"img":"figures/forest_of_life.webp","alt":"Forest of Life","title":"{forestOfLife}","meta":"miércoles y jueves","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","⚔️ {infantry} 55% · {cavalry} 10% · {archer} 35%","Solo surten efecto los atributos de las {pets}.","Las {petSkills} están activas por defecto, y sus efectos no son acumulables."]},{"img":"figures/crystal_cave.webp","alt":"Crystal Cave","title":"{crystalCave}","meta":"miércoles y jueves","lines":["⚔️ {infantry} 60% · {cavalry} 20% · {archer} 20%","⚔️ {infantry} 55% · {cavalry} 5% · {archer} 40%","Solo surten efecto los atributos del {governorCharm}."]},{"img":"figures/knowledge_nexus.webp","alt":"Knowledge Nexus","title":"{knowledgeNexus}","meta":"viernes y sábado","lines":["⚔️ {infantry} 50% · {cavalry} 20% · {archer} 30%","⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","Solo surten efecto los atributos de Tecnologías de la {academy} y la {warAcademy}.","Si están desbloqueados, aquí se usan soldados de nivel superior."]},{"img":"figures/molten_fort.webp","alt":"Molten Fort","title":"{moltenFort}","meta":"viernes y sábado","lines":["⚔️ {infantry} 60% · {cavalry} 15% · {archer} 25%","⚔️ {infantry} 50% · {cavalry} 18% · {archer} 32%","Solo surten efecto los atributos del {governorGear}."]},{"img":"figures/radiant_spire.webp","alt":"Radiant Spire","title":"{radiantSpire}","meta":"domingo","lines":["⚔️ {infantry} 50% · {cavalry} 15% · {archer} 35%","Casi todo surte efecto: Héroes, {heroGear}, {heroExclusiveGear}, {pets} (con sus habilidades activas por defecto), {governorCharm}, {tech}, {truegoldTech}, {governorGear}, {skins}, {oasisIsland} y {vipLevel}.","Usas tus propios soldados, sin afectar tu despliegue en el mapa mundial ni sufrir bajas."]}]},
+        {"type":"callout","text":"En las otras cinco zonas, los {trialExplorers} proporcionan Soldados Nv. 10: céntrate en mejorar los atributos que pide cada zona. Superar las Etapas 1-10 de una zona desbloquea la función de {raid}."}
       ]}
     }
   },
@@ -4849,7 +4092,7 @@ const GUIDES = {
             "주요 건물을 점령하고 유지하기",
             "누적된 점수 보호하기",
             "건물의 소유권이 바뀔 때 군수 물자 즉시 수집하기",
-            "땅굴 (Untergewölbe)이 나타나면 수집하기",
+            "땅굴 (Undercellars)이 나타나면 수집하기",
             "집결중이 아닐 때는 근처 주둔지 지원하기",
             "부대가 대기 상태로 방치되지 않도록 하기",
             "**맵 전체를 돌아다니며 킬을 쫓지 마세요.** 무작위 PvP는 아군의 대형을 흩어지게 하고 전투 효율을 떨어뜨립니다. 점령 건물 근처의 적을 약화시키는 등 의미가 있을 때만 저렙 도시에 공격을 가하세요."
@@ -4870,7 +4113,7 @@ const GUIDES = {
           { type: "list", items: ["첫 점령 보상: 연맹 1,200점 / 개인 600점", "지속 점령 보상: 연맹 +240/분 / 개인 +120/분"] },
           { type: "sub", text: "시계탑(Bell Tower)" },
           { type: "list", items: ["첫 점령 보상: 연맹 1,200점 / 개인 600점", "지속 점령 보상: 연맹 +240/분 / 개인 +120/분"] },
-          { type: "sub", text: "땅굴(Untergewölbe)" },
+          { type: "sub", text: "땅굴(Undercellars)" },
           { type: "list", items: ["주기적으로(총 2번의 웨이브로) 생성되는 채집 장소"] },
           { type: "img", src: "figures/NEXUS_SwordlanShowdown_Map.jpeg", alt: "Assigned zones" },
            
@@ -4940,7 +4183,7 @@ const GUIDES = {
           { type: "p", text: "**중요 사항**:" },
           { type: "list", items: [
             "적이 우리가 점령한 건물을 공격하여 소유권이 적에게 넘어가면, **즉시 근처로 도시 이전하거나 가속 행군을 사용하여** **적이 가져가기 전에 군수 물자/포인트를 수집하기.**",
-            "**전투 시작 후 20분이 지나면** 땅굴(Untergewölbe)이 남. 가용한 병력을 보내 추가 포인트를 위해 채집하기.",
+            "**전투 시작 후 20분이 지나면** 땅굴(Undercellars)이 남. 가용한 병력을 보내 추가 포인트를 위해 채집하기.",
             "부대를 대기 상태로 방치하지 않기."
           ]},
 
@@ -4986,14 +4229,14 @@ const GUIDES = {
               "건물의 소유권이 바뀔 때마다(flip) 군수 물자/ 즉시 수집하기",
               "약화된 주둔부대 지원하기"
             ]},
-            { time: "⛏️ 20:00–60:00", title: "땅굴 (Untergewölbe)", lines: [
+            { time: "⛏️ 20:00–60:00", title: "땅굴 (Undercellars)", lines: [
               "땅굴이 생성되기 시작합니다.",
               "지원 플레이어들과 가용한 부대가 있는 누구나 추가 점수를 위해 땅굴을 채집하세요.",
               "채집만을 위해 중요한 방어나 집결을 포기하지 마세요."
             ]},
             { time: "🏁 마지막 15분", title: "", groups: [
               { title: "우리가 이기고 있을 때", lines: [
-                "성검 제단과 소 사수하기",
+                "성검 제단과 성소 사수하기",
                 "누적 점수 건물 지원하기",
                 "불필요한 PvP 피하기",
                 "군수 물자 즉시 회수하기",
@@ -5013,7 +4256,7 @@ const GUIDES = {
           { type: "sub", text: "📦 건물 소유권 변경 및 군수 물자" },
           { type: "p", text: "건물의 소유권이 바뀌면, **주위에 흩어진 포인트가 나타날 수 있습니다.**" },
           { type: "p", text: "**우리가 건물을 뺏겼을 때:** 떨어진 전리품을 최대한 빠르게 수집하세요." },
-          { type: "p", text: "**우리가 적의 건물을 점령했을 때:** 적이 되찾기 전에 군수 물자을 먼저 수집하세요." },
+          { type: "p", text: "**우리가 적의 건물을 점령했을 때:** 적이 되찾기 전에 군수 물자를 먼저 수집하세요." },
           { type: "callout", text: "건물의 소유권이 바뀐 후 드랍된 포인트를 절대 그냥 지나치지 마세요." },
           { type: "sub", text: "추가 전술" },
           { type: "list", items: [
@@ -5035,7 +4278,7 @@ const GUIDES = {
             "무작위 킬보다 목표가 우선입니다.",
             "공격수는 점령하고 — 방어수는 사수하며 — 지원은 증원합니다.",
             "유용한 부대를 유휴 상태로 방치하지 마세요.",
-            "군수 물자을 즉시 수집하세요.",
+            "군수 물자를 즉시 수집하세요.",
             "가용한 부대로 땅굴을 채집하세요.",
             "성검 제단 + 성소를 사수하세요.",
             "수도원이나 킬을 위해 핵심 건물을 포기하지 마세요.",
@@ -6751,69 +5994,43 @@ const GUIDES = {
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 影片來自網路（TikTok @yelloe_hair），並非我們自己拍攝。" }
         ]
       },
-      ko: {
-        title: "부대 편성 및 집결 팁",
-        blocks: [
-          { type: "h", text: "🔬 연구 및 업그레이드 우선순위" },
-          { type: "p", text: "연구와 영주 보석 레벨업 시 다음 전투 능력치를 우선하세요:" },
-          { type: "list", items: [
-            "{infantry} {health}",
-            "{archer} {lethality}"
-          ]},
-          { type: "h", text: "💾 프리셋 저장" },
-          { type: "p", text: "진행 상황에 따라 최대 8개의 슬롯을 열어 부대 편성을 미리 저장할 수 있습니다. 저장을 권장하는 편성:" },
-          { type: "callout", text: "모든 병력 비율은 **{infantry} : {cavalry} : {archer}** 순서입니다. 각 영웅을 맨 왼쪽(첫 번째) 자리에 두고 프리셋을 따로 저장하세요." },
-          { type: "callout", text: "💡 집결에 참여할 때는 맨 왼쪽 영웅이 중요합니다. 해당 영웅의 원정 스킬이 집결에 적용되기 때문입니다." },
-          { type: "list", items: [
-            "1) {bearHunt}: {chenko} — **10 : 10 : 80**",
-            "2) {bearHunt}: {amane} — **10 : 10 : 80** (또는 최대한 근접하게)",
-            "3) {bearHunt}: {yeonwoo} — **10 : 10 : 80** (또는 최대한 근접하게)",
-            "4) {bearHunt}: {amadeus} — **10 : 10 : 80** (또는 최대한 근접하게)",
-            "5) 공격(일반 PvP): {amadeus}(육성된 경우) 또는 {chenko} — **50 : 20 : 30**",
-            "6) 방어: {howard} / {gordon} — **60 : 20 : 20**이 기본 균형 편성입니다. 임원진이 특정 편성을 요청하면 조정하세요."
-          ]},
-          { type: "p", text: "**집결 리더:** 가장 강력한 공격 영웅 조합을 완성된 상태로 사용하세요." },
-          { type: "p", text: "**집결 참여자:** 임원진이 공지한 병력 제한을 따라주세요." },
-          { type: "list", items: [
-            "7) 바이킹 본부(Viking HQ): {howard} / {gordon} — **60 : 40** 병력 제한(약 68,000) 준수",
-            "8) PvE — 야수/사냥: {diana} + {fahd} — **50 : 20 : 30**"
-          ]},
-          { type: "h", text: "🐺 PvE — 야수/사냥" },
-          { type: "p", text: "스케어 울프를 잡을 때 기억하세요: 많은 피해가 필요하지 않으므로 최소한의 병력(1명도 가능)만 보내서 더 많은 연맹원이 집결에 참여해 집결 보상을 받을 수 있게 하세요." },
-          { type: "h", text: "🏰 {castleBattle} / {sanctuary} / 건물" },
-          { type: "p", text: "건물을 점령할 때는 빠르게 전환할 준비를 하세요:" },
-          { type: "callout", text: "**공격 → 방어**" },
-          { type: "sub", text: "⚔️ 1. 점령" },
-          { type: "p", text: "공격 프리셋으로 처음 집결에 참여하세요." },
-          { type: "p", text: "**예시:** {amadeus} / {chenko} **50 : 20 : 30**" },
-          { type: "sub", text: "🛡️ 2. 방어로 전환" },
-          { type: "p", text: "건물을 점령한 뒤:" },
-          { type: "list", items: [
-            "**1.** 즉시 방어 프리셋으로 행군을 하나 더 보내세요. **예시:** {gordon} / {howard} **60 : 20 : 20**",
-            "**2.** 방어 행군이 점령한 건물을 향해 이동하는 것을 지켜보세요.",
-            "**3.** 행군 시간이 약 5초 남았을 때 — 또는 임원진의 지시에 따라 — 기존 공격 행군을 소환하세요.",
-            "**4.** 방어 행군이 도착해 주둔부대에서 공격 행군을 대체합니다."
-          ]},
-          { type: "callout", text: "🚫 **공격 행군을 너무 일찍 소환하지 마세요.**" },
-          { type: "p", text: "**점령 → 방어 파견 → 약 5초 → 공격 소환 → 방어 도착**" },
-          { type: "p", text: "이렇게 하면 건물이 불필요하게 약해지지 않고 공격 구성에서 방어 주둔으로 전환할 수 있습니다." },
-          { type: "h", text: "🪖 주둔 병력 상한" },
-          { type: "p", text: "본부(HQ) / {sanctuary}에는 영주 15명만 들어갈 수 있습니다. 그러니 본부, {sanctuary}, 그 밖의 격전 건물에 무작정 최대 행군을 보내지 마세요." },
-          { type: "p", text: "임원진이 공지한 병력 상한을 따르세요." },
-          { type: "p", text: "**일반적인 연맹 목표: 1인당 약 68,000 병력**" },
-          { type: "p", text: "이렇게 하면 방어 행군을 제대로 구성한 더 많은 연맹원이 주둔지에 들어가 보상을 받을 수 있습니다." },
-          { type: "callout", text: "⚠️ 임원진이 다른 상한을 공지하면 항상 공지된 수치를 따르세요." },
-          { type: "p", text: "예를 들어 68K 병력 상한을 기준으로 하면, 이 숫자를 계산기에 입력한 뒤 해당 병종 칸에 그대로 넣으면 됩니다. 다음은 세 가지 예시입니다:" },
-          { type: "list", items: [
-            "60/20/20 ➡️ 40,800 / 13,600 / 13,600",
-            "60/40 ➡️ 40,800 / 27,200",
-            "50/20/30 ➡️ 34,000 / 13,600 / 20,400"
-          ]},
-
-          { type: "h", text: "🎬 공격 영웅에서 방어 영웅으로 전환하는 방법" },
-          { type: "video", src: "figures/switch_hero.mp4", caption: "📎 이 영상은 인터넷에서 가져온 것으로(TikTok @yelloe_hair), 우리가 직접 촬영한 것이 아닙니다." }
-        ]
-      },
+      ko: { title: "부대 진형 & 집결 팁", blocks: [
+        {"type":"h","text":"📊 연구 및 업그레이드 우선순위"},
+        {"type":"p","text":"연구 및 {governorCharm} 업그레이드 시 다음 전투 능력치를 최우선으로 투자하세요:"},
+        {"type":"list","items":["🛡️ **{infantry} {health}**","🏹 **{archer} {lethality}**"]},
+        {"type":"h","text":"💾 부대 편성 미리 설정하기"},
+        {"type":"p","text":"게임 진행도에 따라 최대 8개의 부대 편성 슬롯을 해금할 수 있습니다. 권장하는 부대 편성은 다음과 같습니다:"},
+        {"type":"callout","text":"⚠️ **왼쪽 영웅 위치 중요** — 모든 병종 비율은 **{infantry} : {cavalry} : {archer}** 순서입니다. 각 영웅을 맨 왼쪽(첫 번째 자리)에 배치하여 별도의 부대 편성으로 저장하세요."},
+        {"type":"callout","text":"💡 집결 참여 시 맨 왼쪽 영웅의 원정 기술이 집결에 적용되기 때문에 위치가 매우 중요합니다."},
+        {"type":"list","items":["1) 🐻 {bearHunt}: {chenko} — **10 : 10 : 80**","2) 🐻 {bearHunt}: {amane} — **10 : 10 : 80** (혹은 가능한 비슷하게)","3) 🐻 {bearHunt}: {yeonwoo} — **10 : 10 : 80** (혹은 가능한 비슷하게)","4) 🐻 {bearHunt}: {amadeus} — **10 : 10 : 80** (혹은 가능한 비슷하게)","5) 🔪 공격용(일반 PvP): {amadeus}(육성된 경우) 또는 {chenko} — **50 : 20 : 30**","6) 🛡️ 방어용: {howard} 또는 {gordon} — **60 : 20 : 20** (R5/R4가 특정 진형을 지시할 경우 지시에 따라 조절)"]},
+        {"type":"p","text":"**집결장:** 보유한 영웅 중 가장 강력한 공격형 영웅 라인업을 사용하세요."},
+        {"type":"p","text":"**집결 참여자:** 간부진이 공지한 병력 제한 수를 반드시 준수하세요."},
+        {"type":"list","items":["7) 🛡️ 바이킹 본부: {howard} 또는 {gordon} — **60 : 40** (병력 제한 수 약 68,000명 준수)","8) 🐺 PvE - 야수 / 사냥: {diana} + {fahd} — **50 : 20 : 30**"]},
+        {"type":"h","text":"🐺 PvE - 야수 / 사냥"},
+        {"type":"p","text":"**{dreadwolf} 주의사항:** 큰 피해를 줄 필요가 없으므로 **최소한의 병력(1명도 가능)**만 보내어 더 많은 연맹원들이 집결에 참여하고 보상을 챙길 수 있도록 배려하세요."},
+        {"type":"h","text":"🏰 {castleBattle} / {sanctuary} / 건물 점령 전략"},
+        {"type":"p","text":"건물을 점령할 때는 [공격] 모드에서 [방어] 모드로 신속하게 전환할 준비가 되어 있어야 합니다."},
+        {"type":"callout","text":"**⚔️ 공격 → 🛡️ 방어**"},
+        {"type":"sub","text":"⚔️ 1. 건물 점령/탈환"},
+        {"type":"p","text":"미리 저장해둔 **공격 부대 편성**을 사용하여 초기 집결에 참여합니다."},
+        {"type":"p","text":"**예시:** {amadeus} 혹은 {chenko} **50 : 20 : 30**"},
+        {"type":"sub","text":"🛡️ 2. 방어 모드 전환"},
+        {"type":"p","text":"건물을 점령/탈환 즉시:"},
+        {"type":"list","items":["**1.** 미리 편성해둔 **방어용 부대**를 점령한 건물로 보냅니다. **예시:** {gordon} 또는 {howard} **60 : 20 : 20**","**2.** 점령한 건물을 향해 이동 중인 방어 부대의 행군 시간을 체크합니다.","**3.** 행군 도착 시간이 **5초가 남았을 때** — 혹은 R5/R4가 따로 지시가 있을 때 — 주둔해 있던 공격 부대를 회군시킵니다.","**4.** 공격 부대가 빠져나감과 동시에 방어 부대가 도착하여 주둔군 자리를 대체합니다."]},
+        {"type":"callout","text":"⚠️ **주의: 공격 부대를 너무 일찍 회군시키지 마세요.**"},
+        {"type":"p","text":"**⚔️ 교체 요약: 건물 점령 → 🛡️ 방어 부대 출발 → ⏱️ 남은 시간 약 5초 전 → ↩️ 공격 부대 회군 → 🛡️ 방어 부대 도착 및 주둔**"},
+        {"type":"p","text":"이 방식을 통해 건물의 방어력을 약화시키지 않고 공격 세팅에서 방어 주둔 세팅으로 안전하게 전환할 수 있습니다."},
+        {"type":"h","text":"🏰 주둔군 병력 제한"},
+        {"type":"p","text":"본부(HQ) 및 {sanctuary}에는 **최대 15명**의 영주(플레이어)만 진입할 수 있습니다. 따라서 분쟁 지역 건물에 최대 병력으로 무작정 부대를 보내지 마세요."},
+        {"type":"p","text":"간부진(R5/R4)의 병력 제한 공지를 반드시 준수해야 합니다."},
+        {"type":"p","text":"**일반적인 연맹 권장 목표: 인당 약 68,000명**"},
+        {"type":"p","text":"병력 제한을 지켜야 제대로 된 방어 세팅을 갖춘 더 많은 연맹원들이 주둔군으로 들어가 함께 보상을 받을 수 있습니다."},
+        {"type":"callout","text":"⚠️ **간부진이 다른 병력 제한을 공지하는 경우 항상 해당 공지를 우선으로 따르세요.**"},
+        {"type":"p","text":"예를 들어 68K 병력 상한을 기준으로 하면, 이 숫자를 계산기에 입력한 뒤 해당 병종 칸에 그대로 넣으면 됩니다. 다음은 세 가지 예시입니다:"},
+        {"type":"list","items":["60/20/20 ➡️ 40,800 / 13,600 / 13,600","60/40 ➡️ 40,800 / 27,200","50/20/30 ➡️ 34,000 / 13,600 / 20,400"]},
+        {"type":"h","text":"🎬 공격 영웅에서 방어 영웅으로 전환하는 방법"},
+        {"type":"video","src":"figures/switch_hero.mp4","caption":"📎 이 영상은 인터넷에서 가져온 것으로(TikTok @yelloe_hair), 우리가 직접 촬영한 것이 아닙니다."}
+      ]},
       de: {
         title: "Trupp-Formationen & Rally-Tipps",
         blocks: [
@@ -7451,32 +6668,32 @@ const GUIDES = {
         { type: "img", src: "figures/eternity_reach.jpg", alt: "失落的遺跡" }
       ]},
       ko: { title: "사라진 유적", blocks: [
-        { type: "h", text: "개최 시기" },
-        { type: "p", text: "2주마다 진행되는 30분짜리 개인 이벤트입니다." },
-        { type: "h", text: "중요한 이유" },
-        { type: "p", text: "영주 보석 재료를 얻을 수 있는 최고의 반복 수급처 중 하나입니다." },
-        { type: "h", text: "전략" },
-        { type: "sub", text: "스킬" },
-        { type: "p", text: "각 스킬 레벨마다 다음과 같이 선택하세요:" },
-        { type: "list", items: ["1레벨 → 오른쪽", "2레벨 → 오른쪽", "3레벨 → 왼쪽", "4레벨 → 왼쪽", "5레벨 → 오른쪽"] },
-        { type: "sub", text: "시작" },
-        { type: "p", text: "체사레 수비병을 공격 → 3레벨 스킬이 해제될 때까지 빠르게 진행하세요." },
-        { type: "p", text: "가능하면 2레벨 체사레 수비병을 목표로 하고, 이미 공격받고 있는 대상은 건너뛰세요." },
-        { type: "sub", text: "매 60초마다" },
-        { type: "p", text: "구리 광맥에 진입 → 구리 5,000 획득 → 즉시 소환 → 시간을 기록 → 1분마다 반복하세요." },
-        { type: "callout", text: "5,000 구리 보너스를 발동하는 데는 부대 1개면 충분합니다." },
-        { type: "sub", text: "불안정한 광맥" },
-        { type: "p", text: "등장하면 → 가용 부대를 즉시 보내세요 → 사라질 때까지 채집하세요." },
-        { type: "sub", text: "전리품 수레" },
-        { type: "p", text: "이벤트 내내 흩어진 구리를 계속 모으게 하세요. 행군 대열을 차지하지 않습니다." },
-        { type: "sub", text: "5레벨 스킬" },
-        { type: "p", text: "광맥이 폭발할 때 5레벨 스킬을 발동하고, 모든 부대를 광맥으로 보내 채집하세요." },
-        { type: "sub", text: "사라진 궁전" },
-        { type: "p", text: "마지막 7분 동안 개방됩니다." },
-        { type: "p", text: "경쟁할 만큼 강하지 않다면 불필요한 PvP는 피하세요 → 가치가 있을 때만 점령하세요." },
-        { type: "sub", text: "위치 선정" },
-        { type: "p", text: "무료 텔레포트를 이용해 광맥 3개 근처나 사람이 적은 지역으로 이동하세요." },
-        { type: "img", src: "figures/eternity_reach.jpg", alt: "사라진 유적" }
+        {"type":"h","text":"일시"},
+        {"type":"p","text":"2주마다 — 30분 동안 진행되는 솔로 이벤트"},
+        {"type":"h","text":"중요성"},
+        {"type":"p","text":"{governorCharm} 재료를 얻을 수 있는 가장 좋은 반복 이벤트 중 하나입니다."},
+        {"type":"h","text":"🗺️ 전략"},
+        {"type":"sub","text":"스킬"},
+        {"type":"p","text":"각 스킬 레벨마다 다음을 선택하세요:"},
+        {"type":"list","items":["1. 오른쪽","2. 오른쪽","3. 왼쪽","4. 왼쪽","5. 오른쪽"]},
+        {"type":"sub","text":"시작"},
+        {"type":"p","text":"체사레 수비병 공격 → 스킬 3이 해제될 때까지 빠르게 진행"},
+        {"type":"p","text":"가능한 경우 Lv.2 체사레 수비병을 타겟팅하고, 이미 공격받고 있는 대상은 건너뛰기."},
+        {"type":"sub","text":"매 60초마다"},
+        {"type":"p","text":"광맥 진입 → 청동석 5,000개 획득 → 즉시 회수 → 시간 기록 → 1분마다 반복하기"},
+        {"type":"callout","text":"청동석 5,000개 보너스를 발동하는 데는 단 하나의 부대만 필요합니다."},
+        {"type":"sub","text":"불안정한 광맥"},
+        {"type":"p","text":"광맥이 나타나면 → 가용한 부대를 즉시 보내기 → 사라질 때까지 채집하기"},
+        {"type":"sub","text":"전리품 마차"},
+        {"type":"p","text":"이벤트 진행 내내 흩어져 있는 청동석을 계속 수집하도록 유지하세요. 부대 슬롯을 소모하지 않습니다."},
+        {"type":"sub","text":"스킬 5"},
+        {"type":"p","text":"광맥 폭발 시 5번째 스킬을 활성화하고 모든 부대를 보내 광맥에서 채집하기."},
+        {"type":"sub","text":"사라진 궁전"},
+        {"type":"p","text":"마지막 7분 동안 열립니다."},
+        {"type":"p","text":"경쟁할 만큼 강하지 않다면 불필요한 PvP는 피하기 → 가치가 있을 때만 점령하기."},
+        {"type":"sub","text":"위치 선정"},
+        {"type":"p","text":"무료 {teleporterAdv}을 사용하여 3개의 광맥 근처나 사람이 덜 붐비는 곳으로 이동하기."},
+        {"type":"img","src":"figures/eternity_reach.jpg","alt":"사라진 유적"}
       ]},
       de: { title: "Weiten der Ewigkeit", blocks: [
         { type: "h", text: "WANN" },
@@ -7889,78 +7106,41 @@ const GUIDES = {
         ]}
       ]},
 
-      ko: { title: "무과금 영웅 육성 가이드", blocks: [
-        { type: "callout", text: "신화 조각과 집결 전용 장비는 한정되어 있습니다. 모든 영웅을 다 키우려 하지 말고, 장기적으로 가치가 높은 영웅에 자원을 집중하세요." },
-        { type: "callout", text: "아래 일부 영웅은 스크린샷으로 공식 확인되지 않았거나 아직 출시되지 않았습니다. 확인되기 전까지는 영문 이름을 그대로 사용합니다." },
-
-        { type: "sub", text: "1세대" },
-        { type: "p", text: "**{jabel}**" },
-        { type: "list", items: [
-          "파밍 가능한 신화 영웅; 최우선 육성 대상.",
-          "**{saul}**: 성장 스킬을 위해 별 몇 개만. 과도하게 투자하지 마세요."
-        ]},
-
-        { type: "sub", text: "2세대" },
-        { type: "p", text: "**{zoe} — 육성 (룰렛)**" },
-        { type: "list", items: [
-          "{howard}보다 크게 업그레이드된 선택.",
-          "**{marlin}**: {saul}을 대체."
-        ]},
-
-        { type: "sub", text: "3세대" },
-        { type: "p", text: "**{petra} — 필수 육성 (룰렛)**" },
-        { type: "list", items: [
-          "7세대까지 가치 있는 훌륭한 자이언트 베어 사냥 영웅.",
-          "**{eric} & {jaeger}**: PvP/주둔 방어에 집중하지 않는다면 건너뛰세요."
-        ]},
-
-        { type: "sub", text: "4세대" },
-        { type: "p", text: "**Rosa — 육성 (룰렛)**" },
-        { type: "list", items: [
-          "자이언트 베어 사냥에서 강력한 업그레이드.",
-          "**Alcar 또는 Margot**: 선택 사항. 둘 다 투기장/원정에서 강력합니다."
-        ]},
-
-        { type: "sub", text: "5세대" },
-        { type: "p", text: "**Long Fei — 육성 (룰렛)**" },
-        { type: "list", items: [
-          "신비한 시련, 삼자 연맹전, 성검 쟁탈 같은 다중 팀 이벤트에 매우 좋습니다.",
-          "**Thrud/Vivian**: 주로 투기장/PvP용.",
-          "{petra}를 놓쳤다면 Thrud를 고려하세요."
-        ]},
-
-        { type: "sub", text: "6세대" },
-        { type: "p", text: "**Sophia — 육성 (룰렛)**" },
-        { type: "list", items: ["주로 다중 팀 콘텐츠에 유용합니다."] },
-        { type: "p", text: "**Yang — 최우선**" },
-        { type: "list", items: [
-          "자이언트 베어 사냥 활용도가 뛰어나 신화 조각을 투자할 가치가 있습니다.",
-          "**Triton**: Long Fei를 육성했다면 대체로 건너뛰어도 됩니다."
-        ]},
-
-        { type: "sub", text: "7세대" },
-        { type: "p", text: "**Wee & Woo — 필수 육성 (룰렛)**" },
-        { type: "list", items: ["무과금 유저에게 전반적으로 훌륭한 가치."] },
-        { type: "p", text: "**Ava — 최우선**" },
-        { type: "list", items: [
-          "훌륭한 자이언트 베어 사냥 영웅; {petra}를 대체.",
-          "**Charles**: 대체로 안심하고 건너뛰어도 됩니다."
-        ]},
-
-        { type: "h", text: "간단한 무과금 룰렛 경로" },
-        { type: "p", text: "{zoe} ➜ {petra} ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo" },
-
-        { type: "h", text: "신화 조각 우선순위" },
-        { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
-
-        { type: "h", text: "기본 원칙" },
-        { type: "p", text: "룰렛 영웅은 대체로 무과금 유저에게 가장 안전한 투자입니다. 자원을 아끼고, 신화 조각을 너무 얇게 분산시키지 말고, 모든 영웅을 키워야 한다는 부담을 가지지 마세요." },
-
-        { type: "h", text: "요약" },
-        { type: "list", items: [
-          "**무과금 유저:** 영웅 룰렛에서 {zoe}(보병 탱커), {jabel}(기병), {petra}(공격형 기병)를 우선하세요",
-          "**과금 유저:** {amadeus}(VIP 7 이상)와 {hilde}를 우선 육성해 효과를 극대화하세요"
-        ]}
+      ko: { title: "영웅 육성 — 무과금 / 소과금 가이드", blocks: [
+        {"type":"callout","text":"레전드 공용 영웅 조각 & {heroExclusiveGear} {widget} 자원은 한정되어 있습니다. **모든 영웅을 육성하려고 하지 마세요.** 장기적으로 가치가 높은 핵심 영웅에게 자원을 집중해야 합니다."},
+        {"type":"sub","text":"1세대"},
+        {"type":"p","text":"⭐ **{jabel}**"},
+        {"type":"list","items":["조각 수급이 쉬운 기본 신화 영웅. 1순위 육성 대상.","**{saul}:** 내정/성장 스킬용으로 별(성급) 몇 개만 달아주세요. 과도한 투자 금지."]},
+        {"type":"sub","text":"2세대"},
+        {"type":"p","text":"⭐ **{zoe} — 필수 육성 ({heroRoulette})**"},
+        {"type":"list","items":["{howard}의 상위 호환 대체 영웅입니다.","**{marlin}:** {saul}을 대체하는 성장형 영웅입니다."]},
+        {"type":"sub","text":"3세대"},
+        {"type":"p","text":"🔥 **{petra} — 필수 육성 ({heroRoulette})**"},
+        {"type":"list","items":["{bearHunt} 시 가장 효과적인 딜러이며, 7세대까지 유효한 종결급 가성비 영웅입니다.","**{eric} & {jaeger}:** PvP나 성 방어에 특화된 유저가 아니라면 비추천."]},
+        {"type":"sub","text":"4세대"},
+        {"type":"p","text":"⭐ **로사 — 필수 육성 ({heroRoulette})**"},
+        {"type":"list","items":["{bearHunt} 딜량을 대폭 올려주는 딜러입니다.","**알카르 또는 마고:** 선택 사항입니다. 둘 다 경기장(아레나) 및 원정에서 성능이 좋습니다."]},
+        {"type":"sub","text":"5세대"},
+        {"type":"p","text":"⭐ **롱페이 — 필수 육성 ({heroRoulette})**"},
+        {"type":"list","items":["{mysticTrial}, {triAllianceClash}, 성검 쟁탈 등 다부대 이벤트에서 대활약합니다.","**트루드 또는 비비안:** 아레나(경기장)/PvP 전용입니다.","{petra} 육성에 실패했을 경우 트루드를 고려해보세요."]},
+        {"type":"sub","text":"6세대"},
+        {"type":"p","text":"⭐ **소피아 — 필수 육성 ({heroRoulette})**"},
+        {"type":"list","items":["주로 다부대 콘텐츠에서 유용합니다."]},
+        {"type":"p","text":"🔥 **양 — 육성 우선순위 가장 높음**"},
+        {"type":"list","items":["{bearHunt} 필수 유틸 영웅. 레전드 영웅 조각을 투자할 가치가 충분합니다.","**트라이튼:** 롱페이를 이미 키웠다면 스킵."]},
+        {"type":"sub","text":"7세대"},
+        {"type":"p","text":"🔥 **위 & 우 — 필수 육성 ({heroRoulette})**"},
+        {"type":"list","items":["무소과금 기준 종결급 가성비 영웅."]},
+        {"type":"p","text":"🔥 **아바 — 육성 우선순위 가장 높음**"},
+        {"type":"list","items":["{bearHunt} 핵심 딜러. {petra}의 상위 호환.","**찰스:** 스킵."]},
+        {"type":"h","text":"📌 무소과금 추천 룰렛 테크 트리"},
+        {"type":"p","text":"{zoe} ➜ {petra} ➜ 로사 ➜ 롱페이 ➜ 소피아 ➜ 위 & 우"},
+        {"type":"h","text":"💎 레전드 영웅 조각 투자 우선순위"},
+        {"type":"p","text":"{petra} ➜ 양 ➜ 아바"},
+        {"type":"h","text":"💡 핵심 요약"},
+        {"type":"p","text":"룰렛으로 얻는 영웅들이 무소과금에게 가장 안전하고 확실한 투자처입니다. 자원을 최대한 아끼고, 영웅 조각을 이것저것 어중간하게 분산 투자하지 마세요. 모든 영웅을 다 육성해야 한다는 부담감을 가질 필요는 없습니다."},
+        {"type":"h","text":"요약"},
+        {"type":"list","items":["🆓 **무소과금 유저:** 룰렛 영웅인 {zoe}(보병 탱커), {jabel}(기병), {petra}(딜 기병) 위주로 집중 육성하세요.","💰 **핵과금/과금러 유저:** 종결 스펙을 맞추어 최고 효율을 내기 위해 {amadeus}(VIP 7 이상)와 {hilde}를 최우선으로 육성하세요."]}
       ]},
 
       de: { title: "F2P-Helden-Guide", blocks: [
@@ -8798,89 +7978,63 @@ const GUIDES = {
       { type: "list", items: ["{medicalSatchels}: +10% Rescue Rate", "{rescueOrders}: +1% each, up to +50%"]},
       { type: "callout", text: "⚠️ **IMPORTANT:** Everyone must exchange {rescueOrders} in alliance chat before the timer expires!" }
     ]},
-    ko: { title: "KvK 준비 및 전투 가이드 (Gen 3 시대)", blocks: [
-      { type: "checklist", days: [1, 2, 3, 4, 5],
-        rows: [
-          { label: "{truegold}", icons: ["✅", "<span class=\"chk-ok\">OK</span>", "🚫", "🚫", "✅"] },
-          { label: "{heroShard}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
-          { label: "⏩️ {construction}", icons: ["✅", "<span class=\"chk-ok\">OK</span>", "🚫", "🚫", "✅"] },
-          { label: "⏩️ {training}", icons: ["🚫", "🚫", "🚫", "✅", "✅"] },
-          { label: "⏩️ {research}", icons: ["<span class=\"chk-ok\">OK</span>", "✅", "🚫", "🚫", "✅"] },
-          { label: "{heroRoulette}", icons: ["🚫", "✅", "✅", "🚫", "🚫"] },
-          { label: "{gathering}", icons: ["👍", "✅", "👍", "✅", "👍"] },
-          { label: "{intel}", icons: ["✅", "👍", "✅", "👍", "✅"] },
-          { label: "{petAdvancement}", icons: ["🚫", "🚫", "✅", "🚫", "✅"] },
-          { label: "{governorCharm}", icons: ["✅", "🚫", "<span class=\"chk-ok\">OK</span>", "✅", "🚫"] },
-          { label: "{governorGear}", icons: ["🚫", "🚫", "🚫", "🚫", "✅"] },
-          { label: "{heroExclusiveGear} {widget}", icons: ["🚫", "🚫", "🚫", "<span class=\"chk-ok\">OK</span>", "✅"] },
-          { label: "{mithril} ", icons: ["🚫", "🚫", "🚫", "<span class=\"chk-ok\">OK</span>", "✅"] },
-          { label: "{forgehammer}", icons: ["🚫", "🚫", "🚫", "<span class=\"chk-ok\">OK</span>", "✅"] },
-          { label: "{masterEmblem}", icons: ["🚫", "✅", "<span class=\"chk-ok\">OK</span>", "🚫", "🚫"] },
-          { label: "{manuscript}", icons: ["🚫", "🚫", "✅", "🚫", "🚫"] },
-          { label: "⏩️ {learning}", icons: ["<span class=\"chk-ok\">OK</span>", "✅", "🚫", "🚫", "<span class=\"chk-ok\">OK</span>"] }
-        ],
-        legend: [
-          { icon: "✅", label: "{useIcon}" },
-          { icon: "<span class=\"chk-ok\">OK</span>", label: "{okayIfNeeded}" },
-          { icon: "🚫", label: "{dontUseIcon}" },
-          { icon: "👍", label: "{needDaily}" }
-        ]
-      },
-      { type: "h", text: "1단계: 준비 단계 (1일차~5일차)" },
-      { type: "p", text: "KVK에서 승리하려면 준비 단계에서 상대보다 더 많은 총점을 획득해야 합니다. 이 단계에서 승리하면 공격 측 우위를 얻습니다 (전투 단계 동안 캐슬이 완전히 안전해집니다)." },
-      { type: "sub", text: "1일차: 건설, {truegold} 및 {governorCharm}" },
-      { type: "p", text: "점수 활동: {truegold} 건물 업그레이드, 건설 가속, {governorCharm}, 정보 임무, {learningSpeedup}." },
-      { type: "p", text: "**🛡️ F2P 중점:**" },
-      { type: "list", items: ["아껴둔 건설 가속과 {truegold}를 사용하세요.", "이전 주에 아껴둔 {charmDesign}을 사용하세요.", "모든 전망대 정보 임무를 클리어하세요."]},
-      { type: "p", text: "**⚡ P2W 중점:**" },
-      { type: "list", items: ["고레벨 {truegold} 건물({academy}/{warAcademy})을 최대치로 올리세요.", "{governorCharm}을 8~11레벨까지 밀어 대량 점수를 획득하세요 (11레벨은 단계당 16,000점)."]},
-      { type: "sub", text: "2일차: 연구, 영웅 및 채집" },
-      { type: "p", text: "점수 활동: 연구 가속, 영웅 조각 (레어/에픽/레전드), 영웅 룰렛, {masterEmblem}/{manuscript}, 자원 채집." },
-      { type: "p", text: "**🛡️ F2P 중점:**" },
-      { type: "list", items: ["아껴둔 다이아로 영웅 룰렛을 돌려 {petra}(Gen 3) 조각을 획득하세요.", "아껴둔 범용 레전드/에픽 조각을 핵심 영웅에게 투입하세요.", "미리 채집 부대를 보내세요 (초기화 전에 보내서 2일차 시작과 동시에 즉시 복귀하도록)."]},
-      { type: "p", text: "**⚡ P2W 중점:**" },
-      { type: "list", items: ["아껴둔 {masterEmblem}과 {manuscript}를 모두 사용하세요.", "Gen 3 영웅({eric} & {petra})을 즉시 5성으로 올리세요."]},
-      { type: "sub", text: "3일차: 펫 훈련 및 {masterAcademy} 진행" },
-      { type: "p", text: "점수 활동: {petAdvancement}, {commonTamingMarks} 및 {advancedTamingMarks} (단련), 영웅 룰렛, 영웅 조각, {masterEmblem}/{manuscript}, 정보 임무." },
-      { type: "p", text: "**🛡️ F2P 중점:**" },
-      { type: "list", items: ["한 마리에 모든 자원을 쏟기보다, 여러 중급 펫을 고르게 레벨업하고 단련하세요.", "남은 영웅 룰렛 횟수와 일일 정보 임무를 사용하세요."]},
-      { type: "p", text: "**⚡ P2W 중점:**" },
-      { type: "list", items: ["{advancedTamingMarks}를 대량으로 사용하세요 (개당 15,000점).", "{petAdvancement} 기준을 최대로 올려 높은 점수 배율을 획득하세요."]},
-      { type: "sub", text: "4일차: 영웅 성장 및 부대 훈련" },
-      { type: "p", text: "점수 활동: 부대 훈련/승급 (T1~T11), {forgehammer}, {widget}, 미스릴, 자원 채집." },
-      { type: "p", text: "**🛡️ F2P 중점:**" },
-      { type: "list", items: ["낮은 등급 부대를 현재 최고 등급으로 승급시키세요 (예: T9를 T10으로). 신병을 처음부터 훈련하는 것보다 부대를 승급시키는 것이 자원 효율이 훨씬 좋습니다.", "일반 가속은 연구/{masterAcademy}용으로 남겨두고, 여기서는 전용 부대 훈련 가속만 사용하세요."]},
-      { type: "p", text: "**⚡ P2W 중점:**" },
-      { type: "list", items: ["아껴둔 {forgehammer}(개당 4,000점)와 {heroExclusiveGear}의 {widget}(개당 8,000점)을 사용하세요.", "미스릴 업그레이드(개당 40,000점)를 적용해 대량 점수 급증을 유발하세요."]},
-      { type: "sub", text: "5일차: 전투력 강화 및 최종 업그레이드" },
-      { type: "p", text: "점수 활동: {governorGear}, 영웅 장비, 펫 단련, 미스릴, {truegold}, 모든 가속, 정보 임무, 채집." },
-      { type: "p", text: "**🛡️ F2P 중점:**" },
-      { type: "list", items: ["남은 정보 임무를 클리어하고 남은 자원/가속을 사용하며, 모아둔 {satin}/{gildedThreads}로 {governorGear}를 업그레이드하세요."]},
-      { type: "p", text: "**⚡ P2W 중점:**" },
-      { type: "list", items: ["{governorGear}를 레전드/레전드 3성까지 밀어붙이세요 (단계당 6,250점).", "남은 미스릴, {widget}, {forgehammer}를 모두 소진해 일일 개인 랭킹 상위 2000/상위 200 보상을 확보하세요."]},
-      { type: "h", text: "⚔️ 2단계: 전투 단계 (12시간)" },
-      { type: "p", text: "캐슬 전투 시간: UTC 12:00 ~ UTC 22:00." },
-      { type: "p", text: "목표: {kingsCastle}와 4개의 {turret} 점령." },
-      { type: "h", text: "🎯 GEN 3 PVP 메타 및 집결 세팅" },
-      { type: "sub", text: "🛡️ 주둔 방어 — 캐슬/포탑" },
-      { type: "p", text: "**리드 영웅:** {eric} (Gen 3) — 뛰어난 Gen 3 스탯과 생존 메커니즘을 가진 무너지지 않는 보병 벽. {zoe}(Gen 2)와 조합해 보호막 제공." },
-      { type: "sub", text: "⚔️ 공격 집결 (캐슬/포탑 공격)" },
-      { type: "p", text: "**리드 영웅:** {petra} (Gen 3) — 고배율 공격 집결 {widget}을 갖춘 파괴적인 기병 리더." },
-      { type: "sub", text: "🤝 집결 참가자 (F2P에게 중요!)" },
-      { type: "p", text: "집결에 참가할 때 아무 영웅이나 사용하지 마세요. 다음 영웅으로 참가하세요:" },
-      { type: "list", items: ["{chenko} (스킬 1 만렙)", "{amane}", "{yeonwoo}"]},
-      { type: "p", text: "이 영웅들은 파괴력 배율을 중첩시킵니다." },
-      { type: "h", text: "💣 더블 집결 \"고래 분쇄기\" 전략" },
-      { type: "p", text: "적의 강력한 주둔군을 상대할 때:" },
-      { type: "list", items: ["**집결 1 (방패/클리어):** 1~2초 먼저 출발. 순수 파괴력에 집중해 적의 부상병 치료소를 넘치게 만들고 방어 부대를 정리합니다.", "**집결 2 (메인 스트라이커):** 집결 1 바로 뒤에 도착해 남은 부대를 전멸시키고 캐슬을 점령합니다."]},
-      { type: "callout", text: "{turret} 우위: 캐슬을 점령한 것과 같은 왕국이 {turret}를 점령하면 최대 +20% 부대 파괴력을 제공합니다." },
-      { type: "h", text: "🩺 3단계: 야전 응급처치 (부대 회복)" },
-      { type: "p", text: "기본 구조율: 부상병 치료소로 이송되지 못한 손실 부대의 30%." },
-      { type: "p", text: "목표 구조율: 90%" },
-      { type: "p", text: "**향상 방법:**" },
-      { type: "list", items: ["{medicalSatchels}: 구조율 +10%", "{rescueOrders}: 개당 +1%, 최대 +50%"]},
-      { type: "callout", text: "⚠️ **중요:** 타이머가 끝나기 전에 모두 연맹 채팅에서 {rescueOrders}를 교환해야 합니다!" }
-    ]},
+    ko: { title: "킹샷 KvK (서버전) 가이드 — 3세대 시즌", blocks: [
+        {"type":"checklist","days":[1,2,3,4,5],"rows":[{"label":"{truegold}","icons":["✅","<span class=\"chk-ok\">OK</span>","🚫","🚫","✅"]},{"label":"{heroShard}","icons":["🚫","✅","✅","🚫","🚫"]},{"label":"⏩️ {construction}","icons":["✅","<span class=\"chk-ok\">OK</span>","🚫","🚫","✅"]},{"label":"⏩️ {training}","icons":["🚫","🚫","🚫","✅","✅"]},{"label":"⏩️ {research}","icons":["<span class=\"chk-ok\">OK</span>","✅","🚫","🚫","✅"]},{"label":"{heroRoulette}","icons":["🚫","✅","✅","🚫","🚫"]},{"label":"{gathering}","icons":["👍","✅","👍","✅","👍"]},{"label":"{intel}","icons":["✅","👍","✅","👍","✅"]},{"label":"{petAdvancement}","icons":["🚫","🚫","✅","🚫","✅"]},{"label":"{governorCharm}","icons":["✅","🚫","<span class=\"chk-ok\">OK</span>","✅","🚫"]},{"label":"{governorGear}","icons":["🚫","🚫","🚫","🚫","✅"]},{"label":"{heroExclusiveGear} {widget}","icons":["🚫","🚫","🚫","<span class=\"chk-ok\">OK</span>","✅"]},{"label":"{mithril} ","icons":["🚫","🚫","🚫","<span class=\"chk-ok\">OK</span>","✅"]},{"label":"{forgehammer}","icons":["🚫","🚫","🚫","<span class=\"chk-ok\">OK</span>","✅"]},{"label":"{masterEmblem}","icons":["🚫","✅","<span class=\"chk-ok\">OK</span>","🚫","🚫"]},{"label":"{manuscript}","icons":["🚫","🚫","✅","🚫","🚫"]},{"label":"⏩️ {learning}","icons":["<span class=\"chk-ok\">OK</span>","✅","🚫","🚫","<span class=\"chk-ok\">OK</span>"]}],"legend":[{"icon":"✅","label":"{useIcon}"},{"icon":"<span class=\"chk-ok\">OK</span>","label":"{okayIfNeeded}"},{"icon":"🚫","label":"{dontUseIcon}"},{"icon":"👍","label":"{needDaily}"}]},
+        {"type":"h","text":"📅 1단계: 최강 왕국 준비 단계 (1일차 ~ 5일차)"},
+        {"type":"p","text":"KvK 승리의 핵심은 준비 단계 동안 상대 왕국보다 높은 총점을 기록하는 것입니다. 준비 단계 승리 시 공격자 우위(어드밴티지)를 획득하여, 전쟁 단계에서 우리 {kingsCastle}을 적으로부터 안전하게 보호합니다."},
+        {"type":"sub","text":"1일차: 건설, {truegold} & {governorCharm}"},
+        {"type":"p","text":"점수 획득처: {truegold} 건물 업그레이드, 건설 가속, {governorCharm}, {intel}, {learningSpeedup}"},
+        {"type":"p","text":"**🛡️ 무소과금 가이드:**"},
+        {"type":"list","items":["그동안 모아둔 건설 가속과 {truegold}을 사용하세요.","{governorCharm} 업그레이드 재료인 {charmDesign}을 사용하세요.","{intel}을 모두 완료하세요."]},
+        {"type":"p","text":"**⚡ 과금러 가이드:**"},
+        {"type":"list","items":["{academy}·{warAcademy} 등 고단계 {truegold} 건물 레벨을 올려주세요.","{governorCharm}을 8~11단계까지 단번에 올려 폭발적으로 점수를 획득하세요 (11단계 달성 시 단계당 16,000점 획득)."]},
+        {"type":"sub","text":"2일차: 연구, 영웅 & 자원 채집"},
+        {"type":"p","text":"점수 획득처: 연구 가속, {heroShard}(레어/에픽/레전드), {heroRoulette}, {masterEmblem}/{manuscript}, 자원 채집"},
+        {"type":"p","text":"**🛡️ 무소과금 가이드:**"},
+        {"type":"list","items":["모아둔 {gems}로 {heroRoulette}을 돌려 {petra}(3세대) 조각을 얻으세요.","아껴둔 레전드/에픽 공용 영웅 조각을 핵심 메인 영웅에게 몰아주세요.","선채집 필수: 서버 리셋 전 미리 부대를 채집지에 보내두어, 2일차 시작과 동시에 바로 회수되도록 세팅해 두세요."]},
+        {"type":"p","text":"**⚡ 과금러 가이드:**"},
+        {"type":"list","items":["모아둔 {masterEmblem}와 {manuscript}를 모두 사용하세요.","3세대 신규 영웅({eric} & {petra})을 5성까지 즉시 찍어주세요."]},
+        {"type":"sub","text":"3일차: 펫 단련 & {masterAcademy} 육성"},
+        {"type":"p","text":"점수 획득처: {petAdvancement}, {commonTamingMarks}/{advancedTamingMarks} (단련), {heroRoulette}, {heroShard}, {masterEmblem}와 {manuscript}, {intel}"},
+        {"type":"p","text":"**🛡️ 무소과금 가이드:**"},
+        {"type":"list","items":["펫 한 마리에 올인하기보다는, 중간 티어 펫 여러 마리의 레벨을 균등하게 올리고 단련하는 것이 훨씬 효율적입니다.","{heroRoulette}과 일일 {intel}을 완료하세요."]},
+        {"type":"p","text":"**⚡ 과금러 가이드:**"},
+        {"type":"list","items":["{advancedTamingMarks}(개당 15,000점)을 대량으로 투입하세요.","{petAdvancement} 단계를 최대한 당겨 고득점 배율을 챙기세요."]},
+        {"type":"sub","text":"4일차: 영웅 육성 & 병력 훈련"},
+        {"type":"p","text":"점수 획득처: 병력 훈련/승급(T1~T11), {forgehammer}, {heroExclusiveGear} {widget}, {mithril}, 자원 채집"},
+        {"type":"p","text":"**🛡️ 무소과금 가이드:**"},
+        {"type":"list","items":["하위 티어 병력 승급: 생으로 신규 훈련시키는 것보다, 기존 9티어를 10티어로 승급시키는 것이 자원 및 가속 대비 점수 효율이 압도적입니다.","공용 가속은 연구/{masterAcademy}용으로 아껴두고, 여기서는 훈련 전용 가속만 녹이세요."]},
+        {"type":"p","text":"**⚡ 과금러 가이드:**"},
+        {"type":"list","items":["모아둔 {forgehammer}(개당 4,000점)와 {heroExclusiveGear} {widget}(개당 8,000점)을 모두 사용하세요.","{mithril} 업그레이드(개당 40,000점)로 고득점을 획득하세요."]},
+        {"type":"sub","text":"5일차: 전력 펌핑 & 최종 스펙업"},
+        {"type":"p","text":"점수 획득처: {governorGear}, 영웅 장비, 펫 고급 단련, {mithril}, {truegold}, 모든 가속, {intel}, 자원 채집"},
+        {"type":"p","text":"**🛡️ 무소과금 가이드:**"},
+        {"type":"list","items":["남은 {intel}을 완료하고, 잔여 자원과 공용 가속을 모두 사용하세요. 모아둔 {satin}/{gildedThreads}를 사용해 {governorGear}를 강화하세요."]},
+        {"type":"p","text":"**⚡ 과금러 가이드:**"},
+        {"type":"list","items":["{governorGear}를 레전드 / 레전드 3성급까지 올리세요 (단계 상승당 6,250점).","남은 {mithril}, {widget}, {forgehammer}를 모조리 청산하여 일일 개인 랭킹 보상(Top 2000 / Top 200)을 확실하게 챙기세요."]},
+        {"type":"h","text":"⚔️ 2단계: 전쟁 단계 (12시간)"},
+        {"type":"p","text":"캐슬 전투 시간: 12:00 UTC ~ 22:00 UTC"},
+        {"type":"p","text":"목표: {kingsCastle} 및 4개 {turret} 점령 및 사수"},
+        {"type":"h","text":"🎯 3세대 PVP 메타 & 집결 세팅"},
+        {"type":"sub","text":"🛡️ 방어 주둔군 세팅 — {kingsCastle}/{turret}"},
+        {"type":"p","text":"**메인 영웅: {eric} (3세대)** — 3세대 기본 체급(스탯)과 생존 메커니즘을 갖춘 단단한 방어용 보병 영웅입니다. {zoe}(2세대 영웅)와 함께 보호막(실드) 시너지 효과를 냅니다."},
+        {"type":"sub","text":"⚔️ 공격 집결 ({kingsCastle}/{turret} 공략)"},
+        {"type":"p","text":"**메인 영웅: {petra} (3세대)** — 전용 장비 성능이 뛰어난 강력한 기병 집결 리더 영웅입니다."},
+        {"type":"sub","text":"🤝 집결 참전원 (무소과금 필수 숙지!)"},
+        {"type":"p","text":"집결 참여 시 **무분별한 영웅 배치는 절대 금물**입니다. 필수 지원 영웅 (기타 영웅 배치 금지):"},
+        {"type":"list","items":["{chenko} (1스킬 M)","{amane}","{yeonwoo}"]},
+        {"type":"p","text":"이 영웅들은 {lethality} 배율 중첩 버프를 제공합니다. 타 영웅 배치 시 집결 화력 손실 발생."},
+        {"type":"h","text":"💣 동시 집결 \"고래 잡기\" 전략"},
+        {"type":"p","text":"적의 주둔 부대가 강력하여 일반적인 공격으로 승산이 없을 때 사용하는 핵심 전략입니다."},
+        {"type":"list","items":["**1차 집결 (고기 방패 / 밑작업용):** 2차 집결보다 1~2초 먼저 도달하도록 출정합니다. 순수 {lethality}에 집중해 적 치료소를 터뜨리고 방어 병력을 깎아내는 역할을 합니다.","**2차 집결 (메인 공격용):** 1차 집결 직후 곧이어 도달하여 남아있는 적 부대를 정리하고 {kingsCastle}을 점령합니다."]},
+        {"type":"callout","text":"**{turret} 점령 버프:** {kingsCastle}을 점령한 왕국이 {turret}도 함께 점령하면, 최대 부대 {lethality} +20% 버프를 추가로 획득합니다."},
+        {"type":"h","text":"🩺 3단계: 전쟁터 구급 단계 (병력 복구)"},
+        {"type":"p","text":"**기본 구조율:** 병원에 들어가지 못하고 전사한 병력의 30%."},
+        {"type":"p","text":"**목표 구조율: 90%**"},
+        {"type":"p","text":"**구조율 올리는 법:**"},
+        {"type":"list","items":["{medicalSatchels}: 구조율 +10%","{rescueOrders}: 개당 +1% (최대 +50%까지 적용)"]},
+        {"type":"callout","text":"⚠️ **주의사항:** 제한 시간이 지나기 전에 연맹 채팅창에서 서로 {rescueOrders}을 품앗이(교환)해야 합니다!"}
+      ]},
     de: { title: "KvK-Vorbereitungs- & Kampfguide (Gen-3-Ära)", blocks: [
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
@@ -10300,25 +9454,25 @@ const GUIDES = {
         { type: "p", text: "**暫停 → {retreat} → 重試**" }
       ]},
       ko: { title: "낚시 선수권 대회", blocks: [
-        { type: "h", text: "개최 시기" },
-        { type: "p", text: "4주마다 진행됩니다." },
-        { type: "h", text: "중요한 이유" },
-        { type: "p", text: "{artisansVision}, {heroGear} {enhancementXp}, {gems}의 안정적인 수급처입니다." },
-        { type: "h", text: "🌊 {oceanProspector}" },
-        { type: "p", text: "{regularFishing}에 집중하기 전에 **먼저 {oceanProspector}**에서 포인트를 쌓고 {fishingKit}를 업그레이드하세요." },
-        { type: "list", items: ["**{fishLine}** → 최대 깊이 증가", "**{fishHook}** → 1회당 최대 포획 수 증가", "**{fishSinker}** → 시작 깊이 증가"] },
-        { type: "p", text: "세 가지를 모두 업그레이드했다면 **{regularFishing}**로 넘어가세요." },
-        { type: "callout", text: "희귀 인어와 보물상자는 {regularFishing}에서 **나오지 않습니다**. **{oceanProspector}** 전용입니다." },
-        { type: "h", text: "🎣 {regularFishing}" },
-        { type: "sub", text: "빛나는 물고기" },
-        { type: "p", text: "빛나는 물고기가 보이면 무조건 우선으로 잡으세요." },
-        { type: "sub", text: "{strugglingMermaid}" },
-        { type: "p", text: "해초에 갇힌 인어는 **5–10% 포인트 배율**을 제공합니다." },
-        { type: "sub", text: "{hornOfTheTide}" },
-        { type: "p", text: "**{regularFishing}에서만** 사용하세요." },
-        { type: "h", text: "다시 도전하기" },
-        { type: "p", text: "한 판이 잘 풀리지 않았다면:" },
-        { type: "p", text: "**일시정지 → {retreat} → 다시 시도**" }
+        {"type":"h","text":"일시"},
+        {"type":"p","text":"4주마다"},
+        {"type":"h","text":"중요성"},
+        {"type":"p","text":"{artisansVision}, {heroGear} {enhancementXp}, {gems}를 안정적으로 얻을 수 있는 획득처입니다."},
+        {"type":"h","text":"🌊 {oceanProspector}"},
+        {"type":"p","text":"{regularFishing}에 집중하기 전에, **{oceanProspector}를 먼저 사용**하여 포인트를 쌓고 {fishingKit}를 업그레이드하세요."},
+        {"type":"list","items":["**{fishLine}** → 최대 깊이 증가","**{fishHook}** → 1회당 최대 포획 수 증가","**{fishSinker}** → 시작 깊이 증가"]},
+        {"type":"p","text":"이 세 가지가 모두 업그레이드되면, **{regularFishing}**으로 전환하세요."},
+        {"type":"callout","text":"희귀 인어와 상자는 {regularFishing}에서는 나타나지 않습니다. **{oceanProspector}** 전용입니다."},
+        {"type":"h","text":"🎣 {regularFishing}"},
+        {"type":"sub","text":"빛나는 물고기"},
+        {"type":"p","text":"눈에 띄는 빛나는 물고기를 최우선으로 노리세요."},
+        {"type":"sub","text":"{strugglingMermaid}"},
+        {"type":"p","text":"해초에 갇힌 인어는 **5~10% 포인트 배율**을 제공합니다."},
+        {"type":"sub","text":"{hornOfTheTide}"},
+        {"type":"p","text":"{hornOfTheTide}은 **{regularFishing}에서만** 사용하세요."},
+        {"type":"h","text":"도전 재시도"},
+        {"type":"p","text":"진행이 잘 풀리지 않을 경우:"},
+        {"type":"p","text":"**일시정지 → {retreat} → 재시도**"}
       ]},
       de: { title: "Fischerturnier", blocks: [
         { type: "h", text: "WANN" },
@@ -10615,55 +9769,42 @@ const GUIDES = {
           "**保留增益：**在第1階段開始前開啟寵物增益與城鎮攻擊／防禦加成。行軍速度和部署容量加成在戰場上無效。"
         ]}
       ]},
-      ko: { title: "삼대 연맹전", blocks: [
-        { type: "h", text: "이벤트 개요 및 단계" },
-        { type: "p", text: "세 연맹이 하나의 맵에서 영토를 다투는 전투로, 총 60분이며 4단계로 나뉩니다." },
-        { type: "sub", text: "1단계: {tacPreparations} (0:00–3:00)" },
-        { type: "p", text: "부대 편성을 설정하고, 음성 채팅에 참여하고, 초기 역할을 배정하세요." },
-        { type: "sub", text: "2단계: {seizeConquer} (3:00–20:00)" },
-        { type: "p", text: "아군 영역을 빠르게 점령하고 {transitHub} 등 연결 건물을 확보해 분당 포인트(PPM)를 꾸준히 쌓으세요. 이때 {tacGarrison}은 아직 보호막 상태입니다." },
-        { type: "sub", text: "3단계: {garrisonOccupation} (20:00–40:00)" },
-        { type: "p", text: "{tacGarrison}(A24, B24, C24)의 보호막이 사라집니다. 아군 {tacGarrison}(분당 +1,800)을 지키면서 적 {tacGarrison}에 협공을 가하세요." },
-        { type: "sub", text: "4단계: {templeOnslaught} (40:00–60:00)" },
-        { type: "p", text: "중앙의 {templeOfTides}이 열립니다. 포인트가 매우 높고, 종료 시점에 점령 중인 쪽은 50,000포인트 보너스를 받습니다." },
-        { type: "h", text: "역할 및 팀 구성 (군단 30명)" },
-        { type: "list", items: [
-          "**6명 라인 앵커 (고과금):** 핵심 지점 돌파를 이끌고 가장 치열한 전선을 지킵니다.",
-          "**12명 라인 서포터 (무과금/소과금):** 앵커 바로 뒤에서 점령한 건물을 지키고, 교대로 치료하며, 적의 측면 돌파를 막습니다.",
-          "**6명 대응조 (중과금/활동적인 무과금):** 기동 부대로 초반에 중앙 중립 건물을 점령하고, 빼앗긴 거점을 되찾고, 방어 공백을 메웁니다.",
-          "**6명 돌격대 (고과금 딜러):** 한 팀으로 움직여 약한 적 라인을 뚫고 후방을 교란합니다."
-        ]},
-        { type: "h", text: "3세대 영웅 및 부대 프리셋" },
-        { type: "p", text: "3개의 부대를 미리 준비하세요." },
-        { type: "callout", text: "채집 영웅(예: {diana})과 파란색/초록색 영웅은 피하세요." },
-        { type: "list", items: [
-          "**부대 1 – 주력 공격:** 최고 전투력으로 {tacGarrison}과 {templeOfTides} 쟁탈에 사용합니다.",
-          "**부대 2 – 라인 유지:** 안정적인 방어 능력치로 핵심 지점과 연결 건물을 지킵니다.",
-          "**부대 3 – 기동:** 빠른 이동으로 중립 건물 점령, 우회, 경로 탈환에 사용합니다."
-        ]},
-        { type: "h", text: "에너지 및 지휘관" },
-        { type: "p", text: "이동, 전투, {tacConscript}(치료), 철수에는 모두 {tacEnergy}가 필요합니다. **{tacEnergy}가 떨어지면 아무것도 할 수 없습니다** — 신중하게 관리하세요." },
-        { type: "p", text: "R4/R5는 점령한 건물마다 즉시 {tacCaptain}을 임명해야 합니다. {tacCaptain}은 {tacEnergy}를 훨씬 빠르게 회복하므로, 가장 활발한 플레이어와 고레벨 건물의 라인 앵커에게 맡기세요." },
-        { type: "h", text: "무과금 전략" },
-        { type: "sub", text: "서포트 및 치료 교대" },
-        { type: "p", text: "전멸할 때까지 싸우지 마세요. 부상을 입으면 근처 안전한 건물로 물러나 **{tacConscript}**(하트 + 아이콘)를 눌러 쓰러지지 않고 회복한 뒤 복귀하세요. {tacEnergy}와 {tacHeadquarters}에서 걸어오는 시간을 크게 아낄 수 있습니다." },
-        { type: "sub", text: "연결 거점 차단" },
-        { type: "p", text: "무과금 플레이어는 {transitHub} 연결 건물(A29, B29, C29)을 지키세요. 적의 진입로를 끊으면 적 돌격 부대가 지원을 받지 못합니다." },
-        { type: "sub", text: "에너지 관리" },
-        { type: "p", text: "혼자 적진 깊숙이 들어가 {tacEnergy}를 낭비하지 마세요. 20:00({tacGarrison})과 40:00({templeOfTides})의 큰 단계 전환 때를 위해 아껴 두세요." },
-        { type: "h", text: "과금 유저 전략" },
-        { type: "sub", text: "전선 앵커" },
-        { type: "p", text: "고가치 건물 쟁탈에 앞장서세요. 확보한 뒤에는 서포터가 건물을 채울 수 있도록 뒤로 빠져 철수하고, {tacConscript}로 회복하며 {tacEnergy}를 채우세요." },
-        { type: "sub", text: "{tacGarrison} 기습" },
-        { type: "p", text: "20:00에 돌격대와 협력해, 적 수비대가 측면에 묶여 있는 사이 방어가 약한 적 {tacGarrison}을 급습하세요." },
-        { type: "sub", text: "{templeOfTides} 스택 (40:00–60:00)" },
-        { type: "p", text: "40분에 {templeOfTides}으로 한 번에 밀고 들어가세요. 60분 종료 전까지 **11개 이상의 부대**를 주둔시켜 방어를 최대로 만드세요." },
-        { type: "h", text: "승리를 위한 핵심 규칙" },
-        { type: "list", items: [
-          "**절대 혼자 밀지 마세요:** 항상 짝을 이룬 라인(앵커 + 서포터)으로 움직이세요.",
-          "**음성 콜:** 간부는 교대를 미리 지시해야 합니다.",
-          "**버프 아껴두기:** 1단계 시작 직전에 펫 버프와 도시 공격/방어 버프를 켜세요. 행군 속도와 부대 수용량 버프는 전장에서 적용되지 않습니다."
-        ]}
+      ko: { title: "삼대 연맹전 (TAC) 전략 가이드", blocks: [
+        {"type":"h","text":"🏛️ 이벤트 개요 및 단계별 안내"},
+        {"type":"p","text":"{triAllianceClash}은 하나의 맵에서 3개 연맹이 겨루는 영토전으로, 총 4단계에 걸쳐 60분 동안 진행됩니다:"},
+        {"type":"sub","text":"1단계: {tacPreparations} (00:00 – 03:00)"},
+        {"type":"p","text":"**목표:** 부대 편성을 설정하고, 음성 채널을 개설하여 초반 역할을 분담합니다."},
+        {"type":"sub","text":"2단계: {seizeConquer} (03:00 – 20:00)"},
+        {"type":"p","text":"**목표:** 아군 내부 영토를 빠르게 점령하고, {transitHub} 및 연결 구조물을 확보하여 분당 지속 포인트(PPM)를 안정적으로 쌓으세요. 이때 {tacGarrison}의 보호막은 유지된 상태입니다."},
+        {"type":"sub","text":"3단계: {garrisonOccupation} (20:00 – 40:00)"},
+        {"type":"p","text":"**목표:** {tacGarrison}(A24, B24, C24)의 보호막이 해제됩니다. 아군 {tacGarrison}(분당 +1,800)을 방어하면서 적 {tacGarrison}을 향한 합동 공격을 개시합니다."},
+        {"type":"sub","text":"4단계: {templeOnslaught} (40:00 – 60:00)"},
+        {"type":"p","text":"**목표:** 중앙 {templeOfTides}이 열립니다. 엄청난 포인트를 제공하며, 종료 시점에 신전을 점령하고 있는 쪽에게 50,000점의 보너스가 지급됩니다."},
+        {"type":"h","text":"👥 플레이어 역할 및 팀 구성 (30인 군단)"},
+        {"type":"list","items":["**라인 앵커 6명 (핵심 과금러 / 최고 전투력):** 핵심 지점 진격을 이끌고, 교전이 치열한 전선을 사수합니다.","**라인 서포터 12명 (무과금 / 소과금):** 앵커 바로 뒤에 위치하여 점령한 건물을 방어하고, 교대로 치료 순환을 지원하며 적의 측면 우회/측면 공격을 막습니다.","**기동 대응팀 6명 (중과금 / 활발한 무과금):** 초반 중앙 중립 구조물을 점령하고, 빼앗긴 거점을 탈환하며, 방어 공백을 메우는 기동 유닛입니다.","**타격대 / 특수부대 6명 (고과금 핵심 전력):** 단일 부대로 움직이며 적의 약한 라인을 돌파하고 후방을 교란합니다."]},
+        {"type":"h","text":"⚔️ 3세대 영웅 및 부대 사전 설정"},
+        {"type":"p","text":"이벤트 시작 전 서로 다른 3개의 부대를 미리 준비하세요."},
+        {"type":"callout","text":"**채집 영웅(예: {diana})이나 파란색/초록색 등급 영웅은 제외합니다.**"},
+        {"type":"list","items":["**1부대 (주력 공격 / 목표 점령):** 경합이 치열한 {tacGarrison} 및 {templeOfTides} 공략용 최고 전투력 부대","**2부대 (라인 방어):** 주요 거점 및 연결로를 유지하기 위한 안정적인 방어 능력치 중심 부대","**3부대 (기동 / 유연한 대응):** 중립 거점 점령, 측면 공격, 복귀 경로 확보를 위한 빠른 이동 속도 중심 부대"]},
+        {"type":"h","text":"⚡ {tacEnergy} 및 {tacCaptain} 메커니즘"},
+        {"type":"p","text":"**{tacEnergy}:** 이동, 전투, {tacConscript}(치료), 후퇴 시 {tacEnergy}가 소요됩니다. **{tacEnergy}가 고갈되면 아무 역할도 할 수 없으므로 신중하게 관리해야 합니다.**"},
+        {"type":"p","text":"**{tacCaptain}:** 간부(R4/R5)는 점령한 건물에 즉시 {tacCaptain}을 임명해야 합니다. {tacCaptain}으로 지정된 플레이어는 {tacEnergy}가 훨씬 빠르게 회복됩니다. 활동량이 높은 플레이어와 라인 앵커를 상위 등급 건물에 {tacCaptain}으로 우선 배치하세요."},
+        {"type":"h","text":"🛡️ 무과금 (F2P) 전략"},
+        {"type":"sub","text":"앵커 지원 및 치료 순환"},
+        {"type":"p","text":"부대가 전멸할 때까지 싸우지 마세요. 전투 중 부상을 입으면 안전한 2차 건물로 후퇴한 뒤 **{tacConscript}**(하트+ 아이콘) 버튼을 사용하여 병력 손실 없이 치료하고 복귀합니다. {tacHeadquarters}에서 재출격하는 이동 시간과 {tacEnergy}를 크게 아낄 수 있습니다."},
+        {"type":"sub","text":"연결로 차단"},
+        {"type":"p","text":"무과금 유저는 {transitHub} 연결 건물(A29, B29, C29)을 방어하는 데 집중하세요. 적의 접근 경로를 차단하면 적 공격 부대의 지원을 고립시킬 수 있습니다."},
+        {"type":"sub","text":"{tacEnergy} 절약"},
+        {"type":"p","text":"혼자 적진 깊숙이 단독 진격하며 {tacEnergy}를 낭비하지 마세요. {tacEnergy}는 20분({tacGarrison})과 40분({templeOfTides})에 열리는 주요 단계 전환을 위해 아껴두어야 합니다."},
+        {"type":"h","text":"⚔️ 과금 / 핵과금 (P2W / Whale) 전략"},
+        {"type":"sub","text":"전선 앵커 역할"},
+        {"type":"p","text":"고가치 건물 쟁탈/탈환 시 최전선에 서서 점령을 이끕니다. 거점이 확보되면 서포터들이 건물을 채울 수 있도록 한 단계 물러나, 후퇴 후 {tacConscript}로 병력을 회복하고 {tacEnergy}를 회복합니다."},
+        {"type":"sub","text":"표적 {tacGarrison} 기습"},
+        {"type":"p","text":"20분 시점에 타격대와 합을 맞춰, 적 방어선이 측면에 분산된 틈을 타 방어가 허술한 적 {tacGarrison}을 신속히 급습합니다."},
+        {"type":"sub","text":"{templeOfTides} 주둔 (40~60분 구간)"},
+        {"type":"p","text":"40분 시점에 {templeOfTides}을 향해 일제히 진격합니다. 신전에 **11개 이상의 부대**를 주둔시켜 60분 최종 종료 시점까지 최대 방어력을 유지하세요."},
+        {"type":"h","text":"📋 승리를 위한 핵심 수칙"},
+        {"type":"list","items":["**단독 진격 절대 금지:** 항상 짝을 이루어 이동하세요 (앵커 + 서포터).","**음성 채널 브리핑:** 간부(R4/R5)는 진형 전환 및 이동 명령을 미리 전달해야 합니다.","**버프 아끼지 않기:** 1단계 진입 직전에 펫 버프, 도시 공격/방어 보너스를 모두 활성화하세요. 행군 속도와 부대 수용량 버프는 전장에서 적용되지 않습니다."]}
       ]},
       de: { title: "Drei-Allianz-Wettkampf", blocks: [
         { type: "h", text: "EVENT-ÜBERSICHT & PHASEN" },
