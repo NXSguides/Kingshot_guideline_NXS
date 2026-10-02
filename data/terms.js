@@ -32,7 +32,8 @@ const TERMS = [
   "cat": "Events",
   "rows": [
    ["Calendar","日曆","일정","—","—","Calendário","Takvim","Kalender","Календарь","ปฏิทิน","—","—"],
-   ["Hero Roulette","英雄轉盤","영웅 룰렛","Helden Roulette","—","Roleta de Herói","Kahraman Ruleti","Rolet Hero","Геройская рулетка","รูเล็ตฮีโร่","روليت البطل","Ruleta de Héroes","ES: Event Calendar pop-up."],
+   ["Hero Roulette","英雄轉盤","영웅 룰렛","Helden Roulette","Roulette des Héros","Roleta do Herói","Kahraman Ruleti","Rolet Hero","Геройская рулетка","รูเล็ตฮีโร่","روليت البطل","Ruleta de Héroes","ES: Event Calendar pop-up. Lucky Chip tooltips: FR 'la Roulette des Héros', PT [Roleta do Herói], ID [Rolet Hero], RU [геройскую рулетку] (accusative), KO 「영웅 룰렛」, DE [Helden Roulette]."],
+   ["Lucky Chip","幸運幣","행운의 코인","Glückschip","Jeton Chanceux","Ficha da Sorte","Uğurlu Fiş","Chip Keberuntungan","Фишка удачи","ชิปนำโชค","رقاقة الحظ","Ficha de la suerte","Backpack Other tab: used in Hero Roulette to spin for rewards (1 chip = 1 spin)."],
    ["Officer Project","—","—","Offiziersprojekt","Projet d'Officier","—","—","—","—","—","مسؤول المشروع","—"],
    ["Swordland Showdown", "聖劍爭奪", "성검 쟁탈", "Schwertland-Showdown", "Choc du Glaive", "Confronto entre Espadas", "Kılıçdiyarı Hesaplaşması", "Swordland Showdown", "Битва за Страну мечей", "ศึกดวลดินแดนดาบ", "مواجهة أرض السيوف", "Enfrentamiento en Tierra de espadas", "ES: calendar pop-up and rules text."],
    ["Swordland", "聖劍戰場", "성검 전장", "Schwertland", "Terres du Glaive", "Terra das Espadas", "Kılıçdiyarı", "Swordland", "Страна мечей", "ดินแดนดาบ", "أرض السيوف", "Tierra de espadas", "Portuguese shows both 'Terra das Espadas' and 'Terra da Espada' in the game. ES capitalisation varies: 'Tierra de Espadas' / 'Tierra de las espadas'."],
