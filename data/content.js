@@ -401,6 +401,7 @@ const GUIDES = {
         { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
+        { type: "guideLink", guide: "hero-roulette" },
         { type: "guideLink", guide: "viking-vengeance" },
         { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
@@ -411,6 +412,7 @@ const GUIDES = {
         { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
+        { type: "guideLink", guide: "hero-roulette" },
         { type: "guideLink", guide: "viking-vengeance" },
         { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
@@ -421,6 +423,7 @@ const GUIDES = {
         { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
+        { type: "guideLink", guide: "hero-roulette" },
         { type: "guideLink", guide: "viking-vengeance" },
         { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
@@ -431,6 +434,7 @@ const GUIDES = {
         { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
+        { type: "guideLink", guide: "hero-roulette" },
         { type: "guideLink", guide: "viking-vengeance" },
         { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
@@ -441,6 +445,7 @@ const GUIDES = {
         { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
+        { type: "guideLink", guide: "hero-roulette" },
         { type: "guideLink", guide: "viking-vengeance" },
         { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
@@ -451,6 +456,7 @@ const GUIDES = {
         { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
+        { type: "guideLink", guide: "hero-roulette" },
         { type: "guideLink", guide: "viking-vengeance" },
         { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
@@ -461,6 +467,7 @@ const GUIDES = {
         { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
+        { type: "guideLink", guide: "hero-roulette" },
         { type: "guideLink", guide: "viking-vengeance" },
         { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
@@ -471,6 +478,7 @@ const GUIDES = {
         { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
+        { type: "guideLink", guide: "hero-roulette" },
         { type: "guideLink", guide: "viking-vengeance" },
         { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
@@ -481,6 +489,7 @@ const GUIDES = {
         { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
+        { type: "guideLink", guide: "hero-roulette" },
         { type: "guideLink", guide: "viking-vengeance" },
         { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
@@ -491,6 +500,7 @@ const GUIDES = {
         { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
+        { type: "guideLink", guide: "hero-roulette" },
         { type: "guideLink", guide: "viking-vengeance" },
         { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
@@ -501,6 +511,7 @@ const GUIDES = {
         { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
+        { type: "guideLink", guide: "hero-roulette" },
         { type: "guideLink", guide: "viking-vengeance" },
         { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
@@ -511,6 +522,7 @@ const GUIDES = {
         { type: "guideLink", guide: "swordland-showdown" },
         { type: "guideLink", guide: "fishing-tournament" },
         { type: "guideLink", guide: "tri-alliance-clash" },
+        { type: "guideLink", guide: "hero-roulette" },
         { type: "guideLink", guide: "viking-vengeance" },
         { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
@@ -9925,6 +9937,192 @@ const GUIDES = {
           "{greatIronMine} – من 12:00 إلى 00:00 بتوقيت UTC"
         ]},
         { type: "callout", text: "استخدم هذه الأماكن المحمية خلال الفعالية. حافظ على سلامتك واجمع بذكاء." }
+      ]}
+    }
+  },
+  "hero-roulette": {
+    emoji: "🎡",
+    name: { en: "Hero Roulette", zh: "英雄轉盤", ko: "영웅 룰렛", de: "Helden Roulette", fr: "Roulette de Héros", pt: "Roleta de Herói", es: "Ruleta de Héroes", tr: "Kahraman Ruleti", id: "Rolet Hero", ru: "Геройская рулетка", th: "รูเล็ตฮีโร่", ar: "روليت البطل" },
+    sections: {
+      en: { title: "Hero Roulette", blocks: [
+        { type: "h", text: "WHEN" },
+        { type: "p", text: "Every 2 weeks, 3 days each time." },
+        { type: "h", text: "🎯 How many spins to max one hero?" },
+        { type: "p", text: "On average, about **720 spins — 6 events with 120 spins each**." },
+        { type: "sub", text: "The math" },
+        { type: "list", items: ["Maxing a hero (unlock + up to 5 stars) takes 1,075 shards in total.", "120 spins per event gives about 0.5466 × 120 + 115 ≈ 181 shards on average (~0.5466 per spin plus 115 from the milestone rewards).", "1,075 ÷ 181 ≈ 5.95, so you need 6 events.", "Total: 6 × 120 = 720 spins, about 6 × 181 ≈ 1,084 shards expected."] },
+        { type: "sub", text: "Why not keep spinning in one event?" },
+        { type: "p", text: "After 120 spins there are no more milestone rewards, so each spin only gives ~0.55 shards. Even at the 450-spin cap, one event only averages 0.5466 × 450 + 115 ≈ 361 shards — the extra 330 spins are only about half as efficient as the first 120." },
+        { type: "sub", text: "Spin all 120 in the 6th event too" },
+        { type: "p", text: "The first 5 events average ~903 shards, leaving ~172 to go. At 119 spins you'd only expect ~130 (65 + 65); you need the +50 pack at spin 120 to cover the rest, so the last event needs all 120 spins as well." },
+        { type: "sub", text: "💎 {gems} cost (not counting Lucky Chips)" },
+        { type: "p", text: "After the 3 free spins, each event costs 157,500 {gems} — about **945,000 {gems}** for all 6. Subtract any Lucky Chips you have or shards from other sources." },
+        { type: "callout", text: "⚠️ These are averages. Over 720 spins the real result will usually land within ±60 shards of the expected value (about 95% of the time) — with bad luck you may need one more event, with good luck you may finish early." }
+      ]},
+      zh: { title: "英雄轉盤", blocks: [
+        { type: "h", text: "開放時間" },
+        { type: "p", text: "每 2 週一次，每次 3 天。" },
+        { type: "h", text: "🎯 一位英雄要轉幾次才能滿星？" },
+        { type: "p", text: "照期望值算，大約要 **720 次，也就是 6 次活動、每次轉滿 120 次**。" },
+        { type: "sub", text: "計算" },
+        { type: "list", items: ["滿星（啟用加升到 5 星）總共要 1,075 個碎片。", "每次活動轉 120 次，期望約拿到 0.5466 × 120 + 115 ≈ 181 個（每轉平均約 0.5466 個，加上累積獎勵 115 個）。", "1,075 ÷ 181 ≈ 5.95，所以要 6 次活動。", "總次數 6 × 120 = 720 次，期望碎片 6 × 181 ≈ 1,084 個。"] },
+        { type: "sub", text: "為什麼不在同一次活動一直轉" },
+        { type: "p", text: "超過 120 次以後沒有累積獎勵，每轉只剩約 0.55 個碎片。一次活動就算轉到上限 450 次，期望也只有 0.5466 × 450 + 115 ≈ 361 個，而且多出來的 330 次換到的碎片，大約只有前 120 次的一半效率。" },
+        { type: "sub", text: "第 6 次活動也要轉滿 120 次" },
+        { type: "p", text: "前 5 次期望共約 903 個，還差約 172 個。轉到 119 次時期望只有約 130 個（65 + 65），要第 120 次那包 +50 才補得上，所以最後一次也得轉滿。" },
+        { type: "sub", text: "💎 {gems}成本（不計幸運籌碼）" },
+        { type: "p", text: "每次活動扣掉 3 次免費轉，要 157,500 {gems}，6 次合計約 **945,000 {gems}**。手上有的幸運籌碼或從其他管道拿到的碎片都可以扣掉。" },
+        { type: "callout", text: "⚠️ 這是平均值。轉 720 次的話，實際結果大約會落在期望值上下 ±60 個碎片之內（約 95% 的機率），所以運氣差可能要多一次活動，運氣好則可能提早。" }
+      ]},
+      ko: { title: "영웅 룰렛", blocks: [
+        { type: "h", text: "오픈 시간" },
+        { type: "p", text: "2주마다 1회, 매회 3일간." },
+        { type: "h", text: "🎯 영웅 하나를 풀성급까지 몇 번 돌려야 할까?" },
+        { type: "p", text: "기댓값 기준으로 약 **720회, 즉 이벤트 6번 × 매번 120회**입니다." },
+        { type: "sub", text: "계산" },
+        { type: "list", items: ["풀성급(해금 + 5성)까지 총 1,075개의 파편이 필요합니다.", "이벤트당 120회를 돌리면 평균 약 0.5466 × 120 + 115 ≈ 181개 (회당 약 0.5466개 + 누적 보상 115개).", "1,075 ÷ 181 ≈ 5.95, 따라서 이벤트 6번이 필요합니다.", "총 6 × 120 = 720회, 기대 파편 6 × 181 ≈ 1,084개."] },
+        { type: "sub", text: "한 번의 이벤트에서 계속 돌리지 않는 이유" },
+        { type: "p", text: "120회를 넘으면 누적 보상이 없어 회당 약 0.55개만 나옵니다. 한 이벤트에서 상한인 450회를 돌려도 기댓값은 0.5466 × 450 + 115 ≈ 361개뿐이며, 추가 330회의 효율은 처음 120회의 절반 정도입니다." },
+        { type: "sub", text: "6번째 이벤트도 120회를 다 돌리세요" },
+        { type: "p", text: "앞의 5번에서 평균 약 903개, 남은 건 약 172개입니다. 119회까지는 기댓값이 약 130개(65 + 65)뿐이라 120회째의 +50 패키지가 있어야 채울 수 있으므로, 마지막에도 120회를 다 돌려야 합니다." },
+        { type: "sub", text: "💎 {gems} 비용 (행운 칩 제외)" },
+        { type: "p", text: "무료 3회를 빼면 이벤트당 157,500 {gems}, 6번 합계 약 **945,000 {gems}**입니다. 보유한 행운 칩이나 다른 경로로 얻은 파편만큼 줄어듭니다." },
+        { type: "callout", text: "⚠️ 평균값입니다. 720회를 돌리면 실제 결과는 대체로 기댓값 ±60개 이내(약 95% 확률)이므로, 운이 나쁘면 이벤트가 한 번 더 필요하고 운이 좋으면 일찍 끝날 수 있습니다." }
+      ]},
+      de: { title: "Helden Roulette", blocks: [
+        { type: "h", text: "WANN" },
+        { type: "p", text: "Alle 2 Wochen, jeweils 3 Tage." },
+        { type: "h", text: "🎯 Wie viele Drehungen für einen voll ausgebauten Helden?" },
+        { type: "p", text: "Im Schnitt etwa **720 Drehungen – 6 Events mit je 120 Drehungen**." },
+        { type: "sub", text: "Rechnung" },
+        { type: "list", items: ["Ein voll ausgebauter Held (Freischaltung + bis 5 Sterne) braucht insgesamt 1.075 Fragmente.", "120 Drehungen pro Event bringen im Schnitt 0,5466 × 120 + 115 ≈ 181 Fragmente (~0,5466 pro Drehung plus 115 aus den Meilenstein-Belohnungen).", "1.075 ÷ 181 ≈ 5,95 – also 6 Events.", "Gesamt: 6 × 120 = 720 Drehungen, erwartet etwa 6 × 181 ≈ 1.084 Fragmente."] },
+        { type: "sub", text: "Warum nicht in einem Event weiterdrehen?" },
+        { type: "p", text: "Nach 120 Drehungen gibt es keine Meilenstein-Belohnungen mehr, jede Drehung bringt nur noch ~0,55 Fragmente. Selbst beim Limit von 450 Drehungen kommt ein Event im Schnitt nur auf 0,5466 × 450 + 115 ≈ 361 Fragmente – die zusätzlichen 330 Drehungen sind nur etwa halb so effizient wie die ersten 120." },
+        { type: "sub", text: "Auch im 6. Event alle 120 Drehungen" },
+        { type: "p", text: "Die ersten 5 Events bringen im Schnitt ~903 Fragmente, es fehlen ~172. Bei 119 Drehungen erwartest du nur ~130 (65 + 65); erst das +50-Paket bei Drehung 120 schließt die Lücke – also auch im letzten Event alle 120 drehen." },
+        { type: "sub", text: "💎 {gems}-Kosten (ohne Glückschips)" },
+        { type: "p", text: "Nach den 3 Gratis-Drehungen kostet jedes Event 157.500 {gems} – für alle 6 etwa **945.000 {gems}**. Vorhandene Glückschips oder Fragmente aus anderen Quellen kannst du abziehen." },
+        { type: "callout", text: "⚠️ Das sind Durchschnittswerte. Bei 720 Drehungen liegt das echte Ergebnis meist innerhalb von ±60 Fragmenten um den Erwartungswert (etwa 95 %) – mit Pech brauchst du ein Event mehr, mit Glück bist du früher fertig." }
+      ]},
+      fr: { title: "Roulette de Héros", blocks: [
+        { type: "h", text: "QUAND" },
+        { type: "p", text: "Toutes les 2 semaines, 3 jours à chaque fois." },
+        { type: "h", text: "🎯 Combien de tours pour maxer un héros ?" },
+        { type: "p", text: "En moyenne, environ **720 tours — 6 événements de 120 tours chacun**." },
+        { type: "sub", text: "Le calcul" },
+        { type: "list", items: ["Maxer un héros (déblocage + jusqu'à 5 étoiles) demande 1 075 fragments au total.", "120 tours par événement rapportent en moyenne 0,5466 × 120 + 115 ≈ 181 fragments (~0,5466 par tour + 115 des récompenses de palier).", "1 075 ÷ 181 ≈ 5,95, donc 6 événements.", "Total : 6 × 120 = 720 tours, environ 6 × 181 ≈ 1 084 fragments attendus."] },
+        { type: "sub", text: "Pourquoi ne pas tout tourner en un seul événement ?" },
+        { type: "p", text: "Après 120 tours, il n'y a plus de récompenses de palier : chaque tour ne rapporte plus que ~0,55 fragment. Même au plafond de 450 tours, un événement ne donne en moyenne que 0,5466 × 450 + 115 ≈ 361 fragments — les 330 tours en plus sont environ deux fois moins efficaces que les 120 premiers." },
+        { type: "sub", text: "Faites aussi les 120 tours au 6e événement" },
+        { type: "p", text: "Les 5 premiers événements rapportent ~903 fragments en moyenne, il en manque ~172. À 119 tours, vous n'en attendez que ~130 (65 + 65) ; il faut le pack +50 du 120e tour pour compléter, donc le dernier événement aussi doit aller jusqu'à 120." },
+        { type: "sub", text: "💎 Coût en {gems} (hors jetons chance)" },
+        { type: "p", text: "Après les 3 tours gratuits, chaque événement coûte 157 500 {gems} — environ **945 000 {gems}** pour les 6. Déduisez vos jetons chance ou les fragments obtenus ailleurs." },
+        { type: "callout", text: "⚠️ Ce sont des moyennes. Sur 720 tours, le résultat réel tombe généralement à ±60 fragments de la valeur attendue (environ 95 % du temps) — avec de la malchance il faudra un événement de plus, avec de la chance vous finirez plus tôt." }
+      ]},
+      pt: { title: "Roleta de Herói", blocks: [
+        { type: "h", text: "QUANDO" },
+        { type: "p", text: "A cada 2 semanas, 3 dias cada vez." },
+        { type: "h", text: "🎯 Quantos giros para maximizar um herói?" },
+        { type: "p", text: "Em média, cerca de **720 giros — 6 eventos com 120 giros cada**." },
+        { type: "sub", text: "O cálculo" },
+        { type: "list", items: ["Maximizar um herói (desbloqueio + até 5 estrelas) exige 1.075 fragmentos no total.", "120 giros por evento dão em média 0,5466 × 120 + 115 ≈ 181 fragmentos (~0,5466 por giro + 115 das recompensas acumuladas).", "1.075 ÷ 181 ≈ 5,95, então são 6 eventos.", "Total: 6 × 120 = 720 giros, cerca de 6 × 181 ≈ 1.084 fragmentos esperados."] },
+        { type: "sub", text: "Por que não girar tudo em um evento só?" },
+        { type: "p", text: "Depois de 120 giros não há mais recompensas acumuladas, e cada giro rende só ~0,55 fragmento. Mesmo no limite de 450 giros, um evento rende em média só 0,5466 × 450 + 115 ≈ 361 fragmentos — os 330 giros extras rendem cerca de metade dos 120 primeiros." },
+        { type: "sub", text: "Gire os 120 também no 6º evento" },
+        { type: "p", text: "Os 5 primeiros eventos rendem ~903 fragmentos em média, faltando ~172. Com 119 giros você espera só ~130 (65 + 65); é o pacote +50 do giro 120 que completa, então o último evento também precisa dos 120 giros." },
+        { type: "sub", text: "💎 Custo em {gems} (sem contar Fichas da Sorte)" },
+        { type: "p", text: "Tirando os 3 giros grátis, cada evento custa 157.500 {gems} — cerca de **945.000 {gems}** nos 6. Desconte as fichas da sorte que você tiver ou fragmentos de outras fontes." },
+        { type: "callout", text: "⚠️ São médias. Em 720 giros, o resultado real costuma ficar a ±60 fragmentos do valor esperado (cerca de 95% das vezes) — com azar pode precisar de mais um evento, com sorte termina antes." }
+      ]},
+      es: { title: "Ruleta de Héroes", blocks: [
+        { type: "h", text: "CUÁNDO" },
+        { type: "p", text: "Cada 2 semanas, 3 días cada vez." },
+        { type: "h", text: "🎯 ¿Cuántos giros para maximizar un héroe?" },
+        { type: "p", text: "En promedio, unos **720 giros: 6 eventos de 120 giros cada uno**." },
+        { type: "sub", text: "El cálculo" },
+        { type: "list", items: ["Maximizar un héroe (desbloqueo + hasta 5 estrellas) requiere 1.075 fragmentos en total.", "120 giros por evento dan en promedio 0,5466 × 120 + 115 ≈ 181 fragmentos (~0,5466 por giro + 115 de las recompensas acumuladas).", "1.075 ÷ 181 ≈ 5,95, así que son 6 eventos.", "Total: 6 × 120 = 720 giros, unos 6 × 181 ≈ 1.084 fragmentos esperados."] },
+        { type: "sub", text: "¿Por qué no seguir girando en un solo evento?" },
+        { type: "p", text: "Después de 120 giros ya no hay recompensas acumuladas y cada giro da solo ~0,55 fragmentos. Incluso con el límite de 450 giros, un evento da en promedio solo 0,5466 × 450 + 115 ≈ 361 fragmentos; los 330 giros extra rinden más o menos la mitad que los primeros 120." },
+        { type: "sub", text: "Haz los 120 giros también en el 6.º evento" },
+        { type: "p", text: "Los primeros 5 eventos dan unos 903 fragmentos en promedio y faltan unos 172. Con 119 giros solo esperas unos 130 (65 + 65); hace falta el paquete +50 del giro 120 para completarlo, así que el último evento también necesita los 120 giros." },
+        { type: "sub", text: "💎 Coste en {gems} (sin contar fichas de la suerte)" },
+        { type: "p", text: "Quitando los 3 giros gratis, cada evento cuesta 157.500 {gems}: unas **945.000 {gems}** en total para los 6. Resta las fichas de la suerte que tengas o los fragmentos de otras fuentes." },
+        { type: "callout", text: "⚠️ Son promedios. En 720 giros, el resultado real suele quedar a ±60 fragmentos del valor esperado (alrededor del 95 % de las veces): con mala suerte puede hacer falta un evento más; con buena suerte, terminarás antes." }
+      ]},
+      tr: { title: "Kahraman Ruleti", blocks: [
+        { type: "h", text: "NE ZAMAN" },
+        { type: "p", text: "2 haftada bir, her seferinde 3 gün." },
+        { type: "h", text: "🎯 Bir kahramanı tam yıldıza çıkarmak için kaç çevirme?" },
+        { type: "p", text: "Ortalama yaklaşık **720 çevirme — her biri 120 çevirmelik 6 etkinlik**." },
+        { type: "sub", text: "Hesap" },
+        { type: "list", items: ["Tam yıldız (kilit açma + 5 yıldıza kadar) toplam 1.075 parça ister.", "Etkinlik başına 120 çevirme ortalama 0,5466 × 120 + 115 ≈ 181 parça verir (çevirme başına ~0,5466 + birikimli ödüllerden 115).", "1.075 ÷ 181 ≈ 5,95, yani 6 etkinlik gerekir.", "Toplam: 6 × 120 = 720 çevirme, beklenen yaklaşık 6 × 181 ≈ 1.084 parça."] },
+        { type: "sub", text: "Neden tek etkinlikte çevirmeye devam etmemeli?" },
+        { type: "p", text: "120 çevirmeden sonra birikimli ödül kalmaz, her çevirme yalnızca ~0,55 parça verir. 450 çevirme sınırında bile bir etkinlik ortalama sadece 0,5466 × 450 + 115 ≈ 361 parça verir — fazladan 330 çevirme ilk 120'nin yaklaşık yarısı kadar verimlidir." },
+        { type: "sub", text: "6. etkinlikte de 120 çevirmeyi tamamla" },
+        { type: "p", text: "İlk 5 etkinlik ortalama ~903 parça verir, ~172 kalır. 119 çevirmede beklenen yalnızca ~130'dur (65 + 65); kalanı 120. çevirmedeki +50 paket kapatır, bu yüzden son etkinlikte de 120 çevirme gerekir." },
+        { type: "sub", text: "💎 {gems} maliyeti (Şans Fişleri hariç)" },
+        { type: "p", text: "3 ücretsiz çevirmeden sonra her etkinlik 157.500 {gems} tutar — 6 etkinlik için yaklaşık **945.000 {gems}**. Elindeki şans fişlerini veya başka yerlerden gelen parçaları düşebilirsin." },
+        { type: "callout", text: "⚠️ Bunlar ortalamalardır. 720 çevirmede gerçek sonuç genellikle beklenen değerin ±60 parça yakınında olur (yaklaşık %95) — şanssızsan bir etkinlik daha gerekebilir, şanslıysan daha erken bitirebilirsin." }
+      ]},
+      id: { title: "Rolet Hero", blocks: [
+        { type: "h", text: "KAPAN" },
+        { type: "p", text: "Setiap 2 minggu, masing-masing 3 hari." },
+        { type: "h", text: "🎯 Berapa putaran untuk memaksimalkan satu hero?" },
+        { type: "p", text: "Rata-rata sekitar **720 putaran — 6 event, masing-masing 120 putaran**." },
+        { type: "sub", text: "Perhitungan" },
+        { type: "list", items: ["Memaksimalkan hero (buka + sampai bintang 5) butuh total 1.075 fragmen.", "120 putaran per event memberi rata-rata 0,5466 × 120 + 115 ≈ 181 fragmen (~0,5466 per putaran + 115 dari hadiah kumulatif).", "1.075 ÷ 181 ≈ 5,95, jadi butuh 6 event.", "Total: 6 × 120 = 720 putaran, sekitar 6 × 181 ≈ 1.084 fragmen yang diharapkan."] },
+        { type: "sub", text: "Kenapa tidak terus memutar dalam satu event?" },
+        { type: "p", text: "Setelah 120 putaran tidak ada hadiah kumulatif lagi, jadi tiap putaran hanya memberi ~0,55 fragmen. Bahkan di batas 450 putaran, satu event rata-rata hanya memberi 0,5466 × 450 + 115 ≈ 361 fragmen — 330 putaran tambahan hanya sekitar setengah seefisien 120 putaran pertama." },
+        { type: "sub", text: "Putar 120 kali juga di event ke-6" },
+        { type: "p", text: "5 event pertama rata-rata memberi ~903 fragmen, kurang ~172. Di 119 putaran kamu hanya bisa berharap ~130 (65 + 65); butuh paket +50 di putaran ke-120 untuk menutupnya, jadi event terakhir juga harus 120 putaran." },
+        { type: "sub", text: "💎 Biaya {gems} (tanpa Chip Keberuntungan)" },
+        { type: "p", text: "Setelah 3 putaran gratis, tiap event butuh 157.500 {gems} — sekitar **945.000 {gems}** untuk 6 event. Kurangi dengan chip keberuntungan yang kamu punya atau fragmen dari sumber lain." },
+        { type: "callout", text: "⚠️ Ini nilai rata-rata. Dalam 720 putaran, hasil nyata biasanya berada dalam ±60 fragmen dari nilai harapan (sekitar 95%) — kalau sial mungkin butuh satu event lagi, kalau beruntung bisa selesai lebih cepat." }
+      ]},
+      ru: { title: "Геройская рулетка", blocks: [
+        { type: "h", text: "КОГДА" },
+        { type: "p", text: "Раз в 2 недели, по 3 дня." },
+        { type: "h", text: "🎯 Сколько вращений, чтобы прокачать одного героя до максимума?" },
+        { type: "p", text: "В среднем около **720 вращений — 6 событий по 120 вращений**." },
+        { type: "sub", text: "Расчёт" },
+        { type: "list", items: ["Для максимума (открытие + до 5 звёзд) нужно всего 1 075 фрагментов.", "120 вращений за событие дают в среднем 0,5466 × 120 + 115 ≈ 181 фрагмент (~0,5466 за вращение + 115 из накопительных наград).", "1 075 ÷ 181 ≈ 5,95 — значит, нужно 6 событий.", "Итого: 6 × 120 = 720 вращений, ожидаемо около 6 × 181 ≈ 1 084 фрагментов."] },
+        { type: "sub", text: "Почему не крутить всё в одном событии?" },
+        { type: "p", text: "После 120 вращений накопительных наград больше нет, и каждое вращение даёт лишь ~0,55 фрагмента. Даже при лимите 450 вращений одно событие даёт в среднем всего 0,5466 × 450 + 115 ≈ 361 фрагмент — дополнительные 330 вращений примерно вдвое менее эффективны, чем первые 120." },
+        { type: "sub", text: "В 6-м событии тоже крутите все 120" },
+        { type: "p", text: "За первые 5 событий в среднем ~903 фрагмента, не хватает ~172. На 119 вращениях ожидается лишь ~130 (65 + 65); добрать помогает только набор +50 на 120-м вращении, поэтому и в последнем событии нужны все 120." },
+        { type: "sub", text: "💎 Стоимость в алмазах (без жетонов удачи)" },
+        { type: "p", text: "Без учёта 3 бесплатных вращений каждое событие стоит 157 500 алмазов — около **945 000 алмазов** за все 6. Вычтите имеющиеся жетоны удачи и фрагменты из других источников." },
+        { type: "callout", text: "⚠️ Это средние значения. За 720 вращений реальный результат обычно попадает в пределы ±60 фрагментов от ожидаемого (примерно в 95% случаев) — при невезении может понадобиться ещё одно событие, при везении закончите раньше." }
+      ]},
+      th: { title: "รูเล็ตฮีโร่", blocks: [
+        { type: "h", text: "ช่วงเวลา" },
+        { type: "p", text: "ทุก 2 สัปดาห์ ครั้งละ 3 วัน" },
+        { type: "h", text: "🎯 ต้องหมุนกี่ครั้งถึงจะได้ฮีโร่ 1 ตัวเต็มดาว?" },
+        { type: "p", text: "โดยเฉลี่ยประมาณ **720 ครั้ง หรือ 6 อีเวนต์ อีเวนต์ละ 120 ครั้ง**" },
+        { type: "sub", text: "การคำนวณ" },
+        { type: "list", items: ["เต็มดาว (ปลดล็อก + ถึง 5 ดาว) ต้องใช้ชิ้นส่วนรวม 1,075 ชิ้น", "หมุน 120 ครั้งต่ออีเวนต์ ได้เฉลี่ยประมาณ 0.5466 × 120 + 115 ≈ 181 ชิ้น (เฉลี่ยครั้งละ ~0.5466 ชิ้น + รางวัลสะสม 115 ชิ้น)", "1,075 ÷ 181 ≈ 5.95 จึงต้องใช้ 6 อีเวนต์", "รวม 6 × 120 = 720 ครั้ง คาดว่าได้ชิ้นส่วนประมาณ 6 × 181 ≈ 1,084 ชิ้น"] },
+        { type: "sub", text: "ทำไมไม่หมุนต่อในอีเวนต์เดียว" },
+        { type: "p", text: "หลังหมุนครบ 120 ครั้งจะไม่มีรางวัลสะสมแล้ว แต่ละครั้งได้เพียง ~0.55 ชิ้น แม้หมุนถึงขีดจำกัด 450 ครั้งในอีเวนต์เดียว ก็ได้เฉลี่ยแค่ 0.5466 × 450 + 115 ≈ 361 ชิ้น และ 330 ครั้งที่เพิ่มมามีประสิทธิภาพเพียงประมาณครึ่งหนึ่งของ 120 ครั้งแรก" },
+        { type: "sub", text: "อีเวนต์ที่ 6 ก็ต้องหมุนครบ 120 ครั้ง" },
+        { type: "p", text: "5 อีเวนต์แรกได้เฉลี่ยรวม ~903 ชิ้น ยังขาดอีก ~172 ชิ้น หมุนถึง 119 ครั้งคาดว่าได้เพียง ~130 ชิ้น (65 + 65) ต้องอาศัยแพ็ก +50 ในครั้งที่ 120 จึงจะครบ อีเวนต์สุดท้ายจึงต้องหมุนครบ 120 ครั้งเช่นกัน" },
+        { type: "sub", text: "💎 ค่าใช้จ่าย{gems} (ไม่รวมชิปนำโชค)" },
+        { type: "p", text: "หักหมุนฟรี 3 ครั้งแล้ว แต่ละอีเวนต์ใช้ 157,500 {gems} รวม 6 อีเวนต์ประมาณ **945,000 {gems}** หักลบด้วยชิปนำโชคที่มีหรือชิ้นส่วนจากแหล่งอื่นได้" },
+        { type: "callout", text: "⚠️ นี่คือค่าเฉลี่ย หมุน 720 ครั้ง ผลจริงมักอยู่ในช่วง ±60 ชิ้นจากค่าคาดหวัง (ประมาณ 95%) ถ้าโชคไม่ดีอาจต้องเพิ่มอีก 1 อีเวนต์ ถ้าโชคดีอาจจบเร็วกว่า" }
+      ]},
+      ar: { title: "روليت البطل", blocks: [
+        { type: "h", text: "متى" },
+        { type: "p", text: "كل أسبوعين، لمدة 3 أيام في كل مرة." },
+        { type: "h", text: "🎯 كم دورة تحتاج لرفع بطل واحد إلى الحد الأقصى؟" },
+        { type: "p", text: "في المتوسط حوالي **720 دورة — أي 6 فعاليات بـ 120 دورة في كل منها**." },
+        { type: "sub", text: "الحساب" },
+        { type: "list", items: ["رفع البطل إلى الحد الأقصى (الفتح + حتى 5 نجوم) يحتاج إلى 1,075 شظية إجمالًا.", "120 دورة في كل فعالية تعطي في المتوسط 0.5466 × 120 + 115 ≈ 181 شظية (~0.5466 لكل دورة + 115 من المكافآت التراكمية).", "1,075 ÷ 181 ≈ 5.95، لذلك تحتاج إلى 6 فعاليات.", "الإجمالي: 6 × 120 = 720 دورة، والمتوقع حوالي 6 × 181 ≈ 1,084 شظية."] },
+        { type: "sub", text: "لماذا لا تستمر في الدوران في فعالية واحدة؟" },
+        { type: "p", text: "بعد 120 دورة لا توجد مكافآت تراكمية، فكل دورة تعطي ~0.55 شظية فقط. حتى عند الحد الأقصى 450 دورة، تعطي الفعالية الواحدة في المتوسط 0.5466 × 450 + 115 ≈ 361 شظية فقط — والـ 330 دورة الإضافية كفاءتها نحو نصف كفاءة أول 120 دورة." },
+        { type: "sub", text: "أكمل 120 دورة في الفعالية السادسة أيضًا" },
+        { type: "p", text: "أول 5 فعاليات تعطي في المتوسط ~903 شظية، ويتبقى ~172. عند 119 دورة تتوقع ~130 فقط (65 + 65)؛ تحتاج إلى حزمة +50 عند الدورة 120 لتغطية الباقي، لذا تحتاج الفعالية الأخيرة أيضًا إلى 120 دورة كاملة." },
+        { type: "sub", text: "💎 تكلفة {gems} (دون احتساب رقائق الحظ)" },
+        { type: "p", text: "بعد الدورات المجانية الثلاث، تكلف كل فعالية 157,500 {gems} — حوالي **945,000 {gems}** للفعاليات الست. اطرح ما لديك من رقائق الحظ أو الشظايا من مصادر أخرى." },
+        { type: "callout", text: "⚠️ هذه متوسطات. خلال 720 دورة تقع النتيجة الفعلية عادةً ضمن ±60 شظية من القيمة المتوقعة (حوالي 95% من الوقت) — مع سوء الحظ قد تحتاج فعالية إضافية، ومع حسن الحظ قد تنتهي مبكرًا." }
       ]}
     }
   },
