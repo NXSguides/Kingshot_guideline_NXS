@@ -16,23 +16,23 @@ const TERMS = [
  {
   "cat": "Golden Glaives",
   "rows": [
-   ["Golden Glaives","黃金與巨刃","황금과 검","Goldene Klingen","Glaives Dorés","Glaives Douradas","Altın Kılıçlar","Tombak Emas","Золотые копья","จอมโจรดาบทองคำ","الرماح الذهبية","—"],
-   ["Dim Goldstone","黯淡金石","탁한 금 원석","Matter Goldstein","Pépite Terne","Pedra Dourada Obscura","Mat Altıntaşı","Goldstone Redup","Тусклый авантюрин","หินทองหม่น","حجر الذهب الباهت","—","German text once says 'matter Diamant' (game inconsistency); main value is Goldstein."],
-   ["Watchtower Intel","瞭望塔的情報","전망대 정보","Wachturm-Geheimdienst","renseignement de l'observatoire","informações da Torre de Vigia","Bekçi Kulesi Bilgisi","Intel Menara Pengawas","данные разведки на дозорной вышке","ข่าวกรองหอคอยเฝ้าระวัง","معلومات برج المراقبة","—","Seen inside sentences, not as a standalone label."],
+   ["Golden Glaives","黃金與巨刃","황금과 검","Goldene Klingen","Glaives Dorés","Glaives Douradas","Altın Kılıçlar","Tombak Emas","Золотые копья","จอมโจรดาบทองคำ","الرماح الذهبية","Gujas Doradas"],
+   ["Dim Goldstone","黯淡金石","탁한 금 원석","Matter Goldstein","Pépite Terne","Pedra Dourada Obscura","Mat Altıntaşı","Goldstone Redup","Тусклый авантюрин","หินทองหม่น","حجر الذهب الباهت","Adamantina opaca","German text once says 'matter Diamant' (game inconsistency); main value is Goldstein. ES: named after Adamantina (= Truegold)."],
+   ["Watchtower Intel","瞭望塔的情報","전망대 정보","Wachturm-Geheimdienst","renseignement de l'observatoire","informações da Torre de Vigia","Bekçi Kulesi Bilgisi","Intel Menara Pengawas","данные разведки на дозорной вышке","ข่าวกรองหอคอยเฝ้าระวัง","معلومات برج المراقبة","—","Seen inside sentences, not as a standalone label. ES Golden Glaives text only says 'Torres vigía' (Watchtowers)."],
    ["Royal Foundry","皇家工坊","황실 공방","Kaiserliche Gießerei","Fonderie Royale","Forja da Realeza","Kraliyet Dökümhanesi","Pabrik Kerajaan","королевская литейная","โรงหล่อราชวงศ์","المسبك الملكي","—"],
    ["Redeem","兌換","교환","Einlösen","Échanger","Resgatar","Kullan","Tukar","Обменять","แลก","استبدال","—","Turkish uses the same word as 'Use'."],
    ["Left","剩餘","잔여","Übrig","En stock","Restante","Kalan","Tersisa","Осталось","คงเหลือ","متبقي","—"],
    ["Owned","持有數量","보유 수량","Im Besitz","Tu possèdes","Obtido","Stok","Dimiliki","Имеется","มีอยู่","مملوك","Tienes","Get More popups: ZH '目前擁有', KO '현재 보유'."],
    ["Go","前往瞭望塔","이동","Los","Aller","Ir","Git","Pergi","Вперед","ไป","انطلق","Ir","Chinese label is the longer '前往瞭望塔'; Get More / daily mission buttons say '前往'."],
    ["Tip","兌換提醒","교환 알림","Tipp","Conseil","Dica","Hatırlatıcı","Tip","Подсказка","แนะนำ","نصيحة","Consejo","Label on the Golden Glaives banner. Same label on the Hall of Heroes (Deals) screen."],
-   ["Bread (Secured)","麵包（安全）","빵 (안전)","Brot (Geschützt)","Pains (sécurisés)","Pão (Protegido)","Ekmek (Korumalı)","Roti (Aman)","хлеба (под защитой)","ขนมปัง (ปลอดภัย)","خبز (مضمون)","—","Russian seen in genitive inside a sentence; base form is хлеб."],
+   ["Bread (Secured)","麵包（安全）","빵 (안전)","Brot (Geschützt)","Pains (sécurisés)","Pão (Protegido)","Ekmek (Korumalı)","Roti (Aman)","хлеба (под защитой)","ขนมปัง (ปลอดภัย)","خبز (مضمون)","Pan (Asegurado)","Russian seen in genitive inside a sentence; base form is хлеб."]
   ]
  },
  {
   "cat": "Events",
   "rows": [
    ["Calendar","日曆","일정","—","—","Calendário","Takvim","Kalender","Календарь","ปฏิทิน","—","—"],
-   ["Hero Roulette","英雄轉盤","영웅 룰렛","Helden Roulette","—","Roleta de Herói","Kahraman Ruleti","Rolet Hero","Геройская рулетка","รูเล็ตฮีโร่","روليت البطل","—"],
+   ["Hero Roulette","英雄轉盤","영웅 룰렛","Helden Roulette","—","Roleta de Herói","Kahraman Ruleti","Rolet Hero","Геройская рулетка","รูเล็ตฮีโร่","روليت البطل","Ruleta de Héroes","ES: Event Calendar pop-up."],
    ["Officer Project","—","—","Offiziersprojekt","Projet d'Officier","—","—","—","—","—","مسؤول المشروع","—"],
    ["Swordland Showdown", "聖劍爭奪", "성검 쟁탈", "Schwertland-Showdown", "Choc du Glaive", "Confronto entre Espadas", "Kılıçdiyarı Hesaplaşması", "Swordland Showdown", "Битва за Страну мечей", "ศึกดวลดินแดนดาบ", "مواجهة أرض السيوف", "Enfrentamiento en Tierra de espadas", "ES: calendar pop-up and rules text."],
    ["Swordland", "聖劍戰場", "성검 전장", "Schwertland", "Terres du Glaive", "Terra das Espadas", "Kılıçdiyarı", "Swordland", "Страна мечей", "ดินแดนดาบ", "أرض السيوف", "Tierra de espadas", "Portuguese shows both 'Terra das Espadas' and 'Terra da Espada' in the game. ES capitalisation varies: 'Tierra de Espadas' / 'Tierra de las espadas'."],
@@ -173,10 +173,7 @@ const TERMS = [
   "rows": [
    ["Infantry", "步兵", "보병", "Infanterie", "Infanterie", "Infantaria", "Piyade", "Infanteri", "пехотинец", "ทหารราบ", "المشاة", "Infantería", "Portuguese confirmed from the Troops Preview button 'Infantaria do Ápice'. ES: from 'Infantería Definitiva'."],
    ["Cavalry", "騎兵", "기병", "Kavallerie", "Cavalerie", "Cavalaria", "Süvari", "Kavaleri", "кавалерист", "ทหารม้า", "الفرسان", "Caballería", "Portuguese confirmed from the Troops Preview buttons 'Cavalaria do Ápice' and 'Cavalaria Suprema'. ES: from 'Caballería Definitiva'."],
-   ["Archer", "弓兵", "궁병", "Bogenschütze", "Archer", "Arquearia", "Okçu", "Pemanah", "стрелок", "พลธนู", "الرماة", "Arquero", "Portuguese: 'Arquearia' is confirmed (Troops Preview 'Arquearia do Ápice' and Governor Gear 'Ataque da Arquearia'), not 'Arqueiro'. ES: 'Arquero' (Arquero Definitivo / Ataque de Arquero)."],
-   ["Apex Infantry", "王牌步兵", "에이스 보병", "Spitzen Infanterie", "Infanterie Extrême", "Infantaria do Ápice", "Mükemmel Piyade", "Infanteri Top", "Превосходный пехотинец", "ทหารราบเอเปกซ์", "المشاة المهيمنين", "—", "Troops Preview button."],
-   ["Apex Cavalry", "王牌騎兵", "에이스 기병", "Spitzen Kavallerie", "Cavalerie Extrême", "Cavalaria do Ápice", "Mükemmel Süvari", "Kavaleri Top", "Превосходный кавалерист", "ทหารม้าเอเปกซ์", "الفرسان المهيمنين", "—", "Troops Preview button."],
-   ["Apex Archer", "王牌弓兵", "에이스 궁병", "Spitzen Bogenschütze", "Archer Extrême", "Arquearia do Ápice", "Mükemmel Okçu", "Pemanah Top", "Превосходный стрелок", "พลธนูเอเปกซ์", "الرماة المهيمنين", "—", "Troops Preview button."]
+   ["Archer", "弓兵", "궁병", "Bogenschütze", "Archer", "Arquearia", "Okçu", "Pemanah", "стрелок", "พลธนู", "الرماة", "Arquero", "Portuguese: 'Arquearia' is confirmed (Troops Preview 'Arquearia do Ápice' and Governor Gear 'Ataque da Arquearia'), not 'Arqueiro'. ES: 'Arquero' (Arquero Definitivo / Ataque de Arquero)."]
   ]
  },
  {
@@ -327,7 +324,7 @@ const TERMS = [
    ["Gear Enhancement", "裝備強化", "장비 강화", "Ausrüstungsverbesserung", "Amélioration d'Équipement", "Aprimoramento do Equipamento", "Donanım Geliştirmesi", "Peningkatan Gear", "Усиление снаряжения", "การพัฒนาอุปกรณ์", "تحسين العتاد", "Mejora de equipo", "Tab of the Governor Gear screen."],
    ["Charm Upgrades", "寶石升級", "보석 레벨업", "Talisman-Verbesserungen", "Améliorations du Talisman", "Aprimoramentos de Acessório", "Tılsım Yükseltmeleri", "Upgrade Charm", "Улучшение талисманов", "การอัปเกรดเครื่องราง", "ترقيات التميمة", "Mejoras de talismanes", "Second tab of the Governor Gear screen."],
    ["Charm", "寶石", "보석", "Talisman", "Talisman", "Talismã", "Tılsım", "Charm", "талисман", "เครื่องราง", "التميمة", "Talismán", "Confirmed: 'Governor Charm' IS a real in-game term (see item tooltip 'A Governor Charm upgrade material'). Singular form taken from the 'Charm Upgrades' titles (Russian and Arabic show it in a plural or definite form). ES: tooltip says 'Talismán del Gobernador'."],
-   ["Charm Design", "寶石圖紙", "보석 도면", "Talismanpläne", "Plans de Talisman", "Design do Talismã", "Tılsım Tasarımı", "Desain Charm", "Чертеж талисмана", "แผนเครื่องราง", "تصميم تميمة", "Planos de talismán"],
+   ["Charm Design", "寶石圖紙", "보석 도면", "Talismanpläne", "Plans de Talisman", "Design do Talismã", "Tılsım Tasarımı", "Desain Charm", "Чертеж талисмана", "แผนเครื่องราง", "تصميم تميمة", "Planos de talismán"]
   ]
  },
  {
@@ -361,17 +358,17 @@ const TERMS = [
    ["Even more rewards","更多獎勵","더 많은 보상","Noch mehr Belohnungen","Encore plus de récompenses","Ainda mais recompensas","Daha da çok ödül","Lebih banyak hadiah","Еще больше наград","ยังมีรางวัลอีก","المزيد من المكافآت","—"],
    ["Only leaders and R4+ can enable","只有盟主和4階以上成員可以開啟","맹주와 4급 이상 연맹원만 오픈 가능","Nur Allianzanführer und Mitglieder mit einem R4-Rang oder höher können es aktivieren","Seuls les Leaders et les membres d'alliance de R4 ou plus peuvent activer ceci","Apenas os Líderes e membros de classificação R4 ou maior da Aliança podem habilitar","Sadece ittifak liderleri ve R4 veya üstü rütbeli üyeler etkinleştirebilir","Hanya ketua dan anggota aliansi dengan peringkat R4 atau lebih tinggi yang bisa mengaktifkan.","Включить могут только лидер альянса и участники с рангом R4 или выше","เฉพาะผู้นำพันธมิตรและสมาชิกพันธมิตรระดับ R4 ขึ้นไปเท่านั้นที่เปิดใช้งานได้","يمكن تمكين فقط قادة التحالف والأعضاء ذوي الرتب 4 أو أعلى","—","English: 'Only alliance leaders and members with R4 or higher ranks can enable'."],
    ["Town Center","城鎮中心","도시 센터","Stadtzentrum","Centre","Centro da Cidade","Şehir Merkezi","Tungku","центр города","ศูนย์กลางเมือง","مركز البلدة","Centro de pueblo","French shows only 'Centre' (…Niv. 7) in the rules; Portuguese full form is 'Nível do Centro da Cidade'. ES building nameplate: 'Centro de pueblo Nv. 30'. The same screen's attribute panel and the Forgehammer tooltip say 'Centro Urbano'; Swordland rules say 'Centro de Pueblo'."],
-   ["Viking Vengeance", "維京人的掠奪", "바이킹의 약탈", "Wikinger-Rache", "Vengeance Viking", "Vingança Viking", "Viking İntikamı", "Viking Vengeance", "Месть викингов", "การล้างแค้นของไวกิ้ง", "انتقام الفايكنغ", "—", "Chinese and Korean say 'plunder' (掠奪 / 약탈), the others say 'vengeance/revenge'. Indonesian keeps the English name."],
-   ["Vikings", "維京掠奪者", "바이킹 약탈자", "Wikinger", "Vikings", "vikings", "Vikingler", "Viking", "викинги", "ไวกิ้ง", "الفايكنغ", "—", "Chinese also says 維京人. Indonesian rules also use 'penjahat' (villains) and 'Bandit'; Russian rule 5 says 'бандиты' (bandits); Thai rules say 'เหล่าไวกิง'."],
-   ["Defense Points", "防守積分", "방어 포인트", "Verteidigungspunkte", "Points Défensifs", "Pontos de Defesa", "Savunma Puanları", "Poin Pertahanan", "очки защиты", "คะแนนการป้องกัน", "نقاط الدفاع", "—", "Personal / Alliance: 個人 / 聯盟, 개인 / 연맹, Persönlich / Allianz, Individuel / d'Alliance, pessoal / de aliança, Kişisel / İttifak, pribadi / Aliansi, личные / альянса, ส่วนบุคคล / พันธมิตร, الشخصية / التحالف."],
-   ["Successful defense", "防守成功", "방어 성공", "erfolgreiche Verteidigung", "défense réussie", "defesa bem-sucedida", "savunmayı başarıya ulaştırır", "Pertahanan sukses", "успешно защититься", "การป้องกันนั้นสำเร็จ", "الدفاع ناجح", "—", "Seen inside sentences. The rule: killing 50% or more of the Vikings counts as a successful defense."],
-   ["Reinforce allies", "增援盟友", "연맹원을 증원", "Verstärke Verbündete", "Renforce tes alliés", "Reforce os aliados", "müttefikleri güçlendir", "Perkuat sekutu", "Отправьте подкрепления союзникам", "ส่งกำลังเสริมให้กับพันธมิตร", "عزز الحلفاء", "—", "Seen inside sentences."],
-   ["Kills", "擊殺", "처치", "Kills", "éliminations", "mortes", "öldürdüğün birim sayısı", "pembunuhan", "убийств", "การสังหาร", "القتلى", "—", "Seen inside sentences. Turkish literally says 'the number of units you killed'."],
+   ["Viking Vengeance","維京人的掠奪","바이킹의 약탈","Wikinger-Rache","Vengeance Viking","Vingança Viking","Viking İntikamı","Viking Vengeance","Месть викингов","การล้างแค้นของไวกิ้ง","انتقام الفايكنغ","Venganza vikinga","Chinese and Korean say 'plunder' (掠奪 / 약탈), the others say 'vengeance/revenge'. Indonesian keeps the English name. ES: Event Calendar pop-up."],
+   ["Vikings","維京掠奪者","바이킹 약탈자","Wikinger","Vikings","vikings","Vikingler","Viking","викинги","ไวกิ้ง","الفايكنغ","vikingos","Chinese also says 維京人. Indonesian rules also use 'penjahat' (villains) and 'Bandit'; Russian rule 5 says 'бандиты' (bandits); Thai rules say 'เหล่าไวกิง'. ES lowercase in the rules."],
+   ["Defense Points","防守積分","방어 포인트","Verteidigungspunkte","Points Défensifs","Pontos de Defesa","Savunma Puanları","Poin Pertahanan","очки защиты","คะแนนการป้องกัน","نقاط الدفاع","Puntos de defensa","Personal / Alliance: 個人 / 聯盟, 개인 / 연맹, Persönlich / Allianz, Individuel / d'Alliance, pessoal / de aliança, Kişisel / İttifak, pribadi / Aliansi, личные / альянса, ส่วนบุคคล / พันธมิตร, الشخصية / التحالف. ES rule 4 capitalises 'Puntos de Defensa'."],
+   ["Successful defense","防守成功","방어 성공","erfolgreiche Verteidigung","défense réussie","defesa bem-sucedida","savunmayı başarıya ulaştırır","Pertahanan sukses","успешно защититься","การป้องกันนั้นสำเร็จ","الدفاع ناجح","defensa exitosa","Seen inside sentences. The rule: killing 50% or more of the Vikings counts as a successful defense."],
+   ["Reinforce allies","增援盟友","연맹원을 증원","Verstärke Verbündete","Renforce tes alliés","Reforce os aliados","müttefikleri güçlendir","Perkuat sekutu","Отправьте подкрепления союзникам","ส่งกำลังเสริมให้กับพันธมิตร","عزز الحلفاء","Refuerza a tus aliados","Seen inside sentences."],
+   ["Kills","擊殺","처치","Kills","éliminations","mortes","öldürdüğün birim sayısı","pembunuhan","убийств","การสังหาร","القتلى","asesinatos","Seen inside sentences. Turkish literally says 'the number of units you killed'. ES rule 4: '50% de tus asesinatos'."],
    ["Event Rules", "活動規則", "이벤트 규칙", "Eventregeln", "Règles", "Regras do Evento", "Etkinlik Kuralları", "Aturan Event", "Правила события", "กติกาอีเวนต์", "قواعد الفعالية", "Reglas del evento", "Heading inside the Rules window (in brackets in most languages, none in Turkish). The English screenshot did not show it, so the English wording is a guess from the other languages. ES from the Fishing Tournament screen."],
-   ["Event difficulty", "活動難度", "이벤트 난이도", "Schwierigkeitsgrad des Events", "difficulté", "dificuldade do evento", "etkinlik zorluğu", "tingkat kesulitan Event", "сложность события", "ความยากของอีเวนต์", "صعوبة الفعالية", "—", "Seen inside sentences: chosen in Settings. The English screenshot was cut off before this line, so the English wording is a guess."],
-   ["Alliance HQ", "聯盟總部", "연맹 본부", "Allianz-Hauptquartier", "QG d'Alliance", "QG da Aliança", "İttifak Karargahı", "markas aliansi", "штаб альянса", "ศูนย์บัญชาการพันธมิตร", "مقر التحالف", "—", "Seen inside sentences."],
-   ["[Plains] HQ", "【平原】總部", "[평원] 본부", "[Ebenen]-Hauptquartier", "QG des [Plaines]", "QG das [Planícies]", "Çayır Karargahı", "markas [Plains]", "штаб на [равнинах]", "ศูนย์บัญชาการ [ที่ราบสูง]", "مقر [السهول]", "—", "The Vikings attack this one first. Turkish is inflected in the game text (Çayır Karargahına). Indonesian keeps English [Plains]."],
-   ["[Badland] HQ", "【荒野】總部", "[황야] 본부", "[Badland]-Hauptquartier", "QG des [Bas-fonds]", "QG da [Terra Maligna]", "Çoraktoprak Karargahı", "markas [Badland]", "штаб в [дикой местности]", "ศูนย์บัญชาการ [ดินแดนกันดาร]", "مقر [أرض الشر]", "—", "Attacked if there is no Plains HQ. Chinese 荒野 is the same word as in Desert Trial (荒野的試煉). Indonesian keeps English [Badland]."]
+   ["Event difficulty","活動難度","이벤트 난이도","Schwierigkeitsgrad des Events","difficulté","dificuldade do evento","etkinlik zorluğu","tingkat kesulitan Event","сложность события","ความยากของอีเวนต์","صعوبة الفعالية","dificultad del evento","Seen inside sentences: chosen in Settings. The English screenshot was cut off before this line, so the English wording is a guess."],
+   ["Alliance HQ","聯盟總部","연맹 본부","Allianz-Hauptquartier","QG d'Alliance","QG da Aliança","İttifak Karargahı","markas aliansi","штаб альянса","ศูนย์บัญชาการพันธมิตร","مقر التحالف","Cuartel general de la Alianza","Seen inside sentences."],
+   ["[Plains] HQ","【平原】總部","[평원] 본부","[Ebenen]-Hauptquartier","QG des [Plaines]","QG das [Planícies]","Çayır Karargahı","markas [Plains]","штаб на [равнинах]","ศูนย์บัญชาการ [ที่ราบสูง]","مقر [السهول]","Cuartel general de las [Llanuras]","The Vikings attack this one first. Turkish is inflected in the game text (Çayır Karargahına). Indonesian keeps English [Plains]."],
+   ["[Badland] HQ","【荒野】總部","[황야] 본부","[Badland]-Hauptquartier","QG des [Bas-fonds]","QG da [Terra Maligna]","Çoraktoprak Karargahı","markas [Badland]","штаб в [дикой местности]","ศูนย์บัญชาการ [ดินแดนกันดาร]","مقر [أرض الشر]","Cuartel general de las [Tierras malas]","Attacked if there is no Plains HQ. Chinese 荒野 is the same word as in Desert Trial (荒野的試煉). Indonesian keeps English [Badland]."]
   ]
  },
  {
@@ -417,9 +414,9 @@ const TERMS = [
 {
   "cat": "Eternity's Reach",
   "rows": [
-   ["Eternity's Reach","失落的遺跡","사라진 유적","Weiten der Ewigkeit","l'Éternité à Portée","Alcance da Eternidade","Sonsuzluğun Erişimi","Eternity's Reach","Предел бесконечности","ขอบเขตนิรันดร์","وصول الأبدية","—","Event name; tab icon shows a golden crown."],
+   ["Eternity's Reach","失落的遺跡","사라진 유적","Weiten der Ewigkeit","l'Éternité à Portée","Alcance da Eternidade","Sonsuzluğun Erişimi","Eternity's Reach","Предел бесконечности","ขอบเขตนิรันดร์","وصول الأبدية","Alcance de la Eternidad","Event name; tab icon shows a golden crown. ES: Event Calendar pop-up ('Entra en el Alcance de la Eternidad y únete a la batalla')."],
    ["Explore the Eternity's Reach for strategic resource—Copper Ores!","探索失落的遺跡，取得極具戰略價值的銅礦石！","사라진 유적을 탐험하고, 전략적 가치가 높은 청동석을 획득하세요!","Erkunde Weiten der Ewigkeit nach strategischen Ressourcen – Kupfererzen!","Explore l'Éternité à Portée pour une ressource stratégique, les minerais de cuivre !","Explore o Alcance da Eternidade em busca de um recurso estratégico: Minérios de Cobre!","Stratejik kaynak olan Bakır Cevherleri için Sonsuzluğun Erişimi'ni keşfet!","Jelajahi Eternity's Reach untuk mendapatkan sumber daya strategis - Bijih Tembaga!","Исследуйте «Предел бесконечности» и отыщите очень важный ресурс — медную руду!","สำรวจขอบเขตนิรันดร์เพื่อรับทรัพยากรเชิงกลยุทธ์—แร่ทองแดง!","استكشف وصول الأبدية للموارد الاستراتيجية - خامات النحاس!","—"],
-   ["Copper Ore","銅礦石","청동석","Kupfererz","Minerais de Cuivre","Minério de Cobre","Bakır Cevheri","Bijih Tembaga","медная руда","แร่ทองแดง","خامات النحاس","—"],
+   ["Copper Ore","銅礦石","청동석","Kupfererz","Minerais de Cuivre","Minério de Cobre","Bakır Cevheri","Bijih Tembaga","медная руда","แร่ทองแดง","خامات النحاس","Minerales de Cobre","ES seen only in the plural ('Minerales de Cobre')."],
    ["Sign up and battle on the same day","當日報名，當日參戰","당일 신청, 당일 참전","Anmelden und am gleichen Tag in die Schlacht ziehen","S'inscrire et combattre le même jour","Inscreva-se e batalhe no mesmo dia","Aynı gün kaydol ve savaş","Daftar dan bertempurlah di hari yang sama","Зарегистрируйтесь и сражайтесь в тот же день","ลงทะเบียนและต่อสู้ในวันเดียวกัน","اشترك وقاتل في نفس اليوم","—"],
    ["Registration closes in","距離報名結束","신청 종료까지","Anmeldung endet in","Fin d'inscription dans","Registro acaba em","Kayıt bitişi:","Registrasi ditutup","До конца регистрации:","การลงทะเบียนจะปิดใน","سيُغلق التسجيل بعد","—"],
    ["Sign up now","立即報名","바로 신청","Jetzt anmelden","S'inscrire","Inscrever-se agora","Şimdi kaydol","Daftar Sekarang","Зарегистрироваться","ลงทะเบียนเดี๋ยวนี้","اشترك الآن","—","Main CTA button."],
@@ -427,20 +424,20 @@ const TERMS = [
    ["Rewards (button)","獎勵","보상","Belohnungen","Récompenses","Recompensas","Ödüller","Hadiah","Награды","รางวัล","المكافآت","—","Side button; opens rewards preview."],
    ["Guide (button)","指南","가이드","Leitfaden","Guide","Guia","Kılavuz","Panduan","Руководство","คำแนะนำ","الدليل","—","Side button."],
    ["Historical Ranking","排名紀錄","지난 랭킹","Historischer Rang","Historique de Classement","Classificação Histórica","Tarihsel Sıralama","Riwayat Peringkat","Рейтинг за все время","อันดับประวัติศาสตร์","التصنيف التاريخي","—","Side button."],
-   ["Overview (dialog tab)","基礎說明","기본 설명","Übersicht","Aperçu","Resumo","Özet","Ringkasan","Базовый обзор","ภาพรวม","نظرة عامة","—","English reuses the word 'Overview' for both the side button and this tab; German does the same."],
-   ["Buildings (dialog tab)","建築介紹","건물 소개","Gebäude","Bâtiments","Construções","Binalar","Bangunan","О зданиях","สิ่งปลูกสร้าง","المباني","—"],
-   ["Other (dialog tab)","其他","기타","Andere","Autre","Outros","Diğer","Lainnya","Другое","อื่นๆ","أخرى","Otros","ES: seen as the Backpack tab."],
-   ["Lv. 1 Vein","1級礦脈","Lv.1 광맥","Lv. 1 Ader","Filon de Niv. 1","Veio Nv. 1","Sv. 1 Damar","Vein Lv. 1","Ур. 1 Жила","สายแร่เลเวล 1","عرق من المستوى 1","—"],
-   ["Lv. 2 Vein","2級礦脈","Lv.2 광맥","Lv. 2 Ader","Filon de Niv. 2","Veio Nv. 2","Sv. 2 Damar","Vein Lv. 2","Ур. 2 Жила","สายแร่เลเวล 2","عرق من المستوى 2","—"],
-   ["Lv. 3 Vein","3級礦脈","Lv.3 광맥","Lv. 3 Ader","Filon de Niv. 3","Veio Nv. 3","Sv. 3 Damar","Vein Lv. 3","Ур. 3 Жила","สายแร่เลเวล 3","عرق من المستوى 3","—"],
-   ["Fracture Vein","不穩定礦脈","불안정한 광맥","Gebrochene Ader","Filon Fracturé","Veio Fraturado","Çatlak Damar","Fracture Vein","Прорыв жил","สายแร่ประทุ","العرق المتصدع","—","Higher-yield vein that appears intermittently."],
-   ["Peak of Eternity","失落宮殿","사라진 궁전","Gipfel der Ewigkeit","Pic de l'Éternité","Pico da Eternidade","Sonsuzluğun Zirvesi","Peak of Eternity","Пик бесконечности","ยอดเขานิรันดร์","قمة الأبدية","—","Central contested building; occupation time earns Copper Ores."],
-   ["Capacity","儲備量","저장량","Kapazität","Capacité","Capacidade","Kapasite","Kapasitas","Вместимость","ความจุ","السعة","—"],
-   ["Speed","速度","속도","Geschwindigkeit","Vitesse","Velocidade","Hız","Kecepatan","Скорость","สปีด","السرعة","—","Resource gain rate, e.g. '+8/s'."],
-   ["View Rewards","檢視獎勵","보상 보기","Belohnung ansehen","Voir Récompenses","Ver Recompensas","Ödülleri Gör","Lihat Hadiah","Обзор наград","ดูรางวัล","عرض المكافآت","—"],
-   ["March Queue","常規行軍欄位","일반 행군 슬롯","Marschwarteschleife","File de Marche","Fila de Marcha","İntikal Sırası","Antrean Barisan","очередь марша","คิวเดินทัพ","طابور الزحف","—","'does not occupy your regular March Queue' — the squad sent to loot dropped ore doesn't use a normal march slot."],
-   ["Advanced Teleporter","高級遷城","고급 도시 이전","Fortgeschrittene Umsiedlung","Téléportation Avancée","Teletransportador Avançado","Gelişmiş Işınlayıcı","Advanced Teleporter","продвинутый телепорт","ตัวช่วยย้ายถิ่นฐานขั้นสูง","الناقل المتقدم","Reubicación avanzada","Free relocation item usable inside the ruins. ES: same item as in the Backpack."],
-   ["Cesares Guards","切薩雷守衛","체사레 수비병","Cesares Wächter","Gardes Césarès","Guardas Césares","Cesares Muhafızları","Cesares Guards","стражи цесарцев","ทหารยามซีซาเรส","حراس سيزاريس","—","Guards defending Lv.1–3 Veins; must be defeated to gather from them."]
+   ["Overview (dialog tab)","基礎說明","기본 설명","Übersicht","Aperçu","Resumo","Özet","Ringkasan","Базовый обзор","ภาพรวม","نظرة عامة","Resumen","English reuses the word 'Overview' for both the side button and this tab; German does the same. ES: the dialog window title is also 'Resumen'."],
+   ["Buildings (dialog tab)","建築介紹","건물 소개","Gebäude","Bâtiments","Construções","Binalar","Bangunan","О зданиях","สิ่งปลูกสร้าง","المباني","Edificios"],
+   ["Other (dialog tab)","其他","기타","Andere","Autre","Outros","Diğer","Lainnya","Другое","อื่นๆ","أخرى","Otros","ES: seen as the Backpack tab. ES: also the Eternity's Reach dialog tab."],
+   ["Lv. 1 Vein","1級礦脈","Lv.1 광맥","Lv. 1 Ader","Filon de Niv. 1","Veio Nv. 1","Sv. 1 Damar","Vein Lv. 1","Ур. 1 Жила","สายแร่เลเวล 1","عرق من المستوى 1","Veta de nv. 1"],
+   ["Lv. 2 Vein","2級礦脈","Lv.2 광맥","Lv. 2 Ader","Filon de Niv. 2","Veio Nv. 2","Sv. 2 Damar","Vein Lv. 2","Ур. 2 Жила","สายแร่เลเวล 2","عرق من المستوى 2","Veta de nv. 2"],
+   ["Lv. 3 Vein","3級礦脈","Lv.3 광맥","Lv. 3 Ader","Filon de Niv. 3","Veio Nv. 3","Sv. 3 Damar","Vein Lv. 3","Ур. 3 Жила","สายแร่เลเวล 3","عرق من المستوى 3","Veta de nv. 3"],
+   ["Fracture Vein","不穩定礦脈","불안정한 광맥","Gebrochene Ader","Filon Fracturé","Veio Fraturado","Çatlak Damar","Fracture Vein","Прорыв жил","สายแร่ประทุ","العرق المتصدع","Veta fracturada","Higher-yield vein that appears intermittently. ES text also 'Veta Fracturada' / 'vetas de fractura'."],
+   ["Peak of Eternity","失落宮殿","사라진 궁전","Gipfel der Ewigkeit","Pic de l'Éternité","Pico da Eternidade","Sonsuzluğun Zirvesi","Peak of Eternity","Пик бесконечности","ยอดเขานิรันดร์","قمة الأبدية","Pico de la Eternidad","Central contested building; occupation time earns Copper Ores. ES Overview step 4 once calls it 'Nexo de oro' (game inconsistency)."],
+   ["Capacity","儲備量","저장량","Kapazität","Capacité","Capacidade","Kapasite","Kapasitas","Вместимость","ความจุ","السعة","Capacidad"],
+   ["Speed","速度","속도","Geschwindigkeit","Vitesse","Velocidade","Hız","Kecepatan","Скорость","สปีด","السرعة","Velocidad","Resource gain rate, e.g. '+8/s'."],
+   ["View Rewards","檢視獎勵","보상 보기","Belohnung ansehen","Voir Récompenses","Ver Recompensas","Ödülleri Gör","Lihat Hadiah","Обзор наград","ดูรางวัล","عرض المكافآت","Ver recompensas"],
+   ["March Queue","常規行軍欄位","일반 행군 슬롯","Marschwarteschleife","File de Marche","Fila de Marcha","İntikal Sırası","Antrean Barisan","очередь марша","คิวเดินทัพ","طابور الزحف","cola de marcha habitual","'does not occupy your regular March Queue' — the squad sent to loot dropped ore doesn't use a normal march slot. ES text: 'no ocupa tu cola de marcha habitual'."],
+   ["Advanced Teleporter","高級遷城","고급 도시 이전","Fortgeschrittene Umsiedlung","Téléportation Avancée","Teletransportador Avançado","Gelişmiş Işınlayıcı","Advanced Teleporter","продвинутый телепорт","ตัวช่วยย้ายถิ่นฐานขั้นสูง","الناقل المتقدم","Reubicación avanzada","Free relocation item usable inside the ruins. ES: same item as in the Backpack. ES Eternity's Reach rules say [Teletransportador avanzado] instead."],
+   ["Cesares Guards","切薩雷守衛","체사레 수비병","Cesares Wächter","Gardes Césarès","Guardas Césares","Cesares Muhafızları","Cesares Guards","стражи цесарцев","ทหารยามซีซาเรส","حراس سيزاريس","Guardias Césares","Guards defending Lv.1–3 Veins; must be defeated to gather from them."]
   ]
  },
  {
@@ -964,5 +961,5 @@ const TERMS = [
    ["Archer Lethality", "弓兵殺傷力", "궁병 파괴력", "Bogenschützen-Tödlichkeit", "Létalité de l'Arch.", "Letalidade da Arquearia", "Okçu Öldürücülüğü", "Letalitas Pemanah", "Смертоносность стрелков", "ความแรงพลังพลธนู", "قوة فتك الرماة", "Letalidad de Arquero", "Pet stat."],
    ["Archer Health", "弓兵生命值", "궁병 HP", "Bogenschützen-Gesundheit", "Santé de l'Arch.", "Vida da Arquearia", "Okçu Sağlığı", "Nyawa Pemanah", "Здоровье стрелков", "พลังชีวิตพลธนู", "صحة الرماة", "Salud de Arquero", "Pet stat."]
   ]
- },
+ }
 ];
