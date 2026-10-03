@@ -1,9 +1,11 @@
 [
   {
-    "id": "86682056e9",
+    "id": "55f04275a0",
     "author": "Nia",
     "createdAt": "2026-10-03T09:39:00.000Z",
-    "images": [],
+    "images": [
+      "figures/tri_portion.png"
+    ],
     "links": [],
     "title": {
       "zh": "🔱 三盟爭霸 – 各組任務分配",

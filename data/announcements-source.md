@@ -93,7 +93,7 @@ content: |
 author: Nia
 lang: en   # en / zh / ko / de / fr / pt / tr / id / ru / th / ar / es
 title: 🔱 Tri-Alliance Clash – Team Responsibilities
-images: []
+images: ["figures/tri_portion.png"]
 content: |
   **STAGE 0 – PREPARATION (0:00–3:00)**
   • Scope the other alliances.

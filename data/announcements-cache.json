@@ -169,10 +169,12 @@
       "en": "🔹 All joiners must send exactly 90,000 troops to rallies. Pre-save your marches.\n🔹 Leaders initiate your rally with maximum troops but when you join other rallies you must also follow the troop limit.\n\n🔹 At the start: Main Rally Leaders send their first rally at their assigned staggered time.\n🔹 At 6:30 remaining: All joiners start their own rally using their 3 strongest heroes.\n\n🔪 Incorrect heroes & wrong troop numbers - kick and ask to rejoin\n\n[[link:bear-hunt]]\n"
     }
   },
-  "86682056e9": {
+  "55f04275a0": {
     "author": "Nia",
     "createdAt": "2026-10-03T09:39:00.000Z",
-    "images": [],
+    "images": [
+      "figures/tri_portion.png"
+    ],
     "links": [],
     "title": {
       "zh": "🔱 三盟爭霸 – 各組任務分配",
