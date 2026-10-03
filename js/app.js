@@ -139,6 +139,7 @@ function rich(str) {
         <span class="arrow">›</span>
       </button>`;
     })
+    .replace(/\[\[img:([\w./-]+)\]\]/g, (m, src) => `<img class="ann-img" src="${src}" loading="lazy" style="display:block;max-width:100%;height:auto;margin:8px 0">`)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/(https?:\/\/[^\s<]+)/g, (m, url) => {
       // Long links wrap instead of running off the screen; "https://" and the trailing "/" are hidden
