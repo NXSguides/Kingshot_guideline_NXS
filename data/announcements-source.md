@@ -93,7 +93,7 @@ content: |
 author: Nia
 lang: en   # en / zh / ko / de / fr / pt / tr / id / ru / th / ar / es
 title: 🔱 Tri-Alliance Clash – Team Responsibilities
-images: ["figures/tri_portion.png"]
+images: []
 content: |
   **STAGE 0 – PREPARATION (0:00–3:00)**
   • Scope the other alliances.
@@ -104,6 +104,8 @@ content: |
   2. Hades - 21
   3. Hades - 24
   4. Hades - 29
+
+  [[img:figures/tri_portion.png]]
 
   ⸻
   **STAGE 1 – SEIZE & CONQUER (3:00–20:00)**
