@@ -9687,7 +9687,7 @@ const GUIDES = {
         {"type":"sub","text":"P2W players"},
         {"type":"list","items":["Use your **offensive and defensive orange heroes**.","**Offensive {widget}s DO NOT count** in this event. **Defensive {widget}s DO count** — prioritize heroes with strong defensive {widget}s."]},
         {"type":"h","text":"🏛️ BUILDINGS & POINTS"},
-        {"type":"list","items":["**{templeOfTides} = PRIMARY OBJECTIVE** — it opens at the end.","**{tacGarrison}:** they seem to be bugged and don't give the expected extra points. Don't prioritize them over the {templeOfTides}.","Names used in our chat: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","Attacking and capturing buildings gives **more points than just defending/holding them** — unlike Swordland Showdown."]},
+        {"type":"list","items":["**{templeOfTides} = PRIMARY OBJECTIVE** — it opens at the end.","Names used in our chat: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","Attacking and capturing buildings gives **more points than just defending/holding them** — unlike Swordland Showdown."]},
         {"type":"h","text":"👥 TEAMS & ROLES"},
         {"type":"p","text":"Players are split into **about 3 teams** working different lanes — the strongest player plus a back-up for each target, so our strength is spread effectively."},
         {"type":"sub","text":"Team 3 — Capture neutral buildings at the start"},
@@ -9702,6 +9702,7 @@ const GUIDES = {
         {"type":"list","items":["**{tacGarrison}:** 60,000 — gold","**{tacRuinsCluster} (Shrine):** 45,000 — purple","**{tacRuins} (Altar):** 15,000 — blue"]},
         {"type":"h","text":"🗺️ BATTLE OVERVIEW"},
         {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"p","text":"🔵 Blue = {transitHub}　🔴 Red = {tacGarrison}　🟡 Yellow = {templeOfTides}"},
         {"type":"sub","text":"Phase 1: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**Goal:** set up your squads and get to know the map. Remember the purple, red and yellow zones — the ones you occupy turn blue. Check the enemies' strength and decide which alliance to focus on."},
         {"type":"sub","text":"Phase 2: {seizeConquer} (3:00–20:00)"},
@@ -9728,7 +9729,7 @@ const GUIDES = {
         {"type":"h","text":"⚡ {tacEnergy} MANAGEMENT"},
         {"type":"p","text":"**Every move/action costs {tacEnergy} — use it wisely.**"},
         {"type":"list","items":["**{tacDeploy}** — move your squad to a new available location.","**{tacAdvance}** — skip the current target/queue and move on to the next target in your lane.","**{tacConscript}** — heal and refill troops while in a building that isn't in combat.","**{tacRevive}** — recover on the spot after defeat instead of going back to {tacHeadquarters}; it costs {tacEnergy}, so only use it when needed."]},
-        {"type":"p","text":"R4s make sure strong players are {tacCaptain}s — they generate more {tacEnergy}."}
+        {"type":"p","text":"R4s & Legion commanders make sure strong players are assigned {tacCaptain}, so they generate more {tacEnergy}."}
       ]},
       zh: { title: "三盟爭霸", blocks: [
         {"type":"h","text":"🎲 活動怎麼玩"},
@@ -9742,7 +9743,7 @@ const GUIDES = {
         {"type":"sub","text":"P2W 玩家"},
         {"type":"list","items":["使用**進攻型和防守型的橘色英雄**。","這個活動裡**進攻型{widget}無效**，**防守型{widget}有效**，優先用防守型{widget}強的英雄。"]},
         {"type":"h","text":"🏛️ 建築與分數"},
-        {"type":"list","items":["**{templeOfTides} = 主要目標**，在最後才開放。","**{tacGarrison}：**目前好像有 bug，拿不到預期的額外分數。不要為了它犧牲{templeOfTides}。","聊天裡常用的叫法：**Shrine = {tacRuinsCluster}**、**Altar = {tacRuins}**。","攻打並佔領建築拿到的分數，**比單純防守／佔著還多**，這點跟聖劍爭奪不一樣。"]},
+        {"type":"list","items":["**{templeOfTides} = 主要目標**，在最後才開放。","聊天裡常用的叫法：**Shrine = {tacRuinsCluster}**、**Altar = {tacRuins}**。","攻打並佔領建築拿到的分數，**比單純防守／佔著還多**，這點跟聖劍爭奪不一樣。"]},
         {"type":"h","text":"👥 分組與分工"},
         {"type":"p","text":"大家會分成**約 3 組**，在不同路線行動。每個目標安排最強的玩家加一位後援，讓戰力分配得更有效。"},
         {"type":"sub","text":"第 3 組：開場佔領中立建築"},
@@ -9757,6 +9758,7 @@ const GUIDES = {
         {"type":"list","items":["**{tacGarrison}：**60,000（金色）","**{tacRuinsCluster}（Shrine）：**45,000（紫色）","**{tacRuins}（Altar）：**15,000（藍色）"]},
         {"type":"h","text":"🗺️ 戰鬥流程"},
         {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"p","text":"🔵 藍色＝{transitHub}　🔴 紅色＝{tacGarrison}　🟡 黃色＝{templeOfTides}"},
         {"type":"sub","text":"第一階段：{tacPreparations}（0:00–3:00）"},
         {"type":"p","text":"**目標：**設定部隊、熟悉地圖。記住紫、紅、黃三塊區域，被我方佔領的會變成藍色。看看敵人的實力，決定要主打哪個聯盟。"},
         {"type":"sub","text":"第二階段：{seizeConquer}（3:00–20:00）"},
@@ -9783,7 +9785,7 @@ const GUIDES = {
         {"type":"h","text":"⚡ {tacEnergy}管理"},
         {"type":"p","text":"**每次移動或行動都會消耗{tacEnergy}，要省著用。**"},
         {"type":"list","items":["**{tacDeploy}**：把部隊移到新的可前往位置。","**{tacAdvance}**：跳過目前的目標／排隊，前往同一路線的下一個目標。","**{tacConscript}**：在沒有交戰的建築裡治療並補滿部隊。","**{tacRevive}**：被打敗後原地復活，不用回{tacHeadquarters}；會消耗{tacEnergy}，必要時才用。"]},
-        {"type":"p","text":"R4 會確保強的玩家被任命為{tacCaptain}，產生更多{tacEnergy}。"}
+        {"type":"p","text":"R4 和各軍團負責人會確保強的玩家被任命為{tacCaptain}，讓他們產生更多{tacEnergy}。"}
       ]},
       ko: { title: "삼대 연맹전 (TAC) 전략 가이드", blocks: [
         {"type":"h","text":"🎲 이벤트 진행 방식"},
@@ -9797,7 +9799,7 @@ const GUIDES = {
         {"type":"sub","text":"과금 유저"},
         {"type":"list","items":["**공격형·방어형 주황색 영웅**을 사용하세요.","이 이벤트에서는 **공격형 {widget}은 적용되지 않고**, **방어형 {widget}은 적용됩니다** — 방어형 {widget}이 강한 영웅을 우선하세요."]},
         {"type":"h","text":"🏛️ 건물 & 점수"},
-        {"type":"list","items":["**{templeOfTides} = 최우선 목표** — 마지막에 열립니다.","**{tacGarrison}:** 현재 버그로 예상한 추가 점수가 들어오지 않는 것 같습니다. {templeOfTides}을 희생하면서까지 우선하지 마세요.","채팅에서 쓰는 이름: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","건물을 공격해 점령하면 **단순히 방어/유지하는 것보다 점수가 더 많습니다** — 성검 쟁탈과는 다릅니다."]},
+        {"type":"list","items":["**{templeOfTides} = 최우선 목표** — 마지막에 열립니다.","채팅에서 쓰는 이름: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","건물을 공격해 점령하면 **단순히 방어/유지하는 것보다 점수가 더 많습니다** — 성검 쟁탈과는 다릅니다."]},
         {"type":"h","text":"👥 팀 & 역할 배정"},
         {"type":"p","text":"플레이어는 **약 3개 팀**으로 나뉘어 각기 다른 라인에서 움직입니다. 목표마다 가장 강한 플레이어 + 백업 1명을 배치해 전력을 효율적으로 분배합니다."},
         {"type":"sub","text":"3팀 — 시작하자마자 중립 건물 점령"},
@@ -9812,6 +9814,7 @@ const GUIDES = {
         {"type":"list","items":["**{tacGarrison}:** 60,000 — 금색","**{tacRuinsCluster} (Shrine):** 45,000 — 보라색","**{tacRuins} (Altar):** 15,000 — 파란색"]},
         {"type":"h","text":"🗺️ 전투 흐름"},
         {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"p","text":"🔵 파란색 = {transitHub}　🔴 빨간색 = {tacGarrison}　🟡 노란색 = {templeOfTides}"},
         {"type":"sub","text":"1단계: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**목표:** 부대를 세팅하고 맵을 익히세요. 보라·빨강·노랑 구역을 기억하세요 — 우리가 점령한 곳은 파란색으로 바뀝니다. 적의 전력을 확인하고 어느 연맹을 집중 공략할지 정하세요."},
         {"type":"sub","text":"2단계: {seizeConquer} (3:00–20:00)"},
@@ -9838,7 +9841,7 @@ const GUIDES = {
         {"type":"h","text":"⚡ {tacEnergy} 관리"},
         {"type":"p","text":"**모든 이동/행동에 {tacEnergy}가 소모됩니다 — 신중하게 사용하세요.**"},
         {"type":"list","items":["**{tacDeploy}** — 부대를 이동 가능한 새 위치로 보냅니다.","**{tacAdvance}** — 현재 목표/대기열을 건너뛰고 라인의 다음 목표로 이동합니다.","**{tacConscript}** — 전투 중이 아닌 건물에서 부대를 치료하고 보충합니다.","**{tacRevive}** — 패배 후 {tacHeadquarters}로 돌아가지 않고 그 자리에서 부활합니다. {tacEnergy}가 들므로 꼭 필요할 때만 사용하세요."]},
-        {"type":"p","text":"R4는 강한 플레이어가 {tacCaptain}으로 임명되어 더 많은 {tacEnergy}를 얻도록 관리합니다."}
+        {"type":"p","text":"R4와 각 군단 책임자는 강한 플레이어가 {tacCaptain}으로 임명되어 더 많은 {tacEnergy}를 얻도록 관리합니다."}
       ]},
       de: { title: "Drei-Allianz-Wettkampf", blocks: [
         {"type":"h","text":"🎲 SO FUNKTIONIERT DAS EVENT"},
@@ -9852,7 +9855,7 @@ const GUIDES = {
         {"type":"sub","text":"P2W-Spieler"},
         {"type":"list","items":["Nutze deine **offensiven und defensiven orangen Helden**.","**Offensive {widget} zählen in diesem Event NICHT.** **Defensive {widget} zählen** — bevorzuge Helden mit starken defensiven {widget}."]},
         {"type":"h","text":"🏛️ GEBÄUDE & PUNKTE"},
-        {"type":"list","items":["**{templeOfTides} = HAUPTZIEL** — er öffnet am Ende.","**{tacGarrison}:** scheinen verbuggt zu sein und geben nicht die erwarteten Zusatzpunkte. Nicht auf Kosten des {templeOfTides} priorisieren.","Namen in unserem Chat: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","Gebäude angreifen und erobern bringt **mehr Punkte als nur verteidigen/halten** — anders als beim Schwertland-Showdown."]},
+        {"type":"list","items":["**{templeOfTides} = HAUPTZIEL** — er öffnet am Ende.","Namen in unserem Chat: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","Gebäude angreifen und erobern bringt **mehr Punkte als nur verteidigen/halten** — anders als beim Schwertland-Showdown."]},
         {"type":"h","text":"👥 TEAMS & ROLLEN"},
         {"type":"p","text":"Die Spieler werden in **etwa 3 Teams** auf verschiedenen Pfaden aufgeteilt — pro Ziel der stärkste Spieler plus ein Backup, damit unsere Stärke gut verteilt ist."},
         {"type":"sub","text":"Team 3 — Zu Beginn neutrale Gebäude erobern"},
@@ -9867,6 +9870,7 @@ const GUIDES = {
         {"type":"list","items":["**{tacGarrison}:** 60.000 — gold","**{tacRuinsCluster} (Shrine):** 45.000 — lila","**{tacRuins} (Altar):** 15.000 — blau"]},
         {"type":"h","text":"🗺️ ABLAUF DES KAMPFES"},
         {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"p","text":"🔵 Blau = {transitHub}　🔴 Rot = {tacGarrison}　🟡 Gelb = {templeOfTides}"},
         {"type":"sub","text":"Phase 1: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**Ziel:** Schwadronen einstellen und die Karte kennenlernen. Merk dir die lila, roten und gelben Zonen — die von uns besetzten werden blau. Prüft die Stärke der Gegner und entscheidet, auf welche Allianz wir uns konzentrieren."},
         {"type":"sub","text":"Phase 2: {seizeConquer} (3:00–20:00)"},
@@ -9893,7 +9897,7 @@ const GUIDES = {
         {"type":"h","text":"⚡ {tacEnergy}-MANAGEMENT"},
         {"type":"p","text":"**Jede Bewegung/Aktion kostet {tacEnergy} — setz sie klug ein.**"},
         {"type":"list","items":["**{tacDeploy}** — deine Schwadron an einen neuen verfügbaren Ort schicken.","**{tacAdvance}** — das aktuelle Ziel / die Warteschlange überspringen und zum nächsten Ziel auf deinem Pfad gehen.","**{tacConscript}** — Truppen heilen und auffüllen, solange das Gebäude nicht im Kampf ist.","**{tacRevive}** — nach einer Niederlage direkt vor Ort zurückkommen statt im {tacHeadquarters}; kostet {tacEnergy}, also nur wenn nötig."]},
-        {"type":"p","text":"Die R4 sorgen dafür, dass starke Spieler {tacCaptain} sind — so bekommen sie mehr {tacEnergy}."}
+        {"type":"p","text":"R4 und Legionsleiter sorgen dafür, dass starke Spieler zum {tacCaptain} ernannt werden, damit sie mehr {tacEnergy} bekommen."}
       ]},
       fr: { title: "Conflit Tri-Alliance", blocks: [
         {"type":"h","text":"🎲 FONCTIONNEMENT DE L'ÉVÉNEMENT"},
@@ -9907,7 +9911,7 @@ const GUIDES = {
         {"type":"sub","text":"Joueurs P2W"},
         {"type":"list","items":["Utilisez vos **héros orange offensifs et défensifs**.","**Les {widget} offensifs NE comptent PAS** dans cet événement. **Les {widget} défensifs comptent** — privilégiez les héros avec de bons {widget} défensifs."]},
         {"type":"h","text":"🏛️ BÂTIMENTS & POINTS"},
-        {"type":"list","items":["**{templeOfTides} = OBJECTIF PRINCIPAL** — il ouvre à la fin.","**{tacGarrison} :** elles semblent buguées et ne donnent pas les points bonus attendus. Ne les privilégiez pas au détriment du {templeOfTides}.","Noms utilisés dans notre chat : **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","Attaquer et capturer des bâtiments rapporte **plus de points que simplement les défendre/tenir** — contrairement au Choc du Glaive."]},
+        {"type":"list","items":["**{templeOfTides} = OBJECTIF PRINCIPAL** — il ouvre à la fin.","Noms utilisés dans notre chat : **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","Attaquer et capturer des bâtiments rapporte **plus de points que simplement les défendre/tenir** — contrairement au Choc du Glaive."]},
         {"type":"h","text":"👥 ÉQUIPES & RÔLES"},
         {"type":"p","text":"Les joueurs sont répartis en **environ 3 équipes** sur différentes voies — le joueur le plus fort plus un renfort par cible, pour bien répartir notre force."},
         {"type":"sub","text":"Équipe 3 — Capturer les bâtiments neutres au début"},
@@ -9922,6 +9926,7 @@ const GUIDES = {
         {"type":"list","items":["**{tacGarrison} :** 60 000 — or","**{tacRuinsCluster} (Shrine) :** 45 000 — violet","**{tacRuins} (Altar) :** 15 000 — bleu"]},
         {"type":"h","text":"🗺️ DÉROULEMENT DE LA BATAILLE"},
         {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"p","text":"🔵 Bleu = {transitHub}　🔴 Rouge = {tacGarrison}　🟡 Jaune = {templeOfTides}"},
         {"type":"sub","text":"Phase 1 : {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**Objectif :** configurer vos escouades et découvrir la carte. Retenez les zones violette, rouge et jaune — celles que vous occupez deviennent bleues. Évaluez la force des ennemis et choisissez l'alliance à cibler."},
         {"type":"sub","text":"Phase 2 : {seizeConquer} (3:00–20:00)"},
@@ -9948,7 +9953,7 @@ const GUIDES = {
         {"type":"h","text":"⚡ GESTION DE L'{tacEnergy}"},
         {"type":"p","text":"**Chaque déplacement/action coûte de l'{tacEnergy} — utilisez-la avec soin.**"},
         {"type":"list","items":["**{tacDeploy}** — envoyer votre escouade vers un nouvel emplacement disponible.","**{tacAdvance}** — passer la cible / file actuelle et aller vers la cible suivante de votre voie.","**{tacConscript}** — soigner et compléter vos troupes dans un bâtiment qui n'est pas en combat.","**{tacRevive}** — revenir sur place après une défaite au lieu de retourner au {tacHeadquarters} ; cela coûte de l'{tacEnergy}, à n'utiliser qu'en cas de besoin."]},
-        {"type":"p","text":"Les R4 veillent à ce que les joueurs forts soient {tacCaptain} — ils génèrent plus d'{tacEnergy}."}
+        {"type":"p","text":"Les R4 et les responsables de légion veillent à ce que les joueurs forts soient nommés {tacCaptain}, pour qu'ils génèrent plus d'{tacEnergy}."}
       ]},
       pt: { title: "Confronto Tri-Aliança", blocks: [
         {"type":"h","text":"🎲 COMO O EVENTO FUNCIONA"},
@@ -9962,7 +9967,7 @@ const GUIDES = {
         {"type":"sub","text":"Jogadores P2W"},
         {"type":"list","items":["Use seus **heróis laranja ofensivos e defensivos**.","**{widget} ofensivos NÃO contam** neste evento. **{widget} defensivos contam** — priorize heróis com bons {widget} defensivos."]},
         {"type":"h","text":"🏛️ CONSTRUÇÕES & PONTOS"},
-        {"type":"list","items":["**{templeOfTides} = OBJETIVO PRINCIPAL** — abre no final.","**{tacGarrison}:** parecem estar com bug e não dão os pontos extras esperados. Não priorize em detrimento do {templeOfTides}.","Nomes usados no nosso chat: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","Atacar e capturar construções dá **mais pontos do que apenas defender/manter** — diferente do Confronto entre Espadas."]},
+        {"type":"list","items":["**{templeOfTides} = OBJETIVO PRINCIPAL** — abre no final.","Nomes usados no nosso chat: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","Atacar e capturar construções dá **mais pontos do que apenas defender/manter** — diferente do Confronto entre Espadas."]},
         {"type":"h","text":"👥 EQUIPES & FUNÇÕES"},
         {"type":"p","text":"Os jogadores são divididos em **cerca de 3 equipes** em rotas diferentes — o jogador mais forte mais um reserva por alvo, para distribuir bem nossa força."},
         {"type":"sub","text":"Equipe 3 — Capturar construções neutras no início"},
@@ -9977,6 +9982,7 @@ const GUIDES = {
         {"type":"list","items":["**{tacGarrison}:** 60.000 — dourado","**{tacRuinsCluster} (Shrine):** 45.000 — roxo","**{tacRuins} (Altar):** 15.000 — azul"]},
         {"type":"h","text":"🗺️ VISÃO GERAL DA BATALHA"},
         {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"p","text":"🔵 Azul = {transitHub}　🔴 Vermelho = {tacGarrison}　🟡 Amarelo = {templeOfTides}"},
         {"type":"sub","text":"Fase 1: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**Objetivo:** configurar os esquadrões e conhecer o mapa. Lembre das zonas roxa, vermelha e amarela — as que ocupamos ficam azuis. Veja a força dos inimigos e decida em qual aliança focar."},
         {"type":"sub","text":"Fase 2: {seizeConquer} (3:00–20:00)"},
@@ -10003,7 +10009,7 @@ const GUIDES = {
         {"type":"h","text":"⚡ GESTÃO DE {tacEnergy}"},
         {"type":"p","text":"**Todo movimento/ação gasta {tacEnergy} — use com sabedoria.**"},
         {"type":"list","items":["**{tacDeploy}** — mover seu esquadrão para um novo local disponível.","**{tacAdvance}** — pular o alvo / fila atual e seguir para o próximo alvo da sua rota.","**{tacConscript}** — curar e repor tropas numa construção que não está em combate.","**{tacRevive}** — voltar no mesmo lugar após uma derrota em vez de retornar ao {tacHeadquarters}; gasta {tacEnergy}, então use só quando precisar."]},
-        {"type":"p","text":"Os R4 garantem que jogadores fortes sejam {tacCaptain} — eles geram mais {tacEnergy}."}
+        {"type":"p","text":"Os R4 e líderes de legião garantem que jogadores fortes sejam nomeados {tacCaptain}, para que gerem mais {tacEnergy}."}
       ]},
       es: { title: "Choque de Tres Alianzas", blocks: [
         {"type":"h","text":"🎲 CÓMO FUNCIONA EL EVENTO"},
@@ -10017,7 +10023,7 @@ const GUIDES = {
         {"type":"sub","text":"Jugadores P2W"},
         {"type":"list","items":["Usa tus **héroes naranjas ofensivos y defensivos**.","**Los {widget} ofensivos NO cuentan** en este evento. **Los {widget} defensivos SÍ cuentan**: prioriza héroes con buenos {widget} defensivos."]},
         {"type":"h","text":"🏛️ EDIFICIOS Y PUNTOS"},
-        {"type":"list","items":["**{templeOfTides} = OBJETIVO PRINCIPAL**: se abre al final.","**{tacGarrison}:** parecen tener un bug y no dan los puntos extra esperados. No las priorices por encima del {templeOfTides}.","Nombres que usamos en el chat: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","Atacar y capturar edificios da **más puntos que solo defenderlos/mantenerlos**, a diferencia del Enfrentamiento en Tierra de espadas."]},
+        {"type":"list","items":["**{templeOfTides} = OBJETIVO PRINCIPAL**: se abre al final.","Nombres que usamos en el chat: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","Atacar y capturar edificios da **más puntos que solo defenderlos/mantenerlos**, a diferencia del Enfrentamiento en Tierra de espadas."]},
         {"type":"h","text":"👥 EQUIPOS Y FUNCIONES"},
         {"type":"p","text":"Los jugadores se dividen en **unos 3 equipos** en rutas distintas: el jugador más fuerte más un refuerzo por objetivo, para repartir bien nuestra fuerza."},
         {"type":"sub","text":"Equipo 3 — Capturar edificios neutrales al inicio"},
@@ -10032,6 +10038,7 @@ const GUIDES = {
         {"type":"list","items":["**{tacGarrison}:** 60.000 — dorado","**{tacRuinsCluster} (Shrine):** 45.000 — morado","**{tacRuins} (Altar):** 15.000 — azul"]},
         {"type":"h","text":"🗺️ DESARROLLO DE LA BATALLA"},
         {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"p","text":"🔵 Azul = {transitHub}　🔴 Rojo = {tacGarrison}　🟡 Amarillo = {templeOfTides}"},
         {"type":"sub","text":"Fase 1: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**Objetivo:** configurar los escuadrones y conocer el mapa. Recuerda las zonas morada, roja y amarilla: las que ocupamos se vuelven azules. Revisa la fuerza de los enemigos y decide en qué alianza centrarnos."},
         {"type":"sub","text":"Fase 2: {seizeConquer} (3:00–20:00)"},
@@ -10058,7 +10065,7 @@ const GUIDES = {
         {"type":"h","text":"⚡ GESTIÓN DE LA {tacEnergy}"},
         {"type":"p","text":"**Cada movimiento/acción gasta {tacEnergy}: úsala con cabeza.**"},
         {"type":"list","items":["**{tacDeploy}**: mover tu escuadrón a una nueva ubicación disponible.","**{tacAdvance}**: saltar el objetivo / cola actual y pasar al siguiente objetivo de tu ruta.","**{tacConscript}**: curar y reponer tropas en un edificio que no está en combate.","**{tacRevive}**: recuperarte en el sitio tras una derrota en vez de volver al {tacHeadquarters}; gasta {tacEnergy}, úsalo solo cuando haga falta."]},
-        {"type":"p","text":"Los R4 se aseguran de que los jugadores fuertes sean {tacCaptain}: generan más {tacEnergy}."}
+        {"type":"p","text":"Los R4 y los responsables de legión se aseguran de que los jugadores fuertes sean nombrados {tacCaptain}, para que generen más {tacEnergy}."}
       ]},
       tr: { title: "Üçlü İttifak Çarpışması", blocks: [
         {"type":"h","text":"🎲 ETKİNLİK NASIL İŞLER"},
@@ -10072,7 +10079,7 @@ const GUIDES = {
         {"type":"sub","text":"P2W oyuncular"},
         {"type":"list","items":["**Saldırı ve savunma odaklı turuncu kahramanlarını** kullan.","Bu etkinlikte **saldırı Aletleri SAYILMAZ**, **savunma Aletleri SAYILIR** — güçlü savunma Aleti olan kahramanlara öncelik ver."]},
         {"type":"h","text":"🏛️ BİNALAR & PUANLAR"},
-        {"type":"list","items":["**{templeOfTides} = ANA HEDEF** — en sonda açılır.","**{tacGarrison}:** şu an hatalı görünüyor, beklenen ek puanı vermiyor. {templeOfTides}'nı feda ederek öncelik verme.","Sohbette kullandığımız adlar: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","Binalara saldırıp ele geçirmek **sadece savunmaktan/tutmaktan daha çok puan verir** — Kılıçdiyarı Hesaplaşması'ndan farklı olarak."]},
+        {"type":"list","items":["**{templeOfTides} = ANA HEDEF** — en sonda açılır.","Sohbette kullandığımız adlar: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","Binalara saldırıp ele geçirmek **sadece savunmaktan/tutmaktan daha çok puan verir** — Kılıçdiyarı Hesaplaşması'ndan farklı olarak."]},
         {"type":"h","text":"👥 TAKIMLAR & GÖREVLER"},
         {"type":"p","text":"Oyuncular farklı hatlarda **yaklaşık 3 takıma** ayrılır — her hedefe en güçlü oyuncu + bir yedek, böylece gücümüz verimli dağılır."},
         {"type":"sub","text":"Takım 3 — Başta tarafsız binaları ele geçir"},
@@ -10087,6 +10094,7 @@ const GUIDES = {
         {"type":"list","items":["**{tacGarrison}:** 60.000 — altın","**{tacRuinsCluster} (Shrine):** 45.000 — mor","**{tacRuins} (Altar):** 15.000 — mavi"]},
         {"type":"h","text":"🗺️ SAVAŞ AKIŞI"},
         {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"p","text":"🔵 Mavi = {transitHub}　🔴 Kırmızı = {tacGarrison}　🟡 Sarı = {templeOfTides}"},
         {"type":"sub","text":"1. Aşama: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**Hedef:** ekipleri ayarla ve haritayı tanı. Mor, kırmızı ve sarı bölgeleri hatırla — ele geçirdiğimizler maviye döner. Düşmanların gücüne bak ve hangi ittifaka odaklanacağımıza karar ver."},
         {"type":"sub","text":"2. Aşama: {seizeConquer} (3:00–20:00)"},
@@ -10113,7 +10121,7 @@ const GUIDES = {
         {"type":"h","text":"⚡ {tacEnergy} YÖNETİMİ"},
         {"type":"p","text":"**Her hareket/eylem {tacEnergy} harcar — akıllıca kullan.**"},
         {"type":"list","items":["**{tacDeploy}** — ekibini yeni uygun bir konuma gönder.","**{tacAdvance}** — mevcut hedefi/sırayı atla ve hattındaki bir sonraki hedefe geç.","**{tacConscript}** — savaşta olmayan bir binadayken askerleri iyileştir ve doldur.","**{tacRevive}** — yenilince {tacHeadquarters}'a dönmek yerine olduğun yerde geri gel; {tacEnergy} harcar, sadece gerektiğinde kullan."]},
-        {"type":"p","text":"R4'ler güçlü oyuncuların {tacCaptain} olmasını sağlar — onlar daha çok {tacEnergy} üretir."}
+        {"type":"p","text":"R4'ler ve lejyon sorumluları, güçlü oyuncuların {tacCaptain} olarak atanmasını sağlar; böylece daha çok {tacEnergy} üretirler."}
       ]},
       id: { title: "Clash Tiga Aliansi", blocks: [
         {"type":"h","text":"🎲 CARA KERJA EVENT"},
@@ -10127,7 +10135,7 @@ const GUIDES = {
         {"type":"sub","text":"Pemain P2W"},
         {"type":"list","items":["Gunakan **hero oranye ofensif dan defensif**.","**{widget} ofensif TIDAK berlaku** di event ini. **{widget} defensif BERLAKU** — utamakan hero dengan {widget} defensif yang kuat."]},
         {"type":"h","text":"🏛️ BANGUNAN & POIN"},
-        {"type":"list","items":["**{templeOfTides} = TARGET UTAMA** — dibuka di akhir.","**{tacGarrison}:** sepertinya sedang bug dan tidak memberi poin tambahan yang diharapkan. Jangan diutamakan sampai mengorbankan {templeOfTides}.","Nama yang dipakai di chat kita: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","Menyerang dan merebut bangunan memberi **poin lebih banyak daripada hanya bertahan/menguasai** — berbeda dengan Swordland Showdown."]},
+        {"type":"list","items":["**{templeOfTides} = TARGET UTAMA** — dibuka di akhir.","Nama yang dipakai di chat kita: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","Menyerang dan merebut bangunan memberi **poin lebih banyak daripada hanya bertahan/menguasai** — berbeda dengan Swordland Showdown."]},
         {"type":"h","text":"👥 TIM & PERAN"},
         {"type":"p","text":"Pemain dibagi menjadi **sekitar 3 tim** di jalur berbeda — pemain terkuat + satu cadangan untuk tiap target, agar kekuatan kita tersebar efektif."},
         {"type":"sub","text":"Tim 3 — Rebut bangunan netral di awal"},
@@ -10142,6 +10150,7 @@ const GUIDES = {
         {"type":"list","items":["**{tacGarrison}:** 60.000 — emas","**{tacRuinsCluster} (Shrine):** 45.000 — ungu","**{tacRuins} (Altar):** 15.000 — biru"]},
         {"type":"h","text":"🗺️ ALUR PERTEMPURAN"},
         {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"p","text":"🔵 Biru = {transitHub}　🔴 Merah = {tacGarrison}　🟡 Kuning = {templeOfTides}"},
         {"type":"sub","text":"Fase 1: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**Tujuan:** atur skuad dan kenali peta. Ingat zona ungu, merah, dan kuning — yang kita kuasai berubah biru. Cek kekuatan musuh dan tentukan aliansi mana yang mau difokuskan."},
         {"type":"sub","text":"Fase 2: {seizeConquer} (3:00–20:00)"},
@@ -10168,7 +10177,7 @@ const GUIDES = {
         {"type":"h","text":"⚡ MANAJEMEN {tacEnergy}"},
         {"type":"p","text":"**Setiap gerakan/aksi memakai {tacEnergy} — gunakan dengan bijak.**"},
         {"type":"list","items":["**{tacDeploy}** — pindahkan skuad ke lokasi baru yang tersedia.","**{tacAdvance}** — lewati target/antrean saat ini dan lanjut ke target berikutnya di jalurmu.","**{tacConscript}** — sembuhkan dan isi ulang pasukan saat berada di bangunan yang tidak sedang bertempur.","**{tacRevive}** — bangkit di tempat setelah kalah, bukan kembali ke {tacHeadquarters}; memakai {tacEnergy}, jadi pakai hanya saat perlu."]},
-        {"type":"p","text":"R4 memastikan pemain kuat menjadi {tacCaptain} — mereka menghasilkan lebih banyak {tacEnergy}."}
+        {"type":"p","text":"R4 dan penanggung jawab legiun memastikan pemain kuat ditunjuk sebagai {tacCaptain}, agar mereka menghasilkan lebih banyak {tacEnergy}."}
       ]},
       ru: { title: "Битва трех альянсов", blocks: [
         {"type":"h","text":"🎲 КАК УСТРОЕНО СОБЫТИЕ"},
@@ -10182,7 +10191,7 @@ const GUIDES = {
         {"type":"sub","text":"P2W-игроки"},
         {"type":"list","items":["Используйте **атакующих и защитных оранжевых героев**.","В этом событии **атакующие {widget} НЕ учитываются**, а **защитные {widget} учитываются** — отдавайте приоритет героям с сильными защитными {widget}."]},
         {"type":"h","text":"🏛️ ЗДАНИЯ И ОЧКИ"},
-        {"type":"list","items":["**{templeOfTides} = ГЛАВНАЯ ЦЕЛЬ** — открывается в конце.","**{tacGarrison}:** похоже, сейчас с багом и не дают ожидаемых доп. очков. Не ставьте их выше {templeOfTides}.","Названия в нашем чате: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","Атака и захват зданий дают **больше очков, чем просто оборона/удержание** — в отличие от события «Битва за Страну мечей»."]},
+        {"type":"list","items":["**{templeOfTides} = ГЛАВНАЯ ЦЕЛЬ** — открывается в конце.","Названия в нашем чате: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**.","Атака и захват зданий дают **больше очков, чем просто оборона/удержание** — в отличие от события «Битва за Страну мечей»."]},
         {"type":"h","text":"👥 КОМАНДЫ И РОЛИ"},
         {"type":"p","text":"Игроков делят **примерно на 3 команды** на разных линиях — на каждую цель сильнейший игрок плюс запасной, чтобы эффективно распределить силы."},
         {"type":"sub","text":"Команда 3 — В начале захватить нейтральные здания"},
@@ -10197,6 +10206,7 @@ const GUIDES = {
         {"type":"list","items":["**{tacGarrison}:** 60 000 — золотой","**{tacRuinsCluster} (Shrine):** 45 000 — фиолетовый","**{tacRuins} (Altar):** 15 000 — синий"]},
         {"type":"h","text":"🗺️ ХОД БИТВЫ"},
         {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"p","text":"🔵 Синий = {transitHub}　🔴 Красный = {tacGarrison}　🟡 Жёлтый = {templeOfTides}"},
         {"type":"sub","text":"Фаза 1: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**Цель:** настроить отряды и изучить карту. Запомните фиолетовую, красную и жёлтую зоны — занятые нами становятся синими. Оцените силу врагов и решите, на каком альянсе сосредоточиться."},
         {"type":"sub","text":"Фаза 2: {seizeConquer} (3:00–20:00)"},
@@ -10223,7 +10233,7 @@ const GUIDES = {
         {"type":"h","text":"⚡ УПРАВЛЕНИЕ ЭНЕРГИЕЙ"},
         {"type":"p","text":"**Любое перемещение/действие тратит энергию — расходуйте её с умом.**"},
         {"type":"list","items":["**{tacDeploy}** — отправить отряд в новое доступное место.","**{tacAdvance}** — пропустить текущую цель/очередь и перейти к следующей цели на своей линии.","**{tacConscript}** — лечить и пополнять войска в здании, где сейчас нет боя.","**{tacRevive}** — восстановиться на месте после поражения, а не возвращаться в {tacHeadquarters}; тратит энергию, используйте только при необходимости."]},
-        {"type":"p","text":"R4 следят, чтобы сильные игроки были капитанами — они получают больше энергии."}
+        {"type":"p","text":"R4 и ответственные за легионы следят, чтобы сильные игроки были назначены капитанами — так они получают больше энергии."}
       ]},
       th: { title: "สงครามสามพันธมิตร", blocks: [
         {"type":"h","text":"🎲 กิจกรรมนี้เล่นอย่างไร"},
@@ -10237,7 +10247,7 @@ const GUIDES = {
         {"type":"sub","text":"ผู้เล่น P2W"},
         {"type":"list","items":["ใช้**ฮีโร่สีส้มสายบุกและสายป้องกัน**","ในกิจกรรมนี้ **{widget}สายบุกไม่มีผล** แต่ **{widget}สายป้องกันมีผล** ให้เน้นฮีโร่ที่มี{widget}สายป้องกันแรง"]},
         {"type":"h","text":"🏛️ สิ่งปลูกสร้างและคะแนน"},
-        {"type":"list","items":["**{templeOfTides} = เป้าหมายหลัก** เปิดตอนท้าย","**{tacGarrison}:** ดูเหมือนมีบั๊ก ไม่ได้คะแนนพิเศษตามที่ควรได้ อย่าให้ความสำคัญจนเสีย{templeOfTides}","ชื่อที่ใช้ในแชทของเรา: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**","การบุกยึดสิ่งปลูกสร้างได้**คะแนนมากกว่าแค่ป้องกัน/ถือครอง** ต่างจากศึกดวลดินแดนดาบ"]},
+        {"type":"list","items":["**{templeOfTides} = เป้าหมายหลัก** เปิดตอนท้าย","ชื่อที่ใช้ในแชทของเรา: **Shrine = {tacRuinsCluster}**, **Altar = {tacRuins}**","การบุกยึดสิ่งปลูกสร้างได้**คะแนนมากกว่าแค่ป้องกัน/ถือครอง** ต่างจากศึกดวลดินแดนดาบ"]},
         {"type":"h","text":"👥 การแบ่งทีมและหน้าที่"},
         {"type":"p","text":"ผู้เล่นจะแบ่งเป็น**ประมาณ 3 ทีม**ตามเส้นทางต่างๆ แต่ละเป้าหมายมีผู้เล่นที่แข็งที่สุด + ตัวสำรอง 1 คน เพื่อกระจายกำลังอย่างมีประสิทธิภาพ"},
         {"type":"sub","text":"ทีม 3 — ยึดสิ่งปลูกสร้างกลางตอนเริ่ม"},
@@ -10252,6 +10262,7 @@ const GUIDES = {
         {"type":"list","items":["**{tacGarrison}:** 60,000 — สีทอง","**{tacRuinsCluster} (Shrine):** 45,000 — สีม่วง","**{tacRuins} (Altar):** 15,000 — สีน้ำเงิน"]},
         {"type":"h","text":"🗺️ ภาพรวมการต่อสู้"},
         {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"p","text":"🔵 สีน้ำเงิน = {transitHub}　🔴 สีแดง = {tacGarrison}　🟡 สีเหลือง = {templeOfTides}"},
         {"type":"sub","text":"ช่วงที่ 1: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**เป้าหมาย:** ตั้งค่าทีมและทำความรู้จักแผนที่ จำโซนสีม่วง แดง เหลืองไว้ — โซนที่เรายึดจะกลายเป็นสีน้ำเงิน ดูความแข็งแกร่งของศัตรูและตัดสินใจว่าจะเน้นพันธมิตรไหน"},
         {"type":"sub","text":"ช่วงที่ 2: {seizeConquer} (3:00–20:00)"},
@@ -10278,7 +10289,7 @@ const GUIDES = {
         {"type":"h","text":"⚡ การจัดการ{tacEnergy}"},
         {"type":"p","text":"**ทุกการเคลื่อนที่/การกระทำใช้{tacEnergy} ใช้อย่างคุ้มค่า**"},
         {"type":"list","items":["**{tacDeploy}** — ย้ายทีมไปยังตำแหน่งใหม่ที่ไปได้","**{tacAdvance}** — ข้ามเป้าหมาย/คิวปัจจุบัน แล้วไปเป้าหมายถัดไปในเส้นทาง","**{tacConscript}** — รักษาและเติมทหารขณะอยู่ในสิ่งปลูกสร้างที่ไม่มีการต่อสู้","**{tacRevive}** — ฟื้นตรงจุดหลังแพ้ แทนการกลับไป{tacHeadquarters} ใช้{tacEnergy} จึงใช้เฉพาะเมื่อจำเป็น"]},
-        {"type":"p","text":"R4 จะดูให้ผู้เล่นที่แข็งได้เป็น{tacCaptain} เพื่อได้{tacEnergy}มากขึ้น"}
+        {"type":"p","text":"R4 และผู้ดูแลกองทัพจะดูให้ผู้เล่นที่แข็งได้รับแต่งตั้งเป็น{tacCaptain} เพื่อให้ได้{tacEnergy}มากขึ้น"}
       ]},
       ar: { title: "صراع التحالف الثلاثي", blocks: [
         {"type":"h","text":"🎲 كيف تعمل الفعالية"},
@@ -10292,7 +10303,7 @@ const GUIDES = {
         {"type":"sub","text":"لاعبو P2W"},
         {"type":"list","items":["استخدم **الأبطال البرتقاليين الهجوميين والدفاعيين**.","في هذه الفعالية **{widget} الهجومية لا تُحتسب**، أما **{widget} الدفاعية فتُحتسب** — أعطِ الأولوية للأبطال ذوي {widget} الدفاعية القوية."]},
         {"type":"h","text":"🏛️ المباني والنقاط"},
-        {"type":"list","items":["**{templeOfTides} = الهدف الرئيسي** — يُفتح في النهاية.","**{tacGarrison}:** يبدو أن بها خللًا ولا تعطي النقاط الإضافية المتوقعة. لا تقدّمها على حساب {templeOfTides}.","الأسماء المستخدمة في دردشتنا: **Shrine = {tacRuinsCluster}**، **Altar = {tacRuins}**.","مهاجمة المباني والاستيلاء عليها تعطي **نقاطًا أكثر من مجرد الدفاع/الاحتفاظ بها** — بخلاف مواجهة أرض السيوف."]},
+        {"type":"list","items":["**{templeOfTides} = الهدف الرئيسي** — يُفتح في النهاية.","الأسماء المستخدمة في دردشتنا: **Shrine = {tacRuinsCluster}**، **Altar = {tacRuins}**.","مهاجمة المباني والاستيلاء عليها تعطي **نقاطًا أكثر من مجرد الدفاع/الاحتفاظ بها** — بخلاف مواجهة أرض السيوف."]},
         {"type":"h","text":"👥 الفرق والأدوار"},
         {"type":"p","text":"يُقسَّم اللاعبون إلى **نحو 3 فرق** في مسارات مختلفة — أقوى لاعب + احتياطي لكل هدف، لتوزيع قوتنا بفعالية."},
         {"type":"sub","text":"الفريق 3 — الاستيلاء على المباني المحايدة في البداية"},
@@ -10307,6 +10318,7 @@ const GUIDES = {
         {"type":"list","items":["**{tacGarrison}:** 60,000 — ذهبي","**{tacRuinsCluster} (Shrine):** 45,000 — بنفسجي","**{tacRuins} (Altar):** 15,000 — أزرق"]},
         {"type":"h","text":"🗺️ سير المعركة"},
         {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"p","text":"🔵 الأزرق = {transitHub}　🔴 الأحمر = {tacGarrison}　🟡 الأصفر = {templeOfTides}"},
         {"type":"sub","text":"المرحلة 1: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**الهدف:** إعداد الفرق والتعرّف على الخريطة. تذكّر المناطق البنفسجية والحمراء والصفراء — ما نحتله يتحول إلى الأزرق. تحقّق من قوة الأعداء وقرّر على أي تحالف نركّز."},
         {"type":"sub","text":"المرحلة 2: {seizeConquer} (3:00–20:00)"},
@@ -10333,7 +10345,7 @@ const GUIDES = {
         {"type":"h","text":"⚡ إدارة {tacEnergy}"},
         {"type":"p","text":"**كل حركة/إجراء يستهلك {tacEnergy} — استخدمها بحكمة.**"},
         {"type":"list","items":["**{tacDeploy}** — انقل فريقك إلى موقع جديد متاح.","**{tacAdvance}** — تخطَّ الهدف/الطابور الحالي وانتقل إلى الهدف التالي في مسارك.","**{tacConscript}** — عالج قواتك وأكملها وأنت في مبنى لا يدور فيه قتال.","**{tacRevive}** — انهض في مكانك بعد الهزيمة بدلًا من العودة إلى {tacHeadquarters}؛ يستهلك {tacEnergy}، فاستخدمه عند الضرورة فقط."]},
-        {"type":"p","text":"يتأكد R4 من تعيين اللاعبين الأقوياء كـ{tacCaptain} — فهم يولّدون {tacEnergy} أكثر."}
+        {"type":"p","text":"يتأكد R4 ومسؤولو الفيالق من تعيين اللاعبين الأقوياء كـ{tacCaptain}، ليولّدوا {tacEnergy} أكثر."}
       ]}
     }
   }
