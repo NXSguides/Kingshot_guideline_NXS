@@ -526,25 +526,82 @@ function renderPicker() {
   });
 }
 
+/* ---- 上方指南按鈕：「近期活動」＋兩個可展開的分類 ------------------- */
+/* Guides listed in GUIDE_GROUPS.growth go under 養成; everything else (except the home guide) goes under 活動. */
+const HOME_GUIDE = "recent-events";
+const GUIDE_GROUPS = {
+  events: { emoji: "🏆", name: { en:"Event Guides", zh:"活動指南", ko:"이벤트 가이드", de:"Event-Guides", fr:"Guides d'événements", pt:"Guias de eventos", tr:"Etkinlik Rehberleri", id:"Panduan Event", ru:"Гайды по событиям", th:"คู่มือกิจกรรม", ar:"أدلة الفعاليات", es:"Guías de eventos" } },
+  growth: { emoji: "🌱", name: { en:"Growth Guides", zh:"養成指南", ko:"육성 가이드", de:"Aufbau-Guides", fr:"Guides de progression", pt:"Guias de evolução", tr:"Gelişim Rehberleri", id:"Panduan Pengembangan", ru:"Гайды по развитию", th:"คู่มือพัฒนา", ar:"أدلة التطوير", es:"Guías de progreso" },
+    guides: ["formations-rally-tips", "f2p-heroes", "master-academy", "pet", "general-tips"] },
+};
+let openGuideGroup = null;
+
+function guideGroupOf(key) {
+  if (key === HOME_GUIDE) return null;
+  return GUIDE_GROUPS.growth.guides.includes(key) ? "growth" : "events";
+}
+
+function guideChipHtml(key) {
+  const g = GUIDES[key];
+  return `<button type="button" class="guide-chip${key === currentGuide ? " active" : ""}" onclick="pickGuideChip('${key}')">
+    <span class="emoji">${g.emoji}</span><span dir="auto">${escapeHtml(t(g.name) || key)}</span></button>`;
+}
+
 function renderGuideRow() {
   const row = document.getElementById("guideRow");
-  const keepScroll = row.scrollLeft;
-  row.innerHTML = "";
-  guideKeys().forEach((key) => {
-    const g = GUIDES[key];
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "guide-chip" + (key === currentGuide ? " active" : "");
-    btn.innerHTML = `<span class="emoji">${g.emoji}</span><span dir="auto">${escapeHtml(t(g.name) || key)}</span>`;
-    btn.onclick = () => {
-      currentGuide = key;
-      persistPrefs();
-      renderAll();
-    };
-    row.appendChild(btn);
-  });
-  row.scrollLeft = keepScroll;
+  const keys = guideKeys();
+  const members = { events: [], growth: [] };
+  keys.forEach((k) => { const grp = guideGroupOf(k); if (grp) members[grp].push(k); });
+
+  let html = `<div class="guide-groups">`;
+  if (keys.includes(HOME_GUIDE)) html += guideChipHtml(HOME_GUIDE).replace('class="guide-chip', 'class="guide-chip guide-home');
+  for (const id of ["events", "growth"]) {
+    if (!members[id].length) continue;
+    const grp = GUIDE_GROUPS[id];
+    const isOpen = openGuideGroup === id;
+    const here = members[id].includes(currentGuide);
+    const cur = here && !isOpen
+      ? `<span class="gg-cur"> · ${GUIDES[currentGuide].emoji} <span dir="auto">${escapeHtml(t(GUIDES[currentGuide].name))}</span></span>` : "";
+    html += `<button type="button" class="guide-chip guide-group-btn${here ? " active" : ""}${isOpen ? " open" : ""}" onclick="toggleGuideGroup('${id}')" aria-expanded="${isOpen}">
+      <span class="emoji">${grp.emoji}</span><span dir="auto">${escapeHtml(t(grp.name))}</span>
+      <span class="gg-n">(${members[id].length})</span>${cur}<span class="gg-arrow">${isOpen ? "▴" : "▾"}</span></button>`;
+  }
+  html += `</div>`;
+  if (openGuideGroup && members[openGuideGroup].length) {
+    html += `<div class="guide-group-panel">${members[openGuideGroup].map(guideChipHtml).join("")}</div>`;
+  }
+  row.innerHTML = html;
+
+  if (!document.getElementById("guideGroupStyle")) {
+    const st = document.createElement("style");
+    st.id = "guideGroupStyle";
+    st.textContent = `
+      #guideRow{display:block}
+      .guide-groups{display:flex;flex-wrap:wrap;gap:8px}
+      .guide-home{border-width:2px}
+      .guide-group-btn{font-weight:600;max-width:100%}
+      .guide-group-btn .gg-n{opacity:.6;font-weight:400}
+      .guide-group-btn .gg-cur{font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+      .guide-group-btn .gg-arrow{margin-inline-start:2px}
+      .guide-group-panel{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;padding:10px;border:1px dashed var(--rule);border-radius:12px}
+    `;
+    document.head.appendChild(st);
+  }
 }
+
+function toggleGuideGroup(id) {
+  openGuideGroup = openGuideGroup === id ? null : id;
+  renderGuideRow();
+}
+
+function pickGuideChip(key) {
+  currentGuide = key;
+  openGuideGroup = null;
+  persistPrefs();
+  renderAll();
+}
+window.toggleGuideGroup = toggleGuideGroup;
+window.pickGuideChip = pickGuideChip;
 
 /* Order of the guide buttons at the top. Guides not listed here are added at the end. */
 const GUIDE_ORDER = ["recent-events", "formations-rally-tips", "f2p-heroes", "hero-roulette", "master-academy", "general-tips", "mystic-trial", "pet", "bear-hunt", "swordland-showdown", "kvk"];
