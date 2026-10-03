@@ -351,6 +351,122 @@ const BLOCKS = {
 }
 };
 
+/* ---- 荒野冒險問答：按顏色／人物篩選 --------------------------------- */
+const JQ_COLORS = { gold: "#d4a017", purple: "#8e5bd0", blue: "#3a7bd5", grey: "#8a8a8a", none: "#c8bfae" };
+const JQ_PEOPLE = ["pan","roman","valora","cassia","guinevere","wilson","aena","isnor","petra","zoe","quinn","edwin","gordon","hilde","olive","diana","grid","longFei"];
+const JQ_TOPICS = ["vikings","cesares","survivor","beast","mercenaries","trade","fishing","cooking","games","other"];
+let jqState = { c: "", tag: "", q: "", open: -1 };
+
+function jqText(s) {
+  const tr = (typeof JOURNEY_TR !== "undefined" && JOURNEY_TR[currentLang]) || {};
+  const out = String(tr[s] || s).replace(/\{(\w+)\}/g, (m, id) => (GLOSSARY[id] ? term(id) : m));
+  return out.charAt(0).toLocaleUpperCase(HTML_LANG[currentLang] || "en") + out.slice(1);
+}
+function jqUI(k) { return t(JOURNEY_UI[k]); }
+function jqTagLabel(tag) { return JOURNEY_UI.tags[tag] ? t(JOURNEY_UI.tags[tag]) : jqText(`{${tag}}`); }
+
+function jqMatches(e) {
+  if (jqState.c && (e.c || "none") !== jqState.c) return false;
+  if (jqState.tag && !e.tags.includes(jqState.tag)) return false;
+  if (jqState.q) {
+    const q = jqState.q.toLocaleLowerCase();
+    const hay = [e.t, ...e.o.flat()].filter((x) => typeof x === "string")
+      .map((s) => jqText(s) + " " + s.replace(/\{(\w+)\}/g, (m, id) => (GLOSSARY[id] ? (GLOSSARY[id].en || "") : m)))
+      .join(" ").toLocaleLowerCase();
+    if (!hay.includes(q)) return false;
+  }
+  return true;
+}
+
+function jqChip(label, active, onclick, dot) {
+  const d = dot ? `<span class="jq-dot" style="background:${dot}"></span>` : "";
+  return `<button type="button" class="jq-chip${active ? " on" : ""}" onclick="${onclick}">${d}<span dir="auto">${escapeHtml(label)}</span></button>`;
+}
+
+function jqList() {
+  const items = JOURNEY.map((e, i) => [e, i]).filter(([e]) => jqMatches(e));
+  if (!items.length) return `<p class="jq-empty">${escapeHtml(jqUI("none"))}</p>`;
+  const order = { gold: 0, purple: 1, blue: 2, grey: 3, "": 4 };
+  items.sort((a, b) => order[a[0].c] - order[b[0].c] || a[1] - b[1]);
+  return `<div class="jq-count">${escapeHtml(jqUI("count").replace("{n}", items.length))}</div>` + items.map(([e, i]) => {
+    const col = JQ_COLORS[e.c || "none"];
+    const open = jqState.open === i;
+    const hasBest = e.o.some((o) => o[2]);
+    const opts = !open ? "" : `<div class="jq-opts">${e.o.map((o) => `
+        <div class="jq-opt${o[2] ? " best" : ""}">
+          <div class="jq-opt-t" dir="auto">${o[2] ? "✅ " : ""}${escapeHtml(jqText(o[0]))}</div>
+          <div class="jq-opt-r" dir="auto">${escapeHtml(jqText(o[1]))}</div>
+        </div>`).join("")}
+        ${hasBest ? "" : `<div class="jq-nobest">${escapeHtml(jqUI("noBest"))}</div>`}
+      </div>`;
+    return `<div class="jq-card${open ? " open" : ""}" style="border-inline-start-color:${col}">
+      <button type="button" class="jq-head" onclick="jqToggle(${i})">
+        <span class="jq-dot" style="background:${col}"></span>
+        <span class="jq-title" dir="auto">${escapeHtml(jqText(e.t))}</span>
+        <span class="jq-kind">${escapeHtml(t(JOURNEY_UI.kinds[e.k]))}</span>
+        <span class="jq-arrow">${open ? "▾" : (currentLang === "ar" ? "◂" : "▸")}</span>
+      </button>${opts}
+    </div>`;
+  }).join("");
+}
+
+function jqFilters() {
+  const colors = [jqChip(jqUI("all"), !jqState.c, "jqSet('c','')")]
+    .concat(["gold","purple","blue","grey","none"].map((c) => jqChip(t(JOURNEY_UI.colors[c]), jqState.c === c, `jqSet('c','${c}')`, JQ_COLORS[c])));
+  const used = new Set(JOURNEY.flatMap((e) => e.tags));
+  const people = JQ_PEOPLE.filter((p) => used.has(p)).map((p) => jqChip(jqTagLabel(p), jqState.tag === p, `jqSet('tag','${p}')`));
+  const topics = JQ_TOPICS.filter((p) => used.has(p)).map((p) => jqChip(jqTagLabel(p), jqState.tag === p, `jqSet('tag','${p}')`));
+  return `
+    <div class="jq-label">${escapeHtml(jqUI("color"))}</div><div class="jq-chips">${colors.join("")}</div>
+    <div class="jq-label">${escapeHtml(jqUI("people"))}</div><div class="jq-chips">${jqChip(jqUI("all"), !jqState.tag, "jqSet('tag','')")}${people.join("")}</div>
+    <div class="jq-label">${escapeHtml(jqUI("topics"))}</div><div class="jq-chips">${topics.join("")}</div>`;
+}
+
+function jqRefresh() {
+  const f = document.getElementById("jqFilters"), l = document.getElementById("jqList");
+  if (f) f.innerHTML = jqFilters();
+  if (l) l.innerHTML = jqList();
+}
+function jqSet(k, v) { jqState[k] = jqState[k] === v && k === "tag" ? "" : v; jqState.open = -1; jqRefresh(); }
+function jqToggle(i) { jqState.open = jqState.open === i ? -1 : i; jqRefresh(); }
+function jqSearch(v) { jqState.q = v.trim(); jqState.open = -1; const l = document.getElementById("jqList"); if (l) l.innerHTML = jqList(); }
+
+const JQ_CSS = `
+.jq{margin:8px 0 16px}
+.jq-search{width:100%;box-sizing:border-box;padding:10px 12px;border-radius:10px;border:1px solid var(--rule);background:var(--panel);color:var(--text);font-size:15px;margin-bottom:6px}
+.jq-label{font-size:12px;color:var(--text-muted);margin:8px 0 4px;font-weight:600}
+.jq-chips{display:flex;flex-wrap:wrap;gap:6px}
+.jq-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;border:1px solid var(--rule);background:var(--panel);color:var(--text);font-size:13px;cursor:pointer}
+.jq-chip.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.jq-dot{width:11px;height:11px;border-radius:50%;flex:none;display:inline-block;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.jq-count{font-size:12px;color:var(--text-muted);margin:12px 0 6px}
+.jq-empty{color:var(--text-muted)}
+.jq-card{border:1px solid var(--rule);border-inline-start-width:6px;border-radius:10px;background:var(--panel);margin-bottom:6px;overflow:hidden}
+.jq-head{display:flex;align-items:center;gap:8px;width:100%;padding:10px 12px;background:none;border:0;color:var(--text);font-size:15px;text-align:start;cursor:pointer}
+.jq-title{flex:1;font-weight:600;min-width:0}
+.jq-kind{font-size:11px;color:var(--text-muted);white-space:nowrap}
+.jq-arrow{color:var(--text-muted)}
+.jq-opts{padding:0 12px 10px;display:flex;flex-direction:column;gap:6px}
+.jq-opt{padding:8px 10px;border-radius:8px;background:var(--panel-2);border:1px solid transparent}
+.jq-opt.best{border-color:var(--tag-alt);box-shadow:inset 3px 0 0 var(--tag-alt)}
+.jq-opt-t{font-weight:600}
+.jq-opt.best .jq-opt-t{color:var(--tag-alt)}
+.jq-opt-r{font-size:13px;color:var(--text-muted);margin-top:2px}
+.jq-nobest{font-size:12px;color:var(--text-muted)}
+`;
+
+BLOCKS.journey = () => {
+  if (typeof JOURNEY === "undefined") return "";
+  if (!document.getElementById("jqStyle")) {
+    const st = document.createElement("style"); st.id = "jqStyle"; st.textContent = JQ_CSS; document.head.appendChild(st);
+  }
+  return `<div class="jq">
+    <input class="jq-search" type="search" dir="auto" placeholder="${escapeHtml(jqUI("search"))}" value="${escapeHtml(jqState.q)}" oninput="jqSearch(this.value)">
+    <div id="jqFilters">${jqFilters()}</div>
+    <div id="jqList">${jqList()}</div>
+  </div>`;
+};
+
 function renderBlocks(guide, s) {
   const wrap = document.createElement("div");
   wrap.innerHTML = s.blocks.map((b) => (BLOCKS[b.type] || (() => ""))(b, guide)).join("");
