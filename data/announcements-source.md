@@ -62,4 +62,48 @@ content: |
 
   Check your messages now for what to do before Day 1 begins.
 ---
+author: Nia
+lang: en   # en / zh / ko / de / fr / pt / tr / id / ru / th / ar / es
+title: ⚔️ Swordland Showdown Legion 1 – Roles
+images: []
+content: |
+  ❗ **REMINDER:** Check the in-game labels for:
+  1. Your assigned buildings / direction
+  2. Whether you're assigned to the {sanctum} near OUR safe zone or the ENEMY's safe zone
 
+  **Roles based on this week's sign-up**
+  Please check your responsibility, stage, target building and team.
+
+  [[img:figures/SS_legion1.png]]
+
+  **Map** – the numbers match the "Target" column in the table above.
+
+  [[img:figures/SS_map.png]]
+
+  **Rules**
+  • Stage 2 starts after 1, 2, 3, 3, 4 are secured.
+  • Defenders stay in place unless relieved. Attackers shift first, joiners follow.
+  • Keep at least 2 players on 1, 2 and 4.
+  • If 3 or 7 is hit, everyone rotates back. Never trade a core building for kills.
+  • {mercenary}: every 7 minutes on the enemy core.
+  • Rally leaders: use the 2K gem buffs if possible.
+  • Reinforce immediately when called. Join your assigned pair — don't wander.
+  • Garrison leaders: learn how to transfer leadership before the battle.
+
+  **Joiners**
+  • Keep scanning the map: when a building flips sides, grab the scattered loot before the enemy does.
+  • Send any unused weak march to gather at the {undercellar}s when they open.
+  • Don't leave troops at home. Keep all marches busy.
+
+  **Map for the in-game chat**
+  [[img:figures/SS_chat.png]]
+  ① {stables}: −50% cooldown
+  ② {belltower}: −50% control time
+  ③ {sanctum}: more points
+  ④ {abbey}: points
+  ⑤ {mercenary}: attacks buildings
+  ⑥ {reformation}: +15% damage & damage reduction
+  ⑦ {swordshrine}: most points
+
+  [[link:swordland-showdown]]
+---
