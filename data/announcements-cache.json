@@ -134,5 +134,39 @@
       "es": "**Funciones según la inscripción de esta semana**\nRevisa tu tarea, tu edificio objetivo y tu equipo.\n\n[[img:figures/IMG_5429.png]]\n\n**Mapa** – las zonas marcadas con un círculo muestran adónde pueden teletransportarse los equipos. Quédate cerca del edificio rosa y envía los ataques conjuntos al edificio verde.\n\n[[img:figures/IMG_5430.png]]\n\nTodos los suplentes están en \"Joiners\" con su equipo asignado.\n\n**¿Tu nombre no está en la lista?**\n• Recoge los cofres dispersos cuando un edificio cambie de bando.\n• Recolecta en las {undercellar} cuando se abran.\n• Únete a los ataques conjuntos cercanos cuando puedas.\n• Mantén todas tus marchas ocupadas.\n\n**Mapa para el chat del juego**\n[[img:figures/SS_chat.png]]\n① {stables}: −50 % de enfriamiento\n② {belltower}: −50 % de tiempo de control\n③ {sanctum}: más puntos\n④ {abbey}: puntos\n⑤ {mercenary}: ataca edificios\n⑥ {reformation}: +15 % de daño y reducción de daño\n⑦ {swordshrine}: la mayor cantidad de puntos\n\n[[link:swordland-showdown]]\n",
       "en": "**Roles based on this week's sign-up**\nPlease check your responsibility, target building and team.\n\n[[img:figures/IMG_5429.png]]\n\n**Map** – circled areas show where teams can teleport to. Stay close to the Pink building and send rallies to the Green building.\n\n[[img:figures/IMG_5430.png]]\n\nAll floaters are listed under \"Joiners\" with their assigned teams.\n\n**Name not on the list?**\n• Loot the scattered chests when a building flips sides.\n• Gather at the {undercellar}s when they open.\n• Join rallies close to you where possible.\n• Keep all marches busy.\n\n**Map for the in-game chat**\n[[img:figures/SS_chat.png]]\n① {stables}: −50% cooldown\n② {belltower}: −50% control time\n③ {sanctum}: more points\n④ {abbey}: points\n⑤ {mercenary}: attacks buildings\n⑥ {reformation}: +15% damage & damage reduction\n⑦ {swordshrine}: most points\n\n[[link:swordland-showdown]]\n"
     }
+  },
+  "fcf91da7dd": {
+    "author": "Nia",
+    "createdAt": "2026-10-04T16:16:12.632Z",
+    "images": [],
+    "links": [],
+    "title": {
+      "zh": "KvK 備戰階段將於 10 月 5 日 00:00 UTC時間開始",
+      "ko": "KvK 준비 단계 10월 5일 00:00 UTC 시작",
+      "de": "KvK Vorbereitungsphase beginnt am 5. Okt. um 00:00 UTC Zeit",
+      "fr": "Phase de Préparation de KvK commence le 5 oct. à 00:00 Heure UTC",
+      "pt": "Fase de Preparação do KvK começa em 5 de out às 00:00 Hora UTC",
+      "tr": "KvK Hazırlık Evresi 5 Ekim 00:00 UTC Saati itibarıyla başlıyor",
+      "id": "Fase Persiapan KvK dimulai 5 Okt jam 00:00 Waktu UTC",
+      "ru": "Стадия подготовки KvK начинается 5 окт. в 00:00 Время UTC",
+      "th": "ช่วงการเตรียมตัว KvK เริ่มวันที่ 5 ต.ค. เวลา 00:00 เวลา UTC",
+      "ar": "تبدأ مرحلة التحضير لـ KvK في 5 أكتوبر الساعة 00:00 التوقيت العالمي",
+      "es": "Fase de Preparación de KvK comienza el 5 de oct. a las 00:00 Hora UTC",
+      "en": "KvK PREP begins Oct 5 at 00:00 UTC"
+    },
+    "content": {
+      "zh": "請每日查看您的私人訊息以獲取指南與指令。如果您有任何疑問或不確定，請在消耗前詢問 R4/5。\n\n我們將建議每天該消耗什麼以最大化積分。\n\n請立即查看訊息，了解在第 1 天開始前該做什麼。",
+      "ko": "매일 개인 메시지를 확인하여 가이드와 지침을 확인하세요. 질문이 있거나 확실하지 않은 경우, 소비하기 전에 R4/5에게 문의하세요.\n\n포인트 최대화를 위해 매일 무엇을 소비해야 할지 조언해 드리겠습니다.\n\n1일차가 시작되기 전에 무엇을 해야 할지 지금 메시지를 확인하세요。",
+      "de": "Überprüfe täglich deine privaten Nachrichten auf Leitfäden und Anweisungen. Wenn du Fragen hast oder unsicher bist, frage R4/5, bevor du etwas ausgibst.\n\nWir werden dich beraten, was du jeden Tag ausgeben solltest, um die Punkte zu maximieren.\n\nÜberprüfe jetzt deine Nachrichten, um zu erfahren, was vor Beginn von Tag 1 zu tun ist。",
+      "fr": "Consultez quotidiennement vos messages privés pour obtenir des guides et des instructions. Si vous avez des questions ou si vous n'êtes pas sûr, demandez aux R4/5 avant de dépenser.\n\nNous vous conseillerons sur ce qu'il faut dépenser chaque jour pour maximiser vos points.\n\nConsultez vos messages maintenant pour savoir quoi faire avant le début du Jour 1。",
+      "pt": "Verifique suas mensagens privadas diariamente para obter guias e instruções. Se você tiver dúvidas ou não tiver certeza, pergunte ao R4/5 antes de gastar.\n\nAvisaremos o que gastar a cada dia para maximizar os pontos.\n\nVerifique suas mensagens agora para saber o que fazer antes do início do Dia 1。",
+      "tr": "Kılavuzlar ve talimatlar için özel mesajlarını günlük olarak kontrol et. Soruların varsa veya emin değilsen harcama yapmadan önce R4/5'e sor.\n\nPuanları en üst düzeye çıkarmak için her gün ne harcayacağın konusunda tavsiyede bulunacağız.\n\n1. Gün başlamadan önce ne yapman gerektiğini öğrenmek için mesajlarını hemen kontrol et。",
+      "id": "Periksa Pesan Pribadi Anda setiap hari untuk panduan & instruksi. Jika Anda memiliki pertanyaan atau tidak yakin, tanyakan kepada R4/5 sebelum menggunakan sumber daya.\n\nKami akan menyarankan apa yang harus digunakan setiap hari untuk memaksimalkan poin.\n\nPeriksa pesan Anda sekarang untuk mengetahui apa yang harus dilakukan sebelum Hari 1 dimulai。",
+      "ru": "Ежедневно проверяйте личные сообщения на наличие руководств и инструкций. Если у вас есть вопросы или вы не уверены, спросите R4/5 перед тратами.\n\nМы подскажем, что тратить каждый день, чтобы набрать максимум очков.\n\nПроверьте сообщения сейчас, чтобы узнать, что нужно сделать до начала 1-го дня。",
+      "th": "ตรวจสอบข้อความส่วนตัวของคุณทุกวันเพื่อดูคำแนะนำและคำสั่ง หากคุณมีคำถามหรือไม่แน่ใจ ให้ถาม R4/5 ก่อนใช้งาน\n\nเราจะแนะนำสิ่งที่ควรใช้ในแต่ละวันเพื่อเพิ่มคะแนนให้สูงสุด\n\nตรวจสอบข้อความของคุณตอนนี้เพื่อดูว่าควรทำอย่างไรก่อนเริ่มวันที่ 1。",
+      "ar": "تحقق من رسائلك الخاصة يوميًا للحصول على الدلائل والتعليمات. إذا كانت لديك أسئلة أو لم تكن متأكدًا، فاسأل R4/5 قبل الاستخدام.\n\nسننصحك بما يجب استخدامه كل يوم لزيادة النقاط.\n\nتحقق من رسائلك الآن لمعرفة ما يجب فعله قبل بدء اليوم 1。",
+      "es": "Revisa tus mensajes privados diariamente para ver guías e instrucciones. Si tienes preguntas o no estás seguro, consulta con R4/5 antes de gastar.\n\nTe avisaremos qué gastar cada día para maximizar tus puntos.\n\nRevisa tus mensajes ahora para saber qué hacer antes de que comience el Día 1。",
+      "en": "Check your Private Messages daily for guidelines & instructions. If you have questions or unsure, ask R4/5 before spending.\n\nWe’ll advise what to spend each day to maximize points.\n\nCheck your messages now for what to do before Day 1 begins.\n"
+    }
   }
 }
