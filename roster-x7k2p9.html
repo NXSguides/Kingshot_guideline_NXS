@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -152,7 +152,7 @@ const LS = "nxs-roster-v1";
 const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
 const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
 
-let lang = store.lang || ((navigator.language || "").startsWith("zh") ? "zh" : "en");
+let lang = store.lang || "en";
 let data = null, sortKey = store.sortKey || "power", sortDir = store.sortDir || -1;
 let picked = new Set(store.picked || []);
 let wPower = store.wPower ?? 40;
@@ -177,7 +177,7 @@ function applyTexts() {
   document.querySelectorAll("[data-t]").forEach((el) => { el.textContent = tr(el.dataset.t); });
   $("q").placeholder = tr("search");
   $("langBtn").textContent = lang === "zh" ? "English" : "中文";
-  if (data) $("meta").textContent = `${data.alliance?.tag ? "[" + data.alliance.tag + "] " : ""}${tr("members", { n: data.members.length })} · ${tr("updated", { t: new Date(data.updated).toLocaleString(), ago: ago(data.updated) })}`;
+  if (data) $("meta").textContent = `${data.alliance?.tag ? "[" + data.alliance.tag + "] " : ""}${tr("members", { n: data.members.length })} · ${tr("updated", { t: new Date(data.updated).toLocaleString(lang === "zh" ? "zh-TW" : "en-GB"), ago: ago(data.updated) })}`;
   $("noData").textContent = tr("noData");
 }
 
