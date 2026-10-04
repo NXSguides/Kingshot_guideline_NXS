@@ -128,6 +128,7 @@
       </div>
       <div class="muted msg" data-t="eventsNote" style="margin:0 0 8px"></div>
       <div class="row" id="presetBtns"></div>
+      <div class="row" id="presetCounts" style="margin-top:10px"></div>
       <div id="presetOut"></div>
     </div>
   </div>
@@ -143,7 +144,7 @@ const T = {
     paste: "貼上報名名單一次勾選", pasteNote: "一行一個名字（或用逗號分隔）。名字前後的符號和 Nexus 標記可以省略，大小寫沒關係。標 (?) 的表示有好幾個人符合，請手動勾選。",
     pasteGo: "勾選這些人", pasteOk: "已勾選 {n} 人。", pasteMiss: "找不到：{list}",
     search: "搜尋名字…", colName: "名字", colRank: "階級", colTc: "主城", colActive: "上次上線",
-    events: "④ 活動分組", eventsNote: "依上面的排序結果（加權分數高到低）分組。", n: "{n} 人",
+    rest: "剩下的人", events: "④ 活動分組", eventsNote: "依上面的排序結果（加權分數高到低）分組。", n: "{n} 人",
     result: "③ 排序結果", copy: "複製結果", copied: "已複製！", colScore: "分數",
     scoreNote: "分數算法：兩項各自以「這次勾選的人裡面最高的那個 = 100」換算，再依占比加總。沒有秘境數字的人以 0 計，標 ?。",
     empty: "還沒勾選任何人。", selected: "已選 {n} / {t} 人",
@@ -158,7 +159,7 @@ const T = {
     paste: "Paste a sign-up list to tick at once", pasteNote: "One name per line (or comma-separated). Decorations like ♛ and the Nexus tag can be left out; case doesn't matter. (?) means several players match — tick that one by hand.",
     pasteGo: "Tick these players", pasteOk: "Ticked {n} players.", pasteMiss: "Not found: {list}",
     search: "Search a name…", colName: "Name", colRank: "Rank", colTc: "TC", colActive: "Last online",
-    events: "④ Event groups", eventsNote: "Groups follow the ranking above (highest weighted score first).", n: "{n}",
+    rest: "everyone left", events: "④ Event groups", eventsNote: "Groups follow the ranking above (highest weighted score first).", n: "{n}",
     result: "③ Ranking", copy: "Copy result", copied: "Copied!", colScore: "Score",
     scoreNote: "Score: each stat is scaled so the highest among the ticked players = 100, then combined by the weights. Players with no Mystic Trial value count as 0 (marked ?).",
     empty: "Nobody ticked yet.", selected: "{n} / {t} selected",
@@ -272,15 +273,31 @@ function renderResult() {
 }
 
 let activePreset = null;
+// group sizes the user typed, remembered per event (falls back to the preset's default)
+function groupCount(pr, gi) {
+  const v = store.counts?.[pr.id]?.[gi];
+  return v == null ? pr.groups[gi].count : v;
+}
 function presetGroups(pr) {
   const r = ranking(); let i = 0;
-  return pr.groups.map((g) => { const take = g.count == null ? r.slice(i) : r.slice(i, i + g.count); i += take.length; return { g, list: take }; });
+  return pr.groups.map((g, gi) => {
+    const c = g.count == null ? null : groupCount(pr, gi);
+    const take = c == null ? r.slice(i) : r.slice(i, i + c); i += take.length; return { g, list: take };
+  });
+}
+function renderCounts() {
+  const pr = PRESETS.find((x) => x.id === activePreset);
+  if (!pr) { $("presetCounts").innerHTML = ""; return; }
+  $("presetCounts").innerHTML = pr.groups.map((g, gi) => g.count == null
+    ? `<span class="muted">${esc(g.name[lang] || g.name.en)}: ${tr("rest")}</span>`
+    : `<label class="w">${esc(g.name[lang] || g.name.en)}<input type="number" min="0" max="99" step="1" data-gi="${gi}" value="${groupCount(pr, gi)}"></label>`).join("");
 }
 function renderPresets() {
   $("presetBtns").innerHTML = PRESETS.map((pr) =>
     `<button class="btn${activePreset === pr.id ? " on" : ""}" data-p="${pr.id}">${pr.emoji} ${esc(pr.name[lang] || pr.name.en)}</button>`).join("");
   const pr = PRESETS.find((x) => x.id === activePreset);
   $("presetCopy").hidden = !pr;
+  if (!document.activeElement || !document.activeElement.closest("#presetCounts")) renderCounts();
   if (!pr) { $("presetOut").innerHTML = ""; return; }
   if (!picked.size) { $("presetOut").innerHTML = `<p class="empty">${tr("empty")}</p>`; return; }
   $("presetOut").innerHTML = `<div class="grp-out">` + presetGroups(pr).map(({ g, list }) => `
@@ -360,6 +377,14 @@ $("copyBtn").onclick = async () => {
 $("presetBtns").onclick = (e) => {
   const b = e.target.closest("[data-p]"); if (!b) return;
   activePreset = activePreset === b.dataset.p ? null : b.dataset.p; renderPresets();
+};
+$("presetCounts").oninput = (e) => {
+  const inp = e.target.closest("input[data-gi]"); if (!inp) return;
+  const v = Math.max(0, Math.min(99, Math.round(Number(inp.value) || 0)));
+  store.counts = store.counts || {};
+  store.counts[activePreset] = store.counts[activePreset] || {};
+  store.counts[activePreset][inp.dataset.gi] = v;
+  save(); renderPresets();
 };
 $("presetCopy").onclick = async () => {
   const pr = PRESETS.find((x) => x.id === activePreset); if (!pr) return;
