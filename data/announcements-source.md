@@ -84,3 +84,17 @@ content: |
   ⑦ {swordshrine}: most points
 
   [[link:swordland-showdown]]
+---
+author: Nia
+lang: en
+title: KvK PREP begins Oct 5 at 00:00 UTC
+images: []
+# Every line below "content: |" must start with 2 spaces (not a tab)
+content: |
+  Check your Private Messages daily for guidelines & instructions. If you have questions or unsure, ask R4/5 before spending.
+
+  We’ll advise what to spend each day to maximize points.
+
+  Check your messages now for what to do before Day 1 begins.
+---
+
