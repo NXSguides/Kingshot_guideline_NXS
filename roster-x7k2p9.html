@@ -14,6 +14,7 @@
   .muted { color: var(--text-muted); font-size: 13px; }
   .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
   .btn { padding: 7px 12px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 14px; }
+  a.btn { text-decoration: none; display: inline-block; }
   .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
   .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 14px; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
   .card h2 { margin: 0 0 10px; font-size: 18px; }
@@ -46,6 +47,7 @@
       <div class="muted" id="meta"></div>
     </div>
     <div class="row">
+      <a class="btn" href="./" id="homeBtn">← <span data-t="home"></span></a>
       <button class="btn" id="langBtn"></button>
     </div>
   </div>
@@ -121,7 +123,7 @@
 const DATA_URL = "data/roster-x7k2p9.json";
 const T = {
   zh: {
-    title: "NXS 成員排序", weights: "① 占比", power: "總戰力", mystic: "秘境試煉",
+    title: "NXS 成員排序", home: "回主頁", weights: "① 占比", power: "總戰力", mystic: "秘境試煉",
     weightNote: "兩個加起來是 100%，改一個另一個會自動調整。",
     pick: "② 勾選這次參戰的人", all: "全選", none: "全部取消",
     paste: "貼上報名名單一次勾選", pasteNote: "一行一個名字（或用逗號分隔）。名字前後的符號和 Nexus 標記可以省略，大小寫沒關係。標 (?) 的表示有好幾個人符合，請手動勾選。",
@@ -135,7 +137,7 @@ const T = {
     ago: { now: "剛剛", m: "{n} 分鐘前", h: "{n} 小時前", d: "{n} 天前" },
   },
   en: {
-    title: "NXS Roster Ranking", weights: "① Weights", power: "Total Power", mystic: "Mystic Trial",
+    title: "NXS Roster Ranking", home: "Home", weights: "① Weights", power: "Total Power", mystic: "Mystic Trial",
     weightNote: "The two add up to 100% — changing one adjusts the other.",
     pick: "② Tick this event's participants", all: "Select all", none: "Clear",
     paste: "Paste a sign-up list to tick at once", pasteNote: "One name per line (or comma-separated). Decorations like ♛ and the Nexus tag can be left out; case doesn't matter. (?) means several players match — tick that one by hand.",
