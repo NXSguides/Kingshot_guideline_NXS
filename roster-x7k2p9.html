@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>NXS Roster</title>
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  body { padding: 16px; }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  h1 { font-family: "Oswald", "Noto Sans TC", sans-serif; margin: 0 0 4px; font-size: 26px; }
+  .muted { color: var(--text-muted); font-size: 13px; }
+  .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
+  .btn { padding: 7px 12px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 14px; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+  .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 14px; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
+  .card h2 { margin: 0 0 10px; font-size: 18px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .w { display: flex; align-items: center; gap: 6px; background: var(--panel-2); padding: 8px 10px; border-radius: 10px; }
+  .w input { width: 70px; padding: 6px 8px; font-size: 16px; border-radius: 6px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); text-align: end; }
+  input[type=search], textarea { width: 100%; box-sizing: border-box; padding: 9px 11px; font-size: 15px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-family: inherit; }
+  textarea { min-height: 80px; }
+  .tbl-wrap { overflow-x: auto; margin-top: 10px; max-height: 60vh; overflow-y: auto; border: 1px solid var(--rule); border-radius: 8px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { padding: 6px 8px; border-bottom: 1px solid var(--rule); white-space: nowrap; text-align: start; }
+  th { position: sticky; top: 0; background: var(--panel-2); cursor: pointer; user-select: none; z-index: 1; }
+  td.num, th.num { text-align: end; font-variant-numeric: tabular-nums; }
+  tr.on td { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+  tr.member { cursor: pointer; }
+  .name { font-weight: 600; max-width: 220px; overflow: hidden; text-overflow: ellipsis; }
+  .bar { display: inline-block; height: 8px; border-radius: 4px; background: var(--accent); vertical-align: middle; margin-inline-start: 6px; }
+  .warn { color: var(--accent); }
+  .msg { margin-top: 6px; font-size: 13px; }
+  details summary { cursor: pointer; font-weight: 600; }
+  .empty { padding: 20px; text-align: center; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1 data-t="title"></h1>
+      <div class="muted" id="meta"></div>
+    </div>
+    <div class="row">
+      <button class="btn" id="langBtn"></button>
+    </div>
+  </div>
+
+  <div id="noData" class="card" hidden></div>
+
+  <div id="app" hidden>
+    <!-- 1. weights -->
+    <div class="card">
+      <h2 data-t="weights"></h2>
+      <div class="row">
+        <label class="w"><span data-t="power"></span><input type="number" id="wPower" min="0" max="100" step="5"> %</label>
+        <label class="w"><span data-t="mystic"></span><input type="number" id="wMystic" min="0" max="100" step="5"> %</label>
+      </div>
+      <div class="muted msg" data-t="weightNote"></div>
+    </div>
+
+    <!-- 2. pick participants -->
+    <div class="card">
+      <h2><span data-t="pick"></span> <span class="muted" id="pickCount"></span></h2>
+      <div class="row" style="margin-bottom:8px">
+        <button class="btn" id="allBtn" data-t="all"></button>
+        <button class="btn" id="noneBtn" data-t="none"></button>
+      </div>
+      <details style="margin-bottom:8px">
+        <summary data-t="paste"></summary>
+        <div class="muted msg" data-t="pasteNote"></div>
+        <textarea id="pasteBox"></textarea>
+        <div class="row" style="margin-top:6px"><button class="btn" id="pasteBtn" data-t="pasteGo"></button></div>
+        <div class="msg" id="pasteMsg"></div>
+      </details>
+      <input type="search" id="q">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr>
+            <th></th>
+            <th data-sort="name" data-t="colName"></th>
+            <th data-sort="rank" data-t="colRank"></th>
+            <th data-sort="tc" class="num" data-t="colTc"></th>
+            <th data-sort="power" class="num" data-t="power"></th>
+            <th data-sort="mystic" class="num" data-t="mystic"></th>
+            <th data-sort="lastActive" class="num" data-t="colActive"></th>
+          </tr></thead>
+          <tbody id="list"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 3. result -->
+    <div class="card">
+      <div class="top">
+        <h2 data-t="result"></h2>
+        <button class="btn primary" id="copyBtn" data-t="copy"></button>
+      </div>
+      <div class="tbl-wrap" style="max-height:none">
+        <table>
+          <thead><tr>
+            <th class="num">#</th>
+            <th data-t="colName"></th>
+            <th class="num" data-t="colScore"></th>
+            <th class="num" data-t="power"></th>
+            <th class="num" data-t="mystic"></th>
+          </tr></thead>
+          <tbody id="result"></tbody>
+        </table>
+      </div>
+      <div class="muted msg" data-t="scoreNote"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const DATA_URL = "data/roster-x7k2p9.json";
+const T = {
+  zh: {
+    title: "NXS 成員排序", weights: "① 占比", power: "總戰力", mystic: "秘境試煉",
+    weightNote: "兩個加起來是 100%，改一個另一個會自動調整。",
+    pick: "② 勾選這次參戰的人", all: "全選", none: "全部取消",
+    paste: "貼上報名名單一次勾選", pasteNote: "一行一個名字（或用逗號分隔），名字要跟遊戲裡一樣，大小寫沒關係。",
+    pasteGo: "勾選這些人", pasteOk: "已勾選 {n} 人。", pasteMiss: "找不到：{list}",
+    search: "搜尋名字…", colName: "名字", colRank: "階級", colTc: "主城", colActive: "上次上線",
+    result: "③ 排序結果", copy: "複製結果", copied: "已複製！", colScore: "分數",
+    scoreNote: "分數算法：兩項各自以「這次勾選的人裡面最高的那個 = 100」換算，再依占比加總。沒有秘境數字的人以 0 計，標 ?。",
+    empty: "還沒勾選任何人。", selected: "已選 {n} / {t} 人",
+    updated: "資料更新：{t}（{ago}）", members: "{n} 名成員",
+    noData: "還沒有資料。請到 GitHub → Actions → 「Update Roster (MightPulse)」→ Run workflow，跑完後重新整理這頁。",
+    ago: { now: "剛剛", m: "{n} 分鐘前", h: "{n} 小時前", d: "{n} 天前" },
+  },
+  en: {
+    title: "NXS Roster Ranking", weights: "① Weights", power: "Total Power", mystic: "Mystic Trial",
+    weightNote: "The two add up to 100% — changing one adjusts the other.",
+    pick: "② Tick this event's participants", all: "Select all", none: "Clear",
+    paste: "Paste a sign-up list to tick at once", pasteNote: "One name per line (or comma-separated), spelled as in game; case doesn't matter.",
+    pasteGo: "Tick these players", pasteOk: "Ticked {n} players.", pasteMiss: "Not found: {list}",
+    search: "Search a name…", colName: "Name", colRank: "Rank", colTc: "TC", colActive: "Last online",
+    result: "③ Ranking", copy: "Copy result", copied: "Copied!", colScore: "Score",
+    scoreNote: "Score: each stat is scaled so the highest among the ticked players = 100, then combined by the weights. Players with no Mystic Trial value count as 0 (marked ?).",
+    empty: "Nobody ticked yet.", selected: "{n} / {t} selected",
+    updated: "Data updated: {t} ({ago})", members: "{n} members",
+    noData: "No data yet. Go to GitHub → Actions → “Update Roster (MightPulse)” → Run workflow, then reload this page.",
+    ago: { now: "just now", m: "{n} min ago", h: "{n} h ago", d: "{n} d ago" },
+  },
+};
+const LS = "nxs-roster-v1";
+const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
+const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
+
+let lang = store.lang || ((navigator.language || "").startsWith("zh") ? "zh" : "en");
+let data = null, sortKey = store.sortKey || "power", sortDir = store.sortDir || -1;
+let picked = new Set(store.picked || []);
+let wPower = store.wPower ?? 40;
+
+const $ = (id) => document.getElementById(id);
+const tr = (k, vars = {}) => String(k.split(".").reduce((o, x) => o && o[x], T[lang]) ?? k).replace(/\{(\w+)\}/g, (m, v) => vars[v] ?? m);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const big = (n) => n == null ? "?" : n >= 1e9 ? (n / 1e9).toFixed(2) + "B" : n >= 1e6 ? (n / 1e6).toFixed(1) + "M" : n >= 1e3 ? (n / 1e3).toFixed(1) + "K" : String(n);
+const toMs = (v) => v == null ? null : (typeof v === "number" ? (v < 1e12 ? v * 1000 : v) : Date.parse(v));
+function ago(v) {
+  const ms = toMs(v); if (!ms) return "?";
+  const s = (Date.now() - ms) / 1000;
+  if (s < 60) return tr("ago.now");
+  if (s < 3600) return tr("ago.m", { n: Math.floor(s / 60) });
+  if (s < 86400) return tr("ago.h", { n: Math.floor(s / 3600) });
+  return tr("ago.d", { n: Math.floor(s / 86400) });
+}
+const norm = (s) => String(s || "").trim().toLowerCase();
+
+function applyTexts() {
+  document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+  document.querySelectorAll("[data-t]").forEach((el) => { el.textContent = tr(el.dataset.t); });
+  $("q").placeholder = tr("search");
+  $("langBtn").textContent = lang === "zh" ? "English" : "中文";
+  if (data) $("meta").textContent = `${data.alliance?.tag ? "[" + data.alliance.tag + "] " : ""}${tr("members", { n: data.members.length })} · ${tr("updated", { t: new Date(data.updated).toLocaleString(), ago: ago(data.updated) })}`;
+  $("noData").textContent = tr("noData");
+}
+
+function renderList() {
+  const q = norm($("q").value);
+  const rows = data.members
+    .filter((m) => !q || norm(m.name).includes(q))
+    .sort((a, b) => {
+      let x = a[sortKey], y = b[sortKey];
+      if (sortKey === "lastActive") { x = toMs(x) || 0; y = toMs(y) || 0; }
+      if (typeof x === "string" || typeof y === "string") return sortDir * String(x ?? "").localeCompare(String(y ?? ""));
+      return sortDir * ((x ?? -1) - (y ?? -1));
+    });
+  $("list").innerHTML = rows.map((m) => `
+    <tr class="member${picked.has(m.id) ? " on" : ""}" data-id="${m.id}">
+      <td><input type="checkbox" ${picked.has(m.id) ? "checked" : ""} tabindex="-1"></td>
+      <td class="name" dir="auto">${esc(m.name)}</td>
+      <td>${esc(m.rank)}</td>
+      <td class="num">${m.tc ?? "?"}</td>
+      <td class="num">${big(m.power)}</td>
+      <td class="num">${big(m.mystic)}</td>
+      <td class="num">${ago(m.lastActive)}</td>
+    </tr>`).join("");
+  $("pickCount").textContent = tr("selected", { n: picked.size, t: data.members.length });
+  document.querySelectorAll("th[data-sort]").forEach((th) => {
+    th.textContent = tr(th.dataset.t) + (th.dataset.sort === sortKey ? (sortDir < 0 ? " ▼" : " ▲") : "");
+  });
+}
+
+function ranking() {
+  const sel = data.members.filter((m) => picked.has(m.id));
+  const maxP = Math.max(1, ...sel.map((m) => m.power || 0));
+  const maxM = Math.max(1, ...sel.map((m) => m.mystic || 0));
+  const wp = wPower / 100, wm = 1 - wp;
+  return sel.map((m) => ({ ...m, score: 100 * (wp * (m.power || 0) / maxP + wm * (m.mystic || 0) / maxM) }))
+    .sort((a, b) => b.score - a.score);
+}
+
+function renderResult() {
+  const r = ranking();
+  $("result").innerHTML = r.length ? r.map((m, i) => `
+    <tr>
+      <td class="num">${i + 1}</td>
+      <td class="name" dir="auto">${esc(m.name)}</td>
+      <td class="num">${m.score.toFixed(1)}<span class="bar" style="width:${Math.round(m.score * 0.6)}px"></span></td>
+      <td class="num">${big(m.power)}</td>
+      <td class="num">${m.mystic == null ? '<span class="warn">?</span>' : big(m.mystic)}</td>
+    </tr>`).join("") : `<tr><td colspan="5" class="empty">${tr("empty")}</td></tr>`;
+}
+
+function renderAll() { applyTexts(); renderList(); renderResult(); }
+function persist() { store.picked = [...picked]; store.wPower = wPower; store.sortKey = sortKey; store.sortDir = sortDir; store.lang = lang; save(); }
+
+function setWeights(p) {
+  wPower = Math.min(100, Math.max(0, Math.round(Number(p) || 0)));
+  $("wPower").value = wPower; $("wMystic").value = 100 - wPower;
+  persist(); renderResult();
+}
+
+async function init() {
+  applyTexts();
+  try {
+    const res = await fetch(DATA_URL + "?t=" + Date.now(), { cache: "no-store" });
+    if (!res.ok) throw 0;
+    data = await res.json();
+  } catch (e) { $("noData").hidden = false; return; }
+  // drop picks of players who left the alliance
+  const ids = new Set(data.members.map((m) => m.id));
+  picked = new Set([...picked].filter((id) => ids.has(id)));
+  $("app").hidden = false;
+  setWeights(wPower);
+  renderAll();
+}
+
+$("langBtn").onclick = () => { lang = lang === "zh" ? "en" : "zh"; persist(); renderAll(); };
+$("wPower").oninput = (e) => setWeights(e.target.value);
+$("wMystic").oninput = (e) => setWeights(100 - (Number(e.target.value) || 0));
+$("q").oninput = renderList;
+$("list").onclick = (e) => {
+  const row = e.target.closest("tr.member"); if (!row) return;
+  const id = Number(row.dataset.id) || row.dataset.id;
+  picked.has(id) ? picked.delete(id) : picked.add(id);
+  persist(); renderList(); renderResult();
+};
+$("allBtn").onclick = () => { data.members.forEach((m) => picked.add(m.id)); persist(); renderList(); renderResult(); };
+$("noneBtn").onclick = () => { picked.clear(); persist(); renderList(); renderResult(); };
+document.querySelectorAll("th[data-sort]").forEach((th) => th.onclick = () => {
+  const k = th.dataset.sort;
+  if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = k === "name" || k === "rank" ? 1 : -1; }
+  persist(); renderList();
+});
+$("pasteBtn").onclick = () => {
+  const names = $("pasteBox").value.split(/[\n,，]+/).map((s) => s.replace(/^[\s\-•*\d.)]+/, "").trim()).filter(Boolean);
+  const byName = new Map(data.members.map((m) => [norm(m.name), m]));
+  const miss = []; let n = 0;
+  names.forEach((nm) => { const m = byName.get(norm(nm)); if (m) { picked.add(m.id); n++; } else miss.push(nm); });
+  $("pasteMsg").innerHTML = esc(tr("pasteOk", { n })) + (miss.length ? `<br><span class="warn">${esc(tr("pasteMiss", { list: miss.join(", ") }))}</span>` : "");
+  persist(); renderList(); renderResult();
+};
+$("copyBtn").onclick = async () => {
+  const r = ranking();
+  const text = r.map((m, i) => `${i + 1}. ${m.name} — ${m.score.toFixed(1)}`).join("\n");
+  try { await navigator.clipboard.writeText(text); } catch (e) {
+    const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
+  }
+  const b = $("copyBtn"); b.textContent = tr("copied"); setTimeout(() => (b.textContent = tr("copy")), 1500);
+};
+
+// theme follows the main site's saved choice
+try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
+init();
+</script>
+</body>
+</html>
