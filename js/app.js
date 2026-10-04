@@ -817,3 +817,44 @@ window.addEventListener("hashchange", () => {
     document.body.style.overflow = "hidden";
   });
 })();
+
+/* ---- 隱藏入口：連點標題 5 次 → 輸入密碼 → 幹部用的成員排序頁 ---------- */
+/* 換密碼：打開網站的 password.html，輸入新密碼，用它產生的那行換掉下面 ROSTER_HASH 這行（把 var HASH 改成 const ROSTER_HASH）。 */
+const ROSTER_HASH = "a9dadd1938825b78c31bb62d74173a8e5e1b460ab2484d42707df7a6d5d42160";
+(function () {
+  const title = document.getElementById("siteTitle");
+  if (!title) return;
+  const URL_ = "roster-x7k2p9.html";
+  async function sha256(text) {
+    const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+    return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
+  }
+  function ask() {
+    if (document.getElementById("rosterGate")) return;
+    const box = document.createElement("div");
+    box.id = "rosterGate";
+    box.style.cssText = "position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:rgba(0,0,0,.55);padding:20px";
+    box.innerHTML = `<form style="width:100%;max-width:320px;background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:20px;display:grid;gap:10px;text-align:center;box-shadow:0 8px 24px var(--shadow)">
+      <b>🔒</b>
+      <input type="password" autocomplete="current-password" placeholder="Password" style="padding:10px;font-size:16px;text-align:center;border-radius:8px;border:1px solid var(--rule);background:var(--panel-2);color:var(--text)">
+      <button type="submit" style="padding:10px;border:0;border-radius:8px;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:15px;cursor:pointer">OK</button>
+      <small hidden style="color:var(--accent)">Wrong password</small>
+    </form>`;
+    document.body.appendChild(box);
+    const form = box.querySelector("form"), input = box.querySelector("input"), err = box.querySelector("small");
+    box.addEventListener("click", (e) => { if (e.target === box) box.remove(); });
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (await sha256("nxs-guide:" + input.value) === ROSTER_HASH) { location.href = URL_; return; }
+      err.hidden = false; input.value = ""; input.focus();
+    });
+    input.focus();
+  }
+  let taps = 0, timer = null;
+  title.addEventListener("click", () => {
+    taps++;
+    clearTimeout(timer);
+    timer = setTimeout(() => { taps = 0; }, 2000);
+    if (taps >= 5) { taps = 0; ask(); }
+  });
+})();
