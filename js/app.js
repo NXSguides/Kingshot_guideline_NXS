@@ -726,6 +726,7 @@ function renderAll() {
   document.documentElement.lang = HTML_LANG[currentLang] || currentLang;
   const curLang = LANGS.find((l) => l.code === currentLang);
   document.documentElement.dir = (curLang && curLang.dir) || "ltr";
+  if (window.kvkRepaint) window.kvkRepaint();
   if (!langChosen) { renderPicker(); return; }
   if (shouldShowEventPopup()) renderEventPopup();
   renderAnnTicker();
@@ -942,6 +943,7 @@ const KVK_CHECK = {
     fab.innerHTML = `📋 ${escapeHtml(dayTitle())} <span class="kvk-n">${c}/${total}</span>`;
   }
   paintFab();
+  window.kvkRepaint = paintFab; // called by renderAll() so the button follows language changes
 
   fab.onclick = () => {
     const box = document.createElement("div");
