@@ -50,3 +50,37 @@ content: |
 
   [[link:bear-hunt]]
 ---
+---
+author: Nia
+lang: en   # en / zh / ko / de / fr / pt / tr / id / ru / th / ar / es
+title: ⚔️ Swordland Showdown Legion 2 – Roles
+images: []
+content: |
+  **Roles based on this week's sign-up**
+  Please check your responsibility, target building and team.
+
+  [[img:figures/IMG_5429.png]]
+
+  **Map** – circled areas show where teams can teleport to. Stay close to the Pink building and send rallies to the Green building.
+
+  [[img:figures/IMG_5430.png]]
+
+  All floaters are listed under "Joiners" with their assigned teams.
+
+  **Name not on the list?**
+  • Loot the scattered chests when a building flips sides.
+  • Gather at the {undercellar}s when they open.
+  • Join rallies close to you where possible.
+  • Keep all marches busy.
+
+  **Map for the in-game chat**
+  [[img:figures/SS_chat.png]]
+  ① {stables}: −50% cooldown
+  ② {belltower}: −50% control time
+  ③ {sanctum}: more points
+  ④ {abbey}: points
+  ⑤ {mercenary}: attacks buildings
+  ⑥ {reformation}: +15% damage & damage reduction
+  ⑦ {swordshrine}: most points
+
+  [[link:swordland-showdown]]
