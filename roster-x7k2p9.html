@@ -36,6 +36,10 @@
   .warn { color: var(--accent); }
   .msg { margin-top: 6px; font-size: 13px; }
   details summary { cursor: pointer; font-weight: 600; }
+  .grp-out h3 { margin: 14px 0 6px; font-size: 16px; }
+  .grp-out ol { margin: 0; padding-inline-start: 26px; }
+  .grp-out li { padding: 2px 0; }
+  .btn.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
   .empty { padding: 20px; text-align: center; color: var(--text-muted); }
 </style>
 </head>
@@ -115,6 +119,17 @@
       </div>
       <div class="muted msg" data-t="scoreNote"></div>
     </div>
+
+    <!-- 4. event presets -->
+    <div class="card">
+      <div class="top">
+        <h2 data-t="events"></h2>
+        <button class="btn primary" id="presetCopy" data-t="copy" hidden></button>
+      </div>
+      <div class="muted msg" data-t="eventsNote" style="margin:0 0 8px"></div>
+      <div class="row" id="presetBtns"></div>
+      <div id="presetOut"></div>
+    </div>
   </div>
 </div>
 
@@ -128,6 +143,7 @@ const T = {
     paste: "貼上報名名單一次勾選", pasteNote: "一行一個名字（或用逗號分隔）。名字前後的符號和 Nexus 標記可以省略，大小寫沒關係。標 (?) 的表示有好幾個人符合，請手動勾選。",
     pasteGo: "勾選這些人", pasteOk: "已勾選 {n} 人。", pasteMiss: "找不到：{list}",
     search: "搜尋名字…", colName: "名字", colRank: "階級", colTc: "主城", colActive: "上次上線",
+    events: "④ 活動分組", eventsNote: "依上面的排序結果（加權分數高到低）分組。", n: "{n} 人",
     result: "③ 排序結果", copy: "複製結果", copied: "已複製！", colScore: "分數",
     scoreNote: "分數算法：兩項各自以「這次勾選的人裡面最高的那個 = 100」換算，再依占比加總。沒有秘境數字的人以 0 計，標 ?。",
     empty: "還沒勾選任何人。", selected: "已選 {n} / {t} 人",
@@ -142,6 +158,7 @@ const T = {
     paste: "Paste a sign-up list to tick at once", pasteNote: "One name per line (or comma-separated). Decorations like ♛ and the Nexus tag can be left out; case doesn't matter. (?) means several players match — tick that one by hand.",
     pasteGo: "Tick these players", pasteOk: "Ticked {n} players.", pasteMiss: "Not found: {list}",
     search: "Search a name…", colName: "Name", colRank: "Rank", colTc: "TC", colActive: "Last online",
+    events: "④ Event groups", eventsNote: "Groups follow the ranking above (highest weighted score first).", n: "{n}",
     result: "③ Ranking", copy: "Copy result", copied: "Copied!", colScore: "Score",
     scoreNote: "Score: each stat is scaled so the highest among the ticked players = 100, then combined by the weights. Players with no Mystic Trial value count as 0 (marked ?).",
     empty: "Nobody ticked yet.", selected: "{n} / {t} selected",
@@ -150,6 +167,15 @@ const T = {
     ago: { now: "just now", m: "{n} min ago", h: "{n} h ago", d: "{n} d ago" },
   },
 };
+/* ---- Event presets: add a new event by copying one entry. count: null = everyone left ---- */
+const PRESETS = [
+  { id: "swordland", emoji: "⚔️", name: { en: "Swordland Showdown", zh: "聖劍爭奪" },
+    groups: [
+      { name: { en: "Attackers", zh: "攻擊者" }, count: 4 },
+      { name: { en: "Defenders", zh: "防守者" }, count: 6 },
+      { name: { en: "Joiners", zh: "參與者" }, count: null },
+    ] },
+];
 const LS = "nxs-roster-v2";
 const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
 const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
@@ -233,6 +259,7 @@ function ranking() {
 }
 
 function renderResult() {
+  setTimeout(renderPresets, 0);
   const r = ranking();
   $("result").innerHTML = r.length ? r.map((m, i) => `
     <tr>
@@ -244,6 +271,22 @@ function renderResult() {
     </tr>`).join("") : `<tr><td colspan="5" class="empty">${tr("empty")}</td></tr>`;
 }
 
+let activePreset = null;
+function presetGroups(pr) {
+  const r = ranking(); let i = 0;
+  return pr.groups.map((g) => { const take = g.count == null ? r.slice(i) : r.slice(i, i + g.count); i += take.length; return { g, list: take }; });
+}
+function renderPresets() {
+  $("presetBtns").innerHTML = PRESETS.map((pr) =>
+    `<button class="btn${activePreset === pr.id ? " on" : ""}" data-p="${pr.id}">${pr.emoji} ${esc(pr.name[lang] || pr.name.en)}</button>`).join("");
+  const pr = PRESETS.find((x) => x.id === activePreset);
+  $("presetCopy").hidden = !pr;
+  if (!pr) { $("presetOut").innerHTML = ""; return; }
+  if (!picked.size) { $("presetOut").innerHTML = `<p class="empty">${tr("empty")}</p>`; return; }
+  $("presetOut").innerHTML = `<div class="grp-out">` + presetGroups(pr).map(({ g, list }) => `
+    <h3>${esc(g.name[lang] || g.name.en)} <span class="muted">(${tr("n", { n: list.length })})</span></h3>
+    ${list.length ? `<ol>${list.map((m) => `<li dir="auto">${esc(m.name)} <span class="muted">· ${m.score.toFixed(1)}</span></li>`).join("")}</ol>` : `<div class="muted">—</div>`}`).join("") + `</div>`;
+}
 function renderAll() { applyTexts(); renderList(); renderResult(); }
 function persist() { store.picked = [...picked]; store.wPower = wPower; store.sortKey = sortKey; store.sortDir = sortDir; store.lang = lang; save(); }
 
@@ -312,6 +355,20 @@ $("copyBtn").onclick = async () => {
     const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
   }
   const b = $("copyBtn"); b.textContent = tr("copied"); setTimeout(() => (b.textContent = tr("copy")), 1500);
+};
+
+$("presetBtns").onclick = (e) => {
+  const b = e.target.closest("[data-p]"); if (!b) return;
+  activePreset = activePreset === b.dataset.p ? null : b.dataset.p; renderPresets();
+};
+$("presetCopy").onclick = async () => {
+  const pr = PRESETS.find((x) => x.id === activePreset); if (!pr) return;
+  const text = `**${pr.emoji} ${pr.name[lang] || pr.name.en}**\n` + presetGroups(pr).map(({ g, list }) =>
+    `\n**${g.name[lang] || g.name.en} (${list.length})**\n` + (list.map((m, i) => `${i + 1}. ${m.name}`).join("\n") || "—")).join("\n");
+  try { await navigator.clipboard.writeText(text); } catch (e) {
+    const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
+  }
+  const b = $("presetCopy"); b.textContent = tr("copied"); setTimeout(() => (b.textContent = tr("copy")), 1500);
 };
 
 // theme follows the main site's saved choice
