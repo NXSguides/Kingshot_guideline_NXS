@@ -786,3 +786,34 @@ window.addEventListener("hashchange", () => {
   persistPrefs();
   renderAll();
 });
+
+/* ---- 點圖片放大（公告圖片、指南圖片） ----------------------------- */
+(function () {
+  const st = document.createElement("style");
+  st.textContent = `
+    .ann-img,.fig{cursor:zoom-in}
+    .img-zoom{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);overflow:auto;-webkit-overflow-scrolling:touch;cursor:zoom-out}
+    .img-zoom img{display:block;margin:auto;max-width:none;width:auto;min-width:100%;height:auto}
+    .img-zoom img.fit{min-width:0;max-width:100%;max-height:100vh;position:absolute;inset:0}
+    .img-zoom-x{position:fixed;top:10px;right:12px;z-index:10000;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.9);font-size:22px;line-height:40px;cursor:pointer}
+  `;
+  document.head.appendChild(st);
+  document.addEventListener("click", (e) => {
+    const img = e.target.closest && e.target.closest("img.ann-img, img.fig");
+    if (!img) return;
+    const box = document.createElement("div");
+    box.className = "img-zoom";
+    const big = document.createElement("img");
+    big.src = img.currentSrc || img.src;
+    // small images (e.g. tables) are shown at 2× so the text can be read; tap to toggle
+    big.onload = () => { if (big.naturalWidth < window.innerWidth * 1.5) big.style.width = Math.max(window.innerWidth, big.naturalWidth) * 2 + "px"; };
+    const x = document.createElement("button");
+    x.className = "img-zoom-x"; x.type = "button"; x.textContent = "×";
+    const close = () => { box.remove(); x.remove(); document.body.style.overflow = ""; };
+    x.onclick = close;
+    box.onclick = (ev) => { if (ev.target === box) close(); };
+    box.appendChild(big);
+    document.body.appendChild(box); document.body.appendChild(x);
+    document.body.style.overflow = "hidden";
+  });
+})();
