@@ -28,7 +28,8 @@
   th { position: sticky; top: 0; background: var(--panel-2); cursor: pointer; user-select: none; z-index: 1; }
   td.num, th.num { text-align: end; font-variant-numeric: tabular-nums; }
   tr.on td { background: color-mix(in srgb, var(--accent) 12%, transparent); }
-  tr.member { cursor: pointer; }
+  tr.member, tr.grp { cursor: pointer; }
+  tr.grp td { background: var(--panel-2); border-top: 2px solid var(--rule); }
   .name { font-weight: 600; max-width: 220px; overflow: hidden; text-overflow: ellipsis; }
   .bar { display: inline-block; height: 8px; border-radius: 4px; background: var(--accent); vertical-align: middle; margin-inline-start: 6px; }
   .warn { color: var(--accent); }
@@ -123,7 +124,7 @@ const T = {
     title: "NXS 成員排序", weights: "① 占比", power: "總戰力", mystic: "秘境試煉",
     weightNote: "兩個加起來是 100%，改一個另一個會自動調整。",
     pick: "② 勾選這次參戰的人", all: "全選", none: "全部取消",
-    paste: "貼上報名名單一次勾選", pasteNote: "一行一個名字（或用逗號分隔），名字要跟遊戲裡一樣，大小寫沒關係。",
+    paste: "貼上報名名單一次勾選", pasteNote: "一行一個名字（或用逗號分隔）。名字前後的符號和 Nexus 標記可以省略，大小寫沒關係。標 (?) 的表示有好幾個人符合，請手動勾選。",
     pasteGo: "勾選這些人", pasteOk: "已勾選 {n} 人。", pasteMiss: "找不到：{list}",
     search: "搜尋名字…", colName: "名字", colRank: "階級", colTc: "主城", colActive: "上次上線",
     result: "③ 排序結果", copy: "複製結果", copied: "已複製！", colScore: "分數",
@@ -137,7 +138,7 @@ const T = {
     title: "NXS Roster Ranking", weights: "① Weights", power: "Total Power", mystic: "Mystic Trial",
     weightNote: "The two add up to 100% — changing one adjusts the other.",
     pick: "② Tick this event's participants", all: "Select all", none: "Clear",
-    paste: "Paste a sign-up list to tick at once", pasteNote: "One name per line (or comma-separated), spelled as in game; case doesn't matter.",
+    paste: "Paste a sign-up list to tick at once", pasteNote: "One name per line (or comma-separated). Decorations like ♛ and the Nexus tag can be left out; case doesn't matter. (?) means several players match — tick that one by hand.",
     pasteGo: "Tick these players", pasteOk: "Ticked {n} players.", pasteMiss: "Not found: {list}",
     search: "Search a name…", colName: "Name", colRank: "Rank", colTc: "TC", colActive: "Last online",
     result: "③ Ranking", copy: "Copy result", copied: "Copied!", colScore: "Score",
@@ -148,12 +149,12 @@ const T = {
     ago: { now: "just now", m: "{n} min ago", h: "{n} h ago", d: "{n} d ago" },
   },
 };
-const LS = "nxs-roster-v1";
+const LS = "nxs-roster-v2";
 const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
 const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
 
 let lang = store.lang || "en";
-let data = null, sortKey = store.sortKey || "power", sortDir = store.sortDir || -1;
+let data = null, sortKey = store.sortKey || "rank", sortDir = store.sortDir || -1;
 let picked = new Set(store.picked || []);
 let wPower = store.wPower ?? 40;
 
@@ -170,7 +171,11 @@ function ago(v) {
   if (s < 86400) return tr("ago.h", { n: Math.floor(s / 3600) });
   return tr("ago.d", { n: Math.floor(s / 86400) });
 }
+const rankNum = (m) => { const r = String(m.rank || ""); if (/leader|r5/i.test(r)) return 5; const n = r.match(/\d/); return n ? Number(n[0]) : 0; };
+const rankLabel = (m) => rankNum(m) ? "R" + rankNum(m) : (m.rank || "?");
 const norm = (s) => String(s || "").trim().toLowerCase();
+// name without decorations (♛, superscript "Nexus" tag, spaces, symbols) — for matching pasted names
+const core = (s) => String(s || "").normalize("NFKC").toLowerCase().replace(/nexus/g, "").replace(/[^\p{L}\p{N}]/gu, "");
 
 function applyTexts() {
   document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
@@ -184,23 +189,34 @@ function applyTexts() {
 function renderList() {
   const q = norm($("q").value);
   const rows = data.members
-    .filter((m) => !q || norm(m.name).includes(q))
+    .filter((m) => !q || norm(m.name).includes(q) || core(m.name).includes(core(q)))
     .sort((a, b) => {
+      if (sortKey === "rank") return sortDir * (rankNum(a) - rankNum(b)) || (b.power || 0) - (a.power || 0);
       let x = a[sortKey], y = b[sortKey];
       if (sortKey === "lastActive") { x = toMs(x) || 0; y = toMs(y) || 0; }
       if (typeof x === "string" || typeof y === "string") return sortDir * String(x ?? "").localeCompare(String(y ?? ""));
       return sortDir * ((x ?? -1) - (y ?? -1));
     });
-  $("list").innerHTML = rows.map((m) => `
+  let lastRank = null;
+  $("list").innerHTML = rows.map((m) => {
+    let head = "";
+    if (sortKey === "rank" && rankNum(m) !== lastRank) {
+      lastRank = rankNum(m);
+      const grp = rows.filter((x) => rankNum(x) === lastRank);
+      const on = grp.filter((x) => picked.has(x.id)).length;
+      head = `<tr class="grp" data-r="${lastRank}"><td><input type="checkbox" tabindex="-1" ${on === grp.length ? "checked" : ""}></td><td colspan="6"><b>${esc(rankLabel(m))}</b> <span class="muted">· ${on} / ${grp.length}</span></td></tr>`;
+    }
+    return head + `
     <tr class="member${picked.has(m.id) ? " on" : ""}" data-id="${m.id}">
       <td><input type="checkbox" ${picked.has(m.id) ? "checked" : ""} tabindex="-1"></td>
       <td class="name" dir="auto">${esc(m.name)}</td>
-      <td>${esc(m.rank)}</td>
+      <td>${esc(rankLabel(m))}</td>
       <td class="num">${m.tc ?? "?"}</td>
       <td class="num">${big(m.power)}</td>
       <td class="num">${big(m.mystic)}</td>
       <td class="num">${ago(m.lastActive)}</td>
-    </tr>`).join("");
+    </tr>`;
+  }).join("");
   $("pickCount").textContent = tr("selected", { n: picked.size, t: data.members.length });
   document.querySelectorAll("th[data-sort]").forEach((th) => {
     th.textContent = tr(th.dataset.t) + (th.dataset.sort === sortKey ? (sortDir < 0 ? " ▼" : " ▲") : "");
@@ -257,6 +273,14 @@ $("wPower").oninput = (e) => setWeights(e.target.value);
 $("wMystic").oninput = (e) => setWeights(100 - (Number(e.target.value) || 0));
 $("q").oninput = renderList;
 $("list").onclick = (e) => {
+  const g = e.target.closest("tr.grp");
+  if (g) {
+    const r = Number(g.dataset.r), q = norm($("q").value);
+    const grp = data.members.filter((m) => rankNum(m) === r && (!q || norm(m.name).includes(q)));
+    const all = grp.every((m) => picked.has(m.id));
+    grp.forEach((m) => all ? picked.delete(m.id) : picked.add(m.id));
+    persist(); renderList(); renderResult(); return;
+  }
   const row = e.target.closest("tr.member"); if (!row) return;
   const id = Number(row.dataset.id) || row.dataset.id;
   picked.has(id) ? picked.delete(id) : picked.add(id);
@@ -266,14 +290,18 @@ $("allBtn").onclick = () => { data.members.forEach((m) => picked.add(m.id)); per
 $("noneBtn").onclick = () => { picked.clear(); persist(); renderList(); renderResult(); };
 document.querySelectorAll("th[data-sort]").forEach((th) => th.onclick = () => {
   const k = th.dataset.sort;
-  if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = k === "name" || k === "rank" ? 1 : -1; }
+  if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = k === "name" ? 1 : -1; }
   persist(); renderList();
 });
 $("pasteBtn").onclick = () => {
   const names = $("pasteBox").value.split(/[\n,，]+/).map((s) => s.replace(/^[\s\-•*\d.)]+/, "").trim()).filter(Boolean);
-  const byName = new Map(data.members.map((m) => [norm(m.name), m]));
   const miss = []; let n = 0;
-  names.forEach((nm) => { const m = byName.get(norm(nm)); if (m) { picked.add(m.id); n++; } else miss.push(nm); });
+  names.forEach((nm) => {
+    const c = core(nm);
+    let hit = data.members.filter((m) => core(m.name) === c);
+    if (!hit.length && c.length >= 3) hit = data.members.filter((m) => core(m.name).includes(c));
+    if (hit.length === 1) { picked.add(hit[0].id); n++; } else miss.push(nm + (hit.length > 1 ? " (?)" : ""));
+  });
   $("pasteMsg").innerHTML = esc(tr("pasteOk", { n })) + (miss.length ? `<br><span class="warn">${esc(tr("pasteMiss", { list: miss.join(", ") }))}</span>` : "");
   persist(); renderList(); renderResult();
 };
