@@ -859,37 +859,60 @@ const ROSTER_HASH = "a9dadd1938825b78c31bb62d74173a8e5e1b460ab2484d42707df7a6d5d
   });
 })();
 
-/* ---- KvK 前一天到 KvK 結束：右下角出現「KvK 清單」，每個人自己勾（存在自己的瀏覽器） ---- */
+/* ---- KvK 前一天＋KvK 第 1–6 天：右下角出現當天的 KvK 清單，每個人自己勾（存在自己的瀏覽器） ----
+   前一天：下面 dayBefore 的項目。第 1–5 天：自動照 KvK 指南最上面的表格（當天 ✅ 和 👍 的項目）。第 6 天：day6 的項目。 */
 const KVK_CHECK = {
+  dayBefore: { en:"Day before KvK", zh:"KvK 前一天", ko:"KvK 전날", de:"Tag vor dem KvK", fr:"Veille du KvK", pt:"Véspera do KvK", tr:"KvK'dan önceki gün", id:"Sehari sebelum KvK", ru:"День до KvK", th:"วันก่อน KvK", ar:"اليوم السابق لـ KvK", es:"Día antes del KvK" },
+  dayN: { en:"KvK Day {n}", zh:"KvK 第 {n} 天", ko:"KvK {n}일 차", de:"KvK Tag {n}", fr:"KvK Jour {n}", pt:"KvK Dia {n}", tr:"KvK {n}. Gün", id:"KvK Hari ke-{n}", ru:"KvK, день {n}", th:"KvK วันที่ {n}", ar:"KvK اليوم {n}", es:"KvK Día {n}" },
   title: { en:"KvK checklist", zh:"KvK 準備清單", ko:"KvK 체크리스트", de:"KvK-Checkliste", fr:"Checklist KvK", pt:"Checklist do KvK", tr:"KvK kontrol listesi", id:"Checklist KvK", ru:"Чек-лист KvK", th:"เช็กลิสต์ KvK", ar:"قائمة تحقق KvK", es:"Lista de KvK" },
   starts: { en:"KvK starts {d}", zh:"KvK 於 {d} 開始", ko:"KvK 시작: {d}", de:"KvK beginnt am {d}", fr:"Le KvK commence le {d}", pt:"O KvK começa em {d}", tr:"KvK başlangıcı: {d}", id:"KvK dimulai {d}", ru:"KvK начинается {d}", th:"KvK เริ่ม {d}", ar:"يبدأ KvK في {d}", es:"El KvK empieza el {d}" },
   live: { en:"KvK is on now", zh:"KvK 進行中", ko:"KvK 진행 중", de:"KvK läuft", fr:"Le KvK est en cours", pt:"O KvK está em andamento", tr:"KvK devam ediyor", id:"KvK sedang berlangsung", ru:"KvK идёт", th:"KvK กำลังดำเนินอยู่", ar:"KvK جارٍ الآن", es:"El KvK está en curso" },
   note: { en:"Only you see your ticks (saved in this browser).", zh:"勾選只有你自己看得到（存在這個瀏覽器裡）。", ko:"체크 내용은 본인만 볼 수 있습니다(이 브라우저에 저장).", de:"Nur du siehst deine Haken (in diesem Browser gespeichert).", fr:"Vous seul voyez vos coches (enregistrées dans ce navigateur).", pt:"Só você vê suas marcações (salvas neste navegador).", tr:"İşaretlerini yalnızca sen görürsün (bu tarayıcıda saklanır).", id:"Centang hanya terlihat olehmu (disimpan di browser ini).", ru:"Отметки видите только вы (сохраняются в этом браузере).", th:"มีแค่คุณที่เห็นการติ๊ก (บันทึกไว้ในเบราว์เซอร์นี้)", ar:"علاماتك تظهر لك فقط (محفوظة في هذا المتصفح).", es:"Solo tú ves tus marcas (guardadas en este navegador)." },
   guide: { en:"Open the KvK guide", zh:"打開 KvK 指南", ko:"KvK 가이드 열기", de:"KvK-Guide öffnen", fr:"Ouvrir le guide KvK", pt:"Abrir o guia do KvK", tr:"KvK rehberini aç", id:"Buka panduan KvK", ru:"Открыть гайд по KvK", th:"เปิดคู่มือ KvK", ar:"افتح دليل KvK", es:"Abrir la guía de KvK" },
   done: { en:"All set — good luck! 💪", zh:"全部完成，祝順利！💪", ko:"모두 완료! 화이팅 💪", de:"Alles erledigt – viel Erfolg! 💪", fr:"Tout est prêt — bonne chance ! 💪", pt:"Tudo pronto — boa sorte! 💪", tr:"Hepsi tamam — bol şans! 💪", id:"Semua siap — semoga sukses! 💪", ru:"Всё готово — удачи! 💪", th:"ครบแล้ว ขอให้โชคดี! 💪", ar:"كل شيء جاهز — بالتوفيق! 💪", es:"¡Todo listo, suerte! 💪" },
-  items: [
+  dayBeforeItems: [
     { en:"Apply for a Minister position in Appointment", zh:"到「官職任命」申請官員職位", ko:"\"관직 임명\"에서 관료 직위를 신청하기", de:"Unter „Ernennung“ einen Minister-Posten beantragen", fr:"Postuler à un poste de Ministre dans « Nomination »", pt:"Candidatar-se a um cargo de Ministro em \"Nomeação\"", tr:"\"Atama\" bölümünden bir Bakan pozisyonuna başvur", id:"Ajukan posisi Menteri di \"Pertemuan\"", ru:"Подать заявку на пост министра в разделе «Назначение»", th:"สมัครตำแหน่งรัฐมนตรีใน \"การแต่งตั้ง\"", ar:"قدّم على منصب وزير في \"التعيين\"", es:"Solicitar un puesto de Ministro en \"Designación\"" },
     { en:"Save your Intel Missions — don't clear them before KvK (they score on Day 1, 3 and 5)", zh:"把情報任務留著，KvK 前先不要做（第 1、3、5 天有積分）", ko:"정보 임무를 남겨 두기 — KvK 전에 하지 않기 (1·3·5일 차에 점수)", de:"Geheimdienstmissionen aufsparen – nicht vor dem KvK erledigen (zählen an Tag 1, 3 und 5)", fr:"Garder vos Missions de Renseignement — ne pas les faire avant le KvK (points aux jours 1, 3 et 5)", pt:"Guardar as Missões de Inteligência — não fazer antes do KvK (pontuam nos dias 1, 3 e 5)", tr:"İstihbarat Görevlerini sakla — KvK'dan önce yapma (1., 3. ve 5. günlerde puan verir)", id:"Simpan Misi Intel — jangan dikerjakan sebelum KvK (dapat poin di hari 1, 3, dan 5)", ru:"Сохраните разведывательные миссии — не выполняйте их до KvK (очки в дни 1, 3 и 5)", th:"เก็บภารกิจข่าวกรองไว้ — อย่าทำก่อน KvK (ได้คะแนนวันที่ 1, 3 และ 5)", ar:"احتفظ بمهام الاستخبارات — لا تُنجزها قبل KvK (تُحتسب نقاطها في الأيام 1 و3 و5)", es:"Guarda tus Misiones de Inteligencia — no las hagas antes del KvK (dan puntos los días 1, 3 y 5)" },
     { en:"Count all your saved items and know which day to use each one", zh:"清點所有存下來的道具，並熟悉哪一天用哪一種", ko:"모아 둔 아이템을 모두 세어 보고, 어느 날 무엇을 쓸지 알아 두기", de:"Alle gesparten Gegenstände zählen und wissen, an welchem Tag was benutzt wird", fr:"Compter tous vos objets mis de côté et savoir quel jour utiliser chacun", pt:"Contar todos os itens guardados e saber em que dia usar cada um", tr:"Biriktirdiğin tüm eşyaları say ve hangisini hangi gün kullanacağını bil", id:"Hitung semua item simpananmu dan ketahui hari untuk memakai masing-masing", ru:"Пересчитайте все сохранённые предметы и знайте, в какой день что использовать", th:"นับไอเทมที่เก็บไว้ทั้งหมด และรู้ว่าวันไหนใช้อะไร", ar:"احسب كل العناصر التي ادّخرتها واعرف في أي يوم تستخدم كلًّا منها", es:"Cuenta todos tus objetos guardados y ten claro qué día usar cada uno" },
+  ],
+  day6Items: [
+    { en:"Castle Battle 12:00–22:00 UTC — follow the rally calls in alliance chat", zh:"王城爭奪戰 UTC 12:00–22:00 — 跟著聯盟聊天室的集結指示行動", ko:"성 전투 UTC 12:00–22:00 — 연맹 채팅의 집결 지시를 따르기", de:"Schlosskampf 12:00–22:00 UTC – den Rally-Ansagen im Allianz-Chat folgen", fr:"Bataille du château 12:00–22:00 UTC — suivez les appels de ralliement dans le chat d'alliance", pt:"Batalha do Castelo 12:00–22:00 UTC — siga as chamadas de rally no chat da aliança", tr:"Kale Savaşı 12:00–22:00 UTC — ittifak sohbetindeki seferberlik çağrılarını takip et", id:"Pertempuran Kastil 12:00–22:00 UTC — ikuti panggilan reli di chat aliansi", ru:"Битва за замок 12:00–22:00 UTC — следите за призывами к рейдам в чате альянса", th:"ศึกชิงปราสาท 12:00–22:00 UTC — ทำตามคำสั่งระดมพลในแชทพันธมิตร", ar:"معركة القلعة 12:00–22:00 UTC — اتبع نداءات الحشد في دردشة التحالف", es:"Batalla del Castillo 12:00–22:00 UTC — sigue las llamadas de ataque en el chat de la alianza" },
+    { en:"Exchange {rescueOrders} in alliance chat before the timer runs out", zh:"在計時結束前，到聯盟聊天室交換{rescueOrders}", ko:"타이머가 끝나기 전에 연맹 채팅에서 {rescueOrders} 교환하기", de:"{rescueOrders} im Allianz-Chat tauschen, bevor der Timer abläuft", fr:"Échangez les {rescueOrders} dans le chat d'alliance avant la fin du compte à rebours", pt:"Troque {rescueOrders} no chat da aliança antes de o tempo acabar", tr:"Süre bitmeden ittifak sohbetinde {rescueOrders} takası yap", id:"Tukar {rescueOrders} di chat aliansi sebelum waktunya habis", ru:"Обменяйтесь «{rescueOrders}» в чате альянса до конца таймера", th:"แลก{rescueOrders}ในแชทพันธมิตรก่อนหมดเวลา", ar:"تبادل {rescueOrders} في دردشة التحالف قبل انتهاء الوقت", es:"Intercambia {rescueOrders} en el chat de la alianza antes de que acabe el tiempo" },
   ],
 };
 
 (function () {
   const sched = EVENT_SCHEDULES.kvk;
   if (!sched) return;
-  const DAY = 86400000;
+  const DAY = 86400000, LAST_DAY = 6;
   const diff = Math.floor((Date.now() - sched.anchor) / DAY);
   if (diff < -1) return;
   const pos = ((diff % sched.periodDays) + sched.periodDays) % sched.periodDays;
-  let start;
-  if (pos === sched.periodDays - 1 || diff === -1) start = sched.anchor + (diff + 1) * DAY; // the day before
-  else if (pos < sched.activeDays) start = sched.anchor + (diff - pos) * DAY;               // during KvK
+  let dayNo, start;                                   // dayNo 0 = day before, 1..6 = KvK day
+  if (diff === -1 || pos === sched.periodDays - 1) { dayNo = 0; start = sched.anchor + (diff + 1) * DAY; }
+  else if (pos < LAST_DAY) { dayNo = pos + 1; start = sched.anchor + (diff - pos) * DAY; }
   else return;
-  const KEY = "ks-kvk-check-" + new Date(start).toISOString().slice(0, 10);
+
+  // items for today: [{ text(lang map or rendered string) }]
+  function todaysItems() {
+    if (dayNo === 0) return KVK_CHECK.dayBeforeItems.map((it) => t(it));
+    if (dayNo === LAST_DAY) return KVK_CHECK.day6Items.map((it) => rich(t(it)).replace(/<[^>]+>/g, "").replace(/&amp;/g, "&"));
+    const sec = GUIDES.kvk && (GUIDES.kvk.sections[currentLang] || GUIDES.kvk.sections.en);
+    const tbl = sec && sec.blocks.find((b) => b.type === "checklist");
+    if (!tbl) return [];
+    const col = tbl.days.indexOf(dayNo);
+    const plain = (x) => rich(x).replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").trim();
+    const out = [];
+    for (const [icon, key] of [["✅", "useIcon"], ["👍", "needDaily"]]) {
+      tbl.rows.filter((r) => r.icons[col] === icon).forEach((r) => out.push(`${icon} ${term(key)}: ${plain(r.label)}`));
+    }
+    return out;
+  }
+  const n = () => todaysItems().length;
+  const KEY = "ks-kvk-check-" + new Date(start).toISOString().slice(0, 10) + "-d" + dayNo;
   const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } };
   const store = (v) => { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {} };
-  const n = KVK_CHECK.items.length;
-
+  const dayTitle = () => dayNo === 0 ? t(KVK_CHECK.dayBefore) : t(KVK_CHECK.dayN).replace("{n}", dayNo);
   const st = document.createElement("style");
   st.textContent = `
     .kvk-fab{position:fixed;right:14px;bottom:16px;z-index:900;display:flex;align-items:center;gap:6px;padding:10px 14px;border-radius:999px;border:2px solid var(--accent);background:var(--panel);color:var(--text);font-weight:700;font-size:14px;box-shadow:0 6px 18px var(--shadow);cursor:pointer}
@@ -914,9 +937,9 @@ const KVK_CHECK = {
   fab.className = "kvk-fab";
   document.body.appendChild(fab);
   function paintFab() {
-    const c = load().length;
-    fab.classList.toggle("todo", c < n);
-    fab.innerHTML = `📋 KvK <span class="kvk-n">${c}/${n}</span>`;
+    const c = load().length, total = n();
+    fab.classList.toggle("todo", c < total);
+    fab.innerHTML = `📋 ${escapeHtml(dayTitle())} <span class="kvk-n">${c}/${total}</span>`;
   }
   paintFab();
 
@@ -928,10 +951,10 @@ const KVK_CHECK = {
     function paint() {
       const done = load();
       box.innerHTML = `<div class="kvk-box" dir="auto">
-        <h3>📋 ${escapeHtml(t(KVK_CHECK.title))}</h3>
+        <h3>📋 ${escapeHtml(dayTitle())}</h3>
         <div class="kvk-sub">${escapeHtml(before ? t(KVK_CHECK.starts).replace("{d}", d) : t(KVK_CHECK.live))} · ${escapeHtml(t(KVK_CHECK.note))}</div>
-        ${KVK_CHECK.items.map((it, i) => `<label class="kvk-item${done.includes(i) ? " on" : ""}"><input type="checkbox" data-i="${i}" ${done.includes(i) ? "checked" : ""}><span>${escapeHtml(t(it))}</span></label>`).join("")}
-        ${done.length === n ? `<div class="kvk-sub" style="margin:4px 0 0">${escapeHtml(t(KVK_CHECK.done))}</div>` : ""}
+        ${todaysItems().map((txt, i) => `<label class="kvk-item${done.includes(i) ? " on" : ""}"><input type="checkbox" data-i="${i}" ${done.includes(i) ? "checked" : ""}><span>${escapeHtml(txt)}</span></label>`).join("")}
+        ${done.length >= n() ? `<div class="kvk-sub" style="margin:4px 0 0">${escapeHtml(t(KVK_CHECK.done))}</div>` : ""}
         <div class="kvk-row"><button type="button" class="go" data-a="guide">👑 ${escapeHtml(t(KVK_CHECK.guide))}</button><button type="button" data-a="close">✕</button></div>
       </div>`;
     }
