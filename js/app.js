@@ -858,3 +858,94 @@ const ROSTER_HASH = "a9dadd1938825b78c31bb62d74173a8e5e1b460ab2484d42707df7a6d5d
     if (taps >= 5) { taps = 0; ask(); }
   });
 })();
+
+/* ---- KvK 前一天到 KvK 結束：右下角出現「KvK 清單」，每個人自己勾（存在自己的瀏覽器） ---- */
+const KVK_CHECK = {
+  title: { en:"KvK checklist", zh:"KvK 準備清單", ko:"KvK 체크리스트", de:"KvK-Checkliste", fr:"Checklist KvK", pt:"Checklist do KvK", tr:"KvK kontrol listesi", id:"Checklist KvK", ru:"Чек-лист KvK", th:"เช็กลิสต์ KvK", ar:"قائمة تحقق KvK", es:"Lista de KvK" },
+  starts: { en:"KvK starts {d}", zh:"KvK 於 {d} 開始", ko:"KvK 시작: {d}", de:"KvK beginnt am {d}", fr:"Le KvK commence le {d}", pt:"O KvK começa em {d}", tr:"KvK başlangıcı: {d}", id:"KvK dimulai {d}", ru:"KvK начинается {d}", th:"KvK เริ่ม {d}", ar:"يبدأ KvK في {d}", es:"El KvK empieza el {d}" },
+  live: { en:"KvK is on now", zh:"KvK 進行中", ko:"KvK 진행 중", de:"KvK läuft", fr:"Le KvK est en cours", pt:"O KvK está em andamento", tr:"KvK devam ediyor", id:"KvK sedang berlangsung", ru:"KvK идёт", th:"KvK กำลังดำเนินอยู่", ar:"KvK جارٍ الآن", es:"El KvK está en curso" },
+  note: { en:"Only you see your ticks (saved in this browser).", zh:"勾選只有你自己看得到（存在這個瀏覽器裡）。", ko:"체크 내용은 본인만 볼 수 있습니다(이 브라우저에 저장).", de:"Nur du siehst deine Haken (in diesem Browser gespeichert).", fr:"Vous seul voyez vos coches (enregistrées dans ce navigateur).", pt:"Só você vê suas marcações (salvas neste navegador).", tr:"İşaretlerini yalnızca sen görürsün (bu tarayıcıda saklanır).", id:"Centang hanya terlihat olehmu (disimpan di browser ini).", ru:"Отметки видите только вы (сохраняются в этом браузере).", th:"มีแค่คุณที่เห็นการติ๊ก (บันทึกไว้ในเบราว์เซอร์นี้)", ar:"علاماتك تظهر لك فقط (محفوظة في هذا المتصفح).", es:"Solo tú ves tus marcas (guardadas en este navegador)." },
+  guide: { en:"Open the KvK guide", zh:"打開 KvK 指南", ko:"KvK 가이드 열기", de:"KvK-Guide öffnen", fr:"Ouvrir le guide KvK", pt:"Abrir o guia do KvK", tr:"KvK rehberini aç", id:"Buka panduan KvK", ru:"Открыть гайд по KvK", th:"เปิดคู่มือ KvK", ar:"افتح دليل KvK", es:"Abrir la guía de KvK" },
+  done: { en:"All set — good luck! 💪", zh:"全部完成，祝順利！💪", ko:"모두 완료! 화이팅 💪", de:"Alles erledigt – viel Erfolg! 💪", fr:"Tout est prêt — bonne chance ! 💪", pt:"Tudo pronto — boa sorte! 💪", tr:"Hepsi tamam — bol şans! 💪", id:"Semua siap — semoga sukses! 💪", ru:"Всё готово — удачи! 💪", th:"ครบแล้ว ขอให้โชคดี! 💪", ar:"كل شيء جاهز — بالتوفيق! 💪", es:"¡Todo listo, suerte! 💪" },
+  items: [
+    { en:"Apply for a Minister position in Appointment", zh:"到「官職任命」申請官員職位", ko:"\"관직 임명\"에서 관료 직위를 신청하기", de:"Unter „Ernennung“ einen Minister-Posten beantragen", fr:"Postuler à un poste de Ministre dans « Nomination »", pt:"Candidatar-se a um cargo de Ministro em \"Nomeação\"", tr:"\"Atama\" bölümünden bir Bakan pozisyonuna başvur", id:"Ajukan posisi Menteri di \"Pertemuan\"", ru:"Подать заявку на пост министра в разделе «Назначение»", th:"สมัครตำแหน่งรัฐมนตรีใน \"การแต่งตั้ง\"", ar:"قدّم على منصب وزير في \"التعيين\"", es:"Solicitar un puesto de Ministro en \"Designación\"" },
+    { en:"Save your Intel Missions — don't clear them before KvK (they score on Day 1, 3 and 5)", zh:"把情報任務留著，KvK 前先不要做（第 1、3、5 天有積分）", ko:"정보 임무를 남겨 두기 — KvK 전에 하지 않기 (1·3·5일 차에 점수)", de:"Geheimdienstmissionen aufsparen – nicht vor dem KvK erledigen (zählen an Tag 1, 3 und 5)", fr:"Garder vos Missions de Renseignement — ne pas les faire avant le KvK (points aux jours 1, 3 et 5)", pt:"Guardar as Missões de Inteligência — não fazer antes do KvK (pontuam nos dias 1, 3 e 5)", tr:"İstihbarat Görevlerini sakla — KvK'dan önce yapma (1., 3. ve 5. günlerde puan verir)", id:"Simpan Misi Intel — jangan dikerjakan sebelum KvK (dapat poin di hari 1, 3, dan 5)", ru:"Сохраните разведывательные миссии — не выполняйте их до KvK (очки в дни 1, 3 и 5)", th:"เก็บภารกิจข่าวกรองไว้ — อย่าทำก่อน KvK (ได้คะแนนวันที่ 1, 3 และ 5)", ar:"احتفظ بمهام الاستخبارات — لا تُنجزها قبل KvK (تُحتسب نقاطها في الأيام 1 و3 و5)", es:"Guarda tus Misiones de Inteligencia — no las hagas antes del KvK (dan puntos los días 1, 3 y 5)" },
+    { en:"Count all your saved items and know which day to use each one", zh:"清點所有存下來的道具，並熟悉哪一天用哪一種", ko:"모아 둔 아이템을 모두 세어 보고, 어느 날 무엇을 쓸지 알아 두기", de:"Alle gesparten Gegenstände zählen und wissen, an welchem Tag was benutzt wird", fr:"Compter tous vos objets mis de côté et savoir quel jour utiliser chacun", pt:"Contar todos os itens guardados e saber em que dia usar cada um", tr:"Biriktirdiğin tüm eşyaları say ve hangisini hangi gün kullanacağını bil", id:"Hitung semua item simpananmu dan ketahui hari untuk memakai masing-masing", ru:"Пересчитайте все сохранённые предметы и знайте, в какой день что использовать", th:"นับไอเทมที่เก็บไว้ทั้งหมด และรู้ว่าวันไหนใช้อะไร", ar:"احسب كل العناصر التي ادّخرتها واعرف في أي يوم تستخدم كلًّا منها", es:"Cuenta todos tus objetos guardados y ten claro qué día usar cada uno" },
+  ],
+};
+
+(function () {
+  const sched = EVENT_SCHEDULES.kvk;
+  if (!sched) return;
+  const DAY = 86400000;
+  const diff = Math.floor((Date.now() - sched.anchor) / DAY);
+  if (diff < -1) return;
+  const pos = ((diff % sched.periodDays) + sched.periodDays) % sched.periodDays;
+  let start;
+  if (pos === sched.periodDays - 1 || diff === -1) start = sched.anchor + (diff + 1) * DAY; // the day before
+  else if (pos < sched.activeDays) start = sched.anchor + (diff - pos) * DAY;               // during KvK
+  else return;
+  const KEY = "ks-kvk-check-" + new Date(start).toISOString().slice(0, 10);
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } };
+  const store = (v) => { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {} };
+  const n = KVK_CHECK.items.length;
+
+  const st = document.createElement("style");
+  st.textContent = `
+    .kvk-fab{position:fixed;right:14px;bottom:16px;z-index:900;display:flex;align-items:center;gap:6px;padding:10px 14px;border-radius:999px;border:2px solid var(--accent);background:var(--panel);color:var(--text);font-weight:700;font-size:14px;box-shadow:0 6px 18px var(--shadow);cursor:pointer}
+    .kvk-fab .kvk-n{background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:1px 8px;font-size:12px}
+    .kvk-fab.todo::after{content:"";position:absolute;top:-3px;right:-3px;width:12px;height:12px;border-radius:50%;background:#e0352b;box-shadow:0 0 0 2px var(--panel);animation:kvkPulse 1.4s infinite}
+    @keyframes kvkPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.35)}}
+    .kvk-modal{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.55);display:grid;place-items:center;padding:16px}
+    .kvk-box{width:100%;max-width:420px;background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:18px;box-shadow:0 10px 30px var(--shadow)}
+    .kvk-box h3{margin:0 0 4px}
+    .kvk-box .kvk-sub{color:var(--text-muted);font-size:13px;margin-bottom:12px}
+    .kvk-item{display:flex;gap:10px;align-items:flex-start;padding:10px;border-radius:10px;background:var(--panel-2);margin-bottom:8px;cursor:pointer;line-height:1.45}
+    .kvk-item input{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--accent)}
+    .kvk-item.on span{text-decoration:line-through;opacity:.65}
+    .kvk-row{display:flex;gap:8px;justify-content:space-between;align-items:center;margin-top:12px;flex-wrap:wrap}
+    .kvk-row button{padding:8px 12px;border-radius:8px;border:1px solid var(--rule);background:var(--panel);color:var(--text);cursor:pointer;font-size:14px}
+    .kvk-row button.go{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+  `;
+  document.head.appendChild(st);
+
+  const fab = document.createElement("button");
+  fab.type = "button";
+  fab.className = "kvk-fab";
+  document.body.appendChild(fab);
+  function paintFab() {
+    const c = load().length;
+    fab.classList.toggle("todo", c < n);
+    fab.innerHTML = `📋 KvK <span class="kvk-n">${c}/${n}</span>`;
+  }
+  paintFab();
+
+  fab.onclick = () => {
+    const box = document.createElement("div");
+    box.className = "kvk-modal";
+    const before = Date.now() < start;
+    const d = new Date(start).toLocaleDateString(HTML_LANG[currentLang] || "en", { month: "short", day: "numeric", timeZone: "UTC" });
+    function paint() {
+      const done = load();
+      box.innerHTML = `<div class="kvk-box" dir="auto">
+        <h3>📋 ${escapeHtml(t(KVK_CHECK.title))}</h3>
+        <div class="kvk-sub">${escapeHtml(before ? t(KVK_CHECK.starts).replace("{d}", d) : t(KVK_CHECK.live))} · ${escapeHtml(t(KVK_CHECK.note))}</div>
+        ${KVK_CHECK.items.map((it, i) => `<label class="kvk-item${done.includes(i) ? " on" : ""}"><input type="checkbox" data-i="${i}" ${done.includes(i) ? "checked" : ""}><span>${escapeHtml(t(it))}</span></label>`).join("")}
+        ${done.length === n ? `<div class="kvk-sub" style="margin:4px 0 0">${escapeHtml(t(KVK_CHECK.done))}</div>` : ""}
+        <div class="kvk-row"><button type="button" class="go" data-a="guide">👑 ${escapeHtml(t(KVK_CHECK.guide))}</button><button type="button" data-a="close">✕</button></div>
+      </div>`;
+    }
+    paint();
+    box.addEventListener("change", (e) => {
+      const i = Number(e.target.dataset.i); if (Number.isNaN(i)) return;
+      const done = new Set(load()); e.target.checked ? done.add(i) : done.delete(i);
+      store([...done].sort()); paint(); paintFab();
+    });
+    box.addEventListener("click", (e) => {
+      const a = e.target.closest("[data-a]")?.dataset.a;
+      if (e.target === box || a === "close") box.remove();
+      if (a === "guide") { box.remove(); switchGuide("kvk"); window.scrollTo({ top: 0, behavior: "smooth" }); }
+    });
+    document.body.appendChild(box);
+  };
+})();
