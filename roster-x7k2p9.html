@@ -89,7 +89,6 @@
             <th data-sort="tc" class="num" data-t="colTc"></th>
             <th data-sort="power" class="num" data-t="power"></th>
             <th data-sort="mystic" class="num" data-t="mystic"></th>
-            <th data-sort="lastActive" class="num" data-t="colActive"></th>
           </tr></thead>
           <tbody id="list"></tbody>
         </table>
@@ -206,7 +205,7 @@ function renderList() {
       lastRank = rankNum(m);
       const grp = rows.filter((x) => rankNum(x) === lastRank);
       const on = grp.filter((x) => picked.has(x.id)).length;
-      head = `<tr class="grp" data-r="${lastRank}"><td><input type="checkbox" tabindex="-1" ${on === grp.length ? "checked" : ""}></td><td colspan="6"><b>${esc(rankLabel(m))}</b> <span class="muted">· ${on} / ${grp.length}</span></td></tr>`;
+      head = `<tr class="grp" data-r="${lastRank}"><td><input type="checkbox" tabindex="-1" ${on === grp.length ? "checked" : ""}></td><td colspan="5"><b>${esc(rankLabel(m))}</b> <span class="muted">· ${on} / ${grp.length}</span></td></tr>`;
     }
     return head + `
     <tr class="member${picked.has(m.id) ? " on" : ""}" data-id="${m.id}">
@@ -216,7 +215,6 @@ function renderList() {
       <td class="num">${m.tc ?? "?"}</td>
       <td class="num">${big(m.power)}</td>
       <td class="num">${big(m.mystic)}</td>
-      <td class="num">${ago(m.lastActive)}</td>
     </tr>`;
   }).join("");
   $("pickCount").textContent = tr("selected", { n: picked.size, t: data.members.length });
