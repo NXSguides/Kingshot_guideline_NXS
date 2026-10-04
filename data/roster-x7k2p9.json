@@ -1,42 +1,45 @@
 {
- "updated": "2026-10-04T14:29:24.988Z",
+ "updated": "2026-10-04T23:06:14.993Z",
  "alliance": {
   "kid": 2189,
   "tag": "NXS",
   "name": "NEXUS",
-  "power": 6096594604,
+  "power": 6193128089,
   "count": 100
  },
  "members": [
   {
    "id": 347229280,
    "name": "MAMBA",
-   "power": 124979171,
+   "power": 125231347,
    "tc": 40,
    "rank": "R3",
    "lastActive": 1789313134,
    "mystic": 993,
-   "mysticRank": 10
+   "mysticRank": 10,
+   "asOf": 1791155058.9563563
   },
   {
    "id": 347442201,
    "name": "亗 HADES ᴺᵉˣᵘˢ 亗",
-   "power": 110691378,
+   "power": 110830962,
    "tc": 45,
    "rank": "R3",
    "lastActive": 1789462932,
    "mystic": 1028,
-   "mysticRank": 5
+   "mysticRank": 5,
+   "asOf": 1791155060.7149491
   },
   {
    "id": 346229708,
    "name": "亗kykingᴺᵉˣᵘˢ亗",
-   "power": 108863760,
+   "power": 109146690,
    "tc": 45,
    "rank": "R3",
    "lastActive": 1789462973,
    "mystic": 1023,
-   "mysticRank": 6
+   "mysticRank": 6,
+   "asOf": 1791155063.1572754
   },
   {
    "id": 344443374,
@@ -46,487 +49,558 @@
    "rank": "R4",
    "lastActive": 1789445474,
    "mystic": 1229,
-   "mysticRank": 2
+   "mysticRank": 2,
+   "asOf": 1791155063.2264135
   },
   {
    "id": 344115386,
    "name": "亗ΔRMΔDΔ ᴺᵉˣᵘˢ 亗",
-   "power": 105414178,
+   "power": 104713354,
    "tc": 40,
    "rank": "Leader",
    "lastActive": 1789439214,
    "mystic": 1061,
-   "mysticRank": 4
+   "mysticRank": 4,
+   "asOf": 1791155063.4214358
   },
   {
    "id": 346508188,
    "name": "亗ASHISH ᴺᵉˣᵘˢ亗",
-   "power": 93932845,
+   "power": 94095956,
    "tc": 41,
    "rank": "R4",
    "lastActive": 1789460504,
    "mystic": 1016,
-   "mysticRank": 7
+   "mysticRank": 7,
+   "asOf": 1791155066.7972252
   },
   {
    "id": 345607022,
    "name": "亗 꼬리잘린 쥐 ᴺᵉˣᵘˢ亗",
-   "power": 92401633,
+   "power": 92451732,
    "tc": 40,
    "rank": "R3",
    "lastActive": 1789460403,
    "mystic": 890,
-   "mysticRank": 25
+   "mysticRank": 25,
+   "asOf": 1791155066.8165767
   },
   {
    "id": 345230376,
    "name": "亗 flip ᴺᵉˣᵘˢ 亗",
-   "power": 90200718,
+   "power": 90462714,
    "tc": 40,
    "rank": "R4",
    "lastActive": 1789446830,
    "mystic": 961,
-   "mysticRank": 13
+   "mysticRank": 13,
+   "asOf": 1791155066.8557065
   },
   {
    "id": 348114107,
    "name": "亗 BOO ᴺᵉˣᵘˢ亗",
-   "power": 88254410,
+   "power": 88491744,
    "tc": 40,
    "rank": "R3",
    "lastActive": 1789461502,
    "mystic": 896,
-   "mysticRank": 22
+   "mysticRank": 22,
+   "asOf": 1791155069.2182825
   },
   {
    "id": 348113865,
    "name": "亗MetZ ᴺᵉˣᵘˢ 亗",
-   "power": 88137650,
+   "power": 88438756,
    "tc": 45,
    "rank": "R3",
    "lastActive": 1789442998,
-   "mystic": 1012,
-   "mysticRank": 8
-  },
-  {
-   "id": 344345517,
-   "name": "亗firebaughᴺᵉˣᵘˢ亗",
-   "power": 87710477,
-   "tc": 39,
-   "rank": "R4",
-   "lastActive": 1789463100,
-   "mystic": 863,
-   "mysticRank": 30
+   "mystic": 1016,
+   "mysticRank": 8,
+   "asOf": 1791155069.290355
   },
   {
    "id": 346507835,
    "name": "亗PAPAᴺᵉˣᵘˢ亗",
-   "power": 87665807,
+   "power": 87950019,
    "tc": 40,
    "rank": "R4",
    "lastActive": 1789462932,
    "mystic": 917,
-   "mysticRank": 17
+   "mysticRank": 17,
+   "asOf": 1791155069.535085
+  },
+  {
+   "id": 344345517,
+   "name": "亗firebaughᴺᵉˣᵘˢ亗",
+   "power": 87897876,
+   "tc": 39,
+   "rank": "R4",
+   "lastActive": 1789463100,
+   "mystic": 863,
+   "mysticRank": 30,
+   "asOf": 1791155072.7422957
   },
   {
    "id": 345524723,
    "name": "亗PERCIVAL ᴺᵉˣᵘˢ亗",
-   "power": 85321505,
+   "power": 85716932,
    "tc": 35,
    "rank": "R3",
    "lastActive": 1789462932,
    "mystic": 780,
-   "mysticRank": 59
+   "mysticRank": 59,
+   "asOf": 1791155073.3514903
   },
   {
    "id": 347638762,
    "name": "亗 Meow ᴺᵉˣᵘˢ 亗",
-   "power": 84427649,
+   "power": 84708751,
    "tc": 38,
    "rank": "R3",
    "lastActive": 1789446251,
    "mystic": 761,
-   "mysticRank": 66
+   "mysticRank": 66,
+   "asOf": 1791155073.3512707
   },
   {
    "id": 347966303,
    "name": "亗MTP ᴺᵉˣᵘˢ亗",
-   "power": 82750654,
+   "power": 82955702,
    "tc": 40,
    "rank": "R3",
    "lastActive": 1789463098,
    "mystic": 927,
-   "mysticRank": 15
+   "mysticRank": 15,
+   "asOf": 1791155075.8151143
   },
   {
    "id": 347884395,
    "name": "亗 Dawn ᴺᵉˣᵘˢ 亗",
-   "power": 79669139,
+   "power": 79676664,
    "tc": 35,
    "rank": "R3",
    "lastActive": 1789462985,
    "mystic": 897,
-   "mysticRank": 21
+   "mysticRank": 21,
+   "asOf": 1791155075.8659625
   },
   {
    "id": 345377481,
    "name": "亗Tigerᴺᵉˣᵘˢ亗",
-   "power": 79085526,
+   "power": 79764485,
    "tc": 35,
    "rank": "R4",
    "lastActive": 1789463100,
    "mystic": 923,
-   "mysticRank": 16
+   "mysticRank": 16,
+   "asOf": 1791155076.2268953
   },
   {
    "id": 344001515,
    "name": "亗 Conan ᴺᵉˣᵘˢ 亗",
-   "power": 76066894,
+   "power": 76296376,
    "tc": 35,
    "rank": "R3",
    "lastActive": 1789450836,
    "mystic": 869,
-   "mysticRank": 29
-  },
-  {
-   "id": 345328382,
-   "name": "Naka ᴺᵉˣᵘˢ",
-   "power": 76048886,
-   "tc": 30,
-   "rank": "R3",
-   "lastActive": 1789454946,
-   "mystic": 639,
-   "mysticRank": 168
+   "mysticRank": 29,
+   "asOf": 1791155079.2990758
   },
   {
    "id": 345934504,
    "name": "亗Δйʊвιŝ ᴺᵉˣᵘˢ亗",
-   "power": 75521865,
+   "power": 76439098,
    "tc": 37,
    "rank": "R4",
    "lastActive": 1789434272,
    "mystic": 895,
-   "mysticRank": 24
+   "mysticRank": 24,
+   "asOf": 1791155079.376381
+  },
+  {
+   "id": 345328382,
+   "name": "Naka ᴺᵉˣᵘˢ",
+   "power": 76336220,
+   "tc": 30,
+   "rank": "R3",
+   "lastActive": 1789454946,
+   "mystic": 639,
+   "mysticRank": 168,
+   "asOf": 1791155079.5759718
   },
   {
    "id": 344951952,
    "name": "亗 Garnet ᴺᵉˣᵘˢ亗",
-   "power": 74522911,
+   "power": 74709683,
    "tc": 35,
    "rank": "R3",
    "lastActive": 1789451858,
    "mystic": 882,
-   "mysticRank": 26
+   "mysticRank": 26,
+   "asOf": 1791155082.2987227
   },
   {
    "id": 345311418,
    "name": "亗 BigBen ᴺᵉˣᵘˢ亗",
-   "power": 70299870,
+   "power": 70460944,
    "tc": 38,
    "rank": "R3",
    "lastActive": 1789457723,
    "mystic": 899,
-   "mysticRank": 20
+   "mysticRank": 20,
+   "asOf": 1791155082.3575432
   },
   {
    "id": 345623366,
    "name": "亗『Noctis』亗",
-   "power": 69893750,
+   "power": 70324666,
    "tc": 30,
    "rank": "R3",
    "lastActive": 1789462968,
    "mystic": 790,
-   "mysticRank": 56
+   "mysticRank": 57,
+   "asOf": 1791155082.759265
   },
   {
    "id": 344672647,
    "name": "亗MiivaanX ᴺᵉˣᵘˢ亗",
-   "power": 69304712,
+   "power": 70050063,
    "tc": 35,
    "rank": "R3",
    "lastActive": 1789458191,
    "mystic": 771,
-   "mysticRank": 61
+   "mysticRank": 62,
+   "asOf": 1791155086.4894254
   },
   {
    "id": 344083397,
    "name": "亗Sparrow ᴺᵉˣᵘˢ亗",
-   "power": 69011364,
+   "power": 69218414,
    "tc": 34,
    "rank": "R4",
    "lastActive": 1789457155,
    "mystic": 757,
-   "mysticRank": 69
-  },
-  {
-   "id": 346721214,
-   "name": "亗Zoe ᴺᵉˣᵘˢ亗",
-   "power": 68835634,
-   "tc": 29,
-   "rank": "R3",
-   "lastActive": 1789457182,
-   "mystic": 702,
-   "mysticRank": 112
-  },
-  {
-   "id": 347032242,
-   "name": "亗adanᴺᵉˣᵘˢ亗",
-   "power": 68605141,
-   "tc": 35,
-   "rank": "R3",
-   "lastActive": 1789445721,
-   "mystic": 759,
-   "mysticRank": 68
+   "mysticRank": 70,
+   "asOf": 1791155086.5255487
   },
   {
    "id": 344509616,
    "name": "Lord Jimmy TriZ",
-   "power": 68603633,
+   "power": 68865733,
    "tc": 30,
    "rank": "R3",
    "lastActive": 1789461793,
    "mystic": 717,
-   "mysticRank": 98
+   "mysticRank": 100,
+   "asOf": 1791155086.5805993
+  },
+  {
+   "id": 346721214,
+   "name": "亗Zoe ᴺᵉˣᵘˢ亗",
+   "power": 68996284,
+   "tc": 29,
+   "rank": "R3",
+   "lastActive": 1789457182,
+   "mystic": 702,
+   "mysticRank": 112,
+   "asOf": 1791155088.9207556
   },
   {
    "id": 346213083,
    "name": "亗 ELR ᴺᵉˣᵘˢ亗",
-   "power": 68541279,
+   "power": 68911219,
    "tc": 32,
    "rank": "R3",
    "lastActive": 1789460740,
    "mystic": 729,
-   "mysticRank": 87
+   "mysticRank": 89,
+   "asOf": 1791155089.5766776
   },
   {
-   "id": 347621673,
-   "name": "亗 Varok ᴺᵉˣᵘˢ 亗",
-   "power": 68219844,
+   "id": 347032242,
+   "name": "亗adanᴺᵉˣᵘˢ亗",
+   "power": 68653381,
    "tc": 35,
    "rank": "R3",
-   "lastActive": 1789456387,
-   "mystic": 802,
-   "mysticRank": 49
+   "lastActive": 1789445721,
+   "mystic": 759,
+   "mysticRank": 69,
+   "asOf": 1791155089.6521447
   },
   {
    "id": 347982253,
    "name": "BigMedicMike",
-   "power": 68000497,
+   "power": 68231460,
    "tc": 29,
    "rank": "R3",
    "lastActive": 1789453875,
    "mystic": 755,
-   "mysticRank": 71
+   "mysticRank": 71,
+   "asOf": 1791155092.5213425
+  },
+  {
+   "id": 347621673,
+   "name": "亗 Varok ᴺᵉˣᵘˢ 亗",
+   "power": 68232472,
+   "tc": 35,
+   "rank": "R3",
+   "lastActive": 1789456387,
+   "mystic": 802,
+   "mysticRank": 50,
+   "asOf": 1791155092.5755582
   },
   {
    "id": 347670842,
    "name": "亗Purpandᴺᵉˣᵘˢ亗",
-   "power": 67449737,
+   "power": 67674125,
    "tc": 35,
    "rank": "R3",
    "lastActive": 1789462932,
    "mystic": 819,
-   "mysticRank": 42
+   "mysticRank": 42,
+   "asOf": 1791155092.841793
   },
   {
    "id": 347163491,
    "name": "亗UNO ᴺᵉˣᵘˢ 亗",
-   "power": 67297142,
+   "power": 67501475,
    "tc": 30,
    "rank": "R3",
    "lastActive": 1789462968,
    "mystic": 795,
-   "mysticRank": 53
+   "mysticRank": 53,
+   "asOf": 1791155095.508744
   },
   {
    "id": 345328520,
    "name": "亗otokiᴺᵉˣᵘˢ亗",
-   "power": 65383746,
+   "power": 65650666,
    "tc": 30,
    "rank": "R3",
    "lastActive": 1789460244,
    "mystic": 845,
-   "mysticRank": 34
+   "mysticRank": 34,
+   "asOf": 1791155095.5571806
   },
   {
    "id": 347720134,
    "name": "Labanet",
-   "power": 65265425,
+   "power": 65465980,
    "tc": 35,
    "rank": "R3",
    "lastActive": 1789463100,
-   "mystic": 727,
-   "mysticRank": 89
+   "mystic": 742,
+   "mysticRank": 81,
+   "asOf": 1791155096.035732
   },
   {
    "id": 346032505,
    "name": "亗Vlad DRACᴺᵉˣᵘˢ亗",
-   "power": 63856129,
+   "power": 64770427,
    "tc": 30,
    "rank": "R3",
    "lastActive": 1789462932,
-   "mystic": 756,
-   "mysticRank": 70
+   "mystic": 760,
+   "mysticRank": 68,
+   "asOf": 1791155099.1214404
   },
   {
    "id": 346835932,
    "name": "亗 Raccoon ᴺᵉˣᵘˢ亗",
-   "power": 63330257,
+   "power": 63638747,
    "tc": 34,
    "rank": "R3",
    "lastActive": 1789447940,
    "mystic": 676,
-   "mysticRank": 132
+   "mysticRank": 132,
+   "asOf": 1791155099.167337
   },
   {
    "id": 348096673,
    "name": "亗 MARK 07ᴺᵉˣᵘˢ 亗",
-   "power": 63005922,
+   "power": 63397670,
    "tc": 31,
    "rank": "R3",
    "lastActive": 1789456651,
    "mystic": 704,
-   "mysticRank": 111
+   "mysticRank": 111,
+   "asOf": 1791155099.2875326
   },
   {
    "id": 344591321,
    "name": "亗 도시인 ᴺᵉˣᵘˢ 亗",
-   "power": 62893444,
+   "power": 63139206,
    "tc": 30,
    "rank": "R3",
    "lastActive": 1789463146,
    "mystic": 722,
-   "mysticRank": 93
+   "mysticRank": 93,
+   "asOf": 1791155102.0520988
   },
   {
    "id": 345934114,
    "name": "【F̷A̷N̷I̷E̷L̷】",
-   "power": 62029297,
+   "power": 62337172,
    "tc": 29,
    "rank": "R3",
    "lastActive": 1789441746,
-   "mystic": 800,
-   "mysticRank": 52
+   "mystic": 805,
+   "mysticRank": 49,
+   "asOf": 1791155102.1068437
   },
   {
-   "id": 346589644,
-   "name": "JeCqtumkiff",
-   "power": 61466322,
-   "tc": 30,
+   "id": 346442889,
+   "name": "Lord Ellie",
+   "power": 62077463,
+   "tc": 28,
    "rank": "R3",
-   "lastActive": 1789462968,
-   "mystic": 755,
-   "mysticRank": 72
-  },
-  {
-   "id": 344771361,
-   "name": "亗kuya jayᴺᵉˣᵘˢ亗",
-   "power": 61449326,
-   "tc": 29,
-   "rank": "R3",
-   "lastActive": 1789459470,
-   "mystic": 748,
-   "mysticRank": 77
-  },
-  {
-   "id": 347245553,
-   "name": "亗 Nia ᴺᵉˣᵘˢ 亗",
-   "power": 61385498,
-   "tc": 30,
-   "rank": "R4",
-   "lastActive": 1789451752,
-   "mystic": 811,
-   "mysticRank": 45
+   "lastActive": 1789461995,
+   "mystic": 681,
+   "mysticRank": 128,
+   "asOf": 1791155102.6109166
   },
   {
    "id": 344705923,
    "name": "Sephiroth",
-   "power": 61051492,
+   "power": 61937032,
    "tc": 30,
    "rank": "R3",
    "lastActive": 1789446374,
    "mystic": 839,
-   "mysticRank": 36
+   "mysticRank": 36,
+   "asOf": 1791155104.9256382
+  },
+  {
+   "id": 346589644,
+   "name": "JeCqtumkiff",
+   "power": 61771368,
+   "tc": 30,
+   "rank": "R3",
+   "lastActive": 1789462968,
+   "mystic": 755,
+   "mysticRank": 72,
+   "asOf": 1791155105.0224118
+  },
+  {
+   "id": 344771361,
+   "name": "亗kuya jayᴺᵉˣᵘˢ亗",
+   "power": 62268016,
+   "tc": 29,
+   "rank": "R3",
+   "lastActive": 1789459470,
+   "mystic": 748,
+   "mysticRank": 77,
+   "asOf": 1791155107.4772727
+  },
+  {
+   "id": 347245553,
+   "name": "亗 Nia ᴺᵉˣᵘˢ 亗",
+   "power": 61378248,
+   "tc": 30,
+   "rank": "R4",
+   "lastActive": 1789451752,
+   "mystic": 811,
+   "mysticRank": 46,
+   "asOf": 1791155109.3207355
   },
   {
    "id": 344492495,
    "name": "亗 JORDAN ᴺᵉˣᵘˢ 亗",
-   "power": 60476152,
+   "power": 60652002,
    "tc": 32,
    "rank": "R4",
    "lastActive": 1789455627,
    "mystic": 750,
-   "mysticRank": 74
+   "mysticRank": 74,
+   "asOf": 1791155110.6426437
+  },
+  {
+   "id": 347016214,
+   "name": "W@rmhug",
+   "power": 59739309,
+   "tc": 28,
+   "rank": "R3",
+   "lastActive": 1789462907,
+   "mystic": 713,
+   "mysticRank": 104,
+   "asOf": 1791155110.6971703
   },
   {
    "id": 344083453,
    "name": "亗 KGm69 ᴺᵉˣᵘˢ 亗",
-   "power": 58855126,
+   "power": 59001966,
    "tc": 29,
    "rank": "R3",
    "lastActive": 1789460545,
    "mystic": 746,
-   "mysticRank": 79
-  },
-  {
-   "id": 344591050,
-   "name": "亗 KAYSTERᴺᵉˣᵘˢ 亗",
-   "power": 58507916,
-   "tc": 29,
-   "rank": "R3",
-   "lastActive": 1789463100,
-   "mystic": 723,
-   "mysticRank": 92
-  },
-  {
-   "id": 344132806,
-   "name": "亗 Lᴺᵉˣᵘˢ 亗",
-   "power": 58396480,
-   "tc": 30,
-   "rank": "R3",
-   "lastActive": 1789447721,
-   "mystic": 783,
-   "mysticRank": 58
-  },
-  {
-   "id": 345114832,
-   "name": "亗SirTavᴺᵉˣᵘˢ亗",
-   "power": 57973405,
-   "tc": 30,
-   "rank": "R3",
-   "lastActive": 1789457995,
-   "mystic": 704,
-   "mysticRank": 110
+   "mysticRank": 79,
+   "asOf": 1791155113.6874022
   },
   {
    "id": 347719973,
    "name": "亗Gullyᴺᵉˣᵘˢ亗",
-   "power": 57932767,
+   "power": 58975157,
    "tc": 35,
    "rank": "R3",
    "lastActive": 1789462932,
    "mystic": 645,
-   "mysticRank": 163
+   "mysticRank": 164,
+   "asOf": 1791155114.3443596
+  },
+  {
+   "id": 344591050,
+   "name": "亗 KAYSTERᴺᵉˣᵘˢ 亗",
+   "power": 58846877,
+   "tc": 29,
+   "rank": "R3",
+   "lastActive": 1789463100,
+   "mystic": 733,
+   "mysticRank": 86,
+   "asOf": 1791155115.059626
+  },
+  {
+   "id": 344132806,
+   "name": "亗 Lᴺᵉˣᵘˢ 亗",
+   "power": 58497732,
+   "tc": 30,
+   "rank": "R3",
+   "lastActive": 1789447721,
+   "mystic": 783,
+   "mysticRank": 58,
+   "asOf": 1791155115.7397707
+  },
+  {
+   "id": 345114832,
+   "name": "亗SirTavᴺᵉˣᵘˢ亗",
+   "power": 58294193,
+   "tc": 30,
+   "rank": "R3",
+   "lastActive": 1789457995,
+   "mystic": 719,
+   "mysticRank": 98,
+   "asOf": 1791155118.2449934
   },
   {
    "id": 346376931,
    "name": "亗BloodMoonᴺᵉˣᵘˢ亗",
-   "power": 57859592,
+   "power": 57960042,
    "tc": 30,
    "rank": "R3",
    "lastActive": 1789458804,
    "mystic": 619,
-   "mysticRank": 183
+   "mysticRank": 185,
+   "asOf": 1791155120.2094667
   },
   {
    "id": 345377963,
    "name": "亗Rover88 ᴺᵉˣᵘˢ亗",
-   "power": 57610442,
+   "power": 57696220,
    "tc": 29,
    "rank": "R3",
    "lastActive": 1789463100,
    "mystic": 651,
-   "mysticRank": 151
+   "mysticRank": 153,
+   "asOf": 1791155121.5207088
   },
   {
    "id": 346065426,
@@ -536,27 +610,30 @@
    "rank": "R3",
    "lastActive": 1789444085,
    "mystic": 579,
-   "mysticRank": 225
+   "mysticRank": 226,
+   "asOf": 1791155121.577076
   },
   {
    "id": 362991455,
    "name": "Labanet 2",
-   "power": 56389605,
+   "power": 56557840,
    "tc": 30,
    "rank": "R2",
    "lastActive": 1789463100,
-   "mystic": 623,
-   "mysticRank": 180
+   "mystic": 638,
+   "mysticRank": 171,
+   "asOf": 1791155122.8812203
   },
   {
    "id": 347654643,
    "name": "亗Shaukan ᴺᵉˣᵘˢ 亗",
-   "power": 56081147,
+   "power": 56261723,
    "tc": 30,
    "rank": "R3",
    "lastActive": 1789459898,
    "mystic": 718,
-   "mysticRank": 97
+   "mysticRank": 99,
+   "asOf": 1791155122.9506302
   },
   {
    "id": 347491177,
@@ -566,7 +643,8 @@
    "rank": "R3",
    "lastActive": 1789451704,
    "mystic": 527,
-   "mysticRank": 305
+   "mysticRank": 307,
+   "asOf": 1791155123.926675
   },
   {
    "id": 345033274,
@@ -576,17 +654,19 @@
    "rank": "R4",
    "lastActive": 1789462035,
    "mystic": 666,
-   "mysticRank": 137
+   "mysticRank": 139,
+   "asOf": 1791155125.439841
   },
   {
    "id": 346540900,
    "name": "亗 Farquar ᴺᵉˣᵘˢ亗",
-   "power": 55173729,
+   "power": 55287357,
    "tc": 29,
    "rank": "R3",
    "lastActive": 1789463098,
    "mystic": 641,
-   "mysticRank": 167
+   "mysticRank": 167,
+   "asOf": 1791155128.3457818
   },
   {
    "id": 345999788,
@@ -596,207 +676,217 @@
    "rank": "R3",
    "lastActive": 1789458804,
    "mystic": 668,
-   "mysticRank": 135
+   "mysticRank": 136,
+   "asOf": 1791155130.1327436
   },
   {
    "id": 345377808,
    "name": "亗HaCKeLLᴺᵉˣᵘˢ亗",
-   "power": 54382778,
+   "power": 54556970,
    "tc": 31,
    "rank": "R3",
    "lastActive": 1789458166,
    "mystic": 678,
-   "mysticRank": 131
+   "mysticRank": 131,
+   "asOf": 1791155130.186572
   },
   {
    "id": 345721496,
    "name": "亗 BravuS ᴺᵉˣᵘˢ 亗",
-   "power": 54163724,
+   "power": 54896841,
    "tc": 29,
    "rank": "R3",
    "lastActive": 1789463100,
    "mystic": 667,
-   "mysticRank": 136
+   "mysticRank": 138,
+   "asOf": 1791155131.8044531
   },
   {
    "id": 348063910,
    "name": "ETHAN",
-   "power": 53904824,
+   "power": 53878184,
    "tc": 29,
    "rank": "R3",
    "lastActive": 1789452993,
    "mystic": 625,
-   "mysticRank": 178
-  },
-  {
-   "id": 347016214,
-   "name": "W@rmhug",
-   "power": 53452839,
-   "tc": 27,
-   "rank": "R1",
-   "lastActive": 1789462907,
-   "mystic": 713,
-   "mysticRank": 103
+   "mysticRank": 179,
+   "asOf": 1791155131.8698156
   },
   {
    "id": 347753570,
    "name": "亗Soreanᴺᵉˣᵘˢ亗",
-   "power": 53204883,
+   "power": 53257054,
    "tc": 27,
    "rank": "R2",
    "lastActive": 1789462932,
    "mystic": 632,
-   "mysticRank": 175
+   "mysticRank": 176,
+   "asOf": 1791155133.1233861
   },
   {
    "id": 344820240,
    "name": "亗MasterTᴺᵉˣᵘˢ亗",
-   "power": 53103553,
+   "power": 53365057,
    "tc": 28,
    "rank": "R3",
    "lastActive": 1789436788,
    "mystic": 615,
-   "mysticRank": 185
+   "mysticRank": 187,
+   "asOf": 1791155133.1769743
   },
   {
    "id": 344001102,
    "name": "debe 06",
-   "power": 53027650,
+   "power": 53040662,
    "tc": 29,
    "rank": "R2",
    "lastActive": 1789450827,
    "mystic": 579,
-   "mysticRank": 226
+   "mysticRank": 227,
+   "asOf": 1791155135.0121293
   },
   {
    "id": 346327855,
    "name": "亗MAJESTÉ ᴺᵉˣᵘˢ亗",
-   "power": 52345431,
+   "power": 53018676,
    "tc": 28,
    "rank": "R3",
    "lastActive": 1789460993,
-   "mystic": 545,
-   "mysticRank": 272
+   "mystic": 560,
+   "mysticRank": 257,
+   "asOf": 1791155137.4233394
   },
   {
    "id": 343952443,
    "name": "亗beeQueenᴺᵉˣᵘˢ 亗",
-   "power": 52223579,
+   "power": 52263733,
    "tc": 30,
    "rank": "R3",
    "lastActive": 1789463112,
    "mystic": 615,
-   "mysticRank": 186
+   "mysticRank": 188,
+   "asOf": 1791155138.6872268
   },
   {
    "id": 346393355,
    "name": "Afecte",
-   "power": 52023334,
+   "power": 52025864,
    "tc": 28,
    "rank": "R2",
    "lastActive": 1789462968,
    "mystic": 609,
-   "mysticRank": 194
+   "mysticRank": 195,
+   "asOf": 1791155140.4747639
   },
   {
    "id": 344984338,
    "name": "lovely mw",
-   "power": 51490438,
+   "power": 51599788,
    "tc": 28,
    "rank": "R2",
    "lastActive": 1789450744,
    "mystic": 644,
-   "mysticRank": 165
-  },
-  {
-   "id": 347949377,
-   "name": "亗GrZeChUᴺᵉˣᵘˢ亗",
-   "power": 51298566,
-   "tc": 30,
-   "rank": "R3",
-   "lastActive": 1789461280,
-   "mystic": 575,
-   "mysticRank": 233
+   "mysticRank": 165,
+   "asOf": 1791155141.1716166
   },
   {
    "id": 346999584,
    "name": "亗Stryder ᴺᵉˣᵘˢ亗",
-   "power": 51271574,
+   "power": 51323603,
    "tc": 30,
    "rank": "R3",
    "lastActive": 1789453167,
    "mystic": 597,
-   "mysticRank": 201
-  },
-  {
-   "id": 346950423,
-   "name": "亗Thanossᴺᵉˣᵘˢ亗",
-   "power": 51166480,
-   "tc": 29,
-   "rank": "R3",
-   "lastActive": 1789463100,
-   "mystic": 648,
-   "mysticRank": 157
+   "mysticRank": 203,
+   "asOf": 1791155141.1851325
   },
   {
    "id": 346311323,
    "name": "Mamdella73",
-   "power": 50655451,
+   "power": 51621342,
    "tc": 30,
    "rank": "R2",
    "lastActive": 1789462660,
    "mystic": 713,
-   "mysticRank": 102
+   "mysticRank": 103,
+   "asOf": 1791155141.2251153
+  },
+  {
+   "id": 347949377,
+   "name": "亗GrZeChUᴺᵉˣᵘˢ亗",
+   "power": 51483064,
+   "tc": 30,
+   "rank": "R3",
+   "lastActive": 1789461280,
+   "mystic": 575,
+   "mysticRank": 234,
+   "asOf": 1791155142.517033
+  },
+  {
+   "id": 346950423,
+   "name": "亗Thanossᴺᵉˣᵘˢ亗",
+   "power": 51298665,
+   "tc": 29,
+   "rank": "R3",
+   "lastActive": 1789463100,
+   "mystic": 648,
+   "mysticRank": 158,
+   "asOf": 1791155143.230759
   },
   {
    "id": 346672054,
    "name": "GrizzledAncient",
-   "power": 49371477,
+   "power": 49833627,
    "tc": 29,
    "rank": "R2",
    "lastActive": 1789343667,
    "mystic": 456,
-   "mysticRank": 413
-  },
-  {
-   "id": 346442889,
-   "name": "Lord Ellie",
-   "power": 49128725,
-   "tc": 27,
-   "rank": "R1",
-   "lastActive": 1789461995,
-   "mystic": 681,
-   "mysticRank": 128
+   "mysticRank": 414,
+   "asOf": 1791155144.4367385
   },
   {
    "id": 347867911,
    "name": "亗 Gianna ᴺᵉˣᵘˢ 亗",
-   "power": 48879036,
+   "power": 49275608,
    "tc": 28,
    "rank": "R3",
    "lastActive": 1789462035,
    "mystic": 542,
-   "mysticRank": 276
+   "mysticRank": 277,
+   "asOf": 1791155149.0057027
   },
   {
    "id": 347311211,
    "name": "亗007 ᴺᵉˣᵘˢ亗",
-   "power": 48425460,
+   "power": 48531465,
    "tc": 29,
    "rank": "R2",
    "lastActive": 1789459572,
    "mystic": 661,
-   "mysticRank": 143
+   "mysticRank": 143,
+   "asOf": 1791155150.357041
   },
   {
    "id": 344083160,
    "name": "亗Q ESTHERᴺᵉˣᵘˢ亗",
-   "power": 48362673,
+   "power": 48758533,
    "tc": 28,
    "rank": "R3",
    "lastActive": 1789447779,
-   "mystic": 501,
-   "mysticRank": 345
+   "mystic": 539,
+   "mysticRank": 286,
+   "asOf": 1791155150.4406145
+  },
+  {
+   "id": 345770824,
+   "name": "Cvk",
+   "power": 47716727,
+   "tc": 28,
+   "rank": "R2",
+   "lastActive": 1789458936,
+   "mystic": 576,
+   "mysticRank": 231,
+   "asOf": 1791155151.0171134
   },
   {
    "id": 346065189,
@@ -806,27 +896,19 @@
    "rank": "R1",
    "lastActive": 1789413634,
    "mystic": 575,
-   "mysticRank": 231
-  },
-  {
-   "id": 345770824,
-   "name": "Cvk",
-   "power": 47598902,
-   "tc": 28,
-   "rank": "R2",
-   "lastActive": 1789458936,
-   "mystic": 576,
-   "mysticRank": 230
+   "mysticRank": 232,
+   "asOf": 1791155151.0321932
   },
   {
    "id": 347884028,
    "name": "Mook",
-   "power": 47122079,
+   "power": 47663865,
    "tc": 29,
    "rank": "R3",
    "lastActive": 1789462968,
-   "mystic": 562,
-   "mysticRank": 250
+   "mystic": 565,
+   "mysticRank": 244,
+   "asOf": 1791155151.081283
   },
   {
    "id": 345181101,
@@ -836,27 +918,30 @@
    "rank": "R3",
    "lastActive": 1789462968,
    "mystic": 583,
-   "mysticRank": 220
+   "mysticRank": 221,
+   "asOf": 1791155152.171034
   },
   {
    "id": 346033106,
    "name": "Andree",
-   "power": 45753270,
+   "power": 45778570,
    "tc": 29,
    "rank": "R3",
    "lastActive": 1789463100,
    "mystic": 475,
-   "mysticRank": 384
+   "mysticRank": 385,
+   "asOf": 1791155152.7661407
   },
   {
    "id": 346557536,
    "name": "Aronofsky",
-   "power": 45358648,
+   "power": 45575982,
    "tc": 28,
    "rank": "R3",
    "lastActive": 1789462968,
    "mystic": 531,
-   "mysticRank": 297
+   "mysticRank": 299,
+   "asOf": 1791155154.5386178
   },
   {
    "id": 347064922,
@@ -866,37 +951,41 @@
    "rank": "R1",
    "lastActive": 1789384710,
    "mystic": 557,
-   "mysticRank": 261
+   "mysticRank": 262,
+   "asOf": 1791155157.4613426
   },
   {
    "id": 344214425,
    "name": "Lord Have Mercy",
-   "power": 44218148,
+   "power": 44361859,
    "tc": 28,
    "rank": "R3",
    "lastActive": 1789449814,
    "mystic": 486,
-   "mysticRank": 371
-  },
-  {
-   "id": 347179206,
-   "name": "亗 Loba ᴺᵉˣᵘˢ 亗",
-   "power": 42725449,
-   "tc": 29,
-   "rank": "R2",
-   "lastActive": 1789451200,
-   "mystic": 474,
-   "mysticRank": 386
+   "mysticRank": 374,
+   "asOf": 1791155159.291977
   },
   {
    "id": 344066677,
    "name": "Büşy",
-   "power": 41757275,
+   "power": 43416579,
    "tc": 27,
    "rank": "R2",
    "lastActive": 1789448355,
    "mystic": 440,
-   "mysticRank": 440
+   "mysticRank": 442,
+   "asOf": 1791155159.2849298
+  },
+  {
+   "id": 347179206,
+   "name": "亗 Loba ᴺᵉˣᵘˢ 亗",
+   "power": 42868865,
+   "tc": 29,
+   "rank": "R2",
+   "lastActive": 1789451200,
+   "mystic": 474,
+   "mysticRank": 387,
+   "asOf": 1791155160.458675
   },
   {
    "id": 347687225,
@@ -906,7 +995,8 @@
    "rank": "R3",
    "lastActive": 1789450681,
    "mystic": 523,
-   "mysticRank": 310
+   "mysticRank": 313,
+   "asOf": 1791155161.1591275
   },
   {
    "id": 348113851,
@@ -916,7 +1006,8 @@
    "rank": "R1",
    "lastActive": 1789434004,
    "mystic": 482,
-   "mysticRank": 375
+   "mysticRank": 379,
+   "asOf": 1791155161.2004719
   },
   {
    "id": 345738177,
@@ -926,17 +1017,19 @@
    "rank": "R2",
    "lastActive": 1789455279,
    "mystic": 463,
-   "mysticRank": 404
+   "mysticRank": 404,
+   "asOf": 1791155161.7723927
   },
   {
    "id": 346311028,
    "name": "亗〆Sergio〆ᴺᵉˣᵘˢ 亗",
    "power": 38571613,
    "tc": 27,
-   "rank": "R2",
+   "rank": "R1",
    "lastActive": 1789458835,
    "mystic": 403,
-   "mysticRank": 499
+   "mysticRank": 503,
+   "asOf": 1791155161.8267028
   },
   {
    "id": 347621697,
@@ -946,7 +1039,8 @@
    "rank": "R1",
    "lastActive": 1789445307,
    "mystic": 533,
-   "mysticRank": 292
+   "mysticRank": 294,
+   "asOf": 1791155164.3834841
   },
   {
    "id": 346983270,
@@ -956,27 +1050,30 @@
    "rank": "R1",
    "lastActive": 1789349660,
    "mystic": 550,
-   "mysticRank": 265
+   "mysticRank": 267,
+   "asOf": 1791155168.300948
   },
   {
    "id": 345754601,
    "name": "lady jones",
-   "power": 36936036,
+   "power": 37089121,
    "tc": 28,
    "rank": "R2",
    "lastActive": 1789460749,
-   "mystic": 478,
-   "mysticRank": 379
+   "mystic": 483,
+   "mysticRank": 378,
+   "asOf": 1791155168.995167
   },
   {
    "id": 346885220,
    "name": "亗Henry桑 ᴺᵉˣᵘˢ 亗",
-   "power": 36401409,
+   "power": 36413909,
    "tc": 35,
    "rank": "R1",
    "lastActive": 1789239733,
    "mystic": 768,
-   "mysticRank": 64
+   "mysticRank": 64,
+   "asOf": 1791155169.0490582
   },
   {
    "id": 344509352,
@@ -986,27 +1083,30 @@
    "rank": "R1",
    "lastActive": 1789445119,
    "mystic": 426,
-   "mysticRank": 463
+   "mysticRank": 464,
+   "asOf": 1791155170.1713808
   },
   {
    "id": 347065285,
    "name": "亗LDK ᴺᵉˣᵘˢ 亗",
-   "power": 27638695,
+   "power": 27757081,
    "tc": 25,
    "rank": "R2",
    "lastActive": 1789460869,
    "mystic": 256,
-   "mysticRank": 741
+   "mysticRank": 741,
+   "asOf": 1791155170.2511747
   },
   {
    "id": 372080989,
    "name": "亗Miaᴺᵉˣᵘˢ亗",
-   "power": 25390458,
+   "power": 25482859,
    "tc": 24,
    "rank": "R2",
    "lastActive": 1789462968,
    "mystic": 442,
-   "mysticRank": 434
+   "mysticRank": 435,
+   "asOf": 1791155170.813139
   }
  ]
 }
