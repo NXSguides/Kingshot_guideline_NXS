@@ -52,8 +52,16 @@
   .tb-cols label { display: flex; gap: 6px; align-items: center; }
   .tb-sticky { position: sticky; top: 0; z-index: 5; background: var(--panel); padding: 4px 0 8px; }
   .tb-pool-h { font-size: 13px; font-weight: 600; margin: 6px 0; }
-  .tb-pool { display: flex; flex-wrap: wrap; gap: 6px; max-height: 150px; overflow-y: auto; padding: 8px; background: var(--panel-2); border-radius: 10px; }
+  .tb-pool { display: flex; flex-wrap: wrap; gap: 6px; max-height: 190px; overflow-y: auto; padding: 8px; background: var(--panel-2); border-radius: 10px; }
   .tb-chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 9px; border-radius: 999px; background: var(--panel); border: 1px solid var(--rule); font-size: 13px; cursor: pointer; user-select: none; margin: 2px; }
+  .tb-counts { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 6px; font-size: 13px; }
+  .tb-counts input { width: 52px; padding: 4px 6px; border-radius: 6px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-size: 15px; }
+  .tb-role { width: 100%; }
+  .tb-role-h { font-size: 12px; font-weight: 700; margin: 2px 0 2px; }
+  .tb-role-h span { font-weight: 400; color: var(--text-muted); }
+  .tb-role.r0 .tb-role-h { color: #b3261e; } .tb-chip.pool.r0 { border-color: #d77a72; background: color-mix(in srgb, #e57373 18%, var(--panel)); }
+  .tb-role.r1 .tb-role-h { color: #1d5fa8; } .tb-chip.pool.r1 { border-color: #7aa7d7; background: color-mix(in srgb, #64b5f6 18%, var(--panel)); }
+  .tb-role.r2 .tb-role-h { color: var(--text-muted); }
   .tb-chip.pool.on { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
   .tb-chip i { font-style: normal; font-size: 11px; background: var(--text-muted); color: var(--panel); border-radius: 999px; padding: 0 5px; }
   .tb-chip.txt { font-style: italic; }
@@ -491,7 +499,7 @@ const TT = {
     shortNames: "Short names (drop decorations like 亗 and Nexus)",
     draft: "Fill a first draft from the ranking", draftNote: "Uses the Attackers / Defenders numbers from ④.",
     clear: "Clear table", addGroup: "+ Group", addRow: "+ Row", delGroup: "Delete group", dupRow: "Copy row", delRow: "Delete row",
-    pool: "People (tap one, then tap a box)", poolEmpty: "Tick participants in ② first.",
+    pool: "People — suggested roles by score (tap one, then tap a box)", poolEmpty: "Tick participants in ② first.",
     addText: "+ text", textPrompt: "Text to add (e.g. Stays behind)",
     image: "🖼️ Make image", text: "📋 Copy text", toPost: "📢 Use in a new announcement",
     saveHint: "Phone: press and hold the picture to save it.", download: "Download", close: "Close",
@@ -504,7 +512,7 @@ const TT = {
     shortNames: "簡短名字（去掉亗、Nexus 這些裝飾）",
     draft: "依排序自動排一份草稿", draftNote: "使用 ④ 裡 Attackers／Defenders 的人數。",
     clear: "清空表格", addGroup: "+ 新增組", addRow: "+ 新增列", delGroup: "刪除這組", dupRow: "複製這列", delRow: "刪除這列",
-    pool: "人員（先點名字，再點格子）", poolEmpty: "請先在 ② 勾選參戰的人。",
+    pool: "人員 — 依分數建議的角色（先點名字，再點格子）", poolEmpty: "請先在 ② 勾選參戰的人。",
     addText: "+ 文字", textPrompt: "要加入的文字（例如 Stays behind）",
     image: "🖼️ 產生圖片", text: "📋 複製文字", toPost: "📢 拿去發公告",
     saveHint: "手機：長按圖片即可儲存。", download: "下載", close: "關閉",
@@ -552,6 +560,8 @@ function tbRender() {
   const host = $("tbCard"); if (!host || !data) return;
   const counts = tbCounts();
   const pool = ranking();
+  const swPreset = PRESETS.find((x) => x.id === "swordland");
+  const roleGroups = presetGroups(swPreset);   // suggested Attackers / Defenders / Joiners by score
   const stageOpts = listOf(TB.stages), targetOpts = listOf(TB.targets);
   const cell = (g, gi, r, ri, k) => {
     const chips = r[k].map((x, xi) => `<span class="tb-chip${x.kind === "t" ? " txt" : ""}" draggable="true" data-g="${gi}" data-r="${ri}" data-k="${k}" data-x="${xi}">${esc(chipLabel(x))}<b class="tb-x" data-del="1">×</b></span>`).join("");
@@ -573,7 +583,8 @@ function tbRender() {
     </div>
     <div class="muted" style="font-size:12px;margin:-4px 0 8px">${esc(tt("draftNote"))}</div>
     <div class="tb-sticky"><div class="tb-pool-h">${esc(tt("pool"))}${tbPick ? ` · <b>${esc(tt("picked"))} ${esc(chipLabel(tbPick))}</b>` : ""}</div>
-    <div class="tb-pool">${pool.length ? pool.map((m) => `<span class="tb-chip pool${tbPick && tbPick.kind === "p" && String(tbPick.id) === String(m.id) ? " on" : ""}" draggable="true" data-pid="${m.id}">${esc(TB.short ? shortName(m.name) : m.name)}${counts[m.id] ? `<i>${counts[m.id]}</i>` : ""}</span>`).join("") : `<span class="muted">${esc(tt("poolEmpty"))}</span>`}</div></div>
+    <div class="tb-counts">${swPreset.groups.map((g, gi) => g.count == null ? "" : `<label>${esc(g.name[lang] || g.name.en)} <input type="number" min="0" max="99" data-rolecount="${gi}" value="${groupCount(swPreset, gi)}"></label>`).join("")}</div>
+    <div class="tb-pool">${pool.length ? roleGroups.map(({ g, list }, ri) => list.length ? `<div class="tb-role r${ri}"><div class="tb-role-h">${esc(g.name[lang] || g.name.en)} <span>(${list.length})</span></div>${list.map((m) => `<span class="tb-chip pool r${ri}${tbPick && tbPick.kind === "p" && String(tbPick.id) === String(m.id) ? " on" : ""}" draggable="true" data-pid="${m.id}">${esc(TB.short ? shortName(m.name) : m.name)}${counts[m.id] ? `<i>${counts[m.id]}</i>` : ""}</span>`).join("")}</div>` : "").join("") : `<span class="muted">${esc(tt("poolEmpty"))}</span>`}</div></div>
     ${TB.groups.map((g, gi) => `
       <div class="tb-group" style="border-color:${g.color};background:color-mix(in srgb, ${g.color} 22%, var(--panel))">
         <div class="tb-ghead">
@@ -654,6 +665,11 @@ function tbClick(e) {
 }
 function tbInput(e) {
   const t = e.target;
+  if (t.dataset.rolecount !== undefined) {
+    const v = Math.max(0, Math.min(99, Math.round(Number(t.value) || 0)));
+    store.counts = store.counts || {}; store.counts.swordland = store.counts.swordland || {};
+    store.counts.swordland[t.dataset.rolecount] = v; save(); renderPresets(); return;
+  }
   if (t.dataset.field) { TB.groups[t.dataset.g].rows[t.dataset.r][t.dataset.field] = t.value; tbSave(); return; }
   if (t.dataset.set === "short") { TB.short = t.checked; tbSave(); tbRender(); return; }
   if (t.dataset.set) { TB[t.dataset.set] = t.value; tbSave(); return; }
@@ -748,7 +764,7 @@ function tbImage() {
   const host = $("tbCard");
   host.addEventListener("click", tbClick);
   host.addEventListener("input", (e) => { if (e.target.type !== "checkbox") tbInput(e); });
-  host.addEventListener("change", (e) => { if (e.target.type === "checkbox") tbInput(e); else if (e.target.dataset.set || e.target.dataset.col) tbRender(); });
+  host.addEventListener("change", (e) => { if (e.target.type === "checkbox") tbInput(e); else if (e.target.dataset.set || e.target.dataset.col || e.target.dataset.rolecount !== undefined) tbRender(); });
   host.addEventListener("dragstart", tbDragStart);
   host.addEventListener("dragover", (e) => { if (e.target.closest(".tb-cell")) e.preventDefault(); });
   host.addEventListener("drop", tbDrop);
