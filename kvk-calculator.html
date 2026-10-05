@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KvK 換算計算器</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* Layout: one working column of numbered steps; result panel docks right on wide screens, follows the steps on phones */
+:root{
+  --bg:#eef1f4; --panel:#ffffff; --sunk:#f5f7f9; --fg:#1b2430; --muted:#5d6876; --line:#d5dbe2;
+  --accent:#a8740c; --accent-soft:#f6ebd2; --good:#1f7a4a; --good-soft:#e1f2e8; --bad:#b23a2e; --bad-soft:#f8e3e0;
+  --display:"Chakra Petch","Noto Sans TC",system-ui,sans-serif;
+  --body:"Noto Sans TC",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#12171d; --panel:#1a2129; --sunk:#151b22; --fg:#e4e8ec; --muted:#9aa5b1; --line:#2c3642;
+  --accent:#e0aa3e; --accent-soft:#3a2e15; --good:#5cc68c; --good-soft:#163024; --bad:#ef7b6e; --bad-soft:#3a1d1a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12171d; --panel:#1a2129; --sunk:#151b22; --fg:#e4e8ec; --muted:#9aa5b1; --line:#2c3642;
+  --accent:#e0aa3e; --accent-soft:#3a2e15; --good:#5cc68c; --good-soft:#163024; --bad:#ef7b6e; --bad-soft:#3a1d1a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.55;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:18px}
+h1{font-family:var(--display);font-weight:700;font-size:1.9rem;margin:0;letter-spacing:.01em;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;max-width:60ch}
+.lang{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.lang button{background:var(--panel);color:var(--muted);border:0;padding:6px 12px;font:inherit;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px;align-items:start}
+@media (max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}}
+.steps{display:flex;flex-direction:column;gap:16px;min-width:0}
+section.step{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.step h2{font-family:var(--display);font-size:1.1rem;margin:0 0 4px;display:flex;gap:10px;align-items:baseline}
+.step h2 .n{color:var(--accent);font-size:.95rem}
+.hint{color:var(--muted);font-size:.85rem;margin:0 0 12px}
+.events{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
+.ev{text-align:left;border:1px solid var(--line);background:var(--sunk);color:var(--fg);border-radius:8px;padding:10px 12px;font:inherit;cursor:pointer}
+.ev b{display:block;font-weight:700}
+.ev span{color:var(--muted);font-size:.8rem}
+.ev[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+th{color:var(--muted);font-weight:500;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+input[type=number]{width:100%;min-width:72px;max-width:120px;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--sunk);color:var(--fg);font:inherit;font-variant-numeric:tabular-nums}
+input:focus,select:focus,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+select{padding:7px 8px;border:1px solid var(--line);border-radius:6px;background:var(--sunk);color:var(--fg);font:inherit;max-width:100%}
+.ratio{display:inline-block;min-width:3.4em;text-align:center;padding:1px 6px;border-radius:999px;font-size:.8rem;font-variant-numeric:tabular-nums;font-weight:500}
+.r-good{background:var(--good-soft);color:var(--good)}
+.r-mid{background:var(--accent-soft);color:var(--accent)}
+.r-bad{background:var(--bad-soft);color:var(--bad)}
+.msgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}
+.mcard{border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--sunk);display:flex;flex-direction:column;gap:8px;min-width:0}
+.mcard.hit{border-color:var(--good);box-shadow:inset 3px 0 0 var(--good)}
+.mhead{display:flex;align-items:center;gap:8px;font-weight:700;font-family:var(--display)}
+.mhead input{max-width:140px}
+.rw{display:grid;grid-template-columns:minmax(0,1fr) 78px 28px;gap:6px;align-items:center}
+.rw select{width:100%;min-width:0}
+.rw input{min-width:0;max-width:none}
+.rw .x{background:none;border:1px solid var(--line);border-radius:6px;color:var(--muted);cursor:pointer;height:32px;font:inherit}
+.add{align-self:flex-start;background:none;border:1px dashed var(--line);color:var(--accent);border-radius:6px;padding:4px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+.kv{color:var(--muted);font-size:.8rem}
+.ms tr.hit td:first-child{box-shadow:inset 3px 0 0 var(--good)}
+.note{font-size:.82rem;color:var(--muted);margin:10px 0 0}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.row label{display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--muted)}
+aside{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:900px){aside{position:static}}
+.verdict{border-radius:8px;padding:12px 14px;font-weight:700;font-family:var(--display);font-size:1.15rem}
+.verdict small{display:block;font-family:var(--body);font-weight:400;font-size:.85rem;margin-top:2px}
+.v-good{background:var(--good-soft);color:var(--good)}
+.v-bad{background:var(--bad-soft);color:var(--bad)}
+.v-none{background:var(--sunk);color:var(--muted)}
+dl{display:grid;grid-template-columns:1fr auto;gap:6px 12px;margin:0}
+dt{color:var(--muted)}
+dd{margin:0;text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
+dd.big{font-family:var(--display);font-size:1.1rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:1px 9px;font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.chip.on{border-color:var(--good);color:var(--good);background:var(--good-soft)}
+.gets{margin:0;padding-left:1.1em;font-size:.9rem;display:flex;flex-direction:column;gap:2px}
+.gets li{font-variant-numeric:tabular-nums}
+.gets .none{list-style:none;margin-left:-1.1em;color:var(--muted)}
+.ms td input.txt{max-width:none;min-width:150px}
+input[type=text]{width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--sunk);color:var(--fg);font:inherit}
+.next{font-size:.88rem;background:var(--sunk);border-radius:8px;padding:10px 12px}
+.foot{color:var(--muted);font-size:.8rem;margin-top:20px;max-width:80ch}
+.foot a{color:inherit}
+button.reset{align-self:flex-start;background:none;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:5px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1 data-t="title"></h1>
+      <p class="sub" data-t="subtitle"></p>
+    </div>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="lang-zh" type="button">中文</button>
+      <button id="lang-en" type="button">EN</button>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div class="steps">
+      <section class="step">
+        <h2><span class="n">1</span><span data-t="s1"></span></h2>
+        <p class="hint" data-t="s1hint"></p>
+        <div class="events" id="events"></div>
+        <div class="row" style="margin-top:12px"><label><span data-t="tcLabel"></span><select id="tcg"></select></label></div>
+      </section>
+
+      <section class="step">
+        <h2><span class="n">2</span><span data-t="s2"></span></h2>
+        <p class="hint" data-t="s2hint"></p>
+        <div class="tbl"><table id="spend"></table></div>
+      </section>
+
+      <section class="step">
+        <h2><span class="n">3</span><span data-t="s3"></span></h2>
+        <p class="hint" data-t="s3hint"></p>
+        <div id="ms" class="msgrid"></div>
+        <p class="note" id="msnote"></p>
+      </section>
+
+      <section class="step">
+        <h2><span class="n">4</span><span data-t="s4"></span></h2>
+        <div class="row">
+          <label><span data-t="rankLabel"></span><select id="rank"></select></label>
+          <label><span data-t="gemLabel"></span><select id="gemrate"></select></label>
+        </div>
+        <p class="note" data-t="s4note"></p>
+      </section>
+    </div>
+
+    <aside aria-live="polite">
+      <div class="verdict v-none" id="verdict"></div>
+      <dl>
+        <dt data-t="rEvent"></dt><dd class="big" id="oEvent">0</dd>
+        <dt data-t="rCost"></dt><dd id="oCost">0</dd>
+        <dt data-t="rGain"></dt><dd id="oGain">0</dd>
+        <dt data-t="rNet"></dt><dd class="big" id="oNet">0</dd>
+      </dl>
+      <div>
+        <div class="hint" style="margin-bottom:6px" data-t="rMs"></div>
+        <div class="chips" id="oChips"></div>
+      </div>
+      <div>
+        <div class="hint" style="margin-bottom:6px" data-t="rGet"></div>
+        <ul class="gets" id="oGets"></ul>
+      </div>
+      <div class="next" id="oNext"></div>
+      <button class="reset" id="reset" type="button" data-t="reset"></button>
+    </aside>
+  </div>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script>
+(function(){
+const T={
+ zh:{title:"KvK 換算計算器",subtitle:"想衝活動獎勵前的參考：花掉的資源在 KvK 值多少分、會拿到哪些獎勵。要不要花，由你自己決定。",
+  s1:"選活動",s1hint:"倍率＝在這個活動拿 1 分，KvK 就少幾分。數字越小，代價越低。",
+  s2:"打算花多少",s2hint:"只列這個活動有算分的資源。",
+  s3:"里程碑獎勵",s3hint:"照遊戲畫面填門檻，再從清單選獎勵、填數量。KvK 不算分的道具也可以加，會列在「你會拿到」裡。",
+  s4:"排名與鑽石換算",rankLabel:"預計排名",gemLabel:"1 鑽石 = ? KvK 分",
+  s4note:"鑽石用 KvK 英雄輪盤換算：每轉 1,350 鑽、8,000 分，轉出的神話碎片第 2、3 天再用一次。排名獎勵的金鑰匙、寶石圖紙不算 KvK 分。排名獎勵要活動分 4,000 以上才拿得到。",
+  colItem:"資源",colQty:"數量",colEvent:"活動分",colKvk:"KvK 分",colRatio:"倍率",
+  colTh:"門檻",addRw:"＋ 新增獎勵",
+  rEvent:"活動分數",rCost:"KvK 少掉",rGain:"獎勵換回",rNet:"KvK 淨差",rMs:"達到的里程碑",rGet:"你會拿到",getNone:"還沒有達到任何獎勵",
+  gRank:"排名",kvkPts:"KvK",reset:"清空這個活動",
+  vNone:"輸入要花的資源",
+  vHead:(n)=>`KvK 淨差 ${n} 分`,vSub:"這是參考。如果你需要這些獎勵，花下去也沒問題。",
+  next:(gap,name,n,cost)=>`下一個里程碑還差 <b>${gap}</b> 分。用代價最低的「${name}」約要 ${n} 個，KvK 少 ${cost} 分。`,
+  nextNone:"已經達到所有里程碑。",nextUnknown:"填入門檻後，這裡會顯示下一個里程碑還差多少。",
+  noRank:"不衝排名",rankOpt:(r,g,h)=>`第 ${r} 名：${g} 鑽、三種加速各 ${h} 小時`,
+  gemA:"7.2（輪盤＋碎片）",gemB:"5.9（只算輪盤）",gemC:"0（不算鑽石）",
+  msnoteAC2:"預填的是某位玩家的實際畫面；門檻和獎勵會隨城鎮中心等級不同，請以自己的畫面為準。",
+  msVer:"門檻來自 Kingshot Optimizer，獎勵已和實際遊戲畫面核對過。",msUnver:"門檻來自 Kingshot Optimizer；這一組的獎勵數量還沒有資料，請照自己的遊戲畫面填。",tcLabel:"城鎮中心等級",
+  msnoteAC1:"這個類型還沒有資料，請照自己的遊戲畫面填。",
+  foot:"KvK 分數來源：Kingshot Optimizer 的 KvK Event Guide；活動分數來源：遊戲畫面與 Kingshot Wiki。資源不管花在哪個活動，帳號一樣會變強，這裡只比較 KvK 分數。"},
+ en:{title:"KvK Trade-off Calculator",subtitle:"A reference before you push an event: what your resources are worth in KvK and which rewards you get. Whether to spend is your call.",
+  s1:"Pick the event",s1hint:"Ratio = KvK points lost for each event point. Lower means a smaller cost.",
+  s2:"What you plan to spend",s2hint:"Only resources that score in this event are listed.",
+  s3:"Milestone rewards",s3hint:"Fill thresholds from your game screen, then pick each reward from the list and enter the amount. Items that don't score in KvK still show under You get.",
+  s4:"Ranking and gem value",rankLabel:"Expected rank",gemLabel:"1 gem = ? KvK pts",
+  s4note:"Gems are valued via the KvK Hero Roulette: 1,350 gems per spin, 8,000 pts, plus the mythic shards it drops used on Day 2–3. Gold Keys and Charm Designs from ranking don't score in KvK. Ranking rewards need 4,000+ event points.",
+  colItem:"Resource",colQty:"Qty",colEvent:"Event pts",colKvk:"KvK pts",colRatio:"Ratio",
+  colTh:"Threshold",addRw:"+ Add reward",
+  rEvent:"Event score",rCost:"KvK points lost",rGain:"Rewards worth",rNet:"KvK net",rMs:"Milestones reached",rGet:"You get",getNone:"No rewards reached yet",
+  gRank:"Ranking",kvkPts:"KvK",reset:"Clear this event",
+  vNone:"Enter what you'll spend",
+  vHead:(n)=>`KvK net ${n} pts`,vSub:"This is a reference. If you need these rewards, spending is fine.",
+  next:(gap,name,n,cost)=>`Next milestone needs <b>${gap}</b> more pts. Lowest-cost way: about ${n} × ${name}, costing ${cost} KvK pts.`,
+  nextNone:"All milestones reached.",nextUnknown:"Fill in thresholds to see the gap to the next milestone.",
+  noRank:"Not pushing rank",rankOpt:(r,g,h)=>`Rank ${r}: ${g} gems, ${h}h of each speedup`,
+  gemA:"7.2 (roulette + shards)",gemB:"5.9 (roulette only)",gemC:"0 (ignore gems)",
+  msnoteAC2:"Prefilled from one player's screen; thresholds and rewards scale with Town Center level.",
+  msVer:"Thresholds from Kingshot Optimizer; rewards checked against an actual game screen.",msUnver:"Thresholds from Kingshot Optimizer. Reward amounts for this group aren't known yet; enter them from your own screen.",tcLabel:"Town Center level",
+  msnoteAC1:"No data yet for this type. Fill it from your own screen.",
+  foot:"KvK point values: Kingshot Optimizer KvK Event Guide. Event point values: in-game screens and Kingshot Wiki. Spending resources grows your account in any event; this only compares KvK points."}
+};
+const ITEMS={
+ truegold:{zh:"黃金",en:"Truegold",kvk:2000},
+ tempered:{zh:"回火黃金",en:"Tempered Truegold",kvk:30000},
+ dust:{zh:"黃金研究粉塵",en:"Truegold Dust",kvk:1000},
+ hammer:{zh:"鍛造錘",en:"Forgehammer",kvk:4000},
+ widget:{zh:"專屬裝備零件",en:"Exclusive Widget",kvk:8000},
+ mithril:{zh:"秘銀",en:"Mithril",kvk:40000},
+ mythic:{zh:"神話英雄碎片",en:"Mythic Hero Shard",kvk:3040},
+ epic:{zh:"史詩英雄碎片",en:"Epic Hero Shard",kvk:1220},
+ rare:{zh:"稀有英雄碎片",en:"Rare Hero Shard",kvk:350},
+ emblem:{zh:"大師徽章",en:"Master Emblem",kvk:6000},
+ manuscript:{zh:"大師手稿",en:"Master's Manuscript",kvk:60},
+ speed:{zh:"加速（分鐘）",en:"Speedup (minutes)",kvk:30},
+ gear:{zh:"領主裝備評分",en:"Governor Gear score",kvk:36},
+ charm:{zh:"寶石評分",en:"Charm score",kvk:70},
+ t9:{zh:"訓練 T9 士兵",en:"Train T9 troop",kvk:45},
+ t10:{zh:"訓練 T10 士兵",en:"Train T10 troop",kvk:60},
+ t11:{zh:"訓練 T11 士兵",en:"Train T11 troop",kvk:75}
+};
+const REW={
+ gems:{zh:"鑽石",en:"Gems",kvk:"gem"},
+ c5:{zh:"5 分鐘建造加速",en:"5m Construction Speedup",kvk:150},
+ r5:{zh:"5 分鐘研究加速",en:"5m Research Speedup",kvk:150},
+ t5:{zh:"5 分鐘訓練加速",en:"5m Training Speedup",kvk:150},
+ g5:{zh:"5 分鐘通用加速",en:"5m General Speedup",kvk:150},
+ c60:{zh:"1 小時建造加速",en:"1h Construction Speedup",kvk:1800},
+ r60:{zh:"1 小時研究加速",en:"1h Research Speedup",kvk:1800},
+ t60:{zh:"1 小時訓練加速",en:"1h Training Speedup",kvk:1800},
+ g60:{zh:"1 小時通用加速",en:"1h General Speedup",kvk:1800},
+ truegold:{zh:"黃金",en:"Truegold",kvk:2000},
+ hammer:{zh:"鍛造錘",en:"Forgehammer",kvk:4000},
+ mythic:{zh:"神話英雄碎片",en:"Mythic Hero Shard",kvk:3040},
+ charmd:{zh:"寶石圖紙",en:"Charm Design",kvk:0},
+ artisan:{zh:"工匠之眼",en:"Artisan's Vision",kvk:0},
+ conquest:{zh:"傳說討伐技能書",en:"Mythic Conquest Skill Book",kvk:0},
+ expedition:{zh:"傳說遠征技能書",en:"Mythic Expedition Skill Manual",kvk:0},
+ xp1k:{zh:"1K 英雄經驗",en:"1K Hero XP",kvk:0},
+ bread:{zh:"10K 糧食",en:"10K Bread",kvk:0},
+ wood:{zh:"10K 木材",en:"10K Wood",kvk:0},
+ stone:{zh:"10K 石頭",en:"10K Stone",kvk:0},
+ iron:{zh:"10K 鐵礦",en:"10K Iron",kvk:0},
+ goldkey:{zh:"金鑰匙",en:"Gold Key",kvk:0}
+};
+const RW=(...a)=>a.map(x=>Array.isArray(x)?{id:x[0],q:x[1]}:{id:x,q:""});
+const RES=["bread","wood","stone","iron"];
+const TPL={
+ opA:g=>[RW(...RES),RW("xp1k","c5","r5","t5"),RW("gems","bread","wood","stone"),RW("hammer","conquest","expedition","iron")],
+ opB:g=>g===3?[RW(["bread",35],["wood",35],["stone",7],["iron",2]),RW(["xp1k",16],["c5",35],["r5",35],["t5",35]),RW(["gems",5000],["bread",280],["wood",280],["stone",70]),RW(["charmd",16],["conquest",5],["expedition",5],["iron",14])]
+   :[RW(...RES),RW("xp1k","c5","r5","t5"),RW("gems","bread","wood","stone"),RW("charmd","conquest","expedition","iron")],
+ ac1:g=>[RW(...RES),RW("xp1k","c5","r5","t5"),RW("gems","bread","wood","stone"),RW("artisan","conquest","expedition","iron")],
+ ac2:g=>g===3?[RW(["bread",35],["wood",35],["stone",7],["iron",2]),RW(["xp1k",16],["c5",45],["r5",45],["t5",45]),RW(["gems",4700],["bread",280],["wood",280],["stone",70]),RW(["truegold",18],["conquest",5],["expedition",5],["iron",14])]
+   :[RW(...RES),RW("xp1k","c5","r5","t5"),RW("gems","bread","wood","stone"),RW(["truegold",[15,16,17][g]],"conquest","expedition","iron")]
+};
+const EVENTS={
+ opA:{zh:"士官計畫 A",en:"Officer Project A",dz:"週三・鍛造錘",de:"Wed · Forgehammer",
+  pts:{hammer:6000,widget:12000,mithril:60000,charm:70,t9:22,t10:30,t11:37},
+  th:[[5600,33000,65000,130000],[5900,38000,76000,150000],[9400,58000,120000,230000],[13000,76000,150000,310000]]},
+ opB:{zh:"士官計畫 B",en:"Officer Project B",dz:"週日・寶石圖紙",de:"Sun · Charm Design",
+  pts:{gear:70,rare:350,epic:1220,mythic:3040,hammer:6000,widget:12000},
+  th:[[13600,74500,154000,308000],[14800,82000,170000,339000],[18000,98000,203000,407000],[19800,110000,226000,453000]]},
+ ac1:{zh:"軍備競演 1",en:"Armament Competition 1",dz:"週一・工匠之眼",de:"Mon · Artisan's Vision",
+  pts:{gear:3,truegold:100,dust:50,tempered:1500,rare:15,epic:50,mythic:125,emblem:200,manuscript:2,speed:1},
+  th:[[400,3000,7600,12000],[470,3500,9000,14000],[570,4300,11000,17000],[680,5100,12000,20000]]},
+ ac2:{zh:"軍備競演 2",en:"Armament Competition 2",dz:"週五・黃金",de:"Fri · Truegold",
+  pts:{mithril:8000,widget:1600,tempered:1500,hammer:800,truegold:100,dust:50,gear:3,speed:1},
+  th:[[580,4300,11000,17000],[650,4800,12000,19000],[900,5800,14000,23000],[1300,9700,24000,38000]]}
+};
+const GROUPS=[{zh:"1–21 級",en:"Lv 1–21"},{zh:"22–25 級",en:"Lv 22–25"},{zh:"26–29 級",en:"Lv 26–29"},{zh:"30 級以上（含 TG）",en:"Lv 30+ (incl. TG)"}];
+const VERIFIED={opB:[3],ac2:[3]};
+const KEYS={"1":3,"2":2,"3":1};
+const RANKS=[["1",50000,20],["2",35000,18],["3",25000,16],["4–5",16000,14],["6–10",10000,12],["11–20",7000,10],["21–50",4000,8],["51–100",2000,6],["101–200",1000,4],["201–500",600,2],["501–1000",300,1]];
+const GEMRATES=[["gemA",(8000+0.5466*3040)/1350],["gemB",8000/1350],["gemC",0]];
+
+const KEY="kvk-calc-v5";
+function fresh(){return{lang:"zh",ev:"opB",g:3,gem:0,data:{}}}
+function blank(k,g){const t=TPL[k](g);return{spend:{},ms:EVENTS[k].th[g].map((th,i)=>({th,rw:t[i].map(r=>({...r}))})),rank:-1}}
+const dk=()=>S.ev+"|"+S.g;
+const D=()=>{if(!S.data[dk()])S.data[dk()]=blank(S.ev,S.g);return S.data[dk()]};
+let S=fresh();
+try{const raw=localStorage.getItem(KEY);if(raw){const p=JSON.parse(raw);if(p&&p.data)S={...S,...p}}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+
+const $=id=>document.getElementById(id);
+const fmt=n=>Math.round(n).toLocaleString("en-US");
+const L=()=>T[S.lang];
+const name=k=>ITEMS[k][S.lang];
+const num=v=>{const n=parseFloat(v);return isFinite(n)&&n>0?n:0};
+function ratioClass(r){return r<=1?"r-good":r<=6?"r-mid":"r-bad"}
+
+function renderStatic(){
+  document.documentElement.lang=S.lang==="zh"?"zh-Hant":"en";
+  document.title=L().title;
+  document.querySelectorAll("[data-t]").forEach(el=>{const v=L()[el.dataset.t];if(typeof v==="string")el.textContent=v});
+  $("lang-zh").setAttribute("aria-pressed",S.lang==="zh");
+  $("lang-en").setAttribute("aria-pressed",S.lang==="en");
+  $("foot").textContent=L().foot;
+  const ev=$("events");ev.innerHTML="";
+  for(const k in EVENTS){const e=EVENTS[k];const b=document.createElement("button");b.type="button";b.className="ev";b.id="ev-"+k;
+    b.setAttribute("aria-pressed",S.ev===k);b.innerHTML=`<b>${e[S.lang]}</b><span>${S.lang==="zh"?e.dz:e.de}</span>`;
+    b.onclick=()=>{S.ev=k;save();renderAll()};ev.appendChild(b)}
+  const tg=$("tcg");tg.innerHTML=GROUPS.map((x,i)=>`<option value="${i}">${x[S.lang]}</option>`).join("");tg.value=S.g;
+  const g=$("gemrate");g.innerHTML=GEMRATES.map((r,i)=>`<option value="${i}">${L()[r[0]]}</option>`).join("");g.value=S.gem;
+}
+
+function renderEvent(){
+  const k=S.ev,e=EVENTS[k],d=D();
+  const keys=Object.keys(e.pts).sort((a,b)=>ITEMS[a].kvk/e.pts[a]-ITEMS[b].kvk/e.pts[b]);
+  let h=`<thead><tr><th>${L().colItem}</th><th class="num">${L().colRatio}</th><th class="num">${L().colQty}</th><th class="num">${L().colEvent}</th><th class="num">${L().colKvk}</th></tr></thead><tbody>`;
+  for(const it of keys){const r=ITEMS[it].kvk/e.pts[it];
+    h+=`<tr><td>${name(it)}<div class="hint" style="margin:0">${S.lang==="zh"?"活動":"Event"} ${fmt(e.pts[it])} · KvK ${fmt(ITEMS[it].kvk)}</div></td>
+    <td class="num"><span class="ratio ${ratioClass(r)}">×${r<10?r.toFixed(2).replace(/\.?0+$/,""):Math.round(r)}</span></td>
+    <td class="num"><input type="number" min="0" inputmode="numeric" id="q-${k}-${it}" data-it="${it}" value="${d.spend[it]||""}"></td>
+    <td class="num" id="ep-${it}">0</td><td class="num" id="kp-${it}">0</td></tr>`}
+  $("spend").innerHTML=h+"</tbody>";
+  $("spend").querySelectorAll("input").forEach(inp=>inp.oninput=()=>{d.spend[inp.dataset.it]=inp.value;save();calc()});
+
+  const opts=sel=>Object.keys(REW).map(id=>`<option value="${id}"${id===sel?" selected":""}>${REW[id][S.lang]}</option>`).join("");
+  const box=$("ms");box.innerHTML=d.ms.map((m,i)=>`<div class="mcard" id="msr-${i}">
+    <div class="mhead">M${i+1}<input type="number" min="0" id="th-${k}-${i}" data-i="${i}" placeholder="${L().colTh}" value="${m.th||""}" aria-label="M${i+1} ${L().colTh}"></div>
+    ${m.rw.map((r,j)=>`<div class="rw"><select id="rs-${k}-${i}-${j}" data-i="${i}" data-j="${j}" aria-label="reward">${opts(r.id)}</select><input type="number" min="0" id="rq-${k}-${i}-${j}" data-i="${i}" data-j="${j}" value="${r.q||""}" aria-label="qty"><button type="button" class="x" data-i="${i}" data-j="${j}" aria-label="remove">×</button></div>`).join("")}
+    <button type="button" class="add" data-i="${i}">${L().addRw}</button></div>`).join("");
+  box.querySelectorAll('input[id^="th-"]').forEach(inp=>inp.oninput=()=>{d.ms[+inp.dataset.i].th=inp.value;save();calc()});
+  box.querySelectorAll("select").forEach(el=>el.onchange=()=>{d.ms[+el.dataset.i].rw[+el.dataset.j].id=el.value;save();calc()});
+  box.querySelectorAll('input[id^="rq-"]').forEach(inp=>inp.oninput=()=>{d.ms[+inp.dataset.i].rw[+inp.dataset.j].q=inp.value;save();calc()});
+  box.querySelectorAll(".x").forEach(bt=>bt.onclick=()=>{d.ms[+bt.dataset.i].rw.splice(+bt.dataset.j,1);save();renderEvent();calc()});
+  box.querySelectorAll(".add").forEach(bt=>bt.onclick=()=>{d.ms[+bt.dataset.i].rw.push({id:"gems",q:""});save();renderEvent();calc()});
+  $("msnote").textContent=(VERIFIED[k]||[]).includes(S.g)?L().msVer:L().msUnver;
+
+  const rk=$("rank");rk.innerHTML=`<option value="-1">${L().noRank}</option>`+RANKS.map((r,i)=>`<option value="${i}">${L().rankOpt(r[0],fmt(r[1]),r[2])}</option>`).join("");
+  rk.value=d.rank;rk.onchange=()=>{d.rank=+rk.value;save();calc()};
+}
+
+function calc(){
+  const k=S.ev,e=EVENTS[k],d=D(),gr=GEMRATES[S.gem][1];
+  let ev=0,cost=0;
+  for(const it in e.pts){const q=num(d.spend[it]);const ep=q*e.pts[it],kp=q*ITEMS[it].kvk;ev+=ep;cost+=kp;
+    const a=$("ep-"+it),b=$("kp-"+it);if(a)a.textContent=fmt(ep);if(b)b.textContent=fmt(kp)}
+  const rv=id=>REW[id].kvk==="gem"?gr:REW[id].kvk;
+  let gain=0,chips="",next=null,anyTh=false;const tot={};
+  const addItem=(id,q)=>{if(q>0){tot[id]=(tot[id]||0)+q;gain+=q*rv(id)}};
+  d.ms.forEach((m,i)=>{const th=num(m.th);const card=$("msr-"+i);
+    if(th)anyTh=true;
+    const hit=th>0&&ev>=th;if(card)card.classList.toggle("hit",hit);
+    if(hit)m.rw.forEach(r=>addItem(r.id,num(r.q)));
+    else if(th>0&&next===null)next=th;
+    chips+=`<span class="chip${hit?" on":""}">M${i+1}${th?" · "+fmt(th):""}</span>`});
+  if(d.rank>=0&&ev>=4000){const r=RANKS[d.rank];addItem("gems",r[1]);["c60","r60","t60"].forEach(id=>addItem(id,r[2]));if(KEYS[r[0]])addItem("goldkey",KEYS[r[0]])}
+  const ids=Object.keys(tot).sort((a,b)=>tot[b]*rv(b)-tot[a]*rv(a));
+  $("oGets").innerHTML=ids.length?ids.map(id=>{const v=tot[id]*rv(id);return`<li>${REW[id][S.lang]} ×${fmt(tot[id])}${v>0?` <span class="kv">≈ ${L().kvkPts} ${fmt(v)}</span>`:""}</li>`}).join(""):`<li class="none">${L().getNone}</li>`;
+  const net=gain-cost;
+  $("oEvent").textContent=fmt(ev);$("oCost").textContent="−"+fmt(cost);$("oGain").textContent="+"+fmt(gain);
+  $("oNet").textContent=(net>=0?"+":"−")+fmt(Math.abs(net));
+  $("oNet").style.color=cost===0?"":net>=0?"var(--good)":"var(--bad)";
+  $("oChips").innerHTML=chips;
+  const v=$("verdict");
+  if(cost===0&&gain===0){v.className="verdict v-none";v.innerHTML=L().vNone}
+  else{v.className="verdict "+(net>=0?"v-good":"v-bad");v.innerHTML=`${L().vHead((net>=0?"+":"−")+fmt(Math.abs(net)))}<small>${L().vSub}</small>`}
+  let best=null;for(const it in e.pts){const r=ITEMS[it].kvk/e.pts[it];if(!best||r<best.r)best={it,r}}
+  const nx=$("oNext");
+  if(!anyTh)nx.textContent=L().nextUnknown;
+  else if(next===null)nx.textContent=L().nextNone;
+  else{const gap=next-ev,n=Math.ceil(gap/e.pts[best.it]);nx.innerHTML=L().next(fmt(gap),name(best.it),fmt(n),fmt(n*ITEMS[best.it].kvk))}
+}
+
+function renderAll(){renderStatic();renderEvent();calc()}
+$("lang-zh").onclick=()=>{S.lang="zh";save();renderAll()};
+$("lang-en").onclick=()=>{S.lang="en";save();renderAll()};
+$("gemrate").onchange=e=>{S.gem=+e.target.value;save();calc()};
+$("reset").onclick=()=>{S.data[dk()]=blank(S.ev,S.g);save();renderAll()};
+$("tcg").onchange=e=>{S.g=+e.target.value;save();renderAll()};
+// example state on first visit: Armament 2 with a few forgehammers
+let firstVisit=true;try{firstVisit=!localStorage.getItem(KEY)}catch(e){}
+if(firstVisit){S.ev="opB";S.g=3;D().spend={mythic:"40"}}
+renderAll();
+})();
+</script>
+</body>
+</html>
