@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>NXS · Post an announcement</title>
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  body { padding: 16px; }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  h1 { font-family: "Oswald", "Noto Sans TC", sans-serif; margin: 0 0 4px; font-size: 26px; }
+  .muted { color: var(--text-muted); font-size: 13px; }
+  .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .btn { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 15px; text-decoration: none; display: inline-block; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+  .btn.big { width: 100%; padding: 14px; font-size: 17px; }
+  .btn.danger { color: #b3261e; border-color: #b3261e; }
+  .btn:disabled { opacity: .5; cursor: default; }
+  .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 16px; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
+  .card h2 { margin: 0 0 10px; font-size: 19px; }
+  label.f { display: block; font-weight: 600; margin: 12px 0 4px; }
+  label.f small { font-weight: 400; color: var(--text-muted); }
+  input[type=text], input[type=password], select, textarea {
+    width: 100%; box-sizing: border-box; padding: 10px 12px; font-size: 16px; border-radius: 8px;
+    border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-family: inherit; }
+  textarea { min-height: 200px; line-height: 1.5; }
+  .preview { background: var(--panel-2); border-radius: 10px; padding: 12px 14px; white-space: pre-wrap; line-height: 1.6; min-height: 40px; }
+  .preview .chip { display: inline-block; padding: 2px 10px; border: 1px solid var(--accent); border-radius: 8px; color: var(--accent); font-weight: 600; }
+  .msg { margin-top: 10px; padding: 10px 12px; border-radius: 8px; display: none; line-height: 1.5; }
+  .msg.ok { display: block; background: color-mix(in srgb, #2e7d32 15%, transparent); }
+  .msg.err { display: block; background: color-mix(in srgb, #b3261e 15%, transparent); }
+  .msg.info { display: block; background: var(--panel-2); }
+  .ann { display: flex; justify-content: space-between; gap: 10px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+  .ann:last-child { border-bottom: 0; }
+  .ann b { display: block; }
+  .steps { margin: 6px 0 0; padding-inline-start: 22px; line-height: 1.6; }
+  .tip { font-size: 13px; color: var(--text-muted); margin-top: 6px; }
+  details summary { cursor: pointer; font-weight: 600; }
+  .modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: grid; place-items: center; padding: 16px; z-index: 50; }
+  .modal .card { max-width: 380px; width: 100%; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1 data-t="title"></h1>
+      <div class="muted" data-t="subtitle"></div>
+    </div>
+    <div class="row">
+      <a class="btn" href="./">← <span data-t="home"></span></a>
+      <button class="btn" id="langBtn"></button>
+    </div>
+  </div>
+
+  <!-- 1. unlock -->
+  <div class="card" id="lockCard" hidden>
+    <h2>🔒 <span data-t="unlockTitle"></span></h2>
+    <label class="f" data-t="password"></label>
+    <input type="password" id="pw" autocomplete="current-password">
+    <label class="row" style="margin-top:8px;font-size:14px"><input type="checkbox" id="remember" checked> <span data-t="remember"></span></label>
+    <div style="margin-top:12px"><button class="btn primary big" id="unlockBtn" data-t="unlock"></button></div>
+    <div class="msg" id="lockMsg"></div>
+  </div>
+
+  <!-- admin setup (only needed once, by the site owner) -->
+  <div class="card" id="setupCard" hidden>
+    <h2>🛠️ <span data-t="setupTitle"></span></h2>
+    <div class="muted" data-t="setupIntro"></div>
+    <ol class="steps" id="setupSteps"></ol>
+    <label class="f" data-t="token"></label>
+    <input type="password" id="tok" placeholder="github_pat_…" autocomplete="off">
+    <label class="f" data-t="newPw"></label>
+    <input type="password" id="pw1" autocomplete="new-password">
+    <label class="f" data-t="newPw2"></label>
+    <input type="password" id="pw2" autocomplete="new-password">
+    <div style="margin-top:12px"><button class="btn primary big" id="setupBtn" data-t="setupGo"></button></div>
+    <div class="msg" id="setupMsg"></div>
+  </div>
+
+  <div id="app" hidden>
+    <!-- 2. write -->
+    <div class="card">
+      <h2>✍️ <span data-t="writeTitle"></span></h2>
+
+      <label class="f" data-t="fName"></label>
+      <input type="text" id="author" maxlength="40">
+
+      <label class="f"><span data-t="fLang"></span> <small data-t="fLangNote"></small></label>
+      <select id="srcLang"></select>
+
+      <label class="f" data-t="fTitle"></label>
+      <input type="text" id="annTitle" maxlength="120">
+
+      <label class="f"><span data-t="fBody"></span> <small data-t="fBodyNote"></small></label>
+      <textarea id="body"></textarea>
+
+      <label class="f"><span data-t="fLink"></span> <small data-t="fLinkNote"></small></label>
+      <select id="guide"></select>
+
+      <label class="f" data-t="preview"></label>
+      <div class="preview" id="preview"></div>
+
+      <div style="margin-top:14px"><button class="btn primary big" id="publishBtn" data-t="publish"></button></div>
+      <div class="msg" id="pubMsg"></div>
+    </div>
+
+    <!-- 3. current -->
+    <div class="card">
+      <div class="top">
+        <h2>📋 <span data-t="listTitle"></span></h2>
+        <button class="btn" id="reloadBtn" data-t="reload"></button>
+      </div>
+      <div class="muted" data-t="listNote"></div>
+      <div id="list"></div>
+      <div class="msg" id="listMsg"></div>
+    </div>
+
+    <details class="card">
+      <summary data-t="adminMore"></summary>
+      <p class="muted" data-t="adminMoreNote"></p>
+      <div class="row">
+        <button class="btn" id="forgetBtn" data-t="forget"></button>
+        <button class="btn" id="resetupBtn" data-t="resetup"></button>
+      </div>
+    </details>
+  </div>
+</div>
+
+<script src="data/content.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+<script>
+/* ===== settings ===== */
+const KEY_PATH = "data/post-key.json";            // encrypted GitHub key (safe to be public)
+const SOURCE_PATH = "data/announcements-source.md";
+// repo is worked out from the site address (owner.github.io/repo/), with a fallback
+const OWNER = location.hostname.endsWith("github.io") ? location.hostname.split(".")[0] : "NXSguides";
+const REPO = location.hostname.endsWith("github.io") ? (location.pathname.split("/")[1] || "Kingshot_guideline_NXS") : "Kingshot_guideline_NXS";
+const BRANCH = "main";
+const LS = "nxs-post-v1";
+
+const T = {
+  en: {
+    title: "Post an announcement", subtitle: "Write it once — the site translates it into all 12 languages automatically.",
+    home: "Home",
+    unlockTitle: "Enter the officer password", password: "Password", remember: "Remember on this device", unlock: "Unlock",
+    wrongPw: "Wrong password. Ask Sherry for the officer password.",
+    setupTitle: "First-time setup (site owner only)",
+    setupIntro: "Do this once. After that, officers only need the password you choose here.",
+    setupSteps: [
+      "On GitHub, open Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token.",
+      "Resource owner: the organization that owns the site. Repository access: Only select repositories → this site's repository.",
+      "Permissions → Repository permissions → Contents: Read and write. Expiration: the longest allowed. Generate, then copy the token.",
+      "Paste the token below and choose an officer password (at least 10 characters).",
+    ],
+    token: "GitHub token", newPw: "Officer password", newPw2: "Type the password again", setupGo: "Save setup",
+    pwShort: "The password needs at least 10 characters.", pwMismatch: "The two passwords are different.",
+    setupOk: "Setup saved ✅ Give the officers this page's link and the password.",
+    writeTitle: "Write", fName: "Your name", fLang: "Language you're writing in",
+    fLangNote: "(write in your own language — it gets translated)",
+    fTitle: "Title", fBody: "Message",
+    fBodyNote: "(**text** = bold; links work as normal)",
+    fLink: "Button to a guide", fLinkNote: "(optional)", noGuide: "— none —",
+    preview: "Preview", publish: "📢 Publish",
+    needAll: "Please fill in your name, the title and the message.",
+    confirmPub: "Publish this announcement now?",
+    publishing: "Sending…",
+    pubOk: "Sent ✅ The translated announcement shows up on the site in about 2–3 minutes.",
+    listTitle: "Announcements on the site", reload: "Refresh",
+    listNote: "Newest first. Deleting removes it from the site in all languages.",
+    del: "Delete", confirmDel: "Delete this announcement for everyone?", deleting: "Deleting…", delOk: "Deleted ✅ It disappears from the site in about 2–3 minutes.",
+    empty: "No announcements.", img: "has pictures",
+    errNet: "Couldn't reach GitHub. Check the internet and try again.",
+    errAuth: "The saved GitHub key no longer works (it may have expired). Ask Sherry to redo the setup.",
+    errBusy: "Someone else just changed the announcements. Please try again.",
+    adminMore: "More", adminMoreNote: "For the site owner.",
+    forget: "Forget the password on this device", resetup: "Redo the setup (new token / new password)",
+    yes: "Yes", no: "Cancel",
+  },
+  zh: {
+    title: "發布公告", subtitle: "寫一次就好，網站會自動翻成 12 種語言。",
+    home: "回主頁",
+    unlockTitle: "輸入幹部密碼", password: "密碼", remember: "在這台裝置記住", unlock: "解鎖",
+    wrongPw: "密碼錯誤。請向 Sherry 索取幹部密碼。",
+    setupTitle: "第一次設定（只有網站管理者要做）",
+    setupIntro: "只要做一次。之後幹部只需要你在這裡設定的密碼。",
+    setupSteps: [
+      "到 GitHub：Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token。",
+      "Resource owner 選網站所屬的組織；Repository access 選 Only select repositories → 這個網站的專案。",
+      "Permissions → Repository permissions → Contents 選 Read and write；Expiration 選最長。按 Generate，複製權杖。",
+      "把權杖貼在下面，並設定一組幹部密碼（至少 10 個字）。",
+    ],
+    token: "GitHub 權杖", newPw: "幹部密碼", newPw2: "再輸入一次密碼", setupGo: "儲存設定",
+    pwShort: "密碼至少要 10 個字。", pwMismatch: "兩次輸入的密碼不一樣。",
+    setupOk: "設定完成 ✅ 把這頁的網址和密碼給幹部就可以了。",
+    writeTitle: "撰寫", fName: "你的名字", fLang: "你用哪種語言寫",
+    fLangNote: "（用你自己的語言寫就好，會自動翻譯）",
+    fTitle: "標題", fBody: "內容",
+    fBodyNote: "（**文字** = 粗體；網址會自動變成連結）",
+    fLink: "附上指南按鈕", fLinkNote: "（可不選）", noGuide: "— 不附 —",
+    preview: "預覽", publish: "📢 發布",
+    needAll: "請填寫名字、標題和內容。",
+    confirmPub: "確定現在發布這則公告？",
+    publishing: "傳送中…",
+    pubOk: "已送出 ✅ 大約 2–3 分鐘後，翻譯好的公告就會出現在網站上。",
+    listTitle: "網站上目前的公告", reload: "重新整理",
+    listNote: "新的在最上面。刪除後，所有語言都會一起從網站上移除。",
+    del: "刪除", confirmDel: "確定要刪除這則公告？", deleting: "刪除中…", delOk: "已刪除 ✅ 大約 2–3 分鐘後會從網站上消失。",
+    empty: "目前沒有公告。", img: "含圖片",
+    errNet: "連不上 GitHub，請檢查網路後再試一次。",
+    errAuth: "存的 GitHub 權杖已經不能用了（可能過期）。請 Sherry 重新設定。",
+    errBusy: "剛好有人也在改公告，請再試一次。",
+    adminMore: "更多", adminMoreNote: "給網站管理者用。",
+    forget: "忘記這台裝置上的密碼", resetup: "重新設定（新權杖／新密碼）",
+    yes: "確定", no: "取消",
+  },
+};
+
+/* ===== helpers ===== */
+const $ = (id) => document.getElementById(id);
+const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
+const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
+let ui = store.ui || ((navigator.language || "").startsWith("zh") ? "zh" : "en");
+const tr = (k) => T[ui][k] ?? T.en[k] ?? k;
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+let TOKEN = null;
+
+function showMsg(id, kind, text) { const el = $(id); el.className = "msg " + kind; el.textContent = text; }
+function askYesNo(text) {
+  return new Promise((resolve) => {
+    const m = document.createElement("div"); m.className = "modal";
+    m.innerHTML = `<div class="card"><p style="margin-top:0">${esc(text)}</p><div class="row" style="justify-content:flex-end"><button class="btn" data-a="0">${esc(tr("no"))}</button><button class="btn primary" data-a="1">${esc(tr("yes"))}</button></div></div>`;
+    m.onclick = (e) => { const a = e.target.dataset.a; if (a !== undefined || e.target === m) { m.remove(); resolve(a === "1"); } };
+    document.body.appendChild(m);
+  });
+}
+
+/* UTF-8 <-> base64 */
+const b64enc = (bytes) => { let s = ""; const u = new Uint8Array(bytes); for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
+const b64dec = (b64) => Uint8Array.from(atob(b64.replace(/\s/g, "")), (c) => c.charCodeAt(0));
+const utf8ToB64 = (str) => b64enc(new TextEncoder().encode(str));
+const b64ToUtf8 = (b64) => new TextDecoder().decode(b64dec(b64));
+
+/* password -> AES key (PBKDF2), token encrypted with AES-GCM */
+async function deriveKey(pw, salt, iter) {
+  const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
+  return crypto.subtle.deriveKey({ name: "PBKDF2", salt, iterations: iter, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["encrypt", "decrypt"]);
+}
+async function encryptToken(token, pw) {
+  const salt = crypto.getRandomValues(new Uint8Array(16)), iv = crypto.getRandomValues(new Uint8Array(12)), iter = 310000;
+  const key = await deriveKey(pw, salt, iter);
+  const data = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, key, new TextEncoder().encode(token));
+  return { v: 1, iter, salt: b64enc(salt), iv: b64enc(iv), data: b64enc(data) };
+}
+async function decryptToken(blob, pw) {
+  const key = await deriveKey(pw, b64dec(blob.salt), blob.iter);
+  const data = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64dec(blob.iv) }, key, b64dec(blob.data));
+  return new TextDecoder().decode(data);
+}
+
+/* GitHub contents API */
+async function gh(method, path, body, token = TOKEN) {
+  let res;
+  try {
+    res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}${method === "GET" ? "?ref=" + BRANCH + "&t=" + Date.now() : ""}`, {
+      method, headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json" },
+      body: body ? JSON.stringify(body) : undefined, cache: "no-store",
+    });
+  } catch (e) { throw new Error("net"); }
+  if (res.status === 401 || res.status === 403) throw new Error("auth");
+  if (res.status === 409 || res.status === 422) throw new Error("busy");
+  if (method === "GET" && res.status === 404) return null;
+  if (!res.ok) throw new Error("net");
+  return res.json();
+}
+const errText = (e) => tr(e.message === "auth" ? "errAuth" : e.message === "busy" ? "errBusy" : "errNet");
+
+/* read-modify-write of the source file, retried once if someone else changed it meanwhile */
+async function editSource(change, message) {
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const f = await gh("GET", SOURCE_PATH);
+    const next = change(b64ToUtf8(f.content));
+    try { return await gh("PUT", SOURCE_PATH, { message, content: utf8ToB64(next), sha: f.sha, branch: BRANCH }); }
+    catch (e) { if (e.message !== "busy" || attempt) throw e; }
+  }
+}
+
+/* ===== announcement blocks ===== */
+const splitBlocks = (md) => md.replace(/\r/g, "").split(/^---$/m).map((s) => s.trim()).filter(Boolean);
+const joinBlocks = (blocks) => "---\n" + blocks.join("\n---\n") + "\n";
+function makeBlock({ author, lang, title, body }) {
+  const content = body.replace(/\r/g, "").replace(/\t/g, "  ").replace(/^\s*\n/, "").trimEnd();
+  const lines = content.split("\n").map((l) => (l.trim() ? "  " + l : ""));
+  return [
+    `author: ${JSON.stringify(author.trim())}`,
+    `lang: ${lang}`,
+    `title: ${JSON.stringify(title.trim())}`,
+    `images: []`,
+    `content: |`,
+    ...lines,
+  ].join("\n");
+}
+function fullBody() {
+  const g = $("guide").value;
+  return $("body").value.trimEnd() + (g ? `\n\n[[link:${g}]]` : "");
+}
+
+/* preview: same look as the site (game terms, bold, guide buttons) */
+function term(id) { const m = GLOSSARY[id]; return m ? (m[$("srcLang").value] || m.en || id) : null; }
+function renderPreview() {
+  const html = esc(fullBody())
+    .replace(/\{(\w+)\}/g, (m, id) => (term(id) ? esc(term(id)) : m))
+    .replace(/\[\[link:([\w-]+)\]\]/g, (m, id) => GUIDES[id] ? `<span class="chip">${GUIDES[id].emoji} ${esc(GUIDES[id].name[$("srcLang").value] || GUIDES[id].name.en)} ›</span>` : "")
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  $("preview").innerHTML = (`<b>${esc($("annTitle").value)}</b>\n` + html).trim() || "…";
+}
+
+/* ===== list ===== */
+async function loadList() {
+  $("list").innerHTML = `<p class="muted">…</p>`;
+  try {
+    const f = await gh("GET", SOURCE_PATH);
+    const blocks = splitBlocks(b64ToUtf8(f.content));
+    shownBlocks = blocks;
+    const rows = blocks.map((b, i) => { let d = {}; try { d = jsyaml.load(b) || {}; } catch (e) {} return { i, d }; }).reverse();
+    $("list").innerHTML = rows.length ? rows.map(({ i, d }) => `
+      <div class="ann"><div><b dir="auto">${esc(d.title || "—")}</b>
+        <span class="muted">${esc(d.author || "")}${(d.images || []).length ? " · 🖼️ " + esc(tr("img")) : ""}</span></div>
+        <button class="btn danger" data-del="${i}">${esc(tr("del"))}</button></div>`).join("")
+      : `<p class="muted">${esc(tr("empty"))}</p>`;
+  } catch (e) { $("list").innerHTML = ""; showMsg("listMsg", "err", errText(e)); }
+}
+let shownBlocks = [];
+async function deleteBlock(i) {
+  const target = shownBlocks[i];
+  if (!(await askYesNo(tr("confirmDel")))) return;
+  showMsg("listMsg", "info", tr("deleting"));
+  try {
+    await editSource((md) => {
+      const b = splitBlocks(md); const at = b.indexOf(target);
+      if (at < 0) throw new Error("busy"); // the list changed meanwhile — refresh and try again
+      b.splice(at, 1); return joinBlocks(b);
+    },
+      "Delete announcement via post page");
+    showMsg("listMsg", "ok", tr("delOk")); loadList();
+  } catch (e) { showMsg("listMsg", "err", errText(e)); }
+}
+
+/* ===== screens ===== */
+let keyBlob = null;
+function applyTexts() {
+  document.documentElement.lang = ui === "zh" ? "zh-Hant" : "en";
+  document.querySelectorAll("[data-t]").forEach((el) => {
+    const v = tr(el.dataset.t);
+    el.textContent = v;
+  });
+  $("langBtn").textContent = ui === "zh" ? "English" : "中文";
+  $("setupSteps").innerHTML = tr("setupSteps").map((s) => `<li>${esc(s)}</li>`).join("");
+  const g = $("guide").value;
+  $("guide").innerHTML = `<option value="">${esc(tr("noGuide"))}</option>` + Object.keys(GUIDES).filter((k) => !GUIDES[k].hidden)
+    .map((k) => `<option value="${k}">${GUIDES[k].emoji} ${esc(GUIDES[k].name[ui] || GUIDES[k].name.en)}</option>`).join("");
+  $("guide").value = g;
+}
+function showApp() { $("lockCard").hidden = true; $("setupCard").hidden = true; $("app").hidden = false; renderPreview(); loadList(); }
+
+async function tryUnlock(pw, silent) {
+  try { TOKEN = await decryptToken(keyBlob, pw); }
+  catch (e) { if (!silent) showMsg("lockMsg", "err", tr("wrongPw")); return false; }
+  if ($("remember").checked || silent) { store.pw = pw; save(); }
+  showApp(); return true;
+}
+
+async function init() {
+  applyTexts();
+  $("srcLang").innerHTML = LANGS.map((l) => `<option value="${l.code}">${l.label}</option>`).join("");
+  $("srcLang").value = store.lang || "en";
+  $("author").value = store.author || "";
+  try {
+    const r = await fetch(KEY_PATH + "?t=" + Date.now(), { cache: "no-store" });
+    keyBlob = r.ok ? await r.json() : null;
+  } catch (e) { keyBlob = null; }
+  if (!keyBlob) { $("setupCard").hidden = false; return; }
+  if (store.pw && (await tryUnlock(store.pw, true))) return;
+  $("lockCard").hidden = false;
+}
+
+/* ===== events ===== */
+$("langBtn").onclick = () => { ui = ui === "zh" ? "en" : "zh"; store.ui = ui; save(); applyTexts(); if (!$("app").hidden) { renderPreview(); loadList(); } };
+$("unlockBtn").onclick = () => tryUnlock($("pw").value);
+$("pw").onkeydown = (e) => { if (e.key === "Enter") tryUnlock($("pw").value); };
+["annTitle", "body", "guide", "srcLang"].forEach((id) => $(id).addEventListener("input", renderPreview));
+$("srcLang").onchange = () => { store.lang = $("srcLang").value; save(); renderPreview(); };
+$("author").onchange = () => { store.author = $("author").value.trim(); save(); };
+$("reloadBtn").onclick = loadList;
+$("list").onclick = (e) => { const b = e.target.closest("[data-del]"); if (b) deleteBlock(Number(b.dataset.del)); };
+
+$("publishBtn").onclick = async () => {
+  const author = $("author").value.trim(), title = $("annTitle").value.trim(), body = $("body").value.trim();
+  if (!author || !title || !body) { showMsg("pubMsg", "err", tr("needAll")); return; }
+  if (!(await askYesNo(tr("confirmPub")))) return;
+  store.author = author; save();
+  const btn = $("publishBtn"); btn.disabled = true; showMsg("pubMsg", "info", tr("publishing"));
+  try {
+    const block = makeBlock({ author, lang: $("srcLang").value, title, body: fullBody() });
+    jsyaml.load(block); // safety check: must be valid before it reaches the site
+    await editSource((md) => md.replace(/\r/g, "").trimEnd().replace(/\n?---$/, "") + "\n---\n" + block + "\n", `New announcement: ${title}`.slice(0, 120));
+    showMsg("pubMsg", "ok", tr("pubOk"));
+    $("annTitle").value = ""; $("body").value = ""; $("guide").value = ""; renderPreview(); loadList();
+  } catch (e) { showMsg("pubMsg", "err", e.message === "net" || e.message === "auth" || e.message === "busy" ? errText(e) : String(e.message || e)); }
+  btn.disabled = false;
+};
+
+$("setupBtn").onclick = async () => {
+  const tok = $("tok").value.trim(), p1 = $("pw1").value, p2 = $("pw2").value;
+  if (p1.length < 10) return showMsg("setupMsg", "err", tr("pwShort"));
+  if (p1 !== p2) return showMsg("setupMsg", "err", tr("pwMismatch"));
+  try {
+    await gh("GET", SOURCE_PATH, null, tok); // checks the token can read the repo
+    const blob = await encryptToken(tok, p1);
+    const old = await gh("GET", KEY_PATH, null, tok);
+    await gh("PUT", KEY_PATH, { message: "Set up announcement posting", content: utf8ToB64(JSON.stringify(blob, null, 1) + "\n"), sha: old ? old.sha : undefined, branch: BRANCH }, tok);
+    keyBlob = blob; TOKEN = tok; store.pw = p1; save();
+    showMsg("setupMsg", "ok", tr("setupOk"));
+    setTimeout(showApp, 1500);
+  } catch (e) { showMsg("setupMsg", "err", errText(e)); }
+};
+$("forgetBtn").onclick = () => { delete store.pw; save(); location.reload(); };
+$("resetupBtn").onclick = () => { $("app").hidden = true; $("setupCard").hidden = false; };
+
+try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
+init();
+</script>
+</body>
+</html>
