@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>KvK 換算計算器</title>
+<title>KvK Trade-off Calculator</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
@@ -172,7 +172,7 @@ const T={
   s2:"打算花多少",s2hint:"只列這個活動有算分的資源。",
   s3:"里程碑獎勵",s3hint:"照遊戲畫面填門檻，再從清單選獎勵、填數量。KvK 不算分的道具也可以加，會列在「你會拿到」裡。",
   s4:"排名與鑽石換算",rankLabel:"預計排名",gemLabel:"1 鑽石 = ? KvK 分",
-  s4note:"鑽石用 KvK 英雄輪盤換算：每轉 1,350 鑽、8,000 分，轉出的神話碎片第 2、3 天再用一次。排名獎勵的金鑰匙、寶石圖紙不算 KvK 分。排名獎勵要活動分 4,000 以上才拿得到。",
+  s4note:"鑽石用 KvK 英雄輪盤換算：每轉 1,350 鑽、8,000 分，轉出的傳說碎片第 2、3 天再用一次。排名獎勵的金鑰匙、寶石圖紙不算 KvK 分。排名獎勵要活動分 4,000 以上才拿得到。",
   colItem:"資源",colQty:"數量",colEvent:"活動分",colKvk:"KvK 分",colRatio:"倍率",
   colTh:"門檻",addRw:"＋ 新增獎勵",
   rEvent:"活動分數",rCost:"KvK 少掉",rGain:"獎勵換回",rNet:"KvK 淨差",rMs:"達到的里程碑",rGet:"你會拿到",getNone:"還沒有達到任何獎勵",
@@ -215,10 +215,10 @@ const ITEMS={
  hammer:{zh:"鍛造錘",en:"Forgehammer",kvk:4000},
  widget:{zh:"專屬裝備零件",en:"Exclusive Widget",kvk:8000},
  mithril:{zh:"秘銀",en:"Mithril",kvk:40000},
- mythic:{zh:"神話英雄碎片",en:"Mythic Hero Shard",kvk:3040},
+ mythic:{zh:"傳說英雄碎片",en:"Mythic Hero Shard",kvk:3040},
  epic:{zh:"史詩英雄碎片",en:"Epic Hero Shard",kvk:1220},
  rare:{zh:"稀有英雄碎片",en:"Rare Hero Shard",kvk:350},
- emblem:{zh:"大師徽章",en:"Master Emblem",kvk:6000},
+ emblem:{zh:"大師徽記",en:"Master Emblem",kvk:6000},
  manuscript:{zh:"大師手稿",en:"Master's Manuscript",kvk:60},
  speed:{zh:"加速（分鐘）",en:"Speedup (minutes)",kvk:30},
  gear:{zh:"領主裝備評分",en:"Governor Gear score",kvk:36},
@@ -239,15 +239,15 @@ const REW={
  g60:{zh:"1 小時通用加速",en:"1h General Speedup",kvk:1800},
  truegold:{zh:"黃金",en:"Truegold",kvk:2000},
  hammer:{zh:"鍛造錘",en:"Forgehammer",kvk:4000},
- mythic:{zh:"神話英雄碎片",en:"Mythic Hero Shard",kvk:3040},
+ mythic:{zh:"傳說英雄碎片",en:"Mythic Hero Shard",kvk:3040},
  charmd:{zh:"寶石圖紙",en:"Charm Design",kvk:0},
- artisan:{zh:"工匠之眼",en:"Artisan's Vision",kvk:0},
+ artisan:{zh:"設計圖紙",en:"Artisan's Vision",kvk:0},
  conquest:{zh:"傳說討伐技能書",en:"Mythic Conquest Skill Book",kvk:0},
  expedition:{zh:"傳說遠征技能書",en:"Mythic Expedition Skill Manual",kvk:0},
  xp1k:{zh:"1K 英雄經驗",en:"1K Hero XP",kvk:0},
- bread:{zh:"10K 糧食",en:"10K Bread",kvk:0},
+ bread:{zh:"10K 麵包",en:"10K Bread",kvk:0},
  wood:{zh:"10K 木材",en:"10K Wood",kvk:0},
- stone:{zh:"10K 石頭",en:"10K Stone",kvk:0},
+ stone:{zh:"10K 石材",en:"10K Stone",kvk:0},
  iron:{zh:"10K 鐵礦",en:"10K Iron",kvk:0},
  goldkey:{zh:"金鑰匙",en:"Gold Key",kvk:0}
 };
@@ -268,7 +268,7 @@ const EVENTS={
  opB:{zh:"士官計畫 B",en:"Officer Project B",dz:"週日・寶石圖紙",de:"Sun · Charm Design",
   pts:{gear:70,rare:350,epic:1220,mythic:3040,hammer:6000,widget:12000},
   th:[[13600,74500,154000,308000],[14800,82000,170000,339000],[18000,98000,203000,407000],[19800,110000,226000,453000]]},
- ac1:{zh:"軍備競演 1",en:"Armament Competition 1",dz:"週一・工匠之眼",de:"Mon · Artisan's Vision",
+ ac1:{zh:"軍備競演 1",en:"Armament Competition 1",dz:"週一・設計圖紙",de:"Mon · Artisan's Vision",
   pts:{gear:3,truegold:100,dust:50,tempered:1500,rare:15,epic:50,mythic:125,emblem:200,manuscript:2,speed:1},
   th:[[400,3000,7600,12000],[470,3500,9000,14000],[570,4300,11000,17000],[680,5100,12000,20000]]},
  ac2:{zh:"軍備競演 2",en:"Armament Competition 2",dz:"週五・黃金",de:"Fri · Truegold",
@@ -282,7 +282,7 @@ const RANKS=[["1",50000,20],["2",35000,18],["3",25000,16],["4–5",16000,14],["6
 const GEMRATES=[["gemA",(8000+0.5466*3040)/1350],["gemB",8000/1350],["gemC",0]];
 
 const KEY="kvk-calc-v5";
-function fresh(){return{lang:"zh",ev:"opB",g:3,gem:0,data:{}}}
+function fresh(){return{lang:"en",ev:"opB",g:3,gem:0,data:{}}}
 function blank(k,g){const t=TPL[k](g);return{spend:{},ms:EVENTS[k].th[g].map((th,i)=>({th,rw:t[i].map(r=>({...r}))})),rank:-1}}
 const dk=()=>S.ev+"|"+S.g;
 const D=()=>{if(!S.data[dk()])S.data[dk()]=blank(S.ev,S.g);return S.data[dk()]};
