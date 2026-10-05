@@ -156,6 +156,18 @@ const HEROES = {
 
 /* 遊戲用語：一律照對照表。內文用 {id} 引用 */
 const GLOSSARY = {
+  /* City Bonus（城鎮增益，12 語言截圖確認） */
+  cityBonus: { en:"City Bonus", zh:"城鎮增益", ko:"도시 버프", de:"Stadts Bonus", fr:"Revenu de la Ville", pt:"Bônus da Cidade", tr:"Şehir Bonusu", id:"Bonus Kota", ru:"Бонус города", th:"โบนัสค่ายอพยพ", ar:"مكافأة المدينة", es:"Bonificaciones de la Colonia" },
+  groundWorks: { en:"Ground Works", zh:"土木工程", ko:"토목 공정", de:"Grundarbeit", fr:"Travaux Terrestres", pt:"Obras de preparação", tr:"Zemin Çalışmaları", id:"Pekerjaan Dasar", ru:"Гражданское строительство", th:"งานวางรากฐาน", ar:"أعمال تمهيدية", es:"Trabajos de cimentación" },
+  kopBonus: { en:"Kingdom of Power Bonus", zh:"最強王國加成", ko:"최강 왕국 보너스", de:"Königreich der Macht Bonus", fr:"Bonus de Royaume au Pouvoir", pt:"Bônus do Reino de Poder", tr:"En Güçlü Krallık Bonusu", id:"Bonus Kerajaan Kekuatan", ru:"Бонус «Мощи государств»", th:"โบนัสอาณาจักรแห่งอำนาจ", ar:"علاوة مملكة القوة", es:"Bonificación de Reino del Poder" },
+  /* Governor Order（法令，12 語言截圖確認） */
+  governorOrder: { en:"Governor Order", zh:"法令", ko:"법령", de:"Gouverneursbefehl", fr:"Ordre du Gouverneur", pt:"Ordem do Governador", tr:"Vali Kararı", id:"Perintah Gubernur", ru:"Приказ губернатора", th:"คำสั่งเจ้าเมือง", ar:"طلب الحاكم", es:"Orden del Gobernador" },
+  urgentMobilization: { en:"Urgent Mobilization", zh:"緊急動員", ko:"긴급 동원", de:"Dringende Mobilisierung", fr:"Mobilisation Urgente", pt:"Mobilização Urgente", tr:"Acil Harekat", id:"Urgent Mobilization", ru:"Срочная мобилизация", th:"การระดมพลเร่งด่วน", ar:"التعبئة العاجلة", es:"Movilización Urgente" },
+  rushJob: { en:"Rush Job", zh:"立即生產", ko:"즉시 생산", de:"Eilauftrag", fr:"Travail Urgent", pt:"Acelerar Trabalho", tr:"Acil İş", id:"Rush Job", ru:"Поспешная работа", th:"เร่งงาน", ar:"عمل مستعجل", es:"Trabajo urgente" },
+  comprehensiveCare: { en:"Comprehensive Care", zh:"藥到病除", ko:"빠른 약효", de:"Umfassende Pflege", fr:"Soins Complets", pt:"Cuidado Integral", tr:"Kapsamlı Bakım", id:"Comprehensive Care", ru:"Комплексный уход", th:"รักษาถ้วนหน้า", ar:"الرعاية الشاملة", es:"Cuidado integral" },
+  doubleTime: { en:"Double Time", zh:"加速建造", ko:"건설 가속", de:"Doppeltes Tempo", fr:"Bouchées Doubles", pt:"Horário Dobrado", tr:"Çifte Mesai", id:"Double Time", ru:"Плата за сверхурочные", th:"เร่งก่อสร้าง", ar:"وقت إضافي", es:"Doble tiempo" },
+  productivityDay: { en:"Productivity Day", zh:"效率工作", ko:"효율 업무", de:"Tag der Produktivität", fr:"Journée de la Productivité", pt:"Dia de Produtividade", tr:"Üretkenlik Günü", id:"Productivity Day", ru:"Продуктивный день", th:"วันแห่งผลผลิต", ar:"يوم الإنتاجية", es:"Día de la Productividad" },
+  festivities: { en:"Festivities", zh:"節日狂歡", ko:"카니발 페스티벌", de:"Festlichkeiten", fr:"Festivités", pt:"Celebrações", tr:"Şenlikler", id:"Festivities", ru:"Праздники", th:"งานรื่นเริง", ar:"الاحتفالات", es:"Celebraciones" },
   /* Journey Q&A */
   masterEmblem1: {zh:"大師徽記",en:"Master Emblem",ko:"거장 배지",de:"Meister-Emblem",fr:"emblème d'expert",pt:"Emblema Mestre",tr:"Usta Amblemi",ru:"эмблема мастера",th:"ตรามาสเตอร์",ar:"شعار المتخصص",es:"emblema de maestro"},
   vikings: {zh:"維京掠奪者",en:"Vikings",ko:"바이킹 약탈자",de:"Wikinger",fr:"Vikings",pt:"vikings",tr:"Vikingler",id:"Viking",ru:"викинги",th:"ไวกิ้ง",ar:"الفايكنغ",es:"vikingos"},
