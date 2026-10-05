@@ -40,6 +40,10 @@
   .grp-out ol { margin: 0; padding-inline-start: 26px; }
   .grp-out li { padding: 2px 0; }
   .btn.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+
+  .tabs { display: flex; gap: 6px; margin: 14px 0 0; border-bottom: 2px solid var(--rule); }
+  .tabs a { padding: 9px 14px; border-radius: 10px 10px 0 0; text-decoration: none; color: var(--text-muted); font-weight: 600; border: 1px solid transparent; border-bottom: 0; }
+  .tabs a.on { color: var(--text); background: var(--panel); border-color: var(--rule); margin-bottom: -2px; border-bottom: 2px solid var(--panel); }
   .empty { padding: 20px; text-align: center; color: var(--text-muted); }
 </style>
 </head>
@@ -56,6 +60,18 @@
     </div>
   </div>
 
+  <nav class="tabs">
+    <a href="roster-x7k2p9.html" class="on" data-tab="ranking">📊 Ranking</a>
+    <a href="post-k4m8q2.html" data-tab="post">📢 Post</a>
+  </nav>
+
+  <div id="gate" class="card" hidden style="max-width:360px;margin:24px auto">
+    <h2>🔒 Officer password</h2>
+    <input type="password" id="gatePw" autocomplete="current-password" style="width:100%;box-sizing:border-box;padding:10px;font-size:16px;border-radius:8px;border:1px solid var(--rule);background:var(--panel-2);color:var(--text)">
+    <label class="row" style="margin-top:8px;font-size:14px"><input type="checkbox" id="gateRemember" checked> Remember on this device / 在這台裝置記住</label>
+    <div style="margin-top:10px"><button class="btn primary" id="gateBtn" style="width:100%;padding:12px">Unlock / 解鎖</button></div>
+    <div class="msg warn" id="gateErr" hidden>Wrong password / 密碼錯誤</div>
+  </div>
   <div id="noData" class="card" hidden></div>
 
   <div id="app" hidden>
@@ -396,9 +412,40 @@ $("presetCopy").onclick = async () => {
   const b = $("presetCopy"); b.textContent = tr("copied"); setTimeout(() => (b.textContent = tr("copy")), 1500);
 };
 
+
+/* ===== officer password (shared with the Post tab: same password, same saved login) ===== */
+const OFFICER_LS = "nxs-post-v1";
+const b64dec_ = (b64) => Uint8Array.from(atob(b64.replace(/\s/g, "")), (c) => c.charCodeAt(0));
+async function officerCheck(pw, blob) {
+  try {
+    const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
+    const key = await crypto.subtle.deriveKey({ name: "PBKDF2", salt: b64dec_(blob.salt), iterations: blob.iter, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+    await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64dec_(blob.iv) }, key, b64dec_(blob.data));
+    return true;
+  } catch (e) { return false; }
+}
+function officerStore() { try { return JSON.parse(localStorage.getItem(OFFICER_LS)) || {}; } catch (e) { return {}; } }
+async function officerGate(onOk) {
+  let blob = null;
+  try { const r = await fetch("data/post-key.json?t=" + Date.now(), { cache: "no-store" }); blob = r.ok ? await r.json() : null; } catch (e) {}
+  if (!blob) return onOk();                         // not set up yet → open
+  const st = officerStore();
+  if (st.pw && (await officerCheck(st.pw, blob))) return onOk();
+  $("gate").hidden = false;
+  const go = async () => {
+    const pw = $("gatePw").value;
+    if (await officerCheck(pw, blob)) {
+      if ($("gateRemember").checked) { const s = officerStore(); s.pw = pw; try { localStorage.setItem(OFFICER_LS, JSON.stringify(s)); } catch (e) {} }
+      $("gate").hidden = true; onOk();
+    } else { $("gateErr").hidden = false; $("gatePw").value = ""; $("gatePw").focus(); }
+  };
+  $("gateBtn").onclick = go;
+  $("gatePw").onkeydown = (e) => { if (e.key === "Enter") go(); };
+  $("gatePw").focus();
+}
 // theme follows the main site's saved choice
 try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
-init();
+officerGate(init);
 </script>
 </body>
 </html>
