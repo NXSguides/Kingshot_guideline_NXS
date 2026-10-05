@@ -824,6 +824,32 @@ const TERMS = [
   ]
  },
  {
+  "cat": "Governor Order",
+  "rows": [
+   ["Governor Order", "法令", "법령", "Gouverneursbefehl", "Ordre du Gouverneur", "Ordem do Governador", "Vali Kararı", "Perintah Gubernur", "Приказ губернатора", "คำสั่งเจ้าเมือง", "طلب الحاكم", "Orden del Gobernador", "Window title."],
+   ["Urgent Mobilization", "緊急動員", "긴급 동원", "Dringende Mobilisierung", "Mobilisation Urgente", "Mobilização Urgente", "Acil Harekat", "Urgent Mobilization", "Срочная мобилизация", "การระดมพลเร่งด่วน", "التعبئة العاجلة", "Movilización Urgente", "Governor Order. ID keeps English."],
+   ["Rush Job", "立即生產", "즉시 생산", "Eilauftrag", "Travail Urgent", "Acelerar Trabalho", "Acil İş", "Rush Job", "Поспешная работа", "เร่งงาน", "عمل مستعجل", "Trabajo urgente", "Governor Order. ID keeps English."],
+   ["Comprehensive Care", "藥到病除", "빠른 약효", "Umfassende Pflege", "Soins Complets", "Cuidado Integral", "Kapsamlı Bakım", "Comprehensive Care", "Комплексный уход", "รักษาถ้วนหน้า", "الرعاية الشاملة", "Cuidado integral", "Governor Order. ID keeps English."],
+   ["Double Time", "加速建造", "건설 가속", "Doppeltes Tempo", "Bouchées Doubles", "Horário Dobrado", "Çifte Mesai", "Double Time", "Плата за сверхурочные", "เร่งก่อสร้าง", "وقت إضافي", "Doble tiempo", "Governor Order (construction). ID keeps English."],
+   ["Productivity Day", "效率工作", "효율 업무", "Tag der Produktivität", "Journée de la Productivité", "Dia de Produtividade", "Üretkenlik Günü", "Productivity Day", "Продуктивный день", "วันแห่งผลผลิต", "يوم الإنتاجية", "Día de la Productividad", "Governor Order. ID keeps English."],
+   ["Festivities", "節日狂歡", "카니발 페스티벌", "Festlichkeiten", "Festivités", "Celebrações", "Şenlikler", "Festivities", "Праздники", "งานรื่นเริง", "الاحتفالات", "Celebraciones", "Governor Order. ID keeps English."],
+   ["On cooldown", "冷卻中", "쿨타임 중", "Abklingzeit läuft", "Se recharge", "Em recarga", "Beklemede", "Sedang cooldown", "Перезаряжается", "อยู่ระหว่างคูลดาวน์", "في فترة التهدئة", "En enfriamiento", "Governor Order status label."],
+   ["Active", "—", "—", "Aktiv", "Actif", "Ativo(a)", "Aktif", "Aktif", "Активно", "เปิดใช้งาน", "نشيط", "Activo", "Governor Order status label. EN/ZH/KO not seen yet (no order was active in those screenshots)."]
+  ]
+ },
+ {
+  "cat": "City Bonus (active buffs)",
+  "rows": [
+   ["City Bonus", "城鎮增益", "도시 버프", "Stadts Bonus", "Revenu de la Ville", "Bônus da Cidade", "Şehir Bonusu", "Bonus Kota", "Бонус города", "โบนัสค่ายอพยพ", "مكافأة المدينة", "Bonificaciones de la Colonia", "Button under the active-buff list (tap the buff icons at the top left)."],
+   ["Ground Works", "土木工程", "토목 공정", "Grundarbeit", "Travaux Terrestres", "Obras de preparação", "Zemin Çalışmaları", "Pekerjaan Dasar", "Гражданское строительство", "งานวางรากฐาน", "أعمال تمهيدية", "Trabajos de cimentación", "Buff: Construction Speed +10%."],
+   ["Kingdom of Power Bonus", "最強王國加成", "최강 왕국 보너스", "Königreich der Macht Bonus", "Bonus de Royaume au Pouvoir", "Bônus do Reino de Poder", "En Güçlü Krallık Bonusu", "Bonus Kerajaan Kekuatan", "Бонус «Мощи государств»", "โบนัสอาณาจักรแห่งอำนาจ", "علاوة مملكة القوة", "Bonificación de Reino del Poder", "KvK buff (research / construction / training speed)."],
+   ["Residents continue working", "居民持續工作", "주민 작업 지속", "Einwohner arbeiten weiter", "Les habitants continuent de travailler", "Residentes continuam trabalhando", "Yurttaşlar çalışmaya devam eder", "Warga melanjutkan bekerja", "Жители продолжают работать", "ชาวเมืองยังคงทำงานต่อไป", "يواصل المقيمون العمل", "Los residentes siguen trabajando", "Urgent Mobilization effect."],
+   ["Construction Speed", "建造速度", "건설 속도", "Baugeschwindigkeit", "Vitesse de Construction", "Velocidade de Construção", "İnşaat Hızı", "Kecepatan Konstruksi", "Скорость строительства", "สปีดการสร้าง", "سرعة البناء", "Velocidad de Construcción", "Buff stat."],
+   ["Research Speed", "研究速度", "연구 속도", "Forschungstempo", "Vitesse de Recherche", "Velocidade de Pesquisa", "Araştırma Hızı", "Kecepatan Penelitian", "Скорость исследований", "สปีดการวิจัย", "سرعة البحث", "Velocidad de Investigación", "Buff stat."],
+   ["Training Speed", "訓練速度", "훈련 속도", "—", "—", "—", "—", "—", "—", "สปีดการฝึก", "سرعة التدريب", "—", "Buff stat. Only ZH/KO/TH/AR visible in the screenshots."]
+  ]
+ },
+ {
   "cat": "Appointment (King's Castle)",
   "rows": [
    ["Appointment", "官職任命", "관직 임명", "Ernennung", "Nomination", "Nomeação", "Atama", "Pertemuan", "Назначение", "การแต่งตั้ง", "التعيين", "Designación", "Window title (King's Castle). ID literally 'meeting' — game mistranslation. Used in guides as 'King Appointments' buffs."],
