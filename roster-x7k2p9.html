@@ -44,6 +44,37 @@
   .tabs { display: flex; gap: 6px; margin: 14px 0 0; border-bottom: 2px solid var(--rule); }
   .tabs a { padding: 9px 14px; border-radius: 10px 10px 0 0; text-decoration: none; color: var(--text-muted); font-weight: 600; border: 1px solid transparent; border-bottom: 0; }
   .tabs a.on { color: var(--text); background: var(--panel); border-color: var(--rule); margin-bottom: -2px; border-bottom: 2px solid var(--panel); }
+  .tb-setup { background: var(--panel-2); border-radius: 10px; padding: 8px 12px; }
+  .tb-setup summary { cursor: pointer; font-weight: 600; }
+  .tb-setup .f { display: block; margin: 8px 0 4px; font-weight: 600; font-size: 14px; }
+  .tb-setup input[type=text] { width: 100%; box-sizing: border-box; padding: 7px 9px; border-radius: 6px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); font-size: 15px; }
+  .tb-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .tb-cols label { display: flex; gap: 6px; align-items: center; }
+  .tb-sticky { position: sticky; top: 0; z-index: 5; background: var(--panel); padding: 4px 0 8px; }
+  .tb-pool-h { font-size: 13px; font-weight: 600; margin: 6px 0; }
+  .tb-pool { display: flex; flex-wrap: wrap; gap: 6px; max-height: 150px; overflow-y: auto; padding: 8px; background: var(--panel-2); border-radius: 10px; }
+  .tb-chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 9px; border-radius: 999px; background: var(--panel); border: 1px solid var(--rule); font-size: 13px; cursor: pointer; user-select: none; margin: 2px; }
+  .tb-chip.pool.on { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .tb-chip i { font-style: normal; font-size: 11px; background: var(--text-muted); color: var(--panel); border-radius: 999px; padding: 0 5px; }
+  .tb-chip.txt { font-style: italic; }
+  .tb-x { font-weight: 700; opacity: .55; padding: 0 2px; }
+  .tb-group { border: 2px solid; border-radius: 12px; padding: 10px; margin: 12px 0; }
+  .tb-ghead { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .tb-swatches { display: flex; gap: 4px; flex-wrap: wrap; }
+  .tb-sw { width: 20px; height: 20px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; }
+  .tb-sw.on { border-color: var(--text); }
+  .tb-row { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 8px; margin-bottom: 8px; }
+  .tb-rowtop { display: flex; gap: 8px; align-items: end; flex-wrap: wrap; }
+  .tb-in { display: flex; flex-direction: column; font-size: 12px; color: var(--text-muted); flex: 1; min-width: 90px; }
+  .tb-in.wide { margin-top: 6px; }
+  .tb-in input { padding: 6px 8px; border-radius: 6px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-size: 15px; }
+  .tb-rowbtns { display: flex; gap: 4px; }
+  .btn.small { padding: 4px 9px; font-size: 13px; }
+  .tb-cell { margin-top: 6px; padding: 6px; min-height: 30px; border: 1px dashed var(--rule); border-radius: 8px; cursor: pointer; }
+  .tb-lab { font-size: 12px; color: var(--text-muted); margin-bottom: 2px; }
+  .tb-add { display: inline-block; font-size: 12px; color: var(--text-muted); padding: 3px 6px; cursor: pointer; }
+  .tb-modal { position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 60; display: grid; place-items: center; padding: 12px; overflow: auto; }
+  .tb-modal .card { max-width: 96vw; }
   .empty { padding: 20px; text-align: center; color: var(--text-muted); }
 </style>
 </head>
@@ -147,6 +178,9 @@
       <div class="row" id="presetCounts" style="margin-top:10px"></div>
       <div id="presetOut"></div>
     </div>
+
+    <!-- 5. battle table -->
+    <div class="card" id="tbCard"></div>
   </div>
 </div>
 
@@ -277,6 +311,7 @@ function ranking() {
 
 function renderResult() {
   setTimeout(renderPresets, 0);
+  setTimeout(() => { if (typeof tbRender === "function") tbRender(); }, 0);
   const r = ranking();
   $("result").innerHTML = r.length ? r.map((m, i) => `
     <tr>
@@ -445,6 +480,280 @@ async function officerGate(onOk) {
 }
 // theme follows the main site's saved choice
 try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
+
+/* ===== ⑤ Battle table builder (saved only in this browser) ===== */
+const TB_LS = "nxs-table-v1";
+const TB_COLORS = ["#e6a3d9", "#8fd0ec", "#f6c3a2", "#d6ecc4", "#f6e58d", "#c9c3f0", "#d9d9d9", "#b8e0d2"];
+const TT = {
+  en: {
+    title: "⑤ Battle table", note: "Pick people from the list, then tap a box to put them there (on a computer you can also drag). Tap × to remove.",
+    setup: "Table setup", stages: "Stages", targets: "Targets", cols: "Columns", sep: "(separate with commas)",
+    shortNames: "Short names (drop decorations like 亗 and Nexus)",
+    draft: "Fill a first draft from the ranking", draftNote: "Uses the Attackers / Defenders numbers from ④.",
+    clear: "Clear table", addGroup: "+ Group", addRow: "+ Row", delGroup: "Delete group", dupRow: "Copy row", delRow: "Delete row",
+    pool: "People (tap one, then tap a box)", poolEmpty: "Tick participants in ② first.",
+    addText: "+ text", textPrompt: "Text to add (e.g. Stays behind)",
+    image: "🖼️ Make image", text: "📋 Copy text", toPost: "📢 Use in a new announcement",
+    saveHint: "Phone: press and hold the picture to save it.", download: "Download", close: "Close",
+    confirmClear: "Clear the whole table?", confirmDraft: "Replace the table with a new draft?", copied: "Copied!",
+    group: "Group", picked: "Selected:",
+  },
+  zh: {
+    title: "⑤ 戰鬥分工表", note: "先點上方的名字，再點要放的格子（電腦上也可以直接拖曳）。點 × 移除。",
+    setup: "表格設定", stages: "階段", targets: "目標", cols: "欄位名稱", sep: "（用逗號分隔）",
+    shortNames: "簡短名字（去掉亗、Nexus 這些裝飾）",
+    draft: "依排序自動排一份草稿", draftNote: "使用 ④ 裡 Attackers／Defenders 的人數。",
+    clear: "清空表格", addGroup: "+ 新增組", addRow: "+ 新增列", delGroup: "刪除這組", dupRow: "複製這列", delRow: "刪除這列",
+    pool: "人員（先點名字，再點格子）", poolEmpty: "請先在 ② 勾選參戰的人。",
+    addText: "+ 文字", textPrompt: "要加入的文字（例如 Stays behind）",
+    image: "🖼️ 產生圖片", text: "📋 複製文字", toPost: "📢 拿去發公告",
+    saveHint: "手機：長按圖片即可儲存。", download: "下載", close: "關閉",
+    confirmClear: "確定清空整張表？", confirmDraft: "用新的草稿取代目前的表格？", copied: "已複製！",
+    group: "組", picked: "已選：",
+  },
+};
+const tt = (k) => (TT[lang] && TT[lang][k]) || TT.en[k];
+const COL_KEYS = ["att", "stage", "target", "def", "join", "note"];
+const PEOPLE_COLS = ["att", "def", "join"];
+function tbDefault() {
+  return {
+    stages: "Stage 1, Stage 2", targets: "1, 2, 3, 4, 5, 6, 7", short: true,
+    cols: { att: "Attackers", stage: "Stage", target: "Target", def: "Defenders", join: "Joiners", note: "Note" },
+    show: { att: true, stage: true, target: true, def: true, join: true, note: false },
+    groups: [],
+  };
+}
+let TB = (() => { try { return Object.assign(tbDefault(), JSON.parse(localStorage.getItem(TB_LS)) || {}); } catch (e) { return tbDefault(); } })();
+const tbSave = () => { try { localStorage.setItem(TB_LS, JSON.stringify(TB)); } catch (e) {} };
+let tbPick = null;          // selected chip: { kind: "p", id } | { kind: "t", text }
+let tbUid = Date.now();
+const newRow = (stage = "") => ({ id: ++tbUid, att: [], stage, target: "", def: [], join: [], note: "" });
+
+const memberById = (id) => (data && data.members.find((m) => String(m.id) === String(id))) || null;
+function shortName(n) {
+  const s = String(n || "").normalize("NFKC").replace(/nexus/gi, "").replace(/[亗卍〆『』「」【】〖〗★☆♛♚♕✿❀•·︎]/g, "").replace(/[^\p{L}\p{N} ._\-'’]/gu, "").replace(/\s+/g, " ").trim();
+  return s || String(n || "");
+}
+function chipLabel(c) {
+  if (c.kind === "t") return c.text;
+  const m = memberById(c.id);
+  const n = m ? m.name : "?";
+  return TB.short ? shortName(n) : n;
+}
+const listOf = (s) => String(s || "").split(/[,，]/).map((x) => x.trim()).filter(Boolean);
+
+function tbCounts() {
+  const c = {};
+  TB.groups.forEach((g) => g.rows.forEach((r) => PEOPLE_COLS.forEach((k) => r[k].forEach((x) => { if (x.kind === "p") c[x.id] = (c[x.id] || 0) + 1; }))));
+  return c;
+}
+
+function tbRender() {
+  const host = $("tbCard"); if (!host || !data) return;
+  const counts = tbCounts();
+  const pool = ranking();
+  const stageOpts = listOf(TB.stages), targetOpts = listOf(TB.targets);
+  const cell = (g, gi, r, ri, k) => {
+    const chips = r[k].map((x, xi) => `<span class="tb-chip${x.kind === "t" ? " txt" : ""}" draggable="true" data-g="${gi}" data-r="${ri}" data-k="${k}" data-x="${xi}">${esc(chipLabel(x))}<b class="tb-x" data-del="1">×</b></span>`).join("");
+    return `<div class="tb-cell" data-g="${gi}" data-r="${ri}" data-k="${k}"><div class="tb-lab">${esc(TB.cols[k])}</div>${chips}<span class="tb-add" data-g="${gi}" data-r="${ri}" data-k="${k}" data-addtext="1">${esc(tt("addText"))}</span></div>`;
+  };
+  host.innerHTML = `
+    <h2>${esc(tt("title"))}</h2>
+    <div class="muted msg" style="margin:0 0 10px">${esc(tt("note"))}</div>
+    <details class="tb-setup"><summary>${esc(tt("setup"))}</summary>
+      <label class="f">${esc(tt("stages"))} <span class="muted">${esc(tt("sep"))}</span><input type="text" data-set="stages" value="${esc(TB.stages)}"></label>
+      <label class="f">${esc(tt("targets"))} <span class="muted">${esc(tt("sep"))}</span><input type="text" data-set="targets" value="${esc(TB.targets)}"></label>
+      <div class="f">${esc(tt("cols"))}</div>
+      <div class="tb-cols">${COL_KEYS.map((k) => `<label><input type="checkbox" data-show="${k}" ${TB.show[k] ? "checked" : ""}><input type="text" data-col="${k}" value="${esc(TB.cols[k])}"></label>`).join("")}</div>
+      <label class="row" style="margin-top:8px"><input type="checkbox" data-set="short" ${TB.short ? "checked" : ""}> ${esc(tt("shortNames"))}</label>
+    </details>
+    <div class="row" style="margin:10px 0">
+      <button class="btn" data-act="draft">✨ ${esc(tt("draft"))}</button>
+      <button class="btn" data-act="clear">${esc(tt("clear"))}</button>
+    </div>
+    <div class="muted" style="font-size:12px;margin:-4px 0 8px">${esc(tt("draftNote"))}</div>
+    <div class="tb-sticky"><div class="tb-pool-h">${esc(tt("pool"))}${tbPick ? ` · <b>${esc(tt("picked"))} ${esc(chipLabel(tbPick))}</b>` : ""}</div>
+    <div class="tb-pool">${pool.length ? pool.map((m) => `<span class="tb-chip pool${tbPick && tbPick.kind === "p" && String(tbPick.id) === String(m.id) ? " on" : ""}" draggable="true" data-pid="${m.id}">${esc(TB.short ? shortName(m.name) : m.name)}${counts[m.id] ? `<i>${counts[m.id]}</i>` : ""}</span>`).join("") : `<span class="muted">${esc(tt("poolEmpty"))}</span>`}</div></div>
+    ${TB.groups.map((g, gi) => `
+      <div class="tb-group" style="border-color:${g.color};background:color-mix(in srgb, ${g.color} 22%, var(--panel))">
+        <div class="tb-ghead">
+          <span class="tb-swatches">${TB_COLORS.map((c) => `<span class="tb-sw${c === g.color ? " on" : ""}" style="background:${c}" data-color="${c}" data-g="${gi}"></span>`).join("")}</span>
+          <button class="btn small" data-act="delGroup" data-g="${gi}">${esc(tt("delGroup"))}</button>
+        </div>
+        ${g.rows.map((r, ri) => `
+          <div class="tb-row">
+            <div class="tb-rowtop">
+              ${TB.show.stage ? `<label class="tb-in"><span>${esc(TB.cols.stage)}</span><input list="tbStages" data-g="${gi}" data-r="${ri}" data-field="stage" value="${esc(r.stage)}"></label>` : ""}
+              ${TB.show.target ? `<label class="tb-in"><span>${esc(TB.cols.target)}</span><input list="tbTargets" data-g="${gi}" data-r="${ri}" data-field="target" value="${esc(r.target)}"></label>` : ""}
+              <span class="tb-rowbtns"><button class="btn small" data-act="dupRow" data-g="${gi}" data-r="${ri}" title="${esc(tt("dupRow"))}">⧉</button><button class="btn small" data-act="delRow" data-g="${gi}" data-r="${ri}" title="${esc(tt("delRow"))}">🗑</button></span>
+            </div>
+            ${PEOPLE_COLS.filter((k) => TB.show[k]).map((k) => cell(g, gi, r, ri, k)).join("")}
+            ${TB.show.note ? `<label class="tb-in wide"><span>${esc(TB.cols.note)}</span><input data-g="${gi}" data-r="${ri}" data-field="note" value="${esc(r.note)}"></label>` : ""}
+          </div>`).join("")}
+        <button class="btn small" data-act="addRow" data-g="${gi}">${esc(tt("addRow"))}</button>
+      </div>`).join("")}
+    <div class="row" style="margin-top:10px"><button class="btn" data-act="addGroup">${esc(tt("addGroup"))}</button></div>
+    <div class="row" style="margin-top:14px">
+      <button class="btn primary" data-act="image">${esc(tt("image"))}</button>
+      <button class="btn" data-act="text">${esc(tt("text"))}</button>
+    </div>
+    <datalist id="tbStages">${stageOpts.map((s) => `<option value="${esc(s)}">`).join("")}</datalist>
+    <datalist id="tbTargets">${targetOpts.map((s) => `<option value="${esc(s)}">`).join("")}</datalist>`;
+}
+
+/* ----- editing ----- */
+function tbPut(gi, ri, k, chip) {
+  const arr = TB.groups[gi].rows[ri][k];
+  if (chip.kind === "p" && arr.some((x) => x.kind === "p" && String(x.id) === String(chip.id))) return;
+  arr.push(chip);
+}
+function tbDraft() {
+  const pr = PRESETS.find((x) => x.id === "swordland");
+  const A = groupCount(pr, 0), D = groupCount(pr, 1);
+  const r = ranking(); if (!r.length) return;
+  const nG = Math.max(1, Math.min(A, r.length));
+  const stage = listOf(TB.stages)[0] || "";
+  TB.groups = Array.from({ length: nG }, (_, i) => ({ color: TB_COLORS[i % TB_COLORS.length], rows: [newRow(stage)] }));
+  r.forEach((m, i) => {
+    const chip = { kind: "p", id: m.id };
+    if (i < nG) TB.groups[i].rows[0].att.push(chip);
+    else if (i < nG + D) TB.groups[(i - nG) % nG].rows[0].def.push(chip);
+    else TB.groups[(i - nG - D) % nG].rows[0].join.push(chip);
+  });
+}
+
+function tbClick(e) {
+  const t = e.target;
+  // remove chip
+  if (t.dataset.del) { const c = t.closest(".tb-chip"); TB.groups[c.dataset.g].rows[c.dataset.r][c.dataset.k].splice(c.dataset.x, 1); tbSave(); tbRender(); return; }
+  // pick from pool
+  const pc = t.closest(".tb-chip.pool");
+  if (pc) { const id = pc.dataset.pid; tbPick = tbPick && tbPick.kind === "p" && String(tbPick.id) === String(id) ? null : { kind: "p", id: Number(id) || id }; tbRender(); return; }
+  // add free text
+  if (t.dataset.addtext) {
+    const v = window.prompt(tt("textPrompt")); if (v && v.trim()) { tbPut(t.dataset.g, t.dataset.r, t.dataset.k, { kind: "t", text: v.trim() }); tbSave(); tbRender(); }
+    return;
+  }
+  // put picked into a cell
+  const cl = t.closest(".tb-cell");
+  if (cl && tbPick) { tbPut(cl.dataset.g, cl.dataset.r, cl.dataset.k, tbPick); tbSave(); tbRender(); return; }
+  // colour
+  if (t.dataset.color) { TB.groups[t.dataset.g].color = t.dataset.color; tbSave(); tbRender(); return; }
+  const a = t.closest("[data-act]"); if (!a) return;
+  const gi = a.dataset.g, ri = a.dataset.r, act = a.dataset.act;
+  if (act === "addGroup") TB.groups.push({ color: TB_COLORS[TB.groups.length % TB_COLORS.length], rows: [newRow(listOf(TB.stages)[0] || "")] });
+  if (act === "delGroup") TB.groups.splice(gi, 1);
+  if (act === "addRow") TB.groups[gi].rows.push(newRow(listOf(TB.stages)[0] || ""));
+  if (act === "delRow") TB.groups[gi].rows.splice(ri, 1);
+  if (act === "dupRow") { const r = JSON.parse(JSON.stringify(TB.groups[gi].rows[ri])); r.id = ++tbUid; TB.groups[gi].rows.splice(Number(ri) + 1, 0, r); }
+  if (act === "clear") { if (!window.confirm(tt("confirmClear"))) return; TB.groups = []; }
+  if (act === "draft") { if (TB.groups.length && !window.confirm(tt("confirmDraft"))) return; tbDraft(); }
+  if (act === "image") return tbImage();
+  if (act === "text") return tbCopyText(a);
+  tbSave(); tbRender();
+}
+function tbInput(e) {
+  const t = e.target;
+  if (t.dataset.field) { TB.groups[t.dataset.g].rows[t.dataset.r][t.dataset.field] = t.value; tbSave(); return; }
+  if (t.dataset.set === "short") { TB.short = t.checked; tbSave(); tbRender(); return; }
+  if (t.dataset.set) { TB[t.dataset.set] = t.value; tbSave(); return; }
+  if (t.dataset.col) { TB.cols[t.dataset.col] = t.value; tbSave(); return; }
+  if (t.dataset.show) { TB.show[t.dataset.show] = t.checked; tbSave(); tbRender(); return; }
+}
+/* drag & drop (computer) */
+let tbDrag = null;
+function tbDragStart(e) {
+  const c = e.target.closest(".tb-chip"); if (!c) return;
+  tbDrag = c.dataset.pid ? { chip: { kind: "p", id: Number(c.dataset.pid) || c.dataset.pid } }
+    : { chip: TB.groups[c.dataset.g].rows[c.dataset.r][c.dataset.k][c.dataset.x], from: [c.dataset.g, c.dataset.r, c.dataset.k, c.dataset.x] };
+  e.dataTransfer.effectAllowed = "move"; try { e.dataTransfer.setData("text/plain", "x"); } catch (err) {}
+}
+function tbDrop(e) {
+  const cl = e.target.closest(".tb-cell"); if (!cl || !tbDrag) return;
+  e.preventDefault();
+  if (tbDrag.from) { const [g, r, k, x] = tbDrag.from; TB.groups[g].rows[r][k].splice(x, 1); }
+  tbPut(cl.dataset.g, cl.dataset.r, cl.dataset.k, tbDrag.chip);
+  tbDrag = null; tbSave(); tbRender();
+}
+
+/* ----- output ----- */
+function tbRowsFlat() {
+  const cols = COL_KEYS.filter((k) => TB.show[k]);
+  const rows = [];
+  TB.groups.forEach((g) => g.rows.forEach((r) => rows.push({ color: g.color, cells: cols.map((k) => PEOPLE_COLS.includes(k) ? r[k].map(chipLabel).join(", ") : (r[k] || "")) })));
+  return { cols, head: cols.map((k) => TB.cols[k]), rows };
+}
+function tbCopyText(btn) {
+  const { head, rows } = tbRowsFlat();
+  const text = [head.join(" | "), ...rows.map((r) => r.cells.map((c) => c || "—").join(" | "))].join("\n");
+  (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).catch(() => {
+    const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
+  });
+  const old = btn.textContent; btn.textContent = tt("copied"); setTimeout(() => (btn.textContent = old), 1500);
+}
+function tbImage() {
+  const { head, rows } = tbRowsFlat();
+  const S = 2, pad = 8, lineH = 20, font = '15px "Noto Sans TC","Noto Sans KR","Noto Sans",Arial,sans-serif', bold = 'bold ' + font;
+  const cv = document.createElement("canvas"), g = cv.getContext("2d");
+  const maxW = [230, 110, 150, 330, 330, 260];
+  g.font = font;
+  const widths = head.map((h, i) => {
+    g.font = bold; let w = g.measureText(h).width;
+    g.font = font; rows.forEach((r) => { w = Math.max(w, Math.min(g.measureText(r.cells[i]).width, maxW[i] || 300)); });
+    return Math.ceil(Math.min(w, maxW[i] || 300) + pad * 2);
+  });
+  const wrap = (text, w) => {
+    g.font = font; const out = []; let line = "";
+    for (const word of String(text).split(/\s+/)) {
+      const tryL = line ? line + (line.endsWith(",") ? " " : " ") + word : word;
+      if (g.measureText(tryL).width <= w || !line) line = tryL; else { out.push(line); line = word; }
+    }
+    if (line) out.push(line); return out.length ? out : [""];
+  };
+  const lines = rows.map((r) => r.cells.map((c, i) => wrap(c, widths[i] - pad * 2)));
+  const heights = lines.map((ls) => Math.max(...ls.map((l) => l.length)) * lineH + pad * 2);
+  const headH = lineH + pad * 2, W = widths.reduce((a, b) => a + b, 0) + 1, H = headH + heights.reduce((a, b) => a + b, 0) + 1;
+  cv.width = W * S; cv.height = H * S; g.scale(S, S);
+  g.fillStyle = "#fff"; g.fillRect(0, 0, W, H); g.strokeStyle = "#9a9a9a"; g.lineWidth = 1; g.textBaseline = "top";
+  let x = 0.5;
+  head.forEach((h, i) => { g.font = bold; g.fillStyle = "#000"; g.fillText(h, x + pad, pad + 2); g.strokeRect(x, 0.5, widths[i], headH); x += widths[i]; });
+  let y = headH + 0.5;
+  rows.forEach((r, ri) => {
+    x = 0.5;
+    r.cells.forEach((c, i) => {
+      g.fillStyle = r.color; g.fillRect(x, y, widths[i], heights[ri]);
+      g.strokeRect(x, y, widths[i], heights[ri]);
+      g.font = font; g.fillStyle = "#111";
+      lines[ri][i].forEach((l, li) => g.fillText(l, x + pad, y + pad + 2 + li * lineH));
+      x += widths[i];
+    });
+    y += heights[ri];
+  });
+  const url = cv.toDataURL("image/png");
+  const m = document.createElement("div");
+  m.className = "tb-modal";
+  m.innerHTML = `<div class="card"><img src="${url}" style="max-width:100%;display:block;border-radius:6px">
+    <div class="muted" style="margin:8px 0">${esc(tt("saveHint"))}</div>
+    <div class="row"><a class="btn" download="battle-table.png" href="${url}">${esc(tt("download"))}</a>
+    <button class="btn primary" data-topost="1">${esc(tt("toPost"))}</button>
+    <button class="btn" data-close="1">${esc(tt("close"))}</button></div></div>`;
+  m.onclick = (e) => {
+    if (e.target === m || e.target.dataset.close) m.remove();
+    if (e.target.dataset.topost) { try { sessionStorage.setItem("nxs-carry-img", url); } catch (err) {} location.href = "post-k4m8q2.html"; }
+  };
+  document.body.appendChild(m);
+}
+
+(function tbInit() {
+  const host = $("tbCard");
+  host.addEventListener("click", tbClick);
+  host.addEventListener("input", (e) => { if (e.target.type !== "checkbox") tbInput(e); });
+  host.addEventListener("change", (e) => { if (e.target.type === "checkbox") tbInput(e); else if (e.target.dataset.set || e.target.dataset.col) tbRender(); });
+  host.addEventListener("dragstart", tbDragStart);
+  host.addEventListener("dragover", (e) => { if (e.target.closest(".tb-cell")) e.preventDefault(); });
+  host.addEventListener("drop", tbDrop);
+})();
+
 officerGate(init);
 </script>
 </body>
