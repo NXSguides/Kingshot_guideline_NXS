@@ -373,6 +373,19 @@ $("imgPick").onchange = async (e) => {
   renderPreview();
 };
 
+/* picture handed over from the Ranking tab ("Use in a new announcement") */
+async function takeCarriedImage() {
+  let url = null; try { url = sessionStorage.getItem("nxs-carry-img"); sessionStorage.removeItem("nxs-carry-img"); } catch (e) {}
+  if (!url) return;
+  const blob = await (await fetch(url)).blob();
+  const f = new File([blob], "table.png", { type: blob.type });
+  const shrunk = await shrink(f, 2000);
+  const stamp = new Date().toISOString().slice(0, 19).replace(/[-:]/g, "").replace("T", "-");
+  const path = `figures/ann/${stamp}-${++imgCounter}.jpg`;
+  pendingImgs[path] = { blob: shrunk, url: URL.createObjectURL(shrunk) };
+  insertAtCursor(`[[img:${path}]]`); renderPreview();
+}
+
 /* ===== list ===== */
 async function loadList() {
   $("list").innerHTML = `<p class="muted">…</p>`;
@@ -419,7 +432,7 @@ function applyTexts() {
     .map((k) => `<option value="${k}">${GUIDES[k].emoji} ${esc(GUIDES[k].name[ui] || GUIDES[k].name.en)}</option>`).join("");
   $("guide").value = g;
 }
-function showApp() { $("lockCard").hidden = true; $("setupCard").hidden = true; $("app").hidden = false; renderPreview(); loadList(); }
+function showApp() { $("lockCard").hidden = true; $("setupCard").hidden = true; $("app").hidden = false; renderPreview(); loadList(); takeCarriedImage(); }
 
 async function tryUnlock(pw, silent) {
   try { TOKEN = await decryptToken(keyBlob, pw); }
