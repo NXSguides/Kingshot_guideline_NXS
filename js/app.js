@@ -171,7 +171,8 @@ const EVENT_SCHEDULES = {
   "fishing-tournament": { anchor: Date.UTC(2026, 8, 29), periodDays: 28, activeDays: 3 },
   "tri-alliance-clash": { anchor: Date.UTC(2026, 8, 28), periodDays: 28, activeDays: 6 },
   "kvk": { anchor: Date.UTC(2026, 9, 5), periodDays: 28, activeDays: 8 },
-  "hero-roulette": { anchor: Date.UTC(2026, 9, 6), periodDays: 14, activeDays: 3 }
+  "hero-roulette": { anchor: Date.UTC(2026, 9, 6), periodDays: 14, activeDays: 3 },
+  "cesares-fury": { anchor: Date.UTC(2026, 9, 10), periodDays: 21, activeDays: 3 } // last one ~9/19, this one 10/10–10/12 → every 3 weeks (check 10/31)
 };
 
 function isEventActive(key) {
