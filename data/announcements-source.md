@@ -71,6 +71,8 @@ lang: en
 title: "⚔️ KvK Agreement with 2186 – Oct 10"
 images: []
 content: |
+  **⚔️ KvK Agreement with 2186 – Oct 10**
+
   **🏰 1. City Attacks**
 
   ✅ Allowed:
@@ -78,8 +80,7 @@ content: |
   • 30 min after Castle Battle ends
 
   🛑 Ceasefire – NO attacks:
-  • 11:00–12:00 UTC
-  • Until 30 min after Castle shield goes up
+  • From 11:00 UTC through the entire Castle Battle, until 30 minutes after the Castle shield goes up.
 
   **🔴 2. Red Zone**
   • NO city attacks in Red Zone at ANY time.
