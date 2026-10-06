@@ -324,7 +324,7 @@ function renderResult() {
   $("result").innerHTML = r.length ? r.map((m, i) => `
     <tr>
       <td class="num">${i + 1}</td>
-      <td class="name" dir="auto">${esc(m.name)}</td>
+      <td class="name"><span dir="auto">${esc(m.name)}</span><div style="font-size:12px;opacity:.65;font-variant-numeric:tabular-nums;user-select:all">ID ${esc(m.id)}</div></td>
       <td class="num">${m.score.toFixed(1)}<span class="bar" style="width:${Math.round(m.score * 0.6)}px"></span></td>
       <td class="num">${big(m.power)}</td>
       <td class="num">${m.mystic == null ? '<span class="warn">?</span>' : big(m.mystic)}</td>
@@ -426,7 +426,7 @@ $("pasteBtn").onclick = () => {
 };
 $("copyBtn").onclick = async () => {
   const r = ranking();
-  const text = r.map((m, i) => `${i + 1}. ${m.name} — ${m.score.toFixed(1)}`).join("\n");
+  const text = r.map((m, i) => `${i + 1}. ${m.name} (ID ${m.id}) — ${m.score.toFixed(1)}`).join("\n");
   try { await navigator.clipboard.writeText(text); } catch (e) {
     const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
   }
