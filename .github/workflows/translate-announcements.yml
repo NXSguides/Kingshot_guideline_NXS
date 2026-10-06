@@ -1,7 +1,7 @@
 name: Translate Announcements
 on:
   push:
-    paths: ["data/announcements-source.md"]
+    paths: ["data/announcements-source.md", "data/announcements-fixes.json"]
     branches: [main]
   workflow_dispatch:
 
