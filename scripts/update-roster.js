@@ -17,6 +17,8 @@ const WATCH = "data/watch-x7k2p9.json";
 // Add the KvK enemy kingdom number here, e.g. [2189, 2190]. Each alliance costs 1 request per day.
 const WATCH_KINGDOMS = [2189];
 const ALLIANCES_PER_KINGDOM = 40;
+// Alliances we always read, even if they drop out of the top list (kingdom 2189). Tags are case-sensitive.
+const ALWAYS = { 2189: ["RED", "ESA", "NBD"] };
 const KEEP_POINTS = 60;        // days of power / kills history kept per member
 const GAP_MS = 1100;           // start at most ~55 requests per minute (limit is 60)
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -147,7 +149,7 @@ function findRows(o, depth = 0) {
     const b = await get(`/kingdoms/${k}/ranks?board=alliance_power&limit=${ALLIANCES_PER_KINGDOM}`);
     const rows = findRows(b.body);
     if (!rows.length) console.log(`  Kingdom ${k}: could not read the alliance list (HTTP ${b.status})`);
-    const list = rows.map((x) => x.abbr).filter((t) => t && !(k === KID && t === TAG));
+    const list = [...new Set([...(ALWAYS[k] || []), ...rows.map((x) => x.abbr)])].filter((t) => t && !(k === KID && t === TAG));
     const res = await getMany(list.map((t) => `/alliances/${k}/${encodeURIComponent(t)}?include=info,roster`), `Kingdom ${k} alliances`);
     res.forEach((r, i) => {
       if (r.status !== 200 || !r.body?.members) return;
