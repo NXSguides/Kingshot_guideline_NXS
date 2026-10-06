@@ -119,7 +119,7 @@ const T = {
     colName: "Name", colRank: "Rank", colPower: "Power", colPowerD: "Power change", colKills: "Kills", colKillsD: "Kills change", colTc: "TC",
     colKid: "Kingdom", colLang: "Language", colSince: "In NXS since", colFrom: "Seen in other alliances", colNames: "Earlier names",
     colSimilar: "Similar names elsewhere", colLogin: "Last login", colFlags: "Flags", colClear: "Clear", colWhy: "Why / comments",
-    before: "before {d}", leftTitle: "Left NXS", colLeft: "Left on", colNow: "Seen since in",
+    before: "before {d}", between: "between {a} and {b}", leftTitle: "Left NXS", colLeft: "Left on", colNow: "Seen since in",
     fNew: "New ({n} d)", fKid: "From kingdom {k}", fRenamed: "Renamed", fFrom: "Was in {t}", fSimilar: "Similar name in {t}",
     fDrop: "Power dropped", noData: "No data yet. Run GitHub → Actions → “Update Roster (MightPulse)”, then reload.",
     updated: "Updated {t} · history since {s}", empty: "No members match.",
@@ -137,7 +137,7 @@ const T = {
     colName: "名字", colRank: "階級", colPower: "戰力", colPowerD: "戰力變化", colKills: "擊殺", colKillsD: "擊殺變化", colTc: "主城",
     colKid: "王國", colLang: "語言", colSince: "加入 NXS", colFrom: "曾出現在其他聯盟", colNames: "之前的名字",
     colSimilar: "其他聯盟的相似名字", colLogin: "上次登入", colFlags: "標記", colClear: "Clear", colWhy: "Why / comments",
-    before: "{d} 以前", leftTitle: "已離開 NXS", colLeft: "離開日期", colNow: "之後出現在",
+    before: "{d} 以前", between: "{a} 到 {b} 之間", leftTitle: "已離開 NXS", colLeft: "離開日期", colNow: "之後出現在",
     fNew: "新成員（{n} 天）", fKid: "來自王國 {k}", fRenamed: "改過名", fFrom: "待過 {t}", fSimilar: "{t} 有相似名字",
     fDrop: "戰力下降", noData: "還沒有資料。到 GitHub → Actions →「Update Roster (MightPulse)」執行一次後重新整理。",
     updated: "更新：{t} · 紀錄從 {s} 開始", empty: "沒有符合的成員。",
@@ -202,8 +202,9 @@ function build() {
       .sort((a, b) => b[1][1].localeCompare(a[1][1])).map(([t, r]) => ({ tag: t, last: r[1] }));
     const names = (h.names || []).map((x) => x[1]).filter((n) => n !== m.name);
     const sim = similar(m.name, m.id);
-    const since = h.before ? tr("before", { d: started }) : (h.firstSeen || "");
-    const newFor = !h.before && h.firstSeen ? daysBetween(h.firstSeen, today) : null;
+    // joinedBetween: only known to have joined somewhere in this date range (from older, gappy data)
+    const since = h.before ? tr("before", { d: started }) : h.joinedBetween ? tr("between", { a: h.joinedBetween[0], b: h.joinedBetween[1] }) : (h.firstSeen || "");
+    const newFor = !h.before && h.firstSeen ? daysBetween(h.joinedBetween ? h.joinedBetween[0] : h.firstSeen, today) : null;
     const pD = change(h.power, 7), kD = change(h.kills, 7);
     const flags = [];
     if (newFor != null && newFor <= newDays) flags.push({ t: tr("fNew", { n: newFor }), hi: true });
