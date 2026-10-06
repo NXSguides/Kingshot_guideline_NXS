@@ -209,11 +209,17 @@ function build() {
     return out.slice(0, 5);
   };
 
+  // alliance IDs that have ever been shown as NXS (covers renames such as VZP → NXS)
+  const ourAids = new Set();
+  for (const v of Object.values((records && records.members) || {})) for (const e of v.history || []) if (e.a === TAG && e.aid != null) ourAids.add(e.aid);
   rows = roster.members.map((m) => {
     const h = (watch.members || {})[m.id] || {};
     const seen = { ...((watch.seen || {})[m.id] || {}) };
     // MightPulse Record (one-time pull): full alliance and name history
-    const rec = ((records && records.members && records.members[m.id] && records.members[m.id].history) || []).slice().sort((a, b) => String(a.d).localeCompare(String(b.d)));
+    // same alliance under an older tag (VZP was NXS's old name): match by alliance ID, shown as NXS
+    const rec = ((records && records.members && records.members[m.id] && records.members[m.id].history) || []).slice()
+      .sort((a, b) => String(a.d).localeCompare(String(b.d)))
+      .map((e) => (e.aid != null && ourAids.has(e.aid) ? { ...e, a: TAG } : e));
     const recNames = [];
     let joinedRec = null;
     rec.forEach((e, i) => {
@@ -227,8 +233,8 @@ function build() {
     const names = [...new Set([...(h.names || []).map((x) => x[1]), ...recNames])].filter((n) => n !== m.name);
     const sim = similar(m.name, m.id);
     // joinedBetween: only known to have joined somewhere in this date range (from older, gappy data)
-    const since = h.before && joinedRec ? (joinedRec.first ? tr("before", { d: joinedRec.d }) : joinedRec.d) : h.before ? tr("before", { d: started }) : h.joinedBetween ? tr("between", { a: h.joinedBetween[0], b: h.joinedBetween[1] }) : (h.firstSeen || "");
-    const newFor = !h.before && h.firstSeen ? daysBetween(h.joinedBetween ? h.joinedBetween[0] : h.firstSeen, today) : null;
+    const since = joinedRec ? (joinedRec.first ? tr("before", { d: joinedRec.d }) : joinedRec.d) : h.before ? tr("before", { d: started }) : h.joinedBetween ? tr("between", { a: h.joinedBetween[0], b: h.joinedBetween[1] }) : (h.firstSeen || "");
+    const newFor = joinedRec ? (joinedRec.first ? null : daysBetween(joinedRec.d, today)) : !h.before && h.firstSeen ? daysBetween(h.joinedBetween ? h.joinedBetween[0] : h.firstSeen, today) : null;
     const pD = change(h.power, 7), kD = change(h.kills, 7);
     const flags = [];
     if (newFor != null && newFor <= newDays) flags.push({ t: tr("fNew", { n: newFor }), hi: true });
