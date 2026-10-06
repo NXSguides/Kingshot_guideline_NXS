@@ -133,6 +133,7 @@ const EVENTS = {
   "all-out":            { emoji: "🔥", en: "All Out", zh: "全軍出擊" },
   "fishing-tournament": { emoji: "🎣", en: "Fishing Tournament", zh: "釣魚大賽" },
   "hero-roulette":      { emoji: "🎰", en: "Hero Roulette", zh: "英雄轉盤" },
+  "cesares-fury":       { emoji: "🗡️", en: "Cesares Fury", zh: "征討切薩雷", noGuide: true },
 };
 // What officers need to do. due: days relative to the event's first day (−1 = the day before).
 const TODO = {
@@ -148,6 +149,12 @@ const TODO = {
   "tri-alliance-clash": [
     { due: -2, post: 1, en: "Confirm registration and the line-up.", zh: "確認報名和出戰名單。" },
     { due: -1, ranking: 1, post: 1, en: "Set the meeting time and post the plan.", zh: "決定集合時間並發公告。" },
+  ],
+  "cesares-fury": [
+    { due: 0, en: "Remind everyone: each member gets 5 rally requests — use them, unused ones are lost when the event ends.",
+              zh: "提醒大家：每人有 5 份征討召集令可以找盟友集結，活動結束沒用完就會被清除。" },
+    { due: 1, post: 1, en: "R4+: once enough members have beaten high-level targets, apply to challenge the Captain and post a time for everyone to join.",
+                       zh: "R4 以上：成員擊敗足夠的高等級目標後，申請挑戰頭目，並公告大家一起打的時間。" },
   ],
   "kvk": [
     { due: -1, en: "Remind members: book Chief Minister slots, save Intel Missions, count saved items (the site's KvK checklist pops up).",
@@ -216,7 +223,7 @@ function render() {
       <div>
         <div class="txt"><b>${esc(evName(r.k))}</b> — ${esc(td[lang] || td.en)}</div>
         <div class="when">⏰ ${esc(fmt(due))}${due < today && !store.done[id] ? ` <b class="warn">${esc(tr("late"))}</b>` : ""} · ${esc(tr("runs", { a: fmt(r.st), b: fmt(r.en - DAY), n: r.days }))}</div>
-        <div class="acts">${td.post ? `<a class="btn small" href="post-k4m8q2.html">${esc(tr("toPost"))}</a>` : ""}${td.ranking ? `<a class="btn small" href="roster-x7k2p9.html">${esc(tr("toRanking"))}</a>` : ""}<a class="btn small" href="./#/${lang === "zh" ? "zh" : "en"}/${esc(r.k)}">${esc(tr("toGuide"))}</a></div>
+        <div class="acts">${td.post ? `<a class="btn small" href="post-k4m8q2.html">${esc(tr("toPost"))}</a>` : ""}${td.ranking ? `<a class="btn small" href="roster-x7k2p9.html">${esc(tr("toRanking"))}</a>` : ""}${EVENTS[r.k] && EVENTS[r.k].noGuide ? "" : `<a class="btn small" href="./#/${lang === "zh" ? "zh" : "en"}/${esc(r.k)}">${esc(tr("toGuide"))}</a>`}</div>
       </div>
     </label>`).join("") : `<div class="none">${esc(tr("noTodo"))}</div>`;
   $("todos").querySelectorAll("input[type=checkbox]").forEach((cb) => cb.onchange = () => {
