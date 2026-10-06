@@ -47,6 +47,10 @@
   .preview img { max-width: 100%; border-radius: 8px; display: block; margin: 6px 0; }
   .modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: grid; place-items: center; padding: 16px; z-index: 50; }
   .modal .card { max-width: 380px; width: 100%; }
+  [hidden] { display: none !important; }
+  .ann .acts { display: flex; gap: 6px; flex-shrink: 0; }
+  .badge { display: inline-block; font-size: 12px; padding: 1px 7px; border-radius: 6px; background: var(--panel-2); margin-inline-start: 4px; }
+  .editing { background: color-mix(in srgb, var(--accent) 16%, transparent); border-radius: 8px; padding: 10px 12px; margin-bottom: 6px; display: flex; gap: 10px; justify-content: space-between; align-items: center; flex-wrap: wrap; }
 </style>
 </head>
 <body>
@@ -97,6 +101,7 @@
     <!-- 2. write -->
     <div class="card">
       <h2>✍️ <span data-t="writeTitle"></span></h2>
+      <div class="editing" id="editBanner" hidden><span><span data-t="editing"></span>: <b dir="auto" id="editBannerTitle"></b></span><button class="btn" id="cancelEdit" data-t="cancelEdit"></button></div>
 
       <label class="f" data-t="fName"></label>
       <input type="text" id="author" maxlength="40">
@@ -123,6 +128,34 @@
 
       <div style="margin-top:14px"><button class="btn primary big" id="publishBtn" data-t="publish"></button></div>
       <div class="msg" id="pubMsg"></div>
+    </div>
+
+    <!-- edit -->
+    <div class="card" id="editCard" hidden>
+      <div class="top"><h2>✏️ <span data-t="editTitle"></span></h2><button class="btn" id="editClose" data-t="close"></button></div>
+      <div><b dir="auto" id="editWhich"></b></div>
+      <label class="f" data-t="editWhat"></label>
+      <select id="editLang"></select>
+      <div id="editAllBox">
+        <p class="muted" data-t="editAllNote"></p>
+        <button class="btn primary" id="editAllGo" data-t="editAllGo"></button>
+      </div>
+      <div id="editOneBox" hidden>
+        <p class="muted" data-t="editLangNote"></p>
+        <label class="f" data-t="fName"></label>
+        <input type="text" id="fixBy" maxlength="40">
+        <label class="f" data-t="fTitle"></label>
+        <input type="text" id="fixTitle" maxlength="120" dir="auto">
+        <label class="f" data-t="fBody"></label>
+        <textarea id="fixBody" dir="auto"></textarea>
+        <label class="f" data-t="preview"></label>
+        <div class="preview" id="fixPreview" dir="auto"></div>
+        <div class="row" style="margin-top:12px">
+          <button class="btn primary" id="fixSave" data-t="saveFix"></button>
+          <button class="btn" id="fixUndo" data-t="unfix" hidden></button>
+        </div>
+      </div>
+      <div class="msg" id="editMsg"></div>
     </div>
 
     <!-- 3. current -->
@@ -153,6 +186,8 @@
 /* ===== settings ===== */
 const KEY_PATH = "data/post-key.json";            // encrypted GitHub key (safe to be public)
 const SOURCE_PATH = "data/announcements-source.md";
+const PUB_PATH = "data/announcements.json";            // translated, what the site shows
+const FIX_PATH = "data/announcements-fixes.json";      // one-language fixes made by hand
 // repo is worked out from the site address (owner.github.io/repo/), with a fallback
 const OWNER = location.hostname.endsWith("github.io") ? location.hostname.split(".")[0] : "NXSguides";
 const REPO = location.hostname.endsWith("github.io") ? (location.pathname.split("/")[1] || "Kingshot_guideline_NXS") : "Kingshot_guideline_NXS";
@@ -197,6 +232,23 @@ const T = {
     adminMore: "More", adminMoreNote: "For the site owner.",
     forget: "Forget the password on this device", resetup: "Redo the setup (new token / new password)",
     yes: "Yes", no: "Cancel",
+    edit: "Edit", editTitle: "Edit an announcement", close: "Close", editWhat: "What to change",
+    editAll: "All languages — change the original and translate again",
+    editAllNote: "The original opens in the Write form above. When you save, all 12 languages are translated again, and any one-language fixes on this announcement are replaced.",
+    editAllGo: "Open in the Write form",
+    editLangNote: "Only this language changes. The other languages stay as they are.",
+    saveFix: "💾 Save this language", unfix: "Use the automatic translation again",
+    needFix: "Please fill in your name, the title and the message.",
+    confirmFix: "Save this language for everyone?", savingFix: "Saving…",
+    fixOk: "Saved ✅ It shows on the site in about 2–3 minutes.",
+    confirmUnfix: "Throw away the hand-made version of this language and use the automatic translation again?",
+    unfixOk: "Done ✅ The automatic translation is back on the site in about 2–3 minutes.",
+    notYet: "This announcement is still being translated. Press Refresh in a few minutes and try again.",
+    fixedTip: "edited by hand", translating: "translating…",
+    editing: "Editing", cancelEdit: "Stop editing", saveEdit: "💾 Save changes",
+    confirmEdit: "Save the changes? All languages are translated again, and any one-language fixes on this announcement are replaced.",
+    editOk: "Saved ✅ The new version shows on the site in about 2–3 minutes.",
+    gone: "This announcement was changed or deleted meanwhile. Press Refresh and try again.",
   },
   zh: {
     title: "發布公告", subtitle: "寫一次就好，網站會自動翻成 12 種語言。",
@@ -235,6 +287,23 @@ const T = {
     adminMore: "更多", adminMoreNote: "給網站管理者用。",
     forget: "忘記這台裝置上的密碼", resetup: "重新設定（新權杖／新密碼）",
     yes: "確定", no: "取消",
+    edit: "修改", editTitle: "修改公告", close: "關閉", editWhat: "要改什麼",
+    editAll: "全部語言 — 改原文，再重新翻譯",
+    editAllNote: "原文會放回上方的撰寫區。儲存後 12 種語言會全部重新翻譯，這則公告之前單獨修改過的語言也會被換掉。",
+    editAllGo: "放到撰寫區修改",
+    editLangNote: "只改這個語言，其他語言保持不變。",
+    saveFix: "💾 儲存這個語言", unfix: "改回自動翻譯",
+    needFix: "請填寫名字、標題和內容。",
+    confirmFix: "確定儲存這個語言的版本？", savingFix: "儲存中…",
+    fixOk: "已儲存 ✅ 大約 2–3 分鐘後會出現在網站上。",
+    confirmUnfix: "確定丟掉這個語言的手動版本，改回自動翻譯？",
+    unfixOk: "完成 ✅ 大約 2–3 分鐘後網站會換回自動翻譯。",
+    notYet: "這則公告還在翻譯中，請過幾分鐘按「重新整理」再試。",
+    fixedTip: "已手動修改", translating: "翻譯中…",
+    editing: "正在修改", cancelEdit: "取消修改", saveEdit: "💾 儲存修改",
+    confirmEdit: "確定儲存修改？所有語言會重新翻譯，這則公告之前單獨修改過的語言也會被換掉。",
+    editOk: "已儲存 ✅ 大約 2–3 分鐘後網站上會換成新版本。",
+    gone: "這則公告剛剛被改過或刪掉了，請按「重新整理」再試一次。",
   },
 };
 
@@ -298,23 +367,38 @@ async function gh(method, path, body, token = TOKEN) {
 const errText = (e) => tr(e.message === "auth" ? "errAuth" : e.message === "busy" ? "errBusy" : "errNet");
 
 /* read-modify-write of the source file, retried once if someone else changed it meanwhile */
-async function editSource(change, message) {
+async function editFile(path, change, message) {
   for (let attempt = 0; attempt < 2; attempt++) {
-    const f = await gh("GET", SOURCE_PATH);
-    const next = change(b64ToUtf8(f.content));
-    try { return await gh("PUT", SOURCE_PATH, { message, content: utf8ToB64(next), sha: f.sha, branch: BRANCH }); }
+    const f = await gh("GET", path);           // null if the file doesn't exist yet
+    const next = change(f ? b64ToUtf8(f.content) : "");
+    try { return await gh("PUT", path, { message, content: utf8ToB64(next), sha: f ? f.sha : undefined, branch: BRANCH }); }
     catch (e) { if (e.message !== "busy" || attempt) throw e; }
   }
+}
+const editSource = (change, message) => editFile(SOURCE_PATH, change, message);
+/* a JSON file from the repo (fresh); files over 1 MB come back without content, then read the site's copy */
+async function readJson(path) {
+  const f = await gh("GET", path);
+  if (!f) return null;
+  let txt = f.content ? b64ToUtf8(f.content) : "";
+  if (!txt.trim() && f.size) txt = await (await fetch(path + "?t=" + Date.now(), { cache: "no-store" })).text();
+  try { return txt.trim() ? JSON.parse(txt) : null; } catch (e) { return null; }
+}
+/* same id the translator gives a block: first 10 hex of sha1(JSON of the parsed block) */
+async function blockId(block) {
+  const h = await crypto.subtle.digest("SHA-1", new TextEncoder().encode(JSON.stringify(jsyaml.load(block))));
+  return [...new Uint8Array(h)].map((x) => x.toString(16).padStart(2, "0")).join("").slice(0, 10);
 }
 
 /* ===== announcement blocks ===== */
 const splitBlocks = (md) => md.replace(/\r/g, "").split(/^---$/m).map((s) => s.trim()).filter(Boolean);
 const joinBlocks = (blocks) => "---\n" + blocks.join("\n---\n") + "\n";
-function makeBlock({ author, lang, title, body }) {
+function makeBlock({ author, lang, title, body, created }) {
   const content = body.replace(/\r/g, "").replace(/\t/g, "  ").replace(/^\s*\n/, "").trimEnd();
   const lines = content.split("\n").map((l) => (l.trim() ? "  " + l : ""));
   return [
     `author: ${JSON.stringify(author.trim())}`,
+    ...(created ? [`created: ${JSON.stringify(created)}`] : []),   // an edited announcement keeps its first date
     `lang: ${lang}`,
     `title: ${JSON.stringify(title.trim())}`,
     `images: []`,
@@ -328,15 +412,16 @@ function fullBody() {
 }
 
 /* preview: same look as the site (game terms, bold, guide buttons) */
-function term(id) { const m = GLOSSARY[id]; return m ? (m[$("srcLang").value] || m.en || id) : null; }
-function renderPreview() {
-  const html = esc(fullBody())
-    .replace(/\{(\w+)\}/g, (m, id) => (term(id) ? esc(term(id)) : m))
-    .replace(/\[\[link:([\w-]+)\]\]/g, (m, id) => GUIDES[id] ? `<span class="chip">${GUIDES[id].emoji} ${esc(GUIDES[id].name[$("srcLang").value] || GUIDES[id].name.en)} ›</span>` : "")
+function term(id, lang) { const m = GLOSSARY[id]; return m ? (m[lang] || m.en || id) : null; }
+function markup(title, body, lang) {
+  const html = esc(body)
+    .replace(/\{(\w+)\}/g, (m, id) => (term(id, lang) ? esc(term(id, lang)) : m))
+    .replace(/\[\[link:([\w-]+)\]\]/g, (m, id) => GUIDES[id] ? `<span class="chip">${GUIDES[id].emoji} ${esc(GUIDES[id].name[lang] || GUIDES[id].name.en)} ›</span>` : "")
     .replace(/\[\[img:([\w./-]+)\]\]/g, (m, src) => `<img src="${pendingImgs[src] ? pendingImgs[src].url : esc(src)}" alt="">`)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-  $("preview").innerHTML = (`<b>${esc($("annTitle").value)}</b>\n` + html).trim() || "…";
+  return (`<b>${esc(title)}</b>\n` + html).trim() || "…";
 }
+function renderPreview() { $("preview").innerHTML = markup($("annTitle").value, fullBody(), $("srcLang").value); }
 
 /* ===== pictures: shrunk on the phone, given a safe automatic file name, uploaded when publishing ===== */
 let pendingImgs = {};   // path -> { blob, url }
@@ -390,21 +475,28 @@ async function takeCarriedImage() {
 }
 
 /* ===== list ===== */
+let shownBlocks = [], shownIds = [], pubById = {}, fixes = {};
+const langLabel = (code) => (LANGS.find((l) => l.code === code) || { label: code }).label;
 async function loadList() {
   $("list").innerHTML = `<p class="muted">…</p>`;
   try {
-    const f = await gh("GET", SOURCE_PATH);
+    const [f, pub, fx] = await Promise.all([gh("GET", SOURCE_PATH), readJson(PUB_PATH), readJson(FIX_PATH)]);
     const blocks = splitBlocks(b64ToUtf8(f.content));
     shownBlocks = blocks;
-    const rows = blocks.map((b, i) => { let d = {}; try { d = jsyaml.load(b) || {}; } catch (e) {} return { i, d }; }).reverse();
-    $("list").innerHTML = rows.length ? rows.map(({ i, d }) => `
+    shownIds = await Promise.all(blocks.map((b) => blockId(b).catch(() => "")));
+    pubById = {}; (Array.isArray(pub) ? pub : []).forEach((a) => { pubById[a.id] = a; });
+    fixes = fx && typeof fx === "object" ? fx : {};
+    const rows = blocks.map((b, i) => { let d = {}; try { d = jsyaml.load(b) || {}; } catch (e) {} return { i, d, id: shownIds[i] }; }).reverse();
+    $("list").innerHTML = rows.length ? rows.map(({ i, d, id }) => `
       <div class="ann"><div><b dir="auto">${esc(d.title || "—")}</b>
-        <span class="muted">${esc(d.author || "")}${(d.images || []).length ? " · 🖼️ " + esc(tr("img")) : ""}</span></div>
-        <button class="btn danger" data-del="${i}">${esc(tr("del"))}</button></div>`).join("")
+        <span class="muted">${esc(d.author || "")}${(d.images || []).length ? " · 🖼️ " + esc(tr("img")) : ""}${pubById[id] ? "" : " · ⏳ " + esc(tr("translating"))}</span>
+        ${Object.keys(fixes[id] || {}).map((l) => `<span class="badge" title="${esc(tr("fixedTip"))}">✏️ ${esc(langLabel(l))}</span>`).join("")}</div>
+        <div class="acts"><button class="btn" data-edit="${i}">${esc(tr("edit"))}</button>
+        <button class="btn danger" data-del="${i}">${esc(tr("del"))}</button></div></div>`).join("")
       : `<p class="muted">${esc(tr("empty"))}</p>`;
+    if (!$("editCard").hidden && cur) fillEditLang();
   } catch (e) { $("list").innerHTML = ""; showMsg("listMsg", "err", errText(e)); }
 }
-let shownBlocks = [];
 async function deleteBlock(i) {
   const target = shownBlocks[i];
   if (!(await askYesNo(tr("confirmDel")))) return;
@@ -420,6 +512,106 @@ async function deleteBlock(i) {
   } catch (e) { showMsg("listMsg", "err", errText(e)); }
 }
 
+/* ===== edit ===== */
+let cur = null;        // the announcement open in the Edit card: { i, id, block, d }
+let editing = null;    // whole-announcement edit in the Write form: { block, created, title }
+function fillEditLang() {
+  const keep = $("editLang").value || store.fixLang || "all";
+  $("editLang").innerHTML = `<option value="all">${esc(tr("editAll"))}</option>` +
+    LANGS.map((l) => `<option value="${l.code}">${esc(l.label)}${fixes[cur.id] && fixes[cur.id][l.code] ? " ✏️" : ""}</option>`).join("");
+  $("editLang").value = keep;
+}
+function openEdit(i) {
+  const block = shownBlocks[i]; let d = {}; try { d = jsyaml.load(block) || {}; } catch (e) {}
+  cur = { i, id: shownIds[i], block, d };
+  $("editWhich").textContent = d.title || "—";
+  $("fixBy").value = store.author || "";
+  $("editMsg").className = "msg";
+  fillEditLang(); showEditLang();
+  $("editCard").hidden = false; $("editCard").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+function showEditLang() {
+  const lang = $("editLang").value, all = lang === "all";
+  $("editAllBox").hidden = !all; $("editOneBox").hidden = all; $("editMsg").className = "msg";
+  if (all) return;
+  const a = pubById[cur.id];
+  if (!a || !a.title) { $("editOneBox").hidden = true; showMsg("editMsg", "info", tr("notYet")); return; }
+  const fx = fixes[cur.id] && fixes[cur.id][lang];
+  $("fixTitle").value = (fx && fx.title) ?? (a.title[lang] || "");
+  $("fixBody").value = (fx && fx.content) ?? ((a.content || {})[lang] || "");
+  $("fixUndo").hidden = !fx;
+  $("fixTitle").dir = $("fixBody").dir = lang === "ar" ? "rtl" : "auto";
+  renderFixPreview();
+}
+function renderFixPreview() { $("fixPreview").innerHTML = markup($("fixTitle").value, $("fixBody").value, $("editLang").value); }
+/* change one language's entry in the fixes file (value null = remove it); also drops fixes of announcements that no longer exist */
+async function writeFix(id, lang, value, message) {
+  const live = new Set(shownIds);
+  await editFile(FIX_PATH, (txt) => {
+    let o = {}; try { o = txt.trim() ? JSON.parse(txt) : {}; } catch (e) { o = {}; }
+    for (const k of Object.keys(o)) if (!live.has(k) && k !== id) delete o[k];
+    o[id] = o[id] || {};
+    if (value) o[id][lang] = value; else delete o[id][lang];
+    if (!Object.keys(o[id]).length) delete o[id];
+    return JSON.stringify(o, null, 1) + "\n";
+  }, message);
+}
+/* check the announcement is still the same in the source before changing it */
+async function stillThere(block) {
+  const f = await gh("GET", SOURCE_PATH);
+  return splitBlocks(b64ToUtf8(f.content)).includes(block);
+}
+$("editLang").onchange = () => { if ($("editLang").value !== "all") { store.fixLang = $("editLang").value; save(); } showEditLang(); };
+$("editClose").onclick = () => { $("editCard").hidden = true; cur = null; };
+["fixTitle", "fixBody"].forEach((id) => $(id).addEventListener("input", renderFixPreview));
+$("fixSave").onclick = async () => {
+  const lang = $("editLang").value, by = $("fixBy").value.trim(), title = $("fixTitle").value.trim(), content = $("fixBody").value.replace(/\r/g, "").trimEnd();
+  if (!by || !title || !content.trim()) { showMsg("editMsg", "err", tr("needFix")); return; }
+  if (!(await askYesNo(tr("confirmFix")))) return;
+  store.author = store.author || by; save();
+  const btn = $("fixSave"); btn.disabled = true; showMsg("editMsg", "info", tr("savingFix"));
+  try {
+    if (!(await stillThere(cur.block))) { showMsg("editMsg", "err", tr("gone")); btn.disabled = false; return; }
+    await writeFix(cur.id, lang, { title, content, by, at: new Date().toISOString() }, `Fix ${lang} of announcement: ${cur.d.title || ""}`.slice(0, 120));
+    showMsg("editMsg", "ok", tr("fixOk"));
+    fixes[cur.id] = fixes[cur.id] || {}; fixes[cur.id][lang] = { title, content, by };
+    $("fixUndo").hidden = false; loadList();
+  } catch (e) { showMsg("editMsg", "err", errText(e)); }
+  btn.disabled = false;
+};
+$("fixUndo").onclick = async () => {
+  const lang = $("editLang").value;
+  if (!(await askYesNo(tr("confirmUnfix")))) return;
+  showMsg("editMsg", "info", tr("savingFix"));
+  try {
+    await writeFix(cur.id, lang, null, `Undo ${lang} fix of announcement: ${cur.d.title || ""}`.slice(0, 120));
+    if (fixes[cur.id]) delete fixes[cur.id][lang];
+    showEditLang(); showMsg("editMsg", "ok", tr("unfixOk")); loadList();
+  } catch (e) { showMsg("editMsg", "err", errText(e)); }
+};
+/* whole announcement: put the original back into the Write form */
+$("editAllGo").onclick = () => {
+  const d = cur.d; let body = String(d.content || "").replace(/\s+$/, ""), g = "";
+  const m = body.match(/\n*\[\[link:([\w-]+)\]\]$/);
+  if (m && GUIDES[m[1]]) { g = m[1]; body = body.slice(0, m.index); }
+  editing = { block: cur.block, created: d.created || (pubById[cur.id] && pubById[cur.id].createdAt) || "", title: d.title || "", author: d.author || "" };
+  $("author").value = d.author || ""; $("srcLang").value = d.lang || "en";
+  $("annTitle").value = d.title || ""; $("body").value = body; $("guide").value = g;
+  $("editCard").hidden = true; cur = null;
+  showEditing(); renderPreview();
+  $("annTitle").scrollIntoView({ behavior: "smooth", block: "center" });
+};
+function showEditing() {
+  $("editBanner").hidden = !editing;
+  if (editing) $("editBannerTitle").textContent = editing.title;
+  $("publishBtn").textContent = tr(editing ? "saveEdit" : "publish");
+}
+$("cancelEdit").onclick = () => {
+  editing = null; $("annTitle").value = ""; $("body").value = ""; $("guide").value = "";
+  $("author").value = store.author || ""; $("srcLang").value = store.lang || "en";
+  showEditing(); renderPreview();
+};
+
 /* ===== screens ===== */
 let keyBlob = null;
 function applyTexts() {
@@ -434,6 +626,8 @@ function applyTexts() {
   $("guide").innerHTML = `<option value="">${esc(tr("noGuide"))}</option>` + Object.keys(GUIDES).filter((k) => !GUIDES[k].hidden)
     .map((k) => `<option value="${k}">${GUIDES[k].emoji} ${esc(GUIDES[k].name[ui] || GUIDES[k].name.en)}</option>`).join("");
   $("guide").value = g;
+  if (typeof showEditing === "function") showEditing();
+  if (cur) fillEditLang();
 }
 function showApp() { $("lockCard").hidden = true; $("setupCard").hidden = true; $("app").hidden = false; renderPreview(); loadList(); takeCarriedImage(); }
 
@@ -463,16 +657,19 @@ $("langBtn").onclick = () => { ui = ui === "zh" ? "en" : "zh"; store.ui = ui; sa
 $("unlockBtn").onclick = () => tryUnlock($("pw").value);
 $("pw").onkeydown = (e) => { if (e.key === "Enter") tryUnlock($("pw").value); };
 ["annTitle", "body", "guide", "srcLang"].forEach((id) => $(id).addEventListener("input", renderPreview));
-$("srcLang").onchange = () => { store.lang = $("srcLang").value; save(); renderPreview(); };
-$("author").onchange = () => { store.author = $("author").value.trim(); save(); };
+$("srcLang").onchange = () => { if (!editing) { store.lang = $("srcLang").value; save(); } renderPreview(); };
+$("author").onchange = () => { if (!editing) { store.author = $("author").value.trim(); save(); } };
 $("reloadBtn").onclick = loadList;
-$("list").onclick = (e) => { const b = e.target.closest("[data-del]"); if (b) deleteBlock(Number(b.dataset.del)); };
+$("list").onclick = (e) => {
+  const b = e.target.closest("[data-del]"); if (b) return deleteBlock(Number(b.dataset.del));
+  const ed = e.target.closest("[data-edit]"); if (ed) openEdit(Number(ed.dataset.edit));
+};
 
 $("publishBtn").onclick = async () => {
   const author = $("author").value.trim(), title = $("annTitle").value.trim(), body = $("body").value.trim();
   if (!author || !title || !body) { showMsg("pubMsg", "err", tr("needAll")); return; }
-  if (!(await askYesNo(tr("confirmPub")))) return;
-  store.author = author; save();
+  if (!(await askYesNo(tr(editing ? "confirmEdit" : "confirmPub")))) return;
+  if (!editing) { store.author = author; save(); }
   const btn = $("publishBtn"); btn.disabled = true; showMsg("pubMsg", "info", tr("publishing"));
   try {
     // 1) upload the pictures that are still in the message
@@ -485,14 +682,26 @@ $("publishBtn").onclick = async () => {
       }
     }
     // 2) add the announcement
-    const block = makeBlock({ author, lang: $("srcLang").value, title, body: fullBody() });
+    const block = makeBlock({ author, lang: $("srcLang").value, title, body: fullBody(), created: editing ? editing.created : "" });
     jsyaml.load(block); // safety check: must be valid before it reaches the site
-    await editSource((md) => md.replace(/\r/g, "").trimEnd().replace(/\n?---$/, "") + "\n---\n" + block + "\n", `New announcement: ${title}`.slice(0, 120));
-    showMsg("pubMsg", "ok", tr("pubOk"));
+    if (editing) {
+      // replace the old block in place, so it keeps its spot in the list
+      const old = editing.block;
+      await editSource((md) => {
+        const b = splitBlocks(md); const at = b.indexOf(old);
+        if (at < 0) throw new Error("gone");
+        b[at] = block; return joinBlocks(b);
+      }, `Edit announcement: ${title}`.slice(0, 120));
+      editing = null; $("author").value = store.author || ""; $("srcLang").value = store.lang || "en"; showEditing();
+      showMsg("pubMsg", "ok", tr("editOk"));
+    } else {
+      await editSource((md) => md.replace(/\r/g, "").trimEnd().replace(/\n?---$/, "") + "\n---\n" + block + "\n", `New announcement: ${title}`.slice(0, 120));
+      showMsg("pubMsg", "ok", tr("pubOk"));
+    }
     $("annTitle").value = ""; $("body").value = ""; $("guide").value = "";
     Object.values(pendingImgs).forEach((x) => URL.revokeObjectURL(x.url)); pendingImgs = {};
     renderPreview(); loadList();
-  } catch (e) { showMsg("pubMsg", "err", e.message === "net" || e.message === "auth" || e.message === "busy" ? errText(e) : String(e.message || e)); }
+  } catch (e) { showMsg("pubMsg", "err", e.message === "gone" ? tr("gone") : e.message === "net" || e.message === "auth" || e.message === "busy" ? errText(e) : String(e.message || e)); }
   btn.disabled = false;
 };
 
