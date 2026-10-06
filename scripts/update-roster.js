@@ -91,6 +91,7 @@ function findRows(o, depth = 0) {
     if (ok && p.body.age_seconds != null) ages.push(p.body.age_seconds);
     return {
       id: m.governor_id,
+      uid: (ok && p.body.uid) || m.uid || null,   // MightPulse's own player number (used in its website links)
       name: pl.nick_name || m.nick_name,
       power: pl.power ?? m.power ?? null,
       tc: pl.town_center_level ?? m.town_center_level ?? null,
