@@ -160,7 +160,7 @@ const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } ca
 let lang = store.lang || "en";
 let newDays = store.newDays || 14;
 let rivals = store.rivals ?? "RED, ESA, NBD";
-let farms = store.farms ?? "";
+let farms = store.farms ?? "nxs";
 const tagList = (s) => String(s).split(/[,\s]+/).map((x) => x.trim()).filter(Boolean);
 const tagOf = (t) => t.replace(/ \(#\d+\)$/, "");
 let sortKey = "flags", sortDir = -1;
@@ -268,7 +268,7 @@ function render() {
   $("count").textContent = `${list.length} / ${rows.length}`;
   const ch = (v) => v == null ? "" : `<span class="${v > 0 ? "up" : v < 0 ? "down" : ""}">${v > 0 ? "+" : ""}${big(v)}</span>`;
   $("rows").innerHTML = list.length ? list.map((r) => `<tr>
-    <td><div class="name" dir="auto">${esc(r.name)}</div><div class="id">ID ${esc(r.id)} · <a href="https://mightpulse.com/player/${encodeURIComponent(r.id)}" target="_blank" rel="noopener">Record ↗</a></div></td>
+    <td><div class="name" dir="auto">${esc(r.name)}</div><div class="id">ID ${esc(r.id)}${r.m.uid ? ` · <a href="https://mightpulse.com/player/${encodeURIComponent(r.m.uid)}" target="_blank" rel="noopener">Record ↗</a>` : ""}</div></td>
     <td>${esc(r.rank)}</td>
     <td class="wrapc">${r.flags.map((f) => `<span class="flag${f.hi ? " hi" : ""}">${esc(f.t)}</span>`).join("")}</td>
     <td>${esc(r.since)}</td>
@@ -303,7 +303,7 @@ function table() {
   const head = ["Name", "Governor ID", "Rank", "Flags", "In NXS since", "Seen in other alliances", "Alliances seen", "Earlier names", "Similar names elsewhere",
     "Power", "Power change (7d)", "Kills", "Kills change (7d)", "TC", "Kingdom", "Language", "Last login", "MightPulse record", "Clear", "Why / comments"];
   const body = sorted().map((r) => [r.name, r.id, r.rank, r.flags.map((f) => f.t).join("; "), r.since, r.from, r.hops || "", r.names, r.similar,
-    r.power ?? "", r.pD ?? "", r.kills ?? "", r.kD ?? "", r.tc ?? "", r.kid ?? "", r.lang ?? "", r.login, `https://mightpulse.com/player/${r.id}`, "", ""]);
+    r.power ?? "", r.pD ?? "", r.kills ?? "", r.kD ?? "", r.tc ?? "", r.kid ?? "", r.lang ?? "", r.login, r.m.uid ? `https://mightpulse.com/player/${r.m.uid}` : "", "", ""]);
   return [head, ...body];
 }
 $("copyBtn").onclick = async () => {
