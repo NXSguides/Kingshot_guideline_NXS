@@ -6,6 +6,8 @@ const crypto = require("crypto");
 const SOURCE = path.join(__dirname, "../data/announcements-source.md");
 const OUTPUT = path.join(__dirname, "../data/announcements.json");
 const CACHE = path.join(__dirname, "../data/announcements-cache.json");
+// One-language fixes made by hand on the Post page: { id: { lang: { title, content, by, at } } }
+const FIXES = path.join(__dirname, "../data/announcements-fixes.json");
 const TERMS_PATH = path.join(__dirname, "../data/terms.js");
 const TERM_LANGS = ["en", "zh", "ko", "de", "fr", "pt", "tr", "id", "ru", "th", "ar", "es"];
 
@@ -137,7 +139,7 @@ for (const entry of rawEntries) {
   }
   cache[entry.id] = {
     author: entry.author,
-    createdAt: new Date().toISOString(),
+    createdAt: entry.created || new Date().toISOString(),   // an edited announcement keeps its first date
     images: entry.images || [],
     links: entry.links || [],
     title: titleMap,
@@ -152,7 +154,24 @@ for (const entry of rawEntries) {
   }
 
   // 輸出結果永遠依照來源檔案「目前實際存在」的內容重建，新的在最前面
-  const published = rawEntries.slice().reverse().map(e => ({ id: e.id, ...cache[e.id] }));
+  // 手動修正過的單一語言蓋在自動翻譯上面（快取裡仍保留自動翻譯，取消修正就會回來）
+  let fixes = {};
+  try { if (fs.existsSync(FIXES)) fixes = JSON.parse(fs.readFileSync(FIXES, "utf8") || "{}"); }
+  catch (e) { console.warn("announcements-fixes.json 格式有誤，先略過手動修正"); }
+  const published = rawEntries.slice().reverse().map(e => {
+    const item = { id: e.id, ...cache[e.id] };
+    const f = fixes[e.id];
+    if (f && item.title && item.content) {
+      item.title = { ...item.title }; item.content = { ...item.content }; item.fixed = {};
+      for (const [lang, v] of Object.entries(f)) {
+        if (!v) continue;
+        if (typeof v.title === "string") item.title[lang] = v.title;
+        if (typeof v.content === "string") item.content[lang] = v.content;
+        item.fixed[lang] = v.by || "";
+      }
+    }
+    return item;
+  });
 
   fs.writeFileSync(OUTPUT, JSON.stringify(published, null, 2));
   fs.writeFileSync(CACHE, JSON.stringify(cache, null, 2));
