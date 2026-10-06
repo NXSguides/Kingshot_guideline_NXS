@@ -87,6 +87,10 @@
         <label class="row" style="font-size:14px"><input type="checkbox" id="onlyFlag"> <span data-t="onlyFlag"></span></label>
         <label class="row" style="font-size:14px"><span data-t="newDays"></span> <input type="number" id="newDays" min="1" max="90"></label>
       </div>
+      <div class="row" style="margin-top:8px">
+        <label class="row" style="font-size:14px;flex:1;min-width:220px"><span data-t="rivalsL"></span> <input type="search" id="rivals" style="flex:1"></label>
+        <label class="row" style="font-size:14px;flex:1;min-width:220px"><span data-t="farmsL"></span> <input type="search" id="farms" style="flex:1"></label>
+      </div>
       <div class="tbl-wrap">
         <table>
           <thead><tr id="head"></tr></thead>
@@ -114,6 +118,7 @@ const T = {
     title: "NXS Watch", home: "Home",
     export: "Export for the Google Sheet", copy: "📋 Copy for Google Sheets", csv: "⬇️ Download CSV", copied: "Copied! Paste into cell A1 of the sheet.",
     exportNote: "Copies every member shown below, plus empty “Clear” and “Why / comments” columns for you to fill in the sheet.",
+    rivalsL: "Watched alliances:", farmsL: "Our farm / sister alliances:", colHops: "Alliances seen", fRival: "Was in {t}", fHops: "Seen in {n} alliances", fRivalName: "Same name in {t}",
     members: "Members", onlyFlag: "Only show members with flags", newDays: "“New” = joined within (days)",
     search: "Search a name or ID…",
     colName: "Name", colRank: "Rank", colPower: "Power", colPowerD: "Power change", colKills: "Kills", colKillsD: "Kills change", colTc: "TC",
@@ -132,6 +137,7 @@ const T = {
     title: "NXS 觀察名單", home: "回主頁",
     export: "匯出到 Google 試算表", copy: "📋 複製到 Google 試算表", csv: "⬇️ 下載 CSV", copied: "已複製！貼到試算表的 A1 格。",
     exportNote: "會複製下面顯示的所有成員，最後多兩欄空白的「Clear」和「Why / comments」，讓你們在試算表裡填寫。",
+    rivalsL: "重點觀察聯盟：", farmsL: "我們的農場／分盟：", colHops: "待過幾個聯盟", fRival: "待過 {t}", fHops: "出現在 {n} 個聯盟", fRivalName: "{t} 有同名帳號",
     members: "成員", onlyFlag: "只顯示有標記的人", newDays: "「新成員」＝幾天內加入",
     search: "搜尋名字或 ID…",
     colName: "名字", colRank: "階級", colPower: "戰力", colPowerD: "戰力變化", colKills: "擊殺", colKillsD: "擊殺變化", colTc: "主城",
@@ -153,6 +159,10 @@ const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; 
 const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
 let lang = store.lang || "en";
 let newDays = store.newDays || 14;
+let rivals = store.rivals ?? "RED, ESA, NBD";
+let farms = store.farms ?? "";
+const tagList = (s) => String(s).split(/[,\s]+/).map((x) => x.trim()).filter(Boolean);
+const tagOf = (t) => t.replace(/ \(#\d+\)$/, "");
 let sortKey = "flags", sortDir = -1;
 let roster = null, watch = null, rows = [];
 
@@ -160,7 +170,7 @@ const $ = (id) => document.getElementById(id);
 const tr = (k, v = {}) => String((T[lang] && T[lang][k]) ?? T.en[k] ?? k).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const big = (n) => n == null ? "" : Math.abs(n) >= 1e9 ? (n / 1e9).toFixed(2) + "B" : Math.abs(n) >= 1e6 ? (n / 1e6).toFixed(1) + "M" : Math.abs(n) >= 1e3 ? (n / 1e3).toFixed(1) + "K" : String(n);
-const core = (s) => String(s || "").normalize("NFKC").toLowerCase().replace(/nexus/g, "").replace(/[^\p{L}\p{N}]/gu, "");
+const core = (s) => String(s || "").normalize("NFKC").toLowerCase().replace(/nexus/g, "").replace(/[亗卍〆『』「」【】〖〗★☆♛♚♕✿❀•·]/g, "").replace(/[^\p{L}\p{N}]/gu, "");
 const toDate = (v) => { if (v == null || v === "") return ""; const ms = typeof v === "number" ? (v < 1e12 ? v * 1000 : v) : Date.parse(v); return isNaN(ms) ? "" : new Date(ms).toISOString().slice(0, 10); };
 const daysBetween = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 86400000);
 
@@ -189,7 +199,7 @@ function build() {
     const c = core(name); if (c.length < 3) return [];
     const out = [];
     for (const [k, list] of byCore) {
-      const hit = k === c || (c.length >= 4 && k.length >= 4 && (k.includes(c) || c.includes(k)));
+      const hit = k === c && c.length >= 4;   // same name once decorations are removed
       if (hit) list.forEach((x) => { if (String(x.id) !== String(id)) out.push(x); });
     }
     return out.slice(0, 5);
@@ -209,16 +219,22 @@ function build() {
     const flags = [];
     if (newFor != null && newFor <= newDays) flags.push({ t: tr("fNew", { n: newFor }), hi: true });
     if (m.kid && m.kid !== KID) flags.push({ t: tr("fKid", { k: m.kid }), hi: true });
-    elsewhere.slice(0, 2).forEach((e) => flags.push({ t: tr("fFrom", { t: e.tag }) }));
+    const R = new Set(tagList(rivals)), F = new Set(tagList(farms));
+    const rivalSeen = elsewhere.filter((e) => R.has(tagOf(e.tag)));
+    if (rivalSeen.length) flags.push({ t: tr("fRival", { t: rivalSeen.map((e) => tagOf(e.tag)).join(", ") }), hi: true });
+    elsewhere.filter((e) => !R.has(tagOf(e.tag)) && !F.has(tagOf(e.tag))).slice(0, 2).forEach((e) => flags.push({ t: tr("fFrom", { t: e.tag }) }));
+    const hops = new Set(elsewhere.map((e) => tagOf(e.tag)).filter((t) => !F.has(t))).size;
+    if (hops >= 3) flags.push({ t: tr("fHops", { n: hops }), hi: true });
     if (names.length) flags.push({ t: tr("fRenamed") });
-    if (sim.length) flags.push({ t: tr("fSimilar", { t: [...new Set(sim.map((s) => s.tag))].join(", ") }), hi: true });
+    const simRival = [...new Set(sim.map((s) => tagOf(s.tag)).filter((t) => R.has(t)))];
+    if (simRival.length) flags.push({ t: tr("fRivalName", { t: simRival.join(", ") }), hi: true });
     if (pD != null && m.power && pD < -0.05 * m.power) flags.push({ t: tr("fDrop") });
     return {
       m, h, id: m.id, name: m.name, rank: m.rank, power: m.power, pD, kills: m.kills, kD, tc: m.tc,
-      kid: m.kid, lang: m.lang, since, sinceSort: h.before ? "0" : (h.firstSeen || ""),
+      kid: m.kid, lang: m.lang, since, hops, sinceSort: h.before ? "0" : (h.firstSeen || ""),
       from: elsewhere.map((e) => `${e.tag} (${e.last})`).join("; "),
       names: names.join("; "),
-      similar: sim.map((s) => `${s.nm} — ${s.tag}, ID ${s.id}`).join("; "),
+      similar: sim.filter((s) => !F.has(tagOf(s.tag))).map((s) => `${s.nm} — ${s.tag}, ID ${s.id}`).join("; "),
       login: toDate(m.lastLogin),
       flags,
     };
@@ -226,7 +242,7 @@ function build() {
 }
 
 const COLS = [
-  ["name", "colName"], ["rank", "colRank"], ["flags", "colFlags"], ["since", "colSince"], ["from", "colFrom"],
+  ["name", "colName"], ["rank", "colRank"], ["flags", "colFlags"], ["since", "colSince"], ["from", "colFrom"], ["hops", "colHops", 1],
   ["names", "colNames"], ["similar", "colSimilar"], ["power", "colPower", 1], ["pD", "colPowerD", 1],
   ["kills", "colKills", 1], ["kD", "colKillsD", 1], ["tc", "colTc", 1], ["kid", "colKid", 1], ["lang", "colLang"], ["login", "colLogin"],
 ];
@@ -257,6 +273,7 @@ function render() {
     <td class="wrapc">${r.flags.map((f) => `<span class="flag${f.hi ? " hi" : ""}">${esc(f.t)}</span>`).join("")}</td>
     <td>${esc(r.since)}</td>
     <td class="wrapc">${esc(r.from)}</td>
+    <td class="num">${r.hops || ""}</td>
     <td class="wrapc" dir="auto">${esc(r.names)}</td>
     <td class="wrapc" dir="auto">${esc(r.similar)}</td>
     <td class="num">${big(r.power)}</td><td class="num">${ch(r.pD)}</td>
@@ -283,9 +300,9 @@ function applyTexts() {
 }
 
 function table() {
-  const head = ["Name", "Governor ID", "Rank", "Flags", "In NXS since", "Seen in other alliances", "Earlier names", "Similar names elsewhere",
+  const head = ["Name", "Governor ID", "Rank", "Flags", "In NXS since", "Seen in other alliances", "Alliances seen", "Earlier names", "Similar names elsewhere",
     "Power", "Power change (7d)", "Kills", "Kills change (7d)", "TC", "Kingdom", "Language", "Last login", "Clear", "Why / comments"];
-  const body = sorted().map((r) => [r.name, r.id, r.rank, r.flags.map((f) => f.t).join("; "), r.since, r.from, r.names, r.similar,
+  const body = sorted().map((r) => [r.name, r.id, r.rank, r.flags.map((f) => f.t).join("; "), r.since, r.from, r.hops || "", r.names, r.similar,
     r.power ?? "", r.pD ?? "", r.kills ?? "", r.kD ?? "", r.tc ?? "", r.kid ?? "", r.lang ?? "", r.login, "", ""]);
   return [head, ...body];
 }
@@ -306,6 +323,9 @@ $("langBtn").onclick = () => { lang = lang === "zh" ? "en" : "zh"; store.lang = 
 $("q").oninput = () => render();
 $("onlyFlag").onchange = () => render();
 $("newDays").value = newDays;
+$("rivals").value = rivals; $("farms").value = farms;
+$("rivals").onchange = () => { rivals = $("rivals").value; store.rivals = rivals; save(); build(); render(); };
+$("farms").onchange = () => { farms = $("farms").value; store.farms = farms; save(); build(); render(); };
 $("newDays").onchange = () => { newDays = Math.max(1, Number($("newDays").value) || 14); store.newDays = newDays; save(); build(); render(); };
 
 async function init() {
