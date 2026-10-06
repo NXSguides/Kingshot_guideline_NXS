@@ -14,6 +14,8 @@
   .muted { color: var(--text-muted); font-size: 13px; }
   .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
   .btn { padding: 7px 12px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 14px; }
+  .btn.mini { padding: 2px 7px; font-size: 13px; }
+  .btn:disabled { opacity: .5; cursor: default; }
   a.btn { text-decoration: none; display: inline-block; }
   .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
   .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 14px; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
@@ -32,6 +34,7 @@
   .id { font-size: 12px; opacity: .65; font-variant-numeric: tabular-nums; user-select: all; }
   .flag { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 999px; margin: 1px 2px 1px 0; background: color-mix(in srgb, var(--accent) 22%, var(--panel)); border: 1px solid var(--accent); }
   .flag.hi { background: color-mix(in srgb, #e57373 25%, var(--panel)); border-color: #d77a72; }
+  .flag.ok { background: color-mix(in srgb, #66bb6a 25%, var(--panel)); border-color: #66bb6a; }
   .up { color: #2e7d32; } .down { color: #c62828; }
   .tabs { display: flex; gap: 6px; margin: 14px 0 0; border-bottom: 2px solid var(--rule); flex-wrap: wrap; }
   .tabs a { padding: 9px 14px; border-radius: 10px 10px 0 0; text-decoration: none; color: var(--text-muted); font-weight: 600; border: 1px solid transparent; border-bottom: 0; }
@@ -41,6 +44,12 @@
   .warn { color: var(--accent); }
   .empty { padding: 20px; text-align: center; color: var(--text-muted); }
   ul.notes { margin: 6px 0 0; padding-inline-start: 20px; font-size: 13px; color: var(--text-muted); }
+  .modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: grid; place-items: center; padding: 16px; z-index: 50; }
+  .modal .card { max-width: 420px; width: 100%; box-sizing: border-box; }
+  .modal label.f { display: block; font-weight: 600; margin: 12px 0 4px; }
+  .modal textarea, .modal input[type=text] { width: 100%; box-sizing: border-box; padding: 9px 11px; font-size: 15px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-family: inherit; }
+  .modal textarea { min-height: 90px; line-height: 1.5; }
+  .modal .seg label { display: flex; align-items: center; gap: 4px; padding: 6px 10px; border: 1px solid var(--rule); border-radius: 8px; cursor: pointer; font-size: 14px; }
 </style>
 </head>
 <body>
@@ -119,7 +128,7 @@ const T = {
   en: {
     title: "NXS Watch", home: "Home",
     export: "Export for the Google Sheet", copy: "📋 Copy for Google Sheets", csv: "⬇️ Download CSV", copied: "Copied! Paste into cell A1 of the sheet.",
-    exportNote: "Copies every member shown below, plus empty “Clear” and “Why / comments” columns for you to fill in the sheet.",
+    exportNote: "Copies every member shown below, including the officers’ “Clear” and “Why / comments” notes.",
     rivalsL: "Watched alliances:", farmsL: "Our farm / sister alliances:", colHops: "Alliances seen", fRival: "Was in {t}", fHops: "Seen in {n} alliances", fRivalName: "Same name in {t}",
     members: "Members", onlyFlag: "Only show members with flags", newDays: "“New” = joined within (days)",
     search: "Search a name or ID…",
@@ -135,11 +144,16 @@ const T = {
     n3: "Power / kills change = over the last {d} days of saved data.",
     n4: "Flags are only hints for where to look. They are not proof of anything.",
     n5: "Alliance and name history also includes the MightPulse Record pulled on {d}.",
+    n6: "Clear / Why are shared by all officers. Press ✏️ to edit.",
+    fCleared: "Cleared", fNotClear: "Not clear", csNone: "Not checked",
+    yourName: "Your name", saveBtn: "Save", cancel: "Cancel", saving: "Saving…",
+    errAuth: "The saved GitHub key no longer works (it may have expired). Redo the setup on the Post tab.",
+    errBusy: "Someone else just saved a note. Please try again.", errNet: "Couldn't reach GitHub. Check the internet and try again.",
   },
   zh: {
     title: "NXS 觀察名單", home: "回主頁",
     export: "匯出到 Google 試算表", copy: "📋 複製到 Google 試算表", csv: "⬇️ 下載 CSV", copied: "已複製！貼到試算表的 A1 格。",
-    exportNote: "會複製下面顯示的所有成員，最後多兩欄空白的「Clear」和「Why / comments」，讓你們在試算表裡填寫。",
+    exportNote: "會複製下面顯示的所有成員，包含幹部填的「Clear」和「Why / comments」。",
     rivalsL: "重點觀察聯盟：", farmsL: "我們的農場／分盟：", colHops: "待過幾個聯盟", fRival: "待過 {t}", fHops: "出現在 {n} 個聯盟", fRivalName: "{t} 有同名帳號",
     members: "成員", onlyFlag: "只顯示有標記的人", newDays: "「新成員」＝幾天內加入",
     search: "搜尋名字或 ID…",
@@ -155,6 +169,11 @@ const T = {
     n3: "戰力／擊殺變化＝已存資料中最近 {d} 天的變化。",
     n4: "標記只是提醒可以多看哪裡，不代表任何證據。",
     n5: "聯盟和改名紀錄也包含 {d} 從 MightPulse Record 抓下來的資料。",
+    n6: "Clear／Why 所有幹部共用，按 ✏️ 編輯。",
+    fCleared: "已確認", fNotClear: "有疑慮", csNone: "未確認",
+    yourName: "你的名字", saveBtn: "儲存", cancel: "取消", saving: "儲存中…",
+    errAuth: "存的 GitHub 權杖已經不能用了（可能過期）。請到 Post 分頁重新設定。",
+    errBusy: "剛好有人也在存備註，請再試一次。", errNet: "連不上 GitHub，請檢查網路後再試一次。",
   },
 };
 const KID = 2189, TAG = "NXS";
@@ -178,224 +197,74 @@ const core = (s) => String(s || "").normalize("NFKC").toLowerCase().replace(/nex
 const toDate = (v) => { if (v == null || v === "") return ""; const ms = typeof v === "number" ? (v < 1e12 ? v * 1000 : v) : Date.parse(v); return isNaN(ms) ? "" : new Date(ms).toISOString().slice(0, 10); };
 const daysBetween = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 86400000);
 
-function change(points, days) {
-  if (!points || points.length < 2) return null;
-  const last = points[points.length - 1];
-  const cut = new Date(Date.parse(last[0]) - days * 86400000).toISOString().slice(0, 10);
-  let base = points[0];
-  for (const p of points) { if (p[0] <= cut) base = p; }
-  return last[1] - base[1];
-}
-
-function build() {
-  const today = new Date().toISOString().slice(0, 10);
-  const started = watch.started;
-  // index of other alliances' members by simplified name
-  const byCore = new Map();
-  for (const a of Object.values(watch.others || {})) {
-    for (const [id, nm] of a.members) {
-      const c = core(nm); if (c.length < 3) continue;
-      if (!byCore.has(c)) byCore.set(c, []);
-      byCore.get(c).push({ id, nm, tag: `${a.tag} (#${a.kid})`, asOf: a.asOf });
-    }
-  }
-  const similar = (name, id) => {
-    const c = core(name); if (c.length < 3) return [];
-    const out = [];
-    for (const [k, list] of byCore) {
-      const hit = k === c && c.length >= 4;   // same name once decorations are removed
-      if (hit) list.forEach((x) => { if (String(x.id) !== String(id)) out.push(x); });
-    }
-    return out.slice(0, 5);
-  };
-
-  // alliance IDs that have ever been shown as NXS (covers renames such as VZP → NXS)
-  const ourAids = new Set();
-  for (const v of Object.values((records && records.members) || {})) for (const e of v.history || []) if (e.a === TAG && e.aid != null) ourAids.add(e.aid);
-  rows = roster.members.map((m) => {
-    const h = (watch.members || {})[m.id] || {};
-    const seen = { ...((watch.seen || {})[m.id] || {}) };
-    // MightPulse Record (one-time pull): full alliance and name history
-    // same alliance under an older tag (VZP was NXS's old name): match by alliance ID, shown as NXS
-    const rec = ((records && records.members && records.members[m.id] && records.members[m.id].history) || []).slice()
-      .sort((a, b) => String(a.d).localeCompare(String(b.d)))
-      .map((e) => (e.aid != null && ourAids.has(e.aid) ? { ...e, a: TAG } : e));
-    const recNames = [];
-    let joinedRec = null;
-    rec.forEach((e, i) => {
-      if (e.a && e.d) { const t = `${e.a} (#${e.kid || KID})`; const r = seen[t]; seen[t] = r ? [r[0] < e.d ? r[0] : e.d, r[1] > e.d ? r[1] : e.d] : [e.d, e.d]; }
-      if (e.name && !recNames.includes(e.name)) recNames.push(e.name);
-      const inUs = e.a === TAG, prevIn = i > 0 && rec[i - 1].a === TAG;
-      if (inUs && !prevIn) joinedRec = { d: e.d, first: i === 0 };
-    });
-    const elsewhere = Object.entries(seen).filter(([t]) => !t.startsWith(TAG + " (#" + KID + ")"))
-      .sort((a, b) => b[1][1].localeCompare(a[1][1])).map(([t, r]) => ({ tag: t, last: r[1] }));
-    const names = [...new Set([...(h.names || []).map((x) => x[1]), ...recNames])].filter((n) => n !== m.name);
-    const sim = similar(m.name, m.id);
-    // joinedBetween: only known to have joined somewhere in this date range (from older, gappy data)
-    const since = joinedRec ? (joinedRec.first ? tr("before", { d: joinedRec.d }) : joinedRec.d) : h.before ? tr("before", { d: started }) : h.joinedBetween ? tr("between", { a: h.joinedBetween[0], b: h.joinedBetween[1] }) : (h.firstSeen || "");
-    const newFor = joinedRec ? (joinedRec.first ? null : daysBetween(joinedRec.d, today)) : !h.before && h.firstSeen ? daysBetween(h.joinedBetween ? h.joinedBetween[0] : h.firstSeen, today) : null;
-    const pD = change(h.power, 7), kD = change(h.kills, 7);
-    const flags = [];
-    if (newFor != null && newFor <= newDays) flags.push({ t: tr("fNew", { n: newFor }), hi: true });
-    if (m.kid && m.kid !== KID) flags.push({ t: tr("fKid", { k: m.kid }), hi: true });
-    const R = new Set(tagList(rivals)), F = new Set(tagList(farms));
-    const rivalSeen = elsewhere.filter((e) => R.has(tagOf(e.tag)));
-    if (rivalSeen.length) flags.push({ t: tr("fRival", { t: rivalSeen.map((e) => tagOf(e.tag)).join(", ") }), hi: true });
-    elsewhere.filter((e) => !R.has(tagOf(e.tag)) && !F.has(tagOf(e.tag))).slice(0, 2).forEach((e) => flags.push({ t: tr("fFrom", { t: e.tag }) }));
-    const hops = new Set(elsewhere.map((e) => tagOf(e.tag)).filter((t) => !F.has(t))).size;
-    if (hops >= 3) flags.push({ t: tr("fHops", { n: hops }), hi: true });
-    if (names.length) flags.push({ t: tr("fRenamed") });
-    const simRival = [...new Set(sim.map((s) => tagOf(s.tag)).filter((t) => R.has(t)))];
-    if (simRival.length) flags.push({ t: tr("fRivalName", { t: simRival.join(", ") }), hi: true });
-    if (pD != null && m.power && pD < -0.05 * m.power) flags.push({ t: tr("fDrop") });
-    return {
-      m, h, id: m.id, name: m.name, rank: m.rank, power: m.power, pD, kills: m.kills, kD, tc: m.tc,
-      kid: m.kid, lang: m.lang, since, hops, sinceSort: h.before ? "0" : (h.firstSeen || ""),
-      from: elsewhere.map((e) => `${e.tag} (${e.last})`).join("; "),
-      names: names.join("; "),
-      similar: sim.filter((s) => !F.has(tagOf(s.tag))).map((s) => `${s.nm} — ${s.tag}, ID ${s.id}`).join("; "),
-      login: toDate(m.lastLogin) || (typeof m.lastLogin === "string" ? m.lastLogin.replace(/^Last active\s*/i, "") : ""),
-      flags,
-    };
-  });
-}
-
-const COLS = [
-  ["name", "colName"], ["rank", "colRank"], ["flags", "colFlags"], ["since", "colSince"], ["from", "colFrom"], ["hops", "colHops", 1],
-  ["names", "colNames"], ["similar", "colSimilar"], ["power", "colPower", 1], ["pD", "colPowerD", 1],
-  ["kills", "colKills", 1], ["kD", "colKillsD", 1], ["tc", "colTc", 1], ["kid", "colKid", 1], ["lang", "colLang"], ["login", "colLogin"],
-];
-
-function sorted() {
-  const q = core($("q").value);
-  let list = rows.filter((r) => !q || core(r.name).includes(q) || String(r.id).includes($("q").value.trim()));
-  if ($("onlyFlag").checked) list = list.filter((r) => r.flags.length);
-  const val = (r) => sortKey === "flags" ? r.flags.filter((f) => f.hi).length * 10 + r.flags.length : sortKey === "since" ? r.sinceSort : r[sortKey];
-  return list.sort((a, b) => {
-    const x = val(a), y = val(b);
-    if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1;
-    return (typeof x === "number" ? x - y : String(x).localeCompare(String(y))) * sortDir;
-  });
-}
-
-function render() {
-  $("head").innerHTML = COLS.map(([k, t, num]) => `<th class="${num ? "num" : ""}" data-k="${k}">${esc(tr(t))}${sortKey === k ? (sortDir > 0 ? " ▲" : " ▼") : ""}</th>`).join("");
-  $("head").querySelectorAll("th").forEach((th) => th.onclick = () => {
-    const k = th.dataset.k; if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = ["name", "rank", "lang", "since"].includes(k) ? 1 : -1; } render();
-  });
-  const list = sorted();
-  $("count").textContent = `${list.length} / ${rows.length}`;
-  const ch = (v) => v == null ? "" : `<span class="${v > 0 ? "up" : v < 0 ? "down" : ""}">${v > 0 ? "+" : ""}${big(v)}</span>`;
-  $("rows").innerHTML = list.length ? list.map((r) => `<tr>
-    <td><div class="name" dir="auto">${esc(r.name)}</div><div class="id">ID ${esc(r.id)}${r.m.uid ? ` · <a href="https://mightpulse.com/player/${encodeURIComponent(r.m.uid)}" target="_blank" rel="noopener">Record ↗</a>` : ""}</div></td>
-    <td>${esc(r.rank)}</td>
-    <td class="wrapc">${r.flags.map((f) => `<span class="flag${f.hi ? " hi" : ""}">${esc(f.t)}</span>`).join("")}</td>
-    <td>${esc(r.since)}</td>
-    <td class="wrapc">${esc(r.from)}</td>
-    <td class="num">${r.hops || ""}</td>
-    <td class="wrapc" dir="auto">${esc(r.names)}</td>
-    <td class="wrapc" dir="auto">${esc(r.similar)}</td>
-    <td class="num">${big(r.power)}</td><td class="num">${ch(r.pD)}</td>
-    <td class="num">${big(r.kills)}</td><td class="num">${ch(r.kD)}</td>
-    <td class="num">${esc(r.tc)}</td><td class="num">${esc(r.kid)}</td><td>${esc(r.lang)}</td><td>${esc(r.login)}</td>
-  </tr>`).join("") : `<tr><td colspan="${COLS.length}" class="empty">${esc(tr("empty"))}</td></tr>`;
-
-  const left = (watch.left || []).slice().reverse();
-  $("left").innerHTML = left.length ? left.map((l) => {
-    const seen = (watch.seen || {})[l.id] || {};
-    const after = Object.entries(seen).filter(([t, r]) => !t.startsWith(TAG + " (#") && r[1] >= l.leftOn).map(([t]) => t).join(", ");
-    return `<tr><td><div class="name" dir="auto">${esc(l.name)}</div><div class="id">ID ${esc(l.id)}</div></td><td>${esc(l.leftOn)}</td><td>${esc(after)}</td></tr>`;
-  }).join("") : `<tr><td colspan="3" class="empty">—</td></tr>`;
-
-  $("notes").innerHTML = [tr("n1", { s: watch.started }), tr("n2"), tr("n3", { d: 7 }), tr("n4"), ...(records ? [tr("n5", { d: String(records.pulledAt).slice(0, 10) })] : [])].map((x) => `<li>${esc(x)}</li>`).join("");
-}
-
-function applyTexts() {
-  document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
-  document.querySelectorAll("[data-t]").forEach((el) => { el.textContent = tr(el.dataset.t); });
-  $("q").placeholder = tr("search");
-  $("langBtn").textContent = lang === "zh" ? "English" : "中文";
-  if (watch) $("meta").textContent = tr("updated", { t: new Date(watch.updated || roster.updated).toLocaleString(lang === "zh" ? "zh-TW" : "en-GB"), s: watch.started });
-}
-
-function table() {
-  const head = ["Name", "Governor ID", "Rank", "Flags", "In NXS since", "Seen in other alliances", "Alliances seen", "Earlier names", "Similar names elsewhere",
-    "Power", "Power change (7d)", "Kills", "Kills change (7d)", "TC", "Kingdom", "Language", "Last login", "MightPulse record", "Clear", "Why / comments"];
-  const body = sorted().map((r) => [r.name, r.id, r.rank, r.flags.map((f) => f.t).join("; "), r.since, r.from, r.hops || "", r.names, r.similar,
-    r.power ?? "", r.pD ?? "", r.kills ?? "", r.kD ?? "", r.tc ?? "", r.kid ?? "", r.lang ?? "", r.login, r.m.uid ? `https://mightpulse.com/player/${r.m.uid}` : "", "", ""]);
-  return [head, ...body];
-}
-$("copyBtn").onclick = async () => {
-  const text = table().map((row) => row.map((c) => String(c).replace(/[\t\n\r]+/g, " ")).join("\t")).join("\n");
-  try { await navigator.clipboard.writeText(text); } catch (e) {
-    const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
-  }
-  const b = $("copyBtn"); b.textContent = tr("copied"); setTimeout(() => (b.textContent = tr("copy")), 2500);
-};
-$("csvBtn").onclick = () => {
-  const csv = table().map((row) => row.map((c) => { const s = String(c); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; }).join(",")).join("\r\n");
-  const blob = new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" });
-  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
-  a.download = `nxs-watch-${new Date().toISOString().slice(0, 10)}.csv`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-};
-$("langBtn").onclick = () => { lang = lang === "zh" ? "en" : "zh"; store.lang = lang; save(); applyTexts(); if (watch) { build(); render(); } };
-$("q").oninput = () => render();
-$("onlyFlag").onchange = () => render();
-$("newDays").value = newDays;
-$("rivals").value = rivals; $("farms").value = farms;
-$("rivals").onchange = () => { rivals = $("rivals").value; store.rivals = rivals; save(); build(); render(); };
-$("farms").onchange = () => { farms = $("farms").value; store.farms = farms; save(); build(); render(); };
-$("newDays").onchange = () => { newDays = Math.max(1, Number($("newDays").value) || 14); store.newDays = newDays; save(); build(); render(); };
-
-async function init() {
-  applyTexts();
-  try {
-    const [a, b] = await Promise.all([
-      fetch("data/roster-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }),
-      fetch("data/watch-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }),
-    ]);
-    roster = a.ok ? await a.json() : null;
-    try { const c = await fetch("data/records-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }); records = c.ok ? await c.json() : null; } catch (e) {}
-    watch = b.ok ? await b.json() : null;
-  } catch (e) {}
-  if (!roster || !watch) { $("noData").hidden = false; $("noData").textContent = tr("noData"); return; }
-  $("app").hidden = false;
-  applyTexts(); build(); render();
-}
-
-/* ===== officer password (shared with the other tabs: same password, same saved login) ===== */
-const OFFICER_LS = "nxs-post-v1";
+/* ===== shared notes (data/notes-x7k2p9.json), written with the officers' GitHub key ===== */
+const OWNER = location.hostname.endsWith("github.io") ? location.hostname.split(".")[0] : "NXSguides";
+const REPO = location.hostname.endsWith("github.io") ? (location.pathname.split("/")[1] || "Kingshot_guideline_NXS") : "Kingshot_guideline_NXS";
+const BRANCH = "main", NOTES_PATH = "data/notes-x7k2p9.json";
+let TOKEN = null, notes = {};
+const b64enc = (bytes) => { let s = ""; const u = new Uint8Array(bytes); for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
 const b64dec_ = (b64) => Uint8Array.from(atob(b64.replace(/\s/g, "")), (c) => c.charCodeAt(0));
-async function officerCheck(pw, blob) {
+const utf8ToB64 = (str) => b64enc(new TextEncoder().encode(str));
+const b64ToUtf8 = (b64) => new TextDecoder().decode(b64dec_(b64));
+async function gh(method, path, body) {
+  let res;
   try {
-    const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
-    const key = await crypto.subtle.deriveKey({ name: "PBKDF2", salt: b64dec_(blob.salt), iterations: blob.iter, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
-    await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64dec_(blob.iv) }, key, b64dec_(blob.data));
-    return true;
-  } catch (e) { return false; }
+    res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}${method === "GET" ? "?ref=" + BRANCH + "&t=" + Date.now() : ""}`, {
+      method, headers: { Authorization: `Bearer ${TOKEN}`, Accept: "application/vnd.github+json" },
+      body: body ? JSON.stringify(body) : undefined, cache: "no-store",
+    });
+  } catch (e) { throw new Error("net"); }
+  if (res.status === 401 || res.status === 403) throw new Error("auth");
+  if (res.status === 409 || res.status === 422) throw new Error("busy");
+  if (method === "GET" && res.status === 404) return null;
+  if (!res.ok) throw new Error("net");
+  return res.json();
 }
-function officerStore() { try { return JSON.parse(localStorage.getItem(OFFICER_LS)) || {}; } catch (e) { return {}; } }
-async function officerGate(onOk) {
-  let blob = null;
-  try { const r = await fetch("data/post-key.json?t=" + Date.now(), { cache: "no-store" }); blob = r.ok ? await r.json() : null; } catch (e) {}
-  if (!blob) return onOk();
-  const st = officerStore();
-  if (st.pw && (await officerCheck(st.pw, blob))) return onOk();
-  $("gate").hidden = false;
-  const go = async () => {
-    const pw = $("gatePw").value;
-    if (await officerCheck(pw, blob)) {
-      if ($("gateRemember").checked) { const s = officerStore(); s.pw = pw; try { localStorage.setItem(OFFICER_LS, JSON.stringify(s)); } catch (e) {} }
-      $("gate").hidden = true; onOk();
-    } else { $("gateErr").hidden = false; $("gatePw").value = ""; $("gatePw").focus(); }
-  };
-  $("gateBtn").onclick = go;
-  $("gatePw").onkeydown = (e) => { if (e.key === "Enter") go(); };
-  $("gatePw").focus();
+const errText = (e) => tr(e.message === "auth" ? "errAuth" : e.message === "busy" ? "errBusy" : "errNet");
+async function loadNotes() {
+  if (TOKEN) { try { const f = await gh("GET", NOTES_PATH); notes = f ? JSON.parse(b64ToUtf8(f.content)) : {}; return; } catch (e) {} }
+  try { const r = await fetch(NOTES_PATH + "?t=" + Date.now(), { cache: "no-store" }); notes = r.ok ? await r.json() : {}; } catch (e) { notes = {}; }
 }
-try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
-officerGate(init);
-</script>
-</body>
-</html>
+async function saveNote(id, note) {
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const f = await gh("GET", NOTES_PATH);
+    const cur = f ? JSON.parse(b64ToUtf8(f.content)) : {};
+    if (note) cur[id] = note; else delete cur[id];
+    try {
+      await gh("PUT", NOTES_PATH, { message: `Watch note: ${id}`, content: utf8ToB64(JSON.stringify(cur, null, 1) + "\n"), sha: f ? f.sha : undefined, branch: BRANCH });
+      notes = cur; return;
+    } catch (e) { if (e.message !== "busy" || attempt) throw e; }
+  }
+}
+function editNote(r) {
+  const n = notes[r.id] || {};
+  const m = document.createElement("div"); m.className = "modal";
+  m.innerHTML = `<div class="card">
+    <h2 dir="auto" style="margin-bottom:2px">${esc(r.name)}</h2><div class="id">ID ${esc(r.id)}</div>
+    <label class="f">${esc(tr("colClear"))}</label>
+    <div class="row seg">
+      <label><input type="radio" name="cs" value=""> ${esc(tr("csNone"))}</label>
+      <label><input type="radio" name="cs" value="yes"> ✅ ${esc(tr("fCleared"))}</label>
+      <label><input type="radio" name="cs" value="no"> ⚠️ ${esc(tr("fNotClear"))}</label>
+    </div>
+    <label class="f">${esc(tr("colWhy"))}</label><textarea id="nWhy" dir="auto"></textarea>
+    <label class="f">${esc(tr("yourName"))}</label><input type="text" id="nBy" maxlength="40">
+    <div class="msg warn" id="nErr" hidden></div>
+    <div class="row" style="justify-content:flex-end;margin-top:12px">
+      <button class="btn" id="nCancel">${esc(tr("cancel"))}</button>
+      <button class="btn primary" id="nSave">${esc(tr("saveBtn"))}</button>
+    </div></div>`;
+  document.body.appendChild(m);
+  m.querySelector(`input[name=cs][value="${n.clear || ""}"]`).checked = true;
+  m.querySelector("#nWhy").value = n.why || "";
+  m.querySelector("#nBy").value = officerStore().author || "";
+  const close = () => m.remove();
+  m.onclick = (e) => { if (e.target === m) close(); };
+  m.querySelector("#nCancel").onclick = close;
+  m.querySelector("#nSave").onclick = async () => {
+    const clear = m.querySelector("input[name=cs]:checked").value;
+    const why = m.querySelector("#nWhy").value.trim(), by = m.querySelector("#nBy").value.trim();
+    const s = officerStore(); s.author = by; try { localStorage.setItem(OFFICER_LS, JSON.stringify(s)); } catch (e) {}
+    const btn = m.querySelector("#nSave"); btn.disabled = true; btn.textContent = tr("saving");
+    try {
+      await saveNote(String(r.id), clear || why ? { clear, why, by, at: new
