@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>NXS Watch</title>
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  body { padding: 16px; }
+  .wrap { max-width: 1200px; margin: 0 auto; }
+  h1 { font-family: "Oswald", "Noto Sans TC", sans-serif; margin: 0 0 4px; font-size: 26px; }
+  .muted { color: var(--text-muted); font-size: 13px; }
+  .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
+  .btn { padding: 7px 12px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 14px; }
+  a.btn { text-decoration: none; display: inline-block; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+  .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 14px; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
+  .card h2 { margin: 0 0 10px; font-size: 18px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  input[type=search], input[type=number] { box-sizing: border-box; padding: 8px 10px; font-size: 15px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); }
+  input[type=search] { flex: 1; min-width: 160px; }
+  input[type=number] { width: 70px; }
+  .tbl-wrap { overflow: auto; margin-top: 10px; max-height: 70vh; border: 1px solid var(--rule); border-radius: 8px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { padding: 6px 8px; border-bottom: 1px solid var(--rule); white-space: nowrap; text-align: start; vertical-align: top; }
+  th { position: sticky; top: 0; background: var(--panel-2); z-index: 1; cursor: pointer; user-select: none; }
+  td.num, th.num { text-align: end; font-variant-numeric: tabular-nums; }
+  td.wrapc { white-space: normal; min-width: 160px; max-width: 260px; }
+  .name { font-weight: 600; }
+  .id { font-size: 12px; opacity: .65; font-variant-numeric: tabular-nums; user-select: all; }
+  .flag { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 999px; margin: 1px 2px 1px 0; background: color-mix(in srgb, var(--accent) 22%, var(--panel)); border: 1px solid var(--accent); }
+  .flag.hi { background: color-mix(in srgb, #e57373 25%, var(--panel)); border-color: #d77a72; }
+  .up { color: #2e7d32; } .down { color: #c62828; }
+  .tabs { display: flex; gap: 6px; margin: 14px 0 0; border-bottom: 2px solid var(--rule); flex-wrap: wrap; }
+  .tabs a { padding: 9px 14px; border-radius: 10px 10px 0 0; text-decoration: none; color: var(--text-muted); font-weight: 600; border: 1px solid transparent; border-bottom: 0; }
+  .tabs a.on { color: var(--text); background: var(--panel); border-color: var(--rule); margin-bottom: -2px; border-bottom: 2px solid var(--panel); }
+  .msg { margin-top: 6px; font-size: 13px; }
+  .warn { color: var(--accent); }
+  .empty { padding: 20px; text-align: center; color: var(--text-muted); }
+  ul.notes { margin: 6px 0 0; padding-inline-start: 20px; font-size: 13px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<div class="wrap" id="main">
+  <div class="top">
+    <div>
+      <h1 data-t="title"></h1>
+      <div class="muted" id="meta"></div>
+    </div>
+    <div class="row">
+      <a class="btn" href="./">← <span data-t="home"></span></a>
+      <button class="btn" id="langBtn"></button>
+    </div>
+  </div>
+
+  <nav class="tabs">
+    <a href="roster-x7k2p9.html" data-tab="ranking">📊 Ranking</a>
+    <a href="post-k4m8q2.html" data-tab="post">📢 Post</a>
+    <a href="watch-x7k2p9.html" class="on" data-tab="watch">🕵️ Watch</a>
+  </nav>
+
+  <div id="gate" class="card" hidden style="max-width:360px;margin:24px auto">
+    <h2>🔒 Officer password</h2>
+    <input type="password" id="gatePw" autocomplete="current-password" style="width:100%;box-sizing:border-box;padding:10px;font-size:16px;border-radius:8px;border:1px solid var(--rule);background:var(--panel-2);color:var(--text)">
+    <label class="row" style="margin-top:8px;font-size:14px"><input type="checkbox" id="gateRemember" checked> Remember on this device / 在這台裝置記住</label>
+    <div style="margin-top:10px"><button class="btn primary" id="gateBtn" style="width:100%;padding:12px">Unlock / 解鎖</button></div>
+    <div class="msg warn" id="gateErr" hidden>Wrong password / 密碼錯誤</div>
+  </div>
+  <div id="noData" class="card" hidden></div>
+
+  <div id="app" hidden>
+    <div class="card">
+      <h2 data-t="export"></h2>
+      <div class="row">
+        <button class="btn primary" id="copyBtn" data-t="copy"></button>
+        <button class="btn" id="csvBtn" data-t="csv"></button>
+      </div>
+      <div class="muted msg" data-t="exportNote"></div>
+    </div>
+
+    <div class="card">
+      <h2><span data-t="members"></span> <span class="muted" id="count"></span></h2>
+      <div class="row">
+        <input type="search" id="q">
+        <label class="row" style="font-size:14px"><input type="checkbox" id="onlyFlag"> <span data-t="onlyFlag"></span></label>
+        <label class="row" style="font-size:14px"><span data-t="newDays"></span> <input type="number" id="newDays" min="1" max="90"></label>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr id="head"></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <ul class="notes" id="notes"></ul>
+    </div>
+
+    <div class="card">
+      <h2 data-t="leftTitle"></h2>
+      <div class="tbl-wrap" style="max-height:40vh">
+        <table>
+          <thead><tr><th data-t="colName"></th><th data-t="colLeft"></th><th data-t="colNow"></th></tr></thead>
+          <tbody id="left"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const T = {
+  en: {
+    title: "NXS Watch", home: "Home",
+    export: "Export for the Google Sheet", copy: "📋 Copy for Google Sheets", csv: "⬇️ Download CSV", copied: "Copied! Paste into cell A1 of the sheet.",
+    exportNote: "Copies every member shown below, plus empty “Clear” and “Why / comments” columns for you to fill in the sheet.",
+    members: "Members", onlyFlag: "Only show members with flags", newDays: "“New” = joined within (days)",
+    search: "Search a name or ID…",
+    colName: "Name", colRank: "Rank", colPower: "Power", colPowerD: "Power change", colKills: "Kills", colKillsD: "Kills change", colTc: "TC",
+    colKid: "Kingdom", colLang: "Language", colSince: "In NXS since", colFrom: "Seen in other alliances", colNames: "Earlier names",
+    colSimilar: "Similar names elsewhere", colLogin: "Last login", colFlags: "Flags", colClear: "Clear", colWhy: "Why / comments",
+    before: "before {d}", leftTitle: "Left NXS", colLeft: "Left on", colNow: "Seen since in",
+    fNew: "New ({n} d)", fKid: "From kingdom {k}", fRenamed: "Renamed", fFrom: "Was in {t}", fSimilar: "Similar name in {t}",
+    fDrop: "Power dropped", noData: "No data yet. Run GitHub → Actions → “Update Roster (MightPulse)”, then reload.",
+    updated: "Updated {t} · history since {s}", empty: "No members match.",
+    n1: "History started on {s}. “before {s}” means they were already in NXS when tracking began.",
+    n2: "“Seen in other alliances” comes from other alliances’ member lists. MightPulse may only have an old copy of those lists, so the date shows how old the copy was.",
+    n3: "Power / kills change = over the last {d} days of saved data.",
+    n4: "Flags are only hints for where to look. They are not proof of anything.",
+  },
+  zh: {
+    title: "NXS 觀察名單", home: "回主頁",
+    export: "匯出到 Google 試算表", copy: "📋 複製到 Google 試算表", csv: "⬇️ 下載 CSV", copied: "已複製！貼到試算表的 A1 格。",
+    exportNote: "會複製下面顯示的所有成員，最後多兩欄空白的「Clear」和「Why / comments」，讓你們在試算表裡填寫。",
+    members: "成員", onlyFlag: "只顯示有標記的人", newDays: "「新成員」＝幾天內加入",
+    search: "搜尋名字或 ID…",
+    colName: "名字", colRank: "階級", colPower: "戰力", colPowerD: "戰力變化", colKills: "擊殺", colKillsD: "擊殺變化", colTc: "主城",
+    colKid: "王國", colLang: "語言", colSince: "加入 NXS", colFrom: "曾出現在其他聯盟", colNames: "之前的名字",
+    colSimilar: "其他聯盟的相似名字", colLogin: "上次登入", colFlags: "標記", colClear: "Clear", colWhy: "Why / comments",
+    before: "{d} 以前", leftTitle: "已離開 NXS", colLeft: "離開日期", colNow: "之後出現在",
+    fNew: "新成員（{n} 天）", fKid: "來自王國 {k}", fRenamed: "改過名", fFrom: "待過 {t}", fSimilar: "{t} 有相似名字",
+    fDrop: "戰力下降", noData: "還沒有資料。到 GitHub → Actions →「Update Roster (MightPulse)」執行一次後重新整理。",
+    updated: "更新：{t} · 紀錄從 {s} 開始", empty: "沒有符合的成員。",
+    n1: "紀錄從 {s} 開始。「{s} 以前」表示開始追蹤時就已經在 NXS。",
+    n2: "「曾出現在其他聯盟」來自其他聯盟的成員名單。MightPulse 有時只有舊的名單，所以會標出那份名單的日期。",
+    n3: "戰力／擊殺變化＝已存資料中最近 {d} 天的變化。",
+    n4: "標記只是提醒可以多看哪裡，不代表任何證據。",
+  },
+};
+const KID = 2189, TAG = "NXS";
+const LS = "nxs-watch-v1";
+const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
+const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
+let lang = store.lang || "en";
+let newDays = store.newDays || 14;
+let sortKey = "flags", sortDir = -1;
+let roster = null, watch = null, rows = [];
+
+const $ = (id) => document.getElementById(id);
+const tr = (k, v = {}) => String((T[lang] && T[lang][k]) ?? T.en[k] ?? k).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const big = (n) => n == null ? "" : Math.abs(n) >= 1e9 ? (n / 1e9).toFixed(2) + "B" : Math.abs(n) >= 1e6 ? (n / 1e6).toFixed(1) + "M" : Math.abs(n) >= 1e3 ? (n / 1e3).toFixed(1) + "K" : String(n);
+const core = (s) => String(s || "").normalize("NFKC").toLowerCase().replace(/nexus/g, "").replace(/[^\p{L}\p{N}]/gu, "");
+const toDate = (v) => { if (v == null || v === "") return ""; const ms = typeof v === "number" ? (v < 1e12 ? v * 1000 : v) : Date.parse(v); return isNaN(ms) ? "" : new Date(ms).toISOString().slice(0, 10); };
+const daysBetween = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 86400000);
+
+function change(points, days) {
+  if (!points || points.length < 2) return null;
+  const last = points[points.length - 1];
+  const cut = new Date(Date.parse(last[0]) - days * 86400000).toISOString().slice(0, 10);
+  let base = points[0];
+  for (const p of points) { if (p[0] <= cut) base = p; }
+  return last[1] - base[1];
+}
+
+function build() {
+  const today = new Date().toISOString().slice(0, 10);
+  const started = watch.started;
+  // index of other alliances' members by simplified name
+  const byCore = new Map();
+  for (const a of Object.values(watch.others || {})) {
+    for (const [id, nm] of a.members) {
+      const c = core(nm); if (c.length < 3) continue;
+      if (!byCore.has(c)) byCore.set(c, []);
+      byCore.get(c).push({ id, nm, tag: `${a.tag} (#${a.kid})`, asOf: a.asOf });
+    }
+  }
+  const similar = (name, id) => {
+    const c = core(name); if (c.length < 3) return [];
+    const out = [];
+    for (const [k, list] of byCore) {
+      const hit = k === c || (c.length >= 4 && k.length >= 4 && (k.includes(c) || c.includes(k)));
+      if (hit) list.forEach((x) => { if (String(x.id) !== String(id)) out.push(x); });
+    }
+    return out.slice(0, 5);
+  };
+
+  rows = roster.members.map((m) => {
+    const h = (watch.members || {})[m.id] || {};
+    const seen = (watch.seen || {})[m.id] || {};
+    const elsewhere = Object.entries(seen).filter(([t]) => !t.startsWith(TAG + " (#" + KID + ")"))
+      .sort((a, b) => b[1][1].localeCompare(a[1][1])).map(([t, r]) => ({ tag: t, last: r[1] }));
+    const names = (h.names || []).map((x) => x[1]).filter((n) => n !== m.name);
+    const sim = similar(m.name, m.id);
+    const since = h.before ? tr("before", { d: started }) : (h.firstSeen || "");
+    const newFor = !h.before && h.firstSeen ? daysBetween(h.firstSeen, today) : null;
+    const pD = change(h.power, 7), kD = change(h.kills, 7);
+    const flags = [];
+    if (newFor != null && newFor <= newDays) flags.push({ t: tr("fNew", { n: newFor }), hi: true });
+    if (m.kid && m.kid !== KID) flags.push({ t: tr("fKid", { k: m.kid }), hi: true });
+    elsewhere.slice(0, 2).forEach((e) => flags.push({ t: tr("fFrom", { t: e.tag }) }));
+    if (names.length) flags.push({ t: tr("fRenamed") });
+    if (sim.length) flags.push({ t: tr("fSimilar", { t: [...new Set(sim.map((s) => s.tag))].join(", ") }), hi: true });
+    if (pD != null && m.power && pD < -0.05 * m.power) flags.push({ t: tr("fDrop") });
+    return {
+      m, h, id: m.id, name: m.name, rank: m.rank, power: m.power, pD, kills: m.kills, kD, tc: m.tc,
+      kid: m.kid, lang: m.lang, since, sinceSort: h.before ? "0" : (h.firstSeen || ""),
+      from: elsewhere.map((e) => `${e.tag} (${e.last})`).join("; "),
+      names: names.join("; "),
+      similar: sim.map((s) => `${s.nm} — ${s.tag}, ID ${s.id}`).join("; "),
+      login: toDate(m.lastLogin),
+      flags,
+    };
+  });
+}
+
+const COLS = [
+  ["name", "colName"], ["rank", "colRank"], ["flags", "colFlags"], ["since", "colSince"], ["from", "colFrom"],
+  ["names", "colNames"], ["similar", "colSimilar"], ["power", "colPower", 1], ["pD", "colPowerD", 1],
+  ["kills", "colKills", 1], ["kD", "colKillsD", 1], ["tc", "colTc", 1], ["kid", "colKid", 1], ["lang", "colLang"], ["login", "colLogin"],
+];
+
+function sorted() {
+  const q = core($("q").value);
+  let list = rows.filter((r) => !q || core(r.name).includes(q) || String(r.id).includes($("q").value.trim()));
+  if ($("onlyFlag").checked) list = list.filter((r) => r.flags.length);
+  const val = (r) => sortKey === "flags" ? r.flags.filter((f) => f.hi).length * 10 + r.flags.length : sortKey === "since" ? r.sinceSort : r[sortKey];
+  return list.sort((a, b) => {
+    const x = val(a), y = val(b);
+    if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1;
+    return (typeof x === "number" ? x - y : String(x).localeCompare(String(y))) * sortDir;
+  });
+}
+
+function render() {
+  $("head").innerHTML = COLS.map(([k, t, num]) => `<th class="${num ? "num" : ""}" data-k="${k}">${esc(tr(t))}${sortKey === k ? (sortDir > 0 ? " ▲" : " ▼") : ""}</th>`).join("");
+  $("head").querySelectorAll("th").forEach((th) => th.onclick = () => {
+    const k = th.dataset.k; if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = ["name", "rank", "lang", "since"].includes(k) ? 1 : -1; } render();
+  });
+  const list = sorted();
+  $("count").textContent = `${list.length} / ${rows.length}`;
+  const ch = (v) => v == null ? "" : `<span class="${v > 0 ? "up" : v < 0 ? "down" : ""}">${v > 0 ? "+" : ""}${big(v)}</span>`;
+  $("rows").innerHTML = list.length ? list.map((r) => `<tr>
+    <td><div class="name" dir="auto">${esc(r.name)}</div><div class="id">ID ${esc(r.id)}</div></td>
+    <td>${esc(r.rank)}</td>
+    <td class="wrapc">${r.flags.map((f) => `<span class="flag${f.hi ? " hi" : ""}">${esc(f.t)}</span>`).join("")}</td>
+    <td>${esc(r.since)}</td>
+    <td class="wrapc">${esc(r.from)}</td>
+    <td class="wrapc" dir="auto">${esc(r.names)}</td>
+    <td class="wrapc" dir="auto">${esc(r.similar)}</td>
+    <td class="num">${big(r.power)}</td><td class="num">${ch(r.pD)}</td>
+    <td class="num">${big(r.kills)}</td><td class="num">${ch(r.kD)}</td>
+    <td class="num">${esc(r.tc)}</td><td class="num">${esc(r.kid)}</td><td>${esc(r.lang)}</td><td>${esc(r.login)}</td>
+  </tr>`).join("") : `<tr><td colspan="${COLS.length}" class="empty">${esc(tr("empty"))}</td></tr>`;
+
+  const left = (watch.left || []).slice().reverse();
+  $("left").innerHTML = left.length ? left.map((l) => {
+    const seen = (watch.seen || {})[l.id] || {};
+    const after = Object.entries(seen).filter(([t, r]) => !t.startsWith(TAG + " (#") && r[1] >= l.leftOn).map(([t]) => t).join(", ");
+    return `<tr><td><div class="name" dir="auto">${esc(l.name)}</div><div class="id">ID ${esc(l.id)}</div></td><td>${esc(l.leftOn)}</td><td>${esc(after)}</td></tr>`;
+  }).join("") : `<tr><td colspan="3" class="empty">—</td></tr>`;
+
+  $("notes").innerHTML = [tr("n1", { s: watch.started }), tr("n2"), tr("n3", { d: 7 }), tr("n4")].map((x) => `<li>${esc(x)}</li>`).join("");
+}
+
+function applyTexts() {
+  document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+  document.querySelectorAll("[data-t]").forEach((el) => { el.textContent = tr(el.dataset.t); });
+  $("q").placeholder = tr("search");
+  $("langBtn").textContent = lang === "zh" ? "English" : "中文";
+  if (watch) $("meta").textContent = tr("updated", { t: new Date(watch.updated || roster.updated).toLocaleString(lang === "zh" ? "zh-TW" : "en-GB"), s: watch.started });
+}
+
+function table() {
+  const head = ["Name", "Governor ID", "Rank", "Flags", "In NXS since", "Seen in other alliances", "Earlier names", "Similar names elsewhere",
+    "Power", "Power change (7d)", "Kills", "Kills change (7d)", "TC", "Kingdom", "Language", "Last login", "Clear", "Why / comments"];
+  const body = sorted().map((r) => [r.name, r.id, r.rank, r.flags.map((f) => f.t).join("; "), r.since, r.from, r.names, r.similar,
+    r.power ?? "", r.pD ?? "", r.kills ?? "", r.kD ?? "", r.tc ?? "", r.kid ?? "", r.lang ?? "", r.login, "", ""]);
+  return [head, ...body];
+}
+$("copyBtn").onclick = async () => {
+  const text = table().map((row) => row.map((c) => String(c).replace(/[\t\n\r]+/g, " ")).join("\t")).join("\n");
+  try { await navigator.clipboard.writeText(text); } catch (e) {
+    const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
+  }
+  const b = $("copyBtn"); b.textContent = tr("copied"); setTimeout(() => (b.textContent = tr("copy")), 2500);
+};
+$("csvBtn").onclick = () => {
+  const csv = table().map((row) => row.map((c) => { const s = String(c); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; }).join(",")).join("\r\n");
+  const blob = new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+  a.download = `nxs-watch-${new Date().toISOString().slice(0, 10)}.csv`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+};
+$("langBtn").onclick = () => { lang = lang === "zh" ? "en" : "zh"; store.lang = lang; save(); applyTexts(); if (watch) { build(); render(); } };
+$("q").oninput = () => render();
+$("onlyFlag").onchange = () => render();
+$("newDays").value = newDays;
+$("newDays").onchange = () => { newDays = Math.max(1, Number($("newDays").value) || 14); store.newDays = newDays; save(); build(); render(); };
+
+async function init() {
+  applyTexts();
+  try {
+    const [a, b] = await Promise.all([
+      fetch("data/roster-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }),
+      fetch("data/watch-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }),
+    ]);
+    roster = a.ok ? await a.json() : null;
+    watch = b.ok ? await b.json() : null;
+  } catch (e) {}
+  if (!roster || !watch) { $("noData").hidden = false; $("noData").textContent = tr("noData"); return; }
+  $("app").hidden = false;
+  applyTexts(); build(); render();
+}
+
+/* ===== officer password (shared with the other tabs: same password, same saved login) ===== */
+const OFFICER_LS = "nxs-post-v1";
+const b64dec_ = (b64) => Uint8Array.from(atob(b64.replace(/\s/g, "")), (c) => c.charCodeAt(0));
+async function officerCheck(pw, blob) {
+  try {
+    const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
+    const key = await crypto.subtle.deriveKey({ name: "PBKDF2", salt: b64dec_(blob.salt), iterations: blob.iter, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+    await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64dec_(blob.iv) }, key, b64dec_(blob.data));
+    return true;
+  } catch (e) { return false; }
+}
+function officerStore() { try { return JSON.parse(localStorage.getItem(OFFICER_LS)) || {}; } catch (e) { return {}; } }
+async function officerGate(onOk) {
+  let blob = null;
+  try { const r = await fetch("data/post-key.json?t=" + Date.now(), { cache: "no-store" }); blob = r.ok ? await r.json() : null; } catch (e) {}
+  if (!blob) return onOk();
+  const st = officerStore();
+  if (st.pw && (await officerCheck(st.pw, blob))) return onOk();
+  $("gate").hidden = false;
+  const go = async () => {
+    const pw = $("gatePw").value;
+    if (await officerCheck(pw, blob)) {
+      if ($("gateRemember").checked) { const s = officerStore(); s.pw = pw; try { localStorage.setItem(OFFICER_LS, JSON.stringify(s)); } catch (e) {} }
+      $("gate").hidden = true; onOk();
+    } else { $("gateErr").hidden = false; $("gatePw").value = ""; $("gatePw").focus(); }
+  };
+  $("gateBtn").onclick = go;
+  $("gatePw").onkeydown = (e) => { if (e.key === "Enter") go(); };
+  $("gatePw").focus();
+}
+try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
+officerGate(init);
+</script>
+</body>
+</html>
