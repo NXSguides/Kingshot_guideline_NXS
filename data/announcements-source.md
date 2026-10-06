@@ -63,20 +63,26 @@ content: |
   🔹 Formation: 50% Infantry, 20% Cavalry, 30% Archers
   🔹 Activate Marshal / Field Commander & Pet Buffs before registering.
 
-  🔄 You can refresh your registration anytime to update heroes, formation, and buffs. Especially if you have upgraded your heroes or troops. 
+  🔄 You can refresh your registration anytime to update heroes, formation, and buffs. Especially if you have upgraded your heroes or troops.
 ---
 author: "Nia"
+created: "2026-10-06T12:36:15.043Z"
 lang: en
-title: "🏰 KvK Castle Battle rules"
+title: "⚔️ KvK Agreement with 2186 – Oct 10"
 images: []
 content: |
-  1. Castle Attacks & Restrictions
-  • Attacks Allowed: 10:00 UTC – 10:59 UTC
-  • Attacks Forbidden: 11:00 UTC until the end of the Throne Battle.
-  • Post-Battle Ceasefire: Once the Throne Battle ends and the shield is active, a strict 30-minute ceasefire goes into effect. No attacks are allowed during this time. Attacks may resume only after these 30 minutes have passed.
+  **🏰 1. City Attacks**
 
-  2. City Attacks Restriction (CRITICAL)
-  • Red Zone is strictly NO-ATTACK: All cities around the Throne (Red Zone) are under a permanent peace treaty. Do not attack any cities in the Red Zone at any time, even during the periods when castle attacks are allowed.
+  ✅ Allowed:
+  • 10:00–10:59 UTC
+  • 30 min after Castle Battle ends
 
-  3. Dispute Resolution
-  • Diplomacy First: If any conflicts or rule violations occur, they must be resolved through peaceful discussions between the alliance leaders. Do not retaliate blindly.
+  🛑 Ceasefire – NO attacks:
+  • 11:00–12:00 UTC
+  • Until 30 min after Castle shield goes up
+
+  **🔴 2. Red Zone**
+  • NO city attacks in Red Zone at ANY time.
+
+  **⚠️ 3. Violations**
+  • Do not retaliate. Send report to alliance leadership, or King if leadership is unavailable.
