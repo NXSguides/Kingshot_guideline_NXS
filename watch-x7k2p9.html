@@ -134,6 +134,7 @@ const T = {
     n2: "“Seen in other alliances” comes from other alliances’ member lists. MightPulse may only have an old copy of those lists, so the date shows how old the copy was.",
     n3: "Power / kills change = over the last {d} days of saved data.",
     n4: "Flags are only hints for where to look. They are not proof of anything.",
+    n5: "Alliance and name history also includes the MightPulse Record pulled on {d}.",
   },
   zh: {
     title: "NXS 觀察名單", home: "回主頁",
@@ -153,6 +154,7 @@ const T = {
     n2: "「曾出現在其他聯盟」來自其他聯盟的成員名單。MightPulse 有時只有舊的名單，所以會標出那份名單的日期。",
     n3: "戰力／擊殺變化＝已存資料中最近 {d} 天的變化。",
     n4: "標記只是提醒可以多看哪裡，不代表任何證據。",
+    n5: "聯盟和改名紀錄也包含 {d} 從 MightPulse Record 抓下來的資料。",
   },
 };
 const KID = 2189, TAG = "NXS";
@@ -162,11 +164,11 @@ const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } ca
 let lang = store.lang || "en";
 let newDays = store.newDays || 14;
 let rivals = store.rivals ?? "RED, ESA, NBD";
-let farms = store.farms ?? "nxs";
+let farms = store.farms ?? "nxs, VZP";
 const tagList = (s) => String(s).split(/[,\s]+/).map((x) => x.trim()).filter(Boolean);
 const tagOf = (t) => t.replace(/ \(#\d+\)$/, "");
 let sortKey = "flags", sortDir = -1;
-let roster = null, watch = null, rows = [];
+let roster = null, watch = null, records = null, rows = [];
 
 const $ = (id) => document.getElementById(id);
 const tr = (k, v = {}) => String((T[lang] && T[lang][k]) ?? T.en[k] ?? k).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
@@ -209,13 +211,23 @@ function build() {
 
   rows = roster.members.map((m) => {
     const h = (watch.members || {})[m.id] || {};
-    const seen = (watch.seen || {})[m.id] || {};
+    const seen = { ...((watch.seen || {})[m.id] || {}) };
+    // MightPulse Record (one-time pull): full alliance and name history
+    const rec = ((records && records.members && records.members[m.id] && records.members[m.id].history) || []).slice().sort((a, b) => String(a.d).localeCompare(String(b.d)));
+    const recNames = [];
+    let joinedRec = null;
+    rec.forEach((e, i) => {
+      if (e.a && e.d) { const t = `${e.a} (#${e.kid || KID})`; const r = seen[t]; seen[t] = r ? [r[0] < e.d ? r[0] : e.d, r[1] > e.d ? r[1] : e.d] : [e.d, e.d]; }
+      if (e.name && !recNames.includes(e.name)) recNames.push(e.name);
+      const inUs = e.a === TAG, prevIn = i > 0 && rec[i - 1].a === TAG;
+      if (inUs && !prevIn) joinedRec = { d: e.d, first: i === 0 };
+    });
     const elsewhere = Object.entries(seen).filter(([t]) => !t.startsWith(TAG + " (#" + KID + ")"))
       .sort((a, b) => b[1][1].localeCompare(a[1][1])).map(([t, r]) => ({ tag: t, last: r[1] }));
-    const names = (h.names || []).map((x) => x[1]).filter((n) => n !== m.name);
+    const names = [...new Set([...(h.names || []).map((x) => x[1]), ...recNames])].filter((n) => n !== m.name);
     const sim = similar(m.name, m.id);
     // joinedBetween: only known to have joined somewhere in this date range (from older, gappy data)
-    const since = h.before ? tr("before", { d: started }) : h.joinedBetween ? tr("between", { a: h.joinedBetween[0], b: h.joinedBetween[1] }) : (h.firstSeen || "");
+    const since = h.before && joinedRec ? (joinedRec.first ? tr("before", { d: joinedRec.d }) : joinedRec.d) : h.before ? tr("before", { d: started }) : h.joinedBetween ? tr("between", { a: h.joinedBetween[0], b: h.joinedBetween[1] }) : (h.firstSeen || "");
     const newFor = !h.before && h.firstSeen ? daysBetween(h.joinedBetween ? h.joinedBetween[0] : h.firstSeen, today) : null;
     const pD = change(h.power, 7), kD = change(h.kills, 7);
     const flags = [];
@@ -237,7 +249,7 @@ function build() {
       from: elsewhere.map((e) => `${e.tag} (${e.last})`).join("; "),
       names: names.join("; "),
       similar: sim.filter((s) => !F.has(tagOf(s.tag))).map((s) => `${s.nm} — ${s.tag}, ID ${s.id}`).join("; "),
-      login: toDate(m.lastLogin),
+      login: toDate(m.lastLogin) || (typeof m.lastLogin === "string" ? m.lastLogin.replace(/^Last active\s*/i, "") : ""),
       flags,
     };
   });
@@ -290,7 +302,7 @@ function render() {
     return `<tr><td><div class="name" dir="auto">${esc(l.name)}</div><div class="id">ID ${esc(l.id)}</div></td><td>${esc(l.leftOn)}</td><td>${esc(after)}</td></tr>`;
   }).join("") : `<tr><td colspan="3" class="empty">—</td></tr>`;
 
-  $("notes").innerHTML = [tr("n1", { s: watch.started }), tr("n2"), tr("n3", { d: 7 }), tr("n4")].map((x) => `<li>${esc(x)}</li>`).join("");
+  $("notes").innerHTML = [tr("n1", { s: watch.started }), tr("n2"), tr("n3", { d: 7 }), tr("n4"), ...(records ? [tr("n5", { d: String(records.pulledAt).slice(0, 10) })] : [])].map((x) => `<li>${esc(x)}</li>`).join("");
 }
 
 function applyTexts() {
@@ -338,6 +350,7 @@ async function init() {
       fetch("data/watch-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }),
     ]);
     roster = a.ok ? await a.json() : null;
+    try { const c = await fetch("data/records-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }); records = c.ok ? await c.json() : null; } catch (e) {}
     watch = b.ok ? await b.json() : null;
   } catch (e) {}
   if (!roster || !watch) { $("noData").hidden = false; $("noData").textContent = tr("noData"); return; }
