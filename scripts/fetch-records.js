@@ -1,10 +1,3 @@
-// ONE-TIME pull of each NXS member's "Record" (history) from the MightPulse website,
-// done with MightPulse's permission (asked on their Discord, 2026-10-06). Please keep it to one run.
-// Saves data/records-x7k2p9.json for the Watch tab.
-//
-// Steps per member: 1) the official API gives MightPulse's own player number (uid) for the governor ID,
-// 2) the website's history for that uid is read. One member every 4 seconds (~7 minutes for 100).
-// The run log is public, so it only prints counts, never player data.
 const fs = require("fs");
 const KEY = process.env.MIGHTPULSE_API_KEY;
 const API = "https://api.mightpulse.com/v1";
@@ -17,7 +10,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function getJson(url, headers = {}) {
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      const res = await fetch(url, { headers: { "User-Agent": "NXS-alliance-tools (one-time pull, permitted)", ...headers } });
+      const res = await fetch(url, { headers: { "User-Agent": "NXS-alliance-tools (records for new members, permitted)", ...headers } });
       if (res.status === 429) { await sleep(60000); continue; }
       const body = await res.json().catch(() => null);
       return { status: res.status, body };
@@ -30,11 +23,20 @@ const day = (t) => { if (t == null) return null; const d = new Date(t > 1e12 ? t
 (async () => {
   if (!KEY) { console.log("❌ MIGHTPULSE_API_KEY not found in GitHub Secrets"); process.exit(1); }
   const roster = JSON.parse(fs.readFileSync(ROSTER, "utf8"));
-  const out = { pulledAt: new Date().toISOString(), source: "mightpulse.com player Record (one-time pull, with permission)", members: {} };
+
+  // keep everything already pulled; only fetch members who have no record yet
+  let out = null;
+  try { out = JSON.parse(fs.readFileSync(OUT, "utf8")); } catch (e) {}
+  if (!out || !out.members) out = { pulledAt: new Date().toISOString(), source: "mightpulse.com player Record (with permission)", members: {} };
+
+  const todo = roster.members.filter((m) => !out.members[m.id]);
+  console.log(`  ${roster.members.length} in roster · ${Object.keys(out.members).length} already have records · ${todo.length} new to fetch`);
+  if (!todo.length) { console.log("✅ Nothing new."); return; }
+
   let ok = 0, noUid = 0, blocked = 0, failed = 0, rows = 0;
   const statusSeen = {};
 
-  for (const [i, m] of roster.members.entries()) {
+  for (const [i, m] of todo.entries()) {
     let uid = m.uid;
     if (!uid) {
       const p = await getJson(`${API}/players/${m.id}?include=base`, { Authorization: `Bearer ${KEY}` });
@@ -54,18 +56,14 @@ const day = (t) => { if (t == null) return null; const d = new Date(t > 1e12 ? t
         kills: e.kills ?? null, flags: e.flags || (e.change_flags ? String(e.change_flags).split(",") : []), sum: e.summary || e.change_summary || "",
       }));
       rows += list.length;
-      out.members[m.id] = { uid, history: list };
-      if (i === 0) {
-        const extra = Object.keys(h.body).filter((k) => !["ok", "uid", "history"].includes(k));
-        if (extra.length) console.log(`  note: the reply also has: ${extra.join(", ")}`);
-      }
+      out.members[m.id] = { uid, pulledAt: new Date().toISOString().slice(0, 10), history: list };
     } else failed++;
-    if ((i + 1) % 10 === 0) console.log(`  ${i + 1}/${roster.members.length} done`);
+    if ((i + 1) % 10 === 0) console.log(`  ${i + 1}/${todo.length} done`);
     await sleep(GAP_MS);
   }
 
-  fs.writeFileSync(OUT, JSON.stringify(out) + "\n");
-  console.log(`✅ Records: ${ok} members · ${rows} history rows · ${noUid} without uid · ${blocked} refused · ${failed} other errors`);
+  if (ok) { out.updatedAt = new Date().toISOString(); fs.writeFileSync(OUT, JSON.stringify(out) + "\n"); }
+  console.log(`✅ New records: ${ok} members · ${rows} history rows · ${noUid} without uid · ${blocked} refused · ${failed} other errors`);
   console.log(`   HTTP status counts: ${JSON.stringify(statusSeen)}`);
-  if (!ok) process.exit(1);
+  if (!ok && blocked) process.exit(1);
 })();
