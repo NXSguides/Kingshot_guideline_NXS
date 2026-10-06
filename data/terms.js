@@ -276,13 +276,16 @@ const TERMS = [
  {
   "cat": "Cesares Fury",
   "rows": [
-   ["Cesares Fury", "征討切薩雷", "체사레 정벌", "Cesares Zorn", "Fureur des Césarès", "Fúria dos Césares", "Cesares Öfkesi", "Cesares Fury", "Ярость цесарцев", "โทสะของซีซาเรส", "غضب سيزاريس", "—", "Indonesian keeps English 'Cesares Fury'."],
+   ["Cesares Fury", "征討切薩雷", "체사레 정벌", "Cesares Zorn", "Fureur des Césarès", "Fúria dos Césares", "Cesares Öfkesi", "Cesares Fury", "Ярость цесарцев", "โทสะของซีซาเรส", "غضب سيزاريس", "Furia de los Cesares", "Indonesian keeps English 'Cesares Fury'. ES: event title (no accent on Cesares here)."],
    ["Highlord Cesares", "統帥切薩雷", "체사레 사령관", "Hochlord Cesares", "Haut Seigneur Césarès", "Césares da Alta Nobreza", "Cesares Başkomutanı", "Highlord Cesares", "Полководец цесарцев", "จอมทัพซีซาเรส", "أمير سيزاريس", "—"],
    ["Cesares Legionnaire", "切薩雷精銳", "체사레 정예군", "Cesares Legionär", "Légionnaire Césarès", "Césares Legionários", "Cesares Lejyoneri", "Legioner Cesares", "Цесарец-легионер", "กองทัพซีซาเรส", "جندي فيلق سيزاريس", "—"],
-   ["Private", "個人", "개인", "Persönlich", "Privé", "Individual", "Kişisel", "Pribadi", "Личн.", "ส่วนตัว", "شخصي", "—", "Tab. Opposite tab is 'Alliance'. Portuguese 'Individual'. Korean 개인. Russian tab is abbreviated 'Личн.'."],
-   ["Alliance", "聯盟", "연맹", "Allianz", "Alliance", "Aliança", "İttifak", "Aliansi", "Альянс", "พันธมิตร", "التحالف", "—", "Tab. Opposite tab is 'Private'. Chinese 聯盟, Korean 연맹."],
+   ["Private", "個人", "개인", "Persönlich", "Privé", "Individual", "Kişisel", "Pribadi", "Личн.", "ส่วนตัว", "شخصي", "personal", "ES: from the event rules heading 'Furia de los Cesares (personal)'. Tab. Opposite tab is 'Alliance'. Portuguese 'Individual'. Korean 개인. Russian tab is abbreviated 'Личн.'."],
+   ["Alliance", "聯盟", "연맹", "Allianz", "Alliance", "Aliança", "İttifak", "Aliansi", "Альянс", "พันธมิตร", "التحالف", "alianza", "ES: from the event rules heading 'Recompensa de élite (alianza)'. Tab. Opposite tab is 'Private'. Chinese 聯盟, Korean 연맹."],
    ["Challenged", "已挑戰", "도전 완료", "Herausgefordert", "Défié", "Desafiado", "Mücadele edildi", "Ditantang", "Вызов брошен", "ท้าทายแล้ว", "تم التحدي", "—"],
-   ["Captain", "頭目", "보스", "Kapitän", "Capitaine", "Capitão", "Önder", "Kapten", "капитан", "กัปตัน", "الكابتن", "—", "Seen inside sentences. Chinese 頭目 ('defeating the Captain'). Korean says 보스 (boss). French: 'le Capitaine vaincu'. Turkish says 'Önder' (Leader) in the event text. Thai: 'กัปตัน'. Indonesian: 'Kapten'."],
+   ["Captain", "頭目", "보스", "Kapitän", "Capitaine", "Capitão", "Önder", "Kapten", "капитан", "กัปตัน", "الكابتن", "Capitán de los Cesares", "ES: 'Capitán de los Cesares' in the event rules. Seen inside sentences. Chinese 頭目 ('defeating the Captain'). Korean says 보스 (boss). French: 'le Capitaine vaincu'. Turkish says 'Önder' (Leader) in the event text. Thai: 'กัปตัน'. Indonesian: 'Kapten'."],
+   ["—", "菁英懸賞", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Recompensa de élite", "Alliance part of the event rules ('(聯盟)' / '(alianza)'). Only ZH/ES seen."],
+   ["—", "征討召集令", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Contrato de Cesares", "Used to ask allies to rally a target; 5 given at the start, unused ones are cleared at the end. Only ZH/ES seen."],
+   ["—", "切薩雷軍團", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Orden de los Cesares", "The enemy army in the event text. Only ZH/ES seen."],
    ["Scout", "偵察", "정찰", "Spähen", "Espionner", "Espionar", "Gözetle", "Intai", "Разведать", "สอดแนม", "جاسوس", "—", "Button."],
    ["Recommended Power", "推薦實力", "추천 전투력", "Empfohlene Kraft", "Puissance Recommandée", "Poder Recomendado", "Önerilen Güç", "Kekuatan yang Disarankan", "Рекомендуемая сила", "ค่าพลังแนะนำ", "القوة الموصى بها", "Poder recomendado", "ES: Terror pop-up."],
    ["Show event shortcut", "顯示活動快捷入口", "이벤트 바로가기 표시", "Event-Verknüpfung anzeigen", "Afficher le raccourci de l'évènement", "Exibir atalho para o evento", "Etkinlik kısayolunu göster", "Tampilkan pintasan acara", "Показать быстрый доступ к событию", "แสดงปุ่มลัดอีเวนต์", "عرض اختصار الفعالية", "—"]
