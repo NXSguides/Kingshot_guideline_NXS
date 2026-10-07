@@ -10,7 +10,7 @@
    Officers:  also roster / watch data. "Officer" = proves the officer password (it opens data/data-key.json),
               checked here with a hash of the DATA_KEY secret. */
 
-const VERSION = "2026-10-07d (US placement, new models)";
+const VERSION = "2026-10-07e (term list first)";
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
 const REPO = "NXSguides/Kingshot_guideline_NXS";
@@ -70,9 +70,12 @@ export default {
       if (!quota.ok) return json({ error: "daily_limit", limit: DEVICE_PER_DAY }, 429);
     }
 
-    let context;
+    let context, terms = "";
     try {
       context = await getPublic(lang);
+      // put the term list first, where the model pays most attention
+      const at = context.indexOf("### GAME TERMS");
+      if (at >= 0) { terms = context.slice(context.indexOf("\n", at) + 1).trim(); context = context.slice(0, at).trim(); }
       if (officer) {
         context += "\n\n" + OFFICER_HELP;
         try { context += "\n\n" + await getOfficer(env); }
@@ -84,7 +87,7 @@ export default {
       "You are the helper for the NXS alliance's Kingshot guide website (alliance NXS / NEXUS, kingdom #2189).",
       "Use ONLY the SITE CONTENT below. If the answer isn't there, say so briefly and point to the closest page.",
       `Reply in ${LANG_NAMES[lang]} (the language of the question).`,
-      "GAME TERMS: always use the official in-game names exactly as written in the SITE CONTENT and the GAME TERMS list " +
+      "GAME TERMS: always use the official in-game names exactly as written in the TERM LIST and the SITE CONTENT " +
         "(e.g. hero, event, building, item and buff names). Never leave a game term in English when the list has a translation, " +
         "and never invent your own translation of a game term.",
       "ANSWER FORMAT: first give the actual answer directly (the specific heroes, numbers, times, steps, names) " +
@@ -99,6 +102,11 @@ export default {
           "[Watch](watch-x7k2p9.html) (name changes, power history, who left/joined, notes), [Events](events-x7k2p9.html) (event schedule settings), " +
           "[Post](post-k4m8q2.html) (post / edit announcements)."
         : "This user is NOT an officer. If asked about rosters, member stats, officer pages or anything not in the site content, say that is only available to officers (they can unlock it with the 🔒 button).",
+      lang === "en" ? "" :
+        `Some sections below (officer handbook, officer data) are written in English: when you use anything from them, ` +
+        `translate every game term with the TERM LIST — event, hero, building, item and buff names must never stay in English. ` +
+        `Member names are the only exception (never translate them).`,
+      terms ? "\n===== TERM LIST (English = official " + LANG_NAMES[lang] + " name; always use the right-hand name) =====\n" + terms : "",
       "\n===== SITE CONTENT =====\n" + context,
     ].join("\n");
 
