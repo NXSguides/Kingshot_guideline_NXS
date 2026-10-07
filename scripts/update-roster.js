@@ -8,6 +8,7 @@
 // for "who is in the alliance"; power / TC / name / Mystic Trial come from each player's own
 // endpoint, which MightPulse refreshes when its copy is older than 60 minutes.
 const fs = require("fs");
+const { readData, writeData } = require("./officer-data"); // encrypted with DATA_KEY once set up
 const KEY = process.env.MIGHTPULSE_API_KEY;
 const BASE = "https://api.mightpulse.com/v1";
 const KID = 2189, TAG = "NXS";
@@ -112,18 +113,18 @@ function findRows(o, depth = 0) {
   });
 
   const al = a.body.alliance || {};
-  fs.writeFileSync(OUT, JSON.stringify({
+  writeData(OUT, {
     updated: new Date().toISOString(),
     alliance: { kid: KID, tag: TAG, name: al.name || "", power: al.power ?? null, count: members.length },
     members: out,
-  }, null, 1) + "\n");
+  });
   ages.sort((x, y) => x - y);
   const oldest = ages.length ? Math.round(ages[ages.length - 1] / 60) : "?";
   console.log(`✅ Roster file: ${out.length} members · ${withMystic} with Mystic Trial · ${failed} failed · oldest player data ${oldest} min`);
 
   /* ---------- Watch history ---------- */
   let w = {};
-  try { w = JSON.parse(fs.readFileSync(WATCH, "utf8")); } catch (e) {}
+  try { w = readData(WATCH) || {}; } catch (e) { if (e.code === "NOKEY") throw e; }  // never start over just because the key is missing
   const firstRun = !w.started;      // on the very first run everyone was already a member before tracking began
   w.started = w.started || today;
   w.members = w.members || {};       // id -> history while in NXS
@@ -186,6 +187,6 @@ function findRows(o, depth = 0) {
   }
   w.left = w.left.slice(-200);
   w.updated = new Date().toISOString();
-  fs.writeFileSync(WATCH, JSON.stringify(w) + "\n");
+  writeData(WATCH, w);
   console.log(`✅ Watch file: ${Object.keys(w.others || {}).length} other alliances · tracking since ${w.started}`);
 })();

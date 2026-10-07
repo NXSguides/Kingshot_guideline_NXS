@@ -191,12 +191,16 @@
         <button class="btn" id="forgetBtn" data-t="forget"></button>
         <button class="btn" id="resetupBtn" data-t="resetup"></button>
       </div>
+      <div class="row" style="margin-top:10px"><button class="btn" id="dataKeyBtn" data-t="dataKeyBtn"></button></div>
+      <div class="msg" id="dataKeyMsg" style="white-space:pre-line"></div>
+      <pre id="dataKeyOut" hidden style="user-select:all;white-space:pre-wrap;word-break:break-all;padding:10px;border-radius:8px;border:1px solid currentColor"></pre>
     </details>
   </div>
 </div>
 
 <script src="data/content.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+<script src="js/officer-data.js"></script>
 <script>
 /* ===== settings ===== */
 const KEY_PATH = "data/post-key.json";            // encrypted GitHub key (safe to be public)
@@ -247,6 +251,12 @@ const T = {
     errBusy: "Someone else just changed the announcements. Please try again.",
     adminMore: "More", adminMoreNote: "For the site owner.",
     forget: "Forget the password on this device", resetup: "Redo the setup (new token / new password)",
+    dataKeyBtn: "🔐 Officer data encryption",
+    dataKeyConfirm: "Create the data key now? Right after, you'll copy it into GitHub and Cloudflare.",
+    dataKeyMade: "Data key created ✅ Copy the key below, keep a copy somewhere safe, then:\n1. GitHub repo → Settings → Secrets and variables → Actions → New repository secret. Name: DATA_KEY\n2. Cloudflare → your Worker → Settings → Variables and Secrets → Add → Secret. Name: DATA_KEY\n3. GitHub → Actions → \"Encrypt Officer Data\" → Run workflow",
+    dataKeyShown: "Encryption is on. This is the data key (same value as the DATA_KEY secrets):",
+    dataKeyNeedPw: "Unlock this page with the officer password first.",
+    dataKeyRelock: "The data key couldn't be opened with the current password, so the setup was not changed.",
     yes: "Yes", no: "Cancel",
     edit: "Edit", editTitle: "Edit an announcement", close: "Close", editWhat: "What to change",
     editAll: "All languages — change the original and translate again",
@@ -307,6 +317,12 @@ const T = {
     errBusy: "剛好有人也在改公告，請再試一次。",
     adminMore: "更多", adminMoreNote: "給網站管理者用。",
     forget: "忘記這台裝置上的密碼", resetup: "重新設定（新權杖／新密碼）",
+    dataKeyBtn: "🔐 幹部資料加密",
+    dataKeyConfirm: "現在建立資料金鑰？建立後要馬上把它貼到 GitHub 和 Cloudflare。",
+    dataKeyMade: "資料金鑰已建立 ✅ 複製下面的金鑰，另外存一份在安全的地方，然後：\n1. GitHub repo → Settings → Secrets and variables → Actions → New repository secret，名稱 DATA_KEY\n2. Cloudflare → 你的 Worker → Settings → Variables and Secrets → Add → Secret，名稱 DATA_KEY\n3. GitHub → Actions →「Encrypt Officer Data」→ Run workflow",
+    dataKeyShown: "加密已開啟。這是資料金鑰（和兩個 DATA_KEY secret 的值相同）：",
+    dataKeyNeedPw: "請先用幹部密碼解鎖這一頁。",
+    dataKeyRelock: "目前的密碼打不開資料金鑰，所以沒有變更設定。",
     yes: "確定", no: "取消",
     edit: "修改", editTitle: "修改公告", close: "關閉", editWhat: "要改什麼",
     editAll: "全部語言 — 改原文，再重新翻譯",
@@ -345,6 +361,7 @@ let ui = officerLang() || store.ui || ((navigator.language || "").startsWith("zh
 const tr = (k) => T[ui][k] ?? T.en[k] ?? k;
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 let TOKEN = null;
+let OFFICER_PW = null;   // kept in memory only, to re-lock the data key when the password changes
 
 function showMsg(id, kind, text) { const el = $(id); el.className = "msg " + kind; el.textContent = text; }
 function askYesNo(text) {
@@ -770,6 +787,7 @@ function showApp() { $("lockCard").hidden = true; $("setupCard").hidden = true; 
 async function tryUnlock(pw, silent) {
   try { TOKEN = await decryptToken(keyBlob, pw); }
   catch (e) { if (!silent) showMsg("lockMsg", "err", tr("wrongPw")); return false; }
+  OFFICER_PW = pw; await OfficerData.unlock(pw);
   if ($("remember").checked || silent) { store.pw = pw; save(); }
   showApp(); return true;
 }
@@ -847,16 +865,41 @@ $("setupBtn").onclick = async () => {
   if (p1 !== p2) return showMsg("setupMsg", "err", tr("pwMismatch"));
   try {
     await gh("GET", SOURCE_PATH, null, tok); // checks the token can read the repo
+    // officer data key: re-lock it with the new password (before switching passwords)
+    const dk = await OfficerData.fetchKeyFile();
+    if (dk) {
+      const raw = OFFICER_PW ? await OfficerData.unwrap(dk, OFFICER_PW) : null;
+      if (!raw) return showMsg("setupMsg", "err", tr("dataKeyRelock"));
+      const oldDk = await gh("GET", OfficerData.KEY_FILE, null, tok);
+      await gh("PUT", OfficerData.KEY_FILE, { message: "Re-lock officer data key with the new password", content: utf8ToB64(JSON.stringify(await OfficerData.wrap(raw, p1), null, 1) + "\n"), sha: oldDk ? oldDk.sha : undefined, branch: BRANCH }, tok);
+    }
     const blob = await encryptToken(tok, p1);
     const old = await gh("GET", KEY_PATH, null, tok);
     await gh("PUT", KEY_PATH, { message: "Set up announcement posting", content: utf8ToB64(JSON.stringify(blob, null, 1) + "\n"), sha: old ? old.sha : undefined, branch: BRANCH }, tok);
-    keyBlob = blob; TOKEN = tok; store.pw = p1; save();
+    keyBlob = blob; TOKEN = tok; store.pw = p1; save(); OFFICER_PW = p1; await OfficerData.unlock(p1);
     showMsg("setupMsg", "ok", tr("setupOk"));
     setTimeout(showApp, 1500);
   } catch (e) { showMsg("setupMsg", "err", errText(e)); }
 };
 $("forgetBtn").onclick = () => { delete store.pw; save(); location.reload(); };
 $("resetupBtn").onclick = () => { $("app").hidden = true; $("setupCard").hidden = false; };
+$("dataKeyBtn").onclick = async () => {
+  const out = $("dataKeyOut"); out.hidden = true;
+  if (!OFFICER_PW || !TOKEN) return showMsg("dataKeyMsg", "err", tr("dataKeyNeedPw"));
+  try {
+    const dk = await OfficerData.fetchKeyFile();
+    if (dk) {                                     // already on → show the key again
+      const raw = await OfficerData.unwrap(dk, OFFICER_PW);
+      if (!raw) return showMsg("dataKeyMsg", "err", tr("dataKeyRelock"));
+      showMsg("dataKeyMsg", "ok", tr("dataKeyShown")); out.textContent = OfficerData.enc(raw); out.hidden = false; return;
+    }
+    if (!(await askYesNo(tr("dataKeyConfirm")))) return;
+    const raw = crypto.getRandomValues(new Uint8Array(32));
+    await gh("PUT", OfficerData.KEY_FILE, { message: "Turn on officer data encryption", content: utf8ToB64(JSON.stringify(await OfficerData.wrap(raw, OFFICER_PW), null, 1) + "\n"), branch: BRANCH });
+    await OfficerData.unlock(OFFICER_PW);
+    showMsg("dataKeyMsg", "ok", tr("dataKeyMade")); out.textContent = OfficerData.enc(raw); out.hidden = false;
+  } catch (e) { showMsg("dataKeyMsg", "err", errText(e)); }
+};
 
 try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
 init();

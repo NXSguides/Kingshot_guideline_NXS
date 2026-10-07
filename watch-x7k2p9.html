@@ -125,6 +125,7 @@
   </div>
 </div>
 
+<script src="js/officer-data.js"></script>
 <script>
 const T = {
   en: {
@@ -245,16 +246,16 @@ async function gh(method, path, body) {
 }
 const errText = (e) => tr(e.message === "auth" ? "errAuth" : e.message === "busy" ? "errBusy" : "errNet");
 async function loadNotes() {
-  if (TOKEN) { try { const f = await gh("GET", NOTES_PATH); notes = f ? JSON.parse(b64ToUtf8(f.content)) : {}; return; } catch (e) {} }
-  try { const r = await fetch(NOTES_PATH + "?t=" + Date.now(), { cache: "no-store" }); notes = r.ok ? await r.json() : {}; } catch (e) { notes = {}; }
+  if (TOKEN) { try { const f = await gh("GET", NOTES_PATH); notes = f ? (await OfficerData.open(JSON.parse(b64ToUtf8(f.content)))) || {} : {}; return; } catch (e) {} }
+  try { notes = (await OfficerData.fetchJson(NOTES_PATH)) || {}; } catch (e) { notes = {}; }
 }
 async function saveNote(id, note) {
   for (let attempt = 0; attempt < 2; attempt++) {
     const f = await gh("GET", NOTES_PATH);
-    const cur = f ? JSON.parse(b64ToUtf8(f.content)) : {};
+    const cur = f ? (await OfficerData.open(JSON.parse(b64ToUtf8(f.content)))) || {} : {};
     if (note) cur[id] = note; else delete cur[id];
     try {
-      await gh("PUT", NOTES_PATH, { message: `Watch note: ${id}`, content: utf8ToB64(JSON.stringify(cur, null, 1) + "\n"), sha: f ? f.sha : undefined, branch: BRANCH });
+      await gh("PUT", NOTES_PATH, { message: `Watch note: ${id}`, content: utf8ToB64(JSON.stringify(await OfficerData.seal(cur), null, 1) + "\n"), sha: f ? f.sha : undefined, branch: BRANCH });
       notes = cur; return;
     } catch (e) { if (e.message !== "busy" || attempt) throw e; }
   }
@@ -508,9 +509,9 @@ async function init() {
       fetch("data/watch-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }),
       loadNotes(),
     ]);
-    roster = a.ok ? await a.json() : null;
-    try { const c = await fetch("data/records-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }); records = c.ok ? await c.json() : null; } catch (e) {}
-    watch = b.ok ? await b.json() : null;
+    roster = a.ok ? await OfficerData.open(await a.json()) : null;
+    try { records = await OfficerData.fetchJson("data/records-x7k2p9.json"); } catch (e) {}
+    watch = b.ok ? await OfficerData.open(await b.json()) : null;
   } catch (e) {}
   if (!roster || !watch) { $("noData").hidden = false; $("noData").textContent = tr("noData"); return; }
   $("app").hidden = false;
@@ -534,11 +535,12 @@ async function officerGate(onOk) {
   try { const r = await fetch("data/post-key.json?t=" + Date.now(), { cache: "no-store" }); blob = r.ok ? await r.json() : null; } catch (e) {}
   if (!blob) return onOk();
   const st = officerStore();
-  if (st.pw && (TOKEN = await officerDecrypt(st.pw, blob))) return onOk();
+  if (st.pw && (TOKEN = await officerDecrypt(st.pw, blob))) { await OfficerData.unlock(st.pw); return onOk(); }
   $("gate").hidden = false;
   const go = async () => {
     const pw = $("gatePw").value;
     if ((TOKEN = await officerDecrypt(pw, blob))) {
+      await OfficerData.unlock(pw);
       if ($("gateRemember").checked) { const s = officerStore(); s.pw = pw; try { localStorage.setItem(OFFICER_LS, JSON.stringify(s)); } catch (e) {} }
       $("gate").hidden = true; onOk();
     } else { $("gateErr").hidden = false; $("gatePw").value = ""; $("gatePw").focus(); }

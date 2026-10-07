@@ -1,6 +1,8 @@
 /* NXS AI assistant — Cloudflare Worker
    Paste this whole file into the Cloudflare Worker editor.
-   Secret (Settings → Variables and Secrets): GEMINI_API_KEY  — from a SEPARATE Google AI Studio project
+   Secrets (Settings → Variables and Secrets):
+     GEMINI_API_KEY — from a SEPARATE Google AI Studio project
+     DATA_KEY       — the officer data key from the Post tab (needed once officer data is encrypted)
    Everyone:  answers from data/ai-context.txt (public guides + announcements).
    Officers:  also roster / watch data. "Officer" = the GitHub key unlocked with the officer
               password, verified here against GitHub (must have write access to the repo). */
@@ -55,7 +57,10 @@ export default {
     let context;
     try {
       context = await getPublic();
-      if (officer) context += "\n\n" + await getOfficer();
+      if (officer) {
+        try { context += "\n\n" + await getOfficer(env); }
+        catch (e) { context += "\n\n(OFFICER DATA is unavailable right now: " + e.message + ")"; }
+      }
     } catch (e) { return json({ error: "site_unreachable" }, 502); }
 
     const system = [
@@ -125,11 +130,21 @@ async function isOfficer(token) {
   return ok;
 }
 
-async function getOfficer() {
+/* officer files may be encrypted: { enc: 1, iv, data } with AES-GCM and DATA_KEY */
+const b64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+async function openData(obj, env) {
+  if (!obj || !obj.enc) return obj;
+  if (!env.DATA_KEY) throw new Error("DATA_KEY secret missing");
+  const key = await crypto.subtle.importKey("raw", b64(env.DATA_KEY.trim()), "AES-GCM", false, ["decrypt"]);
+  const pt = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64(obj.iv) }, key, b64(obj.data));
+  return JSON.parse(new TextDecoder().decode(pt));
+}
+
+async function getOfficer(env) {
   if (officerCache.text && Date.now() - officerCache.at < CACHE_MS) return officerCache.text;
   const [roster, watch] = await Promise.all([
-    getText("data/roster-x7k2p9.json").then(JSON.parse),
-    getText("data/watch-x7k2p9.json").then(JSON.parse).catch(() => null),
+    getText("data/roster-x7k2p9.json").then((t) => openData(JSON.parse(t), env)),
+    getText("data/watch-x7k2p9.json").then((t) => openData(JSON.parse(t), env)).catch(() => null),
   ]);
   const M = (n) => (n == null ? "?" : (n / 1e6).toFixed(1) + "M");
   const day = (s) => (s ? new Date(s * 1000).toISOString().slice(0, 10) : "?");
