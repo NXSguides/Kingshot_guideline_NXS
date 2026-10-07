@@ -19,84 +19,84 @@
 
   /* chat box texts — follow the language picked on the site ({g} = a guide name) */
   const TXT = {
-    en: { officerFail: "(Officer check failed — the AI answered as for a normal member. Try 🔒 again.)", limit: "You've used today's {n} questions on this device. Try again tomorrow (officers have no limit).", left: "{n} questions left today on this device.", greet: "Hi! Ask me anything about the guides.", eg: "e.g. “Which heroes for {g}?”", ph: "Ask a question…",
+    en: { clear: "Clear chat", officerFail: "(Officer check failed — the AI answered as for a normal member. Try 🔒 again.)", limit: "You've used today's {n} questions on this device. Try again tomorrow (officers have no limit).", left: "{n} questions left today on this device.", greet: "Hi! Ask me anything about the guides.", eg: "e.g. “Which heroes for {g}?”", ph: "Ask a question…",
       pw: "Officer password", keep: "Remember on this device", wrong: "Wrong password.", checking: "Checking…",
       on: "Officer mode on — you can also ask about the roster and member tracking.", off: "Officer mode off.",
       lockOn: "Officer mode on", lockOff: "Officer access", guides: "These guides might help:", none: "No matching guide found.",
       officerPages: "Officer pages:", notSet: "The AI isn't set up yet.", slow: "Too many questions — please wait a minute.",
       quota: "The AI is resting (daily free limit reached). Please try again later.", site: "The AI couldn't read the site content.",
       broken: "The AI isn't working right now.", net: "Couldn't reach the AI. Check your internet." },
-    zh: { officerFail: "（幹部驗證失敗，AI 以一般成員的身分回答。請再按一次 🔒 解鎖。）", limit: "這台裝置今天的 {n} 次提問已經用完了，明天再來吧（幹部不受限制）。", left: "這台裝置今天還可以問 {n} 次。", greet: "嗨！指南裡的任何問題都可以問我。", eg: "例如：「{g}要派哪些英雄？」", ph: "輸入問題…",
+    zh: { clear: "清除對話", officerFail: "（幹部驗證失敗，AI 以一般成員的身分回答。請再按一次 🔒 解鎖。）", limit: "這台裝置今天的 {n} 次提問已經用完了，明天再來吧（幹部不受限制）。", left: "這台裝置今天還可以問 {n} 次。", greet: "嗨！指南裡的任何問題都可以問我。", eg: "例如：「{g}要派哪些英雄？」", ph: "輸入問題…",
       pw: "幹部密碼", keep: "在這台裝置上記住", wrong: "密碼錯誤。", checking: "確認中…",
       on: "已開啟幹部模式 — 也可以問名冊和成員追蹤的問題。", off: "已關閉幹部模式。",
       lockOn: "幹部模式已開啟", lockOff: "幹部登入", guides: "這些指南可能有幫助：", none: "找不到相關的指南。",
       officerPages: "幹部頁面：", notSet: "AI 還沒設定好。", slow: "問題太多了，請等一分鐘再問。",
       quota: "AI 正在休息（今天的免費額度用完了），請晚點再試。", site: "AI 讀不到網站內容。",
       broken: "AI 目前無法使用。", net: "連不上 AI，請檢查網路。" },
-    ko: { limit: "이 기기의 오늘 질문 {n}회를 모두 사용했어요. 내일 다시 시도해 주세요 (임원은 제한 없음).", left: "이 기기에서 오늘 {n}회 더 질문할 수 있어요.", greet: "안녕하세요! 가이드에 대해 무엇이든 물어보세요.", eg: "예: “{g}에는 어떤 영웅을 써요?”", ph: "질문을 입력하세요…",
+    ko: { clear: "대화 지우기", limit: "이 기기의 오늘 질문 {n}회를 모두 사용했어요. 내일 다시 시도해 주세요 (임원은 제한 없음).", left: "이 기기에서 오늘 {n}회 더 질문할 수 있어요.", greet: "안녕하세요! 가이드에 대해 무엇이든 물어보세요.", eg: "예: “{g}에는 어떤 영웅을 써요?”", ph: "질문을 입력하세요…",
       pw: "임원 비밀번호", keep: "이 기기에서 기억하기", wrong: "비밀번호가 틀렸어요.", checking: "확인 중…",
       on: "임원 모드 켜짐 — 명단과 멤버 추적에 대해서도 물어볼 수 있어요.", off: "임원 모드 꺼짐.",
       lockOn: "임원 모드 켜짐", lockOff: "임원 로그인", guides: "이 가이드가 도움이 될 수 있어요:", none: "관련 가이드를 찾지 못했어요.",
       officerPages: "임원 페이지:", notSet: "AI가 아직 설정되지 않았어요.", slow: "질문이 너무 많아요. 1분만 기다려 주세요.",
       quota: "AI가 쉬는 중이에요 (오늘 무료 사용량 소진). 나중에 다시 시도해 주세요.", site: "AI가 사이트 내용을 읽지 못했어요.",
       broken: "지금은 AI를 사용할 수 없어요.", net: "AI에 연결할 수 없어요. 인터넷을 확인해 주세요." },
-    de: { limit: "Die {n} Fragen für heute auf diesem Gerät sind aufgebraucht. Morgen wieder (Offiziere haben kein Limit).", left: "Heute noch {n} Fragen auf diesem Gerät.", greet: "Hi! Frag mich alles zu den Guides.", eg: "z. B. „Welche Helden für {g}?“", ph: "Frage eingeben…",
+    de: { clear: "Chat löschen", limit: "Die {n} Fragen für heute auf diesem Gerät sind aufgebraucht. Morgen wieder (Offiziere haben kein Limit).", left: "Heute noch {n} Fragen auf diesem Gerät.", greet: "Hi! Frag mich alles zu den Guides.", eg: "z. B. „Welche Helden für {g}?“", ph: "Frage eingeben…",
       pw: "Offizierspasswort", keep: "Auf diesem Gerät merken", wrong: "Falsches Passwort.", checking: "Wird geprüft…",
       on: "Offiziersmodus an — du kannst auch nach Mitgliederliste und Mitglieder-Tracking fragen.", off: "Offiziersmodus aus.",
       lockOn: "Offiziersmodus an", lockOff: "Offizierszugang", guides: "Diese Guides könnten helfen:", none: "Kein passender Guide gefunden.",
       officerPages: "Offiziersseiten:", notSet: "Die KI ist noch nicht eingerichtet.", slow: "Zu viele Fragen — bitte eine Minute warten.",
       quota: "Die KI macht Pause (Tageslimit erreicht). Bitte später erneut versuchen.", site: "Die KI konnte die Seiteninhalte nicht lesen.",
       broken: "Die KI funktioniert gerade nicht.", net: "KI nicht erreichbar. Bitte Internet prüfen." },
-    fr: { limit: "Les {n} questions du jour sur cet appareil sont épuisées. Reviens demain (les officiers n'ont pas de limite).", left: "Encore {n} questions aujourd'hui sur cet appareil.", greet: "Salut ! Pose-moi tes questions sur les guides.", eg: "ex. « Quels héros pour {g} ? »", ph: "Pose ta question…",
+    fr: { clear: "Effacer la discussion", limit: "Les {n} questions du jour sur cet appareil sont épuisées. Reviens demain (les officiers n'ont pas de limite).", left: "Encore {n} questions aujourd'hui sur cet appareil.", greet: "Salut ! Pose-moi tes questions sur les guides.", eg: "ex. « Quels héros pour {g} ? »", ph: "Pose ta question…",
       pw: "Mot de passe officier", keep: "Se souvenir sur cet appareil", wrong: "Mot de passe incorrect.", checking: "Vérification…",
       on: "Mode officier activé — tu peux aussi poser des questions sur la liste et le suivi des membres.", off: "Mode officier désactivé.",
       lockOn: "Mode officier activé", lockOff: "Accès officier", guides: "Ces guides peuvent aider :", none: "Aucun guide correspondant.",
       officerPages: "Pages officiers :", notSet: "L'IA n'est pas encore configurée.", slow: "Trop de questions — attends une minute.",
       quota: "L'IA se repose (limite gratuite du jour atteinte). Réessaie plus tard.", site: "L'IA n'a pas pu lire le contenu du site.",
       broken: "L'IA ne fonctionne pas pour le moment.", net: "Impossible de joindre l'IA. Vérifie ta connexion." },
-    pt: { limit: "As {n} perguntas de hoje neste dispositivo acabaram. Volte amanhã (oficiais não têm limite).", left: "Restam {n} perguntas hoje neste dispositivo.", greet: "Oi! Pergunte qualquer coisa sobre os guias.", eg: "ex.: “Quais heróis para {g}?”", ph: "Digite sua pergunta…",
+    pt: { clear: "Limpar conversa", limit: "As {n} perguntas de hoje neste dispositivo acabaram. Volte amanhã (oficiais não têm limite).", left: "Restam {n} perguntas hoje neste dispositivo.", greet: "Oi! Pergunte qualquer coisa sobre os guias.", eg: "ex.: “Quais heróis para {g}?”", ph: "Digite sua pergunta…",
       pw: "Senha de oficial", keep: "Lembrar neste dispositivo", wrong: "Senha incorreta.", checking: "Verificando…",
       on: "Modo oficial ativado — você também pode perguntar sobre a lista e o acompanhamento de membros.", off: "Modo oficial desativado.",
       lockOn: "Modo oficial ativado", lockOff: "Acesso de oficial", guides: "Estes guias podem ajudar:", none: "Nenhum guia encontrado.",
       officerPages: "Páginas de oficiais:", notSet: "A IA ainda não foi configurada.", slow: "Perguntas demais — espere um minuto.",
       quota: "A IA está descansando (limite gratuito do dia atingido). Tente mais tarde.", site: "A IA não conseguiu ler o conteúdo do site.",
       broken: "A IA não está funcionando agora.", net: "Não foi possível conectar à IA. Verifique a internet." },
-    es: { limit: "Ya usaste las {n} preguntas de hoy en este dispositivo. Vuelve mañana (los oficiales no tienen límite).", left: "Te quedan {n} preguntas hoy en este dispositivo.", greet: "¡Hola! Pregúntame lo que quieras sobre las guías.", eg: "p. ej. «¿Qué héroes para {g}?»", ph: "Escribe tu pregunta…",
+    es: { clear: "Borrar chat", limit: "Ya usaste las {n} preguntas de hoy en este dispositivo. Vuelve mañana (los oficiales no tienen límite).", left: "Te quedan {n} preguntas hoy en este dispositivo.", greet: "¡Hola! Pregúntame lo que quieras sobre las guías.", eg: "p. ej. «¿Qué héroes para {g}?»", ph: "Escribe tu pregunta…",
       pw: "Contraseña de oficial", keep: "Recordar en este dispositivo", wrong: "Contraseña incorrecta.", checking: "Comprobando…",
       on: "Modo oficial activado: también puedes preguntar por la lista y el seguimiento de miembros.", off: "Modo oficial desactivado.",
       lockOn: "Modo oficial activado", lockOff: "Acceso de oficial", guides: "Estas guías pueden ayudar:", none: "No se encontró ninguna guía.",
       officerPages: "Páginas de oficiales:", notSet: "La IA aún no está configurada.", slow: "Demasiadas preguntas: espera un minuto.",
       quota: "La IA está descansando (límite gratuito diario alcanzado). Inténtalo más tarde.", site: "La IA no pudo leer el contenido del sitio.",
       broken: "La IA no funciona en este momento.", net: "No se pudo conectar con la IA. Revisa tu conexión." },
-    tr: { limit: "Bu cihazın bugünkü {n} soru hakkı doldu. Yarın tekrar dene (yöneticilerde sınır yok).", left: "Bu cihazda bugün {n} soru hakkın kaldı.", greet: "Merhaba! Rehberler hakkında her şeyi sorabilirsin.", eg: "örn. “{g} için hangi kahramanlar?”", ph: "Sorunu yaz…",
+    tr: { clear: "Sohbeti temizle", limit: "Bu cihazın bugünkü {n} soru hakkı doldu. Yarın tekrar dene (yöneticilerde sınır yok).", left: "Bu cihazda bugün {n} soru hakkın kaldı.", greet: "Merhaba! Rehberler hakkında her şeyi sorabilirsin.", eg: "örn. “{g} için hangi kahramanlar?”", ph: "Sorunu yaz…",
       pw: "Yönetici şifresi", keep: "Bu cihazda hatırla", wrong: "Yanlış şifre.", checking: "Kontrol ediliyor…",
       on: "Yönetici modu açık — üye listesi ve üye takibi hakkında da sorabilirsin.", off: "Yönetici modu kapalı.",
       lockOn: "Yönetici modu açık", lockOff: "Yönetici girişi", guides: "Bu rehberler yardımcı olabilir:", none: "Uygun rehber bulunamadı.",
       officerPages: "Yönetici sayfaları:", notSet: "Yapay zekâ henüz kurulmadı.", slow: "Çok fazla soru — lütfen bir dakika bekle.",
       quota: "Yapay zekâ dinleniyor (günlük ücretsiz limit doldu). Lütfen sonra tekrar dene.", site: "Yapay zekâ site içeriğini okuyamadı.",
       broken: "Yapay zekâ şu anda çalışmıyor.", net: "Yapay zekâya ulaşılamadı. İnternetini kontrol et." },
-    id: { limit: "Jatah {n} pertanyaan hari ini di perangkat ini sudah habis. Coba lagi besok (pengurus tidak dibatasi).", left: "Sisa {n} pertanyaan hari ini di perangkat ini.", greet: "Hai! Tanyakan apa saja tentang panduan.", eg: "mis. “Hero apa untuk {g}?”", ph: "Tulis pertanyaan…",
+    id: { clear: "Hapus obrolan", limit: "Jatah {n} pertanyaan hari ini di perangkat ini sudah habis. Coba lagi besok (pengurus tidak dibatasi).", left: "Sisa {n} pertanyaan hari ini di perangkat ini.", greet: "Hai! Tanyakan apa saja tentang panduan.", eg: "mis. “Hero apa untuk {g}?”", ph: "Tulis pertanyaan…",
       pw: "Kata sandi pengurus", keep: "Ingat di perangkat ini", wrong: "Kata sandi salah.", checking: "Memeriksa…",
       on: "Mode pengurus aktif — kamu juga bisa bertanya tentang daftar dan pemantauan anggota.", off: "Mode pengurus nonaktif.",
       lockOn: "Mode pengurus aktif", lockOff: "Akses pengurus", guides: "Panduan ini mungkin membantu:", none: "Tidak ada panduan yang cocok.",
       officerPages: "Halaman pengurus:", notSet: "AI belum disiapkan.", slow: "Terlalu banyak pertanyaan — tunggu sebentar.",
       quota: "AI sedang istirahat (batas gratis harian habis). Coba lagi nanti.", site: "AI tidak bisa membaca isi situs.",
       broken: "AI sedang tidak berfungsi.", net: "Tidak bisa terhubung ke AI. Periksa internet." },
-    ru: { limit: "Лимит {n} вопросов на сегодня для этого устройства исчерпан. Попробуйте завтра (у офицеров лимита нет).", left: "Сегодня на этом устройстве осталось вопросов: {n}.", greet: "Привет! Спрашивайте что угодно о гайдах.", eg: "напр. «Каких героев брать на {g}?»", ph: "Введите вопрос…",
+    ru: { clear: "Очистить чат", limit: "Лимит {n} вопросов на сегодня для этого устройства исчерпан. Попробуйте завтра (у офицеров лимита нет).", left: "Сегодня на этом устройстве осталось вопросов: {n}.", greet: "Привет! Спрашивайте что угодно о гайдах.", eg: "напр. «Каких героев брать на {g}?»", ph: "Введите вопрос…",
       pw: "Пароль офицера", keep: "Запомнить на этом устройстве", wrong: "Неверный пароль.", checking: "Проверка…",
       on: "Режим офицера включён — можно спрашивать и о составе, и об отслеживании участников.", off: "Режим офицера выключен.",
       lockOn: "Режим офицера включён", lockOff: "Вход для офицеров", guides: "Эти гайды могут помочь:", none: "Подходящий гайд не найден.",
       officerPages: "Страницы офицеров:", notSet: "ИИ ещё не настроен.", slow: "Слишком много вопросов — подождите минуту.",
       quota: "ИИ отдыхает (дневной бесплатный лимит исчерпан). Попробуйте позже.", site: "ИИ не смог прочитать содержимое сайта.",
       broken: "ИИ сейчас не работает.", net: "Не удалось связаться с ИИ. Проверьте интернет." },
-    th: { limit: "ใช้สิทธิ์ถาม {n} ครั้งของวันนี้บนอุปกรณ์นี้ครบแล้ว ลองใหม่พรุ่งนี้ (เจ้าหน้าที่ไม่จำกัด)", left: "วันนี้ถามได้อีก {n} ครั้งบนอุปกรณ์นี้", greet: "สวัสดี! ถามอะไรเกี่ยวกับคู่มือก็ได้", eg: "เช่น “{g} ใช้ฮีโร่ตัวไหนดี?”", ph: "พิมพ์คำถาม…",
+    th: { clear: "ล้างแชท", limit: "ใช้สิทธิ์ถาม {n} ครั้งของวันนี้บนอุปกรณ์นี้ครบแล้ว ลองใหม่พรุ่งนี้ (เจ้าหน้าที่ไม่จำกัด)", left: "วันนี้ถามได้อีก {n} ครั้งบนอุปกรณ์นี้", greet: "สวัสดี! ถามอะไรเกี่ยวกับคู่มือก็ได้", eg: "เช่น “{g} ใช้ฮีโร่ตัวไหนดี?”", ph: "พิมพ์คำถาม…",
       pw: "รหัสผ่านเจ้าหน้าที่", keep: "จดจำในอุปกรณ์นี้", wrong: "รหัสผ่านไม่ถูกต้อง", checking: "กำลังตรวจสอบ…",
       on: "เปิดโหมดเจ้าหน้าที่แล้ว — ถามเรื่องรายชื่อและการติดตามสมาชิกได้ด้วย", off: "ปิดโหมดเจ้าหน้าที่แล้ว",
       lockOn: "เปิดโหมดเจ้าหน้าที่", lockOff: "เข้าสู่ระบบเจ้าหน้าที่", guides: "คู่มือเหล่านี้อาจช่วยได้:", none: "ไม่พบคู่มือที่ตรงกัน",
       officerPages: "หน้าสำหรับเจ้าหน้าที่:", notSet: "ยังไม่ได้ตั้งค่า AI", slow: "ถามเยอะเกินไป — รอสักหนึ่งนาที",
       quota: "AI กำลังพัก (ใช้โควตาฟรีของวันนี้หมดแล้ว) ลองใหม่ภายหลัง", site: "AI อ่านเนื้อหาของเว็บไซต์ไม่ได้",
       broken: "ตอนนี้ AI ใช้งานไม่ได้", net: "เชื่อมต่อ AI ไม่ได้ ตรวจสอบอินเทอร์เน็ต" },
-    ar: { limit: "استنفدت أسئلة اليوم ({n}) على هذا الجهاز. حاول غدًا (لا حدّ للمسؤولين).", left: "تبقّى لك {n} أسئلة اليوم على هذا الجهاز.", greet: "مرحبًا! اسألني أي شيء عن الأدلة.", eg: "مثال: «ما الأبطال المناسبون لـ {g}؟»", ph: "اكتب سؤالك…",
+    ar: { clear: "مسح المحادثة", limit: "استنفدت أسئلة اليوم ({n}) على هذا الجهاز. حاول غدًا (لا حدّ للمسؤولين).", left: "تبقّى لك {n} أسئلة اليوم على هذا الجهاز.", greet: "مرحبًا! اسألني أي شيء عن الأدلة.", eg: "مثال: «ما الأبطال المناسبون لـ {g}؟»", ph: "اكتب سؤالك…",
       pw: "كلمة مرور المسؤول", keep: "تذكّر على هذا الجهاز", wrong: "كلمة المرور غير صحيحة.", checking: "جارٍ التحقق…",
       on: "تم تفعيل وضع المسؤول — يمكنك أيضًا السؤال عن قائمة الأعضاء وتتبّعهم.", off: "تم إيقاف وضع المسؤول.",
       lockOn: "وضع المسؤول مفعّل", lockOff: "دخول المسؤولين", guides: "قد تفيدك هذه الأدلة:", none: "لم يُعثر على دليل مناسب.",
@@ -150,6 +150,7 @@
   panel.className = "ai-panel"; panel.hidden = true;
   panel.innerHTML = `
     <div class="ai-head"><b>NXS AI</b>
+      <button type="button" id="aiClear">🗑</button>
       <button type="button" id="aiLock">🔒</button>
       <button type="button" id="aiClose" aria-label="Close">×</button></div>
     <div class="ai-officer" id="aiOfficer" hidden>
@@ -173,14 +174,22 @@
     $("aiQ").placeholder = L("ph");
     $("aiPw").placeholder = L("pw");
     $("aiKeepTxt").textContent = L("keep");
+    $("aiClear").title = L("clear"); $("aiClear").setAttribute("aria-label", L("clear"));
     panel.dir = document.documentElement.dir || "ltr";
     setLock();
   }
   // app.js sets <html lang> whenever the language changes → follow it
   new MutationObserver(applyLang).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
 
-  fab.onclick = () => { panel.hidden = !panel.hidden; if (!panel.hidden) $("aiQ").focus(); };
-  $("aiClose").onclick = () => { panel.hidden = true; };
+  /* the chat stays open (and keeps its messages) when you move to another page in this tab */
+  const OPEN_KEY = "nxs-ai-open";
+  function setOpen(open) {
+    panel.hidden = !open;
+    try { sessionStorage.setItem(OPEN_KEY, open ? "1" : ""); } catch (e) {}
+    if (open) { $("aiLog").scrollTop = $("aiLog").scrollHeight; }
+  }
+  fab.onclick = () => { setOpen(panel.hidden); if (!panel.hidden) $("aiQ").focus(); };
+  $("aiClose").onclick = () => setOpen(false);
 
   /* ---------- officer unlock: the officer password opens data/data-key.json; the Worker checks a hash of that key ---------- */
   let officerProof = null;
@@ -226,8 +235,15 @@
   $("aiPwGo").onclick = unlock;
   $("aiPw").onkeydown = (e) => { if (e.key === "Enter") { e.preventDefault(); unlock(); } };
 
-  /* ---------- chat ---------- */
-  const history = [];
+  /* ---------- chat (saved in this browser, so it survives moving between pages) ---------- */
+  const LOG_KEY = "nxs-ai-log-v1", MAX_SAVED = 40;
+  let LOG = { msgs: [], history: [] };
+  try { LOG = Object.assign(LOG, JSON.parse(localStorage.getItem(LOG_KEY)) || {}); } catch (e) {}
+  const history = LOG.history;
+  function saveLog() {
+    LOG.msgs = LOG.msgs.slice(-MAX_SAVED);
+    try { localStorage.setItem(LOG_KEY, JSON.stringify(LOG)); } catch (e) {}
+  }
   function format(text) {
     let h = esc(text)
       .replace(/\[([^\]]+)\]\(#\/?(?:\w+\/)?([\w-]+)\)/g, (m, label, id) => {
@@ -244,18 +260,35 @@
       .replace(/(^|\n)[*-] (.+)/g, "$1• $2");
     return h.replace(/\n*(<(button|a) class="guide-link-btn"[\s\S]*?<\/\2>)\n*/g, "$1").replace(/\n/g, "<br>");
   }
-  function say(who, text, raw) {
+  function paint(d, who, text, hints) {
+    d.innerHTML = who === "a" ? format(text) : esc(text);
+    for (const h of hints || []) d.insertAdjacentHTML("beforeend", `<br><span class="ai-hint">${esc(h)}</span>`);
+  }
+  // keep = save it in the chat history (the "…" placeholder is not saved until its answer arrives)
+  function say(who, text, keep = true, hints) {
     const d = document.createElement("div");
     d.className = "ai-msg " + who; d.dir = "auto";
-    d.innerHTML = raw ? text : who === "a" ? format(text) : esc(text);
+    paint(d, who, text, hints);
     $("aiLog").appendChild(d); $("aiLog").scrollTop = $("aiLog").scrollHeight;
+    if (keep) { LOG.msgs.push({ w: who, t: text, h: hints || [] }); saveLog(); }
     return d;
   }
+  function finish(d, text, hints) {
+    paint(d, "a", text, hints);
+    LOG.msgs.push({ w: "a", t: text, h: hints || [] }); saveLog();
+  }
+  // show the saved conversation
+  for (const m of LOG.msgs) say(m.w, m.t, false, m.h);
+  $("aiClear").onclick = () => {
+    LOG.msgs = []; LOG.history.length = 0; saveLog();
+    $("aiLog").querySelectorAll(".ai-msg:not(#aiGreet)").forEach((el) => el.remove());
+  };
+  try { if (sessionStorage.getItem(OPEN_KEY)) setOpen(true); } catch (e) {}
   $("aiLog").addEventListener("click", (e) => {
     const b = e.target.closest("[data-guide]");
     if (!b || !ON_SITE) return;
     switchGuide(b.dataset.guide);
-    if (window.innerWidth < 700) panel.hidden = true;
+    if (window.innerWidth < 700) setOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
@@ -295,9 +328,9 @@
     if (!q) return;
     $("aiQ").value = "";
     say("u", q);
-    const wait = say("a", "…");
+    const wait = say("a", "…", false);
     await autoUnlock();
-    if (!AI_URL) { wait.innerHTML = format(fallback(q, L("notSet"))); return; }
+    if (!AI_URL) { finish(wait, fallback(q, L("notSet"))); return; }
     try {
       const r = await fetch(AI_URL, {
         method: "POST", headers: { "Content-Type": "application/json" },
@@ -305,21 +338,20 @@
       });
       const data = await r.json().catch(() => ({}));
       if (r.ok && data.answer) {
-        wait.innerHTML = format(data.answer);
-        if (officerProof && data.officer === false)
-          wait.insertAdjacentHTML("beforeend", `<br><span class="ai-hint">${esc(L("officerFail"))}</span>`);
-        if (typeof data.left === "number" && data.left <= 3)
-          wait.insertAdjacentHTML("beforeend", `<br><span class="ai-hint">${esc(L("left").replace("{n}", data.left))}</span>`);
+        const hints = [];
+        if (officerProof && data.officer === false) hints.push(L("officerFail"));
+        if (typeof data.left === "number" && data.left <= 3) hints.push(L("left").replace("{n}", data.left));
         history.push({ role: "user", text: q }, { role: "model", text: data.answer });
         if (history.length > 6) history.splice(0, history.length - 6);
+        finish(wait, data.answer, hints);
       } else {
         const why = data.error === "daily_limit" ? L("limit").replace("{n}", data.limit || "")
           : L({ slow_down: "slow", quota: "quota", site_unreachable: "site" }[data.error] || "broken");
-        wait.innerHTML = format(fallback(q, why));
+        finish(wait, fallback(q, why));
         if (data.detail) console.warn("NXS AI:", data.detail);   // details for whoever set it up
       }
     } catch (err) {
-      wait.innerHTML = format(fallback(q, L("net")));
+      finish(wait, fallback(q, L("net")));
     }
     $("aiLog").scrollTop = $("aiLog").scrollHeight;
   };
