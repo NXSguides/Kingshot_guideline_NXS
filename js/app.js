@@ -838,6 +838,9 @@ window.addEventListener("hashchange", () => {
 const KVK_CHECK = {
   dayBefore: { en:"Day before KvK", zh:"KvK 前一天", ko:"KvK 전날", de:"Tag vor dem KvK", fr:"Veille du KvK", pt:"Véspera do KvK", tr:"KvK'dan önceki gün", id:"Sehari sebelum KvK", ru:"День до KvK", th:"วันก่อน KvK", ar:"اليوم السابق لـ KvK", es:"Día antes del KvK" },
   dayN: { en:"KvK Day {n}", zh:"KvK 第 {n} 天", ko:"KvK {n}일 차", de:"KvK Tag {n}", fr:"KvK Jour {n}", pt:"KvK Dia {n}", tr:"KvK {n}. Gün", id:"KvK Hari ke-{n}", ru:"KvK, день {n}", th:"KvK วันที่ {n}", ar:"KvK اليوم {n}", es:"KvK Día {n}" },
+  // game wording: Days 1–5 are shown as "Preparation Phase 1–5" (備戰階段1–5), Day 6 is the Battle Phase
+  prepN: { en:"KvK Preparation Phase {n}", zh:"KvK 備戰階段 {n}", ko:"KvK 준비 단계 {n}", de:"KvK Vorbereitungsphase {n}", fr:"KvK Phase de Préparation {n}", pt:"KvK Fase de Preparação {n}", tr:"KvK Hazırlık Evresi {n}", id:"KvK Fase Persiapan {n}", ru:"KvK, стадия подготовки {n}", th:"KvK ช่วงการเตรียมตัว {n}", ar:"KvK مرحلة التحضير {n}", es:"KvK Fase de Preparación {n}" },
+  battle: { en:"KvK Battle Phase", zh:"KvK 戰爭階段", ko:"KvK 전쟁 단계", de:"KvK Kampfphase", fr:"KvK Phase de Combat", pt:"KvK Fase de Batalha", tr:"KvK Savaş Evresi", id:"KvK Fase Pertempuran", ru:"KvK, стадия битвы", th:"KvK ช่วงการต่อสู้", ar:"KvK مرحلة المعركة", es:"KvK Fase de batalla" },
   title: { en:"KvK checklist", zh:"KvK 準備清單", ko:"KvK 체크리스트", de:"KvK-Checkliste", fr:"Checklist KvK", pt:"Checklist do KvK", tr:"KvK kontrol listesi", id:"Checklist KvK", ru:"Чек-лист KvK", th:"เช็กลิสต์ KvK", ar:"قائمة تحقق KvK", es:"Lista de KvK" },
   starts: { en:"KvK starts {d}", zh:"KvK 於 {d} 開始", ko:"KvK 시작: {d}", de:"KvK beginnt am {d}", fr:"Le KvK commence le {d}", pt:"O KvK começa em {d}", tr:"KvK başlangıcı: {d}", id:"KvK dimulai {d}", ru:"KvK начинается {d}", th:"KvK เริ่ม {d}", ar:"يبدأ KvK في {d}", es:"El KvK empieza el {d}" },
   live: { en:"KvK is on now", zh:"KvK 進行中", ko:"KvK 진행 중", de:"KvK läuft", fr:"Le KvK est en cours", pt:"O KvK está em andamento", tr:"KvK devam ediyor", id:"KvK sedang berlangsung", ru:"KvK идёт", th:"KvK กำลังดำเนินอยู่", ar:"KvK جارٍ الآن", es:"El KvK está en curso" },
@@ -922,7 +925,7 @@ const KVK_CHECK = {
   const KEY = "ks-kvk-check-" + new Date(start).toISOString().slice(0, 10) + "-d" + dayNo;
   const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } };
   const store = (v) => { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {} };
-  const dayTitle = () => dayNo === 0 ? t(KVK_CHECK.dayBefore) : t(KVK_CHECK.dayN).replace("{n}", dayNo);
+  const dayTitle = () => dayNo === 0 ? t(KVK_CHECK.dayBefore) : dayNo === LAST_DAY ? t(KVK_CHECK.battle) : t(KVK_CHECK.prepN).replace("{n}", dayNo);
   const st = document.createElement("style");
   st.textContent = `
     .kvk-fab{position:fixed;right:14px;bottom:16px;z-index:900;display:flex;align-items:center;gap:6px;padding:10px 14px;border-radius:999px;border:2px solid var(--accent);background:var(--panel);color:var(--text);font-weight:700;font-size:14px;box-shadow:0 6px 18px var(--shadow);cursor:pointer}
