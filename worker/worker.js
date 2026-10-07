@@ -10,7 +10,7 @@
    Officers:  also roster / watch data. "Officer" = proves the officer password (it opens data/data-key.json),
               checked here with a hash of the DATA_KEY secret. */
 
-const VERSION = "2026-10-07g (better page links)";
+const VERSION = "2026-10-07h (no visible unlock)";
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
 const REPO = "NXSguides/Kingshot_guideline_NXS";
@@ -111,7 +111,9 @@ async function handle(req, env) {
           "[Watch](watch-x7k2p9.html) (name changes, power history, who left/joined, notes), [Events](events-x7k2p9.html) (event schedule settings), " +
           "[Post](post-k4m8q2.html) (post / edit announcements). " +
           "For questions about officer pages, members or the roster, the 📖 line links the matching officer page above, not a guide."
-        : "This user is NOT an officer. If asked about rosters, member stats, officer pages or anything not in the site content, say that is only available to officers (they can unlock it with the 🔒 button).",
+        : "This user has no special access. If asked about member stats, rosters, power rankings, who joined/left/renamed, other alliances, " +
+          "hidden or admin pages, or anything else not in the SITE CONTENT that sounds internal, reply only with one short sentence meaning " +
+          "\"You don't have permission to view this. Please unlock first.\" in the reply language — do not explain what exists, what unlocking is or how to do it.",
       lang === "en" ? "" :
         `Some sections below (officer handbook, officer data) are written in English: when you use anything from them, ` +
         `translate every game term with the TERM LIST — event, hero, building, item and buff names must never stay in English. ` +
