@@ -656,3 +656,31 @@ body.menu-open { overflow: hidden; }
 
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 .ann-ticker-item{font-size:inherit;white-space:nowrap;line-height:1.4;vertical-align:middle;}
+
+/* ---- Hero cards ---- */
+.hc-filters{display:flex;flex-direction:column;gap:8px;margin:8px 0 14px;}
+.hc-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
+.hc-chip{padding:5px 12px;border-radius:999px;border:1px solid var(--rule);background:var(--panel);color:var(--text);font:inherit;font-size:.92em;cursor:pointer;}
+.hc-chip.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700;}
+.hc-role select{padding:5px 8px;border-radius:8px;border:1px solid var(--rule);background:var(--panel);color:var(--text);font:inherit;max-width:100%;}
+.hc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
+.hc-card{border:1px solid var(--rule);border-radius:14px;overflow:hidden;background:var(--panel);box-shadow:0 3px 10px var(--shadow);display:flex;flex-direction:column;}
+.hc-art{position:relative;aspect-ratio:480/476;background:linear-gradient(#7fa6bd,#4f7488);}
+.hc-art img{display:block;width:100%;height:100%;object-fit:cover;}
+.hc-head{position:absolute;inset:auto 0 0 0;padding:28px 10px 8px;background:linear-gradient(transparent,rgba(0,0,0,.72));color:#fff;}
+.hc-name{font-weight:800;font-size:1.3em;text-shadow:0 1px 3px rgba(0,0,0,.6);}
+.hc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;}
+.hc-tag{font-size:.75em;padding:1px 7px;border-radius:6px;background:rgba(255,255,255,.18);backdrop-filter:blur(2px);}
+.hc-tag.r-SSR{background:#e3a91e;color:#3a2600;font-weight:800;}
+.hc-tag.r-SR{background:#9b6be0;color:#fff;font-weight:800;}
+.hc-tag.r-R{background:#3a9ad9;color:#fff;font-weight:800;}
+.hc-body{padding:10px 12px 12px;}
+.hc-roles{list-style:none;margin:0 0 8px;padding:0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;font-size:.9em;}
+.hc-roles li{display:flex;justify-content:space-between;gap:8px;padding:4px 10px;border-bottom:1px solid var(--rule);}
+.hc-roles li:last-child{border-bottom:0;}
+.hc-roles li.hl{background:color-mix(in srgb,var(--accent) 18%,transparent);font-weight:700;}
+.hc-v{white-space:nowrap;}
+.hc-stars{color:#e3a91e;letter-spacing:1px;}
+.hc-body .prep-list{margin:0;padding-inline-start:18px;font-size:.92em;}
+.hc-quip{margin:8px 0 0;font-style:italic;color:var(--text-muted);font-size:.9em;}
+.hc-note{margin:0 0 8px;color:var(--text-muted);font-size:.9em;}

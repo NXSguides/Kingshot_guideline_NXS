@@ -184,6 +184,51 @@ function isEventActive(key) {
   return (diffDays % sched.periodDays) < sched.activeDays;
 }
 
+/* ---- Hero cards ---------------------------------------------------- */
+const hcFilter = { gen: 0, troop: "", role: "" };
+const HC_TROOP_ICON = { infantry: "🛡️", cavalry: "🐎", archer: "🏹" };
+const HC_ROLES = ["bl", "bj", "pl", "gl", "pj", "so", "ar"];
+function hcVal(v) {
+  if (v === "y") return "✅";
+  if (v === "n") return "❌";
+  if (v === "c") return "⚠️";
+  return /^★/.test(v || "") ? `<span class="hc-stars">${escapeHtml(v)}</span>` : "—";
+}
+const hcGood = (v) => v === "y" || /^★/.test(v || "");
+function heroCardsHtml() {
+  const U = HERO_CARD_UI, f = hcFilter;
+  const gens = [...new Set(HERO_CARDS.map((h) => h.gen))];
+  const chip = (on, k, v, label) => `<button type="button" class="hc-chip${on ? " on" : ""}" onclick="hcSet('${k}','${v}')">${label}</button>`;
+  const bar = `<div class="hc-filters">
+    <div class="hc-row">${chip(!f.gen, "gen", 0, escapeHtml(t(U.all)))}${gens.map((g) => chip(f.gen === g, "gen", g, escapeHtml(t(U.gen).replace("{n}", g)))).join("")}</div>
+    <div class="hc-row">${chip(!f.troop, "troop", "", escapeHtml(t(U.all)))}${["infantry", "cavalry", "archer"].map((x) => chip(f.troop === x, "troop", x, `${HC_TROOP_ICON[x]} ${escapeHtml(term(x))}`)).join("")}</div>
+    <label class="hc-row hc-role">${escapeHtml(t(U.goodFor))}
+      <select onchange="hcSet('role',this.value)"><option value="">${escapeHtml(t(U.anyRole))}</option>
+      ${HC_ROLES.map((r) => `<option value="${r}"${f.role === r ? " selected" : ""}>${rich(t(U.roles[r]))}</option>`).join("")}</select></label>
+    <div class="legend">${escapeHtml(t(U.legend))}</div>
+  </div>`;
+  const list = HERO_CARDS.filter((h) => (!f.gen || h.gen === f.gen) && (!f.troop || h.troop === f.troop) && (!f.role || (h.r && hcGood(h.r[f.role]))));
+  const card = (h) => {
+    const tx = h.t[currentLang] || h.t.en;
+    const roles = h.r
+      ? `<ul class="hc-roles">${HC_ROLES.map((r) => `<li class="${f.role === r ? "hl" : ""}"><span>${rich(t(U.roles[r]))}</span><span class="hc-v">${hcVal(h.r[r])}</span></li>`).join("")}</ul>`
+      : `<p class="hc-note">${escapeHtml(t(U.noRatings))}</p>`;
+    return `<div class="hc-card">
+      <div class="hc-art"><img src="figures/heroes/hero_${h.id}.webp" alt="${escapeHtml(term(h.id))}" loading="lazy" onerror="this.remove()">
+        <div class="hc-head"><div class="hc-name">${escapeHtml(term(h.id))}</div>
+          <div class="hc-tags"><span class="hc-tag r-${h.rarity}">${h.rarity}</span><span class="hc-tag">${escapeHtml(t(U.gen).replace("{n}", h.gen))}</span>
+          <span class="hc-tag">${HC_TROOP_ICON[h.troop]} ${escapeHtml(term(h.troop))}</span><span class="hc-tag">${h.kind === "growth" ? "🔨" : "⚔️"} ${escapeHtml(t(U[h.kind]))}</span></div></div></div>
+      <div class="hc-body">${roles}${ul(tx.sum || [])}${tx.quip ? `<p class="hc-quip">“${rich(tx.quip)}”</p>` : ""}</div>
+    </div>`;
+  };
+  return bar + (list.length ? `<div class="hc-grid">${list.map(card).join("")}</div>` : `<p class="legend">${escapeHtml(t(U.none))}</p>`);
+}
+function hcSet(k, v) {
+  hcFilter[k] = k === "gen" ? Number(v) : v;
+  const root = document.getElementById("hcRoot");
+  if (root) root.innerHTML = heroCardsHtml();
+}
+
 const BLOCKS = {
   h: (b) => `<h3 class="section-h">${rich(b.text)}</h3>`,
   sub: (b) => `<h4 class="sub-h">${rich(b.text)}</h4>`,
@@ -213,6 +258,9 @@ const BLOCKS = {
       <img src="${escapeHtml(it.img)}" alt="${escapeHtml(it.alt || "")}" loading="lazy" onerror="this.remove()"
         style="display:block;margin:.6em auto 0;width:auto;height:auto;max-width:min(100%,360px);max-height:420px;border-radius:12px;border:1px solid var(--rule);box-shadow:0 2px 8px var(--shadow)">` : ""}
     </li>`).join("")}</ol>`,
+
+  /* Hero cards: one card per hero with filters (data: HERO_CARDS / HERO_CARD_UI in data/content.js) */
+  herocards: () => (typeof HERO_CARDS === "undefined" ? "" : `<div id="hcRoot">${heroCardsHtml()}</div>`),
 
   cards: (b) => `<div class="card-grid">${(b.items || []).map((c) => `
     <div class="info-card">
@@ -533,7 +581,7 @@ const HOME_GUIDE = "recent-events";
 const GUIDE_GROUPS = {
   events: { emoji: "🏆", name: { en:"Event Guides", zh:"活動指南", ko:"이벤트 가이드", de:"Event-Guides", fr:"Guides d'événements", pt:"Guias de eventos", tr:"Etkinlik Rehberleri", id:"Panduan Event", ru:"Гайды по событиям", th:"คู่มือกิจกรรม", ar:"أدلة الفعاليات", es:"Guías de eventos" } },
   growth: { emoji: "🌱", name: { en:"Growth Guides", zh:"養成指南", ko:"육성 가이드", de:"Aufbau-Guides", fr:"Guides de progression", pt:"Guias de evolução", tr:"Gelişim Rehberleri", id:"Panduan Pengembangan", ru:"Гайды по развитию", th:"คู่มือพัฒนา", ar:"أدلة التطوير", es:"Guías de progreso" },
-    guides: ["formations-rally-tips", "f2p-heroes", "master-academy", "pet", "general-tips"] },
+    guides: ["formations-rally-tips", "f2p-heroes", "hero-cards", "master-academy", "pet", "general-tips"] },
 };
 let openGuideGroup = null;
 
@@ -605,7 +653,7 @@ window.toggleGuideGroup = toggleGuideGroup;
 window.pickGuideChip = pickGuideChip;
 
 /* Order of the guide buttons at the top. Guides not listed here are added at the end. */
-const GUIDE_ORDER = ["recent-events", "formations-rally-tips", "f2p-heroes", "hero-roulette", "master-academy", "general-tips", "mystic-trial", "pet", "bear-hunt", "swordland-showdown", "kvk"];
+const GUIDE_ORDER = ["recent-events", "formations-rally-tips", "f2p-heroes", "hero-cards", "hero-roulette", "master-academy", "general-tips", "mystic-trial", "pet", "bear-hunt", "swordland-showdown", "kvk"];
 
 function guideKeys() {
   const all = Object.keys(GUIDES).filter((k) => !GUIDES[k].hidden);
