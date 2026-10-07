@@ -113,7 +113,8 @@
     function unlock() {
       gate.remove();
       return load("data/content.js")
-        .then(function () { return load("js/app.js"); });
+        .then(function () { return load("js/app.js"); })
+        .then(function () { return load("js/assistant.js"); });
     }
     function saved() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
     function remember(h) { try { localStorage.setItem(KEY, h); } catch (e) {} }

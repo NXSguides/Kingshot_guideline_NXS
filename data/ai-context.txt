@@ -1,0 +1,930 @@
+### GUIDE #viking-vengeance — Viking Vengeance
+WHEN
+Every 2 weeks — two 30-minute sessions on Day 1 & Day 3. Scheduled by leadership, usually close to Bear Hunt times.
+📌 PREPARATION
+Empty Your City
+Send ALL Infantry & Cavalry out to reinforce alliance members.
+Extra Archers can stay home — they won't steal reinforcement points.
+Even if you'll be offline during the event, empty your city beforehand! You can still earn points while giving other members the opportunity to earn points by reinforcing you.
+Keep Best 3 Heroes Home
+Leave your best 3 Defense/Offense heroes in your Guard Station.
+F2P: Jabel / Howard / Quinn
+P2W: Amadeus or Helga / Jabel / Saul
+DO NOT HEAL
+Healed troops return home and can steal kills/points from the members reinforcing you.
+Prioritize Active Members
+Reinforce online members first. Waves 7, 14 & 17 only attack online players.
+⚔️ REINFORCING ALLIES
+Use Bear Hunt joiner heroes in slot 1 to maximize kill points.
+Recommended: Chenko / Amane / Yeonwoo / Amadeus
+Avoid defensive heroes such as Howard or Gordon in reinforcement marches.
+🏛️ HQ — WAVES 10 & 20
+Waves 10 & 20 attack HQ ONLY. City attacks pause during these waves.
+After Wave 9 / 19 finishes:
+Recall ONE strong march.
+Send it directly to HQ.
+Max 68K troops per member.
+Use Chenko or Amadeus in slot 1, or your strongest raw-damage hero.
+After the HQ wave, recall and return to reinforcing your assigned member.
+⚠️ IMPORTANT: You can reinforce HQ for Wave 10 OR Wave 20 — NOT BOTH.
+Coordinate with R4/R5 so everyone gets a turn and we fill HQ efficiently.
+
+### GUIDE #master-academy — Gen 3 Master Academy Guide
+WHEN
+Gen 3 arrives on Sep 28 and unlocks the Master Academy at Town Center 25. Masters give permanent passive account buffs, extra resources and event rewards. They are separate from Heroes.
+HOW UNLOCKING WORKS
+Valora is ALWAYS your first Master, discovered through normal Realm Journeys.
+Free Journey Supplies: 20 refill automatically at 00:00 UTC, plus 10 at 08:00 and 10 at 16:00 that you must claim manually — 40 per day. You can buy up to 20 more per day with Gems (1,000 Gems per 5). They stop refilling once storage is full, so use them regularly.
+Do NOT spend Adventure Supply on Valora — the free Journey Supplies will unlock her naturally.
+SAVE your Adventure Supply for Pan and Roman in the Lostlands once they are discovered.
+A Master settles in your Town once you reach 1,000 Affinity.
+PRIORITY FOR F2P & LOW SPENDERS
+Pan ➔ Valora ➔ Roman
+1. Pan — the economy Master (top priority)
+Push Pan to Lv. 60.
+Talent: 5 Reserve Chests for every 120 minutes of gathering (up to 30 per day) — free Truegold, Gems and speedups.
+Skill 1 Falconer: +8 Intel Missions per day → lots of free daily Truegold.
+Skill 4 Ways and Means: +120 Mystery Badges from daily missions and +4 free Mystery Shop refreshes → discounted Widgets.
+🔗 Details: https://kingshotoptimizer.com/masters/pan/
+2. Valora — Bear Hunt gear materials
+Get her to Lv. 30 (Acquaintance 3 / Casual 1).
+Skill 2 Leader By Example: +5 × 100 Enhancement XP per Bear Hunt.
+Skill 3 Weapon Obsession: +5 Forgehammers per Bear Hunt.
+🔗 Details: https://kingshotoptimizer.com/masters/valora/
+3. Roman — Arena passive
+Just unlock him (1,000 Affinity): his Talent already gives a 50% chance of extra Arena Star Chests after each Arena match (Hero Shards & Forgehammers); only at max level does it become a 100% chance of 3. No heavy Master Emblems investment needed early on.
+🔗 Details: https://kingshotoptimizer.com/masters/roman/
+PRIORITY FOR WHALES & RALLY LEADERS
+Valora ➔ Roman ➔ Pan
+Valora: max Savage Advantage and Dance of the Hunt for huge leaderboard scores.
+Dance of the Hunt (Skill 1): when you launch the Raging Bear rally, the whole rally's squad capacity +30,000 per level (Lv.10: +300,000) — more members' troops fit in.
+Savage Advantage (Skill 4): your own march squad capacity when taking part in Bear Hunt +3,000 per level (Lv.10: +30,000).
+Roman: Teacher of Champions & One Desire (+20% Arena battle Attack & Health), Winner Take All (+50% daily/weekly Arena Token rewards), Crowd Favorite (3 extra Arena Shop items at 50% off).
+Pan: level him up second for passive Truegold.
+ℹ️ Skill 1 Dance of the Hunt raises the capacity of the whole rally you launch. Skill 4 Savage Advantage only raises your own squad — the rally's total capacity still depends on what the rally leader can open.
+💬 Journey Q&A rewards
+The list below is compiled from the site above. When an event pops up, check it by its color and content: pick a color or a character / keyword, then tap the event to see which option is best (✅).
+
+### GUIDE #general-tips — General Tips
+🔗 RESOURCES
+🗓️ KINGDOM TIMELINE
+See what's coming next so you can plan events, upgrades and resources ahead of time.
+⚔️ HERO GEAR OPTIMIZER
+Plan your Hero Gear upgrades and avoid wasting valuable materials.
+🎥 YOUTUBE – STRAT GAME SLOTH
+Recommended strategy videos, gameplay tips and progression advice.
+🛒 IN-GAME SHOPS
+What to prioritize for the best value from each shop.
+🐪 Nomadic Merchant
+Advanced Teleporter for resources / free
+Favourable resource trades
+Discounted VIP XP
+🎲 Mystery Shop
+Free daily refresh
+Gen 2 Custom Hero Widget Chest at 50% OFF
+20% OFF only if urgently needed
+🏟️ Arena Shop
+Custom Mythic Hero Gear Chest weekly → Mithril once the Mythic Gear foundation of your main heroes is done
+👑 VIP Shop
+Spend Gems selectively on discounts: Advanced Teleporter • 100 Enhancement XP • Forgehammer
+🏆 Alliance Championship Shop
+Before unlocking the Master Academy: Artisan's Vision • Gilded Threads / Satin as needed
+After unlocking: Master Emblems are the #1 priority — late game, save tokens for these
+⚔️ Swordland Shop
+Artisan's Vision → then whatever is your bottleneck: Governor Charm / Governor Gear materials • Forgehammer
+🏰 Kingdom of Power Shop
+Truegold — a major long-term progression bottleneck
+🎨 Skin Shop
+Prioritize permanent stat bonuses, e.g. House of Cacti: +2% Squads' Attack
+🧪 Trial Shop
+Before Truegold Dust: SAVE your Trial Crystal
+After: Truegold Dust → Mithril → Enhancement XP → Charm Design
+💎 Gem Shop
+Only spend Gems on important progression breakpoints or hard-to-get materials.
+When in doubt: SAVE YOUR GEMS. See the Gem Spending Guide below.
+🤝 Alliance Shop
+Transfer Pass • VIP XP • Pet food / materials • Advanced Teleporter • Useful 70% discounts • Speedups only with excess Alliance Token
+💎 GEM SPENDING GUIDE
+Save your Gems for:
+1) 🎡 Hero Roulette → ~162,000 Gems for 120 spins
+2) 👑 VIP activation → 10,000 Gems/month (from VIP 4)
+🏛️ Hall of Heroes → ~13,500–14,850 Gems, ONLY if Marlin is not unlocked yet. Stop once unlocked — after that, general shards are better value for upgrades.
+✅ DAILY CHECKLIST
+☀️ WHILE ONLINE
+☐ 🎁 Collect the VIP chest + use VIP XP
+☐ 🤝 Alliance Help + contribute to Alliance Tech
+☐ 📊 Use Hero XP items
+☐ ⚔️ Conquer camps (Conquerors' Camp)
+☐ 🔎 Complete Intel Missions
+☐ 🏝️ Collect Water Essence on the island + assist allies
+☐ 🔮 Use your Mystic Trial attempts
+☐ 📋 Complete Daily missions
+☐ 🏟️ Do Arena of Glory 3 minutes before reset
+☐ 🐻 Bear Hunt — every other day + update formations
+☐ 📅 Register for and join active events
+🌙 BEFORE LOGGING OFF
+☐ 🐉 Send pets on Pet Adventure
+☐ 🌾 Send Gathering marches
+☐ ⚔️ Keep troop Training running
+☐ 🔬 Keep Research / Construction running as needed
+
+### GUIDE #mystic-trial — Mystic Trial
+WHEN
+Available every day. Each zone has 5 attempts per day, reset at 00:00 UTC. Which zones are open depends on the weekday.
+WHY IT MATTERS
+An important source of Hero Shard, Hero XP and other progression rewards.
+TRIAL ZONES
+Coliseum
+Mon · Tue
+⚔️ Infantry 50% · Cavalry 10% · Archer 40%
+⚔️ Infantry 60% · Cavalry 15% · Archer 25%
+Only the stats of Heroes, Hero Gear and Hero Exclusive Gear count.
+Forest of Life
+Wed · Thu
+⚔️ Infantry 50% · Cavalry 15% · Archer 35%
+⚔️ Infantry 55% · Cavalry 10% · Archer 35%
+Only Pets stats count.
+Pet Skills are active by default; their effects don't stack.
+Crystal Cave
+⚔️ Infantry 60% · Cavalry 20% · Archer 20%
+⚔️ Infantry 55% · Cavalry 5% · Archer 40%
+Only Governor Charm stats count.
+Knowledge Nexus
+Fri · Sat
+⚔️ Infantry 50% · Cavalry 20% · Archer 30%
+Only Academy and War Academy tech stats count.
+Higher-level soldiers are used here if you've unlocked them.
+Molten Fort
+⚔️ Infantry 50% · Cavalry 18% · Archer 32%
+Only Governor Gear stats count.
+Radiant Spire
+Sun
+Almost everything counts: Heroes, Hero Gear, Hero Exclusive Gear, Pets (Pet Skills active by default), Governor Charm, Tech, Truegold Tech, Governor Gear, Skins, Oasis Island and VIP level.
+You fight with your own troops — no losses, and your world-map deployment isn't affected.
+In the other five zones the Trial Explorers supply Lv.10 soldiers, so just raise the stats that zone uses. Clearing stages 1–10 of a zone unlocks Raid.
+
+### GUIDE #pet — Pets
+🔧 Pet Skills (non-battle)
+🔹 Gray Wolf – Construction Aide: Construction & Upgrade speed ↑ for 5 min
+🔹 Lynx – Comforting Embrace: restores Governor Stamina instantly
+🔹 Bison – Grip of the Titan: instantly finishes gathering at the next wild resource tile (not Secured Alliance Nodes)
+🔹 Cheetah – Scent Mastery: instantly finds Pet Food
+🔹 Lion – Gift of the King: digs up a lost item in the Badlands (e.g. Forgehammers, Truegold, charm & gear materials)
+⚔️ Pet Skills (battle)
+🔹 Moose – Horror Stare: enemy squad Health ↓ for 2h
+🔹 Grizzly Bear – The Howler: March Speed ↑ + enemy squad Lethality ↓ for 2h
+📍 Where do ⚔️ Pet Skills work?
+✅ Beasts, Rebels, Terror rallies & Dreadwolf — works
+❌ Bear Hunt — enemy debuffs don't work (the bear has no health bar)
+👑 Rally: only the rally leader's ⚔️ Pet Skills count
+Full guide: https://kingshotmastery.com/guides/kingshot-pet-guide
+ℹ️ The content is too long to translate, so please open the link and read it there.
+
+### GUIDE #install-app — How to install as an app
+Is it safe?
+It isn't a downloaded program (no APK) — it's this website saved to your home screen, running inside Safari/Chrome like any web page.
+It asks for no permissions: no camera, contacts, location, files or notifications.
+Remove it anytime: long-press the icon and delete it, like any app.
+iPhone / iPad
+Open this site in Safari (other browsers can't install it).
+Tap the Share button (square with an arrow) at the bottom.
+Tap View More (the ⌄ button) to open the full menu. On older iOS versions, just scroll down.
+Tap Add to Home Screen.
+Keep Open as Web App turned on, then tap Add.
+The NXS icon now appears on your home screen.
+Android
+1. Open this site in Chrome.
+2. Tap ⋮ at the top right.
+3. Tap Install app (or Add to Home screen), then Install.
+Good to know
+The NXS icon appears on your home screen and opens full-screen like an app.
+The first time you open it, pick your language — it's remembered after that. Tap 🌐 to change it.
+Pages you've opened before can be read offline.
+Updates are automatic — no need to reinstall.
+Button names may differ slightly depending on your phone and system version.
+
+### GUIDE #bear-hunt — Bear Hunt
+🆕 GEN 3 UPDATE
+Rally leaders: Best — Helga + Petra + Marlin (10:20:70), only if Helga is 5★ + max Widget. Alternative — Amadeus + Petra + Marlin (20:30:50). F2P — Zoe + Petra + Quinn (20:40:40).
+Joiners — send first: Chenko, Yeonwoo, Amadeus, Amane (flat Lethality bonus).
+⚠️ Only ONE per rally: Marlin, Zoe, Jaeger, Petra — their chance-based damage does NOT stack.
+Details below ↓
+WHEN
+Every 2 days at your Alliance's scheduled time.
+WHY IT MATTERS
+Major source of Hero Gear materials (Forge Hammers), Enhancement XP.
+PREP
+Update your formations before every Bear Hunt.
+Optional: use https://frakinator.streamlit.app/ to test troop ratios and find your strongest formation.
+Recall gathering troops before the event starts.
+Remember: In the final 5–7 minutes, everyone should launch a rally. This creates more spots for players whose troops are returning, allowing for a final damage push.
+RALLY LEADERS
+⚠️ Rule: start your own rally with maximum troops, but when you join other rallies you must also follow the limit of exactly 90,000 troops. At the start, main rally leaders send their first rally at their assigned staggered time.
+GEN 1
+GEN 2
+GEN 3
+GEN 4
+GEN 5
+Troop formation: 30-30-40%. In most cases you will have best stats on infantry due to Amadeus's raw stats, so an ultra-equal formation with slightly more archer troops works best.
+Troop formation: 20-40-40%. Mainly for people that didn't go for Amadeus yet, and keeps the opportunity to use Amadeus for joining rallies.
+Troop formation: 30-30-40%. For F2P it is recommended to always use the 3 heroes you have for hosting a rally.
+Troop formation: 20-30-50%. Marlin will boost damage a lot due to his widget. From Gen 2 up, infantry will always be Amadeus or Helga — they are the only infantry heroes with rally widgets (lethality bonus). You send fewer infantry, so the infantry hero covers archer damage via the widget rather than matching infantry stats.
+Troop formation: 20-30-50%. Other alternative is swapping Quinn for Marlin if he isn't better yet. Use Helga in Gen 2+ only if Amadeus isn't 5-star + max widget level; also an opportunity to use Amadeus for joining rallies.
+Troop formation: 30-30-40%. Still no F2P hero with a rally widget, so again an even formation with slightly more archers, as archer stats will be lowest due to not having an SSR archer hero.
+Troop formation: 10-20-70%. Maxed-out Helga performs better than Amadeus in Gen 3, due to having 2 lethality widgets and 1 attack widget compared to 1 lethality widget and 2 attack widgets in this setup.
+Troop formation: 20-30-50%. If you don't have maxed-out Helga (5-star + widget) it is better to use Amadeus.
+Troop formation: 20-40-40%. In Gen 3, F2P get their first hero with a rally widget (Petra). Try even archer/cav numbers because Petra improves archer troops a lot. Archer stats are still lowest without an SSR archer. If you unlock T10 cavalry, the T10 skill pairs well with Petra's stats. If you unlock T3 Cavalry, Petra becomes even stronger, because her 3rd skill works very well with their stats.
+Troop formation: 10-10-80%. Force as many archer troops as you can, especially if they are T10. With a bit of luck Rosa's 3rd skill will do the work for you (Increasing Archers' total Attack by 30%).
+Troop formation: 10-10-80%. Use Helga as alternative if she has better stars and widget level than Amadeus. Still force as many archers as you can, especially T10, for Rosa's 3rd skill (Increasing Archers' total Attack by 30%).
+Troop formation: 10-10-80%. Same as alternative best heroes — Rosa's 3rd skill bonuses best if you focus on heavy archer formations (Increasing Archers' total Attack by 30%).
+Remaining host slots not released yet.
+RALLY JOINERS
+⚠️ Rule: all joiners must send exactly 90,000 troops to rallies — pre-save your marches. At 6:30 remaining, all joiners start their own rally using their 3 strongest heroes. 🔪 Wrong heroes or wrong troop numbers will be kicked and asked to rejoin.
+Standard / Safe Ratio: 10% Infantry, 10% Cavalry, and 80% Archers (or a variation like 20-30-50)
+Priority — send these first: these heroes give a flat Lethality bonus, the most valuable bonus for Bear Hunt.
+USE WITH CAUTION
+⚠️ Chance-based damage heroes: strong effects, but they do NOT stack. Only use ONE of these heroes in the same rally: Marlin, Zoe, Jaeger, Petra.
+🔗 More: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes
+[joiners] Chenko | lethality | Yeonwoo | lethality | Amane | attack | Amadeus | lethality
+[leaders] best | Amadeus | Jabel | Quinn | 30-30-40 | alt | Helga | Jabel | Quinn | 20-40-40 | f2p | Howard | Jabel | Quinn | 30-30-40 | best | Amadeus | Hilde | Marlin | 20-30-50 | alt | Helga | Jabel | Marlin | 20-30-50 | f2p | Zoe | Jabel | Quinn | 30-30-40 | best | Helga | Petra | Marlin | 10-20-70 | alt | Amadeus | Petra | Marlin | 20-30-50 | f2p | Zoe | Petra | Quinn | 20-40-40 | best | Amadeus | Petra | Rosa | 10-10-80 | alt | Helga | Petra | Rosa | 10-10-80 | f2p | Zoe | Petra | Rosa | 10-10-80 | best | Amadeus
+
+### GUIDE #swordland-showdown — Swordland Showdown
+WHEN
+Every 2 weeks — a 60-minute Alliance vs Alliance battlefield event.
+REGISTRATION
+⚠️ Only register if you plan to attend. Registered players who don't show up take a valuable spot and may affect matchmaking.
+100% can attend → Submit Battle Request
+Not sure → Abstain
+MAIN OBJECTIVE
+Win by earning more Alliance Relic Points than the opposing alliance.
+Capture and hold important buildings
+Protect accumulated points
+Collect scattered Arsenal Supplies immediately when buildings switch sides
+Gather Undercellar when they appear
+Reinforce nearby garrisons when not rallying
+Do not let marches sit idle
+DO NOT chase kills across the map. Random PvP spreads us out and reduces our effectiveness. Attack lower-level cities when it makes sense, weakening them near a holding building.
+BUILDINGS AT A GLANCE
+Numbers shown as: Alliance Relic Points / Personal Relic Points
+First Control
+Ongoing Occupation
+Opens
+min
+/m
+:
+HIGHEST
+HIGH
+MED
+Gathering sites which periodically appear (two waves)
+Highest-value point building
+Weakens enemy-held buildings
+Alliance combat buff
+High-value Alliance Relic Points
+Generates Alliance Relic Points
+-50% teleport cooldown
+-50% building capture time
+ASSIGNED ZONES
+R4 will divide confirmed members into teams/zones before battle.
+Our strongest Attackers will initially be assigned a zone:
+🟣 Purple — Belltower
+🟡 Yellow — Royal Stables
+🔵 Blue — Northwest Sanctum
+🟢 Green — Southeast Sanctum
+Remaining members will be assigned to support one of these zones/teams. Rotation may be needed based on battle conditions — always monitor Squad Chat for details.
+Stay with your assigned zone unless leadership tells you to move.
+🟣 Purple Zone — Belltower / Mercenary Camp
+🔵 Blue Zone — Northwest Sanctum / Abbey
+🟡 Yellow Zone — Royal Stables / Abbey
+🟢 Green Zone — Southeast Sanctum / Abbey
+⚪ Center
+ROLES & RESPONSIBILITIES
+R4 will divide confirmed members into 3 functions based on power: Attackers, Defenders and Support/Joiners.
+⚔️ 1) ATTACKERS
+Who: Our strongest players. Have plenty of advanced teleports.
+Your job:
+Teleport to your assigned zone & building
+Capture priority buildings
+Solo attack vulnerable enemy castles
+Lead important rallies
+Move to the next objective once a Defender takes over
+When enemies teleport near your assigned building, target weaker or exposed castles
+🛡️ 2) DEFENDERS
+Who: Our next strongest players with good rally/garrison capacity.
+Follow your assigned Attackers (zone)
+Once an Attacker has captured a building, take over garrisons and call for reinforcements if needed
+Reinforce threatened objectives
+Free Attackers to move to their next target
+🤝 3) SUPPORT / JOINERS
+Who: Generally lower-power members and rally joiners.
+Must join assigned Defenders' rallies
+Reinforce captured buildings
+Speed-march reinforcements when requested
+Operate from the Safe Zone when not needed elsewhere or further from enemy reach
+IMPORTANT: If the enemy attacks one of our captured buildings and control switches to the enemy, teleport nearby or speed-march immediately and collect the scattered Arsenal Supplies before they do.
+20 minutes into the battle, Undercellar appear. Send available troops to gather them for additional points.
+Do not leave marches idle.
+BEFORE BATTLE
+Clear your Infirmary. Have all marches available
+Equip your strongest heroes/gear
+Activate Deployment Capacity, Attack & Defense buffs, and Counter-recon
+Have Advanced Teleports available if your role requires them
+Keep Discord open if possible (for reference to map, assignments, optional VC)
+Check Alliance Chat and Private Messages
+⚠️ IMPORTANT: A new Squad Chat tab will appear on battle day. Monitor Squad Chat throughout the entire battle.
+BATTLE TIMELINE
+0:00–15:00
+OPENING
+Immediately secure
+#4 Belltower
+#7 Royal Stables
+Contest
+#8 Northwest Sanctum
+#10 Southeast Sanctum
+Take Abbey when practical, but do not sacrifice core objectives for them.
+14:30, strongest players get ready for the center.
+15:00
+POWER BUILDINGS OPEN
+#1 Swordshrine, #2 Mercenary Camp, #3 Hall of Reformation
+Leadership will call priorities based on battlefield conditions.
+⭐ Swordshrine
+Strongest Attackers/Defenders teleport toward the center (not all)
+Capture Swordshrine
+Once secured, a strong Defender maintains the garrison
+Support/Joiners must speed-march and send reinforcements
+⚠️ Garrisoning members: do not abandon your building for Swordshrine unless leadership advises. Continue protecting Sanctum and other important buildings.
+15:00–45:00
+💪 CONTROL PHASE
+Primary goal: Hold Swordshrine + Northwest Sanctum + Southeast Sanctum
+Maintain useful Belltower/Royal Stables control
+Use Hall of Reformation's buff for major engagements
+Use Mercenary Camp to pressure enemy buildings
+Collect scattered Arsenal Supplies after EVERY building flip
+Reinforce weakened garrisons
+20:00–60:00
+⛏️ Undercellar
+Undercellar begin appearing.
+Support players and anyone with available marches should gather them for additional points.
+Do not abandon a critical defense or rally just to gather.
+FINAL 15 MINUTES
+🏁 CLOSING
+IF WE ARE AHEAD
+Protect Swordshrine and Sanctum
+Reinforce accumulated-point buildings
+Avoid unnecessary PvP
+Recover scattered Arsenal Supplies immediately
+Don't take unnecessary risks
+IF WE ARE BEHIND
+Pressure enemy core buildings
+Use Mercenary Camp before coordinated attacks
+Concentrate rallies instead of attacking randomly
+Target valuable enemy-held buildings
+Collect every dropped point after a successful flip
+Last 5 minutes: Points > kills.
+SUMMARY
+Groups will be divided into 3 functions and assigned a zone:
+ATTACKERS → TAKE + PRESSURE
+DEFENDERS → HOLD + PROTECT
+SUPPORT → REINFORCE + RALLY + LOOT + GATHER
+Follow your assigned zone and role.
+Monitor Squad Chat.
+Objectives > random kills.
+Attackers take — Defenders hold — Support reinforces.
+Never leave useful marches idle.
+Collect scattered Arsenal Supplies immediately.
+Gather Undercellar with available marches.
+Protect Swordshrine + Sanctum.
+Don't abandon core buildings for Abbey or kills.
+If leadership calls a rotation, MOVE.
+⚔️ COORDINATION WINS SWORDLAND
+
+### GUIDE #formations-rally-tips — Formations & Rally Tips
+🔬 RESEARCH & UPGRADE PRIORITIES
+Prioritize these combat stats for research and upgrading governor charms:
+Infantry Health
+Archer Lethality
+💾 SAVE YOUR PRESETS
+Depending on your progression, you can unlock up to 8 slots to pre-save your troop formations. Recommended formations to save:
+All troop ratios are Infantry : Cavalry : Archers. Save separate presets with each hero in the far-left / first position.
+💡 The far-left hero matters when joining rallies because their relevant Expedition skill contributes to the rally.
+1) Bear Hunt: Chenko — 10 : 10 : 80
+2) Bear Hunt: Amane — 10 : 10 : 80 (or closest possible)
+3) Bear Hunt: Yeonwoo — 10 : 10 : 80 (or closest possible)
+4) Bear Hunt: Amadeus — 10 : 10 : 80 (or closest possible)
+5) Attack (General PvP): Amadeus (if built) or Chenko — 50 : 20 : 30
+6) Defense: Howard / Gordon — 60 : 20 : 20 is our balanced default. Adjust when leadership calls for a specific formation.
+Rally Leaders: Use your strongest complete offensive hero lineup.
+Rally Joiners: Please follow any troop limits posted by leadership.
+7) Viking HQ: Howard / Gordon — 60 : 40 Follow troop limit (~68,000)
+8) PvE – Beasts / Hunting: Diana + Fahd — 50 : 20 : 30
+🐺 PvE — BEASTS / HUNTING
+Remember for Dreadwolf: Not a lot of damage is needed, so send the minimum number of troops (even 1) so more alliance members can join and benefit from the rally rewards.
+🏰 CASTLE BATTLE / SANCTUARY / BUILDINGS
+When capturing buildings, be ready to quickly switch:
+ATTACK → DEFENSE
+⚔️ 1. CAPTURE
+Join the initial rally using your ATTACK preset.
+Example: Amadeus / Chenko 50 : 20 : 30
+🛡️ 2. SWITCH TO DEFENSE
+Once the building is captured:
+1. Immediately send another march using your DEFENSE preset. Example: Gordon / Howard 60 : 20 : 20
+2. Watch your defense march travel toward the captured building.
+3. When approximately 5 seconds of march time remain — or as instructed by leadership — recall your original ATTACK march.
+4. Your DEFENSE march arrives and replaces your offensive march in the garrison.
+🚫 DO NOT recall your attack march too early.
+Capture → Send Defense → ~5 sec → Recall Attack → Defense Arrives
+This allows us to transition from an offensive setup to a defensive garrison without unnecessarily weakening the building.
+🪖 GARRISON TROOP CAP
+Only 15 governors can enter HQ / Sanctuary. So don’t automatically send your maximum march to HQ, Sanctuary, or other contested buildings.
+Follow the troop cap announced by leadership.
+Typical alliance target: ~68,000 troops per player
+This allows more alliance members with properly configured defensive marches to fit inside the garrison and get rewards.
+⚠️ If leadership announces a different cap, always follow the announced amount.
+For example, with a 68K troop cap, you can plug that number into a calculator and enter it directly in the field for the matching troop type. Here are three examples:
+60/20/20 ➡️ 40,800 / 13,600 / 13,600
+60/40 ➡️ 40,800 / 27,200
+50/20/30 ➡️ 34,000 / 13,600 / 20,400
+🎬 HOW TO SWITCH FROM ATTACKING TO DEFENSIVE HEROES
+📎 Video found online (TikTok @yelloe_hair) — not our own footage.
+
+### GUIDE #eternity-reach — Eternity's Reach
+WHEN
+Every 2 weeks — a 30-minute solo event.
+WHY IT MATTERS
+One of the best recurring sources of Governor Charm materials.
+STRATEGY
+Skills
+For each skill level, select:
+Level 1 → Right
+Level 2 → Right
+Level 3 → Left
+Level 4 → Left
+Level 5 → Right
+Start
+Attack Cesares Guards → Rush until Skill 3 is unlocked.
+Target Lv.2 Cesares Guards when possible, and skip ones already being attacked.
+Every 60 Seconds
+Enter a Copper Vein → Get 5,000 Copper → Recall immediately → Note the time → Repeat every 1 minute.
+Only one march is needed to trigger the 5,000 Copper bonus.
+Fracture Veins
+When they appear → Send available marches immediately → Gather until they disappear.
+Loot Wagon
+Keep it collecting loose Copper throughout the event. It does not use a march slot.
+Skill 5
+Activate the 5th skill during a vein outburst and send all troops to gather at veins.
+Peak of Eternity
+Opens during the final 7 minutes.
+Avoid unnecessary PvP if you are not strong enough to contest it → Capture only when worthwhile.
+Positioning
+Use the free teleport to move near 3 Veins or into a less crowded area.
+
+### GUIDE #f2p-heroes — F2P Heroes Guide
+Mythic Shards and rally widgets are limited. Don't try to build every hero — focus your resources on heroes with strong, long-term value.
+A few heroes below either haven't been officially confirmed via screenshot or haven't been released yet — those stay in English until verified.
+GEN 1
+Jabel
+Farmable Mythic; main priority.
+Saul: A few stars for the Growth skill. Don't over-invest.
+GEN 2
+Zoe — BUILD (Roulette)
+Major upgrade over Howard.
+Marlin: Replaces Saul.
+GEN 3
+Petra — MUST BUILD (Roulette)
+Excellent Bear Hunt hero with value through Gen 7.
+Eric & Jaeger: Skip unless you're focused on PvP/garrison defense.
+GEN 4
+Rosa — BUILD (Roulette)
+Strong Bear Hunt upgrade.
+Alcar OR Margot: Optional. Both are strong in Arena/Expedition.
+GEN 5
+Long Fei — BUILD (Roulette)
+Great for multi-team events like Mystic Trial, Tri-Alliance & Swordland.
+Thrud/Vivian: Mostly Arena/PvP.
+Missed Petra? Consider Thrud.
+GEN 6
+Sophia — BUILD (Roulette)
+Mainly useful for multi-team content.
+Yang — HIGH PRIORITY
+Excellent Bear Hunt utility; worth investing Mythic Shards.
+Triton: Generally skip if you built Long Fei.
+GEN 7
+Wee & Woo — MUST BUILD (Roulette)
+Excellent overall F2P value.
+Ava — HIGH PRIORITY
+Excellent Bear Hunt hero; replaces Petra.
+Charles: Generally safe to skip.
+SIMPLE F2P ROULETTE PATH
+Zoe ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo
+MYTHIC SHARD PRIORITIES
+Petra ➜ Yang ➜ Ava
+RULE OF THUMB
+Roulette heroes are generally your safest F2P investments. Save your resources, avoid spreading Mythic Shards too thin, and don't feel pressured to build every hero.
+SUMMARY
+F2P Players: Focus on Zoe (infantry tank), Jabel (cavalry), and Petra (offensive cavalry) from hero roulette
+P2W Players: Prioritize Amadeus (VIP 7+) and Hilde for maximum impact
+
+### GUIDE #kvk — KvK Prep & Battle Guide
+Truegold
+✅
+<span class="chk-ok">OK</span>
+🚫
+Hero Shard
+⏩️ Construction
+⏩️ Training
+⏩️ Research
+Hero Roulette
+Gathering
+👍
+Intel Missions
+Pet advancement
+Governor Charm
+Governor Gear
+Hero Exclusive Gear Widget
+Mithril
+Forgehammer
+Master Emblems
+Master's Manuscript
+⏩️ Learning
+use
+okay if needed
+don't use
+need to do daily
+PHASE 1: PREPARATION PHASE (Days 1–5)
+To win KVK, your Kingdom must earn more total points during Prep Phase than your opponent. Winning this phase grants Attacker Advantage (your Castle is completely safe during the Battle Phase).
+Day 1: Construction, Truegold & Governor Charms
+Scoring Activities: Truegold building upgrades, Construction Speedups, Governor Charms, Intel Missions, Learning Speedups.
+🛡️ F2P Focus:
+Spend saved Construction Speedups and Truegold.
+Use Charm Designs saved from previous weeks.
+Clear all Watchtower Intel Missions.
+⚡ P2W Focus:
+Max out high-level Truegold building levels (Academy / War Academy).
+Push Governor Charms to Level 8–11 for massive point spikes (Level 11 gives 16,000 pts per tier up).
+Day 2: Research, Heroes & Gathering
+Scoring Activities: Research Speedups, Hero Shards (Rare/Epic/Mythic), Hero Roulette spins, Master Emblems/Master's Manuscripts, Gathering Resources.
+Spin the Hero Roulette using saved Gems to gain Petra (Gen 3) shards.
+Dump saved universal Mythic/Epic shards into core heroes.
+Pre-gather resources (send gatherers out before reset so they return immediately at Day 2 start).
+Burn all saved Master Emblems and Master's Manuscripts.
+Rank up Gen 3 heroes (Eric & Petra) to 5-star instantly.
+Day 3: Pet Training & Master Academy Progression
+Scoring Activities: Pet advancement, Common Taming Marks & Advanced Taming Marks (Refining), Hero Roulette, Hero Shards, Master Emblems/Master's Manuscripts, Intel Missions.
+Level up and refine multiple mid-tier pets evenly rather than sinking everything into one pet.
+Use leftover Hero Roulette spins and daily Intel Missions.
+Heavy use of Advanced Taming Marks (15,000 pts each).
+Maximize Pet advancement thresholds for high point multipliers.
+Day 4: Hero Development & Troop Training
+Scoring Activities: Troop Training/Promotions (T1–T11), Forgehammers, Widgets, Mithril, Resource Gathering.
+Promote lower-tier troops to your highest tier (e.g., T9 to T10). Upgrading troops is drastically more resource-efficient than training new ones from scratch.
+Save general speedups for research/the Master Academy—only use dedicated Troop Training speedups here.
+Burn saved Forgehammers (4,000 pts each) and Hero Exclusive Gear Widgets (8,000 pts each).
+Apply Mithril upgrades (40,000 pts each) to unlock massive point surges.
+Day 5: Power Boost & Final Upgrades
+Scoring Activities: Governor Gear, Hero Gear, Pet Refining, Mithril, Truegold, All Speedups, Intel Missions, Gathering.
+Clear remaining Intel Missions, burn leftover resources/speedups, and upgrade Governor Gear using accumulated Satin/Gilded Threads.
+Push Governor Gear to Mythic / Mythic 3-Star (6,250 pts per tier boost).
+Liquidate all remaining Mithril, Widgets, and Forgehammers to secure daily Top 2000 / Top 200 personal ranking rewards.
+⚔️ PHASE 2: BATTLE PHASE (12 HOURS)
+Castle Battle Window: 12:00 UTC to 22:00 UTC.
+Target: Control the King's Castle and 4 Turrets.
+🎯 GEN 3 PVP META & RALLY SETUP
+🛡️ Garrison Defense — Castle/Turrets
+Lead Hero: Eric (Gen 3) — Unbreakable infantry wall with superior Gen 3 stats and survival mechanics. Paired with Zoe (Gen 2) for shields.
+⚔️ Offensive Rallies (Attacking Castle/Turrets)
+Lead Hero: Petra (Gen 3) — Devastating Cavalry leader with high-scaling offensive rally Widgets.
+🤝 Rally Joiners (Crucial for F2P!)
+Do NOT use random heroes when joining rallies. Join with:
+Chenko (Skill 1 maxed)
+Amane
+Yeonwoo
+These heroes stack Lethality multipliers.
+💣 DOUBLE-RALLY "WHALE SMASHER" STRATEGY
+For heavy enemy garrisons:
+Rally 1 (Meat Shield / Clearer): Launched 1–2 seconds ahead. Focuses pure lethality to overflow the enemy's Infirmary and clear defending troops.
+Rally 2 (Main Striker): Arrives immediately behind Rally 1 to wipe out remaining troops and take control of the Castle.
+Turret Advantage: Capturing Turrets provides up to +20% Squad Lethality if held by the same kingdom holding the Castle.
+🩺 PHASE 3: FIELD TRIAGE (TROOP RECOVERY)
+Base Rescue Rate: 30% of lost troops that bypassed the Infirmary.
+Target Rescue Rate: 90%
+How to increase it:
+Medical Satchels: +10% Rescue Rate
+Rescue Orders: +1% each, up to +50%
+⚠️ IMPORTANT: Everyone must exchange Rescue Orders in alliance chat before the timer expires!
+
+### GUIDE #all-out — All Out
+🪖 All-Out Rules
+❌ No attacks on NAP 6 including their farms/academies (NXS/nxs, RED/ReD, NBD/nBd/Nbd, ESA/EsA/UNI, IDN, KGb)
+❌ No attacks on castles or alliance buildings (HQs, outposts, banners)
+✅ You can attack resource gathering tiles (Mill, Quarry, Iron Mine)
+✅ You can attack players outside of NAP.
+If your castle gets attacked by a NAP member, do not retaliate — inform R4/R5.
+Avoid gathering resources in the wild, use the Secured Alliance Node instead.
+Rule breakers will be dealt with according to alliance/NAP agreements.
+🏭 Secured Gathering Nodes
+During the All Out event, we will be rotating our secured gathering nodes every 12 hours for 48 hours.
+This gives everyone a protected spot to collect resources while the event is active.
+Rotation Schedule (starting at 00:00 UTC reset)
+Great Mill – 00:00 UTC to 12:00 UTC
+Great Sawmill – 12:00 UTC to 00:00 UTC
+Great Quarry – 00:00 UTC to 12:00 UTC
+Great Iron Mine – 12:00 UTC to 00:00 UTC
+Use these protected spots during the event. Stay safe and gather smart.
+
+### GUIDE #hero-roulette — Hero Roulette
+WHEN
+Every 2 weeks, 3 days each time.
+📋 RULES
+The event lasts 3 days, with 1 free spin per day and up to 150 spins per day.
+Each spin costs 1 Lucky Chip or 1,500 Gems; a 10-spin costs 13,500 Gems.
+One-time milestone rewards at 5, 15, 35, 70 and 120 total spins give +5, +10, +20, +30 and +50 shards — 115 in total.
+🎲 PRIZE ODDS
+Mythic Hero Shard x5: 4.37%
+Mythic Hero Shard x1: 32.81%
+Mystery pack x1: 6.56% (two slots, 6.56% each)
+1h general Speedup x1: 20.51%
+10K Hero XP x1: 18.27%
+Four resource slots (Iron 10K×20, Stone 10K×80, Wood 10K×400, Bread 10K×400): 2.73% each
+Expected shards per spin: 5 × 0.0437 + 1 × 0.3281 ≈ 0.547
+Expected shards after N spins (from spins + milestone rewards)
+3 spins (free only): ~1.6
+10 spins: ~5.5 + 5 = 10.5
+15 spins: ~8.2 + 15 = 23
+35 spins: ~19 + 35 = 54
+70 spins: ~38 + 65 = 103
+120 spins: ~66 + 115 = 181
+After 120 spins there are no more milestone rewards and each spin only gives ~0.55 shards, so F2P and light spenders shouldn't go past 120.
+🎯 How many spins to max one hero?
+On average, about 720 spins — 6 events with 120 spins each.
+The math
+Maxing a hero (unlock + up to 5 stars) takes 1,075 shards in total.
+120 spins per event gives about 0.5466 × 120 + 115 ≈ 181 shards on average (~0.5466 per spin plus 115 from the milestone rewards).
+1,075 ÷ 181 ≈ 5.95, so you need 6 events.
+Total: 6 × 120 = 720 spins, about 6 × 181 ≈ 1,084 shards expected.
+Why not keep spinning in one event?
+After 120 spins there are no more milestone rewards, so each spin only gives ~0.55 shards. Even at the 450-spin cap, one event only averages 0.5466 × 450 + 115 ≈ 361 shards — the extra 330 spins are only about half as efficient as the first 120.
+Spin all 120 in the 6th event too
+The first 5 events average ~903 shards, leaving ~172 to go. At 119 spins you'd only expect ~130 (65 + 65); you need the +50 pack at spin 120 to cover the rest, so the last event needs all 120 spins as well.
+💎 Gems cost (not counting Lucky Chips)
+After the 3 free spins, each event costs 159,000 Gems — about 954,000 Gems for all 6. Subtract any Lucky Chips you have or shards from other sources.
+⚠️ These are averages. Over 720 spins the real result will usually land within ±60 shards of the expected value (about 95% of the time) — with bad luck you may need one more event, with good luck you may finish early.
+⚔️ KvK TIP
+In the KvK Preparation Phase, Days 2 and 3 give 8,000 points per Hero Roulette spin — so it's worth saving your Lucky Chips and spin Gems for those two days.
+
+### GUIDE #fishing-tournament — Fishing Tournament
+WHEN
+Every 4 weeks.
+WHY IT MATTERS
+A reliable source of Artisan's Vision, Hero Gear Enhancement XP and Gems.
+🌊 Ocean Prospector
+Use Ocean Prospector first to build points and upgrade your Fishing Kit before focusing on Regular Fishing.
+Line → Increases maximum line depth
+Hook → Increases maximum catch per attempt
+Sinker → Increases starting depth
+Once all three are upgraded, move to Regular Fishing.
+Rare Mermaids and Chests do not appear in Regular Fishing. They are exclusive to Ocean Prospector.
+🎣 Regular Fishing
+Glowing Fish
+Prioritize every glowing fish you see.
+Struggling Mermaid
+Mermaids trapped in seaweed provide a 5–10% point multiplier.
+Horn of the Tide
+Use it during Regular Fishing only.
+RETRYING A RUN
+If a run goes badly:
+Pause → Retreat → Retry
+
+### GUIDE #tri-alliance-clash — Tri-Alliance Clash
+🎲 HOW THE EVENT WORKS
+Think of Tri-Alliance Clash as a board game with paths, buildings and battles. Your alliance moves through different lanes, captures territory and fights toward the highest-value objectives.
+⚔️ BATTLE MECHANICS
+Battles are auto-battles. Simulated battles are solo matches, NOT rallies.
+Troop ratios cannot be changed — troops are split evenly.
+March Speed and March Capacity bonuses DO NOT apply.
+🛡️ 3 MARCHES & HERO SELECTION
+You deploy 3 squads before entering the fight.
+F2P players
+Put your strongest heroes together.
+Do NOT spread your strongest heroes across all 3 marches.
+Build one strong march first.
+P2W players
+Use your offensive and defensive orange heroes.
+Offensive Widgets DO NOT count in this event. Defensive Widgets DO count — prioritize heroes with strong defensive Widgets.
+🏛️ BUILDINGS & POINTS
+Temple of Tides = PRIMARY OBJECTIVE — it opens at the end.
+Names used in our chat: Shrine = Cluster of Ruins, Altar = Ruins.
+Attacking and capturing buildings gives more points than just defending/holding them — unlike Swordland Showdown.
+👥 TEAMS & ROLES
+Players are split into about 3 teams working different lanes — the strongest player plus a back-up for each target, so our strength is spread effectively.
+Team 3 — Capture neutral buildings at the start
+Capture the neutral buildings on our territory ASAP when the battle opens.
+Once your target is secured, keep advancing.
+Team 2 — Advance & opportunity captures
+Keep moving ahead of weaker teams to the next target in your lane and keep the pressure on.
+Watch enemy movement closely. When enemies leave a building to advance, move into the building they just left and capture it while it's undefended.
+Use every opening like this to gain territory and points.
+Team 1 — Push to the enemy Garrison
+Main job: reach the enemy Garrison area before the 20-minute mark.
+Keep advancing through your lane until you reach the enemy building closest to their Garrison (Shrine / Cluster of Ruins).
+Be in position BEFORE the Garrison opens so we can capture it right at 20:00.
+R4s
+R4s and Legion commanders must actively manage Captain assignments throughout the battle.
+Captains = the strongest players. They move across the map capturing targets, so they need the most Energy.
+Keep checking whether strong players without the bonus should be made Captain.
+Open the Captain screen by tapping the banners at the top left of the screen.
+Energy generated for Captains per building:
+Garrisons: 60,000 — gold
+Cluster of Ruins (Shrine): 45,000 — purple
+Ruins (Altar): 15,000 — blue
+🗺️ BATTLE OVERVIEW
+🔵 Blue = Transit Hub　🔴 Red = Garrisons　🟡 Yellow = Temple of Tides
+Phase 1: Preparations (0:00–3:00)
+Goal: set up your squads and get to know the map. Remember the purple, red and yellow zones — the ones you occupy turn blue. Check the enemies' strength and decide which alliance to focus on.
+Phase 2: Seize & Conquer (3:00–20:00)
+Goal: rapidly capture internal territory.
+Team 3 goes first, then Team 2.
+Lock down Transit Hubs / connectors to gain steady points per minute (PPM). The Garrisons are still shielded.
+Meanwhile Team 1 pushes deep into enemy territory toward their Garrison.
+Phase 3: Garrison Occupation (20:00–40:00)
+Goal: shields drop on the Garrisons (A24, B24, C24).
+Team 3: defend our Garrison (+1,800 PPM) while launching coordinated strikes on enemy Garrisons — split up as needed.
+Keep looking for undefended buildings, weakly defended enemy territory, chances to expand, and easy captures for personal and alliance points.
+Phase 4: Temple Onslaught (40:00–60:00)
+Goal: the central Temple of Tides opens. It gives massive points, plus a 50,000-point bonus to whoever holds it at the end. From now on it is the alliance's main focus.
+🌊 TEMPLE ORDER
+Teams 3 + 2 → go first (Team 3 keeps watching our territory / Garrison so we don't lose them).
+Team 1 → enters last.
+Capture → reinforce → hold.
+⚠️ When attacking the Temple NPCs, the strongest player enters LAST — so they fight the strongest remaining NPC instead of wasting their strength on an easier one.
+Once we capture the Temple
+Lock it down immediately — reinforce the Temple ASAP.
+Keep control.
+Don't chase lower-value targets if it risks losing the Temple.
+📋 TEAM SUMMARY
+Team 3 — Internal territory
+Phase 2 → capture neutral buildings ASAP
+Phase 3 → secure our Garrison + support attackers
+Phase 4 → Temple: go first, but watch our territory — don't lose it
+Team 2 — Enemy captures
+Phase 2 → advance past Team 1 into enemy territory
+Phase 3 → capture enemy / abandoned buildings
+Phase 4 → Temple: go first
+Team 1 — Deep attack
+Phase 2 → push deep into enemy territory, aiming for the Shrine (Cluster of Ruins) next to the enemy Garrison
+Phase 3 → occupy the enemy Garrison
+Phase 4 → Temple: enter last
+🧱 Temple block trick (Team 1): capture the building / Shrine behind the enemy Transit Hub near the Temple of Tides and HOLD it — don't leave right away. This puts Team 1 in position to disrupt the enemy's Temple push and gives us forward control before the Temple opens.
+⚡ Energy MANAGEMENT
+Every move/action costs Energy — use it wisely.
+Deploy — move your squad to a new available location.
+Advance — skip the current target/queue and move on to the next target in your lane.
+Conscript — heal and refill troops while in a building that isn't in combat.
+Instantly revive — recover on the spot after defeat instead of going back to Headquarters; it costs Energy, so only use it when needed.
+R4s & Legion commanders make sure strong players are assigned Captain, so they generate more Energy.
+
+### JOURNEY CHOICES (shown inside the general guides)
+Rock-Paper-Scissors Challenge: Win → 1st time: 2,000 Gems; 2nd time: 60 Master's Manuscript (best); Tie → 2nd time: 40 Master's Manuscript; Lose → 1st time: 800 Gems; 2nd time: 20 Master's Manuscript
+Vikings: I won't pretend I didn't see that → 3 Silver Goblet (best); I don't have time for distractions → 2 Silver Goblet
+Vikings: Face them head-on → 50 Master's Manuscript (best); Use your wits → 40 Master's Manuscript; Leave → 30 Master's Manuscript
+Beast: Hunt vinegar-stealing beast → ?; I'll get it elsewhere → 3 Silver Goblet
+Olive: A true warrior does not deny a damsel in distress → 2 Silver Goblet; ...Is that all? → 3 Silver Goblet (best)
+Bear: Flank it → 50 Master's Manuscript (best); Attack frontally → 30 Master's Manuscript
+Mercenaries: Suggest flanking → 100 Master's Manuscript (best); Suggest supply sabotage → 70 Master's Manuscript
+Bear cub: Entrust it to someone's care → 30 Master's Manuscript; Focus on the beast → 50 Master's Manuscript (best)
+Hilde: Make further inquiries → 30 Master's Manuscript; Think of a way forward → 50 Master's Manuscript (best)
+Rebels, Cesares soldiers, Vikings: Fight → 50 Master's Manuscript (best); Better run → 30 Master's Manuscript
+Merchant: Give directions → 50 Master's Manuscript (best); I can't help → 30 Master's Manuscript
+Beast: Leave → 100 Master's Manuscript (best); Hunt it → 70 Master's Manuscript
+Signpost: Fix sign → 20 Master's Manuscript (best); Leave → 10 Master's Manuscript
+Survivor: Offer help → 100 Master's Manuscript (best); Not my fight → 70 Master's Manuscript
+Zoe & Pan: Listen to Pan's account → 1 Master Emblem (Pan); Listen to Zoe's account → 1 Master Emblem (Pan)
+Treasure: Keep it all → 50 Master's Manuscript (best); Share with survivors → 30 Master's Manuscript
+Roman: trade: Trade → 80 Master's Manuscript (best); No thanks → 50 Master's Manuscript
+Pan: trade: Trade → 5 Master Emblem (Pan) (best); No thanks → 3 Master Emblem (Pan)
+Edwin: trade: Trade → 50 Master's Manuscript (best); No thanks → 30 Master's Manuscript
+Survivor: the orphanage needs bread and medicine: Donate supplies → 50 Master's Manuscript (best); Leave → 30 Master's Manuscript
+Gordon / Aena: start cooking: Perfect → 50 Master's Manuscript (best); Victory → 40 Master's Manuscript; Failed → 30 Master's Manuscript
+Valora / Pan / Guinevere / Wilson: start cooking: Perfect → 5 Silver Goblet (best); Victory → 3 Silver Goblet; Failed → 1 Silver Goblet
+Quinn: custom lock: Break open → 150 Master's Manuscript; Disarm → 200 Master's Manuscript (best)
+Wounded lion: Give food → 50 Master's Manuscript (best); Leave → 30 Master's Manuscript
+Vikings: Drive the bandits away → 50 Master's Manuscript (best); Go around → 30 Master's Manuscript
+Stolen goods: I'll help you → 50 Master's Manuscript (best); There's nothing I can do → 30 Master's Manuscript
+Transporter captain: Pay full price → 100 Master's Manuscript (best); Haggle → 70 Master's Manuscript
+Petra: something fun going on?: Tell my fortune for today → 30 Master's Manuscript; Ever heard of the Arena Championship? → 30 Master's Manuscript; Come lend a hand. We've got work to do. → 50 Master's Manuscript (best)
+Survivor: give me a hand: Help out → 50 Master's Manuscript (best); Keep going → 30 Master's Manuscript
+Pan / Roman / Guinevere: fishing: Haul depth, 10 fish → 150 Master's Manuscript (best); Haul depth, 5 fish → 100 Master's Manuscript; Haul depth, 1 fish → 70 Master's Manuscript
+Marlin: fishing: Any depth, 10 fish → 100 Master's Manuscript (best); Any depth, 5 fish → 70 Master's Manuscript; Any depth, 1 fish → 50 Master's Manuscript
+Viking hero: Come on, fight me! → 100 Master's Manuscript (best); Go in swinging → 70 Master's Manuscript
+Survivor: this thing's been tailing me forever: Step in → 50 Master's Manuscript (best); Create a distraction → 40 Master's Manuscript; Leave → 30 Master's Manuscript
+Vikings: back off: Step in → 30 Master's Manuscript; Walk away → 50 Master's Manuscript (best)
+Go for broke: Go for broke (costs double Action Points) → 2 Master Emblem (Roman) (best); Test their nerve (chance to scare enemies off) → 30 Master's Manuscript
+A beast blocks your path: Fight! → 100 Master's Manuscript (best); Hide → 70 Master's Manuscript
+Roman: gifts: Look at the items → 150 Master's Manuscript (best); Pass → 100 Master's Manuscript
+Pan seems troubled: Look at the items → 5 Master Emblem (Pan) (best); Pass → 3 Master Emblem (Pan)
+Valora: items: Look at the items → 3 Master Emblem (Valora); Pass → 3 Master Emblem (Valora)
+Roman: an idea: Help craft → 5 Master Emblem (Roman) (best); Pass → 3 Master Emblem (Roman)
+Boxer: To set things right. → 30 Master's Manuscript; Money, of course → 50 Master's Manuscript (best)
+Long Fei: Time to knock some sense into you. → Long Fei wins, 30 Master's Manuscript; Fine. Money talks. → 50 Master's Manuscript (best)
+Cesares camp up ahead: Face them head-on. → 100 Master's Manuscript (best); Find another way. → 70 Master's Manuscript
+Cavalry: Share your rations → 50 Master's Manuscript (best); Mention the other unit. → 30 Master's Manuscript
+Petra: Buy → 50 Master's Manuscript (best); Decline. → 30 Master's Manuscript ?
+Cassia: So, you'll be heading back to the Yellowstone battlefield... → 1 Master Emblem (Cassia); Maybe things will be different this time. → 1 Master Emblem (Cassia)
+Cassia (2): Launch a direct attack → 1 Master Emblem (Cassia); Seek reinforcements. → 1 Master Emblem (Cassia)
+Vikings: apply some pressure: Apply some pressure. → 30 Master's Manuscript; Find out yourself. → 50 Master's Manuscript (best)
+Valora: trade resources: Trade resources. → 5 Master Emblem (Valora) (best); Don't trade. → 3 Master Emblem (Valora)
+Cassia: sort loot: Sort loot → 5 Master Emblem (Cassia) (best); Pass → 3 Master Emblem (Cassia)
+Cassia: trade: Trade → 5 Master Emblem (Cassia) (best); No thanks → 3 Master Emblem (Cassia)
+Officer: Identify yourself as Quinn the Ranger → 50 Master's Manuscript (best); Find another way around → 30 Master's Manuscript
+Cesares soldiers: Investigate further → 30 Master's Manuscript; Move on → 50 Master's Manuscript (best)
+Suspicious caravan: Investigate the merchants → 30 Master's Manuscript; Leave them be → 50 Master's Manuscript (best)
+Wilson: first encounter: Trust Wilson → 50 Master's Manuscript (best); Remain skeptical → 30 Master's Manuscript
+Group of Vikings: Ignore it. Focus on Guinevere → 50 Master's Manuscript (best); Go help. You can't just stand by and watch → 30 Master's Manuscript
+Mercenaries: Holy Sword: Hire the mercenaries → 30 Master's Manuscript; Go back and invite Diana → 30 Master's Manuscript; We don't need anyone else → 50 Master's Manuscript (best)
+Grid & Wilson: Believe her → 50 Master's Manuscript (best); Doubt her → 30 Master's Manuscript
+Disaster victim: Lend a hand → 30 Master's Manuscript; Stay out of it → 50 Master's Manuscript (best)
+Zoe: Help investigate → 30 Master's Manuscript; Focus on the Swordland Showdown → 50 Master's Manuscript (best)
+Chest shuffle: Start: [Elite] – [Silver] – [Silver] → Result: [Elite] – [Silver] – [Silver]; Start: [Silver] – [Elite] – [Silver] → Result: [Silver] – [Elite] – [Silver]; Start: [Silver] – [Elite] – [Silver] → Result: [Silver] – [Silver] – [Elite]; Start: [Silver] – [Silver] – [Elite] → Result: [Elite] – [Silver] – [Silver]
+Wilson: a question: Question Grid → 30 Master's Manuscript; Think for yourself → 50 Master's Manuscript (best)
+Guinevere: help: Help tidy up → 5 Master Emblem (Guinevere) (best); Pass → 3 Master Emblem (Guinevere)
+Guinevere: trade resources: Trade resources → 150 Master's Manuscript (best); No thanks → 100 Master's Manuscript
+Wilson: trade resources: Trade resources → 5 Master Emblem (Wilson) (best); No thanks → 3 Master Emblem (Wilson)
+Wilson: sort loot: Help sort the loot. → 150 Master's Manuscript (best); Pass → 100 Master's Manuscript
+Aena: buy food: Buy food from Edwin → 30 Master's Manuscript + 1 Master Emblem (Aena); Share your food → 50 Master's Manuscript + 1 Master Emblem (Aena) (best)
+Aena: give it a try: Give it a try → 30 Master's Manuscript + 1 Master Emblem (Aena); I've got things to do. → 50 Master's Manuscript + 1 Master Emblem (Aena) (best)
+Isnor: give it a try: Give it a try → 30 Master's Manuscript + 1 Master Emblem (Isnor); Rather not → 50 Master's Manuscript + 1 Master Emblem (Isnor) (best)
+Aena: investigation: Investigate the surrounding area → 30 Master's Manuscript + 1 Master Emblem (Aena); Keep moving → 50 Master's Manuscript + 1 Master Emblem (Aena) (best)
+Isnor: investigation: Help distribute supplies → 30 Master's Manuscript + 1 Master Emblem (Isnor); Investigate the earthquakes → 50 Master's Manuscript + 1 Master Emblem (Isnor) (best)
+Aena: insist: Insist on opening the crate → 50 Master's Manuscript + 1 Master Emblem (Aena); Leave it be → ?
+Vikings: footprints: Investigate further → 30 Master's Manuscript; Stop here for now → 50 Master's Manuscript (best)
+Aena & Petra: Request reinforcements → 50 Master's Manuscript + 1 Master Emblem (Aena) (best); Give Petra more time → 30 Master's Manuscript + 1 Master Emblem (Aena)
+Old man: Keep asking around → 50 Master's Manuscript (best); Forget it → 30 Master's Manuscript
+Guard: Investigate further → 50 Master's Manuscript (best); Leave the mine → 30 Master's Manuscript
+Aena: exchange: Exchange resources → ?; Decline the exchange → 100 Master's Manuscript
+Isnor: exchange: Exchange resources → 5 Master Emblem (Isnor); ? → ?
+
+### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-06 by Nia] ⚔️ KvK Agreement with 2186 – Oct 10
+⚔️ KvK Agreement with 2186 – Oct 10
+
+🏰 1. City Attacks
+
+✅ Allowed:
+• 10:00–10:59 UTC
+• 30 min after Castle Battle ends
+
+🛑 Ceasefire – NO attacks:
+• From 11:00 UTC through the entire Castle Battle, until 30 minutes after the Castle shield goes up.
+
+🔴 2. Red Zone
+• NO city attacks in Red Zone at ANY time.
+
+⚠️ 3. Violations
+• Do not retaliate. Send report to alliance leadership, or King if leadership is unavailable.
+
+[2026-10-05 by Nia] 🏆 ALLIANCE CHAMPIONSHIP
+Please register in the Middle Lane, leadership will sort you later. 
+
+Before registering:
+🔹 Use your strongest heroes
+🔹 Formation: 50% Infantry, 20% Cavalry, 30% Archers
+🔹 Activate Marshal / Field Commander & Pet Buffs before registering.
+
+🔄 You can refresh your registration anytime to update heroes, formation, and buffs. Especially if you have upgraded your heroes or troops.
+
+[2026-09-29 by Nia] ❗Reminder - Bear Trap Troop Limits & Staggering Marches
+🔹 All joiners must send exactly 90,000 troops to rallies. Pre-save your marches.
+🔹 Leaders initiate your rally with maximum troops but when you join other rallies you must also follow the troop limit.
+
+🔹 At the start: Main Rally Leaders send their first rally at their assigned staggered time.
+🔹 At 6:30 remaining: All joiners start their own rally using their 3 strongest heroes.
+
+🔪 Incorrect heroes & wrong troop numbers - kick and ask to rejoin
+
+(see guide #bear-hunt)
+
+[2026-09-28 by Nia] 🏆 Gen 3 Masters Guide
+Masters are characters you unlock & level for special skills, bonuses and rewards. They are separate from Heroes.
+
+🔹 F2P Priority: PAN > VALORA > ROMAN
+🔹 Whale/Rally Lead: VALORA > ROMAN > PAN
+
+TIPS:
+🔹 Don’t use Supplies on Valora—free Journeys unlock her.
+🔹 Save Supplies for Pan in Lostlands.
+🔹 Pan -> Lv60: Falconer = max daily Truegold/speedups.
+🔹 Valora -> Lv30: Bear Hunt Forgehammers.
+🔹 Roman -> Unlock only for passive Arena Chest drops.
+
+(see guide #master-academy)
+
+[2026-09-28 by Nia] Gen 3 Heroes Guide
+Not sure what to invest in? New Heroes & Masters guides are available on Discord and our multilingual website.
+
+Summary GEN 3
+🔥 Petra - MUST BUILD (Hero Roulette). Excellent Bear Hunt hero with value through Gen 7.
+- Eric & Jaeger: Skip unless focused on PvP/garrison defense
+
+Overall:
+🔹 F2P Players: Focus on Zoe if not maxed already (Infantry tank) and Petra (offensive Cavalry) from Hero Roulette
+🔹 P2W Players: Prioritize Amadeus (VIP 7+) and Hilde
+
+(see guide #f2p-heroes)
