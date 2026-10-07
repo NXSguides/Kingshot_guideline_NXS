@@ -34,14 +34,16 @@ const json = (obj, status = 200) => Response.json(obj, { status, headers: cors }
 export default {
   async fetch(req, env) {
     if (req.method === "OPTIONS") return new Response(null, { headers: cors });
-    if (req.method !== "POST") return json({ error: "POST only" }, 405);
-    if (req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
+    const isCheck = req.method === "GET" && new URL(req.url).pathname === "/check";
+    if (!isCheck && req.method !== "POST") return json({ error: "POST only — open /check to test the setup" }, 405);
+    if (!isCheck && req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
 
     const ip = req.headers.get("CF-Connecting-IP") || "?";
     const now = Date.now();
     const recent = (hits.get(ip) || []).filter((t) => now - t < 60000);
     if (recent.length >= LIMIT_PER_MIN) return json({ error: "slow_down" }, 429);
     recent.push(now); hits.set(ip, recent);
+    if (isCheck) return check(req, env);
 
     let body;
     try { body = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
@@ -65,39 +67,87 @@ export default {
 
     const system = [
       "You are the helper for the NXS alliance's Kingshot guide website (alliance NXS / NEXUS, kingdom #2189).",
-      "Answer ONLY from the SITE CONTENT below. If it isn't there, say so briefly and point to the closest guide.",
-      `Reply in the language the user writes in; if unclear, use ${LANG_NAMES[lang]}.`,
-      "Keep answers short (a few lines or a short list). Use game terms exactly as the site does.",
-      "When a guide is relevant, link it as [Guide name](#guide-id), using the id after 'GUIDE #'.",
+      "Use ONLY the SITE CONTENT below. If the answer isn't there, say so briefly and point to the closest page.",
+      `Reply in the language the user writes in; if unclear, use ${LANG_NAMES[lang]}. Use the game terms of that language as the site does.`,
+      "ANSWER FORMAT: first give the actual answer directly (the specific heroes, numbers, times, steps, names) " +
+        "in a few short lines or a short list — do NOT just tell the user to read a page. " +
+        "Then add one last line starting with 📖 that links the 1–2 pages where they can read more.",
+      "Link guides as [Guide name](#guide-id), using the id after 'GUIDE #'.",
       "Never translate or change member names.",
       officer
-        ? "This user is a verified OFFICER: you may use the OFFICER DATA section."
-        : "This user is NOT an officer. If asked about rosters, member stats, officer pages or anything not in the site content, say that is only available to officers.",
+        ? "This user is a verified OFFICER: answer questions about members, roster, power, name changes, who left, other alliances from the OFFICER DATA section. " +
+          "Officer pages you may link: [Roster](roster-x7k2p9.html) (member ranking, power, TC, Mystic Trial, battle tables), " +
+          "[Watch](watch-x7k2p9.html) (name changes, power history, who left/joined, notes), [Events](events-x7k2p9.html) (event schedule settings), " +
+          "[Post](post-k4m8q2.html) (post / edit announcements)."
+        : "This user is NOT an officer. If asked about rosters, member stats, officer pages or anything not in the site content, say that is only available to officers (they can unlock it with the 🔒 button).",
       "\n===== SITE CONTENT =====\n" + context,
     ].join("\n");
 
-    const payload = {
-      systemInstruction: { parts: [{ text: system }] },
-      contents: [...history, { role: "user", parts: [{ text: question }] }],
-      generationConfig: { maxOutputTokens: 900, temperature: 0.3 },
-    };
-
+    if (!env.GEMINI_API_KEY) return json({ error: "setup", detail: ["GEMINI_API_KEY secret is missing"] }, 500);
+    const contents = [...history, { role: "user", parts: [{ text: question }] }];
+    const fails = [];
     for (const model of MODELS) {
-      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
-        method: "POST",
-        headers: { "x-goog-api-key": env.GEMINI_API_KEY, "content-type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (r.ok) {
-        const data = await r.json();
-        const answer = (data.candidates?.[0]?.content?.parts || []).map((p) => p.text || "").join("").trim();
-        if (answer) return json({ answer, officer });
-      }
+      const res = await gemini(env, model, system, contents);
+      if (res.answer) return json({ answer: res.answer, officer });
+      fails.push(`${model}: ${res.error}`);
       // 429 = free quota used up for this model, 404 = model retired, 503 = busy → try next
     }
-    return json({ error: "quota" }, 503);
+    const allQuota = fails.every((f) => f.includes("429"));
+    return json({ error: allQuota ? "quota" : "gemini", detail: fails }, 503);
   },
 };
+
+/* One Gemini call. Thinking is kept low: on "thinking" models it uses the same token budget as
+   the answer, and a too-small budget gives an empty answer. */
+async function gemini(env, model, system, contents) {
+  const thinking = model.startsWith("gemini-2.5") ? { thinkingBudget: 0 } : { thinkingLevel: "low" };
+  for (const withThinking of [true, false]) {
+    let r;
+    try {
+      r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+        method: "POST",
+        headers: { "x-goog-api-key": env.GEMINI_API_KEY, "content-type": "application/json" },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: system }] },
+          contents,
+          generationConfig: { maxOutputTokens: 4096, temperature: 0.3, ...(withThinking ? { thinkingConfig: thinking } : {}) },
+        }),
+      });
+    } catch (e) { return { error: "network " + e.message }; }
+    const data = await r.json().catch(() => ({}));
+    if (r.ok) {
+      const c = data.candidates?.[0];
+      const answer = (c?.content?.parts || []).filter((p) => !p.thought).map((p) => p.text || "").join("").trim();
+      return answer ? { answer } : { error: `empty answer (${c?.finishReason || data.promptFeedback?.blockReason || "?"})` };
+    }
+    const msg = `HTTP ${r.status} ${data.error?.status || ""} ${String(data.error?.message || "").slice(0, 140)}`.trim();
+    // 400 because this model doesn't accept the thinking setting → retry once without it
+    if (r.status === 400 && withThinking && /thinking/i.test(msg)) continue;
+    return { error: msg };
+  }
+  return { error: "failed" };
+}
+
+/* Open https://<your-worker>.workers.dev/check in a browser to test the setup (no secrets are shown). */
+async function check(req, env) {
+  const out = { worker: "ok", colo: req.cf?.colo || "?", country: req.cf?.country || "?",
+    GEMINI_API_KEY: env.GEMINI_API_KEY ? "set" : "MISSING", DATA_KEY: env.DATA_KEY ? "set" : "not set" };
+  try { out.ai_context = (await getText("data/ai-context.txt")).length + " characters"; }
+  catch (e) { out.ai_context = "ERROR " + e.message; }
+  if (env.DATA_KEY) {
+    try { const r = await openData(JSON.parse(await getText("data/roster-x7k2p9.json")), env); out.officer_data = `ok (${r.members.length} members)`; }
+    catch (e) { out.officer_data = "ERROR " + e.message; }
+  }
+  out.models = {};
+  if (env.GEMINI_API_KEY) {
+    for (const m of MODELS) {
+      const r = await gemini(env, m, "Reply with the single word OK.", [{ role: "user", parts: [{ text: "test" }] }]);
+      out.models[m] = r.answer ? "OK" : r.error;
+      if (r.answer) break;   // one working model is enough
+    }
+  }
+  return Response.json(out, { headers: { "content-type": "application/json; charset=utf-8" } });
+}
 
 async function getText(file) {
   const r = await fetch(SITE_BASE + file, { cf: { cacheTtl: 300 } });
