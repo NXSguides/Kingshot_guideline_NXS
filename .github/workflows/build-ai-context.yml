@@ -1,0 +1,39 @@
+name: Build AI Context
+on:
+  push:
+    paths: ["data/content.js", "data/announcements.json", "scripts/build-ai-context.js"]
+    branches: [main]
+  # announcements.json is committed by the translate bot, and bot commits don't start
+  # other workflows, so also run after every translation finishes
+  workflow_run:
+    workflows: ["Translate Announcements"]
+    types: [completed]
+  workflow_dispatch:
+
+concurrency:
+  group: build-ai-context
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/build-ai-context.js
+      - run: |
+          git config user.name "ai-context-bot"
+          git config user.email "actions@github.com"
+          git add data/ai-context.txt
+          git diff --cached --quiet && exit 0
+          git commit -m "更新 AI 助手內容"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            git rebase --abort 2>/dev/null
+            sleep 5
+          done
+          exit 1
