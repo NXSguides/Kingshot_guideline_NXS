@@ -140,6 +140,21 @@
         <p class="muted" data-t="editAllNote"></p>
         <button class="btn primary" id="editAllGo" data-t="editAllGo"></button>
       </div>
+      <div id="editPicBox" hidden>
+        <p class="muted" data-t="picNote"></p>
+        <div class="row">
+          <label class="btn" for="picPick">🖼️ <span data-t="addImg"></span></label>
+          <input type="file" id="picPick" accept="image/*" multiple hidden>
+        </div>
+        <label class="f" data-t="picWhere"></label>
+        <div class="row" style="font-size:15px">
+          <label><input type="radio" name="picPos" value="end" checked> <span data-t="picEnd"></span></label>
+          <label><input type="radio" name="picPos" value="top"> <span data-t="picTop"></span></label>
+        </div>
+        <label class="f" data-t="preview"></label>
+        <div class="preview" id="picPreview" dir="auto"></div>
+        <div style="margin-top:12px"><button class="btn primary" id="picSave" data-t="picSave"></button></div>
+      </div>
       <div id="editOneBox" hidden>
         <p class="muted" data-t="editLangNote"></p>
         <label class="f" data-t="fName"></label>
@@ -188,6 +203,7 @@ const KEY_PATH = "data/post-key.json";            // encrypted GitHub key (safe 
 const SOURCE_PATH = "data/announcements-source.md";
 const PUB_PATH = "data/announcements.json";            // translated, what the site shows
 const FIX_PATH = "data/announcements-fixes.json";      // one-language fixes made by hand
+const CACHE_PATH = "data/announcements-cache.json";    // stored translations (the translator skips anything already here)
 // repo is worked out from the site address (owner.github.io/repo/), with a fallback
 const OWNER = location.hostname.endsWith("github.io") ? location.hostname.split(".")[0] : "NXSguides";
 const REPO = location.hostname.endsWith("github.io") ? (location.pathname.split("/")[1] || "Kingshot_guideline_NXS") : "Kingshot_guideline_NXS";
@@ -249,6 +265,11 @@ const T = {
     confirmEdit: "Save the changes? All languages are translated again, and any one-language fixes on this announcement are replaced.",
     editOk: "Saved ✅ The new version shows on the site in about 2–3 minutes.",
     gone: "This announcement was changed or deleted meanwhile. Press Refresh and try again.",
+    editPics: "Add pictures only — no new translation",
+    picNote: "The pictures go into every language at once. The text stays exactly as it is (one-language fixes too), so nothing is translated again.",
+    picWhere: "Where", picEnd: "At the end", picTop: "At the top", picSave: "💾 Add the pictures",
+    picNone: "Choose at least one picture first.", confirmPics: "Add these pictures to the announcement in all languages?",
+    picOk: "Added ✅ The pictures show on the site in about 2–3 minutes.",
   },
   zh: {
     title: "發布公告", subtitle: "寫一次就好，網站會自動翻成 12 種語言。",
@@ -304,6 +325,11 @@ const T = {
     confirmEdit: "確定儲存修改？所有語言會重新翻譯，這則公告之前單獨修改過的語言也會被換掉。",
     editOk: "已儲存 ✅ 大約 2–3 分鐘後網站上會換成新版本。",
     gone: "這則公告剛剛被改過或刪掉了，請按「重新整理」再試一次。",
+    editPics: "只加圖片 — 不重新翻譯",
+    picNote: "圖片會一次加進所有語言。文字完全不變（手動改過的語言也保留），所以不會重新翻譯。",
+    picWhere: "放在哪裡", picEnd: "最後面", picTop: "最上面", picSave: "💾 加入圖片",
+    picNone: "請先選至少一張圖片。", confirmPics: "確定把這些圖片加到這則公告的所有語言？",
+    picOk: "已加入 ✅ 大約 2–3 分鐘後圖片會出現在網站上。",
   },
 };
 
@@ -421,7 +447,7 @@ function markup(title, body, lang) {
   const html = esc(body)
     .replace(/\{(\w+)\}/g, (m, id) => (term(id, lang) ? esc(term(id, lang)) : m))
     .replace(/\[\[link:([\w-]+)\]\]/g, (m, id) => GUIDES[id] ? `<span class="chip">${GUIDES[id].emoji} ${esc(GUIDES[id].name[lang] || GUIDES[id].name.en)} ›</span>` : "")
-    .replace(/\[\[img:([\w./-]+)\]\]/g, (m, src) => `<img src="${pendingImgs[src] ? pendingImgs[src].url : esc(src)}" alt="">`)
+    .replace(/\[\[img:([\w./-]+)\]\]/g, (m, src) => `<img src="${pendingImgs[src] ? pendingImgs[src].url : picImgs[src] ? picImgs[src].url : esc(src)}" alt="">`)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
   return (`<b>${esc(title)}</b>\n` + html).trim() || "…";
 }
@@ -521,7 +547,7 @@ let cur = null;        // the announcement open in the Edit card: { i, id, block
 let editing = null;    // whole-announcement edit in the Write form: { block, created, title }
 function fillEditLang() {
   const keep = $("editLang").value || store.fixLang || "all";
-  $("editLang").innerHTML = `<option value="all">${esc(tr("editAll"))}</option>` +
+  $("editLang").innerHTML = `<option value="all">${esc(tr("editAll"))}</option><option value="pics">🖼️ ${esc(tr("editPics"))}</option>` +
     LANGS.map((l) => `<option value="${l.code}">${esc(l.label)}${fixes[cur.id] && fixes[cur.id][l.code] ? " ✏️" : ""}</option>`).join("");
   $("editLang").value = keep;
 }
@@ -535,8 +561,9 @@ function openEdit(i) {
   $("editCard").hidden = false; $("editCard").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 function showEditLang() {
-  const lang = $("editLang").value, all = lang === "all";
-  $("editAllBox").hidden = !all; $("editOneBox").hidden = all; $("editMsg").className = "msg";
+  const lang = $("editLang").value, all = lang === "all", pics = lang === "pics";
+  $("editAllBox").hidden = !all; $("editOneBox").hidden = all || pics; $("editPicBox").hidden = !pics; $("editMsg").className = "msg";
+  if (pics) { if (!pubById[cur.id]) { $("editPicBox").hidden = true; showMsg("editMsg", "info", tr("notYet")); } else renderPicPreview(); return; }
   if (all) return;
   const a = pubById[cur.id];
   if (!a || !a.title) { $("editOneBox").hidden = true; showMsg("editMsg", "info", tr("notYet")); return; }
@@ -565,7 +592,7 @@ async function stillThere(block) {
   const f = await gh("GET", SOURCE_PATH);
   return splitBlocks(b64ToUtf8(f.content)).includes(block);
 }
-$("editLang").onchange = () => { if ($("editLang").value !== "all") { store.fixLang = $("editLang").value; save(); } showEditLang(); };
+$("editLang").onchange = () => { if (!["all", "pics"].includes($("editLang").value)) { store.fixLang = $("editLang").value; save(); } showEditLang(); };
 $("editClose").onclick = () => { $("editCard").hidden = true; cur = null; };
 ["fixTitle", "fixBody"].forEach((id) => $(id).addEventListener("input", renderFixPreview));
 $("fixSave").onclick = async () => {
@@ -614,6 +641,111 @@ $("cancelEdit").onclick = () => {
   editing = null; $("annTitle").value = ""; $("body").value = ""; $("guide").value = "";
   $("author").value = store.author || ""; $("srcLang").value = store.lang || "en";
   showEditing(); renderPreview();
+};
+
+/* ===== add pictures only: one commit changes the original + the stored translations, so nothing is translated again ===== */
+let picImgs = {};      // path -> { blob, url } waiting to be added
+const picPos = () => (document.querySelector('input[name="picPos"]:checked') || {}).value || "end";
+/* put the picture lines at the top or the end (before a trailing guide button) of one text */
+function withPics(text, paths, pos) {
+  const lines = paths.map((p) => `[[img:${p}]]`).join("\n");
+  let t = String(text || "").replace(/\s+$/, "");
+  if (pos === "top") return lines + "\n\n" + t;
+  const m = t.match(/\n*(\[\[link:[\w-]+\]\])$/);
+  if (m) return t.slice(0, m.index) + "\n\n" + lines + "\n\n" + m[1];
+  return t + "\n\n" + lines;
+}
+function renderPicPreview() {
+  const a = pubById[cur.id]; if (!a) return;
+  const l = a.title && a.title[ui] != null ? ui : (cur.d.lang || "en");
+  $("picPreview").innerHTML = markup(a.title[l] || "", withPics((a.content || {})[l] || "", Object.keys(picImgs), picPos()), l);
+}
+$("picPick").onchange = async (e) => {
+  const files = [...e.target.files]; e.target.value = "";
+  const stamp = new Date().toISOString().slice(0, 19).replace(/[-:]/g, "").replace("T", "-");
+  for (const f of files) {
+    try { const blob = await shrink(f); const path = `figures/ann/${stamp}-${++imgCounter}.jpg`; picImgs[path] = { blob, url: URL.createObjectURL(blob) }; }
+    catch (err) { showMsg("editMsg", "err", "⚠️ " + f.name); }
+  }
+  renderPicPreview();
+};
+document.querySelectorAll('input[name="picPos"]').forEach((r) => r.addEventListener("change", renderPicPreview));
+/* GitHub git-data API (several files in ONE commit) */
+async function git(method, path, body) {
+  let res;
+  try {
+    res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/git/${path}`, {
+      method, headers: { Authorization: `Bearer ${TOKEN}`, Accept: "application/vnd.github+json" },
+      body: body ? JSON.stringify(body) : undefined, cache: "no-store",
+    });
+  } catch (e) { throw new Error("net"); }
+  if (res.status === 401 || res.status === 403) throw new Error("auth");
+  if (res.status === 409 || res.status === 422) throw new Error("busy");
+  if (!res.ok) throw new Error("net");
+  return res.json();
+}
+async function readText(path) {   // a text file from the repo ("" if missing); files over 1 MB come from the site's copy
+  const f = await gh("GET", path);
+  if (!f) return "";
+  if (f.content) return b64ToUtf8(f.content);
+  return f.size ? await (await fetch(path + "?t=" + Date.now(), { cache: "no-store" })).text() : "";
+}
+$("picSave").onclick = async () => {
+  const paths = Object.keys(picImgs);
+  if (!paths.length) { showMsg("editMsg", "err", tr("picNone")); return; }
+  if (!(await askYesNo(tr("confirmPics")))) return;
+  const pos = picPos(), btn = $("picSave"); btn.disabled = true; showMsg("editMsg", "info", tr("uploadingImg"));
+  try {
+    // the pictures become blobs first (they don't change anything until the commit)
+    const imgShas = {};
+    for (const p of paths) imgShas[p] = (await git("POST", "blobs", { content: b64enc(await picImgs[p].blob.arrayBuffer()), encoding: "base64" })).sha;
+    showMsg("editMsg", "info", tr("savingFix"));
+    let done = false;
+    for (let attempt = 0; attempt < 3 && !done; attempt++) {
+      const ref = await git("GET", "ref/heads/" + BRANCH);
+      const head = ref.object.sha;
+      const commit = await git("GET", "commits/" + head);
+      const [srcF, cacheTxt, fixTxt] = await Promise.all([gh("GET", SOURCE_PATH), readText(CACHE_PATH), readText(FIX_PATH)]);
+      const blocks = splitBlocks(b64ToUtf8(srcF.content));
+      const at = blocks.indexOf(cur.block);
+      if (at < 0) throw new Error("gone");
+      const cache = cacheTxt.trim() ? JSON.parse(cacheTxt) : {};
+      const old = cache[cur.id];
+      if (!old || !old.content) throw new Error("notYet");
+      const d = cur.d;
+      const block = makeBlock({ author: d.author || "", lang: d.lang || "en", title: d.title || "", body: withPics(d.content, paths, pos), created: d.created || old.createdAt || "" });
+      const newId = await blockId(block);
+      blocks[at] = block;
+      const entry = JSON.parse(JSON.stringify(old));
+      for (const l of Object.keys(entry.content)) entry.content[l] = withPics(entry.content[l], paths, pos);
+      entry.images = [...(entry.images || [])];
+      const nextCache = {}; for (const [k, v] of Object.entries(cache)) nextCache[k === cur.id ? newId : k] = k === cur.id ? entry : v;
+      const files = [
+        { path: SOURCE_PATH, content: joinBlocks(blocks) },
+        { path: CACHE_PATH, content: JSON.stringify(nextCache, null, 2) },
+      ];
+      if (fixTxt.trim()) {
+        const fx = JSON.parse(fixTxt);
+        if (fx[cur.id]) {
+          const moved = JSON.parse(JSON.stringify(fx[cur.id]));
+          for (const v of Object.values(moved)) if (v && typeof v.content === "string") v.content = withPics(v.content, paths, pos);
+          delete fx[cur.id]; fx[newId] = moved;
+          files.push({ path: FIX_PATH, content: JSON.stringify(fx, null, 1) + "\n" });
+        }
+      }
+      const tree = await git("POST", "trees", { base_tree: commit.tree.sha, tree: [
+        ...files.map((f) => ({ path: f.path, mode: "100644", type: "blob", content: f.content })),
+        ...paths.map((p) => ({ path: p, mode: "100644", type: "blob", sha: imgShas[p] })),
+      ] });
+      const c = await git("POST", "commits", { message: `Add pictures to announcement: ${d.title || ""}`.slice(0, 120), tree: tree.sha, parents: [head] });
+      try { await git("PATCH", "refs/heads/" + BRANCH, { sha: c.sha }); done = true; }
+      catch (e) { if (e.message !== "busy") throw e; }   // someone else committed meanwhile: start again from the new state
+    }
+    if (!done) throw new Error("busy");
+    Object.values(picImgs).forEach((x) => URL.revokeObjectURL(x.url)); picImgs = {};
+    showMsg("editMsg", "ok", tr("picOk")); $("editPicBox").hidden = true; loadList();
+  } catch (e) { showMsg("editMsg", "err", e.message === "gone" ? tr("gone") : e.message === "notYet" ? tr("notYet") : errText(e)); }
+  btn.disabled = false;
 };
 
 /* ===== screens ===== */
