@@ -527,6 +527,90 @@ P2W-Spieler: Priorisiere Amadeus (VIP 7+) und Hilde für maximale Wirkung
 
 ### GUIDE #hero-cards — Heldenkarten (Gen 1–3)
 Eine Karte pro Held: wofür jeder gut ist. Die Bewertungen stammen aus dem Spiel-Chat „Heroes Guide“, den die Seitenbetreiberin kurz vor seinem Verschwinden gerettet hat. Mit den Filtern findest du zum Beispiel die besten Teilnehmer für Bärenjagd.
+Olive — Gen 1, Bogenschütze, R, Wachstum
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ❌; Garnisonsführer ❌; PvP: Teilnehmer ❌; Einzelmarsch ❌; Arena / Eroberung ✅
+  Wachstumsheld: steigert Produktion und Sammeln von Brot. Ihr Flächenschaden hilft bei der Eroberung – aber nur in der ersten Woche eines neuen Königreichs. Im Kampf schnell überholt; der Wirtschaftsbonus bleibt.
+  "Ihre Schreckensherrschaft in der Arena war kurz. Ihre Schicht in der Mühle endet nie."
+Forrest — Gen 1, Infanterie, R, Wachstum
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ❌; Garnisonsführer ❌; PvP: Teilnehmer ❌; Einzelmarsch ❌; Arena / Eroberung ❌
+  Wachstumsheld: steigert Produktion und Sammeln von Holz. Keine sinnvolle Rolle in Eroberung oder Arena – die Fähigkeiten passen nicht, die Werte reichen nicht.
+  "Seine Axt sammelte mehr Holz als Siege."
+Edwin — Gen 1, Kavallerie, R, Wachstum
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ❌; Garnisonsführer ❌; PvP: Teilnehmer ❌; Einzelmarsch ❌; Arena / Eroberung ❌
+  Wachstumsheld: steigert Produktion und Sammeln von Stein. Keine sinnvolle Rolle in Eroberung oder Arena.
+  "Er konnte ein Königreich aus Stein bauen. Niemand bat ihn je, es zu verteidigen."
+Seth — Gen 1, Infanterie, R, Wachstum
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ❌; Garnisonsführer ❌; PvP: Teilnehmer ❌; Einzelmarsch ❌; Arena / Eroberung ✅
+  Wachstumsheld: steigert die Produktion von Eisen. Für F2P als zweiter Tank in früher Arena und Eroberung nützlich; ab Gen 2 überholt, aber der Wirtschaftsbonus bleibt.
+  "Als Howard fiel, fiel dem Königreich wieder ein, dass es Seth gibt."
+Diana — Gen 1, Bogenschütze, SR, Kampf
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ❌; Garnisonsführer ❌; PvP: Teilnehmer ❌; Einzelmarsch ⚠️; Arena / Eroberung ✅
+  Spart Ausdauer und beschleunigt Märsche – praktisch fürs PvE-Farmen, nicht für PvP. Ihre erste Expeditionsfähigkeit senkt deinen eigenen Ausdauerverbrauch; sie ist kein Schadensbuff. Hilft bei früher Eroberung; später von Yeonwoo und Quinn überholt.
+  "Die größte Waffe des Königreichs war eine Reisekauffrau."
+Quinn — Gen 1, Bogenschütze, SR, Kampf
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ✅; Garnisonsführer ❌; PvP: Teilnehmer ✅; Einzelmarsch ✅; Arena / Eroberung ✅
+  Der F2P-freundlichste frühe Kampf-Bogenschütze, mit zwei Kampf-Expeditionsfähigkeiten. F2P: nutze ihn für Einzelmärsche und als Rally-Kapitän bis in spätere Generationen; ersetze ihn am besten durch Marlin. Guter PvP-Teilnehmer, aber oft überschätzt. Bester Einzelziel-Burst in früher Eroberung und Arena.
+  "Ein zweites Ziel kam in seinen Schlachtplänen selten vor."
+Chenko — Gen 1, Kavallerie, SR, Kampf
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ✅; PvP: Rally-Kapitän ❌; Garnisonsführer ❌; PvP: Teilnehmer ✅; Einzelmarsch ❌; Arena / Eroberung ✅
+  Der Pflicht-Teilnehmer für alle Allianz-Inhalte. Hervorragender Teilnehmer bei Bärenjagd und steigert allgemein den Rally-Schaden. Stark in früher Eroberung und Arena, besonders für F2P – sein Flächenschaden trifft aber nicht immer das beste Ziel.
+  "Der Unterschied zwischen einer schlechten und einer guten Bärenjagd: ungefähr vier Chenkos."
+Gordon — Gen 1, Kavallerie, SR, Kampf
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ❌; Garnisonsführer ❌; PvP: Teilnehmer ✅; Einzelmarsch ❌; Arena / Eroberung ✅
+  Teilnehmer für Allianz-PvP, vor allem Garnisonen: seine Teilnehmerfähigkeit mit 25% Gesundheit schlägt Fähigkeiten mit 20% Schadensreduktion. In früher Eroberung und Arena als „dritter Tank“ in der hinteren Reihe nutzbar – mit Kavalleriewerten fällt er, bevor seine langsame Heilung greift.
+  "Jede große Verteidigung beginnt mit einer ausgewogenen Mahlzeit."
+Howard — Gen 1, Infanterie, SR, Kampf
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ✅; Garnisonsführer ❌; PvP: Teilnehmer ✅; Einzelmarsch ❌; Arena / Eroberung ✅
+  Der allgegenwärtige F2P-Infanterieheld der Frühphase für Expedition und Arena. Dein wichtigster Infanterie-Rally-Held bis Zoe in Gen 2 (F2P). Guter PvP-Teilnehmer, aber oft überschätzt. Bleibt mehrere Generationen in der Eroberung nützlich, da F2P-Infanterie knapp ist.
+  "Seine Stellenbeschreibung war kurz: überleben."
+Amane — Gen 1, Bogenschütze, SR, Wachstum
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ✅; PvP: Rally-Kapitän ❌; Garnisonsführer ❌; PvP: Teilnehmer ✅; Einzelmarsch ❌; Arena / Eroberung ❌
+  Ein Wachstumsheld, dessen beste Fähigkeit eine Kampffähigkeit ist. Globaler Bonus auf die Heilgeschwindigkeit (Krankenstation) – nett, aber weniger wichtig als andere Wachstumsfähigkeiten zum Start. Teilnehmerfähigkeit mit 25% Angriff: hervorragende Teilnehmerin bei Bärenjagd und Rallys. Kombiniere ihre 25% Angriff mit den 25% Tödlichkeit von Chenko oder Yeonwoo für den besten Rally-Schaden.
+  "Das Königreich ließ sie im Lazarett arbeiten – bis zu dem Tag, an dem der Bär kam."
+Fahd — Gen 1, Kavallerie, SR, Kampf
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ❌; Garnisonsführer ❌; PvP: Teilnehmer ✅; Einzelmarsch ❌; Arena / Eroberung ❌
+  Bau ihn wegen seiner einzigartigen PvP-Teilnehmerfähigkeit aus – sie hält ihn auch in späteren Generationen relevant. Begrenzt nützlich, um die Märsche von Diana zu beschleunigen. Seine Fähigkeiten sind in Eroberung und Arena nicht konkurrenzfähig, auch nicht früh.
+  "Der Feind bemerkte ihn nie – die Mathematik schon."
+Yeonwoo — Gen 1, Bogenschütze, SR, Wachstum
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ✅; PvP: Rally-Kapitän ❌; Garnisonsführer ❌; PvP: Teilnehmer ✅; Einzelmarsch ❌; Arena / Eroberung ✅
+  Starker Tempobonus für Forschung: +15% (additiv) – früh eine Priorität. Teilnehmerfähigkeit mit 25% Tödlichkeit: hervorragend für Bärenjagd und PvP-Rallys. Kombiniere ihre 25% Letalität mit den 25% Angriff von Amane. Flächenschaden-Dealer in früher Eroberung und Arena für F2P.
+  "Endlich der Beweis, dass auch F2P-Spieler schöne Dinge bekommen … gelegentlich …"
+Jabel — Gen 1, Kavallerie, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ✅; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ✅; Garnisonsführer ✅; PvP: Teilnehmer ⚠️; Einzelmarsch ✅; Arena / Eroberung ✅
+  Die beliebteste frühe Kavallerie und die einzige echte mythische F2P-Heldin in Gen 1. Beste frühe Kavallerie für F2P und Zahler gleichermaßen. Glänzt in defensiven Garnisonen und führt in Gen 1 auch den Angriff an. Vorsicht als Teilnehmerin: ihre %-Chance-Fähigkeit stapelt nicht mit ähnlichen Fähigkeiten. Starker Flächenschaden in früher Eroberung und Arena.
+  "Sie war nicht übermächtig. Sie war nur als Erste auf dem Schlachtfeld."
+Saul — Gen 1, Bogenschütze, SSR, Wachstum
+  Bärenjagd: Rally-Kapitän ★★★★ (4-5); Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ❌; Garnisonsführer ✅; PvP: Teilnehmer ✅; Einzelmarsch ✅; Arena / Eroberung ★★★ (3/5)
+  Recht F2P-freundlicher Wachstumsheld: senkt Zeit und Kosten für Bau. Bester Start-Bogenschütze für die Expedition, aber F2P fehlt die Zeit, ihn mit Edelsteinen voll auszubauen. Guter Teilnehmer mit gemischten Fähigkeiten. Top in Eroberung und Arena in Gen 1; in Gen 2 knapp verdrängt, ab Gen 4–6 wieder im Einsatz, wenn die 60/40-Meta aufgeht.
+  "Allen Widrigkeiten zum Trotz lieferte er jedes Projekt pünktlich und unter Budget."
+Amadeus — Gen 1, Infanterie, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ✅; Bärenjagd: Teilnehmer ✅; PvP: Rally-Kapitän ✅; Garnisonsführer ✅; PvP: Teilnehmer ✅; Einzelmarsch ✅; Arena / Eroberung ✅
+  Extremes Pay-to-Win: dauerhafter globaler Bonus auf Gesundheit und Tödlichkeit je nach Sternstufe. Unangefochtener Rally-Kapitän bei Bärenjagd – in jeder bisherigen Heldengeneration. Starker Expeditions-Teilnehmer, aber du setzt ihn fast immer als Rally-Kapitän ein. In der Garnison von Zoe (Gen 2) verdrängt; im Angriffs-Rally stark bis Gen 4/5. Bis Gen 4 oder 5 in Top-Arena-Teams – setze ihn in die hintere Reihe.
+  "Damals war das Schlachtfeld einfach: Wer Amadeus hatte, gewann."
+Helga — Gen 1, Infanterie, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ✅; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ✅; Garnisonsführer ❌; PvP: Teilnehmer ❌; Einzelmarsch ✅; Arena / Eroberung ✅
+  Kurzfristige Pay-to-Win-Heldin: dauerhafter globaler Bonus auf Angriff und Verteidigung je nach Sternstufe. Nr. 2 der Infanterie-Rally-Kapitäne bei Bärenjagd über alle Generationen (hinter Amadeus) – günstiger, fällt aber früher ab. In Gen 1 in jedem Top-Arena-Team, ab Gen 3 verschwunden. Früher Tank in der vorderen Reihe; ihre Betäubung kann gegnerische Ultimates überspringen.
+  "Ein paar kurze Tage lang war Helga ein Symbol für Reichtum und Macht. Dann kam Amadeus."
+Zoe — Gen 2, Infanterie, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ✅; Garnisonsführer ✅; PvP: Teilnehmer ❌; Einzelmarsch ✅; Arena / Eroberung ✅
+  Die erste mythische Infanterieheldin für F2P-Spieler. Voll ausgebaut schlägt sie Amadeus in der Garnisonsverteidigung – dank ihres Element-Typs. Ihre 1. Expeditionsfähigkeit wirkt nicht gegen den Bären (weder als Teilnehmerin noch als Rally-Kapitän). In Gen 2 und 3 in Top-Arena-Teams – meist als Tank in der vorderen Reihe.
+  "Das Königreich jubelte, als Zoe kam … besonders die Ärmsten."
+Hilde — Gen 2, Kavallerie, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ⚠️; PvP: Rally-Kapitän ❌; Garnisonsführer ✅; PvP: Teilnehmer ✅; Einzelmarsch ✅; Arena / Eroberung ✅
+  Defensive Kavallerie: als Garnisonsführerin etwas besser als Jabel (defensiver Element-Typ), aber viel schwerer auszubauen. Solide Expeditionsfähigkeiten für PvP-Einzelmärsche (alle mit 25% effektivem Wert). Okay als Teilnehmerin bei Bärenjagd – sie sollte nur keinem besseren Helden den Platz wegnehmen. Hervorragende Arena-Heldin, bis Gen 3 auf defensive Werte umstellt.
+Marlin — Gen 2, Bogenschütze, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ✅; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ✅; Garnisonsführer ❌; PvP: Teilnehmer ❌; Einzelmarsch ✅; Arena / Eroberung ✅
+  Der erste echte offensive Rally-Bogenschütze. Mit ihm steigt deine Punktzahl bei Bärenjagd spürbar. Starker Flächenschaden und Massenkontrolle in Arena und Eroberung.
+  "Für die Menge Rum, die er dabeihatte, zielte Marlin erstaunlich gut."
+Petra — Gen 3, Kavallerie, SSR, Kampf
+  Detaillierte Bewertungen für diese Generation folgen bald.
+  PFLICHT-AUSBAU (Helden Roulette). Hervorragende Heldin für Bärenjagd, wertvoll bis Gen 7. F2P: die offensive Kavallerie, die man über Helden Roulette ausbaut.
+Eric — Gen 3, Infanterie, SSR, Kampf
+  Detaillierte Bewertungen für diese Generation folgen bald.
+  Überspringen, außer du setzt auf PvP / Garnisonsverteidigung.
+Jaeger — Gen 3, Bogenschütze, SSR, Kampf
+  Detaillierte Bewertungen für diese Generation folgen bald.
+  Überspringen, außer du setzt auf PvP / Garnisonsverteidigung.
 
 ### GUIDE #kvk — KvK-Vorbereitungs- & Kampfguide
 Echtgold

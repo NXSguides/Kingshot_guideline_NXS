@@ -525,6 +525,90 @@ Joueurs P2W : Priorisez Amadeus (VIP 7+) et Hilde pour un impact maximal
 
 ### GUIDE #hero-cards — Fiches des héros (Gén 1–3)
 Une fiche par héros : à quoi sert chacun. Les notes viennent du chat en jeu « Heroes Guide », sauvé par la propriétaire du site juste avant sa disparition. Utilisez les filtres pour trouver, par exemple, les meilleurs participants pour Chasse à l'Ours.
+Olive — Gén 1, Archer, R, Croissance
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ❌; Chef de garnison ❌; PvP : participant ❌; Marche solo ❌; Arène / Conquête ✅
+  Héros de croissance : augmente la production et la collecte de Pain. Ses dégâts de zone aident en Conquête — mais seulement la première semaine d'un nouveau royaume. Vite dépassée en combat ; le bonus économique, lui, reste.
+  "Son règne de terreur dans l'arène fut bref. Son service au moulin, lui, ne finit jamais."
+Forrest — Gén 1, Infanterie, R, Croissance
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ❌; Chef de garnison ❌; PvP : participant ❌; Marche solo ❌; Arène / Conquête ❌
+  Héros de croissance : augmente la production et la collecte de Bois. Aucun rôle utile en Conquête ni en Arène — compétences inadaptées, stats insuffisantes.
+  "Sa hache a récolté plus de bois que de victoires."
+Edwin — Gén 1, Cavalerie, R, Croissance
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ❌; Chef de garnison ❌; PvP : participant ❌; Marche solo ❌; Arène / Conquête ❌
+  Héros de croissance : augmente la production et la collecte de Pierre. Aucun rôle utile en Conquête ni en Arène.
+  "Il pouvait bâtir un royaume en pierre. Personne ne lui a jamais demandé de le défendre."
+Seth — Gén 1, Infanterie, R, Croissance
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ❌; Chef de garnison ❌; PvP : participant ❌; Marche solo ❌; Arène / Conquête ✅
+  Héros de croissance : augmente la production de Fer. Utile aux F2P comme second tank en début d'Arène et de Conquête ; dépassé en Gén 2, mais le bonus économique reste.
+  "Quand Howard est tombé, le royaume s'est souvenu que Seth existait."
+Diana — Gén 1, Archer, SR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ❌; Chef de garnison ❌; PvP : participant ❌; Marche solo ⚠️; Arène / Conquête ✅
+  Économise l'endurance et accélère les marches — pratique pour farmer en PvE, pas pour le PvP. Sa 1re compétence d'expédition réduit votre propre consommation d'endurance ; ce n'est pas un bonus de dégâts. Utile en début de Conquête ; éclipsée ensuite par Yeonwoo et Quinn.
+  "La plus grande arme du royaume était une agente de voyages."
+Quinn — Gén 1, Archer, SR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ✅; Chef de garnison ❌; PvP : participant ✅; Marche solo ✅; Arène / Conquête ✅
+  L'archer de combat du début le plus adapté aux F2P, avec deux compétences d'expédition de combat. F2P : utilisez-le en marche solo et comme Capitaine de Ralliement jusqu'aux générations suivantes ; idéalement, remplacez-le par Marlin. Bon participant PvP, mais souvent surestimé. Meilleurs dégâts en rafale sur cible unique en début de Conquête et d'Arène.
+  "Ses plans de bataille prévoyaient rarement une deuxième cible."
+Chenko — Gén 1, Cavalerie, SR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ✅; PvP : Capitaine de Ralliement ❌; Chef de garnison ❌; PvP : participant ✅; Marche solo ❌; Arène / Conquête ✅
+  Le participant indispensable pour tout contenu d'alliance. Excellent participant pour Chasse à l'Ours, et augmente les dégâts de ralliement en général. Efficace en début de Conquête et d'Arène, surtout pour les F2P — mais ses dégâts de zone ne touchent pas toujours la meilleure cible.
+  "La différence entre une mauvaise et une bonne Chasse à l'ours ? Environ quatre Chenko."
+Gordon — Gén 1, Cavalerie, SR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ❌; Chef de garnison ❌; PvP : participant ✅; Marche solo ❌; Arène / Conquête ✅
+  Participant pour le PvP d'alliance, surtout les garnisons : sa compétence de participant Santé +25% bat les réductions de dégâts de 20%. Jouable en début de Conquête et d'Arène comme « troisième tank » en dernière ligne — ses stats de cavalerie le font tomber avant que son soin lent n'agisse.
+  "Toute grande défense commence par un repas équilibré."
+Howard — Gén 1, Infanterie, SR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ✅; Chef de garnison ❌; PvP : participant ✅; Marche solo ❌; Arène / Conquête ✅
+  Le héros d'infanterie F2P incontournable du début, en expédition comme en arène. Votre principal héros de ralliement d'infanterie jusqu'à Zoé en Gén 2 (F2P). Bon participant PvP, mais souvent surestimé. Reste utile en Conquête pendant plusieurs générations, car l'infanterie F2P est rare.
+  "Sa fiche de poste était courte : survivre."
+Amane — Gén 1, Archer, SR, Croissance
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ✅; PvP : Capitaine de Ralliement ❌; Chef de garnison ❌; PvP : participant ✅; Marche solo ❌; Arène / Conquête ❌
+  Un héros de croissance dont la meilleure capacité est une compétence de combat. Bonus global de vitesse de soin (Infirmerie) — utile, mais moins prioritaire que d'autres compétences de croissance de départ. Compétence de participant Attaque +25% : excellente participante pour Chasse à l'Ours et les ralliements. Combinez ses 25% d'attaque avec les 25% de Létalité de Chenko ou Yeonwoo pour les meilleurs dégâts de ralliement.
+  "Le royaume la faisait travailler à l'infirmerie… jusqu'au jour où l'Ours est arrivé."
+Fahd — Gén 1, Cavalerie, SR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ❌; Chef de garnison ❌; PvP : participant ✅; Marche solo ❌; Arène / Conquête ❌
+  Montez-le pour sa compétence unique de participant PvP — elle le garde utile dans les générations suivantes. Usage limité pour accélérer les marches de Diana. Ses compétences ne sont pas compétitives en Conquête ni en Arène, même au début.
+  "L'ennemi ne l'a jamais remarqué. Les calculs, si."
+Yeonwoo — Gén 1, Archer, SR, Croissance
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ✅; PvP : Capitaine de Ralliement ❌; Chef de garnison ❌; PvP : participant ✅; Marche solo ❌; Arène / Conquête ✅
+  Superbe bonus de vitesse de Recherche : +15% (additif) — une priorité en début de partie. Compétence de participant Létalité +25% : excellente pour Chasse à l'Ours et les ralliements PvP. Combinez ses 25% de létalité avec les 25% d'attaque de Amane. Dégâts de zone en début de Conquête et d'Arène pour les F2P.
+  "Enfin la preuve que les joueurs F2P ont droit à de belles choses… parfois…"
+Jabel — Gén 1, Cavalerie, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ✅; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ✅; Chef de garnison ✅; PvP : participant ⚠️; Marche solo ✅; Arène / Conquête ✅
+  La cavalerie du début préférée de tous, et la seule vraie héroïne mythique F2P de la Gén 1. Meilleure cavalerie du début, pour les F2P comme pour les payants. Excelle en garnison défensive et mène aussi l'attaque en Gén 1. Attention en participante : sa compétence à % de chance ne se cumule pas avec les compétences similaires. Excellents dégâts de zone en début de Conquête et d'Arène.
+  "Elle n'était pas trop forte. Elle est juste arrivée la première sur le champ de bataille."
+Saul — Gén 1, Archer, SSR, Croissance
+  Chasse à l'Ours : Capitaine de Ralliement ★★★★ (4-5); Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ❌; Chef de garnison ✅; PvP : participant ✅; Marche solo ✅; Arène / Conquête ★★★ (3/5)
+  Héros de croissance assez F2P-friendly : réduit le temps et le coût de Construction. Meilleur archer de départ pour l'Expédition, mais les F2P n'auront pas le temps de le monter à fond avec des gemmes. Bon participant aux compétences mixtes. Au top en Conquête et en Arène en Gén 1 ; devancé en Gén 2, de retour en Gén 4–6 quand la méta 60/40 devient viable.
+  "Contre toute attente, il a livré chaque projet à temps et sous le budget."
+Amadeus — Gén 1, Infanterie, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ✅; Chasse à l'Ours : participant ✅; PvP : Capitaine de Ralliement ✅; Chef de garnison ✅; PvP : participant ✅; Marche solo ✅; Arène / Conquête ✅
+  Pay-to-win à l'extrême : bonus global permanent (Santé et Létalité) selon son niveau d'étoiles. Capitaine de Ralliement incontesté pour Chasse à l'Ours, toutes générations de héros confondues jusqu'ici. Excellent participant d'expédition, mais vous l'utiliserez presque toujours comme Capitaine de Ralliement. Remplacé par Zoé (Gén 2) en garnison ; tient le ralliement offensif jusqu'en Gén 4/5. Dans les meilleures équipes d'arène jusqu'en Gén 4 ou 5 — placez-le en dernière ligne.
+  "À l'époque, le champ de bataille était simple : qui avait Amadeus gagnait."
+Helga — Gén 1, Infanterie, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ✅; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ✅; Chef de garnison ❌; PvP : participant ❌; Marche solo ✅; Arène / Conquête ✅
+  Héroïne pay-to-win à court terme : bonus global permanent (Attaque et Défense) selon son niveau d'étoiles. N°2 des Capitaines de Ralliement d'infanterie pour Chasse à l'Ours, toutes générations confondues (derrière Amadeus) — moins chère, mais décroche plus tôt. Dans toutes les meilleures équipes d'arène en Gén 1, disparue en Gén 3. Tank de première ligne du début ; son étourdissement peut sauter les ultimes ennemis.
+  "Pendant quelques jours, Helga fut un symbole de richesse et de pouvoir. Puis vint Amadeus."
+Zoé — Gén 2, Infanterie, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ✅; Chef de garnison ✅; PvP : participant ❌; Marche solo ✅; Arène / Conquête ✅
+  La première héroïne d'infanterie mythique accessible aux F2P. Montée à fond, elle bat Amadeus en garnison défensive grâce à son type de Composant. Sa 1re compétence d'expédition ne marche pas sur l'Ours (ni en participante, ni en Capitaine de Ralliement). Dans les meilleures équipes d'arène en Gén 2 et 3 — généralement tank en première ligne.
+  "Le royaume a acclamé l'arrivée de Zoe… surtout les plus pauvres."
+Hilde — Gén 2, Cavalerie, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ⚠️; PvP : Capitaine de Ralliement ❌; Chef de garnison ✅; PvP : participant ✅; Marche solo ✅; Arène / Conquête ✅
+  Cavalerie défensive : un peu mieux que Jabel en chef de garnison (Composant défensif), mais bien plus dure à monter. Solides compétences d'expédition pour les marches solo PvP (toutes à 25% de valeur effective). Participante correcte pour Chasse à l'Ours — mais ne lui laissez pas la place d'un meilleur héros. Superbe en Arène, jusqu'au passage aux stats défensives en Gén 3.
+Marlin — Gén 2, Archer, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ✅; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ✅; Chef de garnison ❌; PvP : participant ❌; Marche solo ✅; Arène / Conquête ✅
+  Le premier vrai archer de ralliement offensif. Passer à lui augmentera nettement votre score à Chasse à l'Ours. Superbe en dégâts de zone et en contrôle de foule en Arène et en Conquête.
+  "Marlin visait étonnamment bien, vu la quantité de rhum qu'il transportait."
+Petra — Gén 3, Cavalerie, SSR, Combat
+  Les notes détaillées pour cette génération arrivent bientôt.
+  À MONTER ABSOLUMENT (Roulette des Héros). Excellente héroïne pour Chasse à l'Ours, utile jusqu'en Gén 7. F2P : la cavalerie offensive à monter via Roulette des Héros.
+Éric — Gén 3, Infanterie, SSR, Combat
+  Les notes détaillées pour cette génération arrivent bientôt.
+  À ignorer, sauf si vous misez sur le PvP / la défense de garnison.
+Jaeger — Gén 3, Archer, SSR, Combat
+  Les notes détaillées pour cette génération arrivent bientôt.
+  À ignorer, sauf si vous misez sur le PvP / la défense de garnison.
 
 ### GUIDE #kvk — Guide de Préparation et Combat KvK
 Or Véritable

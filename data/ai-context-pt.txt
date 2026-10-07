@@ -525,6 +525,90 @@ Jogadores P2W: Priorize Amadeus (VIP 7+) e Hilde para o máximo impacto
 
 ### GUIDE #hero-cards — Cartas de Heróis (Gen 1–3)
 Uma carta por herói: para que cada um serve. As notas vêm do chat "Heroes Guide" do jogo, resgatado pela dona do site momentos antes de sumir. Use os filtros para achar, por exemplo, os melhores participantes de Caça ao Urso.
+Olive — Gen 1, Arquearia, R, Crescimento
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ❌; Líder de guarnição ❌; PvP: participante ❌; Marcha solo ❌; Arena / Conquista ✅
+  Herói de crescimento: aumenta a produção e a coleta de Pão. Seu dano em área ajuda na Conquista — mas só na primeira semana de um reino novo. Logo fica para trás em combate; o bônus de economia continua.
+  "Seu reinado de terror na arena foi curto. Já o turno no moinho nunca acaba."
+Forrest — Gen 1, Infantaria, R, Crescimento
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ❌; Líder de guarnição ❌; PvP: participante ❌; Marcha solo ❌; Arena / Conquista ❌
+  Herói de crescimento: aumenta a produção e a coleta de Madeira. Sem papel útil na Conquista ou na Arena — as habilidades não encaixam e os atributos não competem.
+  "Seu machado colheu mais madeira do que vitórias."
+Edwin — Gen 1, Cavalaria, R, Crescimento
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ❌; Líder de guarnição ❌; PvP: participante ❌; Marcha solo ❌; Arena / Conquista ❌
+  Herói de crescimento: aumenta a produção e a coleta de Pedra. Sem papel útil na Conquista ou na Arena.
+  "Ele conseguia erguer um reino de pedra. Ninguém nunca pediu que ele o defendesse."
+Seth — Gen 1, Infantaria, R, Crescimento
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ❌; Líder de guarnição ❌; PvP: participante ❌; Marcha solo ❌; Arena / Conquista ✅
+  Herói de crescimento: aumenta a produção de Ferro. Útil como segundo tanque no início da Arena e da Conquista para F2P; fica para trás na Gen 2, mas o bônus de economia permanece.
+  "Quando Howard caiu, o Reino lembrou que o Seth existia."
+Diana — Gen 1, Arquearia, SR, Combate
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ❌; Líder de guarnição ❌; PvP: participante ❌; Marcha solo ⚠️; Arena / Conquista ✅
+  Economiza vigor e acelera a marcha — ótima para farmar PvE, não para PvP. Sua primeira habilidade de Expedição reduz o seu próprio gasto de vigor; não é bônus de dano. Ajuda no início da Conquista; depois é ofuscada por Yeonwoo e Quinn.
+  "A maior arma do reino era uma agente de viagens."
+Quinn — Gen 1, Arquearia, SR, Combate
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ✅; Líder de guarnição ❌; PvP: participante ✅; Marcha solo ✅; Arena / Conquista ✅
+  O arqueiro de combate inicial mais amigável para F2P, com duas habilidades de Expedição de combate. F2P: use-o em marcha solo e como Capitão do Rally até gerações futuras; o ideal é trocá-lo por Peixe Marlin. Bom participante de PvP, mas muitas vezes superestimado. Melhor dano explosivo em alvo único no início da Conquista e da Arena.
+  "Seus planos de batalha raramente incluíam um segundo alvo."
+Chenko — Gen 1, Cavalaria, SR, Combate
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ✅; PvP: Capitão do Rally ❌; Líder de guarnição ❌; PvP: participante ✅; Marcha solo ❌; Arena / Conquista ✅
+  O herói participante obrigatório em qualquer conteúdo de aliança. Participante incrível em Caça ao Urso, e aumenta o dano de rally em geral. Eficaz no início da Conquista e da Arena, principalmente para F2P — mas seu dano em área nem sempre acerta o melhor alvo.
+  "A diferença entre uma caçada ao urso ruim e uma boa é de mais ou menos quatro Chenkos."
+Gordon — Gen 1, Cavalaria, SR, Combate
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ❌; Líder de guarnição ❌; PvP: participante ✅; Marcha solo ❌; Arena / Conquista ✅
+  Herói participante para PvP de aliança, principalmente guarnições: habilidade de 25% de Vida que supera as de 20% de redução de dano. Dá para usar no início da Conquista e da Arena como "terceiro tanque" na linha de trás — os atributos de cavalaria o derrubam antes da cura lenta fazer efeito.
+  "Toda grande defesa começa com uma refeição balanceada."
+Howard — Gen 1, Infantaria, SR, Combate
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ✅; Líder de guarnição ❌; PvP: participante ✅; Marcha solo ❌; Arena / Conquista ✅
+  O herói de infantaria F2P onipresente no início, para Expedição e Arena. Seu principal herói de rally de infantaria até Zoe na Gen 2 (F2P). Bom participante de PvP, mas muitas vezes superestimado. Continua útil na Conquista por várias gerações, já que infantaria F2P é rara.
+  "A descrição do cargo dele era curta: sobreviver."
+Amane — Gen 1, Arquearia, SR, Crescimento
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ✅; PvP: Capitão do Rally ❌; Líder de guarnição ❌; PvP: participante ✅; Marcha solo ❌; Arena / Conquista ❌
+  Uma heroína de crescimento cuja melhor habilidade é de combate. Bônus global de velocidade de cura na Enfermaria — bom, mas menos prioritário que outras habilidades de crescimento iniciais. Habilidade de participante de 25% de Ataque: participante incrível em Caça ao Urso e rallies. Combine os 25% de ataque dela com os 25% de Letalidade de Chenko ou Yeonwoo para o melhor dano de rally.
+  "O Reino a deixou trabalhando na enfermaria até o dia em que o Urso chegou."
+Fahd — Gen 1, Cavalaria, SR, Combate
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ❌; Líder de guarnição ❌; PvP: participante ✅; Marcha solo ❌; Arena / Conquista ❌
+  Evolua-o pela habilidade única de participante de PvP — ela o mantém relevante em gerações futuras. Algum uso limitado acelerando a marcha de Diana. Kit de habilidades não compete na Conquista nem na Arena, nem no início.
+  "O inimigo nunca reparou nele, mas a matemática reparou."
+Yeonwoo — Gen 1, Arquearia, SR, Crescimento
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ✅; PvP: Capitão do Rally ❌; Líder de guarnição ❌; PvP: participante ✅; Marcha solo ❌; Arena / Conquista ✅
+  Bônus incrível de 15% (aditivo) na velocidade de Pesquisa — prioridade no início. Habilidade de participante de 25% de Letalidade: incrível para Caça ao Urso e rallies de PvP. Combine os 25% de letalidade dela com os 25% de ataque de Amane. Causadora de dano em área no início da Conquista e da Arena para F2P.
+  "Enfim a prova de que jogador F2P também ganha coisa boa… de vez em quando…"
+Jabel — Gen 1, Cavalaria, SSR, Combate
+  Caça ao Urso: Capitão do Rally ✅; Caça ao Urso: participante ❌; PvP: Capitão do Rally ✅; Líder de guarnição ✅; PvP: participante ⚠️; Marcha solo ✅; Arena / Conquista ✅
+  A cavalaria inicial favorita de todos, e a única heroína mítica realmente F2P da Gen 1. Melhor cavalaria inicial tanto para F2P quanto para quem gasta. Brilha em guarnições defensivas, e também lidera o ataque na Gen 1. Cuidado como participante: sua habilidade de chance % não acumula com outras parecidas. Ótimo dano em área no início da Conquista e da Arena.
+  "Ela não era apelona. Só chegou primeiro à batalha."
+Saul — Gen 1, Arquearia, SSR, Crescimento
+  Caça ao Urso: Capitão do Rally ★★★★ (4-5); Caça ao Urso: participante ❌; PvP: Capitão do Rally ❌; Líder de guarnição ✅; PvP: participante ✅; Marcha solo ✅; Arena / Conquista ★★★ (3/5)
+  Herói de crescimento razoavelmente amigável para F2P: reduz tempo e custo de Construção. Melhor arqueiro inicial para Expedição, mas F2P não terá tempo de evoluí-lo todo com gemas. Bom participante com habilidades mistas. Top na Conquista e Arena da Gen 1; perde espaço na Gen 2 e volta na Gen 4–6, quando a meta 60/40 fica viável.
+  "Contra todas as probabilidades, ele entregou cada obra no prazo e abaixo do orçamento."
+Amadeus — Gen 1, Infantaria, SSR, Combate
+  Caça ao Urso: Capitão do Rally ✅; Caça ao Urso: participante ✅; PvP: Capitão do Rally ✅; Líder de guarnição ✅; PvP: participante ✅; Marcha solo ✅; Arena / Conquista ✅
+  Pay-to-win descarado: bônus global permanente de Vida e Letalidade conforme as estrelas. Capitão do Rally de Caça ao Urso imbatível em todas as gerações de heróis até agora. Ótimo participante de Expedição, mas quase sempre você vai usá-lo como Capitão do Rally. Substituído por Zoe (Gen 2) na guarnição; segura o rally ofensivo até a Gen 4/5. Nos melhores times de Arena até a Gen 4 ou 5 — use-o na linha de trás.
+  "Naquela época o campo de batalha era simples. Quem tinha Amadeus, vencia."
+Helga — Gen 1, Infantaria, SSR, Combate
+  Caça ao Urso: Capitão do Rally ✅; Caça ao Urso: participante ❌; PvP: Capitão do Rally ✅; Líder de guarnição ❌; PvP: participante ❌; Marcha solo ✅; Arena / Conquista ✅
+  Pay-to-win de curto prazo: bônus global permanente de Ataque e Defesa conforme as estrelas. 2ª melhor Capitã do Rally de infantaria em Caça ao Urso em todas as gerações (atrás de Amadeus) — alternativa mais barata que sai de cena antes. Em todo time top de Arena na Gen 1; some deles até a Gen 3. Tanque de linha de frente no início; seu atordoamento pode pular os supremos inimigos.
+  "Por alguns breves dias, Helga foi símbolo de riqueza e poder. Aí veio o Amadeus."
+Zoe — Gen 2, Infantaria, SSR, Combate
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ✅; Líder de guarnição ✅; PvP: participante ❌; Marcha solo ✅; Arena / Conquista ✅
+  A primeira heroína mítica de infantaria disponível para jogadores F2P. Totalmente evoluída, supera Amadeus na guarnição defensiva graças ao tipo de Ferramenta. Sua 1ª habilidade de Expedição não funciona no Urso (como participante ou Capitã do Rally). Nos melhores times de Arena na Gen 2 e 3 — geralmente tanque na linha de frente.
+  "O Reino comemorou o dia em que Zoe chegou… principalmente os mais pobres."
+Hilde — Gen 2, Cavalaria, SSR, Combate
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ⚠️; PvP: Capitão do Rally ❌; Líder de guarnição ✅; PvP: participante ✅; Marcha solo ✅; Arena / Conquista ✅
+  Cavalaria defensiva: leve melhoria sobre Jabel como líder de guarnição (Ferramenta defensivo), mas bem mais difícil de evoluir. Boas habilidades de Expedição para marcha solo em PvP (todas com 25% de valor efetivo). Participante de Caça ao Urso razoável — só não deixe ela tomar a vaga de um herói melhor. Heroína incrível na Arena, até a mudança para atributos defensivos na Gen 3.
+Peixe Marlin — Gen 2, Arquearia, SSR, Combate
+  Caça ao Urso: Capitão do Rally ✅; Caça ao Urso: participante ❌; PvP: Capitão do Rally ✅; Líder de guarnição ❌; PvP: participante ❌; Marcha solo ✅; Arena / Conquista ✅
+  O primeiro arqueiro de rally realmente ofensivo. Trocar para ele aumenta visivelmente sua pontuação em Caça ao Urso. Dano em área e controle de grupo incríveis na Arena e na Conquista.
+  "Marlin tinha uma mira surpreendentemente boa para a quantidade de rum que carregava."
+Petra — Gen 3, Cavalaria, SSR, Combate
+  As notas detalhadas desta geração estão a caminho.
+  OBRIGATÓRIO EVOLUIR (Roleta do Herói). Excelente heroína de Caça ao Urso, com valor até a Gen 7. F2P: a cavalaria ofensiva para evoluir via Roleta do Herói.
+Eric — Gen 3, Infantaria, SSR, Combate
+  As notas detalhadas desta geração estão a caminho.
+  Pule, a menos que seu foco seja PvP / defesa de guarnição.
+Jaeger — Gen 3, Arquearia, SSR, Combate
+  As notas detalhadas desta geração estão a caminho.
+  Pule, a menos que seu foco seja PvP / defesa de guarnição.
 
 ### GUIDE #kvk — Guia de Preparação e Batalha KvK
 Adamante

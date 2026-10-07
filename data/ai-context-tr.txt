@@ -525,6 +525,90 @@ P2W Oyuncuları: Maksimum etki için Amadeus (VIP 7+) ve Hilde'ya öncelik ver
 
 ### GUIDE #hero-cards — Kahraman Kartları (1–3. Nesil)
 Her kahraman için bir kart: hangi işe yaradığı. Puanlar, oyun içindeki "Heroes Guide" sohbetinden geliyor; site sahibi onları sohbet kaybolmadan hemen önce kurtardı. Filtrelerle örneğin en iyi Ayı Avı katılımcılarını bulabilirsin.
+Olive — 1. Nesil, Okçu, R, Gelişim
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ❌; Garnizon lideri ❌; PvP katılımcısı ❌; Tek sefer ❌; Arena / Fetih ✅
+  Gelişim kahramanı: Ekmek üretimini ve toplamayı artırır. Alan hasarı Fetih'te işe yarar — ama sadece yeni krallığın ilk haftasında. Savaşta çabuk geride kalır; ekonomi bonusu ise kalıcıdır.
+  "Arenadaki terör saltanatı kısa sürdü. Değirmendeki vardiyası ise hiç bitmiyor."
+Forrest — 1. Nesil, Piyade, R, Gelişim
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ❌; Garnizon lideri ❌; PvP katılımcısı ❌; Tek sefer ❌; Arena / Fetih ❌
+  Gelişim kahramanı: Odun üretimini ve toplamayı artırır. Fetih'te ya da Arena'da işe yaramaz — yetenekleri uymaz, statları yetmez.
+  "Baltası zaferden çok odun topladı."
+Edwin — 1. Nesil, Süvari, R, Gelişim
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ❌; Garnizon lideri ❌; PvP katılımcısı ❌; Tek sefer ❌; Arena / Fetih ❌
+  Gelişim kahramanı: Taş üretimini ve toplamayı artırır. Fetih'te ya da Arena'da işe yaramaz.
+  "Taştan koca bir krallık kurabilirdi. Ama onu savunması hiç istenmedi."
+Seth — 1. Nesil, Piyade, R, Gelişim
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ❌; Garnizon lideri ❌; PvP katılımcısı ❌; Tek sefer ❌; Arena / Fetih ✅
+  Gelişim kahramanı: Demir üretimini artırır. F2P için erken Arena ve Fetih'te ikinci tank olarak işe yarar; 2. Nesil'de geride kalır ama ekonomi bonusu kalır.
+  "Howard düşünce Krallık, Seth'in de var olduğunu hatırladı."
+Diana — 1. Nesil, Okçu, SR, Savaş
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ❌; Garnizon lideri ❌; PvP katılımcısı ❌; Tek sefer ⚠️; Arena / Fetih ✅
+  Dayanıklılık tasarrufu sağlar ve intikali hızlandırır — PvE için iyi, PvP için değil. İlk sefer yeteneği kendi dayanıklılık harcamanı azaltır; hasar bonusu değildir. Erken Fetih'te işe yarar; sonra Yeonwoo ve Quinn onu gölgede bırakır.
+  "Krallığın en büyük silahı bir seyahat acentesiydi."
+Quinn — 1. Nesil, Okçu, SR, Savaş
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ✅; Garnizon lideri ❌; PvP katılımcısı ✅; Tek sefer ✅; Arena / Fetih ✅
+  F2P için en uygun erken dönem savaş okçusu; iki savaş sefer yeteneği var. F2P: sonraki nesillere kadar tek sefer ve Seferberlik Önderi olarak kullan; ideali yerine Marlin koymak. İyi bir PvP katılımcısı, ama çoğu zaman abartılıyor. Erken Fetih ve Arena'da en iyi tek hedef patlama hasarı.
+  "Savaş planlarında ikinci bir hedefe nadiren yer vardı."
+Chenko — 1. Nesil, Süvari, SR, Savaş
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ✅; PvP Seferberlik Önderi ❌; Garnizon lideri ❌; PvP katılımcısı ✅; Tek sefer ❌; Arena / Fetih ✅
+  Her ittifak içeriği için olmazsa olmaz katılımcı kahraman. Harika bir Ayı Avı katılımcısı; seferberlik hasarını da genel olarak artırır. Erken Fetih ve Arena'da etkili, özellikle F2P için — ama alan hasarı her zaman en iyi hedefi vurmaz.
+  "Kötü bir ayı avı ile iyi bir ayı avı arasındaki fark yaklaşık dört Chenko'dur."
+Gordon — 1. Nesil, Süvari, SR, Savaş
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ❌; Garnizon lideri ❌; PvP katılımcısı ✅; Tek sefer ❌; Arena / Fetih ✅
+  İttifak PvP'si için katılımcı, özellikle garnizonlarda: %25 Sağlık katılımcı yeteneği, %20 hasar azaltma yeteneklerinden iyidir. Erken Fetih ve Arena'da arka sırada "üçüncü tank" olarak kullanılabilir — süvari statları yüzünden yavaş iyileştirmesi devreye girmeden düşer.
+  "Her büyük savunma dengeli bir öğünle başlar."
+Howard — 1. Nesil, Piyade, SR, Savaş
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ✅; Garnizon lideri ❌; PvP katılımcısı ✅; Tek sefer ❌; Arena / Fetih ✅
+  Erken oyunda sefer ve arena için her yerde görülen F2P piyade kahramanı. 2. Nesil Zoe gelene kadar ana piyade seferberlik kahramanın (F2P). İyi bir PvP katılımcısı, ama çoğu zaman abartılıyor. F2P piyade az olduğu için Fetih'te birkaç nesil boyunca işe yarar.
+  "İş tanımı kısaydı: hayatta kal."
+Amane — 1. Nesil, Okçu, SR, Gelişim
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ✅; PvP Seferberlik Önderi ❌; Garnizon lideri ❌; PvP katılımcısı ✅; Tek sefer ❌; Arena / Fetih ❌
+  En iyi özelliği bir savaş yeteneği olan gelişim kahramanı. Genel Revir iyileştirme hızı bonusu — güzel, ama diğer başlangıç gelişim yeteneklerinden sonra gelir. %25 Saldırı katılımcı yeteneği: harika bir Ayı Avı ve seferberlik katılımcısı. En iyi seferberlik hasarı için %25 saldırısını Chenko ya da Yeonwoo kahramanının %25 Öldürücülük bonusuyla birleştir.
+  "Krallık, Ayı'nın geldiği güne kadar onu revirde çalıştırdı."
+Fahd — 1. Nesil, Süvari, SR, Savaş
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ❌; Garnizon lideri ❌; PvP katılımcısı ✅; Tek sefer ❌; Arena / Fetih ❌
+  Onu eşsiz PvP katılımcı yeteneği için geliştir — bu yetenek onu sonraki nesillerde de değerli tutar. Diana kahramanının intikalini hızlandırmada sınırlı kullanım. Yetenek seti Fetih'te ya da Arena'da rekabetçi değil, erken dönemde bile.
+  "Düşman onu hiç fark etmedi, ama matematik etti."
+Yeonwoo — 1. Nesil, Okçu, SR, Gelişim
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ✅; PvP Seferberlik Önderi ❌; Garnizon lideri ❌; PvP katılımcısı ✅; Tek sefer ❌; Arena / Fetih ✅
+  Harika %15 (toplamsal) Araştırma hızı bonusu — erken oyunda öncelik. %25 Öldürücülük katılımcı yeteneği: Ayı Avı ve PvP seferberlikleri için harika. %25 öldürücülüğünü Amane kahramanının %25 saldırısıyla birleştir. F2P için erken Fetih ve Arena'da alan hasarı verici.
+  "Sonunda F2P oyuncuların da güzel şeylere sahip olabildiği kanıtlandı… arada sırada…"
+Jabel — 1. Nesil, Süvari, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ✅; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ✅; Garnizon lideri ✅; PvP katılımcısı ⚠️; Tek sefer ✅; Arena / Fetih ✅
+  Herkesin favori erken süvarisi ve 1. Nesil'deki tek gerçek F2P efsanevi kahraman. Hem F2P'ler hem de para harcayanlar için en iyi erken süvari. Savunma garnizonlarında parlar; 1. Nesil'de saldırıya da önderlik eder. Katılımcı olarak dikkat: yüzde şanslı yeteneği benzer yeteneklerle birikmez. Erken Fetih ve Arena'da harika alan hasarı.
+  "Aşırı güçlü değildi. Sadece savaşa ilk o gelmişti."
+Saul — 1. Nesil, Okçu, SSR, Gelişim
+  Ayı Avı Seferberlik Önderi ★★★★ (4-5); Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ❌; Garnizon lideri ✅; PvP katılımcısı ✅; Tek sefer ✅; Arena / Fetih ★★★ (3/5)
+  Bir ölçüde F2P dostu gelişim kahramanı: İnşaat süresini ve maliyetini düşürür. Sefer için en iyi başlangıç okçusu, ama F2P'ler onu elmaslarla tam geliştirmeye yetişemez. Karışık yetenekli iyi bir katılımcı. 1. Nesil Fetih ve Arena'da en üst seviye; 2. Nesil'de geride kalır, 60/40 meta uygulanabilir olunca 4–6. Nesil'de geri döner.
+  "Tüm olasılıklara rağmen her projeyi bir şekilde zamanında ve bütçenin altında teslim etti."
+Amadeus — 1. Nesil, Piyade, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ✅; Ayı Avı katılımcısı ✅; PvP Seferberlik Önderi ✅; Garnizon lideri ✅; PvP katılımcısı ✅; Tek sefer ✅; Arena / Fetih ✅
+  Tam bir öde-kazan kahramanı: yıldız seviyesine göre kalıcı genel Sağlık ve Öldürücülük bonusu. Şimdiye kadarki tüm nesillerde rakipsiz Ayı Avı Seferberlik Önderi. Harika bir sefer katılımcısı, ama neredeyse hep Seferberlik Önderi olarak kullanırsın. Garnizonda yerini Zoe (2. Nesil) alır; saldırı seferberliğinde 4/5. Nesil'e kadar dayanır. 4. ya da 5. Nesil'e kadar en iyi arena takımlarında — arka sırada kullan.
+  "O günlerde savaş alanı basitti. Amadeus kimdeyse o kazanırdı."
+Helga — 1. Nesil, Piyade, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ✅; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ✅; Garnizon lideri ❌; PvP katılımcısı ❌; Tek sefer ✅; Arena / Fetih ✅
+  Kısa vadeli öde-kazan kahramanı: yıldız seviyesine göre kalıcı genel Saldırı ve Savunma bonusu. Tüm nesillerde #2 Ayı Avı piyade Seferberlik Önderi (Amadeus kahramanından sonra) — daha ucuz ama daha erken sönen bir alternatif. 1. Nesil'de her üst düzey arena takımında; 3. Nesil'de hepsinden çıkmış. Erken ön sıra tankı; sersemletmesi düşmanın ultilerini boşa çıkarabilir.
+  "Birkaç kısa gün boyunca Helga zenginlik ve gücün sembolüydü. Sonra Amadeus geldi."
+Zoe — 2. Nesil, Piyade, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ✅; Garnizon lideri ✅; PvP katılımcısı ❌; Tek sefer ✅; Arena / Fetih ✅
+  F2P oyunculara açık ilk efsanevi piyade kahramanı. Tam geliştirildiğinde, Alet türü sayesinde savunma garnizonunda Amadeus kahramanını geçer. 1. sefer yeteneği Ayı'da çalışmaz (katılımcı ya da Seferberlik Önderi olarak). 2. ve 3. Nesil'de en iyi arena takımlarında — genelde ön sıra tankı.
+  "Zoe'nun geldiği gün Krallık bayram etti… özellikle en yoksulları."
+Hilde — 2. Nesil, Süvari, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ⚠️; PvP Seferberlik Önderi ❌; Garnizon lideri ✅; PvP katılımcısı ✅; Tek sefer ✅; Arena / Fetih ✅
+  Savunma süvarisi: garnizon lideri olarak Jabel kahramanından biraz iyi (savunma Alet), ama geliştirmesi çok daha zor. PvP tek seferleri için sağlam sefer yetenekleri (hepsi %25 etkin değer). İdare eder bir Ayı Avı katılımcısı — yeter ki daha iyi bir kahramanın yerini almasın. 3. Nesil'de savunma statlarına geçilene kadar harika bir Arena kahramanı.
+Marlin — 2. Nesil, Okçu, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ✅; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ✅; Garnizon lideri ❌; PvP katılımcısı ❌; Tek sefer ✅; Arena / Fetih ✅
+  İlk gerçek saldırı seferberliği okçusu. Ona geçmek Ayı Avı puanını belirgin şekilde yükseltir. Arena ve Fetih'te harika alan hasarı verici ve kitle kontrolcüsü.
+  "Taşıdığı rom miktarına bakılırsa Marlin şaşırtıcı derecede iyi nişan alıyordu."
+Petra — 3. Nesil, Süvari, SSR, Savaş
+  Bu neslin ayrıntılı puanları yakında geliyor.
+  MUTLAKA GELİŞTİR (Kahraman Ruleti). Mükemmel bir Ayı Avı kahramanı; 7. Nesil'e kadar değerli. F2P: Kahraman Ruleti ile geliştirilecek saldırı süvarisi.
+Eric — 3. Nesil, Piyade, SSR, Savaş
+  Bu neslin ayrıntılı puanları yakında geliyor.
+  PvP / garnizon savunmasına odaklanmıyorsan atla.
+Jaeger — 3. Nesil, Okçu, SSR, Savaş
+  Bu neslin ayrıntılı puanları yakında geliyor.
+  PvP / garnizon savunmasına odaklanmıyorsan atla.
 
 ### GUIDE #kvk — KvK Hazırlık ve Savaş Rehberi
 Hasaltın

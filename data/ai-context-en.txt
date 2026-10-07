@@ -525,6 +525,90 @@ P2W Players: Prioritize Amadeus (VIP 7+) and Hilde for maximum impact
 
 ### GUIDE #hero-cards — Hero Cards (Gen 1–3)
 One card per hero: what each one is good for. The ratings come from the in-game "Heroes Guide" chat, rescued by the site owner moments before it disappeared. Use the filters to find, for example, the best Bear Hunt joiners.
+Olive — Gen 1, Archer, R, Growth
+  Bear Hunt rally lead ❌; Bear Hunt joiner ❌; PvP rally lead ❌; Garrison lead ❌; PvP joiner ❌; Solo march ❌; Arena / Conquest ✅
+  Growth hero: boosts Bread production and gathering. Her AoE helps in Conquest — but only in the first week of a new kingdom. Quickly outclassed in combat; the economy bonus lasts.
+  "Her reign of terror in the arena was brief. Her shift at the mill never ends."
+Forrest — Gen 1, Infantry, R, Growth
+  Bear Hunt rally lead ❌; Bear Hunt joiner ❌; PvP rally lead ❌; Garrison lead ❌; PvP joiner ❌; Solo march ❌; Arena / Conquest ❌
+  Growth hero: boosts Wood production and gathering. No useful role in Conquest or Arena — the skills don't fit and the stats can't compete.
+  "His axe gathered more wood than victories."
+Edwin — Gen 1, Cavalry, R, Growth
+  Bear Hunt rally lead ❌; Bear Hunt joiner ❌; PvP rally lead ❌; Garrison lead ❌; PvP joiner ❌; Solo march ❌; Arena / Conquest ❌
+  Growth hero: boosts Stone production and gathering. No useful role in Conquest or Arena.
+  "He could build a kingdom from stone. He was never asked to defend it."
+Seth — Gen 1, Infantry, R, Growth
+  Bear Hunt rally lead ❌; Bear Hunt joiner ❌; PvP rally lead ❌; Garrison lead ❌; PvP joiner ❌; Solo march ❌; Arena / Conquest ✅
+  Growth hero: boosts Iron production. Useful as a second tank in early Arena and Conquest for F2P; outclassed in Gen 2, but the economy bonus stays.
+  "When Howard fell, the Kingdom remembered Seth existed."
+Diana — Gen 1, Archer, SR, Combat
+  Bear Hunt rally lead ❌; Bear Hunt joiner ❌; PvP rally lead ❌; Garrison lead ❌; PvP joiner ❌; Solo march ⚠️; Arena / Conquest ✅
+  Saves stamina and speeds up marches — handy for PvE farming, not for PvP. Her first expedition skill lowers your own stamina use; it is not a damage buff. Helps with early Conquest; later eclipsed by Yeonwoo and Quinn.
+  "The kingdom's greatest weapon was a travel agent."
+Quinn — Gen 1, Archer, SR, Combat
+  Bear Hunt rally lead ❌; Bear Hunt joiner ❌; PvP rally lead ✅; Garrison lead ❌; PvP joiner ✅; Solo march ✅; Arena / Conquest ✅
+  The most F2P-friendly early combat archer, with two combat expedition skills. F2P: use him for solo marches and rally leading until later generations; ideally replace him with Marlin. Good PvP joiner, but often overrated. Best single-target burst damage in early Conquest and Arena.
+  "His battle plans rarely involved a second target."
+Chenko — Gen 1, Cavalry, SR, Combat
+  Bear Hunt rally lead ❌; Bear Hunt joiner ✅; PvP rally lead ❌; Garrison lead ❌; PvP joiner ✅; Solo march ❌; Arena / Conquest ✅
+  The must-have joiner hero for any alliance content. Amazing Bear Hunt joiner, and raises rally damage in general. Effective in early Conquest and Arena, especially for F2P — though his AoE doesn't always hit the best target.
+  "The difference between a bad Bear Hunt and a good Bear Hunt is approximately four Chenkos."
+Gordon — Gen 1, Cavalry, SR, Combat
+  Bear Hunt rally lead ❌; Bear Hunt joiner ❌; PvP rally lead ❌; Garrison lead ❌; PvP joiner ✅; Solo march ❌; Arena / Conquest ✅
+  Joiner hero for alliance PvP, especially Garrisons: a 25% Health joiner skill that beats 20% damage-reduction skills. Usable in early Conquest and Arena as a "third tank" in the back row — cavalry stats make him fall before his slow heal kicks in.
+  "Every great defense begins with a balanced meal."
+Howard — Gen 1, Infantry, SR, Combat
+  Bear Hunt rally lead ❌; Bear Hunt joiner ❌; PvP rally lead ✅; Garrison lead ❌; PvP joiner ✅; Solo march ❌; Arena / Conquest ✅
+  The everywhere early-game F2P infantry hero for expedition and arena. Your main infantry rally hero until Gen 2 Zoe (F2P). Good PvP joiner, but often overrated. Stays useful in Conquest for several generations, since F2P infantry is scarce.
+  "His job description was brief: survive."
+Amane — Gen 1, Archer, SR, Growth
+  Bear Hunt rally lead ❌; Bear Hunt joiner ✅; PvP rally lead ❌; Garrison lead ❌; PvP joiner ✅; Solo march ❌; Arena / Conquest ❌
+  A growth hero whose best ability is a combat skill. Global Infirmary healing-speed bonus — nice, but lower priority than other starter growth skills. 25% Attack joiner skill: an amazing Bear Hunt and rally joiner. Mix her 25% attack with Chenko or Yeonwoo's 25% Lethality for the best rally damage.
+  "The Kingdom had her working at the Infirmary until the day the Bear arrived."
+Fahd — Gen 1, Cavalry, SR, Combat
+  Bear Hunt rally lead ❌; Bear Hunt joiner ❌; PvP rally lead ❌; Garrison lead ❌; PvP joiner ✅; Solo march ❌; Arena / Conquest ❌
+  Build him for his unique PvP joiner skill — it keeps him relevant in later generations. Some limited use speeding up Diana's marches. Skill kit isn't competitive in Conquest or Arena, even early.
+  "The enemy never noticed him, but the math did."
+Yeonwoo — Gen 1, Archer, SR, Growth
+  Bear Hunt rally lead ❌; Bear Hunt joiner ✅; PvP rally lead ❌; Garrison lead ❌; PvP joiner ✅; Solo march ❌; Arena / Conquest ✅
+  Amazing 15% (additive) Research speed boost — an early-game priority. 25% Lethality joiner skill: amazing for Bear Hunt and PvP rallies. Mix her 25% lethality with Amane's 25% attack. AoE damage dealer in early Conquest and Arena for F2P.
+  "Finally there was proof that free-to-play players get nice things… occasionally…"
+Jabel — Gen 1, Cavalry, SSR, Combat
+  Bear Hunt rally lead ✅; Bear Hunt joiner ❌; PvP rally lead ✅; Garrison lead ✅; PvP joiner ⚠️; Solo march ✅; Arena / Conquest ✅
+  Everyone's favorite early cavalry, and the only true F2P mythic hero in Gen 1. Best early cavalry for F2P and spenders alike. Excels in defensive garrisons, and also leads offense in Gen 1. Careful as a joiner: her % chance skill doesn't stack with similar skills. Great AoE damage in early Conquest and Arena.
+  "She was not overpowered. She was just earliest to battle."
+Saul — Gen 1, Archer, SSR, Growth
+  Bear Hunt rally lead ★★★★ (4-5); Bear Hunt joiner ❌; PvP rally lead ❌; Garrison lead ✅; PvP joiner ✅; Solo march ✅; Arena / Conquest ★★★ (3/5)
+  Somewhat F2P-friendly growth hero: cuts Construction time and cost. Best starting archer for Expedition, but F2P won't have time to fully build him from gems. Good mixed-skill joiner. Top-tier Gen 1 Conquest and Arena; edged out in Gen 2, back in use in Gen 4–6 as the 60/40 meta becomes viable.
+  "Despite all the odds, he somehow delivered every project on time and under budget."
+Amadeus — Gen 1, Infantry, SSR, Combat
+  Bear Hunt rally lead ✅; Bear Hunt joiner ✅; PvP rally lead ✅; Garrison lead ✅; PvP joiner ✅; Solo march ✅; Arena / Conquest ✅
+  Wildly pay-to-win: permanent global Health and Lethality bonus based on star level. Unchallenged Bear Hunt rally lead by every hero generation so far. Great expedition joiner, but you'll almost always run him as rally lead. Displaced by Zoe (Gen 2) for garrison; holds offensive rally through Gen 4/5. In top arena teams until Gen 4 or 5 — use him in the back line.
+  "The battlefield was simple in those days. Whoever had Amadeus, won."
+Helga — Gen 1, Infantry, SSR, Combat
+  Bear Hunt rally lead ✅; Bear Hunt joiner ❌; PvP rally lead ✅; Garrison lead ❌; PvP joiner ❌; Solo march ✅; Arena / Conquest ✅
+  Short-term pay-to-win hero: permanent global Attack and Defense bonus based on star level. #2 Bear Hunt infantry rally lead across all generations (behind Amadeus) — a cheaper alternative that drops off earlier. In every top arena team in Gen 1, gone from them by Gen 3. Early frontline tank; her stun can skip enemy ultimates.
+  "For a few brief days, Helga was a symbol of wealth and power. Then came Amadeus."
+Zoe — Gen 2, Infantry, SSR, Combat
+  Bear Hunt rally lead ❌; Bear Hunt joiner ❌; PvP rally lead ✅; Garrison lead ✅; PvP joiner ❌; Solo march ✅; Arena / Conquest ✅
+  The first mythic infantry hero available to F2P players. Fully built, she beats Amadeus on defensive garrison thanks to her Widget type. Her 1st expedition skill doesn't work on the Bear (as joiner or rally lead). In top arena teams in Gen 2 and 3 — usually front-row tank.
+  "The Kingdom cheered the day Zoe arrived… especially the poorest."
+Hilde — Gen 2, Cavalry, SSR, Combat
+  Bear Hunt rally lead ❌; Bear Hunt joiner ⚠️; PvP rally lead ❌; Garrison lead ✅; PvP joiner ✅; Solo march ✅; Arena / Conquest ✅
+  Defensive cavalry: a slight upgrade over Jabel for garrison lead (defensive Widget), but much harder to build. Solid expedition skills for PvP solo marches (all 25% effective value). OK Bear Hunt joiner — just don't let her take a better hero's spot. Amazing Arena hero, until the switch to defensive stats in Gen 3.
+Marlin — Gen 2, Archer, SSR, Combat
+  Bear Hunt rally lead ✅; Bear Hunt joiner ❌; PvP rally lead ✅; Garrison lead ❌; PvP joiner ❌; Solo march ✅; Arena / Conquest ✅
+  The first true offensive rally archer. Switching to him will noticeably raise your Bear Hunt score. Amazing AoE damage dealer and crowd controller in Arena and Conquest.
+  "Marlin showed surprisingly good aim given the amount of rum he carried."
+Petra — Gen 3, Cavalry, SSR, Combat
+  Detailed ratings for this generation are coming.
+  MUST BUILD (Hero Roulette). Excellent Bear Hunt hero, with value through Gen 7. F2P: the offensive cavalry to build from Hero Roulette.
+Eric — Gen 3, Infantry, SSR, Combat
+  Detailed ratings for this generation are coming.
+  Skip unless you focus on PvP / garrison defense.
+Jaeger — Gen 3, Archer, SSR, Combat
+  Detailed ratings for this generation are coming.
+  Skip unless you focus on PvP / garrison defense.
 
 ### GUIDE #kvk — KvK Prep & Battle Guide
 Truegold

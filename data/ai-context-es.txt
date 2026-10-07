@@ -525,6 +525,90 @@ Jugadores P2W: Prioriza a Amadeus (VIP 7+) y Hilde para el máximo impacto
 
 ### GUIDE #hero-cards — Fichas de héroes (Gen 1–3)
 Una ficha por héroe: para qué sirve cada uno. Las valoraciones vienen del chat "Heroes Guide" del juego, rescatado por la dueña del sitio justo antes de que desapareciera. Usa los filtros para encontrar, por ejemplo, los mejores participantes de Cacería del Oso.
+Olive — Gen 1, Arquero, R, Crecimiento
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ❌; PvP: líder del rally ❌; Líder de guarnición ❌; PvP: participante ❌; Marcha individual ❌; Arena / Conquista ✅
+  Héroe de crecimiento: mejora la producción y recolección de Pan. Su daño en área ayuda en Conquista, pero solo la primera semana de un reino nuevo. En combate se queda atrás pronto; el bono de economía perdura.
+  "Su reinado de terror en la arena fue breve. Su turno en el molino no termina nunca."
+Forrest — Gen 1, Infantería, R, Crecimiento
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ❌; PvP: líder del rally ❌; Líder de guarnición ❌; PvP: participante ❌; Marcha individual ❌; Arena / Conquista ❌
+  Héroe de crecimiento: mejora la producción y recolección de Madera. Sin papel útil en Conquista ni Arena: las habilidades no encajan y las estadísticas no compiten.
+  "Su hacha recogió más madera que victorias."
+Edwin — Gen 1, Caballería, R, Crecimiento
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ❌; PvP: líder del rally ❌; Líder de guarnición ❌; PvP: participante ❌; Marcha individual ❌; Arena / Conquista ❌
+  Héroe de crecimiento: mejora la producción y recolección de Piedra. Sin papel útil en Conquista ni Arena.
+  "Podía levantar un reino de piedra. Nadie le pidió nunca que lo defendiera."
+Seth — Gen 1, Infantería, R, Crecimiento
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ❌; PvP: líder del rally ❌; Líder de guarnición ❌; PvP: participante ❌; Marcha individual ❌; Arena / Conquista ✅
+  Héroe de crecimiento: mejora la producción de Hierro. Útil como segundo tanque al inicio de Arena y Conquista para F2P; superado en Gen 2, pero el bono de economía se queda.
+  "Cuando Howard cayó, el Reino recordó que Seth existía."
+Diana — Gen 1, Arquero, SR, Combate
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ❌; PvP: líder del rally ❌; Líder de guarnición ❌; PvP: participante ❌; Marcha individual ⚠️; Arena / Conquista ✅
+  Ahorra energía y acelera la marcha: útil para farmear PvE, no para PvP. Su primera habilidad de Expedición reduce tu propio gasto de energía; no es un bono de daño. Ayuda al inicio de Conquista; luego la eclipsan Yeonwoo y Quinn.
+  "El arma más poderosa del reino era una agente de viajes."
+Quinn — Gen 1, Arquero, SR, Combate
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ❌; PvP: líder del rally ✅; Líder de guarnición ❌; PvP: participante ✅; Marcha individual ✅; Arena / Conquista ✅
+  El arquero de combate inicial más amigable para F2P, con dos habilidades de Expedición de combate. F2P: úsalo en marcha individual y como líder del rally hasta generaciones posteriores; lo ideal es cambiarlo por Marlin. Buen participante en PvP, aunque a menudo sobrevalorado. El mejor daño explosivo a un solo objetivo al inicio de Conquista y Arena.
+  "Sus planes de batalla rara vez incluían un segundo objetivo."
+Chenko — Gen 1, Caballería, SR, Combate
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ✅; PvP: líder del rally ❌; Líder de guarnición ❌; PvP: participante ✅; Marcha individual ❌; Arena / Conquista ✅
+  El héroe participante imprescindible para cualquier contenido de alianza. Participante increíble en Cacería del Oso, y aumenta el daño de rally en general. Eficaz al inicio de Conquista y Arena, sobre todo para F2P, aunque su daño en área no siempre golpea al mejor objetivo.
+  "La diferencia entre una mala cacería del oso y una buena es, más o menos, cuatro Chenkos."
+Gordon — Gen 1, Caballería, SR, Combate
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ❌; PvP: líder del rally ❌; Líder de guarnición ❌; PvP: participante ✅; Marcha individual ❌; Arena / Conquista ✅
+  Héroe participante para PvP de alianza, sobre todo guarniciones: habilidad de 25% de Salud que supera a las de 20% de reducción de daño. Sirve al inicio de Conquista y Arena como "tercer tanque" en la última fila; sus estadísticas de caballería lo tumban antes de que actúe su curación lenta.
+  "Toda gran defensa empieza con una comida equilibrada."
+Howard — Gen 1, Infantería, SR, Combate
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ❌; PvP: líder del rally ✅; Líder de guarnición ❌; PvP: participante ✅; Marcha individual ❌; Arena / Conquista ✅
+  El héroe de infantería F2P omnipresente al inicio, para Expedición y Arena. Tu principal héroe de rally de infantería hasta Zoe en Gen 2 (F2P). Buen participante en PvP, aunque a menudo sobrevalorado. Sigue siendo útil en Conquista durante varias generaciones, ya que la infantería F2P escasea.
+  "Su descripción del puesto era breve: sobrevivir."
+Amane — Gen 1, Arquero, SR, Crecimiento
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ✅; PvP: líder del rally ❌; Líder de guarnición ❌; PvP: participante ✅; Marcha individual ❌; Arena / Conquista ❌
+  Una heroína de crecimiento cuya mejor habilidad es de combate. Bono global de velocidad de curación en Enfermería: está bien, pero con menos prioridad que otras habilidades de crecimiento iniciales. Habilidad de participante de 25% de Ataque: participante increíble en Cacería del Oso y rallies. Combina su 25% de ataque con el 25% de Letalidad de Chenko o Yeonwoo para el mejor daño de rally.
+  "El Reino la tuvo trabajando en la enfermería hasta el día en que llegó el Oso."
+Fahd — Gen 1, Caballería, SR, Combate
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ❌; PvP: líder del rally ❌; Líder de guarnición ❌; PvP: participante ✅; Marcha individual ❌; Arena / Conquista ❌
+  Desarróllalo por su habilidad única de participante en PvP: lo mantiene vigente en generaciones posteriores. Algo de uso para acelerar la marcha de Diana. Su kit no compite en Conquista ni Arena, ni siquiera al inicio.
+  "El enemigo nunca se fijó en él, pero las matemáticas sí."
+Yeonwoo — Gen 1, Arquero, SR, Crecimiento
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ✅; PvP: líder del rally ❌; Líder de guarnición ❌; PvP: participante ✅; Marcha individual ❌; Arena / Conquista ✅
+  Increíble bono de 15% (aditivo) a la velocidad de Investigación: prioridad al inicio. Habilidad de participante de 25% de Letalidad: increíble para Cacería del Oso y rallies PvP. Combina su 25% de letalidad con el 25% de ataque de Amane. Daño en área al inicio de Conquista y Arena para F2P.
+  "Por fin una prueba de que los jugadores F2P también reciben cosas buenas… de vez en cuando…"
+Jabel — Gen 1, Caballería, SSR, Combate
+  Cacería del Oso: líder del rally ✅; Cacería del Oso: participante ❌; PvP: líder del rally ✅; Líder de guarnición ✅; PvP: participante ⚠️; Marcha individual ✅; Arena / Conquista ✅
+  La caballería inicial favorita de todos, y la única heroína mítica realmente F2P de la Gen 1. La mejor caballería inicial, tanto para F2P como para quienes pagan. Destaca en guarniciones defensivas y también lidera el ataque en la Gen 1. Cuidado como participante: su habilidad de probabilidad % no se acumula con otras similares. Gran daño en área al inicio de Conquista y Arena.
+  "No estaba rota. Solo fue la primera en llegar a la batalla."
+Saul — Gen 1, Arquero, SSR, Crecimiento
+  Cacería del Oso: líder del rally ★★★★ (4-5); Cacería del Oso: participante ❌; PvP: líder del rally ❌; Líder de guarnición ✅; PvP: participante ✅; Marcha individual ✅; Arena / Conquista ★★★ (3/5)
+  Héroe de crecimiento bastante amigable para F2P: reduce tiempo y coste de Construcción. El mejor arquero inicial para Expedición, pero un F2P no tendrá tiempo de desarrollarlo del todo con gemas. Buen participante con habilidades mixtas. De lo mejor en Conquista y Arena en Gen 1; desplazado en Gen 2, vuelve en Gen 4–6 cuando el meta 60/40 se vuelve viable.
+  "Contra todo pronóstico, entregó cada obra a tiempo y por debajo del presupuesto."
+Amadeus — Gen 1, Infantería, SSR, Combate
+  Cacería del Oso: líder del rally ✅; Cacería del Oso: participante ✅; PvP: líder del rally ✅; Líder de guarnición ✅; PvP: participante ✅; Marcha individual ✅; Arena / Conquista ✅
+  Pay-to-win descarado: bono global permanente de Salud y Letalidad según sus estrellas. Líder del rally de Cacería del Oso sin rival en todas las generaciones de héroes hasta ahora. Gran participante de Expedición, pero casi siempre lo usarás como líder del rally. Zoe (Gen 2) lo desplaza en guarnición; aguanta el rally ofensivo hasta la Gen 4/5. En los mejores equipos de Arena hasta la Gen 4 o 5: úsalo en la última fila.
+  "En aquellos días el campo de batalla era sencillo. Quien tenía a Amadeus, ganaba."
+Helga — Gen 1, Infantería, SSR, Combate
+  Cacería del Oso: líder del rally ✅; Cacería del Oso: participante ❌; PvP: líder del rally ✅; Líder de guarnición ❌; PvP: participante ❌; Marcha individual ✅; Arena / Conquista ✅
+  Pay-to-win a corto plazo: bono global permanente de Ataque y Defensa según sus estrellas. N.º 2 como líder del rally de infantería en Cacería del Oso en todas las generaciones (tras Amadeus): alternativa más barata que se queda atrás antes. En todos los equipos top de Arena en Gen 1; fuera de ellos en Gen 3. Tanque de primera fila al inicio; su aturdimiento puede saltarse las definitivas enemigas.
+  "Durante unos pocos días, Helga fue símbolo de riqueza y poder. Luego llegó Amadeus."
+Zoe — Gen 2, Infantería, SSR, Combate
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ❌; PvP: líder del rally ✅; Líder de guarnición ✅; PvP: participante ❌; Marcha individual ✅; Arena / Conquista ✅
+  La primera heroína mítica de infantería disponible para jugadores F2P. Desarrollada al máximo, supera a Amadeus en guarnición defensiva gracias a su tipo de Complemento. Su 1.ª habilidad de Expedición no funciona contra el Oso (ni como participante ni como líder del rally). En los mejores equipos de Arena en Gen 2 y 3, normalmente como tanque en primera fila.
+  "El Reino celebró el día que llegó Zoe… sobre todo los más pobres."
+Hilde — Gen 2, Caballería, SSR, Combate
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ⚠️; PvP: líder del rally ❌; Líder de guarnición ✅; PvP: participante ✅; Marcha individual ✅; Arena / Conquista ✅
+  Caballería defensiva: ligera mejora sobre Jabel como líder de guarnición (Complemento defensivo), pero mucho más difícil de desarrollar. Buenas habilidades de Expedición para marcha individual en PvP (todas con 25% de valor efectivo). Participante aceptable en Cacería del Oso; solo no dejes que ocupe el sitio de un héroe mejor. Heroína increíble en Arena, hasta el cambio a estadísticas defensivas en Gen 3.
+Marlin — Gen 2, Arquero, SSR, Combate
+  Cacería del Oso: líder del rally ✅; Cacería del Oso: participante ❌; PvP: líder del rally ✅; Líder de guarnición ❌; PvP: participante ❌; Marcha individual ✅; Arena / Conquista ✅
+  El primer arquero de rally realmente ofensivo. Cambiar a él subirá notablemente tu puntuación en Cacería del Oso. Daño en área y control de masas increíbles en Arena y Conquista.
+  "Marlin tenía una puntería sorprendente para todo el ron que cargaba."
+Petra — Gen 3, Caballería, SSR, Combate
+  Las valoraciones detalladas de esta generación llegarán pronto.
+  IMPRESCINDIBLE DESARROLLAR (Ruleta de Héroes). Excelente heroína de Cacería del Oso, con valor hasta la Gen 7. F2P: la caballería ofensiva que conviene desarrollar con Ruleta de Héroes.
+Eric — Gen 3, Infantería, SSR, Combate
+  Las valoraciones detalladas de esta generación llegarán pronto.
+  Sáltalo salvo que te centres en PvP / defensa de guarnición.
+Jaeger — Gen 3, Arquero, SSR, Combate
+  Las valoraciones detalladas de esta generación llegarán pronto.
+  Sáltalo salvo que te centres en PvP / defensa de guarnición.
 
 ### GUIDE #kvk — Guía de Preparación y Batalla KvK
 Adamantina

@@ -525,6 +525,90 @@ Pemain P2W: Prioritaskan Amadeus (VIP 7+) dan Hilde untuk dampak maksimal
 
 ### GUIDE #hero-cards — Kartu Hero (Gen 1–3)
 Satu kartu per hero: apa kegunaan masing-masing. Peringkatnya berasal dari obrolan "Heroes Guide" di dalam game, yang diselamatkan pemilik situs sesaat sebelum obrolan itu hilang. Gunakan filter untuk mencari, misalnya, peserta Bear Hunt terbaik.
+Olive — Gen 1, Pemanah, R, Pertumbuhan
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ❌; Kapten Reli PvP ❌; Pemimpin garnisun ❌; Peserta PvP ❌; Barisan solo ❌; Arena / Penaklukan ✅
+  Hero pertumbuhan: meningkatkan produksi dan pengumpulan Roti. AoE-nya membantu di Penaklukan — tapi hanya di minggu pertama kerajaan baru. Cepat kalah saing dalam tempur; bonus ekonominya tetap bertahan.
+  "Masa terornya di arena cuma sebentar. Shift-nya di penggilingan tak pernah usai."
+Forrest — Gen 1, Infanteri, R, Pertumbuhan
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ❌; Kapten Reli PvP ❌; Pemimpin garnisun ❌; Peserta PvP ❌; Barisan solo ❌; Arena / Penaklukan ❌
+  Hero pertumbuhan: meningkatkan produksi dan pengumpulan Kayu. Tak berguna di Penaklukan atau Arena — skill-nya tak cocok, statnya kalah saing.
+  "Kapaknya mengumpulkan lebih banyak kayu daripada kemenangan."
+Edwin — Gen 1, Kavaleri, R, Pertumbuhan
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ❌; Kapten Reli PvP ❌; Pemimpin garnisun ❌; Peserta PvP ❌; Barisan solo ❌; Arena / Penaklukan ❌
+  Hero pertumbuhan: meningkatkan produksi dan pengumpulan Batu. Tak berguna di Penaklukan atau Arena.
+  "Ia bisa membangun kerajaan dari batu. Tapi tak pernah diminta mempertahankannya."
+Seth — Gen 1, Infanteri, R, Pertumbuhan
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ❌; Kapten Reli PvP ❌; Pemimpin garnisun ❌; Peserta PvP ❌; Barisan solo ❌; Arena / Penaklukan ✅
+  Hero pertumbuhan: meningkatkan produksi Besi. Berguna sebagai tank kedua di awal Arena dan Penaklukan untuk F2P; kalah saing di Gen 2, tapi bonus ekonominya tetap.
+  "Saat Howard gugur, Kerajaan baru ingat Seth itu ada."
+Diana — Gen 1, Pemanah, SR, Tempur
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ❌; Kapten Reli PvP ❌; Pemimpin garnisun ❌; Peserta PvP ❌; Barisan solo ⚠️; Arena / Penaklukan ✅
+  Menghemat stamina dan mempercepat barisan — berguna untuk farming PvE, bukan PvP. Skill ekspedisi pertamanya mengurangi pemakaian staminamu sendiri; bukan buff damage. Membantu di awal Penaklukan; nantinya kalah pamor dari Yeonwoo dan Quinn.
+  "Senjata terhebat kerajaan ternyata seorang agen perjalanan."
+Quinn — Gen 1, Pemanah, SR, Tempur
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ❌; Kapten Reli PvP ✅; Pemimpin garnisun ❌; Peserta PvP ✅; Barisan solo ✅; Arena / Penaklukan ✅
+  Pemanah tempur awal paling ramah F2P, dengan dua skill ekspedisi tempur. F2P: pakai dia untuk barisan solo dan Kapten Reli sampai generasi berikutnya; idealnya ganti dengan Marlin. Peserta PvP yang bagus, tapi sering dilebih-lebihkan. Burst damage target tunggal terbaik di awal Penaklukan dan Arena.
+  "Rencana perangnya jarang melibatkan target kedua."
+Chenko — Gen 1, Kavaleri, SR, Tempur
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ✅; Kapten Reli PvP ❌; Pemimpin garnisun ❌; Peserta PvP ✅; Barisan solo ❌; Arena / Penaklukan ✅
+  Hero peserta wajib untuk semua konten aliansi. Peserta Bear Hunt yang luar biasa, dan meningkatkan damage reli secara umum. Efektif di awal Penaklukan dan Arena, terutama untuk F2P — meski AoE-nya tak selalu kena target terbaik.
+  "Beda perburuan beruang yang buruk dan yang bagus kira-kira empat Chenko."
+Gordon — Gen 1, Kavaleri, SR, Tempur
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ❌; Kapten Reli PvP ❌; Pemimpin garnisun ❌; Peserta PvP ✅; Barisan solo ❌; Arena / Penaklukan ✅
+  Hero peserta untuk PvP aliansi, terutama garnisun: skill peserta 25% Health yang mengalahkan skill pengurangan damage 20%. Bisa dipakai di awal Penaklukan dan Arena sebagai "tank ketiga" di barisan belakang — stat kavaleri membuatnya tumbang sebelum heal lambatnya aktif.
+  "Setiap pertahanan hebat dimulai dari makanan bergizi seimbang."
+Howard — Gen 1, Infanteri, SR, Tempur
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ❌; Kapten Reli PvP ✅; Pemimpin garnisun ❌; Peserta PvP ✅; Barisan solo ❌; Arena / Penaklukan ✅
+  Hero infanteri F2P awal yang dipakai di mana-mana untuk ekspedisi dan arena. Hero reli infanteri utamamu sampai Zoe di Gen 2 (F2P). Peserta PvP yang bagus, tapi sering dilebih-lebihkan. Tetap berguna di Penaklukan selama beberapa generasi, karena infanteri F2P langka.
+  "Deskripsi tugasnya singkat: bertahan hidup."
+Amane — Gen 1, Pemanah, SR, Pertumbuhan
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ✅; Kapten Reli PvP ❌; Pemimpin garnisun ❌; Peserta PvP ✅; Barisan solo ❌; Arena / Penaklukan ❌
+  Hero pertumbuhan yang kemampuan terbaiknya justru skill tempur. Bonus kecepatan penyembuhan Rumah Sakit global — bagus, tapi prioritasnya di bawah skill pertumbuhan awal lainnya. Skill peserta 25% Attack: peserta Bear Hunt dan reli yang luar biasa. Padukan 25% attack-nya dengan 25% Lethality milik Chenko atau Yeonwoo untuk damage reli terbaik.
+  "Kerajaan menugaskannya di rumah sakit sampai hari Beruang datang."
+Fahd — Gen 1, Kavaleri, SR, Tempur
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ❌; Kapten Reli PvP ❌; Pemimpin garnisun ❌; Peserta PvP ✅; Barisan solo ❌; Arena / Penaklukan ❌
+  Bangun dia demi skill peserta PvP uniknya — itu membuatnya tetap relevan di generasi berikutnya. Sedikit berguna untuk mempercepat barisan Diana. Kumpulan skill-nya tak kompetitif di Penaklukan atau Arena, bahkan di awal.
+  "Musuh tak pernah menyadarinya, tapi hitung-hitungannya sadar."
+Yeonwoo — Gen 1, Pemanah, SR, Pertumbuhan
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ✅; Kapten Reli PvP ❌; Pemimpin garnisun ❌; Peserta PvP ✅; Barisan solo ❌; Arena / Penaklukan ✅
+  Bonus kecepatan Penelitian 15% (aditif) yang luar biasa — prioritas di awal game. Skill peserta 25% Lethality: luar biasa untuk reli Bear Hunt dan PvP. Padukan 25% lethality-nya dengan 25% attack milik Amane. Penghasil damage AoE di awal Penaklukan dan Arena untuk F2P.
+  "Akhirnya ada bukti pemain F2P juga bisa dapat barang bagus… sesekali…"
+Jabel — Gen 1, Kavaleri, SSR, Tempur
+  Kapten Reli Bear Hunt ✅; Peserta Bear Hunt ❌; Kapten Reli PvP ✅; Pemimpin garnisun ✅; Peserta PvP ⚠️; Barisan solo ✅; Arena / Penaklukan ✅
+  Kavaleri awal favorit semua orang, dan satu-satunya hero mitik F2P sejati di Gen 1. Kavaleri awal terbaik, baik untuk F2P maupun spender. Unggul di garnisun bertahan, dan juga memimpin serangan di Gen 1. Hati-hati sebagai peserta: skill peluang %-nya tak bertumpuk dengan skill serupa. Damage AoE hebat di awal Penaklukan dan Arena.
+  "Dia tidak overpowered. Dia cuma yang paling dulu turun ke medan perang."
+Saul — Gen 1, Pemanah, SSR, Pertumbuhan
+  Kapten Reli Bear Hunt ★★★★ (4-5); Peserta Bear Hunt ❌; Kapten Reli PvP ❌; Pemimpin garnisun ✅; Peserta PvP ✅; Barisan solo ✅; Arena / Penaklukan ★★★ (3/5)
+  Hero pertumbuhan yang cukup ramah F2P: memangkas waktu dan biaya Konstruksi. Pemanah awal terbaik untuk Ekspedisi, tapi F2P tak akan sempat membangunnya penuh dengan permata. Peserta skill campuran yang bagus. Papan atas di Penaklukan dan Arena Gen 1; tergeser di Gen 2, dipakai lagi di Gen 4–6 saat meta 60/40 mulai layak.
+  "Melawan segala rintangan, entah bagaimana semua proyeknya selesai tepat waktu dan di bawah anggaran."
+Amadeus — Gen 1, Infanteri, SSR, Tempur
+  Kapten Reli Bear Hunt ✅; Peserta Bear Hunt ✅; Kapten Reli PvP ✅; Pemimpin garnisun ✅; Peserta PvP ✅; Barisan solo ✅; Arena / Penaklukan ✅
+  Pay-to-win parah: bonus Health dan Lethality global permanen berdasarkan level bintang. Kapten Reli Bear Hunt tak tertandingi di semua generasi hero sejauh ini. Peserta ekspedisi yang hebat, tapi hampir selalu kamu pakai sebagai Kapten Reli. Tergeser Zoe (Gen 2) untuk garnisun; tetap andal untuk reli serangan sampai Gen 4/5. Ada di tim arena teratas sampai Gen 4 atau 5 — taruh di barisan belakang.
+  "Medan perang dulu sederhana. Siapa punya Amadeus, dialah pemenangnya."
+Helga — Gen 1, Infanteri, SSR, Tempur
+  Kapten Reli Bear Hunt ✅; Peserta Bear Hunt ❌; Kapten Reli PvP ✅; Pemimpin garnisun ❌; Peserta PvP ❌; Barisan solo ✅; Arena / Penaklukan ✅
+  Hero pay-to-win jangka pendek: bonus Attack dan Defense global permanen berdasarkan level bintang. Kapten Reli infanteri Bear Hunt #2 di semua generasi (di bawah Amadeus) — alternatif lebih murah yang lebih cepat pudar. Ada di semua tim arena teratas Gen 1, hilang dari sana di Gen 3. Tank barisan depan awal; stun-nya bisa menggagalkan ultimate musuh.
+  "Selama beberapa hari, Helga jadi simbol kekayaan dan kekuasaan. Lalu datanglah Amadeus."
+Zoe — Gen 2, Infanteri, SSR, Tempur
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ❌; Kapten Reli PvP ✅; Pemimpin garnisun ✅; Peserta PvP ❌; Barisan solo ✅; Arena / Penaklukan ✅
+  Hero infanteri mitik pertama yang bisa didapat pemain F2P. Setelah dibangun penuh, dia mengalahkan Amadeus di garnisun bertahan berkat tipe Widget-nya. Skill ekspedisi pertamanya tak berlaku pada Beruang (sebagai peserta maupun Kapten Reli). Ada di tim arena teratas di Gen 2 dan 3 — biasanya tank barisan depan.
+  "Kerajaan bersorak saat Zoe tiba… terutama yang paling miskin."
+Hilde — Gen 2, Kavaleri, SSR, Tempur
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ⚠️; Kapten Reli PvP ❌; Pemimpin garnisun ✅; Peserta PvP ✅; Barisan solo ✅; Arena / Penaklukan ✅
+  Kavaleri bertahan: sedikit lebih baik dari Jabel sebagai pemimpin garnisun (Widget bertahan), tapi jauh lebih sulit dibangun. Skill ekspedisi solid untuk barisan solo PvP (semuanya bernilai efektif 25%). Peserta Bear Hunt yang lumayan — asal jangan merebut tempat hero yang lebih baik. Hero Arena luar biasa, sampai peralihan ke stat bertahan di Gen 3.
+Marlin — Gen 2, Pemanah, SSR, Tempur
+  Kapten Reli Bear Hunt ✅; Peserta Bear Hunt ❌; Kapten Reli PvP ✅; Pemimpin garnisun ❌; Peserta PvP ❌; Barisan solo ✅; Arena / Penaklukan ✅
+  Pemanah reli serangan sejati pertama. Beralih ke dia akan menaikkan skor Bear Hunt-mu secara nyata. Penghasil damage AoE dan pengendali massa luar biasa di Arena dan Penaklukan.
+  "Untuk orang yang membawa rum sebanyak itu, bidikan Marlin jitu luar biasa."
+Petra — Gen 3, Kavaleri, SSR, Tempur
+  Peringkat lengkap untuk generasi ini segera hadir.
+  WAJIB DIBANGUN (Rolet Hero). Hero Bear Hunt yang sangat baik, tetap berguna sampai Gen 7. F2P: kavaleri serangan yang dibangun dari Rolet Hero.
+Eric — Gen 3, Infanteri, SSR, Tempur
+  Peringkat lengkap untuk generasi ini segera hadir.
+  Lewati kecuali kamu fokus ke PvP / pertahanan garnisun.
+Jaeger — Gen 3, Pemanah, SSR, Tempur
+  Peringkat lengkap untuk generasi ini segera hadir.
+  Lewati kecuali kamu fokus ke PvP / pertahanan garnisun.
 
 ### GUIDE #kvk — Panduan Persiapan & Pertempuran KvK
 Truegold
