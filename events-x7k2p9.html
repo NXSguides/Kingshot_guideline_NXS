@@ -61,8 +61,14 @@
   label.f small { font-weight: 400; color: var(--text-muted); }
   .inp, .modal select, .modal textarea { width: 100%; box-sizing: border-box; padding: 8px 10px; font-size: 15px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-family: inherit; }
   .modal textarea { min-height: 160px; line-height: 1.45; }
-  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .grid2 { display: grid; grid-template-columns: 70px 1fr; gap: 8px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; align-items: end; }
+  .grid2 { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 8px; }
+  .grid3 > div, .grid2 > div { min-width: 0; }
+  .inp { display: block; min-width: 0; max-width: 100%; }
+  input[type=date].inp { -webkit-appearance: none; appearance: none; min-height: 40px; text-align: left; }
+  @media (max-width: 520px) { .grid3 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .grid3 > div:first-child { grid-column: 1 / -1; } }
+  .todo-ed .due { display: flex; align-items: center; gap: 8px; font-size: 13px; flex-wrap: wrap; }
+  .todo-ed .due .inp { width: 80px; }
   .sub { border: 1px solid var(--rule); border-radius: 10px; padding: 8px 10px; margin: 8px 0; }
   .sub .row { justify-content: space-between; }
   .okmsg { color: #2e7d32; }
@@ -135,9 +141,8 @@
       <h2 id="edTitle"></h2>
       <div class="grid2">
         <div><label class="f" data-t="fEmoji"></label><input class="inp" id="edEmoji" maxlength="4"></div>
-        <div><label class="f" data-t="fNameZh"></label><input class="inp" id="edZh" maxlength="60"></div>
+        <div><label class="f" data-t="fName"></label><input class="inp" id="edName" maxlength="60"></div>
       </div>
-      <label class="f" data-t="fNameEn"></label><input class="inp" id="edEn" maxlength="60">
       <label class="f"><input type="checkbox" id="edFixed"> <span data-t="fFixed"></span></label>
       <div id="edSched" class="grid3">
         <div><label class="f" data-t="fStart"></label><input class="inp" type="date" id="edStart"></div>
@@ -386,12 +391,12 @@ or 60/15/25
 // events with no schedule on the site yet
 const EXTRA_EVENTS = [
   { id: "bear-hunt", emoji: "🐻", en: "Bear Hunt", zh: "狩獵巨熊", start: "2026-10-07", every: 2, days: 1, guide: "bear-hunt",
-    note: "11:00 & 22:00 UTC, 30 min each" },
+    note: "11:00 & 22:00 UTC, 30 min each", noteZh: "UTC 11:00 和 22:00，各 30 分鐘" },
   { id: "alliance-championship", emoji: "🏆", en: "Alliance Championship", zh: "聯盟爭霸賽", start: "2026-09-28", every: 7, days: 2, guide: "",
-    note: "Weekly, Monday reset · shown = 2-day registration; battles run automatically",
+    note: "Weekly, Monday reset · shown = 2-day registration; battles run automatically", noteZh: "每週一次，週一重置 · 顯示的是 2 天報名期；戰鬥自動進行",
     todo: [{ due: -1, post: 1, en: "Remind everyone: register in the Middle Lane, strongest heroes, 50/20/30, buffs on.", zh: "提醒大家報名中路、用最強英雄、50/20/30、開好增益。" }] },
   { id: "alliance-mobilization", emoji: "🔥", en: "Alliance Mobilization", zh: "聯盟總動員", start: "2026-09-28", every: 28, days: 7, guide: "",
-    note: "Follows the 4-week cycle (after KvK / after Strongest Governor; Alliance Brawl can replace one) — check the start date",
+    note: "Follows the 4-week cycle (after KvK / after Strongest Governor; Alliance Brawl can replace one) — check the start date", noteZh: "跟著 4 週循環（KvK 後／最強領主後；聯盟爭鬥可能取代其中一場）— 請確認開始日",
     todo: [{ due: 0, post: 1, en: "Post the mission rules (no KvK Prep items; best picks).", zh: "公告任務規則（不要選用到 KvK 準備道具的任務、推薦的任務）。" }] },
   { id: "mystic-trial", emoji: "🔮", en: "Mystic Trial", zh: "秘境試煉", start: "", every: 0, days: 0, guide: "mystic-trial" },
   { id: "alliance-rules", emoji: "📜", en: "Alliance rules", zh: "聯盟規則", start: "", every: 0, days: 0, guide: "" },
@@ -415,10 +420,10 @@ const T = {
     sched: "every {e} days from {s} · {d} day(s)", noSched: "no fixed schedule", every1: "every day",
     edit: "✏️ Edit", copy: "📋 Copy", copied: "Copied ✅", noIg: "No in-game guide yet.", chars: "characters",
     newEv: "New event", editEv: "Edit event",
-    fEmoji: "Emoji", fNameZh: "Name (中文)", fNameEn: "Name (English)", fFixed: "Repeats on a fixed schedule",
+    fEmoji: "Emoji", fName: "Name", fFixed: "Repeats on a fixed schedule",
     fStart: "First day (UTC)", fEvery: "Repeats every … days", fDays: "Lasts … days",
     fNote: "Note", fNoteSm: "(e.g. times — shown in the list)", fGuide: "Guide on the site", noGuide: "— none —",
-    fTodo: "Action items for officers", addTodo: "+ Action item", dueLbl: "days before (−) / after start", tdZh: "中文", tdEn: "English",
+    fTodo: "Action items for officers", addTodo: "+ Action item", dueLbl: "Days before (−) / after the start", tdTxt: "What to do",
     tdPost: "Announcement button", tdRank: "Ranking button",
     fIngame: "In-game guides", fIngameSm: "(one box = one chat message; the game limits message length, so keep long guides in several boxes)", addIg: "+ Message", igTitle: "Title", igText: "Text",
     del: "Delete event", cancel: "Cancel", save: "💾 Save",
@@ -443,10 +448,10 @@ const T = {
     sched: "從 {s} 起每 {e} 天一次 · 持續 {d} 天", noSched: "沒有固定時間", every1: "每天",
     edit: "✏️ 修改", copy: "📋 複製", copied: "已複製 ✅", noIg: "還沒有遊戲內指南。", chars: "字",
     newEv: "新增活動", editEv: "修改活動",
-    fEmoji: "圖示", fNameZh: "名稱（中文）", fNameEn: "名稱（英文）", fFixed: "有固定週期",
+    fEmoji: "圖示", fName: "名稱", fFixed: "有固定週期",
     fStart: "第一天（UTC）", fEvery: "每幾天一次", fDays: "持續幾天",
     fNote: "備註", fNoteSm: "（例如時間，會顯示在清單上）", fGuide: "網站上的攻略", noGuide: "— 無 —",
-    fTodo: "幹部待辦事項", addTodo: "+ 待辦事項", dueLbl: "開始前（−）／後第幾天", tdZh: "中文", tdEn: "English",
+    fTodo: "幹部待辦事項", addTodo: "+ 待辦事項", dueLbl: "開始前（−）／後第幾天", tdTxt: "要做的事",
     tdPost: "顯示「寫公告」按鈕", tdRank: "顯示「Ranking」按鈕",
     fIngame: "遊戲內指南", fIngameSm: "（一格 = 一則聊天訊息；遊戲有字數限制，長的指南請分成好幾格）", addIg: "+ 訊息", igTitle: "標題", igText: "內容",
     del: "刪除活動", cancel: "取消", save: "💾 儲存",
@@ -603,11 +608,12 @@ function schedText(e) {
   if (!e.start || !(e.every > 0)) return tr("noSched");
   return e.every === 1 ? `${tr("every1")} · ${fmt(dayMs(e.start))}` : tr("sched", { e: e.every, s: fmt(dayMs(e.start)), d: e.days });
 }
+const noteOf = (e) => (lang === "zh" ? e.noteZh || e.note : e.note || e.noteZh) || "";
 function renderList() {
   const open = new Set([...document.querySelectorAll(".evrow[open]")].map((d) => d.dataset.id));
   $("evList").innerHTML = LIST.map((e) => `
     <details class="evrow" data-id="${esc(e.id)}"${open.has(e.id) ? " open" : ""}>
-      <summary><span><b>${esc(evName(e.id))}</b><br><span class="sched">${esc(schedText(e))}${e.note ? " · " + esc(e.note) : ""}</span></span>
+      <summary><span><b>${esc(evName(e.id))}</b><br><span class="sched">${esc(schedText(e))}${noteOf(e) ? " · " + esc(noteOf(e)) : ""}</span></span>
         <span class="muted">${(e.ingame || []).length ? "📋 " + (e.ingame || []).length : ""}</span></summary>
       ${(e.ingame || []).length ? e.ingame.map((g, i) => `
         <div class="ig"><div class="head"><span>${esc(g.title || tr("fIngame"))} <span class="sched">· ${[...g.text].length} ${esc(tr("chars"))}</span></span><span class="row" style="flex:none"><button type="button" class="btn small" data-igedit="${esc(e.id)}:${i}">✏️</button><button type="button" class="btn small" data-copy="${esc(e.id)}:${i}">${esc(tr("copy"))}</button></span></div>
@@ -652,9 +658,8 @@ function igInline(btn) {
 let editing = null;   // id of the event being edited, or null for a new one
 function todoRow(td = {}) {
   return `<div class="sub todo-ed">
-    <div class="row"><label style="font-size:13px">${esc(tr("dueLbl"))} <input class="inp" type="number" data-k="due" value="${esc(td.due ?? 0)}" style="width:80px;display:inline-block"></label><button type="button" class="btn small" data-rm>${esc(tr("remove"))}</button></div>
-    <input class="inp" data-k="zh" placeholder="${esc(tr("tdZh"))}" value="${esc(td.zh || "")}" style="margin-top:6px">
-    <input class="inp" data-k="en" placeholder="${esc(tr("tdEn"))}" value="${esc(td.en || "")}" style="margin-top:6px">
+    <div class="row"><label class="due">${esc(tr("dueLbl"))} <input class="inp" type="number" data-k="due" value="${esc(td.due ?? 0)}"></label><button type="button" class="btn small" data-rm>${esc(tr("remove"))}</button></div>
+    <input class="inp" data-k="txt" placeholder="${esc(tr("tdTxt"))}" value="${esc(td[lang] || td[lang === "zh" ? "en" : "zh"] || "")}" data-other="${esc(td[lang === "zh" ? "en" : "zh"] || "")}" data-had="${td[lang] ? 1 : 0}" style="margin-top:6px">
     <div class="row" style="justify-content:flex-start;font-size:13px;margin-top:6px"><label><input type="checkbox" data-k="post"${td.post ? " checked" : ""}> ${esc(tr("tdPost"))}</label><label><input type="checkbox" data-k="ranking"${td.ranking ? " checked" : ""}> ${esc(tr("tdRank"))}</label></div>
   </div>`;
 }
@@ -668,11 +673,11 @@ function openEditor(id) {
   editing = id;
   const e = id ? byId(id) : { emoji: "📅", en: "", zh: "", start: isoDay(utcDay(Date.now())), every: 7, days: 1, guide: "", note: "", todo: [], ingame: [] };
   $("edTitle").textContent = tr(id ? "editEv" : "newEv");
-  $("edEmoji").value = e.emoji || ""; $("edZh").value = e.zh || ""; $("edEn").value = e.en || "";
+  $("edEmoji").value = e.emoji || ""; $("edName").value = e[lang] || e[lang === "zh" ? "en" : "zh"] || "";
   const fixed = !!(e.start && e.every > 0);
   $("edFixed").checked = fixed; $("edSched").hidden = !fixed;
   $("edStart").value = e.start || isoDay(utcDay(Date.now())); $("edEvery").value = e.every || 7; $("edDays").value = e.days || 1;
-  $("edNote").value = e.note || "";
+  $("edNote").value = noteOf(e);
   $("edGuide").innerHTML = `<option value="">${esc(tr("noGuide"))}</option>` + Object.entries(GUIDE_LIST).map(([k, g]) => `<option value="${k}">${g.e} ${esc(g[lang] || g.en)}</option>`).join("");
   $("edGuide").value = e.guide || "";
   $("edTodos").innerHTML = (e.todo || []).map(todoRow).join("");
@@ -687,16 +692,22 @@ $("editor").addEventListener("click", (ev) => { const r = ev.target.closest("[da
 $("edCancel").onclick = () => { $("editor").hidden = true; };
 function readEditor() {
   const e = editing ? { ...byId(editing) } : {};
-  e.emoji = $("edEmoji").value.trim(); e.zh = $("edZh").value.trim(); e.en = $("edEn").value.trim();
-  if (!e.zh && !e.en) throw new Error(tr("needName"));
+  // only the page language is edited; the other language's text is kept as it was
+  const other = lang === "zh" ? "en" : "zh";
+  e.emoji = $("edEmoji").value.trim(); e[lang] = $("edName").value.trim();
+  if (!e[lang]) throw new Error(tr("needName"));
+  if (!e[other]) e[other] = e[lang];
   if ($("edFixed").checked) {
     e.start = $("edStart").value; e.every = Math.round(+$("edEvery").value); e.days = Math.round(+$("edDays").value);
     if (!/^\d{4}-\d\d-\d\d$/.test(e.start) || !(e.every > 0) || !(e.days > 0)) throw new Error(tr("needSched"));
   } else { e.start = ""; e.every = 0; e.days = 0; }
-  e.note = $("edNote").value.trim(); e.guide = $("edGuide").value;
+  const nv = $("edNote").value.trim();
+  if (lang === "zh") e.noteZh = nv; else e.note = nv;
+  e.guide = $("edGuide").value;
   e.todo = [...document.querySelectorAll("#edTodos .todo-ed")].map((r) => {
     const g = (k) => r.querySelector(`[data-k="${k}"]`);
-    const o = { due: Math.round(+g("due").value || 0), zh: g("zh").value.trim(), en: g("en").value.trim() };
+    const t = g("txt"), v = t.value.trim();
+    const o = { due: Math.round(+g("due").value || 0), [lang]: v, [other]: t.dataset.other || v };
     if (g("post").checked) o.post = 1; if (g("ranking").checked) o.ranking = 1;
     return o;
   }).filter((o) => o.zh || o.en);
