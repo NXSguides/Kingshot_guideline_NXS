@@ -175,6 +175,19 @@ const EVENT_SCHEDULES = {
   "cesares-fury": { anchor: Date.UTC(2026, 9, 10), periodDays: 21, activeDays: 3 } // last one ~9/19, this one 10/10–10/12 → every 3 weeks (check 10/31)
 };
 
+/* Schedules edited on the officer Events tab (data/events-x7k2p9.json, "sched") replace the ones above */
+fetch("data/events-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((f) => {
+  if (!f || !f.sched) return;
+  let changed = false;
+  for (const [k, v] of Object.entries(f.sched)) {
+    const a = Date.parse(v.anchor + "T00:00:00Z");
+    if (!EVENT_SCHEDULES[k] || isNaN(a) || !(v.periodDays > 0) || !(v.activeDays > 0)) continue;
+    EVENT_SCHEDULES[k] = { anchor: a, periodDays: v.periodDays, activeDays: v.activeDays };
+    changed = true;
+  }
+  if (changed && langChosen) renderAll();
+}).catch(() => {});
+
 function isEventActive(key) {
   const sched = EVENT_SCHEDULES[key];
   if (!sched) return true; // 沒設定排程的攻略一律顯示
