@@ -87,6 +87,8 @@ async function handle(req, env) {
         context += "\n\n" + OFFICER_HELP;
         try { context += "\n\n" + await getOfficer(env); }
         catch (e) { context += "\n\n(OFFICER DATA is unavailable right now: " + e.message + ")"; }
+        try { context += "\n\n" + await getEvents(env); }
+        catch (e) { context += "\n\n(EVENTS DATA is unavailable right now: " + e.message + ")"; }
       }
     } catch (e) { return json({ error: "site_unreachable" }, 502); }
 
@@ -107,8 +109,9 @@ async function handle(req, env) {
       officer
         ? "This user is a verified OFFICER: answer questions about members, roster, power, name changes, who left, other alliances from the OFFICER DATA section, " +
           "and explain how to use the officer pages step by step from the OFFICER PAGES — HOW TO USE section (use the button names as written there). " +
+          "Answer event dates, to-dos and in-game guides from the EVENTS DATA section; when giving an in-game guide, copy its text exactly (it is pasted into the game) and keep separate messages separate. " +
           "Officer pages you may link: [Roster](roster-x7k2p9.html) (member ranking, power, TC, Mystic Trial, battle tables), " +
-          "[Watch](watch-x7k2p9.html) (name changes, power history, who left/joined, notes), [Events](events-x7k2p9.html) (event schedule settings), " +
+          "[Watch](watch-x7k2p9.html) (name changes, power history, who left/joined, notes), [Events](events-x7k2p9.html) (week calendar, officer to-dos, in-game guides to copy, add/edit events), " +
           "[Post](post-k4m8q2.html) (post / edit announcements). " +
           "For questions about officer pages, members or the roster, the 📖 line links the matching officer page above, not a guide."
         : "This user has no special access. If asked about member stats, rosters, power rankings, who joined/left/renamed, other alliances, " +
@@ -199,8 +202,10 @@ async function check(req, env) {
 const OFFICER_HELP = `
 ### OFFICER PAGES — HOW TO USE (officers only)
 GETTING IN
-- On the main site, tap the title "NXS Guidelines" 5 times quickly → the Roster page opens. Enter the officer password (ask Sherry). Tick "Remember on this device" to skip it next time.
-- The tabs at the top switch between 📊 Ranking (中文: 成員排序), 📢 Post (發布公告), 🕵️ Watch (觀察名單) and 📅 Events (活動排程). The language button switches all officer tabs between English and 中文.
+- On the main site, tap the title "NXS Guidelines" 5 times quickly (within 2 seconds) → the 📅 Events page opens. Enter the officer password (ask Sherry). Tick "Remember on this device" to skip it next time.
+- The password is asked again on another browser / phone, the home-screen app, a private window, after clearing browser data, or after "Forget the password on this device".
+- The tabs at the top, in order: 📅 Events (中文: 活動排程), 📊 Ranking (成員排序), 📢 Post (發布公告), 🕵️ Watch (觀察名單).
+- Language: officer pages are English or 中文. Entering from the Chinese site opens them in 中文, from any other language in English. The language button on any tab switches all officer tabs together.
 - When answering in Chinese, call the tabs by their 中文 names above (they are what officers see on screen).
 - Member data updates automatically every day at 04:13 Taiwan time (20:13 UTC). If a page says "No data yet": GitHub → Actions → "Update Roster (MightPulse)" → Run workflow, then reload.
 
@@ -230,13 +235,23 @@ GETTING IN
 - "Left NXS" lists members who left, when, and where they were seen since.
 - Export: 📋 Copy for Google Sheets (paste into cell A1) or ⬇️ Download CSV — includes officers' notes.
 
-📅 EVENTS (events-x7k2p9.html) — this week's events and officer to-dos
-- Shows this week's events (day x of y, start / last day) and ✅ Action items with what officers must schedule; overdue items are marked. Ticks are saved on this device only.
-- Shortcuts: 📢 Write announcement, 📊 Open Ranking, 📖 Guide. "Back to this week" after browsing other weeks.
-- Dates come from the site's event schedule; game days start 00:00 UTC (08:00 Taiwan). If the in-game calendar differs, the game is right.
+📅 EVENTS (events-x7k2p9.html) — the first officer tab: week calendar, officer to-dos, and in-game guides
+- Week view: Monday–Sunday in UTC (game day starts 00:00 UTC = 08:00 Taiwan). On Sundays it opens on next week. ◀ ▶ change week, "Back to this week" returns. Each day lists the events running (starts / day x of y / last day); tap an event to jump to its in-game guide.
+- ✅ Action items: what officers must do and by when (⏰ date), for events starting this week plus prep due this week. Overdue items are marked. Ticks are saved on this device only. Buttons: 📢 Write announcement (Post tab), 📊 Open Ranking, 📖 Guide (the site guide), 📋 In-game guides.
+- 📋 Events & in-game guides (list below the calendar): tap an event to open it. Each grey box is ONE in-game chat message — the game limits message length, so long guides are split into several messages; send them one by one. 📋 Copy copies one message; the character count is shown next to the title.
+- ✏️ next to a message edits just that message (title and text, live character count) → 💾 Save.
+- ✏️ Edit at the bottom of an event changes the whole event: emoji, name (中文 / English), "Repeats on a fixed schedule" (first day in UTC, repeats every … days, lasts … days), note (e.g. times), guide on the site, action items (days before (−) / after the start, text in 中文 and English, show an announcement / Ranking button), and the in-game messages (+ Message, ✕ removes). "Delete event" removes it.
+- + New event adds an event. Events without a fixed schedule only appear in the list, not in the calendar.
+- Changes are saved on the site for all officers (other officers see them after refreshing, about 1 minute). Saving uses the same GitHub key as the Post tab; "Someone else changed the events meanwhile" → refresh and try again. The event texts are encrypted like the other officer data.
+- Changing the dates of KvK, Viking Vengeance, Swordland Showdown, Tri-Alliance Clash, Eternity's Reach, All Out, Fishing Tournament, Hero Roulette or Cesares Fury also changes when the main site shows those guide buttons on Recent Events.
+- If the in-game calendar differs from the page, the game is right — fix the dates with ✏️ Edit.
+- The current events, schedules, notes, action items and in-game guide texts are in the EVENTS DATA section below — use it to answer "when is the next …" or "what is the in-game guide for …" (quote in-game guide texts exactly, they are meant to be pasted into the game).
 
 AI ASSISTANT
-- Officers unlock it with the 🔒 button in the chat (same officer password) and have no daily question limit.
+- The chat recognises an officer automatically when this browser has the saved officer login (or an officer page was unlocked in this tab). Officers have no daily question limit and can ask about members, the officer pages and the events data.
+
+KVK CHECKLIST (main site, for everyone)
+- From the day before KvK until the last day, a 📋 button at the bottom right of the main site shows that day's KvK checklist (KvK Prep Day 1–5, then Battle Day). Members tick items; ticks are saved on their own device.
 `;
 
 async function getText(file) {
@@ -301,6 +316,32 @@ async function getOfficer(env) {
   const data = await openData(JSON.parse(await getText("data/ai-officer.json")), env);
   officerCache = { text: data.text, at: Date.now() };
   return officerCache.text;
+}
+
+/* Events tab data (data/events-x7k2p9.json): schedules, notes, to-dos and in-game guides, plus the next dates */
+let eventsCache = { text: "", at: 0 };
+async function getEvents(env) {
+  if (eventsCache.text && Date.now() - eventsCache.at < CACHE_MS) return eventsCache.text;
+  let file;
+  try { file = JSON.parse(await getText("data/events-x7k2p9.json")); }
+  catch (e) { return "### EVENTS DATA\n(Not saved yet — the Events tab still shows its built-in defaults. Press 💾 Save there once.)"; }
+  const d = await openData(file.data, env);
+  const DAY = 86400000, today = Math.floor(Date.now() / DAY) * DAY, iso = (t) => new Date(t).toISOString().slice(0, 10);
+  const lines = [`### EVENTS DATA (from the Events tab; today is ${iso(today)} UTC)`];
+  for (const e of (d && d.events) || []) {
+    let sched = "no fixed schedule";
+    if (e.start && e.every > 0 && e.days > 0) {
+      const a = Date.parse(e.start + "T00:00:00Z");
+      let n = Math.max(0, Math.floor((today - a) / DAY / e.every) - 1), next = [];
+      for (; next.length < 3; n++) { const st = a + n * e.every * DAY; if (st + e.days * DAY > today) next.push(e.days > 1 ? `${iso(st)}–${iso(st + (e.days - 1) * DAY)}` : iso(st)); }
+      sched = `from ${e.start}, every ${e.every} days, lasts ${e.days} day(s); current/next: ${next.join(", ")}`;
+    }
+    lines.push(`\n## ${e.emoji || ""} ${e.en || e.zh} / ${e.zh || e.en} — ${sched}${e.note ? " — note: " + e.note : ""}${e.guide ? " — site guide #" + e.guide : ""}`);
+    for (const t of e.todo || []) lines.push(`- To-do (${t.due >= 0 ? "day " + t.due + " after start" : -t.due + " day(s) before start"}): ${t.en || t.zh}${t.zh && t.en ? " / " + t.zh : ""}`);
+    (e.ingame || []).forEach((g, i) => lines.push(`- In-game message ${i + 1}${g.title ? " (" + g.title + ")" : ""}:\n"""\n${g.text}\n"""`));
+  }
+  eventsCache = { text: lines.join("\n"), at: Date.now() };
+  return eventsCache.text;
 }
 
 /* ---------- daily limits: KV binding LIMITS if present, otherwise memory (rough) ---------- */
