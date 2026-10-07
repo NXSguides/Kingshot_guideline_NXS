@@ -242,7 +242,11 @@ const LS = "nxs-roster-v2";
 const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
 const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
 
-let lang = store.lang || "en";
+/* one language for all officer tabs (set from the main site when you enter, and by the language button on any tab) */
+const OFFICER_LANG = "nxs-officer-lang";
+const officerLang = () => { try { const v = localStorage.getItem(OFFICER_LANG); return v === "zh" || v === "en" ? v : null; } catch (e) { return null; } };
+const setOfficerLang = (v) => { try { localStorage.setItem(OFFICER_LANG, v); } catch (e) {} };
+let lang = officerLang() || store.lang || "en";
 let data = null, sortKey = store.sortKey || "rank", sortDir = store.sortDir || -1;
 let picked = new Set(store.picked || []);
 let wPower = store.wPower ?? 40;
@@ -390,7 +394,7 @@ async function init() {
   renderAll();
 }
 
-$("langBtn").onclick = () => { lang = lang === "zh" ? "en" : "zh"; persist(); renderAll(); };
+$("langBtn").onclick = () => { lang = lang === "zh" ? "en" : "zh"; setOfficerLang(lang); persist(); renderAll(); };
 $("wPower").oninput = (e) => setWeights(e.target.value);
 $("wMystic").oninput = (e) => setWeights(100 - (Number(e.target.value) || 0));
 $("q").oninput = renderList;
@@ -774,6 +778,9 @@ function tbImage() {
 })();
 
 officerGate(init);
+
+// coming back to this tab with the browser's Back button: follow a language change made on another tab
+window.addEventListener("pageshow", (e) => { if (e.persisted && officerLang() && officerLang() !== lang) location.reload(); });
 </script>
 </body>
 </html>

@@ -166,7 +166,11 @@ const DAY = 86400000;
 const LS = "nxs-events-v1";
 const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
 const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
-let lang = store.lang || "en";
+/* one language for all officer tabs (set from the main site when you enter, and by the language button on any tab) */
+const OFFICER_LANG = "nxs-officer-lang";
+const officerLang = () => { try { const v = localStorage.getItem(OFFICER_LANG); return v === "zh" || v === "en" ? v : null; } catch (e) { return null; } };
+const setOfficerLang = (v) => { try { localStorage.setItem(OFFICER_LANG, v); } catch (e) {} };
+let lang = officerLang() || store.lang || "en";
 let SCHED = null, weekStart = null;
 
 const $ = (id) => document.getElementById(id);
@@ -237,7 +241,7 @@ function applyTexts() {
   document.querySelectorAll("[data-t]").forEach((el) => { el.textContent = tr(el.dataset.t); });
   $("langBtn").textContent = lang === "zh" ? "English" : "中文";
 }
-$("langBtn").onclick = () => { lang = lang === "zh" ? "en" : "zh"; store.lang = lang; save(); applyTexts(); if (SCHED) render(); };
+$("langBtn").onclick = () => { lang = lang === "zh" ? "en" : "zh"; store.lang = lang; save(); setOfficerLang(lang); applyTexts(); if (SCHED) render(); };
 $("prevW").onclick = () => { weekStart -= 7 * DAY; render(); };
 $("nextW").onclick = () => { weekStart += 7 * DAY; render(); };
 $("thisW").onclick = () => { weekStart = defaultWeek(); render(); };
@@ -288,6 +292,9 @@ async function officerGate(onOk) {
 }
 try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
 officerGate(init);
+
+// coming back to this tab with the browser's Back button: follow a language change made on another tab
+window.addEventListener("pageshow", (e) => { if (e.persisted && officerLang() && officerLang() !== lang) location.reload(); });
 </script>
 </body>
 </html>

@@ -186,7 +186,11 @@ const KID = 2189, TAG = "NXS";
 const LS = "nxs-watch-v1";
 const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
 const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
-let lang = store.lang || "en";
+/* one language for all officer tabs (set from the main site when you enter, and by the language button on any tab) */
+const OFFICER_LANG = "nxs-officer-lang";
+const officerLang = () => { try { const v = localStorage.getItem(OFFICER_LANG); return v === "zh" || v === "en" ? v : null; } catch (e) { return null; } };
+const setOfficerLang = (v) => { try { localStorage.setItem(OFFICER_LANG, v); } catch (e) {} };
+let lang = officerLang() || store.lang || "en";
 let newDays = store.newDays || 14;
 let rivals = store.rivals ?? "RED, ESA, NBD";
 let farms = store.farms ?? "nxs, VZP";
@@ -487,7 +491,7 @@ $("csvBtn").onclick = () => {
   const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
   a.download = `nxs-watch-${new Date().toISOString().slice(0, 10)}.csv`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 };
-$("langBtn").onclick = () => { lang = lang === "zh" ? "en" : "zh"; store.lang = lang; save(); applyTexts(); if (watch) { build(); render(); } };
+$("langBtn").onclick = () => { lang = lang === "zh" ? "en" : "zh"; store.lang = lang; save(); setOfficerLang(lang); applyTexts(); if (watch) { build(); render(); } };
 $("q").oninput = () => render();
 $("onlyFlag").onchange = () => render();
 $("newDays").value = newDays;
@@ -545,6 +549,9 @@ async function officerGate(onOk) {
 }
 try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
 officerGate(init);
+
+// coming back to this tab with the browser's Back button: follow a language change made on another tab
+window.addEventListener("pageshow", (e) => { if (e.persisted && officerLang() && officerLang() !== lang) location.reload(); });
 </script>
 </body>
 </html>

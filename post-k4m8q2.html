@@ -311,7 +311,11 @@ const T = {
 const $ = (id) => document.getElementById(id);
 const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
 const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
-let ui = store.ui || ((navigator.language || "").startsWith("zh") ? "zh" : "en");
+/* one language for all officer tabs (set from the main site when you enter, and by the language button on any tab) */
+const OFFICER_LANG = "nxs-officer-lang";
+const officerLang = () => { try { const v = localStorage.getItem(OFFICER_LANG); return v === "zh" || v === "en" ? v : null; } catch (e) { return null; } };
+const setOfficerLang = (v) => { try { localStorage.setItem(OFFICER_LANG, v); } catch (e) {} };
+let ui = officerLang() || store.ui || ((navigator.language || "").startsWith("zh") ? "zh" : "en");
 const tr = (k) => T[ui][k] ?? T.en[k] ?? k;
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 let TOKEN = null;
@@ -653,7 +657,7 @@ async function init() {
 }
 
 /* ===== events ===== */
-$("langBtn").onclick = () => { ui = ui === "zh" ? "en" : "zh"; store.ui = ui; save(); applyTexts(); if (!$("app").hidden) { renderPreview(); loadList(); } };
+$("langBtn").onclick = () => { ui = ui === "zh" ? "en" : "zh"; store.ui = ui; save(); setOfficerLang(ui); applyTexts(); if (!$("app").hidden) { renderPreview(); loadList(); } };
 $("unlockBtn").onclick = () => tryUnlock($("pw").value);
 $("pw").onkeydown = (e) => { if (e.key === "Enter") tryUnlock($("pw").value); };
 ["annTitle", "body", "guide", "srcLang"].forEach((id) => $(id).addEventListener("input", renderPreview));
@@ -724,6 +728,9 @@ $("resetupBtn").onclick = () => { $("app").hidden = true; $("setupCard").hidden 
 
 try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
 init();
+
+// coming back to this tab with the browser's Back button: follow a language change made on another tab
+window.addEventListener("pageshow", (e) => { if (e.persisted && officerLang() && officerLang() !== ui) location.reload(); });
 </script>
 </body>
 </html>
