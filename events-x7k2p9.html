@@ -65,7 +65,10 @@
   .grid2 { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 8px; }
   .grid3 > div, .grid2 > div { min-width: 0; }
   .inp { display: block; min-width: 0; max-width: 100%; }
-  input[type=date].inp { -webkit-appearance: none; appearance: none; min-height: 40px; text-align: left; }
+  .datebox { position: relative; display: flex; gap: 6px; align-items: center; }
+  .datebox .inp { flex: 1; }
+  .datebox .btn { flex: none; }
+  #edPicker { position: absolute; right: 0; bottom: 0; width: 1px; height: 1px; opacity: 0; border: 0; padding: 0; pointer-events: none; }
   @media (max-width: 520px) { .grid3 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .grid3 > div:first-child { grid-column: 1 / -1; } }
   .todo-ed .due { display: flex; align-items: center; gap: 8px; font-size: 13px; flex-wrap: wrap; }
   .todo-ed .due .inp { width: 80px; }
@@ -145,7 +148,9 @@
       </div>
       <label class="f"><input type="checkbox" id="edFixed"> <span data-t="fFixed"></span></label>
       <div id="edSched" class="grid3">
-        <div><label class="f" data-t="fStart"></label><input class="inp" type="date" id="edStart"></div>
+        <div><label class="f" data-t="fStart"></label>
+          <div class="datebox"><input class="inp" id="edStart" inputmode="numeric" placeholder="YYYY-MM-DD" maxlength="10" autocomplete="off"><button type="button" class="btn small" id="edPick">📅</button><input type="date" id="edPicker" tabindex="-1" aria-hidden="true"></div>
+          <div class="sched" id="edStartTxt"></div></div>
         <div><label class="f" data-t="fEvery"></label><input class="inp" type="number" min="1" id="edEvery"></div>
         <div><label class="f" data-t="fDays"></label><input class="inp" type="number" min="1" id="edDays"></div>
       </div>
@@ -427,7 +432,7 @@ const T = {
     tdPost: "Announcement button", tdRank: "Ranking button",
     fIngame: "In-game guides", fIngameSm: "(one box = one chat message; the game limits message length, so keep long guides in several boxes)", addIg: "+ Message", igTitle: "Title", igText: "Text",
     del: "Delete event", cancel: "Cancel", save: "💾 Save",
-    needName: "Please enter a name.", needSched: "Please fill in the first day, repeat and length.",
+    needName: "Please enter a name.", needSched: "Please fill in the first day (YYYY-MM-DD), repeat and length.",
     confirmDel: "Delete this event for everyone?", saving: "Saving…", saved: "Saved ✅ Other officers see it after refreshing (about 1 minute).",
     errAuth: "The saved GitHub key no longer works. Ask Sherry to redo the setup on the Post tab.",
     errBusy: "Someone else changed the events meanwhile. Refresh the page and try again.", errNet: "Couldn't reach GitHub. Try again.",
@@ -455,7 +460,7 @@ const T = {
     tdPost: "顯示「寫公告」按鈕", tdRank: "顯示「Ranking」按鈕",
     fIngame: "遊戲內指南", fIngameSm: "（一格 = 一則聊天訊息；遊戲有字數限制，長的指南請分成好幾格）", addIg: "+ 訊息", igTitle: "標題", igText: "內容",
     del: "刪除活動", cancel: "取消", save: "💾 儲存",
-    needName: "請填寫名稱。", needSched: "請填寫第一天、週期和持續天數。",
+    needName: "請填寫名稱。", needSched: "請填寫第一天（YYYY-MM-DD）、週期和持續天數。",
     confirmDel: "確定要刪除這個活動？所有幹部都會看不到。", saving: "儲存中…", saved: "已儲存 ✅ 其他幹部重新整理後就會看到（約 1 分鐘）。",
     errAuth: "存的 GitHub 權杖已經不能用了，請 Sherry 到 Post 分頁重新設定。",
     errBusy: "剛好有人也在改活動，請重新整理頁面再試一次。", errNet: "連不上 GitHub，請再試一次。",
@@ -676,7 +681,7 @@ function openEditor(id) {
   $("edEmoji").value = e.emoji || ""; $("edName").value = e[lang] || e[lang === "zh" ? "en" : "zh"] || "";
   const fixed = !!(e.start && e.every > 0);
   $("edFixed").checked = fixed; $("edSched").hidden = !fixed;
-  $("edStart").value = e.start || isoDay(utcDay(Date.now())); $("edEvery").value = e.every || 7; $("edDays").value = e.days || 1;
+  $("edStart").value = e.start || isoDay(utcDay(Date.now())); showStart(); $("edEvery").value = e.every || 7; $("edDays").value = e.days || 1;
   $("edNote").value = noteOf(e);
   $("edGuide").innerHTML = `<option value="">${esc(tr("noGuide"))}</option>` + Object.entries(GUIDE_LIST).map(([k, g]) => `<option value="${k}">${g.e} ${esc(g[lang] || g.en)}</option>`).join("");
   $("edGuide").value = e.guide || "";
@@ -685,6 +690,17 @@ function openEditor(id) {
   $("edDel").hidden = !id; $("edMsg").textContent = "";
   $("editor").hidden = false; $("editor").scrollTop = 0;
 }
+/* first day: typed as YYYY-MM-DD (so it never shows in the phone's own language); 📅 opens the phone's date picker */
+function showStart() {
+  const v = $("edStart").value.trim(), ok = /^\d{4}-\d\d-\d\d$/.test(v) && !isNaN(dayMs(v));
+  $("edStartTxt").textContent = ok ? fmt(dayMs(v)) : "";
+}
+$("edStart").oninput = showStart;
+$("edPick").onclick = () => {
+  const p = $("edPicker"); if (/^\d{4}-\d\d-\d\d$/.test($("edStart").value)) p.value = $("edStart").value;
+  try { p.showPicker(); } catch (e) { p.focus(); p.click(); }
+};
+$("edPicker").onchange = () => { if ($("edPicker").value) { $("edStart").value = $("edPicker").value; showStart(); } };
 $("edFixed").onchange = () => { $("edSched").hidden = !$("edFixed").checked; };
 $("edAddTodo").onclick = () => $("edTodos").insertAdjacentHTML("beforeend", todoRow({ due: -1 }));
 $("edAddIg").onclick = () => $("edIgs").insertAdjacentHTML("beforeend", igRow());
@@ -698,8 +714,8 @@ function readEditor() {
   if (!e[lang]) throw new Error(tr("needName"));
   if (!e[other]) e[other] = e[lang];
   if ($("edFixed").checked) {
-    e.start = $("edStart").value; e.every = Math.round(+$("edEvery").value); e.days = Math.round(+$("edDays").value);
-    if (!/^\d{4}-\d\d-\d\d$/.test(e.start) || !(e.every > 0) || !(e.days > 0)) throw new Error(tr("needSched"));
+    e.start = $("edStart").value.trim(); e.every = Math.round(+$("edEvery").value); e.days = Math.round(+$("edDays").value);
+    if (!/^\d{4}-\d\d-\d\d$/.test(e.start) || isNaN(dayMs(e.start)) || !(e.every > 0) || !(e.days > 0)) throw new Error(tr("needSched"));
   } else { e.start = ""; e.every = 0; e.days = 0; }
   const nv = $("edNote").value.trim();
   if (lang === "zh") e.noteZh = nv; else e.note = nv;
