@@ -523,6 +523,9 @@ RINGKASAN
 Pemain F2P: Fokus pada Zoe (tank infanteri), Jabel (kavaleri), dan Petra (kavaleri ofensif) dari hero roulette
 Pemain P2W: Prioritaskan Amadeus (VIP 7+) dan Hilde untuk dampak maksimal
 
+### GUIDE #hero-cards — Kartu Hero (Gen 1–3)
+Satu kartu per hero: apa kegunaan masing-masing. Peringkatnya berasal dari obrolan "Heroes Guide" di dalam game, yang diselamatkan pemilik situs sesaat sebelum obrolan itu hilang. Gunakan filter untuk mencari, misalnya, peserta Bear Hunt terbaik.
+
 ### GUIDE #kvk — Panduan Persiapan & Pertempuran KvK
 Truegold
 ✅

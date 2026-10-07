@@ -523,6 +523,9 @@ SUMMARY
 F2P Players: Focus on Zoe (infantry tank), Jabel (cavalry), and Petra (offensive cavalry) from hero roulette
 P2W Players: Prioritize Amadeus (VIP 7+) and Hilde for maximum impact
 
+### GUIDE #hero-cards — Hero Cards (Gen 1–3)
+One card per hero: what each one is good for. The ratings come from the in-game "Heroes Guide" chat, rescued by the site owner moments before it disappeared. Use the filters to find, for example, the best Bear Hunt joiners.
+
 ### GUIDE #kvk — KvK Prep & Battle Guide
 Truegold
 ✅

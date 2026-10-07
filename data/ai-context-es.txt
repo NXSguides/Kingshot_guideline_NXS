@@ -523,6 +523,9 @@ RESUMEN
 Jugadores F2P: Prioriza a Zoe (tanque de infantería), Jabel (caballería) y Petra (caballería ofensiva) de la ruleta de héroes
 Jugadores P2W: Prioriza a Amadeus (VIP 7+) y Hilde para el máximo impacto
 
+### GUIDE #hero-cards — Fichas de héroes (Gen 1–3)
+Una ficha por héroe: para qué sirve cada uno. Las valoraciones vienen del chat "Heroes Guide" del juego, rescatado por la dueña del sitio justo antes de que desapareciera. Usa los filtros para encontrar, por ejemplo, los mejores participantes de Cacería del Oso.
+
 ### GUIDE #kvk — Guía de Preparación y Batalla KvK
 Adamantina
 ✅

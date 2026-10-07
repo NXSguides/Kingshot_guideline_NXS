@@ -523,6 +523,9 @@ Rulet kahramanları genellikle en güvenli F2P yatırımlarındır. Kaynakların
 F2P Oyuncuları: Kahraman ruletinde Zoe (piyade tankı), Jabel (süvari) ve Petra'ya (saldırı süvarisi) odaklan
 P2W Oyuncuları: Maksimum etki için Amadeus (VIP 7+) ve Hilde'ya öncelik ver
 
+### GUIDE #hero-cards — Kahraman Kartları (1–3. Nesil)
+Her kahraman için bir kart: hangi işe yaradığı. Puanlar, oyun içindeki "Heroes Guide" sohbetinden geliyor; site sahibi onları sohbet kaybolmadan hemen önce kurtardı. Filtrelerle örneğin en iyi Ayı Avı katılımcılarını bulabilirsin.
+
 ### GUIDE #kvk — KvK Hazırlık ve Savaş Rehberi
 Hasaltın
 ✅
