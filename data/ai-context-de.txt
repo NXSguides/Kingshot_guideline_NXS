@@ -1,0 +1,1614 @@
+### GUIDE #viking-vengeance — Wikinger-Rache
+WANN
+Alle 2 Wochen — zwei 30-Minuten-Sitzungen an Tag 1 und Tag 3. Die Führung legt die Zeiten fest, meist in der Nähe der Bärenjagd-Zeiten.
+📌 VORBEREITUNG
+Leere deine Stadt
+Schicke ALLE Infanterie und Kavallerie los, um Allianzmitglieder zu verstärken.
+Überzählige Bogenschützen können zu Hause bleiben — sie stehlen keine Verstärkungspunkte.
+Auch wenn du während des Events offline bist: Leere deine Stadt vorher! Du kannst trotzdem Punkte sammeln und gibst anderen Mitgliedern die Chance, Punkte zu sammeln, indem sie dich verstärken.
+Die besten 3 Helden bleiben zu Hause
+Lass deine besten 3 Verteidigungs-/Angriffshelden in deinem Wachposten.
+F2P: Jabel / Howard / Quinn
+P2W: Amadeus oder Helga / Jabel / Saul
+NICHT HEILEN
+Geheilte Truppen kehren nach Hause zurück und können den Mitgliedern, die dich verstärken, Kills/Punkte wegnehmen.
+Aktive Mitglieder zuerst
+Verstärke zuerst Online-Mitglieder. Die Wellen 7, 14 und 17 greifen nur Online-Spieler an.
+⚔️ VERBÜNDETE VERSTÄRKEN
+Nutze deine Bärenjagd-Joiner-Helden an Position 1, um die Kill-Punkte zu maximieren.
+Empfohlen: Chenko / Amane / Yeonwoo / Amadeus
+Vermeide Verteidigungshelden wie Howard oder Gordon in Verstärkungsmärschen.
+🏛️ HQ — WELLEN 10 & 20
+Die Wellen 10 und 20 greifen NUR das HQ an. Angriffe auf Städte pausieren in diesen Wellen.
+Nachdem Welle 9 / 19 vorbei ist:
+Rufe EINEN starken Marsch zurück.
+Schicke ihn direkt zum HQ.
+Maximal 68K Truppen pro Mitglied.
+Nutze Chenko oder Amadeus an Position 1 oder deinen stärksten Helden mit reinem Schaden.
+Rufe nach der HQ-Welle zurück und verstärke wieder das dir zugewiesene Mitglied.
+⚠️ WICHTIG: Du kannst das HQ in Welle 10 ODER Welle 20 verstärken — NICHT BEIDE.
+Stimme dich mit R4/R5 ab, damit jeder an die Reihe kommt und wir das HQ effizient füllen.
+
+### GUIDE #master-academy — Gen-3-Meisterakademie-Leitfaden
+WANN
+Gen 3 startet am 28.09. und schaltet die Meisterakademie ab Stadtzentrum 25 frei. Meister geben dauerhafte passive Konto-Boni, zusätzliche Ressourcen und Event-Belohnungen. Sie sind unabhängig von den Helden.
+SO FUNKTIONIERT DAS FREISCHALTEN
+Valora ist IMMER dein erster Meister und wird über die normale Reichsreise entdeckt.
+Kostenlose Reisevorräte: um 00:00 UTC kommen automatisch 20, um 08:00 und 16:00 je 10, die du manuell abholen musst — insgesamt 40 pro Tag. Zusätzlich kannst du bis zu 20 pro Tag mit Edelsteine kaufen (1.000 Edelsteine pro 5). Bei vollem Lager wird nicht mehr aufgefüllt, also regelmäßig verwenden.
+Verwende KEINEN Abenteuervorrat für Valora — die kostenlosen Reisevorräte schalten sie von selbst frei.
+SPARE deinen Abenteuervorrat für Pan und Roman in den Verlorene Lande, sobald sie entdeckt sind.
+Ab 1.000 Affinität lässt sich ein Meister in deiner Stadt nieder.
+PRIORITÄT FÜR F2P & WENIGZAHLER
+Pan ➔ Valora ➔ Roman
+1. Pan — der Wirtschafts-Meister (höchste Priorität)
+Bring Pan auf Lv. 60.
+Talent: 5 Reserve-Truhen pro 120 Minuten Sammeln (max. 30 pro Tag) — gratis Echtgold, Edelsteine und Beschleunigungen.
+Fertigkeit 1 Falkner: +8 Geheimdienst-Missionen pro Tag → viel kostenloses tägliches Echtgold.
+Fertigkeit 4 Mittel und Wege: +120 mysteriöse Abzeichen aus täglichen Missionen und +4 kostenlose Aktualisierungen im Rätsel-Laden → vergünstigte Elemente.
+🔗 Details: https://kingshotoptimizer.com/masters/pan/
+2. Valora — Bärenjagd-Ausrüstungsmaterialien
+Bring sie auf Lv. 30 (Bekannter 3 / Zwanglos 1).
+Fertigkeit 2 Vorbildlicher Anführer: +5 × 100 Verbesserungs-XP pro Bärenjagd.
+Fertigkeit 3 Waffenbesessenheit: +5 Schmiedehammer pro Bärenjagd.
+🔗 Details: https://kingshotoptimizer.com/masters/valora/
+3. Roman — Arena-Passiv
+Nur freischalten (1.000 Affinität): Sein Talent gibt schon mit 50 % Chance zusätzliche Arenastern-Truhen nach jedem Arenakampf (Helden-Fragmente & Schmiedehammer); erst auf Maximalstufe sind es 3 Stück mit 100 % Chance. Früh ist keine große Meister-Embleme-Investition nötig.
+🔗 Details: https://kingshotoptimizer.com/masters/roman/
+PRIORITÄT FÜR WALE & RALLY-ANFÜHRER
+Valora ➔ Roman ➔ Pan
+Valora: Vorteil des Wilden und Tanz der Jagd maximieren — für hohe Ranglistenpunkte.
+Tanz der Jagd (Fertigkeit 1): Wenn du den Rally gegen den Wütender Bär startest, steigt die Kapazität des gesamten Rallys um +30.000 pro Stufe (Stufe 10: +300.000) — mehr Truppen deiner Mitglieder passen hinein.
+Vorteil des Wilden (Fertigkeit 4): Kapazität deiner eigenen Schwadron bei Teilnahme an der Bärenjagd +3.000 pro Stufe (Stufe 10: +30.000).
+Roman: Lehrer der Champions & Ein Verlangen (+20 % Angriff & Gesundheit in Arenaschlachten), Alles oder nichts (+50 % tägliche/wöchentliche Arenatoken-Belohnungen), Held der Massen (3 zusätzliche Gegenstände in der Arena mit 50 % Rabatt).
+Pan: als Zweites leveln für passives Echtgold.
+ℹ️ Fertigkeit 1 Tanz der Jagd erhöht die Kapazität des gesamten Rallys, den du startest. Fertigkeit 4 Vorteil des Wilden erhöht nur deine eigene Schwadron — wie viel der Rally insgesamt fasst, hängt vom Rally-Leiter ab.
+💬 Reichsreise: Q&A-Belohnungen
+Die folgende Liste basiert auf der Seite oben. Wenn ein Ereignis auftaucht, such es anhand von Farbe und Inhalt: Farbe oder Figur / Stichwort wählen, dann auf das Ereignis tippen, um die beste Option (✅) zu sehen.
+
+### GUIDE #general-tips — Allgemeine Tipps
+🔗 RESSOURCEN
+🗓️ KÖNIGREICH-ZEITPLAN
+Sieh, was als Nächstes kommt, und plane Events, Upgrades und Ressourcen im Voraus.
+⚔️ HELDENAUSRÜSTUNGS-OPTIMIERER
+Plane deine Heldenausrüstung-Upgrades und verschwende keine wertvollen Materialien.
+🎥 YOUTUBE – STRAT GAME SLOTH
+Empfohlene Strategievideos, Spieltipps und Fortschrittsratschläge.
+🛒 SHOPS IM SPIEL
+Was du in jedem Shop für den besten Wert priorisieren solltest.
+🐪 Nomaden Händler
+Fortgeschrittene Umsiedlung für Ressourcen / gratis
+Günstige Ressourcentausche
+Reduzierte VIP XP
+🎲 Rätsel
+Tägliche Gratis-Aktualisierung
+2. Gen.Held Elementkiste bei 50 % Rabatt
+20 % Rabatt nur bei dringendem Bedarf
+🏟️ Arena
+Wöchentlich Mythische Heldenausrüstungs Kiste → danach Mithril, sobald die mythische Ausrüstungsbasis deiner Haupthelden steht
+👑 VIP
+Edelsteine gezielt für Rabatte ausgeben: Fortgeschrittene Umsiedlung • 100 Verbesserungs-XP • Schmiedehammer
+🏆 Meisterschafts Laden
+Vor Freischaltung der Meisterakademie: Die Vision des Handwerkers • Vergoldete Fäden / Satin nach Bedarf
+Nach der Freischaltung: Meister-Embleme haben Priorität Nr. 1 — im Late Game Token dafür sparen
+⚔️ Schwertland
+Die Vision des Handwerkers → dann, was dich gerade bremst: Gouverneur-Talisman- / Gouverneur-Ausrüstung-Materialien • Schmiedehammer
+🏰 Königreich der Macht
+Echtgold — ein großer langfristiger Engpass
+🎨 Verkleidung
+Dauerhafte Wert-Boni zuerst, z. B. Haus der Kakteen: +2 % Schwadron Angriff
+🧪 Prüfungsladen
+Vor Truegold Dust: Prüfungskristall SPAREN
+Danach: Truegold Dust → Mithril → Verbesserungs-XP → Talismanpläne
+💎 Edelstein
+Gib Edelsteine nur für wichtige Fortschrittsschwellen oder schwer erhältliche Materialien aus.
+Im Zweifel: EDELSTEINE SPAREN. Siehe den Edelstein-Leitfaden unten.
+🤝 Allianz – Laden
+Transfer-Pass • VIP XP • Begleittier-Futter / -Materialien • Fortgeschrittene Umsiedlung • nützliche 70 %-Rabatte • Beschleunigungen nur mit überschüssigen Allianz-Token
+💎 EDELSTEIN-LEITFADEN
+Spare Edelsteine für:
+1) 🎡 Helden Roulette → ca. 162.000 Edelsteine für 120 Drehungen
+2) 👑 VIP-Aktivierung → 10.000 Edelsteine/Monat (ab VIP 4)
+🏛️ Halle der Helden → ca. 13.500–14.850 Edelsteine, NUR wenn Marlin noch nicht freigeschaltet ist. Danach aufhören — dann sind allgemeine Fragmente für Upgrades wertvoller.
+✅ TÄGLICHE CHECKLISTE
+☀️ WÄHREND DU ONLINE BIST
+☐ 🎁 VIP-Truhe abholen + VIP XP verwenden
+☐ 🤝 Allianz-Hilfe + zur Allianz-Technologie beitragen
+☐ 📊 Helden-EP-Gegenstände verwenden
+☐ ⚔️ Lager erobern (Lager der Eroberer)
+☐ 🔎 Geheimdienst-Missionen abschließen
+☐ 🏝️ Wasser-Essenz auf der Insel sammeln + Verbündeten helfen
+☐ 🔮 Versuche der Mystische Prüfung nutzen
+☐ 📋 Tägliche Missionen (Täglich) erledigen
+☐ 🏟️ Arena des Ruhms 3 Minuten vor dem Reset spielen
+☐ 🐻 Bärenjagd — jeden zweiten Tag + Formationen aktualisieren
+☐ 📅 Für aktive Events anmelden und teilnehmen
+🌙 VOR DEM AUSLOGGEN
+☐ 🐉 Begleittiere auf Begleittier Abenteuer schicken
+☐ 🌾 Sammeln-Märsche losschicken
+☐ ⚔️ Truppen-Training aktiv halten
+☐ 🔬 Forschung / Bau nach Bedarf aktiv halten
+
+### GUIDE #mystic-trial — Mystische Prüfung
+WANN
+Jeden Tag verfügbar. Jede Zone hat 5 Versuche pro Tag, zurückgesetzt um 00:00 UTC. Welche Zonen offen sind, hängt vom Wochentag ab.
+WARUM ES WICHTIG IST
+Wichtige Quelle für Helden-Fragment, Helden-EP und weitere Fortschrittsbelohnungen.
+PRÜFUNGSZONEN
+Kolosseum
+Montag & Dienstag
+⚔️ Infanterie 50% · Kavallerie 10% · Bogenschütze 40%
+⚔️ Infanterie 60% · Kavallerie 15% · Bogenschütze 25%
+Es zählen nur die Werte von Helden, Heldenausrüstung und Helden Exklusive Ausrüstung.
+Wald des Lebens
+Mittwoch & Donnerstag
+⚔️ Infanterie 50% · Kavallerie 15% · Bogenschütze 35%
+⚔️ Infanterie 55% · Kavallerie 10% · Bogenschütze 35%
+Es zählen nur die Werte der Begleittiere.
+Begleittierfähigkeiten sind standardmäßig aktiv; ihre Effekte sind nicht stapelbar.
+Kristallhöhle
+⚔️ Infanterie 60% · Kavallerie 20% · Bogenschütze 20%
+⚔️ Infanterie 55% · Kavallerie 5% · Bogenschütze 40%
+Es zählen nur die Werte von Gouverneur-Talisman.
+Wissensverbund
+Freitag & Samstag
+⚔️ Infanterie 50% · Kavallerie 20% · Bogenschütze 30%
+Es zählen nur die Technologie-Werte von Akademie und Kriegsakademie.
+Falls freigeschaltet, werden hier Soldaten höherer Level eingesetzt.
+Geschmolzenes Fort
+⚔️ Infanterie 50% · Kavallerie 18% · Bogenschütze 32%
+Es zählen nur die Werte von Gouverneur-Ausrüstung.
+Strahlende Spitze
+Sonntag
+Fast alles zählt: Helden, Heldenausrüstung, Helden Exklusive Ausrüstung, Begleittiere (Begleittierfähigkeiten standardmäßig aktiv), Gouverneur-Talisman, Technologien, Echtgold-Technologie, Gouverneur-Ausrüstung, Verkleidung, Oasen Insel und VIP-Level.
+Du kämpfst mit deinen eigenen Soldaten – ohne Verluste und ohne Auswirkung auf deinen Einsatz auf der Weltkarte.
+In den anderen fünf Zonen stellen die Prüferkunder Lv.10-Soldaten bereit – verbessere einfach die Werte, die die Zone braucht. Wer die Stufen 1–10 einer Zone abschließt, schaltet die Überfall-Funktion frei.
+
+### GUIDE #pet — Begleittiere
+🔧 Begleittierfertigkeit (außerhalb des Kampfes)
+🔹 Grauer Wolf – Bauhilfe: Bau- & Aufwertungsgeschwindigkeit ↑ für 5 Min.
+🔹 Luchs – Tröstliche Umarmung: stellt sofort Gouverneur-Ausdauer wieder her
+🔹 Bison – Griff des Titanen: schließt das Sammeln am nächsten Ressourcenfeld in der Wildnis sofort ab (nicht bei Allianzknoten)
+🔹 Cheetah – Beherrschung der Düfte: findet sofort Begleittier-Futter
+🔹 Löwe – Geschenk des Königs: gräbt einen verlorenen Gegenstand aus (z. B. Schmiedehammer, Echtgold, Talisman- & Ausrüstungsmaterialien)
+⚔️ Begleittierfertigkeit (Kampf)
+🔹 Elch – Horrorblick: Gesundheit der gegnerischen Schwadron ↓ für 2 Std.
+🔹 Grizzlybär – Der Heuler: Marschgeschwindigkeit ↑ + Tödlichkeit der gegnerischen Schwadron ↓ für 2 Std.
+📍 Wo wirkt eine ⚔️ Begleittierfertigkeit?
+✅ Bestien, Rebellen, Terror-Rallys & Höllenwolf — wirkt
+❌ Bärenjagd — Schwächungen des Gegners wirken nicht (der Bär hat keine Lebensleiste)
+👑 Rally: Nur die ⚔️ Begleittierfertigkeit des Rally-Anführers zählt
+Vollständiger Guide: https://kingshotmastery.com/guides/kingshot-pet-guide
+ℹ️ Der Inhalt ist zu lang zum Übersetzen – bitte öffne den Link und lies ihn dort.
+
+### GUIDE #install-app — Als App installieren
+Ist das sicher?
+Es ist kein heruntergeladenes Programm (keine APK), sondern diese Website auf deinem Startbildschirm – sie läuft wie jede Webseite in Safari/Chrome.
+Sie fragt nach keinen Berechtigungen: keine Kamera, Kontakte, Standort, Dateien oder Benachrichtigungen.
+Jederzeit entfernbar: Symbol lange drücken und löschen, wie bei jeder App.
+iPhone / iPad
+Öffne diese Seite in Safari (andere Browser können sie nicht installieren).
+Tippe unten auf die Teilen-Taste (Quadrat mit Pfeil).
+Tippe auf View More (die ⌄-Taste), um das ganze Menü zu öffnen. Bei älteren iOS-Versionen einfach nach unten scrollen.
+Tippe auf Zum Home-Bildschirm.
+Lass Open as Web App (Als Web-App öffnen) eingeschaltet und tippe auf Hinzufügen.
+Das NXS-Symbol erscheint jetzt auf deinem Home-Bildschirm.
+Android
+1. Öffne diese Seite in Chrome.
+2. Tippe oben rechts auf ⋮.
+3. Tippe auf App installieren (oder Zum Startbildschirm hinzufügen) und dann auf Installieren.
+Gut zu wissen
+Das NXS-Symbol erscheint auf deinem Startbildschirm und öffnet sich im Vollbild wie eine App.
+Beim ersten Öffnen wählst du deine Sprache – danach wird sie gespeichert. Mit 🌐 kannst du sie ändern.
+Bereits geöffnete Seiten kannst du auch offline lesen.
+Updates kommen automatisch – keine Neuinstallation nötig.
+Je nach Handy und Systemversion können die Tasten etwas anders heißen.
+
+### GUIDE #bear-hunt — Bärenjagd
+🆕 GEN-3-UPDATE
+Rally-Anführer: Beste — Helga + Petra + Marlin (10:20:70), nur wenn Helga 5★ + max. Element hat. Alternative — Amadeus + Petra + Marlin (20:30:50). F2P — Zoe + Petra + Quinn (20:40:40).
+Teilnehmer – zuerst schicken: Chenko, Yeonwoo, Amadeus, Amane (fester Tödlichkeit-Bonus).
+⚠️ Nur EINER pro Rally: Marlin, Zoe, Jaeger, Petra – ihr zufallsbasierter Schaden stapelt sich NICHT.
+Details weiter unten ↓
+WANN
+Alle 2 Tage zur geplanten Zeit eurer Allianz.
+WARUM ES ZÄHLT
+Hauptquelle für Heldenausrüstungs-Material (Forgehammer) und Verbesserungs-XP.
+VORBEREITUNG
+Aktualisiert eure Trupp Formationen vor jeder Bärenjagd.
+Optional: Mit https://frakinator.streamlit.app Truppenverhältnisse testen und die stärkste Formation finden.
+Ruft sammelnde Truppen vor Eventbeginn zurück.
+In den letzten 5–7 Minuten sollte jeder einen Rally starten. So entstehen mehr Plätze für Spieler, deren Truppen zurückkehren — für den finalen Schadensschub.
+RALLY-ANFÜHRER
+⚠️ Regel: Starte deine eigene Rally mit maximalen Truppen, aber wenn du anderen Rallys beitrittst, gilt auch für dich das Limit von genau 90.000 Truppen. Zu Beginn schicken die Haupt-Rallyleiter ihre erste Rally zu ihrer zugewiesenen, versetzten Zeit.
+GEN 1
+GEN 2
+GEN 3
+GEN 4
+GEN 5
+Infanterie ist hier oft am stärksten, weil Amadeus stark ist; eine etwa gleiche Aufteilung mit etwas mehr Bogenschützen funktioniert am besten.
+Für Spieler ohne Amadeus — so bleibt Amadeus frei, um fremde Rallys zu joinen.
+F2P-Spieler sollten immer ihre drei stärksten verfügbaren Helden als Anführer nehmen.
+Marlin steigert den Schaden durch seine Rally-exklusive Tödlichkeitsausrüstung; Infanterie bleibt Amadeus oder Helga.
+Quinn statt Marlin, wenn Marlin noch nicht stark genug ist; Helga nur, wenn Amadeus noch nicht voll ausgerüstet ist.
+Noch kein F2P-Bogenschützenheld mit Rally-Ausrüstung, daher bleiben Bogenschützen der schwächste Stat.
+Voll ausgerüstete Helga (2 Tödlichkeit + 1 Angriff) übertrifft hier Amadeus (1 Tödlichkeit + 2 Angriff).
+Amadeus nehmen, wenn Helga noch nicht voll ausgerüstet ist.
+Erster F2P-Held mit Rally-Ausrüstung (Petra); Bogenschützen bleiben am schwächsten, maxed Kavallerie passt aber gut zu Petra. Wenn du T3-Kavallerie freischaltest, wird Petra noch stärker, weil ihre 3. Fertigkeit sehr gut zu deren Werten passt.
+So viele (idealerweise maxed) Bogenschützen wie möglich; Rosas 3. Skill kann den Bogenschützen-Gesamtschaden um 30% steigern.
+Helga nehmen, wenn ihr Stern-/Ausrüstungsgrad über Amadeus liegt.
+Gleiche Idee wie die Alternative — Rosas 3. Skill glänzt am stärksten in bogenschützenlastigen Formationen.
+Die übrigen Anführer-Plätze sind noch nicht veröffentlicht.
+RALLY-TEILNEHMER
+⚠️ Regel: Alle Beitretenden schicken genau 90.000 Truppen in Rallys – speichert eure Märsche vorher. Bei 6:30 verbleibend starten alle Beitretenden ihre eigene Rally mit ihren 3 stärksten Helden. 🔪 Falsche Helden oder falsche Truppenzahl: Kick und Bitte um erneuten Beitritt.
+Standard / sicheres Verhältnis: 10% Infanterie, 10% Kavallerie, und 80% Bogenschützen (oder Varianten wie 20-30-50)
+Priorität – diese zuerst schicken: Diese Helden geben einen festen Tödlichkeit-Bonus, den wertvollsten Bonus für die Bärenjagd.
+MIT VORSICHT VERWENDEN
+⚠️ Helden mit zufallsbasiertem Schaden: starke Effekte, aber sie stapeln sich NICHT. Setze nur EINEN dieser Helden in derselben Rally ein: Marlin, Zoe, Jaeger, Petra.
+🔗 Mehr dazu: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes
+[joiners] Chenko | lethality | Yeonwoo | lethality | Amane | attack | Amadeus | lethality
+[leaders] best | Amadeus | Jabel | Quinn | 30-30-40 | alt | Helga | Jabel | Quinn | 20-40-40 | f2p | Howard | Jabel | Quinn | 30-30-40 | best | Amadeus | Hilde | Marlin | 20-30-50 | alt | Helga | Jabel | Marlin | 20-30-50 | f2p | Zoe | Jabel | Quinn | 30-30-40 | best | Helga | Petra | Marlin | 10-20-70 | alt | Amadeus | Petra | Marlin | 20-30-50 | f2p | Zoe | Petra | Quinn | 20-40-40 | best | Amadeus | Petra | Rosa | 10-10-80 | alt | Helga | Petra | Rosa | 10-10-80 | f2p | Zoe | Petra | Rosa | 10-10-80 | best | Amadeus
+
+### GUIDE #swordland-showdown — Schwertland-Showdown
+📅 WANN
+Alle 2 Wochen — 60-minütiges Allianz-gegen-Allianz-Schlachtfeldevent.
+📋 ANMELDUNG
+⚠️ Nur anmelden, wenn du teilnehmen willst. Angemeldete Spieler, die nicht erscheinen, nehmen einen wertvollen Platz ein und können das Matchmaking beeinflussen.
+100 % können teilnehmen → Battle Request senden
+Nicht sicher → Enthalten
+🎯 HAUPTZIEL
+Gewinne, indem du mehr Allianz-Reliktpunkte sammelst als die gegnerische Allianz.
+Wichtige Gebäude einnehmen und halten
+Angesammelte Punkte schützen
+Frachtzugvorräte sofort einsammeln, wenn Gebäude die Seiten wechseln
+Untergewölbe sammeln, wenn sie erscheinen
+Verstärke nahegelegene Garnisonen, wenn du nicht gerade eine Rally startest
+Lass Märsche nicht untätig herumstehen
+JAGE KEINE Kills quer über die Karte. Zufälliges PvP zerstreut uns und verringert unsere Effektivität. Greife Städte niedrigeren Levels an, wenn es sinnvoll ist; schwäche sie in der Nähe eines gehaltenen Gebäudes.
+🏛️ GEBÄUDE IM ÜBERBLICK
+Zahlen in der Reihenfolge: Allianz-Reliktpunkte / Persönliche Reliktpunkte
+Erste Eroberung
+Fortwährende Besatzung
+Öffnet
+Min.
+/M
+:
+HÖCHSTE
+HOCH
+MITTEL
+Sammelstellen, die regelmäßig erscheinen (zwei Wellen)
+Gebäude mit dem höchsten Punktwert
+Schwächt vom Feind gehaltene Gebäude
+Kampfbonus für die Allianz
+Hochwertige Allianz-Reliktpunkte
+Erzeugt Allianz-Reliktpunkte
+-50 % Teleport-Cooldown
+-50 % Zeit für die Kontrolle von Gebäuden
+🗺️ ZUGEWIESENE ZONEN
+R4 wird bestätigte Mitglieder vor der Schlacht in Teams/Zonen aufteilen.
+Unsere Stärksten Angreifer werden zunächst einer Zone zugewiesen:
+🟣 Lila — Glockenturm
+🟡 Gelb — Königliche Ställe
+🔵 Blau — Nordwestliches Heiligtum
+🟢 Grün — Südwestliches Heiligtum
+Verbleibende Mitglieder werden zugewiesen, eine dieser Zonen/Teams zu unterstützen. Rotation kann je nach Schlachtbedingungen erforderlich sein - überwache immer den Squad Chat für Details.
+Bleib bei deiner zugewiesenen Zone, es sei denn, die Führung sagt dir, dass du dich bewegen sollst.
+🟣 Lila Zone — Glockenturm / Söldnerlager
+🔵 Blaue Zone — Nordwestliches Heiligtum / Abtei
+🟡 Gelbe Zone — Königliche Ställe / Abtei
+🟢 Grüne Zone — Südwestliches Heiligtum / Abtei
+⚪ Mitte
+👥 ROLLEN & VERANTWORTLICHKEITEN
+R4 wird bestätigte Mitglieder in 3 Funktionen aufteilen: Angreifer, Verteidiger und Unterstützer/Joiner basierend auf Stärke.
+1) ⚔️ ANGREIFER
+Wer: Unsere stärksten Spieler. Haben reichlich Fortgeschrittene Umsiedlungen.
+Deine Aufgabe:
+Teleportiere dich in deine zugewiesene Zone & dein Gebäude
+Erobere vorrangige Gebäude
+Greife verwundbare feindliche Burgen im Solo-Angriff an
+Führe wichtige Rallys an
+Bewege dich zum nächsten Ziel, sobald ein Verteidiger übernimmt
+Wenn Feinde in die Nähe deines zugewiesenen Gebäudes teleportieren, ziele auf schwächere oder ungeschützte Burgen
+2) 🛡️ VERTEIDIGER
+Wer: Unsere nächststärksten Spieler mit guter Rally-/Garnisonskapazität.
+Folge deinen zugewiesenen Angreifern (Zone)
+Sobald ein Angreifer ein Gebäude erobert hat, übernimm die Garnisonen, rufe bei Bedarf Verstärkung
+Verstärke bedrohte Ziele
+Befreie Angreifer, damit sie sich zu ihrem nächsten Ziel bewegen können
+3) 🤝 UNTERSTÜTZER / JOINER
+Wer: Im Allgemeinen Mitglieder mit geringerer Stärke und Rally-Joiner.
+Müssen den Rallys der zugewiesenen Verteidiger beitreten
+Verstärke eroberte Gebäude
+Führe Verstärkungen bei Aufforderung im Schnellmarsch aus.
+Operiere aus der Safe Zone heraus, wenn du nicht woanders gebraucht wirst oder weiter von der Reichweite des Feindes entfernt bist
+WICHTIG:
+Wenn der Feind eines unserer eroberten Gebäude angreift und die Kontrolle zum Feind wechselt, teleportiere in die Nähe oder führe sofort einen Schnellmarsch aus und sammle die Frachtzugvorräte/Punkte, bevor sie es tun.
+20 Minuten nach Beginn der Schlacht, Untergewölbe erscheinen. Sende verfügbare Truppen, um sie für zusätzliche Punkte zu sammeln.
+Lass Märsche nicht untätig.
+⏲️ VOR DER SCHLACHT
+Leere dein Lazarett. Halte alle Märsche verfügbar
+Rüste deine stärksten Helden/Ausrüstung aus
+Aktiviere Einsatzcapacity, Angriffs- & Verteidigungsbuffs und Gegenaufklärung
+Halte Fortgeschrittene Umsiedlungen bereit, falls deine Rolle sie erfordert
+Halte Discord nach Möglichkeit geöffnet (zur Referenz für Karte, Zuweisungen, optionaler VC)
+Überprüfe den Allianz-Chat und private Nachrichten
+⚠️ WICHTIG: Am Schlachttag erscheint ein neuer Squad-Chat-Tab. Überwache den Squad-Chat während der gesamten Schlacht.
+⏱️ SCHLACHT-ZEITPLAN
+0:00–15:00
+ERÖFFNUNG
+Sofort sichern:
+#4 Glockenturm
+#7 Königliche Ställe
+Umkämpfen:
+#8 Nordwestliches Heiligtum
+#10 Südwestliches Heiligtum
+Nehmt Abteien, wenn es praktikabel ist, aber opfert dafür keine Kernziele.
+~ 14:30, stärkste Spieler machen sich für das Zentrum bereit.
+15:00
+MACHTGEBÄUDE ÖFFNEN
+#1 Schwertschrein
+#2 Söldnerlager
+#3 Reformationshalle
+Die Führung wird Prioritäten basierend auf den Schlachtbedingungen ansagen.
+⭐ SCHWERTSCHREIN
+Stärkste Angreifer/Verteidiger teleportieren sich zum Zentrum (nicht alle)
+Erobert den Schwertschrein
+Sobald gesichert, hält ein starker Verteidiger die Garnison
+Unterstützer/Joiner müssen im Schnellmarsch Verstärkung senden
+⚠️ Mitglieder in Garnison - verlasst euer Gebäude nicht für den Schwertschrein, es sei denn, die Führung rät dazu. Schützt weiterhin die Heiligtums und andere wichtige Gebäude.
+💪 15:00–45:00
+KONTROLLPHASE
+Hauptziel: Haltet Schwertschrein + Nordwestliches Heiligtum + Südwestliches Heiligtum.
+Haltet nützliche Kontrolle über Glockenturm/Königliche Ställe aufrecht
+Nutzt den Buff der Reformationshalle für große Gefechte
+Nutzt das Söldnerlager, um feindliche Gebäude unter Druck zu setzen
+Sammelt Frachtzugvorräte nach JEDEM Gebäudewechsel ein
+Verstärkt geschwächte Garnisonen
+⛏️ 20:00-60:00
+Untergewölbe
+Untergewölbe erscheinen.
+Unterstützer und alle mit verfügbaren Märschen sollten sie für zusätzliche Punkte sammeln.
+Verlasst nicht eine kritische Verteidigung oder Rally, nur um zu sammeln.
+🏁 LETZTE 15 MINUTEN
+WENN WIR VORNE LIEGEN
+Schützt Schwertschrein und Heiligtums
+Verstärkt Gebäude mit angesammelten Punkten
+Vermeidet unnötiges PvP
+Holt Frachtzugvorräte sofort zurück
+Geht keine unnötigen Risiken ein
+WENN WIR HINTEN LIEGEN
+Setzt feindliche Kerngebäude unter Druck
+Nutzt das Söldnerlager vor koordinierten Angriffen
+Konzentriert Rallys, anstatt wahllos anzugreifen
+Zielt auf wertvolle feindliche Gebäude
+Sammelt jeden gefallenen Punkt nach einem erfolgreichen Wechsel ein
+Letzte 5 Minuten: Ziele > zufällige Kills.
+📌 ZUSAMMENFASSUNG
+Die Gruppen werden in 3 Funktionen aufgeteilt und einer Zone zugewiesen:
+ANGREIFER → EINNEHMEN + DRUCK MACHEN
+VERTEIDIGER → HALTEN + SCHÜTZEN
+UNTERSTÜTZER → VERSTÄRKEN + RALLY + AUFSAMMELN + SAMMELN
+Folge deiner zugewiesenen Zone und Rolle.
+Überwache den Squad-Chat.
+Ziele > zufällige Kills.
+Angreifer erobern — Verteidiger halten — Unterstützer verstärkt.
+Lass nützliche Märsche nie untätig.
+Sammle verstreute Frachtzugvorräte sofort ein.
+Sammle Untergewölbe mit verfügbaren Märschen.
+Schütze Schwertschrein + Heiligtum.
+Verlasse Kerngebäude nicht für Abtei oder Kills.
+Wenn die Führung eine Rotation ausruft, BEWEGE DICH.
+⚔️ KOORDINATION GEWINNT Schwertland
+
+### GUIDE #formations-rally-tips — Trupp-Formationen & Rally-Tipps
+🔬 FORSCHUNGS- & UPGRADE-PRIORITÄTEN
+Priorisiere diese Kampfwerte bei der Forschung und beim Aufwerten der Gouverneur-Talismane:
+Infanterie — Gesundheit
+Bogenschütze — Tödlichkeit
+💾 SPEICHERE DEINE PRESETS
+Je nach Fortschritt kannst du bis zu 8 Slots freischalten, um deine Truppenformationen vorab zu speichern. Empfohlene Formationen zum Speichern:
+Alle Truppenverhältnisse gelten als Infanterie : Kavallerie : Bogenschütze. Speichere für jeden Helden ein eigenes Preset, mit dem Helden ganz links / an erster Position.
+💡 Der Held ganz links ist beim Beitreten zu Rallys wichtig, weil seine passende Expeditionsfähigkeit zur Rally beiträgt.
+1) Bärenjagd: Chenko — 10 : 10 : 80
+2) Bärenjagd: Amane — 10 : 10 : 80 (oder so nah wie möglich)
+3) Bärenjagd: Yeonwoo — 10 : 10 : 80 (oder so nah wie möglich)
+4) Bärenjagd: Amadeus — 10 : 10 : 80 (oder so nah wie möglich)
+5) Angriff (allgemeines PvP): Amadeus (falls ausgebaut) oder Chenko — 50 : 20 : 30
+6) Verteidigung: Howard / Gordon — 60 : 20 : 20 ist unser ausgewogener Standard. Passe es an, wenn die Führung eine bestimmte Formation verlangt.
+Rally-Anführer: Nutze deine stärkste, vollständige Angriffs-Heldenaufstellung.
+Rally-Joiner: Bitte halte dich an die von der Führung angegebenen Truppenlimits.
+7) Wikinger-HQ (Viking HQ): Howard / Gordon — 60 : 40 Truppenlimit beachten (~68.000)
+8) PvE – Bestien / Jagd: Diana + Fahd — 50 : 20 : 30
+🐺 PvE — BESTIEN / JAGD
+Denk beim Höllenwolf daran: Es ist nicht viel Schaden nötig, also schicke so wenige Truppen wie möglich (sogar nur 1), damit mehr Allianzmitglieder der Rally beitreten und von den Rally-Belohnungen profitieren können.
+🏰 Schlacht um das Schloss / Heiligtum / GEBÄUDE
+Beim Erobern von Gebäuden musst du bereit sein, schnell zu wechseln:
+ANGRIFF → VERTEIDIGUNG
+⚔️ 1. EROBERN
+Tritt der ersten Rally mit deinem ANGRIFFS-Preset bei.
+Beispiel: Amadeus / Chenko 50 : 20 : 30
+🛡️ 2. ZUR VERTEIDIGUNG WECHSELN
+Sobald das Gebäude erobert ist:
+1. Sende sofort einen weiteren Marsch mit deinem VERTEIDIGUNGS-Preset. Beispiel: Gordon / Howard 60 : 20 : 20
+2. Beobachte, wie dein Verteidigungsmarsch zum eroberten Gebäude unterwegs ist.
+3. Wenn noch etwa 5 Sekunden Marschzeit übrig sind — oder nach Anweisung der Führung — rufe deinen ursprünglichen ANGRIFFS-Marsch zurück.
+4. Dein VERTEIDIGUNGS-Marsch kommt an und ersetzt deinen Angriffsmarsch in der Garnison.
+🚫 Rufe deinen Angriffsmarsch NICHT zu früh zurück.
+Erobern → Verteidigung senden → ~5 Sek. → Angriff zurückrufen → Verteidigung kommt an
+So können wir von einer Angriffsaufstellung zu einer Verteidigungsgarnison wechseln, ohne das Gebäude unnötig zu schwächen.
+🪖 GARNISONS-TRUPPENLIMIT
+Nur 15 Gouverneure können in das HQ / Heiligtum gelangen. Schicke deshalb nicht automatisch deinen maximalen Marsch ins HQ, ins Heiligtum oder zu anderen umkämpften Gebäuden.
+Halte dich an das von der Führung angekündigte Truppenlimit.
+Typisches Allianzziel: ~68.000 Truppen pro Spieler
+So passen mehr Allianzmitglieder mit richtig konfigurierten Verteidigungsmärschen in die Garnison und erhalten Belohnungen.
+⚠️ Wenn die Führung ein anderes Limit ankündigt, halte dich immer an die angekündigte Zahl.
+Zum Beispiel: Bei einem Truppenlimit von 68K kannst du diese Zahl in einen Taschenrechner eingeben und direkt in das Feld des jeweiligen Truppentyps übertragen. Hier sind drei Beispiele:
+60/20/20 ➡️ 40.800 / 13.600 / 13.600
+60/40 ➡️ 40.800 / 27.200
+50/20/30 ➡️ 34.000 / 13.600 / 20.400
+🎬 SO WECHSELST DU VON ANGRIFFS- ZU VERTEIDIGUNGSHELDEN
+📎 Video aus dem Internet (TikTok @yelloe_hair) – nicht unser eigenes Material.
+
+### GUIDE #eternity-reach — Weiten der Ewigkeit
+WANN
+Alle 2 Wochen — ein 30-minütiges Solo-Event.
+WARUM ES WICHTIG IST
+Eine der besten wiederkehrenden Quellen für Gouverneurs Talisman-Materialien.
+STRATEGIE
+Fähigkeiten
+Wähle für jede Fähigkeitsstufe:
+Stufe 1 → Rechts
+Stufe 2 → Rechts
+Stufe 3 → Links
+Stufe 4 → Links
+Stufe 5 → Rechts
+Start
+Greife Cesares Wächter an → Rushe, bis Fähigkeit 3 freigeschaltet ist.
+Ziele nach Möglichkeit auf Stufe-2-Cesares-Wächter und überspringe bereits angegriffene.
+Alle 60 Sekunden
+Betrete eine Kupferader → Erhalte 5.000 Kupfer → Sofort zurückrufen → Zeit notieren → Alle 1 Minute wiederholen.
+Nur ein Marsch ist nötig, um den 5.000-Kupfer-Bonus auszulösen.
+Gebrochene Adern
+Wenn sie erscheinen → Schicke sofort verfügbare Märsche → Sammle, bis sie verschwinden.
+Beutewagen
+Lasse ihn während des gesamten Events lose Kupfer sammeln. Er belegt keinen Marschplatz.
+Fähigkeit 5
+Aktiviere die 5. Fähigkeit während eines Ader-Ausbruchs und schicke alle Truppen zu den Adern.
+Gipfel der Ewigkeit
+Öffnet sich in den letzten 7 Minuten.
+Vermeide unnötiges PvP, wenn du nicht stark genug bist, um mitzuhalten → Erobere nur, wenn es sich lohnt.
+Positionierung
+Nutze den kostenlosen Teleport, um dich in die Nähe von 3 Adern oder in ein weniger überfülltes Gebiet zu bewegen.
+
+### GUIDE #f2p-heroes — F2P-Helden-Guide
+Mythische Splitter und Rally-Ausrüstungen sind begrenzt. Versuche nicht, jeden Helden aufzubauen — konzentriere deine Ressourcen auf Helden mit starkem, langfristigem Wert.
+Einige Helden unten wurden entweder nicht per Screenshot offiziell bestätigt oder sind noch nicht veröffentlicht — diese bleiben auf Englisch, bis sie bestätigt sind.
+GEN 1
+Jabel
+Farmbarer Mythischer Held; oberste Priorität.
+Saul: Ein paar Sterne für die Wachstumsfähigkeit. Nicht überinvestieren.
+GEN 2
+Zoe — AUFBAUEN (Roulette)
+Deutliches Upgrade gegenüber Howard.
+Marlin: Ersetzt Saul.
+GEN 3
+Petra — UNBEDINGT AUFBAUEN (Roulette)
+Exzellenter Bärenjagd-Held mit Wert bis Gen 7.
+Eric & Jaeger: Überspringen, außer du konzentrierst dich auf PvP/Garnisonsverteidigung.
+GEN 4
+Rosa — AUFBAUEN (Roulette)
+Starkes Upgrade für die Bärenjagd.
+Alcar ODER Margot: Optional. Beide sind stark in Arena/Expedition.
+GEN 5
+Long Fei — AUFBAUEN (Roulette)
+Großartig für Multi-Team-Events wie Mystic Trial, Tri-Allianz und Swordland.
+Thrud/Vivian: Hauptsächlich Arena/PvP.
+Petra verpasst? Erwäge Thrud.
+GEN 6
+Sophia — AUFBAUEN (Roulette)
+Hauptsächlich nützlich für Multi-Team-Inhalte.
+Yang — HOHE PRIORITÄT
+Exzellenter Nutzen bei der Bärenjagd; Mythische Splitter lohnen sich.
+Triton: In der Regel überspringen, wenn du Long Fei aufgebaut hast.
+GEN 7
+Wee & Woo — UNBEDINGT AUFBAUEN (Roulette)
+Insgesamt exzellenter F2P-Wert.
+Ava — HOHE PRIORITÄT
+Exzellenter Bärenjagd-Held; ersetzt Petra.
+Charles: In der Regel bedenkenlos überspringen.
+EINFACHER F2P-ROULETTE-PFAD
+Zoe ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo
+PRIORITÄTEN FÜR MYTHISCHE SPLITTER
+Petra ➜ Yang ➜ Ava
+FAUSTREGEL
+Roulette-Helden sind in der Regel deine sichersten F2P-Investitionen. Spare deine Ressourcen, verteile Mythische Splitter nicht zu dünn und fühl dich nicht unter Druck, jeden Helden aufzubauen.
+ZUSAMMENFASSUNG
+F2P-Spieler: Konzentriere dich im Helden-Roulette auf Zoe (Infanterie-Tank), Jabel (Kavallerie) und Petra (offensive Kavallerie)
+P2W-Spieler: Priorisiere Amadeus (VIP 7+) und Hilde für maximale Wirkung
+
+### GUIDE #kvk — KvK-Vorbereitungs- & Kampfguide
+Echtgold
+✅
+<span class="chk-ok">OK</span>
+🚫
+Helden-Fragment
+⏩️ Bau
+⏩️ Training
+⏩️ Forschung
+Helden Roulette
+Sammeln
+👍
+Geheimdienstmissionen
+Begleittier-Förderungswert
+Gouverneur-Talisman
+Gouverneur-Ausrüstung
+Helden Exklusive Ausrüstung Element
+Mithril
+Schmiedehammer
+Meister-Embleme
+Meister-Manuskript
+⏩️ Lernen
+nutzen
+bei Bedarf okay
+nicht nutzen
+täglich nötig
+PHASE 1: VORBEREITUNGSPHASE (Tag 1–5)
+Um KVK zu gewinnen, muss dein Königreich während der Vorbereitungsphase mehr Gesamtpunkte erzielen als der Gegner. Der Sieg in dieser Phase gewährt den Angreifer-Vorteil (dein Schloss ist während der Schlachtphase absolut sicher).
+Tag 1: Bau, Echtgold & Gouverneur-Talismane
+Punktebringende Aktivitäten: Echtgold-Gebäude-Upgrades, Bau-Beschleunigungen, Gouverneur-Talismane, Geheimdienstmissionen, Lern-Beschleunigungen.
+🛡️ F2P-Fokus:
+Gib gesparte Bau-Beschleunigungen und Echtgold aus.
+Nutze Talismanpläne, die du in den Vorwochen gespart hast.
+Erledige alle Wachturm-Geheimdienstmissionen.
+⚡ P2W-Fokus:
+Maximiere hochstufige Echtgold-Gebäude (Akademie / Kriegsakademie).
+Bringe Gouverneur-Talismane auf Stufe 8–11 für massive Punktsprünge (Stufe 11 gibt 16.000 Punkte pro Stufenaufstieg).
+Tag 2: Forschung, Helden & Sammeln
+Punktebringende Aktivitäten: Forschungs-Beschleunigungen, Helden-Fragmente (Selten/Episch/Mythisch), Helden-Roulette-Drehungen, Meister-Embleme/Meister-Manuskripte, Ressourcensammeln.
+Drehe das Helden-Roulette mit gesparten Edelsteinen, um Petra-(Gen-3)-Fragmente zu erhalten.
+Setze gesparte universelle mythische/epische Fragmente für Kernhelden ein.
+Sammle im Voraus Ressourcen (schicke Sammler vor dem Reset los, damit sie zu Beginn von Tag 2 sofort zurückkehren).
+Verbrauche alle gesparten Meister-Embleme und Meister-Manuskripte.
+Bringe Gen-3-Helden (Eric & Petra) sofort auf 5 Sterne.
+Tag 3: Haustiertraining & Fortschritt in der Meisterakademie
+Punktebringende Aktivitäten: Begleittier-Förderungswert, Gewöhnliche Zähmungszeichen & Fortgeschrittene Zähmungszeichen (Verfeinerung), Helden-Roulette, Helden-Fragmente, Meister-Embleme/Meister-Manuskripte, Geheimdienstmissionen.
+Level und verfeinere mehrere mittelstufige Haustiere gleichmäßig, anstatt alles in eines zu stecken.
+Nutze übrige Helden-Roulette-Drehungen und tägliche Geheimdienstmissionen.
+Setze Fortgeschrittene Zähmungszeichen stark ein (je 15.000 Punkte).
+Maximiere die Begleittier-Förderungswert-Schwellenwerte für hohe Punktmultiplikatoren.
+Tag 4: Heldenentwicklung & Truppentraining
+Punktebringende Aktivitäten: Truppentraining/-beförderung (T1–T11), Schmiedehammer, Element, Mithril, Ressourcensammeln.
+Befördere niedrigstufige Truppen auf deine höchste Stufe (z. B. T9 zu T10). Das Aufwerten von Truppen ist deutlich ressourceneffizienter als das Training neuer von Grund auf.
+Spare allgemeine Beschleunigungen für Forschung/die Meisterakademie auf — nutze hier nur spezielle Truppentrainings-Beschleunigungen.
+Verbrauche gesparte Schmiedehammer (je 4.000 Punkte) und Element der Helden Exklusive Ausrüstung (je 8.000 Punkte).
+Wende Mithril-Upgrades an (je 40.000 Punkte), um massive Punktschübe freizuschalten.
+Tag 5: Kraftschub & finale Upgrades
+Punktebringende Aktivitäten: Gouverneur-Ausrüstung, Heldenausrüstung, Haustier-Verfeinerung, Mithril, Echtgold, alle Beschleunigungen, Geheimdienstmissionen, Sammeln.
+Erledige verbliebene Geheimdienstmissionen, verbrauche übrige Ressourcen/Beschleunigungen und werte Gouverneur-Ausrüstung mit angesammeltem Satin/Vergoldete Fäden auf.
+Bringe Gouverneur-Ausrüstung auf Mythisch / Mythisch 3-Sterne (6.250 Punkte pro Stufenanstieg).
+Verbrauche alles verbliebene Mithril, Element und Schmiedehammer, um die täglichen Top-2000-/Top-200-Rangbelohnungen zu sichern.
+⚔️ PHASE 2: SCHLACHTPHASE (12 STUNDEN)
+Schloss-Kampffenster: 12:00 UTC bis 22:00 UTC.
+Ziel: Kontrolliere das Königliches Schloss und 4 Geschützturm.
+🎯 GEN-3-PVP-META & RALLY-SETUP
+🛡️ Garnisonsverteidigung — Schloss/Türme
+Anführer-Held: Eric (Gen 3) — Unzerstörbare Infanteriewand mit überlegenen Gen-3-Werten und Überlebensmechanik. Kombiniert mit Zoe (Gen 2) für Schilde.
+⚔️ Offensive Rallys (Angriff auf Schloss/Türme)
+Anführer-Held: Petra (Gen 3) — Verheerender Kavallerie-Anführer mit stark skalierenden offensiven Rally-Element.
+🤝 Rally-Teilnehmer (entscheidend für F2P!)
+Nutze NICHT irgendwelche Helden beim Beitritt zu Rallys. Tritt bei mit:
+Chenko (Fähigkeit 1 maximiert)
+Amane
+Yeonwoo
+Diese Helden stapeln Tödlichkeits-Multiplikatoren.
+💣 DOPPEL-RALLY-"WALFÄNGER"-STRATEGIE
+Für starke feindliche Garnisonen:
+Rally 1 (Schutzschild/Räumer): 1–2 Sekunden früher gestartet. Fokussiert reine Tödlichkeit, um das feindliche Lazarett zu überfluten und Verteidigungstruppen zu räumen.
+Rally 2 (Hauptangreifer): Trifft unmittelbar nach Rally 1 ein, um verbliebene Truppen auszulöschen und die Kontrolle über das Schloss zu übernehmen.
+Geschützturm-Vorteil: Die Einnahme von Geschützturm bietet bis zu +20 % Truppen-Tödlichkeit, wenn dasselbe Königreich auch das Schloss hält.
+🩺 PHASE 3: FELDVERSORGUNG (TRUPPENRETTUNG)
+Basis-Rettungsrate: 30 % der verlorenen Truppen, die das Lazarett nicht erreicht haben.
+Ziel-Rettungsrate: 90 %
+So erhöhst du sie:
+Medizinkoffer: +10 % Rettungsrate
+Rettungswälzer: je +1 %, bis zu +50 %
+⚠️ WICHTIG: Alle müssen Rettungswälzer im Allianz-Chat austauschen, bevor der Timer abläuft!
+
+### GUIDE #all-out — Aufs Ganze
+🪖 All-Out-Regeln
+❌ Keine Angriffe auf NAP 6, einschließlich ihrer Farmen/Akademien (NXS/nxs, RED/ReD, NBD/nBd/Nbd, ESA/EsA/UNI, IDN, KGb)
+❌ Keine Angriffe auf Schlösser oder Allianzgebäude (Hauptquartiere, Außenposten, Banner)
+✅ Ihr könnt Ressourcen-Sammelfelder angreifen (Mühle, Steinbruch, Eisenbergwerk)
+✅ Ihr könnt Spieler außerhalb der NAP angreifen.
+Wenn euer Schloss von einem NAP-Mitglied angegriffen wird, nicht zurückschlagen — meldet es R4/R5.
+Vermeidet das Sammeln in der Wildnis, nutzt stattdessen Allianzknoten.
+Regelverstöße werden gemäß den Allianz-/NAP-Vereinbarungen geahndet.
+🏭 Gesicherte Sammelpunkte
+Während des Events Aufs Ganze wechseln wir alle 12 Stunden für 48 Stunden unsere gesicherten Sammelpunkte.
+So hat jeder während des Events einen geschützten Ort zum Sammeln von Ressourcen.
+Rotationsplan (beginnt mit dem 00:00-UTC-Reset)
+Große Mühle – 00:00 UTC bis 12:00 UTC
+Großes Sägewerk – 12:00 UTC bis 00:00 UTC
+Großer Steinbruch – 00:00 UTC bis 12:00 UTC
+Großes Eisenbergwerk – 12:00 UTC bis 00:00 UTC
+Nutzt diese geschützten Orte während des Events. Bleibt sicher und sammelt klug.
+
+### GUIDE #hero-roulette — Helden Roulette
+WANN
+Alle 2 Wochen, jeweils 3 Tage.
+📋 REGELN
+Das Event dauert 3 Tage: 1 Gratis-Drehung pro Tag, maximal 150 Drehungen pro Tag.
+Eine Drehung kostet 1 Glückschip oder 1.500 Edelsteine; 10 Drehungen kosten vergünstigt 13.500 Edelsteine.
+Einmalige Meilenstein-Belohnungen bei 5, 15, 35, 70 und 120 Drehungen geben +5, +10, +20, +30 und +50 Fragmente – insgesamt 115.
+🎲 GEWINNCHANCEN
+Mythisches Helden-Fragment x5: 4,37 %
+Mythisches Helden-Fragment x1: 32,81 %
+Mystery-Paket x1: 6,56 % (zwei Felder, je 6,56 %)
+1h allgemeine Beschleunigung x1: 20,51 %
+10K Helden-EP x1: 18,27 %
+Vier Ressourcenfelder (Eisen 10K×20, Stein 10K×80, Holz 10K×400, Brot 10K×400): je 2,73 %
+Erwartete Fragmente pro Drehung: 5 × 0,0437 + 1 × 0,3281 ≈ 0,547
+Erwartete Fragmente nach N Drehungen (Drehungen + Meilensteine)
+3 (nur gratis): ~1,6
+10: ~5,5 + 5 = 10,5
+15: ~8,2 + 15 = 23
+35: ~19 + 35 = 54
+70: ~38 + 65 = 103
+120: ~66 + 115 = 181
+Nach 120 Drehungen gibt es keine Meilensteine mehr und jede Drehung bringt nur ~0,55 Fragmente – F2P- und Wenigzahler sollten nicht über 120 gehen.
+🎯 Wie viele Drehungen für einen voll ausgebauten Helden?
+Im Schnitt etwa 720 Drehungen – 6 Events mit je 120 Drehungen.
+Rechnung
+Ein voll ausgebauter Held (Freischaltung + bis 5 Sterne) braucht insgesamt 1.075 Fragmente.
+120 Drehungen pro Event bringen im Schnitt 0,5466 × 120 + 115 ≈ 181 Fragmente (~0,5466 pro Drehung plus 115 aus den Meilenstein-Belohnungen).
+1.075 ÷ 181 ≈ 5,95 – also 6 Events.
+Gesamt: 6 × 120 = 720 Drehungen, erwartet etwa 6 × 181 ≈ 1.084 Fragmente.
+Warum nicht in einem Event weiterdrehen?
+Nach 120 Drehungen gibt es keine Meilenstein-Belohnungen mehr, jede Drehung bringt nur noch ~0,55 Fragmente. Selbst beim Limit von 450 Drehungen kommt ein Event im Schnitt nur auf 0,5466 × 450 + 115 ≈ 361 Fragmente – die zusätzlichen 330 Drehungen sind nur etwa halb so effizient wie die ersten 120.
+Auch im 6. Event alle 120 Drehungen
+Die ersten 5 Events bringen im Schnitt ~903 Fragmente, es fehlen ~172. Bei 119 Drehungen erwartest du nur ~130 (65 + 65); erst das +50-Paket bei Drehung 120 schließt die Lücke – also auch im letzten Event alle 120 drehen.
+💎 Edelsteine-Kosten (ohne Glückschips)
+Nach den 3 Gratis-Drehungen kostet jedes Event 159.000 Edelsteine – für alle 6 etwa 954.000 Edelsteine. Vorhandene Glückschips oder Fragmente aus anderen Quellen kannst du abziehen.
+⚠️ Das sind Durchschnittswerte. Bei 720 Drehungen liegt das echte Ergebnis meist innerhalb von ±60 Fragmenten um den Erwartungswert (etwa 95 %) – mit Pech brauchst du ein Event mehr, mit Glück bist du früher fertig.
+⚔️ KVK-TIPP
+In der KvK-Vorbereitungsphase bringt an Tag 2 und 3 jede Helden-Roulette-Drehung 8.000 Punkte – Glückschips und Edelsteine fürs Drehen lohnt es sich also für diese zwei Tage aufzuheben.
+
+### GUIDE #fishing-tournament — Fischerturnier
+WANN
+Alle 4 Wochen.
+WARUM ES WICHTIG IST
+Zuverlässige Quelle für Die Vision des Handwerkers, Verbesserungs-XP für Heldenausrüstung und Edelsteine.
+🌊 Ozean-Goldsucher
+Spiele zuerst Ozean-Goldsucher, um Punkte zu sammeln und deine Angelausrüstung zu verbessern, bevor du dich auf Normales Fischen konzentrierst.
+Schnur → Erhöht die maximale Tiefe
+Haken → Erhöht den maximalen Fang pro Versuch
+Senkblei → Erhöht die Starttiefe
+Sobald alle drei verbessert sind, wechsle zu Normales Fischen.
+Seltene Meerjungfrauen und Truhen erscheinen nicht beim Normales Fischen. Es gibt sie nur bei Ozean-Goldsucher.
+🎣 Normales Fischen
+Leuchtende Fische
+Priorisiere jeden leuchtenden Fisch, den du siehst.
+Meerjungfrau in Schwierigkeiten
+In Seetang gefangene Meerjungfrauen geben einen Punkte-Multiplikator von 5–10 %.
+Horn der Gezeiten
+Nur beim Normales Fischen einsetzen.
+VERSUCH WIEDERHOLEN
+Wenn ein Versuch schlecht läuft:
+Pause → Rückzug → Erneut versuchen
+
+### GUIDE #tri-alliance-clash — Drei-Allianz-Wettkampf
+🎲 SO FUNKTIONIERT DAS EVENT
+Stell dir den Drei-Allianz-Wettkampf wie ein Brettspiel mit Wegen, Gebäuden und Kämpfen vor. Deine Allianz bewegt sich über verschiedene Pfade, erobert Gebiet und kämpft sich zu den wertvollsten Zielen vor.
+⚔️ KAMPFMECHANIK
+Kämpfe sind Auto-Kämpfe. Simulierte Kämpfe sind Einzelkämpfe, KEINE Rallys.
+Das Truppenverhältnis lässt sich nicht ändern — die Truppen werden gleichmäßig verteilt.
+Marschgeschwindigkeit- und Marschkapazität-Boni gelten NICHT.
+🛡️ 3 MÄRSCHE & HELDENWAHL
+Vor dem Kampf stellst du 3 Schwadronen auf.
+F2P-Spieler
+Setz deine stärksten Helden zusammen ein.
+Verteile deine stärksten Helden NICHT auf alle 3 Märsche.
+Bau zuerst einen starken Marsch auf.
+P2W-Spieler
+Nutze deine offensiven und defensiven orangen Helden.
+Offensive Element zählen in diesem Event NICHT. Defensive Element zählen — bevorzuge Helden mit starken defensiven Element.
+🏛️ GEBÄUDE & PUNKTE
+Tempel der Gezeiten = HAUPTZIEL — er öffnet am Ende.
+Namen in unserem Chat: Shrine = Anhäufung von Ruinen, Altar = Ruinen.
+Gebäude angreifen und erobern bringt mehr Punkte als nur verteidigen/halten — anders als beim Schwertland-Showdown.
+👥 TEAMS & ROLLEN
+Die Spieler werden in etwa 3 Teams auf verschiedenen Pfaden aufgeteilt — pro Ziel der stärkste Spieler plus ein Backup, damit unsere Stärke gut verteilt ist.
+Team 3 — Zu Beginn neutrale Gebäude erobern
+Erobere die neutralen Gebäude auf unserem Gebiet SO SCHNELL WIE MÖGLICH, sobald der Kampf beginnt.
+Ist dein Ziel gesichert, rück weiter vor.
+Team 2 — Vorrücken & Gelegenheiten nutzen
+Bleib schwächeren Teams voraus, geh zum nächsten Ziel auf deinem Pfad und halte den Druck aufrecht.
+Beobachte die Gegner genau. Verlassen sie ein Gebäude, um vorzurücken, zieh in das gerade verlassene Gebäude und erobere es, solange es unverteidigt ist.
+Nutze jede solche Lücke für Gebiet und Punkte.
+Team 1 — Vorstoß zu den gegnerischen Garnisonen
+Hauptaufgabe: vor Minute 20 das Gebiet der gegnerischen Garnisonen erreichen.
+Rück auf deinem Pfad vor, bis du das gegnerische Gebäude direkt neben ihren Garnisonen erreichst (Shrine / Anhäufung von Ruinen).
+Sei VOR dem Öffnen der Garnisonen in Position, damit wir sie genau bei 20:00 erobern können.
+R4
+R4 und Legionsleiter müssen die Kapitän-Ernennungen während des ganzen Kampfes aktiv verwalten.
+Kapitän = die stärksten Spieler. Sie ziehen über die Karte und erobern Ziele, also brauchen sie die meiste Energie.
+Prüft laufend, ob starke Spieler ohne Bonus zum Kapitän ernannt werden sollten.
+Den Kapitän-Bildschirm öffnest du über die Banner oben links.
+Energie für Kapitän pro Gebäude:
+Garnisonen: 60.000 — gold
+Anhäufung von Ruinen (Shrine): 45.000 — lila
+Ruinen (Altar): 15.000 — blau
+🗺️ ABLAUF DES KAMPFES
+🔵 Blau = Knotenpunkt　🔴 Rot = Garnisonen　🟡 Gelb = Tempel der Gezeiten
+Phase 1: Vorbereitung (0:00–3:00)
+Ziel: Schwadronen einstellen und die Karte kennenlernen. Merk dir die lila, roten und gelben Zonen — die von uns besetzten werden blau. Prüft die Stärke der Gegner und entscheidet, auf welche Allianz wir uns konzentrieren.
+Phase 2: Ergreifen & Erobern (3:00–20:00)
+Ziel: schnell das eigene Gebiet erobern.
+Team 3 zuerst, dann Team 2.
+Sichert Knotenpunkt und Verbindungsgebäude für stetige Punkte pro Minute (PPM). Die Garnisonen haben noch Schilde.
+Gleichzeitig stößt Team 1 tief ins Feindgebiet Richtung ihrer Garnisonen vor.
+Phase 3: Garnisonsbesetzung (20:00–40:00)
+Ziel: Die Schilde der Garnisonen (A24, B24, C24) fallen.
+Team 3: unsere Garnisonen (+1.800 PPM) verteidigen und koordiniert gegnerische Garnisonen angreifen — bei Bedarf aufteilen.
+Sucht weiter nach unverteidigten Gebäuden, schwach verteidigtem Feindgebiet, Chancen zum Ausbreiten und leichten Eroberungen für persönliche und Allianzpunkte.
+Phase 4: Ansturm auf Tempel (40:00–60:00)
+Ziel: Der zentrale Tempel der Gezeiten öffnet. Er bringt riesige Punkte plus 50.000 Bonuspunkte für den, der ihn am Ende hält. Ab jetzt ist er das Hauptziel der Allianz.
+🌊 REIHENFOLGE AM TEMPEL
+Team 3 + 2 → zuerst rein (Team 3 behält unser Gebiet / unsere Garnisonen im Auge, damit wir nichts verlieren).
+Team 1 → zuletzt rein.
+Erobern → verstärken → halten.
+⚠️ Beim Angriff auf die Tempel-NPCs geht der stärkste Spieler ZULETZT rein — so kämpft er gegen den stärksten verbleibenden NPC, statt seine Kraft an einem leichteren Gegner zu verschwenden.
+Wenn wir den Tempel haben
+Sofort absichern — den Tempel so schnell wie möglich verstärken.
+Kontrolle halten.
+Keine weniger wertvollen Ziele jagen, wenn dadurch der Tempel verloren gehen könnte.
+📋 TEAM-ÜBERSICHT
+Team 3 — Eigenes Gebiet
+Phase 2 → neutrale Gebäude so schnell wie möglich erobern
+Phase 3 → unsere Garnisonen sichern + Angreifer unterstützen
+Phase 4 → Tempel: zuerst rein, aber unser Gebiet im Auge behalten — nicht verlieren
+Team 2 — Feindliche Gebäude
+Phase 2 → an Team 1 vorbei ins Feindgebiet vorrücken
+Phase 3 → feindliche / verlassene Gebäude erobern
+Phase 4 → Tempel: zuerst rein
+Team 1 — Tiefer Angriff
+Phase 2 → tief ins Feindgebiet vorstoßen, Ziel ist der Shrine (Anhäufung von Ruinen) neben den gegnerischen Garnisonen
+Phase 3 → die gegnerischen Garnisonen besetzen
+Phase 4 → Tempel: zuletzt rein
+🧱 Tempel-Blockade (Team 1): Erobert das Gebäude / den Shrine hinter dem gegnerischen Knotenpunkt nahe dem Tempel der Gezeiten und HALTET es — nicht sofort verlassen. So kann Team 1 den Tempelvorstoß der Gegner stören, und wir haben vor der Tempelöffnung die Kontrolle an der Front.
+⚡ Energie-MANAGEMENT
+Jede Bewegung/Aktion kostet Energie — setz sie klug ein.
+Aufstellen — deine Schwadron an einen neuen verfügbaren Ort schicken.
+Vorrücken — das aktuelle Ziel / die Warteschlange überspringen und zum nächsten Ziel auf deinem Pfad gehen.
+Einberufen — Truppen heilen und auffüllen, solange das Gebäude nicht im Kampf ist.
+Sofortige Wiederbeleben — nach einer Niederlage direkt vor Ort zurückkommen statt im Hauptquartier; kostet Energie, also nur wenn nötig.
+R4 und Legionsleiter sorgen dafür, dass starke Spieler zum Kapitän ernannt werden, damit sie mehr Energie bekommen.
+
+### JOURNEY CHOICES (shown inside the general guides)
+Schere-Stein-Papier-Duell: Sieg → 1. Mal: 2,000 Edelsteine; 2. Mal: 60 Meister-Manuskript (best); Unentschieden → 2. Mal: 40 Meister-Manuskript; Niederlage → 1. Mal: 800 Edelsteine; 2. Mal: 20 Meister-Manuskript
+Wikinger: Ich kann nicht einfach wegsehen → 3 Silver Goblet (best); Ich habe keine Zeit für Ablenkungen → 2 Silver Goblet
+Wikinger: Direkt konfrontieren → 50 Meister-Manuskript (best); Köpfchen benutzen → 40 Meister-Manuskript; Gehen → 30 Meister-Manuskript
+Bestie: Essig-Dieb-Bestie jagen → ?; Ich besorge es woanders → 3 Silver Goblet
+Olive: Ein wahrer Krieger lässt keine Dame in Not im Stich → 2 Silver Goblet; ...Ist das alles? → 3 Silver Goblet (best)
+Bär: Flankieren → 50 Meister-Manuskript (best); Frontal angreifen → 30 Meister-Manuskript
+Söldner: Flankenangriff vorschlagen → 100 Meister-Manuskript (best); Sabotage des Nachschubs vorschlagen → 70 Meister-Manuskript
+Bärenjunges: Jemandem anvertrauen → 30 Meister-Manuskript; Auf die Bestie konzentrieren → 50 Meister-Manuskript (best)
+Hilde: Weiter nachfragen → 30 Meister-Manuskript; Einen Ausweg finden → 50 Meister-Manuskript (best)
+Rebellen, Soldaten von Cesares, Wikinger: Kämpfen → 50 Meister-Manuskript (best); Lieber fliehen → 30 Meister-Manuskript
+Händler: Den Weg zeigen → 50 Meister-Manuskript (best); Ich kann nicht helfen → 30 Meister-Manuskript
+Bestie: Gehen → 100 Meister-Manuskript (best); Jagen → 70 Meister-Manuskript
+Wegweiser: Schild reparieren → 20 Meister-Manuskript (best); Gehen → 10 Meister-Manuskript
+Überlebender: Hilfe anbieten → 100 Meister-Manuskript (best); Nicht mein Kampf → 70 Meister-Manuskript
+Zoe & Pan: Bericht von Pan anhören → 1 Meister-Emblem (Pan); Bericht von Zoe anhören → 1 Meister-Emblem (Pan)
+Schatz: Alles behalten → 50 Meister-Manuskript (best); Mit Überlebenden teilen → 30 Meister-Manuskript
+Roman: Handel: Handeln → 80 Meister-Manuskript (best); Nein danke → 50 Meister-Manuskript
+Pan: Handel: Handeln → 5 Meister-Emblem (Pan) (best); Nein danke → 3 Meister-Emblem (Pan)
+Edwin: Handel: Handeln → 50 Meister-Manuskript (best); Nein danke → 30 Meister-Manuskript
+Überlebender: Das Waisenhaus braucht Brot und Medizin: Vorräte spenden → 50 Meister-Manuskript (best); Gehen → 30 Meister-Manuskript
+Gordon / Aena: Kochen beginnen: Perfekt → 50 Meister-Manuskript (best); Sieg → 40 Meister-Manuskript; Fehlgeschlagen → 30 Meister-Manuskript
+Valora / Pan / Guinevere / Wilson: Kochen beginnen: Perfekt → 5 Silver Goblet (best); Sieg → 3 Silver Goblet; Fehlgeschlagen → 1 Silver Goblet
+Quinn: Spezialschloss: Aufbrechen → 150 Meister-Manuskript; Entschärfen → 200 Meister-Manuskript (best)
+Verwundeter Löwe: Futter geben → 50 Meister-Manuskript (best); Gehen → 30 Meister-Manuskript
+Wikinger: Banditen vertreiben → 50 Meister-Manuskript (best); Umgehen → 30 Meister-Manuskript
+Gestohlene Waren: Ich helfe dir → 50 Meister-Manuskript (best); Da kann ich nichts tun → 30 Meister-Manuskript
+Transportkapitän: Vollen Preis zahlen → 100 Meister-Manuskript (best); Feilschen → 70 Meister-Manuskript
+Petra: Was Spannendes los?: Sag mir mein Schicksal für heute → 30 Meister-Manuskript; Schon mal von der Arena-Meisterschaft gehört? → 30 Meister-Manuskript; Pack mit an. Es gibt Arbeit. → 50 Meister-Manuskript (best)
+Überlebender: Hilf mir: Mithelfen → 50 Meister-Manuskript (best); Weitergehen → 30 Meister-Manuskript
+Pan / Roman / Guinevere: Angeln: Fangtiefe, 10 Fische → 150 Meister-Manuskript (best); Fangtiefe, 5 Fische → 100 Meister-Manuskript; Fangtiefe, 1 Fisch → 70 Meister-Manuskript
+Marlin: Angeln: Beliebige Tiefe, 10 Fische → 100 Meister-Manuskript (best); Beliebige Tiefe, 5 Fische → 70 Meister-Manuskript; Beliebige Tiefe, 1 Fisch → 50 Meister-Manuskript
+Wikingerheld: Komm schon, kämpf gegen mich! → 100 Meister-Manuskript (best); Draufhauen → 70 Meister-Manuskript
+Überlebender: Das Ding verfolgt mich schon ewig: Eingreifen → 50 Meister-Manuskript (best); Ablenkung schaffen → 40 Meister-Manuskript; Gehen → 30 Meister-Manuskript
+Wikinger: Zurück!: Eingreifen → 30 Meister-Manuskript; Weggehen → 50 Meister-Manuskript (best)
+Alles riskieren: Alles riskieren (kostet doppelte Aktionspunkte) → 2 Meister-Emblem (Roman) (best); Nerven testen (Chance, Feinde zu verscheuchen) → 30 Meister-Manuskript
+Eine Bestie versperrt den Weg: Kämpfen! → 100 Meister-Manuskript (best); Verstecken → 70 Meister-Manuskript
+Roman: Geschenke: Gegenstände ansehen → 150 Meister-Manuskript (best); Ablehnen → 100 Meister-Manuskript
+Pan wirkt besorgt: Gegenstände ansehen → 5 Meister-Emblem (Pan) (best); Ablehnen → 3 Meister-Emblem (Pan)
+Valora: Gegenstände: Gegenstände ansehen → 3 Meister-Emblem (Valora); Ablehnen → 3 Meister-Emblem (Valora)
+Roman: eine Idee: Beim Herstellen helfen → 5 Meister-Emblem (Roman) (best); Ablehnen → 3 Meister-Emblem (Roman)
+Boxer: Um die Dinge geradezurücken. → 30 Meister-Manuskript; Geld natürlich → 50 Meister-Manuskript (best)
+Long Fei: Zeit, dich zur Vernunft zu prügeln. → Long Fei gewinnt, 30 Meister-Manuskript; Na gut. Geld regiert. → 50 Meister-Manuskript (best)
+Lager von Cesares voraus: Direkt konfrontieren. → 100 Meister-Manuskript (best); Einen anderen Weg finden. → 70 Meister-Manuskript
+Kavallerie: Rationen teilen → 50 Meister-Manuskript (best); Die andere Einheit erwähnen. → 30 Meister-Manuskript
+Petra: Kaufen → 50 Meister-Manuskript (best); Ablehnen. → 30 Meister-Manuskript ?
+Cassia: Du kehrst also zum Schlachtfeld von Yellowstone zurück... → 1 Meister-Emblem (Cassia); Vielleicht wird es diesmal anders. → 1 Meister-Emblem (Cassia)
+Cassia (2): Direkten Angriff starten → 1 Meister-Emblem (Cassia); Verstärkung suchen. → 1 Meister-Emblem (Cassia)
+Wikinger: Druck machen: Druck machen. → 30 Meister-Manuskript; Selbst herausfinden. → 50 Meister-Manuskript (best)
+Valora: Ressourcen tauschen: Ressourcen tauschen. → 5 Meister-Emblem (Valora) (best); Nicht tauschen. → 3 Meister-Emblem (Valora)
+Cassia: Beute sortieren: Beute sortieren → 5 Meister-Emblem (Cassia) (best); Ablehnen → 3 Meister-Emblem (Cassia)
+Cassia: Handel: Handeln → 5 Meister-Emblem (Cassia) (best); Nein danke → 3 Meister-Emblem (Cassia)
+Offizier: Sich als Quinn von den Waldläufern ausweisen → 50 Meister-Manuskript (best); Einen anderen Weg suchen → 30 Meister-Manuskript
+Soldaten von Cesares: Weiter untersuchen → 30 Meister-Manuskript; Weiterziehen → 50 Meister-Manuskript (best)
+Verdächtige Karawane: Die Händler überprüfen → 30 Meister-Manuskript; In Ruhe lassen → 50 Meister-Manuskript (best)
+Wilson: erste Begegnung: Wilson vertrauen → 50 Meister-Manuskript (best); Skeptisch bleiben → 30 Meister-Manuskript
+Gruppe von Wikinger: Ignorieren. Auf Guinevere konzentrieren → 50 Meister-Manuskript (best); Helfen. Du kannst nicht einfach zusehen → 30 Meister-Manuskript
+Söldner: Heiliges Schwert: Söldner anheuern → 30 Meister-Manuskript; Zurückgehen und Diana einladen → 30 Meister-Manuskript; Wir brauchen niemanden sonst → 50 Meister-Manuskript (best)
+Grid & Wilson: Ihr glauben → 50 Meister-Manuskript (best); An ihr zweifeln → 30 Meister-Manuskript
+Katastrophenopfer: Mit anpacken → 30 Meister-Manuskript; Raushalten → 50 Meister-Manuskript (best)
+Zoe: Bei der Untersuchung helfen → 30 Meister-Manuskript; Auf Schwertland-Showdown konzentrieren → 50 Meister-Manuskript (best)
+Truhen-Mischen: Start: [Elite] – [Silber] – [Silber] → Ergebnis: [Elite] – [Silber] – [Silber]; Start: [Silber] – [Elite] – [Silber] → Ergebnis: [Silber] – [Elite] – [Silber]; Start: [Silber] – [Elite] – [Silber] → Ergebnis: [Silber] – [Silber] – [Elite]; Start: [Silber] – [Silber] – [Elite] → Ergebnis: [Elite] – [Silber] – [Silber]
+Wilson: eine Frage: Grid befragen → 30 Meister-Manuskript; Selbst nachdenken → 50 Meister-Manuskript (best)
+Guinevere: Hilfe: Beim Aufräumen helfen → 5 Meister-Emblem (Guinevere) (best); Ablehnen → 3 Meister-Emblem (Guinevere)
+Guinevere: Ressourcen tauschen: Ressourcen tauschen → 150 Meister-Manuskript (best); Nein danke → 100 Meister-Manuskript
+Wilson: Ressourcen tauschen: Ressourcen tauschen → 5 Meister-Emblem (Wilson) (best); Nein danke → 3 Meister-Emblem (Wilson)
+Wilson: Beute sortieren: Beim Sortieren der Beute helfen. → 150 Meister-Manuskript (best); Ablehnen → 100 Meister-Manuskript
+Aena: Essen kaufen: Essen bei Edwin kaufen → 30 Meister-Manuskript + 1 Meister-Emblem (Aena); Essen teilen → 50 Meister-Manuskript + 1 Meister-Emblem (Aena) (best)
+Aena: Versuch es mal: Versuchen → 30 Meister-Manuskript + 1 Meister-Emblem (Aena); Ich habe zu tun. → 50 Meister-Manuskript + 1 Meister-Emblem (Aena) (best)
+Isnor: Versuch es mal: Versuchen → 30 Meister-Manuskript + 1 Meister-Emblem (Isnor); Lieber nicht → 50 Meister-Manuskript + 1 Meister-Emblem (Isnor) (best)
+Aena: Untersuchung: Umgebung untersuchen → 30 Meister-Manuskript + 1 Meister-Emblem (Aena); Weiterziehen → 50 Meister-Manuskript + 1 Meister-Emblem (Aena) (best)
+Isnor: Untersuchung: Beim Verteilen der Vorräte helfen → 30 Meister-Manuskript + 1 Meister-Emblem (Isnor); Die Erdbeben untersuchen → 50 Meister-Manuskript + 1 Meister-Emblem (Isnor) (best)
+Aena: darauf bestehen: Darauf bestehen, die Kiste zu öffnen → 50 Meister-Manuskript + 1 Meister-Emblem (Aena); Lassen → ?
+Wikinger: Fußspuren: Weiter untersuchen → 30 Meister-Manuskript; Vorerst hier aufhören → 50 Meister-Manuskript (best)
+Aena & Petra: Verstärkung anfordern → 50 Meister-Manuskript + 1 Meister-Emblem (Aena) (best); Petra mehr Zeit geben → 30 Meister-Manuskript + 1 Meister-Emblem (Aena)
+Alter Mann: Weiter herumfragen → 50 Meister-Manuskript (best); Vergiss es → 30 Meister-Manuskript
+Wache: Weiter untersuchen → 50 Meister-Manuskript (best); Die Mine verlassen → 30 Meister-Manuskript
+Aena: Tausch: Ressourcen tauschen → ?; Tausch ablehnen → 100 Meister-Manuskript
+Isnor: Tausch: Ressourcen tauschen → 5 Meister-Emblem (Isnor); ? → ?
+
+### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-06 by Nia] ⚔️ KvK-Abkommen mit 2186 – 10. Okt.
+⚔️ KvK-Abkommen mit 2186 – 10. Okt.
+
+🏰 1. Stadt-Angriffe
+
+✅ Erlaubt:
+• 10:00–10:59 UTC
+• 30 Min. nach dem Ende von Schlacht um das Schloss
+
+🛑 Waffenstillstand – KEINE Angriffe:
+• Von 11:00 UTC an während der gesamten Schlacht um das Schloss, bis 30 Minuten nach dem Aktivieren des Schlossschilds.
+
+🔴 2. Rote Zone
+• KEINE Stadt-Angriffe in der Roten Zone zu JEDER Zeit.
+
+⚠️ 3. Verstöße
+• Üben Sie keine Vergeltung. Senden Sie eine Meldung an die Allianzleitung oder an den König, falls die Leitung nicht erreichbar ist.
+
+[2026-10-05 by Nia] 🏆 Allianzmeisterschaft
+Bitte registriere dich in der Mittleren Spur (Middle Lane), die Führung wird dich später einteilen.
+
+Vor der Anmeldung:
+🔹 Benutze deine stärksten Helden
+🔹 Trupp Formationen: 50 % Infanterie, 20 % Kavallerie, 30 % Bogenschützen
+🔹 Aktiviere Marschall / Einsatzkommandant & Begleittier-Buffs vor der Anmeldung.
+
+🔄 Du kannst deine Anmeldung jederzeit aktualisieren, um Helden, Trupp Formationen und Buffs auf den neuesten Stand zu bringen. Besonders, wenn du deine Helden oder Truppen aufgewertet hast.
+
+[2026-09-29 by Nia] ❗Erinnerung – Bärenjagd: Truppenlimit & versetzte Märsche
+🔹 Alle Beitretenden müssen genau 90.000 Truppen in Rallys schicken. Speichert eure Märsche vorher.
+🔹 Anführer starten ihre eigene Rally mit maximalen Truppen, müssen beim Beitritt zu anderen Rallys aber ebenfalls das Truppenlimit einhalten.
+
+🔹 Zu Beginn: Die Haupt-Rallyleiter schicken ihre erste Rally zu ihrer zugewiesenen, versetzten Zeit.
+🔹 Bei 6:30 verbleibend: Alle Beitretenden starten ihre eigene Rally mit ihren 3 stärksten Helden.
+
+🔪 Falsche Helden oder falsche Truppenzahl – Kick und Bitte um erneuten Beitritt
+
+(see guide #bear-hunt)
+
+[2026-09-28 by Nia] 🏆 Gen 3 Meister-Leitfaden
+Meister sind Charaktere, die du freischaltest und aufwertest, um spezielle Fertigkeiten, Boni und Belohnungen zu erhalten. Sie sind von den Helden getrennt.
+
+🔹 F2P-Priorität: Pan > Valora > Roman
+🔹 Whale/Rally-Leiter: Valora > Roman > Pan
+
+TIPPS:
+🔹 Verwende keinen Abenteuervorrat für Valora – die kostenlose Reichsreise schaltet sie frei.
+🔹 Spare Abenteuervorrat für Pan in den Verlorene Lande.
+🔹 Pan -> Stufe 60: Falkner = max. tägliches Echtgold/Beschleunigungen.
+🔹 Valora -> Stufe 30: Schmiedehammer aus der Bärenjagd.
+🔹 Roman -> Nur für passive Arena-Kisten-Drops freischalten.
+
+(see guide #master-academy)
+
+[2026-09-28 by Nia] Gen 3 Helden Leitfaden
+Sie sind sich nicht sicher, worin Sie investieren sollen? Neue Helden- und Meister-Leitfäden sind auf Discord und unserer mehrsprachigen Website verfügbar.
+
+Zusammenfassung Gen 3
+🔥 Petra - ABSOLUTES MUSS (Helden Roulette). Ausgezeichneter Bärenjagd-Held mit Wert bis Gen 7.
+- Eric & Jaeger: Überspringen, außer man konzentriert sich auf PvP/Wachposten-Verteidigung
+
+Insgesamt:
+🔹 F2P-Spieler: Konzentriere dich auf Zoe (Infanterie-Tank), falls noch nicht auf Max, und Petra (offensive Kavallerie) aus dem Helden Roulette
+🔹 P2W-Spieler: Priorisiere Amadeus (VIP 7+) und Hilde
+
+(see guide #f2p-heroes)
+
+### GAME TERMS (English = official de name)
+Construction = Bau
+Research = Forschung
+Healing = Heilung
+Learning = Lern
+Learning Speedup = Lern-Beschleunigung
+Golden Glaives = Goldene Klingen
+Dim Goldstone = Matter Goldstein
+Watchtower Intel = Wachturm-Geheimdienst
+Royal Foundry = Kaiserliche Gießerei
+Redeem = Einlösen
+Left = Übrig
+Owned = Im Besitz
+Go = Los
+Tip = Tipp
+Bread (Secured) = Brot (Geschützt)
+Hero Roulette = Helden Roulette
+Lucky Chip = Glückschip
+Officer Project = Offiziersprojekt
+Swordland Showdown = Schwertland-Showdown
+Swordland = Schwertland
+Battlefield = Schlachtfeld
+Tier C = Stufe: C
+Battle Starts In = Schlacht beginnt in
+Combatants = Kämpfer
+Substitutes = Ersatzspieler
+Alliance Brawl = Allianz-Gemenge
+Merchant Empire = Händlerimperium
+UTC Time = UTC Zeit
+Starts in = Beginnt in
+All Out = Aufs Ganze
+Conquest = Eroberung
+Heroes = Helden
+Shop = Laden
+Alliance (tab) = Allianz
+World = Welt
+Deals = Angebote
+Rules (dialog title) = Regeln
+Guide = Leitfaden
+Rules = Regeln
+Buildings = Gebäude
+Rewards = Belohnungen
+Other = Andere
+First Control = Erste Eroberung
+Ongoing Occupation = Fortwährende Besatzung
+Bonus Effect = Bonuseffekte
+/m (per minute) = /M
+Recruit = Rekrutieren
+Stats = Werte
+Skills = Fertigkeiten
+Gear = Ausrüstung
+Upgrade = Aufwerten
+Troops Preview = Schwadronvorschau
+All = Alle
+In Town = Stadt
+Out of Town = Wildnis
+Formations = Trupp Formationen
+Backpack = Rucksack
+Resources = Ressourcen
+Speedups = Beschleunigungen
+Bonuses = Ertrag
+Use = Verwenden
+Recall = Zurückrufen
+Recall squad? = Schwadron zurückrufen?
+Cancel = Abbrechen
+Confirm = Bestätigen
+Settings = Einstellungen
+City Bonus = Stadts Bonus
+Relic Points = Reliktpunkte
+Alliance Relic Points = Allianz-Reliktpunkte
+Personal Relic Points = Persönliche Reliktpunkte
+Defender's Relic Points = Reliktpunkte der Verteidigung
+Arsenal Supplies = Frachtzugvorräte
+Gems = Edelsteine
+Guard Station = Wachposten
+City Defense = Stadtverteidigung
+Swordshrine = Schwertschrein
+Sanctum = Heiligtum
+Northwest Sanctum = Nordwestliches Heiligtum
+Southeast Sanctum = Südwestliches Heiligtum
+Abbey (1–4) = Abtei (1–4)
+Hall of Reformation = Reformationshalle
+Belltower = Glockenturm
+Royal Stables = Königliche Ställe
+Mercenary Camp = Söldnerlager
+Undercellar = Untergewölbe
+Drill Camp = Drillcamp
+Town Center = Stadtzentrum
+Attacker = Angreifer
+Defender = Verteidiger
+Mercenaries = Söldner
+First King = Erster König
+Advanced Teleporter = Fortgeschrittene Umsiedlung
+Counter-recon = Gegenaufklärung
+Squad = Schwadron
+Shield = Schild
+Marching = Marschieren
+Gathering = Sammeln
+Control = Kontrolle
+Teleport / free teleports = Teleports
+Total Troops = Alle Trupps
+March Queue = Marschschlange
+Injured = Verletzt
+Attack = Angriff
+Defense = Verteidigung
+Lethality = Tödlichkeit
+Health = Gesundheit
+Escorts = Eskorten
+Troops Capacity = Truppenkapazität
+Infantry = Infanterie
+Cavalry = Kavallerie
+Archer = Bogenschütze
+Bear Hunt = Bärenjagd
+Trap 1 / Trap 2 = Falle 1 / Falle 2
+Raging Bear = Wütender Bär
+Hunting Achievements = Jagen-Erfolge
+Damage Rewards = Schadensbelohnungen
+Trap Enhancement = Fallenverbesserung
+Pre-Registered Start = Vorangemeldeter Start
+Go Enable = Aktivieren starten
+Total Alliance Damage = Allianzschaden
+Castle Battle = Schlacht um das Schloss
+Background = Hintergrund
+King's Castle = Königliches Schloss
+Forbidden Area = Verbotenes Gebiet
+King = König
+Alliance Leader = Allianzanführer
+Turret = Geschützturm
+Town = Stadt
+Sanctuary Battle = Heiligtumskampf
+Sanctuary / Sanctuaries = Heiligtum / Heiligtümer
+Season / Phase = Saison / Phase
+Defend Phase = Verteidigungsphase
+Pillar of Honor = Wand der Ehre
+Event season has ended = Saison beendet
+Hero of the Season = Held der Saison
+Honor Ranking = Ehrenrang
+Stage 1: City Construction = Stufe 1: Stadtsbau
+My Ranking = Mein Rang
+Unranked = Kein Rang
+My Points = Meine Punkte
+Target Points = Zielpunkte
+Claim = Einfordern
+Strongest Governor = Stärkster Gouverneur
+Stage = Stufe
+Challenge Medal = Herausforderungsmedaille
+Challenge Medal Rewards = Herausforderungsmedaillen-Belohnungen
+Kingdom Personal Ranking Rewards = Königreich-Ranglistenbelohnungen
+Participating Kingdoms = Teilnehmende Königreiche
+Current Kingdom = Aktuelles Königreich
+Cross-Kingdom = Königreichsübergreifend
+Coming soon = Kommt bald
+Rewards (preview bar) = Belohnungen
+Cesares Fury = Cesares Zorn
+Highlord Cesares = Hochlord Cesares
+Cesares Legionnaire = Cesares Legionär
+Private = Persönlich
+Alliance = Allianz
+Challenged = Herausgefordert
+Captain = Kapitän
+Scout = Spähen
+Recommended Power = Empfohlene Kraft
+Show event shortcut = Event-Verknüpfung anzeigen
+Alliance Championship = Allianzmeisterschaft
+Silver IV = Silber IV
+The Alliance Championship has ended! = Die Allianzmeisterschaft ist beendet!
+Clawshard = Klauenfragment
+Gilded Threads = Vergoldete Fäden
+Artisan's Vision = Die Vision des Handwerkers
+Mythic General Hero Shard = Mythisches Helden-Fragment
+100 Enhancement XP Part = 100 Verbesserungs-XP-Teil
+Governor Gear = Gouverneur-Ausrüstung
+Hero Gear = Heldenausrüstung
+Mastery Forging = Meisterhaftes Schmieden
+Enhancement XP = Verbesserungs-XP
+Mythic = Mythisch
+Stat Bonuses = Stat-Boni
+Archer Attack = Bogenschützen-Angriff
+Archer Defense = Bogenschützen-Verteidigung
+Enhancement Cost = Verbesserungskosten
+Enhance = Verbessern
+Gear Enhancement = Ausrüstungsverbesserung
+Charm Upgrades = Talisman-Verbesserungen
+Charm = Talisman
+Charm Design = Talismanpläne
+Desert Trial = Wüsten Prüfung
+Dreadwolf = Höllenwolf
+Alliance Banner = Allianzbanner
+Durability = Haltbarkeit
+Garrisoned Governor = Besetzter Gouverneur
+Not garrisoned = Nicht besetzt
+Defender Squad = Verteidigerschwadron
+No reinforcements to show = Keine Verstärkungen zum Anzeigen
+Dispatch Troops = Schwadron entsenden
+Event details = Eventdetails
+Personal Ranking = Persönlicher Rang
+Alliance Ranking = Allianzrang
+Countdown to Event Start = Countdown bis zum Beginn des Events
+Even more rewards = Noch mehr Belohnungen
+Only leaders and R4+ can enable = Nur Allianzanführer und Mitglieder mit einem R4-Rang oder höher können es aktivieren
+Viking Vengeance = Wikinger-Rache
+Vikings = Wikinger
+Defense Points = Verteidigungspunkte
+Successful defense = erfolgreiche Verteidigung
+Reinforce allies = Verstärke Verbündete
+Event Rules = Eventregeln
+Event difficulty = Schwierigkeitsgrad des Events
+Alliance HQ = Allianz-Hauptquartier
+[Plains] HQ = [Ebenen]-Hauptquartier
+[Badland] HQ = [Badland]-Hauptquartier
+Expedition Skills = Expeditionsfähigkeiten
+Wilderness map = Wildniskarte
+Shield Strike = Schildschlag
+Upgrade Preview = Upgrade-Vorschau
+Damage Up = Schadens-Bonus
+Enemy Damage Taken Up = Bonus für erlittenen feindlichen Schaden
+Level maxed! = Maximales Level erreicht!
+Beasts = Bestien
+Bread = Brot
+Search = Suche
+Auto Hunting = Auto-Jagd
+Max opponent: Lv.28 Beasts = Maximaler Gegner: Lv.28 Bestien
+Hunting Trap 2 = Jagdfalle 2
+On cooldown = Cooldown läuft
+My City = Meine Stadt
+More (march list) = Mehr
+Wood = Holz
+Stone = Stein
+Iron = Eisen
+Great Mill = Große Mühle
+Great Sawmill = Großes Sägewerk
+Great Quarry = Großer Steinbruch
+Great Iron Mine = Großes Eisenbergwerk
+Mill = Mühle
+Sawmill = Sägewerk
+Iron Mine = Eisenbergwerk
+Quarry = Steinbruch
+Secured Alliance Node = Allianzknoten
+Armory = Waffenkammer
+Eternity's Reach = Weiten der Ewigkeit
+Explore the Eternity's Reach for strategic resource—Copper Ores! = Erkunde Weiten der Ewigkeit nach strategischen Ressourcen – Kupfererzen!
+Copper Ore = Kupfererz
+Sign up and battle on the same day = Anmelden und am gleichen Tag in die Schlacht ziehen
+Registration closes in = Anmeldung endet in
+Sign up now = Jetzt anmelden
+Overview (button) = Übersicht
+Rewards (button) = Belohnungen
+Guide (button) = Leitfaden
+Historical Ranking = Historischer Rang
+Overview (dialog tab) = Übersicht
+Buildings (dialog tab) = Gebäude
+Other (dialog tab) = Andere
+Lv. 1 Vein = Lv. 1 Ader
+Lv. 2 Vein = Lv. 2 Ader
+Lv. 3 Vein = Lv. 3 Ader
+Fracture Vein = Gebrochene Ader
+Peak of Eternity = Gipfel der Ewigkeit
+Capacity = Kapazität
+Speed = Geschwindigkeit
+View Rewards = Belohnung ansehen
+March Queue = Marschwarteschleife
+Cesares Guards = Cesares Wächter
+Academy = Akademie
+Truegold = Echtgold
+Rare Hero Shard = Seltenes Helden-Fragment
+Epic Hero Shard = Episches Helden-Fragment
+Mythic Hero Shard = Mythisches Helden-Fragment
+Hero Gear Forgehammer = Heldenausrüstung Schmiedehammer
+Hero Shard = Helden-Fragment
+Widget = Element
+Hero Exclusive Gear = Helden Exklusive Ausrüstung
+Pet advancement = Begleittier-Förderungswert
+Advanced Taming Marks = Fortgeschrittene Zähmungszeichen
+Common Taming Marks = Gewöhnliche Zähmungszeichen
+War Academy = Kriegsakademie
+Medical Satchel = Medizinkoffer
+Rescue Order = Rettungswälzer
+Kingdom of Power = Königreich der Macht
+Overview (event info window) = Übersicht
+Matchmaking Phase = Matchmaking-Phase
+Preparation Phase = Vorbereitungsphase
+Battle Phase = Kampfphase
+Field Triage Phase = Feldtriage-Phase
+Cross-Kingdom Battle Phase = Königreichsübergreifende Schlachtphase
+Cross-Kingdom Castle Battle = Königreichsübergreifende Schlacht um das Schloss
+High King = Hoher König
+Kingdom Bonus = Königreichsbonus
+Cross-Kingdom Teleport = Königreichsübergreifende Umsiedlung
+Rally Captain = Rally-Kapitän
+Position perks = Positionsvorteile
+Phase Rewards = Phase-Belohnungen
+Ranking (rewards section) = Rang
+Total Point Ranking = Gesamtpunktzahl-Rangliste
+Victory Rewards = Siegesbelohnungen
+Squads' Lethality (turret bonus) = Tödlichkeit der Trupps
+Raise Pet Advancement score = Erhöhe Begleittier-Förderungspunkte
+Pet Refinement = Begleittier-Veredelung
+Pet Advanced Refinement = Fortgeschrittene Begleittier-Veredelung
+Raise Governor Charm max score = Erhöhe maximale Gouverneur Talisman Punkte
+Raise Governor Gear max score = Erhöhe max. Punkte der Gouverneur-Ausrüstung
+Use Forgehammers on gear = Verwende Schmiedehammer auf Ausrüstung
+Use Exclusive Gear Widgets of any heroes = Verwende exklusive Ausrüstungselemente beliebiger Helden
+Use Truegold = Verwende Echtgold
+Use Mithril = Verwende Mithril
+Use Speedups for Construction = Verwende Bau-Beschleunigungen
+Use Speedups for Tech Research = Verwende Beschleunigungen für Technologieforschung
+Use Speedups for Soldier Training = Verwende Beschleunigungen für Soldatenausbildung
+Train or Promote Soldiers = Bilde Soldaten aus oder befördere sie
+Play Hero Roulette = Spiele Helden-Roulette
+Use Hero Shards to ascend (excluding General Shards) = Verwende Helden-Fragmente zum Aufsteigen (Allgemeine Fragmente ausgeschlossen)
+Complete Watchtower Intel Missions = Stelle Wachturm-Geheimdienst Missionen fertig
+Gather resources on the World Map = Sammle Ressourcen auf der Weltkarte
+Fishing Tournament = Fischerturnier
+Guide (Fishing tab) = Leitfaden
+Trial Stages = Prüfungsstufen
+Fishing Techniques = Fischtechniken
+Tokens and Points = Token und Punkte
+Fishing Points = Fischer-Punkte
+Fishing Tokens = Fischer-Token
+Fishing Guild = Fischergilde
+Master Fisher Leaderboard = Meisterfischer-Bestenliste
+Fishing Kit = Angelausrüstung
+Kit Enhancement = Kit-Verbesserung
+Line = Schnur
+Hook = Haken
+Sinker = Senkblei
+Sunken Treasure Hunt = Versunkene Schatzsuche
+Fishing Stage = Fischerstufe
+Regular Fishing = Normales Fischen
+Ocean Prospector = Ozean-Goldsucher
+Bait = Köder
+Treasure Chart = Schatzkarte
+Ocean Chest = Ozean-Truhe
+Special Items = Spezialgegenstände
+Fishing Voucher = Angelgutschein
+Horn of the Tide = Horn der Gezeiten
+Reel = Rolle
+Ocean Scanner = Ozeanscanner
+Lantern = Laterne
+Fish / Mermaid / Chest / Memorabilia = Fisch / Meerjungfrau / Truhe / Erinnerungsstück
+Struggling Mermaid = Meerjungfrau in Schwierigkeiten
+Star Rating Rewards = Sterne-Bewertungsbelohnungen
+Guide Completion Rewards = Leitfaden-Abschlussbelohnungen
+Power Cast = Kraft-Besetzung
+Fishing Probability Guide = Fischer-Wahrscheinlichkeitsleitfaden
+Fishing Pro / Fishing Master = Fischer-Profi / Fischermeister
+Fishing Token Bonuses = Fischer-Token-Boni
+Fishing Point Bonuses = Fischer-Punkt-Boni
+Retreat = Rückzug
+Continue = Weiter
+Tri-Alliance Clash = Drei-Allianz-Wettkampf
+Battle Prerequisites = Kampfvoraussetzungen
+Battle Rules = Schlachtregeln
+Voting / Registration / Matchmaking / Battle = Abstimmung / Anmeldung / Matchmaking / Schlacht
+Power Leaderboard = Kraft-Bestenliste
+Deployment page = Aufstellungsseite
+Preparations = Vorbereitung
+Seize & Conquer = Ergreifen & Erobern
+Garrison Occupation = Garnisonsbesetzung
+Temple Onslaught = Ansturm auf Tempel
+Energy = Energie
+Deploy / Conscript / Advance / Retreat / Instantly revive = Aufstellen / Einberufen / Vorrücken / Zurückziehen / sofortige Wiederbeleben
+Captain (Tri-Alliance) = Kapitän
+Temple of Tides = Tempel der Gezeiten
+Headquarters = Hauptquartier
+Garrisons = Garnisonen
+Cluster of Ruins = Anhäufung von Ruinen
+Ruins = Ruinen
+Transit Hub = Knotenpunkt
+Pillars = Säulen
+Neutral buildings = neutrale Gebäude
+Alliance Ranking Rewards = Allianz-Ranglistenbelohnungen
+Personal Ranking Rewards = Persönliche Ranglistenbelohnungen
+Personal Merits = Persönliche Verdienste
+Auto-advance = Freilos
+Tidal Stone = Gezeitenstein
+Tidal Shop = Gezeiten-Laden
+Mystic Trial = Mystische Prüfung
+Story = Geschichte
+Expedition Stats = Expeditionswerte
+Coliseum = Kolosseum
+Forest of Life = Wald des Lebens
+Crystal Cave = Kristallhöhle
+Knowledge Nexus = Wissensverbund
+Molten Fort = Geschmolzenes Fort
+Radiant Spire = Strahlende Spitze
+Squad Config = Schwadron-Konfig.
+Trial Explorers = Prüferkunder
+Soldiers = Soldaten
+Deployment capacity = Einsatzkapazität
+Challenge Attempts = Herausforderungsversuche
+First Win Rewards = Erster-Sieg-Belohnungen
+Raid Rewards = Überfall-Belohnungen
+Stage Reset = Stufe zurückgesetzt
+Raid = Überfall
+Stage (trial level) = Stufe
+Mystic Trial Leaderboard = Mystische Prüfung Bestenliste
+Pet = Begleittier
+Pet Skills = Begleittierfähigkeiten
+Governor Charm = Gouverneur Talisman
+Tech = Technologien
+Truegold Tech = Echtgold-Technologie
+Skins = Verkleidung
+Oasis Island = Oasen Insel
+VIP level = VIP-Level
+Current Level = Aktuelles Level
+VIP Benefits = VIP-Vorteile
+NEW = NEU
+Resource Production Speed = Ressourcen Produktions Geschwindigkeit
+Storehouse Capacity = Lagerkapazität
+Construction Speed = Baugeschwindigkeit
+VIP Daily Free Bundle = Tägliche Gratis Bündel
+VIP Special Pack = Spezial Paket
+Purchase limit: 1 = Kauflimit: 1
+Power (alliance info) = Kraft
+Members = Mitglieder
+Language = Sprache
+All languages = Alle Sprachen
+Maxed = Maximal
+War = Krieg
+Chests = Kiste
+Territory = Gebiet
+Battle = Schlacht
+Shop (alliance) = Laden
+Tech (alliance) = Technologie
+Power (ranking button) = Kraft
+Help = Hilfe
+Triumph = Sieg
+Rebel Bounty: Elite = Rebellenkopfgeld: Elite
+Intel Mission = Geheimdienst-Mission
+Quality = Qualität
+Max Count = Max. Anzahl
+Refreshes In = Aktualisiert in
+Barricade = Barrikade
+Conquerors' Camp = Lager der Eroberer
+Court of Justice = Gericht
+Infirmary = Krankenstation
+Enlistment Office = Musterungsamt
+Storehouse = Lagerhaus
+Defense Tower = Verteidigungstürme
+Beast Cage = Bestienkäfig
+Covenant-Making = Schließen von Bündnissen
+Permanent Alliance Tech Contributions = Dauerhafte Allianztechnologie-Beiträge
+Contribution Rewards = Beitragsbelohnungen
+Contribute = Beitragen
+Attempts = Versuche
+Unlimited (∞) = ∞
+Alliance Token = Allianz-Token
+Arena of Glory = Arena des Ruhms
+Season ends in = Saison endet in
+Ranking = Rang
+Governor = Gouverneur
+Arena Points = Arenapunkte
+Challenge = Herausfordern
+History = Verlauf
+Def. Lineup = Defensive
+Daily = Täglich
+Growth = Wachstum
+Carry out N Intel Mission(s) = Führe N Geheimdienst-Mission(en) aus
+Heal N injured soldiers = Heile N verletzte Soldaten
+Upgrade N building(s) = Verbessere N Gebäude
+Defeat Terror N time(s) = Besiege N Mal Terror
+Complete Daily Missions = Schließe tägliche Missionen ab
+Get More = Erhalte mehr
+Water Essence = Wasser-Essenz
+Fountain of Life = Brunnen des Lebens
+Island Treasure = Inselschatz
+Assist Allies = Verbündetem Helfen
+Purifier = Klärwerk
+Cacti = Kakteen
+Weekly Benefits Card = Wöchentliche Vorteilskarte
+Hall of Heroes = Halle der Helden
+Intel Monthly Card = Geheimdienst Monatskarte
+Remaining = Verbleibend
+Expiring = Läuft ab
+Gathered = Gesammelt
+Time Left = Verbleibende Zeit
+Gathering Speed = Sammelgeschwindigkeit
+Gathering Squad = Sammelschwadron
+Gather = Sammeln
+Pet Adventure = Begleittier Abenteuer
+Governor Stamina = Gouverneur-Ausdauer
+Treasure spot = Schatzplätze
+Personal Treasure = persönlicher Schatz
+Nomadic Merchant = Nomaden Händler
+Mystery (shop) = Rätsel
+Arena (shop) = Arena
+VIP (shop) = VIP
+Alliance Championship Shop = Meisterschafts Laden
+Swordland (shop) = Schwertland
+Kingdom of Power (shop) = Königreich der Macht
+Skin (shop) = Verkleidung
+Trial Shop = Prüfungsladen
+Gem (shop) = Edelstein
+Trial Crystal = Prüfungskristall
+Refresh = Aktualisieren
+Sold out = Ausverkauft
+Exclusive Item = Exklusiver Gegenstand
+Today = Heute
+Week = Woche
+Gen 2 Custom Hero Widget Chest = 2. Gen.Held Elementkiste
+Custom Mythic Hero Gear Chest = Mythische Heldenausrüstungs Kiste
+Mythic Hero Gear = Mythische Heldenausrüstung
+Transfer Pass = Transfer-Pass
+Kingdom Transfer = Königreichsmigration Event
+Sources = Quelle
+Buy Packs = Pakete kaufen
+City Skin = Siedlung Verkleidung
+House of Cacti (Permanent) = Haus der Kakteen (Dauerhaft)
+In Wilderness = Wildnisanzeige
+Preview = Vorschau
+Stat Bonus (Activated upon Acquisition) = Wert-Bonus (Aktiviert bei Erwerb)
+Squads' Attack = Schwadron Angriff
+Alliance Mobilization = Allianzmobilisierung
+Event Period = Zeitraum des Events
+Participation Requirement = Teilnahmevoraussetzung
+Obtain Points = Erhalt von Punkten
+Alliance Points = Allianzpunkte
+Refresh Event Mission = Eventmission aktualisieren
+Exclusive mission = exklusive Mission
+Public mission = öffentliche Mission
+Abandon Event Mission = Eventmission aufgeben
+Custom Mission Voucher = Benutzerdefiniertes Missionsticket
+Ranking Display Phase = Anzeigephase der Rangliste
+League Overview = Ligaübersicht
+League Event = Ligaevent
+League Tier Ranking = Liga-Stufenrang
+Rookie (league tier) = Anfänger
+Junior (league tier) = Junior
+Senior (league tier) = Senior
+Elite (league tier) = Elite
+Legendary (league tier) = Legendär
+Milestone (promotion level) = Meilenstein
+Tier Demote = Zurückstufen
+Ranking Rule = Rangregeln
+Note (rules) = Hinweis
+Champagne Fair = Champagner-Messe
+Fair Vouchers = Messe-Gutscheine
+Hero Rally = Helden-Rally
+Governor Order = Gouverneursbefehl
+Urgent Mobilization = Dringende Mobilisierung
+Rush Job = Eilauftrag
+Comprehensive Care = Umfassende Pflege
+Double Time = Doppeltes Tempo
+Productivity Day = Tag der Produktivität
+Festivities = Festlichkeiten
+On cooldown = Abklingzeit läuft
+Active = Aktiv
+Ground Works = Grundarbeit
+Kingdom of Power Bonus = Königreich der Macht Bonus
+Residents continue working = Einwohner arbeiten weiter
+Research Speed = Forschungstempo
+Appointment = Ernennung
+Ministers (tab) = Minister
+Offender (tab) = Täter
+The King may appoint Ministers = Der König kann Minister ernennen
+Chief Minister = Höchster Minister
+Minister of Justice = Justizminister
+Minister of the Interior = Innenminister
+Field Commander = Einsatzkommandant
+Marshal = Marschall
+Noble Advisor = Nobler Berater
+Not Appointed = Keine Ernennung
+Reserved = Reservierungen
+Appointed in = Ernennung in
+At Max Level & Stars = Max Level und Sterne-Bewertung
+Hero Attack = Heldenangriff
+Hero Defense = Heldenverteidigung
+Hero Health = Heldengesundheit
+Infantry Attack = Infanterie-Angriff
+Infantry Defense = Infanterie-Verteidigung
+Cavalry Attack = Kavallerie-Angriff
+Cavalry Defense = Kavallerie-Verteidigung
+Master Academy = Meisterakademie
+Master List = Meisterliste
+Master Stats = Meister-Werte
+Max Affinity Stats = Max. Affinität-Werte
+Reach 1000 Affinity and the Master will settle in the Town. = Erreiche 1000 Affinität und der Meister wird sich in der Stadt niederlassen.
+Relationship Advancement = Beziehungs-fortschritt
+Relationship Advancement Preview = Beziehungsfortschritt-Vorschau
+Expertise Level Up = Fachwissen-Levelaufstieg
+Raise Master Affinity to upgrade Status = Erhöhe die Meisteraffinität, um den Status zu verbessern
+Stranger = Fremder
+Acquaintance = Bekannter
+Casual = Zwanglos
+Close = Eng
+Kindred Soul = Seelenverwandter
+Squads' Defense = Schwadron Verteidigung
+Reserve Chests = Reserve-Truhen
+Palace Administrator = Palastverwalter
+Bear Hunter = Bärenjäger
+Bear Hunt Damage Points (effective for self only) = Bärenjagd-Schadenspunkte (wirkt nur für sich selbst)
+Arena Champion = Arena-Champion
+Arena Star Chest = Arenastern-Truhe(n)
+Arena Token = Arenatoken
+Master's Manuscript = Meister-Manuskript
+General Master Emblem = Allgemeines Meister-Emblem
+Achievements = Erfolge
+Realm Journey = Reichsreise
+Journey = Reise
+Frontier Encounter = Grenzbegegnung
+Next Stop = Nächste Station
+Idle = Untätig
+Known Masters = Bekannte Meister
+Savage Advantage = Vorteil des Wilden
+Leader By Example = Vorbildlicher Anführer
+Weapon Obsession = Waffenbesessenheit
+Dance of the Hunt = Tanz der Jagd
+Falconer = Falkner
+Good Steward = Guter Verwalter
+Master Architect = Meisterarchitekt
+Ways and Means = Mittel und Wege
+Teacher of Champions = Lehrer der Champions
+Winner Take All = Alles oder nichts
+Crowd Favorite = Held der Massen
+One Desire = Ein Verlangen
+Mystery Badge = mysteriöse Abzeichen
+Journey Supplies = Reisevorräte
+Adventure Supply = Abenteuervorrat
+Lostlands = Verlorene Lande
+Master Emblem = Meister-Emblem
+Gray Wolf = Grauer Wolf
+Lynx = Luchs
+Moose = Elch
+Lion = Löwe
+Grizzly Bear = Grizzlybär
+Construction Aide = Bauhilfe
+Comforting Embrace = Tröstliche Umarmung
+Grip of the Titan = Griff des Titanen
+Scent Mastery = Beherrschung der Düfte
+Horror Stare = Horrorblick
+Gift of the King = Geschenk des Königs
+The Howler = Der Heuler
+Pet Skill = Begleittierfertigkeit
+Skill Effect = Fertigkeitseffekt
+Cooldown (Pet Skill) = Abklingzeit
+On Cooldown = Abklingzeit läuft
+Pet List = Begleittier Liste
+Display = Anzeigen
+Advance = Fortschreiten
+Refine = Veredeln
+X Overall Stats = X Gesamtwerte
+Pet Food = Begleittier-Futter
+Infantry Lethality = Infanterie-Tödlichkeit
+Infantry Health = Infanterie-Gesundheit
+Cavalry Lethality = Kavallerie-Tödlichkeit
+Cavalry Health = Kavallerie-Gesundheit
+Archer Lethality = Bogenschützen-Tödlichkeit
+Archer Health = Bogenschützen-Gesundheit
+Abbey = Abtei
+Sanctuary = Heiligtum
+Governor Charm = Gouverneur-Talisman
+Forgehammer = Schmiedehammer
+Intel Missions = Geheimdienstmissionen
+Medical Satchels = Medizinkoffer
+Rescue Orders = Rettungswälzer
+use = nutzen
+okay if needed = bei Bedarf okay
+don't use = nicht nutzen
+need to do daily = täglich nötig
+Conscript = Einberufen
+neutral buildings = neutrale Gebäude
+Deploy = Aufstellen
+Advance = Vorrücken
+Instantly revive = Sofortige Wiederbeleben
+Learning = Lernen
+Learning Speedups = Lern-Beschleunigungen
+Arena Star Chest = Arenastern-Truhe
+Mystery Badges = mysteriöse Abzeichen
+Tech = Technologie
+House of Cacti = Haus der Kakteen
+Master Emblems = Meister-Embleme
+Mystery Shop = Rätsel
+Arena Shop = Arena
+VIP Shop = VIP
+Swordland Shop = Schwertland
+Kingdom of Power Shop = Königreich der Macht
+Skin Shop = Verkleidung
+Gem Shop = Edelstein
+Alliance Shop = Laden
+Pets = Begleittiere

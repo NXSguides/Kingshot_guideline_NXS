@@ -1,0 +1,1511 @@
+### GUIDE #viking-vengeance — Viking Vengeance
+KAPAN
+Setiap 2 minggu — dua sesi 30 menit pada Hari 1 & Hari 3. Dijadwalkan oleh pimpinan, biasanya dekat dengan waktu Bear Hunt.
+📌 PERSIAPAN
+Kosongkan Kotamu
+Kirim SEMUA Infanteri & Kavaleri keluar untuk memperkuat anggota aliansi.
+Pemanah tambahan boleh tetap di rumah — mereka tidak akan mencuri poin penguatan.
+Meski kamu offline selama event, kosongkan kotamu lebih dulu! Kamu tetap bisa mendapat poin sekaligus memberi anggota lain kesempatan mendapat poin dengan memperkuatmu.
+Simpan 3 Hero Terbaik di Rumah
+Sisakan 3 hero Pertahanan/Serangan terbaikmu di Pos Penjaga.
+F2P: Jabel / Howard / Quinn
+P2W: Amadeus atau Helga / Jabel / Saul
+JANGAN DISEMBUHKAN
+Pasukan yang sudah sembuh kembali ke rumah dan bisa mencuri pembunuhan/poin dari anggota yang memperkuatmu.
+Utamakan Anggota Aktif
+Perkuat anggota yang online lebih dulu. Gelombang 7, 14 & 17 hanya menyerang pemain yang online.
+⚔️ MEMPERKUAT SEKUTU
+Gunakan hero joiner Bear Hunt di posisi pertama untuk memaksimalkan poin pembunuhan.
+Direkomendasikan: Chenko / Amane / Yeonwoo / Amadeus
+Hindari hero bertahan seperti Howard atau Gordon di barisan penguatan.
+🏛️ MARKAS — GELOMBANG 10 & 20
+Gelombang 10 & 20 HANYA menyerang markas. Serangan ke kota berhenti sementara selama gelombang ini.
+Setelah Gelombang 9 / 19 selesai:
+Panggil Kembali SATU barisan kuat.
+Kirim langsung ke markas.
+Maksimal 68K pasukan per anggota.
+Gunakan Chenko atau Amadeus di posisi pertama, atau hero dengan damage mentah terkuatmu.
+Setelah gelombang markas, panggil kembali dan kembali memperkuat anggota yang ditugaskan kepadamu.
+⚠️ PENTING: Kamu bisa memperkuat markas untuk Gelombang 10 ATAU Gelombang 20 — BUKAN KEDUANYA.
+Koordinasikan dengan R4/R5 agar semua kebagian giliran dan markas terisi secara efisien.
+
+### GUIDE #master-academy — Panduan Akademi Master Gen 3
+KAPAN
+Gen 3 hadir 28 Sep dan membuka Master Academy di Pusat Kota 25. Master memberi buff pasif permanen untuk akun, sumber daya tambahan, dan hadiah event. Master terpisah dari Hero.
+CARA MEMBUKA
+Valora SELALU menjadi Master pertamamu, ditemukan lewat Perjalanan Alam biasa.
+Perbekalan Perjalanan gratis: 20 terisi otomatis pukul 00:00 UTC, ditambah 10 pukul 08:00 dan 10 pukul 16:00 yang harus diklaim manual — total 40 per hari. Kamu bisa membeli hingga 20 lagi per hari dengan Permata (1.000 Permata per 5). Jika penyimpanan penuh, tidak akan terisi lagi, jadi gunakan secara rutin.
+JANGAN pakai Suplai Petualangan untuk Valora — Perbekalan Perjalanan gratis akan membukanya dengan sendirinya.
+SIMPAN Suplai Petualangan untuk Pan dan Roman di Tanah Terlupakan setelah mereka ditemukan.
+Master akan menetap di Kota setelah mencapai 1.000 Kedekatan.
+PRIORITAS F2P & LOW SPENDER
+Pan ➔ Valora ➔ Roman
+1. Pan — Master ekonomi (prioritas utama)
+Naikkan Pan ke Lv. 60.
+Talenta: 5 Peti Cadangan setiap 120 menit mengumpulkan (maks. 30 per hari) — Truegold, Permata, dan speedup gratis.
+Skill 1 Falconer: +8 Misi Intel per hari → banyak Truegold gratis setiap hari.
+Skill 4 Ways and Means: +120 Lencana Misteri dari misi harian dan +4 refresh gratis di Misteri → Widget diskon.
+🔗 Detail: https://kingshotoptimizer.com/masters/pan/
+2. Valora — material gear Bear Hunt
+Naikkan ke Lv. 30.
+Skill 2 Leader By Example: +5 × 100 Enhancement XP per Bear Hunt.
+Skill 3 Weapon Obsession: +5 Forgehammer per Bear Hunt.
+🔗 Detail: https://kingshotoptimizer.com/masters/valora/
+3. Roman — pasif Arena
+Cukup buka (1.000 Kedekatan): talentanya sudah memberi peluang 50% dapat Peti Bintang Arena tambahan setelah tiap pertandingan Arena (Fragmen Hero & Forgehammer); baru di level maks menjadi peluang 100% dapat 3. Tidak perlu investasi Master Emblems besar di awal.
+🔗 Detail: https://kingshotoptimizer.com/masters/roman/
+PRIORITAS WHALE & PEMIMPIN RELI
+Valora ➔ Roman ➔ Pan
+Valora: maksimalkan Savage Advantage dan Dance of the Hunt untuk skor leaderboard besar.
+Dance of the Hunt (Skill 1): saat kamu memulai reli Raging Bear, kapasitas seluruh reli +30.000 per level (Lv.10: +300.000) — lebih banyak pasukan anggota bisa masuk.
+Savage Advantage (Skill 4): kapasitas skuadmu sendiri saat ikut Bear Hunt +3.000 per level (Lv.10: +30.000).
+Roman: Teacher of Champions & One Desire (+20% Serangan & HP di pertempuran Arena), Winner Take All (+50% hadiah Token Arena harian/mingguan), Crowd Favorite (3 item ekstra di Arena dengan diskon 50%).
+Pan: naikkan di urutan kedua untuk Truegold pasif.
+ℹ️ Skill 1 Dance of the Hunt menaikkan kapasitas seluruh reli yang kamu mulai. Skill 4 Savage Advantage hanya menambah skuadmu sendiri — kapasitas total reli tetap tergantung pada pemimpin reli.
+💬 Perjalanan Alam: hadiah tanya jawab
+Daftar di bawah disusun dari situs di atas. Saat peristiwa muncul, cari berdasarkan warna dan isinya: pilih warna atau tokoh / kata kunci, lalu ketuk peristiwanya untuk melihat pilihan terbaik (✅).
+
+### GUIDE #general-tips — Tips Umum
+🔗 REFERENSI
+🗓️ LINIMASA KERAJAAN
+Lihat apa yang akan datang agar bisa merencanakan event, upgrade, dan sumber daya lebih awal.
+⚔️ OPTIMIZER GEAR HERO
+Rencanakan upgrade Gear Hero dan hindari membuang material berharga.
+🎥 YOUTUBE – STRAT GAME SLOTH
+Video strategi rekomendasi, tips bermain, dan saran progres.
+🛒 TOKO DALAM GAME
+Apa yang perlu diprioritaskan di setiap toko agar paling hemat.
+🐪 Pedagang Nomaden
+Teleporter Lanjutan dengan sumber daya / gratis
+Tukar sumber daya yang menguntungkan
+XP VIP diskon
+🎲 Misteri
+Perbarui gratis setiap hari
+Peti Widget Custom Gen 2 saat diskon 50%
+Diskon 20% hanya jika sangat butuh
+🏟️ Arena
+Peti Perlengkapan Pahlawan Mitos Khusus setiap minggu → Mithril setelah fondasi Gear Mitos hero utamamu selesai
+👑 VIP
+Pakai Permata hanya untuk diskon: Teleporter Lanjutan • 100 Enhancement XP • Forgehammer
+🏆 Tingkat Kejuaraan Aliansi
+Sebelum membuka Master Academy: Artisan's Vision • Gilded Threads / Satin sesuai kebutuhan
+Setelah terbuka: Master Emblems prioritas utama — di late game, simpan token untuk ini
+⚔️ Swordland
+Artisan's Vision → lalu apa pun yang jadi hambatan: material Charm Gubernur / Gear Gubernur • Forgehammer
+🏰 Kerajaan Kekuatan
+Truegold — hambatan progres jangka panjang yang besar
+🎨 Skin
+Utamakan bonus stat permanen, mis. House of Cacti: +2% Attack Skuad
+🧪 Toko Ujian
+Sebelum Truegold Dust: SIMPAN Kristal Ujian
+Sesudahnya: Truegold Dust → Mithril → Enhancement XP → Desain Charm
+💎 Gem
+Gunakan Permata hanya untuk titik progres penting atau material yang sulit didapat.
+Kalau ragu: SIMPAN GEM-MU. Lihat panduan penggunaan Gem di bawah.
+🤝 Aliansi – Toko
+Transfer Pass • XP VIP • Makanan / material peliharaan • Teleporter Lanjutan • Diskon 70% yang berguna • Speedup hanya jika Token Aliansi berlebih
+💎 PANDUAN MENGGUNAKAN GEM
+Simpan Permata untuk:
+1) 🎡 Rolet Hero → ~162.000 Permata untuk 120 putaran
+2) 👑 Aktivasi VIP → 10.000 Permata/bulan (mulai VIP 4)
+🏛️ Aula Pahlawan → ~13.500–14.850 Permata, HANYA jika Marlin belum terbuka. Berhenti setelah terbuka — sesudah itu shard umum lebih bernilai untuk upgrade.
+✅ CHECKLIST HARIAN
+☀️ SAAT ONLINE
+☐ 🎁 Ambil peti VIP + gunakan XP VIP
+☐ 🤝 Bantuan aliansi + kontribusi Teknologi aliansi
+☐ 📊 Gunakan item XP Hero
+☐ ⚔️ Taklukkan kamp (Kamp Penakluk)
+☐ 🔎 Selesaikan Misi Intel
+☐ 🏝️ Kumpulkan Esensi Air di pulau + bantu sekutu
+☐ 🔮 Gunakan kesempatan Ujian Mistis
+☐ 📋 Selesaikan misi Harian
+☐ 🏟️ Main Arena Kemuliaan 3 menit sebelum reset
+☐ 🐻 Bear Hunt — dua hari sekali + perbarui formasi
+☐ 📅 Daftar dan ikuti event yang sedang aktif
+🌙 SEBELUM LOGOUT
+☐ 🐉 Kirim peliharaan ke Petualangan Hewan Peliharaan
+☐ 🌾 Kirim barisan Mengumpulkan
+☐ ⚔️ Pastikan Pelatihan pasukan tetap berjalan
+☐ 🔬 Jaga Penelitian / Konstruksi tetap berjalan sesuai kebutuhan
+
+### GUIDE #mystic-trial — Ujian Mistis
+KAPAN
+Tersedia setiap hari. Setiap zona punya 5 percobaan per hari, direset pukul 00:00 UTC. Zona yang dibuka tergantung harinya.
+KENAPA PENTING
+Sumber penting Fragmen Hero, XP Hero, dan hadiah progres lainnya.
+ZONA UJIAN
+Koloseum
+Senin & Selasa
+⚔️ Infanteri 50% · Kavaleri 10% · Pemanah 40%
+⚔️ Infanteri 60% · Kavaleri 15% · Pemanah 25%
+Hanya Stat Hero, Gear Hero, dan Gear Ekslusif Hero yang berlaku.
+Alas Kehidupan
+Rabu & Kamis
+⚔️ Infanteri 50% · Kavaleri 15% · Pemanah 35%
+⚔️ Infanteri 55% · Kavaleri 10% · Pemanah 35%
+Hanya Stat Peliharaan yang berlaku.
+Skill Peliharaan aktif secara default, dan efeknya tidak bisa ditumpuk.
+Gua Kristal
+⚔️ Infanteri 60% · Kavaleri 20% · Pemanah 20%
+⚔️ Infanteri 55% · Kavaleri 5% · Pemanah 40%
+Hanya Stat Charm Gubernur yang berlaku.
+Nexus Pengetahuan
+Jumat & Sabtu
+⚔️ Infanteri 50% · Kavaleri 20% · Pemanah 30%
+Hanya Stat Teknologi Akademi dan Akademi Perang yang berlaku.
+Prajurit level lebih tinggi dipakai di sini jika sudah dibuka.
+Benteng Lava
+⚔️ Infanteri 50% · Kavaleri 18% · Pemanah 32%
+Hanya Stat Gear Gubernur yang berlaku.
+Menara Radiant
+Minggu
+Hampir semua stat berlaku: Hero, Gear Hero, Gear Ekslusif Hero, Peliharaan (Skill Peliharaan aktif secara default), Charm Gubernur, Teknologi, Truegold Tech, Gear Gubernur, Skins, Oasis Island, dan VIP level.
+Kamu memakai prajurit sendiri — tanpa kerugian dan tanpa memengaruhi pengerahan di peta dunia.
+Di lima zona lainnya, Penjelajah Ujian menyediakan prajurit Lv.10 — cukup tingkatkan stat yang dibutuhkan zona itu. Menyelesaikan Stage 1–10 di sebuah zona membuka fitur Raid.
+
+### GUIDE #pet — Peliharaan
+🔧 Skill Hewan Peliharaan (non-pertempuran)
+🔹 Gray Wolf – Construction Aide: kecepatan Konstruksi & Upgrade ↑ selama 5 menit
+🔹 Lynx – Comforting Embrace: langsung memulihkan Stamina Gubernur
+🔹 Bison – Grip of the Titan: langsung menyelesaikan pengumpulan di petak sumber daya liar berikutnya (tidak berlaku untuk Node Aliansi Aman)
+🔹 Cheetah – Scent Mastery: langsung menemukan Makanan Peliharaan
+🔹 Lion – Gift of the King: menggali item yang hilang (mis. Forgehammer, Truegold, material charm & gear)
+⚔️ Skill Hewan Peliharaan (pertempuran)
+🔹 Moose – Horror Stare: Health skuad musuh ↓ selama 2 jam
+🔹 Grizzly Bear – The Howler: Kecepatan March ↑ + Lethality skuad musuh ↓ selama 2 jam
+📍 Di mana ⚔️ Skill Hewan Peliharaan berlaku?
+✅ binatang buas, Rebel, Reli Terror & Netherfiend — berlaku
+❌ Bear Hunt — efek pelemahan musuh tidak berlaku (beruang tidak punya bar HP)
+👑 Reli: hanya ⚔️ Skill Hewan Peliharaan milik pemimpin reli yang dihitung
+Panduan lengkap: https://kingshotmastery.com/guides/kingshot-pet-guide
+ℹ️ Kontennya terlalu panjang untuk diterjemahkan, silakan buka tautannya dan baca di sana.
+
+### GUIDE #install-app — Cara memasang sebagai aplikasi
+Apakah aman?
+Ini bukan program yang diunduh (bukan APK), melainkan situs ini yang disimpan di layar utama dan berjalan di Safari/Chrome seperti halaman web biasa.
+Tidak meminta izin apa pun: tanpa kamera, kontak, lokasi, file, atau notifikasi.
+Bisa dihapus kapan saja: tekan lama ikonnya lalu hapus, seperti aplikasi biasa.
+iPhone / iPad
+Buka situs ini di Safari (browser lain tidak bisa memasang).
+Ketuk tombol Bagikan (kotak dengan panah) di bawah.
+Ketuk View More (tombol ⌄) untuk membuka menu lengkap. Di iOS versi lama, cukup gulir ke bawah.
+Ketuk Tambahkan ke Layar Utama.
+Biarkan Open as Web App tetap aktif, lalu ketuk Tambah.
+Ikon NXS sekarang muncul di layar utama.
+Android
+1. Buka situs ini di Chrome.
+2. Ketuk ⋮ di kanan atas.
+3. Ketuk Instal aplikasi (atau Tambahkan ke layar utama), lalu Instal.
+Perlu diketahui
+Ikon NXS muncul di layar utama dan terbuka layar penuh seperti aplikasi.
+Saat pertama dibuka, pilih bahasamu — setelah itu akan diingat. Ketuk 🌐 untuk menggantinya.
+Halaman yang pernah dibuka bisa dibaca secara offline.
+Pembaruan otomatis — tidak perlu memasang ulang.
+Nama tombol bisa sedikit berbeda tergantung ponsel dan versi sistem.
+
+### GUIDE #bear-hunt — Bear Hunt
+🆕 UPDATE GEN 3
+Pemimpin reli: Terbaik — Helga + Petra + Marlin (10:20:70), hanya jika Helga 5★ + Widget maks. Alternatif — Amadeus + Petra + Marlin (20:30:50). F2P — Zoe + Petra + Quinn (20:40:40).
+Peserta – kirim ini dulu: Chenko, Yeonwoo, Amadeus, Amane (bonus Lethality tetap).
+⚠️ Hanya SATU per reli: Marlin, Zoe, Jaeger, Petra — damage berbasis peluang TIDAK menumpuk.
+Detail di bawah ↓
+KAPAN
+Setiap 2 hari pada waktu yang dijadwalkan Aliansimu.
+MENGAPA PENTING
+Sumber utama material Gear Hero (Forgehammer) dan Enhancement XP.
+PERSIAPAN
+Perbarui Formasi Pasukanmu sebelum setiap Bear Hunt.
+Opsional: gunakan https://frakinator.streamlit.app/ untuk menguji rasio pasukan dan menemukan formasi terkuatmu.
+Panggil Kembali pasukan yang sedang mengumpulkan sebelum event dimulai.
+Ingat: di 5–7 menit terakhir, semua orang sebaiknya memulai reli. Ini membuka lebih banyak slot bagi pemain yang pasukannya sedang kembali, sehingga bisa melakukan dorongan damage terakhir.
+PEMIMPIN RELI
+⚠️ Aturan: mulai reli sendiri dengan pasukan maksimal, tapi saat bergabung ke reli lain kamu juga harus mengikuti batas tepat 90.000 pasukan. Di awal, pemimpin reli utama mengirim reli pertama pada waktu bergiliran yang sudah ditentukan.
+GEN 1
+GEN 2
+GEN 3
+GEN 4
+GEN 5
+Formasi pasukan: 30-30-40%. Pada kebanyakan kasus, Infanteri akan punya stat terbaik berkat stat dasar Amadeus, jadi formasi yang hampir seimbang dengan Pemanah sedikit lebih banyak bekerja paling baik.
+Formasi pasukan: 20-40-40%. Terutama untuk yang belum memilih Amadeus, dan tetap membuka peluang memakai Amadeus untuk bergabung ke reli.
+Formasi pasukan: 30-30-40%. Untuk F2P, disarankan selalu memakai 3 hero yang dimiliki untuk memimpin reli.
+Formasi pasukan: 20-30-50%. Marlin akan menambah damage besar berkat perlengkapan khusus reli miliknya. Mulai Gen 2, Infanteri akan selalu Amadeus atau Helga — mereka satu-satunya hero Infanteri dengan perlengkapan khusus reli (bonus Lethality). Kamu mengirim lebih sedikit Infanteri, jadi hero Infanteri menutup damage Pemanah lewat perlengkapan itu, bukan dengan menyamai stat Infanteri.
+Formasi pasukan: 20-30-50%. Alternatif lain adalah mengganti Quinn dengan Marlin jika ia belum lebih baik. Pakai Helga di Gen 2+ hanya jika Amadeus belum bintang 5 + perlengkapan khusus level maks; ini juga kesempatan memakai Amadeus untuk bergabung ke reli.
+Formasi pasukan: 30-30-40%. Masih belum ada hero F2P dengan perlengkapan khusus reli, jadi sekali lagi formasi seimbang dengan Pemanah sedikit lebih banyak, karena stat Pemanah akan paling rendah tanpa hero Pemanah SSR.
+Formasi pasukan: 10-20-70%. Helga yang sudah maksimal lebih baik daripada Amadeus di Gen 3, karena punya 2 perlengkapan Lethality dan 1 perlengkapan Attack, dibandingkan 1 Lethality dan 2 Attack milik Amadeus pada susunan ini.
+Formasi pasukan: 20-30-50%. Jika kamu belum punya Helga maksimal (bintang 5 + perlengkapan khusus), lebih baik pakai Amadeus.
+Formasi pasukan: 20-40-40%. Di Gen 3, F2P mendapat hero pertama dengan perlengkapan khusus reli (Petra). Coba jumlah Pemanah dan Kavaleri yang seimbang karena Petra sangat meningkatkan Pemanah. Stat Pemanah tetap paling rendah tanpa Pemanah SSR. Jika kamu membuka Kavaleri T10, skill T10 cocok dengan stat Petra. Jika kamu membuka Kavaleri T3, Petra jadi lebih kuat karena skill ke-3 miliknya sangat cocok dengan stat mereka.
+Formasi pasukan: 10-10-80%. Paksakan sebanyak mungkin Pemanah, terutama jika T10. Dengan sedikit keberuntungan, skill ke-3 Rosa akan bekerja untukmu (meningkatkan total Attack Pemanah sebesar 30%).
+Formasi pasukan: 10-10-80%. Pakai Helga sebagai alternatif jika bintang dan level perlengkapan khususnya lebih baik dari Amadeus. Tetap paksakan sebanyak mungkin Pemanah, terutama T10, untuk skill ke-3 Rosa (meningkatkan total Attack Pemanah sebesar 30%).
+Formasi pasukan: 10-10-80%. Sama seperti hero alternatif terbaik — bonus skill ke-3 Rosa paling maksimal jika kamu fokus pada formasi yang berat di Pemanah (meningkatkan total Attack Pemanah sebesar 30%).
+Slot pemimpin lainnya belum dirilis.
+PESERTA RELI
+⚠️ Aturan: semua yang bergabung wajib mengirim tepat 90.000 pasukan ke reli — simpan formasi pasukan lebih dulu. Saat sisa 6:30, semua yang bergabung memulai reli sendiri dengan 3 pahlawan terkuat. 🔪 Pahlawan salah atau jumlah pasukan salah akan dikeluarkan dan diminta bergabung ulang.
+Rasio Standar / Aman: 10% Infanteri, 10% Kavaleri, dan 80% Pemanah (atau variasi seperti 20-30-50)
+Prioritas – kirim ini dulu: pahlawan ini memberi bonus Lethality tetap, bonus paling berharga untuk Bear Hunt.
+GUNAKAN DENGAN HATI-HATI
+⚠️ Pahlawan damage berbasis peluang: efeknya kuat, tapi TIDAK menumpuk. Gunakan hanya SATU dari pahlawan ini dalam reli yang sama: Marlin, Zoe, Jaeger, Petra.
+🔗 Selengkapnya: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes
+[joiners] Chenko | lethality | Yeonwoo | lethality | Amane | attack | Amadeus | lethality
+[leaders] best | Amadeus | Jabel | Quinn | 30-30-40 | alt | Helga | Jabel | Quinn | 20-40-40 | f2p | Howard | Jabel | Quinn | 30-30-40 | best | Amadeus | Hilde | Marlin | 20-30-50 | alt | Helga | Jabel | Marlin | 20-30-50 | f2p | Zoe | Jabel | Quinn | 30-30-40 | best | Helga | Petra | Marlin | 10-20-70 | alt | Amadeus | Petra | Marlin | 20-30-50 | f2p | Zoe | Petra | Quinn | 20-40-40 | best | Amadeus | Petra | Rosa | 10-10-80 | alt | Helga | Petra | Rosa | 10-10-80 | f2p | Zoe | Petra | Rosa | 10-10-80 | best | Amadeus
+
+### GUIDE #swordland-showdown — Swordland Showdown
+KAPAN
+Setiap 2 minggu — event medan perang aliansi lawan aliansi selama 60 menit.
+PENDAFTARAN
+⚠️ Daftar hanya jika kamu berencana hadir. Pemain terdaftar yang tidak hadir akan mengambil slot berharga dan bisa memengaruhi matchmaking.
+100% bisa hadir → Kirim Permintaan Pertempuran
+Belum yakin → Tidak Ikut
+TUJUAN UTAMA
+Menangkan pertempuran dengan mengumpulkan lebih banyak Poin Relik Aliansi daripada aliansi lawan.
+Kuasai dan pertahankan bangunan penting
+Lindungi poin yang sudah terkumpul
+Kumpulkan Suplai Kereta Bagasi yang berserakan segera setelah bangunan berpindah tangan
+Kumpulkan Undercellar saat muncul
+Perkuat garnisun terdekat saat tidak sedang reli
+Jangan biarkan march menganggur
+JANGAN mengejar kill ke seluruh peta. PvP acak membuat kita tersebar dan mengurangi efektivitas. Serang kota level lebih rendah bila masuk akal, lemahkan mereka di dekat bangunan yang sedang dikuasai.
+RINGKASAN BANGUNAN
+Urutan angka: Poin Relik Aliansi / Poin Relik Pribadi
+Penguasaan Pertama
+Pendudukan Berlangsung
+Dibuka
+menit
+/m
+:
+TERTINGGI
+TINGGI
+SEDANG
+Lokasi pengumpulan yang muncul secara berkala (dua gelombang)
+Bangunan dengan nilai poin tertinggi
+Melemahkan bangunan yang dikuasai musuh
+Buff tempur aliansi
+Poin Relik Aliansi bernilai tinggi
+Menghasilkan Poin Relik Aliansi
+-50% interval teleportasi
+-50% waktu yang diperlukan untuk menguasai bangunan
+ZONA YANG DITUGASKAN
+R4 akan membagi anggota yang terkonfirmasi ke dalam tim/zona sebelum pertempuran.
+Penyerbu terkuat kita akan lebih dulu ditugaskan ke satu zona:
+🟣 Ungu — Menara Lonceng
+🟡 Kuning — Kandang Kuda Kerajaan
+🔵 Biru — Sanctum Barat Laut
+🟢 Hijau — Sanctum Tenggara
+Anggota lainnya akan ditugaskan untuk mendukung salah satu zona/tim ini. Rotasi mungkin diperlukan sesuai kondisi pertempuran — selalu pantau Chat Skuad untuk detailnya.
+Tetap di zona yang ditugaskan kecuali pimpinan menyuruhmu berpindah.
+🟣 Zona Ungu — Menara Lonceng / Kamp Tentara Bayaran
+🔵 Zona Biru — Sanctum Barat Laut / Biara
+🟡 Zona Kuning — Kandang Kuda Kerajaan / Biara
+🟢 Zona Hijau — Sanctum Tenggara / Biara
+⚪ Tengah
+PERAN DAN TANGGUNG JAWAB
+R4 akan membagi anggota yang terkonfirmasi ke dalam 3 fungsi berdasarkan kekuatan: Penyerbu, Pembela, dan Pendukung/Joiner.
+⚔️ 1) PENYERBU
+Siapa: Pemain terkuat kita. Punya banyak Teleporter Lanjutan.
+Tugasmu:
+Teleportasi ke zona dan bangunan yang ditugaskan
+Kuasai bangunan prioritas
+Serang kastil musuh yang rentan secara solo
+Pimpin reli penting
+Pindah ke target berikutnya setelah Pembela mengambil alih
+Saat musuh teleportasi ke dekat bangunanmu, incar kastil yang lebih lemah atau terbuka
+🛡️ 2) PEMBELA
+Siapa: Pemain terkuat berikutnya dengan kapasitas reli/garnisun yang baik.
+Ikuti Penyerbu yang ditugaskan (zona)
+Setelah Penyerbu menguasai bangunan, ambil alih garnisun dan minta bala bantuan jika perlu
+Perkuat target yang terancam
+Bebaskan Penyerbu agar bisa pindah ke target berikutnya
+🤝 3) PENDUKUNG / JOINER
+Siapa: Umumnya anggota dengan kekuatan lebih rendah dan joiner reli.
+Wajib bergabung ke reli Pembela yang ditugaskan
+Perkuat bangunan yang sudah dikuasai
+Kirim bala bantuan dengan march cepat saat diminta
+Beroperasi dari Zona Aman saat tidak dibutuhkan di tempat lain atau lebih jauh dari jangkauan musuh
+PENTING: Jika musuh menyerang salah satu bangunan yang kita kuasai dan kontrol berpindah ke musuh, segera teleportasi ke dekat sana atau lakukan march cepat dan kumpulkan Suplai Kereta Bagasi yang berserakan sebelum mereka.
+20 menit setelah pertempuran dimulai, Undercellar muncul. Kirim pasukan yang tersedia untuk mengumpulkannya demi poin tambahan.
+Jangan biarkan march menganggur.
+SEBELUM PERTEMPURAN
+Kosongkan Rumah Sakit. Pastikan semua march tersedia
+Pakai hero dan gear terkuatmu
+Aktifkan Kapasitas Pasukan, buff Serangan & Pertahanan, dan Kontra-pengintaian
+Siapkan Teleporter Lanjutan jika perananmu membutuhkannya
+Biarkan Discord terbuka jika memungkinkan (untuk referensi peta, penugasan, VC opsional)
+Periksa Chat Aliansi dan Pesan Pribadi
+⚠️ PENTING: Tab Chat Skuad baru akan muncul pada hari pertempuran. Pantau Chat Skuad selama seluruh pertempuran.
+LINI MASA PERTEMPURAN
+0:00–15:00
+PEMBUKAAN
+Segera amankan
+#4 Menara Lonceng
+#7 Kandang Kuda Kerajaan
+Perebutkan
+#8 Sanctum Barat Laut
+#10 Sanctum Tenggara
+Ambil Biara jika memungkinkan, tetapi jangan korbankan target inti demi itu.
+14:30, pemain terkuat bersiap menuju tengah.
+15:00
+BANGUNAN KUAT DIBUKA
+#1 Swordshrine, #2 Kamp Tentara Bayaran, #3 Aula Reformasi
+Pimpinan akan menentukan prioritas sesuai kondisi pertempuran.
+⭐ Swordshrine
+Penyerbu/Pembela terkuat teleportasi ke tengah (tidak semuanya)
+Kuasai Swordshrine
+Setelah aman, satu Pembela kuat menjaga garnisun
+Pendukung/Joiner harus march cepat dan mengirim bala bantuan
+⚠️ Anggota yang menjaga garnisun: jangan tinggalkan bangunanmu demi Swordshrine kecuali pimpinan menyarankan. Terus lindungi Sanctum dan bangunan penting lainnya.
+15:00–45:00
+💪 FASE KONTROL
+Tujuan utama: Pertahankan Swordshrine + Sanctum Barat Laut + Sanctum Tenggara
+Jaga kontrol yang berguna atas Menara Lonceng/Kandang Kuda Kerajaan
+Gunakan buff Aula Reformasi untuk pertempuran besar
+Gunakan Kamp Tentara Bayaran untuk menekan bangunan musuh
+Kumpulkan Suplai Kereta Bagasi yang berserakan setelah SETIAP perpindahan bangunan
+Perkuat garnisun yang melemah
+20:00–60:00
+⛏️ Undercellar
+Undercellar mulai muncul.
+Pemain pendukung dan siapa pun yang punya march tersedia sebaiknya mengumpulkannya demi poin tambahan.
+Jangan tinggalkan pertahanan atau reli penting hanya untuk mengumpulkan.
+15 MENIT TERAKHIR
+🏁 PENUTUP
+JIKA KITA UNGGUL
+Lindungi Swordshrine dan Sanctum
+Perkuat bangunan penghasil poin
+Hindari PvP yang tidak perlu
+Segera ambil kembali Suplai Kereta Bagasi yang berserakan
+Jangan mengambil risiko yang tidak perlu
+JIKA KITA TERTINGGAL
+Tekan bangunan inti musuh
+Gunakan Kamp Tentara Bayaran sebelum serangan terkoordinasi
+Pusatkan reli alih-alih menyerang secara acak
+Incar bangunan bernilai tinggi yang dikuasai musuh
+Kumpulkan semua poin yang jatuh setelah perpindahan yang berhasil
+5 menit terakhir: Poin > kill.
+RINGKASAN
+Anggota dibagi ke dalam 3 fungsi dan ditugaskan ke zona:
+PENYERBU → KUASAI + TEKAN
+PEMBELA → PERTAHANKAN + LINDUNGI
+PENDUKUNG → PERKUAT + RALLY + Suplai Kereta Bagasi + Undercellar
+Ikuti zona dan peran yang ditugaskan.
+Pantau Chat Skuad.
+Target > kill acak.
+Penyerbu menguasai — Pembela bertahan — Pendukung memperkuat.
+Jangan biarkan march yang berguna menganggur.
+Segera kumpulkan Suplai Kereta Bagasi yang berserakan.
+Kumpulkan Undercellar dengan march yang tersedia.
+Lindungi Swordshrine + Sanctum.
+Jangan tinggalkan bangunan inti demi Biara atau kill.
+Jika pimpinan memanggil rotasi, BERGERAK.
+⚔️ KOORDINASI MEMENANGKAN Swordland
+
+### GUIDE #formations-rally-tips — Formasi Pasukan & Tips Reli
+🔬 PRIORITAS RISET & PENINGKATAN
+Prioritaskan stat tempur berikut untuk riset dan peningkatan charm Gubernur:
+Infanteri — Health
+Pemanah — Lethality
+💾 SIMPAN PRESET-MU
+Tergantung progresmu, kamu bisa membuka hingga 8 slot untuk menyimpan formasi pasukan lebih dulu. Formasi yang direkomendasikan untuk disimpan:
+Semua rasio pasukan berurutan Infanteri : Kavaleri : Pemanah. Simpan preset terpisah dengan setiap hero di posisi paling kiri / pertama.
+💡 Hero paling kiri penting saat bergabung ke reli karena Skill Ekspedisi yang relevan darinya menyumbang untuk reli.
+1) Bear Hunt: Chenko — 10 : 10 : 80
+2) Bear Hunt: Amane — 10 : 10 : 80 (atau sedekat mungkin)
+3) Bear Hunt: Yeonwoo — 10 : 10 : 80 (atau sedekat mungkin)
+4) Bear Hunt: Amadeus — 10 : 10 : 80 (atau sedekat mungkin)
+5) Serangan (PvP umum): Amadeus (jika sudah dikembangkan) atau Chenko — 50 : 20 : 30
+6) Pertahanan: Howard / Gordon — 60 : 20 : 20 adalah standar seimbang kita. Sesuaikan bila pimpinan meminta formasi tertentu.
+Pemimpin Reli: Gunakan susunan hero ofensif terkuat dan lengkapmu.
+Peserta Reli: Ikuti batas pasukan yang diumumkan pimpinan.
+7) Markas Viking (Viking HQ): Howard / Gordon — 60 : 40 Ikuti batas pasukan (~68.000)
+8) PvE – binatang buas / Berburu: Diana + Fahd — 50 : 20 : 30
+🐺 PvE — BINATANG BUAS / BERBURU
+Ingat untuk Netherfiend: tidak perlu banyak damage, jadi kirim pasukan sesedikit mungkin (bahkan 1) supaya lebih banyak anggota aliansi bisa bergabung dan mendapat hadiah reli.
+🏰 Pertempuran Istana / Sanctuary / BANGUNAN
+Saat merebut bangunan, bersiaplah untuk berganti dengan cepat:
+SERANGAN → PERTAHANAN
+⚔️ 1. REBUT
+Bergabunglah ke reli awal menggunakan preset SERANGAN-mu.
+Contoh: Amadeus / Chenko 50 : 20 : 30
+🛡️ 2. BERALIH KE PERTAHANAN
+Setelah bangunan berhasil direbut:
+1. Segera kirim satu barisan lagi menggunakan preset PERTAHANAN-mu. Contoh: Gordon / Howard 60 : 20 : 20
+2. Perhatikan barisan pertahananmu bergerak menuju bangunan yang direbut.
+3. Saat waktu barisan tersisa sekitar 5 detik — atau sesuai instruksi pimpinan — Panggil Kembali barisan SERANGAN awalmu.
+4. Barisan PERTAHANAN-mu tiba dan menggantikan barisan ofensifmu di garnisun.
+🚫 JANGAN Panggil Kembali barisan serangan terlalu cepat.
+Rebut → Kirim Pertahanan → ~5 dtk → Panggil Kembali Serangan → Pertahanan Tiba
+Ini memungkinkan kita beralih dari formasi ofensif ke garnisun defensif tanpa melemahkan bangunan secara tidak perlu.
+🪖 BATAS PASUKAN GARNISUN
+Hanya 15 gubernur yang bisa masuk ke markas / Sanctuary. Jadi jangan otomatis mengirim barisan maksimalmu ke markas, Sanctuary, atau bangunan lain yang diperebutkan.
+Ikuti batas pasukan yang diumumkan pimpinan.
+Target aliansi umum: ~68.000 pasukan per pemain
+Ini memungkinkan lebih banyak anggota aliansi dengan barisan pertahanan yang terkonfigurasi baik masuk ke garnisun dan mendapat hadiah.
+⚠️ Jika pimpinan mengumumkan batas yang berbeda, selalu ikuti angka yang diumumkan.
+Contohnya, dengan batas 68K pasukan, kamu bisa memasukkan angka itu ke kalkulator dan langsung mengetiknya di kolom jenis pasukan yang sesuai. Berikut tiga contohnya:
+60/20/20 ➡️ 40.800 / 13.600 / 13.600
+60/40 ➡️ 40.800 / 27.200
+50/20/30 ➡️ 34.000 / 13.600 / 20.400
+🎬 CARA BERALIH DARI HERO SERANGAN KE HERO PERTAHANAN
+📎 Video ditemukan di internet (TikTok @yelloe_hair) — bukan rekaman kami sendiri.
+
+### GUIDE #eternity-reach — Eternity's Reach
+KAPAN
+Setiap 2 minggu sekali — event solo berdurasi 30 menit.
+KENAPA PENTING
+Salah satu sumber terbaik dan berulang untuk material Charm Gubernur.
+STRATEGI
+Skill
+Untuk setiap level skill, pilih:
+Level 1 → Kanan
+Level 2 → Kanan
+Level 3 → Kiri
+Level 4 → Kiri
+Level 5 → Kanan
+Mulai
+Serang Cesares Guards → Rush sampai Skill 3 terbuka.
+Targetkan Cesares Guards Lv.2 jika memungkinkan, dan lewati yang sudah diserang.
+Setiap 60 Detik
+Masuk ke Vein Tembaga → Dapatkan 5.000 Tembaga → Segera tarik pulang → Catat waktunya → Ulangi setiap 1 menit.
+Hanya perlu satu pasukan untuk memicu bonus 5.000 Tembaga.
+Fracture Vein
+Saat muncul → Segera kirim pasukan yang tersedia → Kumpulkan sampai menghilang.
+Gerobak Jarahan
+Biarkan terus mengumpulkan Tembaga yang berserakan sepanjang event. Tidak menggunakan slot barisan.
+Skill 5
+Aktifkan skill ke-5 saat vein meletus dan kirim semua pasukan untuk mengumpulkan di vein.
+Peak of Eternity
+Terbuka pada 7 menit terakhir.
+Hindari PvP yang tidak perlu jika kamu belum cukup kuat untuk memperebutkannya → Rebut hanya jika sepadan.
+Posisi
+Gunakan teleport gratis untuk pindah dekat 3 Vein atau ke area yang lebih sepi.
+
+### GUIDE #f2p-heroes — Panduan Hero F2P
+Serpihan Mitos dan perlengkapan eksklusif reli jumlahnya terbatas. Jangan coba kembangkan semua hero — fokuskan sumber dayamu pada hero dengan nilai jangka panjang yang kuat.
+Beberapa hero di bawah ini belum dikonfirmasi resmi lewat screenshot, atau belum dirilis — nama-nama itu tetap dalam bahasa Inggris sampai terverifikasi.
+GEN 1
+Jabel
+Hero Mitos yang bisa di-farm; prioritas utama.
+Saul: Beberapa bintang saja untuk skill Growth. Jangan investasi berlebihan.
+GEN 2
+Zoe — KEMBANGKAN (Roulette)
+Peningkatan besar dibanding Howard.
+Marlin: Menggantikan Saul.
+GEN 3
+Petra — WAJIB DIKEMBANGKAN (Roulette)
+Hero Bear Hunt yang sangat baik dengan nilai hingga Gen 7.
+Eric & Jaeger: Lewati kecuali kamu fokus pada PvP/pertahanan garnisun.
+GEN 4
+Rosa — KEMBANGKAN (Roulette)
+Peningkatan kuat untuk Bear Hunt.
+Alcar ATAU Margot: Opsional. Keduanya kuat di Arena/Ekspedisi.
+GEN 5
+Long Fei — KEMBANGKAN (Roulette)
+Sangat cocok untuk event multi-tim seperti Mystic Trial, Tri-Alliance, dan Swordland.
+Thrud/Vivian: Sebagian besar untuk Arena/PvP.
+Kelewatan Petra? Pertimbangkan Thrud.
+GEN 6
+Sophia — KEMBANGKAN (Roulette)
+Terutama berguna untuk konten multi-tim.
+Yang — PRIORITAS TINGGI
+Kegunaan Bear Hunt yang sangat baik; layak diinvestasikan Serpihan Mitos.
+Triton: Umumnya bisa dilewati jika kamu sudah mengembangkan Long Fei.
+GEN 7
+Wee & Woo — WAJIB DIKEMBANGKAN (Roulette)
+Nilai keseluruhan yang sangat baik untuk F2P.
+Ava — PRIORITAS TINGGI
+Hero Bear Hunt yang sangat baik; menggantikan Petra.
+Charles: Umumnya aman untuk dilewati.
+JALUR ROULETTE F2P SEDERHANA
+Zoe ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo
+PRIORITAS SERPIHAN MITOS
+Petra ➜ Yang ➜ Ava
+ATURAN UMUM
+Hero roulette umumnya adalah investasi F2P paling aman. Hemat sumber dayamu, hindari menyebarkan Serpihan Mitos terlalu tipis, dan jangan merasa harus mengembangkan semua hero.
+RINGKASAN
+Pemain F2P: Fokus pada Zoe (tank infanteri), Jabel (kavaleri), dan Petra (kavaleri ofensif) dari hero roulette
+Pemain P2W: Prioritaskan Amadeus (VIP 7+) dan Hilde untuk dampak maksimal
+
+### GUIDE #kvk — Panduan Persiapan & Pertempuran KvK
+Truegold
+✅
+<span class="chk-ok">OK</span>
+🚫
+Fragmen Hero
+⏩️ Konstruksi
+⏩️ Pelatihan
+⏩️ Penelitian
+Rolet Hero
+Mengumpulkan
+👍
+Misi Intel
+kemajuan hewan peliharaan
+Charm Gubernur
+Gear Gubernur
+Gear Ekslusif Hero Widget
+Mithril
+Forgehammer
+Master Emblems
+Master's Manuscript
+⏩️ Pembelajaran
+gunakan
+boleh jika perlu
+jangan digunakan
+perlu dilakukan setiap hari
+FASE 1: FASE PERSIAPAN (Hari 1–5)
+Untuk memenangkan KVK, Kerajaan Anda harus mendapatkan lebih banyak poin total selama Fase Persiapan dibanding lawan. Memenangkan fase ini memberikan Keuntungan Penyerang (Kastil Anda sepenuhnya aman selama Fase Pertempuran).
+Hari 1: Konstruksi, Truegold & Charm Gubernur
+Aktivitas Bernilai: peningkatan bangunan Truegold, Speedup Konstruksi, Charm Gubernur, Misi Intel, Percepatan Pembelajaran.
+🛡️ Fokus F2P:
+Gunakan Speedup Konstruksi dan Truegold yang disimpan.
+Gunakan Desain Charm yang disimpan dari minggu sebelumnya.
+Selesaikan semua Misi Intel Menara Pengawas.
+⚡ Fokus P2W:
+Maksimalkan level bangunan Truegold tingkat tinggi (Akademi / Akademi Perang).
+Dorong Charm Gubernur ke Level 8–11 untuk lonjakan poin besar (Level 11 memberi 16.000 poin per naik level).
+Hari 2: Riset, Hero & Pengumpulan
+Aktivitas Bernilai: Speedup Riset, Shard Hero (Rare/Epic/Mythic), putaran Rolet Hero, Master Emblems/Master's Manuscript, Pengumpulan Sumber Daya.
+Putar Rolet Hero menggunakan Gems yang disimpan untuk mendapatkan shard Petra (Gen 3).
+Habiskan shard Mythic/Epic universal yang disimpan untuk hero inti.
+Kumpulkan sumber daya lebih awal (kirim pengumpul sebelum reset agar segera kembali di awal Hari 2).
+Habiskan semua Master Emblems dan Master's Manuscript yang disimpan.
+Naikkan hero Gen 3 (Eric & Petra) langsung ke bintang 5.
+Hari 3: Pelatihan Pet & Progres Master Academy
+Aktivitas Bernilai: kemajuan hewan peliharaan, Tanda Penjinakan Common & Tanda Penjinakan Advanced (Penyempurnaan), Rolet Hero, Shard Hero, Master Emblems/Master's Manuscript, Misi Intel.
+Naikkan level dan sempurnakan beberapa pet tingkat menengah secara merata, jangan tumpukan semua ke satu pet.
+Gunakan sisa putaran Rolet Hero dan Misi Intel harian.
+Gunakan Tanda Penjinakan Advanced secara besar-besaran (masing-masing 15.000 poin).
+Maksimalkan ambang batas kemajuan hewan peliharaan untuk pengganda poin tinggi.
+Hari 4: Pengembangan Hero & Pelatihan Pasukan
+Aktivitas Bernilai: Pelatihan/Promosi Pasukan (T1–T11), Forgehammer, Widget, Mithril, Pengumpulan Sumber Daya.
+Promosikan pasukan tingkat rendah ke tingkat tertinggi Anda (misal T9 ke T10). Meningkatkan pasukan jauh lebih hemat sumber daya dibanding melatih baru dari awal.
+Simpan speedup umum untuk riset/Master Academy—di sini hanya gunakan speedup khusus Pelatihan Pasukan.
+Habiskan Forgehammer yang disimpan (masing-masing 4.000 poin) dan Widget dari Gear Ekslusif Hero (masing-masing 8.000 poin).
+Terapkan upgrade Mithril (masing-masing 40.000 poin) untuk membuka lonjakan poin besar.
+Hari 5: Peningkatan Kekuatan & Upgrade Terakhir
+Aktivitas Bernilai: Gear Gubernur, Gear Hero, Penyempurnaan Pet, Mithril, Truegold, Semua Speedup, Misi Intel, Pengumpulan.
+Selesaikan sisa Misi Intel, habiskan sisa sumber daya/speedup, dan tingkatkan Gear Gubernur menggunakan Satin/Gilded Threads yang terkumpul.
+Dorong Gear Gubernur ke Mythic / Mythic 3-Bintang (6.250 poin per naik level).
+Habiskan semua sisa Mithril, Widget, dan Forgehammer untuk mengamankan hadiah peringkat pribadi harian Top 2000 / Top 200.
+⚔️ FASE 2: FASE PERTEMPURAN (12 JAM)
+Jendela Pertempuran Kastil: 12:00 UTC hingga 22:00 UTC.
+Target: Kuasai Kastil Raja dan 4 meriam.
+🎯 META PVP GEN 3 & SETUP RALLY
+🛡️ Pertahanan Garnisun — Kastil/Menara
+Hero Utama: Eric (Gen 3) — Tembok infanteri tak tertembus dengan statistik Gen 3 unggul dan mekanisme bertahan hidup. Dipasangkan dengan Zoe (Gen 2) untuk perisai.
+⚔️ Rally Ofensif (Menyerang Kastil/Menara)
+Hero Utama: Petra (Gen 3) — Pemimpin Kavaleri mematikan dengan Widget rally ofensif berskala tinggi.
+🤝 Peserta Rally (Krusial untuk F2P!)
+JANGAN gunakan hero sembarangan saat bergabung rally. Bergabunglah dengan:
+Chenko (Skill 1 maksimal)
+Amane
+Yeonwoo
+Hero-hero ini menumpuk pengganda Lethality.
+💣 STRATEGI RALLY GANDA "PENGHANCUR PAUS"
+Untuk garnisun musuh yang kuat:
+Rally 1 (Tameng / Pembersih): Diluncurkan 1–2 detik lebih awal. Fokus pada lethality murni untuk membanjiri Infirmary musuh dan membersihkan pasukan bertahan.
+Rally 2 (Penyerang Utama): Tiba tepat di belakang Rally 1 untuk menghabisi sisa pasukan dan mengambil alih Kastil.
+Keuntungan meriam: Merebut meriam memberikan hingga +20% Lethality Skuad jika dipegang oleh kerajaan yang sama dengan yang memegang Kastil.
+🩺 FASE 3: TRIASE LAPANGAN (PEMULIHAN PASUKAN)
+Tingkat Penyelamatan Dasar: 30% dari pasukan yang hilang dan tidak sempat masuk Infirmary.
+Target Tingkat Penyelamatan: 90%
+Cara meningkatkannya:
+Tas Medis: +10% Tingkat Penyelamatan
+Perintah Penyelamatan: masing-masing +1%, hingga +50%
+⚠️ PENTING: Semua orang harus menukar Perintah Penyelamatan di chat aliansi sebelum timer habis!
+
+### GUIDE #all-out — Serangan Penuh
+🪖 Aturan Serangan Penuh
+❌ Dilarang menyerang anggota NAP 6, termasuk farm/akademi mereka (NXS/nxs, RED/ReD, NBD/nBd/Nbd, ESA/EsA/UNI, IDN, KGb)
+❌ Dilarang menyerang kastil atau bangunan aliansi (markas, pos terdepan, spanduk)
+✅ Anda boleh menyerang ubin pengumpulan sumber daya (Lumbung, Tambang Batu, Tambang Besi)
+✅ Anda boleh menyerang pemain di luar NAP.
+Jika kastil Anda diserang oleh anggota NAP, jangan membalas — laporkan ke R4/R5.
+Hindari mengumpulkan sumber daya di area liar, gunakan Node Aliansi Aman sebagai gantinya.
+Pelanggar aturan akan ditindak sesuai kesepakatan aliansi/NAP.
+🏭 Titik Pengumpulan Aman
+Selama event Serangan Penuh, kami akan merotasi titik pengumpulan aman setiap 12 jam selama 48 jam.
+Ini memberi semua orang tempat terlindungi untuk mengumpulkan sumber daya selama event berlangsung.
+Jadwal Rotasi (dimulai dari reset 00:00 UTC)
+Lumbung Besar – 00:00 UTC sampai 12:00 UTC
+Penggergajian Kayu Besar – 12:00 UTC sampai 00:00 UTC
+Tambang Batu Besar – 00:00 UTC sampai 12:00 UTC
+Tambang Besi Besar – 12:00 UTC sampai 00:00 UTC
+Gunakan titik-titik terlindungi ini selama event berlangsung. Tetap aman dan kumpulkan dengan cerdas.
+
+### GUIDE #hero-roulette — Rolet Hero
+KAPAN
+Setiap 2 minggu, masing-masing 3 hari.
+📋 ATURAN
+Event berlangsung 3 hari, 1 putaran gratis per hari, maksimal 150 putaran per hari.
+Tiap putaran butuh 1 Chip Keberuntungan atau 1.500 Permata; 10 putaran diskon jadi 13.500 Permata.
+Hadiah sekali di 5, 15, 35, 70, dan 120 putaran kumulatif: +5, +10, +20, +30, dan +50 fragmen, total 115.
+🎲 PELUANG HADIAH
+Fragmen Hero Mythic x5: 4,37%
+Fragmen Hero Mythic x1: 32,81%
+Paket misteri x1: 6,56% (dua slot, masing-masing 6,56%)
+Speedup umum 1 jam x1: 20,51%
+10K EXP Hero x1: 18,27%
+Empat slot sumber daya (Besi 10K×20, Batu 10K×80, Kayu 10K×400, Roti 10K×400): masing-masing 2,73%
+Harapan fragmen per putaran: 5 × 0,0437 + 1 × 0,3281 ≈ 0,547
+Harapan fragmen setelah N putaran (putaran + hadiah kumulatif)
+3 (gratis saja): ~1,6
+10: ~5,5 + 5 = 10,5
+15: ~8,2 + 15 = 23
+35: ~19 + 35 = 54
+70: ~38 + 65 = 103
+120: ~66 + 115 = 181
+Setelah 120 putaran tidak ada hadiah kumulatif lagi dan tiap putaran hanya ~0,55 fragmen, jadi pemain F2P dan low spender sebaiknya tidak lebih dari 120.
+🎯 Berapa putaran untuk memaksimalkan satu hero?
+Rata-rata sekitar 720 putaran — 6 event, masing-masing 120 putaran.
+Perhitungan
+Memaksimalkan hero (buka + sampai bintang 5) butuh total 1.075 fragmen.
+120 putaran per event memberi rata-rata 0,5466 × 120 + 115 ≈ 181 fragmen (~0,5466 per putaran + 115 dari hadiah kumulatif).
+1.075 ÷ 181 ≈ 5,95, jadi butuh 6 event.
+Total: 6 × 120 = 720 putaran, sekitar 6 × 181 ≈ 1.084 fragmen yang diharapkan.
+Kenapa tidak terus memutar dalam satu event?
+Setelah 120 putaran tidak ada hadiah kumulatif lagi, jadi tiap putaran hanya memberi ~0,55 fragmen. Bahkan di batas 450 putaran, satu event rata-rata hanya memberi 0,5466 × 450 + 115 ≈ 361 fragmen — 330 putaran tambahan hanya sekitar setengah seefisien 120 putaran pertama.
+Putar 120 kali juga di event ke-6
+5 event pertama rata-rata memberi ~903 fragmen, kurang ~172. Di 119 putaran kamu hanya bisa berharap ~130 (65 + 65); butuh paket +50 di putaran ke-120 untuk menutupnya, jadi event terakhir juga harus 120 putaran.
+💎 Biaya Permata (tanpa Chip Keberuntungan)
+Setelah 3 putaran gratis, tiap event butuh 159.000 Permata — sekitar 954.000 Permata untuk 6 event. Kurangi dengan Chip Keberuntungan yang kamu punya atau fragmen dari sumber lain.
+⚠️ Ini nilai rata-rata. Dalam 720 putaran, hasil nyata biasanya berada dalam ±60 fragmen dari nilai harapan (sekitar 95%) — kalau sial mungkin butuh satu event lagi, kalau beruntung bisa selesai lebih cepat.
+⚔️ TIPS KVK
+Di Fase Persiapan KvK, hari ke-2 dan ke-3 memberi 8.000 poin per putaran Rolet Hero — jadi Chip Keberuntungan dan Permata untuk memutar sebaiknya disimpan untuk dua hari itu.
+
+### GUIDE #fishing-tournament — Turnamen Memancing
+KAPAN
+Setiap 4 minggu.
+KENAPA PENTING
+Sumber andal untuk Artisan's Vision, Enhancement XP Gear Hero, dan Permata.
+🌊 Ocean Prospector
+Mainkan Ocean Prospector terlebih dahulu untuk mengumpulkan poin dan meningkatkan Peralatan Memancing sebelum fokus ke Memancing Reguler.
+Tali pancing → Menambah kedalaman maksimum
+Pengait → Menambah hasil tangkapan maksimum per percobaan
+Pemberat → Menambah kedalaman awal
+Setelah ketiganya ditingkatkan, pindah ke Memancing Reguler.
+Putri Duyung dan Peti langka tidak muncul di Memancing Reguler. Keduanya hanya ada di Ocean Prospector.
+🎣 Memancing Reguler
+Ikan Bercahaya
+Prioritaskan setiap ikan bercahaya yang kamu lihat.
+Putri Duyung Terperangkap
+Putri duyung yang terjebak rumput laut memberikan pengali poin 5–10%.
+Trompet Samudra
+Gunakan hanya saat Memancing Reguler.
+MENGULANG PERCOBAAN
+Jika percobaan berjalan buruk:
+Jeda → Mundur → Coba lagi
+
+### GUIDE #tri-alliance-clash — Clash Tiga Aliansi
+🎲 CARA KERJA EVENT
+Anggap Clash Tiga Aliansi seperti permainan papan dengan jalur, bangunan, dan pertempuran. Aliansi bergerak di berbagai jalur, merebut wilayah, dan bertarung menuju target paling berharga.
+⚔️ MEKANIK PERTEMPURAN
+Pertempuran berjalan otomatis. Pertempuran simulasi adalah duel satu lawan satu, BUKAN reli.
+Rasio pasukan tidak bisa diubah — pasukan dibagi rata.
+Bonus Kecepatan dan Kapasitas March TIDAK berlaku.
+🛡️ 3 MARCH & PEMILIHAN HERO
+Kamu mengerahkan 3 skuad sebelum masuk pertempuran.
+Pemain F2P
+Gabungkan hero terkuatmu dalam satu skuad.
+JANGAN sebar hero terkuatmu ke 3 march.
+Bangun satu march kuat dulu.
+Pemain P2W
+Gunakan hero oranye ofensif dan defensif.
+Widget ofensif TIDAK berlaku di event ini. Widget defensif BERLAKU — utamakan hero dengan Widget defensif yang kuat.
+🏛️ BANGUNAN & POIN
+Kuil Dewa Laut = TARGET UTAMA — dibuka di akhir.
+Nama yang dipakai di chat kita: Shrine = Kluster Reruntuhan, Altar = Reruntuhan.
+Menyerang dan merebut bangunan memberi poin lebih banyak daripada hanya bertahan/menguasai — berbeda dengan Swordland Showdown.
+👥 TIM & PERAN
+Pemain dibagi menjadi sekitar 3 tim di jalur berbeda — pemain terkuat + satu cadangan untuk tiap target, agar kekuatan kita tersebar efektif.
+Tim 3 — Rebut bangunan netral di awal
+Rebut bangunan netral di wilayah kita SECEPATNYA saat pertempuran dimulai.
+Setelah targetmu aman, terus maju.
+Tim 2 — Maju & manfaatkan peluang
+Tetap di depan tim yang lebih lemah menuju target berikutnya di jalurmu dan jaga tekanan.
+Awasi pergerakan musuh. Saat musuh meninggalkan bangunan untuk maju, masuki bangunan yang baru mereka tinggalkan dan rebut selagi tidak dijaga.
+Manfaatkan setiap celah seperti ini untuk wilayah dan poin.
+Tim 1 — Dorong ke Garnisun musuh
+Tugas utama: mencapai area Garnisun musuh sebelum menit ke-20.
+Terus maju di jalurmu sampai bangunan musuh terdekat dengan Garnisun mereka (Shrine / Kluster Reruntuhan).
+Sudah di posisi SEBELUM Garnisun dibuka agar kita bisa merebutnya tepat di 20:00.
+R4
+R4 dan penanggung jawab legiun harus aktif mengatur penunjukan Kapten sepanjang pertempuran.
+Kapten = pemain terkuat. Mereka berpindah-pindah di peta merebut target, jadi butuh Energi paling banyak.
+Terus cek apakah pemain kuat tanpa bonus perlu dijadikan Kapten.
+Layar Kapten dibuka dengan mengetuk spanduk di kiri atas layar.
+Energi untuk Kapten per bangunan:
+Garnisun: 60.000 — emas
+Kluster Reruntuhan (Shrine): 45.000 — ungu
+Reruntuhan (Altar): 15.000 — biru
+🗺️ ALUR PERTEMPURAN
+🔵 Biru = Pusat Transit　🔴 Merah = Garnisun　🟡 Kuning = Kuil Dewa Laut
+Fase 1: Persiapan (0:00–3:00)
+Tujuan: atur skuad dan kenali peta. Ingat zona ungu, merah, dan kuning — yang kita kuasai berubah biru. Cek kekuatan musuh dan tentukan aliansi mana yang mau difokuskan.
+Fase 2: Rebut & Taklukkan (3:00–20:00)
+Tujuan: cepat merebut wilayah internal.
+Tim 3 duluan, lalu Tim 2.
+Kuasai Pusat Transit / bangunan penghubung untuk poin per menit (PPM) yang stabil. Garnisun masih berperisai.
+Sementara itu Tim 1 menerobos jauh ke wilayah musuh menuju Garnisun mereka.
+Fase 3: Penguasaan Garnisun (20:00–40:00)
+Tujuan: perisai Garnisun (A24, B24, C24) hilang.
+Tim 3: pertahankan Garnisun kita (+1.800 PPM) sambil menyerang Garnisun musuh secara terkoordinasi — berpencar bila perlu.
+Terus cari bangunan tak dijaga, wilayah musuh yang lemah, peluang ekspansi, dan rebutan mudah untuk poin pribadi dan aliansi.
+Fase 4: Penyerangan Kuil (40:00–60:00)
+Tujuan: Kuil Dewa Laut di tengah dibuka. Poinnya sangat besar, plus bonus 50.000 poin bagi yang menguasainya di akhir. Sejak saat ini kuil jadi fokus utama aliansi.
+🌊 URUTAN MASUK KUIL
+Tim 3 + 2 → masuk duluan (Tim 3 tetap mengawasi wilayah / Garnisun kita agar tidak hilang).
+Tim 1 → masuk terakhir.
+Rebut → perkuat → pertahankan.
+⚠️ Saat menyerang NPC Kuil, pemain terkuat masuk TERAKHIR — agar ia melawan NPC terkuat yang tersisa, bukan membuang kekuatan pada lawan yang lebih mudah.
+Setelah Kuil direbut
+Kunci segera — perkuat Kuil secepatnya.
+Pertahankan kendali.
+Jangan kejar target bernilai rendah jika berisiko kehilangan Kuil.
+📋 RINGKASAN TIM
+Tim 3 — Wilayah internal
+Fase 2 → rebut bangunan netral secepatnya
+Fase 3 → amankan Garnisun kita + dukung penyerang
+Fase 4 → Kuil: masuk duluan, tapi awasi wilayah kita — jangan sampai hilang
+Tim 2 — Rebutan musuh
+Fase 2 → maju melewati Tim 1 ke wilayah musuh
+Fase 3 → rebut bangunan musuh / yang ditinggalkan
+Fase 4 → Kuil: masuk duluan
+Tim 1 — Serangan dalam
+Fase 2 → menerobos jauh ke wilayah musuh, incar Shrine (Kluster Reruntuhan) di samping Garnisun musuh
+Fase 3 → duduki Garnisun musuh
+Fase 4 → Kuil: masuk terakhir
+🧱 Trik blokir Kuil (Tim 1): rebut bangunan / Shrine di belakang Pusat Transit musuh dekat Kuil Dewa Laut dan PERTAHANKAN — jangan langsung pergi. Dengan begitu Tim 1 bisa mengganggu serangan musuh ke Kuil dan kita sudah menguasai garis depan sebelum Kuil dibuka.
+⚡ MANAJEMEN Energi
+Setiap gerakan/aksi memakai Energi — gunakan dengan bijak.
+Mengerahkan — pindahkan skuad ke lokasi baru yang tersedia.
+Memajukan — lewati target/antrean saat ini dan lanjut ke target berikutnya di jalurmu.
+wajib militer — sembuhkan dan isi ulang pasukan saat berada di bangunan yang tidak sedang bertempur.
+Membangkitkan langsung — bangkit di tempat setelah kalah, bukan kembali ke HQ; memakai Energi, jadi pakai hanya saat perlu.
+R4 dan penanggung jawab legiun memastikan pemain kuat ditunjuk sebagai Kapten, agar mereka menghasilkan lebih banyak Energi.
+
+### JOURNEY CHOICES (shown inside the general guides)
+Tantangan Batu-Gunting-Kertas: Menang → Pertama kali: 2,000 Permata; Kedua kali: 60 Master's Manuscript (best); Seri → Kedua kali: 40 Master's Manuscript; Kalah → Pertama kali: 800 Permata; Kedua kali: 20 Master's Manuscript
+Viking: Aku tak akan pura-pura tidak melihatnya → 3 Silver Goblet (best); Aku tak punya waktu untuk gangguan → 2 Silver Goblet
+Viking: Hadapi langsung → 50 Master's Manuscript (best); Gunakan akal → 40 Master's Manuscript; Pergi → 30 Master's Manuscript
+Binatang buas: Buru binatang pencuri cuka → ?; Aku cari di tempat lain saja → 3 Silver Goblet
+Olive: Pejuang sejati tak menolak gadis yang sedang kesulitan → 2 Silver Goblet; ...Cuma itu? → 3 Silver Goblet (best)
+Beruang: Serang dari samping → 50 Master's Manuscript (best); Serang dari depan → 30 Master's Manuscript
+Tentara bayaran: Usulkan serangan dari samping → 100 Master's Manuscript (best); Usulkan sabotase pasokan → 70 Master's Manuscript
+Anak beruang: Titipkan kepada seseorang → 30 Master's Manuscript; Fokus pada binatang buas → 50 Master's Manuscript (best)
+Hilde: Tanyakan lebih lanjut → 30 Master's Manuscript; Pikirkan jalan keluar → 50 Master's Manuscript (best)
+Pemberontak, prajurit Cesares, Viking: Bertarung → 50 Master's Manuscript (best); Lebih baik lari → 30 Master's Manuscript
+Pedagang: Tunjukkan jalan → 50 Master's Manuscript (best); Aku tak bisa membantu → 30 Master's Manuscript
+Binatang buas: Pergi → 100 Master's Manuscript (best); Buru dia → 70 Master's Manuscript
+Papan petunjuk: Perbaiki papan → 20 Master's Manuscript (best); Pergi → 10 Master's Manuscript
+Penyintas: Tawarkan bantuan → 100 Master's Manuscript (best); Bukan urusanku → 70 Master's Manuscript
+Zoe & Pan: Dengarkan cerita Pan → 1 Master Emblem (Pan); Dengarkan cerita Zoe → 1 Master Emblem (Pan)
+Harta karun: Ambil semuanya → 50 Master's Manuscript (best); Bagikan dengan penyintas → 30 Master's Manuscript
+Roman: barter: Barter → 80 Master's Manuscript (best); Tidak, terima kasih → 50 Master's Manuscript
+Pan: barter: Barter → 5 Master Emblem (Pan) (best); Tidak, terima kasih → 3 Master Emblem (Pan)
+Edwin: barter: Barter → 50 Master's Manuscript (best); Tidak, terima kasih → 30 Master's Manuscript
+Penyintas: panti asuhan butuh roti dan obat: Sumbangkan persediaan → 50 Master's Manuscript (best); Pergi → 30 Master's Manuscript
+Gordon / Aena: mulai memasak: Sempurna → 50 Master's Manuscript (best); Kemenangan → 40 Master's Manuscript; Gagal → 30 Master's Manuscript
+Valora / Pan / Guinevere / Wilson: mulai memasak: Sempurna → 5 Silver Goblet (best); Kemenangan → 3 Silver Goblet; Gagal → 1 Silver Goblet
+Quinn: kunci khusus: Dobrak → 150 Master's Manuscript; Jinakkan → 200 Master's Manuscript (best)
+Singa terluka: Beri makanan → 50 Master's Manuscript (best); Pergi → 30 Master's Manuscript
+Viking: Usir para bandit → 50 Master's Manuscript (best); Ambil jalan memutar → 30 Master's Manuscript
+Barang curian: Aku akan membantumu → 50 Master's Manuscript (best); Tak ada yang bisa kulakukan → 30 Master's Manuscript
+Kapten pengangkut: Bayar harga penuh → 100 Master's Manuscript (best); Tawar → 70 Master's Manuscript
+Petra: ada yang seru?: Ramalkan nasibku hari ini → 30 Master's Manuscript; Pernah dengar Kejuaraan Arena? → 30 Master's Manuscript; Ayo bantu. Ada pekerjaan yang harus diselesaikan. → 50 Master's Manuscript (best)
+Penyintas: bantu aku: Bantu → 50 Master's Manuscript (best); Lanjutkan → 30 Master's Manuscript
+Pan / Roman / Guinevere: memancing: Kedalaman tangkap, 10 ikan → 150 Master's Manuscript (best); Kedalaman tangkap, 5 ikan → 100 Master's Manuscript; Kedalaman tangkap, 1 ikan → 70 Master's Manuscript
+Marlin: memancing: Kedalaman apa saja, 10 ikan → 100 Master's Manuscript (best); Kedalaman apa saja, 5 ikan → 70 Master's Manuscript; Kedalaman apa saja, 1 ikan → 50 Master's Manuscript
+Pahlawan Viking: Ayo, lawan aku! → 100 Master's Manuscript (best); Langsung serang → 70 Master's Manuscript
+Penyintas: makhluk ini terus membuntutiku: Turun tangan → 50 Master's Manuscript (best); Buat pengalihan → 40 Master's Manuscript; Pergi → 30 Master's Manuscript
+Viking: mundur: Turun tangan → 30 Master's Manuscript; Pergi saja → 50 Master's Manuscript (best)
+Habis-habisan: Habis-habisan (biaya Poin Aksi dua kali lipat) → 2 Master Emblem (Roman) (best); Uji nyali mereka (peluang menakuti musuh) → 30 Master's Manuscript
+Binatang buas menghadang jalanmu: Bertarung! → 100 Master's Manuscript (best); Sembunyi → 70 Master's Manuscript
+Roman: hadiah: Lihat barang-barangnya → 150 Master's Manuscript (best); Lewati → 100 Master's Manuscript
+Pan tampak gelisah: Lihat barang-barangnya → 5 Master Emblem (Pan) (best); Lewati → 3 Master Emblem (Pan)
+Valora: barang: Lihat barang-barangnya → 3 Master Emblem (Valora); Lewati → 3 Master Emblem (Valora)
+Roman: sebuah ide: Bantu membuat → 5 Master Emblem (Roman) (best); Lewati → 3 Master Emblem (Roman)
+Petinju: Untuk meluruskan keadaan. → 30 Master's Manuscript; Uang, tentu saja → 50 Master's Manuscript (best)
+Long Fei: Saatnya menyadarkanmu. → Long Fei menang, 30 Master's Manuscript; Baiklah. Uang yang bicara. → 50 Master's Manuscript (best)
+Kamp Cesares di depan: Hadapi langsung. → 100 Master's Manuscript (best); Cari jalan lain. → 70 Master's Manuscript
+Kavaleri: Bagikan ransummu → 50 Master's Manuscript (best); Sebutkan unit yang lain. → 30 Master's Manuscript
+Petra: Beli → 50 Master's Manuscript (best); Tolak. → 30 Master's Manuscript ?
+Cassia: Jadi, kau akan kembali ke medan perang Yellowstone... → 1 Master Emblem (Cassia); Mungkin kali ini akan berbeda. → 1 Master Emblem (Cassia)
+Cassia (2): Lancarkan serangan langsung → 1 Master Emblem (Cassia); Cari bala bantuan. → 1 Master Emblem (Cassia)
+Viking: beri tekanan: Beri tekanan. → 30 Master's Manuscript; Cari tahu sendiri. → 50 Master's Manuscript (best)
+Valora: tukar sumber daya: Tukar sumber daya. → 5 Master Emblem (Valora) (best); Jangan tukar. → 3 Master Emblem (Valora)
+Cassia: pilah jarahan: Pilah jarahan → 5 Master Emblem (Cassia) (best); Lewati → 3 Master Emblem (Cassia)
+Cassia: barter: Barter → 5 Master Emblem (Cassia) (best); Tidak, terima kasih → 3 Master Emblem (Cassia)
+Perwira: Perkenalkan diri sebagai Quinn sang Penjelajah → 50 Master's Manuscript (best); Cari jalan memutar lain → 30 Master's Manuscript
+Prajurit Cesares: Selidiki lebih jauh → 30 Master's Manuscript; Lanjut jalan → 50 Master's Manuscript (best)
+Karavan mencurigakan: Selidiki para pedagang → 30 Master's Manuscript; Biarkan mereka → 50 Master's Manuscript (best)
+Wilson: pertemuan pertama: Percayai Wilson → 50 Master's Manuscript (best); Tetap skeptis → 30 Master's Manuscript
+Kelompok Viking: Abaikan. Fokus pada Guinevere → 50 Master's Manuscript (best); Bantu. Tak bisa hanya diam menonton → 30 Master's Manuscript
+Tentara bayaran: Pedang Suci: Sewa tentara bayaran → 30 Master's Manuscript; Kembali dan ajak Diana → 30 Master's Manuscript; Kita tak butuh orang lain → 50 Master's Manuscript (best)
+Grid & Wilson: Percayai dia → 50 Master's Manuscript (best); Ragukan dia → 30 Master's Manuscript
+Korban bencana: Ulurkan tangan → 30 Master's Manuscript; Jangan ikut campur → 50 Master's Manuscript (best)
+Zoe: Bantu menyelidiki → 30 Master's Manuscript; Fokus pada Swordland Showdown → 50 Master's Manuscript (best)
+Acak peti: Awal: [Elit] – [Perak] – [Perak] → Hasil: [Elit] – [Perak] – [Perak]; Awal: [Perak] – [Elit] – [Perak] → Hasil: [Perak] – [Elit] – [Perak]; Awal: [Perak] – [Elit] – [Perak] → Hasil: [Perak] – [Perak] – [Elit]; Awal: [Perak] – [Perak] – [Elit] → Hasil: [Elit] – [Perak] – [Perak]
+Wilson: sebuah pertanyaan: Tanyai Grid → 30 Master's Manuscript; Berpikir sendiri → 50 Master's Manuscript (best)
+Guinevere: bantuan: Bantu beres-beres → 5 Master Emblem (Guinevere) (best); Lewati → 3 Master Emblem (Guinevere)
+Guinevere: tukar sumber daya: Tukar sumber daya → 150 Master's Manuscript (best); Tidak, terima kasih → 100 Master's Manuscript
+Wilson: tukar sumber daya: Tukar sumber daya → 5 Master Emblem (Wilson) (best); Tidak, terima kasih → 3 Master Emblem (Wilson)
+Wilson: pilah jarahan: Bantu pilah jarahan. → 150 Master's Manuscript (best); Lewati → 100 Master's Manuscript
+Aena: beli makanan: Beli makanan dari Edwin → 30 Master's Manuscript + 1 Master Emblem (Aena); Bagikan makananmu → 50 Master's Manuscript + 1 Master Emblem (Aena) (best)
+Aena: coba saja: Coba saja → 30 Master's Manuscript + 1 Master Emblem (Aena); Aku ada urusan. → 50 Master's Manuscript + 1 Master Emblem (Aena) (best)
+Isnor: coba saja: Coba saja → 30 Master's Manuscript + 1 Master Emblem (Isnor); Tidak usah → 50 Master's Manuscript + 1 Master Emblem (Isnor) (best)
+Aena: penyelidikan: Selidiki area sekitar → 30 Master's Manuscript + 1 Master Emblem (Aena); Terus bergerak → 50 Master's Manuscript + 1 Master Emblem (Aena) (best)
+Isnor: penyelidikan: Bantu bagikan persediaan → 30 Master's Manuscript + 1 Master Emblem (Isnor); Selidiki gempa bumi → 50 Master's Manuscript + 1 Master Emblem (Isnor) (best)
+Aena: bersikeras: Bersikeras membuka peti → 50 Master's Manuscript + 1 Master Emblem (Aena); Biarkan saja → ?
+Viking: jejak kaki: Selidiki lebih jauh → 30 Master's Manuscript; Berhenti di sini dulu → 50 Master's Manuscript (best)
+Aena & Petra: Minta bala bantuan → 50 Master's Manuscript + 1 Master Emblem (Aena) (best); Beri Petra waktu lagi → 30 Master's Manuscript + 1 Master Emblem (Aena)
+Pak tua: Terus bertanya-tanya → 50 Master's Manuscript (best); Lupakan → 30 Master's Manuscript
+Penjaga: Selidiki lebih jauh → 50 Master's Manuscript (best); Tinggalkan tambang → 30 Master's Manuscript
+Aena: pertukaran: Tukar sumber daya → ?; Tolak pertukaran → 100 Master's Manuscript
+Isnor: pertukaran: Tukar sumber daya → 5 Master Emblem (Isnor); ? → ?
+
+### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-06 by Nia] ⚔️ Persetujuan KvK dengan 2186 – 10 Okt
+⚔️ Persetujuan KvK dengan 2186 – 10 Okt
+
+🏰 1. Serangan Kota
+
+✅ Diizinkan:
+• 10:00–10:59 UTC
+• 30 menit setelah Pertempuran Istana berakhir
+
+🛑 Gencatan Senjata – TIDAK ADA serangan:
+• Dari pukul 11:00 UTC selama seluruh durasi Pertempuran Istana, hingga 30 menit setelah perisai Istana aktif.
+
+🔴 2. Zona Merah
+• TIDAK ADA serangan kota di Zona Merah kapan pun.
+
+⚠️ 3. Pelanggaran
+• Jangan membalas. Kirim laporan ke kepemimpinan aliansi, atau Raja jika kepemimpinan tidak tersedia.
+
+[2026-10-05 by Nia] 🏆 Brawl Aliansi
+Silakan mendaftar di Jalur Tengah (Middle Lane), pimpinan akan menyusun posisi Anda nanti.
+
+Sebelum mendaftar:
+🔹 Gunakan Pahlawan terkuat Anda
+🔹 Formasi Pasukan: 50% Infanteri, 20% Kavaleri, 30% Pemanah
+🔹 Aktifkan buff Marshal / Komandan Lapangan & Peliharaan sebelum mendaftar.
+
+🔄 Anda dapat memperbarui pendaftaran kapan saja untuk memperbarui Pahlawan, Formasi Pasukan, dan buff. Terutama jika Anda telah meningkatkan level Pahlawan atau pasukan Anda.
+
+[2026-09-29 by Nia] ❗Pengingat – Bear Hunt: Batas Pasukan & Pengiriman Bergiliran
+🔹 Semua yang bergabung wajib mengirim tepat 90.000 pasukan ke reli. Simpan formasi pasukan lebih dulu.
+🔹 Pemimpin memulai reli sendiri dengan pasukan maksimal, tapi saat bergabung ke reli lain juga harus mengikuti batas pasukan.
+
+🔹 Di awal: Pemimpin reli utama mengirim reli pertama pada waktu bergiliran yang sudah ditentukan.
+🔹 Saat sisa 6:30: Semua yang bergabung memulai reli sendiri dengan 3 pahlawan terkuat.
+
+🔪 Pahlawan salah atau jumlah pasukan salah – dikeluarkan dan diminta bergabung ulang
+
+(see guide #bear-hunt)
+
+[2026-09-28 by Nia] 🏆 Panduan Master Gen 3
+Master adalah karakter yang kamu buka & tingkatkan levelnya untuk skill spesial, bonus, dan hadiah. Mereka terpisah dari Pahlawan.
+
+🔹 Prioritas F2P: Pan > Valora > Roman
+🔹 Whale/Pemimpin Reli: Valora > Roman > Pan
+
+TIPS:
+🔹 Jangan gunakan Suplai Petualangan pada Valora — Perjalanan Alam gratis akan membukanya.
+🔹 Simpan Suplai Petualangan untuk Pan di Tanah Terlupakan.
+🔹 Pan -> Level 60: Falconer = maks. Truegold/Speedup harian.
+🔹 Valora -> Level 30: Forgehammer Bear Hunt.
+🔹 Roman -> Buka hanya untuk drop Peti Arena pasif.
+
+(see guide #master-academy)
+
+[2026-09-28 by Nia] Panduan Pahlawan Gen 3
+Bingung mau investasi di mana? Panduan Pahlawan & Master baru tersedia di Discord dan situs web multibahasa kami.
+
+Ringkasan Gen 3
+🔥 Petra - WAJIB DIBANGUN (Rolet Hero). Pahlawan Bear Hunt yang luar biasa dengan nilai hingga Gen 7.
+- Eric & Jaeger: Lewati saja kecuali fokus pada PvP/pertahanan Pos Penjaga
+
+Keseluruhan:
+🔹 Pemain F2P: Fokus pada Zoe (tank Infanteri) jika belum maksimal dan Petra (Kavaleri ofensif) dari Rolet Hero
+🔹 Pemain P2W: Prioritaskan Amadeus (VIP 7+) dan Hilde
+
+(see guide #f2p-heroes)
+
+### GAME TERMS (English = official id name)
+Construction = Konstruksi
+Training = Pelatihan
+Research = Penelitian
+Healing = Penyembuhan
+Learning = Pembelajaran
+Learning Speedup = Percepatan Pembelajaran
+Golden Glaives = Tombak Emas
+Dim Goldstone = Goldstone Redup
+Watchtower Intel = Intel Menara Pengawas
+Royal Foundry = Pabrik Kerajaan
+Redeem = Tukar
+Left = Tersisa
+Owned = Dimiliki
+Go = Pergi
+Bread (Secured) = Roti (Aman)
+Calendar = Kalender
+Hero Roulette = Rolet Hero
+Lucky Chip = Chip Keberuntungan
+Battlefield = medan perang
+Tier C = Tingkat: C
+Legion 1 / 2 = Legiun 1 / Legiun 2
+Battle Starts In = Pertempuran Dimulai
+Combatants = Petarung
+Substitutes = pengganti
+Alliance Brawl = Brawl Aliansi
+Merchant Empire = Kekaisaran Pedagang
+UTC Time = Waktu UTC
+Starts in = Dimulai dalam
+All Out = Serangan Penuh
+Details = Detail
+Conquest = Penaklukan
+Heroes = Pahlawan
+Shop = Toko
+Alliance (tab) = Aliansi
+World = Dunia
+Rules (dialog title) = Aturan
+Events = Event
+Guide = Panduan
+Rules = Aturan
+Buildings = Bangunan
+Rewards = Hadiah
+Other = Lainnya
+First Control = Penguasaan Pertama
+Ongoing Occupation = Pendudukan Berlangsung
+Bonus Effect = Efek Bonus
+/m (per minute) = /m
+Recruit = Rekrut
+Skills = Skill
+Upgrade = Tingkatkan
+Troops Preview = Pratinjau Skuad
+All = Semua
+In Town = Dalam Kota
+Out of Town = Luar Kota
+Formations = Formasi Pasukan
+Backpack = Ransel
+Resources = Sumber Daya
+Speedups = Speedup
+Bonuses = Pemasukan
+Use = Gunakan
+Recall = Panggil Kembali
+Recall squad? = Panggil Kembali Skuad?
+Cancel = Batal
+Confirm = Konfirmasi
+Settings = Pengaturan
+City Bonus = Bonus Kota
+Relic Points = Poin Relik
+Alliance Relic Points = Poin Relik Aliansi
+Personal Relic Points = Poin Relik Pribadi
+Defender's Relic Points = Poin Relik Pertahanan
+Arsenal Supplies = Suplai Kereta Bagasi
+Gems = Permata
+Guard Station = Pos Penjaga
+City Defense = Pertahanan Kota
+Northwest Sanctum = Sanctum Barat Laut
+Southeast Sanctum = Sanctum Tenggara
+Abbey (1–4) = Biara (1–4)
+Hall of Reformation = Aula Reformasi
+Belltower = Menara Lonceng
+Royal Stables = Kandang Kuda Kerajaan
+Mercenary Camp = Kamp Tentara Bayaran
+Drill Camp = Pelatihan Bor
+Town Center = Pusat Kota
+Attacker = penyerang
+Mercenaries = tentara bayaran
+First King = Raja Pertama
+Rally = Reli
+Advanced Teleporter = Teleporter Lanjutan
+Counter-recon = Kontra-pengintaian
+Squad = Skuad
+Shield = Perisai
+Marching = Barisan
+Gathering = Mengumpulkan
+Control = Penguasaan / kendali
+Building control time = waktu yang diperlukan untuk menguasai bangunan
+Defense failure = kalah
+Teleport / free teleports = teleportasi gratis
+Cooldown = interval (antara teleportasi gratis)
+Total Troops = Total Skuad
+March Queue = Barisan Antrean
+Injured = Terluka
+Escorts = Pengawal
+Troops Capacity = Kapasitas Pasukan
+Infantry = Infanteri
+Cavalry = Kavaleri
+Archer = Pemanah
+Trap 1 / Trap 2 = Perangkap 1 / Perangkap 2
+Hunting Achievements = Pencapaian Berburu
+Damage Rewards = Hadiah Kerusakan
+Trap Enhancement = Peningkatan Perangkap
+Pre-Registered Start = Pra-Registrasi Dimulai Pada
+Go Enable = Pergi Aktifkan
+Total Alliance Damage = Total Damage Aliansi
+Castle Battle = Pertempuran Istana
+Background = Latar Belakang
+King's Castle = Kastil Raja
+Forbidden Area = Area Terlarang
+King = Raja
+Alliance Leader = Pemimpin Aliansi
+Turret = meriam
+Town = Kota
+Sanctuary Battle = Pertempuran Tempat Perlindungan
+Sanctuary / Sanctuaries = Sanctuary
+Season / Phase = Season / Fase
+Defend Phase = Fase Bertahan
+Pillar of Honor = Pilar Kehormatan
+Event season has ended = Event Season telah berakhir
+Honor Ranking = Peringkat
+Stage 1: City Construction = Babak 1: Konstruksi Pemukiman
+My Ranking = Peringkatku
+Unranked = Tidak Ada Peringkat
+My Points = Poin Saya
+Target Points = Poin Sasaran
+Claim = Klaim
+Strongest Governor = Gubernur Terkuat
+Stage = stage
+Challenge Medal = Medali Tantangan
+Challenge Medal Rewards = Hadiah Medali Tantangan
+Kingdom Personal Ranking Rewards = Hadiah Peringkat Pribadi Stage dan Kerajaan
+Cross-Kingdom Personal Ranking = Peringkat Pribadi Antar-Kerajaan
+Participating Kingdoms = Kerajaan yang Berpartisipasi
+Current Kingdom = Kerajaan Saat Ini
+Cross-Kingdom = Antar Kerajaan
+Coming soon = Segera
+Rewards (preview bar) = Hadiah
+Cesares Legionnaire = Legioner Cesares
+Private = Pribadi
+Alliance = Aliansi
+Challenged = Ditantang
+Captain = Kapten
+Scout = Intai
+Recommended Power = Kekuatan yang Disarankan
+Show event shortcut = Tampilkan pintasan acara
+Alliance Championship = Kejuaraan Aliansi
+The Alliance Championship has ended! = Kejuaraan Aliansi telah berakhir!
+Mythic General Hero Shard = Paket Chip Keberuntungan Mitos
+Governor Gear = Gear Gubernur
+Hero Gear = Gear Hero
+Mastery Forging = Penempaan Mastery
+Stat Bonuses = Bonus Stat
+Archer Attack = Serangan Pemanah
+Archer Defense = Pertahanan Pemanah
+Enhancement Cost = Biaya Peningkatan
+Enhance = Tingkatkan
+Gear Enhancement = Peningkatan Gear
+Charm Upgrades = Upgrade Charm
+Charm Design = Desain Charm
+Dreadwolf = Netherfiend
+Alliance Banner = Spanduk Aliansi
+Durability = Daya Tahan
+Garrisoned Governor = Gubernur Berjaga
+Not garrisoned = Tidak ditempati
+Defender Squad = Skuad Bertahan
+No reinforcements to show = Tidak ada bala bantuan untuk ditampilkan
+Dispatch Troops = Kirim Pasukan
+Updates in = Diperbarui di
+Event details = Detail acara
+Personal Ranking = Peringkat Pribadi
+Alliance Ranking = Peringkat Aliansi
+Countdown to Event Start = Hitung Mundur untuk Memulai Acara
+Even more rewards = Lebih banyak hadiah
+Only leaders and R4+ can enable = Hanya ketua dan anggota aliansi dengan peringkat R4 atau lebih tinggi yang bisa mengaktifkan.
+Town Center = Tungku
+Vikings = Viking
+Defense Points = Poin Pertahanan
+Successful defense = Pertahanan sukses
+Reinforce allies = Perkuat sekutu
+Kills = pembunuhan
+Event Rules = Aturan Event
+Event difficulty = tingkat kesulitan Event
+Alliance HQ = markas aliansi
+[Plains] HQ = markas [Plains]
+[Badland] HQ = markas [Badland]
+Expedition Skills = Skill Ekspedisi
+Wilderness map = peta Wilderness
+Upgrade Preview = Pratinjau Upgrade
+Damage Up = Damage Naik
+Enemy Damage Taken Up = Damage yang Diterima Musuh Naik
+Level maxed! = Tingkat maksimal!
+Beasts = binatang buas
+Bread = Roti
+Search = Cari
+Auto Hunting = Berburu Otomatis
+Max opponent: Lv.28 Beasts = Lawan maksimal: Lv.28 binatang buas
+Hunting Trap 2 = Perangkap Berburu 2
+On cooldown = Saat cooldown
+My City = Permukiman saya
+More (march list) = Lebih Banyak
+Wood = Kayu
+Stone = Batu
+Iron = Besi
+Great Mill = Lumbung Besar
+Great Sawmill = Penggergajian Kayu Besar
+Great Quarry = Tambang Batu Besar
+Great Iron Mine = Tambang Besi Besar
+Mill = Lumbung
+Sawmill = Penggergajian Kayu
+Iron Mine = Tambang Besi
+Quarry = Tambang Batu
+Secured Alliance Node = Node Aliansi Aman
+Explore the Eternity's Reach for strategic resource—Copper Ores! = Jelajahi Eternity's Reach untuk mendapatkan sumber daya strategis - Bijih Tembaga!
+Copper Ore = Bijih Tembaga
+Sign up and battle on the same day = Daftar dan bertempurlah di hari yang sama
+Registration closes in = Registrasi ditutup
+Sign up now = Daftar Sekarang
+Overview (button) = Ringkasan
+Rewards (button) = Hadiah
+Guide (button) = Panduan
+Historical Ranking = Riwayat Peringkat
+Overview (dialog tab) = Ringkasan
+Buildings (dialog tab) = Bangunan
+Other (dialog tab) = Lainnya
+Lv. 1 Vein = Vein Lv. 1
+Lv. 2 Vein = Vein Lv. 2
+Lv. 3 Vein = Vein Lv. 3
+Capacity = Kapasitas
+Speed = Kecepatan
+View Rewards = Lihat Hadiah
+March Queue = Antrean Barisan
+Academy = Akademi
+Rare Hero Shard = Fragmen Hero Rare
+Epic Hero Shard = Fragmen Hero Epic
+Mythic Hero Shard = Fragmen Hero Mythic
+Hero Gear Forgehammer = Forgehammer Gear Hero
+Hero Shard = Fragmen Hero
+Hero Exclusive Gear = Gear Ekslusif Hero
+Pet advancement = kemajuan hewan peliharaan
+Advanced Taming Marks = Tanda Penjinakan Advanced
+Common Taming Marks = Tanda Penjinakan Common
+War Academy = Akademi Perang
+Medical Satchel = Tas Medis
+Rescue Order = Perintah Penyelamatan
+Kingdom of Power = Kerajaan Kekuatan
+Overview (event info window) = Ringkasan
+Matchmaking Phase = Fase Pencocokan
+Preparation Phase = Fase Persiapan
+Battle Phase = Fase Pertempuran
+Field Triage Phase = Fase Triase Lapangan
+Cross-Kingdom Battle Phase = Fase Pertempuran Antar Kerajaan
+Cross-Kingdom Castle Battle = Pertempuran Kastil Antar Kerajaan
+High King = Raja Agung
+Kingdom Bonus = Bonus Kerajaan
+Cross-Kingdom Teleport = Teleportasi Antar Kerajaan
+Rally Captain = Kapten Reli
+Position perks = bonus jabatan
+Phase Rewards = Hadiah Fase
+Ranking (rewards section) = Peringkat
+Total Point Ranking = Peringkat Poin Total
+Victory Rewards = Hadiah Kemenangan
+Squads' Lethality (turret bonus) = Lethality Skuad
+Raise Pet Advancement score = Tingkatkan skor Kemajuan Peliharaan
+Pet Refinement = Penyempurnaan Peliharaan
+Pet Advanced Refinement = Penyempurnaan Lanjutan Peliharaan
+Raise Governor Charm max score = Tingkatkan skor maksimal Charm Gubernur
+Raise Governor Gear max score = Tingkatkan Skor Maksimal Gear Gubernur
+Use Forgehammers on gear = Gunakan Forgehammer pada Gear
+Use Exclusive Gear Widgets of any heroes = Gunakan Widget Gear Eksklusif dari Hero mana pun
+Use Truegold = Gunakan Truegold
+Use Mithril = Gunakan Mithril
+Use Speedups for Construction = Gunakan Percepatan Pembangunan
+Use Speedups for Tech Research = Gunakan Percepatan Penelitian Teknologi
+Use Speedups for Soldier Training = Gunakan Percepatan Pelatihan Prajurit
+Train or Promote Soldiers = Latih atau Promosi Prajurit
+Play Hero Roulette = Mainkan Hero Roulette
+Use Hero Shards to ascend (excluding General Shards) = Gunakan Shard Hero untuk ascend (Shard Umum tidak termasuk)
+Complete Watchtower Intel Missions = Selesaikan Misi Intel Menara Pengawas
+Gather resources on the World Map = Kumpulkan sumber daya di Peta Dunia
+Fishing Tournament = Turnamen Memancing
+Guide (Fishing tab) = Panduan
+Trial Stages = Tahap Percobaan
+Fishing Techniques = Teknik Memancing
+Tokens and Points = Token dan Poin
+Fishing Points = Poin Memancing
+Fishing Tokens = Token Memancing
+Fishing Guild = Guild Memancing
+Master Fisher Leaderboard = Leaderboard Master Fisher
+Fishing Kit = Peralatan Memancing
+Kit Enhancement = Peningkatan Perlengkapan
+Line = Tali pancing
+Hook = Pengait
+Sinker = Pemberat
+Sunken Treasure Hunt = Harta Karun Tenggelam
+Fishing Stage = Tahap Memancing
+Regular Fishing = Memancing Reguler
+Bait = Umpan
+Treasure Chart = Peta Harta
+Ocean Chest = Peti Lautan
+Special Items = Item Spesial
+Fishing Voucher = Voucher Memancing
+Horn of the Tide = Trompet Samudra
+Reel = Kail
+Ocean Scanner = Pemindai Laut
+Lantern = Lentera
+Fish / Mermaid / Chest / Memorabilia = Ikan / Putri Duyung / Peti / Memorabilia
+Struggling Mermaid = Putri Duyung Terperangkap
+Star Rating Rewards = Hadiah Rating Bintang
+Guide Completion Rewards = Hadiah Penyelesaian Panduan
+Power Cast = Lemparan Kuat
+Fishing Probability Guide = Panduan Probabilitas Memancing
+Fishing Token Bonuses = Bonus Token Memancing
+Fishing Point Bonuses = Bonus Poin Memancing
+Retreat = Mundur
+Continue = Lanjutkan
+Tri-Alliance Clash = Clash Tiga Aliansi
+Battle Prerequisites = Prasyarat Pertempuran
+Battle Rules = Peraturan Pertempuran
+Voting / Registration / Matchmaking / Battle = Vote / Pendaftaran / Matchmaking / Pertempuran
+Deployment page = halaman Pengerahan
+Preparations = Persiapan
+Seize & Conquer = Rebut & Taklukkan
+Garrison Occupation = Penguasaan Garnisun
+Temple Onslaught = Penyerangan Kuil
+Energy = Energi
+Deploy / Conscript / Advance / Retreat / Instantly revive = mengerahkan / wajib militer / memajukan / menarik mundur / membangkitkan langsung
+Captain (Tri-Alliance) = Kapten
+Temple of Tides = Kuil Dewa Laut
+Headquarters = HQ
+Garrisons = Garnisun
+Cluster of Ruins = Kluster Reruntuhan
+Ruins = Reruntuhan
+Transit Hub = Pusat Transit
+Pillars = Pilar
+Neutral buildings = bangunan netral
+Alliance Ranking Rewards = Hadiah Peringkat Aliansi
+Personal Ranking Rewards = Hadiah Peringkat Pribadi
+Personal Merits = Merit
+Auto-advance = Lolos Otomatis
+Tidal Stone = Batu Pasang Surut
+Tidal Shop = Toko Pasang Surut
+Mystic Trial = Ujian Mistis
+Story = Cerita
+Expedition Stats = Stat Ekspedisi
+Coliseum = Koloseum
+Forest of Life = Alas Kehidupan
+Crystal Cave = Gua Kristal
+Knowledge Nexus = Nexus Pengetahuan
+Molten Fort = Benteng Lava
+Radiant Spire = Menara Radiant
+Trial Explorers = Penjelajah Ujian
+Soldiers = prajurit
+Deployment capacity = kapasitas pengerahan
+Challenge Attempts = Percobaan Tantangan
+First Win Rewards = Hadiah Kemenangan Pertama
+Raid Rewards = Hadiah Raid
+Stage Reset = Reset Stage
+Stage (trial level) = Stage
+Zone = zona
+Mystic Trial Leaderboard = Leaderboard Ujian Mistis
+Pet = Peliharaan
+Pet Skills = Skill Peliharaan
+Governor Charm = Charm Gubernur
+Tech = Teknologi
+Current Level = Level Saat Ini
+VIP XP = XP VIP
+VIP Benefits = Keuntungan Fasilitas VIP
+NEW = BARU
+Resource Production Speed = Kecepatan Produksi Sumber Daya
+Storehouse Capacity = Kapasitas Gudang
+Construction Speed = Kecepatan Konstruksi
+VIP Daily Free Bundle = Paket Gratis Harian VIP
+VIP Special Pack = Paket Spesial VIP
+Purchase limit: 1 = Batas pembelian: 1
+Power (alliance info) = Kekuatan
+Members = Anggota
+Language = Bahasa
+All languages = Semua bahasa
+Maxed = Maks
+War = Perang
+Chests = Peti
+Territory = Wilayah
+Battle = Pertarungan Aliansi
+Shop (alliance) = Toko
+Tech (alliance) = Teknologi
+Power (ranking button) = Kekuatan
+Help = Bantuan
+Intel Mission = Misi Intel
+Quality = Kualitas
+Max Count = Jumlah Maks
+Refreshes In = Diperbarui di
+Barricade = Barikade
+Conquerors' Camp = Kamp Penakluk
+Court of Justice = Mahkamah Hukum
+Infirmary = Rumah Sakit
+Enlistment Office = Kantor Pendaftaran
+Covenant-Making = Pembuatan Pakta
+Permanent Alliance Tech Contributions = Kontribusi Teknologi Aliansi
+Contribution Rewards = Hadiah Kontribusi
+Contribute = Kontribusi
+Attempts = Upaya
+Unlimited (∞) = ∞
+Alliance Token = Token Aliansi
+Arena of Glory = Arena Kemuliaan
+Season ends in = Musim berakhir di
+Ranking = Peringkat
+Governor = Gubernur
+Arena Points = Poin Arena
+Challenge = Tantang
+History = Riwayat
+Def. Lineup = Def
+Daily = Harian
+Growth = Pertumbuhan
+Carry out N Intel Mission(s) = Lakukan N Misi Intelijen
+Heal N injured soldiers = Sembuhkan N Skuad yang terluka
+Upgrade N building(s) = Tingkatkan gedung N
+Defeat Terror N time(s) = Kalahkan Teror sebanyak N kali
+Complete Daily Missions = Selesaikan Misi Harian
+Get More = Dapatkan Lebih Banyak
+Water Essence = Esensi Air
+Fountain of Life = Air Mancur Kehidupan
+Island Treasure = Harta Karun Pulau
+Assist Allies = Bantu Sekutu
+Cacti = Kaktus
+Weekly Benefits Card = Kartu Tunjangan Mingguan
+Hall of Heroes = Aula Pahlawan
+Intel Monthly Card = Kartu Bulanan Intel
+Remaining = Sisa
+Expiring = Akan Kedaluwarsa
+Gathered = Dikumpulkan
+Time Left = Sisa Waktu
+Gathering Speed = Kecepatan Mengumpulkan
+Gathering Squad = Squad Pengumpul
+Gather = Kumpul
+Pet Adventure = Petualangan Hewan Peliharaan
+Governor Stamina = Stamina Gubernur
+Treasure spot = lokasi harta karun
+Personal Treasure = Harta Karun Pribadi
+Ally Treasure = Harta Karun Sekutu
+Nomadic Merchant = Pedagang Nomaden
+Mystery (shop) = Misteri
+Arena (shop) = Arena
+VIP (shop) = VIP
+Alliance Championship Shop = Tingkat Kejuaraan Aliansi
+Swordland (shop) = Swordland
+Kingdom of Power (shop) = Kerajaan Kekuatan
+Skin (shop) = Skin
+Trial Shop = Toko Ujian
+Gem (shop) = Gem
+Trial Crystal = Kristal Ujian
+Refresh = Perbarui
+Sold out = Habis
+Exclusive Item = Item Eksklusif
+Today = Hari ini
+Week = Mingguan
+Gen 2 Custom Hero Widget Chest = Peti Widget Custom Gen 2
+Custom Mythic Hero Gear Chest = Peti Perlengkapan Pahlawan Mitos Khusus
+Mythic Hero Gear = Perlengkapan Pahlawan Mitos
+Kingdom Transfer = Transfer Kerajaan
+Sources = Sumber
+Buy Packs = Beli Paket
+City Skin = Skin Pemukiman
+House of Cacti (Permanent) = House of Cacti (Permanen)
+In Wilderness = Tampilan Alam Liar
+Preview = Pratinjau
+Stat Bonus (Activated upon Acquisition) = Bonus Stats (Diaktifkan setelah Akuisisi)
+Squads' Attack = Attack Skuad
+Alliance Mobilization = Pergerakan Aliansi
+Event Period = Periode Event
+Participation Requirement = Syarat Partisipasi
+Obtain Points = Mendapatkan Poin
+Alliance Points = Poin Aliansi
+Refresh Event Mission = Refresh Misi Event
+Exclusive mission = misi eksklusif
+Public mission = misi publik
+Abandon Event Mission = Membatalkan Misi Event
+Custom Mission Voucher = Voucher Misi Custom
+Ranking Display Phase = Fase Tampilan
+League Overview = Ringkasan Liga
+League Event = Event Liga
+League Tier Ranking = Peringkat Tier Liga
+Rookie (league tier) = Rookie
+Junior (league tier) = Junior
+Senior (league tier) = Senior
+Elite (league tier) = Elite
+Legendary (league tier) = Legendary
+Milestone (promotion level) = milestone
+Tier Demote = Penurunan Tier
+Ranking Rule = Aturan Peringkat
+Note (rules) = Catatan
+Fair Vouchers = Kupon Pameran
+Hero Rally = Reli Pahlawan
+Governor Order = Perintah Gubernur
+On cooldown = Sedang cooldown
+Active = Aktif
+Ground Works = Pekerjaan Dasar
+Kingdom of Power Bonus = Bonus Kerajaan Kekuatan
+Residents continue working = Warga melanjutkan bekerja
+Research Speed = Kecepatan Penelitian
+Appointment = Pertemuan
+Ministers (tab) = Menteri
+Offender (tab) = Pelanggar
+The King may appoint Ministers = Raja dapat menunjuk Menteri
+Chief Minister = Perdana Menteri
+Minister of Justice = Menteri Kehakiman
+Minister of the Interior = Menteri Dalam Negeri
+Field Commander = Komandan Lapangan
+Noble Advisor = Penasihat Kerajaan
+Not Appointed = Tidak ada yang ditunjuk
+Reserved = Direservasi
+Appointed in = Ditunjuk dalam
+Expedition = Ekspedisi
+Master List = Daftar Master
+Max Affinity Stats = Stat Kedekatan Maks
+Talent = Talenta
+Reach 1000 Affinity and the Master will settle in the Town. = Capai 1000 Kedekatan dan Master akan menetap di Kota.
+Squads' Defense = Defense Skuad
+Reserve Chests = Peti Cadangan
+Palace Administrator = Administrator Istana
+Bear Hunter = Pemburu Beruang
+Arena Champion = Juara Arena
+Arena Star Chest = Peti Bintang Arena
+Arena Token = Token Arena
+Realm Journey = Perjalanan Alam
+Frontier Encounter = Pertemuan Frontier
+Next Stop = Stasiun Berikutnya
+Auto = Otomatis
+Known Masters = Master Dikenal
+Mystery Badge = Lencana Misteri
+Journey Supplies = Perbekalan Perjalanan
+Adventure Supply = Suplai Petualangan
+Lostlands = Tanah Terlupakan
+Pet Skill = Skill Hewan Peliharaan
+Skill Effect = Efek Skill
+Cooldown (Pet Skill) = Waktu Tunggu
+On Cooldown = Sedang cooldown
+Pet List = Daftar Peliharaan
+Display = Tampilkan
+Advance = Tingkatkan
+Refine = Sempurnakan
+X Overall Stats = Stats Keseluruhan X
+Pet Food = Makanan Peliharaan
+Infantry Lethality = Letalitas Infanteri
+Infantry Health = Nyawa Infanteri
+Cavalry Lethality = Letalitas Kavaleri
+Cavalry Health = Nyawa Kavaleri
+Archer Lethality = Letalitas Pemanah
+Archer Health = Nyawa Pemanah
+Abbey = Biara
+Intel Missions = Misi Intel
+Medical Satchels = Tas Medis
+Rescue Orders = Perintah Penyelamatan
+use = gunakan
+okay if needed = boleh jika perlu
+don't use = jangan digunakan
+need to do daily = perlu dilakukan setiap hari
+Conscript = wajib militer
+neutral buildings = bangunan netral
+Deploy = Mengerahkan
+Advance = Memajukan
+Instantly revive = Membangkitkan langsung
+Learning Speedups = Percepatan Pembelajaran
+Mystery Badges = Lencana Misteri
+Mystery Shop = Misteri
+Arena Shop = Arena
+VIP Shop = VIP
+Swordland Shop = Swordland
+Kingdom of Power Shop = Kerajaan Kekuatan
+Skin Shop = Skin
+Gem Shop = Gem
+Alliance Shop = Toko
+Pets = Peliharaan

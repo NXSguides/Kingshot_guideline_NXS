@@ -1,0 +1,1621 @@
+### GUIDE #viking-vengeance — Vengeance Viking
+QUAND
+Toutes les 2 semaines — deux sessions de 30 minutes, au jour 1 et au jour 3. Les horaires sont fixés par la direction, généralement proches de ceux de la Chasse à l'Ours.
+📌 PRÉPARATION
+Videz votre village
+Envoyez TOUTE l'infanterie et la cavalerie renforcer les membres de l'alliance.
+Les archers en trop peuvent rester à la maison — ils ne volent pas de points de renfort.
+Même si vous serez hors ligne pendant l'événement, videz votre village avant ! Vous pouvez quand même marquer des points, et vous laissez aux autres membres la possibilité d'en marquer en vous renforçant.
+Gardez vos 3 meilleurs héros à la maison
+Laissez vos 3 meilleurs héros de défense/attaque dans votre Poste de Garde.
+F2P : Jabel / Howard / Quinn
+P2W : Amadeus ou Helga / Jabel / Saul
+NE SOIGNEZ PAS
+Les troupes soignées rentrent à la maison et peuvent voler des éliminations/points aux membres qui vous renforcent.
+Priorité aux membres actifs
+Renforcez d'abord les membres en ligne. Les vagues 7, 14 et 17 n'attaquent que les joueurs en ligne.
+⚔️ RENFORCER LES ALLIÉS
+Utilisez vos héros de participants à la Chasse à l'Ours en position 1 pour maximiser les points d'élimination.
+Recommandés : Chenko / Amane / Yeonwoo / Amadeus
+Évitez les héros défensifs comme Howard ou Gordon dans les marches de renfort.
+🏛️ QG — VAGUES 10 ET 20
+Les vagues 10 et 20 attaquent UNIQUEMENT le QG. Les attaques sur les villages font une pause pendant ces vagues.
+Une fois la vague 9 / 19 terminée :
+Rappelez UNE marche puissante.
+Envoyez-la directement au QG.
+Maximum 68K troupes par membre.
+Utilisez Chenko ou Amadeus en position 1, ou votre héros aux dégâts bruts les plus élevés.
+Après la vague du QG, rappelez et retournez renforcer le membre qui vous est assigné.
+⚠️ IMPORTANT : Vous pouvez renforcer le QG pour la vague 10 OU la vague 20 — PAS LES DEUX.
+Coordonnez-vous avec les R4/R5 pour que chacun ait son tour et que le QG se remplisse efficacement.
+
+### GUIDE #master-academy — Guide de l'Académie des Experts (Gén 3)
+QUAND
+La Gén 3 arrive le 28/09 et débloque l'Académie des Experts au Centre niv. 25. Les experts donnent des bonus passifs permanents au compte, des ressources en plus et des récompenses d'événements. Ils sont distincts des héros.
+COMMENT LES DÉBLOQUER
+Valora est TOUJOURS votre premier expert, découvert via le Voyage dans le royaume normal.
+Provisions de voyage gratuites : 20 rechargées automatiquement à 00:00 UTC, plus 10 à 08:00 et 10 à 16:00 à récupérer manuellement — 40 par jour. Vous pouvez en acheter jusqu'à 20 de plus par jour avec des Gemmes (1 000 Gemmes les 5). Elles ne se rechargent plus une fois le stock plein : utilisez-les régulièrement.
+Ne dépensez PAS de Provision d'Aventure pour Valora — les Provisions de voyage gratuites la débloquent naturellement.
+GARDEZ vos Provision d'Aventure pour Pan et Roman dans les Terres Perdues une fois découverts.
+Un expert s'installe dans votre village à 1 000 d'affinité.
+PRIORITÉ POUR LES F2P & PETITS PAYEURS
+Pan ➔ Valora ➔ Roman
+1. Pan — l'expert économie (priorité absolue)
+Montez Pan au niv. 60.
+Talent : 5 Coffres de Réserve toutes les 120 min de collecte (max. 30 par jour) — Or Véritable, Gemmes et accélérateurs gratuits.
+Compétence 1 Fauconnier : +8 Mission de renseignements par jour → beaucoup d'Or Véritable gratuit chaque jour.
+Compétence 4 L'art et la manière : +120 insignes mystères via les missions quotidiennes et +4 actualisations gratuites du magasin Mystère → Composants à prix réduit.
+🔗 Détails : https://kingshotoptimizer.com/masters/pan/
+2. Valora — matériaux d'équipement de la Chasse à l'Ours
+Montez-la au niv. 30 (Relation 3 / Connaissance 1).
+Compétence 2 Donner l'exemple : +5 × 100 EXP d'Amélioration par Chasse à l'Ours.
+Compétence 3 Attrait pour les armes : +5 Marteau de Forges par Chasse à l'Ours.
+🔗 Détails : https://kingshotoptimizer.com/masters/valora/
+3. Roman — passif d'Arène
+Débloquez-le simplement (1 000 d'affinité) : son talent donne déjà 50 % de chances d'obtenir des Coffres d'Étoile de l'Arène en plus après chaque combat d'Arène (Fragment de Héross & Marteau de Forges) ; ce n'est qu'au niveau max que cela devient 100 % pour 3 coffres. Pas besoin d'investir beaucoup d'emblèmes d'expert au début.
+🔗 Détails : https://kingshotoptimizer.com/masters/roman/
+PRIORITÉ POUR LES GROS PAYEURS & LEADERS DE RALLIEMENT
+Valora ➔ Roman ➔ Pan
+Valora : maximisez Avantage primitif et Danse de la chasse pour de gros scores au classement.
+Danse de la chasse (compétence 1) : quand vous lancez le ralliement contre l'Ours Enragé, la capacité de tout le ralliement augmente de +30 000 par niveau (niv. 10 : +300 000) — plus de troupes de vos membres peuvent y entrer.
+Avantage primitif (compétence 4) : capacité de votre propre escouade en participant à la Chasse à l'Ours +3 000 par niveau (niv. 10 : +30 000).
+Roman : Formateur de Champions et Unique souhait (+20 % d'attaque et de PV en combat d'Arène), Le gagnant rafle tout (+50 % de jetons d'arène quotidiens/hebdomadaires), Favori du public (3 articles en plus à -50 % dans l'Arène).
+Pan : à monter en second pour l'Or Véritable passif.
+ℹ️ La compétence 1 Danse de la chasse augmente la capacité de tout le ralliement que vous lancez. La compétence 4 Avantage primitif n'augmente que votre propre escouade — la capacité totale du ralliement dépend de celui qui le lance.
+💬 Voyage dans le royaume : récompenses des questions-réponses
+La liste ci-dessous est compilée à partir du site ci-dessus. Quand un événement apparaît, cherchez-le par sa couleur et son contenu : choisissez une couleur ou un personnage / mot-clé, puis touchez l'événement pour voir la meilleure option (✅).
+
+### GUIDE #general-tips — Conseils Généraux
+🔗 RESSOURCES
+🗓️ CHRONOLOGIE DU ROYAUME
+Vois ce qui arrive ensuite pour planifier événements, améliorations et ressources à l'avance.
+⚔️ OPTIMISEUR D'ÉQUIPEMENT DE HÉROS
+Planifie tes améliorations d'Équipement de héros et évite de gaspiller des matériaux précieux.
+🎥 YOUTUBE – STRAT GAME SLOTH
+Vidéos de stratégie recommandées, astuces de jeu et conseils de progression.
+🛒 MAGASINS DU JEU
+Quoi acheter en priorité dans chaque magasin pour le meilleur rapport qualité-prix.
+🐪 Marchand Nomade
+Relocalisation Avancée contre ressources / gratuit
+Échanges de ressources avantageux
+EXP VIP en réduction
+🎲 Mystère
+Actualisation quotidienne gratuite
+Boîte Comp Héros Myth Pers Gén. 2 à -50 %
+-20 % seulement en cas d'urgence
+🏟️ Arène
+Caisse d'Équipement de Héros Mythique Personnalisée chaque semaine → Mithril une fois la base d'équipement mythique de tes héros principaux terminée
+👑 VIP
+Dépense tes Gemmes seulement sur les réductions : Relocalisation Avancée • 100 EXP d'Amélioration • Marteau de Forge
+🏆 Magasin du Championnat de l'Alliance
+Avant de débloquer l'Académie des Experts : Vision de l'Artisan • Fils Dorés / Satin selon les besoins
+Après le déblocage : emblèmes d'expert en priorité n°1 — en fin de partie, garde tes jetons pour ça
+⚔️ Glaive
+Vision de l'Artisan → puis ce qui te bloque : matériaux de Talisman du Chef / d'Équipement Chef • Marteau de Forge
+🏰 Royaume au Pouvoir
+Or Véritable — un goulot d'étranglement majeur à long terme
+🎨 Thème
+Priorise les bonus de stats permanents, ex. Maison des Cactus : +2 % Attaque des escouades
+🧪 Magasin du Défi
+Avant Truegold Dust : ÉCONOMISE tes Cristal du défi
+Après : Truegold Dust → Mithril → EXP d'Amélioration → Plans de Talisman
+💎 Gemme
+Ne dépense tes Gemmes que pour des paliers de progression importants ou des matériaux rares.
+Dans le doute : GARDE TES GEMMES. Voir le guide des gemmes ci-dessous.
+🤝 Alliance – Magasin
+Passe de Transfert • EXP VIP • Nourriture / matériaux pour animaux • Relocalisation Avancée • Réductions utiles de 70 % • Accélérateurs seulement avec un surplus de Alliance Token
+💎 GUIDE DES GEMMES
+Garde tes Gemmes pour :
+1) 🎡 Roulette des Héros → ~162 000 Gemmes pour 120 tours
+2) 👑 Activation VIP → 10 000 Gemmes/mois (à partir de VIP 4)
+🏛️ Temple des Héros → ~13 500–14 850 Gemmes, SEULEMENT si Marlin n'est pas encore débloqué. Arrête après le déblocage — ensuite, les fragments universels sont plus rentables.
+✅ CHECKLIST QUOTIDIENNE
+☀️ PENDANT QUE TU ES EN LIGNE
+☐ 🎁 Récupère le coffre VIP + utilise l'EXP VIP
+☐ 🤝 Aide d'alliance + contribue à la Tech d'alliance
+☐ 📊 Utilise les objets d'EXP de héros
+☐ ⚔️ Conquiers des camps (Camp des Conquérants)
+☐ 🔎 Termine tes missions (Mission de renseignements)
+☐ 🏝️ Récupère l'Essence d'Eau de l'île + aide tes alliés
+☐ 🔮 Utilise tes tentatives de l'Épreuve Mystique
+☐ 📋 Termine les missions quotidiennes (Quotidien)
+☐ 🏟️ Fais l'Arène de la Gloire 3 minutes avant la réinitialisation
+☐ 🐻 Chasse à l'Ours — un jour sur deux + mets à jour tes formations
+☐ 📅 Inscris-toi et participe aux événements en cours
+🌙 AVANT DE TE DÉCONNECTER
+☐ 🐉 Envoie tes animaux en Aventure Animalière
+☐ 🌾 Envoie des marches de Collecte
+☐ ⚔️ Garde l'Entraînement des troupes actif
+☐ 🔬 Garde Recherche / Construction actives au besoin
+
+### GUIDE #mystic-trial — Épreuve Mystique
+QUAND
+Disponible tous les jours. Chaque zone offre 5 tentatives par jour, réinitialisées à 00:00 UTC. Les zones ouvertes dépendent du jour de la semaine.
+POURQUOI C'EST IMPORTANT
+Une source importante de Fragment de Héros, d'XP de héros et d'autres récompenses de progression.
+ZONES DE L'ÉPREUVE
+Colisée
+Lundi & Mardi
+⚔️ Infanterie 50% · Cavalerie 10% · Archer 40%
+⚔️ Infanterie 60% · Cavalerie 15% · Archer 25%
+Seules les stats des Héros, de l'Équipement de héros et de l'Équipement Exclusif de Héros comptent.
+Forêt de la Vie
+Mercredi & Jeudi
+⚔️ Infanterie 50% · Cavalerie 15% · Archer 35%
+⚔️ Infanterie 55% · Cavalerie 10% · Archer 35%
+Seules les stats des Animaux comptent.
+Les Compétences animalières sont actives par défaut, mais leurs effets ne se cumulent pas.
+Grotte de Cristal
+⚔️ Infanterie 60% · Cavalerie 20% · Archer 20%
+⚔️ Infanterie 55% · Cavalerie 5% · Archer 40%
+Seules les stats du Talisman du Chef comptent.
+Nexus de la Connaissance
+Vendredi & Samedi
+⚔️ Infanterie 50% · Cavalerie 20% · Archer 30%
+Seules les stats des Techs de l'Académie et de l'Académie de Guerre comptent.
+Des soldats de plus haut niveau sont utilisés ici s'ils sont débloqués.
+Fort en Fusion
+⚔️ Infanterie 50% · Cavalerie 18% · Archer 32%
+Seules les stats de l'Équipement Chef comptent.
+Flèche Éclatante
+Dimanche
+Presque tout compte : Héros, Équipement de héros, Équipement Exclusif de Héros, Animaux (Compétences animalières actives par défaut), Talisman du Chef, Techs, Techs d'Or Véritable, Équipement Chef, Thèmes, Île Oasis et niveau VIP.
+Tu utilises tes propres soldats — sans pertes et sans affecter ton déploiement sur la carte du monde.
+Dans les cinq autres zones, les Explorateurs de l'Épreuve fournissent des soldats de Niv. 10 : concentre-toi sur les stats requises par la zone. Terminer les étapes 1 à 10 d'une zone débloque le Pillage.
+
+### GUIDE #pet — Animaux
+🔧 Compétence de l'Animal (hors combat)
+🔹 Loup Gris – Aide à la Construction : vitesse de Construction & d'Amélioration ↑ pendant 5 min
+🔹 Lynx – Étreinte Réconfortante : restaure instantanément l'Endurance du Chef
+🔹 Bison – Poignée du Titan : termine instantanément la collecte sur la prochaine case de ressources sauvage (sauf Point d'Alliance Sécurisé)
+🔹 Guépard – Maîtrise des odeurs : trouve instantanément des aliments pour animaux
+🔹 Lion – Cadeau du Roi : déterre un objet perdu (ex. Marteau de Forge, Or Véritable, matériaux de talisman & d'équipement)
+⚔️ Compétence de l'Animal (combat)
+🔹 Élan – Regard d'Épouvante : Santé de l'escouade ennemie ↓ pendant 2 h
+🔹 Grizzly – Le Hurleur : Vitesse de marche ↑ + Létalité de l'escouade ennemie ↓ pendant 2 h
+📍 Où fonctionne une ⚔️ Compétence de l'Animal ?
+✅ Bêtes, Rebelles, Ralliement contre la Terreur & Loup Redoutable — fonctionne
+❌ Chasse à l'Ours — les malus infligés à l'ennemi ne fonctionnent pas (l'ours n'a pas de barre de vie)
+👑 Ralliement : seule la ⚔️ Compétence de l'Animal du lanceur du ralliement compte
+Guide complet : https://kingshotmastery.com/guides/kingshot-pet-guide
+ℹ️ Le contenu est trop long pour être traduit, merci d'ouvrir le lien pour le consulter.
+
+### GUIDE #install-app — Comment l'installer comme application
+Est-ce sûr ?
+Ce n'est pas un programme téléchargé (pas d'APK) : c'est ce site enregistré sur votre écran d'accueil, qui fonctionne dans Safari/Chrome comme n'importe quelle page web.
+Aucune autorisation demandée : ni caméra, ni contacts, ni position, ni fichiers, ni notifications.
+Supprimable à tout moment : appui long sur l'icône puis supprimer, comme une application.
+iPhone / iPad
+Ouvrez ce site dans Safari (les autres navigateurs ne permettent pas l'installation).
+Touchez le bouton Partager (carré avec une flèche) en bas.
+Touchez View More (le bouton ⌄) pour ouvrir le menu complet. Sur les anciennes versions d'iOS, faites simplement défiler vers le bas.
+Touchez Sur l'écran d'accueil.
+Laissez Open as Web App (Ouvrir comme app web) activé, puis touchez Ajouter.
+L'icône NXS apparaît sur votre écran d'accueil.
+Android
+1. Ouvrez ce site dans Chrome.
+2. Touchez ⋮ en haut à droite.
+3. Touchez Installer l'application (ou Ajouter à l'écran d'accueil), puis Installer.
+À savoir
+L'icône NXS apparaît sur votre écran d'accueil et s'ouvre en plein écran comme une application.
+À la première ouverture, choisissez votre langue — elle sera mémorisée. Touchez 🌐 pour la changer.
+Les pages déjà ouvertes restent lisibles hors ligne.
+Les mises à jour sont automatiques — pas besoin de réinstaller.
+Le nom des boutons peut varier légèrement selon le téléphone et la version du système.
+
+### GUIDE #bear-hunt — Chasse à l'Ours
+🆕 MISE À JOUR GEN 3
+Chefs de ralliement : Meilleur — Helga + Petra + Marlin (10:20:70), seulement si Helga est 5★ + Composant max. Alternative — Amadeus + Petra + Marlin (20:30:50). F2P — Zoé + Petra + Quinn (20:40:40).
+Participants – à envoyer en premier : Chenko, Yeonwoo, Amadeus, Amane (bonus de Létalité fixe).
+⚠️ UN SEUL par ralliement : Marlin, Zoé, Jaeger, Petra — leurs dégâts basés sur une probabilité ne se cumulent PAS.
+Détails ci-dessous ↓
+QUAND
+Tous les 2 jours, à l'heure prévue par votre Alliance.
+POURQUOI C'EST IMPORTANT
+Source principale de matériaux d'Équipement de héros (Marteaux de Forge) et d'EXP d'Amélioration.
+PRÉPARATION
+Mettez à jour vos formations de troupe avant chaque Chasse à l'Ours.
+Optionnel : utilisez https://frakinator.streamlit.app/ pour tester les ratios de troupes et trouver votre meilleure formation.
+Rappelez les troupes en collecte avant le début de l'événement.
+N'oubliez pas : pendant les 5 à 7 dernières minutes, tout le monde devrait lancer un ralliement. Cela libère davantage de places pour les joueurs dont les troupes reviennent et permet un dernier coup de collier de dégâts.
+LEADERS DE RALLIEMENT
+⚠️ Règle : lancez votre propre ralliement avec le maximum de troupes, mais quand vous rejoignez d'autres ralliements, respectez aussi la limite d'exactement 90 000 troupes. Au début, les chefs de ralliement principaux lancent leur premier ralliement à leur horaire décalé attribué.
+GEN 1
+GEN 2
+GEN 3
+GEN 4
+GEN 5
+Formation de troupe : 30-30-40 %. Dans la plupart des cas, l'Infanterie aura les meilleures stats grâce aux stats brutes d'Amadeus, donc une formation ultra-équilibrée avec un peu plus d'Archers fonctionne le mieux.
+Formation de troupe : 20-40-40 %. Principalement pour ceux qui n'ont pas encore misé sur Amadeus, et cela permet d'utiliser Amadeus pour rejoindre des ralliements.
+Formation de troupe : 30-30-40 %. Pour les F2P, il est recommandé d'utiliser toujours les 3 héros dont vous disposez pour lancer un ralliement.
+Formation de troupe : 20-30-50 %. Marlin augmentera fortement les dégâts grâce à son équipement exclusif de ralliement. À partir de la Gen 2, l'Infanterie sera toujours Amadeus ou Helga : ce sont les seuls héros d'Infanterie avec un équipement exclusif de ralliement (bonus de Létalité). Vous envoyez moins d'Infanterie, donc le héros d'Infanterie compense les dégâts des Archers grâce à cet équipement plutôt qu'en égalant les stats d'Infanterie.
+Formation de troupe : 20-30-50 %. Autre option : remplacer Quinn par Marlin s'il n'est pas encore meilleur. N'utilisez Helga à partir de la Gen 2 que si Amadeus n'est pas à 5 étoiles avec l'équipement exclusif au niveau maximum ; c'est aussi l'occasion d'utiliser Amadeus pour rejoindre des ralliements.
+Formation de troupe : 30-30-40 %. Toujours aucun héros F2P avec un équipement exclusif de ralliement, donc encore une formation équilibrée avec un peu plus d'Archers, car les stats d'Archer seront les plus basses faute de héros Archer SSR.
+Formation de troupe : 10-20-70 %. Helga au maximum est plus performante qu'Amadeus en Gen 3, avec 2 équipements de Létalité et 1 d'Attaque, contre 1 de Létalité et 2 d'Attaque pour Amadeus dans cette configuration.
+Formation de troupe : 20-30-50 %. Si vous n'avez pas Helga au maximum (5 étoiles + équipement exclusif), il vaut mieux utiliser Amadeus.
+Formation de troupe : 20-40-40 %. En Gen 3, les F2P obtiennent leur premier héros avec un équipement exclusif de ralliement (Petra). Essayez des nombres équilibrés d'Archers et de Cavalerie, car Petra améliore beaucoup les Archers. Les stats d'Archer restent les plus basses sans Archer SSR. Si vous débloquez la Cavalerie T10, la compétence T10 s'accorde bien avec les stats de Petra. Si vous débloquez la Cavalerie T3, Petra devient encore plus forte, car sa 3e compétence fonctionne très bien avec leurs stats.
+Formation de troupe : 10-10-80 %. Alignez autant d'Archers que possible, surtout s'ils sont T10. Avec un peu de chance, la 3e compétence de Rosa fera le travail pour vous (augmente l'Attaque totale des Archers de 30 %).
+Formation de troupe : 10-10-80 %. Utilisez Helga en alternative si elle a plus d'étoiles et un meilleur niveau d'équipement exclusif qu'Amadeus. Alignez toujours autant d'Archers que possible, surtout T10, pour la 3e compétence de Rosa (augmente l'Attaque totale des Archers de 30 %).
+Formation de troupe : 10-10-80 %. Comme pour les héros alternatifs — les bonus de la 3e compétence de Rosa sont meilleurs si vous misez sur des formations très orientées Archers (augmente l'Attaque totale des Archers de 30 %).
+Les autres emplacements de leader ne sont pas encore disponibles.
+PARTICIPANTS AU RALLIEMENT
+⚠️ Règle : tous les participants doivent envoyer exactement 90 000 troupes aux ralliements — enregistrez vos marches à l'avance. À 6:30 restantes, tous les participants lancent leur propre ralliement avec leurs 3 héros les plus forts. 🔪 Mauvais héros ou mauvais nombre de troupes : exclusion, puis demande de rejoindre à nouveau.
+Ratio standard / sûr : 10 % d'Infanterie, 10 % de Cavalerie et 80 % d'Archers (ou une variante comme 20-30-50)
+Priorité – à envoyer en premier : ces héros donnent un bonus de Létalité fixe, le bonus le plus précieux pour la Chasse à l'Ours.
+À UTILISER AVEC PRUDENCE
+⚠️ Héros à dégâts basés sur une probabilité : effets puissants, mais ils ne se cumulent PAS. N'utilisez qu'UN SEUL de ces héros dans un même ralliement : Marlin, Zoé, Jaeger, Petra.
+🔗 En savoir plus : https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes
+[joiners] Chenko | lethality | Yeonwoo | lethality | Amane | attack | Amadeus | lethality
+[leaders] best | Amadeus | Jabel | Quinn | 30-30-40 | alt | Helga | Jabel | Quinn | 20-40-40 | f2p | Howard | Jabel | Quinn | 30-30-40 | best | Amadeus | Hilde | Marlin | 20-30-50 | alt | Helga | Jabel | Marlin | 20-30-50 | f2p | Zoé | Jabel | Quinn | 30-30-40 | best | Helga | Petra | Marlin | 10-20-70 | alt | Amadeus | Petra | Marlin | 20-30-50 | f2p | Zoé | Petra | Quinn | 20-40-40 | best | Amadeus | Petra | Rosa | 10-10-80 | alt | Helga | Petra | Rosa | 10-10-80 | f2p | Zoé | Petra | Rosa | 10-10-80 | best | Amadeus
+
+### GUIDE #swordland-showdown — Choc du Glaive
+QUAND
+Toutes les 2 semaines — bataille de 60 minutes, alliance contre alliance.
+INSCRIPTION
+⚠️ Ne vous inscrivez que si vous comptez participer. Un joueur inscrit qui ne se présente pas prend une place précieuse et peut fausser l'appariement.
+100 % disponible → Envoyer la demande de participation
+Pas sûr → S'abstenir
+OBJECTIF PRINCIPAL
+Remportez la victoire en obtenant plus de Points de Relique d'Alliance que l'alliance adverse.
+Capturer et tenir les bâtiments importants
+Protéger les points accumulés
+Récupérer immédiatement les Provisions de Train de bagages dispersées quand un bâtiment change de camp
+Récolter les Caves dès qu'elles apparaissent
+Renforcer les garnisons proches quand vous ne participez pas à un ralliement
+Ne laisser aucune marche inactive
+NE COUREZ PAS après les éliminations à travers la carte. Le PvP désordonné nous disperse et réduit notre efficacité. Attaquez les villes de niveau inférieur quand cela a du sens, en affaiblissant celles proches d'un bâtiment tenu.
+APERÇU DES BÂTIMENTS
+Chiffres dans l'ordre : Points de Relique d'Alliance / Points de Relique Individuels
+Premier Contrôle
+Occupation en Cours
+Ouverture
+min
+/m
+:
+MAXIMALE
+HAUTE
+MOYENNE
+Sites de récolte qui apparaissent périodiquement (deux vagues)
+Bâtiment qui rapporte le plus de points
+Affaiblit les bâtiments tenus par l'ennemi
+Bonus de combat pour l'alliance
+Points de Relique d'Alliance de grande valeur
+Génère des Points de Relique d'Alliance
+-50 % d'intervalle entre les téléportations
+-50 % du temps nécessaire pour contrôler les bâtiments
+ZONES ASSIGNÉES
+Les R4 répartiront les membres confirmés en équipes/zones avant la bataille.
+Nos meilleurs attaquants se verront d'abord attribuer une zone :
+🟣 Violet — Clocher
+🟡 Jaune — Écuries Royales
+🔵 Bleu — Sanctuaire Nord-Ouest
+🟢 Vert — Sanctuaire Sud-Est
+Les autres membres seront affectés au soutien de l'une de ces zones/équipes. Une rotation peut être nécessaire selon la situation : surveillez toujours le chat d'escouade pour les détails.
+Restez dans votre zone assignée, sauf ordre contraire des officiers.
+🟣 Zone violette — Clocher / Camp de Mercenaires
+🔵 Zone bleue — Sanctuaire Nord-Ouest / Abbaye
+🟡 Zone jaune — Écuries Royales / Abbaye
+🟢 Zone verte — Sanctuaire Sud-Est / Abbaye
+⚪ Centre
+RÔLES ET RESPONSABILITÉS
+Les R4 répartiront les membres confirmés, selon leur puissance, en 3 fonctions : attaquants, défenseurs et soutien/participants aux ralliements.
+⚔️ 1) ATTAQUANTS
+Qui : nos joueurs les plus puissants, avec de nombreuses Relocalisations Avancées.
+Votre mission :
+Vous téléporter vers votre zone et votre bâtiment assignés
+Capturer les bâtiments prioritaires
+Attaquer en solo les châteaux ennemis vulnérables
+Mener les ralliements importants
+Passer à l'objectif suivant dès qu'un défenseur prend le relais
+Quand des ennemis se téléportent près de votre bâtiment assigné, viser les châteaux plus faibles ou exposés
+🛡️ 2) DÉFENSEURS
+Qui : nos joueurs suivants les plus puissants, avec une bonne capacité de ralliement et de garnison.
+Suivre les attaquants qui vous sont assignés (zone)
+Une fois qu'un attaquant a capturé un bâtiment, prendre le relais de la garnison et demander des renforts si nécessaire
+Renforcer les objectifs menacés
+Libérer les attaquants pour qu'ils puissent passer à leur cible suivante
+🤝 3) SOUTIEN / PARTICIPANTS AUX RALLIEMENTS
+Qui : en général les membres moins puissants et les participants aux ralliements.
+Doivent rejoindre les ralliements des défenseurs assignés
+Renforcer les bâtiments capturés
+Envoyer des renforts en marche accélérée sur demande
+Rester dans la zone sûre quand vous n'êtes pas nécessaire ailleurs, ou plus loin de la portée de l'ennemi
+IMPORTANT : si l'ennemi attaque l'un de nos bâtiments capturés et en prend le contrôle, téléportez-vous à proximité ou lancez immédiatement une marche accélérée pour récupérer les Provisions de Train de bagages dispersées avant lui.
+20 minutes après le début de la bataille, les Caves apparaissent. Envoyez les troupes disponibles les récolter pour obtenir des points supplémentaires.
+Ne laissez aucune marche inactive.
+AVANT LA BATAILLE
+Videz votre infirmerie. Gardez toutes vos marches disponibles
+Équipez vos meilleurs héros et votre meilleur équipement
+Activez la capacité de troupes, les bonus d'attaque et de défense, et l'Anti-repérage
+Gardez des Relocalisations Avancées si votre rôle l'exige
+Gardez Discord ouvert si possible (carte, affectations, vocal facultatif)
+Consultez le chat d'alliance et vos messages privés
+⚠️ IMPORTANT : un nouvel onglet chat d'escouade apparaît le jour de la bataille. Surveillez-le pendant toute la bataille.
+CHRONOLOGIE DE LA BATAILLE
+0:00–15:00
+OUVERTURE
+À sécuriser immédiatement
+#4 Clocher
+#7 Écuries Royales
+À disputer
+#8 Sanctuaire Nord-Ouest
+#10 Sanctuaire Sud-Est
+Capturez les Abbayes quand c'est réalisable, mais ne sacrifiez pas les objectifs principaux pour elles.
+14:30, les joueurs les plus forts se préparent pour le centre.
+15:00
+OUVERTURE DES BÂTIMENTS PUISSANTS
+#1 Tombeau du Glaive, #2 Camp de Mercenaires, #3 Salle des Réformes
+Les officiers annonceront les priorités selon la situation.
+⭐ Tombeau du Glaive
+Les meilleurs attaquants/défenseurs se téléportent vers le centre (pas tous)
+Capturez le Tombeau du Glaive
+Une fois sécurisé, un défenseur solide tient la garnison
+Le soutien et les participants doivent envoyer des renforts en marche accélérée
+⚠️ Membres en garnison : n'abandonnez pas votre bâtiment pour le Tombeau du Glaive, sauf consigne des officiers. Continuez à protéger les Sanctuaires et les autres bâtiments importants.
+15:00–45:00
+💪 PHASE DE CONTRÔLE
+Objectif principal : tenir le Tombeau du Glaive + le Sanctuaire Nord-Ouest + le Sanctuaire Sud-Est
+Conserver un contrôle utile du Clocher et des Écuries Royales
+Utiliser le bonus de la Salle des Réformes pour les grands affrontements
+Utiliser le Camp de Mercenaires pour mettre la pression sur les bâtiments ennemis
+Récupérer les Provisions de Train de bagages dispersées après CHAQUE changement de camp d'un bâtiment
+Renforcer les garnisons affaiblies
+20:00–60:00
+⛏️ Caves
+Les Caves commencent à apparaître.
+Le soutien et tous ceux qui ont des marches disponibles doivent les récolter pour obtenir des points supplémentaires.
+N'abandonnez pas une défense ou un ralliement critique juste pour récolter.
+DERNIÈRES 15 MINUTES
+🏁 FINALE
+SI NOUS SOMMES EN TÊTE
+Protégez le Tombeau du Glaive et les Sanctuaires
+Renforcez les bâtiments qui accumulent des points
+Évitez le PvP inutile
+Récupérez immédiatement les Provisions de Train de bagages dispersées
+Ne prenez aucun risque inutile
+SI NOUS SOMMES DERRIÈRE
+Mettez la pression sur les bâtiments principaux ennemis
+Utilisez le Camp de Mercenaires avant les attaques coordonnées
+Concentrez les ralliements au lieu d'attaquer au hasard
+Visez les bâtiments de valeur tenus par l'ennemi
+Récupérez chaque point tombé après un changement de camp réussi
+5 dernières minutes : points > éliminations.
+RÉSUMÉ
+Les membres sont répartis en 3 fonctions et assignés à une zone :
+ATTAQUANTS → CAPTURER + PRESSER
+DÉFENSEURS → TENIR + PROTÉGER
+SOUTIEN → RENFORCER + RALLIER + RÉCUPÉRER + RÉCOLTER
+Suivez votre zone et votre rôle assignés.
+Surveillez le chat d'escouade.
+Objectifs > éliminations au hasard.
+Les attaquants capturent, les défenseurs tiennent, le soutien renforce.
+Ne laissez jamais de marches utiles inactives.
+Récupérez immédiatement les Provisions de Train de bagages dispersées.
+Récoltez les Caves avec les marches disponibles.
+Protégez le Tombeau du Glaive + les Sanctuaires.
+N'abandonnez pas les bâtiments principaux pour les Abbayes ou les éliminations.
+Si les officiers ordonnent une rotation, BOUGEZ.
+⚔️ LA COORDINATION, CLÉ DE LA VICTOIRE AUX Terres du Glaive
+
+### GUIDE #formations-rally-tips — Formations de troupe et conseils de ralliement
+🔬 PRIORITÉS DE RECHERCHE ET D'AMÉLIORATION
+Donnez la priorité à ces stats de combat pour la recherche et l'amélioration des talismans du Chef :
+Infanterie — Santé
+Archer — Létalité
+💾 ENREGISTREZ VOS PRESETS
+Selon votre progression, vous pouvez débloquer jusqu'à 8 emplacements pour pré-enregistrer vos formations de troupe. Formations recommandées à enregistrer :
+Tous les ratios de troupes suivent l'ordre Infanterie : Cavalerie : Archer. Enregistrez un preset distinct pour chaque héros, en le plaçant tout à gauche / en première position.
+💡 Le héros tout à gauche est important quand vous rejoignez un ralliement, car sa compétence d'expédition pertinente contribue au ralliement.
+1) Chasse à l'Ours : Chenko — 10 : 10 : 80
+2) Chasse à l'Ours : Amane — 10 : 10 : 80 (ou au plus proche)
+3) Chasse à l'Ours : Yeonwoo — 10 : 10 : 80 (ou au plus proche)
+4) Chasse à l'Ours : Amadeus — 10 : 10 : 80 (ou au plus proche)
+5) Attaque (PvP général) : Amadeus (si monté) ou Chenko — 50 : 20 : 30
+6) Défense : Howard / Gordon — 60 : 20 : 20 est notre configuration équilibrée par défaut. Ajustez-la quand la direction demande une formation précise.
+Leaders de ralliement : utilisez votre meilleure composition de héros offensifs, au complet.
+Participants au ralliement : merci de respecter les limites de troupes publiées par la direction.
+7) QG Viking (Viking HQ) : Howard / Gordon — 60 : 40 Respectez la limite de troupes (~68 000)
+8) PvE – Bêtes / CHASSE : Diana + Fahd — 50 : 20 : 30
+🐺 PvE — BÊTES / CHASSE
+Pour le Loup Redoutable : peu de dégâts sont nécessaires, alors envoyez le minimum de troupes (même 1) afin que davantage de membres de l'alliance puissent rejoindre et profiter des récompenses du ralliement.
+🏰 Bataille du Château / Sanctuaire / BÂTIMENTS
+Quand vous capturez des bâtiments, soyez prêt à basculer rapidement :
+ATTAQUE → DÉFENSE
+⚔️ 1. CAPTURE
+Rejoignez le ralliement initial avec votre preset d'ATTAQUE.
+Exemple : Amadeus / Chenko 50 : 20 : 30
+🛡️ 2. PASSER EN DÉFENSE
+Une fois le bâtiment capturé :
+1. Envoyez immédiatement une autre marche avec votre preset de DÉFENSE. Exemple : Gordon / Howard 60 : 20 : 20
+2. Regardez votre marche de défense se diriger vers le bâtiment capturé.
+3. Quand il reste environ 5 secondes de temps de marche — ou sur instruction de la direction — rappelez votre marche d'ATTAQUE d'origine.
+4. Votre marche de DÉFENSE arrive et remplace votre marche offensive dans la garnison.
+🚫 NE rappelez PAS votre marche d'attaque trop tôt.
+Capture → Envoyer la défense → ~5 s → Rappeler l'attaque → La défense arrive
+Cela nous permet de passer d'un dispositif offensif à une garnison défensive sans affaiblir inutilement le bâtiment.
+🪖 LIMITE DE TROUPES EN GARNISON
+Seuls 15 chefs peuvent entrer dans le QG / le sanctuaire. N'envoyez donc pas automatiquement votre marche maximale vers le QG, le sanctuaire ou d'autres bâtiments disputés.
+Respectez la limite de troupes annoncée par la direction.
+Objectif d'alliance habituel : ~68 000 troupes par joueur
+Cela permet à davantage de membres de l'alliance dont les marches défensives sont bien configurées de tenir dans la garnison et d'obtenir des récompenses.
+⚠️ Si la direction annonce une limite différente, suivez toujours le montant annoncé.
+Par exemple, avec une limite de 68 000 troupes, vous pouvez saisir ce chiffre dans une calculatrice et l'entrer directement dans le champ correspondant à chaque type de troupe. Voici trois exemples :
+60/20/20 ➡️ 40 800 / 13 600 / 13 600
+60/40 ➡️ 40 800 / 27 200
+50/20/30 ➡️ 34 000 / 13 600 / 20 400
+🎬 COMMENT PASSER DES HÉROS D'ATTAQUE AUX HÉROS DE DÉFENSE
+📎 Vidéo trouvée en ligne (TikTok @yelloe_hair) — pas notre propre séquence.
+
+### GUIDE #eternity-reach — l'Éternité à Portée
+QUAND
+Toutes les 2 semaines — un événement solo de 30 minutes.
+POURQUOI C'EST IMPORTANT
+L'une des meilleures sources récurrentes de matériaux pour le Talisman du Gouverneur.
+STRATÉGIE
+Compétences
+Pour chaque niveau de compétence, choisis :
+Niveau 1 → Droite
+Niveau 2 → Droite
+Niveau 3 → Gauche
+Niveau 4 → Gauche
+Niveau 5 → Droite
+Début
+Attaque les Gardes Césarès → Fonce jusqu'à débloquer la Compétence 3.
+Vise les Gardes Césarès de niveau 2 quand c'est possible, et évite ceux déjà attaqués.
+Toutes les 60 secondes
+Entre dans un Filon de Cuivre → Obtiens 5 000 cuivre → Rappelle immédiatement → Note l'heure → Répète toutes les 1 minute.
+Une seule marche suffit pour déclencher le bonus de 5 000 cuivre.
+Filons Fracturés
+Quand ils apparaissent → Envoie immédiatement les marches disponibles → Récolte jusqu'à leur disparition.
+Chariot de Butin
+Laisse-le collecter le cuivre au sol pendant tout l'événement. Il n'occupe pas de place de marche.
+Compétence 5
+Active la 5e compétence pendant une éruption de filon et envoie toutes tes troupes récolter aux filons.
+Pic de l'Éternité
+S'ouvre pendant les 7 dernières minutes.
+Évite les PvP inutiles si tu n'es pas assez fort pour rivaliser → Capture uniquement quand cela en vaut la peine.
+Positionnement
+Utilise la téléportation gratuite pour te rapprocher de 3 filons ou vers une zone moins fréquentée.
+
+### GUIDE #f2p-heroes — Guide des héros F2P
+Les Éclats mythiques et les équipements exclusifs de ralliement sont limités. N'essayez pas de développer tous les héros — concentrez vos ressources sur ceux qui ont une valeur forte et durable.
+Quelques héros ci-dessous n'ont pas encore été confirmés officiellement par capture d'écran, ou ne sont pas encore sortis — ils restent en anglais jusqu'à vérification.
+GEN 1
+Jabel
+Héros mythique farmable ; priorité principale.
+Saul: Quelques étoiles pour la compétence de croissance. N'investissez pas trop.
+GEN 2
+Zoé — À DÉVELOPPER (Roulette)
+Grosse amélioration par rapport à Howard.
+Marlin: Remplace Saul.
+GEN 3
+Petra — À DÉVELOPPER ABSOLUMENT (Roulette)
+Excellent héros pour la Chasse à l'Ours, avec une valeur qui dure jusqu'à la Gen 7.
+Éric & Jaeger: À ignorer sauf si vous vous concentrez sur le PvP/la défense de garnison.
+GEN 4
+Rosa — À DÉVELOPPER (Roulette)
+Grosse amélioration pour la Chasse à l'Ours.
+Alcar OU Margot: Facultatif. Les deux sont solides en Arène/Expédition.
+GEN 5
+Long Fei — À DÉVELOPPER (Roulette)
+Excellent pour les événements multi-équipes comme l'Épreuve Mystique, la guerre Tri-Alliance et le Choc du Glaive.
+Thrud/Vivian: Surtout Arène/PvP.
+Vous avez manqué Petra ? Envisagez Thrud.
+GEN 6
+Sophia — À DÉVELOPPER (Roulette)
+Utile surtout pour le contenu multi-équipes.
+Yang — PRIORITÉ ÉLEVÉE
+Excellente utilité pour la Chasse à l'Ours ; ça vaut la peine d'y investir des Éclats mythiques.
+Triton: En général à ignorer si vous avez développé Long Fei.
+GEN 7
+Wee & Woo — À DÉVELOPPER ABSOLUMENT (Roulette)
+Excellente valeur globale pour les F2P.
+Ava — PRIORITÉ ÉLEVÉE
+Excellent héros pour la Chasse à l'Ours ; remplace Petra.
+Charles: Généralement sûr à ignorer.
+PARCOURS ROULETTE F2P SIMPLIFIÉ
+Zoé ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo
+PRIORITÉS DES ÉCLATS MYTHIQUES
+Petra ➜ Yang ➜ Ava
+RÈGLE GÉNÉRALE
+Les héros de la roulette sont généralement vos investissements F2P les plus sûrs. Économisez vos ressources, évitez de trop disperser vos Éclats mythiques, et ne vous sentez pas obligé de développer tous les héros.
+RÉSUMÉ
+Joueurs F2P : Concentrez-vous sur Zoé (tank d'infanterie), Jabel (cavalerie) et Petra (cavalerie offensive) via la roulette de héros
+Joueurs P2W : Priorisez Amadeus (VIP 7+) et Hilde pour un impact maximal
+
+### GUIDE #kvk — Guide de Préparation et Combat KvK
+Or Véritable
+✅
+<span class="chk-ok">OK</span>
+🚫
+Fragment de Héros
+⏩️ Construction
+⏩️ Entraînement
+⏩️ Recherche
+Roulette des Héros
+Collecte
+👍
+Missions de Renseignement
+avancement des animaux
+Talisman du Chef
+Équipement Chef
+Équipement Exclusif de Héros Composant
+Mithril
+Marteau de Forge
+emblèmes d'expert
+Manuscrit d'expert
+⏩️ Apprentissage
+utiliser
+acceptable si besoin
+ne pas utiliser
+à faire chaque jour
+PHASE 1 : PHASE DE PRÉPARATION (Jours 1 à 5)
+Pour gagner le KVK, votre Royaume doit obtenir plus de points au total durant la Phase de Préparation que votre adversaire. Gagner cette phase confère l'Avantage Attaquant (votre Château est totalement en sécurité durant la Phase de Combat).
+Jour 1 : Construction, Or Véritable et Talisman du Chefs
+Activités notées : améliorations de bâtiments Or Véritable, Accélérations de Construction, Talisman du Chefs, Missions de Renseignement, Accélérateurs d'Apprentissage.
+🛡️ Priorité F2P :
+Dépensez vos Accélérations de Construction et Or Véritable économisés.
+Utilisez les Plans de Talisman économisés les semaines précédentes.
+Terminez toutes les Missions de Renseignement de l'Observatoire.
+⚡ Priorité P2W :
+Maximisez les niveaux élevés de bâtiments Or Véritable (Académie / Académie de Guerre).
+Poussez les Talisman du Chefs au niveau 8–11 pour des pics de points massifs (le niveau 11 donne 16 000 pts par palier).
+Jour 2 : Recherche, Héros et Récolte
+Activités notées : Accélérations de Recherche, Fragments de Héros (Rare/Épique/Mythique), tours de Roulette des Héros, emblèmes d'expert / Manuscrit d'expert, récolte de ressources.
+Tournez la Roulette des Héros avec des Gemmes économisées pour obtenir des fragments de Petra (Gen 3).
+Investissez les fragments mythiques/épiques universels économisés dans vos héros principaux.
+Récoltez à l'avance (envoyez les récolteurs avant la réinitialisation pour qu'ils reviennent immédiatement au début du Jour 2).
+Utilisez tous les emblèmes d'expert et Manuscrit d'expert économisés.
+Faites passer instantanément les héros Gen 3 (Éric et Petra) à 5 étoiles.
+Jour 3 : Entraînement des Animaux et Progression à l'Académie des Experts
+Activités notées : avancement des animaux, Marque de Dressage Commune et Marque de Dressage Avancée (Raffinage), Roulette des Héros, Fragments de Héros, emblèmes d'expert / Manuscrit d'expert, Missions de Renseignement.
+Montez de niveau et raffinez plusieurs animaux de niveau intermédiaire de façon équilibrée plutôt que de tout concentrer sur un seul.
+Utilisez les tours de Roulette des Héros restants et les Missions de Renseignement quotidiennes.
+Utilisez massivement les Marque de Dressage Avancée (15 000 pts chacune).
+Maximisez les seuils de avancement des animaux pour des multiplicateurs de points élevés.
+Jour 4 : Développement de Héros et Entraînement des Troupes
+Activités notées : Entraînement/Promotion des Troupes (T1–T11), Marteau de Forge, Composant, Mithril, récolte de ressources.
+Promouvez les troupes de niveau inférieur à votre niveau le plus élevé (ex. T9 vers T10). Améliorer des troupes est bien plus efficace en ressources que d'en entraîner de nouvelles depuis zéro.
+Gardez les accélérations générales pour la recherche/l'Académie des Experts — n'utilisez ici que les accélérations dédiées à l'Entraînement des Troupes.
+Utilisez les Marteau de Forge économisés (4 000 pts chacun) et les Composant d'Équipement Exclusif de Héros (8 000 pts chacun).
+Appliquez des améliorations en Mithril (40 000 pts chacune) pour déclencher des pics de points massifs.
+Jour 5 : Boost de Puissance et Améliorations Finales
+Activités notées : Équipement Chef, Équipement de Héros, Raffinage des Animaux, Mithril, Or Véritable, toutes Accélérations, Missions de Renseignement, Récolte.
+Terminez les Missions de Renseignement restantes, utilisez les ressources/accélérations restantes, et améliorez Équipement Chef avec les Satin/Fils Dorés accumulés.
+Poussez Équipement Chef au niveau Mythique / Mythique 3 étoiles (6 250 pts par palier).
+Liquidez tout le Mithril, les Composant et les Marteau de Forge restants pour sécuriser les récompenses du classement personnel Top 2000 / Top 200 quotidien.
+⚔️ PHASE 2 : PHASE DE COMBAT (12 HEURES)
+Fenêtre de Combat du Château : 12h00 UTC à 22h00 UTC.
+Objectif : Contrôler le Château Royal et 4 tourelle.
+🎯 META PVP GEN 3 ET CONFIGURATION DE RASSEMBLEMENT
+🛡️ Défense de Garnison — Château/Tourelles
+Héros Leader : Éric (Gen 3) — Mur d'infanterie incassable avec des statistiques Gen 3 supérieures et des mécanismes de survie. Associé à Zoé (Gen 2) pour les boucliers.
+⚔️ Rassemblements Offensifs (Attaque du Château/Tourelles)
+Héros Leader : Petra (Gen 3) — Leader de Cavalerie dévastateur avec des Composant de rassemblement offensif à forte montée en puissance.
+🤝 Participants au Rassemblement (Crucial pour les F2P !)
+N'utilisez PAS de héros au hasard en rejoignant les rassemblements. Rejoignez avec :
+Chenko (Compétence 1 maximisée)
+Amane
+Yeonwoo
+Ces héros cumulent les multiplicateurs de létalité.
+💣 STRATÉGIE DU DOUBLE RASSEMBLEMENT « BROYEUR DE BALEINES »
+Contre de fortes garnisons ennemies :
+Rassemblement 1 (Bouclier Humain / Nettoyeur) : Lancé 1 à 2 secondes en avance. Se concentre sur la létalité pure pour saturer l'infirmerie ennemie et éliminer les troupes défensives.
+Rassemblement 2 (Frappeur Principal) : Arrive juste après le Rassemblement 1 pour éliminer les troupes restantes et prendre le contrôle du Château.
+Avantage tourelle : Capturer des tourelle offre jusqu'à +20 % de Létalité d'Escouade si détenues par le même royaume que celui qui tient le Château.
+🩺 PHASE 3 : TRIAGE SUR LE TERRAIN (RÉCUPÉRATION DES TROUPES)
+Taux de Secours de Base : 30 % des troupes perdues n'ayant pas atteint l'infirmerie.
+Taux de Secours Cible : 90 %
+Comment l'augmenter :
+Kit Médical : +10 % de Taux de Secours
+Ordres de Sauvetage : +1 % chacun, jusqu'à +50 %
+⚠️ IMPORTANT : Tout le monde doit échanger des Ordres de Sauvetage dans le chat d'alliance avant l'expiration du minuteur !
+
+### GUIDE #all-out — Tous dehors
+🪖 Règles de Tous dehors
+❌ Aucune attaque contre le NAP 6, y compris leurs fermes/académies (NXS/nxs, RED/ReD, NBD/nBd/Nbd, ESA/EsA/UNI, IDN, KGb)
+❌ Aucune attaque contre les châteaux ou les bâtiments d'alliance (QG, avant-postes, bannières)
+✅ Vous pouvez attaquer les cases de collecte de ressources (Moulin, Carrière, Mine de Fer)
+✅ Vous pouvez attaquer les joueurs en dehors du NAP.
+Si votre château est attaqué par un membre du NAP, ne ripostez pas — informez le R4/R5.
+Évitez de récolter des ressources en pleine nature, utilisez plutôt le Point d'Alliance Sécurisé.
+Les contrevenants seront traités conformément aux accords d'alliance/NAP.
+🏭 Points de collecte sécurisés
+Pendant l'événement Tous dehors, nous ferons tourner nos points de collecte sécurisés toutes les 12 heures pendant 48 heures.
+Cela donne à chacun un endroit protégé pour récolter des ressources pendant que l'événement est actif.
+Programme de rotation (à partir de la réinitialisation de 00:00 UTC)
+Grand Moulin – 00:00 UTC à 12:00 UTC
+Grande Scierie – 12:00 UTC à 00:00 UTC
+Grande Carrière – 00:00 UTC à 12:00 UTC
+Grande Mine de Fer – 12:00 UTC à 00:00 UTC
+Utilisez ces emplacements protégés pendant l'événement. Restez prudents et récoltez intelligemment.
+
+### GUIDE #hero-roulette — Roulette des Héros
+QUAND
+Toutes les 2 semaines, 3 jours à chaque fois.
+📋 RÈGLES
+L'événement dure 3 jours : 1 tour gratuit par jour, 150 tours maximum par jour.
+Un tour coûte 1 Jeton Chanceux ou 1 500 Gemmes ; 10 tours coûtent 13 500 Gemmes (réduction).
+Récompenses de palier uniques à 5, 15, 35, 70 et 120 tours : +5, +10, +20, +30 et +50 fragments, soit 115 au total.
+🎲 PROBABILITÉS
+Fragment de Héros Mythique x5 : 4,37 %
+Fragment de Héros Mythique x1 : 32,81 %
+Pack mystère x1 : 6,56 % (deux cases, 6,56 % chacune)
+Accélération générale 1h x1 : 20,51 %
+10K EXP de héros x1 : 18,27 %
+Quatre cases de ressources (Fer 10K×20, Pierre 10K×80, Bois 10K×400, Pain 10K×400) : 2,73 % chacune
+Fragments attendus par tour : 5 × 0,0437 + 1 × 0,3281 ≈ 0,547
+Fragments attendus après N tours (tours + paliers)
+3 tours (gratuits) : ~1,6
+10 tours : ~5,5 + 5 = 10,5
+15 tours : ~8,2 + 15 = 23
+35 tours : ~19 + 35 = 54
+70 tours : ~38 + 65 = 103
+120 tours : ~66 + 115 = 181
+Au-delà de 120 tours, il n'y a plus de paliers et chaque tour ne rapporte que ~0,55 fragment : les joueurs F2P et petits payeurs ne devraient pas dépasser 120.
+🎯 Combien de tours pour maxer un héros ?
+En moyenne, environ 720 tours — 6 événements de 120 tours chacun.
+Le calcul
+Maxer un héros (déblocage + jusqu'à 5 étoiles) demande 1 075 fragments au total.
+120 tours par événement rapportent en moyenne 0,5466 × 120 + 115 ≈ 181 fragments (~0,5466 par tour + 115 des récompenses de palier).
+1 075 ÷ 181 ≈ 5,95, donc 6 événements.
+Total : 6 × 120 = 720 tours, environ 6 × 181 ≈ 1 084 fragments attendus.
+Pourquoi ne pas tout tourner en un seul événement ?
+Après 120 tours, il n'y a plus de récompenses de palier : chaque tour ne rapporte plus que ~0,55 fragment. Même au plafond de 450 tours, un événement ne donne en moyenne que 0,5466 × 450 + 115 ≈ 361 fragments — les 330 tours en plus sont environ deux fois moins efficaces que les 120 premiers.
+Faites aussi les 120 tours au 6e événement
+Les 5 premiers événements rapportent ~903 fragments en moyenne, il en manque ~172. À 119 tours, vous n'en attendez que ~130 (65 + 65) ; il faut le pack +50 du 120e tour pour compléter, donc le dernier événement aussi doit aller jusqu'à 120.
+💎 Coût en Gemmes (hors Jeton Chanceuxs)
+Après les 3 tours gratuits, chaque événement coûte 159 000 Gemmes — environ 954 000 Gemmes pour les 6. Déduisez vos Jeton Chanceuxs ou les fragments obtenus ailleurs.
+⚠️ Ce sont des moyennes. Sur 720 tours, le résultat réel tombe généralement à ±60 fragments de la valeur attendue (environ 95 % du temps) — avec de la malchance il faudra un événement de plus, avec de la chance vous finirez plus tôt.
+⚔️ ASTUCE KVK
+Pendant la Phase de Préparation du KvK, les jours 2 et 3 donnent 8 000 points par tour de Roulette des Héros — gardez vos Jeton Chanceuxs et vos Gemmes pour ces deux jours.
+
+### GUIDE #fishing-tournament — Tournoi de Pêche
+QUAND
+Toutes les 4 semaines.
+POURQUOI C'EST IMPORTANT
+Une source fiable de Vision de l'Artisan, d'EXP d'Amélioration d'Équipement de héros et de Gemmes.
+🌊 Chercheur des Mers
+Commence d'abord par le Chercheur des Mers pour accumuler des points et améliorer ton Kit avant de te concentrer sur la Pêche Classique.
+Ligne → Augmente la profondeur maximale
+Hameçon → Augmente les prises maximales par tentative
+Plomb → Augmente la profondeur de départ
+Une fois les trois améliorés, passe à la Pêche Classique.
+Les Sirènes et Coffres rares n'apparaissent pas en Pêche Classique. Ils sont exclusifs au Chercheur des Mers.
+🎣 Pêche Classique
+Poissons lumineux
+Priorise chaque poisson lumineux que tu vois.
+Sirène en Difficulté
+Les sirènes prises dans les algues donnent un multiplicateur de points de 5 à 10 %.
+Corne des Mers
+À utiliser uniquement en Pêche Classique.
+RECOMMENCER UNE PARTIE
+Si une partie se passe mal :
+Pause → Retraite → Réessayer
+
+### GUIDE #tri-alliance-clash — Conflit Tri-Alliance
+🎲 FONCTIONNEMENT DE L'ÉVÉNEMENT
+Voyez le Conflit Tri-Alliance comme un jeu de plateau avec des chemins, des bâtiments et des combats. Votre alliance avance sur différentes voies, capture du territoire et se bat vers les objectifs les plus précieux.
+⚔️ MÉCANIQUES DE COMBAT
+Les combats sont automatiques. Les combats simulés sont des duels, PAS des ralliements.
+Les ratios de troupes ne peuvent pas être modifiés — les troupes sont réparties équitablement.
+Les bonus de vitesse et de capacité de marche NE s'appliquent PAS.
+🛡️ 3 MARCHES & CHOIX DES HÉROS
+Vous déployez 3 escouades avant d'entrer dans le combat.
+Joueurs F2P
+Mettez vos héros les plus forts ensemble.
+Ne répartissez PAS vos meilleurs héros sur les 3 marches.
+Construisez d'abord une marche forte.
+Joueurs P2W
+Utilisez vos héros orange offensifs et défensifs.
+Les Composant offensifs NE comptent PAS dans cet événement. Les Composant défensifs comptent — privilégiez les héros avec de bons Composant défensifs.
+🏛️ BÂTIMENTS & POINTS
+Temple des Marées = OBJECTIF PRINCIPAL — il ouvre à la fin.
+Noms utilisés dans notre chat : Shrine = Groupe de ruines, Altar = Ruines.
+Attaquer et capturer des bâtiments rapporte plus de points que simplement les défendre/tenir — contrairement au Choc du Glaive.
+👥 ÉQUIPES & RÔLES
+Les joueurs sont répartis en environ 3 équipes sur différentes voies — le joueur le plus fort plus un renfort par cible, pour bien répartir notre force.
+Équipe 3 — Capturer les bâtiments neutres au début
+Capturez les bâtiments neutres de notre territoire AU PLUS VITE dès l'ouverture.
+Une fois votre cible sécurisée, continuez d'avancer.
+Équipe 2 — Avancer & saisir les occasions
+Restez devant les équipes plus faibles, allez vers la cible suivante de votre voie et maintenez la pression.
+Surveillez les mouvements ennemis. Quand l'ennemi quitte un bâtiment pour avancer, entrez dans le bâtiment qu'il vient de quitter et capturez-le tant qu'il n'est pas défendu.
+Profitez de chaque ouverture pour gagner du territoire et des points.
+Équipe 1 — Pousser jusqu'à la Garnison ennemie
+Mission principale : atteindre la zone de la Garnison ennemie avant la 20e minute.
+Avancez sur votre voie jusqu'au bâtiment ennemi le plus proche de leur Garnison (Shrine / Groupe de ruines).
+Soyez en position AVANT l'ouverture de la Garnison pour la capturer dès 20:00.
+R4
+Les R4 et les responsables de légion doivent gérer activement les nominations de Capitaine pendant toute la bataille.
+Capitaine = les joueurs les plus forts. Ils parcourent la carte pour capturer des cibles, ils ont donc besoin du plus d'énergie.
+Vérifiez sans cesse si des joueurs forts sans bonus devraient être nommés Capitaine.
+L'écran des Capitaine s'ouvre en touchant les bannières en haut à gauche.
+énergie générée pour les Capitaine par bâtiment :
+Garnison : 60 000 — or
+Groupe de ruines (Shrine) : 45 000 — violet
+Ruines (Altar) : 15 000 — bleu
+🗺️ DÉROULEMENT DE LA BATAILLE
+🔵 Bleu = Pôle de Transit　🔴 Rouge = Garnison　🟡 Jaune = Temple des Marées
+Phase 1 : Préparations (0:00–3:00)
+Objectif : configurer vos escouades et découvrir la carte. Retenez les zones violette, rouge et jaune — celles que vous occupez deviennent bleues. Évaluez la force des ennemis et choisissez l'alliance à cibler.
+Phase 2 : Capture & Conquête (3:00–20:00)
+Objectif : capturer rapidement le territoire intérieur.
+L'équipe 3 part en premier, puis l'équipe 2.
+Verrouillez les Pôle de Transit et bâtiments de liaison pour des points réguliers par minute (PPM). Les Garnison sont encore protégées.
+Pendant ce temps, l'équipe 1 s'enfonce en territoire ennemi vers leur Garnison.
+Phase 3 : Occupation de Garnison (20:00–40:00)
+Objectif : les boucliers des Garnison (A24, B24, C24) tombent.
+Équipe 3 : défendez notre Garnison (+1 800 PPM) tout en lançant des attaques coordonnées sur les Garnison ennemies — séparez-vous si besoin.
+Cherchez toujours les bâtiments non défendus, le territoire ennemi mal défendu, les occasions d'expansion et les captures faciles pour des points individuels et d'alliance.
+Phase 4 : Assaut du Temple (40:00–60:00)
+Objectif : le Temple des Marées central ouvre. Il rapporte énormément de points, plus un bonus de 50 000 points pour qui le tient à la fin. À partir de là, c'est l'objectif principal de l'alliance.
+🌊 ORDRE D'ENTRÉE AU TEMPLE
+Équipes 3 + 2 → entrent en premier (l'équipe 3 surveille aussi notre territoire / notre Garnison pour ne rien perdre).
+Équipe 1 → entre en dernier.
+Capturer → renforcer → tenir.
+⚠️ Contre les PNJ du Temple, le joueur le plus fort entre EN DERNIER — il affronte ainsi le PNJ restant le plus fort au lieu de gaspiller sa puissance sur un adversaire plus facile.
+Une fois le Temple capturé
+Verrouillez-le immédiatement — renforcez le Temple au plus vite.
+Gardez le contrôle.
+Ne courez pas après des cibles moins précieuses si cela risque de faire perdre le Temple.
+📋 RÉSUMÉ DES ÉQUIPES
+Équipe 3 — Territoire intérieur
+Phase 2 → capturer les bâtiments neutres au plus vite
+Phase 3 → sécuriser notre Garnison + soutenir les attaquants
+Phase 4 → Temple : entrer en premier, mais surveiller notre territoire — ne pas le perdre
+Équipe 2 — Captures ennemies
+Phase 2 → avancer au-delà de l'équipe 1 en territoire ennemi
+Phase 3 → capturer les bâtiments ennemis / abandonnés
+Phase 4 → Temple : entrer en premier
+Équipe 1 — Attaque en profondeur
+Phase 2 → s'enfoncer en territoire ennemi, objectif : le Shrine (Groupe de ruines) à côté de la Garnison ennemie
+Phase 3 → occuper la Garnison ennemie
+Phase 4 → Temple : entrer en dernier
+🧱 Blocage du Temple (équipe 1) : capturez le bâtiment / Shrine derrière le Pôle de Transit ennemi près du Temple des Marées et TENEZ-LE — ne partez pas tout de suite. L'équipe 1 peut alors gêner la poussée ennemie vers le Temple, et nous contrôlons l'avant avant l'ouverture du Temple.
+⚡ GESTION DE L'énergie
+Chaque déplacement/action coûte de l'énergie — utilisez-la avec soin.
+Déployer — envoyer votre escouade vers un nouvel emplacement disponible.
+Faire avancer — passer la cible / file actuelle et aller vers la cible suivante de votre voie.
+recruter — soigner et compléter vos troupes dans un bâtiment qui n'est pas en combat.
+Réanimer — revenir sur place après une défaite au lieu de retourner au Quartier Général ; cela coûte de l'énergie, à n'utiliser qu'en cas de besoin.
+Les R4 et les responsables de légion veillent à ce que les joueurs forts soient nommés Capitaine, pour qu'ils génèrent plus d'énergie.
+
+### JOURNEY CHOICES (shown inside the general guides)
+Défi Pierre-Feuille-Ciseaux: Victoire → 1re fois : 2,000 Gemmes ; 2e fois : 60 Manuscrit d'expert (best); Égalité → 2e fois : 40 Manuscrit d'expert; Défaite → 1re fois : 800 Gemmes ; 2e fois : 20 Manuscrit d'expert
+Vikings: Je ne vais pas faire comme si de rien n'était → 3 Silver Goblet (best); Je n'ai pas de temps pour les distractions → 2 Silver Goblet
+Vikings: Les affronter de face → 50 Manuscrit d'expert (best); Faire preuve de ruse → 40 Manuscrit d'expert; Partir → 30 Manuscrit d'expert
+Bête: Chasser la bête voleuse de vinaigre → ?; Je trouverai ailleurs → 3 Silver Goblet
+Olive: Un vrai guerrier n'abandonne pas une demoiselle en détresse → 2 Silver Goblet; ...C'est tout ? → 3 Silver Goblet (best)
+Ours: Le prendre à revers → 50 Manuscrit d'expert (best); Attaquer de front → 30 Manuscrit d'expert
+Mercenaires: Proposer une attaque de flanc → 100 Manuscrit d'expert (best); Proposer de saboter le ravitaillement → 70 Manuscrit d'expert
+Ourson: Le confier à quelqu'un → 30 Manuscrit d'expert; Se concentrer sur la bête → 50 Manuscrit d'expert (best)
+Hilde: Se renseigner davantage → 30 Manuscrit d'expert; Trouver une solution → 50 Manuscrit d'expert (best)
+Rebelles, soldats de Césarès, Vikings: Combattre → 50 Manuscrit d'expert (best); Mieux vaut fuir → 30 Manuscrit d'expert
+Marchand: Indiquer le chemin → 50 Manuscrit d'expert (best); Je ne peux pas aider → 30 Manuscrit d'expert
+Bête: Partir → 100 Manuscrit d'expert (best); La chasser → 70 Manuscrit d'expert
+Panneau: Réparer le panneau → 20 Manuscrit d'expert (best); Partir → 10 Manuscrit d'expert
+Survivant: Proposer de l'aide → 100 Manuscrit d'expert (best); Pas mon combat → 70 Manuscrit d'expert
+Zoé & Pan: Écouter le récit de Pan → 1 emblème d'expert (Pan); Écouter le récit de Zoé → 1 emblème d'expert (Pan)
+Trésor: Tout garder → 50 Manuscrit d'expert (best); Partager avec les survivants → 30 Manuscrit d'expert
+Roman : échange: Échanger → 80 Manuscrit d'expert (best); Non merci → 50 Manuscrit d'expert
+Pan : échange: Échanger → 5 emblème d'expert (Pan) (best); Non merci → 3 emblème d'expert (Pan)
+Edwin : échange: Échanger → 50 Manuscrit d'expert (best); Non merci → 30 Manuscrit d'expert
+Survivant : l'orphelinat a besoin de pain et de remèdes: Donner des vivres → 50 Manuscrit d'expert (best); Partir → 30 Manuscrit d'expert
+Gordon / Aena : en cuisine: Parfait → 50 Manuscrit d'expert (best); Victoire → 40 Manuscrit d'expert; Échec → 30 Manuscrit d'expert
+Valora / Pan / Guinevere / Wilson : en cuisine: Parfait → 5 Silver Goblet (best); Victoire → 3 Silver Goblet; Échec → 1 Silver Goblet
+Quinn : serrure spéciale: Forcer → 150 Manuscrit d'expert; Désamorcer → 200 Manuscrit d'expert (best)
+Lion blessé: Donner à manger → 50 Manuscrit d'expert (best); Partir → 30 Manuscrit d'expert
+Vikings: Chasser les bandits → 50 Manuscrit d'expert (best); Contourner → 30 Manuscrit d'expert
+Marchandises volées: Je vais t'aider → 50 Manuscrit d'expert (best); Je ne peux rien faire → 30 Manuscrit d'expert
+Capitaine du convoi: Payer le prix fort → 100 Manuscrit d'expert (best); Marchander → 70 Manuscrit d'expert
+Petra : il se passe quelque chose d'amusant ?: Prédis-moi mon avenir du jour → 30 Manuscrit d'expert; Tu connais le Championnat de l'Arène ? → 30 Manuscrit d'expert; Viens donner un coup de main. On a du travail. → 50 Manuscrit d'expert (best)
+Survivant : un coup de main: Aider → 50 Manuscrit d'expert (best); Continuer → 30 Manuscrit d'expert
+Pan / Roman / Guinevere : pêche: Profondeur de prise, 10 poissons → 150 Manuscrit d'expert (best); Profondeur de prise, 5 poissons → 100 Manuscrit d'expert; Profondeur de prise, 1 poisson → 70 Manuscrit d'expert
+Marlin : pêche: Profondeur libre, 10 poissons → 100 Manuscrit d'expert (best); Profondeur libre, 5 poissons → 70 Manuscrit d'expert; Profondeur libre, 1 poisson → 50 Manuscrit d'expert
+Héros viking: Allez, bats-toi ! → 100 Manuscrit d'expert (best); Foncer dans le tas → 70 Manuscrit d'expert
+Survivant : cette chose me suit depuis une éternité: Intervenir → 50 Manuscrit d'expert (best); Faire diversion → 40 Manuscrit d'expert; Partir → 30 Manuscrit d'expert
+Vikings : reculez: Intervenir → 30 Manuscrit d'expert; S'éloigner → 50 Manuscrit d'expert (best)
+Tout risquer: Tout risquer (coûte le double de points d'action) → 2 emblème d'expert (Roman) (best); Les intimider (chance de faire fuir les ennemis) → 30 Manuscrit d'expert
+Une bête bloque le chemin: Combattre ! → 100 Manuscrit d'expert (best); Se cacher → 70 Manuscrit d'expert
+Roman : cadeaux: Regarder les objets → 150 Manuscrit d'expert (best); Passer → 100 Manuscrit d'expert
+Quelque chose tracasse Pan: Regarder les objets → 5 emblème d'expert (Pan) (best); Passer → 3 emblème d'expert (Pan)
+Valora : objets: Regarder les objets → 3 emblème d'expert (Valora); Passer → 3 emblème d'expert (Valora)
+Roman : une idée: Aider à fabriquer → 5 emblème d'expert (Roman) (best); Passer → 3 emblème d'expert (Roman)
+Boxeur: Pour rétablir la justice. → 30 Manuscrit d'expert; L'argent, bien sûr → 50 Manuscrit d'expert (best)
+Long Fei: Il est temps de te remettre les idées en place. → Long Fei gagne, 30 Manuscrit d'expert; Soit. L'argent a parlé. → 50 Manuscrit d'expert (best)
+Camp de Césarès droit devant: Les affronter de face. → 100 Manuscrit d'expert (best); Trouver un autre moyen. → 70 Manuscrit d'expert
+Cavalerie: Partager tes rations → 50 Manuscrit d'expert (best); Mentionner l'autre unité. → 30 Manuscrit d'expert
+Petra: Acheter → 50 Manuscrit d'expert (best); Refuser. → 30 Manuscrit d'expert ?
+Cassia: Alors, tu retournes sur le champ de bataille de Yellowstone... → 1 emblème d'expert (Cassia); Peut-être que ce sera différent cette fois. → 1 emblème d'expert (Cassia)
+Cassia (2): Lancer une attaque directe → 1 emblème d'expert (Cassia); Chercher des renforts. → 1 emblème d'expert (Cassia)
+Vikings : mettre la pression: Mettre la pression. → 30 Manuscrit d'expert; Découvrir par toi-même. → 50 Manuscrit d'expert (best)
+Valora : échanger des ressources: Échanger des ressources. → 5 emblème d'expert (Valora) (best); Ne pas échanger. → 3 emblème d'expert (Valora)
+Cassia : trier le butin: Trier le butin → 5 emblème d'expert (Cassia) (best); Passer → 3 emblème d'expert (Cassia)
+Cassia : échange: Échanger → 5 emblème d'expert (Cassia) (best); Non merci → 3 emblème d'expert (Cassia)
+Officier: Se présenter comme Quinn, des Rôdeurs → 50 Manuscrit d'expert (best); Trouver un autre chemin → 30 Manuscrit d'expert
+Soldats de Césarès: Enquêter davantage → 30 Manuscrit d'expert; Passer son chemin → 50 Manuscrit d'expert (best)
+Caravane suspecte: Enquêter sur les marchands → 30 Manuscrit d'expert; Les laisser tranquilles → 50 Manuscrit d'expert (best)
+Wilson : première rencontre: Faire confiance à Wilson → 50 Manuscrit d'expert (best); Rester sceptique → 30 Manuscrit d'expert
+Groupe de Vikings: L'ignorer. Se concentrer sur Guinevere → 50 Manuscrit d'expert (best); Aller aider. Impossible de rester les bras croisés → 30 Manuscrit d'expert
+Mercenaires : Épée sacrée: Engager les mercenaires → 30 Manuscrit d'expert; Retourner inviter Diana → 30 Manuscrit d'expert; Nous n'avons besoin de personne d'autre → 50 Manuscrit d'expert (best)
+Grid & Wilson: La croire → 50 Manuscrit d'expert (best); Douter d'elle → 30 Manuscrit d'expert
+Sinistré: Donner un coup de main → 30 Manuscrit d'expert; Ne pas s'en mêler → 50 Manuscrit d'expert (best)
+Zoé: Aider à enquêter → 30 Manuscrit d'expert; Se concentrer sur Choc du Glaive → 50 Manuscrit d'expert (best)
+Mélange de coffres: Départ : [Élite] – [Argent] – [Argent] → Résultat : [Élite] – [Argent] – [Argent]; Départ : [Argent] – [Élite] – [Argent] → Résultat : [Argent] – [Élite] – [Argent]; Départ : [Argent] – [Élite] – [Argent] → Résultat : [Argent] – [Argent] – [Élite]; Départ : [Argent] – [Argent] – [Élite] → Résultat : [Élite] – [Argent] – [Argent]
+Wilson : une question: Interroger Grid → 30 Manuscrit d'expert; Réfléchir par soi-même → 50 Manuscrit d'expert (best)
+Guinevere : aide: Aider à ranger → 5 emblème d'expert (Guinevere) (best); Passer → 3 emblème d'expert (Guinevere)
+Guinevere : échanger des ressources: Échanger des ressources → 150 Manuscrit d'expert (best); Non merci → 100 Manuscrit d'expert
+Wilson : échanger des ressources: Échanger des ressources → 5 emblème d'expert (Wilson) (best); Non merci → 3 emblème d'expert (Wilson)
+Wilson : trier le butin: Aider à trier le butin. → 150 Manuscrit d'expert (best); Passer → 100 Manuscrit d'expert
+Aena : acheter de la nourriture: Acheter de la nourriture à Edwin → 30 Manuscrit d'expert + 1 emblème d'expert (Aena); Partager ta nourriture → 50 Manuscrit d'expert + 1 emblème d'expert (Aena) (best)
+Aena : essaie donc: Essayer → 30 Manuscrit d'expert + 1 emblème d'expert (Aena); J'ai à faire. → 50 Manuscrit d'expert + 1 emblème d'expert (Aena) (best)
+Isnor : essaie donc: Essayer → 30 Manuscrit d'expert + 1 emblème d'expert (Isnor); Plutôt pas → 50 Manuscrit d'expert + 1 emblème d'expert (Isnor) (best)
+Aena : enquête: Explorer les environs → 30 Manuscrit d'expert + 1 emblème d'expert (Aena); Continuer → 50 Manuscrit d'expert + 1 emblème d'expert (Aena) (best)
+Isnor : enquête: Aider à distribuer les vivres → 30 Manuscrit d'expert + 1 emblème d'expert (Isnor); Enquêter sur les séismes → 50 Manuscrit d'expert + 1 emblème d'expert (Isnor) (best)
+Aena : insister: Insister pour ouvrir la caisse → 50 Manuscrit d'expert + 1 emblème d'expert (Aena); Laisser tomber → ?
+Vikings : empreintes: Enquêter davantage → 30 Manuscrit d'expert; S'arrêter là pour l'instant → 50 Manuscrit d'expert (best)
+Aena & Petra: Demander des renforts → 50 Manuscrit d'expert + 1 emblème d'expert (Aena) (best); Laisser plus de temps à Petra → 30 Manuscrit d'expert + 1 emblème d'expert (Aena)
+Vieil homme: Continuer à se renseigner → 50 Manuscrit d'expert (best); Laisse tomber → 30 Manuscrit d'expert
+Garde: Enquêter davantage → 50 Manuscrit d'expert (best); Quitter la mine → 30 Manuscrit d'expert
+Aena : échange: Échanger des ressources → ?; Refuser l'échange → 100 Manuscrit d'expert
+Isnor : échange: Échanger des ressources → 5 emblème d'expert (Isnor); ? → ?
+
+### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-06 by Nia] ⚔️ Accord KvK avec 2186 – 10 oct.
+⚔️ Accord KvK avec 2186 – 10 oct.
+
+🏰 1. Attaques de Villes
+
+✅ Autorisé :
+• 10:00–10:59 UTC
+• 30 min après la fin de la Bataille du Château
+
+🛑 Cessez-le-feu – AUCUNE attaque :
+• De 11:00 UTC tout au long de la Bataille du Château, jusqu'à 30 minutes après l'activation du bouclier du Château.
+
+🔴 2. Zone Rouge
+• AUCUNE attaque de ville dans la Zone Rouge à TOUT moment.
+
+⚠️ 3. Violations
+• Ne ripostez pas. Envoyez un rapport aux dirigeants de l'alliance, ou au Roi si les dirigeants sont indisponibles.
+
+[2026-10-05 by Nia] 🏆 Championnat de l'Alliance
+Veuillez vous inscrire sur la voie du milieu (Middle Lane), la direction vous triera plus tard.
+
+Avant de vous inscrire :
+🔹 Utilisez vos Héros les plus forts
+🔹 Formations de troupe : 50 % Infanterie, 20 % Cavalerie, 30 % Archer
+🔹 Activez les buffs de Maréchal / Commandant Militaire et d'Animaux avant de vous inscrire.
+
+🔄 Vous pouvez actualiser votre inscription à tout moment pour mettre à jour vos Héros, vos Formations de troupe et vos buffs. Surtout si vous avez amélioré vos Héros ou vos troupes.
+
+[2026-09-29 by Nia] ❗Rappel – Chasse à l'Ours : limite de troupes et marches décalées
+🔹 Tous les participants doivent envoyer exactement 90 000 troupes aux ralliements. Enregistrez vos marches à l'avance.
+🔹 Les chefs lancent leur ralliement avec le maximum de troupes, mais quand ils rejoignent d'autres ralliements, ils doivent aussi respecter la limite.
+
+🔹 Au début : les chefs de ralliement principaux lancent leur premier ralliement à leur horaire décalé attribué.
+🔹 À 6:30 restantes : tous les participants lancent leur propre ralliement avec leurs 3 héros les plus forts.
+
+🔪 Mauvais héros ou mauvais nombre de troupes – exclusion et demande de rejoindre à nouveau
+
+(see guide #bear-hunt)
+
+[2026-09-28 by Nia] 🏆 Guide des Experts Gen 3
+Les experts sont des personnages que vous débloquez et améliorez pour obtenir des compétences spéciales, des bonus et des récompenses. Ils sont distincts des Héros.
+
+🔹 Priorité F2P : Pan > Valora > Roman
+🔹 Whale/Chef de Ralliement : Valora > Roman > Pan
+
+CONSEILS :
+🔹 N'utilisez pas de Provision d'Aventure pour Valora — le Voyage dans le royaume gratuit permet de la débloquer.
+🔹 Gardez vos Provision d'Aventure pour Pan dans les Terres Perdues.
+🔹 Pan -> Niveau 60 : Fauconnier = max. d'Or Véritable/Accélér. quotidiens.
+🔹 Valora -> Niveau 30 : Marteau de Forge de la Chasse à l'Ours.
+🔹 Roman -> À débloquer uniquement pour les drops passifs de Caisses d'Arène.
+
+(see guide #master-academy)
+
+[2026-09-28 by Nia] Guide des Héros Gen 3
+Vous ne savez pas dans quoi investir ? De nouveaux guides pour les Héros et les Experts sont disponibles sur Discord et sur notre site web multilingue.
+
+Résumé Gen 3
+🔥 Petra - À CONSTRUIRE ABSOLUMENT (Roulette des Héros). Excellent héros de Chasse à l'Ours avec une valeur jusqu'à la Gen 7.
+- Éric & Jaeger : À ignorer sauf si vous vous concentrez sur le PvP/la défense du Poste de Garde
+
+Dans l'ensemble :
+🔹 Joueurs F2P : Concentrez-vous sur Zoé (tank Infanterie) si elle n'est pas encore au max, et Petra (Cavalerie offensive) de la Roulette des Héros
+🔹 Joueurs P2W : Priorisez Amadeus (VIP 7+) et Hilde
+
+(see guide #f2p-heroes)
+
+### GAME TERMS (English = official fr name)
+Training = Entraînement
+Research = Recherche
+Healing = Soins
+Learning = Apprentissage
+Learning Speedup = Accélérateurs d'Apprentissage
+Golden Glaives = Glaives Dorés
+Dim Goldstone = Pépite Terne
+Watchtower Intel = renseignement de l'observatoire
+Royal Foundry = Fonderie Royale
+Redeem = Échanger
+Left = En stock
+Owned = Tu possèdes
+Go = Aller
+Tip = Conseil
+Bread (Secured) = Pains (sécurisés)
+Hero Roulette = Roulette des Héros
+Lucky Chip = Jeton Chanceux
+Officer Project = Projet d'Officier
+Swordland Showdown = Choc du Glaive
+Swordland = Terres du Glaive
+Battlefield = champ de bataille
+Tier C = Palier : C
+Gold = Or
+Legion 1 / 2 = Légion 1 / Légion 2
+Battle Starts In = Début du Combat dans
+Combatants = Combattants
+Substitutes = remplaçants
+Alliance Brawl = Rif d'Alliances
+Merchant Empire = Empire Marchand
+UTC Time = Heure UTC
+Starts in = Commence dans
+All Out = Tous dehors
+Details = Détails
+Conquest = Conquête
+Heroes = Héros
+Shop = Magasin
+Alliance (tab) = Alliance
+World = Monde
+Deals = Offres
+Rules (dialog title) = Règles
+Events = Évènements
+Rules = Règles
+Buildings = Bâtiments
+Rewards = Récompenses
+Other = Autre
+First Control = Premier Contrôle
+Ongoing Occupation = Occupation en Cours
+Bonus Effect = Effet Bonus
+/m (per minute) = /m
+Recruit = Recruter
+Skills = Compétences
+Gear = Équipement
+Upgrade = Améliorer
+Troops Preview = Aperçu des Troupes
+All = Tout
+In Town = Centre-Ville
+Out of Town = Périphérie
+Formations = Formations de troupe
+Backpack = Sac
+Resources = Ressource
+Speedups = Accélér.
+Bonuses = Revenu
+Use = Utiliser
+Recall = Rappeler
+Recall squad? = Rappeler les Escouades ?
+Cancel = Annuler
+Confirm = Confirmer
+Settings = Paramètres
+City Bonus = Revenu de la Ville
+Relic Points = Points de Relique
+Alliance Relic Points = Points de Relique d'Alliance
+Personal Relic Points = Points de Relique Individuels
+Defender's Relic Points = Points de Relique du défenseur
+Arsenal Supplies = Provisions de Train de bagages
+Gems = Gemmes
+Guard Station = Poste de Garde
+City Defense = Défense de la Ville
+Swordshrine = Tombeau du Glaive
+Sanctum = Sanctuaire
+Northwest Sanctum = Sanctuaire Nord-Ouest
+Southeast Sanctum = Sanctuaire Sud-Est
+Abbey (1–4) = Abbaye (1–4)
+Hall of Reformation = Salle des Réformes
+Belltower = Clocher
+Royal Stables = Écuries Royales
+Mercenary Camp = Camp de Mercenaires
+Undercellar = Caves
+Drill Camp = Camp d'Entraînement
+Town Center = Centre
+Attacker = attaquant
+Defender = défenseur
+Mercenaries = mercenaires
+First King = premier roi
+Rally = Ralliement
+Advanced Teleporter = Relocalisation Avancée
+Counter-recon = Anti-repérage
+Squad = Escouade
+Shield = Bouclier
+Marching = Marche
+Gathering = Collecte
+Control = Contrôle
+Building control time = temps nécessaire pour contrôler
+Defense failure = défaite
+Teleport / free teleports = téléportations gratuites
+Cooldown = intervalle (entre les téléportations)
+Total Troops = Total troupes
+March Queue = File de Marche
+Injured = Blessé(s)
+Attack = Attaque
+Defense = Défense
+Lethality = Létalité
+Health = Santé
+Escorts = Escortes
+Level = Niveau
+Troops Capacity = Capacité de Troupes
+Infantry = Infanterie
+Cavalry = Cavalerie
+Zoe = Zoé
+Bear Hunt = Chasse à l'Ours
+Trap 1 / Trap 2 = Piège 1 / Piège 2
+Raging Bear = Ours Enragé
+Hunting Achievements = Prouesses de Chasse
+Damage Rewards = Récompenses de Dégâts
+Trap Enhancement = Amélioration de Piège
+Pre-Registered Start = Début de la Pré-inscription
+Go Enable = Aller Activer
+Total Alliance Damage = Dégâts de l'Alliance Total
+Castle Battle = Bataille du Château
+Background = Contexte
+King's Castle = Château Royal
+Forbidden Area = Zone Interdite
+King = Roi
+Alliance Leader = Leader d'Alliance
+Turret = tourelle
+Town = Ville
+Sanctuary Battle = Bataille du Sanctuaire
+Sanctuary / Sanctuaries = Sanctuaire / Sanctuaires
+Season / Phase = Saison / Phase
+Defend Phase = Phase de Défense
+Pillar of Honor = Pilier de l'Honneur
+Event season has ended = Saison d'évèn. finie
+Hero of the Season = Héros de la Saison
+Honor Ranking = Classement d'honneur
+Stage 1: City Construction = Étape 1 : Construction de Ville
+My Ranking = Mon Classement
+Unranked = Non classé
+My Points = Mes Points
+Target Points = Points Cibles
+Claim = Récupérer
+Strongest Governor = Haut Gouverneur
+Stage = étape
+Challenge Medal = Médaille de Défi
+Challenge Medal Rewards = Récompenses de Médaille de Défi
+Kingdom Personal Ranking Rewards = Récompenses de Classement Individuel d'étape et de Royaume
+Participating Kingdoms = Royaumes participants
+Current Kingdom = Royaume actuel
+Cross-Kingdom = Inter-Royaumes
+Coming soon = Bientôt dispo
+Rewards (preview bar) = Récompenses
+Cesares Fury = Fureur des Césarès
+Highlord Cesares = Haut Seigneur Césarès
+Cesares Legionnaire = Légionnaire Césarès
+Private = Privé
+Challenged = Défié
+Captain = Capitaine
+Scout = Espionner
+Recommended Power = Puissance Recommandée
+Show event shortcut = Afficher le raccourci de l'évènement
+Alliance Championship = Championnat de l'Alliance
+Silver IV = Argent IV
+The Alliance Championship has ended! = Le Championnat de l'Alliance est terminé !
+Clawshard = Griffe Brisée
+Gilded Threads = Fils Dorés
+Artisan's Vision = Vision de l'Artisan
+Mythic General Hero Shard = Fragment Universel de Héros Mythique
+100 Enhancement XP Part = 100 Points d'EXP d'Amélioration
+Forgehammer = Marteau de Forge
+Governor Gear = Équipement Chef
+Hero Gear = Équipement de héros
+Mastery Forging = Forge de Maîtrise
+Enhancement XP = EXP d'Amélioration
+Mythic = Mythique
+Stat Bonuses = Bonus de Stats
+Archer Attack = Attaque de l'Arch.
+Archer Defense = Défense de l'Arch.
+Enhancement Cost = Coût d'Amélioration
+Enhance = Améliorer
+Gear Enhancement = Amélioration d'Équipement
+Charm Upgrades = Améliorations du Talisman
+Charm = Talisman
+Charm Design = Plans de Talisman
+Desert Trial = Épreuve du Désert
+Dreadwolf = Loup Redoutable
+Alliance Banner = Bannière d'Alliance
+Durability = Durabilité
+Garrisoned Governor = Chef en Garnison
+Not garrisoned = Pas en garnison
+Defender Squad = Escouade défensive
+No reinforcements to show = Aucun renfort à afficher
+Dispatch Troops = Envoyer des Troupes
+Updates in = Mis à jour dans
+Event details = Détails de l'Évènement
+Personal Ranking = Classement Individuel
+Alliance Ranking = Classement de l'Alliance
+Countdown to Event Start = Compte à Rebours avant le Début de l'Évènement
+Even more rewards = Encore plus de récompenses
+Only leaders and R4+ can enable = Seuls les Leaders et les membres d'alliance de R4 ou plus peuvent activer ceci
+Viking Vengeance = Vengeance Viking
+Defense Points = Points Défensifs
+Successful defense = défense réussie
+Reinforce allies = Renforce tes alliés
+Kills = éliminations
+Event Rules = Règles
+Event difficulty = difficulté
+Alliance HQ = QG d'Alliance
+[Plains] HQ = QG des [Plaines]
+[Badland] HQ = QG des [Bas-fonds]
+Expedition Skills = Compétences d'Expédition
+Wilderness map = Carte de la Nature
+Shield Strike = Frappe de Bouclier
+Upgrade Preview = Aperçu d'Amélioration
+Damage Up = Dégâts +
+Enemy Damage Taken Up = Dégâts Subis par l'Ennemi +
+Level maxed! = Niveau max !
+Beasts = Bêtes
+Terror = Terreur
+Bread = Pain
+Search = Rechercher
+Auto Hunting = Chasse Auto.
+Max opponent: Lv.28 Beasts = Adversaire max : Niv. 28 Bêtes
+Hunting Trap 2 = Piège de Chasse 2
+On cooldown = Se recharge
+My City = Ma Ville
+More (march list) = Plus
+Wood = Bois
+Stone = Pierre
+Iron = Fer
+Great Mill = Grand Moulin
+Great Sawmill = Grande Scierie
+Great Quarry = Grande Carrière
+Great Iron Mine = Grande Mine de Fer
+Mill = Moulin
+Sawmill = Scierie
+Iron Mine = Mine de Fer
+Quarry = Carrière
+Secured Alliance Node = Point d'Alliance Sécurisé
+Armory = Armurerie
+Eternity's Reach = l'Éternité à Portée
+Explore the Eternity's Reach for strategic resource—Copper Ores! = Explore l'Éternité à Portée pour une ressource stratégique, les minerais de cuivre !
+Copper Ore = Minerais de Cuivre
+Sign up and battle on the same day = S'inscrire et combattre le même jour
+Registration closes in = Fin d'inscription dans
+Sign up now = S'inscrire
+Overview (button) = Aperçu
+Rewards (button) = Récompenses
+Guide (button) = Guide
+Historical Ranking = Historique de Classement
+Overview (dialog tab) = Aperçu
+Buildings (dialog tab) = Bâtiments
+Other (dialog tab) = Autre
+Lv. 1 Vein = Filon de Niv. 1
+Lv. 2 Vein = Filon de Niv. 2
+Lv. 3 Vein = Filon de Niv. 3
+Fracture Vein = Filon Fracturé
+Peak of Eternity = Pic de l'Éternité
+Capacity = Capacité
+Speed = Vitesse
+View Rewards = Voir Récompenses
+Advanced Teleporter = Téléportation Avancée
+Cesares Guards = Gardes Césarès
+Academy = Académie
+Truegold = Or Véritable
+Rare Hero Shard = Fragment de Héros Rare
+Epic Hero Shard = Fragment de Héros Épique
+Mythic Hero Shard = Fragment de Héros Mythique
+Hero Gear Forgehammer = Marteau de Forge d'Équipement Héros
+Hero Shard = Fragment de Héros
+Widget = Composant
+Hero Exclusive Gear = Équipement Exclusif de Héros
+Pet advancement = avancement des animaux
+Advanced Taming Marks = Marque de Dressage Avancée
+Common Taming Marks = Marque de Dressage Commune
+War Academy = Académie de Guerre
+Medical Satchel = Kit Médical
+Rescue Order = Ordres de Sauvetage
+Kingdom of Power = Royaume au Pouvoir
+Overview (event info window) = Aperçu
+Matchmaking Phase = Phase de Matchmaking
+Preparation Phase = Phase de Préparation
+Battle Phase = Phase de Combat
+Field Triage Phase = Phase de Triage du Terrain
+Cross-Kingdom Battle Phase = Phase de Combat de la Bataille Inter-Royaumes
+Cross-Kingdom Castle Battle = Bataille du Château Inter-Royaumes
+High King = Grand Roi
+Kingdom Bonus = Bonus de Royaume
+Cross-Kingdom Teleport = Téléportation Inter-Royaumes
+Rally Captain = Capitaine de Ralliement
+Position perks = avantages de position
+Phase Rewards = Récompenses de Phase
+Ranking (rewards section) = Classement
+Total Point Ranking = Classement des Points Totaux
+Victory Rewards = Récompenses de Victoire
+Squads' Lethality (turret bonus) = Létalité des escouades
+Raise Pet Advancement score = Augmenter le score d’avancement animalier
+Pet Refinement = Affinage animalier
+Pet Advanced Refinement = Affinage avancé animalier
+Raise Governor Charm max score = Augmenter le score max du talisman de l’équipement du gouverneur
+Raise Governor Gear max score = Augmenter le score max de l’équipement du gouverneur
+Use Forgehammers on gear = Utiliser des marteaux de forge sur l’équipement
+Use Exclusive Gear Widgets of any heroes = Utiliser des composants d’équipement exclusif de n’importe quel héros
+Use Truegold = Utiliser de l’or véritable
+Use Mithril = Utiliser du Mithril
+Use Speedups for Construction = Utiliser des accélérateurs de construction
+Use Speedups for Tech Research = Utiliser des accélérateurs de recherche
+Use Speedups for Soldier Training = Utiliser des accélérateurs d’entraînement de soldats
+Train or Promote Soldiers = Entraîner ou promouvoir des Soldats
+Play Hero Roulette = Jouer à la Roulette des Héros
+Use Hero Shards to ascend (excluding General Shards) = Utiliser des fragments de héros pour éveiller (hors fragments universels)
+Complete Watchtower Intel Missions = Terminer des missions de renseignements de l’Observatoire
+Gather resources on the World Map = Récolter des ressources sur la Carte du Monde
+Fishing Tournament = Tournoi de Pêche
+Guide (Fishing tab) = Guide
+Trial Stages = Niveaux d'Essai
+Fishing Techniques = Techniques de Pêche
+Tokens and Points = Les Jetons & les Points
+Fishing Points = Points de Pêche
+Fishing Tokens = Jetons de Pêche
+Fishing Guild = Guilde de Pêche
+Master Fisher Leaderboard = Classement Maître Pêcheur
+Fishing Kit = Kit
+Kit Enhancement = Amélioration de Kit
+Line = Ligne
+Hook = Hameçon
+Sinker = Plomb
+Sunken Treasure Hunt = Chasse au Trésor Immergé
+Fishing Stage = Niveau de Pêche
+Regular Fishing = Pêche Classique
+Ocean Prospector = Chercheur des Mers
+Bait = Appât
+Treasure Chart = Carte au Trésor
+Ocean Chest = Coffre des Mers
+Special Items = Objets Spéciaux
+Fishing Voucher = Coupon de Pêche
+Horn of the Tide = Corne des Mers
+Reel = Moulinet
+Ocean Scanner = Scanner Océanique
+Lantern = Lanterne
+Fish / Mermaid / Chest / Memorabilia = Poisson / Sirène / Coffre / Souvenir
+Struggling Mermaid = Sirène en Difficulté
+Star Rating Rewards = Récompenses de Nombre d'Étoiles
+Guide Completion Rewards = Récompenses de Guide Complété
+Power Cast = Puissance du lancer
+Fishing Probability Guide = Guide des Probabilités de Pêche
+Fishing Pro / Fishing Master = Pro de la Pêche / Maître Pêcheur
+Fishing Token Bonuses = Bonus de Jetons
+Fishing Point Bonuses = Bonus de Points
+Retreat = Retraite
+Continue = Continuer
+Tri-Alliance Clash = Conflit Tri-Alliance
+Battle Prerequisites = Conditions pour combattre
+Battle Rules = Règles du Combat
+Voting / Registration / Matchmaking / Battle = Vote / Inscription / Matchmaking / Combat
+Power Leaderboard = Classement de Puissance
+Deployment page = page de Déploiement
+Preparations = Préparations
+Seize & Conquer = Capture & Conquête
+Garrison Occupation = Occupation de Garnison
+Temple Onslaught = Assaut du Temple
+Energy = énergie
+Deploy / Conscript / Advance / Retreat / Instantly revive = déployer / recruter / faire avancer / retirer / réanimer
+Captain (Tri-Alliance) = Capitaine
+Temple of Tides = Temple des Marées
+Headquarters = Quartier Général
+Garrisons = Garnison
+Cluster of Ruins = Groupe de ruines
+Ruins = Ruines
+Transit Hub = Pôle de Transit
+Pillars = Pilier
+Neutral buildings = bâtiments neutres
+Alliance Ranking Rewards = Récompenses de Classement d'Alliance
+Personal Ranking Rewards = Récompenses de Classement Individuel
+Personal Merits = mérites individuels
+Auto-advance = progression auto
+Tidal Stone = Pierre des Marées
+Tidal Shop = Magasin des Marées
+Mystic Trial = Épreuve Mystique
+Story = Histoire
+Expedition Stats = stats de combat
+Coliseum = Colisée
+Forest of Life = Forêt de la Vie
+Crystal Cave = Grotte de Cristal
+Knowledge Nexus = Nexus de la Connaissance
+Molten Fort = Fort en Fusion
+Radiant Spire = Flèche Éclatante
+Squad Config = Configuration d'Escouade
+Trial Explorers = Explorateurs de l'Épreuve
+Soldiers = soldats
+Deployment capacity = capacité de déploiement
+Challenge Attempts = Tentatives de Défi
+First Win Rewards = récompenses de 1ère victoire
+Raid Rewards = récompenses de pillage
+Stage Reset = Réinitialisation de l'Étape
+Raid = Pillage
+Stage (trial level) = étape
+Zone = zone
+Mystic Trial Leaderboard = Classement de l'Épreuve Mystique
+Pet = Animaux
+Pet Skills = Compétences animalières
+Governor Charm = Talisman du Gouverneur
+Tech = Techs
+Truegold Tech = Techs d'Or Véritable
+Skins = Thèmes
+Oasis Island = Île Oasis
+VIP level = niveau VIP
+Current Level = Niveau Actuel
+VIP XP = EXP VIP
+VIP Benefits = Avantages VIP
+Resource Production Speed = Vitesse de Production de Ressources
+Storehouse Capacity = Capacité de l'Entrepôt
+Construction Speed = Vitesse de Construction
+VIP Daily Free Bundle = Pack Quotidien Gratuit pour VIP
+VIP Special Pack = Pack Spécial VIP
+Purchase limit: 1 = Limite d'achat : 1
+Power (alliance info) = Puissance
+Members = Membres
+Language = Langue
+All languages = Toutes les langues
+Maxed = Au max
+War = Guerre
+Chests = Caisses
+Territory = Territoire
+Battle = Bataille de l'Alliance
+Shop (alliance) = Magasin
+Tech (alliance) = Tech
+Power (ranking button) = Puissance
+Help = Aide
+Triumph = Triomphe
+Rebel Bounty: Elite = Prime Rebelle : Élite
+Intel Mission = Mission de renseignements
+Quality = Qualité
+Max Count = Nombre max.
+Refreshes In = Actu. dans
+Conquerors' Camp = Camp des Conquérants
+Court of Justice = Cour de Justice
+Infirmary = Infirmerie
+Enlistment Office = Bureau d'Enrôlement
+Storehouse = L'Entrepôt
+Defense Tower = Tours de Défense
+Beast Cage = Enclos
+Covenant-Making = Marché Conclu
+Permanent Alliance Tech Contributions = Contributions Tech de l'Alliance Permanentes
+Contribution Rewards = Récompenses de Contribution
+Contribute = Contribuer
+Attempts = Tentatives
+Unlimited (∞) = ∞
+Arena of Glory = Arène de la Gloire
+Season ends in = La saison se termine dans
+Ranking = Classement
+Governor = Gouverneur
+Arena Points = Points d'Arène
+Challenge = Défi
+History = Historique
+Def. Lineup = Formation Déf
+Daily = Quotidien
+Growth = Expansion
+Carry out N Intel Mission(s) = Effectue N Mission(s) de Renseignements
+Heal N injured soldiers = Soigner N soldats blessés
+Upgrade N building(s) = Améliore N bâtiment(s)
+Defeat Terror N time(s) = Abats N Terreurs
+Complete Daily Missions = Terminer les missions quotidiennes
+Get More = Obtenir plus
+Water Essence = Essence d'Eau
+Fountain of Life = Fontaine Vitale
+Reservoir = Réservoir
+Island Treasure = Trésor de l'île
+Assist Allies = Aider des alliés
+Purifier = Épurateur
+Cacti = Cactus
+Weekly Benefits Card = Carte d'Avantages Hebdo
+Hall of Heroes = Temple des Héros
+Intel Monthly Card = Carte mens. Renseign
+Remaining = Restant(s)
+Expiring = Expiration
+Gathered = Collectées
+Time Left = Temps Restant
+Gathering Speed = Vitesse de Collecte
+Gathering Squad = Escouade de Collecte
+Gather = Collecte
+Pet Adventure = Aventure Animalière
+Governor Stamina = Endurance du Chef
+Treasure spot = sites au trésor
+Personal Treasure = Trésor Individuel
+Ally Treasure = Trésor d'Allié
+Nomadic Merchant = Marchand Nomade
+Mystery (shop) = Mystère
+Arena (shop) = Arène
+VIP (shop) = VIP
+Alliance Championship Shop = Magasin du Championnat de l'Alliance
+Swordland (shop) = Glaive
+Kingdom of Power (shop) = Royaume au Pouvoir
+Skin (shop) = Thème
+Trial Shop = Magasin du Défi
+Gem (shop) = Gemme
+Trial Crystal = Cristal du défi
+Refresh = Actualiser
+Sold out = Épuisé
+Exclusive Item = Objet Exclusif
+Today = Aujourd'hui
+Week = Semaine
+Gen 2 Custom Hero Widget Chest = Boîte Comp Héros Myth Pers Gén. 2
+Custom Mythic Hero Gear Chest = Caisse d'Équipement de Héros Mythique Personnalisée
+Mythic Hero Gear = Équipement de Héros Mythique
+Transfer Pass = Passe de Transfert
+Kingdom Transfer = Transfert de Royaume
+Sources = Source
+Buy Packs = Acheter des Packs
+City Skin = Thème de Ville
+House of Cacti (Permanent) = Maison des Cactus (Perm)
+In Wilderness = Affichage Nature
+Preview = Aperçu
+Stat Bonus (Activated upon Acquisition) = Bonus de stat (Actif dès l'acquisition)
+Squads' Attack = Attaque des escouades
+Alliance Mobilization = Mobilisation de l'Alliance
+Event Period = Période
+Participation Requirement = Conditions de Participation
+Obtain Points = Obtenir des Points
+Alliance Points = Points d'Alliance
+Refresh Event Mission = Actualiser une Mission d'Évènement
+Exclusive mission = mission exclusive
+Public mission = mission publique
+Abandon Event Mission = Abandonner une Mission de l'Évènement
+Custom Mission Voucher = Coupon de Mission Personnalisée
+Ranking Display Phase = phase d'Affichage du classement
+League Overview = Aperçu de la Ligue
+League Event = Évènement de Ligue
+League Tier Ranking = Classement des Paliers de Ligue
+Rookie (league tier) = Débutant
+Junior (league tier) = Cadet
+Senior (league tier) = Supérieur
+Elite (league tier) = Élite
+Legendary (league tier) = Légende
+Milestone (promotion level) = étape
+Tier Demote = Rétrogradation
+Ranking Rule = Règle du Classement
+Note (rules) = Remarque
+Champagne Fair = Foire au Champagne
+Fair Vouchers = coupons de foire
+Hero Rally = Ralliement de Héros
+Governor Order = Ordre du Gouverneur
+Urgent Mobilization = Mobilisation Urgente
+Rush Job = Travail Urgent
+Comprehensive Care = Soins Complets
+Double Time = Bouchées Doubles
+Productivity Day = Journée de la Productivité
+Festivities = Festivités
+Active = Actif
+Ground Works = Travaux Terrestres
+Kingdom of Power Bonus = Bonus de Royaume au Pouvoir
+Residents continue working = Les habitants continuent de travailler
+Research Speed = Vitesse de Recherche
+Appointment = Nomination
+Ministers (tab) = Ministres
+Offender (tab) = Criminel
+The King may appoint Ministers = Le Roi peut nommer des Ministres
+Chief Minister = Premier Ministre
+Minister of Justice = Ministre de la Justice
+Minister of the Interior = Ministre de l'Intérieur
+Field Commander = Commandant Militaire
+Marshal = Maréchal
+Noble Advisor = Noble Conseiller
+Not Appointed = Aucune Nomination
+Reserved = Retenu(e) pour
+Appointed in = Nommé(e) dans
+Eric = Éric
+At Max Level & Stars = Niveau et Nombre d'Étoiles au Max
+Hero Attack = Attaque du Héros
+Hero Defense = Défense du Héros
+Hero Health = Santé du Héros
+Expedition = Expédition
+Infantry Attack = Attaque de l'Infant.
+Infantry Defense = Défense de l'Infant.
+Cavalry Attack = Attaque de la Caval.
+Cavalry Defense = Défense de la Caval.
+Master Academy = Académie des Experts
+Master List = Liste d'experts
+Master Stats = Stats d'expert
+Max Affinity Stats = Stats d'Affinité Max
+Reach 1000 Affinity and the Master will settle in the Town. = Atteins 1000 en affinité et l'expert s'installera dans le village.
+Relationship Advancement = Progrès de la Relation
+Relationship Advancement Preview = Aperçu du Progrès de la Relation
+Expertise Level Up = Expertise : Niv. sup.
+Raise Master Affinity to upgrade Status = Augmente l'affinité d'expert pour améliorer le statut
+Stranger = Étranger
+Acquaintance = Relation
+Casual = Connaissance
+Close = Proche
+Kindred Soul = Alter ego
+Squads' Defense = Défense des escouades
+Reserve Chests = Coffres de Réserve
+Palace Administrator = Administrateur du palais
+Bear Hunter = Chasseur d'ours
+Bear Hunt Damage Points (effective for self only) = points de dégâts supplémentaires lors de la chasse à l'ours (valable uniquement pour elle-même)
+Arena Champion = Champion de l'arène
+Arena Star Chest = Coffre(s) d'Étoile de l'Arène
+Arena Token = jetons d'arène
+Master's Manuscript = Manuscrit d'expert
+General Master Emblem = Emblème d'expert général
+Achievements = Réussites
+Realm Journey = Voyage dans le royaume
+Journey = Voyage
+Frontier Encounter = Rencontre frontalière
+Next Stop = Prochain Arrêt
+Idle = Inactif(ve)
+Known Masters = Experts connus
+Savage Advantage = Avantage primitif
+Leader By Example = Donner l'exemple
+Weapon Obsession = Attrait pour les armes
+Dance of the Hunt = Danse de la chasse
+Falconer = Fauconnier
+Good Steward = Bon intendant
+Master Architect = Maître-architecte
+Ways and Means = L'art et la manière
+Teacher of Champions = Formateur de Champions
+Winner Take All = Le gagnant rafle tout
+Crowd Favorite = Favori du public
+One Desire = Unique souhait
+Mystery Badge = insignes mystères
+Journey Supplies = Provisions de voyage
+Adventure Supply = Provision d'Aventure
+Lostlands = terres perdues
+Master Emblem = emblème d'expert
+Gray Wolf = Loup Gris
+Cheetah = Guépard
+Moose = Élan
+Grizzly Bear = Grizzly
+Construction Aide = Aide à la Construction
+Comforting Embrace = Étreinte Réconfortante
+Grip of the Titan = Poignée du Titan
+Scent Mastery = Maîtrise des odeurs
+Horror Stare = Regard d'Épouvante
+Gift of the King = Cadeau du Roi
+The Howler = Le Hurleur
+Pet Skill = Compétence de l'Animal
+Skill Effect = Effet de Compétence
+Cooldown (Pet Skill) = Temps de Recharge
+On Cooldown = Se recharge
+Pet List = Liste Animaux
+Display = Affichage
+Advance = Avancer
+Refine = Affiner
+X Overall Stats = Stats Globales : X
+Pet Food = aliments pour animaux
+Infantry Lethality = Létalité de l'Infant.
+Infantry Health = Santé de l'Infant.
+Cavalry Lethality = Létalité de la Caval.
+Cavalry Health = Santé de la Caval.
+Archer Lethality = Létalité de l'Arch.
+Archer Health = Santé de l'Arch.
+Cesares = Césarès
+Abbey = Abbaye
+Sanctuary = Sanctuaire
+Governor Charm = Talisman du Chef
+Intel Missions = Missions de Renseignement
+Medical Satchels = Kit Médical
+Rescue Orders = Ordres de Sauvetage
+use = utiliser
+okay if needed = acceptable si besoin
+don't use = ne pas utiliser
+need to do daily = à faire chaque jour
+Conscript = recruter
+neutral buildings = bâtiments neutres
+Deploy = Déployer
+Advance = Faire avancer
+Instantly revive = Réanimer
+Learning Speedups = Accélérateurs d'Apprentissage
+Arena Star Chest = Coffres d'Étoile de l'Arène
+Lostlands = Terres Perdues
+Mystery Badges = insignes mystères
+House of Cacti = Maison des Cactus
+Master Emblems = emblèmes d'expert
+Mystery Shop = Mystère
+Arena Shop = Arène
+VIP Shop = VIP
+Swordland Shop = Glaive
+Kingdom of Power Shop = Royaume au Pouvoir
+Skin Shop = Thème
+Gem Shop = Gemme
+Alliance Shop = Magasin
+Pets = Animaux

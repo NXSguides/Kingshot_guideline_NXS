@@ -1,0 +1,1625 @@
+### GUIDE #viking-vengeance — Viking İntikamı
+NE ZAMAN
+2 haftada bir — 1. ve 3. günde 30'ar dakikalık iki oturum. Yönetim tarafından planlanır, genellikle Ayı Avı saatlerine yakındır.
+📌 HAZIRLIK
+Şehrinizi boşaltın
+TÜM piyade ve süvarileri ittifak üyelerini güçlendirmeye gönderin.
+Fazla okçular evde kalabilir — güçlendirme puanlarını çalmazlar.
+Etkinlik sırasında çevrimdışı olsanız bile şehrinizi önceden boşaltın! Yine de puan kazanabilirsiniz ve diğer üyelere sizi güçlendirerek puan kazanma fırsatı verirsiniz.
+En iyi 3 kahramanı evde tutun
+En iyi 3 Savunma/Saldırı kahramanınızı Muhafız İstasyonunuzda bırakın.
+F2P: Jabel / Howard / Quinn
+P2W: Amadeus veya Helga / Jabel / Saul
+İYİLEŞTİRME YAPMAYIN
+İyileştirilen birlikler eve döner ve sizi güçlendiren üyelerin öldürme/puanlarını çalabilir.
+Aktif üyelere öncelik verin
+Önce çevrimiçi üyeleri güçlendirin. 7., 14. ve 17. dalgalar yalnızca çevrimiçi oyunculara saldırır.
+⚔️ MÜTTEFİKLERİ GÜÇLENDİRME
+Öldürme puanlarını en üst düzeye çıkarmak için Ayı Avı etkinliğinde katılımcı olarak kullandığınız kahramanları 1. konumda kullanın.
+Önerilen: Chenko / Amane / Yeonwoo / Amadeus
+Güçlendirme intikallerinde Howard veya Gordon gibi savunma kahramanlarından kaçının.
+🏛️ KARARGAH — 10. VE 20. DALGA
+10. ve 20. dalgalar YALNIZCA karargaha saldırır. Bu dalgalar sırasında şehir saldırıları durur.
+9. / 19. dalga bittikten sonra:
+BİR güçlü intikali geri çağırın.
+Doğrudan karargaha gönderin.
+Üye başına en fazla 68K birlik.
+1. konumda Chenko veya Amadeus, ya da en güçlü saf hasar kahramanınızı kullanın.
+Karargah dalgasından sonra geri çağırın ve size atanan üyeyi güçlendirmeye geri dönün.
+⚠️ ÖNEMLİ: Karargahı 10. dalgada VEYA 20. dalgada güçlendirebilirsiniz — İKİSİNDE BİRDEN DEĞİL.
+Herkesin sırası gelsin ve karargahı verimli dolduralım diye R4/R5 ile koordine olun.
+
+### GUIDE #master-academy — 3. Nesil Usta Akademisi Rehberi
+NE ZAMAN
+3. Nesil 28 Eylül'de geliyor ve Usta Akademisi Şehir Merkezi 25'te açılıyor. Ustalar kalıcı pasif hesap bonusları, ekstra kaynak ve etkinlik ödülleri verir. Kahramanlardan ayrıdır.
+NASIL AÇILIR
+İlk Ustan HER ZAMAN Valora'dır; normal Krallık Yolculuğu ile bulunur.
+Ücretsiz Yolculuk Malzemeleri: UTC 00:00'da otomatik 20, 08:00 ve 16:00'da elle alınması gereken 10'ar tane — günde toplam 40. Ayrıca Elmas ile günde 20 tane daha alabilirsin (her 5 tanesi 1.000 Elmas). Depo dolunca yenilenmez, düzenli kullan.
+Valora için Macera Tedariki HARCAMA — ücretsiz Yolculuk Malzemeleri onu kendiliğinden açar.
+Macera Tedariki'ni Pan ve Roman keşfedildiğinde Kayıp Diyarlar'da kullanmak için SAKLA.
+1.000 Yakınlığa ulaşınca Usta şehrine yerleşir.
+F2P VE AZ HARCAYANLAR İÇİN ÖNCELİK
+Pan ➔ Valora ➔ Roman
+1. Pan — ekonomi Ustası (en yüksek öncelik)
+Pan'ı Sv. 60'a çıkar.
+Yetenek: her 120 dakikalık toplamada 5 Yedek Sandık (günde en fazla 30) — ücretsiz Hasaltın, Elmas ve hızlandırmalar.
+Yetenek 1 Doğancı: günde +8 Bilgi Görevi → her gün bol ücretsiz Hasaltın.
+Yetenek 4 Yollar ve Yöntemler: günlük görevlerden +120 Gizem Rozeti ve Gizem mağazasında +4 ücretsiz yenileme → indirimli Alet.
+🔗 Ayrıntılar: https://kingshotoptimizer.com/masters/pan/
+2. Valora — Ayı Avı donanım malzemeleri
+Onu Sv. 30'a çıkar (Tanıdık 3 / Sıradan 1).
+Yetenek 2 Örnek Lider: her Ayı Avı için +5 × 100 Geliştirme TP.
+Yetenek 3 Silah Takıntısı: her Ayı Avı için +5 Demirci Çekici.
+🔗 Ayrıntılar: https://kingshotoptimizer.com/masters/valora/
+3. Roman — Arena pasifi
+Sadece aç (1.000 Yakınlık): yeteneği zaten her Arena maçından sonra %50 ihtimalle ekstra Arena Yıldızı Sandığı (Kahraman Parçası ve Demirci Çekici) verir; ancak maks. seviyede %100 ihtimalle 3 adet olur. Başta çok fazla Usta Amblemleri yatırımı gerekmez.
+🔗 Ayrıntılar: https://kingshotoptimizer.com/masters/roman/
+BALİNALAR VE SEFERBERLİK LİDERLERİ İÇİN ÖNCELİK
+Valora ➔ Roman ➔ Pan
+Valora: Vahşi Avantaj ve Av Dansı yeteneklerini maksimuma çıkar, sıralamada yüksek puan al.
+Av Dansı (Yetenek 1): Öfkeli Ayı seferberliğini başlattığında tüm seferberliğin kapasitesi seviye başına +30.000 artar (Sv. 10: +300.000) — daha fazla üyenin askeri katılabilir.
+Vahşi Avantaj (Yetenek 4): Ayı Avı'na katılırken kendi ekibinin kapasitesi seviye başına +3.000 (Sv. 10: +30.000).
+Roman: Şampiyonların Hocası ve Tek Arzu (Arena savaşlarında Saldırı ve Can +%20), Kazanan Hepsini Alır (günlük/haftalık Arena Jetonu ödülleri +%50), Seyircilerin Gözdesi (Arena'da %50 indirimli 3 ekstra ürün).
+Pan: pasif Hasaltın için ikinci sırada yükselt.
+ℹ️ Yetenek 1 Av Dansı, başlattığın seferberliğin toplam kapasitesini artırır. Yetenek 4 Vahşi Avantaj sadece kendi ekibini artırır — seferberliğin toplam kapasitesi başlatan kişiye bağlıdır.
+💬 Krallık Yolculuğu: soru-cevap ödülleri
+Aşağıdaki liste yukarıdaki siteden derlendi. Bir etkinlik çıktığında rengine ve içeriğine göre bak: bir renk ya da karakter / anahtar kelime seç, sonra en iyi seçeneği (✅) görmek için etkinliğe dokun.
+
+### GUIDE #general-tips — Genel İpuçları
+🔗 KAYNAKLAR
+🗓️ KRALLIK ZAMAN ÇİZELGESİ
+Sırada ne olduğunu gör; etkinlikleri, yükseltmeleri ve kaynakları önceden planla.
+⚔️ KAHRAMAN DONANIMI OPTİMİZASYONU
+Kahraman Donanımı yükseltmelerini planla, değerli malzemeleri boşa harcama.
+🎥 YOUTUBE – STRAT GAME SLOTH
+Önerilen strateji videoları, oyun ipuçları ve gelişim tavsiyeleri.
+🛒 OYUN İÇİ MAĞAZALAR
+Her mağazada en iyi değer için neye öncelik vermelisin.
+🐪 Göçebe Tüccar
+Kaynakla / ücretsiz Gelişmiş Işınlayıcı
+Avantajlı kaynak takasları
+İndirimli VIP XP
+🎲 Gizem
+Günlük ücretsiz yenileme
+%50 İNDİRİMLİ 2. Nesil Özel Kahraman Aleti Sandığı
+%20 indirim sadece acil ihtiyaçta
+🏟️ Arena
+Her hafta Özel Mitik Kahraman Donanımı Sandığı → ana kahramanlarının Mitik Donanım temeli tamamlanınca Mithril
+👑 VIP
+Elmas sadece indirimlerde harca: Gelişmiş Işınlayıcı • 100 Geliştirme TP • Demirci Çekici
+🏆 İttifak Şampiyonası Mağazası
+Usta Akademisi açılmadan önce: Zanaatkâr Vizyonu • gerektikçe Yaldızlı İplikler / Saten
+Açıldıktan sonra: Usta Amblemleri 1 numaralı öncelik — oyun sonunda jetonları bunlara sakla
+⚔️ Kılıçdiyarı
+Zanaatkâr Vizyonu → sonra seni ne tıkıyorsa: Şef Tılsımı / Şef Donanımı malzemeleri • Demirci Çekici
+🏰 En Güçlü Krallık
+Hasaltın — uzun vadede en büyük darboğazlardan biri
+🎨 Görünüm
+Kalıcı nitelik bonuslarına öncelik ver, ör. Kaktüs Evi: +%2 Ekiplerin Saldırısı
+🧪 İmtihan Mağazası
+Truegold Dust öncesi: İmtihan Kristali BİRİKTİR
+Sonrası: Truegold Dust → Mithril → Geliştirme TP → Tılsım Tasarımı
+💎 Elmas
+Elmas sadece önemli gelişim eşikleri veya zor bulunan malzemeler için harca.
+Emin değilsen: ELMASLARINI SAKLA. Aşağıdaki elmas rehberine bak.
+🤝 İttifak – Mağaza
+Transfer Bileti • VIP XP • Evcil hayvan yemi / malzemeleri • Gelişmiş Işınlayıcı • İşe yarar %70 indirimler • Hızlandırmalar sadece fazla İttifak Jetonu varsa
+💎 ELMAS HARCAMA REHBERİ
+Elmas şunlar için sakla:
+1) 🎡 Kahraman Ruleti → 120 çevirme için ~162.000 Elmas
+2) 👑 VIP aktivasyonu → ayda 10.000 Elmas (VIP 4 ve üstü)
+🏛️ Kahraman Salonu → ~13.500–14.850 Elmas, SADECE Marlin henüz açılmadıysa. Açıldıktan sonra dur — sonrasında genel parçalar yükseltme için daha değerli.
+✅ GÜNLÜK KONTROL LİSTESİ
+☀️ ÇEVRİMİÇİYKEN
+☐ 🎁 VIP sandığını al + VIP XP kullan
+☐ 🤝 İttifak Yardım + ittifak Teknoloji katkısı
+☐ 📊 Kahraman XP eşyalarını kullan
+☐ ⚔️ Kampları fethet (Fatihler Kampı)
+☐ 🔎 Bilgi Görevi listesini bitir
+☐ 🏝️ Adadaki Su Özü topla + müttefiklere yardım et
+☐ 🔮 Mistik İmtihan haklarını kullan
+☐ 📋 Günlük görevleri (Günlük) tamamla
+☐ 🏟️ Şan Arenası'nı sıfırlamadan 3 dakika önce yap
+☐ 🐻 Ayı Avı — gün aşırı + dizilişleri güncelle
+☐ 📅 Aktif etkinliklere kaydol ve katıl
+🌙 ÇIKMADAN ÖNCE
+☐ 🐉 Evcil hayvanları Evcil Hayvan Macerası'na gönder
+☐ 🌾 Toplanıyor seferleri gönder
+☐ ⚔️ Birlik Eğitimini aktif tut
+☐ 🔬 Gerektikçe Araştırma / İnşaat aktif tut
+
+### GUIDE #mystic-trial — Mistik İmtihan
+NE ZAMAN
+Her gün açık. Her bölge için günde 5 mücadele hakkı vardır; haklar UTC 00:00'da yenilenir. Açık bölgeler haftanın gününe göre değişir.
+NEDEN ÖNEMLİ
+Kahraman Parçası, Kahraman XP'si ve diğer gelişim ödülleri için önemli bir kaynak.
+İMTİHAN BÖLGELERİ
+Kolezyum
+Pazartesi & Salı
+⚔️ Piyade 50% · Süvari 10% · Okçu 40%
+⚔️ Piyade 60% · Süvari 15% · Okçu 25%
+Sadece Kahraman, Kahraman Donanımı ve Kahraman Özel Donanımı nitelikleri geçerlidir.
+Yaşam Ormanı
+Çarşamba & Perşembe
+⚔️ Piyade 50% · Süvari 15% · Okçu 35%
+⚔️ Piyade 55% · Süvari 10% · Okçu 35%
+Sadece Pet nitelikleri geçerlidir.
+Pet Yetenekleri varsayılan olarak devrededir; etkileri birikmez.
+Kristal Mağara
+⚔️ Piyade 60% · Süvari 20% · Okçu 20%
+⚔️ Piyade 55% · Süvari 5% · Okçu 40%
+Sadece Şef Tılsımı nitelikleri geçerlidir.
+Bilgi Noktası
+Cuma & Cumartesi
+⚔️ Piyade 50% · Süvari 20% · Okçu 30%
+Sadece Akademi ve Savaş Akademisi nitelikleri geçerlidir.
+Kilidi açılmışsa burada daha yüksek seviyeli askerler kullanılır.
+Erimiş Kale
+⚔️ Piyade 50% · Süvari 18% · Okçu 32%
+Sadece Şef Donanımı nitelikleri geçerlidir.
+Parlayan Kule
+Pazar
+Neredeyse her şey geçerlidir: Kahraman, Kahraman Donanımı, Kahraman Özel Donanımı, Pet (Pet Yetenekleri varsayılan olarak geçerli), Şef Tılsımı, Teknoloji, Hasaltın Teknolojisi, Şef Donanımı, Görünümler, Vaha Adası ve VIP seviyesi.
+Kendi askerlerini kullanırsın; kayıp vermezsin ve dünya haritasındaki konuşlanman etkilenmez.
+Diğer beş bölgede İmtihan Kaşifleri Seviye 10 asker sağlar; sadece bölgenin istediği nitelikleri geliştir. Bir bölgenin 1-10. aşamalarını geçmek Yağmala özelliğini açar.
+
+### GUIDE #pet — Pet
+🔧 Pet Yeteneği (savaş dışı)
+🔹 Gri Kurt – İnşaat Yardımcısı: İnşaat & Yükseltme hızı ↑ (5 dk)
+🔹 Vaşak – Rahatlatıcı Dokunuş: Şef Enerjisi anında yenilenir
+🔹 Bizon – Titanın Eli: sonraki vahşi kaynak alanında toplamayı anında bitirir (Korumalı İttifak Toplama Noktası hariç)
+🔹 Çita – Koku Ustalığı: anında Evcil Hayvan Maması bulur
+🔹 Aslan – Kralın Hediyesi: kayıp bir eşya çıkarır (ör. Demirci Çekici, Hasaltın, tılsım & teçhizat malzemeleri)
+⚔️ Pet Yeteneği (savaş)
+🔹 Geyik – Korku Bakışı: düşman ekibin Sağlık değeri ↓ (2 saat)
+🔹 Boz Ayı – Korkunç Kükreme: Yürüyüş Hızı ↑ + düşman ekibin Öldürücülük değeri ↓ (2 saat)
+📍 ⚔️ Pet Yeteneği nerede işe yarar?
+✅ Hayvanlar, İsyancılar, Dehşet (Seferberlik) & Korkunç Kurt — işe yarar
+❌ Ayı Avı — düşmanı zayıflatma etkileri işe yaramaz (ayının can barı yok)
+👑 Seferberlik: Yalnızca seferberliği başlatanın ⚔️ Pet Yeteneği geçerlidir
+Tam rehber: https://kingshotmastery.com/guides/kingshot-pet-guide
+ℹ️ İçerik çevrilemeyecek kadar uzun, lütfen bağlantıyı açıp oradan okuyun.
+
+### GUIDE #install-app — Uygulama olarak nasıl yüklenir
+Güvenli mi?
+İndirilen bir program (APK) değildir; bu sitenin ana ekrana kaydedilmiş hâlidir ve her web sayfası gibi Safari/Chrome içinde çalışır.
+Hiçbir izin istemez: kamera, kişiler, konum, dosyalar veya bildirimler yok.
+İstediğiniz zaman kaldırın: simgeye uzun basıp her uygulama gibi silin.
+iPhone / iPad
+Bu siteyi Safari ile açın (diğer tarayıcılar yükleyemez).
+Alttaki Paylaş düğmesine (oklu kare) dokunun.
+Tüm menüyü açmak için View More'a (⌄ düğmesi) dokunun. Eski iOS sürümlerinde aşağı kaydırmanız yeterli.
+Ana Ekrana Ekle'ye dokunun.
+Open as Web App (Web Uygulaması olarak aç) açık kalsın, ardından Ekle'ye dokunun.
+NXS simgesi artık ana ekranınızda.
+Android
+1. Bu siteyi Chrome ile açın.
+2. Sağ üstteki ⋮ simgesine dokunun.
+3. Uygulamayı yükle (veya Ana ekrana ekle) seçeneğine, ardından Yükle'ye dokunun.
+Bilmekte fayda var
+NXS simgesi ana ekranınızda görünür ve bir uygulama gibi tam ekran açılır.
+İlk açılışta dilinizi seçin — sonra hatırlanır. Değiştirmek için 🌐'ye dokunun.
+Daha önce açtığınız sayfalar çevrimdışı da okunabilir.
+Güncellemeler otomatiktir — yeniden yüklemeye gerek yok.
+Düğme adları telefona ve sistem sürümüne göre biraz farklı olabilir.
+
+### GUIDE #bear-hunt — Ayı Avı
+🆕 3. NESİL GÜNCELLEMESİ
+Seferberlik liderleri: En iyi — Helga + Petra + Marlin (10:20:70), yalnızca Helga 5★ + maks. Alet ise. Alternatif — Amadeus + Petra + Marlin (20:30:50). F2P — Zoe + Petra + Quinn (20:40:40).
+Katılımcılar – önce bunları gönderin: Chenko, Yeonwoo, Amadeus, Amane (sabit Öldürücülük bonusu).
+⚠️ Seferberlik başına yalnızca BİR tane: Marlin, Zoe, Jaeger, Petra — şansa bağlı hasarları birikmez.
+Ayrıntılar aşağıda ↓
+NE ZAMAN
+2 günde bir, İttifakınızın belirlediği saatte.
+NEDEN ÖNEMLİ
+Kahraman Donanımı malzemelerinin (Demirci Çekiçleri) ve Geliştirme TP'sinin ana kaynağı.
+HAZIRLIK
+Her Ayı Avı'ndan önce birlik dizilişlerinizi güncelleyin.
+İsteğe bağlı: birlik oranlarını test edip en güçlü dizilişinizi bulmak için https://frakinator.streamlit.app/ adresini kullanın.
+Etkinlik başlamadan önce kaynak toplayan birlikleri geri çağırın.
+Unutmayın: son 5–7 dakikada herkes bir seferberlik başlatmalı. Bu, birlikleri geri dönen oyuncular için daha fazla yer açar ve son bir hasar atağına olanak tanır.
+SEFERBERLİK LİDERLERİ
+⚠️ Kural: Kendi seferberliğini maksimum askerle başlat, ancak başka seferberliklere katılırken sen de tam 90.000 asker sınırına uymalısın. Başlangıçta ana seferberlik liderleri ilk seferberliklerini kendilerine atanan kademeli saatte gönderir.
+GEN 1
+GEN 2
+GEN 3
+GEN 4
+GEN 5
+Birlik dizilişi: %30-30-40. Çoğu durumda Amadeus'un ham nitelikleri sayesinde en iyi niteliklere Piyade'de sahip olacaksınız; bu yüzden biraz daha fazla Okçu içeren, neredeyse eşit bir dizilim en iyi sonucu verir.
+Birlik dizilişi: %20-40-40. Amadeus'u henüz tercih etmemiş oyuncular için; ayrıca Amadeus'u seferberliklere katılmak için kullanma imkânı bırakır.
+Birlik dizilişi: %30-30-40. F2P için seferberlik başlatırken her zaman elinizdeki 3 kahramanı kullanmanız önerilir.
+Birlik dizilişi: %20-30-50. Marlin, seferberliğe özel donanımı sayesinde hasarı çok artırır. 2. Nesil'den itibaren Piyade her zaman Amadeus veya Helga olacaktır — seferberliğe özel donanımı (Öldürücülük bonusu) olan tek Piyade kahramanları onlardır. Daha az Piyade gönderirsiniz; bu yüzden Piyade kahramanı, Piyade niteliklerine denk gelmek yerine bu donanım sayesinde Okçu hasarını karşılar.
+Birlik dizilişi: %20-30-50. Diğer alternatif, Marlin henüz daha iyi değilse Quinn yerine onu koymaktır. Helga'yı 2. Nesil ve sonrasında yalnızca Amadeus 5 yıldızlı + özel donanım azami seviyede değilse kullanın; ayrıca Amadeus'u seferberliklere katılmak için kullanma fırsatıdır.
+Birlik dizilişi: %30-30-40. Seferberliğe özel donanımı olan bir F2P kahraman hâlâ yok; bu yüzden yine biraz daha fazla Okçu içeren dengeli bir dizilim kullanın, çünkü SSR Okçu kahramanı olmadığı için Okçu nitelikleri en düşük olacaktır.
+Birlik dizilişi: %10-20-70. Azami seviyedeki Helga, bu dizilimde 2 Öldürücülük ve 1 Saldırı donanımına sahipken Amadeus'un 1 Öldürücülük ve 2 Saldırı donanımı olması nedeniyle 3. Nesil'de Amadeus'tan daha iyi performans gösterir.
+Birlik dizilişi: %20-30-50. Azami seviyede Helga'nız (5 yıldız + özel donanım) yoksa Amadeus kullanmak daha iyidir.
+Birlik dizilişi: %20-40-40. 3. Nesil'de F2P oyuncular seferberliğe özel donanımı olan ilk kahramanlarını (Petra) alır. Okçu ve Süvari sayılarını dengeli tutmayı deneyin; çünkü Petra Okçuları çok güçlendirir. SSR Okçu olmadan Okçu nitelikleri hâlâ en düşüktür. T10 Süvari açarsanız, T10 becerisi Petra'nın nitelikleriyle iyi uyum sağlar. T3 Süvari'nin kilidini açarsan Petra daha da güçlenir, çünkü 3. yeteneği onların nitelikleriyle çok iyi çalışır.
+Birlik dizilişi: %10-10-80. Özellikle T10 iseler, olabildiğince fazla Okçu koyun. Biraz şansla Rosa'nın 3. becerisi işi sizin yerinize halleder (Okçuların toplam Saldırısını %30 artırır).
+Birlik dizilişi: %10-10-80. Helga'nın yıldızı ve özel donanım seviyesi Amadeus'tan iyiyse alternatif olarak kullanın. Rosa'nın 3. becerisi için yine olabildiğince fazla Okçu, özellikle T10 koyun (Okçuların toplam Saldırısını %30 artırır).
+Birlik dizilişi: %10-10-80. Alternatif en iyi kahramanlarla aynı — Rosa'nın 3. becerisi, ağırlıklı Okçu dizilişlerine odaklanırsanız en iyi bonusu verir (Okçuların toplam Saldırısını %30 artırır).
+Kalan lider slotları henüz açıklanmadı.
+SEFERBERLİĞE KATILANLAR
+⚠️ Kural: Tüm katılımcılar seferberliklere tam 90.000 asker göndermelidir — yürüyüşlerini önceden kaydet. 6:30 kala tüm katılımcılar en güçlü 3 kahramanıyla kendi seferberliğini başlatır. 🔪 Yanlış kahraman veya yanlış asker sayısı: atılır ve yeniden katılması istenir.
+Standart / Güvenli Oran: %10 Piyade, %10 Süvari ve %80 Okçu (veya 20-30-50 gibi bir varyasyon)
+Öncelik – önce bunları gönderin: Bu kahramanlar sabit Öldürücülük bonusu verir; Ayı Avı için en değerli bonus budur.
+DİKKATLİ KULLANIN
+⚠️ Şansa bağlı hasar veren kahramanlar: güçlü etkiler, ama birikmezler. Aynı seferberlikte bunlardan yalnızca BİRİNİ kullanın: Marlin, Zoe, Jaeger, Petra.
+🔗 Daha fazlası: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes
+[joiners] Chenko | lethality | Yeonwoo | lethality | Amane | attack | Amadeus | lethality
+[leaders] best | Amadeus | Jabel | Quinn | 30-30-40 | alt | Helga | Jabel | Quinn | 20-40-40 | f2p | Howard | Jabel | Quinn | 30-30-40 | best | Amadeus | Hilde | Marlin | 20-30-50 | alt | Helga | Jabel | Marlin | 20-30-50 | f2p | Zoe | Jabel | Quinn | 30-30-40 | best | Helga | Petra | Marlin | 10-20-70 | alt | Amadeus | Petra | Marlin | 20-30-50 | f2p | Zoe | Petra | Quinn | 20-40-40 | best | Amadeus | Petra | Rosa | 10-10-80 | alt | Helga | Petra | Rosa | 10-10-80 | f2p | Zoe | Petra | Rosa | 10-10-80 | best | Amadeus
+
+### GUIDE #swordland-showdown — Kılıçdiyarı Hesaplaşması
+NE ZAMAN
+2 haftada bir — 60 dakikalık, ittifaka karşı ittifak savaş alanı etkinliği.
+KAYIT
+⚠️ Yalnızca katılmayı planlıyorsan kaydol. Kayıt olup gelmeyen oyuncular değerli bir yer kaplar ve eşleşmeyi etkileyebilir.
+%100 katılabilirsen → Savaş Başvurusu Gönder
+Emin değilsen → Çekimser Kal
+ANA HEDEF
+Rakip ittifaktan daha fazla İttifak Yadigâr Puanı kazanarak zafer elde et.
+Önemli binaları ele geçirmek ve elde tutmak
+Biriken puanları korumak
+Bir bina el değiştirdiği anda etrafa saçılan Bagaj Treni Malzemeleri'ni hemen toplamak
+Gizli Mahzenler belirdiğinde onları toplamak
+Seferberlikte değilken yakındaki garnizonlara takviye göndermek
+Birlik intikallerini boşta bırakmamak
+Haritada ölüm avlamak için koşturma. Rastgele PvP bizi dağıtır ve etkinliğimizi düşürür. Mantıklı olduğunda düşük seviyeli şehirlere saldır; bunları elde tutulan bir binanın yakınında zayıflat.
+BİNALARA GENEL BAKIŞ
+Sayılar sırasıyla: İttifak Yadigâr Puanı / Kişisel Yadigâr Puanı
+İlk Kontrol
+Süren İşgal
+Açılış
+dk
+/dk
+:
+EN YÜKSEK
+YÜKSEK
+ORTA
+Periyodik olarak beliren toplama noktaları (iki dalga)
+En yüksek puan değerine sahip bina
+Düşmanın elindeki binaları zayıflatır
+İttifak savaş bonusu
+Yüksek değerli İttifak Yadigâr Puanı
+İttifak Yadigâr Puanı üretir
+Işınlanmalar arasındaki süre -%50
+Binaları kontrol etme süresi -%50
+ATANAN BÖLGELER
+R4, savaştan önce onaylı üyeleri takımlara/bölgelere ayıracak.
+En güçlü Hücumcularımız önce bir bölgeye atanacak:
+🟣 Mor — Çan Kulesi
+🟡 Sarı — Kraliyet Ahırları
+🔵 Mavi — Kuzeybatı Tapınağı
+🟢 Yeşil — Güneydoğu Tapınağı
+Kalan üyeler bu bölgelerden/takımlardan birini desteklemek üzere atanacak. Savaş koşullarına göre rotasyon gerekebilir; ayrıntılar için her zaman Ekip Sohbeti'ni takip et.
+Yönetim başka yere geçmeni söylemedikçe atandığın bölgede kal.
+🟣 Mor Bölge — Çan Kulesi / Paralı Asker Kampı
+🔵 Mavi Bölge — Kuzeybatı Tapınağı / Manastır
+🟡 Sarı Bölge — Kraliyet Ahırları / Manastır
+🟢 Yeşil Bölge — Güneydoğu Tapınağı / Manastır
+⚪ Merkez
+ROLLER VE SORUMLULUKLAR
+R4, onaylı üyeleri güce göre 3 göreve ayıracak: Hücumcular, Savunucular ve Destek/Katılımcılar.
+⚔️ 1) HÜCUMCULAR
+Kimler: En güçlü oyuncularımız. Yeterince Gelişmiş Işınlayıcı'ya sahip olanlar.
+Görevin:
+Atandığın bölgeye ve binaya ışınlanmak
+Öncelikli binaları ele geçirmek
+Savunmasız düşman şehirlerine tek başına saldırmak
+Önemli seferberlikleri yönetmek
+Bir Savunucu devraldığında sonraki hedefe geçmek
+Düşmanlar atandığın binanın yakınına ışınlandığında daha zayıf veya açıkta kalan şehirleri hedef almak
+🛡️ 2) SAVUNUCULAR
+Kimler: Sonraki en güçlü oyuncular; iyi seferberlik/garnizon kapasitesine sahip olanlar.
+Atandığın Hücumcuları (bölgeyi) takip etmek
+Hücumcu bir binayı ele geçirdiğinde garnizonu devralmak ve gerekirse takviye çağırmak
+Tehdit altındaki hedeflere takviye yapmak
+Hücumcuların sonraki hedeflerine geçebilmesi için onları serbest bırakmak
+🤝 3) DESTEK / KATILIMCILAR
+Kimler: Genellikle gücü daha düşük üyeler ve seferberliklere katılanlar.
+Atanan Savunucuların seferberliklerine mutlaka katılmak
+Ele geçirilen binalara takviye yapmak
+İstendiğinde hızlı yürüyüşle takviye göndermek
+Başka yerde ihtiyaç olmadığında veya düşmanın menzilinden uzakken Güvenli Bölge'de beklemek
+ÖNEMLİ: Düşman ele geçirdiğimiz binalardan birine saldırıp kontrol düşmana geçerse, hemen yakına ışınlan veya hızlı yürüyüşle git ve saçılan Bagaj Treni Malzemeleri'ni onlardan önce topla.
+Savaşın 20. dakikasında Gizli Mahzenler belirir. Boştaki birlikleri göndererek onları ek puan için topla.
+Birlik intikallerini boşta bırakma.
+SAVAŞ ÖNCESİ
+Revirini boşalt. Tüm intikallerini kullanılabilir tut
+En güçlü kahramanlarını ve donanımını kuşan
+Birlik Kapasitesi'ni, saldırı ve savunma bonuslarını ve Gözetleme Önleyen'i etkinleştir
+Görevin gerektiriyorsa Gelişmiş Işınlayıcılarını hazır tut
+Mümkünse Discord'u açık tut (harita ve atamalar için; sesli kanal isteğe bağlı)
+İttifak sohbetini ve özel mesajları kontrol et
+⚠️ ÖNEMLİ: Savaş günü yeni bir Ekip Sohbeti sekmesi belirir. Savaş boyunca Ekip Sohbeti'ni takip et.
+SAVAŞ ZAMAN ÇİZELGESİ
+0:00–15:00
+AÇILIŞ
+Hemen ele geçir
+#4 Çan Kulesi
+#7 Kraliyet Ahırları
+Mücadele et
+#8 Kuzeybatı Tapınağı
+#10 Güneydoğu Tapınağı
+Uygun olduğunda Manastırlar da alınabilir, ancak bunlar için ana hedeflerden vazgeçme.
+14:30'da en güçlü oyuncular merkez için hazırlanır.
+15:00
+GÜÇLÜ BİNALAR AÇILIR
+#1 Kılıç Altarı, #2 Paralı Asker Kampı, #3 Devrim Salonu
+Yönetim, savaş durumuna göre öncelikleri bildirecek.
+⭐ Kılıç Altarı
+En güçlü Hücumcular/Savunucular merkeze ışınlanır (hepsi değil)
+Kılıç Altarı ele geçirilir
+Ele geçirildikten sonra güçlü bir Savunucu garnizonu tutar
+Destek/Katılımcılar hızlı yürüyüşle takviye göndermelidir
+⚠️ Garnizondaki üyeler: Yönetim önermedikçe binanızı Kılıç Altarı için terk etmeyin. Tapınakları ve diğer önemli binaları korumaya devam edin.
+15:00–45:00
+💪 KONTROL AŞAMASI
+Ana hedef: Kılıç Altarı + Kuzeybatı Tapınağı + Güneydoğu Tapınağı elde tutulacak.
+Çan Kulesi ve Kraliyet Ahırları üzerindeki faydalı kontrolü sürdür
+Büyük çatışmalarda Devrim Salonu'nun bonusundan yararlan
+Düşman binalarına baskı kurmak için Paralı Asker Kampı'ndan yararlan
+HER bina el değiştirdiğinde saçılan Bagaj Treni Malzemeleri'ni topla
+Zayıflayan garnizonlara takviye yap
+20:00–60:00
+⛏️ Gizli Mahzenler
+Gizli Mahzenler belirmeye başlar.
+Destek oyuncuları ve boşta intikali olan herkes ek puan için onları toplamalı.
+Sırf toplamak için kritik bir savunmayı veya seferberliği bırakma.
+SON 15 DAKİKA
+🏁 FİNAL
+ÖNDEYSEK
+Kılıç Altarı'nı ve Tapınakları koru
+Puan biriktiren binalara takviye yap
+Gereksiz PvP'den kaçın
+Saçılan Bagaj Treni Malzemeleri'ni hemen geri topla
+Gereksiz risk alma
+GERİDEYSEK
+Düşmanın ana binalarına baskı kur
+Koordineli saldırılardan önce Paralı Asker Kampı'ndan yararlan
+Rastgele saldırmak yerine seferberliklere odaklan
+Düşmanın elindeki değerli binaları hedef al
+Başarılı bir el değiştirmeden sonra düşen tüm puanları topla
+Son 5 dakika: Puanlar > ölümler.
+ÖZET
+Üyeler 3 göreve ayrılır ve bir bölgeye atanır:
+HÜCUMCULAR → ELE GEÇİR + BASKI KUR
+SAVUNUCULAR → TUT + KORU
+DESTEK → TAKVİYE + SEFERBERLİK + Bagaj Treni Malzemeleri + Gizli Mahzenler
+Atandığın bölgeyi ve görevi takip et.
+Ekip Sohbeti'ni takip et.
+Hedefler > rastgele ölümler.
+Hücumcular ele geçirir — Savunucular tutar — Destek takviye eder.
+Faydalı intikalleri asla boşta bırakma.
+Saçılan Bagaj Treni Malzemeleri'ni hemen topla.
+Boştaki birliklerle Gizli Mahzenler'i topla.
+Kılıç Altarı'nı ve Tapınakları koru.
+Manastırlar veya ölümler uğruna ana binaları terk etme.
+Yönetim rotasyon çağırırsa HEMEN HAREKET ET.
+⚔️ KOORDİNASYON, Kılıçdiyarı'nda ZAFERİN ANAHTARIDIR
+
+### GUIDE #formations-rally-tips — Birlik Dizilişleri ve Seferberlik İpuçları
+🔬 ARAŞTIRMA VE YÜKSELTME ÖNCELİKLERİ
+Araştırma ve Vali Tılsımlarını yükseltirken şu savaş niteliklerine öncelik verin:
+Piyade — Sağlık
+Okçu — Öldürücülük
+💾 PRESETLERİNİZİ KAYDEDİN
+İlerlemenize bağlı olarak, birlik dizilişlerinizi önceden kaydetmek için en fazla 8 slot açabilirsiniz. Kaydedilmesi önerilen dizilişler:
+Tüm birlik oranları Piyade : Süvari : Okçu şeklindedir. Her kahraman için, o kahraman en soldaki / ilk konumda olacak şekilde ayrı preset kaydedin.
+💡 Seferberliklere katılırken en soldaki kahraman önemlidir, çünkü ilgili sefer yeteneği seferberliğe katkı sağlar.
+1) Ayı Avı: Chenko — 10 : 10 : 80
+2) Ayı Avı: Amane — 10 : 10 : 80 (veya olabildiğince yakın)
+3) Ayı Avı: Yeonwoo — 10 : 10 : 80 (veya olabildiğince yakın)
+4) Ayı Avı: Amadeus — 10 : 10 : 80 (veya olabildiğince yakın)
+5) Saldırı (genel PvP): Amadeus (geliştirildiyse) veya Chenko — 50 : 20 : 30
+6) Savunma: Howard / Gordon — 60 : 20 : 20 dengeli varsayılanımızdır. Yönetim belirli bir dizilişi istediğinde ayarlayın.
+Seferberlik Liderleri: En güçlü, eksiksiz saldırı kahraman kadronuzu kullanın.
+Seferberliğe Katılanlar: Lütfen yönetimin duyurduğu birlik sınırlarına uyun.
+7) Viking Karargahı (Viking HQ): Howard / Gordon — 60 : 40 Birlik sınırına uyun (~68.000)
+8) PvE – Hayvanlar / Av: Diana + Fahd — 50 : 20 : 30
+🐺 PvE — HAYVANLAR / AV
+Korkunç Kurt için hatırlayın: çok fazla hasar gerekmez, bu yüzden daha fazla ittifak üyesi katılıp seferberlik ödüllerinden yararlanabilsin diye en az sayıda birlik gönderin (1 bile olur).
+🏰 Şato Savaşı / Tapınak / BİNALAR
+Binaları ele geçirirken hızla geçiş yapmaya hazır olun:
+SALDIRI → SAVUNMA
+⚔️ 1. ELE GEÇİRME
+İlk seferberliğe SALDIRI presetinizle katılın.
+Örnek: Amadeus / Chenko 50 : 20 : 30
+🛡️ 2. SAVUNMAYA GEÇİŞ
+Bina ele geçirildikten sonra:
+1. SAVUNMA presetinizle hemen bir intikal daha gönderin. Örnek: Gordon / Howard 60 : 20 : 20
+2. Savunma intikalinizin ele geçirilen binaya doğru ilerleyişini izleyin.
+3. Yaklaşık 5 saniyelik intikal süresi kaldığında — veya yönetimin talimatıyla — ilk SALDIRI intikalinizi geri çağırın.
+4. SAVUNMA intikaliniz varır ve garnizonda saldırı intikalinizin yerini alır.
+🚫 Saldırı intikalinizi ÇOK ERKEN geri çağırmayın.
+Ele geçirme → Savunmayı gönder → ~5 sn → Saldırıyı geri çağır → Savunma varır
+Bu sayede binayı gereksiz yere zayıflatmadan saldırı düzeninden savunma garnizonuna geçebiliriz.
+🪖 GARNİZON BİRLİK SINIRI
+Karargaha / Tapınağa yalnızca 15 vali girebilir. Bu yüzden maksimum intikalinizi otomatik olarak karargaha, Tapınağa veya diğer çekişmeli binalara göndermeyin.
+Yönetimin duyurduğu birlik sınırına uyun.
+Tipik ittifak hedefi: oyuncu başına ~68.000 birlik
+Bu sayede savunma intikalleri doğru yapılandırılmış daha fazla ittifak üyesi garnizona sığar ve ödül alır.
+⚠️ Yönetim farklı bir sınır duyurursa her zaman duyurulan miktara uyun.
+Örneğin, 68K birlik sınırını temel alarak bu sayıyı bir hesap makinesine girip doğrudan ilgili birlik türünün alanına yazabilirsin. İşte üç örnek:
+60/20/20 ➡️ 40.800 / 13.600 / 13.600
+60/40 ➡️ 40.800 / 27.200
+50/20/30 ➡️ 34.000 / 13.600 / 20.400
+🎬 SALDIRI KAHRAMANLARINDAN SAVUNMA KAHRAMANLARINA NASIL GEÇİLİR
+📎 Video internetten alınmıştır (TikTok @yelloe_hair) — kendi çekimimiz değil.
+
+### GUIDE #eternity-reach — Sonsuzluğun Erişimi
+NE ZAMAN
+Her 2 haftada bir — 30 dakikalık bireysel etkinlik.
+NEDEN ÖNEMLİ
+Vali Tılsımı malzemeleri için en iyi tekrarlanan kaynaklardan biri.
+STRATEJİ
+Yetenekler
+Her yetenek seviyesi için seç:
+Seviye 1 → Sağ
+Seviye 2 → Sağ
+Seviye 3 → Sol
+Seviye 4 → Sol
+Seviye 5 → Sağ
+Başlangıç
+Cesares Muhafızlarına saldır → Yetenek 3 açılana kadar hızla ilerle.
+Mümkün olduğunda Sv.2 Cesares Muhafızlarını hedef al ve zaten saldırılanları atla.
+Her 60 Saniyede Bir
+Bir Bakır Damarına gir → 5.000 Bakır kazan → Hemen geri çağır → Zamanı not et → Her 1 dakikada bir tekrarla.
+5.000 Bakır bonusunu tetiklemek için tek bir sefer yeterlidir.
+Çatlak Damarlar
+Ortaya çıktıklarında → Mevcut seferleri hemen gönder → Kaybolana kadar topla.
+Ganimet Arabası
+Etkinlik boyunca serbest Bakırı toplamaya devam etsin. Sefer slotu kullanmaz.
+Yetenek 5
+Damar patlaması sırasında 5. yeteneği etkinleştir ve tüm birlikleri damarlarda toplanmaya gönder.
+Sonsuzluğun Zirvesi
+Son 7 dakika içinde açılır.
+Rekabet edecek kadar güçlü değilsen gereksiz PvP'den kaçın → Sadece değdiğinde ele geçir.
+Konumlandırma
+Ücretsiz ışınlanmayı kullanarak 3 Damara yakın veya daha az kalabalık bir bölgeye taşın.
+
+### GUIDE #f2p-heroes — F2P Kahraman Rehberi
+Mitik Parçalar ve seferberliğe özel donanımlar sınırlıdır. Her kahramanı geliştirmeye çalışma — kaynaklarını uzun vadede güçlü değer sağlayan kahramanlara yoğunlaştır.
+Aşağıdaki bazı kahramanlar ya ekran görüntüsüyle resmi olarak doğrulanmadı ya da henüz yayınlanmadı — bunlar doğrulanana kadar İngilizce kalacak.
+GEN 1
+Jabel
+Çiftçilikle elde edilebilen Mitik kahraman; ana öncelik.
+Saul: Gelişim yeteneği için birkaç yıldız yeterli. Fazla yatırım yapma.
+GEN 2
+Zoe — GELİŞTİR (Rulet)
+Howard'a göre büyük bir yükseltme.
+Marlin: Saul'un yerini alır.
+GEN 3
+Petra — MUTLAKA GELİŞTİR (Rulet)
+Gen 7'ye kadar değerini koruyan mükemmel bir Ayı Avı kahramanı.
+Eric & Jaeger: PvP/garnizon savunmasına odaklanmıyorsan atla.
+GEN 4
+Rosa — GELİŞTİR (Rulet)
+Ayı Avı için güçlü bir yükseltme.
+Alcar VEYA Margot: İsteğe bağlı. İkisi de Arena/Sefer'de güçlü.
+GEN 5
+Long Fei — GELİŞTİR (Rulet)
+Gizemli Deneme, Üçlü İttifak ve Kılıçdiyarı gibi çok takımlı etkinlikler için harika.
+Thrud/Vivian: Ağırlıklı olarak Arena/PvP.
+Petra'yı mı kaçırdın? Thrud'u düşün.
+GEN 6
+Sophia — GELİŞTİR (Rulet)
+Ağırlıklı olarak çok takımlı içerikler için faydalı.
+Yang — YÜKSEK ÖNCELİK
+Ayı Avı'nda mükemmel fayda sağlar; Mitik Parça yatırımına değer.
+Triton: Long Fei'yi geliştirdiysen genellikle atlanabilir.
+GEN 7
+Wee & Woo — MUTLAKA GELİŞTİR (Rulet)
+F2P için genel olarak mükemmel değer.
+Ava — YÜKSEK ÖNCELİK
+Mükemmel bir Ayı Avı kahramanı; Petra'nın yerini alır.
+Charles: Genellikle güvenle atlanabilir.
+BASİT F2P RULET YOLU
+Zoe ➜ Petra ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee & Woo
+MİTİK PARÇA ÖNCELİKLERİ
+Petra ➜ Yang ➜ Ava
+GENEL KURAL
+Rulet kahramanları genellikle en güvenli F2P yatırımlarındır. Kaynaklarını biriktir, Mitik Parçaları çok fazla dağıtma ve her kahramanı geliştirmen gerektiğini hissetme.
+ÖZET
+F2P Oyuncuları: Kahraman ruletinde Zoe (piyade tankı), Jabel (süvari) ve Petra'ya (saldırı süvarisi) odaklan
+P2W Oyuncuları: Maksimum etki için Amadeus (VIP 7+) ve Hilde'ya öncelik ver
+
+### GUIDE #kvk — KvK Hazırlık ve Savaş Rehberi
+Hasaltın
+✅
+<span class="chk-ok">OK</span>
+🚫
+Kahraman Parçası
+⏩️ İnşaat
+⏩️ Eğitim
+⏩️ Araştırma
+Kahraman Ruleti
+Toplanıyor
+👍
+İstihbarat Görevleri
+Pet ilerletme puanı
+Şef Tılsımı
+Şef Donanımı
+Kahraman Özel Donanımı Alet
+Mithril
+Demirci Çekici
+Usta Amblemleri
+Uzmanın El Yazması
+⏩️ Öğrenme
+kullan
+gerekirse uygun
+kullanma
+her gün gerekli
+1. AŞAMA: HAZIRLIK AŞAMASI (1–5. Gün)
+KVK'yı kazanmak için Krallığınızın Hazırlık Aşaması'nda rakibinizden daha fazla toplam puan kazanması gerekir. Bu aşamayı kazanmak Saldırgan Avantajı sağlar (Savaş Aşaması boyunca Şatonuz tamamen güvende olur).
+1. Gün: İnşaat, Hasaltın ve Şef Tılsımı
+Puan Kazandıran Aktiviteler: Hasaltın bina yükseltmeleri, İnşaat Hızlandırmaları, Şef Tılsımıları, İstihbarat Görevleri, Öğrenme Hızlandırmaları.
+🛡️ F2P Odağı:
+Biriktirdiğiniz İnşaat Hızlandırmalarını ve Hasaltın'ı harcayın.
+Önceki haftalardan biriktirdiğiniz Tılsım Tasarımı öğelerini kullanın.
+Tüm Bekçi Kulesi İstihbarat Görevlerini tamamlayın.
+⚡ P2W Odağı:
+Yüksek seviye Hasaltın binalarını (Akademi / Savaş Akademisi) maksimuma çıkarın.
+Büyük puan artışları için Şef Tılsımı seviyesini 8–11 seviyeye çıkarın (Seviye 11, seviye başına 16.000 puan verir).
+2. Gün: Araştırma, Kahramanlar ve Toplama
+Puan Kazandıran Aktiviteler: Araştırma Hızlandırmaları, Kahraman Parçaları (Ender/Epik/Mitik), Kahraman Ruleti çevirmeleri, Usta Amblemleri/Uzmanın El Yazması, Kaynak Toplama.
+Petra (Gen 3) parçaları kazanmak için biriktirdiğiniz Elmaslarla Kahraman Ruleti'ni çevirin.
+Biriktirdiğiniz evrensel Mitik/Epik parçaları ana kahramanlarınıza harcayın.
+Kaynakları önceden toplayın (2. Gün başlangıcında hemen dönmeleri için toplayıcıları sıfırlamadan önce gönderin).
+Biriktirdiğiniz tüm Usta Amblemleri ve Uzmanın El Yazması öğelerini harcayın.
+Gen 3 kahramanlarını (Eric ve Petra) anında 5 yıldıza çıkarın.
+3. Gün: Evcil Hayvan Eğitimi ve Usta Akademisi İlerlemesi
+Puan Kazandıran Aktiviteler: Pet ilerletme puanı, Sıradan Evcilleştirme İşareti ve Gelişmiş Evcilleştirme İşareti (İyileştirme), Kahraman Ruleti, Kahraman Parçaları, Usta Amblemleri/Uzmanın El Yazması, İstihbarat Görevleri.
+Her şeyi tek bir evcil hayvana yatırmak yerine birden fazla orta seviye evcil hayvanı dengeli şekilde seviye atlatın ve iyileştirin.
+Kalan Kahraman Ruleti çevirmelerini ve günlük İstihbarat Görevlerini kullanın.
+Gelişmiş Evcilleştirme İşareti'ı yoğun şekilde kullanın (her biri 15.000 puan).
+Yüksek puan çarpanları için Pet ilerletme puanı eşiklerini maksimuma çıkarın.
+4. Gün: Kahraman Gelişimi ve Asker Eğitimi
+Puan Kazandıran Aktiviteler: Asker Eğitimi/Terfileri (T1–T11), Demirci Çekici, Alet, Mithril, Kaynak Toplama.
+Düşük seviyeli askerleri en yüksek seviyenize terfi ettirin (örn. T9'dan T10'a). Askerleri yükseltmek, sıfırdan yenilerini eğitmekten çok daha kaynak verimlidir.
+Genel hızlandırmaları araştırma/Usta Akademisi için saklayın — burada yalnızca özel Asker Eğitimi hızlandırmalarını kullanın.
+Biriktirdiğiniz Demirci Çekici'ları (her biri 4.000 puan) ve Kahraman Özel Donanımı'ın Alet'larını (her biri 8.000 puan) harcayın.
+Büyük puan artışlarının kilidini açmak için Mithril yükseltmeleri (her biri 40.000 puan) uygulayın.
+5. Gün: Güç Artışı ve Son Yükseltmeler
+Puan Kazandıran Aktiviteler: Şef Donanımı, Kahraman Donanımı, Evcil Hayvan İyileştirme, Mithril, Hasaltın, Tüm Hızlandırmalar, İstihbarat Görevleri, Toplama.
+Kalan İstihbarat Görevlerini tamamlayın, kalan kaynakları/hızlandırmaları harcayın ve biriken Saten/Yaldızlı İplikler kullanarak Şef Donanımı'ı yükseltin.
+Şef Donanımı'ı Mitik / Mitik 3 Yıldız'a çıkarın (seviye başına 6.250 puan).
+Günlük Top 2000 / Top 200 kişisel sıralama ödüllerini garantilemek için kalan tüm Mithril, Alet ve Demirci Çekici'ları tüketin.
+⚔️ 2. AŞAMA: SAVAŞ AŞAMASI (12 SAAT)
+Şato Savaş Penceresi: 12:00 UTC – 22:00 UTC.
+Hedef: Kralın Şatosu ve 4 taret'ı kontrol edin.
+🎯 GEN 3 PVP META VE İNTİKAL KURULUMU
+🛡️ Garnizon Savunması — Şato/Kuleler
+Lider Kahraman: Eric (Gen 3) — Üstün Gen 3 istatistiklerine ve hayatta kalma mekaniklerine sahip yıkılmaz piyade duvarı. Kalkan için Zoe (Gen 2) ile eşleştirilir.
+⚔️ Saldırı İntikalleri (Şato/Kulelere Saldırı)
+Lider Kahraman: Petra (Gen 3) — Yüksek ölçekli saldırı intikal Alet'larına sahip yıkıcı Süvari lideri.
+🤝 İntikale Katılanlar (F2P İçin Çok Önemli!)
+İntikale katılırken rastgele kahraman KULLANMAYIN. Şunlarla katılın:
+Chenko (1. Yetenek maksimum)
+Amane
+Yeonwoo
+Bu kahramanlar Öldürücülük çarpanlarını üst üste bindirir.
+💣 ÇİFT İNTİKAL "BALİNA EZİCİ" STRATEJİSİ
+Ağır düşman garnizonları için:
+İntikal 1 (Et Kalkanı / Temizleyici): 1–2 saniye önce başlatılır. Düşmanın Revirini taşırmak ve savunma askerlerini temizlemek için saf öldürücülüğe odaklanır.
+İntikal 2 (Ana Vurucu): İntikal 1'in hemen ardından gelerek kalan askerleri yok eder ve Şato'nun kontrolünü ele geçirir.
+taret Avantajı: Şato'yu elinde tutan aynı krallık tarafından tutuluyorsa, taret'ları ele geçirmek %20'ye kadar Birlik Öldürücülüğü sağlar.
+🩺 3. AŞAMA: SAHA TRİYAJI (ASKER KURTARMA)
+Temel Kurtarma Oranı: Revire ulaşamayan kayıp askerlerin %30'u.
+Hedef Kurtarma Oranı: %90
+Nasıl artırılır:
+Tıbbi Çanta: +%10 Kurtarma Oranı
+Kurtarma Emri: her biri +%1, %50'ye kadar
+⚠️ ÖNEMLİ: Süre dolmadan önce herkes ittifak sohbetinde Kurtarma Emri takas etmelidir!
+
+### GUIDE #all-out — Topyekün
+🪖 Topyekün Kuralları
+❌ NAP 6 üyelerine, çiftlikleri/akademileri dahil saldırı yok (NXS/nxs, RED/ReD, NBD/nBd/Nbd, ESA/EsA/UNI, IDN, KGb)
+❌ Şatolara veya ittifak binalarına (karargahlar, ileri karakollar, flamalar) saldırı yok
+✅ Kaynak toplama alanlarına saldırabilirsiniz (Değirmen, Taş Ocağı, Demir Madeni)
+✅ NAP dışındaki oyunculara saldırabilirsiniz.
+Şatonuza bir NAP üyesi tarafından saldırılırsa misilleme yapmayın — R4/R5'e bildirin.
+Yabanda kaynak toplamaktan kaçının, bunun yerine Korumalı İttifak Toplama Noktası kullanın.
+Kural ihlal edenler ittifak/NAP anlaşmalarına göre işlem görecektir.
+🏭 Güvenli Toplama Noktaları
+Topyekün etkinliği boyunca, güvenli toplama noktalarımızı 48 saat boyunca her 12 saatte bir değiştireceğiz.
+Bu, etkinlik aktifken herkese kaynak toplamak için korumalı bir alan sağlar.
+Rotasyon Programı (00:00 UTC sıfırlamasıyla başlar)
+Büyük Değirmen – 00:00 UTC - 12:00 UTC
+Büyük Odun Fabrikası – 12:00 UTC - 00:00 UTC
+Büyük Taş Ocağı – 00:00 UTC - 12:00 UTC
+Büyük Demir Madeni – 12:00 UTC - 00:00 UTC
+Etkinlik boyunca bu korumalı alanları kullanın. Güvende kalın ve akıllıca toplayın.
+
+### GUIDE #hero-roulette — Kahraman Ruleti
+NE ZAMAN
+2 haftada bir, her seferinde 3 gün.
+📋 KURALLAR
+Etkinlik 3 gün sürer; her gün 1 ücretsiz çevirme, günde en fazla 150 çevirme.
+Her çevirme 1 Uğurlu Fiş veya 1.500 Elmas; 10'lu çevirme indirimli 13.500 Elmas.
+Toplam 5, 15, 35, 70 ve 120 çevirmede birer kez ödül: +5, +10, +20, +30 ve +50 parça, toplam 115.
+🎲 ÖDÜL OLASILIKLARI
+Mitik Kahraman Parçası x5: %4,37
+Mitik Kahraman Parçası x1: %32,81
+Gizemli paket x1: %6,56 (iki kutu, her biri %6,56)
+1 sa. genel hızlandırma x1: %20,51
+10K kahraman TP x1: %18,27
+Dört kaynak kutusu (Demir 10K×20, Taş 10K×80, Odun 10K×400, Ekmek 10K×400): her biri %2,73
+Çevirme başına beklenen parça: 5 × 0,0437 + 1 × 0,3281 ≈ 0,547
+N çevirmede beklenen parça (çevirme + birikimli ödüller)
+3 (yalnızca ücretsiz): ~1,6
+10: ~5,5 + 5 = 10,5
+15: ~8,2 + 15 = 23
+35: ~19 + 35 = 54
+70: ~38 + 65 = 103
+120: ~66 + 115 = 181
+120 çevirmeden sonra birikimli ödül kalmaz ve her çevirme sadece ~0,55 parça verir; bu yüzden F2P ve az harcayan oyuncuların 120'yi geçmemesi önerilir.
+🎯 Bir kahramanı tam yıldıza çıkarmak için kaç çevirme?
+Ortalama yaklaşık 720 çevirme — her biri 120 çevirmelik 6 etkinlik.
+Hesap
+Tam yıldız (kilit açma + 5 yıldıza kadar) toplam 1.075 parça ister.
+Etkinlik başına 120 çevirme ortalama 0,5466 × 120 + 115 ≈ 181 parça verir (çevirme başına ~0,5466 + birikimli ödüllerden 115).
+1.075 ÷ 181 ≈ 5,95, yani 6 etkinlik gerekir.
+Toplam: 6 × 120 = 720 çevirme, beklenen yaklaşık 6 × 181 ≈ 1.084 parça.
+Neden tek etkinlikte çevirmeye devam etmemeli?
+120 çevirmeden sonra birikimli ödül kalmaz, her çevirme yalnızca ~0,55 parça verir. 450 çevirme sınırında bile bir etkinlik ortalama sadece 0,5466 × 450 + 115 ≈ 361 parça verir — fazladan 330 çevirme ilk 120'nin yaklaşık yarısı kadar verimlidir.
+6. etkinlikte de 120 çevirmeyi tamamla
+İlk 5 etkinlik ortalama ~903 parça verir, ~172 kalır. 119 çevirmede beklenen yalnızca ~130'dur (65 + 65); kalanı 120. çevirmedeki +50 paket kapatır, bu yüzden son etkinlikte de 120 çevirme gerekir.
+💎 Elmas maliyeti (Uğurlu Fiş hariç)
+3 ücretsiz çevirmeden sonra her etkinlik 159.000 Elmas tutar — 6 etkinlik için yaklaşık 954.000 Elmas. Elindeki Uğurlu Fiş'leri veya başka yerlerden gelen parçaları düşebilirsin.
+⚠️ Bunlar ortalamalardır. 720 çevirmede gerçek sonuç genellikle beklenen değerin ±60 parça yakınında olur (yaklaşık %95) — şanssızsan bir etkinlik daha gerekebilir, şanslıysan daha erken bitirebilirsin.
+⚔️ KVK İPUCU
+KvK Hazırlık Evresi'nin 2. ve 3. gününde Kahraman Ruleti'nde her çevirme 8.000 puan verir — Uğurlu Fiş'lerini ve çevirme Elmas'larını bu iki güne saklamaya değer.
+
+### GUIDE #fishing-tournament — Balık Avı Turnuvası
+NE ZAMAN
+Her 4 haftada bir.
+NEDEN ÖNEMLİ
+Zanaatkâr Vizyonu, Kahraman Donanımı Geliştirme TP ve Elmas için güvenilir bir kaynak.
+🌊 Okyanus Kaşifi
+Önce Okyanus Kaşifi oyna: puan topla ve Balık Avı Kiti yükselt. Ardından Normal Balık Avı kısmına odaklan.
+Misina → Maksimum derinliği artırır
+Kanca → Deneme başına maksimum avı artırır
+Kurşun → Başlangıç derinliğini artırır
+Üçü de yükseltildiğinde Normal Balık Avı kısmına geç.
+Nadir Deniz Kızları ve Sandıklar Normal Balık Avı kısmında çıkmaz; yalnızca Okyanus Kaşifi içinde bulunur.
+🎣 Normal Balık Avı
+Parlayan Balıklar
+Gördüğün her parlayan balığa öncelik ver.
+Yardıma Muhtaç Deniz Kızı
+Deniz yosununa sıkışmış deniz kızları %5–10 puan çarpanı verir.
+Gelgit Boynuzu
+Yalnızca Normal Balık Avı sırasında kullan.
+TURU TEKRARLAMA
+Bir tur kötü giderse:
+Duraklat → Geri Çekil → Tekrar dene
+
+### GUIDE #tri-alliance-clash — Üçlü İttifak Çarpışması
+🎲 ETKİNLİK NASIL İŞLER
+Üçlü İttifak Çarpışması'nı yolları, binaları ve savaşları olan bir masa oyunu gibi düşün. İttifakın farklı hatlarda ilerler, bölge ele geçirir ve en değerli hedeflere doğru savaşır.
+⚔️ SAVAŞ MEKANİĞİ
+Savaşlar otomatiktir. Simüle savaşlar tekli düellodur, seferberlik DEĞİLDİR.
+Asker oranları değiştirilemez — askerler eşit dağıtılır.
+Yürüyüş Hızı ve Yürüyüş Kapasitesi bonusları GEÇERLİ DEĞİLDİR.
+🛡️ 3 YÜRÜYÜŞ & KAHRAMAN SEÇİMİ
+Savaşa girmeden önce 3 ekip konuşlandırırsın.
+F2P oyuncular
+En güçlü kahramanlarını aynı ekipte topla.
+En güçlü kahramanlarını 3 yürüyüşe DAĞITMA.
+Önce tek bir güçlü yürüyüş kur.
+P2W oyuncular
+Saldırı ve savunma odaklı turuncu kahramanlarını kullan.
+Bu etkinlikte saldırı Aletleri SAYILMAZ, savunma Aletleri SAYILIR — güçlü savunma Aleti olan kahramanlara öncelik ver.
+🏛️ BİNALAR & PUANLAR
+Gelgitler Tapınağı = ANA HEDEF — en sonda açılır.
+Sohbette kullandığımız adlar: Shrine = Harabeler Kümesi, Altar = Harabeler.
+Binalara saldırıp ele geçirmek sadece savunmaktan/tutmaktan daha çok puan verir — Kılıçdiyarı Hesaplaşması'ndan farklı olarak.
+👥 TAKIMLAR & GÖREVLER
+Oyuncular farklı hatlarda yaklaşık 3 takıma ayrılır — her hedefe en güçlü oyuncu + bir yedek, böylece gücümüz verimli dağılır.
+Takım 3 — Başta tarafsız binaları ele geçir
+Savaş açılır açılmaz bölgemizdeki tarafsız binaları EN KISA SÜREDE ele geçir.
+Hedefin güvenceye alınınca ilerlemeye devam et.
+Takım 2 — İlerle & fırsatları değerlendir
+Zayıf takımların önünde kal, hattındaki bir sonraki hedefe ilerle ve baskıyı sürdür.
+Düşman hareketlerini dikkatle izle. Düşman ilerlemek için bir binayı terk edince, az önce bıraktığı binaya gir ve savunmasızken ele geçir.
+Bölge ve puan için her böyle fırsatı kullan.
+Takım 1 — Düşman Garnizonuna ilerle
+Ana görev: 20. dakikadan önce düşman garnizonu bölgesine ulaşmak.
+Hattında ilerleyip düşman garnizonuna en yakın düşman binasına (Shrine / Harabeler Kümesi) var.
+Garnizon açılmadan ÖNCE yerinde ol ki tam 20:00'de ele geçirebilelim.
+R4'ler
+R4'ler ve lejyon sorumluları savaş boyunca Önder atamalarını aktif olarak yönetmeli.
+Önder = en güçlü oyuncular. Haritada dolaşıp hedef ele geçirdikleri için en çok Enerji'ye ihtiyaç duyarlar.
+Bonusu olmayan güçlü oyuncuların Önder yapılıp yapılmayacağını sürekli kontrol edin.
+Önder ekranı, ekranın sol üstündeki sancaklara dokunarak açılır.
+Binaya göre Önder'lere üretilen Enerji:
+Garnizonlar: 60.000 — altın
+Harabeler Kümesi (Shrine): 45.000 — mor
+Harabeler (Altar): 15.000 — mavi
+🗺️ SAVAŞ AKIŞI
+🔵 Mavi = Transit Merkezi　🔴 Kırmızı = Garnizonlar　🟡 Sarı = Gelgitler Tapınağı
+1. Aşama: Hazırlıklar (0:00–3:00)
+Hedef: ekipleri ayarla ve haritayı tanı. Mor, kırmızı ve sarı bölgeleri hatırla — ele geçirdiğimizler maviye döner. Düşmanların gücüne bak ve hangi ittifaka odaklanacağımıza karar ver.
+2. Aşama: Ele Geçir ve Fethet (3:00–20:00)
+Hedef: iç bölgeyi hızla ele geçirmek.
+Önce Takım 3, sonra Takım 2.
+Dakika başı düzenli puan (PPM) için Transit Merkezlerini / bağlantı binalarını tut. Garnizonlar hâlâ kalkanlı.
+Bu sırada Takım 1 düşman garnizonuna doğru düşman bölgesinin derinlerine ilerler.
+3. Aşama: Garnizon İşgali (20:00–40:00)
+Hedef: Garnizonlar'ın (A24, B24, C24) kalkanları kalkar.
+Takım 3: kendi garnizonumuzu (+1.800 PPM) savunurken düşman garnizonuna koordineli saldırılar yap — gerekirse bölünün.
+Savunmasız binaları, zayıf savunulan düşman bölgelerini, genişleme fırsatlarını ve kişisel/ittifak puanı için kolay ele geçirmeleri aramaya devam edin.
+4. Aşama: Tapınağa Hücum (40:00–60:00)
+Hedef: ortadaki Gelgitler Tapınağı açılır. Çok yüksek puan verir; sonunda onu elinde tutana 50.000 puan bonus. Bundan sonra ittifakın ana hedefi odur.
+🌊 TAPINAK SIRASI
+Takım 3 + 2 → önce girer (Takım 3 bölgemizi / garnizonumuzu kaybetmemek için gözünü ayırmaz).
+Takım 1 → en son girer.
+Ele geçir → takviye et → tut.
+⚠️ Tapınak NPC'lerine saldırırken en güçlü oyuncu EN SON girer — böylece gücünü kolay bir rakipte harcamak yerine kalan en güçlü NPC ile savaşır.
+Tapınağı aldıktan sonra
+Hemen kilitle — tapınağa en kısa sürede takviye gönder.
+Kontrolü koru.
+Tapınağı kaybetme riski varsa daha düşük değerli hedeflerin peşine düşme.
+📋 TAKIM ÖZETİ
+Takım 3 — İç bölge
+2. aşama → tarafsız binaları en kısa sürede ele geçir
+3. aşama → garnizonumuzu koru + saldıranları destekle
+4. aşama → Tapınak: önce gir ama bölgemizi izle — kaybetme
+Takım 2 — Düşman ele geçirmeleri
+2. aşama → Takım 1'i geçip düşman bölgesine ilerle
+3. aşama → düşman / terk edilmiş binaları ele geçir
+4. aşama → Tapınak: önce gir
+Takım 1 — Derin saldırı
+2. aşama → düşman bölgesinin derinlerine ilerle, hedef düşman garnizonu yanındaki Shrine (Harabeler Kümesi)
+3. aşama → düşman garnizonunu işgal et
+4. aşama → Tapınak: en son gir
+🧱 Tapınak engelleme taktiği (Takım 1): Gelgitler Tapınağı yakınında düşman Transit Merkezi'nin arkasındaki binayı / Shrine'ı ele geçir ve TUT — hemen ayrılma. Böylece Takım 1 düşmanın tapınak hamlesini bozabilir ve tapınak açılmadan önde kontrolü alırız.
+⚡ Enerji YÖNETİMİ
+Her hareket/eylem Enerji harcar — akıllıca kullan.
+Konuşlandırmak — ekibini yeni uygun bir konuma gönder.
+İlerletmek — mevcut hedefi/sırayı atla ve hattındaki bir sonraki hedefe geç.
+görevlendirmek — savaşta olmayan bir binadayken askerleri iyileştir ve doldur.
+Anında diriltmek — yenilince Karargahlar'a dönmek yerine olduğun yerde geri gel; Enerji harcar, sadece gerektiğinde kullan.
+R4'ler ve lejyon sorumluları, güçlü oyuncuların Önder olarak atanmasını sağlar; böylece daha çok Enerji üretirler.
+
+### JOURNEY CHOICES (shown inside the general guides)
+Taş-Kağıt-Makas Meydan Okuması: Kazan → 1. kez: 2,000 Elmas; 2. kez: 60 Uzmanın El Yazması (best); Berabere → 2. kez: 40 Uzmanın El Yazması; Kaybet → 1. kez: 800 Elmas; 2. kez: 20 Uzmanın El Yazması
+Vikingler: Bunu görmemiş gibi yapmayacağım → 3 Silver Goblet (best); Oyalanmaya vaktim yok → 2 Silver Goblet
+Vikingler: Onlarla yüzleş → 50 Uzmanın El Yazması (best); Aklını kullan → 40 Uzmanın El Yazması; Ayrıl → 30 Uzmanın El Yazması
+Canavar: Sirke çalan canavarı avla → ?; Başka yerden bulurum → 3 Silver Goblet
+Olive: Gerçek bir savaşçı zor durumdaki bir hanımı geri çevirmez → 2 Silver Goblet; ...Hepsi bu mu? → 3 Silver Goblet (best)
+Ayı: Yandan saldır → 50 Uzmanın El Yazması (best); Önden saldır → 30 Uzmanın El Yazması
+Paralı askerler: Yandan kuşatmayı öner → 100 Uzmanın El Yazması (best); İkmal sabotajı öner → 70 Uzmanın El Yazması
+Ayı yavrusu: Birine emanet et → 30 Uzmanın El Yazması; Canavara odaklan → 50 Uzmanın El Yazması (best)
+Hilde: Daha fazla soru sor → 30 Uzmanın El Yazması; Bir çıkış yolu düşün → 50 Uzmanın El Yazması (best)
+Asiler, Cesares askerleri, Vikingler: Savaş → 50 Uzmanın El Yazması (best); Kaçsam iyi olur → 30 Uzmanın El Yazması
+Tüccar: Yol tarif et → 50 Uzmanın El Yazması (best); Yardım edemem → 30 Uzmanın El Yazması
+Canavar: Ayrıl → 100 Uzmanın El Yazması (best); Onu avla → 70 Uzmanın El Yazması
+Tabela: Tabelayı onar → 20 Uzmanın El Yazması (best); Ayrıl → 10 Uzmanın El Yazması
+Hayatta kalan: Yardım teklif et → 100 Uzmanın El Yazması (best); Benim savaşım değil → 70 Uzmanın El Yazması
+Zoe & Pan: Pan anlatsın, dinle → 1 Usta Amblemi (Pan); Zoe anlatsın, dinle → 1 Usta Amblemi (Pan)
+Hazine: Hepsini al → 50 Uzmanın El Yazması (best); Hayatta kalanlarla paylaş → 30 Uzmanın El Yazması
+Roman: takas: Takas et → 80 Uzmanın El Yazması (best); Hayır, teşekkürler → 50 Uzmanın El Yazması
+Pan: takas: Takas et → 5 Usta Amblemi (Pan) (best); Hayır, teşekkürler → 3 Usta Amblemi (Pan)
+Edwin: takas: Takas et → 50 Uzmanın El Yazması (best); Hayır, teşekkürler → 30 Uzmanın El Yazması
+Hayatta kalan: yetimhanenin ekmeğe ve ilaca ihtiyacı var: Malzeme bağışla → 50 Uzmanın El Yazması (best); Ayrıl → 30 Uzmanın El Yazması
+Gordon / Aena: yemek yapmaya başla: Mükemmel → 50 Uzmanın El Yazması (best); Zafer → 40 Uzmanın El Yazması; Başarısız → 30 Uzmanın El Yazması
+Valora / Pan / Guinevere / Wilson: yemek yapmaya başla: Mükemmel → 5 Silver Goblet (best); Zafer → 3 Silver Goblet; Başarısız → 1 Silver Goblet
+Quinn: özel kilit: Kırıp aç → 150 Uzmanın El Yazması; Etkisiz hâle getir → 200 Uzmanın El Yazması (best)
+Yaralı aslan: Yiyecek ver → 50 Uzmanın El Yazması (best); Ayrıl → 30 Uzmanın El Yazması
+Vikingler: Haydutları kovala → 50 Uzmanın El Yazması (best); Etrafından dolaş → 30 Uzmanın El Yazması
+Çalıntı mallar: Sana yardım ederim → 50 Uzmanın El Yazması (best); Yapabileceğim bir şey yok → 30 Uzmanın El Yazması
+Nakliye kaptanı: Tam fiyat öde → 100 Uzmanın El Yazması (best); Pazarlık et → 70 Uzmanın El Yazması
+Petra: eğlenceli bir şey mi var?: Bugünkü falıma bak → 30 Uzmanın El Yazması; Arena Şampiyonası'nı duydun mu? → 30 Uzmanın El Yazması; Gel, yardım et. Yapacak işimiz var. → 50 Uzmanın El Yazması (best)
+Hayatta kalan: bana yardım et: Yardım et → 50 Uzmanın El Yazması (best); Devam et → 30 Uzmanın El Yazması
+Pan / Roman / Guinevere: balıkçılık: Av derinliği, 10 balık → 150 Uzmanın El Yazması (best); Av derinliği, 5 balık → 100 Uzmanın El Yazması; Av derinliği, 1 balık → 70 Uzmanın El Yazması
+Marlin: balıkçılık: Herhangi bir derinlik, 10 balık → 100 Uzmanın El Yazması (best); Herhangi bir derinlik, 5 balık → 70 Uzmanın El Yazması; Herhangi bir derinlik, 1 balık → 50 Uzmanın El Yazması
+Viking kahramanı: Hadi, dövüş benimle! → 100 Uzmanın El Yazması (best); Doğrudan dal → 70 Uzmanın El Yazması
+Hayatta kalan: bu şey ezelden beri peşimde: Araya gir → 50 Uzmanın El Yazması (best); Dikkat dağıt → 40 Uzmanın El Yazması; Ayrıl → 30 Uzmanın El Yazması
+Vikingler: geri çekilin: Araya gir → 30 Uzmanın El Yazması; Uzaklaş → 50 Uzmanın El Yazması (best)
+Ya hep ya hiç: Ya hep ya hiç (iki kat Aksiyon Puanı harcar) → 2 Usta Amblemi (Roman) (best); Cesaretlerini sına (düşmanları korkutup kaçırma şansı) → 30 Uzmanın El Yazması
+Bir canavar yolunu kesiyor: Savaş! → 100 Uzmanın El Yazması (best); Saklan → 70 Uzmanın El Yazması
+Roman: hediyeler: Eşyalara bak → 150 Uzmanın El Yazması (best); Geç → 100 Uzmanın El Yazması
+Pan dertli görünüyor: Eşyalara bak → 5 Usta Amblemi (Pan) (best); Geç → 3 Usta Amblemi (Pan)
+Valora: eşyalar: Eşyalara bak → 3 Usta Amblemi (Valora); Geç → 3 Usta Amblemi (Valora)
+Roman: bir fikir: Üretime yardım et → 5 Usta Amblemi (Roman) (best); Geç → 3 Usta Amblemi (Roman)
+Boksör: İşleri yoluna koymak için. → 30 Uzmanın El Yazması; Para tabii ki → 50 Uzmanın El Yazması (best)
+Long Fei: Sana biraz akıl verme vakti. → Long Fei kazanır, 30 Uzmanın El Yazması; Peki. Para konuşur. → 50 Uzmanın El Yazması (best)
+İleride Cesares kampı: Onlarla yüzleş. → 100 Uzmanın El Yazması (best); Başka bir yol bul. → 70 Uzmanın El Yazması
+Süvari: Erzakını paylaş → 50 Uzmanın El Yazması (best); Diğer birlikten bahset. → 30 Uzmanın El Yazması
+Petra: Satın al → 50 Uzmanın El Yazması (best); Reddet. → 30 Uzmanın El Yazması ?
+Cassia: Demek Yellowstone savaş alanına geri dönüyorsun... → 1 Usta Amblemi (Cassia); Belki bu sefer farklı olur. → 1 Usta Amblemi (Cassia)
+Cassia (2): Doğrudan saldırı başlat → 1 Usta Amblemi (Cassia); Takviye iste. → 1 Usta Amblemi (Cassia)
+Vikingler: baskı uygula: Baskı uygula. → 30 Uzmanın El Yazması; Kendin öğren. → 50 Uzmanın El Yazması (best)
+Valora: kaynak takası: Kaynak takası yap. → 5 Usta Amblemi (Valora) (best); Takas etme. → 3 Usta Amblemi (Valora)
+Cassia: ganimeti ayıkla: Ganimeti ayıkla → 5 Usta Amblemi (Cassia) (best); Geç → 3 Usta Amblemi (Cassia)
+Cassia: takas: Takas et → 5 Usta Amblemi (Cassia) (best); Hayır, teşekkürler → 3 Usta Amblemi (Cassia)
+Subay: Kendini Korucu Quinn olarak tanıt → 50 Uzmanın El Yazması (best); Başka bir yoldan dolaş → 30 Uzmanın El Yazması
+Cesares askerleri: Daha fazla araştır → 30 Uzmanın El Yazması; Yoluna devam et → 50 Uzmanın El Yazması (best)
+Şüpheli kervan: Tüccarları araştır → 30 Uzmanın El Yazması; Onları rahat bırak → 50 Uzmanın El Yazması (best)
+Wilson: ilk karşılaşma: Wilson'a güven → 50 Uzmanın El Yazması (best); Şüpheci kal → 30 Uzmanın El Yazması
+Vikingler grubu: Görmezden gel. Guinevere ile ilgilen → 50 Uzmanın El Yazması (best); Yardıma git. Öylece seyredemezsin → 30 Uzmanın El Yazması
+Paralı askerler: Kutsal Kılıç: Paralı askerleri tut → 30 Uzmanın El Yazması; Geri dön ve Diana'yı davet et → 30 Uzmanın El Yazması; Başka kimseye ihtiyacımız yok → 50 Uzmanın El Yazması (best)
+Grid & Wilson: Ona inan → 50 Uzmanın El Yazması (best); Ondan şüphelen → 30 Uzmanın El Yazması
+Afet mağduru: Bir el at → 30 Uzmanın El Yazması; Karışma → 50 Uzmanın El Yazması (best)
+Zoe: Araştırmaya yardım et → 30 Uzmanın El Yazması; Kılıçdiyarı Hesaplaşması etkinliğine odaklan → 50 Uzmanın El Yazması (best)
+Sandık karıştırma: Başlangıç: [Elit] – [Gümüş] – [Gümüş] → Sonuç: [Elit] – [Gümüş] – [Gümüş]; Başlangıç: [Gümüş] – [Elit] – [Gümüş] → Sonuç: [Gümüş] – [Elit] – [Gümüş]; Başlangıç: [Gümüş] – [Elit] – [Gümüş] → Sonuç: [Gümüş] – [Gümüş] – [Elit]; Başlangıç: [Gümüş] – [Gümüş] – [Elit] → Sonuç: [Elit] – [Gümüş] – [Gümüş]
+Wilson: bir soru: Grid hakkında soru sor → 30 Uzmanın El Yazması; Kendi kafanla düşün → 50 Uzmanın El Yazması (best)
+Guinevere: yardım: Toparlamaya yardım et → 5 Usta Amblemi (Guinevere) (best); Geç → 3 Usta Amblemi (Guinevere)
+Guinevere: kaynak takası: Kaynak takası yap → 150 Uzmanın El Yazması (best); Hayır, teşekkürler → 100 Uzmanın El Yazması
+Wilson: kaynak takası: Kaynak takası yap → 5 Usta Amblemi (Wilson) (best); Hayır, teşekkürler → 3 Usta Amblemi (Wilson)
+Wilson: ganimeti ayıkla: Ganimeti ayıklamaya yardım et. → 150 Uzmanın El Yazması (best); Geç → 100 Uzmanın El Yazması
+Aena: yiyecek satın al: Edwin'den yiyecek al → 30 Uzmanın El Yazması + 1 Usta Amblemi (Aena); Yiyeceğini paylaş → 50 Uzmanın El Yazması + 1 Usta Amblemi (Aena) (best)
+Aena: bir dene: Bir dene → 30 Uzmanın El Yazması + 1 Usta Amblemi (Aena); Yapacak işlerim var. → 50 Uzmanın El Yazması + 1 Usta Amblemi (Aena) (best)
+Isnor: bir dene: Bir dene → 30 Uzmanın El Yazması + 1 Usta Amblemi (Isnor); Kalsın → 50 Uzmanın El Yazması + 1 Usta Amblemi (Isnor) (best)
+Aena: soruşturma: Çevreyi araştır → 30 Uzmanın El Yazması + 1 Usta Amblemi (Aena); Yürümeye devam et → 50 Uzmanın El Yazması + 1 Usta Amblemi (Aena) (best)
+Isnor: soruşturma: Malzeme dağıtımına yardım et → 30 Uzmanın El Yazması + 1 Usta Amblemi (Isnor); Depremleri araştır → 50 Uzmanın El Yazması + 1 Usta Amblemi (Isnor) (best)
+Aena: ısrar: Sandığı açmakta ısrar et → 50 Uzmanın El Yazması + 1 Usta Amblemi (Aena); Olduğu gibi bırak → ?
+Vikingler: ayak izleri: Daha fazla araştır → 30 Uzmanın El Yazması; Şimdilik burada dur → 50 Uzmanın El Yazması (best)
+Aena & Petra: Takviye iste → 50 Uzmanın El Yazması + 1 Usta Amblemi (Aena) (best); Petra'ya daha fazla zaman ver → 30 Uzmanın El Yazması + 1 Usta Amblemi (Aena)
+Yaşlı adam: Sormaya devam et → 50 Uzmanın El Yazması (best); Boş ver → 30 Uzmanın El Yazması
+Muhafız: Daha fazla araştır → 50 Uzmanın El Yazması (best); Madenden ayrıl → 30 Uzmanın El Yazması
+Aena: takas: Kaynak değiş tokuşu yap → ?; Takası reddet → 100 Uzmanın El Yazması
+Isnor: takas: Kaynak değiş tokuşu yap → 5 Usta Amblemi (Isnor); ? → ?
+
+### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-06 by Nia] ⚔️ 2186 ile KvK Anlaşması – 10 Eki
+⚔️ 2186 ile KvK Anlaşması – 10 Eki
+
+🏰 1. Şehir Saldırıları
+
+✅ İzin verilen:
+• 10:00–10:59 UTC
+• Şato Savaşı bittikten 30 dakika sonra
+
+🛑 Ateşkes – Saldırı YASAK:
+• Saat 11:00 UTC'den itibaren tüm Şato Savaşı boyunca ve Şatonun kalkanı aktif edildikten sonraki 30 dakikaya kadar.
+
+🔴 2. Kırmızı Bölge
+• Kırmızı Bölge'de HİÇBİR zaman şehir saldırısı yapılamaz.
+
+⚠️ 3. İhlaller
+• Misilleme yapmayın. Raporu ittifak yönetimine veya yönetim uygun değilse Krala gönderin.
+
+[2026-10-05 by Nia] 🏆 İttifak Şampiyonası
+Lütfen Orta Koridor (Middle Lane) için kaydolun, liderlik daha sonra sizi düzenleyecektir.
+
+Kaydolmadan önce:
+🔹 En güçlü Kahramanlar birimlerini kullanın
+🔹 Birlik Dizilişleri: %50 Piyade, %20 Süvari, %30 Okçu
+🔹 Kaydolmadan önce Mareşal / Saha Komutanı ve Pet güçlendirmelerini etkinleştirin.
+
+🔄 Kahramanlar, Birlik Dizilişleri ve güçlendirmeleri güncellemek için istediğiniz zaman kaydınızı yenileyebilirsiniz. Özellikle Kahramanlar veya birliklerinizi yükselttiyseniz.
+
+[2026-09-29 by Nia] ❗Hatırlatma – Ayı Avı: Asker Sınırı ve Kademeli Yürüyüşler
+🔹 Tüm katılımcılar seferberliklere tam 90.000 asker göndermelidir. Yürüyüşlerinizi önceden kaydedin.
+🔹 Liderler kendi seferberliklerini maksimum askerle başlatır, ancak başka seferberliklere katılırken onlar da asker sınırına uymalıdır.
+
+🔹 Başlangıçta: Ana seferberlik liderleri ilk seferberliklerini kendilerine atanan kademeli saatte gönderir.
+🔹 6:30 kala: Tüm katılımcılar en güçlü 3 kahramanlarıyla kendi seferberliklerini başlatır.
+
+🔪 Yanlış kahraman veya yanlış asker sayısı – atılır ve yeniden katılması istenir
+
+(see guide #bear-hunt)
+
+[2026-09-28 by Nia] 🏆 Gen 3 Usta Kılavuzu
+Ustalar; özel yetenekler, bonuslar ve ödüller için kilidini açtığınız ve seviye atlattığınız karakterlerdir. Kahramanlardan ayrıdırlar.
+
+🔹 F2P Önceliği: Pan > Valora > Roman
+🔹 Whale/Seferberlik Lideri: Valora > Roman > Pan
+
+İPUÇLARI:
+🔹 Valora için Macera Tedariki kullanmayın; ücretsiz Krallık Yolculuğu onun kilidini açar.
+🔹 Macera Tedariki'ni Kayıp Diyarlar'daki Pan için saklayın.
+🔹 Pan -> Seviye 60: Doğancı = günlük maks. Hasaltın/Hızlandırma.
+🔹 Valora -> Seviye 30: Ayı Avı Demirci Çekici.
+🔹 Roman -> Sadece pasif Arena Sandığı dropları için kilidini açın.
+
+(see guide #master-academy)
+
+[2026-09-28 by Nia] Gen 3 Kahramanlar Kılavuzu
+Neye yatırım yapacağınızdan emin değil misiniz? Yeni Kahramanlar ve Ustalar kılavuzları Discord'da ve çok dilli web sitemizde mevcut.
+
+Özet Gen 3
+🔥 Petra - MUTLAKA GELİŞTİRİLMELİ (Kahraman Ruleti). Gen 7'ye kadar değeri olan mükemmel bir Ayı Avı kahramanı.
+- Eric & Jaeger: PvP/Muhafız İstasyonu savunmasına odaklanmıyorsanız atlayın
+
+Genel:
+🔹 F2P Oyuncuları: Eğer henüz maksimum seviyede değilse Zoe'ye (Piyade tankı) ve Kahraman Ruleti'den Petra'ya (saldırı Süvarisi) odaklanın
+🔹 P2W Oyuncuları: Amadeus (VIP 7+) ve Hilde'ye öncelik verin
+
+(see guide #f2p-heroes)
+
+### GAME TERMS (English = official tr name)
+Construction = İnşaat
+Training = Eğitim
+Research = Araştırma
+Healing = Tedavi
+Learning = Öğrenme
+Learning Speedup = Öğrenme Hızlandırması
+Golden Glaives = Altın Kılıçlar
+Dim Goldstone = Mat Altıntaşı
+Watchtower Intel = Bekçi Kulesi Bilgisi
+Royal Foundry = Kraliyet Dökümhanesi
+Redeem = Kullan
+Left = Kalan
+Owned = Stok
+Go = Git
+Tip = Hatırlatıcı
+Bread (Secured) = Ekmek (Korumalı)
+Calendar = Takvim
+Hero Roulette = Kahraman Ruleti
+Lucky Chip = Uğurlu Fiş
+Swordland Showdown = Kılıçdiyarı Hesaplaşması
+Swordland = Kılıçdiyarı
+Battlefield = savaş alanı
+Tier C = Kademe: C
+Gold = Altın
+Legion 1 / 2 = 1. Lejyon / 2. Lejyon
+Battle Starts In = Savaş Başlangıcı
+Combatants = Savaşçılar
+Substitutes = yedekler
+Alliance Brawl = İttifak Kavgası
+Merchant Empire = Tüccar İmparatorluğu
+UTC Time = UTC Saati
+Starts in = Başlama
+All Out = Topyekün
+Details = Detaylar
+Conquest = Fetih
+Heroes = Kahramanlar
+Shop = Mağaza
+Alliance (tab) = İttifak
+World = Dünya
+Deals = Teklifler
+Rules (dialog title) = Kurallar
+Events = Etkinlikler
+Guide = Kılavuz
+Rules = Kurallar
+Buildings = Binalar
+Rewards = Ödüller
+Other = Diğer
+First Control = İlk Kontrol
+Ongoing Occupation = Süren İşgal
+Bonus Effect = Bonus Etki
+/m (per minute) = /dk
+Recruit = Görevlendir
+Stats = Nitelikler
+Skills = Yetenekler
+Gear = Donanım
+Upgrade = Yükselt
+Troops Preview = Birlik Önizlemesi
+All = Tümü
+In Town = Şehrin İçi
+Out of Town = Şehrin Çevresi
+Formations = Birlik Dizilişleri
+Backpack = Çanta
+Resources = Kaynaklar
+Speedups = Hızlandırma
+Bonuses = Gelir
+Use = Kullan
+Recall = Geri Çağır
+Recall squad? = Ekip geri çağrılsın mı?
+Cancel = İptal
+Confirm = Onayla
+Settings = Ayarlar
+City Bonus = Şehir Bonusu
+Relic Points = Yadigâr Puanı
+Alliance Relic Points = İttifak Yadigâr Puanı
+Personal Relic Points = Kişisel Yadigâr Puanı
+Defender's Relic Points = Savunmacı Yadigâr Puanı
+Arsenal Supplies = Bagaj Treni Malzemeleri
+Gems = Elmas
+Guard Station = Muhafız İstasyonu
+City Defense = Şehir Savunması
+Swordshrine = Kılıç Altarı
+Sanctum = Tapınak
+Northwest Sanctum = Kuzeybatı Tapınağı
+Southeast Sanctum = Güneydoğu Tapınağı
+Abbey (1–4) = Manastır (1–4)
+Hall of Reformation = Devrim Salonu
+Belltower = Çan Kulesi
+Royal Stables = Kraliyet Ahırları
+Mercenary Camp = Paralı Asker Kampı
+Undercellar = Gizli Mahzenler
+Drill Camp = Tatbikat Kampı
+Town Center = Şehir Merkezi
+Attacker = saldırgan
+Defender = savunmacı
+First King = İlk Kral
+Rally = Seferberlik
+Advanced Teleporter = Gelişmiş Işınlayıcı
+Counter-recon = Gözetleme Önleyen
+Squad = Ekip
+Shield = Kalkan
+Marching = İntikal
+Gathering = Toplanıyor
+Control = Kontrol / hakimiyet / işgal
+Building control time = binaları kontrol etme süresi
+Teleport / free teleports = ışınlanma
+Cooldown = ışınlanmalar arasındaki süre
+Total Troops = Birlik Sayısı
+March Queue = İntikal Sırası
+Injured = Yaralılar
+Attack = Saldırı
+Defense = Savunma
+Lethality = Öldürücülük
+Health = Sağlık
+Escorts = Eşlikçiler
+Level = Seviye
+Troops Capacity = Birlik Kapasitesi
+Infantry = Piyade
+Cavalry = Süvari
+Archer = Okçu
+Bear Hunt = Ayı Avı
+Trap 1 / Trap 2 = 1. Tuzak / 2. Tuzak
+Raging Bear = Öfkeli Ayı
+Hunting Achievements = Av Başarıları
+Damage Rewards = Hasar Ödülleri
+Trap Enhancement = Tuzak Güçlendirmesi
+Pre-Registered Start = Ön Kayıtlı Başlangıç
+Go Enable = Git Etkinleştir
+Total Alliance Damage = Toplam İttifak Hasarı
+Castle Battle = Şato Savaşı
+Background = Arka Plan
+King's Castle = Kralın Şatosu
+Forbidden Area = Yasaklı Bölge
+King = Kral
+Alliance Leader = İttifak Lideri
+Turret = taret
+Town = Şehir
+Sanctuary Battle = Tapınak Savaşı
+Sanctuary / Sanctuaries = Tapınak / Tapınaklar
+Season / Phase = Sezon / Evre
+Defend Phase = Savunma Evresi
+Pillar of Honor = Onur Sütunu
+Event season has ended = Etkinlik sezonu sona erdi
+Hero of the Season = Sezonun Kahramanı
+Honor Ranking = Onur Sıralaması
+Stage 1: City Construction = Aşama 1: Şehir İnşaatı
+My Ranking = Sıralamam
+Unranked = Sıralama yok
+My Points = Puanım
+Target Points = Hedef Puan
+Claim = Topla
+Strongest Governor = En Güçlü Vali
+Stage = aşama
+Challenge Medal = Mücadele Madalyası
+Challenge Medal Rewards = Mücadele Madalyası Ödülleri
+Kingdom Personal Ranking Rewards = Aşama ve Krallık Kişisel Sıralama Ödülleri
+Cross-Kingdom Personal Ranking = Krallıklar Arası Kişisel Sıralama
+Participating Kingdoms = Katılan Krallıklar
+Current Kingdom = Mevcut Krallık
+Cross-Kingdom = Krallıklar Arası
+Coming soon = Çok yakında
+Rewards (preview bar) = Ödüller
+Cesares Fury = Cesares Öfkesi
+Highlord Cesares = Cesares Başkomutanı
+Cesares Legionnaire = Cesares Lejyoneri
+Private = Kişisel
+Alliance = İttifak
+Challenged = Mücadele edildi
+Captain = Önder
+Scout = Gözetle
+Recommended Power = Önerilen Güç
+Show event shortcut = Etkinlik kısayolunu göster
+Alliance Championship = İttifak Şampiyonası
+Silver IV = Gümüş IV
+The Alliance Championship has ended! = İttifak Şampiyonası sona erdi!
+Clawshard = Kırık Pençe
+Satin = Saten
+Gilded Threads = Yaldızlı İplikler
+Artisan's Vision = Zanaatkâr Vizyonu
+Mythic General Hero Shard = Mitik Genel Kahraman Parçası
+100 Enhancement XP Part = 100 Geliştirme TP'si Bileşeni
+Forgehammer = Demirci Çekici
+Governor Gear = Şef Donanımı
+Hero Gear = Kahraman Donanımı
+Mastery Forging = Usta İşi Dövme
+Enhancement XP = Geliştirme TP
+Mythic = Mitik
+Stat Bonuses = Özellik Bonusları
+Archer Attack = Okçu Saldırısı
+Archer Defense = Okçu Savunması
+Enhancement Cost = Geliştirme Maliyeti
+Enhance = Geliştir
+Gear Enhancement = Donanım Geliştirmesi
+Charm Upgrades = Tılsım Yükseltmeleri
+Charm = Tılsım
+Charm Design = Tılsım Tasarımı
+Desert Trial = Bozkır İmtihanı
+Dreadwolf = Korkunç Kurt
+Alliance Banner = İttifak Sancağı
+Durability = Sağlamlık
+Garrisoned Governor = Garnizondaki Şef
+Not garrisoned = Garnizonda değil
+Defender Squad = Savunmacı Ekip
+No reinforcements to show = Takviye birlikler yok
+Dispatch Troops = Birlik Gönder
+Updates in = …sonra güncellenecek
+Event details = Etkinlik detayları
+Personal Ranking = Kişisel Sıralama
+Alliance Ranking = İttifak Sıralaması
+Countdown to Event Start = Etkinlik Başlangıcı Geri Sayımı
+Even more rewards = Daha da çok ödül
+Only leaders and R4+ can enable = Sadece ittifak liderleri ve R4 veya üstü rütbeli üyeler etkinleştirebilir
+Viking Vengeance = Viking İntikamı
+Vikings = Vikingler
+Defense Points = Savunma Puanları
+Successful defense = savunmayı başarıya ulaştırır
+Reinforce allies = müttefikleri güçlendir
+Kills = öldürdüğün birim sayısı
+Event Rules = Etkinlik Kuralları
+Event difficulty = etkinlik zorluğu
+Alliance HQ = İttifak Karargahı
+[Plains] HQ = Çayır Karargahı
+[Badland] HQ = Çoraktoprak Karargahı
+Expedition Skills = Sefer Yetenekleri
+Wilderness map = Yaban haritası
+Shield Strike = Kalkanlı Darbe
+Upgrade Preview = Yükseltme Önizlemesi
+Damage Up = Hasar Artışı
+Enemy Damage Taken Up = Düşmanın Aldığı Hasarın Artışı
+Level maxed! = Son seviyede!
+Beasts = Hayvanlar
+Terror = Dehşet
+Bread = Ekmek
+Search = Ara
+Auto Hunting = Otomatik Av
+Max opponent: Lv.28 Beasts = Maks rakip: Sv.28 Hayvanlar
+Hunting Trap 2 = 2. Av Tuzağı
+On cooldown = Beklemede
+My City = Şehrim
+More (march list) = Daha
+Wood = Odun
+Stone = Taş
+Iron = Demir
+Great Mill = Büyük Değirmen
+Great Sawmill = Büyük Odun Fabrikası
+Great Quarry = Büyük Taş Ocağı
+Great Iron Mine = Büyük Demir Madeni
+Mill = Değirmen
+Sawmill = Odun Fabrikası
+Iron Mine = Demir Madeni
+Quarry = Taş Ocağı
+Secured Alliance Node = Korumalı İttifak Toplama Noktası
+Armory = Cephanelik
+Eternity's Reach = Sonsuzluğun Erişimi
+Explore the Eternity's Reach for strategic resource—Copper Ores! = Stratejik kaynak olan Bakır Cevherleri için Sonsuzluğun Erişimi'ni keşfet!
+Copper Ore = Bakır Cevheri
+Sign up and battle on the same day = Aynı gün kaydol ve savaş
+Registration closes in = Kayıt bitişi:
+Sign up now = Şimdi kaydol
+Overview (button) = Özet
+Rewards (button) = Ödüller
+Guide (button) = Kılavuz
+Historical Ranking = Tarihsel Sıralama
+Overview (dialog tab) = Özet
+Buildings (dialog tab) = Binalar
+Other (dialog tab) = Diğer
+Lv. 1 Vein = Sv. 1 Damar
+Lv. 2 Vein = Sv. 2 Damar
+Lv. 3 Vein = Sv. 3 Damar
+Fracture Vein = Çatlak Damar
+Peak of Eternity = Sonsuzluğun Zirvesi
+Capacity = Kapasite
+Speed = Hız
+View Rewards = Ödülleri Gör
+Cesares Guards = Cesares Muhafızları
+Academy = Akademi
+Truegold = Hasaltın
+Rare Hero Shard = Ender Kahraman Parçası
+Epic Hero Shard = Epik Kahraman Parçası
+Mythic Hero Shard = Mitik Kahraman Parçası
+Hero Gear Forgehammer = Kahraman Donanımı Demirci Çekici
+Hero Shard = Kahraman Parçası
+Widget = Alet
+Hero Exclusive Gear = Kahraman Özel Donanımı
+Pet advancement = Pet ilerletme puanı
+Advanced Taming Marks = Gelişmiş Evcilleştirme İşareti
+Common Taming Marks = Sıradan Evcilleştirme İşareti
+War Academy = Savaş Akademisi
+Medical Satchel = Tıbbi Çanta
+Rescue Order = Kurtarma Emri
+Kingdom of Power = En Güçlü Krallık
+Overview (event info window) = Özet
+Matchmaking Phase = Eşleştirme Evresi
+Preparation Phase = Hazırlık Evresi
+Battle Phase = Savaş Evresi
+Field Triage Phase = Yaralı Sınıflandırma Evresi
+Cross-Kingdom Battle Phase = Krallıklar Arası Savaş Evresi
+Cross-Kingdom Castle Battle = Krallıklar Arası Şato Savaşı
+High King = Yüce Kral
+Kingdom Bonus = Krallık Bonusu
+Cross-Kingdom Teleport = Krallıklar Arası Işınlanma
+Rally Captain = Seferberlik Önderi
+Position perks = konum avantajları
+Phase Rewards = Evre Ödülleri
+Ranking (rewards section) = Sıralama
+Total Point Ranking = Toplam Puan Sıralaması
+Victory Rewards = Zafer Ödülleri
+Squads' Lethality (turret bonus) = Ekiplerin Öldürücülüğü
+Raise Pet Advancement score = Pet İlerletme puanını artır
+Pet Refinement = Pet Arıtma
+Pet Advanced Refinement = Pet Gelişmiş Arıtma
+Raise Governor Charm max score = Vali Tılsımı maksimum puanını artır
+Raise Governor Gear max score = Vali Donanımı maks puanını artır
+Use Forgehammers on gear = Donanımlarda Demirci Çekiçleri kullan
+Use Exclusive Gear Widgets of any heroes = Herhangi bir kahramanın Özel Donanım Aletlerini kullan
+Use Truegold = Hasaltın kullan
+Use Mithril = Mithril kullan
+Use Speedups for Construction = İnşaat için Hızlandırmalar kullan
+Use Speedups for Tech Research = Teknoloji Araştırması için Hızlandırmalar kullan
+Use Speedups for Soldier Training = Asker Eğitimi için Hızlandırmalar kullan
+Train or Promote Soldiers = Askerleri Eğit veya Terfi ettir
+Play Hero Roulette = Kahraman Ruleti oyna
+Use Hero Shards to ascend (excluding General Shards) = Yükselmek için Kahraman Parçaları kullan (Genel Parçalar hariç)
+Complete Watchtower Intel Missions = Bekçi Kulesi Bilgisi Görevlerini tamamla
+Gather resources on the World Map = Dünya Haritasında kaynak topla
+Fishing Tournament = Balık Avı Turnuvası
+Guide (Fishing tab) = Kılavuz
+Trial Stages = Deneme Aşamaları
+Fishing Techniques = Balık Avı Teknikleri
+Tokens and Points = Jetonlar ve Puanlar
+Fishing Points = Balık Avı Puanı
+Fishing Tokens = Balık Avı Jetonu
+Fishing Guild = Balık Avı Loncası
+Master Fisher Leaderboard = Usta Balıkçı Liderlik Tablosu
+Fishing Kit = Balık Avı Kiti
+Kit Enhancement = Kit Geliştirme
+Line = Misina
+Hook = Kanca
+Sinker = Kurşun
+Sunken Treasure Hunt = Batık Hazine Avı
+Fishing Stage = Balık Avı Aşaması
+Regular Fishing = Normal Balık Avı
+Ocean Prospector = Okyanus Kaşifi
+Bait = Yem
+Treasure Chart = Hazine Haritası
+Ocean Chest = Okyanus Sandığı
+Special Items = Özel Öğeler
+Fishing Voucher = Balık Avı Kuponu
+Horn of the Tide = Gelgit Boynuzu
+Reel = Makara
+Ocean Scanner = Okyanus Tarayıcı
+Lantern = Fener
+Fish / Mermaid / Chest / Memorabilia = Balık / Deniz Kızı / Sandık / Hatıra
+Struggling Mermaid = Yardıma Muhtaç Deniz Kızı
+Star Rating Rewards = Yıldız Derecesi Ödülleri
+Guide Completion Rewards = Kılavuz Tamamlama Ödülleri
+Power Cast = Güçlü Olta Atma
+Fishing Probability Guide = Balık Avı Olasılık Kılavuzu
+Fishing Pro / Fishing Master = Balık Avı Uzmanı / Balık Avı Ustası
+Fishing Token Bonuses = Balık Avı Jetonu Bonusları
+Fishing Point Bonuses = Balık Avı Puanı Bonusları
+Retreat = Geri Çekil
+Continue = Devam Et
+Tri-Alliance Clash = Üçlü İttifak Çarpışması
+Battle Prerequisites = Savaş Ön Koşulları
+Battle Rules = Savaş Kuralları
+Voting / Registration / Matchmaking / Battle = Oylama / Kayıt / Eşleştirme / Savaş
+Power Leaderboard = Güç Lider Tablosu
+Deployment page = Konuşlandırma sayfası
+Preparations = Hazırlıklar
+Seize & Conquer = Ele Geçir ve Fethet
+Garrison Occupation = Garnizon İşgali
+Temple Onslaught = Tapınağa Hücum
+Energy = Enerji
+Deploy / Conscript / Advance / Retreat / Instantly revive = konuşlandırmak / görevlendirmek / ilerletmek / geri çekmek / anında diriltmek
+Captain (Tri-Alliance) = Önder
+Temple of Tides = Gelgitler Tapınağı
+Headquarters = Karargahlar
+Garrisons = Garnizonlar
+Cluster of Ruins = Harabeler Kümesi
+Ruins = Harabeler
+Transit Hub = Transit Merkezi
+Pillars = Sütunlar
+Neutral buildings = tarafsız binalar
+Alliance Ranking Rewards = İttifak Sıralaması Ödülleri
+Personal Ranking Rewards = Kişisel Sıralama Ödülleri
+Personal Merits = Kişisel Liyakat
+Auto-advance = oto-ilerleme
+Tidal Stone = Gelgit Taşı
+Tidal Shop = Gelgit Mağazası
+Mystic Trial = Mistik İmtihan
+Story = Hikâye
+Expedition Stats = Sefer Nitelikleri
+Coliseum = Kolezyum
+Forest of Life = Yaşam Ormanı
+Crystal Cave = Kristal Mağara
+Knowledge Nexus = Bilgi Noktası
+Molten Fort = Erimiş Kale
+Radiant Spire = Parlayan Kule
+Squad Config = Ekip Yapılandırması
+Trial Explorers = İmtihan Kaşifleri
+Soldiers = Askerler
+Deployment capacity = konuşlanma kapasitesi
+Challenge Attempts = Mücadele Hakları
+First Win Rewards = İlk Zafer Ödülleri
+Raid Rewards = Yağma Ödülleri
+Stage Reset = Aşama Sıfırlama
+Raid = Yağmala
+Stage (trial level) = aşama
+Zone = bölge
+Mystic Trial Leaderboard = Mistik İmtihan Liderlik Tablosu
+Pet Skills = Pet Yetenekleri
+Governor Charm = Vali Tılsımı
+Tech = Teknoloji
+Truegold Tech = Hasaltın Teknolojisi
+Skins = Görünümler
+Oasis Island = Vaha Adası
+VIP level = VIP seviyesi
+Current Level = Mevcut Seviye
+VIP Benefits = VIP Avantajları
+Resource Production Speed = Kaynak Üretim Hızı
+Storehouse Capacity = Ambar Kapasitesi
+Construction Speed = İnşaat Hızı
+VIP Daily Free Bundle = Günlük Ücretsiz Paketi
+VIP Special Pack = Özel Paketi
+Purchase limit: 1 = Satın alım sınırı: 1
+Power (alliance info) = Güç
+Members = Üyeler
+Language = Dil
+All languages = Tüm diller
+Maxed = Maksimumda
+War = Savaş
+Chests = Sandıklar
+Territory = Bölge
+Battle = Çarpışma
+Shop (alliance) = Mağaza
+Tech (alliance) = Teknoloji
+Power (ranking button) = Güç
+Help = Yardım
+Triumph = Zafer
+Rebel Bounty: Elite = İsyancı Ödülü: Seçkin
+Intel Mission = Bilgi Görevi
+Quality = Kalite
+Max Count = Maks. Sayı
+Refreshes In = Yenilenme
+Barricade = Barikat
+Conquerors' Camp = Fatihler Kampı
+Court of Justice = Adliye
+Infirmary = Revir
+Enlistment Office = Görevlendirme Ofisi
+Storehouse = Ambar
+Defense Tower = Savunma Kuleleri
+Beast Cage = Hayvan Kafesi
+Covenant-Making = Antlaşma
+Permanent Alliance Tech Contributions = Kalıcı İttifak Teknoloji Katkıları
+Contribution Rewards = Katkı Ödülleri
+Contribute = Katkı Yap
+Attempts = Deneme
+Alliance Token = İttifak Jetonu
+Arena of Glory = Şan Arenası
+Season ends in = Sezonun bitmesine
+Ranking = Sıralama
+Governor = Vali
+Arena Points = Arena Puanı
+Challenge = Mücadele Et
+History = Geçmiş
+Def. Lineup = Sav. Düzeni
+Daily = Günlük
+Growth = Büyüme
+Carry out N Intel Mission(s) = N Bilgi Görevi yap
+Heal N injured soldiers = N yaralı askeri iyileştir
+Upgrade N building(s) = N bina yükselt
+Defeat Terror N time(s) = Dehşeti N kez yen
+Complete Daily Missions = Günlük Görevleri Tamamla
+Get More = Daha çok al
+Water Essence = Su Özü
+Fountain of Life = Yaşam Pınarı
+Reservoir = Rezervuar
+Island Treasure = Ada Hazinesi
+Assist Allies = Müttefiklere Yardım Et
+Purifier = Arıtıcı
+Cacti = Kaktüs
+Weekly Benefits Card = Haftalık Avantaj Kartı
+Hall of Heroes = Kahraman Salonu
+Intel Monthly Card = Aylık Bilgi Kartı
+Remaining = Kalan
+Expiring = Süresi bitiyor
+Gathered = Toplandı
+Time Left = Kalan Süre
+Gathering Speed = Toplama Hızı
+Gathering Squad = Toplama Ekibi
+Gather = Topla
+Pet Adventure = Evcil Hayvan Macerası
+Governor Stamina = Şef Enerjisi
+Treasure spot = hazine noktası
+Personal Treasure = kişisel bir hazine
+Ally Treasure = paylaşılabilir bir müttefik hazinesi
+Nomadic Merchant = Göçebe Tüccar
+Mystery (shop) = Gizem
+Arena (shop) = Arena
+VIP (shop) = VIP
+Alliance Championship Shop = İttifak Şampiyonası Mağazası
+Swordland (shop) = Kılıçdiyarı
+Kingdom of Power (shop) = En Güçlü Krallık
+Skin (shop) = Görünüm
+Trial Shop = İmtihan Mağazası
+Gem (shop) = Elmas
+Trial Crystal = İmtihan Kristali
+Refresh = Yenile
+Sold out = Tükendi
+Exclusive Item = Özel Öge
+Today = Bugün
+Week = Hafta
+Gen 2 Custom Hero Widget Chest = 2. Nesil Özel Kahraman Aleti Sandığı
+Custom Mythic Hero Gear Chest = Özel Mitik Kahraman Donanımı Sandığı
+Mythic Hero Gear = Mitik Kahraman Donanımı
+Transfer Pass = Transfer Bileti
+Kingdom Transfer = Krallık Transferi
+Sources = Kaynak
+Buy Packs = Paket Satın Al
+City Skin = Şehir Görünümü
+House of Cacti (Permanent) = Kaktüs Evi (Kalıcı)
+In Wilderness = Yaban Görünümü
+Preview = Önizleme
+Stat Bonus (Activated upon Acquisition) = Nitelik Bonusu (Edinildiğinde Etkinleştirilir)
+Squads' Attack = Ekiplerin Saldırısı
+Alliance Mobilization = İttifak Harekatı
+Event Period = Etkinlik Süresi
+Participation Requirement = Katılım Şartı
+Obtain Points = Puan Kazanımı
+Alliance Points = İttifak Puanı
+Refresh Event Mission = Etkinlik Görevini Yenileme
+Exclusive mission = özel görev
+Public mission = herkese açık görev
+Abandon Event Mission = Etkinlik Görevini İptal Etme
+Custom Mission Voucher = Özel Görev Kuponu
+Ranking Display Phase = Görüntüleme Aşaması
+League Overview = Lig Genel Bakış
+League Event = Lig Etkinliği
+League Tier Ranking = Lig Kademe Sıralaması
+Rookie (league tier) = Çaylak
+Junior (league tier) = Ast
+Senior (league tier) = Kıdemli
+Elite (league tier) = Seçkin
+Legendary (league tier) = Efsanevi
+Milestone (promotion level) = Eşik noktası
+Tier Demote = Kademe Düşürme
+Ranking Rule = Sıralama Kuralı
+Note (rules) = Not
+Champagne Fair = Şampanya Fuarı
+Fair Vouchers = Fuar Kuponları
+Hero Rally = Kahraman Seferberliği
+Governor Order = Vali Kararı
+Urgent Mobilization = Acil Harekat
+Rush Job = Acil İş
+Comprehensive Care = Kapsamlı Bakım
+Double Time = Çifte Mesai
+Productivity Day = Üretkenlik Günü
+Festivities = Şenlikler
+Active = Aktif
+Ground Works = Zemin Çalışmaları
+Kingdom of Power Bonus = En Güçlü Krallık Bonusu
+Residents continue working = Yurttaşlar çalışmaya devam eder
+Research Speed = Araştırma Hızı
+Appointment = Atama
+Ministers (tab) = Bakanlar
+Offender (tab) = Suçlu
+The King may appoint Ministers = Kral, Bakanlar atayabilir
+Chief Minister = Başbakan
+Minister of Justice = Adalet Bakanı
+Minister of the Interior = İçişleri Bakanı
+Field Commander = Saha Komutanı
+Marshal = Mareşal
+Noble Advisor = Asil Danışman
+Not Appointed = Kimse Atanmadı
+Reserved = Rezerve Edildi
+Appointed in = Atanma zamanı
+At Max Level & Stars = Maks Seviye ve Yıldız Derecesi
+Hero Attack = Kahraman Saldırısı
+Hero Defense = Kahraman Savunması
+Hero Health = Kahraman Sağlığı
+Expedition = Sefer
+Infantry Attack = Piyade Saldırısı
+Infantry Defense = Piyade Savunması
+Cavalry Attack = Süvari Saldırısı
+Cavalry Defense = Süvari Savunması
+Master Academy = Usta Akademisi
+Master List = Usta Listesi
+Master Stats = Usta Nitelikleri
+Max Affinity Stats = Maks. Yakınlık Nitelikleri
+Talent = Yetenek
+Reach 1000 Affinity and the Master will settle in the Town. = 1000 Yakınlığa ulaştığında Usta Şehre yerleşecektir.
+Relationship Advancement = İlişki İlerlemesi
+Relationship Advancement Preview = İlişki İlerlemesi Önizlemesi
+Expertise Level Up = Uzmanlık Seviyesi Artışı
+Raise Master Affinity to upgrade Status = Durumu yükseltmek için Uzman Yakınlığını artır
+Stranger = Yabancı
+Acquaintance = Tanıdık
+Casual = Sıradan
+Close = Yakın
+Kindred Soul = Ruh Eşi
+Squads' Defense = Ekiplerin Savunması
+Reserve Chests = Yedek Sandık
+Palace Administrator = Saray Yöneticisi
+Bear Hunter = Ayı Avcısı
+Bear Hunt Damage Points (effective for self only) = Ayı Avı Hasar Puanı (yalnızca kendi için geçerlidir)
+Arena Champion = Arena Şampiyonu
+Arena Star Chest = Arena Yıldızı Sandığı
+Arena Token = Arena Jetonu
+Master's Manuscript = Uzmanın El Yazması
+General Master Emblem = Genel Usta Amblemi
+Achievements = Başarılar
+Realm Journey = Krallık Yolculuğu
+Journey = Yolculuk
+Frontier Encounter = Sınır Karşılaşması
+Next Stop = Sonraki Durak
+Idle = Boşta
+Auto = Oto.
+Known Masters = Bilinen Ustalar
+Savage Advantage = Vahşi Avantaj
+Leader By Example = Örnek Lider
+Weapon Obsession = Silah Takıntısı
+Dance of the Hunt = Av Dansı
+Falconer = Doğancı
+Good Steward = İyi Kâhya
+Master Architect = Usta Mimar
+Ways and Means = Yollar ve Yöntemler
+Teacher of Champions = Şampiyonların Hocası
+Winner Take All = Kazanan Hepsini Alır
+Crowd Favorite = Seyircilerin Gözdesi
+One Desire = Tek Arzu
+Mystery Badge = Gizem Rozeti
+Journey Supplies = Yolculuk Malzemeleri
+Adventure Supply = Macera Tedariki
+Lostlands = Kayıp Diyarlar
+Master Emblem = Usta Amblemi
+Gray Wolf = Gri Kurt
+Lynx = Vaşak
+Bison = Bizon
+Cheetah = Çita
+Moose = Geyik
+Lion = Aslan
+Grizzly Bear = Boz Ayı
+Construction Aide = İnşaat Yardımcısı
+Comforting Embrace = Rahatlatıcı Dokunuş
+Grip of the Titan = Titanın Eli
+Scent Mastery = Koku Ustalığı
+Horror Stare = Korku Bakışı
+Gift of the King = Kralın Hediyesi
+The Howler = Korkunç Kükreme
+Pet Skill = Pet Yeteneği
+Skill Effect = Yetenek Etkisi
+Cooldown (Pet Skill) = Bekleme
+On Cooldown = Beklemede
+Pet List = Evcil Hayvan Listesi
+Display = Görüntüle
+Advance = İlerlet
+Refine = Geliştir
+X Overall Stats = Genel X Nitelikleri
+Pet Food = Evcil Hayvan Maması
+Infantry Lethality = Piyade Öldürücülüğü
+Infantry Health = Piyade Sağlığı
+Cavalry Lethality = Süvari Öldürücülüğü
+Cavalry Health = Süvari Sağlığı
+Archer Lethality = Okçu Öldürücülüğü
+Archer Health = Okçu Sağlığı
+Abbey = Manastır
+Sanctuary = Tapınak
+Governor Charm = Şef Tılsımı
+Intel Missions = İstihbarat Görevleri
+Medical Satchels = Tıbbi Çanta
+Rescue Orders = Kurtarma Emri
+use = kullan
+okay if needed = gerekirse uygun
+don't use = kullanma
+need to do daily = her gün gerekli
+Conscript = görevlendirmek
+neutral buildings = tarafsız binalar
+Deploy = Konuşlandırmak
+Advance = İlerletmek
+Instantly revive = Anında diriltmek
+Learning Speedups = Öğrenme Hızlandırmaları
+Mystery Badges = Gizem Rozeti
+House of Cacti = Kaktüs Evi
+Master Emblems = Usta Amblemleri
+Mystery Shop = Gizem
+Arena Shop = Arena
+VIP Shop = VIP
+Swordland Shop = Kılıçdiyarı
+Kingdom of Power Shop = En Güçlü Krallık
+Skin Shop = Görünüm
+Gem Shop = Elmas
+Alliance Shop = Mağaza
+Pets = Pet

@@ -1,0 +1,1664 @@
+### GUIDE #viking-vengeance — 維京人的掠奪
+活動時間
+每 2 週一次——第 1 天與第 3 天各進行一場，每場 30 分鐘。由幹部安排時間，通常接近狩獵巨熊的時段。
+📌 準備工作
+清空你的城鎮
+把所有步兵和騎兵派出去增援盟友。
+多出來的弓兵可以留在家裡——不會搶走增援積分。
+就算活動期間你不在線，也要先清空城鎮！這樣你仍然能得分，同時也讓其他成員有機會透過增援你來得分。
+把最強的 3 名英雄留在家
+把你最強的 3 名防守／進攻英雄留在你的防衛所。
+免費： 潔貝爾 / 霍華德 / 奎恩
+課金： 阿瑪迪斯 或 赫爾加 / 潔貝爾 / 薩洛
+不要治療
+治療後的部隊會回到家中，並可能搶走增援你的成員的擊殺／積分。
+優先照顧在線成員
+優先增援在線的成員。第 7、14、17 波只會攻擊在線的玩家。
+⚔️ 增援盟友
+在第一個位置使用你在狩獵巨熊中當參與者（joiner）的英雄，以取得最高的擊殺積分。
+推薦： 琴科 / 雨音 / 妍羽 / 阿瑪迪斯
+增援行軍中請避免使用霍華德或戈登這類防守型英雄。
+🏛️ 總部——第 10 與第 20 波
+第 10 與第 20 波只會攻擊總部。這兩波期間，城鎮不會受到攻擊。
+第 9／19 波結束後：
+召回一支強力行軍。
+直接派往總部。
+每位成員最多 68K 兵力。
+第一個位置使用琴科或阿瑪迪斯，或你最強的純輸出英雄。
+總部這波結束後，召回並回去繼續增援你被分配到的成員。
+⚠️ 重要： 第 10 波或第 20 波，你只能選其中一波增援總部——不能兩波都增援。
+請與 R4／R5 協調，讓每個人都輪得到，並有效率地填滿總部。
+
+### GUIDE #master-academy — 第3代大師學院指南
+開放時間
+第3代於 9/28 開放，城鎮中心 25 級解鎖大師學院。大師提供永久的帳號被動加成、額外資源和活動獎勵，和英雄是分開的系統。
+解鎖方式
+第一位大師一定是維拉，透過一般的荒野冒險就會遇到。
+免費冒險物資：UTC 00:00 自動補 20 個，08:00 和 16:00 各有 10 個要手動領取，每天共 40 個。另外每天最多可用鑽石加買 20 個（每 5 個 1,000 鑽石）。存量滿了就不會再補，記得定期使用。
+不要把征程補給用在維拉身上——每天免費的冒險物資就會自然解鎖她。
+把征程補給存起來，等發現潘和羅曼後在遺忘之地使用。
+好感度達到 1,000，大師就會進駐城鎮。
+無課與小課玩家的優先順序
+潘 ➔ 維拉 ➔ 羅曼
+1. 潘——經濟型大師（最優先）
+把潘練到 Lv. 60。
+天賦：每採集 120 分鐘獲得 5 個儲備寶箱（每日上限 30）——免費的黃金、鑽石和加速。
+技能 1 獵鷹偵查：每天多 8 個情報事件→ 每天大量免費黃金。
+技能 4 特殊管道：完成每日任務多得 120 個神秘徽章，神秘商店免費更新多 4 次 → 買折扣零件。
+🔗 詳細資料： https://kingshotoptimizer.com/masters/pan/
+2. 維拉——狩獵巨熊的裝備材料
+練到 Lv. 30（點頭之交3／志同道合1）。
+技能 2 經驗傳承：每次狩獵巨熊多 5 個 100 點強化經驗值。
+技能 3 武器專精：每次狩獵巨熊多 5 個鍛造錘。
+🔗 詳細資料： https://kingshotoptimizer.com/masters/valora/
+3. 羅曼——競技場被動
+只要解鎖他（好感度 1,000）：天賦一開始就有 50% 機率在每場競技後額外獲得競技明星寶箱（英雄碎片和鍛造錘），要升到最高才會變成 100% 機率拿 3 個。前期不用大量投入大師徽記。
+🔗 詳細資料： https://kingshotoptimizer.com/masters/roman/
+大課與集結指揮的優先順序
+維拉 ➔ 羅曼 ➔ 潘
+維拉：人數優勢和狩獵之舞練滿，衝排行榜高分。
+狩獵之舞（技能 1）：發動暴怒巨熊集結時，整個集結的部隊容量上限每級 +30,000（10 級 +300,000），能讓更多盟友的部隊加入。
+人數優勢（技能 4）：參與狩獵巨熊時，自己的出征部隊容量上限每級 +3,000（10 級 +30,000）。
+羅曼：勇者無懼和萬眾矚目（競技場戰鬥攻擊力與生命值 +20%）、享受勝利（每日／每週結算競技幣獎勵 +50%）、邁向榮耀（競技商店多 3 個 5 折商品）。
+潘：第二順位升級，拿被動黃金。
+ℹ️ 技能 1 狩獵之舞提升的是自己發動的整個集結容量；技能 4 人數優勢只增加自己的部隊，整體集結能裝多少還是看發動的人能開多少。
+💬 荒野冒險問答獎勵
+以下內容根據上面這個網站整理。遇到事件時，請依事件的顏色和內容查看：先點顏色或人物／關鍵字，再點事件，就能看到哪個選項最好（✅）。
+
+### GUIDE #general-tips — 通用小技巧
+🔗 實用資源
+🗓️ 王國時間軸
+查看接下來的時程，提前規劃活動、升級與資源。
+⚔️ 英雄裝備規劃工具
+規劃英雄裝備升級，避免浪費珍貴材料。
+🎥 YOUTUBE – STRAT GAME SLOTH
+推薦的攻略影片、遊戲技巧與養成建議。
+🛒 遊戲內商店
+各商店優先購買什麼最划算。
+🐪 流浪商人
+高級遷城（用資源購買／免費）
+划算的資源交換
+折扣VIP經驗值
+🎲 神秘商店
+每日免費更新
+第2代英雄零件客製化箱子 5折時購買
+8折只在急需時才買
+🏟️ 競技商店
+每週買傳說英雄裝備客製化箱子 → 主力英雄的傳說裝備基礎完成後改買秘銀
+👑 VIP商店
+鑽石只挑折扣商品買：高級遷城 • 100 強化經驗值 • 鍛造錘
+🏆 爭霸賽商店
+解鎖大師學院前： 設計圖紙 • 視需要買金絲線／進貢綢緞
+解鎖後： 大師徽記是第一優先 — 後期請把代幣留給它
+⚔️ 聖劍商店
+設計圖紙 → 接著買你的瓶頸材料：領主寶石／領主裝備材料 • 鍛造錘
+🏰 最強王國商店
+黃金 — 長期養成的主要瓶頸
+🎨 裝扮商店
+優先買有永久屬性加成的，例如仙人掌小屋：部隊攻擊力 +2%
+🧪 試煉挑戰商店
+解鎖Truegold Dust前： 先存試煉晶石
+之後： Truegold Dust → 秘銀 → 強化經驗值 → 寶石圖紙
+💎 鑽石商店
+只在重要的養成關卡或難取得的材料上使用鑽石。
+拿不定主意時：先存鑽石。 請看下方的鑽石使用指南。
+🤝 聯盟商店
+移民授權書 • VIP經驗值 • 寵物食物／材料 • 高級遷城 • 實用的3折商品 • 聯盟幣有剩時才買加速
+💎 鑽石使用指南
+把鑽石留給：
+1) 🎡 英雄轉盤 → 約162,000鑽石可轉120次
+2) 👑 VIP啟用 → 每月10,000鑽石（VIP 4以上）
+🏛️ 英雄殿堂 → 約13,500–14,850鑽石，只在還沒解鎖馬林時才買。 解鎖後就停，之後用通用碎片升級更划算。
+✅ 每日清單
+☀️ 上線時
+☐ 🎁 領取VIP寶箱＋使用VIP經驗值
+☐ 🤝 聯盟互助＋聯盟科技捐獻
+☐ 📊 使用英雄經驗道具
+☐ ⚔️ 派兵討伐（討伐小隊營地）
+☐ 🔎 完成情報事件
+☐ 🏝️ 收集島上的生命之水＋協助盟友
+☐ 🔮 用完秘境試煉的次數
+☐ 📋 完成每日任務
+☐ 🏟️ 在重置前3分鐘打萬國競技場
+☐ 🐻 狩獵巨熊 — 每兩天一次＋更新部隊編組
+☐ 📅 報名並參加進行中的活動
+🌙 下線前
+☐ 🐉 派寵物去寵物尋寶
+☐ 🌾 派出採集部隊
+☐ ⚔️ 保持部隊訓練不中斷
+☐ 🔬 視需要保持研究／建造進行中
+
+### GUIDE #mystic-trial — 秘境試煉
+開放時間
+每天開放。每個區域每天可挑戰 5 次，於 00:00（UTC+0）重置；開放的區域依星期而定。
+為什麼重要
+英雄碎片、英雄經驗與其他養成資源的重要來源。
+試煉區域
+角鬥賽場
+週一、週二
+⚔️ 步兵 50% · 騎兵 10% · 弓兵 40%
+⚔️ 步兵 60% · 騎兵 15% · 弓兵 25%
+只有英雄、英雄裝備和英雄專屬裝備的屬性生效。
+生命森林
+週三、週四
+⚔️ 步兵 50% · 騎兵 15% · 弓兵 35%
+⚔️ 步兵 55% · 騎兵 10% · 弓兵 35%
+只有寵物屬性生效。
+寵物技能預設生效（主動使用技能效果不疊加）。
+水晶礦洞
+⚔️ 步兵 60% · 騎兵 20% · 弓兵 20%
+⚔️ 步兵 55% · 騎兵 5% · 弓兵 40%
+只有領主寶石的屬性生效。
+知識樞紐
+週五、週六
+⚔️ 步兵 50% · 騎兵 20% · 弓兵 30%
+只有學院以及戰爭學院的科技屬性生效。
+若已解鎖更高等級的士兵科技，可使用更高等級的士兵。
+熔岩要塞
+⚔️ 步兵 50% · 騎兵 18% · 弓兵 32%
+只有領主裝備的屬性生效。
+輝光尖塔
+週日
+英雄、英雄裝備、英雄專屬裝備、寵物（寵物技能預設生效）、領主寶石、科技、黃金科技、領主裝備、裝扮、綠洲島以及VIP等級、建築提供的屬性都將生效。
+使用自己的部隊，不影響野外的部隊調度，士兵也不會受傷。
+其他五個區域由試煉探險隊提供 10 級士兵，專心提升該區域需要的屬性即可。通過區域的 1–10 關後可解鎖關卡掃蕩。
+
+### GUIDE #pet — 寵物
+🔧 寵物技能（非戰鬥）
+🔹 灰狼 – 建造助手：建造與升級速度提升，持續 5 分鐘
+🔹 猞猁 – 安撫心靈：立刻恢復領主體力
+🔹 野牛 – 巨力：下一次野外資源採集瞬間完成（聯盟安全採集點不生效）
+🔹 獵豹 – 敏銳嗅覺：立即獲得寵物口糧
+🔹 獅子 – 獅王贈禮：挖出遺失的寶物（例如鍛造錘、黃金、寶石與裝備材料）
+⚔️ 寵物技能（戰鬥）
+🔹 駝鹿 – 恐怖凝視：敵方部隊生命值降低，持續 2 小時
+🔹 棕熊 – 恐怖咆哮：發動急襲時行軍速度提升，敵方部隊殺傷力降低，持續 2 小時
+📍 ⚔️ 寵物技能在哪裡有效？
+✅ 野獸、叛軍、巨獸集結、恐狼 — 有效
+❌ 狩獵巨熊 — 降低敵方屬性的效果無效（巨熊沒有血條）
+👑 集結：只有發起人的 ⚔️ 寵物技能會生效
+完整攻略： https://kingshotmastery.com/guides/kingshot-pet-guide
+ℹ️ 內容太長無法翻譯，請大家自行點進連結查看。
+
+### GUIDE #install-app — 如何下載成應用程式
+安全嗎？
+這不是下載的程式（不是 APK），只是把這個網站存到主畫面，跟平常用 Safari/Chrome 看網頁一樣在瀏覽器裡執行。
+不會要求任何權限：不用相機、聯絡人、位置、檔案或通知。
+隨時可以刪除：長按圖示就能像一般 App 一樣移除。
+iPhone / iPad
+用 Safari 打開這個網站（其他瀏覽器無法安裝）。
+點下方的「分享」按鈕（方框加向上箭頭）。
+點 View More（⌄ 按鈕）展開完整選單；較舊的 iOS 版本直接往下滑即可。
+點 加入主畫面。
+保持 Open as Web App（以網頁 App 開啟）開啟，再點 加入。
+主畫面就會出現 NXS 圖示。
+Android
+1. 用 Chrome 打開這個網站。
+2. 點右上角的 ⋮。
+3. 點 安裝應用程式（或 加到主畫面），再點 安裝。
+小提醒
+桌面會出現 NXS 圖示，打開是全螢幕，就像 App 一樣。
+第一次打開時選好語言，之後會自動記住；點 🌐 可以更換。
+看過的頁面沒有網路也能看。
+內容會自動更新，不需要重新安裝。
+按鈕名稱可能因手機和系統版本略有不同。
+
+### GUIDE #bear-hunt — 狩獵巨熊
+🆕 第 3 代更新
+集結隊長：最佳 — 赫爾加 + 小佩拉 + 馬林（10:20:70），前提是赫爾加已 5★ + 零件滿級。替代 — 阿瑪迪斯 + 小佩拉 + 馬林（20:30:50）。F2P — 佐伊 + 小佩拉 + 奎恩（20:40:40）。
+參與者優先派出：琴科、妍羽、阿瑪迪斯、雨音（固定殺傷力加成）。
+⚠️ 同一個集結只能派一位：馬林、佐伊、耶格爾、小佩拉 — 機率觸發的傷害不會疊加。
+詳細內容請往下看 ↓
+時間
+每 2 天，依聯盟排定的時間進行。
+重要性
+英雄裝備材料（鍛造錘）與強化經驗值的主要來源。
+準備事項
+每次狩獵巨熊前更新部隊編組。
+可選擇：使用 https://frakinator.streamlit.app 測試士兵比例，找出最強部隊編組。
+活動開始前記得召回採集中的部隊。
+切記：在最後 5–7 分鐘，所有人都應發起集結。這樣能讓部隊返回的玩家有更多集結位可加入，進行最後的傷害衝刺。
+集結指揮
+⚠️ 規定：自己發起的集結用最大部隊容量；但加入別人的集結時，也必須遵守剛好 90,000 人的限制。活動開始時，主要集結隊長依照分配好的錯開時間發出第一次集結。
+第 1 代
+第 2 代
+第 3 代
+第 4 代
+第 5 代
+多數情況步兵最強，因阿瑪迪斯數值高；弓兵稍多的平均編組效果最好。
+適合尚未抽到阿瑪迪斯的玩家，同時讓阿瑪迪斯保留給集結。
+免費玩家建議永遠用手上最強的三位英雄擔任指揮。
+馬林能大幅提升傷害，因為擁有集結專屬裝備（殺傷力加成）；步兵固定用阿瑪迪斯或赫爾加。
+若馬林不夠強可換成奎恩；赫爾加只在阿瑪迪斯未滿裝時使用。
+目前免費玩家仍無擁有集結裝備的弓兵，弓兵屬性最弱。
+滿等赫爾加（2 殺傷力＋1 攻擊）表現優於阿瑪迪斯（1 殺傷力＋2 攻擊）。
+若赫爾加尚未練滿，改用阿瑪迪斯較好。
+終於拿到第一位集結裝備英雄（小佩拉），弓兵屬性仍最低；滿級騎兵能發揮很好。如果解鎖了 T3 騎兵，小佩拉會更強，因為她的第 3 個技能和 T3 騎兵的屬性非常搭。
+盡量拉高弓兵數量，滿級弓兵尤佳；Rosa 三技能可能提升弓兵總攻擊 30%。
+若赫爾加星級裝備高於阿瑪迪斯可替代使用。
+與替代組合相同，Rosa 三技能在重弓兵編組下效果最佳。
+其餘指揮欄位尚未公布。
+集結參與者
+⚠️ 規定：所有參與者加入集結時都必須派出剛好 90,000 人，請先把出征編組存好。剩下 6:30 時，所有參與者用自己最強的 3 位英雄發起自己的集結。🔪 英雄錯誤或人數不對會被踢出，請重新加入。
+標準／安全比例：10% 步兵、10% 騎兵、80% 弓兵（也可用 20-30-50 等變化版本）
+優先派出：這些英雄提供固定殺傷力加成，是狩獵巨熊最有價值的加成。
+謹慎使用
+⚠️ 機率觸發傷害的英雄：效果很強，但不會疊加。同一個集結中只能派其中一位：馬林、佐伊、耶格爾、小佩拉。
+🔗 更多資訊： https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes
+[joiners] 琴科 | lethality | 妍羽 | lethality | 雨音 | attack | 阿瑪迪斯 | lethality
+[leaders] best | 阿瑪迪斯 | 潔貝爾 | 奎恩 | 30-30-40 | alt | 赫爾加 | 潔貝爾 | 奎恩 | 20-40-40 | f2p | 霍華德 | 潔貝爾 | 奎恩 | 30-30-40 | best | 阿瑪迪斯 | 希爾德 | 馬林 | 20-30-50 | alt | 赫爾加 | 潔貝爾 | 馬林 | 20-30-50 | f2p | 佐伊 | 潔貝爾 | 奎恩 | 30-30-40 | best | 赫爾加 | 小佩拉 | 馬林 | 10-20-70 | alt | 阿瑪迪斯 | 小佩拉 | 馬林 | 20-30-50 | f2p | 佐伊 | 小佩拉 | 奎恩 | 20-40-40 | best | 阿瑪迪斯 | 小佩拉 | Rosa | 10-10-80 | alt | 赫爾加 | 小佩拉 | Rosa | 10-10-80 | f2p | 佐伊 | 小佩拉 | Rosa | 10-10-80 | best | 阿瑪迪斯
+
+### GUIDE #swordland-showdown — 聖劍爭奪
+時間
+每 2 週一次，60 分鐘的聯盟對聯盟戰場活動。
+報名
+⚠️ 只有確定會參加才報名。 報了名卻沒出席會佔走寶貴名額，也可能影響配對。
+100% 能參加 → 送出參戰申請
+不確定 → 棄權
+主要目標
+比對方聯盟獲得更多聯盟聖契積分即可獲勝。
+佔領並守住重要建築
+保護已累積的積分
+建築易主時，立刻撿取散落的輜重
+隱蔽地窖出現時前往採集
+沒有參與集結時，就去增援附近的駐防
+不要讓部隊閒置
+不要滿地圖追殺。 隨機 PvP 會讓我們兵力分散、效率降低。適時攻擊等級較低的城池即可，並優先削弱靠近據點建築的敵人。
+建築一覽
+數字依序為：聯盟聖契積分／個人聖契積分
+首次控制
+持續佔領
+開放時間
+分鐘
+/分鐘
+最高
+高
+中
+週期性出現的採集點（共兩波）
+積分價值最高的建築
+削弱敵方持有的建築
+聯盟戰鬥增益
+高價值聯盟聖契積分
+產出聯盟聖契積分
+遷城恢復時間 -50%
+建築佔領時長 -50%
+分配區域
+R4 會在開戰前，把確定參加的成員分成小隊／區域。
+我們最強的攻擊手會先被分配到以下區域：
+🟣 紫色 — 鐘塔
+🟡 黃色 — 馬廄
+🔵 藍色 — 西北聖所
+🟢 綠色 — 東南聖所
+其餘成員會被分配去支援其中一區。視戰況可能需要輪調，請隨時關注戰場聊天頻道。
+除非幹部指示移動，否則請留在自己的區域。
+🟣 紫色區域 — 鐘塔／傭兵駐地
+🔵 藍色區域 — 西北聖所／修道院
+🟡 黃色區域 — 馬廄／修道院
+🟢 綠色區域 — 東南聖所／修道院
+⚪ 中央
+職責分工
+R4 會依戰力，把確定參加的成員分成 3 種職責：攻擊手、防守者、支援／集結參與者。
+⚔️ 1）攻擊手
+人選： 戰力最強的玩家，備有充足的高級遷城。
+任務：
+遷城到分配的區域與建築
+佔領優先建築
+單打落單的脆弱敵方城池
+主導重要集結
+防守者接手後，立刻移往下一個目標
+敵人遷城到你負責的建築附近時，鎖定較弱或暴露的城池
+🛡️ 2）防守者
+人選： 戰力次強、集結／駐防容量佳的玩家。
+跟著分配到的攻擊手（區域）
+攻擊手拿下建築後接手駐防，需要時呼叫增援
+增援受威脅的目標
+讓攻擊手能空出手前往下一個目標
+🤝 3）支援／集結參與者
+人選： 一般為戰力較低的成員與集結參與者。
+必須加入所分配防守者的集結
+增援已佔領的建築
+被要求時急行軍增援
+沒有其他需要時，待在安全區或離敵方較遠的地方
+重要： 若敵方攻下我方佔領的建築、控制權易主，立刻遷城到附近或急行軍前往，搶在對方之前撿取散落的輜重。
+開戰滿 20 分鐘後，隱蔽地窖開始出現，派出手上有空的部隊前往採集，賺取額外積分。
+不要讓部隊閒置。
+戰前準備
+清空傷兵營，確保所有部隊都可出動
+裝備你最強的英雄與裝備
+啟用部隊容量、攻擊與防禦增益，以及反偵察
+若你的職責需要，備妥高級遷城
+盡量開著 Discord（查看地圖、分配，也可選擇加入語音）
+檢查聯盟聊天與私訊
+⚠️ 重要： 開戰當天會出現新的戰場聊天分頁。整場戰鬥期間請隨時關注。
+戰鬥時間軸
+0:00–15:00
+開場
+立刻拿下
+#4 鐘塔
+#7 馬廄
+爭奪
+#8 西北聖所
+#10 東南聖所
+有餘力時可拿修道院，但不要為了修道院犧牲核心目標。
+14:30，最強的玩家準備前往中央。
+15:00
+強力建築開啟
+#1 聖劍祭壇、#2 傭兵駐地、#3 教化大廳
+幹部會依戰況指定優先順序。
+⭐ 聖劍祭壇
+最強的攻擊手／防守者遷城前往中央（不是全部）
+佔領聖劍祭壇
+拿下後由一位強力防守者駐守
+支援／集結參與者需急行軍並派出增援
+⚠️ 正在駐防的成員：除非幹部指示，否則不要為了聖劍祭壇放棄自己的建築，請繼續守護聖所與其他重要建築。
+15:00–45:00
+💪 控制階段
+主要目標：守住聖劍祭壇＋西北聖所＋東南聖所
+維持鐘塔／馬廄的有效控制
+重要交戰時善用教化大廳的增益
+用傭兵駐地對敵方建築施壓
+每次建築易主後，都要撿取散落的輜重
+增援防守薄弱的駐防點
+20:00–60:00
+⛏️ 隱蔽地窖
+隱蔽地窖開始出現。
+支援玩家與任何有空閒部隊的人，都應前往採集，賺取額外積分。
+不要為了採集而放棄重要防守或集結。
+最後 15 分鐘
+🏁 收尾
+若我方領先
+守住聖劍祭壇與聖所
+增援有累積積分的建築
+避免不必要的 PvP
+立刻回收散落的輜重
+不要冒不必要的風險
+若我方落後
+對敵方核心建築施壓
+集中攻擊前，先動用傭兵駐地
+集中集結火力，不要亂打
+鎖定敵方持有的高價值建築
+每次成功翻盤後，撿光所有掉落的積分
+最後 5 分鐘：積分 > 擊殺。
+總結
+成員分成 3 種職責並分配區域：
+攻擊手 → 佔領＋施壓
+防守者 → 守住＋保護
+支援 → 增援＋集結＋撿輜重＋採集
+遵守你分配到的區域與職責。
+隨時關注戰場聊天頻道。
+目標優先於亂打擊殺。
+攻擊手負責攻下，防守者負責守住，支援負責增援。
+有用的部隊絕不閒置。
+立刻撿取散落的輜重。
+用有空的部隊採集隱蔽地窖。
+守護聖劍祭壇與聖所。
+不要為了修道院或擊殺放棄核心建築。
+幹部呼叫輪調時，立刻移動。
+⚔️ 團結協作，贏得聖劍爭奪
+
+### GUIDE #formations-rally-tips — 部隊編組與集結技巧
+🔬 研究與升級優先順序
+研究與升級領主寶石時，請優先提升以下戰鬥屬性：
+步兵生命值
+弓兵殺傷力
+💾 儲存你的預設編組
+依照你的進度，最多可解鎖 8 個欄位，預先儲存你的部隊編組。建議儲存以下編組：
+所有兵種比例皆為 步兵 : 騎兵 : 弓兵。請為每位英雄各存一組預設，並將該英雄放在最左邊／第一個位置。
+💡 參加集結時，最左邊的英雄很重要，因為他對應的遠征技能會加成該次集結。
+1) 狩獵巨熊：琴科 — 10 : 10 : 80
+2) 狩獵巨熊：雨音 — 10 : 10 : 80（或盡量接近）
+3) 狩獵巨熊：妍羽 — 10 : 10 : 80（或盡量接近）
+4) 狩獵巨熊：阿瑪迪斯 — 10 : 10 : 80（或盡量接近）
+5) 進攻（一般 PvP）：阿瑪迪斯（若已養成）或 琴科 — 50 : 20 : 30
+6) 防守：霍華德 / 戈登 — 60 : 20 : 20 是我們的平衡預設。幹部要求特定編組時再調整。
+集結隊長： 使用你最強、最完整的進攻英雄陣容。
+集結參與者： 請遵守幹部公告的兵力上限。
+7) 維京總部（Viking HQ）：霍華德 / 戈登 — 60 : 40 請遵守兵力上限（約 68,000）
+8) PvE — 野獸／狩獵：狄安娜 + 法赫德 — 50 : 20 : 30
+🐺 PvE — 野獸／狩獵
+打恐狼時請記得：不需要太多傷害，所以只要派出最少的兵力（甚至 1 個兵也可以），讓更多聯盟成員能加入集結，領取集結獎勵。
+🏰 決戰王城／遺跡／建築
+佔領建築時，請準備好快速切換：
+進攻 → 防守
+⚔️ 1. 佔領
+使用你的「進攻」預設加入最初的集結。
+範例： 阿瑪迪斯 / 琴科 50 : 20 : 30
+🛡️ 2. 切換為防守
+建築佔領後：
+1. 立刻使用你的「防守」預設再派出一支部隊。範例： 戈登 / 霍華德 60 : 20 : 20
+2. 看著你的防守部隊朝已佔領的建築前進。
+3. 當行軍時間剩下約 5 秒——或依幹部指示——召回你原本的「進攻」部隊。
+4. 你的防守部隊抵達，取代進攻部隊留在駐防中。
+🚫 千萬不要太早召回進攻部隊。
+佔領 → 派出防守 → 約 5 秒 → 召回進攻 → 防守抵達
+這樣我們就能從進攻編組平順切換為防守駐防，而不會不必要地削弱建築。
+🪖 駐防兵力上限
+只有 15 位領主能進入總部（HQ）／遺跡。所以請不要自動把你的最大部隊派去總部、遺跡或其他爭奪中的建築。
+請遵守幹部公告的兵力上限。
+聯盟一般目標：每位玩家約 68,000 兵力
+這樣能讓更多已配置好防守部隊的聯盟成員擠進駐防，一起領取獎勵。
+⚠️ 若幹部公告了不同的上限，請一律以公告的數字為準。
+舉例來說，若以 68K 兵力上限為例，可以把這個數字帶進計算機，直接在對應兵種的數字欄輸入即可。以下是三種情況：
+60/20/20 ➡️ 40,800 / 13,600 / 13,600
+60/40 ➡️ 40,800 / 27,200
+50/20/30 ➡️ 34,000 / 13,600 / 20,400
+🎬 如何從進攻英雄切換為防守英雄
+📎 影片來自網路（TikTok @yelloe_hair），並非我們自己拍攝。
+
+### GUIDE #eternity-reach — 失落的遺跡
+開放時間
+每兩週一次，個人挑戰，時長30分鐘。
+為什麼重要
+是領主寶石材料最好的常態來源之一。
+攻略策略
+技能加點
+每一級技能請依序選擇：
+第1級 → 右
+第2級 → 右
+第3級 → 左
+第4級 → 左
+第5級 → 右
+開局
+攻擊切薩雷守衛 → 快速推進直到解鎖第3級技能。
+盡量鎖定2級的切薩雷守衛，並跳過已經有人在攻擊的目標。
+每60秒
+進入銅礦脈 → 取得5,000銅礦 → 立刻召回 → 記下時間 → 每1分鐘重複一次。
+只需要一支部隊就能觸發5,000銅礦獎勵。
+不穩定礦脈
+出現時 → 立刻派出可用部隊 → 持續採集直到消失。
+運寶車
+讓它在整場活動中持續收集散落的銅礦，它不會佔用行軍隊列。
+第5級技能
+在礦脈爆發時啟動第5級技能，並派出所有部隊前往礦脈採集。
+失落宮殿
+於最後7分鐘開放。
+若實力不足以爭奪，請避免不必要的PvP → 只在划算時才佔領。
+走位技巧
+利用免費傳送移動到靠近3個礦脈或人較少的區域。
+
+### GUIDE #f2p-heroes — 英雄培養指南（F2P）
+神話碎片與專屬裝置數量有限，不要每個英雄都想練。把資源集中在長期價值高的英雄上。
+部分英雄的官方譯名尚未經截圖確認，或尚未正式上線，這篇一律保留英文原名，等日後驗證後再補上翻譯。
+第 1 代
+潔貝爾
+可農取的神話英雄；優先培養。
+薩洛：練幾星取得成長技能即可，不用過度投資。
+第 2 代
+佐伊 — 打造（輪盤）
+大幅超越 霍華德。
+馬林：取代 薩洛。
+第 3 代
+小佩拉 — 必練（輪盤）
+優秀的狩獵巨熊英雄，價值可延續到第 7 代。
+艾瑞克 ＆ 耶格爾：除非主攻 PvP／駐防，否則可以跳過。
+第 4 代
+Rosa — 打造（輪盤）
+狩獵巨熊的強力升級。
+Alcar 或 Margot：非必要，兩者在競技場／遠征都不錯。
+第 5 代
+Long Fei — 打造（輪盤）
+非常適合神秘試煉、三方聯盟戰、聖劍爭奪等多隊活動。
+Thrud／Vivian：主要用於競技場／PvP。
+沒抽到 小佩拉？可以考慮 Thrud。
+第 6 代
+Sophia — 打造（輪盤）
+主要用在多隊內容。
+Yang — 高優先
+狩獵巨熊實用性極佳，值得投入神話碎片。
+Triton：如果已經練了 Long Fei，通常可以跳過。
+第 7 代
+Wee ＆ Woo — 必練（輪盤）
+整體對 F2P 來說價值極高。
+Ava — 高優先
+優秀的狩獵巨熊英雄，可取代 小佩拉。
+Charles：通常可以放心跳過。
+簡易 F2P 輪盤路線
+佐伊 ➜ 小佩拉 ➜ Rosa ➜ Long Fei ➜ Sophia ➜ Wee ＆ Woo
+神話碎片優先順序
+小佩拉 ➜ Yang ➜ Ava
+經驗法則
+輪盤英雄通常是 F2P 最安全的投資。省著用資源，不要把神話碎片分散得太薄，也不用有壓力覺得每個英雄都要練。
+總結
+F2P 玩家： 從英雄輪盤中優先鎖定 佐伊（步兵坦克）、潔貝爾（騎兵）、小佩拉（進攻型騎兵）
+課金玩家： 優先培養 阿瑪迪斯（VIP 7 以上）與 希爾德，效益最大化
+
+### GUIDE #kvk — KvK 準備與戰鬥指南
+黃金
+✅
+<span class="chk-ok">OK</span>
+🚫
+英雄碎片
+⏩️ 建造
+⏩️ 訓練
+⏩️ 研究
+英雄轉盤
+採集
+👍
+情報任務
+寵物突破
+領主寶石
+領主裝備
+英雄專屬裝備 零件
+秘銀
+鍛造錘
+大師徽記
+大師手稿
+⏩️ 學習
+使用
+需要時可以用
+不要使用
+每天都要做
+第一階段：備戰階段（第 1–5 天）
+王國要贏得 KvK，備戰階段的總積分必須超過對手。贏得這個階段能獲得攻擊方優勢（戰爭階段中，你的王城完全安全）。
+第 1 天：建設、黃金與領主寶石
+計分項目：黃金建築升級、建設加速、領主寶石、情報任務、學習加速。
+🛡️ F2P 重點：
+花掉存下來的建設加速跟黃金。
+使用之前幾週留下來的寶石圖紙。
+清空所有瞭望塔情報任務。
+⚡ P2W 重點：
+把高等級黃金建築（學院／戰爭學院）練滿。
+把領主寶石推到 8–11 級以獲取大量積分（11 級每階可獲得 16,000 分）。
+第 2 天：研究、英雄與採集
+計分項目：研究加速、英雄碎片（稀有／史詩／傳說）、英雄轉盤、大師徽記／大師手稿、資源採集。
+用存下來的鑽石轉英雄轉盤，取得 小佩拉（Gen 3）碎片。
+把存下來的通用傳說／史詩碎片投入核心英雄。
+提前派出採集部隊（在每日重置前送出，這樣第 2 天一開始就會立刻返回）。
+把存下來的大師徽記與大師手稿全部用完。
+把 Gen 3 英雄（艾瑞克 與 小佩拉）立刻升到 5 星。
+第 3 天：寵物訓練與大師學院進度
+計分項目：寵物突破、普通馴化印記與高級馴化印記（洗煉）、英雄轉盤、英雄碎片、大師徽記／大師手稿、情報任務。
+平均升級並洗煉多隻中階寵物，不要把所有資源都投入單一隻寵物。
+使用剩餘的英雄轉盤次數與每日情報任務。
+大量使用高級馴化印記（每個 15,000 分）。
+把寵物突破門檻推到最高，取得高倍率積分。
+第 4 天：英雄成長與部隊訓練
+計分項目：部隊訓練／升階（T1–T11）、鍛造錘、零件、秘銀、資源採集。
+把低階部隊升到你目前最高的階級（例如 T9 升 T10）。升級部隊比從零練新兵種划算得多。
+把一般加速留給研究／大師學院用——這裡只用專門的部隊訓練加速。
+用掉存下來的鍛造錘（每個 4,000 分）與英雄專屬裝備的零件（每個 8,000 分）。
+使用秘銀升級（每個 40,000 分），觸發大量積分暴增。
+第 5 天：戰力提升與最終升級
+計分項目：領主裝備、英雄裝備、寵物洗煉、秘銀、黃金、所有加速、情報任務、採集。
+清空剩餘情報任務，用掉剩餘資源／加速，並用累積的進貢綢緞／金絲線升級領主裝備。
+把領主裝備推到傳說／傳說三星（每階提升 6,250 分）。
+清空剩餘秘銀、零件與鍛造錘，確保每日個人排行榜前 2000／前 200 名獎勵。
+⚔️ 第二階段：戰爭階段（12 小時）
+王城戰鬥時段：UTC 12:00 至 22:00。
+目標：控制王城與 4 座砲台。
+🎯 GEN 3 PVP 主流打法與集結配置
+🛡️ 駐防防守 — 王城／砲台
+指揮英雄： 艾瑞克（Gen 3）——擁有優秀 Gen 3 屬性與生存機制的步兵鐵壁，搭配 佐伊（Gen 2）提供防護罩。
+⚔️ 進攻集結（攻打王城／砲台）
+指揮英雄： 小佩拉（Gen 3）——具備高倍率進攻集結零件的毀滅性騎兵指揮官。
+🤝 集結參與者（F2P 關鍵！）
+加入集結時不要隨便帶英雄。請帶：
+琴科（技能 1 練滿）
+雨音
+妍羽
+這幾位英雄能疊加殺傷力倍率。
+💣 雙集結「巨鯨粉碎機」戰術
+應對敵方重兵駐防時：
+第 1 波集結（肉盾／清場）： 提前 1–2 秒發起。專注純殺傷力，讓敵方傷兵營爆滿，清空防守部隊。
+第 2 波集結（主攻手）： 緊接在第 1 波後方抵達，殲滅剩餘部隊並奪取王城控制權。
+砲台優勢：若跟持有王城的同一王國控制砲台，能提供最多 +20% 部隊殺傷力。
+🩺 第三階段：戰地急救階段（部隊救援）
+基礎救援率：來不及送進傷兵營、陣亡部隊的 30%。
+目標救援率：90%
+提升方式：
+急救包：+10% 救援率
+救援令：每個 +1%，最多 +50%
+⚠️ 重要： 所有人都必須在計時器結束前，於聯盟聊天交換救援令！
+
+### GUIDE #all-out — 全軍出擊
+🪖 全軍出擊規則
+❌ 禁止攻擊 NAP 6 成員，包含他們的農場／學院（NXS/nxs、RED/ReD、NBD/nBd/Nbd、ESA/EsA/UNI、IDN、KGb）
+❌ 禁止攻擊城堡或聯盟建築（總部、前哨站、旗幟）
+✅ 可以攻擊資源採集點（磨坊、採石場、鐵礦場）
+✅ 可以攻擊 NAP 以外的玩家。
+如果你的城堡被 NAP 成員攻擊，請勿報復，回報 R4/R5。
+請避免在野外採集資源，改用聯盟安全採集點。
+違規者將依聯盟／NAP 協議處理。
+🏭 安全採集點
+全軍出擊活動期間，我們會每 12 小時輪替一次安全採集點，持續 48 小時。
+這讓每個人在活動期間都有一個受保護的地點可以採集資源。
+輪替時間表（從 UTC 00:00 重置開始）
+大型磨坊 – UTC 00:00 至 12:00
+大型伐木場 – UTC 12:00 至 00:00
+大型採石場 – UTC 00:00 至 12:00
+大型鐵礦場 – UTC 12:00 至 00:00
+活動期間請善用這些受保護的採集點，安全且聰明地採集。
+
+### GUIDE #hero-roulette — 英雄轉盤
+開放時間
+每 2 週一次，每次 3 天。
+📋 規則
+活動共 3 天，每天有 1 次免費轉，每天最多轉 150 次。
+每轉一次要 1 個幸運幣或 1,500 鑽石，十連打折為 13,500 鑽石。
+累積轉到 5、15、35、70、120 次各有一次性獎勵，碎片分別是 +5、+10、+20、+30、+50，共 115 個。
+🎲 獎品機率
+傳說英雄碎片 x5：4.37%
+傳說英雄碎片 x1：32.81%
+神秘禮包 x1：6.56%（兩格，各 6.56%）
+1 小時通用加速 x1：20.51%
+1 萬英雄經驗 x1：18.27%
+資源四格（鐵礦 1萬×20、石材 1萬×80、木材 1萬×400、麵包 1萬×400）：各 2.73%
+每轉期望碎片：5 × 0.0437 + 1 × 0.3281 ≈ 0.547 個
+轉 N 次的期望碎片（轉出來的＋累積獎勵）
+3 次（只用免費）：約 1.6
+10 次：約 5.5 + 5 = 10.5
+15 次：約 8.2 + 15 = 23
+35 次：約 19 + 35 = 54
+70 次：約 38 + 65 = 103
+120 次：約 66 + 115 = 181
+超過 120 次就沒有累積獎勵了，每轉只剩約 0.55 個碎片，所以不建議免費和小課玩家轉超過 120 次。
+🎯 一位英雄要轉幾次才能滿星？
+照期望值算，大約要 720 次，也就是 6 次活動、每次轉滿 120 次。
+計算
+滿星（啟用加升到 5 星）總共要 1,075 個碎片。
+每次活動轉 120 次，期望約拿到 0.5466 × 120 + 115 ≈ 181 個（每轉平均約 0.5466 個，加上累積獎勵 115 個）。
+1,075 ÷ 181 ≈ 5.95，所以要 6 次活動。
+總次數 6 × 120 = 720 次，期望碎片 6 × 181 ≈ 1,084 個。
+為什麼不在同一次活動一直轉
+超過 120 次以後沒有累積獎勵，每轉只剩約 0.55 個碎片。一次活動就算轉到上限 450 次，期望也只有 0.5466 × 450 + 115 ≈ 361 個，而且多出來的 330 次換到的碎片，大約只有前 120 次的一半效率。
+第 6 次活動也要轉滿 120 次
+前 5 次期望共約 903 個，還差約 172 個。轉到 119 次時期望只有約 130 個（65 + 65），要第 120 次那包 +50 才補得上，所以最後一次也得轉滿。
+💎 鑽石成本（不計幸運幣）
+每次活動扣掉 3 次免費轉，要 159,000 鑽石，6 次合計約 954,000 鑽石。手上有的幸運幣或從其他管道拿到的碎片都可以扣掉。
+⚠️ 這是平均值。轉 720 次的話，實際結果大約會落在期望值上下 ±60 個碎片之內（約 95% 的機率），所以運氣差可能要多一次活動，運氣好則可能提早。
+⚔️ 跟 KvK 有關
+KvK 備戰階段第 2、3 天，英雄轉盤每轉 8,000 分。所以幸運幣和要拿來轉的鑽石，也值得留到那兩天再用。
+
+### GUIDE #fishing-tournament — 釣魚大賽
+開放時間
+每 4 週一次。
+為什麼重要
+穩定取得設計圖紙、英雄裝備強化經驗值與鑽石的來源。
+🌊 寶藏釣魚
+先玩寶藏釣魚累積積分、升級漁具，之後再專心普通釣魚。
+魚線 → 增加最大深度
+魚鉤 → 增加每次最多可釣的數量
+魚墜 → 增加起始深度
+三項都升級完後，再轉往普通釣魚。
+稀有的美人魚和寶箱不會出現在普通釣魚，只會出現在寶藏釣魚。
+🎣 普通釣魚
+發光的魚
+看到發光的魚一律優先釣。
+受困的美人魚
+被海草困住的美人魚可提供 5–10% 的積分倍率。
+海潮號角
+只在普通釣魚時使用。
+重新挑戰
+如果這一局打得不好：
+暫停 → 退出 → 重試
+
+### GUIDE #tri-alliance-clash — 三盟爭霸
+🎲 活動怎麼玩
+可以把三盟爭霸想成一個有路線、建築和戰鬥的桌遊。聯盟沿著不同路線前進、佔領地盤，一路打向價值最高的目標。
+⚔️ 戰鬥機制
+戰鬥是自動戰鬥。模擬戰鬥是單人對戰，不是集結。
+兵種比例無法調整，部隊會平均分配。
+行軍速度和行軍容量加成都無效。
+🛡️ 三支部隊與英雄選擇
+進場前要先派出三支部隊。
+F2P 玩家
+把最強的英雄放在同一支。
+不要把最強的英雄分散到三支部隊。
+先練好一支強隊。
+P2W 玩家
+使用進攻型和防守型的橘色英雄。
+這個活動裡進攻型零件無效，防守型零件有效，優先用防守型零件強的英雄。
+🏛️ 建築與分數
+潮汐神殿 = 主要目標，在最後才開放。
+聊天裡常用的叫法：Shrine = 遺跡群、Altar = 遺跡。
+攻打並佔領建築拿到的分數，比單純防守／佔著還多，這點跟聖劍爭奪不一樣。
+👥 分組與分工
+大家會分成約 3 組，在不同路線行動。每個目標安排最強的玩家加一位後援，讓戰力分配得更有效。
+第 3 組：開場佔領中立建築
+開戰後盡快佔領我方領地上的中立建築。
+眼前的目標拿下後，繼續往前推進。
+第 2 組：推進與趁虛佔領
+持續走在較弱隊伍的前面，往同一路線的下一個目標前進，保持壓力。
+密切注意敵人動向。敵人離開建築往前推進時，馬上進駐他們剛離開的建築，趁沒人防守時佔下來。
+只要有這種空檔就把握，拿地盤和分數。
+第 1 組：推進到敵方戍衛兵營
+主要任務：在第 20 分鐘前抵達敵方戍衛兵營附近。
+沿路線一路推進，直到抵達離敵方戍衛兵營最近的建築（Shrine／遺跡群）。
+在戍衛兵營開放前就要就位，20:00 一開就立刻佔領。
+R4
+R4 和各軍團負責人整場都要主動管理指揮官的任命。
+指揮官 = 最強的玩家。他們要在地圖上到處移動佔領目標，最需要能量。
+持續確認是否有沒拿到加成的強玩家應該被任命為指揮官。
+點畫面左上角的旗幟，就能打開指揮官畫面。
+各建築提供給指揮官的能量：
+戍衛兵營：60,000（金色）
+遺跡群（Shrine）：45,000（紫色）
+遺跡（Altar）：15,000（藍色）
+🗺️ 戰鬥流程
+🔵 藍色＝中轉樞紐　🔴 紅色＝戍衛兵營　🟡 黃色＝潮汐神殿
+第一階段：準備階段（0:00–3:00）
+目標：設定部隊、熟悉地圖。記住紫、紅、黃三塊區域，被我方佔領的會變成藍色。看看敵人的實力，決定要主打哪個聯盟。
+第二階段：攻城掠地（3:00–20:00）
+目標：快速佔領內部領地。
+第 3 組先出發，接著第 2 組。
+守住中轉樞紐和連接建築，穩定累積每分鐘分數（PPM）。這時戍衛兵營還有護盾。
+同時第 1 組深入敵方領地，往他們的戍衛兵營前進。
+第三階段：爭奪各方兵營（20:00–40:00）
+目標：戍衛兵營（A24、B24、C24）的護盾消失。
+第 3 組：守住我方戍衛兵營（每分鐘 +1,800），同時配合攻打敵方戍衛兵營，必要時分頭行動。
+持續找沒人守的建築、防守薄弱的敵方領地、可以擴張的機會，以及容易拿下的個人和聯盟分數。
+第四階段：進軍潮汐神殿（40:00–60:00）
+目標：中央的潮汐神殿開放。分數非常高，結束時佔領的一方還有 50,000 分加成。從這時起，神殿就是全聯盟的主要目標。
+🌊 進攻神殿的順序
+第 3 組＋第 2 組 → 先進（第 3 組同時要顧好我方領地和戍衛兵營，不能丟）。
+第 1 組 → 最後進。
+佔領 → 增援 → 守住。
+⚠️ 打神殿 NPC 時，最強的玩家最後進場，這樣才會對上剩下最強的 NPC，不會把戰力浪費在較弱的對手上。
+拿下神殿之後
+立刻鎖住，盡快增援神殿。
+維持控制權。
+如果會害我們丟掉神殿，就不要去追價值較低的目標。
+📋 各組重點整理
+第 3 組：內部領地
+第二階段 → 盡快佔領中立建築
+第三階段 → 守住我方戍衛兵營＋支援進攻的隊友
+第四階段 → 神殿：先進，但要顧好領地，不能丟
+第 2 組：佔領敵方建築
+第二階段 → 越過第 1 組推進到敵方領地
+第三階段 → 佔領敵方／被放棄的建築
+第四階段 → 神殿：先進
+第 1 組：深入突擊
+第二階段 → 深入敵方領地，目標是敵方戍衛兵營旁的 Shrine（遺跡群）
+第三階段 → 佔領敵方戍衛兵營
+第四階段 → 神殿：最後進
+🧱 神殿卡位技巧（第 1 組）：佔領潮汐神殿附近、敵方中轉樞紐後面的建築／Shrine，並守住，不要馬上離開。這樣第 1 組就能干擾敵方進攻神殿，也能在神殿開放前先掌握前線。
+⚡ 能量管理
+每次移動或行動都會消耗能量，要省著用。
+出征：把部隊移到新的可前往位置。
+突進：跳過目前的目標／排隊，前往同一路線的下一個目標。
+徵兵：在沒有交戰的建築裡治療並補滿部隊。
+立即復活：被打敗後原地復活，不用回總部；會消耗能量，必要時才用。
+R4 和各軍團負責人會確保強的玩家被任命為指揮官，讓他們產生更多能量。
+
+### JOURNEY CHOICES (shown inside the general guides)
+猜拳挑戰: 贏 → 第1次：2,000 鑽石；第2次：60 大師手稿 (best); 平手 → 第2次：40 大師手稿; 輸 → 第1次：800 鑽石；第2次：20 大師手稿
+維京掠奪者: 我不會假裝沒看到 → 3 Silver Goblet (best); 我沒空分心 → 2 Silver Goblet
+維京掠奪者: 正面迎戰 → 50 大師手稿 (best); 智取 → 40 大師手稿; 離開 → 30 大師手稿
+野獸: 獵捕偷醋的野獸 → ?; 我去別處找 → 3 Silver Goblet
+奧麗芙: 真正的戰士不會對落難少女坐視不管 → 2 Silver Goblet; ……就這樣？ → 3 Silver Goblet (best)
+熊: 從側翼包抄 → 50 大師手稿 (best); 正面攻擊 → 30 大師手稿
+傭兵: 建議側翼包抄 → 100 大師手稿 (best); 建議破壞補給 → 70 大師手稿
+小熊: 託人照顧牠 → 30 大師手稿; 專心對付野獸 → 50 大師手稿 (best)
+希爾德: 進一步打聽 → 30 大師手稿; 想辦法繼續前進 → 50 大師手稿 (best)
+叛軍、切薩雷士兵、維京掠奪者: 戰鬥 → 50 大師手稿 (best); 還是快逃吧 → 30 大師手稿
+商人: 指路 → 50 大師手稿 (best); 我幫不上忙 → 30 大師手稿
+野獸: 離開 → 100 大師手稿 (best); 獵捕牠 → 70 大師手稿
+路標: 修好路標 → 20 大師手稿 (best); 離開 → 10 大師手稿
+倖存者: 伸出援手 → 100 大師手稿 (best); 不關我的事 → 70 大師手稿
+佐伊 & 潘: 聽聽潘的說法 → 1 大師徽記 (潘); 聽聽佐伊的說法 → 1 大師徽記 (潘)
+寶藏: 全部留下 → 50 大師手稿 (best); 與倖存者分享 → 30 大師手稿
+羅曼：交易: 交易 → 80 大師手稿 (best); 不用了，謝謝 → 50 大師手稿
+潘：交易: 交易 → 5 大師徽記 (潘) (best); 不用了，謝謝 → 3 大師徽記 (潘)
+艾德溫：交易: 交易 → 50 大師手稿 (best); 不用了，謝謝 → 30 大師手稿
+倖存者：孤兒院需要麵包和藥品: 捐贈物資 → 50 大師手稿 (best); 離開 → 30 大師手稿
+戈登 / Aena：開始烹飪: 完美 → 50 大師手稿 (best); 勝利 → 40 大師手稿; 失敗 → 30 大師手稿
+維拉 / 潘 / Guinevere / Wilson：開始烹飪: 完美 → 5 Silver Goblet (best); 勝利 → 3 Silver Goblet; 失敗 → 1 Silver Goblet
+奎恩：特製鎖: 強行打開 → 150 大師手稿; 拆除機關 → 200 大師手稿 (best)
+受傷的獅子: 餵食 → 50 大師手稿 (best); 離開 → 30 大師手稿
+維京掠奪者: 趕走強盜 → 50 大師手稿 (best); 繞道而行 → 30 大師手稿
+失竊物品: 我來幫你 → 50 大師手稿 (best); 我無能為力 → 30 大師手稿
+運輸隊長: 全額付款 → 100 大師手稿 (best); 討價還價 → 70 大師手稿
+小佩拉：有什麼好玩的事嗎？: 幫我占卜今天的運勢 → 30 大師手稿; 聽說過競技場錦標賽嗎？ → 30 大師手稿; 來幫個忙，我們有活要幹。 → 50 大師手稿 (best)
+倖存者：幫我一把: 幫忙 → 50 大師手稿 (best); 繼續前進 → 30 大師手稿
+潘 / 羅曼 / Guinevere：釣魚: 收竿深度，10條魚 → 150 大師手稿 (best); 收竿深度，5條魚 → 100 大師手稿; 收竿深度，1條魚 → 70 大師手稿
+馬林：釣魚: 任意深度，10條魚 → 100 大師手稿 (best); 任意深度，5條魚 → 70 大師手稿; 任意深度，1條魚 → 50 大師手稿
+維京英雄: 來啊，跟我打！ → 100 大師手稿 (best); 直接開打 → 70 大師手稿
+倖存者：這東西一直跟著我: 挺身而出 → 50 大師手稿 (best); 製造混亂 → 40 大師手稿; 離開 → 30 大師手稿
+維京掠奪者：退下: 挺身而出 → 30 大師手稿; 走開 → 50 大師手稿 (best)
+孤注一擲: 孤注一擲（消耗雙倍行動力） → 2 大師徽記 (羅曼) (best); 試探膽量（有機率嚇跑敵人） → 30 大師手稿
+野獸擋住了去路: 戰鬥！ → 100 大師手稿 (best); 躲起來 → 70 大師手稿
+羅曼：禮物: 看看物品 → 150 大師手稿 (best); 跳過 → 100 大師手稿
+潘似乎有心事: 看看物品 → 5 大師徽記 (潘) (best); 跳過 → 3 大師徽記 (潘)
+維拉：物品: 看看物品 → 3 大師徽記 (維拉); 跳過 → 3 大師徽記 (維拉)
+羅曼：一個點子: 幫忙製作 → 5 大師徽記 (羅曼) (best); 跳過 → 3 大師徽記 (羅曼)
+拳擊手: 為了撥亂反正。 → 30 大師手稿; 當然是為了錢 → 50 大師手稿 (best)
+Long Fei: 是時候讓你清醒一下了。 → Long Fei獲勝，30 大師手稿; 好吧，有錢好辦事。 → 50 大師手稿 (best)
+前方有切薩雷營地: 正面迎戰。 → 100 大師手稿 (best); 另尋他法。 → 70 大師手稿
+騎兵: 分享你的口糧 → 50 大師手稿 (best); 提起另一支部隊。 → 30 大師手稿
+小佩拉: 購買 → 50 大師手稿 (best); 拒絕。 → 30 大師手稿 ?
+Cassia: 所以，你要回黃石戰場了…… → 1 大師徽記 (Cassia); 也許這次會不一樣。 → 1 大師徽記 (Cassia)
+Cassia (2): 發動正面攻擊 → 1 大師徽記 (Cassia); 尋求援軍。 → 1 大師徽記 (Cassia)
+維京掠奪者：施加壓力: 施加壓力。 → 30 大師手稿; 自己去查清楚。 → 50 大師手稿 (best)
+維拉：交易資源: 交易資源。 → 5 大師徽記 (維拉) (best); 不交易。 → 3 大師徽記 (維拉)
+Cassia：整理戰利品: 整理戰利品 → 5 大師徽記 (Cassia) (best); 跳過 → 3 大師徽記 (Cassia)
+Cassia：交易: 交易 → 5 大師徽記 (Cassia) (best); 不用了，謝謝 → 3 大師徽記 (Cassia)
+軍官: 表明自己是遊俠奎恩 → 50 大師手稿 (best); 另找路繞過去 → 30 大師手稿
+切薩雷士兵: 進一步調查 → 30 大師手稿; 繼續上路 → 50 大師手稿 (best)
+可疑的商隊: 調查商人 → 30 大師手稿; 別管他們 → 50 大師手稿 (best)
+Wilson：初次相遇: 相信Wilson → 50 大師手稿 (best); 保持懷疑 → 30 大師手稿
+一群維京掠奪者: 別管了，專注於Guinevere → 50 大師手稿 (best); 去幫忙，不能袖手旁觀 → 30 大師手稿
+傭兵：聖劍: 僱用傭兵 → 30 大師手稿; 回去邀請狄安娜 → 30 大師手稿; 我們不需要其他人 → 50 大師手稿 (best)
+Grid & Wilson: 相信她 → 50 大師手稿 (best); 懷疑她 → 30 大師手稿
+災民: 幫一把 → 30 大師手稿; 置身事外 → 50 大師手稿 (best)
+佐伊: 協助調查 → 30 大師手稿; 專注於聖劍爭奪 → 50 大師手稿 (best)
+寶箱洗牌: 開始：[精英] – [白銀] – [白銀] → 結果：[精英] – [白銀] – [白銀]; 開始：[白銀] – [精英] – [白銀] → 結果：[白銀] – [精英] – [白銀]; 開始：[白銀] – [精英] – [白銀] → 結果：[白銀] – [白銀] – [精英]; 開始：[白銀] – [白銀] – [精英] → 結果：[精英] – [白銀] – [白銀]
+Wilson：一個問題: 質問Grid → 30 大師手稿; 自己思考 → 50 大師手稿 (best)
+Guinevere：幫忙: 幫忙整理 → 5 大師徽記 (Guinevere) (best); 跳過 → 3 大師徽記 (Guinevere)
+Guinevere：交易資源: 交易資源 → 150 大師手稿 (best); 不用了，謝謝 → 100 大師手稿
+Wilson：交易資源: 交易資源 → 5 大師徽記 (Wilson) (best); 不用了，謝謝 → 3 大師徽記 (Wilson)
+Wilson：整理戰利品: 幫忙整理戰利品。 → 150 大師手稿 (best); 跳過 → 100 大師手稿
+Aena：購買食物: 向艾德溫購買食物 → 30 大師手稿 + 1 大師徽記 (Aena); 分享你的食物 → 50 大師手稿 + 1 大師徽記 (Aena) (best)
+Aena：試試看: 試試看 → 30 大師手稿 + 1 大師徽記 (Aena); 我還有事要忙。 → 50 大師手稿 + 1 大師徽記 (Aena) (best)
+Isnor：試試看: 試試看 → 30 大師手稿 + 1 大師徽記 (Isnor); 還是算了 → 50 大師手稿 + 1 大師徽記 (Isnor) (best)
+Aena：調查: 調查周邊區域 → 30 大師手稿 + 1 大師徽記 (Aena); 繼續移動 → 50 大師手稿 + 1 大師徽記 (Aena) (best)
+Isnor：調查: 協助分發物資 → 30 大師手稿 + 1 大師徽記 (Isnor); 調查地震 → 50 大師手稿 + 1 大師徽記 (Isnor) (best)
+Aena：堅持: 堅持打開箱子 → 50 大師手稿 + 1 大師徽記 (Aena); 別管它 → ?
+維京掠奪者：足跡: 進一步調查 → 30 大師手稿; 先在這裡停下 → 50 大師手稿 (best)
+Aena & 小佩拉: 請求增援 → 50 大師手稿 + 1 大師徽記 (Aena) (best); 再給小佩拉一些時間 → 30 大師手稿 + 1 大師徽記 (Aena)
+老人: 繼續打聽 → 50 大師手稿 (best); 算了 → 30 大師手稿
+守衛: 進一步調查 → 50 大師手稿 (best); 離開礦坑 → 30 大師手稿
+Aena：交換: 交換資源 → ?; 拒絕交換 → 100 大師手稿
+Isnor：交換: 交換資源 → 5 大師徽記 (Isnor); ? → ?
+
+### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-06 by Nia] ⚔️ 與 2186 的 KvK 協議 – 10月10日
+⚔️ 與 2186 的 KvK 協議 – 10月10日
+
+🏰 1. 城鎮襲擊
+
+✅ 允許時間：
+• UTC 10:00–10:59
+• 決戰王城 結束後 30 分鐘
+
+🛑 停火 – 禁止襲擊：
+• 從 UTC 11:00 開始，貫穿整個 決戰王城，直到王城防護罩開啟後 30 分鐘。
+
+🔴 2. 紅區
+• 任何時候都禁止在紅區襲擊城鎮。
+
+⚠️ 3. 違規處理
+• 請勿報復。將報告發送給聯盟管理層，若管理層不在，請發送給 國王。
+
+[2026-10-05 by Nia] 🏆 聯盟爭霸賽
+請在「中路」報名，盟主或官員稍後會進行調整。
+
+報名前：
+🔹 使用你最強的英雄
+🔹 部隊編組：50% 步兵, 20% 騎兵, 30% 弓兵
+🔹 報名前請先開啟 統帥 / 軍團長 以及 寵物 增益。
+
+🔄 你可以隨時更新報名資訊以更新 英雄、部隊編組 和增益。特別是當你提升了 英雄 或 部隊 的等級時。
+
+[2026-09-29 by Nia] ❗提醒 - 狩獵巨熊 部隊人數限制與錯開集結
+🔹 所有參與者加入集結時都必須派出剛好 90,000 人。請先把出征編組存好。
+🔹 集結隊長：自己發起的集結用最大部隊容量；但加入別人的集結時，也必須遵守人數限制。
+
+🔹 開始時：主要集結隊長依照分配好的錯開時間發出第一次集結。
+🔹 剩下 6:30 時：所有參與者用自己最強的 3 位英雄發起自己的集結。
+
+🔪 英雄錯誤或人數不對 - 踢出並請重新加入
+
+(see guide #bear-hunt)
+
+[2026-09-28 by Nia] 🏆 Gen 3 大師指南
+大師是您可以解鎖並提升等級以獲得特殊技能、加成和獎勵的角色，和英雄是分開的系統。
+
+🔹 F2P 優先順序：潘 > 維拉 > 羅曼
+🔹 課長/集結手：維拉 > 羅曼 > 潘
+
+提示：
+🔹 不要把征程補給用在維拉身上——免費的荒野冒險就能解鎖她。
+🔹 把征程補給留給遺忘之地的潘。
+🔹 潘 -> 60 級：獵鷹偵查 = 每日最多黃金/加速。
+🔹 維拉 -> 30 級：狩獵巨熊的鍛造錘。
+🔹 羅曼 -> 只要解鎖就好，拿被動的競技場寶箱掉落。
+
+(see guide #master-academy)
+
+[2026-09-28 by Nia] Gen 3 英雄指南
+不確定要投資什麼？最新的英雄與大師指南已在 Discord 和我們的多語言網站上線。
+
+Gen 3 總結
+🔥 小佩拉 - 必練（英雄轉盤）。優秀的 狩獵巨熊 英雄，價值可持續至 Gen 7。
+- 艾瑞克 & 耶格爾：除非專注於 PvP 或防衛所防禦，否則建議跳過
+
+整體建議：
+🔹 F2P 玩家：如果尚未升滿，請專注於 佐伊（步兵坦克）以及來自 英雄轉盤 的小佩拉（進攻型騎兵）
+🔹 P2W 玩家：優先考慮 阿瑪迪斯（VIP 7+）和 希爾德
+
+(see guide #f2p-heroes)
+
+### GAME TERMS (English = official zh name)
+Construction = 建造
+Training = 訓練
+Research = 研究
+Healing = 治療
+Learning = 學習
+Learning Speedup = 學習加速
+Golden Glaives = 黃金與巨刃
+Dim Goldstone = 黯淡金石
+Watchtower Intel = 瞭望塔的情報
+Royal Foundry = 皇家工坊
+Redeem = 兌換
+Left = 剩餘
+Owned = 持有數量
+Go = 前往瞭望塔
+Tip = 兌換提醒
+Bread (Secured) = 麵包（安全）
+Calendar = 日曆
+Hero Roulette = 英雄轉盤
+Lucky Chip = 幸運幣
+Swordland Showdown = 聖劍爭奪
+Swordland = 聖劍戰場
+Battlefield = 聖劍戰場
+Tier C = 評等：C
+Gold = 黃金
+Legion 1 / 2 = 軍團1 / 軍團2
+Battle Starts In = 戰鬥開始倒數計時
+Combatants = 參戰人員
+Substitutes = 替補名單
+Alliance Brawl = 聯盟對決
+Merchant Empire = 貿易復興
+UTC Time = UTC時間
+Starts in = 距離開始
+All Out = 全軍出擊
+Details = 詳細資訊
+Conquest = 討伐
+Heroes = 英雄
+Shop = 商店
+Alliance (tab) = 聯盟
+World = 野外
+Deals = 超值活動
+Rules (dialog title) = 規則說明
+Events = 常規活動
+Guide = 指南
+Rules = 規則
+Buildings = 建築介紹
+Rewards = 獎勵
+Other = 其他
+First Control = 首次控制
+Ongoing Occupation = 持續佔領
+Bonus Effect = 額外效果
+/m (per minute) = /分鐘
+Recruit = 招募
+Stats = 屬性
+Skills = 技能
+Gear = 裝備
+Upgrade = 提升等級
+Troops Preview = 部隊總覽
+All = 全部
+In Town = 內城
+Out of Town = 外城
+Formations = 部隊編組
+Backpack = 背包
+Resources = 資源
+Speedups = 加速
+Bonuses = 增益
+Use = 使用
+Recall = 召回
+Recall squad? = 你確定要召回部隊嗎？
+Cancel = 取消
+Confirm = 確定
+Settings = 設定
+City Bonus = 城鎮增益
+Relic Points = 聖契積分
+Alliance Relic Points = 聯盟聖契積分
+Personal Relic Points = 個人聖契積分
+Defender's Relic Points = 防守聖契積分
+Arsenal Supplies = 輜重
+Gems = 鑽石
+Guard Station = 防衛所
+City Defense = 城鎮防禦
+Swordshrine = 聖劍祭壇
+Sanctum = 聖所
+Northwest Sanctum = 西北聖所
+Southeast Sanctum = 東南聖所
+Abbey (1–4) = 修道院 (一~四號)
+Hall of Reformation = 教化大廳
+Belltower = 鐘塔
+Royal Stables = 馬廄
+Mercenary Camp = 傭兵駐地
+Undercellar = 隱蔽地窖
+Drill Camp = 特訓營地
+Town Center = 城鎮中心
+Attacker = 攻擊方
+Defender = 防守方
+Occupier = 佔領方
+Mercenaries = 傭兵
+Rally = 集結
+Advanced Teleporter = 高級遷城
+Counter-recon = 反偵察
+Squad = 部隊
+Shield = 防護罩
+Marching = 行軍
+Gathering = 採集
+Control = 控制 / 佔領
+Building control time = 佔領時長
+Defense failure = 防守失敗
+Teleport / free teleports = 遷城 / 免費高級遷城
+Cooldown = 恢復時間
+Total Troops = 總部隊
+March Queue = 行軍隊伍
+Injured = 傷兵
+Attack = 攻擊力
+Defense = 防禦力
+Lethality = 殺傷力
+Health = 生命值
+Combat buffs = 戰鬥增益
+Escorts = 護衛數量
+Level = 等級
+Troops Capacity = 部隊容量
+Infantry = 步兵
+Cavalry = 騎兵
+Archer = 弓兵
+Saul = 薩洛
+Helga = 赫爾加
+Zoe = 佐伊
+Hilde = 希爾德
+Marlin = 馬林
+Amadeus = 阿瑪迪斯
+Jabel = 潔貝爾
+Diana = 狄安娜
+Fahd = 法赫德
+Amane = 雨音
+Gordon = 戈登
+Yeonwoo = 妍羽
+Howard = 霍華德
+Chenko = 琴科
+Quinn = 奎恩
+Forrest = 福斯特
+Seth = 史密斯
+Edwin = 艾德溫
+Olive = 奧麗芙
+Bear Hunt = 狩獵巨熊
+Trap 1 / Trap 2 = 陷阱1 / 陷阱2
+Raging Bear = 暴怒巨熊
+Hunting Achievements = 狩獵成就
+Damage Rewards = 傷害獎勵
+Trap Enhancement = 陷阱強化
+Pre-Registered Start = 預約自動開啟
+Go Enable = 前往開啟
+Total Alliance Damage = 盟友協力造成的總傷害
+Castle Battle = 決戰王城
+Background = 背景
+King's Castle = 王城
+Forbidden Area = 禁區
+King = 國王
+Alliance Leader = 盟主
+Turret = 砲台
+Town = 城鎮
+Sanctuary Battle = 遺跡爭奪
+Sanctuary / Sanctuaries = 遺跡
+Season / Phase = 賽季 / 期
+Defend Phase = 保護階段
+Pillar of Honor = 功勳碑
+Event season has ended = 本期活動已結束
+Hero of the Season = 本期英雄
+Honor Ranking = 榮耀榜
+Stage 1: City Construction = 第1階段：城鎮建設
+My Ranking = 我的排名
+Unranked = 未上榜
+My Points = 我的積分
+Target Points = 目標積分
+Claim = 領取
+Strongest Governor = 至高領主
+Stage = 階段
+Challenge Medal = 挑戰勳章
+Challenge Medal Rewards = 挑戰勳章獎勵
+Kingdom Personal Ranking Rewards = 王國個人排名獎勵
+Cross-Kingdom Personal Ranking = 跨王國個人總排名
+Participating Kingdoms = 參與王國
+Current Kingdom = 本王國
+Cross-Kingdom = 跨王國
+Coming soon = 即將來臨
+Rewards (preview bar) = 獎勵預覽
+Cesares Fury = 征討切薩雷
+Highlord Cesares = 統帥切薩雷
+Cesares Legionnaire = 切薩雷精銳
+Private = 個人
+Alliance = 聯盟
+Challenged = 已挑戰
+Captain = 頭目
+— = 菁英懸賞
+— = 征討召集令
+— = 切薩雷軍團
+Scout = 偵察
+Recommended Power = 推薦實力
+Show event shortcut = 顯示活動快捷入口
+Alliance Championship = 聯盟爭霸賽
+Silver IV = 白銀IV
+The Alliance Championship has ended! = 爭霸賽已落幕
+Clawshard = 斷爪
+Satin = 進貢綢緞
+Gilded Threads = 金絲線
+Artisan's Vision = 設計圖紙
+Mithril = 秘銀
+Mythic General Hero Shard = 傳說通用英雄碎片
+100 Enhancement XP Part = 100點強化經驗部件
+Forgehammer = 鍛造錘
+Governor Gear = 領主裝備
+Hero Gear = 英雄裝備
+Mastery Forging = 專精鍛造
+Enhancement XP = 強化經驗值
+Mythic = 傳說
+Stat Bonuses = 屬性加成
+Archer Attack = 弓兵攻擊力
+Archer Defense = 弓兵防禦力
+Enhancement Cost = 強化消耗
+Enhance = 強化
+Gear Enhancement = 裝備強化
+Charm Upgrades = 寶石升級
+Charm = 寶石
+Charm Design = 寶石圖紙
+Desert Trial = 荒野的試煉
+Dreadwolf = 恐狼
+Nightmare = 夢魘
+Alliance Banner = 聯盟旗幟
+Durability = 耐久度
+Garrisoned Governor = 駐守指揮官
+Not garrisoned = 未駐防
+Defender Squad = 駐守部隊
+No reinforcements to show = 暫無援軍
+Dispatch Troops = 派遣部隊
+Updates in = …後更新
+Event details = 活動詳細資訊
+Personal Ranking = 個人排名
+Alliance Ranking = 聯盟排名
+Countdown to Event Start = 活動開啟倒數計時
+Even more rewards = 更多獎勵
+Only leaders and R4+ can enable = 只有盟主和4階以上成員可以開啟
+Viking Vengeance = 維京人的掠奪
+Vikings = 維京掠奪者
+Defense Points = 防守積分
+Successful defense = 防守成功
+Reinforce allies = 增援盟友
+Kills = 擊殺
+Event Rules = 活動規則
+Event difficulty = 活動難度
+Alliance HQ = 聯盟總部
+[Plains] HQ = 【平原】總部
+[Badland] HQ = 【荒野】總部
+Expedition Skills = 遠征技能
+Wilderness map = 野外地圖
+Shield Strike = 劍盾猛攻
+Upgrade Preview = 升級預覽
+Damage Up = 造成傷害提升
+Enemy Damage Taken Up = 敵軍受到傷害提升
+Level maxed! = 已達最高等級
+Beasts = 野獸
+Terror = 巨獸
+Bread = 麵包
+Search = 搜索
+Auto Hunting = 自動狩獵
+Max opponent: Lv.28 Beasts = 最高可挑戰28級野獸
+Hunting Trap 2 = 狩獵陷阱2
+On cooldown = 冷卻中
+My City = 我的城鎮
+More (march list) = 增加行軍隊伍
+Wood = 木材
+Stone = 石材
+Iron = 鐵礦
+Great Mill = 大型磨坊
+Great Sawmill = 大型伐木場
+Great Quarry = 大型採石場
+Great Iron Mine = 大型鐵礦場
+Mill = 磨坊
+Sawmill = 伐木場
+Iron Mine = 鐵礦場
+Quarry = 採石場
+Secured Alliance Node = 聯盟安全採集點
+Armory = 防具庫
+Eternity's Reach = 失落的遺跡
+Explore the Eternity's Reach for strategic resource—Copper Ores! = 探索失落的遺跡，取得極具戰略價值的銅礦石！
+Copper Ore = 銅礦石
+Sign up and battle on the same day = 當日報名，當日參戰
+Registration closes in = 距離報名結束
+Sign up now = 立即報名
+Overview (button) = 說明
+Rewards (button) = 獎勵
+Guide (button) = 指南
+Historical Ranking = 排名紀錄
+Overview (dialog tab) = 基礎說明
+Buildings (dialog tab) = 建築介紹
+Other (dialog tab) = 其他
+Lv. 1 Vein = 1級礦脈
+Lv. 2 Vein = 2級礦脈
+Lv. 3 Vein = 3級礦脈
+Fracture Vein = 不穩定礦脈
+Peak of Eternity = 失落宮殿
+Capacity = 儲備量
+Speed = 速度
+View Rewards = 檢視獎勵
+March Queue = 常規行軍欄位
+Cesares Guards = 切薩雷守衛
+Academy = 學院
+Truegold = 黃金
+Rare Hero Shard = 稀有英雄碎片
+Epic Hero Shard = 史詩英雄碎片
+Mythic Hero Shard = 傳說英雄碎片
+Hero Gear Forgehammer = 英雄裝備鍛造錘
+Hero Shard = 英雄碎片
+Widget = 零件
+Hero Exclusive Gear = 英雄專屬裝備
+Pet advancement = 寵物突破
+Advanced Taming Marks = 高級馴化印記
+Common Taming Marks = 普通馴化印記
+War Academy = 戰爭學院
+Medical Satchel = 急救包
+Rescue Order = 救援令
+Kingdom of Power = 最強王國
+Overview (event info window) = 活動說明
+Matchmaking Phase = 配對階段
+Preparation Phase = 備戰階段
+Battle Phase = 戰爭階段
+Field Triage Phase = 戰地急救階段
+Cross-Kingdom Battle Phase = 跨王國戰爭階段
+Cross-Kingdom Castle Battle = 跨王國決戰王城
+High King = 最強國王
+Kingdom Bonus = 王國加成
+Cross-Kingdom Teleport = 跨王國遷城
+Rally Captain = 隊長
+Position perks = 官職增益
+Phase Rewards = 階段獎勵
+Ranking (rewards section) = 排名獎勵
+Total Point Ranking = 總積分排名
+Victory Rewards = 勝利獎勵
+Squads' Lethality (turret bonus) = 部隊殺傷力
+Raise Pet Advancement score = 提升寵物突破評分
+Pet Refinement = 寵物普通洗練
+Pet Advanced Refinement = 寵物高級洗練
+Raise Governor Charm max score = 提升領主寶石最高評分
+Raise Governor Gear max score = 提升領主裝備最高評分
+Use Forgehammers on gear = 消耗英雄裝備鍛造錘
+Use Exclusive Gear Widgets of any heroes = 消耗任意英雄專屬裝備對應的零件
+Use Truegold = 消耗黃金
+Use Mithril = 消耗秘銀
+Use Speedups for Construction = 消耗加速道具用於升級建築
+Use Speedups for Tech Research = 消耗加速道具用於研究科技
+Use Speedups for Soldier Training = 消耗加速道具用於訓練士兵
+Train or Promote Soldiers = 訓練或晉升士兵
+Play Hero Roulette = 參與英雄轉盤
+Use Hero Shards to ascend (excluding General Shards) = 消耗英雄碎片進行英雄升星（不含通用碎片）
+Complete Watchtower Intel Missions = 完成瞭望塔事件
+Gather resources on the World Map = 在野外採集資源
+Fishing Tournament = 釣魚大賽
+Guide (Fishing tab) = 圖鑑
+Trial Stages = 體驗關卡
+Fishing Techniques = 釣魚技巧
+Tokens and Points = 紀念幣與積分
+Fishing Points = 釣魚積分
+Fishing Tokens = 釣魚紀念幣
+Fishing Guild = 釣魚俱樂部
+Master Fisher Leaderboard = 釣魚大師榜
+Fishing Kit = 漁具
+Kit Enhancement = 漁具強化
+Line = 魚線
+Hook = 魚鉤
+Sinker = 魚墜
+Sunken Treasure Hunt = 深海尋寶
+Fishing Stage = 釣魚關卡
+Regular Fishing = 普通釣魚
+Ocean Prospector = 寶藏釣魚
+Bait = 餌料
+Treasure Chart = 藏寶海圖
+Ocean Chest = 深海寶箱
+Special Items = 特殊道具
+Fishing Voucher = 釣魚禮券
+Horn of the Tide = 海潮號角
+Reel = 線輪
+Ocean Scanner = 深海感應器
+Lantern = 照明燈
+Fish / Mermaid / Chest / Memorabilia = 魚類 / 美人魚 / 寶箱 / 紀念品
+Struggling Mermaid = 受困的美人魚
+Star Rating Rewards = 星級進度獎勵
+Guide Completion Rewards = 圖鑑分類獎勵
+Power Cast = 多倍釣魚
+Fishing Probability Guide = 關卡機率說明
+Fishing Pro / Fishing Master = 垂釣達人 / 垂釣大師
+Fishing Token Bonuses = 釣魚紀念幣加成
+Fishing Point Bonuses = 釣魚積分加成
+Retreat = 退出
+Continue = 繼續
+Tri-Alliance Clash = 三盟爭霸
+Battle Prerequisites = 參戰條件
+Battle Rules = 戰鬥規則
+Voting / Registration / Matchmaking / Battle = 投票 / 報名 / 配對 / 戰鬥
+Power Leaderboard = 實力排名
+Deployment page = 參戰管理頁面
+Preparations = 準備階段
+Seize & Conquer = 攻城掠地
+Garrison Occupation = 爭奪各方兵營
+Temple Onslaught = 進軍潮汐神殿
+Energy = 能量
+Deploy / Conscript / Advance / Retreat / Instantly revive = 出征 / 徵兵 / 突進 / 撤退 / 立即復活
+Captain (Tri-Alliance) = 指揮官
+Temple of Tides = 潮汐神殿
+Headquarters = 總部
+Garrisons = 戍衛兵營
+Cluster of Ruins = 遺跡群
+Ruins = 遺跡
+Transit Hub = 中轉樞紐
+Pillars = 海之柱
+Neutral buildings = 中立建築
+Alliance Ranking Rewards = 聯盟排名獎勵
+Personal Ranking Rewards = 個人排名獎勵
+Personal Merits = 個人戰功
+Auto-advance = 輪空
+Tidal Stone = 海潮石
+Tidal Shop = 潮汐商店
+Mystic Trial = 秘境試煉
+Story = 背景故事
+Expedition Stats = 遠征屬性
+Coliseum = 角鬥賽場
+Forest of Life = 生命森林
+Crystal Cave = 水晶礦洞
+Knowledge Nexus = 知識樞紐
+Molten Fort = 熔岩要塞
+Radiant Spire = 輝光尖塔
+Squad Config = 部隊配置
+Trial Explorers = 試煉探險隊
+Soldiers = 士兵
+Deployment capacity = 出征容量
+Challenge Attempts = 挑戰次數
+First Win Rewards = 首勝獎勵
+Raid Rewards = 掃蕩獎勵
+Stage Reset = 關卡重置
+Raid = 關卡掃蕩
+Stage (trial level) = 關卡
+Zone = 區域
+Pet = 寵物
+Pet Skills = 寵物技能
+Governor Charm = 領主寶石
+Tech = 科技
+Truegold Tech = 黃金科技
+Skins = 裝扮
+Oasis Island = 綠洲島
+VIP level = VIP等級
+Current Level = 目前等級
+VIP XP = VIP經驗值
+VIP Benefits = VIP特權
+NEW = 最新
+Resource Production Speed = 資源生產速度
+Storehouse Capacity = 倉庫容量
+Construction Speed = 建造速度
+VIP Daily Free Bundle = VIP每日免費禮包
+VIP Special Pack = VIP專享禮包
+Purchase limit: 1 = 僅限購買1次
+Power (alliance info) = 實力
+Members = 成員
+Language = 語言
+All languages = 所有語言
+Maxed = 等級已滿
+War = 聯盟戰爭
+Chests = 聯盟寶箱
+Territory = 聯盟領地
+Battle = 據點爭奪
+Shop (alliance) = 聯盟商店
+Tech (alliance) = 聯盟科技
+Power (ranking button) = 實力排行
+Help = 聯盟互助
+Triumph = 激勵
+Rebel Bounty: Elite = 叛軍懸賞：大師
+Intel Mission = 情報事件
+Intel Level = 情報事件
+Quality = 情報事件等級
+Max Count = 最多情報事件更新數量
+Refreshes In = 下次更新
+Barricade = 城牆
+Conquerors' Camp = 討伐小隊營地
+Court of Justice = 司法所
+Infirmary = 野戰醫院
+Enlistment Office = 徵兵處
+Storehouse = 倉庫
+Defense Tower = 防禦塔
+Beast Cage = 獸欄
+Covenant-Making = 聯盟永存
+Permanent Alliance Tech Contributions = 永續聯盟科技捐贈
+Contribution Rewards = 捐款獎勵
+Contribute = 捐獻
+Attempts = 次數
+Unlimited (∞) = 不限
+Alliance Token = 聯盟幣
+Arena of Glory = 萬國競技場
+Season ends in = 距離賽季結束
+Ranking = 排名
+Governor = 領主
+Arena Points = 競技積分
+Challenge = 挑戰
+History = 紀錄
+Def. Lineup = 防守
+Daily = 每日任務
+Growth = 成長任務
+Carry out N Intel Mission(s) = 處理N次情報事件
+Heal N injured soldiers = 治療N個傷兵
+Upgrade N building(s) = 提升N次建築等級
+Defeat Terror N time(s) = 擊敗巨獸N次
+Complete Daily Missions = 完成每日任務
+Get More = 取得更多
+Water Essence = 生命之水
+Fountain of Life = 生命之泉
+Reservoir = 儲水小屋
+Island Treasure = 海島秘寶
+Assist Allies = 協助盟友
+Purifier = 淨水廠
+Cacti = 仙人掌
+Weekly Benefits Card = 優惠週卡
+Hall of Heroes = 英雄殿堂
+Intel Monthly Card = 情報月卡
+Remaining = 剩餘次數
+Expiring = 剩餘存在時間
+Gathered = 我已採集
+Time Left = 我的採集剩餘時間
+Gathering Speed = 我的採集速度
+Gathering Squad = 採集部隊
+Gather = 採集
+Pet Adventure = 寵物尋寶
+Governor Stamina = 領主體力
+Treasure spot = 藏寶點
+Ally Treasure = 聯盟寶藏
+Nomadic Merchant = 流浪商人
+Mystery (shop) = 神秘商店
+Arena (shop) = 競技商店
+VIP (shop) = VIP商店
+Alliance Championship Shop = 爭霸賽商店
+Swordland (shop) = 聖劍商店
+Kingdom of Power (shop) = 最強王國商店
+Skin (shop) = 裝扮商店
+Trial Shop = 試煉挑戰商店
+Gem (shop) = 鑽石商店
+Trial Crystal = 試煉晶石
+Refresh = 更新
+Sold out = 已售罄
+Exclusive Item = 專屬商品
+Today = 今日
+Week = 本週
+Gen 2 Custom Hero Widget Chest = 第2代英雄零件客製化箱子
+Custom Mythic Hero Gear Chest = 傳說英雄裝備客製化箱子
+Mythic Hero Gear = 傳說品質英雄裝備
+Transfer Pass = 移民授權書
+Kingdom Transfer = 王國移民
+Sources = 取得來源
+Buy Packs = 禮包購買
+City Skin = 城鎮裝扮
+House of Cacti (Permanent) = 仙人掌小屋（永久）
+In Wilderness = 野外展示
+Preview = 預覽
+Stat Bonus (Activated upon Acquisition) = 屬性加成（擁有即啟用）
+Squads' Attack = 部隊攻擊力
+Alliance Mobilization = 聯盟總動員
+Event Period = 活動時間
+Participation Requirement = 參與條件
+Obtain Points = 積分取得
+Alliance Points = 聯盟積分
+Refresh Event Mission = 更新活動任務
+Exclusive mission = 專屬任務
+Public mission = 公共任務
+Abandon Event Mission = 放棄活動任務
+Custom Mission Voucher = 自選任務券
+Ranking Display Phase = 排名展示階段
+League Overview = 聯賽說明
+League Event = 活動聯賽
+League Tier Ranking = 聯賽升級
+Rookie (league tier) = 新手
+Junior (league tier) = 初級
+Senior (league tier) = 菁英
+Elite (league tier) = 榮耀
+Legendary (league tier) = 傳奇
+Milestone (promotion level) = 里程碑獎勵
+Tier Demote = 聯賽降級
+Ranking Rule = 排名規則
+Note (rules) = 注意
+Champagne Fair = 香檳市集
+Fair Vouchers = 市集商券
+Hero Rally = 英雄集結
+Governor Order = 法令
+Urgent Mobilization = 緊急動員
+Rush Job = 立即生產
+Comprehensive Care = 藥到病除
+Double Time = 加速建造
+Productivity Day = 效率工作
+Festivities = 節日狂歡
+Ground Works = 土木工程
+Kingdom of Power Bonus = 最強王國加成
+Residents continue working = 居民持續工作
+Research Speed = 研究速度
+Training Speed = 訓練速度
+Appointment = 官職任命
+Ministers (tab) = 官員
+Offender (tab) = 罪人
+The King may appoint Ministers = 國王可以任命官員
+Chief Minister = 總理大臣
+Minister of Justice = 司法大臣
+Minister of the Interior = 內務大臣
+Field Commander = 軍團長
+Marshal = 統帥
+Noble Advisor = 參謀長
+Not Appointed = 未任命
+Reserved = 已成功預約
+Appointed in = 距離任命
+Eric = 艾瑞克
+Petra = 小佩拉
+Jaeger = 耶格爾
+At Max Level & Stars = 最高等級和星級屬性
+Hero Attack = 英雄攻擊力
+Hero Defense = 英雄防禦力
+Hero Health = 英雄生命值
+Expedition = 遠征
+Infantry Attack = 步兵攻擊力
+Infantry Defense = 步兵防禦力
+Cavalry Attack = 騎兵攻擊力
+Cavalry Defense = 騎兵防禦力
+Master Academy = 大師學院
+Master List = 大師列表
+Master Stats = 大師總屬性
+Max Affinity Stats = 好感度滿級屬性
+Talent = 天賦
+Reach 1000 Affinity and the Master will settle in the Town. = 好感度達到1,000，大師將進駐城鎮
+Relationship Advancement = 關係進階
+Relationship Advancement Preview = 關係進階預覽
+Expertise Level Up = 精通等級提升
+Raise Master Affinity to upgrade Status = 提升好感度等級，可進階與大師的關係
+Stranger = 素不相識
+Acquaintance = 點頭之交
+Casual = 志同道合
+Close = 赤誠相待
+Kindred Soul = 莫逆之交
+Squads' Defense = 部隊防禦力
+Reserve Chests = 儲備寶箱
+Pan = 潘
+Palace Administrator = 皇室總管
+Valora = 維拉
+Bear Hunter = 巨熊主宰
+Bear Hunt Damage Points (effective for self only) = 狩獵巨熊所獲得的傷害積分（僅對自己生效）
+Roman = 羅曼
+Arena Champion = 競技之王
+Arena Star Chest = 競技明星寶箱
+Arena Token = 競技幣
+Master's Manuscript = 大師手稿
+General Master Emblem = 通用大師徽記
+Achievements = 成就
+Realm Journey = 荒野冒險
+Journey = 冒險
+Frontier Encounter = 荒野奇遇
+Next Stop = 下一站
+Idle = 掛機
+Auto = 自動
+Known Masters = 已結識的大師
+Savage Advantage = 人數優勢
+Leader By Example = 經驗傳承
+Weapon Obsession = 武器專精
+Dance of the Hunt = 狩獵之舞
+Falconer = 獵鷹偵查
+Good Steward = 膳食管理
+Master Architect = 建築計畫
+Ways and Means = 特殊管道
+Teacher of Champions = 勇者無懼
+Winner Take All = 享受勝利
+Crowd Favorite = 邁向榮耀
+One Desire = 萬眾矚目
+Mystery Badge = 神秘徽章
+Journey Supplies = 冒險物資
+Adventure Supply = 征程補給
+Lostlands = 遺忘之地
+Master Emblem = 大師徽記
+Gray Wolf = 灰狼
+Lynx = 猞猁
+Bison = 野牛
+Cheetah = 獵豹
+Moose = 駝鹿
+Lion = 獅子
+Grizzly Bear = 棕熊
+Construction Aide = 建造助手
+Comforting Embrace = 安撫心靈
+Grip of the Titan = 巨力
+Scent Mastery = 敏銳嗅覺
+Horror Stare = 恐怖凝視
+Gift of the King = 獅王贈禮
+The Howler = 恐怖咆哮
+Pet Skill = 寵物技能
+Skill Effect = 技能效果
+Quick Use = 快捷使用
+Cooldown (Pet Skill) = 冷卻時間
+On Cooldown = 冷卻中
+Pet List = 寵物列表
+Display = 展示
+Advance = 突破
+Refine = 洗煉
+X Overall Stats = X總屬性
+Pet Food = 寵物口糧
+Infantry Lethality = 步兵殺傷力
+Infantry Health = 步兵生命值
+Cavalry Lethality = 騎兵殺傷力
+Cavalry Health = 騎兵生命值
+Archer Lethality = 弓兵殺傷力
+Archer Health = 弓兵生命值
+Cesares = 切薩雷
+Abbey = 修道院
+Sanctuary = 遺跡
+Intel Missions = 情報任務
+Medical Satchels = 急救包
+Rescue Orders = 救援令
+use = 使用
+okay if needed = 需要時可以用
+don't use = 不要使用
+need to do daily = 每天都要做
+Captain = 指揮官
+Conscript = 徵兵
+neutral buildings = 中立建築
+Deploy = 出征
+Advance = 突進
+Instantly revive = 立即復活
+Learning Speedups = 學習加速
+Mystery Badges = 神秘徽章
+Tech = 聯盟科技
+House of Cacti = 仙人掌小屋
+Master Emblems = 大師徽記
+Mystery Shop = 神秘商店
+Arena Shop = 競技商店
+VIP Shop = VIP商店
+Swordland Shop = 聖劍商店
+Kingdom of Power Shop = 最強王國商店
+Skin Shop = 裝扮商店
+Gem Shop = 鑽石商店
+Alliance Shop = 聯盟商店
+Pets = 寵物
