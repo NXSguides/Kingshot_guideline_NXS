@@ -1,7 +1,7 @@
 name: Build AI Context
 on:
   push:
-    paths: ["data/content.js", "data/announcements.json", "scripts/build-ai-context.js"]
+    paths: ["data/content.js", "data/terms.js", "data/announcements.json", "scripts/build-ai-context.js"]
     branches: [main]
   # announcements.json is committed by the translate bot, and bot commits don't start
   # other workflows, so also run after every translation finishes
@@ -28,7 +28,7 @@ jobs:
       - run: |
           git config user.name "ai-context-bot"
           git config user.email "actions@github.com"
-          git add data/ai-context.txt
+          git add data/ai-context*.txt
           git diff --cached --quiet && exit 0
           git commit -m "更新 AI 助手內容"
           for i in 1 2 3; do
