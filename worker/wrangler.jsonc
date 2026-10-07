@@ -1,0 +1,18 @@
+// Cloudflare settings for the AI assistant Worker (used when Cloudflare deploys it from GitHub).
+{
+  "name": "nxs-ai",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+
+  // Run in a US Google Cloud region: Gemini refuses requests from Hong Kong,
+  // and Cloudflare sometimes serves Taiwan from its Hong Kong data center.
+  "placement": { "region": "gcp:us-east4" },
+
+  // Daily question counter. Paste the ID of your "nxs-ai-limits" KV namespace here
+  // (Cloudflare → Storage & Databases → Workers KV → nxs-ai-limits → copy the ID).
+  "kv_namespaces": [{ "binding": "LIMITS", "id": "PASTE_KV_NAMESPACE_ID_HERE" }],
+
+  // Keep the secrets (GEMINI_API_KEY, DATA_KEY) that were added in the dashboard.
+  "keep_vars": true
+}
