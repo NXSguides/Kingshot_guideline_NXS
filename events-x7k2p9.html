@@ -349,6 +349,23 @@ Before registering:
 🔹 Activate Marshal / Field Commander & Pet Buffs before registering.
 
 🔄 You can refresh your registration anytime to update heroes, formation, and buffs. Especially if you have upgraded your heroes or troops.` },
+    { title: "Starts tomorrow", text: `🏆 ALLIANCE CHAMPIONSHIP — STARTS TOMORROW
+
+Registration opens tomorrow. Please register in the Middle Lane — leadership will sort you later. Do not move yourself; R5 handles all lane deployment.
+
+Before registering:
+🔹 Use your strongest heroes
+🔹 Formation: 50% Infantry, 20% Cavalry, 30% Archers
+🔹 Activate King Appointments & Pet Buffs
+
+🔄 You can refresh your registration anytime to update heroes, formation, and buffs — especially if you've upgraded your heroes or troops.` },
+    { title: "Buffs / update after Bear", text: `If you haven't used your buffs yet:
+
+You can still activate them before the bear trap – especially if you're using attack and lethality buffs for the bear.
+
+After the bear trap:
+
+Please update your troops in the Alliance Championship – especially those who upgraded their TG tier today. Refresh your registration to reflect any changes in heroes, formation, or buffs.` },
   ],
   "alliance-mobilization": [
     { title: "Alliance Mobilization", text: `🔥 ALLIANCE MOBILIZATION IS HERE! 🔥
@@ -391,8 +408,12 @@ or 60/15/25
 const EXTRA_EVENTS = [
   { id: "bear-hunt", emoji: "🐻", en: "Bear Hunt", zh: "狩獵巨熊", start: "2026-10-07", every: 2, days: 1, guide: "bear-hunt",
     note: "11:00 & 22:00 UTC, 30 min each" },
-  { id: "alliance-championship", emoji: "🏆", en: "Alliance Championship", zh: "聯盟爭霸賽", start: "", every: 0, days: 0, guide: "" },
-  { id: "alliance-mobilization", emoji: "🔥", en: "Alliance Mobilization", zh: "聯盟總動員", start: "", every: 0, days: 0, guide: "" },
+  { id: "alliance-championship", emoji: "🏆", en: "Alliance Championship", zh: "聯盟爭霸賽", start: "2026-09-28", every: 7, days: 2, guide: "",
+    note: "Weekly, Monday reset · shown = 2-day registration; battles run automatically",
+    todo: [{ due: -1, post: 1, en: "Remind everyone: register in the Middle Lane, strongest heroes, 50/20/30, buffs on.", zh: "提醒大家報名中路、用最強英雄、50/20/30、開好增益。" }] },
+  { id: "alliance-mobilization", emoji: "🔥", en: "Alliance Mobilization", zh: "聯盟總動員", start: "2026-09-28", every: 28, days: 7, guide: "",
+    note: "Follows the 4-week cycle (after KvK / after Strongest Governor; Alliance Brawl can replace one) — check the start date",
+    todo: [{ due: 0, post: 1, en: "Post the mission rules (no KvK Prep items; best picks).", zh: "公告任務規則（不要選用到 KvK 準備道具的任務、推薦的任務）。" }] },
   { id: "mystic-trial", emoji: "🔮", en: "Mystic Trial", zh: "秘境試煉", start: "", every: 0, days: 0, guide: "mystic-trial" },
   { id: "alliance-rules", emoji: "📜", en: "Alliance rules", zh: "聯盟規則", start: "", every: 0, days: 0, guide: "" },
 ];
@@ -536,7 +557,7 @@ function defaultList(sched) {
     out.push({ id, emoji: e.emoji, en: e.en, zh: e.zh, start: s ? isoDay(s.anchor) : "", every: s ? s.periodDays : 0, days: s ? s.activeDays : 0,
       guide: e.noGuide ? "" : (GUIDE_LIST[id] ? id : ""), note: "", todo: (TODO[id] || []).map((x) => ({ ...x })), ingame: INGAME_DEFAULTS[id] || [] });
   }
-  for (const e of EXTRA_EVENTS) if (!out.some((x) => x.id === e.id)) out.push({ ...e, note: e.note || "", todo: [], ingame: INGAME_DEFAULTS[e.id] || [] });
+  for (const e of EXTRA_EVENTS) if (!out.some((x) => x.id === e.id)) out.push({ ...e, note: e.note || "", todo: e.todo || [], ingame: INGAME_DEFAULTS[e.id] || [] });
   return out;
 }
 
