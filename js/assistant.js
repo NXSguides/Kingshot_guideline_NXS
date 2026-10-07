@@ -4,7 +4,7 @@
    If the AI is unavailable (free quota used up), it falls back to a simple search of the guides. */
 (function () {
   // ↓↓↓ Paste your Worker address here after Step 3 (e.g. "https://nxs-ai.yourname.workers.dev")
-  const AI_URL = "";
+  const AI_URL = "nxs-ai.tapegirljoke.workers.dev";
   const OFFICER_LS = "nxs-post-v1";   // same saved officer login as the officer pages
 
   const st = document.createElement("style");
