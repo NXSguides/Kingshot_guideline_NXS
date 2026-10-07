@@ -11,7 +11,7 @@
 
   // Daily question counter. Paste the ID of your "nxs-ai-limits" KV namespace here
   // (Cloudflare → Storage & Databases → Workers KV → nxs-ai-limits → copy the ID).
-  "kv_namespaces": [{ "binding": "LIMITS", "id": "PASTE_KV_NAMESPACE_ID_HERE" }],
+  "kv_namespaces": [{ "binding": "LIMITS", "id": "c013f0320411437897f88535ae1c4474" }],
 
   // Keep the secrets (GEMINI_API_KEY, DATA_KEY) that were added in the dashboard.
   "keep_vars": true
