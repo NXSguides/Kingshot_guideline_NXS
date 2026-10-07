@@ -10,7 +10,7 @@
    Officers:  also roster / watch data. "Officer" = proves the officer password (it opens data/data-key.json),
               checked here with a hash of the DATA_KEY secret. */
 
-const VERSION = "2026-10-07e (term list first)";
+const VERSION = "2026-10-07f (prebuilt officer data)";
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
 const REPO = "NXSguides/Kingshot_guideline_NXS";
@@ -39,6 +39,13 @@ const json = (obj, status = 200) => Response.json(obj, { status, headers: cors }
 
 export default {
   async fetch(req, env) {
+    try { return await handle(req, env); }
+    catch (e) { return json({ error: "worker", detail: [String(e && e.message || e)] }, 500); }
+  },
+};
+
+async function handle(req, env) {
+  {
     if (req.method === "OPTIONS") return new Response(null, { headers: cors });
     const isCheck = req.method === "GET" && new URL(req.url).pathname === "/check";
     if (!isCheck && req.method !== "POST") return json({ error: "POST only — open /check to test the setup" }, 405);
@@ -124,8 +131,8 @@ export default {
     }
     const allQuota = fails.every((f) => f.includes("429"));
     return json({ error: allQuota ? "quota" : "gemini", detail: fails }, 503);
-  },
-};
+  }
+}
 
 /* One Gemini call. Thinking is kept low: on "thinking" models it uses the same token budget as
    the answer, and a too-small budget gives an empty answer. */
@@ -168,7 +175,7 @@ async function check(req, env) {
   try { out.ai_context = (await getPublic("zh")).length + " characters (zh)"; }
   catch (e) { out.ai_context = "ERROR " + e.message; }
   if (env.DATA_KEY) {
-    try { const r = await openData(JSON.parse(await getText("data/roster-x7k2p9.json")), env); out.officer_data = `ok (${r.members.length} members)`; }
+    try { const r = await openData(JSON.parse(await getText("data/ai-officer.json")), env); out.officer_data = `ok (built ${String(r.built).slice(0, 16)}, ${r.text.length} characters)`; }
     catch (e) { out.officer_data = "ERROR " + e.message; }
   }
   out.models = {};
@@ -281,42 +288,12 @@ async function openData(obj, env) {
   return JSON.parse(new TextDecoder().decode(pt));
 }
 
+/* The officer summary is prebuilt by GitHub Actions (scripts/build-officer-context.js) and encrypted;
+   here it only needs decrypting — the free plan allows ~10 ms of work per question. */
 async function getOfficer(env) {
   if (officerCache.text && Date.now() - officerCache.at < CACHE_MS) return officerCache.text;
-  const [roster, watch] = await Promise.all([
-    getText("data/roster-x7k2p9.json").then((t) => openData(JSON.parse(t), env)),
-    getText("data/watch-x7k2p9.json").then((t) => openData(JSON.parse(t), env)).catch(() => null),
-  ]);
-  const M = (n) => (n == null ? "?" : (n / 1e6).toFixed(1) + "M");
-  const day = (s) => (s ? new Date(s * 1000).toISOString().slice(0, 10) : "?");
-  const out = ["===== OFFICER DATA (officers only) ====="];
-
-  out.push(`### ROSTER — ${roster.alliance?.name || ""} [${roster.alliance?.tag || ""}], updated ${String(roster.updated).slice(0, 10)}`,
-    "name | rank | power | TC | kills | last active | language");
-  for (const m of [...roster.members].sort((a, b) => (b.power || 0) - (a.power || 0)))
-    out.push(`${m.name} | ${m.rank} | ${M(m.power)} | ${m.tc ?? "?"} | ${M(m.kills)} | ${m.lastLogin || day(m.lastActive)} | ${m.lang || "?"}`);
-
-  if (watch) {
-    const byId = Object.fromEntries(roster.members.map((m) => [m.id, m.name]));
-    const renames = [], growth = [];
-    for (const [id, w] of Object.entries(watch.members || {})) {
-      const name = byId[id] || w.names?.at(-1)?.[1] || id;
-      if (w.names?.length > 1) renames.push(`${name}: ` + w.names.map(([d, n]) => `${n} (${d})`).join(" → "));
-      const p = w.power || [];
-      if (p.length > 1) growth.push([name, p[0][1], p.at(-1)[1], p[0][0], p.at(-1)[0]]);
-    }
-    out.push(`### WATCH — tracking since ${watch.started}`);
-    out.push("Name changes:", renames.length ? renames.join("\n") : "none");
-    out.push("Left the alliance:", (watch.left || []).map((l) => `${l.name} (${l.leftOn})`).join(", ") || "none");
-    growth.sort((a, b) => (b[2] - b[1]) - (a[2] - a[1]));
-    out.push("Power change since tracking started (biggest first):",
-      growth.map(([n, a, b, d1, d2]) => `${n}: ${M(a)} (${d1}) → ${M(b)} (${d2})`).join("\n"));
-    const others = Object.values(watch.others || {}).map((a) =>
-      `[${a.tag}] ${a.name} (#${a.kid}, ${a.asOf}): ${a.members.length} members; top: ` +
-      a.members.slice(0, 5).map(([, n, p]) => `${n} ${M(p)}`).join(", "));
-    if (others.length) out.push("### OTHER ALLIANCES", others.join("\n"));
-  }
-  officerCache = { text: out.join("\n"), at: Date.now() };
+  const data = await openData(JSON.parse(await getText("data/ai-officer.json")), env);
+  officerCache = { text: data.text, at: Date.now() };
   return officerCache.text;
 }
 
