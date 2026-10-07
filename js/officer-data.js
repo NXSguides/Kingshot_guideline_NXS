@@ -63,3 +63,18 @@ window.OfficerData = (() => {
 
   return { KEY_FILE, unlock, open, seal, fetchJson, fetchKeyFile, unwrap, wrap, enc, ready: () => !!key };
 })();
+
+/* ===== Tab names at the top of the officer pages follow the page language (English / 中文) ===== */
+(function () {
+  const NAMES = {
+    en: { ranking: "📊 Ranking", post: "📢 Post", watch: "🕵️ Watch", events: "📅 Events" },
+    zh: { ranking: "📊 成員排序", post: "📢 發布公告", watch: "🕵️ 觀察名單", events: "📅 活動排程" },
+  };
+  function apply() {
+    const n = NAMES[(document.documentElement.lang || "").startsWith("zh") ? "zh" : "en"];
+    document.querySelectorAll(".tabs a[data-tab]").forEach((a) => { if (n[a.dataset.tab]) a.textContent = n[a.dataset.tab]; });
+  }
+  // each page sets <html lang> when it shows its texts (and again when the language button is used)
+  new MutationObserver(apply).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", apply); else apply();
+})();
