@@ -87,3 +87,5 @@ content: |
 
   **⚠️ 3. Violations**
   • Do not retaliate. Send report to alliance leadership, or King if leadership is unavailable.
+
+  [[img:figures/ann/20261007-031329-1.jpg]]
