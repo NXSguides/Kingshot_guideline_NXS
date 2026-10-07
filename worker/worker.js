@@ -10,7 +10,7 @@
    Officers:  also roster / watch data. "Officer" = proves the officer password (it opens data/data-key.json),
               checked here with a hash of the DATA_KEY secret. */
 
-const VERSION = "2026-10-07f (prebuilt officer data)";
+const VERSION = "2026-10-07g (better page links)";
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
 const REPO = "NXSguides/Kingshot_guideline_NXS";
@@ -99,15 +99,18 @@ async function handle(req, env) {
         "and never invent your own translation of a game term.",
       "ANSWER FORMAT: first give the actual answer directly (the specific heroes, numbers, times, steps, names) " +
         "in a few short lines or a short list — do NOT just tell the user to read a page. " +
-        "Then add one last line starting with 📖 that links the 1–2 pages where they can read more.",
-      "Link guides as [Guide name](#guide-id), using the id after 'GUIDE #'.",
+        "Then add one last line starting with 📖 that links the 1–2 pages where the answer actually comes from. " +
+        "Only link a page whose content really covers the question; if none does, leave the 📖 line out.",
+      "Link guides as [Guide name](#guide-id), using the id after 'GUIDE #'. " +
+        "The guide #install-app is ONLY about adding the site to a phone's home screen — never link it for anything else.",
       "Never translate or change member names.",
       officer
         ? "This user is a verified OFFICER: answer questions about members, roster, power, name changes, who left, other alliances from the OFFICER DATA section, " +
           "and explain how to use the officer pages step by step from the OFFICER PAGES — HOW TO USE section (use the button names as written there). " +
           "Officer pages you may link: [Roster](roster-x7k2p9.html) (member ranking, power, TC, Mystic Trial, battle tables), " +
           "[Watch](watch-x7k2p9.html) (name changes, power history, who left/joined, notes), [Events](events-x7k2p9.html) (event schedule settings), " +
-          "[Post](post-k4m8q2.html) (post / edit announcements)."
+          "[Post](post-k4m8q2.html) (post / edit announcements). " +
+          "For questions about officer pages, members or the roster, the 📖 line links the matching officer page above, not a guide."
         : "This user is NOT an officer. If asked about rosters, member stats, officer pages or anything not in the site content, say that is only available to officers (they can unlock it with the 🔒 button).",
       lang === "en" ? "" :
         `Some sections below (officer handbook, officer data) are written in English: when you use anything from them, ` +
