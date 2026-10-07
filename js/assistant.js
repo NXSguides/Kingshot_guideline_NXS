@@ -19,14 +19,14 @@
 
   /* chat box texts — follow the language picked on the site ({g} = a guide name) */
   const TXT = {
-    en: { limit: "You've used today's {n} questions on this device. Try again tomorrow (officers have no limit).", left: "{n} questions left today on this device.", greet: "Hi! Ask me anything about the guides.", eg: "e.g. “Which heroes for {g}?”", ph: "Ask a question…",
+    en: { officerFail: "(Officer check failed — the AI answered as for a normal member. Try 🔒 again.)", limit: "You've used today's {n} questions on this device. Try again tomorrow (officers have no limit).", left: "{n} questions left today on this device.", greet: "Hi! Ask me anything about the guides.", eg: "e.g. “Which heroes for {g}?”", ph: "Ask a question…",
       pw: "Officer password", keep: "Remember on this device", wrong: "Wrong password.", checking: "Checking…",
       on: "Officer mode on — you can also ask about the roster and member tracking.", off: "Officer mode off.",
       lockOn: "Officer mode on", lockOff: "Officer access", guides: "These guides might help:", none: "No matching guide found.",
       officerPages: "Officer pages:", notSet: "The AI isn't set up yet.", slow: "Too many questions — please wait a minute.",
       quota: "The AI is resting (daily free limit reached). Please try again later.", site: "The AI couldn't read the site content.",
       broken: "The AI isn't working right now.", net: "Couldn't reach the AI. Check your internet." },
-    zh: { limit: "這台裝置今天的 {n} 次提問已經用完了，明天再來吧（幹部不受限制）。", left: "這台裝置今天還可以問 {n} 次。", greet: "嗨！指南裡的任何問題都可以問我。", eg: "例如：「{g}要派哪些英雄？」", ph: "輸入問題…",
+    zh: { officerFail: "（幹部驗證失敗，AI 以一般成員的身分回答。請再按一次 🔒 解鎖。）", limit: "這台裝置今天的 {n} 次提問已經用完了，明天再來吧（幹部不受限制）。", left: "這台裝置今天還可以問 {n} 次。", greet: "嗨！指南裡的任何問題都可以問我。", eg: "例如：「{g}要派哪些英雄？」", ph: "輸入問題…",
       pw: "幹部密碼", keep: "在這台裝置上記住", wrong: "密碼錯誤。", checking: "確認中…",
       on: "已開啟幹部模式 — 也可以問名冊和成員追蹤的問題。", off: "已關閉幹部模式。",
       lockOn: "幹部模式已開啟", lockOff: "幹部登入", guides: "這些指南可能有幫助：", none: "找不到相關的指南。",
@@ -104,7 +104,17 @@
       quota: "الذكاء الاصطناعي في استراحة (انتهى الحد المجاني اليومي). حاول لاحقًا.", site: "تعذّر على الذكاء الاصطناعي قراءة محتوى الموقع.",
       broken: "الذكاء الاصطناعي لا يعمل حاليًا.", net: "تعذّر الاتصال بالذكاء الاصطناعي. تحقّق من الإنترنت." },
   };
-  const L = (k) => (TXT[currentLang] || TXT.en)[k] || TXT.en[k];
+  /* works on the main site (app.js) and on the officer pages (no app.js; maybe no content.js) */
+  const HAS_GUIDES = typeof GUIDES !== "undefined";
+  const ON_SITE = typeof switchGuide === "function";
+  const curLang = () => {
+    if (typeof currentLang !== "undefined") return currentLang;
+    try { const v = localStorage.getItem("nxs-officer-lang"); if (v) return v; } catch (e) {}
+    return "en";
+  };
+  const esc = (str) => String(str ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const pickName = (m) => (m && (m[curLang()] || m.en || Object.values(m)[0])) || "";
+  const L = (k) => (TXT[curLang()] || TXT.en)[k] || TXT.en[k];
 
   const st = document.createElement("style");
   st.textContent = `
@@ -158,8 +168,8 @@
 
   /* (re)write the chat box texts in the site's current language */
   function applyLang() {
-    const g = GUIDES["bear-hunt"] ? t(GUIDES["bear-hunt"].name) : "Bear Hunt";
-    $("aiGreet").innerHTML = `${escapeHtml(L("greet"))}<br><span class="ai-hint">${escapeHtml(L("eg").replace("{g}", g))}</span>`;
+    const g = HAS_GUIDES && GUIDES["bear-hunt"] ? pickName(GUIDES["bear-hunt"].name) : "Bear Hunt";
+    $("aiGreet").innerHTML = `${esc(L("greet"))}<br><span class="ai-hint">${esc(L("eg").replace("{g}", g))}</span>`;
     $("aiQ").placeholder = L("ph");
     $("aiPw").placeholder = L("pw");
     $("aiKeepTxt").textContent = L("keep");
@@ -172,34 +182,44 @@
   fab.onclick = () => { panel.hidden = !panel.hidden; if (!panel.hidden) $("aiQ").focus(); };
   $("aiClose").onclick = () => { panel.hidden = true; };
 
-  /* ---------- officer unlock (same password + key file as the officer pages) ---------- */
-  let officerToken = null;
-  const b64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+  /* ---------- officer unlock: the officer password opens data/data-key.json; the Worker checks a hash of that key ---------- */
+  let officerProof = null;
+  const b64 = (str) => Uint8Array.from(atob(str), (c) => c.charCodeAt(0));
   function store() { try { return JSON.parse(localStorage.getItem(OFFICER_LS)) || {}; } catch (e) { return {}; } }
-  async function decrypt(pw) {
+  async function proofFor(pw) {
     try {
-      const blob = await fetch("data/post-key.json?t=" + Date.now(), { cache: "no-store" }).then((r) => r.json());
+      const blob = await fetch("data/data-key.json?t=" + Date.now(), { cache: "no-store" }).then((r) => r.json());
       const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
       const key = await crypto.subtle.deriveKey({ name: "PBKDF2", salt: b64(blob.salt), iterations: blob.iter, hash: "SHA-256" },
         base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
-      return new TextDecoder().decode(await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64(blob.iv) }, key, b64(blob.data)));
+      const raw = new Uint8Array(await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64(blob.iv) }, key, b64(blob.data)));
+      let k64 = ""; raw.forEach((x) => (k64 += String.fromCharCode(x))); k64 = btoa(k64);
+      const h = await crypto.subtle.digest("SHA-256", new TextEncoder().encode("nxs-officer:" + k64));
+      return [...new Uint8Array(h)].map((x) => x.toString(16).padStart(2, "0")).join("");
     } catch (e) { return null; }
   }
-  function setLock() { $("aiLock").textContent = officerToken ? "🔓" : "🔒"; $("aiLock").title = L(officerToken ? "lockOn" : "lockOff"); }
+  function setLock() { $("aiLock").textContent = officerProof ? "🔓" : "🔒"; $("aiLock").title = L(officerProof ? "lockOn" : "lockOff"); }
   applyLang();
-  (async () => { const pw = store().pw; if (pw) { officerToken = await decrypt(pw); setLock(); } })();
+  // saved login, or the password just typed on an officer page's own gate
+  async function autoUnlock() {
+    if (officerProof) return;
+    const pw = window.__nxsOfficerPw || store().pw;
+    if (pw) { officerProof = await proofFor(pw); setLock(); }
+  }
+  autoUnlock();
+  window.addEventListener("nxs-officer", autoUnlock);
 
   $("aiLock").onclick = () => {
-    if (officerToken) { officerToken = null; setLock(); say("a", L("off")); return; }
+    if (officerProof) { officerProof = null; setLock(); say("a", L("off")); return; }
     $("aiOfficer").hidden = !$("aiOfficer").hidden;
     if (!$("aiOfficer").hidden) $("aiPw").focus();
   };
   async function unlock() {
     const pw = $("aiPw").value;
     $("aiPwMsg").textContent = L("checking");
-    officerToken = await decrypt(pw);
-    if (!officerToken) { $("aiPwMsg").textContent = L("wrong"); return; }
-    if ($("aiPwKeep").checked) { const s = store(); s.pw = pw; try { localStorage.setItem(OFFICER_LS, JSON.stringify(s)); } catch (e) {} }
+    officerProof = await proofFor(pw);
+    if (!officerProof) { $("aiPwMsg").textContent = L("wrong"); return; }
+    if ($("aiPwKeep").checked) { const st = store(); st.pw = pw; try { localStorage.setItem(OFFICER_LS, JSON.stringify(st)); } catch (e) {} }
     $("aiPw").value = ""; $("aiPwMsg").textContent = ""; $("aiOfficer").hidden = true;
     setLock(); say("a", L("on"));
   }
@@ -209,27 +229,31 @@
   /* ---------- chat ---------- */
   const history = [];
   function format(text) {
-    let h = escapeHtml(text)
-      .replace(/\[([^\]]+)\]\(#\/?(?:\w+\/)?([\w-]+)\)/g, (m, label, id) => GUIDES[id]
-        ? `<button type="button" class="guide-link-btn" data-guide="${id}"><span class="emoji">${GUIDES[id].emoji}</span><span dir="auto">${label}</span><span class="arrow">›</span></button>`
-        : label)
+    let h = esc(text)
+      .replace(/\[([^\]]+)\]\(#\/?(?:\w+\/)?([\w-]+)\)/g, (m, label, id) => {
+        const emoji = HAS_GUIDES && GUIDES[id] ? GUIDES[id].emoji : "📖";
+        if (HAS_GUIDES && !GUIDES[id]) return label;
+        return ON_SITE
+          ? `<button type="button" class="guide-link-btn" data-guide="${id}"><span class="emoji">${emoji}</span><span dir="auto">${label}</span><span class="arrow">›</span></button>`
+          : `<a class="guide-link-btn" href="index.html#/${curLang()}/${id}" style="text-decoration:none"><span class="emoji">${emoji}</span><span dir="auto">${label}</span><span class="arrow">›</span></a>`;
+      })
       // officer pages (only linked for officers; the pages still ask for the officer password)
       .replace(/\[([^\]]+)\]\(((?:roster|watch|events|post)-\w+\.html)\)/g, (m, label, href) =>
         `<a class="guide-link-btn" href="${href}" style="text-decoration:none"><span class="emoji">🔒</span><span dir="auto">${label}</span><span class="arrow">›</span></a>`)
       .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
       .replace(/(^|\n)[*-] (.+)/g, "$1• $2");
-    return h.replace(/\n*(<button[\s\S]*?<\/button>)\n*/g, "$1").replace(/\n/g, "<br>");
+    return h.replace(/\n*(<(button|a) class="guide-link-btn"[\s\S]*?<\/\2>)\n*/g, "$1").replace(/\n/g, "<br>");
   }
   function say(who, text, raw) {
     const d = document.createElement("div");
     d.className = "ai-msg " + who; d.dir = "auto";
-    d.innerHTML = raw ? text : who === "a" ? format(text) : escapeHtml(text);
+    d.innerHTML = raw ? text : who === "a" ? format(text) : esc(text);
     $("aiLog").appendChild(d); $("aiLog").scrollTop = $("aiLog").scrollHeight;
     return d;
   }
   $("aiLog").addEventListener("click", (e) => {
     const b = e.target.closest("[data-guide]");
-    if (!b) return;
+    if (!b || !ON_SITE) return;
     switchGuide(b.dataset.guide);
     if (window.innerWidth < 700) panel.hidden = true;
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -243,14 +267,16 @@
     return out;
   }
   function localSearch(q) {
+    if (!HAS_GUIDES) return [];
     const s = q.toLowerCase();
     const words = s.split(/[\s,.?!，。？！、]+/).filter((w) => w.length > 1);
     const cjk = (s.match(/[぀-ヿ㐀-鿿가-힯]/g) || []).join("");
     for (let i = 0; i < cjk.length - 1; i++) words.push(cjk.slice(i, i + 2));
     return Object.keys(GUIDES).filter((id) => !GUIDES[id].hidden && id !== "recent-events").map((id) => {
       const g = GUIDES[id];
-      const name = t(g.name).toLowerCase();
-      const body = flat(g.sections[currentLang] || g.sections.en, []).join(" ").replace(/\{(\w+)\}/g, (m, k) => term(k)).toLowerCase();
+      const name = pickName(g.name).toLowerCase();
+      const term = (k) => (typeof GLOSSARY !== "undefined" && GLOSSARY[k] ? pickName(GLOSSARY[k]) : k);
+      const body = flat((g.sections && (g.sections[curLang()] || g.sections.en)) || {}, []).join(" ").replace(/\{(\w+)\}/g, (m, k) => term(k)).toLowerCase();
       let score = 0;
       for (const w of words) { if (name.includes(w)) score += 5; if (body.includes(w)) score += 1; }
       return [id, score];
@@ -258,8 +284,8 @@
   }
   function fallback(q, why) {
     const ids = localSearch(q);
-    const links = ids.map((id) => `[${t(GUIDES[id].name)}](#${id})`).join("\n");
-    const officer = officerToken ? `\n${L("officerPages")}\n[Roster](roster-x7k2p9.html)\n[Watch](watch-x7k2p9.html)` : "";
+    const links = ids.map((id) => `[${pickName(GUIDES[id].name)}](#${id})`).join("\n");
+    const officer = officerProof ? `\n${L("officerPages")}\n[Roster](roster-x7k2p9.html)\n[Watch](watch-x7k2p9.html)` : "";
     return `${why}\n${ids.length ? L("guides") + "\n" + links : L("none")}${officer}`;
   }
 
@@ -270,17 +296,20 @@
     $("aiQ").value = "";
     say("u", q);
     const wait = say("a", "…");
+    await autoUnlock();
     if (!AI_URL) { wait.innerHTML = format(fallback(q, L("notSet"))); return; }
     try {
       const r = await fetch(AI_URL, {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: q, lang: currentLang, history, officerToken, deviceId: DEVICE_ID })
+        body: JSON.stringify({ question: q, lang: curLang(), history, officerProof, deviceId: DEVICE_ID })
       });
       const data = await r.json().catch(() => ({}));
       if (r.ok && data.answer) {
         wait.innerHTML = format(data.answer);
+        if (officerProof && data.officer === false)
+          wait.insertAdjacentHTML("beforeend", `<br><span class="ai-hint">${esc(L("officerFail"))}</span>`);
         if (typeof data.left === "number" && data.left <= 3)
-          wait.insertAdjacentHTML("beforeend", `<br><span class="ai-hint">${escapeHtml(L("left").replace("{n}", data.left))}</span>`);
+          wait.insertAdjacentHTML("beforeend", `<br><span class="ai-hint">${esc(L("left").replace("{n}", data.left))}</span>`);
         history.push({ role: "user", text: q }, { role: "model", text: data.answer });
         if (history.length > 6) history.splice(0, history.length - 6);
       } else {

@@ -39,6 +39,7 @@ window.OfficerData = (() => {
     const raw = await unwrap(blob, pw);
     if (!raw) return false;
     key = await crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["encrypt", "decrypt"]);
+    try { window.__nxsOfficerPw = pw; window.dispatchEvent(new Event("nxs-officer")); } catch (e) {}   // lets the AI chat unlock too
     return true;
   }
 
