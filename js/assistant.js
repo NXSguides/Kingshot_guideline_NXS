@@ -101,6 +101,9 @@
       .replace(/\[([^\]]+)\]\(#\/?(?:\w+\/)?([\w-]+)\)/g, (m, label, id) => GUIDES[id]
         ? `<button type="button" class="guide-link-btn" data-guide="${id}"><span class="emoji">${GUIDES[id].emoji}</span><span dir="auto">${label}</span><span class="arrow">›</span></button>`
         : label)
+      // officer pages (only linked for officers; the pages still ask for the officer password)
+      .replace(/\[([^\]]+)\]\(((?:roster|watch|events|post)-\w+\.html)\)/g, (m, label, href) =>
+        `<a class="guide-link-btn" href="${href}" style="text-decoration:none"><span class="emoji">🔒</span><span dir="auto">${label}</span><span class="arrow">›</span></a>`)
       .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
       .replace(/(^|\n)[*-] (.+)/g, "$1• $2");
     return h.replace(/\n*(<button[\s\S]*?<\/button>)\n*/g, "$1").replace(/\n/g, "<br>");
@@ -144,7 +147,8 @@
   function fallback(q, why) {
     const ids = localSearch(q);
     const links = ids.map((id) => `[${t(GUIDES[id].name)}](#${id})`).join("\n");
-    return `${why}\n${ids.length ? "These guides might help:\n" + links : "No matching guide found."}`;
+    const officer = officerToken ? "\nOfficer pages:\n[Roster](roster-x7k2p9.html)\n[Watch](watch-x7k2p9.html)" : "";
+    return `${why}\n${ids.length ? "These guides might help:\n" + links : "No matching guide found."}${officer}`;
   }
 
   $("aiForm").onsubmit = async (e) => {
@@ -165,10 +169,17 @@
         wait.innerHTML = format(data.answer);
         history.push({ role: "user", text: q }, { role: "model", text: data.answer });
         if (history.length > 6) history.splice(0, history.length - 6);
-      } else if (r.status === 429) {
-        wait.innerHTML = format(fallback(q, "Too many questions — please wait a minute."));
       } else {
-        wait.innerHTML = format(fallback(q, "The AI is resting right now (daily free limit)."));
+        const why = {
+          slow_down: "Too many questions — please wait a minute.",
+          quota: "The AI is resting right now (daily free limit used up).",
+          forbidden: "The AI only works on the NXS site itself.",
+          site_unreachable: "The AI couldn't read the site content.",
+          setup: "The AI isn't set up correctly yet.",
+          gemini: "The AI service returned an error.",
+        }[data.error] || `The AI isn't available (error ${r.status}).`;
+        wait.innerHTML = format(fallback(q, why));
+        if (data.detail) console.warn("NXS AI:", data.detail);   // details for whoever set it up
       }
     } catch (err) {
       wait.innerHTML = format(fallback(q, "Couldn't reach the AI."));
