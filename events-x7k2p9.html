@@ -411,7 +411,7 @@ const T = {
     week: "{a} – {b}", wd: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     runs: "{a} – {b} ({n} days)",
     mgrTitle: "📋 Events & in-game guides", addEv: "+ New event",
-    mgrNote: "Tap an event to see its in-game guide. Each box is one chat message (the game limits message length) — copy and send them one by one. Changes are saved on the site for all officers.",
+    mgrNote: "Tap an event to see its in-game guide. Each box is one chat message (the game limits message length) — copy and send them one by one. ✏️ next to a message edits just that message; ✏️ Edit at the bottom changes the whole event (dates, action items, add or remove messages). Changes are saved on the site for all officers.",
     sched: "every {e} days from {s} · {d} day(s)", noSched: "no fixed schedule", every1: "every day",
     edit: "✏️ Edit", copy: "📋 Copy", copied: "Copied ✅", noIg: "No in-game guide yet.", chars: "characters",
     newEv: "New event", editEv: "Edit event",
@@ -439,7 +439,7 @@ const T = {
     week: "{a} – {b}", wd: ["一", "二", "三", "四", "五", "六", "日"],
     runs: "{a} – {b}（{n} 天）",
     mgrTitle: "📋 活動與遊戲內指南", addEv: "+ 新增活動",
-    mgrNote: "點活動可以看遊戲內指南。一格就是一則聊天訊息（遊戲有字數限制），請一則一則複製貼上。修改會存到網站上，所有幹部都看得到。",
+    mgrNote: "點活動可以看遊戲內指南。一格就是一則聊天訊息（遊戲有字數限制），請一則一則複製貼上。訊息旁的 ✏️ 只改那一則；最下面的「✏️ 修改」可以改整個活動（日期、待辦、新增或刪除訊息）。修改會存到網站上，所有幹部都看得到。",
     sched: "從 {s} 起每 {e} 天一次 · 持續 {d} 天", noSched: "沒有固定時間", every1: "每天",
     edit: "✏️ 修改", copy: "📋 複製", copied: "已複製 ✅", noIg: "還沒有遊戲內指南。", chars: "字",
     newEv: "新增活動", editEv: "修改活動",
@@ -610,7 +610,7 @@ function renderList() {
       <summary><span><b>${esc(evName(e.id))}</b><br><span class="sched">${esc(schedText(e))}${e.note ? " · " + esc(e.note) : ""}</span></span>
         <span class="muted">${(e.ingame || []).length ? "📋 " + (e.ingame || []).length : ""}</span></summary>
       ${(e.ingame || []).length ? e.ingame.map((g, i) => `
-        <div class="ig"><div class="head"><span>${esc(g.title || tr("fIngame"))} <span class="sched">· ${[...g.text].length} ${esc(tr("chars"))}</span></span><button type="button" class="btn small" data-copy="${esc(e.id)}:${i}">${esc(tr("copy"))}</button></div>
+        <div class="ig"><div class="head"><span>${esc(g.title || tr("fIngame"))} <span class="sched">· ${[...g.text].length} ${esc(tr("chars"))}</span></span><span class="row" style="flex:none"><button type="button" class="btn small" data-igedit="${esc(e.id)}:${i}">✏️</button><button type="button" class="btn small" data-copy="${esc(e.id)}:${i}">${esc(tr("copy"))}</button></span></div>
         <pre>${esc(g.text)}</pre></div>`).join("") : `<div class="none" style="margin:8px 0">${esc(tr("noIg"))}</div>`}
       <div class="row">${e.guide ? `<a class="btn small" href="./#/${lang === "zh" ? "zh" : "en"}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}<button type="button" class="btn small" data-edit="${esc(e.id)}">${esc(tr("edit"))}</button></div>
     </details>`).join("");
@@ -630,7 +630,23 @@ document.addEventListener("click", (ev) => {
   const o = ev.target.closest("[data-open]"); if (o) { ev.preventDefault(); return openEvent(o.dataset.open); }
   const c = ev.target.closest("[data-copy]"); if (c) { ev.preventDefault(); const [id, i] = c.dataset.copy.split(":"); return copyText(byId(id).ingame[+i].text, c); }
   const ed = ev.target.closest("[data-edit]"); if (ed) { ev.preventDefault(); return openEditor(ed.dataset.edit); }
+  const ie = ev.target.closest("[data-igedit]"); if (ie) { ev.preventDefault(); return igInline(ie); }
 });
+
+/* edit one in-game message right in the list */
+function igInline(btn) {
+  const [id, i] = btn.dataset.igedit.split(":"); const box = btn.closest(".ig"); const g = byId(id).ingame[+i];
+  box.innerHTML = `<input class="inp" data-k="title" value="${esc(g.title || "")}" placeholder="${esc(tr("igTitle"))}">
+    <textarea class="inp" data-k="text" style="margin-top:6px;min-height:200px;line-height:1.45">${esc(g.text)}</textarea>
+    <div class="row" style="justify-content:flex-end;margin-top:6px"><span class="sched" data-k="n"></span><button type="button" class="btn small" data-k="cancel">${esc(tr("cancel"))}</button><button type="button" class="btn small primary" data-k="save">${esc(tr("save"))}</button></div>`;
+  const ta = box.querySelector('[data-k="text"]'), n = box.querySelector('[data-k="n"]');
+  const count = () => { n.textContent = `${[...ta.value].length} ${tr("chars")}`; }; count(); ta.oninput = count; ta.focus();
+  box.querySelector('[data-k="cancel"]').onclick = () => renderList();
+  box.querySelector('[data-k="save"]').onclick = async () => {
+    const e = { ...byId(id), ingame: byId(id).ingame.map((x, j) => (j === +i ? { title: box.querySelector('[data-k="title"]').value.trim(), text: ta.value.replace(/\r/g, "").trimEnd() } : x)) };
+    if (await saveList(LIST.map((x) => (x.id === id ? e : x)), `Edit in-game guide: ${e.en || e.zh}`)) { renderList(); openEvent(id); }
+  };
+}
 
 /* ===== editor ===== */
 let editing = null;   // id of the event being edited, or null for a new one
