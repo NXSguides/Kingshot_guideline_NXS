@@ -42,6 +42,30 @@
   .todo .acts { margin-top: 6px; display: flex; gap: 6px; flex-wrap: wrap; }
   .msg { margin-top: 6px; font-size: 13px; }
   .warn { color: var(--accent); }
+  [hidden] { display: none !important; }
+  .ev { cursor: pointer; }
+  .evrow { border-bottom: 1px solid var(--rule); padding: 8px 0; }
+  .evrow:last-child { border-bottom: 0; }
+  .evrow > summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+  .evrow > summary::-webkit-details-marker { display: none; }
+  .sched { font-size: 12px; color: var(--text-muted); font-weight: 400; }
+  .evrow.flash { animation: flash 1.6s; }
+  @keyframes flash { 0%, 40% { background: color-mix(in srgb, var(--accent) 25%, transparent); } 100% { background: transparent; } }
+  .ig { background: var(--panel-2); border-radius: 10px; padding: 10px; margin: 8px 0; }
+  .ig .head { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 6px; }
+  .ig .head .btn { white-space: nowrap; flex: none; }
+  .ig pre { white-space: pre-wrap; word-break: break-word; margin: 0; font-family: inherit; font-size: 14px; line-height: 1.45; }
+  .modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 50; overflow-y: auto; padding: 16px; }
+  .modal .card { max-width: 640px; margin: 10px auto 40px; }
+  label.f { display: block; font-weight: 600; margin: 12px 0 4px; font-size: 14px; }
+  label.f small { font-weight: 400; color: var(--text-muted); }
+  .inp, .modal select, .modal textarea { width: 100%; box-sizing: border-box; padding: 8px 10px; font-size: 15px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-family: inherit; }
+  .modal textarea { min-height: 160px; line-height: 1.45; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .grid2 { display: grid; grid-template-columns: 70px 1fr; gap: 8px; }
+  .sub { border: 1px solid var(--rule); border-radius: 10px; padding: 8px 10px; margin: 8px 0; }
+  .sub .row { justify-content: space-between; }
+  .okmsg { color: #2e7d32; }
 </style>
 </head>
 <body>
@@ -94,11 +118,286 @@
       <div id="days"></div>
       <div class="muted msg" data-t="note"></div>
     </div>
+
+    <div class="card">
+      <div class="row" style="justify-content:space-between">
+        <h2 style="margin:0" data-t="mgrTitle"></h2>
+        <button class="btn primary small" id="addEv" data-t="addEv"></button>
+      </div>
+      <div class="muted msg" data-t="mgrNote"></div>
+      <div id="evList"></div>
+      <div class="msg" id="saveMsg"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="editor" hidden>
+    <div class="card">
+      <h2 id="edTitle"></h2>
+      <div class="grid2">
+        <div><label class="f" data-t="fEmoji"></label><input class="inp" id="edEmoji" maxlength="4"></div>
+        <div><label class="f" data-t="fNameZh"></label><input class="inp" id="edZh" maxlength="60"></div>
+      </div>
+      <label class="f" data-t="fNameEn"></label><input class="inp" id="edEn" maxlength="60">
+      <label class="f"><input type="checkbox" id="edFixed"> <span data-t="fFixed"></span></label>
+      <div id="edSched" class="grid3">
+        <div><label class="f" data-t="fStart"></label><input class="inp" type="date" id="edStart"></div>
+        <div><label class="f" data-t="fEvery"></label><input class="inp" type="number" min="1" id="edEvery"></div>
+        <div><label class="f" data-t="fDays"></label><input class="inp" type="number" min="1" id="edDays"></div>
+      </div>
+      <label class="f"><span data-t="fNote"></span> <small data-t="fNoteSm"></small></label><input class="inp" id="edNote" maxlength="120">
+      <label class="f" data-t="fGuide"></label><select id="edGuide"></select>
+      <label class="f" data-t="fTodo"></label>
+      <div id="edTodos"></div>
+      <button class="btn small" id="edAddTodo" data-t="addTodo"></button>
+      <label class="f"><span data-t="fIngame"></span> <small data-t="fIngameSm"></small></label>
+      <div id="edIgs"></div>
+      <button class="btn small" id="edAddIg" data-t="addIg"></button>
+      <div class="row" style="margin-top:16px;justify-content:space-between">
+        <button class="btn" id="edDel" data-t="del" style="color:#b3261e;border-color:#b3261e"></button>
+        <div class="row"><button class="btn" id="edCancel" data-t="cancel"></button><button class="btn primary" id="edSave" data-t="save"></button></div>
+      </div>
+      <div class="msg warn" id="edMsg"></div>
+    </div>
   </div>
 </div>
 <script src="js/officer-data.js"></script>
 <script>
-/* Event list for the week, worked out from the event schedules already on the site (EVENT_SCHEDULES in js/app.js).
+/* Starting content for the Events tab. Used only until the first save; after that data/events-x7k2p9.json is the source. */
+const INGAME_DEFAULTS = {
+  "bear-hunt": [
+    { title: "Bear Trap rules — Gen 3", text: `🐻 BEAR TRAP RULES — Gen 3
+
+✨ LEADS:
+• Amadeus + Petra + Marlin
+• Zoe + Petra + Quinn
+• Helga + Petra + Marlin (only if Helga + widget maxed)
+
+✨ JOINERS — 1ST HERO:
+•Chenko •Amane •Yeonwoo
+•Amadeus •No Hero (do not send Petra)
+•Ideal ratio: 10:10:80
+📌 Save formations + follow joiner troop limits🚫 No other rallies during Bear` },
+    { title: "Troop limits & staggering", text: `❗ Reminder - Bear Trap Troop Limits & Staggering Marches
+
+🔹 All joiners must send exactly 90,000 troops to rallies. Pre-save your marches
+🔹 Leaders initiate your rally with maximum troops but when you join other rallies you must also follow the troop limit.
+
+🔹 At the start: Main Rally Leaders send their first rally at their assigned staggered time.
+🔹 At 6:30 remaining: All joiners start their own rally using their 3 strongest heroes.
+
+🔪 Incorrect heroes & wrong troop numbers - kick and ask to rejoin` },
+    { title: "Launch groups (fill in names)", text: `BT1 - Main Rally Launch Groups
+
+🔹 Team A - Launch at 0:00
+…
+
+🔹 Team B - Launch at +0:45
+…
+
+Please launch at your assigned time to keep rallies properly staggered. Remember to check your joiners for correct heroes` },
+  ],
+  "viking-vengeance": [
+    { title: "Viking Vengeance (full)", text: `VIKING VENGEANCE
+
+📅 Tue 14:00 UTC
+📅 Thu 23:00 UTC
+
+🔹 Empty your city before event starts, even if offline. Post in Alliance Chat when empty.
+🔹 Reinforce using Chenko, Amadeus, Yeonwoo or Amane first. Prioritize Infantry & Cavalry.
+🔹 Keep your 3 strongest heroes home in Guard Station.
+🔹 DO NOT heal during event.
+🔹 HQ: choose Wave 10 OR 20 - you can only join one. Send ~68K troops (check label) Howard/Gordon 60:40. Pre-save this march
+🔹 Spread troops across multiple members. Prioritize online players` },
+    { title: "Viking rules (short)", text: `VIKING RULES
+
+3 best heroes stay home
+
+Reinforce: bear heroes only (Amadeus, Chenko, Yeonwoo, Amane) – max 64,360
+
+Send inf/cav only – archers stay home
+
+Waves 10 & 20 (HQ): max 64.360 – NO archers – pick ONE wave – use Howard/Gordon/Fahd/Quinn
+
+Offline? Reinforce someone first!` },
+    { title: "Viking rules (short) – 2", text: `🔹Reinforcements: 4 marches (Amadeus, Chenko, Yeonwoo, Amane). Max 64,360 per march – but don't max out one ally. Split your troops across three different allies to protect more people. Even 50-64,360 each helps.` },
+    { title: "Viking rules (short) – 3", text: `🔹HQ Waves 10 & 20: 64,360 per player – fills 15-player garrison exactly. No archers. Pick ONE wave. Use Howard/Gordon/Fahd/Quinn.` },
+    { title: "Viking rules (short) – 4", text: `🔹Send inf/cav only. Don't heal until end.
+
+Spread the love, protect the team. Ask if unsure. Good luck!` },
+  ],
+  "cesares-fury": [
+    { title: "Alliance level fight", text: `🔥CESARES FURY ALLIANCE LEVEL FIGHT
+
+🚶 ONE soldier
+☝️ ONE march per level
+🚫 Any / No heroes
+
+✅ One hit is enough to qualify for the reward. 0.0% damage still counts. More damage does NOT give a better reward.
+
+❓ Why: This gives everyone in the alliance a chance to participate, gain rewards and tag the Captain before it dies.
+
+❌Anyone breaking the rule will be timed out and sent to farm alliance.` },
+  ],
+  "eternity-reach": [
+    { title: "Eternity's Reach", text: `ETERNITY'S REACH
+
+🔹 Important for Governor Charm rewards
+🔹 Skill selection: 1. Right 2. Right 3. Left 4. Left 5. Right
+🔹 Start: Send all marches to attack Cesares until Skill 3 unlocks
+🔹 Then every 60 sec: Enter regular Copper Vein → Recall + note time → repeat at 60 sec intervals
+🔹 Keep Loot Wagon active
+🔹 Fractured Veins: Stop everything; send all marches to gather
+🔹 Click Skill 5 boost before regular Copper Veins only
+🔹 Free teleport to uncrowded veins
+🔹 Peak of Eternity: Ignore if crowded` },
+  ],
+  "all-out": [
+    { title: "All-Out rules", text: `All-Out Rules
+
+❌ No attacks on NAP 6 (NXS, RED, NBD, ESA, IDN, KGb) including their farms/acad
+❌ No attacks on castles or alliance buildings (HQs, outposts, banners)
+✅ You can attack resource gathering tiles (mills, quarry, mines)
+✅ You can attack players outside of NAP.
+
+- If your castle gets attacked by a NAP member, do not retaliate inform R4/5
+- Avoid gathering resources in the wild, use the secured alliance resource node instead
+- Rule breakers will be dealt with according to alliance/NAP agreements` },
+    { title: "NAP list", text: `NAP
+
+Do NOT attack any of these alliance cities.
+
+NXS/nxs
+NBD/nBd/Nbd
+RED/ReD
+ESA/EsA/UNI
+IDN
+KGb` },
+  ],
+  "swordland-showdown": [
+    { title: "Swordland map", text: `Swordland Showdown Map!
+
+      ②    ④
+③        ⑤        ④
+           7
+④        ⑥        ③
+      ④    ①
+
+① Royal Stables (-50% cooldown) 🐴
+② Bell Tower (-50% control time)🔔
+③ Sanctum (more points) 🏛️
+④ Abbey (points) ⛪
+⑤ Mercenaries (attack Building)💥
+⑥ ReformationHall 🔪 (+15%Damage+Reduction)
+⑦ Swordshrine (most points) 🌟` },
+  ],
+  "hero-roulette": [
+    { title: "Hero Roulette – Quick Guide", text: `🎡 Hero Roulette – Quick Guide
+Every 2 weeks, 3 days. 1 free spin/day.
+1 spin = 1 Lucky Chip or 1,500 Gems (10 spins = 13,500).
+Milestones at 5/15/35/70/120 spins give +5/+10/+20/+30/+50 shards (115 total).
+Each spin ≈ 0.55 Mythic Hero Shards.
+👉 Spin exactly 120 per event = ~181 shards. After 120 there are no more milestones, so stop!
+Max hero (unlock + 5) = 1,075 shards ≈ 6 events × 120 spins (~954K Gems).
+KvK Prep Days 2 & 3 give 8,000 pts per spin – save your Lucky Chips & Gems for then!` },
+  ],
+  "kvk": [
+    { title: "KvK Prep Guide (table)", text: `👑KVK Prep Guide👑
+ １   ２　３    ４    ５ 
+✅｜🆗｜🚫｜🚫｜✅｜ 
+🆗｜✅｜🚫｜🚫｜✅｜Gold Dust
+🚫｜✅｜✅｜🚫｜🚫｜Hero shard
+✅｜🆗｜🚫｜🚫｜✅｜ building
+🚫｜🚫｜🚫｜✅｜✅｜ troop
+🆗｜✅｜🚫｜🚫｜✅｜ research
+🚫｜✅｜✅｜🚫｜🚫｜Wheel
+👍｜✅｜👍｜✅｜👍｜Gathering
+✅｜👍｜✅｜👍｜✅｜Intel
+🚫｜🚫｜✅｜🚫｜✅｜Pets advance
+✅｜🚫｜🆗｜✅｜🚫｜Chief Charm
+🚫｜🚫｜🚫｜🚫｜✅｜Chief Gear
+🚫｜🚫｜🚫｜🆗｜✅｜Widget gear
+🚫｜🚫｜🚫｜🆗｜✅｜Mithril
+🚫｜🚫｜🚫｜🆗｜✅｜ 
+🚫｜✅｜🆗｜🚫｜🚫｜Master items
+🚫｜🚫｜✅｜🚫｜🚫｜Manuscript
+🆗｜✅｜🚫｜🚫｜🆗｜Master speeds
+
+✅ use 
+🆗 okay if needed
+🚫 don’t use
+👍 need to do daily` },
+    { title: "Castle / Sanctuary / Buildings", text: `🏰 CASTLE / SANCTUARY / BUILDINGS
+
+🔹CAPTURE: Join the rally with your ATTACK preset: Amadeus/Chenko 50:20:30.
+
+🔹ONCE CAPTURED: Immediately send your DEFENSE preset: Gordon/Howard 60:20:20. (Troop limit as specified eg. 68k)
+
+❗ Watch your defense march. At ~5 sec before arrival, recall your ATTACK march. Your defense march will arrive and replace it.
+
+❗ Don't recall too early! Keep the garrison strong during the swap.
+
+Summary: Capture → Send Defense → Recall Attack → Defend` },
+  ],
+  "alliance-championship": [
+    { title: "Alliance Championship", text: `🏆 ALLIANCE CHAMPIONSHIP
+
+Please register in the Middle Lane, leadership will sort you later.
+
+Before registering:
+🔹 Use your strongest heroes
+🔹 Formation: 50% Infantry, 20% Cavalry, 30% Archers
+🔹 Activate Marshal / Field Commander & Pet Buffs before registering.
+
+🔄 You can refresh your registration anytime to update heroes, formation, and buffs. Especially if you have upgraded your heroes or troops.` },
+  ],
+  "alliance-mobilization": [
+    { title: "Alliance Mobilization", text: `🔥 ALLIANCE MOBILIZATION IS HERE! 🔥
+
+🏆 Push for TOP 3 to secure our statue and position!
+
+🚨 DO NOT select missions using KvK Prep items: Speedups, Hero/General Shards, Governor/Hero Gear mats, True Gold or Pet items.
+
+✅ Best picks: 120K Training, Terror Rallies (joining counts, save stamina), 30M Gathering, Beast missions (gold tier) pair with Intel.
+
+⚠️ Training/Gathering: have them nearly finished before selecting. Use pet buffs & King perks.
+
+Choose wisely and maximize every attempt!` },
+  ],
+  "mystic-trial": [
+    { title: "Mystic Trial troop ratio", text: `🏯MYSTIC TRIAL (Command Center) troop ratio
+
+Set the following percentage of Infantry/ Cavalry/ Archers to achieve the best results:
+
+🎪Coliseum - 50/20/30
+or 60/15/25
+💎Crystal Cave - 50/15/35
+🌳Forest of Life - 50/20/30
+📖Knowledge Nexus - 50/10/40
+🏰Molten Fort - 60/15/25
+🗼Radiant Spire - 60/20/20` },
+  ],
+  "alliance-rules": [
+    { title: "Core rules", text: `✨CORE RULES✨
+
+1. Stay active & communicate if you will be away.
+2. Donate regularly to alliance tech; recommended tech marked by green 👍
+3. Do not violate the Non-Aggression Pact with the Top 6 alliances. If attacked by a NAP member, report to R4/R5. Do not counterattack.
+4. Follow all event rules, check alliance chat, PMs, and discord for more information.
+5. NO SOLO attacking Sanctuary or Fortress. You may only join rallies.
+6. Keep World Chat respectful, avoid drama that could harm the alliance` },
+  ],
+};
+// events with no schedule on the site yet
+const EXTRA_EVENTS = [
+  { id: "bear-hunt", emoji: "🐻", en: "Bear Hunt", zh: "狩獵巨熊", start: "2026-10-07", every: 2, days: 1, guide: "bear-hunt",
+    note: "11:00 & 22:00 UTC, 30 min each" },
+  { id: "alliance-championship", emoji: "🏆", en: "Alliance Championship", zh: "聯盟爭霸賽", start: "", every: 0, days: 0, guide: "" },
+  { id: "alliance-mobilization", emoji: "🔥", en: "Alliance Mobilization", zh: "聯盟總動員", start: "", every: 0, days: 0, guide: "" },
+  { id: "mystic-trial", emoji: "🔮", en: "Mystic Trial", zh: "秘境試煉", start: "", every: 0, days: 0, guide: "mystic-trial" },
+  { id: "alliance-rules", emoji: "📜", en: "Alliance rules", zh: "聯盟規則", start: "", every: 0, days: 0, guide: "" },
+];
+
+/* Event list for the week. Saved in data/events-x7k2p9.json (editable on this page); before the first save it starts from EVENT_SCHEDULES in js/app.js.
    Weeks run Monday–Sunday in UTC (game reset = 00:00 UTC = 08:00 Taiwan). On Sunday the page opens on next week. */
 const T = {
   en: {
@@ -111,6 +410,23 @@ const T = {
     toPost: "📢 Write announcement", toRanking: "📊 Open Ranking", toGuide: "📖 Guide",
     week: "{a} – {b}", wd: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     runs: "{a} – {b} ({n} days)",
+    mgrTitle: "📋 Events & in-game guides", addEv: "+ New event",
+    mgrNote: "Tap an event to see its in-game guide. Each box is one chat message (the game limits message length) — copy and send them one by one. Changes are saved on the site for all officers.",
+    sched: "every {e} days from {s} · {d} day(s)", noSched: "no fixed schedule", every1: "every day",
+    edit: "✏️ Edit", copy: "📋 Copy", copied: "Copied ✅", noIg: "No in-game guide yet.", chars: "characters",
+    newEv: "New event", editEv: "Edit event",
+    fEmoji: "Emoji", fNameZh: "Name (中文)", fNameEn: "Name (English)", fFixed: "Repeats on a fixed schedule",
+    fStart: "First day (UTC)", fEvery: "Repeats every … days", fDays: "Lasts … days",
+    fNote: "Note", fNoteSm: "(e.g. times — shown in the list)", fGuide: "Guide on the site", noGuide: "— none —",
+    fTodo: "Action items for officers", addTodo: "+ Action item", dueLbl: "days before (−) / after start", tdZh: "中文", tdEn: "English",
+    tdPost: "Announcement button", tdRank: "Ranking button",
+    fIngame: "In-game guides", fIngameSm: "(one box = one chat message; the game limits message length, so keep long guides in several boxes)", addIg: "+ Message", igTitle: "Title", igText: "Text",
+    del: "Delete event", cancel: "Cancel", save: "💾 Save",
+    needName: "Please enter a name.", needSched: "Please fill in the first day, repeat and length.",
+    confirmDel: "Delete this event for everyone?", saving: "Saving…", saved: "Saved ✅ Other officers see it after refreshing (about 1 minute).",
+    errAuth: "The saved GitHub key no longer works. Ask Sherry to redo the setup on the Post tab.",
+    errBusy: "Someone else changed the events meanwhile. Refresh the page and try again.", errNet: "Couldn't reach GitHub. Try again.",
+    noKey: "Saving needs the GitHub key (set up on the Post tab).", remove: "✕",
   },
   zh: {
     title: "NXS 活動排程", sub: "這週有哪些活動，以及幹部要安排的事。", home: "回主頁",
@@ -122,6 +438,23 @@ const T = {
     toPost: "📢 寫公告", toRanking: "📊 打開 Ranking", toGuide: "📖 攻略",
     week: "{a} – {b}", wd: ["一", "二", "三", "四", "五", "六", "日"],
     runs: "{a} – {b}（{n} 天）",
+    mgrTitle: "📋 活動與遊戲內指南", addEv: "+ 新增活動",
+    mgrNote: "點活動可以看遊戲內指南。一格就是一則聊天訊息（遊戲有字數限制），請一則一則複製貼上。修改會存到網站上，所有幹部都看得到。",
+    sched: "從 {s} 起每 {e} 天一次 · 持續 {d} 天", noSched: "沒有固定時間", every1: "每天",
+    edit: "✏️ 修改", copy: "📋 複製", copied: "已複製 ✅", noIg: "還沒有遊戲內指南。", chars: "字",
+    newEv: "新增活動", editEv: "修改活動",
+    fEmoji: "圖示", fNameZh: "名稱（中文）", fNameEn: "名稱（英文）", fFixed: "有固定週期",
+    fStart: "第一天（UTC）", fEvery: "每幾天一次", fDays: "持續幾天",
+    fNote: "備註", fNoteSm: "（例如時間，會顯示在清單上）", fGuide: "網站上的攻略", noGuide: "— 無 —",
+    fTodo: "幹部待辦事項", addTodo: "+ 待辦事項", dueLbl: "開始前（−）／後第幾天", tdZh: "中文", tdEn: "English",
+    tdPost: "顯示「寫公告」按鈕", tdRank: "顯示「Ranking」按鈕",
+    fIngame: "遊戲內指南", fIngameSm: "（一格 = 一則聊天訊息；遊戲有字數限制，長的指南請分成好幾格）", addIg: "+ 訊息", igTitle: "標題", igText: "內容",
+    del: "刪除活動", cancel: "取消", save: "💾 儲存",
+    needName: "請填寫名稱。", needSched: "請填寫第一天、週期和持續天數。",
+    confirmDel: "確定要刪除這個活動？所有幹部都會看不到。", saving: "儲存中…", saved: "已儲存 ✅ 其他幹部重新整理後就會看到（約 1 分鐘）。",
+    errAuth: "存的 GitHub 權杖已經不能用了，請 Sherry 到 Post 分頁重新設定。",
+    errBusy: "剛好有人也在改活動，請重新整理頁面再試一次。", errNet: "連不上 GitHub，請再試一次。",
+    noKey: "儲存需要 GitHub 權杖（在 Post 分頁設定）。", remove: "✕",
   },
 };
 // Names follow the in-game wording (same as the site's glossary).
@@ -172,26 +505,53 @@ const OFFICER_LANG = "nxs-officer-lang";
 const officerLang = () => { try { const v = localStorage.getItem(OFFICER_LANG); return v === "zh" || v === "en" ? v : null; } catch (e) { return null; } };
 const setOfficerLang = (v) => { try { localStorage.setItem(OFFICER_LANG, v); } catch (e) {} };
 let lang = officerLang() || store.lang || "en";
-let SCHED = null, weekStart = null;
+let LIST = null, weekStart = null, OFFICER_PW = null, TOKEN = null, FILE_SHA = null;
+
+/* ===== where the event list is kept =====
+   data/events-x7k2p9.json = { v: 1, sched: { id: { anchor, periodDays, activeDays } }, data: <events list, encrypted like the other officer files> }
+   "sched" stays readable so the main site can follow schedule changes; the in-game guides etc. are in "data". */
+const EV_PATH = "data/events-x7k2p9.json";
+const OWNER = location.hostname.endsWith("github.io") ? location.hostname.split(".")[0] : "NXSguides";
+const REPO = location.hostname.endsWith("github.io") ? (location.pathname.split("/")[1] || "Kingshot_guideline_NXS") : "Kingshot_guideline_NXS";
+const BRANCH = "main";
+const GUIDE_LIST = {"bear-hunt":{"e":"🐻","en":"Bear Hunt","zh":"狩獵巨熊"},"viking-vengeance":{"e":"🧯","en":"Viking Vengeance","zh":"維京人的掠奪"},"swordland-showdown":{"e":"⚔️","en":"Swordland Showdown","zh":"聖劍爭奪"},"tri-alliance-clash":{"e":"🔱","en":"Tri-Alliance Clash","zh":"三盟爭霸"},"eternity-reach":{"e":"⛏️","en":"Eternity's Reach","zh":"失落的遺跡"},"all-out":{"e":"🪖","en":"All Out","zh":"全軍出擊"},"kvk":{"e":"👑","en":"KvK Prep & Battle Guide","zh":"KvK 準備與戰鬥指南"},"hero-roulette":{"e":"🎡","en":"Hero Roulette","zh":"英雄轉盤"},"fishing-tournament":{"e":"🎣","en":"Fishing Tournament","zh":"釣魚大賽"},"mystic-trial":{"e":"🔮","en":"Mystic Trial","zh":"秘境試煉"},"formations-rally-tips":{"e":"🛡️","en":"Formations & Rally Tips","zh":"部隊編組與集結技巧"},"master-academy":{"e":"🎓","en":"Gen 3 Master Academy Guide","zh":"第3代大師學院指南"},"pet":{"e":"🦁","en":"Pets","zh":"寵物"},"f2p-heroes":{"e":"🎯","en":"F2P Heroes Guide","zh":"英雄培養指南（F2P）"},"hero-cards":{"e":"🃏","en":"Hero Cards (Gen 1–3)","zh":"英雄卡（第 1–3 代）"},"general-tips":{"e":"🔍","en":"General Tips","zh":"通用小技巧"}};
 
 const $ = (id) => document.getElementById(id);
 const tr = (k, v = {}) => { const s = (T[lang] && T[lang][k]) ?? T.en[k] ?? k; return typeof s === "string" ? s.replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m) : s; };
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const utcDay = (t) => Math.floor(t / DAY) * DAY;
 const fmt = (t) => { const d = new Date(t); return `${d.getUTCMonth() + 1}/${d.getUTCDate()}（${tr("wd")[(d.getUTCDay() + 6) % 7]}）`.replace("（", lang === "zh" ? "（" : " (").replace("）", lang === "zh" ? "）" : ")"); };
-const evName = (k) => { const e = EVENTS[k]; return e ? `${e.emoji} ${e[lang] || e.en}` : k; };
+const isoDay = (t) => new Date(t).toISOString().slice(0, 10);
+const dayMs = (iso) => Date.parse(iso + "T00:00:00Z");
+const byId = (id) => LIST.find((e) => e.id === id);
+const evName = (k) => { const e = byId(k); return e ? `${e.emoji || ""} ${e[lang] || e.en || e.zh || k}`.trim() : k; };
+const txt = (o) => (o && (o[lang] || o.en || o.zh)) || "";
 function mondayOf(t) { const d = utcDay(t); const wd = (new Date(d).getUTCDay() + 6) % 7; return d - wd * DAY; }
 
-// every run of each event that touches [from, to)
+/* starting list, built from what the site already had (used until the first save) */
+function defaultList(sched) {
+  const out = [];
+  for (const [id, e] of Object.entries(EVENTS)) {
+    const s = sched[id];
+    out.push({ id, emoji: e.emoji, en: e.en, zh: e.zh, start: s ? isoDay(s.anchor) : "", every: s ? s.periodDays : 0, days: s ? s.activeDays : 0,
+      guide: e.noGuide ? "" : (GUIDE_LIST[id] ? id : ""), note: "", todo: (TODO[id] || []).map((x) => ({ ...x })), ingame: INGAME_DEFAULTS[id] || [] });
+  }
+  for (const e of EXTRA_EVENTS) if (!out.some((x) => x.id === e.id)) out.push({ ...e, note: e.note || "", todo: [], ingame: INGAME_DEFAULTS[e.id] || [] });
+  return out;
+}
+
+// every run of each scheduled event that touches [from, to)
 function runs(from, to) {
   const out = [];
-  for (const [k, s] of Object.entries(SCHED)) {
-    let n = Math.floor((from - s.anchor) / DAY / s.periodDays) - 1;
+  for (const e of LIST) {
+    if (!e.start || !(e.every > 0) || !(e.days > 0)) continue;
+    const anchor = dayMs(e.start);
+    let n = Math.max(0, Math.floor((from - anchor) / DAY / e.every) - 1);
     for (;; n++) {
-      const st = s.anchor + n * s.periodDays * DAY; if (st < s.anchor) continue;
+      const st = anchor + n * e.every * DAY;
       if (st >= to) break;
-      const en = st + s.activeDays * DAY;
-      if (en > from) out.push({ k, st, en, days: s.activeDays });
+      const en = st + e.days * DAY;
+      if (en > from) out.push({ k: e.id, st, en, days: e.days });
     }
   }
   return out.sort((a, b) => a.st - b.st);
@@ -200,7 +560,6 @@ function runs(from, to) {
 function render() {
   const ws = weekStart, we = ws + 7 * DAY, today = utcDay(Date.now());
   $("weekLbl").textContent = tr("week", { a: fmt(ws), b: fmt(we - DAY) });
-  // days
   const rs = runs(ws, we);
   let html = "";
   for (let i = 0; i < 7; i++) {
@@ -208,33 +567,177 @@ function render() {
     const on = rs.filter((r) => r.st <= d && d < r.en);
     html += `<div class="day${d === today ? " today" : ""}"><div class="dname">${esc(tr("wd")[i])}<small>${new Date(d).getUTCMonth() + 1}/${new Date(d).getUTCDate()}</small></div><div>${
       on.length ? on.map((r) => { const n = (d - r.st) / DAY + 1;
-        return `<span class="ev${n === 1 ? " start" : ""}">${esc(evName(r.k))} <span class="n">${n === 1 ? esc(tr("starts")) : n === r.days ? esc(tr("ends")) : esc(tr("day", { n, t: r.days }))}</span></span>`; }).join("")
+        const lbl = r.days === 1 ? "" : n === 1 ? tr("starts") : n === r.days ? tr("ends") : tr("day", { n, t: r.days });
+        return `<span class="ev${n === 1 ? " start" : ""}" data-open="${esc(r.k)}">${esc(evName(r.k))}${lbl ? ` <span class="n">${esc(lbl)}</span>` : ""}</span>`; }).join("")
       : `<span class="none">${esc(tr("none"))}</span>`}</div></div>`;
   }
   $("days").innerHTML = html;
   // action items: for events that start this week (even if the prep is due a bit earlier),
   // plus prep that is due this week for events starting next week
   const items = [];
-  for (const r of runs(ws, we + 7 * DAY)) for (const [i, td] of (TODO[r.k] || []).entries()) {
-    const due = r.st + td.due * DAY;
+  for (const r of runs(ws, we + 7 * DAY)) for (const [i, td] of ((byId(r.k) || {}).todo || []).entries()) {
+    const due = r.st + (Number(td.due) || 0) * DAY;
     const startsThisWeek = r.st >= ws && r.st < we, dueThisWeek = due >= ws && due < we;
-    if (startsThisWeek || dueThisWeek) items.push({ r, td, due, id: `${r.k}-${new Date(r.st).toISOString().slice(0, 10)}-${i}` });
+    if (startsThisWeek || dueThisWeek) items.push({ r, td, due, id: `${r.k}-${isoDay(r.st)}-${i}` });
   }
   items.sort((a, b) => a.due - b.due);
   store.done = store.done || {};
-  $("todos").innerHTML = items.length ? items.map(({ r, td, due, id }) => `
-    <label class="todo${store.done[id] ? " done" : ""}">
+  $("todos").innerHTML = items.length ? items.map(({ r, td, due, id }) => { const e = byId(r.k) || {};
+    return `<label class="todo${store.done[id] ? " done" : ""}">
       <input type="checkbox" data-id="${esc(id)}" ${store.done[id] ? "checked" : ""}>
       <div>
-        <div class="txt"><b>${esc(evName(r.k))}</b> — ${esc(td[lang] || td.en)}</div>
+        <div class="txt"><b>${esc(evName(r.k))}</b> — ${esc(txt(td))}</div>
         <div class="when">⏰ ${esc(fmt(due))}${due < today && !store.done[id] ? ` <b class="warn">${esc(tr("late"))}</b>` : ""} · ${esc(tr("runs", { a: fmt(r.st), b: fmt(r.en - DAY), n: r.days }))}</div>
-        <div class="acts">${td.post ? `<a class="btn small" href="post-k4m8q2.html">${esc(tr("toPost"))}</a>` : ""}${td.ranking ? `<a class="btn small" href="roster-x7k2p9.html">${esc(tr("toRanking"))}</a>` : ""}${EVENTS[r.k] && EVENTS[r.k].noGuide ? "" : `<a class="btn small" href="./#/${lang === "zh" ? "zh" : "en"}/${esc(r.k)}">${esc(tr("toGuide"))}</a>`}</div>
+        <div class="acts">${td.post ? `<a class="btn small" href="post-k4m8q2.html">${esc(tr("toPost"))}</a>` : ""}${td.ranking ? `<a class="btn small" href="roster-x7k2p9.html">${esc(tr("toRanking"))}</a>` : ""}${e.guide ? `<a class="btn small" href="./#/${lang === "zh" ? "zh" : "en"}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}${(e.ingame || []).length ? `<button type="button" class="btn small" data-open="${esc(r.k)}">📋 ${esc(tr("fIngame"))}</button>` : ""}</div>
       </div>
-    </label>`).join("") : `<div class="none">${esc(tr("noTodo"))}</div>`;
+    </label>`; }).join("") : `<div class="none">${esc(tr("noTodo"))}</div>`;
   $("todos").querySelectorAll("input[type=checkbox]").forEach((cb) => cb.onchange = () => {
     if (cb.checked) store.done[cb.dataset.id] = 1; else delete store.done[cb.dataset.id];
     save(); cb.closest(".todo").classList.toggle("done", cb.checked);
   });
+  renderList();
+}
+
+/* ===== event list with in-game guides ===== */
+function schedText(e) {
+  if (!e.start || !(e.every > 0)) return tr("noSched");
+  return e.every === 1 ? `${tr("every1")} · ${fmt(dayMs(e.start))}` : tr("sched", { e: e.every, s: fmt(dayMs(e.start)), d: e.days });
+}
+function renderList() {
+  const open = new Set([...document.querySelectorAll(".evrow[open]")].map((d) => d.dataset.id));
+  $("evList").innerHTML = LIST.map((e) => `
+    <details class="evrow" data-id="${esc(e.id)}"${open.has(e.id) ? " open" : ""}>
+      <summary><span><b>${esc(evName(e.id))}</b><br><span class="sched">${esc(schedText(e))}${e.note ? " · " + esc(e.note) : ""}</span></span>
+        <span class="muted">${(e.ingame || []).length ? "📋 " + (e.ingame || []).length : ""}</span></summary>
+      ${(e.ingame || []).length ? e.ingame.map((g, i) => `
+        <div class="ig"><div class="head"><span>${esc(g.title || tr("fIngame"))} <span class="sched">· ${[...g.text].length} ${esc(tr("chars"))}</span></span><button type="button" class="btn small" data-copy="${esc(e.id)}:${i}">${esc(tr("copy"))}</button></div>
+        <pre>${esc(g.text)}</pre></div>`).join("") : `<div class="none" style="margin:8px 0">${esc(tr("noIg"))}</div>`}
+      <div class="row">${e.guide ? `<a class="btn small" href="./#/${lang === "zh" ? "zh" : "en"}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}<button type="button" class="btn small" data-edit="${esc(e.id)}">${esc(tr("edit"))}</button></div>
+    </details>`).join("");
+}
+function openEvent(id) {
+  const d = document.querySelector(`.evrow[data-id="${CSS.escape(id)}"]`);
+  if (!d) return;
+  d.open = true; d.classList.remove("flash"); void d.offsetWidth; d.classList.add("flash");
+  d.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+async function copyText(t, btn) {
+  try { await navigator.clipboard.writeText(t); }
+  catch (e) { const ta = document.createElement("textarea"); ta.value = t; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch (x) {} ta.remove(); }
+  const old = btn.textContent; btn.textContent = tr("copied"); setTimeout(() => { btn.textContent = old; }, 1500);
+}
+document.addEventListener("click", (ev) => {
+  const o = ev.target.closest("[data-open]"); if (o) { ev.preventDefault(); return openEvent(o.dataset.open); }
+  const c = ev.target.closest("[data-copy]"); if (c) { ev.preventDefault(); const [id, i] = c.dataset.copy.split(":"); return copyText(byId(id).ingame[+i].text, c); }
+  const ed = ev.target.closest("[data-edit]"); if (ed) { ev.preventDefault(); return openEditor(ed.dataset.edit); }
+});
+
+/* ===== editor ===== */
+let editing = null;   // id of the event being edited, or null for a new one
+function todoRow(td = {}) {
+  return `<div class="sub todo-ed">
+    <div class="row"><label style="font-size:13px">${esc(tr("dueLbl"))} <input class="inp" type="number" data-k="due" value="${esc(td.due ?? 0)}" style="width:80px;display:inline-block"></label><button type="button" class="btn small" data-rm>${esc(tr("remove"))}</button></div>
+    <input class="inp" data-k="zh" placeholder="${esc(tr("tdZh"))}" value="${esc(td.zh || "")}" style="margin-top:6px">
+    <input class="inp" data-k="en" placeholder="${esc(tr("tdEn"))}" value="${esc(td.en || "")}" style="margin-top:6px">
+    <div class="row" style="justify-content:flex-start;font-size:13px;margin-top:6px"><label><input type="checkbox" data-k="post"${td.post ? " checked" : ""}> ${esc(tr("tdPost"))}</label><label><input type="checkbox" data-k="ranking"${td.ranking ? " checked" : ""}> ${esc(tr("tdRank"))}</label></div>
+  </div>`;
+}
+function igRow(g = {}) {
+  return `<div class="sub ig-ed">
+    <div class="row"><input class="inp" data-k="title" placeholder="${esc(tr("igTitle"))}" value="${esc(g.title || "")}" style="flex:1"><button type="button" class="btn small" data-rm>${esc(tr("remove"))}</button></div>
+    <textarea data-k="text" placeholder="${esc(tr("igText"))}" style="margin-top:6px">${esc(g.text || "")}</textarea>
+  </div>`;
+}
+function openEditor(id) {
+  editing = id;
+  const e = id ? byId(id) : { emoji: "📅", en: "", zh: "", start: isoDay(utcDay(Date.now())), every: 7, days: 1, guide: "", note: "", todo: [], ingame: [] };
+  $("edTitle").textContent = tr(id ? "editEv" : "newEv");
+  $("edEmoji").value = e.emoji || ""; $("edZh").value = e.zh || ""; $("edEn").value = e.en || "";
+  const fixed = !!(e.start && e.every > 0);
+  $("edFixed").checked = fixed; $("edSched").hidden = !fixed;
+  $("edStart").value = e.start || isoDay(utcDay(Date.now())); $("edEvery").value = e.every || 7; $("edDays").value = e.days || 1;
+  $("edNote").value = e.note || "";
+  $("edGuide").innerHTML = `<option value="">${esc(tr("noGuide"))}</option>` + Object.entries(GUIDE_LIST).map(([k, g]) => `<option value="${k}">${g.e} ${esc(g[lang] || g.en)}</option>`).join("");
+  $("edGuide").value = e.guide || "";
+  $("edTodos").innerHTML = (e.todo || []).map(todoRow).join("");
+  $("edIgs").innerHTML = (e.ingame || []).map(igRow).join("");
+  $("edDel").hidden = !id; $("edMsg").textContent = "";
+  $("editor").hidden = false; $("editor").scrollTop = 0;
+}
+$("edFixed").onchange = () => { $("edSched").hidden = !$("edFixed").checked; };
+$("edAddTodo").onclick = () => $("edTodos").insertAdjacentHTML("beforeend", todoRow({ due: -1 }));
+$("edAddIg").onclick = () => $("edIgs").insertAdjacentHTML("beforeend", igRow());
+$("editor").addEventListener("click", (ev) => { const r = ev.target.closest("[data-rm]"); if (r) r.closest(".sub").remove(); });
+$("edCancel").onclick = () => { $("editor").hidden = true; };
+function readEditor() {
+  const e = editing ? { ...byId(editing) } : {};
+  e.emoji = $("edEmoji").value.trim(); e.zh = $("edZh").value.trim(); e.en = $("edEn").value.trim();
+  if (!e.zh && !e.en) throw new Error(tr("needName"));
+  if ($("edFixed").checked) {
+    e.start = $("edStart").value; e.every = Math.round(+$("edEvery").value); e.days = Math.round(+$("edDays").value);
+    if (!/^\d{4}-\d\d-\d\d$/.test(e.start) || !(e.every > 0) || !(e.days > 0)) throw new Error(tr("needSched"));
+  } else { e.start = ""; e.every = 0; e.days = 0; }
+  e.note = $("edNote").value.trim(); e.guide = $("edGuide").value;
+  e.todo = [...document.querySelectorAll("#edTodos .todo-ed")].map((r) => {
+    const g = (k) => r.querySelector(`[data-k="${k}"]`);
+    const o = { due: Math.round(+g("due").value || 0), zh: g("zh").value.trim(), en: g("en").value.trim() };
+    if (g("post").checked) o.post = 1; if (g("ranking").checked) o.ranking = 1;
+    return o;
+  }).filter((o) => o.zh || o.en);
+  e.ingame = [...document.querySelectorAll("#edIgs .ig-ed")].map((r) => ({ title: r.querySelector('[data-k="title"]').value.trim(), text: r.querySelector('[data-k="text"]').value.replace(/\r/g, "").trimEnd() })).filter((g) => g.text);
+  if (!e.id) { const base = (e.en || "event").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "event"; let id = base, n = 2; while (byId(id)) id = base + "-" + n++; e.id = id; }
+  return e;
+}
+$("edSave").onclick = async () => {
+  let e; try { e = readEditor(); } catch (err) { $("edMsg").textContent = err.message; return; }
+  const next = editing ? LIST.map((x) => (x.id === editing ? e : x)) : [...LIST, e];
+  if (await saveList(next, `${editing ? "Edit" : "Add"} event: ${e.en || e.zh}`)) { $("editor").hidden = true; render(); openEvent(e.id); }
+};
+$("edDel").onclick = async () => {
+  if (!editing || !confirm(tr("confirmDel"))) return;
+  const name = evName(editing);
+  if (await saveList(LIST.filter((x) => x.id !== editing), `Delete event: ${name}`)) { $("editor").hidden = true; render(); }
+};
+
+/* ===== GitHub (same key and password as the Post tab) ===== */
+const b64ToUtf8 = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\s/g, "")), (c) => c.charCodeAt(0)));
+const utf8ToB64 = (str) => { const u = new TextEncoder().encode(str); let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
+async function gh(method, path, body) {
+  let res;
+  try {
+    res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}${method === "GET" ? "?ref=" + BRANCH + "&t=" + Date.now() : ""}`, {
+      method, headers: { Authorization: `Bearer ${TOKEN}`, Accept: "application/vnd.github+json" }, body: body ? JSON.stringify(body) : undefined, cache: "no-store" });
+  } catch (e) { throw new Error("net"); }
+  if (res.status === 401 || res.status === 403) throw new Error("auth");
+  if (res.status === 409 || res.status === 422) throw new Error("busy");
+  if (method === "GET" && res.status === 404) return null;
+  if (!res.ok) throw new Error("net");
+  return res.json();
+}
+async function loadToken() {
+  try {
+    const blob = await (await fetch("data/post-key.json?t=" + Date.now(), { cache: "no-store" })).json();
+    const dec = (b) => Uint8Array.from(atob(b.replace(/\s/g, "")), (c) => c.charCodeAt(0));
+    const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(OFFICER_PW), "PBKDF2", false, ["deriveKey"]);
+    const key = await crypto.subtle.deriveKey({ name: "PBKDF2", salt: dec(blob.salt), iterations: blob.iter, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+    TOKEN = new TextDecoder().decode(await crypto.subtle.decrypt({ name: "AES-GCM", iv: dec(blob.iv) }, key, dec(blob.data)));
+  } catch (e) { TOKEN = null; }
+}
+async function saveList(next, message) {
+  const m = $("saveMsg"), em = $("edMsg");
+  if (!TOKEN) { em.textContent = tr("noKey"); return false; }
+  em.textContent = ""; m.className = "msg"; m.textContent = tr("saving");
+  const sched = {};
+  for (const e of next) if (e.start && e.every > 0 && e.days > 0) sched[e.id] = { anchor: e.start, periodDays: e.every, activeDays: e.days };
+  const file = { v: 1, updated: new Date().toISOString(), sched, data: await OfficerData.seal({ events: next }) };
+  try {
+    const r = await gh("PUT", EV_PATH, { message: message.slice(0, 120), content: utf8ToB64(JSON.stringify(file, null, 1) + "\n"), sha: FILE_SHA || undefined, branch: BRANCH });
+    FILE_SHA = r && r.content ? r.content.sha : FILE_SHA;
+    LIST = next; m.className = "msg okmsg"; m.textContent = tr("saved"); return true;
+  } catch (err) {
+    const k = err.message === "auth" ? "errAuth" : err.message === "busy" ? "errBusy" : "errNet";
+    m.className = "msg warn"; m.textContent = tr(k); em.textContent = tr(k); return false;
+  }
 }
 
 function applyTexts() {
@@ -242,21 +745,35 @@ function applyTexts() {
   document.querySelectorAll("[data-t]").forEach((el) => { el.textContent = tr(el.dataset.t); });
   $("langBtn").textContent = lang === "zh" ? "English" : "中文";
 }
-$("langBtn").onclick = () => { lang = lang === "zh" ? "en" : "zh"; store.lang = lang; save(); setOfficerLang(lang); applyTexts(); if (SCHED) render(); };
+$("langBtn").onclick = () => { lang = lang === "zh" ? "en" : "zh"; store.lang = lang; save(); setOfficerLang(lang); applyTexts(); if (LIST) render(); };
 $("prevW").onclick = () => { weekStart -= 7 * DAY; render(); };
 $("nextW").onclick = () => { weekStart += 7 * DAY; render(); };
 $("thisW").onclick = () => { weekStart = defaultWeek(); render(); };
+$("addEv").onclick = () => openEditor(null);
 // On Sunday, open on next week (that's when the weekly planning happens)
 function defaultWeek() { const now = Date.now(); const m = mondayOf(now); return new Date(utcDay(now)).getUTCDay() === 0 ? m + 7 * DAY : m; }
 
 async function init() {
   applyTexts();
+  if (OFFICER_PW) await loadToken();
+  // 1) the saved list (fresh copy from GitHub when the key works, otherwise the site's copy)
+  let file = null;
   try {
-    const src = await fetch("js/app.js?t=" + Date.now(), { cache: "no-store" }).then((r) => r.text());
-    const m = src.match(/const EVENT_SCHEDULES = (\{[\s\S]*?\n\});/);
-    SCHED = m ? Function('"use strict";return (' + m[1] + ");")() : null;
-  } catch (e) { SCHED = null; }
-  if (!SCHED) { $("noData").hidden = false; $("noData").textContent = tr("noData"); return; }
+    if (TOKEN) { const f = await gh("GET", EV_PATH); if (f) { FILE_SHA = f.sha; file = JSON.parse(b64ToUtf8(f.content)); } }
+    else { const r = await fetch(EV_PATH + "?t=" + Date.now(), { cache: "no-store" }); if (r.ok) file = await r.json(); }
+    if (file && file.data) { const d = await OfficerData.open(file.data); LIST = d && d.events; }
+  } catch (e) { LIST = null; }
+  // 2) nothing saved yet: start from the schedules already on the site
+  if (!LIST) {
+    let sched = null;
+    try {
+      const src = await fetch("js/app.js?t=" + Date.now(), { cache: "no-store" }).then((r) => r.text());
+      const m = src.match(/const EVENT_SCHEDULES = (\{[\s\S]*?\n\});/);
+      sched = m ? Function('"use strict";return (' + m[1] + ");")() : null;
+    } catch (e) { sched = null; }
+    if (!sched) { $("noData").hidden = false; $("noData").textContent = tr("noData"); return; }
+    LIST = defaultList(sched);
+  }
   $("app").hidden = false;
   weekStart = defaultWeek(); render();
 }
@@ -278,12 +795,12 @@ async function officerGate(onOk) {
   try { const r = await fetch("data/post-key.json?t=" + Date.now(), { cache: "no-store" }); blob = r.ok ? await r.json() : null; } catch (e) {}
   if (!blob) return onOk();
   const st = officerStore();
-  if (st.pw && (await officerCheck(st.pw, blob))) { await OfficerData.unlock(st.pw); return onOk(); }
+  if (st.pw && (await officerCheck(st.pw, blob))) { OFFICER_PW = st.pw; await OfficerData.unlock(st.pw); return onOk(); }
   $("gate").hidden = false;
   const go = async () => {
     const pw = $("gatePw").value;
     if (await officerCheck(pw, blob)) {
-      await OfficerData.unlock(pw);
+      OFFICER_PW = pw; await OfficerData.unlock(pw);
       if ($("gateRemember").checked) { const s = officerStore(); s.pw = pw; try { localStorage.setItem(OFFICER_LS, JSON.stringify(s)); } catch (e) {} }
       $("gate").hidden = true; onOk();
     } else { $("gateErr").hidden = false; $("gatePw").value = ""; $("gatePw").focus(); }
