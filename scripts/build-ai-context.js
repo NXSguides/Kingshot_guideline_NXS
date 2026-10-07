@@ -12,7 +12,8 @@ const read = (f) => fs.readFileSync(path.join(ROOT, f), "utf8");
 const D = {};
 new Function("D", read("data/content.js") + "\nD.LANGS = LANGS; D.GUIDES = GUIDES; D.GLOSSARY = GLOSSARY; D.HEROES = HEROES;" +
   "\nD.JOURNEY = typeof JOURNEY !== 'undefined' ? JOURNEY : [];" +
-  "\nD.JOURNEY_TR = typeof JOURNEY_TR !== 'undefined' ? JOURNEY_TR : {};")(D);
+  "\nD.JOURNEY_TR = typeof JOURNEY_TR !== 'undefined' ? JOURNEY_TR : {};" +
+  "\nD.HERO_CARDS = typeof HERO_CARDS !== 'undefined' ? HERO_CARDS : []; D.HERO_CARD_UI = typeof HERO_CARD_UI !== 'undefined' ? HERO_CARD_UI : null;")(D);
 const T = {};
 try { new Function("T", read("data/terms.js") + "\nT.TERMS = TERMS; T.TERM_LANGS = TERM_LANGS;")(T); }
 catch (e) { console.warn("terms.js skipped:", e.message); }
@@ -52,6 +53,17 @@ function build(lang) {
       const extra = [];
       walk(g[k][lang] || g[k].en || g[k], extra);
       if (extra.length) lines.push(`[${k}] ` + extra.join(" | "));
+    }
+    // hero cards: the cards themselves live in HERO_CARDS, not in the guide's blocks
+    if (id === "hero-cards" && D.HERO_CARDS.length && D.HERO_CARD_UI) {
+      const U = D.HERO_CARD_UI, mark = (v) => (v === "y" ? "✅" : v === "n" ? "❌" : v === "c" ? "⚠️" : v || "—");
+      for (const h of D.HERO_CARDS) {
+        const name = D.HEROES[h.id] ? pick(D.HEROES[h.id]) : D.GLOSSARY[h.id] ? pick(D.GLOSSARY[h.id]) : h.id;
+        const tx = h.t[lang] || h.t.en || {};
+        const head = `${name} — ${clean(pick(U.gen).replace("{n}", h.gen))}, ${clean("{" + h.troop + "}")}, ${h.rarity}, ${clean(pick(U[h.kind]))}`;
+        const roles = h.r ? Object.keys(U.roles).map((r) => `${clean(pick(U.roles[r]))} ${mark(h.r[r])}`).join("; ") : clean(pick(U.noRatings));
+        lines.push(`${head}\n  ${roles}\n  ${(tx.sum || []).map(clean).join(" ")}${tx.quip ? `\n  "${clean(tx.quip)}"` : ""}`);
+      }
     }
     parts.push(`### GUIDE #${id} — ${pick(g.name)}\n${[...new Set(lines)].join("\n")}`);
   }
