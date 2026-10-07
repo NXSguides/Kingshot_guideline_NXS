@@ -88,6 +88,12 @@
     try { const v = localStorage.getItem("nxs-officer-lang"); if (v) return v; } catch (e) {}
     return "en";
   };
+  // language for links back to the guides: the language last picked on the main site
+  const guideLang = () => {
+    if (typeof currentLang !== "undefined") return currentLang;
+    try { const v = localStorage.getItem("ks-lang"); if (v) return v; } catch (e) {}
+    return curLang();
+  };
   const esc = (str) => String(str ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const pickName = (m) => (m && (m[curLang()] || m.en || Object.values(m)[0])) || "";
   const L = (k) => (TXT[curLang()] || TXT.en)[k] || TXT.en[k];
@@ -204,7 +210,7 @@
         if (HAS_GUIDES && !GUIDES[id]) return label;
         return ON_SITE
           ? `<button type="button" class="guide-link-btn" data-guide="${id}"><span class="emoji">${emoji}</span><span dir="auto">${label}</span><span class="arrow">›</span></button>`
-          : `<a class="guide-link-btn" href="index.html#/${curLang()}/${id}" style="text-decoration:none"><span class="emoji">${emoji}</span><span dir="auto">${label}</span><span class="arrow">›</span></a>`;
+          : `<a class="guide-link-btn" href="index.html#/${guideLang()}/${id}" style="text-decoration:none"><span class="emoji">${emoji}</span><span dir="auto">${label}</span><span class="arrow">›</span></a>`;
       })
       // officer pages
       .replace(/\[([^\]]+)\]\(((?:roster|watch|events|post)-\w+\.html)\)/g, (m, label, href) =>
@@ -238,6 +244,12 @@
   };
   try { if (sessionStorage.getItem(OPEN_KEY)) setOpen(true); } catch (e) {}
   $("aiLog").addEventListener("click", (e) => {
+    // officer pages only know English and 中文: open them in the reader's language (like tapping the title 5×)
+    const a = e.target.closest('a[href$=".html"]');
+    if (a && ON_SITE && typeof currentLang !== "undefined") {
+      try { localStorage.setItem("nxs-officer-lang", currentLang === "zh" ? "zh" : "en"); } catch (err) {}
+      return;
+    }
     const b = e.target.closest("[data-guide]");
     if (!b || !ON_SITE) return;
     switchGuide(b.dataset.guide);
