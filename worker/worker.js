@@ -10,7 +10,7 @@
    Officers:  also roster / watch data. "Officer" = proves the officer password (it opens data/data-key.json),
               checked here with a hash of the DATA_KEY secret. */
 
-const VERSION = "2026-10-07h (no visible unlock)";
+const VERSION = "2026-10-07i (tab names)";
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
 const REPO = "NXSguides/Kingshot_guideline_NXS";
@@ -200,7 +200,8 @@ const OFFICER_HELP = `
 ### OFFICER PAGES — HOW TO USE (officers only)
 GETTING IN
 - On the main site, tap the title "NXS Guidelines" 5 times quickly → the Roster page opens. Enter the officer password (ask Sherry). Tick "Remember on this device" to skip it next time.
-- The tabs at the top switch between 📊 Ranking (Roster), 📢 Post, 🕵️ Watch and 📅 Events. The language button switches all officer tabs between English and 中文.
+- The tabs at the top switch between 📊 Ranking (中文: 成員排序), 📢 Post (發布公告), 🕵️ Watch (觀察名單) and 📅 Events (活動排程). The language button switches all officer tabs between English and 中文.
+- When answering in Chinese, call the tabs by their 中文 names above (they are what officers see on screen).
 - Member data updates automatically every day at 04:13 Taiwan time (20:13 UTC). If a page says "No data yet": GitHub → Actions → "Update Roster (MightPulse)" → Run workflow, then reload.
 
 📊 RANKING (roster-x7k2p9.html) — pick event participants and split them into groups
