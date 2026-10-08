@@ -10,7 +10,7 @@
    Officers:  also roster / watch data. "Officer" = proves the officer password (it opens data/data-key.json),
               checked here with a hash of the DATA_KEY secret. */
 
-const VERSION = "2026-10-08a (streaming answers)";
+const VERSION = "2026-10-08b (streaming answers, gz data)";
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
 const REPO = "NXSguides/Kingshot_guideline_NXS";
@@ -381,7 +381,8 @@ async function openData(obj, env) {
   if (!obj || !obj.enc) return obj;
   if (!env.DATA_KEY) throw new Error("DATA_KEY secret missing");
   const key = await crypto.subtle.importKey("raw", b64(env.DATA_KEY.trim()), "AES-GCM", false, ["decrypt"]);
-  const pt = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64(obj.iv) }, key, b64(obj.data));
+  let pt = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64(obj.iv) }, key, b64(obj.data));
+  if (obj.gz) pt = await new Response(new Blob([pt]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();   // gz: 1 = gzipped before encryption
   return JSON.parse(new TextDecoder().decode(pt));
 }
 

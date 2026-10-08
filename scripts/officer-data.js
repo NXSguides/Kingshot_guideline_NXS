@@ -1,7 +1,10 @@
 /* Read / write the officer data files, encrypted with DATA_KEY (GitHub secret).
-   Same format as js/officer-data.js in the browser: { enc: 1, iv, data } with AES-256-GCM. */
+   Same format as js/officer-data.js in the browser: { enc: 1, gz: 1, iv, data } with AES-256-GCM.
+   gz: 1 = the JSON is gzipped before it is encrypted (encrypted text can't be compressed by the
+   web server, so this keeps the big files 5–8× smaller to download). */
 const fs = require("fs");
 const crypto = require("crypto");
+const zlib = require("zlib");
 
 const KEY_FILE = "data/data-key.json";
 const RAW = process.env.DATA_KEY ? Buffer.from(process.env.DATA_KEY.trim(), "base64") : null;
@@ -23,7 +26,9 @@ function readData(file) {
   const buf = Buffer.from(obj.data, "base64");
   const d = crypto.createDecipheriv("aes-256-gcm", RAW, Buffer.from(obj.iv, "base64"));
   d.setAuthTag(buf.subarray(buf.length - 16));
-  return JSON.parse(Buffer.concat([d.update(buf.subarray(0, buf.length - 16)), d.final()]).toString("utf8"));
+  let pt = Buffer.concat([d.update(buf.subarray(0, buf.length - 16)), d.final()]);
+  if (obj.gz) pt = zlib.gunzipSync(pt);
+  return JSON.parse(pt.toString("utf8"));
 }
 
 function writeData(file, obj) {
@@ -34,8 +39,8 @@ function writeData(file, obj) {
   }
   const iv = crypto.randomBytes(12);
   const c = crypto.createCipheriv("aes-256-gcm", RAW, iv);
-  const data = Buffer.concat([c.update(JSON.stringify(obj), "utf8"), c.final(), c.getAuthTag()]);
-  fs.writeFileSync(file, JSON.stringify({ enc: 1, iv: iv.toString("base64"), data: data.toString("base64") }) + "\n");
+  const data = Buffer.concat([c.update(zlib.gzipSync(Buffer.from(JSON.stringify(obj), "utf8"), { level: 9 })), c.final(), c.getAuthTag()]);
+  fs.writeFileSync(file, JSON.stringify({ enc: 1, gz: 1, iv: iv.toString("base64"), data: data.toString("base64") }) + "\n");
 }
 
 module.exports = { readData, writeData };
