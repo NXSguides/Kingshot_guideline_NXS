@@ -28,7 +28,7 @@ jobs:
         env:
           MIGHTPULSE_API_KEY: ${{ secrets.MIGHTPULSE_API_KEY }}
           DATA_KEY: ${{ secrets.DATA_KEY }}
-          SCOUT_MODE: ${{ github.event_name == 'schedule' && 'auto' || 'requested' }}
+          SCOUT_MODE: ${{ github.event_name == 'push' && 'requested' || 'auto' }}
       - run: node scripts/build-officer-context.js   # the AI assistant's officer summary includes the scouted kingdoms
         env:
           DATA_KEY: ${{ secrets.DATA_KEY }}
