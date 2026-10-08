@@ -722,7 +722,12 @@ function applyShared() {
 document.getElementById("langBtn").onclick = () => {
   OFFICER.lang = OFFICER.lang === "zh" ? "en" : "zh";
   setOfficerLang(OFFICER.lang); applyShared();
-  for (const k of TABS) { const p = OFFICER_PAGES[k]; if (p && p.setLang) p.setLang(OFFICER.lang); }
+  for (const k of TABS) {
+    const p = OFFICER_PAGES[k];
+    if (!p || !p.setLang) continue;
+    try { p.setLang(OFFICER.lang); }                          // one tab failing must not stop the others
+    catch (e) { console.error("setLang", k, e); try { p.applyTexts(); } catch (x) {} }
+  }
 };
 const loadedScripts = {};
 function loadScripts(list) {
@@ -1661,7 +1666,7 @@ async function init() {
   renderAll();
 }
 
-function setLang(l) { lang = l; persist(); renderAll(); };
+function setLang(l) { lang = l; persist(); if (data) renderAll(); else applyTexts(); };
 $("wPower").oninput = (e) => setWeights(e.target.value);
 $("wMystic").oninput = (e) => setWeights(100 - (Number(e.target.value) || 0));
 $("rk_q").oninput = renderList;
