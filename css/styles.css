@@ -685,3 +685,4 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 .hc-body .prep-list{margin:0;padding-inline-start:18px;font-size:.92em;}
 .hc-quip{margin:8px 0 0;font-style:italic;color:var(--text-muted);font-size:.9em;}
 .hc-note{margin:0 0 8px;color:var(--text-muted);font-size:.9em;}
+.lt { color: var(--text-muted); font-size: 0.9em; white-space: nowrap; }

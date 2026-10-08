@@ -126,7 +126,33 @@ function escapeHtml(str) {
 function term(id) { return GLOSSARY[id] ? t(GLOSSARY[id]) : id; }
 
 /* 跳脫 HTML → {id} 換成遊戲用語 → **粗體** */
+/* ---- Times written as "08:00 UTC" / "UTC 08:00" (also ranges like 12:00–22:00 UTC) get the reader's own
+   local time added after them, from the browser's time zone — e.g. "08:00 UTC (16:00 local)".
+   Nothing is added when the reader is already on UTC. ---- */
+const LT_LABEL = { en:"local", zh:"當地", ko:"현지", de:"Ortszeit", fr:"heure locale", pt:"local", es:"local", tr:"yerel", id:"lokal", ru:"местное", th:"ท้องถิ่น", ar:"محلي" };
+function localTimes(html, lang) {
+  const off = -new Date().getTimezoneOffset();          // minutes east of UTC
+  if (!off) return html;
+  const conv = (hm) => {
+    const [h, m] = hm.split(":").map(Number);
+    let t = h * 60 + m + off, day = 0;
+    if (t < 0) { t += 1440; day = -1; } else if (t >= 1440) { t -= 1440; day = 1; }
+    return String(Math.floor(t / 60)).padStart(2, "0") + ":" + String(t % 60).padStart(2, "0") + (day ? (day > 0 ? "⁺¹" : "⁻¹") : "");
+  };
+  const label = LT_LABEL[lang] || LT_LABEL.en;
+  // one time, a range (12:00–22:00) or a list (11:00 & 22:00 / 11:00 和 22:00) next to the word UTC
+  const T = "\\d{1,2}:\\d{2}", SEP = "\\s*(?:[–\\-,/]|&amp;|&|和|and)\\s*";
+  const G = `${T}(?:${SEP}${T})*`;
+  const tag = (g) => ` <span class="lt">(${g.replace(/\d{1,2}:\d{2}/g, conv)} ${label})</span>`;
+  return html
+    .replace(new RegExp(`(${G})\\s*UTC(?![\\w+-])`, "g"), (m, g) => m + tag(g))
+    .replace(new RegExp(`UTC\\s*(${G})(?!\\s*<span class="lt")`, "g"), (m, g) => m + tag(g));
+}
+
 function rich(str) {
+  return localTimes(richRaw(str), currentLang);
+}
+function richRaw(str) {
   return escapeHtml(str)
     .replace(/\{(\w+)\}/g, (m, id) => (GLOSSARY[id] ? escapeHtml(term(id)) : m))
     .replace(/\[\[link:([\w-]+)\]\]/g, (m, guideId) => {
@@ -989,7 +1015,7 @@ const KVK_CHECK = {
 
   // items for today: [{ text(lang map or rendered string) }]
   function todaysItems() {
-    if (dayNo === 0) return KVK_CHECK.dayBeforeItems.map((it) => t(it));
+    if (dayNo === 0) return KVK_CHECK.dayBeforeItems.map((it) => rich(t(it)).replace(/<[^>]+>/g, "").replace(/&quot;/g, "\"").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&"));
     if (dayNo === 1) return KVK_CHECK.day1Items.map((it) => rich(t(it)).replace(/<[^>]+>/g, "").replace(/&quot;/g, "\"").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&"));
     if (dayNo === 2) return KVK_CHECK.day2Items.map((it) => rich(t(it)).replace(/<[^>]+>/g, "").replace(/&quot;/g, "\"").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&"));
     if (dayNo === 3) return KVK_CHECK.day3Items.map((it) => rich(t(it)).replace(/<[^>]+>/g, "").replace(/&quot;/g, "\"").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&"));

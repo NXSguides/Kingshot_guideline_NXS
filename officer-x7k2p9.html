@@ -676,6 +676,28 @@
 <script src="js/officer-data.js"></script>
 <script>
 
+/* ---- Times written as "08:00 UTC" / "UTC 08:00" (also ranges like 12:00–22:00 UTC) get the reader's own
+   local time added after them, from the browser's time zone — e.g. "08:00 UTC (16:00 local)".
+   Nothing is added when the reader is already on UTC. ---- */
+const LT_LABEL = { en:"local", zh:"當地", ko:"현지", de:"Ortszeit", fr:"heure locale", pt:"local", es:"local", tr:"yerel", id:"lokal", ru:"местное", th:"ท้องถิ่น", ar:"محلي" };
+function localTimes(html, lang) {
+  const off = -new Date().getTimezoneOffset();          // minutes east of UTC
+  if (!off) return html;
+  const conv = (hm) => {
+    const [h, m] = hm.split(":").map(Number);
+    let t = h * 60 + m + off, day = 0;
+    if (t < 0) { t += 1440; day = -1; } else if (t >= 1440) { t -= 1440; day = 1; }
+    return String(Math.floor(t / 60)).padStart(2, "0") + ":" + String(t % 60).padStart(2, "0") + (day ? (day > 0 ? "⁺¹" : "⁻¹") : "");
+  };
+  const label = LT_LABEL[lang] || LT_LABEL.en;
+  // one time, a range (12:00–22:00) or a list (11:00 & 22:00 / 11:00 和 22:00) next to the word UTC
+  const T = "\\d{1,2}:\\d{2}", SEP = "\\s*(?:[–\\-,/]|&amp;|&|和|and)\\s*";
+  const G = `${T}(?:${SEP}${T})*`;
+  const tag = (g) => ` <span class="lt">(${g.replace(/\d{1,2}:\d{2}/g, conv)} ${label})</span>`;
+  return html
+    .replace(new RegExp(`(${G})\\s*UTC(?![\\w+-])`, "g"), (m, g) => m + tag(g))
+    .replace(new RegExp(`UTC\\s*(${G})(?!\\s*<span class="lt")`, "g"), (m, g) => m + tag(g));
+}
 /* ===== shared: language, password, tabs (the four pages below register themselves in OFFICER_PAGES) ===== */
 const OFFICER_LANG = "nxs-officer-lang", OFFICER_LS = "nxs-post-v1";
 const officerLang = () => { try { const v = localStorage.getItem(OFFICER_LANG); return v === "zh" || v === "en" ? v : null; } catch (e) { return null; } };
@@ -995,13 +1017,13 @@ const EXTRA_EVENTS = [
 ];
 
 /* Event list for the week. Saved in data/events-x7k2p9.json (editable on this page); before the first save it starts from EVENT_SCHEDULES in js/app.js.
-   Weeks run Monday–Sunday in UTC (game reset = 00:00 UTC = 08:00 Taiwan). On Sunday the page opens on next week. */
+   Weeks run Monday–Sunday in UTC (game reset = 00:00 UTC). On Sunday the page opens on next week. */
 const T = {
   en: {
     title: "NXS Events", sub: "Events this week, and what officers need to schedule.", home: "Home",
     thisWeek: "Back to this week", todoTitle: "✅ Action items", weekTitle: "📅 Events", late: "overdue",
     todoNote: "Ticks are saved on this device only.",
-    note: "Dates come from the event schedule on the site. Game days start at 00:00 UTC (08:00 Taiwan). If the in-game calendar differs, the game is right.",
+    note: "Dates come from the event schedule on the site. Game days start at 00:00 UTC. If the in-game calendar differs, the game is right.",
     noTodo: "Nothing to schedule this week 🎉", none: "—", day: "Day {n}/{t}", starts: "starts", ends: "last day",
     noData: "Could not read the event schedule from the site.",
     toPost: "📢 Write announcement", toRanking: "📊 Open Ranking", toGuide: "📖 Guide",
@@ -1029,7 +1051,7 @@ const T = {
     title: "NXS 活動排程", sub: "這週有哪些活動，以及幹部要安排的事。", home: "回主頁",
     thisWeek: "回到這週", todoTitle: "✅ 待辦事項", weekTitle: "📅 活動", late: "已過期",
     todoNote: "勾選只存在這台裝置上。",
-    note: "日期依網站上的活動排程推算。遊戲每天 UTC 00:00（台灣時間早上 8 點）換日。如果跟遊戲內行事曆不同，以遊戲為準。",
+    note: "日期依網站上的活動排程推算。遊戲每天 UTC 00:00 換日。如果跟遊戲內行事曆不同，以遊戲為準。",
     noTodo: "這週沒有需要排時間的活動 🎉", none: "—", day: "第 {n}/{t} 天", starts: "開始", ends: "最後一天",
     noData: "讀不到網站上的活動排程。",
     toPost: "📢 寫公告", toRanking: "📊 打開 Ranking", toGuide: "📖 攻略",
@@ -1069,8 +1091,8 @@ const EVENTS = {
 // What officers need to do. due: days relative to the event's first day (−1 = the day before).
 const TODO = {
   "viking-vengeance": [
-    { due: -1, post: 1, en: "Pick the start time and announce it (UTC + local time). Remind everyone to be online and reinforce each other.",
-                        zh: "決定開打時間並公告（寫 UTC 和台灣時間），提醒大家準時上線、互相增援。" },
+    { due: -1, post: 1, en: "Pick the start time and announce it (in UTC). Remind everyone to be online and reinforce each other.",
+                        zh: "決定開打時間並公告（寫 UTC），提醒大家準時上線、互相增援。" },
   ],
   "swordland-showdown": [
     { due: -2, post: 1, en: "Open sign-ups and collect the list.", zh: "開放報名、收集名單。" },
@@ -1197,7 +1219,7 @@ function render() {
     return `<label class="todo${store.done[id] ? " done" : ""}">
       <input type="checkbox" data-id="${esc(id)}" ${store.done[id] ? "checked" : ""}>
       <div>
-        <div class="txt"><b>${esc(evName(r.k))}</b> — ${esc(txt(td))}</div>
+        <div class="txt"><b>${esc(evName(r.k))}</b> — ${localTimes(esc(txt(td)), lang)}</div>
         <div class="when">⏰ ${esc(fmt(due))}${due < today && !store.done[id] ? ` <b class="warn">${esc(tr("late"))}</b>` : ""} · ${esc(tr("runs", { a: fmt(r.st), b: fmt(r.en - DAY), n: r.days }))}</div>
         <div class="acts">${td.post ? `<a class="btn small" href="#post">${esc(tr("toPost"))}</a>` : ""}${td.ranking ? `<a class="btn small" href="#ranking">${esc(tr("toRanking"))}</a>` : ""}${e.guide ? `<a class="btn small" href="./#/${lang === "zh" ? "zh" : "en"}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}${(e.ingame || []).length ? `<button type="button" class="btn small" data-open="${esc(r.k)}">📋 ${esc(tr("fIngame"))}</button>` : ""}</div>
       </div>
@@ -1219,7 +1241,7 @@ function renderList() {
   const open = new Set([...ROOT.querySelectorAll(".evrow[open]")].map((d) => d.dataset.id));
   $("evList").innerHTML = LIST.map((e) => `
     <details class="evrow" data-id="${esc(e.id)}"${open.has(e.id) ? " open" : ""}>
-      <summary><span><b>${esc(evName(e.id))}</b><br><span class="sched">${esc(schedText(e))}${noteOf(e) ? " · " + esc(noteOf(e)) : ""}</span></span>
+      <summary><span><b>${esc(evName(e.id))}</b><br><span class="sched">${esc(schedText(e))}${noteOf(e) ? " · " + localTimes(esc(noteOf(e)), lang) : ""}</span></span>
         <span class="muted">${(e.ingame || []).length ? "📋 " + (e.ingame || []).length : ""}</span></summary>
       ${(e.ingame || []).length ? e.ingame.map((g, i) => `
         <div class="ig"><div class="head"><span>${esc(g.title || tr("fIngame"))} <span class="sched">· ${[...g.text].length} ${esc(tr("chars"))}</span></span><span class="row" style="flex:none"><button type="button" class="btn small" data-igedit="${esc(e.id)}:${i}">✏️</button><button type="button" class="btn small" data-copy="${esc(e.id)}:${i}">${esc(tr("copy"))}</button></span></div>
@@ -1386,7 +1408,7 @@ async function saveList(next, message) {
 
 function applyTexts() {
   document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
-  ROOT.querySelectorAll("[data-t]").forEach((el) => { el.textContent = tr(el.dataset.t); });
+  ROOT.querySelectorAll("[data-t]").forEach((el) => { const v = tr(el.dataset.t); if (/UTC/.test(v)) el.innerHTML = localTimes(esc(v), lang); else el.textContent = v; });
 }
 function setLang(l) { lang = l; store.lang = lang; save(); applyTexts(); if (LIST) render(); };
 $("prevW").onclick = () => { weekStart -= 7 * DAY; render(); };

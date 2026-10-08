@@ -18,7 +18,7 @@ const REPO = "NXSguides/Kingshot_guideline_NXS";
 const MODELS = ["gemini-3.8-flash", "gemini-3.5-flash", "gemini-3.5-flash-lite", "gemini-3-flash-preview"];
 
 const LIMIT_PER_MIN = 6;          // per visitor IP (best-effort)
-// Daily limits for non-officers (officers are not limited). Days reset at 00:00 UTC = 08:00 Taiwan.
+// Daily limits for non-officers (officers are not limited). Days reset at 00:00 UTC.
 const DEVICE_PER_DAY = 15;        // per browser/device
 const IP_PER_DAY = 40;            // per internet connection (a family or school Wi-Fi shares one)
 const CACHE_MS = 10 * 60 * 1000;  // re-read site data every 10 minutes
@@ -283,7 +283,7 @@ GETTING IN
 - The tabs at the top, in order: 📅 Events (中文: 活動排程), 📊 Ranking (成員排序), 📢 Post (發布公告), 🕵️ Watch (觀察名單).
 - Language: officer pages are English or 中文. Entering from the Chinese site opens them in 中文, from any other language in English. The language button on any tab switches all officer tabs together.
 - When answering in Chinese, call the tabs by their 中文 names above (they are what officers see on screen).
-- Member data updates automatically every day at 04:13 Taiwan time (20:13 UTC). If a page says "No data yet": GitHub → Actions → "Update Roster (MightPulse)" → Run workflow, then reload.
+- Member data updates automatically every day at 20:13 UTC. If a page says "No data yet": GitHub → Actions → "Update Roster (MightPulse)" → Run workflow, then reload.
 
 📊 RANKING (roster-x7k2p9.html) — pick event participants and split them into groups
 ① Weights: Total Power vs Mystic Trial; the two always add up to 100%.
@@ -312,7 +312,7 @@ GETTING IN
 - Export: 📋 Copy for Google Sheets (paste into cell A1) or ⬇️ Download CSV — includes officers' notes.
 
 📅 EVENTS (events-x7k2p9.html) — the first officer tab: week calendar, officer to-dos, and in-game guides
-- Week view: Monday–Sunday in UTC (game day starts 00:00 UTC = 08:00 Taiwan). On Sundays it opens on next week. ◀ ▶ change week, "Back to this week" returns. Each day lists the events running (starts / day x of y / last day); tap an event to jump to its in-game guide.
+- Week view: Monday–Sunday in UTC (game day starts 00:00 UTC). On Sundays it opens on next week. ◀ ▶ change week, "Back to this week" returns. Each day lists the events running (starts / day x of y / last day); tap an event to jump to its in-game guide.
 - ✅ Action items: what officers must do and by when (⏰ date), for events starting this week plus prep due this week. Overdue items are marked. Ticks are saved on this device only. Buttons: 📢 Write announcement (Post tab), 📊 Open Ranking, 📖 Guide (the site guide), 📋 In-game guides.
 - 📋 Events & in-game guides (list below the calendar): tap an event to open it. Each grey box is ONE in-game chat message — the game limits message length, so long guides are split into several messages; send them one by one. 📋 Copy copies one message; the character count is shown next to the title.
 - ✏️ next to a message edits just that message (title and text, live character count) → 💾 Save.
