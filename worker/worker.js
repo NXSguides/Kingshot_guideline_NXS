@@ -10,7 +10,7 @@
    Officers:  also roster / watch data. "Officer" = proves the officer password (it opens data/data-key.json),
               checked here with a hash of the DATA_KEY secret. */
 
-const VERSION = "2026-10-07i (tab names)";
+const VERSION = "2026-10-08a (streaming answers)";
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
 const REPO = "NXSguides/Kingshot_guideline_NXS";
@@ -128,11 +128,32 @@ async function handle(req, env) {
     if (!env.GEMINI_API_KEY) return json({ error: "setup", detail: ["GEMINI_API_KEY secret is missing"] }, 500);
     const contents = [...history, { role: "user", parts: [{ text: question }] }];
     const fails = [];
+    const wantStream = body.stream === 1;   // newer site code reads the answer as it is written
     for (const model of MODELS) {
-      const res = await gemini(env, model, system, contents);
+      const res = wantStream ? await geminiStream(env, model, system, contents) : await gemini(env, model, system, contents);
       if (res.answer) {
         const left = quota ? await quota.count() : null;
         return json({ answer: res.answer, officer, left });
+      }
+      if (res.stream) {
+        // first text already arrived → send the rest as it comes: one JSON object per line
+        // {"meta":{officer,left}} first, then {"t":"…"} pieces, then {"done":1}
+        const left = quota ? await quota.count() : null;
+        const enc = new TextEncoder();
+        const { readable, writable } = new TransformStream();
+        const w = writable.getWriter();
+        (async () => {
+          try {
+            await w.write(enc.encode(JSON.stringify({ meta: { officer, left } }) + "\n"));
+            await w.write(enc.encode(JSON.stringify({ t: res.first }) + "\n"));
+            for await (const piece of res.stream) if (piece) await w.write(enc.encode(JSON.stringify({ t: piece }) + "\n"));
+            await w.write(enc.encode(JSON.stringify({ done: 1 }) + "\n"));
+          } catch (e) {
+            try { await w.write(enc.encode(JSON.stringify({ error: String(e && e.message || e) }) + "\n")); } catch (x) {}
+          }
+          try { await w.close(); } catch (e) {}
+        })();
+        return new Response(readable, { headers: { ...cors, "content-type": "application/x-ndjson; charset=utf-8", "cache-control": "no-store" } });
       }
       fails.push(`${model}: ${res.error}`);
       // 429 = free quota used up for this model, 404 = model retired, 503 = busy → try next
@@ -169,6 +190,61 @@ async function gemini(env, model, system, contents) {
     // 400 because this model doesn't accept the thinking setting → retry once without it
     if (r.status === 400 && withThinking && /thinking/i.test(msg)) continue;
     return { error: msg };
+  }
+  return { error: "failed" };
+}
+
+/* Same call, but streamed: resolves as soon as the first piece of text arrives, with an async
+   iterator for the rest — so the reader sees the answer being written instead of waiting for all of it. */
+async function geminiStream(env, model, system, contents) {
+  const thinking = model.startsWith("gemini-2.5") ? { thinkingBudget: 0 } : { thinkingLevel: "low" };
+  for (const withThinking of [true, false]) {
+    let r;
+    try {
+      r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse`, {
+        method: "POST",
+        headers: { "x-goog-api-key": env.GEMINI_API_KEY, "content-type": "application/json" },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: system }] },
+          contents,
+          generationConfig: { maxOutputTokens: 4096, temperature: 0.3, ...(withThinking ? { thinkingConfig: thinking } : {}) },
+        }),
+      });
+    } catch (e) { return { error: "network " + e.message }; }
+    if (!r.ok) {
+      const data = await r.json().catch(() => ({}));
+      const msg = `HTTP ${r.status} ${data.error?.status || ""} ${String(data.error?.message || "").slice(0, 140)}`.trim();
+      if (r.status === 400 && withThinking && /thinking/i.test(msg)) continue;
+      return { error: msg };
+    }
+    // SSE: lines "data: {...}" separated by blank lines
+    const reader = r.body.getReader(), dec = new TextDecoder();
+    let buf = "", finish = "";
+    async function* pieces() {
+      for (;;) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        buf += dec.decode(value, { stream: true });
+        let at;
+        while ((at = buf.indexOf("\n")) >= 0) {
+          const line = buf.slice(0, at).trim(); buf = buf.slice(at + 1);
+          if (!line.startsWith("data:")) continue;
+          let j; try { j = JSON.parse(line.slice(5)); } catch (e) { continue; }
+          const c = j.candidates?.[0];
+          if (c?.finishReason) finish = c.finishReason;
+          const text = (c?.content?.parts || []).filter((p) => !p.thought).map((p) => p.text || "").join("");
+          if (text) yield text;
+        }
+      }
+    }
+    const it = pieces();
+    let first = "";
+    for (;;) {                       // wait for the first real text; an empty stream = try the next model
+      const { value, done } = await it.next();
+      if (done) return { error: `empty answer (${finish || "?"})` };
+      if (value.trim()) { first = value; break; }
+    }
+    return { stream: it, first };
   }
   return { error: "failed" };
 }

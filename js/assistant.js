@@ -234,6 +234,28 @@
     if (keep) { LOG.msgs.push({ w: who, t: text, h: hints || [] }); saveLog(); }
     return d;
   }
+  async function readStream(r, onText) {
+    const reader = r.body.getReader(), dec = new TextDecoder();
+    let buf = "", text = "", meta = {}, error = null, last = 0;
+    for (;;) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buf += dec.decode(value, { stream: true });
+      let at;
+      while ((at = buf.indexOf("\n")) >= 0) {
+        const line = buf.slice(0, at); buf = buf.slice(at + 1);
+        if (!line.trim()) continue;
+        let j; try { j = JSON.parse(line); } catch (e) { continue; }
+        if (j.meta) meta = j.meta;
+        if (j.t) text += j.t;
+        if (j.error) error = j.error;
+      }
+      const now = Date.now();
+      if (text && now - last > 80) { last = now; onText(text); }
+    }
+    if (!text) return { error: error || "gemini" };
+    return { answer: text, officer: meta.officer, left: meta.left };
+  }
   function finish(d, text, hints) {
     paint(d, "a", text, hints);
     LOG.msgs.push({ w: "a", t: text, h: hints || [] }); saveLog();
@@ -315,11 +337,14 @@
         const timer = ctrl && setTimeout(() => ctrl.abort(), 55000);
         r = await fetch(AI_URL, {
           method: "POST", headers: { "Content-Type": "text/plain;charset=UTF-8" },
-          body: JSON.stringify({ question: q, lang: curLang(), history, officerProof, deviceId: DEVICE_ID }),
+          body: JSON.stringify({ question: q, lang: curLang(), history, officerProof, deviceId: DEVICE_ID, stream: 1 }),
           signal: ctrl ? ctrl.signal : undefined,
         });
         if (timer) clearTimeout(timer);
-        data = await r.json().catch(() => ({}));
+        if (r.ok && /x-ndjson/.test(r.headers.get("content-type") || "") && r.body) {
+          // the answer arrives piece by piece (one JSON object per line): show it as it is written
+          data = await readStream(r, (partial) => paint(wait, "a", partial + " ▍"));
+        } else data = await r.json().catch(() => ({}));
         if (r.ok && data.answer) break;
         if (!retryable(data.error)) break;     // daily limit, too fast, … → no point retrying
       } catch (err) {
