@@ -19,62 +19,62 @@
 
   /* chat box texts — follow the language picked on the site ({g} = a guide name) */
   const TXT = {
-    en: { clear: "Clear chat", officerFail: "(Officer check failed \u2014 answered as for a normal member. Unlock an officer page, then ask again.)", limit: "You've used today's {n} questions on this device. Try again tomorrow.", left: "{n} questions left today on this device.", greet: "Hi! Ask me anything about the guides.", eg: "e.g. “Which heroes for {g}?”", ph: "Ask a question…",
+    en: { retry: "The AI is busy — trying again automatically ({n}/{t})…", clear: "Clear chat", officerFail: "(Officer check failed \u2014 answered as for a normal member. Unlock an officer page, then ask again.)", limit: "You've used today's {n} questions on this device. Try again tomorrow.", left: "{n} questions left today on this device.", greet: "Hi! Ask me anything about the guides.", eg: "e.g. “Which heroes for {g}?”", ph: "Ask a question…",
       guides: "These guides might help:", none: "No matching guide found.",
       officerPages: "Officer pages:", notSet: "The AI isn't set up yet.", slow: "Too many questions — please wait a minute.",
       quota: "The AI is resting (daily free limit reached). Please try again later.", site: "The AI couldn't read the site content.",
       broken: "The AI isn't working right now.", net: "Couldn't reach the AI. Check your internet." },
-    zh: { clear: "清除對話", officerFail: "（幹部驗證失敗，以一般成員的身分回答。請先打開幹部頁面解鎖，再問一次。）", limit: "這台裝置今天的 {n} 次提問已經用完了，明天再來吧。", left: "這台裝置今天還可以問 {n} 次。", greet: "嗨！指南裡的任何問題都可以問我。", eg: "例如：「{g}要派哪些英雄？」", ph: "輸入問題…",
+    zh: { retry: "AI 目前忙碌中，自動重試中（{n}/{t}）…", clear: "清除對話", officerFail: "（幹部驗證失敗，以一般成員的身分回答。請先打開幹部頁面解鎖，再問一次。）", limit: "這台裝置今天的 {n} 次提問已經用完了，明天再來吧。", left: "這台裝置今天還可以問 {n} 次。", greet: "嗨！指南裡的任何問題都可以問我。", eg: "例如：「{g}要派哪些英雄？」", ph: "輸入問題…",
       guides: "這些指南可能有幫助：", none: "找不到相關的指南。",
       officerPages: "幹部頁面：", notSet: "AI 還沒設定好。", slow: "問題太多了，請等一分鐘再問。",
       quota: "AI 正在休息（今天的免費額度用完了），請晚點再試。", site: "AI 讀不到網站內容。",
       broken: "AI 目前無法使用。", net: "連不上 AI，請檢查網路。" },
-    ko: { clear: "대화 지우기", limit: "이 기기의 오늘 질문 {n}회를 모두 사용했어요. 내일 다시 시도해 주세요.", left: "이 기기에서 오늘 {n}회 더 질문할 수 있어요.", greet: "안녕하세요! 가이드에 대해 무엇이든 물어보세요.", eg: "예: “{g}에는 어떤 영웅을 써요?”", ph: "질문을 입력하세요…",
+    ko: { retry: "AI가 바빠요 — 자동으로 다시 시도하는 중 ({n}/{t})…", clear: "대화 지우기", limit: "이 기기의 오늘 질문 {n}회를 모두 사용했어요. 내일 다시 시도해 주세요.", left: "이 기기에서 오늘 {n}회 더 질문할 수 있어요.", greet: "안녕하세요! 가이드에 대해 무엇이든 물어보세요.", eg: "예: “{g}에는 어떤 영웅을 써요?”", ph: "질문을 입력하세요…",
       guides: "이 가이드가 도움이 될 수 있어요:", none: "관련 가이드를 찾지 못했어요.",
       officerPages: "임원 페이지:", notSet: "AI가 아직 설정되지 않았어요.", slow: "질문이 너무 많아요. 1분만 기다려 주세요.",
       quota: "AI가 쉬는 중이에요 (오늘 무료 사용량 소진). 나중에 다시 시도해 주세요.", site: "AI가 사이트 내용을 읽지 못했어요.",
       broken: "지금은 AI를 사용할 수 없어요.", net: "AI에 연결할 수 없어요. 인터넷을 확인해 주세요." },
-    de: { clear: "Chat löschen", limit: "Die {n} Fragen für heute auf diesem Gerät sind aufgebraucht. Morgen wieder.", left: "Heute noch {n} Fragen auf diesem Gerät.", greet: "Hi! Frag mich alles zu den Guides.", eg: "z. B. „Welche Helden für {g}?“", ph: "Frage eingeben…",
+    de: { retry: "Die KI ist ausgelastet — neuer Versuch automatisch ({n}/{t})…", clear: "Chat löschen", limit: "Die {n} Fragen für heute auf diesem Gerät sind aufgebraucht. Morgen wieder.", left: "Heute noch {n} Fragen auf diesem Gerät.", greet: "Hi! Frag mich alles zu den Guides.", eg: "z. B. „Welche Helden für {g}?“", ph: "Frage eingeben…",
       guides: "Diese Guides könnten helfen:", none: "Kein passender Guide gefunden.",
       officerPages: "Offiziersseiten:", notSet: "Die KI ist noch nicht eingerichtet.", slow: "Zu viele Fragen — bitte eine Minute warten.",
       quota: "Die KI macht Pause (Tageslimit erreicht). Bitte später erneut versuchen.", site: "Die KI konnte die Seiteninhalte nicht lesen.",
       broken: "Die KI funktioniert gerade nicht.", net: "KI nicht erreichbar. Bitte Internet prüfen." },
-    fr: { clear: "Effacer la discussion", limit: "Les {n} questions du jour sur cet appareil sont épuisées. Reviens demain.", left: "Encore {n} questions aujourd'hui sur cet appareil.", greet: "Salut ! Pose-moi tes questions sur les guides.", eg: "ex. « Quels héros pour {g} ? »", ph: "Pose ta question…",
+    fr: { retry: "L'IA est occupée — nouvel essai automatique ({n}/{t})…", clear: "Effacer la discussion", limit: "Les {n} questions du jour sur cet appareil sont épuisées. Reviens demain.", left: "Encore {n} questions aujourd'hui sur cet appareil.", greet: "Salut ! Pose-moi tes questions sur les guides.", eg: "ex. « Quels héros pour {g} ? »", ph: "Pose ta question…",
       guides: "Ces guides peuvent aider :", none: "Aucun guide correspondant.",
       officerPages: "Pages officiers :", notSet: "L'IA n'est pas encore configurée.", slow: "Trop de questions — attends une minute.",
       quota: "L'IA se repose (limite gratuite du jour atteinte). Réessaie plus tard.", site: "L'IA n'a pas pu lire le contenu du site.",
       broken: "L'IA ne fonctionne pas pour le moment.", net: "Impossible de joindre l'IA. Vérifie ta connexion." },
-    pt: { clear: "Limpar conversa", limit: "As {n} perguntas de hoje neste dispositivo acabaram. Volte amanhã.", left: "Restam {n} perguntas hoje neste dispositivo.", greet: "Oi! Pergunte qualquer coisa sobre os guias.", eg: "ex.: “Quais heróis para {g}?”", ph: "Digite sua pergunta…",
+    pt: { retry: "A IA está ocupada — tentando de novo automaticamente ({n}/{t})…", clear: "Limpar conversa", limit: "As {n} perguntas de hoje neste dispositivo acabaram. Volte amanhã.", left: "Restam {n} perguntas hoje neste dispositivo.", greet: "Oi! Pergunte qualquer coisa sobre os guias.", eg: "ex.: “Quais heróis para {g}?”", ph: "Digite sua pergunta…",
       guides: "Estes guias podem ajudar:", none: "Nenhum guia encontrado.",
       officerPages: "Páginas de oficiais:", notSet: "A IA ainda não foi configurada.", slow: "Perguntas demais — espere um minuto.",
       quota: "A IA está descansando (limite gratuito do dia atingido). Tente mais tarde.", site: "A IA não conseguiu ler o conteúdo do site.",
       broken: "A IA não está funcionando agora.", net: "Não foi possível conectar à IA. Verifique a internet." },
-    es: { clear: "Borrar chat", limit: "Ya usaste las {n} preguntas de hoy en este dispositivo. Vuelve mañana.", left: "Te quedan {n} preguntas hoy en este dispositivo.", greet: "¡Hola! Pregúntame lo que quieras sobre las guías.", eg: "p. ej. «¿Qué héroes para {g}?»", ph: "Escribe tu pregunta…",
+    es: { retry: "La IA está ocupada — reintentando automáticamente ({n}/{t})…", clear: "Borrar chat", limit: "Ya usaste las {n} preguntas de hoy en este dispositivo. Vuelve mañana.", left: "Te quedan {n} preguntas hoy en este dispositivo.", greet: "¡Hola! Pregúntame lo que quieras sobre las guías.", eg: "p. ej. «¿Qué héroes para {g}?»", ph: "Escribe tu pregunta…",
       guides: "Estas guías pueden ayudar:", none: "No se encontró ninguna guía.",
       officerPages: "Páginas de oficiales:", notSet: "La IA aún no está configurada.", slow: "Demasiadas preguntas: espera un minuto.",
       quota: "La IA está descansando (límite gratuito diario alcanzado). Inténtalo más tarde.", site: "La IA no pudo leer el contenido del sitio.",
       broken: "La IA no funciona en este momento.", net: "No se pudo conectar con la IA. Revisa tu conexión." },
-    tr: { clear: "Sohbeti temizle", limit: "Bu cihazın bugünkü {n} soru hakkı doldu. Yarın tekrar dene.", left: "Bu cihazda bugün {n} soru hakkın kaldı.", greet: "Merhaba! Rehberler hakkında her şeyi sorabilirsin.", eg: "örn. “{g} için hangi kahramanlar?”", ph: "Sorunu yaz…",
+    tr: { retry: "Yapay zekâ meşgul — otomatik olarak tekrar deneniyor ({n}/{t})…", clear: "Sohbeti temizle", limit: "Bu cihazın bugünkü {n} soru hakkı doldu. Yarın tekrar dene.", left: "Bu cihazda bugün {n} soru hakkın kaldı.", greet: "Merhaba! Rehberler hakkında her şeyi sorabilirsin.", eg: "örn. “{g} için hangi kahramanlar?”", ph: "Sorunu yaz…",
       guides: "Bu rehberler yardımcı olabilir:", none: "Uygun rehber bulunamadı.",
       officerPages: "Yönetici sayfaları:", notSet: "Yapay zekâ henüz kurulmadı.", slow: "Çok fazla soru — lütfen bir dakika bekle.",
       quota: "Yapay zekâ dinleniyor (günlük ücretsiz limit doldu). Lütfen sonra tekrar dene.", site: "Yapay zekâ site içeriğini okuyamadı.",
       broken: "Yapay zekâ şu anda çalışmıyor.", net: "Yapay zekâya ulaşılamadı. İnternetini kontrol et." },
-    id: { clear: "Hapus obrolan", limit: "Jatah {n} pertanyaan hari ini di perangkat ini sudah habis. Coba lagi besok.", left: "Sisa {n} pertanyaan hari ini di perangkat ini.", greet: "Hai! Tanyakan apa saja tentang panduan.", eg: "mis. “Hero apa untuk {g}?”", ph: "Tulis pertanyaan…",
+    id: { retry: "AI sedang sibuk — mencoba lagi otomatis ({n}/{t})…", clear: "Hapus obrolan", limit: "Jatah {n} pertanyaan hari ini di perangkat ini sudah habis. Coba lagi besok.", left: "Sisa {n} pertanyaan hari ini di perangkat ini.", greet: "Hai! Tanyakan apa saja tentang panduan.", eg: "mis. “Hero apa untuk {g}?”", ph: "Tulis pertanyaan…",
       guides: "Panduan ini mungkin membantu:", none: "Tidak ada panduan yang cocok.",
       officerPages: "Halaman pengurus:", notSet: "AI belum disiapkan.", slow: "Terlalu banyak pertanyaan — tunggu sebentar.",
       quota: "AI sedang istirahat (batas gratis harian habis). Coba lagi nanti.", site: "AI tidak bisa membaca isi situs.",
       broken: "AI sedang tidak berfungsi.", net: "Tidak bisa terhubung ke AI. Periksa internet." },
-    ru: { clear: "Очистить чат", limit: "Лимит {n} вопросов на сегодня для этого устройства исчерпан. Попробуйте завтра.", left: "Сегодня на этом устройстве осталось вопросов: {n}.", greet: "Привет! Спрашивайте что угодно о гайдах.", eg: "напр. «Каких героев брать на {g}?»", ph: "Введите вопрос…",
+    ru: { retry: "ИИ занят — автоматически пробуем снова ({n}/{t})…", clear: "Очистить чат", limit: "Лимит {n} вопросов на сегодня для этого устройства исчерпан. Попробуйте завтра.", left: "Сегодня на этом устройстве осталось вопросов: {n}.", greet: "Привет! Спрашивайте что угодно о гайдах.", eg: "напр. «Каких героев брать на {g}?»", ph: "Введите вопрос…",
       guides: "Эти гайды могут помочь:", none: "Подходящий гайд не найден.",
       officerPages: "Страницы офицеров:", notSet: "ИИ ещё не настроен.", slow: "Слишком много вопросов — подождите минуту.",
       quota: "ИИ отдыхает (дневной бесплатный лимит исчерпан). Попробуйте позже.", site: "ИИ не смог прочитать содержимое сайта.",
       broken: "ИИ сейчас не работает.", net: "Не удалось связаться с ИИ. Проверьте интернет." },
-    th: { clear: "ล้างแชท", limit: "ใช้สิทธิ์ถาม {n} ครั้งของวันนี้บนอุปกรณ์นี้ครบแล้ว ลองใหม่พรุ่งนี้", left: "วันนี้ถามได้อีก {n} ครั้งบนอุปกรณ์นี้", greet: "สวัสดี! ถามอะไรเกี่ยวกับคู่มือก็ได้", eg: "เช่น “{g} ใช้ฮีโร่ตัวไหนดี?”", ph: "พิมพ์คำถาม…",
+    th: { retry: "AI กำลังยุ่ง — กำลังลองใหม่อัตโนมัติ ({n}/{t})…", clear: "ล้างแชท", limit: "ใช้สิทธิ์ถาม {n} ครั้งของวันนี้บนอุปกรณ์นี้ครบแล้ว ลองใหม่พรุ่งนี้", left: "วันนี้ถามได้อีก {n} ครั้งบนอุปกรณ์นี้", greet: "สวัสดี! ถามอะไรเกี่ยวกับคู่มือก็ได้", eg: "เช่น “{g} ใช้ฮีโร่ตัวไหนดี?”", ph: "พิมพ์คำถาม…",
       guides: "คู่มือเหล่านี้อาจช่วยได้:", none: "ไม่พบคู่มือที่ตรงกัน",
       officerPages: "หน้าสำหรับเจ้าหน้าที่:", notSet: "ยังไม่ได้ตั้งค่า AI", slow: "ถามเยอะเกินไป — รอสักหนึ่งนาที",
       quota: "AI กำลังพัก (ใช้โควตาฟรีของวันนี้หมดแล้ว) ลองใหม่ภายหลัง", site: "AI อ่านเนื้อหาของเว็บไซต์ไม่ได้",
       broken: "ตอนนี้ AI ใช้งานไม่ได้", net: "เชื่อมต่อ AI ไม่ได้ ตรวจสอบอินเทอร์เน็ต" },
-    ar: { clear: "مسح المحادثة", limit: "استنفدت أسئلة اليوم ({n}) على هذا الجهاز. حاول غدًا.", left: "تبقّى لك {n} أسئلة اليوم على هذا الجهاز.", greet: "مرحبًا! اسألني أي شيء عن الأدلة.", eg: "مثال: «ما الأبطال المناسبون لـ {g}؟»", ph: "اكتب سؤالك…",
+    ar: { retry: "الذكاء الاصطناعي مشغول — جارٍ إعادة المحاولة تلقائيًا ({n}/{t})…", clear: "مسح المحادثة", limit: "استنفدت أسئلة اليوم ({n}) على هذا الجهاز. حاول غدًا.", left: "تبقّى لك {n} أسئلة اليوم على هذا الجهاز.", greet: "مرحبًا! اسألني أي شيء عن الأدلة.", eg: "مثال: «ما الأبطال المناسبون لـ {g}؟»", ph: "اكتب سؤالك…",
       guides: "قد تفيدك هذه الأدلة:", none: "لم يُعثر على دليل مناسب.",
       officerPages: "صفحات المسؤولين:", notSet: "لم يتم إعداد الذكاء الاصطناعي بعد.", slow: "أسئلة كثيرة — انتظر دقيقة من فضلك.",
       quota: "الذكاء الاصطناعي في استراحة (انتهى الحد المجاني اليومي). حاول لاحقًا.", site: "تعذّر على الذكاء الاصطناعي قراءة محتوى الموقع.",
@@ -296,34 +296,52 @@
     const wait = say("a", "…", false);
     await autoUnlock();
     if (!AI_URL) { finish(wait, fallback(q, L("notSet"))); return; }
-    try {
-      // text/plain = a "simple" request: no extra CORS pre-check, which Safari is strict about
-      const ctrl = typeof AbortController !== "undefined" ? new AbortController() : null;
-      const timer = ctrl && setTimeout(() => ctrl.abort(), 55000);
-      const r = await fetch(AI_URL, {
-        method: "POST", headers: { "Content-Type": "text/plain;charset=UTF-8" },
-        body: JSON.stringify({ question: q, lang: curLang(), history, officerProof, deviceId: DEVICE_ID }),
-        signal: ctrl ? ctrl.signal : undefined,
-      });
-      if (timer) clearTimeout(timer);
-      const data = await r.json().catch(() => ({}));
-      if (r.ok && data.answer) {
-        const hints = [];
-        if (officerProof && data.officer === false) hints.push(L("officerFail"));
-        if (typeof data.left === "number" && data.left <= 3) hints.push(L("left").replace("{n}", data.left));
-        history.push({ role: "user", text: q }, { role: "model", text: data.answer });
-        if (history.length > 6) history.splice(0, history.length - 6);
-        finish(wait, data.answer, hints);
-      } else {
-        const why = data.error === "daily_limit" ? L("limit").replace("{n}", data.limit || "")
-          : L({ slow_down: "slow", quota: "quota", site_unreachable: "site" }[data.error] || "broken");
-        finish(wait, fallback(q, why));
-        if (data.detail) console.warn("NXS AI:", data.detail);   // details for whoever set it up
+    // busy / free quota full / network blip → wait a little and try again by itself
+    const RETRY_WAIT = [6000, 15000];          // seconds before the 2nd and 3rd try
+    const retryable = (err) => ["quota", "gemini", "worker"].includes(err);
+    const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
+    let r = null, data = {}, netErr = null;
+    for (let attempt = 0; attempt <= RETRY_WAIT.length; attempt++) {
+      if (attempt > 0) {
+        paint(wait, "a", L("retry").replace("{n}", attempt).replace("{t}", RETRY_WAIT.length));
+        await sleep(RETRY_WAIT[attempt - 1]);
       }
-    } catch (err) {
+      netErr = null;
+      try {
+        // text/plain = a "simple" request: no extra CORS pre-check, which Safari is strict about
+        const ctrl = typeof AbortController !== "undefined" ? new AbortController() : null;
+        const timer = ctrl && setTimeout(() => ctrl.abort(), 55000);
+        r = await fetch(AI_URL, {
+          method: "POST", headers: { "Content-Type": "text/plain;charset=UTF-8" },
+          body: JSON.stringify({ question: q, lang: curLang(), history, officerProof, deviceId: DEVICE_ID }),
+          signal: ctrl ? ctrl.signal : undefined,
+        });
+        if (timer) clearTimeout(timer);
+        data = await r.json().catch(() => ({}));
+        if (r.ok && data.answer) break;
+        if (!retryable(data.error)) break;     // daily limit, too fast, … → no point retrying
+      } catch (err) {
+        netErr = err;
+        if (err && err.name === "AbortError") break;   // already waited 55 s
+      }
+    }
+
+    if (netErr) {
       // show the browser's own error too, so problems can be traced (e.g. Safari: "Load failed")
-      const why = err && err.name === "AbortError" ? L("slow") : L("net");
-      finish(wait, fallback(q, why), [`(${(err && (err.name + ": " + err.message)) || "error"})`]);
+      const why = netErr.name === "AbortError" ? L("slow") : L("net");
+      finish(wait, fallback(q, why), [`(${netErr.name + ": " + netErr.message})`]);
+    } else if (r && r.ok && data.answer) {
+      const hints = [];
+      if (officerProof && data.officer === false) hints.push(L("officerFail"));
+      if (typeof data.left === "number" && data.left <= 3) hints.push(L("left").replace("{n}", data.left));
+      history.push({ role: "user", text: q }, { role: "model", text: data.answer });
+      if (history.length > 6) history.splice(0, history.length - 6);
+      finish(wait, data.answer, hints);
+    } else {
+      const why = data.error === "daily_limit" ? L("limit").replace("{n}", data.limit || "")
+        : L({ slow_down: "slow", quota: "quota", site_unreachable: "site" }[data.error] || "broken");
+      finish(wait, fallback(q, why));
+      if (data.detail) console.warn("NXS AI:", data.detail);   // details for whoever set it up
     }
     $("aiLog").scrollTop = $("aiLog").scrollHeight;
   };
