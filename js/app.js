@@ -1071,3 +1071,28 @@ const KVK_CHECK = {
     document.body.appendChild(box);
   };
 })();
+
+/* ---- "New version" note: the service worker shows the saved copy of the site first and checks for
+   a newer one in the background; when it finds one it sends this message. ---- */
+(function () {
+  if (!("serviceWorker" in navigator)) return;
+  const TXT = {
+    en: ["A newer version of the site is available.", "Refresh"], zh: ["網站有新版本。", "重新整理"], ko: ["사이트의 새 버전이 있습니다.", "새로고침"],
+    de: ["Eine neuere Version der Seite ist verfügbar.", "Neu laden"], fr: ["Une nouvelle version du site est disponible.", "Actualiser"],
+    pt: ["Há uma versão mais recente do site.", "Atualizar"], es: ["Hay una versión más reciente del sitio.", "Actualizar"],
+    tr: ["Sitenin daha yeni bir sürümü var.", "Yenile"], id: ["Ada versi situs yang lebih baru.", "Muat ulang"],
+    ru: ["Доступна новая версия сайта.", "Обновить"], th: ["มีเวอร์ชันใหม่ของเว็บไซต์", "รีเฟรช"], ar: ["يتوفر إصدار أحدث من الموقع.", "تحديث"],
+  };
+  let shown = false;
+  navigator.serviceWorker.addEventListener("message", (e) => {
+    if (!e.data || e.data.type !== "nxs-update" || shown) return;
+    shown = true;
+    const [msg, btn] = TXT[currentLang] || TXT.en;
+    const box = document.createElement("div");
+    box.className = "nxs-update";
+    box.innerHTML = `<span dir="auto">${escapeHtml(msg)}</span><button type="button">${escapeHtml(btn)}</button><button type="button" class="x" aria-label="close">×</button>`;
+    box.querySelector("button").onclick = () => location.reload();
+    box.querySelector(".x").onclick = () => box.remove();
+    document.body.appendChild(box);
+  });
+})();

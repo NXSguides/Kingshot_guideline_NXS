@@ -685,3 +685,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 .hc-body .prep-list{margin:0;padding-inline-start:18px;font-size:.92em;}
 .hc-quip{margin:8px 0 0;font-style:italic;color:var(--text-muted);font-size:.9em;}
 .hc-note{margin:0 0 8px;color:var(--text-muted);font-size:.9em;}
+.nxs-update { position: fixed; left: 50%; bottom: 76px; transform: translateX(-50%); z-index: 950; display: flex; align-items: center; gap: 10px; width: max-content; max-width: calc(100vw - 32px); padding: 10px 12px 10px 14px; border-radius: 12px; background: var(--panel); color: var(--text); border: 1px solid var(--accent); box-shadow: 0 6px 18px var(--shadow); font-size: 14px; }
+.nxs-update button { padding: 6px 12px; border-radius: 8px; border: 0; background: var(--accent); color: var(--accent-ink); font-weight: 700; cursor: pointer; white-space: nowrap; }
+.nxs-update button.x { background: none; color: var(--text-muted); font-size: 18px; padding: 0 4px; }
