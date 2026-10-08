@@ -321,8 +321,9 @@
 
   .pg[hidden] { display: none !important; }
   #pg-scout .sc-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-  #pg-scout .sc-chip { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--rule); border-radius: 999px; padding: 4px 6px 4px 12px; font-size: 14px; background: var(--panel-2); }
-  #pg-scout .sc-chip label { font-size: 13px; display: flex; align-items: center; gap: 4px; }
+  #pg-scout .sc-chip { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; border: 1px solid var(--rule); border-radius: 999px; padding: 4px 6px 4px 12px; font-size: 14px; background: var(--panel-2); }
+  #pg-scout .sc-chip label { font-size: 13px; display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+  #pg-scout .sc-chip i { white-space: nowrap; }
   #pg-scout .btn.mini { padding: 2px 8px; font-size: 13px; }
   #pg-scout .sc-h3 { margin: 10px 0 6px; font-size: 15px; }
   #pg-scout .tbl-wrap { overflow-x: auto; }
@@ -331,6 +332,8 @@
   #pg-scout .sc-tbl th.num, #pg-scout .sc-tbl td.num { text-align: right; font-variant-numeric: tabular-nums; }
   #pg-scout .sc-tbl .name { font-weight: 700; }
   #pg-scout .sc-tbl .id { font-size: 11px; color: var(--text-muted); }
+  #pg-scout .sc-tbl th.sortable { cursor: pointer; user-select: none; }
+  #pg-scout .sc-tbl td.ours { color: var(--accent); font-weight: 700; }
   #pg-scout .inp { width: auto; padding: 8px 10px; font-size: 15px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); }
   #pg-scout .msg { margin-top: 8px; font-size: 14px; }
   #pg-scout .okmsg { color: #2e7d32; }
@@ -3171,9 +3174,14 @@ const b64ToUtf8 = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64.rep
 const utf8ToB64 = (str) => { const u = new TextEncoder().encode(str); let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
 const big = (n) => n == null ? "" : Math.abs(n) >= 1e9 ? (n / 1e9).toFixed(2) + "B" : Math.abs(n) >= 1e6 ? (n / 1e6).toFixed(1) + "M" : Math.abs(n) >= 1e3 ? (n / 1e3).toFixed(1) + "K" : String(n);
 let lang = OFFICER.lang, TOKEN = null, cfg = { kingdoms: [] }, cfgSha = null, data = null, waiting = null;
+const LS = "nxs-scout-v1";
+const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
+const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
+store.hide = store.hide || {};                         // kingdoms taken out of the ranking (this browser only)
+let sortKey = store.sortKey || "power", sortDir = store.sortDir || -1;
 
 const T = {
-  en: { title: "NXS Scout", addTitle: "Scout a kingdom", fetch: "Fetch now", auto: "update daily", remove: "Remove",
+  en: { title: "NXS Scout", addTitle: "Scout a kingdom", fetch: "Fetch now", auto: "update daily", include: "in ranking", remove: "Remove", colKingdom: "Kingdom", ranking: "Ranking", rankingNote: "Tick “in ranking” on a kingdom to list its players here; click a column to sort by it.",
     addNote: "Type a kingdom number and press Fetch: a GitHub job reads that kingdom's top 20 players from MightPulse (power, Town Center, Mystic Trial, kills, VIP). It takes about 2–3 minutes; this page refreshes by itself. Tick “update daily” for the KvK opponent so it refreshes every day with the roster.",
     needKid: "Enter a kingdom number.", noKey: "Saving needs the GitHub key — set it up on the Post tab first.", saving: "Sending the request…",
     requested: "Requested — fetching takes about 2–3 minutes. The table appears here when it's done.", stillWaiting: "Still fetching… (check GitHub → Actions → Scout Kingdom if it takes more than 5 minutes)",
@@ -3181,7 +3189,7 @@ const T = {
     updated: "Data: {t}", noData: "No kingdom scouted yet. Add one above.", ours: "our kingdom", players: "Top {n} players", alliances: "Strongest alliances",
     colRank: "#", colName: "Name", colAlliance: "Alliance", colPower: "Power", colTc: "TC", colMystic: "Mystic Trial", colKills: "Kills", colVip: "VIP", openRec: "MightPulse",
     asOf: "as of {t}", source: "list from {s}" },
-  zh: { title: "NXS 偵察", addTitle: "偵察一個王國", fetch: "立即抓取", auto: "每天更新", remove: "移除",
+  zh: { title: "NXS 偵察", addTitle: "偵察一個王國", fetch: "立即抓取", auto: "每天更新", include: "列入排序", remove: "移除", colKingdom: "王國", ranking: "排序", rankingNote: "勾選王國的「列入排序」就會把它的玩家列進這張表；點欄位標題可以換排序。",
     addNote: "輸入王國編號後按「立即抓取」：GitHub 會從 MightPulse 讀那個王國前 20 名玩家的資料（戰力、城鎮中心、秘境試煉、擊殺、VIP）。大約 2–3 分鐘，這頁會自己更新。KvK 對手可以勾「每天更新」，就會跟成員資料一起每天刷新。",
     needKid: "請輸入王國編號。", noKey: "儲存需要 GitHub 金鑰，請先到「發布公告」設定。", saving: "送出請求中…",
     requested: "已送出，抓取約需 2–3 分鐘，完成後表格會出現在這裡。", stillWaiting: "還在抓取…（超過 5 分鐘的話，到 GitHub → Actions → Scout Kingdom 看看）",
@@ -3234,30 +3242,56 @@ function applyTexts() {
   $("sc_meta").textContent = data && data.updated ? tr("updated", { t: fmtT(data.updated) }) : "";
 }
 function renderList() {
-  $("sc_list").innerHTML = cfg.kingdoms.map((k) => `<span class="sc-chip"><b>#${esc(k.kid)}</b>${k.kid === OUR_KID ? ` <i>(${esc(tr("ours"))})</i>` : ""}
+  // every kingdom we have data for gets a chip, even if it is no longer in the daily list
+  const list = [...cfg.kingdoms];
+  for (const kid of Object.keys((data && data.kingdoms) || {})) if (!list.some((k) => String(k.kid) === kid)) list.push({ kid: Number(kid), auto: false });
+  $("sc_list").innerHTML = list.map((k) => `<span class="sc-chip"><b>#${esc(k.kid)}</b>${k.kid === OUR_KID ? ` <i>(${esc(tr("ours"))})</i>` : ""}
+    <label><input type="checkbox" data-inc="${esc(k.kid)}" ${store.hide[k.kid] ? "" : "checked"}> ${esc(tr("include"))}</label>
     <label><input type="checkbox" data-auto="${esc(k.kid)}" ${k.auto ? "checked" : ""}> ${esc(tr("auto"))}</label>
     <button class="btn mini" data-refetch="${esc(k.kid)}" title="${esc(tr("fetch"))}">⟳</button><button class="btn mini" data-rm="${esc(k.kid)}" title="${esc(tr("remove"))}">✕</button></span>`).join("");
+}
+const COLS = [["rank", "colRank", 1], ["name", "colName"], ["kid", "colKingdom", 1], ["alliance", "colAlliance"], ["power", "colPower", 1], ["tc", "colTc", 1], ["mystic", "colMystic", 1], ["kills", "colKills", 1], ["vip", "colVip", 1]];
+function rowsAll() {
+  const ks = data && data.kingdoms ? Object.entries(data.kingdoms) : [];
+  const rows = [];
+  for (const [kid, k] of ks) { if (store.hide[kid]) continue; for (const p of k.players) rows.push({ ...p, kid: Number(kid) }); }
+  const num = (v) => (v == null || v === "" ? -Infinity : Number(v));
+  rows.sort((a, b) => {
+    if (sortKey === "name" || sortKey === "alliance") return sortDir * String(a[sortKey] || "").localeCompare(String(b[sortKey] || ""));
+    return sortDir * (num(a[sortKey]) - num(b[sortKey]));
+  });
+  return rows;
 }
 function render() {
   applyTexts(); renderList();
   const ks = data && data.kingdoms ? Object.entries(data.kingdoms) : [];
+  if (!ks.length) { $("sc_kingdoms").innerHTML = `<div class="card muted">${esc(tr("noData"))}</div>`; return; }
   const order = cfg.kingdoms.map((k) => String(k.kid));
   ks.sort((a, b) => (order.indexOf(a[0]) + 1 || 99) - (order.indexOf(b[0]) + 1 || 99));
-  $("sc_kingdoms").innerHTML = ks.length ? ks.map(([kid, k]) => `
+  const shown = ks.filter(([kid]) => !store.hide[kid]);
+  const rows = rowsAll();
+  const head = COLS.filter(([k]) => k !== "kid" || shown.length > 1).map(([k, t, num]) => `<th class="${num ? "num" : ""}${k === "rank" ? "" : " sortable"}" data-k="${k}">${esc(tr(t))}${sortKey === k ? (sortDir > 0 ? " ▲" : " ▼") : ""}</th>`).join("");
+  $("sc_kingdoms").innerHTML = `
     <div class="card">
-      <div class="row" style="justify-content:space-between;align-items:baseline"><h2 style="margin:0">#${esc(kid)}${String(kid) === String(OUR_KID) ? ` <small class="muted">(${esc(tr("ours"))})</small>` : ""}</h2>
-        <span class="muted" style="font-size:12px">${esc(tr("asOf", { t: fmtT(k.asOf) }))}</span></div>
-      ${k.alliances && k.alliances.length ? `<div class="muted msg">${esc(tr("alliances"))}: ${k.alliances.slice(0, 8).map((a) => `<b>${esc(a.tag)}</b> ${big(a.power)}${a.count ? ` (${a.count})` : ""}`).join(" · ")}</div>` : ""}
-      <h3 class="sc-h3">${esc(tr("players", { n: k.players.length }))}</h3>
-      <div class="tbl-wrap"><table class="sc-tbl"><thead><tr><th>${esc(tr("colRank"))}</th><th>${esc(tr("colName"))}</th><th>${esc(tr("colAlliance"))}</th><th class="num">${esc(tr("colPower"))}</th><th class="num">${esc(tr("colTc"))}</th><th class="num">${esc(tr("colMystic"))}</th><th class="num">${esc(tr("colKills"))}</th><th class="num">${esc(tr("colVip"))}</th></tr></thead><tbody>
-      ${k.players.map((p, i) => `<tr><td class="num">${i + 1}</td>
+      <h2 style="margin:0 0 4px">${esc(tr("ranking"))}${shown.length ? ` <small class="muted">${shown.map(([kid]) => "#" + esc(kid)).join(" + ")}</small>` : ""}</h2>
+      <div class="muted msg">${esc(tr("rankingNote"))}</div>
+      ${shown.map(([kid, k]) => `<div class="muted" style="font-size:13px;margin-top:4px"><b>#${esc(kid)}</b>${String(kid) === String(OUR_KID) ? ` (${esc(tr("ours"))})` : ""} · ${esc(tr("asOf", { t: fmtT(k.asOf) }))}${k.alliances && k.alliances.length ? ` · ${esc(tr("alliances"))}: ${k.alliances.slice(0, 6).map((a) => `<b>${esc(a.tag)}</b> ${big(a.power)}`).join(", ")}` : ""}</div>`).join("")}
+      <div class="tbl-wrap" style="margin-top:8px"><table class="sc-tbl"><thead><tr>${head}</tr></thead><tbody>
+      ${rows.length ? rows.map((p, i) => `<tr>
+        <td class="num">${i + 1}</td>
         <td><div class="name" dir="auto">${esc(p.name)}</div><div class="id">ID ${esc(p.id)}${p.uid ? ` · <a href="https://mightpulse.com/player/${encodeURIComponent(p.uid)}" target="_blank" rel="noopener">${esc(tr("openRec"))}</a>` : ""}</div></td>
+        ${shown.length > 1 ? `<td class="num${p.kid === OUR_KID ? " ours" : ""}">#${esc(p.kid)}</td>` : ""}
         <td>${esc(p.alliance || "")}</td><td class="num">${big(p.power)}</td><td class="num">${esc(p.tc ?? "")}</td>
         <td class="num">${p.mystic != null ? big(p.mystic) + (p.mysticRank != null ? ` <span class="muted">#${esc(p.mysticRank)}</span>` : "") : ""}</td>
-        <td class="num">${big(p.kills)}</td><td class="num">${esc(p.vip ?? "")}</td></tr>`).join("")}
+        <td class="num">${big(p.kills)}</td><td class="num">${esc(p.vip ?? "")}</td></tr>`).join("")
+        : `<tr><td colspan="${COLS.length}" class="muted">${esc(tr("noData"))}</td></tr>`}
       </tbody></table></div>
-      <div class="muted" style="font-size:12px;margin-top:6px">${esc(tr("source", { s: k.source || "?" }))}</div>
-    </div>`).join("") : `<div class="card muted">${esc(tr("noData"))}</div>`;
+    </div>`;
+  $("sc_kingdoms").querySelectorAll("th.sortable").forEach((th) => th.onclick = () => {
+    const k = th.dataset.k;
+    if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = (k === "name" || k === "alliance") ? 1 : -1; }
+    store.sortKey = sortKey; store.sortDir = sortDir; save(); render();
+  });
 }
 async function requestFetch(kid) {
   kid = Number(kid);
@@ -3284,8 +3318,12 @@ $("sc_list").onclick = async (e) => {
   if (rm) { cfg.kingdoms = cfg.kingdoms.filter((k) => String(k.kid) !== rm.dataset.rm); delete cfg.requested; if (await saveConfig(`Scout: remove ${rm.dataset.rm}`)) { $("sc_msg").textContent = ""; renderList(); } }
 };
 $("sc_list").onchange = async (e) => {
+  const inc = e.target.closest("[data-inc]");
+  if (inc) { if (inc.checked) delete store.hide[inc.dataset.inc]; else store.hide[inc.dataset.inc] = 1; save(); render(); return; }
   const cb = e.target.closest("[data-auto]"); if (!cb) return;
-  const k = cfg.kingdoms.find((x) => String(x.kid) === cb.dataset.auto); if (k) k.auto = cb.checked;
+  let k = cfg.kingdoms.find((x) => String(x.kid) === cb.dataset.auto);
+  if (!k) { k = { kid: Number(cb.dataset.auto), auto: false }; cfg.kingdoms.push(k); }
+  k.auto = cb.checked;
   delete cfg.requested;
   if (await saveConfig(`Scout: ${cb.dataset.auto} daily ${cb.checked ? "on" : "off"}`)) $("sc_msg").textContent = "";
 };
