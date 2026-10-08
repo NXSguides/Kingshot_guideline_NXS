@@ -1,0 +1,16 @@
+2026-10-08T11:41:54.663Z mode=auto kingdoms=2189,2186
+Kingdom 2189
+  board player_power: HTTP 404, 0 rows
+  board power: HTTP 404, 0 rows
+  board governor_power: HTTP 404, 0 rows
+  alliance board: HTTP 200, 8 rows
+  top list from alliance rosters: 20 players, 8 alliances
+  players read: 20/20
+Kingdom 2186
+  board player_power: HTTP 404, 0 rows
+  board power: HTTP 404, 0 rows
+  board governor_power: HTTP 404, 0 rows
+  alliance board: HTTP 200, 8 rows
+  top list from alliance rosters: 20 players, 8 alliances
+  players read: 20/20
+✅ saved
