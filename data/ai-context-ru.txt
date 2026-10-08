@@ -948,6 +948,36 @@ Aena & Петра: Запросить подкрепление → 50 Рукоп
 Aena: обмен: Обменять ресурсы → ?; Отказаться от обмена → 100 Рукопись мастера
 Isnor: обмен: Обменять ресурсы → 5 эмблема мастера (Isnor); ? → ?
 
+### KVK POINTS PLANNER — page "Планировщик очков KvK" (kvk-optimizer.html?lang=ru), opened from the link at the top of the KvK guide's table (guide #kvk). Not in the guide menu, but it is a public page anyone can use.
+Считает только то, что вы готовы потратить: очки по дням и в какой день использовать предметы, которые засчитываются в несколько дней.
+- Личный итог: Неважно, в какой день — важен только итог
+- Борьба за день / рейтинг: Предметы, засчитываемые в несколько дней, идут в день, который вы хотите усилить. Укажите минимум очков, который хотите получить в каждый день. В дни без цели «Можно потратить» не используется; оставьте все пять пустыми, чтобы просто равномерно распределить «Точно потрачу».
+- «Точно потрачу» — то, что вы и так собирались улучшать (например, только мастера, которых хотите качать). «Можно потратить» — не жалко отдать за очки. Незаполненное сохраняется. Ускорения вводите в днях, часах и минутах, как в игровой сводке ресурсов и ускорений.
+- Повышение засчитывает только разницу очков между уровнями. Ускорения тренировки вводите выше.
+Point values and scoring days used by the planner:
+Универсальное ускорение: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
+Ускорение тренировки: 30 pts per minute, scores on KvK prep day 4, 5
+Ускорение строительства: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Ускорение исследования: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Ускорение изучения: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Аурум: 2,000 pts each, scores on KvK prep day 1, 2, 5
+Мифрил: 40,000 pts each, scores on KvK prep day 4, 5
+Поделки эксклюзивного снаряжения: 8,000 pts each, scores on KvK prep day 4, 5
+Кузнечный молот для снаряжения героев: 4,000 pts each, scores on KvK prep day 4, 5
+Мифический фрагмент героя: 3,040 pts each, scores on KvK prep day 2, 3
+Великий фрагмент героя: 1,220 pts each, scores on KvK prep day 2, 3
+Редкий фрагмент героя: 350 pts each, scores on KvK prep day 2, 3
+Геройская рулетка (вращения): 8,000 pts each, scores on KvK prep day 2, 3
+Эмблема мастера: 6,000 pts each, scores on KvK prep day 2, 3
+Рукопись мастера: 60 pts each, scores on KvK prep day 2, 3
+Продвинутая метка приручения: 15,000 pts each, scores on KvK prep day 3, 5
+Обычная метка приручения: 1,150 pts each, scores on KvK prep day 3, 5
+Очки улучшения питомца: 50 pts per 1 score, scores on KvK prep day 3, 5
+Очки талисманов губернатора: 70 pts per 1 score, scores on KvK prep day 1, 3, 4
+Очки снаряжения губернатора: 36 pts per 1 score, scores on KvK prep day 5
+Тренировать T1–T11: 3, 4, 5, 8, 12, 18, 25, 35, 45, 60, 75 pts per troop (Day 4); Повысить: the difference between the two tiers
+Очки: игровой экран «Источники очков» и гайд по KvK. Дни подсчёта взяты из текущего гайда; если в игре иначе, верьте игре и сообщите офицеру. Данные хранятся только в вашем браузере.
+
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-06 by Nia] ⚔️ Соглашение по KvK с 2186 — 10 окт.
 ⚔️ Соглашение по KvK с 2186 — 10 окт.

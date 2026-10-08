@@ -948,6 +948,36 @@ Penjaga: Selidiki lebih jauh → 50 Master's Manuscript (best); Tinggalkan tamba
 Aena: pertukaran: Tukar sumber daya → ?; Tolak pertukaran → 100 Master's Manuscript
 Isnor: pertukaran: Tukar sumber daya → 5 Master Emblem (Isnor); ? → ?
 
+### KVK POINTS PLANNER — page "Perencana Poin KvK" (kvk-optimizer.html?lang=id), opened from the link at the top of the KvK guide's table (guide #kvk). Not in the guide menu, but it is a public page anyone can use.
+Hanya menghitung yang mau kamu pakai: poin per hari, dan hari apa item yang dapat poin di beberapa hari sebaiknya dipakai.
+- Total pribadi: Tidak peduli harinya — hanya totalnya
+- Persaingan harian / peringkat: Item yang dapat poin di beberapa hari diarahkan ke hari yang ingin kamu dorong. Isi poin minimum yang kamu mau tiap hari. Hari tanpa target tidak memakai “Boleh dipakai”; kosongkan kelimanya untuk sekadar membagi “Pasti dipakai” secara merata.
+- “Pasti dipakai” = yang memang akan kamu tingkatkan (mis. hanya master yang mau kamu latih). “Boleh dipakai” = rela ditukar poin. Yang tidak diisi tetap disimpan. Isi speedup dalam hari, jam, menit seperti ringkasan Sumber Daya & Speedup di game.
+- Promosi hanya menghitung selisih poin antar tingkat. Isi speedup pelatihan di atas.
+Point values and scoring days used by the planner:
+Speedup Umum: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
+Speedup Pelatihan: 30 pts per minute, scores on KvK prep day 4, 5
+Speedup Konstruksi: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Speedup Penelitian: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Percepatan Pembelajaran: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Truegold: 2,000 pts each, scores on KvK prep day 1, 2, 5
+Mithril: 40,000 pts each, scores on KvK prep day 4, 5
+Widget Gear Eksklusif: 8,000 pts each, scores on KvK prep day 4, 5
+Forgehammer Gear Hero: 4,000 pts each, scores on KvK prep day 4, 5
+Fragmen Hero Mythic: 3,040 pts each, scores on KvK prep day 2, 3
+Fragmen Hero Epic: 1,220 pts each, scores on KvK prep day 2, 3
+Fragmen Hero Rare: 350 pts each, scores on KvK prep day 2, 3
+Rolet Hero (putaran): 8,000 pts each, scores on KvK prep day 2, 3
+Master Emblem: 6,000 pts each, scores on KvK prep day 2, 3
+Master's Manuscript: 60 pts each, scores on KvK prep day 2, 3
+Tanda Penjinakan Advanced: 15,000 pts each, scores on KvK prep day 3, 5
+Tanda Penjinakan Common: 1,150 pts each, scores on KvK prep day 3, 5
+Skor kemajuan hewan peliharaan: 50 pts per 1 score, scores on KvK prep day 3, 5
+Skor Charm Gubernur: 70 pts per 1 score, scores on KvK prep day 1, 3, 4
+Skor Gear Gubernur: 36 pts per 1 score, scores on KvK prep day 5
+Latih T1–T11: 3, 4, 5, 8, 12, 18, 25, 35, 45, 60, 75 pts per troop (Day 4); Promosi: the difference between the two tiers
+Nilai poin: layar Sumber Poin di game dan panduan KvK. Hari poin mengikuti panduan saat ini; jika game berbeda, ikuti game dan beri tahu officer. Data hanya tersimpan di browsermu.
+
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-06 by Nia] ⚔️ Persetujuan KvK dengan 2186 – 10 Okt
 ⚔️ Persetujuan KvK dengan 2186 – 10 Okt

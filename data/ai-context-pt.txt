@@ -948,6 +948,36 @@ Guarda: Investigar mais a fundo → 50 Manuscrito de Mestre (best); Sair da mina
 Aena: troca: Trocar recursos → ?; Recusar a troca → 100 Manuscrito de Mestre
 Isnor: troca: Trocar recursos → 5 Emblema Mestre (Isnor); ? → ?
 
+### KVK POINTS PLANNER — page "Planejador de pontos KvK" (kvk-optimizer.html?lang=pt), opened from the link at the top of the KvK guide's table (guide #kvk). Not in the guide menu, but it is a public page anyone can use.
+Conta só o que você quer gastar: pontos por dia e em qual dia usar itens que pontuam em vários dias.
+- Total pessoal: Não importa o dia — só o total
+- Disputa diária / ranking: Itens que pontuam em vários dias vão para o dia que você quer forçar. Digite os pontos mínimos que você quer em cada dia. Dias sem meta não usam nada de “Posso usar”; deixe os cinco vazios para só distribuir “Vou usar” por igual.
+- “Vou usar” = o que você melhoraria de qualquer jeito (ex.: só os mestres que pretende treinar). “Posso usar” = tudo bem gastar por pontos. O que não for preenchido fica guardado. Preencha os aceleradores em dias, horas e minutos, como no resumo de Recursos e Aceleradores do jogo.
+- Promoção só conta a diferença de pontos entre os níveis. Preencha os aceleradores de treinamento acima.
+Point values and scoring days used by the planner:
+Acelerador geral: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
+Acelerador de Treinamento: 30 pts per minute, scores on KvK prep day 4, 5
+Acelerador de Construção: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Acelerador de Pesquisa: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Acelerador de Aprendizado: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Adamante: 2,000 pts each, scores on KvK prep day 1, 2, 5
+Mithril: 40,000 pts each, scores on KvK prep day 4, 5
+Ferramentas de Equipamento Exclusivo: 8,000 pts each, scores on KvK prep day 4, 5
+Martelo de forja de Equipamento de Herói: 4,000 pts each, scores on KvK prep day 4, 5
+Fragmento de Herói Mítico: 3,040 pts each, scores on KvK prep day 2, 3
+Fragmento de Herói Épico: 1,220 pts each, scores on KvK prep day 2, 3
+Fragmento de Herói Raro: 350 pts each, scores on KvK prep day 2, 3
+Roleta do Herói (giros): 8,000 pts each, scores on KvK prep day 2, 3
+Emblema Mestre: 6,000 pts each, scores on KvK prep day 2, 3
+Manuscrito de Mestre: 60 pts each, scores on KvK prep day 2, 3
+Marca de Domesticação Avançada: 15,000 pts each, scores on KvK prep day 3, 5
+Marca de Domesticação Comum: 1,150 pts each, scores on KvK prep day 3, 5
+Pontuação de avanço do animal de estimação: 50 pts per 1 score, scores on KvK prep day 3, 5
+Pontuação do Talismã do Chefe: 70 pts per 1 score, scores on KvK prep day 1, 3, 4
+Pontuação do Equipamento do Chefe: 36 pts per 1 score, scores on KvK prep day 5
+Treinar T1–T11: 3, 4, 5, 8, 12, 18, 25, 35, 45, 60, 75 pts per troop (Day 4); Promover: the difference between the two tiers
+Valores de pontos: tela Fontes de Pontos do jogo e guia KvK. Os dias de pontuação seguem o guia atual; se o jogo mostrar diferente, confie no jogo e avise um oficial. Os dados ficam só no seu navegador.
+
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-06 by Nia] ⚔️ Acordo de KvK com 2186 – 10 de out.
 ⚔️ Acordo de KvK com 2186 – 10 de out.

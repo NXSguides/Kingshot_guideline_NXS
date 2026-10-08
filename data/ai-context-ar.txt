@@ -947,6 +947,36 @@ Aena & بيترا: اطلب تعزيزات → 50 مخطوطة المتخصص + 
 Aena: تبادل: تبادل الموارد → ?; ارفض التبادل → 100 مخطوطة المتخصص
 Isnor: تبادل: تبادل الموارد → 5 شعار المتخصص (Isnor); ? → ?
 
+### KVK POINTS PLANNER — page "مخطط نقاط KvK" (kvk-optimizer.html?lang=ar), opened from the link at the top of the KvK guide's table (guide #kvk). Not in the guide menu, but it is a public page anyone can use.
+يحسب فقط ما تريد إنفاقه: النقاط في كل يوم، وفي أي يوم تستخدم العناصر التي تُحتسب في عدة أيام.
+- المجموع الشخصي: لا يهم اليوم — المهم المجموع فقط
+- منافسة يومية / تصنيف: العناصر التي تُحتسب في عدة أيام تذهب إلى اليوم الذي تريد دفعه. أدخل الحد الأدنى من النقاط الذي تريده كل يوم. الأيام بلا هدف لا تستخدم شيئًا من «ممكن»؛ اترك الأيام الخمسة فارغة لتوزيع «مؤكد» بالتساوي فقط.
+- «مؤكد» = ما كنت ستطوّره على أي حال (مثلًا المتخصصون الذين تنوي تدريبهم فقط). «ممكن» = لا مانع من إنفاقه مقابل النقاط. ما لا تدخله يبقى محفوظًا. أدخل المسرّعات بالأيام والساعات والدقائق كما في ملخص الموارد والمسرّعات داخل اللعبة.
+- الترقية تحتسب فقط فرق النقاط بين المستويين. أدخل مسرّعات التدريب في الأعلى.
+Point values and scoring days used by the planner:
+تسريع عام: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
+تسريع التدريب: 30 pts per minute, scores on KvK prep day 4, 5
+تسريع البناء: 30 pts per minute, scores on KvK prep day 1, 2, 5
+تسريع البحث: 30 pts per minute, scores on KvK prep day 1, 2, 5
+مسرعات التعلم: 30 pts per minute, scores on KvK prep day 1, 2, 5
+الذهب الخالص: 2,000 pts each, scores on KvK prep day 1, 2, 5
+ميثريل: 40,000 pts each, scores on KvK prep day 4, 5
+أجزاء العتاد الحصري: 8,000 pts each, scores on KvK prep day 4, 5
+مطرقة الحدادة لعتاد البطل: 4,000 pts each, scores on KvK prep day 4, 5
+شظية بطل خيالي: 3,040 pts each, scores on KvK prep day 2, 3
+شظية بطل ملحمي: 1,220 pts each, scores on KvK prep day 2, 3
+شظية بطل نادر: 350 pts each, scores on KvK prep day 2, 3
+روليت البطل (دورات): 8,000 pts each, scores on KvK prep day 2, 3
+شعار المتخصص: 6,000 pts each, scores on KvK prep day 2, 3
+مخطوطة المتخصص: 60 pts each, scores on KvK prep day 2, 3
+علامة ترويض متقدمة: 15,000 pts each, scores on KvK prep day 3, 5
+علامة ترويض شائعة: 1,150 pts each, scores on KvK prep day 3, 5
+نقاط تقدم الحيوان الأليف: 50 pts per 1 score, scores on KvK prep day 3, 5
+نقاط تميمة الحاكم: 70 pts per 1 score, scores on KvK prep day 1, 3, 4
+نقاط عتاد الحاكم: 36 pts per 1 score, scores on KvK prep day 5
+تدريب T1–T11: 3, 4, 5, 8, 12, 18, 25, 35, 45, 60, 75 pts per troop (Day 4); ترقية: the difference between the two tiers
+قيم النقاط: شاشة مصادر النقاط في اللعبة ودليل KvK. أيام الاحتساب حسب الدليل الحالي؛ إن اختلفت اللعبة فاعتمد على اللعبة وأبلغ أحد الضباط. البيانات تبقى في متصفحك فقط.
+
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-06 by Nia] ⚔️ اتفاقية KvK مع 2186 – 10 أكتوبر
 ⚔️ اتفاقية KvK مع 2186 – 10 أكتوبر

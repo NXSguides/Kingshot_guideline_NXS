@@ -947,6 +947,36 @@ Aena & 小佩拉: 請求增援 → 50 大師手稿 + 1 大師徽記 (Aena) (best
 Aena：交換: 交換資源 → ?; 拒絕交換 → 100 大師手稿
 Isnor：交換: 交換資源 → 5 大師徽記 (Isnor); ? → ?
 
+### KVK POINTS PLANNER — page "KvK 積分規劃" (kvk-optimizer.html?lang=zh), opened from the link at the top of the KvK guide's table (guide #kvk). Not in the guide menu, but it is a public page anyone can use.
+只算你願意花的資源：每天能拿多少分、會跨天計分的東西該放哪一天。
+- 個人總分: 不在意分數落在哪天，只看總共多少
+- 每天比分／衝排名: 跨天計分的資源，優先補到你想衝的那天. 填每天想至少拿到的分數。沒填目標的天不會多花「可以用」；五天都不填，就只把「一定用」平均分到各天。
+- 「一定用」是本來就打算升級的部分（例如只算你想練的大師）；「可以用」是拿去換分也不心疼的部分。沒填的就是不想用，工具不會碰。加速照背包裡「資源與加速統計」的天、小時、分鐘填。
+- 晉升只算兩階的分差。訓練加速請填在上面的加速欄。
+Point values and scoring days used by the planner:
+通用加速: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
+士兵訓練加速: 30 pts per minute, scores on KvK prep day 4, 5
+建造加速: 30 pts per minute, scores on KvK prep day 1, 2, 5
+研究加速: 30 pts per minute, scores on KvK prep day 1, 2, 5
+學習加速: 30 pts per minute, scores on KvK prep day 1, 2, 5
+黃金: 2,000 pts each, scores on KvK prep day 1, 2, 5
+秘銀: 40,000 pts each, scores on KvK prep day 4, 5
+專屬裝備零件: 8,000 pts each, scores on KvK prep day 4, 5
+英雄裝備鍛造錘: 4,000 pts each, scores on KvK prep day 4, 5
+傳說英雄碎片: 3,040 pts each, scores on KvK prep day 2, 3
+史詩英雄碎片: 1,220 pts each, scores on KvK prep day 2, 3
+稀有英雄碎片: 350 pts each, scores on KvK prep day 2, 3
+英雄轉盤（次）: 8,000 pts each, scores on KvK prep day 2, 3
+大師徽記: 6,000 pts each, scores on KvK prep day 2, 3
+大師手稿: 60 pts each, scores on KvK prep day 2, 3
+高級馴化印記: 15,000 pts each, scores on KvK prep day 3, 5
+普通馴化印記: 1,150 pts each, scores on KvK prep day 3, 5
+寵物突破評分: 50 pts per 1 score, scores on KvK prep day 3, 5
+領主寶石評分: 70 pts per 1 score, scores on KvK prep day 1, 3, 4
+領主裝備評分: 36 pts per 1 score, scores on KvK prep day 5
+訓練 T1–T11: 3, 4, 5, 8, 12, 18, 25, 35, 45, 60, 75 pts per troop (Day 4); 晉升: the difference between the two tiers
+分數來源：遊戲內「積分來源」畫面與 KvK 指南。哪天計分照目前的指南整理，若遊戲畫面不同請以遊戲為準並告訴管理員。資料只存在你自己的瀏覽器裡。
+
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-06 by Nia] ⚔️ 與 2186 的 KvK 協議 – 10月10日
 ⚔️ 與 2186 的 KvK 協議 – 10月10日

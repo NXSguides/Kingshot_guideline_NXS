@@ -948,6 +948,36 @@ Muhafız: Daha fazla araştır → 50 Uzmanın El Yazması (best); Madenden ayr�
 Aena: takas: Kaynak değiş tokuşu yap → ?; Takası reddet → 100 Uzmanın El Yazması
 Isnor: takas: Kaynak değiş tokuşu yap → 5 Usta Amblemi (Isnor); ? → ?
 
+### KVK POINTS PLANNER — page "KvK Puan Planlayıcı" (kvk-optimizer.html?lang=tr), opened from the link at the top of the KvK guide's table (guide #kvk). Not in the guide menu, but it is a public page anyone can use.
+Sadece harcamak istediklerini sayar: günlük puanlar ve birden çok gün puan veren eşyaların hangi gün kullanılacağı.
+- Kişisel toplam: Hangi gün olduğu önemli değil — sadece toplam
+- Günlük yarış / sıralama: Birden çok gün puan veren eşyalar zorlamak istediğin güne gider. Her gün en az istediğin puanı yaz. Hedefi olmayan günler “Kullanabilirim”den bir şey harcamaz; beşini de boş bırakırsan “Kesin kullanırım” günlere eşit dağıtılır.
+- “Kesin kullanırım” = zaten geliştireceğin kısım (ör. sadece geliştirmek istediğin ustalar). “Kullanabilirim” = puan için harcamaya gönlünün razı olduğu kısım. Girilmeyenler saklanır. Hızlandırmaları oyundaki Kaynak ve Hızlandırma özetindeki gibi gün, saat ve dakika olarak gir.
+- Terfi sadece iki kademe arasındaki puan farkını sayar. Eğitim hızlandırmalarını yukarıya gir.
+Point values and scoring days used by the planner:
+Genel Hızlandırma: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
+Eğitim Hızlandırması: 30 pts per minute, scores on KvK prep day 4, 5
+İnşaat Hızlandırması: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Araştırma Hızlandırması: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Öğrenme Hızlandırması: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Hasaltın: 2,000 pts each, scores on KvK prep day 1, 2, 5
+Mithril: 40,000 pts each, scores on KvK prep day 4, 5
+Özel Donanım Aletleri: 8,000 pts each, scores on KvK prep day 4, 5
+Kahraman Donanımı Demirci Çekici: 4,000 pts each, scores on KvK prep day 4, 5
+Mitik Kahraman Parçası: 3,040 pts each, scores on KvK prep day 2, 3
+Epik Kahraman Parçası: 1,220 pts each, scores on KvK prep day 2, 3
+Ender Kahraman Parçası: 350 pts each, scores on KvK prep day 2, 3
+Kahraman Ruleti (çevirme): 8,000 pts each, scores on KvK prep day 2, 3
+Usta Amblemi: 6,000 pts each, scores on KvK prep day 2, 3
+Uzmanın El Yazması: 60 pts each, scores on KvK prep day 2, 3
+Gelişmiş Evcilleştirme İşareti: 15,000 pts each, scores on KvK prep day 3, 5
+Sıradan Evcilleştirme İşareti: 1,150 pts each, scores on KvK prep day 3, 5
+Pet ilerletme puanı: 50 pts per 1 score, scores on KvK prep day 3, 5
+Şef Tılsımı puanı: 70 pts per 1 score, scores on KvK prep day 1, 3, 4
+Şef Donanımı puanı: 36 pts per 1 score, scores on KvK prep day 5
+Eğit T1–T11: 3, 4, 5, 8, 12, 18, 25, 35, 45, 60, 75 pts per troop (Day 4); Terfi: the difference between the two tiers
+Puan değerleri: oyundaki Puan Kaynakları ekranı ve KvK rehberi. Puan günleri mevcut rehbere göre; oyun farklı gösteriyorsa oyuna güven ve bir yetkiliye haber ver. Veriler sadece kendi tarayıcında kalır.
+
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-06 by Nia] ⚔️ 2186 ile KvK Anlaşması – 10 Eki
 ⚔️ 2186 ile KvK Anlaşması – 10 Eki

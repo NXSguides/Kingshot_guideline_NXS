@@ -950,6 +950,36 @@ Wache: Weiter untersuchen → 50 Meister-Manuskript (best); Die Mine verlassen �
 Aena: Tausch: Ressourcen tauschen → ?; Tausch ablehnen → 100 Meister-Manuskript
 Isnor: Tausch: Ressourcen tauschen → 5 Meister-Emblem (Isnor); ? → ?
 
+### KVK POINTS PLANNER — page "KvK-Punkteplaner" (kvk-optimizer.html?lang=de), opened from the link at the top of the KvK guide's table (guide #kvk). Not in the guide menu, but it is a public page anyone can use.
+Zählt nur, was du ausgeben willst: Punkte pro Tag und an welchem Tag mehrtägige Gegenstände eingesetzt werden sollten.
+- Persönliche Gesamtpunkte: Egal an welchem Tag — nur die Summe zählt
+- Tageswertung / Rangliste: Gegenstände, die an mehreren Tagen zählen, gehen an den Tag, den du pushen willst. Trage die Mindestpunkte ein, die du pro Tag willst. Tage ohne Ziel nutzen nichts aus „Kann nutzen“; lässt du alle fünf leer, wird „Nutze sicher“ gleichmäßig verteilt.
+- „Nutze sicher“ = was du sowieso verbessern willst (z. B. nur die Meister, die du trainieren willst). „Kann nutzen“ = darf für Punkte weg. Nicht Eingetragenes bleibt erhalten. Beschleunigungen in Tagen, Stunden und Minuten eintragen, wie in der Ressourcen- und Beschleunigungsübersicht im Spiel.
+- Beförderung zählt nur die Punktdifferenz zwischen den Stufen. Trainings-Beschleunigungen oben eintragen.
+Point values and scoring days used by the planner:
+Allgemeine Beschleunigung: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
+Trainings-Beschleunigung: 30 pts per minute, scores on KvK prep day 4, 5
+Bau-Beschleunigung: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Forschungs-Beschleunigung: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Lern-Beschleunigung: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Echtgold: 2,000 pts each, scores on KvK prep day 1, 2, 5
+Mithril: 40,000 pts each, scores on KvK prep day 4, 5
+Exklusive Ausrüstungselemente: 8,000 pts each, scores on KvK prep day 4, 5
+Heldenausrüstung Schmiedehammer: 4,000 pts each, scores on KvK prep day 4, 5
+Mythisches Helden-Fragment: 3,040 pts each, scores on KvK prep day 2, 3
+Episches Helden-Fragment: 1,220 pts each, scores on KvK prep day 2, 3
+Seltenes Helden-Fragment: 350 pts each, scores on KvK prep day 2, 3
+Helden Roulette (Drehungen): 8,000 pts each, scores on KvK prep day 2, 3
+Meister-Emblem: 6,000 pts each, scores on KvK prep day 2, 3
+Meister-Manuskript: 60 pts each, scores on KvK prep day 2, 3
+Fortgeschrittene Zähmungszeichen: 15,000 pts each, scores on KvK prep day 3, 5
+Gewöhnliche Zähmungszeichen: 1,150 pts each, scores on KvK prep day 3, 5
+Begleittier-Förderungswert: 50 pts per 1 score, scores on KvK prep day 3, 5
+Gouverneur-Talisman-Wert: 70 pts per 1 score, scores on KvK prep day 1, 3, 4
+Gouverneur-Ausrüstungswert: 36 pts per 1 score, scores on KvK prep day 5
+Ausbilden T1–T11: 3, 4, 5, 8, 12, 18, 25, 35, 45, 60, 75 pts per troop (Day 4); Befördern: the difference between the two tiers
+Punktwerte: Punktequellen-Bildschirm im Spiel und der KvK-Guide. Die Wertungstage folgen dem aktuellen Guide; weicht dein Spiel ab, gilt das Spiel – bitte einem Offizier Bescheid geben. Daten bleiben nur in deinem Browser.
+
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-06 by Nia] ⚔️ KvK-Abkommen mit 2186 – 10. Okt.
 ⚔️ KvK-Abkommen mit 2186 – 10. Okt.

@@ -947,6 +947,36 @@ Aena & เพตรา: ขอกำลังเสริม → 50 ตำรา
 Aena: แลกเปลี่ยน: แลกเปลี่ยนทรัพยากร → ?; ปฏิเสธการแลกเปลี่ยน → 100 ตำรามาสเตอร์
 Isnor: แลกเปลี่ยน: แลกเปลี่ยนทรัพยากร → 5 ตรามาสเตอร์ (Isnor); ? → ?
 
+### KVK POINTS PLANNER — page "ตัววางแผนคะแนน KvK" (kvk-optimizer.html?lang=th), opened from the link at the top of the KvK guide's table (guide #kvk). Not in the guide menu, but it is a public page anyone can use.
+คิดเฉพาะของที่คุณยอมใช้: ได้คะแนนวันละเท่าไร และของที่นับคะแนนได้หลายวันควรใช้วันไหน
+- คะแนนรวมส่วนตัว: ไม่สนว่าคะแนนอยู่วันไหน ดูแค่ยอดรวม
+- แข่งรายวัน / ไต่อันดับ: ของที่นับคะแนนได้หลายวันจะถูกจัดไปวันที่คุณอยากดัน. กรอกคะแนนขั้นต่ำที่อยากได้แต่ละวัน วันที่ไม่มีเป้าจะไม่ใช้ “ใช้ได้” ถ้าเว้นว่างทั้งห้าวัน จะแค่กระจาย “ใช้แน่” ให้เท่ากัน
+- “ใช้แน่” คือส่วนที่ตั้งใจอัปเกรดอยู่แล้ว (เช่น เฉพาะมาสเตอร์ที่อยากฝึก) “ใช้ได้” คือส่วนที่เอาไปแลกคะแนนได้ไม่เสียดาย ที่ไม่ได้กรอกจะเก็บไว้ กรอกตัวเร่งเป็นวัน ชั่วโมง นาที เหมือนสรุปทรัพยากรและตัวเร่งในเกม
+- การเลื่อนขั้นนับเฉพาะส่วนต่างคะแนนระหว่างระดับ กรอกตัวเร่งการฝึกด้านบน
+Point values and scoring days used by the planner:
+เร่งสปีดทั่วไป: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
+เร่งสปีดการฝึก: 30 pts per minute, scores on KvK prep day 4, 5
+เร่งสปีดการสร้าง: 30 pts per minute, scores on KvK prep day 1, 2, 5
+เร่งสปีดการวิจัย: 30 pts per minute, scores on KvK prep day 1, 2, 5
+เร่งสปีดการเรียนรู้: 30 pts per minute, scores on KvK prep day 1, 2, 5
+ทรูโกลด์: 2,000 pts each, scores on KvK prep day 1, 2, 5
+มิธริล: 40,000 pts each, scores on KvK prep day 4, 5
+อุปกรณ์เสริมอุปกรณ์พิเศษฮีโร่: 8,000 pts each, scores on KvK prep day 4, 5
+ค้อนตีเหล็กอุปกรณ์ฮีโร่: 4,000 pts each, scores on KvK prep day 4, 5
+ชิ้นส่วนฮีโร่ขั้นเทพ: 3,040 pts each, scores on KvK prep day 2, 3
+ชิ้นส่วนฮีโร่มหากาพย์: 1,220 pts each, scores on KvK prep day 2, 3
+ชิ้นส่วนฮีโร่หายาก: 350 pts each, scores on KvK prep day 2, 3
+รูเล็ตฮีโร่ (ครั้ง): 8,000 pts each, scores on KvK prep day 2, 3
+ตรามาสเตอร์: 6,000 pts each, scores on KvK prep day 2, 3
+ตำรามาสเตอร์: 60 pts each, scores on KvK prep day 2, 3
+ตราฝึกสัตว์ขั้นสูง: 15,000 pts each, scores on KvK prep day 3, 5
+ตราฝึกสัตว์ทั่วไป: 1,150 pts each, scores on KvK prep day 3, 5
+คะแนนความก้าวหน้าสัตว์เลี้ยง: 50 pts per 1 score, scores on KvK prep day 3, 5
+คะแนนเครื่องรางผู้นำค่าย: 70 pts per 1 score, scores on KvK prep day 1, 3, 4
+คะแนนอุปกรณ์ผู้นำค่าย: 36 pts per 1 score, scores on KvK prep day 5
+ฝึก T1–T11: 3, 4, 5, 8, 12, 18, 25, 35, 45, 60, 75 pts per troop (Day 4); เลื่อนขั้น: the difference between the two tiers
+ค่าคะแนน: หน้าแหล่งคะแนนในเกมและคู่มือ KvK วันนับคะแนนอิงตามคู่มือปัจจุบัน หากในเกมต่างไป ให้ยึดตามเกมและแจ้งเจ้าหน้าที่ ข้อมูลเก็บไว้ในเบราว์เซอร์ของคุณเท่านั้น
+
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-06 by Nia] ⚔️ ข้อตกลง KvK กับ 2186 – 10 ต.ค.
 ⚔️ ข้อตกลง KvK กับ 2186 – 10 ต.ค.

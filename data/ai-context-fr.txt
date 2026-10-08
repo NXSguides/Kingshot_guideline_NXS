@@ -948,6 +948,36 @@ Garde: Enquêter davantage → 50 Manuscrit d'expert (best); Quitter la mine →
 Aena : échange: Échanger des ressources → ?; Refuser l'échange → 100 Manuscrit d'expert
 Isnor : échange: Échanger des ressources → 5 emblème d'expert (Isnor); ? → ?
 
+### KVK POINTS PLANNER — page "Planificateur de points KvK" (kvk-optimizer.html?lang=fr), opened from the link at the top of the KvK guide's table (guide #kvk). Not in the guide menu, but it is a public page anyone can use.
+Ne compte que ce que vous voulez dépenser : points par jour, et quel jour utiliser les objets qui comptent sur plusieurs jours.
+- Total personnel: Peu importe le jour — seul le total compte
+- Score du jour / classement: Les objets qui comptent sur plusieurs jours vont au jour que vous voulez pousser. Indiquez le minimum de points voulu chaque jour. Les jours sans objectif n'utilisent rien de « Possible » ; laissez les cinq vides pour simplement répartir « Prévu » uniformément.
+- « Prévu » = ce que vous amélioreriez de toute façon (ex. seulement les experts que vous voulez entraîner). « Possible » = vous acceptez de le dépenser pour des points. Ce qui n'est pas saisi est gardé. Saisissez les accélérateurs en jours, heures et minutes, comme le récapitulatif Ressources et accélérateurs du jeu.
+- La promotion ne compte que la différence de points entre les niveaux. Saisissez les accélérateurs d'entraînement plus haut.
+Point values and scoring days used by the planner:
+Accélérateur général: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
+Accélérateur d'Entraînement: 30 pts per minute, scores on KvK prep day 4, 5
+Accélérateur de Construction: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Accélérateur de Recherche: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Accélérateurs d'Apprentissage: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Or Véritable: 2,000 pts each, scores on KvK prep day 1, 2, 5
+Mithril: 40,000 pts each, scores on KvK prep day 4, 5
+Composants d'Équipement Exclusif: 8,000 pts each, scores on KvK prep day 4, 5
+Marteau de Forge d'Équipement Héros: 4,000 pts each, scores on KvK prep day 4, 5
+Fragment de Héros Mythique: 3,040 pts each, scores on KvK prep day 2, 3
+Fragment de Héros Épique: 1,220 pts each, scores on KvK prep day 2, 3
+Fragment de Héros Rare: 350 pts each, scores on KvK prep day 2, 3
+Roulette des Héros (tours): 8,000 pts each, scores on KvK prep day 2, 3
+Emblème d'expert: 6,000 pts each, scores on KvK prep day 2, 3
+Manuscrit d'expert: 60 pts each, scores on KvK prep day 2, 3
+Marque de Dressage Avancée: 15,000 pts each, scores on KvK prep day 3, 5
+Marque de Dressage Commune: 1,150 pts each, scores on KvK prep day 3, 5
+Score d'avancement des animaux: 50 pts per 1 score, scores on KvK prep day 3, 5
+Score des Talismans du Chef: 70 pts per 1 score, scores on KvK prep day 1, 3, 4
+Score d'Équipement Chef: 36 pts per 1 score, scores on KvK prep day 5
+Entraîner T1–T11: 3, 4, 5, 8, 12, 18, 25, 35, 45, 60, 75 pts per troop (Day 4); Promouvoir: the difference between the two tiers
+Valeurs de points : écran Sources de points du jeu et guide KvK. Les jours de score suivent le guide actuel ; si votre jeu affiche autre chose, fiez-vous au jeu et prévenez un officier. Les données restent dans votre navigateur.
+
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-06 by Nia] ⚔️ Accord KvK avec 2186 – 10 oct.
 ⚔️ Accord KvK avec 2186 – 10 oct.

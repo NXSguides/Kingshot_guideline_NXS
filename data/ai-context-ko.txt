@@ -976,6 +976,36 @@ Aena & 리틀 페라: 지원군 요청 → 50 거장의 원고 + 1 거장 배지
 Aena: 교환: 자원 교환 → ?; 교환 거절 → 100 거장의 원고
 Isnor: 교환: 자원 교환 → 5 거장 배지 (Isnor); ? → ?
 
+### KVK POINTS PLANNER — page "KvK 점수 플래너" (kvk-optimizer.html?lang=ko), opened from the link at the top of the KvK guide's table (guide #kvk). Not in the guide menu, but it is a public page anyone can use.
+쓸 생각이 있는 자원만 계산합니다: 하루에 몇 점을 얻는지, 여러 날 점수가 되는 아이템을 어느 날 쓸지.
+- 개인 총점: 어느 날에 점수가 들어가든 상관없이 총점만 봅니다
+- 일일 경쟁 / 랭킹: 여러 날 점수가 되는 자원을 밀고 싶은 날에 우선 배치합니다. 하루에 최소한 얻고 싶은 점수를 입력하세요. 목표가 없는 날에는 '쓸 수 있음'을 쓰지 않습니다. 다섯 날 모두 비워 두면 '꼭 사용'만 날마다 고르게 나눕니다.
+- '꼭 사용'은 어차피 올릴 생각인 부분(예: 키울 거장만), '쓸 수 있음'은 점수와 바꿔도 아깝지 않은 부분입니다. 입력하지 않은 것은 남겨 둡니다. 가속은 가방의 '자원 및 가속 통계'처럼 일·시간·분으로 입력하세요.
+- 승급은 두 등급의 점수 차이만 계산됩니다. 훈련 가속은 위 가속 칸에 입력하세요.
+Point values and scoring days used by the planner:
+공용 가속: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
+훈련 가속: 30 pts per minute, scores on KvK prep day 4, 5
+건설 가속: 30 pts per minute, scores on KvK prep day 1, 2, 5
+연구 가속: 30 pts per minute, scores on KvK prep day 1, 2, 5
+학습 가속: 30 pts per minute, scores on KvK prep day 1, 2, 5
+순금: 2,000 pts each, scores on KvK prep day 1, 2, 5
+미스릴: 40,000 pts each, scores on KvK prep day 4, 5
+전용 장비 부속품: 8,000 pts each, scores on KvK prep day 4, 5
+영웅 장비 제작 망치: 4,000 pts each, scores on KvK prep day 4, 5
+레전드 영웅 파편: 3,040 pts each, scores on KvK prep day 2, 3
+에픽 영웅 파편: 1,220 pts each, scores on KvK prep day 2, 3
+레어 영웅 파편: 350 pts each, scores on KvK prep day 2, 3
+영웅 룰렛 (회): 8,000 pts each, scores on KvK prep day 2, 3
+거장 배지: 6,000 pts each, scores on KvK prep day 2, 3
+거장의 원고: 60 pts each, scores on KvK prep day 2, 3
+고급 훈련 기록: 15,000 pts each, scores on KvK prep day 3, 5
+일반 훈련 기록: 1,150 pts each, scores on KvK prep day 3, 5
+펫 돌파 점수: 50 pts per 1 score, scores on KvK prep day 3, 5
+영주 보석 점수: 70 pts per 1 score, scores on KvK prep day 1, 3, 4
+영주 장비 점수: 36 pts per 1 score, scores on KvK prep day 5
+훈련 T1–T11: 3, 4, 5, 8, 12, 18, 25, 35, 45, 60, 75 pts per troop (Day 4); 승급: the difference between the two tiers
+점수 출처: 게임 내 '점수 출처' 화면과 KvK 가이드. 점수 날짜는 현재 가이드를 따릅니다. 게임 화면과 다르면 게임을 기준으로 하고 간부에게 알려 주세요. 데이터는 본인 브라우저에만 저장됩니다.
+
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-06 by Nia] ⚔️ 2186과의 KvK 합의 – 10월 10일
 ⚔️ 2186과의 KvK 합의 – 10월 10일

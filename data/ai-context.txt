@@ -948,6 +948,36 @@ Guard: Investigate further → 50 Master's Manuscript (best); Leave the mine →
 Aena: exchange: Exchange resources → ?; Decline the exchange → 100 Master's Manuscript
 Isnor: exchange: Exchange resources → 5 Master Emblem (Isnor); ? → ?
 
+### KVK POINTS PLANNER — page "KvK Points Planner" (kvk-optimizer.html?lang=en), opened from the link at the top of the KvK guide's table (guide #kvk). Not in the guide menu, but it is a public page anyone can use.
+Counts only what you're willing to spend: points per day, and which day multi-day items should go to.
+- Personal total: Doesn't matter which day — only the total
+- Daily push / ranking: Items that score on several days go to the day you want to push. Enter the minimum points you want each day. Days without a target won't use any “Can use” items; leave all five empty to just spread your “Will use” items evenly.
+- “Will use” = what you'd upgrade anyway (e.g. only the Masters you plan to train). “Can use” = fine to spend for points. Anything not entered is kept. Enter speedups as days, hours and minutes, like the in-game Resources & Speedups summary.
+- Promotion only scores the point difference between tiers. Enter Training Speedups above.
+Point values and scoring days used by the planner:
+General Speedups: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
+Training Speedups: 30 pts per minute, scores on KvK prep day 4, 5
+Construction Speedups: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Research Speedups: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Learning Speedups: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Truegold: 2,000 pts each, scores on KvK prep day 1, 2, 5
+Mithril: 40,000 pts each, scores on KvK prep day 4, 5
+Exclusive Gear Widgets: 8,000 pts each, scores on KvK prep day 4, 5
+Hero Gear Forgehammers: 4,000 pts each, scores on KvK prep day 4, 5
+Mythic Hero Shards: 3,040 pts each, scores on KvK prep day 2, 3
+Epic Hero Shards: 1,220 pts each, scores on KvK prep day 2, 3
+Rare Hero Shards: 350 pts each, scores on KvK prep day 2, 3
+Hero Roulette (spins): 8,000 pts each, scores on KvK prep day 2, 3
+Master Emblems: 6,000 pts each, scores on KvK prep day 2, 3
+Master's Manuscripts: 60 pts each, scores on KvK prep day 2, 3
+Advanced Taming Marks: 15,000 pts each, scores on KvK prep day 3, 5
+Common Taming Marks: 1,150 pts each, scores on KvK prep day 3, 5
+Pet advancement score: 50 pts per 1 score, scores on KvK prep day 3, 5
+Governor Charm score: 70 pts per 1 score, scores on KvK prep day 1, 3, 4
+Governor Gear score: 36 pts per 1 score, scores on KvK prep day 5
+Train T1–T11: 3, 4, 5, 8, 12, 18, 25, 35, 45, 60, 75 pts per troop (Day 4); Promote: the difference between the two tiers
+Point values: the in-game Points Sources screen and the KvK guide. Scoring days follow the current guide; if your game screen differs, trust the game and tell an officer. Data stays in your own browser.
+
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-06 by Nia] ⚔️ KvK Agreement with 2186 – Oct 10
 ⚔️ KvK Agreement with 2186 – Oct 10
