@@ -33,14 +33,15 @@ async function getMany(paths, label) {
   }
   return Promise.all(jobs);
 }
-// MightPulse replies vary a little in shape; find the first array of row objects
-function findRows(body) {
-  if (!body || typeof body !== "object") return [];
-  if (Array.isArray(body)) return body;
-  for (const k of ["rows", "data", "ranks", "items", "players", "members", "results"]) if (Array.isArray(body[k])) return body[k];
-  for (const v of Object.values(body)) { const r = findRows(v); if (r.length) return r; }
+// MightPulse replies vary a little in shape; find the array whose rows look like what we want
+function findRows(o, want, depth = 0) {
+  if (!o || typeof o !== "object" || depth > 4) return [];
+  if (Array.isArray(o)) return o.some((x) => x && typeof x === "object" && want(x)) ? o.filter((x) => x && want(x)) : [];
+  for (const v of Object.values(o)) { const r = findRows(v, want, depth + 1); if (r.length) return r; }
   return [];
 }
+const isPlayer = (x) => x.governor_id != null || x.nick_name != null;
+const isAlliance = (x) => x.abbr != null;
 
 async function scoutKingdom(kid) {
   console.log(`Kingdom ${kid}`);
@@ -48,14 +49,16 @@ async function scoutKingdom(kid) {
   let top = [], source = "";
   for (const board of ["player_power", "power", "governor_power"]) {
     const r = await get(`/kingdoms/${kid}/ranks?board=${board}&limit=${TOP}`);
-    const rows = findRows(r.body).filter((x) => x && (x.governor_id != null || x.id != null));
+    const rows = findRows(r.body, isPlayer);
+    console.log(`  board ${board}: HTTP ${r.status}, ${rows.length} rows`);
     if (r.status === 200 && rows.length) { top = rows.map((x) => ({ id: x.governor_id ?? x.id, name: x.nick_name || x.name || "", power: x.power ?? null, alliance: x.alliance_abbr || x.abbr || x.alliance?.abbr || null })); source = "board:" + board; break; }
     await sleep(GAP_MS);
   }
   // … otherwise take the strongest alliances' rosters and pick the top players from them
   const alliances = [];
   const ab = await get(`/kingdoms/${kid}/ranks?board=alliance_power&limit=${ALLIANCES}`);
-  const arows = findRows(ab.body).filter((x) => x && x.abbr);
+  const arows = findRows(ab.body, isAlliance);
+  console.log(`  alliance board: HTTP ${ab.status}, ${arows.length} rows`);
   if (arows.length) {
     const res = await getMany(arows.map((x) => `/alliances/${kid}/${encodeURIComponent(x.abbr)}?include=info,roster`), `Kingdom ${kid} alliances`);
     res.forEach((r, i) => {
