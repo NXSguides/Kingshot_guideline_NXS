@@ -824,6 +824,12 @@ async function init() {
     else { const r = await fetch(EV_PATH + "?t=" + Date.now(), { cache: "no-store" }); if (r.ok) file = await r.json(); }
     if (file && file.data) { const d = await OfficerData.open(file.data); LIST = d && d.events; }
   } catch (e) { LIST = null; }
+  // saved events without any to-do get the built-in ones once (todoSeed marks it, so deleting them later sticks)
+  if (LIST) for (const e of LIST) {
+    if (e.todoSeed || (e.todo && e.todo.length)) continue;
+    const d = TODO[e.id] || (EXTRA_EVENTS.find((x) => x.id === e.id) || {}).todo;
+    if (d && d.length) { e.todo = d.map((x) => ({ ...x })); e.todoSeed = 1; }
+  }
   // 2) nothing saved yet: start from the schedules already on the site
   if (!LIST) {
     let sched = null;
