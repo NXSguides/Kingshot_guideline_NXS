@@ -23,7 +23,7 @@
   .tabs { display: flex; gap: 6px; margin: 14px 0 0; border-bottom: 2px solid var(--rule); flex-wrap: wrap; }
   .tabs a { padding: 9px 14px; border-radius: 10px 10px 0 0; text-decoration: none; color: var(--text-muted); font-weight: 600; border: 1px solid transparent; border-bottom: 0; }
   .tabs a.on { color: var(--text); background: var(--panel); border-color: var(--rule); margin-bottom: -2px; border-bottom: 2px solid var(--panel); }
-  @media (max-width: 440px) { .tabs { gap: 0; flex-wrap: nowrap; overflow-x: auto; } .tabs a { padding: 8px 6px; font-size: 13px; white-space: nowrap; } }
+  @media (max-width: 440px) { .tabs { gap: 2px; } .tabs a { padding: 8px 7px; font-size: 13px; white-space: nowrap; } }   /* 5 tabs: wrap to a second row on phones */
   .weeknav { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
   .weeknav .lbl { font-weight: 700; text-align: center; flex: 1; }
   .day { display: grid; grid-template-columns: 64px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--rule); }
@@ -320,6 +320,20 @@
   #pg-watch .modal hr { border: 0; border-top: 1px solid var(--rule); margin: 14px 0 0; }
 
   .pg[hidden] { display: none !important; }
+  #pg-scout .sc-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  #pg-scout .sc-chip { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--rule); border-radius: 999px; padding: 4px 6px 4px 12px; font-size: 14px; background: var(--panel-2); }
+  #pg-scout .sc-chip label { font-size: 13px; display: flex; align-items: center; gap: 4px; }
+  #pg-scout .btn.mini { padding: 2px 8px; font-size: 13px; }
+  #pg-scout .sc-h3 { margin: 10px 0 6px; font-size: 15px; }
+  #pg-scout .tbl-wrap { overflow-x: auto; }
+  #pg-scout .sc-tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  #pg-scout .sc-tbl th, #pg-scout .sc-tbl td { padding: 6px 8px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; white-space: nowrap; }
+  #pg-scout .sc-tbl th.num, #pg-scout .sc-tbl td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  #pg-scout .sc-tbl .name { font-weight: 700; }
+  #pg-scout .sc-tbl .id { font-size: 11px; color: var(--text-muted); }
+  #pg-scout .inp { width: auto; padding: 8px 10px; font-size: 15px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); }
+  #pg-scout .msg { margin-top: 8px; font-size: 14px; }
+  #pg-scout .okmsg { color: #2e7d32; }
   .shbar { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 8px; }
 </style>
 </head>
@@ -331,6 +345,7 @@
     <a href="#ranking" data-tab="ranking">📊 Ranking</a>
     <a href="#post" data-tab="post">📢 Post</a>
     <a href="#watch" data-tab="watch">🕵️ Watch</a>
+    <a href="#scout" data-tab="scout">🔭 Scout</a>
   </nav>
   <div id="gate" class="card" hidden style="max-width:360px;margin:24px auto">
     <h2 id="gateTitle"></h2>
@@ -672,6 +687,29 @@
     </div>
   </div>
 </section>
+<section class="pg" id="pg-scout" hidden>
+  <div class="top">
+    <div>
+      <h1 data-t="title"></h1>
+      <div class="muted" id="sc_meta"></div>
+    </div>
+  </div>
+  <div id="sc_noData" class="card" hidden></div>
+  <div id="sc_app">
+    <div class="card">
+      <h2 data-t="addTitle"></h2>
+      <div class="muted msg" data-t="addNote"></div>
+      <div class="row" style="margin-top:8px">
+        <input class="inp" id="sc_kid" type="number" inputmode="numeric" min="1" placeholder="2186" style="width:120px">
+        <button class="btn primary" id="sc_fetch" data-t="fetch"></button>
+      </div>
+      <div class="msg" id="sc_msg"></div>
+      <div id="sc_list" class="sc-list"></div>
+    </div>
+    <div id="sc_kingdoms"></div>
+  </div>
+</section>
+
 </div>
 <script src="js/officer-data.js"></script>
 <script>
@@ -704,7 +742,7 @@ const officerLang = () => { try { const v = localStorage.getItem(OFFICER_LANG); 
 const setOfficerLang = (v) => { try { localStorage.setItem(OFFICER_LANG, v); } catch (e) {} };
 const OFFICER = { lang: officerLang() || ((navigator.language || "").startsWith("zh") ? "zh" : "en"), token: null, pw: null };
 const OFFICER_PAGES = {};
-const TABS = ["events", "ranking", "post", "watch"];
+const TABS = ["events", "ranking", "post", "watch", "scout"];
 const inited = {};
 try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
 const SH = { en: { home: "Home", pw: "🔒 Officer password", remember: "Remember on this device", unlock: "Unlock", wrong: "Wrong password", loading: "Loading…" },
@@ -736,7 +774,7 @@ function loadScripts(list) {
   }))), Promise.resolve());
 }
 /* tabs: #events / #ranking / #post / #watch (the part after "?" is kept for the page) */
-function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch)/); return m ? m[1] : "events"; }
+function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|scout)/); return m ? m[1] : "events"; }
 async function showTab() {
   const k = currentTab();
   document.querySelectorAll(".tabs a").forEach((a) => a.classList.toggle("on", a.dataset.tab === k));
@@ -3000,7 +3038,7 @@ function build() {
 const COLS = [
   ["name", "colName"], ["rank", "colRank"], ["flags", "colFlags"], ["clear", "colClear"], ["why", "colWhy"], ["since", "colSince"], ["from", "colFrom"], ["hops", "colHops", 1],
   ["names", "colNames"], ["similar", "colSimilar"], ["power", "colPower", 1], ["pD", "colPowerD", 1],
-  ["kills", "colKills", 1], ["kD", "colKillsD", 1], ["tc", "colTc", 1], ["kid", "colKid", 1], ["lang", "colLang"], ["login", "colLogin"],
+  ["kills", "colKills", 1], ["kD", "colKillsD", 1], ["tc", "colTc", 1], ["kid", "colKid", 1], ["lang", "colLang"],
 ];
 
 function sorted() {
@@ -3040,7 +3078,7 @@ function render() {
     <td class="wrapc" dir="auto">${esc(r.similar)}</td>
     <td class="num">${big(r.power)}</td><td class="num">${ch(r.pD)}</td>
     <td class="num">${big(r.kills)}</td><td class="num">${ch(r.kD)}</td>
-    <td class="num">${esc(r.tc)}</td><td class="num">${esc(r.kid)}</td><td>${esc(r.lang)}</td><td>${esc(r.login)}</td>
+    <td class="num">${esc(r.tc)}</td><td class="num">${esc(r.kid)}</td><td>${esc(r.lang)}</td>
   </tr>`).join("") : `<tr><td colspan="${COLS.length}" class="empty">${esc(tr("empty"))}</td></tr>`;
 
   const left = (watch.left || []).slice().reverse();
@@ -3066,9 +3104,9 @@ function applyTexts() {
 
 function table() {
   const head = ["Name", "Governor ID", "Rank", "Flags", "In NXS since", "Seen in other alliances", "Alliances seen", "Earlier names", "Similar names elsewhere",
-    "Power", "Power change (7d)", "Kills", "Kills change (7d)", "TC", "Kingdom", "Language", "Last login", "MightPulse record", "Clear", "Why / comments"];
+    "Power", "Power change (7d)", "Kills", "Kills change (7d)", "TC", "Kingdom", "Language", "MightPulse record", "Clear", "Why / comments"];
   const body = sorted().map((r) => [r.name, r.id, r.rank, r.flags.map((f) => f.t).join("; "), r.since, r.from, r.hops || "", r.names, r.similar,
-    r.power ?? "", r.pD ?? "", r.kills ?? "", r.kD ?? "", r.tc ?? "", r.kid ?? "", r.lang ?? "", r.login, r.m.uid ? `https://mightpulse.com/player/${r.m.uid}` : "", r.clear, r.why]);
+    r.power ?? "", r.pD ?? "", r.kills ?? "", r.kD ?? "", r.tc ?? "", r.kid ?? "", r.lang ?? "", r.m.uid ? `https://mightpulse.com/player/${r.m.uid}` : "", r.clear, r.why]);
   return [head, ...body];
 }
 $("wa_copyBtn").onclick = async () => {
@@ -3122,6 +3160,145 @@ OFFICER_PAGES.watch = { init, applyTexts, setLang };
 
 
 })();
+(function () {
+const ROOT = document.getElementById('pg-scout');
+const $ = (id) => ROOT.querySelector("#" + CSS.escape(id)) || document["getElementById"](id);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const OWNER = location.hostname.endsWith("github.io") ? location.hostname.split(".")[0] : "NXSguides";
+const REPO = location.hostname.endsWith("github.io") ? (location.pathname.split("/")[1] || "Kingshot_guideline_NXS") : "Kingshot_guideline_NXS";
+const BRANCH = "main", CONFIG = "data/scout-config.json", DATA = "data/scout-x7k2p9.json", OUR_KID = 2189;
+const b64ToUtf8 = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\s/g, "")), (c) => c.charCodeAt(0)));
+const utf8ToB64 = (str) => { const u = new TextEncoder().encode(str); let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
+const big = (n) => n == null ? "" : Math.abs(n) >= 1e9 ? (n / 1e9).toFixed(2) + "B" : Math.abs(n) >= 1e6 ? (n / 1e6).toFixed(1) + "M" : Math.abs(n) >= 1e3 ? (n / 1e3).toFixed(1) + "K" : String(n);
+let lang = OFFICER.lang, TOKEN = null, cfg = { kingdoms: [] }, cfgSha = null, data = null, waiting = null;
+
+const T = {
+  en: { title: "NXS Scout", addTitle: "Scout a kingdom", fetch: "Fetch now", auto: "update daily", remove: "Remove",
+    addNote: "Type a kingdom number and press Fetch: a GitHub job reads that kingdom's top 20 players from MightPulse (power, Town Center, Mystic Trial, kills, VIP). It takes about 2–3 minutes; this page refreshes by itself. Tick “update daily” for the KvK opponent so it refreshes every day with the roster.",
+    needKid: "Enter a kingdom number.", noKey: "Saving needs the GitHub key — set it up on the Post tab first.", saving: "Sending the request…",
+    requested: "Requested — fetching takes about 2–3 minutes. The table appears here when it's done.", stillWaiting: "Still fetching… (check GitHub → Actions → Scout Kingdom if it takes more than 5 minutes)",
+    done: "Updated ✅", errAuth: "GitHub rejected the key.", errBusy: "GitHub was busy — try again.", errNet: "Network problem — try again.",
+    updated: "Data: {t}", noData: "No kingdom scouted yet. Add one above.", ours: "our kingdom", players: "Top {n} players", alliances: "Strongest alliances",
+    colRank: "#", colName: "Name", colAlliance: "Alliance", colPower: "Power", colTc: "TC", colMystic: "Mystic Trial", colKills: "Kills", colVip: "VIP", openRec: "MightPulse",
+    asOf: "as of {t}", source: "list from {s}" },
+  zh: { title: "NXS 偵察", addTitle: "偵察一個王國", fetch: "立即抓取", auto: "每天更新", remove: "移除",
+    addNote: "輸入王國編號後按「立即抓取」：GitHub 會從 MightPulse 讀那個王國前 20 名玩家的資料（戰力、城鎮中心、秘境試煉、擊殺、VIP）。大約 2–3 分鐘，這頁會自己更新。KvK 對手可以勾「每天更新」，就會跟成員資料一起每天刷新。",
+    needKid: "請輸入王國編號。", noKey: "儲存需要 GitHub 金鑰，請先到「發布公告」設定。", saving: "送出請求中…",
+    requested: "已送出，抓取約需 2–3 分鐘，完成後表格會出現在這裡。", stillWaiting: "還在抓取…（超過 5 分鐘的話，到 GitHub → Actions → Scout Kingdom 看看）",
+    done: "已更新 ✅", errAuth: "GitHub 不接受這把金鑰。", errBusy: "GitHub 忙碌中，請再試一次。", errNet: "網路有問題，請再試一次。",
+    updated: "資料：{t}", noData: "還沒有偵察過任何王國，請在上面新增。", ours: "我們的王國", players: "前 {n} 名玩家", alliances: "最強聯盟",
+    colRank: "#", colName: "名字", colAlliance: "聯盟", colPower: "戰力", colTc: "主城", colMystic: "秘境試煉", colKills: "擊殺", colVip: "VIP", openRec: "MightPulse",
+    asOf: "資料時間 {t}", source: "名單來源：{s}" },
+};
+const tr = (k, v) => { let s = (T[lang] || T.en)[k] ?? T.en[k] ?? k; for (const x in v || {}) s = s.replace("{" + x + "}", v[x]); return s; };
+const fmtT = (iso) => iso ? new Date(iso).toLocaleString(lang === "zh" ? "zh-TW" : "en-GB", { dateStyle: "short", timeStyle: "short" }) : "";
+
+async function gh(method, path, body) {
+  let res;
+  try {
+    res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}${method === "GET" ? "?ref=" + BRANCH + "&t=" + Date.now() : ""}`, {
+      method, headers: { Authorization: `Bearer ${TOKEN}`, Accept: "application/vnd.github+json" }, body: body ? JSON.stringify(body) : undefined, cache: "no-store" });
+  } catch (e) { throw new Error("net"); }
+  if (res.status === 401 || res.status === 403) throw new Error("auth");
+  if (res.status === 409 || res.status === 422) throw new Error("busy");
+  if (method === "GET" && res.status === 404) return null;
+  if (!res.ok) throw new Error("net");
+  return res.json();
+}
+async function loadConfig() {
+  try {
+    if (TOKEN) { const f = await gh("GET", CONFIG); if (f) { cfgSha = f.sha; cfg = JSON.parse(b64ToUtf8(f.content)); } }
+    else { const r = await fetch(CONFIG + "?t=" + Date.now(), { cache: "no-store" }); if (r.ok) cfg = await r.json(); }
+  } catch (e) {}
+  cfg.kingdoms = (cfg.kingdoms || []).filter((k) => k && k.kid);
+}
+async function saveConfig(message) {
+  const m = $("sc_msg");
+  if (!TOKEN) { m.className = "msg warn"; m.textContent = tr("noKey"); return false; }
+  m.className = "msg"; m.textContent = tr("saving");
+  try {
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        const r = await gh("PUT", CONFIG, { message, content: utf8ToB64(JSON.stringify(cfg, null, 1) + "\n"), sha: cfgSha || undefined, branch: BRANCH });
+        cfgSha = r && r.content ? r.content.sha : cfgSha; return true;
+      } catch (e) { if (e.message !== "busy" || attempt) throw e; const f = await gh("GET", CONFIG); cfgSha = f ? f.sha : null; }
+    }
+  } catch (e) { m.className = "msg warn"; m.textContent = tr(e.message === "auth" ? "errAuth" : e.message === "busy" ? "errBusy" : "errNet"); }
+  return false;
+}
+async function loadData() {
+  try { data = await OfficerData.fetchJsonFast(DATA, (d) => { data = d; render(); }); } catch (e) { data = null; }
+}
+function applyTexts() {
+  ROOT.querySelectorAll("[data-t]").forEach((el) => { el.textContent = tr(el.dataset.t); });
+  $("sc_meta").textContent = data && data.updated ? tr("updated", { t: fmtT(data.updated) }) : "";
+}
+function renderList() {
+  $("sc_list").innerHTML = cfg.kingdoms.map((k) => `<span class="sc-chip"><b>#${esc(k.kid)}</b>${k.kid === OUR_KID ? ` <i>(${esc(tr("ours"))})</i>` : ""}
+    <label><input type="checkbox" data-auto="${esc(k.kid)}" ${k.auto ? "checked" : ""}> ${esc(tr("auto"))}</label>
+    <button class="btn mini" data-refetch="${esc(k.kid)}" title="${esc(tr("fetch"))}">⟳</button><button class="btn mini" data-rm="${esc(k.kid)}" title="${esc(tr("remove"))}">✕</button></span>`).join("");
+}
+function render() {
+  applyTexts(); renderList();
+  const ks = data && data.kingdoms ? Object.entries(data.kingdoms) : [];
+  const order = cfg.kingdoms.map((k) => String(k.kid));
+  ks.sort((a, b) => (order.indexOf(a[0]) + 1 || 99) - (order.indexOf(b[0]) + 1 || 99));
+  $("sc_kingdoms").innerHTML = ks.length ? ks.map(([kid, k]) => `
+    <div class="card">
+      <div class="row" style="justify-content:space-between;align-items:baseline"><h2 style="margin:0">#${esc(kid)}${String(kid) === String(OUR_KID) ? ` <small class="muted">(${esc(tr("ours"))})</small>` : ""}</h2>
+        <span class="muted" style="font-size:12px">${esc(tr("asOf", { t: fmtT(k.asOf) }))}</span></div>
+      ${k.alliances && k.alliances.length ? `<div class="muted msg">${esc(tr("alliances"))}: ${k.alliances.slice(0, 8).map((a) => `<b>${esc(a.tag)}</b> ${big(a.power)}${a.count ? ` (${a.count})` : ""}`).join(" · ")}</div>` : ""}
+      <h3 class="sc-h3">${esc(tr("players", { n: k.players.length }))}</h3>
+      <div class="tbl-wrap"><table class="sc-tbl"><thead><tr><th>${esc(tr("colRank"))}</th><th>${esc(tr("colName"))}</th><th>${esc(tr("colAlliance"))}</th><th class="num">${esc(tr("colPower"))}</th><th class="num">${esc(tr("colTc"))}</th><th class="num">${esc(tr("colMystic"))}</th><th class="num">${esc(tr("colKills"))}</th><th class="num">${esc(tr("colVip"))}</th></tr></thead><tbody>
+      ${k.players.map((p, i) => `<tr><td class="num">${i + 1}</td>
+        <td><div class="name" dir="auto">${esc(p.name)}</div><div class="id">ID ${esc(p.id)}${p.uid ? ` · <a href="https://mightpulse.com/player/${encodeURIComponent(p.uid)}" target="_blank" rel="noopener">${esc(tr("openRec"))}</a>` : ""}</div></td>
+        <td>${esc(p.alliance || "")}</td><td class="num">${big(p.power)}</td><td class="num">${esc(p.tc ?? "")}</td>
+        <td class="num">${p.mystic != null ? big(p.mystic) + (p.mysticRank != null ? ` <span class="muted">#${esc(p.mysticRank)}</span>` : "") : ""}</td>
+        <td class="num">${big(p.kills)}</td><td class="num">${esc(p.vip ?? "")}</td></tr>`).join("")}
+      </tbody></table></div>
+      <div class="muted" style="font-size:12px;margin-top:6px">${esc(tr("source", { s: k.source || "?" }))}</div>
+    </div>`).join("") : `<div class="card muted">${esc(tr("noData"))}</div>`;
+}
+async function requestFetch(kid) {
+  kid = Number(kid);
+  if (!(kid > 0)) { $("sc_msg").className = "msg warn"; $("sc_msg").textContent = tr("needKid"); return; }
+  if (!cfg.kingdoms.some((k) => k.kid === kid)) cfg.kingdoms.push({ kid, auto: false });
+  cfg.requested = [kid];
+  if (!(await saveConfig(`Scout kingdom ${kid}`))) return;
+  renderList();
+  const m = $("sc_msg"); m.className = "msg okmsg"; m.textContent = tr("requested");
+  // wait for the job: poll the data file until it carries a newer copy of this kingdom
+  const since = Date.now(); clearInterval(waiting);
+  waiting = setInterval(async () => {
+    let d = null; try { d = await OfficerData.fetchJson(DATA); } catch (e) {}
+    const k = d && d.kingdoms && d.kingdoms[kid];
+    if (k && Date.parse(k.asOf) > since - 60000) { clearInterval(waiting); data = d; render(); m.className = "msg okmsg"; m.textContent = tr("done"); OfficerData.cacheSet && OfficerData.cacheSet(DATA.replace(/^/, ""), d); return; }
+    if (Date.now() - since > 5 * 60000) { m.className = "msg"; m.textContent = tr("stillWaiting"); }
+  }, 30000);
+}
+$("sc_fetch").onclick = () => requestFetch($("sc_kid").value);
+$("sc_kid").onkeydown = (e) => { if (e.key === "Enter") requestFetch($("sc_kid").value); };
+$("sc_list").onclick = async (e) => {
+  const rf = e.target.closest("[data-refetch]"); if (rf) return requestFetch(rf.dataset.refetch);
+  const rm = e.target.closest("[data-rm]");
+  if (rm) { cfg.kingdoms = cfg.kingdoms.filter((k) => String(k.kid) !== rm.dataset.rm); delete cfg.requested; if (await saveConfig(`Scout: remove ${rm.dataset.rm}`)) { $("sc_msg").textContent = ""; renderList(); } }
+};
+$("sc_list").onchange = async (e) => {
+  const cb = e.target.closest("[data-auto]"); if (!cb) return;
+  const k = cfg.kingdoms.find((x) => String(x.kid) === cb.dataset.auto); if (k) k.auto = cb.checked;
+  delete cfg.requested;
+  if (await saveConfig(`Scout: ${cb.dataset.auto} daily ${cb.checked ? "on" : "off"}`)) $("sc_msg").textContent = "";
+};
+async function init() {
+  TOKEN = OFFICER.token;
+  applyTexts();
+  await Promise.all([loadConfig(), loadData()]);
+  render();
+}
+function setLang(l) { lang = l; render(); }
+OFFICER_PAGES.scout = { init, applyTexts, setLang };
+})();
+
 officerGate();
 </script>
 <script src="js/assistant.js"></script>

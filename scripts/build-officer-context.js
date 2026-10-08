@@ -13,9 +13,9 @@ const day = (s) => (s ? new Date(s * 1000).toISOString().slice(0, 10) : "?");
 const out = ["===== OFFICER DATA (officers only) ====="];
 
 out.push(`### ROSTER — ${roster.alliance?.name || ""} [${roster.alliance?.tag || ""}], updated ${String(roster.updated).slice(0, 10)}`,
-  "name | rank | power | TC | kills | last active | language");
+  "name | rank | power | TC | kills | language");
 for (const m of [...roster.members].sort((a, b) => (b.power || 0) - (a.power || 0)))
-  out.push(`${m.name} | ${m.rank} | ${M(m.power)} | ${m.tc ?? "?"} | ${M(m.kills)} | ${m.lastLogin || day(m.lastActive)} | ${m.lang || "?"}`);
+  out.push(`${m.name} | ${m.rank} | ${M(m.power)} | ${m.tc ?? "?"} | ${M(m.kills)} | ${m.lang || "?"}`);
 
 if (watch) {
   const byId = Object.fromEntries(roster.members.map((m) => [m.id, m.name]));
@@ -36,6 +36,16 @@ if (watch) {
     `[${a.tag}] ${a.name} (#${a.kid}, ${a.asOf}): ${a.members.length} members; top: ` +
     a.members.slice(0, 5).map(([, n, p]) => `${n} ${M(p)}`).join(", "));
   if (others.length) out.push("### OTHER ALLIANCES", others.join("\n"));
+}
+
+// Scout tab: top players of other kingdoms (data/scout-x7k2p9.json)
+let scout = null;
+try { scout = readData("data/scout-x7k2p9.json"); } catch (e) {}
+for (const [kid, k] of Object.entries((scout && scout.kingdoms) || {})) {
+  out.push(`### SCOUT — kingdom #${kid}, top ${k.players.length} players by power (as of ${String(k.asOf).slice(0, 10)}; from the Scout tab)`);
+  if (k.alliances && k.alliances.length) out.push("Strongest alliances: " + k.alliances.map((a) => `[${a.tag}] ${a.name} ${M(a.power)}`).join(", "));
+  out.push("name | alliance | power | TC | Mystic Trial | kills | VIP");
+  for (const p of k.players) out.push(`${p.name} | ${p.alliance || "?"} | ${M(p.power)} | ${p.tc ?? "?"} | ${p.mystic != null ? M(p.mystic) + (p.mysticRank != null ? " (#" + p.mysticRank + ")" : "") : "?"} | ${M(p.kills)} | ${p.vip ?? "?"}`);
 }
 
 const text = out.join("\n");

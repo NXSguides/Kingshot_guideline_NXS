@@ -223,7 +223,7 @@
           : `<a class="guide-link-btn" href="index.html#/${guideLang()}/${id}" style="text-decoration:none"><span class="emoji">${emoji}</span><span dir="auto">${label}</span><span class="arrow">›</span></a>`;
       })
       // officer pages
-      .replace(/\[([^\]]+)\]\(((?:roster|watch|events|post)-\w+\.html)\)/g, (m, label, href) =>
+      .replace(/\[([^\]]+)\]\(((?:roster|watch|events|post|officer)-\w+\.html(?:#\w+)?)\)/g, (m, label, href) =>
         `<a class="guide-link-btn" href="${href}" style="text-decoration:none"><span class="emoji">🔒</span><span dir="auto">${label}</span><span class="arrow">›</span></a>`)
       .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
       .replace(/(^|\n)[*-] (.+)/g, "$1• $2");

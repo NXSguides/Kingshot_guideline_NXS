@@ -10,7 +10,7 @@
    Officers:  also roster / watch data. "Officer" = proves the officer password (it opens data/data-key.json),
               checked here with a hash of the DATA_KEY secret. */
 
-const VERSION = "2026-10-08b (streaming answers, gz data)";
+const VERSION = "2026-10-08c (scout tab)";
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
 const REPO = "NXSguides/Kingshot_guideline_NXS";
@@ -112,7 +112,7 @@ async function handle(req, env) {
           "Answer event dates, to-dos and in-game guides from the EVENTS DATA section; when giving an in-game guide, copy its text exactly (it is pasted into the game) and keep separate messages separate. " +
           "Officer pages you may link: [Roster](roster-x7k2p9.html) (member ranking, power, TC, Mystic Trial, battle tables), " +
           "[Watch](watch-x7k2p9.html) (name changes, power history, who left/joined, notes), [Events](events-x7k2p9.html) (week calendar, officer to-dos, in-game guides to copy, add/edit events), " +
-          "[Post](post-k4m8q2.html) (post / edit announcements). " +
+          "[Post](post-k4m8q2.html) (post / edit announcements), [Scout](officer-x7k2p9.html#scout) (top players of other kingdoms). " +
           "For questions about officer pages, members or the roster, the 📖 line links the matching officer page above, not a guide."
         : "This user has no special access. If asked about member stats, rosters, power rankings, who joined/left/renamed, other alliances, " +
           "hidden or admin pages, or anything else not in the SITE CONTENT that sounds internal, reply only with one short sentence meaning " +
@@ -280,7 +280,7 @@ const OFFICER_HELP = `
 GETTING IN
 - On the main site, tap the title "NXS Guidelines" 5 times quickly (within 2 seconds) → the 📅 Events page opens. Enter the officer password (ask Sherry). Tick "Remember on this device" to skip it next time.
 - The password is asked again on another browser / phone, the home-screen app, a private window, after clearing browser data, or after "Forget the password on this device".
-- The tabs at the top, in order: 📅 Events (中文: 活動排程), 📊 Ranking (成員排序), 📢 Post (發布公告), 🕵️ Watch (觀察名單).
+- All officer tabs are one page now (officer-x7k2p9.html); switching tabs is instant and the password is entered once. The tabs, in order: 📅 Events (中文: 活動排程), 📊 Ranking (成員排序), 📢 Post (發布公告), 🕵️ Watch (觀察名單), 🔭 Scout (偵察).
 - Language: officer pages are English or 中文. Entering from the Chinese site opens them in 中文, from any other language in English. The language button on any tab switches all officer tabs together.
 - When answering in Chinese, call the tabs by their 中文 names above (they are what officers see on screen).
 - Member data updates automatically every day at 20:13 UTC. If a page says "No data yet": GitHub → Actions → "Update Roster (MightPulse)" → Run workflow, then reload.
@@ -325,6 +325,12 @@ GETTING IN
 
 AI ASSISTANT
 - The chat recognises an officer automatically when this browser has the saved officer login (or an officer page was unlocked in this tab). Officers have no daily question limit and can ask about members, the officer pages and the events data.
+
+🔭 SCOUT (officer-x7k2p9.html#scout) — the top players of other kingdoms (for KvK)
+- Type a kingdom number and press "Fetch now": a GitHub job reads that kingdom's top 20 players from MightPulse (power, Town Center, Mystic Trial score and rank, kills, VIP, alliance) and the kingdom's strongest alliances. It takes about 2–3 minutes; the page refreshes by itself.
+- Each scouted kingdom is a chip at the top: ⟳ fetches it again, ✕ removes it, "update daily" refreshes it every day at 20:25 UTC together with the roster (tick it for the KvK opponent).
+- Our own kingdom #2189 is scouted too, for comparison. Data is the SCOUT section of the OFFICER DATA (answer "who is the strongest in kingdom X" from there).
+- Not in this data: last login (unreliable) and anything MightPulse does not publish.
 
 KVK CHECKLIST (main site, for everyone)
 - From the day before KvK until the last day, a 📋 button at the bottom right of the main site shows that day's KvK checklist (KvK Prep Day 1–5, then Battle Day). Members tick items; ticks are saved on their own device.

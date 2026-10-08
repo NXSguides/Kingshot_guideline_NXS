@@ -1,0 +1,46 @@
+name: Scout Kingdom
+# Top players of other kingdoms (officer page → Scout tab). Runs when the Scout tab asks for a kingdom
+# (it writes data/scout-config.json) and once a day for the kingdoms marked "auto" there.
+on:
+  push:
+    paths: ["data/scout-config.json"]
+    branches: [main]
+  schedule:
+    - cron: "25 20 * * *"   # every day 20:25 UTC (after the roster update)
+  workflow_dispatch:
+
+concurrency:
+  group: update-roster   # shares the MightPulse rate limit with the roster update
+  cancel-in-progress: false
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/scout-kingdom.js
+        env:
+          MIGHTPULSE_API_KEY: ${{ secrets.MIGHTPULSE_API_KEY }}
+          DATA_KEY: ${{ secrets.DATA_KEY }}
+          SCOUT_MODE: ${{ github.event_name == 'schedule' && 'auto' || 'requested' }}
+      - run: node scripts/build-officer-context.js   # the AI assistant's officer summary includes the scouted kingdoms
+        env:
+          DATA_KEY: ${{ secrets.DATA_KEY }}
+      - run: |
+          git config user.name "scout-bot"
+          git config user.email "actions@github.com"
+          git add data/scout-x7k2p9.json data/scout-config.json data/ai-officer.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Scout update"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            git rebase --abort 2>/dev/null
+            sleep 5
+          done
+          exit 1
