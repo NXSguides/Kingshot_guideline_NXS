@@ -6,10 +6,7 @@
   },
   {
    "kid": 2186,
-   "auto": false
+   "auto": true
   }
- ],
- "requested": [
-  2186
  ]
 }
