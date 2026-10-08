@@ -9,7 +9,10 @@ const fs = require("fs");
 const { readData, writeData } = require("./officer-data");
 const KEY = process.env.MIGHTPULSE_API_KEY;
 const BASE = "https://api.mightpulse.com/v1";
-const CONFIG = "data/scout-config.json", OUT = "data/scout-x7k2p9.json";
+const CONFIG = "data/scout-config.json", OUT = "data/scout-x7k2p9.json", LOG = "data/scout-log.txt";
+// short public run log (counts and HTTP codes only, never player data) so problems can be checked without the Actions page
+const logLines = [];
+const log = (m) => { console.log(m); logLines.push(m); };
 const TOP = 20, ALLIANCES = 8, GAP_MS = 1100;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -44,13 +47,13 @@ const isPlayer = (x) => x.governor_id != null || x.nick_name != null;
 const isAlliance = (x) => x.abbr != null;
 
 async function scoutKingdom(kid) {
-  console.log(`Kingdom ${kid}`);
+  log(`Kingdom ${kid}`);
   // 1) who are the top players? try a player power board first …
   let top = [], source = "";
   for (const board of ["player_power", "power", "governor_power"]) {
     const r = await get(`/kingdoms/${kid}/ranks?board=${board}&limit=${TOP}`);
     const rows = findRows(r.body, isPlayer);
-    console.log(`  board ${board}: HTTP ${r.status}, ${rows.length} rows`);
+    log(`  board ${board}: HTTP ${r.status}, ${rows.length} rows`);
     if (r.status === 200 && rows.length) { top = rows.map((x) => ({ id: x.governor_id ?? x.id, name: x.nick_name || x.name || "", power: x.power ?? null, alliance: x.alliance_abbr || x.abbr || x.alliance?.abbr || null })); source = "board:" + board; break; }
     await sleep(GAP_MS);
   }
@@ -58,7 +61,7 @@ async function scoutKingdom(kid) {
   const alliances = [];
   const ab = await get(`/kingdoms/${kid}/ranks?board=alliance_power&limit=${ALLIANCES}`);
   const arows = findRows(ab.body, isAlliance);
-  console.log(`  alliance board: HTTP ${ab.status}, ${arows.length} rows`);
+  log(`  alliance board: HTTP ${ab.status}, ${arows.length} rows`);
   if (arows.length) {
     const res = await getMany(arows.map((x) => `/alliances/${kid}/${encodeURIComponent(x.abbr)}?include=info,roster`), `Kingdom ${kid} alliances`);
     res.forEach((r, i) => {
@@ -72,7 +75,7 @@ async function scoutKingdom(kid) {
     top = top.filter((x) => x.id != null).sort((a, b) => (b.power || 0) - (a.power || 0)).slice(0, TOP);
     source = "alliance rosters";
   }
-  console.log(`  top list from ${source}: ${top.length} players, ${alliances.length} alliances`);
+  log(`  top list from ${source}: ${top.length} players, ${alliances.length} alliances`);
   if (!top.length) return null;
   // 2) each player's own record: TC, Mystic Trial, kills, VIP
   const pl = await getMany(top.map((t) => `/players/${t.id}?include=base,ranks`), `Kingdom ${kid} players`);
@@ -88,7 +91,7 @@ async function scoutKingdom(kid) {
       alliance: p.alliance?.abbr ?? t.alliance ?? null, kid: p.kid ?? kid,
     };
   }).sort((a, b) => (b.power || 0) - (a.power || 0));
-  console.log(`  players read: ${ok}/${top.length}`);
+  log(`  players read: ${ok}/${top.length}`);
   return { asOf: new Date().toISOString(), source, alliances, players };
 }
 
@@ -100,7 +103,9 @@ async function scoutKingdom(kid) {
   const list = (cfg.kingdoms || []).filter((k) => k && k.kid);
   let kids = mode === "auto" ? list.filter((k) => k.auto).map((k) => k.kid) : (cfg.requested || []);
   kids = [...new Set(kids.map(Number).filter((n) => n > 0))];
-  if (!kids.length) { console.log(`Nothing to scout (${mode}).`); return; }
+  log(`${new Date().toISOString()} mode=${mode} kingdoms=${kids.join(",") || "-"}`);
+  const flushLog = () => { let old = ""; try { old = fs.readFileSync(LOG, "utf8"); } catch (e) {} fs.writeFileSync(LOG, (old + logLines.join("\n") + "\n").split("\n").slice(-80).join("\n")); };
+  if (!kids.length) { log(`Nothing to scout (${mode}).`); flushLog(); return; }
   let out = null;
   try { out = readData(OUT); } catch (e) { if (e.code === "NOKEY") throw e; }
   out = out && out.kingdoms ? out : { kingdoms: {} };
@@ -112,5 +117,5 @@ async function scoutKingdom(kid) {
   writeData(OUT, out);
   // the button request is done → clear it (keeps the daily list)
   if (mode !== "auto" && cfg.requested) { delete cfg.requested; fs.writeFileSync(CONFIG, JSON.stringify(cfg, null, 1) + "\n"); }
-  console.log("✅ saved");
+  log("✅ saved"); flushLog();
 })();
