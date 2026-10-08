@@ -1,0 +1,3102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>NXS Officer</title>
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  body { padding: 16px; }
+  .wrap { max-width: 900px; margin: 0 auto; }
+  h1 { font-family: "Oswald", "Noto Sans TC", sans-serif; margin: 0 0 4px; font-size: 26px; }
+  .muted { color: var(--text-muted); font-size: 13px; }
+  .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
+  .btn { padding: 7px 12px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 14px; }
+  a.btn { text-decoration: none; display: inline-block; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+  .btn.small { padding: 4px 9px; font-size: 13px; }
+  .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 14px; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
+  .card h2 { margin: 0 0 10px; font-size: 18px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .tabs { display: flex; gap: 6px; margin: 14px 0 0; border-bottom: 2px solid var(--rule); flex-wrap: wrap; }
+  .tabs a { padding: 9px 14px; border-radius: 10px 10px 0 0; text-decoration: none; color: var(--text-muted); font-weight: 600; border: 1px solid transparent; border-bottom: 0; }
+  .tabs a.on { color: var(--text); background: var(--panel); border-color: var(--rule); margin-bottom: -2px; border-bottom: 2px solid var(--panel); }
+  @media (max-width: 440px) { .tabs { gap: 0; flex-wrap: nowrap; overflow-x: auto; } .tabs a { padding: 8px 6px; font-size: 13px; white-space: nowrap; } }
+  .weeknav { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .weeknav .lbl { font-weight: 700; text-align: center; flex: 1; }
+  .day { display: grid; grid-template-columns: 64px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--rule); }
+  .day:last-child { border-bottom: 0; }
+  .day.today { background: color-mix(in srgb, var(--accent) 10%, transparent); border-radius: 8px; padding-inline: 6px; }
+  .dname { font-weight: 700; line-height: 1.2; }
+  .dname small { display: block; font-weight: 400; color: var(--text-muted); font-size: 12px; }
+  .ev { display: inline-flex; align-items: center; gap: 4px; margin: 2px 6px 2px 0; padding: 3px 9px; border-radius: 999px; font-size: 13px; border: 1px solid var(--rule); background: var(--panel-2); }
+  .ev.start { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 20%, var(--panel)); font-weight: 700; }
+  .ev .n { font-size: 11px; color: var(--text-muted); }
+  .none { color: var(--text-muted); font-size: 13px; }
+  .todo { display: flex; gap: 10px; align-items: flex-start; padding: 10px; border-radius: 10px; background: var(--panel-2); margin: 8px 0; }
+  .todo input { width: 20px; height: 20px; margin-top: 2px; flex: none; }
+  .todo.done .txt { opacity: .55; text-decoration: line-through; }
+  .todo .when { font-size: 12px; color: var(--text-muted); }
+  .todo .acts { margin-top: 6px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .msg { margin-top: 6px; font-size: 13px; }
+  .warn { color: var(--accent); }
+  [hidden] { display: none !important; }
+  .ev { cursor: pointer; }
+  .evrow { border-bottom: 1px solid var(--rule); padding: 8px 0; }
+  .evrow:last-child { border-bottom: 0; }
+  .evrow > summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+  .evrow > summary::-webkit-details-marker { display: none; }
+  .sched { font-size: 12px; color: var(--text-muted); font-weight: 400; }
+  .evrow.flash { animation: flash 1.6s; }
+  @keyframes flash { 0%, 40% { background: color-mix(in srgb, var(--accent) 25%, transparent); } 100% { background: transparent; } }
+  .ig { background: var(--panel-2); border-radius: 10px; padding: 10px; margin: 8px 0; }
+  .ig .head { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 6px; }
+  .ig .head .btn { white-space: nowrap; flex: none; }
+  .ig pre { white-space: pre-wrap; word-break: break-word; margin: 0; font-family: inherit; font-size: 14px; line-height: 1.45; }
+  .modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 50; overflow-y: auto; padding: 16px; }
+  .modal .card { max-width: 640px; margin: 10px auto 40px; }
+  label.f { display: block; font-weight: 600; margin: 12px 0 4px; font-size: 14px; }
+  label.f small { font-weight: 400; color: var(--text-muted); }
+  .inp, .modal select, .modal textarea { width: 100%; box-sizing: border-box; padding: 8px 10px; font-size: 15px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-family: inherit; }
+  .modal textarea { min-height: 160px; line-height: 1.45; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; align-items: end; }
+  .grid2 { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 8px; }
+  .grid3 > div, .grid2 > div { min-width: 0; }
+  .inp { display: block; min-width: 0; max-width: 100%; }
+  .datebox { position: relative; display: flex; gap: 6px; align-items: center; }
+  .datebox .inp { flex: 1; }
+  .datebox .btn { flex: none; }
+  #edPicker { position: absolute; right: 0; bottom: 0; width: 1px; height: 1px; opacity: 0; border: 0; padding: 0; pointer-events: none; }
+  @media (max-width: 520px) { .grid3 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .grid3 > div:first-child { grid-column: 1 / -1; } }
+  .todo-ed .due { display: flex; align-items: center; gap: 8px; font-size: 13px; flex-wrap: wrap; }
+  .todo-ed .due .inp { width: 80px; }
+  .sub { border: 1px solid var(--rule); border-radius: 10px; padding: 8px 10px; margin: 8px 0; }
+  .sub .row { justify-content: space-between; }
+  .okmsg { color: #2e7d32; }
+
+/* ---- per-tab styles ---- */
+  #pg-events .wrap { max-width: 900px; margin: 0 auto; }
+  #pg-events h1 { font-family: "Oswald", "Noto Sans TC", sans-serif; margin: 0 0 4px; font-size: 26px; }
+  #pg-events .muted { color: var(--text-muted); font-size: 13px; }
+  #pg-events .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
+  #pg-events .btn { padding: 7px 12px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 14px; }
+  #pg-events a.btn { text-decoration: none; display: inline-block; }
+  #pg-events .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+  #pg-events .btn.small { padding: 4px 9px; font-size: 13px; }
+  #pg-events .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 14px; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
+  #pg-events .card h2 { margin: 0 0 10px; font-size: 18px; }
+  #pg-events .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  #pg-events .tabs { display: flex; gap: 6px; margin: 14px 0 0; border-bottom: 2px solid var(--rule); flex-wrap: wrap; }
+  #pg-events .tabs a { padding: 9px 14px; border-radius: 10px 10px 0 0; text-decoration: none; color: var(--text-muted); font-weight: 600; border: 1px solid transparent; border-bottom: 0; }
+  #pg-events .tabs a.on { color: var(--text); background: var(--panel); border-color: var(--rule); margin-bottom: -2px; border-bottom: 2px solid var(--panel); }
+  @media (max-width: 440px) {
+  #pg-events .tabs { gap: 0; flex-wrap: nowrap; overflow-x: auto; }
+  #pg-events .tabs a { padding: 8px 6px; font-size: 13px; white-space: nowrap; } }
+  #pg-events .weeknav { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  #pg-events .weeknav .lbl { font-weight: 700; text-align: center; flex: 1; }
+  #pg-events .day { display: grid; grid-template-columns: 64px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--rule); }
+  #pg-events .day:last-child { border-bottom: 0; }
+  #pg-events .day.today { background: color-mix(in srgb, var(--accent) 10%, transparent); border-radius: 8px; padding-inline: 6px; }
+  #pg-events .dname { font-weight: 700; line-height: 1.2; }
+  #pg-events .dname small { display: block; font-weight: 400; color: var(--text-muted); font-size: 12px; }
+  #pg-events .ev { display: inline-flex; align-items: center; gap: 4px; margin: 2px 6px 2px 0; padding: 3px 9px; border-radius: 999px; font-size: 13px; border: 1px solid var(--rule); background: var(--panel-2); }
+  #pg-events .ev.start { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 20%, var(--panel)); font-weight: 700; }
+  #pg-events .ev .n { font-size: 11px; color: var(--text-muted); }
+  #pg-events .none { color: var(--text-muted); font-size: 13px; }
+  #pg-events .todo { display: flex; gap: 10px; align-items: flex-start; padding: 10px; border-radius: 10px; background: var(--panel-2); margin: 8px 0; }
+  #pg-events .todo input { width: 20px; height: 20px; margin-top: 2px; flex: none; }
+  #pg-events .todo.done .txt { opacity: .55; text-decoration: line-through; }
+  #pg-events .todo .when { font-size: 12px; color: var(--text-muted); }
+  #pg-events .todo .acts { margin-top: 6px; display: flex; gap: 6px; flex-wrap: wrap; }
+  #pg-events .msg { margin-top: 6px; font-size: 13px; }
+  #pg-events .warn { color: var(--accent); }
+  #pg-events [hidden] { display: none !important; }
+  #pg-events .ev { cursor: pointer; }
+  #pg-events .evrow { border-bottom: 1px solid var(--rule); padding: 8px 0; }
+  #pg-events .evrow:last-child { border-bottom: 0; }
+  #pg-events .evrow > summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+  #pg-events .evrow > summary::-webkit-details-marker { display: none; }
+  #pg-events .sched { font-size: 12px; color: var(--text-muted); font-weight: 400; }
+  #pg-events .evrow.flash { animation: flash 1.6s; }
+  @keyframes flash { 0%, 40% { background: color-mix(in srgb, var(--accent) 25%, transparent); } 100% { background: transparent; } }
+  #pg-events .ig { background: var(--panel-2); border-radius: 10px; padding: 10px; margin: 8px 0; }
+  #pg-events .ig .head { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 6px; }
+  #pg-events .ig .head .btn { white-space: nowrap; flex: none; }
+  #pg-events .ig pre { white-space: pre-wrap; word-break: break-word; margin: 0; font-family: inherit; font-size: 14px; line-height: 1.45; }
+  #pg-events .modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 50; overflow-y: auto; padding: 16px; }
+  #pg-events .modal .card { max-width: 640px; margin: 10px auto 40px; }
+  #pg-events label.f { display: block; font-weight: 600; margin: 12px 0 4px; font-size: 14px; }
+  #pg-events label.f small { font-weight: 400; color: var(--text-muted); }
+  #pg-events .inp, #pg-events .modal select, #pg-events .modal textarea { width: 100%; box-sizing: border-box; padding: 8px 10px; font-size: 15px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-family: inherit; }
+  #pg-events .modal textarea { min-height: 160px; line-height: 1.45; }
+  #pg-events .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; align-items: end; }
+  #pg-events .grid2 { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 8px; }
+  #pg-events .grid3 > div, #pg-events .grid2 > div { min-width: 0; }
+  #pg-events .inp { display: block; min-width: 0; max-width: 100%; }
+  #pg-events .datebox { position: relative; display: flex; gap: 6px; align-items: center; }
+  #pg-events .datebox .inp { flex: 1; }
+  #pg-events .datebox .btn { flex: none; }
+  #pg-events #edPicker { position: absolute; right: 0; bottom: 0; width: 1px; height: 1px; opacity: 0; border: 0; padding: 0; pointer-events: none; }
+  @media (max-width: 520px) {
+  #pg-events .grid3 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  #pg-events .grid3 > div:first-child { grid-column: 1 / -1; } }
+  #pg-events .todo-ed .due { display: flex; align-items: center; gap: 8px; font-size: 13px; flex-wrap: wrap; }
+  #pg-events .todo-ed .due .inp { width: 80px; }
+  #pg-events .sub { border: 1px solid var(--rule); border-radius: 10px; padding: 8px 10px; margin: 8px 0; }
+  #pg-events .sub .row { justify-content: space-between; }
+  #pg-events .okmsg { color: #2e7d32; }
+
+  #pg-ranking .wrap { max-width: 980px; margin: 0 auto; }
+  #pg-ranking h1 { font-family: "Oswald", "Noto Sans TC", sans-serif; margin: 0 0 4px; font-size: 26px; }
+  #pg-ranking .muted { color: var(--text-muted); font-size: 13px; }
+  #pg-ranking .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
+  #pg-ranking .btn { padding: 7px 12px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 14px; }
+  #pg-ranking a.btn { text-decoration: none; display: inline-block; }
+  #pg-ranking .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+  #pg-ranking .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 14px; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
+  #pg-ranking .card h2 { margin: 0 0 10px; font-size: 18px; }
+  #pg-ranking .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  #pg-ranking .w { display: flex; align-items: center; gap: 6px; background: var(--panel-2); padding: 8px 10px; border-radius: 10px; }
+  #pg-ranking .w input { width: 70px; padding: 6px 8px; font-size: 16px; border-radius: 6px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); text-align: end; }
+  #pg-ranking input[type=search], #pg-ranking textarea { width: 100%; box-sizing: border-box; padding: 9px 11px; font-size: 15px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-family: inherit; }
+  #pg-ranking textarea { min-height: 80px; }
+  #pg-ranking .tbl-wrap { overflow-x: auto; margin-top: 10px; max-height: 60vh; overflow-y: auto; border: 1px solid var(--rule); border-radius: 8px; }
+  #pg-ranking table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  #pg-ranking th, #pg-ranking td { padding: 6px 8px; border-bottom: 1px solid var(--rule); white-space: nowrap; text-align: start; }
+  #pg-ranking th { position: sticky; top: 0; background: var(--panel-2); cursor: pointer; user-select: none; z-index: 1; }
+  #pg-ranking td.num, #pg-ranking th.num { text-align: end; font-variant-numeric: tabular-nums; }
+  #pg-ranking tr.on td { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+  #pg-ranking tr.member, #pg-ranking tr.grp { cursor: pointer; }
+  #pg-ranking tr.grp td { background: var(--panel-2); border-top: 2px solid var(--rule); }
+  #pg-ranking .name { font-weight: 600; max-width: 220px; overflow: hidden; text-overflow: ellipsis; }
+  #pg-ranking .bar { display: inline-block; height: 8px; border-radius: 4px; background: var(--accent); vertical-align: middle; margin-inline-start: 6px; }
+  #pg-ranking .warn { color: var(--accent); }
+  #pg-ranking .msg { margin-top: 6px; font-size: 13px; }
+  #pg-ranking details summary { cursor: pointer; font-weight: 600; }
+  #pg-ranking .grp-out h3 { margin: 14px 0 6px; font-size: 16px; }
+  #pg-ranking .grp-out ol { margin: 0; padding-inline-start: 26px; }
+  #pg-ranking .grp-out li { padding: 2px 0; }
+  #pg-ranking .btn.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  #pg-ranking .tabs { display: flex; gap: 6px; margin: 14px 0 0; border-bottom: 2px solid var(--rule); }
+  #pg-ranking .tabs a { padding: 9px 14px; border-radius: 10px 10px 0 0; text-decoration: none; color: var(--text-muted); font-weight: 600; border: 1px solid transparent; border-bottom: 0; }
+  #pg-ranking .tabs a.on { color: var(--text); background: var(--panel); border-color: var(--rule); margin-bottom: -2px; border-bottom: 2px solid var(--panel); }
+  @media (max-width: 440px) {
+  #pg-ranking .tabs { gap: 0; flex-wrap: nowrap; overflow-x: auto; }
+  #pg-ranking .tabs a { padding: 8px 6px; font-size: 13px; white-space: nowrap; } }
+  #pg-ranking .tb-setup { background: var(--panel-2); border-radius: 10px; padding: 8px 12px; }
+  #pg-ranking .tb-setup summary { cursor: pointer; font-weight: 600; }
+  #pg-ranking .tb-setup .f { display: block; margin: 8px 0 4px; font-weight: 600; font-size: 14px; }
+  #pg-ranking .tb-setup input[type=text] { width: 100%; box-sizing: border-box; padding: 7px 9px; border-radius: 6px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); font-size: 15px; }
+  #pg-ranking .tb-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  #pg-ranking .tb-cols label { display: flex; gap: 6px; align-items: center; }
+  #pg-ranking .tb-sticky { position: sticky; top: 0; z-index: 5; background: var(--panel); padding: 4px 0 8px; }
+  #pg-ranking .tb-pool-h { font-size: 13px; font-weight: 600; margin: 6px 0; }
+  #pg-ranking .tb-pool { display: flex; flex-wrap: wrap; gap: 6px; max-height: 190px; overflow-y: auto; padding: 8px; background: var(--panel-2); border-radius: 10px; }
+  #pg-ranking .tb-chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 9px; border-radius: 999px; background: var(--panel); border: 1px solid var(--rule); font-size: 13px; cursor: pointer; user-select: none; margin: 2px; }
+  #pg-ranking .tb-counts { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 6px; font-size: 13px; }
+  #pg-ranking .tb-counts input { width: 52px; padding: 4px 6px; border-radius: 6px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-size: 15px; }
+  #pg-ranking .tb-role { width: 100%; }
+  #pg-ranking .tb-role-h { font-size: 12px; font-weight: 700; margin: 2px 0 2px; }
+  #pg-ranking .tb-role-h span { font-weight: 400; color: var(--text-muted); }
+  #pg-ranking .tb-role.r0 .tb-role-h { color: #b3261e; }
+  #pg-ranking .tb-chip.pool.r0 { border-color: #d77a72; background: color-mix(in srgb, #e57373 18%, var(--panel)); }
+  #pg-ranking .tb-role.r1 .tb-role-h { color: #1d5fa8; }
+  #pg-ranking .tb-chip.pool.r1 { border-color: #7aa7d7; background: color-mix(in srgb, #64b5f6 18%, var(--panel)); }
+  #pg-ranking .tb-role.r2 .tb-role-h { color: var(--text-muted); }
+  #pg-ranking .tb-chip.pool.on { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  #pg-ranking .tb-chip i { font-style: normal; font-size: 11px; background: var(--text-muted); color: var(--panel); border-radius: 999px; padding: 0 5px; }
+  #pg-ranking .tb-chip.txt { font-style: italic; }
+  #pg-ranking .tb-x { font-weight: 700; opacity: .55; padding: 0 2px; }
+  #pg-ranking .tb-group { border: 2px solid; border-radius: 12px; padding: 10px; margin: 12px 0; }
+  #pg-ranking .tb-ghead { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px; }
+  #pg-ranking .tb-swatches { display: flex; gap: 4px; flex-wrap: wrap; }
+  #pg-ranking .tb-sw { width: 20px; height: 20px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; }
+  #pg-ranking .tb-sw.on { border-color: var(--text); }
+  #pg-ranking .tb-row { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 8px; margin-bottom: 8px; }
+  #pg-ranking .tb-rowtop { display: flex; gap: 8px; align-items: end; flex-wrap: wrap; }
+  #pg-ranking .tb-in { display: flex; flex-direction: column; font-size: 12px; color: var(--text-muted); flex: 1; min-width: 90px; }
+  #pg-ranking .tb-in.wide { margin-top: 6px; }
+  #pg-ranking .tb-in input { padding: 6px 8px; border-radius: 6px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-size: 15px; }
+  #pg-ranking .tb-rowbtns { display: flex; gap: 4px; }
+  #pg-ranking .btn.small { padding: 4px 9px; font-size: 13px; }
+  #pg-ranking .tb-cell { margin-top: 6px; padding: 6px; min-height: 30px; border: 1px dashed var(--rule); border-radius: 8px; cursor: pointer; }
+  #pg-ranking .tb-lab { font-size: 12px; color: var(--text-muted); margin-bottom: 2px; }
+  #pg-ranking .tb-add { display: inline-block; font-size: 12px; color: var(--text-muted); padding: 3px 6px; cursor: pointer; }
+  #pg-ranking .tb-modal { position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 60; display: grid; place-items: center; padding: 12px; overflow: auto; }
+  #pg-ranking .tb-modal .card { max-width: 96vw; }
+  #pg-ranking .empty { padding: 20px; text-align: center; color: var(--text-muted); }
+
+  #pg-post .wrap { max-width: 760px; margin: 0 auto; }
+  #pg-post h1 { font-family: "Oswald", "Noto Sans TC", sans-serif; margin: 0 0 4px; font-size: 26px; }
+  #pg-post .muted { color: var(--text-muted); font-size: 13px; }
+  #pg-post .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
+  #pg-post .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  #pg-post .btn { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 15px; text-decoration: none; display: inline-block; }
+  #pg-post .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+  #pg-post .btn.big { width: 100%; padding: 14px; font-size: 17px; }
+  #pg-post .btn.danger { color: #b3261e; border-color: #b3261e; }
+  #pg-post .btn:disabled { opacity: .5; cursor: default; }
+  #pg-post .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 16px; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
+  #pg-post .card h2 { margin: 0 0 10px; font-size: 19px; }
+  #pg-post label.f { display: block; font-weight: 600; margin: 12px 0 4px; }
+  #pg-post label.f small { font-weight: 400; color: var(--text-muted); }
+  #pg-post input[type=text], #pg-post input[type=password], #pg-post select, #pg-post textarea {
+    width: 100%; box-sizing: border-box; padding: 10px 12px; font-size: 16px; border-radius: 8px;
+    border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-family: inherit; }
+  #pg-post textarea { min-height: 200px; line-height: 1.5; }
+  #pg-post .preview { background: var(--panel-2); border-radius: 10px; padding: 12px 14px; white-space: pre-wrap; line-height: 1.6; min-height: 40px; }
+  #pg-post .preview .chip { display: inline-block; padding: 2px 10px; border: 1px solid var(--accent); border-radius: 8px; color: var(--accent); font-weight: 600; }
+  #pg-post .msg { margin-top: 10px; padding: 10px 12px; border-radius: 8px; display: none; line-height: 1.5; }
+  #pg-post .msg.ok { display: block; background: color-mix(in srgb, #2e7d32 15%, transparent); }
+  #pg-post .msg.err { display: block; background: color-mix(in srgb, #b3261e 15%, transparent); }
+  #pg-post .msg.info { display: block; background: var(--panel-2); }
+  #pg-post .ann { display: flex; justify-content: space-between; gap: 10px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+  #pg-post .ann:last-child { border-bottom: 0; }
+  #pg-post .ann b { display: block; }
+  #pg-post .steps { margin: 6px 0 0; padding-inline-start: 22px; line-height: 1.6; }
+  #pg-post .tip { font-size: 13px; color: var(--text-muted); margin-top: 6px; }
+  #pg-post details summary { cursor: pointer; font-weight: 600; }
+  #pg-post .tabs { display: flex; gap: 6px; margin: 14px 0 0; border-bottom: 2px solid var(--rule); }
+  #pg-post .tabs a { padding: 9px 14px; border-radius: 10px 10px 0 0; text-decoration: none; color: var(--text-muted); font-weight: 600; border: 1px solid transparent; border-bottom: 0; }
+  #pg-post .tabs a.on { color: var(--text); background: var(--panel); border-color: var(--rule); margin-bottom: -2px; border-bottom: 2px solid var(--panel); }
+  @media (max-width: 440px) {
+  #pg-post .tabs { gap: 0; flex-wrap: nowrap; overflow-x: auto; }
+  #pg-post .tabs a { padding: 8px 6px; font-size: 13px; white-space: nowrap; } }
+  #pg-post .preview img { max-width: 100%; border-radius: 8px; display: block; margin: 6px 0; }
+  #pg-post .modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: grid; place-items: center; padding: 16px; z-index: 50; }
+  #pg-post .modal .card { max-width: 380px; width: 100%; }
+  #pg-post [hidden] { display: none !important; }
+  #pg-post .ann .acts { display: flex; gap: 6px; flex-shrink: 0; }
+  #pg-post .badge { display: inline-block; font-size: 12px; padding: 1px 7px; border-radius: 6px; background: var(--panel-2); margin-inline-start: 4px; }
+  #pg-post .editing { background: color-mix(in srgb, var(--accent) 16%, transparent); border-radius: 8px; padding: 10px 12px; margin-bottom: 6px; display: flex; gap: 10px; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+
+  #pg-watch .wrap { max-width: 1200px; margin: 0 auto; }
+  #pg-watch h1 { font-family: "Oswald", "Noto Sans TC", sans-serif; margin: 0 0 4px; font-size: 26px; }
+  #pg-watch .muted { color: var(--text-muted); font-size: 13px; }
+  #pg-watch .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
+  #pg-watch .btn { padding: 7px 12px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 14px; }
+  #pg-watch .btn.mini { padding: 2px 7px; font-size: 13px; }
+  #pg-watch .btn:disabled { opacity: .5; cursor: default; }
+  #pg-watch a.btn { text-decoration: none; display: inline-block; }
+  #pg-watch .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+  #pg-watch .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 14px; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
+  #pg-watch .card h2 { margin: 0 0 10px; font-size: 18px; }
+  #pg-watch .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  #pg-watch input[type=search], #pg-watch input[type=number] { box-sizing: border-box; padding: 8px 10px; font-size: 15px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); }
+  #pg-watch input[type=search] { flex: 1; min-width: 160px; }
+  #pg-watch input[type=number] { width: 70px; }
+  #pg-watch .tbl-wrap { overflow: auto; margin-top: 10px; max-height: 70vh; border: 1px solid var(--rule); border-radius: 8px; }
+  #pg-watch table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  #pg-watch th, #pg-watch td { padding: 6px 8px; border-bottom: 1px solid var(--rule); white-space: nowrap; text-align: start; vertical-align: top; }
+  #pg-watch th { position: sticky; top: 0; background: var(--panel-2); z-index: 1; cursor: pointer; user-select: none; }
+  #pg-watch td.num, #pg-watch th.num { text-align: end; font-variant-numeric: tabular-nums; }
+  #pg-watch td.wrapc { white-space: normal; min-width: 160px; max-width: 260px; }
+  #pg-watch .name { font-weight: 600; }
+  #pg-watch .id { font-size: 12px; opacity: .65; font-variant-numeric: tabular-nums; user-select: all; }
+  #pg-watch .flag { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 999px; margin: 1px 2px 1px 0; background: color-mix(in srgb, var(--accent) 22%, var(--panel)); border: 1px solid var(--accent); }
+  #pg-watch .flag.hi { background: color-mix(in srgb, #e57373 25%, var(--panel)); border-color: #d77a72; }
+  #pg-watch .flag.ok { background: color-mix(in srgb, #66bb6a 25%, var(--panel)); border-color: #66bb6a; }
+  #pg-watch .up { color: #2e7d32; }
+  #pg-watch .down { color: #c62828; }
+  #pg-watch .tabs { display: flex; gap: 6px; margin: 14px 0 0; border-bottom: 2px solid var(--rule); flex-wrap: wrap; }
+  #pg-watch .tabs a { padding: 9px 14px; border-radius: 10px 10px 0 0; text-decoration: none; color: var(--text-muted); font-weight: 600; border: 1px solid transparent; border-bottom: 0; }
+  #pg-watch .tabs a.on { color: var(--text); background: var(--panel); border-color: var(--rule); margin-bottom: -2px; border-bottom: 2px solid var(--panel); }
+  @media (max-width: 440px) {
+  #pg-watch .tabs { gap: 0; flex-wrap: nowrap; overflow-x: auto; }
+  #pg-watch .tabs a { padding: 8px 6px; font-size: 13px; white-space: nowrap; } }
+  #pg-watch .msg { margin-top: 6px; font-size: 13px; }
+  #pg-watch .warn { color: var(--accent); }
+  #pg-watch .empty { padding: 20px; text-align: center; color: var(--text-muted); }
+  #pg-watch ul.notes { margin: 6px 0 0; padding-inline-start: 20px; font-size: 13px; color: var(--text-muted); }
+  #pg-watch .modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: grid; place-items: center; padding: 16px; z-index: 50; }
+  #pg-watch .modal .card { max-width: 440px; width: 100%; box-sizing: border-box; max-height: 90vh; overflow: auto; }
+  #pg-watch .modal label.f { display: block; font-weight: 600; margin: 12px 0 4px; }
+  #pg-watch .modal label.f small { font-weight: 400; color: var(--text-muted); }
+  #pg-watch .modal textarea, #pg-watch .modal input[type=text] { width: 100%; box-sizing: border-box; padding: 9px 11px; font-size: 15px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-family: inherit; }
+  #pg-watch .modal textarea { min-height: 70px; line-height: 1.5; }
+  #pg-watch .modal .seg label { display: flex; align-items: center; gap: 4px; padding: 6px 10px; border: 1px solid var(--rule); border-radius: 8px; cursor: pointer; font-size: 14px; }
+  #pg-watch .modal hr { border: 0; border-top: 1px solid var(--rule); margin: 14px 0 0; }
+
+  .pg[hidden] { display: none !important; }
+  .shbar { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<div class="wrap" id="main">
+  <div class="shbar"><a class="btn" href="./">← <span id="shHome"></span></a><button class="btn" id="langBtn"></button></div>
+  <nav class="tabs">
+    <a href="#events" data-tab="events">📅 Events</a>
+    <a href="#ranking" data-tab="ranking">📊 Ranking</a>
+    <a href="#post" data-tab="post">📢 Post</a>
+    <a href="#watch" data-tab="watch">🕵️ Watch</a>
+  </nav>
+  <div id="gate" class="card" hidden style="max-width:360px;margin:24px auto">
+    <h2 id="gateTitle"></h2>
+    <input type="password" id="gatePw" autocomplete="current-password" style="width:100%;box-sizing:border-box;padding:10px;font-size:16px;border-radius:8px;border:1px solid var(--rule);background:var(--panel-2);color:var(--text)">
+    <label class="row" style="margin-top:8px;font-size:14px"><input type="checkbox" id="gateRemember" checked> <span id="gateRememberTxt"></span></label>
+    <div style="margin-top:10px"><button class="btn primary" id="gateBtn" style="width:100%;padding:12px"></button></div>
+    <div class="msg warn" id="gateErr" hidden></div>
+  </div>
+<section class="pg" id="pg-events" hidden>
+  <div class="top">
+    <div>
+      <h1 data-t="title"></h1>
+      <div class="muted" data-t="sub"></div>
+    </div>
+  </div>
+  <div id="ev_noData" class="card" hidden></div>
+
+  <div id="ev_app" hidden>
+    <div class="card">
+      <div class="weeknav">
+        <button class="btn" id="prevW">◀</button>
+        <div class="lbl" id="weekLbl"></div>
+        <button class="btn" id="nextW">▶</button>
+      </div>
+      <div class="row" style="justify-content:center;margin-top:6px"><button class="btn small" id="thisW" data-t="thisWeek"></button></div>
+    </div>
+
+    <div class="card">
+      <h2 data-t="todoTitle"></h2>
+      <div id="todos"></div>
+      <div class="muted msg" data-t="todoNote"></div>
+    </div>
+
+    <div class="card">
+      <h2 data-t="weekTitle"></h2>
+      <div id="days"></div>
+      <div class="muted msg" data-t="note"></div>
+    </div>
+
+    <div class="card">
+      <div class="row" style="justify-content:space-between">
+        <h2 style="margin:0" data-t="mgrTitle"></h2>
+        <button class="btn primary small" id="addEv" data-t="addEv"></button>
+      </div>
+      <div class="muted msg" data-t="mgrNote"></div>
+      <div id="evList"></div>
+      <div class="msg" id="saveMsg"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="editor" hidden>
+    <div class="card">
+      <h2 id="edTitle"></h2>
+      <div class="grid2">
+        <div><label class="f" data-t="fEmoji"></label><input class="inp" id="edEmoji" maxlength="4"></div>
+        <div><label class="f" data-t="fName"></label><input class="inp" id="edName" maxlength="60"></div>
+      </div>
+      <label class="f"><input type="checkbox" id="edFixed"> <span data-t="fFixed"></span></label>
+      <div id="edSched" class="grid3">
+        <div><label class="f" data-t="fStart"></label>
+          <div class="datebox"><input class="inp" id="edStart" inputmode="numeric" placeholder="YYYY-MM-DD" maxlength="10" autocomplete="off"><button type="button" class="btn small" id="edPick">📅</button><input type="date" id="edPicker" tabindex="-1" aria-hidden="true"></div>
+          <div class="sched" id="edStartTxt"></div></div>
+        <div><label class="f" data-t="fEvery"></label><input class="inp" type="number" min="1" id="edEvery"></div>
+        <div><label class="f" data-t="fDays"></label><input class="inp" type="number" min="1" id="edDays"></div>
+      </div>
+      <label class="f"><span data-t="fNote"></span> <small data-t="fNoteSm"></small></label><input class="inp" id="edNote" maxlength="120">
+      <label class="f" data-t="fGuide"></label><select id="edGuide"></select>
+      <label class="f" data-t="fTodo"></label>
+      <div id="edTodos"></div>
+      <button class="btn small" id="edAddTodo" data-t="addTodo"></button>
+      <label class="f"><span data-t="fIngame"></span> <small data-t="fIngameSm"></small></label>
+      <div id="edIgs"></div>
+      <button class="btn small" id="edAddIg" data-t="addIg"></button>
+      <div class="row" style="margin-top:16px;justify-content:space-between">
+        <button class="btn" id="edDel" data-t="del" style="color:#b3261e;border-color:#b3261e"></button>
+        <div class="row"><button class="btn" id="edCancel" data-t="cancel"></button><button class="btn primary" id="edSave" data-t="save"></button></div>
+      </div>
+      <div class="msg warn" id="edMsg"></div>
+    </div>
+  </div>
+</section>
+<section class="pg" id="pg-ranking" hidden>
+  <div class="top">
+    <div>
+      <h1 data-t="title"></h1>
+      <div class="muted" id="rk_meta"></div>
+    </div>
+  </div>
+  <div id="rk_noData" class="card" hidden></div>
+
+  <div id="rk_app" hidden>
+    <!-- 1. weights -->
+    <div class="card">
+      <h2 data-t="weights"></h2>
+      <div class="row">
+        <label class="w"><span data-t="power"></span><input type="number" id="wPower" min="0" max="100" step="5"> %</label>
+        <label class="w"><span data-t="mystic"></span><input type="number" id="wMystic" min="0" max="100" step="5"> %</label>
+      </div>
+      <div class="muted msg" data-t="weightNote"></div>
+    </div>
+
+    <!-- 2. pick participants -->
+    <div class="card">
+      <h2><span data-t="pick"></span> <span class="muted" id="pickCount"></span></h2>
+      <div class="row" style="margin-bottom:8px">
+        <button class="btn" id="allBtn" data-t="all"></button>
+        <button class="btn" id="noneBtn" data-t="none"></button>
+      </div>
+      <details style="margin-bottom:8px">
+        <summary data-t="paste"></summary>
+        <div class="muted msg" data-t="pasteNote"></div>
+        <textarea id="pasteBox"></textarea>
+        <div class="row" style="margin-top:6px"><button class="btn" id="pasteBtn" data-t="pasteGo"></button></div>
+        <div class="msg" id="pasteMsg"></div>
+      </details>
+      <input type="search" id="rk_q">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr>
+            <th></th>
+            <th data-sort="name" data-t="colName"></th>
+            <th data-sort="rank" data-t="colRank"></th>
+            <th data-sort="tc" class="num" data-t="colTc"></th>
+            <th data-sort="power" class="num" data-t="power"></th>
+            <th data-sort="mystic" class="num" data-t="mystic"></th>
+          </tr></thead>
+          <tbody id="rk_list"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 3. result -->
+    <div class="card">
+      <div class="top">
+        <h2 data-t="result"></h2>
+        <button class="btn primary" id="rk_copyBtn" data-t="copy"></button>
+      </div>
+      <div class="tbl-wrap" style="max-height:none">
+        <table>
+          <thead><tr>
+            <th class="num">#</th>
+            <th data-t="colName"></th>
+            <th class="num" data-t="colScore"></th>
+            <th class="num" data-t="power"></th>
+            <th class="num" data-t="mystic"></th>
+          </tr></thead>
+          <tbody id="result"></tbody>
+        </table>
+      </div>
+      <div class="muted msg" data-t="scoreNote"></div>
+    </div>
+
+    <!-- 4. event presets -->
+    <div class="card">
+      <div class="top">
+        <h2 data-t="events"></h2>
+        <button class="btn primary" id="presetCopy" data-t="copy" hidden></button>
+      </div>
+      <div class="muted msg" data-t="eventsNote" style="margin:0 0 8px"></div>
+      <div class="row" id="presetBtns"></div>
+      <div class="row" id="presetCounts" style="margin-top:10px"></div>
+      <div id="presetOut"></div>
+    </div>
+
+    <!-- 5. battle table -->
+    <div class="card" id="tbCard"></div>
+  </div>
+</section>
+<section class="pg" id="pg-post" hidden>
+  <div class="top">
+    <div>
+      <h1 data-t="title"></h1>
+      <div class="muted" data-t="subtitle"></div>
+    </div>
+  </div>
+
+  <!-- admin setup (only needed once, by the site owner) -->
+  <div class="card" id="setupCard" hidden>
+    <h2>🛠️ <span data-t="setupTitle"></span></h2>
+    <div class="muted" data-t="setupIntro"></div>
+    <ol class="steps" id="setupSteps"></ol>
+    <label class="f" data-t="token"></label>
+    <input type="password" id="tok" placeholder="github_pat_…" autocomplete="off">
+    <label class="f" data-t="newPw"></label>
+    <input type="password" id="pw1" autocomplete="new-password">
+    <label class="f" data-t="newPw2"></label>
+    <input type="password" id="pw2" autocomplete="new-password">
+    <div style="margin-top:12px"><button class="btn primary big" id="setupBtn" data-t="setupGo"></button></div>
+    <div class="msg" id="setupMsg"></div>
+  </div>
+
+  <div id="po_app" hidden>
+    <!-- 2. write -->
+    <div class="card">
+      <h2>✍️ <span data-t="writeTitle"></span></h2>
+      <div class="editing" id="editBanner" hidden><span><span data-t="editing"></span>: <b dir="auto" id="editBannerTitle"></b></span><button class="btn" id="cancelEdit" data-t="cancelEdit"></button></div>
+
+      <label class="f" data-t="fName"></label>
+      <input type="text" id="author" maxlength="40">
+
+      <label class="f"><span data-t="fLang"></span> <small data-t="fLangNote"></small></label>
+      <select id="srcLang"></select>
+
+      <label class="f" data-t="fTitle"></label>
+      <input type="text" id="annTitle" maxlength="120">
+
+      <label class="f"><span data-t="fBody"></span> <small data-t="fBodyNote"></small></label>
+      <textarea id="body"></textarea>
+      <div class="row" style="margin-top:8px">
+        <label class="btn" for="imgPick">🖼️ <span data-t="addImg"></span></label>
+        <input type="file" id="imgPick" accept="image/*" multiple hidden>
+        <span class="muted" data-t="addImgNote"></span>
+      </div>
+
+      <label class="f"><span data-t="fLink"></span> <small data-t="fLinkNote"></small></label>
+      <select id="guide"></select>
+
+      <label class="f" data-t="preview"></label>
+      <div class="preview" id="preview"></div>
+
+      <div style="margin-top:14px"><button class="btn primary big" id="publishBtn" data-t="publish"></button></div>
+      <div class="msg" id="pubMsg"></div>
+    </div>
+
+    <!-- edit -->
+    <div class="card" id="editCard" hidden>
+      <div class="top"><h2>✏️ <span data-t="editTitle"></span></h2><button class="btn" id="editClose" data-t="close"></button></div>
+      <div><b dir="auto" id="editWhich"></b></div>
+      <label class="f" data-t="editWhat"></label>
+      <select id="editLang"></select>
+      <div id="editAllBox">
+        <p class="muted" data-t="editAllNote"></p>
+        <button class="btn primary" id="editAllGo" data-t="editAllGo"></button>
+      </div>
+      <div id="editPicBox" hidden>
+        <p class="muted" data-t="picNote"></p>
+        <div class="row">
+          <label class="btn" for="picPick">🖼️ <span data-t="addImg"></span></label>
+          <input type="file" id="picPick" accept="image/*" multiple hidden>
+        </div>
+        <label class="f" data-t="picWhere"></label>
+        <div class="row" style="font-size:15px">
+          <label><input type="radio" name="picPos" value="end" checked> <span data-t="picEnd"></span></label>
+          <label><input type="radio" name="picPos" value="top"> <span data-t="picTop"></span></label>
+        </div>
+        <label class="f" data-t="preview"></label>
+        <div class="preview" id="picPreview" dir="auto"></div>
+        <div style="margin-top:12px"><button class="btn primary" id="picSave" data-t="picSave"></button></div>
+      </div>
+      <div id="editOneBox" hidden>
+        <p class="muted" data-t="editLangNote"></p>
+        <label class="f" data-t="fName"></label>
+        <input type="text" id="fixBy" maxlength="40">
+        <label class="f" data-t="fTitle"></label>
+        <input type="text" id="fixTitle" maxlength="120" dir="auto">
+        <label class="f" data-t="fBody"></label>
+        <textarea id="fixBody" dir="auto"></textarea>
+        <label class="f" data-t="preview"></label>
+        <div class="preview" id="fixPreview" dir="auto"></div>
+        <div class="row" style="margin-top:12px">
+          <button class="btn primary" id="fixSave" data-t="saveFix"></button>
+          <button class="btn" id="fixUndo" data-t="unfix" hidden></button>
+        </div>
+      </div>
+      <div class="msg" id="editMsg"></div>
+    </div>
+
+    <!-- 3. current -->
+    <div class="card">
+      <div class="top">
+        <h2>📋 <span data-t="listTitle"></span></h2>
+        <button class="btn" id="reloadBtn" data-t="reload"></button>
+      </div>
+      <div class="muted" data-t="listNote"></div>
+      <div id="po_list"></div>
+      <div class="msg" id="listMsg"></div>
+    </div>
+
+    <details class="card">
+      <summary data-t="adminMore"></summary>
+      <p class="muted" data-t="adminMoreNote"></p>
+      <div class="row">
+        <button class="btn" id="forgetBtn" data-t="forget"></button>
+        <button class="btn" id="resetupBtn" data-t="resetup"></button>
+      </div>
+      <div class="row" style="margin-top:10px"><button class="btn" id="dataKeyBtn" data-t="dataKeyBtn"></button></div>
+      <div class="msg" id="dataKeyMsg" style="white-space:pre-line"></div>
+      <pre id="dataKeyOut" hidden style="user-select:all;white-space:pre-wrap;word-break:break-all;padding:10px;border-radius:8px;border:1px solid currentColor"></pre>
+    </details>
+  </div>
+</section>
+<section class="pg" id="pg-watch" hidden>
+  <div class="top">
+    <div>
+      <h1 data-t="title"></h1>
+      <div class="muted" id="wa_meta"></div>
+    </div>
+  </div>
+  <div id="wa_noData" class="card" hidden></div>
+
+  <div id="wa_app" hidden>
+    <div class="card">
+      <h2 data-t="export"></h2>
+      <div class="row">
+        <button class="btn primary" id="wa_copyBtn" data-t="copy"></button>
+        <button class="btn" id="csvBtn" data-t="csv"></button>
+      </div>
+      <div class="muted msg" data-t="exportNote"></div>
+    </div>
+
+    <div class="card">
+      <h2><span data-t="members"></span> <span class="muted" id="count"></span></h2>
+      <div class="row">
+        <input type="search" id="wa_q">
+        <label class="row" style="font-size:14px"><input type="checkbox" id="onlyFlag"> <span data-t="onlyFlag"></span></label>
+        <label class="row" style="font-size:14px"><span data-t="newDays"></span> <input type="number" id="newDays" min="1" max="90"></label>
+      </div>
+      <div class="row" style="margin-top:8px">
+        <label class="row" style="font-size:14px;flex:1;min-width:220px"><span data-t="rivalsL"></span> <input type="search" id="rivals" style="flex:1"></label>
+        <label class="row" style="font-size:14px;flex:1;min-width:220px"><span data-t="farmsL"></span> <input type="search" id="farms" style="flex:1"></label>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr id="head"></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <ul class="notes" id="notes"></ul>
+    </div>
+
+    <div class="card">
+      <h2 data-t="leftTitle"></h2>
+      <div class="tbl-wrap" style="max-height:40vh">
+        <table>
+          <thead><tr><th data-t="colName"></th><th data-t="colLeft"></th><th data-t="colNow"></th></tr></thead>
+          <tbody id="left"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<script src="js/officer-data.js"></script>
+<script>
+
+/* ===== shared: language, password, tabs (the four pages below register themselves in OFFICER_PAGES) ===== */
+const OFFICER_LANG = "nxs-officer-lang", OFFICER_LS = "nxs-post-v1";
+const officerLang = () => { try { const v = localStorage.getItem(OFFICER_LANG); return v === "zh" || v === "en" ? v : null; } catch (e) { return null; } };
+const setOfficerLang = (v) => { try { localStorage.setItem(OFFICER_LANG, v); } catch (e) {} };
+const OFFICER = { lang: officerLang() || ((navigator.language || "").startsWith("zh") ? "zh" : "en"), token: null, pw: null };
+const OFFICER_PAGES = {};
+const TABS = ["events", "ranking", "post", "watch"];
+const inited = {};
+try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
+const SH = { en: { home: "Home", pw: "🔒 Officer password", remember: "Remember on this device", unlock: "Unlock", wrong: "Wrong password", loading: "Loading…" },
+             zh: { home: "首頁", pw: "🔒 幹部密碼", remember: "在這台裝置記住", unlock: "解鎖", wrong: "密碼錯誤", loading: "載入中…" } };
+function applyShared() {
+  const t = SH[OFFICER.lang];
+  document.documentElement.lang = OFFICER.lang === "zh" ? "zh-Hant" : "en";
+  document.getElementById("shHome").textContent = t.home;
+  document.getElementById("langBtn").textContent = OFFICER.lang === "zh" ? "English" : "中文";
+  document.getElementById("gateTitle").textContent = t.pw;
+  document.getElementById("gateRememberTxt").textContent = t.remember;
+  document.getElementById("gateBtn").textContent = t.unlock;
+  document.getElementById("gateErr").textContent = t.wrong;
+}
+document.getElementById("langBtn").onclick = () => {
+  OFFICER.lang = OFFICER.lang === "zh" ? "en" : "zh";
+  setOfficerLang(OFFICER.lang); applyShared();
+  for (const k of TABS) { const p = OFFICER_PAGES[k]; if (p && p.setLang) p.setLang(OFFICER.lang); }
+};
+const loadedScripts = {};
+function loadScripts(list) {
+  return list.reduce((p, src) => p.then(() => loadedScripts[src] || (loadedScripts[src] = new Promise((res, rej) => {
+    const s = document.createElement("script"); s.src = src; s.onload = res; s.onerror = () => rej(new Error(src)); document.head.appendChild(s);
+  }))), Promise.resolve());
+}
+/* tabs: #events / #ranking / #post / #watch (the part after "?" is kept for the page) */
+function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch)/); return m ? m[1] : "events"; }
+async function showTab() {
+  const k = currentTab();
+  document.querySelectorAll(".tabs a").forEach((a) => a.classList.toggle("on", a.dataset.tab === k));
+  for (const t of TABS) document.getElementById("pg-" + t).hidden = t !== k;
+  const p = OFFICER_PAGES[k];
+  if (!p) return;
+  if (!inited[k]) { inited[k] = p.init(); }
+  try { await inited[k]; } catch (e) { inited[k] = null; console.error(e); }
+  if (p.onShow) p.onShow();
+  window.scrollTo(0, 0);
+}
+window.addEventListener("hashchange", showTab);
+/* password: one check for all tabs; the GitHub key (for saving) and the data key (for reading) are opened here */
+const b64dec_ = (b64) => Uint8Array.from(atob(b64.replace(/\s/g, "")), (c) => c.charCodeAt(0));
+async function officerDecrypt(pw, blob) {
+  try {
+    const key = await OfficerData.pbkdf(pw, blob.salt, blob.iter, ["decrypt"]);
+    return new TextDecoder().decode(await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64dec_(blob.iv) }, key, b64dec_(blob.data)));
+  } catch (e) { return null; }
+}
+function officerStore() { try { return JSON.parse(localStorage.getItem(OFFICER_LS)) || {}; } catch (e) { return {}; } }
+async function officerGate() {
+  let blob = await OfficerData.postKey();
+  if (!blob) return showTab();                               // not set up yet → open (the Post tab shows the setup card)
+  const checkPw = async (pw) => (await officerDecrypt(pw, blob)) || (await officerDecrypt(pw, blob = (await OfficerData.postKey(true)) || blob));
+  const ok = async (pw, tok) => { OFFICER.pw = pw; OFFICER.token = tok; await OfficerData.unlock(pw); document.getElementById("gate").hidden = true; showTab(); };
+  const st = officerStore(), tok = st.pw && await checkPw(st.pw);
+  if (tok) return ok(st.pw, tok);
+  const gate = document.getElementById("gate"), pwEl = document.getElementById("gatePw");
+  gate.hidden = false;
+  const go = async () => {
+    const pw = pwEl.value, t = await checkPw(pw);
+    if (t) {
+      if (document.getElementById("gateRemember").checked) {
+        const s = officerStore(); s.pw = pw; try { localStorage.setItem(OFFICER_LS, JSON.stringify(s)); } catch (e) {}
+        window.dispatchEvent(new CustomEvent("nxs-officer-pw", { detail: pw }));   // the Post tab keeps its own copy of this record
+      }
+      ok(pw, t);
+    } else { document.getElementById("gateErr").hidden = false; pwEl.value = ""; pwEl.focus(); }
+  };
+  document.getElementById("gateBtn").onclick = go;
+  pwEl.onkeydown = (e) => { if (e.key === "Enter") go(); };
+  pwEl.focus();
+}
+applyShared();
+
+(function () {
+const ROOT = document.getElementById('pg-events');
+/* Starting content for the Events tab. Used only until the first save; after that data/events-x7k2p9.json is the source. */
+const INGAME_DEFAULTS = {
+  "bear-hunt": [
+    { title: "Bear Trap rules — Gen 3", text: `🐻 BEAR TRAP RULES — Gen 3
+
+✨ LEADS:
+• Amadeus + Petra + Marlin
+• Zoe + Petra + Quinn
+• Helga + Petra + Marlin (only if Helga + widget maxed)
+
+✨ JOINERS — 1ST HERO:
+•Chenko •Amane •Yeonwoo
+•Amadeus •No Hero (do not send Petra)
+•Ideal ratio: 10:10:80
+📌 Save formations + follow joiner troop limits🚫 No other rallies during Bear` },
+    { title: "Troop limits & staggering", text: `❗ Reminder - Bear Trap Troop Limits & Staggering Marches
+
+🔹 All joiners must send exactly 90,000 troops to rallies. Pre-save your marches
+🔹 Leaders initiate your rally with maximum troops but when you join other rallies you must also follow the troop limit.
+
+🔹 At the start: Main Rally Leaders send their first rally at their assigned staggered time.
+🔹 At 6:30 remaining: All joiners start their own rally using their 3 strongest heroes.
+
+🔪 Incorrect heroes & wrong troop numbers - kick and ask to rejoin` },
+    { title: "Launch groups (fill in names)", text: `BT1 - Main Rally Launch Groups
+
+🔹 Team A - Launch at 0:00
+…
+
+🔹 Team B - Launch at +0:45
+…
+
+Please launch at your assigned time to keep rallies properly staggered. Remember to check your joiners for correct heroes` },
+  ],
+  "viking-vengeance": [
+    { title: "Viking Vengeance (full)", text: `VIKING VENGEANCE
+
+📅 Tue 14:00 UTC
+📅 Thu 23:00 UTC
+
+🔹 Empty your city before event starts, even if offline. Post in Alliance Chat when empty.
+🔹 Reinforce using Chenko, Amadeus, Yeonwoo or Amane first. Prioritize Infantry & Cavalry.
+🔹 Keep your 3 strongest heroes home in Guard Station.
+🔹 DO NOT heal during event.
+🔹 HQ: choose Wave 10 OR 20 - you can only join one. Send ~68K troops (check label) Howard/Gordon 60:40. Pre-save this march
+🔹 Spread troops across multiple members. Prioritize online players` },
+    { title: "Viking rules (short)", text: `VIKING RULES
+
+3 best heroes stay home
+
+Reinforce: bear heroes only (Amadeus, Chenko, Yeonwoo, Amane) – max 64,360
+
+Send inf/cav only – archers stay home
+
+Waves 10 & 20 (HQ): max 64.360 – NO archers – pick ONE wave – use Howard/Gordon/Fahd/Quinn
+
+Offline? Reinforce someone first!` },
+    { title: "Viking rules (short) – 2", text: `🔹Reinforcements: 4 marches (Amadeus, Chenko, Yeonwoo, Amane). Max 64,360 per march – but don't max out one ally. Split your troops across three different allies to protect more people. Even 50-64,360 each helps.` },
+    { title: "Viking rules (short) – 3", text: `🔹HQ Waves 10 & 20: 64,360 per player – fills 15-player garrison exactly. No archers. Pick ONE wave. Use Howard/Gordon/Fahd/Quinn.` },
+    { title: "Viking rules (short) – 4", text: `🔹Send inf/cav only. Don't heal until end.
+
+Spread the love, protect the team. Ask if unsure. Good luck!` },
+  ],
+  "cesares-fury": [
+    { title: "Alliance level fight", text: `🔥CESARES FURY ALLIANCE LEVEL FIGHT
+
+🚶 ONE soldier
+☝️ ONE march per level
+🚫 Any / No heroes
+
+✅ One hit is enough to qualify for the reward. 0.0% damage still counts. More damage does NOT give a better reward.
+
+❓ Why: This gives everyone in the alliance a chance to participate, gain rewards and tag the Captain before it dies.
+
+❌Anyone breaking the rule will be timed out and sent to farm alliance.` },
+  ],
+  "eternity-reach": [
+    { title: "Eternity's Reach", text: `ETERNITY'S REACH
+
+🔹 Important for Governor Charm rewards
+🔹 Skill selection: 1. Right 2. Right 3. Left 4. Left 5. Right
+🔹 Start: Send all marches to attack Cesares until Skill 3 unlocks
+🔹 Then every 60 sec: Enter regular Copper Vein → Recall + note time → repeat at 60 sec intervals
+🔹 Keep Loot Wagon active
+🔹 Fractured Veins: Stop everything; send all marches to gather
+🔹 Click Skill 5 boost before regular Copper Veins only
+🔹 Free teleport to uncrowded veins
+🔹 Peak of Eternity: Ignore if crowded` },
+  ],
+  "all-out": [
+    { title: "All-Out rules", text: `All-Out Rules
+
+❌ No attacks on NAP 6 (NXS, RED, NBD, ESA, IDN, KGb) including their farms/acad
+❌ No attacks on castles or alliance buildings (HQs, outposts, banners)
+✅ You can attack resource gathering tiles (mills, quarry, mines)
+✅ You can attack players outside of NAP.
+
+- If your castle gets attacked by a NAP member, do not retaliate inform R4/5
+- Avoid gathering resources in the wild, use the secured alliance resource node instead
+- Rule breakers will be dealt with according to alliance/NAP agreements` },
+    { title: "NAP list", text: `NAP
+
+Do NOT attack any of these alliance cities.
+
+NXS/nxs
+NBD/nBd/Nbd
+RED/ReD
+ESA/EsA/UNI
+IDN
+KGb` },
+  ],
+  "swordland-showdown": [
+    { title: "Swordland map", text: `Swordland Showdown Map!
+
+          ②     ④
+③          ⑤         ④
+               7
+④          ⑥         ③
+         ④      ①
+
+① Royal Stables (-50% cooldown) 🐴                        ② Bell Tower (-50% control time)🔔               ③ Sanctum more points) 🏤
+④ Abbey (points) ⛪
+⑤ Mercenaries (attack Building)💥         ⑥ ReformationHall 🔪 (+15%Damage+Reduction)                        ⑦ Swordshrine (most points) 🌟` },
+  ],
+  "hero-roulette": [
+    { title: "Hero Roulette – Quick Guide", text: `🎡 Hero Roulette – Quick Guide
+Every 2 weeks, 3 days. 1 free spin/day.
+1 spin = 1 Lucky Chip or 1,500 Gems (10 spins = 13,500).
+Milestones at 5/15/35/70/120 spins give +5/+10/+20/+30/+50 shards (115 total).
+Each spin ≈ 0.55 Mythic Hero Shards.
+👉 Spin exactly 120 per event = ~181 shards. After 120 there are no more milestones, so stop!
+Max hero (unlock + 5) = 1,075 shards ≈ 6 events × 120 spins (~954K Gems).
+KvK Prep Days 2 & 3 give 8,000 pts per spin – save your Lucky Chips & Gems for then!` },
+  ],
+  "kvk": [
+    { title: "KvK Prep Guide (table)", text: `👑KVK Prep Guide👑
+ １   ２　３    ４    ５ 
+✅｜🆗｜🚫｜🚫｜✅｜ 🆗｜✅｜🚫｜🚫｜✅｜Gold Dust 🚫｜✅｜✅｜🚫｜🚫｜Hero shard ✅｜🆗｜🚫｜🚫｜✅｜ building 🚫｜🚫｜🚫｜✅｜✅｜ troop 🆗｜✅｜🚫｜🚫｜✅｜ research 🚫｜✅｜✅｜🚫｜🚫｜Wheel 👍｜✅｜👍｜✅｜👍｜Gathering ✅｜👍｜✅｜👍｜✅｜Intel 🚫｜🚫｜✅｜🚫｜✅｜Pets advance ✅｜🚫｜🆗｜✅｜🚫｜Chief Charm 🚫｜🚫｜🚫｜🚫｜✅｜Chief Gear 🚫｜🚫｜🚫｜🆗｜✅｜Widget gear 🚫｜🚫｜🚫｜🆗｜✅｜Mithril 🚫｜🚫｜🚫｜🆗｜✅｜ 🚫｜✅｜🆗｜🚫｜🚫｜Master items 🚫｜🚫｜✅｜🚫｜🚫｜Manuscript 🆗｜✅｜🚫｜🚫｜🆗｜Master speeds
+
+✅ use 
+🆗 okay if needed
+🚫 don’t use
+👍 need to do daily` },
+    { title: "Castle / Sanctuary / Buildings", text: `🏰 CASTLE / SANCTUARY / BUILDINGS
+
+🔹CAPTURE: Join the rally with your ATTACK preset: Amadeus/Chenko 50:20:30.
+
+🔹ONCE CAPTURED: Immediately send your DEFENSE preset: Gordon/Howard 60:20:20. (Troop limit as specified eg. 68k)
+
+❗ Watch your defense march. At ~5 sec before arrival, recall your ATTACK march. Your defense march will arrive and replace it.
+
+❗ Don't recall too early! Keep the garrison strong during the swap.
+
+Summary: Capture → Send Defense → Recall Attack → Defend` },
+  ],
+  "alliance-championship": [
+    { title: "Alliance Championship", text: `🏆 ALLIANCE CHAMPIONSHIP
+
+Please register in the Middle Lane, leadership will sort you later.
+
+Before registering:
+🔹 Use your strongest heroes
+🔹 Formation: 50% Infantry, 20% Cavalry, 30% Archers
+🔹 Activate Marshal / Field Commander & Pet Buffs before registering.
+
+🔄 You can refresh your registration anytime to update heroes, formation, and buffs. Especially if you have upgraded your heroes or troops.` },
+    { title: "Starts tomorrow", text: `🏆 ALLIANCE CHAMPIONSHIP — STARTS TOMORROW
+
+Registration opens tomorrow. Please register in the Middle Lane — leadership will sort you later. Do not move yourself; R5 handles all lane deployment.
+
+Before registering:
+🔹 Use your strongest heroes
+🔹 Formation: 50% Infantry, 20% Cavalry, 30% Archers
+🔹 Activate King Appointments & Pet Buffs
+
+🔄 You can refresh your registration anytime to update heroes, formation, and buffs — especially if you've upgraded your heroes or troops.` },
+    { title: "Buffs / update after Bear", text: `If you haven't used your buffs yet:
+
+You can still activate them before the bear trap – especially if you're using attack and lethality buffs for the bear.
+
+After the bear trap:
+
+Please update your troops in the Alliance Championship – especially those who upgraded their TG tier today. Refresh your registration to reflect any changes in heroes, formation, or buffs.` },
+  ],
+  "alliance-mobilization": [
+    { title: "Alliance Mobilization", text: `🔥 ALLIANCE MOBILIZATION IS HERE! 🔥
+
+🏆 Push for TOP 3 to secure our statue and position!
+
+🚨 DO NOT select missions using KvK Prep items: Speedups, Hero/General Shards, Governor/Hero Gear mats, True Gold or Pet items.
+
+✅ Best picks: 120K Training, Terror Rallies (joining counts, save stamina), 30M Gathering, Beast missions (gold tier) pair with Intel.
+
+⚠️ Training/Gathering: have them nearly finished before selecting. Use pet buffs & King perks.
+
+Choose wisely and maximize every attempt!` },
+  ],
+  "mystic-trial": [
+    { title: "Mystic Trial troop ratio", text: `🏯MYSTIC TRIAL (Command Center) troop ratio
+
+Set the following percentage of Infantry/ Cavalry/ Archers to achieve the best results:
+
+🎪Coliseum - 50/20/30
+or 60/15/25
+💎Crystal Cave - 50/15/35
+🌳Forest of Life - 50/20/30
+📖Knowledge Nexus - 50/10/40
+🏰Molten Fort - 60/15/25
+🗼Radiant Spire - 60/20/20` },
+  ],
+  "alliance-rules": [
+    { title: "Core rules", text: `✨CORE RULES✨
+
+1. Stay active & communicate if you will be away.
+2. Donate regularly to alliance tech; recommended tech marked by green 👍
+3. Do not violate the Non-Aggression Pact with the Top 6 alliances. If attacked by a NAP member, report to R4/R5. Do not counterattack.
+4. Follow all event rules, check alliance chat, PMs, and discord for more information.
+5. NO SOLO attacking Sanctuary or Fortress. You may only join rallies.
+6. Keep World Chat respectful, avoid drama that could harm the alliance` },
+  ],
+};
+// events with no schedule on the site yet
+const EXTRA_EVENTS = [
+  { id: "bear-hunt", emoji: "🐻", en: "Bear Hunt", zh: "狩獵巨熊", start: "2026-10-07", every: 2, days: 1, guide: "bear-hunt",
+    note: "11:00 & 22:00 UTC, 30 min each", noteZh: "UTC 11:00 和 22:00，各 30 分鐘",
+    todo: [{ due: 0, en: "Remind everyone: update formations, recall gathering troops before it starts, and everyone launches a rally in the last 5–7 minutes.", zh: "提醒大家：更新部隊編成、開始前召回採集部隊，最後 5–7 分鐘每個人都發起集結。" }] },
+  { id: "alliance-championship", emoji: "🏆", en: "Alliance Championship", zh: "聯盟爭霸賽", start: "2026-09-28", every: 7, days: 2, guide: "",
+    note: "Weekly, Monday reset · shown = 2-day registration; battles run automatically", noteZh: "每週一次，週一重置 · 顯示的是 2 天報名期；戰鬥自動進行",
+    todo: [{ due: -1, post: 1, en: "Remind everyone: register in the Middle Lane, strongest heroes, 50/20/30, buffs on.", zh: "提醒大家報名中路、用最強英雄、50/20/30、開好增益。" }] },
+  { id: "alliance-mobilization", emoji: "🔥", en: "Alliance Mobilization", zh: "聯盟總動員", start: "2026-09-28", every: 28, days: 7, guide: "",
+    note: "Follows the 4-week cycle (after KvK / after Strongest Governor; Alliance Brawl can replace one) — check the start date", noteZh: "跟著 4 週循環（KvK 後／最強領主後；聯盟爭鬥可能取代其中一場）— 請確認開始日",
+    todo: [{ due: 0, post: 1, en: "Post the mission rules (no KvK Prep items; best picks).", zh: "公告任務規則（不要選用到 KvK 準備道具的任務、推薦的任務）。" }] },
+  { id: "mystic-trial", emoji: "🔮", en: "Mystic Trial", zh: "秘境試煉", start: "", every: 0, days: 0, guide: "mystic-trial" },
+  { id: "alliance-rules", emoji: "📜", en: "Alliance rules", zh: "聯盟規則", start: "", every: 0, days: 0, guide: "" },
+];
+
+/* Event list for the week. Saved in data/events-x7k2p9.json (editable on this page); before the first save it starts from EVENT_SCHEDULES in js/app.js.
+   Weeks run Monday–Sunday in UTC (game reset = 00:00 UTC = 08:00 Taiwan). On Sunday the page opens on next week. */
+const T = {
+  en: {
+    title: "NXS Events", sub: "Events this week, and what officers need to schedule.", home: "Home",
+    thisWeek: "Back to this week", todoTitle: "✅ Action items", weekTitle: "📅 Events", late: "overdue",
+    todoNote: "Ticks are saved on this device only.",
+    note: "Dates come from the event schedule on the site. Game days start at 00:00 UTC (08:00 Taiwan). If the in-game calendar differs, the game is right.",
+    noTodo: "Nothing to schedule this week 🎉", none: "—", day: "Day {n}/{t}", starts: "starts", ends: "last day",
+    noData: "Could not read the event schedule from the site.",
+    toPost: "📢 Write announcement", toRanking: "📊 Open Ranking", toGuide: "📖 Guide",
+    week: "{a} – {b}", wd: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    runs: "{a} – {b} ({n} days)",
+    mgrTitle: "📋 Events & in-game guides", addEv: "+ New event",
+    mgrNote: "Tap an event to see its in-game guide. Each box is one chat message (the game limits message length) — copy and send them one by one. ✏️ next to a message edits just that message; ✏️ Edit at the bottom changes the whole event (dates, action items, add or remove messages). Changes are saved on the site for all officers.",
+    sched: "every {e} days from {s} · {d} day(s)", noSched: "no fixed schedule", every1: "every day",
+    edit: "✏️ Edit", copy: "📋 Copy", copied: "Copied ✅", noIg: "No in-game guide yet.", chars: "characters",
+    newEv: "New event", editEv: "Edit event",
+    fEmoji: "Emoji", fName: "Name", fFixed: "Repeats on a fixed schedule",
+    fStart: "First day (UTC)", fEvery: "Repeats every … days", fDays: "Lasts … days",
+    fNote: "Note", fNoteSm: "(e.g. times — shown in the list)", fGuide: "Guide on the site", noGuide: "— none —",
+    fTodo: "Action items for officers", addTodo: "+ Action item", dueLbl: "Days before (−) / after the start", tdTxt: "What to do",
+    tdPost: "Announcement button", tdRank: "Ranking button",
+    fIngame: "In-game guides", fIngameSm: "(one box = one chat message; the game limits message length, so keep long guides in several boxes)", addIg: "+ Message", igTitle: "Title", igText: "Text",
+    del: "Delete event", cancel: "Cancel", save: "💾 Save",
+    needName: "Please enter a name.", needSched: "Please fill in the first day (YYYY-MM-DD), repeat and length.",
+    confirmDel: "Delete this event for everyone?", saving: "Saving…", saved: "Saved ✅ Other officers see it after refreshing (about 1 minute).",
+    errAuth: "The saved GitHub key no longer works. Ask Sherry to redo the setup on the Post tab.",
+    errBusy: "Someone else changed the events meanwhile. Refresh the page and try again.", errNet: "Couldn't reach GitHub. Try again.",
+    noKey: "Saving needs the GitHub key (set up on the Post tab).", remove: "✕",
+  },
+  zh: {
+    title: "NXS 活動排程", sub: "這週有哪些活動，以及幹部要安排的事。", home: "回主頁",
+    thisWeek: "回到這週", todoTitle: "✅ 待辦事項", weekTitle: "📅 活動", late: "已過期",
+    todoNote: "勾選只存在這台裝置上。",
+    note: "日期依網站上的活動排程推算。遊戲每天 UTC 00:00（台灣時間早上 8 點）換日。如果跟遊戲內行事曆不同，以遊戲為準。",
+    noTodo: "這週沒有需要排時間的活動 🎉", none: "—", day: "第 {n}/{t} 天", starts: "開始", ends: "最後一天",
+    noData: "讀不到網站上的活動排程。",
+    toPost: "📢 寫公告", toRanking: "📊 打開 Ranking", toGuide: "📖 攻略",
+    week: "{a} – {b}", wd: ["一", "二", "三", "四", "五", "六", "日"],
+    runs: "{a} – {b}（{n} 天）",
+    mgrTitle: "📋 活動與遊戲內指南", addEv: "+ 新增活動",
+    mgrNote: "點活動可以看遊戲內指南。一格就是一則聊天訊息（遊戲有字數限制），請一則一則複製貼上。訊息旁的 ✏️ 只改那一則；最下面的「✏️ 修改」可以改整個活動（日期、待辦、新增或刪除訊息）。修改會存到網站上，所有幹部都看得到。",
+    sched: "從 {s} 起每 {e} 天一次 · 持續 {d} 天", noSched: "沒有固定時間", every1: "每天",
+    edit: "✏️ 修改", copy: "📋 複製", copied: "已複製 ✅", noIg: "還沒有遊戲內指南。", chars: "字",
+    newEv: "新增活動", editEv: "修改活動",
+    fEmoji: "圖示", fName: "名稱", fFixed: "有固定週期",
+    fStart: "第一天（UTC）", fEvery: "每幾天一次", fDays: "持續幾天",
+    fNote: "備註", fNoteSm: "（例如時間，會顯示在清單上）", fGuide: "網站上的攻略", noGuide: "— 無 —",
+    fTodo: "幹部待辦事項", addTodo: "+ 待辦事項", dueLbl: "開始前（−）／後第幾天", tdTxt: "要做的事",
+    tdPost: "顯示「寫公告」按鈕", tdRank: "顯示「Ranking」按鈕",
+    fIngame: "遊戲內指南", fIngameSm: "（一格 = 一則聊天訊息；遊戲有字數限制，長的指南請分成好幾格）", addIg: "+ 訊息", igTitle: "標題", igText: "內容",
+    del: "刪除活動", cancel: "取消", save: "💾 儲存",
+    needName: "請填寫名稱。", needSched: "請填寫第一天（YYYY-MM-DD）、週期和持續天數。",
+    confirmDel: "確定要刪除這個活動？所有幹部都會看不到。", saving: "儲存中…", saved: "已儲存 ✅ 其他幹部重新整理後就會看到（約 1 分鐘）。",
+    errAuth: "存的 GitHub 權杖已經不能用了，請 Sherry 到 Post 分頁重新設定。",
+    errBusy: "剛好有人也在改活動，請重新整理頁面再試一次。", errNet: "連不上 GitHub，請再試一次。",
+    noKey: "儲存需要 GitHub 權杖（在 Post 分頁設定）。", remove: "✕",
+  },
+};
+// Names follow the in-game wording (same as the site's glossary).
+const EVENTS = {
+  "kvk":                { emoji: "👑", en: "KvK", zh: "KvK" },
+  "viking-vengeance":   { emoji: "🪓", en: "Viking Vengeance", zh: "維京人的掠奪" },
+  "swordland-showdown": { emoji: "⚔️", en: "Swordland Showdown", zh: "聖劍爭奪" },
+  "tri-alliance-clash": { emoji: "🛡️", en: "Tri-Alliance Clash", zh: "三盟爭霸" },
+  "eternity-reach":     { emoji: "⛏️", en: "Eternity's Reach", zh: "失落的遺跡" },
+  "all-out":            { emoji: "🔥", en: "All Out", zh: "全軍出擊" },
+  "fishing-tournament": { emoji: "🎣", en: "Fishing Tournament", zh: "釣魚大賽" },
+  "hero-roulette":      { emoji: "🎰", en: "Hero Roulette", zh: "英雄轉盤" },
+  "cesares-fury":       { emoji: "🗡️", en: "Cesares Fury", zh: "征討切薩雷", noGuide: true },
+};
+// What officers need to do. due: days relative to the event's first day (−1 = the day before).
+const TODO = {
+  "viking-vengeance": [
+    { due: -1, post: 1, en: "Pick the start time and announce it (UTC + local time). Remind everyone to be online and reinforce each other.",
+                        zh: "決定開打時間並公告（寫 UTC 和台灣時間），提醒大家準時上線、互相增援。" },
+  ],
+  "swordland-showdown": [
+    { due: -2, post: 1, en: "Open sign-ups and collect the list.", zh: "開放報名、收集名單。" },
+    { due: -1, ranking: 1, post: 1, en: "Pick Attackers / Defenders / Joiners in Ranking, make the battle table and post it.",
+                                    zh: "在 Ranking 排好 Attacker／Defender／Joiner，做好分工表並發公告。" },
+  ],
+  "tri-alliance-clash": [
+    { due: -2, post: 1, en: "Confirm registration and the line-up.", zh: "確認報名和出戰名單。" },
+    { due: -1, ranking: 1, post: 1, en: "Set the meeting time and post the plan.", zh: "決定集合時間並發公告。" },
+  ],
+  "cesares-fury": [
+    { due: 0, en: "Remind everyone: each member gets 5 rally requests — use them, unused ones are lost when the event ends.",
+              zh: "提醒大家：每人有 5 份征討召集令可以找盟友集結，活動結束沒用完就會被清除。" },
+    { due: 1, post: 1, en: "R4+: once enough members have beaten high-level targets, apply to challenge the Captain and post a time for everyone to join.",
+                       zh: "R4 以上：成員擊敗足夠的高等級目標後，申請挑戰頭目，並公告大家一起打的時間。" },
+  ],
+  "eternity-reach": [
+    { due: 0, post: 1, en: "Remind everyone: 30-minute solo event. Skill picks Right / Right / Left / Left / Right; send one march into a Copper Vein every minute.",
+              zh: "提醒大家：30 分鐘的個人活動。技能依序選 右／右／左／左／右；每分鐘派一隊進銅礦脈。" },
+  ],
+  "all-out": [
+    { due: -1, post: 1, en: "Post the All Out rules (NAP alliances, no attacks on castles or alliance buildings) and the secured gathering node rotation.",
+               zh: "公告全軍出擊規則（NAP 聯盟名單、不能打城堡和聯盟建築）和安全採集點的輪替時間。" },
+  ],
+  "fishing-tournament": [
+    { due: 0, en: "Remind everyone: use Ocean Prospector first to upgrade the Fishing Kit, then switch to Regular Fishing.",
+              zh: "提醒大家：先玩寶藏釣魚把漁具升級，再改玩普通釣魚。" },
+  ],
+  "hero-roulette": [
+    { due: 0, en: "Remind everyone: 1 free spin a day; milestone rewards at 5 / 15 / 35 / 70 / 120 spins. Spins on KvK Prep Day 2–3 also score KvK points.",
+              zh: "提醒大家：每天 1 次免費；累計 5／15／35／70／120 次有里程碑獎勵。KvK 備戰階段 2–3 轉的次數也會算 KvK 積分。" },
+  ],
+  "kvk": [
+    { due: -1, en: "Remind members: book Chief Minister slots, save Intel Missions, count saved items (the site's KvK checklist pops up).",
+               zh: "提醒成員：預約總理大臣時段、存情報任務、清點存的道具（網站會跳出 KvK 檢查清單）。" },
+    { due: 5, en: "Castle Battle on the last day: agree rally leaders and times.", zh: "最後一天王城爭奪戰：決定集結隊長和時間。" },
+  ],
+};
+const DAY = 86400000;
+const LS = "nxs-events-v1";
+const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
+const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
+/* one language for all officer tabs (set from the main site when you enter, and by the language button on any tab) */
+let lang = OFFICER.lang;
+let LIST = null, weekStart = null, OFFICER_PW = null, TOKEN = null, FILE_SHA = null;
+
+/* ===== where the event list is kept =====
+   data/events-x7k2p9.json = { v: 1, sched: { id: { anchor, periodDays, activeDays } }, data: <events list, encrypted like the other officer files> }
+   "sched" stays readable so the main site can follow schedule changes; the in-game guides etc. are in "data". */
+const EV_PATH = "data/events-x7k2p9.json";
+const OWNER = location.hostname.endsWith("github.io") ? location.hostname.split(".")[0] : "NXSguides";
+const REPO = location.hostname.endsWith("github.io") ? (location.pathname.split("/")[1] || "Kingshot_guideline_NXS") : "Kingshot_guideline_NXS";
+const BRANCH = "main";
+const GUIDE_LIST = {"bear-hunt":{"e":"🐻","en":"Bear Hunt","zh":"狩獵巨熊"},"viking-vengeance":{"e":"🧯","en":"Viking Vengeance","zh":"維京人的掠奪"},"swordland-showdown":{"e":"⚔️","en":"Swordland Showdown","zh":"聖劍爭奪"},"tri-alliance-clash":{"e":"🔱","en":"Tri-Alliance Clash","zh":"三盟爭霸"},"eternity-reach":{"e":"⛏️","en":"Eternity's Reach","zh":"失落的遺跡"},"all-out":{"e":"🪖","en":"All Out","zh":"全軍出擊"},"kvk":{"e":"👑","en":"KvK Prep & Battle Guide","zh":"KvK 準備與戰鬥指南"},"hero-roulette":{"e":"🎡","en":"Hero Roulette","zh":"英雄轉盤"},"fishing-tournament":{"e":"🎣","en":"Fishing Tournament","zh":"釣魚大賽"},"mystic-trial":{"e":"🔮","en":"Mystic Trial","zh":"秘境試煉"},"formations-rally-tips":{"e":"🛡️","en":"Formations & Rally Tips","zh":"部隊編組與集結技巧"},"master-academy":{"e":"🎓","en":"Gen 3 Master Academy Guide","zh":"第3代大師學院指南"},"pet":{"e":"🦁","en":"Pets","zh":"寵物"},"f2p-heroes":{"e":"🎯","en":"F2P Heroes Guide","zh":"英雄培養指南（F2P）"},"hero-cards":{"e":"🃏","en":"Hero Cards (Gen 1–3)","zh":"英雄卡（第 1–3 代）"},"general-tips":{"e":"🔍","en":"General Tips","zh":"通用小技巧"}};
+
+const $ = (id) => ROOT.querySelector("#" + CSS.escape(id)) || document["getElementById"](id);
+const tr = (k, v = {}) => { const s = (T[lang] && T[lang][k]) ?? T.en[k] ?? k; return typeof s === "string" ? s.replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m) : s; };
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const utcDay = (t) => Math.floor(t / DAY) * DAY;
+const fmt = (t) => { const d = new Date(t); return `${d.getUTCMonth() + 1}/${d.getUTCDate()}（${tr("wd")[(d.getUTCDay() + 6) % 7]}）`.replace("（", lang === "zh" ? "（" : " (").replace("）", lang === "zh" ? "）" : ")"); };
+const isoDay = (t) => new Date(t).toISOString().slice(0, 10);
+const dayMs = (iso) => Date.parse(iso + "T00:00:00Z");
+const byId = (id) => LIST.find((e) => e.id === id);
+const evName = (k) => { const e = byId(k); return e ? `${e.emoji || ""} ${e[lang] || e.en || e.zh || k}`.trim() : k; };
+const txt = (o) => (o && (o[lang] || o.en || o.zh)) || "";
+function mondayOf(t) { const d = utcDay(t); const wd = (new Date(d).getUTCDay() + 6) % 7; return d - wd * DAY; }
+
+/* starting list, built from what the site already had (used until the first save) */
+function defaultList(sched) {
+  const out = [];
+  for (const [id, e] of Object.entries(EVENTS)) {
+    const s = sched[id];
+    out.push({ id, emoji: e.emoji, en: e.en, zh: e.zh, start: s ? isoDay(s.anchor) : "", every: s ? s.periodDays : 0, days: s ? s.activeDays : 0,
+      guide: e.noGuide ? "" : (GUIDE_LIST[id] ? id : ""), note: "", todo: (TODO[id] || []).map((x) => ({ ...x })), ingame: INGAME_DEFAULTS[id] || [] });
+  }
+  for (const e of EXTRA_EVENTS) if (!out.some((x) => x.id === e.id)) out.push({ ...e, note: e.note || "", todo: e.todo || [], ingame: INGAME_DEFAULTS[e.id] || [] });
+  return out;
+}
+
+// every run of each scheduled event that touches [from, to)
+function runs(from, to) {
+  const out = [];
+  for (const e of LIST) {
+    if (!e.start || !(e.every > 0) || !(e.days > 0)) continue;
+    const anchor = dayMs(e.start);
+    let n = Math.max(0, Math.floor((from - anchor) / DAY / e.every) - 1);
+    for (;; n++) {
+      const st = anchor + n * e.every * DAY;
+      if (st >= to) break;
+      const en = st + e.days * DAY;
+      if (en > from) out.push({ k: e.id, st, en, days: e.days });
+    }
+  }
+  return out.sort((a, b) => a.st - b.st);
+}
+
+function render() {
+  const ws = weekStart, we = ws + 7 * DAY, today = utcDay(Date.now());
+  $("weekLbl").textContent = tr("week", { a: fmt(ws), b: fmt(we - DAY) });
+  const rs = runs(ws, we);
+  let html = "";
+  for (let i = 0; i < 7; i++) {
+    const d = ws + i * DAY;
+    const on = rs.filter((r) => r.st <= d && d < r.en);
+    html += `<div class="day${d === today ? " today" : ""}"><div class="dname">${esc(tr("wd")[i])}<small>${new Date(d).getUTCMonth() + 1}/${new Date(d).getUTCDate()}</small></div><div>${
+      on.length ? on.map((r) => { const n = (d - r.st) / DAY + 1;
+        const lbl = r.days === 1 ? "" : n === 1 ? tr("starts") : n === r.days ? tr("ends") : tr("day", { n, t: r.days });
+        return `<span class="ev${n === 1 ? " start" : ""}" data-open="${esc(r.k)}">${esc(evName(r.k))}${lbl ? ` <span class="n">${esc(lbl)}</span>` : ""}</span>`; }).join("")
+      : `<span class="none">${esc(tr("none"))}</span>`}</div></div>`;
+  }
+  $("days").innerHTML = html;
+  // action items: for events that start this week (even if the prep is due a bit earlier),
+  // plus prep that is due this week for events starting next week
+  const items = [];
+  for (const r of runs(ws, we + 7 * DAY)) for (const [i, td] of ((byId(r.k) || {}).todo || []).entries()) {
+    const due = r.st + (Number(td.due) || 0) * DAY;
+    if (due < today) continue;   // past due → no longer listed
+    const startsThisWeek = r.st >= ws && r.st < we, dueThisWeek = due >= ws && due < we;
+    if (startsThisWeek || dueThisWeek) items.push({ r, td, due, id: `${r.k}-${isoDay(r.st)}-${i}` });
+  }
+  items.sort((a, b) => a.due - b.due);
+  store.done = store.done || {};
+  $("todos").innerHTML = items.length ? items.map(({ r, td, due, id }) => { const e = byId(r.k) || {};
+    return `<label class="todo${store.done[id] ? " done" : ""}">
+      <input type="checkbox" data-id="${esc(id)}" ${store.done[id] ? "checked" : ""}>
+      <div>
+        <div class="txt"><b>${esc(evName(r.k))}</b> — ${esc(txt(td))}</div>
+        <div class="when">⏰ ${esc(fmt(due))}${due < today && !store.done[id] ? ` <b class="warn">${esc(tr("late"))}</b>` : ""} · ${esc(tr("runs", { a: fmt(r.st), b: fmt(r.en - DAY), n: r.days }))}</div>
+        <div class="acts">${td.post ? `<a class="btn small" href="#post">${esc(tr("toPost"))}</a>` : ""}${td.ranking ? `<a class="btn small" href="#ranking">${esc(tr("toRanking"))}</a>` : ""}${e.guide ? `<a class="btn small" href="./#/${lang === "zh" ? "zh" : "en"}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}${(e.ingame || []).length ? `<button type="button" class="btn small" data-open="${esc(r.k)}">📋 ${esc(tr("fIngame"))}</button>` : ""}</div>
+      </div>
+    </label>`; }).join("") : `<div class="none">${esc(tr("noTodo"))}</div>`;
+  $("todos").querySelectorAll("input[type=checkbox]").forEach((cb) => cb.onchange = () => {
+    if (cb.checked) store.done[cb.dataset.id] = 1; else delete store.done[cb.dataset.id];
+    save(); cb.closest(".todo").classList.toggle("done", cb.checked);
+  });
+  renderList();
+}
+
+/* ===== event list with in-game guides ===== */
+function schedText(e) {
+  if (!e.start || !(e.every > 0)) return tr("noSched");
+  return e.every === 1 ? `${tr("every1")} · ${fmt(dayMs(e.start))}` : tr("sched", { e: e.every, s: fmt(dayMs(e.start)), d: e.days });
+}
+const noteOf = (e) => (lang === "zh" ? e.noteZh || e.note : e.note || e.noteZh) || "";
+function renderList() {
+  const open = new Set([...ROOT.querySelectorAll(".evrow[open]")].map((d) => d.dataset.id));
+  $("evList").innerHTML = LIST.map((e) => `
+    <details class="evrow" data-id="${esc(e.id)}"${open.has(e.id) ? " open" : ""}>
+      <summary><span><b>${esc(evName(e.id))}</b><br><span class="sched">${esc(schedText(e))}${noteOf(e) ? " · " + esc(noteOf(e)) : ""}</span></span>
+        <span class="muted">${(e.ingame || []).length ? "📋 " + (e.ingame || []).length : ""}</span></summary>
+      ${(e.ingame || []).length ? e.ingame.map((g, i) => `
+        <div class="ig"><div class="head"><span>${esc(g.title || tr("fIngame"))} <span class="sched">· ${[...g.text].length} ${esc(tr("chars"))}</span></span><span class="row" style="flex:none"><button type="button" class="btn small" data-igedit="${esc(e.id)}:${i}">✏️</button><button type="button" class="btn small" data-copy="${esc(e.id)}:${i}">${esc(tr("copy"))}</button></span></div>
+        <pre>${esc(g.text)}</pre></div>`).join("") : `<div class="none" style="margin:8px 0">${esc(tr("noIg"))}</div>`}
+      <div class="row">${e.guide ? `<a class="btn small" href="./#/${lang === "zh" ? "zh" : "en"}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}<button type="button" class="btn small" data-edit="${esc(e.id)}">${esc(tr("edit"))}</button></div>
+    </details>`).join("");
+}
+function openEvent(id) {
+  const d = ROOT.querySelector(`.evrow[data-id="${CSS.escape(id)}"]`);
+  if (!d) return;
+  d.open = true; d.classList.remove("flash"); void d.offsetWidth; d.classList.add("flash");
+  d.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+async function copyText(t, btn) {
+  try { await navigator.clipboard.writeText(t); }
+  catch (e) { const ta = document.createElement("textarea"); ta.value = t; ROOT.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch (x) {} ta.remove(); }
+  const old = btn.textContent; btn.textContent = tr("copied"); setTimeout(() => { btn.textContent = old; }, 1500);
+}
+ROOT.addEventListener("click", (ev) => {
+  const o = ev.target.closest("[data-open]"); if (o) { ev.preventDefault(); return openEvent(o.dataset.open); }
+  const c = ev.target.closest("[data-copy]"); if (c) { ev.preventDefault(); const [id, i] = c.dataset.copy.split(":"); return copyText(byId(id).ingame[+i].text, c); }
+  const ed = ev.target.closest("[data-edit]"); if (ed) { ev.preventDefault(); return openEditor(ed.dataset.edit); }
+  const ie = ev.target.closest("[data-igedit]"); if (ie) { ev.preventDefault(); return igInline(ie); }
+});
+
+/* edit one in-game message right in the list */
+function igInline(btn) {
+  const [id, i] = btn.dataset.igedit.split(":"); const box = btn.closest(".ig"); const g = byId(id).ingame[+i];
+  box.innerHTML = `<input class="inp" data-k="title" value="${esc(g.title || "")}" placeholder="${esc(tr("igTitle"))}">
+    <textarea class="inp" data-k="text" style="margin-top:6px;min-height:200px;line-height:1.45">${esc(g.text)}</textarea>
+    <div class="row" style="justify-content:flex-end;margin-top:6px"><span class="sched" data-k="n"></span><button type="button" class="btn small" data-k="cancel">${esc(tr("cancel"))}</button><button type="button" class="btn small primary" data-k="save">${esc(tr("save"))}</button></div>`;
+  const ta = box.querySelector('[data-k="text"]'), n = box.querySelector('[data-k="n"]');
+  const count = () => { n.textContent = `${[...ta.value].length} ${tr("chars")}`; }; count(); ta.oninput = count; ta.focus();
+  box.querySelector('[data-k="cancel"]').onclick = () => renderList();
+  box.querySelector('[data-k="save"]').onclick = async () => {
+    const e = { ...byId(id), ingame: byId(id).ingame.map((x, j) => (j === +i ? { title: box.querySelector('[data-k="title"]').value.trim(), text: ta.value.replace(/\r/g, "").trimEnd() } : x)) };
+    if (await saveList(LIST.map((x) => (x.id === id ? e : x)), `Edit in-game guide: ${e.en || e.zh}`)) { renderList(); openEvent(id); }
+  };
+}
+
+/* ===== editor ===== */
+let editing = null;   // id of the event being edited, or null for a new one
+function todoRow(td = {}) {
+  return `<div class="sub todo-ed">
+    <div class="row"><label class="due">${esc(tr("dueLbl"))} <input class="inp" type="number" data-k="due" value="${esc(td.due ?? 0)}"></label><button type="button" class="btn small" data-rm>${esc(tr("remove"))}</button></div>
+    <input class="inp" data-k="txt" placeholder="${esc(tr("tdTxt"))}" value="${esc(td[lang] || td[lang === "zh" ? "en" : "zh"] || "")}" data-other="${esc(td[lang === "zh" ? "en" : "zh"] || "")}" data-had="${td[lang] ? 1 : 0}" style="margin-top:6px">
+    <div class="row" style="justify-content:flex-start;font-size:13px;margin-top:6px"><label><input type="checkbox" data-k="post"${td.post ? " checked" : ""}> ${esc(tr("tdPost"))}</label><label><input type="checkbox" data-k="ranking"${td.ranking ? " checked" : ""}> ${esc(tr("tdRank"))}</label></div>
+  </div>`;
+}
+function igRow(g = {}) {
+  return `<div class="sub ig-ed">
+    <div class="row"><input class="inp" data-k="title" placeholder="${esc(tr("igTitle"))}" value="${esc(g.title || "")}" style="flex:1"><button type="button" class="btn small" data-rm>${esc(tr("remove"))}</button></div>
+    <textarea data-k="text" placeholder="${esc(tr("igText"))}" style="margin-top:6px">${esc(g.text || "")}</textarea>
+  </div>`;
+}
+function openEditor(id) {
+  editing = id;
+  const e = id ? byId(id) : { emoji: "📅", en: "", zh: "", start: isoDay(utcDay(Date.now())), every: 7, days: 1, guide: "", note: "", todo: [], ingame: [] };
+  $("edTitle").textContent = tr(id ? "editEv" : "newEv");
+  $("edEmoji").value = e.emoji || ""; $("edName").value = e[lang] || e[lang === "zh" ? "en" : "zh"] || "";
+  const fixed = !!(e.start && e.every > 0);
+  $("edFixed").checked = fixed; $("edSched").hidden = !fixed;
+  $("edStart").value = e.start || isoDay(utcDay(Date.now())); showStart(); $("edEvery").value = e.every || 7; $("edDays").value = e.days || 1;
+  $("edNote").value = noteOf(e);
+  $("edGuide").innerHTML = `<option value="">${esc(tr("noGuide"))}</option>` + Object.entries(GUIDE_LIST).map(([k, g]) => `<option value="${k}">${g.e} ${esc(g[lang] || g.en)}</option>`).join("");
+  $("edGuide").value = e.guide || "";
+  $("edTodos").innerHTML = (e.todo || []).map(todoRow).join("");
+  $("edIgs").innerHTML = (e.ingame || []).map(igRow).join("");
+  $("edDel").hidden = !id; $("edMsg").textContent = "";
+  $("editor").hidden = false; $("editor").scrollTop = 0;
+}
+/* first day: typed as YYYY-MM-DD (so it never shows in the phone's own language); 📅 opens the phone's date picker */
+function showStart() {
+  const v = $("edStart").value.trim(), ok = /^\d{4}-\d\d-\d\d$/.test(v) && !isNaN(dayMs(v));
+  $("edStartTxt").textContent = ok ? fmt(dayMs(v)) : "";
+}
+$("edStart").oninput = showStart;
+$("edPick").onclick = () => {
+  const p = $("edPicker"); if (/^\d{4}-\d\d-\d\d$/.test($("edStart").value)) p.value = $("edStart").value;
+  try { p.showPicker(); } catch (e) { p.focus(); p.click(); }
+};
+$("edPicker").onchange = () => { if ($("edPicker").value) { $("edStart").value = $("edPicker").value; showStart(); } };
+$("edFixed").onchange = () => { $("edSched").hidden = !$("edFixed").checked; };
+$("edAddTodo").onclick = () => $("edTodos").insertAdjacentHTML("beforeend", todoRow({ due: -1 }));
+$("edAddIg").onclick = () => $("edIgs").insertAdjacentHTML("beforeend", igRow());
+$("editor").addEventListener("click", (ev) => { const r = ev.target.closest("[data-rm]"); if (r) r.closest(".sub").remove(); });
+$("edCancel").onclick = () => { $("editor").hidden = true; };
+function readEditor() {
+  const e = editing ? { ...byId(editing) } : {};
+  // only the page language is edited; the other language's text is kept as it was
+  const other = lang === "zh" ? "en" : "zh";
+  e.emoji = $("edEmoji").value.trim(); e[lang] = $("edName").value.trim();
+  if (!e[lang]) throw new Error(tr("needName"));
+  if (!e[other]) e[other] = e[lang];
+  if ($("edFixed").checked) {
+    e.start = $("edStart").value.trim(); e.every = Math.round(+$("edEvery").value); e.days = Math.round(+$("edDays").value);
+    if (!/^\d{4}-\d\d-\d\d$/.test(e.start) || isNaN(dayMs(e.start)) || !(e.every > 0) || !(e.days > 0)) throw new Error(tr("needSched"));
+  } else { e.start = ""; e.every = 0; e.days = 0; }
+  const nv = $("edNote").value.trim();
+  if (lang === "zh") e.noteZh = nv; else e.note = nv;
+  e.guide = $("edGuide").value;
+  e.todo = [...ROOT.querySelectorAll("#edTodos .todo-ed")].map((r) => {
+    const g = (k) => r.querySelector(`[data-k="${k}"]`);
+    const t = g("txt"), v = t.value.trim();
+    const o = { due: Math.round(+g("due").value || 0), [lang]: v, [other]: t.dataset.other || v };
+    if (g("post").checked) o.post = 1; if (g("ranking").checked) o.ranking = 1;
+    return o;
+  }).filter((o) => o.zh || o.en);
+  e.ingame = [...ROOT.querySelectorAll("#edIgs .ig-ed")].map((r) => ({ title: r.querySelector('[data-k="title"]').value.trim(), text: r.querySelector('[data-k="text"]').value.replace(/\r/g, "").trimEnd() })).filter((g) => g.text);
+  if (!e.id) { const base = (e.en || "event").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "event"; let id = base, n = 2; while (byId(id)) id = base + "-" + n++; e.id = id; }
+  return e;
+}
+$("edSave").onclick = async () => {
+  let e; try { e = readEditor(); } catch (err) { $("edMsg").textContent = err.message; return; }
+  const next = editing ? LIST.map((x) => (x.id === editing ? e : x)) : [...LIST, e];
+  if (await saveList(next, `${editing ? "Edit" : "Add"} event: ${e.en || e.zh}`)) { $("editor").hidden = true; render(); openEvent(e.id); }
+};
+$("edDel").onclick = async () => {
+  if (!editing || !confirm(tr("confirmDel"))) return;
+  const name = evName(editing);
+  if (await saveList(LIST.filter((x) => x.id !== editing), `Delete event: ${name}`)) { $("editor").hidden = true; render(); }
+};
+
+/* ===== GitHub (same key and password as the Post tab) ===== */
+const b64ToUtf8 = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\s/g, "")), (c) => c.charCodeAt(0)));
+const utf8ToB64 = (str) => { const u = new TextEncoder().encode(str); let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
+async function gh(method, path, body) {
+  let res;
+  try {
+    res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}${method === "GET" ? "?ref=" + BRANCH + "&t=" + Date.now() : ""}`, {
+      method, headers: { Authorization: `Bearer ${TOKEN}`, Accept: "application/vnd.github+json" }, body: body ? JSON.stringify(body) : undefined, cache: "no-store" });
+  } catch (e) { throw new Error("net"); }
+  if (res.status === 401 || res.status === 403) throw new Error("auth");
+  if (res.status === 409 || res.status === 422) throw new Error("busy");
+  if (method === "GET" && res.status === 404) return null;
+  if (!res.ok) throw new Error("net");
+  return res.json();
+}
+let POST_KEY_BLOB = null;   // post-key.json as read by the password check, reused here (one download instead of two)
+async function loadToken() {
+  try {
+    const blob = POST_KEY_BLOB || await (await fetch("data/post-key.json?t=" + Date.now(), { cache: "no-store" })).json();
+    const dec = (b) => Uint8Array.from(atob(b.replace(/\s/g, "")), (c) => c.charCodeAt(0));
+    const key = await OfficerData.pbkdf(OFFICER_PW, blob.salt, blob.iter, ["decrypt"]);
+    TOKEN = new TextDecoder().decode(await crypto.subtle.decrypt({ name: "AES-GCM", iv: dec(blob.iv) }, key, dec(blob.data)));
+  } catch (e) { TOKEN = null; }
+}
+async function saveList(next, message) {
+  const m = $("saveMsg"), em = $("edMsg");
+  if (!TOKEN) { em.textContent = tr("noKey"); return false; }
+  em.textContent = ""; m.className = "msg"; m.textContent = tr("saving");
+  const sched = {};
+  for (const e of next) if (e.start && e.every > 0 && e.days > 0) sched[e.id] = { anchor: e.start, periodDays: e.every, activeDays: e.days };
+  const file = { v: 1, updated: new Date().toISOString(), sched, data: await OfficerData.seal({ events: next }) };
+  try {
+    const r = await gh("PUT", EV_PATH, { message: message.slice(0, 120), content: utf8ToB64(JSON.stringify(file, null, 1) + "\n"), sha: FILE_SHA || undefined, branch: BRANCH });
+    FILE_SHA = r && r.content ? r.content.sha : FILE_SHA;
+    LIST = next; OfficerData.cacheSet("events", next); m.className = "msg okmsg"; m.textContent = tr("saved"); return true;
+  } catch (err) {
+    const k = err.message === "auth" ? "errAuth" : err.message === "busy" ? "errBusy" : "errNet";
+    m.className = "msg warn"; m.textContent = tr(k); em.textContent = tr(k); return false;
+  }
+}
+
+function applyTexts() {
+  document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+  ROOT.querySelectorAll("[data-t]").forEach((el) => { el.textContent = tr(el.dataset.t); });
+}
+function setLang(l) { lang = l; store.lang = lang; save(); applyTexts(); if (LIST) render(); };
+$("prevW").onclick = () => { weekStart -= 7 * DAY; render(); };
+$("nextW").onclick = () => { weekStart += 7 * DAY; render(); };
+$("thisW").onclick = () => { weekStart = defaultWeek(); render(); };
+$("addEv").onclick = () => openEditor(null);
+// On Sunday, open on next week (that's when the weekly planning happens)
+function defaultWeek() { const now = Date.now(); const m = mondayOf(now); return new Date(utcDay(now)).getUTCDay() === 0 ? m + 7 * DAY : m; }
+
+async function init() {
+  applyTexts();
+  OFFICER_PW = OFFICER.pw; TOKEN = OFFICER.token;
+  // 0) the copy remembered in this tab (from an earlier visit) is shown right away …
+  const remembered = OfficerData.cacheGet("events");
+  if (remembered) { LIST = seedTodos(remembered); $("ev_app").hidden = false; weekStart = defaultWeek(); render(); }
+  // 1) … then the saved list (fresh copy from GitHub when the key works, otherwise the site's copy)
+  let file = null, fresh = null;
+  try {
+    if (TOKEN) { const f = await gh("GET", EV_PATH); if (f) { FILE_SHA = f.sha; file = JSON.parse(b64ToUtf8(f.content)); } }
+    else { const r = await fetch(EV_PATH + "?t=" + Date.now(), { cache: "no-store" }); if (r.ok) file = await r.json(); }
+    if (file && file.data) { const d = await OfficerData.open(file.data); fresh = d && d.events; }
+  } catch (e) { fresh = null; }
+  if (fresh) {
+    OfficerData.cacheSet("events", fresh);
+    if (remembered && JSON.stringify(seedTodos(fresh)) === JSON.stringify(LIST)) return;   // nothing changed
+    LIST = seedTodos(fresh);
+  } else if (remembered) return;
+  else LIST = null;
+  // 2) nothing saved yet: start from the schedules already on the site
+  if (!LIST) {
+    let sched = null;
+    try {
+      const src = await fetch("js/app.js?t=" + Date.now(), { cache: "no-store" }).then((r) => r.text());
+      const m = src.match(/const EVENT_SCHEDULES = (\{[\s\S]*?\n\});/);
+      sched = m ? Function('"use strict";return (' + m[1] + ");")() : null;
+    } catch (e) { sched = null; }
+    if (!sched) { $("ev_noData").hidden = false; $("ev_noData").textContent = tr("noData"); return; }
+    LIST = defaultList(sched);
+  }
+  $("ev_app").hidden = false;
+  weekStart = defaultWeek(); render();
+}
+// saved events without any to-do get the built-in ones once (todoSeed marks it, so deleting them later sticks)
+function seedTodos(list) {
+  for (const e of list) {
+    if (e.todoSeed || (e.todo && e.todo.length)) continue;
+    const d = TODO[e.id] || (EXTRA_EVENTS.find((x) => x.id === e.id) || {}).todo;
+    if (d && d.length) { e.todo = d.map((x) => ({ ...x })); e.todoSeed = 1; }
+  }
+  return list;
+}
+
+OFFICER_PAGES.events = { init, applyTexts, setLang };
+
+
+})();
+(function () {
+const ROOT = document.getElementById('pg-ranking');
+const DATA_URL = "data/roster-x7k2p9.json";
+const T = {
+  zh: {
+    title: "NXS 成員排序", home: "回主頁", weights: "① 占比", power: "總戰力", mystic: "秘境試煉",
+    weightNote: "兩個加起來是 100%，改一個另一個會自動調整。",
+    pick: "② 勾選這次參戰的人", all: "全選", none: "全部取消",
+    paste: "貼上報名名單一次勾選", pasteNote: "一行一個名字（或用逗號分隔）。名字前後的符號和 Nexus 標記可以省略，大小寫沒關係。標 (?) 的表示有好幾個人符合，請手動勾選。",
+    pasteGo: "勾選這些人", pasteOk: "已勾選 {n} 人。", pasteMiss: "找不到：{list}",
+    search: "搜尋名字…", colName: "名字", colRank: "階級", colTc: "主城", colActive: "上次上線",
+    rest: "剩下的人", events: "④ 活動分組", eventsNote: "依上面的排序結果（加權分數高到低）分組。", n: "{n} 人",
+    result: "③ 排序結果", copy: "複製結果", copied: "已複製！", colScore: "分數",
+    scoreNote: "分數算法：兩項各自以「這次勾選的人裡面最高的那個 = 100」換算，再依占比加總。沒有秘境數字的人以 0 計，標 ?。",
+    empty: "還沒勾選任何人。", selected: "已選 {n} / {t} 人",
+    updated: "資料更新：{t}（{ago}）", members: "{n} 名成員",
+    noData: "還沒有資料。請到 GitHub → Actions → 「Update Roster (MightPulse)」→ Run workflow，跑完後重新整理這頁。",
+    ago: { now: "剛剛", m: "{n} 分鐘前", h: "{n} 小時前", d: "{n} 天前" },
+  },
+  en: {
+    title: "NXS Roster Ranking", home: "Home", weights: "① Weights", power: "Total Power", mystic: "Mystic Trial",
+    weightNote: "The two add up to 100% — changing one adjusts the other.",
+    pick: "② Tick this event's participants", all: "Select all", none: "Clear",
+    paste: "Paste a sign-up list to tick at once", pasteNote: "One name per line (or comma-separated). Decorations like ♛ and the Nexus tag can be left out; case doesn't matter. (?) means several players match — tick that one by hand.",
+    pasteGo: "Tick these players", pasteOk: "Ticked {n} players.", pasteMiss: "Not found: {list}",
+    search: "Search a name…", colName: "Name", colRank: "Rank", colTc: "TC", colActive: "Last online",
+    rest: "everyone left", events: "④ Event groups", eventsNote: "Groups follow the ranking above (highest weighted score first).", n: "{n}",
+    result: "③ Ranking", copy: "Copy result", copied: "Copied!", colScore: "Score",
+    scoreNote: "Score: each stat is scaled so the highest among the ticked players = 100, then combined by the weights. Players with no Mystic Trial value count as 0 (marked ?).",
+    empty: "Nobody ticked yet.", selected: "{n} / {t} selected",
+    updated: "Data updated: {t} ({ago})", members: "{n} members",
+    noData: "No data yet. Go to GitHub → Actions → “Update Roster (MightPulse)” → Run workflow, then reload this page.",
+    ago: { now: "just now", m: "{n} min ago", h: "{n} h ago", d: "{n} d ago" },
+  },
+};
+/* ---- Event presets: add a new event by copying one entry. count: null = everyone left ---- */
+const PRESETS = [
+  { id: "swordland", emoji: "⚔️", name: { en: "Swordland Showdown", zh: "聖劍爭奪" },
+    groups: [
+      { name: { en: "Attackers", zh: "攻擊者" }, count: 4 },
+      { name: { en: "Defenders", zh: "防守者" }, count: 6 },
+      { name: { en: "Joiners", zh: "參與者" }, count: null },
+    ] },
+];
+const LS = "nxs-roster-v2";
+const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
+const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
+
+/* one language for all officer tabs (set from the main site when you enter, and by the language button on any tab) */
+let lang = OFFICER.lang;
+let data = null, sortKey = store.sortKey || "rank", sortDir = store.sortDir || -1;
+let picked = new Set(store.picked || []);
+let wPower = store.wPower ?? 40;
+
+const $ = (id) => ROOT.querySelector("#" + CSS.escape(id)) || document["getElementById"](id);
+const tr = (k, vars = {}) => String(k.split(".").reduce((o, x) => o && o[x], T[lang]) ?? k).replace(/\{(\w+)\}/g, (m, v) => vars[v] ?? m);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const big = (n) => n == null ? "?" : n >= 1e9 ? (n / 1e9).toFixed(2) + "B" : n >= 1e6 ? (n / 1e6).toFixed(1) + "M" : n >= 1e3 ? (n / 1e3).toFixed(1) + "K" : String(n);
+const toMs = (v) => v == null ? null : (typeof v === "number" ? (v < 1e12 ? v * 1000 : v) : Date.parse(v));
+function ago(v) {
+  const ms = toMs(v); if (!ms) return "?";
+  const s = (Date.now() - ms) / 1000;
+  if (s < 60) return tr("ago.now");
+  if (s < 3600) return tr("ago.m", { n: Math.floor(s / 60) });
+  if (s < 86400) return tr("ago.h", { n: Math.floor(s / 3600) });
+  return tr("ago.d", { n: Math.floor(s / 86400) });
+}
+const rankNum = (m) => { const r = String(m.rank || ""); if (/leader|r5/i.test(r)) return 5; const n = r.match(/\d/); return n ? Number(n[0]) : 0; };
+const rankLabel = (m) => rankNum(m) ? "R" + rankNum(m) : (m.rank || "?");
+const norm = (s) => String(s || "").trim().toLowerCase();
+// name without decorations (♛, superscript "Nexus" tag, spaces, symbols) — for matching pasted names
+const core = (s) => String(s || "").normalize("NFKC").toLowerCase().replace(/nexus/g, "").replace(/[^\p{L}\p{N}]/gu, "");
+
+function applyTexts() {
+  document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+  ROOT.querySelectorAll("[data-t]").forEach((el) => { el.textContent = tr(el.dataset.t); });
+  $("rk_q").placeholder = tr("search");
+  if (data) $("rk_meta").textContent = `${data.alliance?.tag ? "[" + data.alliance.tag + "] " : ""}${tr("members", { n: data.members.length })} · ${tr("updated", { t: new Date(data.updated).toLocaleString(lang === "zh" ? "zh-TW" : "en-GB"), ago: ago(data.updated) })}`;
+  $("rk_noData").textContent = tr("noData");
+}
+
+function renderList() {
+  const q = norm($("rk_q").value);
+  const rows = data.members
+    .filter((m) => !q || norm(m.name).includes(q) || core(m.name).includes(core(q)))
+    .sort((a, b) => {
+      if (sortKey === "rank") return sortDir * (rankNum(a) - rankNum(b)) || (b.power || 0) - (a.power || 0);
+      let x = a[sortKey], y = b[sortKey];
+      if (sortKey === "lastActive") { x = toMs(x) || 0; y = toMs(y) || 0; }
+      if (typeof x === "string" || typeof y === "string") return sortDir * String(x ?? "").localeCompare(String(y ?? ""));
+      return sortDir * ((x ?? -1) - (y ?? -1));
+    });
+  let lastRank = null;
+  $("rk_list").innerHTML = rows.map((m) => {
+    let head = "";
+    if (sortKey === "rank" && rankNum(m) !== lastRank) {
+      lastRank = rankNum(m);
+      const grp = rows.filter((x) => rankNum(x) === lastRank);
+      const on = grp.filter((x) => picked.has(x.id)).length;
+      head = `<tr class="grp" data-r="${lastRank}"><td><input type="checkbox" tabindex="-1" ${on === grp.length ? "checked" : ""}></td><td colspan="5"><b>${esc(rankLabel(m))}</b> <span class="muted">· ${on} / ${grp.length}</span></td></tr>`;
+    }
+    return head + `
+    <tr class="member${picked.has(m.id) ? " on" : ""}" data-id="${m.id}">
+      <td><input type="checkbox" ${picked.has(m.id) ? "checked" : ""} tabindex="-1"></td>
+      <td class="name" dir="auto">${esc(m.name)}</td>
+      <td>${esc(rankLabel(m))}</td>
+      <td class="num">${m.tc ?? "?"}</td>
+      <td class="num">${big(m.power)}</td>
+      <td class="num">${big(m.mystic)}</td>
+    </tr>`;
+  }).join("");
+  $("pickCount").textContent = tr("selected", { n: picked.size, t: data.members.length });
+  ROOT.querySelectorAll("th[data-sort]").forEach((th) => {
+    th.textContent = tr(th.dataset.t) + (th.dataset.sort === sortKey ? (sortDir < 0 ? " ▼" : " ▲") : "");
+  });
+}
+
+function ranking() {
+  const sel = data.members.filter((m) => picked.has(m.id));
+  const maxP = Math.max(1, ...sel.map((m) => m.power || 0));
+  const maxM = Math.max(1, ...sel.map((m) => m.mystic || 0));
+  const wp = wPower / 100, wm = 1 - wp;
+  return sel.map((m) => ({ ...m, score: 100 * (wp * (m.power || 0) / maxP + wm * (m.mystic || 0) / maxM) }))
+    .sort((a, b) => b.score - a.score);
+}
+
+function renderResult() {
+  setTimeout(renderPresets, 0);
+  setTimeout(() => { if (typeof tbRender === "function") tbRender(); }, 0);
+  const r = ranking();
+  $("result").innerHTML = r.length ? r.map((m, i) => `
+    <tr>
+      <td class="num">${i + 1}</td>
+      <td class="name"><span dir="auto">${esc(m.name)}</span><div style="font-size:12px;opacity:.65;font-variant-numeric:tabular-nums;user-select:all">ID ${esc(m.id)}</div></td>
+      <td class="num">${m.score.toFixed(1)}<span class="bar" style="width:${Math.round(m.score * 0.6)}px"></span></td>
+      <td class="num">${big(m.power)}</td>
+      <td class="num">${m.mystic == null ? '<span class="warn">?</span>' : big(m.mystic)}</td>
+    </tr>`).join("") : `<tr><td colspan="5" class="empty">${tr("empty")}</td></tr>`;
+}
+
+let activePreset = null;
+// group sizes the user typed, remembered per event (falls back to the preset's default)
+function groupCount(pr, gi) {
+  const v = store.counts?.[pr.id]?.[gi];
+  return v == null ? pr.groups[gi].count : v;
+}
+function presetGroups(pr) {
+  const r = ranking(); let i = 0;
+  return pr.groups.map((g, gi) => {
+    const c = g.count == null ? null : groupCount(pr, gi);
+    const take = c == null ? r.slice(i) : r.slice(i, i + c); i += take.length; return { g, list: take };
+  });
+}
+function renderCounts() {
+  const pr = PRESETS.find((x) => x.id === activePreset);
+  if (!pr) { $("presetCounts").innerHTML = ""; return; }
+  $("presetCounts").innerHTML = pr.groups.map((g, gi) => g.count == null
+    ? `<span class="muted">${esc(g.name[lang] || g.name.en)}: ${tr("rest")}</span>`
+    : `<label class="w">${esc(g.name[lang] || g.name.en)}<input type="number" min="0" max="99" step="1" data-gi="${gi}" value="${groupCount(pr, gi)}"></label>`).join("");
+}
+function renderPresets() {
+  $("presetBtns").innerHTML = PRESETS.map((pr) =>
+    `<button class="btn${activePreset === pr.id ? " on" : ""}" data-p="${pr.id}">${pr.emoji} ${esc(pr.name[lang] || pr.name.en)}</button>`).join("");
+  const pr = PRESETS.find((x) => x.id === activePreset);
+  $("presetCopy").hidden = !pr;
+  if (!document.activeElement || !document.activeElement.closest("#presetCounts")) renderCounts();
+  if (!pr) { $("presetOut").innerHTML = ""; return; }
+  if (!picked.size) { $("presetOut").innerHTML = `<p class="empty">${tr("empty")}</p>`; return; }
+  $("presetOut").innerHTML = `<div class="grp-out">` + presetGroups(pr).map(({ g, list }) => `
+    <h3>${esc(g.name[lang] || g.name.en)} <span class="muted">(${tr("n", { n: list.length })})</span></h3>
+    ${list.length ? `<ol>${list.map((m) => `<li dir="auto">${esc(m.name)} <span class="muted">· ${m.score.toFixed(1)}</span></li>`).join("")}</ol>` : `<div class="muted">—</div>`}`).join("") + `</div>`;
+}
+function renderAll() { applyTexts(); renderList(); renderResult(); }
+function persist() { store.picked = [...picked]; store.wPower = wPower; store.sortKey = sortKey; store.sortDir = sortDir; store.lang = lang; save(); }
+
+function setWeights(p) {
+  wPower = Math.min(100, Math.max(0, Math.round(Number(p) || 0)));
+  $("wPower").value = wPower; $("wMystic").value = 100 - wPower;
+  persist(); renderResult();
+}
+
+async function init() {
+  applyTexts();
+  try {
+    // the copy remembered in this tab shows at once; a newer one replaces it when it arrives
+    data = await OfficerData.fetchJsonFast(DATA_URL, (d) => { data = d; renderAll(); });
+    if (!data) throw 0;
+  } catch (e) { $("rk_noData").hidden = false; return; }
+  // drop picks of players who left the alliance
+  const ids = new Set(data.members.map((m) => m.id));
+  picked = new Set([...picked].filter((id) => ids.has(id)));
+  $("rk_app").hidden = false;
+  setWeights(wPower);
+  renderAll();
+}
+
+function setLang(l) { lang = l; persist(); renderAll(); };
+$("wPower").oninput = (e) => setWeights(e.target.value);
+$("wMystic").oninput = (e) => setWeights(100 - (Number(e.target.value) || 0));
+$("rk_q").oninput = renderList;
+$("rk_list").onclick = (e) => {
+  const g = e.target.closest("tr.grp");
+  if (g) {
+    const r = Number(g.dataset.r), q = norm($("rk_q").value);
+    const grp = data.members.filter((m) => rankNum(m) === r && (!q || norm(m.name).includes(q)));
+    const all = grp.every((m) => picked.has(m.id));
+    grp.forEach((m) => all ? picked.delete(m.id) : picked.add(m.id));
+    persist(); renderList(); renderResult(); return;
+  }
+  const row = e.target.closest("tr.member"); if (!row) return;
+  const id = Number(row.dataset.id) || row.dataset.id;
+  picked.has(id) ? picked.delete(id) : picked.add(id);
+  persist(); renderList(); renderResult();
+};
+$("allBtn").onclick = () => { data.members.forEach((m) => picked.add(m.id)); persist(); renderList(); renderResult(); };
+$("noneBtn").onclick = () => { picked.clear(); persist(); renderList(); renderResult(); };
+ROOT.querySelectorAll("th[data-sort]").forEach((th) => th.onclick = () => {
+  const k = th.dataset.sort;
+  if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = k === "name" ? 1 : -1; }
+  persist(); renderList();
+});
+$("pasteBtn").onclick = () => {
+  const names = $("pasteBox").value.split(/[\n,，]+/).map((s) => s.replace(/^[\s\-•*\d.)]+/, "").trim()).filter(Boolean);
+  const miss = []; let n = 0;
+  names.forEach((nm) => {
+    const c = core(nm);
+    let hit = data.members.filter((m) => core(m.name) === c);
+    if (!hit.length && c.length >= 3) hit = data.members.filter((m) => core(m.name).includes(c));
+    if (hit.length === 1) { picked.add(hit[0].id); n++; } else miss.push(nm + (hit.length > 1 ? " (?)" : ""));
+  });
+  $("pasteMsg").innerHTML = esc(tr("pasteOk", { n })) + (miss.length ? `<br><span class="warn">${esc(tr("pasteMiss", { list: miss.join(", ") }))}</span>` : "");
+  persist(); renderList(); renderResult();
+};
+$("rk_copyBtn").onclick = async () => {
+  const r = ranking();
+  const text = r.map((m, i) => `${i + 1}. ${m.name} (ID ${m.id}) — ${m.score.toFixed(1)}`).join("\n");
+  try { await navigator.clipboard.writeText(text); } catch (e) {
+    const ta = document.createElement("textarea"); ta.value = text; ROOT.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
+  }
+  const b = $("rk_copyBtn"); b.textContent = tr("copied"); setTimeout(() => (b.textContent = tr("copy")), 1500);
+};
+
+$("presetBtns").onclick = (e) => {
+  const b = e.target.closest("[data-p]"); if (!b) return;
+  activePreset = activePreset === b.dataset.p ? null : b.dataset.p; renderPresets();
+};
+$("presetCounts").oninput = (e) => {
+  const inp = e.target.closest("input[data-gi]"); if (!inp) return;
+  const v = Math.max(0, Math.min(99, Math.round(Number(inp.value) || 0)));
+  store.counts = store.counts || {};
+  store.counts[activePreset] = store.counts[activePreset] || {};
+  store.counts[activePreset][inp.dataset.gi] = v;
+  save(); renderPresets();
+};
+$("presetCopy").onclick = async () => {
+  const pr = PRESETS.find((x) => x.id === activePreset); if (!pr) return;
+  const text = `**${pr.emoji} ${pr.name[lang] || pr.name.en}**\n` + presetGroups(pr).map(({ g, list }) =>
+    `\n**${g.name[lang] || g.name.en} (${list.length})**\n` + (list.map((m, i) => `${i + 1}. ${m.name}`).join("\n") || "—")).join("\n");
+  try { await navigator.clipboard.writeText(text); } catch (e) {
+    const ta = document.createElement("textarea"); ta.value = text; ROOT.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
+  }
+  const b = $("presetCopy"); b.textContent = tr("copied"); setTimeout(() => (b.textContent = tr("copy")), 1500);
+};
+
+
+
+/* ===== ⑤ Battle table builder (saved only in this browser) ===== */
+const TB_LS = "nxs-table-v1";
+const TB_COLORS = ["#e6a3d9", "#8fd0ec", "#f6c3a2", "#d6ecc4", "#f6e58d", "#c9c3f0", "#d9d9d9", "#b8e0d2"];
+const TT = {
+  en: {
+    title: "⑤ Battle table", note: "Pick people from the list, then tap a box to put them there (on a computer you can also drag). Tap × to remove.",
+    setup: "Table setup", stages: "Stages", targets: "Targets", cols: "Columns", sep: "(separate with commas)",
+    shortNames: "Short names (drop decorations like 亗 and Nexus)",
+    draft: "Fill a first draft from the ranking", draftNote: "Uses the Attackers / Defenders numbers from ④.",
+    clear: "Clear table", addGroup: "+ Group", addRow: "+ Row", delGroup: "Delete group", dupRow: "Copy row", delRow: "Delete row",
+    pool: "People — suggested roles by score (tap one, then tap a box)", poolEmpty: "Tick participants in ② first.",
+    addText: "+ text", textPrompt: "Text to add (e.g. Stays behind)",
+    image: "🖼️ Make image", text: "📋 Copy text", toPost: "📢 Use in a new announcement",
+    saveHint: "Phone: press and hold the picture to save it.", download: "Download", close: "Close",
+    confirmClear: "Clear the whole table?", confirmDraft: "Replace the table with a new draft?", copied: "Copied!",
+    group: "Group", picked: "Selected:",
+  },
+  zh: {
+    title: "⑤ 戰鬥分工表", note: "先點上方的名字，再點要放的格子（電腦上也可以直接拖曳）。點 × 移除。",
+    setup: "表格設定", stages: "階段", targets: "目標", cols: "欄位名稱", sep: "（用逗號分隔）",
+    shortNames: "簡短名字（去掉亗、Nexus 這些裝飾）",
+    draft: "依排序自動排一份草稿", draftNote: "使用 ④ 裡 Attackers／Defenders 的人數。",
+    clear: "清空表格", addGroup: "+ 新增組", addRow: "+ 新增列", delGroup: "刪除這組", dupRow: "複製這列", delRow: "刪除這列",
+    pool: "人員 — 依分數建議的角色（先點名字，再點格子）", poolEmpty: "請先在 ② 勾選參戰的人。",
+    addText: "+ 文字", textPrompt: "要加入的文字（例如 Stays behind）",
+    image: "🖼️ 產生圖片", text: "📋 複製文字", toPost: "📢 拿去發公告",
+    saveHint: "手機：長按圖片即可儲存。", download: "下載", close: "關閉",
+    confirmClear: "確定清空整張表？", confirmDraft: "用新的草稿取代目前的表格？", copied: "已複製！",
+    group: "組", picked: "已選：",
+  },
+};
+const tt = (k) => (TT[lang] && TT[lang][k]) || TT.en[k];
+const COL_KEYS = ["att", "stage", "target", "def", "join", "note"];
+const PEOPLE_COLS = ["att", "def", "join"];
+function tbDefault() {
+  return {
+    stages: "Stage 1, Stage 2", targets: "1, 2, 3, 4, 5, 6, 7", short: true,
+    cols: { att: "Attackers", stage: "Stage", target: "Target", def: "Defenders", join: "Joiners", note: "Note" },
+    show: { att: true, stage: true, target: true, def: true, join: true, note: false },
+    groups: [],
+  };
+}
+let TB = (() => { try { return Object.assign(tbDefault(), JSON.parse(localStorage.getItem(TB_LS)) || {}); } catch (e) { return tbDefault(); } })();
+const tbSave = () => { try { localStorage.setItem(TB_LS, JSON.stringify(TB)); } catch (e) {} };
+let tbPick = null;          // selected chip: { kind: "p", id } | { kind: "t", text }
+let tbUid = Date.now();
+const newRow = (stage = "") => ({ id: ++tbUid, att: [], stage, target: "", def: [], join: [], note: "" });
+
+const memberById = (id) => (data && data.members.find((m) => String(m.id) === String(id))) || null;
+function shortName(n) {
+  const s = String(n || "").normalize("NFKC").replace(/nexus/gi, "").replace(/[亗卍〆『』「」【】〖〗★☆♛♚♕✿❀•·︎]/g, "").replace(/[^\p{L}\p{N} ._\-'’]/gu, "").replace(/\s+/g, " ").trim();
+  return s || String(n || "");
+}
+function chipLabel(c) {
+  if (c.kind === "t") return c.text;
+  const m = memberById(c.id);
+  const n = m ? m.name : "?";
+  return TB.short ? shortName(n) : n;
+}
+const listOf = (s) => String(s || "").split(/[,，]/).map((x) => x.trim()).filter(Boolean);
+
+function tbCounts() {
+  const c = {};
+  TB.groups.forEach((g) => g.rows.forEach((r) => PEOPLE_COLS.forEach((k) => r[k].forEach((x) => { if (x.kind === "p") c[x.id] = (c[x.id] || 0) + 1; }))));
+  return c;
+}
+
+function tbRender() {
+  const host = $("tbCard"); if (!host || !data) return;
+  const counts = tbCounts();
+  const pool = ranking();
+  const swPreset = PRESETS.find((x) => x.id === "swordland");
+  const roleGroups = presetGroups(swPreset);   // suggested Attackers / Defenders / Joiners by score
+  const stageOpts = listOf(TB.stages), targetOpts = listOf(TB.targets);
+  const cell = (g, gi, r, ri, k) => {
+    const chips = r[k].map((x, xi) => `<span class="tb-chip${x.kind === "t" ? " txt" : ""}" draggable="true" data-g="${gi}" data-r="${ri}" data-k="${k}" data-x="${xi}">${esc(chipLabel(x))}<b class="tb-x" data-del="1">×</b></span>`).join("");
+    return `<div class="tb-cell" data-g="${gi}" data-r="${ri}" data-k="${k}"><div class="tb-lab">${esc(TB.cols[k])}</div>${chips}<span class="tb-add" data-g="${gi}" data-r="${ri}" data-k="${k}" data-addtext="1">${esc(tt("addText"))}</span></div>`;
+  };
+  host.innerHTML = `
+    <h2>${esc(tt("title"))}</h2>
+    <div class="muted msg" style="margin:0 0 10px">${esc(tt("note"))}</div>
+    <details class="tb-setup"><summary>${esc(tt("setup"))}</summary>
+      <label class="f">${esc(tt("stages"))} <span class="muted">${esc(tt("sep"))}</span><input type="text" data-set="stages" value="${esc(TB.stages)}"></label>
+      <label class="f">${esc(tt("targets"))} <span class="muted">${esc(tt("sep"))}</span><input type="text" data-set="targets" value="${esc(TB.targets)}"></label>
+      <div class="f">${esc(tt("cols"))}</div>
+      <div class="tb-cols">${COL_KEYS.map((k) => `<label><input type="checkbox" data-show="${k}" ${TB.show[k] ? "checked" : ""}><input type="text" data-col="${k}" value="${esc(TB.cols[k])}"></label>`).join("")}</div>
+      <label class="row" style="margin-top:8px"><input type="checkbox" data-set="short" ${TB.short ? "checked" : ""}> ${esc(tt("shortNames"))}</label>
+    </details>
+    <div class="row" style="margin:10px 0">
+      <button class="btn" data-act="draft">✨ ${esc(tt("draft"))}</button>
+      <button class="btn" data-act="clear">${esc(tt("clear"))}</button>
+    </div>
+    <div class="muted" style="font-size:12px;margin:-4px 0 8px">${esc(tt("draftNote"))}</div>
+    <div class="tb-sticky"><div class="tb-pool-h">${esc(tt("pool"))}${tbPick ? ` · <b>${esc(tt("picked"))} ${esc(chipLabel(tbPick))}</b>` : ""}</div>
+    <div class="tb-counts">${swPreset.groups.map((g, gi) => g.count == null ? "" : `<label>${esc(g.name[lang] || g.name.en)} <input type="number" min="0" max="99" data-rolecount="${gi}" value="${groupCount(swPreset, gi)}"></label>`).join("")}</div>
+    <div class="tb-pool">${pool.length ? roleGroups.map(({ g, list }, ri) => list.length ? `<div class="tb-role r${ri}"><div class="tb-role-h">${esc(g.name[lang] || g.name.en)} <span>(${list.length})</span></div>${list.map((m) => `<span class="tb-chip pool r${ri}${tbPick && tbPick.kind === "p" && String(tbPick.id) === String(m.id) ? " on" : ""}" draggable="true" data-pid="${m.id}">${esc(TB.short ? shortName(m.name) : m.name)}${counts[m.id] ? `<i>${counts[m.id]}</i>` : ""}</span>`).join("")}</div>` : "").join("") : `<span class="muted">${esc(tt("poolEmpty"))}</span>`}</div></div>
+    ${TB.groups.map((g, gi) => `
+      <div class="tb-group" style="border-color:${g.color};background:color-mix(in srgb, ${g.color} 22%, var(--panel))">
+        <div class="tb-ghead">
+          <span class="tb-swatches">${TB_COLORS.map((c) => `<span class="tb-sw${c === g.color ? " on" : ""}" style="background:${c}" data-color="${c}" data-g="${gi}"></span>`).join("")}</span>
+          <button class="btn small" data-act="delGroup" data-g="${gi}">${esc(tt("delGroup"))}</button>
+        </div>
+        ${g.rows.map((r, ri) => `
+          <div class="tb-row">
+            <div class="tb-rowtop">
+              ${TB.show.stage ? `<label class="tb-in"><span>${esc(TB.cols.stage)}</span><input list="tbStages" data-g="${gi}" data-r="${ri}" data-field="stage" value="${esc(r.stage)}"></label>` : ""}
+              ${TB.show.target ? `<label class="tb-in"><span>${esc(TB.cols.target)}</span><input list="tbTargets" data-g="${gi}" data-r="${ri}" data-field="target" value="${esc(r.target)}"></label>` : ""}
+              <span class="tb-rowbtns"><button class="btn small" data-act="dupRow" data-g="${gi}" data-r="${ri}" title="${esc(tt("dupRow"))}">⧉</button><button class="btn small" data-act="delRow" data-g="${gi}" data-r="${ri}" title="${esc(tt("delRow"))}">🗑</button></span>
+            </div>
+            ${PEOPLE_COLS.filter((k) => TB.show[k]).map((k) => cell(g, gi, r, ri, k)).join("")}
+            ${TB.show.note ? `<label class="tb-in wide"><span>${esc(TB.cols.note)}</span><input data-g="${gi}" data-r="${ri}" data-field="note" value="${esc(r.note)}"></label>` : ""}
+          </div>`).join("")}
+        <button class="btn small" data-act="addRow" data-g="${gi}">${esc(tt("addRow"))}</button>
+      </div>`).join("")}
+    <div class="row" style="margin-top:10px"><button class="btn" data-act="addGroup">${esc(tt("addGroup"))}</button></div>
+    <div class="row" style="margin-top:14px">
+      <button class="btn primary" data-act="image">${esc(tt("image"))}</button>
+      <button class="btn" data-act="text">${esc(tt("text"))}</button>
+    </div>
+    <datalist id="tbStages">${stageOpts.map((s) => `<option value="${esc(s)}">`).join("")}</datalist>
+    <datalist id="tbTargets">${targetOpts.map((s) => `<option value="${esc(s)}">`).join("")}</datalist>`;
+}
+
+/* ----- editing ----- */
+function tbPut(gi, ri, k, chip) {
+  const arr = TB.groups[gi].rows[ri][k];
+  if (chip.kind === "p" && arr.some((x) => x.kind === "p" && String(x.id) === String(chip.id))) return;
+  arr.push(chip);
+}
+function tbDraft() {
+  const pr = PRESETS.find((x) => x.id === "swordland");
+  const A = groupCount(pr, 0), D = groupCount(pr, 1);
+  const r = ranking(); if (!r.length) return;
+  const nG = Math.max(1, Math.min(A, r.length));
+  const stage = listOf(TB.stages)[0] || "";
+  TB.groups = Array.from({ length: nG }, (_, i) => ({ color: TB_COLORS[i % TB_COLORS.length], rows: [newRow(stage)] }));
+  r.forEach((m, i) => {
+    const chip = { kind: "p", id: m.id };
+    if (i < nG) TB.groups[i].rows[0].att.push(chip);
+    else if (i < nG + D) TB.groups[(i - nG) % nG].rows[0].def.push(chip);
+    else TB.groups[(i - nG - D) % nG].rows[0].join.push(chip);
+  });
+}
+
+function tbClick(e) {
+  const t = e.target;
+  // remove chip
+  if (t.dataset.del) { const c = t.closest(".tb-chip"); TB.groups[c.dataset.g].rows[c.dataset.r][c.dataset.k].splice(c.dataset.x, 1); tbSave(); tbRender(); return; }
+  // pick from pool
+  const pc = t.closest(".tb-chip.pool");
+  if (pc) { const id = pc.dataset.pid; tbPick = tbPick && tbPick.kind === "p" && String(tbPick.id) === String(id) ? null : { kind: "p", id: Number(id) || id }; tbRender(); return; }
+  // add free text
+  if (t.dataset.addtext) {
+    const v = window.prompt(tt("textPrompt")); if (v && v.trim()) { tbPut(t.dataset.g, t.dataset.r, t.dataset.k, { kind: "t", text: v.trim() }); tbSave(); tbRender(); }
+    return;
+  }
+  // put picked into a cell
+  const cl = t.closest(".tb-cell");
+  if (cl && tbPick) { tbPut(cl.dataset.g, cl.dataset.r, cl.dataset.k, tbPick); tbSave(); tbRender(); return; }
+  // colour
+  if (t.dataset.color) { TB.groups[t.dataset.g].color = t.dataset.color; tbSave(); tbRender(); return; }
+  const a = t.closest("[data-act]"); if (!a) return;
+  const gi = a.dataset.g, ri = a.dataset.r, act = a.dataset.act;
+  if (act === "addGroup") TB.groups.push({ color: TB_COLORS[TB.groups.length % TB_COLORS.length], rows: [newRow(listOf(TB.stages)[0] || "")] });
+  if (act === "delGroup") TB.groups.splice(gi, 1);
+  if (act === "addRow") TB.groups[gi].rows.push(newRow(listOf(TB.stages)[0] || ""));
+  if (act === "delRow") TB.groups[gi].rows.splice(ri, 1);
+  if (act === "dupRow") { const r = JSON.parse(JSON.stringify(TB.groups[gi].rows[ri])); r.id = ++tbUid; TB.groups[gi].rows.splice(Number(ri) + 1, 0, r); }
+  if (act === "clear") { if (!window.confirm(tt("confirmClear"))) return; TB.groups = []; }
+  if (act === "draft") { if (TB.groups.length && !window.confirm(tt("confirmDraft"))) return; tbDraft(); }
+  if (act === "image") return tbImage();
+  if (act === "text") return tbCopyText(a);
+  tbSave(); tbRender();
+}
+function tbInput(e) {
+  const t = e.target;
+  if (t.dataset.rolecount !== undefined) {
+    const v = Math.max(0, Math.min(99, Math.round(Number(t.value) || 0)));
+    store.counts = store.counts || {}; store.counts.swordland = store.counts.swordland || {};
+    store.counts.swordland[t.dataset.rolecount] = v; save(); renderPresets(); return;
+  }
+  if (t.dataset.field) { TB.groups[t.dataset.g].rows[t.dataset.r][t.dataset.field] = t.value; tbSave(); return; }
+  if (t.dataset.set === "short") { TB.short = t.checked; tbSave(); tbRender(); return; }
+  if (t.dataset.set) { TB[t.dataset.set] = t.value; tbSave(); return; }
+  if (t.dataset.col) { TB.cols[t.dataset.col] = t.value; tbSave(); return; }
+  if (t.dataset.show) { TB.show[t.dataset.show] = t.checked; tbSave(); tbRender(); return; }
+}
+/* drag & drop (computer) */
+let tbDrag = null;
+function tbDragStart(e) {
+  const c = e.target.closest(".tb-chip"); if (!c) return;
+  tbDrag = c.dataset.pid ? { chip: { kind: "p", id: Number(c.dataset.pid) || c.dataset.pid } }
+    : { chip: TB.groups[c.dataset.g].rows[c.dataset.r][c.dataset.k][c.dataset.x], from: [c.dataset.g, c.dataset.r, c.dataset.k, c.dataset.x] };
+  e.dataTransfer.effectAllowed = "move"; try { e.dataTransfer.setData("text/plain", "x"); } catch (err) {}
+}
+function tbDrop(e) {
+  const cl = e.target.closest(".tb-cell"); if (!cl || !tbDrag) return;
+  e.preventDefault();
+  if (tbDrag.from) { const [g, r, k, x] = tbDrag.from; TB.groups[g].rows[r][k].splice(x, 1); }
+  tbPut(cl.dataset.g, cl.dataset.r, cl.dataset.k, tbDrag.chip);
+  tbDrag = null; tbSave(); tbRender();
+}
+
+/* ----- output ----- */
+function tbRowsFlat() {
+  const cols = COL_KEYS.filter((k) => TB.show[k]);
+  const rows = [];
+  TB.groups.forEach((g) => g.rows.forEach((r) => rows.push({ color: g.color, cells: cols.map((k) => PEOPLE_COLS.includes(k) ? r[k].map(chipLabel).join(", ") : (r[k] || "")) })));
+  return { cols, head: cols.map((k) => TB.cols[k]), rows };
+}
+function tbCopyText(btn) {
+  const { head, rows } = tbRowsFlat();
+  const text = [head.join(" | "), ...rows.map((r) => r.cells.map((c) => c || "—").join(" | "))].join("\n");
+  (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).catch(() => {
+    const ta = document.createElement("textarea"); ta.value = text; ROOT.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
+  });
+  const old = btn.textContent; btn.textContent = tt("copied"); setTimeout(() => (btn.textContent = old), 1500);
+}
+function tbImage() {
+  const { head, rows } = tbRowsFlat();
+  const S = 2, pad = 8, lineH = 20, font = '15px "Noto Sans TC","Noto Sans KR","Noto Sans",Arial,sans-serif', bold = 'bold ' + font;
+  const cv = document.createElement("canvas"), g = cv.getContext("2d");
+  const maxW = [230, 110, 150, 330, 330, 260];
+  g.font = font;
+  const widths = head.map((h, i) => {
+    g.font = bold; let w = g.measureText(h).width;
+    g.font = font; rows.forEach((r) => { w = Math.max(w, Math.min(g.measureText(r.cells[i]).width, maxW[i] || 300)); });
+    return Math.ceil(Math.min(w, maxW[i] || 300) + pad * 2);
+  });
+  const wrap = (text, w) => {
+    g.font = font; const out = []; let line = "";
+    for (const word of String(text).split(/\s+/)) {
+      const tryL = line ? line + (line.endsWith(",") ? " " : " ") + word : word;
+      if (g.measureText(tryL).width <= w || !line) line = tryL; else { out.push(line); line = word; }
+    }
+    if (line) out.push(line); return out.length ? out : [""];
+  };
+  const lines = rows.map((r) => r.cells.map((c, i) => wrap(c, widths[i] - pad * 2)));
+  const heights = lines.map((ls) => Math.max(...ls.map((l) => l.length)) * lineH + pad * 2);
+  const headH = lineH + pad * 2, W = widths.reduce((a, b) => a + b, 0) + 1, H = headH + heights.reduce((a, b) => a + b, 0) + 1;
+  cv.width = W * S; cv.height = H * S; g.scale(S, S);
+  g.fillStyle = "#fff"; g.fillRect(0, 0, W, H); g.strokeStyle = "#9a9a9a"; g.lineWidth = 1; g.textBaseline = "top";
+  let x = 0.5;
+  head.forEach((h, i) => { g.font = bold; g.fillStyle = "#000"; g.fillText(h, x + pad, pad + 2); g.strokeRect(x, 0.5, widths[i], headH); x += widths[i]; });
+  let y = headH + 0.5;
+  rows.forEach((r, ri) => {
+    x = 0.5;
+    r.cells.forEach((c, i) => {
+      g.fillStyle = r.color; g.fillRect(x, y, widths[i], heights[ri]);
+      g.strokeRect(x, y, widths[i], heights[ri]);
+      g.font = font; g.fillStyle = "#111";
+      lines[ri][i].forEach((l, li) => g.fillText(l, x + pad, y + pad + 2 + li * lineH));
+      x += widths[i];
+    });
+    y += heights[ri];
+  });
+  const url = cv.toDataURL("image/png");
+  const m = document.createElement("div");
+  m.className = "tb-modal";
+  m.innerHTML = `<div class="card"><img src="${url}" style="max-width:100%;display:block;border-radius:6px">
+    <div class="muted" style="margin:8px 0">${esc(tt("saveHint"))}</div>
+    <div class="row"><a class="btn" download="battle-table.png" href="${url}">${esc(tt("download"))}</a>
+    <button class="btn primary" data-topost="1">${esc(tt("toPost"))}</button>
+    <button class="btn" data-close="1">${esc(tt("close"))}</button></div></div>`;
+  m.onclick = (e) => {
+    if (e.target === m || e.target.dataset.close) m.remove();
+    if (e.target.dataset.topost) { try { sessionStorage.setItem("nxs-carry-img", url); } catch (err) {} location.hash = "#post"; }
+  };
+  ROOT.appendChild(m);
+}
+
+(function tbInit() {
+  const host = $("tbCard");
+  host.addEventListener("click", tbClick);
+  host.addEventListener("input", (e) => { if (e.target.type !== "checkbox") tbInput(e); });
+  host.addEventListener("change", (e) => { if (e.target.type === "checkbox") tbInput(e); else if (e.target.dataset.set || e.target.dataset.col || e.target.dataset.rolecount !== undefined) tbRender(); });
+  host.addEventListener("dragstart", tbDragStart);
+  host.addEventListener("dragover", (e) => { if (e.target.closest(".tb-cell")) e.preventDefault(); });
+  host.addEventListener("drop", tbDrop);
+})();
+
+OFFICER_PAGES.ranking = { init, applyTexts, setLang };
+
+
+})();
+(function () {
+const ROOT = document.getElementById('pg-post');
+/* ===== settings ===== */
+const KEY_PATH = "data/post-key.json";            // encrypted GitHub key (safe to be public)
+const SOURCE_PATH = "data/announcements-source.md";
+const PUB_PATH = "data/announcements.json";            // translated, what the site shows
+const FIX_PATH = "data/announcements-fixes.json";      // one-language fixes made by hand
+const CACHE_PATH = "data/announcements-cache.json";    // stored translations (the translator skips anything already here)
+// repo is worked out from the site address (owner.github.io/repo/), with a fallback
+const OWNER = location.hostname.endsWith("github.io") ? location.hostname.split(".")[0] : "NXSguides";
+const REPO = location.hostname.endsWith("github.io") ? (location.pathname.split("/")[1] || "Kingshot_guideline_NXS") : "Kingshot_guideline_NXS";
+const BRANCH = "main";
+const LS = "nxs-post-v1";
+
+const T = {
+  en: {
+    title: "Post an announcement", subtitle: "Write it once — the site translates it into all 12 languages automatically.",
+    home: "Home",
+    unlockTitle: "Enter the officer password", password: "Password", remember: "Remember on this device", unlock: "Unlock",
+    wrongPw: "Wrong password. Ask Sherry for the officer password.",
+    setupTitle: "First-time setup (site owner only)",
+    setupIntro: "Do this once. After that, officers only need the password you choose here.",
+    setupSteps: [
+      "On GitHub, open Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token.",
+      "Resource owner: the organization that owns the site. Repository access: Only select repositories → this site's repository.",
+      "Permissions → Repository permissions → Contents: Read and write. Expiration: the longest allowed. Generate, then copy the token.",
+      "Paste the token below and choose an officer password (at least 10 characters).",
+    ],
+    token: "GitHub token", newPw: "Officer password", newPw2: "Type the password again", setupGo: "Save setup",
+    pwShort: "The password needs at least 10 characters.", pwMismatch: "The two passwords are different.",
+    setupOk: "Setup saved ✅ Give the officers this page's link and the password.",
+    writeTitle: "Write", fName: "Your name", fLang: "Language you're writing in",
+    fLangNote: "(write in your own language — it gets translated)",
+    fTitle: "Title", fBody: "Message",
+    fBodyNote: "(**text** = bold; links work as normal; pictures: use the button below)",
+    addImg: "Add picture", addImgNote: "It goes where the cursor is in the message.", uploadingImg: "Uploading pictures…",
+    fLink: "Button to a guide", fLinkNote: "(optional)", noGuide: "— none —",
+    preview: "Preview", publish: "📢 Publish",
+    needAll: "Please fill in your name, the title and the message.",
+    confirmPub: "Publish this announcement now?",
+    publishing: "Sending…",
+    pubOk: "Sent ✅ The translated announcement shows up on the site in about 2–3 minutes.",
+    listTitle: "Announcements on the site", reload: "Refresh",
+    listNote: "Newest first. Deleting removes it from the site in all languages.",
+    del: "Delete", confirmDel: "Delete this announcement for everyone?", deleting: "Deleting…", delOk: "Deleted ✅ It disappears from the site in about 2–3 minutes.",
+    empty: "No announcements.", img: "has pictures",
+    errNet: "Couldn't reach GitHub. Check the internet and try again.",
+    errAuth: "The saved GitHub key no longer works (it may have expired). Ask Sherry to redo the setup.",
+    errBusy: "Someone else just changed the announcements. Please try again.",
+    adminMore: "More", adminMoreNote: "For the site owner.",
+    forget: "Forget the password on this device", resetup: "Redo the setup (new token / new password)",
+    dataKeyBtn: "🔐 Officer data encryption",
+    dataKeyConfirm: "Create the data key now? Right after, you'll copy it into GitHub and Cloudflare.",
+    dataKeyMade: "Data key created ✅ Copy the key below, keep a copy somewhere safe, then:\n1. GitHub repo → Settings → Secrets and variables → Actions → New repository secret. Name: DATA_KEY\n2. Cloudflare → your Worker → Settings → Variables and Secrets → Add → Secret. Name: DATA_KEY\n3. GitHub → Actions → \"Encrypt Officer Data\" → Run workflow",
+    dataKeyShown: "Encryption is on. This is the data key (same value as the DATA_KEY secrets):",
+    dataKeyNeedPw: "Unlock this page with the officer password first.",
+    dataKeyRelock: "The data key couldn't be opened with the current password, so the setup was not changed.",
+    yes: "Yes", no: "Cancel",
+    edit: "Edit", editTitle: "Edit an announcement", close: "Close", editWhat: "What to change",
+    editAll: "All languages — change the original and translate again",
+    editAllNote: "The original opens in the Write form above. When you save, all 12 languages are translated again, and any one-language fixes on this announcement are replaced.",
+    editAllGo: "Open in the Write form",
+    editLangNote: "Only this language changes. The other languages stay as they are.",
+    saveFix: "💾 Save this language", unfix: "Use the automatic translation again",
+    needFix: "Please fill in your name, the title and the message.",
+    confirmFix: "Save this language for everyone?", savingFix: "Saving…",
+    fixOk: "Saved ✅ It shows on the site in about 2–3 minutes.",
+    confirmUnfix: "Throw away the hand-made version of this language and use the automatic translation again?",
+    unfixOk: "Done ✅ The automatic translation is back on the site in about 2–3 minutes.",
+    notYet: "This announcement is still being translated. Press Refresh in a few minutes and try again.",
+    fixedTip: "edited by hand", translating: "translating…",
+    editing: "Editing", cancelEdit: "Stop editing", saveEdit: "💾 Save changes",
+    confirmEdit: "Save the changes? All languages are translated again, and any one-language fixes on this announcement are replaced.",
+    editOk: "Saved ✅ The new version shows on the site in about 2–3 minutes.",
+    gone: "This announcement was changed or deleted meanwhile. Press Refresh and try again.",
+    editPics: "Add pictures only — no new translation",
+    picNote: "The pictures go into every language at once. The text stays exactly as it is (one-language fixes too), so nothing is translated again.",
+    picWhere: "Where", picEnd: "At the end", picTop: "At the top", picSave: "💾 Add the pictures",
+    picNone: "Choose at least one picture first.", confirmPics: "Add these pictures to the announcement in all languages?",
+    picOk: "Added ✅ The pictures show on the site in about 2–3 minutes.",
+  },
+  zh: {
+    title: "發布公告", subtitle: "寫一次就好，網站會自動翻成 12 種語言。",
+    home: "回主頁",
+    unlockTitle: "輸入幹部密碼", password: "密碼", remember: "在這台裝置記住", unlock: "解鎖",
+    wrongPw: "密碼錯誤。請向 Sherry 索取幹部密碼。",
+    setupTitle: "第一次設定（只有網站管理者要做）",
+    setupIntro: "只要做一次。之後幹部只需要你在這裡設定的密碼。",
+    setupSteps: [
+      "到 GitHub：Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token。",
+      "Resource owner 選網站所屬的組織；Repository access 選 Only select repositories → 這個網站的專案。",
+      "Permissions → Repository permissions → Contents 選 Read and write；Expiration 選最長。按 Generate，複製權杖。",
+      "把權杖貼在下面，並設定一組幹部密碼（至少 10 個字）。",
+    ],
+    token: "GitHub 權杖", newPw: "幹部密碼", newPw2: "再輸入一次密碼", setupGo: "儲存設定",
+    pwShort: "密碼至少要 10 個字。", pwMismatch: "兩次輸入的密碼不一樣。",
+    setupOk: "設定完成 ✅ 把這頁的網址和密碼給幹部就可以了。",
+    writeTitle: "撰寫", fName: "你的名字", fLang: "你用哪種語言寫",
+    fLangNote: "（用你自己的語言寫就好，會自動翻譯）",
+    fTitle: "標題", fBody: "內容",
+    fBodyNote: "（**文字** = 粗體；網址會自動變成連結；圖片用下方按鈕加入）",
+    addImg: "加入圖片", addImgNote: "圖片會插在內容裡游標所在的位置。", uploadingImg: "上傳圖片中…",
+    fLink: "附上指南按鈕", fLinkNote: "（可不選）", noGuide: "— 不附 —",
+    preview: "預覽", publish: "📢 發布",
+    needAll: "請填寫名字、標題和內容。",
+    confirmPub: "確定現在發布這則公告？",
+    publishing: "傳送中…",
+    pubOk: "已送出 ✅ 大約 2–3 分鐘後，翻譯好的公告就會出現在網站上。",
+    listTitle: "網站上目前的公告", reload: "重新整理",
+    listNote: "新的在最上面。刪除後，所有語言都會一起從網站上移除。",
+    del: "刪除", confirmDel: "確定要刪除這則公告？", deleting: "刪除中…", delOk: "已刪除 ✅ 大約 2–3 分鐘後會從網站上消失。",
+    empty: "目前沒有公告。", img: "含圖片",
+    errNet: "連不上 GitHub，請檢查網路後再試一次。",
+    errAuth: "存的 GitHub 權杖已經不能用了（可能過期）。請 Sherry 重新設定。",
+    errBusy: "剛好有人也在改公告，請再試一次。",
+    adminMore: "更多", adminMoreNote: "給網站管理者用。",
+    forget: "忘記這台裝置上的密碼", resetup: "重新設定（新權杖／新密碼）",
+    dataKeyBtn: "🔐 幹部資料加密",
+    dataKeyConfirm: "現在建立資料金鑰？建立後要馬上把它貼到 GitHub 和 Cloudflare。",
+    dataKeyMade: "資料金鑰已建立 ✅ 複製下面的金鑰，另外存一份在安全的地方，然後：\n1. GitHub repo → Settings → Secrets and variables → Actions → New repository secret，名稱 DATA_KEY\n2. Cloudflare → 你的 Worker → Settings → Variables and Secrets → Add → Secret，名稱 DATA_KEY\n3. GitHub → Actions →「Encrypt Officer Data」→ Run workflow",
+    dataKeyShown: "加密已開啟。這是資料金鑰（和兩個 DATA_KEY secret 的值相同）：",
+    dataKeyNeedPw: "請先用幹部密碼解鎖這一頁。",
+    dataKeyRelock: "目前的密碼打不開資料金鑰，所以沒有變更設定。",
+    yes: "確定", no: "取消",
+    edit: "修改", editTitle: "修改公告", close: "關閉", editWhat: "要改什麼",
+    editAll: "全部語言 — 改原文，再重新翻譯",
+    editAllNote: "原文會放回上方的撰寫區。儲存後 12 種語言會全部重新翻譯，這則公告之前單獨修改過的語言也會被換掉。",
+    editAllGo: "放到撰寫區修改",
+    editLangNote: "只改這個語言，其他語言保持不變。",
+    saveFix: "💾 儲存這個語言", unfix: "改回自動翻譯",
+    needFix: "請填寫名字、標題和內容。",
+    confirmFix: "確定儲存這個語言的版本？", savingFix: "儲存中…",
+    fixOk: "已儲存 ✅ 大約 2–3 分鐘後會出現在網站上。",
+    confirmUnfix: "確定丟掉這個語言的手動版本，改回自動翻譯？",
+    unfixOk: "完成 ✅ 大約 2–3 分鐘後網站會換回自動翻譯。",
+    notYet: "這則公告還在翻譯中，請過幾分鐘按「重新整理」再試。",
+    fixedTip: "已手動修改", translating: "翻譯中…",
+    editing: "正在修改", cancelEdit: "取消修改", saveEdit: "💾 儲存修改",
+    confirmEdit: "確定儲存修改？所有語言會重新翻譯，這則公告之前單獨修改過的語言也會被換掉。",
+    editOk: "已儲存 ✅ 大約 2–3 分鐘後網站上會換成新版本。",
+    gone: "這則公告剛剛被改過或刪掉了，請按「重新整理」再試一次。",
+    editPics: "只加圖片 — 不重新翻譯",
+    picNote: "圖片會一次加進所有語言。文字完全不變（手動改過的語言也保留），所以不會重新翻譯。",
+    picWhere: "放在哪裡", picEnd: "最後面", picTop: "最上面", picSave: "💾 加入圖片",
+    picNone: "請先選至少一張圖片。", confirmPics: "確定把這些圖片加到這則公告的所有語言？",
+    picOk: "已加入 ✅ 大約 2–3 分鐘後圖片會出現在網站上。",
+  },
+};
+
+/* ===== helpers ===== */
+const $ = (id) => ROOT.querySelector("#" + CSS.escape(id)) || document["getElementById"](id);
+const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
+const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
+window.addEventListener("nxs-officer-pw", (e) => { store.pw = e.detail; });   // saved by the shared password card
+/* one language for all officer tabs (set from the main site when you enter, and by the language button on any tab) */
+let ui = OFFICER.lang;
+const tr = (k) => T[ui][k] ?? T.en[k] ?? k;
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+let TOKEN = null;
+let OFFICER_PW = null;   // kept in memory only, to re-lock the data key when the password changes
+
+function showMsg(id, kind, text) { const el = $(id); el.className = "msg " + kind; el.textContent = text; }
+function askYesNo(text) {
+  return new Promise((resolve) => {
+    const m = document.createElement("div"); m.className = "modal";
+    m.innerHTML = `<div class="card"><p style="margin-top:0">${esc(text)}</p><div class="row" style="justify-content:flex-end"><button class="btn" data-a="0">${esc(tr("no"))}</button><button class="btn primary" data-a="1">${esc(tr("yes"))}</button></div></div>`;
+    m.onclick = (e) => { const a = e.target.dataset.a; if (a !== undefined || e.target === m) { m.remove(); resolve(a === "1"); } };
+    ROOT.appendChild(m);
+  });
+}
+
+/* UTF-8 <-> base64 */
+const b64enc = (bytes) => { let s = ""; const u = new Uint8Array(bytes); for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
+const b64dec = (b64) => Uint8Array.from(atob(b64.replace(/\s/g, "")), (c) => c.charCodeAt(0));
+const utf8ToB64 = (str) => b64enc(new TextEncoder().encode(str));
+const b64ToUtf8 = (b64) => new TextDecoder().decode(b64dec(b64));
+
+/* password -> AES key (PBKDF2), token encrypted with AES-GCM */
+const deriveKey = (pw, salt, iter) => OfficerData.pbkdf(pw, salt, iter, ["encrypt", "decrypt"]);   // shared + remembered across the officer tabs
+async function encryptToken(token, pw) {
+  const salt = crypto.getRandomValues(new Uint8Array(16)), iv = crypto.getRandomValues(new Uint8Array(12)), iter = 310000;
+  const key = await deriveKey(pw, salt, iter);
+  const data = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, key, new TextEncoder().encode(token));
+  return { v: 1, iter, salt: b64enc(salt), iv: b64enc(iv), data: b64enc(data) };
+}
+async function decryptToken(blob, pw) {
+  const key = await deriveKey(pw, b64dec(blob.salt), blob.iter);
+  const data = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64dec(blob.iv) }, key, b64dec(blob.data));
+  return new TextDecoder().decode(data);
+}
+
+/* GitHub contents API */
+async function gh(method, path, body, token = TOKEN) {
+  let res;
+  try {
+    res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}${method === "GET" ? "?ref=" + BRANCH + "&t=" + Date.now() : ""}`, {
+      method, headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json" },
+      body: body ? JSON.stringify(body) : undefined, cache: "no-store",
+    });
+  } catch (e) { throw new Error("net"); }
+  if (res.status === 401 || res.status === 403) throw new Error("auth");
+  if (res.status === 409 || res.status === 422) throw new Error("busy");
+  if (method === "GET" && res.status === 404) return null;
+  if (!res.ok) throw new Error("net");
+  return res.json();
+}
+const errText = (e) => tr(e.message === "auth" ? "errAuth" : e.message === "busy" ? "errBusy" : "errNet");
+
+/* read-modify-write of the source file, retried once if someone else changed it meanwhile */
+async function editFile(path, change, message) {
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const f = await gh("GET", path);           // null if the file doesn't exist yet
+    const next = change(f ? b64ToUtf8(f.content) : "");
+    try { return await gh("PUT", path, { message, content: utf8ToB64(next), sha: f ? f.sha : undefined, branch: BRANCH }); }
+    catch (e) { if (e.message !== "busy" || attempt) throw e; }
+  }
+}
+const editSource = (change, message) => editFile(SOURCE_PATH, change, message);
+/* a JSON file from the repo (fresh); files over 1 MB come back without content, then read the site's copy */
+async function readJson(path) {
+  const f = await gh("GET", path);
+  if (!f) return null;
+  let txt = f.content ? b64ToUtf8(f.content) : "";
+  if (!txt.trim() && f.size) txt = await (await fetch(path + "?t=" + Date.now(), { cache: "no-store" })).text();
+  try { return txt.trim() ? JSON.parse(txt) : null; } catch (e) { return null; }
+}
+/* same id the translator gives a block: first 10 hex of sha1(JSON of the parsed block) */
+async function blockId(block) {
+  const h = await crypto.subtle.digest("SHA-1", new TextEncoder().encode(JSON.stringify(jsyaml.load(block))));
+  return [...new Uint8Array(h)].map((x) => x.toString(16).padStart(2, "0")).join("").slice(0, 10);
+}
+
+/* ===== announcement blocks ===== */
+const splitBlocks = (md) => md.replace(/\r/g, "").split(/^---$/m).map((s) => s.trim()).filter(Boolean);
+const joinBlocks = (blocks) => "---\n" + blocks.join("\n---\n") + "\n";
+function makeBlock({ author, lang, title, body, created }) {
+  const content = body.replace(/\r/g, "").replace(/\t/g, "  ").replace(/^\s*\n/, "").trimEnd();
+  const lines = content.split("\n").map((l) => (l.trim() ? "  " + l : ""));
+  return [
+    `author: ${JSON.stringify(author.trim())}`,
+    ...(created ? [`created: ${JSON.stringify(created)}`] : []),   // an edited announcement keeps its first date
+    `lang: ${lang}`,
+    `title: ${JSON.stringify(title.trim())}`,
+    `images: []`,
+    `content: |`,
+    ...lines,
+  ].join("\n");
+}
+function fullBody() {
+  const g = $("guide").value;
+  return $("body").value.trimEnd() + (g ? `\n\n[[link:${g}]]` : "");
+}
+
+/* preview: same look as the site (game terms, bold, guide buttons) */
+function term(id, lang) { const m = GLOSSARY[id]; return m ? (m[lang] || m.en || id) : null; }
+function markup(title, body, lang) {
+  const html = esc(body)
+    .replace(/\{(\w+)\}/g, (m, id) => (term(id, lang) ? esc(term(id, lang)) : m))
+    .replace(/\[\[link:([\w-]+)\]\]/g, (m, id) => GUIDES[id] ? `<span class="chip">${GUIDES[id].emoji} ${esc(GUIDES[id].name[lang] || GUIDES[id].name.en)} ›</span>` : "")
+    .replace(/\[\[img:([\w./-]+)\]\]/g, (m, src) => `<img src="${pendingImgs[src] ? pendingImgs[src].url : picImgs[src] ? picImgs[src].url : esc(src)}" alt="">`)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  return (`<b>${esc(title)}</b>\n` + html).trim() || "…";
+}
+function renderPreview() { $("preview").innerHTML = markup($("annTitle").value, fullBody(), $("srcLang").value); }
+
+/* ===== pictures: shrunk on the phone, given a safe automatic file name, uploaded when publishing ===== */
+let pendingImgs = {};   // path -> { blob, url }
+let imgCounter = 0;
+function shrink(file, maxSide = 1600) {
+  return new Promise((resolve, reject) => {
+    const img = new Image(); const src = URL.createObjectURL(file);
+    img.onload = () => {
+      const k = Math.min(1, maxSide / Math.max(img.naturalWidth, img.naturalHeight));
+      const c = document.createElement("canvas"); c.width = Math.round(img.naturalWidth * k); c.height = Math.round(img.naturalHeight * k);
+      const g = c.getContext("2d"); g.fillStyle = "#fff"; g.fillRect(0, 0, c.width, c.height); g.drawImage(img, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(src);
+      c.toBlob((b) => (b ? resolve(b) : reject(new Error("image"))), "image/jpeg", 0.88);
+    };
+    img.onerror = () => reject(new Error("image"));
+    img.src = src;
+  });
+}
+function insertAtCursor(text) {
+  const ta = $("body"), a = ta.selectionStart ?? ta.value.length, b = ta.selectionEnd ?? a;
+  const before = ta.value.slice(0, a), after = ta.value.slice(b);
+  const pre = before && !before.endsWith("\n") ? "\n" : "", post = after.startsWith("\n") ? "" : "\n";
+  ta.value = before + pre + text + post + after;
+  const pos = (before + pre + text + post).length; ta.setSelectionRange(pos, pos); ta.focus();
+}
+$("imgPick").onchange = async (e) => {
+  const files = [...e.target.files]; e.target.value = "";
+  const d = new Date(), stamp = d.toISOString().slice(0, 19).replace(/[-:]/g, "").replace("T", "-");
+  for (const f of files) {
+    try {
+      const blob = await shrink(f);
+      const path = `figures/ann/${stamp}-${++imgCounter}.jpg`;
+      pendingImgs[path] = { blob, url: URL.createObjectURL(blob) };
+      insertAtCursor(`[[img:${path}]]`);
+    } catch (err) { showMsg("pubMsg", "err", "⚠️ " + f.name); }
+  }
+  renderPreview();
+};
+
+/* picture handed over from the Ranking tab ("Use in a new announcement") */
+async function takeCarriedImage() {
+  let url = null; try { url = sessionStorage.getItem("nxs-carry-img"); sessionStorage.removeItem("nxs-carry-img"); } catch (e) {}
+  if (!url) return;
+  const blob = await (await fetch(url)).blob();
+  const f = new File([blob], "table.png", { type: blob.type });
+  const shrunk = await shrink(f, 2000);
+  const stamp = new Date().toISOString().slice(0, 19).replace(/[-:]/g, "").replace("T", "-");
+  const path = `figures/ann/${stamp}-${++imgCounter}.jpg`;
+  pendingImgs[path] = { blob: shrunk, url: URL.createObjectURL(shrunk) };
+  insertAtCursor(`[[img:${path}]]`); renderPreview();
+}
+
+/* ===== list ===== */
+let shownBlocks = [], shownIds = [], pubById = {}, fixes = {};
+const langLabel = (code) => (LANGS.find((l) => l.code === code) || { label: code }).label;
+async function loadList() {
+  $("po_list").innerHTML = `<p class="muted">…</p>`;
+  try {
+    const [f, pub, fx] = await Promise.all([gh("GET", SOURCE_PATH), readJson(PUB_PATH), readJson(FIX_PATH)]);
+    const blocks = splitBlocks(b64ToUtf8(f.content));
+    shownBlocks = blocks;
+    shownIds = await Promise.all(blocks.map((b) => blockId(b).catch(() => "")));
+    pubById = {}; (Array.isArray(pub) ? pub : []).forEach((a) => { pubById[a.id] = a; });
+    fixes = fx && typeof fx === "object" ? fx : {};
+    const rows = blocks.map((b, i) => { let d = {}; try { d = jsyaml.load(b) || {}; } catch (e) {} return { i, d, id: shownIds[i] }; }).reverse();
+    $("po_list").innerHTML = rows.length ? rows.map(({ i, d, id }) => `
+      <div class="ann"><div><b dir="auto">${esc(d.title || "—")}</b>
+        <span class="muted">${esc(d.author || "")}${(d.images || []).length ? " · 🖼️ " + esc(tr("img")) : ""}${pubById[id] ? "" : " · ⏳ " + esc(tr("translating"))}</span>
+        ${Object.keys(fixes[id] || {}).map((l) => `<span class="badge" title="${esc(tr("fixedTip"))}">✏️ ${esc(langLabel(l))}</span>`).join("")}</div>
+        <div class="acts"><button class="btn" data-edit="${i}">${esc(tr("edit"))}</button>
+        <button class="btn danger" data-del="${i}">${esc(tr("del"))}</button></div></div>`).join("")
+      : `<p class="muted">${esc(tr("empty"))}</p>`;
+    if (!$("editCard").hidden && cur) fillEditLang();
+  } catch (e) { $("po_list").innerHTML = ""; showMsg("listMsg", "err", errText(e)); }
+}
+async function deleteBlock(i) {
+  const target = shownBlocks[i];
+  if (!(await askYesNo(tr("confirmDel")))) return;
+  showMsg("listMsg", "info", tr("deleting"));
+  try {
+    await editSource((md) => {
+      const b = splitBlocks(md); const at = b.indexOf(target);
+      if (at < 0) throw new Error("busy"); // the list changed meanwhile — refresh and try again
+      b.splice(at, 1); return joinBlocks(b);
+    },
+      "Delete announcement via post page");
+    showMsg("listMsg", "ok", tr("delOk")); loadList();
+  } catch (e) { showMsg("listMsg", "err", errText(e)); }
+}
+
+/* ===== edit ===== */
+let cur = null;        // the announcement open in the Edit card: { i, id, block, d }
+let editing = null;    // whole-announcement edit in the Write form: { block, created, title }
+function fillEditLang() {
+  const keep = $("editLang").value || store.fixLang || "all";
+  $("editLang").innerHTML = `<option value="all">${esc(tr("editAll"))}</option><option value="pics">🖼️ ${esc(tr("editPics"))}</option>` +
+    LANGS.map((l) => `<option value="${l.code}">${esc(l.label)}${fixes[cur.id] && fixes[cur.id][l.code] ? " ✏️" : ""}</option>`).join("");
+  $("editLang").value = keep;
+}
+function openEdit(i) {
+  const block = shownBlocks[i]; let d = {}; try { d = jsyaml.load(block) || {}; } catch (e) {}
+  cur = { i, id: shownIds[i], block, d };
+  $("editWhich").textContent = d.title || "—";
+  $("fixBy").value = store.author || "";
+  $("editMsg").className = "msg";
+  fillEditLang(); showEditLang();
+  $("editCard").hidden = false; $("editCard").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+function showEditLang() {
+  const lang = $("editLang").value, all = lang === "all", pics = lang === "pics";
+  $("editAllBox").hidden = !all; $("editOneBox").hidden = all || pics; $("editPicBox").hidden = !pics; $("editMsg").className = "msg";
+  if (pics) { if (!pubById[cur.id]) { $("editPicBox").hidden = true; showMsg("editMsg", "info", tr("notYet")); } else renderPicPreview(); return; }
+  if (all) return;
+  const a = pubById[cur.id];
+  if (!a || !a.title) { $("editOneBox").hidden = true; showMsg("editMsg", "info", tr("notYet")); return; }
+  const fx = fixes[cur.id] && fixes[cur.id][lang];
+  $("fixTitle").value = (fx && fx.title) ?? (a.title[lang] || "");
+  $("fixBody").value = (fx && fx.content) ?? ((a.content || {})[lang] || "");
+  $("fixUndo").hidden = !fx;
+  $("fixTitle").dir = $("fixBody").dir = lang === "ar" ? "rtl" : "auto";
+  renderFixPreview();
+}
+function renderFixPreview() { $("fixPreview").innerHTML = markup($("fixTitle").value, $("fixBody").value, $("editLang").value); }
+/* change one language's entry in the fixes file (value null = remove it); also drops fixes of announcements that no longer exist */
+async function writeFix(id, lang, value, message) {
+  const live = new Set(shownIds);
+  await editFile(FIX_PATH, (txt) => {
+    let o = {}; try { o = txt.trim() ? JSON.parse(txt) : {}; } catch (e) { o = {}; }
+    for (const k of Object.keys(o)) if (!live.has(k) && k !== id) delete o[k];
+    o[id] = o[id] || {};
+    if (value) o[id][lang] = value; else delete o[id][lang];
+    if (!Object.keys(o[id]).length) delete o[id];
+    return JSON.stringify(o, null, 1) + "\n";
+  }, message);
+}
+/* check the announcement is still the same in the source before changing it */
+async function stillThere(block) {
+  const f = await gh("GET", SOURCE_PATH);
+  return splitBlocks(b64ToUtf8(f.content)).includes(block);
+}
+$("editLang").onchange = () => { if (!["all", "pics"].includes($("editLang").value)) { store.fixLang = $("editLang").value; save(); } showEditLang(); };
+$("editClose").onclick = () => { $("editCard").hidden = true; cur = null; };
+["fixTitle", "fixBody"].forEach((id) => $(id).addEventListener("input", renderFixPreview));
+$("fixSave").onclick = async () => {
+  const lang = $("editLang").value, by = $("fixBy").value.trim(), title = $("fixTitle").value.trim(), content = $("fixBody").value.replace(/\r/g, "").trimEnd();
+  if (!by || !title || !content.trim()) { showMsg("editMsg", "err", tr("needFix")); return; }
+  if (!(await askYesNo(tr("confirmFix")))) return;
+  store.author = store.author || by; save();
+  const btn = $("fixSave"); btn.disabled = true; showMsg("editMsg", "info", tr("savingFix"));
+  try {
+    if (!(await stillThere(cur.block))) { showMsg("editMsg", "err", tr("gone")); btn.disabled = false; return; }
+    await writeFix(cur.id, lang, { title, content, by, at: new Date().toISOString() }, `Fix ${lang} of announcement: ${cur.d.title || ""}`.slice(0, 120));
+    showMsg("editMsg", "ok", tr("fixOk"));
+    fixes[cur.id] = fixes[cur.id] || {}; fixes[cur.id][lang] = { title, content, by };
+    $("fixUndo").hidden = false; loadList();
+  } catch (e) { showMsg("editMsg", "err", errText(e)); }
+  btn.disabled = false;
+};
+$("fixUndo").onclick = async () => {
+  const lang = $("editLang").value;
+  if (!(await askYesNo(tr("confirmUnfix")))) return;
+  showMsg("editMsg", "info", tr("savingFix"));
+  try {
+    await writeFix(cur.id, lang, null, `Undo ${lang} fix of announcement: ${cur.d.title || ""}`.slice(0, 120));
+    if (fixes[cur.id]) delete fixes[cur.id][lang];
+    showEditLang(); showMsg("editMsg", "ok", tr("unfixOk")); loadList();
+  } catch (e) { showMsg("editMsg", "err", errText(e)); }
+};
+/* whole announcement: put the original back into the Write form */
+$("editAllGo").onclick = () => {
+  const d = cur.d; let body = String(d.content || "").replace(/\s+$/, ""), g = "";
+  const m = body.match(/\n*\[\[link:([\w-]+)\]\]$/);
+  if (m && GUIDES[m[1]]) { g = m[1]; body = body.slice(0, m.index); }
+  editing = { block: cur.block, created: d.created || (pubById[cur.id] && pubById[cur.id].createdAt) || "", title: d.title || "", author: d.author || "" };
+  $("author").value = d.author || ""; $("srcLang").value = d.lang || "en";
+  $("annTitle").value = d.title || ""; $("body").value = body; $("guide").value = g;
+  $("editCard").hidden = true; cur = null;
+  showEditing(); renderPreview();
+  $("annTitle").scrollIntoView({ behavior: "smooth", block: "center" });
+};
+function showEditing() {
+  $("editBanner").hidden = !editing;
+  if (editing) $("editBannerTitle").textContent = editing.title;
+  $("publishBtn").textContent = tr(editing ? "saveEdit" : "publish");
+}
+$("cancelEdit").onclick = () => {
+  editing = null; $("annTitle").value = ""; $("body").value = ""; $("guide").value = "";
+  $("author").value = store.author || ""; $("srcLang").value = store.lang || "en";
+  showEditing(); renderPreview();
+};
+
+/* ===== add pictures only: one commit changes the original + the stored translations, so nothing is translated again ===== */
+let picImgs = {};      // path -> { blob, url } waiting to be added
+const picPos = () => (ROOT.querySelector('input[name="picPos"]:checked') || {}).value || "end";
+/* put the picture lines at the top or the end (before a trailing guide button) of one text */
+function withPics(text, paths, pos) {
+  const lines = paths.map((p) => `[[img:${p}]]`).join("\n");
+  let t = String(text || "").replace(/\s+$/, "");
+  if (pos === "top") return lines + "\n\n" + t;
+  const m = t.match(/\n*(\[\[link:[\w-]+\]\])$/);
+  if (m) return t.slice(0, m.index) + "\n\n" + lines + "\n\n" + m[1];
+  return t + "\n\n" + lines;
+}
+function renderPicPreview() {
+  const a = pubById[cur.id]; if (!a) return;
+  const l = a.title && a.title[ui] != null ? ui : (cur.d.lang || "en");
+  $("picPreview").innerHTML = markup(a.title[l] || "", withPics((a.content || {})[l] || "", Object.keys(picImgs), picPos()), l);
+}
+$("picPick").onchange = async (e) => {
+  const files = [...e.target.files]; e.target.value = "";
+  const stamp = new Date().toISOString().slice(0, 19).replace(/[-:]/g, "").replace("T", "-");
+  for (const f of files) {
+    try { const blob = await shrink(f); const path = `figures/ann/${stamp}-${++imgCounter}.jpg`; picImgs[path] = { blob, url: URL.createObjectURL(blob) }; }
+    catch (err) { showMsg("editMsg", "err", "⚠️ " + f.name); }
+  }
+  renderPicPreview();
+};
+ROOT.querySelectorAll('input[name="picPos"]').forEach((r) => r.addEventListener("change", renderPicPreview));
+/* GitHub git-data API (several files in ONE commit) */
+async function git(method, path, body) {
+  let res;
+  try {
+    res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/git/${path}`, {
+      method, headers: { Authorization: `Bearer ${TOKEN}`, Accept: "application/vnd.github+json" },
+      body: body ? JSON.stringify(body) : undefined, cache: "no-store",
+    });
+  } catch (e) { throw new Error("net"); }
+  if (res.status === 401 || res.status === 403) throw new Error("auth");
+  if (res.status === 409 || res.status === 422) throw new Error("busy");
+  if (!res.ok) throw new Error("net");
+  return res.json();
+}
+async function readText(path) {   // a text file from the repo ("" if missing); files over 1 MB come from the site's copy
+  const f = await gh("GET", path);
+  if (!f) return "";
+  if (f.content) return b64ToUtf8(f.content);
+  return f.size ? await (await fetch(path + "?t=" + Date.now(), { cache: "no-store" })).text() : "";
+}
+$("picSave").onclick = async () => {
+  const paths = Object.keys(picImgs);
+  if (!paths.length) { showMsg("editMsg", "err", tr("picNone")); return; }
+  if (!(await askYesNo(tr("confirmPics")))) return;
+  const pos = picPos(), btn = $("picSave"); btn.disabled = true; showMsg("editMsg", "info", tr("uploadingImg"));
+  try {
+    // the pictures become blobs first (they don't change anything until the commit)
+    const imgShas = {};
+    for (const p of paths) imgShas[p] = (await git("POST", "blobs", { content: b64enc(await picImgs[p].blob.arrayBuffer()), encoding: "base64" })).sha;
+    showMsg("editMsg", "info", tr("savingFix"));
+    let done = false;
+    for (let attempt = 0; attempt < 3 && !done; attempt++) {
+      const ref = await git("GET", "ref/heads/" + BRANCH);
+      const head = ref.object.sha;
+      const commit = await git("GET", "commits/" + head);
+      const [srcF, cacheTxt, fixTxt] = await Promise.all([gh("GET", SOURCE_PATH), readText(CACHE_PATH), readText(FIX_PATH)]);
+      const blocks = splitBlocks(b64ToUtf8(srcF.content));
+      const at = blocks.indexOf(cur.block);
+      if (at < 0) throw new Error("gone");
+      const cache = cacheTxt.trim() ? JSON.parse(cacheTxt) : {};
+      const old = cache[cur.id];
+      if (!old || !old.content) throw new Error("notYet");
+      const d = cur.d;
+      const block = makeBlock({ author: d.author || "", lang: d.lang || "en", title: d.title || "", body: withPics(d.content, paths, pos), created: d.created || old.createdAt || "" });
+      const newId = await blockId(block);
+      blocks[at] = block;
+      const entry = JSON.parse(JSON.stringify(old));
+      for (const l of Object.keys(entry.content)) entry.content[l] = withPics(entry.content[l], paths, pos);
+      entry.images = [...(entry.images || [])];
+      const nextCache = {}; for (const [k, v] of Object.entries(cache)) nextCache[k === cur.id ? newId : k] = k === cur.id ? entry : v;
+      const files = [
+        { path: SOURCE_PATH, content: joinBlocks(blocks) },
+        { path: CACHE_PATH, content: JSON.stringify(nextCache, null, 2) },
+      ];
+      if (fixTxt.trim()) {
+        const fx = JSON.parse(fixTxt);
+        if (fx[cur.id]) {
+          const moved = JSON.parse(JSON.stringify(fx[cur.id]));
+          for (const v of Object.values(moved)) if (v && typeof v.content === "string") v.content = withPics(v.content, paths, pos);
+          delete fx[cur.id]; fx[newId] = moved;
+          files.push({ path: FIX_PATH, content: JSON.stringify(fx, null, 1) + "\n" });
+        }
+      }
+      const tree = await git("POST", "trees", { base_tree: commit.tree.sha, tree: [
+        ...files.map((f) => ({ path: f.path, mode: "100644", type: "blob", content: f.content })),
+        ...paths.map((p) => ({ path: p, mode: "100644", type: "blob", sha: imgShas[p] })),
+      ] });
+      const c = await git("POST", "commits", { message: `Add pictures to announcement: ${d.title || ""}`.slice(0, 120), tree: tree.sha, parents: [head] });
+      try { await git("PATCH", "refs/heads/" + BRANCH, { sha: c.sha }); done = true; }
+      catch (e) { if (e.message !== "busy") throw e; }   // someone else committed meanwhile: start again from the new state
+    }
+    if (!done) throw new Error("busy");
+    Object.values(picImgs).forEach((x) => URL.revokeObjectURL(x.url)); picImgs = {};
+    showMsg("editMsg", "ok", tr("picOk")); $("editPicBox").hidden = true; loadList();
+  } catch (e) { showMsg("editMsg", "err", e.message === "gone" ? tr("gone") : e.message === "notYet" ? tr("notYet") : errText(e)); }
+  btn.disabled = false;
+};
+
+/* ===== screens ===== */
+let keyBlob = null;
+function applyTexts() {
+  if (typeof GUIDES === "undefined") return;
+  document.documentElement.lang = ui === "zh" ? "zh-Hant" : "en";
+  ROOT.querySelectorAll("[data-t]").forEach((el) => {
+    const v = tr(el.dataset.t);
+    el.textContent = v;
+  });
+  $("setupSteps").innerHTML = tr("setupSteps").map((s) => `<li>${esc(s)}</li>`).join("");
+  const g = $("guide").value;
+  $("guide").innerHTML = `<option value="">${esc(tr("noGuide"))}</option>` + Object.keys(GUIDES).filter((k) => !GUIDES[k].hidden)
+    .map((k) => `<option value="${k}">${GUIDES[k].emoji} ${esc(GUIDES[k].name[ui] || GUIDES[k].name.en)}</option>`).join("");
+  $("guide").value = g;
+  if (typeof showEditing === "function") showEditing();
+  if (cur) fillEditLang();
+}
+function showApp() { $("setupCard").hidden = true; $("po_app").hidden = false; renderPreview(); loadList(); takeCarriedImage(); }
+
+async function tryUnlock(pw, silent, retried) {
+  try { TOKEN = await decryptToken(keyBlob, pw); }
+  catch (e) {
+    // the key file remembered in this tab may be outdated (password changed) → try a fresh copy once
+    if (!retried) { const fresh = await OfficerData.postKey(true); if (fresh && JSON.stringify(fresh) !== JSON.stringify(keyBlob)) { keyBlob = fresh; return tryUnlock(pw, silent, true); } }
+    if (!silent) showMsg("lockMsg", "err", tr("wrongPw")); return false;
+  }
+  OFFICER_PW = pw; await OfficerData.unlock(pw);
+  if ($("remember").checked || silent) { store.pw = pw; save(); }
+  showApp(); return true;
+}
+
+async function init() {
+  applyTexts();
+  $("srcLang").innerHTML = LANGS.map((l) => `<option value="${l.code}">${l.label}</option>`).join("");
+  $("srcLang").value = store.lang || "en";
+  $("author").value = store.author || "";
+  keyBlob = await OfficerData.postKey();
+  if (!keyBlob) { $("setupCard").hidden = false; return; }   // first-time setup (no key file yet)
+  TOKEN = OFFICER.token; OFFICER_PW = OFFICER.pw;   // the shared password card already opened the key file
+  showApp();
+}
+
+/* ===== events ===== */
+function setLang(l) { ui = l; store.ui = ui; save(); applyTexts(); if (!$("po_app").hidden) { renderPreview(); loadList(); } };
+["annTitle", "body", "guide", "srcLang"].forEach((id) => $(id).addEventListener("input", renderPreview));
+$("srcLang").onchange = () => { if (!editing) { store.lang = $("srcLang").value; save(); } renderPreview(); };
+$("author").onchange = () => { if (!editing) { store.author = $("author").value.trim(); save(); } };
+$("reloadBtn").onclick = loadList;
+$("po_list").onclick = (e) => {
+  const b = e.target.closest("[data-del]"); if (b) return deleteBlock(Number(b.dataset.del));
+  const ed = e.target.closest("[data-edit]"); if (ed) openEdit(Number(ed.dataset.edit));
+};
+
+$("publishBtn").onclick = async () => {
+  const author = $("author").value.trim(), title = $("annTitle").value.trim(), body = $("body").value.trim();
+  if (!author || !title || !body) { showMsg("pubMsg", "err", tr("needAll")); return; }
+  if (!(await askYesNo(tr(editing ? "confirmEdit" : "confirmPub")))) return;
+  if (!editing) { store.author = author; save(); }
+  const btn = $("publishBtn"); btn.disabled = true; showMsg("pubMsg", "info", tr("publishing"));
+  try {
+    // 1) upload the pictures that are still in the message
+    const used = Object.keys(pendingImgs).filter((path) => fullBody().includes(`[[img:${path}]]`));
+    if (used.length) {
+      showMsg("pubMsg", "info", tr("uploadingImg"));
+      for (const path of used) {
+        const b64 = b64enc(await pendingImgs[path].blob.arrayBuffer());
+        await gh("PUT", path, { message: `Add picture for announcement: ${title}`.slice(0, 120), content: b64, branch: BRANCH });
+      }
+    }
+    // 2) add the announcement
+    const block = makeBlock({ author, lang: $("srcLang").value, title, body: fullBody(), created: editing ? editing.created : "" });
+    jsyaml.load(block); // safety check: must be valid before it reaches the site
+    if (editing) {
+      // replace the old block in place, so it keeps its spot in the list
+      const old = editing.block;
+      await editSource((md) => {
+        const b = splitBlocks(md); const at = b.indexOf(old);
+        if (at < 0) throw new Error("gone");
+        b[at] = block; return joinBlocks(b);
+      }, `Edit announcement: ${title}`.slice(0, 120));
+      editing = null; $("author").value = store.author || ""; $("srcLang").value = store.lang || "en"; showEditing();
+      showMsg("pubMsg", "ok", tr("editOk"));
+    } else {
+      await editSource((md) => md.replace(/\r/g, "").trimEnd().replace(/\n?---$/, "") + "\n---\n" + block + "\n", `New announcement: ${title}`.slice(0, 120));
+      showMsg("pubMsg", "ok", tr("pubOk"));
+    }
+    $("annTitle").value = ""; $("body").value = ""; $("guide").value = "";
+    Object.values(pendingImgs).forEach((x) => URL.revokeObjectURL(x.url)); pendingImgs = {};
+    renderPreview(); loadList();
+  } catch (e) { showMsg("pubMsg", "err", e.message === "gone" ? tr("gone") : e.message === "net" || e.message === "auth" || e.message === "busy" ? errText(e) : String(e.message || e)); }
+  btn.disabled = false;
+};
+
+$("setupBtn").onclick = async () => {
+  const tok = $("tok").value.trim(), p1 = $("pw1").value, p2 = $("pw2").value;
+  if (p1.length < 10) return showMsg("setupMsg", "err", tr("pwShort"));
+  if (p1 !== p2) return showMsg("setupMsg", "err", tr("pwMismatch"));
+  try {
+    await gh("GET", SOURCE_PATH, null, tok); // checks the token can read the repo
+    // officer data key: re-lock it with the new password (before switching passwords)
+    const dk = await OfficerData.fetchKeyFile();
+    if (dk) {
+      const raw = OFFICER_PW ? await OfficerData.unwrap(dk, OFFICER_PW) : null;
+      if (!raw) return showMsg("setupMsg", "err", tr("dataKeyRelock"));
+      const oldDk = await gh("GET", OfficerData.KEY_FILE, null, tok);
+      await gh("PUT", OfficerData.KEY_FILE, { message: "Re-lock officer data key with the new password", content: utf8ToB64(JSON.stringify(await OfficerData.wrap(raw, p1), null, 1) + "\n"), sha: oldDk ? oldDk.sha : undefined, branch: BRANCH }, tok);
+    }
+    const blob = await encryptToken(tok, p1);
+    const old = await gh("GET", KEY_PATH, null, tok);
+    await gh("PUT", KEY_PATH, { message: "Set up announcement posting", content: utf8ToB64(JSON.stringify(blob, null, 1) + "\n"), sha: old ? old.sha : undefined, branch: BRANCH }, tok);
+    keyBlob = blob; TOKEN = tok; store.pw = p1; save(); OFFICER_PW = p1; await OfficerData.unlock(p1);
+    showMsg("setupMsg", "ok", tr("setupOk"));
+    setTimeout(showApp, 1500);
+  } catch (e) { showMsg("setupMsg", "err", errText(e)); }
+};
+$("forgetBtn").onclick = () => { delete store.pw; save(); location.reload(); };
+$("resetupBtn").onclick = () => { $("po_app").hidden = true; $("setupCard").hidden = false; };
+$("dataKeyBtn").onclick = async () => {
+  const out = $("dataKeyOut"); out.hidden = true;
+  if (!OFFICER_PW || !TOKEN) return showMsg("dataKeyMsg", "err", tr("dataKeyNeedPw"));
+  try {
+    const dk = await OfficerData.fetchKeyFile();
+    if (dk) {                                     // already on → show the key again
+      const raw = await OfficerData.unwrap(dk, OFFICER_PW);
+      if (!raw) return showMsg("dataKeyMsg", "err", tr("dataKeyRelock"));
+      showMsg("dataKeyMsg", "ok", tr("dataKeyShown")); out.textContent = OfficerData.enc(raw); out.hidden = false; return;
+    }
+    if (!(await askYesNo(tr("dataKeyConfirm")))) return;
+    const raw = crypto.getRandomValues(new Uint8Array(32));
+    await gh("PUT", OfficerData.KEY_FILE, { message: "Turn on officer data encryption", content: utf8ToB64(JSON.stringify(await OfficerData.wrap(raw, OFFICER_PW), null, 1) + "\n"), branch: BRANCH });
+    await OfficerData.unlock(OFFICER_PW);
+    showMsg("dataKeyMsg", "ok", tr("dataKeyMade")); out.textContent = OfficerData.enc(raw); out.hidden = false;
+  } catch (e) { showMsg("dataKeyMsg", "err", errText(e)); }
+};
+
+
+
+OFFICER_PAGES.post = { init: () => loadScripts(["data/content.js", "https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"]).then(init), applyTexts, setLang, onShow: () => { if (!$("po_app").hidden) takeCarriedImage(); } };
+
+})();
+(function () {
+const ROOT = document.getElementById('pg-watch');
+const T = {
+  en: {
+    title: "NXS Watch", home: "Home",
+    export: "Export for the Google Sheet", copy: "📋 Copy for Google Sheets", csv: "⬇️ Download CSV", copied: "Copied! Paste into cell A1 of the sheet.",
+    exportNote: "Copies every member shown below, including the officers’ notes and the history they added by hand.",
+    rivalsL: "Watched alliances:", farmsL: "Our farm / sister alliances:", colHops: "Alliances seen", fRival: "Was in {t}", fHops: "Seen in {n} alliances", fRivalName: "Same name in {t}",
+    members: "Members", onlyFlag: "Only show members with flags", newDays: "“New” = joined within (days)",
+    search: "Search a name or ID…",
+    colName: "Name", colRank: "Rank", colPower: "Power", colPowerD: "Power change", colKills: "Kills", colKillsD: "Kills change", colTc: "TC",
+    colKid: "Kingdom", colLang: "Language", colSince: "In NXS since", colFrom: "Seen in other alliances", colNames: "Earlier names",
+    colSimilar: "Similar names elsewhere", colLogin: "Last login", colFlags: "Flags", colClear: "Clear", colWhy: "Why / comments",
+    before: "before {d}", between: "between {a} and {b}", leftTitle: "Left NXS", colLeft: "Left on", colNow: "Seen since in",
+    fNew: "New ({n} d)", fKid: "From kingdom {k}", fRenamed: "Renamed", fFrom: "Was in {t}", fSimilar: "Similar name in {t}",
+    fDrop: "Power dropped", noData: "No data yet. Run GitHub → Actions → “Update Roster (MightPulse)”, then reload.",
+    updated: "Updated {t} · history since {s}", empty: "No members match.",
+    n1: "History started on {s}. “before {s}” means they were already in NXS when tracking began.",
+    n2: "“Seen in other alliances” comes from other alliances’ member lists. MightPulse may only have an old copy of those lists, so the date shows how old the copy was.",
+    n3: "Power / kills change = over the last {d} days of saved data.",
+    n4: "Flags are only hints for where to look. They are not proof of anything.",
+    n5: "Alliance and name history also includes the MightPulse Record pulled on {d}.",
+    n6: "Press ✏️ to add notes or history from a member’s Record. Everything added is shared by all officers. New members nobody has checked yet are marked “Check Record” and shown first.",
+    fCleared: "Cleared", fNotClear: "Not clear", csNone: "Not checked", fNeedCheck: "Check Record",
+    yourName: "Your name", saveBtn: "Save", cancel: "Cancel", saving: "Saving…", openRec: "Open Record ↗",
+    histAlli: "Earlier alliances", histAlliNote: "(one per line: RED 2026-09-30 · other kingdom: RED #1234 2026-09-30)",
+    histNames: "Earlier names", histNamesNote: "(one per line)", checked: "I’ve checked this member’s Record",
+    errAuth: "The saved GitHub key no longer works (it may have expired). Redo the setup on the Post tab.",
+    errBusy: "Someone else just saved a note. Please try again.", errNet: "Couldn't reach GitHub. Check the internet and try again.",
+  },
+  zh: {
+    title: "NXS 觀察名單", home: "回主頁",
+    export: "匯出到 Google 試算表", copy: "📋 複製到 Google 試算表", csv: "⬇️ 下載 CSV", copied: "已複製！貼到試算表的 A1 格。",
+    exportNote: "會複製下面顯示的所有成員，包含幹部填的備註和手動補的紀錄。",
+    rivalsL: "重點觀察聯盟：", farmsL: "我們的農場／分盟：", colHops: "待過幾個聯盟", fRival: "待過 {t}", fHops: "出現在 {n} 個聯盟", fRivalName: "{t} 有同名帳號",
+    members: "成員", onlyFlag: "只顯示有標記的人", newDays: "「新成員」＝幾天內加入",
+    search: "搜尋名字或 ID…",
+    colName: "名字", colRank: "階級", colPower: "戰力", colPowerD: "戰力變化", colKills: "擊殺", colKillsD: "擊殺變化", colTc: "主城",
+    colKid: "王國", colLang: "語言", colSince: "加入 NXS", colFrom: "曾出現在其他聯盟", colNames: "之前的名字",
+    colSimilar: "其他聯盟的相似名字", colLogin: "上次登入", colFlags: "標記", colClear: "Clear", colWhy: "Why / comments",
+    before: "{d} 以前", between: "{a} 到 {b} 之間", leftTitle: "已離開 NXS", colLeft: "離開日期", colNow: "之後出現在",
+    fNew: "新成員（{n} 天）", fKid: "來自王國 {k}", fRenamed: "改過名", fFrom: "待過 {t}", fSimilar: "{t} 有相似名字",
+    fDrop: "戰力下降", noData: "還沒有資料。到 GitHub → Actions →「Update Roster (MightPulse)」執行一次後重新整理。",
+    updated: "更新：{t} · 紀錄從 {s} 開始", empty: "沒有符合的成員。",
+    n1: "紀錄從 {s} 開始。「{s} 以前」表示開始追蹤時就已經在 NXS。",
+    n2: "「曾出現在其他聯盟」來自其他聯盟的成員名單。MightPulse 有時只有舊的名單，所以會標出那份名單的日期。",
+    n3: "戰力／擊殺變化＝已存資料中最近 {d} 天的變化。",
+    n4: "標記只是提醒可以多看哪裡，不代表任何證據。",
+    n5: "聯盟和改名紀錄也包含 {d} 從 MightPulse Record 抓下來的資料。",
+    n6: "按 ✏️ 可以填備註，或把 Record 上看到的紀錄補進表格，所有幹部共用。還沒人查過的新成員會標「待查 Record」並排在最上面。",
+    fCleared: "已確認", fNotClear: "有疑慮", csNone: "未確認", fNeedCheck: "待查 Record",
+    yourName: "你的名字", saveBtn: "儲存", cancel: "取消", saving: "儲存中…", openRec: "打開 Record ↗",
+    histAlli: "之前的聯盟", histAlliNote: "（一行一個：RED 2026-09-30；其他王國：RED #1234 2026-09-30）",
+    histNames: "之前的名字", histNamesNote: "（一行一個）", checked: "已查過這個人的 Record",
+    errAuth: "存的 GitHub 權杖已經不能用了（可能過期）。請到 Post 分頁重新設定。",
+    errBusy: "剛好有人也在存備註，請再試一次。", errNet: "連不上 GitHub，請檢查網路後再試一次。",
+  },
+};
+const KID = 2189, TAG = "NXS";
+const LS = "nxs-watch-v1";
+const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
+const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
+/* one language for all officer tabs (set from the main site when you enter, and by the language button on any tab) */
+let lang = OFFICER.lang;
+let newDays = store.newDays || 14;
+let rivals = store.rivals ?? "RED, ESA, NBD";
+let farms = store.farms ?? "nxs, VZP";
+const tagList = (s) => String(s).split(/[,\s]+/).map((x) => x.trim()).filter(Boolean);
+const tagOf = (t) => t.replace(/ \(#\d+\)$/, "");
+let sortKey = "flags", sortDir = -1;
+let roster = null, watch = null, records = null, rows = [];
+
+const $ = (id) => ROOT.querySelector("#" + CSS.escape(id)) || document["getElementById"](id);
+const tr = (k, v = {}) => String((T[lang] && T[lang][k]) ?? T.en[k] ?? k).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const big = (n) => n == null ? "" : Math.abs(n) >= 1e9 ? (n / 1e9).toFixed(2) + "B" : Math.abs(n) >= 1e6 ? (n / 1e6).toFixed(1) + "M" : Math.abs(n) >= 1e3 ? (n / 1e3).toFixed(1) + "K" : String(n);
+const core = (s) => String(s || "").normalize("NFKC").toLowerCase().replace(/nexus/g, "").replace(/[亗卍〆『』「」【】〖〗★☆♛♚♕✿❀•·]/g, "").replace(/[^\p{L}\p{N}]/gu, "");
+const toDate = (v) => { if (v == null || v === "") return ""; const ms = typeof v === "number" ? (v < 1e12 ? v * 1000 : v) : Date.parse(v); return isNaN(ms) ? "" : new Date(ms).toISOString().slice(0, 10); };
+const daysBetween = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 86400000);
+
+/* ===== hand-added history: "RED 2026-09-30" / "RED #1234 2026-09-30" ===== */
+function parseAlli(txt) {
+  return String(txt || "").split("\n").map((l) => l.trim()).filter(Boolean).map((l) => {
+    const dm = l.match(/(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})/);
+    const d = dm ? `${dm[1]}-${dm[2].padStart(2, "0")}-${dm[3].padStart(2, "0")}` : "";
+    const kid = Number((l.match(/#(\d+)/) || [])[1]) || null;
+    const a = (dm ? l.replace(dm[0], "") : l).replace(/#\d+/, "").trim().split(/\s+/)[0] || "";
+    return a ? { a, kid: kid && kid !== KID ? kid : null, d } : null;
+  }).filter(Boolean);
+}
+const alliText = (list) => (list || []).map((x) => `${x.a}${x.kid ? " #" + x.kid : ""}${x.d ? " " + x.d : ""}`).join("\n");
+const lines = (txt) => [...new Set(String(txt || "").split("\n").map((l) => l.trim()).filter(Boolean))];
+
+/* ===== shared notes (data/notes-x7k2p9.json), written with the officers' GitHub key ===== */
+const OWNER = location.hostname.endsWith("github.io") ? location.hostname.split(".")[0] : "NXSguides";
+const REPO = location.hostname.endsWith("github.io") ? (location.pathname.split("/")[1] || "Kingshot_guideline_NXS") : "Kingshot_guideline_NXS";
+const BRANCH = "main", NOTES_PATH = "data/notes-x7k2p9.json";
+let TOKEN = null, notes = {};
+const b64enc = (bytes) => { let s = ""; const u = new Uint8Array(bytes); for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
+const b64dec_ = (b64) => Uint8Array.from(atob(b64.replace(/\s/g, "")), (c) => c.charCodeAt(0));
+const utf8ToB64 = (str) => b64enc(new TextEncoder().encode(str));
+const b64ToUtf8 = (b64) => new TextDecoder().decode(b64dec_(b64));
+async function gh(method, path, body) {
+  let res;
+  try {
+    res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}${method === "GET" ? "?ref=" + BRANCH + "&t=" + Date.now() : ""}`, {
+      method, headers: { Authorization: `Bearer ${TOKEN}`, Accept: "application/vnd.github+json" },
+      body: body ? JSON.stringify(body) : undefined, cache: "no-store",
+    });
+  } catch (e) { throw new Error("net"); }
+  if (res.status === 401 || res.status === 403) throw new Error("auth");
+  if (res.status === 409 || res.status === 422) throw new Error("busy");
+  if (method === "GET" && res.status === 404) return null;
+  if (!res.ok) throw new Error("net");
+  return res.json();
+}
+const errText = (e) => tr(e.message === "auth" ? "errAuth" : e.message === "busy" ? "errBusy" : "errNet");
+async function loadNotes() {
+  if (TOKEN) { try { const f = await gh("GET", NOTES_PATH); notes = f ? (await OfficerData.open(JSON.parse(b64ToUtf8(f.content)))) || {} : {}; return; } catch (e) {} }
+  try { notes = (await OfficerData.fetchJson(NOTES_PATH)) || {}; } catch (e) { notes = {}; }
+}
+async function saveNote(id, note) {
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const f = await gh("GET", NOTES_PATH);
+    const cur = f ? (await OfficerData.open(JSON.parse(b64ToUtf8(f.content)))) || {} : {};
+    if (note) cur[id] = note; else delete cur[id];
+    try {
+      await gh("PUT", NOTES_PATH, { message: `Watch note: ${id}`, content: utf8ToB64(JSON.stringify(await OfficerData.seal(cur), null, 1) + "\n"), sha: f ? f.sha : undefined, branch: BRANCH });
+      notes = cur; OfficerData.cacheSet("notes", cur); return;
+    } catch (e) { if (e.message !== "busy" || attempt) throw e; }
+  }
+}
+function editNote(r) {
+  const n = notes[r.id] || {};
+  const m = document.createElement("div"); m.className = "modal";
+  m.innerHTML = `<div class="card">
+    <h2 dir="auto" style="margin-bottom:2px">${esc(r.name)}</h2>
+    <div class="id">ID ${esc(r.id)}${r.m.uid ? ` · <a href="https://mightpulse.com/player/${encodeURIComponent(r.m.uid)}" target="_blank" rel="noopener">${esc(tr("openRec"))}</a>` : ""}</div>
+    <label class="f">${esc(tr("histAlli"))} <small>${esc(tr("histAlliNote"))}</small></label><textarea id="nAlli" placeholder="RED 2026-09-30"></textarea>
+    <label class="f">${esc(tr("histNames"))} <small>${esc(tr("histNamesNote"))}</small></label><textarea id="nNames" dir="auto"></textarea>
+    <label class="row" style="margin-top:10px;font-size:14px"><input type="checkbox" id="nChecked"> ${esc(tr("checked"))}</label>
+    <hr>
+    <label class="f">${esc(tr("colClear"))}</label>
+    <div class="row seg">
+      <label><input type="radio" name="cs" value=""> ${esc(tr("csNone"))}</label>
+      <label><input type="radio" name="cs" value="yes"> ✅ ${esc(tr("fCleared"))}</label>
+      <label><input type="radio" name="cs" value="no"> ⚠️ ${esc(tr("fNotClear"))}</label>
+    </div>
+    <label class="f">${esc(tr("colWhy"))}</label><textarea id="nWhy" dir="auto"></textarea>
+    <label class="f">${esc(tr("yourName"))}</label><input type="text" id="nBy" maxlength="40">
+    <div class="msg warn" id="nErr" hidden></div>
+    <div class="row" style="justify-content:flex-end;margin-top:12px">
+      <button class="btn" id="nCancel">${esc(tr("cancel"))}</button>
+      <button class="btn primary" id="nSave">${esc(tr("saveBtn"))}</button>
+    </div></div>`;
+  ROOT.appendChild(m);
+  m.querySelector(`input[name=cs][value="${n.clear || ""}"]`).checked = true;
+  m.querySelector("#nAlli").value = alliText(n.alliances);
+  m.querySelector("#nNames").value = (n.names || []).join("\n");
+  m.querySelector("#nChecked").checked = n.checked || r.needCheck;
+  m.querySelector("#nWhy").value = n.why || "";
+  m.querySelector("#nBy").value = officerStore().author || "";
+  const close = () => m.remove();
+  m.onclick = (e) => { if (e.target === m) close(); };
+  m.querySelector("#nCancel").onclick = close;
+  m.querySelector("#nSave").onclick = async () => {
+    const clear = m.querySelector("input[name=cs]:checked").value;
+    const why = m.querySelector("#nWhy").value.trim(), by = m.querySelector("#nBy").value.trim();
+    const alliances = parseAlli(m.querySelector("#nAlli").value), names = lines(m.querySelector("#nNames").value);
+    const checked = m.querySelector("#nChecked").checked;
+    const s = officerStore(); s.author = by; try { localStorage.setItem(OFFICER_LS, JSON.stringify(s)); } catch (e) {}
+    const btn = m.querySelector("#nSave"); btn.disabled = true; btn.textContent = tr("saving");
+    const empty = !clear && !why && !alliances.length && !names.length && !checked;
+    try {
+      await saveNote(String(r.id), empty ? null : { clear, why, alliances, names, checked, by, at: new Date().toISOString().slice(0, 10) });
+      close(); build(); render();
+    } catch (e) {
+      const er = m.querySelector("#nErr"); er.hidden = false; er.textContent = errText(e);
+      btn.disabled = false; btn.textContent = tr("saveBtn");
+    }
+  };
+}
+
+function change(points, days) {
+  if (!points || points.length < 2) return null;
+  const last = points[points.length - 1];
+  const cut = new Date(Date.parse(last[0]) - days * 86400000).toISOString().slice(0, 10);
+  let base = points[0];
+  for (const p of points) { if (p[0] <= cut) base = p; }
+  return last[1] - base[1];
+}
+
+function build() {
+  const today = new Date().toISOString().slice(0, 10);
+  const started = watch.started;
+  // index of other alliances' members by simplified name
+  const byCore = new Map();
+  for (const a of Object.values(watch.others || {})) {
+    for (const [id, nm] of a.members) {
+      const c = core(nm); if (c.length < 3) continue;
+      if (!byCore.has(c)) byCore.set(c, []);
+      byCore.get(c).push({ id, nm, tag: `${a.tag} (#${a.kid})`, asOf: a.asOf });
+    }
+  }
+  const similar = (name, id) => {
+    const c = core(name); if (c.length < 3) return [];
+    const out = [];
+    for (const [k, list] of byCore) {
+      const hit = k === c && c.length >= 4;   // same name once decorations are removed
+      if (hit) list.forEach((x) => { if (String(x.id) !== String(id)) out.push(x); });
+    }
+    return out.slice(0, 5);
+  };
+
+  // alliance IDs that have ever been shown as NXS (covers renames such as VZP → NXS)
+  const ourAids = new Set();
+  for (const v of Object.values((records && records.members) || {})) for (const e of v.history || []) if (e.a === TAG && e.aid != null) ourAids.add(e.aid);
+  rows = roster.members.map((m) => {
+    const h = (watch.members || {})[m.id] || {};
+    const note = notes[String(m.id)] || {};
+    const seen = { ...((watch.seen || {})[m.id] || {}) };
+    // MightPulse Record (one-time pull): full alliance and name history
+    // same alliance under an older tag (VZP was NXS's old name): match by alliance ID, shown as NXS
+    const rec = ((records && records.members && records.members[m.id] && records.members[m.id].history) || []).slice()
+      .sort((a, b) => String(a.d).localeCompare(String(b.d)))
+      .map((e) => (e.aid != null && ourAids.has(e.aid) ? { ...e, a: TAG } : e));
+    const recNames = [];
+    let joinedRec = null;
+    rec.forEach((e, i) => {
+      if (e.a && e.d) { const t = `${e.a} (#${e.kid || KID})`; const r = seen[t]; seen[t] = r ? [r[0] < e.d ? r[0] : e.d, r[1] > e.d ? r[1] : e.d] : [e.d, e.d]; }
+      if (e.name && !recNames.includes(e.name)) recNames.push(e.name);
+      const inUs = e.a === TAG, prevIn = i > 0 && rec[i - 1].a === TAG;
+      if (inUs && !prevIn) joinedRec = { d: e.d, first: i === 0 };
+    });
+    // history added by hand from the member's Record (same format as above)
+    for (const x of note.alliances || []) {
+      const t = `${x.a} (#${x.kid || KID})`, d = x.d || "", r = seen[t];
+      seen[t] = r ? [!r[0] || (d && d < r[0]) ? d : r[0], d > r[1] ? d : r[1]] : [d, d];
+    }
+    const elsewhere = Object.entries(seen).filter(([t]) => !t.startsWith(TAG + " (#" + KID + ")"))
+      .sort((a, b) => b[1][1].localeCompare(a[1][1])).map(([t, r]) => ({ tag: t, last: r[1] }));
+    const names = [...new Set([...(h.names || []).map((x) => x[1]), ...recNames, ...(note.names || [])])].filter((n) => n !== m.name);
+    const sim = similar(m.name, m.id);
+    // joinedBetween: only known to have joined somewhere in this date range (from older, gappy data)
+    const since = joinedRec ? (joinedRec.first ? tr("before", { d: joinedRec.d }) : joinedRec.d) : h.before ? tr("before", { d: started }) : h.joinedBetween ? tr("between", { a: h.joinedBetween[0], b: h.joinedBetween[1] }) : (h.firstSeen || "");
+    const newFor = joinedRec ? (joinedRec.first ? null : daysBetween(joinedRec.d, today)) : !h.before && h.firstSeen ? daysBetween(h.joinedBetween ? h.joinedBetween[0] : h.firstSeen, today) : null;
+    // joined after tracking began, no Record data, and nobody has checked yet
+    const needCheck = !h.before && !rec.length && !note.checked;
+    const pD = change(h.power, 7), kD = change(h.kills, 7);
+    const flags = [];
+    if (needCheck) flags.push({ t: tr("fNeedCheck"), hi: true });
+    if (newFor != null && newFor <= newDays) flags.push({ t: tr("fNew", { n: newFor }), hi: true });
+    if (m.kid && m.kid !== KID) flags.push({ t: tr("fKid", { k: m.kid }), hi: true });
+    const R = new Set(tagList(rivals)), F = new Set(tagList(farms));
+    const rivalSeen = elsewhere.filter((e) => R.has(tagOf(e.tag)));
+    if (rivalSeen.length) flags.push({ t: tr("fRival", { t: rivalSeen.map((e) => tagOf(e.tag)).join(", ") }), hi: true });
+    elsewhere.filter((e) => !R.has(tagOf(e.tag)) && !F.has(tagOf(e.tag))).slice(0, 2).forEach((e) => flags.push({ t: tr("fFrom", { t: e.tag }) }));
+    const hops = new Set(elsewhere.map((e) => tagOf(e.tag)).filter((t) => !F.has(t))).size;
+    if (hops >= 3) flags.push({ t: tr("fHops", { n: hops }), hi: true });
+    if (names.length) flags.push({ t: tr("fRenamed") });
+    const simRival = [...new Set(sim.map((s) => tagOf(s.tag)).filter((t) => R.has(t)))];
+    if (simRival.length) flags.push({ t: tr("fRivalName", { t: simRival.join(", ") }), hi: true });
+    if (pD != null && m.power && pD < -0.05 * m.power) flags.push({ t: tr("fDrop") });
+    return {
+      m, h, id: m.id, name: m.name, rank: m.rank, power: m.power, pD, kills: m.kills, kD, tc: m.tc,
+      kid: m.kid, lang: m.lang, since, hops, sinceSort: h.before ? "0" : (h.firstSeen || ""),
+      from: elsewhere.map((e) => e.last ? `${e.tag} (${e.last})` : e.tag).join("; "),
+      names: names.join("; "),
+      similar: sim.filter((s) => !F.has(tagOf(s.tag))).map((s) => `${s.nm} — ${s.tag}, ID ${s.id}`).join("; "),
+      login: toDate(m.lastLogin) || (typeof m.lastLogin === "string" ? m.lastLogin.replace(/^Last active\s*/i, "") : ""),
+      note, needCheck, cs: note.clear || "", clear: note.clear === "yes" ? "Yes" : note.clear === "no" ? "No" : "", why: note.why || "",
+      flags,
+    };
+  });
+}
+
+const COLS = [
+  ["name", "colName"], ["rank", "colRank"], ["flags", "colFlags"], ["clear", "colClear"], ["why", "colWhy"], ["since", "colSince"], ["from", "colFrom"], ["hops", "colHops", 1],
+  ["names", "colNames"], ["similar", "colSimilar"], ["power", "colPower", 1], ["pD", "colPowerD", 1],
+  ["kills", "colKills", 1], ["kD", "colKillsD", 1], ["tc", "colTc", 1], ["kid", "colKid", 1], ["lang", "colLang"], ["login", "colLogin"],
+];
+
+function sorted() {
+  const q = core($("wa_q").value);
+  let list = rows.filter((r) => !q || core(r.name).includes(q) || String(r.id).includes($("wa_q").value.trim()));
+  if ($("onlyFlag").checked) list = list.filter((r) => r.flags.length || r.cs === "no");
+  // "Check Record" first, then "Not clear"; "Cleared" goes to the bottom
+  const val = (r) => sortKey === "flags" ? r.flags.filter((f) => f.hi).length * 10 + r.flags.length + (r.needCheck ? 2000 : 0) + (r.cs === "no" ? 1000 : r.cs === "yes" ? -1000 : 0) : sortKey === "since" ? r.sinceSort : r[sortKey];
+  return list.sort((a, b) => {
+    const x = val(a), y = val(b);
+    if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1;
+    return (typeof x === "number" ? x - y : String(x).localeCompare(String(y))) * sortDir;
+  });
+}
+
+function render() {
+  $("head").innerHTML = COLS.map(([k, t, num]) => `<th class="${num ? "num" : ""}" data-k="${k}">${esc(tr(t))}${sortKey === k ? (sortDir > 0 ? " ▲" : " ▼") : ""}</th>`).join("");
+  $("head").querySelectorAll("th").forEach((th) => th.onclick = () => {
+    const k = th.dataset.k; if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = ["name", "rank", "lang", "since", "why"].includes(k) ? 1 : -1; } render();
+  });
+  const list = sorted();
+  $("count").textContent = `${list.length} / ${rows.length}`;
+  const ch = (v) => v == null ? "" : `<span class="${v > 0 ? "up" : v < 0 ? "down" : ""}">${v > 0 ? "+" : ""}${big(v)}</span>`;
+  const clearCell = (r) => (r.cs === "yes" ? `<span class="flag ok">✅ ${esc(tr("fCleared"))}</span>` : r.cs === "no" ? `<span class="flag hi">⚠️ ${esc(tr("fNotClear"))}</span>` : "")
+    + (TOKEN ? ` <button class="btn mini" data-edit="${esc(r.id)}">✏️</button>` : "");
+  const whyCell = (r) => esc(r.why) + (r.note.by || r.note.at ? `<div class="id">${esc([r.note.by, r.note.at].filter(Boolean).join(" · "))}</div>` : "");
+  $("rows").innerHTML = list.length ? list.map((r) => `<tr>
+    <td><div class="name" dir="auto">${esc(r.name)}</div><div class="id">ID ${esc(r.id)}${r.m.uid ? ` · <a href="https://mightpulse.com/player/${encodeURIComponent(r.m.uid)}" target="_blank" rel="noopener">Record ↗</a>` : ""}</div></td>
+    <td>${esc(r.rank)}</td>
+    <td class="wrapc">${r.flags.map((f) => `<span class="flag${f.hi ? " hi" : ""}">${esc(f.t)}</span>`).join("")}</td>
+    <td>${clearCell(r)}</td>
+    <td class="wrapc" dir="auto">${whyCell(r)}</td>
+    <td>${esc(r.since)}</td>
+    <td class="wrapc">${esc(r.from)}</td>
+    <td class="num">${r.hops || ""}</td>
+    <td class="wrapc" dir="auto">${esc(r.names)}</td>
+    <td class="wrapc" dir="auto">${esc(r.similar)}</td>
+    <td class="num">${big(r.power)}</td><td class="num">${ch(r.pD)}</td>
+    <td class="num">${big(r.kills)}</td><td class="num">${ch(r.kD)}</td>
+    <td class="num">${esc(r.tc)}</td><td class="num">${esc(r.kid)}</td><td>${esc(r.lang)}</td><td>${esc(r.login)}</td>
+  </tr>`).join("") : `<tr><td colspan="${COLS.length}" class="empty">${esc(tr("empty"))}</td></tr>`;
+
+  const left = (watch.left || []).slice().reverse();
+  $("left").innerHTML = left.length ? left.map((l) => {
+    const seen = (watch.seen || {})[l.id] || {};
+    const after = Object.entries(seen).filter(([t, r]) => !t.startsWith(TAG + " (#") && r[1] >= l.leftOn).map(([t]) => t).join(", ");
+    return `<tr><td><div class="name" dir="auto">${esc(l.name)}</div><div class="id">ID ${esc(l.id)}</div></td><td>${esc(l.leftOn)}</td><td>${esc(after)}</td></tr>`;
+  }).join("") : `<tr><td colspan="3" class="empty">—</td></tr>`;
+
+  $("notes").innerHTML = [tr("n1", { s: watch.started }), tr("n2"), tr("n3", { d: 7 }), tr("n4"), ...(records ? [tr("n5", { d: String(records.pulledAt).slice(0, 10) })] : []), ...(TOKEN ? [tr("n6")] : [])].map((x) => `<li>${esc(x)}</li>`).join("");
+}
+$("rows").onclick = (e) => {
+  const b = e.target.closest("[data-edit]"); if (!b) return;
+  const r = rows.find((x) => String(x.id) === b.dataset.edit); if (r) editNote(r);
+};
+
+function applyTexts() {
+  document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+  ROOT.querySelectorAll("[data-t]").forEach((el) => { el.textContent = tr(el.dataset.t); });
+  $("wa_q").placeholder = tr("search");
+  if (watch) $("wa_meta").textContent = tr("updated", { t: new Date(watch.updated || roster.updated).toLocaleString(lang === "zh" ? "zh-TW" : "en-GB"), s: watch.started });
+}
+
+function table() {
+  const head = ["Name", "Governor ID", "Rank", "Flags", "In NXS since", "Seen in other alliances", "Alliances seen", "Earlier names", "Similar names elsewhere",
+    "Power", "Power change (7d)", "Kills", "Kills change (7d)", "TC", "Kingdom", "Language", "Last login", "MightPulse record", "Clear", "Why / comments"];
+  const body = sorted().map((r) => [r.name, r.id, r.rank, r.flags.map((f) => f.t).join("; "), r.since, r.from, r.hops || "", r.names, r.similar,
+    r.power ?? "", r.pD ?? "", r.kills ?? "", r.kD ?? "", r.tc ?? "", r.kid ?? "", r.lang ?? "", r.login, r.m.uid ? `https://mightpulse.com/player/${r.m.uid}` : "", r.clear, r.why]);
+  return [head, ...body];
+}
+$("wa_copyBtn").onclick = async () => {
+  const text = table().map((row) => row.map((c) => String(c).replace(/[\t\n\r]+/g, " ")).join("\t")).join("\n");
+  try { await navigator.clipboard.writeText(text); } catch (e) {
+    const ta = document.createElement("textarea"); ta.value = text; ROOT.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
+  }
+  const b = $("wa_copyBtn"); b.textContent = tr("copied"); setTimeout(() => (b.textContent = tr("copy")), 2500);
+};
+$("csvBtn").onclick = () => {
+  const csv = table().map((row) => row.map((c) => { const s = String(c); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; }).join(",")).join("\r\n");
+  const blob = new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+  a.download = `nxs-watch-${new Date().toISOString().slice(0, 10)}.csv`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+};
+function setLang(l) { lang = l; store.lang = lang; save(); applyTexts(); if (watch) { build(); render(); } };
+$("wa_q").oninput = () => render();
+$("onlyFlag").onchange = () => render();
+$("newDays").value = newDays;
+$("rivals").value = rivals; $("farms").value = farms;
+$("rivals").onchange = () => { rivals = $("rivals").value; store.rivals = rivals; save(); build(); render(); };
+$("farms").onchange = () => { farms = $("farms").value; store.farms = farms; save(); build(); render(); };
+$("newDays").onchange = () => { newDays = Math.max(1, Number($("newDays").value) || 14); store.newDays = newDays; save(); build(); render(); };
+
+async function init() {
+  TOKEN = OFFICER.token;
+  applyTexts();
+  try {
+    // copies remembered in this tab show at once; newer ones replace them when they arrive
+    const refresh = (set) => (d) => { set(d); if (roster && watch) { build(); render(); } };
+    // notes: the remembered copy is used at once, the newest arrives behind it
+    const cachedNotes = OfficerData.cacheGet("notes");
+    if (cachedNotes) notes = cachedNotes;
+    const notesDone = loadNotes().then(() => { OfficerData.cacheSet("notes", notes); if (cachedNotes && roster && watch && JSON.stringify(notes) !== JSON.stringify(cachedNotes)) { build(); render(); } });
+    const [a, b, rec] = await Promise.all([
+      OfficerData.fetchJsonFast("data/roster-x7k2p9.json", refresh((d) => { roster = d; })),
+      OfficerData.fetchJsonFast("data/watch-x7k2p9.json", refresh((d) => { watch = d; })),
+      OfficerData.fetchJsonFast("data/records-x7k2p9.json", refresh((d) => { records = d; })).catch(() => undefined),
+      cachedNotes ? null : notesDone,
+    ]);
+    roster = a || null;
+    if (rec !== undefined) records = rec;
+    watch = b || null;
+  } catch (e) {}
+  if (!roster || !watch) { $("wa_noData").hidden = false; $("wa_noData").textContent = tr("noData"); return; }
+  $("wa_app").hidden = false;
+  applyTexts(); build(); render();
+}
+
+OFFICER_PAGES.watch = { init, applyTexts, setLang };
+
+
+})();
+officerGate();
+</script>
+<script src="js/assistant.js"></script>
+</body>
+</html>
