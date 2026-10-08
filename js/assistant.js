@@ -167,9 +167,17 @@
   let officerProof = null;
   const b64 = (str) => Uint8Array.from(atob(str), (c) => c.charCodeAt(0));
   function store() { try { return JSON.parse(localStorage.getItem(OFFICER_LS)) || {}; } catch (e) { return {}; } }
+  let proofMemo = { pw: null, proof: null };
   async function proofFor(pw) {
+    if (proofMemo.pw === pw && proofMemo.proof) return proofMemo.proof;   // same password → same proof (no second download)
+    const proof = await proofCompute(pw);
+    if (proof) proofMemo = { pw, proof };
+    return proof;
+  }
+  async function proofCompute(pw) {
     try {
-      const blob = await fetch("data/data-key.json?t=" + Date.now(), { cache: "no-store" }).then((r) => r.json());
+      const blob = window.OfficerData && OfficerData.dataKeyBlob ? await OfficerData.dataKeyBlob()
+        : await fetch("data/data-key.json?t=" + Date.now(), { cache: "no-store" }).then((r) => r.json());
       // same derivation as the officer pages; OfficerData remembers it so it isn't redone on every tab
       const key = window.OfficerData && OfficerData.pbkdf ? await OfficerData.pbkdf(pw, blob.salt, blob.iter, ["decrypt"]) : await (async () => {
         const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);

@@ -256,7 +256,7 @@ async function saveNote(id, note) {
     if (note) cur[id] = note; else delete cur[id];
     try {
       await gh("PUT", NOTES_PATH, { message: `Watch note: ${id}`, content: utf8ToB64(JSON.stringify(await OfficerData.seal(cur), null, 1) + "\n"), sha: f ? f.sha : undefined, branch: BRANCH });
-      notes = cur; return;
+      notes = cur; OfficerData.cacheSet("notes", cur); return;
     } catch (e) { if (e.message !== "busy" || attempt) throw e; }
   }
 }
@@ -504,15 +504,21 @@ $("newDays").onchange = () => { newDays = Math.max(1, Number($("newDays").value)
 async function init() {
   applyTexts();
   try {
+    // copies remembered in this tab show at once; newer ones replace them when they arrive
+    const refresh = (set) => (d) => { set(d); if (roster && watch) { build(); render(); } };
+    // notes: the remembered copy is used at once, the newest arrives behind it
+    const cachedNotes = OfficerData.cacheGet("notes");
+    if (cachedNotes) notes = cachedNotes;
+    const notesDone = loadNotes().then(() => { OfficerData.cacheSet("notes", notes); if (cachedNotes && roster && watch && JSON.stringify(notes) !== JSON.stringify(cachedNotes)) { build(); render(); } });
     const [a, b, rec] = await Promise.all([
-      fetch("data/roster-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }),
-      fetch("data/watch-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }),
-      OfficerData.fetchJson("data/records-x7k2p9.json").catch(() => undefined),   // downloaded together with the others
-      loadNotes(),
+      OfficerData.fetchJsonFast("data/roster-x7k2p9.json", refresh((d) => { roster = d; })),
+      OfficerData.fetchJsonFast("data/watch-x7k2p9.json", refresh((d) => { watch = d; })),
+      OfficerData.fetchJsonFast("data/records-x7k2p9.json", refresh((d) => { records = d; })).catch(() => undefined),
+      cachedNotes ? null : notesDone,
     ]);
-    roster = a.ok ? await OfficerData.open(await a.json()) : null;
+    roster = a || null;
     if (rec !== undefined) records = rec;
-    watch = b.ok ? await OfficerData.open(await b.json()) : null;
+    watch = b || null;
   } catch (e) {}
   if (!roster || !watch) { $("noData").hidden = false; $("noData").textContent = tr("noData"); return; }
   $("app").hidden = false;
@@ -532,14 +538,15 @@ async function officerDecrypt(pw, blob) {
 function officerStore() { try { return JSON.parse(localStorage.getItem(OFFICER_LS)) || {}; } catch (e) { return {}; } }
 async function officerGate(onOk) {
   let blob = null;
-  try { const r = await fetch("data/post-key.json?t=" + Date.now(), { cache: "no-store" }); blob = r.ok ? await r.json() : null; } catch (e) {}
+  blob = await OfficerData.postKey();   // remembered per tab; re-downloaded below if it no longer opens
   if (!blob) return onOk();
+  const checkPw = async (pw) => (await officerDecrypt(pw, blob)) || (await officerDecrypt(pw, blob = (await OfficerData.postKey(true)) || blob));
   const st = officerStore();
-  if (st.pw && (TOKEN = await officerDecrypt(st.pw, blob))) { await OfficerData.unlock(st.pw); return onOk(); }
+  if (st.pw && (TOKEN = await checkPw(st.pw))) { await OfficerData.unlock(st.pw); return onOk(); }
   $("gate").hidden = false;
   const go = async () => {
     const pw = $("gatePw").value;
-    if ((TOKEN = await officerDecrypt(pw, blob))) {
+    if ((TOKEN = await checkPw(pw))) {
       await OfficerData.unlock(pw);
       if ($("gateRemember").checked) { const s = officerStore(); s.pw = pw; try { localStorage.setItem(OFFICER_LS, JSON.stringify(s)); } catch (e) {} }
       $("gate").hidden = true; onOk();

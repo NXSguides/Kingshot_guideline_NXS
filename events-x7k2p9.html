@@ -794,7 +794,7 @@ async function saveList(next, message) {
   try {
     const r = await gh("PUT", EV_PATH, { message: message.slice(0, 120), content: utf8ToB64(JSON.stringify(file, null, 1) + "\n"), sha: FILE_SHA || undefined, branch: BRANCH });
     FILE_SHA = r && r.content ? r.content.sha : FILE_SHA;
-    LIST = next; m.className = "msg okmsg"; m.textContent = tr("saved"); return true;
+    LIST = next; OfficerData.cacheSet("events", next); m.className = "msg okmsg"; m.textContent = tr("saved"); return true;
   } catch (err) {
     const k = err.message === "auth" ? "errAuth" : err.message === "busy" ? "errBusy" : "errNet";
     m.className = "msg warn"; m.textContent = tr(k); em.textContent = tr(k); return false;
@@ -817,19 +817,22 @@ function defaultWeek() { const now = Date.now(); const m = mondayOf(now); return
 async function init() {
   applyTexts();
   if (OFFICER_PW) await loadToken();
-  // 1) the saved list (fresh copy from GitHub when the key works, otherwise the site's copy)
-  let file = null;
+  // 0) the copy remembered in this tab (from an earlier visit) is shown right away …
+  const remembered = OfficerData.cacheGet("events");
+  if (remembered) { LIST = seedTodos(remembered); $("app").hidden = false; weekStart = defaultWeek(); render(); }
+  // 1) … then the saved list (fresh copy from GitHub when the key works, otherwise the site's copy)
+  let file = null, fresh = null;
   try {
     if (TOKEN) { const f = await gh("GET", EV_PATH); if (f) { FILE_SHA = f.sha; file = JSON.parse(b64ToUtf8(f.content)); } }
     else { const r = await fetch(EV_PATH + "?t=" + Date.now(), { cache: "no-store" }); if (r.ok) file = await r.json(); }
-    if (file && file.data) { const d = await OfficerData.open(file.data); LIST = d && d.events; }
-  } catch (e) { LIST = null; }
-  // saved events without any to-do get the built-in ones once (todoSeed marks it, so deleting them later sticks)
-  if (LIST) for (const e of LIST) {
-    if (e.todoSeed || (e.todo && e.todo.length)) continue;
-    const d = TODO[e.id] || (EXTRA_EVENTS.find((x) => x.id === e.id) || {}).todo;
-    if (d && d.length) { e.todo = d.map((x) => ({ ...x })); e.todoSeed = 1; }
-  }
+    if (file && file.data) { const d = await OfficerData.open(file.data); fresh = d && d.events; }
+  } catch (e) { fresh = null; }
+  if (fresh) {
+    OfficerData.cacheSet("events", fresh);
+    if (remembered && JSON.stringify(seedTodos(fresh)) === JSON.stringify(LIST)) return;   // nothing changed
+    LIST = seedTodos(fresh);
+  } else if (remembered) return;
+  else LIST = null;
   // 2) nothing saved yet: start from the schedules already on the site
   if (!LIST) {
     let sched = null;
@@ -843,6 +846,15 @@ async function init() {
   }
   $("app").hidden = false;
   weekStart = defaultWeek(); render();
+}
+// saved events without any to-do get the built-in ones once (todoSeed marks it, so deleting them later sticks)
+function seedTodos(list) {
+  for (const e of list) {
+    if (e.todoSeed || (e.todo && e.todo.length)) continue;
+    const d = TODO[e.id] || (EXTRA_EVENTS.find((x) => x.id === e.id) || {}).todo;
+    if (d && d.length) { e.todo = d.map((x) => ({ ...x })); e.todoSeed = 1; }
+  }
+  return list;
 }
 
 /* ===== officer password (shared with the other tabs: same password, same saved login) ===== */
@@ -858,16 +870,17 @@ async function officerCheck(pw, blob) {
 function officerStore() { try { return JSON.parse(localStorage.getItem(OFFICER_LS)) || {}; } catch (e) { return {}; } }
 async function officerGate(onOk) {
   let blob = null;
-  try { const r = await fetch("data/post-key.json?t=" + Date.now(), { cache: "no-store" }); blob = r.ok ? await r.json() : null; } catch (e) {}
+  blob = await OfficerData.postKey();   // remembered per tab; re-downloaded below if it no longer opens
   if (!blob) return onOk();
-  POST_KEY_BLOB = blob;
+  // a remembered key file may be outdated (password changed) → try a fresh copy before saying "wrong"
+  const checkPw = async (pw) => (await officerCheck(pw, blob)) || (await officerCheck(pw, blob = (await OfficerData.postKey(true)) || blob));
   const st = officerStore();
-  if (st.pw && (await officerCheck(st.pw, blob))) { OFFICER_PW = st.pw; await OfficerData.unlock(st.pw); return onOk(); }
+  if (st.pw && (await checkPw(st.pw))) { POST_KEY_BLOB = blob; OFFICER_PW = st.pw; await OfficerData.unlock(st.pw); return onOk(); }
   $("gate").hidden = false;
   const go = async () => {
     const pw = $("gatePw").value;
-    if (await officerCheck(pw, blob)) {
-      OFFICER_PW = pw; await OfficerData.unlock(pw);
+    if (await checkPw(pw)) {
+      POST_KEY_BLOB = blob; OFFICER_PW = pw; await OfficerData.unlock(pw);
       if ($("gateRemember").checked) { const s = officerStore(); s.pw = pw; try { localStorage.setItem(OFFICER_LS, JSON.stringify(s)); } catch (e) {} }
       $("gate").hidden = true; onOk();
     } else { $("gateErr").hidden = false; $("gatePw").value = ""; $("gatePw").focus(); }

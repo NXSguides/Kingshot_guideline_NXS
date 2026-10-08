@@ -781,9 +781,13 @@ function applyTexts() {
 }
 function showApp() { $("lockCard").hidden = true; $("setupCard").hidden = true; $("app").hidden = false; renderPreview(); loadList(); takeCarriedImage(); }
 
-async function tryUnlock(pw, silent) {
+async function tryUnlock(pw, silent, retried) {
   try { TOKEN = await decryptToken(keyBlob, pw); }
-  catch (e) { if (!silent) showMsg("lockMsg", "err", tr("wrongPw")); return false; }
+  catch (e) {
+    // the key file remembered in this tab may be outdated (password changed) → try a fresh copy once
+    if (!retried) { const fresh = await OfficerData.postKey(true); if (fresh && JSON.stringify(fresh) !== JSON.stringify(keyBlob)) { keyBlob = fresh; return tryUnlock(pw, silent, true); } }
+    if (!silent) showMsg("lockMsg", "err", tr("wrongPw")); return false;
+  }
   OFFICER_PW = pw; await OfficerData.unlock(pw);
   if ($("remember").checked || silent) { store.pw = pw; save(); }
   showApp(); return true;
@@ -794,10 +798,7 @@ async function init() {
   $("srcLang").innerHTML = LANGS.map((l) => `<option value="${l.code}">${l.label}</option>`).join("");
   $("srcLang").value = store.lang || "en";
   $("author").value = store.author || "";
-  try {
-    const r = await fetch(KEY_PATH + "?t=" + Date.now(), { cache: "no-store" });
-    keyBlob = r.ok ? await r.json() : null;
-  } catch (e) { keyBlob = null; }
+  keyBlob = await OfficerData.postKey();   // remembered per tab; a fresh copy is tried below if it no longer opens
   if (!keyBlob) { $("setupCard").hidden = false; return; }
   if (store.pw && (await tryUnlock(store.pw, true))) return;
   $("lockCard").hidden = false;

@@ -34,16 +34,49 @@ window.OfficerData = (() => {
   }
   const pwKey = (pw, salt, iter) => pbkdf(pw, salt, iter, ["encrypt", "decrypt"]);
 
-  /* data-key.json → raw key bytes (null if missing or wrong password) */
-  async function fetchKeyFileNow() {
-    try { const r = await fetch(KEY_FILE + "?t=" + Date.now(), { cache: "no-store" }); return r.ok ? await r.json() : null; } catch (e) { return null; }
+  /* ---- per-tab memory (sessionStorage: this browser tab only, gone when it closes) ----
+     Used only when the officer password is saved in this browser ("remember me"), so the
+     4 officer tabs don't each download and decrypt the same things again. */
+  const ss = (k) => { try { return sessionStorage.getItem(k); } catch (e) { return null; } };
+  const ssSet = (k, v) => { if (!remembered()) return; try { sessionStorage.setItem(k, v); } catch (e) {} };
+
+  /* key files (data-key.json, post-key.json): remembered per tab; fresh = true re-downloads
+     (used after setup, and when a remembered copy no longer opens with the password) */
+  async function keyBlob(file, fresh) {
+    const k = "nxs-kb:" + file;
+    if (!fresh) { const v = ss(k); if (v) { try { return JSON.parse(v); } catch (e) {} } }
+    try {
+      const r = await fetch(file + "?t=" + Date.now(), { cache: "no-store" });
+      if (!r.ok) return null;
+      const b = await r.json(); ssSet(k, JSON.stringify(b)); return b;
+    } catch (e) { return null; }
   }
-  // start fetching the key file as soon as this script runs, so it overlaps with the password check
-  let prefetched = fetchKeyFileNow();
-  function fetchKeyFile() {
-    if (prefetched) { const p = prefetched; prefetched = null; return p; }   // first call: the early copy
-    return fetchKeyFileNow();                                                 // later calls (e.g. after setup): fresh
+  const PK_FILE = "data/post-key.json";
+  // start both key files early, so they download while the page is still starting up
+  let preDk = keyBlob(KEY_FILE), prePk = keyBlob(PK_FILE);
+  const fetchKeyFile = () => keyBlob(KEY_FILE, true);          // always fresh (setup flows)
+  const dataKeyBlob = () => keyBlob(KEY_FILE);                  // remembered per tab (AI chat's officer check)
+  function postKey(fresh) {
+    if (!fresh && prePk) { const p = prePk; prePk = null; return p; }
+    return keyBlob(PK_FILE, fresh);
   }
+
+  /* decrypted data files (roster, watch …): the remembered copy is returned at once and the
+     newest is fetched behind it; onFresh(data) is called when the newest differs. */
+  async function fetchJsonFast(url, onFresh) {
+    const k = "nxs-dj:" + url, v = ss(k);
+    const net = fetchJson(url).then((d) => { if (d != null) ssSet(k, JSON.stringify(d)); return d; });
+    if (v) {
+      let cached; try { cached = JSON.parse(v); } catch (e) {}
+      if (cached !== undefined) {
+        net.then((d) => { if (d != null && onFresh && JSON.stringify(d) !== v) onFresh(d); }).catch(() => {});
+        return cached;
+      }
+    }
+    return net;
+  }
+  const cacheGet = (name) => { const v = ss("nxs-dj:" + name); try { return v ? JSON.parse(v) : null; } catch (e) { return null; } };
+  const cacheSet = (name, obj) => ssSet("nxs-dj:" + name, JSON.stringify(obj));
   async function unwrap(blob, pw) {
     try {
       const k = await pwKey(pw, dec(blob.salt), blob.iter);
@@ -59,9 +92,11 @@ window.OfficerData = (() => {
 
   /* unlock with the officer password; returns true when the data key is ready */
   async function unlock(pw) {
-    const blob = await fetchKeyFile();
-    if (!blob || !pw) return false;
-    const raw = await unwrap(blob, pw);
+    if (!pw) return false;
+    let blob = preDk ? await preDk : await keyBlob(KEY_FILE);
+    preDk = null;
+    let raw = blob && await unwrap(blob, pw);
+    if (!raw) { blob = await keyBlob(KEY_FILE, true); raw = blob && await unwrap(blob, pw); }   // remembered copy outdated? → fresh
     if (!raw) return false;
     key = await crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["encrypt", "decrypt"]);
     try { window.__nxsOfficerPw = pw; window.dispatchEvent(new Event("nxs-officer")); } catch (e) {}   // lets the AI chat unlock too
@@ -86,7 +121,7 @@ window.OfficerData = (() => {
     return open(await r.json());
   }
 
-  return { KEY_FILE, unlock, open, seal, fetchJson, fetchKeyFile, unwrap, wrap, enc, pbkdf, ready: () => !!key };
+  return { KEY_FILE, unlock, open, seal, fetchJson, fetchJsonFast, cacheGet, cacheSet, fetchKeyFile, dataKeyBlob, postKey, unwrap, wrap, enc, pbkdf, ready: () => !!key };
 })();
 
 /* ===== Tab names at the top of the officer pages follow the page language (English / 中文) ===== */
