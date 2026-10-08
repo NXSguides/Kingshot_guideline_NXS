@@ -2,13 +2,13 @@
    - Images & fonts: show the saved copy right away, check for a newer one in the background.
    - Everything else (guides, announcements, app code): try the network first;
      if it doesn't answer within 3 seconds (or there is no internet), show the saved copy. */
-const CACHE = "nxs-v3";
+const CACHE = "nxs-v4";
 const NETWORK_TIMEOUT_MS = 3000;
 const SHELL = [
   "./",
   "index.html",
   "css/styles.css",
-  "data/content.js",
+  "data/content-core.js",
   "js/app.js",
   "js/assistant.js",
   "data/announcements.json",

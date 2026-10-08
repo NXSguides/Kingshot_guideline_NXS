@@ -2650,11 +2650,11 @@ const GUIDES = {
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
           { text: "Open this site in **Safari** (other browsers can't install it)." },
-          { text: "Tap the Share button (square with an arrow) at the bottom.", img: "figures/file.png" },
-          { text: "Tap **View More** (the ⌄ button) to open the full menu. On older iOS versions, just scroll down.", img: "figures/IMG_8466.png" },
-          { text: "Tap **Add to Home Screen**.", img: "figures/IMG_8467.png" },
-          { text: "Keep **Open as Web App** turned on, then tap **Add**.", img: "figures/IMG_8468.png" },
-          { text: "The NXS icon now appears on your home screen.", img: "figures/IMG_8469.png" }
+          { text: "Tap the Share button (square with an arrow) at the bottom.", img: "figures/file.webp" },
+          { text: "Tap **View More** (the ⌄ button) to open the full menu. On older iOS versions, just scroll down.", img: "figures/IMG_8466.webp" },
+          { text: "Tap **Add to Home Screen**.", img: "figures/IMG_8467.webp" },
+          { text: "Keep **Open as Web App** turned on, then tap **Add**.", img: "figures/IMG_8468.webp" },
+          { text: "The NXS icon now appears on your home screen.", img: "figures/IMG_8469.webp" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -2681,11 +2681,11 @@ const GUIDES = {
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
           { text: "用 **Safari** 打開這個網站（其他瀏覽器無法安裝）。" },
-          { text: "點下方的「分享」按鈕（方框加向上箭頭）。", img: "figures/file.png" },
-          { text: "點 **View More**（⌄ 按鈕）展開完整選單；較舊的 iOS 版本直接往下滑即可。", img: "figures/IMG_8466.png" },
-          { text: "點 **加入主畫面**。", img: "figures/IMG_8467.png" },
-          { text: "保持 **Open as Web App**（以網頁 App 開啟）開啟，再點 **加入**。", img: "figures/IMG_8468.png" },
-          { text: "主畫面就會出現 NXS 圖示。", img: "figures/IMG_8469.png" }
+          { text: "點下方的「分享」按鈕（方框加向上箭頭）。", img: "figures/file.webp" },
+          { text: "點 **View More**（⌄ 按鈕）展開完整選單；較舊的 iOS 版本直接往下滑即可。", img: "figures/IMG_8466.webp" },
+          { text: "點 **加入主畫面**。", img: "figures/IMG_8467.webp" },
+          { text: "保持 **Open as Web App**（以網頁 App 開啟）開啟，再點 **加入**。", img: "figures/IMG_8468.webp" },
+          { text: "主畫面就會出現 NXS 圖示。", img: "figures/IMG_8469.webp" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -2712,11 +2712,11 @@ const GUIDES = {
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
           { text: "**Safari**로 이 사이트를 여세요 (다른 브라우저로는 설치할 수 없습니다)." },
-          { text: "하단의 공유 버튼(화살표가 있는 네모)을 누르세요.", img: "figures/file.png" },
-          { text: "**View More**(⌄ 버튼)를 눌러 전체 메뉴를 여세요. 이전 iOS 버전에서는 아래로 스크롤하면 됩니다.", img: "figures/IMG_8466.png" },
-          { text: "**홈 화면에 추가**를 누르세요.", img: "figures/IMG_8467.png" },
-          { text: "**Open as Web App**(웹 앱으로 열기)을 켠 상태로 두고 **추가**를 누르세요.", img: "figures/IMG_8468.png" },
-          { text: "홈 화면에 NXS 아이콘이 생깁니다.", img: "figures/IMG_8469.png" }
+          { text: "하단의 공유 버튼(화살표가 있는 네모)을 누르세요.", img: "figures/file.webp" },
+          { text: "**View More**(⌄ 버튼)를 눌러 전체 메뉴를 여세요. 이전 iOS 버전에서는 아래로 스크롤하면 됩니다.", img: "figures/IMG_8466.webp" },
+          { text: "**홈 화면에 추가**를 누르세요.", img: "figures/IMG_8467.webp" },
+          { text: "**Open as Web App**(웹 앱으로 열기)을 켠 상태로 두고 **추가**를 누르세요.", img: "figures/IMG_8468.webp" },
+          { text: "홈 화면에 NXS 아이콘이 생깁니다.", img: "figures/IMG_8469.webp" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -2743,11 +2743,11 @@ const GUIDES = {
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
           { text: "Öffne diese Seite in **Safari** (andere Browser können sie nicht installieren)." },
-          { text: "Tippe unten auf die Teilen-Taste (Quadrat mit Pfeil).", img: "figures/file.png" },
-          { text: "Tippe auf **View More** (die ⌄-Taste), um das ganze Menü zu öffnen. Bei älteren iOS-Versionen einfach nach unten scrollen.", img: "figures/IMG_8466.png" },
-          { text: "Tippe auf **Zum Home-Bildschirm**.", img: "figures/IMG_8467.png" },
-          { text: "Lass **Open as Web App** (Als Web-App öffnen) eingeschaltet und tippe auf **Hinzufügen**.", img: "figures/IMG_8468.png" },
-          { text: "Das NXS-Symbol erscheint jetzt auf deinem Home-Bildschirm.", img: "figures/IMG_8469.png" }
+          { text: "Tippe unten auf die Teilen-Taste (Quadrat mit Pfeil).", img: "figures/file.webp" },
+          { text: "Tippe auf **View More** (die ⌄-Taste), um das ganze Menü zu öffnen. Bei älteren iOS-Versionen einfach nach unten scrollen.", img: "figures/IMG_8466.webp" },
+          { text: "Tippe auf **Zum Home-Bildschirm**.", img: "figures/IMG_8467.webp" },
+          { text: "Lass **Open as Web App** (Als Web-App öffnen) eingeschaltet und tippe auf **Hinzufügen**.", img: "figures/IMG_8468.webp" },
+          { text: "Das NXS-Symbol erscheint jetzt auf deinem Home-Bildschirm.", img: "figures/IMG_8469.webp" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -2774,11 +2774,11 @@ const GUIDES = {
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
           { text: "Ouvrez ce site dans **Safari** (les autres navigateurs ne permettent pas l'installation)." },
-          { text: "Touchez le bouton Partager (carré avec une flèche) en bas.", img: "figures/file.png" },
-          { text: "Touchez **View More** (le bouton ⌄) pour ouvrir le menu complet. Sur les anciennes versions d'iOS, faites simplement défiler vers le bas.", img: "figures/IMG_8466.png" },
-          { text: "Touchez **Sur l'écran d'accueil**.", img: "figures/IMG_8467.png" },
-          { text: "Laissez **Open as Web App** (Ouvrir comme app web) activé, puis touchez **Ajouter**.", img: "figures/IMG_8468.png" },
-          { text: "L'icône NXS apparaît sur votre écran d'accueil.", img: "figures/IMG_8469.png" }
+          { text: "Touchez le bouton Partager (carré avec une flèche) en bas.", img: "figures/file.webp" },
+          { text: "Touchez **View More** (le bouton ⌄) pour ouvrir le menu complet. Sur les anciennes versions d'iOS, faites simplement défiler vers le bas.", img: "figures/IMG_8466.webp" },
+          { text: "Touchez **Sur l'écran d'accueil**.", img: "figures/IMG_8467.webp" },
+          { text: "Laissez **Open as Web App** (Ouvrir comme app web) activé, puis touchez **Ajouter**.", img: "figures/IMG_8468.webp" },
+          { text: "L'icône NXS apparaît sur votre écran d'accueil.", img: "figures/IMG_8469.webp" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -2805,11 +2805,11 @@ const GUIDES = {
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
           { text: "Abra este site no **Safari** (outros navegadores não conseguem instalar)." },
-          { text: "Toque no botão Compartilhar (quadrado com uma seta) na parte inferior.", img: "figures/file.png" },
-          { text: "Toque em **View More** (o botão ⌄) para abrir o menu completo. Em versões mais antigas do iOS, basta rolar para baixo.", img: "figures/IMG_8466.png" },
-          { text: "Toque em **Adicionar à Tela de Início**.", img: "figures/IMG_8467.png" },
-          { text: "Deixe **Open as Web App** (Abrir como app web) ativado e toque em **Adicionar**.", img: "figures/IMG_8468.png" },
-          { text: "O ícone do NXS aparece na sua tela de início.", img: "figures/IMG_8469.png" }
+          { text: "Toque no botão Compartilhar (quadrado com uma seta) na parte inferior.", img: "figures/file.webp" },
+          { text: "Toque em **View More** (o botão ⌄) para abrir o menu completo. Em versões mais antigas do iOS, basta rolar para baixo.", img: "figures/IMG_8466.webp" },
+          { text: "Toque em **Adicionar à Tela de Início**.", img: "figures/IMG_8467.webp" },
+          { text: "Deixe **Open as Web App** (Abrir como app web) ativado e toque em **Adicionar**.", img: "figures/IMG_8468.webp" },
+          { text: "O ícone do NXS aparece na sua tela de início.", img: "figures/IMG_8469.webp" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -2836,11 +2836,11 @@ const GUIDES = {
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
           { text: "Bu siteyi **Safari** ile açın (diğer tarayıcılar yükleyemez)." },
-          { text: "Alttaki Paylaş düğmesine (oklu kare) dokunun.", img: "figures/file.png" },
-          { text: "Tüm menüyü açmak için **View More**'a (⌄ düğmesi) dokunun. Eski iOS sürümlerinde aşağı kaydırmanız yeterli.", img: "figures/IMG_8466.png" },
-          { text: "**Ana Ekrana Ekle**'ye dokunun.", img: "figures/IMG_8467.png" },
-          { text: "**Open as Web App** (Web Uygulaması olarak aç) açık kalsın, ardından **Ekle**'ye dokunun.", img: "figures/IMG_8468.png" },
-          { text: "NXS simgesi artık ana ekranınızda.", img: "figures/IMG_8469.png" }
+          { text: "Alttaki Paylaş düğmesine (oklu kare) dokunun.", img: "figures/file.webp" },
+          { text: "Tüm menüyü açmak için **View More**'a (⌄ düğmesi) dokunun. Eski iOS sürümlerinde aşağı kaydırmanız yeterli.", img: "figures/IMG_8466.webp" },
+          { text: "**Ana Ekrana Ekle**'ye dokunun.", img: "figures/IMG_8467.webp" },
+          { text: "**Open as Web App** (Web Uygulaması olarak aç) açık kalsın, ardından **Ekle**'ye dokunun.", img: "figures/IMG_8468.webp" },
+          { text: "NXS simgesi artık ana ekranınızda.", img: "figures/IMG_8469.webp" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -2867,11 +2867,11 @@ const GUIDES = {
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
           { text: "Buka situs ini di **Safari** (browser lain tidak bisa memasang)." },
-          { text: "Ketuk tombol Bagikan (kotak dengan panah) di bawah.", img: "figures/file.png" },
-          { text: "Ketuk **View More** (tombol ⌄) untuk membuka menu lengkap. Di iOS versi lama, cukup gulir ke bawah.", img: "figures/IMG_8466.png" },
-          { text: "Ketuk **Tambahkan ke Layar Utama**.", img: "figures/IMG_8467.png" },
-          { text: "Biarkan **Open as Web App** tetap aktif, lalu ketuk **Tambah**.", img: "figures/IMG_8468.png" },
-          { text: "Ikon NXS sekarang muncul di layar utama.", img: "figures/IMG_8469.png" }
+          { text: "Ketuk tombol Bagikan (kotak dengan panah) di bawah.", img: "figures/file.webp" },
+          { text: "Ketuk **View More** (tombol ⌄) untuk membuka menu lengkap. Di iOS versi lama, cukup gulir ke bawah.", img: "figures/IMG_8466.webp" },
+          { text: "Ketuk **Tambahkan ke Layar Utama**.", img: "figures/IMG_8467.webp" },
+          { text: "Biarkan **Open as Web App** tetap aktif, lalu ketuk **Tambah**.", img: "figures/IMG_8468.webp" },
+          { text: "Ikon NXS sekarang muncul di layar utama.", img: "figures/IMG_8469.webp" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -2898,11 +2898,11 @@ const GUIDES = {
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
           { text: "Откройте сайт в **Safari** (другие браузеры не могут его установить)." },
-          { text: "Нажмите кнопку «Поделиться» (квадрат со стрелкой) внизу.", img: "figures/file.png" },
-          { text: "Нажмите **View More** (кнопка ⌄), чтобы открыть всё меню. В старых версиях iOS просто прокрутите вниз.", img: "figures/IMG_8466.png" },
-          { text: "Нажмите **На экран «Домой»**.", img: "figures/IMG_8467.png" },
-          { text: "Оставьте **Open as Web App** (открывать как веб-приложение) включённым и нажмите **Добавить**.", img: "figures/IMG_8468.png" },
-          { text: "Значок NXS появится на главном экране.", img: "figures/IMG_8469.png" }
+          { text: "Нажмите кнопку «Поделиться» (квадрат со стрелкой) внизу.", img: "figures/file.webp" },
+          { text: "Нажмите **View More** (кнопка ⌄), чтобы открыть всё меню. В старых версиях iOS просто прокрутите вниз.", img: "figures/IMG_8466.webp" },
+          { text: "Нажмите **На экран «Домой»**.", img: "figures/IMG_8467.webp" },
+          { text: "Оставьте **Open as Web App** (открывать как веб-приложение) включённым и нажмите **Добавить**.", img: "figures/IMG_8468.webp" },
+          { text: "Значок NXS появится на главном экране.", img: "figures/IMG_8469.webp" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -2929,11 +2929,11 @@ const GUIDES = {
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
           { text: "เปิดเว็บไซต์นี้ใน **Safari** (เบราว์เซอร์อื่นติดตั้งไม่ได้)" },
-          { text: "แตะปุ่มแชร์ (สี่เหลี่ยมมีลูกศร) ด้านล่าง", img: "figures/file.png" },
-          { text: "แตะ **View More** (ปุ่ม ⌄) เพื่อเปิดเมนูทั้งหมด ถ้าเป็น iOS รุ่นเก่า ให้เลื่อนลงแทน", img: "figures/IMG_8466.png" },
-          { text: "แตะ **เพิ่มไปยังหน้าจอโฮม**", img: "figures/IMG_8467.png" },
-          { text: "เปิด **Open as Web App** ไว้ แล้วแตะ **เพิ่ม**", img: "figures/IMG_8468.png" },
-          { text: "ไอคอน NXS จะปรากฏบนหน้าจอโฮม", img: "figures/IMG_8469.png" }
+          { text: "แตะปุ่มแชร์ (สี่เหลี่ยมมีลูกศร) ด้านล่าง", img: "figures/file.webp" },
+          { text: "แตะ **View More** (ปุ่ม ⌄) เพื่อเปิดเมนูทั้งหมด ถ้าเป็น iOS รุ่นเก่า ให้เลื่อนลงแทน", img: "figures/IMG_8466.webp" },
+          { text: "แตะ **เพิ่มไปยังหน้าจอโฮม**", img: "figures/IMG_8467.webp" },
+          { text: "เปิด **Open as Web App** ไว้ แล้วแตะ **เพิ่ม**", img: "figures/IMG_8468.webp" },
+          { text: "ไอคอน NXS จะปรากฏบนหน้าจอโฮม", img: "figures/IMG_8469.webp" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -2960,11 +2960,11 @@ const GUIDES = {
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
           { text: "افتح هذا الموقع في **Safari** (المتصفحات الأخرى لا يمكنها تثبيته)." },
-          { text: "اضغط زر المشاركة (مربع به سهم) في الأسفل.", img: "figures/file.png" },
-          { text: "اضغط **View More** (زر ⌄) لفتح القائمة كاملة. في إصدارات iOS الأقدم، مرّر للأسفل فقط.", img: "figures/IMG_8466.png" },
-          { text: "اضغط **إضافة إلى الشاشة الرئيسية**.", img: "figures/IMG_8467.png" },
-          { text: "أبقِ خيار **Open as Web App** مفعّلًا، ثم اضغط **إضافة**.", img: "figures/IMG_8468.png" },
-          { text: "تظهر الآن أيقونة NXS على الشاشة الرئيسية.", img: "figures/IMG_8469.png" }
+          { text: "اضغط زر المشاركة (مربع به سهم) في الأسفل.", img: "figures/file.webp" },
+          { text: "اضغط **View More** (زر ⌄) لفتح القائمة كاملة. في إصدارات iOS الأقدم، مرّر للأسفل فقط.", img: "figures/IMG_8466.webp" },
+          { text: "اضغط **إضافة إلى الشاشة الرئيسية**.", img: "figures/IMG_8467.webp" },
+          { text: "أبقِ خيار **Open as Web App** مفعّلًا، ثم اضغط **إضافة**.", img: "figures/IMG_8468.webp" },
+          { text: "تظهر الآن أيقونة NXS على الشاشة الرئيسية.", img: "figures/IMG_8469.webp" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -2991,11 +2991,11 @@ const GUIDES = {
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
           { text: "Abre este sitio en **Safari** (otros navegadores no pueden instalarlo)." },
-          { text: "Toca el botón Compartir (cuadrado con una flecha) en la parte inferior.", img: "figures/file.png" },
-          { text: "Toca **View More** (el botón ⌄) para abrir el menú completo. En versiones anteriores de iOS, solo desplázate hacia abajo.", img: "figures/IMG_8466.png" },
-          { text: "Toca **Añadir a pantalla de inicio**.", img: "figures/IMG_8467.png" },
-          { text: "Deja activado **Open as Web App** y toca **Añadir**.", img: "figures/IMG_8468.png" },
-          { text: "El icono de NXS aparecerá en tu pantalla de inicio.", img: "figures/IMG_8469.png" }
+          { text: "Toca el botón Compartir (cuadrado con una flecha) en la parte inferior.", img: "figures/file.webp" },
+          { text: "Toca **View More** (el botón ⌄) para abrir el menú completo. En versiones anteriores de iOS, solo desplázate hacia abajo.", img: "figures/IMG_8466.webp" },
+          { text: "Toca **Añadir a pantalla de inicio**.", img: "figures/IMG_8467.webp" },
+          { text: "Deja activado **Open as Web App** y toca **Añadir**.", img: "figures/IMG_8468.webp" },
+          { text: "El icono de NXS aparecerá en tu pantalla de inicio.", img: "figures/IMG_8469.webp" }
         ] },
         { type: "h", text: "Android" },
         { type: "list", items: [
@@ -3828,7 +3828,7 @@ const GUIDES = {
             green: "🟢 綠色區域 — {sanctumSE}／{abbey}",
             center: "⚪ 中央"
           }},
-          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
+          { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "職責分工" },
           { type: "p", text: "R4 會依戰力，把確定參加的成員分成 3 種職責：**攻擊手、防守者、支援／集結參與者**。" },
@@ -4002,7 +4002,7 @@ const GUIDES = {
             green: "🟢 Green Zone — {sanctumSE} / {abbey}",
             center: "⚪ Center"
           }},
-          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
+          { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "ROLES & RESPONSIBILITIES" },
           { type: "p", text: "R4 will divide confirmed members into 3 functions based on power: **Attackers, Defenders and Support/Joiners**." },
@@ -4189,7 +4189,7 @@ const GUIDES = {
           ]},
           { type: "p", text: "나머지 멤버들은 위 구역/팀 중 한 곳을 지원하도록 배정됩니다. 전황에 따라 로테이션이 필요할 수 있으니 — 항상 스쿼드 채팅을 예의 주시해 주세요." },
           { type: "p", text: "리더십의 지시가 있기 전까지는 배정된 구역에 머물러 주세요." },
-          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
+          { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "👥 역할 및 책임" },
           { type: "p", text: "R4(임원진)가 전투력을 기준으로 참석이 확인된 멤버들을 **공격수, 방어수, 지원/참여자**의 3가지 역할로 나눌 것입니다." },
@@ -4387,7 +4387,7 @@ const GUIDES = {
           { type: "p", text: "Verbleibende Mitglieder werden zugewiesen, eine dieser Zonen/Teams zu unterstützen. Rotation kann je nach Schlachtbedingungen erforderlich sein - überwache immer den Squad Chat für Details." },
           { type: "p", text: "Bleib bei deiner zugewiesenen Zone, es sei denn, die Führung sagt dir, dass du dich bewegen sollst." },
           { type: "zones", labels: { purple: "🟣 Lila Zone — {belltower} / {mercenary}", blue: "🔵 Blaue Zone — {sanctumNW} / {abbey}", yellow: "🟡 Gelbe Zone — {stables} / {abbey}", green: "🟢 Grüne Zone — {sanctumSE} / {abbey}", center: "⚪ Mitte" } },
-          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
+          { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "👥 ROLLEN & VERANTWORTLICHKEITEN" },
           { type: "p", text: "R4 wird bestätigte Mitglieder in 3 Funktionen aufteilen: **Angreifer, Verteidiger und Unterstützer/Joiner** basierend auf Stärke." },
@@ -4575,7 +4575,7 @@ const GUIDES = {
             green: "🟢 Zone verte — {sanctumSE} / {abbey}",
             center: "⚪ Centre"
           }},
-          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
+          { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "RÔLES ET RESPONSABILITÉS" },
           { type: "p", text: "Les R4 répartiront les membres confirmés, selon leur puissance, en 3 fonctions : **attaquants, défenseurs et soutien/participants aux ralliements**." },
@@ -4748,7 +4748,7 @@ const GUIDES = {
             green: "🟢 Zona Verde — {sanctumSE} / {abbey}",
             center: "⚪ Centro"
           }},
-          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
+          { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "ROLES Y RESPONSABILIDADES" },
           { type: "p", text: "R4 dividirá a los miembros confirmados en 3 funciones según su poder: **Atacantes, Defensores y Apoyo/Participantes**." },
@@ -4924,7 +4924,7 @@ const GUIDES = {
 
           { type: "h", text: "ROLLER VE SORUMLULUKLAR" },
           { type: "p", text: "R4, onaylı üyeleri güce göre 3 göreve ayıracak: **Hücumcular, Savunucular ve Destek/Katılımcılar**." },
-          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
+          { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "sub", text: "⚔️ 1) HÜCUMCULAR" },
           { type: "p", text: "**Kimler:** En güçlü oyuncularımız. Yeterince Gelişmiş Işınlayıcı'ya sahip olanlar." },
@@ -5095,7 +5095,7 @@ const GUIDES = {
             green: "🟢 Zona Hijau — {sanctumSE} / {abbey}",
             center: "⚪ Tengah"
           }},
-          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
+          { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "PERAN DAN TANGGUNG JAWAB" },
           { type: "p", text: "R4 akan membagi anggota yang terkonfirmasi ke dalam 3 fungsi berdasarkan kekuatan: **Penyerbu, Pembela, dan Pendukung/Joiner**." },
@@ -5269,7 +5269,7 @@ const GUIDES = {
             green: "🟢 Зелёная зона — {sanctumSE} / {abbey}",
             center: "⚪ Центр"
           }},
-          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
+          { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "РОЛИ И ОБЯЗАННОСТИ" },
           { type: "p", text: "R4 разделит подтвержденных участников по силе на 3 функции: **атакующие, защитники и поддержка/присоединяющиеся**." },
@@ -5443,7 +5443,7 @@ const GUIDES = {
             green: "🟢 โซนเขียว — {sanctumSE} / {abbey}",
             center: "⚪ ศูนย์กลาง"
           }},
-          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
+          { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "บทบาทและหน้าที่" },
           { type: "p", text: "R4 จะแบ่งสมาชิกที่ยืนยันแล้วตามพลังเป็น 3 หน้าที่: **หน่วยบุก หน่วยรับ และหน่วยสนับสนุน/ผู้เข้าร่วมระดมพล**" },
@@ -5617,7 +5617,7 @@ const GUIDES = {
             green: "🟢 المنطقة الخضراء — {sanctumSE} / {abbey}",
             center: "⚪ الوسط"
           }},
-          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
+          { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
 
           { type: "h", text: "الأدوار والمسؤوليات" },
           { type: "p", text: "سيقسّم R4 الأعضاء المؤكدين بحسب القوة إلى 3 وظائف: **المقتحمون والحماة والدعم/المنضمون**." },
@@ -5791,7 +5791,7 @@ const GUIDES = {
             green: "🟢 Zona Verde — {sanctumSE} / {abbey}",
             center: "⚪ Centro"
           }},
-          { type: "img", src: "figures/assigned_zone.png", alt: "Assigned zones" },
+          { type: "img", src: "figures/assigned_zone.webp", alt: "Assigned zones" },
            
           { type: "h", text: "FUNÇÕES E RESPONSABILIDADES" },
           { type: "p", text: "Os R4 dividirão os membros confirmados, conforme o poder, em 3 funções: **Assaltantes, Guardiões e Apoio/Participantes**." },
@@ -9740,7 +9740,7 @@ const GUIDES = {
         {"type":"p","text":"{tacEnergy} generated for {tacCaptain}s per building:"},
         {"type":"list","items":["**{tacGarrison}:** 60,000 — gold","**{tacRuinsCluster} (Shrine):** 45,000 — purple","**{tacRuins} (Altar):** 15,000 — blue"]},
         {"type":"h","text":"🗺️ BATTLE OVERVIEW"},
-        {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"img","src":"figures/tri.webp","alt":"Tri-Alliance Clash map"},
         {"type":"p","text":"🔵 Blue = {transitHub}　🔴 Red = {tacGarrison}　🟡 Yellow = {templeOfTides}"},
         {"type":"sub","text":"Phase 1: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**Goal:** set up your squads and get to know the map. Remember the purple, red and yellow zones — the ones you occupy turn blue. Check the enemies' strength and decide which alliance to focus on."},
@@ -9796,7 +9796,7 @@ const GUIDES = {
         {"type":"p","text":"各建築提供給{tacCaptain}的{tacEnergy}："},
         {"type":"list","items":["**{tacGarrison}：**60,000（金色）","**{tacRuinsCluster}（Shrine）：**45,000（紫色）","**{tacRuins}（Altar）：**15,000（藍色）"]},
         {"type":"h","text":"🗺️ 戰鬥流程"},
-        {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"img","src":"figures/tri.webp","alt":"Tri-Alliance Clash map"},
         {"type":"p","text":"🔵 藍色＝{transitHub}　🔴 紅色＝{tacGarrison}　🟡 黃色＝{templeOfTides}"},
         {"type":"sub","text":"第一階段：{tacPreparations}（0:00–3:00）"},
         {"type":"p","text":"**目標：**設定部隊、熟悉地圖。記住紫、紅、黃三塊區域，被我方佔領的會變成藍色。看看敵人的實力，決定要主打哪個聯盟。"},
@@ -9852,7 +9852,7 @@ const GUIDES = {
         {"type":"p","text":"건물별 {tacCaptain}에게 주어지는 {tacEnergy}:"},
         {"type":"list","items":["**{tacGarrison}:** 60,000 — 금색","**{tacRuinsCluster} (Shrine):** 45,000 — 보라색","**{tacRuins} (Altar):** 15,000 — 파란색"]},
         {"type":"h","text":"🗺️ 전투 흐름"},
-        {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"img","src":"figures/tri.webp","alt":"Tri-Alliance Clash map"},
         {"type":"p","text":"🔵 파란색 = {transitHub}　🔴 빨간색 = {tacGarrison}　🟡 노란색 = {templeOfTides}"},
         {"type":"sub","text":"1단계: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**목표:** 부대를 세팅하고 맵을 익히세요. 보라·빨강·노랑 구역을 기억하세요 — 우리가 점령한 곳은 파란색으로 바뀝니다. 적의 전력을 확인하고 어느 연맹을 집중 공략할지 정하세요."},
@@ -9908,7 +9908,7 @@ const GUIDES = {
         {"type":"p","text":"{tacEnergy} für {tacCaptain} pro Gebäude:"},
         {"type":"list","items":["**{tacGarrison}:** 60.000 — gold","**{tacRuinsCluster} (Shrine):** 45.000 — lila","**{tacRuins} (Altar):** 15.000 — blau"]},
         {"type":"h","text":"🗺️ ABLAUF DES KAMPFES"},
-        {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"img","src":"figures/tri.webp","alt":"Tri-Alliance Clash map"},
         {"type":"p","text":"🔵 Blau = {transitHub}　🔴 Rot = {tacGarrison}　🟡 Gelb = {templeOfTides}"},
         {"type":"sub","text":"Phase 1: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**Ziel:** Schwadronen einstellen und die Karte kennenlernen. Merk dir die lila, roten und gelben Zonen — die von uns besetzten werden blau. Prüft die Stärke der Gegner und entscheidet, auf welche Allianz wir uns konzentrieren."},
@@ -9964,7 +9964,7 @@ const GUIDES = {
         {"type":"p","text":"{tacEnergy} générée pour les {tacCaptain} par bâtiment :"},
         {"type":"list","items":["**{tacGarrison} :** 60 000 — or","**{tacRuinsCluster} (Shrine) :** 45 000 — violet","**{tacRuins} (Altar) :** 15 000 — bleu"]},
         {"type":"h","text":"🗺️ DÉROULEMENT DE LA BATAILLE"},
-        {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"img","src":"figures/tri.webp","alt":"Tri-Alliance Clash map"},
         {"type":"p","text":"🔵 Bleu = {transitHub}　🔴 Rouge = {tacGarrison}　🟡 Jaune = {templeOfTides}"},
         {"type":"sub","text":"Phase 1 : {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**Objectif :** configurer vos escouades et découvrir la carte. Retenez les zones violette, rouge et jaune — celles que vous occupez deviennent bleues. Évaluez la force des ennemis et choisissez l'alliance à cibler."},
@@ -10020,7 +10020,7 @@ const GUIDES = {
         {"type":"p","text":"{tacEnergy} gerada para {tacCaptain} por construção:"},
         {"type":"list","items":["**{tacGarrison}:** 60.000 — dourado","**{tacRuinsCluster} (Shrine):** 45.000 — roxo","**{tacRuins} (Altar):** 15.000 — azul"]},
         {"type":"h","text":"🗺️ VISÃO GERAL DA BATALHA"},
-        {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"img","src":"figures/tri.webp","alt":"Tri-Alliance Clash map"},
         {"type":"p","text":"🔵 Azul = {transitHub}　🔴 Vermelho = {tacGarrison}　🟡 Amarelo = {templeOfTides}"},
         {"type":"sub","text":"Fase 1: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**Objetivo:** configurar os esquadrões e conhecer o mapa. Lembre das zonas roxa, vermelha e amarela — as que ocupamos ficam azuis. Veja a força dos inimigos e decida em qual aliança focar."},
@@ -10076,7 +10076,7 @@ const GUIDES = {
         {"type":"p","text":"{tacEnergy} generada para los {tacCaptain} por edificio:"},
         {"type":"list","items":["**{tacGarrison}:** 60.000 — dorado","**{tacRuinsCluster} (Shrine):** 45.000 — morado","**{tacRuins} (Altar):** 15.000 — azul"]},
         {"type":"h","text":"🗺️ DESARROLLO DE LA BATALLA"},
-        {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"img","src":"figures/tri.webp","alt":"Tri-Alliance Clash map"},
         {"type":"p","text":"🔵 Azul = {transitHub}　🔴 Rojo = {tacGarrison}　🟡 Amarillo = {templeOfTides}"},
         {"type":"sub","text":"Fase 1: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**Objetivo:** configurar los escuadrones y conocer el mapa. Recuerda las zonas morada, roja y amarilla: las que ocupamos se vuelven azules. Revisa la fuerza de los enemigos y decide en qué alianza centrarnos."},
@@ -10132,7 +10132,7 @@ const GUIDES = {
         {"type":"p","text":"Binaya göre {tacCaptain}'lere üretilen {tacEnergy}:"},
         {"type":"list","items":["**{tacGarrison}:** 60.000 — altın","**{tacRuinsCluster} (Shrine):** 45.000 — mor","**{tacRuins} (Altar):** 15.000 — mavi"]},
         {"type":"h","text":"🗺️ SAVAŞ AKIŞI"},
-        {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"img","src":"figures/tri.webp","alt":"Tri-Alliance Clash map"},
         {"type":"p","text":"🔵 Mavi = {transitHub}　🔴 Kırmızı = {tacGarrison}　🟡 Sarı = {templeOfTides}"},
         {"type":"sub","text":"1. Aşama: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**Hedef:** ekipleri ayarla ve haritayı tanı. Mor, kırmızı ve sarı bölgeleri hatırla — ele geçirdiğimizler maviye döner. Düşmanların gücüne bak ve hangi ittifaka odaklanacağımıza karar ver."},
@@ -10188,7 +10188,7 @@ const GUIDES = {
         {"type":"p","text":"{tacEnergy} untuk {tacCaptain} per bangunan:"},
         {"type":"list","items":["**{tacGarrison}:** 60.000 — emas","**{tacRuinsCluster} (Shrine):** 45.000 — ungu","**{tacRuins} (Altar):** 15.000 — biru"]},
         {"type":"h","text":"🗺️ ALUR PERTEMPURAN"},
-        {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"img","src":"figures/tri.webp","alt":"Tri-Alliance Clash map"},
         {"type":"p","text":"🔵 Biru = {transitHub}　🔴 Merah = {tacGarrison}　🟡 Kuning = {templeOfTides}"},
         {"type":"sub","text":"Fase 1: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**Tujuan:** atur skuad dan kenali peta. Ingat zona ungu, merah, dan kuning — yang kita kuasai berubah biru. Cek kekuatan musuh dan tentukan aliansi mana yang mau difokuskan."},
@@ -10244,7 +10244,7 @@ const GUIDES = {
         {"type":"p","text":"Ресурс «{tacEnergy}» для капитанов по зданиям:"},
         {"type":"list","items":["**{tacGarrison}:** 60 000 — золотой","**{tacRuinsCluster} (Shrine):** 45 000 — фиолетовый","**{tacRuins} (Altar):** 15 000 — синий"]},
         {"type":"h","text":"🗺️ ХОД БИТВЫ"},
-        {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"img","src":"figures/tri.webp","alt":"Tri-Alliance Clash map"},
         {"type":"p","text":"🔵 Синий = {transitHub}　🔴 Красный = {tacGarrison}　🟡 Жёлтый = {templeOfTides}"},
         {"type":"sub","text":"Фаза 1: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**Цель:** настроить отряды и изучить карту. Запомните фиолетовую, красную и жёлтую зоны — занятые нами становятся синими. Оцените силу врагов и решите, на каком альянсе сосредоточиться."},
@@ -10300,7 +10300,7 @@ const GUIDES = {
         {"type":"p","text":"{tacEnergy}ที่{tacCaptain}ได้รับตามสิ่งปลูกสร้าง:"},
         {"type":"list","items":["**{tacGarrison}:** 60,000 — สีทอง","**{tacRuinsCluster} (Shrine):** 45,000 — สีม่วง","**{tacRuins} (Altar):** 15,000 — สีน้ำเงิน"]},
         {"type":"h","text":"🗺️ ภาพรวมการต่อสู้"},
-        {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"img","src":"figures/tri.webp","alt":"Tri-Alliance Clash map"},
         {"type":"p","text":"🔵 สีน้ำเงิน = {transitHub}　🔴 สีแดง = {tacGarrison}　🟡 สีเหลือง = {templeOfTides}"},
         {"type":"sub","text":"ช่วงที่ 1: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**เป้าหมาย:** ตั้งค่าทีมและทำความรู้จักแผนที่ จำโซนสีม่วง แดง เหลืองไว้ — โซนที่เรายึดจะกลายเป็นสีน้ำเงิน ดูความแข็งแกร่งของศัตรูและตัดสินใจว่าจะเน้นพันธมิตรไหน"},
@@ -10356,7 +10356,7 @@ const GUIDES = {
         {"type":"p","text":"{tacEnergy} المولَّدة لـ{tacCaptain} حسب المبنى:"},
         {"type":"list","items":["**{tacGarrison}:** 60,000 — ذهبي","**{tacRuinsCluster} (Shrine):** 45,000 — بنفسجي","**{tacRuins} (Altar):** 15,000 — أزرق"]},
         {"type":"h","text":"🗺️ سير المعركة"},
-        {"type":"img","src":"figures/tri.png","alt":"Tri-Alliance Clash map"},
+        {"type":"img","src":"figures/tri.webp","alt":"Tri-Alliance Clash map"},
         {"type":"p","text":"🔵 الأزرق = {transitHub}　🔴 الأحمر = {tacGarrison}　🟡 الأصفر = {templeOfTides}"},
         {"type":"sub","text":"المرحلة 1: {tacPreparations} (0:00–3:00)"},
         {"type":"p","text":"**الهدف:** إعداد الفرق والتعرّف على الخريطة. تذكّر المناطق البنفسجية والحمراء والصفراء — ما نحتله يتحول إلى الأزرق. تحقّق من قوة الأعداء وقرّر على أي تحالف نركّز."},

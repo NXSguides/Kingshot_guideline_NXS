@@ -77,7 +77,7 @@
 
   <footer class="note" id="footerNote"></footer>
 
-  <!-- Password gate: data/content.js is only loaded after the correct password is entered -->
+  <!-- Password gate: the guide data (data/content-core.js + data/content-<lang>.js, built from data/content.js) is only loaded after the correct password is entered -->
   <script>
   (function () {
     // SHA-256 hash of (salt + password), not the password itself.
@@ -106,15 +106,15 @@
     function load(src) {
       return new Promise(function (resolve, reject) {
         var s = document.createElement("script");
-        s.src = src; s.onload = resolve; s.onerror = reject;
+        s.src = src; s.async = false; // async=false: download in parallel, run in the order added
+        s.onload = resolve; s.onerror = reject;
         document.body.appendChild(s);
       });
     }
     function unlock() {
       gate.remove();
-      return load("data/content.js")
-        .then(function () { return load("js/app.js"); })
-        .then(function () { return load("js/assistant.js"); });
+      // the three files download at the same time (instead of one after another) and still run in this order
+      return Promise.all([load("data/content-core.js"), load("js/app.js"), load("js/assistant.js")]);
     }
     function saved() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
     function remember(h) { try { localStorage.setItem(KEY, h); } catch (e) {} }

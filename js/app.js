@@ -785,7 +785,16 @@ function renderDoc() {
   doc.appendChild(renderBlocks(guide, s));
 }
 
+/* The guide text comes in one file per language (data/content-<lang>.js, made from data/content.js).
+   Before drawing, make sure the current language's file is loaded; fetch it first if not. */
 function renderAll() {
+  if (typeof loadContentLang === "function" && !CONTENT_LOADED[currentLang]) {
+    loadContentLang(currentLang).then(renderAllNow, renderAllNow);
+    return;
+  }
+  renderAllNow();
+}
+function renderAllNow() {
   document.getElementById("siteTitle").textContent = SITE_TITLE;
   document.getElementById("footerNote").textContent = t(UI.footerNote);
   document.title = `${SITE_TITLE} · ${t(GUIDES[currentGuide].name)}`;
