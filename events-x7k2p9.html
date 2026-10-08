@@ -775,9 +775,10 @@ async function gh(method, path, body) {
   if (!res.ok) throw new Error("net");
   return res.json();
 }
+let POST_KEY_BLOB = null;   // post-key.json as read by the password check, reused here (one download instead of two)
 async function loadToken() {
   try {
-    const blob = await (await fetch("data/post-key.json?t=" + Date.now(), { cache: "no-store" })).json();
+    const blob = POST_KEY_BLOB || await (await fetch("data/post-key.json?t=" + Date.now(), { cache: "no-store" })).json();
     const dec = (b) => Uint8Array.from(atob(b.replace(/\s/g, "")), (c) => c.charCodeAt(0));
     const key = await OfficerData.pbkdf(OFFICER_PW, blob.salt, blob.iter, ["decrypt"]);
     TOKEN = new TextDecoder().decode(await crypto.subtle.decrypt({ name: "AES-GCM", iv: dec(blob.iv) }, key, dec(blob.data)));
@@ -859,6 +860,7 @@ async function officerGate(onOk) {
   let blob = null;
   try { const r = await fetch("data/post-key.json?t=" + Date.now(), { cache: "no-store" }); blob = r.ok ? await r.json() : null; } catch (e) {}
   if (!blob) return onOk();
+  POST_KEY_BLOB = blob;
   const st = officerStore();
   if (st.pw && (await officerCheck(st.pw, blob))) { OFFICER_PW = st.pw; await OfficerData.unlock(st.pw); return onOk(); }
   $("gate").hidden = false;

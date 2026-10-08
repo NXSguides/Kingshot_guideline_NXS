@@ -504,13 +504,14 @@ $("newDays").onchange = () => { newDays = Math.max(1, Number($("newDays").value)
 async function init() {
   applyTexts();
   try {
-    const [a, b] = await Promise.all([
+    const [a, b, rec] = await Promise.all([
       fetch("data/roster-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }),
       fetch("data/watch-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }),
+      OfficerData.fetchJson("data/records-x7k2p9.json").catch(() => undefined),   // downloaded together with the others
       loadNotes(),
     ]);
     roster = a.ok ? await OfficerData.open(await a.json()) : null;
-    try { records = await OfficerData.fetchJson("data/records-x7k2p9.json"); } catch (e) {}
+    if (rec !== undefined) records = rec;
     watch = b.ok ? await OfficerData.open(await b.json()) : null;
   } catch (e) {}
   if (!roster || !watch) { $("noData").hidden = false; $("noData").textContent = tr("noData"); return; }

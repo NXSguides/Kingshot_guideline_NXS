@@ -35,8 +35,14 @@ window.OfficerData = (() => {
   const pwKey = (pw, salt, iter) => pbkdf(pw, salt, iter, ["encrypt", "decrypt"]);
 
   /* data-key.json → raw key bytes (null if missing or wrong password) */
-  async function fetchKeyFile() {
+  async function fetchKeyFileNow() {
     try { const r = await fetch(KEY_FILE + "?t=" + Date.now(), { cache: "no-store" }); return r.ok ? await r.json() : null; } catch (e) { return null; }
+  }
+  // start fetching the key file as soon as this script runs, so it overlaps with the password check
+  let prefetched = fetchKeyFileNow();
+  function fetchKeyFile() {
+    if (prefetched) { const p = prefetched; prefetched = null; return p; }   // first call: the early copy
+    return fetchKeyFileNow();                                                 // later calls (e.g. after setup): fresh
   }
   async function unwrap(blob, pw) {
     try {
