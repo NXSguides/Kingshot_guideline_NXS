@@ -10,10 +10,29 @@ window.OfficerData = (() => {
   const dec = (b64) => Uint8Array.from(atob(String(b64).replace(/\s/g, "")), (c) => c.charCodeAt(0));
   const enc = (bytes) => { let s = ""; const u = new Uint8Array(bytes); for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
 
-  async function pwKey(pw, salt, iter) {
-    const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
-    return crypto.subtle.deriveKey({ name: "PBKDF2", salt, iterations: iter, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["encrypt", "decrypt"]);
+  /* password → AES key (PBKDF2, 310k rounds ≈ 0.3–1 s on a phone). The result is remembered so the
+     4 officer tabs don't each redo it: in memory always, and in sessionStorage (this browser tab only,
+     gone when the tab closes) when the password itself is already saved in localStorage ("remember me"). */
+  const keyMem = {};
+  const remembered = () => { try { return !!(JSON.parse(localStorage.getItem("nxs-post-v1")) || {}).pw; } catch (e) { return false; } };
+  async function pbkdf(pw, salt, iter, usages) {
+    const saltBytes = typeof salt === "string" ? dec(salt) : salt;
+    const idRaw = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(pw + "|" + enc(saltBytes) + "|" + iter));
+    const id = "nxs-kc:" + enc(idRaw).slice(0, 22);
+    if (!keyMem[id]) keyMem[id] = (async () => {     // one derivation even when two callers ask at the same time
+      let bits = null;
+      if (remembered()) { try { const v = sessionStorage.getItem(id); if (v) bits = dec(v); } catch (e) {} }
+      if (!bits) {
+        const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveBits"]);
+        bits = new Uint8Array(await crypto.subtle.deriveBits({ name: "PBKDF2", salt: saltBytes, iterations: iter, hash: "SHA-256" }, base, 256));
+        if (remembered()) { try { sessionStorage.setItem(id, enc(bits)); } catch (e) {} }
+      }
+      return bits;
+    })().catch((e) => { delete keyMem[id]; throw e; });
+    const bits = await keyMem[id];
+    return crypto.subtle.importKey("raw", bits, "AES-GCM", false, usages || ["encrypt", "decrypt"]);
   }
+  const pwKey = (pw, salt, iter) => pbkdf(pw, salt, iter, ["encrypt", "decrypt"]);
 
   /* data-key.json → raw key bytes (null if missing or wrong password) */
   async function fetchKeyFile() {
@@ -61,7 +80,7 @@ window.OfficerData = (() => {
     return open(await r.json());
   }
 
-  return { KEY_FILE, unlock, open, seal, fetchJson, fetchKeyFile, unwrap, wrap, enc, ready: () => !!key };
+  return { KEY_FILE, unlock, open, seal, fetchJson, fetchKeyFile, unwrap, wrap, enc, pbkdf, ready: () => !!key };
 })();
 
 /* ===== Tab names at the top of the officer pages follow the page language (English / 中文) ===== */

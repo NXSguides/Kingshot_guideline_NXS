@@ -468,8 +468,7 @@ const OFFICER_LS = "nxs-post-v1";
 const b64dec_ = (b64) => Uint8Array.from(atob(b64.replace(/\s/g, "")), (c) => c.charCodeAt(0));
 async function officerCheck(pw, blob) {
   try {
-    const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
-    const key = await crypto.subtle.deriveKey({ name: "PBKDF2", salt: b64dec_(blob.salt), iterations: blob.iter, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+    const key = await OfficerData.pbkdf(pw, blob.salt, blob.iter, ["decrypt"]);
     await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64dec_(blob.iv) }, key, b64dec_(blob.data));
     return true;
   } catch (e) { return false; }
@@ -778,6 +777,7 @@ function tbImage() {
   host.addEventListener("drop", tbDrop);
 })();
 
+applyTexts();   // show the page in the saved language right away (before the password check and data load)
 officerGate(init);
 
 // coming back to this tab with the browser's Back button: follow a language change made on another tab

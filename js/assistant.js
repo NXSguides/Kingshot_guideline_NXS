@@ -170,9 +170,11 @@
   async function proofFor(pw) {
     try {
       const blob = await fetch("data/data-key.json?t=" + Date.now(), { cache: "no-store" }).then((r) => r.json());
-      const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
-      const key = await crypto.subtle.deriveKey({ name: "PBKDF2", salt: b64(blob.salt), iterations: blob.iter, hash: "SHA-256" },
-        base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+      // same derivation as the officer pages; OfficerData remembers it so it isn't redone on every tab
+      const key = window.OfficerData && OfficerData.pbkdf ? await OfficerData.pbkdf(pw, blob.salt, blob.iter, ["decrypt"]) : await (async () => {
+        const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
+        return crypto.subtle.deriveKey({ name: "PBKDF2", salt: b64(blob.salt), iterations: blob.iter, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+      })();
       const raw = new Uint8Array(await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64(blob.iv) }, key, b64(blob.data)));
       let k64 = ""; raw.forEach((x) => (k64 += String.fromCharCode(x))); k64 = btoa(k64);
       const h = await crypto.subtle.digest("SHA-256", new TextEncoder().encode("nxs-officer:" + k64));

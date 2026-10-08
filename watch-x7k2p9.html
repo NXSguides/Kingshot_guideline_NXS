@@ -523,8 +523,7 @@ async function init() {
 const OFFICER_LS = "nxs-post-v1";
 async function officerDecrypt(pw, blob) {
   try {
-    const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
-    const key = await crypto.subtle.deriveKey({ name: "PBKDF2", salt: b64dec_(blob.salt), iterations: blob.iter, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+    const key = await OfficerData.pbkdf(pw, blob.salt, blob.iter, ["decrypt"]);
     const data = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64dec_(blob.iv) }, key, b64dec_(blob.data));
     return new TextDecoder().decode(data);
   } catch (e) { return null; }
@@ -550,6 +549,7 @@ async function officerGate(onOk) {
   $("gatePw").focus();
 }
 try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
+applyTexts();   // show the page in the saved language right away (before the password check and data load)
 officerGate(init);
 
 // coming back to this tab with the browser's Back button: follow a language change made on another tab

@@ -380,10 +380,7 @@ const utf8ToB64 = (str) => b64enc(new TextEncoder().encode(str));
 const b64ToUtf8 = (b64) => new TextDecoder().decode(b64dec(b64));
 
 /* password -> AES key (PBKDF2), token encrypted with AES-GCM */
-async function deriveKey(pw, salt, iter) {
-  const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
-  return crypto.subtle.deriveKey({ name: "PBKDF2", salt, iterations: iter, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["encrypt", "decrypt"]);
-}
+const deriveKey = (pw, salt, iter) => OfficerData.pbkdf(pw, salt, iter, ["encrypt", "decrypt"]);   // shared + remembered across the officer tabs
 async function encryptToken(token, pw) {
   const salt = crypto.getRandomValues(new Uint8Array(16)), iv = crypto.getRandomValues(new Uint8Array(12)), iter = 310000;
   const key = await deriveKey(pw, salt, iter);
