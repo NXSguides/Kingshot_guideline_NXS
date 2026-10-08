@@ -1,12 +1,11 @@
 /* NXS Guidelines service worker
    - Images & fonts: show the saved copy right away, check for a newer one in the background.
-   - Pages, app code and guide text (html / js / css): show the saved copy right away, fetch the
-     newest in the background, and tell the page when something changed (it shows a small
-     "new version — refresh" note). Repeat visits open instantly, even on a slow connection.
-   - Small data files (announcements, events …): try the network first; if it doesn't answer
-     within 3 seconds (or there is no internet), show the saved copy. */
-const CACHE = "nxs-v5";
-const NETWORK_TIMEOUT_MS = 3000;
+   - Pages, app code, guide text and data files: try the network first (so new uploads show up
+     right away); if it doesn't answer within 1.5 s for pages/code (3 s for data files), or there
+     is no internet, show the saved copy. */
+const CACHE = "nxs-v7";
+const NETWORK_TIMEOUT_MS = 3000;        // data files
+const SHELL_TIMEOUT_MS = 1500;          // pages, code, guide text
 const SHELL = [
   "./",
   "index.html",
@@ -53,45 +52,18 @@ function cacheFirst(e, req) {
   });
 }
 
-/* Pages, code, guide text: saved copy first; the newest is fetched in the background and the
-   open pages are told when it differs from what they are showing. */
-function staleWhileRevalidate(e, req) {
-  const key = req.mode === "navigate" ? "index.html" : req;
-  return caches.match(key).then((hit) => {
-    const update = fetch(req, { cache: "no-cache" }).then((res) => {
-      if (!res || !res.ok) return res;
-      if (hit && changed(hit, res)) notifyClients();
-      save(key, res);
-      return res;
-    });
-    if (hit) { e.waitUntil(update.catch(() => {})); return hit; }
-    return update.catch(() => caches.match("index.html"));
-  });
-}
-function changed(a, b) {
-  const tag = (r) => r.headers.get("etag") || "";
-  const len = (r) => r.headers.get("content-length") || "";
-  const mod = (r) => r.headers.get("last-modified") || "";
-  if (tag(a) && tag(b)) return tag(a) !== tag(b);
-  return mod(a) !== mod(b) || len(a) !== len(b);
-}
-let notified = 0;
-function notifyClients() {
-  if (Date.now() - notified < 5000) return;     // several files change together → one message
-  notified = Date.now();
-  self.clients.matchAll({ type: "window" }).then((cs) => cs.forEach((c) => c.postMessage({ type: "nxs-update" })));
-}
-
 /* Data files: network first, saved copy after 3 s or when offline */
-function networkFirst(e, req) {
-  const fromNet = fetch(req, { cache: "no-cache" }).then((res) => save(req, res));
+function networkFirst(e, req, timeoutMs) {
+  // pages are cached under their own address ("?x=…" ignored); index.html doubles as "./"
+  const key = req.mode === "navigate" ? new Request(new URL(req.url).pathname.replace(/\/$/, "/index.html")) : req;
+  const fromNet = fetch(req, { cache: "no-cache" }).then((res) => save(key, res));
   e.waitUntil(fromNet.catch(() => {}));
-  const fallback = () => caches.match(req, { ignoreSearch: true });
+  const fallback = () => caches.match(key, { ignoreSearch: true });
 
   return new Promise((resolve) => {
     let done = false;
     const finish = (r) => { if (!done && r) { done = true; resolve(r); } };
-    const timer = setTimeout(() => fallback().then(finish), NETWORK_TIMEOUT_MS);
+    const timer = setTimeout(() => fallback().then(finish), timeoutMs);
     fromNet
       .then((res) => { clearTimeout(timer); finish(res); })
       .catch(() => { clearTimeout(timer); fallback().then((hit) => { if (hit) finish(hit); else if (!done) { done = true; resolve(Response.error()); } }); });
@@ -110,6 +82,6 @@ self.addEventListener("fetch", (e) => {
 
   if (isFont || isImage) { e.respondWith(cacheFirst(e, req)); return; }
   if (isVideo) return;
-  if (isShell) { e.respondWith(staleWhileRevalidate(e, req)); return; }
-  if (sameOrigin) e.respondWith(networkFirst(e, req));
+  if (isShell) { e.respondWith(networkFirst(e, req, SHELL_TIMEOUT_MS)); return; }
+  if (sameOrigin) e.respondWith(networkFirst(e, req, NETWORK_TIMEOUT_MS));
 });
