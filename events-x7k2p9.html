@@ -396,7 +396,8 @@ or 60/15/25
 // events with no schedule on the site yet
 const EXTRA_EVENTS = [
   { id: "bear-hunt", emoji: "🐻", en: "Bear Hunt", zh: "狩獵巨熊", start: "2026-10-07", every: 2, days: 1, guide: "bear-hunt",
-    note: "11:00 & 22:00 UTC, 30 min each", noteZh: "UTC 11:00 和 22:00，各 30 分鐘" },
+    note: "11:00 & 22:00 UTC, 30 min each", noteZh: "UTC 11:00 和 22:00，各 30 分鐘",
+    todo: [{ due: 0, en: "Remind everyone: update formations, recall gathering troops before it starts, and everyone launches a rally in the last 5–7 minutes.", zh: "提醒大家：更新部隊編成、開始前召回採集部隊，最後 5–7 分鐘每個人都發起集結。" }] },
   { id: "alliance-championship", emoji: "🏆", en: "Alliance Championship", zh: "聯盟爭霸賽", start: "2026-09-28", every: 7, days: 2, guide: "",
     note: "Weekly, Monday reset · shown = 2-day registration; battles run automatically", noteZh: "每週一次，週一重置 · 顯示的是 2 天報名期；戰鬥自動進行",
     todo: [{ due: -1, post: 1, en: "Remind everyone: register in the Middle Lane, strongest heroes, 50/20/30, buffs on.", zh: "提醒大家報名中路、用最強英雄、50/20/30、開好增益。" }] },
@@ -500,6 +501,22 @@ const TODO = {
     { due: 1, post: 1, en: "R4+: once enough members have beaten high-level targets, apply to challenge the Captain and post a time for everyone to join.",
                        zh: "R4 以上：成員擊敗足夠的高等級目標後，申請挑戰頭目，並公告大家一起打的時間。" },
   ],
+  "eternity-reach": [
+    { due: 0, post: 1, en: "Remind everyone: 30-minute solo event. Skill picks Right / Right / Left / Left / Right; send one march into a Copper Vein every minute.",
+              zh: "提醒大家：30 分鐘的個人活動。技能依序選 右／右／左／左／右；每分鐘派一隊進銅礦脈。" },
+  ],
+  "all-out": [
+    { due: -1, post: 1, en: "Post the All Out rules (NAP alliances, no attacks on castles or alliance buildings) and the secured gathering node rotation.",
+               zh: "公告全軍出擊規則（NAP 聯盟名單、不能打城堡和聯盟建築）和安全採集點的輪替時間。" },
+  ],
+  "fishing-tournament": [
+    { due: 0, en: "Remind everyone: use Ocean Prospector first to upgrade the Fishing Kit, then switch to Regular Fishing.",
+              zh: "提醒大家：先玩寶藏釣魚把漁具升級，再改玩普通釣魚。" },
+  ],
+  "hero-roulette": [
+    { due: 0, en: "Remind everyone: 1 free spin a day; milestone rewards at 5 / 15 / 35 / 70 / 120 spins. Spins on KvK Prep Day 2–3 also score KvK points.",
+              zh: "提醒大家：每天 1 次免費；累計 5／15／35／70／120 次有里程碑獎勵。KvK 備戰階段 2–3 轉的次數也會算 KvK 積分。" },
+  ],
   "kvk": [
     { due: -1, en: "Remind members: book Chief Minister slots, save Intel Missions, count saved items (the site's KvK checklist pops up).",
                zh: "提醒成員：預約總理大臣時段、存情報任務、清點存的道具（網站會跳出 KvK 檢查清單）。" },
@@ -587,6 +604,7 @@ function render() {
   const items = [];
   for (const r of runs(ws, we + 7 * DAY)) for (const [i, td] of ((byId(r.k) || {}).todo || []).entries()) {
     const due = r.st + (Number(td.due) || 0) * DAY;
+    if (due < today) continue;   // past due → no longer listed
     const startsThisWeek = r.st >= ws && r.st < we, dueThisWeek = due >= ws && due < we;
     if (startsThisWeek || dueThisWeek) items.push({ r, td, due, id: `${r.k}-${isoDay(r.st)}-${i}` });
   }

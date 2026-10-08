@@ -574,6 +574,7 @@ body.menu-open { overflow: hidden; }
 }
 
 .chk-wrap { overflow-x: auto; margin: 12px 0; }
+.kvk-plan-link { display: inline-block; margin: 4px 0 2px; padding: 5px 10px; border: 1px dashed var(--accent); border-radius: 999px; font-size: 13px; color: var(--accent); text-decoration: none; line-height: 1.4; }
 .chk-table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .chk-table th, .chk-table td { padding: 6px 8px; text-align: center; border-bottom: 1px solid var(--rule); }
 .chk-table th { color: var(--brass); font-family: "Oswald", sans-serif; font-size: 12px; }

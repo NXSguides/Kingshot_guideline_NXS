@@ -18,6 +18,11 @@ const T = {};
 try { new Function("T", read("data/terms.js") + "\nT.TERMS = TERMS; T.TERM_LANGS = TERM_LANGS;")(T); }
 catch (e) { console.warn("terms.js skipped:", e.message); }
 
+// KvK Points Planner (kvk-optimizer.html) — public page, linked at the top of the KvK guide's table
+const KP = {};
+try { new Function("KP", read("data/kvk-plan.js") + "\nKP.PLAN = KVK_PLAN;")(KP); }
+catch (e) { console.warn("kvk-plan.js skipped:", e.message); }
+
 let anns = [];
 try { anns = JSON.parse(read("data/announcements.json")); } catch (e) { console.warn("announcements skipped:", e.message); }
 
@@ -73,6 +78,22 @@ function build(lang) {
     const jt = (s) => clean(tr[s] || s);
     const j = D.JOURNEY.map((e) => `${jt(e.t)}: ` + e.o.map((o) => `${jt(o[0])} → ${jt(o[1])}${o[2] ? " (best)" : ""}`).join("; "));
     parts.push(`### JOURNEY CHOICES (shown inside the general guides)\n${j.join("\n")}`);
+  }
+
+  if (KP.PLAN) {
+    const P = KP.PLAN, u = { ...P.ui.en, ...(P.ui[lang] || {}) };
+    const nm = (it) => it.n[lang] || it.n.en;
+    const rows = P.items.map((it) => `${nm(it)}: ${it.v.toLocaleString("en-US")} pts${it.sp ? " per minute" : it.score ? " per 1 score" : " each"}, scores on KvK prep day ${it.days.join(", ")}`);
+    rows.push(`${u.train} T1–T11: ${P.troopPts.join(", ")} pts per troop (Day 4); ${u.promote}: the difference between the two tiers`);
+    parts.push(`### KVK POINTS PLANNER — page "${u.title}" (kvk-optimizer.html?lang=${lang}), opened from the link at the top of the KvK guide's table (guide #kvk). Not in the guide menu, but it is a public page anyone can use.
+${u.subtitle}
+- ${u.mA}: ${u.mAd}
+- ${u.mB}: ${u.mBd}. ${u.tgHint}
+- ${u.s2hint}
+- ${u.s3hint}
+Point values and scoring days used by the planner:
+${rows.join("\n")}
+${u.foot}`);
   }
 
   const recent = anns.slice(0, 15).map((a) =>

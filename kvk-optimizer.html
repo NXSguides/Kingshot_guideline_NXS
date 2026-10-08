@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KvK Points Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>/* Layout: one working column of numbered steps; result panel docks right on wide screens, follows the steps on phones */
+:root{
+  --bg:#eef1f4; --panel:#ffffff; --sunk:#f5f7f9; --fg:#1b2430; --muted:#5d6876; --line:#d5dbe2;
+  --accent:#a8740c; --accent-soft:#f6ebd2; --good:#1f7a4a; --good-soft:#e1f2e8; --bad:#b23a2e; --bad-soft:#f8e3e0;
+  --display:"Chakra Petch","Noto Sans TC",system-ui,sans-serif;
+  --body:"Noto Sans TC",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#12171d; --panel:#1a2129; --sunk:#151b22; --fg:#e4e8ec; --muted:#9aa5b1; --line:#2c3642;
+  --accent:#e0aa3e; --accent-soft:#3a2e15; --good:#5cc68c; --good-soft:#163024; --bad:#ef7b6e; --bad-soft:#3a1d1a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12171d; --panel:#1a2129; --sunk:#151b22; --fg:#e4e8ec; --muted:#9aa5b1; --line:#2c3642;
+  --accent:#e0aa3e; --accent-soft:#3a2e15; --good:#5cc68c; --good-soft:#163024; --bad:#ef7b6e; --bad-soft:#3a1d1a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.55;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:18px}
+h1{font-family:var(--display);font-weight:700;font-size:1.9rem;margin:0;letter-spacing:.01em;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;max-width:60ch}
+.lang{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.lang button{background:var(--panel);color:var(--muted);border:0;padding:6px 12px;font:inherit;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px;align-items:start}
+@media (max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}}
+.steps{display:flex;flex-direction:column;gap:16px;min-width:0}
+section.step{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.step h2{font-family:var(--display);font-size:1.1rem;margin:0 0 4px;display:flex;gap:10px;align-items:baseline}
+.step h2 .n{color:var(--accent);font-size:.95rem}
+.hint{color:var(--muted);font-size:.85rem;margin:0 0 12px}
+.events{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
+.ev{text-align:left;border:1px solid var(--line);background:var(--sunk);color:var(--fg);border-radius:8px;padding:10px 12px;font:inherit;cursor:pointer}
+.ev b{display:block;font-weight:700}
+.ev span{color:var(--muted);font-size:.8rem}
+.ev[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+th{color:var(--muted);font-weight:500;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+input[type=number]{width:100%;min-width:72px;max-width:120px;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--sunk);color:var(--fg);font:inherit;font-variant-numeric:tabular-nums}
+input:focus,select:focus,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+select{padding:7px 8px;border:1px solid var(--line);border-radius:6px;background:var(--sunk);color:var(--fg);font:inherit;max-width:100%}
+.ratio{display:inline-block;min-width:3.4em;text-align:center;padding:1px 6px;border-radius:999px;font-size:.8rem;font-variant-numeric:tabular-nums;font-weight:500}
+.r-good{background:var(--good-soft);color:var(--good)}
+.r-mid{background:var(--accent-soft);color:var(--accent)}
+.r-bad{background:var(--bad-soft);color:var(--bad)}
+.msgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}
+.mcard{border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--sunk);display:flex;flex-direction:column;gap:8px;min-width:0}
+.mcard.hit{border-color:var(--good);box-shadow:inset 3px 0 0 var(--good)}
+.mhead{display:flex;align-items:center;gap:8px;font-weight:700;font-family:var(--display)}
+.mhead input{max-width:140px}
+.rw{display:grid;grid-template-columns:minmax(0,1fr) 78px 28px;gap:6px;align-items:center}
+.rw select{width:100%;min-width:0}
+.rw input{min-width:0;max-width:none}
+.rw .x{background:none;border:1px solid var(--line);border-radius:6px;color:var(--muted);cursor:pointer;height:32px;font:inherit}
+.add{align-self:flex-start;background:none;border:1px dashed var(--line);color:var(--accent);border-radius:6px;padding:4px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+.kv{color:var(--muted);font-size:.8rem}
+.ms tr.hit td:first-child{box-shadow:inset 3px 0 0 var(--good)}
+.note{font-size:.82rem;color:var(--muted);margin:10px 0 0}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.row label{display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--muted)}
+aside{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:900px){aside{position:static}}
+.verdict{border-radius:8px;padding:12px 14px;font-weight:700;font-family:var(--display);font-size:1.15rem}
+.verdict small{display:block;font-family:var(--body);font-weight:400;font-size:.85rem;margin-top:2px}
+.v-good{background:var(--good-soft);color:var(--good)}
+.v-bad{background:var(--bad-soft);color:var(--bad)}
+.v-none{background:var(--sunk);color:var(--muted)}
+dl{display:grid;grid-template-columns:1fr auto;gap:6px 12px;margin:0}
+dt{color:var(--muted)}
+dd{margin:0;text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
+dd.big{font-family:var(--display);font-size:1.1rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:1px 9px;font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.chip.on{border-color:var(--good);color:var(--good);background:var(--good-soft)}
+.gets{margin:0;padding-left:1.1em;font-size:.9rem;display:flex;flex-direction:column;gap:2px}
+.gets li{font-variant-numeric:tabular-nums}
+.gets .none{list-style:none;margin-left:-1.1em;color:var(--muted)}
+.ms td input.txt{max-width:none;min-width:150px}
+input[type=text]{width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--sunk);color:var(--fg);font:inherit}
+.next{font-size:.88rem;background:var(--sunk);border-radius:8px;padding:10px 12px}
+.foot{color:var(--muted);font-size:.8rem;margin-top:20px;max-width:80ch}
+.foot a{color:inherit}
+button.reset{align-self:flex-start;background:none;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:5px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+
+tr.grp td{font-weight:700;color:var(--accent);padding-top:14px;border-bottom:1px solid var(--line);font-size:.85rem}
+.dd{display:inline-flex;gap:3px}
+.dd i{font-style:normal;width:20px;height:20px;border-radius:5px;display:inline-grid;place-items:center;font-size:.72rem;color:var(--muted);border:1px solid var(--line);opacity:.45}
+.dd i.on{opacity:1;color:var(--good);border-color:var(--good);background:var(--good-soft);font-weight:700}
+#res input,#troops input{width:76px;min-width:0;max-width:76px}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:3px}
+.meta select{padding:3px 6px}
+td.pr{white-space:nowrap}
+td.pr span{margin:0 4px;color:var(--muted)}
+.tg{margin-top:12px}
+.tgrow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+@media (max-width:560px){.tgrow{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.tgrow label{display:flex;flex-direction:column;gap:4px;font-size:.82rem;color:var(--muted)}
+.tgrow input{max-width:none}
+.days{display:flex;flex-direction:column;gap:10px}
+.dayc{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--sunk)}
+.dh{display:flex;justify-content:space-between;align-items:baseline;font-variant-numeric:tabular-nums}
+.dh b{font-family:var(--display)}
+.bar{position:relative;height:8px;border-radius:4px;background:var(--line);margin:6px 0 4px;display:flex;overflow:visible}
+.bar i{display:block;height:100%}
+.bar .bm{background:var(--accent);border-radius:4px 0 0 4px}
+.bar .bo{background:var(--good)}
+.bar s{position:absolute;top:-3px;width:2px;height:14px;background:var(--fg)}
+.tgs{font-size:.8rem;color:var(--muted)}
+.okk{color:var(--good);font-weight:700}
+.gap{color:var(--bad);font-weight:700}
+ul.al{list-style:none;margin:6px 0 0;padding:0;font-size:.82rem;display:flex;flex-direction:column;gap:2px}
+ul.al li{display:flex;justify-content:space-between;gap:8px;font-variant-numeric:tabular-nums}
+ul.al em{color:var(--good);font-style:normal}
+ul.al b{font-weight:500;white-space:nowrap}
+.speed{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.sph{font-weight:700;color:var(--accent);font-size:.85rem;padding:6px 8px 2px}
+.spr{border-bottom:1px solid var(--line);padding:6px 8px 10px;display:flex;flex-direction:column;gap:6px}
+.spn{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px}
+.spn .meta{margin-top:0}
+.spi{display:flex;align-items:center;gap:8px}
+.spk{width:4.2em;flex:none;color:var(--muted);font-size:.85rem}
+.dhm{display:flex;gap:6px;flex:1;min-width:0}
+.dhm label{display:flex;align-items:center;gap:3px;flex:1;min-width:0;font-size:.8rem;color:var(--muted);white-space:nowrap}
+.dhm{gap:4px}
+.dhm input{width:100%;min-width:0;max-width:none;padding:6px}
+.hdr-r{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.back{color:var(--accent);font-size:.85rem;text-decoration:none}
+.back::before{content:"‹ "}
+[dir=rtl] .back::before{content:"› "}
+[dir=rtl] th,[dir=rtl] td{text-align:right}
+[dir=rtl] td.num,[dir=rtl] th.num{text-align:left}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1 data-t="title"></h1>
+      <p class="sub" data-t="subtitle"></p>
+    </div>
+    <div class="hdr-r">
+      <select id="lang" aria-label="Language"></select>
+      <a id="back" class="back" href="index.html"><span data-t="back"></span></a>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div class="steps">
+      <section class="step">
+        <h2><span class="n">1</span><span data-t="s1"></span></h2>
+        <div class="events" id="modes"></div>
+        <div id="targets" class="tg" hidden>
+          <p class="hint" data-t="tgHint"></p>
+          <div class="tgrow" id="tgrow"></div>
+        </div>
+      </section>
+
+      <section class="step">
+        <h2><span class="n">2</span><span data-t="s2"></span></h2>
+        <p class="hint" data-t="s2hint"></p>
+        <div id="speed" class="speed"></div>
+        <div class="tbl"><table id="res"></table></div>
+      </section>
+
+      <section class="step">
+        <h2><span class="n">3</span><span data-t="s3"></span></h2>
+        <p class="hint" data-t="s3hint"></p>
+        <div class="tbl"><table id="troops"></table></div>
+      </section>
+    </div>
+
+    <aside aria-live="polite">
+      <div class="verdict v-none" id="verdict"></div>
+      <dl>
+        <dt data-t="rMust"></dt><dd id="oMust">0</dd>
+        <dt data-t="rOpt"></dt><dd id="oOpt">0</dd>
+        <dt data-t="rTotal"></dt><dd class="big" id="oTotal">0</dd>
+      </dl>
+      <div class="days" id="oDays"></div>
+      <div id="oLeft"></div>
+      <button class="reset" id="reset" type="button" data-t="reset"></button>
+    </aside>
+  </div>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script src="data/kvk-plan.js"></script>
+<script>
+(function(){
+const P=KVK_PLAN, ITEMS=P.items;
+const CODES=P.langs.map(l=>l.code);
+let LANG=(()=>{let l="";try{l=new URLSearchParams(location.search).get("lang")||""}catch(e){}
+  if(!CODES.includes(l)){try{l=localStorage.getItem("ks-lang")||""}catch(e){}}
+  return CODES.includes(l)?l:"en"})();
+const HTML_LANG={zh:"zh-Hant",pt:"pt-BR"};
+const f=(str,v)=>String(str).replace(/\{(\w+)\}/g,(m,k)=>v[k]!==undefined?v[k]:m);
+const nm=it=>it.n?(it.n[LANG]||it.n.en):it.name;
+const TP=P.troopPts; // T1..T11
+const KEY="kvk-plan-v1";
+let S={mode:"A",tg:["","","","",""],m:{},o:{},tr:{t:10,m:"",o:""},pr:{f:9,t:10,m:"",o:""}};
+try{const raw=localStorage.getItem(KEY);if(raw){const p=JSON.parse(raw);if(p&&p.m)S={...S,...p}}}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const $=id=>document.getElementById(id);
+const L=()=>({...P.ui.en,...P.ui[LANG]});
+const fmt=n=>Math.round(n).toLocaleString("en-US");
+const num=v=>{const n=parseFloat(v);return isFinite(n)&&n>0?n:0};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function renderStatic(){
+  document.documentElement.lang=HTML_LANG[LANG]||LANG;
+  document.documentElement.dir=LANG==="ar"?"rtl":"ltr";
+  document.title=L().title;
+  document.querySelectorAll("[data-t]").forEach(el=>{const v=L()[el.dataset.t];if(typeof v==="string")el.textContent=v});
+  $("lang").innerHTML=P.langs.map(l=>`<option value="${l.code}"${l.code===LANG?" selected":""}>${l.label}</option>`).join("");
+  $("back").href="index.html#/"+LANG+"/kvk";
+  $("foot").textContent=L().foot;
+  $("modes").innerHTML=["A","B"].map(k=>`<button type="button" class="ev" data-mode="${k}" aria-pressed="${S.mode===k}"><b>${L()["m"+k]}</b><span>${L()["m"+k+"d"]}</span></button>`).join("");
+  $("modes").querySelectorAll("button").forEach(b=>b.onclick=()=>{S.mode=b.dataset.mode;save();renderStatic();calc()});
+  $("targets").hidden=S.mode!=="B";
+  $("tgrow").innerHTML=[1,2,3,4,5].map(d=>`<label><span>${f(L().day,{n:d})}</span><input type="number" inputmode="numeric" min="0" step="10000" data-tg="${d-1}" value="${esc(S.tg[d-1])}" placeholder="—"></label>`).join("");
+  $("tgrow").querySelectorAll("input").forEach(i=>i.oninput=()=>{S.tg[+i.dataset.tg]=i.value;save();calc()});
+  // resource table
+  let h=`<thead><tr><th>${L().colItem} · ${L().colDays}</th><th class="num">${L().colMust}</th><th class="num">${L().colOpt}</th></tr></thead><tbody>`;
+  const spd=v=>{const a=String(v||"").split("|");return [a[0]||"",a[1]||"",a[2]||""]};
+  const dhm=(k,id)=>{const v=spd(S[k][id]);return `<span class="dhm">${["dU","hU","mU"].map((u,j)=>`<label><input type="number" inputmode="numeric" min="0" data-sk="${k}" data-sid="${id}" data-j="${j}" value="${esc(v[j])}"><span>${L()[u]}</span></label>`).join("")}</span>`};
+  $("speed").innerHTML=`<div class="sph">${L().gSpeed}</div>`+ITEMS.filter(it=>it.sp).map(it=>`<div class="spr"><div class="spn"><b>${nm(it)}</b><span class="meta"><span class="dd">${[1,2,3,4,5].map(d=>`<i class="${it.days.includes(d)?"on":""}">${d}</i>`).join("")}</span><span class="kv">${L().perMin}</span></span></div>`+
+    `<div class="spi"><span class="spk">${L().colMust}</span>${dhm("m",it.id)}</div><div class="spi"><span class="spk">${L().colOpt}</span>${dhm("o",it.id)}</div></div>`).join("");
+  $("speed").querySelectorAll("input").forEach(i=>i.oninput=()=>{const k=i.dataset.sk,id=i.dataset.sid;const v=spd(S[k][id]);v[+i.dataset.j]=i.value;S[k][id]=v.join("|");save();calc()});
+  let g="";
+  for(const it of ITEMS){
+    if(it.sp)continue;
+    if(it.g!==g){g=it.g;h+=`<tr class="grp"><td colspan="3">${L()[g]}</td></tr>`}
+    const per=it.sp?L().perMin:fmt(it.v)+(it.score?" "+L().perPt:"");
+    h+=`<tr><td><div>${nm(it)}</div><div class="meta"><span class="dd">${[1,2,3,4,5].map(d=>`<i class="${it.days.includes(d)?"on":""}">${d}</i>`).join("")}</span><span class="kv">${per}</span></div></td>`+
+      `<td class="num"><input type="number" inputmode="decimal" min="0" data-k="m" data-id="${it.id}" value="${esc(S.m[it.id]||"")}"></td>`+
+      `<td class="num"><input type="number" inputmode="decimal" min="0" data-k="o" data-id="${it.id}" value="${esc(S.o[it.id]||"")}"></td></tr>`;
+  }
+  $("res").innerHTML=h+"</tbody>";
+  $("res").querySelectorAll("input").forEach(i=>i.oninput=()=>{S[i.dataset.k][i.dataset.id]=i.value;save();calc()});
+  // troops
+  const tsel=(v,attr)=>`<select ${attr}>${TP.map((_,i)=>`<option value="${i+1}"${+v===i+1?" selected":""}>T${i+1}</option>`).join("")}</select>`;
+  $("troops").innerHTML=`<thead><tr><th>${L().tier}</th><th class="num">${L().colMust}</th><th class="num">${L().colOpt}</th></tr></thead><tbody>`+
+   `<tr><td><div>${L().train}</div><div class="meta">${tsel(S.tr.t,'data-tr="t"')}<span class="kv" id="trPer"></span></div></td><td class="num"><input type="number" inputmode="numeric" min="0" data-tr="m" value="${esc(S.tr.m)}"></td><td class="num"><input type="number" inputmode="numeric" min="0" data-tr="o" value="${esc(S.tr.o)}"></td></tr>`+
+   `<tr><td><div>${L().promote}</div><div class="meta pr">${tsel(S.pr.f,'data-pr="f"')}<span>→</span>${tsel(S.pr.t,'data-pr="t"')}<span class="kv" id="prPer"></span></div></td><td class="num"><input type="number" inputmode="numeric" min="0" data-pr="m" value="${esc(S.pr.m)}"></td><td class="num"><input type="number" inputmode="numeric" min="0" data-pr="o" value="${esc(S.pr.o)}"></td></tr></tbody>`;
+  $("troops").querySelectorAll("[data-tr]").forEach(i=>i[i.tagName==="SELECT"?"onchange":"oninput"]=()=>{S.tr[i.dataset.tr]=i.value;save();calc()});
+  $("troops").querySelectorAll("[data-pr]").forEach(i=>i[i.tagName==="SELECT"?"onchange":"oninput"]=()=>{S.pr[i.dataset.pr]=i.value;save();calc()});
+}
+
+// build the list of spendable items with amounts in units (speedups: minutes)
+function pool(){
+  const out=[];
+  for(const it of ITEMS){
+    const mins=v=>{const a=String(v||"").split("|");return Math.round(num(a[0])*1440+num(a[1])*60+num(a[2]))};
+    const m=it.sp?mins(S.m[it.id]):Math.round(num(S.m[it.id])), o=it.sp?mins(S.o[it.id]):Math.round(num(S.o[it.id]));
+    if(m||o)out.push({...it,m,o});
+  }
+  const tv=TP[(+S.tr.t||10)-1];
+  const trm=Math.round(num(S.tr.m)), tro=Math.round(num(S.tr.o));
+  if(trm||tro)out.push({id:"trn",name:L().train+" T"+S.tr.t,v:tv,days:[4],pref:4,m:trm,o:tro,unit:"troops"});
+  const pv=Math.max(0,TP[(+S.pr.t||10)-1]-TP[(+S.pr.f||9)-1]);
+  const prm=Math.round(num(S.pr.m)), pro=Math.round(num(S.pr.o));
+  if(pv&&(prm||pro))out.push({id:"prm",name:`${L().promote} T${S.pr.f}→T${S.pr.t}`,v:pv,days:[4],pref:4,m:prm,o:pro,unit:"troops"});
+  return out;
+}
+
+function chunks(n){const c=Math.min(n,200),out=[],b=Math.floor(n/c);let r=n-b*c;for(let i=0;i<c;i++){out.push(b+(r>0?1:0));r--}return out}
+
+function plan(){
+  const items=pool();
+  const load=[0,0,0,0,0,0], loadM=[0,0,0,0,0,0];
+  const A={}; // id -> {d:{m,o}}
+  const put=(it,d,u,kind)=>{A[it.id]=A[it.id]||{};A[it.id][d]=A[it.id][d]||{m:0,o:0};A[it.id][d][kind]+=u;load[d]+=u*it.v;if(kind==="m")loadM[d]+=u*it.v};
+  const tgt=S.tg.map(v=>v===""||v==null?null:num(v));
+  const anyT=S.mode==="B"&&tgt.some(v=>v!==null);
+  const pick=(days,pref)=>{
+    if(S.mode!=="B")return null;
+    if(!anyT){let best=null;for(const d of days)if(best===null||load[d]<load[best])best=d;return best}
+    // the suggested day first while it still needs points, then the day that is furthest behind
+    if(tgt[pref-1]!==null&&tgt[pref-1]>load[pref])return pref;
+    let best=null,bd=0;
+    for(const d of days){const t=tgt[d-1];if(t===null)continue;const def=t-load[d];if(def>bd){bd=def;best=d}}
+    return best;
+  };
+  // least flexible items first so flexible ones can fill the remaining gaps
+  const ord=[...items].sort((a,b)=>a.days.length-b.days.length||b.v*b.m-a.v*a.m);
+  for(const it of ord)for(const u of chunks(it.m)){if(!u)continue;put(it,pick(it.days,it.pref)??it.pref,u,"m")}
+  const unused=[];
+  if(S.mode==="A"){for(const it of ord)if(it.o)put(it,it.pref,it.o,"o")}
+  else for(const it of ord){
+    let left=it.o;
+    if(anyT)for(const u of chunks(it.o)){if(!u)continue;const d=pick(it.days,it.pref);if(d===null)break;put(it,d,u,"o");left-=u}
+    if(left>0)unused.push({it,u:left});
+  }
+  return {items,load,loadM,A,tgt,anyT,unused};
+}
+
+function amt(it,u){
+  if(it.sp){u=Math.round(u);const d=Math.floor(u/1440),h=Math.floor(u%1440/60),m=u%60;const j=LANG==="zh"?"":" ";
+    return [d?d+L().dU:"",h?h+L().hU:"",m?m+L().mU:""].filter(Boolean).join(j)||"0"+L().mU}
+  const s=it.unit==="spins"?" "+L().spins:(it.unit==="troops"||it.score)?"":L().x;
+  return fmt(u)+s;
+}
+
+function calc(){
+  const P=plan();
+  let must=0,opt=0;
+  for(const it of P.items)for(const d in P.A[it.id]||{}){must+=P.A[it.id][d].m*it.v;opt+=P.A[it.id][d].o*it.v}
+  $("oMust").textContent=fmt(must);
+  $("oOpt").textContent=fmt(opt);
+  $("oTotal").textContent=fmt(must+opt);
+  document.querySelector('[data-t="rOpt"]').textContent=S.mode==="B"?L().rOptB:L().rOpt;
+  $("trPer").textContent="× "+fmt(TP[(+S.tr.t||10)-1]);
+  $("prPer").textContent="× "+fmt(Math.max(0,TP[(+S.pr.t||10)-1]-TP[(+S.pr.f||9)-1]));
+  const v=$("verdict");
+  if(!P.items.length){v.className="verdict v-none";v.textContent=L().vNone}
+  else if(S.mode==="A"){v.className="verdict v-good";v.textContent=f(L().vA,{n:fmt(must+opt)})}
+  else if(P.anyT){const set=P.tgt.filter(t=>t!==null).length,hit=P.tgt.filter((t,i)=>t!==null&&P.load[i+1]>=t).length;
+    v.className="verdict "+(hit===set?"v-good":"v-bad");v.textContent=f(L().vB,{a:hit,b:set})}
+  else{v.className="verdict v-good";v.textContent=L().vBal}
+  // per-day breakdown
+  const max=Math.max(1,...P.load.slice(1),...P.tgt.map(t=>t||0));
+  let h="";
+  for(let d=1;d<=5;d++){
+    const t=S.mode==="B"?P.tgt[d-1]:null;
+    const parts=P.items.filter(it=>P.A[it.id]&&P.A[it.id][d]).map(it=>{const a=P.A[it.id][d];const u=a.m+a.o;
+      return `<li><span>${esc(nm(it))} ${amt(it,u)}${a.o?` <em>(${L().colOpt} ${amt(it,a.o)})</em>`:""}</span><b>${fmt(u*it.v)}</b></li>`}).join("");
+    const st=t===null?"":P.load[d]>=t?`<span class="okk">${L().ok}</span>`:`<span class="gap">${f(L().gap,{n:fmt(t-P.load[d])})}</span>`;
+    h+=`<div class="dayc"><div class="dh"><b>${f(L().day,{n:d})}</b><span>${fmt(P.load[d])} ${L().pts}</span></div>`+
+      `<div class="bar"><i class="bm" style="width:${P.loadM[d]/max*100}%"></i><i class="bo" style="width:${(P.load[d]-P.loadM[d])/max*100}%"></i>${t?`<s style="left:${Math.min(100,t/max*100)}%"></s>`:""}</div>`+
+      (t!==null?`<div class="tgs">${L().target} ${fmt(t)} · ${st}</div>`:"")+
+      (parts?`<ul class="al">${parts}</ul>`:"")+`</div>`;
+  }
+  $("oDays").innerHTML=h;
+  if(S.mode==="B"&&P.items.some(it=>it.o)){
+    $("oLeft").innerHTML=`<div class="hint" style="margin-bottom:6px">${P.unused.length?L().left:L().leftNone}</div>`+
+      (P.unused.length?`<ul class="al">${P.unused.map(x=>`<li><span>${esc(nm(x.it))} ${amt(x.it,x.u)}</span><b>${fmt(x.u*x.it.v)}</b></li>`).join("")}</ul>`:"");
+  } else $("oLeft").innerHTML="";
+}
+
+$("lang").onchange=e=>{LANG=e.target.value;try{history.replaceState(null,"","?lang="+LANG)}catch(x){}renderStatic();calc()};
+$("reset").onclick=()=>{S={...S,tg:["","","","",""],m:{},o:{},tr:{t:10,m:"",o:""},pr:{f:9,t:10,m:"",o:""}};save();renderStatic();calc()};
+renderStatic();calc();
+})();
+</script>
+</body>
+</html>

@@ -392,7 +392,7 @@ const BLOCKS = {
       </div>
     `;
   },
-  checklist: (b) => {
+  checklist: (b, guide) => {
   const head = `<tr><th></th>${b.days.map((d) => `<th>${d}</th>`).join("")}</tr>`;
   const rows = b.rows.map((r) => `
     <tr>
@@ -404,7 +404,9 @@ const BLOCKS = {
     <div class="chk-legend">
       ${b.legend.map((l) => `<span>${l.icon} ${rich(l.label)}</span>`).join("")}
     </div>` : "";
-  return `
+  // KvK guide: small link to the points planner (a page that is only reachable from here)
+  const plan = guide === GUIDES.kvk ? `<a class="kvk-plan-link" href="kvk-optimizer.html?lang=${currentLang}" dir="auto">${escapeHtml(t(KVK_PLAN_LINK))}</a>` : "";
+  return `${plan}
     <div class="chk-wrap">
       <table class="chk-table">${head}${rows}</table>
     </div>
@@ -412,6 +414,8 @@ const BLOCKS = {
   `;
 }
 };
+
+const KVK_PLAN_LINK = { en:"🧮 Still not sure after reading this? Work out your own plan in the KvK Points Planner ›", zh:"🧮 看完還是不太明白、想自己算？打開 KvK 積分規劃 ›", ko:"🧮 읽어도 잘 모르겠고 직접 계산해 보고 싶다면? KvK 점수 플래너 열기 ›", de:"🧮 Noch unsicher und lieber selbst rechnen? KvK-Punkteplaner öffnen ›", fr:"🧮 Toujours un doute et envie de calculer vous-même ? Ouvrir le planificateur de points KvK ›", pt:"🧮 Ainda em dúvida e quer calcular por conta própria? Abrir o planejador de pontos KvK ›", es:"🧮 ¿Sigues con dudas y quieres calcularlo tú? Abrir el planificador de puntos KvK ›", tr:"🧮 Hâlâ emin değil misin, kendin hesaplamak mı istiyorsun? KvK Puan Planlayıcıyı aç ›", id:"🧮 Masih bingung dan ingin hitung sendiri? Buka Perencana Poin KvK ›", ru:"🧮 Всё ещё непонятно и хотите посчитать сами? Открыть планировщик очков KvK ›", th:"🧮 อ่านแล้วยังไม่แน่ใจ อยากคำนวณเอง? เปิดตัววางแผนคะแนน KvK ›", ar:"🧮 ما زلت غير متأكد وتريد الحساب بنفسك؟ افتح مخطط نقاط KvK ‹" };
 
 /* ---- 荒野冒險問答：按顏色／人物篩選 --------------------------------- */
 const JQ_COLORS = { gold: "#d4a017", purple: "#8e5bd0", blue: "#3a7bd5", grey: "#8a8a8a", none: "#c8bfae" };
