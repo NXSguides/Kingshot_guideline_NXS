@@ -328,14 +328,15 @@
   #pg-scout .sc-h3 { margin: 10px 0 6px; font-size: 15px; }
   #pg-scout .tbl-wrap { overflow-x: auto; }
   #pg-scout .sc-tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
-  #pg-scout .sc-tbl th, #pg-scout .sc-tbl td { padding: 6px 8px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; white-space: nowrap; }
+  #pg-scout .sc-tbl th, #pg-scout .sc-tbl td { padding: 4px 6px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: middle; white-space: nowrap; line-height: 1.25; }
   #pg-scout .sc-tbl th.num, #pg-scout .sc-tbl td.num { text-align: right; font-variant-numeric: tabular-nums; }
   #pg-scout .sc-tbl .name { font-weight: 700; }
-  #pg-scout .sc-tbl .id { font-size: 11px; color: var(--text-muted); }
+  #pg-scout .sc-tbl .id { font-size: 10px; color: var(--text-muted); line-height: 1.2; }
+  @media (max-width: 480px) { #pg-scout .sc-tbl { font-size: 13px; } }
   #pg-scout .sc-tbl th.sortable { cursor: pointer; user-select: none; }
   /* on a phone the table scrolls sideways; #, name and the sorted column stay put */
-  #pg-scout .sc-tbl th:nth-child(1), #pg-scout .sc-tbl td:nth-child(1) { position: sticky; left: 0; width: 22px; min-width: 22px; padding-left: 6px; padding-right: 6px; background: var(--panel); z-index: 1; }
-  #pg-scout .sc-tbl th:nth-child(2), #pg-scout .sc-tbl td:nth-child(2) { position: sticky; left: var(--sc-l2, 34px); width: 118px; min-width: 118px; max-width: 118px; padding-left: 6px; padding-right: 6px; background: var(--panel); z-index: 1; overflow: hidden; text-overflow: ellipsis; }
+  #pg-scout .sc-tbl th:nth-child(1), #pg-scout .sc-tbl td:nth-child(1) { position: sticky; left: 0; padding-left: 4px; padding-right: 4px; background: var(--panel); z-index: 1; }
+  #pg-scout .sc-tbl th:nth-child(2), #pg-scout .sc-tbl td:nth-child(2) { position: sticky; left: var(--sc-l2, 34px); max-width: 38vw; background: var(--panel); z-index: 1; overflow: hidden; text-overflow: ellipsis; }
   #pg-scout .sc-tbl th:nth-child(3).sorted, #pg-scout .sc-tbl td:nth-child(3).sorted { position: sticky; left: var(--sc-l3, 164px); z-index: 1; box-shadow: 2px 0 0 var(--rule); }
   #pg-scout .sc-tbl .name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   #pg-scout .sc-tbl .sorted { background: color-mix(in srgb, var(--accent) 14%, var(--panel)) !important; font-weight: 700; }
