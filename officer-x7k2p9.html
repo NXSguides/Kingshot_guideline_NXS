@@ -382,6 +382,36 @@
   .vw-row span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .vw-row i { display: block; height: 3px; background: var(--accent); border-radius: 2px; margin-top: 3px; opacity: .7; }
   .shbar { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 8px; }
+  /* ===== Map tab ===== */
+  #pg-map .km-layers { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; }
+  #pg-map .km-layers button { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); border-radius: 999px; padding: 4px 10px 4px 6px; font: inherit; font-size: 13px; cursor: pointer; }
+  #pg-map .km-layers button[aria-pressed="false"] { opacity: .45; }
+  #pg-map .sw { width: 14px; height: 14px; border-radius: 4px; flex: none; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.2); }
+  #pg-map .km-card { background: #22301a; border-radius: 14px; overflow: hidden; position: relative; border: 1px solid var(--rule); }
+  #pg-map .km-box { overflow: auto; max-height: 75vh; scrollbar-width: thin; }
+  #pg-map .km-box svg { display: block; width: 100%; height: auto; }
+  #pg-map .km-zoom { position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 6px; z-index: 2; }
+  #pg-map .km-zoom button { width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(255,255,255,.25); background: rgba(20,28,16,.85); color: #fff; font: 700 18px/1 system-ui; cursor: pointer; }
+  #pg-map .mk { cursor: pointer; } #pg-map .mk text { pointer-events: none; } #pg-map .mk.off { display: none; }
+  #pg-map .lbl { font-family: Arial, sans-serif; font-weight: 700; fill: #fff; stroke: #14200c; stroke-width: 3.5px; paint-order: stroke; pointer-events: none; }
+  #pg-map .sel-ring { fill: none; stroke: #ffe14d; stroke-width: 4; pointer-events: none; animation: kmpulse 1.2s ease-in-out infinite; }
+  @keyframes kmpulse { 0%, 100% { opacity: 1; stroke-width: 4; } 50% { opacity: .45; stroke-width: 7; } }
+  @media (prefers-reduced-motion: reduce) { #pg-map .sel-ring { animation: none; } }
+  #pg-map .km-info { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 10px 14px; margin-top: 10px; min-height: 50px; }
+  #pg-map .km-info b { font-size: 17px; }
+  #pg-map .km-info .co { font-weight: 700; letter-spacing: .02em; font-variant-numeric: tabular-nums; }
+  #pg-map .km-info .btn { margin-left: auto; }
+  #pg-map .km-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
+  #pg-map .km-c { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 10px 12px; }
+  #pg-map .km-c .hd { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  #pg-map .km-c .hd .bf { margin-left: auto; color: var(--text-muted); font-size: 12px; text-align: right; }
+  #pg-map .km-lv { display: flex; gap: 8px; align-items: flex-start; margin-top: 6px; }
+  #pg-map .pill { flex: none; border-radius: 6px; padding: 2px 7px; font-weight: 700; font-size: 12px; color: #fff; white-space: nowrap; margin-top: 3px; }
+  #pg-map .chips { display: flex; flex-wrap: wrap; gap: 5px; }
+  #pg-map .chip { border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); border-radius: 7px; padding: 3px 8px; font: 600 12.5px/1.3 system-ui, sans-serif; cursor: pointer; font-variant-numeric: tabular-nums; }
+  #pg-map .chip.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 22%, var(--panel)); }
+  #pg-map .km-rules { font-size: 13.5px; margin: 0; padding-left: 20px; }
+  #pg-map .km-rules li + li { margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -394,6 +424,7 @@
     <a href="#watch" data-tab="watch">🕵️ Watch</a>
     <a href="#scout" data-tab="scout">🔭 Scout</a>
     <a href="#views" data-tab="views">📈 Views</a>
+    <a href="#map" data-tab="map">🗺️ Map</a>
   </nav>
   <div id="gate" class="card" hidden style="max-width:360px;margin:24px auto">
     <h2 id="gateTitle"></h2>
@@ -777,6 +808,19 @@
     <div class="card"><h3 id="vw_h_sys"></h3><div id="vw_sys"></div></div>
   </div>
 </section>
+<section class="pg" id="pg-map" hidden>
+  <div class="top"><div><h1 id="km_title"></h1><div class="muted" id="km_intro"></div></div></div>
+  <div class="km-layers" id="km_layers"></div>
+  <div class="km-card">
+    <div class="km-zoom"><button type="button" id="km_in" aria-label="Zoom in">+</button><button type="button" id="km_out" aria-label="Zoom out">−</button></div>
+    <div class="km-box" id="km_box"><svg id="km_svg" viewBox="0 0 1320 900" role="img" aria-label="Kingdom #2189 map"></svg></div>
+  </div>
+  <div class="km-info" id="km_info"></div>
+  <div class="muted" id="km_orient" style="font-size:12px;margin-top:6px"></div>
+  <h3 id="km_listT" style="margin:18px 0 10px"></h3>
+  <div class="km-cards" id="km_cards"></div>
+  <div class="card" style="margin-top:14px"><h3 id="km_rulesT"></h3><ul class="km-rules" id="km_rules"></ul></div>
+</section>
 
 </div>
 <script src="js/officer-data.js"></script>
@@ -810,7 +854,7 @@ const officerLang = () => { try { const v = localStorage.getItem(OFFICER_LANG); 
 const setOfficerLang = (v) => { try { localStorage.setItem(OFFICER_LANG, v); } catch (e) {} };
 const OFFICER = { lang: officerLang() || ((navigator.language || "").startsWith("zh") ? "zh" : "en"), token: null, pw: null };
 const OFFICER_PAGES = {};
-const TABS = ["events", "ranking", "post", "watch", "scout", "views"];
+const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map"];
 const inited = {};
 try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
 const SH = { en: { home: "Home", pw: "🔒 Officer password", remember: "Remember on this device", unlock: "Unlock", wrong: "Wrong password", loading: "Loading…" },
@@ -842,7 +886,7 @@ function loadScripts(list) {
   }))), Promise.resolve());
 }
 /* tabs: #events / #ranking / #post / #watch (the part after "?" is kept for the page) */
-function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|scout|views)/); return m ? m[1] : "events"; }
+function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|scout|views|map)/); return m ? m[1] : "events"; }
 async function showTab() {
   const k = currentTab();
   document.querySelectorAll(".tabs a").forEach((a) => a.classList.toggle("on", a.dataset.tab === k));
@@ -3564,6 +3608,134 @@ async function init() { applyTexts(); $("vw_days").onchange = load; $("vw_reload
 function setLang(l) { lang = l; render(); }
 // guide names for the Pages list come from data/content.js (shared with the Post tab, loaded once)
 OFFICER_PAGES.views = { init: () => loadScripts(["data/content.js"]).then(init, init), applyTexts, setLang };
+})();
+
+/* ===== Map tab: Kingdom #2189 buildings (data/kingdom-map.js). Map labels and building names stay in English. ===== */
+(function () {
+const $ = (id) => document.getElementById(id);
+const esc = (x) => String(x).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+let lang = OFFICER.lang, G, TY = {}, B = [], BY = {}, SEL = null, Z = 1;
+const hidden = new Set();
+const T = (k) => { const v = G.ui[k]; return Array.isArray(v) ? v.map((x) => x[lang] || x.en) : (v[lang] || v.en); };
+
+/* screen right = X−Y, up = X+Y — same direction as the in-game World map */
+const W = 1320, CX = W / 2, CY = 450, KX = .55, KY = .355;
+const P = (x, y) => [CX + (x - y) * KX, CY - ((x + y) - 1200) * KY];
+const pts = (c) => c.map(([x, y]) => P(x, y).map((v) => v.toFixed(1)).join(",")).join(" ");
+
+function build() {
+  G.types.forEach(([k, n, b, c]) => TY[k] = { n, b, c });
+  B.push({ id: "k", kind: "castle", name: "King's Castle", x: G.castle[0], y: G.castle[1] });
+  G.fortress.forEach(([x, y], i) => B.push({ id: "f" + (i + 1), kind: "fortress", name: "Fortress " + (i + 1), short: "F" + (i + 1), n: i + 1, x, y }));
+  G.sanctuary.forEach(([x, y], i) => B.push({ id: "s" + (i + 1), kind: "sanctuary", name: "Sanctuary " + (i + 1), short: "S" + (i + 1), n: i + 1, x, y }));
+  G.outposts.forEach(([t, lv, x, y], i) => B.push({ id: "o" + i, kind: "outpost", t, lv, x, y, name: TY[t].n, buff: G.buff[t][lv] }));
+  B.forEach((b) => BY[b.id] = b);
+}
+function drawMap() {
+  const s = [];
+  s.push(`<polygon points="${pts([[0, 0], [1200, 0], [1200, 1200], [0, 1200]])}" fill="#567d33" stroke="#3a5a20" stroke-width="3"/>`);
+  s.push(`<polygon points="${pts([[200, 200], [1000, 200], [1000, 1000], [200, 1000]])}" fill="#628c3b" stroke="rgba(255,255,255,.2)" stroke-width="2" stroke-dasharray="8 8"/>`);
+  s.push(`<polygon points="${pts([[320, 320], [880, 320], [880, 880], [320, 880]])}" fill="#6f9a45" stroke="rgba(255,255,255,.2)" stroke-width="2" stroke-dasharray="8 8"/>`);
+  for (const b of B) {
+    const [X, Y] = P(b.x, b.y);
+    const g = `<g class="mk" data-id="${b.id}" data-t="${b.kind === "outpost" ? b.t : "ruins"}" tabindex="0" role="button" aria-label="${esc(b.name)} X${b.x} Y${b.y}">`;
+    if (b.kind === "outpost") s.push(`${g}<rect x="${X - 12}" y="${Y - 12}" width="24" height="24" rx="6" fill="${TY[b.t].c}" stroke="#fff" stroke-width="2.5"/><text x="${X}" y="${Y + 5}" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#fff">${b.lv}</text></g>`);
+    else if (b.kind === "sanctuary") s.push(`${g}<circle cx="${X}" cy="${Y}" r="15" fill="#eef2f6" stroke="#2a3340" stroke-width="2.5"/><text x="${X}" y="${Y + 5}" text-anchor="middle" font-family="Arial" font-size="14" font-weight="800" fill="#2a3340">${b.n}</text><text class="lbl" x="${X}" y="${Y - 21}" text-anchor="middle" font-size="13">${b.short}</text></g>`);
+    else if (b.kind === "fortress") s.push(`${g}<rect x="${X - 16}" y="${Y - 16}" width="32" height="32" rx="5" transform="rotate(45 ${X} ${Y})" fill="#7a4a24" stroke="#fff" stroke-width="2.5"/><text x="${X}" y="${Y + 5}" text-anchor="middle" font-family="Arial" font-size="15" font-weight="800" fill="#fff">${b.n}</text><text class="lbl" x="${X}" y="${Y - 26}" text-anchor="middle" font-size="14">${b.short}</text></g>`);
+    else s.push(`${g}<circle cx="${X}" cy="${Y}" r="26" fill="#f2c33d" stroke="#fff" stroke-width="3"/><text x="${X}" y="${Y + 9}" text-anchor="middle" font-size="25">👑</text><text class="lbl" x="${X}" y="${Y + 46}" text-anchor="middle" font-size="16">King's Castle</text></g>`);
+  }
+  s.push(`<g id="km_sel"></g>`);
+  $("km_svg").innerHTML = s.join("");
+  $("km_svg").querySelectorAll(".mk").forEach((m) => {
+    m.addEventListener("click", () => select(m.dataset.id, false));
+    m.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(m.dataset.id, false); } });
+  });
+}
+const applyHidden = () => $("km_svg").querySelectorAll(".mk").forEach((m) => m.classList.toggle("off", hidden.has(m.dataset.t) && m.dataset.id !== SEL));
+
+/* zoom: 100% wide at 1; phones start zoomed in so the level numbers are readable */
+function setZoom(z, keep) {
+  const box = $("km_box"), svg = $("km_svg"), cx = box.scrollLeft + box.clientWidth / 2, cy = box.scrollTop + box.clientHeight / 2, old = svg.clientWidth || 1;
+  Z = Math.max(1, Math.min(4, z)); svg.style.width = (Z * 100) + "%";
+  const k = svg.clientWidth / old;
+  if (keep !== false) { box.scrollLeft = cx * k - box.clientWidth / 2; box.scrollTop = cy * k - box.clientHeight / 2; }
+}
+function centerOn(b, smooth) {
+  const box = $("km_box"), [X, Y] = P(b.x, b.y), s = $("km_svg").clientWidth / W;
+  box.scrollTo({ left: X * s - box.clientWidth / 2, top: Y * s - box.clientHeight / 2, behavior: smooth ? "smooth" : "auto" });
+}
+
+function select(id, fromList) {
+  SEL = id; const b = BY[id], [X, Y] = P(b.x, b.y);
+  const r = b.kind === "castle" ? 34 : b.kind === "fortress" ? 28 : b.kind === "sanctuary" ? 22 : 20;
+  $("km_sel").innerHTML = `<circle class="sel-ring" cx="${X}" cy="${Y}" r="${r}"/>`;
+  applyHidden(); renderInfo();
+  document.querySelectorAll("#pg-map .chip").forEach((c) => c.classList.toggle("on", c.dataset.id === id));
+  if (fromList) {
+    const top = document.querySelector("#pg-map .km-card").getBoundingClientRect().top;
+    if (top < 0 || top > innerHeight * .5) window.scrollTo({ top: scrollY + top - 12, behavior: "smooth" });
+  }
+  centerOn(b, true);
+}
+function renderInfo() {
+  const b = SEL && BY[SEL];
+  if (!b) { $("km_info").innerHTML = `<span class="muted">${esc(T("pick"))}</span>`; return; }
+  const sw = b.kind === "outpost" ? `<span class="sw" style="background:${TY[b.t].c}"></span>` : "";
+  const what = b.kind === "outpost" ? `Lv.${b.lv} · ${esc(TY[b.t].b)} +${b.buff}%` : b.kind === "castle" ? "" : esc(T("noBuff"));
+  $("km_info").innerHTML = `${sw}<b>${esc(b.name)}</b>${what ? `<span class="muted">${what}</span>` : ""}<span class="co">X:${b.x} Y:${b.y}</span><button type="button" class="btn" id="km_cp">${esc(T("copy"))}</button>`;
+  $("km_cp").onclick = () => {
+    const done = () => { const c = $("km_cp"); if (c) { c.textContent = T("copied"); setTimeout(() => { if ($("km_cp")) $("km_cp").textContent = T("copy"); }, 1500); } };
+    try { navigator.clipboard.writeText(`X:${b.x} Y:${b.y}`).then(done, () => {}); } catch (e) {}
+  };
+}
+const chip = (b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}">${b.short ? b.short + " · " : ""}X${b.x} Y${b.y}</button>`;
+function renderList() {
+  let h = `<div class="km-c"><div class="hd"><b>${esc(T("ruins"))}</b><span class="bf">${esc(T("noBuff"))}</span></div>
+    <div class="km-lv"><span class="pill" style="background:#b8860b">👑 King's Castle</span><div class="chips">${chip(BY.k)}</div></div>
+    <div class="km-lv"><span class="pill" style="background:#7a4a24">◆ Fortress</span><div class="chips">${B.filter((b) => b.kind === "fortress").map(chip).join("")}</div></div>
+    <div class="km-lv"><span class="pill" style="background:#5d6876">● Sanctuary</span><div class="chips">${B.filter((b) => b.kind === "sanctuary").map(chip).join("")}</div></div></div>`;
+  for (const [k] of G.types) {
+    const t = TY[k], lvs = Object.keys(G.buff[k]).map(Number).sort((a, b) => a - b);
+    h += `<div class="km-c"><div class="hd"><span class="sw" style="background:${t.c}"></span><b>${esc(t.n)}</b><span class="bf">${esc(t.b)}</span></div>` +
+      lvs.map((lv) => `<div class="km-lv"><span class="pill" style="background:${t.c}">Lv.${lv} +${G.buff[k][lv]}%</span><div class="chips">${B.filter((b) => b.t === k && b.lv === lv).map(chip).join("")}</div></div>`).join("") + `</div>`;
+  }
+  $("km_cards").innerHTML = h;
+  $("km_cards").querySelectorAll(".chip").forEach((c) => c.onclick = () => select(c.dataset.id, true));
+}
+function renderLayers() {
+  const items = [["ruins", T("ruins"), "#7a4a24"], ...G.types.map(([k, n, , c]) => [k, n, c])];
+  $("km_layers").innerHTML = `<button type="button" data-k="*" aria-pressed="${hidden.size === 0}">${esc(T("all"))}</button>` +
+    items.map(([k, n, c]) => `<button type="button" data-k="${k}" aria-pressed="${!hidden.has(k)}"><span class="sw" style="background:${c}"></span>${esc(n)}</button>`).join("");
+  $("km_layers").querySelectorAll("button").forEach((btn) => btn.onclick = () => {
+    const k = btn.dataset.k;
+    if (k === "*") hidden.clear();
+    else if (hidden.size === 0) items.forEach(([kk]) => { if (kk !== k) hidden.add(kk); });   // first tap on a type = show only that type
+    else if (hidden.has(k)) hidden.delete(k); else hidden.add(k);
+    if (hidden.size === items.length) hidden.clear();
+    renderLayers(); applyHidden();
+  });
+}
+function applyTexts() {
+  if (!G) return;
+  $("km_title").textContent = "🗺️ " + T("title"); $("km_intro").textContent = T("intro");
+  $("km_orient").textContent = T("orient"); $("km_listT").textContent = T("ruins") + " · " + T("outposts");
+  $("km_rulesT").textContent = T("rulesT"); $("km_rules").innerHTML = T("rules").map((r) => `<li>${esc(r)}</li>`).join("");
+  renderLayers(); renderList(); renderInfo();
+}
+let first = true;
+function onShow() {
+  if (!first || !G) return; first = false;
+  const box = $("km_box");
+  if (box.clientWidth < 700) setZoom(700 / box.clientWidth, false);
+  box.scrollLeft = (box.scrollWidth - box.clientWidth) / 2; box.scrollTop = (box.scrollHeight - box.clientHeight) / 2;
+}
+async function init() {
+  await loadScripts(["data/kingdom-map.js"]);
+  G = KINGDOM_MAP; build(); drawMap(); applyTexts();
+  $("km_in").onclick = () => setZoom(Z * 1.5); $("km_out").onclick = () => setZoom(Z / 1.5);
+}
+function setLang(l) { lang = l; applyTexts(); }
+OFFICER_PAGES.map = { init, onShow, applyTexts, setLang };
 })();
 
 officerGate();
