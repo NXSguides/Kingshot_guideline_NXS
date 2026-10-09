@@ -984,7 +984,7 @@ Governor Gear score per step, per piece (cost: 進貢綢緞 / 金絲線 / 設計
 ### BOOKING GUIDE — page "總理大臣／參謀長 預約教學" (booking-guide.html?lang=zh#pm or #adv), a public page opened from the "How to book" buttons in the KvK checklist pop-up. Has annotated screenshots.
 兩個都是國王任命的 30 分鐘職位，可以事先預約。總理大臣留給花黃金／加速的那一刻，參謀長留給大量練兵的時候。
 總理大臣: 建造／研究／訓練速度 +10%. 參謀長: 訓練速度 +50%、訓練容量 +200.
-Steps: 1. 在城內畫面點右上角的「常規活動」。 2. 切到「決戰王城」分頁（城堡圖示）。 3. 按「官職任命」旁的「詳細資訊」。 4. 在「官員」分頁點你要的職位。 5. 選一個時段（顯示的是你的當地時間）按右邊的按鈕。完成——同一個視窗也能取消預約。
+Steps: 1. 在城內畫面點右上角的「常規活動」。 2. 切到「決戰王城」分頁（城堡圖示）。 3. 按「官職任命」旁的「任命詳情」。 4. 在「官員」分頁點你要的職位。 5. 選一個時段（顯示的是你的當地時間）按右邊的按鈕。完成——同一個視窗也能取消預約。
 小提醒：每個職位同時只能有一筆預約；時段清單用的是手機的當地時間，對照指南的 UTC 時間時記得換算。每個時段都會顯示已申請人數。
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)

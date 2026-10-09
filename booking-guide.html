@@ -76,7 +76,7 @@ function render(){
   const rows=[[0,"main"],[1,"event"],[2,null],[3,"appt-"+POS],[4,POS]];
   $("steps").innerHTML=rows.map(([i,img])=>`<div class="st${img?"":" wide"}"><p><span class="n">${i+1}</span><span>${esc(steps[i])}</span></p>${img?`<img src="${dir}${img}.webp" alt="" loading="lazy">`:""}</div>`).join("");
   $("tip").textContent=T("tip");
-  $("note").textContent=T("shotNote").replace("{l}",G.shotLangName[set]);
+  $("note").textContent=set===LANG?"":T("shotNote").replace("{l}",G.shotLangName[set]);
 }
 $("lang").onchange=e=>{LANG=e.target.value;try{history.replaceState(null,"","?lang="+LANG+"#"+POS)}catch(x){}render()};
 render();

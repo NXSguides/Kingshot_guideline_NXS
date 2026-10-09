@@ -166,15 +166,15 @@ const BOOKING_GUIDE = {
    },
    {
     "en": "Tap Details next to Appointment.",
-    "zh": "按「官職任命」旁的「詳細資訊」。",
-    "ko": "'관직 임명' 옆의 '상세'를 누릅니다.",
+    "zh": "按「官職任命」旁的「任命詳情」。",
+    "ko": "'관직 임명' 옆의 '임명 정보'를 누릅니다.",
     "de": "Tippe neben Ernennung auf Details.",
     "fr": "Touchez Détails à côté de Nomination.",
     "pt": "Toque em Detalhes ao lado de Nomeação.",
     "es": "Toca Detalles junto a Designación.",
     "tr": "Atama'nın yanındaki Detaylar'a dokun.",
     "id": "Ketuk Detail di sebelah Pertemuan.",
-    "ru": "Нажмите «Детали» рядом с «Назначение».",
+    "ru": "Нажмите «Информация о назначении» рядом с «Назначение».",
     "th": "แตะ รายละเอียด ข้าง การแต่งตั้ง",
     "ar": "اضغط التفاصيل بجانب التعيين."
    },
@@ -258,7 +258,11 @@ const BOOKING_GUIDE = {
   "tr": "tr",
   "ru": "ru",
   "fr": "fr",
-  "ar": "ar"
+  "ar": "ar",
+  "de": "de",
+  "zh": "zh",
+  "ko": "ko",
+  "en": "en"
  },
  "shotLangName": {
   "id": "Bahasa Indonesia",
@@ -268,7 +272,11 @@ const BOOKING_GUIDE = {
   "tr": "Türkçe",
   "ru": "Русский",
   "fr": "Français",
-  "ar": "العربية"
+  "ar": "العربية",
+  "de": "Deutsch",
+  "zh": "中文",
+  "ko": "한국어",
+  "en": "English"
  },
  "fallbackShots": "es"
 };
