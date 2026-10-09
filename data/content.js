@@ -169,7 +169,7 @@ const GLOSSARY = {
   productivityDay: { en:"Productivity Day", zh:"效率工作", ko:"효율 업무", de:"Tag der Produktivität", fr:"Journée de la Productivité", pt:"Dia de Produtividade", tr:"Üretkenlik Günü", id:"Productivity Day", ru:"Продуктивный день", th:"วันแห่งผลผลิต", ar:"يوم الإنتاجية", es:"Día de la Productividad" },
   festivities: { en:"Festivities", zh:"節日狂歡", ko:"카니발 페스티벌", de:"Festlichkeiten", fr:"Festivités", pt:"Celebrações", tr:"Şenlikler", id:"Festivities", ru:"Праздники", th:"งานรื่นเริง", ar:"الاحتفالات", es:"Celebraciones" },
   /* Journey Q&A */
-  masterEmblem1: {zh:"大師徽記",en:"Master Emblem",ko:"거장 배지",de:"Meister-Emblem",fr:"emblème d'expert",pt:"Emblema Mestre",tr:"Usta Amblemi",ru:"эмблема мастера",th:"ตรามาสเตอร์",ar:"شعار المتخصص",es:"emblema de maestro"},
+  masterEmblem1: {zh:"大師徽記",en:"Master Emblem",ko:"거장 배지",de:"Meister-Emblem",fr:"emblème d'expert",pt:"Emblema Mestre",tr:"Usta Amblemi",id:"Emblem Master",ru:"эмблема мастера",th:"ตรามาสเตอร์",ar:"شعار المتخصص",es:"emblema de maestro"},
   vikings: {zh:"維京掠奪者",en:"Vikings",ko:"바이킹 약탈자",de:"Wikinger",fr:"Vikings",pt:"vikings",tr:"Vikingler",id:"Viking",ru:"викинги",th:"ไวกิ้ง",ar:"الفايكنغ",es:"vikingos"},
   cesares: {zh:"切薩雷",en:"Cesares",ko:"체사레",de:"Cesares",fr:"Césarès",pt:"Césares",tr:"Cesares",id:"Cesares",ru:"цесарцы",th:"ซีซาเรส",ar:"سيزاريس",es:"Césares"},
   edwin: {zh:"艾德溫",en:"Edwin",ko:"에드윈",de:"Edwin",fr:"Edwin",pt:"Edwin",tr:"Edwin",id:"Edwin",ru:"Эдвин",th:"เอ็ดวิน",ar:"إدوين",es:"Edwin"},
@@ -241,7 +241,7 @@ const GLOSSARY = {
   truegold: { zh:"黃金", en:"Truegold", ko:"순금", de:"Echtgold", fr:"Or Véritable", pt:"Adamante", tr:"Hasaltın", id:"Truegold", ru:"Аурум", th:"ทรูโกลด์", ar:"الذهب الخالص", es:"Adamantina" },
   truegoldDust: { en:"Truegold Dust" },
   governorGear: { zh:"領主裝備", en:"Governor Gear", ko:"영주 장비", de:"Gouverneur-Ausrüstung", fr:"Équipement Chef", pt:"Equipamento do Chefe", tr:"Şef Donanımı", id:"Gear Gubernur", ru:"Снаряжение губернатора", th:"อุปกรณ์ผู้นำค่าย", ar:"عتاد الحاكم", es:"Equipo de gobernador" },
-  governorCharm: { zh:"領主寶石", en:"Governor Charm", ko:"영주 보석", de:"Gouverneur-Talisman", fr:"Talisman du Chef", pt:"Talismã do Chefe", tr:"Şef Tılsımı", id:"Charm Gubernur", ru:"Талисман губернатора", th:"เครื่องรางผู้นำค่าย", ar:"تميمة الحاكم", es:"Talismán del Gobernador" },
+  governorCharm: { zh:"領主寶石", en:"Governor Charm", ko:"영주 보석", de:"Gouverneur Talisman", fr:"Talisman du Gouverneur", pt:"Talismã do Governador", tr:"Vali Tılsımı", id:"Charm Gubernur", ru:"Талисман губернатора", th:"เครื่องรางเจ้าเมือง", ar:"تميمة الحاكم", es:"Talismán del Gobernador" },
   satin: { zh:"進貢綢緞", en:"Satin", ko:"비단", de:"Satin", fr:"Satin", pt:"Cetim", tr:"Saten", id:"Satin", ru:"Атлас", th:"ผ้าซาติน", ar:"نسيج أطلس", es:"Satén" },
   gildedThreads: { zh:"金絲線", en:"Gilded Threads", ko:"금사", de:"Vergoldete Fäden", fr:"Fils Dorés", pt:"Fios Dourados", tr:"Yaldızlı İplikler", id:"Gilded Threads", ru:"Золоченые нити", th:"ด้ายทองคำ", ar:"خيوط مذهبة", es:"Hilos dorados" },
   forgehammer: { zh:"鍛造錘", en:"Forgehammer", ko:"제작 망치", de:"Schmiedehammer", fr:"Marteau de Forge", pt:"Martelo de forja", tr:"Demirci Çekici", id:"Forgehammer", ru:"кузнечный молот", th:"ค้อนตีเหล็ก", ar:"مطرقة الحدادة", es:"Martillo de Forja" },
@@ -318,7 +318,7 @@ const GLOSSARY = {
   tacDeploy: { en:"Deploy", zh:"出征", ko:"출정", de:"Aufstellen", fr:"Déployer", pt:"Posicionar", tr:"Konuşlandırmak", id:"Mengerahkan", ru:"Отправление", th:"การส่งออก", ar:"نشر", es:"Desplegar" },
   tacAdvance: { en:"Advance", zh:"突進", ko:"돌진", de:"Vorrücken", fr:"Faire avancer", pt:"Avançar", tr:"İlerletmek", id:"Memajukan", ru:"Продвижение", th:"เดินหน้า", ar:"التقدم", es:"Avanzar" },
   tacRevive: { en:"Instantly revive", zh:"立即復活", ko:"즉시 부활", de:"Sofortige Wiederbeleben", fr:"Réanimer", pt:"Reviver instantaneamente", tr:"Anında diriltmek", id:"Membangkitkan langsung", ru:"Мгновенное оживление", th:"การฟื้นฟูทันที", ar:"إحياء فوراً", es:"Revivir instantáneamente" },
-  manuscript: { zh:"大師手稿", en:"Master's Manuscript", ko:"거장의 원고", de:"Meister-Manuskript", fr:"Manuscrit d'expert", pt:"Manuscrito de Mestre", tr:"Uzmanın El Yazması", ru:"Рукопись мастера", th:"ตำรามาสเตอร์", ar:"مخطوطة المتخصص", es:"Manuscrito del maestro" },
+  manuscript: { zh:"大師手稿", en:"Master's Manuscript", ko:"거장의 원고", de:"Meister-Manuskript", fr:"Manuscrit d'expert", pt:"Manuscrito de Mestre", tr:"Uzmanın El Yazması", id:"Manuskrip Master", ru:"Рукопись мастера", th:"ตำรามาสเตอร์", ar:"مخطوطة المتخصص", es:"Manuscrito del maestro" },
   learning: { zh:"學習", en:"Learning", ko:"학습", de:"Lernen", fr:"Apprentissage", pt:"Aprendizado", tr:"Öğrenme", id:"Pembelajaran", ru:"Изучение", th:"การเรียนรู้", ar:"التعلم", es:"Aprendizaje" },
   learningSpeedup: { zh:"學習加速", en:"Learning Speedups", ko:"학습 가속", de:"Lern-Beschleunigungen", fr:"Accélérateurs d'Apprentissage", pt:"Aceleradores de Aprendizado", tr:"Öğrenme Hızlandırmaları", id:"Percepatan Pembelajaran", ru:"Ускорения изучения", th:"เร่งสปีดการเรียนรู้", ar:"مسرعات التعلم", es:"Aceleradores de aprendizaje" },
   masterAcademy: { zh:"大師學院", en:"Master Academy", ko:"거장 아카데미", de:"Meisterakademie", fr:"Académie des Experts", pt:"Academia dos Mestres", tr:"Usta Akademisi", ru:"Университет мастеров", th:"สถาบันมาสเตอร์", ar:"أكاديمية المتخصصين", es:"Academia de Maestros" },
@@ -368,7 +368,7 @@ const GLOSSARY = {
   houseOfCacti: { zh:"仙人掌小屋", en:"House of Cacti", ko:"선인장 오두막", de:"Haus der Kakteen", fr:"Maison des Cactus", pt:"Casa dos Cactos", tr:"Kaktüs Evi", id:"House of Cacti", ru:"Обитель кактусов", th:"อาณาจักรกระบองเพชร", ar:"بيت الصبار", es:"Casa de los cactus" },
   squadsAttack: { zh:"部隊攻擊力", en:"Squads' Attack", ko:"부대 공격력", de:"Schwadron Angriff", fr:"Attaque des escouades", pt:"Ataque dos Esquadrões", tr:"Ekiplerin Saldırısı", id:"Attack Skuad", ru:"Атака войск", th:"พลังโจมตีทีม", ar:"هجوم الفرق", es:"Ataque de los Escuadrones" },
   charmDesign: { zh:"寶石圖紙", en:"Charm Design", ko:"보석 도면", de:"Talismanpläne", fr:"Plans de Talisman", pt:"Design do Talismã", tr:"Tılsım Tasarımı", id:"Desain Charm", ru:"Чертеж талисмана", th:"แผนเครื่องราง", ar:"تصميم تميمة", es:"Planos de talismán" },
-  masterEmblem: { zh:"大師徽記", en:"Master Emblems", ko:"거장 배지", de:"Meister-Embleme", fr:"emblèmes d'expert", pt:"Emblemas Mestres", tr:"Usta Amblemleri", ru:"эмблемы мастера", th:"ตรามาสเตอร์", ar:"شعارات المتخصصين", es:"emblemas de maestro" },
+  masterEmblem: { zh:"大師徽記", en:"Master Emblems", ko:"거장 배지", de:"Meister-Embleme", fr:"emblèmes d'expert", pt:"Emblemas Mestres", tr:"Usta Amblemleri", id:"Emblem Master", ru:"эмблемы мастера", th:"ตรามาสเตอร์", ar:"شعارات المتخصصين", es:"emblemas de maestro" },
   nomadicMerchant: { zh:"流浪商人", en:"Nomadic Merchant", ko:"떠돌이 상인", de:"Nomaden Händler", fr:"Marchand Nomade", pt:"Comerciante Nômade", tr:"Göçebe Tüccar", id:"Pedagang Nomaden", ru:"Торговец-кочевник", th:"พ่อค้าพเนจร", ar:"تاجر بدوي", es:"Mercader nómade" },
   mysteryShop: { zh:"神秘商店", en:"Mystery Shop", ko:"신비한 상점", de:"Rätsel", fr:"Mystère", pt:"Mistério", tr:"Gizem", id:"Misteri", ru:"Тайный магазин", th:"ปริศนา", ar:"الغموض", es:"Misterio" },
   arenaShop: { zh:"競技商店", en:"Arena Shop", ko:"경기장 상점", de:"Arena", fr:"Arène", pt:"Arena", tr:"Arena", id:"Arena", ru:"Магазин арены", th:"อารีน่า", ar:"الساحة", es:"Arena" },
@@ -7189,7 +7189,7 @@ const GUIDES = {
       ]},
 
       de: { title: "F2P-Helden-Guide", blocks: [
-        { type: "callout", text: "Mythische Splitter und Rally-Ausrüstungen sind begrenzt. Versuche nicht, jeden Helden aufzubauen — konzentriere deine Ressourcen auf Helden mit starkem, langfristigem Wert." },
+        { type: "callout", text: "Mythische Helden Fragmente und Rally-Ausrüstungen sind begrenzt. Versuche nicht, jeden Helden aufzubauen — konzentriere deine Ressourcen auf Helden mit starkem, langfristigem Wert." },
         { type: "callout", text: "Einige Helden unten wurden entweder nicht per Screenshot offiziell bestätigt oder sind noch nicht veröffentlicht — diese bleiben auf Englisch, bis sie bestätigt sind." },
 
         { type: "sub", text: "GEN 1" },
@@ -7233,7 +7233,7 @@ const GUIDES = {
         { type: "list", items: ["Hauptsächlich nützlich für Multi-Team-Inhalte."] },
         { type: "p", text: "**Yang — HOHE PRIORITÄT**" },
         { type: "list", items: [
-          "Exzellenter Nutzen bei der Bärenjagd; Mythische Splitter lohnen sich.",
+          "Exzellenter Nutzen bei der Bärenjagd; Mythische Helden Fragmente lohnen sich.",
           "**Triton**: In der Regel überspringen, wenn du Long Fei aufgebaut hast."
         ]},
 
@@ -7253,7 +7253,7 @@ const GUIDES = {
         { type: "p", text: "{petra} ➜ Yang ➜ Ava" },
 
         { type: "h", text: "FAUSTREGEL" },
-        { type: "p", text: "Roulette-Helden sind in der Regel deine sichersten F2P-Investitionen. Spare deine Ressourcen, verteile Mythische Splitter nicht zu dünn und fühl dich nicht unter Druck, jeden Helden aufzubauen." },
+        { type: "p", text: "Roulette-Helden sind in der Regel deine sichersten F2P-Investitionen. Spare deine Ressourcen, verteile Mythische Helden Fragmente nicht zu dünn und fühl dich nicht unter Druck, jeden Helden aufzubauen." },
 
         { type: "h", text: "ZUSAMMENFASSUNG" },
         { type: "list", items: [

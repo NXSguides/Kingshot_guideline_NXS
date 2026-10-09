@@ -52,7 +52,7 @@ Skill 2 Leader By Example: +5 × 100 Enhancement XP per Bear Hunt.
 Skill 3 Weapon Obsession: +5 Forgehammer per Bear Hunt.
 🔗 Detail: https://kingshotoptimizer.com/masters/valora/
 3. Roman — pasif Arena
-Cukup buka (1.000 Kedekatan): talentanya sudah memberi peluang 50% dapat Peti Bintang Arena tambahan setelah tiap pertandingan Arena (Fragmen Hero & Forgehammer); baru di level maks menjadi peluang 100% dapat 3. Tidak perlu investasi Master Emblems besar di awal.
+Cukup buka (1.000 Kedekatan): talentanya sudah memberi peluang 50% dapat Peti Bintang Arena tambahan setelah tiap pertandingan Arena (Fragmen Hero & Forgehammer); baru di level maks menjadi peluang 100% dapat 3. Tidak perlu investasi Emblem Master besar di awal.
 🔗 Detail: https://kingshotoptimizer.com/masters/roman/
 PRIORITAS WHALE & PEMIMPIN RELI
 Valora ➔ Roman ➔ Pan
@@ -89,7 +89,7 @@ Peti Perlengkapan Pahlawan Mitos Khusus setiap minggu → Mithril setelah fondas
 Pakai Permata hanya untuk diskon: Teleporter Lanjutan • 100 Enhancement XP • Forgehammer
 🏆 Tingkat Kejuaraan Aliansi
 Sebelum membuka Master Academy: Artisan's Vision • Gilded Threads / Satin sesuai kebutuhan
-Setelah terbuka: Master Emblems prioritas utama — di late game, simpan token untuk ini
+Setelah terbuka: Emblem Master prioritas utama — di late game, simpan token untuk ini
 ⚔️ Swordland
 Artisan's Vision → lalu apa pun yang jadi hambatan: material Charm Gubernur / Gear Gubernur • Forgehammer
 🏰 Kerajaan Kekuatan
@@ -629,8 +629,8 @@ Gear Gubernur
 Gear Ekslusif Hero Widget
 Mithril
 Forgehammer
-Master Emblems
-Master's Manuscript
+Emblem Master
+Manuskrip Master
 ⏩️ Pembelajaran
 gunakan
 boleh jika perlu
@@ -648,14 +648,14 @@ Selesaikan semua Misi Intel Menara Pengawas.
 Maksimalkan level bangunan Truegold tingkat tinggi (Akademi / Akademi Perang).
 Dorong Charm Gubernur ke Level 8–11 untuk lonjakan poin besar (Level 11 memberi 16.000 poin per naik level).
 Hari 2: Riset, Hero & Pengumpulan
-Aktivitas Bernilai: Speedup Riset, Shard Hero (Rare/Epic/Mythic), putaran Rolet Hero, Master Emblems/Master's Manuscript, Pengumpulan Sumber Daya.
+Aktivitas Bernilai: Speedup Riset, Shard Hero (Rare/Epic/Mythic), putaran Rolet Hero, Emblem Master/Manuskrip Master, Pengumpulan Sumber Daya.
 Putar Rolet Hero menggunakan Gems yang disimpan untuk mendapatkan shard Petra (Gen 3).
 Habiskan shard Mythic/Epic universal yang disimpan untuk hero inti.
 Kumpulkan sumber daya lebih awal (kirim pengumpul sebelum reset agar segera kembali di awal Hari 2).
-Habiskan semua Master Emblems dan Master's Manuscript yang disimpan.
+Habiskan semua Emblem Master dan Manuskrip Master yang disimpan.
 Naikkan hero Gen 3 (Eric & Petra) langsung ke bintang 5.
 Hari 3: Pelatihan Pet & Progres Master Academy
-Aktivitas Bernilai: kemajuan hewan peliharaan, Tanda Penjinakan Common & Tanda Penjinakan Advanced (Penyempurnaan), Rolet Hero, Shard Hero, Master Emblems/Master's Manuscript, Misi Intel.
+Aktivitas Bernilai: kemajuan hewan peliharaan, Tanda Penjinakan Common & Tanda Penjinakan Advanced (Penyempurnaan), Rolet Hero, Shard Hero, Emblem Master/Manuskrip Master, Misi Intel.
 Naikkan level dan sempurnakan beberapa pet tingkat menengah secara merata, jangan tumpukan semua ke satu pet.
 Gunakan sisa putaran Rolet Hero dan Misi Intel harian.
 Gunakan Tanda Penjinakan Advanced secara besar-besaran (masing-masing 15.000 poin).
@@ -869,84 +869,84 @@ Membangkitkan langsung — bangkit di tempat setelah kalah, bukan kembali ke HQ;
 R4 dan penanggung jawab legiun memastikan pemain kuat ditunjuk sebagai Kapten, agar mereka menghasilkan lebih banyak Energi.
 
 ### JOURNEY CHOICES (shown inside the general guides)
-Tantangan Batu-Gunting-Kertas: Menang → Pertama kali: 2,000 Permata; Kedua kali: 60 Master's Manuscript (best); Seri → Kedua kali: 40 Master's Manuscript; Kalah → Pertama kali: 800 Permata; Kedua kali: 20 Master's Manuscript
+Tantangan Batu-Gunting-Kertas: Menang → Pertama kali: 2,000 Permata; Kedua kali: 60 Manuskrip Master (best); Seri → Kedua kali: 40 Manuskrip Master; Kalah → Pertama kali: 800 Permata; Kedua kali: 20 Manuskrip Master
 Viking: Aku tak akan pura-pura tidak melihatnya → 3 Silver Goblet (best); Aku tak punya waktu untuk gangguan → 2 Silver Goblet
-Viking: Hadapi langsung → 50 Master's Manuscript (best); Gunakan akal → 40 Master's Manuscript; Pergi → 30 Master's Manuscript
+Viking: Hadapi langsung → 50 Manuskrip Master (best); Gunakan akal → 40 Manuskrip Master; Pergi → 30 Manuskrip Master
 Binatang buas: Buru binatang pencuri cuka → ?; Aku cari di tempat lain saja → 3 Silver Goblet
 Olive: Pejuang sejati tak menolak gadis yang sedang kesulitan → 2 Silver Goblet; ...Cuma itu? → 3 Silver Goblet (best)
-Beruang: Serang dari samping → 50 Master's Manuscript (best); Serang dari depan → 30 Master's Manuscript
-Tentara bayaran: Usulkan serangan dari samping → 100 Master's Manuscript (best); Usulkan sabotase pasokan → 70 Master's Manuscript
-Anak beruang: Titipkan kepada seseorang → 30 Master's Manuscript; Fokus pada binatang buas → 50 Master's Manuscript (best)
-Hilde: Tanyakan lebih lanjut → 30 Master's Manuscript; Pikirkan jalan keluar → 50 Master's Manuscript (best)
-Pemberontak, prajurit Cesares, Viking: Bertarung → 50 Master's Manuscript (best); Lebih baik lari → 30 Master's Manuscript
-Pedagang: Tunjukkan jalan → 50 Master's Manuscript (best); Aku tak bisa membantu → 30 Master's Manuscript
-Binatang buas: Pergi → 100 Master's Manuscript (best); Buru dia → 70 Master's Manuscript
-Papan petunjuk: Perbaiki papan → 20 Master's Manuscript (best); Pergi → 10 Master's Manuscript
-Penyintas: Tawarkan bantuan → 100 Master's Manuscript (best); Bukan urusanku → 70 Master's Manuscript
-Zoe & Pan: Dengarkan cerita Pan → 1 Master Emblem (Pan); Dengarkan cerita Zoe → 1 Master Emblem (Pan)
-Harta karun: Ambil semuanya → 50 Master's Manuscript (best); Bagikan dengan penyintas → 30 Master's Manuscript
-Roman: barter: Barter → 80 Master's Manuscript (best); Tidak, terima kasih → 50 Master's Manuscript
-Pan: barter: Barter → 5 Master Emblem (Pan) (best); Tidak, terima kasih → 3 Master Emblem (Pan)
-Edwin: barter: Barter → 50 Master's Manuscript (best); Tidak, terima kasih → 30 Master's Manuscript
-Penyintas: panti asuhan butuh roti dan obat: Sumbangkan persediaan → 50 Master's Manuscript (best); Pergi → 30 Master's Manuscript
-Gordon / Aena: mulai memasak: Sempurna → 50 Master's Manuscript (best); Kemenangan → 40 Master's Manuscript; Gagal → 30 Master's Manuscript
+Beruang: Serang dari samping → 50 Manuskrip Master (best); Serang dari depan → 30 Manuskrip Master
+Tentara bayaran: Usulkan serangan dari samping → 100 Manuskrip Master (best); Usulkan sabotase pasokan → 70 Manuskrip Master
+Anak beruang: Titipkan kepada seseorang → 30 Manuskrip Master; Fokus pada binatang buas → 50 Manuskrip Master (best)
+Hilde: Tanyakan lebih lanjut → 30 Manuskrip Master; Pikirkan jalan keluar → 50 Manuskrip Master (best)
+Pemberontak, prajurit Cesares, Viking: Bertarung → 50 Manuskrip Master (best); Lebih baik lari → 30 Manuskrip Master
+Pedagang: Tunjukkan jalan → 50 Manuskrip Master (best); Aku tak bisa membantu → 30 Manuskrip Master
+Binatang buas: Pergi → 100 Manuskrip Master (best); Buru dia → 70 Manuskrip Master
+Papan petunjuk: Perbaiki papan → 20 Manuskrip Master (best); Pergi → 10 Manuskrip Master
+Penyintas: Tawarkan bantuan → 100 Manuskrip Master (best); Bukan urusanku → 70 Manuskrip Master
+Zoe & Pan: Dengarkan cerita Pan → 1 Emblem Master (Pan); Dengarkan cerita Zoe → 1 Emblem Master (Pan)
+Harta karun: Ambil semuanya → 50 Manuskrip Master (best); Bagikan dengan penyintas → 30 Manuskrip Master
+Roman: barter: Barter → 80 Manuskrip Master (best); Tidak, terima kasih → 50 Manuskrip Master
+Pan: barter: Barter → 5 Emblem Master (Pan) (best); Tidak, terima kasih → 3 Emblem Master (Pan)
+Edwin: barter: Barter → 50 Manuskrip Master (best); Tidak, terima kasih → 30 Manuskrip Master
+Penyintas: panti asuhan butuh roti dan obat: Sumbangkan persediaan → 50 Manuskrip Master (best); Pergi → 30 Manuskrip Master
+Gordon / Aena: mulai memasak: Sempurna → 50 Manuskrip Master (best); Kemenangan → 40 Manuskrip Master; Gagal → 30 Manuskrip Master
 Valora / Pan / Guinevere / Wilson: mulai memasak: Sempurna → 5 Silver Goblet (best); Kemenangan → 3 Silver Goblet; Gagal → 1 Silver Goblet
-Quinn: kunci khusus: Dobrak → 150 Master's Manuscript; Jinakkan → 200 Master's Manuscript (best)
-Singa terluka: Beri makanan → 50 Master's Manuscript (best); Pergi → 30 Master's Manuscript
-Viking: Usir para bandit → 50 Master's Manuscript (best); Ambil jalan memutar → 30 Master's Manuscript
-Barang curian: Aku akan membantumu → 50 Master's Manuscript (best); Tak ada yang bisa kulakukan → 30 Master's Manuscript
-Kapten pengangkut: Bayar harga penuh → 100 Master's Manuscript (best); Tawar → 70 Master's Manuscript
-Petra: ada yang seru?: Ramalkan nasibku hari ini → 30 Master's Manuscript; Pernah dengar Kejuaraan Arena? → 30 Master's Manuscript; Ayo bantu. Ada pekerjaan yang harus diselesaikan. → 50 Master's Manuscript (best)
-Penyintas: bantu aku: Bantu → 50 Master's Manuscript (best); Lanjutkan → 30 Master's Manuscript
-Pan / Roman / Guinevere: memancing: Kedalaman tangkap, 10 ikan → 150 Master's Manuscript (best); Kedalaman tangkap, 5 ikan → 100 Master's Manuscript; Kedalaman tangkap, 1 ikan → 70 Master's Manuscript
-Marlin: memancing: Kedalaman apa saja, 10 ikan → 100 Master's Manuscript (best); Kedalaman apa saja, 5 ikan → 70 Master's Manuscript; Kedalaman apa saja, 1 ikan → 50 Master's Manuscript
-Pahlawan Viking: Ayo, lawan aku! → 100 Master's Manuscript (best); Langsung serang → 70 Master's Manuscript
-Penyintas: makhluk ini terus membuntutiku: Turun tangan → 50 Master's Manuscript (best); Buat pengalihan → 40 Master's Manuscript; Pergi → 30 Master's Manuscript
-Viking: mundur: Turun tangan → 30 Master's Manuscript; Pergi saja → 50 Master's Manuscript (best)
-Habis-habisan: Habis-habisan (biaya Poin Aksi dua kali lipat) → 2 Master Emblem (Roman) (best); Uji nyali mereka (peluang menakuti musuh) → 30 Master's Manuscript
-Binatang buas menghadang jalanmu: Bertarung! → 100 Master's Manuscript (best); Sembunyi → 70 Master's Manuscript
-Roman: hadiah: Lihat barang-barangnya → 150 Master's Manuscript (best); Lewati → 100 Master's Manuscript
-Pan tampak gelisah: Lihat barang-barangnya → 5 Master Emblem (Pan) (best); Lewati → 3 Master Emblem (Pan)
-Valora: barang: Lihat barang-barangnya → 3 Master Emblem (Valora); Lewati → 3 Master Emblem (Valora)
-Roman: sebuah ide: Bantu membuat → 5 Master Emblem (Roman) (best); Lewati → 3 Master Emblem (Roman)
-Petinju: Untuk meluruskan keadaan. → 30 Master's Manuscript; Uang, tentu saja → 50 Master's Manuscript (best)
-Long Fei: Saatnya menyadarkanmu. → Long Fei menang, 30 Master's Manuscript; Baiklah. Uang yang bicara. → 50 Master's Manuscript (best)
-Kamp Cesares di depan: Hadapi langsung. → 100 Master's Manuscript (best); Cari jalan lain. → 70 Master's Manuscript
-Kavaleri: Bagikan ransummu → 50 Master's Manuscript (best); Sebutkan unit yang lain. → 30 Master's Manuscript
-Petra: Beli → 50 Master's Manuscript (best); Tolak. → 30 Master's Manuscript ?
-Cassia: Jadi, kau akan kembali ke medan perang Yellowstone... → 1 Master Emblem (Cassia); Mungkin kali ini akan berbeda. → 1 Master Emblem (Cassia)
-Cassia (2): Lancarkan serangan langsung → 1 Master Emblem (Cassia); Cari bala bantuan. → 1 Master Emblem (Cassia)
-Viking: beri tekanan: Beri tekanan. → 30 Master's Manuscript; Cari tahu sendiri. → 50 Master's Manuscript (best)
-Valora: tukar sumber daya: Tukar sumber daya. → 5 Master Emblem (Valora) (best); Jangan tukar. → 3 Master Emblem (Valora)
-Cassia: pilah jarahan: Pilah jarahan → 5 Master Emblem (Cassia) (best); Lewati → 3 Master Emblem (Cassia)
-Cassia: barter: Barter → 5 Master Emblem (Cassia) (best); Tidak, terima kasih → 3 Master Emblem (Cassia)
-Perwira: Perkenalkan diri sebagai Quinn sang Penjelajah → 50 Master's Manuscript (best); Cari jalan memutar lain → 30 Master's Manuscript
-Prajurit Cesares: Selidiki lebih jauh → 30 Master's Manuscript; Lanjut jalan → 50 Master's Manuscript (best)
-Karavan mencurigakan: Selidiki para pedagang → 30 Master's Manuscript; Biarkan mereka → 50 Master's Manuscript (best)
-Wilson: pertemuan pertama: Percayai Wilson → 50 Master's Manuscript (best); Tetap skeptis → 30 Master's Manuscript
-Kelompok Viking: Abaikan. Fokus pada Guinevere → 50 Master's Manuscript (best); Bantu. Tak bisa hanya diam menonton → 30 Master's Manuscript
-Tentara bayaran: Pedang Suci: Sewa tentara bayaran → 30 Master's Manuscript; Kembali dan ajak Diana → 30 Master's Manuscript; Kita tak butuh orang lain → 50 Master's Manuscript (best)
-Grid & Wilson: Percayai dia → 50 Master's Manuscript (best); Ragukan dia → 30 Master's Manuscript
-Korban bencana: Ulurkan tangan → 30 Master's Manuscript; Jangan ikut campur → 50 Master's Manuscript (best)
-Zoe: Bantu menyelidiki → 30 Master's Manuscript; Fokus pada Swordland Showdown → 50 Master's Manuscript (best)
+Quinn: kunci khusus: Dobrak → 150 Manuskrip Master; Jinakkan → 200 Manuskrip Master (best)
+Singa terluka: Beri makanan → 50 Manuskrip Master (best); Pergi → 30 Manuskrip Master
+Viking: Usir para bandit → 50 Manuskrip Master (best); Ambil jalan memutar → 30 Manuskrip Master
+Barang curian: Aku akan membantumu → 50 Manuskrip Master (best); Tak ada yang bisa kulakukan → 30 Manuskrip Master
+Kapten pengangkut: Bayar harga penuh → 100 Manuskrip Master (best); Tawar → 70 Manuskrip Master
+Petra: ada yang seru?: Ramalkan nasibku hari ini → 30 Manuskrip Master; Pernah dengar Kejuaraan Arena? → 30 Manuskrip Master; Ayo bantu. Ada pekerjaan yang harus diselesaikan. → 50 Manuskrip Master (best)
+Penyintas: bantu aku: Bantu → 50 Manuskrip Master (best); Lanjutkan → 30 Manuskrip Master
+Pan / Roman / Guinevere: memancing: Kedalaman tangkap, 10 ikan → 150 Manuskrip Master (best); Kedalaman tangkap, 5 ikan → 100 Manuskrip Master; Kedalaman tangkap, 1 ikan → 70 Manuskrip Master
+Marlin: memancing: Kedalaman apa saja, 10 ikan → 100 Manuskrip Master (best); Kedalaman apa saja, 5 ikan → 70 Manuskrip Master; Kedalaman apa saja, 1 ikan → 50 Manuskrip Master
+Pahlawan Viking: Ayo, lawan aku! → 100 Manuskrip Master (best); Langsung serang → 70 Manuskrip Master
+Penyintas: makhluk ini terus membuntutiku: Turun tangan → 50 Manuskrip Master (best); Buat pengalihan → 40 Manuskrip Master; Pergi → 30 Manuskrip Master
+Viking: mundur: Turun tangan → 30 Manuskrip Master; Pergi saja → 50 Manuskrip Master (best)
+Habis-habisan: Habis-habisan (biaya Poin Aksi dua kali lipat) → 2 Emblem Master (Roman) (best); Uji nyali mereka (peluang menakuti musuh) → 30 Manuskrip Master
+Binatang buas menghadang jalanmu: Bertarung! → 100 Manuskrip Master (best); Sembunyi → 70 Manuskrip Master
+Roman: hadiah: Lihat barang-barangnya → 150 Manuskrip Master (best); Lewati → 100 Manuskrip Master
+Pan tampak gelisah: Lihat barang-barangnya → 5 Emblem Master (Pan) (best); Lewati → 3 Emblem Master (Pan)
+Valora: barang: Lihat barang-barangnya → 3 Emblem Master (Valora); Lewati → 3 Emblem Master (Valora)
+Roman: sebuah ide: Bantu membuat → 5 Emblem Master (Roman) (best); Lewati → 3 Emblem Master (Roman)
+Petinju: Untuk meluruskan keadaan. → 30 Manuskrip Master; Uang, tentu saja → 50 Manuskrip Master (best)
+Long Fei: Saatnya menyadarkanmu. → Long Fei menang, 30 Manuskrip Master; Baiklah. Uang yang bicara. → 50 Manuskrip Master (best)
+Kamp Cesares di depan: Hadapi langsung. → 100 Manuskrip Master (best); Cari jalan lain. → 70 Manuskrip Master
+Kavaleri: Bagikan ransummu → 50 Manuskrip Master (best); Sebutkan unit yang lain. → 30 Manuskrip Master
+Petra: Beli → 50 Manuskrip Master (best); Tolak. → 30 Manuskrip Master ?
+Cassia: Jadi, kau akan kembali ke medan perang Yellowstone... → 1 Emblem Master (Cassia); Mungkin kali ini akan berbeda. → 1 Emblem Master (Cassia)
+Cassia (2): Lancarkan serangan langsung → 1 Emblem Master (Cassia); Cari bala bantuan. → 1 Emblem Master (Cassia)
+Viking: beri tekanan: Beri tekanan. → 30 Manuskrip Master; Cari tahu sendiri. → 50 Manuskrip Master (best)
+Valora: tukar sumber daya: Tukar sumber daya. → 5 Emblem Master (Valora) (best); Jangan tukar. → 3 Emblem Master (Valora)
+Cassia: pilah jarahan: Pilah jarahan → 5 Emblem Master (Cassia) (best); Lewati → 3 Emblem Master (Cassia)
+Cassia: barter: Barter → 5 Emblem Master (Cassia) (best); Tidak, terima kasih → 3 Emblem Master (Cassia)
+Perwira: Perkenalkan diri sebagai Quinn sang Penjelajah → 50 Manuskrip Master (best); Cari jalan memutar lain → 30 Manuskrip Master
+Prajurit Cesares: Selidiki lebih jauh → 30 Manuskrip Master; Lanjut jalan → 50 Manuskrip Master (best)
+Karavan mencurigakan: Selidiki para pedagang → 30 Manuskrip Master; Biarkan mereka → 50 Manuskrip Master (best)
+Wilson: pertemuan pertama: Percayai Wilson → 50 Manuskrip Master (best); Tetap skeptis → 30 Manuskrip Master
+Kelompok Viking: Abaikan. Fokus pada Guinevere → 50 Manuskrip Master (best); Bantu. Tak bisa hanya diam menonton → 30 Manuskrip Master
+Tentara bayaran: Pedang Suci: Sewa tentara bayaran → 30 Manuskrip Master; Kembali dan ajak Diana → 30 Manuskrip Master; Kita tak butuh orang lain → 50 Manuskrip Master (best)
+Grid & Wilson: Percayai dia → 50 Manuskrip Master (best); Ragukan dia → 30 Manuskrip Master
+Korban bencana: Ulurkan tangan → 30 Manuskrip Master; Jangan ikut campur → 50 Manuskrip Master (best)
+Zoe: Bantu menyelidiki → 30 Manuskrip Master; Fokus pada Swordland Showdown → 50 Manuskrip Master (best)
 Acak peti: Awal: [Elit] – [Perak] – [Perak] → Hasil: [Elit] – [Perak] – [Perak]; Awal: [Perak] – [Elit] – [Perak] → Hasil: [Perak] – [Elit] – [Perak]; Awal: [Perak] – [Elit] – [Perak] → Hasil: [Perak] – [Perak] – [Elit]; Awal: [Perak] – [Perak] – [Elit] → Hasil: [Elit] – [Perak] – [Perak]
-Wilson: sebuah pertanyaan: Tanyai Grid → 30 Master's Manuscript; Berpikir sendiri → 50 Master's Manuscript (best)
-Guinevere: bantuan: Bantu beres-beres → 5 Master Emblem (Guinevere) (best); Lewati → 3 Master Emblem (Guinevere)
-Guinevere: tukar sumber daya: Tukar sumber daya → 150 Master's Manuscript (best); Tidak, terima kasih → 100 Master's Manuscript
-Wilson: tukar sumber daya: Tukar sumber daya → 5 Master Emblem (Wilson) (best); Tidak, terima kasih → 3 Master Emblem (Wilson)
-Wilson: pilah jarahan: Bantu pilah jarahan. → 150 Master's Manuscript (best); Lewati → 100 Master's Manuscript
-Aena: beli makanan: Beli makanan dari Edwin → 30 Master's Manuscript + 1 Master Emblem (Aena); Bagikan makananmu → 50 Master's Manuscript + 1 Master Emblem (Aena) (best)
-Aena: coba saja: Coba saja → 30 Master's Manuscript + 1 Master Emblem (Aena); Aku ada urusan. → 50 Master's Manuscript + 1 Master Emblem (Aena) (best)
-Isnor: coba saja: Coba saja → 30 Master's Manuscript + 1 Master Emblem (Isnor); Tidak usah → 50 Master's Manuscript + 1 Master Emblem (Isnor) (best)
-Aena: penyelidikan: Selidiki area sekitar → 30 Master's Manuscript + 1 Master Emblem (Aena); Terus bergerak → 50 Master's Manuscript + 1 Master Emblem (Aena) (best)
-Isnor: penyelidikan: Bantu bagikan persediaan → 30 Master's Manuscript + 1 Master Emblem (Isnor); Selidiki gempa bumi → 50 Master's Manuscript + 1 Master Emblem (Isnor) (best)
-Aena: bersikeras: Bersikeras membuka peti → 50 Master's Manuscript + 1 Master Emblem (Aena); Biarkan saja → ?
-Viking: jejak kaki: Selidiki lebih jauh → 30 Master's Manuscript; Berhenti di sini dulu → 50 Master's Manuscript (best)
-Aena & Petra: Minta bala bantuan → 50 Master's Manuscript + 1 Master Emblem (Aena) (best); Beri Petra waktu lagi → 30 Master's Manuscript + 1 Master Emblem (Aena)
-Pak tua: Terus bertanya-tanya → 50 Master's Manuscript (best); Lupakan → 30 Master's Manuscript
-Penjaga: Selidiki lebih jauh → 50 Master's Manuscript (best); Tinggalkan tambang → 30 Master's Manuscript
-Aena: pertukaran: Tukar sumber daya → ?; Tolak pertukaran → 100 Master's Manuscript
-Isnor: pertukaran: Tukar sumber daya → 5 Master Emblem (Isnor); ? → ?
+Wilson: sebuah pertanyaan: Tanyai Grid → 30 Manuskrip Master; Berpikir sendiri → 50 Manuskrip Master (best)
+Guinevere: bantuan: Bantu beres-beres → 5 Emblem Master (Guinevere) (best); Lewati → 3 Emblem Master (Guinevere)
+Guinevere: tukar sumber daya: Tukar sumber daya → 150 Manuskrip Master (best); Tidak, terima kasih → 100 Manuskrip Master
+Wilson: tukar sumber daya: Tukar sumber daya → 5 Emblem Master (Wilson) (best); Tidak, terima kasih → 3 Emblem Master (Wilson)
+Wilson: pilah jarahan: Bantu pilah jarahan. → 150 Manuskrip Master (best); Lewati → 100 Manuskrip Master
+Aena: beli makanan: Beli makanan dari Edwin → 30 Manuskrip Master + 1 Emblem Master (Aena); Bagikan makananmu → 50 Manuskrip Master + 1 Emblem Master (Aena) (best)
+Aena: coba saja: Coba saja → 30 Manuskrip Master + 1 Emblem Master (Aena); Aku ada urusan. → 50 Manuskrip Master + 1 Emblem Master (Aena) (best)
+Isnor: coba saja: Coba saja → 30 Manuskrip Master + 1 Emblem Master (Isnor); Tidak usah → 50 Manuskrip Master + 1 Emblem Master (Isnor) (best)
+Aena: penyelidikan: Selidiki area sekitar → 30 Manuskrip Master + 1 Emblem Master (Aena); Terus bergerak → 50 Manuskrip Master + 1 Emblem Master (Aena) (best)
+Isnor: penyelidikan: Bantu bagikan persediaan → 30 Manuskrip Master + 1 Emblem Master (Isnor); Selidiki gempa bumi → 50 Manuskrip Master + 1 Emblem Master (Isnor) (best)
+Aena: bersikeras: Bersikeras membuka peti → 50 Manuskrip Master + 1 Emblem Master (Aena); Biarkan saja → ?
+Viking: jejak kaki: Selidiki lebih jauh → 30 Manuskrip Master; Berhenti di sini dulu → 50 Manuskrip Master (best)
+Aena & Petra: Minta bala bantuan → 50 Manuskrip Master + 1 Emblem Master (Aena) (best); Beri Petra waktu lagi → 30 Manuskrip Master + 1 Emblem Master (Aena)
+Pak tua: Terus bertanya-tanya → 50 Manuskrip Master (best); Lupakan → 30 Manuskrip Master
+Penjaga: Selidiki lebih jauh → 50 Manuskrip Master (best); Tinggalkan tambang → 30 Manuskrip Master
+Aena: pertukaran: Tukar sumber daya → ?; Tolak pertukaran → 100 Manuskrip Master
+Isnor: pertukaran: Tukar sumber daya → 5 Emblem Master (Isnor); ? → ?
 
 ### KVK POINTS PLANNER — page "Perencana Poin KvK" (kvk-optimizer.html?lang=id), opened from the link at the top of the KvK guide's table (guide #kvk). Not in the guide menu, but it is a public page anyone can use.
 Hanya menghitung yang mau kamu pakai: poin per hari, dan hari apa item yang dapat poin di beberapa hari sebaiknya dipakai.
@@ -962,20 +962,24 @@ Speedup Penelitian: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Percepatan Pembelajaran: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Truegold: 2,000 pts each, scores on KvK prep day 1, 2, 5
 Mithril: 40,000 pts each, scores on KvK prep day 4, 5
-Widget Gear Eksklusif: 8,000 pts each, scores on KvK prep day 4, 5
+Widget dari Gear Ekslusif Hero: 8,000 pts each, scores on KvK prep day 4, 5
 Forgehammer Gear Hero: 4,000 pts each, scores on KvK prep day 4, 5
 Fragmen Hero Mythic: 3,040 pts each, scores on KvK prep day 2, 3
 Fragmen Hero Epic: 1,220 pts each, scores on KvK prep day 2, 3
 Fragmen Hero Rare: 350 pts each, scores on KvK prep day 2, 3
 Rolet Hero (putaran): 8,000 pts each, scores on KvK prep day 2, 3
-Master Emblem: 6,000 pts each, scores on KvK prep day 2, 3
-Master's Manuscript: 60 pts each, scores on KvK prep day 2, 3
+Emblem Master: 6,000 pts each, scores on KvK prep day 2, 3
+Manuskrip Master: 60 pts each, scores on KvK prep day 2, 3
 Tanda Penjinakan Advanced: 15,000 pts each, scores on KvK prep day 3, 5
 Tanda Penjinakan Common: 1,150 pts each, scores on KvK prep day 3, 5
 Skor kemajuan hewan peliharaan: 50 pts per 1 score, scores on KvK prep day 3, 5
 Skor Charm Gubernur: 70 pts per 1 score, scores on KvK prep day 1, 3, 4
 Skor Gear Gubernur: 36 pts per 1 score, scores on KvK prep day 5
 Latih T1–T11: 3, 4, 5, 8, 12, 18, 25, 35, 45, 60, 75 pts per troop (Day 4); Promosi: the difference between the two tiers
+Item skor, per level: Charm Gubernur, pet, dan Gear Gubernur hanya dapat poin saat upgrade selesai — material yang belum mencapai ambang berikutnya tidak dihitung. Tambahkan upgrade yang direncanakan; jika mengisi yang kamu punya, hanya upgrade yang bisa diselesaikan berurutan yang dihitung. Hasilnya masuk ke kolom di atas.
+Governor Charm score per level (cost per charm: Panduan Charm / Desain Charm): Lv.1 +625 [5/5]; Lv.2 +1250 [40/15]; Lv.3 +3125 [60/40]; Lv.4 +8750 [80/100]; Lv.5 +11250 [100/200]; Lv.6 +12500 [120/300]; Lv.7 +12500 [140/400]; Lv.8 +13000 [200/400]; Lv.9 +14000 [300/400]; Lv.10 +15000 [420/420]; Lv.11 +16000 [560/420]; Lv.12 +18000 (est.) [580/600]; Lv.13 +21000 (est.) [610/780]; Lv.14 +24000 (est.) [645/960]; Lv.15 +27000 (est.) [685/1140]; Lv.16 +30000 (est.) [730/1320]; Lv.17 +33000 (est.) [780/1500]; Lv.18 +36000 (est.) [835/1680]; Lv.19 +39000 (est.) [895/1860]; Lv.20 +42000 (est.) [960/2040]; Lv.21 +45000 (est.) [1030/2220]
+Pet advancement score per advance (same for every pet): Lv.10 +500; Lv.20 +1000; Lv.30 +2000; Lv.40 +3000; Lv.50 +4500; Lv.60 +6750; Lv.70 +10000; Lv.80 +12000; Lv.90 +14500; Lv.100 +17500. Materials (Makanan Peliharaan / Manual Pertumbuhan / Ramuan Nutrisi / Medali Promosi) depend on the pet's max level: max 50: Lv.10 [1715/15/0/0], Lv.20 [3180/30/0/0], Lv.30 [5010/45/10/0], Lv.40 [7660/60/20/0], Lv.50 [11300/90/30/10] | max 60: Lv.10 [2530/20/0/0], Lv.20 [5360/40/0/0], Lv.30 [9020/60/10/0], Lv.40 [14320/90/20/0], Lv.50 [21620/130/20/10], Lv.60 [30920/175/50/20] | max 70: Lv.10 [3795/25/0/0], Lv.20 [8040/50/0/0], Lv.30 [13530/75/10/0], Lv.40 [21480/100/20/0], Lv.50 [32430/155/30/10], Lv.60 [46380/200/50/20], Lv.70 [63300/255/80/40] | max 80: Lv.10 [5060/30/0/0], Lv.20 [10720/60/0/0], Lv.30 [18040/95/10/0], Lv.40 [28640/125/20/0], Lv.50 [43240/190/30/10], Lv.60 [61840/250/50/20], Lv.70 [84400/310/80/40], Lv.80 [108480/380/100/60] | max 100: Lv.10 [6325/35/0/0], Lv.20 [13400/70/0/0], Lv.30 [22550/110/15/0], Lv.40 [35800/145/35/0], Lv.50 [54050/220/50/10], Lv.60 [77300/290/65/20], Lv.70 [105500/365/85/40], Lv.80 [135600/440/100/60], Lv.90 [172000/585/115/80], Lv.100 [212100/730/135/100]
+Governor Gear score per step, per piece (cost: Satin / Gilded Threads / Artisan's Vision): Uncommon +1125 [1500/15/0]; Uncommon ★ +1875 [3800/40/0]; Rare +3000 [7000/70/0]; Rare ★ +4500 [9700/95/0]; Rare ★★ +5100 [1000/10/45]; Rare ★★★ +5440 [1000/10/50]; Epic +3230 [1500/15/60]; Epic ★ +3230 [1500/15/70]; Epic ★★ +3225 [6500/65/40]; Epic ★★★ +3225 [8000/80/50]; Epic T1 +3440 [10000/95/60]; Epic T1 ★ +3440 [11000/110/70]; Epic T1 ★★ +4085 [13000/130/85]; Epic T1 ★★★ +4085 [15000/160/100]; Legendary +6250 [22000/220/40]; Legendary ★ +6250 [23000/230/40]; Legendary ★★ +6250 [25000/250/45]; Legendary ★★★ +6250 [26000/260/45]. Daftar game berakhir di Legendary 3★; tahap di atasnya tidak dihitung di sini.
 Nilai poin: layar Sumber Poin di game dan panduan KvK. Hari poin mengikuti panduan saat ini; jika game berbeda, ikuti game dan beri tahu officer. Data hanya tersimpan di browsermu.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
@@ -1602,6 +1606,7 @@ Cavalry Lethality = Letalitas Kavaleri
 Cavalry Health = Nyawa Kavaleri
 Archer Lethality = Letalitas Pemanah
 Archer Health = Nyawa Pemanah
+Master Emblem = Emblem Master
 Abbey = Biara
 Intel Missions = Misi Intel
 Medical Satchels = Tas Medis
@@ -1615,8 +1620,10 @@ neutral buildings = bangunan netral
 Deploy = Mengerahkan
 Advance = Memajukan
 Instantly revive = Membangkitkan langsung
+Master's Manuscript = Manuskrip Master
 Learning Speedups = Percepatan Pembelajaran
 Mystery Badges = Lencana Misteri
+Master Emblems = Emblem Master
 Mystery Shop = Misteri
 Arena Shop = Arena
 VIP Shop = VIP

@@ -138,6 +138,28 @@ ul.al b{font-weight:500;white-space:nowrap}
 .back{color:var(--accent);font-size:.85rem;text-decoration:none}
 .back::before{content:"‹ "}
 [dir=rtl] .back::before{content:"› "}
+.lvgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px}
+.lvc{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--sunk);display:flex;flex-direction:column;gap:8px;min-width:0}
+.lvc .mhead{justify-content:space-between;flex-wrap:wrap}
+.lvc .mhead .kv{font-family:var(--body);font-weight:400}
+.lvrow{display:grid;grid-template-columns:minmax(0,1fr) 16px minmax(0,1fr) 62px 28px;gap:5px;align-items:center}
+.lvrow select,.lvrow input{width:100%;min-width:0;max-width:none;padding:6px}
+.lvrow span{text-align:center;color:var(--muted)}
+.lvrow .x{background:none;border:1px solid var(--line);border-radius:6px;color:var(--muted);cursor:pointer;height:32px;font:inherit}
+.lvh{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.lvh label{display:flex;flex-direction:column;gap:2px;font-size:.78rem;color:var(--muted);min-width:0}
+.lvh input{max-width:none;width:100%}
+.lvout{border-top:1px solid var(--line);padding-top:8px;font-size:.85rem;display:flex;flex-direction:column;gap:4px}
+.lvout ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.lvout li{display:flex;justify-content:space-between;gap:8px;font-variant-numeric:tabular-nums}
+.lvout li.no{color:var(--muted);text-decoration:line-through}
+.lvout .stop{color:var(--bad);font-size:.8rem}
+.lvout .sum{display:flex;justify-content:space-between;font-weight:700;font-family:var(--display)}
+.lvbtns{display:flex;gap:6px;flex-wrap:wrap}
+.lvbtns button{flex:1;background:none;border:1px solid var(--accent);color:var(--accent);border-radius:6px;padding:5px 8px;font:inherit;font-size:.82rem;cursor:pointer}
+.lvbtns button:disabled{opacity:.4;cursor:default}
+.lvnote{font-size:.76rem;color:var(--muted)}
+.q-g{color:#3a9a4a}.q-b{color:#3b7fd4}.q-p{color:#9a4bd4}.q-p1{color:#9a4bd4}.q-y{color:#c9960c}
 [dir=rtl] th,[dir=rtl] td{text-align:right}
 [dir=rtl] td.num,[dir=rtl] th.num{text-align:left}
 </style>
@@ -177,6 +199,12 @@ ul.al b{font-weight:500;white-space:nowrap}
         <h2><span class="n">3</span><span data-t="s3"></span></h2>
         <p class="hint" data-t="s3hint"></p>
         <div class="tbl"><table id="troops"></table></div>
+      </section>
+
+      <section class="step">
+        <h2><span class="n">4</span><span data-t="s4"></span></h2>
+        <p class="hint" data-t="s4hint"></p>
+        <div class="lvgrid" id="lv"></div>
       </section>
     </div>
 
@@ -256,6 +284,65 @@ function renderStatic(){
    `<tr><td><div>${L().promote}</div><div class="meta pr">${tsel(S.pr.f,'data-pr="f"')}<span>→</span>${tsel(S.pr.t,'data-pr="t"')}<span class="kv" id="prPer"></span></div></td><td class="num"><input type="number" inputmode="numeric" min="0" data-pr="m" value="${esc(S.pr.m)}"></td><td class="num"><input type="number" inputmode="numeric" min="0" data-pr="o" value="${esc(S.pr.o)}"></td></tr></tbody>`;
   $("troops").querySelectorAll("[data-tr]").forEach(i=>i[i.tagName==="SELECT"?"onchange":"oninput"]=()=>{S.tr[i.dataset.tr]=i.value;save();calc()});
   $("troops").querySelectorAll("[data-pr]").forEach(i=>i[i.tagName==="SELECT"?"onchange":"oninput"]=()=>{S.pr[i.dataset.pr]=i.value;save();calc()});
+}
+
+// ---- step 4: score items level by level (Governor Charm / pets / Governor Gear) ----
+const LV=P.lv, KINDS=["charm","pet","gear"];
+S.lv=S.lv||{};
+for(const k of KINDS)S.lv[k]=S.lv[k]||{have:{},rows:[]};
+S.lv.pet.max=S.lv.pet.max||100;
+const lvSteps=k=>k==="pet"?(LV.pet.groups.find(g=>g.max===+S.lv.pet.max)||LV.pet.groups[LV.pet.groups.length-1]).steps:LV[k].steps;
+const matName=m=>LV.mats[m][LANG]||LV.mats[m].en;
+const stepName=(k,st)=>k==="gear"?`<span class="q-${st.q}">${LV.gear.q[st.q][LANG]||LV.gear.q[st.q].en}${st.st?" "+"★".repeat(st.st):""}</span>`:st.n;
+const lvItem=k=>ITEMS.find(it=>it.id===LV[k].item);
+function lvCalc(k){
+  const D=LV[k], steps=lvSteps(k), mats=D.mats, have=mats.map(m=>S.lv[k].have[m]);
+  const lim=mats.map((m,j)=>have[j]!==""&&have[j]!=null), left=have.map(v=>num(v));
+  const need=mats.map(()=>0); let score=0,done=0,stop=null; const lines=[];
+  for(const r of S.lv[k].rows){
+    const f=Math.max(0,Math.min(steps.length,+r.f||0)), t=Math.max(f,Math.min(steps.length,+r.t||0)), n=Math.max(1,Math.round(num(r.n)||1));
+    for(let i=f;i<t;i++){const st=steps[i];
+      for(let c=0;c<n;c++){
+        st.c.forEach((v,j)=>need[j]+=v);
+        if(!stop){const short=st.c.findIndex((v,j)=>lim[j]&&left[j]<v);
+          if(short>=0)stop=mats[short];else{st.c.forEach((v,j)=>left[j]-=v);score+=st.score;done++}}
+        lines.push({st,est:!!st.est});
+      }
+    }
+  }
+  // lines after the stop are the ones not finished
+  lines.forEach((l,i)=>l.ok=i<done);
+  return {score,done,need,stop,lines};
+}
+function lvOut(k){
+  const el=$("lvout-"+k); if(!el)return;
+  const R=lvCalc(k), it=lvItem(k), D=LV[k];
+  const need=D.mats.map((m,j)=>`${matName(m)} ${fmt(R.need[j])}`).join(" · ");
+  // same step repeated (× pieces) → one line, finished count shown
+  const G=[];for(const l of R.lines){const g=G[G.length-1];if(g&&g.st===l.st){g.n++;g.ok+=l.ok?1:0}else G.push({st:l.st,est:l.est,n:1,ok:l.ok?1:0})}
+  el.innerHTML=(G.length?`<ul>${G.map(g=>`<li class="${g.ok?"":"no"}"><span>${stepName(k,g.st)}${g.est?" *":""}${g.n>1?` ×${g.ok<g.n?g.ok+"/":""}${g.n}`:""}</span><b>${fmt(g.st.score*(g.ok||g.n))}</b></li>`).join("")}</ul>`:"")+
+    (R.stop?`<div class="stop">${f(L().lvStop,{m:matName(R.stop)})}</div>`:"")+
+    `<div class="kv">${L().lvNeed}: ${need}</div>`+
+    `<div class="sum"><span>${f(L().lvDone,{n:R.done})} · ${L().lvScore} ${fmt(R.score)}</span><span>${fmt(R.score*it.v)} ${L().pts}</span></div>`+
+    `<div class="lvbtns"><button type="button" data-fill="m" ${R.score?"":"disabled"}>${L().lvToMust}</button><button type="button" data-fill="o" ${R.score?"":"disabled"}>${L().lvToOpt}</button></div>`;
+  el.querySelectorAll("[data-fill]").forEach(b=>b.onclick=()=>{S[b.dataset.fill][it.id]=String(R.score);save();renderStatic();calc();renderLv()});
+}
+function renderLv(){
+  $("lv").innerHTML=KINDS.map(k=>{
+    const D=LV[k], steps=lvSteps(k), it=lvItem(k), st=S.lv[k];
+    const opt=(sel,from)=>(from?[`<option value="0"${+sel===0?" selected":""}>${k==="charm"?"Lv.0":k==="pet"?"Lv.0":"—"}</option>`]:[]).concat(steps.map((s,i)=>`<option value="${i+1}"${+sel===i+1?" selected":""}>${k==="gear"?(LV.gear.q[s.q][LANG]||LV.gear.q[s.q].en)+(s.st?" "+"★".repeat(s.st):""):s.n}</option>`)).join("");
+    const rows=st.rows.map((r,i)=>`<div class="lvrow"><select data-lv="${k}" data-i="${i}" data-f="f">${opt(r.f,true)}</select><span>→</span><select data-lv="${k}" data-i="${i}" data-f="t">${opt(r.t,false)}</select><input type="number" inputmode="numeric" min="1" data-lv="${k}" data-i="${i}" data-f="n" value="${esc(r.n||1)}" title="${L().lvCount}"><button type="button" class="x" data-del="${k}" data-i="${i}" aria-label="×">×</button></div>`).join("");
+    const have=`<div class="lvh">${D.mats.map(m=>`<label><span>${matName(m)}</span><input type="number" inputmode="numeric" min="0" data-have="${k}" data-m="${m}" value="${esc(st.have[m]||"")}" placeholder="—"></label>`).join("")}</div>`;
+    const pet=k==="pet"?`<label class="kv">${L().lvPetMax} <select data-petmax>${LV.pet.groups.map(g=>`<option value="${g.max}"${+st.max===g.max?" selected":""}>${g.max}</option>`).join("")}</select></label>`:"";
+    const note=k==="charm"?`<div class="lvnote">* ${L().lvEst}</div>`:k==="gear"?`<div class="lvnote">${L().lvGearNote}</div>`:"";
+    return `<div class="lvc"><div class="mhead"><span>${nm(it)}</span><span class="kv">${fmt(it.v)} ${L().perPt}</span></div>${pet}${rows}<button type="button" class="add" data-add="${k}">${L().lvAdd}</button><div class="kv">${L().lvHave}</div>${have}<div class="lvout" id="lvout-${k}"></div>${note}</div>`;
+  }).join("")+`<div class="lvnote" style="grid-column:1/-1">${L().lvSrc}</div>`;
+  $("lv").querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>{const k=b.dataset.add,steps=lvSteps(k),last=S.lv[k].rows[S.lv[k].rows.length-1];const f=last?Math.min(steps.length-1,+last.t):0;S.lv[k].rows.push({f,t:Math.min(steps.length,f+1),n:1});save();renderLv()});
+  $("lv").querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{S.lv[b.dataset.del].rows.splice(+b.dataset.i,1);save();renderLv()});
+  $("lv").querySelectorAll("[data-lv]").forEach(i=>i[i.tagName==="SELECT"?"onchange":"oninput"]=()=>{const r=S.lv[i.dataset.lv].rows[+i.dataset.i];r[i.dataset.f]=i.value;if(i.dataset.f==="f"&&+r.t<=+r.f)r.t=+r.f+1;save();if(i.dataset.f==="f")renderLv();else lvOut(i.dataset.lv)});
+  $("lv").querySelectorAll("[data-have]").forEach(i=>i.oninput=()=>{S.lv[i.dataset.have].have[i.dataset.m]=i.value;save();lvOut(i.dataset.have)});
+  const pm=$("lv").querySelector("[data-petmax]");if(pm)pm.onchange=()=>{S.lv.pet.max=+pm.value;S.lv.pet.rows.forEach(r=>{const n=lvSteps("pet").length;r.f=Math.min(+r.f,n-1);r.t=Math.min(+r.t,n)});save();renderLv()};
+  KINDS.forEach(lvOut);
 }
 
 // build the list of spendable items with amounts in units (speedups: minutes)
@@ -349,9 +436,9 @@ function calc(){
   } else $("oLeft").innerHTML="";
 }
 
-$("lang").onchange=e=>{LANG=e.target.value;try{history.replaceState(null,"","?lang="+LANG)}catch(x){}renderStatic();calc()};
-$("reset").onclick=()=>{S={...S,tg:["","","","",""],m:{},o:{},tr:{t:10,m:"",o:""},pr:{f:9,t:10,m:"",o:""}};save();renderStatic();calc()};
-renderStatic();calc();
+$("lang").onchange=e=>{LANG=e.target.value;try{history.replaceState(null,"","?lang="+LANG)}catch(x){}renderStatic();calc();renderLv()};
+$("reset").onclick=()=>{S={...S,tg:["","","","",""],m:{},o:{},tr:{t:10,m:"",o:""},pr:{f:9,t:10,m:"",o:""},lv:{charm:{have:{},rows:[]},pet:{max:100,have:{},rows:[]},gear:{have:{},rows:[]}}};save();renderStatic();calc();renderLv()};
+renderStatic();calc();renderLv();
 })();
 </script>
 </body>

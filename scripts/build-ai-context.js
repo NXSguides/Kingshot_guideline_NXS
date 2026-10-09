@@ -85,6 +85,14 @@ function build(lang) {
     const nm = (it) => it.n[lang] || it.n.en;
     const rows = P.items.map((it) => `${nm(it)}: ${it.v.toLocaleString("en-US")} pts${it.sp ? " per minute" : it.score ? " per 1 score" : " each"}, scores on KvK prep day ${it.days.join(", ")}`);
     rows.push(`${u.train} T1–T11: ${P.troopPts.join(", ")} pts per troop (Day 4); ${u.promote}: the difference between the two tiers`);
+    if (P.lv) {
+      const mn = (m) => P.lv.mats[m][lang] || P.lv.mats[m].en;
+      const q = (s) => (P.lv.gear.q[s.q][lang] || P.lv.gear.q[s.q].en) + (s.st ? " " + "★".repeat(s.st) : "");
+      rows.push(`${u.s4}: ${u.s4hint}`);
+      rows.push(`Governor Charm score per level (cost per charm: ${P.lv.charm.mats.map(mn).join(" / ")}): ` + P.lv.charm.steps.map((s) => `${s.n} +${s.score}${s.est ? " (est.)" : ""} [${s.c.join("/")}]`).join("; "));
+      rows.push(`Pet advancement score per advance (same for every pet): ` + P.lv.pet.groups[P.lv.pet.groups.length - 1].steps.map((s) => `${s.n} +${s.score}`).join("; ") + `. Materials (${P.lv.pet.mats.map(mn).join(" / ")}) depend on the pet's max level: ` + P.lv.pet.groups.map((g) => `max ${g.max}: ` + g.steps.map((s) => `${s.n} [${s.c.join("/")}]`).join(", ")).join(" | "));
+      rows.push(`Governor Gear score per step, per piece (cost: ${P.lv.gear.mats.map(mn).join(" / ")}): ` + P.lv.gear.steps.map((s) => `${q(s)} +${s.score} [${s.c.join("/")}]`).join("; ") + `. ${u.lvGearNote}`);
+    }
     parts.push(`### KVK POINTS PLANNER — page "${u.title}" (kvk-optimizer.html?lang=${lang}), opened from the link at the top of the KvK guide's table (guide #kvk). Not in the guide menu, but it is a public page anyone can use.
 ${u.subtitle}
 - ${u.mA}: ${u.mAd}

@@ -101,7 +101,24 @@ const KVK_PLAN = {
    "mU": "m",
    "reset": "Clear all",
    "foot": "Point values: the in-game Points Sources screen and the KvK guide. Scoring days follow the current guide; if your game screen differs, trust the game and tell an officer. Data stays in your own browser.",
-   "back": "Back to the KvK guide"
+   "back": "Back to the KvK guide",
+   "s4": "Score items, level by level",
+   "s4hint": "Governor Charm, pets and Governor Gear only score when an upgrade is finished — materials that don't reach the next threshold count for nothing. Add the upgrades you plan; if you enter what you have, only the upgrades you can finish in order are counted. The result goes into the score fields above.",
+   "lvFrom": "From",
+   "lvTo": "To",
+   "lvCount": "× pieces",
+   "lvHave": "What I have (optional)",
+   "lvNeed": "Needed",
+   "lvAdd": "+ add upgrade",
+   "lvDone": "{n} upgrades finished",
+   "lvStop": "Stops here — not enough {m}",
+   "lvScore": "Score",
+   "lvToMust": "→ Will use",
+   "lvToOpt": "→ Can use",
+   "lvEst": "Lv.12 and up: estimated, not yet seen in the game's list",
+   "lvPetMax": "Pet max level",
+   "lvGearNote": "The game's list ends at Legendary 3★; higher steps aren't scored here.",
+   "lvSrc": "Costs: in-game upgrade screens as recorded by community databases."
   },
   "zh": {
    "title": "KvK 積分規劃",
@@ -152,7 +169,24 @@ const KVK_PLAN = {
    "mU": "分鐘",
    "reset": "全部清空",
    "foot": "分數來源：遊戲內「積分來源」畫面與 KvK 指南。哪天計分照目前的指南整理，若遊戲畫面不同請以遊戲為準並告訴管理員。資料只存在你自己的瀏覽器裡。",
-   "back": "回到 KvK 指南"
+   "back": "回到 KvK 指南",
+   "s4": "評分項目試算",
+   "s4hint": "領主寶石、寵物、領主裝備只有「完成一次升級」才計分，沒湊到門檻的材料不算。加上你打算升的等級；若填了手上材料，只會照順序算能升完的那幾級。算出的評分會填回上面的欄位。",
+   "lvFrom": "從",
+   "lvTo": "升到",
+   "lvCount": "× 個",
+   "lvHave": "手上材料（可不填）",
+   "lvNeed": "需要",
+   "lvAdd": "＋ 加一筆",
+   "lvDone": "完成 {n} 次升級",
+   "lvStop": "到這裡停：{m}不夠",
+   "lvScore": "評分",
+   "lvToMust": "→ 填入一定用",
+   "lvToOpt": "→ 填入可以用",
+   "lvEst": "Lv.12 以上為推算，遊戲清單尚未確認",
+   "lvPetMax": "寵物等級上限",
+   "lvGearNote": "遊戲清單到傳說 3 星為止，更高階暫不計。",
+   "lvSrc": "升級材料數量來自玩家資料庫整理的遊戲內數值。"
   },
   "ko": {
    "title": "KvK 점수 플래너",
@@ -203,7 +237,24 @@ const KVK_PLAN = {
    "mU": "분",
    "reset": "모두 지우기",
    "foot": "점수 출처: 게임 내 '점수 출처' 화면과 KvK 가이드. 점수 날짜는 현재 가이드를 따릅니다. 게임 화면과 다르면 게임을 기준으로 하고 간부에게 알려 주세요. 데이터는 본인 브라우저에만 저장됩니다.",
-   "back": "KvK 가이드로 돌아가기"
+   "back": "KvK 가이드로 돌아가기",
+   "s4": "평점 항목 단계별 계산",
+   "s4hint": "영주 보석·펫·영주 장비는 업그레이드를 완료해야만 점수가 납니다. 다음 단계에 못 미치는 재료는 계산되지 않습니다. 올릴 단계를 추가하고, 보유 재료를 입력하면 순서대로 완료 가능한 단계만 계산됩니다. 결과는 위의 평점 칸에 들어갑니다.",
+   "lvFrom": "현재",
+   "lvTo": "목표",
+   "lvCount": "× 개",
+   "lvHave": "보유 재료 (선택)",
+   "lvNeed": "필요",
+   "lvAdd": "+ 추가",
+   "lvDone": "{n}회 업그레이드 완료",
+   "lvStop": "여기서 중단 — {m} 부족",
+   "lvScore": "평점",
+   "lvToMust": "→ 꼭 사용",
+   "lvToOpt": "→ 사용 가능",
+   "lvEst": "Lv.12 이상은 추정치 (게임 목록 미확인)",
+   "lvPetMax": "펫 최대 레벨",
+   "lvGearNote": "게임 목록은 레전드 3★까지입니다. 그 이상은 계산하지 않습니다.",
+   "lvSrc": "비용: 커뮤니티 데이터베이스에 기록된 게임 내 수치."
   },
   "de": {
    "title": "KvK-Punkteplaner",
@@ -254,7 +305,24 @@ const KVK_PLAN = {
    "mU": "Min",
    "reset": "Alles leeren",
    "foot": "Punktwerte: Punktequellen-Bildschirm im Spiel und der KvK-Guide. Die Wertungstage folgen dem aktuellen Guide; weicht dein Spiel ab, gilt das Spiel – bitte einem Offizier Bescheid geben. Daten bleiben nur in deinem Browser.",
-   "back": "Zurück zum KvK-Guide"
+   "back": "Zurück zum KvK-Guide",
+   "s4": "Bewertungs-Posten Stufe für Stufe",
+   "s4hint": "Gouverneur Talisman, Begleittiere und Gouverneur-Ausrüstung zählen nur bei einem abgeschlossenen Upgrade — Material unterhalb der nächsten Schwelle zählt nichts. Trage geplante Upgrades ein; mit deinem Bestand werden nur die der Reihe nach fertigen Upgrades gezählt. Das Ergebnis geht in die Felder oben.",
+   "lvFrom": "Von",
+   "lvTo": "Bis",
+   "lvCount": "× Stück",
+   "lvHave": "Mein Bestand (optional)",
+   "lvNeed": "Benötigt",
+   "lvAdd": "+ Upgrade hinzufügen",
+   "lvDone": "{n} Upgrades fertig",
+   "lvStop": "Stopp — zu wenig {m}",
+   "lvScore": "Punkte",
+   "lvToMust": "→ Wird genutzt",
+   "lvToOpt": "→ Kann genutzt werden",
+   "lvEst": "Ab Lv.12 geschätzt, noch nicht in der Spielliste gesehen",
+   "lvPetMax": "Max. Stufe des Begleittiers",
+   "lvGearNote": "Die Spielliste endet bei Legendär 3★; höhere Stufen werden hier nicht gezählt.",
+   "lvSrc": "Kosten: Spielwerte laut Community-Datenbanken."
   },
   "fr": {
    "title": "Planificateur de points KvK",
@@ -305,7 +373,24 @@ const KVK_PLAN = {
    "mU": "min",
    "reset": "Tout effacer",
    "foot": "Valeurs de points : écran Sources de points du jeu et guide KvK. Les jours de score suivent le guide actuel ; si votre jeu affiche autre chose, fiez-vous au jeu et prévenez un officier. Les données restent dans votre navigateur.",
-   "back": "Retour au guide KvK"
+   "back": "Retour au guide KvK",
+   "s4": "Objets à score, niveau par niveau",
+   "s4hint": "Talisman du Gouverneur, animaux et Équipement du Chef ne rapportent que lorsqu'une amélioration est terminée — les matériaux sous le seuil ne comptent pas. Ajoutez les améliorations prévues ; si vous saisissez votre stock, seules celles que vous pouvez finir dans l'ordre sont comptées. Le résultat remplit les champs ci-dessus.",
+   "lvFrom": "De",
+   "lvTo": "À",
+   "lvCount": "× pièces",
+   "lvHave": "Mon stock (facultatif)",
+   "lvNeed": "Nécessaire",
+   "lvAdd": "+ ajouter",
+   "lvDone": "{n} améliorations terminées",
+   "lvStop": "Arrêt ici — pas assez de {m}",
+   "lvScore": "Score",
+   "lvToMust": "→ Utilisé",
+   "lvToOpt": "→ Utilisable",
+   "lvEst": "Lv.12 et plus : estimation, pas encore vue en jeu",
+   "lvPetMax": "Niveau max de l'animal",
+   "lvGearNote": "La liste du jeu s'arrête à Légendaire 3★ ; au-delà, non compté ici.",
+   "lvSrc": "Coûts : valeurs du jeu relevées par les bases communautaires."
   },
   "pt": {
    "title": "Planejador de pontos KvK",
@@ -356,7 +441,24 @@ const KVK_PLAN = {
    "mU": "min",
    "reset": "Limpar tudo",
    "foot": "Valores de pontos: tela Fontes de Pontos do jogo e guia KvK. Os dias de pontuação seguem o guia atual; se o jogo mostrar diferente, confie no jogo e avise um oficial. Os dados ficam só no seu navegador.",
-   "back": "Voltar ao guia KvK"
+   "back": "Voltar ao guia KvK",
+   "s4": "Itens de pontuação, nível a nível",
+   "s4hint": "Talismã do Governador, pets e Equipamento do Chefe só pontuam quando a melhoria é concluída — materiais abaixo do próximo limite não contam. Adicione as melhorias planejadas; se informar o que tem, só as que der para concluir em ordem são contadas. O resultado vai para os campos acima.",
+   "lvFrom": "De",
+   "lvTo": "Até",
+   "lvCount": "× peças",
+   "lvHave": "O que tenho (opcional)",
+   "lvNeed": "Necessário",
+   "lvAdd": "+ adicionar",
+   "lvDone": "{n} melhorias concluídas",
+   "lvStop": "Para aqui — falta {m}",
+   "lvScore": "Pontuação",
+   "lvToMust": "→ Vou usar",
+   "lvToOpt": "→ Posso usar",
+   "lvEst": "Lv.12+: estimado, ainda não visto na lista do jogo",
+   "lvPetMax": "Nível máximo do pet",
+   "lvGearNote": "A lista do jogo termina em Lendário 3★; etapas acima não são contadas aqui.",
+   "lvSrc": "Custos: valores do jogo registrados por bases da comunidade."
   },
   "es": {
    "title": "Planificador de puntos KvK",
@@ -407,7 +509,24 @@ const KVK_PLAN = {
    "mU": "min",
    "reset": "Borrar todo",
    "foot": "Valores de puntos: pantalla de fuentes de puntos del juego y guía KvK. Los días que puntúan siguen la guía actual; si tu juego muestra otra cosa, fíate del juego y avisa a un oficial. Los datos solo quedan en tu navegador.",
-   "back": "Volver a la guía KvK"
+   "back": "Volver a la guía KvK",
+   "s4": "Objetos con puntuación, nivel a nivel",
+   "s4hint": "Talismán del Gobernador, mascotas y Equipo de Líder solo puntúan al completar una mejora — los materiales que no llegan al siguiente umbral no cuentan. Añade las mejoras que planeas; si indicas lo que tienes, solo se cuentan las que puedas terminar en orden. El resultado se copia a los campos de arriba.",
+   "lvFrom": "De",
+   "lvTo": "Hasta",
+   "lvCount": "× piezas",
+   "lvHave": "Lo que tengo (opcional)",
+   "lvNeed": "Necesario",
+   "lvAdd": "+ añadir",
+   "lvDone": "{n} mejoras completadas",
+   "lvStop": "Se detiene aquí — falta {m}",
+   "lvScore": "Puntuación",
+   "lvToMust": "→ Usaré",
+   "lvToOpt": "→ Puedo usar",
+   "lvEst": "Lv.12+: estimado, aún no visto en el juego",
+   "lvPetMax": "Nivel máximo de la mascota",
+   "lvGearNote": "La lista del juego termina en Legendario 3★; pasos superiores no se cuentan aquí.",
+   "lvSrc": "Costes: valores del juego recogidos por bases de datos de la comunidad."
   },
   "tr": {
    "title": "KvK Puan Planlayıcı",
@@ -458,7 +577,24 @@ const KVK_PLAN = {
    "mU": "dk",
    "reset": "Hepsini temizle",
    "foot": "Puan değerleri: oyundaki Puan Kaynakları ekranı ve KvK rehberi. Puan günleri mevcut rehbere göre; oyun farklı gösteriyorsa oyuna güven ve bir yetkiliye haber ver. Veriler sadece kendi tarayıcında kalır.",
-   "back": "KvK rehberine dön"
+   "back": "KvK rehberine dön",
+   "s4": "Puan kalemleri, seviye seviye",
+   "s4hint": "Vali Tılsımı, petler ve Şef Donanımı yalnızca bir yükseltme tamamlanınca puan verir — eşiğe ulaşmayan malzeme sayılmaz. Planladığın yükseltmeleri ekle; elindekini girersen sırayla bitirebildiklerin sayılır. Sonuç yukarıdaki alanlara yazılır.",
+   "lvFrom": "Şu an",
+   "lvTo": "Hedef",
+   "lvCount": "× adet",
+   "lvHave": "Elimdekiler (isteğe bağlı)",
+   "lvNeed": "Gerekli",
+   "lvAdd": "+ ekle",
+   "lvDone": "{n} yükseltme tamamlandı",
+   "lvStop": "Burada durur — {m} yetersiz",
+   "lvScore": "Puan",
+   "lvToMust": "→ Kullanılacak",
+   "lvToOpt": "→ Kullanılabilir",
+   "lvEst": "Lv.12 ve üzeri tahminidir, oyunda henüz görülmedi",
+   "lvPetMax": "Pet maks. seviye",
+   "lvGearNote": "Oyun listesi Efsanevi 3★'da biter; üstü burada sayılmaz.",
+   "lvSrc": "Maliyetler: topluluk veritabanlarının kaydettiği oyun içi değerler."
   },
   "id": {
    "title": "Perencana Poin KvK",
@@ -509,7 +645,24 @@ const KVK_PLAN = {
    "mU": "m",
    "reset": "Hapus semua",
    "foot": "Nilai poin: layar Sumber Poin di game dan panduan KvK. Hari poin mengikuti panduan saat ini; jika game berbeda, ikuti game dan beri tahu officer. Data hanya tersimpan di browsermu.",
-   "back": "Kembali ke panduan KvK"
+   "back": "Kembali ke panduan KvK",
+   "s4": "Item skor, per level",
+   "s4hint": "Charm Gubernur, pet, dan Gear Gubernur hanya dapat poin saat upgrade selesai — material yang belum mencapai ambang berikutnya tidak dihitung. Tambahkan upgrade yang direncanakan; jika mengisi yang kamu punya, hanya upgrade yang bisa diselesaikan berurutan yang dihitung. Hasilnya masuk ke kolom di atas.",
+   "lvFrom": "Dari",
+   "lvTo": "Ke",
+   "lvCount": "× buah",
+   "lvHave": "Yang kupunya (opsional)",
+   "lvNeed": "Dibutuhkan",
+   "lvAdd": "+ tambah",
+   "lvDone": "{n} upgrade selesai",
+   "lvStop": "Berhenti di sini — {m} kurang",
+   "lvScore": "Skor",
+   "lvToMust": "→ Pasti dipakai",
+   "lvToOpt": "→ Boleh dipakai",
+   "lvEst": "Lv.12 ke atas: perkiraan, belum terlihat di daftar game",
+   "lvPetMax": "Level maks pet",
+   "lvGearNote": "Daftar game berakhir di Legendary 3★; tahap di atasnya tidak dihitung di sini.",
+   "lvSrc": "Biaya: nilai dalam game yang dicatat basis data komunitas."
   },
   "ru": {
    "title": "Планировщик очков KvK",
@@ -560,7 +713,24 @@ const KVK_PLAN = {
    "mU": "мин",
    "reset": "Очистить всё",
    "foot": "Очки: игровой экран «Источники очков» и гайд по KvK. Дни подсчёта взяты из текущего гайда; если в игре иначе, верьте игре и сообщите офицеру. Данные хранятся только в вашем браузере.",
-   "back": "Вернуться к гайду по KvK"
+   "back": "Вернуться к гайду по KvK",
+   "s4": "Предметы с очками, по уровням",
+   "s4hint": "Талисман губернатора, питомцы и снаряжение губернатора дают очки только за завершённое улучшение — материалы ниже порога не считаются. Добавьте запланированные улучшения; если указать запас, засчитаются только те, что можно завершить по порядку. Результат попадёт в поля выше.",
+   "lvFrom": "С",
+   "lvTo": "До",
+   "lvCount": "× шт.",
+   "lvHave": "Мой запас (необязательно)",
+   "lvNeed": "Нужно",
+   "lvAdd": "+ добавить",
+   "lvDone": "Завершено улучшений: {n}",
+   "lvStop": "Стоп — не хватает: {m}",
+   "lvScore": "Очки",
+   "lvToMust": "→ Точно потрачу",
+   "lvToOpt": "→ Могу потратить",
+   "lvEst": "Lv.12 и выше — оценка, в игре пока не видно",
+   "lvPetMax": "Макс. уровень питомца",
+   "lvGearNote": "Список в игре заканчивается на Легендарное 3★; выше здесь не считается.",
+   "lvSrc": "Стоимость: игровые значения из баз сообщества."
   },
   "th": {
    "title": "ตัววางแผนคะแนน KvK",
@@ -611,7 +781,24 @@ const KVK_PLAN = {
    "mU": "นาที",
    "reset": "ล้างทั้งหมด",
    "foot": "ค่าคะแนน: หน้าแหล่งคะแนนในเกมและคู่มือ KvK วันนับคะแนนอิงตามคู่มือปัจจุบัน หากในเกมต่างไป ให้ยึดตามเกมและแจ้งเจ้าหน้าที่ ข้อมูลเก็บไว้ในเบราว์เซอร์ของคุณเท่านั้น",
-   "back": "กลับไปคู่มือ KvK"
+   "back": "กลับไปคู่มือ KvK",
+   "s4": "รายการคะแนน ทีละระดับ",
+   "s4hint": "เครื่องรางเจ้าเมือง สัตว์เลี้ยง และอุปกรณ์ผู้นำค่ายได้คะแนนเมื่ออัปเกรดสำเร็จเท่านั้น วัสดุที่ไม่ถึงเกณฑ์ขั้นถัดไปไม่นับ เพิ่มขั้นที่วางแผนจะอัป ถ้ากรอกวัสดุที่มี จะนับเฉพาะขั้นที่ทำสำเร็จตามลำดับ ผลลัพธ์จะถูกใส่ในช่องด้านบน",
+   "lvFrom": "จาก",
+   "lvTo": "ถึง",
+   "lvCount": "× ชิ้น",
+   "lvHave": "วัสดุที่มี (ไม่บังคับ)",
+   "lvNeed": "ต้องใช้",
+   "lvAdd": "+ เพิ่ม",
+   "lvDone": "อัปเกรดสำเร็จ {n} ครั้ง",
+   "lvStop": "หยุดตรงนี้ — {m} ไม่พอ",
+   "lvScore": "คะแนน",
+   "lvToMust": "→ ใช้แน่นอน",
+   "lvToOpt": "→ ใช้ได้",
+   "lvEst": "Lv.12 ขึ้นไปเป็นค่าประมาณ ยังไม่เห็นในเกม",
+   "lvPetMax": "เลเวลสูงสุดของสัตว์เลี้ยง",
+   "lvGearNote": "รายการในเกมจบที่ตำนาน 3★ ขั้นที่สูงกว่าไม่นับที่นี่",
+   "lvSrc": "ค่าใช้จ่าย: ค่าในเกมตามฐานข้อมูลของผู้เล่น"
   },
   "ar": {
    "title": "مخطط نقاط KvK",
@@ -662,7 +849,24 @@ const KVK_PLAN = {
    "mU": "د",
    "reset": "مسح الكل",
    "foot": "قيم النقاط: شاشة مصادر النقاط في اللعبة ودليل KvK. أيام الاحتساب حسب الدليل الحالي؛ إن اختلفت اللعبة فاعتمد على اللعبة وأبلغ أحد الضباط. البيانات تبقى في متصفحك فقط.",
-   "back": "العودة إلى دليل KvK"
+   "back": "العودة إلى دليل KvK",
+   "s4": "عناصر النقاط، مستوى بمستوى",
+   "s4hint": "تميمة الحاكم والحيوانات الأليفة وعتاد الحاكم لا تمنح نقاطًا إلا عند إتمام الترقية — المواد التي لا تبلغ العتبة التالية لا تُحتسب. أضف الترقيات المخططة؛ وإذا أدخلت ما لديك تُحتسب فقط الترقيات التي يمكن إتمامها بالترتيب. تُنقل النتيجة إلى الحقول أعلاه.",
+   "lvFrom": "من",
+   "lvTo": "إلى",
+   "lvCount": "× قطعة",
+   "lvHave": "ما لديّ (اختياري)",
+   "lvNeed": "المطلوب",
+   "lvAdd": "+ إضافة",
+   "lvDone": "{n} ترقيات مكتملة",
+   "lvStop": "يتوقف هنا — {m} غير كافٍ",
+   "lvScore": "النتيجة",
+   "lvToMust": "→ سأستخدم",
+   "lvToOpt": "→ يمكن استخدامه",
+   "lvEst": "Lv.12 فما فوق: تقدير، لم يُشاهد في اللعبة بعد",
+   "lvPetMax": "الحد الأقصى لمستوى الحيوان",
+   "lvGearNote": "تنتهي قائمة اللعبة عند أسطوري 3★؛ لا تُحتسب الخطوات الأعلى هنا.",
+   "lvSrc": "التكاليف: قيم اللعبة كما سجّلتها قواعد بيانات اللاعبين."
   }
  },
  "items": [
@@ -855,18 +1059,18 @@ const KVK_PLAN = {
    ],
    "pref": 5,
    "n": {
-    "en": "Exclusive Gear Widgets",
-    "zh": "專屬裝備零件",
-    "ko": "전용 장비 부속품",
-    "de": "Exklusive Ausrüstungselemente",
-    "fr": "Composants d'Équipement Exclusif",
-    "pt": "Ferramentas de Equipamento Exclusivo",
-    "tr": "Özel Donanım Aletleri",
-    "id": "Widget Gear Eksklusif",
-    "ru": "Поделки эксклюзивного снаряжения",
-    "th": "อุปกรณ์เสริมอุปกรณ์พิเศษฮีโร่",
-    "ar": "أجزاء العتاد الحصري",
-    "es": "Complementos de Equipo Exclusivo"
+    "en": "Hero Exclusive Gear Widgets",
+    "zh": "英雄專屬裝備零件",
+    "ko": "영웅 전용 장비 부속품",
+    "de": "Elemente von Helden Exklusive Ausrüstung",
+    "fr": "Composants d'Équipement Exclusif de Héros",
+    "pt": "Ferramentas de Equipamento Exclusivo do Herói",
+    "tr": "Kahraman Özel Donanımı Aleti",
+    "id": "Widget dari Gear Ekslusif Hero",
+    "ru": "Поделки эксклюзивного снаряжения героя",
+    "th": "อุปกรณ์เสริมสำหรับอุปกรณ์พิเศษฮีโร่",
+    "ar": "أجزاء عتاد البطل الحصري",
+    "es": "Complementos de Equipo Exclusivo de Héroe"
    }
   },
   {
@@ -906,7 +1110,7 @@ const KVK_PLAN = {
     "en": "Mythic Hero Shards",
     "zh": "傳說英雄碎片",
     "ko": "레전드 영웅 파편",
-    "de": "Mythisches Helden-Fragment",
+    "de": "Mythische Helden Fragmente",
     "fr": "Fragment de Héros Mythique",
     "pt": "Fragmento de Herói Mítico",
     "tr": "Mitik Kahraman Parçası",
@@ -930,7 +1134,7 @@ const KVK_PLAN = {
     "en": "Epic Hero Shards",
     "zh": "史詩英雄碎片",
     "ko": "에픽 영웅 파편",
-    "de": "Episches Helden-Fragment",
+    "de": "Epische Helden Fragmente",
     "fr": "Fragment de Héros Épique",
     "pt": "Fragmento de Herói Épico",
     "tr": "Epik Kahraman Parçası",
@@ -954,7 +1158,7 @@ const KVK_PLAN = {
     "en": "Rare Hero Shards",
     "zh": "稀有英雄碎片",
     "ko": "레어 영웅 파편",
-    "de": "Seltenes Helden-Fragment",
+    "de": "Seltene Helden Fragmente",
     "fr": "Fragment de Héros Rare",
     "pt": "Fragmento de Herói Raro",
     "tr": "Ender Kahraman Parçası",
@@ -1007,11 +1211,11 @@ const KVK_PLAN = {
     "fr": "Emblème d'expert",
     "pt": "Emblema Mestre",
     "tr": "Usta Amblemi",
-    "id": "Master Emblem",
+    "id": "Emblem Master",
     "ru": "Эмблема мастера",
     "th": "ตรามาสเตอร์",
     "ar": "شعار المتخصص",
-    "es": "Emblema de maestro"
+    "es": "Emblema de Maestro"
    }
   },
   {
@@ -1031,7 +1235,7 @@ const KVK_PLAN = {
     "fr": "Manuscrit d'expert",
     "pt": "Manuscrito de Mestre",
     "tr": "Uzmanın El Yazması",
-    "id": "Master's Manuscript",
+    "id": "Manuskrip Master",
     "ru": "Рукопись мастера",
     "th": "ตำรามาสเตอร์",
     "ar": "مخطوطة المتخصص",
@@ -1099,15 +1303,15 @@ const KVK_PLAN = {
    "n": {
     "en": "Pet advancement score",
     "zh": "寵物突破評分",
-    "ko": "펫 돌파 점수",
+    "ko": "펫 돌파 평점",
     "de": "Begleittier-Förderungswert",
     "fr": "Score d'avancement des animaux",
     "pt": "Pontuação de avanço do animal de estimação",
     "tr": "Pet ilerletme puanı",
     "id": "Skor kemajuan hewan peliharaan",
-    "ru": "Очки улучшения питомца",
+    "ru": "Очки за улучшение питомца",
     "th": "คะแนนความก้าวหน้าสัตว์เลี้ยง",
-    "ar": "نقاط تقدم الحيوان الأليف",
+    "ar": "نتيجة تقدم الحيوان الأليف",
     "es": "Puntuación de avance de mascota"
    }
   },
@@ -1125,14 +1329,14 @@ const KVK_PLAN = {
    "n": {
     "en": "Governor Charm score",
     "zh": "領主寶石評分",
-    "ko": "영주 보석 점수",
-    "de": "Gouverneur-Talisman-Wert",
-    "fr": "Score des Talismans du Chef",
-    "pt": "Pontuação do Talismã do Chefe",
-    "tr": "Şef Tılsımı puanı",
+    "ko": "영주 보석 평점",
+    "de": "Gouverneur Talisman Punkte",
+    "fr": "Score du Talisman du Gouverneur",
+    "pt": "Pontuação do Talismã do Governador",
+    "tr": "Vali Tılsımı puanı",
     "id": "Skor Charm Gubernur",
-    "ru": "Очки талисманов губернатора",
-    "th": "คะแนนเครื่องรางผู้นำค่าย",
+    "ru": "Очки за талисман губернатора",
+    "th": "คะแนนเครื่องรางเจ้าเมือง",
     "ar": "نقاط تميمة الحاكم",
     "es": "Puntuación del Talismán del Gobernador"
    }
@@ -1149,16 +1353,16 @@ const KVK_PLAN = {
    "n": {
     "en": "Governor Gear score",
     "zh": "領主裝備評分",
-    "ko": "영주 장비 점수",
-    "de": "Gouverneur-Ausrüstungswert",
-    "fr": "Score d'Équipement Chef",
+    "ko": "영주 장비 평점",
+    "de": "Gouverneur-Ausrüstung Punktezahl",
+    "fr": "Score d'Équipement du Chef",
     "pt": "Pontuação do Equipamento do Chefe",
     "tr": "Şef Donanımı puanı",
     "id": "Skor Gear Gubernur",
-    "ru": "Очки снаряжения губернатора",
+    "ru": "Очки за снаряжение губернатора",
     "th": "คะแนนอุปกรณ์ผู้นำค่าย",
     "ar": "نقاط عتاد الحاكم",
-    "es": "Puntuación del Equipo de gobernador"
+    "es": "Puntuación del Equipo de Líder"
    }
   }
  ],
@@ -1174,5 +1378,991 @@ const KVK_PLAN = {
   45,
   60,
   75
- ]
+ ],
+ "lv": {
+  "mats": {
+   "cd": {
+    "en": "Charm Design",
+    "zh": "寶石圖紙",
+    "ko": "보석 도면",
+    "de": "Talismanpläne",
+    "fr": "Plans de Talisman",
+    "pt": "Design do Talismã",
+    "es": "Planos de talismán",
+    "tr": "Tılsım Tasarımı",
+    "id": "Desain Charm",
+    "ru": "Чертеж талисмана",
+    "th": "แผนเครื่องราง",
+    "ar": "تصميم تميمة"
+   },
+   "cg": {
+    "en": "Charm Guide",
+    "zh": "寶石指南",
+    "ko": "보석 가이드",
+    "de": "Talisman-Anleitung",
+    "fr": "Guide de Talisman",
+    "pt": "Guia do Talismã",
+    "es": "Guía de talismán",
+    "tr": "Tılsım Rehberi",
+    "id": "Panduan Charm",
+    "ru": "Руководство по талисману",
+    "th": "คู่มือเครื่องราง",
+    "ar": "دليل التميمة"
+   },
+   "pf": {
+    "en": "Pet Food",
+    "zh": "寵物口糧",
+    "ko": "펫 먹이",
+    "de": "Begleittier-Futter",
+    "fr": "aliments pour animaux",
+    "pt": "Alimento para Pets",
+    "es": "Comidas para Mascotas",
+    "tr": "Evcil Hayvan Maması",
+    "id": "Makanan Peliharaan",
+    "ru": "корм для животных",
+    "th": "อาหารสัตว์",
+    "ar": "طعام حيوان أليف"
+   },
+   "gm": {
+    "en": "Growth Manual",
+    "zh": "成長手冊",
+    "ko": "성장 매뉴얼",
+    "de": "Wachstumshandbuch",
+    "fr": "Manuel de Croissance",
+    "pt": "Manual de Crescimento",
+    "es": "Manual de crecimiento",
+    "tr": "Büyüme Kılavuzu",
+    "id": "Manual Pertumbuhan",
+    "ru": "Руководство по росту",
+    "th": "คู่มือการเติบโต",
+    "ar": "دليل النمو"
+   },
+   "np": {
+    "en": "Nutrient Potion",
+    "zh": "營養藥水",
+    "ko": "영양 물약",
+    "de": "Nährtrank",
+    "fr": "Potion Nutritive",
+    "pt": "Poção Nutritiva",
+    "es": "Poción nutritiva",
+    "tr": "Besin İksiri",
+    "id": "Ramuan Nutrisi",
+    "ru": "Питательное зелье",
+    "th": "ยาบำรุง",
+    "ar": "جرعة مغذية"
+   },
+   "pm": {
+    "en": "Promotion Medallion",
+    "zh": "晉升勳章",
+    "ko": "승급 메달",
+    "de": "Beförderungsmedaille",
+    "fr": "Médaillon de Promotion",
+    "pt": "Medalhão de Promoção",
+    "es": "Medallón de ascenso",
+    "tr": "Terfi Madalyonu",
+    "id": "Medali Promosi",
+    "ru": "Медальон повышения",
+    "th": "เหรียญเลื่อนขั้น",
+    "ar": "ميدالية الترقية"
+   },
+   "sa": {
+    "en": "Satin",
+    "zh": "進貢綢緞",
+    "ko": "비단",
+    "de": "Satin",
+    "fr": "Satin",
+    "pt": "Cetim",
+    "es": "Satén",
+    "tr": "Saten",
+    "id": "Satin",
+    "ru": "Атлас",
+    "th": "ผ้าซาติน",
+    "ar": "نسيج أطلس"
+   },
+   "gt": {
+    "en": "Gilded Threads",
+    "zh": "金絲線",
+    "ko": "금사",
+    "de": "Vergoldete Fäden",
+    "fr": "Fils Dorés",
+    "pt": "Fios Dourados",
+    "es": "Hilos dorados",
+    "tr": "Yaldızlı İplikler",
+    "id": "Gilded Threads",
+    "ru": "Золоченые нити",
+    "th": "ด้ายทองคำ",
+    "ar": "خيوط مذهبة"
+   },
+   "av": {
+    "en": "Artisan's Vision",
+    "zh": "設計圖紙",
+    "ko": "설계 스케치",
+    "de": "Die Vision des Handwerkers",
+    "fr": "Vision de l'Artisan",
+    "pt": "Visão do Artesão",
+    "es": "Visión del Artesano",
+    "tr": "Zanaatkâr Vizyonu",
+    "id": "Artisan's Vision",
+    "ru": "Ремесленный чертеж",
+    "th": "วิสัยทัศน์ของช่างฝีมือ",
+    "ar": "رؤية الحرفي"
+   }
+  },
+  "charm": {
+   "item": "ch",
+   "mats": [
+    "cg",
+    "cd"
+   ],
+   "steps": [
+    {
+     "n": "Lv.1",
+     "score": 625,
+     "c": [
+      5,
+      5
+     ],
+     "est": false
+    },
+    {
+     "n": "Lv.2",
+     "score": 1250,
+     "c": [
+      40,
+      15
+     ],
+     "est": false
+    },
+    {
+     "n": "Lv.3",
+     "score": 3125,
+     "c": [
+      60,
+      40
+     ],
+     "est": false
+    },
+    {
+     "n": "Lv.4",
+     "score": 8750,
+     "c": [
+      80,
+      100
+     ],
+     "est": false
+    },
+    {
+     "n": "Lv.5",
+     "score": 11250,
+     "c": [
+      100,
+      200
+     ],
+     "est": false
+    },
+    {
+     "n": "Lv.6",
+     "score": 12500,
+     "c": [
+      120,
+      300
+     ],
+     "est": false
+    },
+    {
+     "n": "Lv.7",
+     "score": 12500,
+     "c": [
+      140,
+      400
+     ],
+     "est": false
+    },
+    {
+     "n": "Lv.8",
+     "score": 13000,
+     "c": [
+      200,
+      400
+     ],
+     "est": false
+    },
+    {
+     "n": "Lv.9",
+     "score": 14000,
+     "c": [
+      300,
+      400
+     ],
+     "est": false
+    },
+    {
+     "n": "Lv.10",
+     "score": 15000,
+     "c": [
+      420,
+      420
+     ],
+     "est": false
+    },
+    {
+     "n": "Lv.11",
+     "score": 16000,
+     "c": [
+      560,
+      420
+     ],
+     "est": false
+    },
+    {
+     "n": "Lv.12",
+     "score": 18000,
+     "c": [
+      580,
+      600
+     ],
+     "est": true
+    },
+    {
+     "n": "Lv.13",
+     "score": 21000,
+     "c": [
+      610,
+      780
+     ],
+     "est": true
+    },
+    {
+     "n": "Lv.14",
+     "score": 24000,
+     "c": [
+      645,
+      960
+     ],
+     "est": true
+    },
+    {
+     "n": "Lv.15",
+     "score": 27000,
+     "c": [
+      685,
+      1140
+     ],
+     "est": true
+    },
+    {
+     "n": "Lv.16",
+     "score": 30000,
+     "c": [
+      730,
+      1320
+     ],
+     "est": true
+    },
+    {
+     "n": "Lv.17",
+     "score": 33000,
+     "c": [
+      780,
+      1500
+     ],
+     "est": true
+    },
+    {
+     "n": "Lv.18",
+     "score": 36000,
+     "c": [
+      835,
+      1680
+     ],
+     "est": true
+    },
+    {
+     "n": "Lv.19",
+     "score": 39000,
+     "c": [
+      895,
+      1860
+     ],
+     "est": true
+    },
+    {
+     "n": "Lv.20",
+     "score": 42000,
+     "c": [
+      960,
+      2040
+     ],
+     "est": true
+    },
+    {
+     "n": "Lv.21",
+     "score": 45000,
+     "c": [
+      1030,
+      2220
+     ],
+     "est": true
+    }
+   ]
+  },
+  "pet": {
+   "item": "pa",
+   "mats": [
+    "pf",
+    "gm",
+    "np",
+    "pm"
+   ],
+   "groups": [
+    {
+     "max": 50,
+     "steps": [
+      {
+       "n": "Lv.10",
+       "score": 500,
+       "c": [
+        1715,
+        15,
+        0,
+        0
+       ]
+      },
+      {
+       "n": "Lv.20",
+       "score": 1000,
+       "c": [
+        3180,
+        30,
+        0,
+        0
+       ]
+      },
+      {
+       "n": "Lv.30",
+       "score": 2000,
+       "c": [
+        5010,
+        45,
+        10,
+        0
+       ]
+      },
+      {
+       "n": "Lv.40",
+       "score": 3000,
+       "c": [
+        7660,
+        60,
+        20,
+        0
+       ]
+      },
+      {
+       "n": "Lv.50",
+       "score": 4500,
+       "c": [
+        11300,
+        90,
+        30,
+        10
+       ]
+      }
+     ]
+    },
+    {
+     "max": 60,
+     "steps": [
+      {
+       "n": "Lv.10",
+       "score": 500,
+       "c": [
+        2530,
+        20,
+        0,
+        0
+       ]
+      },
+      {
+       "n": "Lv.20",
+       "score": 1000,
+       "c": [
+        5360,
+        40,
+        0,
+        0
+       ]
+      },
+      {
+       "n": "Lv.30",
+       "score": 2000,
+       "c": [
+        9020,
+        60,
+        10,
+        0
+       ]
+      },
+      {
+       "n": "Lv.40",
+       "score": 3000,
+       "c": [
+        14320,
+        90,
+        20,
+        0
+       ]
+      },
+      {
+       "n": "Lv.50",
+       "score": 4500,
+       "c": [
+        21620,
+        130,
+        20,
+        10
+       ]
+      },
+      {
+       "n": "Lv.60",
+       "score": 6750,
+       "c": [
+        30920,
+        175,
+        50,
+        20
+       ]
+      }
+     ]
+    },
+    {
+     "max": 70,
+     "steps": [
+      {
+       "n": "Lv.10",
+       "score": 500,
+       "c": [
+        3795,
+        25,
+        0,
+        0
+       ]
+      },
+      {
+       "n": "Lv.20",
+       "score": 1000,
+       "c": [
+        8040,
+        50,
+        0,
+        0
+       ]
+      },
+      {
+       "n": "Lv.30",
+       "score": 2000,
+       "c": [
+        13530,
+        75,
+        10,
+        0
+       ]
+      },
+      {
+       "n": "Lv.40",
+       "score": 3000,
+       "c": [
+        21480,
+        100,
+        20,
+        0
+       ]
+      },
+      {
+       "n": "Lv.50",
+       "score": 4500,
+       "c": [
+        32430,
+        155,
+        30,
+        10
+       ]
+      },
+      {
+       "n": "Lv.60",
+       "score": 6750,
+       "c": [
+        46380,
+        200,
+        50,
+        20
+       ]
+      },
+      {
+       "n": "Lv.70",
+       "score": 10000,
+       "c": [
+        63300,
+        255,
+        80,
+        40
+       ]
+      }
+     ]
+    },
+    {
+     "max": 80,
+     "steps": [
+      {
+       "n": "Lv.10",
+       "score": 500,
+       "c": [
+        5060,
+        30,
+        0,
+        0
+       ]
+      },
+      {
+       "n": "Lv.20",
+       "score": 1000,
+       "c": [
+        10720,
+        60,
+        0,
+        0
+       ]
+      },
+      {
+       "n": "Lv.30",
+       "score": 2000,
+       "c": [
+        18040,
+        95,
+        10,
+        0
+       ]
+      },
+      {
+       "n": "Lv.40",
+       "score": 3000,
+       "c": [
+        28640,
+        125,
+        20,
+        0
+       ]
+      },
+      {
+       "n": "Lv.50",
+       "score": 4500,
+       "c": [
+        43240,
+        190,
+        30,
+        10
+       ]
+      },
+      {
+       "n": "Lv.60",
+       "score": 6750,
+       "c": [
+        61840,
+        250,
+        50,
+        20
+       ]
+      },
+      {
+       "n": "Lv.70",
+       "score": 10000,
+       "c": [
+        84400,
+        310,
+        80,
+        40
+       ]
+      },
+      {
+       "n": "Lv.80",
+       "score": 12000,
+       "c": [
+        108480,
+        380,
+        100,
+        60
+       ]
+      }
+     ]
+    },
+    {
+     "max": 100,
+     "steps": [
+      {
+       "n": "Lv.10",
+       "score": 500,
+       "c": [
+        6325,
+        35,
+        0,
+        0
+       ]
+      },
+      {
+       "n": "Lv.20",
+       "score": 1000,
+       "c": [
+        13400,
+        70,
+        0,
+        0
+       ]
+      },
+      {
+       "n": "Lv.30",
+       "score": 2000,
+       "c": [
+        22550,
+        110,
+        15,
+        0
+       ]
+      },
+      {
+       "n": "Lv.40",
+       "score": 3000,
+       "c": [
+        35800,
+        145,
+        35,
+        0
+       ]
+      },
+      {
+       "n": "Lv.50",
+       "score": 4500,
+       "c": [
+        54050,
+        220,
+        50,
+        10
+       ]
+      },
+      {
+       "n": "Lv.60",
+       "score": 6750,
+       "c": [
+        77300,
+        290,
+        65,
+        20
+       ]
+      },
+      {
+       "n": "Lv.70",
+       "score": 10000,
+       "c": [
+        105500,
+        365,
+        85,
+        40
+       ]
+      },
+      {
+       "n": "Lv.80",
+       "score": 12000,
+       "c": [
+        135600,
+        440,
+        100,
+        60
+       ]
+      },
+      {
+       "n": "Lv.90",
+       "score": 14500,
+       "c": [
+        172000,
+        585,
+        115,
+        80
+       ]
+      },
+      {
+       "n": "Lv.100",
+       "score": 17500,
+       "c": [
+        212100,
+        730,
+        135,
+        100
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "gear": {
+   "item": "gg",
+   "mats": [
+    "sa",
+    "gt",
+    "av"
+   ],
+   "q": {
+    "g": {
+     "en": "Uncommon",
+     "zh": "良好",
+     "ko": "고급",
+     "de": "Ungewöhnlich",
+     "fr": "Peu commun",
+     "pt": "Incomum",
+     "es": "Poco común",
+     "tr": "Sıra dışı",
+     "id": "Uncommon",
+     "ru": "Необычное",
+     "th": "ไม่ธรรมดา",
+     "ar": "غير شائع"
+    },
+    "b": {
+     "en": "Rare",
+     "zh": "稀有",
+     "ko": "레어",
+     "de": "Selten",
+     "fr": "Rare",
+     "pt": "Raro",
+     "es": "Raro",
+     "tr": "Ender",
+     "id": "Rare",
+     "ru": "Редкое",
+     "th": "หายาก",
+     "ar": "نادر"
+    },
+    "p": {
+     "en": "Epic",
+     "zh": "史詩",
+     "ko": "에픽",
+     "de": "Episch",
+     "fr": "Épique",
+     "pt": "Épico",
+     "es": "Épico",
+     "tr": "Epik",
+     "id": "Epic",
+     "ru": "Великое",
+     "th": "มหากาพย์",
+     "ar": "ملحمي"
+    },
+    "p1": {
+     "en": "Epic T1",
+     "zh": "史詩T1",
+     "ko": "에픽 T1",
+     "de": "Episch T1",
+     "fr": "Épique T1",
+     "pt": "Épico T1",
+     "es": "Épico T1",
+     "tr": "Epik T1",
+     "id": "Epic T1",
+     "ru": "Великое T1",
+     "th": "มหากาพย์ T1",
+     "ar": "ملحمي T1"
+    },
+    "y": {
+     "en": "Legendary",
+     "zh": "傳說",
+     "ko": "레전드",
+     "de": "Legendär",
+     "fr": "Légendaire",
+     "pt": "Lendário",
+     "es": "Legendario",
+     "tr": "Efsanevi",
+     "id": "Legendary",
+     "ru": "Легендарное",
+     "th": "ตำนาน",
+     "ar": "أسطوري"
+    }
+   },
+   "steps": [
+    {
+     "q": "g",
+     "st": 0,
+     "score": 1125,
+     "c": [
+      1500,
+      15,
+      0
+     ]
+    },
+    {
+     "q": "g",
+     "st": 1,
+     "score": 1875,
+     "c": [
+      3800,
+      40,
+      0
+     ]
+    },
+    {
+     "q": "b",
+     "st": 0,
+     "score": 3000,
+     "c": [
+      7000,
+      70,
+      0
+     ]
+    },
+    {
+     "q": "b",
+     "st": 1,
+     "score": 4500,
+     "c": [
+      9700,
+      95,
+      0
+     ]
+    },
+    {
+     "q": "b",
+     "st": 2,
+     "score": 5100,
+     "c": [
+      1000,
+      10,
+      45
+     ]
+    },
+    {
+     "q": "b",
+     "st": 3,
+     "score": 5440,
+     "c": [
+      1000,
+      10,
+      50
+     ]
+    },
+    {
+     "q": "p",
+     "st": 0,
+     "score": 3230,
+     "c": [
+      1500,
+      15,
+      60
+     ]
+    },
+    {
+     "q": "p",
+     "st": 1,
+     "score": 3230,
+     "c": [
+      1500,
+      15,
+      70
+     ]
+    },
+    {
+     "q": "p",
+     "st": 2,
+     "score": 3225,
+     "c": [
+      6500,
+      65,
+      40
+     ]
+    },
+    {
+     "q": "p",
+     "st": 3,
+     "score": 3225,
+     "c": [
+      8000,
+      80,
+      50
+     ]
+    },
+    {
+     "q": "p1",
+     "st": 0,
+     "score": 3440,
+     "c": [
+      10000,
+      95,
+      60
+     ]
+    },
+    {
+     "q": "p1",
+     "st": 1,
+     "score": 3440,
+     "c": [
+      11000,
+      110,
+      70
+     ]
+    },
+    {
+     "q": "p1",
+     "st": 2,
+     "score": 4085,
+     "c": [
+      13000,
+      130,
+      85
+     ]
+    },
+    {
+     "q": "p1",
+     "st": 3,
+     "score": 4085,
+     "c": [
+      15000,
+      160,
+      100
+     ]
+    },
+    {
+     "q": "y",
+     "st": 0,
+     "score": 6250,
+     "c": [
+      22000,
+      220,
+      40
+     ]
+    },
+    {
+     "q": "y",
+     "st": 1,
+     "score": 6250,
+     "c": [
+      23000,
+      230,
+      40
+     ]
+    },
+    {
+     "q": "y",
+     "st": 2,
+     "score": 6250,
+     "c": [
+      25000,
+      250,
+      45
+     ]
+    },
+    {
+     "q": "y",
+     "st": 3,
+     "score": 6250,
+     "c": [
+      26000,
+      260,
+      45
+     ]
+    }
+   ]
+  }
+ }
 };
