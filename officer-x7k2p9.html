@@ -114,6 +114,9 @@
   #pg-events .ev.start { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 20%, var(--panel)); font-weight: 700; }
   #pg-events .ev .n { font-size: 11px; color: var(--text-muted); }
   #pg-events .none { color: var(--text-muted); font-size: 13px; }
+  #pg-events .task { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; border-top: 1px solid var(--rule); }
+  #pg-events .task.done { opacity: .55; text-decoration: line-through; }
+  #pg-events .task input { width: 20px; height: 20px; margin-top: 2px; flex: none; }
   #pg-events .todo { display: flex; gap: 10px; align-items: flex-start; padding: 10px; border-radius: 10px; background: var(--panel-2); margin: 8px 0; }
   #pg-events .todo input { width: 20px; height: 20px; margin-top: 2px; flex: none; }
   #pg-events .todo.done .txt { opacity: .55; text-decoration: line-through; }
@@ -1320,27 +1323,34 @@ function render() {
   $("days").innerHTML = html;
   // action items: for events that start this week (even if the prep is due a bit earlier),
   // plus prep that is due this week for events starting next week
-  const items = [];
+  const items = [], seen = {};
   for (const r of runs(ws, we + 7 * DAY)) for (const [i, td] of ((byId(r.k) || {}).todo || []).entries()) {
     const due = r.st + (Number(td.due) || 0) * DAY;
     if (due < today) continue;   // past due → no longer listed
     const startsThisWeek = r.st >= ws && r.st < we, dueThisWeek = due >= ws && due < we;
-    if (startsThisWeek || dueThisWeek) items.push({ r, td, due, id: `${r.k}-${isoDay(r.st)}-${i}` });
+    if (!(startsThisWeek || dueThisWeek)) continue;
+    const key = `${r.k}-${i}`;
+    if (seen[key]) { seen[key].more.push(r); continue; }          // same event again this week (e.g. Bear Hunt) → one item, extra dates listed
+    items.push(seen[key] = { r, td, due, id: `${r.k}-${isoDay(r.st)}-${i}`, more: [] });
   }
   items.sort((a, b) => a.due - b.due);
   store.done = store.done || {};
-  $("todos").innerHTML = items.length ? items.map(({ r, td, due, id }) => { const e = byId(r.k) || {};
-    return `<label class="todo${store.done[id] ? " done" : ""}">
-      <input type="checkbox" data-id="${esc(id)}" ${store.done[id] ? "checked" : ""}>
-      <div>
-        <div class="txt"><b>${esc(evName(r.k))}</b> — ${localTimes(esc(txt(td)), lang)}</div>
-        <div class="when">⏰ ${esc(fmt(due))}${due < today && !store.done[id] ? ` <b class="warn">${esc(tr("late"))}</b>` : ""} · ${esc(tr("runs", { a: fmt(r.st), b: fmt(r.en - DAY), n: r.days }))}</div>
-        <div class="acts">${td.post ? `<a class="btn small" href="#post">${esc(tr("toPost"))}</a>` : ""}${td.ranking ? `<a class="btn small" href="#ranking">${esc(tr("toRanking"))}</a>` : ""}${e.guide ? `<a class="btn small" href="./#/${lang === "zh" ? "zh" : "en"}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}${(e.ingame || []).length ? `<button type="button" class="btn small" data-open="${esc(r.k)}">📋 ${esc(tr("fIngame"))}</button>` : ""}</div>
+  // one card per event (this week's run); its tasks are listed inside, each with its own checkbox
+  const groups = [];
+  for (const it of items) { let g = groups.find((x) => x.r.k === it.r.k && x.r.st === it.r.st); if (!g) groups.push(g = { r: it.r, more: it.more, list: [] }); g.list.push(it); }
+  $("todos").innerHTML = groups.length ? groups.map(({ r, more, list }) => { const e = byId(r.k) || {};
+    const allDone = list.every((it) => store.done[it.id]);
+    return `<div class="todo${allDone ? " done" : ""}">
+      <div style="flex:1;min-width:0">
+        <div class="txt"><b>${esc(evName(r.k))}</b> <span class="when">· ${esc(tr("runs", { a: fmt(r.st), b: fmt(r.en - DAY), n: r.days }))}${more.length ? ` · ${esc(more.map((m) => fmt(m.st)).join(", "))}` : ""}</span></div>
+        ${list.map(({ td, due, id }) => `<label class="task${store.done[id] ? " done" : ""}"><input type="checkbox" data-id="${esc(id)}" ${store.done[id] ? "checked" : ""}><div><div>${localTimes(esc(txt(td)), lang)}</div><div class="when">⏰ ${esc(fmt(due))}${due < today && !store.done[id] ? ` <b class="warn">${esc(tr("late"))}</b>` : ""}</div></div></label>`).join("")}
+        <div class="acts">${list.some((x) => x.td.post) ? `<a class="btn small" href="#post">${esc(tr("toPost"))}</a>` : ""}${list.some((x) => x.td.ranking) ? `<a class="btn small" href="#ranking">${esc(tr("toRanking"))}</a>` : ""}${e.guide ? `<a class="btn small" href="./#/${lang === "zh" ? "zh" : "en"}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}${(e.ingame || []).length ? `<button type="button" class="btn small" data-open="${esc(r.k)}">📋 ${esc(tr("fIngame"))}</button>` : ""}</div>
       </div>
-    </label>`; }).join("") : `<div class="none">${esc(tr("noTodo"))}</div>`;
+    </div>`; }).join("") : `<div class="none">${esc(tr("noTodo"))}</div>`;
   $("todos").querySelectorAll("input[type=checkbox]").forEach((cb) => cb.onchange = () => {
     if (cb.checked) store.done[cb.dataset.id] = 1; else delete store.done[cb.dataset.id];
-    save(); cb.closest(".todo").classList.toggle("done", cb.checked);
+    save(); cb.closest(".task").classList.toggle("done", cb.checked);
+    const card = cb.closest(".todo"); card.classList.toggle("done", [...card.querySelectorAll("input[type=checkbox]")].every((x) => x.checked));
   });
   renderList();
 }
@@ -1353,7 +1363,8 @@ function schedText(e) {
 const noteOf = (e) => (lang === "zh" ? e.noteZh || e.note : e.note || e.noteZh) || "";
 function renderList() {
   const open = new Set([...ROOT.querySelectorAll(".evrow[open]")].map((d) => d.dataset.id));
-  $("evList").innerHTML = LIST.map((e) => `
+  const ordered = [...LIST.filter((e) => e.id === "alliance-rules"), ...LIST.filter((e) => e.id !== "alliance-rules")];
+  $("evList").innerHTML = ordered.map((e) => `
     <details class="evrow" data-id="${esc(e.id)}"${open.has(e.id) ? " open" : ""}>
       <summary><span><b>${esc(evName(e.id))}</b><br><span class="sched">${esc(schedText(e))}${noteOf(e) ? " · " + localTimes(esc(noteOf(e)), lang) : ""}</span></span>
         <span class="muted">${(e.ingame || []).length ? "📋 " + (e.ingame || []).length : ""}</span></summary>
