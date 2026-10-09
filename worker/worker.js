@@ -11,7 +11,7 @@
    Officers:  also roster / watch data. "Officer" = proves the officer password (it opens data/data-key.json),
               checked here with a hash of the DATA_KEY secret. */
 
-const VERSION = "2026-10-09a (views tab)";
+const VERSION = "2026-10-09b (views tab)";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -389,9 +389,10 @@ async function stats(body, env) {
     return r.json();
   };
   try {
-    const [total, hits, locations, toprefs, systems, browsers] = await Promise.all([
-      get("total"), get("hits?limit=100&group=day"), get("locations?limit=15"), get("toprefs?limit=15"), get("systems?limit=10"), get("browsers?limit=10")]);
-    const data = { days, at: Date.now(), total, hits: hits.hits, locations: locations.stats, toprefs: toprefs.stats, systems: systems.stats, browsers: browsers.stats };
+    const soft = (p) => get(p).catch(() => null);       // the breakdown pages may be missing on some sites → leave them empty
+    const [total, hits, locations, toprefs, systems] = await Promise.all([
+      get("total"), get("hits?limit=100&group=day"), soft("locations?limit=15"), soft("toprefs?limit=15"), soft("systems?limit=10")]);
+    const data = { days, at: Date.now(), total, hits: hits.hits, locations: locations?.stats || [], toprefs: toprefs?.stats || [], systems: systems?.stats || [] };
     statsCache[days] = { data, at: Date.now() };
     return json(data);
   } catch (e) { return json({ error: "goatcounter", detail: String(e.message || e) }, 502); }
