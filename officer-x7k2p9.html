@@ -94,7 +94,8 @@
   @media (max-width: 440px) {
   #pg-events .tabs { gap: 0; flex-wrap: nowrap; overflow-x: auto; }
   #pg-events .tabs a { padding: 8px 6px; font-size: 13px; white-space: nowrap; } }
-  #pg-events .weeknav { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  #pg-events .weeknav { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+  #pg-events .weeknav .lbl { flex: 1; text-align: right; font-weight: 400; font-size: 13px; color: var(--text-muted); }
   #pg-events .weeknav .lbl { font-weight: 700; text-align: center; flex: 1; }
   #pg-events .cal-scroll { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
   #pg-events .cal-grid { display: grid; grid-template-columns: repeat(var(--n), var(--w)); gap: 4px 0; width: max-content; }
@@ -418,16 +419,12 @@
     </div>
 
     <div class="card">
-      <div class="weeknav">
-        <button class="btn" id="prevW">◀</button>
-        <div class="lbl" id="weekLbl"></div>
-        <button class="btn" id="nextW">▶</button>
-      </div>
-      <div class="row" style="justify-content:center;margin-top:6px"><button class="btn small" id="thisW" data-t="thisWeek"></button></div>
-    </div>
-
-    <div class="card">
       <h2 data-t="todoTitle"></h2>
+      <div class="weeknav">
+        <button class="btn" id="thisW" data-t="thisWeek"></button>
+        <button class="btn" id="nextW" data-t="nextWeek"></button>
+        <div class="lbl" id="weekLbl"></div>
+      </div>
       <div id="todos"></div>
       <div class="muted msg" data-t="todoNote"></div>
     </div>
@@ -1145,7 +1142,7 @@ const EXTRA_EVENTS = [
 const T = {
   en: {
     title: "NXS Events", sub: "Events this week, and what officers need to schedule.", home: "Home",
-    thisWeek: "Back to this week", todoTitle: "✅ Action items", weekTitle: "📅 Events", late: "overdue", calNote: "Scroll sideways. Filled = running now · ✅ = has something to do (tap → its action items) · others open their entry below.", today: "today",
+    thisWeek: "This week", nextWeek: "Next week", todoTitle: "✅ Action items", weekTitle: "📅 Events", late: "overdue", calNote: "Scroll sideways. Filled = running now · ✅ = has something to do (tap → its action items) · others open their entry below.", today: "today",
     todoNote: "Ticks are saved on this device only.",
     note: "Dates come from the event schedule on the site. Game days start at 00:00 UTC. If the in-game calendar differs, the game is right.",
     noTodo: "Nothing to schedule this week 🎉", none: "—", day: "Day {n}/{t}", starts: "starts", ends: "last day",
@@ -1173,7 +1170,7 @@ const T = {
   },
   zh: {
     title: "NXS 活動排程", sub: "這週有哪些活動，以及幹部要安排的事。", home: "回主頁",
-    thisWeek: "回到這週", todoTitle: "✅ 待辦事項", weekTitle: "📅 活動", late: "已過期", calNote: "左右捲動。實心＝進行中 · ✅＝有待辦（點了跳到待辦事項）· 其他點了跳到下面的活動說明。", today: "今天",
+    thisWeek: "本週", nextWeek: "下週", todoTitle: "✅ 待辦事項", weekTitle: "📅 活動", late: "已過期", calNote: "左右捲動。實心＝進行中 · ✅＝有待辦（點了跳到待辦事項）· 其他點了跳到下面的活動說明。", today: "今天",
     todoNote: "勾選只存在這台裝置上。",
     note: "日期依網站上的活動排程推算。遊戲每天 UTC 00:00 換日。如果跟遊戲內行事曆不同，以遊戲為準。",
     noTodo: "這週沒有需要排時間的活動 🎉", none: "—", day: "第 {n}/{t} 天", starts: "開始", ends: "最後一天",
@@ -1323,6 +1320,7 @@ function runs(from, to) {
 function render() {
   const ws = weekStart, we = ws + 7 * DAY, today = utcDay(Date.now());
   $("weekLbl").textContent = tr("week", { a: fmt(ws), b: fmt(we - DAY) });
+  $("thisW").classList.toggle("primary", ws === mondayOf(Date.now())); $("nextW").classList.toggle("primary", ws === mondayOf(Date.now()) + 7 * DAY);
   // action items: for events that start this week (even if the prep is due a bit earlier),
   // plus prep that is due this week for events starting next week
   const items = [], seen = {};
@@ -1353,6 +1351,7 @@ function render() {
     if (cb.checked) store.done[cb.dataset.id] = 1; else delete store.done[cb.dataset.id];
     save(); cb.closest(".task").classList.toggle("done", cb.checked);
     const card = cb.closest(".todo"); card.classList.toggle("done", [...card.querySelectorAll("input[type=checkbox]")].every((x) => x.checked));
+    renderCal();
   });
   renderList();
   renderCal();
@@ -1369,7 +1368,8 @@ function renderCal() {
   for (let i = 0; i < n; i++) { const d = from + i * DAY, dt = new Date(d), wd = (dt.getUTCDay() + 6) % 7;
     head += `<div class="cd${d === today ? " today" : ""}${wd === 0 ? " mon" : ""}">${dt.getUTCDate() === 1 || i === 0 ? `<em>${dt.getUTCMonth() + 1}/</em>` : ""}${esc(tr("wd")[wd])}<small>${dt.getUTCDate()}</small></div>`; }
   // pack runs into lanes: a run goes into the first lane that is free at its start, so one event's weekly runs share a lane
-  const openTodo = (r) => ((byId(r.k) || {}).todo || []).some((td, i) => { const due = r.st + (Number(td.due) || 0) * DAY; return due >= today && !(store.done || {})[`${r.k}-${isoDay(r.st)}-${i}`]; });
+  // ✅ only for runs whose to-do is listed in the week shown below (this week, or next week when that is selected)
+  const openTodo = (r) => !!ROOT.querySelector(`.todo[data-ev="${CSS.escape(r.k)}"][data-st="${r.st}"]:not(.done)`);
   const lanes = [];
   for (const r of runs(from, to)) { const a = col(r.st), b = Math.max(a + 1, col(r.en));
     let L = lanes.find((l) => l.end <= a && (l.k === r.k || !lanes.some((o) => o.k === r.k && o.end <= a)));
@@ -1384,11 +1384,7 @@ function renderCal() {
   cal.querySelectorAll("[data-cal]").forEach((b) => b.onclick = () => {
     const id = b.dataset.cal, st = Number(b.dataset.st);
     if (b.dataset.todo === "1") {
-      // show the week that lists this run's to-do (a to-do can be due the week before the event starts), then jump to its card
-      const sel = `.todo[data-ev="${CSS.escape(id)}"][data-st="${st}"]`;
-      let card = ROOT.querySelector(sel);
-      if (!card) { weekStart = mondayOf(st); render(); card = ROOT.querySelector(sel); }
-      if (!card) { const e = byId(id) || {}; const due = Math.min(...(e.todo || []).map((td) => st + (Number(td.due) || 0) * DAY)); if (isFinite(due)) { weekStart = mondayOf(due); render(); card = ROOT.querySelector(sel); } }
+      const card = ROOT.querySelector(`.todo[data-ev="${CSS.escape(id)}"][data-st="${st}"]`);
       if (card) { card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash"); card.scrollIntoView({ behavior: "smooth", block: "center" }); return; }
     }
     openEvent(id);
@@ -1576,9 +1572,8 @@ function applyTexts() {
   ROOT.querySelectorAll("[data-t]").forEach((el) => { const v = tr(el.dataset.t); if (/UTC/.test(v)) el.innerHTML = localTimes(esc(v), lang); else el.textContent = v; });
 }
 function setLang(l) { lang = l; store.lang = lang; save(); applyTexts(); if (LIST) render(); };
-$("prevW").onclick = () => { weekStart -= 7 * DAY; render(); };
-$("nextW").onclick = () => { weekStart += 7 * DAY; render(); };
-$("thisW").onclick = () => { weekStart = defaultWeek(); render(); };
+$("nextW").onclick = () => { weekStart = mondayOf(Date.now()) + 7 * DAY; render(); };
+$("thisW").onclick = () => { weekStart = mondayOf(Date.now()); render(); };
 $("addEv").onclick = () => openEditor(null);
 // On Sunday, open on next week (that's when the weekly planning happens)
 function defaultWeek() { const now = Date.now(); const m = mondayOf(now); return new Date(utcDay(now)).getUTCDay() === 0 ? m + 7 * DAY : m; }
