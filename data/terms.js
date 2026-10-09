@@ -983,6 +983,8 @@ const TERMS = [
    ["Advance", "突破", "돌파", "Fortschreiten", "Avancer", "Avançar", "İlerlet", "Tingkatkan", "Улучшить", "เพิ่มความก้าวหน้า", "تقدم", "Avanzar", "Pet page button at a level cap. ID/RU use the same word as Upgrade."],
    ["Refine", "洗煉", "단련", "Veredeln", "Affiner", "Refinar", "Geliştir", "Sempurnakan", "Соверш.", "ปรับแต่ง", "تحسين", "Refinar", "Pet page tab. RU abbreviated."],
    ["X Overall Stats", "X總屬性", "X 총 속성", "X Gesamtwerte", "Stats Globales : X", "Atributos Gerais do(a) X", "Genel X Nitelikleri", "Stats Keseluruhan X", "Общие показатели: X", "ค่าสถานะโดยรวมของX", "إحصائيات X الشاملة", "X Atributos generales", "Pet stats pop-up title (X = pet name)."],
+   ["Growth Manual", "培育手冊", "육성 수첩", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Backpack › Other. Used for pet advancement (寵物潛能突破)."],
+   ["Nutrient Potion", "營養藥劑", "영양제", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Backpack › Other. Used for pet advancement."],
    ["Pet Food", "寵物口糧", "펫 먹이", "Begleittier-Futter", "aliments pour animaux", "Alimento para Pets", "Evcil Hayvan Maması", "Makanan Peliharaan", "корм для животных", "อาหารสัตว์", "طعام حيوان أليف", "Comidas para Mascotas", "Seen in Scent Mastery text. ES plural."],
    ["Infantry Lethality", "步兵殺傷力", "보병 파괴력", "Infanterie-Tödlichkeit", "Létalité de l'Infant.", "Letalidade da Infantaria", "Piyade Öldürücülüğü", "Letalitas Infanteri", "Смертоносность пехоты", "ความแรงพลังทหารราบ", "قوة فتك المشاة", "Letalidad de Infantería", "Pet stat. FR abbreviated."],
    ["Infantry Health", "步兵生命值", "보병 HP", "Infanterie-Gesundheit", "Santé de l'Infant.", "Vida da Infantaria", "Piyade Sağlığı", "Nyawa Infanteri", "Здоровье пехоты", "พลังชีวิตทหารราบ", "صحة المشاة", "Salud de Infantería", "Pet stat."],

@@ -1413,8 +1413,8 @@ const KVK_PLAN = {
    },
    "gm": {
     "en": "Growth Manual",
-    "zh": "成長手冊",
-    "ko": "성장 매뉴얼",
+    "zh": "培育手冊",
+    "ko": "육성 수첩",
     "de": "Wachstumshandbuch",
     "fr": "Manuel de Croissance",
     "pt": "Manual de Crescimento",
@@ -1427,8 +1427,8 @@ const KVK_PLAN = {
    },
    "np": {
     "en": "Nutrient Potion",
-    "zh": "營養藥水",
-    "ko": "영양 물약",
+    "zh": "營養藥劑",
+    "ko": "영양제",
     "de": "Nährtrank",
     "fr": "Potion Nutritive",
     "pt": "Poção Nutritiva",
