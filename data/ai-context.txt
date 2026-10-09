@@ -987,8 +987,8 @@ Point values: the in-game Points Sources screen and the KvK guide. Scoring days 
 ### BOOKING GUIDE — page "How to book Chief Minister / Noble Advisor" (booking-guide.html?lang=en#pm or #adv), a public page opened from the "How to book" buttons in the KvK checklist pop-up. Has annotated screenshots.
 Both are 30-minute king's appointments you can book ahead of time. Book the Chief Minister for the moment you spend Truegold / speedups, and the Noble Advisor for your big troop training.
 Chief Minister: Construction / Research / Training speed +10%. Noble Advisor: Training speed +50%, Training capacity +200.
-Steps: 1. On the city screen tap Events (top right). 2. Pick the Castle Battle tab (the castle icon). 3. Tap Details next to Appointment. 4. In the Ministers tab, tap the position you want. 5. Pick a time slot and tap the button on the right to book it. The times are in your phone's local time. To cancel, open the same window again.
-Tips: one booking per position at a time; the slot list uses your phone's local time, so match it against the UTC times in the guides. Each slot shows how many players already applied.
+Steps: 1. On the city screen tap Events (top right). 2. Pick the Castle Battle tab (the castle icon). 3. Tap Details next to Appointment. 4. In the Ministers tab, tap the position you want. 5. Pick a time slot and tap the button on the right to book it. The list shows your phone's local time; the small button next to the date switches it between local time and UTC. To cancel, open the same window again.
+Tips: one booking per position at a time. Each slot shows how many players already applied.
 
 ### SQUAD GUIDE — page "How to save a Formation" (squad-guide.html?lang=en), a public page linked from the Formations & Rally Tips guide (guide #formations-rally-tips) right after the recommended presets list; the Bear Hunt guide's joiner rules link to that guide. Annotated screenshots.
 Officers often ask for a fixed squad — either an exact troop count (e.g. “exactly 90,000”) or a ratio (e.g. “50 / 25 / 25”). Save it as a Formation once, then just pick that slot when you march or join a rally.
