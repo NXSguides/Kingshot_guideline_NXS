@@ -193,18 +193,18 @@ const BOOKING_GUIDE = {
     "ar": "في تبويب الوزراء اضغط على المنصب الذي تريده."
    },
    {
-    "en": "Pick a time slot (shown in your local time) and tap the button. Done — you can cancel from the same window.",
-    "zh": "選一個時段（顯示的是你的當地時間）按右邊的按鈕。完成——同一個視窗也能取消預約。",
-    "ko": "시간대(내 현지 시간 기준)를 고르고 버튼을 누릅니다. 완료 — 같은 창에서 취소할 수 있습니다.",
-    "de": "Wähle ein Zeitfenster (in deiner Ortszeit) und tippe auf den Button. Fertig – im selben Fenster kannst du stornieren.",
-    "fr": "Choisissez un créneau (affiché dans votre heure locale) et touchez le bouton. C'est fait — l'annulation se fait dans la même fenêtre.",
-    "pt": "Escolha um horário (na sua hora local) e toque no botão. Pronto — dá para cancelar na mesma janela.",
-    "es": "Elige una franja (en tu hora local) y toca el botón. Listo — puedes cancelar desde la misma ventana.",
-    "tr": "Bir saat dilimi seç (yerel saatinle gösterilir) ve düğmeye dokun. Tamam — aynı pencereden iptal edebilirsin.",
-    "id": "Pilih slot waktu (ditampilkan dalam waktu lokalmu) lalu ketuk tombolnya. Selesai — bisa dibatalkan di jendela yang sama.",
-    "ru": "Выберите время (показано по вашему местному) и нажмите кнопку. Готово — отменить можно в том же окне.",
-    "th": "เลือกช่วงเวลา (แสดงเป็นเวลาท้องถิ่นของคุณ) แล้วแตะปุ่ม เสร็จแล้ว ยกเลิกได้จากหน้าต่างเดียวกัน",
-    "ar": "اختر فترة زمنية (بتوقيتك المحلي) واضغط الزر. تم — يمكنك الإلغاء من النافذة نفسها."
+    "en": "Pick a time slot and tap the button on the right to book it. The times are in your phone's local time. To cancel, open the same window again.",
+    "zh": "選一個時段，按右邊的按鈕就預約好了。時段顯示的是你手機的當地時間。要取消的話，再打開同一個視窗就可以。",
+    "ko": "시간대를 고르고 오른쪽 버튼을 누르면 예약됩니다. 시간은 휴대폰의 현지 시간입니다. 취소하려면 같은 창을 다시 열면 됩니다.",
+    "de": "Wähle ein Zeitfenster und tippe rechts auf den Button – fertig. Die Zeiten sind die Ortszeit deines Handys. Zum Stornieren dasselbe Fenster erneut öffnen.",
+    "fr": "Choisissez un créneau et touchez le bouton à droite : c'est réservé. Les heures sont celles de votre téléphone. Pour annuler, rouvrez la même fenêtre.",
+    "pt": "Escolha um horário e toque no botão à direita — pronto. Os horários estão na hora local do seu celular. Para cancelar, abra a mesma janela de novo.",
+    "es": "Elige una franja y toca el botón de la derecha: ya está reservada. Las horas son la hora local de tu móvil. Para cancelar, vuelve a abrir la misma ventana.",
+    "tr": "Bir saat dilimi seç ve sağdaki düğmeye dokun — rezerve edildi. Saatler telefonunun yerel saatidir. İptal için aynı pencereyi tekrar aç.",
+    "id": "Pilih slot waktu lalu ketuk tombol di kanan — selesai. Waktunya mengikuti waktu lokal ponselmu. Untuk membatalkan, buka lagi jendela yang sama.",
+    "ru": "Выберите время и нажмите кнопку справа — готово. Время показано по часам вашего телефона. Чтобы отменить, откройте то же окно ещё раз.",
+    "th": "เลือกช่วงเวลาแล้วแตะปุ่มด้านขวาก็จองเรียบร้อย เวลาที่แสดงเป็นเวลาท้องถิ่นของโทรศัพท์คุณ ถ้าจะยกเลิกให้เปิดหน้าต่างเดิมอีกครั้ง",
+    "ar": "اختر فترة زمنية واضغط الزر على اليمين — تم الحجز. الأوقات بتوقيت هاتفك المحلي. للإلغاء افتح النافذة نفسها مرة أخرى."
    }
   ],
   "tip": {
