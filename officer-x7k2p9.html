@@ -96,6 +96,11 @@
   #pg-events .tabs a { padding: 8px 6px; font-size: 13px; white-space: nowrap; } }
   #pg-events .weeknav { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
   #pg-events .weeknav .lbl { font-weight: 700; text-align: center; flex: 1; }
+  #pg-events .swipe { touch-action: pan-y; } #pg-events .swipe { overflow: hidden; user-select: none; -webkit-user-select: none; }
+  #pg-events #days { transition: transform .15s ease; }
+  #pg-events #days.in-r { animation: wkInR .22s ease; } #pg-events #days.in-l { animation: wkInL .22s ease; }
+  @keyframes wkInR { from { transform: translateX(40px); opacity: .3; } to { transform: none; opacity: 1; } }
+  @keyframes wkInL { from { transform: translateX(-40px); opacity: .3; } to { transform: none; opacity: 1; } }
   #pg-events .wk-head { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 2px; text-align: center; font-weight: 700; line-height: 1.15; font-size: 13px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
   #pg-events .wk-head small { display: block; font-weight: 400; color: var(--text-muted); font-size: 11px; }
   #pg-events .wk-head .today { color: var(--accent); }
@@ -420,7 +425,7 @@
 
     <div class="card">
       <h2 data-t="weekTitle"></h2>
-      <div id="days"></div>
+      <div id="daysWrap" class="swipe"><div id="days"></div></div>
       <div class="muted msg" data-t="note"></div>
     </div>
 
@@ -1536,8 +1541,22 @@ function applyTexts() {
   ROOT.querySelectorAll("[data-t]").forEach((el) => { const v = tr(el.dataset.t); if (/UTC/.test(v)) el.innerHTML = localTimes(esc(v), lang); else el.textContent = v; });
 }
 function setLang(l) { lang = l; store.lang = lang; save(); applyTexts(); if (LIST) render(); };
-$("prevW").onclick = () => { weekStart -= 7 * DAY; render(); };
-$("nextW").onclick = () => { weekStart += 7 * DAY; render(); };
+const goWeek = (dir) => { weekStart += dir * 7 * DAY; const d = $("days"); d.classList.remove("in-l", "in-r"); void d.offsetWidth; d.classList.add(dir > 0 ? "in-r" : "in-l"); render(); };
+$("prevW").onclick = () => goWeek(-1);
+$("nextW").onclick = () => goWeek(1);
+// swipe (or drag) left / right on the week view to move a week; the page keeps that week until you move again
+(function () {
+  let x0 = null, y0 = null, dx = 0, horiz = false;
+  const on = (el) => {
+    el.addEventListener("pointerdown", (e) => { if (e.pointerType === "mouse" && e.button !== 0) return; x0 = e.clientX; y0 = e.clientY; dx = 0; horiz = false; try { el.setPointerCapture(e.pointerId); } catch (x) {} });
+    el.addEventListener("pointermove", (e) => { if (x0 === null) return; dx = e.clientX - x0; const dy = e.clientY - y0;
+      if (!horiz && Math.abs(dx) > 12 && Math.abs(dx) > Math.abs(dy)) horiz = true;
+      if (horiz) $("days").style.transform = `translateX(${Math.max(-80, Math.min(80, dx * 0.4))}px)`; });
+    const end = () => { $("days").style.transform = ""; if (x0 !== null && horiz && Math.abs(dx) > 60) goWeek(dx < 0 ? 1 : -1); x0 = null; horiz = false; };
+    el.addEventListener("pointerup", end); el.addEventListener("pointercancel", end);
+  };
+  on($("daysWrap"));
+})();
 $("thisW").onclick = () => { weekStart = defaultWeek(); render(); };
 $("addEv").onclick = () => openEditor(null);
 // On Sunday, open on next week (that's when the weekly planning happens)
