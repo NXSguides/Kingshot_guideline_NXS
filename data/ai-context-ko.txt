@@ -1015,8 +1015,8 @@ Governor Gear score per step, per piece (cost: 비단 / 금사 / 설계 스케�
 ### BOOKING GUIDE — page "총리대신 / 참모장 예약 방법" (booking-guide.html?lang=ko#pm or #adv), a public page opened from the "How to book" buttons in the KvK checklist pop-up. Has annotated screenshots.
 둘 다 왕이 임명하는 30분짜리 관직으로 미리 예약할 수 있습니다. 순금/가속을 쓰는 순간에는 총리대신, 대량 병사 훈련에는 참모장을 예약하세요.
 총리대신: 건설/연구/훈련 속도 +10%. 참모장: 훈련 속도 +50%, 훈련 용량 +200.
-Steps: 1. 도시 화면에서 오른쪽 위 '이벤트'를 누릅니다. 2. '캐슬 전투' 탭(성 아이콘)을 선택합니다. 3. '관직 임명' 옆의 '임명 정보'를 누릅니다. 4. '관료' 탭에서 원하는 관직을 누릅니다. 5. 시간대를 고르고 오른쪽 버튼을 누르면 예약됩니다. 시간은 휴대폰의 현지 시간입니다. 취소하려면 같은 창을 다시 열면 됩니다.
-참고: 관직마다 예약은 한 번에 하나. 시간대 목록은 휴대폰 현지 시간이므로 가이드의 UTC 시간과 환산해 맞추세요. 각 시간대에 이미 신청한 인원이 표시됩니다.
+Steps: 1. 도시 화면에서 오른쪽 위 '이벤트'를 누릅니다. 2. '캐슬 전투' 탭(성 아이콘)을 선택합니다. 3. '관직 임명' 옆의 '임명 정보'를 누릅니다. 4. '관료' 탭에서 원하는 관직을 누릅니다. 5. 시간대를 고르고 오른쪽 버튼을 누르면 예약됩니다. 목록은 휴대폰의 현지 시간이며, 날짜 옆의 작은 버튼으로 현지 시간과 UTC를 전환할 수 있습니다. 취소하려면 같은 창을 다시 열면 됩니다.
+참고: 관직마다 예약은 한 번에 하나. 각 시간대에 이미 신청한 인원이 표시됩니다.
 
 ### SQUAD GUIDE — page "부대 편성 저장 방법" (squad-guide.html?lang=ko), a public page linked from the Formations & Rally Tips guide (guide #formations-rally-tips) right after the recommended presets list; the Bear Hunt guide's joiner rules link to that guide. Annotated screenshots.
 간부가 고정 편성을 요구할 때가 많습니다. '정확히 90,000명' 같은 수량일 때도 있고 '50 / 25 / 25' 같은 비율일 때도 있습니다. 부대 편성으로 한 번 저장해 두면 출정이나 집결 참가 시 그 슬롯만 고르면 됩니다.

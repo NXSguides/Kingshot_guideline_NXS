@@ -987,8 +987,8 @@ Puan değerleri: oyundaki Puan Kaynakları ekranı ve KvK rehberi. Puan günleri
 ### BOOKING GUIDE — page "Başbakan / Asil Danışman nasıl rezerve edilir" (booking-guide.html?lang=tr#pm or #adv), a public page opened from the "How to book" buttons in the KvK checklist pop-up. Has annotated screenshots.
 İkisi de önceden rezerve edilebilen 30 dakikalık kral atamalarıdır. Hasaltın / hızlandırma harcayacağın an için Başbakan, büyük birlik eğitimi için Asil Danışman.
 Başbakan: İnşaat / araştırma / eğitim hızı +%10. Asil Danışman: Eğitim hızı +%50, eğitim kapasitesi +200.
-Steps: 1. Şehir ekranında sağ üstteki Etkinlikler'e dokun. 2. Şato Savaşı sekmesini seç (kale simgesi). 3. Atama'nın yanındaki Detaylar'a dokun. 4. Bakanlar sekmesinde istediğin makama dokun. 5. Bir saat dilimi seç ve sağdaki düğmeye dokun — rezerve edildi. Saatler telefonunun yerel saatidir. İptal için aynı pencereyi tekrar aç.
-İpuçları: her makam için aynı anda tek rezervasyon; liste telefonunun yerel saatini kullanır, rehberlerdeki UTC saatlerine göre çevir. Her dilim kaç kişinin başvurduğunu gösterir.
+Steps: 1. Şehir ekranında sağ üstteki Etkinlikler'e dokun. 2. Şato Savaşı sekmesini seç (kale simgesi). 3. Atama'nın yanındaki Detaylar'a dokun. 4. Bakanlar sekmesinde istediğin makama dokun. 5. Bir saat dilimi seç ve sağdaki düğmeye dokun — rezerve edildi. Liste telefonunun yerel saatini gösterir; tarihin yanındaki küçük düğme yerel saat ile UTC arasında geçiş yapar. İptal için aynı pencereyi tekrar aç.
+İpuçları: her makam için aynı anda tek rezervasyon. Her dilim kaç kişinin başvurduğunu gösterir.
 
 ### SQUAD GUIDE — page "Diziliş nasıl kaydedilir" (squad-guide.html?lang=tr), a public page linked from the Formations & Rally Tips guide (guide #formations-rally-tips) right after the recommended presets list; the Bear Hunt guide's joiner rules link to that guide. Annotated screenshots.
 Subaylar sık sık sabit bir ekip ister: ya tam sayı (“tam 90.000”) ya da oran (“50 / 25 / 25”). Bir kez Diziliş olarak kaydet, sonra yürüyüşte veya toplanmaya katılırken o yuvayı seç.

@@ -987,8 +987,8 @@ Nilai poin: layar Sumber Poin di game dan panduan KvK. Hari poin mengikuti pandu
 ### BOOKING GUIDE — page "Cara memesan Perdana Menteri / Penasihat Kerajaan" (booking-guide.html?lang=id#pm or #adv), a public page opened from the "How to book" buttons in the KvK checklist pop-up. Has annotated screenshots.
 Keduanya jabatan raja 30 menit yang bisa dipesan lebih dulu. Perdana Menteri untuk saat memakai Truegold / speedup, Penasihat Kerajaan untuk pelatihan pasukan besar.
 Perdana Menteri: Kecepatan konstruksi / penelitian / pelatihan +10%. Penasihat Kerajaan: Kecepatan pelatihan +50%, kapasitas +200.
-Steps: 1. Di layar kota, ketuk Event (kanan atas). 2. Pilih tab Pertempuran Istana (ikon kastil). 3. Ketuk Detail di sebelah Pertemuan. 4. Di tab Menteri, ketuk jabatan yang kamu mau. 5. Pilih slot waktu lalu ketuk tombol di kanan — selesai. Waktunya mengikuti waktu lokal ponselmu. Untuk membatalkan, buka lagi jendela yang sama.
-Tips: satu pemesanan per jabatan dalam satu waktu; daftar memakai waktu lokal ponselmu, jadi samakan dengan jam UTC di panduan. Tiap slot menampilkan berapa pemain yang sudah mengajukan.
+Steps: 1. Di layar kota, ketuk Event (kanan atas). 2. Pilih tab Pertempuran Istana (ikon kastil). 3. Ketuk Detail di sebelah Pertemuan. 4. Di tab Menteri, ketuk jabatan yang kamu mau. 5. Pilih slot waktu lalu ketuk tombol di kanan — selesai. Daftar menampilkan waktu lokal ponselmu; tombol kecil di sebelah tanggal mengganti antara waktu lokal dan UTC. Untuk membatalkan, buka lagi jendela yang sama.
+Tips: satu pemesanan per jabatan dalam satu waktu. Tiap slot menampilkan berapa pemain yang sudah mengajukan.
 
 ### SQUAD GUIDE — page "Cara menyimpan Formasi" (squad-guide.html?lang=id), a public page linked from the Formations & Rally Tips guide (guide #formations-rally-tips) right after the recommended presets list; the Bear Hunt guide's joiner rules link to that guide. Annotated screenshots.
 Perwira sering minta skuad tetap: jumlah pasti (“tepat 90.000”) atau rasio (“50 / 25 / 25”). Simpan sekali sebagai Formasi, lalu tinggal pilih slot itu saat berangkat atau ikut rally.

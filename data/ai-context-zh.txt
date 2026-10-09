@@ -986,8 +986,8 @@ Governor Gear score per step, per piece (cost: 進貢綢緞 / 金絲線 / 設計
 ### BOOKING GUIDE — page "總理大臣／參謀長 預約教學" (booking-guide.html?lang=zh#pm or #adv), a public page opened from the "How to book" buttons in the KvK checklist pop-up. Has annotated screenshots.
 兩個都是國王任命的 30 分鐘職位，可以事先預約。總理大臣留給花黃金／加速的那一刻，參謀長留給大量練兵的時候。
 總理大臣: 建造／研究／訓練速度 +10%. 參謀長: 訓練速度 +50%、訓練容量 +200.
-Steps: 1. 在城內畫面點右上角的「常規活動」。 2. 切到「決戰王城」分頁（城堡圖示）。 3. 按「官職任命」旁的「任命詳情」。 4. 在「官員」分頁點你要的職位。 5. 選一個時段，按右邊的按鈕就預約好了。時段顯示的是你手機的當地時間。要取消的話，再打開同一個視窗就可以。
-小提醒：每個職位同時只能有一筆預約；時段清單用的是手機的當地時間，對照指南的 UTC 時間時記得換算。每個時段都會顯示已申請人數。
+Steps: 1. 在城內畫面點右上角的「常規活動」。 2. 切到「決戰王城」分頁（城堡圖示）。 3. 按「官職任命」旁的「任命詳情」。 4. 在「官員」分頁點你要的職位。 5. 選一個時段，按右邊的按鈕就預約好了。清單顯示的是你手機的當地時間，點「當地時間」旁邊的小按鈕可以在當地時間和 UTC 之間切換。要取消的話，再打開同一個視窗就可以。
+小提醒：每個職位同時只能有一筆預約。每個時段都會顯示已申請人數。
 
 ### SQUAD GUIDE — page "部隊編組怎麼存" (squad-guide.html?lang=zh), a public page linked from the Formations & Rally Tips guide (guide #formations-rally-tips) right after the recommended presets list; the Bear Hunt guide's joiner rules link to that guide. Annotated screenshots.
 幹部常會要求固定編隊：有時是「剛好 90,000 人」這種數量，有時是「步 50／騎 25／弓 25」這種比例。先存成部隊編組，出征或加入集結時直接選那一格就好。
