@@ -314,7 +314,12 @@ const SQUAD_GUIDE = {
   "de": "de",
   "fr": "fr",
   "ru": "ru",
-  "ar": "ar"
+  "ar": "ar",
+  "th": "th",
+  "pt": "pt",
+  "es": "es",
+  "tr": "tr",
+  "id": "id"
  },
  "shotLangName": {
   "zh": "中文",
@@ -323,7 +328,12 @@ const SQUAD_GUIDE = {
   "de": "Deutsch",
   "fr": "Français",
   "ru": "Русский",
-  "ar": "العربية"
+  "ar": "العربية",
+  "th": "ไทย",
+  "pt": "Português",
+  "es": "Español",
+  "tr": "Türkçe",
+  "id": "Bahasa Indonesia"
  },
  "fallbackShots": "en"
 };
