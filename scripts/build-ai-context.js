@@ -115,6 +115,15 @@ Steps: ${u.steps.map((s, i) => `${i + 1}. ${s[lang] || s.en}`).join(" ")}
 ${tx("tip")}`);
   } catch (e) { console.warn("booking-guide.js skipped:", e.message); }
 
+  try {
+    const SG = {}; new Function("SG", read("data/squad-guide.js") + "\nSG.G = SQUAD_GUIDE;")(SG);
+    const u = SG.G.ui, tx = (k) => u[k][lang] || u[k].en;
+    parts.push(`### SQUAD GUIDE — page "${tx("title")}" (squad-guide.html?lang=${lang}), a public page linked from the top of the Bear Hunt guide. Annotated screenshots.
+${tx("intro")}
+Steps: ${u.steps.filter(Boolean).map((s, i) => `${i + 1}. ${s[lang] || s.en}`).join(" ")} ${tx("caseA")}: ${tx("caseAt")} ${tx("caseB")}: ${tx("caseBt")} ${tx("s7")} ${tx("s7a")}; ${tx("s7b")}. ${tx("s8")}
+${tx("tip")}`);
+  } catch (e) { console.warn("squad-guide.js skipped:", e.message); }
+
   const recent = anns.slice(0, 15).map((a) =>
     `[${String(a.createdAt).slice(0, 10)} by ${a.author}] ${clean(pick(a.title))}\n${clean(pick(a.content))}`);
   if (recent.length) parts.push(`### ANNOUNCEMENTS (newest first, see guide #recent-events)\n${recent.join("\n\n")}`);

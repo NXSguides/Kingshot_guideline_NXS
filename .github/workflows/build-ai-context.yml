@@ -1,7 +1,7 @@
 name: Build AI Context
 on:
   push:
-    paths: ["data/content.js", "data/terms.js", "data/kvk-plan.js", "data/booking-guide.js", "data/announcements.json", "scripts/build-ai-context.js"]
+    paths: ["data/content.js", "data/terms.js", "data/kvk-plan.js", "data/booking-guide.js", "data/squad-guide.js", "data/announcements.json", "scripts/build-ai-context.js"]
     branches: [main]
   # announcements.json is committed by the translate bot, and bot commits don't start
   # other workflows, so also run after every translation finishes
