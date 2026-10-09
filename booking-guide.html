@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Booking Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#eef1f4;--panel:#fff;--sunk:#f5f7f9;--fg:#1b2430;--muted:#5d6876;--line:#d5dbe2;--accent:#a8740c;--accent-soft:#f6ebd2;--red:#e23428;
+  --display:"Chakra Petch","Noto Sans TC",system-ui,sans-serif;--body:"Noto Sans TC",system-ui,-apple-system,"Segoe UI",sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12171d;--panel:#1a2129;--sunk:#151b22;--fg:#e4e8ec;--muted:#9aa5b1;--line:#2c3642;--accent:#e0aa3e;--accent-soft:#3a2e15;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#12171d;--panel:#1a2129;--sunk:#151b22;--fg:#e4e8ec;--muted:#9aa5b1;--line:#2c3642;--accent:#e0aa3e;--accent-soft:#3a2e15;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.55;margin:0}
+.wrap{max-width:860px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:14px}
+h1{font-family:var(--display);font-weight:700;font-size:1.6rem;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:6px 0 0;max-width:70ch}
+.hdr-r{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+select{padding:7px 8px;border:1px solid var(--line);border-radius:6px;background:var(--sunk);color:var(--fg);font:inherit}
+.back{color:var(--accent);font-size:.85rem;text-decoration:none}.back::before{content:"‹ "}[dir=rtl] .back::before{content:"› "}
+.tabs{display:flex;gap:8px;margin:14px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--sunk);color:var(--fg);border-radius:10px;padding:10px 12px;font:inherit;cursor:pointer;text-align:start}
+.tabs button b{display:block;font-family:var(--display)}
+.tabs button span{color:var(--muted);font-size:.8rem}
+.tabs button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.steps{display:flex;flex-direction:column;gap:14px}
+.st{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:14px;align-items:start}
+@media (max-width:640px){.st{grid-template-columns:minmax(0,1fr)}}
+.st .n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;font-family:var(--display);margin-inline-end:8px}
+.st p{margin:0;display:flex;align-items:flex-start;gap:4px}
+.st img{width:100%;height:auto;border-radius:8px;border:1px solid var(--line);background:#000}
+.st.wide{grid-template-columns:minmax(0,1fr)}
+.st.wide img{max-height:none}
+.tip{background:var(--sunk);border-radius:10px;padding:12px 14px;font-size:.9rem;margin-top:16px}
+.note{color:var(--muted);font-size:.8rem;margin-top:10px}
+[dir=rtl] .st .n{margin-inline-end:0;margin-inline-start:0;margin-left:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div><h1 id="title"></h1><p class="sub" id="intro"></p></div>
+    <div class="hdr-r"><select id="lang" aria-label="Language"></select><a id="back" class="back" href="index.html"><span id="backT"></span></a></div>
+  </header>
+  <div class="tabs" id="tabs"></div>
+  <div class="steps" id="steps"></div>
+  <div class="tip" id="tip"></div>
+  <div class="note" id="note"></div>
+</div>
+<script src="data/booking-guide.js"></script>
+<script>
+(function(){
+const G=BOOKING_GUIDE, CODES=G.langs.map(l=>l[0]);
+let LANG=(()=>{let l="";try{l=new URLSearchParams(location.search).get("lang")||""}catch(e){}
+  if(!CODES.includes(l)){try{l=localStorage.getItem("ks-lang")||""}catch(e){}} return CODES.includes(l)?l:"en"})();
+let POS=(location.hash.replace("#","")==="adv")?"adv":"pm";
+const HTML_LANG={zh:"zh-Hant",pt:"pt-BR"};
+const $=id=>document.getElementById(id);
+const T=k=>{const v=G.ui[k];return Array.isArray(v)?v.map(x=>x[LANG]||x.en):(v[LANG]||v.en)};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function render(){
+  document.documentElement.lang=HTML_LANG[LANG]||LANG;document.documentElement.dir=LANG==="ar"?"rtl":"ltr";
+  document.title=T("title");$("title").textContent=T("title");$("intro").textContent=T("intro");$("backT").textContent=T("back");
+  $("back").href="index.html#/"+LANG+"/kvk";
+  $("lang").innerHTML=G.langs.map(([c,n])=>`<option value="${c}"${c===LANG?" selected":""}>${n}</option>`).join("");
+  $("tabs").innerHTML=[["pm","pmBuff"],["adv","advBuff"]].map(([k,b])=>`<button type="button" data-pos="${k}" aria-pressed="${POS===k}"><b>${esc(T(k))}</b><span>${esc(T(b))}</span></button>`).join("");
+  $("tabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{POS=b.dataset.pos;try{history.replaceState(null,"","?lang="+LANG+"#"+POS)}catch(e){}render()});
+  const set=G.shots[LANG]||G.fallbackShots, dir="img/booking/"+set+"/";
+  const imgs=["main","event","appt-"+POS,POS];
+  const steps=T("steps");
+  // steps 4 and 5 are the position-specific ones; step 2+3 share one screenshot
+  const rows=[[0,"main"],[1,"event"],[2,null],[3,"appt-"+POS],[4,POS]];
+  $("steps").innerHTML=rows.map(([i,img])=>`<div class="st${img?"":" wide"}"><p><span class="n">${i+1}</span><span>${esc(steps[i])}</span></p>${img?`<img src="${dir}${img}.webp" alt="" loading="lazy">`:""}</div>`).join("");
+  $("tip").textContent=T("tip");
+  $("note").textContent=T("shotNote").replace("{l}",G.shotLangName[set]);
+}
+$("lang").onchange=e=>{LANG=e.target.value;try{history.replaceState(null,"","?lang="+LANG+"#"+POS)}catch(x){}render()};
+render();
+})();
+</script>
+</body>
+</html>

@@ -982,6 +982,12 @@ Pet advancement score per advance (same for every pet): Lv.10 +500; Lv.20 +1000;
 Governor Gear score per step, per piece (cost: Saten / Yaldızlı İplikler / Zanaatkâr Vizyonu): Sıra dışı +1125 [1500/15/0]; Sıra dışı ★ +1875 [3800/40/0]; Ender +3000 [7000/70/0]; Ender ★ +4500 [9700/95/0]; Ender ★★ +5100 [1000/10/45]; Ender ★★★ +5440 [1000/10/50]; Epik +3230 [1500/15/60]; Epik ★ +3230 [1500/15/70]; Epik ★★ +3225 [6500/65/40]; Epik ★★★ +3225 [8000/80/50]; Epik T1 +3440 [10000/95/60]; Epik T1 ★ +3440 [11000/110/70]; Epik T1 ★★ +4085 [13000/130/85]; Epik T1 ★★★ +4085 [15000/160/100]; Efsanevi +6250 [22000/220/40]; Efsanevi ★ +6250 [23000/230/40]; Efsanevi ★★ +6250 [25000/250/45]; Efsanevi ★★★ +6250 [26000/260/45]. Oyun listesi Efsanevi 3★'da biter; üstü burada sayılmaz.
 Puan değerleri: oyundaki Puan Kaynakları ekranı ve KvK rehberi. Puan günleri mevcut rehbere göre; oyun farklı gösteriyorsa oyuna güven ve bir yetkiliye haber ver. Veriler sadece kendi tarayıcında kalır.
 
+### BOOKING GUIDE — page "Başbakan / Asil Danışman nasıl rezerve edilir" (booking-guide.html?lang=tr#pm or #adv), a public page opened from the "How to book" buttons in the KvK checklist pop-up. Has annotated screenshots.
+İkisi de önceden rezerve edilebilen 30 dakikalık kral atamalarıdır. Hasaltın / hızlandırma harcayacağın an için Başbakan, büyük birlik eğitimi için Asil Danışman.
+Başbakan: İnşaat / araştırma / eğitim hızı +%10. Asil Danışman: Eğitim hızı +%50, eğitim kapasitesi +200.
+Steps: 1. Şehir ekranında sağ üstteki Etkinlikler'e dokun. 2. Şato Savaşı sekmesini seç (kale simgesi). 3. Atama'nın yanındaki Detaylar'a dokun. 4. Bakanlar sekmesinde istediğin makama dokun. 5. Bir saat dilimi seç (yerel saatinle gösterilir) ve düğmeye dokun. Tamam — aynı pencereden iptal edebilirsin.
+İpuçları: her makam için aynı anda tek rezervasyon; liste telefonunun yerel saatini kullanır, rehberlerdeki UTC saatlerine göre çevir. Her dilim kaç kişinin başvurduğunu gösterir.
+
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-06 by Nia] ⚔️ 2186 ile KvK Anlaşması – 10 Eki
 ⚔️ 2186 ile KvK Anlaşması – 10 Eki

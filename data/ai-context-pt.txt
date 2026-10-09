@@ -982,6 +982,12 @@ Pet advancement score per advance (same for every pet): Lv.10 +500; Lv.20 +1000;
 Governor Gear score per step, per piece (cost: Cetim / Fios Dourados / Visão do Artesão): Incomum +1125 [1500/15/0]; Incomum ★ +1875 [3800/40/0]; Raro +3000 [7000/70/0]; Raro ★ +4500 [9700/95/0]; Raro ★★ +5100 [1000/10/45]; Raro ★★★ +5440 [1000/10/50]; Épico +3230 [1500/15/60]; Épico ★ +3230 [1500/15/70]; Épico ★★ +3225 [6500/65/40]; Épico ★★★ +3225 [8000/80/50]; Épico T1 +3440 [10000/95/60]; Épico T1 ★ +3440 [11000/110/70]; Épico T1 ★★ +4085 [13000/130/85]; Épico T1 ★★★ +4085 [15000/160/100]; Lendário +6250 [22000/220/40]; Lendário ★ +6250 [23000/230/40]; Lendário ★★ +6250 [25000/250/45]; Lendário ★★★ +6250 [26000/260/45]. A lista do jogo termina em Lendário 3★; etapas acima não são contadas aqui.
 Valores de pontos: tela Fontes de Pontos do jogo e guia KvK. Os dias de pontuação seguem o guia atual; se o jogo mostrar diferente, confie no jogo e avise um oficial. Os dados ficam só no seu navegador.
 
+### BOOKING GUIDE — page "Como reservar Primeiro-ministro / Conselheiro Nobre" (booking-guide.html?lang=pt#pm or #adv), a public page opened from the "How to book" buttons in the KvK checklist pop-up. Has annotated screenshots.
+Ambos são nomeações do Rei de 30 minutos que você pode reservar com antecedência. Primeiro-ministro para a hora de gastar Adamante / aceleradores; Conselheiro Nobre para o grande treinamento de tropas.
+Primeiro-ministro: Velocidade de construção / pesquisa / treinamento +10%. Conselheiro Nobre: Velocidade de treinamento +50%, capacidade +200.
+Steps: 1. Na tela da cidade, toque em Eventos (canto superior direito). 2. Escolha a aba Batalha do Castelo (ícone do castelo). 3. Toque em Detalhes ao lado de Nomeação. 4. Na aba Ministros, toque no cargo desejado. 5. Escolha um horário (na sua hora local) e toque no botão. Pronto — dá para cancelar na mesma janela.
+Dicas: uma reserva por cargo de cada vez; a lista usa a hora local do celular, então converta para os horários UTC dos guias. Cada horário mostra quantos já se candidataram.
+
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-06 by Nia] ⚔️ Acordo de KvK com 2186 – 10 de out.
 ⚔️ Acordo de KvK com 2186 – 10 de out.

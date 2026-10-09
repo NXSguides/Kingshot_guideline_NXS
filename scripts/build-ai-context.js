@@ -104,6 +104,17 @@ ${rows.join("\n")}
 ${u.foot}`);
   }
 
+  // hidden page: how to book Chief Minister / Noble Advisor (linked from the KvK checklist items)
+  try {
+    const BG = {}; new Function("BG", read("data/booking-guide.js") + "\nBG.G = BOOKING_GUIDE;")(BG);
+    const u = BG.G.ui, tx = (k) => u[k][lang] || u[k].en;
+    parts.push(`### BOOKING GUIDE — page "${tx("title")}" (booking-guide.html?lang=${lang}#pm or #adv), a public page opened from the "How to book" buttons in the KvK checklist pop-up. Has annotated screenshots.
+${tx("intro")}
+${tx("pm")}: ${tx("pmBuff")}. ${tx("adv")}: ${tx("advBuff")}.
+Steps: ${u.steps.map((s, i) => `${i + 1}. ${s[lang] || s.en}`).join(" ")}
+${tx("tip")}`);
+  } catch (e) { console.warn("booking-guide.js skipped:", e.message); }
+
   const recent = anns.slice(0, 15).map((a) =>
     `[${String(a.createdAt).slice(0, 10)} by ${a.author}] ${clean(pick(a.title))}\n${clean(pick(a.content))}`);
   if (recent.length) parts.push(`### ANNOUNCEMENTS (newest first, see guide #recent-events)\n${recent.join("\n\n")}`);
