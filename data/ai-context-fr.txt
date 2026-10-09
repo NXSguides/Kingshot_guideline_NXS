@@ -23,7 +23,7 @@ Les vagues 10 et 20 attaquent UNIQUEMENT le QG. Les attaques sur les villages fo
 Une fois la vague 9 / 19 terminée :
 Rappelez UNE marche puissante.
 Envoyez-la directement au QG.
-Maximum 68K troupes par membre.
+Maximum 70 080 troupes par membre.
 Utilisez Chenko ou Amadeus en position 1, ou votre héros aux dégâts bruts les plus élevés.
 Après la vague du QG, rappelez et retournez renforcer le membre qui vous est assigné.
 ⚠️ IMPORTANT : Vous pouvez renforcer le QG pour la vague 10 OU la vague 20 — PAS LES DEUX.
@@ -415,7 +415,7 @@ Tous les ratios de troupes suivent l'ordre Infanterie : Cavalerie : Archer. Enre
 6) Défense : Howard / Gordon — 60 : 20 : 20 est notre configuration équilibrée par défaut. Ajustez-la quand la direction demande une formation précise.
 Leaders de ralliement : utilisez votre meilleure composition de héros offensifs, au complet.
 Participants au ralliement : merci de respecter les limites de troupes publiées par la direction.
-7) QG Viking (Viking HQ) : Howard / Gordon — 60 : 40 Respectez la limite de troupes (~68 000)
+7) QG Viking (Viking HQ) : Howard / Gordon — 60 : 40 Respectez la limite de troupes (~70 080)
 8) PvE – Bêtes / CHASSE : Diana + Fahd — 50 : 20 : 30
 🐺 PvE — BÊTES / CHASSE
 Pour le Loup Redoutable : peu de dégâts sont nécessaires, alors envoyez le minimum de troupes (même 1) afin que davantage de membres de l'alliance puissent rejoindre et profiter des récompenses du ralliement.
@@ -437,13 +437,13 @@ Cela nous permet de passer d'un dispositif offensif à une garnison défensive s
 🪖 LIMITE DE TROUPES EN GARNISON
 Seuls 15 chefs peuvent entrer dans le QG / le sanctuaire. N'envoyez donc pas automatiquement votre marche maximale vers le QG, le sanctuaire ou d'autres bâtiments disputés.
 Respectez la limite de troupes annoncée par la direction.
-Objectif d'alliance habituel : ~68 000 troupes par joueur
+Objectif d'alliance habituel : ~70 080 troupes par joueur
 Cela permet à davantage de membres de l'alliance dont les marches défensives sont bien configurées de tenir dans la garnison et d'obtenir des récompenses.
 ⚠️ Si la direction annonce une limite différente, suivez toujours le montant annoncé.
-Par exemple, avec une limite de 68 000 troupes, vous pouvez saisir ce chiffre dans une calculatrice et l'entrer directement dans le champ correspondant à chaque type de troupe. Voici trois exemples :
-60/20/20 ➡️ 40 800 / 13 600 / 13 600
-60/40 ➡️ 40 800 / 27 200
-50/20/30 ➡️ 34 000 / 13 600 / 20 400
+Par exemple, avec une limite de 70 080 troupes, vous pouvez saisir ce chiffre dans une calculatrice et l'entrer directement dans le champ correspondant à chaque type de troupe. Voici trois exemples :
+60/20/20 ➡️ 42 048 / 14 016 / 14 016
+60/40 ➡️ 42 048 / 28 032
+50/20/30 ➡️ 35 040 / 14 016 / 21 024
 (see the Squad Guide page squad-guide.html)
 🎬 COMMENT PASSER DES HÉROS D'ATTAQUE AUX HÉROS DE DÉFENSE
 📎 Vidéo trouvée en ligne (TikTok @yelloe_hair) — pas notre propre séquence.

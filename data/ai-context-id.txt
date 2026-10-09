@@ -23,7 +23,7 @@ Gelombang 10 & 20 HANYA menyerang markas. Serangan ke kota berhenti sementara se
 Setelah Gelombang 9 / 19 selesai:
 Panggil Kembali SATU barisan kuat.
 Kirim langsung ke markas.
-Maksimal 68K pasukan per anggota.
+Maksimal 70.080 pasukan per anggota.
 Gunakan Chenko atau Amadeus di posisi pertama, atau hero dengan damage mentah terkuatmu.
 Setelah gelombang markas, panggil kembali dan kembali memperkuat anggota yang ditugaskan kepadamu.
 ⚠️ PENTING: Kamu bisa memperkuat markas untuk Gelombang 10 ATAU Gelombang 20 — BUKAN KEDUANYA.
@@ -415,7 +415,7 @@ Semua rasio pasukan berurutan Infanteri : Kavaleri : Pemanah. Simpan preset terp
 6) Pertahanan: Howard / Gordon — 60 : 20 : 20 adalah standar seimbang kita. Sesuaikan bila pimpinan meminta formasi tertentu.
 Pemimpin Reli: Gunakan susunan hero ofensif terkuat dan lengkapmu.
 Peserta Reli: Ikuti batas pasukan yang diumumkan pimpinan.
-7) Markas Viking (Viking HQ): Howard / Gordon — 60 : 40 Ikuti batas pasukan (~68.000)
+7) Markas Viking (Viking HQ): Howard / Gordon — 60 : 40 Ikuti batas pasukan (~70.080)
 8) PvE – binatang buas / Berburu: Diana + Fahd — 50 : 20 : 30
 🐺 PvE — BINATANG BUAS / BERBURU
 Ingat untuk Netherfiend: tidak perlu banyak damage, jadi kirim pasukan sesedikit mungkin (bahkan 1) supaya lebih banyak anggota aliansi bisa bergabung dan mendapat hadiah reli.
@@ -437,13 +437,13 @@ Ini memungkinkan kita beralih dari formasi ofensif ke garnisun defensif tanpa me
 🪖 BATAS PASUKAN GARNISUN
 Hanya 15 gubernur yang bisa masuk ke markas / Sanctuary. Jadi jangan otomatis mengirim barisan maksimalmu ke markas, Sanctuary, atau bangunan lain yang diperebutkan.
 Ikuti batas pasukan yang diumumkan pimpinan.
-Target aliansi umum: ~68.000 pasukan per pemain
+Target aliansi umum: ~70.080 pasukan per pemain
 Ini memungkinkan lebih banyak anggota aliansi dengan barisan pertahanan yang terkonfigurasi baik masuk ke garnisun dan mendapat hadiah.
 ⚠️ Jika pimpinan mengumumkan batas yang berbeda, selalu ikuti angka yang diumumkan.
-Contohnya, dengan batas 68K pasukan, kamu bisa memasukkan angka itu ke kalkulator dan langsung mengetiknya di kolom jenis pasukan yang sesuai. Berikut tiga contohnya:
-60/20/20 ➡️ 40.800 / 13.600 / 13.600
-60/40 ➡️ 40.800 / 27.200
-50/20/30 ➡️ 34.000 / 13.600 / 20.400
+Contohnya, dengan batas 70.080 pasukan, kamu bisa memasukkan angka itu ke kalkulator dan langsung mengetiknya di kolom jenis pasukan yang sesuai. Berikut tiga contohnya:
+60/20/20 ➡️ 42.048 / 14.016 / 14.016
+60/40 ➡️ 42.048 / 28.032
+50/20/30 ➡️ 35.040 / 14.016 / 21.024
 (see the Squad Guide page squad-guide.html)
 🎬 CARA BERALIH DARI HERO SERANGAN KE HERO PERTAHANAN
 📎 Video ditemukan di internet (TikTok @yelloe_hair) — bukan rekaman kami sendiri.

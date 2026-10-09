@@ -23,7 +23,7 @@ Güçlendirme intikallerinde Howard veya Gordon gibi savunma kahramanlarından k
 9. / 19. dalga bittikten sonra:
 BİR güçlü intikali geri çağırın.
 Doğrudan karargaha gönderin.
-Üye başına en fazla 68K birlik.
+Üye başına en fazla 70.080 birlik.
 1. konumda Chenko veya Amadeus, ya da en güçlü saf hasar kahramanınızı kullanın.
 Karargah dalgasından sonra geri çağırın ve size atanan üyeyi güçlendirmeye geri dönün.
 ⚠️ ÖNEMLİ: Karargahı 10. dalgada VEYA 20. dalgada güçlendirebilirsiniz — İKİSİNDE BİRDEN DEĞİL.
@@ -415,7 +415,7 @@ Tüm birlik oranları Piyade : Süvari : Okçu şeklindedir. Her kahraman için,
 6) Savunma: Howard / Gordon — 60 : 20 : 20 dengeli varsayılanımızdır. Yönetim belirli bir dizilişi istediğinde ayarlayın.
 Seferberlik Liderleri: En güçlü, eksiksiz saldırı kahraman kadronuzu kullanın.
 Seferberliğe Katılanlar: Lütfen yönetimin duyurduğu birlik sınırlarına uyun.
-7) Viking Karargahı (Viking HQ): Howard / Gordon — 60 : 40 Birlik sınırına uyun (~68.000)
+7) Viking Karargahı (Viking HQ): Howard / Gordon — 60 : 40 Birlik sınırına uyun (~70.080)
 8) PvE – Hayvanlar / Av: Diana + Fahd — 50 : 20 : 30
 🐺 PvE — HAYVANLAR / AV
 Korkunç Kurt için hatırlayın: çok fazla hasar gerekmez, bu yüzden daha fazla ittifak üyesi katılıp seferberlik ödüllerinden yararlanabilsin diye en az sayıda birlik gönderin (1 bile olur).
@@ -437,13 +437,13 @@ Bu sayede binayı gereksiz yere zayıflatmadan saldırı düzeninden savunma gar
 🪖 GARNİZON BİRLİK SINIRI
 Karargaha / Tapınağa yalnızca 15 vali girebilir. Bu yüzden maksimum intikalinizi otomatik olarak karargaha, Tapınağa veya diğer çekişmeli binalara göndermeyin.
 Yönetimin duyurduğu birlik sınırına uyun.
-Tipik ittifak hedefi: oyuncu başına ~68.000 birlik
+Tipik ittifak hedefi: oyuncu başına ~70.080 birlik
 Bu sayede savunma intikalleri doğru yapılandırılmış daha fazla ittifak üyesi garnizona sığar ve ödül alır.
 ⚠️ Yönetim farklı bir sınır duyurursa her zaman duyurulan miktara uyun.
-Örneğin, 68K birlik sınırını temel alarak bu sayıyı bir hesap makinesine girip doğrudan ilgili birlik türünün alanına yazabilirsin. İşte üç örnek:
-60/20/20 ➡️ 40.800 / 13.600 / 13.600
-60/40 ➡️ 40.800 / 27.200
-50/20/30 ➡️ 34.000 / 13.600 / 20.400
+Örneğin, 70.080 birlik sınırını temel alarak bu sayıyı bir hesap makinesine girip doğrudan ilgili birlik türünün alanına yazabilirsin. İşte üç örnek:
+60/20/20 ➡️ 42.048 / 14.016 / 14.016
+60/40 ➡️ 42.048 / 28.032
+50/20/30 ➡️ 35.040 / 14.016 / 21.024
 (see the Squad Guide page squad-guide.html)
 🎬 SALDIRI KAHRAMANLARINDAN SAVUNMA KAHRAMANLARINA NASIL GEÇİLİR
 📎 Video internetten alınmıştır (TikTok @yelloe_hair) — kendi çekimimiz değil.

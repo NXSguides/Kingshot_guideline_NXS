@@ -23,7 +23,7 @@ Die Wellen 10 und 20 greifen NUR das HQ an. Angriffe auf Städte pausieren in di
 Nachdem Welle 9 / 19 vorbei ist:
 Rufe EINEN starken Marsch zurück.
 Schicke ihn direkt zum HQ.
-Maximal 68K Truppen pro Mitglied.
+Maximal 70.080 Truppen pro Mitglied.
 Nutze Chenko oder Amadeus an Position 1 oder deinen stärksten Helden mit reinem Schaden.
 Rufe nach der HQ-Welle zurück und verstärke wieder das dir zugewiesene Mitglied.
 ⚠️ WICHTIG: Du kannst das HQ in Welle 10 ODER Welle 20 verstärken — NICHT BEIDE.
@@ -417,7 +417,7 @@ Alle Truppenverhältnisse gelten als Infanterie : Kavallerie : Bogenschütze. Sp
 6) Verteidigung: Howard / Gordon — 60 : 20 : 20 ist unser ausgewogener Standard. Passe es an, wenn die Führung eine bestimmte Formation verlangt.
 Rally-Anführer: Nutze deine stärkste, vollständige Angriffs-Heldenaufstellung.
 Rally-Joiner: Bitte halte dich an die von der Führung angegebenen Truppenlimits.
-7) Wikinger-HQ (Viking HQ): Howard / Gordon — 60 : 40 Truppenlimit beachten (~68.000)
+7) Wikinger-HQ (Viking HQ): Howard / Gordon — 60 : 40 Truppenlimit beachten (~70.080)
 8) PvE – Bestien / Jagd: Diana + Fahd — 50 : 20 : 30
 (see the Squad Guide page squad-guide.html)
 🐺 PvE — BESTIEN / JAGD
@@ -440,13 +440,13 @@ So können wir von einer Angriffsaufstellung zu einer Verteidigungsgarnison wech
 🪖 GARNISONS-TRUPPENLIMIT
 Nur 15 Gouverneure können in das HQ / Heiligtum gelangen. Schicke deshalb nicht automatisch deinen maximalen Marsch ins HQ, ins Heiligtum oder zu anderen umkämpften Gebäuden.
 Halte dich an das von der Führung angekündigte Truppenlimit.
-Typisches Allianzziel: ~68.000 Truppen pro Spieler
+Typisches Allianzziel: ~70.080 Truppen pro Spieler
 So passen mehr Allianzmitglieder mit richtig konfigurierten Verteidigungsmärschen in die Garnison und erhalten Belohnungen.
 ⚠️ Wenn die Führung ein anderes Limit ankündigt, halte dich immer an die angekündigte Zahl.
-Zum Beispiel: Bei einem Truppenlimit von 68K kannst du diese Zahl in einen Taschenrechner eingeben und direkt in das Feld des jeweiligen Truppentyps übertragen. Hier sind drei Beispiele:
-60/20/20 ➡️ 40.800 / 13.600 / 13.600
-60/40 ➡️ 40.800 / 27.200
-50/20/30 ➡️ 34.000 / 13.600 / 20.400
+Zum Beispiel: Bei einem Truppenlimit von 70.080 kannst du diese Zahl in einen Taschenrechner eingeben und direkt in das Feld des jeweiligen Truppentyps übertragen. Hier sind drei Beispiele:
+60/20/20 ➡️ 42.048 / 14.016 / 14.016
+60/40 ➡️ 42.048 / 28.032
+50/20/30 ➡️ 35.040 / 14.016 / 21.024
 🎬 SO WECHSELST DU VON ANGRIFFS- ZU VERTEIDIGUNGSHELDEN
 📎 Video aus dem Internet (TikTok @yelloe_hair) – nicht unser eigenes Material.
 

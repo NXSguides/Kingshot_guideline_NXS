@@ -23,7 +23,7 @@ Las oleadas 10 y 20 atacan SOLO el Cuartel General. Los ataques a la ciudad se p
 Después de que termine la oleada 9 / 19:
 Recupera UNA marcha fuerte.
 Envíala directamente al Cuartel General.
-Máximo 68K tropas por miembro.
+Máximo 70,080 tropas por miembro.
 Usa Chenko o Amadeus en la posición 1, o tu héroe con mayor daño puro.
 Después de la oleada del Cuartel General, recupérala y vuelve a reforzar al miembro que se te asignó.
 ⚠️ IMPORTANTE: Puedes reforzar el Cuartel General en la oleada 10 O la oleada 20 — NO AMBAS.
@@ -415,7 +415,7 @@ Todas las proporciones de tropas son Infantería : Caballería : Arquero. Guarda
 6) Defensa: Howard / Gordon — 60 : 20 : 20 es nuestra configuración equilibrada por defecto. Ajusta cuando el liderazgo solicite una formación específica.
 Líderes de Ataque Conjunto: Usa tu alineación ofensiva de héroes más fuerte y completa.
 Participantes de Ataque Conjunto: Sigue los límites de tropas indicados por el liderazgo.
-7) Total vikingo: Howard / Gordon — 60 : 40 Sigue el límite de tropas (~68,000)
+7) Total vikingo: Howard / Gordon — 60 : 40 Sigue el límite de tropas (~70,080)
 8) PvE — Bestias / Caza: Diana + Fahd — 50 : 20 : 30
 (see the Squad Guide page squad-guide.html)
 🐺 PvE — BESTIAS / CAZA
@@ -438,13 +438,13 @@ Esto nos permite pasar de una configuración ofensiva a una guarnición defensiv
 🪖 LÍMITE DE TROPAS EN LA GUARNICIÓN
 Solo 15 gobernadores pueden entrar al Cuartel General (HQ) / santuario. Así que no envíes automáticamente tu marcha máxima al HQ, santuario u otros edificios en disputa.
 Sigue el límite de tropas anunciado por el liderazgo.
-Objetivo habitual de la alianza: ~68,000 tropas por jugador
+Objetivo habitual de la alianza: ~70,080 tropas por jugador
 Esto permite que más miembros de la alianza con marchas defensivas correctamente configuradas quepan dentro de la guarnición y obtengan recompensas.
 ⚠️ Si el liderazgo anuncia un límite diferente, sigue siempre la cantidad anunciada.
-Por ejemplo, con un límite de 68K tropas, puedes introducir ese número en una calculadora y colocarlo directamente en el campo correspondiente al tipo de tropa. Aquí tienes tres ejemplos:
-60/20/20 ➡️ 40,800 / 13,600 / 13,600
-60/40 ➡️ 40,800 / 27,200
-50/20/30 ➡️ 34,000 / 13,600 / 20,400
+Por ejemplo, con un límite de 70,080 tropas, puedes introducir ese número en una calculadora y colocarlo directamente en el campo correspondiente al tipo de tropa. Aquí tienes tres ejemplos:
+60/20/20 ➡️ 42,048 / 14,016 / 14,016
+60/40 ➡️ 42,048 / 28,032
+50/20/30 ➡️ 35,040 / 14,016 / 21,024
 🎬 CÓMO CAMBIAR DE HÉROES OFENSIVOS A DEFENSIVOS
 📎 Video encontrado en línea (TikTok @yelloe_hair) — no es material propio.
 

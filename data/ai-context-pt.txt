@@ -23,7 +23,7 @@ As ondas 10 e 20 atacam SOMENTE o QG. Os ataques às cidades pausam durante essa
 Depois que a onda 9 / 19 terminar:
 Revogue UMA marcha forte.
 Envie-a diretamente ao QG.
-Máximo de 68K tropas por membro.
+Máximo de 70.080 tropas por membro.
 Use Chenko ou Amadeus na posição 1, ou seu herói de maior dano bruto.
 Depois da onda do QG, revogue e volte a reforçar o membro designado a você.
 ⚠️ IMPORTANTE: Você pode reforçar o QG na onda 10 OU na onda 20 — NÃO NAS DUAS.
@@ -415,7 +415,7 @@ Todas as proporções de tropas seguem Infantaria : Cavalaria : Arquearia. Salve
 6) Defesa: Howard / Gordon — 60 : 20 : 20 é o nosso padrão equilibrado. Ajuste quando a liderança pedir uma formação específica.
 Líderes de Rally: use sua melhor formação ofensiva de heróis, completa.
 Participantes de Rally: siga os limites de tropas publicados pela liderança.
-7) QG Viking (Viking HQ): Howard / Gordon — 60 : 40 Siga o limite de tropas (~68.000)
+7) QG Viking (Viking HQ): Howard / Gordon — 60 : 40 Siga o limite de tropas (~70.080)
 8) PvE – Feras / Caça: Diana + Fahd — 50 : 20 : 30
 🐺 PvE — FERAS / CAÇA
 Lembre-se para o Lobo Medonho: não é preciso muito dano, então envie o mínimo de tropas (até 1) para que mais membros da aliança possam entrar e aproveitar as recompensas do rally.
@@ -437,13 +437,13 @@ Isso nos permite passar de uma formação ofensiva para uma guarnição defensiv
 🪖 LIMITE DE TROPAS NA GUARNIÇÃO
 Apenas 15 governadores podem entrar no QG / Santuário. Por isso, não envie automaticamente sua marcha máxima para o QG, o Santuário ou outras construções disputadas.
 Siga o limite de tropas anunciado pela liderança.
-Meta comum da aliança: ~68.000 tropas por jogador
+Meta comum da aliança: ~70.080 tropas por jogador
 Isso permite que mais membros da aliança com marchas defensivas bem configuradas caibam na guarnição e recebam recompensas.
 ⚠️ Se a liderança anunciar um limite diferente, siga sempre o valor anunciado.
 Por exemplo, com um limite de 68 mil tropas, você pode colocar esse número numa calculadora e digitar diretamente no campo do tipo de tropa correspondente. Aqui estão três exemplos:
-60/20/20 ➡️ 40.800 / 13.600 / 13.600
-60/40 ➡️ 40.800 / 27.200
-50/20/30 ➡️ 34.000 / 13.600 / 20.400
+60/20/20 ➡️ 42.048 / 14.016 / 14.016
+60/40 ➡️ 42.048 / 28.032
+50/20/30 ➡️ 35.040 / 14.016 / 21.024
 (see the Squad Guide page squad-guide.html)
 🎬 COMO TROCAR DE HERÓIS DE ATAQUE PARA HERÓIS DE DEFESA
 📎 Vídeo encontrado online (TikTok @yelloe_hair) — não é filmagem nossa.
