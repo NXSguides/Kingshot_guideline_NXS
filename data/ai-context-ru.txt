@@ -955,8 +955,8 @@ Isnor: обмен: Обменять ресурсы → 5 эмблема маст
 - «Точно потрачу» — то, что вы и так собирались улучшать (например, только мастера, которых хотите качать). «Можно потратить» — не жалко отдать за очки. Незаполненное сохраняется. Ускорения вводите в днях, часах и минутах, как в игровой сводке ресурсов и ускорений.
 - Повышение засчитывает только разницу очков между уровнями. Ускорения тренировки вводите выше.
 Point values and scoring days used by the planner:
-Универсальное ускорение: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
-Ускорение тренировки: 30 pts per minute, scores on KvK prep day 4, 5
+Универсальное ускорение: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Ускорение тренировки: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Ускорение строительства: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Ускорение исследования: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Ускорение изучения: 30 pts per minute, scores on KvK prep day 1, 2, 5

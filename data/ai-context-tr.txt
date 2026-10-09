@@ -955,8 +955,8 @@ Sadece harcamak istediklerini sayar: günlük puanlar ve birden çok gün puan v
 - “Kesin kullanırım” = zaten geliştireceğin kısım (ör. sadece geliştirmek istediğin ustalar). “Kullanabilirim” = puan için harcamaya gönlünün razı olduğu kısım. Girilmeyenler saklanır. Hızlandırmaları oyundaki Kaynak ve Hızlandırma özetindeki gibi gün, saat ve dakika olarak gir.
 - Terfi sadece iki kademe arasındaki puan farkını sayar. Eğitim hızlandırmalarını yukarıya gir.
 Point values and scoring days used by the planner:
-Genel Hızlandırma: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
-Eğitim Hızlandırması: 30 pts per minute, scores on KvK prep day 4, 5
+Genel Hızlandırma: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Eğitim Hızlandırması: 30 pts per minute, scores on KvK prep day 1, 2, 5
 İnşaat Hızlandırması: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Araştırma Hızlandırması: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Öğrenme Hızlandırması: 30 pts per minute, scores on KvK prep day 1, 2, 5

@@ -955,8 +955,8 @@ Solo cuenta lo que estás dispuesto a gastar: puntos por día y en qué día usa
 - «Usaré» = lo que mejorarías de todos modos (p. ej. solo los maestros que piensas entrenar). «Puedo usar» = no te importa gastarlo por puntos. Lo que no escribas se guarda. Escribe los aceleradores en días, horas y minutos, como en el resumen de Recursos y aceleradores del juego.
 - El ascenso solo cuenta la diferencia de puntos entre niveles. Escribe los aceleradores de entrenamiento arriba.
 Point values and scoring days used by the planner:
-Acelerador general: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
-Acelerador de Entrenamiento: 30 pts per minute, scores on KvK prep day 4, 5
+Acelerador general: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Acelerador de Entrenamiento: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Acelerador de Construcción: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Acelerador de Investigación: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Acelerador de aprendizaje: 30 pts per minute, scores on KvK prep day 1, 2, 5

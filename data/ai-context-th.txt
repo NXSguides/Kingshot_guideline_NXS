@@ -954,8 +954,8 @@ Isnor: แลกเปลี่ยน: แลกเปลี่ยนทรั�
 - “ใช้แน่” คือส่วนที่ตั้งใจอัปเกรดอยู่แล้ว (เช่น เฉพาะมาสเตอร์ที่อยากฝึก) “ใช้ได้” คือส่วนที่เอาไปแลกคะแนนได้ไม่เสียดาย ที่ไม่ได้กรอกจะเก็บไว้ กรอกตัวเร่งเป็นวัน ชั่วโมง นาที เหมือนสรุปทรัพยากรและตัวเร่งในเกม
 - การเลื่อนขั้นนับเฉพาะส่วนต่างคะแนนระหว่างระดับ กรอกตัวเร่งการฝึกด้านบน
 Point values and scoring days used by the planner:
-เร่งสปีดทั่วไป: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
-เร่งสปีดการฝึก: 30 pts per minute, scores on KvK prep day 4, 5
+เร่งสปีดทั่วไป: 30 pts per minute, scores on KvK prep day 1, 2, 5
+เร่งสปีดการฝึก: 30 pts per minute, scores on KvK prep day 1, 2, 5
 เร่งสปีดการสร้าง: 30 pts per minute, scores on KvK prep day 1, 2, 5
 เร่งสปีดการวิจัย: 30 pts per minute, scores on KvK prep day 1, 2, 5
 เร่งสปีดการเรียนรู้: 30 pts per minute, scores on KvK prep day 1, 2, 5

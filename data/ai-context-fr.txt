@@ -955,8 +955,8 @@ Ne compte que ce que vous voulez dépenser : points par jour, et quel jour utili
 - « Prévu » = ce que vous amélioreriez de toute façon (ex. seulement les experts que vous voulez entraîner). « Possible » = vous acceptez de le dépenser pour des points. Ce qui n'est pas saisi est gardé. Saisissez les accélérateurs en jours, heures et minutes, comme le récapitulatif Ressources et accélérateurs du jeu.
 - La promotion ne compte que la différence de points entre les niveaux. Saisissez les accélérateurs d'entraînement plus haut.
 Point values and scoring days used by the planner:
-Accélérateur général: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
-Accélérateur d'Entraînement: 30 pts per minute, scores on KvK prep day 4, 5
+Accélérateur général: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Accélérateur d'Entraînement: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Accélérateur de Construction: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Accélérateur de Recherche: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Accélérateurs d'Apprentissage: 30 pts per minute, scores on KvK prep day 1, 2, 5

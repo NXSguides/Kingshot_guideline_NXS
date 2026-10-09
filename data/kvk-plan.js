@@ -865,7 +865,6 @@ const KVK_PLAN = {
    "days": [
     1,
     2,
-    4,
     5
    ],
    "pref": 5,
@@ -890,10 +889,11 @@ const KVK_PLAN = {
    "g": "gSpeed",
    "v": 30,
    "days": [
-    4,
+    1,
+    2,
     5
    ],
-   "pref": 4,
+   "pref": 5,
    "sp": 1,
    "n": {
     "en": "Training Speedups",

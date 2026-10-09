@@ -955,8 +955,8 @@ Hanya menghitung yang mau kamu pakai: poin per hari, dan hari apa item yang dapa
 - “Pasti dipakai” = yang memang akan kamu tingkatkan (mis. hanya master yang mau kamu latih). “Boleh dipakai” = rela ditukar poin. Yang tidak diisi tetap disimpan. Isi speedup dalam hari, jam, menit seperti ringkasan Sumber Daya & Speedup di game.
 - Promosi hanya menghitung selisih poin antar tingkat. Isi speedup pelatihan di atas.
 Point values and scoring days used by the planner:
-Speedup Umum: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
-Speedup Pelatihan: 30 pts per minute, scores on KvK prep day 4, 5
+Speedup Umum: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Speedup Pelatihan: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Speedup Konstruksi: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Speedup Penelitian: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Percepatan Pembelajaran: 30 pts per minute, scores on KvK prep day 1, 2, 5

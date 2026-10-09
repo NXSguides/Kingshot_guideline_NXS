@@ -955,8 +955,8 @@ Counts only what you're willing to spend: points per day, and which day multi-da
 - “Will use” = what you'd upgrade anyway (e.g. only the Masters you plan to train). “Can use” = fine to spend for points. Anything not entered is kept. Enter speedups as days, hours and minutes, like the in-game Resources & Speedups summary.
 - Promotion only scores the point difference between tiers. Enter Training Speedups above.
 Point values and scoring days used by the planner:
-General Speedups: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
-Training Speedups: 30 pts per minute, scores on KvK prep day 4, 5
+General Speedups: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Training Speedups: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Construction Speedups: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Research Speedups: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Learning Speedups: 30 pts per minute, scores on KvK prep day 1, 2, 5

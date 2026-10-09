@@ -957,8 +957,8 @@ Zählt nur, was du ausgeben willst: Punkte pro Tag und an welchem Tag mehrtägig
 - „Nutze sicher“ = was du sowieso verbessern willst (z. B. nur die Meister, die du trainieren willst). „Kann nutzen“ = darf für Punkte weg. Nicht Eingetragenes bleibt erhalten. Beschleunigungen in Tagen, Stunden und Minuten eintragen, wie in der Ressourcen- und Beschleunigungsübersicht im Spiel.
 - Beförderung zählt nur die Punktdifferenz zwischen den Stufen. Trainings-Beschleunigungen oben eintragen.
 Point values and scoring days used by the planner:
-Allgemeine Beschleunigung: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
-Trainings-Beschleunigung: 30 pts per minute, scores on KvK prep day 4, 5
+Allgemeine Beschleunigung: 30 pts per minute, scores on KvK prep day 1, 2, 5
+Trainings-Beschleunigung: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Bau-Beschleunigung: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Forschungs-Beschleunigung: 30 pts per minute, scores on KvK prep day 1, 2, 5
 Lern-Beschleunigung: 30 pts per minute, scores on KvK prep day 1, 2, 5

@@ -954,8 +954,8 @@ Isnor: تبادل: تبادل الموارد → 5 شعار المتخصص (Isno
 - «مؤكد» = ما كنت ستطوّره على أي حال (مثلًا المتخصصون الذين تنوي تدريبهم فقط). «ممكن» = لا مانع من إنفاقه مقابل النقاط. ما لا تدخله يبقى محفوظًا. أدخل المسرّعات بالأيام والساعات والدقائق كما في ملخص الموارد والمسرّعات داخل اللعبة.
 - الترقية تحتسب فقط فرق النقاط بين المستويين. أدخل مسرّعات التدريب في الأعلى.
 Point values and scoring days used by the planner:
-تسريع عام: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
-تسريع التدريب: 30 pts per minute, scores on KvK prep day 4, 5
+تسريع عام: 30 pts per minute, scores on KvK prep day 1, 2, 5
+تسريع التدريب: 30 pts per minute, scores on KvK prep day 1, 2, 5
 تسريع البناء: 30 pts per minute, scores on KvK prep day 1, 2, 5
 تسريع البحث: 30 pts per minute, scores on KvK prep day 1, 2, 5
 مسرعات التعلم: 30 pts per minute, scores on KvK prep day 1, 2, 5

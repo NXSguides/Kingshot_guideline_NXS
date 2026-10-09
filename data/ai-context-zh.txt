@@ -954,8 +954,8 @@ Isnor：交換: 交換資源 → 5 大師徽記 (Isnor); ? → ?
 - 「一定用」是本來就打算升級的部分（例如只算你想練的大師）；「可以用」是拿去換分也不心疼的部分。沒填的就是不想用，工具不會碰。加速照背包裡「資源與加速統計」的天、小時、分鐘填。
 - 晉升只算兩階的分差。訓練加速請填在上面的加速欄。
 Point values and scoring days used by the planner:
-通用加速: 30 pts per minute, scores on KvK prep day 1, 2, 4, 5
-士兵訓練加速: 30 pts per minute, scores on KvK prep day 4, 5
+通用加速: 30 pts per minute, scores on KvK prep day 1, 2, 5
+士兵訓練加速: 30 pts per minute, scores on KvK prep day 1, 2, 5
 建造加速: 30 pts per minute, scores on KvK prep day 1, 2, 5
 研究加速: 30 pts per minute, scores on KvK prep day 1, 2, 5
 學習加速: 30 pts per minute, scores on KvK prep day 1, 2, 5
