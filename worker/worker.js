@@ -3,6 +3,7 @@
    Secrets (Settings → Variables and Secrets):
      GEMINI_API_KEY — from a SEPARATE Google AI Studio project
      DATA_KEY       — the officer data key from the Post tab (needed once officer data is encrypted)
+     GOATCOUNTER_TOKEN — GoatCounter API token (Settings → API → "Read statistics"); for the officer Views tab
    Binding (Settings → Bindings → KV namespace), optional but recommended: LIMITS
      — remembers how many questions each device / IP asked today. Without it the daily
        limits still work, but only roughly (they reset whenever Cloudflare restarts the Worker).
@@ -10,7 +11,8 @@
    Officers:  also roster / watch data. "Officer" = proves the officer password (it opens data/data-key.json),
               checked here with a hash of the DATA_KEY secret. */
 
-const VERSION = "2026-10-08c (scout tab)";
+const VERSION = "2026-10-09a (views tab)";
+const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
 const REPO = "NXSguides/Kingshot_guideline_NXS";
@@ -60,6 +62,7 @@ async function handle(req, env) {
 
     let body;
     try { body = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
+    if (body.stats) return stats(body, env);                 // officer page → Views tab
     const question = String(body.question || "").trim().slice(0, 600);
     if (!question) return json({ error: "empty" }, 400);
     const siteLang = LANG_NAMES[body.lang] ? body.lang : "en";
@@ -281,6 +284,7 @@ GETTING IN
 - On the main site, tap the title "NXS Guidelines" 5 times quickly (within 2 seconds) → the 📅 Events page opens. Enter the officer password (ask Sherry). Tick "Remember on this device" to skip it next time.
 - The password is asked again on another browser / phone, the home-screen app, a private window, after clearing browser data, or after "Forget the password on this device".
 - All officer tabs are one page now (officer-x7k2p9.html); switching tabs is instant and the password is entered once. The tabs, in order: 📅 Events (中文: 活動排程), 📊 Ranking (成員排序), 📢 Post (發布公告), 🕵️ Watch (觀察名單), 🔭 Scout (偵察).
+- 📈 Views (中文: 網站瀏覽): site statistics — visitors per day, which guides and languages people open, countries, where they came from, devices; 7 / 30 / 90 days. Counting is GoatCounter, anonymous (no cookies, names or IPs). NOT counted: any browser with the officer password saved (officers test the site all day), and the officer page itself. So "this browser: not counted" on the Views tab is normal for every officer. If it says the token is not set: Cloudflare Worker → Settings → Variables and Secrets → add GOATCOUNTER_TOKEN (GoatCounter → Settings → API → new token with "Read statistics").
 - Language: officer pages are English or 中文. Entering from the Chinese site opens them in 中文, from any other language in English. The language button on any tab switches all officer tabs together.
 - When answering in Chinese, call the tabs by their 中文 names above (they are what officers see on screen).
 - Member data updates automatically every day at 20:13 UTC. If a page says "No data yet": GitHub → Actions → "Update Roster (MightPulse)" → Run workflow, then reload.
@@ -367,6 +371,30 @@ function detectLang(q, siteLang) {
 async function sha(s) {
   const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
   return [...new Uint8Array(b)].map((x) => x.toString(16).padStart(2, "0")).join("");
+}
+
+/* Views tab: site statistics from GoatCounter, officers only. Cached 5 minutes per range. */
+const statsCache = {};
+async function stats(body, env) {
+  if (!(await isOfficer(body, env))) return json({ error: "no_permission" }, 403);
+  if (!env.GOATCOUNTER_TOKEN) return json({ error: "no_token" }, 500);
+  const days = [7, 30, 90].includes(+body.days) ? +body.days : 7;
+  const c = statsCache[days];
+  if (c && Date.now() - c.at < 5 * 60 * 1000) return json(c.data);
+  const end = new Date(), start = new Date(end.getTime() - days * 86400000);
+  const q = `start=${start.toISOString()}&end=${end.toISOString()}`;
+  const get = async (p) => {
+    const r = await fetch(`${GC_SITE}/api/v0/stats/${p}${p.includes("?") ? "&" : "?"}${q}`, { headers: { Authorization: `Bearer ${env.GOATCOUNTER_TOKEN.trim()}`, "Content-Type": "application/json" } });
+    if (!r.ok) throw new Error(`goatcounter ${p.split("?")[0]} ${r.status}`);
+    return r.json();
+  };
+  try {
+    const [total, hits, locations, toprefs, systems, browsers] = await Promise.all([
+      get("total"), get("hits?limit=100&group=day"), get("locations?limit=15"), get("toprefs?limit=15"), get("systems?limit=10"), get("browsers?limit=10")]);
+    const data = { days, at: Date.now(), total, hits: hits.hits, locations: locations.stats, toprefs: toprefs.stats, systems: systems.stats, browsers: browsers.stats };
+    statsCache[days] = { data, at: Date.now() };
+    return json(data);
+  } catch (e) { return json({ error: "goatcounter", detail: String(e.message || e) }, 502); }
 }
 
 /* Officer = knows the officer password. The browser opens data/data-key.json with it and sends

@@ -133,8 +133,8 @@ window.OfficerData = (() => {
 /* ===== Tab names at the top of the officer pages follow the page language (English / 中文) ===== */
 (function () {
   const NAMES = {
-    en: { ranking: "📊 Ranking", post: "📢 Post", watch: "🕵️ Watch", events: "📅 Events", scout: "🔭 Scout" },
-    zh: { ranking: "📊 成員排序", post: "📢 發布公告", watch: "🕵️ 觀察名單", events: "📅 活動排程", scout: "🔭 偵察" },
+    en: { ranking: "📊 Ranking", post: "📢 Post", watch: "🕵️ Watch", events: "📅 Events", scout: "🔭 Scout", views: "📈 Views" },
+    zh: { ranking: "📊 成員排序", post: "📢 發布公告", watch: "🕵️ 觀察名單", events: "📅 活動排程", scout: "🔭 偵察", views: "📈 網站瀏覽" },
   };
   function apply() {
     const n = NAMES[(document.documentElement.lang || "").startsWith("zh") ? "zh" : "en"];

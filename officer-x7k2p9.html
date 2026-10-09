@@ -352,6 +352,14 @@
   #pg-scout .inp { width: auto; padding: 8px 10px; font-size: 15px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); }
   #pg-scout .msg { margin-top: 8px; font-size: 14px; }
   #pg-scout .okmsg { color: #2e7d32; }
+  .vw-bars { display: flex; align-items: flex-end; gap: 3px; height: 140px; padding-top: 18px; overflow-x: auto; }
+  .vw-bars .b { flex: 1 0 8px; min-width: 8px; background: var(--accent); border-radius: 3px 3px 0 0; position: relative; }
+  .vw-bars .b:hover::after { content: attr(data-l); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 11px; background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 2px 6px; margin-bottom: 2px; }
+  .vw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
+  .vw-grid h3, #vw_h_daily { margin: 0 0 8px; font-size: 15px; }
+  .vw-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; font-size: 13px; padding: 3px 0; border-bottom: 1px solid var(--rule); }
+  .vw-row span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .vw-row i { display: block; height: 3px; background: var(--accent); border-radius: 2px; margin-top: 3px; opacity: .7; }
   .shbar { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 8px; }
 </style>
 </head>
@@ -364,6 +372,7 @@
     <a href="#post" data-tab="post">📢 Post</a>
     <a href="#watch" data-tab="watch">🕵️ Watch</a>
     <a href="#scout" data-tab="scout">🔭 Scout</a>
+    <a href="#views" data-tab="views">📈 Views</a>
   </nav>
   <div id="gate" class="card" hidden style="max-width:360px;margin:24px auto">
     <h2 id="gateTitle"></h2>
@@ -727,6 +736,28 @@
     <div id="sc_kingdoms"></div>
   </div>
 </section>
+<section class="pg" id="pg-views" hidden>
+  <div class="top">
+    <div>
+      <h1 id="vw_title"></h1>
+      <div class="muted" id="vw_meta"></div>
+    </div>
+    <div class="row" style="gap:6px">
+      <select id="vw_days" class="btn"></select>
+      <button class="btn" id="vw_reload">↻</button>
+    </div>
+  </div>
+  <div class="card" id="vw_note" style="font-size:13px"></div>
+  <div class="card" id="vw_err" hidden></div>
+  <div class="card"><h3 id="vw_h_daily"></h3><div id="vw_daily" class="vw-bars"></div></div>
+  <div class="vw-grid">
+    <div class="card"><h3 id="vw_h_pages"></h3><div id="vw_pages"></div></div>
+    <div class="card"><h3 id="vw_h_langs"></h3><div id="vw_langs"></div></div>
+    <div class="card"><h3 id="vw_h_loc"></h3><div id="vw_loc"></div></div>
+    <div class="card"><h3 id="vw_h_refs"></h3><div id="vw_refs"></div></div>
+    <div class="card"><h3 id="vw_h_sys"></h3><div id="vw_sys"></div></div>
+  </div>
+</section>
 
 </div>
 <script src="js/officer-data.js"></script>
@@ -760,7 +791,7 @@ const officerLang = () => { try { const v = localStorage.getItem(OFFICER_LANG); 
 const setOfficerLang = (v) => { try { localStorage.setItem(OFFICER_LANG, v); } catch (e) {} };
 const OFFICER = { lang: officerLang() || ((navigator.language || "").startsWith("zh") ? "zh" : "en"), token: null, pw: null };
 const OFFICER_PAGES = {};
-const TABS = ["events", "ranking", "post", "watch", "scout"];
+const TABS = ["events", "ranking", "post", "watch", "scout", "views"];
 const inited = {};
 try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
 const SH = { en: { home: "Home", pw: "🔒 Officer password", remember: "Remember on this device", unlock: "Unlock", wrong: "Wrong password", loading: "Loading…" },
@@ -792,7 +823,7 @@ function loadScripts(list) {
   }))), Promise.resolve());
 }
 /* tabs: #events / #ranking / #post / #watch (the part after "?" is kept for the page) */
-function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|scout)/); return m ? m[1] : "events"; }
+function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|scout|views)/); return m ? m[1] : "events"; }
 async function showTab() {
   const k = currentTab();
   document.querySelectorAll(".tabs a").forEach((a) => a.classList.toggle("on", a.dataset.tab === k));
@@ -3367,6 +3398,97 @@ async function init() {
 }
 function setLang(l) { lang = l; render(); }
 OFFICER_PAGES.scout = { init, applyTexts, setLang };
+})();
+
+/* ===== Views tab: site statistics from GoatCounter via the Worker (officers only) ===== */
+(function () {
+const ROOT = document.getElementById("pg-views"), $ = (id) => document.getElementById(id);
+const AI_URL = "https://nxs-ai.tapegirljoke.workers.dev";
+let lang = OFFICER.lang, DATA = null, proof = null;
+const T = {
+  en: { title: "📈 Site views", meta: "Visitors per day · which guides and languages people open · where they come from. Officers (any browser with the officer password saved) and this page are not counted.",
+        note: "This browser: not counted (officer). Counting is anonymous — no cookies, no names, no IPs stored.", days: "days", loading: "Loading…",
+        daily: "Visitors per day", pages: "Pages / guides", langs: "Site languages", loc: "Countries", refs: "Came from", sys: "Devices",
+        total: "{n} visitors in the last {d} days", err: "Couldn't load: {e}", noToken: "GoatCounter token not set in the Worker yet (GOATCOUNTER_TOKEN).", direct: "(direct / app)" },
+  zh: { title: "📈 網站瀏覽", meta: "每天幾個人看、打開哪些指南和語言、從哪裡來。幹部（記住密碼的瀏覽器）和這一頁本身不會被計入。",
+        note: "這個瀏覽器：不計入（幹部）。統計是匿名的——沒有 cookie，不存名字，不存 IP。", days: "天", loading: "載入中…",
+        daily: "每天人數", pages: "頁面／指南", langs: "網站語言", loc: "國家", refs: "來源", sys: "裝置",
+        total: "最近 {d} 天共 {n} 人", err: "讀不到：{e}", noToken: "Worker 還沒設定 GoatCounter 的 token（GOATCOUNTER_TOKEN）。", direct: "（直接開啟／App）" },
+};
+const L = () => T[lang] || T.en;
+const f = (s, v) => String(s).replace(/\{(\w+)\}/g, (m, k) => v[k] ?? m);
+const esc = (x) => String(x).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const LANG_NAMES = { en: "English", zh: "中文", ko: "한국어", de: "Deutsch", fr: "Français", pt: "Português", es: "Español", tr: "Türkçe", id: "Bahasa Indonesia", ru: "Русский", th: "ไทย", ar: "العربية" };
+const PAGE_NAMES = { "/index.html": { en: "Home (language picker)", zh: "首頁（選語言）" }, "/kvk-optimizer.html": { en: "KvK Points Planner", zh: "KvK 積分規劃" }, "/booking-guide.html": { en: "Booking guide", zh: "預約教學" }, "/squad-guide.html": { en: "Squad guide", zh: "部隊編組教學" }, "/kvk-calculator.html": { en: "KvK calculator", zh: "KvK 計算器" } };
+function applyTexts() {
+  const t = L();
+  $("vw_title").textContent = t.title; $("vw_meta").textContent = t.meta; $("vw_note").textContent = t.note;
+  for (const k of ["daily", "pages", "langs", "loc", "refs", "sys"]) $("vw_h_" + k).textContent = t[k];
+  const sel = $("vw_days"), cur = sel.value || "7";
+  sel.innerHTML = [7, 30, 90].map((d) => `<option value="${d}"${String(d) === cur ? " selected" : ""}>${d} ${t.days}</option>`).join("");
+  document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+}
+async function proofCompute() {
+  if (proof) return proof;
+  try {
+    const blob = await OfficerData.dataKeyBlob();
+    const key = await OfficerData.pbkdf(OFFICER.pw, blob.salt, blob.iter, ["decrypt"]);
+    const b64 = (x) => Uint8Array.from(atob(x), (c) => c.charCodeAt(0));
+    const raw = new Uint8Array(await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64(blob.iv) }, key, b64(blob.data)));
+    let k64 = ""; raw.forEach((x) => (k64 += String.fromCharCode(x))); k64 = btoa(k64);
+    const h = await crypto.subtle.digest("SHA-256", new TextEncoder().encode("nxs-officer:" + k64));
+    proof = [...new Uint8Array(h)].map((x) => x.toString(16).padStart(2, "0")).join("");
+  } catch (e) { proof = null; }
+  return proof;
+}
+async function load() {
+  const days = +$("vw_days").value || 7;
+  $("vw_err").hidden = true; $("vw_daily").innerHTML = `<div class="muted">${L().loading}</div>`;
+  try {
+    const p = await proofCompute();
+    const r = await fetch(AI_URL, { method: "POST", headers: { "Content-Type": "text/plain" }, body: JSON.stringify({ stats: 1, days, officerProof: p }) });
+    const d = await r.json();
+    if (d.error) throw new Error(d.error === "no_token" ? L().noToken : (d.detail || d.error));
+    DATA = d; render();
+  } catch (e) { $("vw_daily").innerHTML = ""; $("vw_err").hidden = false; $("vw_err").textContent = f(L().err, { e: e.message || e }); }
+}
+// "/index.html#/zh/kvk" → guide "kvk" in language "zh"
+function splitPath(p) {
+  const m = p.match(/^([^#]*)#\/?([a-z]{2})(?:\/([\w-]+))?/);
+  return { file: (m ? m[1] : p.split("#")[0]) || "/index.html", lang: m ? m[2] : null, guide: m ? (m[3] || "recent-events") : null };
+}
+function rows(el, list, max) {
+  const top = Math.max(1, ...list.map((x) => x.n));
+  el.innerHTML = list.slice(0, max || 15).map((x) => `<div class="vw-row"><span title="${esc(x.k)}">${esc(x.k)}<i style="width:${x.n / top * 100}%"></i></span><b>${x.n}</b></div>`).join("") || `<div class="muted">—</div>`;
+}
+function render() {
+  applyTexts();
+  if (!DATA) return;
+  const t = L(), days = DATA.days;
+  // daily
+  const st = DATA.total.stats || [];
+  const top = Math.max(1, ...st.map((x) => x.daily || 0));
+  $("vw_daily").innerHTML = st.map((x) => `<div class="b" style="height:${Math.max(2, (x.daily || 0) / top * 100)}%" data-l="${x.day.slice(5)} · ${x.daily || 0}"></div>`).join("");
+  $("vw_meta").textContent = f(t.total, { n: DATA.total.total, d: days }) + " · " + t.meta;
+  // pages + languages from the path
+  const pages = {}, langs = {};
+  for (const h of DATA.hits || []) {
+    const { file, lang: lg, guide } = splitPath(h.path);
+    let name = PAGE_NAMES[file] ? PAGE_NAMES[file][lang] : file;
+    if (guide && file === "/index.html") { const g = typeof GUIDES !== "undefined" && GUIDES[guide]; name = (g && g.name ? (g.name[lang] || g.name.en) : guide); }
+    pages[name] = (pages[name] || 0) + h.count;
+    if (lg) langs[LANG_NAMES[lg] || lg] = (langs[LANG_NAMES[lg] || lg] || 0) + h.count;
+  }
+  const toList = (o) => Object.entries(o).map(([k, n]) => ({ k, n })).sort((a, b) => b.n - a.n);
+  rows($("vw_pages"), toList(pages), 20); rows($("vw_langs"), toList(langs), 12);
+  rows($("vw_loc"), (DATA.locations || []).map((x) => ({ k: x.name || x.id || "?", n: x.count })));
+  rows($("vw_refs"), (DATA.toprefs || []).map((x) => ({ k: x.name || t.direct, n: x.count })));
+  rows($("vw_sys"), (DATA.systems || []).map((x) => ({ k: x.name || "?", n: x.count })), 8);
+}
+async function init() { applyTexts(); $("vw_days").onchange = load; $("vw_reload").onclick = load; await load(); }
+function setLang(l) { lang = l; render(); }
+// guide names for the Pages list come from data/content.js (shared with the Post tab, loaded once)
+OFFICER_PAGES.views = { init: () => loadScripts(["data/content.js"]).then(init, init), applyTexts, setLang };
 })();
 
 officerGate();
