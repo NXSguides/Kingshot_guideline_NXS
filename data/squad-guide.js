@@ -123,18 +123,18 @@ const SQUAD_GUIDE = {
     "ar": "في معاينة القوات اضغط القوات (التشكيلات)."
    },
    {
-    "en": "Pick a slot at the top (BT, BT1 … ) and set the heroes you want.",
-    "zh": "在上方選一格（BT、BT1…），放好要用的英雄。",
-    "ko": "위쪽에서 슬롯(BT, BT1 …)을 고르고 쓸 영웅을 배치합니다.",
-    "de": "Wähle oben einen Slot (BT, BT1 …) und setze deine Helden ein.",
-    "fr": "Choisissez un slot en haut (BT, BT1…) et placez vos héros.",
-    "pt": "Escolha um slot no topo (BT, BT1…) e coloque os heróis.",
-    "es": "Elige una ranura arriba (BT, BT1…) y coloca tus héroes.",
-    "tr": "Üstten bir yuva seç (BT, BT1 …) ve kahramanlarını yerleştir.",
-    "id": "Pilih slot di atas (BT, BT1 …) dan pasang hero yang mau dipakai.",
-    "ru": "Выберите слот сверху (BT, BT1 …) и расставьте героев.",
-    "th": "เลือกช่องด้านบน (BT, BT1 …) แล้วใส่ฮีโร่ที่ต้องการ",
-    "ar": "اختر خانة في الأعلى (BT، BT1 …) وضع الأبطال الذين تريدهم."
+    "en": "Tap the hero cards and pick the heroes you want in this squad.",
+    "zh": "點英雄卡，選這隊要用的英雄。",
+    "ko": "영웅 카드를 눌러 이 부대에 쓸 영웅을 고릅니다.",
+    "de": "Tippe auf die Heldenkarten und wähle die Helden für diese Aufstellung.",
+    "fr": "Touchez les cartes de héros et choisissez les héros de cette escouade.",
+    "pt": "Toque nos cartões de herói e escolha os heróis deste esquadrão.",
+    "es": "Toca las cartas de héroe y elige los héroes de este escuadrón.",
+    "tr": "Kahraman kartlarına dokunup bu ekipteki kahramanları seç.",
+    "id": "Ketuk kartu hero dan pilih hero untuk skuad ini.",
+    "ru": "Нажмите на карточки героев и выберите героев для этого отряда.",
+    "th": "แตะการ์ดฮีโร่แล้วเลือกฮีโร่ที่จะใช้ในทีมนี้",
+    "ar": "اضغط على بطاقات الأبطال واختر أبطال هذه الفرقة."
    },
    null,
    {
