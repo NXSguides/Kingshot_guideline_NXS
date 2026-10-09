@@ -254,13 +254,21 @@ const BOOKING_GUIDE = {
   "id": "id",
   "th": "th",
   "pt": "pt",
-  "es": "es"
+  "es": "es",
+  "tr": "tr",
+  "ru": "ru",
+  "fr": "fr",
+  "ar": "ar"
  },
  "shotLangName": {
   "id": "Bahasa Indonesia",
   "th": "ไทย",
   "pt": "Português",
-  "es": "Español"
+  "es": "Español",
+  "tr": "Türkçe",
+  "ru": "Русский",
+  "fr": "Français",
+  "ar": "العربية"
  },
  "fallbackShots": "es"
 };
