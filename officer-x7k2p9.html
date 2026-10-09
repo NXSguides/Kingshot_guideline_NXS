@@ -96,6 +96,15 @@
   #pg-events .tabs a { padding: 8px 6px; font-size: 13px; white-space: nowrap; } }
   #pg-events .weeknav { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
   #pg-events .weeknav .lbl { font-weight: 700; text-align: center; flex: 1; }
+  #pg-events .wk-head { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 2px; text-align: center; font-weight: 700; line-height: 1.15; font-size: 13px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+  #pg-events .wk-head small { display: block; font-weight: 400; color: var(--text-muted); font-size: 11px; }
+  #pg-events .wk-head .today { color: var(--accent); }
+  #pg-events .wk-rows { display: flex; flex-direction: column; gap: 6px; padding-top: 8px; }
+  #pg-events .wk-row { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 2px; }
+  #pg-events .ev.bar { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; border-color: var(--accent); background: color-mix(in srgb, var(--accent) 20%, var(--panel)); font-weight: 700; }
+  #pg-events .ev.bar.cont { border-top-left-radius: 0; border-bottom-left-radius: 0; border-left-style: dashed; }
+  #pg-events .ev.bar.more { border-top-right-radius: 0; border-bottom-right-radius: 0; border-right-style: dashed; }
+  #pg-events .ev.bar .n { font-weight: 400; }
   #pg-events .day { display: grid; grid-template-columns: 64px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--rule); }
   #pg-events .day:last-child { border-bottom: 0; }
   #pg-events .day.today { background: color-mix(in srgb, var(--accent) 10%, transparent); border-radius: 8px; padding-inline: 6px; }
@@ -1189,7 +1198,7 @@ const EVENTS = {
   "fishing-tournament": { emoji: "🎣", en: "Fishing Tournament", zh: "釣魚大賽" },
   "hero-roulette":      { emoji: "🎰", en: "Hero Roulette", zh: "英雄轉盤" },
   "cesares-fury":       { emoji: "🗡️", en: "Cesares Fury", zh: "征討切薩雷", noGuide: true },
-  "sanctuary-battle":   { emoji: "🏯", en: "Sanctuary Battle", zh: "遺跡爭奪", noGuide: true },
+  "sanctuary-battle":   { emoji: "🏯", en: "Sanctuary Battle", zh: "遺跡爭奪", noGuide: true, start: "2026-10-06", every: 7, days: 4 },   // added after the list was first saved → start/every/days seed it
 };
 // What officers need to do. due: days relative to the event's first day (−1 = the day before).
 const TODO = {
@@ -1302,16 +1311,12 @@ function render() {
   const ws = weekStart, we = ws + 7 * DAY, today = utcDay(Date.now());
   $("weekLbl").textContent = tr("week", { a: fmt(ws), b: fmt(we - DAY) });
   const rs = runs(ws, we);
-  let html = "";
-  for (let i = 0; i < 7; i++) {
-    const d = ws + i * DAY;
-    const on = rs.filter((r) => r.st <= d && d < r.en);
-    html += `<div class="day${d === today ? " today" : ""}"><div class="dname">${esc(tr("wd")[i])}<small>${new Date(d).getUTCMonth() + 1}/${new Date(d).getUTCDate()}</small></div><div>${
-      on.length ? on.map((r) => { const n = (d - r.st) / DAY + 1;
-        const lbl = r.days === 1 ? "" : n === 1 ? tr("starts") : n === r.days ? tr("ends") : tr("day", { n, t: r.days });
-        return `<span class="ev${n === 1 ? " start" : ""}" data-open="${esc(r.k)}">${esc(evName(r.k))}${lbl ? ` <span class="n">${esc(lbl)}</span>` : ""}</span>`; }).join("")
-      : `<span class="none">${esc(tr("none"))}</span>`}</div></div>`;
-  }
+  const col = (t) => Math.max(0, Math.min(7, Math.round((t - ws) / DAY)));
+  let html = `<div class="wk-head">${[0,1,2,3,4,5,6].map((i) => { const d = ws + i * DAY; return `<div class="${d === today ? "today" : ""}">${esc(tr("wd")[i])}<small>${new Date(d).getUTCMonth() + 1}/${new Date(d).getUTCDate()}</small></div>`; }).join("")}</div>`;
+  html += `<div class="wk-rows">` + (rs.length ? rs.map((r) => {
+    const a = col(r.st), b = col(r.en), cont = r.st < ws, more = r.en > we;
+    return `<div class="wk-row"><span class="ev bar${cont ? " cont" : ""}${more ? " more" : ""}" style="grid-column:${a + 1} / ${Math.max(a + 2, b + 1)}" data-open="${esc(r.k)}" title="${esc(fmt(r.st))} – ${esc(fmt(r.en - DAY))}">${esc(evName(r.k))}</span></div>`;
+  }).join("") : `<div class="none">${esc(tr("none"))}</div>`) + `</div>`;
   $("days").innerHTML = html;
   // action items: for events that start this week (even if the prep is due a bit earlier),
   // plus prep that is due this week for events starting next week
@@ -1562,6 +1567,10 @@ async function init() {
 }
 // saved events without any to-do get the built-in ones once (todoSeed marks it, so deleting them later sticks)
 function seedTodos(list) {
+  // events added to the site after the list was saved (they carry their own default schedule)
+  for (const [id, e] of Object.entries(EVENTS)) {
+    if (e.start && !list.some((x) => x.id === id)) list.push({ id, emoji: e.emoji, en: e.en, zh: e.zh, start: e.start, every: e.every, days: e.days, guide: "", note: "", todo: [], ingame: INGAME_DEFAULTS[id] || [] });
+  }
   for (const e of list) {
     if (e.todoSeed || (e.todo && e.todo.length)) continue;
     const d = TODO[e.id] || (EXTRA_EVENTS.find((x) => x.id === e.id) || {}).todo;
