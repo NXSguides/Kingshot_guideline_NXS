@@ -3617,6 +3617,13 @@ const esc = (x) => String(x).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&l
 let lang = OFFICER.lang, G, TY = {}, B = [], BY = {}, SEL = null, Z = 1;
 const hidden = new Set();
 const T = (k) => { const v = G.ui[k]; return Array.isArray(v) ? v.map((x) => x[lang] || x.en) : (v[lang] || v.en); };
+/* Chinese names = the in-game 據點爭奪 screen; every other language uses the English names */
+const ZH = () => lang === "zh" ? G.zh : null;
+const typeName = (k) => ZH() ? ZH().types[k][0] : TY[k].n;
+const buffName = (k) => ZH() ? ZH().types[k][1] : TY[k].b;
+const castleName = () => ZH() ? ZH().castle : "King's Castle";
+const nm = (b) => b.kind === "outpost" ? typeName(b.t) : b.kind === "castle" ? castleName()
+  : ZH() ? ZH()[b.kind].replace("{n}", b.n) : (b.kind === "fortress" ? "Fortress " : "Sanctuary ") + b.n;
 
 /* screen right = X−Y, up = X+Y — same direction as the in-game World map */
 const W = 1320, CX = W / 2, CY = 450, KX = .55, KY = .355;
@@ -3642,7 +3649,7 @@ function drawMap() {
     if (b.kind === "outpost") s.push(`${g}<rect x="${X - 12}" y="${Y - 12}" width="24" height="24" rx="6" fill="${TY[b.t].c}" stroke="#fff" stroke-width="2.5"/><text x="${X}" y="${Y + 5}" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#fff">${b.lv}</text></g>`);
     else if (b.kind === "sanctuary") s.push(`${g}<circle cx="${X}" cy="${Y}" r="15" fill="#eef2f6" stroke="#2a3340" stroke-width="2.5"/><text x="${X}" y="${Y + 5}" text-anchor="middle" font-family="Arial" font-size="14" font-weight="800" fill="#2a3340">${b.n}</text><text class="lbl" x="${X}" y="${Y - 21}" text-anchor="middle" font-size="13">${b.short}</text></g>`);
     else if (b.kind === "fortress") s.push(`${g}<rect x="${X - 16}" y="${Y - 16}" width="32" height="32" rx="5" transform="rotate(45 ${X} ${Y})" fill="#7a4a24" stroke="#fff" stroke-width="2.5"/><text x="${X}" y="${Y + 5}" text-anchor="middle" font-family="Arial" font-size="15" font-weight="800" fill="#fff">${b.n}</text><text class="lbl" x="${X}" y="${Y - 26}" text-anchor="middle" font-size="14">${b.short}</text></g>`);
-    else s.push(`${g}<circle cx="${X}" cy="${Y}" r="26" fill="#f2c33d" stroke="#fff" stroke-width="3"/><text x="${X}" y="${Y + 9}" text-anchor="middle" font-size="25">👑</text><text class="lbl" x="${X}" y="${Y + 46}" text-anchor="middle" font-size="16">King's Castle</text></g>`);
+    else s.push(`${g}<circle cx="${X}" cy="${Y}" r="26" fill="#f2c33d" stroke="#fff" stroke-width="3"/><text x="${X}" y="${Y + 9}" text-anchor="middle" font-size="25">👑</text><text class="lbl" id="km_castleLbl" x="${X}" y="${Y + 46}" text-anchor="middle" font-size="16">King's Castle</text></g>`);
   }
   s.push(`<g id="km_sel"></g>`);
   $("km_svg").innerHTML = s.join("");
@@ -3681,8 +3688,8 @@ function renderInfo() {
   const b = SEL && BY[SEL];
   if (!b) { $("km_info").innerHTML = `<span class="muted">${esc(T("pick"))}</span>`; return; }
   const sw = b.kind === "outpost" ? `<span class="sw" style="background:${TY[b.t].c}"></span>` : "";
-  const what = b.kind === "outpost" ? `Lv.${b.lv} · ${esc(TY[b.t].b)} +${b.buff}%` : b.kind === "castle" ? "" : esc(T("noBuff"));
-  $("km_info").innerHTML = `${sw}<b>${esc(b.name)}</b>${what ? `<span class="muted">${what}</span>` : ""}<span class="co">X:${b.x} Y:${b.y}</span><button type="button" class="btn" id="km_cp">${esc(T("copy"))}</button>`;
+  const what = b.kind === "outpost" ? `Lv.${b.lv} · ${esc(buffName(b.t))} +${b.buff}%` : b.kind === "castle" ? "" : esc(T("noBuff"));
+  $("km_info").innerHTML = `${sw}<b>${esc(nm(b))}</b>${what ? `<span class="muted">${what}</span>` : ""}<span class="co">X:${b.x} Y:${b.y}</span><button type="button" class="btn" id="km_cp">${esc(T("copy"))}</button>`;
   $("km_cp").onclick = () => {
     const done = () => { const c = $("km_cp"); if (c) { c.textContent = T("copied"); setTimeout(() => { if ($("km_cp")) $("km_cp").textContent = T("copy"); }, 1500); } };
     try { navigator.clipboard.writeText(`X:${b.x} Y:${b.y}`).then(done, () => {}); } catch (e) {}
@@ -3691,19 +3698,19 @@ function renderInfo() {
 const chip = (b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}">${b.short ? b.short + " · " : ""}X${b.x} Y${b.y}</button>`;
 function renderList() {
   let h = `<div class="km-c"><div class="hd"><b>${esc(T("ruins"))}</b><span class="bf">${esc(T("noBuff"))}</span></div>
-    <div class="km-lv"><span class="pill" style="background:#b8860b">👑 King's Castle</span><div class="chips">${chip(BY.k)}</div></div>
-    <div class="km-lv"><span class="pill" style="background:#7a4a24">◆ Fortress</span><div class="chips">${B.filter((b) => b.kind === "fortress").map(chip).join("")}</div></div>
-    <div class="km-lv"><span class="pill" style="background:#5d6876">● Sanctuary</span><div class="chips">${B.filter((b) => b.kind === "sanctuary").map(chip).join("")}</div></div></div>`;
+    <div class="km-lv"><span class="pill" style="background:#b8860b">👑 ${esc(castleName())}</span><div class="chips">${chip(BY.k)}</div></div>
+    <div class="km-lv"><span class="pill" style="background:#7a4a24">◆ ${ZH() ? ZH().fortressS : "Fortress"}</span><div class="chips">${B.filter((b) => b.kind === "fortress").map(chip).join("")}</div></div>
+    <div class="km-lv"><span class="pill" style="background:#5d6876">● ${ZH() ? ZH().sanctuaryS : "Sanctuary"}</span><div class="chips">${B.filter((b) => b.kind === "sanctuary").map(chip).join("")}</div></div></div>`;
   for (const [k] of G.types) {
     const t = TY[k], lvs = Object.keys(G.buff[k]).map(Number).sort((a, b) => a - b);
-    h += `<div class="km-c"><div class="hd"><span class="sw" style="background:${t.c}"></span><b>${esc(t.n)}</b><span class="bf">${esc(t.b)}</span></div>` +
+    h += `<div class="km-c"><div class="hd"><span class="sw" style="background:${t.c}"></span><b>${esc(typeName(k))}</b><span class="bf">${esc(buffName(k))}</span></div>` +
       lvs.map((lv) => `<div class="km-lv"><span class="pill" style="background:${t.c}">Lv.${lv} +${G.buff[k][lv]}%</span><div class="chips">${B.filter((b) => b.t === k && b.lv === lv).map(chip).join("")}</div></div>`).join("") + `</div>`;
   }
   $("km_cards").innerHTML = h;
   $("km_cards").querySelectorAll(".chip").forEach((c) => c.onclick = () => select(c.dataset.id, true));
 }
 function renderLayers() {
-  const items = [["ruins", T("ruins"), "#7a4a24"], ...G.types.map(([k, n, , c]) => [k, n, c])];
+  const items = [["ruins", T("ruins"), "#7a4a24"], ...G.types.map(([k, , , c]) => [k, typeName(k), c])];
   $("km_layers").innerHTML = `<button type="button" data-k="*" aria-pressed="${hidden.size === 0}">${esc(T("all"))}</button>` +
     items.map(([k, n, c]) => `<button type="button" data-k="${k}" aria-pressed="${!hidden.has(k)}"><span class="sw" style="background:${c}"></span>${esc(n)}</button>`).join("");
   $("km_layers").querySelectorAll("button").forEach((btn) => btn.onclick = () => {
@@ -3720,6 +3727,7 @@ function applyTexts() {
   $("km_title").textContent = "🗺️ " + T("title"); $("km_intro").textContent = T("intro");
   $("km_orient").textContent = T("orient"); $("km_listT").textContent = T("ruins") + " · " + T("outposts");
   $("km_rulesT").textContent = T("rulesT"); $("km_rules").innerHTML = T("rules").map((r) => `<li>${esc(r)}</li>`).join("");
+  if ($("km_castleLbl")) $("km_castleLbl").textContent = castleName();
   renderLayers(); renderList(); renderInfo();
 }
 let first = true;

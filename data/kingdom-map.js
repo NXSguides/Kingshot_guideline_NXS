@@ -68,7 +68,7 @@ const KINGDOM_MAP = {
   },
   "intro": {
    "en": "Tap a building on the map, or a coordinate in the list, to see where it is. Outposts give buffs; Fortresses and Sanctuaries do not.",
-   "zh": "點地圖上的建築，或點下方清單裡的座標，就能看到它在哪裡。Outpost 有增益，Fortress 和 Sanctuary 沒有。",
+   "zh": "點地圖上的建築，或點下方清單裡的座標，就能看到它在哪裡。據點有增益，要塞和遺跡沒有。",
    "ko": "지도의 건물이나 아래 목록의 좌표를 누르면 위치를 볼 수 있어요. Outpost에는 버프가 있고, Fortress와 Sanctuary에는 없어요.",
    "de": "Tippe auf ein Gebäude auf der Karte oder auf eine Koordinate in der Liste, um zu sehen, wo es liegt. Outposts geben Boni, Fortresses und Sanctuaries nicht.",
    "fr": "Touchez un bâtiment sur la carte ou une coordonnée dans la liste pour voir où il se trouve. Les Outposts donnent des bonus, pas les Fortresses ni les Sanctuaries.",
@@ -96,7 +96,7 @@ const KINGDOM_MAP = {
   },
   "orient": {
    "en": "Same direction as the in-game World map: up = bigger X and Y. Number on a square = Outpost level.",
-   "zh": "方向和遊戲大地圖一樣：往上 = X、Y 都變大。方塊上的數字 = Outpost 等級。",
+   "zh": "方向和遊戲大地圖一樣：往上 = X、Y 都變大。方塊上的數字 = 據點等級。",
    "ko": "게임 월드맵과 같은 방향이에요: 위쪽 = X, Y가 커짐. 네모 안 숫자 = Outpost 레벨.",
    "de": "Gleiche Ausrichtung wie die Weltkarte im Spiel: oben = größeres X und Y. Zahl im Quadrat = Outpost-Stufe.",
    "fr": "Même orientation que la carte du monde du jeu : en haut = X et Y plus grands. Chiffre dans le carré = niveau de l'Outpost.",
@@ -180,7 +180,7 @@ const KINGDOM_MAP = {
   },
   "ruins": {
    "en": "Castle, Fortresses & Sanctuaries",
-   "zh": "王城、Fortress、Sanctuary",
+   "zh": "王城、要塞、遺跡",
    "ko": "King's Castle, Fortress, Sanctuary",
    "de": "Schloss, Fortresses & Sanctuaries",
    "fr": "Château, Fortresses et Sanctuaries",
@@ -194,7 +194,7 @@ const KINGDOM_MAP = {
   },
   "outposts": {
    "en": "Outposts",
-   "zh": "Outpost 據點",
+   "zh": "據點",
    "ko": "Outpost",
    "de": "Outposts",
    "fr": "Outposts",
@@ -223,7 +223,7 @@ const KINGDOM_MAP = {
   "rules": [
    {
     "en": "Effects from the same Outpost type and level do not stack. Different types stack.",
-    "zh": "同類型、同等級的 Outpost 效果不疊加；不同類型可以疊加。",
+    "zh": "同類型、同等級的據點效果不疊加；不同類型可以疊加。",
     "ko": "같은 종류·같은 레벨의 Outpost 효과는 중첩되지 않아요. 종류가 다르면 중첩돼요.",
     "de": "Effekte desselben Outpost-Typs und derselben Stufe stapeln sich nicht. Verschiedene Typen schon.",
     "fr": "Les effets d'un même type et niveau d'Outpost ne se cumulent pas. Des types différents se cumulent.",
@@ -237,7 +237,7 @@ const KINGDOM_MAP = {
    },
    {
     "en": "You can only compete for Outposts that border your alliance territory.",
-    "zh": "只能爭奪和自家聯盟領地相鄰的 Outpost。",
+    "zh": "只能爭奪和自家聯盟領地相鄰的據點。",
     "ko": "우리 연맹 영토와 맞닿은 Outpost만 쟁탈할 수 있어요.",
     "de": "Du kannst nur um Outposts kämpfen, die an euer Allianzgebiet grenzen.",
     "fr": "Vous ne pouvez disputer que les Outposts qui touchent le territoire de votre alliance.",
@@ -251,17 +251,17 @@ const KINGDOM_MAP = {
    },
    {
     "en": "Higher-level Outposts cause more severely injured and lost troops. Severely injured troops go to the Infirmary.",
-    "zh": "等級越高的 Outpost，交戰時重傷和陣亡越多；重傷的部隊要到 Infirmary 治療。",
-    "ko": "레벨이 높은 Outpost일수록 중상·사망 병력이 많아요. 중상 병력은 Infirmary에서 치료해요.",
-    "de": "Höhere Outposts verursachen mehr schwer verwundete und verlorene Truppen. Schwer Verwundete kommen ins Infirmary.",
-    "fr": "Les Outposts de haut niveau causent plus de blessés graves et de pertes. Les blessés graves vont à l'Infirmary.",
-    "pt": "Outposts de nível mais alto causam mais feridos graves e mortos. Feridos graves vão para a Infirmary.",
-    "es": "Los Outposts de nivel más alto causan más heridos graves y bajas. Los heridos graves van a la Infirmary.",
-    "tr": "Yüksek seviyeli Outpost'larda daha çok ağır yaralı ve kayıp olur. Ağır yaralılar Infirmary'de tedavi edilir.",
-    "id": "Outpost level tinggi menyebabkan lebih banyak pasukan luka berat dan gugur. Luka berat dirawat di Infirmary.",
-    "ru": "Чем выше уровень Outpost, тем больше тяжелораненых и погибших. Тяжелораненые лечатся в Infirmary.",
-    "th": "Outpost เลเวลสูงทำให้บาดเจ็บสาหัสและตายมากขึ้น ทหารบาดเจ็บสาหัสต้องรักษาที่ Infirmary",
-    "ar": "الـ Outposts الأعلى مستوى تسبب جرحى بإصابات خطيرة وقتلى أكثر. الجرحى بإصابات خطيرة يُعالَجون في الـ Infirmary."
+    "zh": "等級越高的據點，交戰時重傷和陣亡越多；重傷的部隊要到野戰醫院治療。",
+    "ko": "레벨이 높은 Outpost일수록 중상·사망 병력이 많아요. 중상 병력은 야전 병원에서 치료해요.",
+    "de": "Höhere Outposts verursachen mehr schwer verwundete und verlorene Truppen. Schwer Verwundete kommen in die Krankenstation.",
+    "fr": "Les Outposts de haut niveau causent plus de blessés graves et de pertes. Les blessés graves vont à l'Infirmerie.",
+    "pt": "Outposts de nível mais alto causam mais feridos graves e mortos. Feridos graves vão para a Enfermaria.",
+    "es": "Los Outposts de nivel más alto causan más heridos graves y bajas. Los heridos graves van a la Enfermería.",
+    "tr": "Yüksek seviyeli Outpost'larda daha çok ağır yaralı ve kayıp olur. Ağır yaralılar Revir'de tedavi edilir.",
+    "id": "Outpost level tinggi menyebabkan lebih banyak pasukan luka berat dan gugur. Luka berat dirawat di Rumah Sakit.",
+    "ru": "Чем выше уровень Outpost, тем больше тяжелораненых и погибших. Тяжелораненые лечатся в Лазарете.",
+    "th": "Outpost เลเวลสูงทำให้บาดเจ็บสาหัสและตายมากขึ้น ทหารบาดเจ็บสาหัสต้องรักษาที่โรงพยาบาล",
+    "ar": "الـ Outposts الأعلى مستوى تسبب جرحى بإصابات خطيرة وقتلى أكثر. الجرحى بإصابات خطيرة يُعالَجون في المستوصف."
    }
   ]
  },
@@ -862,5 +862,46 @@ const KINGDOM_MAP = {
    1068,
    747
   ]
- ]
+ ],
+ "zh": {
+  "castle": "王城",
+  "fortress": "{n}號要塞",
+  "sanctuary": "{n}號遺跡",
+  "fortressS": "要塞",
+  "sanctuaryS": "遺跡",
+  "types": {
+   "arsenal": [
+    "武器庫",
+    "部隊攻擊力"
+   ],
+   "armory": [
+    "防具庫",
+    "部隊防禦力"
+   ],
+   "drill": [
+    "訓練營",
+    "訓練速度"
+   ],
+   "lodge": [
+    "遠征營",
+    "部隊出征速度"
+   ],
+   "scholar": [
+    "科技研究所",
+    "研究速度"
+   ],
+   "builder": [
+    "建造所",
+    "建造速度"
+   ],
+   "forager": [
+    "採集祭壇",
+    "資源採集速度"
+   ],
+   "harvest": [
+    "豐收祭壇",
+    "資源生產速度"
+   ]
+  }
+ }
 };

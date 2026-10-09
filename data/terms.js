@@ -250,6 +250,38 @@ const TERMS = [
   ]
  },
  {
+  "cat": "Outpost Battle",
+  "rows": [
+   ["Battle", "據點爭奪", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Title of the Outpost / Ruins screen (Season 3+). Other languages not captured yet."],
+   ["Outpost", "據點", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Tab name; the buildings themselves have their own names below."],
+   ["Occupied / Occupiable", "已佔領 / 可佔領", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Outpost tab filters."],
+   ["Protected", "保護狀態", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Outpost timer state."],
+   ["Vulnerable", "可爭奪狀態", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Outpost timer state — can be attacked."],
+   ["Occupation Buff", "佔領增益", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Button on the Outpost tab."],
+   ["Go", "前往", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—"],
+   ["Signed up / Not signed up", "已報名 / 未報名", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Ruins tab filters."],
+   ["Fortress No.{n}", "{n}號要塞", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Ruins tab."],
+   ["Sanctuary {n}", "{n}號遺跡", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Ruins tab."],
+   ["Controlled by {alliance}", "{alliance}控制中", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—"],
+   ["Tap the coordinates to view", "點擊座標檢視", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—"],
+   ["Current Tier Alliance Points", "目前階段的聯盟積分", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—"],
+   ["Next Tier Reward", "下一階段獎勵", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—"],
+   ["Arsenal", "武器庫", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Outpost: Squads' Attack 部隊攻擊力 (Lv.2 +5%, Lv.4 +8%)."],
+   ["Armory", "防具庫", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Outpost: Squads' Defense 部隊防禦力 (Lv.2 +5%, Lv.4 +8%)."],
+   ["Drill Camp", "訓練營", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Outpost: Training Speed 訓練速度 (Lv.2 +5%)."],
+   ["Frontier Lodge", "遠征營", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Outpost: Squads' March Speed 部隊出征速度 (Lv.3 +15%)."],
+   ["Scholar's Tower", "科技研究所", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Outpost: Research Speed 研究速度 (Lv.1 +5%, Lv.3 +8%)."],
+   ["Builder's Guild", "建造所", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Outpost: Construction Speed 建造速度 (Lv.1 +5%, Lv.3 +8%)."],
+   ["Forager Grove", "採集祭壇", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Outpost: Resource Gathering Speed 資源採集速度 (Lv.1 +5%)."],
+   ["Harvest Altar", "豐收祭壇", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Outpost: Resource Production Speed 資源生產速度 (Lv.1 +5%)."],
+   ["Squads' Attack", "部隊攻擊力", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—"],
+   ["Squads' Defense", "部隊防禦力", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—"],
+   ["Squads' March Speed", "部隊出征速度", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—"],
+   ["Resource Gathering Speed", "資源採集速度", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—"],
+   ["Resource Production Speed", "資源生產速度", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—"]
+  ]
+ },
+ {
   "cat": "Strongest Governor",
   "rows": [
    ["Hero of the Season","本期英雄","이번 영웅","Held der Saison","Héros de la Saison","Herói da Temporada","Sezonun Kahramanı","Hero of the Season","Герой сезона","ฮีโร่แห่งฤดูกาล","بطل الموسم","—","Indonesian keeps the English wording in the game."],
