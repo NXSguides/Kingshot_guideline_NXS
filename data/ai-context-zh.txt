@@ -241,6 +241,7 @@ Android
 集結參與者
 ⚠️ 規定：所有參與者加入集結時都必須派出剛好 90,000 人，請先把出征編組存好。剩下 6:30 時，所有參與者用自己最強的 3 位英雄發起自己的集結。🔪 英雄錯誤或人數不對會被踢出，請重新加入。
 標準／安全比例：10% 步兵、10% 騎兵、80% 弓兵（也可用 20-30-50 等變化版本）
+(see guide #formations-rally-tips)
 優先派出：這些英雄提供固定殺傷力加成，是狩獵巨熊最有價值的加成。
 謹慎使用
 ⚠️ 機率觸發傷害的英雄：效果很強，但不會疊加。同一個集結中只能派其中一位：馬林、佐伊、耶格爾、小佩拉。
@@ -415,6 +416,7 @@ R4 會依戰力，把確定參加的成員分成 3 種職責：攻擊手、防�
 集結參與者： 請遵守幹部公告的兵力上限。
 7) 維京總部（Viking HQ）：霍華德 / 戈登 — 60 : 40 請遵守兵力上限（約 68,000）
 8) PvE — 野獸／狩獵：狄安娜 + 法赫德 — 50 : 20 : 30
+(see the Squad Guide page squad-guide.html)
 🐺 PvE — 野獸／狩獵
 打恐狼時請記得：不需要太多傷害，所以只要派出最少的兵力（甚至 1 個兵也可以），讓更多聯盟成員能加入集結，領取集結獎勵。
 🏰 決戰王城／遺跡／建築
@@ -987,7 +989,7 @@ Governor Gear score per step, per piece (cost: 進貢綢緞 / 金絲線 / 設計
 Steps: 1. 在城內畫面點右上角的「常規活動」。 2. 切到「決戰王城」分頁（城堡圖示）。 3. 按「官職任命」旁的「任命詳情」。 4. 在「官員」分頁點你要的職位。 5. 選一個時段（顯示的是你的當地時間）按右邊的按鈕。完成——同一個視窗也能取消預約。
 小提醒：每個職位同時只能有一筆預約；時段清單用的是手機的當地時間，對照指南的 UTC 時間時記得換算。每個時段都會顯示已申請人數。
 
-### SQUAD GUIDE — page "部隊編組怎麼存" (squad-guide.html?lang=zh), a public page linked from the top of the Formations & Rally Tips guide (guide #formations-rally-tips); the Bear Hunt guide has a button to that guide. Annotated screenshots.
+### SQUAD GUIDE — page "部隊編組怎麼存" (squad-guide.html?lang=zh), a public page linked from the Formations & Rally Tips guide (guide #formations-rally-tips) right after the recommended presets list; the Bear Hunt guide's joiner rules link to that guide. Annotated screenshots.
 幹部常會要求固定編隊：有時是「剛好 90,000 人」這種數量，有時是「步 50／騎 25／弓 25」這種比例。先存成部隊編組，出征或加入集結時直接選那一格就好。
 Steps: 1. 在城內畫面點左上角的頭像。 2. 按下方的「部隊」。 3. 在「部隊總覽」按「部隊編組」。 4. 在上方選一格（BT、BT1…），放好要用的英雄。 5. 按「儲存」。完成——之後出征或加入集結時直接選這一格。 如果給的是「數量」: 直接點每一排的數字，輸入要的人數。上方會顯示總數。 如果只說「比例」: 按底下的「比例分配」，輸入百分比，遊戲會自動把兵填好。 按「儲存」，選格子並取名（1–3 個英數字）。接著選儲存方式： 給數量 → 按士兵數量儲存; 給比例 → 按士兵比例儲存（兵力變了比例還是對的）. 按「確定」。完成——之後出征或加入集結時直接選這一格。
 小提醒：最後一格的鎖頭表示還沒解鎖。「平均配置」會三種兵平均填；「全部撤回」把那格清空。每一格各自記住英雄和兵力。

@@ -3102,6 +3102,7 @@ const GUIDES = {
         { type: "h", text: "RALLY JOINERS" },
         { type: "callout", text: "⚠️ **Rule:** all joiners must send exactly **90,000 troops** to rallies — pre-save your marches. At **6:30 remaining**, all joiners start their own rally using their **3 strongest heroes**. 🔪 Wrong heroes or wrong troop numbers will be kicked and asked to rejoin." },
         { type: "p", text: "Standard / Safe Ratio: 10% Infantry, 10% Cavalry, and 80% Archers (or a variation like 20-30-50)" },
+        { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Priority — send these first:** these heroes give a **flat {lethality} bonus**, the most valuable bonus for Bear Hunt." },
         { type: "joiners" },
         { type: "sub", text: "USE WITH CAUTION" },
@@ -3160,6 +3161,7 @@ const GUIDES = {
         { type: "h", text: "集結參與者" },
         { type: "callout", text: "⚠️ **規定：**所有參與者加入集結時都必須派出**剛好 90,000 人**，請先把出征編組存好。剩下 **6:30** 時，所有參與者用自己**最強的 3 位英雄**發起自己的集結。🔪 英雄錯誤或人數不對會被踢出，請重新加入。" },
         { type: "p", text: "標準／安全比例：10% 步兵、10% 騎兵、80% 弓兵（也可用 20-30-50 等變化版本）" },
+        { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**優先派出：**這些英雄提供**固定{lethality}加成**，是狩獵巨熊最有價值的加成。" },
         { type: "joiners" },
         { type: "sub", text: "謹慎使用" },
@@ -3218,6 +3220,7 @@ const GUIDES = {
         { type: "h", text: "집결 참여 영웅" },
         { type: "callout", text: "⚠️ **규칙:** 모든 참여자는 집결에 **정확히 90,000명**을 보내야 합니다. 출정 편성을 미리 저장해 두세요. **6:30 남았을 때** 모든 참여자는 **가장 강한 영웅 3명**으로 자신의 집결을 시작합니다. 🔪 영웅이나 병력 수가 틀리면 강퇴 후 재참여를 요청합니다." },
         { type: "p", text: "표준 / 안전 비율: 보병 10%, 기병 10%, 궁병 80% (또는 20-30-50과 같은 변형 비율)" },
+        { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**우선 파견:** 이 영웅들은 **고정 {lethality} 보너스**를 주며, 베어 사냥에서 가장 가치 있는 보너스입니다." },
         { type: "joiners" },
         { type: "sub", text: "주의해서 사용" },
@@ -3276,6 +3279,7 @@ const GUIDES = {
         { type: "h", text: "RALLY-TEILNEHMER" },
         { type: "callout", text: "⚠️ **Regel:** Alle Beitretenden schicken genau **90.000 Truppen** in Rallys – speichert eure Märsche vorher. Bei **6:30 verbleibend** starten alle Beitretenden ihre eigene Rally mit ihren **3 stärksten Helden**. 🔪 Falsche Helden oder falsche Truppenzahl: Kick und Bitte um erneuten Beitritt." },
         { type: "p", text: "Standard / sicheres Verhältnis: 10% Infanterie, 10% Kavallerie, und 80% Bogenschützen (oder Varianten wie 20-30-50)" },
+        { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Priorität – diese zuerst schicken:** Diese Helden geben einen **festen {lethality}-Bonus**, den wertvollsten Bonus für die Bärenjagd." },
         { type: "joiners" },
         { type: "sub", text: "MIT VORSICHT VERWENDEN" },
@@ -3334,6 +3338,7 @@ const GUIDES = {
         { type: "h", text: "PARTICIPANTS AU RALLIEMENT" },
         { type: "callout", text: "⚠️ **Règle :** tous les participants doivent envoyer exactement **90 000 troupes** aux ralliements — enregistrez vos marches à l'avance. À **6:30 restantes**, tous les participants lancent leur propre ralliement avec leurs **3 héros les plus forts**. 🔪 Mauvais héros ou mauvais nombre de troupes : exclusion, puis demande de rejoindre à nouveau." },
         { type: "p", text: "Ratio standard / sûr : 10 % d'Infanterie, 10 % de Cavalerie et 80 % d'Archers (ou une variante comme 20-30-50)" },
+        { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Priorité – à envoyer en premier :** ces héros donnent un **bonus de {lethality} fixe**, le bonus le plus précieux pour la Chasse à l'Ours." },
         { type: "joiners" },
         { type: "sub", text: "À UTILISER AVEC PRUDENCE" },
@@ -3392,6 +3397,7 @@ const GUIDES = {
         { type: "h", text: "PARTICIPANTES DE RALLY" },
         { type: "callout", text: "⚠️ **Regra:** todos que entram em rallies devem enviar exatamente **90.000 tropas** — salve suas marchas antes. Com **6:30 restantes**, todos iniciam o próprio rally usando seus **3 heróis mais fortes**. 🔪 Heróis errados ou número de tropas errado: expulsão e pedido para entrar de novo." },
         { type: "p", text: "Proporção padrão / segura: 10% Infantaria, 10% Cavalaria e 80% Arquearia (ou uma variação como 20-30-50)" },
+        { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Prioridade – envie estes primeiro:** esses heróis dão um **bônus fixo de {lethality}**, o bônus mais valioso na Caça ao Urso." },
         { type: "joiners" },
         { type: "sub", text: "USE COM CUIDADO" },
@@ -3450,6 +3456,7 @@ const GUIDES = {
         { type: "h", text: "PARTICIPANTES DE ATAQUE CONJUNTO" },
         { type: "callout", text: "⚠️ **Regla:** todos los que se unen deben enviar exactamente **90.000 tropas** a los ataques conjuntos; guarda tus marchas antes. Con **6:30 restantes**, todos inician su propio ataque conjunto con sus **3 héroes más fuertes**. 🔪 Héroes o número de tropas incorrectos: expulsión y petición de volver a unirse." },
         { type: "p", text: "Proporción estándar/segura: 10% Infantería, 10% Caballería y 80% Arqueros (o una variación como 20-30-50)" },
+        { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Prioridad – envía estos primero:** estos héroes dan una **bonificación fija de {lethality}**, la más valiosa para la Cacería del Oso." },
         { type: "joiners" },
         { type: "sub", text: "ÚSALOS CON CUIDADO" },
@@ -3508,6 +3515,7 @@ const GUIDES = {
         { type: "h", text: "SEFERBERLİĞE KATILANLAR" },
         { type: "callout", text: "⚠️ **Kural:** Tüm katılımcılar seferberliklere tam **90.000 asker** göndermelidir — yürüyüşlerini önceden kaydet. **6:30 kala** tüm katılımcılar **en güçlü 3 kahramanıyla** kendi seferberliğini başlatır. 🔪 Yanlış kahraman veya yanlış asker sayısı: atılır ve yeniden katılması istenir." },
         { type: "p", text: "Standart / Güvenli Oran: %10 Piyade, %10 Süvari ve %80 Okçu (veya 20-30-50 gibi bir varyasyon)" },
+        { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Öncelik – önce bunları gönderin:** Bu kahramanlar **sabit {lethality} bonusu** verir; Ayı Avı için en değerli bonus budur." },
         { type: "joiners" },
         { type: "sub", text: "DİKKATLİ KULLANIN" },
@@ -3566,6 +3574,7 @@ const GUIDES = {
         { type: "h", text: "PESERTA RELI" },
         { type: "callout", text: "⚠️ **Aturan:** semua yang bergabung wajib mengirim tepat **90.000 pasukan** ke reli — simpan formasi pasukan lebih dulu. Saat **sisa 6:30**, semua yang bergabung memulai reli sendiri dengan **3 pahlawan terkuat**. 🔪 Pahlawan salah atau jumlah pasukan salah akan dikeluarkan dan diminta bergabung ulang." },
         { type: "p", text: "Rasio Standar / Aman: 10% Infanteri, 10% Kavaleri, dan 80% Pemanah (atau variasi seperti 20-30-50)" },
+        { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Prioritas – kirim ini dulu:** pahlawan ini memberi **bonus {lethality} tetap**, bonus paling berharga untuk Bear Hunt." },
         { type: "joiners" },
         { type: "sub", text: "GUNAKAN DENGAN HATI-HATI" },
@@ -3624,6 +3633,7 @@ const GUIDES = {
         { type: "h", text: "УЧАСТНИКИ РЕЙДА" },
         { type: "callout", text: "⚠️ **Правило:** все участники отправляют в рейды ровно **90 000 войск** — сохраните отряды заранее. Когда останется **6:30**, все участники запускают свой рейд с **3 сильнейшими героями**. 🔪 Неверные герои или неверное число войск — кик и просьба присоединиться заново." },
         { type: "p", text: "Стандартное / безопасное соотношение: 10% пехотинцев, 10% кавалеристов и 80% стрелков (или вариант вроде 20-30-50)" },
+        { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Приоритет – отправляйте первыми:** эти герои дают **фиксированный бонус к {lethality}** — самый ценный бонус в охоте на медведя." },
         { type: "joiners" },
         { type: "sub", text: "ИСПОЛЬЗУЙТЕ С ОСТОРОЖНОСТЬЮ" },
@@ -3682,6 +3692,7 @@ const GUIDES = {
         { type: "h", text: "ผู้เข้าร่วมทีมระดมพล" },
         { type: "callout", text: "⚠️ **กฎ:** ผู้เข้าร่วมทุกคนต้องส่งทหาร **90,000 นายพอดี** เข้าระดมพล — บันทึกทัพไว้ล่วงหน้า เมื่อเหลือเวลา **6:30** ผู้เข้าร่วมทุกคนเปิดระดมพลของตัวเองด้วย**ฮีโร่ที่แข็งแกร่งที่สุด 3 ตัว** 🔪 ฮีโร่ผิดหรือจำนวนทหารผิดจะถูกเตะออกและให้เข้าร่วมใหม่" },
         { type: "p", text: "อัตราส่วนมาตรฐาน / ปลอดภัย: ทหารราบ 10%, ทหารม้า 10% และพลธนู 80% (หรือรูปแบบอื่นเช่น 20-30-50)" },
+        { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**ลำดับแรก – ส่งฮีโร่เหล่านี้ก่อน:** ให้**โบนัส{lethality}แบบคงที่** ซึ่งเป็นโบนัสที่มีค่าที่สุดสำหรับล่าหมี" },
         { type: "joiners" },
         { type: "sub", text: "ใช้อย่างระมัดระวัง" },
@@ -3740,6 +3751,7 @@ const GUIDES = {
         { type: "h", text: "المنضمون إلى الحشد" },
         { type: "callout", text: "⚠️ **قاعدة:** يجب على جميع المنضمين إرسال **90,000 جندي بالضبط** إلى الحشود — احفظ مسيراتك مسبقًا. عند بقاء **6:30**، يبدأ جميع المنضمين حشدهم الخاص باستخدام **أقوى 3 أبطال** لديهم. 🔪 الأبطال الخطأ أو العدد الخطأ من القوات: طرد وطلب الانضمام من جديد." },
         { type: "p", text: "النسبة القياسية / الآمنة: 10% مشاة، 10% فرسان، و80% رماة (أو تنويع مثل 20-30-50)" },
+        { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**الأولوية – أرسلوا هؤلاء أولًا:** يمنح هؤلاء الأبطال **مكافأة {lethality} ثابتة**، وهي أثمن مكافأة في صيد الدببة." },
         { type: "joiners" },
         { type: "sub", text: "استخدم بحذر" },
@@ -5937,6 +5949,7 @@ const GUIDES = {
             "7) Viking HQ: Howard / Gordon — **60 : 40** Follow troop limit (~68,000)",
             "8) PvE – Beasts / Hunting: Diana + Fahd — **50 : 20 : 30**"
           ]},
+          { type: "p", text: "[[squad:page]]" },
 
           { type: "h", text: "🐺 PvE — BEASTS / HUNTING" },
           { type: "p", text: "Remember for Dreadwolf: Not a lot of damage is needed, so send the minimum number of troops (even 1) so more alliance members can join and benefit from the rally rewards." },
@@ -6003,6 +6016,7 @@ const GUIDES = {
             "7) 維京總部（Viking HQ）：{howard} / {gordon} — **60 : 40** 請遵守兵力上限（約 68,000）",
             "8) PvE — 野獸／狩獵：{diana} + {fahd} — **50 : 20 : 30**"
           ]},
+          { type: "p", text: "[[squad:page]]" },
           { type: "h", text: "🐺 PvE — 野獸／狩獵" },
           { type: "p", text: "打恐狼時請記得：不需要太多傷害，所以只要派出最少的兵力（甚至 1 個兵也可以），讓更多聯盟成員能加入集結，領取集結獎勵。" },
           { type: "h", text: "🏰 {castleBattle}／{sanctuary}／建築" },
@@ -6051,6 +6065,7 @@ const GUIDES = {
         {"type":"p","text":"**집결장:** 보유한 영웅 중 가장 강력한 공격형 영웅 라인업을 사용하세요."},
         {"type":"p","text":"**집결 참여자:** 간부진이 공지한 병력 제한 수를 반드시 준수하세요."},
         {"type":"list","items":["7) 🛡️ 바이킹 본부: {howard} 또는 {gordon} — **60 : 40** (병력 제한 수 약 68,000명 준수)","8) 🐺 PvE - 야수 / 사냥: {diana} + {fahd} — **50 : 20 : 30**"]},
+        {"type":"p","text":"[[squad:page]]"},
         {"type":"h","text":"🐺 PvE - 야수 / 사냥"},
         {"type":"p","text":"**{dreadwolf} 주의사항:** 큰 피해를 줄 필요가 없으므로 **최소한의 병력(1명도 가능)**만 보내어 더 많은 연맹원들이 집결에 참여하고 보상을 챙길 수 있도록 배려하세요."},
         {"type":"h","text":"🏰 {castleBattle} / {sanctuary} / 건물 점령 전략"},
@@ -6103,6 +6118,7 @@ const GUIDES = {
             "7) Wikinger-HQ (Viking HQ): {howard} / {gordon} — **60 : 40** Truppenlimit beachten (~68.000)",
             "8) PvE – Bestien / Jagd: {diana} + {fahd} — **50 : 20 : 30**"
           ]},
+          { type: "p", text: "[[squad:page]]" },
           { type: "h", text: "🐺 PvE — BESTIEN / JAGD" },
           { type: "p", text: "Denk beim Höllenwolf daran: Es ist nicht viel Schaden nötig, also schicke so wenige Truppen wie möglich (sogar nur 1), damit mehr Allianzmitglieder der Rally beitreten und von den Rally-Belohnungen profitieren können." },
           { type: "h", text: "🏰 {castleBattle} / {sanctuary} / GEBÄUDE" },
@@ -6197,6 +6213,7 @@ const GUIDES = {
             "60/40 ➡️ 40 800 / 27 200",
             "50/20/30 ➡️ 34 000 / 13 600 / 20 400"
           ]},
+          { type: "p", text: "[[squad:page]]" },
 
           { type: "h", text: "🎬 COMMENT PASSER DES HÉROS D'ATTAQUE AUX HÉROS DE DÉFENSE" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Vidéo trouvée en ligne (TikTok @yelloe_hair) — pas notre propre séquence." }
@@ -6260,6 +6277,7 @@ const GUIDES = {
             "60/40 ➡️ 40.800 / 27.200",
             "50/20/30 ➡️ 34.000 / 13.600 / 20.400"
           ]},
+          { type: "p", text: "[[squad:page]]" },
 
           { type: "h", text: "🎬 COMO TROCAR DE HERÓIS DE ATAQUE PARA HERÓIS DE DEFESA" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Vídeo encontrado online (TikTok @yelloe_hair) — não é filmagem nossa." }
@@ -6290,6 +6308,7 @@ const GUIDES = {
             "7) Total vikingo: {howard} / {gordon} — **60 : 40** Sigue el límite de tropas (~68,000)",
             "8) PvE — Bestias / Caza: {diana} + {fahd} — **50 : 20 : 30**"
           ]},
+          { type: "p", text: "[[squad:page]]" },
 
           { type: "h", text: "🐺 PvE — BESTIAS / CAZA" },
           { type: "p", text: "Recuerda para el Lobo Terrible: no se necesita mucho daño, así que envía la menor cantidad de tropas posible (incluso 1) para que más miembros de la alianza puedan unirse y beneficiarse de las recompensas del {rally}." },
@@ -6387,6 +6406,7 @@ const GUIDES = {
             "60/40 ➡️ 40.800 / 27.200",
             "50/20/30 ➡️ 34.000 / 13.600 / 20.400"
           ]},
+          { type: "p", text: "[[squad:page]]" },
 
           { type: "h", text: "🎬 SALDIRI KAHRAMANLARINDAN SAVUNMA KAHRAMANLARINA NASIL GEÇİLİR" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Video internetten alınmıştır (TikTok @yelloe_hair) — kendi çekimimiz değil." }
@@ -6450,6 +6470,7 @@ const GUIDES = {
             "60/40 ➡️ 40.800 / 27.200",
             "50/20/30 ➡️ 34.000 / 13.600 / 20.400"
           ]},
+          { type: "p", text: "[[squad:page]]" },
 
           { type: "h", text: "🎬 CARA BERALIH DARI HERO SERANGAN KE HERO PERTAHANAN" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Video ditemukan di internet (TikTok @yelloe_hair) — bukan rekaman kami sendiri." }
@@ -6513,6 +6534,7 @@ const GUIDES = {
             "60/40 ➡️ 40 800 / 27 200",
             "50/20/30 ➡️ 34 000 / 13 600 / 20 400"
           ]},
+          { type: "p", text: "[[squad:page]]" },
 
           { type: "h", text: "🎬 КАК ПЕРЕКЛЮЧИТЬСЯ С АТАКУЮЩИХ ГЕРОЕВ НА ЗАЩИТНЫХ" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 Видео найдено в интернете (TikTok @yelloe_hair) — не наши собственные съёмки." }
@@ -6576,6 +6598,7 @@ const GUIDES = {
             "60/40 ➡️ 40,800 / 27,200",
             "50/20/30 ➡️ 34,000 / 13,600 / 20,400"
           ]},
+          { type: "p", text: "[[squad:page]]" },
 
           { type: "h", text: "🎬 วิธีสลับจากฮีโร่โจมตีเป็นฮีโร่ป้องกัน" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 วิดีโอจากอินเทอร์เน็ต (TikTok @yelloe_hair) — ไม่ใช่ฟุตเทจของเราเอง" }
@@ -6640,6 +6663,7 @@ const GUIDES = {
             "60/40 ➡️ 40,800 / 27,200",
             "50/20/30 ➡️ 34,000 / 13,600 / 20,400"
           ]},
+          { type: "p", text: "[[squad:page]]" },
 
           { type: "h", text: "🎬 كيف تبدّل من أبطال الهجوم إلى أبطال الدفاع" },
           { type: "video", src: "figures/switch_hero.mp4", caption: "📎 فيديو من الإنترنت (TikTok @yelloe_hair) — ليس من تصويرنا." }

@@ -241,6 +241,7 @@ Kalan lider slotları henüz açıklanmadı.
 SEFERBERLİĞE KATILANLAR
 ⚠️ Kural: Tüm katılımcılar seferberliklere tam 90.000 asker göndermelidir — yürüyüşlerini önceden kaydet. 6:30 kala tüm katılımcılar en güçlü 3 kahramanıyla kendi seferberliğini başlatır. 🔪 Yanlış kahraman veya yanlış asker sayısı: atılır ve yeniden katılması istenir.
 Standart / Güvenli Oran: %10 Piyade, %10 Süvari ve %80 Okçu (veya 20-30-50 gibi bir varyasyon)
+(see guide #formations-rally-tips)
 Öncelik – önce bunları gönderin: Bu kahramanlar sabit Öldürücülük bonusu verir; Ayı Avı için en değerli bonus budur.
 DİKKATLİ KULLANIN
 ⚠️ Şansa bağlı hasar veren kahramanlar: güçlü etkiler, ama birikmezler. Aynı seferberlikte bunlardan yalnızca BİRİNİ kullanın: Marlin, Zoe, Jaeger, Petra.
@@ -443,6 +444,7 @@ Bu sayede savunma intikalleri doğru yapılandırılmış daha fazla ittifak üy
 60/20/20 ➡️ 40.800 / 13.600 / 13.600
 60/40 ➡️ 40.800 / 27.200
 50/20/30 ➡️ 34.000 / 13.600 / 20.400
+(see the Squad Guide page squad-guide.html)
 🎬 SALDIRI KAHRAMANLARINDAN SAVUNMA KAHRAMANLARINA NASIL GEÇİLİR
 📎 Video internetten alınmıştır (TikTok @yelloe_hair) — kendi çekimimiz değil.
 
@@ -988,7 +990,7 @@ Başbakan: İnşaat / araştırma / eğitim hızı +%10. Asil Danışman: Eğiti
 Steps: 1. Şehir ekranında sağ üstteki Etkinlikler'e dokun. 2. Şato Savaşı sekmesini seç (kale simgesi). 3. Atama'nın yanındaki Detaylar'a dokun. 4. Bakanlar sekmesinde istediğin makama dokun. 5. Bir saat dilimi seç (yerel saatinle gösterilir) ve düğmeye dokun. Tamam — aynı pencereden iptal edebilirsin.
 İpuçları: her makam için aynı anda tek rezervasyon; liste telefonunun yerel saatini kullanır, rehberlerdeki UTC saatlerine göre çevir. Her dilim kaç kişinin başvurduğunu gösterir.
 
-### SQUAD GUIDE — page "Diziliş nasıl kaydedilir" (squad-guide.html?lang=tr), a public page linked from the top of the Formations & Rally Tips guide (guide #formations-rally-tips); the Bear Hunt guide has a button to that guide. Annotated screenshots.
+### SQUAD GUIDE — page "Diziliş nasıl kaydedilir" (squad-guide.html?lang=tr), a public page linked from the Formations & Rally Tips guide (guide #formations-rally-tips) right after the recommended presets list; the Bear Hunt guide's joiner rules link to that guide. Annotated screenshots.
 Subaylar sık sık sabit bir ekip ister: ya tam sayı (“tam 90.000”) ya da oran (“50 / 25 / 25”). Bir kez Diziliş olarak kaydet, sonra yürüyüşte veya toplanmaya katılırken o yuvayı seç.
 Steps: 1. Şehir ekranında sol üstteki avatarına dokun. 2. Alttaki Ekip'e dokun. 3. Birlik Önizlemesi'nde Birlik Dizilişleri'ne dokun. 4. Üstten bir yuva seç (BT, BT1 …) ve kahramanlarını yerleştir. 5. Kaydet'e dokun. Tamam — bir dahaki yürüyüşte veya toplanmada bu yuvayı seç. SAYI verildiyse: Her birlik satırındaki sayıya dokunup tam miktarı yaz. Toplam üstte görünür. Sadece ORAN verildiyse: Alttaki oran düğmesine dokunup yüzdeleri gir — oyun birlikleri senin için doldurur. Kaydet'e dokun, yuvayı ve adı (1–3 karakter) seç. Sonra NASIL kaydedileceğini seç: Sayı → Birlik Sayısına göre kaydet; Oran → Birlik Oranına göre kaydet (birliklerinle ölçeklenir). Onayla'ya dokun. Tamam — bir dahaki yürüyüşte veya toplanmada bu yuvayı seç.
 İpuçları: son yuvadaki kilit henüz açılmadığı anlamına gelir. “Eşit dağıt” üç türü eşit doldurur; “Tümünü geri çek” yuvayı boşaltır. Her yuva kendi kahraman ve birliklerini tutar.

@@ -241,6 +241,7 @@ Los demás puestos de líder aún no se han publicado.
 PARTICIPANTES DE ATAQUE CONJUNTO
 ⚠️ Regla: todos los que se unen deben enviar exactamente 90.000 tropas a los ataques conjuntos; guarda tus marchas antes. Con 6:30 restantes, todos inician su propio ataque conjunto con sus 3 héroes más fuertes. 🔪 Héroes o número de tropas incorrectos: expulsión y petición de volver a unirse.
 Proporción estándar/segura: 10% Infantería, 10% Caballería y 80% Arqueros (o una variación como 20-30-50)
+(see guide #formations-rally-tips)
 Prioridad – envía estos primero: estos héroes dan una bonificación fija de Letalidad, la más valiosa para la Cacería del Oso.
 ÚSALOS CON CUIDADO
 ⚠️ Héroes de daño por probabilidad: efectos fuertes, pero NO se acumulan. Usa solo UNO de estos héroes en el mismo ataque conjunto: Marlin, Zoe, Jaeger, Petra.
@@ -416,6 +417,7 @@ Líderes de Ataque Conjunto: Usa tu alineación ofensiva de héroes más fuerte 
 Participantes de Ataque Conjunto: Sigue los límites de tropas indicados por el liderazgo.
 7) Total vikingo: Howard / Gordon — 60 : 40 Sigue el límite de tropas (~68,000)
 8) PvE — Bestias / Caza: Diana + Fahd — 50 : 20 : 30
+(see the Squad Guide page squad-guide.html)
 🐺 PvE — BESTIAS / CAZA
 Recuerda para el Lobo Terrible: no se necesita mucho daño, así que envía la menor cantidad de tropas posible (incluso 1) para que más miembros de la alianza puedan unirse y beneficiarse de las recompensas del Ataque Conjunto.
 🏰 Batalla del castillo / santuario / EDIFICIOS
@@ -988,7 +990,7 @@ Ministro principal: Velocidad de construcción / investigación / entrenamiento 
 Steps: 1. En la pantalla de la ciudad, toca Evento (arriba a la derecha). 2. Elige la pestaña Batalla del castillo (icono del castillo). 3. Toca Detalles junto a Designación. 4. En la pestaña Ministros, toca el cargo que quieras. 5. Elige una franja (en tu hora local) y toca el botón. Listo — puedes cancelar desde la misma ventana.
 Consejos: una reserva por cargo a la vez; la lista usa la hora local del móvil, así que conviértela a las horas UTC de las guías. Cada franja muestra cuántos ya han solicitado.
 
-### SQUAD GUIDE — page "Cómo guardar una Formación" (squad-guide.html?lang=es), a public page linked from the top of the Formations & Rally Tips guide (guide #formations-rally-tips); the Bear Hunt guide has a button to that guide. Annotated screenshots.
+### SQUAD GUIDE — page "Cómo guardar una Formación" (squad-guide.html?lang=es), a public page linked from the Formations & Rally Tips guide (guide #formations-rally-tips) right after the recommended presets list; the Bear Hunt guide's joiner rules link to that guide. Annotated screenshots.
 Los oficiales suelen pedir un escuadrón fijo: una cantidad exacta («exactamente 90.000») o una proporción («50 / 25 / 25»). Guárdalo una vez como Formación y luego solo elige esa ranura al marchar o unirte a una reunión.
 Steps: 1. En la pantalla de la ciudad, toca tu avatar (arriba a la izquierda). 2. Toca Escuadrón abajo. 3. En Vista previa de tropas, toca Formaciones de tropas. 4. Elige una ranura arriba (BT, BT1…) y coloca tus héroes. 5. Toca Guardar. Listo — la próxima vez solo elige esta ranura. Si te dieron una CANTIDAD: Toca el número de cada fila y escribe la cantidad exacta. El total aparece arriba. Si solo te dieron una PROPORCIÓN: Toca el botón de proporción abajo e introduce los porcentajes — el juego rellena las tropas. Toca Guardar, elige la ranura y un nombre (1–3 caracteres). Luego elige CÓMO guardar: Cantidad → guardar por cantidad de tropas; Proporción → guardar por proporción (se adapta a tus tropas). Toca Confirmar. Listo — la próxima vez solo elige esta ranura.
 Consejos: el candado de la última ranura significa que aún no está desbloqueada. «Equilibrar» rellena los tres tipos por igual; «Retirar todo» vacía la ranura. Cada ranura guarda sus propios héroes y tropas.

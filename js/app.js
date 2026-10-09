@@ -165,6 +165,9 @@ function richRaw(str) {
         <span class="arrow">›</span>
       </button>`;
     })
+    .replace(/\[\[squad:(page|guide)\]\]/g, (m, k) => k === "page"
+      ? `<a class="kvk-plan-link" href="squad-guide.html?lang=${currentLang}" dir="auto">${escapeHtml(t(SQUAD_LINK))}</a>`
+      : `<button type="button" class="kvk-plan-link" onclick="switchGuide('formations-rally-tips')" dir="auto">${escapeHtml(t(BEAR_SQUAD_LINK))}</button>`)
     .replace(/\[\[img:([\w./-]+)\]\]/g, (m, src) => `<img class="ann-img" src="${src}" loading="lazy" style="display:block;max-width:100%;height:auto;margin:8px 0">`)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/(https?:\/\/[^\s<]+)/g, (m, url) => {
@@ -432,8 +435,7 @@ const BLOCKS = {
     </div>` : "";
   // KvK guide: small link to the points planner (a page that is only reachable from here)
   const plan = guide === GUIDES.kvk ? `<a class="kvk-plan-link" href="kvk-optimizer.html?lang=${currentLang}" dir="auto">${escapeHtml(t(KVK_PLAN_LINK))}</a> <a class="kvk-plan-link" href="booking-guide.html?lang=${currentLang}" dir="auto">${escapeHtml(t(KVK_BOOK_LINK))}</a>`
-    : guide === GUIDES["formations-rally-tips"] ? `<a class="kvk-plan-link" href="squad-guide.html?lang=${currentLang}" dir="auto">${escapeHtml(t(SQUAD_LINK))}</a>`
-    : guide === GUIDES["bear-hunt"] && GUIDES["formations-rally-tips"] ? `<button type="button" class="kvk-plan-link" onclick="switchGuide('formations-rally-tips')" dir="auto">${escapeHtml(t(BEAR_SQUAD_LINK))}</button>` : "";
+    : "";
   return `${plan}
     <div class="chk-wrap">
       <table class="chk-table">${head}${rows}</table>
@@ -1094,6 +1096,7 @@ const KVK_CHECK = {
         <div class="kvk-sub">${escapeHtml(before ? t(KVK_CHECK.starts).replace("{d}", d) : t(KVK_CHECK.live))} · ${escapeHtml(t(KVK_CHECK.note))}</div>
         ${todaysItems().map((it, i) => `<label class="kvk-item${done.includes(i) ? " on" : ""}"><input type="checkbox" data-i="${i}" ${done.includes(i) ? "checked" : ""}><span>${escapeHtml(it.txt)}${it.booking ? ` <a class="kvk-how" href="booking-guide.html?lang=${currentLang}#${it.booking}" target="_blank" rel="noopener">${escapeHtml(t(KVK_CHECK.howToBook))}</a>` : ""}</span></label>`).join("")}
         ${done.length >= n() ? `<div class="kvk-sub" style="margin:4px 0 0">${escapeHtml(t(KVK_CHECK.done))}</div>` : ""}
+        <a class="kvk-how" style="display:inline-block;margin-top:8px" href="booking-guide.html?lang=${currentLang}" target="_blank" rel="noopener">${escapeHtml(t(KVK_BOOK_LINK))}</a>
         <div class="kvk-row"><button type="button" class="go" data-a="guide">👑 ${escapeHtml(t(KVK_CHECK.guide))}</button><button type="button" data-a="close">✕</button></div>
       </div>`;
     }

@@ -33,6 +33,8 @@ function build(lang) {
   const clean = (s) => String(s)
     .replace(/\{(\w+)\}/g, (m, id) => (D.GLOSSARY[id] ? pick(D.GLOSSARY[id]) : D.HEROES[id] ? pick(D.HEROES[id]) : id))
     .replace(/\[\[link:([\w-]+)\]\]/g, (m, g) => (D.GUIDES[g] ? `(see guide #${g})` : ""))
+    .replace(/\[\[squad:page\]\]/g, "(see the Squad Guide page squad-guide.html)")
+    .replace(/\[\[squad:guide\]\]/g, "(see guide #formations-rally-tips)")
     .replace(/\[\[img:[^\]]+\]\]/g, "")
     .replace(/\*\*(.+?)\*\*/g, "$1")
     .trim();
@@ -118,7 +120,7 @@ ${tx("tip")}`);
   try {
     const SG = {}; new Function("SG", read("data/squad-guide.js") + "\nSG.G = SQUAD_GUIDE;")(SG);
     const u = SG.G.ui, tx = (k) => u[k][lang] || u[k].en;
-    parts.push(`### SQUAD GUIDE — page "${tx("title")}" (squad-guide.html?lang=${lang}), a public page linked from the top of the Formations & Rally Tips guide (guide #formations-rally-tips); the Bear Hunt guide has a button to that guide. Annotated screenshots.
+    parts.push(`### SQUAD GUIDE — page "${tx("title")}" (squad-guide.html?lang=${lang}), a public page linked from the Formations & Rally Tips guide (guide #formations-rally-tips) right after the recommended presets list; the Bear Hunt guide's joiner rules link to that guide. Annotated screenshots.
 ${tx("intro")}
 Steps: ${u.steps.filter(Boolean).map((s, i) => `${i + 1}. ${s[lang] || s.en}`).join(" ")} ${tx("caseA")}: ${tx("caseAt")} ${tx("caseB")}: ${tx("caseBt")} ${tx("s7")} ${tx("s7a")}; ${tx("s7b")}. ${tx("s8")}
 ${tx("tip")}`);

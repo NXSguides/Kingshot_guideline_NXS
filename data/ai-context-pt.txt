@@ -241,6 +241,7 @@ Os demais espaços de líder ainda não foram divulgados.
 PARTICIPANTES DE RALLY
 ⚠️ Regra: todos que entram em rallies devem enviar exatamente 90.000 tropas — salve suas marchas antes. Com 6:30 restantes, todos iniciam o próprio rally usando seus 3 heróis mais fortes. 🔪 Heróis errados ou número de tropas errado: expulsão e pedido para entrar de novo.
 Proporção padrão / segura: 10% Infantaria, 10% Cavalaria e 80% Arquearia (ou uma variação como 20-30-50)
+(see guide #formations-rally-tips)
 Prioridade – envie estes primeiro: esses heróis dão um bônus fixo de Letalidade, o bônus mais valioso na Caça ao Urso.
 USE COM CUIDADO
 ⚠️ Heróis de dano baseado em chance: efeitos fortes, mas NÃO acumulam. Use apenas UM desses heróis no mesmo rally: Peixe Marlin, Zoe, Jaeger, Petra.
@@ -443,6 +444,7 @@ Por exemplo, com um limite de 68 mil tropas, você pode colocar esse número num
 60/20/20 ➡️ 40.800 / 13.600 / 13.600
 60/40 ➡️ 40.800 / 27.200
 50/20/30 ➡️ 34.000 / 13.600 / 20.400
+(see the Squad Guide page squad-guide.html)
 🎬 COMO TROCAR DE HERÓIS DE ATAQUE PARA HERÓIS DE DEFESA
 📎 Vídeo encontrado online (TikTok @yelloe_hair) — não é filmagem nossa.
 
@@ -988,7 +990,7 @@ Primeiro-ministro: Velocidade de construção / pesquisa / treinamento +10%. Con
 Steps: 1. Na tela da cidade, toque em Eventos (canto superior direito). 2. Escolha a aba Batalha do Castelo (ícone do castelo). 3. Toque em Detalhes ao lado de Nomeação. 4. Na aba Ministros, toque no cargo desejado. 5. Escolha um horário (na sua hora local) e toque no botão. Pronto — dá para cancelar na mesma janela.
 Dicas: uma reserva por cargo de cada vez; a lista usa a hora local do celular, então converta para os horários UTC dos guias. Cada horário mostra quantos já se candidataram.
 
-### SQUAD GUIDE — page "Como salvar uma Formação" (squad-guide.html?lang=pt), a public page linked from the top of the Formations & Rally Tips guide (guide #formations-rally-tips); the Bear Hunt guide has a button to that guide. Annotated screenshots.
+### SQUAD GUIDE — page "Como salvar uma Formação" (squad-guide.html?lang=pt), a public page linked from the Formations & Rally Tips guide (guide #formations-rally-tips) right after the recommended presets list; the Bear Hunt guide's joiner rules link to that guide. Annotated screenshots.
 Os oficiais costumam pedir um esquadrão fixo: uma quantidade exata (“exatamente 90.000”) ou uma proporção (“50 / 25 / 25”). Salve uma vez como Formação e depois é só escolher esse slot ao marchar ou entrar numa reunião.
 Steps: 1. Na tela da cidade, toque no seu avatar (canto superior esquerdo). 2. Toque em Esquadrão embaixo. 3. Em Prévia das Tropas, toque em Formações das Tropas. 4. Escolha um slot no topo (BT, BT1…) e coloque os heróis. 5. Toque em Salvar. Pronto — na próxima marcha ou reunião, é só escolher esse slot. Se foi dada uma QUANTIDADE: Toque no número de cada linha e digite a quantidade exata. O total aparece no topo. Se foi dada só uma PROPORÇÃO: Toque no botão de proporção embaixo e digite as porcentagens — o jogo preenche as tropas. Toque em Salvar, escolha o slot e um nome (1–3 caracteres). Depois escolha COMO salvar: Quantidade → salvar por quantidade de tropas; Proporção → salvar por proporção (acompanha suas tropas). Toque em Confirmar. Pronto — na próxima marcha ou reunião, é só escolher esse slot.
 Dicas: o cadeado no último slot significa que ainda não foi desbloqueado. “Igualar” preenche os três tipos por igual; “Retirar tudo” esvazia o slot. Cada slot guarda seus próprios heróis e tropas.
