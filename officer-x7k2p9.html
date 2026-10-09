@@ -108,7 +108,8 @@
   #pg-events .cal-head { padding-top: 14px; }
   #pg-events .cr { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(var(--n), var(--w)); }
   #pg-events .ev.bar { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; font-size: 12px; padding: 3px 8px; opacity: .75; cursor: pointer; }
-  #pg-events .ev.bar.now { opacity: 1; border-color: var(--accent); background: color-mix(in srgb, var(--accent) 28%, var(--panel)); font-weight: 700; box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent); }
+  #pg-events .ev.bar.now { opacity: 1; border-color: var(--accent); background: var(--accent); color: var(--accent-ink); font-weight: 700; }
+  #pg-events .ev.bar.has-todo { opacity: 1; border-color: var(--accent); border-width: 2px; }
   #pg-events .ev.bar.cont { border-top-left-radius: 0; border-bottom-left-radius: 0; border-left-style: dashed; }
   #pg-events .ev.bar.more { border-top-right-radius: 0; border-bottom-right-radius: 0; border-right-style: dashed; }
   #pg-events .todo.flash { animation: flash 1.6s; }
@@ -1144,7 +1145,7 @@ const EXTRA_EVENTS = [
 const T = {
   en: {
     title: "NXS Events", sub: "Events this week, and what officers need to schedule.", home: "Home",
-    thisWeek: "Back to this week", todoTitle: "✅ Action items", weekTitle: "📅 Events", late: "overdue", calNote: "Scroll sideways. Highlighted = running now; tap it to jump to its action items. Other events open their entry below.", today: "today",
+    thisWeek: "Back to this week", todoTitle: "✅ Action items", weekTitle: "📅 Events", late: "overdue", calNote: "Scroll sideways. Filled = running now · ✅ = has something to do (tap → its action items) · others open their entry below.", today: "today",
     todoNote: "Ticks are saved on this device only.",
     note: "Dates come from the event schedule on the site. Game days start at 00:00 UTC. If the in-game calendar differs, the game is right.",
     noTodo: "Nothing to schedule this week 🎉", none: "—", day: "Day {n}/{t}", starts: "starts", ends: "last day",
@@ -1172,7 +1173,7 @@ const T = {
   },
   zh: {
     title: "NXS 活動排程", sub: "這週有哪些活動，以及幹部要安排的事。", home: "回主頁",
-    thisWeek: "回到這週", todoTitle: "✅ 待辦事項", weekTitle: "📅 活動", late: "已過期", calNote: "左右捲動。亮色＝進行中，點它會跳到待辦事項；其他活動會跳到下面的活動說明。", today: "今天",
+    thisWeek: "回到這週", todoTitle: "✅ 待辦事項", weekTitle: "📅 活動", late: "已過期", calNote: "左右捲動。實心＝進行中 · ✅＝有待辦（點了跳到待辦事項）· 其他點了跳到下面的活動說明。", today: "今天",
     todoNote: "勾選只存在這台裝置上。",
     note: "日期依網站上的活動排程推算。遊戲每天 UTC 00:00 換日。如果跟遊戲內行事曆不同，以遊戲為準。",
     noTodo: "這週沒有需要排時間的活動 🎉", none: "—", day: "第 {n}/{t} 天", starts: "開始", ends: "最後一天",
@@ -1341,7 +1342,7 @@ function render() {
   for (const it of items) { let g = groups.find((x) => x.r.k === it.r.k && x.r.st === it.r.st); if (!g) groups.push(g = { r: it.r, more: it.more, list: [] }); g.list.push(it); }
   $("todos").innerHTML = groups.length ? groups.map(({ r, more, list }) => { const e = byId(r.k) || {};
     const allDone = list.every((it) => store.done[it.id]);
-    return `<div class="todo${allDone ? " done" : ""}" data-ev="${esc(r.k)}">
+    return `<div class="todo${allDone ? " done" : ""}" data-ev="${esc(r.k)}" data-st="${r.st}">
       <div style="flex:1;min-width:0">
         <div class="txt"><b>${esc(evName(r.k))}</b> <span class="when">· ${esc(tr("runs", { a: fmt(r.st), b: fmt(r.en - DAY), n: r.days }))}${more.length ? ` · ${esc(more.map((m) => fmt(m.st)).join(", "))}` : ""}</span></div>
         ${list.map(({ td, due, id }) => `<label class="task${store.done[id] ? " done" : ""}"><input type="checkbox" data-id="${esc(id)}" ${store.done[id] ? "checked" : ""}><div><div>${localTimes(esc(txt(td)), lang)}</div><div class="when">⏰ ${esc(fmt(due))}${due < today && !store.done[id] ? ` <b class="warn">${esc(tr("late"))}</b>` : ""}</div></div></label>`).join("")}
@@ -1368,21 +1369,26 @@ function renderCal() {
   for (let i = 0; i < n; i++) { const d = from + i * DAY, dt = new Date(d), wd = (dt.getUTCDay() + 6) % 7;
     head += `<div class="cd${d === today ? " today" : ""}${wd === 0 ? " mon" : ""}">${dt.getUTCDate() === 1 || i === 0 ? `<em>${dt.getUTCMonth() + 1}/</em>` : ""}${esc(tr("wd")[wd])}<small>${dt.getUTCDate()}</small></div>`; }
   // pack runs into lanes: a run goes into the first lane that is free at its start, so one event's weekly runs share a lane
+  const openTodo = (r) => ((byId(r.k) || {}).todo || []).some((td, i) => { const due = r.st + (Number(td.due) || 0) * DAY; return due >= today && !(store.done || {})[`${r.k}-${isoDay(r.st)}-${i}`]; });
   const lanes = [];
   for (const r of runs(from, to)) { const a = col(r.st), b = Math.max(a + 1, col(r.en));
     let L = lanes.find((l) => l.end <= a && (l.k === r.k || !lanes.some((o) => o.k === r.k && o.end <= a)));
     if (!L) { L = { k: r.k, end: 0, bars: [] }; lanes.push(L); }
     L.end = b + 1; L.k = r.k;
-    const now = r.st <= today && today < r.en;
-    L.bars.push(`<span class="ev bar${now ? " now" : ""}${r.st < from ? " cont" : ""}${r.en > to ? " more" : ""}" style="grid-column:${a + 1} / ${b + 1}" data-cal="${esc(r.k)}" data-now="${now ? 1 : 0}" title="${esc(fmt(r.st))} – ${esc(fmt(r.en - DAY))}">${esc(evName(r.k))}</span>`); }
+    const now = r.st <= today && today < r.en, todo = openTodo(r);
+    L.bars.push(`<span class="ev bar${now ? " now" : ""}${todo ? " has-todo" : ""}${r.st < from ? " cont" : ""}${r.en > to ? " more" : ""}" style="grid-column:${a + 1} / ${b + 1}" data-cal="${esc(r.k)}" data-st="${r.st}" data-todo="${todo ? 1 : 0}" title="${esc(fmt(r.st))} – ${esc(fmt(r.en - DAY))}">${todo ? "✅ " : ""}${esc(evName(r.k))}</span>`); }
   const rows = lanes.map((l) => `<div class="cr">${l.bars.join("")}</div>`).join("");
   cal.innerHTML = `<div class="cal-scroll"><div class="cal-grid" style="--n:${n};--w:${COLW}px"><div class="cal-head">${head}</div>${rows}</div></div>`;
   const sc = cal.firstElementChild;
   sc.scrollLeft = keepScroll !== null ? keepScroll : (CAL_BACK - 1) * COLW;
   cal.querySelectorAll("[data-cal]").forEach((b) => b.onclick = () => {
-    const id = b.dataset.cal;
-    if (b.dataset.now === "1") {
-      const card = ROOT.querySelector(`.todo[data-ev="${CSS.escape(id)}"]`);
+    const id = b.dataset.cal, st = Number(b.dataset.st);
+    if (b.dataset.todo === "1") {
+      // show the week that lists this run's to-do (a to-do can be due the week before the event starts), then jump to its card
+      const sel = `.todo[data-ev="${CSS.escape(id)}"][data-st="${st}"]`;
+      let card = ROOT.querySelector(sel);
+      if (!card) { weekStart = mondayOf(st); render(); card = ROOT.querySelector(sel); }
+      if (!card) { const e = byId(id) || {}; const due = Math.min(...(e.todo || []).map((td) => st + (Number(td.due) || 0) * DAY)); if (isFinite(due)) { weekStart = mondayOf(due); render(); card = ROOT.querySelector(sel); } }
       if (card) { card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash"); card.scrollIntoView({ behavior: "smooth", block: "center" }); return; }
     }
     openEvent(id);
