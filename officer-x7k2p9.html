@@ -1321,19 +1321,20 @@ function render() {
   const ws = weekStart, we = ws + 7 * DAY, today = utcDay(Date.now());
   $("weekLbl").textContent = tr("week", { a: fmt(ws), b: fmt(we - DAY) });
   $("thisW").classList.toggle("primary", ws === mondayOf(Date.now())); $("nextW").classList.toggle("primary", ws === mondayOf(Date.now()) + 7 * DAY);
-  // action items: for events that start this week (even if the prep is due a bit earlier),
-  // plus prep that is due this week for events starting next week
-  const items = [], seen = {};
-  for (const r of runs(ws, we + 7 * DAY)) for (const [i, td] of ((byId(r.k) || {}).todo || []).entries()) {
-    const due = r.st + (Number(td.due) || 0) * DAY;
-    if (due < today) continue;   // past due → no longer listed
-    const startsThisWeek = r.st >= ws && r.st < we, dueThisWeek = due >= ws && due < we;
-    if (!(startsThisWeek || dueThisWeek)) continue;
-    const key = `${r.k}-${i}`;
-    if (seen[key]) { seen[key].more.push(r); continue; }          // same event again this week (e.g. Bear Hunt) → one item, extra dates listed
-    items.push(seen[key] = { r, td, due, id: `${r.k}-${isoDay(r.st)}-${i}`, more: [] });
+  // action items: every event that runs in this week (Mon–Sun), one card per run, in date order; runs already over are left out.
+  // Prep that is due before the event (e.g. the Sunday before a Monday start) is listed with the event's week.
+  const items = [];
+  for (const r of runs(ws, we)) {
+    if (r.en <= today) continue;                       // already over
+    const startsHere = r.st >= ws && r.st < we;        // a run belongs to the week it starts in …
+    for (const [i, td] of ((byId(r.k) || {}).todo || []).entries()) {
+      const due = r.st + (Number(td.due) || 0) * DAY;
+      if (!startsHere && !(due >= ws && due < we)) continue;   // … unless it started earlier and this task is due this week (long events like KvK)
+      if (due < today && r.st < today) continue;       // its moment has passed
+      items.push({ r, td, due, id: `${r.k}-${isoDay(r.st)}-${i}`, more: [] });
+    }
   }
-  items.sort((a, b) => a.due - b.due);
+  items.sort((a, b) => a.r.st - b.r.st || a.due - b.due);
   store.done = store.done || {};
   // one card per event (this week's run); its tasks are listed inside, each with its own checkbox
   const groups = [];
