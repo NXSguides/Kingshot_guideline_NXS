@@ -1338,13 +1338,14 @@ function render() {
   store.done = store.done || {};
   // one card per event (this week's run); its tasks are listed inside, each with its own checkbox
   const groups = [];
-  for (const it of items) { let g = groups.find((x) => x.r.k === it.r.k && x.r.st === it.r.st); if (!g) groups.push(g = { r: it.r, more: it.more, list: [] }); g.list.push(it); }
-  $("todos").innerHTML = groups.length ? groups.map(({ r, more, list }) => { const e = byId(r.k) || {};
+  for (const it of items) { let g = groups.find((x) => x.r.k === it.r.k); if (!g) groups.push(g = { r: it.r, runs: [], list: [] }); if (!g.runs.includes(it.r)) g.runs.push(it.r); g.list.push(it); }
+  $("todos").innerHTML = groups.length ? groups.map(({ r, runs: rr, list }) => { const e = byId(r.k) || {};
     const allDone = list.every((it) => store.done[it.id]);
-    return `<div class="todo${allDone ? " done" : ""}" data-ev="${esc(r.k)}" data-st="${r.st}">
+    const when = rr.length === 1 ? tr("runs", { a: fmt(r.st), b: fmt(r.en - DAY), n: r.days }) : rr.map((x) => fmt(x.st)).join(" · ");   // short events (Bear Hunt) → one card, each day listed
+    return `<div class="todo${allDone ? " done" : ""}" data-ev="${esc(r.k)}" data-st="${rr.map((x) => x.st).join(" ")}">
       <div style="flex:1;min-width:0">
-        <div class="txt"><b>${esc(evName(r.k))}</b> <span class="when">· ${esc(tr("runs", { a: fmt(r.st), b: fmt(r.en - DAY), n: r.days }))}${more.length ? ` · ${esc(more.map((m) => fmt(m.st)).join(", "))}` : ""}</span></div>
-        ${list.map(({ td, due, id }) => `<label class="task${store.done[id] ? " done" : ""}"><input type="checkbox" data-id="${esc(id)}" ${store.done[id] ? "checked" : ""}><div><div>${localTimes(esc(txt(td)), lang)}</div><div class="when">⏰ ${esc(fmt(due))}${due < today && !store.done[id] ? ` <b class="warn">${esc(tr("late"))}</b>` : ""}</div></div></label>`).join("")}
+        <div class="txt"><b>${esc(evName(r.k))}</b> <span class="when">· ${esc(when)}</span></div>
+        ${list.map(({ r: ir, td, due, id }) => `<label class="task${store.done[id] ? " done" : ""}"><input type="checkbox" data-id="${esc(id)}" ${store.done[id] ? "checked" : ""}><div><div>${rr.length > 1 ? `<b>${esc(fmt(ir.st))}</b> · ` : ""}${localTimes(esc(txt(td)), lang)}</div><div class="when">⏰ ${esc(fmt(due))}${due < today && !store.done[id] ? ` <b class="warn">${esc(tr("late"))}</b>` : ""}</div></div></label>`).join("")}
         <div class="acts">${list.some((x) => x.td.post) ? `<a class="btn small" href="#post">${esc(tr("toPost"))}</a>` : ""}${list.some((x) => x.td.ranking) ? `<a class="btn small" href="#ranking">${esc(tr("toRanking"))}</a>` : ""}${e.guide ? `<a class="btn small" href="./#/${lang === "zh" ? "zh" : "en"}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}${(e.ingame || []).length ? `<button type="button" class="btn small" data-open="${esc(r.k)}">📋 ${esc(tr("fIngame"))}</button>` : ""}</div>
       </div>
     </div>`; }).join("") : `<div class="none">${esc(tr("noTodo"))}</div>`;
@@ -1370,7 +1371,7 @@ function renderCal() {
     head += `<div class="cd${d === today ? " today" : ""}${wd === 0 ? " mon" : ""}">${dt.getUTCDate() === 1 || i === 0 ? `<em>${dt.getUTCMonth() + 1}/</em>` : ""}${esc(tr("wd")[wd])}<small>${dt.getUTCDate()}</small></div>`; }
   // pack runs into lanes: a run goes into the first lane that is free at its start, so one event's weekly runs share a lane
   // ✅ only for runs whose to-do is listed in the week shown below (this week, or next week when that is selected)
-  const openTodo = (r) => !!ROOT.querySelector(`.todo[data-ev="${CSS.escape(r.k)}"][data-st="${r.st}"]:not(.done)`);
+  const openTodo = (r) => !!ROOT.querySelector(`.todo[data-ev="${CSS.escape(r.k)}"][data-st~="${r.st}"]:not(.done)`);
   const lanes = [];
   for (const r of runs(from, to)) { const a = col(r.st), b = Math.max(a + 1, col(r.en));
     let L = lanes.find((l) => l.end <= a && (l.k === r.k || !lanes.some((o) => o.k === r.k && o.end <= a)));
@@ -1385,7 +1386,7 @@ function renderCal() {
   cal.querySelectorAll("[data-cal]").forEach((b) => b.onclick = () => {
     const id = b.dataset.cal, st = Number(b.dataset.st);
     if (b.dataset.todo === "1") {
-      const card = ROOT.querySelector(`.todo[data-ev="${CSS.escape(id)}"][data-st="${st}"]`);
+      const card = ROOT.querySelector(`.todo[data-ev="${CSS.escape(id)}"][data-st~="${st}"]`);
       if (card) { card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash"); card.scrollIntoView({ behavior: "smooth", block: "center" }); return; }
     }
     openEvent(id);
