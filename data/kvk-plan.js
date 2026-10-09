@@ -115,7 +115,6 @@ const KVK_PLAN = {
    "lvScore": "Score",
    "lvToMust": "→ Will use",
    "lvToOpt": "→ Can use",
-   "lvEst": "Lv.12 and up: estimated, not yet seen in the game's list",
    "lvPetMax": "Pet max level",
    "lvGearNote": "The game's list ends at Legendary 3★; higher steps aren't scored here.",
    "lvSrc": "Costs: in-game upgrade screens as recorded by community databases."
@@ -183,7 +182,6 @@ const KVK_PLAN = {
    "lvScore": "評分",
    "lvToMust": "→ 填入一定用",
    "lvToOpt": "→ 填入可以用",
-   "lvEst": "Lv.12 以上為推算，遊戲清單尚未確認",
    "lvPetMax": "寵物等級上限",
    "lvGearNote": "遊戲清單到傳說 3 星為止，更高階暫不計。",
    "lvSrc": "升級材料數量來自玩家資料庫整理的遊戲內數值。"
@@ -251,7 +249,6 @@ const KVK_PLAN = {
    "lvScore": "평점",
    "lvToMust": "→ 꼭 사용",
    "lvToOpt": "→ 사용 가능",
-   "lvEst": "Lv.12 이상은 추정치 (게임 목록 미확인)",
    "lvPetMax": "펫 최대 레벨",
    "lvGearNote": "게임 목록은 레전드 3★까지입니다. 그 이상은 계산하지 않습니다.",
    "lvSrc": "비용: 커뮤니티 데이터베이스에 기록된 게임 내 수치."
@@ -319,7 +316,6 @@ const KVK_PLAN = {
    "lvScore": "Punkte",
    "lvToMust": "→ Wird genutzt",
    "lvToOpt": "→ Kann genutzt werden",
-   "lvEst": "Ab Lv.12 geschätzt, noch nicht in der Spielliste gesehen",
    "lvPetMax": "Max. Stufe des Begleittiers",
    "lvGearNote": "Die Spielliste endet bei Legendär 3★; höhere Stufen werden hier nicht gezählt.",
    "lvSrc": "Kosten: Spielwerte laut Community-Datenbanken."
@@ -387,7 +383,6 @@ const KVK_PLAN = {
    "lvScore": "Score",
    "lvToMust": "→ Utilisé",
    "lvToOpt": "→ Utilisable",
-   "lvEst": "Lv.12 et plus : estimation, pas encore vue en jeu",
    "lvPetMax": "Niveau max de l'animal",
    "lvGearNote": "La liste du jeu s'arrête à Légendaire 3★ ; au-delà, non compté ici.",
    "lvSrc": "Coûts : valeurs du jeu relevées par les bases communautaires."
@@ -455,7 +450,6 @@ const KVK_PLAN = {
    "lvScore": "Pontuação",
    "lvToMust": "→ Vou usar",
    "lvToOpt": "→ Posso usar",
-   "lvEst": "Lv.12+: estimado, ainda não visto na lista do jogo",
    "lvPetMax": "Nível máximo do pet",
    "lvGearNote": "A lista do jogo termina em Lendário 3★; etapas acima não são contadas aqui.",
    "lvSrc": "Custos: valores do jogo registrados por bases da comunidade."
@@ -523,7 +517,6 @@ const KVK_PLAN = {
    "lvScore": "Puntuación",
    "lvToMust": "→ Usaré",
    "lvToOpt": "→ Puedo usar",
-   "lvEst": "Lv.12+: estimado, aún no visto en el juego",
    "lvPetMax": "Nivel máximo de la mascota",
    "lvGearNote": "La lista del juego termina en Legendario 3★; pasos superiores no se cuentan aquí.",
    "lvSrc": "Costes: valores del juego recogidos por bases de datos de la comunidad."
@@ -591,7 +584,6 @@ const KVK_PLAN = {
    "lvScore": "Puan",
    "lvToMust": "→ Kullanılacak",
    "lvToOpt": "→ Kullanılabilir",
-   "lvEst": "Lv.12 ve üzeri tahminidir, oyunda henüz görülmedi",
    "lvPetMax": "Pet maks. seviye",
    "lvGearNote": "Oyun listesi Efsanevi 3★'da biter; üstü burada sayılmaz.",
    "lvSrc": "Maliyetler: topluluk veritabanlarının kaydettiği oyun içi değerler."
@@ -659,7 +651,6 @@ const KVK_PLAN = {
    "lvScore": "Skor",
    "lvToMust": "→ Pasti dipakai",
    "lvToOpt": "→ Boleh dipakai",
-   "lvEst": "Lv.12 ke atas: perkiraan, belum terlihat di daftar game",
    "lvPetMax": "Level maks pet",
    "lvGearNote": "Daftar game berakhir di Legendary 3★; tahap di atasnya tidak dihitung di sini.",
    "lvSrc": "Biaya: nilai dalam game yang dicatat basis data komunitas."
@@ -727,7 +718,6 @@ const KVK_PLAN = {
    "lvScore": "Очки",
    "lvToMust": "→ Точно потрачу",
    "lvToOpt": "→ Могу потратить",
-   "lvEst": "Lv.12 и выше — оценка, в игре пока не видно",
    "lvPetMax": "Макс. уровень питомца",
    "lvGearNote": "Список в игре заканчивается на Легендарное 3★; выше здесь не считается.",
    "lvSrc": "Стоимость: игровые значения из баз сообщества."
@@ -795,7 +785,6 @@ const KVK_PLAN = {
    "lvScore": "คะแนน",
    "lvToMust": "→ ใช้แน่นอน",
    "lvToOpt": "→ ใช้ได้",
-   "lvEst": "Lv.12 ขึ้นไปเป็นค่าประมาณ ยังไม่เห็นในเกม",
    "lvPetMax": "เลเวลสูงสุดของสัตว์เลี้ยง",
    "lvGearNote": "รายการในเกมจบที่ตำนาน 3★ ขั้นที่สูงกว่าไม่นับที่นี่",
    "lvSrc": "ค่าใช้จ่าย: ค่าในเกมตามฐานข้อมูลของผู้เล่น"
@@ -863,7 +852,6 @@ const KVK_PLAN = {
    "lvScore": "النتيجة",
    "lvToMust": "→ سأستخدم",
    "lvToOpt": "→ يمكن استخدامه",
-   "lvEst": "Lv.12 فما فوق: تقدير، لم يُشاهد في اللعبة بعد",
    "lvPetMax": "الحد الأقصى لمستوى الحيوان",
    "lvGearNote": "تنتهي قائمة اللعبة عند أسطوري 3★؛ لا تُحتسب الخطوات الأعلى هنا.",
    "lvSrc": "التكاليف: قيم اللعبة كما سجّلتها قواعد بيانات اللاعبين."
@@ -1521,8 +1509,7 @@ const KVK_PLAN = {
      "c": [
       5,
       5
-     ],
-     "est": false
+     ]
     },
     {
      "n": "Lv.2",
@@ -1530,8 +1517,7 @@ const KVK_PLAN = {
      "c": [
       40,
       15
-     ],
-     "est": false
+     ]
     },
     {
      "n": "Lv.3",
@@ -1539,8 +1525,7 @@ const KVK_PLAN = {
      "c": [
       60,
       40
-     ],
-     "est": false
+     ]
     },
     {
      "n": "Lv.4",
@@ -1548,8 +1533,7 @@ const KVK_PLAN = {
      "c": [
       80,
       100
-     ],
-     "est": false
+     ]
     },
     {
      "n": "Lv.5",
@@ -1557,8 +1541,7 @@ const KVK_PLAN = {
      "c": [
       100,
       200
-     ],
-     "est": false
+     ]
     },
     {
      "n": "Lv.6",
@@ -1566,8 +1549,7 @@ const KVK_PLAN = {
      "c": [
       120,
       300
-     ],
-     "est": false
+     ]
     },
     {
      "n": "Lv.7",
@@ -1575,8 +1557,7 @@ const KVK_PLAN = {
      "c": [
       140,
       400
-     ],
-     "est": false
+     ]
     },
     {
      "n": "Lv.8",
@@ -1584,8 +1565,7 @@ const KVK_PLAN = {
      "c": [
       200,
       400
-     ],
-     "est": false
+     ]
     },
     {
      "n": "Lv.9",
@@ -1593,8 +1573,7 @@ const KVK_PLAN = {
      "c": [
       300,
       400
-     ],
-     "est": false
+     ]
     },
     {
      "n": "Lv.10",
@@ -1602,8 +1581,7 @@ const KVK_PLAN = {
      "c": [
       420,
       420
-     ],
-     "est": false
+     ]
     },
     {
      "n": "Lv.11",
@@ -1611,98 +1589,7 @@ const KVK_PLAN = {
      "c": [
       560,
       420
-     ],
-     "est": false
-    },
-    {
-     "n": "Lv.12",
-     "score": 18000,
-     "c": [
-      580,
-      600
-     ],
-     "est": true
-    },
-    {
-     "n": "Lv.13",
-     "score": 21000,
-     "c": [
-      610,
-      780
-     ],
-     "est": true
-    },
-    {
-     "n": "Lv.14",
-     "score": 24000,
-     "c": [
-      645,
-      960
-     ],
-     "est": true
-    },
-    {
-     "n": "Lv.15",
-     "score": 27000,
-     "c": [
-      685,
-      1140
-     ],
-     "est": true
-    },
-    {
-     "n": "Lv.16",
-     "score": 30000,
-     "c": [
-      730,
-      1320
-     ],
-     "est": true
-    },
-    {
-     "n": "Lv.17",
-     "score": 33000,
-     "c": [
-      780,
-      1500
-     ],
-     "est": true
-    },
-    {
-     "n": "Lv.18",
-     "score": 36000,
-     "c": [
-      835,
-      1680
-     ],
-     "est": true
-    },
-    {
-     "n": "Lv.19",
-     "score": 39000,
-     "c": [
-      895,
-      1860
-     ],
-     "est": true
-    },
-    {
-     "n": "Lv.20",
-     "score": 42000,
-     "c": [
-      960,
-      2040
-     ],
-     "est": true
-    },
-    {
-     "n": "Lv.21",
-     "score": 45000,
-     "c": [
-      1030,
-      2220
-     ],
-     "est": true
+     ]
     }
    ]
   },
