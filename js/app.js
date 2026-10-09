@@ -167,7 +167,7 @@ function richRaw(str) {
     })
     .replace(/\[\[squad:(page|guide)\]\]/g, (m, k) => k === "page"
       ? `<a class="kvk-plan-link" href="squad-guide.html?lang=${currentLang}" dir="auto">${escapeHtml(t(SQUAD_LINK))}</a>`
-      : `<button type="button" class="kvk-plan-link" onclick="switchGuide('formations-rally-tips')" dir="auto">${escapeHtml(t(BEAR_SQUAD_LINK))}</button>`)
+      : `<button type="button" class="kvk-plan-link" onclick="switchGuide('formations-rally-tips');window.scrollTo({top:0,behavior:'smooth'})" dir="auto">${escapeHtml(t(BEAR_SQUAD_LINK))}</button>`)
     .replace(/\[\[img:([\w./-]+)\]\]/g, (m, src) => `<img class="ann-img" src="${src}" loading="lazy" style="display:block;max-width:100%;height:auto;margin:8px 0">`)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/(https?:\/\/[^\s<]+)/g, (m, url) => {
