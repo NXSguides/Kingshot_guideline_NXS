@@ -23,7 +23,7 @@ Waves 10 & 20 attack HQ ONLY. City attacks pause during these waves.
 After Wave 9 / 19 finishes:
 Recall ONE strong march.
 Send it directly to HQ.
-Max 68K troops per member.
+Max 70,080 troops per member.
 Use Chenko or Amadeus in slot 1, or your strongest raw-damage hero.
 After the HQ wave, recall and return to reinforcing your assigned member.
 ⚠️ IMPORTANT: You can reinforce HQ for Wave 10 OR Wave 20 — NOT BOTH.
@@ -415,7 +415,7 @@ All troop ratios are Infantry : Cavalry : Archers. Save separate presets with ea
 6) Defense: Howard / Gordon — 60 : 20 : 20 is our balanced default. Adjust when leadership calls for a specific formation.
 Rally Leaders: Use your strongest complete offensive hero lineup.
 Rally Joiners: Please follow any troop limits posted by leadership.
-7) Viking HQ: Howard / Gordon — 60 : 40 Follow troop limit (~68,000)
+7) Viking HQ: Howard / Gordon — 60 : 40 Follow troop limit (~70,080)
 8) PvE – Beasts / Hunting: Diana + Fahd — 50 : 20 : 30
 (see the Squad Guide page squad-guide.html)
 🐺 PvE — BEASTS / HUNTING
@@ -438,13 +438,13 @@ This allows us to transition from an offensive setup to a defensive garrison wit
 🪖 GARRISON TROOP CAP
 Only 15 governors can enter HQ / Sanctuary. So don’t automatically send your maximum march to HQ, Sanctuary, or other contested buildings.
 Follow the troop cap announced by leadership.
-Typical alliance target: ~68,000 troops per player
+Typical alliance target: ~70,080 troops per player
 This allows more alliance members with properly configured defensive marches to fit inside the garrison and get rewards.
 ⚠️ If leadership announces a different cap, always follow the announced amount.
-For example, with a 68K troop cap, you can plug that number into a calculator and enter it directly in the field for the matching troop type. Here are three examples:
-60/20/20 ➡️ 40,800 / 13,600 / 13,600
-60/40 ➡️ 40,800 / 27,200
-50/20/30 ➡️ 34,000 / 13,600 / 20,400
+For example, with a 70,080 troop cap, you can plug that number into a calculator and enter it directly in the field for the matching troop type. Here are three examples:
+60/20/20 ➡️ 42,048 / 14,016 / 14,016
+60/40 ➡️ 42,048 / 28,032
+50/20/30 ➡️ 35,040 / 14,016 / 21,024
 🎬 HOW TO SWITCH FROM ATTACKING TO DEFENSIVE HEROES
 📎 Video found online (TikTok @yelloe_hair) — not our own footage.
 
