@@ -309,11 +309,21 @@ const SQUAD_GUIDE = {
  },
  "shots": {
   "zh": "zh",
-  "en": "en"
+  "en": "en",
+  "ko": "ko",
+  "de": "de",
+  "fr": "fr",
+  "ru": "ru",
+  "ar": "ar"
  },
  "shotLangName": {
   "zh": "中文",
-  "en": "English"
+  "en": "English",
+  "ko": "한국어",
+  "de": "Deutsch",
+  "fr": "Français",
+  "ru": "Русский",
+  "ar": "العربية"
  },
  "fallbackShots": "en"
 };
