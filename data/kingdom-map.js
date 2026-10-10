@@ -222,18 +222,18 @@ const KINGDOM_MAP = {
   },
   "rules": [
    {
-    "en": "Only the highest-level Outpost of each type counts: the same type never stacks, even at different levels (in game, Armory Lv.2 + Lv.4 = +8%). Different types stack.",
-    "zh": "每種據點只算等級最高的那一座：同類型不會疊加，等級不同也一樣（遊戲實測：2 級 + 4 級防具庫 = +8%）。不同類型可以疊加。",
-    "ko": "종류마다 레벨이 가장 높은 Outpost 하나만 적용돼요. 같은 종류는 레벨이 달라도 중첩되지 않아요 (게임 확인: Armory Lv.2 + Lv.4 = +8%). 다른 종류는 중첩돼요.",
-    "de": "Pro Typ zählt nur das Outpost mit der höchsten Stufe: derselbe Typ stapelt sich nie, auch nicht auf verschiedenen Stufen (im Spiel: Armory Stufe 2 + 4 = +8 %). Verschiedene Typen stapeln sich.",
-    "fr": "Seul l'Outpost de plus haut niveau de chaque type compte : un même type ne se cumule jamais, même à des niveaux différents (en jeu : Armory niv. 2 + niv. 4 = +8 %). Des types différents se cumulent.",
-    "pt": "Só conta o Outpost de nível mais alto de cada tipo: o mesmo tipo nunca se acumula, nem em níveis diferentes (no jogo: Armory Nv. 2 + Nv. 4 = +8%). Tipos diferentes se acumulam.",
-    "es": "Solo cuenta el Outpost de mayor nivel de cada tipo: el mismo tipo nunca se acumula, ni con niveles distintos (en el juego: Armory Nv. 2 + Nv. 4 = +8 %). Los tipos distintos sí se acumulan.",
-    "tr": "Her türde yalnızca en yüksek seviyeli Outpost sayılır: aynı tür, seviyeler farklı olsa bile birikmez (oyunda: Armory Sv.2 + Sv.4 = +%8). Farklı türler birikir.",
-    "id": "Hanya Outpost level tertinggi tiap jenis yang dihitung: jenis yang sama tidak pernah bertumpuk, meski levelnya berbeda (di game: Armory Lv.2 + Lv.4 = +8%). Jenis berbeda bertumpuk.",
-    "ru": "Учитывается только Outpost самого высокого уровня каждого типа: один тип не складывается даже на разных уровнях (в игре: Armory ур. 2 + ур. 4 = +8%). Разные типы складываются.",
-    "th": "แต่ละประเภทนับเฉพาะ Outpost เลเวลสูงสุดเพียงแห่งเดียว ประเภทเดียวกันไม่ซ้อนกันแม้เลเวลต่างกัน (ในเกม: Armory Lv.2 + Lv.4 = +8%) ต่างประเภทซ้อนกันได้",
-    "ar": "يُحتسب فقط الـ Outpost الأعلى مستوى من كل نوع: النوع نفسه لا يتراكم أبدًا حتى بمستويات مختلفة (في اللعبة: Armory مستوى 2 + مستوى 4 = +8%). الأنواع المختلفة تتراكم."
+    "en": "Only the same Outpost type at the same level does not stack. The same type at a different level stacks, and different types stack (also at the same level).",
+    "zh": "只有同類型、同等級的據點效果不疊加；同類型不同等級、不同類型同等級都可以疊加。",
+    "ko": "같은 종류·같은 레벨의 Outpost 효과만 중첩되지 않아요. 같은 종류라도 레벨이 다르면 중첩되고, 종류가 다르면 (레벨이 같아도) 중첩돼요.",
+    "de": "Nur derselbe Outpost-Typ auf derselben Stufe stapelt sich nicht. Derselbe Typ auf anderer Stufe stapelt sich, ebenso verschiedene Typen (auch auf gleicher Stufe).",
+    "fr": "Seul un même type d'Outpost au même niveau ne se cumule pas. Le même type à un autre niveau se cumule, tout comme des types différents (même au même niveau).",
+    "pt": "Só o mesmo tipo de Outpost no mesmo nível não se acumula. O mesmo tipo em nível diferente se acumula, assim como tipos diferentes (mesmo no mesmo nível).",
+    "es": "Solo el mismo tipo de Outpost al mismo nivel no se acumula. El mismo tipo a otro nivel sí se acumula, igual que tipos distintos (aunque tengan el mismo nivel).",
+    "tr": "Yalnızca aynı tür ve aynı seviyedeki Outpost etkileri birikmez. Aynı türün farklı seviyesi birikir, farklı türler de (aynı seviyede olsa bile) birikir.",
+    "id": "Hanya Outpost dengan jenis dan level yang sama yang tidak bertumpuk. Jenis sama dengan level berbeda bertumpuk, begitu juga jenis berbeda (meski levelnya sama).",
+    "ru": "Не складываются только Outpost одного типа и одного уровня. Тот же тип другого уровня складывается, разные типы тоже (даже одного уровня).",
+    "th": "เฉพาะ Outpost ประเภทเดียวกันและเลเวลเดียวกันเท่านั้นที่ไม่ซ้อนกัน ประเภทเดียวกันต่างเลเวลซ้อนได้ และต่างประเภทก็ซ้อนได้ (แม้เลเวลเท่ากัน)",
+    "ar": "فقط الـ Outposts من النوع نفسه والمستوى نفسه لا تتراكم. النوع نفسه بمستوى مختلف يتراكم، والأنواع المختلفة تتراكم أيضًا (حتى بالمستوى نفسه)."
    },
    {
     "en": "You can only compete for Outposts that border your alliance territory.",
