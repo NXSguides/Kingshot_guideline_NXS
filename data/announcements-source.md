@@ -16,25 +16,6 @@ content: |
 
   [[link:f2p-heroes]]
 ---
-author: Nia
-lang: en   # en / zh / ko / de / fr / pt / tr / id / ru / th / ar / es
-title: 🏆 Gen 3 Masters Guide
-images: []
-content: |
-  Masters are characters you unlock & level for special skills, bonuses and rewards. They are separate from Heroes.
-
-  🔹 F2P Priority: PAN > VALORA > ROMAN
-  🔹 Whale/Rally Lead: VALORA > ROMAN > PAN
-
-  **TIPS:**
-  🔹 Don’t use Supplies on Valora—free Journeys unlock her.
-  🔹 Save Supplies for Pan in Lostlands.
-  🔹 Pan -> Lv60: Falconer = max daily {truegold}/speedups.
-  🔹 Valora -> Lv30: {bearHunt} {forgehammer}s.
-  🔹 Roman -> Unlock only for passive Arena Chest drops.
-  
-  [[link:master-academy]]
----
 author: "Nia"
 created: "2026-10-06T12:36:15.043Z"
 lang: en
