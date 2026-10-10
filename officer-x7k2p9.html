@@ -412,6 +412,24 @@
   #pg-map .chip.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 22%, var(--panel)); }
   #pg-map .km-rules { font-size: 13.5px; margin: 0; padding-left: 20px; }
   #pg-map .km-rules li + li { margin-top: 4px; }
+  #pg-map .sb-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--text-muted); margin: 6px 0 4px; }
+  #pg-map .sb-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  #pg-map .sb-legend i { display: inline-block; width: 16px; height: 12px; border-radius: 4px; border: 2px solid; }
+  #pg-map .sb-h { display: flex; align-items: center; gap: 8px; margin: 14px 0 6px; font-weight: 700; }
+  #pg-map .sb-tag { font-size: 11.5px; padding: 2px 9px; border-radius: 999px; color: #fff; font-weight: 700; }
+  #pg-map .sb-good { background: #2f8a4e; } #pg-map .sb-bad { background: #b6402f; }
+  #pg-map .sb-row { display: grid; grid-template-columns: 58px 1fr 52px; align-items: center; gap: 8px; margin: 5px 0; }
+  #pg-map .sb-ph { font-weight: 700; font-size: 13px; }
+  #pg-map .sb-chips { display: flex; gap: 5px; flex-wrap: wrap; }
+  #pg-map .sb-c { padding: 4px 8px; border-radius: 8px; font-weight: 700; font-size: 12.5px; border: 2px solid; white-space: nowrap; }
+  #pg-map .sb-auto { background: #e6dcc6; border-color: #a38a63; color: #5b4528; }
+  #pg-map .sb-act { background: #fff3d6; border-color: #d08a1f; color: #7a4a05; }
+  #pg-map .sb-fort { background: #7a4a24; border-color: #7a4a24; color: #fff; }
+  #pg-map .sb-gone { background: transparent; border: 2px dashed var(--text-muted); color: var(--text-muted); font-weight: 600; }
+  #pg-map .sb-pts { text-align: right; font-weight: 800; font-size: 14px; color: #2f8a4e; }
+  #pg-map .sb-pts.low { color: #c0473a; }
+  #pg-map .sb-note { background: var(--panel-2); border-left: 4px solid #d08a1f; padding: 8px 12px; border-radius: 8px; font-size: 13px; line-height: 1.5; margin-top: 8px; }
+  #pg-map .sb-note.red { border-color: #c0473a; }
 </style>
 </head>
 <body>
@@ -819,6 +837,7 @@
   <div class="muted" id="km_orient" style="font-size:12px;margin-top:6px"></div>
   <h3 id="km_listT" style="margin:18px 0 10px"></h3>
   <div class="km-cards" id="km_cards"></div>
+  <div class="card" style="margin-top:14px" id="km_sb"></div>
   <div class="card" style="margin-top:14px"><h3 id="km_rulesT"></h3><ul class="km-rules" id="km_rules"></ul></div>
 </section>
 
@@ -3723,8 +3742,39 @@ function renderLayers() {
     renderLayers(); applyHidden();
   });
 }
+/* Sanctuary Battle sign-ups, drawn as two example timelines (same content as the picture sent to officers) */
+const SB = {
+  en: { t: "🏛️ Sanctuary Battle — how sign-ups stack", sub: "1 season = 8 phases (one per week) · Season points per phase controlled: Sanctuary 1 · Fortress 2",
+        act: "Active sign-up (only 1 Sanctuary + 1 Fortress per phase)", auto: "Auto-sign-up (controlled last phase · free)", fort: "Fortress",
+        keep: "Keep what we win", keepTag: "rotate per season", rot: "Rotate every phase", rotTag: "slow & costly",
+        ph: "Phase {n}", san: "Sanctuary", gave: "given away", pts: "{n} pts",
+        keepNote: "Every Sanctuary we keep becomes a free auto-sign-up, so our total keeps growing. At the end of the season everyone signs up again anyway → swap Sanctuaries with other alliances then; it costs nobody a phase.",
+        rotNote: "Each swap: we cancel our auto-sign-up, and the other alliance must spend their only active sign-up that phase to take it. Nobody stacks Sanctuaries, so both sides lose season points every phase." },
+  zh: { t: "🏛️ 遺跡爭奪：報名怎麼累積", sub: "1 賽季 = 8 期（每週一期）· 每控制一期的賽季積分：遺跡 1 分、要塞 2 分",
+        act: "主動報名（每期只能 1 座遺跡 + 1 座要塞）", auto: "自動報名（上一期控制的・免費）", fort: "要塞",
+        keep: "保住打下的", keepTag: "換季時再輪換", rot: "每期輪換", rotTag: "又慢又虧",
+        ph: "第 {n} 期", san: "遺跡", gave: "讓出", pts: "{n} 分",
+        keepNote: "每保住一座遺跡，下一期就變成免費的自動報名，總數會一直往上加。賽季結束時大家本來就要重新報名 → 那時再和其他聯盟交換遺跡，誰都不會少一期。",
+        rotNote: "每換一次：我們要取消自動報名，對方也得花掉當期唯一的主動報名來接手。沒有人能累積遺跡，兩邊每期都少拿賽季積分。" },
+};
+function renderSB() {
+  const t = SB[lang] || SB.en, f = (s, n) => s.replace("{n}", n);
+  const c = (cls, txt) => `<span class="sb-c sb-${cls}">${esc(txt)}</span>`;
+  const row = (n, chips, pts, low) => `<div class="sb-row"><span class="sb-ph">${esc(f(t.ph, n))}</span><div class="sb-chips">${chips.join("")}</div><span class="sb-pts${low ? " low" : ""}">${esc(f(t.pts, pts))}</span></div>`;
+  const keep = [row(1, [c("act", t.san + " A"), c("fort", t.fort)], 3),
+    row(2, [c("auto", "A"), c("act", t.san + " B"), c("fort", t.fort)], 4),
+    row(3, [c("auto", "A"), c("auto", "B"), c("act", t.san + " C"), c("fort", t.fort)], 5)];
+  const rot = [row(1, [c("act", t.san + " A"), c("fort", t.fort)], 3),
+    row(2, [c("gone", "A → " + t.gave), c("act", t.san + " B"), c("fort", t.fort)], 3, true),
+    row(3, [c("gone", "B → " + t.gave), c("act", t.san + " C"), c("fort", t.fort)], 3, true)];
+  $("km_sb").innerHTML = `<h3 style="margin-bottom:2px">${esc(t.t)}</h3><div class="muted" style="font-size:12.5px">${esc(t.sub)}</div>
+    <div class="sb-legend"><span><i class="sb-act"></i>${esc(t.act)}</span><span><i class="sb-auto"></i>${esc(t.auto)}</span><span><i class="sb-fort"></i>${esc(t.fort)}</span></div>
+    <div class="sb-h">${esc(t.keep)} <span class="sb-tag sb-good">${esc(t.keepTag)}</span></div>${keep.join("")}<div class="sb-note">${esc(t.keepNote)}</div>
+    <div class="sb-h">${esc(t.rot)} <span class="sb-tag sb-bad">${esc(t.rotTag)}</span></div>${rot.join("")}<div class="sb-note red">${esc(t.rotNote)}</div>`;
+}
 function applyTexts() {
   if (!G) return;
+  renderSB();
   $("km_title").textContent = "🗺️ " + T("title"); $("km_intro").textContent = T("intro");
   $("km_orient").textContent = T("orient"); $("km_listT").textContent = T("ruins") + " · " + T("outposts");
   $("km_rulesT").textContent = T("rulesT"); $("km_rules").innerHTML = T("rules").map((r) => `<li>${esc(r)}</li>`).join("");
