@@ -57,13 +57,13 @@ if (plan && plan.o && Object.keys(plan.o).length) {
   const TY = Object.fromEntries(KM.types.map(([k, n, b]) => [k, { n, b, zh: KM.zh.types[k] }]));
   const all = KM.outposts.map(([t, lv, x, y]) => ({ t, lv, x, y, buff: KM.buff[t][lv], s: plan.o[x + "," + y] || "" }));
   const line = (o) => `${TY[o.t].n} (${TY[o.t].zh[0]}) Lv.${o.lv} X${o.x} Y${o.y} — ${TY[o.t].b} +${o.buff}%`;
-  const total = (states) => { const seen = new Set(), sum = {};
-    for (const o of all) if (states.includes(o.s) && !seen.has(o.t + o.lv)) { seen.add(o.t + o.lv); sum[o.t] = (sum[o.t] || 0) + o.buff; }
-    return KM.types.map(([k]) => `${TY[k].b} ${sum[k] ? "+" + sum[k] + "%" : "—"}`).join(", "); };
+  const total = (states) => { const best = {};   // only the best Outpost of each type counts (as in game)
+    for (const o of all) if (states.includes(o.s)) best[o.t] = Math.max(best[o.t] || 0, o.buff);
+    return KM.types.map(([k]) => `${TY[k].b} ${best[k] ? "+" + best[k] + "%" : "—"}`).join(", "); };
   out.push(`### OUTPOST PLAN — Map tab, last saved by ${plan.by || "?"} on ${String(plan.at || "").slice(0, 10)}`,
     "Ours now: " + (all.filter((o) => o.s === "held").map(line).join("; ") || "none"),
     "Targets: " + (all.filter((o) => o.s === "target").map(line).join("; ") || "none"),
-    "Buff totals now (same type + level counted once): " + total(["held"]),
+    "Buff totals now (best Outpost per type): " + total(["held"]),
     "Buff totals with targets: " + total(["held", "target"]));
 }
 
