@@ -4017,17 +4017,17 @@ function applyTexts() {
   if ($("km_castleLbl")) $("km_castleLbl").textContent = castleName();
   renderLayers(); renderList(); renderInfo();
 }
-let first = true;
+let first = true, ready = false;   // ready = the saved plan has loaded (a link imported before that would be overwritten)
 function onShow() {
-  if (G && importFromLink()) { drawPlan(); applyHidden(); applyTexts(); }   // link opened while the page was already open
-  if (!first || !G) return; first = false;
+  if (ready && importFromLink()) { drawPlan(); applyHidden(); applyTexts(); }   // link opened while the page was already open
+  if (!first || !ready) return; first = false;
   const box = $("km_box");
   if (box.clientWidth < 700) setZoom(700 / box.clientWidth, false);
   box.scrollLeft = (box.scrollWidth - box.clientWidth) / 2; box.scrollTop = (box.scrollHeight - box.clientHeight) / 2;
 }
 async function init() {
   await loadScripts(["data/kingdom-map.js"]);
-  G = KINGDOM_MAP; build(); await loadPlan(); importFromLink(); drawMap(); drawPlan(); applyTexts();
+  G = KINGDOM_MAP; build(); await loadPlan(); importFromLink(); drawMap(); drawPlan(); applyTexts(); ready = true;
   $("km_in").onclick = () => setZoom(Z * 1.5); $("km_out").onclick = () => setZoom(Z / 1.5);
 }
 function setLang(l) { lang = l; applyTexts(); }
