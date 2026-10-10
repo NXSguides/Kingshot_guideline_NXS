@@ -430,6 +430,18 @@
   #pg-map .sb-pts.low { color: #c0473a; }
   #pg-map .sb-note { background: var(--panel-2); border-left: 4px solid #d08a1f; padding: 8px 12px; border-radius: 8px; font-size: 13px; line-height: 1.5; margin-top: 8px; }
   #pg-map .sb-note.red { border-color: #c0473a; }
+  #pg-map .km-st { display: inline-flex; gap: 4px; flex-wrap: wrap; }
+  #pg-map .km-st button { border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); border-radius: 8px; padding: 4px 10px; font: inherit; font-size: 13px; cursor: pointer; }
+  #pg-map .km-st button.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 22%, var(--panel)); font-weight: 700; }
+  #pg-map .pl-tbl { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+  #pg-map .pl-tbl th, #pg-map .pl-tbl td { padding: 5px 6px; border-bottom: 1px solid var(--rule); text-align: left; }
+  #pg-map .pl-tbl th { color: var(--text-muted); font-weight: 600; font-size: 12px; }
+  #pg-map .pl-tbl td.n { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
+  #pg-map .pl-tbl td.up { color: #2f8a4e; }
+  #pg-map .pl-sub { font-weight: 700; margin: 12px 0 4px; font-size: 13.5px; }
+  #pg-map .pl-save { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+  #pg-map .pl-save input { padding: 7px 9px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font: inherit; width: 140px; }
+  #pg-map .chip .st { margin-right: 3px; }
 </style>
 </head>
 <body>
@@ -835,6 +847,7 @@
   </div>
   <div class="km-info" id="km_info"></div>
   <div class="muted" id="km_orient" style="font-size:12px;margin-top:6px"></div>
+  <div class="card" style="margin-top:14px" id="km_plan"></div>
   <h3 id="km_listT" style="margin:18px 0 10px"></h3>
   <div class="km-cards" id="km_cards"></div>
   <div class="card" style="margin-top:14px" id="km_sb"></div>
@@ -3671,14 +3684,16 @@ function drawMap() {
     else if (b.kind === "fortress") s.push(`${g}<rect x="${X - 16}" y="${Y - 16}" width="32" height="32" rx="5" transform="rotate(45 ${X} ${Y})" fill="#7a4a24" stroke="#fff" stroke-width="2.5"/><text x="${X}" y="${Y + 5}" text-anchor="middle" font-family="Arial" font-size="15" font-weight="800" fill="#fff">${b.n}</text><text class="lbl" x="${X}" y="${Y - 26}" text-anchor="middle" font-size="14">${b.short}</text></g>`);
     else s.push(`${g}<circle cx="${X}" cy="${Y}" r="26" fill="#f2c33d" stroke="#fff" stroke-width="3"/><text x="${X}" y="${Y + 9}" text-anchor="middle" font-size="25">👑</text><text class="lbl" id="km_castleLbl" x="${X}" y="${Y + 46}" text-anchor="middle" font-size="16">King's Castle</text></g>`);
   }
-  s.push(`<g id="km_sel"></g>`);
+  s.push(`<g id="km_planG" style="pointer-events:none"></g><g id="km_sel"></g>`);
   $("km_svg").innerHTML = s.join("");
   $("km_svg").querySelectorAll(".mk").forEach((m) => {
     m.addEventListener("click", () => select(m.dataset.id, false));
     m.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(m.dataset.id, false); } });
   });
 }
-const applyHidden = () => $("km_svg").querySelectorAll(".mk").forEach((m) => m.classList.toggle("off", hidden.has(m.dataset.t) && m.dataset.id !== SEL));
+let planOnly = false;
+const applyHidden = () => $("km_svg").querySelectorAll(".mk").forEach((m) => { const b = BY[m.dataset.id];
+  m.classList.toggle("off", m.dataset.id !== SEL && (hidden.has(m.dataset.t) || (planOnly && b.kind === "outpost" && !st(b)))); });
 
 /* zoom: 100% wide at 1; phones start zoomed in so the level numbers are readable */
 function setZoom(z, keep) {
@@ -3709,13 +3724,15 @@ function renderInfo() {
   if (!b) { $("km_info").innerHTML = `<span class="muted">${esc(T("pick"))}</span>`; return; }
   const sw = b.kind === "outpost" ? `<span class="sw" style="background:${TY[b.t].c}"></span>` : "";
   const what = b.kind === "outpost" ? `Lv.${b.lv} · ${esc(buffName(b.t))} +${b.buff}%` : b.kind === "castle" ? "" : esc(T("noBuff"));
-  $("km_info").innerHTML = `${sw}<b>${esc(nm(b))}</b>${what ? `<span class="muted">${what}</span>` : ""}<span class="co">X:${b.x} Y:${b.y}</span><button type="button" class="btn" id="km_cp">${esc(T("copy"))}</button>`;
+  $("km_info").innerHTML = `${sw}<b>${esc(nm(b))}</b>${what ? `<span class="muted">${what}</span>` : ""}<span class="co">X:${b.x} Y:${b.y}</span><button type="button" class="btn" id="km_cp">${esc(T("copy"))}</button>` +
+    (b.kind === "outpost" ? `<div class="km-st" style="flex-basis:100%">${[["target", "target"], ["held", "held"], ["", "clear"]].map(([v, k]) => `<button type="button" data-v="${v}" class="${st(b) === v && v ? "on" : ""}">${esc(pt(k))}</button>`).join("")}</div>` : "");
+  $("km_info").querySelectorAll(".km-st button").forEach((x) => x.onclick = () => setStatus(b.id, x.dataset.v));
   $("km_cp").onclick = () => {
     const done = () => { const c = $("km_cp"); if (c) { c.textContent = T("copied"); setTimeout(() => { if ($("km_cp")) $("km_cp").textContent = T("copy"); }, 1500); } };
     try { navigator.clipboard.writeText(`X:${b.x} Y:${b.y}`).then(done, () => {}); } catch (e) {}
   };
 }
-const chip = (b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}">${b.short ? b.short + " · " : ""}X${b.x} Y${b.y}</button>`;
+const chip = (b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}">${st(b) ? `<span class="st">${st(b) === "held" ? "✅" : "🎯"}</span>` : ""}${b.short ? b.short + " · " : ""}X${b.x} Y${b.y}</button>`;
 function renderList() {
   let h = `<div class="km-c"><div class="hd"><b>${esc(T("ruins"))}</b><span class="bf">${esc(T("noBuff"))}</span></div>
     <div class="km-lv"><span class="pill" style="background:#b8860b">👑 ${esc(castleName())}</span><div class="chips">${chip(BY.k)}</div></div>
@@ -3731,17 +3748,113 @@ function renderList() {
 }
 function renderLayers() {
   const items = [["ruins", T("ruins"), "#7a4a24"], ...G.types.map(([k, , , c]) => [k, typeName(k), c])];
-  $("km_layers").innerHTML = `<button type="button" data-k="*" aria-pressed="${hidden.size === 0}">${esc(T("all"))}</button>` +
+  $("km_layers").innerHTML = `<button type="button" data-k="*" aria-pressed="${hidden.size === 0 && !planOnly}">${esc(T("all"))}</button><button type="button" data-k="plan" aria-pressed="${planOnly}">${esc(pt("planOnly"))}</button>` +
     items.map(([k, n, c]) => `<button type="button" data-k="${k}" aria-pressed="${!hidden.has(k)}"><span class="sw" style="background:${c}"></span>${esc(n)}</button>`).join("");
   $("km_layers").querySelectorAll("button").forEach((btn) => btn.onclick = () => {
     const k = btn.dataset.k;
-    if (k === "*") hidden.clear();
+    if (k === "plan") { planOnly = !planOnly; renderLayers(); applyHidden(); return; }
+    if (k === "*") { hidden.clear(); planOnly = false; }
     else if (hidden.size === 0) items.forEach(([kk]) => { if (kk !== k) hidden.add(kk); });   // first tap on a type = show only that type
     else if (hidden.has(k)) hidden.delete(k); else hidden.add(k);
     if (hidden.size === items.length) hidden.clear();
     renderLayers(); applyHidden();
   });
 }
+/* ===== Outpost plan: officers mark Outposts as 🎯 target or ✅ ours; saved for all officers in data/outpost-plan-x7k2p9.json
+   (encrypted like the other officer files). Buffs add up per type, except the same type + same level (in-game rule). ===== */
+const PLAN_PATH = "data/outpost-plan-x7k2p9.json";
+const OWNER = location.hostname.endsWith("github.io") ? location.hostname.split(".")[0] : "NXSguides";
+const REPO = location.hostname.endsWith("github.io") ? (location.pathname.split("/")[1] || "Kingshot_guideline_NXS") : "Kingshot_guideline_NXS";
+let PLAN = { o: {} }, SAVED = "{}", planMsg = "";
+const pk = (b) => b.x + "," + b.y;
+const st = (b) => (b && b.kind === "outpost" && PLAN.o[pk(b)]) || "";
+const dirty = () => JSON.stringify(PLAN.o) !== SAVED;
+const PT = {
+  en: { title: "📋 Outpost plan", hint: "Tap an Outpost on the map or in the list, then mark it 🎯 Target or ✅ Ours. Totals follow the in-game rule: the same type + same level does not stack.",
+        target: "🎯 Target", held: "✅ Ours", clear: "✕ Clear", type: "Outpost", buff: "Buff", now: "Ours now", after: "With targets",
+        targets: "🎯 Targets", helds: "✅ Ours", none: "None yet", save: "💾 Save plan", by: "Your name", saving: "Saving…",
+        saved: "Saved ✅ Other officers see it after a refresh.", unsaved: "Unsaved changes", last: "Last saved by {by} · {at}",
+        noKey: "Saving needs the officer GitHub key (set up on the Post tab).", errAuth: "The GitHub key was refused.", errBusy: "Someone else saved at the same moment — try again.", errNet: "Couldn't reach GitHub — try again.",
+        planOnly: "📋 Plan only", reset: "Undo changes" },
+  zh: { title: "📋 據點規劃", hint: "點地圖或清單上的據點，再標成 🎯 目標 或 ✅ 已佔領。總計依遊戲規則：同類型、同等級不疊加。",
+        target: "🎯 目標", held: "✅ 已佔領", clear: "✕ 清除", type: "據點", buff: "增益", now: "目前", after: "加上目標",
+        targets: "🎯 目標", helds: "✅ 已佔領", none: "還沒有", save: "💾 儲存規劃", by: "你的名字", saving: "儲存中…",
+        saved: "已儲存 ✅ 其他幹部重新整理後就會看到。", unsaved: "有變更還沒儲存", last: "最後由 {by} 儲存 · {at}",
+        noKey: "儲存需要幹部的 GitHub 金鑰（在公告分頁設定）。", errAuth: "GitHub 金鑰被拒絕。", errBusy: "剛好有人同時儲存，請再試一次。", errNet: "連不上 GitHub，請再試一次。",
+        planOnly: "📋 只看規劃", reset: "復原變更" },
+};
+const pt = (k) => (PT[lang] || PT.en)[k];
+/* total % per type for a set of statuses — one count per (type, level) */
+function totals(states) {
+  const seen = new Set(), sum = {};
+  for (const b of B) if (b.kind === "outpost" && states.includes(st(b)) && !seen.has(b.t + b.lv)) { seen.add(b.t + b.lv); sum[b.t] = (sum[b.t] || 0) + b.buff; }
+  return sum;
+}
+function drawPlan() {
+  const g = $("km_planG"); if (!g) return;
+  g.innerHTML = B.filter((b) => st(b)).map((b) => { const [X, Y] = P(b.x, b.y), s = st(b);
+    return s === "held" ? `<circle cx="${X}" cy="${Y}" r="17" fill="none" stroke="#3ddc84" stroke-width="4"/>`
+      : `<circle cx="${X}" cy="${Y}" r="17" fill="none" stroke="#ffe14d" stroke-width="3.5" stroke-dasharray="5 4"/>`; }).join("");
+}
+function setStatus(id, v) {
+  const b = BY[id]; if (!b || b.kind !== "outpost") return;
+  if (v) PLAN.o[pk(b)] = v; else delete PLAN.o[pk(b)];
+  planMsg = ""; drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan();
+}
+function renderPlan() {
+  const now = totals(["held"]), after = totals(["held", "target"]);
+  const fmt = (n) => n ? "+" + n + "%" : "—";
+  const rows = G.types.map(([k]) => `<tr><td><span class="sw" style="background:${TY[k].c};display:inline-block;vertical-align:-2px;margin-right:6px"></span>${esc(typeName(k))}</td><td class="muted">${esc(buffName(k))}</td><td class="n">${fmt(now[k])}</td><td class="n${(after[k] || 0) > (now[k] || 0) ? " up" : ""}">${fmt(after[k])}</td></tr>`).join("");
+  const list = (s) => { const L = B.filter((b) => st(b) === s); return L.length ? `<div class="chips">${L.map((b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}"><span class="sw" style="background:${TY[b.t].c};display:inline-block;width:10px;height:10px;vertical-align:-1px;margin-right:4px"></span>${esc(typeName(b.t))} Lv.${b.lv} · X${b.x} Y${b.y}</button>`).join("")}</div>` : `<div class="muted" style="font-size:13px">${esc(pt("none"))}</div>`; };
+  const nT = B.filter((b) => st(b) === "target").length, nH = B.filter((b) => st(b) === "held").length;
+  let by = ""; try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {}
+  $("km_plan").innerHTML = `<h3 style="margin-bottom:2px">${esc(pt("title"))}</h3><div class="muted" style="font-size:12.5px">${esc(pt("hint"))}</div>
+    ${PLAN.by ? `<div class="muted" style="font-size:12px;margin-top:4px">${esc(pt("last").replace("{by}", PLAN.by).replace("{at}", new Date(PLAN.at).toLocaleString(lang === "zh" ? "zh-TW" : "en", { dateStyle: "medium", timeStyle: "short" })))}</div>` : ""}
+    <table class="pl-tbl"><tr><th>${esc(pt("type"))}</th><th>${esc(pt("buff"))}</th><th style="text-align:right">${esc(pt("now"))}</th><th style="text-align:right">${esc(pt("after"))}</th></tr>${rows}</table>
+    <div class="pl-sub">${esc(pt("targets"))} (${nT})</div>${list("target")}
+    <div class="pl-sub">${esc(pt("helds"))} (${nH})</div>${list("held")}
+    <div class="pl-save"><input id="pl_by" maxlength="30" placeholder="${esc(pt("by"))}" value="${esc(by)}"><button class="btn primary" id="pl_save" type="button"${dirty() ? "" : " disabled"}>${esc(pt("save"))}</button>${dirty() ? `<button class="btn" id="pl_reset" type="button">${esc(pt("reset"))}</button>` : ""}
+      <span class="muted" style="font-size:12.5px">${esc(planMsg || (dirty() ? pt("unsaved") : ""))}</span></div>`;
+  $("km_plan").querySelectorAll(".chip").forEach((c) => c.onclick = () => select(c.dataset.id, true));
+  $("pl_save").onclick = savePlan;
+  if ($("pl_reset")) $("pl_reset").onclick = () => { PLAN.o = JSON.parse(SAVED); planMsg = ""; drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
+}
+async function gh(method, path, body) {
+  let res;
+  try {
+    res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}${method === "GET" ? "?ref=main&t=" + Date.now() : ""}`, {
+      method, headers: { Authorization: `Bearer ${OFFICER.token}`, Accept: "application/vnd.github+json" }, body: body ? JSON.stringify(body) : undefined, cache: "no-store" });
+  } catch (e) { throw new Error("net"); }
+  if (res.status === 401 || res.status === 403) throw new Error("auth");
+  if (res.status === 409 || res.status === 422) throw new Error("busy");
+  if (method === "GET" && res.status === 404) return null;
+  if (!res.ok) throw new Error("net");
+  return res.json();
+}
+const u8b64 = (str) => { const u = new TextEncoder().encode(str); let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
+const b64u8 = (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\s/g, "")), (c) => c.charCodeAt(0)));
+async function loadPlan() {
+  let d = null;
+  if (OFFICER.token) { try { const f = await gh("GET", PLAN_PATH); d = f ? await OfficerData.open(JSON.parse(b64u8(f.content))) : null; } catch (e) {} }
+  if (!d) { try { d = await OfficerData.fetchJson(PLAN_PATH); } catch (e) {} }
+  PLAN = d && d.o ? d : { o: {} }; SAVED = JSON.stringify(PLAN.o);
+}
+async function savePlan() {
+  if (!OFFICER.token) { planMsg = pt("noKey"); renderPlan(); return; }
+  const by = ($("pl_by").value || "").trim(); try { localStorage.setItem("nxs-plan-by", by); } catch (e) {}
+  planMsg = pt("saving"); renderPlan(); $("pl_save").disabled = true;
+  const next = { o: PLAN.o, by: by || "?", at: new Date().toISOString() };
+  try {
+    for (let attempt = 0; ; attempt++) {
+      const f = await gh("GET", PLAN_PATH);
+      try { await gh("PUT", PLAN_PATH, { message: `Outpost plan (${next.by})`, content: u8b64(JSON.stringify(await OfficerData.seal(next), null, 1) + "\n"), sha: f ? f.sha : undefined, branch: "main" }); break; }
+      catch (e) { if (e.message !== "busy" || attempt) throw e; }
+    }
+    PLAN = next; SAVED = JSON.stringify(PLAN.o); planMsg = pt("saved");
+  } catch (e) { planMsg = pt(e.message === "auth" ? "errAuth" : e.message === "busy" ? "errBusy" : "errNet"); }
+  renderPlan();
+}
+
 /* Sanctuary Battle sign-ups, drawn as two example timelines (same content as the picture sent to officers) */
 const SB = {
   en: { t: "🏛️ Sanctuary Battle — how sign-ups stack", sub: "1 season = 8 phases (one per week) · Season points per phase controlled: Sanctuary 1 · Fortress 2",
@@ -3774,7 +3887,7 @@ function renderSB() {
 }
 function applyTexts() {
   if (!G) return;
-  renderSB();
+  renderSB(); renderPlan();
   $("km_title").textContent = "🗺️ " + T("title"); $("km_intro").textContent = T("intro");
   $("km_orient").textContent = T("orient"); $("km_listT").textContent = T("ruins") + " · " + T("outposts");
   $("km_rulesT").textContent = T("rulesT"); $("km_rules").innerHTML = T("rules").map((r) => `<li>${esc(r)}</li>`).join("");
@@ -3790,7 +3903,7 @@ function onShow() {
 }
 async function init() {
   await loadScripts(["data/kingdom-map.js"]);
-  G = KINGDOM_MAP; build(); drawMap(); applyTexts();
+  G = KINGDOM_MAP; build(); await loadPlan(); drawMap(); drawPlan(); applyTexts();
   $("km_in").onclick = () => setZoom(Z * 1.5); $("km_out").onclick = () => setZoom(Z / 1.5);
 }
 function setLang(l) { lang = l; applyTexts(); }
