@@ -1470,6 +1470,11 @@ function renderCal() {
   cal.innerHTML = `<div class="cal-scroll"><div class="cal-grid" style="--n:${n};--w:${COLW}px"><div class="cal-head">${head}</div>${rows}</div></div>`;
   const sc = cal.firstElementChild;
   sc.scrollLeft = keepScroll !== null ? keepScroll : (CAL_BACK - 1) * COLW;
+  /* a bar that starts left of the visible part keeps its name in view (pads the text to the left edge) */
+  const bars = [...cal.querySelectorAll(".ev.bar")];
+  const pinNames = () => { const L = sc.getBoundingClientRect().left;
+    for (const b of bars) { const off = L - b.getBoundingClientRect().left; b.style.paddingLeft = off > 0 ? Math.max(0, Math.min(off, b.offsetWidth - 60)) + 8 + "px" : ""; } };
+  sc.addEventListener("scroll", pinNames, { passive: true }); pinNames();
   cal.querySelectorAll("[data-cal]").forEach((b) => b.onclick = () => {
     const id = b.dataset.cal, st = Number(b.dataset.st);
     if (b.dataset.todo === "1") {
