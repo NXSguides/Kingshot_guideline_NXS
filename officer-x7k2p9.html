@@ -3950,7 +3950,12 @@ function importFromLink() {
   const prm = new URLSearchParams(q), coords = new Set(B.filter(PLANNABLE).map(pk));
   let n = 0;
   for (const k of ["held", "vuln", "conflict", "target"]) for (const c of (prm.get(k) || "").split(",")) {
-    const xy = c.trim().replace("-", ","); if (coords.has(xy)) { PLAN.o[xy] = k; n++; }
+    const xy = c.trim().replace("-", ","); if (coords.has(xy)) { PLAN.o[xy] = k; delete PLAN.t[xy]; n++; }
+  }
+  /* t=x-y@unixSeconds — when the status given for that Outpost ends (screenshot time + in-game countdown) */
+  for (const c of (prm.get("t") || "").split(",")) {
+    const m = c.trim().match(/^(\d+)-(\d+)@(\d{9,11})$/), xy = m && m[1] + "," + m[2];
+    if (m && (PLAN.o[xy] === "held" || PLAN.o[xy] === "vuln")) { PLAN.t[xy] = +m[3] * 1000; n++; }
   }
   importBy = (prm.get("by") || "").slice(0, 30);
   if (!n) return 0;
