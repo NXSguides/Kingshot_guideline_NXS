@@ -10,7 +10,7 @@ const flush = () => { const t = OUT.join("\n"); for (let i = 0, n = 0; i < t.len
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const keysOf = (o) => (o && typeof o === "object" && !Array.isArray(o) ? Object.keys(o) : Array.isArray(o) ? [`[list of ${o.length}]`] : []);
 
-const tries = [
+const tries = (process.env.PATHS || "").trim() ? process.env.PATHS.trim().split(/\s+/) : [
   `/events`, `/events?kingdom=${KID}`, `/calendar`, `/schedule`,
   `/kingdoms/${KID}`, `/kingdoms/${KID}?include=info`, `/kingdoms/${KID}?include=events`, `/kingdoms/${KID}?include=info,events`,
   `/kingdoms/${KID}/events`, `/kingdoms/${KID}/calendar`, `/kingdoms/${KID}/schedule`, `/kingdoms/${KID}/kvk`,

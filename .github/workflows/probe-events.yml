@@ -1,6 +1,8 @@
 name: Check MightPulse events (one-off)
 on:
   workflow_dispatch:
+    inputs:
+      paths: { description: 'API paths to try, space-separated (empty = the default list)', required: false, default: '' }
 jobs:
   probe:
     runs-on: ubuntu-latest
@@ -12,3 +14,4 @@ jobs:
       - run: node scripts/probe-events.js
         env:
           MIGHTPULSE_API_KEY: ${{ secrets.MIGHTPULSE_API_KEY }}
+          PATHS: ${{ inputs.paths }}
