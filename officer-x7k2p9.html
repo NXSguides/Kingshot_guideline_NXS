@@ -3850,8 +3850,10 @@ function importFromLink() {
     const xy = c.trim().replace("-", ","); if (coords.has(xy)) { PLAN.o[xy] = k; n++; }
   }
   importBy = (prm.get("by") || "").slice(0, 30);
-  if (n) planMsg = (lang === "zh" ? "從連結帶入 {n} 個標記，確認後按「儲存規劃」。" : "{n} marks added from the link — check them, then press Save plan.").replace("{n}", n);
+  if (!n) return 0;
+  planMsg = (lang === "zh" ? "從連結帶入 {n} 個標記，確認後按「儲存規劃」。" : "{n} marks added from the link — check them, then press Save plan.").replace("{n}", n);
   try { history.replaceState(null, "", location.pathname + location.search + "#map"); } catch (e) {}
+  return n;
 }
 async function savePlan() {
   if (!OFFICER.token) { planMsg = pt("noKey"); renderPlan(); return; }
@@ -3909,6 +3911,7 @@ function applyTexts() {
 }
 let first = true;
 function onShow() {
+  if (G && importFromLink()) { drawPlan(); applyHidden(); applyTexts(); }   // link opened while the page was already open
   if (!first || !G) return; first = false;
   const box = $("km_box");
   if (box.clientWidth < 700) setZoom(700 / box.clientWidth, false);
