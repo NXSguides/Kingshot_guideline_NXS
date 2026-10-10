@@ -4,6 +4,9 @@
 const KEY = process.env.MIGHTPULSE_API_KEY;
 const BASE = "https://api.mightpulse.com/v1";
 const KID = "2189";
+// everything is also sent as a few ::notice annotations at the end (readable through the GitHub API)
+const OUT = []; const _log = console.log; console.log = (...a) => { OUT.push(a.join(" ")); _log(...a); };
+const flush = () => { const t = OUT.join("\n"); for (let i = 0, n = 0; i < t.length && n < 9; i += 3500, n++) _log(`::notice title=probe ${n + 1}::` + t.slice(i, i + 3500).replace(/%/g, "%25").replace(/\r/g, "").replace(/\n/g, "%0A")); };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const keysOf = (o) => (o && typeof o === "object" && !Array.isArray(o) ? Object.keys(o) : Array.isArray(o) ? [`[list of ${o.length}]`] : []);
 
@@ -38,4 +41,5 @@ function showList(label, arr) {
     } catch (e) { console.log(`ERR ${p}`); }
     await sleep(400);
   }
+  flush();
 })();
