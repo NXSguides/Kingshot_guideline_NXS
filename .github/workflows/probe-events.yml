@@ -1,0 +1,17 @@
+name: Check MightPulse events (one-off)
+on:
+  workflow_dispatch:
+  push:
+    paths: ["scripts/probe-events.js"]
+    branches: [main]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/probe-events.js
+        env:
+          MIGHTPULSE_API_KEY: ${{ secrets.MIGHTPULSE_API_KEY }}
