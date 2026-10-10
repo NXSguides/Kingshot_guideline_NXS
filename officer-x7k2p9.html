@@ -850,7 +850,6 @@
   <div class="card" style="margin-top:14px" id="km_plan"></div>
   <h3 id="km_listT" style="margin:18px 0 10px"></h3>
   <div class="km-cards" id="km_cards"></div>
-  <div class="card" style="margin-top:14px" id="km_sb"></div>
 </section>
 
 </div>
@@ -3844,7 +3843,8 @@ function renderPlan() {
       <tr><td>${esc(pt("ptsRow"))}</td><td class="n">${ptsOf(rHeld)}</td><td class="n${rTgt.length ? " up" : ""}">${ptsOf(rHeld) + ptsOf(rTgt)}</td></tr></table>
     ${tooMany ? `<div style="color:#c0473a;font-size:12.5px;margin-top:6px">⚠️ ${esc(pt("tooMany"))}</div>` : ""}
     <div class="pl-sub">${esc(pt("targets"))} (${rTgt.length})</div>${rchips(rTgt)}
-    <div class="pl-sub">${esc(pt("heldR"))} (${rHeld.length})</div>${rchips(rHeld)}`;
+    <div class="pl-sub">${esc(pt("heldR"))} (${rHeld.length})</div>${rchips(rHeld)}
+    <div id="km_sb" style="margin-top:14px;padding-top:12px;border-top:1px solid var(--rule)"></div>`;
   let by = importBy; if (!by) { try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {} }
   $("km_plan").innerHTML = `<h3 style="margin-bottom:2px">${esc(pt("title"))}</h3><div class="muted" style="font-size:12.5px">${esc(pt("hint"))}</div>
     <div class="pl-sub">${esc(T("rulesT"))}</div><ul class="km-rules">${T("rules").map((r) => `<li>${esc(r)}</li>`).join("")}</ul>
@@ -3857,6 +3857,7 @@ function renderPlan() {
     ${ruinsHtml}
     <div class="pl-save"><input id="pl_by" maxlength="30" placeholder="${esc(pt("by"))}" value="${esc(by)}"><button class="btn primary" id="pl_save" type="button"${dirty() ? "" : " disabled"}>${esc(pt("save"))}</button>${dirty() ? `<button class="btn" id="pl_reset" type="button">${esc(pt("reset"))}</button>` : ""}
       <span class="muted" style="font-size:12.5px">${esc(planMsg || (dirty() ? pt("unsaved") : ""))}</span></div>`;
+  renderSB();   // the Sanctuary Battle sign-up drawing sits under the Fortress/Sanctuary part of the plan
   $("km_plan").querySelectorAll(".chip").forEach((c) => c.onclick = () => select(c.dataset.id, true));
   $("pl_save").onclick = savePlan;
   if ($("pl_reset")) $("pl_reset").onclick = () => { PLAN.o = JSON.parse(SAVED); planMsg = ""; drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
@@ -3938,14 +3939,14 @@ function renderSB() {
   const rot = [row(1, [c("act", t.san + " A"), c("fort", t.fort)], 3),
     row(2, [c("gone", "A → " + t.gave), c("act", t.san + " B"), c("fort", t.fort)], 3, true),
     row(3, [c("gone", "B → " + t.gave), c("act", t.san + " C"), c("fort", t.fort)], 3, true)];
-  $("km_sb").innerHTML = `<h3 style="margin-bottom:2px">${esc(t.t)}</h3><div class="muted" style="font-size:12.5px">${esc(t.sub)}</div>
+  $("km_sb").innerHTML = `<div class="pl-sub" style="margin:0 0 2px">${esc(t.t)}</div><div class="muted" style="font-size:12.5px">${esc(t.sub)}</div>
     <div class="sb-legend"><span><i class="sb-act"></i>${esc(t.act)}</span><span><i class="sb-auto"></i>${esc(t.auto)}</span><span><i class="sb-fort"></i>${esc(t.fort)}</span></div>
     <div class="sb-h">${esc(t.keep)} <span class="sb-tag sb-good">${esc(t.keepTag)}</span></div>${keep.join("")}<div class="sb-note">${esc(t.keepNote)}</div>
     <div class="sb-h">${esc(t.rot)} <span class="sb-tag sb-bad">${esc(t.rotTag)}</span></div>${rot.join("")}<div class="sb-note red">${esc(t.rotNote)}</div>`;
 }
 function applyTexts() {
   if (!G) return;
-  renderSB(); renderPlan();
+  renderPlan();
   $("km_title").textContent = "🗺️ " + T("title"); $("km_intro").textContent = T("intro");
   $("km_orient").textContent = T("orient"); $("km_listT").textContent = T("ruins") + " · " + T("outposts");
   if ($("km_castleLbl")) $("km_castleLbl").textContent = castleName();
