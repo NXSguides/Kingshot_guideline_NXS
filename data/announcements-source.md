@@ -89,3 +89,50 @@ content: |
   • Do not retaliate. Send report to alliance leadership, or King if leadership is unavailable.
 
   [[img:figures/ann/20261007-031329-1.jpg]]
+---
+author: "ΔRMΔDΔ"
+lang: en
+title: "KVK Battle Guide"
+images: []
+content: |
+  **⚔️ Castle Battle Guide**
+
+  Team, here's everything you need to know to be ready and coordinated.
+
+  **🛡️ Before the Battle**
+  Save your attack and defense formations in advance:
+  • Attack: 50:20:30 (bear joiner setup)
+  • Defense: 60:20:20 with Howard or Gordon
+  • Rally leaders and joiners: activate your Deployment Capacity buff.
+  • All rally leads need to be on DC VC (Discord voice chat).
+
+  **👑 For Rally Leaders**
+  Use your strongest heroes:
+  • Attack: Amadeus, Marlin, and Petra (or Hilde or Jabel)
+  • Defense: Zoe, Hilde, and Saul
+
+  How to swap attack and defense:
+  Once we take control, immediately dispatch your defense heroes with troops. When their arrival timer hits 5–6 seconds, recall your attack heroes so the defense heroes arrive just in time to garrison.
+
+  How to rotate rally captains when defending in garrison:
+  Assign joiners as garrison captain, rotating until spots 2–5 have 2 Howards and 2 Gordons (50% defense and 50% health). Then put yourself back as garrison captain in the first spot.
+
+  You are also responsible for your garrison:
+  Maintain the correct troop ratio for all joiners, and kick out when necessary so the right troops and heroes can enter.
+
+  **🤝 For Rally Joiners**
+  • Send your highest-tier troops with the correct ratio for attack vs defense.
+  • Use the Deployment Capacity buff.
+
+  Your responsibility in garrison:
+  Kick yourself out when swapping from attack to defense, but not until your defense is about to enter the garrison. This makes the garrison captain's job easier.
+
+  To avoid recalculating troops after injuries:
+  Save two defense formations, one with Howard and one with Gordon. If you have enough troops for two marches, you can swap defense formations each time instead of recalculating and refilling.
+
+  **💊 Batch Healing**
+  Find a spot where you can heal the maximum number of troops in one go.
+
+  Last time we could heal almost 3 hours at once thanks to the Ultra Value Monthly Card. If you're planning to join UNI, I encourage you to buy that card. It benefits you for the whole month with daily claimable rewards.
+
+  [[link:kvk]]
