@@ -3769,13 +3769,13 @@ const pk = (b) => b.x + "," + b.y;
 const st = (b) => (b && b.kind === "outpost" && PLAN.o[pk(b)]) || "";
 const dirty = () => JSON.stringify(PLAN.o) !== SAVED;
 const PT = {
-  en: { title: "📋 Outpost plan", hint: "Tap an Outpost on the map or in the list, then mark it 🎯 Target or ✅ Ours. Totals follow the in-game rule: the same type + same level does not stack.",
+  en: { title: "📋 Outpost plan", hint: "Tap an Outpost on the map or in the list, then mark it 🎯 Target or ✅ Ours. Totals follow the in-game rule: only the same type at the same level does not stack — a different level or a different type always adds up.",
         target: "🎯 Target", held: "✅ Ours", clear: "✕ Clear", type: "Outpost", buff: "Buff", now: "Ours now", after: "With targets",
         targets: "🎯 Targets", helds: "✅ Ours", none: "None yet", save: "💾 Save plan", by: "Your name", saving: "Saving…",
         saved: "Saved ✅ Other officers see it after a refresh.", unsaved: "Unsaved changes", last: "Last saved by {by} · {at}",
         noKey: "Saving needs the officer GitHub key (set up on the Post tab).", errAuth: "The GitHub key was refused.", errBusy: "Someone else saved at the same moment — try again.", errNet: "Couldn't reach GitHub — try again.",
         planOnly: "📋 Plan only", reset: "Undo changes" },
-  zh: { title: "📋 據點規劃", hint: "點地圖或清單上的據點，再標成 🎯 目標 或 ✅ 已佔領。總計依遊戲規則：同類型、同等級不疊加。",
+  zh: { title: "📋 據點規劃", hint: "點地圖或清單上的據點，再標成 🎯 目標 或 ✅ 已佔領。總計依遊戲規則：只有同類型、同等級不疊加；不同等級或不同類型都會加上去。",
         target: "🎯 目標", held: "✅ 已佔領", clear: "✕ 清除", type: "據點", buff: "增益", now: "目前", after: "加上目標",
         targets: "🎯 目標", helds: "✅ 已佔領", none: "還沒有", save: "💾 儲存規劃", by: "你的名字", saving: "儲存中…",
         saved: "已儲存 ✅ 其他幹部重新整理後就會看到。", unsaved: "有變更還沒儲存", last: "最後由 {by} 儲存 · {at}",

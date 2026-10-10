@@ -222,18 +222,18 @@ const KINGDOM_MAP = {
   },
   "rules": [
    {
-    "en": "Effects from the same Outpost type and level do not stack. Different types stack.",
-    "zh": "同類型、同等級的據點效果不疊加；不同類型可以疊加。",
-    "ko": "같은 종류·같은 레벨의 Outpost 효과는 중첩되지 않아요. 종류가 다르면 중첩돼요.",
-    "de": "Effekte desselben Outpost-Typs und derselben Stufe stapeln sich nicht. Verschiedene Typen schon.",
-    "fr": "Les effets d'un même type et niveau d'Outpost ne se cumulent pas. Des types différents se cumulent.",
-    "pt": "Efeitos do mesmo tipo e nível de Outpost não se acumulam. Tipos diferentes se acumulam.",
-    "es": "Los efectos del mismo tipo y nivel de Outpost no se acumulan. Los de tipos distintos sí.",
-    "tr": "Aynı tür ve seviyedeki Outpost etkileri birikmez. Farklı türler birikir.",
-    "id": "Efek dari jenis dan level Outpost yang sama tidak bertumpuk. Jenis yang berbeda bertumpuk.",
-    "ru": "Эффекты Outpost одного типа и уровня не складываются. Разные типы складываются.",
-    "th": "เอฟเฟกต์จาก Outpost ประเภทและเลเวลเดียวกันไม่ซ้อนกัน แต่ต่างประเภทซ้อนกันได้",
-    "ar": "تأثيرات الـ Outpost من نفس النوع والمستوى لا تتراكم. الأنواع المختلفة تتراكم."
+    "en": "Only the same Outpost type at the same level does not stack. The same type at a different level stacks, and different types stack (also at the same level).",
+    "zh": "只有同類型、同等級的據點效果不疊加；同類型不同等級、不同類型同等級都可以疊加。",
+    "ko": "같은 종류·같은 레벨의 Outpost 효과만 중첩되지 않아요. 같은 종류라도 레벨이 다르면 중첩되고, 종류가 다르면 (레벨이 같아도) 중첩돼요.",
+    "de": "Nur derselbe Outpost-Typ auf derselben Stufe stapelt sich nicht. Derselbe Typ auf anderer Stufe stapelt sich, ebenso verschiedene Typen (auch auf gleicher Stufe).",
+    "fr": "Seul un même type d'Outpost au même niveau ne se cumule pas. Le même type à un autre niveau se cumule, tout comme des types différents (même au même niveau).",
+    "pt": "Só o mesmo tipo de Outpost no mesmo nível não se acumula. O mesmo tipo em nível diferente se acumula, assim como tipos diferentes (mesmo no mesmo nível).",
+    "es": "Solo el mismo tipo de Outpost al mismo nivel no se acumula. El mismo tipo a otro nivel sí se acumula, igual que tipos distintos (aunque tengan el mismo nivel).",
+    "tr": "Yalnızca aynı tür ve aynı seviyedeki Outpost etkileri birikmez. Aynı türün farklı seviyesi birikir, farklı türler de (aynı seviyede olsa bile) birikir.",
+    "id": "Hanya Outpost dengan jenis dan level yang sama yang tidak bertumpuk. Jenis sama dengan level berbeda bertumpuk, begitu juga jenis berbeda (meski levelnya sama).",
+    "ru": "Не складываются только Outpost одного типа и одного уровня. Тот же тип другого уровня складывается, разные типы тоже (даже одного уровня).",
+    "th": "เฉพาะ Outpost ประเภทเดียวกันและเลเวลเดียวกันเท่านั้นที่ไม่ซ้อนกัน ประเภทเดียวกันต่างเลเวลซ้อนได้ และต่างประเภทก็ซ้อนได้ (แม้เลเวลเท่ากัน)",
+    "ar": "فقط الـ Outposts من النوع نفسه والمستوى نفسه لا تتراكم. النوع نفسه بمستوى مختلف يتراكم، والأنواع المختلفة تتراكم أيضًا (حتى بالمستوى نفسه)."
    },
    {
     "en": "You can only compete for Outposts that border your alliance territory.",
