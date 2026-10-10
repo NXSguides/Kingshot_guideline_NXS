@@ -55,12 +55,19 @@ if (plan && plan.o && Object.keys(plan.o).length) {
   const fs = require("fs"), path = require("path");
   const KM = new Function(fs.readFileSync(path.join(__dirname, "..", "data/kingdom-map.js"), "utf8") + "\nreturn KINGDOM_MAP;")();
   const TY = Object.fromEntries(KM.types.map(([k, n, b]) => [k, { n, b, zh: KM.zh.types[k] }]));
-  const all = KM.outposts.map(([t, lv, x, y]) => ({ t, lv, x, y, buff: KM.buff[t][lv], s: plan.o[x + "," + y] || "" }));
-  const line = (o) => `${TY[o.t].n} (${TY[o.t].zh[0]}) Lv.${o.lv} X${o.x} Y${o.y} — ${TY[o.t].b} +${o.buff}%`;
+  /* same Protected ⇄ Vulnerable cycle as the Map tab (timer = end of the phase an officer typed) */
+  const P = ((plan.cyc && plan.cyc.p) || 72) * 36e5, V = ((plan.cyc && plan.cyc.v) || 24) * 36e5, NOW = Date.now();
+  const cycAt = (raw, end) => { if ((raw !== "held" && raw !== "vuln") || !end) return [raw, 0]; if (NOW < end) return [raw, end];
+    const e = NOW - end, base = end + Math.floor(e / (P + V)) * (P + V), t = e % (P + V), first = raw === "held" ? V : P;
+    return t < first ? [raw === "held" ? "vuln" : "held", base + first] : [raw, base + P + V]; };
+  const all = KM.outposts.map(([t, lv, x, y]) => { const k = x + "," + y, [s, sw] = cycAt(plan.o[k] || "", (plan.t || {})[k]); return { t, lv, x, y, buff: KM.buff[t][lv], s, sw }; });
+  const utc = (ms) => new Date(ms).toISOString().slice(0, 16).replace("T", " ") + " UTC";
+  const line = (o) => `${TY[o.t].n} (${TY[o.t].zh[0]}) Lv.${o.lv} X${o.x} Y${o.y} — ${TY[o.t].b} +${o.buff}%` +
+    (o.sw ? ` [switches to ${o.s === "held" ? "Vulnerable" : "Protected"} at ${utc(o.sw)}, then keeps cycling]` : "");
   const total = (states) => { const seen = new Set(), sum = {};
     for (const o of all) if (states.includes(o.s) && !seen.has(o.t + o.lv)) { seen.add(o.t + o.lv); sum[o.t] = (sum[o.t] || 0) + o.buff; }
     return KM.types.map(([k]) => `${TY[k].b} ${sum[k] ? "+" + sum[k] + "%" : "—"}`).join(", "); };
-  out.push(`### OUTPOST PLAN — Map tab, last saved by ${plan.by || "?"} on ${String(plan.at || "").slice(0, 10)}`,
+  out.push(`### OUTPOST PLAN — Map tab, last saved by ${plan.by || "?"} on ${String(plan.at || "").slice(0, 10)} (statuses as of ${utc(NOW)}; cycle ${P / 36e5} h Protected → ${V / 36e5} h Vulnerable for Outposts with a timer)`,
     "Ours, Protected (buff active): " + (all.filter((o) => o.s === "held").map(line).join("; ") || "none"),
     "Ours, Vulnerable (no buff until Protected again; can be attacked): " + (all.filter((o) => o.s === "vuln").map(line).join("; ") || "none"),
     "Ours, marked Buff conflict in game (same type + level as another of ours, gives nothing): " + (all.filter((o) => o.s === "conflict").map(line).join("; ") || "none"),

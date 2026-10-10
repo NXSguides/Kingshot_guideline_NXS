@@ -438,6 +438,10 @@
   #pg-map .pl-tbl th { color: var(--text-muted); font-weight: 600; font-size: 12px; }
   #pg-map .pl-tbl td.n { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
   #pg-map .pl-tbl td.up { color: #2f8a4e; }
+  #pg-map .km-tm { font-size: 13px; display: grid; gap: 4px; margin-top: 2px; }
+  #pg-map .km-tmin { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+  #pg-map .km-tmin input, #pg-map .pl-cyc input { width: 42px; padding: 3px 4px; border: 1px solid var(--rule); border-radius: 6px; background: var(--panel-2); color: var(--text); font: inherit; font-size: 13px; }
+  #pg-map .pl-cyc { font-size: 12.5px; margin-top: 8px; }
   #pg-map .pl-sub { font-weight: 700; margin: 12px 0 4px; font-size: 13.5px; }
   #pg-map .pl-save { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
   #pg-map .pl-save input { padding: 7px 9px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font: inherit; width: 140px; }
@@ -3742,6 +3746,21 @@ function renderInfo() {
   const what = b.kind === "outpost" ? `Lv.${b.lv} · ${esc(buffName(b.t))} +${b.buff}%` : b.kind === "castle" ? "" : esc(T("noBuff"));
   $("km_info").innerHTML = `${sw}<b>${esc(nm(b))}</b>${what ? `<span class="muted">${what}</span>` : ""}<span class="co">X:${b.x} Y:${b.y}</span><button type="button" class="btn" id="km_cp">${esc(T("copy"))}</button>` +
     (PLANNABLE(b) ? `<div class="km-st" style="flex-basis:100%">${(isOp(b) ? [["target", "target"], ["held", "held"], ["vuln", "vuln"], ["conflict", "conflictBtn"], ["", "clear"]] : [["target", "target"], ["held", "heldR"], ["", "clear"]]).map(([v, k]) => `<button type="button" data-v="${v}" class="${st(b) === v && v ? "on" : ""}">${esc(pt(k))}</button>`).join("")}</div>` : "");
+  const s = st(b);
+  if (isOp(b) && (s === "held" || s === "vuln")) {
+    const n = nextSw(b);
+    $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm" style="flex-basis:100%">
+      <div>${n ? `⏱ <b>${esc(left(n - Date.now()))}</b> → ${esc(pt(s === "held" ? "toV" : "toP"))}` : `<span class="muted">${esc(pt("noT"))}</span>`}</div>
+      <div class="km-tmin"><span class="muted" style="flex-basis:100%">${esc(pt(s === "held" ? "leftP" : "leftV"))}</span>
+        <input id="tm_d" type="number" min="0" max="9" inputmode="numeric">${esc(pt("dd"))}<input id="tm_h" type="number" min="0" max="23" inputmode="numeric">${esc(pt("hh"))}<input id="tm_m" type="number" min="0" max="59" inputmode="numeric">${esc(pt("mm"))}
+        <button type="button" class="btn" id="tm_set">${esc(pt("setT"))}</button>${n ? `<button type="button" class="btn" id="tm_clr">${esc(pt("clrT"))}</button>` : ""}</div></div>`);
+    $("tm_set").onclick = () => {
+      const v = (id) => Math.max(0, parseInt($(id).value, 10) || 0), ms = ((v("tm_d") * 24 + v("tm_h")) * 60 + v("tm_m")) * 6e4;
+      if (!ms) return;
+      PLAN.o[pk(b)] = s; PLAN.t[pk(b)] = Date.now() + ms; planMsg = ""; refreshPlan();
+    };
+    if ($("tm_clr")) $("tm_clr").onclick = () => { PLAN.o[pk(b)] = s; delete PLAN.t[pk(b)]; planMsg = ""; refreshPlan(); };
+  }
   $("km_info").querySelectorAll(".km-st button").forEach((x) => x.onclick = () => setStatus(b.id, x.dataset.v));
   $("km_cp").onclick = () => {
     const done = () => { const c = $("km_cp"); if (c) { c.textContent = T("copied"); setTimeout(() => { if ($("km_cp")) $("km_cp").textContent = T("copy"); }, 1500); } };
@@ -3781,14 +3800,29 @@ function renderLayers() {
 const PLAN_PATH = "data/outpost-plan-x7k2p9.json";
 const OWNER = location.hostname.endsWith("github.io") ? location.hostname.split(".")[0] : "NXSguides";
 const REPO = location.hostname.endsWith("github.io") ? (location.pathname.split("/")[1] || "Kingshot_guideline_NXS") : "Kingshot_guideline_NXS";
-let PLAN = { o: {} }, SAVED = "{}", planMsg = "";
+let PLAN = { o: {}, t: {} }, SAVED = "{}", planMsg = "";
+/* Protected/Vulnerable cycle: an officer types the countdown shown in game once; after that the page
+   flips ✅ Protected ⇄ ⚔️ Vulnerable by itself (default 72 h Protected → 24 h Vulnerable, editable). */
+const CYC = () => ({ p: (PLAN.cyc && PLAN.cyc.p) || 72, v: (PLAN.cyc && PLAN.cyc.v) || 24 });
+function cycAt(raw, end, now) {   // → [status now, time of next switch]
+  if ((raw !== "held" && raw !== "vuln") || !end) return [raw, 0];
+  if (now < end) return [raw, end];
+  const P = CYC().p * 36e5, V = CYC().v * 36e5, L = P + V, e = now - end, base = end + Math.floor(e / L) * L, t = e % L;
+  const first = raw === "held" ? V : P;   // the phase after the typed one
+  return t < first ? [raw === "held" ? "vuln" : "held", base + first] : [raw, base + L];
+}
 const pk = (b) => b.x + "," + b.y;
 const PLANNABLE = (b) => b && (b.kind === "outpost" || b.kind === "fortress" || b.kind === "sanctuary");
-const st = (b) => (PLANNABLE(b) && PLAN.o[pk(b)]) || "";
+const raw = (b) => (PLANNABLE(b) && PLAN.o[pk(b)]) || "";
+const st = (b) => { const r = raw(b); return isOp(b) && PLAN.t[pk(b)] ? cycAt(r, PLAN.t[pk(b)], Date.now())[0] : r; };
+const nextSw = (b) => isOp(b) && PLAN.t[pk(b)] ? cycAt(raw(b), PLAN.t[pk(b)], Date.now())[1] : 0;
+const left = (ms) => { const m = Math.max(0, Math.round(ms / 6e4)), d = Math.floor(m / 1440), h = Math.floor(m % 1440 / 60);
+  return (d ? d + (lang === "zh" ? "天" : "d ") : "") + (d || h ? h + (lang === "zh" ? "時" : "h ") : "") + (d ? "" : (m % 60) + (lang === "zh" ? "分" : "m")); };
+const snap = () => JSON.stringify({ o: PLAN.o, t: PLAN.t, c: PLAN.cyc || null });
 const isOp = (b) => b.kind === "outpost";
-const dirty = () => JSON.stringify(PLAN.o) !== SAVED;
+const dirty = () => snap() !== SAVED;
 const PT = {
-  en: { title: "📋 Outpost plan", hint: "Tap an Outpost on the map or in the list, then mark it 🎯 Target, ✅ Ours (Protected), ⚔️ Ours (Vulnerable) or ⚠️ Buff conflict (the one the game marks). Totals follow the in-game rule: only the same type at the same level does not stack — a different level or a different type always adds up.",
+  en: { title: "📋 Outpost plan", hint: "Tap an Outpost on the map or in the list, then mark it 🎯 Target, ✅ Ours (Protected), ⚔️ Ours (Vulnerable) or ⚠️ Buff conflict (the one the game marks). For ours, type the countdown from the game once and the page switches Protected ⇄ Vulnerable by itself. Totals follow the in-game rule: only the same type at the same level does not stack — a different level or a different type always adds up.",
         target: "🎯 Target", held: "✅ Ours · Protected", vuln: "⚔️ Ours · Vulnerable", clear: "✕ Clear", type: "Outpost", buff: "Buff", now: "Now (as in game)", after: "With targets",
         nowNote: "\"Now\" leaves out Vulnerable Outposts, like the in-game Occupation Buff screen. \"With targets\" counts everything we hold plus the targets.",
         conflict: "Buff conflict", conflictBtn: "⚠️ Ours · Buff conflict", conflicts: "⚠️ Ours · Buff conflict (marked in game, no buff)", heldR: "✅ Ours", ruinsT: "🏛️ Fortresses & Sanctuaries (Sanctuary Battle)",
@@ -3796,8 +3830,11 @@ const PT = {
         ptsNow: "Now", ptsAfter: "With targets", ptsRow: "Season points per phase", tooMany: "More than 1 Sanctuary or 1 Fortress as targets — only 1 of each can be signed up per phase.", targets: "🎯 Targets", helds: "✅ Ours · Protected", vulns: "⚔️ Ours · Vulnerable (no buff right now)", none: "None yet", save: "💾 Save plan", by: "Your name", saving: "Saving…",
         saved: "Saved ✅ Other officers see it after a refresh.", unsaved: "Unsaved changes", last: "Last saved by {by} · {at}",
         noKey: "Saving needs the officer GitHub key (set up on the Post tab).", errAuth: "The GitHub key was refused.", errBusy: "Someone else saved at the same moment — try again.", errNet: "Couldn't reach GitHub — try again.",
-        planOnly: "📋 Plan only", reset: "Undo changes" },
-  zh: { title: "📋 據點規劃", hint: "點地圖或清單上的據點，再標成 🎯 目標、✅ 已佔領（保護狀態）、⚔️ 已佔領（可爭奪狀態）或 ⚠️ 增益衝突（遊戲標示的那座）。總計依遊戲規則：只有同類型、同等級不疊加；不同等級或不同類型都會加上去。",
+        planOnly: "📋 Plan only", reset: "Undo changes",
+        toV: "⚔️ Vulnerable", toP: "✅ Protected", noT: "No timer — the status only changes when an officer changes it.",
+        leftP: "Protected time left in game:", leftV: "Vulnerable time left in game:", dd: "d", hh: "h", mm: "m", setT: "Set timer", clrT: "Remove timer",
+        cyc: "Cycle:", cycNote: "With a timer the page switches Protected ⇄ Vulnerable by itself. If we lose an Outpost, mark it again by hand." },
+  zh: { title: "📋 據點規劃", hint: "點地圖或清單上的據點，再標成 🎯 目標、✅ 已佔領（保護狀態）、⚔️ 已佔領（可爭奪狀態）或 ⚠️ 增益衝突（遊戲標示的那座）。已佔領的輸入一次遊戲裡的倒數，頁面就會自己切換保護 ⇄ 可爭奪。總計依遊戲規則：只有同類型、同等級不疊加；不同等級或不同類型都會加上去。",
         target: "🎯 目標", held: "✅ 已佔領・保護", vuln: "⚔️ 已佔領・可爭奪", clear: "✕ 清除", type: "據點", buff: "增益", now: "目前（同遊戲）", after: "加上目標",
         nowNote: "「目前」不算可爭奪狀態的據點，和遊戲「佔領增益」畫面一樣；「加上目標」是我們佔領的全部加上目標。",
         conflict: "增益衝突", conflictBtn: "⚠️ 已佔領・增益衝突", conflicts: "⚠️ 已佔領・增益衝突（遊戲標示，沒有增益）", heldR: "✅ 已佔領", ruinsT: "🏛️ 要塞與遺跡（遺跡爭奪）",
@@ -3805,7 +3842,10 @@ const PT = {
         ptsNow: "目前", ptsAfter: "加上目標", ptsRow: "每期賽季積分", tooMany: "目標裡有超過 1 座遺跡或 1 座要塞 — 每期各只能主動報名 1 座。", targets: "🎯 目標", helds: "✅ 已佔領・保護狀態", vulns: "⚔️ 已佔領・可爭奪狀態（目前沒有增益）", none: "還沒有", save: "💾 儲存規劃", by: "你的名字", saving: "儲存中…",
         saved: "已儲存 ✅ 其他幹部重新整理後就會看到。", unsaved: "有變更還沒儲存", last: "最後由 {by} 儲存 · {at}",
         noKey: "儲存需要幹部的 GitHub 金鑰（在公告分頁設定）。", errAuth: "GitHub 金鑰被拒絕。", errBusy: "剛好有人同時儲存，請再試一次。", errNet: "連不上 GitHub，請再試一次。",
-        planOnly: "📋 只看規劃", reset: "復原變更" },
+        planOnly: "📋 只看規劃", reset: "復原變更",
+        toV: "⚔️ 可爭奪", toP: "✅ 保護", noT: "沒有計時 — 狀態只會在幹部手動改的時候變。",
+        leftP: "遊戲裡保護狀態剩下：", leftV: "遊戲裡可爭奪狀態剩下：", dd: "天", hh: "時", mm: "分", setT: "設定計時", clrT: "移除計時",
+        cyc: "循環：", cycNote: "設了計時，頁面會自己切換 保護 ⇄ 可爭奪。據點被打掉的話，請手動重新標示。" },
 };
 const pt = (k) => (PT[lang] || PT.en)[k];
 /* total % per type for a set of statuses — one count per (type, level) */
@@ -3822,9 +3862,20 @@ function drawPlan() {
       : s === "conflict" ? `<circle cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#f5a623" stroke-width="4" stroke-dasharray="2 3"/>`
       : `<circle cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#ffe14d" stroke-width="3.5" stroke-dasharray="5 4"/>`; }).join("");
 }
+const refreshPlan = () => { drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
+/* once a minute: update the countdowns; redraw everything when an Outpost switched state (not while typing) */
+let lastSig = "";
+const sig = () => B.filter((b) => isOp(b) && PLAN.t[pk(b)]).map((b) => st(b)).join();
+setInterval(() => {
+  if (!G || !$("km_plan")) return;
+  const a = document.activeElement, typing = a && a.tagName === "INPUT" && a.closest("#pg-map");
+  if (sig() !== lastSig && !typing) { lastSig = sig(); refreshPlan(); return; }
+  document.querySelectorAll("#pg-map [data-sw]").forEach((e) => e.textContent = left(+e.dataset.sw - Date.now()));
+}, 60000);
 function setStatus(id, v) {
   const b = BY[id]; if (!PLANNABLE(b)) return;
   if (v) PLAN.o[pk(b)] = v; else delete PLAN.o[pk(b)];
+  delete PLAN.t[pk(b)];   // a hand-set status starts without a timer — type the in-game countdown again
   planMsg = ""; drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan();
 }
 function renderPlan() {
@@ -3834,7 +3885,7 @@ function renderPlan() {
   /* in-game "增益衝突": a second Outpost we hold with the same type + level as another one we hold */
   /* ⚠️ Buff conflict is only what an officer marks by hand (the game decides which one conflicts) */
   const isConflict = (b) => st(b) === "conflict";
-  const list = (s) => { const L = B.filter((b) => isOp(b) && st(b) === s); return L.length ? `<div class="chips">${L.map((b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}"><span class="sw" style="background:${TY[b.t].c};display:inline-block;width:10px;height:10px;vertical-align:-1px;margin-right:4px"></span>${esc(typeName(b.t))} Lv.${b.lv} · X${b.x} Y${b.y}${isConflict(b) ? ` <span style="color:#c0473a">⚠️ ${esc(pt("conflict"))}</span>` : ""}</button>`).join("")}</div>` : `<div class="muted" style="font-size:13px">${esc(pt("none"))}</div>`; };
+  const list = (s) => { const L = B.filter((b) => isOp(b) && st(b) === s); return L.length ? `<div class="chips">${L.map((b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}"><span class="sw" style="background:${TY[b.t].c};display:inline-block;width:10px;height:10px;vertical-align:-1px;margin-right:4px"></span>${esc(typeName(b.t))} Lv.${b.lv} · X${b.x} Y${b.y}${nextSw(b) ? ` <span class="muted">⏱ <span data-sw="${nextSw(b)}">${esc(left(nextSw(b) - Date.now()))}</span></span>` : ""}${isConflict(b) ? ` <span style="color:#c0473a">⚠️ ${esc(pt("conflict"))}</span>` : ""}</button>`).join("")}</div>` : `<div class="muted" style="font-size:13px">${esc(pt("none"))}</div>`; };
   const cnt = (s) => B.filter((b) => isOp(b) && st(b) === s).length;
   /* Sanctuary Battle: season points per phase (Sanctuary 1, Fortress 2); one active sign-up of each kind per phase */
   const R = (s) => B.filter((b) => !isOp(b) && st(b) === s);
@@ -3859,6 +3910,7 @@ function renderPlan() {
     <div class="pl-sub">${esc(pt("targets"))} (${cnt("target")})</div>${list("target")}
     <div class="pl-sub">${esc(pt("helds"))} (${cnt("held")})</div>${list("held")}
     <div class="pl-sub">${esc(pt("vulns"))} (${cnt("vuln")})</div>${list("vuln")}
+    <div class="pl-cyc muted">${esc(pt("cyc"))} <input id="cy_p" type="number" min="1" max="240" value="${CYC().p}"> h ✅ → <input id="cy_v" type="number" min="1" max="240" value="${CYC().v}"> h ⚔️ <span style="display:block;font-size:12px">${esc(pt("cycNote"))}</span></div>
     ${cnt("conflict") ? `<div class="pl-sub">${esc(pt("conflicts"))} (${cnt("conflict")})</div>${list("conflict")}` : ""}
     ${ruinsHtml}
     <div class="pl-save"><input id="pl_by" maxlength="30" placeholder="${esc(pt("by"))}" value="${esc(by)}"><button class="btn primary" id="pl_save" type="button"${dirty() ? "" : " disabled"}>${esc(pt("save"))}</button>${dirty() ? `<button class="btn" id="pl_reset" type="button">${esc(pt("reset"))}</button>` : ""}
@@ -3866,7 +3918,9 @@ function renderPlan() {
   renderSB();   // the Sanctuary Battle sign-up drawing sits under the Fortress/Sanctuary part of the plan
   $("km_plan").querySelectorAll(".chip").forEach((c) => c.onclick = () => select(c.dataset.id, true));
   $("pl_save").onclick = savePlan;
-  if ($("pl_reset")) $("pl_reset").onclick = () => { PLAN.o = JSON.parse(SAVED); planMsg = ""; drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
+  for (const [id, k] of [["cy_p", "p"], ["cy_v", "v"]]) $(id).onchange = () => { const n = parseInt($(id).value, 10); if (n > 0) { PLAN.cyc = { ...CYC(), [k]: n }; planMsg = ""; refreshPlan(); } };
+  lastSig = sig();
+  if ($("pl_reset")) $("pl_reset").onclick = () => { const S = JSON.parse(SAVED); PLAN.o = S.o; PLAN.t = S.t; if (S.c) PLAN.cyc = S.c; else delete PLAN.cyc; planMsg = ""; drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
 }
 async function gh(method, path, body) {
   let res;
@@ -3886,7 +3940,7 @@ async function loadPlan() {
   let d = null;
   if (OFFICER.token) { try { const f = await gh("GET", PLAN_PATH); d = f ? await OfficerData.open(JSON.parse(b64u8(f.content))) : null; } catch (e) {} }
   if (!d) { try { d = await OfficerData.fetchJson(PLAN_PATH); } catch (e) {} }
-  PLAN = d && d.o ? d : { o: {} }; SAVED = JSON.stringify(PLAN.o);
+  PLAN = d && d.o ? d : { o: {}, t: {} }; if (!PLAN.t) PLAN.t = {}; SAVED = snap();
 }
 /* A link like officer-x7k2p9.html#map?held=666-138,486-138&target=327-666&by=Sparrow pre-marks Outposts
    (not saved yet — the officer checks the map and presses 💾 Save plan). Coordinates that are not Outposts are ignored. */
@@ -3908,14 +3962,14 @@ async function savePlan() {
   if (!OFFICER.token) { planMsg = pt("noKey"); renderPlan(); return; }
   const by = ($("pl_by").value || "").trim(); try { localStorage.setItem("nxs-plan-by", by); } catch (e) {}
   planMsg = pt("saving"); renderPlan(); $("pl_save").disabled = true;
-  const next = { o: PLAN.o, by: by || "?", at: new Date().toISOString() };
+  const next = { o: PLAN.o, t: PLAN.t, ...(PLAN.cyc ? { cyc: PLAN.cyc } : {}), by: by || "?", at: new Date().toISOString() };
   try {
     for (let attempt = 0; ; attempt++) {
       const f = await gh("GET", PLAN_PATH);
       try { await gh("PUT", PLAN_PATH, { message: `Outpost plan (${next.by})`, content: u8b64(JSON.stringify(await OfficerData.seal(next), null, 1) + "\n"), sha: f ? f.sha : undefined, branch: "main" }); break; }
       catch (e) { if (e.message !== "busy" || attempt) throw e; }
     }
-    PLAN = next; SAVED = JSON.stringify(PLAN.o); planMsg = pt("saved");
+    PLAN = next; SAVED = snap(); planMsg = pt("saved");
   } catch (e) { planMsg = pt(e.message === "auth" ? "errAuth" : e.message === "busy" ? "errBusy" : "errNet"); }
   renderPlan();
 }
