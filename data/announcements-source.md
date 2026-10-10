@@ -1,21 +1,4 @@
 ---
-author: Nia
-lang: en   # en / zh / ko / de / fr / pt / tr / id / ru / th / ar / es
-title: Gen 3 Heroes Guide
-images: []
-content: |
-  Not sure what to invest in? New Heroes & Masters guides are available on Discord and our multilingual website.
-
-  **Summary GEN 3**
-  🔥 Petra - MUST BUILD ({heroRoulette}). Excellent {bearHunt} hero with value through Gen 7.
-  - Eric & Jaeger: Skip unless focused on PvP/garrison defense
-
-  **Overall:**
-  🔹 F2P Players: Focus on {zoe} if not maxed already (Infantry tank) and Petra (offensive Cavalry) from {heroRoulette}
-  🔹 P2W Players: Prioritize {amadeus} (VIP 7+) and {hilde}
-
-  [[link:f2p-heroes]]
----
 author: "Nia"
 created: "2026-10-06T12:36:15.043Z"
 lang: en
