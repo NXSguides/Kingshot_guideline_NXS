@@ -50,21 +50,6 @@ content: |
 
   [[link:bear-hunt]]
 ---
-author: Nia
-lang: en   # en / zh / ko / de / fr / pt / tr / id / ru / th / ar / es
-title: 🏆 ALLIANCE CHAMPIONSHIP
-images: []
-# Every line below "content: |" must start with 2 spaces (not a tab)
-content: |
-  Please register in the Middle Lane, leadership will sort you later. 
-
-  Before registering:
-  🔹 Use your strongest heroes
-  🔹 Formation: 50% Infantry, 20% Cavalry, 30% Archers
-  🔹 Activate Marshal / Field Commander & Pet Buffs before registering.
-
-  🔄 You can refresh your registration anytime to update heroes, formation, and buffs. Especially if you have upgraded your heroes or troops.
----
 author: "Nia"
 created: "2026-10-06T12:36:15.043Z"
 lang: en
