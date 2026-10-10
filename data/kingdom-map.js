@@ -262,6 +262,20 @@ const KINGDOM_MAP = {
     "ru": "Чем выше уровень Outpost, тем больше тяжелораненых и погибших. Тяжелораненые лечатся в Лазарете.",
     "th": "Outpost เลเวลสูงทำให้บาดเจ็บสาหัสและตายมากขึ้น ทหารบาดเจ็บสาหัสต้องรักษาที่โรงพยาบาล",
     "ar": "الـ Outposts الأعلى مستوى تسبب جرحى بإصابات خطيرة وقتلى أكثر. الجرحى بإصابات خطيرة يُعالَجون في المستوصف."
+   },
+   {
+    "en": "An Outpost in the Vulnerable state gives no buff until it is Protected again, so a total can drop for a while.",
+    "zh": "據點在「可爭奪狀態」時沒有增益，回到「保護狀態」才恢復，所以總和有時會暫時變少。",
+    "ko": "Vulnerable 상태인 Outpost는 다시 Protected가 될 때까지 버프가 없어서, 합계가 잠시 줄 수 있어요.",
+    "de": "Ein Outpost im Zustand Vulnerable gibt keinen Bonus, bis es wieder Protected ist – die Summe kann also zeitweise sinken.",
+    "fr": "Un Outpost à l'état Vulnerable ne donne aucun bonus jusqu'à ce qu'il redevienne Protected : le total peut donc baisser un moment.",
+    "pt": "Um Outpost no estado Vulnerable não dá bônus até voltar a Protected, então o total pode cair por um tempo.",
+    "es": "Un Outpost en estado Vulnerable no da bonificación hasta volver a Protected, así que el total puede bajar un rato.",
+    "tr": "Vulnerable durumundaki bir Outpost, tekrar Protected olana kadar bonus vermez; bu yüzden toplam bir süre düşebilir.",
+    "id": "Outpost dalam status Vulnerable tidak memberi buff sampai kembali Protected, jadi totalnya bisa turun sementara.",
+    "ru": "Outpost в состоянии Vulnerable не даёт бонуса, пока снова не станет Protected, поэтому сумма может временно падать.",
+    "th": "Outpost ที่อยู่ในสถานะ Vulnerable จะไม่ให้บัฟจนกว่าจะกลับเป็น Protected ยอดรวมจึงอาจลดลงชั่วคราว",
+    "ar": "الـ Outpost في حالة Vulnerable لا يمنح تعزيزًا حتى يعود إلى Protected، لذلك قد ينخفض المجموع مؤقتًا."
    }
   ]
  },
