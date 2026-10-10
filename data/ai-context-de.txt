@@ -998,6 +998,49 @@ Steps: 1. Tippe im Stadtbildschirm oben links auf dein Profilbild. 2. Tippe unte
 Hinweise: Das Schloss am letzten Slot heißt, er ist noch nicht freigeschaltet. „Gleichmäßig“ füllt alle drei Typen gleich, „Alle zurückziehen“ leert den Slot. Jeder Slot merkt sich eigene Helden und Truppen.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-10 by ΔRMΔDΔ] KVK Kampf-Leitfaden
+⚔️ Leitfaden für die Schlacht um das Schloss
+
+Team, hier ist alles, was ihr wissen müsst, um bereit und koordiniert zu sein.
+
+🛡️ Vor der Schlacht
+Speichert eure Angriffs- und Verteidigungstrupp-Formationen im Voraus:
+• Angriff: 50:20:30 (Bärenjagd-Teilnehmer-Setup)
+• Verteidigung: 60:20:20 mit Howard oder Gordon
+• Rally-Leiter und Beitretende: Aktiviert euren Einsatzkapazität-Bonus.
+• Alle Rally-Leiter müssen im Discord-Voice-Chat (DC VC) sein.
+
+👑 Für Rally-Leiter
+Nutzt eure stärksten Helden:
+• Angriff: Amadeus, Marlin und Petra (oder Hilde oder Jabel)
+• Verteidigung: Zoe, Hilde und Saul
+
+Wie man zwischen Angriff und Verteidigung wechselt:
+Sobald wir die Kontrolle übernehmen, entsendet sofort eure Verteidigungshelden mit Truppen. Wenn deren Ankunftstimer 5–6 Sekunden erreicht, ruft eure Angriffshelden zurück, sodass die Verteidigungshelden genau rechtzeitig eintreffen, um die Garnison zu besetzen.
+
+Wie man die Rally-Kapitäne rotiert, wenn man in der Garnison verteidigt:
+Weist Beitretende als Garnisonskapitäne zu und rotiert sie, bis die Plätze 2–5 zwei Howards und zwei Gordons haben (50 % Verteidigung und 50 % Gesundheit). Setzt euch dann selbst wieder als Garnisonskapitän auf den ersten Platz.
+
+Ihr seid auch für eure Garnison verantwortlich:
+Haltet das richtige Truppenverhältnis für alle Beitretenden aufrecht und werft sie bei Bedarf heraus, damit die richtigen Truppen und Helden eintreten können.
+
+🤝 Für Rally-Beitretende
+• Sendet eure Truppen der höchsten Stufe mit dem richtigen Verhältnis für Angriff vs. Verteidigung.
+• Nutzt den Einsatzkapazität-Bonus.
+
+Eure Verantwortung in der Garnison:
+Werft euch selbst raus, wenn ihr von Angriff auf Verteidigung wechselt, aber erst kurz bevor eure Verteidigung die Garnison betritt. Dies erleichtert die Arbeit des Rally-Kapitäns.
+
+Um das Neuberechnen von Truppen nach Verletzungen zu vermeiden:
+Speichert zwei Verteidigungsformationen, eine mit Howard und eine mit Gordon. Wenn ihr genug Truppen für zwei Märsche habt, könnt ihr die Verteidigungsformationen jedes Mal wechseln, anstatt neu zu berechnen und aufzufüllen.
+
+💊 Stapel-Heilung
+Findet einen Weg, um die maximale Anzahl an Truppen auf einmal zu heilen.
+
+Letztes Mal konnten wir dank der Monatskarte mit bestem Preis-Leistungs-Verhältnis (Ultra Value Monthly Card) fast 3 Stunden am Stück heilen. Wenn ihr plant, UNI beizutreten, empfehle ich euch den Kauf dieser Karte. Sie bringt euch den ganzen Monat über Vorteile mit täglich einforderbaren Belohnungen.
+
+(see guide #kvk)
+
 [2026-10-06 by Nia] ⚔️ KvK-Abkommen mit 2186 – 10. Okt.
 ⚔️ KvK-Abkommen mit 2186 – 10. Okt.
 

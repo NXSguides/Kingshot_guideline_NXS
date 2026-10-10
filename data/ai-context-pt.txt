@@ -996,6 +996,49 @@ Steps: 1. Na tela da cidade, toque no seu avatar (canto superior esquerdo). 2. T
 Dicas: o cadeado no último slot significa que ainda não foi desbloqueado. “Igualar” preenche os três tipos por igual; “Retirar tudo” esvazia o slot. Cada slot guarda seus próprios heróis e tropas.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-10 by ΔRMΔDΔ] Guia de Batalha de KVK
+⚔️ Guia da Batalha do Castelo
+
+Equipe, aqui está tudo o que vocês precisam saber para estarem prontos e coordenados.
+
+🛡️ Antes da Batalha
+Salvem suas formações de ataque e defesa com antecedência:
+• Ataque: 50:20:30 (configuração para participantes da Caça ao Urso)
+• Defesa: 60:20:20 com Howard ou Gordon
+• Líderes e participantes de ralis: ativem o bônus de capacidade de implantação.
+• Todos os líderes de rali precisam estar no chat de voz do Discord (DC VC).
+
+👑 Para Líderes de Rali
+Usem seus heróis mais fortes:
+• Ataque: Amadeus, Peixe Marlin e Petra (ou Hilde ou Jabel)
+• Defesa: Zoe, Hilde e Saul
+
+Como alternar entre ataque e defesa:
+Assim que assumirmos o controle, enviem imediatamente seus heróis de defesa com tropas. Quando o temporizador de chegada deles atingir 5 a 6 segundos, revoguem seus heróis de ataque para que os heróis de defesa cheguem a tempo de guarnecer.
+
+Como revezar Capitães do Rally ao defender na guarnição:
+Atribuam os participantes como capitães de guarnição, revezando até que as posições 2 a 5 tenham 2 Howards e 2 Gordons (50% de defesa e 50% de vida). Em seguida, coloquem-se de volta como capitão de guarnição na primeira posição.
+
+Vocês também são responsáveis por sua guarnição:
+Mantenham a proporção correta de tropas para todos os participantes e expulsem quando necessário para que as tropas e heróis certos possam entrar.
+
+🤝 Para Participantes de Rali
+• Enviem suas tropas de nível mais alto com a proporção correta para ataque vs. defesa.
+• Usem o bônus de capacidade de implantação.
+
+Sua responsabilidade na guarnição:
+Retirem-se da guarnição ao mudar de ataque para defesa, mas somente quando sua defesa estiver prestes a entrar na guarnição. Isso facilita o trabalho do Capitão do Rally.
+
+Para evitar recalcular tropas após ter feridos:
+Salvem duas formações de defesa, uma com Howard e outra com Gordon. Se tiverem tropas suficientes para duas marchas, vocês podem alternar as formações de defesa a cada vez, em vez de recalcular e reabastecer.
+
+💊 Cura em Lote
+Encontrem um ponto ideal onde possam curar o número máximo de tropas de uma só vez.
+
+Da última vez, conseguimos curar quase 3 horas de uma só vez graças ao Cartão Mensal Ultra Vantajoso (Ultra Value Monthly Card). Se planejam se juntar à UNI, incentivo vocês a comprarem esse cartão. Ele trará benefícios durante o mês inteiro com recompensas diárias resgatáveis.
+
+(see guide #kvk)
+
 [2026-10-06 by Nia] ⚔️ Acordo de KvK com 2186 – 10 de out.
 ⚔️ Acordo de KvK com 2186 – 10 de out.
 

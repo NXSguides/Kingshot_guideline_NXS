@@ -996,6 +996,49 @@ Steps: 1. Di layar kota, ketuk avatarmu (kiri atas). 2. Ketuk Skuad di bawah. 3.
 Tips: ikon gembok di slot terakhir berarti belum terbuka. “Rata” mengisi tiga jenis sama banyak; “Tarik semua” mengosongkan slot. Tiap slot menyimpan hero dan pasukannya sendiri.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-10 by ΔRMΔDΔ] Panduan Pertempuran KVK
+⚔️ Panduan Pertempuran Istana
+
+Tim, inilah semua yang perlu kalian ketahui agar siap dan terkoordinasi.
+
+🛡️ Sebelum Pertempuran
+Simpan formasi serang dan bertahan kalian terlebih dahulu:
+• Serang: 50:20:30 (pengaturan untuk peserta Bear Hunt)
+• Bertahan: 60:20:20 dengan Howard atau Gordon
+• Pemimpin dan peserta reli: aktifkan bonus kapasitas pengerahan kalian.
+• Semua pemimpin reli harus berada di obrolan suara Discord (DC VC).
+
+👑 Untuk Pemimpin Reli
+Gunakan pahlawan terkuat kalian:
+• Serang: Amadeus, Marlin, dan Petra (atau Hilde atau Jabel)
+• Bertahan: Zoe, Hilde, dan Saul
+
+Cara bertukar antara menyerang dan bertahan:
+Setelah kita mengambil alih kendali, segera kirim pahlawan bertahan kalian beserta pasukan. Saat penghitung waktu kedatangan mereka mencapai 5–6 detik, panggil kembali pahlawan serang kalian agar pahlawan bertahan tiba tepat waktu untuk menjaga garnisun.
+
+Cara memutar Kapten Reli saat bertahan di garnisun:
+Tentukan peserta sebagai kapten garnisun, lakukan rotasi hingga slot 2–5 berisi 2 Howard dan 2 Gordon (50% pertahanan dan 50% Health). Kemudian tempatkan diri kalian kembali sebagai kapten garnisun di slot pertama.
+
+Kalian juga bertanggung jawab atas garnisun kalian:
+Pertahankan rasio pasukan yang benar untuk semua peserta, dan keluarkan anggota jika perlu agar pasukan serta pahlawan yang tepat bisa masuk.
+
+🤝 Untuk Peserta Reli
+• Kirim pasukan tingkat tertinggi kalian dengan rasio yang benar untuk menyerang vs. bertahan.
+• Gunakan bonus kapasitas pengerahan.
+
+Tanggung jawab kalian di garnisun:
+Keluarkan diri kalian sendiri saat beralih dari menyerang ke bertahan, namun lakukan hanya saat pasukan bertahan kalian hampir memasuki garnisun. Ini akan mempermudah tugas Kapten Reli.
+
+Untuk menghindari perhitungan ulang pasukan setelah terluka:
+Simpan dua formasi bertahan, satu dengan Howard dan satu lagi dengan Gordon. Jika kalian memiliki cukup pasukan untuk dua barisan, kalian dapat menukar formasi bertahan setiap saat alih-alih menghitung ulang dan mengisi kembali.
+
+💊 Penyembuhan Massal
+Temukan cara atau momen di mana kalian dapat menyembuhkan jumlah pasukan maksimal sekaligus.
+
+Terakhir kali kita bisa menyembuhkan hampir 3 jam sekaligus berkat Kartu Bulanan Sangat Bernilai (Ultra Value Monthly Card). Jika kalian berencana untuk bergabung dengan UNI, saya sarankan kalian membeli kartu tersebut. Kartu ini akan menguntungkan kalian sepanjang bulan dengan hadiah harian yang dapat diklaim.
+
+(see guide #kvk)
+
 [2026-10-06 by Nia] ⚔️ Persetujuan KvK dengan 2186 – 10 Okt
 ⚔️ Persetujuan KvK dengan 2186 – 10 Okt
 

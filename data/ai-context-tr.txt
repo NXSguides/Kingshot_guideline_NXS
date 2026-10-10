@@ -996,6 +996,49 @@ Steps: 1. Şehir ekranında sol üstteki avatarına dokun. 2. Alttaki Ekip'e dok
 İpuçları: son yuvadaki kilit henüz açılmadığı anlamına gelir. “Eşit dağıt” üç türü eşit doldurur; “Tümünü geri çek” yuvayı boşaltır. Her yuva kendi kahraman ve birliklerini tutar.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-10 by ΔRMΔDΔ] KVK Savaş Rehberi
+⚔️ Şato Savaşı Rehberi
+
+Ekip, hazır ve koordineli olmak için bilmeniz gereken her şey burada.
+
+🛡️ Savaştan Önce
+Saldırı ve savunma birlik dizilişlerinizi önceden kaydedin:
+• Saldırı: 50:20:30 (Ayı Avı katılım düzeni)
+• Savunma: Howard veya Gordon ile 60:20:20
+• Seferberlik liderleri ve katılanlar: konuşlanma kapasitesi bonusunuzu etkinleştirin.
+• Tüm seferberlik liderlerinin Discord sesli sohbetinde (DC VC) olması gerekir.
+
+👑 Seferberlik Liderleri İçin
+En güçlü kahramanlarınızı kullanın:
+• Saldırı: Amadeus, Marlin ve Petra (veya Hilde veya Jabel)
+• Savunma: Zoe, Hilde ve Saul
+
+Saldırı ve savunma nasıl değiştirilir:
+Kontrolü ele geçirdiğimizde, hemen savunma kahramanlarınızı birliklerle birlikte gönderin. Varış süreleri 5-6 saniyeye ulaştığında, saldırı kahramanlarınızı geri çağırın, böylece savunma kahramanları garnizona tam zamanında varır.
+
+Hep birlikte garnizonda savunma yaparken Seferberlik Önderlerini nasıl değiştirebilirsiniz:
+Katılanları garnizon lideri olarak atayın, 2. ve 5. sıralar arasında 2 Howard ve 2 Gordon (%50 savunma ve %50 sağlık) olana kadar değiştirin. Ardından kendinizi ilk sıraya tekrar garnizon lideri olarak yerleştirin.
+
+Ayrıca kendi garnizonunuzdan da siz sorumlusunuz:
+Tüm katılanlar için doğru birlik oranını koruyun ve gerektiğinde onları çıkarın, böylece doğru birlikler ve kahramanlar içeri girebilir.
+
+🤝 Seferberlik Katılımcıları İçin
+• Saldırı ve savunma için doğru oranla en yüksek seviye birliklerinizi gönderin.
+• konuşlanma kapasitesi bonusunu kullanın.
+
+Garnizondaki sorumluluğunuz:
+Saldırıdan savunmaya geçerken kendinizi garnizondan çıkarın, ancak bunu savunma birliğiniz garnizona girmek üzereyken yapın. Bu, Seferberlik Önderi'nin işini kolaylaştıracaktır.
+
+Yaralanmalardan sonra birlikleri yeniden hesaplamaktan kaçınmak için:
+Biri Howard diğeri Gordon ile olmak üzere iki savunma dizilişi kaydedin. İki intikal için yeterli birliğiniz varsa, her seferinde hesaplama yapmak ve doldurmak yerine savunma dizilişlerini değiştirebilirsiniz.
+
+💊 Toplu Tedavi
+Tek seferde maksimum sayıda birliği tedavi edebileceğiniz bir yöntem bulun.
+
+Geçen sefer Ultra Avantajlı Aylık Kart (Ultra Value Monthly Card) sayesinde neredeyse 3 saatlik yaralıyı tek seferde tedavi edebilmiştik. UNI'ye katılmayı planlıyorsanız, bu kartı satın almanızı tavsiye ederim. Günlük olarak toplanabilir ödülleriyle tüm ay boyunca size fayda sağlayacaktır.
+
+(see guide #kvk)
+
 [2026-10-06 by Nia] ⚔️ 2186 ile KvK Anlaşması – 10 Eki
 ⚔️ 2186 ile KvK Anlaşması – 10 Eki
 

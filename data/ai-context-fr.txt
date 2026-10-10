@@ -996,6 +996,49 @@ Steps: 1. Sur l'écran de la ville, touchez votre avatar (en haut à gauche). 2.
 Astuces : le cadenas du dernier slot signifie qu'il n'est pas encore débloqué. « Équilibré » remplit les trois types à parts égales ; « Tout retirer » vide le slot. Chaque slot garde ses propres héros et troupes.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-10 by ΔRMΔDΔ] Guide de combat KVK
+⚔️ Guide de la Bataille du Château
+
+L'équipe, voici tout ce que vous devez savoir pour être prêts et coordonnés.
+
+🛡️ Avant le combat
+Enregistrez vos formations d'attaque et de défense à l'avance :
+• Attaque : 50:20:30 (configuration pour rejoindre la Chasse à l'Ours)
+• Défense : 60:20:20 avec Howard ou Gordon
+• Meneurs de ralliement et participants : activez votre bonus de capacité de déploiement.
+• Tous les meneurs de ralliement doivent être sur le chat vocal Discord (DC VC).
+
+👑 Pour les meneurs de ralliement
+Utilisez vos héros les plus puissants :
+• Attaque : Amadeus, Marlin et Petra (ou Hilde ou Jabel)
+• Défense : Zoé, Hilde et Saul
+
+Comment alterner entre attaque et défense :
+Une fois que nous avons pris le contrôle, envoyez immédiatement vos héros de défense avec des troupes. Lorsque leur compte à rebours d'arrivée atteint 5 à 6 secondes, rappelez vos héros d'attaque pour que les héros de défense arrivent juste à temps pour occuper la garnison.
+
+Comment faire tourner les Capitaines de Ralliement lors de la défense en garnison :
+Attribuez le rôle de capitaine de garnison aux participants, en faisant tourner jusqu'à ce que les places 2 à 5 comptent 2 Howard et 2 Gordon (50 % de défense et 50 % de santé). Remettez-vous ensuite comme capitaine de garnison à la première place.
+
+Vous êtes également responsable de votre garnison :
+Maintenez le bon ratio de troupes pour tous les participants, et expulsez-les si nécessaire pour que les bonnes troupes et les bons héros puissent entrer.
+
+🤝 Pour les participants au ralliement
+• Envoyez vos troupes du plus haut niveau avec le bon ratio pour l'attaque et la défense.
+• Utilisez le bonus de capacité de déploiement.
+
+Votre responsabilité en garnison :
+Quittez vous-même la garnison lors de la transition de l'attaque à la défense, mais seulement lorsque vos défenseurs sont sur le point d'entrer dans la garnison. Cela facilite grandement le travail du Capitaine de Ralliement.
+
+Pour éviter de recalculer les troupes après avoir eu des blessés :
+Sauvegardez deux formations de défense, une avec Howard et une avec Gordon. Si vous avez assez de troupes pour deux marches, vous pouvez alterner les formations de défense à chaque fois au lieu de recalculer et de remplir à nouveau.
+
+💊 Soins en lot
+Trouvez une astuce pour soigner le nombre maximum de troupes en une seule fois.
+
+La dernière fois, nous avons pu soigner près de 3 heures d'un coup grâce à la Carte mensuelle ultra avantageuse (Ultra Value Monthly Card). Si vous prévoyez de rejoindre UNI, je vous encourage vivement à acheter cette carte. Elle vous sera bénéfique tout le mois avec des récompenses quotidiennes à récupérer.
+
+(see guide #kvk)
+
 [2026-10-06 by Nia] ⚔️ Accord KvK avec 2186 – 10 oct.
 ⚔️ Accord KvK avec 2186 – 10 oct.
 

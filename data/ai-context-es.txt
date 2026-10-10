@@ -996,6 +996,49 @@ Steps: 1. En la pantalla de la ciudad, toca tu avatar (arriba a la izquierda). 2
 Consejos: el candado de la última ranura significa que aún no está desbloqueada. «Equilibrar» rellena los tres tipos por igual; «Retirar todo» vacía la ranura. Cada ranura guarda sus propios héroes y tropas.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-10 by ΔRMΔDΔ] Guía de batalla de KVK
+⚔️ Guía de la Batalla del castillo
+
+Equipo, aquí está todo lo que necesitan saber para estar listos y coordinados.
+
+🛡️ Antes de la batalla
+Guarden sus formaciones de ataque y defensa con anticipación:
+• Ataque: 50:20:30 (configuración para unirse a la Cacería del Oso)
+• Defensa: 60:20:20 con Howard o Gordon
+• Líderes y miembros de ataques conjuntos: activen su bonificación de capacidad de despliegue.
+• Todos los líderes de ataques conjuntos deben estar en el chat de voz de Discord (DC VC).
+
+👑 Para líderes de ataques conjuntos
+Usen sus héroes más fuertes:
+• Ataque: Amadeus, Marlin y Petra (o Hilde o Jabel)
+• Defensa: Zoe, Hilde y Saul
+
+Cómo alternar entre ataque y defensa:
+Once we take control, inmediatamente envíen a sus héroes de defensa con tropas. Cuando su temporizador de llegada sea de 5 a 6 segundos, retiren a sus héroes de ataque para que los de defensa lleguen justo a tiempo para guarnecer.
+
+Cómo rotar a los gobernadores que ordenan la Movilización cuando se defiende en la guarnición:
+Asignen a los miembros que se unan como capitanes de la guarnición, rotando hasta que los espacios 2 a 5 tengan 2 Howard y 2 Gordon (50% de defensa y 50% de salud). Luego, vuelvan a colocarse como capitán de la guarnición en el primer espacio.
+
+También son responsables de su guarnición:
+Mantengan la proporción correcta de tropas para todos los miembros que se unan, y expulsen cuando sea necesario para que puedan ingresar las tropas y héroes adecuados.
+
+🤝 Para los que se unen a los ataques conjuntos
+• Envíen sus tropas de nivel más alto con la proporción correcta de ataque frente a defensa.
+• Usen la bonificación de capacidad de despliegue.
+
+Su responsabilidad en la guarnición:
+Salgan de la guarnición ustedes mismos al cambiar de ataque a defensa, pero no hasta que su defensa esté por entrar a la guarnición. Esto facilita el trabajo del gobernador que ordena la Movilización.
+
+Para evitar volver a calcular las tropas después de tener heridos:
+Guarden dos formaciones de defensa, una con Howard y otra con Gordon. Si tienen suficientes tropas para dos marchas, pueden alternar las formaciones de defensa cada vez en lugar de recalcular y volver a llenar.
+
+💊 Curación en lote
+Encuentren un momento o método en el que puedan aplicar la curación al número máximo de tropas a la vez.
+
+La última vez pudimos curar casi 3 horas a la vez gracias a la Tarjeta mensual de gran valor (Ultra Value Monthly Card). Si planean unirse a UNI, los animo a comprar esa tarjeta. Les beneficiará durante todo el mes con recompensas diarias que pueden reclamar.
+
+(see guide #kvk)
+
 [2026-10-06 by Nia] ⚔️ Acuerdo de KvK con 2186 – 10 de oct.
 ⚔️ Acuerdo de KvK con 2186 – 10 de oct.
 
