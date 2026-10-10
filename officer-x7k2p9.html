@@ -3737,7 +3737,7 @@ function renderInfo() {
   const sw = b.kind === "outpost" ? `<span class="sw" style="background:${TY[b.t].c}"></span>` : "";
   const what = b.kind === "outpost" ? `Lv.${b.lv} · ${esc(buffName(b.t))} +${b.buff}%` : b.kind === "castle" ? "" : esc(T("noBuff"));
   $("km_info").innerHTML = `${sw}<b>${esc(nm(b))}</b>${what ? `<span class="muted">${what}</span>` : ""}<span class="co">X:${b.x} Y:${b.y}</span><button type="button" class="btn" id="km_cp">${esc(T("copy"))}</button>` +
-    (b.kind === "outpost" ? `<div class="km-st" style="flex-basis:100%">${[["target", "target"], ["held", "held"], ["vuln", "vuln"], ["", "clear"]].map(([v, k]) => `<button type="button" data-v="${v}" class="${st(b) === v && v ? "on" : ""}">${esc(pt(k))}</button>`).join("")}</div>` : "");
+    (PLANNABLE(b) ? `<div class="km-st" style="flex-basis:100%">${(isOp(b) ? [["target", "target"], ["held", "held"], ["vuln", "vuln"], ["", "clear"]] : [["target", "target"], ["held", "heldR"], ["", "clear"]]).map(([v, k]) => `<button type="button" data-v="${v}" class="${st(b) === v && v ? "on" : ""}">${esc(pt(k))}</button>`).join("")}</div>` : "");
   $("km_info").querySelectorAll(".km-st button").forEach((x) => x.onclick = () => setStatus(b.id, x.dataset.v));
   $("km_cp").onclick = () => {
     const done = () => { const c = $("km_cp"); if (c) { c.textContent = T("copied"); setTimeout(() => { if ($("km_cp")) $("km_cp").textContent = T("copy"); }, 1500); } };
@@ -3779,20 +3779,26 @@ const OWNER = location.hostname.endsWith("github.io") ? location.hostname.split(
 const REPO = location.hostname.endsWith("github.io") ? (location.pathname.split("/")[1] || "Kingshot_guideline_NXS") : "Kingshot_guideline_NXS";
 let PLAN = { o: {} }, SAVED = "{}", planMsg = "";
 const pk = (b) => b.x + "," + b.y;
-const st = (b) => (b && b.kind === "outpost" && PLAN.o[pk(b)]) || "";
+const PLANNABLE = (b) => b && (b.kind === "outpost" || b.kind === "fortress" || b.kind === "sanctuary");
+const st = (b) => (PLANNABLE(b) && PLAN.o[pk(b)]) || "";
+const isOp = (b) => b.kind === "outpost";
 const dirty = () => JSON.stringify(PLAN.o) !== SAVED;
 const PT = {
   en: { title: "📋 Outpost plan", hint: "Tap an Outpost on the map or in the list, then mark it 🎯 Target, ✅ Ours (Protected) or ⚔️ Ours (Vulnerable). Totals follow the in-game rule: only the same type at the same level does not stack — a different level or a different type always adds up.",
         target: "🎯 Target", held: "✅ Ours · Protected", vuln: "⚔️ Ours · Vulnerable", clear: "✕ Clear", type: "Outpost", buff: "Buff", now: "Now (as in game)", after: "With targets",
         nowNote: "\"Now\" leaves out Vulnerable Outposts, like the in-game Occupation Buff screen. \"With targets\" counts everything we hold plus the targets.",
-        conflict: "Buff conflict", targets: "🎯 Targets", helds: "✅ Ours · Protected", vulns: "⚔️ Ours · Vulnerable (no buff right now)", none: "None yet", save: "💾 Save plan", by: "Your name", saving: "Saving…",
+        conflict: "Buff conflict", heldR: "✅ Ours", ruinsT: "🏛️ Fortresses & Sanctuaries (Sanctuary Battle)",
+        ruinsNote: "No buffs — they give season points each phase: Sanctuary 1, Fortress 2. The ones we hold sign up again by themselves; each phase we can actively sign up for only 1 more Sanctuary + 1 more Fortress.",
+        ptsNow: "Now", ptsAfter: "With targets", ptsRow: "Season points per phase", tooMany: "More than 1 Sanctuary or 1 Fortress as targets — only 1 of each can be signed up per phase.", targets: "🎯 Targets", helds: "✅ Ours · Protected", vulns: "⚔️ Ours · Vulnerable (no buff right now)", none: "None yet", save: "💾 Save plan", by: "Your name", saving: "Saving…",
         saved: "Saved ✅ Other officers see it after a refresh.", unsaved: "Unsaved changes", last: "Last saved by {by} · {at}",
         noKey: "Saving needs the officer GitHub key (set up on the Post tab).", errAuth: "The GitHub key was refused.", errBusy: "Someone else saved at the same moment — try again.", errNet: "Couldn't reach GitHub — try again.",
         planOnly: "📋 Plan only", reset: "Undo changes" },
   zh: { title: "📋 據點規劃", hint: "點地圖或清單上的據點，再標成 🎯 目標、✅ 已佔領（保護狀態）或 ⚔️ 已佔領（可爭奪狀態）。總計依遊戲規則：只有同類型、同等級不疊加；不同等級或不同類型都會加上去。",
         target: "🎯 目標", held: "✅ 已佔領・保護", vuln: "⚔️ 已佔領・可爭奪", clear: "✕ 清除", type: "據點", buff: "增益", now: "目前（同遊戲）", after: "加上目標",
         nowNote: "「目前」不算可爭奪狀態的據點，和遊戲「佔領增益」畫面一樣；「加上目標」是我們佔領的全部加上目標。",
-        conflict: "增益衝突", targets: "🎯 目標", helds: "✅ 已佔領・保護狀態", vulns: "⚔️ 已佔領・可爭奪狀態（目前沒有增益）", none: "還沒有", save: "💾 儲存規劃", by: "你的名字", saving: "儲存中…",
+        conflict: "增益衝突", heldR: "✅ 已佔領", ruinsT: "🏛️ 要塞與遺跡（遺跡爭奪）",
+        ruinsNote: "沒有增益，但每期給賽季積分：遺跡 1 分、要塞 2 分。已佔領的會自動報名；每期只能再主動報名 1 座遺跡 + 1 座要塞。",
+        ptsNow: "目前", ptsAfter: "加上目標", ptsRow: "每期賽季積分", tooMany: "目標裡有超過 1 座遺跡或 1 座要塞 — 每期各只能主動報名 1 座。", targets: "🎯 目標", helds: "✅ 已佔領・保護狀態", vulns: "⚔️ 已佔領・可爭奪狀態（目前沒有增益）", none: "還沒有", save: "💾 儲存規劃", by: "你的名字", saving: "儲存中…",
         saved: "已儲存 ✅ 其他幹部重新整理後就會看到。", unsaved: "有變更還沒儲存", last: "最後由 {by} 儲存 · {at}",
         noKey: "儲存需要幹部的 GitHub 金鑰（在公告分頁設定）。", errAuth: "GitHub 金鑰被拒絕。", errBusy: "剛好有人同時儲存，請再試一次。", errNet: "連不上 GitHub，請再試一次。",
         planOnly: "📋 只看規劃", reset: "復原變更" },
@@ -3806,13 +3812,13 @@ function totals(states) {
 }
 function drawPlan() {
   const g = $("km_planG"); if (!g) return;
-  g.innerHTML = B.filter((b) => st(b)).map((b) => { const [X, Y] = P(b.x, b.y), s = st(b);
-    return s === "held" ? `<circle cx="${X}" cy="${Y}" r="17" fill="none" stroke="#3ddc84" stroke-width="4"/>`
-      : s === "vuln" ? `<circle cx="${X}" cy="${Y}" r="17" fill="none" stroke="#ff6b4a" stroke-width="4"/>`
-      : `<circle cx="${X}" cy="${Y}" r="17" fill="none" stroke="#ffe14d" stroke-width="3.5" stroke-dasharray="5 4"/>`; }).join("");
+  g.innerHTML = B.filter((b) => st(b)).map((b) => { const [X, Y] = P(b.x, b.y), s = st(b), r = b.kind === "fortress" ? 27 : b.kind === "sanctuary" ? 21 : 17;
+    return s === "held" ? `<circle cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#3ddc84" stroke-width="4"/>`
+      : s === "vuln" ? `<circle cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#ff6b4a" stroke-width="4"/>`
+      : `<circle cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#ffe14d" stroke-width="3.5" stroke-dasharray="5 4"/>`; }).join("");
 }
 function setStatus(id, v) {
-  const b = BY[id]; if (!b || b.kind !== "outpost") return;
+  const b = BY[id]; if (!PLANNABLE(b)) return;
   if (v) PLAN.o[pk(b)] = v; else delete PLAN.o[pk(b)];
   planMsg = ""; drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan();
 }
@@ -3821,11 +3827,24 @@ function renderPlan() {
   const fmt = (n) => n ? "+" + n + "%" : "—";
   const rows = G.types.map(([k]) => `<tr><td><span class="sw" style="background:${TY[k].c};display:inline-block;vertical-align:-2px;margin-right:6px"></span>${esc(typeName(k))}</td><td class="muted">${esc(buffName(k))}</td><td class="n">${fmt(now[k])}</td><td class="n${(after[k] || 0) > (now[k] || 0) ? " up" : ""}">${fmt(after[k])}</td></tr>`).join("");
   /* in-game "增益衝突": a second Outpost we hold with the same type + level as another one we hold */
-  const owned = B.filter((b) => st(b) === "held" || st(b) === "vuln"), firstOf = {};
+  const owned = B.filter((b) => isOp(b) && (st(b) === "held" || st(b) === "vuln")), firstOf = {};
   owned.sort((a, b) => (st(a) === "held" ? 0 : 1) - (st(b) === "held" ? 0 : 1)).forEach((b) => { if (!firstOf[b.t + b.lv]) firstOf[b.t + b.lv] = b.id; });
   const isConflict = (b) => (st(b) === "held" || st(b) === "vuln") && firstOf[b.t + b.lv] !== b.id;
-  const list = (s) => { const L = B.filter((b) => st(b) === s); return L.length ? `<div class="chips">${L.map((b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}"><span class="sw" style="background:${TY[b.t].c};display:inline-block;width:10px;height:10px;vertical-align:-1px;margin-right:4px"></span>${esc(typeName(b.t))} Lv.${b.lv} · X${b.x} Y${b.y}${isConflict(b) ? ` <span style="color:#c0473a">⚠️ ${esc(pt("conflict"))}</span>` : ""}</button>`).join("")}</div>` : `<div class="muted" style="font-size:13px">${esc(pt("none"))}</div>`; };
-  const cnt = (s) => B.filter((b) => st(b) === s).length;
+  const list = (s) => { const L = B.filter((b) => isOp(b) && st(b) === s); return L.length ? `<div class="chips">${L.map((b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}"><span class="sw" style="background:${TY[b.t].c};display:inline-block;width:10px;height:10px;vertical-align:-1px;margin-right:4px"></span>${esc(typeName(b.t))} Lv.${b.lv} · X${b.x} Y${b.y}${isConflict(b) ? ` <span style="color:#c0473a">⚠️ ${esc(pt("conflict"))}</span>` : ""}</button>`).join("")}</div>` : `<div class="muted" style="font-size:13px">${esc(pt("none"))}</div>`; };
+  const cnt = (s) => B.filter((b) => isOp(b) && st(b) === s).length;
+  /* Sanctuary Battle: season points per phase (Sanctuary 1, Fortress 2); one active sign-up of each kind per phase */
+  const R = (s) => B.filter((b) => !isOp(b) && st(b) === s);
+  const ptsOf = (L) => L.reduce((n, b) => n + (b.kind === "fortress" ? 2 : 1), 0);
+  const rHeld = R("held"), rTgt = R("target");
+  const tooMany = rTgt.filter((b) => b.kind === "sanctuary").length > 1 || rTgt.filter((b) => b.kind === "fortress").length > 1;
+  const rchips = (L) => L.length ? `<div class="chips">${L.map((b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}">${b.kind === "fortress" ? "◆" : "●"} ${esc(nm(b))} · X${b.x} Y${b.y}</button>`).join("")}</div>` : `<div class="muted" style="font-size:13px">${esc(pt("none"))}</div>`;
+  const ruinsHtml = `<div class="pl-sub" style="margin-top:16px">${esc(pt("ruinsT"))}</div>
+    <div class="muted" style="font-size:12px">${esc(pt("ruinsNote"))}</div>
+    <table class="pl-tbl"><tr><th></th><th style="text-align:right">${esc(pt("ptsNow"))}</th><th style="text-align:right">${esc(pt("ptsAfter"))}</th></tr>
+      <tr><td>${esc(pt("ptsRow"))}</td><td class="n">${ptsOf(rHeld)}</td><td class="n${rTgt.length ? " up" : ""}">${ptsOf(rHeld) + ptsOf(rTgt)}</td></tr></table>
+    ${tooMany ? `<div style="color:#c0473a;font-size:12.5px;margin-top:6px">⚠️ ${esc(pt("tooMany"))}</div>` : ""}
+    <div class="pl-sub">${esc(pt("targets"))} (${rTgt.length})</div>${rchips(rTgt)}
+    <div class="pl-sub">${esc(pt("heldR"))} (${rHeld.length})</div>${rchips(rHeld)}`;
   let by = importBy; if (!by) { try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {} }
   $("km_plan").innerHTML = `<h3 style="margin-bottom:2px">${esc(pt("title"))}</h3><div class="muted" style="font-size:12.5px">${esc(pt("hint"))}</div>
     <div class="pl-sub">${esc(T("rulesT"))}</div><ul class="km-rules">${T("rules").map((r) => `<li>${esc(r)}</li>`).join("")}</ul>
@@ -3835,6 +3854,7 @@ function renderPlan() {
     <div class="pl-sub">${esc(pt("targets"))} (${cnt("target")})</div>${list("target")}
     <div class="pl-sub">${esc(pt("helds"))} (${cnt("held")})</div>${list("held")}
     <div class="pl-sub">${esc(pt("vulns"))} (${cnt("vuln")})</div>${list("vuln")}
+    ${ruinsHtml}
     <div class="pl-save"><input id="pl_by" maxlength="30" placeholder="${esc(pt("by"))}" value="${esc(by)}"><button class="btn primary" id="pl_save" type="button"${dirty() ? "" : " disabled"}>${esc(pt("save"))}</button>${dirty() ? `<button class="btn" id="pl_reset" type="button">${esc(pt("reset"))}</button>` : ""}
       <span class="muted" style="font-size:12.5px">${esc(planMsg || (dirty() ? pt("unsaved") : ""))}</span></div>`;
   $("km_plan").querySelectorAll(".chip").forEach((c) => c.onclick = () => select(c.dataset.id, true));
@@ -3866,7 +3886,7 @@ async function loadPlan() {
 let importBy = "";
 function importFromLink() {
   const q = (location.hash.split("?")[1] || ""); if (!q) return;
-  const prm = new URLSearchParams(q), coords = new Set(B.filter((b) => b.kind === "outpost").map(pk));
+  const prm = new URLSearchParams(q), coords = new Set(B.filter(PLANNABLE).map(pk));
   let n = 0;
   for (const k of ["held", "vuln", "target"]) for (const c of (prm.get(k) || "").split(",")) {
     const xy = c.trim().replace("-", ","); if (coords.has(xy)) { PLAN.o[xy] = k; n++; }
