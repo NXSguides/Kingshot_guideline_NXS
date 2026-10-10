@@ -1,281 +1,71 @@
 /* Data + text for kingdom-map.html (Kingdom #2189 buildings). Coordinates and Outpost levels/buffs were checked against
    in-game screenshots (Outpost Occupied/Occupiable tabs, Ruins tab). buff = % per level. outposts: [type, level, x, y] */
 const KINGDOM_MAP = {
- "langs": [
-  [
-   "en",
-   "English"
-  ],
-  [
-   "zh",
-   "中文"
-  ],
-  [
-   "ko",
-   "한국어"
-  ],
-  [
-   "de",
-   "Deutsch"
-  ],
-  [
-   "fr",
-   "Français"
-  ],
-  [
-   "pt",
-   "Português"
-  ],
-  [
-   "es",
-   "Español"
-  ],
-  [
-   "tr",
-   "Türkçe"
-  ],
-  [
-   "id",
-   "Bahasa Indonesia"
-  ],
-  [
-   "ru",
-   "Русский"
-  ],
-  [
-   "th",
-   "ภาษาไทย"
-  ],
-  [
-   "ar",
-   "العربية"
-  ]
- ],
  "ui": {
   "title": {
    "en": "Kingdom #2189 Map",
-   "zh": "#2189 王國地圖",
-   "ko": "#2189 왕국 지도",
-   "de": "Karte Königreich #2189",
-   "fr": "Carte du royaume #2189",
-   "pt": "Mapa do reino #2189",
-   "es": "Mapa del reino #2189",
-   "tr": "#2189 Krallık Haritası",
-   "id": "Peta Kerajaan #2189",
-   "ru": "Карта королевства #2189",
-   "th": "แผนที่อาณาจักร #2189",
-   "ar": "خريطة المملكة #2189"
+   "zh": "#2189 王國地圖"
   },
   "intro": {
    "en": "Tap a building on the map, or a coordinate in the list, to see where it is. Outposts give buffs; Fortresses and Sanctuaries do not.",
-   "zh": "點地圖上的建築，或點下方清單裡的座標，就能看到它在哪裡。據點有增益，要塞和遺跡沒有。",
-   "ko": "지도의 건물이나 아래 목록의 좌표를 누르면 위치를 볼 수 있어요. Outpost에는 버프가 있고, Fortress와 Sanctuary에는 없어요.",
-   "de": "Tippe auf ein Gebäude auf der Karte oder auf eine Koordinate in der Liste, um zu sehen, wo es liegt. Outposts geben Boni, Fortresses und Sanctuaries nicht.",
-   "fr": "Touchez un bâtiment sur la carte ou une coordonnée dans la liste pour voir où il se trouve. Les Outposts donnent des bonus, pas les Fortresses ni les Sanctuaries.",
-   "pt": "Toque num edifício no mapa ou numa coordenada da lista para ver onde ele fica. Os Outposts dão bônus; Fortresses e Sanctuaries não.",
-   "es": "Toca un edificio en el mapa o una coordenada de la lista para ver dónde está. Los Outposts dan bonificaciones; las Fortresses y los Sanctuaries no.",
-   "tr": "Nerede olduğunu görmek için haritadaki bir binaya ya da listedeki bir koordinata dokun. Outpost'lar bonus verir, Fortress ve Sanctuary'ler vermez.",
-   "id": "Ketuk bangunan di peta atau koordinat di daftar untuk melihat letaknya. Outpost memberi buff; Fortress dan Sanctuary tidak.",
-   "ru": "Нажмите на здание на карте или на координаты в списке, чтобы увидеть, где оно. Outpost дают бонусы, Fortress и Sanctuary — нет.",
-   "th": "แตะอาคารบนแผนที่ หรือแตะพิกัดในรายการ เพื่อดูว่าอยู่ตรงไหน Outpost ให้บัฟ ส่วน Fortress และ Sanctuary ไม่ให้",
-   "ar": "اضغط على مبنى في الخريطة أو على إحداثية في القائمة لترى مكانه. الـ Outposts تمنح تعزيزات، أما الـ Fortresses والـ Sanctuaries فلا."
+   "zh": "點地圖上的建築，或點下方清單裡的座標，就能看到它在哪裡。據點有增益，要塞和遺跡沒有。"
   },
   "back": {
    "en": "Guides",
-   "zh": "回到攻略",
-   "ko": "공략으로",
-   "de": "Zu den Guides",
-   "fr": "Retour aux guides",
-   "pt": "Voltar aos guias",
-   "es": "Volver a las guías",
-   "tr": "Rehberlere dön",
-   "id": "Kembali ke panduan",
-   "ru": "К гайдам",
-   "th": "กลับไปหน้าคู่มือ",
-   "ar": "العودة إلى الأدلة"
+   "zh": "回到攻略"
   },
   "orient": {
    "en": "Same direction as the in-game World map: up = bigger X and Y. Number on a square = Outpost level.",
-   "zh": "方向和遊戲大地圖一樣：往上 = X、Y 都變大。方塊上的數字 = 據點等級。",
-   "ko": "게임 월드맵과 같은 방향이에요: 위쪽 = X, Y가 커짐. 네모 안 숫자 = Outpost 레벨.",
-   "de": "Gleiche Ausrichtung wie die Weltkarte im Spiel: oben = größeres X und Y. Zahl im Quadrat = Outpost-Stufe.",
-   "fr": "Même orientation que la carte du monde du jeu : en haut = X et Y plus grands. Chiffre dans le carré = niveau de l'Outpost.",
-   "pt": "Mesma direção do mapa-múndi do jogo: para cima = X e Y maiores. Número no quadrado = nível do Outpost.",
-   "es": "Misma orientación que el mapa del mundo del juego: arriba = X e Y más altos. Número en el cuadro = nivel del Outpost.",
-   "tr": "Oyundaki Dünya haritasıyla aynı yön: yukarı = X ve Y büyür. Karedeki sayı = Outpost seviyesi.",
-   "id": "Arahnya sama dengan peta dunia di game: ke atas = X dan Y makin besar. Angka di kotak = level Outpost.",
-   "ru": "Ориентация как на карте мира в игре: вверх = X и Y больше. Число в квадрате = уровень Outpost.",
-   "th": "ทิศเดียวกับแผนที่โลกในเกม: ขึ้นบน = X และ Y มากขึ้น ตัวเลขในสี่เหลี่ยม = เลเวลของ Outpost",
-   "ar": "نفس اتجاه خريطة العالم في اللعبة: للأعلى = X وY أكبر. الرقم في المربع = مستوى الـ Outpost."
+   "zh": "方向和遊戲大地圖一樣：往上 = X、Y 都變大。方塊上的數字 = 據點等級。"
   },
   "pick": {
    "en": "Tap a building to see its details.",
-   "zh": "點一個建築來看詳細資料。",
-   "ko": "건물을 눌러 자세한 정보를 보세요.",
-   "de": "Tippe auf ein Gebäude für Details.",
-   "fr": "Touchez un bâtiment pour voir ses détails.",
-   "pt": "Toque num edifício para ver os detalhes.",
-   "es": "Toca un edificio para ver los detalles.",
-   "tr": "Ayrıntılar için bir binaya dokun.",
-   "id": "Ketuk bangunan untuk melihat detailnya.",
-   "ru": "Нажмите на здание, чтобы увидеть детали.",
-   "th": "แตะอาคารเพื่อดูรายละเอียด",
-   "ar": "اضغط على مبنى لرؤية تفاصيله."
+   "zh": "點一個建築來看詳細資料。"
   },
   "all": {
    "en": "All",
-   "zh": "全部",
-   "ko": "전체",
-   "de": "Alle",
-   "fr": "Tout",
-   "pt": "Todos",
-   "es": "Todos",
-   "tr": "Tümü",
-   "id": "Semua",
-   "ru": "Все",
-   "th": "ทั้งหมด",
-   "ar": "الكل"
+   "zh": "全部"
   },
   "copy": {
    "en": "Copy",
-   "zh": "複製",
-   "ko": "복사",
-   "de": "Kopieren",
-   "fr": "Copier",
-   "pt": "Copiar",
-   "es": "Copiar",
-   "tr": "Kopyala",
-   "id": "Salin",
-   "ru": "Копировать",
-   "th": "คัดลอก",
-   "ar": "نسخ"
+   "zh": "複製"
   },
   "copied": {
    "en": "Copied",
-   "zh": "已複製",
-   "ko": "복사됨",
-   "de": "Kopiert",
-   "fr": "Copié",
-   "pt": "Copiado",
-   "es": "Copiado",
-   "tr": "Kopyalandı",
-   "id": "Tersalin",
-   "ru": "Скопировано",
-   "th": "คัดลอกแล้ว",
-   "ar": "تم النسخ"
+   "zh": "已複製"
   },
   "noBuff": {
    "en": "No buff",
-   "zh": "無增益",
-   "ko": "버프 없음",
-   "de": "Kein Bonus",
-   "fr": "Aucun bonus",
-   "pt": "Sem bônus",
-   "es": "Sin bonificación",
-   "tr": "Bonus yok",
-   "id": "Tanpa buff",
-   "ru": "Без бонуса",
-   "th": "ไม่มีบัฟ",
-   "ar": "بلا تعزيز"
+   "zh": "無增益"
   },
   "ruins": {
    "en": "Castle, Fortresses & Sanctuaries",
-   "zh": "王城、要塞、遺跡",
-   "ko": "King's Castle, Fortress, Sanctuary",
-   "de": "Schloss, Fortresses & Sanctuaries",
-   "fr": "Château, Fortresses et Sanctuaries",
-   "pt": "Castelo, Fortresses e Sanctuaries",
-   "es": "Castillo, Fortresses y Sanctuaries",
-   "tr": "Şato, Fortress'lar ve Sanctuary'ler",
-   "id": "Kastil, Fortress & Sanctuary",
-   "ru": "Замок, Fortress и Sanctuary",
-   "th": "ปราสาท, Fortress และ Sanctuary",
-   "ar": "القلعة والـ Fortresses والـ Sanctuaries"
+   "zh": "王城、要塞、遺跡"
   },
   "outposts": {
    "en": "Outposts",
-   "zh": "據點",
-   "ko": "Outpost",
-   "de": "Outposts",
-   "fr": "Outposts",
-   "pt": "Outposts",
-   "es": "Outposts",
-   "tr": "Outpost'lar",
-   "id": "Outpost",
-   "ru": "Outposts",
-   "th": "Outpost",
-   "ar": "الـ Outposts"
+   "zh": "據點"
   },
   "rulesT": {
    "en": "Rules",
-   "zh": "規則",
-   "ko": "규칙",
-   "de": "Regeln",
-   "fr": "Règles",
-   "pt": "Regras",
-   "es": "Reglas",
-   "tr": "Kurallar",
-   "id": "Aturan",
-   "ru": "Правила",
-   "th": "กติกา",
-   "ar": "القواعد"
+   "zh": "規則"
   },
   "rules": [
    {
     "en": "Only the same Outpost type at the same level does not stack. The same type at a different level stacks, and different types stack (also at the same level).",
-    "zh": "只有同類型、同等級的據點效果不疊加；同類型不同等級、不同類型同等級都可以疊加。",
-    "ko": "같은 종류·같은 레벨의 Outpost 효과만 중첩되지 않아요. 같은 종류라도 레벨이 다르면 중첩되고, 종류가 다르면 (레벨이 같아도) 중첩돼요.",
-    "de": "Nur derselbe Outpost-Typ auf derselben Stufe stapelt sich nicht. Derselbe Typ auf anderer Stufe stapelt sich, ebenso verschiedene Typen (auch auf gleicher Stufe).",
-    "fr": "Seul un même type d'Outpost au même niveau ne se cumule pas. Le même type à un autre niveau se cumule, tout comme des types différents (même au même niveau).",
-    "pt": "Só o mesmo tipo de Outpost no mesmo nível não se acumula. O mesmo tipo em nível diferente se acumula, assim como tipos diferentes (mesmo no mesmo nível).",
-    "es": "Solo el mismo tipo de Outpost al mismo nivel no se acumula. El mismo tipo a otro nivel sí se acumula, igual que tipos distintos (aunque tengan el mismo nivel).",
-    "tr": "Yalnızca aynı tür ve aynı seviyedeki Outpost etkileri birikmez. Aynı türün farklı seviyesi birikir, farklı türler de (aynı seviyede olsa bile) birikir.",
-    "id": "Hanya Outpost dengan jenis dan level yang sama yang tidak bertumpuk. Jenis sama dengan level berbeda bertumpuk, begitu juga jenis berbeda (meski levelnya sama).",
-    "ru": "Не складываются только Outpost одного типа и одного уровня. Тот же тип другого уровня складывается, разные типы тоже (даже одного уровня).",
-    "th": "เฉพาะ Outpost ประเภทเดียวกันและเลเวลเดียวกันเท่านั้นที่ไม่ซ้อนกัน ประเภทเดียวกันต่างเลเวลซ้อนได้ และต่างประเภทก็ซ้อนได้ (แม้เลเวลเท่ากัน)",
-    "ar": "فقط الـ Outposts من النوع نفسه والمستوى نفسه لا تتراكم. النوع نفسه بمستوى مختلف يتراكم، والأنواع المختلفة تتراكم أيضًا (حتى بالمستوى نفسه)."
+    "zh": "只有同類型、同等級的據點效果不疊加；同類型不同等級、不同類型同等級都可以疊加。"
    },
    {
     "en": "You can only compete for Outposts that border your alliance territory.",
-    "zh": "只能爭奪和自家聯盟領地相鄰的據點。",
-    "ko": "우리 연맹 영토와 맞닿은 Outpost만 쟁탈할 수 있어요.",
-    "de": "Du kannst nur um Outposts kämpfen, die an euer Allianzgebiet grenzen.",
-    "fr": "Vous ne pouvez disputer que les Outposts qui touchent le territoire de votre alliance.",
-    "pt": "Só é possível disputar Outposts que fazem fronteira com o território da sua aliança.",
-    "es": "Solo puedes disputar Outposts que limiten con el territorio de tu alianza.",
-    "tr": "Yalnızca ittifak bölgenize komşu Outpost'lar için savaşabilirsiniz.",
-    "id": "Kamu hanya bisa merebut Outpost yang berbatasan dengan wilayah aliansimu.",
-    "ru": "Бороться можно только за Outpost, которые граничат с территорией вашего альянса.",
-    "th": "แย่งได้เฉพาะ Outpost ที่ติดกับดินแดนพันธมิตรของเรา",
-    "ar": "يمكنك التنافس فقط على الـ Outposts المجاورة لأراضي تحالفك."
+    "zh": "只能爭奪和自家聯盟領地相鄰的據點。"
    },
    {
     "en": "Higher-level Outposts cause more severely injured and lost troops. Severely injured troops go to the Infirmary.",
-    "zh": "等級越高的據點，交戰時重傷和陣亡越多；重傷的部隊要到野戰醫院治療。",
-    "ko": "레벨이 높은 Outpost일수록 중상·사망 병력이 많아요. 중상 병력은 야전 병원에서 치료해요.",
-    "de": "Höhere Outposts verursachen mehr schwer verwundete und verlorene Truppen. Schwer Verwundete kommen in die Krankenstation.",
-    "fr": "Les Outposts de haut niveau causent plus de blessés graves et de pertes. Les blessés graves vont à l'Infirmerie.",
-    "pt": "Outposts de nível mais alto causam mais feridos graves e mortos. Feridos graves vão para a Enfermaria.",
-    "es": "Los Outposts de nivel más alto causan más heridos graves y bajas. Los heridos graves van a la Enfermería.",
-    "tr": "Yüksek seviyeli Outpost'larda daha çok ağır yaralı ve kayıp olur. Ağır yaralılar Revir'de tedavi edilir.",
-    "id": "Outpost level tinggi menyebabkan lebih banyak pasukan luka berat dan gugur. Luka berat dirawat di Rumah Sakit.",
-    "ru": "Чем выше уровень Outpost, тем больше тяжелораненых и погибших. Тяжелораненые лечатся в Лазарете.",
-    "th": "Outpost เลเวลสูงทำให้บาดเจ็บสาหัสและตายมากขึ้น ทหารบาดเจ็บสาหัสต้องรักษาที่โรงพยาบาล",
-    "ar": "الـ Outposts الأعلى مستوى تسبب جرحى بإصابات خطيرة وقتلى أكثر. الجرحى بإصابات خطيرة يُعالَجون في المستوصف."
+    "zh": "等級越高的據點，交戰時重傷和陣亡越多；重傷的部隊要到野戰醫院治療。"
    },
    {
     "en": "An Outpost in the Vulnerable state gives no buff until it is Protected again, so a total can drop for a while.",
-    "zh": "據點在「可爭奪狀態」時沒有增益，回到「保護狀態」才恢復，所以總和有時會暫時變少。",
-    "ko": "Vulnerable 상태인 Outpost는 다시 Protected가 될 때까지 버프가 없어서, 합계가 잠시 줄 수 있어요.",
-    "de": "Ein Outpost im Zustand Vulnerable gibt keinen Bonus, bis es wieder Protected ist – die Summe kann also zeitweise sinken.",
-    "fr": "Un Outpost à l'état Vulnerable ne donne aucun bonus jusqu'à ce qu'il redevienne Protected : le total peut donc baisser un moment.",
-    "pt": "Um Outpost no estado Vulnerable não dá bônus até voltar a Protected, então o total pode cair por um tempo.",
-    "es": "Un Outpost en estado Vulnerable no da bonificación hasta volver a Protected, así que el total puede bajar un rato.",
-    "tr": "Vulnerable durumundaki bir Outpost, tekrar Protected olana kadar bonus vermez; bu yüzden toplam bir süre düşebilir.",
-    "id": "Outpost dalam status Vulnerable tidak memberi buff sampai kembali Protected, jadi totalnya bisa turun sementara.",
-    "ru": "Outpost в состоянии Vulnerable не даёт бонуса, пока снова не станет Protected, поэтому сумма может временно падать.",
-    "th": "Outpost ที่อยู่ในสถานะ Vulnerable จะไม่ให้บัฟจนกว่าจะกลับเป็น Protected ยอดรวมจึงอาจลดลงชั่วคราว",
-    "ar": "الـ Outpost في حالة Vulnerable لا يمنح تعزيزًا حتى يعود إلى Protected، لذلك قد ينخفض المجموع مؤقتًا."
+    "zh": "據點在「可爭奪狀態」時沒有增益，回到「保護狀態」才恢復，所以總和有時會暫時變少。"
    }
   ]
  },
