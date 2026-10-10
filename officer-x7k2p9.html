@@ -446,7 +446,7 @@
 </head>
 <body>
 <div class="wrap" id="main">
-  <div class="shbar"><a class="btn" href="./">← <span id="shHome"></span></a><button class="btn" id="langBtn"></button></div>
+  <div class="shbar"><a class="btn" href="./">← <span id="shHome"></span></a><button class="btn" id="langBtn"></button><button class="btn" id="reloadBtn" title="Refresh" aria-label="Refresh" hidden>↻</button></div>
   <nav class="tabs">
     <a href="#events" data-tab="events">📅 Events</a>
     <a href="#map" data-tab="map">🗺️ Map</a>
@@ -900,6 +900,19 @@ function applyShared() {
   document.getElementById("gateBtn").textContent = t.unlock;
   document.getElementById("gateErr").textContent = t.wrong;
 }
+/* home-screen app: no browser reload button, so show our own ↻ */
+(function () {
+  let app = false;
+  try { app = matchMedia("(display-mode: standalone)").matches || matchMedia("(display-mode: fullscreen)").matches || navigator.standalone === true; } catch (e) {}
+  const btn = document.getElementById("reloadBtn");
+  if (!app || !btn) return;
+  btn.hidden = false;
+  btn.onclick = async () => {
+    btn.disabled = true;
+    try { const r = navigator.serviceWorker && await navigator.serviceWorker.getRegistration(); if (r) await r.update(); } catch (e) {}
+    location.reload();
+  };
+})();
 document.getElementById("langBtn").onclick = () => {
   OFFICER.lang = OFFICER.lang === "zh" ? "en" : "zh";
   setOfficerLang(OFFICER.lang); applyShared();

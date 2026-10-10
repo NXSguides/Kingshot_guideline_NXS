@@ -66,6 +66,21 @@ function isInstalledApp() {
   } catch (e) { return false; }
 }
 
+/* The home-screen app has no browser reload button, so it gets its own ↻ (top right).
+   It asks the service worker to look for a new version first, then reloads from the network. */
+function setupReloadButton() {
+  const btn = document.getElementById("reloadBtn");
+  if (!btn || !isInstalledApp()) return;
+  btn.hidden = false;
+  btn.onclick = async () => {
+    btn.disabled = true; btn.style.opacity = ".5";
+    try { const r = navigator.serviceWorker && await navigator.serviceWorker.getRegistration(); if (r) await r.update(); } catch (e) {}
+    location.reload();
+  };
+}
+document.addEventListener("DOMContentLoaded", setupReloadButton);
+if (document.readyState !== "loading") setupReloadButton();
+
 function restorePrefs() {
   // Opening the plain site link in a browser always starts on the language picker.
   // A shared link with a hash (e.g. #/ko/swordland-showdown) still opens that page.
