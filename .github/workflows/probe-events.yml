@@ -1,9 +1,6 @@
 name: Check MightPulse events (one-off)
 on:
   workflow_dispatch:
-  push:
-    paths: ["scripts/probe-events.js"]
-    branches: [main]
 jobs:
   probe:
     runs-on: ubuntu-latest
