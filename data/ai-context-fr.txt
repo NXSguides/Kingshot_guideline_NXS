@@ -1104,45 +1104,6 @@ Si vous prévoyez de rejoindre UNI, je vous encourage à prendre la carte. Elle 
 ⚠️ 3. Violations
 • Ne ripostez pas. Envoyez un rapport aux dirigeants de l'alliance, ou au Roi si les dirigeants sont indisponibles.
 
-[2026-09-29 by Nia] ❗Rappel – Chasse à l'Ours : limite de troupes et marches décalées
-🔹 Tous les participants doivent envoyer exactement 90 000 troupes aux ralliements. Enregistrez vos marches à l'avance.
-🔹 Les chefs lancent leur ralliement avec le maximum de troupes, mais quand ils rejoignent d'autres ralliements, ils doivent aussi respecter la limite.
-
-🔹 Au début : les chefs de ralliement principaux lancent leur premier ralliement à leur horaire décalé attribué.
-🔹 À 6:30 restantes : tous les participants lancent leur propre ralliement avec leurs 3 héros les plus forts.
-
-🔪 Mauvais héros ou mauvais nombre de troupes – exclusion et demande de rejoindre à nouveau
-
-(see guide #bear-hunt)
-
-[2026-09-28 by Nia] 🏆 Guide des Experts Gen 3
-Les experts sont des personnages que vous débloquez et améliorez pour obtenir des compétences spéciales, des bonus et des récompenses. Ils sont distincts des Héros.
-
-🔹 Priorité F2P : Pan > Valora > Roman
-🔹 Whale/Chef de Ralliement : Valora > Roman > Pan
-
-CONSEILS :
-🔹 N'utilisez pas de Provision d'Aventure pour Valora — le Voyage dans le royaume gratuit permet de la débloquer.
-🔹 Gardez vos Provision d'Aventure pour Pan dans les Terres Perdues.
-🔹 Pan -> Niveau 60 : Fauconnier = max. d'Or Véritable/Accélér. quotidiens.
-🔹 Valora -> Niveau 30 : Marteau de Forge de la Chasse à l'Ours.
-🔹 Roman -> À débloquer uniquement pour les drops passifs de Caisses d'Arène.
-
-(see guide #master-academy)
-
-[2026-09-28 by Nia] Guide des Héros Gen 3
-Vous ne savez pas dans quoi investir ? De nouveaux guides pour les Héros et les Experts sont disponibles sur Discord et sur notre site web multilingue.
-
-Résumé Gen 3
-🔥 Petra - À CONSTRUIRE ABSOLUMENT (Roulette des Héros). Excellent héros de Chasse à l'Ours avec une valeur jusqu'à la Gen 7.
-- Éric & Jaeger : À ignorer sauf si vous vous concentrez sur le PvP/la défense du Poste de Garde
-
-Dans l'ensemble :
-🔹 Joueurs F2P : Concentrez-vous sur Zoé (tank Infanterie) si elle n'est pas encore au max, et Petra (Cavalerie offensive) de la Roulette des Héros
-🔹 Joueurs P2W : Priorisez Amadeus (VIP 7+) et Hilde
-
-(see guide #f2p-heroes)
-
 ### GAME TERMS (English = official fr name)
 Training = Entraînement
 Research = Recherche

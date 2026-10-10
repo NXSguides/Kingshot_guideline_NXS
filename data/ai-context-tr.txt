@@ -1104,45 +1104,6 @@ UNI'ye katılmayı planlıyorsanız kartı almanızı öneririm. Tüm ay boyunca
 ⚠️ 3. İhlaller
 • Misilleme yapmayın. Raporu ittifak yönetimine veya yönetim uygun değilse Krala gönderin.
 
-[2026-09-29 by Nia] ❗Hatırlatma – Ayı Avı: Asker Sınırı ve Kademeli Yürüyüşler
-🔹 Tüm katılımcılar seferberliklere tam 90.000 asker göndermelidir. Yürüyüşlerinizi önceden kaydedin.
-🔹 Liderler kendi seferberliklerini maksimum askerle başlatır, ancak başka seferberliklere katılırken onlar da asker sınırına uymalıdır.
-
-🔹 Başlangıçta: Ana seferberlik liderleri ilk seferberliklerini kendilerine atanan kademeli saatte gönderir.
-🔹 6:30 kala: Tüm katılımcılar en güçlü 3 kahramanlarıyla kendi seferberliklerini başlatır.
-
-🔪 Yanlış kahraman veya yanlış asker sayısı – atılır ve yeniden katılması istenir
-
-(see guide #bear-hunt)
-
-[2026-09-28 by Nia] 🏆 Gen 3 Usta Kılavuzu
-Ustalar; özel yetenekler, bonuslar ve ödüller için kilidini açtığınız ve seviye atlattığınız karakterlerdir. Kahramanlardan ayrıdırlar.
-
-🔹 F2P Önceliği: Pan > Valora > Roman
-🔹 Whale/Seferberlik Lideri: Valora > Roman > Pan
-
-İPUÇLARI:
-🔹 Valora için Macera Tedariki kullanmayın; ücretsiz Krallık Yolculuğu onun kilidini açar.
-🔹 Macera Tedariki'ni Kayıp Diyarlar'daki Pan için saklayın.
-🔹 Pan -> Seviye 60: Doğancı = günlük maks. Hasaltın/Hızlandırma.
-🔹 Valora -> Seviye 30: Ayı Avı Demirci Çekici.
-🔹 Roman -> Sadece pasif Arena Sandığı dropları için kilidini açın.
-
-(see guide #master-academy)
-
-[2026-09-28 by Nia] Gen 3 Kahramanlar Kılavuzu
-Neye yatırım yapacağınızdan emin değil misiniz? Yeni Kahramanlar ve Ustalar kılavuzları Discord'da ve çok dilli web sitemizde mevcut.
-
-Özet Gen 3
-🔥 Petra - MUTLAKA GELİŞTİRİLMELİ (Kahraman Ruleti). Gen 7'ye kadar değeri olan mükemmel bir Ayı Avı kahramanı.
-- Eric & Jaeger: PvP/Muhafız İstasyonu savunmasına odaklanmıyorsanız atlayın
-
-Genel:
-🔹 F2P Oyuncuları: Eğer henüz maksimum seviyede değilse Zoe'ye (Piyade tankı) ve Kahraman Ruleti'den Petra'ya (saldırı Süvarisi) odaklanın
-🔹 P2W Oyuncuları: Amadeus (VIP 7+) ve Hilde'ye öncelik verin
-
-(see guide #f2p-heroes)
-
 ### GAME TERMS (English = official tr name)
 Construction = İnşaat
 Training = Eğitim

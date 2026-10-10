@@ -1104,45 +1104,6 @@ Si planean unirse a UNI, les sugiero adquirir la tarjeta. Les beneficia durante 
 ⚠️ 3. Infracciones
 • No tomes represalias. Envía un informe a la dirección de la alianza o al Rey si la dirección no está disponible.
 
-[2026-09-29 by Nia] ❗Recordatorio – Cacería del Oso: límite de tropas y marchas escalonadas
-🔹 Todos los que se unen deben enviar exactamente 90.000 tropas a los ataques conjuntos. Guarden sus marchas antes.
-🔹 Los líderes inician su ataque conjunto con el máximo de tropas, pero al unirse a otros también deben respetar el límite.
-
-🔹 Al inicio: los líderes principales envían su primer ataque en su hora escalonada asignada.
-🔹 Con 6:30 restantes: todos inician su propio ataque conjunto con sus 3 héroes más fuertes.
-
-🔪 Héroes o número de tropas incorrectos – expulsión y petición de volver a unirse
-
-(see guide #bear-hunt)
-
-[2026-09-28 by Nia] 🏆 Guía de Maestros Gen 3
-Los maestros son personajes que desbloqueas y mejoras para obtener habilidades especiales, bonificaciones y recompensas. Son independientes de los Héroes.
-
-🔹 Prioridad F2P: Pan > Valora > Roman
-🔹 Whale/Líder de Ataque Conjunto: Valora > Roman > Pan
-
-CONSEJOS:
-🔹 No uses Suministro de Aventura en Valora; la Travesía por el reino gratuita la desbloquea.
-🔹 Guarda el Suministro de Aventura para Pan en las Tierras Perdidas.
-🔹 Pan -> Nv. 60: Cetrero = máx. de Adamantina/Acelerar diarios.
-🔹 Valora -> Nv. 30: Martillo de Forja de la Cacería del Oso.
-🔹 Roman -> Desbloquéalo solo por la aparición pasiva de Cajas de Arena.
-
-(see guide #master-academy)
-
-[2026-09-28 by Nia] Guía de Héroes Gen 3
-¿No sabes en qué invertir? Las nuevas guías de Héroes y Maestros están disponibles en Discord y en nuestro sitio web multilingüe.
-
-Resumen Gen 3
-🔥 Petra - IMPRESCINDIBLE (Ruleta de Héroes). Excelente héroe de Cacería del Oso con valor hasta la Gen 7.
-- Eric y Jaeger: Ignóralos a menos que te centres en el PvP o la defensa de la Estación de Guardia
-
-En general:
-🔹 Jugadores F2P: Céntrate en Zoe (Infantería) si aún no está al máximo, y Petra (Caballería) de la Ruleta de Héroes
-🔹 Jugadores P2W: Prioriza a Amadeus (VIP 7+) y Hilde
-
-(see guide #f2p-heroes)
-
 ### GAME TERMS (English = official es name)
 Construction = Construcción
 Training = Entrenamiento

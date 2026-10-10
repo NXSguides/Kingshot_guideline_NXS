@@ -1106,45 +1106,6 @@ Wenn ihr plant, UNI beizutreten, empfehle ich euch, die Karte zu holen. Sie nüt
 ⚠️ 3. Verstöße
 • Üben Sie keine Vergeltung. Senden Sie eine Meldung an die Allianzleitung oder an den König, falls die Leitung nicht erreichbar ist.
 
-[2026-09-29 by Nia] ❗Erinnerung – Bärenjagd: Truppenlimit & versetzte Märsche
-🔹 Alle Beitretenden müssen genau 90.000 Truppen in Rallys schicken. Speichert eure Märsche vorher.
-🔹 Anführer starten ihre eigene Rally mit maximalen Truppen, müssen beim Beitritt zu anderen Rallys aber ebenfalls das Truppenlimit einhalten.
-
-🔹 Zu Beginn: Die Haupt-Rallyleiter schicken ihre erste Rally zu ihrer zugewiesenen, versetzten Zeit.
-🔹 Bei 6:30 verbleibend: Alle Beitretenden starten ihre eigene Rally mit ihren 3 stärksten Helden.
-
-🔪 Falsche Helden oder falsche Truppenzahl – Kick und Bitte um erneuten Beitritt
-
-(see guide #bear-hunt)
-
-[2026-09-28 by Nia] 🏆 Gen 3 Meister-Leitfaden
-Meister sind Charaktere, die du freischaltest und aufwertest, um spezielle Fertigkeiten, Boni und Belohnungen zu erhalten. Sie sind von den Helden getrennt.
-
-🔹 F2P-Priorität: Pan > Valora > Roman
-🔹 Whale/Rally-Leiter: Valora > Roman > Pan
-
-TIPPS:
-🔹 Verwende keinen Abenteuervorrat für Valora – die kostenlose Reichsreise schaltet sie frei.
-🔹 Spare Abenteuervorrat für Pan in den Verlorene Lande.
-🔹 Pan -> Stufe 60: Falkner = max. tägliches Echtgold/Beschleunigungen.
-🔹 Valora -> Stufe 30: Schmiedehammer aus der Bärenjagd.
-🔹 Roman -> Nur für passive Arena-Kisten-Drops freischalten.
-
-(see guide #master-academy)
-
-[2026-09-28 by Nia] Gen 3 Helden Leitfaden
-Sie sind sich nicht sicher, worin Sie investieren sollen? Neue Helden- und Meister-Leitfäden sind auf Discord und unserer mehrsprachigen Website verfügbar.
-
-Zusammenfassung Gen 3
-🔥 Petra - ABSOLUTES MUSS (Helden Roulette). Ausgezeichneter Bärenjagd-Held mit Wert bis Gen 7.
-- Eric & Jaeger: Überspringen, außer man konzentriert sich auf PvP/Wachposten-Verteidigung
-
-Insgesamt:
-🔹 F2P-Spieler: Konzentriere dich auf Zoe (Infanterie-Tank), falls noch nicht auf Max, und Petra (offensive Kavallerie) aus dem Helden Roulette
-🔹 P2W-Spieler: Priorisiere Amadeus (VIP 7+) und Hilde
-
-(see guide #f2p-heroes)
-
 ### GAME TERMS (English = official de name)
 Construction = Bau
 Research = Forschung

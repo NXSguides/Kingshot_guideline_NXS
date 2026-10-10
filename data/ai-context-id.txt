@@ -1104,45 +1104,6 @@ Jika Anda berencana untuk bergabung dengan UNI, saya mendorong Anda untuk mendap
 ⚠️ 3. Pelanggaran
 • Jangan membalas. Kirim laporan ke kepemimpinan aliansi, atau Raja jika kepemimpinan tidak tersedia.
 
-[2026-09-29 by Nia] ❗Pengingat – Bear Hunt: Batas Pasukan & Pengiriman Bergiliran
-🔹 Semua yang bergabung wajib mengirim tepat 90.000 pasukan ke reli. Simpan formasi pasukan lebih dulu.
-🔹 Pemimpin memulai reli sendiri dengan pasukan maksimal, tapi saat bergabung ke reli lain juga harus mengikuti batas pasukan.
-
-🔹 Di awal: Pemimpin reli utama mengirim reli pertama pada waktu bergiliran yang sudah ditentukan.
-🔹 Saat sisa 6:30: Semua yang bergabung memulai reli sendiri dengan 3 pahlawan terkuat.
-
-🔪 Pahlawan salah atau jumlah pasukan salah – dikeluarkan dan diminta bergabung ulang
-
-(see guide #bear-hunt)
-
-[2026-09-28 by Nia] 🏆 Panduan Master Gen 3
-Master adalah karakter yang kamu buka & tingkatkan levelnya untuk skill spesial, bonus, dan hadiah. Mereka terpisah dari Pahlawan.
-
-🔹 Prioritas F2P: Pan > Valora > Roman
-🔹 Whale/Pemimpin Reli: Valora > Roman > Pan
-
-TIPS:
-🔹 Jangan gunakan Suplai Petualangan pada Valora — Perjalanan Alam gratis akan membukanya.
-🔹 Simpan Suplai Petualangan untuk Pan di Tanah Terlupakan.
-🔹 Pan -> Level 60: Falconer = maks. Truegold/Speedup harian.
-🔹 Valora -> Level 30: Forgehammer Bear Hunt.
-🔹 Roman -> Buka hanya untuk drop Peti Arena pasif.
-
-(see guide #master-academy)
-
-[2026-09-28 by Nia] Panduan Pahlawan Gen 3
-Bingung mau investasi di mana? Panduan Pahlawan & Master baru tersedia di Discord dan situs web multibahasa kami.
-
-Ringkasan Gen 3
-🔥 Petra - WAJIB DIBANGUN (Rolet Hero). Pahlawan Bear Hunt yang luar biasa dengan nilai hingga Gen 7.
-- Eric & Jaeger: Lewati saja kecuali fokus pada PvP/pertahanan Pos Penjaga
-
-Keseluruhan:
-🔹 Pemain F2P: Fokus pada Zoe (tank Infanteri) jika belum maksimal dan Petra (Kavaleri ofensif) dari Rolet Hero
-🔹 Pemain P2W: Prioritaskan Amadeus (VIP 7+) dan Hilde
-
-(see guide #f2p-heroes)
-
 ### GAME TERMS (English = official id name)
 Construction = Konstruksi
 Training = Pelatihan

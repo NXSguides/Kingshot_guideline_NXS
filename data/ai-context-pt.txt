@@ -1104,45 +1104,6 @@ Se você planeja se juntar à UNI, encorajo você a obter o cartão. Ele benefic
 ⚠️ 3. Violações
 • Não revide. Envie um relatório para a liderança da aliança ou para o Rei se a liderança não estiver disponível.
 
-[2026-09-29 by Nia] ❗Lembrete – Caça ao Urso: limite de tropas e marchas escalonadas
-🔹 Todos que entram em rallies devem enviar exatamente 90.000 tropas. Salvem suas marchas antes.
-🔹 Líderes iniciam o próprio rally com o máximo de tropas, mas ao entrar em outros rallies também devem seguir o limite.
-
-🔹 No início: os líderes principais enviam o primeiro rally no horário escalonado atribuído.
-🔹 Com 6:30 restantes: todos iniciam o próprio rally usando seus 3 heróis mais fortes.
-
-🔪 Heróis errados ou número de tropas errado – expulsão e pedido para entrar de novo
-
-(see guide #bear-hunt)
-
-[2026-09-28 by Nia] 🏆 Guia de Mestres Gen 3
-Mestres são personagens que você desbloqueia e aprimora para obter habilidades especiais, bônus e recompensas. Eles são separados dos Heróis.
-
-🔹 Prioridade F2P: Pan > Valora > Roman
-🔹 Whale/Líder de Rally: Valora > Roman > Pan
-
-DICAS:
-🔹 Não use Suprimentos de Aventura em Valora — a Jornada do Reino gratuita a desbloqueia.
-🔹 Economize Suprimentos de Aventura para Pan nas Terras Perdidas.
-🔹 Pan -> Nível 60: Falcoeiro = máximo de Adamante/Velocidade diários.
-🔹 Valora -> Nível 30: Martelo de forja da Caça ao Urso.
-🔹 Roman -> Desbloqueie apenas para drops passivos de Baús da Arena.
-
-(see guide #master-academy)
-
-[2026-09-28 by Nia] Guia de Heróis Gen 3
-Não tem certeza em que investir? Novos guias de Heróis e Mestres estão disponíveis no Discord e em nosso site multilíngue.
-
-Resumo Gen 3
-🔥 Petra - CONSTRUÇÃO OBRIGATÓRIA (Roleta do Herói). Excelente herói de Caça ao Urso com valor até a Gen 7.
-- Eric & Jaeger: Ignore, a menos que seu foco seja PvP/defesa da Estação de Guarda
-
-No geral:
-🔹 Jogadores F2P: Foque em Zoe (tanque de Infantaria) se ainda não estiver no máximo e Petra (Cavalaria ofensiva) da Roleta do Herói
-🔹 Jogadores P2W: Priorize Amadeus (VIP 7+) e Hilde
-
-(see guide #f2p-heroes)
-
 ### GAME TERMS (English = official pt name)
 Construction = Construção
 Training = Treinamento
