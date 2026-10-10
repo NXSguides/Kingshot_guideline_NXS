@@ -3724,14 +3724,14 @@ function renderInfo() {
   const sw = b.kind === "outpost" ? `<span class="sw" style="background:${TY[b.t].c}"></span>` : "";
   const what = b.kind === "outpost" ? `Lv.${b.lv} · ${esc(buffName(b.t))} +${b.buff}%` : b.kind === "castle" ? "" : esc(T("noBuff"));
   $("km_info").innerHTML = `${sw}<b>${esc(nm(b))}</b>${what ? `<span class="muted">${what}</span>` : ""}<span class="co">X:${b.x} Y:${b.y}</span><button type="button" class="btn" id="km_cp">${esc(T("copy"))}</button>` +
-    (b.kind === "outpost" ? `<div class="km-st" style="flex-basis:100%">${[["target", "target"], ["held", "held"], ["", "clear"]].map(([v, k]) => `<button type="button" data-v="${v}" class="${st(b) === v && v ? "on" : ""}">${esc(pt(k))}</button>`).join("")}</div>` : "");
+    (b.kind === "outpost" ? `<div class="km-st" style="flex-basis:100%">${[["target", "target"], ["held", "held"], ["vuln", "vuln"], ["", "clear"]].map(([v, k]) => `<button type="button" data-v="${v}" class="${st(b) === v && v ? "on" : ""}">${esc(pt(k))}</button>`).join("")}</div>` : "");
   $("km_info").querySelectorAll(".km-st button").forEach((x) => x.onclick = () => setStatus(b.id, x.dataset.v));
   $("km_cp").onclick = () => {
     const done = () => { const c = $("km_cp"); if (c) { c.textContent = T("copied"); setTimeout(() => { if ($("km_cp")) $("km_cp").textContent = T("copy"); }, 1500); } };
     try { navigator.clipboard.writeText(`X:${b.x} Y:${b.y}`).then(done, () => {}); } catch (e) {}
   };
 }
-const chip = (b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}">${st(b) ? `<span class="st">${st(b) === "held" ? "✅" : "🎯"}</span>` : ""}${b.short ? b.short + " · " : ""}X${b.x} Y${b.y}</button>`;
+const chip = (b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}">${st(b) ? `<span class="st">${st(b) === "held" ? "✅" : st(b) === "vuln" ? "⚔️" : "🎯"}</span>` : ""}${b.short ? b.short + " · " : ""}X${b.x} Y${b.y}</button>`;
 function renderList() {
   let h = `<div class="km-c"><div class="hd"><b>${esc(T("ruins"))}</b><span class="bf">${esc(T("noBuff"))}</span></div>
     <div class="km-lv"><span class="pill" style="background:#b8860b">👑 ${esc(castleName())}</span><div class="chips">${chip(BY.k)}</div></div>
@@ -3769,15 +3769,17 @@ const pk = (b) => b.x + "," + b.y;
 const st = (b) => (b && b.kind === "outpost" && PLAN.o[pk(b)]) || "";
 const dirty = () => JSON.stringify(PLAN.o) !== SAVED;
 const PT = {
-  en: { title: "📋 Outpost plan", hint: "Tap an Outpost on the map or in the list, then mark it 🎯 Target or ✅ Ours. Totals follow the in-game rule: only the same type at the same level does not stack — a different level or a different type always adds up.",
-        target: "🎯 Target", held: "✅ Ours", clear: "✕ Clear", type: "Outpost", buff: "Buff", now: "Ours now", after: "With targets",
-        targets: "🎯 Targets", helds: "✅ Ours", none: "None yet", save: "💾 Save plan", by: "Your name", saving: "Saving…",
+  en: { title: "📋 Outpost plan", hint: "Tap an Outpost on the map or in the list, then mark it 🎯 Target, ✅ Ours (Protected) or ⚔️ Ours (Vulnerable). Totals follow the in-game rule: only the same type at the same level does not stack — a different level or a different type always adds up.",
+        target: "🎯 Target", held: "✅ Ours · Protected", vuln: "⚔️ Ours · Vulnerable", clear: "✕ Clear", type: "Outpost", buff: "Buff", now: "Now (as in game)", after: "With targets",
+        nowNote: "\"Now\" leaves out Vulnerable Outposts, like the in-game Occupation Buff screen. \"With targets\" counts everything we hold plus the targets.",
+        conflict: "Buff conflict", targets: "🎯 Targets", helds: "✅ Ours · Protected", vulns: "⚔️ Ours · Vulnerable (no buff right now)", none: "None yet", save: "💾 Save plan", by: "Your name", saving: "Saving…",
         saved: "Saved ✅ Other officers see it after a refresh.", unsaved: "Unsaved changes", last: "Last saved by {by} · {at}",
         noKey: "Saving needs the officer GitHub key (set up on the Post tab).", errAuth: "The GitHub key was refused.", errBusy: "Someone else saved at the same moment — try again.", errNet: "Couldn't reach GitHub — try again.",
         planOnly: "📋 Plan only", reset: "Undo changes" },
-  zh: { title: "📋 據點規劃", hint: "點地圖或清單上的據點，再標成 🎯 目標 或 ✅ 已佔領。總計依遊戲規則：只有同類型、同等級不疊加；不同等級或不同類型都會加上去。",
-        target: "🎯 目標", held: "✅ 已佔領", clear: "✕ 清除", type: "據點", buff: "增益", now: "目前", after: "加上目標",
-        targets: "🎯 目標", helds: "✅ 已佔領", none: "還沒有", save: "💾 儲存規劃", by: "你的名字", saving: "儲存中…",
+  zh: { title: "📋 據點規劃", hint: "點地圖或清單上的據點，再標成 🎯 目標、✅ 已佔領（保護狀態）或 ⚔️ 已佔領（可爭奪狀態）。總計依遊戲規則：只有同類型、同等級不疊加；不同等級或不同類型都會加上去。",
+        target: "🎯 目標", held: "✅ 已佔領・保護", vuln: "⚔️ 已佔領・可爭奪", clear: "✕ 清除", type: "據點", buff: "增益", now: "目前（同遊戲）", after: "加上目標",
+        nowNote: "「目前」不算可爭奪狀態的據點，和遊戲「佔領增益」畫面一樣；「加上目標」是我們佔領的全部加上目標。",
+        conflict: "增益衝突", targets: "🎯 目標", helds: "✅ 已佔領・保護狀態", vulns: "⚔️ 已佔領・可爭奪狀態（目前沒有增益）", none: "還沒有", save: "💾 儲存規劃", by: "你的名字", saving: "儲存中…",
         saved: "已儲存 ✅ 其他幹部重新整理後就會看到。", unsaved: "有變更還沒儲存", last: "最後由 {by} 儲存 · {at}",
         noKey: "儲存需要幹部的 GitHub 金鑰（在公告分頁設定）。", errAuth: "GitHub 金鑰被拒絕。", errBusy: "剛好有人同時儲存，請再試一次。", errNet: "連不上 GitHub，請再試一次。",
         planOnly: "📋 只看規劃", reset: "復原變更" },
@@ -3793,6 +3795,7 @@ function drawPlan() {
   const g = $("km_planG"); if (!g) return;
   g.innerHTML = B.filter((b) => st(b)).map((b) => { const [X, Y] = P(b.x, b.y), s = st(b);
     return s === "held" ? `<circle cx="${X}" cy="${Y}" r="17" fill="none" stroke="#3ddc84" stroke-width="4"/>`
+      : s === "vuln" ? `<circle cx="${X}" cy="${Y}" r="17" fill="none" stroke="#ff6b4a" stroke-width="4"/>`
       : `<circle cx="${X}" cy="${Y}" r="17" fill="none" stroke="#ffe14d" stroke-width="3.5" stroke-dasharray="5 4"/>`; }).join("");
 }
 function setStatus(id, v) {
@@ -3801,18 +3804,24 @@ function setStatus(id, v) {
   planMsg = ""; drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan();
 }
 function renderPlan() {
-  const now = totals(["held"]), after = totals(["held", "target"]);
+  const now = totals(["held"]), after = totals(["held", "vuln", "target"]);
   const fmt = (n) => n ? "+" + n + "%" : "—";
   const rows = G.types.map(([k]) => `<tr><td><span class="sw" style="background:${TY[k].c};display:inline-block;vertical-align:-2px;margin-right:6px"></span>${esc(typeName(k))}</td><td class="muted">${esc(buffName(k))}</td><td class="n">${fmt(now[k])}</td><td class="n${(after[k] || 0) > (now[k] || 0) ? " up" : ""}">${fmt(after[k])}</td></tr>`).join("");
-  const list = (s) => { const L = B.filter((b) => st(b) === s); return L.length ? `<div class="chips">${L.map((b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}"><span class="sw" style="background:${TY[b.t].c};display:inline-block;width:10px;height:10px;vertical-align:-1px;margin-right:4px"></span>${esc(typeName(b.t))} Lv.${b.lv} · X${b.x} Y${b.y}</button>`).join("")}</div>` : `<div class="muted" style="font-size:13px">${esc(pt("none"))}</div>`; };
-  const nT = B.filter((b) => st(b) === "target").length, nH = B.filter((b) => st(b) === "held").length;
+  /* in-game "增益衝突": a second Outpost we hold with the same type + level as another one we hold */
+  const owned = B.filter((b) => st(b) === "held" || st(b) === "vuln"), firstOf = {};
+  owned.sort((a, b) => (st(a) === "held" ? 0 : 1) - (st(b) === "held" ? 0 : 1)).forEach((b) => { if (!firstOf[b.t + b.lv]) firstOf[b.t + b.lv] = b.id; });
+  const isConflict = (b) => (st(b) === "held" || st(b) === "vuln") && firstOf[b.t + b.lv] !== b.id;
+  const list = (s) => { const L = B.filter((b) => st(b) === s); return L.length ? `<div class="chips">${L.map((b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}"><span class="sw" style="background:${TY[b.t].c};display:inline-block;width:10px;height:10px;vertical-align:-1px;margin-right:4px"></span>${esc(typeName(b.t))} Lv.${b.lv} · X${b.x} Y${b.y}${isConflict(b) ? ` <span style="color:#c0473a">⚠️ ${esc(pt("conflict"))}</span>` : ""}</button>`).join("")}</div>` : `<div class="muted" style="font-size:13px">${esc(pt("none"))}</div>`; };
+  const cnt = (s) => B.filter((b) => st(b) === s).length;
   let by = importBy; if (!by) { try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {} }
   $("km_plan").innerHTML = `<h3 style="margin-bottom:2px">${esc(pt("title"))}</h3><div class="muted" style="font-size:12.5px">${esc(pt("hint"))}</div>
     <div class="pl-sub">${esc(T("rulesT"))}</div><ul class="km-rules">${T("rules").map((r) => `<li>${esc(r)}</li>`).join("")}</ul>
     ${PLAN.by ? `<div class="muted" style="font-size:12px;margin-top:10px">${esc(pt("last").replace("{by}", PLAN.by).replace("{at}", new Date(PLAN.at).toLocaleString(lang === "zh" ? "zh-TW" : "en", { dateStyle: "medium", timeStyle: "short" })))}</div>` : ""}
     <table class="pl-tbl"><tr><th>${esc(pt("type"))}</th><th>${esc(pt("buff"))}</th><th style="text-align:right">${esc(pt("now"))}</th><th style="text-align:right">${esc(pt("after"))}</th></tr>${rows}</table>
-    <div class="pl-sub">${esc(pt("targets"))} (${nT})</div>${list("target")}
-    <div class="pl-sub">${esc(pt("helds"))} (${nH})</div>${list("held")}
+    <div class="muted" style="font-size:12px;margin-top:6px">${esc(pt("nowNote"))}</div>
+    <div class="pl-sub">${esc(pt("targets"))} (${cnt("target")})</div>${list("target")}
+    <div class="pl-sub">${esc(pt("helds"))} (${cnt("held")})</div>${list("held")}
+    <div class="pl-sub">${esc(pt("vulns"))} (${cnt("vuln")})</div>${list("vuln")}
     <div class="pl-save"><input id="pl_by" maxlength="30" placeholder="${esc(pt("by"))}" value="${esc(by)}"><button class="btn primary" id="pl_save" type="button"${dirty() ? "" : " disabled"}>${esc(pt("save"))}</button>${dirty() ? `<button class="btn" id="pl_reset" type="button">${esc(pt("reset"))}</button>` : ""}
       <span class="muted" style="font-size:12.5px">${esc(planMsg || (dirty() ? pt("unsaved") : ""))}</span></div>`;
   $("km_plan").querySelectorAll(".chip").forEach((c) => c.onclick = () => select(c.dataset.id, true));
@@ -3846,7 +3855,7 @@ function importFromLink() {
   const q = (location.hash.split("?")[1] || ""); if (!q) return;
   const prm = new URLSearchParams(q), coords = new Set(B.filter((b) => b.kind === "outpost").map(pk));
   let n = 0;
-  for (const k of ["held", "target"]) for (const c of (prm.get(k) || "").split(",")) {
+  for (const k of ["held", "vuln", "target"]) for (const c of (prm.get(k) || "").split(",")) {
     const xy = c.trim().replace("-", ","); if (coords.has(xy)) { PLAN.o[xy] = k; n++; }
   }
   importBy = (prm.get("by") || "").slice(0, 30);
