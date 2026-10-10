@@ -851,7 +851,6 @@
   <h3 id="km_listT" style="margin:18px 0 10px"></h3>
   <div class="km-cards" id="km_cards"></div>
   <div class="card" style="margin-top:14px" id="km_sb"></div>
-  <div class="card" style="margin-top:14px"><h3 id="km_rulesT"></h3><ul class="km-rules" id="km_rules"></ul></div>
 </section>
 
 </div>
@@ -3809,7 +3808,8 @@ function renderPlan() {
   const nT = B.filter((b) => st(b) === "target").length, nH = B.filter((b) => st(b) === "held").length;
   let by = ""; try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {}
   $("km_plan").innerHTML = `<h3 style="margin-bottom:2px">${esc(pt("title"))}</h3><div class="muted" style="font-size:12.5px">${esc(pt("hint"))}</div>
-    ${PLAN.by ? `<div class="muted" style="font-size:12px;margin-top:4px">${esc(pt("last").replace("{by}", PLAN.by).replace("{at}", new Date(PLAN.at).toLocaleString(lang === "zh" ? "zh-TW" : "en", { dateStyle: "medium", timeStyle: "short" })))}</div>` : ""}
+    <div class="pl-sub">${esc(T("rulesT"))}</div><ul class="km-rules">${T("rules").map((r) => `<li>${esc(r)}</li>`).join("")}</ul>
+    ${PLAN.by ? `<div class="muted" style="font-size:12px;margin-top:10px">${esc(pt("last").replace("{by}", PLAN.by).replace("{at}", new Date(PLAN.at).toLocaleString(lang === "zh" ? "zh-TW" : "en", { dateStyle: "medium", timeStyle: "short" })))}</div>` : ""}
     <table class="pl-tbl"><tr><th>${esc(pt("type"))}</th><th>${esc(pt("buff"))}</th><th style="text-align:right">${esc(pt("now"))}</th><th style="text-align:right">${esc(pt("after"))}</th></tr>${rows}</table>
     <div class="pl-sub">${esc(pt("targets"))} (${nT})</div>${list("target")}
     <div class="pl-sub">${esc(pt("helds"))} (${nH})</div>${list("held")}
@@ -3890,7 +3890,6 @@ function applyTexts() {
   renderSB(); renderPlan();
   $("km_title").textContent = "🗺️ " + T("title"); $("km_intro").textContent = T("intro");
   $("km_orient").textContent = T("orient"); $("km_listT").textContent = T("ruins") + " · " + T("outposts");
-  $("km_rulesT").textContent = T("rulesT"); $("km_rules").innerHTML = T("rules").map((r) => `<li>${esc(r)}</li>`).join("");
   if ($("km_castleLbl")) $("km_castleLbl").textContent = castleName();
   renderLayers(); renderList(); renderInfo();
 }

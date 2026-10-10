@@ -1,7 +1,7 @@
 name: Build Officer AI Context
 on:
   push:
-    paths: ["scripts/build-officer-context.js"]
+    paths: ["scripts/build-officer-context.js", "data/outpost-plan-x7k2p9.json"]
     branches: [main]
   workflow_dispatch:
 

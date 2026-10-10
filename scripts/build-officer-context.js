@@ -48,6 +48,25 @@ for (const [kid, k] of Object.entries((scout && scout.kingdoms) || {})) {
   for (const p of k.players) out.push(`${p.name} | ${p.alliance || "?"} | ${M(p.power)} | ${p.tc ?? "?"} | ${p.mystic != null ? M(p.mystic) + (p.mysticRank != null ? " (#" + p.mysticRank + ")" : "") : "?"} | ${M(p.kills)} | ${p.vip ?? "?"}`);
 }
 
+// Map tab: the officers' Outpost plan (data/outpost-plan-x7k2p9.json) with names/levels/buffs from data/kingdom-map.js
+let plan = null;
+try { plan = readData("data/outpost-plan-x7k2p9.json"); } catch (e) {}
+if (plan && plan.o && Object.keys(plan.o).length) {
+  const fs = require("fs"), path = require("path");
+  const KM = new Function(fs.readFileSync(path.join(__dirname, "..", "data/kingdom-map.js"), "utf8") + "\nreturn KINGDOM_MAP;")();
+  const TY = Object.fromEntries(KM.types.map(([k, n, b]) => [k, { n, b, zh: KM.zh.types[k] }]));
+  const all = KM.outposts.map(([t, lv, x, y]) => ({ t, lv, x, y, buff: KM.buff[t][lv], s: plan.o[x + "," + y] || "" }));
+  const line = (o) => `${TY[o.t].n} (${TY[o.t].zh[0]}) Lv.${o.lv} X${o.x} Y${o.y} — ${TY[o.t].b} +${o.buff}%`;
+  const total = (states) => { const seen = new Set(), sum = {};
+    for (const o of all) if (states.includes(o.s) && !seen.has(o.t + o.lv)) { seen.add(o.t + o.lv); sum[o.t] = (sum[o.t] || 0) + o.buff; }
+    return KM.types.map(([k]) => `${TY[k].b} ${sum[k] ? "+" + sum[k] + "%" : "—"}`).join(", "); };
+  out.push(`### OUTPOST PLAN — Map tab, last saved by ${plan.by || "?"} on ${String(plan.at || "").slice(0, 10)}`,
+    "Ours now: " + (all.filter((o) => o.s === "held").map(line).join("; ") || "none"),
+    "Targets: " + (all.filter((o) => o.s === "target").map(line).join("; ") || "none"),
+    "Buff totals now (same type + level counted once): " + total(["held"]),
+    "Buff totals with targets: " + total(["held", "target"]));
+}
+
 const text = out.join("\n");
 writeData("data/ai-officer.json", { built: new Date().toISOString(), text });
 console.log(`ai-officer.json: ${text.length} characters`);
