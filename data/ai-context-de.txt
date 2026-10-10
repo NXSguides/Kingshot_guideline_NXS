@@ -998,46 +998,93 @@ Steps: 1. Tippe im Stadtbildschirm oben links auf dein Profilbild. 2. Tippe unte
 Hinweise: Das Schloss am letzten Slot heißt, er ist noch nicht freigeschaltet. „Gleichmäßig“ füllt alle drei Typen gleich, „Alle zurückziehen“ leert den Slot. Jeder Slot merkt sich eigene Helden und Truppen.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-10 by ΔRMΔDΔ] KVK Kampf-Leitfaden
-⚔️ Leitfaden für die Schlacht um das Schloss
+[2026-10-10 by ΔRMΔDΔ] ⚔️ KvK-SCHLACHT-GUIDE — VOR MORGEN LESEN
+Team,
 
-Team, hier ist alles, was ihr wissen müsst, um bereit und koordiniert zu sein.
+morgen ist KvK. Seid 1 Stunde vor 10:00 UTC online.
 
-🛡️ Vor der Schlacht
-Speichert eure Angriffs- und Verteidigungstrupp-Formationen im Voraus:
-• Angriff: 50:20:30 (Bärenjagd-Teilnehmer-Setup)
-• Verteidigung: 60:20:20 mit Howard oder Gordon
-• Rally-Leiter und Beitretende: Aktiviert euren Einsatzkapazität-Bonus.
-• Alle Rally-Leiter müssen im Discord-Voice-Chat (DC VC) sein.
+━━━━━━━━━━━━━━━━━━
+📋 VOR DER SCHLACHT
+━━━━━━━━━━━━━━━━━━
 
-👑 Für Rally-Leiter
-Nutzt eure stärksten Helden:
-• Angriff: Amadeus, Marlin und Petra (oder Hilde oder Jabel)
-• Verteidigung: Zoe, Hilde und Saul
+Speichert eure Angriffs- und Verteidigungs-Trupp Formationen im Voraus:
 
-Wie man zwischen Angriff und Verteidigung wechselt:
-Sobald wir die Kontrolle übernehmen, entsendet sofort eure Verteidigungshelden mit Truppen. Wenn deren Ankunftstimer 5–6 Sekunden erreicht, ruft eure Angriffshelden zurück, sodass die Verteidigungshelden genau rechtzeitig eintreffen, um die Garnison zu besetzen.
+⚔️ Angriff: 50:20:30 (Bärenjagd-Teilnehmer-Setup)
+🛡️ Verteidigung: 60:20:20 mit Howard oder Gordon
 
-Wie man die Rally-Kapitäne rotiert, wenn man in der Garnison verteidigt:
-Weist Beitretende als Garnisonskapitäne zu und rotiert sie, bis die Plätze 2–5 zwei Howards und zwei Gordons haben (50 % Verteidigung und 50 % Gesundheit). Setzt euch dann selbst wieder als Garnisonskapitän auf den ersten Platz.
+Rally-Anführer & Teilnehmer: Aktiviert euren Truppenkapazität-Bonus.
 
-Ihr seid auch für eure Garnison verantwortlich:
-Haltet das richtige Truppenverhältnis für alle Beitretenden aufrecht und werft sie bei Bedarf heraus, damit die richtigen Truppen und Helden eintreten können.
+🔊 Alle Rally-Leiter müssen im DC VC (Discord Voice Chat) sein.
 
-🤝 Für Rally-Beitretende
-• Sendet eure Truppen der höchsten Stufe mit dem richtigen Verhältnis für Angriff vs. Verteidigung.
-• Nutzt den Einsatzkapazität-Bonus.
+━━━━━━━━━━━━━━━━━━
+👑 FÜR RALLY-ANFÜHRER
+━━━━━━━━━━━━━━━━━━
 
-Eure Verantwortung in der Garnison:
-Werft euch selbst raus, wenn ihr von Angriff auf Verteidigung wechselt, aber erst kurz bevor eure Verteidigung die Garnison betritt. Dies erleichtert die Arbeit des Rally-Kapitäns.
+Verwendet eure stärksten Helden:
 
-Um das Neuberechnen von Truppen nach Verletzungen zu vermeiden:
-Speichert zwei Verteidigungsformationen, eine mit Howard und eine mit Gordon. Wenn ihr genug Truppen für zwei Märsche habt, könnt ihr die Verteidigungsformationen jedes Mal wechseln, anstatt neu zu berechnen und aufzufüllen.
+⚔️ Angriff: Amadeus, Marlin und Petra (oder Hilde oder Jabel)
+🛡️ Verteidigung: Zoe, Hilde und Saul
 
-💊 Stapel-Heilung
-Findet einen Weg, um die maximale Anzahl an Truppen auf einmal zu heilen.
+🔄 Wechsel Angriff → Verteidigung
 
-Letztes Mal konnten wir dank der Monatskarte mit bestem Preis-Leistungs-Verhältnis (Ultra Value Monthly Card) fast 3 Stunden am Stück heilen. Wenn ihr plant, UNI beizutreten, empfehle ich euch den Kauf dieser Karte. Sie bringt euch den ganzen Monat über Vorteile mit täglich einforderbaren Belohnungen.
+Sobald wir die Kontrolle übernehmen, entsendet sofort eure Verteidigungshelden mit Truppen.
+
+Wenn deren Ankunftstimer 5–6 Sekunden erreicht, ruft eure Angriffshelden zurück, damit eure Verteidigungshelden pünktlich zur Besatzung eintreffen. (Siehe Video unten)
+
+🏰 Rotation der Besetzten Gouverneure
+
+Weist Teilnehmer als Besetzter Gouverneur zu und rotiert, bis die Plätze 2–5 Folgendes haben:
+
+• 2 Howards
+• 2 Gordons
+
+Dies gibt uns 50 % Verteidigung + 50 % Gesundheit.
+
+Sobald sie platziert sind, setzt euch selbst wieder als Besetzter Gouverneur auf Platz 1.
+
+⚠️ Ihr seid für eure Garnison verantwortlich.
+
+Behaltet das korrekte Truppenverhältnis für alle Teilnehmer bei. Werft Spieler bei Bedarf raus, damit die korrekten Truppen und Helden eintreten können.
+
+━━━━━━━━━━━━━━━━━━
+⚔️ FÜR RALLY-TEILNEHMER
+━━━━━━━━━━━━━━━━━━
+
+• Sendet eure Truppen der höchsten Stufe im korrekten Verhältnis für Angriff vs. Verteidigung.
+• Aktiviert euren Truppenkapazität-Bonus.
+
+🏰 Eure Verantwortung in der Garnison
+
+Wenn ihr von Angriff auf Verteidigung wechselt, werft euch selbst aus der Garnison, aber wartet, bis euer Verteidigungsmarsch kurz vor dem Eintritt steht.
+
+Dies macht die Arbeit des Besetzten Gouverneurs viel einfacher.
+
+💡 Vermeidet das Neuberechnen von Truppen nach Verletzungen
+
+Speichert zwei Verteidigungs-Formationen im Voraus:
+
+• Eine mit Howard
+• Eine mit Gordon
+
+Wenn ihr genug Truppen für zwei Märsche habt, wechselt zwischen diesen Formationen, anstatt eure Truppen jedes Mal neu zu berechnen und aufzufüllen.
+
+━━━━━━━━━━━━━━━━━━
+❤️‍🩹 STAPELHEILUNG
+━━━━━━━━━━━━━━━━━━
+
+Findet eine Stapelgröße, mit der ihr die maximale Anzahl an Truppen auf einmal heilen könnt.
+
+Letztes Mal konnten wir aufgrund der Ultra-Vorteils-Monatskarte fast 3 Stunden Truppen gleichzeitig heilen.
+
+Wenn ihr plant, UNI beizutreten, empfehle ich euch, die Karte zu holen. Sie nützt euch den ganzen Monat über und enthält täglich einforderbare Belohnungen.
+
+━━━━━━━━━━━━━━━━━━
+🎬 VIDEO: WECHSEL DER ANGRIFFS- → VERTEIDIGUNGSHELDEN
+━━━━━━━━━━━━━━━━━━
+
+(video)
+
+(see guide #formations-rally-tips)
 
 (see guide #kvk)
 

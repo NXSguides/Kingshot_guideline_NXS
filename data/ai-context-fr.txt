@@ -996,46 +996,93 @@ Steps: 1. Sur l'écran de la ville, touchez votre avatar (en haut à gauche). 2.
 Astuces : le cadenas du dernier slot signifie qu'il n'est pas encore débloqué. « Équilibré » remplit les trois types à parts égales ; « Tout retirer » vide le slot. Chaque slot garde ses propres héros et troupes.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-10 by ΔRMΔDΔ] Guide de combat KVK
-⚔️ Guide de la Bataille du Château
+[2026-10-10 by ΔRMΔDΔ] ⚔️ GUIDE DE BATAILLE KvK — À LIRE AVANT DEMAIN
+L'équipe,
 
-L'équipe, voici tout ce que vous devez savoir pour être prêts et coordonnés.
+Demain, c'est le KvK. Soyez en ligne 1 heure avant 10:00 UTC.
 
-🛡️ Avant le combat
-Enregistrez vos formations d'attaque et de défense à l'avance :
-• Attaque : 50:20:30 (configuration pour rejoindre la Chasse à l'Ours)
-• Défense : 60:20:20 avec Howard ou Gordon
-• Meneurs de ralliement et participants : activez votre bonus de capacité de déploiement.
-• Tous les meneurs de ralliement doivent être sur le chat vocal Discord (DC VC).
+━━━━━━━━━━━━━━━━━━
+📋 AVANT LA BATAILLE
+━━━━━━━━━━━━━━━━━━
 
-👑 Pour les meneurs de ralliement
-Utilisez vos héros les plus puissants :
-• Attaque : Amadeus, Marlin et Petra (ou Hilde ou Jabel)
-• Défense : Zoé, Hilde et Saul
+Enregistrez vos formations de troupe d'attaque et de défense à l'avance :
 
-Comment alterner entre attaque et défense :
-Une fois que nous avons pris le contrôle, envoyez immédiatement vos héros de défense avec des troupes. Lorsque leur compte à rebours d'arrivée atteint 5 à 6 secondes, rappelez vos héros d'attaque pour que les héros de défense arrivent juste à temps pour occuper la garnison.
+⚔️ Attaque : 50:20:30 (configuration pour participant Chasse à l'Ours)
+🛡️ Défense : 60:20:20 avec Howard ou Gordon
 
-Comment faire tourner les Capitaines de Ralliement lors de la défense en garnison :
-Attribuez le rôle de capitaine de garnison aux participants, en faisant tourner jusqu'à ce que les places 2 à 5 comptent 2 Howard et 2 Gordon (50 % de défense et 50 % de santé). Remettez-vous ensuite comme capitaine de garnison à la première place.
+Chefs de ralliement & participants : Activez votre Capacité de Troupes buff.
 
-Vous êtes également responsable de votre garnison :
-Maintenez le bon ratio de troupes pour tous les participants, et expulsez-les si nécessaire pour que les bonnes troupes et les bons héros puissent entrer.
+🔊 Tous les Chefs de ralliement doivent être sur DC VC (chat vocal Discord).
 
-🤝 Pour les participants au ralliement
-• Envoyez vos troupes du plus haut niveau avec le bon ratio pour l'attaque et la défense.
-• Utilisez le bonus de capacité de déploiement.
+━━━━━━━━━━━━━━━━━━
+👑 POUR LES CHEFS DE RALLIEMENT
+━━━━━━━━━━━━━━━━━━
 
-Votre responsabilité en garnison :
-Quittez vous-même la garnison lors de la transition de l'attaque à la défense, mais seulement lorsque vos défenseurs sont sur le point d'entrer dans la garnison. Cela facilite grandement le travail du Capitaine de Ralliement.
+Utilisez vos héros les plus forts :
 
-Pour éviter de recalculer les troupes après avoir eu des blessés :
-Sauvegardez deux formations de défense, une avec Howard et une avec Gordon. Si vous avez assez de troupes pour deux marches, vous pouvez alterner les formations de défense à chaque fois au lieu de recalculer et de remplir à nouveau.
+⚔️ Attaque : Amadeus, Marlin et Petra (ou Hilde ou Jabel)
+🛡️ Défense : Zoé, Hilde et Saul
 
-💊 Soins en lot
-Trouvez une astuce pour soigner le nombre maximum de troupes en une seule fois.
+🔄 Échange Attaque → Défense
 
-La dernière fois, nous avons pu soigner près de 3 heures d'un coup grâce à la Carte mensuelle ultra avantageuse (Ultra Value Monthly Card). Si vous prévoyez de rejoindre UNI, je vous encourage vivement à acheter cette carte. Elle vous sera bénéfique tout le mois avec des récompenses quotidiennes à récupérer.
+Une fois que nous avons pris le contrôle, dépêchez immédiatement vos héros de défense avec des troupes.
+
+Lorsque leur compte à rebours d'arrivée atteint 5-6 secondes, rappelez vos héros d'attaque pour que vos héros de défense arrivent juste à temps pour la garnison. (Voir vidéo ci-dessous)
+
+🏰 Rotation des Chefs en Garnison
+
+Assignez des participants comme Chef en Garnison, en alternant jusqu'à ce que les emplacements 2 à 5 aient :
+
+• 2 Howard
+• 2 Gordon
+
+Cela nous donne 50% de Défense + 50% de Santé.
+
+Une fois en place, remettez-vous en tant que Chef en Garnison à la position n°1.
+
+⚠️ Vous êtes responsable de votre garnison.
+
+Maintenez le bon ratio de troupes pour tous les participants. Expulsez des joueurs si nécessaire pour que les troupes et héros corrects puissent entrer.
+
+━━━━━━━━━━━━━━━━━━
+⚔️ POUR LES PARTICIPANTS AU RALLIEMENT
+━━━━━━━━━━━━━━━━━━
+
+• Envoyez vos troupes du plus haut niveau en utilisant le bon ratio attaque/défense.
+• Activez votre Capacité de Troupes buff.
+
+🏰 Votre responsabilité en garnison
+
+Lors du passage de l'attaque à la défense, expulsez-vous de la garnison, mais attendez que votre marche de défense soit sur le point d'entrer.
+
+Cela facilite grandement le travail du Chef en Garnison.
+
+💡 Évitez de recalculer les troupes après des blessures
+
+Enregistrez deux formations de défense à l'avance :
+
+• Une avec Howard
+• Une avec Gordon
+
+Si vous avez assez de troupes pour deux marches, alternez entre ces formations au lieu de recalculer et de remplir vos troupes à chaque fois.
+
+━━━━━━━━━━━━━━━━━━
+❤️‍🩹 SOINS PAR LOTS
+━━━━━━━━━━━━━━━━━━
+
+Trouvez une taille de lot qui vous permet de soigner le nombre maximum de troupes en une fois.
+
+La dernière fois, nous avons pu soigner presque 3 heures de troupes à la fois grâce à la Carte Mensuelle Ultra-Valeur.
+
+Si vous prévoyez de rejoindre UNI, je vous encourage à prendre la carte. Elle vous sera bénéfique pendant tout le mois et inclut des récompenses quotidiennes à récupérer.
+
+━━━━━━━━━━━━━━━━━━
+🎬 VIDÉO : ÉCHANGER LES HÉROS D'ATTAQUE → DÉFENSE
+━━━━━━━━━━━━━━━━━━
+
+(video)
+
+(see guide #formations-rally-tips)
 
 (see guide #kvk)
 

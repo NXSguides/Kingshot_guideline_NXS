@@ -996,46 +996,93 @@ Steps: 1. On the city screen tap your avatar (top left). 2. Tap Squad at the bot
 Tips: the lock icon next to the last slot means it still has to be unlocked. “Even” fills all three types equally; “Withdraw all” clears the slot. Each slot keeps its own heroes and troops.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-10 by ΔRMΔDΔ] KVK Battle Guide
-⚔️ Castle Battle Guide
+[2026-10-10 by ΔRMΔDΔ] ⚔️ KVK BATTLE GUIDE — READ BEFORE TOMORROW
+Team,
 
-Team, here's everything you need to know to be ready and coordinated.
+Tomorrow is KvK. Be online 1 hour before 10:00 UTC.
 
-🛡️ Before the Battle
+━━━━━━━━━━━━━━━━━━
+📋 BEFORE THE BATTLE
+━━━━━━━━━━━━━━━━━━
+
 Save your attack and defense formations in advance:
-• Attack: 50:20:30 (bear joiner setup)
-• Defense: 60:20:20 with Howard or Gordon
-• Rally leaders and joiners: activate your Deployment Capacity buff.
-• All rally leads need to be on DC VC (Discord voice chat).
 
-👑 For Rally Leaders
+⚔️ Attack: 50:20:30 (bear joiner setup)
+🛡️ Defense: 60:20:20 with Howard or Gordon
+
+Rally Leaders & Joiners: Activate your Deployment Capacity buff.
+
+🔊 All Rally Leads need to be on DC VC (Discord voice chat).
+
+━━━━━━━━━━━━━━━━━━
+👑 FOR RALLY LEADERS
+━━━━━━━━━━━━━━━━━━
+
 Use your strongest heroes:
-• Attack: Amadeus, Marlin, and Petra (or Hilde or Jabel)
-• Defense: Zoe, Hilde, and Saul
 
-How to swap attack and defense:
-Once we take control, immediately dispatch your defense heroes with troops. When their arrival timer hits 5–6 seconds, recall your attack heroes so the defense heroes arrive just in time to garrison.
+⚔️ Attack: Amadeus, Marlin, and Petra (or Hilde or Jabel)
+🛡️ Defense: Zoe, Hilde, and Saul
 
-How to rotate rally captains when defending in garrison:
-Assign joiners as garrison captain, rotating until spots 2–5 have 2 Howards and 2 Gordons (50% defense and 50% health). Then put yourself back as garrison captain in the first spot.
+🔄 Swapping Attack → Defense
 
-You are also responsible for your garrison:
-Maintain the correct troop ratio for all joiners, and kick out when necessary so the right troops and heroes can enter.
+Once we take control, immediately dispatch your defense heroes with troops.
 
-🤝 For Rally Joiners
-• Send your highest-tier troops with the correct ratio for attack vs defense.
-• Use the Deployment Capacity buff.
+When their arrival timer reaches 5–6 seconds, recall your attack heroes so your defense heroes arrive just in time to garrison. (See video below)
 
-Your responsibility in garrison:
-Kick yourself out when swapping from attack to defense, but not until your defense is about to enter the garrison. This makes the garrison captain's job easier.
+🏰 Garrison Captain Rotation
 
-To avoid recalculating troops after injuries:
-Save two defense formations, one with Howard and one with Gordon. If you have enough troops for two marches, you can swap defense formations each time instead of recalculating and refilling.
+Assign joiners as Garrison Captain, rotating until spots 2–5 have:
 
-💊 Batch Healing
-Find a spot where you can heal the maximum number of troops in one go.
+• 2 Howards
+• 2 Gordons
 
-Last time we could heal almost 3 hours at once thanks to the Ultra Value Monthly Card. If you're planning to join UNI, I encourage you to buy that card. It benefits you for the whole month with daily claimable rewards.
+This gives us 50% Defense + 50% Health.
+
+Once they're in place, put yourself back as Garrison Captain in the #1 spot.
+
+⚠️ You are responsible for your garrison.
+
+Maintain the correct troop ratio for all joiners. Kick players when necessary so the correct troops and heroes can enter.
+
+━━━━━━━━━━━━━━━━━━
+⚔️ FOR RALLY JOINERS
+━━━━━━━━━━━━━━━━━━
+
+• Send your highest-tier troops using the correct ratio for attack vs. defense.
+• Activate your Deployment Capacity buff.
+
+🏰 Your Responsibility in Garrison
+
+When swapping from attack to defense, kick yourself out of the garrison, but wait until your defense march is about to enter.
+
+This makes the Garrison Captain's job much easier.
+
+💡 Avoid Recalculating Troops After Injuries
+
+Save two defense formations ahead of time:
+
+• One with Howard
+• One with Gordon
+
+If you have enough troops for two marches, alternate between these formations instead of recalculating and refilling your troops every time.
+
+━━━━━━━━━━━━━━━━━━
+❤️‍🩹 BATCH HEALING
+━━━━━━━━━━━━━━━━━━
+
+Find a batch size that allows you to heal the maximum number of troops in one go.
+
+Last time, we could heal almost 3 hours of troops at once because of the Ultra Value Monthly Card.
+
+If you're planning to join UNI, I encourage you to get the card. It benefits you for the entire month and includes daily claimable rewards.
+
+━━━━━━━━━━━━━━━━━━
+🎬 VIDEO: SWAPPING ATTACK → DEFENSE HEROES
+━━━━━━━━━━━━━━━━━━
+
+(video)
+
+(see guide #formations-rally-tips)
 
 (see guide #kvk)
 

@@ -996,46 +996,93 @@ Steps: 1. Di layar kota, ketuk avatarmu (kiri atas). 2. Ketuk Skuad di bawah. 3.
 Tips: ikon gembok di slot terakhir berarti belum terbuka. “Rata” mengisi tiga jenis sama banyak; “Tarik semua” mengosongkan slot. Tiap slot menyimpan hero dan pasukannya sendiri.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-10 by ΔRMΔDΔ] Panduan Pertempuran KVK
-⚔️ Panduan Pertempuran Istana
+[2026-10-10 by ΔRMΔDΔ] ⚔️ PANDUAN PERTEMPURAN KvK — BACA SEBELUM BESOK
+Tim,
 
-Tim, inilah semua yang perlu kalian ketahui agar siap dan terkoordinasi.
+Besok adalah KvK. Harap online 1 jam sebelum 10:00 UTC.
 
-🛡️ Sebelum Pertempuran
-Simpan formasi serang dan bertahan kalian terlebih dahulu:
-• Serang: 50:20:30 (pengaturan untuk peserta Bear Hunt)
-• Bertahan: 60:20:20 dengan Howard atau Gordon
-• Pemimpin dan peserta reli: aktifkan bonus kapasitas pengerahan kalian.
-• Semua pemimpin reli harus berada di obrolan suara Discord (DC VC).
+━━━━━━━━━━━━━━━━━━
+📋 SEBELUM PERTEMPURAN
+━━━━━━━━━━━━━━━━━━
 
-👑 Untuk Pemimpin Reli
-Gunakan pahlawan terkuat kalian:
-• Serang: Amadeus, Marlin, dan Petra (atau Hilde atau Jabel)
-• Bertahan: Zoe, Hilde, dan Saul
+Simpan formasi pasukan serangan dan pertahanan Anda terlebih dahulu:
 
-Cara bertukar antara menyerang dan bertahan:
-Setelah kita mengambil alih kendali, segera kirim pahlawan bertahan kalian beserta pasukan. Saat penghitung waktu kedatangan mereka mencapai 5–6 detik, panggil kembali pahlawan serang kalian agar pahlawan bertahan tiba tepat waktu untuk menjaga garnisun.
+⚔️ Serangan: 50:20:30 (pengaturan peserta Bear Hunt)
+🛡️ Pertahanan: 60:20:20 dengan Howard atau Gordon
 
-Cara memutar Kapten Reli saat bertahan di garnisun:
-Tentukan peserta sebagai kapten garnisun, lakukan rotasi hingga slot 2–5 berisi 2 Howard dan 2 Gordon (50% pertahanan dan 50% Health). Kemudian tempatkan diri kalian kembali sebagai kapten garnisun di slot pertama.
+Pemimpin Reli & Peserta: Aktifkan Kapasitas Pasukan buff Anda.
 
-Kalian juga bertanggung jawab atas garnisun kalian:
-Pertahankan rasio pasukan yang benar untuk semua peserta, dan keluarkan anggota jika perlu agar pasukan serta pahlawan yang tepat bisa masuk.
+🔊 Semua Pemimpin Reli harus berada di DC VC (Discord voice chat).
 
-🤝 Untuk Peserta Reli
-• Kirim pasukan tingkat tertinggi kalian dengan rasio yang benar untuk menyerang vs. bertahan.
-• Gunakan bonus kapasitas pengerahan.
+━━━━━━━━━━━━━━━━━━
+👑 UNTUK PEMIMPIN RELI
+━━━━━━━━━━━━━━━━━━
 
-Tanggung jawab kalian di garnisun:
-Keluarkan diri kalian sendiri saat beralih dari menyerang ke bertahan, namun lakukan hanya saat pasukan bertahan kalian hampir memasuki garnisun. Ini akan mempermudah tugas Kapten Reli.
+Gunakan pahlawan terkuat Anda:
 
-Untuk menghindari perhitungan ulang pasukan setelah terluka:
-Simpan dua formasi bertahan, satu dengan Howard dan satu lagi dengan Gordon. Jika kalian memiliki cukup pasukan untuk dua barisan, kalian dapat menukar formasi bertahan setiap saat alih-alih menghitung ulang dan mengisi kembali.
+⚔️ Serangan: Amadeus, Marlin, dan Petra (atau Hilde atau Jabel)
+🛡️ Pertahanan: Zoe, Hilde, dan Saul
 
-💊 Penyembuhan Massal
-Temukan cara atau momen di mana kalian dapat menyembuhkan jumlah pasukan maksimal sekaligus.
+🔄 Menukar Serangan → Pertahanan
 
-Terakhir kali kita bisa menyembuhkan hampir 3 jam sekaligus berkat Kartu Bulanan Sangat Bernilai (Ultra Value Monthly Card). Jika kalian berencana untuk bergabung dengan UNI, saya sarankan kalian membeli kartu tersebut. Kartu ini akan menguntungkan kalian sepanjang bulan dengan hadiah harian yang dapat diklaim.
+Setelah kita menguasai, segera kirim pahlawan pertahanan Anda dengan pasukan.
+
+Saat penghitung waktu kedatangan mereka mencapai 5–6 detik, panggil kembali pahlawan serangan Anda sehingga pahlawan pertahanan Anda tiba tepat waktu untuk berjaga. (Lihat video di bawah)
+
+🏰 Rotasi Gubernur Berjaga
+
+Tetapkan peserta sebagai Gubernur Berjaga, berputar hingga slot 2–5 memiliki:
+
+• 2 Howard
+• 2 Gordon
+
+Ini memberi kita 50% Defense + 50% Health.
+
+Setelah mereka berada di posisinya, tetapkan diri Anda kembali sebagai Gubernur Berjaga di posisi #1.
+
+⚠️ Anda bertanggung jawab atas garnisun Anda.
+
+Pertahankan rasio pasukan yang benar untuk semua peserta. Tendang pemain jika perlu agar pasukan dan pahlawan yang tepat dapat masuk.
+
+━━━━━━━━━━━━━━━━━━
+⚔️ UNTUK PESERTA RELI
+━━━━━━━━━━━━━━━━━━
+
+• Kirim pasukan tingkat tertinggi Anda menggunakan rasio yang benar untuk serangan vs. pertahanan.
+• Aktifkan Kapasitas Pasukan buff Anda.
+
+🏰 Tanggung Jawab Anda dalam Garnisun
+
+Saat menukar dari serangan ke pertahanan, tendang diri Anda keluar dari garnisun, tetapi tunggu hingga barisan pertahanan Anda hampir masuk.
+
+Ini membuat tugas Gubernur Berjaga jauh lebih mudah.
+
+💡 Hindari Menghitung Ulang Pasukan Setelah Terluka
+
+Simpan dua formasi pertahanan sebelumnya:
+
+• Satu dengan Howard
+• Satu dengan Gordon
+
+Jika Anda memiliki cukup pasukan untuk dua barisan, bergantianlah di antara formasi ini daripada menghitung ulang dan mengisi ulang pasukan Anda setiap saat.
+
+━━━━━━━━━━━━━━━━━━
+❤️‍🩹 PENYEMBUHAN MASSAL
+━━━━━━━━━━━━━━━━━━
+
+Temukan ukuran batch yang memungkinkan Anda untuk menyembuhkan jumlah pasukan maksimum dalam satu kali jalan.
+
+Terakhir kali, kita bisa menyembuhkan hampir 3 jam pasukan sekaligus karena Kartu Bulanan Ultra Value.
+
+Jika Anda berencana untuk bergabung dengan UNI, saya mendorong Anda untuk mendapatkan kartu tersebut. Ini menguntungkan Anda selama sebulan penuh dan mencakup hadiah harian yang dapat diklaim.
+
+━━━━━━━━━━━━━━━━━━
+🎬 VIDEO: MENUKAR PAHLAWAN SERANGAN → PERTAHANAN
+━━━━━━━━━━━━━━━━━━
+
+(video)
+
+(see guide #formations-rally-tips)
 
 (see guide #kvk)
 

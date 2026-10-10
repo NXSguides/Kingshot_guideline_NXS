@@ -996,46 +996,93 @@ Steps: 1. Şehir ekranında sol üstteki avatarına dokun. 2. Alttaki Ekip'e dok
 İpuçları: son yuvadaki kilit henüz açılmadığı anlamına gelir. “Eşit dağıt” üç türü eşit doldurur; “Tümünü geri çek” yuvayı boşaltır. Her yuva kendi kahraman ve birliklerini tutar.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-10 by ΔRMΔDΔ] KVK Savaş Rehberi
-⚔️ Şato Savaşı Rehberi
+[2026-10-10 by ΔRMΔDΔ] ⚔️ KvK SAVAŞ REHBERİ — YARINDAN ÖNCE OKUYUN
+Ekip,
 
-Ekip, hazır ve koordineli olmak için bilmeniz gereken her şey burada.
+Yarın KvK var. 10:00 UTC'den 1 saat önce çevrimiçi olun.
 
-🛡️ Savaştan Önce
-Saldırı ve savunma birlik dizilişlerinizi önceden kaydedin:
-• Saldırı: 50:20:30 (Ayı Avı katılım düzeni)
-• Savunma: Howard veya Gordon ile 60:20:20
-• Seferberlik liderleri ve katılanlar: konuşlanma kapasitesi bonusunuzu etkinleştirin.
-• Tüm seferberlik liderlerinin Discord sesli sohbetinde (DC VC) olması gerekir.
+━━━━━━━━━━━━━━━━━━
+📋 SAVAŞTAN ÖNCE
+━━━━━━━━━━━━━━━━━━
 
-👑 Seferberlik Liderleri İçin
+Saldırı ve savunma birlik dizilişleri'ni önceden kaydedin:
+
+⚔️ Saldırı: 50:20:30 (Ayı Avı katılımcı düzeni)
+🛡️ Savunma: 60:20:20, Howard veya Gordon ile
+
+Seferberlik Liderleri ve Katılımcılar: Birlik Kapasitesi bonusu'nuzu etkinleştirin.
+
+🔊 Tüm Seferberlik Liderlerinin DC VC (Discord sesli sohbet) üzerinde olması gerekir.
+
+━━━━━━━━━━━━━━━━━━
+👑 SEFERBERLİK LİDERLERİ İÇİN
+━━━━━━━━━━━━━━━━━━
+
 En güçlü kahramanlarınızı kullanın:
-• Saldırı: Amadeus, Marlin ve Petra (veya Hilde veya Jabel)
-• Savunma: Zoe, Hilde ve Saul
 
-Saldırı ve savunma nasıl değiştirilir:
-Kontrolü ele geçirdiğimizde, hemen savunma kahramanlarınızı birliklerle birlikte gönderin. Varış süreleri 5-6 saniyeye ulaştığında, saldırı kahramanlarınızı geri çağırın, böylece savunma kahramanları garnizona tam zamanında varır.
+⚔️ Saldırı: Amadeus, Marlin ve Petra (veya Hilde veya Jabel)
+🛡️ Savunma: Zoe, Hilde ve Saul
 
-Hep birlikte garnizonda savunma yaparken Seferberlik Önderlerini nasıl değiştirebilirsiniz:
-Katılanları garnizon lideri olarak atayın, 2. ve 5. sıralar arasında 2 Howard ve 2 Gordon (%50 savunma ve %50 sağlık) olana kadar değiştirin. Ardından kendinizi ilk sıraya tekrar garnizon lideri olarak yerleştirin.
+🔄 Saldırı → Savunma Değişimi
 
-Ayrıca kendi garnizonunuzdan da siz sorumlusunuz:
-Tüm katılanlar için doğru birlik oranını koruyun ve gerektiğinde onları çıkarın, böylece doğru birlikler ve kahramanlar içeri girebilir.
+Kontrolü ele geçirdiğimizde, hemen savunma kahramanlarınızı birliklerle gönderin.
 
-🤝 Seferberlik Katılımcıları İçin
-• Saldırı ve savunma için doğru oranla en yüksek seviye birliklerinizi gönderin.
-• konuşlanma kapasitesi bonusunu kullanın.
+Varış zamanlayıcısı 5–6 saniyeye ulaştığında, saldırı kahramanlarınızı geri çağırın, böylece savunma kahramanlarınız garnizon için tam zamanında varacaktır. (Aşağıdaki videoya bakın)
 
-Garnizondaki sorumluluğunuz:
-Saldırıdan savunmaya geçerken kendinizi garnizondan çıkarın, ancak bunu savunma birliğiniz garnizona girmek üzereyken yapın. Bu, Seferberlik Önderi'nin işini kolaylaştıracaktır.
+🏰 Garnizondaki Şef Rotasyonu
 
-Yaralanmalardan sonra birlikleri yeniden hesaplamaktan kaçınmak için:
-Biri Howard diğeri Gordon ile olmak üzere iki savunma dizilişi kaydedin. İki intikal için yeterli birliğiniz varsa, her seferinde hesaplama yapmak ve doldurmak yerine savunma dizilişlerini değiştirebilirsiniz.
+Katılımcıları Garnizondaki Şef olarak atayın ve 2–5 arasındaki yuvalarda şunlar olana kadar döndürün:
 
-💊 Toplu Tedavi
-Tek seferde maksimum sayıda birliği tedavi edebileceğiniz bir yöntem bulun.
+• 2 Howard
+• 2 Gordon
 
-Geçen sefer Ultra Avantajlı Aylık Kart (Ultra Value Monthly Card) sayesinde neredeyse 3 saatlik yaralıyı tek seferde tedavi edebilmiştik. UNI'ye katılmayı planlıyorsanız, bu kartı satın almanızı tavsiye ederim. Günlük olarak toplanabilir ödülleriyle tüm ay boyunca size fayda sağlayacaktır.
+Bu bize %50 Savunma + %50 Sağlık sağlar.
+
+Onlar yerleştiğinde, kendinizi tekrar 1 numaralı Garnizondaki Şef olarak ayarlayın.
+
+⚠️ Garnizonunuzdan siz sorumlusunuz.
+
+Tüm katılımcılar için doğru birlik oranını koruyun. Doğru birlikler ve kahramanlar girebilmesi için gerektiğinde oyuncuları gruptan çıkarın.
+
+━━━━━━━━━━━━━━━━━━
+⚔️ SEFERBERLİK KATILIMCILARI İÇİN
+━━━━━━━━━━━━━━━━━━
+
+• Saldırı ve savunma için doğru oranı kullanarak en yüksek kademe birliklerinizi gönderin.
+• Birlik Kapasitesi bonusu'nuzu etkinleştirin.
+
+🏰 Garnizondaki Sorumluluğunuz
+
+Saldırıdan savunmaya geçerken kendinizi garnizondan çıkarın, ancak bunu savunma yürüyüşünüz girmek üzereyken yapın.
+
+Bu, Garnizondaki Şef'in işini çok daha kolaylaştırır.
+
+💡 Yaralanmalardan Sonra Birlikleri Yeniden Hesaplamaktan Kaçının
+
+Önceden iki savunma dizilişi kaydedin:
+
+• Biri Howard ile
+• Biri Gordon ile
+
+İki yürüyüş için yeterli birliğiniz varsa, her seferinde birliklerinizi yeniden hesaplayıp doldurmak yerine bu dizilişler arasında geçiş yapın.
+
+━━━━━━━━━━━━━━━━━━
+❤️‍🩹 TOPLU TEDAVİ
+━━━━━━━━━━━━━━━━━━
+
+Maksimum sayıda birliği tek seferde tedavi etmenize olanak tanıyan bir grup boyutu bulun.
+
+Geçen sefer Ultra Değerli Aylık Kart sayesinde neredeyse 3 saatlik birliği aynı anda tedavi edebildik.
+
+UNI'ye katılmayı planlıyorsanız kartı almanızı öneririm. Tüm ay boyunca size fayda sağlar ve günlük toplanabilir ödüller içerir.
+
+━━━━━━━━━━━━━━━━━━
+🎬 VİDEO: SALDIRI → SAVUNMA KAHRAMANLARINI DEĞİŞTİRME
+━━━━━━━━━━━━━━━━━━
+
+(video)
+
+(see guide #formations-rally-tips)
 
 (see guide #kvk)
 

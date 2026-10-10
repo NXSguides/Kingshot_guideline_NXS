@@ -996,46 +996,93 @@ Steps: 1. En la pantalla de la ciudad, toca tu avatar (arriba a la izquierda). 2
 Consejos: el candado de la última ranura significa que aún no está desbloqueada. «Equilibrar» rellena los tres tipos por igual; «Retirar todo» vacía la ranura. Cada ranura guarda sus propios héroes y tropas.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-10 by ΔRMΔDΔ] Guía de batalla de KVK
-⚔️ Guía de la Batalla del castillo
+[2026-10-10 by ΔRMΔDΔ] ⚔️ GUÍA DE BATALLA KvK — LEER ANTES DE MAÑANA
+Equipo,
 
-Equipo, aquí está todo lo que necesitan saber para estar listos y coordinados.
+Mañana es el KvK. Conéctense 1 hora antes de las 10:00 UTC.
 
-🛡️ Antes de la batalla
-Guarden sus formaciones de ataque y defensa con anticipación:
-• Ataque: 50:20:30 (configuración para unirse a la Cacería del Oso)
-• Defensa: 60:20:20 con Howard o Gordon
-• Líderes y miembros de ataques conjuntos: activen su bonificación de capacidad de despliegue.
-• Todos los líderes de ataques conjuntos deben estar en el chat de voz de Discord (DC VC).
+━━━━━━━━━━━━━━━━━━
+📋 ANTES DE LA BATALLA
+━━━━━━━━━━━━━━━━━━
 
-👑 Para líderes de ataques conjuntos
-Usen sus héroes más fuertes:
-• Ataque: Amadeus, Marlin y Petra (o Hilde o Jabel)
-• Defensa: Zoe, Hilde y Saul
+Guarden sus formaciones de tropas de ataque y defensa con antelación:
 
-Cómo alternar entre ataque y defensa:
-Once we take control, inmediatamente envíen a sus héroes de defensa con tropas. Cuando su temporizador de llegada sea de 5 a 6 segundos, retiren a sus héroes de ataque para que los de defensa lleguen justo a tiempo para guarnecer.
+⚔️ Ataque: 50:20:30 (configuración para participantes de Cacería del Oso)
+🛡️ Defensa: 60:20:20 con Howard o Gordon
 
-Cómo rotar a los gobernadores que ordenan la Movilización cuando se defiende en la guarnición:
-Asignen a los miembros que se unan como capitanes de la guarnición, rotando hasta que los espacios 2 a 5 tengan 2 Howard y 2 Gordon (50% de defensa y 50% de salud). Luego, vuelvan a colocarse como capitán de la guarnición en el primer espacio.
+Líderes de Ataque Conjunto y participantes: Activen su potenciador de Capacidad de despliegue.
 
-También son responsables de su guarnición:
-Mantengan la proporción correcta de tropas para todos los miembros que se unan, y expulsen cuando sea necesario para que puedan ingresar las tropas y héroes adecuados.
+🔊 Todos los Líderes de Ataque Conjunto deben estar en DC VC (chat de voz de Discord).
 
-🤝 Para los que se unen a los ataques conjuntos
-• Envíen sus tropas de nivel más alto con la proporción correcta de ataque frente a defensa.
-• Usen la bonificación de capacidad de despliegue.
+━━━━━━━━━━━━━━━━━━
+👑 PARA LÍDERES DE ATAQUE CONJUNTO
+━━━━━━━━━━━━━━━━━━
 
-Su responsabilidad en la guarnición:
-Salgan de la guarnición ustedes mismos al cambiar de ataque a defensa, pero no hasta que su defensa esté por entrar a la guarnición. Esto facilita el trabajo del gobernador que ordena la Movilización.
+Usen a sus héroes más fuertes:
 
-Para evitar volver a calcular las tropas después de tener heridos:
-Guarden dos formaciones de defensa, una con Howard y otra con Gordon. Si tienen suficientes tropas para dos marchas, pueden alternar las formaciones de defensa cada vez en lugar de recalcular y volver a llenar.
+⚔️ Ataque: Amadeus, Marlin y Petra (o Hilde o Jabel)
+🛡️ Defensa: Zoe, Hilde y Saul
 
-💊 Curación en lote
-Encuentren un momento o método en el que puedan aplicar la curación al número máximo de tropas a la vez.
+🔄 Cambio Ataque → Defensa
 
-La última vez pudimos curar casi 3 horas a la vez gracias a la Tarjeta mensual de gran valor (Ultra Value Monthly Card). Si planean unirse a UNI, los animo a comprar esa tarjeta. Les beneficiará durante todo el mes con recompensas diarias que pueden reclamar.
+En cuanto tomemos el control, envíen de inmediato a sus héroes de defensa con tropas.
+
+Cuando el temporizador de llegada marque 5–6 segundos, retirar a sus héroes de ataque para que los de defensa lleguen justo a tiempo para guarnecer. (Ver video abajo)
+
+🏰 Rotación de Gobernador guarnecido
+
+Asignen a los participantes como Gobernador guarnecido, rotando hasta que los puestos 2–5 tengan:
+
+• 2 Howard
+• 2 Gordon
+
+Esto nos da 50% de Defensa + 50% de Salud.
+
+Una vez colocados, vuelvan a ponerse como Gobernador guarnecido en el puesto n.º 1.
+
+⚠️ Ustedes son responsables de su guarnición.
+
+Mantengan la proporción correcta de tropas para todos los participantes. Expulsen a jugadores cuando sea necesario para que entren las tropas y héroes correctos.
+
+━━━━━━━━━━━━━━━━━━
+⚔️ PARA PARTICIPANTES DE ATAQUE CONJUNTO
+━━━━━━━━━━━━━━━━━━
+
+• Envíen sus tropas del nivel más alto con la proporción correcta de ataque vs. defensa.
+• Activen su potenciador de Capacidad de despliegue.
+
+🏰 Tu responsabilidad en la guarnición
+
+Al cambiar de ataque a defensa, expúlsate de la guarnición, pero espera hasta que tu marcha de defensa esté a punto de entrar.
+
+Esto facilita mucho el trabajo del Gobernador guarnecido.
+
+💡 Eviten recalcular tropas tras los heridos
+
+Guarden dos formaciones de defensa de antemano:
+
+• Una con Howard
+• Una con Gordon
+
+Si tienen tropas suficientes para dos marchas, alternen entre estas formaciones en lugar de recalcular y reponer tropas cada vez.
+
+━━━━━━━━━━━━━━━━━━
+❤️‍🩹 CURACIÓN POR LOTES
+━━━━━━━━━━━━━━━━━━
+
+Busquen un tamaño de lote que les permita curar la cantidad máxima de tropas de una vez.
+
+La última vez pudimos curar casi 3 horas de tropas a la vez gracias a la Tarjeta mensual de ultra valor.
+
+Si planean unirse a UNI, les sugiero adquirir la tarjeta. Les beneficia durante todo el mes e incluye recompensas diarias.
+
+━━━━━━━━━━━━━━━━━━
+🎬 VIDEO: CAMBIO DE HÉROES DE ATAQUE → DEFENSA
+━━━━━━━━━━━━━━━━━━
+
+(video)
+
+(see guide #formations-rally-tips)
 
 (see guide #kvk)
 

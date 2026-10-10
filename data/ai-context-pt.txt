@@ -996,46 +996,93 @@ Steps: 1. Na tela da cidade, toque no seu avatar (canto superior esquerdo). 2. T
 Dicas: o cadeado no último slot significa que ainda não foi desbloqueado. “Igualar” preenche os três tipos por igual; “Retirar tudo” esvazia o slot. Cada slot guarda seus próprios heróis e tropas.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-10 by ΔRMΔDΔ] Guia de Batalha de KVK
-⚔️ Guia da Batalha do Castelo
+[2026-10-10 by ΔRMΔDΔ] ⚔️ GUIA DE BATALHA KvK — LEIA ANTES DE AMANHÃ
+Equipe,
 
-Equipe, aqui está tudo o que vocês precisam saber para estarem prontos e coordenados.
+Amanhã é o KvK. Fique online 1 hora antes das 10:00 UTC.
 
-🛡️ Antes da Batalha
-Salvem suas formações de ataque e defesa com antecedência:
-• Ataque: 50:20:30 (configuração para participantes da Caça ao Urso)
-• Defesa: 60:20:20 com Howard ou Gordon
-• Líderes e participantes de ralis: ativem o bônus de capacidade de implantação.
-• Todos os líderes de rali precisam estar no chat de voz do Discord (DC VC).
+━━━━━━━━━━━━━━━━━━
+📋 ANTES DA BATALHA
+━━━━━━━━━━━━━━━━━━
 
-👑 Para Líderes de Rali
-Usem seus heróis mais fortes:
-• Ataque: Amadeus, Peixe Marlin e Petra (ou Hilde ou Jabel)
-• Defesa: Zoe, Hilde e Saul
+Salve suas formações das tropas de ataque e defesa com antecedência:
 
-Como alternar entre ataque e defesa:
-Assim que assumirmos o controle, enviem imediatamente seus heróis de defesa com tropas. Quando o temporizador de chegada deles atingir 5 a 6 segundos, revoguem seus heróis de ataque para que os heróis de defesa cheguem a tempo de guarnecer.
+⚔️ Ataque: 50:20:30 (configuração de participante da Caça ao Urso)
+🛡️ Defesa: 60:20:20 com Howard ou Gordon
 
-Como revezar Capitães do Rally ao defender na guarnição:
-Atribuam os participantes como capitães de guarnição, revezando até que as posições 2 a 5 tenham 2 Howards e 2 Gordons (50% de defesa e 50% de vida). Em seguida, coloquem-se de volta como capitão de guarnição na primeira posição.
+Líderes de Rally e Participantes: Ative seu Capacidade de Tropa bônus.
 
-Vocês também são responsáveis por sua guarnição:
-Mantenham a proporção correta de tropas para todos os participantes e expulsem quando necessário para que as tropas e heróis certos possam entrar.
+🔊 Todos os Líderes de Rally precisam estar no DC VC (chat de voz do Discord).
 
-🤝 Para Participantes de Rali
-• Enviem suas tropas de nível mais alto com a proporção correta para ataque vs. defesa.
-• Usem o bônus de capacidade de implantação.
+━━━━━━━━━━━━━━━━━━
+👑 PARA LÍDERES DE RALLY
+━━━━━━━━━━━━━━━━━━
 
-Sua responsabilidade na guarnição:
-Retirem-se da guarnição ao mudar de ataque para defesa, mas somente quando sua defesa estiver prestes a entrar na guarnição. Isso facilita o trabalho do Capitão do Rally.
+Use seus heróis mais fortes:
 
-Para evitar recalcular tropas após ter feridos:
-Salvem duas formações de defesa, uma com Howard e outra com Gordon. Se tiverem tropas suficientes para duas marchas, vocês podem alternar as formações de defesa a cada vez, em vez de recalcular e reabastecer.
+⚔️ Ataque: Amadeus, Peixe Marlin e Petra (ou Hilde ou Jabel)
+🛡️ Defesa: Zoe, Hilde e Saul
 
-💊 Cura em Lote
-Encontrem um ponto ideal onde possam curar o número máximo de tropas de uma só vez.
+🔄 Troca de Ataque → Defesa
 
-Da última vez, conseguimos curar quase 3 horas de uma só vez graças ao Cartão Mensal Ultra Vantajoso (Ultra Value Monthly Card). Se planejam se juntar à UNI, incentivo vocês a comprarem esse cartão. Ele trará benefícios durante o mês inteiro com recompensas diárias resgatáveis.
+Assim que assumirmos o controle, envie imediatamente seus heróis de defesa com tropas.
+
+Quando o cronômetro de chegada atingir 5 a 6 segundos, use o revogar em seus heróis de ataque para que seus heróis de defesa cheguem a tempo de guarnecer. (Veja o vídeo abaixo)
+
+🏰 Rotação de Chefe com Guarnição
+
+Atribua participantes como Chefe com Guarnição, alternando até que os slots 2–5 tenham:
+
+• 2 Howards
+• 2 Gordons
+
+Isso nos dá 50% de Defesa + 50% de Vida.
+
+Assim que estiverem no lugar, coloque-se de volta como Chefe com Guarnição na posição #1.
+
+⚠️ Você é responsável pela sua guarnição.
+
+Mantenha a proporção correta de tropas para todos os participantes. Expulse jogadores quando necessário para que as tropas e heróis corretos possam entrar.
+
+━━━━━━━━━━━━━━━━━━
+⚔️ PARA PARTICIPANTES DE RALLY
+━━━━━━━━━━━━━━━━━━
+
+• Envie suas tropas de nível mais alto usando a proporção correta para ataque vs. defesa.
+• Ative seu Capacidade de Tropa bônus.
+
+🏰 Sua responsabilidade na guarnição
+
+Ao trocar do ataque para a defesa, expulse-se da guarnição, mas espere até que sua marcha de defesa esteja prestes a entrar.
+
+Isso torna o trabalho do Chefe com Guarnição muito mais fácil.
+
+💡 Evite recalcular tropas após ferimentos
+
+Salve duas formações de defesa com antecedência:
+
+• Uma com Howard
+• Eine mit Gordon
+
+Se você tiver tropas suficientes para duas marchas, alterne entre essas formações em vez de recalcular e reabastecer suas tropas todas as vezes.
+
+━━━━━━━━━━━━━━━━━━
+❤️‍🩹 CURA EM LOTE
+━━━━━━━━━━━━━━━━━━
+
+Encontre um tamanho de lote que permita curar o número máximo de tropas de uma só vez.
+
+Da última vez, conseguimos curar quase 3 horas de tropas ao mesmo tempo por causa do Cartão Mensal Ultra Valor.
+
+Se você planeja se juntar à UNI, encorajo você a obter o cartão. Ele beneficia você durante todo o mês e inclui recompensas coletáveis diárias.
+
+━━━━━━━━━━━━━━━━━━
+🎬 VÍDEO: TROCANDO HERÓIS DE ATAQUE → DEFESA
+━━━━━━━━━━━━━━━━━━
+
+(video)
+
+(see guide #formations-rally-tips)
 
 (see guide #kvk)
 
