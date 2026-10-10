@@ -3806,7 +3806,7 @@ function renderPlan() {
   const rows = G.types.map(([k]) => `<tr><td><span class="sw" style="background:${TY[k].c};display:inline-block;vertical-align:-2px;margin-right:6px"></span>${esc(typeName(k))}</td><td class="muted">${esc(buffName(k))}</td><td class="n">${fmt(now[k])}</td><td class="n${(after[k] || 0) > (now[k] || 0) ? " up" : ""}">${fmt(after[k])}</td></tr>`).join("");
   const list = (s) => { const L = B.filter((b) => st(b) === s); return L.length ? `<div class="chips">${L.map((b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}"><span class="sw" style="background:${TY[b.t].c};display:inline-block;width:10px;height:10px;vertical-align:-1px;margin-right:4px"></span>${esc(typeName(b.t))} Lv.${b.lv} · X${b.x} Y${b.y}</button>`).join("")}</div>` : `<div class="muted" style="font-size:13px">${esc(pt("none"))}</div>`; };
   const nT = B.filter((b) => st(b) === "target").length, nH = B.filter((b) => st(b) === "held").length;
-  let by = ""; try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {}
+  let by = importBy; if (!by) { try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {} }
   $("km_plan").innerHTML = `<h3 style="margin-bottom:2px">${esc(pt("title"))}</h3><div class="muted" style="font-size:12.5px">${esc(pt("hint"))}</div>
     <div class="pl-sub">${esc(T("rulesT"))}</div><ul class="km-rules">${T("rules").map((r) => `<li>${esc(r)}</li>`).join("")}</ul>
     ${PLAN.by ? `<div class="muted" style="font-size:12px;margin-top:10px">${esc(pt("last").replace("{by}", PLAN.by).replace("{at}", new Date(PLAN.at).toLocaleString(lang === "zh" ? "zh-TW" : "en", { dateStyle: "medium", timeStyle: "short" })))}</div>` : ""}
@@ -3838,6 +3838,20 @@ async function loadPlan() {
   if (OFFICER.token) { try { const f = await gh("GET", PLAN_PATH); d = f ? await OfficerData.open(JSON.parse(b64u8(f.content))) : null; } catch (e) {} }
   if (!d) { try { d = await OfficerData.fetchJson(PLAN_PATH); } catch (e) {} }
   PLAN = d && d.o ? d : { o: {} }; SAVED = JSON.stringify(PLAN.o);
+}
+/* A link like officer-x7k2p9.html#map?held=666-138,486-138&target=327-666&by=Sparrow pre-marks Outposts
+   (not saved yet — the officer checks the map and presses 💾 Save plan). Coordinates that are not Outposts are ignored. */
+let importBy = "";
+function importFromLink() {
+  const q = (location.hash.split("?")[1] || ""); if (!q) return;
+  const prm = new URLSearchParams(q), coords = new Set(B.filter((b) => b.kind === "outpost").map(pk));
+  let n = 0;
+  for (const k of ["held", "target"]) for (const c of (prm.get(k) || "").split(",")) {
+    const xy = c.trim().replace("-", ","); if (coords.has(xy)) { PLAN.o[xy] = k; n++; }
+  }
+  importBy = (prm.get("by") || "").slice(0, 30);
+  if (n) planMsg = (lang === "zh" ? "從連結帶入 {n} 個標記，確認後按「儲存規劃」。" : "{n} marks added from the link — check them, then press Save plan.").replace("{n}", n);
+  try { history.replaceState(null, "", location.pathname + location.search + "#map"); } catch (e) {}
 }
 async function savePlan() {
   if (!OFFICER.token) { planMsg = pt("noKey"); renderPlan(); return; }
@@ -3902,7 +3916,7 @@ function onShow() {
 }
 async function init() {
   await loadScripts(["data/kingdom-map.js"]);
-  G = KINGDOM_MAP; build(); await loadPlan(); drawMap(); drawPlan(); applyTexts();
+  G = KINGDOM_MAP; build(); await loadPlan(); importFromLink(); drawMap(); drawPlan(); applyTexts();
   $("km_in").onclick = () => setZoom(Z * 1.5); $("km_out").onclick = () => setZoom(Z / 1.5);
 }
 function setLang(l) { lang = l; applyTexts(); }
