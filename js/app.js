@@ -169,6 +169,7 @@ function richRaw(str) {
       ? `<a class="kvk-plan-link" href="squad-guide.html?lang=${currentLang}" dir="auto">${escapeHtml(t(SQUAD_LINK))}</a>`
       : `<button type="button" class="kvk-plan-link" onclick="switchGuide('formations-rally-tips');window.scrollTo({top:0,behavior:'smooth'})" dir="auto">${escapeHtml(t(BEAR_SQUAD_LINK))}</button>`)
     .replace(/\[\[img:([\w./-]+)\]\]/g, (m, src) => `<img class="ann-img" src="${src}" loading="lazy" style="display:block;max-width:100%;height:auto;margin:8px 0">`)
+    .replace(/\[\[video:([\w./-]+\.mp4)\]\]/g, (m, src) => `<video class="ann-img" controls playsinline preload="metadata" src="${src}" style="display:block;max-width:100%;max-height:70vh;margin:8px 0;background:#000"></video>`)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/(https?:\/\/[^\s<]+)/g, (m, url) => {
       // Long links wrap instead of running off the screen; "https://" and the trailing "/" are hidden

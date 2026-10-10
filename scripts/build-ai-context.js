@@ -36,6 +36,7 @@ function build(lang) {
     .replace(/\[\[squad:page\]\]/g, "(see the Squad Guide page squad-guide.html)")
     .replace(/\[\[squad:guide\]\]/g, "(see guide #formations-rally-tips)")
     .replace(/\[\[img:[^\]]+\]\]/g, "")
+    .replace(/\[\[video:[^\]]+\]\]/g, "(video)")
     .replace(/\*\*(.+?)\*\*/g, "$1")
     .trim();
   const walk = (v, out, key) => {
