@@ -35,21 +35,6 @@ content: |
   
   [[link:master-academy]]
 ---
-author: Nia
-lang: en   # en / zh / ko / de / fr / pt / tr / id / ru / th / ar / es
-title: ❗Reminder - Bear Trap Troop Limits & Staggering Marches
-images: []
-content: |
-  🔹 All joiners must send exactly 90,000 troops to rallies. Pre-save your marches.
-  🔹 Leaders initiate your rally with maximum troops but when you join other rallies you must also follow the troop limit.
-
-  🔹 At the start: Main Rally Leaders send their first rally at their assigned staggered time.
-  🔹 At 6:30 remaining: All joiners start their own rally using their 3 strongest heroes.
-
-  🔪 Incorrect heroes & wrong troop numbers - kick and ask to rejoin
-
-  [[link:bear-hunt]]
----
 author: "Nia"
 created: "2026-10-06T12:36:15.043Z"
 lang: en
