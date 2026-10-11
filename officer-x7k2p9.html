@@ -473,7 +473,6 @@
     <a href="#post" data-tab="post">📢 Post</a>
     <a href="#watch" data-tab="watch">🕵️ Watch</a>
     <a href="#scout" data-tab="scout">🔭 Scout</a>
-    <a href="#bt" data-tab="bt">🐻 Bear calc</a>
     <a href="#views" data-tab="views">📈 Views</a>
   </nav>
   <div id="gate" class="card" hidden style="max-width:360px;margin:24px auto">
@@ -4253,6 +4252,13 @@ function init() {
 }
 function setLang(l) { lang = l; applyTexts(); }
 OFFICER_PAGES.bt = { init, applyTexts, setLang };
+/* no tab for it: open with #bt, or tap the Bear Hunt title on the Events tab 3 times quickly */
+let taps = [];
+document.addEventListener("click", (e) => {
+  if (!e.target.closest('.todo[data-ev="bear-hunt"] .txt, .evrow[data-id="bear-hunt"] summary')) return;
+  const now = Date.now(); taps = taps.filter((t) => now - t < 1500); taps.push(now);
+  if (taps.length >= 3) { taps = []; e.preventDefault(); location.hash = "#bt"; }
+});
 })();
 </script>
 <script src="js/assistant.js"></script>
