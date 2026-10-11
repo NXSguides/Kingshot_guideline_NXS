@@ -465,6 +465,9 @@
   #pg-bt .bt-c { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
   #pg-bt input[type=range] { width: 100%; accent-color: var(--accent); }
   #pg-bt input[type=range].t2 { accent-color: #c0473a; } #pg-bt input[type=range].t1 { accent-color: #2b6cc4; } #pg-bt input[type=range].t0 { accent-color: #6b7d3a; }
+  #pg-bt .bt-fit { margin-top: 10px; padding: 8px 10px; border-radius: 10px; background: color-mix(in srgb, var(--accent) 12%, var(--panel)); font-size: 13px; display: grid; gap: 4px; }
+  #pg-bt .bt-fit:empty { display: none; }
+  #pg-bt .bt-warn2 { color: #c0473a; font-size: 12px; font-weight: 600; margin-bottom: 4px; }
   #pg-bt .bt-ok { color: #2f8a4e; font-size: 12px; font-weight: 600; }
   #pg-map .km-tm { font-size: 13px; display: grid; gap: 4px; margin-top: 2px; }
   #pg-map .km-tmin { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
@@ -875,6 +878,7 @@
     </div>
     <button type="button" class="btn primary" id="bt_run" style="margin-top:10px"></button>
     <div class="msg" id="bt_autoMsg"></div>
+    <div class="bt-fit" id="bt_fit"></div>
   </details>
   <div class="bt-use" id="bt_use"></div>
   <div id="bt_forms"></div>
@@ -4199,6 +4203,8 @@ const TX = {
     hAuto: "⚡ Auto split", autoNote: "Fills the formations below (replaces them). You can still drag everything afterwards.",
     rr: "Rally ratio", fix: "Fixed-ratio marches", hero: "Marches with a hero (full, mixed)", rest: "Marches without a hero (identical, share ALL the rest)", min: "Each later march keeps each type at least",
     run: "⚡ Auto split now", ran: "Done — adjust by hand below if you like.",
+    fitN: "After a full rally you can fill {n} march(es) at {r} — {t} run out first.", fitMore: "One more would need {x} more {t}: take them out of the rally (its {t} −{p}%) and fill the rally with other troops.",
+    fitNo: "One more would need {x} more {t} than you have, even taking them out of the rally.", notRatio: "Not {r} — not enough of one type, so the gap was filled with others.",
     use: "Used", left: "left", fRally: "👑 Rally (you lead)", fMarch: "March {n}", tFix: "fixed ratio", tHero: "hero", tNo: "no hero",
     total: "Total", full: "full", of: "of", add: "+ Add march", copy: "📋 Copy", copied: "Copied ✓", del: "Remove",
     over: "⚠️ More than you have", hHow: "How it works",
@@ -4212,6 +4218,8 @@ const TX = {
     hAuto: "⚡ 全自動分配", autoNote: "會把下面的編組全部重新填好（取代原本的），之後還是可以手動拉。",
     rr: "集結比例", fix: "固定比例的隊伍", hero: "有英雄的隊伍（滿編，混合）", rest: "沒英雄的隊伍（一模一樣，平分全部剩下的）", min: "後面每隊每種兵至少",
     run: "⚡ 立即自動分配", ran: "好了 — 可以在下面再手動調整。",
+    fitN: "集結填滿之後，還能湊 {n} 隊滿編的 {r} — {t}最先不夠。", fitMore: "要多湊 1 隊，還差 {x} {t}：從集結裡拿出來（集結的{t} −{p}%），集結改用其他兵種補滿。",
+    fitNo: "要多湊 1 隊還差 {x} {t}，就算從集結拿出來也不夠。", notRatio: "不是 {r} — 某種兵不夠，缺的用其他兵種補上了。",
     use: "已用", left: "剩", fRally: "👑 集結（你發的）", fMarch: "隊伍 {n}", tFix: "固定比例", tHero: "有英雄", tNo: "沒英雄",
     total: "合計", full: "滿", of: "／", add: "＋ 加一隊", copy: "📋 複製", copied: "已複製 ✓", del: "刪除",
     over: "⚠️ 超過你有的兵", hHow: "怎麼用",
@@ -4238,7 +4246,7 @@ function autoSplit() {
     for (const i of [2, 1, 0]) { if (gap <= 0) break; const add = Math.min(gap, avail[i] - take[i]); if (add > 0) { take[i] += add; gap -= add; } }
     take.forEach((x, i) => (avail[i] -= x)); return take; };
   const out = [{ k: "rally", c: fixed(+S.rally || 0, A.rr) }];
-  for (let j = 0; j < A.fixN; j++) out.push({ k: "m", tag: "tFix", c: fixed(L, A.fix) });
+  for (let j = 0; j < A.fixN; j++) out.push({ k: "m", tag: "tFix", r: A.fix.slice(), c: fixed(L, A.fix) });
   const left = avail.map((x, i) => x + res[i]), sumL = () => left.reduce((a, b) => a + b, 0), take = (t) => { t.forEach((x, i) => (left[i] -= x)); return t; };
   const mix = (sz) => { const tot = sumL(); if (!tot) return [0, 0, 0]; const t = left.map((x) => Math.floor(sz * x / tot)); let gap = sz - t.reduce((a, b) => a + b, 0);
     for (const i of [2, 1, 0]) { const add = Math.min(gap, left[i] - t[i]); if (add > 0) { t[i] += add; gap -= add; } } return t; };
@@ -4270,10 +4278,29 @@ function renderUse() {
     return `<div class="bt-u${bad ? " bad" : ""}"><div class="bt-ut"><b>${esc(tr(t))}</b><span>${esc(tr("use"))} ${fmtN(u[i])} / ${fmtN(o[i])}</span></div>
       <div class="bt-bar"><i style="width:${p}%"></i></div><div class="bt-ul">${bad ? esc(tr("over")) : `${esc(tr("left"))} ${fmtN(o[i] - u[i])}`}</div></div>`; }).join("");
 }
+/* how many full fixed-ratio marches (e.g. 10:10:80) are left after a full rally — and what one more would take */
+function renderFit() {
+  const el = $("bt_fit"); if (!el) return;
+  const A = S.auto, own = owned(), L = +S.join || 0, R = +S.rally || 0;
+  if (!own.some((x) => x > 0) || !L) { el.innerHTML = ""; return; }
+  const rs = A.rr.reduce((a, b) => a + b, 0) || 1, want = A.rr.map((r) => Math.floor(R * r / rs)); want[2] += R - want.reduce((a, b) => a + b, 0);
+  const rally = want.map((w, i) => Math.min(w, own[i])); let gap = R - rally.reduce((a, b) => a + b, 0);
+  for (const i of [2, 1, 0]) { if (gap <= 0) break; const add = Math.min(gap, own[i] - rally[i]); if (add > 0) { rally[i] += add; gap -= add; } }
+  const left = own.map((x, i) => x - rally[i]), fs = A.fix.reduce((a, b) => a + b, 0) || 1, per = A.fix.map((r) => L * r / fs);
+  let n = Infinity, lim = 2; per.forEach((w, i) => { if (w > 0) { const k = Math.floor(left[i] / w); if (k < n) { n = k; lim = i; } } });
+  if (!isFinite(n)) { el.innerHTML = ""; return; }
+  const short = Math.ceil((n + 1) * per[lim] - left[lim]), t = tr(["inf", "cav", "arc"][lim]);
+  const lines = [tr("fitN", { n, r: A.fix.join(":"), t })];
+  if (short > 0 && rally[lim] >= short) lines.push(tr("fitMore", { x: fmtN(short), t, p: (Math.round(short * 1000 / R) / 10) }));
+  else if (short > 0) lines.push(tr("fitNo", { x: fmtN(short), t }));
+  el.innerHTML = lines.map((x) => `<div>${esc(x)}</div>`).join("");
+}
 function formHead(f, j) {
   const sum = f.c.reduce((a, b) => a + b, 0), sz = size(f), n = S.f.slice(0, j).filter((x) => x.k === "m").length + 1;
   const name = f.k === "rally" ? tr("fRally") : tr("fMarch", { n: n + 1 }) + (f.tag ? ` · ${tr(f.tag)}` : "");
-  return `<div class="bt-fh"><b>${esc(name)}</b><span class="bt-ft" data-tot="${j}"><b>${fmtN(sum)}</b> ${esc(tr("of"))} ${fmtN(sz)}${sum >= sz && sz ? ` <span class="bt-ok">✓ ${esc(tr("full"))}</span>` : ""}</span>${f.k === "rally" ? "" : `<button type="button" class="btn mini" data-del="${j}" title="${esc(tr("del"))}">✕</button>`}</div>`;
+  const rs = f.r ? f.r.reduce((a, b) => a + b, 0) : 0;
+  const off = rs && sum && f.c.some((x, i) => Math.abs(x * 100 / sum - f.r[i] * 100 / rs) > 0.5);
+  return `${off ? `<div class="bt-warn2">⚠️ ${esc(tr("notRatio", { r: f.r.join(":") }))}</div>` : ""}<div class="bt-fh"><b>${esc(name)}</b><span class="bt-ft" data-tot="${j}"><b>${fmtN(sum)}</b> ${esc(tr("of"))} ${fmtN(sz)}${sum >= sz && sz ? ` <span class="bt-ok">✓ ${esc(tr("full"))}</span>` : ""}</span>${f.k === "rally" ? "" : `<button type="button" class="btn mini" data-del="${j}" title="${esc(tr("del"))}">✕</button>`}</div>`;
 }
 function renderForms() {
   $("bt_forms").innerHTML = S.f.map((f, j) => `<div class="card bt-f" data-j="${j}">${formHead(f, j)}
@@ -4320,12 +4347,12 @@ function applyTexts() {
    ["bt_hAuto", "hAuto"], ["bt_autoNote", "autoNote"], ["bt_lRR", "rr"], ["bt_lFix", "fix"], ["bt_lHero", "hero"], ["bt_lRest", "rest"], ["bt_lMin", "min"],
    ["bt_run", "run"], ["bt_add", "add"], ["bt_copy", "copy"], ["bt_hHow", "hHow"]].forEach(([id, k]) => set(id, k));
   $("bt_how").innerHTML = tr("how").map((x) => `<li>${esc(x)}</li>`).join("");
-  renderForms();
+  renderForms(); renderFit();
 }
 function init() {
   fill(); applyTexts();
-  $("pg-bt").querySelector(".card").addEventListener("input", () => { readTop(); renderForms(); });
-  $("bt_autoBox").addEventListener("input", () => readTop());
+  $("pg-bt").querySelector(".card").addEventListener("input", () => { readTop(); renderForms(); renderFit(); });
+  $("bt_autoBox").addEventListener("input", () => { readTop(); renderFit(); });
   $("bt_run").onclick = () => { readTop(); autoSplit(); };
   $("bt_add").onclick = () => { S.f.push({ k: "m", c: [0, 0, 0] }); save(); renderForms(); };
   $("bt_copy").onclick = async () => { try { await navigator.clipboard.writeText(copyText()); $("bt_copy").textContent = tr("copied"); setTimeout(() => ($("bt_copy").textContent = tr("copy")), 1500); } catch (e) {} };
