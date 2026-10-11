@@ -1256,7 +1256,7 @@ const T = {
     fEmoji: "Emoji", fName: "Name", fFixed: "Repeats on a fixed schedule",
     fStart: "First day (UTC)", fEvery: "Repeats every … days", fDays: "Lasts … days",
     fNote: "Note", fNoteSm: "(e.g. times — shown in the list)", fGuide: "Guide on the site", noGuide: "— none —",
-    fTodo: "Action items for officers", addTodo: "+ Action item", dueLbl: "Days before (−) / after the start", untilLbl: "Only that day, until UTC hour (optional)", untilShow: "until {h} UTC", tdTxt: "What to do",
+    fTodo: "Action items for officers", addTodo: "+ Action item", editTodo: "Edit items", dueLbl: "Days before (−) / after the start", untilLbl: "Only that day, until UTC hour (optional)", untilShow: "until {h} UTC", tdTxt: "What to do",
     tdPost: "Announcement button", tdRank: "Ranking button",
     fIngame: "In-game guides", fIngameSm: "(one box = one chat message; the game limits message length, so keep long guides in several boxes)", addIg: "+ Message", igTitle: "Title", igText: "Text",
     del: "Delete event", cancel: "Cancel", save: "💾 Save",
@@ -1284,7 +1284,7 @@ const T = {
     fEmoji: "圖示", fName: "名稱", fFixed: "有固定週期",
     fStart: "第一天（UTC）", fEvery: "每幾天一次", fDays: "持續幾天",
     fNote: "備註", fNoteSm: "（例如時間，會顯示在清單上）", fGuide: "網站上的攻略", noGuide: "— 無 —",
-    fTodo: "幹部待辦事項", addTodo: "+ 待辦事項", dueLbl: "開始前（−）／後第幾天", untilLbl: "只在當天顯示，到 UTC 幾點（可空白）", untilShow: "到 UTC {h}", tdTxt: "要做的事",
+    fTodo: "幹部待辦事項", addTodo: "+ 待辦事項", editTodo: "編輯待辦", dueLbl: "開始前（−）／後第幾天", untilLbl: "只在當天顯示，到 UTC 幾點（可空白）", untilShow: "到 UTC {h}", tdTxt: "要做的事",
     tdPost: "顯示「寫公告」按鈕", tdRank: "顯示「Ranking」按鈕",
     fIngame: "遊戲內指南", fIngameSm: "（一格 = 一則聊天訊息；遊戲有字數限制，長的指南請分成好幾格）", addIg: "+ 訊息", igTitle: "標題", igText: "內容",
     del: "刪除活動", cancel: "取消", save: "💾 儲存",
@@ -1446,7 +1446,7 @@ function render() {
       <div style="flex:1;min-width:0">
         <div class="txt"><b>${esc(evName(r.k))}</b> <span class="when">· ${esc(when)}</span></div>
         ${list.map(({ r: ir, td, due, id }) => `<label class="task${store.done[id] ? " done" : ""}"><input type="checkbox" data-id="${esc(id)}" ${store.done[id] ? "checked" : ""}><div><div>${rr.length > 1 ? `<b>${esc(fmt(ir.st))}</b> · ` : ""}${localTimes(esc(txt(td)), lang)}</div><div class="when">⏰ ${esc(fmt(due))}${td.until != null && td.until !== "" ? ` · ${esc(tr("untilShow", { h: String(+td.until).padStart(2, "0") + ":00" }))}` : ""}${due < today && !store.done[id] ? ` <b class="warn">${esc(tr("late"))}</b>` : ""}</div></div></label>`).join("")}
-        <div class="acts">${list.some((x) => x.td.post) ? `<a class="btn small" href="#post">${esc(tr("toPost"))}</a>` : ""}${list.some((x) => x.td.ranking) ? `<a class="btn small" href="#ranking">${esc(tr("toRanking"))}</a>` : ""}${e.guide ? `<a class="btn small" href="./#/${lang === "zh" ? "zh" : "en"}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}${(e.ingame || []).length ? `<button type="button" class="btn small" data-open="${esc(r.k)}">📋 ${esc(tr("fIngame"))}</button>` : ""}</div>
+        <div class="acts"><button type="button" class="btn small" data-edtodo="${esc(r.k)}">✏️ ${esc(tr("editTodo"))}</button>${list.some((x) => x.td.post) ? `<a class="btn small" href="#post">${esc(tr("toPost"))}</a>` : ""}${list.some((x) => x.td.ranking) ? `<a class="btn small" href="#ranking">${esc(tr("toRanking"))}</a>` : ""}${e.guide ? `<a class="btn small" href="./#/${lang === "zh" ? "zh" : "en"}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}${(e.ingame || []).length ? `<button type="button" class="btn small" data-open="${esc(r.k)}">📋 ${esc(tr("fIngame"))}</button>` : ""}</div>
       </div>
     </div>`; }).join("") : `<div class="none">${esc(tr("noTodo"))}</div>`;
   $("todos").querySelectorAll("input[type=checkbox]").forEach((cb) => cb.onchange = () => {
@@ -1533,6 +1533,8 @@ ROOT.addEventListener("click", (ev) => {
   const c = ev.target.closest("[data-copy]"); if (c) { ev.preventDefault(); const [id, i] = c.dataset.copy.split(":"); return copyText(byId(id).ingame[+i].text, c); }
   const ed = ev.target.closest("[data-edit]"); if (ed) { ev.preventDefault(); return openEditor(ed.dataset.edit); }
   const ie = ev.target.closest("[data-igedit]"); if (ie) { ev.preventDefault(); return igInline(ie); }
+  const et = ev.target.closest("[data-edtodo]"); if (et) { ev.preventDefault(); openEditor(et.dataset.edtodo);   // straight to the action items of that event
+    requestAnimationFrame(() => { const l = $("edTodos").previousElementSibling || $("edTodos"); l.scrollIntoView({ block: "start" }); }); return; }
 });
 
 /* edit one in-game message right in the list */
@@ -1555,7 +1557,7 @@ let editing = null;   // id of the event being edited, or null for a new one
 function todoRow(td = {}) {
   return `<div class="sub todo-ed">
     <div class="row"><label class="due">${esc(tr("dueLbl"))} <input class="inp" type="number" data-k="due" value="${esc(td.due ?? 0)}"></label><label class="due">${esc(tr("untilLbl"))} <input class="inp" type="number" min="1" max="24" data-k="until" value="${esc(td.until ?? "")}" style="width:60px"></label><button type="button" class="btn small" data-rm>${esc(tr("remove"))}</button></div>
-    <input class="inp" data-k="txt" placeholder="${esc(tr("tdTxt"))}" value="${esc(td[lang] || td[lang === "zh" ? "en" : "zh"] || "")}" data-other="${esc(td[lang === "zh" ? "en" : "zh"] || "")}" data-had="${td[lang] ? 1 : 0}" style="margin-top:6px">
+    <textarea class="inp" data-k="txt" rows="2" placeholder="${esc(tr("tdTxt"))}" data-orig="${esc(td[lang] || td[lang === "zh" ? "en" : "zh"] || "")}" data-other="${esc(td[lang === "zh" ? "en" : "zh"] || "")}" data-had="${td[lang] ? 1 : 0}" style="margin-top:6px;width:100%;min-height:0;resize:vertical">${esc(td[lang] || td[lang === "zh" ? "en" : "zh"] || "")}</textarea>
     <div class="row" style="justify-content:flex-start;font-size:13px;margin-top:6px"><label><input type="checkbox" data-k="post"${td.post ? " checked" : ""}> ${esc(tr("tdPost"))}</label><label><input type="checkbox" data-k="ranking"${td.ranking ? " checked" : ""}> ${esc(tr("tdRank"))}</label></div>
   </div>`;
 }
@@ -1614,7 +1616,8 @@ function readEditor() {
   e.todo = [...ROOT.querySelectorAll("#edTodos .todo-ed")].map((r) => {
     const g = (k) => r.querySelector(`[data-k="${k}"]`);
     const t = g("txt"), v = t.value.trim();
-    const o = { due: Math.round(+g("due").value || 0), [lang]: v, [other]: t.dataset.other || v };
+    const o = { due: Math.round(+g("due").value || 0), [lang]: v };
+    if (v === (t.dataset.orig || "") && t.dataset.other) o[other] = t.dataset.other;   // edited → the other language just shows this text (no translation needed)
     if (g("post").checked) o.post = 1; if (g("ranking").checked) o.ranking = 1;
     const u = parseInt(g("until").value, 10); if (u >= 1 && u <= 24) o.until = u;
     return o;
