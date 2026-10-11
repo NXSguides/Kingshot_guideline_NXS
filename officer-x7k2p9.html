@@ -438,6 +438,21 @@
   #pg-map .pl-tbl th { color: var(--text-muted); font-weight: 600; font-size: 12px; }
   #pg-map .pl-tbl td.n { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
   #pg-map .pl-tbl td.up { color: #2f8a4e; }
+  #pg-bt .bt-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  #pg-bt .bt-grid label { display: grid; gap: 4px; font-size: 13px; }
+  #pg-bt .bt-grid .inp { width: 100%; }
+  #pg-bt .bt-set { display: grid; gap: 8px; font-size: 13.5px; }
+  #pg-bt .bt-set > div { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
+  #pg-bt .bt-set .inp { display: inline-block; width: 110px !important; padding: 4px 6px; margin: 0; }
+  #pg-bt .bt-set .inp.r { width: 54px !important; }
+  #pg-bt .bt-tbl { width: 100%; border-collapse: collapse; font-size: 13px; }
+  #pg-bt .bt-tbl th, #pg-bt .bt-tbl td { padding: 6px 5px; border-bottom: 1px solid var(--rule); text-align: right; font-variant-numeric: tabular-nums; vertical-align: top; }
+  #pg-bt .bt-tbl th:first-child { text-align: left; font-weight: 600; min-width: 6.5em; }
+  @media (max-width: 480px) { #pg-bt .bt-tbl th, #pg-bt .bt-tbl td { padding: 6px 3px; } }
+  #pg-bt .bt-tbl thead th { color: var(--text-muted); font-size: 12px; font-weight: 600; }
+  #pg-bt .bt-tbl tr.home td, #pg-bt .bt-tbl tr.home th { color: var(--text-muted); }
+  #pg-bt .bt-warn { color: #c0473a; font-size: 12px; font-weight: 600; }
+  #pg-bt .bt-ok { color: #2f8a4e; font-size: 12px; font-weight: 600; }
   #pg-map .km-tm { font-size: 13px; display: grid; gap: 4px; margin-top: 2px; }
   #pg-map .km-tmin { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
   #pg-map .km-tmin input, #pg-map .pl-cyc input { width: 42px; padding: 3px 4px; border: 1px solid var(--rule); border-radius: 6px; background: var(--panel-2); color: var(--text); font: inherit; font-size: 13px; }
@@ -458,6 +473,7 @@
     <a href="#post" data-tab="post">📢 Post</a>
     <a href="#watch" data-tab="watch">🕵️ Watch</a>
     <a href="#scout" data-tab="scout">🔭 Scout</a>
+    <a href="#bt" data-tab="bt">🐻 Bear calc</a>
     <a href="#views" data-tab="views">📈 Views</a>
   </nav>
   <div id="gate" class="card" hidden style="max-width:360px;margin:24px auto">
@@ -820,6 +836,28 @@
     <div id="sc_kingdoms"></div>
   </div>
 </section>
+<section class="pg" id="pg-bt" hidden>
+  <div class="top"><div><h1 id="bt_title"></h1><div class="muted" id="bt_sub"></div></div></div>
+  <div class="card">
+    <h3 id="bt_hTroops"></h3>
+    <div class="bt-grid">
+      <label><span id="bt_lInf"></span><input class="inp" id="bt_inf" type="number" inputmode="numeric" min="0"></label>
+      <label><span id="bt_lCav"></span><input class="inp" id="bt_cav" type="number" inputmode="numeric" min="0"></label>
+      <label><span id="bt_lArc"></span><input class="inp" id="bt_arc" type="number" inputmode="numeric" min="0"></label>
+    </div>
+    <h3 id="bt_hSet" style="margin-top:14px"></h3>
+    <div class="bt-set">
+      <div><span id="bt_lRally"></span> <input class="inp" id="bt_rally" type="number" inputmode="numeric" min="0">
+        · <span id="bt_lRatio"></span> <input class="inp r" id="bt_r0" type="number" min="0">:<input class="inp r" id="bt_r1" type="number" min="0">:<input class="inp r" id="bt_r2" type="number" min="0"></div>
+      <div><span id="bt_lMarch"></span> <input class="inp" id="bt_march" type="number" inputmode="numeric" min="0"></div>
+      <div><span id="bt_lMain"></span> <input class="inp r" id="bt_m0" type="number" min="0">:<input class="inp r" id="bt_m1" type="number" min="0">:<input class="inp r" id="bt_m2" type="number" min="0"></div>
+      <div><span id="bt_lRest"></span> <input class="inp r" id="bt_rest" type="number" min="0" max="6"> · <span id="bt_lMin"></span> <input class="inp r" id="bt_min" type="number" min="0" max="30">%</div>
+    </div>
+    <div class="muted" id="bt_saveNote" style="font-size:12px;margin-top:8px"></div>
+  </div>
+  <div class="card" id="bt_out"></div>
+  <div class="card" style="font-size:13px"><h3 id="bt_hHow"></h3><ul id="bt_how" style="margin:6px 0 0;padding-left:20px"></ul></div>
+</section>
 <section class="pg" id="pg-views" hidden>
   <div class="top">
     <div>
@@ -888,7 +926,7 @@ const officerLang = () => { try { const v = localStorage.getItem(OFFICER_LANG); 
 const setOfficerLang = (v) => { try { localStorage.setItem(OFFICER_LANG, v); } catch (e) {} };
 const OFFICER = { lang: officerLang() || ((navigator.language || "").startsWith("zh") ? "zh" : "en"), token: null, pw: null };
 const OFFICER_PAGES = {};
-const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map"];
+const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "bt"];
 const inited = {};
 try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
 const SH = { en: { home: "Home", pw: "🔒 Officer password", remember: "Remember on this device", unlock: "Unlock", wrong: "Wrong password", loading: "Loading…" },
@@ -940,7 +978,7 @@ function loadScripts(list) {
   }))), Promise.resolve());
 }
 /* tabs: #events / #ranking / #post / #watch (the part after "?" is kept for the page) */
-function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|scout|views|map)/); return m ? m[1] : "events"; }
+function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|scout|views|map|bt)/); return m ? m[1] : "events"; }
 async function showTab() {
   const k = currentTab();
   document.querySelectorAll(".tabs a").forEach((a) => a.classList.toggle("on", a.dataset.tab === k));
@@ -4079,6 +4117,122 @@ OFFICER_PAGES.map = { init, onShow, applyTexts, setLang };
 })();
 
 officerGate();
+/* ===== 🐻 Bear calc: how to split your troops between your Bear Hunt rally and your marches.
+   Only for this device (saved in this browser, nothing is uploaded). ===== */
+(function () {
+const $ = (id) => document.getElementById(id);
+const esc = (x) => String(x).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const LS = "nxs-bt-v1";
+const DEF = { troops: ["", "", ""], rally: 131850, rallyRatio: [20, 40, 40], march: 90000, mainRatio: [10, 10, 80], rest: 2, minPct: 5 };
+let S = { ...DEF }; try { S = { ...DEF, ...(JSON.parse(localStorage.getItem(LS)) || {}) }; } catch (e) {}
+let lang = OFFICER.lang;
+const TX = {
+  en: { title: "🐻 Bear Hunt formations", sub: "Splits your troops between your rally and your marches. Only on this device — nothing is uploaded.",
+    hTroops: "Your troops (as in game)", inf: "Infantry", cav: "Cavalry", arc: "Archers", hSet: "Settings",
+    rally: "Rally capacity", ratio: "ratio", march: "Troops per march", main: "March 1 ratio", rest: "Other marches (no hero, share the rest)", min: "each type at least",
+    saveNote: "Everything you type is remembered on this device.",
+    enough: "✅ Enough troops to fill every formation — {x} troops stay home.", notEnough: "⚠️ Not enough to fill everything: you have {h}, a full set needs {n} ({d} short). The rally and March 1 are filled first; the other marches share what is left.",
+    fRally: "👑 Rally (you lead)", fMain: "March 1", fRest: "March {n} · no hero", total: "Total", full: "full", short: "{n} short", topped: "ratio changed — not enough of one type", home: "🏠 Stay home",
+    noArc: "⚠️ This march has no archers.", empty: "Type your troops above.", copy: "Copy", copied: "Copied ✓",
+    hHow: "How it decides",
+    how: ["Order: rally first (full, your ratio), then March 1 (full, its ratio), then the other marches share what is left evenly.",
+      "Every other march keeps at least the % you set of each type — so none of them is ever without archers (archers are the damage).",
+      "If the other marches would go over the march size, they send fewer infantry first, then fewer cavalry — archers stay in.",
+      "If a type runs out for the rally or March 1, the gap is filled with archers, then cavalry, then infantry (marked \"ratio changed\").",
+      "Not enough troops: the rally and March 1 stay full; the other marches are smaller."] },
+  zh: { title: "🐻 狩獵巨熊部隊編組", sub: "把你的士兵分配到自己發的集結和其他隊伍。只存在這台裝置，不會上傳。",
+    hTroops: "你的士兵（照遊戲填）", inf: "步兵", cav: "騎兵", arc: "弓兵", hSet: "設定",
+    rally: "集結人數上限", ratio: "比例", march: "每隊人數", main: "隊伍 1 比例", rest: "其他隊伍（沒有英雄，平分剩下的）", min: "每種至少",
+    saveNote: "輸入的數字會記在這台裝置。",
+    enough: "✅ 士兵夠，每一隊都能滿 — 會有 {x} 個留在家。", notEnough: "⚠️ 士兵不夠全部填滿：你有 {h}，全部滿需要 {n}（差 {d}）。會先把集結和隊伍 1 填滿，其他隊伍平分剩下的。",
+    fRally: "👑 集結（你發的）", fMain: "隊伍 1", fRest: "隊伍 {n}・沒有英雄", total: "合計", full: "滿", short: "差 {n}", topped: "比例有變 — 某種兵不夠", home: "🏠 留在家",
+    noArc: "⚠️ 這隊沒有弓兵。", empty: "先在上面填你的士兵數。", copy: "複製", copied: "已複製 ✓",
+    hHow: "怎麼分配的",
+    how: ["順序：先填滿集結（照你的比例），再填滿隊伍 1（照它的比例），其他隊伍平分剩下的。",
+      "其他隊伍每種兵至少留你設定的百分比，所以每一隊都一定有弓兵（弓兵是傷害來源）。",
+      "其他隊伍如果超過每隊人數，先少帶步兵、再少帶騎兵，弓兵保留。",
+      "集結或隊伍 1 的某種兵不夠時，用弓兵、騎兵、步兵的順序補滿（會標示「比例有變」）。",
+      "士兵不夠時：集結和隊伍 1 維持滿編，其他隊伍會比較少。"] },
+};
+const tr = (k, v = {}) => { const s = (TX[lang] || TX.en)[k]; return typeof s === "string" ? s.replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m) : s; };
+const fmtN = (n) => Number(n).toLocaleString("en-US");
+
+function plan(o) {
+  const L = o.march, k = o.rest, per = Math.floor(L * Math.max(0, o.minPct || 0) / 100);
+  const pool = o.troops.map((n) => Math.max(0, Math.floor(+n || 0)));
+  const res = pool.map((n) => Math.min(n, k * per));            // kept back so every other march has every type
+  const avail = pool.map((n, i) => n - res[i]);
+  const fixed = (cap, ratio) => {
+    const s = ratio.reduce((a, b) => a + b, 0) || 1;
+    const want = ratio.map((r) => Math.floor(cap * r / s)); want[2] += cap - want.reduce((a, b) => a + b, 0);
+    const take = want.map((w, i) => Math.min(w, avail[i]));
+    let gap = cap - take.reduce((a, b) => a + b, 0), topped = false;
+    for (const i of [2, 1, 0]) { if (gap <= 0) break; const add = Math.min(gap, avail[i] - take[i]); if (add > 0) { take[i] += add; gap -= add; topped = true; } }
+    take.forEach((n, i) => (avail[i] -= n));
+    return { t: take, cap, topped, short: gap };
+  };
+  const rally = fixed(o.rally, o.rallyRatio), main = fixed(L, o.mainRatio);
+  const left = avail.map((n, i) => n + res[i]);
+  const share = left.map((n) => (k ? Math.floor(n / k) : 0)), t = share.slice();
+  let over = t.reduce((a, b) => a + b, 0) - L;
+  for (const i of [0, 1, 2]) { if (over <= 0) break; const cut = Math.min(over, t[i] - Math.min(share[i], per)); if (cut > 0) { t[i] -= cut; over -= cut; } }
+  const rest = [];
+  for (let j = 0; j < k; j++) { t.forEach((n, i) => (left[i] -= n)); rest.push({ t: t.slice(), cap: L, short: L - t.reduce((a, b) => a + b, 0) }); }
+  return { rally, main, rest, home: left, need: o.rally + L * (1 + k), have: pool.reduce((a, b) => a + b, 0) };
+}
+
+function read() {
+  const n = (id, d) => { const v = $(id).value.trim(); return v === "" ? d : Math.max(0, Number(v) || 0); };
+  S.troops = ["bt_inf", "bt_cav", "bt_arc"].map((id) => $(id).value.trim());
+  S.rally = n("bt_rally", DEF.rally); S.march = n("bt_march", DEF.march);
+  S.rallyRatio = ["bt_r0", "bt_r1", "bt_r2"].map((id, i) => n(id, DEF.rallyRatio[i]));
+  S.mainRatio = ["bt_m0", "bt_m1", "bt_m2"].map((id, i) => n(id, DEF.mainRatio[i]));
+  S.rest = Math.min(6, Math.round(n("bt_rest", DEF.rest))); S.minPct = Math.min(30, n("bt_min", DEF.minPct));
+  try { localStorage.setItem(LS, JSON.stringify(S)); } catch (e) {}
+}
+function fill() {
+  ["bt_inf", "bt_cav", "bt_arc"].forEach((id, i) => ($(id).value = S.troops[i] ?? ""));
+  $("bt_rally").value = S.rally; $("bt_march").value = S.march; $("bt_rest").value = S.rest; $("bt_min").value = S.minPct;
+  ["bt_r0", "bt_r1", "bt_r2"].forEach((id, i) => ($(id).value = S.rallyRatio[i]));
+  ["bt_m0", "bt_m1", "bt_m2"].forEach((id, i) => ($(id).value = S.mainRatio[i]));
+}
+function render() {
+  const out = $("bt_out");
+  if (!S.troops.some((v) => +v > 0)) { out.innerHTML = `<div class="muted">${esc(tr("empty"))}</div>`; return; }
+  const r = plan(S);
+  const pct = (t) => { const s = t[0] + t[1] + t[2]; return s ? t.map((n) => Math.round(n * 100 / s)).join(":") : "—"; };
+  const row = (name, f) => { const s = f.t[0] + f.t[1] + f.t[2];
+    return `<tr><th>${esc(name)}<div class="muted" style="font-size:11.5px;font-weight:400">${pct(f.t)}</div>${f.topped ? `<div class="bt-warn">${esc(tr("topped"))}</div>` : ""}${!f.t[2] && s ? `<div class="bt-warn">${esc(tr("noArc"))}</div>` : ""}</th>
+      ${f.t.map((n) => `<td>${fmtN(n)}</td>`).join("")}<td><b>${fmtN(s)}</b><div class="${f.short > 0 ? "bt-warn" : "bt-ok"}">${f.short > 0 ? esc(tr("short", { n: fmtN(f.short) })) : "✓ " + esc(tr("full"))}</div></td>
+</tr>`; };
+  const homeN = r.home.reduce((a, b) => a + b, 0);
+  const lines = [[tr("fRally"), r.rally], [tr("fMain"), r.main], ...r.rest.map((f, i) => [tr("fRest", { n: i + 2 }), f])];
+  out.innerHTML = `<div class="${r.have >= r.need ? "bt-ok" : "bt-warn"}" style="margin-bottom:8px">${esc(r.have >= r.need ? tr("enough", { x: fmtN(homeN) }) : tr("notEnough", { h: fmtN(r.have), n: fmtN(r.need), d: fmtN(r.need - r.have) }))}</div>
+    <div class="tbl-wrap"><table class="bt-tbl"><thead><tr><th></th><th>${esc(tr("inf"))}</th><th>${esc(tr("cav"))}</th><th>${esc(tr("arc"))}</th><th>${esc(tr("total"))}</th></tr></thead><tbody>
+    ${lines.map(([n, f]) => row(n, f)).join("")}
+    <tr class="home"><th>${esc(tr("home"))}</th>${r.home.map((n) => `<td>${fmtN(n)}</td>`).join("")}<td>${fmtN(homeN)}</td></tr>
+    </tbody></table></div>
+    <button type="button" class="btn small" id="bt_copy" style="margin-top:10px">📋 ${esc(tr("copy"))}</button>`;
+  $("bt_copy").onclick = async () => {
+    const txt = lines.map(([n, f]) => `${n}: ${tr("inf")} ${fmtN(f.t[0])} / ${tr("cav")} ${fmtN(f.t[1])} / ${tr("arc")} ${fmtN(f.t[2])}`).join("\n");
+    try { await navigator.clipboard.writeText(txt); $("bt_copy").textContent = tr("copied"); setTimeout(() => { if ($("bt_copy")) $("bt_copy").textContent = "📋 " + tr("copy"); }, 1500); } catch (e) {}
+  };
+}
+function applyTexts() {
+  const set = (id, k) => { $(id).textContent = tr(k); };
+  set("bt_title", "title"); set("bt_sub", "sub"); set("bt_hTroops", "hTroops"); set("bt_hSet", "hSet"); set("bt_hHow", "hHow");
+  set("bt_lInf", "inf"); set("bt_lCav", "cav"); set("bt_lArc", "arc"); set("bt_lRally", "rally"); set("bt_lRatio", "ratio");
+  set("bt_lMarch", "march"); set("bt_lMain", "main"); set("bt_lRest", "rest"); set("bt_lMin", "min"); set("bt_saveNote", "saveNote");
+  $("bt_how").innerHTML = tr("how").map((x) => `<li>${esc(x)}</li>`).join("");
+  render();
+}
+function init() {
+  fill(); applyTexts();
+  $("pg-bt").addEventListener("input", (e) => { if (e.target.matches("input")) { read(); render(); } });
+}
+function setLang(l) { lang = l; applyTexts(); }
+OFFICER_PAGES.bt = { init, applyTexts, setLang };
+})();
 </script>
 <script src="js/assistant.js"></script>
 </body>
