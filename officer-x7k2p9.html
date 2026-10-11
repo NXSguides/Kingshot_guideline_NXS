@@ -113,7 +113,12 @@
   #pg-events .ev.bar.has-todo { opacity: 1; border-color: var(--accent); border-width: 2px; }
   #pg-events .ev.bar.cont { border-top-left-radius: 0; border-bottom-left-radius: 0; border-left-style: dashed; }
   #pg-events .ev.bar.more { border-top-right-radius: 0; border-bottom-right-radius: 0; border-right-style: dashed; }
-  #pg-events .todo.flash { animation: flash 1.6s; }
+  #pg-events .todo.flash, #pg-events .ms-row.flash { animation: flash 1.6s; }
+  #pg-events .ev.ms { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11.5px; font-weight: 700; padding: 2px 6px;
+    border-radius: 6px; border: 1px solid #b8860b; background: color-mix(in srgb, #f2c33d 30%, var(--panel)); color: var(--text); cursor: pointer; }
+  #pg-events .ms-list { margin-top: 8px; font-size: 13px; }
+  #pg-events .ms-list summary { cursor: pointer; font-weight: 600; }
+  #pg-events .ms-row { padding: 6px 4px; border-bottom: 1px solid var(--rule); border-radius: 6px; }
   #pg-events .day { display: grid; grid-template-columns: 64px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--rule); }
   #pg-events .day:last-child { border-bottom: 0; }
   #pg-events .day.today { background: color-mix(in srgb, var(--accent) 10%, transparent); border-radius: 8px; padding-inline: 6px; }
@@ -496,6 +501,7 @@
       <h2 data-t="weekTitle"></h2>
       <div id="cal" class="cal"></div>
       <div class="muted msg" data-t="calNote"></div>
+      <details class="ms-list" id="msList"><summary></summary><div></div></details>
     </div>
 
     <div class="card">
@@ -1295,7 +1301,7 @@ const T = {
     fEmoji: "Emoji", fName: "Name", fFixed: "Repeats on a fixed schedule",
     fStart: "First day (UTC)", fEvery: "Repeats every … days", fDays: "Lasts … days",
     fNote: "Note", fNoteSm: "(e.g. times — shown in the list)", fGuide: "Guide on the site", noGuide: "— none —",
-    fTodo: "Action items for officers", addTodo: "+ Action item", editTodo: "Edit items", dueLbl: "Days before (−) / after the start", untilLbl: "Only that day, until UTC hour (optional)", untilShow: "until {h} UTC", tdTxt: "What to do",
+    fTodo: "Action items for officers", addTodo: "+ Action item", editTodo: "Edit items", msTitle: "Kingdom #2189 milestones", msNext: "next", msIn: "in {n} days", dueLbl: "Days before (−) / after the start", untilLbl: "Only that day, until UTC hour (optional)", untilShow: "until {h} UTC", tdTxt: "What to do",
     tdPost: "Announcement button", tdRank: "Ranking button",
     fIngame: "In-game guides", fIngameSm: "(one box = one chat message; the game limits message length, so keep long guides in several boxes)", addIg: "+ Message", igTitle: "Title", igText: "Text",
     del: "Delete event", cancel: "Cancel", save: "💾 Save",
@@ -1323,7 +1329,7 @@ const T = {
     fEmoji: "圖示", fName: "名稱", fFixed: "有固定週期",
     fStart: "第一天（UTC）", fEvery: "每幾天一次", fDays: "持續幾天",
     fNote: "備註", fNoteSm: "（例如時間，會顯示在清單上）", fGuide: "網站上的攻略", noGuide: "— 無 —",
-    fTodo: "幹部待辦事項", addTodo: "+ 待辦事項", editTodo: "編輯待辦", dueLbl: "開始前（−）／後第幾天", untilLbl: "只在當天顯示，到 UTC 幾點（可空白）", untilShow: "到 UTC {h}", tdTxt: "要做的事",
+    fTodo: "幹部待辦事項", addTodo: "+ 待辦事項", editTodo: "編輯待辦", msTitle: "#2189 王國里程碑", msNext: "下一個", msIn: "{n} 天後", dueLbl: "開始前（−）／後第幾天", untilLbl: "只在當天顯示，到 UTC 幾點（可空白）", untilShow: "到 UTC {h}", tdTxt: "要做的事",
     tdPost: "顯示「寫公告」按鈕", tdRank: "顯示「Ranking」按鈕",
     fIngame: "遊戲內指南", fIngameSm: "（一格 = 一則聊天訊息；遊戲有字數限制，長的指南請分成好幾格）", addIg: "+ 訊息", igTitle: "標題", igText: "內容",
     del: "刪除活動", cancel: "取消", save: "💾 儲存",
@@ -1500,8 +1506,32 @@ function render() {
 
 /* ===== calendar: one continuous strip of days (2 weeks back, 10 ahead), scrolls sideways; one bar per event run ===== */
 const CAL_BACK = 14, CAL_AHEAD = 70, COLW = 44;
+/* 👑 Kingdom #2189 milestones (server-age unlocks, dates in UTC; English only). Shown as one row on the calendar strip. */
+const MILESTONES = [
+  ["2026-09-28", ["Gen 3 Heroes & Pets", "Masters unlocked (Valora, Pan, Roman)", "Gov Gear Material Exchange"]],
+  ["2026-11-09", ["Truegold 5", "Gov Charm Material Exchange", "4th Master (Cassia)"]],
+  ["2026-11-30", ["Governor Charm cap raised (Lv.12+)"]],
+  ["2026-12-21", ["Gen 4 Heroes (Alcar, Margot, Rosa)", "Gen 4 Pets", "5th & 6th Masters (Guinevere, Wilson)"]],
+  ["2027-01-18", ["War Academy (T11 troops)"]],
+  ["2027-03-15", ["Gen 5 Heroes (Long Fei, Thrud, Vivian)", "Gen 5 Pets", "7th & 8th Masters (Isnor, Aena)"]],
+  ["2027-04-26", ["Truegold 8"]],
+  ["2027-06-07", ["Gen 6 Heroes (Triton, Sophia, Yang)", "Gen 6 Pets"]],
+  ["2027-08-01", ["First Flamedragon Tyrant Competition"]],
+  ["2027-08-30", ["Gen 7 Heroes (Charles, Ava, Wee & Woo)", "Gen 7 Pets"]],
+  ["2027-10-11", ["Advanced Truegold Research"]],
+  ["2027-11-22", ["Gen 8 Heroes"]],
+  ["2028-02-14", ["Gen 9 Heroes (predicted)"]],
+  ["2028-03-27", ["Truegold 10"]],
+].map(([d, l]) => ({ t: dayMs(d), l }));
+function renderMilestones() {
+  const box = $("msList"); if (!box) return;
+  const today = utcDay(Date.now()), next = MILESTONES.filter((m) => m.t >= today);
+  box.querySelector("summary").textContent = "👑 " + tr("msTitle") + (next[0] ? ` · ${tr("msNext")}: ${fmt(next[0].t)} ${next[0].l[0]}${next[0].l.length > 1 ? " …" : ""}` : "");
+  box.querySelector("div").innerHTML = next.map((m) => `<div class="ms-row" data-ms="${m.t}"><b>${new Date(m.t).getUTCFullYear() !== new Date(today).getUTCFullYear() ? new Date(m.t).getUTCFullYear() + "/" : ""}${esc(fmt(m.t))}</b> <span class="muted">· ${esc(tr("msIn", { n: Math.round((m.t - today) / DAY) }))}</span><div>${m.l.map(esc).join(" · ")}</div></div>`).join("");
+}
 function renderCal() {
   const cal = $("cal"); if (!cal || !LIST) return;
+  renderMilestones();
   const today = utcDay(Date.now()), from = today - CAL_BACK * DAY, to = today + CAL_AHEAD * DAY, n = CAL_BACK + CAL_AHEAD;
   const keepScroll = cal.firstElementChild ? cal.firstElementChild.scrollLeft : null;
   const col = (t) => Math.max(0, Math.min(n, Math.round((t - from) / DAY)));
@@ -1518,7 +1548,11 @@ function renderCal() {
     L.end = b + 1; L.k = r.k;
     const now = r.st <= today && today < r.en, todo = openTodo(r);
     L.bars.push(`<span class="ev bar${now ? " now" : ""}${todo ? " has-todo" : ""}${r.st < from ? " cont" : ""}${r.en > to ? " more" : ""}" style="grid-column:${a + 1} / ${b + 1}" data-cal="${esc(r.k)}" data-st="${r.st}" data-todo="${todo ? 1 : 0}" title="${esc(fmt(r.st))} – ${esc(fmt(r.en - DAY))}">${todo ? "✅ " : ""}${esc(evName(r.k))}</span>`); }
-  const rows = lanes.map((l) => `<div class="cr">${l.bars.join("")}</div>`).join("");
+  // milestone row first: a marker on its day, wide enough for a short name (up to the next milestone)
+  const ms = MILESTONES.filter((m) => m.t >= from && m.t < to);
+  const msRow = ms.length ? `<div class="cr ms">${ms.map((m, i) => { const a = col(m.t), nx = ms[i + 1] ? col(ms[i + 1].t) : n, b = Math.min(nx, a + 4, n);
+    return `<span class="ev ms" style="grid-column:${a + 1} / ${Math.max(a + 1, b) + (b === a ? 1 : 0)}" data-ms="${m.t}" title="${esc(fmt(m.t) + ": " + m.l.join(" · "))}">👑 ${esc(m.l.length > 1 ? m.l[m.l.length - 1].replace(/ \(.*\)$/, "") + " +" + (m.l.length - 1) : m.l[0])}</span>`; }).join("")}</div>` : "";
+  const rows = msRow + lanes.map((l) => `<div class="cr">${l.bars.join("")}</div>`).join("");
   cal.innerHTML = `<div class="cal-scroll"><div class="cal-grid" style="--n:${n};--w:${COLW}px"><div class="cal-head">${head}</div>${rows}</div></div>`;
   const sc = cal.firstElementChild;
   sc.scrollLeft = keepScroll !== null ? keepScroll : (CAL_BACK - 1) * COLW;
@@ -1527,6 +1561,10 @@ function renderCal() {
   const pinNames = () => { const L = sc.getBoundingClientRect().left;
     for (const b of bars) { const off = L - b.getBoundingClientRect().left; b.style.paddingLeft = off > 0 ? Math.max(0, Math.min(off, b.offsetWidth - 60)) + 8 + "px" : ""; } };
   sc.addEventListener("scroll", pinNames, { passive: true }); pinNames();
+  cal.querySelectorAll("[data-ms]").forEach((b) => b.onclick = () => {   // open the milestone list at that day
+    const d = $("msList"); d.open = true; const r = d.querySelector(`.ms-row[data-ms="${b.dataset.ms}"]`);
+    if (r) { r.classList.remove("flash"); void r.offsetWidth; r.classList.add("flash"); r.scrollIntoView({ behavior: "smooth", block: "center" }); }
+  });
   cal.querySelectorAll("[data-cal]").forEach((b) => b.onclick = () => {
     const id = b.dataset.cal, st = Number(b.dataset.st);
     if (b.dataset.todo === "1") {
