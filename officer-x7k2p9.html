@@ -4366,6 +4366,7 @@ function applyTexts() {
    ["bt_hAuto", "hAuto"], ["bt_autoNote", "autoNote"], ["bt_lRR", "rr"], ["bt_lFix", "fix"], ["bt_lHero", "hero"], ["bt_lRest", "rest"], ["bt_lMin", "min"],
    ["bt_run", "run"], ["bt_add", "add"], ["bt_copy", "copy"], ["bt_hHow", "hHow"]].forEach(([id, k]) => set(id, k));
   $("bt_how").innerHTML = tr("how").map((x) => `<li>${esc(x)}</li>`).join("");
+  if ($("bt_autoMsg").textContent) $("bt_autoMsg").textContent = tr("ran");   // the "done" line follows the language button too
   renderForms(); renderFit();
 }
 function init() {
