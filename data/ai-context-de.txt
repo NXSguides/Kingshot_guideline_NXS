@@ -997,25 +997,6 @@ Offiziere verlangen oft eine feste Aufstellung – entweder eine genaue Truppenz
 Steps: 1. Tippe im Stadtbildschirm oben links auf dein Profilbild. 2. Tippe unten auf Schwadron. 3. Tippe in der Schwadronvorschau auf Trupp Formationen. 4. Tippe auf die Heldenkarten und wähle die Helden für diese Aufstellung. 5. Tippe auf Speichern. Fertig – beim nächsten Marsch oder Rally einfach diesen Slot wählen. Wenn eine ANZAHL vorgegeben ist: Tippe in jeder Truppenzeile auf die Zahl und gib die genaue Menge ein. Die Summe steht oben. Wenn nur ein VERHÄLTNIS vorgegeben ist: Tippe unten auf den Verhältnis-Button und gib die Prozente ein – das Spiel füllt die Truppen auf. Tippe auf Speichern, wähle den Slot und einen Namen (1–3 Zeichen). Dann wähle, WIE gespeichert wird: Anzahl → nach Truppenzahl speichern; Verhältnis → nach Truppenverhältnis speichern (passt sich deinen Truppen an). Tippe auf Bestätigen. Fertig – beim nächsten Marsch oder Rally einfach diesen Slot wählen.
 Hinweise: Das Schloss am letzten Slot heißt, er ist noch nicht freigeschaltet. „Gleichmäßig“ füllt alle drei Typen gleich, „Alle zurückziehen“ leert den Slot. Jeder Slot merkt sich eigene Helden und Truppen.
 
-### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-06 by Nia] ⚔️ KvK-Abkommen mit 2186 – 10. Okt.
-⚔️ KvK-Abkommen mit 2186 – 10. Okt.
-
-🏰 1. Stadt-Angriffe
-
-✅ Erlaubt:
-• 10:00–10:59 UTC
-• 30 Min. nach dem Ende von Schlacht um das Schloss
-
-🛑 Waffenstillstand – KEINE Angriffe:
-• Von 11:00 UTC an während der gesamten Schlacht um das Schloss, bis 30 Minuten nach dem Aktivieren des Schlossschilds.
-
-🔴 2. Rote Zone
-• KEINE Stadt-Angriffe in der Roten Zone zu JEDER Zeit.
-
-⚠️ 3. Verstöße
-• Üben Sie keine Vergeltung. Senden Sie eine Meldung an die Allianzleitung oder an den König, falls die Leitung nicht erreichbar ist.
-
 ### GAME TERMS (English = official de name)
 Construction = Bau
 Research = Forschung

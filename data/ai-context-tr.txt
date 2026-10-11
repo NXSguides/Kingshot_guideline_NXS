@@ -995,25 +995,6 @@ Subaylar sık sık sabit bir ekip ister: ya tam sayı (“tam 90.000”) ya da o
 Steps: 1. Şehir ekranında sol üstteki avatarına dokun. 2. Alttaki Ekip'e dokun. 3. Birlik Önizlemesi'nde Birlik Dizilişleri'ne dokun. 4. Kahraman kartlarına dokunup bu ekipteki kahramanları seç. 5. Kaydet'e dokun. Tamam — bir dahaki yürüyüşte veya toplanmada bu yuvayı seç. SAYI verildiyse: Her birlik satırındaki sayıya dokunup tam miktarı yaz. Toplam üstte görünür. Sadece ORAN verildiyse: Alttaki oran düğmesine dokunup yüzdeleri gir — oyun birlikleri senin için doldurur. Kaydet'e dokun, yuvayı ve adı (1–3 karakter) seç. Sonra NASIL kaydedileceğini seç: Sayı → Birlik Sayısına göre kaydet; Oran → Birlik Oranına göre kaydet (birliklerinle ölçeklenir). Onayla'ya dokun. Tamam — bir dahaki yürüyüşte veya toplanmada bu yuvayı seç.
 İpuçları: son yuvadaki kilit henüz açılmadığı anlamına gelir. “Eşit dağıt” üç türü eşit doldurur; “Tümünü geri çek” yuvayı boşaltır. Her yuva kendi kahraman ve birliklerini tutar.
 
-### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-06 by Nia] ⚔️ 2186 ile KvK Anlaşması – 10 Eki
-⚔️ 2186 ile KvK Anlaşması – 10 Eki
-
-🏰 1. Şehir Saldırıları
-
-✅ İzin verilen:
-• 10:00–10:59 UTC
-• Şato Savaşı bittikten 30 dakika sonra
-
-🛑 Ateşkes – Saldırı YASAK:
-• Saat 11:00 UTC'den itibaren tüm Şato Savaşı boyunca ve Şatonun kalkanı aktif edildikten sonraki 30 dakikaya kadar.
-
-🔴 2. Kırmızı Bölge
-• Kırmızı Bölge'de HİÇBİR zaman şehir saldırısı yapılamaz.
-
-⚠️ 3. İhlaller
-• Misilleme yapmayın. Raporu ittifak yönetimine veya yönetim uygun değilse Krala gönderin.
-
 ### GAME TERMS (English = official tr name)
 Construction = İnşaat
 Training = Eğitim

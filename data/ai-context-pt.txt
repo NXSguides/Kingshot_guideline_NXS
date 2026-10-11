@@ -995,25 +995,6 @@ Os oficiais costumam pedir um esquadrão fixo: uma quantidade exata (“exatamen
 Steps: 1. Na tela da cidade, toque no seu avatar (canto superior esquerdo). 2. Toque em Esquadrão embaixo. 3. Em Prévia das Tropas, toque em Formações das Tropas. 4. Toque nos cartões de herói e escolha os heróis deste esquadrão. 5. Toque em Salvar. Pronto — na próxima marcha ou reunião, é só escolher esse slot. Se foi dada uma QUANTIDADE: Toque no número de cada linha e digite a quantidade exata. O total aparece no topo. Se foi dada só uma PROPORÇÃO: Toque no botão de proporção embaixo e digite as porcentagens — o jogo preenche as tropas. Toque em Salvar, escolha o slot e um nome (1–3 caracteres). Depois escolha COMO salvar: Quantidade → salvar por quantidade de tropas; Proporção → salvar por proporção (acompanha suas tropas). Toque em Confirmar. Pronto — na próxima marcha ou reunião, é só escolher esse slot.
 Dicas: o cadeado no último slot significa que ainda não foi desbloqueado. “Igualar” preenche os três tipos por igual; “Retirar tudo” esvazia o slot. Cada slot guarda seus próprios heróis e tropas.
 
-### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-06 by Nia] ⚔️ Acordo de KvK com 2186 – 10 de out.
-⚔️ Acordo de KvK com 2186 – 10 de out.
-
-🏰 1. Ataques à Cidade
-
-✅ Permitido:
-• 10:00–10:59 UTC
-• 30 min após o término da Batalha do Castelo
-
-🛑 Cessa-fogo – SEM ataques:
-• Das 11:00 UTC durante toda a Batalha do Castelo, até 30 minutos após o escudo do Castelo ser ativado.
-
-🔴 2. Zona Vermelha
-• SEM ataques a cidades na Zona Vermelha em QUALQUER momento.
-
-⚠️ 3. Violações
-• Não revide. Envie um relatório para a liderança da aliança ou para o Rei se a liderança não estiver disponível.
-
 ### GAME TERMS (English = official pt name)
 Construction = Construção
 Training = Treinamento
