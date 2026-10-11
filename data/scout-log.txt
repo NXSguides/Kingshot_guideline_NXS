@@ -64,3 +64,6 @@ Kingdom 2186
 ✅ saved
 2026-10-11T06:57:56.464Z mode=requested kingdoms=-
 Nothing to scout (requested).
+2026-10-11T07:03:24.183Z mode=requested kingdoms=-
+removed #2186
+✅ saved
