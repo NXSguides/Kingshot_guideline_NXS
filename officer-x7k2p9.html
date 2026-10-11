@@ -851,7 +851,9 @@
         · <span id="bt_lRatio"></span> <input class="inp r" id="bt_r0" type="number" min="0">:<input class="inp r" id="bt_r1" type="number" min="0">:<input class="inp r" id="bt_r2" type="number" min="0"></div>
       <div><span id="bt_lMarch"></span> <input class="inp" id="bt_march" type="number" inputmode="numeric" min="0"></div>
       <div><span id="bt_lMain"></span> <input class="inp r" id="bt_m0" type="number" min="0">:<input class="inp r" id="bt_m1" type="number" min="0">:<input class="inp r" id="bt_m2" type="number" min="0"></div>
-      <div><span id="bt_lRest"></span> <input class="inp r" id="bt_rest" type="number" min="0" max="6"> · <span id="bt_lMin"></span> <input class="inp r" id="bt_min" type="number" min="0" max="30">%</div>
+      <div><span id="bt_lHero"></span> <input class="inp r" id="bt_hero" type="number" min="0" max="6"></div>
+      <div><span id="bt_lRest"></span> <input class="inp r" id="bt_rest" type="number" min="0" max="6"></div>
+      <div><span id="bt_lMin"></span> <input class="inp r" id="bt_min" type="number" min="0" max="30">%</div>
     </div>
     <div class="muted" id="bt_saveNote" style="font-size:12px;margin-top:8px"></div>
   </div>
@@ -4123,62 +4125,80 @@ officerGate();
 const $ = (id) => document.getElementById(id);
 const esc = (x) => String(x).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const LS = "nxs-bt-v1";
-const DEF = { troops: ["", "", ""], rally: 131850, rallyRatio: [20, 40, 40], march: 90000, mainRatio: [10, 10, 80], rest: 2, minPct: 5 };
+const DEF = { troops: ["", "", ""], rally: 131850, rallyRatio: [20, 40, 40], march: 90000, mainRatio: [10, 10, 80], hero: 2, noHero: 2, minPct: 5 };
 let S = { ...DEF }; try { S = { ...DEF, ...(JSON.parse(localStorage.getItem(LS)) || {}) }; } catch (e) {}
 let lang = OFFICER.lang;
 const TX = {
   en: { title: "🐻 Bear Hunt formations", sub: "Splits your troops between your rally and your marches. Only on this device — nothing is uploaded.",
     hTroops: "Your troops (as in game)", inf: "Infantry", cav: "Cavalry", arc: "Archers", hSet: "Settings",
-    rally: "Rally capacity", ratio: "ratio", march: "Troops per march", main: "March 1 ratio", rest: "Other marches (no hero, share the rest)", min: "each type at least",
+    rally: "Rally capacity", ratio: "ratio", march: "Troops per march", main: "March 1 ratio", hero: "Marches with a hero (always full)", rest: "Marches without a hero (identical, share ALL the rest)", min: "Every later march has each type at least",
     saveNote: "Everything you type is remembered on this device.",
-    enough: "✅ Enough troops to fill every formation — {x} troops stay home.", notEnough: "⚠️ Not enough to fill everything: you have {h}, a full set needs {n} ({d} short). The rally and March 1 are filled first; the other marches share what is left.",
-    fRally: "👑 Rally (you lead)", fMain: "March 1", fRest: "March {n} · no hero", total: "Total", full: "full", short: "{n} short", topped: "ratio changed — not enough of one type", home: "🏠 Stay home",
+    enough: "✅ Enough troops: the rally and every hero march are full; the no-hero marches share the rest ({x} stay home — the no-hero marches are full too).", enough0: "✅ Enough troops: the rally and every hero march are full; the no-hero marches share everything that is left.", notEnough: "⚠️ Not enough for the rally + every hero march: you have {h}, they need {n} ({d} short). The rally and March 1 are filled first.",
+    fRally: "👑 Rally (you lead)", fMain: "March 1", fHero: "March {n}", fRest: "March {n} · no hero", total: "Total", full: "full", short: "{n} short", topped: "ratio changed — not enough of one type", home: "🏠 Stay home",
     noArc: "⚠️ This march has no archers.", empty: "Type your troops above.", copy: "Copy", copied: "Copied ✓",
     hHow: "How it decides",
-    how: ["Order: rally first (full, your ratio), then March 1 (full, its ratio), then the other marches share what is left evenly.",
-      "Every other march keeps at least the % you set of each type — so none of them is ever without archers (archers are the damage).",
-      "If the other marches would go over the march size, they send fewer infantry first, then fewer cavalry — archers stay in.",
+    how: ["Order: rally (full, your ratio) → March 1 (full, its ratio) → the hero marches (full) → the no-hero marches share everything left, all identical.",
+      "The hero marches use the same mix as what is left, so the no-hero marches still get every type — never a march without archers (archers are the damage).",
+      "Every later march keeps at least the % you set of each type.",
       "If a type runs out for the rally or March 1, the gap is filled with archers, then cavalry, then infantry (marked \"ratio changed\").",
-      "Not enough troops: the rally and March 1 stay full; the other marches are smaller."] },
+      "Only if even the no-hero marches would be over the march size do troops stay home — infantry first, then cavalry."] },
   zh: { title: "🐻 狩獵巨熊部隊編組", sub: "把你的士兵分配到自己發的集結和其他隊伍。只存在這台裝置，不會上傳。",
     hTroops: "你的士兵（照遊戲填）", inf: "步兵", cav: "騎兵", arc: "弓兵", hSet: "設定",
-    rally: "集結人數上限", ratio: "比例", march: "每隊人數", main: "隊伍 1 比例", rest: "其他隊伍（沒有英雄，平分剩下的）", min: "每種至少",
+    rally: "集結人數上限", ratio: "比例", march: "每隊人數", main: "隊伍 1 比例", hero: "有英雄的隊伍（一定要滿）", rest: "沒有英雄的隊伍（一模一樣，平分全部剩下的）", min: "後面每隊每種兵至少",
     saveNote: "輸入的數字會記在這台裝置。",
-    enough: "✅ 士兵夠，每一隊都能滿 — 會有 {x} 個留在家。", notEnough: "⚠️ 士兵不夠全部填滿：你有 {h}，全部滿需要 {n}（差 {d}）。會先把集結和隊伍 1 填滿，其他隊伍平分剩下的。",
-    fRally: "👑 集結（你發的）", fMain: "隊伍 1", fRest: "隊伍 {n}・沒有英雄", total: "合計", full: "滿", short: "差 {n}", topped: "比例有變 — 某種兵不夠", home: "🏠 留在家",
+    enough: "✅ 士兵夠：集結和有英雄的隊伍都滿，沒英雄的隊伍也滿了，還有 {x} 個留在家。", enough0: "✅ 士兵夠：集結和有英雄的隊伍都滿，沒英雄的隊伍平分全部剩下的。", notEnough: "⚠️ 不夠讓集結＋有英雄的隊伍全滿：你有 {h}，需要 {n}（差 {d}）。會先填滿集結和隊伍 1。",
+    fRally: "👑 集結（你發的）", fMain: "隊伍 1", fHero: "隊伍 {n}", fRest: "隊伍 {n}・沒有英雄", total: "合計", full: "滿", short: "差 {n}", topped: "比例有變 — 某種兵不夠", home: "🏠 留在家",
     noArc: "⚠️ 這隊沒有弓兵。", empty: "先在上面填你的士兵數。", copy: "複製", copied: "已複製 ✓",
     hHow: "怎麼分配的",
-    how: ["順序：先填滿集結（照你的比例），再填滿隊伍 1（照它的比例），其他隊伍平分剩下的。",
-      "其他隊伍每種兵至少留你設定的百分比，所以每一隊都一定有弓兵（弓兵是傷害來源）。",
-      "其他隊伍如果超過每隊人數，先少帶步兵、再少帶騎兵，弓兵保留。",
+    how: ["順序：集結（滿，照你的比例）→ 隊伍 1（滿，照它的比例）→ 有英雄的隊伍（滿）→ 沒英雄的隊伍平分全部剩下的，每隊一模一樣。",
+      "有英雄的隊伍照剩下士兵的比例來帶，所以沒英雄的隊伍也一定每種兵都有，不會有哪隊沒有弓兵（弓兵是傷害來源）。",
+      "後面每一隊每種兵至少留你設定的百分比。",
       "集結或隊伍 1 的某種兵不夠時，用弓兵、騎兵、步兵的順序補滿（會標示「比例有變」）。",
-      "士兵不夠時：集結和隊伍 1 維持滿編，其他隊伍會比較少。"] },
+      "只有在沒英雄的隊伍也超過每隊人數時，才會有士兵留在家 — 先留步兵，再留騎兵。"] },
 };
 const tr = (k, v = {}) => { const s = (TX[lang] || TX.en)[k]; return typeof s === "string" ? s.replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m) : s; };
 const fmtN = (n) => Number(n).toLocaleString("en-US");
 
 function plan(o) {
-  const L = o.march, k = o.rest, per = Math.floor(L * Math.max(0, o.minPct || 0) / 100);
-  const pool = o.troops.map((n) => Math.max(0, Math.floor(+n || 0)));
-  const res = pool.map((n) => Math.min(n, k * per));            // kept back so every other march has every type
-  const avail = pool.map((n, i) => n - res[i]);
+  const L = o.march, h = o.hero, n = o.noHero, k = h + n, per = Math.floor(L * Math.max(0, o.minPct || 0) / 100);
+  const pool = o.troops.map((x) => Math.max(0, Math.floor(+x || 0)));
+  const res = pool.map((x) => Math.min(x, k * per));            // kept back so every later march has every type (and archers)
+  const avail = pool.map((x, i) => x - res[i]);
   const fixed = (cap, ratio) => {
     const s = ratio.reduce((a, b) => a + b, 0) || 1;
     const want = ratio.map((r) => Math.floor(cap * r / s)); want[2] += cap - want.reduce((a, b) => a + b, 0);
     const take = want.map((w, i) => Math.min(w, avail[i]));
     let gap = cap - take.reduce((a, b) => a + b, 0), topped = false;
     for (const i of [2, 1, 0]) { if (gap <= 0) break; const add = Math.min(gap, avail[i] - take[i]); if (add > 0) { take[i] += add; gap -= add; topped = true; } }
-    take.forEach((n, i) => (avail[i] -= n));
+    take.forEach((x, i) => (avail[i] -= x));
     return { t: take, cap, topped, short: gap };
   };
   const rally = fixed(o.rally, o.rallyRatio), main = fixed(L, o.mainRatio);
-  const left = avail.map((n, i) => n + res[i]);
-  const share = left.map((n) => (k ? Math.floor(n / k) : 0)), t = share.slice();
-  let over = t.reduce((a, b) => a + b, 0) - L;
-  for (const i of [0, 1, 2]) { if (over <= 0) break; const cut = Math.min(over, t[i] - Math.min(share[i], per)); if (cut > 0) { t[i] -= cut; over -= cut; } }
-  const rest = [];
-  for (let j = 0; j < k; j++) { t.forEach((n, i) => (left[i] -= n)); rest.push({ t: t.slice(), cap: L, short: L - t.reduce((a, b) => a + b, 0) }); }
-  return { rally, main, rest, home: left, need: o.rally + L * (1 + k), have: pool.reduce((a, b) => a + b, 0) };
+  const left = avail.map((x, i) => x + res[i]), sumL = () => left.reduce((a, b) => a + b, 0);
+  const take = (t) => { t.forEach((x, i) => (left[i] -= x)); return t; };
+  const even = (cnt) => left.map((x) => (cnt ? Math.floor(x / cnt) : 0));
+  // a march of `size` troops in the same mix as what is left (every type, archers included)
+  const mix = (size) => { const tot = sumL(); if (!tot) return [0, 0, 0];
+    const t = left.map((x) => Math.floor(size * x / tot)); let gap = size - t.reduce((a, b) => a + b, 0);
+    for (const i of [2, 1, 0]) { const add = Math.min(gap, left[i] - t[i]); if (add > 0) { t[i] += add; gap -= add; } } return t; };
+  const heroM = [], noM = [];
+  if (sumL() <= h * L) {                                         // not even enough for the hero marches → they share it, the no-hero marches stay empty
+    const t = even(h); for (let j = 0; j < h; j++) heroM.push(take(t.slice()));
+    for (let j = 0; j < n; j++) noM.push([0, 0, 0]);
+  } else if (sumL() - h * L <= n * L) {                          // normal: hero marches full (same mix as what is left), the no-hero ones share ALL the rest
+    const t = mix(L); for (let j = 0; j < h; j++) heroM.push(take(t.slice()));
+    const u = even(n); for (let j = 0; j < n; j++) noM.push(take(u.slice()));
+  } else {                                                       // more than every march can carry: all full; leave infantry home first, then cavalry
+    const out = left.slice(); let over = sumL() - k * L;
+    for (const i of [0, 1, 2]) { if (over <= 0) break; const cut = Math.min(over, out[i] - k * per); if (cut > 0) { out[i] -= cut; over -= cut; } }
+    const t = out.map((x) => Math.floor(x / k)); let gap = L - t.reduce((a, b) => a + b, 0);
+    for (const i of [2, 1, 0]) { const add = Math.min(gap, Math.floor((left[i] - t[i] * k) / k)); if (add > 0) { t[i] += add; gap -= add; } }
+    for (let j = 0; j < h; j++) heroM.push(take(t.slice()));
+    for (let j = 0; j < n; j++) noM.push(take(t.slice()));
+  }
+  const f = (t, full) => ({ t, cap: L, short: full ? L - t.reduce((a, b) => a + b, 0) : 0, size: t.reduce((a, b) => a + b, 0) });
+  return { rally, main, heroM: heroM.map((t) => f(t, true)), noM: noM.map((t) => f(t, false)), home: left,
+    need: o.rally + L * (1 + h), have: pool.reduce((a, b) => a + b, 0) };
 }
 
 function read() {
@@ -4187,12 +4207,12 @@ function read() {
   S.rally = n("bt_rally", DEF.rally); S.march = n("bt_march", DEF.march);
   S.rallyRatio = ["bt_r0", "bt_r1", "bt_r2"].map((id, i) => n(id, DEF.rallyRatio[i]));
   S.mainRatio = ["bt_m0", "bt_m1", "bt_m2"].map((id, i) => n(id, DEF.mainRatio[i]));
-  S.rest = Math.min(6, Math.round(n("bt_rest", DEF.rest))); S.minPct = Math.min(30, n("bt_min", DEF.minPct));
+  S.hero = Math.min(6, Math.round(n("bt_hero", DEF.hero))); S.noHero = Math.min(6, Math.round(n("bt_rest", DEF.noHero))); S.minPct = Math.min(30, n("bt_min", DEF.minPct));
   try { localStorage.setItem(LS, JSON.stringify(S)); } catch (e) {}
 }
 function fill() {
   ["bt_inf", "bt_cav", "bt_arc"].forEach((id, i) => ($(id).value = S.troops[i] ?? ""));
-  $("bt_rally").value = S.rally; $("bt_march").value = S.march; $("bt_rest").value = S.rest; $("bt_min").value = S.minPct;
+  $("bt_rally").value = S.rally; $("bt_march").value = S.march; $("bt_hero").value = S.hero; $("bt_rest").value = S.noHero; $("bt_min").value = S.minPct;
   ["bt_r0", "bt_r1", "bt_r2"].forEach((id, i) => ($(id).value = S.rallyRatio[i]));
   ["bt_m0", "bt_m1", "bt_m2"].forEach((id, i) => ($(id).value = S.mainRatio[i]));
 }
@@ -4203,11 +4223,12 @@ function render() {
   const pct = (t) => { const s = t[0] + t[1] + t[2]; return s ? t.map((n) => Math.round(n * 100 / s)).join(":") : "—"; };
   const row = (name, f) => { const s = f.t[0] + f.t[1] + f.t[2];
     return `<tr><th>${esc(name)}<div class="muted" style="font-size:11.5px;font-weight:400">${pct(f.t)}</div>${f.topped ? `<div class="bt-warn">${esc(tr("topped"))}</div>` : ""}${!f.t[2] && s ? `<div class="bt-warn">${esc(tr("noArc"))}</div>` : ""}</th>
-      ${f.t.map((n) => `<td>${fmtN(n)}</td>`).join("")}<td><b>${fmtN(s)}</b><div class="${f.short > 0 ? "bt-warn" : "bt-ok"}">${f.short > 0 ? esc(tr("short", { n: fmtN(f.short) })) : "✓ " + esc(tr("full"))}</div></td>
+      ${f.t.map((n) => `<td>${fmtN(n)}</td>`).join("")}<td><b>${fmtN(s)}</b>${f.size == null || f.short > 0 || f.size === f.cap ? `<div class="${f.short > 0 ? "bt-warn" : "bt-ok"}">${f.short > 0 ? esc(tr("short", { n: fmtN(f.short) })) : "✓ " + esc(tr("full"))}</div>` : ""}</td>
 </tr>`; };
   const homeN = r.home.reduce((a, b) => a + b, 0);
-  const lines = [[tr("fRally"), r.rally], [tr("fMain"), r.main], ...r.rest.map((f, i) => [tr("fRest", { n: i + 2 }), f])];
-  out.innerHTML = `<div class="${r.have >= r.need ? "bt-ok" : "bt-warn"}" style="margin-bottom:8px">${esc(r.have >= r.need ? tr("enough", { x: fmtN(homeN) }) : tr("notEnough", { h: fmtN(r.have), n: fmtN(r.need), d: fmtN(r.need - r.have) }))}</div>
+  const lines = [[tr("fRally"), r.rally], [tr("fMain"), r.main], ...r.heroM.map((f, i) => [tr("fHero", { n: i + 2 }), f]),
+    ...r.noM.map((f, i) => [tr("fRest", { n: i + 2 + r.heroM.length }), f])];
+  out.innerHTML = `<div class="${r.have >= r.need ? "bt-ok" : "bt-warn"}" style="margin-bottom:8px">${esc(r.have >= r.need ? tr(homeN ? "enough" : "enough0", { x: fmtN(homeN) }) : tr("notEnough", { h: fmtN(r.have), n: fmtN(r.need), d: fmtN(r.need - r.have) }))}</div>
     <div class="tbl-wrap"><table class="bt-tbl"><thead><tr><th></th><th>${esc(tr("inf"))}</th><th>${esc(tr("cav"))}</th><th>${esc(tr("arc"))}</th><th>${esc(tr("total"))}</th></tr></thead><tbody>
     ${lines.map(([n, f]) => row(n, f)).join("")}
     <tr class="home"><th>${esc(tr("home"))}</th>${r.home.map((n) => `<td>${fmtN(n)}</td>`).join("")}<td>${fmtN(homeN)}</td></tr>
@@ -4222,7 +4243,7 @@ function applyTexts() {
   const set = (id, k) => { $(id).textContent = tr(k); };
   set("bt_title", "title"); set("bt_sub", "sub"); set("bt_hTroops", "hTroops"); set("bt_hSet", "hSet"); set("bt_hHow", "hHow");
   set("bt_lInf", "inf"); set("bt_lCav", "cav"); set("bt_lArc", "arc"); set("bt_lRally", "rally"); set("bt_lRatio", "ratio");
-  set("bt_lMarch", "march"); set("bt_lMain", "main"); set("bt_lRest", "rest"); set("bt_lMin", "min"); set("bt_saveNote", "saveNote");
+  set("bt_lMarch", "march"); set("bt_lMain", "main"); set("bt_lHero", "hero"); set("bt_lRest", "rest"); set("bt_lMin", "min"); set("bt_saveNote", "saveNote");
   $("bt_how").innerHTML = tr("how").map((x) => `<li>${esc(x)}</li>`).join("");
   render();
 }
