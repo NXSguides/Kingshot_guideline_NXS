@@ -60,7 +60,12 @@ if (plan && plan.o && Object.keys(plan.o).length) {
   const cycAt = (raw, end) => { if ((raw !== "held" && raw !== "vuln") || !end) return [raw, 0]; if (NOW < end) return [raw, end];
     const e = NOW - end, base = end + Math.floor(e / (P + V)) * (P + V), t = e % (P + V), first = raw === "held" ? V : P;
     return t < first ? [raw === "held" ? "vuln" : "held", base + first] : [raw, base + P + V]; };
-  const all = KM.outposts.map(([t, lv, x, y]) => { const k = x + "," + y, [s, sw] = cycAt(plan.o[k] || "", (plan.t || {})[k]); return { t, lv, x, y, buff: KM.buff[t][lv], s, sw }; });
+  const all = KM.outposts.map(([t, lv, x, y]) => { const k = x + "," + y, r0 = plan.o[k] || "", r = r0 === "conflict" ? "held" : r0, [s, sw] = cycAt(r, (plan.t || {})[k]);
+    return { t, lv, x, y, buff: KM.buff[t][lv], s, sw, legacy: r0 === "conflict", start: sw ? (s === "held" ? sw - P : sw - V - P) : null }; });
+  /* Buff conflict from the timers: same type + level, the one Protected most recently (more Protected time left) gets no buff */
+  for (const o of all) if (o.s === "held" && (o.start == null ? o.legacy : all.some((x) => x !== o && x.t === o.t && x.lv === o.lv && (x.s === "held" || x.s === "vuln") && !x.legacy &&
+      (x.start == null || x.start < o.start || (x.start === o.start && (x.x + "," + x.y) < (o.x + "," + o.y)))))) o.c = 1;
+  for (const o of all) if (o.c) o.s = "conflict";
   const utc = (ms) => new Date(ms).toISOString().slice(0, 16).replace("T", " ") + " UTC";
   const line = (o) => `${TY[o.t].n} (${TY[o.t].zh[0]}) Lv.${o.lv} X${o.x} Y${o.y} — ${TY[o.t].b} +${o.buff}%` +
     (o.sw ? ` [switches to ${o.s === "held" ? "Vulnerable" : "Protected"} at ${utc(o.sw)}, then keeps cycling]` : "");
@@ -70,7 +75,7 @@ if (plan && plan.o && Object.keys(plan.o).length) {
   out.push(`### OUTPOST PLAN — Map tab, last saved by ${plan.by || "?"} on ${String(plan.at || "").slice(0, 10)} (statuses as of ${utc(NOW)}; cycle ${P / 36e5} h Protected → ${V / 36e5} h Vulnerable for Outposts with a timer)`,
     "Ours, Protected (buff active): " + (all.filter((o) => o.s === "held").map(line).join("; ") || "none"),
     "Ours, Vulnerable (no buff until Protected again; can be attacked): " + (all.filter((o) => o.s === "vuln").map(line).join("; ") || "none"),
-    "Ours, marked Buff conflict in game (same type + level as another of ours, gives nothing): " + (all.filter((o) => o.s === "conflict").map(line).join("; ") || "none"),
+    "Ours, Buff conflict (worked out from the timers: same type + level as another of ours that has been Protected longer, gives nothing): " + (all.filter((o) => o.s === "conflict").map(line).join("; ") || "none"),
     "Targets: " + (all.filter((o) => o.s === "target").map(line).join("; ") || "none"),
     "Buff totals now, as the game shows them (Protected only; same type + level counted once): " + total(["held"]),
     "Buff totals with everything we hold + targets: " + total(["held", "vuln", "conflict", "target"]));

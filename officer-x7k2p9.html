@@ -3758,8 +3758,9 @@ function renderInfo() {
   const sw = b.kind === "outpost" ? `<span class="sw" style="background:${TY[b.t].c}"></span>` : "";
   const what = b.kind === "outpost" ? `Lv.${b.lv} · ${esc(buffName(b.t))} +${b.buff}%` : b.kind === "castle" ? "" : esc(T("noBuff"));
   $("km_info").innerHTML = `${sw}<b>${esc(nm(b))}</b>${what ? `<span class="muted">${what}</span>` : ""}<span class="co">X:${b.x} Y:${b.y}</span><button type="button" class="btn" id="km_cp">${esc(T("copy"))}</button>` +
-    (PLANNABLE(b) ? `<div class="km-st" style="flex-basis:100%">${(isOp(b) ? [["target", "target"], ["held", "held"], ["vuln", "vuln"], ["conflict", "conflictBtn"], ["", "clear"]] : [["target", "target"], ["held", "heldR"], ["", "clear"]]).map(([v, k]) => `<button type="button" data-v="${v}" class="${st(b) === v && v ? "on" : ""}">${esc(pt(k))}</button>`).join("")}</div>` : "");
-  const s = st(b);
+    (PLANNABLE(b) ? `<div class="km-st" style="flex-basis:100%">${(isOp(b) ? [["target", "target"], ["held", "held"], ["vuln", "vuln"], ["", "clear"]] : [["target", "target"], ["held", "heldR"], ["", "clear"]]).map(([v, k]) => `<button type="button" data-v="${v}" class="${eff(b) === v && v ? "on" : ""}">${esc(pt(k))}</button>`).join("")}</div>` : "") +
+    (isOp(b) && st(b) === "conflict" ? `<div class="km-tm" style="flex-basis:100%;color:#c0473a">⚠️ ${esc(pt("conflictAuto"))}</div>` : "");
+  const s = eff(b);
   if (isOp(b) && (s === "held" || s === "vuln")) {
     const n = nextSw(b);
     $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm" style="flex-basis:100%">
@@ -3774,7 +3775,7 @@ function renderInfo() {
     };
     if ($("tm_clr")) $("tm_clr").onclick = () => { PLAN.o[pk(b)] = s; delete PLAN.t[pk(b)]; planMsg = ""; refreshPlan(); };
   }
-  else if (isOp(b) && s !== "conflict") $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm muted" style="flex-basis:100%">⏱ ${esc(pt("tmHint"))}</div>`);
+  else if (isOp(b)) $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm muted" style="flex-basis:100%">⏱ ${esc(pt("tmHint"))}</div>`);
   $("km_info").querySelectorAll(".km-st button").forEach((x) => x.onclick = () => setStatus(b.id, x.dataset.v));
   $("km_cp").onclick = () => {
     const done = () => { const c = $("km_cp"); if (c) { c.textContent = T("copied"); setTimeout(() => { if ($("km_cp")) $("km_cp").textContent = T("copy"); }, 1500); } };
@@ -3828,18 +3829,33 @@ function cycAt(raw, end, now) {   // → [status now, time of next switch]
 const pk = (b) => b.x + "," + b.y;
 const PLANNABLE = (b) => b && (b.kind === "outpost" || b.kind === "fortress" || b.kind === "sanctuary");
 const raw = (b) => (PLANNABLE(b) && PLAN.o[pk(b)]) || "";
-const st = (b) => { const r = raw(b); return isOp(b) && PLAN.t[pk(b)] ? cycAt(r, PLAN.t[pk(b)], Date.now())[0] : r; };
-const nextSw = (b) => isOp(b) && PLAN.t[pk(b)] ? cycAt(raw(b), PLAN.t[pk(b)], Date.now())[1] : 0;
+/* eff = ✅ held / ⚔️ vuln after the timer (an old hand-set "conflict" counts as held) */
+const eff = (b) => { const r = raw(b) === "conflict" && isOp(b) ? "held" : raw(b); return isOp(b) && PLAN.t[pk(b)] ? cycAt(r, PLAN.t[pk(b)], Date.now())[0] : r; };
+const nextSw = (b) => isOp(b) && PLAN.t[pk(b)] ? cycAt(raw(b) === "conflict" ? "held" : raw(b), PLAN.t[pk(b)], Date.now())[1] : 0;
+/* start of its latest Protected phase (needs a timer) — the later one was taken later */
+const protStart = (b) => { const n = nextSw(b); if (!n) return null; const P = CYC().p * 36e5, V = CYC().v * 36e5; return eff(b) === "held" ? n - P : n - V - P; };
+/* ⚠️ Buff conflict, worked out from the timers: among our Outposts of the same type + level, the one that has
+   been Protected the shortest (= more Protected time left when both are Protected) gets no buff. Without timers an
+   old hand-set mark still counts. */
+function isConflict(b) {
+  if (!isOp(b) || eff(b) !== "held") return false;
+  const me = protStart(b);
+  if (me == null) return raw(b) === "conflict";
+  return B.some((o) => o !== b && isOp(o) && o.t === b.t && o.lv === b.lv && (eff(o) === "held" || eff(o) === "vuln") && raw(o) !== "conflict" &&
+    ((protStart(o) == null) || protStart(o) < me || (protStart(o) === me && o.id < b.id)));
+}
+const st = (b) => { const e = eff(b); return e === "held" && isConflict(b) ? "conflict" : e; };
 const left = (ms) => { const m = Math.max(0, Math.round(ms / 6e4)), d = Math.floor(m / 1440), h = Math.floor(m % 1440 / 60);
   return (d ? d + (lang === "zh" ? "天" : "d ") : "") + (d || h ? h + (lang === "zh" ? "時" : "h ") : "") + (d ? "" : (m % 60) + (lang === "zh" ? "分" : "m")); };
 const snap = () => JSON.stringify({ o: PLAN.o, t: PLAN.t, c: PLAN.cyc || null });
 const isOp = (b) => b.kind === "outpost";
 const dirty = () => snap() !== SAVED;
 const PT = {
-  en: { title: "📋 Outpost plan", hint: "Tap an Outpost on the map or in the list, then mark it 🎯 Target, ✅ Ours (Protected), ⚔️ Ours (Vulnerable) or ⚠️ Buff conflict (the one the game marks). For ours, type the countdown from the game once and the page switches Protected ⇄ Vulnerable by itself. Totals follow the in-game rule: only the same type at the same level does not stack — a different level or a different type always adds up.",
+  en: { title: "📋 Outpost plan", hint: "Tap an Outpost on the map or in the list, then mark it 🎯 Target, ✅ Ours (Protected), ⚔️ Ours (Vulnerable) For ours, type the countdown from the game once and the page switches Protected ⇄ Vulnerable by itself. Totals follow the in-game rule: only the same type at the same level does not stack — a different level or a different type always adds up.",
         target: "🎯 Target", held: "✅ Ours · Protected", vuln: "⚔️ Ours · Vulnerable", clear: "✕ Clear", type: "Outpost", buff: "Buff", now: "Now (as in game)", after: "With targets",
         nowNote: "\"Now\" leaves out Vulnerable Outposts, like the in-game Occupation Buff screen. \"With targets\" counts everything we hold plus the targets.",
-        conflict: "Buff conflict", conflictBtn: "⚠️ Ours · Buff conflict", conflicts: "⚠️ Ours · Buff conflict (marked in game, no buff)", heldR: "✅ Ours", ruinsT: "🏛️ Fortresses & Sanctuaries (Sanctuary Battle)",
+        conflict: "Buff conflict", conflictBtn: "⚠️ Ours · Buff conflict", conflicts: "⚠️ Ours · Buff conflict (worked out from the timers, no buff)",
+        conflictAuto: "Buff conflict: we hold another one of the same type and level that has been Protected longer — only that one gives the buff. (From the timers: the one with more Protected time left is the conflict.)", heldR: "✅ Ours", ruinsT: "🏛️ Fortresses & Sanctuaries (Sanctuary Battle)",
         ruinsNote: "No buffs — they give season points each phase: Sanctuary 1, Fortress 2. The ones we hold sign up again by themselves; each phase we can actively sign up for only 1 more Sanctuary + 1 more Fortress.",
         ptsNow: "Now", ptsAfter: "With targets", ptsRow: "Season points per phase", tooMany: "More than 1 Sanctuary or 1 Fortress as targets — only 1 of each can be signed up per phase.", targets: "🎯 Targets", helds: "✅ Ours · Protected", vulns: "⚔️ Ours · Vulnerable (no buff right now)", none: "None yet", save: "💾 Save plan", by: "Your name", saving: "Saving…",
         saved: "Saved ✅ Other officers see it after a refresh.", unsaved: "Unsaved changes", last: "Last saved by {by} · {at}",
@@ -3849,10 +3865,11 @@ const PT = {
         tmHint: "To add a timer: first tap ✅ Ours · Protected or ⚔️ Ours · Vulnerable — the boxes for the in-game countdown appear here.",
         leftP: "Protected time left in game:", leftV: "Vulnerable time left in game:", dd: "d", hh: "h", mm: "m", setT: "Set timer", clrT: "Remove timer",
         cyc: "Cycle:", cycNote: "With a timer the page switches Protected ⇄ Vulnerable by itself. If we lose an Outpost, mark it again by hand." },
-  zh: { title: "📋 據點規劃", hint: "點地圖或清單上的據點，再標成 🎯 目標、✅ 已佔領（保護狀態）、⚔️ 已佔領（可爭奪狀態）或 ⚠️ 增益衝突（遊戲標示的那座）。已佔領的輸入一次遊戲裡的倒數，頁面就會自己切換保護 ⇄ 可爭奪。總計依遊戲規則：只有同類型、同等級不疊加；不同等級或不同類型都會加上去。",
+  zh: { title: "📋 據點規劃", hint: "點地圖或清單上的據點，再標成 🎯 目標、✅ 已佔領（保護狀態）、⚔️ 已佔領（可爭奪狀態）。已佔領的輸入一次遊戲裡的倒數，頁面就會自己切換保護 ⇄ 可爭奪。總計依遊戲規則：只有同類型、同等級不疊加；不同等級或不同類型都會加上去。",
         target: "🎯 目標", held: "✅ 已佔領・保護", vuln: "⚔️ 已佔領・可爭奪", clear: "✕ 清除", type: "據點", buff: "增益", now: "目前（同遊戲）", after: "加上目標",
         nowNote: "「目前」不算可爭奪狀態的據點，和遊戲「佔領增益」畫面一樣；「加上目標」是我們佔領的全部加上目標。",
-        conflict: "增益衝突", conflictBtn: "⚠️ 已佔領・增益衝突", conflicts: "⚠️ 已佔領・增益衝突（遊戲標示，沒有增益）", heldR: "✅ 已佔領", ruinsT: "🏛️ 要塞與遺跡（遺跡爭奪）",
+        conflict: "增益衝突", conflictBtn: "⚠️ 已佔領・增益衝突", conflicts: "⚠️ 已佔領・增益衝突（依計時自動判斷，沒有增益）",
+        conflictAuto: "增益衝突：我們還有另一座同類型、同等級、保護比較久的，只有那座有增益。（依計時判斷：保護時間剩比較多的那座就是增益衝突。）", heldR: "✅ 已佔領", ruinsT: "🏛️ 要塞與遺跡（遺跡爭奪）",
         ruinsNote: "沒有增益，但每期給賽季積分：遺跡 1 分、要塞 2 分。已佔領的會自動報名；每期只能再主動報名 1 座遺跡 + 1 座要塞。",
         ptsNow: "目前", ptsAfter: "加上目標", ptsRow: "每期賽季積分", tooMany: "目標裡有超過 1 座遺跡或 1 座要塞 — 每期各只能主動報名 1 座。", targets: "🎯 目標", helds: "✅ 已佔領・保護狀態", vulns: "⚔️ 已佔領・可爭奪狀態（目前沒有增益）", none: "還沒有", save: "💾 儲存規劃", by: "你的名字", saving: "儲存中…",
         saved: "已儲存 ✅ 其他幹部重新整理後就會看到。", unsaved: "有變更還沒儲存", last: "最後由 {by} 儲存 · {at}",
@@ -3899,8 +3916,7 @@ function renderPlan() {
   const fmt = (n) => n ? "+" + n + "%" : "—";
   const rows = G.types.map(([k]) => `<tr><td><span class="sw" style="background:${TY[k].c};display:inline-block;vertical-align:-2px;margin-right:6px"></span>${esc(typeName(k))}</td><td class="muted">${esc(buffName(k))}</td><td class="n">${fmt(now[k])}</td><td class="n${(after[k] || 0) > (now[k] || 0) ? " up" : ""}">${fmt(after[k])}</td></tr>`).join("");
   /* in-game "增益衝突": a second Outpost we hold with the same type + level as another one we hold */
-  /* ⚠️ Buff conflict is only what an officer marks by hand (the game decides which one conflicts) */
-  const isConflict = (b) => st(b) === "conflict";
+  /* ⚠️ Buff conflict is worked out from the timers (isConflict above) */
   const list = (s) => { const L = B.filter((b) => isOp(b) && st(b) === s); return L.length ? `<div class="chips">${L.map((b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}"><span class="sw" style="background:${TY[b.t].c};display:inline-block;width:10px;height:10px;vertical-align:-1px;margin-right:4px"></span>${esc(typeName(b.t))} Lv.${b.lv} · X${b.x} Y${b.y}${nextSw(b) ? ` <span class="muted">⏱ <span data-sw="${nextSw(b)}">${esc(left(nextSw(b) - Date.now()))}</span></span>` : ""}${isConflict(b) ? ` <span style="color:#c0473a">⚠️ ${esc(pt("conflict"))}</span>` : ""}</button>`).join("")}</div>` : `<div class="muted" style="font-size:13px">${esc(pt("none"))}</div>`; };
   const cnt = (s) => B.filter((b) => isOp(b) && st(b) === s).length;
   /* Sanctuary Battle: season points per phase (Sanctuary 1, Fortress 2); one active sign-up of each kind per phase */
