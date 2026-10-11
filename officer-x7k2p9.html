@@ -3774,6 +3774,7 @@ function renderInfo() {
     };
     if ($("tm_clr")) $("tm_clr").onclick = () => { PLAN.o[pk(b)] = s; delete PLAN.t[pk(b)]; planMsg = ""; refreshPlan(); };
   }
+  else if (isOp(b) && s !== "conflict") $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm muted" style="flex-basis:100%">⏱ ${esc(pt("tmHint"))}</div>`);
   $("km_info").querySelectorAll(".km-st button").forEach((x) => x.onclick = () => setStatus(b.id, x.dataset.v));
   $("km_cp").onclick = () => {
     const done = () => { const c = $("km_cp"); if (c) { c.textContent = T("copied"); setTimeout(() => { if ($("km_cp")) $("km_cp").textContent = T("copy"); }, 1500); } };
@@ -3845,6 +3846,7 @@ const PT = {
         noKey: "Saving needs the officer GitHub key (set up on the Post tab).", errAuth: "The GitHub key was refused.", errBusy: "Someone else saved at the same moment — try again.", errNet: "Couldn't reach GitHub — try again.",
         planOnly: "📋 Plan only", reset: "Undo changes",
         toV: "⚔️ Vulnerable", toP: "✅ Protected", noT: "No timer — the status only changes when an officer changes it.",
+        tmHint: "To add a timer: first tap ✅ Ours · Protected or ⚔️ Ours · Vulnerable — the boxes for the in-game countdown appear here.",
         leftP: "Protected time left in game:", leftV: "Vulnerable time left in game:", dd: "d", hh: "h", mm: "m", setT: "Set timer", clrT: "Remove timer",
         cyc: "Cycle:", cycNote: "With a timer the page switches Protected ⇄ Vulnerable by itself. If we lose an Outpost, mark it again by hand." },
   zh: { title: "📋 據點規劃", hint: "點地圖或清單上的據點，再標成 🎯 目標、✅ 已佔領（保護狀態）、⚔️ 已佔領（可爭奪狀態）或 ⚠️ 增益衝突（遊戲標示的那座）。已佔領的輸入一次遊戲裡的倒數，頁面就會自己切換保護 ⇄ 可爭奪。總計依遊戲規則：只有同類型、同等級不疊加；不同等級或不同類型都會加上去。",
@@ -3857,6 +3859,7 @@ const PT = {
         noKey: "儲存需要幹部的 GitHub 金鑰（在公告分頁設定）。", errAuth: "GitHub 金鑰被拒絕。", errBusy: "剛好有人同時儲存，請再試一次。", errNet: "連不上 GitHub，請再試一次。",
         planOnly: "📋 只看規劃", reset: "復原變更",
         toV: "⚔️ 可爭奪", toP: "✅ 保護", noT: "沒有計時 — 狀態只會在幹部手動改的時候變。",
+        tmHint: "要設計時：先點 ✅ 已佔領・保護 或 ⚔️ 已佔領・可爭奪，這裡就會出現輸入遊戲倒數的格子。",
         leftP: "遊戲裡保護狀態剩下：", leftV: "遊戲裡可爭奪狀態剩下：", dd: "天", hh: "時", mm: "分", setT: "設定計時", clrT: "移除計時",
         cyc: "循環：", cycNote: "設了計時，頁面會自己切換 保護 ⇄ 可爭奪。據點被打掉的話，請手動重新標示。" },
 };
