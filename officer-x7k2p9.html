@@ -465,6 +465,9 @@
   #pg-bt .bt-c { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
   #pg-bt input[type=range] { width: 100%; accent-color: var(--accent); }
   #pg-bt input[type=range].t2 { accent-color: #c0473a; } #pg-bt input[type=range].t1 { accent-color: #2b6cc4; } #pg-bt input[type=range].t0 { accent-color: #6b7d3a; }
+  #pg-bt .bt-val { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--rule); display: grid; gap: 6px; font-size: 13px; }
+  #pg-bt .bt-val label { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
+  #pg-bt .bt-val select.inp { width: auto; padding: 3px 6px; margin: 0; }
   #pg-bt .bt-fit { margin-top: 10px; padding: 8px 10px; border-radius: 10px; background: color-mix(in srgb, var(--accent) 12%, var(--panel)); font-size: 13px; display: grid; gap: 4px; }
   #pg-bt .bt-fit:empty { display: none; }
   #pg-bt .bt-warn2 { color: #c0473a; font-size: 12px; font-weight: 600; margin-bottom: 4px; }
@@ -864,6 +867,12 @@
     <div class="bt-grid bt-grid2" style="margin-top:10px">
       <label><span id="bt_lRally"></span><input class="inp" id="bt_rally" type="number" inputmode="numeric" min="0"></label>
       <label><span id="bt_lJoin"></span><input class="inp" id="bt_join" type="number" inputmode="numeric" min="0"></label>
+    </div>
+    <div class="bt-val">
+      <div><b id="bt_hVal"></b></div>
+      <label><span id="bt_lDance"></span> <select class="inp" id="bt_dance"></select></label>
+      <label><span id="bt_lSavage"></span> <select class="inp" id="bt_savage"></select></label>
+      <div class="muted" id="bt_eff" style="font-size:12.5px"></div>
     </div>
   </div>
   <details class="card bt-auto" id="bt_autoBox">
@@ -4199,7 +4208,9 @@ if (!S.f.length || S.f[0].k !== "rally") S.f.unshift({ k: "rally", c: [0, 0, 0] 
 let lang = OFFICER.lang;
 const TX = {
   en: { title: "🐻 Bear Hunt formations", sub: "Split your troops between your rally and your marches. Saved on this device only.",
-    hTroops: "Your troops & limits", inf: "Infantry", cav: "Cavalry", arc: "Archers", rally: "Your rally capacity", join: "Joining a rally: max troops",
+    hTroops: "Your troops & limits", inf: "Infantry", cav: "Cavalry", arc: "Archers", rally: "Your rally capacity (without Valora)", join: "Joining a rally: max troops (without Valora)",
+    hVal: "Valora (Bear Hunt Master) — only if your numbers above don't include her", dance: "Dance of the Hunt (rally +30,000 / Lv)", savage: "Savage Advantage (each march +3,000 / Lv)",
+    eff: "Bear Hunt sizes used below: rally {r} · each march {j}",
     hAuto: "⚡ Auto split", autoNote: "Fills the formations below (replaces them). You can still drag everything afterwards.",
     rr: "Rally ratio", fix: "Fixed-ratio marches", hero: "Marches with a hero (full, mixed)", rest: "Marches without a hero (identical, share ALL the rest)", min: "Each later march keeps each type at least",
     run: "⚡ Auto split now", ran: "Done — adjust by hand below if you like.",
@@ -4214,7 +4225,9 @@ const TX = {
       "⚡ Auto split: rally (full, its ratio) → fixed-ratio marches (full) → hero marches (full, same mix as what is left) → no-hero marches share everything left, all identical. Every later march keeps at least the set % of each type, so none goes out without archers.",
       "Only if even the no-hero marches would be over the join limit do troops stay home — infantry first, then cavalry."] },
   zh: { title: "🐻 狩獵巨熊部隊編組", sub: "把你的士兵分配到自己發的集結和其他隊伍。只存在這台裝置。",
-    hTroops: "你的士兵和上限", inf: "步兵", cav: "騎兵", arc: "弓兵", rally: "你能發出的集結人數", join: "參與集結的人數上限",
+    hTroops: "你的士兵和上限", inf: "步兵", cav: "騎兵", arc: "弓兵", rally: "你能發出的集結人數（不含維拉）", join: "參與集結的人數上限（不含維拉）",
+    hVal: "維拉（狩獵巨熊大師）— 上面的數字沒算到她才需要填", dance: "Dance of the Hunt（集結 +30,000／級）", savage: "Savage Advantage（每隊 +3,000／級）",
+    eff: "下面實際用的狩獵巨熊人數：集結 {r} · 每隊 {j}",
     hAuto: "⚡ 全自動分配", autoNote: "會把下面的編組全部重新填好（取代原本的），之後還是可以手動拉。",
     rr: "集結比例", fix: "固定比例的隊伍", hero: "有英雄的隊伍（滿編，混合）", rest: "沒英雄的隊伍（一模一樣，平分全部剩下的）", min: "後面每隊每種兵至少",
     run: "⚡ 立即自動分配", ran: "好了 — 可以在下面再手動調整。",
@@ -4233,19 +4246,21 @@ const tr = (k, v = {}) => { const s = (TX[lang] || TX.en)[k]; return typeof s ==
 const fmtN = (n) => Number(n).toLocaleString("en-US");
 const save = () => { try { localStorage.setItem(LS, JSON.stringify(S)); } catch (e) {} };
 const owned = () => S.troops.map((x) => Math.max(0, Math.floor(+x || 0)));
-const size = (f) => f.k === "rally" ? +S.rally || 0 : +S.join || 0;
+/* Valora (Bear Hunt Master): Dance of the Hunt +30,000 rally capacity per level, Savage Advantage +3,000 squad capacity per level */
+const effRally = () => (+S.rally || 0) + 30000 * (+S.dance || 0), effJoin = () => (+S.join || 0) + 3000 * (+S.savage || 0);
+const size = (f) => f.k === "rally" ? effRally() : effJoin();
 const used = (skip) => { const u = [0, 0, 0]; S.f.forEach((f, j) => { if (j !== skip) f.c.forEach((n, i) => (u[i] += n)); }); return u; };
 
 /* ---- auto split (same rules as before, with any number of fixed-ratio marches) ---- */
 function autoSplit() {
-  const A = S.auto, L = +S.join || 0, h = A.hero, n = A.noHero, k = h + n, per = Math.floor(L * Math.max(0, A.minPct || 0) / 100);
+  const A = S.auto, L = effJoin(), h = A.hero, n = A.noHero, k = h + n, per = Math.floor(L * Math.max(0, A.minPct || 0) / 100);
   const pool = owned(), res = pool.map((x) => Math.min(x, k * per)), avail = pool.map((x, i) => x - res[i]);
   const fixed = (cap, ratio) => {
     const s = ratio.reduce((a, b) => a + b, 0) || 1, want = ratio.map((r) => Math.floor(cap * r / s)); want[2] += cap - want.reduce((a, b) => a + b, 0);
     const take = want.map((w, i) => Math.min(w, avail[i])); let gap = cap - take.reduce((a, b) => a + b, 0);
     for (const i of [2, 1, 0]) { if (gap <= 0) break; const add = Math.min(gap, avail[i] - take[i]); if (add > 0) { take[i] += add; gap -= add; } }
     take.forEach((x, i) => (avail[i] -= x)); return take; };
-  const out = [{ k: "rally", c: fixed(+S.rally || 0, A.rr) }];
+  const out = [{ k: "rally", c: fixed(effRally(), A.rr) }];
   for (let j = 0; j < A.fixN; j++) out.push({ k: "m", tag: "tFix", r: A.fix.slice(), c: fixed(L, A.fix) });
   const left = avail.map((x, i) => x + res[i]), sumL = () => left.reduce((a, b) => a + b, 0), take = (t) => { t.forEach((x, i) => (left[i] -= x)); return t; };
   const mix = (sz) => { const tot = sumL(); if (!tot) return [0, 0, 0]; const t = left.map((x) => Math.floor(sz * x / tot)); let gap = sz - t.reduce((a, b) => a + b, 0);
@@ -4273,6 +4288,7 @@ function setCount(j, i, want) {
 const pctOf = (f, i) => { const sz = size(f); return sz ? Math.round(f.c[i] * 1000 / sz) / 10 : 0; };
 const TYPES = ["inf", "cav", "arc"];
 function renderUse() {
+  if ($("bt_eff")) $("bt_eff").textContent = tr("eff", { r: fmtN(effRally()), j: fmtN(effJoin()) });
   const o = owned(), u = used(-1);
   $("bt_use").innerHTML = TYPES.map((t, i) => { const p = o[i] ? Math.min(100, u[i] * 100 / o[i]) : 0, bad = u[i] > o[i];
     return `<div class="bt-u${bad ? " bad" : ""}"><div class="bt-ut"><b>${esc(tr(t))}</b><span>${esc(tr("use"))} ${fmtN(u[i])} / ${fmtN(o[i])}</span></div>
@@ -4281,7 +4297,7 @@ function renderUse() {
 /* how many full fixed-ratio marches (e.g. 10:10:80) are left after a full rally — and what one more would take */
 function renderFit() {
   const el = $("bt_fit"); if (!el) return;
-  const A = S.auto, own = owned(), L = +S.join || 0, R = +S.rally || 0;
+  const A = S.auto, own = owned(), L = effJoin(), R = effRally();
   if (!own.some((x) => x > 0) || !L) { el.innerHTML = ""; return; }
   const rs = A.rr.reduce((a, b) => a + b, 0) || 1, want = A.rr.map((r) => Math.floor(R * r / rs)); want[2] += R - want.reduce((a, b) => a + b, 0);
   const rally = want.map((w, i) => Math.min(w, own[i])); let gap = R - rally.reduce((a, b) => a + b, 0);
@@ -4326,6 +4342,8 @@ function copyText() {
 function fill() {
   ["bt_inf", "bt_cav", "bt_arc"].forEach((id, i) => ($(id).value = S.troops[i] ?? ""));
   $("bt_rally").value = S.rally; $("bt_join").value = S.join;
+  const lv = (sel) => Array.from({ length: 11 }, (_, i) => `<option value="${i}"${+sel === i ? " selected" : ""}>${i ? "Lv." + i : "—"}</option>`).join("");
+  $("bt_dance").innerHTML = lv(S.dance); $("bt_savage").innerHTML = lv(S.savage);
   const A = S.auto; ["bt_r0", "bt_r1", "bt_r2"].forEach((id, i) => ($(id).value = A.rr[i])); ["bt_m0", "bt_m1", "bt_m2"].forEach((id, i) => ($(id).value = A.fix[i]));
   $("bt_fixN").value = A.fixN; $("bt_hero").value = A.hero; $("bt_rest").value = A.noHero; $("bt_min").value = A.minPct;
 }
@@ -4333,6 +4351,7 @@ function readTop() {
   const n = (id, d) => { const v = $(id).value.trim(); return v === "" ? d : Math.max(0, Number(v) || 0); };
   S.troops = ["bt_inf", "bt_cav", "bt_arc"].map((id) => $(id).value.trim());
   S.rally = n("bt_rally", DEF.rally); S.join = n("bt_join", DEF.join);
+  S.dance = +$("bt_dance").value || 0; S.savage = +$("bt_savage").value || 0;
   const A = S.auto, d = DEF.auto;
   A.rr = ["bt_r0", "bt_r1", "bt_r2"].map((id, i) => n(id, d.rr[i])); A.fix = ["bt_m0", "bt_m1", "bt_m2"].map((id, i) => n(id, d.fix[i]));
   A.fixN = Math.min(6, Math.round(n("bt_fixN", d.fixN))); A.hero = Math.min(6, Math.round(n("bt_hero", d.hero))); A.noHero = Math.min(6, Math.round(n("bt_rest", d.noHero)));
@@ -4343,7 +4362,7 @@ function readTop() {
 }
 function applyTexts() {
   const set = (id, k) => { $(id).textContent = tr(k); };
-  [["bt_title", "title"], ["bt_sub", "sub"], ["bt_hTroops", "hTroops"], ["bt_lInf", "inf"], ["bt_lCav", "cav"], ["bt_lArc", "arc"], ["bt_lRally", "rally"], ["bt_lJoin", "join"],
+  [["bt_title", "title"], ["bt_sub", "sub"], ["bt_hTroops", "hTroops"], ["bt_lInf", "inf"], ["bt_lCav", "cav"], ["bt_lArc", "arc"], ["bt_lRally", "rally"], ["bt_lJoin", "join"], ["bt_hVal", "hVal"], ["bt_lDance", "dance"], ["bt_lSavage", "savage"],
    ["bt_hAuto", "hAuto"], ["bt_autoNote", "autoNote"], ["bt_lRR", "rr"], ["bt_lFix", "fix"], ["bt_lHero", "hero"], ["bt_lRest", "rest"], ["bt_lMin", "min"],
    ["bt_run", "run"], ["bt_add", "add"], ["bt_copy", "copy"], ["bt_hHow", "hHow"]].forEach(([id, k]) => set(id, k));
   $("bt_how").innerHTML = tr("how").map((x) => `<li>${esc(x)}</li>`).join("");
