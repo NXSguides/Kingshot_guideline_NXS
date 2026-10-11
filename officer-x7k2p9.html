@@ -468,6 +468,7 @@
   #pg-bt .bt-val { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--rule); display: grid; gap: 6px; font-size: 13px; }
   #pg-bt .bt-val label { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
   #pg-bt .bt-val select.inp { width: auto; padding: 3px 6px; margin: 0; }
+  #pg-bt .bt-chk { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; }
   #pg-bt .bt-fit { margin-top: 10px; padding: 8px 10px; border-radius: 10px; background: color-mix(in srgb, var(--accent) 12%, var(--panel)); font-size: 13px; display: grid; gap: 4px; }
   #pg-bt .bt-fit:empty { display: none; }
   #pg-bt .bt-warn2 { color: #c0473a; font-size: 12px; font-weight: 600; margin-bottom: 4px; }
@@ -879,7 +880,7 @@
     <div class="muted" id="bt_autoNote" style="font-size:12.5px;margin:6px 0 8px"></div>
     <div class="bt-set">
       <div><span id="bt_lRR"></span> <input class="inp r" id="bt_r0" type="number" min="0">:<input class="inp r" id="bt_r1" type="number" min="0">:<input class="inp r" id="bt_r2" type="number" min="0"></div>
-      <div><span id="bt_lFix"></span> <input class="inp r" id="bt_fixN" type="number" min="0" max="6"> × <input class="inp r" id="bt_m0" type="number" min="0">:<input class="inp r" id="bt_m1" type="number" min="0">:<input class="inp r" id="bt_m2" type="number" min="0"></div>
+      <div><span id="bt_lFix"></span> <input class="inp r" id="bt_fixN" type="number" min="0" max="10"> <label class="bt-chk"><input type="checkbox" id="bt_fixAuto"> <span id="bt_lFixAuto"></span></label> × <input class="inp r" id="bt_m0" type="number" min="0">:<input class="inp r" id="bt_m1" type="number" min="0">:<input class="inp r" id="bt_m2" type="number" min="0"></div>
       <div><span id="bt_lHero"></span> <input class="inp r" id="bt_hero" type="number" min="0" max="6"></div>
       <div><span id="bt_lRest"></span> <input class="inp r" id="bt_rest" type="number" min="0" max="6"></div>
       <div><span id="bt_lMin"></span> <input class="inp r" id="bt_min" type="number" min="0" max="30">%</div>
@@ -4211,7 +4212,7 @@ const TX = {
     hVal: "Valora (Bear Hunt Master) — only if your rally number above doesn't include her", savage: "Valora skill: Bear Hunt march capacity (+3,000 / Lv to your own march in the rally — not the whole rally's size, which counts the joiners)", locked: "Not unlocked",
     eff: "Bear Hunt sizes used below: rally {r} · each march {j}",
     hAuto: "⚡ Auto split", autoNote: "Fills the formations below (replaces them). You can still drag everything afterwards.",
-    rr: "Rally ratio", fix: "Fixed-ratio marches", hero: "Marches with a hero (full, mixed)", rest: "Marches without a hero (identical, share ALL the rest)", min: "Each later march keeps each type at least",
+    rr: "Rally ratio", fix: "Fixed-ratio marches", fixAuto: "as many as fit", hero: "Marches with a hero (full, mixed)", rest: "Marches without a hero (identical, share ALL the rest)", min: "Each later march keeps each type at least",
     run: "⚡ Auto split now", ran: "Done — adjust by hand below if you like.",
     fitN: "After a full rally you can fill {n} march(es) at {r} — {t} run out first.", fitMore: "One more would need {x} more {t}: take them out of the rally (its {t} −{p}%) and fill the rally with other troops.",
     fitNo: "One more would need {x} more {t} than you have, even taking them out of the rally.", notRatio: "Not {r} — not enough of one type, so the gap was filled with others.",
@@ -4228,7 +4229,7 @@ const TX = {
     hVal: "維拉（狩獵巨熊大師）— 上面的集結人數沒算到她才需要填", savage: "維拉技能：參與狩獵巨熊時的出征部隊容量（你自己帶進集結的兵 +3,000／級；不是整個集結的人數，那個包含別人）", locked: "未解鎖",
     eff: "下面實際用的狩獵巨熊人數：集結 {r} · 每隊 {j}",
     hAuto: "⚡ 全自動分配", autoNote: "會把下面的編組全部重新填好（取代原本的），之後還是可以手動拉。",
-    rr: "集結比例", fix: "固定比例的隊伍", hero: "有英雄的隊伍（滿編，混合）", rest: "沒英雄的隊伍（一模一樣，平分全部剩下的）", min: "後面每隊每種兵至少",
+    rr: "集結比例", fix: "固定比例的隊伍", fixAuto: "能湊幾隊就幾隊", hero: "有英雄的隊伍（滿編，混合）", rest: "沒英雄的隊伍（一模一樣，平分全部剩下的）", min: "後面每隊每種兵至少",
     run: "⚡ 立即自動分配", ran: "好了 — 可以在下面再手動調整。",
     fitN: "集結填滿之後，還能湊 {n} 隊滿編的 {r} — {t}最先不夠。", fitMore: "要多湊 1 隊，還差 {x} {t}：從集結裡拿出來（集結的{t} −{p}%），集結改用其他兵種補滿。",
     fitNo: "要多湊 1 隊還差 {x} {t}，就算從集結拿出來也不夠。", notRatio: "不是 {r} — 某種兵不夠，缺的用其他兵種補上了。",
@@ -4251,6 +4252,17 @@ const size = (f) => f.k === "rally" ? effRally() : effJoin();
 const used = (skip) => { const u = [0, 0, 0]; S.f.forEach((f, j) => { if (j !== skip) f.c.forEach((n, i) => (u[i] += n)); }); return u; };
 
 /* ---- auto split (same rules as before, with any number of fixed-ratio marches) ---- */
+/* the most full fixed-ratio marches that fit after a full rally, keeping each later march's minimum % of every type */
+function maxFix() {
+  const A = S.auto, L = effJoin(), k = A.hero + A.noHero, per = Math.floor(L * Math.max(0, A.minPct || 0) / 100), R = effRally();
+  const own = owned(), avail = own.map((x) => x - Math.min(x, k * per));
+  const rs = A.rr.reduce((a, b) => a + b, 0) || 1, want = A.rr.map((r) => Math.floor(R * r / rs)); want[2] += R - want.reduce((a, b) => a + b, 0);
+  const rally = want.map((w, i) => Math.min(w, avail[i])); let gap = R - rally.reduce((a, b) => a + b, 0);
+  for (const i of [2, 1, 0]) { if (gap <= 0) break; const add = Math.min(gap, avail[i] - rally[i]); if (add > 0) { rally[i] += add; gap -= add; } }
+  const fs = A.fix.reduce((a, b) => a + b, 0) || 1, need = A.fix.map((r) => Math.floor(L * r / fs)); need[2] += L - need.reduce((a, b) => a + b, 0);
+  let n = 10; need.forEach((w, i) => { if (w > 0) n = Math.min(n, Math.floor((avail[i] - rally[i]) / w)); });
+  return Math.max(0, n);
+}
 function autoSplit() {
   const A = S.auto, L = effJoin(), h = A.hero, n = A.noHero, k = h + n, per = Math.floor(L * Math.max(0, A.minPct || 0) / 100);
   const pool = owned(), res = pool.map((x) => Math.min(x, k * per)), avail = pool.map((x, i) => x - res[i]);
@@ -4260,6 +4272,7 @@ function autoSplit() {
     for (const i of [2, 1, 0]) { if (gap <= 0) break; const add = Math.min(gap, avail[i] - take[i]); if (add > 0) { take[i] += add; gap -= add; } }
     take.forEach((x, i) => (avail[i] -= x)); return take; };
   const out = [{ k: "rally", c: fixed(effRally(), A.rr) }];
+  if (A.fixAuto) { A.fixN = maxFix(); $("bt_fixN").value = A.fixN; }
   for (let j = 0; j < A.fixN; j++) out.push({ k: "m", tag: "tFix", r: A.fix.slice(), c: fixed(L, A.fix) });
   const left = avail.map((x, i) => x + res[i]), sumL = () => left.reduce((a, b) => a + b, 0), take = (t) => { t.forEach((x, i) => (left[i] -= x)); return t; };
   const mix = (sz) => { const tot = sumL(); if (!tot) return [0, 0, 0]; const t = left.map((x) => Math.floor(sz * x / tot)); let gap = sz - t.reduce((a, b) => a + b, 0);
@@ -4343,7 +4356,7 @@ function fill() {
   $("bt_rally").value = S.rally; $("bt_join").value = S.join;
 
   const A = S.auto; ["bt_r0", "bt_r1", "bt_r2"].forEach((id, i) => ($(id).value = A.rr[i])); ["bt_m0", "bt_m1", "bt_m2"].forEach((id, i) => ($(id).value = A.fix[i]));
-  $("bt_fixN").value = A.fixN; $("bt_hero").value = A.hero; $("bt_rest").value = A.noHero; $("bt_min").value = A.minPct;
+  $("bt_fixN").value = A.fixN; $("bt_fixAuto").checked = !!A.fixAuto; $("bt_fixN").disabled = !!A.fixAuto; $("bt_hero").value = A.hero; $("bt_rest").value = A.noHero; $("bt_min").value = A.minPct;
 }
 function readTop() {
   const n = (id, d) => { const v = $(id).value.trim(); return v === "" ? d : Math.max(0, Number(v) || 0); };
@@ -4352,8 +4365,11 @@ function readTop() {
   S.savage = +$("bt_savage").value || 0;
   const A = S.auto, d = DEF.auto;
   A.rr = ["bt_r0", "bt_r1", "bt_r2"].map((id, i) => n(id, d.rr[i])); A.fix = ["bt_m0", "bt_m1", "bt_m2"].map((id, i) => n(id, d.fix[i]));
-  A.fixN = Math.min(6, Math.round(n("bt_fixN", d.fixN))); A.hero = Math.min(6, Math.round(n("bt_hero", d.hero))); A.noHero = Math.min(6, Math.round(n("bt_rest", d.noHero)));
+  A.fixAuto = $("bt_fixAuto").checked; $("bt_fixN").disabled = A.fixAuto;
+  A.fixN = A.fixAuto ? maxFix() : Math.min(10, Math.round(n("bt_fixN", d.fixN)));
+  if (A.fixAuto) $("bt_fixN").value = A.fixN; A.hero = Math.min(6, Math.round(n("bt_hero", d.hero))); A.noHero = Math.min(6, Math.round(n("bt_rest", d.noHero)));
   A.minPct = Math.min(30, n("bt_min", d.minPct));
+  if (A.fixAuto) { A.fixN = maxFix(); $("bt_fixN").value = A.fixN; }   // recount once every setting is read
   // a smaller size / fewer troops: trim what no longer fits
   S.f.forEach((f, j) => { TYPES.forEach((_, i) => setCount(j, i, f.c[i])); });
   save();
@@ -4363,7 +4379,7 @@ function applyTexts() {
   $("bt_savage").innerHTML = lv(S.savage);   // Lv.0 = not unlocked → base capacity
   const set = (id, k) => { $(id).textContent = tr(k); };
   [["bt_title", "title"], ["bt_sub", "sub"], ["bt_hTroops", "hTroops"], ["bt_lInf", "inf"], ["bt_lCav", "cav"], ["bt_lArc", "arc"], ["bt_lRally", "rally"], ["bt_lJoin", "join"], ["bt_hVal", "hVal"], ["bt_lSavage", "savage"],
-   ["bt_hAuto", "hAuto"], ["bt_autoNote", "autoNote"], ["bt_lRR", "rr"], ["bt_lFix", "fix"], ["bt_lHero", "hero"], ["bt_lRest", "rest"], ["bt_lMin", "min"],
+   ["bt_hAuto", "hAuto"], ["bt_autoNote", "autoNote"], ["bt_lRR", "rr"], ["bt_lFix", "fix"], ["bt_lFixAuto", "fixAuto"], ["bt_lHero", "hero"], ["bt_lRest", "rest"], ["bt_lMin", "min"],
    ["bt_run", "run"], ["bt_add", "add"], ["bt_copy", "copy"], ["bt_hHow", "hHow"]].forEach(([id, k]) => set(id, k));
   $("bt_how").innerHTML = tr("how").map((x) => `<li>${esc(x)}</li>`).join("");
   if ($("bt_autoMsg").textContent) $("bt_autoMsg").textContent = tr("ran");   // the "done" line follows the language button too
