@@ -153,6 +153,12 @@ const KINGDOM_MAP = {
   597,
   597
  ],
+ "hq": [
+  [
+   409,
+   668
+  ]
+ ],
  "fortress": [
   [
    597,
@@ -669,6 +675,7 @@ const KINGDOM_MAP = {
  ],
  "zh": {
   "castle": "王城",
+  "hq": "平原總部",
   "fortress": "{n}號要塞",
   "sanctuary": "{n}號遺跡",
   "fortressS": "要塞",
