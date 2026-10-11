@@ -68,9 +68,25 @@ function isInstalledApp() {
 
 /* The home-screen app has no browser reload button, so it gets its own ↻ (top right).
    It asks the service worker to look for a new version first, then reloads from the network. */
+/* the home-screen app has no address bar either, so it gets a 🔗 that copies the link of the page being viewed */
+function copyText(t) {
+  const old = () => { const a = document.createElement("textarea"); a.value = t; a.setAttribute("readonly", ""); a.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+    document.body.appendChild(a); a.select(); a.setSelectionRange(0, t.length); let ok = false; try { ok = document.execCommand("copy"); } catch (e) {} a.remove(); return ok; };
+  try { if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t).then(() => true, old); } catch (e) {}
+  return Promise.resolve(old());
+}
+function setupCopyUrlButton(btn) {
+  if (!btn) return;
+  btn.hidden = false;
+  btn.onclick = async () => {
+    const ok = await copyText(location.href), was = btn.textContent;
+    btn.textContent = ok ? "✓" : "✕"; setTimeout(() => { btn.textContent = was; }, 1500);
+  };
+}
 function setupReloadButton() {
   const btn = document.getElementById("reloadBtn");
   if (!btn || !isInstalledApp()) return;
+  setupCopyUrlButton(document.getElementById("copyUrlBtn"));
   btn.hidden = false;
   btn.onclick = async () => {
     btn.disabled = true; btn.style.opacity = ".5";

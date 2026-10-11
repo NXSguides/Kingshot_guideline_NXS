@@ -450,7 +450,7 @@
 </head>
 <body>
 <div class="wrap" id="main">
-  <div class="shbar"><a class="btn" href="./">← <span id="shHome"></span></a><button class="btn" id="langBtn"></button><button class="btn" id="reloadBtn" title="Refresh" aria-label="Refresh" hidden>↻</button></div>
+  <div class="shbar"><a class="btn" href="./">← <span id="shHome"></span></a><button class="btn" id="langBtn"></button><button class="btn" id="copyUrlBtn" title="Copy link" aria-label="Copy link" hidden>🔗</button><button class="btn" id="reloadBtn" title="Refresh" aria-label="Refresh" hidden>↻</button></div>
   <nav class="tabs">
     <a href="#events" data-tab="events">📅 Events</a>
     <a href="#map" data-tab="map">🗺️ Map</a>
@@ -910,6 +910,13 @@ function applyShared() {
   const btn = document.getElementById("reloadBtn");
   if (!app || !btn) return;
   btn.hidden = false;
+  const cp = document.getElementById("copyUrlBtn");   // no address bar in the app either → 🔗 copies this page's link
+  if (cp) { cp.hidden = false; cp.onclick = async () => {
+    const t = location.href; let ok = false;
+    try { await navigator.clipboard.writeText(t); ok = true; } catch (e) {
+      const a = document.createElement("textarea"); a.value = t; a.style.cssText = "position:fixed;top:0;left:0;opacity:0"; document.body.appendChild(a); a.select();
+      try { ok = document.execCommand("copy"); } catch (x) {} a.remove(); }
+    cp.textContent = ok ? "✓" : "✕"; setTimeout(() => { cp.textContent = "🔗"; }, 1500); }; }
   btn.onclick = async () => {
     btn.disabled = true;
     try { const r = navigator.serviceWorker && await navigator.serviceWorker.getRegistration(); if (r) await r.update(); } catch (e) {}
