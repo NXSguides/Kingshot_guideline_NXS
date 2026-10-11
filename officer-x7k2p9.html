@@ -4207,8 +4207,8 @@ if (!S.f.length || S.f[0].k !== "rally") S.f.unshift({ k: "rally", c: [0, 0, 0] 
 let lang = OFFICER.lang;
 const TX = {
   en: { title: "🐻 Bear Hunt formations", sub: "Split your troops between your rally and your marches. Saved on this device only.",
-    hTroops: "Your troops & limits", inf: "Infantry", cav: "Cavalry", arc: "Archers", rally: "Your rally capacity (without Valora)", join: "Joining a rally: max troops",
-    hVal: "Valora (Bear Hunt Master) — only if your rally number above doesn't include her", savage: "Valora skill: Bear Hunt march capacity (your rally +3,000 / Lv)", locked: "Not unlocked",
+    hTroops: "Your troops & limits", inf: "Infantry", cav: "Cavalry", arc: "Archers", rally: "Your own troops in your rally (without Valora)", join: "Joining a rally: max troops",
+    hVal: "Valora (Bear Hunt Master) — only if your rally number above doesn't include her", savage: "Valora skill: Bear Hunt march capacity (+3,000 / Lv to your own march in the rally — not the whole rally's size, which counts the joiners)", locked: "Not unlocked",
     eff: "Bear Hunt sizes used below: rally {r} · each march {j}",
     hAuto: "⚡ Auto split", autoNote: "Fills the formations below (replaces them). You can still drag everything afterwards.",
     rr: "Rally ratio", fix: "Fixed-ratio marches", hero: "Marches with a hero (full, mixed)", rest: "Marches without a hero (identical, share ALL the rest)", min: "Each later march keeps each type at least",
@@ -4224,8 +4224,8 @@ const TX = {
       "⚡ Auto split: rally (full, its ratio) → fixed-ratio marches (full) → hero marches (full, same mix as what is left) → no-hero marches share everything left, all identical. Every later march keeps at least the set % of each type, so none goes out without archers.",
       "Only if even the no-hero marches would be over the join limit do troops stay home — infantry first, then cavalry."] },
   zh: { title: "🐻 狩獵巨熊部隊編組", sub: "把你的士兵分配到自己發的集結和其他隊伍。只存在這台裝置。",
-    hTroops: "你的士兵和上限", inf: "步兵", cav: "騎兵", arc: "弓兵", rally: "你能發出的集結人數（不含維拉）", join: "參與集結的人數上限",
-    hVal: "維拉（狩獵巨熊大師）— 上面的集結人數沒算到她才需要填", savage: "維拉技能：狩獵巨熊出征部隊容量（你的集結 +3,000／級）", locked: "未解鎖",
+    hTroops: "你的士兵和上限", inf: "步兵", cav: "騎兵", arc: "弓兵", rally: "你自己能帶進集結的兵數（不含維拉）", join: "參與集結的人數上限",
+    hVal: "維拉（狩獵巨熊大師）— 上面的集結人數沒算到她才需要填", savage: "維拉技能：參與狩獵巨熊時的出征部隊容量（你自己帶進集結的兵 +3,000／級；不是整個集結的人數，那個包含別人）", locked: "未解鎖",
     eff: "下面實際用的狩獵巨熊人數：集結 {r} · 每隊 {j}",
     hAuto: "⚡ 全自動分配", autoNote: "會把下面的編組全部重新填好（取代原本的），之後還是可以手動拉。",
     rr: "集結比例", fix: "固定比例的隊伍", hero: "有英雄的隊伍（滿編，混合）", rest: "沒英雄的隊伍（一模一樣，平分全部剩下的）", min: "後面每隊每種兵至少",
