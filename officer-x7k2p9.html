@@ -1368,6 +1368,11 @@ const EVENTS = {
   "hero-roulette":      { emoji: "🎰", en: "Hero Roulette", zh: "英雄轉盤" },
   "cesares-fury":       { emoji: "🗡️", en: "Cesares Fury", zh: "征討切薩雷", noGuide: true },
   "sanctuary-battle":   { emoji: "🏯", en: "Sanctuary Battle", zh: "遺跡爭奪", noGuide: true, start: "2026-10-06", every: 7, days: 4 },   // added after the list was first saved → start/every/days seed it
+  // the week right after KvK (first seen 2026-10-12; check the dates in game)
+  "alliance-brawl":     { emoji: "🤜", en: "Alliance Brawl", zh: "聯盟對決", noGuide: true, start: "2026-10-12", every: 28, days: 7,
+    note: "Mon 00:00 – Sun 12:00 UTC · be in the alliance at Sun 23:00 UTC the day before (matching) to count", noteZh: "週一 00:00 – 週日 12:00 UTC · 前一天週日 UTC 23:00 配對時要在聯盟內才算" },
+  "merchant-empire":    { emoji: "🐫", en: "Merchant Empire", zh: "貿易復興", noGuide: true, start: "2026-10-12", every: 28, days: 7,
+    note: "Escort 2 caravans at a time · last 4 h (until Sun 04:00 UTC) raiding only", noteZh: "同時最多護送 2 輛貨車 · 最後 4 小時（到週日 UTC 04:00）只能掠奪" },
 };
 // What officers need to do. due: days relative to the event's first day (−1 = the day before).
 const TODO = {
@@ -1452,8 +1457,8 @@ function defaultList(sched) {
   const out = [];
   for (const [id, e] of Object.entries(EVENTS)) {
     const s = sched[id];
-    out.push({ id, emoji: e.emoji, en: e.en, zh: e.zh, start: s ? isoDay(s.anchor) : "", every: s ? s.periodDays : 0, days: s ? s.activeDays : 0,
-      guide: e.noGuide ? "" : (GUIDE_LIST[id] ? id : ""), note: "", todo: (TODO[id] || []).map((x) => ({ ...x })), ingame: INGAME_DEFAULTS[id] || [] });
+    out.push({ id, emoji: e.emoji, en: e.en, zh: e.zh, start: s ? isoDay(s.anchor) : (e.start || ""), every: s ? s.periodDays : (e.every || 0), days: s ? s.activeDays : (e.days || 0),
+      guide: e.noGuide ? "" : (GUIDE_LIST[id] ? id : ""), note: e.note || "", ...(e.noteZh ? { noteZh: e.noteZh } : {}), todo: (TODO[id] || []).map((x) => ({ ...x })), ingame: INGAME_DEFAULTS[id] || [] });
   }
   for (const e of EXTRA_EVENTS) if (!out.some((x) => x.id === e.id)) out.push({ ...e, note: e.note || "", todo: e.todo || [], ingame: INGAME_DEFAULTS[e.id] || [] });
   return out;
@@ -1820,7 +1825,7 @@ async function init() {
 function seedTodos(list) {
   // events added to the site after the list was saved (they carry their own default schedule)
   for (const [id, e] of Object.entries(EVENTS)) {
-    if (e.start && !list.some((x) => x.id === id)) list.push({ id, emoji: e.emoji, en: e.en, zh: e.zh, start: e.start, every: e.every, days: e.days, guide: "", note: "", todo: [], ingame: INGAME_DEFAULTS[id] || [] });
+    if (e.start && !list.some((x) => x.id === id)) list.push({ id, emoji: e.emoji, en: e.en, zh: e.zh, start: e.start, every: e.every, days: e.days, guide: "", note: e.note || "", ...(e.noteZh ? { noteZh: e.noteZh } : {}), todo: [], ingame: INGAME_DEFAULTS[id] || [] });
   }
   /* KvK Battle phase only runs 12:00–22:00 UTC: its Castle Battle item shows on that day only, until 22:00 UTC */
   for (const td of ((list.find((x) => x.id === "kvk") || {}).todo || []))
