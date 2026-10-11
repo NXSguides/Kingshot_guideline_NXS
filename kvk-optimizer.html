@@ -286,8 +286,8 @@ function renderStatic(){
   $("troops").querySelectorAll("[data-pr]").forEach(i=>i[i.tagName==="SELECT"?"onchange":"oninput"]=()=>{S.pr[i.dataset.pr]=i.value;save();calc()});
 }
 
-// ---- step 4: score items level by level (Governor Charm / pets / Governor Gear) ----
-const LV=P.lv, KINDS=["charm","pet","gear"];
+// ---- step 4: score items level by level (Governor Charm / pets / Governor Gear / Hero Gear Mastery Forging) ----
+const LV=P.lv, KINDS=["charm","pet","gear","hg"].filter(k=>LV[k]);
 S.lv=S.lv||{};
 for(const k of KINDS)S.lv[k]=S.lv[k]||{have:{},rows:[]};
 S.lv.pet.max=S.lv.pet.max||100;
@@ -323,19 +323,19 @@ function lvOut(k){
   el.innerHTML=(G.length?`<ul>${G.map(g=>`<li class="${g.ok?"":"no"}"><span>${stepName(k,g.st)}${g.est?" *":""}${g.n>1?` ×${g.ok<g.n?g.ok+"/":""}${g.n}`:""}</span><b>${fmt(g.st.score*(g.ok||g.n))}</b></li>`).join("")}</ul>`:"")+
     (R.stop?`<div class="stop">${f(L().lvStop,{m:matName(R.stop)})}</div>`:"")+
     `<div class="kv">${L().lvNeed}: ${need}</div>`+
-    `<div class="sum"><span>${f(L().lvDone,{n:R.done})} · ${L().lvScore} ${fmt(R.score)}</span><span>${fmt(R.score*it.v)} ${L().pts}</span></div>`+
+    `<div class="sum"><span>${f(L().lvDone,{n:R.done})} · ${k==="hg"?matName("fh"):L().lvScore} ${fmt(R.score)}</span><span>${fmt(R.score*it.v)} ${L().pts}</span></div>`+
     `<div class="lvbtns"><button type="button" data-fill="m" ${R.score?"":"disabled"}>${L().lvToMust}</button><button type="button" data-fill="o" ${R.score?"":"disabled"}>${L().lvToOpt}</button></div>`;
   el.querySelectorAll("[data-fill]").forEach(b=>b.onclick=()=>{S[b.dataset.fill][it.id]=String(R.score);save();renderStatic();calc();renderLv()});
 }
 function renderLv(){
   $("lv").innerHTML=KINDS.map(k=>{
     const D=LV[k], steps=lvSteps(k), it=lvItem(k), st=S.lv[k];
-    const opt=(sel,from)=>(from?[`<option value="0"${+sel===0?" selected":""}>${k==="charm"?"Lv.0":k==="pet"?"Lv.0":"—"}</option>`]:[]).concat(steps.map((s,i)=>`<option value="${i+1}"${+sel===i+1?" selected":""}>${k==="gear"?(LV.gear.q[s.q][LANG]||LV.gear.q[s.q].en)+(s.st?" "+"★".repeat(s.st):""):s.n}</option>`)).join("");
+    const opt=(sel,from)=>(from?[`<option value="0"${+sel===0?" selected":""}>${k==="gear"?"—":"Lv.0"}</option>`]:[]).concat(steps.map((s,i)=>`<option value="${i+1}"${+sel===i+1?" selected":""}>${k==="gear"?(LV.gear.q[s.q][LANG]||LV.gear.q[s.q].en)+(s.st?" "+"★".repeat(s.st):""):s.n}</option>`)).join("");
     const rows=st.rows.map((r,i)=>`<div class="lvrow"><select data-lv="${k}" data-i="${i}" data-f="f">${opt(r.f,true)}</select><span>→</span><select data-lv="${k}" data-i="${i}" data-f="t">${opt(r.t,false)}</select><input type="number" inputmode="numeric" min="1" data-lv="${k}" data-i="${i}" data-f="n" value="${esc(r.n||1)}" title="${L().lvCount}"><button type="button" class="x" data-del="${k}" data-i="${i}" aria-label="×">×</button></div>`).join("");
     const have=`<div class="lvh">${D.mats.map(m=>`<label><span>${matName(m)}</span><input type="number" inputmode="numeric" min="0" data-have="${k}" data-m="${m}" value="${esc(st.have[m]||"")}" placeholder="—"></label>`).join("")}</div>`;
     const pet=k==="pet"?`<label class="kv">${L().lvPetMax} <select data-petmax>${LV.pet.groups.map(g=>`<option value="${g.max}"${+st.max===g.max?" selected":""}>${g.max}</option>`).join("")}</select></label>`:"";
     const note=k==="gear"?`<div class="lvnote">${L().lvGearNote}</div>`:"";
-    return `<div class="lvc"><div class="mhead"><span>${nm(it)}</span><span class="kv">${fmt(it.v)} ${L().perPt}</span></div>${pet}${rows}<button type="button" class="add" data-add="${k}">${L().lvAdd}</button><div class="kv">${L().lvHave}</div>${have}<div class="lvout" id="lvout-${k}"></div>${note}</div>`;
+    return `<div class="lvc"><div class="mhead"><span>${D.title?(D.title[LANG]||D.title.en):nm(it)}</span><span class="kv">${k==="hg"?`${fmt(it.v)} ${L().pts} / ${matName("fh")}`:`${fmt(it.v)} ${L().perPt}`}</span></div>${pet}${rows}<button type="button" class="add" data-add="${k}">${L().lvAdd}</button><div class="kv">${L().lvHave}</div>${have}<div class="lvout" id="lvout-${k}"></div>${note}</div>`;
   }).join("")+`<div class="lvnote" style="grid-column:1/-1">${L().lvSrc}</div>`;
   $("lv").querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>{const k=b.dataset.add,steps=lvSteps(k),last=S.lv[k].rows[S.lv[k].rows.length-1];const f=last?Math.min(steps.length-1,+last.t):0;S.lv[k].rows.push({f,t:Math.min(steps.length,f+1),n:1});save();renderLv()});
   $("lv").querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{S.lv[b.dataset.del].rows.splice(+b.dataset.i,1);save();renderLv()});

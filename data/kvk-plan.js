@@ -1494,6 +1494,34 @@ const KVK_PLAN = {
     "ru": "Ремесленный чертеж",
     "th": "วิสัยทัศน์ของช่างฝีมือ",
     "ar": "رؤية الحرفي"
+   },
+   "fh": {
+    "en": "Hero Gear Forgehammer",
+    "zh": "英雄裝備鍛造錘",
+    "ko": "영웅 장비 제작 망치",
+    "de": "Heldenausrüstung Schmiedehammer",
+    "fr": "Marteau de Forge d'Équipement Héros",
+    "pt": "Martelo de forja de Equipamento de Herói",
+    "tr": "Kahraman Donanımı Demirci Çekici",
+    "id": "Forgehammer Gear Hero",
+    "ru": "кузнечный молот для снаряжения героев",
+    "th": "ค้อนตีเหล็กอุปกรณ์ฮีโร่",
+    "ar": "مطرقة الحدادة لعتاد البطل",
+    "es": "Martillo de Forja de Equipo de Héroe"
+   },
+   "mg": {
+    "en": "Mythic Hero Gear",
+    "zh": "傳說品質英雄裝備",
+    "ko": "레전드 품질 영웅 아이템",
+    "de": "Mythische Heldenausrüstung",
+    "fr": "Équipement de Héros Mythique",
+    "pt": "Equipamento do Herói Mítico",
+    "tr": "Mitik Kahraman Donanımı",
+    "id": "Perlengkapan Pahlawan Mitos",
+    "ru": "снаряжение мифического героя",
+    "th": "อุปกรณ์ฮีโร่ขั้นเทพ",
+    "ar": "عتاد البطل الخيالي",
+    "es": "Equipo de héroe mítico"
    }
   },
   "charm": {
@@ -2247,6 +2275,189 @@ const KVK_PLAN = {
       26000,
       260,
       45
+     ]
+    }
+   ]
+  },
+  "hg": {
+   "title": {
+    "en": "Mastery Forging",
+    "zh": "專精鍛造",
+    "ko": "마스터리 제작",
+    "de": "Meisterhaftes Schmieden",
+    "fr": "Forge de Maîtrise",
+    "pt": "M. em Forja",
+    "tr": "Usta İşi Dövme",
+    "id": "Penempaan Mastery",
+    "ru": "Мастерство кузнеца",
+    "th": "การปรับความเชี่ยวชาญ",
+    "ar": "صقل التخصص",
+    "es": "Forja de Maestría"
+   },
+   "item": "hm",
+   "mats": [
+    "fh",
+    "mg"
+   ],
+   "steps": [
+    {
+     "n": "Lv.1",
+     "score": 10,
+     "c": [
+      10,
+      0
+     ]
+    },
+    {
+     "n": "Lv.2",
+     "score": 20,
+     "c": [
+      20,
+      0
+     ]
+    },
+    {
+     "n": "Lv.3",
+     "score": 30,
+     "c": [
+      30,
+      0
+     ]
+    },
+    {
+     "n": "Lv.4",
+     "score": 40,
+     "c": [
+      40,
+      0
+     ]
+    },
+    {
+     "n": "Lv.5",
+     "score": 50,
+     "c": [
+      50,
+      0
+     ]
+    },
+    {
+     "n": "Lv.6",
+     "score": 60,
+     "c": [
+      60,
+      0
+     ]
+    },
+    {
+     "n": "Lv.7",
+     "score": 70,
+     "c": [
+      70,
+      0
+     ]
+    },
+    {
+     "n": "Lv.8",
+     "score": 80,
+     "c": [
+      80,
+      0
+     ]
+    },
+    {
+     "n": "Lv.9",
+     "score": 90,
+     "c": [
+      90,
+      0
+     ]
+    },
+    {
+     "n": "Lv.10",
+     "score": 100,
+     "c": [
+      100,
+      0
+     ]
+    },
+    {
+     "n": "Lv.11",
+     "score": 110,
+     "c": [
+      110,
+      1
+     ]
+    },
+    {
+     "n": "Lv.12",
+     "score": 120,
+     "c": [
+      120,
+      2
+     ]
+    },
+    {
+     "n": "Lv.13",
+     "score": 130,
+     "c": [
+      130,
+      3
+     ]
+    },
+    {
+     "n": "Lv.14",
+     "score": 140,
+     "c": [
+      140,
+      4
+     ]
+    },
+    {
+     "n": "Lv.15",
+     "score": 150,
+     "c": [
+      150,
+      5
+     ]
+    },
+    {
+     "n": "Lv.16",
+     "score": 160,
+     "c": [
+      160,
+      6
+     ]
+    },
+    {
+     "n": "Lv.17",
+     "score": 170,
+     "c": [
+      170,
+      7
+     ]
+    },
+    {
+     "n": "Lv.18",
+     "score": 180,
+     "c": [
+      180,
+      8
+     ]
+    },
+    {
+     "n": "Lv.19",
+     "score": 190,
+     "c": [
+      190,
+      9
+     ]
+    },
+    {
+     "n": "Lv.20",
+     "score": 200,
+     "c": [
+      200,
+      10
      ]
     }
    ]

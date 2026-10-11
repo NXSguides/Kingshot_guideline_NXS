@@ -94,6 +94,7 @@ function build(lang) {
       rows.push(`${u.s4}: ${u.s4hint}`);
       rows.push(`Governor Charm score per level (cost per charm: ${P.lv.charm.mats.map(mn).join(" / ")}): ` + P.lv.charm.steps.map((s) => `${s.n} +${s.score}${s.est ? " (est.)" : ""} [${s.c.join("/")}]`).join("; "));
       rows.push(`Pet advancement score per advance (same for every pet): ` + P.lv.pet.groups[P.lv.pet.groups.length - 1].steps.map((s) => `${s.n} +${s.score}`).join("; ") + `. Materials (${P.lv.pet.mats.map(mn).join(" / ")}) depend on the pet's max level: ` + P.lv.pet.groups.map((g) => `max ${g.max}: ` + g.steps.map((s) => `${s.n} [${s.c.join("/")}]`).join(", ")).join(" | "));
+      if (P.lv.hg) rows.push(`Hero Gear Mastery Forging (專精鍛造), per gear piece: level L costs 10×L ${mn("fh")}; from Lv.11 also (L−10) ${mn("mg")}. Lv.0→10 = 550 Forgehammers, Lv.0→20 = 2,100 Forgehammers + 55 Mythic Hero Gear. Forgehammers score KvK points per hammer used (see the item table). The planner's level picker turns "from → to × pieces" into Forgehammers.`);
       rows.push(`Governor Gear score per step, per piece (cost: ${P.lv.gear.mats.map(mn).join(" / ")}): ` + P.lv.gear.steps.map((s) => `${q(s)} +${s.score} [${s.c.join("/")}]`).join("; ") + `. ${u.lvGearNote}`);
     }
     parts.push(`### KVK POINTS PLANNER — page "${u.title}" (kvk-optimizer.html?lang=${lang}), opened from the link at the top of the KvK guide's table (guide #kvk). Not in the guide menu, but it is a public page anyone can use.
