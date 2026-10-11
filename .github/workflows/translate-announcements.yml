@@ -19,18 +19,20 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - run: npm install js-yaml
-      - run: node scripts/translate-announcements.js
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      # build → commit → push; if someone pushed in between (e.g. two deletions a few seconds apart),
+      # start again from the newest main and rebuild, instead of trying to merge two generated files
       - run: |
           git config user.name "translate-bot"
           git config user.email "actions@github.com"
-          git add data/announcements.json data/announcements-cache.json
-          git diff --cached --quiet && exit 0
-          git commit -m "自動翻譯新公告"
-          for i in 1 2 3; do
-            git pull --rebase origin main && git push origin HEAD:main && exit 0
-            git rebase --abort 2>/dev/null
-            sleep 5
+          for i in 1 2 3 4 5; do
+            node scripts/translate-announcements.js
+            git add data/announcements.json data/announcements-cache.json
+            git diff --cached --quiet && exit 0
+            git commit -m "自動翻譯新公告"
+            git push origin HEAD:main && exit 0
+            sleep $((i * 5))
+            git fetch origin main && git reset --hard origin/main
           done
           exit 1
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
