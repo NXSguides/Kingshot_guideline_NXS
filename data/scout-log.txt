@@ -62,3 +62,5 @@ Kingdom 2186
   top list from alliance rosters: 20 players, 8 alliances
   players read: 20/20
 ✅ saved
+2026-10-11T06:57:56.464Z mode=requested kingdoms=-
+Nothing to scout (requested).
