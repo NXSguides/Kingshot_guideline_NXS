@@ -3566,7 +3566,11 @@ $("sc_kid").onkeydown = (e) => { if (e.key === "Enter") requestFetch($("sc_kid")
 $("sc_list").onclick = async (e) => {
   const rf = e.target.closest("[data-refetch]"); if (rf) return requestFetch(rf.dataset.refetch);
   const rm = e.target.closest("[data-rm]");
-  if (rm) { cfg.kingdoms = cfg.kingdoms.filter((k) => String(k.kid) !== rm.dataset.rm); delete cfg.requested; if (await saveConfig(`Scout: remove ${rm.dataset.rm}`)) { $("sc_msg").textContent = ""; renderList(); } }
+  if (rm) {   // remove from the daily list AND ask the Action to delete its scouted data (else its chip comes back)
+    const kid = rm.dataset.rm;
+    cfg.kingdoms = cfg.kingdoms.filter((k) => String(k.kid) !== kid); delete cfg.requested; cfg.drop = [...new Set([...(cfg.drop || []), Number(kid)])];
+    if (await saveConfig(`Scout: remove ${kid}`)) { if (data && data.kingdoms) delete data.kingdoms[kid]; delete store.hide[kid]; save(); $("sc_msg").textContent = ""; render(); }
+  }
 };
 $("sc_list").onchange = async (e) => {
   const inc = e.target.closest("[data-inc]");

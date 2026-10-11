@@ -105,10 +105,13 @@ async function scoutKingdom(kid) {
   kids = [...new Set(kids.map(Number).filter((n) => n > 0))];
   log(`${new Date().toISOString()} mode=${mode} kingdoms=${kids.join(",") || "-"}`);
   const flushLog = () => { let old = ""; try { old = fs.readFileSync(LOG, "utf8"); } catch (e) {} fs.writeFileSync(LOG, (old + logLines.join("\n") + "\n").split("\n").slice(-80).join("\n")); };
-  if (!kids.length) { log(`Nothing to scout (${mode}).`); flushLog(); return; }
+  // ✕ on the Scout tab: drop those kingdoms' data too (otherwise their chip keeps coming back)
+  const drop = mode === "auto" ? [] : [...new Set((cfg.drop || []).map(Number).filter((n) => n > 0))];
+  if (!kids.length && !drop.length) { log(`Nothing to scout (${mode}).`); flushLog(); return; }
   let out = null;
   try { out = readData(OUT); } catch (e) { if (e.code === "NOKEY") throw e; }
   out = out && out.kingdoms ? out : { kingdoms: {} };
+  for (const kid of drop) { delete out.kingdoms[kid]; log(`removed #${kid}`); }
   for (const kid of kids) {
     const r = await scoutKingdom(kid);
     if (r) out.kingdoms[kid] = r;
@@ -116,6 +119,6 @@ async function scoutKingdom(kid) {
   out.updated = new Date().toISOString();
   writeData(OUT, out);
   // the button request is done → clear it (keeps the daily list)
-  if (mode !== "auto" && cfg.requested) { delete cfg.requested; fs.writeFileSync(CONFIG, JSON.stringify(cfg, null, 1) + "\n"); }
+  if (mode !== "auto" && (cfg.requested || cfg.drop)) { delete cfg.requested; delete cfg.drop; fs.writeFileSync(CONFIG, JSON.stringify(cfg, null, 1) + "\n"); }
   log("✅ saved"); flushLog();
 })();
