@@ -4209,7 +4209,7 @@ let lang = OFFICER.lang;
 const TX = {
   en: { title: "🐻 Bear Hunt formations", sub: "Split your troops between your rally and your marches. Saved on this device only.",
     hTroops: "Your troops & limits", inf: "Infantry", cav: "Cavalry", arc: "Archers", rally: "Your rally capacity (without Valora)", join: "Joining a rally: max troops (without Valora)",
-    hVal: "Valora (Bear Hunt Master) — only if your numbers above don't include her", dance: "Dance of the Hunt (rally +30,000 / Lv)", savage: "Savage Advantage (each march +3,000 / Lv)",
+    hVal: "Valora (Bear Hunt Master) — only if your numbers above don't include her", dance: "Dance of the Hunt (rally +30,000 / Lv)", savage: "Savage Advantage (march capacity when joining Bear Hunt +3,000 / Lv)", locked: "Not unlocked",
     eff: "Bear Hunt sizes used below: rally {r} · each march {j}",
     hAuto: "⚡ Auto split", autoNote: "Fills the formations below (replaces them). You can still drag everything afterwards.",
     rr: "Rally ratio", fix: "Fixed-ratio marches", hero: "Marches with a hero (full, mixed)", rest: "Marches without a hero (identical, share ALL the rest)", min: "Each later march keeps each type at least",
@@ -4226,7 +4226,7 @@ const TX = {
       "Only if even the no-hero marches would be over the join limit do troops stay home — infantry first, then cavalry."] },
   zh: { title: "🐻 狩獵巨熊部隊編組", sub: "把你的士兵分配到自己發的集結和其他隊伍。只存在這台裝置。",
     hTroops: "你的士兵和上限", inf: "步兵", cav: "騎兵", arc: "弓兵", rally: "你能發出的集結人數（不含維拉）", join: "參與集結的人數上限（不含維拉）",
-    hVal: "維拉（狩獵巨熊大師）— 上面的數字沒算到她才需要填", dance: "Dance of the Hunt（集結 +30,000／級）", savage: "Savage Advantage（每隊 +3,000／級）",
+    hVal: "維拉（狩獵巨熊大師）— 上面的數字沒算到她才需要填", dance: "Dance of the Hunt（集結 +30,000／級）", savage: "Savage Advantage（參與狩獵巨熊時的出征部隊容量 +3,000／級）", locked: "未解鎖",
     eff: "下面實際用的狩獵巨熊人數：集結 {r} · 每隊 {j}",
     hAuto: "⚡ 全自動分配", autoNote: "會把下面的編組全部重新填好（取代原本的），之後還是可以手動拉。",
     rr: "集結比例", fix: "固定比例的隊伍", hero: "有英雄的隊伍（滿編，混合）", rest: "沒英雄的隊伍（一模一樣，平分全部剩下的）", min: "後面每隊每種兵至少",
@@ -4342,8 +4342,7 @@ function copyText() {
 function fill() {
   ["bt_inf", "bt_cav", "bt_arc"].forEach((id, i) => ($(id).value = S.troops[i] ?? ""));
   $("bt_rally").value = S.rally; $("bt_join").value = S.join;
-  const lv = (sel) => Array.from({ length: 11 }, (_, i) => `<option value="${i}"${+sel === i ? " selected" : ""}>${i ? "Lv." + i : "—"}</option>`).join("");
-  $("bt_dance").innerHTML = lv(S.dance); $("bt_savage").innerHTML = lv(S.savage);
+
   const A = S.auto; ["bt_r0", "bt_r1", "bt_r2"].forEach((id, i) => ($(id).value = A.rr[i])); ["bt_m0", "bt_m1", "bt_m2"].forEach((id, i) => ($(id).value = A.fix[i]));
   $("bt_fixN").value = A.fixN; $("bt_hero").value = A.hero; $("bt_rest").value = A.noHero; $("bt_min").value = A.minPct;
 }
@@ -4361,6 +4360,8 @@ function readTop() {
   save();
 }
 function applyTexts() {
+  const lv = (sel) => Array.from({ length: 11 }, (_, i) => `<option value="${i}"${+sel === i ? " selected" : ""}>${i ? "Lv." + i : tr("locked")}</option>`).join("");
+  $("bt_dance").innerHTML = lv(S.dance); $("bt_savage").innerHTML = lv(S.savage);   // Lv.0 = not unlocked → base capacity
   const set = (id, k) => { $(id).textContent = tr(k); };
   [["bt_title", "title"], ["bt_sub", "sub"], ["bt_hTroops", "hTroops"], ["bt_lInf", "inf"], ["bt_lCav", "cav"], ["bt_lArc", "arc"], ["bt_lRally", "rally"], ["bt_lJoin", "join"], ["bt_hVal", "hVal"], ["bt_lDance", "dance"], ["bt_lSavage", "savage"],
    ["bt_hAuto", "hAuto"], ["bt_autoNote", "autoNote"], ["bt_lRR", "rr"], ["bt_lFix", "fix"], ["bt_lHero", "hero"], ["bt_lRest", "rest"], ["bt_lMin", "min"],
