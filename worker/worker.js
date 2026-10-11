@@ -11,7 +11,7 @@
    Officers:  also roster / watch data. "Officer" = proves the officer password (it opens data/data-key.json),
               checked here with a hash of the DATA_KEY secret. */
 
-const VERSION = "2026-10-11a (outpost timers)";
+const VERSION = "2026-10-11b (kvk battle window)";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -319,7 +319,7 @@ GETTING IN
 
 📅 EVENTS (events-x7k2p9.html) — the first officer tab: week calendar, officer to-dos, and in-game guides
 - Calendar (中文: 活動): one long strip of days in UTC (game day starts 00:00 UTC), two weeks back to ten weeks ahead; scroll sideways. Today is underlined, a dashed line marks each Monday, every event run is one bar (bars that started earlier keep their name in view). Filled bar = running now; a bar with ✅ has open action items (tap → jumps to them); tapping any other bar opens that event's entry below.
-- ✅ Action items (待辦事項): "This week" / "Next week" buttons (on Sundays it opens on next week). One card per event; an event that runs several times in the week (e.g. Bear Hunt) gets one dated task per run; a run belongs to the week it starts in, and its prep tasks are listed with that week. Each task says what to do and by when (⏰ date); overdue items are marked. Ticks are saved on this device only. Buttons: 📢 Write announcement (Post tab), 📖 Guide (the guide on the site), 📋 In-game guides (jumps to that event's messages).
+- ✅ Action items (待辦事項): "This week" / "Next week" buttons (on Sundays it opens on next week). One card per event; an event that runs several times in the week (e.g. Bear Hunt) gets one dated task per run; a run belongs to the week it starts in, and its prep tasks are listed with that week. Each task says what to do and by when (⏰ date); overdue items are marked. A task can be limited to its own day until a UTC hour (editor: "Only that day, until UTC hour" 只在當天顯示，到 UTC 幾點) — e.g. the KvK Castle Battle task shows only on day 6 until 22:00 UTC, because the KvK Battle phase runs 12:00–22:00 UTC. Ticks are saved on this device only. Buttons: 📢 Write announcement (Post tab), 📖 Guide (the guide on the site), 📋 In-game guides (jumps to that event's messages).
 - 📋 Events & in-game guides (list below the calendar): tap an event to open it. Each grey box is ONE in-game chat message — the game limits message length, so long guides are split into several messages; send them one by one. 📋 Copy copies one message; the character count is shown next to the title.
 - ✏️ next to a message edits just that message (title and text, live character count) → 💾 Save.
 - ✏️ Edit at the bottom of an event changes the whole event: emoji, name (中文 / English), "Repeats on a fixed schedule" (first day in UTC, repeats every … days, lasts … days), note (e.g. times), guide on the site, action items (days before (−) / after the start, text in 中文 and English, show an announcement / Ranking button), and the in-game messages (+ Message, ✕ removes). "Delete event" removes it.
