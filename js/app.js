@@ -888,13 +888,13 @@ function ratioSplit(total, r) {
 }
 function ratioCardHtml() {
   const loc = currentLang === "ar" ? "en" : (HTML_LANG[currentLang] || currentLang), f = (n) => n.toLocaleString(loc);
-  const names = ["infantry", "cavalry", "archer"].map(term);
+  // everyone reads ratios as Infantry:Cavalry:Archer, so just the numbers in that order
   const rows = RATIOS.map(([emo, lab, lim, r], i) => {
     const total = LIMITS[lim], c = ratioSplit(total, r);
-    const parts = c.map((n, j) => (r[j] ? `${names[j]} ${f(n)}` : "")).filter(Boolean);
-    return `<div class="rc-row"><div class="rc-main"><b>${emo} ${escapeHtml(t(RATIO_TXT[lab]))}</b> <span class="rc-r">${r.filter(Boolean).join(":")} · ${f(total)}</span>
-      <div class="rc-n" dir="auto">${parts.map(escapeHtml).join(" · ")}</div></div>
-      <button type="button" class="rc-copy" data-copy="${escapeHtml(parts.join(" / "))}" onclick="rcCopy(this)">${escapeHtml(t(RATIO_TXT.copy))}</button></div>`; }).join("");
+    const nums = c.map(f).join(" : ");
+    return `<div class="rc-row"><div class="rc-main"><b>${emo} ${escapeHtml(t(RATIO_TXT[lab]))}</b> <span class="rc-r">${r.join(":")} · ${f(total)}</span>
+      <div class="rc-n" dir="ltr">${escapeHtml(nums)}</div></div>
+      <button type="button" class="rc-copy" data-copy="${escapeHtml(nums)}" onclick="rcCopy(this)">${escapeHtml(t(RATIO_TXT.copy))}</button></div>`; }).join("");
   return `<div class="ratio-card"><div class="td-title">${escapeHtml(t(RATIO_TXT.title))}</div>${rows}</div>`;
 }
 window.rcCopy = (b) => copyText(b.dataset.copy).then((ok) => { if (!ok) return; const o = b.textContent; b.textContent = t(RATIO_TXT.copied); setTimeout(() => (b.textContent = o), 1500); });
