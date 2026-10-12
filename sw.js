@@ -3,7 +3,7 @@
    - Pages, app code, guide text and data files: try the network first (so new uploads show up
      right away); if it doesn't answer within 1.5 s for pages/code (3 s for data files), or there
      is no internet, show the saved copy. */
-const CACHE = "nxs-v11";
+const CACHE = "nxs-v12";
 const NETWORK_TIMEOUT_MS = 3000;        // data files
 const SHELL_TIMEOUT_MS = 1500;          // pages, code, guide text
 const SHELL = [
@@ -95,7 +95,7 @@ self.addEventListener("push", (e) => {
   e.waitUntil(self.registration.showNotification(m.title || "NXS", {
     body: m.body || "", tag: m.tag || undefined, renotify: !!m.tag,
     icon: "icons/icon-192.png", badge: "icons/icon-192.png",
-    data: { url: /^adm-/.test(m.tag || "") ? "./officer-x7k2p9.html#events" : "./?timers" }   // admin reminders open the officer checklist
+    data: { url: /^adm-/.test(m.tag || "") ? "./officer-x7k2p9.html#events?ev=" + m.tag.replace(/^adm-/, "").replace(/-\d+$/, "") : "./?timers" }   // admin reminders open the officer checklist
   }));
 });
 self.addEventListener("notificationclick", (e) => {
