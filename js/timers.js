@@ -3,11 +3,12 @@
    Timers are kept on this phone (localStorage); the Worker only gets the list so it knows when to send. ---- */
 (function () {
   if (!window.NXSAI) return;
-  /* testing phase: only for phones that opened the site once with ?timers, or browsers with the officer login */
+  /* testing phase: only for browsers that opened the site once with ?timers, opened the officer page, or have the officer login */
   const BETA = "nxs-timers-beta";
   let beta = false;
   try {
-    if (/[?&]timers\b/.test(location.search)) localStorage.setItem(BETA, "1");
+    // the officer page (password-protected) also turns it on for this browser / app — the main site then shows ⏰ too
+    if (/[?&]timers\b/.test(location.search) || /officer-/.test(location.pathname)) localStorage.setItem(BETA, "1");
     beta = !!localStorage.getItem(BETA) || !!(JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw);
   } catch (e) {}
   if (!beta) return;
