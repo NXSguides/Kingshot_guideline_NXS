@@ -1602,6 +1602,7 @@ function exportAdmin() {
       }
     }
     localStorage.setItem("nxs-admin-todos", JSON.stringify({ updated: now, items }));
+    window.dispatchEvent(new Event("nxs-admin-todos"));   // the ⏰ panel on this page re-sends the reminders
   } catch (err) {}
 }
 

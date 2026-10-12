@@ -11,15 +11,25 @@
     beta = !!localStorage.getItem(BETA) || !!(JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw);
   } catch (e) {}
   if (!beta) return;
-  /* officer pages: the timers live on the main site (they need its event schedule), so ⏰ just goes there.
-     Visiting the officer page's Events tab first also refreshes the 🛠️ Admin reminders. */
-  if (typeof GUIDES === "undefined" || typeof EVENT_TIMES === "undefined") {
-    const go = document.createElement("button");
-    go.type = "button"; go.textContent = "⏰"; go.title = "My timers";
-    go.onclick = () => { location.href = "index.html?timers"; };
-    const clr = NXSAI.panel.querySelector("#aiClear"); if (clr) clr.before(go);
-    return;
-  }
+  /* Officer pages don't load the main site's app.js, so keep a copy of the event schedule here;
+     the officer-edited schedule (data/events-x7k2p9.json "sched") replaces it, like on the main site. */
+  const ON_MAIN = typeof EVENT_TIMES !== "undefined";
+  const FB = {
+    times: { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23] },
+    sched: { "bear-hunt": { anchor: Date.UTC(2026, 9, 7), periodDays: 2, activeDays: 1 },
+      "swordland-showdown": { anchor: Date.UTC(2026, 8, 28), periodDays: 14, activeDays: 7 },
+      "tri-alliance-clash": { anchor: Date.UTC(2026, 8, 28), periodDays: 28, activeDays: 6 },
+      "viking-vengeance": { anchor: Date.UTC(2026, 8, 22), periodDays: 14, activeDays: 3 } },
+    names: { "bear-hunt": ["🐻", "Bear Hunt"], "swordland-showdown": ["⚔️", "Swordland Showdown"], "tri-alliance-clash": ["🔱", "Tri-Alliance Clash"],
+      "viking-vengeance": ["🧯", "Viking Vengeance"], "mystic-trial": ["🔮", "Mystic Trial"] },
+  };
+  if (!ON_MAIN) fetch("data/events-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((f) => {
+    for (const [k, v] of Object.entries((f && f.sched) || {})) {
+      const a = Date.parse(v.anchor + "T00:00:00Z");
+      if (FB.sched[k] && !isNaN(a) && v.periodDays > 0) FB.sched[k] = { anchor: a, periodDays: v.periodDays, activeDays: v.activeDays || 1 };
+    }
+    if (!view.hidden) render();
+  }).catch(() => {});
   const { panel } = NXSAI;
   const API = NXSAI.url;
   const VAPID = "BKb0YJxObHPh9_7b4ZriSZQeRk6TaojqNUvPBJe7J9aC_pVuXtmQRRWD11gDs6OJYj8Fg7jigPXDBOxZ5NQbP0o";
@@ -174,7 +184,7 @@
   try { timers = JSON.parse(localStorage.getItem(LS)) || []; } catch (e) {}
   const store = () => { try { localStorage.setItem(LS, JSON.stringify(timers)); } catch (e) {} };
   const prune = () => { const now = Date.now(); timers = timers.filter((x) => x.at > now - KEEP_DONE_MS); };
-  const termOf = (id) => (typeof GLOSSARY !== "undefined" && GLOSSARY[id] ? GLOSSARY[id][lang()] || GLOSSARY[id].en : id);
+  const termOf = (id) => (typeof GLOSSARY !== "undefined" && GLOSSARY[id] ? GLOSSARY[id][lang()] || GLOSSARY[id].en : id.charAt(0).toUpperCase() + id.slice(1));
   const labelOf = (x) => (x.cat === "other" && x.name ? x.name : (T("cats")[x.cat] || TX.en.cats[x.cat] || x.cat)) + (x.sub ? ` · ${subName(x.sub)}` : "") + (x.n ? ` #${x.n}` : "");
   const MULTI = { gather: 6, build: 2 };   // several at once: gathering marches, 2 builders
   /* categories with a second choice: troop type, recruit type */
@@ -202,14 +212,15 @@
   /* which day of the event run has the battle (0 = first day). Default: the last day — check in game. */
   const FIGHT_DAY = { "swordland-showdown": -1, "tri-alliance-clash": -1, "viking-vengeance": -1 };
   const DAY = 86400000, HORIZON = 21 * DAY;
-  const evHours = (k) => (typeof EVENT_TIMES !== "undefined" && EVENT_TIMES[k]) || [];
+  const evHours = (k) => (ON_MAIN ? EVENT_TIMES[k] : FB.times[k]) || [];
   const defOf = (k) => DEFS.find((d) => d.k === k);
   const hoursOf = (d) => d.hours || evHours(d.k);
   const beforeOf = (d) => { const a = alerts[d.k]; return a && a.before != null ? a.before : d.def; };
   const evName = (k) => { const d = defOf(k); if (d && d.name) return T(d.name); return nameFromGuide(k); };
-  const nameFromGuide = (k) => (typeof GUIDES !== "undefined" && GUIDES[k] ? GUIDES[k].name[lang()] || GUIDES[k].name.en : k);
-  const evEmoji = (k) => { const d = defOf(k); if (d && d.emoji) return d.emoji; return typeof GUIDES !== "undefined" && GUIDES[k] ? GUIDES[k].emoji : "📅"; };
+  const nameFromGuide = (k) => (!ON_MAIN && FB.names[k]) ? FB.names[k][1] : (typeof GUIDES !== "undefined" && GUIDES[k] ? GUIDES[k].name[lang()] || GUIDES[k].name.en : k);
+  const evEmoji = (k) => { const d = defOf(k); if (d && d.emoji) return d.emoji; if (!ON_MAIN && FB.names[k]) return FB.names[k][0]; return typeof GUIDES !== "undefined" && GUIDES[k] ? GUIDES[k].emoji : "📅"; };
   function evSched(k) {
+    if (!ON_MAIN) return FB.sched[k] || null;
     if (k === "bear-hunt") return typeof BEAR_SCHED !== "undefined" ? BEAR_SCHED : null;
     return typeof EVENT_SCHEDULES !== "undefined" ? EVENT_SCHEDULES[k] : null;
   }
@@ -521,5 +532,6 @@
   if (navigator.serviceWorker) navigator.serviceWorker.addEventListener("message", (e) => { if (e.data && e.data.nxs === "open-timers") openTimers(); });
   // after coming back to the app, re-send the list once (keeps the server in step if a save failed)
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") { prune(); store(); sync(); if (!view.hidden) render(); } });
+  window.addEventListener("nxs-admin-todos", () => { if (alerts.admin && alerts.admin.on) sync(); if (!view.hidden) render(); });
   window.NXSTimers = { parseLeft, show, alertTimers };
 })();
