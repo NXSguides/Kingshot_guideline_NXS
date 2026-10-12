@@ -251,7 +251,7 @@
   }
   const fmtLeft = (ms) => { const s = Math.max(0, Math.round(ms / 1000)), d = Math.floor(s / 86400); return `${d ? d + "d " : ""}${Math.floor(s / 3600) % 24}:${String(Math.floor(s / 60) % 60).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`; };
   const fmtAt = (at) => { const d = new Date(at), same = d.toDateString() === new Date().toDateString();
-    return (same ? "" : d.toLocaleDateString("en-GB", { weekday: "short" }) + " ") + d.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", hourCycle: "h23" }); };
+    return (same ? "" : d.toLocaleDateString(undefined, { weekday: "short" }) + " ") + d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }); };
 
   /* ---------- notifications ---------- */
   const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
@@ -370,7 +370,7 @@
     return h + `</div>`;
   }
   function alertsHtml() {
-    const loc = (h, m = 0) => "local " + new Date(Date.UTC(2000, 0, 1, h, m)).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", hourCycle: "h23" });
+    const loc = (h, m = 0) => new Date(Date.UTC(2000, 0, 1, h, m)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     const nextOf = (k) => { const x = alertTimers().find((t) => t.id.startsWith(`ev-${k}-`)); return x ? `<div class="tm-a">${esc(T("next").replace("{t}", fmtAt(x.at)))}</div>` : ""; };
     const rows = DEFS.map((d) => {
       const k = d.k, a = alerts[k] || {}, H = hoursOf(d);
