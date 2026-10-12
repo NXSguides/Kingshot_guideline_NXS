@@ -23,7 +23,7 @@ Güçlendirme intikallerinde Howard veya Gordon gibi savunma kahramanlarından k
 9. / 19. dalga bittikten sonra:
 BİR güçlü intikali geri çağırın.
 Doğrudan karargaha gönderin.
-Üye başına en fazla 70.080 birlik.
+Üye başına en fazla 70,080 birlik.
 1. konumda Chenko veya Amadeus, ya da en güçlü saf hasar kahramanınızı kullanın.
 Karargah dalgasından sonra geri çağırın ve size atanan üyeyi güçlendirmeye geri dönün.
 ⚠️ ÖNEMLİ: Karargahı 10. dalgada VEYA 20. dalgada güçlendirebilirsiniz — İKİSİNDE BİRDEN DEĞİL.
@@ -219,7 +219,7 @@ Her Ayı Avı'ndan önce birlik dizilişlerinizi güncelleyin.
 Etkinlik başlamadan önce kaynak toplayan birlikleri geri çağırın.
 Unutmayın: son 5–7 dakikada herkes bir seferberlik başlatmalı. Bu, birlikleri geri dönen oyuncular için daha fazla yer açar ve son bir hasar atağına olanak tanır.
 SEFERBERLİK LİDERLERİ
-⚠️ Kural: Kendi seferberliğini maksimum askerle başlat, ancak başka seferberliklere katılırken sen de tam 90.000 asker sınırına uymalısın. Başlangıçta ana seferberlik liderleri ilk seferberliklerini kendilerine atanan kademeli saatte gönderir.
+⚠️ Kural: Kendi seferberliğini maksimum askerle başlat, ancak başka seferberliklere katılırken sen de tam 90,000 asker sınırına uymalısın. Başlangıçta ana seferberlik liderleri ilk seferberliklerini kendilerine atanan kademeli saatte gönderir.
 GEN 1
 GEN 2
 GEN 3
@@ -239,7 +239,7 @@ Birlik dizilişi: %10-10-80. Helga'nın yıldızı ve özel donanım seviyesi Am
 Birlik dizilişi: %10-10-80. Alternatif en iyi kahramanlarla aynı — Rosa'nın 3. becerisi, ağırlıklı Okçu dizilişlerine odaklanırsanız en iyi bonusu verir (Okçuların toplam Saldırısını %30 artırır).
 Kalan lider slotları henüz açıklanmadı.
 SEFERBERLİĞE KATILANLAR
-⚠️ Kural: Tüm katılımcılar seferberliklere tam 90.000 asker göndermelidir — yürüyüşlerini önceden kaydet. 6:30 kala tüm katılımcılar en güçlü 3 kahramanıyla kendi seferberliğini başlatır. 🔪 Yanlış kahraman veya yanlış asker sayısı: atılır ve yeniden katılması istenir.
+⚠️ Kural: Tüm katılımcılar seferberliklere tam 90,000 asker göndermelidir — yürüyüşlerini önceden kaydet. 6:30 kala tüm katılımcılar en güçlü 3 kahramanıyla kendi seferberliğini başlatır. 🔪 Yanlış kahraman veya yanlış asker sayısı: atılır ve yeniden katılması istenir.
 Standart / Güvenli Oran: %10 Piyade, %10 Süvari ve %80 Okçu (veya 20-30-50 gibi bir varyasyon)
 (see guide #formations-rally-tips)
 Öncelik – önce bunları gönderin: Bu kahramanlar sabit Öldürücülük bonusu verir; Ayı Avı için en değerli bonus budur.
@@ -415,7 +415,7 @@ Tüm birlik oranları Piyade : Süvari : Okçu şeklindedir. Her kahraman için,
 6) Savunma: Howard / Gordon — 60 : 20 : 20 dengeli varsayılanımızdır. Yönetim belirli bir dizilişi istediğinde ayarlayın.
 Seferberlik Liderleri: En güçlü, eksiksiz saldırı kahraman kadronuzu kullanın.
 Seferberliğe Katılanlar: Lütfen yönetimin duyurduğu birlik sınırlarına uyun.
-7) Viking Karargahı (Viking HQ): Howard / Gordon — 60 : 40 Birlik sınırına uyun (~70.080)
+7) Viking Karargahı (Viking HQ): Howard / Gordon — 60 : 40 Birlik sınırına uyun (~70,080)
 8) PvE – Hayvanlar / Av: Diana + Fahd — 50 : 20 : 30
 🐺 PvE — HAYVANLAR / AV
 Korkunç Kurt için hatırlayın: çok fazla hasar gerekmez, bu yüzden daha fazla ittifak üyesi katılıp seferberlik ödüllerinden yararlanabilsin diye en az sayıda birlik gönderin (1 bile olur).
@@ -437,10 +437,10 @@ Bu sayede binayı gereksiz yere zayıflatmadan saldırı düzeninden savunma gar
 🪖 GARNİZON BİRLİK SINIRI
 Karargaha / Tapınağa yalnızca 15 vali girebilir. Bu yüzden maksimum intikalinizi otomatik olarak karargaha, Tapınağa veya diğer çekişmeli binalara göndermeyin.
 Yönetimin duyurduğu birlik sınırına uyun.
-Tipik ittifak hedefi: oyuncu başına ~70.080 birlik
+Tipik ittifak hedefi: oyuncu başına ~70,080 birlik
 Bu sayede savunma intikalleri doğru yapılandırılmış daha fazla ittifak üyesi garnizona sığar ve ödül alır.
 ⚠️ Yönetim farklı bir sınır duyurursa her zaman duyurulan miktara uyun.
-Örneğin, 70.080 birlik sınırını temel alarak bu sayıyı bir hesap makinesine girip doğrudan ilgili birlik türünün alanına yazabilirsin. İşte üç örnek:
+Örneğin, 70,080 birlik sınırını temel alarak bu sayıyı bir hesap makinesine girip doğrudan ilgili birlik türünün alanına yazabilirsin. İşte üç örnek:
 60/20/20 ➡️ 42.048 / 14.016 / 14.016
 60/40 ➡️ 42.048 / 28.032
 50/20/30 ➡️ 35.040 / 14.016 / 21.024

@@ -23,7 +23,7 @@ Die Wellen 10 und 20 greifen NUR das HQ an. Angriffe auf Städte pausieren in di
 Nachdem Welle 9 / 19 vorbei ist:
 Rufe EINEN starken Marsch zurück.
 Schicke ihn direkt zum HQ.
-Maximal 70.080 Truppen pro Mitglied.
+Maximal 70,080 Truppen pro Mitglied.
 Nutze Chenko oder Amadeus an Position 1 oder deinen stärksten Helden mit reinem Schaden.
 Rufe nach der HQ-Welle zurück und verstärke wieder das dir zugewiesene Mitglied.
 ⚠️ WICHTIG: Du kannst das HQ in Welle 10 ODER Welle 20 verstärken — NICHT BEIDE.
@@ -219,7 +219,7 @@ Optional: Mit https://frakinator.streamlit.app Truppenverhältnisse testen und d
 Ruft sammelnde Truppen vor Eventbeginn zurück.
 In den letzten 5–7 Minuten sollte jeder einen Rally starten. So entstehen mehr Plätze für Spieler, deren Truppen zurückkehren — für den finalen Schadensschub.
 RALLY-ANFÜHRER
-⚠️ Regel: Starte deine eigene Rally mit maximalen Truppen, aber wenn du anderen Rallys beitrittst, gilt auch für dich das Limit von genau 90.000 Truppen. Zu Beginn schicken die Haupt-Rallyleiter ihre erste Rally zu ihrer zugewiesenen, versetzten Zeit.
+⚠️ Regel: Starte deine eigene Rally mit maximalen Truppen, aber wenn du anderen Rallys beitrittst, gilt auch für dich das Limit von genau 90,000 Truppen. Zu Beginn schicken die Haupt-Rallyleiter ihre erste Rally zu ihrer zugewiesenen, versetzten Zeit.
 GEN 1
 GEN 2
 GEN 3
@@ -239,7 +239,7 @@ Helga nehmen, wenn ihr Stern-/Ausrüstungsgrad über Amadeus liegt.
 Gleiche Idee wie die Alternative — Rosas 3. Skill glänzt am stärksten in bogenschützenlastigen Formationen.
 Die übrigen Anführer-Plätze sind noch nicht veröffentlicht.
 RALLY-TEILNEHMER
-⚠️ Regel: Alle Beitretenden schicken genau 90.000 Truppen in Rallys – speichert eure Märsche vorher. Bei 6:30 verbleibend starten alle Beitretenden ihre eigene Rally mit ihren 3 stärksten Helden. 🔪 Falsche Helden oder falsche Truppenzahl: Kick und Bitte um erneuten Beitritt.
+⚠️ Regel: Alle Beitretenden schicken genau 90,000 Truppen in Rallys – speichert eure Märsche vorher. Bei 6:30 verbleibend starten alle Beitretenden ihre eigene Rally mit ihren 3 stärksten Helden. 🔪 Falsche Helden oder falsche Truppenzahl: Kick und Bitte um erneuten Beitritt.
 Standard / sicheres Verhältnis: 10% Infanterie, 10% Kavallerie, und 80% Bogenschützen (oder Varianten wie 20-30-50)
 (see guide #formations-rally-tips)
 Priorität – diese zuerst schicken: Diese Helden geben einen festen Tödlichkeit-Bonus, den wertvollsten Bonus für die Bärenjagd.
@@ -417,7 +417,7 @@ Alle Truppenverhältnisse gelten als Infanterie : Kavallerie : Bogenschütze. Sp
 6) Verteidigung: Howard / Gordon — 60 : 20 : 20 ist unser ausgewogener Standard. Passe es an, wenn die Führung eine bestimmte Formation verlangt.
 Rally-Anführer: Nutze deine stärkste, vollständige Angriffs-Heldenaufstellung.
 Rally-Joiner: Bitte halte dich an die von der Führung angegebenen Truppenlimits.
-7) Wikinger-HQ (Viking HQ): Howard / Gordon — 60 : 40 Truppenlimit beachten (~70.080)
+7) Wikinger-HQ (Viking HQ): Howard / Gordon — 60 : 40 Truppenlimit beachten (~70,080)
 8) PvE – Bestien / Jagd: Diana + Fahd — 50 : 20 : 30
 (see the Squad Guide page squad-guide.html)
 🐺 PvE — BESTIEN / JAGD
@@ -440,10 +440,10 @@ So können wir von einer Angriffsaufstellung zu einer Verteidigungsgarnison wech
 🪖 GARNISONS-TRUPPENLIMIT
 Nur 15 Gouverneure können in das HQ / Heiligtum gelangen. Schicke deshalb nicht automatisch deinen maximalen Marsch ins HQ, ins Heiligtum oder zu anderen umkämpften Gebäuden.
 Halte dich an das von der Führung angekündigte Truppenlimit.
-Typisches Allianzziel: ~70.080 Truppen pro Spieler
+Typisches Allianzziel: ~70,080 Truppen pro Spieler
 So passen mehr Allianzmitglieder mit richtig konfigurierten Verteidigungsmärschen in die Garnison und erhalten Belohnungen.
 ⚠️ Wenn die Führung ein anderes Limit ankündigt, halte dich immer an die angekündigte Zahl.
-Zum Beispiel: Bei einem Truppenlimit von 70.080 kannst du diese Zahl in einen Taschenrechner eingeben und direkt in das Feld des jeweiligen Truppentyps übertragen. Hier sind drei Beispiele:
+Zum Beispiel: Bei einem Truppenlimit von 70,080 kannst du diese Zahl in einen Taschenrechner eingeben und direkt in das Feld des jeweiligen Truppentyps übertragen. Hier sind drei Beispiele:
 60/20/20 ➡️ 42.048 / 14.016 / 14.016
 60/40 ➡️ 42.048 / 28.032
 50/20/30 ➡️ 35.040 / 14.016 / 21.024
