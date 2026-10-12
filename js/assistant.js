@@ -123,6 +123,9 @@
     .ai-msg.a ul{margin:4px 0;padding-inline-start:1.2em}
     .ai-msg .guide-link-btn{margin:4px 0}
     .ai-hint{color:var(--text-muted);font-size:13px}
+    .ai-feat{margin:6px 0;display:grid;gap:3px;font-size:13.5px}
+    .ai-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+    .ai-chip{border:1px solid var(--accent);background:transparent;color:var(--text);border-radius:14px;padding:5px 10px;font:inherit;font-size:13px;cursor:pointer;text-align:start}
     .ai-form{display:flex;gap:6px;padding:10px;border-top:1px solid var(--rule)}
     .ai-form input{flex:1;min-width:0;padding:9px 10px;font-size:16px;border:1px solid var(--rule);border-radius:8px;background:var(--panel-2);color:var(--text)}
     .ai-form button,.ai-officer button{border:0;border-radius:8px;padding:0 14px;font-weight:700;background:var(--accent);color:var(--accent-ink);cursor:pointer}
@@ -146,6 +149,23 @@
   document.body.appendChild(panel);
   const $ = (id) => panel.querySelector("#" + id);
 
+
+  /* welcome text + ready-made questions (no AI call until one is tapped) */
+  const INTRO = {
+    en: { t: "👋 Hi! I'm the NXS guide assistant. I can help you with:", f: ["📖 Event guides — Bear Hunt, KvK, Swordland Showdown, Viking Vengeance…", "🦸 Which heroes and troop ratios to use", "🧮 The KvK Points Planner and booking guide", "🔤 What a game term is called in your language", "📢 Alliance announcements"], q: ["Which heroes should I use for Bear Hunt?", "What should I save for KvK?", "What is “Truegold” called in my language?"], ask: "Tap a question or type your own:" },
+    zh: { t: "👋 嗨！我是 NXS 攻略助理，可以幫你：", f: ["📖 活動攻略：狩獵巨熊、KvK、聖劍爭奪、維京人的掠奪…", "🦸 該用哪些英雄、兵種比例", "🧮 KvK 積分規劃和預約指南怎麼用", "🔤 遊戲用語在你的語言叫什麼", "📢 聯盟公告"], q: ["狩獵巨熊要用哪些英雄？", "KvK 前要存什麼？", "「黃金」在英文叫什麼？"], ask: "點一個問題，或自己輸入：" },
+    ko: { t: "👋 안녕하세요! NXS 가이드 도우미예요. 이런 걸 도와드려요:", f: ["📖 이벤트 가이드 — 자이언트 베어 사냥, KvK, 성검 쟁탈전…", "🦸 어떤 영웅과 병종 비율을 쓸지", "🧮 KvK 포인트 플래너와 예약 가이드", "🔤 게임 용어가 한국어로 뭔지", "📢 연맹 공지"], q: ["자이언트 베어 사냥에는 어떤 영웅을 써요?", "KvK 전에 뭘 모아둬야 해요?", "“Truegold”는 한국어로 뭐예요?"], ask: "질문을 누르거나 직접 입력하세요:" },
+    de: { t: "👋 Hi! Ich bin der NXS-Guide-Assistent. Ich helfe dir bei:", f: ["📖 Event-Guides — Bärenjagd, KvK, Schwertland…", "🦸 Welche Helden und Truppenverhältnisse", "🧮 Der KvK-Punkteplaner und die Buchungsanleitung", "🔤 Wie ein Spielbegriff auf Deutsch heißt", "📢 Allianz-Ankündigungen"], q: ["Welche Helden für die Bärenjagd?", "Was soll ich für KvK sparen?", "Wie heißt „Truegold“ auf Deutsch?"], ask: "Tippe auf eine Frage oder schreib deine eigene:" },
+    fr: { t: "👋 Salut ! Je suis l'assistant des guides NXS. Je peux t'aider pour :", f: ["📖 Les guides d'événements — Chasse à l'Ours, KvK…", "🦸 Quels héros et quels ratios de troupes", "🧮 Le planificateur de points KvK et le guide de réservation", "🔤 Le nom d'un terme du jeu en français", "📢 Les annonces de l'alliance"], q: ["Quels héros pour la Chasse à l'Ours ?", "Que dois-je garder pour le KvK ?", "Comment s'appelle « Truegold » en français ?"], ask: "Touche une question ou écris la tienne :" },
+    pt: { t: "👋 Oi! Sou o assistente dos guias NXS. Posso ajudar com:", f: ["📖 Guias de eventos — Caça ao Urso, KvK…", "🦸 Quais heróis e proporções de tropas usar", "🧮 O planejador de pontos do KvK e o guia de reservas", "🔤 Como um termo do jogo se chama em português", "📢 Anúncios da aliança"], q: ["Quais heróis usar na Caça ao Urso?", "O que devo guardar para o KvK?", "Como se chama “Truegold” em português?"], ask: "Toque numa pergunta ou escreva a sua:" },
+    es: { t: "👋 ¡Hola! Soy el asistente de las guías NXS. Puedo ayudarte con:", f: ["📖 Guías de eventos — Cacería del Oso, KvK…", "🦸 Qué héroes y proporciones de tropas usar", "🧮 El planificador de puntos del KvK y la guía de reservas", "🔤 Cómo se llama un término del juego en español", "📢 Anuncios de la alianza"], q: ["¿Qué héroes uso en la Cacería del Oso?", "¿Qué debo guardar para el KvK?", "¿Cómo se llama “Truegold” en español?"], ask: "Toca una pregunta o escribe la tuya:" },
+    tr: { t: "👋 Merhaba! Ben NXS rehber asistanıyım. Şunlarda yardımcı olabilirim:", f: ["📖 Etkinlik rehberleri — Ayı Avı, KvK…", "🦸 Hangi kahramanlar ve asker oranları", "🧮 KvK puan planlayıcısı ve rezervasyon rehberi", "🔤 Bir oyun teriminin Türkçesi", "📢 İttifak duyuruları"], q: ["Ayı Avı için hangi kahramanlar?", "KvK için ne biriktirmeliyim?", "“Truegold” Türkçede ne?"], ask: "Bir soruya dokun ya da kendin yaz:" },
+    id: { t: "👋 Hai! Aku asisten panduan NXS. Aku bisa bantu:", f: ["📖 Panduan event — Bear Hunt, KvK…", "🦸 Hero dan rasio pasukan yang dipakai", "🧮 Perencana poin KvK dan panduan booking", "🔤 Nama istilah game dalam bahasamu", "📢 Pengumuman aliansi"], q: ["Hero apa untuk Bear Hunt?", "Apa yang harus disimpan untuk KvK?", "Apa nama “Truegold” dalam bahasa Indonesia?"], ask: "Ketuk pertanyaan atau tulis sendiri:" },
+    ru: { t: "👋 Привет! Я помощник по гайдам NXS. Могу помочь с:", f: ["📖 Гайды по событиям — Охота на медведя, KvK…", "🦸 Какие герои и соотношение войск", "🧮 Планировщик очков KvK и гайд по записи", "🔤 Как игровой термин называется по-русски", "📢 Объявления альянса"], q: ["Каких героев брать на Охоту на медведя?", "Что копить к KvK?", "Как по-русски называется «Truegold»?"], ask: "Нажмите на вопрос или напишите свой:" },
+    th: { t: "👋 สวัสดี! ฉันคือผู้ช่วยคู่มือ NXS ช่วยได้เรื่อง:", f: ["📖 คู่มืออีเวนต์ — ล่าหมี, KvK…", "🦸 ควรใช้ฮีโร่และอัตราส่วนทหารแบบไหน", "🧮 ตัววางแผนแต้ม KvK และคู่มือการจอง", "🔤 คำศัพท์ในเกมเป็นภาษาไทยว่าอะไร", "📢 ประกาศของพันธมิตร"], q: ["ล่าหมีใช้ฮีโร่ตัวไหนดี?", "ควรเก็บอะไรไว้สำหรับ KvK?", "“Truegold” ภาษาไทยเรียกว่าอะไร?"], ask: "แตะคำถาม หรือพิมพ์เอง:" },
+    ar: { t: "👋 مرحبًا! أنا مساعد أدلة NXS. أستطيع مساعدتك في:", f: ["📖 أدلة الفعاليات — صيد الدببة، KvK…", "🦸 أي الأبطال ونسب القوات تستخدم", "🧮 مخطط نقاط KvK ودليل الحجز", "🔤 اسم مصطلح اللعبة بلغتك", "📢 إعلانات التحالف"], q: ["أي الأبطال أستخدم في صيد الدببة؟", "ماذا أوفّر لـ KvK؟", "ما اسم “Truegold” بالعربية؟"], ask: "اضغط على سؤال أو اكتب سؤالك:" },
+  };
+  const I = () => INTRO[curLang()] || INTRO.en;
   const FAB = { en: "Ask AI", zh: "問 AI", ko: "AI에게 질문", de: "KI fragen", fr: "Demander à l'IA", pt: "Pergunte à IA", es: "Pregunta a la IA",
     tr: "Yapay zekâya sor", id: "Tanya AI", ru: "Спросить ИИ", th: "ถาม AI", ar: "اسأل الذكاء الاصطناعي" };
   /* (re)write the chat box texts in the site's current language */
@@ -153,7 +173,10 @@
     fab.querySelector(".ai-ft").textContent = FAB[curLang()] || FAB.en;
     fab.dir = document.documentElement.dir || "ltr";
     const g = HAS_GUIDES && GUIDES["bear-hunt"] ? pickName(GUIDES["bear-hunt"].name) : "Bear Hunt";
-    $("aiGreet").innerHTML = `${esc(L("greet"))}<br><span class="ai-hint">${esc(L("eg").replace("{g}", g))}</span>`;
+    const it = I();
+    $("aiGreet").innerHTML = `${esc(it.t)}<div class="ai-feat">${it.f.map((x) => `<div>${esc(x)}</div>`).join("")}</div><span class="ai-hint">${esc(it.ask)}</span>
+      <div class="ai-chips">${it.q.map((x) => `<button type="button" class="ai-chip" dir="auto">${esc(x)}</button>`).join("")}</div>`;
+    $("aiGreet").querySelectorAll(".ai-chip").forEach((b) => b.onclick = () => { $("aiQ").value = b.textContent; $("aiForm").requestSubmit ? $("aiForm").requestSubmit() : $("aiForm").dispatchEvent(new Event("submit", { cancelable: true })); });
     $("aiQ").placeholder = L("ph");
     $("aiClear").title = L("clear"); $("aiClear").setAttribute("aria-label", L("clear"));
     panel.dir = document.documentElement.dir || "ltr";
@@ -169,6 +192,20 @@
     if (open) { $("aiLog").scrollTop = $("aiLog").scrollHeight; }
   }
   fab.onclick = () => { setOpen(panel.hidden); if (!panel.hidden) $("aiQ").focus(); };
+  /* first visit on this device: open the chat once (after the language is picked and any event pop-up is closed) */
+  const INTRO_KEY = "nxs-ai-intro";
+  if (ON_SITE) {
+    let seen = false; try { seen = !!localStorage.getItem(INTRO_KEY); } catch (e) { seen = true; }
+    if (!seen) {
+      const tick = setInterval(() => {
+        if (typeof langChosen !== "undefined" && !langChosen) return;            // still on the language picker
+        if (document.querySelector(".popup-overlay")) return;                     // event pop-up still open
+        clearInterval(tick);
+        try { localStorage.setItem(INTRO_KEY, "1"); } catch (e) {}
+        if (panel.hidden) setTimeout(() => setOpen(true), 800);
+      }, 700);
+    }
+  }
   $("aiClose").onclick = () => setOpen(false);
 
   /* ---------- officer unlock: the officer password opens data/data-key.json; the Worker checks a hash of that key ---------- */

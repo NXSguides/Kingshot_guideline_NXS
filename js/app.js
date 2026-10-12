@@ -784,7 +784,7 @@ function renderAnnTicker() {
   ticker.hidden = false;
 
   const toPlain = (text) => text
-    .replace(/\[\[link:[\w-]+\]\]/g, "")
+    .replace(/\[\[(?:link|img|video):[^\]]*\]\]/g, "")   // pictures / videos / links aren't shown in the ticker
     .replace(/\{(\w+)\}/g, (m, id) => (GLOSSARY[id] ? t(GLOSSARY[id]) : m))
     .replace(/\*\*(.+?)\*\*/g, "$1")
     .replace(/\s*\n+\s*/g, " ")
