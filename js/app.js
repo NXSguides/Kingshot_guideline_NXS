@@ -908,7 +908,7 @@ const TODAY_TXT = {
   today: { en:"today", zh:"今天", ko:"오늘", de:"heute", fr:"aujourd'hui", pt:"hoje", es:"hoy", tr:"bugün", id:"hari ini", ru:"сегодня", th:"วันนี้", ar:"اليوم" },
   tomorrow: { en:"tomorrow", zh:"明天", ko:"내일", de:"morgen", fr:"demain", pt:"amanhã", es:"mañana", tr:"yarın", id:"besok", ru:"завтра", th:"พรุ่งนี้", ar:"غدًا" },
   inDays: { en:"in {n} days", zh:"{n} 天後", ko:"{n}일 후", de:"in {n} Tagen", fr:"dans {n} jours", pt:"em {n} dias", es:"en {n} días", tr:"{n} gün sonra", id:"{n} hari lagi", ru:"через {n} дн.", th:"อีก {n} วัน", ar:"بعد {n} أيام" },
-  yours: { en:"your time", zh:"你的時間", ko:"내 시간", de:"deine Zeit", fr:"ton heure", pt:"seu horário", es:"tu hora", tr:"senin saatin", id:"waktumu", ru:"ваше время", th:"เวลาของคุณ", ar:"توقيتك" },
+  yours: { en:"local time", zh:"當地時間", ko:"현지 시간", de:"Ortszeit", fr:"heure locale", pt:"horário local", es:"hora local", tr:"yerel saat", id:"waktu lokal", ru:"местное время", th:"เวลาท้องถิ่น", ar:"التوقيت المحلي" },
   none: { en:"Nothing scheduled in the next 7 days.", zh:"接下來 7 天沒有排定的活動。", ko:"앞으로 7일간 예정된 이벤트가 없어요.", de:"Keine Events in den nächsten 7 Tagen.", fr:"Rien de prévu dans les 7 prochains jours.", pt:"Nada marcado para os próximos 7 dias.", es:"Nada programado en los próximos 7 días.", tr:"Önümüzdeki 7 günde etkinlik yok.", id:"Tidak ada event 7 hari ke depan.", ru:"В ближайшие 7 дней ничего нет.", th:"ไม่มีกิจกรรมใน 7 วันข้างหน้า", ar:"لا شيء مجدول خلال 7 أيام." },
 };
 function todayCardHtml() {
