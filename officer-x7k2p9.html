@@ -1314,7 +1314,7 @@ or 60/15/25
 const EXTRA_EVENTS = [
   { id: "bear-hunt", emoji: "🐻", en: "Bear Hunt", zh: "狩獵巨熊", start: "2026-10-07", every: 2, days: 1, guide: "bear-hunt",
     note: "13:00 & 22:00 UTC, 30 min each", noteZh: "UTC 13:00 和 22:00，各 30 分鐘",
-    todo: [{ due: 0, en: "Remind everyone: update formations, recall gathering troops before it starts, and everyone launches a rally in the last 5–7 minutes.", zh: "提醒大家：更新部隊編成、開始前召回採集部隊，最後 5–7 分鐘每個人都發起集結。" }] },
+    todo: [] },
   { id: "alliance-championship", emoji: "🏆", en: "Alliance Championship", zh: "聯盟爭霸賽", start: "2026-09-28", every: 7, days: 2, guide: "",
     note: "Weekly, Monday reset · shown = 2-day registration; battles run automatically", noteZh: "每週一次，週一重置 · 顯示的是 2 天報名期；戰鬥自動進行",
     todo: [{ due: -1, post: 1, en: "Remind everyone: register in the Middle Lane, strongest heroes, 50/20/30, buffs on.", zh: "提醒大家報名中路、用最強英雄、50/20/30、開好增益。" }] },
@@ -1442,13 +1442,10 @@ const MOBILIZATION_TODO = [
   { due: 0, post: 1, en: "Post the mission rules (no KvK Prep items; best picks). R4+: refresh shared missions — remove poor ones so members aren't left with tasks they avoid.",
             zh: "公告任務規則（不要選用到 KvK 準備道具的任務、推薦的任務）。R4 以上：刷新共享任務，把不好的任務換掉。" },
 ];
-const BEAR_TODO = [
-  { due: 0, en: "Set once — only touch it if the time needs to change (13:00 & 22:00 UTC). Before it starts, remind: rally leaders, joiner heroes, formations, and which trap.",
-            zh: "設定一次就好，只有要改時間才需要動（UTC 13:00 和 22:00）。開始前提醒：集結隊長、參團英雄、部隊編成、用哪個陷阱。" },
-];
+const BEAR_TODO = [];   // Bear Hunt repeats by itself — nothing for officers to do unless the time changes
 /* built-in lists that replace an already-saved list once (bump the number to push a new version) */
 const TODO_PUSH = { "swordland-showdown": [8, () => SWORDLAND_TODO], "tri-alliance-clash": [1, () => TAC_TODO], "viking-vengeance": [1, () => VV_TODO],
-  "sanctuary-battle": [1, () => SANCTUARY_TODO], "alliance-mobilization": [1, () => MOBILIZATION_TODO], "bear-hunt": [1, () => BEAR_TODO] };
+  "sanctuary-battle": [1, () => SANCTUARY_TODO], "alliance-mobilization": [1, () => MOBILIZATION_TODO], "bear-hunt": [2, () => BEAR_TODO] };
 // What officers need to do. due: days relative to the event's first day (−1 = the day before).
 const TODO = {
   "viking-vengeance": VV_TODO,
