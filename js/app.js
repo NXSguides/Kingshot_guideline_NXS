@@ -263,7 +263,7 @@ const BEAR_SCHED = { anchor: Date.UTC(2026, 9, 7), periodDays: 2, activeDays: 1 
 /* one-off events that only have an announcement (no guide): shown on the Today card, tap → that announcement.
    match = text in the announcement's English title; start = first day (UTC); days = how long */
 const ANN_EVENTS = [
-  { match: "Finder", emoji: "🧩", start: "2026-10-11", days: 3 },
+  { match: "Finder", emoji: "🔍", start: "2026-10-11", days: 3 },
 ];
 /* our alliance's fixed times (UTC hours) — set as close to Bear Hunt as possible */
 const EVENT_TIMES = { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23] };
