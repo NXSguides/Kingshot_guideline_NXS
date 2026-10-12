@@ -527,6 +527,7 @@ Pemain P2W: Prioritaskan Amadeus (VIP 7+) dan Hilde untuk dampak maksimal
 
 ### GUIDE #hero-cards — Kartu Hero (Gen 1–3)
 Satu kartu per hero: apa kegunaan masing-masing. Peringkatnya berasal dari obrolan "Heroes Guide" di dalam game, yang diselamatkan pemilik situs sesaat sebelum obrolan itu hilang. Gunakan filter untuk mencari, misalnya, peserta Bear Hunt terbaik.
+[parent] f2p-heroes
 Olive — Gen 1, Pemanah, R, Pertumbuhan
   Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ❌; Kapten Reli PvP ❌; Pemimpin garnisun ❌; Peserta PvP ❌; Barisan solo ❌; Arena / Penaklukan ✅
   Hero pertumbuhan: meningkatkan produksi dan pengumpulan Roti. AoE-nya membantu di Penaklukan — tapi hanya di minggu pertama kerajaan baru. Cepat kalah saing dalam tempur; bonus ekonominya tetap bertahan.

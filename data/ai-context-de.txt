@@ -529,6 +529,7 @@ P2W-Spieler: Priorisiere Amadeus (VIP 7+) und Hilde für maximale Wirkung
 
 ### GUIDE #hero-cards — Heldenkarten (Gen 1–3)
 Eine Karte pro Held: wofür jeder gut ist. Die Bewertungen stammen aus dem Spiel-Chat „Heroes Guide“, den die Seitenbetreiberin kurz vor seinem Verschwinden gerettet hat. Mit den Filtern findest du zum Beispiel die besten Teilnehmer für Bärenjagd.
+[parent] f2p-heroes
 Olive — Gen 1, Bogenschütze, R, Wachstum
   Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ❌; Garnisonsführer ❌; PvP: Teilnehmer ❌; Einzelmarsch ❌; Arena / Eroberung ✅
   Wachstumsheld: steigert Produktion und Sammeln von Brot. Ihr Flächenschaden hilft bei der Eroberung – aber nur in der ersten Woche eines neuen Königreichs. Im Kampf schnell überholt; der Wirtschaftsbonus bleibt.

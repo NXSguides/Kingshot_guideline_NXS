@@ -527,6 +527,7 @@ Joueurs P2W : Priorisez Amadeus (VIP 7+) et Hilde pour un impact maximal
 
 ### GUIDE #hero-cards — Fiches des héros (Gén 1–3)
 Une fiche par héros : à quoi sert chacun. Les notes viennent du chat en jeu « Heroes Guide », sauvé par la propriétaire du site juste avant sa disparition. Utilisez les filtres pour trouver, par exemple, les meilleurs participants pour Chasse à l'Ours.
+[parent] f2p-heroes
 Olive — Gén 1, Archer, R, Croissance
   Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ❌; Chef de garnison ❌; PvP : participant ❌; Marche solo ❌; Arène / Conquête ✅
   Héros de croissance : augmente la production et la collecte de Pain. Ses dégâts de zone aident en Conquête — mais seulement la première semaine d'un nouveau royaume. Vite dépassée en combat ; le bonus économique, lui, reste.

@@ -527,6 +527,7 @@ Jogadores P2W: Priorize Amadeus (VIP 7+) e Hilde para o máximo impacto
 
 ### GUIDE #hero-cards — Cartas de Heróis (Gen 1–3)
 Uma carta por herói: para que cada um serve. As notas vêm do chat "Heroes Guide" do jogo, resgatado pela dona do site momentos antes de sumir. Use os filtros para achar, por exemplo, os melhores participantes de Caça ao Urso.
+[parent] f2p-heroes
 Olive — Gen 1, Arquearia, R, Crescimento
   Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ❌; Líder de guarnição ❌; PvP: participante ❌; Marcha solo ❌; Arena / Conquista ✅
   Herói de crescimento: aumenta a produção e a coleta de Pão. Seu dano em área ajuda na Conquista — mas só na primeira semana de um reino novo. Logo fica para trás em combate; o bônus de economia continua.

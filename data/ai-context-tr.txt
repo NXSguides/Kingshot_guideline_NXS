@@ -527,6 +527,7 @@ P2W Oyuncuları: Maksimum etki için Amadeus (VIP 7+) ve Hilde'ya öncelik ver
 
 ### GUIDE #hero-cards — Kahraman Kartları (1–3. Nesil)
 Her kahraman için bir kart: hangi işe yaradığı. Puanlar, oyun içindeki "Heroes Guide" sohbetinden geliyor; site sahibi onları sohbet kaybolmadan hemen önce kurtardı. Filtrelerle örneğin en iyi Ayı Avı katılımcılarını bulabilirsin.
+[parent] f2p-heroes
 Olive — 1. Nesil, Okçu, R, Gelişim
   Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ❌; Garnizon lideri ❌; PvP katılımcısı ❌; Tek sefer ❌; Arena / Fetih ✅
   Gelişim kahramanı: Ekmek üretimini ve toplamayı artırır. Alan hasarı Fetih'te işe yarar — ama sadece yeni krallığın ilk haftasında. Savaşta çabuk geride kalır; ekonomi bonusu ise kalıcıdır.

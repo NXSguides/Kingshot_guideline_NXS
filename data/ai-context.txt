@@ -527,6 +527,7 @@ P2W Players: Prioritize Amadeus (VIP 7+) and Hilde for maximum impact
 
 ### GUIDE #hero-cards — Hero Cards (Gen 1–3)
 One card per hero: what each one is good for. The ratings come from the in-game "Heroes Guide" chat, rescued by the site owner moments before it disappeared. Use the filters to find, for example, the best Bear Hunt joiners.
+[parent] f2p-heroes
 Olive — Gen 1, Archer, R, Growth
   Bear Hunt rally lead ❌; Bear Hunt joiner ❌; PvP rally lead ❌; Garrison lead ❌; PvP joiner ❌; Solo march ❌; Arena / Conquest ✅
   Growth hero: boosts Bread production and gathering. Her AoE helps in Conquest — but only in the first week of a new kingdom. Quickly outclassed in combat; the economy bonus lasts.
