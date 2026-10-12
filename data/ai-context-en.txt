@@ -1001,4 +1001,4 @@ Tips: the lock icon next to the last slot means it still has to be unlocked. “
 1 Teapot · 2 Moon · 3 Bird · 4 Clock · 5 Compass · 6 Coat rack · 7 Wheat · 8 Shoe · 9 Picture frame · 10 Banner · 11 Gramophone · 12 Fork · 13 Fishbone · 14 Telescope · 15 Feather · 16 Broom · 17 Envelope · 18 Sandwich · 19 Ladle · 20 Magnifying glass · 21 Puddle · 22 Sack · 23 Bouquet · 24 Axe · 25 Hat · 26 Rose · 27 Chest · 28 Teddy bear · 29 Pet bowl · 30 Cobweb · 31 Hourglass · 32 Handcuffs · 33 Wood carving · 34 Cello · 35 Nail · 36 Bow · 37 Fan
 
 
-There might be be some translation error or something not included.
+There might be some translation error or something not included.
