@@ -713,3 +713,12 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 .key-points .kp-title { font-weight: 800; margin-bottom: 4px; }
 .key-points ul { margin: 0; padding-inline-start: 20px; }
 .key-points li { margin: 0 0 6px; line-height: 1.5; }
+
+.jump-card { border: 1px solid var(--rule); border-radius: 12px; padding: 10px 12px; margin: 0 0 16px; background: var(--panel-2); }
+.jump-card .jc-title { font-weight: 800; margin-bottom: 8px; }
+.jump-card .jc-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.jump-card button { border: 1px solid var(--accent); background: transparent; color: var(--text); border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 13.5px; cursor: pointer; }
+.jump-card button:hover { background: var(--accent); color: #fff; }
+.jump-target { scroll-margin-top: 80px; }
+.jump-flash { animation: jumpflash 1.8s ease-out; border-radius: 8px; }
+@keyframes jumpflash { 0%, 30% { box-shadow: 0 0 0 4px var(--accent); } 100% { box-shadow: 0 0 0 4px transparent; } }

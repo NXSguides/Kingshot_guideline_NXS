@@ -43,9 +43,11 @@ function formatHeroes(heroes) {
   return heroes.map((id) => heroName(id)).join(" · ");
 }
 
+let pendingJump = "";
 function readHash() {
   const hash = (location.hash || "").replace(/^#\/?/, "");
-  const [lang, guide] = hash.split("/");
+  const [lang, guide, jump] = hash.split("/");
+  pendingJump = jump || "";
   if (lang) { currentLang = pickLang(lang); langChosen = true; }
   if (guide) currentGuide = pickGuide(guide);
 }
@@ -966,6 +968,59 @@ function renderDoc() {
   const back = guide.parent && GUIDES[guide.parent] ? btn(guide.parent, true) : "";
   doc.innerHTML = (currentGuide === HOME_GUIDE ? todayCardHtml() : "") + back + `<div class="doc-title"><span class="emoji">${guide.emoji}</span><span>${escapeHtml(s.title)}</span></div>` + kids.map((k) => btn(k)).join("") + keyPointsHtml() + (currentGuide === "formations-rally-tips" ? ratioCardHtml() : "");
   doc.appendChild(renderBlocks(guide, s));
+  jumpCard(doc);
+}
+
+/* Grouped events (Swordland zones/roles, Tri-Alliance teams): buttons that jump to your group's part of the guide.
+   Labels come from the guide's own headings, so every language works. Link form: #/en/swordland-showdown/zone-purple */
+const JUMP_TXT = {
+  en: "📍 Where were you assigned? Tap to jump there", zh: "📍 你被分到哪裡？點一下直接跳過去", ko: "📍 배정받은 곳을 누르면 바로 이동해요",
+  de: "📍 Wo bist du eingeteilt? Tippen, um hinzuspringen", fr: "📍 Où es-tu assigné ? Touche pour y aller", pt: "📍 Onde você foi designado? Toque para ir até lá",
+  es: "📍 ¿Dónde te asignaron? Toca para ir allí", tr: "📍 Nereye atandın? Oraya gitmek için dokun", id: "📍 Kamu ditempatkan di mana? Ketuk untuk langsung ke sana",
+  ru: "📍 Куда тебя назначили? Нажми, чтобы перейти", th: "📍 คุณได้รับมอบหมายที่ไหน? แตะเพื่อไปที่ส่วนนั้น", ar: "📍 أين تم تعيينك؟ اضغط للانتقال إليه"
+};
+function jumpCard(doc) {
+  const rows = [];
+  const clean = (x) => x.replace(/\*\*/g, "").split(/\s[—–]\s|[：:]/)[0].trim();
+  const subs = [...doc.querySelectorAll(".sub-h")];
+  if (currentGuide === "swordland-showdown") {
+    const zones = [["purple", "🟣"], ["yellow", "🟡"], ["blue", "🔵"], ["green", "🟢"]].map(([c, e]) => {
+      const el = doc.querySelector(`.zone-card.zone-${c}`) || [...doc.querySelectorAll("li")].find((li) => li.textContent.trim().startsWith(e));
+      if (!el) return null;
+      const lab = el.classList.contains("zone-card") ? el.querySelector(".zone-title").textContent : el.textContent;
+      return { id: `zone-${c}`, el, label: clean(lab) };
+    }).filter(Boolean);
+    const roles = [["⚔️", 1], ["🛡️", 2], ["🤝", 3]].map(([e, n]) => {
+      const el = subs.find((h) => h.textContent.includes(e) && new RegExp(`${n}\\s*[)）]`).test(h.textContent));
+      return el && { id: `role-${n}`, el, label: e + " " + clean(el.textContent.replace(/[0-9]\s*[)）]|⚔️|🛡️|🤝/g, "")) };
+    }).filter(Boolean);
+    if (zones.length) rows.push(zones);
+    if (roles.length) rows.push(roles);
+  } else if (currentGuide === "tri-alliance-clash") {
+    const teams = [1, 2, 3].map((n) => {
+      const el = subs.find((h) => new RegExp(`(^|\\D)${n}(\\D|$)`).test(h.textContent) && /—|：/.test(h.textContent));
+      return el && { id: `team-${n}`, el, label: clean(el.textContent) };
+    }).filter(Boolean);
+    if (teams.length) rows.push(teams);
+  }
+  if (!rows.length) return;
+  const all = rows.flat();
+  all.forEach((x) => { x.el.id = "j-" + x.id; x.el.classList.add("jump-target"); });
+  const card = document.createElement("div");
+  card.className = "jump-card";
+  card.innerHTML = `<div class="jc-title">${escapeHtml(t(JUMP_TXT))}</div>` +
+    rows.map((r) => `<div class="jc-row">${r.map((x) => `<button type="button" data-j="${x.id}">${escapeHtml(x.label)}</button>`).join("")}</div>`).join("");
+  card.addEventListener("click", (e) => { const b = e.target.closest("button[data-j]"); if (b) goJump(b.dataset.j, true); });
+  const kp = doc.querySelector(".key-points") || doc.querySelector(".doc-title");
+  kp.after(card);
+  if (pendingJump) { const j = pendingJump; pendingJump = ""; setTimeout(() => goJump(j, false), 300); }
+}
+function goJump(id, setUrl) {
+  const el = document.getElementById("j-" + id);
+  if (!el) return;
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+  el.classList.remove("jump-flash"); void el.offsetWidth; el.classList.add("jump-flash");
+  if (setUrl) { try { history.replaceState(null, "", `#/${currentLang}/${currentGuide}/${id}`); } catch (e) {} }
 }
 
 /* The guide text comes in one file per language (data/content-<lang>.js, made from data/content.js).
