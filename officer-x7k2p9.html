@@ -1419,30 +1419,49 @@ const SWORDLAND_TODO = [
   { due: 4, ranking: 1, post: 1, en: "Planning phase: assign roles (Attacker, Defender, Joiner) to Legion 1 and Legion 2.",
                                   zh: "規劃階段：分配軍團 1 和軍團 2 的職責（Attacker、Defender、Joiner）。" },
 ];
+const TAC_TODO = [
+  { due: 0, post: 1, en: "Voting phase: set up an alliance poll to find out who can 100% attend.", zh: "投票階段：發聯盟投票，確認誰 100% 能參加。" },
+  { due: 2, en: "Sign-up phase: split confirmed players into Legion 1 and Legion 2 (separate time slots) so both have enough reliable players — don't put every strong account in one group.",
+            zh: "報名階段：把確認參加的人分到軍團 1、軍團 2（不同時段），兩邊都要有足夠可靠的人，不要把強的帳號全放同一組。" },
+  { due: 3, post: 1, en: "Reminder: ask everyone to check their assigned Legion and time and confirm 100% attendance — it affects matchmaking and roles.",
+            zh: "提醒：請大家確認自己的軍團和時間，並確認 100% 能參加，這會影響配對和職責分配。" },
+  { due: 4, ranking: 1, post: 1, en: "Planning phase: assign roles to Legion 1 and Legion 2 and post the plan.", zh: "規劃階段：分配軍團 1、軍團 2 的職責並發公告。" },
+];
+const VV_TODO = [
+  { due: -1, post: 1, en: "R4/R5 start Viking Vengeance: pick a time that suits members and announce it beforehand (UTC), so everyone can return troops, prepare reinforcements and stay online for the important waves.",
+             zh: "R4/R5 負責開啟維京人的掠奪：選大家方便的時間並提前公告（寫 UTC），讓大家召回部隊、準備增援，重要波次時在線。" },
+  { due: 0, en: "Start Viking Vengeance in game at the announced time.", zh: "在公告的時間於遊戲內開啟活動。" },
+];
+const SANCTUARY_TODO = [
+  { due: 0, en: "R4+: register if we meet the requirements — 1 Sanctuary + 1 Fortress, 3 time slots (the slot most alliances pick wins). Pick targets we can realistically take and hold (competition, location, our strength), not just the most prestigious. Sanctuaries we held last week are signed up automatically.",
+            zh: "R4 以上：符合條件就報名，1 個遺跡＋1 座要塞、選 3 個時段（最多聯盟選的時段開打）。選我們實際打得下、守得住的目標（看競爭、位置、實力），不要只看名氣。上期佔領的遺跡會自動報名。" },
+  { due: 3, post: 1, en: "Contest day: post the rally message about 1.5 h before the slot (exact 70,080 troops, rally from home, no solo attacks). Once a building is taken, post the defence swap (Howard/Gordon 60:20:20).",
+            zh: "爭奪日：開打前約 1.5 小時發集結公告（剛好 70,080 兵、在家發集結、不要單打）。打下建築後發換防公告（Howard/Gordon 60:20:20）。" },
+];
+const MOBILIZATION_TODO = [
+  { due: 0, post: 1, en: "Post the mission rules (no KvK Prep items; best picks). R4+: refresh shared missions — remove poor ones so members aren't left with tasks they avoid.",
+            zh: "公告任務規則（不要選用到 KvK 準備道具的任務、推薦的任務）。R4 以上：刷新共享任務，把不好的任務換掉。" },
+];
+const BEAR_TODO = [
+  { due: 0, en: "Set once — only touch it if the time needs to change (13:00 & 22:00 UTC). Before it starts, remind: rally leaders, joiner heroes, formations, and which trap.",
+            zh: "設定一次就好，只有要改時間才需要動（UTC 13:00 和 22:00）。開始前提醒：集結隊長、參團英雄、部隊編成、用哪個陷阱。" },
+];
+/* built-in lists that replace an already-saved list once (bump the number to push a new version) */
+const TODO_PUSH = { "swordland-showdown": [8, () => SWORDLAND_TODO], "tri-alliance-clash": [1, () => TAC_TODO], "viking-vengeance": [1, () => VV_TODO],
+  "sanctuary-battle": [1, () => SANCTUARY_TODO], "alliance-mobilization": [1, () => MOBILIZATION_TODO], "bear-hunt": [1, () => BEAR_TODO] };
 // What officers need to do. due: days relative to the event's first day (−1 = the day before).
 const TODO = {
-  "viking-vengeance": [
-    { due: -1, post: 1, en: "Pick the start time and announce it (in UTC). Remind everyone to be online and reinforce each other.",
-                        zh: "決定開打時間並公告（寫 UTC），提醒大家準時上線、互相增援。" },
-  ],
+  "viking-vengeance": VV_TODO,
   // in-game phases: voting 2 days (day 0–1) · registration 2 days (day 2–3, R4 picks time + roster) · matchmaking 2 days (day 4–5) · battle 1 h (day 6)
   "swordland-showdown": SWORDLAND_TODO,
-  "tri-alliance-clash": [
-    { due: -2, post: 1, en: "Confirm registration and the line-up.", zh: "確認報名和出戰名單。" },
-    { due: -1, ranking: 1, post: 1, en: "Set the meeting time and post the plan.", zh: "決定集合時間並發公告。" },
-  ],
+  "tri-alliance-clash": TAC_TODO,
   "cesares-fury": [
     { due: 0, en: "Remind everyone: each member gets 5 rally requests — use them, unused ones are lost when the event ends.",
               zh: "提醒大家：每人有 5 份征討召集令可以找盟友集結，活動結束沒用完就會被清除。" },
     { due: 1, post: 1, en: "R4+: once enough members have beaten high-level targets, apply to challenge the Captain and post a time for everyone to join.",
                        zh: "R4 以上：成員擊敗足夠的高等級目標後，申請挑戰頭目，並公告大家一起打的時間。" },
   ],
-  "sanctuary-battle": [
-    { due: 0, en: "R4+: sign up for 1 Sanctuary + 1 Fortress and pick 3 time slots (the slot most alliances choose wins). Sanctuaries we held last week are signed up automatically.",
-              zh: "R4 以上：報名 1 個遺跡＋1 座要塞，選 3 個時段（王國內最多聯盟選的時段開打）。上期佔領的遺跡會自動報名。" },
-    { due: 3, post: 1, en: "Contest day: post the rally message about 1.5 h before the slot (exact 70,080 troops, rally from home, no solo attacks). Once a building is taken, post the defence swap (Howard/Gordon 60:20:20).",
-                       zh: "爭奪日：開打前約 1.5 小時發集結公告（剛好 70,080 兵、在家發集結、不要單打）。打下建築後發換防公告（Howard/Gordon 60:20:20）。" },
-  ],
+  "sanctuary-battle": SANCTUARY_TODO,
   "eternity-reach": [
     { due: 0, post: 1, en: "Remind everyone: 30-minute solo event. Skill picks Right / Right / Left / Left / Right; send one march into a Copper Vein every minute.",
               zh: "提醒大家：30 分鐘的個人活動。技能依序選 右／右／左／左／右；每分鐘派一隊進銅礦脈。" },
@@ -1547,6 +1566,7 @@ function render() {
   // one card per event (this week's run); its tasks are listed inside, each with its own checkbox
   const groups = [];
   for (const it of items) { let g = groups.find((x) => x.r.k === it.r.k); if (!g) groups.push(g = { r: it.r, runs: [], list: [] }); if (!g.runs.includes(it.r)) g.runs.push(it.r); g.list.push(it); }
+  groups.sort((a, b) => (a.r.k === "bear-hunt") - (b.r.k === "bear-hunt"));   // Bear Hunt is set-and-forget → last
   $("todos").innerHTML = groups.length ? groups.map(({ r, runs: rr, list }) => { const e = byId(r.k) || {};
     const allDone = list.every((it) => store.done[it.id]);
     const when = rr.length === 1 ? tr("runs", { a: fmt(r.st), b: fmt(r.en - DAY), n: r.days }) : rr.map((x) => fmt(x.st)).join(" · ");   // short events (Bear Hunt) → one card, each day listed
@@ -1918,9 +1938,8 @@ function seedTodos(list) {
   /* KvK Battle phase only runs 12:00–22:00 UTC: its Castle Battle item shows on that day only, until 22:00 UTC */
   for (const td of ((list.find((x) => x.id === "kvk") || {}).todo || []))
     if (td.until == null && td.due === 5 && /Castle Battle|王城爭奪/.test((td.en || "") + (td.zh || ""))) td.until = 22;
-  /* Swordland: replace the saved list once with the 4 real steps (todoV marks it, so later edits stick) */
-  { const sw = list.find((x) => x.id === "swordland-showdown");
-    if (sw && sw.todoV !== 8) { sw.todo = SWORDLAND_TODO.map((x) => ({ ...x })); sw.todoV = 8; sw.todoSeed = 1; } }
+  /* replace saved lists once with the newer built-in steps (todoV marks it, so later edits stick) */
+  for (const e of list) { const p = TODO_PUSH[e.id]; if (p && e.todoV !== p[0]) { e.todo = p[1]().map((x) => ({ ...x })); e.todoV = p[0]; e.todoSeed = 1; } }
   for (const e of list) {
     if (e.todoSeed || (e.todo && e.todo.length)) continue;
     const d = TODO[e.id] || (EXTRA_EVENTS.find((x) => x.id === e.id) || {}).todo;
