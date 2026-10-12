@@ -237,12 +237,18 @@ const EVENT_SCHEDULES = {
   "sanctuary-battle": { anchor: Date.UTC(2026, 9, 6), periodDays: 7, activeDays: 4 } // in-game calendar: Tue 00:00 – Fri 24:00 UTC every week (sign-up first, contest phase at the voted time slot)
 };
 
+/* Bear Hunt runs every 2 days; kept apart from EVENT_SCHEDULES so its guide link always shows */
+const BEAR_SCHED = { anchor: Date.UTC(2026, 9, 7), periodDays: 2, activeDays: 1 };
+/* our alliance's fixed times (UTC hours) — set as close to Bear Hunt as possible */
+const EVENT_TIMES = { "bear-hunt": [11, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23] };
+
 /* Schedules edited on the officer Events tab (data/events-x7k2p9.json, "sched") replace the ones above */
 fetch("data/events-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((f) => {
   if (!f || !f.sched) return;
   let changed = false;
   for (const [k, v] of Object.entries(f.sched)) {
     const a = Date.parse(v.anchor + "T00:00:00Z");
+    if (k === "bear-hunt" && !isNaN(a) && v.periodDays > 0) { Object.assign(BEAR_SCHED, { anchor: a, periodDays: v.periodDays, activeDays: v.activeDays || 1 }); changed = true; continue; }
     if (!EVENT_SCHEDULES[k] || isNaN(a) || !(v.periodDays > 0) || !(v.activeDays > 0)) continue;
     EVENT_SCHEDULES[k] = { anchor: a, periodDays: v.periodDays, activeDays: v.activeDays };
     changed = true;
@@ -836,6 +842,47 @@ function switchGuide(id) {
 }
 window.switchGuide = switchGuide;
 
+
+/* ---- "Today / coming up" card at the top of the home page (from the schedules above) ---- */
+const TODAY_TXT = {
+  title: { en:"📅 Today & this week", zh:"📅 今天和這週", ko:"📅 오늘과 이번 주", de:"📅 Heute & diese Woche", fr:"📅 Aujourd'hui et cette semaine", pt:"📅 Hoje e esta semana", es:"📅 Hoy y esta semana", tr:"📅 Bugün ve bu hafta", id:"📅 Hari ini & minggu ini", ru:"📅 Сегодня и на этой неделе", th:"📅 วันนี้และสัปดาห์นี้", ar:"📅 اليوم وهذا الأسبوع" },
+  now: { en:"Now", zh:"進行中", ko:"진행 중", de:"Läuft", fr:"En cours", pt:"Agora", es:"Ahora", tr:"Şimdi", id:"Sekarang", ru:"Сейчас", th:"ตอนนี้", ar:"الآن" },
+  soon: { en:"Coming up", zh:"即將開始", ko:"곧 시작", de:"Demnächst", fr:"À venir", pt:"Em breve", es:"Próximamente", tr:"Yaklaşan", id:"Segera", ru:"Скоро", th:"เร็วๆ นี้", ar:"قريبًا" },
+  day: { en:"day {n}/{d}", zh:"第 {n}/{d} 天", ko:"{n}/{d}일차", de:"Tag {n}/{d}", fr:"jour {n}/{d}", pt:"dia {n}/{d}", es:"día {n}/{d}", tr:"{n}/{d}. gün", id:"hari {n}/{d}", ru:"день {n}/{d}", th:"วันที่ {n}/{d}", ar:"اليوم {n}/{d}" },
+  today: { en:"today", zh:"今天", ko:"오늘", de:"heute", fr:"aujourd'hui", pt:"hoje", es:"hoy", tr:"bugün", id:"hari ini", ru:"сегодня", th:"วันนี้", ar:"اليوم" },
+  tomorrow: { en:"tomorrow", zh:"明天", ko:"내일", de:"morgen", fr:"demain", pt:"amanhã", es:"mañana", tr:"yarın", id:"besok", ru:"завтра", th:"พรุ่งนี้", ar:"غدًا" },
+  inDays: { en:"in {n} days", zh:"{n} 天後", ko:"{n}일 후", de:"in {n} Tagen", fr:"dans {n} jours", pt:"em {n} dias", es:"en {n} días", tr:"{n} gün sonra", id:"{n} hari lagi", ru:"через {n} дн.", th:"อีก {n} วัน", ar:"بعد {n} أيام" },
+  yours: { en:"your time", zh:"你的時間", ko:"내 시간", de:"deine Zeit", fr:"ton heure", pt:"seu horário", es:"tu hora", tr:"senin saatin", id:"waktumu", ru:"ваше время", th:"เวลาของคุณ", ar:"توقيتك" },
+  none: { en:"Nothing scheduled in the next 7 days.", zh:"接下來 7 天沒有排定的活動。", ko:"앞으로 7일간 예정된 이벤트가 없어요.", de:"Keine Events in den nächsten 7 Tagen.", fr:"Rien de prévu dans les 7 prochains jours.", pt:"Nada marcado para os próximos 7 dias.", es:"Nada programado en los próximos 7 días.", tr:"Önümüzdeki 7 günde etkinlik yok.", id:"Tidak ada event 7 hari ke depan.", ru:"В ближайшие 7 дней ничего нет.", th:"ไม่มีกิจกรรมใน 7 วันข้างหน้า", ar:"لا شيء مجدول خلال 7 أيام." },
+};
+function todayCardHtml() {
+  const DAY = 86400000, now = Date.now(), today = Math.floor(now / DAY) * DAY;
+  const fill = (str, v) => str.replace(/\{(\w+)\}/g, (m, k) => (v[k] ?? m));
+  const nowItems = [], soon = [];
+  const scheds = Object.entries(EVENT_SCHEDULES).concat([["bear-hunt", BEAR_SCHED]]);
+  for (const [key, sc] of scheds) {
+    if (!GUIDES[key] || GUIDES[key].hidden) continue;           // only events with a guide on the site
+    const n = Math.floor((today - sc.anchor) / DAY); if (n < 0) continue;
+    const inRun = n % sc.periodDays;
+    if (inRun < sc.activeDays) nowItems.push({ key, day: inRun + 1, days: sc.activeDays });
+    else { const until = sc.periodDays - inRun; if (until <= 7) soon.push({ key, until, start: today + until * DAY }); }
+  }
+  soon.sort((a, b) => a.until - b.until);
+  const hh = (h) => String(h).padStart(2, "0") + ":00";
+  const local = (h) => { const d = new Date(Date.UTC(1970, 0, 1, h)); return d.toLocaleTimeString(HTML_LANG[currentLang] || currentLang, { hour: "2-digit", minute: "2-digit", hourCycle: "h23" }); };
+  const times = (key) => { const T = EVENT_TIMES[key]; if (!T) return "";
+    const off = new Date().getTimezoneOffset() !== 0 ? ` <span class="td-loc">(${escapeHtml(t(TODAY_TXT.yours))} ${T.map(local).join(" & ")})</span>` : "";
+    return `<span class="td-time">⏰ ${T.map(hh).join(" & ")} UTC${off}</span>`; };
+  const row = (it, meta) => { const g = GUIDES[it.key];
+    return `<button type="button" class="td-row" onclick="switchGuide('${it.key}')"><span class="emoji">${g.emoji}</span>
+      <span class="td-main"><b dir="auto">${escapeHtml(t(g.name))}</b><span class="td-meta">${meta}</span>${times(it.key)}</span><span class="arrow">›</span></button>`; };
+  const when = (u) => u === 1 ? t(TODAY_TXT.tomorrow) : fill(t(TODAY_TXT.inDays), { n: u });
+  let h = `<div class="today-card"><div class="td-title">${escapeHtml(t(TODAY_TXT.title))}</div>`;
+  if (!nowItems.length && !soon.length) h += `<div class="td-none">${escapeHtml(t(TODAY_TXT.none))}</div>`;
+  if (nowItems.length) h += `<div class="td-h">${escapeHtml(t(TODAY_TXT.now))}</div>` + nowItems.map((it) => row(it, it.days > 1 ? escapeHtml(fill(t(TODAY_TXT.day), { n: it.day, d: it.days })) : escapeHtml(t(TODAY_TXT.today)))).join("");
+  if (soon.length) h += `<div class="td-h">${escapeHtml(t(TODAY_TXT.soon))}</div>` + soon.map((it) => row(it, escapeHtml(when(it.until)))).join("");
+  return h + `</div>`;
+}
 function renderDoc() {
   const doc = document.getElementById("doc");
   const guide = GUIDES[currentGuide];
@@ -847,7 +894,7 @@ function renderDoc() {
     return;
   }
 
-  doc.innerHTML = `<div class="doc-title"><span class="emoji">${guide.emoji}</span><span>${escapeHtml(s.title)}</span></div>`;
+  doc.innerHTML = (currentGuide === HOME_GUIDE ? todayCardHtml() : "") + `<div class="doc-title"><span class="emoji">${guide.emoji}</span><span>${escapeHtml(s.title)}</span></div>`;
   doc.appendChild(renderBlocks(guide, s));
 }
 

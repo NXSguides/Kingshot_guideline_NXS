@@ -687,3 +687,16 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 .hc-quip{margin:8px 0 0;font-style:italic;color:var(--text-muted);font-size:.9em;}
 .hc-note{margin:0 0 8px;color:var(--text-muted);font-size:.9em;}
 .lt { color: var(--text-muted); font-size: 0.9em; white-space: nowrap; }
+
+/* ---- home page: "Today & this week" card ---- */
+.today-card { border: 2px solid var(--accent); border-radius: 14px; padding: 12px 12px 6px; margin: 0 0 18px; background: color-mix(in srgb, var(--accent) 8%, var(--panel)); }
+.today-card .td-title { font-weight: 800; font-size: 17px; margin-bottom: 4px; }
+.today-card .td-h { font-size: 12.5px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; margin: 10px 0 4px; }
+.today-card .td-row { display: flex; align-items: center; gap: 10px; width: 100%; text-align: start; padding: 9px 10px; margin: 0 0 6px; border: 1px solid var(--rule); border-radius: 10px; background: var(--panel); color: var(--text); font: inherit; cursor: pointer; }
+.today-card .td-row .emoji { font-size: 22px; }
+.today-card .td-row .arrow { margin-inline-start: auto; color: var(--accent); font-size: 18px; }
+.today-card .td-main { display: flex; flex-direction: column; min-width: 0; }
+.today-card .td-meta { font-size: 13px; color: var(--text-muted); }
+.today-card .td-time { font-size: 13px; font-weight: 600; }
+.today-card .td-loc { font-weight: 400; color: var(--text-muted); }
+.today-card .td-none { font-size: 14px; color: var(--text-muted); padding: 6px 0 8px; }
