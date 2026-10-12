@@ -98,7 +98,10 @@
   #pg-events .weeknav .lbl { flex: 1; text-align: right; font-weight: 400; font-size: 13px; color: var(--text-muted); }
   #pg-events .weeknav .lbl { font-weight: 700; text-align: center; flex: 1; }
   #pg-events .cal-scroll { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
-  #pg-events .cal-grid { display: grid; grid-template-columns: repeat(var(--n), var(--w)); gap: 4px 0; width: max-content; }
+  #pg-events .cal-now { position: absolute; top: 2px; bottom: 0; width: 0; border-left: 2px dotted var(--accent, #c8642c); pointer-events: none; z-index: 0; opacity: .85; }
+  #pg-events .cal-grid .cr { position: relative; z-index: 1; }
+  #pg-events .cal-now::before { content: ""; position: absolute; top: -2px; left: -5px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent, #c8642c); }
+  #pg-events .cal-grid { position: relative; display: grid; grid-template-columns: repeat(var(--n), var(--w)); gap: 4px 0; width: max-content; }
   #pg-events .cal-head { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(var(--n), var(--w)); text-align: center; font-size: 12px; line-height: 1.15; padding-bottom: 4px; border-bottom: 1px solid var(--rule); position: sticky; top: 0; }
   #pg-events .cd { color: var(--text-muted); position: relative; }
   #pg-events .cd small { display: block; font-weight: 700; color: var(--text); }
@@ -1672,7 +1675,9 @@ function renderCal() {
   const msRow = ms.length ? `<div class="cr ms">${ms.map((m, i) => { const a = col(m.t), nx = ms[i + 1] ? col(ms[i + 1].t) : n, b = Math.min(nx, a + 4, n);
     return `<span class="ev ms" style="grid-column:${a + 1} / ${Math.max(a + 1, b) + (b === a ? 1 : 0)}" data-ms="${m.t}" title="${esc(fmt(m.t) + ": " + m.l.join(" · "))}">👑 ${esc(m.l.length > 1 ? m.l[m.l.length - 1].replace(/ \(.*\)$/, "") + " +" + (m.l.length - 1) : m.l[0])}</span>`; }).join("")}</div>` : "";
   const rows = msRow + lanes.map((l) => `<div class="cr">${l.bars.join("")}</div>`).join("");
-  cal.innerHTML = `<div class="cal-scroll"><div class="cal-grid" style="--n:${n};--w:${COLW}px"><div class="cal-head">${head}</div>${rows}</div></div>`;
+  // dotted "now" line down the whole strip, at the current UTC time within today's column
+  const nowX = (CAL_BACK + (Date.now() - today) / DAY) * COLW;
+  cal.innerHTML = `<div class="cal-scroll"><div class="cal-grid" style="--n:${n};--w:${COLW}px"><div class="cal-head">${head}</div>${rows}<div class="cal-now" style="left:${nowX.toFixed(1)}px" title="${esc(new Date().toISOString().slice(11, 16))} UTC"></div></div></div>`;
   const sc = cal.firstElementChild;
   sc.scrollLeft = keepScroll !== null ? keepScroll : (CAL_BACK - 1) * COLW;
   /* a bar that starts left of the visible part keeps its name in view (pads the text to the left edge) */
