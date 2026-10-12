@@ -100,8 +100,12 @@
 
   const st = document.createElement("style");
   st.textContent = `
-    .ai-fab{position:fixed;left:16px;bottom:16px;z-index:850;width:52px;height:52px;border-radius:50%;border:0;
-      background:var(--accent);color:var(--accent-ink);font-size:24px;box-shadow:0 4px 14px var(--shadow);cursor:pointer}
+    .ai-fab{position:fixed;left:16px;bottom:16px;z-index:850;height:46px;padding:0 16px 0 12px;border-radius:23px;border:0;
+      display:inline-flex;align-items:center;gap:7px;max-width:calc(100vw - 32px);
+      background:var(--accent);color:var(--accent-ink);font-size:15px;font-weight:700;box-shadow:0 4px 14px var(--shadow);cursor:pointer}
+    .ai-fab .ai-fi{font-size:20px;line-height:1}
+    .ai-fab .ai-ft{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .ai-fab.open .ai-ft{display:none}.ai-fab.open{padding:0 13px}
     .ai-panel{position:fixed;left:16px;bottom:78px;z-index:851;width:min(380px,calc(100vw - 32px));height:min(520px,calc(100vh - 110px));
       display:flex;flex-direction:column;background:var(--panel);color:var(--text);border:1px solid var(--rule);
       border-radius:12px;box-shadow:0 8px 28px var(--shadow);overflow:hidden}
@@ -127,7 +131,7 @@
 
   const fab = document.createElement("button");
   fab.className = "ai-fab"; fab.type = "button"; fab.title = "Ask NXS AI"; fab.setAttribute("aria-label", "Ask NXS AI");
-  fab.textContent = "💬";
+  fab.innerHTML = `<span class="ai-fi">💬</span><span class="ai-ft"></span>`;
   const panel = document.createElement("div");
   panel.className = "ai-panel"; panel.hidden = true;
   panel.innerHTML = `
@@ -142,8 +146,12 @@
   document.body.appendChild(panel);
   const $ = (id) => panel.querySelector("#" + id);
 
+  const FAB = { en: "Ask AI", zh: "問 AI", ko: "AI에게 질문", de: "KI fragen", fr: "Demander à l'IA", pt: "Pergunte à IA", es: "Pregunta a la IA",
+    tr: "Yapay zekâya sor", id: "Tanya AI", ru: "Спросить ИИ", th: "ถาม AI", ar: "اسأل الذكاء الاصطناعي" };
   /* (re)write the chat box texts in the site's current language */
   function applyLang() {
+    fab.querySelector(".ai-ft").textContent = FAB[curLang()] || FAB.en;
+    fab.dir = document.documentElement.dir || "ltr";
     const g = HAS_GUIDES && GUIDES["bear-hunt"] ? pickName(GUIDES["bear-hunt"].name) : "Bear Hunt";
     $("aiGreet").innerHTML = `${esc(L("greet"))}<br><span class="ai-hint">${esc(L("eg").replace("{g}", g))}</span>`;
     $("aiQ").placeholder = L("ph");
@@ -156,7 +164,7 @@
   /* the chat stays open (and keeps its messages) when you move to another page in this tab */
   const OPEN_KEY = "nxs-ai-open";
   function setOpen(open) {
-    panel.hidden = !open;
+    panel.hidden = !open; fab.classList.toggle("open", !!open);   // open: just the icon, so it covers less
     try { sessionStorage.setItem(OPEN_KEY, open ? "1" : ""); } catch (e) {}
     if (open) { $("aiLog").scrollTop = $("aiLog").scrollHeight; }
   }
