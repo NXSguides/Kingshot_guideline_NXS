@@ -400,7 +400,8 @@
   #pg-map .km-layers button[aria-pressed="false"] { opacity: .45; }
   #pg-map .sw { width: 14px; height: 14px; border-radius: 4px; flex: none; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.2); }
   #pg-map .km-card { background: #22301a; border-radius: 14px; overflow: hidden; position: relative; border: 1px solid var(--rule); }
-  #pg-map .km-box { overflow: auto; max-height: 75vh; scrollbar-width: thin; }
+  #pg-map .km-box { overflow: auto; max-height: 75vh; scrollbar-width: thin; overscroll-behavior: contain; }
+  @media (pointer: fine) { #pg-map .km-box { cursor: grab; } #pg-map .km-box.dragging { cursor: grabbing; user-select: none; } #pg-map .km-box.dragging .mk { cursor: grabbing; } }
   #pg-map .km-box svg { display: block; width: 100%; height: auto; }
   #pg-map .km-zoom { position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 6px; z-index: 2; }
   #pg-map .km-zoom button { width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(255,255,255,.25); background: rgba(20,28,16,.85); color: #fff; font: 700 18px/1 system-ui; cursor: pointer; }
@@ -3970,11 +3971,38 @@ const applyHidden = () => $("km_svg").querySelectorAll(".mk").forEach((m) => { c
   m.classList.toggle("off", m.dataset.id !== SEL && (hidden.has(m.dataset.t) || (planOnly && b.kind === "outpost" && !st(b)))); });
 
 /* zoom: 100% wide at 1; phones start zoomed in so the level numbers are readable */
-function setZoom(z, keep) {
-  const box = $("km_box"), svg = $("km_svg"), cx = box.scrollLeft + box.clientWidth / 2, cy = box.scrollTop + box.clientHeight / 2, old = svg.clientWidth || 1;
-  Z = Math.max(1, Math.min(4, z)); svg.style.width = (Z * 100) + "%";
+/* ax, ay = the point (inside the map box) that stays put — the mouse when zooming with the wheel, else the middle */
+function setZoom(z, keep, ax, ay) {
+  const box = $("km_box"), svg = $("km_svg"), old = svg.clientWidth || 1;
+  if (ax == null) { ax = box.clientWidth / 2; ay = box.clientHeight / 2; }
+  const cx = box.scrollLeft + ax, cy = box.scrollTop + ay;
+  Z = Math.max(1, Math.min(6, z)); svg.style.width = (Z * 100) + "%";
   const k = svg.clientWidth / old;
-  if (keep !== false) { box.scrollLeft = cx * k - box.clientWidth / 2; box.scrollTop = cy * k - box.clientHeight / 2; }
+  if (keep !== false) { box.scrollLeft = cx * k - ax; box.scrollTop = cy * k - ay; }
+}
+/* computer: mouse wheel (or trackpad pinch) zooms where the mouse is; drag with the mouse to move around */
+function mouseControls() {
+  const box = $("km_box");
+  box.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    const r = box.getBoundingClientRect(), d = e.deltaMode === 1 ? e.deltaY * 30 : e.deltaY;
+    setZoom(Z * Math.exp(-d * (e.ctrlKey ? 0.01 : 0.0018)), true, e.clientX - r.left, e.clientY - r.top);
+  }, { passive: false });
+  let drag = null, moved = false;
+  box.addEventListener("pointerdown", (e) => {
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    drag = { x: e.clientX, y: e.clientY, l: box.scrollLeft, t: box.scrollTop }; moved = false;
+  });
+  window.addEventListener("pointermove", (e) => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (!moved && Math.hypot(dx, dy) < 5) return;
+    moved = true; box.classList.add("dragging");
+    box.scrollLeft = drag.l - dx; box.scrollTop = drag.t - dy;
+  });
+  window.addEventListener("pointerup", () => { drag = null; box.classList.remove("dragging"); });
+  // a drag that ends on a marker must not also select it
+  box.addEventListener("click", (e) => { if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; } }, true);
 }
 function centerOn(b, smooth) {
   const box = $("km_box"), [X, Y] = P(b.x, b.y), s = $("km_svg").clientWidth / W;
@@ -4304,6 +4332,7 @@ async function init() {
   await loadScripts(["data/kingdom-map.js"]);
   G = KINGDOM_MAP; build(); await loadPlan(); importFromLink(); drawMap(); drawPlan(); applyTexts(); ready = true;
   $("km_in").onclick = () => setZoom(Z * 1.5); $("km_out").onclick = () => setZoom(Z / 1.5);
+  mouseControls();
 }
 function setLang(l) { lang = l; applyTexts(); }
 OFFICER_PAGES.map = { init, onShow, applyTexts, setLang };
