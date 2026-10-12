@@ -32,7 +32,8 @@
       subQ: { train: "Which troops?", recruit: "Which recruit?" }, advanced: "Advanced", epic: "Epic",
       troop: "Which troops?", builder: "＋ Second builder",
       alerts: "🔔 Event alerts", alertsNote: "Tap a time to get a notification before it starts.", before: "{n} min before",
-      next: "next alert: {t}", atTime: "at the time", reset: "00:00 UTC reset", arenaName: "Arena", journeyName: "Journey Supplies",
+      next: "next alert: {t}", atTime: "at the time", reset: "00:00 UTC reset", arenaName: "Arena", journeyName: "Journey Supplies", intelName: "Intel Missions",
+      refreshTitle: "{e} {name} refresh in {n} min", refreshNow: "{e} {name} — new missions now!", refreshBody: "Watchtower refreshes at {t} UTC.",
       evTitle: "{e} {name} in {n} min", evNow: "{e} {name} — now!", evBody: "Starts at {t} UTC.",
       resetTitle: "{e} {name} — daily reset in {n} min", resetNow: "{e} {name} — daily reset now", resetBody: "Resets at 00:00 UTC. Did you use it today?",
       claimTitle: "{e} {name} in {n} min", claimNow: "{e} {name} — claim now!", claimBody: "Free claim at {t} UTC.",
@@ -178,6 +179,7 @@
     { k: "arena", kind: "daily", hours: [24], def: 3, emoji: "🏟️", name: "arenaName" },
     { k: "mystic-trial", kind: "daily", hours: [24], def: 30 },
     { k: "journey", kind: "daily", hours: [8, 16], def: 0, emoji: "🎒", name: "journeyName" },
+    { k: "intel", kind: "daily", hours: [0, 8, 16], def: 0, emoji: "🔍", name: "intelName", text: "refresh" },
     { k: "swordland-showdown", kind: "event", def: 10 },
     { k: "tri-alliance-clash", kind: "event", def: 10 },
     { k: "viking-vengeance", kind: "event", def: 10 },
@@ -220,7 +222,7 @@
           const at = day + h * 3600000 - before * 60000;
           if (at <= now) continue;
           const v = { e: evEmoji(d.k), name: evName(d.k), n: before, t: String(h % 24).padStart(2, "0") + ":00" };
-          const kind = h === 24 ? "reset" : d.kind === "daily" ? "claim" : "ev";
+          const kind = d.text || (h === 24 ? "reset" : d.kind === "daily" ? "claim" : "ev");
           const title = fill(T(before ? kind + "Title" : kind + "Now"), v), body = fill(T(kind + "Body"), v);
           out.push({ id: `ev-${d.k}-${h}-${day / DAY}`, at, title, body });
         }
@@ -350,7 +352,7 @@
   }
   function addHtml() {
     if (!adding) return `<button type="button" class="tm-btn main" data-a="add">${esc(T("add"))}</button>`;
-    const cats = Object.keys(CAT_EMOJI).map((c) => `<button type="button" class="tm-btn${adding.cat === c ? " on" : ""}" data-cat="${c}">${CAT_EMOJI[c]} ${esc(T("cats")[c])}</button>`).join("");
+    const cats = Object.keys(CAT_EMOJI).filter((c) => c !== "intel").map((c) => `<button type="button" class="tm-btn${adding.cat === c ? " on" : ""}" data-cat="${c}">${CAT_EMOJI[c]} ${esc(T("cats")[c])}</button>`).join("");
     let h = `<div class="tm-note"><b>${esc(T("what"))}</b><div class="tm-cats">${cats}</div>`;
     if (adding.cat) {
       if (adding.cat === "other") h += `<input class="tm-in" data-name placeholder="${esc(T("name"))}" value="${esc(adding.name)}" dir="auto">`;
