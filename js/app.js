@@ -857,6 +857,35 @@ function switchGuide(id) {
 window.switchGuide = switchGuide;
 
 
+/* ---- troop counts for our usual ratios (from the troop limits) — shown on the Formations guide ---- */
+const RATIO_TXT = {
+  title: { en:"🧮 Troop counts for our ratios", zh:"🧮 常用比例的兵數", ko:"🧮 자주 쓰는 비율별 병력 수", de:"🧮 Truppenzahlen für unsere Verhältnisse", fr:"🧮 Nombre de troupes par ratio", pt:"🧮 Tropas para nossas proporções", es:"🧮 Tropas para nuestras proporciones", tr:"🧮 Oranlarımız için asker sayıları", id:"🧮 Jumlah pasukan per rasio", ru:"🧮 Число войск по нашим соотношениям", th:"🧮 จำนวนทหารตามสัดส่วนที่ใช้", ar:"🧮 أعداد القوات لنسبنا" },
+  bear: { en:"Bear Hunt (join)", zh:"狩獵巨熊（參加集結）", ko:"자이언트 베어 사냥 (집결 참여)", de:"Bärenjagd (beitreten)", fr:"Chasse à l'Ours (rejoindre)", pt:"Caça ao Urso (entrar)", es:"Cacería del Oso (unirse)", tr:"Ayı Avı (katılma)", id:"Bear Hunt (gabung)", ru:"Охота на медведя (вступить)", th:"ล่าหมี (เข้าร่วม)", ar:"صيد الدببة (انضمام)" },
+  atk: { en:"Attack", zh:"進攻", ko:"공격", de:"Angriff", fr:"Attaque", pt:"Ataque", es:"Ataque", tr:"Saldırı", id:"Serang", ru:"Атака", th:"โจมตี", ar:"هجوم" },
+  def: { en:"Defense", zh:"防守", ko:"방어", de:"Verteidigung", fr:"Défense", pt:"Defesa", es:"Defensa", tr:"Savunma", id:"Bertahan", ru:"Защита", th:"ป้องกัน", ar:"دفاع" },
+  hq: { en:"Viking HQ", zh:"維京總部", ko:"바이킹 본부", de:"Wikinger-HQ", fr:"QG Vikings", pt:"QG Viking", es:"CG vikingo", tr:"Viking Karargahı", id:"Markas Viking", ru:"Штаб (викинги)", th:"กองบัญชาการไวกิ้ง", ar:"مقر الفايكنج" },
+  copy: { en:"Copy", zh:"複製", ko:"복사", de:"Kopieren", fr:"Copier", pt:"Copiar", es:"Copiar", tr:"Kopyala", id:"Salin", ru:"Копировать", th:"คัดลอก", ar:"نسخ" },
+  copied: { en:"Copied ✓", zh:"已複製 ✓", ko:"복사됨 ✓", de:"Kopiert ✓", fr:"Copié ✓", pt:"Copiado ✓", es:"Copiado ✓", tr:"Kopyalandı ✓", id:"Disalin ✓", ru:"Скопировано ✓", th:"คัดลอกแล้ว ✓", ar:"تم النسخ ✓" },
+};
+const RATIOS = [["🐻", "bear", "bear", [10, 10, 80]], ["⚔️", "atk", "rally", [50, 20, 30]], ["🛡️", "def", "rally", [60, 20, 20]], ["🪓", "hq", "rally", [60, 40, 0]]];
+function ratioSplit(total, r) {
+  const sum = r.reduce((a, b) => a + b, 0), c = r.map((x) => Math.floor(total * x / sum));
+  let gap = total - c.reduce((a, b) => a + b, 0); for (let i = r.length - 1; i >= 0 && gap > 0; i--) if (r[i]) { c[i] += gap; gap = 0; }
+  return c;
+}
+function ratioCardHtml() {
+  const loc = currentLang === "ar" ? "en" : (HTML_LANG[currentLang] || currentLang), f = (n) => n.toLocaleString(loc);
+  const names = ["infantry", "cavalry", "archer"].map(term);
+  const rows = RATIOS.map(([emo, lab, lim, r], i) => {
+    const total = LIMITS[lim], c = ratioSplit(total, r);
+    const parts = c.map((n, j) => (r[j] ? `${names[j]} ${f(n)}` : "")).filter(Boolean);
+    return `<div class="rc-row"><div class="rc-main"><b>${emo} ${escapeHtml(t(RATIO_TXT[lab]))}</b> <span class="rc-r">${r.filter(Boolean).join(":")} · ${f(total)}</span>
+      <div class="rc-n" dir="auto">${parts.map(escapeHtml).join(" · ")}</div></div>
+      <button type="button" class="rc-copy" data-copy="${escapeHtml(parts.join(" / "))}" onclick="rcCopy(this)">${escapeHtml(t(RATIO_TXT.copy))}</button></div>`; }).join("");
+  return `<div class="ratio-card"><div class="td-title">${escapeHtml(t(RATIO_TXT.title))}</div>${rows}</div>`;
+}
+window.rcCopy = (b) => copyText(b.dataset.copy).then((ok) => { if (!ok) return; const o = b.textContent; b.textContent = t(RATIO_TXT.copied); setTimeout(() => (b.textContent = o), 1500); });
+
 /* ---- "Today / coming up" card at the top of the home page (from the schedules above) ---- */
 const TODAY_TXT = {
   title: { en:"📅 Today & this week", zh:"📅 今天和這週", ko:"📅 오늘과 이번 주", de:"📅 Heute & diese Woche", fr:"📅 Aujourd'hui et cette semaine", pt:"📅 Hoje e esta semana", es:"📅 Hoy y esta semana", tr:"📅 Bugün ve bu hafta", id:"📅 Hari ini & minggu ini", ru:"📅 Сегодня и на этой неделе", th:"📅 วันนี้และสัปดาห์นี้", ar:"📅 اليوم وهذا الأسبوع" },
@@ -913,7 +942,7 @@ function renderDoc() {
     ${back ? `<span class="arrow" style="margin:0">‹</span>` : ""}<span class="emoji">${g.emoji}</span><span dir="auto">${escapeHtml(t(g.name))}</span>${back ? "" : `<span class="arrow">›</span>`}</button>`; };
   const kids = Object.keys(GUIDES).filter((k) => GUIDES[k].parent === currentGuide);
   const back = guide.parent && GUIDES[guide.parent] ? btn(guide.parent, true) : "";
-  doc.innerHTML = (currentGuide === HOME_GUIDE ? todayCardHtml() : "") + back + `<div class="doc-title"><span class="emoji">${guide.emoji}</span><span>${escapeHtml(s.title)}</span></div>` + kids.map((k) => btn(k)).join("");
+  doc.innerHTML = (currentGuide === HOME_GUIDE ? todayCardHtml() : "") + back + `<div class="doc-title"><span class="emoji">${guide.emoji}</span><span>${escapeHtml(s.title)}</span></div>` + kids.map((k) => btn(k)).join("") + (currentGuide === "formations-rally-tips" ? ratioCardHtml() : "");
   doc.appendChild(renderBlocks(guide, s));
 }
 

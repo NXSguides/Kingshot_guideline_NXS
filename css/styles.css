@@ -701,3 +701,10 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 .today-card .td-loc { font-weight: 400; color: var(--text-muted); }
 .today-card .td-none { font-size: 14px; color: var(--text-muted); padding: 6px 0 8px; }
 .guide-link-btn.sub-back { width: auto; display: inline-flex; margin: 0 0 10px; padding: 6px 12px; font-size: 14px; }
+.ratio-card { border: 1px solid var(--rule); border-radius: 12px; padding: 10px 12px 4px; margin: 0 0 16px; background: var(--panel-2); }
+.ratio-card .td-title { font-weight: 800; margin-bottom: 6px; }
+.ratio-card .rc-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-top: 1px solid var(--rule); }
+.ratio-card .rc-main { flex: 1; min-width: 0; font-size: 14px; }
+.ratio-card .rc-r { color: var(--text-muted); font-size: 12.5px; }
+.ratio-card .rc-n { font-variant-numeric: tabular-nums; font-size: 13.5px; margin-top: 2px; }
+.ratio-card .rc-copy { border: 1px solid var(--accent); background: transparent; color: var(--text); border-radius: 8px; padding: 5px 10px; font: inherit; font-size: 13px; cursor: pointer; white-space: nowrap; }
