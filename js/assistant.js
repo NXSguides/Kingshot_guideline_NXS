@@ -123,7 +123,8 @@
     .ai-msg.a ul{margin:4px 0;padding-inline-start:1.2em}
     .ai-msg .guide-link-btn{margin:4px 0}
     .ai-hint{color:var(--text-muted);font-size:13px}
-    .ai-feat{margin:8px 0;display:flex;flex-wrap:wrap;gap:6px}
+    .ai-feat{margin:6px 0 4px;display:flex;flex-wrap:wrap;gap:6px}
+    .ai-grp{margin-top:10px;font-weight:700;font-size:13.5px}
     .ai-feat .guide-link-btn{margin:0 !important;width:auto !important;min-height:0 !important;padding:5px 10px !important;font-size:13px !important;border-radius:14px !important;gap:5px !important;display:inline-flex !important}
     .ai-feat .guide-link-btn .arrow{display:none}.ai-feat .guide-link-btn .emoji{font-size:14px}
     .ai-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
@@ -171,7 +172,16 @@
   const introPages = () => {
     if (!HAS_GUIDES) return "";
     const ids = typeof guideKeys === "function" ? guideKeys() : Object.keys(GUIDES).filter((k) => !GUIDES[k].hidden);
-    return format(ids.map((id) => `[${pickName(GUIDES[id].name)}](#${id})`).join("\n"));
+    const links = (L) => `<div class="ai-feat">${format(L.map((id) => `[${pickName(GUIDES[id].name)}](#${id})`).join("\n"))}</div>`;
+    // same groups as the site's menu: home page, then Event Guides / Growth Guides
+    if (typeof GUIDE_GROUPS === "undefined" || typeof guideGroupOf !== "function") return links(ids);
+    const home = ids.filter((k) => !guideGroupOf(k)), out = [];
+    if (home.length) out.push(links(home));
+    for (const g of ["events", "growth"]) {
+      const L = ids.filter((k) => guideGroupOf(k) === g); if (!L.length || !GUIDE_GROUPS[g]) continue;
+      out.push(`<div class="ai-grp">${GUIDE_GROUPS[g].emoji} ${esc(pickName(GUIDE_GROUPS[g].name))}</div>${links(L)}`);
+    }
+    return out.join("");
   };
   const I = () => INTRO[curLang()] || INTRO.en;
   const FAB = { en: "Ask AI", zh: "問 AI", ko: "AI에게 질문", de: "KI fragen", fr: "Demander à l'IA", pt: "Pergunte à IA", es: "Pregunta a la IA",
@@ -182,7 +192,7 @@
     fab.dir = document.documentElement.dir || "ltr";
     const g = HAS_GUIDES && GUIDES["bear-hunt"] ? pickName(GUIDES["bear-hunt"].name) : "Bear Hunt";
     const it = I();
-    $("aiGreet").innerHTML = `${esc(it.t)}<div class="ai-feat">${introPages()}</div><span class="ai-hint">${esc(it.ask)}</span>
+    $("aiGreet").innerHTML = `${esc(it.t)}${introPages()}<span class="ai-hint">${esc(it.ask)}</span>
       <div class="ai-chips">${it.q.map((x) => `<button type="button" class="ai-chip" dir="auto">${esc(x)}</button>`).join("")}</div>`;
     $("aiGreet").querySelectorAll(".ai-chip").forEach((b) => b.onclick = () => { $("aiQ").value = b.textContent; $("aiForm").requestSubmit ? $("aiForm").requestSubmit() : $("aiForm").dispatchEvent(new Event("submit", { cancelable: true })); });
     $("aiQ").placeholder = L("ph");
