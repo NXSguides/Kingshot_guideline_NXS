@@ -971,8 +971,8 @@ function renderDoc() {
   jumpCard(doc);
 }
 
-/* Grouped events (Swordland zones/roles, Tri-Alliance teams): buttons that jump to your group's part of the guide.
-   Labels come from the guide's own headings, so every language works. Link form: #/en/swordland-showdown/zone-purple */
+/* Grouped events (Swordland roles, Tri-Alliance teams): buttons that jump to your group's part of the guide.
+   Labels come from the guide's own headings, so every language works. Link form: #/en/swordland-showdown/role-2 */
 const JUMP_TXT = {
   en: "📍 Where were you assigned? Tap to jump there", zh: "📍 你被分到哪裡？點一下直接跳過去", ko: "📍 배정받은 곳을 누르면 바로 이동해요",
   de: "📍 Wo bist du eingeteilt? Tippen, um hinzuspringen", fr: "📍 Où es-tu assigné ? Touche pour y aller", pt: "📍 Onde você foi designado? Toque para ir até lá",
@@ -984,17 +984,10 @@ function jumpCard(doc) {
   const clean = (x) => x.replace(/\*\*/g, "").split(/\s[—–]\s|[：:]/)[0].trim();
   const subs = [...doc.querySelectorAll(".sub-h")];
   if (currentGuide === "swordland-showdown") {
-    const zones = [["purple", "🟣"], ["yellow", "🟡"], ["blue", "🔵"], ["green", "🟢"]].map(([c, e]) => {
-      const el = doc.querySelector(`.zone-card.zone-${c}`) || [...doc.querySelectorAll("li")].find((li) => li.textContent.trim().startsWith(e));
-      if (!el) return null;
-      const lab = el.classList.contains("zone-card") ? el.querySelector(".zone-title").textContent : el.textContent;
-      return { id: `zone-${c}`, el, label: clean(lab) };
-    }).filter(Boolean);
     const roles = [["⚔️", 1], ["🛡️", 2], ["🤝", 3]].map(([e, n]) => {
       const el = subs.find((h) => h.textContent.includes(e) && new RegExp(`${n}\\s*[)）]`).test(h.textContent));
       return el && { id: `role-${n}`, el, label: e + " " + clean(el.textContent.replace(/[0-9]\s*[)）]|⚔️|🛡️|🤝/g, "")) };
     }).filter(Boolean);
-    if (zones.length) rows.push(zones);
     if (roles.length) rows.push(roles);
   } else if (currentGuide === "tri-alliance-clash") {
     const teams = [1, 2, 3].map((n) => {
