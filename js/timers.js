@@ -11,7 +11,17 @@
     if (/[?&]timers\b/.test(location.search) || /officer-/.test(location.pathname)) localStorage.setItem(BETA, "1");
     beta = !!localStorage.getItem(BETA) || !!(JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw);
   } catch (e) {}
-  if (!beta) return;
+  if (!beta) {
+    // home-screen / Dock apps have no address bar: typing "/timers" in the AI chat turns it on too
+    const f = NXSAI.panel.querySelector("#aiForm"), q = NXSAI.panel.querySelector("#aiQ");
+    if (f && q) f.addEventListener("submit", (e) => {
+      if (q.value.trim().toLowerCase() !== "/timers") return;
+      e.preventDefault(); e.stopImmediatePropagation();
+      try { localStorage.setItem(BETA, "1"); } catch (err) {}
+      location.reload();
+    }, true);
+    return;
+  }
   /* Officer pages don't load the main site's app.js, so keep a copy of the event schedule here;
      the officer-edited schedule (data/events-x7k2p9.json "sched") replaces it, like on the main site. */
   const ON_MAIN = typeof EVENT_TIMES !== "undefined";
