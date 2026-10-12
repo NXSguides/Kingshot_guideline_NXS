@@ -442,7 +442,7 @@
       const next = adminTimers().slice(0, 4);
       body = `<div class="tm-cats"><button type="button" class="tm-btn${a.on ? " on" : ""}" data-a="admin">${esc(T("adminOn"))}</button>
         <select class="tm-sel" data-hour="1">${Array.from({ length: 24 }, (_, i) => `<option value="${i}"${h === i ? " selected" : ""}>${esc(T("adminAt").replace("{t}", String(i).padStart(2, "0") + ":00"))} (${loc(i)})</option>`).join("")}</select></div>`
-        + (a.on ? (next.length ? next.map((x) => `<div class="tm-a">• ${esc(fmtAt(x.at))} — ${esc(x.title.replace(/^🛠️ /, ""))}</div>`).join("") : `<div class="tm-a">${esc(T("adminEmpty"))}</div>`) : "")
+        + (a.on ? (next.length ? next.map((x, i) => `<div class="tm-a">• ${esc(fmtAt(x.at))} — ${esc(x.title.replace(/^🛠️ /, ""))}${i === 0 && pushOn ? ` · <button type="button" class="tm-link" data-adminsample="1">${esc(T("sample"))}</button>` : ""}</div>`).join("") : `<div class="tm-a">${esc(T("adminEmpty"))}</div>`) : "")
         + `<div class="tm-hint" style="margin-top:4px">${esc(T("adminUpd").replace("{t}", fmtAt(d.updated)))}</div>`;
     }
     return `<div class="tm-alerts"><b>${esc(T("admin"))}</b><div class="tm-hint" style="margin-top:2px">${esc(T("adminNote"))}</div>${body}</div>`;
@@ -490,6 +490,12 @@
       const x = alertTimers().find((t) => t.id.startsWith(`ev-${b.dataset.sample}-`)), sub = await getSub();
       b.disabled = true;
       try { if (x && sub) await post("/push/test", { sub: sub.toJSON(), title: x.title, body: x.body }); syncErr = false; } catch (err) { syncErr = true; }
+      b.textContent = T("sent"); return;
+    }
+    if (b.dataset.adminsample) {   // the next admin reminder, right now — tap it to check it opens the right checklist card
+      const x = adminTimers()[0], sub = await getSub();
+      b.disabled = true;
+      try { if (x && sub) await post("/push/test", { sub: sub.toJSON(), title: x.title, body: x.body, tag: x.id }); syncErr = false; } catch (err) { syncErr = true; }
       b.textContent = T("sent"); return;
     }
     if (a === "admin") { const x = (alerts.admin = alerts.admin || {}); x.on = !x.on; saveAlerts(); render(); sync(); return; }
