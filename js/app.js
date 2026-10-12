@@ -240,7 +240,7 @@ const EVENT_SCHEDULES = {
 /* Bear Hunt runs every 2 days; kept apart from EVENT_SCHEDULES so its guide link always shows */
 const BEAR_SCHED = { anchor: Date.UTC(2026, 9, 7), periodDays: 2, activeDays: 1 };
 /* our alliance's fixed times (UTC hours) — set as close to Bear Hunt as possible */
-const EVENT_TIMES = { "bear-hunt": [11, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23] };
+const EVENT_TIMES = { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23] };
 
 /* Schedules edited on the officer Events tab (data/events-x7k2p9.json, "sched") replace the ones above */
 fetch("data/events-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((f) => {

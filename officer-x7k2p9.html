@@ -1300,7 +1300,7 @@ or 60/15/25
 // events with no schedule on the site yet
 const EXTRA_EVENTS = [
   { id: "bear-hunt", emoji: "🐻", en: "Bear Hunt", zh: "狩獵巨熊", start: "2026-10-07", every: 2, days: 1, guide: "bear-hunt",
-    note: "11:00 & 22:00 UTC, 30 min each", noteZh: "UTC 11:00 和 22:00，各 30 分鐘",
+    note: "13:00 & 22:00 UTC, 30 min each", noteZh: "UTC 13:00 和 22:00，各 30 分鐘",
     todo: [{ due: 0, en: "Remind everyone: update formations, recall gathering troops before it starts, and everyone launches a rally in the last 5–7 minutes.", zh: "提醒大家：更新部隊編成、開始前召回採集部隊，最後 5–7 分鐘每個人都發起集結。" }] },
   { id: "alliance-championship", emoji: "🏆", en: "Alliance Championship", zh: "聯盟爭霸賽", start: "2026-09-28", every: 7, days: 2, guide: "",
     note: "Weekly, Monday reset · shown = 2-day registration; battles run automatically", noteZh: "每週一次，週一重置 · 顯示的是 2 天報名期；戰鬥自動進行",
@@ -1843,6 +1843,8 @@ function seedTodos(list) {
   for (const [id, e] of Object.entries(EVENTS)) {
     if (e.start && !list.some((x) => x.id === id)) list.push({ id, emoji: e.emoji, en: e.en, zh: e.zh, start: e.start, every: e.every, days: e.days, guide: "", note: e.note || "", ...(e.noteZh ? { noteZh: e.noteZh } : {}), todo: [], ingame: INGAME_DEFAULTS[id] || [] });
   }
+  /* Bear Hunt moved from 11:00 to 13:00 UTC: fix the note in an already-saved list */
+  for (const e of list) if (e.id === "bear-hunt") { if (e.note) e.note = e.note.replace("11:00 & 22:00", "13:00 & 22:00"); if (e.noteZh) e.noteZh = e.noteZh.replace("11:00 和 22:00", "13:00 和 22:00"); }
   /* KvK Battle phase only runs 12:00–22:00 UTC: its Castle Battle item shows on that day only, until 22:00 UTC */
   for (const td of ((list.find((x) => x.id === "kvk") || {}).todo || []))
     if (td.until == null && td.due === 5 && /Castle Battle|王城爭奪/.test((td.en || "") + (td.zh || ""))) td.until = 22;
