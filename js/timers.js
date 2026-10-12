@@ -11,6 +11,15 @@
     beta = !!localStorage.getItem(BETA) || !!(JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw);
   } catch (e) {}
   if (!beta) return;
+  /* officer pages: the timers live on the main site (they need its event schedule), so ⏰ just goes there.
+     Visiting the officer page's Events tab first also refreshes the 🛠️ Admin reminders. */
+  if (typeof GUIDES === "undefined" || typeof EVENT_TIMES === "undefined") {
+    const go = document.createElement("button");
+    go.type = "button"; go.textContent = "⏰"; go.title = "My timers";
+    go.onclick = () => { location.href = "index.html?timers"; };
+    const clr = NXSAI.panel.querySelector("#aiClear"); if (clr) clr.before(go);
+    return;
+  }
   const { panel } = NXSAI;
   const API = NXSAI.url;
   const VAPID = "BKb0YJxObHPh9_7b4ZriSZQeRk6TaojqNUvPBJe7J9aC_pVuXtmQRRWD11gDs6OJYj8Fg7jigPXDBOxZ5NQbP0o";
@@ -35,7 +44,7 @@
       troop: "Which troops?", builder: "＋ Second builder",
       alerts: "🎮 Game reminders",
       admin: "🛠️ Admin reminders", adminNote: "Officer to-dos from the Events tab, sent on the day they're due.", adminOn: "Send admin reminders",
-      adminAt: "at {t} UTC", adminNone: "Open the officer page's Events tab once on this phone to load the to-dos (it refreshes every time you open it).",
+      adminAt: "at {t} UTC", adminNone: "Open the officer page's Events tab once (in this same app / browser) to load the to-dos — they refresh every time you open it.",
       adminEmpty: "No officer to-dos in the next 3 weeks.", adminUpd: "to-dos loaded {t}", alertsNote: "Tap a time to get a notification before it starts.", before: "{n} min before",
       next: "next alert: {t}", atTime: "at the time", reset: "00:00 UTC reset", arenaName: "Arena", journeyName: "Journey Supplies", intelName: "Intel Missions",
       refreshTitle: "{e} {name} refresh in {n} min", refreshNow: "{e} {name} — new missions now!", refreshBody: "Watchtower refreshes at {t} UTC.",
@@ -407,7 +416,7 @@
     return `<div class="tm-alerts"><b>${esc(T("alerts"))}</b><div class="tm-hint" style="margin-top:2px">${esc(T("alertsNote"))}</div>${pushOn ? "" : `<div class="tm-err">${esc(T("needOn"))}</div>`}${rows}<div class="tm-hint">${esc(T("alertsSync"))}</div></div>`;
   }
   function adminHtml() {
-    if (!isOfficer()) return "";
+    // (testing phase: shown to every tester; later only to officers → `if (!isOfficer()) return "";`)
     const a = alerts.admin || {}, d = adminData(), h = a.hour ?? 0;
     const loc = (x) => new Date(Date.UTC(2000, 0, 1, x)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     let body = "";
