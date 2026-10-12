@@ -252,6 +252,11 @@ const EVENT_SCHEDULES = {
 
 /* Bear Hunt runs every 2 days; kept apart from EVENT_SCHEDULES so its guide link always shows */
 const BEAR_SCHED = { anchor: Date.UTC(2026, 9, 7), periodDays: 2, activeDays: 1 };
+/* one-off events that only have an announcement (no guide): shown on the Today card, tap → that announcement.
+   match = text in the announcement's English title; start = first day (UTC); days = how long */
+const ANN_EVENTS = [
+  { match: "Finder", emoji: "🧩", start: "2026-10-11", days: 3 },
+];
 /* our alliance's fixed times (UTC hours) — set as close to Bear Hunt as possible */
 const EVENT_TIMES = { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23] };
 
@@ -910,13 +915,24 @@ function todayCardHtml() {
     if (inRun < sc.activeDays) nowItems.push({ key, day: inRun + 1, days: sc.activeDays });
     else { const until = sc.periodDays - inRun; if (until <= 7) soon.push({ key, until, start: today + until * DAY }); }
   }
+  for (const ev of ANN_EVENTS) {                                // announcement-only events
+    const i = announcements.findIndex((a) => ((a.title && (a.title.en || "")) + " " + JSON.stringify(a.title || {})).includes(ev.match));
+    if (i < 0) continue;
+    const st = Date.parse(ev.start + "T00:00:00Z"), n = Math.floor((today - st) / DAY);
+    const item = { ann: i, emoji: ev.emoji, name: t(announcements[i].title) || ev.match };
+    if (n >= 0 && n < ev.days) nowItems.push({ ...item, day: n + 1, days: ev.days });
+    else if (n < 0 && -n <= 7) soon.push({ ...item, until: -n });
+  }
   soon.sort((a, b) => a.until - b.until);
   const hh = (h) => String(h).padStart(2, "0") + ":00";
   const local = (h) => { const d = new Date(Date.UTC(1970, 0, 1, h)); return d.toLocaleTimeString(HTML_LANG[currentLang] || currentLang, { hour: "2-digit", minute: "2-digit", hourCycle: "h23" }); };
   const times = (key) => { const T = EVENT_TIMES[key]; if (!T) return "";
     const off = new Date().getTimezoneOffset() !== 0 ? ` <span class="td-loc">(${escapeHtml(t(TODAY_TXT.yours))} ${T.map(local).join(" & ")})</span>` : "";
     return `<span class="td-time">⏰ ${T.map(hh).join(" & ")} UTC${off}</span>`; };
-  const row = (it, meta) => { const g = GUIDES[it.key];
+  const row = (it, meta) => {
+    if (it.ann !== undefined) return `<button type="button" class="td-row" onclick="goToAnnouncements(${it.ann});setTimeout(()=>{const x=document.querySelector('.ann-tab.active');if(x)x.scrollIntoView({behavior:'smooth',block:'start'})},150)"><span class="emoji">${it.emoji}</span>
+      <span class="td-main"><b dir="auto">${escapeHtml(it.name)}</b><span class="td-meta">${meta}</span></span><span class="arrow">›</span></button>`;
+    const g = GUIDES[it.key];
     return `<button type="button" class="td-row" onclick="switchGuide('${it.key}')"><span class="emoji">${g.emoji}</span>
       <span class="td-main"><b dir="auto">${escapeHtml(t(g.name))}</b><span class="td-meta">${meta}</span>${times(it.key)}</span><span class="arrow">›</span></button>`; };
   const when = (u) => u === 1 ? t(TODAY_TXT.tomorrow) : fill(t(TODAY_TXT.inDays), { n: u });
