@@ -33,7 +33,10 @@
         pet: "Pet Adventure", intel: "Intel Missions", stamina: "Gourmet Feast", heal: "Healing", other: "Other" },
       subQ: { train: "Which troops?", recruit: "Which recruit?" }, advanced: "Advanced", epic: "Epic",
       troop: "Which troops?", builder: "＋ Second builder",
-      alerts: "🔔 Event alerts", alertsNote: "Tap a time to get a notification before it starts.", before: "{n} min before",
+      alerts: "🎮 Game reminders",
+      admin: "🛠️ Admin reminders", adminNote: "Officer to-dos from the Events tab, sent on the day they're due.", adminOn: "Send admin reminders",
+      adminAt: "at {t} UTC", adminNone: "Open the officer page's Events tab once on this phone to load the to-dos (it refreshes every time you open it).",
+      adminEmpty: "No officer to-dos in the next 3 weeks.", adminUpd: "to-dos loaded {t}", alertsNote: "Tap a time to get a notification before it starts.", before: "{n} min before",
       next: "next alert: {t}", atTime: "at the time", reset: "00:00 UTC reset", arenaName: "Arena", journeyName: "Journey Supplies", intelName: "Intel Missions",
       refreshTitle: "{e} {name} refresh in {n} min", refreshNow: "{e} {name} — new missions now!", refreshBody: "Watchtower refreshes at {t} UTC.",
       evTitle: "{e} {name} in {n} min", evNow: "{e} {name} — now!", evBody: "Starts at {t} UTC.",
@@ -232,6 +235,16 @@
     }
     return out.sort((x, y) => x.at - y.at);
   }
+  /* 🛠️ admin reminders: officer to-dos the officer page left in this browser (nxs-admin-todos), sent at the chosen UTC hour of their due day */
+  function adminData() { try { return JSON.parse(localStorage.getItem("nxs-admin-todos")) || null; } catch (e) { return null; } }
+  const isOfficer = () => { try { return !!adminData() || !!(JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw); } catch (e) { return false; } };
+  function adminTimers() {
+    const a = alerts.admin, d = adminData();
+    if (!a || !a.on || !d || !Array.isArray(d.items)) return [];
+    const now = Date.now(), h = a.hour ?? 0;
+    return d.items.map((x) => ({ id: `adm-${x.id}`.slice(0, 40), at: x.due + h * 3600000, title: `🛠️ ${x.title}`, body: x.body }))
+      .filter((x) => x.at > now).sort((x, y) => x.at - y.at);
+  }
   /* "2:45:12", "45:00", "2h45m", "2h 45m 12s", "45m", "90" (minutes) → milliseconds */
   function parseLeft(s) {
     s = String(s || "").trim().toLowerCase().replace(/[，、]/g, ",");
@@ -281,7 +294,7 @@
     if (!sub) return;
     const now = Date.now();
     const list = timers.filter((x) => x.at > now).map((x) => ({ id: x.id, at: x.at, title: `${CAT_EMOJI[x.cat] || "⏰"} ${labelOf(x)}`, body: `${labelOf(x)} ${T("body")}` }))
-      .concat(alertTimers());
+      .concat(alertTimers(), adminTimers());
     try { const r = await post("/push/save", { sub: sub.toJSON(), timers: list }); syncErr = false; synced = { n: r.n ?? list.length, at: Date.now() }; }
     catch (e) { syncErr = true; }
     if (!view.hidden) render();
@@ -393,7 +406,23 @@
     }).join("");
     return `<div class="tm-alerts"><b>${esc(T("alerts"))}</b><div class="tm-hint" style="margin-top:2px">${esc(T("alertsNote"))}</div>${pushOn ? "" : `<div class="tm-err">${esc(T("needOn"))}</div>`}${rows}<div class="tm-hint">${esc(T("alertsSync"))}</div></div>`;
   }
+  function adminHtml() {
+    if (!isOfficer()) return "";
+    const a = alerts.admin || {}, d = adminData(), h = a.hour ?? 0;
+    const loc = (x) => new Date(Date.UTC(2000, 0, 1, x)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    let body = "";
+    if (!d) body = `<div class="tm-hint">${esc(T("adminNone"))}</div>`;
+    else {
+      const next = adminTimers().slice(0, 4);
+      body = `<div class="tm-cats"><button type="button" class="tm-btn${a.on ? " on" : ""}" data-a="admin">${esc(T("adminOn"))}</button>
+        <select class="tm-sel" data-hour="1">${Array.from({ length: 24 }, (_, i) => `<option value="${i}"${h === i ? " selected" : ""}>${esc(T("adminAt").replace("{t}", String(i).padStart(2, "0") + ":00"))} (${loc(i)})</option>`).join("")}</select></div>`
+        + (a.on ? (next.length ? next.map((x) => `<div class="tm-a">• ${esc(fmtAt(x.at))} — ${esc(x.title.replace(/^🛠️ /, ""))}: ${esc(x.body)}</div>`).join("") : `<div class="tm-a">${esc(T("adminEmpty"))}</div>`) : "")
+        + `<div class="tm-hint" style="margin-top:4px">${esc(T("adminUpd").replace("{t}", fmtAt(d.updated)))}</div>`;
+    }
+    return `<div class="tm-alerts"><b>${esc(T("admin"))}</b><div class="tm-hint" style="margin-top:2px">${esc(T("adminNote"))}</div>${body}</div>`;
+  }
   view.addEventListener("change", (e) => {
+    if (e.target.dataset.hour) { (alerts.admin = alerts.admin || {}).hour = +e.target.value; saveAlerts(); render(); sync(); return; }
     const k = e.target.dataset.before; if (!k) return;
     (alerts[k] = alerts[k] || {}).before = +e.target.value; saveAlerts(); render(); sync();
   });
@@ -401,7 +430,7 @@
     pushOn = canPush() && Notification.permission === "granted" && !!(await getSub());
     const n = await notifHtml();
     view.innerHTML = `<div class="tm-top"><b>${esc(T("title"))}</b><button type="button" class="tm-btn" data-a="chat">${esc(T("chat"))}</button></div>
-      ${n}<div id="tmAdd">${addHtml()}</div><div id="tmList" style="margin-top:10px">${listHtml()}</div>${alertsHtml()}`;
+      ${n}<div id="tmAdd">${addHtml()}</div><div id="tmList" style="margin-top:10px">${listHtml()}</div>${alertsHtml()}${adminHtml()}`;
     const first = view.querySelector("[data-name]") || view.querySelector('[data-row="0"]');
     if (first && adding && adding.focus) { first.focus(); adding.focus = false; }
   }
@@ -437,6 +466,7 @@
       try { if (x && sub) await post("/push/test", { sub: sub.toJSON(), title: x.title, body: x.body }); syncErr = false; } catch (err) { syncErr = true; }
       b.textContent = T("sent"); return;
     }
+    if (a === "admin") { const x = (alerts.admin = alerts.admin || {}); x.on = !x.on; saveAlerts(); render(); sync(); return; }
     if (a === "test") {
       b.disabled = true;
       const sub = await getSub();

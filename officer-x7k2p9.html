@@ -1562,9 +1562,27 @@ function render() {
     save(); cb.closest(".task").classList.toggle("done", cb.checked);
     const card = cb.closest(".todo"); card.classList.toggle("done", [...card.querySelectorAll("input[type=checkbox]")].every((x) => x.checked));
     renderCal();
+    exportAdmin();
   });
   renderList();
   renderCal();
+  exportAdmin();
+}
+/* 🛠️ Admin reminders: the next 3 weeks of to-dos (not ticked yet) go to this phone's ⏰ timer panel on the main site,
+   which turns them into notifications (same browser storage, so it works once the Events tab has been opened here). */
+function exportAdmin() {
+  try {
+    const now = Date.now(), today = utcDay(now), items = [];
+    for (const r of runs(today - 14 * DAY, today + 21 * DAY)) {
+      const e = byId(r.k) || {};
+      for (const [i, td] of (e.todo || []).entries()) {
+        const due = r.st + (Number(td.due) || 0) * DAY, id = `${r.k}-${isoDay(r.st)}-${i}`;
+        if (due < today || due > today + 21 * DAY || (store.done || {})[id]) continue;
+        items.push({ id, due, title: `${e.emoji || "📌"} ${e.en || r.k}`, body: String(td.en || td.zh || "").replace(/\*\*/g, "").slice(0, 190) });
+      }
+    }
+    localStorage.setItem("nxs-admin-todos", JSON.stringify({ updated: now, items }));
+  } catch (err) {}
 }
 
 /* ===== calendar: one continuous strip of days (2 weeks back, 10 ahead), scrolls sideways; one bar per event run ===== */
