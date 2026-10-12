@@ -710,7 +710,7 @@ function renderGuideRow() {
     if (!members[id].length) continue;
     const grp = GUIDE_GROUPS[id];
     const isOpen = openGuideGroup === id;
-    const here = members[id].includes(currentGuide);
+    const here = members[id].includes((GUIDES[currentGuide] && GUIDES[currentGuide].parent) || currentGuide);
     const cur = here && !isOpen
       ? `<span class="gg-cur"> · ${GUIDES[currentGuide].emoji} <span dir="auto">${escapeHtml(t(GUIDES[currentGuide].name))}</span></span>` : "";
     html += `<button type="button" class="guide-chip guide-group-btn${here ? " active" : ""}${isOpen ? " open" : ""}" onclick="toggleGuideGroup('${id}')" aria-expanded="${isOpen}">
@@ -908,7 +908,12 @@ function renderDoc() {
     return;
   }
 
-  doc.innerHTML = (currentGuide === HOME_GUIDE ? todayCardHtml() : "") + `<div class="doc-title"><span class="emoji">${guide.emoji}</span><span>${escapeHtml(s.title)}</span></div>`;
+  // sub-pages (e.g. Hero Cards inside the F2P Heroes guide): a link from the parent, a back link on the child
+  const btn = (id, back) => { const g = GUIDES[id]; return `<button type="button" class="guide-link-btn${back ? " sub-back" : ""}" onclick="switchGuide('${id}');window.scrollTo({top:0,behavior:'smooth'})">
+    ${back ? `<span class="arrow" style="margin:0">‹</span>` : ""}<span class="emoji">${g.emoji}</span><span dir="auto">${escapeHtml(t(g.name))}</span>${back ? "" : `<span class="arrow">›</span>`}</button>`; };
+  const kids = Object.keys(GUIDES).filter((k) => GUIDES[k].parent === currentGuide);
+  const back = guide.parent && GUIDES[guide.parent] ? btn(guide.parent, true) : "";
+  doc.innerHTML = (currentGuide === HOME_GUIDE ? todayCardHtml() : "") + back + `<div class="doc-title"><span class="emoji">${guide.emoji}</span><span>${escapeHtml(s.title)}</span></div>` + kids.map((k) => btn(k)).join("");
   doc.appendChild(renderBlocks(guide, s));
 }
 

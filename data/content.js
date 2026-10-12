@@ -10697,7 +10697,7 @@ Object.assign(GLOSSARY, {
   const name = {"en":"Hero Cards (Gen 1–3)","zh":"英雄卡（第 1–3 代）","ko":"영웅 카드 (1–3세대)","de":"Heldenkarten (Gen 1–3)","fr":"Fiches des héros (Gén 1–3)","pt":"Cartas de Heróis (Gen 1–3)","es":"Fichas de héroes (Gen 1–3)","tr":"Kahraman Kartları (1–3. Nesil)","id":"Kartu Hero (Gen 1–3)","ru":"Карточки героев (1–3-е поколение)","th":"การ์ดฮีโร่ (Gen 1–3)","ar":"بطاقات الأبطال (الجيل 1–3)"};
   const sections = {};
   LANGS.forEach((l) => { sections[l.code] = { title: name[l.code], blocks: [{ type: "p", text: intro[l.code] || intro.en }, { type: "herocards" }] }; });
-  const entry = { emoji: "🃏", name, sections };
+  const entry = { emoji: "🃏", name, sections, hidden: true, parent: "f2p-heroes" };   // not in the menu — opened from the F2P Heroes guide
   // place it right after the F2P Heroes Guide in the menu
   const all = Object.entries(GUIDES);
   all.forEach(([k]) => delete GUIDES[k]);
