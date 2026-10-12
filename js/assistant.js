@@ -198,6 +198,7 @@
     $("aiQ").placeholder = L("ph");
     $("aiClear").title = L("clear"); $("aiClear").setAttribute("aria-label", L("clear"));
     panel.dir = document.documentElement.dir || "ltr";
+    window.dispatchEvent(new Event("nxs-ai-lang"));   // timers.js re-adds its button to the greeting
   }
   // app.js sets <html lang> whenever the language changes → follow it
   new MutationObserver(applyLang).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
@@ -225,6 +226,7 @@
     }
   }
   $("aiClose").onclick = () => setOpen(false);
+  window.NXSAI = { panel, url: AI_URL, open: () => setOpen(true) };   // used by js/timers.js
 
   /* ---------- officer unlock: the officer password opens data/data-key.json; the Worker checks a hash of that key ---------- */
   let officerProof = null;

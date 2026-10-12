@@ -4,6 +4,7 @@
      GEMINI_API_KEY — from a SEPARATE Google AI Studio project
      DATA_KEY       — the officer data key from the Post tab (needed once officer data is encrypted)
      GOATCOUNTER_TOKEN — GoatCounter API token (Settings → API → "Read statistics"); for the officer Views tab
+   VAPID_PRIVATE  — private half of the push-notification key (for the ⏰ timers)
    Binding (Settings → Bindings → KV namespace), optional but recommended: LIMITS
      — remembers how many questions each device / IP asked today. Without it the daily
        limits still work, but only roughly (they reset whenever Cloudflare restarts the Worker).
@@ -11,7 +12,9 @@
    Officers:  also roster / watch data. "Officer" = proves the officer password (it opens data/data-key.json),
               checked here with a hash of the DATA_KEY secret. */
 
-const VERSION = "2026-10-11i (milestones)";
+import { DurableObject } from "cloudflare:workers";
+
+const VERSION = "2026-10-12a (push timers)";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -49,6 +52,11 @@ export default {
 async function handle(req, env) {
   {
     if (req.method === "OPTIONS") return new Response(null, { headers: cors });
+    const path = new URL(req.url).pathname;
+    if (path === "/push/save" || path === "/push/test") {
+      if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
+      return pushRoute(req, env, path);
+    }
     const isCheck = req.method === "GET" && new URL(req.url).pathname === "/check";
     if (!isCheck && req.method !== "POST") return json({ error: "POST only — open /check to test the setup" }, 405);
     if (!isCheck && req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
@@ -255,7 +263,8 @@ async function geminiStream(env, model, system, contents) {
 /* Open https://<your-worker>.workers.dev/check in a browser to test the setup (no secrets are shown). */
 async function check(req, env) {
   const out = { worker: "ok", version: VERSION, colo: req.cf?.colo || "?", country: req.cf?.country || "?",
-    GEMINI_API_KEY: env.GEMINI_API_KEY ? "set" : "MISSING", DATA_KEY: env.DATA_KEY ? "set" : "not set" };
+    GEMINI_API_KEY: env.GEMINI_API_KEY ? "set" : "MISSING", DATA_KEY: env.DATA_KEY ? "set" : "not set",
+    VAPID_PRIVATE: env.VAPID_PRIVATE ? "set" : "MISSING (timer notifications off)", TIMERS: env.TIMERS ? "ok" : "MISSING" };
   // where the Worker actually runs (with placement this should be a US data center, not HKG)
   try { const tr = await (await fetch("https://www.cloudflare.com/cdn-cgi/trace")).text(); out.runs_in = (tr.match(/colo=(\w+)/) || [])[1] || "?"; }
   catch (e) { out.runs_in = "?"; }
@@ -497,3 +506,119 @@ async function dailyCheck(env, deviceId, ip) {
   };
 }
 
+/* ================= Timer notifications (Web Push) =================
+   The site keeps each person's timers on their phone and sends the list here.
+   One Durable Object ("PushTimers") stores them and wakes up (alarm) when the next one is due,
+   then sends a push notification to that phone. No database to set up: it's declared in wrangler.jsonc.
+   Secret needed (Settings → Variables and Secrets): VAPID_PRIVATE — the private half of the push key. */
+const VAPID_PUBLIC = "BKb0YJxObHPh9_7b4ZriSZQeRk6TaojqNUvPBJe7J9aC_pVuXtmQRRWD11gDs6OJYj8Fg7jigPXDBOxZ5NQbP0o";
+const VAPID_SUB = "https://nxsguides.github.io/Kingshot_guideline_NXS/";
+const MAX_TIMERS = 60;
+
+const b64u = {
+  enc: (buf) => { let s = ""; new Uint8Array(buf).forEach((x) => (s += String.fromCharCode(x))); return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); },
+  dec: (str) => Uint8Array.from(atob(str.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((str.length + 3) % 4)), (c) => c.charCodeAt(0)),
+};
+const cat = (...parts) => { const out = new Uint8Array(parts.reduce((n, p) => n + p.length, 0)); let o = 0; for (const p of parts) { out.set(p, o); o += p.length; } return out; };
+const utf8 = (s) => new TextEncoder().encode(s);
+async function hmac(key, data) {
+  const k = await crypto.subtle.importKey("raw", key, { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  return new Uint8Array(await crypto.subtle.sign("HMAC", k, data));
+}
+
+/* RFC 8292: the "who is sending" signature push services ask for */
+async function vapidHeader(endpoint, env) {
+  const pub = b64u.dec(VAPID_PUBLIC);
+  const key = await crypto.subtle.importKey("jwk",
+    { kty: "EC", crv: "P-256", x: b64u.enc(pub.slice(1, 33)), y: b64u.enc(pub.slice(33, 65)), d: String(env.VAPID_PRIVATE || "").trim(), ext: true },
+    { name: "ECDSA", namedCurve: "P-256" }, false, ["sign"]);
+  const head = b64u.enc(utf8(JSON.stringify({ typ: "JWT", alg: "ES256" })));
+  const body = b64u.enc(utf8(JSON.stringify({ aud: new URL(endpoint).origin, exp: Math.floor(Date.now() / 1000) + 12 * 3600, sub: VAPID_SUB })));
+  const sig = await crypto.subtle.sign({ name: "ECDSA", hash: "SHA-256" }, key, utf8(head + "." + body));
+  return `vapid t=${head}.${body}.${b64u.enc(sig)}, k=${VAPID_PUBLIC}`;
+}
+
+/* RFC 8291: encrypt the message so only that phone can read it (aes128gcm) */
+async function encryptPush(sub, text) {
+  const uaPub = b64u.dec(sub.keys.p256dh), auth = b64u.dec(sub.keys.auth);
+  const as = await crypto.subtle.generateKey({ name: "ECDH", namedCurve: "P-256" }, true, ["deriveBits"]);
+  const asPub = new Uint8Array(await crypto.subtle.exportKey("raw", as.publicKey));
+  const uaKey = await crypto.subtle.importKey("raw", uaPub, { name: "ECDH", namedCurve: "P-256" }, false, []);
+  const ecdh = new Uint8Array(await crypto.subtle.deriveBits({ name: "ECDH", public: uaKey }, as.privateKey, 256));
+  const prkKey = await hmac(auth, ecdh);
+  const ikm = (await hmac(prkKey, cat(utf8("WebPush: info\0"), uaPub, asPub, new Uint8Array([1])))).slice(0, 32);
+  const salt = crypto.getRandomValues(new Uint8Array(16));
+  const prk = await hmac(salt, ikm);
+  const cek = (await hmac(prk, cat(utf8("Content-Encoding: aes128gcm\0"), new Uint8Array([1])))).slice(0, 16);
+  const nonce = (await hmac(prk, cat(utf8("Content-Encoding: nonce\0"), new Uint8Array([1])))).slice(0, 12);
+  const k = await crypto.subtle.importKey("raw", cek, "AES-GCM", false, ["encrypt"]);
+  const ct = new Uint8Array(await crypto.subtle.encrypt({ name: "AES-GCM", iv: nonce }, k, cat(utf8(text), new Uint8Array([2]))));
+  const rs = new Uint8Array([0, 0, 16, 0]);   // record size 4096
+  return cat(salt, rs, new Uint8Array([asPub.length]), asPub, ct);
+}
+
+/* send one notification; returns the push service's HTTP status (404/410 = that phone unsubscribed) */
+async function sendPush(sub, msg, env) {
+  const res = await fetch(sub.endpoint, {
+    method: "POST",
+    headers: { Authorization: await vapidHeader(sub.endpoint, env), "Content-Encoding": "aes128gcm", "Content-Type": "application/octet-stream", TTL: "3600", Urgency: "high" },
+    body: await encryptPush(sub, JSON.stringify(msg)),
+  });
+  return res.status;
+}
+
+const validSub = (s) => s && typeof s.endpoint === "string" && /^https:\/\//.test(s.endpoint) && s.keys && typeof s.keys.p256dh === "string" && typeof s.keys.auth === "string";
+
+/* /push/save {sub, timers:[{id, at, title, body}]} — replaces this phone's timers
+   /push/test {sub, title, body}                     — sends one right away */
+async function pushRoute(req, env, path) {
+  if (!env.TIMERS) return json({ error: "push_not_set_up" }, 503);
+  if (!env.VAPID_PRIVATE) return json({ error: "push_key_missing" }, 503);
+  let body; try { body = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
+  if (!validSub(body.sub)) return json({ error: "bad subscription" }, 400);
+  const stub = env.TIMERS.get(env.TIMERS.idFromName("all"));
+  if (path === "/push/test") {
+    const st = await sendPush(body.sub, { title: String(body.title || "NXS").slice(0, 80), body: String(body.body || "").slice(0, 200), tag: "test" }, env);
+    return json({ ok: st < 300, status: st });
+  }
+  const now = Date.now();
+  const timers = (Array.isArray(body.timers) ? body.timers : []).filter((x) => x && Number(x.at) > now - 60000 && Number(x.at) < now + 30 * 86400000)
+    .slice(0, MAX_TIMERS).map((x) => ({ id: String(x.id).slice(0, 40), at: Math.round(Number(x.at)), title: String(x.title || "").slice(0, 80), body: String(x.body || "").slice(0, 200) }));
+  await stub.save(body.sub, timers);
+  return json({ ok: true, n: timers.length });
+}
+
+export class PushTimers extends DurableObject {
+  constructor(ctx, env) {
+    super(ctx, env);
+    this.env = env;
+    this.sql = ctx.storage.sql;
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS t (ep TEXT, id TEXT, at INTEGER, title TEXT, body TEXT, sub TEXT, PRIMARY KEY (ep, id))`);
+    this.sql.exec(`CREATE INDEX IF NOT EXISTS t_at ON t (at)`);
+  }
+  async save(sub, timers) {
+    const ep = sub.endpoint, s = JSON.stringify(sub);
+    this.sql.exec(`DELETE FROM t WHERE ep = ?`, ep);
+    for (const x of timers) this.sql.exec(`INSERT OR REPLACE INTO t VALUES (?, ?, ?, ?, ?, ?)`, ep, x.id, x.at, x.title, x.body, s);
+    await this.schedule();
+  }
+  async schedule() {
+    const next = [...this.sql.exec(`SELECT MIN(at) AS at FROM t`)][0];
+    if (next && next.at != null) await this.ctx.storage.setAlarm(Math.max(Date.now() + 500, next.at));
+    else await this.ctx.storage.deleteAlarm();
+  }
+  async alarm() {
+    const due = [...this.sql.exec(`SELECT * FROM t WHERE at <= ? ORDER BY at LIMIT 200`, Date.now() + 2000)];
+    const gone = new Set();
+    for (const r of due) {
+      this.sql.exec(`DELETE FROM t WHERE ep = ? AND id = ?`, r.ep, r.id);
+      if (gone.has(r.ep)) continue;
+      try {
+        const st = await sendPush(JSON.parse(r.sub), { title: r.title, body: r.body, tag: r.id }, this.env);
+        if (st === 404 || st === 410) gone.add(r.ep);
+      } catch (e) { /* one bad phone shouldn't stop the others */ }
+    }
+    for (const ep of gone) this.sql.exec(`DELETE FROM t WHERE ep = ?`, ep);
+    await this.schedule();
+  }
+}

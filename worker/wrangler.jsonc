@@ -13,6 +13,10 @@
   // (Cloudflare → Storage & Databases → Workers KV → nxs-ai-limits → copy the ID).
   "kv_namespaces": [{ "binding": "LIMITS", "id": "c013f0320411437897f88535ae1c4474" }],
 
+  // ⏰ Timer notifications: one Durable Object keeps everyone's timers and wakes up when one is due.
+  "durable_objects": { "bindings": [{ "name": "TIMERS", "class_name": "PushTimers" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["PushTimers"] }],
+
   // Keep the secrets (GEMINI_API_KEY, DATA_KEY) that were added in the dashboard.
   "keep_vars": true
 }
