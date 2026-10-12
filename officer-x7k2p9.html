@@ -1410,16 +1410,14 @@ const EVENTS = {
     note: "Escort 2 caravans at a time · last 4 h (until Sun 04:00 UTC) raiding only", noteZh: "同時最多護送 2 輛貨車 · 最後 4 小時（到週日 UTC 04:00）只能掠奪" },
 };
 const SWORDLAND_TODO = [
-  { due: 0, post: 1, en: "Voting phase (2 days): set up our own poll — who can 100% take part? (Tell everyone to ignore the in-game vote.)",
-            zh: "投票階段（2 天）：發我們自己的投票，問誰 100% 能參加（請大家不用理遊戲裡的投票）。" },
-  { due: 2, en: "Sign-up phase (2 days): R4 sets the time slots — Legion 1 and Legion 2 at different times so more people can join. Split players: Legion 1 = strongest / most active (its result decides everyone's rewards). Each Legion: 30 fighters + 10 substitutes.",
-            zh: "報名階段（2 天）：R4 設定時段，軍團 1、2 分開不同時間，讓更多人能參加。分配成員：軍團 1 放最強、最活躍的人（它的結果決定全盟獎勵）。每個軍團 30 名出戰＋10 名替補。" },
-  { due: 2, post: 1, en: "Post: \"You've been assigned to Legion 1 / 2 — tap Battle Request for that Legion and Abstain from the other. Please check it's correct and that you can still attend. This helps us assign roles.\"",
-            zh: "發公告：「你被分到軍團 1／2，請在該軍團按「參戰申請」，另一個軍團按「棄權」。請確認是否正確、是否仍能參加，這能幫我們分配職責。」" },
-  { due: 3, en: "Last day to sign up: check everyone who confirmed has sent a Battle Request; fill empty spots with substitutes (subs can only enter 3 min after the start if a fighter is missing — first come, first served).",
-            zh: "報名最後一天：確認回覆會參加的人都已送出參戰申請，空位補上替補（替補只有在開戰 3 分鐘後、有人沒進場時才能進，先到先得）。" },
-  { due: 4, ranking: 1, post: 1, en: "Matchmaking (2 days before the battle): pick Attackers / Defenders / Joiners in Ranking, make the battle table and post it.",
-                                  zh: "配對階段（開戰前 2 天）：在 Ranking 排好 Attacker／Defender／Joiner，做好分工表並發公告。" },
+  { due: 0, post: 1, en: "Voting phase: set up an alliance poll to confirm 100% attendance for the fixed time windows.",
+            zh: "投票階段：發聯盟投票，確認誰在固定的時段 100% 能參加。" },
+  { due: 2, en: "Registration phase: based on the voting, assign each confirmed member to a Legion.",
+            zh: "報名階段：依投票結果，把每位確認參加的成員分到軍團。" },
+  { due: 3, post: 1, en: "Reminder: ask everyone to check their assigned Legion and time and confirm 100% attendance — it affects matchmaking and roles.",
+            zh: "提醒：請大家確認自己被分到的軍團和時間，並確認 100% 能參加，這會影響配對和職責分配。" },
+  { due: 4, ranking: 1, post: 1, en: "Planning phase: assign roles for Legion 1 and Legion 2.",
+                                  zh: "規劃階段：分配軍團 1 和軍團 2 的職責。" },
 ];
 // What officers need to do. due: days relative to the event's first day (−1 = the day before).
 const TODO = {
@@ -1904,7 +1902,7 @@ function seedTodos(list) {
     if (td.until == null && td.due === 5 && /Castle Battle|王城爭奪/.test((td.en || "") + (td.zh || ""))) td.until = 22;
   /* Swordland: replace the saved list once with the 4 real steps (todoV marks it, so later edits stick) */
   { const sw = list.find((x) => x.id === "swordland-showdown");
-    if (sw && sw.todoV !== 5) { sw.todo = SWORDLAND_TODO.map((x) => ({ ...x })); sw.todoV = 5; sw.todoSeed = 1; } }
+    if (sw && sw.todoV !== 6) { sw.todo = SWORDLAND_TODO.map((x) => ({ ...x })); sw.todoV = 6; sw.todoSeed = 1; } }
   for (const e of list) {
     if (e.todoSeed || (e.todo && e.todo.length)) continue;
     const d = TODO[e.id] || (EXTRA_EVENTS.find((x) => x.id === e.id) || {}).todo;
