@@ -116,6 +116,10 @@
   #pg-events .todo.flash, #pg-events .ms-row.flash { animation: flash 1.6s; }
   #pg-events .ev.ms { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11.5px; font-weight: 700; padding: 2px 6px;
     border-radius: 6px; border: 1px solid #b8860b; background: color-mix(in srgb, #f2c33d 30%, var(--panel)); color: var(--text); cursor: pointer; }
+  #pg-events .lim-card summary { cursor: pointer; font-weight: 700; }
+  #pg-events .lim-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  #pg-events .lim-grid label { display: grid; gap: 4px; font-size: 13px; }
+  #pg-events .lim-grid .inp { width: 100%; }
   #pg-events .ms-list { margin-top: 8px; font-size: 13px; }
   #pg-events .ms-list summary { cursor: pointer; font-weight: 600; }
   #pg-events .ms-row { padding: 6px 4px; border-bottom: 1px solid var(--rule); border-radius: 6px; }
@@ -519,6 +523,15 @@
       <div class="muted msg" data-t="calNote"></div>
       <details class="ms-list" id="msList"><summary></summary><div></div></details>
     </div>
+    <details class="card lim-card" id="limCard">
+      <summary data-t="limTitle"></summary>
+      <div class="muted" data-t="limNote" style="font-size:12.5px;margin:6px 0 10px"></div>
+      <div class="lim-grid">
+        <label><span data-t="limBear"></span><input class="inp" id="limBear" type="number" inputmode="numeric" min="1"></label>
+        <label><span data-t="limRally"></span><input class="inp" id="limRally" type="number" inputmode="numeric" min="1"></label>
+      </div>
+      <div class="row" style="margin-top:10px;gap:8px;align-items:center"><button class="btn primary" id="limSave" type="button" data-t="limSave"></button><span class="msg" id="limMsg"></span></div>
+    </details>
 
     <div class="card">
       <h2 data-t="todoTitle"></h2>
@@ -1333,7 +1346,10 @@ const T = {
     fEmoji: "Emoji", fName: "Name", fFixed: "Repeats on a fixed schedule",
     fStart: "First day (UTC)", fEvery: "Repeats every … days", fDays: "Lasts … days",
     fNote: "Note", fNoteSm: "(e.g. times — shown in the list)", fGuide: "Guide on the site", noGuide: "— none —",
-    fTodo: "Action items for officers", addTodo: "+ Action item", editTodo: "Edit items", msTitle: "Kingdom #2189 milestones", msNext: "next", msIn: "in {n} days", dueLbl: "Days before (−) / after the start", untilLbl: "Only that day, until UTC hour (optional)", untilShow: "until {h} UTC", tdTxt: "What to do",
+    fTodo: "Action items for officers", addTodo: "+ Action item", editTodo: "Edit items",
+    limTitle: "⚙️ Troop limits in the guides", limNote: "Used everywhere the guides mention these numbers (all 12 languages) and by the AI assistant. Change them here when the game or the alliance changes the limit.",
+    limBear: "Bear Hunt — joining a rally (exactly)", limRally: "Other rallies / Viking HQ — max per member", limSave: "💾 Save", limSaving: "Saving…",
+    limSaved: "Saved ✅ The site shows the new numbers within a few minutes.", limBad: "Enter both numbers.", limNoKey: "Saving needs the officer GitHub key (set up on the Post tab).", limErr: "Couldn't save — try again.", msTitle: "Kingdom #2189 milestones", msNext: "next", msIn: "in {n} days", dueLbl: "Days before (−) / after the start", untilLbl: "Only that day, until UTC hour (optional)", untilShow: "until {h} UTC", tdTxt: "What to do",
     tdPost: "Announcement button", tdRank: "Ranking button",
     fIngame: "In-game guides", fIngameSm: "(one box = one chat message; the game limits message length, so keep long guides in several boxes)", addIg: "+ Message", igTitle: "Title", igText: "Text",
     del: "Delete event", cancel: "Cancel", save: "💾 Save",
@@ -1361,7 +1377,10 @@ const T = {
     fEmoji: "圖示", fName: "名稱", fFixed: "有固定週期",
     fStart: "第一天（UTC）", fEvery: "每幾天一次", fDays: "持續幾天",
     fNote: "備註", fNoteSm: "（例如時間，會顯示在清單上）", fGuide: "網站上的攻略", noGuide: "— 無 —",
-    fTodo: "幹部待辦事項", addTodo: "+ 待辦事項", editTodo: "編輯待辦", msTitle: "#2189 王國里程碑", msNext: "下一個", msIn: "{n} 天後", dueLbl: "開始前（−）／後第幾天", untilLbl: "只在當天顯示，到 UTC 幾點（可空白）", untilShow: "到 UTC {h}", tdTxt: "要做的事",
+    fTodo: "幹部待辦事項", addTodo: "+ 待辦事項", editTodo: "編輯待辦",
+    limTitle: "⚙️ 攻略裡的部隊人數上限", limNote: "攻略裡所有提到這兩個數字的地方（12 種語言）和 AI 助理都會用這裡的數字。遊戲或聯盟改上限時，在這裡改就好。",
+    limBear: "狩獵巨熊 — 參加集結（剛好）", limRally: "其他集結／維京總部 — 每人上限", limSave: "💾 儲存", limSaving: "儲存中…",
+    limSaved: "已儲存 ✅ 網站幾分鐘內就會換成新數字。", limBad: "兩個數字都要填。", limNoKey: "儲存需要幹部的 GitHub 金鑰（在公告分頁設定）。", limErr: "存不進去，請再試一次。", msTitle: "#2189 王國里程碑", msNext: "下一個", msIn: "{n} 天後", dueLbl: "開始前（−）／後第幾天", untilLbl: "只在當天顯示，到 UTC 幾點（可空白）", untilShow: "到 UTC {h}", tdTxt: "要做的事",
     tdPost: "顯示「寫公告」按鈕", tdRank: "顯示「Ranking」按鈕",
     fIngame: "遊戲內指南", fIngameSm: "（一格 = 一則聊天訊息；遊戲有字數限制，長的指南請分成好幾格）", addIg: "+ 訊息", igTitle: "標題", igText: "內容",
     del: "刪除活動", cancel: "取消", save: "💾 儲存",
@@ -1803,9 +1822,35 @@ $("addEv").onclick = () => openEditor(null);
 // On Sunday, open on next week (that's when the weekly planning happens)
 function defaultWeek() { const now = Date.now(); const m = mondayOf(now); return new Date(utcDay(now)).getUTCDay() === 0 ? m + 7 * DAY : m; }
 
+/* ===== troop limits shown in the guides ({=bear} / {=rally}) → data/limits.json (plain, public) ===== */
+const LIM_PATH = "data/limits.json";
+let LIM = { bear: 90000, rally: 70080 }, limSha = null;
+async function loadLimits() {
+  try {
+    if (TOKEN) { const f = await gh("GET", LIM_PATH); if (f) { limSha = f.sha; LIM = { ...LIM, ...JSON.parse(b64ToUtf8(f.content)) }; } }
+    else { const r = await fetch(LIM_PATH + "?t=" + Date.now(), { cache: "no-store" }); if (r.ok) LIM = { ...LIM, ...(await r.json()) }; }
+  } catch (e) {}
+  $("limBear").value = LIM.bear; $("limRally").value = LIM.rally;
+}
+async function saveLimits() {
+  const m = $("limMsg"), b = parseInt($("limBear").value, 10), r = parseInt($("limRally").value, 10);
+  if (!(b > 0) || !(r > 0)) { m.className = "msg warn"; m.textContent = tr("limBad"); return; }
+  if (!TOKEN) { m.className = "msg warn"; m.textContent = tr("limNoKey"); return; }
+  m.className = "msg"; m.textContent = tr("limSaving");
+  const next = { bear: b, rally: r };
+  try {
+    for (let attempt = 0; ; attempt++) {
+      try { const res = await gh("PUT", LIM_PATH, { message: `Troop limits: Bear Hunt ${b}, rallies ${r}`, content: utf8ToB64(JSON.stringify(next) + "\n"), sha: limSha || undefined, branch: BRANCH });
+        limSha = res && res.content ? res.content.sha : limSha; break; }
+      catch (e) { if (e.message !== "busy" || attempt) throw e; const f = await gh("GET", LIM_PATH); limSha = f ? f.sha : null; }
+    }
+    LIM = next; m.className = "msg okmsg"; m.textContent = tr("limSaved");
+  } catch (e) { m.className = "msg warn"; m.textContent = tr(e.message === "auth" ? "limNoKey" : "limErr"); }
+}
 async function init() {
   applyTexts();
   OFFICER_PW = OFFICER.pw; TOKEN = OFFICER.token;
+  loadLimits(); $("limSave").onclick = saveLimits;
   // 0) the copy remembered in this tab (from an earlier visit) is shown right away …
   const remembered = OfficerData.cacheGet("events");
   if (remembered) { LIST = seedTodos(remembered); $("ev_app").hidden = false; if (weekStart === null) weekStart = defaultWeek(); render(); }
@@ -4207,6 +4252,11 @@ const DEF = { troops: ["", "", ""], rally: "", join: 90000,   // rally: everyone
   auto: { rr: [20, 40, 40], fixN: 1, fix: [10, 10, 80], hero: 2, noHero: 2, minPct: 5 },
   f: [{ k: "rally", c: [0, 0, 0] }] };
 let S = JSON.parse(JSON.stringify(DEF));
+fetch("data/limits.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((d) => {   // Bear Hunt join limit from the Troop limits setting
+  if (!d || !(+d.bear > 0)) return; DEF.join = +d.bear;
+  let saved = null; try { saved = JSON.parse(localStorage.getItem(LS)); } catch (e) {}
+  if (!saved || !saved.join || +saved.join === 90000) { S.join = +d.bear; if ($("bt_join")) { $("bt_join").value = S.join; } }
+}).catch(() => {});
 try { const o = JSON.parse(localStorage.getItem(LS)); if (o && o.f) S = { ...S, ...o, auto: { ...DEF.auto, ...(o.auto || {}) } }; } catch (e) {}
 try { const old = JSON.parse(localStorage.getItem("nxs-bt-v1")); if (old && !localStorage.getItem(LS)) { S.troops = old.troops || S.troops; S.rally = old.rally || S.rally; S.join = old.march || S.join; } } catch (e) {}
 if (!S.f.length || S.f[0].k !== "rally") S.f.unshift({ k: "rally", c: [0, 0, 0] });

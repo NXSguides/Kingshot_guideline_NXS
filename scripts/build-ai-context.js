@@ -10,7 +10,11 @@ const ROOT = path.join(__dirname, "..");
 const read = (f) => fs.readFileSync(path.join(ROOT, f), "utf8");
 
 const D = {};
-new Function("D", read("data/content.js") + "\nD.LANGS = LANGS; D.GUIDES = GUIDES; D.GLOSSARY = GLOSSARY; D.HEROES = HEROES;" +
+// troop limits (officer page → Events → Troop limits) are written as {=bear} / {=rally} in the guides
+let LIM = { bear: 90000, rally: 70080 };
+try { LIM = Object.assign(LIM, JSON.parse(read("data/limits.json"))); } catch (e) {}
+const withLim = (src) => src.replace(/\{=(\w+)\}/g, (m, k) => (LIM[k] ? Number(LIM[k]).toLocaleString("en-US") : m));
+new Function("D", withLim(read("data/content.js")) + "\nD.LANGS = LANGS; D.GUIDES = GUIDES; D.GLOSSARY = GLOSSARY; D.HEROES = HEROES;" +
   "\nD.JOURNEY = typeof JOURNEY !== 'undefined' ? JOURNEY : [];" +
   "\nD.JOURNEY_TR = typeof JOURNEY_TR !== 'undefined' ? JOURNEY_TR : {};" +
   "\nD.HERO_CARDS = typeof HERO_CARDS !== 'undefined' ? HERO_CARDS : []; D.HERO_CARD_UI = typeof HERO_CARD_UI !== 'undefined' ? HERO_CARD_UI : null;")(D);

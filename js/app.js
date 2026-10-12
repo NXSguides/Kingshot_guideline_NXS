@@ -180,11 +180,24 @@ function localTimes(html, lang) {
     .replace(new RegExp(`UTC\\s*(${G})(?!\\s*<span class="lt")`, "g"), (m, g) => m + tag(g));
 }
 
+/* troop limits the officers can change (officer page → Events → Troop limits); guides write them as {=bear} / {=rally} */
+const LIMITS = { bear: 90000, rally: 70080 };
+fetch("data/limits.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((d) => {
+  if (!d) return; let ch = false;
+  for (const k of Object.keys(LIMITS)) if (+d[k] > 0 && +d[k] !== LIMITS[k]) { LIMITS[k] = +d[k]; ch = true; }
+  if (ch && typeof langChosen !== "undefined" && langChosen) renderAll();
+}).catch(() => {});
+function fmtLimit(k) {
+  const n = LIMITS[k]; if (!n) return "";
+  try { return n.toLocaleString(currentLang === "ar" ? "en" : (HTML_LANG[currentLang] || currentLang)); } catch (e) { return String(n); }
+}
+const withLimits = (str) => String(str).replace(/\{=(\w+)\}/g, (m, k) => (LIMITS[k] ? fmtLimit(k) : m));
+
 function rich(str) {
   return localTimes(richRaw(str), currentLang);
 }
 function richRaw(str) {
-  return escapeHtml(str)
+  return escapeHtml(withLimits(str))
     .replace(/\{(\w+)\}/g, (m, id) => (GLOSSARY[id] ? escapeHtml(term(id)) : m))
     .replace(/\[\[link:([\w-]+)\]\]/g, (m, guideId) => {
       const target = GUIDES[guideId];
@@ -790,6 +803,7 @@ function renderAnnTicker() {
   ticker.hidden = false;
 
   const toPlain = (text) => text
+    .replace(/\{=(\w+)\}/g, (m, k) => fmtLimit(k) || m)
     .replace(/\[\[(?:link|img|video):[^\]]*\]\]/g, "")   // pictures / videos / links aren't shown in the ticker
     .replace(/\{(\w+)\}/g, (m, id) => (GLOSSARY[id] ? t(GLOSSARY[id]) : m))
     .replace(/\*\*(.+?)\*\*/g, "$1")

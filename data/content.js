@@ -592,7 +592,7 @@ const GUIDES = {
           { type: "h", text: "🏛️ HQ — WAVES 10 & 20" },
           { type: "p", text: "Waves 10 & 20 attack HQ **ONLY**. City attacks pause during these waves." },
           { type: "p", text: "After Wave 9 / 19 finishes:" },
-          { type: "list", items: ["Recall **ONE** strong march.", "Send it directly to HQ.", "Max 70,080 troops per member.", "Use {chenko} or {amadeus} in slot 1, or your strongest raw-damage hero.", "After the HQ wave, recall and return to reinforcing your assigned member."] },
+          { type: "list", items: ["Recall **ONE** strong march.", "Send it directly to HQ.", "Max {=rally} troops per member.", "Use {chenko} or {amadeus} in slot 1, or your strongest raw-damage hero.", "After the HQ wave, recall and return to reinforcing your assigned member."] },
           { type: "callout", text: "⚠️ **IMPORTANT:** You can reinforce HQ for Wave 10 **OR** Wave 20 — **NOT BOTH.**" },
           { type: "p", text: "Coordinate with R4/R5 so everyone gets a turn and we fill HQ efficiently." }
         ]
@@ -619,7 +619,7 @@ const GUIDES = {
           { type: "h", text: "🏛️ 總部——第 10 與第 20 波" },
           { type: "p", text: "第 10 與第 20 波**只**會攻擊總部。這兩波期間，城鎮不會受到攻擊。" },
           { type: "p", text: "第 9／19 波結束後：" },
-          { type: "list", items: ["召回**一支**強力行軍。", "直接派往總部。", "每位成員最多 70,080 兵力。", "第一個位置使用{chenko}或{amadeus}，或你最強的純輸出英雄。", "總部這波結束後，召回並回去繼續增援你被分配到的成員。"] },
+          { type: "list", items: ["召回**一支**強力行軍。", "直接派往總部。", "每位成員最多 {=rally} 兵力。", "第一個位置使用{chenko}或{amadeus}，或你最強的純輸出英雄。", "總部這波結束後，召回並回去繼續增援你被分配到的成員。"] },
           { type: "callout", text: "⚠️ **重要：** 第 10 波或第 20 波，你只能選其中一波增援總部——**不能兩波都增援。**" },
           { type: "p", text: "請與 R4／R5 協調，讓每個人都輪得到，並有效率地填滿總部。" }
         ]
@@ -644,7 +644,7 @@ const GUIDES = {
         {"type":"h","text":"🏛️ 본부(HQ) — 10 & 20 웨이브"},
         {"type":"p","text":"10 및 20 웨이브는 **오직 본부(HQ)만** 공격합니다. 이 웨이브 동안에는 도시 공격이 일시 중지됩니다."},
         {"type":"p","text":"9 또는 19 웨이브가 끝난 후:"},
-        {"type":"list","items":["강력한 부대 **하나**를 회수합니다.","본부(HQ)로 직접 보냅니다.","멤버당 최대 70,080 병력을 보냅니다.","1번 슬롯에 {chenko} 또는 {amadeus} 혹은 가장 강력한 순수 공격형 영웅을 배치합니다.","본부 웨이브가 끝난 후, 부대를 회수하여 다시 연맹원을 지원하러 돌아갑니다."]},
+        {"type":"list","items":["강력한 부대 **하나**를 회수합니다.","본부(HQ)로 직접 보냅니다.","멤버당 최대 {=rally} 병력을 보냅니다.","1번 슬롯에 {chenko} 또는 {amadeus} 혹은 가장 강력한 순수 공격형 영웅을 배치합니다.","본부 웨이브가 끝난 후, 부대를 회수하여 다시 연맹원을 지원하러 돌아갑니다."]},
         {"type":"callout","text":"⚠️ **중요:** 본부 지원/참여는 10 웨이브 **혹은** 20 웨이브 중 한 번만 가능합니다 — **둘 다 참여할 수는 없습니다.**"},
         {"type":"p","text":"모든 멤버가 골고루 참여하고 본부를 효율적으로 채울 수 있도록 R4/R5 운영진과 조율하세요."}
       ]},
@@ -670,7 +670,7 @@ const GUIDES = {
           { type: "h", text: "🏛️ HQ — WELLEN 10 & 20" },
           { type: "p", text: "Die Wellen 10 und 20 greifen **NUR** das HQ an. Angriffe auf Städte pausieren in diesen Wellen." },
           { type: "p", text: "Nachdem Welle 9 / 19 vorbei ist:" },
-          { type: "list", items: ["Rufe **EINEN** starken Marsch zurück.", "Schicke ihn direkt zum HQ.", "Maximal 70.080 Truppen pro Mitglied.", "Nutze {chenko} oder {amadeus} an Position 1 oder deinen stärksten Helden mit reinem Schaden.", "Rufe nach der HQ-Welle zurück und verstärke wieder das dir zugewiesene Mitglied."] },
+          { type: "list", items: ["Rufe **EINEN** starken Marsch zurück.", "Schicke ihn direkt zum HQ.", "Maximal {=rally} Truppen pro Mitglied.", "Nutze {chenko} oder {amadeus} an Position 1 oder deinen stärksten Helden mit reinem Schaden.", "Rufe nach der HQ-Welle zurück und verstärke wieder das dir zugewiesene Mitglied."] },
           { type: "callout", text: "⚠️ **WICHTIG:** Du kannst das HQ in Welle 10 **ODER** Welle 20 verstärken — **NICHT BEIDE.**" },
           { type: "p", text: "Stimme dich mit R4/R5 ab, damit jeder an die Reihe kommt und wir das HQ effizient füllen." }
         ]
@@ -697,7 +697,7 @@ const GUIDES = {
           { type: "h", text: "🏛️ QG — VAGUES 10 ET 20" },
           { type: "p", text: "Les vagues 10 et 20 attaquent **UNIQUEMENT** le QG. Les attaques sur les villages font une pause pendant ces vagues." },
           { type: "p", text: "Une fois la vague 9 / 19 terminée :" },
-          { type: "list", items: ["Rappelez **UNE** marche puissante.", "Envoyez-la directement au QG.", "Maximum 70 080 troupes par membre.", "Utilisez {chenko} ou {amadeus} en position 1, ou votre héros aux dégâts bruts les plus élevés.", "Après la vague du QG, rappelez et retournez renforcer le membre qui vous est assigné."] },
+          { type: "list", items: ["Rappelez **UNE** marche puissante.", "Envoyez-la directement au QG.", "Maximum {=rally} troupes par membre.", "Utilisez {chenko} ou {amadeus} en position 1, ou votre héros aux dégâts bruts les plus élevés.", "Après la vague du QG, rappelez et retournez renforcer le membre qui vous est assigné."] },
           { type: "callout", text: "⚠️ **IMPORTANT :** Vous pouvez renforcer le QG pour la vague 10 **OU** la vague 20 — **PAS LES DEUX.**" },
           { type: "p", text: "Coordonnez-vous avec les R4/R5 pour que chacun ait son tour et que le QG se remplisse efficacement." }
         ]
@@ -724,7 +724,7 @@ const GUIDES = {
           { type: "h", text: "🏛️ QG — ONDAS 10 E 20" },
           { type: "p", text: "As ondas 10 e 20 atacam **SOMENTE** o QG. Os ataques às cidades pausam durante essas ondas." },
           { type: "p", text: "Depois que a onda 9 / 19 terminar:" },
-          { type: "list", items: ["Revogue **UMA** marcha forte.", "Envie-a diretamente ao QG.", "Máximo de 70.080 tropas por membro.", "Use {chenko} ou {amadeus} na posição 1, ou seu herói de maior dano bruto.", "Depois da onda do QG, revogue e volte a reforçar o membro designado a você."] },
+          { type: "list", items: ["Revogue **UMA** marcha forte.", "Envie-a diretamente ao QG.", "Máximo de {=rally} tropas por membro.", "Use {chenko} ou {amadeus} na posição 1, ou seu herói de maior dano bruto.", "Depois da onda do QG, revogue e volte a reforçar o membro designado a você."] },
           { type: "callout", text: "⚠️ **IMPORTANTE:** Você pode reforçar o QG na onda 10 **OU** na onda 20 — **NÃO NAS DUAS.**" },
           { type: "p", text: "Combine com os R4/R5 para que todos tenham sua vez e o QG seja preenchido com eficiência." }
         ]
@@ -751,7 +751,7 @@ const GUIDES = {
           { type: "h", text: "🏛️ CUARTEL GENERAL — OLEADAS 10 Y 20" },
           { type: "p", text: "Las oleadas 10 y 20 atacan **SOLO** el Cuartel General. Los ataques a la ciudad se pausan durante estas oleadas." },
           { type: "p", text: "Después de que termine la oleada 9 / 19:" },
-          { type: "list", items: ["Recupera **UNA** marcha fuerte.", "Envíala directamente al Cuartel General.", "Máximo 70,080 tropas por miembro.", "Usa {chenko} o {amadeus} en la posición 1, o tu héroe con mayor daño puro.", "Después de la oleada del Cuartel General, recupérala y vuelve a reforzar al miembro que se te asignó."] },
+          { type: "list", items: ["Recupera **UNA** marcha fuerte.", "Envíala directamente al Cuartel General.", "Máximo {=rally} tropas por miembro.", "Usa {chenko} o {amadeus} en la posición 1, o tu héroe con mayor daño puro.", "Después de la oleada del Cuartel General, recupérala y vuelve a reforzar al miembro que se te asignó."] },
           { type: "callout", text: "⚠️ **IMPORTANTE:** Puedes reforzar el Cuartel General en la oleada 10 **O** la oleada 20 — **NO AMBAS.**" },
           { type: "p", text: "Coordínate con R4/R5 para que todos tengan su turno y llenemos el Cuartel General de forma eficiente." }
         ]
@@ -778,7 +778,7 @@ const GUIDES = {
           { type: "h", text: "🏛️ KARARGAH — 10. VE 20. DALGA" },
           { type: "p", text: "10. ve 20. dalgalar **YALNIZCA** karargaha saldırır. Bu dalgalar sırasında şehir saldırıları durur." },
           { type: "p", text: "9. / 19. dalga bittikten sonra:" },
-          { type: "list", items: ["**BİR** güçlü intikali geri çağırın.", "Doğrudan karargaha gönderin.", "Üye başına en fazla 70.080 birlik.", "1. konumda {chenko} veya {amadeus}, ya da en güçlü saf hasar kahramanınızı kullanın.", "Karargah dalgasından sonra geri çağırın ve size atanan üyeyi güçlendirmeye geri dönün."] },
+          { type: "list", items: ["**BİR** güçlü intikali geri çağırın.", "Doğrudan karargaha gönderin.", "Üye başına en fazla {=rally} birlik.", "1. konumda {chenko} veya {amadeus}, ya da en güçlü saf hasar kahramanınızı kullanın.", "Karargah dalgasından sonra geri çağırın ve size atanan üyeyi güçlendirmeye geri dönün."] },
           { type: "callout", text: "⚠️ **ÖNEMLİ:** Karargahı 10. dalgada **VEYA** 20. dalgada güçlendirebilirsiniz — **İKİSİNDE BİRDEN DEĞİL.**" },
           { type: "p", text: "Herkesin sırası gelsin ve karargahı verimli dolduralım diye R4/R5 ile koordine olun." }
         ]
@@ -805,7 +805,7 @@ const GUIDES = {
           { type: "h", text: "🏛️ MARKAS — GELOMBANG 10 & 20" },
           { type: "p", text: "Gelombang 10 & 20 **HANYA** menyerang markas. Serangan ke kota berhenti sementara selama gelombang ini." },
           { type: "p", text: "Setelah Gelombang 9 / 19 selesai:" },
-          { type: "list", items: ["Panggil Kembali **SATU** barisan kuat.", "Kirim langsung ke markas.", "Maksimal 70.080 pasukan per anggota.", "Gunakan {chenko} atau {amadeus} di posisi pertama, atau hero dengan damage mentah terkuatmu.", "Setelah gelombang markas, panggil kembali dan kembali memperkuat anggota yang ditugaskan kepadamu."] },
+          { type: "list", items: ["Panggil Kembali **SATU** barisan kuat.", "Kirim langsung ke markas.", "Maksimal {=rally} pasukan per anggota.", "Gunakan {chenko} atau {amadeus} di posisi pertama, atau hero dengan damage mentah terkuatmu.", "Setelah gelombang markas, panggil kembali dan kembali memperkuat anggota yang ditugaskan kepadamu."] },
           { type: "callout", text: "⚠️ **PENTING:** Kamu bisa memperkuat markas untuk Gelombang 10 **ATAU** Gelombang 20 — **BUKAN KEDUANYA.**" },
           { type: "p", text: "Koordinasikan dengan R4/R5 agar semua kebagian giliran dan markas terisi secara efisien." }
         ]
@@ -832,7 +832,7 @@ const GUIDES = {
           { type: "h", text: "🏛️ ШТАБ — ВОЛНЫ 10 И 20" },
           { type: "p", text: "Волны 10 и 20 атакуют **ТОЛЬКО** штаб. Атаки на города в эти волны приостанавливаются." },
           { type: "p", text: "После окончания волны 9 / 19:" },
-          { type: "list", items: ["Отзовите **ОДИН** сильный марш.", "Отправьте его прямо в штаб.", "Не более 70 080 войск на участника.", "В первую позицию поставьте {chenko} или {amadeus}, либо вашего сильнейшего героя по чистому урону.", "После волны штаба отзовите марш и вернитесь к подкреплению закреплённого за вами участника."] },
+          { type: "list", items: ["Отзовите **ОДИН** сильный марш.", "Отправьте его прямо в штаб.", "Не более {=rally} войск на участника.", "В первую позицию поставьте {chenko} или {amadeus}, либо вашего сильнейшего героя по чистому урону.", "После волны штаба отзовите марш и вернитесь к подкреплению закреплённого за вами участника."] },
           { type: "callout", text: "⚠️ **ВАЖНО:** Отправлять подкрепление в штаб можно в волне 10 **ИЛИ** в волне 20 — **НЕ В ОБЕ.**" },
           { type: "p", text: "Согласуйте с R4/R5, чтобы каждому досталась очередь и штаб заполнялся эффективно." }
         ]
@@ -859,7 +859,7 @@ const GUIDES = {
           { type: "h", text: "🏛️ ศูนย์บัญชาการ — ระลอกที่ 10 และ 20" },
           { type: "p", text: "ระลอกที่ 10 และ 20 โจมตี**เฉพาะ**ศูนย์บัญชาการ การโจมตีเมืองจะหยุดชั่วคราวในระลอกเหล่านี้" },
           { type: "p", text: "หลังจากระลอกที่ 9 / 19 จบลง:" },
-          { type: "list", items: ["เรียกกลับการเดินทัพที่แข็งแกร่ง**หนึ่ง**ชุด", "ส่งตรงไปยังศูนย์บัญชาการ", "ทหารสูงสุด 70,080 ต่อสมาชิก", "ใช้{chenko}หรือ{amadeus}ในตำแหน่งแรก หรือฮีโร่ที่มีความเสียหายดิบสูงที่สุดของคุณ", "หลังจบระลอกของศูนย์บัญชาการ ให้เรียกกลับแล้วกลับไปส่งกำลังเสริมให้สมาชิกที่ได้รับมอบหมาย"] },
+          { type: "list", items: ["เรียกกลับการเดินทัพที่แข็งแกร่ง**หนึ่ง**ชุด", "ส่งตรงไปยังศูนย์บัญชาการ", "ทหารสูงสุด {=rally} ต่อสมาชิก", "ใช้{chenko}หรือ{amadeus}ในตำแหน่งแรก หรือฮีโร่ที่มีความเสียหายดิบสูงที่สุดของคุณ", "หลังจบระลอกของศูนย์บัญชาการ ให้เรียกกลับแล้วกลับไปส่งกำลังเสริมให้สมาชิกที่ได้รับมอบหมาย"] },
           { type: "callout", text: "⚠️ **สำคัญ:** คุณส่งกำลังเสริมให้ศูนย์บัญชาการได้ในระลอกที่ 10 **หรือ** ระลอกที่ 20 — **ไม่ใช่ทั้งสองระลอก**" },
           { type: "p", text: "ประสานงานกับ R4/R5 เพื่อให้ทุกคนได้ถึงคิวและเติมศูนย์บัญชาการได้อย่างมีประสิทธิภาพ" }
         ]
@@ -886,7 +886,7 @@ const GUIDES = {
           { type: "h", text: "🏛️ المقر — الموجتان 10 و20" },
           { type: "p", text: "الموجتان 10 و20 تهاجمان المقر **فقط**. تتوقف الهجمات على المدن خلال هاتين الموجتين." },
           { type: "p", text: "بعد انتهاء الموجة 9 / 19:" },
-          { type: "list", items: ["استدعِ طابورًا قويًا **واحدًا**.", "أرسله مباشرة إلى المقر.", "بحد أقصى 70,080 من القوات لكل عضو.", "استخدم {chenko} أو {amadeus} في الموضع الأول، أو أقوى بطل لديك من حيث الضرر الخام.", "بعد موجة المقر، استدعِ الطابور وعُد إلى تعزيز العضو المخصص لك."] },
+          { type: "list", items: ["استدعِ طابورًا قويًا **واحدًا**.", "أرسله مباشرة إلى المقر.", "بحد أقصى {=rally} من القوات لكل عضو.", "استخدم {chenko} أو {amadeus} في الموضع الأول، أو أقوى بطل لديك من حيث الضرر الخام.", "بعد موجة المقر، استدعِ الطابور وعُد إلى تعزيز العضو المخصص لك."] },
           { type: "callout", text: "⚠️ **مهم:** يمكنك تعزيز المقر في الموجة 10 **أو** الموجة 20 — **وليس كلتيهما.**" },
           { type: "p", text: "نسّق مع R4/R5 ليأخذ الجميع دورهم ونملأ المقر بكفاءة." }
         ]
@@ -3071,7 +3071,7 @@ const GUIDES = {
           "Remember: In the final 5–7 minutes, everyone should launch a rally. This creates more spots for players whose troops are returning, allowing for a final damage push."
         ]},
         { type: "h", text: "RALLY LEADERS" },
-        { type: "callout", text: "⚠️ **Rule:** start your own rally with maximum troops, but when you join other rallies you must also follow the limit of exactly **90,000 troops**. At the start, main rally leaders send their first rally at their **assigned staggered time**." },
+        { type: "callout", text: "⚠️ **Rule:** start your own rally with maximum troops, but when you join other rallies you must also follow the limit of exactly **{=bear} troops**. At the start, main rally leaders send their first rally at their **assigned staggered time**." },
         { type: "leaders",
           gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
           notes: [
@@ -3100,7 +3100,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "RALLY JOINERS" },
-        { type: "callout", text: "⚠️ **Rule:** all joiners must send exactly **90,000 troops** to rallies — pre-save your marches. At **6:30 remaining**, all joiners start their own rally using their **3 strongest heroes**. 🔪 Wrong heroes or wrong troop numbers will be kicked and asked to rejoin." },
+        { type: "callout", text: "⚠️ **Rule:** all joiners must send exactly **{=bear} troops** to rallies — pre-save your marches. At **6:30 remaining**, all joiners start their own rally using their **3 strongest heroes**. 🔪 Wrong heroes or wrong troop numbers will be kicked and asked to rejoin." },
         { type: "p", text: "Standard / Safe Ratio: 10% Infantry, 10% Cavalry, and 80% Archers (or a variation like 20-30-50)" },
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Priority — send these first:** these heroes give a **flat {lethality} bonus**, the most valuable bonus for Bear Hunt." },
@@ -3130,7 +3130,7 @@ const GUIDES = {
           "切記：在最後 5–7 分鐘，所有人都應發起集結。這樣能讓部隊返回的玩家有更多集結位可加入，進行最後的傷害衝刺。"
         ]},
         { type: "h", text: "集結指揮" },
-        { type: "callout", text: "⚠️ **規定：**自己發起的集結用最大部隊容量；但加入別人的集結時，也必須遵守**剛好 90,000 人**的限制。活動開始時，主要集結隊長依照**分配好的錯開時間**發出第一次集結。" },
+        { type: "callout", text: "⚠️ **規定：**自己發起的集結用最大部隊容量；但加入別人的集結時，也必須遵守**剛好 {=bear} 人**的限制。活動開始時，主要集結隊長依照**分配好的錯開時間**發出第一次集結。" },
         { type: "leaders",
           gens: ["第 1 代","第 2 代","第 3 代","第 4 代","第 5 代"],
           notes: [
@@ -3159,7 +3159,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "集結參與者" },
-        { type: "callout", text: "⚠️ **規定：**所有參與者加入集結時都必須派出**剛好 90,000 人**，請先把出征編組存好。剩下 **6:30** 時，所有參與者用自己**最強的 3 位英雄**發起自己的集結。🔪 英雄錯誤或人數不對會被踢出，請重新加入。" },
+        { type: "callout", text: "⚠️ **規定：**所有參與者加入集結時都必須派出**剛好 {=bear} 人**，請先把出征編組存好。剩下 **6:30** 時，所有參與者用自己**最強的 3 位英雄**發起自己的集結。🔪 英雄錯誤或人數不對會被踢出，請重新加入。" },
         { type: "p", text: "標準／安全比例：10% 步兵、10% 騎兵、80% 弓兵（也可用 20-30-50 等變化版本）" },
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**優先派出：**這些英雄提供**固定{lethality}加成**，是狩獵巨熊最有價值的加成。" },
@@ -3189,7 +3189,7 @@ const GUIDES = {
           "기억하세요: 마지막 5~7분 동안에는 모든 플레이어가 집결을 열어야 합니다. 이렇게 하면 병력이 복귀하는 플레이어들을 위한 자리가 더 많이 생겨 마지막 데미지 몰아치기가 가능해집니다."
         ]},
         { type: "h", text: "집결 영웅 세대별 조합" },
-        { type: "callout", text: "⚠️ **규칙:** 본인이 주도하는 집결은 최대 부대로 시작하되, 다른 집결에 참여할 때는 **정확히 90,000명** 제한을 지켜야 합니다. 시작 시 메인 집결장은 **배정된 시차 시간**에 첫 집결을 보냅니다." },
+        { type: "callout", text: "⚠️ **규칙:** 본인이 주도하는 집결은 최대 부대로 시작하되, 다른 집결에 참여할 때는 **정확히 {=bear}명** 제한을 지켜야 합니다. 시작 시 메인 집결장은 **배정된 시차 시간**에 첫 집결을 보냅니다." },
         { type: "leaders",
           gens: ["1세대","2세대","3세대","4세대","5세대"],
           notes: [
@@ -3218,7 +3218,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "집결 참여 영웅" },
-        { type: "callout", text: "⚠️ **규칙:** 모든 참여자는 집결에 **정확히 90,000명**을 보내야 합니다. 출정 편성을 미리 저장해 두세요. **6:30 남았을 때** 모든 참여자는 **가장 강한 영웅 3명**으로 자신의 집결을 시작합니다. 🔪 영웅이나 병력 수가 틀리면 강퇴 후 재참여를 요청합니다." },
+        { type: "callout", text: "⚠️ **규칙:** 모든 참여자는 집결에 **정확히 {=bear}명**을 보내야 합니다. 출정 편성을 미리 저장해 두세요. **6:30 남았을 때** 모든 참여자는 **가장 강한 영웅 3명**으로 자신의 집결을 시작합니다. 🔪 영웅이나 병력 수가 틀리면 강퇴 후 재참여를 요청합니다." },
         { type: "p", text: "표준 / 안전 비율: 보병 10%, 기병 10%, 궁병 80% (또는 20-30-50과 같은 변형 비율)" },
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**우선 파견:** 이 영웅들은 **고정 {lethality} 보너스**를 주며, 베어 사냥에서 가장 가치 있는 보너스입니다." },
@@ -3248,7 +3248,7 @@ const GUIDES = {
           "In den letzten 5–7 Minuten sollte jeder einen Rally starten. So entstehen mehr Plätze für Spieler, deren Truppen zurückkehren — für den finalen Schadensschub."
         ]},
         { type: "h", text: "RALLY-ANFÜHRER" },
-        { type: "callout", text: "⚠️ **Regel:** Starte deine eigene Rally mit maximalen Truppen, aber wenn du anderen Rallys beitrittst, gilt auch für dich das Limit von genau **90.000 Truppen**. Zu Beginn schicken die Haupt-Rallyleiter ihre erste Rally zu ihrer **zugewiesenen, versetzten Zeit**." },
+        { type: "callout", text: "⚠️ **Regel:** Starte deine eigene Rally mit maximalen Truppen, aber wenn du anderen Rallys beitrittst, gilt auch für dich das Limit von genau **{=bear} Truppen**. Zu Beginn schicken die Haupt-Rallyleiter ihre erste Rally zu ihrer **zugewiesenen, versetzten Zeit**." },
         { type: "leaders",
           gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
           notes: [
@@ -3277,7 +3277,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "RALLY-TEILNEHMER" },
-        { type: "callout", text: "⚠️ **Regel:** Alle Beitretenden schicken genau **90.000 Truppen** in Rallys – speichert eure Märsche vorher. Bei **6:30 verbleibend** starten alle Beitretenden ihre eigene Rally mit ihren **3 stärksten Helden**. 🔪 Falsche Helden oder falsche Truppenzahl: Kick und Bitte um erneuten Beitritt." },
+        { type: "callout", text: "⚠️ **Regel:** Alle Beitretenden schicken genau **{=bear} Truppen** in Rallys – speichert eure Märsche vorher. Bei **6:30 verbleibend** starten alle Beitretenden ihre eigene Rally mit ihren **3 stärksten Helden**. 🔪 Falsche Helden oder falsche Truppenzahl: Kick und Bitte um erneuten Beitritt." },
         { type: "p", text: "Standard / sicheres Verhältnis: 10% Infanterie, 10% Kavallerie, und 80% Bogenschützen (oder Varianten wie 20-30-50)" },
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Priorität – diese zuerst schicken:** Diese Helden geben einen **festen {lethality}-Bonus**, den wertvollsten Bonus für die Bärenjagd." },
@@ -3307,7 +3307,7 @@ const GUIDES = {
           "N'oubliez pas : pendant les 5 à 7 dernières minutes, tout le monde devrait lancer un ralliement. Cela libère davantage de places pour les joueurs dont les troupes reviennent et permet un dernier coup de collier de dégâts."
         ]},
         { type: "h", text: "LEADERS DE RALLIEMENT" },
-        { type: "callout", text: "⚠️ **Règle :** lancez votre propre ralliement avec le maximum de troupes, mais quand vous rejoignez d'autres ralliements, respectez aussi la limite d'exactement **90 000 troupes**. Au début, les chefs de ralliement principaux lancent leur premier ralliement à leur **horaire décalé attribué**." },
+        { type: "callout", text: "⚠️ **Règle :** lancez votre propre ralliement avec le maximum de troupes, mais quand vous rejoignez d'autres ralliements, respectez aussi la limite d'exactement **{=bear} troupes**. Au début, les chefs de ralliement principaux lancent leur premier ralliement à leur **horaire décalé attribué**." },
         { type: "leaders",
           gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
           notes: [
@@ -3336,7 +3336,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "PARTICIPANTS AU RALLIEMENT" },
-        { type: "callout", text: "⚠️ **Règle :** tous les participants doivent envoyer exactement **90 000 troupes** aux ralliements — enregistrez vos marches à l'avance. À **6:30 restantes**, tous les participants lancent leur propre ralliement avec leurs **3 héros les plus forts**. 🔪 Mauvais héros ou mauvais nombre de troupes : exclusion, puis demande de rejoindre à nouveau." },
+        { type: "callout", text: "⚠️ **Règle :** tous les participants doivent envoyer exactement **{=bear} troupes** aux ralliements — enregistrez vos marches à l'avance. À **6:30 restantes**, tous les participants lancent leur propre ralliement avec leurs **3 héros les plus forts**. 🔪 Mauvais héros ou mauvais nombre de troupes : exclusion, puis demande de rejoindre à nouveau." },
         { type: "p", text: "Ratio standard / sûr : 10 % d'Infanterie, 10 % de Cavalerie et 80 % d'Archers (ou une variante comme 20-30-50)" },
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Priorité – à envoyer en premier :** ces héros donnent un **bonus de {lethality} fixe**, le bonus le plus précieux pour la Chasse à l'Ours." },
@@ -3366,7 +3366,7 @@ const GUIDES = {
           "Lembre-se: nos últimos 5–7 minutos, todos devem iniciar um rally. Isso cria mais vagas para jogadores cujas tropas estão retornando, permitindo um último impulso de dano."
         ]},
         { type: "h", text: "LÍDERES DE RALLY" },
-        { type: "callout", text: "⚠️ **Regra:** inicie seu próprio rally com o máximo de tropas, mas ao entrar em outros rallies você também deve seguir o limite de exatamente **90.000 tropas**. No início, os líderes principais enviam o primeiro rally no **horário escalonado atribuído**." },
+        { type: "callout", text: "⚠️ **Regra:** inicie seu próprio rally com o máximo de tropas, mas ao entrar em outros rallies você também deve seguir o limite de exatamente **{=bear} tropas**. No início, os líderes principais enviam o primeiro rally no **horário escalonado atribuído**." },
         { type: "leaders",
           gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
           notes: [
@@ -3395,7 +3395,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "PARTICIPANTES DE RALLY" },
-        { type: "callout", text: "⚠️ **Regra:** todos que entram em rallies devem enviar exatamente **90.000 tropas** — salve suas marchas antes. Com **6:30 restantes**, todos iniciam o próprio rally usando seus **3 heróis mais fortes**. 🔪 Heróis errados ou número de tropas errado: expulsão e pedido para entrar de novo." },
+        { type: "callout", text: "⚠️ **Regra:** todos que entram em rallies devem enviar exatamente **{=bear} tropas** — salve suas marchas antes. Com **6:30 restantes**, todos iniciam o próprio rally usando seus **3 heróis mais fortes**. 🔪 Heróis errados ou número de tropas errado: expulsão e pedido para entrar de novo." },
         { type: "p", text: "Proporção padrão / segura: 10% Infantaria, 10% Cavalaria e 80% Arquearia (ou uma variação como 20-30-50)" },
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Prioridade – envie estes primeiro:** esses heróis dão um **bônus fixo de {lethality}**, o bônus mais valioso na Caça ao Urso." },
@@ -3425,7 +3425,7 @@ const GUIDES = {
           "Recuerda: en los últimos 5–7 minutos, todos deben lanzar un Ataque Conjunto. Esto crea más espacios para los jugadores cuyas tropas están regresando, permitiendo un empuje final de daño."
         ]},
         { type: "h", text: "LÍDERES DE ATAQUE CONJUNTO" },
-        { type: "callout", text: "⚠️ **Regla:** inicia tu propio ataque conjunto con el máximo de tropas, pero al unirte a otros ataques también debes respetar el límite de exactamente **90.000 tropas**. Al inicio, los líderes principales envían su primer ataque en su **hora escalonada asignada**." },
+        { type: "callout", text: "⚠️ **Regla:** inicia tu propio ataque conjunto con el máximo de tropas, pero al unirte a otros ataques también debes respetar el límite de exactamente **{=bear} tropas**. Al inicio, los líderes principales envían su primer ataque en su **hora escalonada asignada**." },
         { type: "leaders",
           gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
           notes: [
@@ -3454,7 +3454,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "PARTICIPANTES DE ATAQUE CONJUNTO" },
-        { type: "callout", text: "⚠️ **Regla:** todos los que se unen deben enviar exactamente **90.000 tropas** a los ataques conjuntos; guarda tus marchas antes. Con **6:30 restantes**, todos inician su propio ataque conjunto con sus **3 héroes más fuertes**. 🔪 Héroes o número de tropas incorrectos: expulsión y petición de volver a unirse." },
+        { type: "callout", text: "⚠️ **Regla:** todos los que se unen deben enviar exactamente **{=bear} tropas** a los ataques conjuntos; guarda tus marchas antes. Con **6:30 restantes**, todos inician su propio ataque conjunto con sus **3 héroes más fuertes**. 🔪 Héroes o número de tropas incorrectos: expulsión y petición de volver a unirse." },
         { type: "p", text: "Proporción estándar/segura: 10% Infantería, 10% Caballería y 80% Arqueros (o una variación como 20-30-50)" },
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Prioridad – envía estos primero:** estos héroes dan una **bonificación fija de {lethality}**, la más valiosa para la Cacería del Oso." },
@@ -3484,7 +3484,7 @@ const GUIDES = {
           "Unutmayın: son 5–7 dakikada herkes bir seferberlik başlatmalı. Bu, birlikleri geri dönen oyuncular için daha fazla yer açar ve son bir hasar atağına olanak tanır."
         ]},
         { type: "h", text: "SEFERBERLİK LİDERLERİ" },
-        { type: "callout", text: "⚠️ **Kural:** Kendi seferberliğini maksimum askerle başlat, ancak başka seferberliklere katılırken sen de tam **90.000 asker** sınırına uymalısın. Başlangıçta ana seferberlik liderleri ilk seferberliklerini **kendilerine atanan kademeli saatte** gönderir." },
+        { type: "callout", text: "⚠️ **Kural:** Kendi seferberliğini maksimum askerle başlat, ancak başka seferberliklere katılırken sen de tam **{=bear} asker** sınırına uymalısın. Başlangıçta ana seferberlik liderleri ilk seferberliklerini **kendilerine atanan kademeli saatte** gönderir." },
         { type: "leaders",
           gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
           notes: [
@@ -3513,7 +3513,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "SEFERBERLİĞE KATILANLAR" },
-        { type: "callout", text: "⚠️ **Kural:** Tüm katılımcılar seferberliklere tam **90.000 asker** göndermelidir — yürüyüşlerini önceden kaydet. **6:30 kala** tüm katılımcılar **en güçlü 3 kahramanıyla** kendi seferberliğini başlatır. 🔪 Yanlış kahraman veya yanlış asker sayısı: atılır ve yeniden katılması istenir." },
+        { type: "callout", text: "⚠️ **Kural:** Tüm katılımcılar seferberliklere tam **{=bear} asker** göndermelidir — yürüyüşlerini önceden kaydet. **6:30 kala** tüm katılımcılar **en güçlü 3 kahramanıyla** kendi seferberliğini başlatır. 🔪 Yanlış kahraman veya yanlış asker sayısı: atılır ve yeniden katılması istenir." },
         { type: "p", text: "Standart / Güvenli Oran: %10 Piyade, %10 Süvari ve %80 Okçu (veya 20-30-50 gibi bir varyasyon)" },
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Öncelik – önce bunları gönderin:** Bu kahramanlar **sabit {lethality} bonusu** verir; Ayı Avı için en değerli bonus budur." },
@@ -3543,7 +3543,7 @@ const GUIDES = {
           "Ingat: di 5–7 menit terakhir, semua orang sebaiknya memulai reli. Ini membuka lebih banyak slot bagi pemain yang pasukannya sedang kembali, sehingga bisa melakukan dorongan damage terakhir."
         ]},
         { type: "h", text: "PEMIMPIN RELI" },
-        { type: "callout", text: "⚠️ **Aturan:** mulai reli sendiri dengan pasukan maksimal, tapi saat bergabung ke reli lain kamu juga harus mengikuti batas tepat **90.000 pasukan**. Di awal, pemimpin reli utama mengirim reli pertama pada **waktu bergiliran yang sudah ditentukan**." },
+        { type: "callout", text: "⚠️ **Aturan:** mulai reli sendiri dengan pasukan maksimal, tapi saat bergabung ke reli lain kamu juga harus mengikuti batas tepat **{=bear} pasukan**. Di awal, pemimpin reli utama mengirim reli pertama pada **waktu bergiliran yang sudah ditentukan**." },
         { type: "leaders",
           gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
           notes: [
@@ -3572,7 +3572,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "PESERTA RELI" },
-        { type: "callout", text: "⚠️ **Aturan:** semua yang bergabung wajib mengirim tepat **90.000 pasukan** ke reli — simpan formasi pasukan lebih dulu. Saat **sisa 6:30**, semua yang bergabung memulai reli sendiri dengan **3 pahlawan terkuat**. 🔪 Pahlawan salah atau jumlah pasukan salah akan dikeluarkan dan diminta bergabung ulang." },
+        { type: "callout", text: "⚠️ **Aturan:** semua yang bergabung wajib mengirim tepat **{=bear} pasukan** ke reli — simpan formasi pasukan lebih dulu. Saat **sisa 6:30**, semua yang bergabung memulai reli sendiri dengan **3 pahlawan terkuat**. 🔪 Pahlawan salah atau jumlah pasukan salah akan dikeluarkan dan diminta bergabung ulang." },
         { type: "p", text: "Rasio Standar / Aman: 10% Infanteri, 10% Kavaleri, dan 80% Pemanah (atau variasi seperti 20-30-50)" },
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Prioritas – kirim ini dulu:** pahlawan ini memberi **bonus {lethality} tetap**, bonus paling berharga untuk Bear Hunt." },
@@ -3602,7 +3602,7 @@ const GUIDES = {
           "Помните: в последние 5–7 минут каждый должен запустить рейд. Это освобождает больше мест для игроков, чьи войска возвращаются, и позволяет сделать финальный рывок по урону."
         ]},
         { type: "h", text: "ЛИДЕРЫ РЕЙДА" },
-        { type: "callout", text: "⚠️ **Правило:** свой рейд запускайте с максимумом войск, но при присоединении к чужим рейдам тоже соблюдайте лимит — ровно **90 000 войск**. В начале главные лидеры рейдов отправляют первый рейд в **назначенное им смещённое время**." },
+        { type: "callout", text: "⚠️ **Правило:** свой рейд запускайте с максимумом войск, но при присоединении к чужим рейдам тоже соблюдайте лимит — ровно **{=bear} войск**. В начале главные лидеры рейдов отправляют первый рейд в **назначенное им смещённое время**." },
         { type: "leaders",
           gens: ["ПОКОЛЕНИЕ 1","ПОКОЛЕНИЕ 2","ПОКОЛЕНИЕ 3","ПОКОЛЕНИЕ 4","ПОКОЛЕНИЕ 5"],
           notes: [
@@ -3631,7 +3631,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "УЧАСТНИКИ РЕЙДА" },
-        { type: "callout", text: "⚠️ **Правило:** все участники отправляют в рейды ровно **90 000 войск** — сохраните отряды заранее. Когда останется **6:30**, все участники запускают свой рейд с **3 сильнейшими героями**. 🔪 Неверные герои или неверное число войск — кик и просьба присоединиться заново." },
+        { type: "callout", text: "⚠️ **Правило:** все участники отправляют в рейды ровно **{=bear} войск** — сохраните отряды заранее. Когда останется **6:30**, все участники запускают свой рейд с **3 сильнейшими героями**. 🔪 Неверные герои или неверное число войск — кик и просьба присоединиться заново." },
         { type: "p", text: "Стандартное / безопасное соотношение: 10% пехотинцев, 10% кавалеристов и 80% стрелков (или вариант вроде 20-30-50)" },
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Приоритет – отправляйте первыми:** эти герои дают **фиксированный бонус к {lethality}** — самый ценный бонус в охоте на медведя." },
@@ -3661,7 +3661,7 @@ const GUIDES = {
           "โปรดจำไว้: ใน 5–7 นาทีสุดท้าย ทุกคนควรเปิดทีมระดมพล ซึ่งจะเพิ่มที่ว่างให้ผู้เล่นที่ทหารกำลังเดินทางกลับ ทำให้ปิดท้ายด้วยความเสียหายอีกระลอกได้"
         ]},
         { type: "h", text: "ผู้นำทีมระดมพล" },
-        { type: "callout", text: "⚠️ **กฎ:** เปิดระดมพลของตัวเองด้วยทหารเต็มความจุ แต่เมื่อเข้าร่วมระดมพลของคนอื่นต้องทำตามข้อจำกัด **90,000 นายพอดี** เช่นกัน ตอนเริ่ม ผู้นำระดมพลหลักจะส่งระดมพลแรกตาม**เวลาที่แบ่งไว้ให้แต่ละคน**" },
+        { type: "callout", text: "⚠️ **กฎ:** เปิดระดมพลของตัวเองด้วยทหารเต็มความจุ แต่เมื่อเข้าร่วมระดมพลของคนอื่นต้องทำตามข้อจำกัด **{=bear} นายพอดี** เช่นกัน ตอนเริ่ม ผู้นำระดมพลหลักจะส่งระดมพลแรกตาม**เวลาที่แบ่งไว้ให้แต่ละคน**" },
         { type: "leaders",
           gens: ["เจน 1","เจน 2","เจน 3","เจน 4","เจน 5"],
           notes: [
@@ -3690,7 +3690,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "ผู้เข้าร่วมทีมระดมพล" },
-        { type: "callout", text: "⚠️ **กฎ:** ผู้เข้าร่วมทุกคนต้องส่งทหาร **90,000 นายพอดี** เข้าระดมพล — บันทึกทัพไว้ล่วงหน้า เมื่อเหลือเวลา **6:30** ผู้เข้าร่วมทุกคนเปิดระดมพลของตัวเองด้วย**ฮีโร่ที่แข็งแกร่งที่สุด 3 ตัว** 🔪 ฮีโร่ผิดหรือจำนวนทหารผิดจะถูกเตะออกและให้เข้าร่วมใหม่" },
+        { type: "callout", text: "⚠️ **กฎ:** ผู้เข้าร่วมทุกคนต้องส่งทหาร **{=bear} นายพอดี** เข้าระดมพล — บันทึกทัพไว้ล่วงหน้า เมื่อเหลือเวลา **6:30** ผู้เข้าร่วมทุกคนเปิดระดมพลของตัวเองด้วย**ฮีโร่ที่แข็งแกร่งที่สุด 3 ตัว** 🔪 ฮีโร่ผิดหรือจำนวนทหารผิดจะถูกเตะออกและให้เข้าร่วมใหม่" },
         { type: "p", text: "อัตราส่วนมาตรฐาน / ปลอดภัย: ทหารราบ 10%, ทหารม้า 10% และพลธนู 80% (หรือรูปแบบอื่นเช่น 20-30-50)" },
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**ลำดับแรก – ส่งฮีโร่เหล่านี้ก่อน:** ให้**โบนัส{lethality}แบบคงที่** ซึ่งเป็นโบนัสที่มีค่าที่สุดสำหรับล่าหมี" },
@@ -3720,7 +3720,7 @@ const GUIDES = {
           "تذكّر: في آخر 5–7 دقائق، على الجميع إطلاق حشد. يوفّر هذا أماكن أكثر للاعبين الذين تعود قواتهم، مما يتيح دفعة ضرر أخيرة."
         ]},
         { type: "h", text: "قادة الحشد" },
-        { type: "callout", text: "⚠️ **قاعدة:** ابدأ حشدك الخاص بأقصى عدد من القوات، لكن عند الانضمام إلى حشود أخرى يجب عليك أيضًا الالتزام بحد **90,000 جندي بالضبط**. في البداية، يرسل قادة الحشود الرئيسيون أول حشد لهم في **وقتهم المتدرج المحدد**." },
+        { type: "callout", text: "⚠️ **قاعدة:** ابدأ حشدك الخاص بأقصى عدد من القوات، لكن عند الانضمام إلى حشود أخرى يجب عليك أيضًا الالتزام بحد **{=bear} جندي بالضبط**. في البداية، يرسل قادة الحشود الرئيسيون أول حشد لهم في **وقتهم المتدرج المحدد**." },
         { type: "leaders",
           gens: ["الجيل 1","الجيل 2","الجيل 3","الجيل 4","الجيل 5"],
           notes: [
@@ -3749,7 +3749,7 @@ const GUIDES = {
             ]
           ]},
         { type: "h", text: "المنضمون إلى الحشد" },
-        { type: "callout", text: "⚠️ **قاعدة:** يجب على جميع المنضمين إرسال **90,000 جندي بالضبط** إلى الحشود — احفظ مسيراتك مسبقًا. عند بقاء **6:30**، يبدأ جميع المنضمين حشدهم الخاص باستخدام **أقوى 3 أبطال** لديهم. 🔪 الأبطال الخطأ أو العدد الخطأ من القوات: طرد وطلب الانضمام من جديد." },
+        { type: "callout", text: "⚠️ **قاعدة:** يجب على جميع المنضمين إرسال **{=bear} جندي بالضبط** إلى الحشود — احفظ مسيراتك مسبقًا. عند بقاء **6:30**، يبدأ جميع المنضمين حشدهم الخاص باستخدام **أقوى 3 أبطال** لديهم. 🔪 الأبطال الخطأ أو العدد الخطأ من القوات: طرد وطلب الانضمام من جديد." },
         { type: "p", text: "النسبة القياسية / الآمنة: 10% مشاة، 10% فرسان، و80% رماة (أو تنويع مثل 20-30-50)" },
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**الأولوية – أرسلوا هؤلاء أولًا:** يمنح هؤلاء الأبطال **مكافأة {lethality} ثابتة**، وهي أثمن مكافأة في صيد الدببة." },
@@ -5946,7 +5946,7 @@ const GUIDES = {
           { type: "p", text: "**Rally Leaders:** Use your strongest complete offensive hero lineup." },
           { type: "p", text: "**Rally Joiners:** Please follow any troop limits posted by leadership." },
           { type: "list", items: [
-            "7) Viking HQ: Howard / Gordon — **60 : 40** Follow troop limit (~70,080)",
+            "7) Viking HQ: Howard / Gordon — **60 : 40** Follow troop limit (~{=rally})",
             "8) PvE – Beasts / Hunting: Diana + Fahd — **50 : 20 : 30**"
           ]},
           { type: "p", text: "[[squad:page]]" },
@@ -5975,10 +5975,10 @@ const GUIDES = {
           { type: "h", text: "🪖 GARRISON TROOP CAP" },
           { type: "p", text: "Only 15 governors can enter HQ / Sanctuary. So don’t automatically send your maximum march to HQ, Sanctuary, or other contested buildings." },
           { type: "p", text: "Follow the troop cap announced by leadership." },
-          { type: "p", text: "**Typical alliance target: ~70,080 troops per player**" },
+          { type: "p", text: "**Typical alliance target: ~{=rally} troops per player**" },
           { type: "p", text: "This allows more alliance members with properly configured defensive marches to fit inside the garrison and get rewards." },
           { type: "callout", text: "⚠️ If leadership announces a different cap, always follow the announced amount." },
-          { type: "p", text: "For example, with a 70,080 troop cap, you can plug that number into a calculator and enter it directly in the field for the matching troop type. Here are three examples:" },
+          { type: "p", text: "For example, with a {=rally} troop cap, you can plug that number into a calculator and enter it directly in the field for the matching troop type. Here are three examples:" },
           { type: "list", items: [
             "60/20/20 ➡️ 42,048 / 14,016 / 14,016",
             "60/40 ➡️ 42,048 / 28,032",
@@ -6013,7 +6013,7 @@ const GUIDES = {
           { type: "p", text: "**集結隊長：** 使用你最強、最完整的進攻英雄陣容。" },
           { type: "p", text: "**集結參與者：** 請遵守幹部公告的兵力上限。" },
           { type: "list", items: [
-            "7) 維京總部（Viking HQ）：{howard} / {gordon} — **60 : 40** 請遵守兵力上限（約 70,080）",
+            "7) 維京總部（Viking HQ）：{howard} / {gordon} — **60 : 40** 請遵守兵力上限（約 {=rally}）",
             "8) PvE — 野獸／狩獵：{diana} + {fahd} — **50 : 20 : 30**"
           ]},
           { type: "p", text: "[[squad:page]]" },
@@ -6039,10 +6039,10 @@ const GUIDES = {
           { type: "h", text: "🪖 駐防兵力上限" },
           { type: "p", text: "只有 15 位領主能進入總部（HQ）／{sanctuary}。所以請不要自動把你的最大部隊派去總部、{sanctuary}或其他爭奪中的建築。" },
           { type: "p", text: "請遵守幹部公告的兵力上限。" },
-          { type: "p", text: "**聯盟一般目標：每位玩家約 70,080 兵力**" },
+          { type: "p", text: "**聯盟一般目標：每位玩家約 {=rally} 兵力**" },
           { type: "p", text: "這樣能讓更多已配置好防守部隊的聯盟成員擠進駐防，一起領取獎勵。" },
           { type: "callout", text: "⚠️ 若幹部公告了不同的上限，請一律以公告的數字為準。" },
-          { type: "p", text: "舉例來說，若以 70,080 兵力上限為例，可以把這個數字帶進計算機，直接在對應兵種的數字欄輸入即可。以下是三種情況：" },
+          { type: "p", text: "舉例來說，若以 {=rally} 兵力上限為例，可以把這個數字帶進計算機，直接在對應兵種的數字欄輸入即可。以下是三種情況：" },
           { type: "list", items: [
             "60/20/20 ➡️ 42,048 / 14,016 / 14,016",
             "60/40 ➡️ 42,048 / 28,032",
@@ -6064,7 +6064,7 @@ const GUIDES = {
         {"type":"list","items":["1) 🐻 {bearHunt}: {chenko} — **10 : 10 : 80**","2) 🐻 {bearHunt}: {amane} — **10 : 10 : 80** (혹은 가능한 비슷하게)","3) 🐻 {bearHunt}: {yeonwoo} — **10 : 10 : 80** (혹은 가능한 비슷하게)","4) 🐻 {bearHunt}: {amadeus} — **10 : 10 : 80** (혹은 가능한 비슷하게)","5) 🔪 공격용(일반 PvP): {amadeus}(육성된 경우) 또는 {chenko} — **50 : 20 : 30**","6) 🛡️ 방어용: {howard} 또는 {gordon} — **60 : 20 : 20** (R5/R4가 특정 진형을 지시할 경우 지시에 따라 조절)"]},
         {"type":"p","text":"**집결장:** 보유한 영웅 중 가장 강력한 공격형 영웅 라인업을 사용하세요."},
         {"type":"p","text":"**집결 참여자:** 간부진이 공지한 병력 제한 수를 반드시 준수하세요."},
-        {"type":"list","items":["7) 🛡️ 바이킹 본부: {howard} 또는 {gordon} — **60 : 40** (병력 제한 수 약 70,080명 준수)","8) 🐺 PvE - 야수 / 사냥: {diana} + {fahd} — **50 : 20 : 30**"]},
+        {"type":"list","items":["7) 🛡️ 바이킹 본부: {howard} 또는 {gordon} — **60 : 40** (병력 제한 수 약 {=rally}명 준수)","8) 🐺 PvE - 야수 / 사냥: {diana} + {fahd} — **50 : 20 : 30**"]},
         {"type":"p","text":"[[squad:page]]"},
         {"type":"h","text":"🐺 PvE - 야수 / 사냥"},
         {"type":"p","text":"**{dreadwolf} 주의사항:** 큰 피해를 줄 필요가 없으므로 **최소한의 병력(1명도 가능)**만 보내어 더 많은 연맹원들이 집결에 참여하고 보상을 챙길 수 있도록 배려하세요."},
@@ -6083,10 +6083,10 @@ const GUIDES = {
         {"type":"h","text":"🏰 주둔군 병력 제한"},
         {"type":"p","text":"본부(HQ) 및 {sanctuary}에는 **최대 15명**의 영주(플레이어)만 진입할 수 있습니다. 따라서 분쟁 지역 건물에 최대 병력으로 무작정 부대를 보내지 마세요."},
         {"type":"p","text":"간부진(R5/R4)의 병력 제한 공지를 반드시 준수해야 합니다."},
-        {"type":"p","text":"**일반적인 연맹 권장 목표: 인당 약 70,080명**"},
+        {"type":"p","text":"**일반적인 연맹 권장 목표: 인당 약 {=rally}명**"},
         {"type":"p","text":"병력 제한을 지켜야 제대로 된 방어 세팅을 갖춘 더 많은 연맹원들이 주둔군으로 들어가 함께 보상을 받을 수 있습니다."},
         {"type":"callout","text":"⚠️ **간부진이 다른 병력 제한을 공지하는 경우 항상 해당 공지를 우선으로 따르세요.**"},
-        {"type":"p","text":"예를 들어 70,080 병력 상한을 기준으로 하면, 이 숫자를 계산기에 입력한 뒤 해당 병종 칸에 그대로 넣으면 됩니다. 다음은 세 가지 예시입니다:"},
+        {"type":"p","text":"예를 들어 {=rally} 병력 상한을 기준으로 하면, 이 숫자를 계산기에 입력한 뒤 해당 병종 칸에 그대로 넣으면 됩니다. 다음은 세 가지 예시입니다:"},
         {"type":"list","items":["60/20/20 ➡️ 42,048 / 14,016 / 14,016","60/40 ➡️ 42,048 / 28,032","50/20/30 ➡️ 35,040 / 14,016 / 21,024"]},
         {"type":"h","text":"🎬 공격 영웅에서 방어 영웅으로 전환하는 방법"},
         {"type":"video","src":"figures/switch_hero.mp4","caption":"📎 이 영상은 인터넷에서 가져온 것으로(TikTok @yelloe_hair), 우리가 직접 촬영한 것이 아닙니다."}
@@ -6115,7 +6115,7 @@ const GUIDES = {
           { type: "p", text: "**Rally-Anführer:** Nutze deine stärkste, vollständige Angriffs-Heldenaufstellung." },
           { type: "p", text: "**Rally-Joiner:** Bitte halte dich an die von der Führung angegebenen Truppenlimits." },
           { type: "list", items: [
-            "7) Wikinger-HQ (Viking HQ): {howard} / {gordon} — **60 : 40** Truppenlimit beachten (~70.080)",
+            "7) Wikinger-HQ (Viking HQ): {howard} / {gordon} — **60 : 40** Truppenlimit beachten (~{=rally})",
             "8) PvE – Bestien / Jagd: {diana} + {fahd} — **50 : 20 : 30**"
           ]},
           { type: "p", text: "[[squad:page]]" },
@@ -6141,10 +6141,10 @@ const GUIDES = {
           { type: "h", text: "🪖 GARNISONS-TRUPPENLIMIT" },
           { type: "p", text: "Nur 15 Gouverneure können in das HQ / {sanctuary} gelangen. Schicke deshalb nicht automatisch deinen maximalen Marsch ins HQ, ins {sanctuary} oder zu anderen umkämpften Gebäuden." },
           { type: "p", text: "Halte dich an das von der Führung angekündigte Truppenlimit." },
-          { type: "p", text: "**Typisches Allianzziel: ~70.080 Truppen pro Spieler**" },
+          { type: "p", text: "**Typisches Allianzziel: ~{=rally} Truppen pro Spieler**" },
           { type: "p", text: "So passen mehr Allianzmitglieder mit richtig konfigurierten Verteidigungsmärschen in die Garnison und erhalten Belohnungen." },
           { type: "callout", text: "⚠️ Wenn die Führung ein anderes Limit ankündigt, halte dich immer an die angekündigte Zahl." },
-          { type: "p", text: "Zum Beispiel: Bei einem Truppenlimit von 70.080 kannst du diese Zahl in einen Taschenrechner eingeben und direkt in das Feld des jeweiligen Truppentyps übertragen. Hier sind drei Beispiele:" },
+          { type: "p", text: "Zum Beispiel: Bei einem Truppenlimit von {=rally} kannst du diese Zahl in einen Taschenrechner eingeben und direkt in das Feld des jeweiligen Truppentyps übertragen. Hier sind drei Beispiele:" },
           { type: "list", items: [
             "60/20/20 ➡️ 42.048 / 14.016 / 14.016",
             "60/40 ➡️ 42.048 / 28.032",
@@ -6179,7 +6179,7 @@ const GUIDES = {
           { type: "p", text: "**Leaders de ralliement :** utilisez votre meilleure composition de héros offensifs, au complet." },
           { type: "p", text: "**Participants au ralliement :** merci de respecter les limites de troupes publiées par la direction." },
           { type: "list", items: [
-            "7) QG Viking (Viking HQ) : {howard} / {gordon} — **60 : 40** Respectez la limite de troupes (~70 080)",
+            "7) QG Viking (Viking HQ) : {howard} / {gordon} — **60 : 40** Respectez la limite de troupes (~{=rally})",
             "8) PvE – Bêtes / CHASSE : {diana} + {fahd} — **50 : 20 : 30**"
           ] },
           { type: "h", text: "🐺 PvE — BÊTES / CHASSE" },
@@ -6204,10 +6204,10 @@ const GUIDES = {
           { type: "h", text: "🪖 LIMITE DE TROUPES EN GARNISON" },
           { type: "p", text: "Seuls 15 chefs peuvent entrer dans le QG / le sanctuaire. N'envoyez donc pas automatiquement votre marche maximale vers le QG, le sanctuaire ou d'autres bâtiments disputés." },
           { type: "p", text: "Respectez la limite de troupes annoncée par la direction." },
-          { type: "p", text: "**Objectif d'alliance habituel : ~70 080 troupes par joueur**" },
+          { type: "p", text: "**Objectif d'alliance habituel : ~{=rally} troupes par joueur**" },
           { type: "p", text: "Cela permet à davantage de membres de l'alliance dont les marches défensives sont bien configurées de tenir dans la garnison et d'obtenir des récompenses." },
           { type: "callout", text: "⚠️ Si la direction annonce une limite différente, suivez toujours le montant annoncé." },
-          { type: "p", text: "Par exemple, avec une limite de 70 080 troupes, vous pouvez saisir ce chiffre dans une calculatrice et l'entrer directement dans le champ correspondant à chaque type de troupe. Voici trois exemples :" },
+          { type: "p", text: "Par exemple, avec une limite de {=rally} troupes, vous pouvez saisir ce chiffre dans une calculatrice et l'entrer directement dans le champ correspondant à chaque type de troupe. Voici trois exemples :" },
           { type: "list", items: [
             "60/20/20 ➡️ 42 048 / 14 016 / 14 016",
             "60/40 ➡️ 42 048 / 28 032",
@@ -6243,7 +6243,7 @@ const GUIDES = {
           { type: "p", text: "**Líderes de Rally:** use sua melhor formação ofensiva de heróis, completa." },
           { type: "p", text: "**Participantes de Rally:** siga os limites de tropas publicados pela liderança." },
           { type: "list", items: [
-            "7) QG Viking (Viking HQ): {howard} / {gordon} — **60 : 40** Siga o limite de tropas (~70.080)",
+            "7) QG Viking (Viking HQ): {howard} / {gordon} — **60 : 40** Siga o limite de tropas (~{=rally})",
             "8) PvE – Feras / Caça: {diana} + {fahd} — **50 : 20 : 30**"
           ] },
           { type: "h", text: "🐺 PvE — FERAS / CAÇA" },
@@ -6268,7 +6268,7 @@ const GUIDES = {
           { type: "h", text: "🪖 LIMITE DE TROPAS NA GUARNIÇÃO" },
           { type: "p", text: "Apenas 15 governadores podem entrar no QG / Santuário. Por isso, não envie automaticamente sua marcha máxima para o QG, o Santuário ou outras construções disputadas." },
           { type: "p", text: "Siga o limite de tropas anunciado pela liderança." },
-          { type: "p", text: "**Meta comum da aliança: ~70.080 tropas por jogador**" },
+          { type: "p", text: "**Meta comum da aliança: ~{=rally} tropas por jogador**" },
           { type: "p", text: "Isso permite que mais membros da aliança com marchas defensivas bem configuradas caibam na guarnição e recebam recompensas." },
           { type: "callout", text: "⚠️ Se a liderança anunciar um limite diferente, siga sempre o valor anunciado." },
           { type: "p", text: "Por exemplo, com um limite de 68 mil tropas, você pode colocar esse número numa calculadora e digitar diretamente no campo do tipo de tropa correspondente. Aqui estão três exemplos:" },
@@ -6305,7 +6305,7 @@ const GUIDES = {
           { type: "p", text: "**Líderes de {rally}:** Usa tu alineación ofensiva de héroes más fuerte y completa." },
           { type: "p", text: "**Participantes de {rally}:** Sigue los límites de tropas indicados por el liderazgo." },
           { type: "list", items: [
-            "7) Total vikingo: {howard} / {gordon} — **60 : 40** Sigue el límite de tropas (~70,080)",
+            "7) Total vikingo: {howard} / {gordon} — **60 : 40** Sigue el límite de tropas (~{=rally})",
             "8) PvE — Bestias / Caza: {diana} + {fahd} — **50 : 20 : 30**"
           ]},
           { type: "p", text: "[[squad:page]]" },
@@ -6334,10 +6334,10 @@ const GUIDES = {
           { type: "h", text: "🪖 LÍMITE DE TROPAS EN LA GUARNICIÓN" },
           { type: "p", text: "Solo 15 gobernadores pueden entrar al Cuartel General (HQ) / {sanctuary}. Así que no envíes automáticamente tu marcha máxima al HQ, {sanctuary} u otros edificios en disputa." },
           { type: "p", text: "Sigue el límite de tropas anunciado por el liderazgo." },
-          { type: "p", text: "**Objetivo habitual de la alianza: ~70,080 tropas por jugador**" },
+          { type: "p", text: "**Objetivo habitual de la alianza: ~{=rally} tropas por jugador**" },
           { type: "p", text: "Esto permite que más miembros de la alianza con marchas defensivas correctamente configuradas quepan dentro de la guarnición y obtengan recompensas." },
           { type: "callout", text: "⚠️ Si el liderazgo anuncia un límite diferente, sigue siempre la cantidad anunciada." },
-          { type: "p", text: "Por ejemplo, con un límite de 70,080 tropas, puedes introducir ese número en una calculadora y colocarlo directamente en el campo correspondiente al tipo de tropa. Aquí tienes tres ejemplos:" },
+          { type: "p", text: "Por ejemplo, con un límite de {=rally} tropas, puedes introducir ese número en una calculadora y colocarlo directamente en el campo correspondiente al tipo de tropa. Aquí tienes tres ejemplos:" },
           { type: "list", items: [
             "60/20/20 ➡️ 42,048 / 14,016 / 14,016",
             "60/40 ➡️ 42,048 / 28,032",
@@ -6372,7 +6372,7 @@ const GUIDES = {
           { type: "p", text: "**Seferberlik Liderleri:** En güçlü, eksiksiz saldırı kahraman kadronuzu kullanın." },
           { type: "p", text: "**Seferberliğe Katılanlar:** Lütfen yönetimin duyurduğu birlik sınırlarına uyun." },
           { type: "list", items: [
-            "7) Viking Karargahı (Viking HQ): {howard} / {gordon} — **60 : 40** Birlik sınırına uyun (~70.080)",
+            "7) Viking Karargahı (Viking HQ): {howard} / {gordon} — **60 : 40** Birlik sınırına uyun (~{=rally})",
             "8) PvE – Hayvanlar / Av: {diana} + {fahd} — **50 : 20 : 30**"
           ] },
           { type: "h", text: "🐺 PvE — HAYVANLAR / AV" },
@@ -6397,10 +6397,10 @@ const GUIDES = {
           { type: "h", text: "🪖 GARNİZON BİRLİK SINIRI" },
           { type: "p", text: "Karargaha / Tapınağa yalnızca 15 vali girebilir. Bu yüzden maksimum intikalinizi otomatik olarak karargaha, Tapınağa veya diğer çekişmeli binalara göndermeyin." },
           { type: "p", text: "Yönetimin duyurduğu birlik sınırına uyun." },
-          { type: "p", text: "**Tipik ittifak hedefi: oyuncu başına ~70.080 birlik**" },
+          { type: "p", text: "**Tipik ittifak hedefi: oyuncu başına ~{=rally} birlik**" },
           { type: "p", text: "Bu sayede savunma intikalleri doğru yapılandırılmış daha fazla ittifak üyesi garnizona sığar ve ödül alır." },
           { type: "callout", text: "⚠️ Yönetim farklı bir sınır duyurursa her zaman duyurulan miktara uyun." },
-          { type: "p", text: "Örneğin, 70.080 birlik sınırını temel alarak bu sayıyı bir hesap makinesine girip doğrudan ilgili birlik türünün alanına yazabilirsin. İşte üç örnek:" },
+          { type: "p", text: "Örneğin, {=rally} birlik sınırını temel alarak bu sayıyı bir hesap makinesine girip doğrudan ilgili birlik türünün alanına yazabilirsin. İşte üç örnek:" },
           { type: "list", items: [
             "60/20/20 ➡️ 42.048 / 14.016 / 14.016",
             "60/40 ➡️ 42.048 / 28.032",
@@ -6436,7 +6436,7 @@ const GUIDES = {
           { type: "p", text: "**Pemimpin Reli:** Gunakan susunan hero ofensif terkuat dan lengkapmu." },
           { type: "p", text: "**Peserta Reli:** Ikuti batas pasukan yang diumumkan pimpinan." },
           { type: "list", items: [
-            "7) Markas Viking (Viking HQ): {howard} / {gordon} — **60 : 40** Ikuti batas pasukan (~70.080)",
+            "7) Markas Viking (Viking HQ): {howard} / {gordon} — **60 : 40** Ikuti batas pasukan (~{=rally})",
             "8) PvE – binatang buas / Berburu: {diana} + {fahd} — **50 : 20 : 30**"
           ] },
           { type: "h", text: "🐺 PvE — BINATANG BUAS / BERBURU" },
@@ -6461,10 +6461,10 @@ const GUIDES = {
           { type: "h", text: "🪖 BATAS PASUKAN GARNISUN" },
           { type: "p", text: "Hanya 15 gubernur yang bisa masuk ke markas / Sanctuary. Jadi jangan otomatis mengirim barisan maksimalmu ke markas, Sanctuary, atau bangunan lain yang diperebutkan." },
           { type: "p", text: "Ikuti batas pasukan yang diumumkan pimpinan." },
-          { type: "p", text: "**Target aliansi umum: ~70.080 pasukan per pemain**" },
+          { type: "p", text: "**Target aliansi umum: ~{=rally} pasukan per pemain**" },
           { type: "p", text: "Ini memungkinkan lebih banyak anggota aliansi dengan barisan pertahanan yang terkonfigurasi baik masuk ke garnisun dan mendapat hadiah." },
           { type: "callout", text: "⚠️ Jika pimpinan mengumumkan batas yang berbeda, selalu ikuti angka yang diumumkan." },
-          { type: "p", text: "Contohnya, dengan batas 70.080 pasukan, kamu bisa memasukkan angka itu ke kalkulator dan langsung mengetiknya di kolom jenis pasukan yang sesuai. Berikut tiga contohnya:" },
+          { type: "p", text: "Contohnya, dengan batas {=rally} pasukan, kamu bisa memasukkan angka itu ke kalkulator dan langsung mengetiknya di kolom jenis pasukan yang sesuai. Berikut tiga contohnya:" },
           { type: "list", items: [
             "60/20/20 ➡️ 42.048 / 14.016 / 14.016",
             "60/40 ➡️ 42.048 / 28.032",
@@ -6500,7 +6500,7 @@ const GUIDES = {
           { type: "p", text: "**Лидеры рейда:** используйте свою сильнейшую полную атакующую связку героев." },
           { type: "p", text: "**Участники рейда:** соблюдайте лимиты войск, объявленные руководством." },
           { type: "list", items: [
-            "7) Штаб викингов (Viking HQ): {howard} / {gordon} — **60 : 40** Соблюдайте лимит войск (~70 080)",
+            "7) Штаб викингов (Viking HQ): {howard} / {gordon} — **60 : 40** Соблюдайте лимит войск (~{=rally})",
             "8) PvE – Звери / Охота: {diana} + {fahd} — **50 : 20 : 30**"
           ] },
           { type: "h", text: "🐺 PvE — ЗВЕРИ / ОХОТА" },
@@ -6525,10 +6525,10 @@ const GUIDES = {
           { type: "h", text: "🪖 ЛИМИТ ВОЙСК В ГАРНИЗОНЕ" },
           { type: "p", text: "В штаб / святилище могут войти только 15 губернаторов. Поэтому не отправляйте автоматически свой максимальный марш в штаб, святилище или другие спорные здания." },
           { type: "p", text: "Соблюдайте лимит войск, объявленный руководством." },
-          { type: "p", text: "**Обычная цель альянса: ~70 080 войск на игрока**" },
+          { type: "p", text: "**Обычная цель альянса: ~{=rally} войск на игрока**" },
           { type: "p", text: "Так в гарнизон поместится больше участников альянса с правильно настроенными маршами защиты, и они получат награды." },
           { type: "callout", text: "⚠️ Если руководство объявит другой лимит, всегда следуйте объявленной цифре." },
-          { type: "p", text: "Например, при лимите войск 70 080 это число можно ввести в калькулятор и сразу вписать в поле соответствующего типа войск. Вот три примера:" },
+          { type: "p", text: "Например, при лимите войск {=rally} это число можно ввести в калькулятор и сразу вписать в поле соответствующего типа войск. Вот три примера:" },
           { type: "list", items: [
             "60/20/20 ➡️ 42 048 / 14 016 / 14 016",
             "60/40 ➡️ 42 048 / 28 032",
@@ -6564,7 +6564,7 @@ const GUIDES = {
           { type: "p", text: "**ผู้นำทีมระดมพล:** ใช้ทีมฮีโร่โจมตีที่แข็งแกร่งและครบชุดที่สุดของคุณ" },
           { type: "p", text: "**ผู้เข้าร่วมทีมระดมพล:** โปรดปฏิบัติตามขีดจำกัดทหารที่ผู้นำประกาศ" },
           { type: "list", items: [
-            "7) ศูนย์บัญชาการไวกิ้ง (Viking HQ): {howard} / {gordon} — **60 : 40** ปฏิบัติตามขีดจำกัดทหาร (~70,080)",
+            "7) ศูนย์บัญชาการไวกิ้ง (Viking HQ): {howard} / {gordon} — **60 : 40** ปฏิบัติตามขีดจำกัดทหาร (~{=rally})",
             "8) PvE – สัตว์อสูร / ล่า: {diana} + {fahd} — **50 : 20 : 30**"
           ] },
           { type: "h", text: "🐺 PvE — สัตว์อสูร / ล่า" },
@@ -6589,10 +6589,10 @@ const GUIDES = {
           { type: "h", text: "🪖 ขีดจำกัดทหารในการคุ้มกัน" },
           { type: "p", text: "มีเพียงเจ้าเมือง 15 คนเท่านั้นที่เข้าศูนย์บัญชาการ / วิหารได้ ดังนั้นอย่าส่งการเดินทัพสูงสุดของคุณไปยังศูนย์บัญชาการ วิหาร หรือสิ่งปลูกสร้างที่ต้องแย่งชิงอื่น ๆ โดยอัตโนมัติ" },
           { type: "p", text: "ปฏิบัติตามขีดจำกัดทหารที่ผู้นำประกาศ" },
-          { type: "p", text: "**เป้าหมายทั่วไปของพันธมิตร: ~70,080 ทหารต่อผู้เล่น**" },
+          { type: "p", text: "**เป้าหมายทั่วไปของพันธมิตร: ~{=rally} ทหารต่อผู้เล่น**" },
           { type: "p", text: "วิธีนี้ทำให้สมาชิกพันธมิตรที่ตั้งค่าการเดินทัพป้องกันอย่างถูกต้องเข้าไปได้มากขึ้นและได้รับรางวัล" },
           { type: "callout", text: "⚠️ หากผู้นำประกาศขีดจำกัดที่ต่างออกไป ให้ทำตามจำนวนที่ประกาศเสมอ" },
-          { type: "p", text: "ตัวอย่างเช่น หากใช้ขีดจำกัดทหาร 70,080 คุณสามารถนำตัวเลขนี้ไปใส่ในเครื่องคิดเลข แล้วพิมพ์ลงในช่องของทหารแต่ละประเภทได้เลย ต่อไปนี้คือ 3 ตัวอย่าง:" },
+          { type: "p", text: "ตัวอย่างเช่น หากใช้ขีดจำกัดทหาร {=rally} คุณสามารถนำตัวเลขนี้ไปใส่ในเครื่องคิดเลข แล้วพิมพ์ลงในช่องของทหารแต่ละประเภทได้เลย ต่อไปนี้คือ 3 ตัวอย่าง:" },
           { type: "list", items: [
             "60/20/20 ➡️ 42,048 / 14,016 / 14,016",
             "60/40 ➡️ 42,048 / 28,032",
@@ -6628,7 +6628,7 @@ const GUIDES = {
           { type: "p", text: "**قادة الحشد:** استخدم أقوى تشكيلة أبطال هجومية كاملة لديك." },
           { type: "p", text: "**المنضمون إلى الحشد:** يُرجى الالتزام بحدود القوات التي تعلنها القيادة." },
           { type: "list", items: [
-            "7) مقر الفايكنغ (Viking HQ): {howard} / {gordon} — **60 : 40** التزم بحد القوات (~70,080)",
+            "7) مقر الفايكنغ (Viking HQ): {howard} / {gordon} — **60 : 40** التزم بحد القوات (~{=rally})",
             "8) PvE – الوحوش / الصيد: {diana} + {fahd} — **50 : 20 : 30**"
           ] },
           { type: "h", text: "🐺 PvE — الوحوش / الصيد" },
@@ -6653,7 +6653,7 @@ const GUIDES = {
           { type: "h", text: "🪖 الحد الأقصى للقوات في الحامية" },
           { type: "p", text: "يمكن لـ15 حاكمًا فقط دخول المقر / المأوى. لذا لا ترسل طابورك الأقصى تلقائيًا إلى المقر أو المأوى أو غيرهما من المباني المتنازع عليها." },
           { type: "p", text: "التزم بالحد الأقصى للقوات الذي تعلنه القيادة." },
-          { type: "p", text: "**الهدف المعتاد للتحالف: ~70,080 من القوات لكل لاعب**" },
+          { type: "p", text: "**الهدف المعتاد للتحالف: ~{=rally} من القوات لكل لاعب**" },
           { type: "p", text: "يتيح ذلك لعدد أكبر من أعضاء التحالف ممن أعدّوا طوابير دفاع مضبوطة جيدًا أن يدخلوا الحامية ويحصلوا على المكافآت." },
           { type: "callout", text: "⚠️ إذا أعلنت القيادة حدًا مختلفًا، فالتزم دائمًا بالرقم المعلن." },
           { type: "callout", text: "⚠️ إذا أعلنت القيادة حدًا مختلفًا، فالتزم دائمًا بالرقم المعلن." },
