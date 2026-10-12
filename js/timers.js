@@ -27,7 +27,12 @@
       local: "Timers still work on this page, but your phone won't ping you until notifications are on.",
       fail: "Couldn't reach the notification server. Your timers are saved; they'll sync next time.",
       body: "is done — time to check the game!", name: "Name",
-      cats: { gather: "Gathering", train: "Training", build: "Construction", research: "Research", heal: "Healing", other: "Other" } },
+      cats: { gather: "Gathering", train: "Training", build: "Construction", research: "Research", heal: "Healing", other: "Other" },
+      troop: "Which troops?", builder: "＋ Second builder",
+      alerts: "🔔 Event alerts", alertsNote: "Tap a time to get a notification before it starts.", before: "{n} min before",
+      next: "next alert: {t}", arenaName: "Arena", arenaTime: "23:57 UTC — 3 min before the daily reset",
+      evTitle: "{e} {name} in {n} min", evBody: "Starts at {t} UTC.", arenaTitle: "🏟️ Arena resets in 3 min", arenaBody: "Use your Arena challenges before 00:00 UTC.",
+      alertsSync: "Alerts are planned 3 weeks ahead — open the site now and then to keep them going." },
     zh: { chip: "⏰ 設定計時", title: "⏰ 我的計時", chat: "‹ 對話", add: "＋ 設定計時", what: "要計時什麼？", left: "遊戲裡剩下的時間", hint: "例如 2:45:12、2h45m、45m",
       another: "＋ 再加一隊", save: "儲存", cancel: "取消", empty: "還沒有計時。", done: "完成 ✓", at: "{t} 完成", bad: "請檢查時間，例如 2:45:12",
       on: "🔔 這支手機已開啟通知。", turnOn: "🔔 開啟通知", test: "傳測試通知", testMsg: "通知可以用了！✓",
@@ -150,7 +155,62 @@
   try { timers = JSON.parse(localStorage.getItem(LS)) || []; } catch (e) {}
   const store = () => { try { localStorage.setItem(LS, JSON.stringify(timers)); } catch (e) {} };
   const prune = () => { const now = Date.now(); timers = timers.filter((x) => x.at > now - KEEP_DONE_MS); };
-  const labelOf = (x) => (x.cat === "other" && x.name ? x.name : (T("cats")[x.cat] || x.cat)) + (x.n ? ` #${x.n}` : "");
+  const termOf = (id) => (typeof GLOSSARY !== "undefined" && GLOSSARY[id] ? GLOSSARY[id][lang()] || GLOSSARY[id].en : id);
+  const labelOf = (x) => (x.cat === "other" && x.name ? x.name : (T("cats")[x.cat] || x.cat)) + (x.sub ? ` · ${termOf(x.sub)}` : "") + (x.n ? ` #${x.n}` : "");
+  const MULTI = { gather: 6, build: 2 };   // several at once: gathering marches, 2 builders
+  const TROOPS = { infantry: "🛡️", cavalry: "🐎", archer: "🏹" };
+
+  /* ---------- event alerts (Bear Hunt, Arena reset, Swordland…) — opt-in per time, N minutes before ---------- */
+  const ALS = "nxs-alerts-v1";
+  let alerts = {};
+  try { alerts = JSON.parse(localStorage.getItem(ALS)) || {}; } catch (e) {}
+  const saveAlerts = () => { try { localStorage.setItem(ALS, JSON.stringify(alerts)); } catch (e) {} };
+  const BEFORE = [1, 3, 5, 10, 15, 30, 60];
+  const ALERT_KEYS = ["bear-hunt", "arena", "swordland-showdown", "tri-alliance-clash", "viking-vengeance"];
+  /* which day of the event run has the battle (0 = first day). Default: the last day — check in game. */
+  const FIGHT_DAY = { "swordland-showdown": -1, "tri-alliance-clash": -1, "viking-vengeance": -1 };
+  const DAY = 86400000, HORIZON = 21 * DAY;
+  const evHours = (k) => (typeof EVENT_TIMES !== "undefined" && EVENT_TIMES[k]) || [];
+  const evName = (k) => (typeof GUIDES !== "undefined" && GUIDES[k] ? GUIDES[k].name[lang()] || GUIDES[k].name.en : k);
+  const evEmoji = (k) => (typeof GUIDES !== "undefined" && GUIDES[k] ? GUIDES[k].emoji : "📅");
+  function evSched(k) {
+    if (k === "bear-hunt") return typeof BEAR_SCHED !== "undefined" ? BEAR_SCHED : null;
+    return typeof EVENT_SCHEDULES !== "undefined" ? EVENT_SCHEDULES[k] : null;
+  }
+  /* is there a battle of event k on the UTC day starting at dayStart? */
+  function fightOn(k, dayStart) {
+    const sc = evSched(k); if (!sc) return false;
+    const n = Math.floor((dayStart - sc.anchor) / DAY); if (n < 0) return false;
+    const inRun = n % sc.periodDays; if (inRun >= sc.activeDays) return false;
+    if (!(k in FIGHT_DAY)) return true;                      // Bear Hunt: every active day
+    const f = FIGHT_DAY[k] < 0 ? sc.activeDays + FIGHT_DAY[k] : FIGHT_DAY[k];
+    return inRun === f;
+  }
+  /* the alert notifications for the next 3 weeks, from the choices above */
+  function alertTimers() {
+    const now = Date.now(), out = [], today = Math.floor(now / DAY) * DAY;
+    for (const k of ALERT_KEYS) {
+      const a = alerts[k]; if (!a) continue;
+      for (let d = today; d < now + HORIZON; d += DAY) {
+        if (k === "arena") {
+          const at = d + (23 * 60 + 57) * 60000;
+          if (a.on && at > now) out.push({ id: `ev-arena-${d / DAY}`, at, title: T("arenaTitle"), body: T("arenaBody") });
+          continue;
+        }
+        if (!fightOn(k, d)) continue;
+        const before = a.before || 10;
+        for (const h of evHours(k)) {
+          if (!(a.on && a.on[h])) continue;
+          const at = d + h * 3600000 - before * 60000;
+          if (at <= now) continue;
+          out.push({ id: `ev-${k}-${h}-${d / DAY}`, at,
+            title: T("evTitle").replace("{e}", evEmoji(k)).replace("{name}", evName(k)).replace("{n}", before),
+            body: T("evBody").replace("{t}", String(h).padStart(2, "0") + ":00") });
+        }
+      }
+    }
+    return out.sort((x, y) => x.at - y.at);
+  }
   /* "2:45:12", "45:00", "2h45m", "2h 45m 12s", "45m", "90" (minutes) → milliseconds */
   function parseLeft(s) {
     s = String(s || "").trim().toLowerCase().replace(/[，、]/g, ",");
@@ -168,7 +228,7 @@
     });
     return any ? ms : 0;
   }
-  const fmtLeft = (ms) => { const s = Math.max(0, Math.round(ms / 1000)); return `${Math.floor(s / 3600)}:${String(Math.floor(s / 60) % 60).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`; };
+  const fmtLeft = (ms) => { const s = Math.max(0, Math.round(ms / 1000)), d = Math.floor(s / 86400); return `${d ? d + "d " : ""}${Math.floor(s / 3600) % 24}:${String(Math.floor(s / 60) % 60).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`; };
   const fmtAt = (at) => { const d = new Date(at), same = d.toDateString() === new Date().toDateString();
     return (same ? "" : d.toLocaleDateString(undefined, { weekday: "short" }) + " ") + d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }); };
 
@@ -197,7 +257,8 @@
     const sub = await getSub();
     if (!sub) return;
     const now = Date.now();
-    const list = timers.filter((x) => x.at > now).map((x) => ({ id: x.id, at: x.at, title: `${CAT_EMOJI[x.cat] || "⏰"} ${labelOf(x)}`, body: `${labelOf(x)} ${T("body")}` }));
+    const list = timers.filter((x) => x.at > now).map((x) => ({ id: x.id, at: x.at, title: `${CAT_EMOJI[x.cat] || "⏰"} ${labelOf(x)}`, body: `${labelOf(x)} ${T("body")}` }))
+      .concat(alertTimers());
     try { await post("/push/save", { sub: sub.toJSON(), timers: list }); syncErr = false; }
     catch (e) { syncErr = true; }
     if (!view.hidden) render();
@@ -226,6 +287,11 @@
     .tm-hint{color:var(--text-muted);font-size:12.5px;margin:-2px 0 8px}
     .tm-err{color:#c0392b;font-size:13px;margin-bottom:6px}
     .tm-acts{display:flex;gap:8px;margin-top:6px}
+    .tm-alerts{margin-top:16px;padding-top:12px;border-top:2px solid var(--rule)}
+    .tm-ev{padding:8px 0;border-top:1px solid var(--rule)}
+    .tm-ev .tm-cats{margin:6px 0 2px;align-items:center}
+    .tm-btn.on .tm-a{color:inherit}
+    .tm-sel{padding:5px 8px;font:inherit;font-size:13px;border:1px solid var(--rule);border-radius:8px;background:var(--panel-2);color:var(--text)}
   `;
   document.head.appendChild(st);
   const view = document.createElement("div");
@@ -269,18 +335,41 @@
     let h = `<div class="tm-note"><b>${esc(T("what"))}</b><div class="tm-cats">${cats}</div>`;
     if (adding.cat) {
       if (adding.cat === "other") h += `<input class="tm-in" data-name placeholder="${esc(T("name"))}" value="${esc(adding.name)}" dir="auto">`;
+      if (adding.cat === "train") {
+        h += `<b>${esc(T("troop"))}</b><div class="tm-cats">${Object.keys(TROOPS).map((k) => `<button type="button" class="tm-btn${adding.sub === k ? " on" : ""}" data-sub="${k}">${TROOPS[k]} ${esc(termOf(k))}</button>`).join("")}</div>`;
+        if (!adding.sub) return h + `<div class="tm-acts"><button type="button" class="tm-btn" data-a="cancel">${esc(T("cancel"))}</button></div></div>`;
+      }
       h += `<b>${esc(T("left"))}</b><div class="tm-hint">${esc(T("hint"))}</div>`;
-      h += adding.rows.map((v, i) => `<input class="tm-in" data-row="${i}" inputmode="text" autocomplete="off" placeholder="${adding.cat === "gather" ? `#${i + 1}  ` : ""}2:45:12" value="${esc(v)}" dir="ltr">`).join("");
-      if (adding.cat === "gather" && adding.rows.length < 6) h += `<button type="button" class="tm-btn" data-a="row">${esc(T("another"))}</button>`;
+      h += adding.rows.map((v, i) => `<input class="tm-in" data-row="${i}" inputmode="text" autocomplete="off" placeholder="${MULTI[adding.cat] ? `#${i + 1}  ` : ""}2:45:12" value="${esc(v)}" dir="ltr">`).join("");
+      if (MULTI[adding.cat] && adding.rows.length < MULTI[adding.cat]) h += `<button type="button" class="tm-btn" data-a="row">${esc(T(adding.cat === "build" ? "builder" : "another"))}</button>`;
       if (adding.err) h += `<div class="tm-err">${esc(T("bad"))}</div>`;
       h += `<div class="tm-acts"><button type="button" class="tm-btn main" data-a="save">${esc(T("save"))}</button><button type="button" class="tm-btn" data-a="cancel">${esc(T("cancel"))}</button></div>`;
     } else h += `<div class="tm-acts"><button type="button" class="tm-btn" data-a="cancel">${esc(T("cancel"))}</button></div>`;
     return h + `</div>`;
   }
+  function alertsHtml() {
+    const loc = (h, m = 0) => new Date(Date.UTC(2000, 0, 1, h, m)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    const nextOf = (k) => { const x = alertTimers().find((t) => t.id.startsWith(`ev-${k}-`)); return x ? `<div class="tm-a">${esc(T("next").replace("{t}", fmtAt(x.at)))}</div>` : ""; };
+    const rows = ALERT_KEYS.map((k) => {
+      const a = alerts[k] || {};
+      if (k === "arena") return `<div class="tm-ev"><div><b>🏟️ ${esc(T("arenaName"))}</b></div><div class="tm-cats">
+        <button type="button" class="tm-btn${a.on ? " on" : ""}" data-al="arena">${esc(T("arenaTime"))}</button></div>${a.on ? nextOf("arena") : ""}</div>`;
+      const H = evHours(k); if (!H.length || !evSched(k)) return "";
+      const any = a.on && H.some((h) => a.on[h]);
+      return `<div class="tm-ev"><div><b>${evEmoji(k)} ${esc(evName(k))}</b></div><div class="tm-cats">
+        ${H.map((h) => `<button type="button" class="tm-btn${a.on && a.on[h] ? " on" : ""}" data-al="${k}:${h}">${String(h).padStart(2, "0")}:00 UTC <span class="tm-a">(${loc(h)})</span></button>`).join("")}
+        <select class="tm-sel" data-before="${k}">${BEFORE.map((m) => `<option value="${m}"${(a.before || 10) === m ? " selected" : ""}>${esc(T("before").replace("{n}", m))}</option>`).join("")}</select></div>${any ? nextOf(k) : ""}</div>`;
+    }).join("");
+    return `<div class="tm-alerts"><b>${esc(T("alerts"))}</b><div class="tm-hint" style="margin-top:2px">${esc(T("alertsNote"))}</div>${rows}<div class="tm-hint">${esc(T("alertsSync"))}</div></div>`;
+  }
+  view.addEventListener("change", (e) => {
+    const k = e.target.dataset.before; if (!k) return;
+    (alerts[k] = alerts[k] || {}).before = +e.target.value; saveAlerts(); render(); sync();
+  });
   async function render() {
     const n = await notifHtml();
     view.innerHTML = `<div class="tm-top"><b>${esc(T("title"))}</b><button type="button" class="tm-btn" data-a="chat">${esc(T("chat"))}</button></div>
-      ${n}<div id="tmAdd">${addHtml()}</div><div id="tmList" style="margin-top:10px">${listHtml()}</div>`;
+      ${n}<div id="tmAdd">${addHtml()}</div><div id="tmList" style="margin-top:10px">${listHtml()}</div>${alertsHtml()}`;
     const first = view.querySelector("[data-name]") || view.querySelector('[data-row="0"]');
     if (first && adding && adding.focus) { first.focus(); adding.focus = false; }
   }
@@ -296,7 +385,14 @@
     const b = e.target.closest("button"); if (!b) return;
     const a = b.dataset.a;
     if (b.dataset.del) { timers = timers.filter((x) => x.id !== b.dataset.del); store(); renderList(); sync(); return; }
-    if (b.dataset.cat) { adding.cat = b.dataset.cat; adding.err = false; adding.focus = true; return render(); }
+    if (b.dataset.cat) { adding.cat = b.dataset.cat; adding.sub = null; adding.rows = adding.rows.slice(0, MULTI[adding.cat] || 1); adding.err = false; adding.focus = true; return render(); }
+    if (b.dataset.sub) { adding.sub = b.dataset.sub; adding.focus = true; return render(); }
+    if (b.dataset.al) {   // event alert time toggles: "bear-hunt:13", "arena"
+      const [k, h] = b.dataset.al.split(":");
+      const a = (alerts[k] = alerts[k] || { before: 10 });
+      if (k === "arena") a.on = !a.on; else { a.on = a.on || {}; a.on[h] = !a.on[h]; }
+      saveAlerts(); render(); sync(); return;
+    }
     if (a === "chat") return show(false);
     if (a === "add") { adding = { cat: null, rows: [""], name: "" }; return render(); }
     if (a === "cancel") { adding = null; return render(); }
@@ -314,13 +410,14 @@
     const rows = adding.rows.map((v) => v.trim()).filter(Boolean);
     const ms = rows.map(parseLeft);
     if (!rows.length || ms.some((x) => !x || x > 30 * 86400000)) { adding.err = true; return render(); }
-    const now = Date.now(), multi = adding.cat === "gather" && rows.length > 1;
-    // gathering marches are numbered after the ones already running
-    const used = timers.filter((x) => x.cat === "gather" && x.at > now).map((x) => x.n || 0);
-    let n = multi || used.length ? Math.max(0, ...used) : 0;
+    const now = Date.now(), numbered = !!MULTI[adding.cat];
+    // gathering marches / builders are numbered after the ones already running
+    const used = timers.filter((x) => x.cat === adding.cat && x.at > now).map((x) => x.n || 0);
+    const number = numbered && (rows.length > 1 || used.length);
+    let n = number ? Math.max(0, ...used) : 0;
     ms.forEach((d) => {
       timers.push({ id: Math.random().toString(36).slice(2, 10), cat: adding.cat, name: adding.cat === "other" ? adding.name.trim().slice(0, 40) : "",
-        n: adding.cat === "gather" && (multi || used.length) ? ++n : 0, at: now + d });
+        sub: adding.cat === "train" ? adding.sub : "", n: number ? ++n : 0, at: now + d });
     });
     store(); adding = null; render(); sync();
   }

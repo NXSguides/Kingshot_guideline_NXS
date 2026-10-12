@@ -14,7 +14,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-12a (push timers)";
+const VERSION = "2026-10-12b (push timers + alerts)";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -513,7 +513,7 @@ async function dailyCheck(env, deviceId, ip) {
    Secret needed (Settings → Variables and Secrets): VAPID_PRIVATE — the private half of the push key. */
 const VAPID_PUBLIC = "BKb0YJxObHPh9_7b4ZriSZQeRk6TaojqNUvPBJe7J9aC_pVuXtmQRRWD11gDs6OJYj8Fg7jigPXDBOxZ5NQbP0o";
 const VAPID_SUB = "https://nxsguides.github.io/Kingshot_guideline_NXS/";
-const MAX_TIMERS = 60;
+const MAX_TIMERS = 200;
 
 const b64u = {
   enc: (buf) => { let s = ""; new Uint8Array(buf).forEach((x) => (s += String.fromCharCode(x))); return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); },
