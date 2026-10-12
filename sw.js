@@ -3,7 +3,7 @@
    - Pages, app code, guide text and data files: try the network first (so new uploads show up
      right away); if it doesn't answer within 1.5 s for pages/code (3 s for data files), or there
      is no internet, show the saved copy. */
-const CACHE = "nxs-v10";
+const CACHE = "nxs-v11";
 const NETWORK_TIMEOUT_MS = 3000;        // data files
 const SHELL_TIMEOUT_MS = 1500;          // pages, code, guide text
 const SHELL = [
@@ -94,14 +94,19 @@ self.addEventListener("push", (e) => {
   try { m = e.data ? e.data.json() : {}; } catch (err) { m = { title: "NXS", body: e.data ? e.data.text() : "" }; }
   e.waitUntil(self.registration.showNotification(m.title || "NXS", {
     body: m.body || "", tag: m.tag || undefined, renotify: !!m.tag,
-    icon: "icons/icon-192.png", badge: "icons/icon-192.png", data: { url: "./?timers" }
+    icon: "icons/icon-192.png", badge: "icons/icon-192.png",
+    data: { url: /^adm-/.test(m.tag || "") ? "./officer-x7k2p9.html#events" : "./?timers" }   // admin reminders open the officer checklist
   }));
 });
 self.addEventListener("notificationclick", (e) => {
   e.notification.close();
   const url = new URL((e.notification.data && e.notification.data.url) || "./", self.registration.scope).href;
   e.waitUntil(self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((list) => {
-    for (const c of list) if (c.url.startsWith(self.registration.scope) && "focus" in c) { c.postMessage({ nxs: "open-timers" }); return c.focus(); }
+    const admin = /officer-x7k2p9/.test(url);
+    for (const c of list) if (c.url.startsWith(self.registration.scope) && "focus" in c) {
+      if (admin) return c.navigate ? c.navigate(url).then((w) => w && w.focus()) : self.clients.openWindow(url);
+      c.postMessage({ nxs: "open-timers" }); return c.focus();
+    }
     return self.clients.openWindow(url);
   }));
 });

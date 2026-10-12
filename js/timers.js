@@ -55,7 +55,7 @@
       alerts: "🎮 Game reminders",
       admin: "🛠️ Admin reminders", adminNote: "Officer to-dos from the Events tab, sent on the day they're due.", adminOn: "Send admin reminders",
       adminAt: "at {t} UTC", adminNone: "Open the officer page's Events tab once (in this same app / browser) to load the to-dos — they refresh every time you open it.",
-      adminEmpty: "No officer to-dos in the next 3 weeks.", adminUpd: "to-dos loaded {t}", alertsNote: "Tap a time to get a notification before it starts.", before: "{n} min before",
+      adminEmpty: "No officer to-dos in the next 3 weeks.", adminUpd: "to-dos loaded {t}", adminBody: "Admin step today — tap to open the checklist.", alertsNote: "Tap a time to get a notification before it starts.", before: "{n} min before",
       next: "next alert: {t}", atTime: "at the time", reset: "00:00 UTC reset", arenaName: "Arena", journeyName: "Journey Supplies", intelName: "Intel Missions",
       refreshTitle: "{e} {name} refresh in {n} min", refreshNow: "{e} {name} — new missions now!", refreshBody: "Watchtower refreshes at {t} UTC.",
       evTitle: "{e} {name} in {n} min", evNow: "{e} {name} — now!", evBody: "Starts at {t} UTC.",
@@ -261,10 +261,16 @@
   function adminTimers() {
     const a = alerts.admin, d = adminData();
     if (!a || !a.on || !d || !Array.isArray(d.items)) return [];
-    const now = Date.now(), h = a.hour ?? 0;
-    return d.items.map((x) => ({ id: `adm-${x.id}`.slice(0, 40), at: x.due + h * 3600000, title: `🛠️ ${x.title}`, body: x.body }))
-      .filter((x) => x.at > now).sort((x, y) => x.at - y.at);
+    const now = Date.now(), h = a.hour ?? 0, seen = new Set(), out = [];
+    // one short notification per event per day ("⚔️ Swordland Showdown") — the details stay in the checklist
+    for (const x of d.items) {
+      const ev = x.ev || String(x.id).replace(/-\d{4}-\d\d-\d\d-\d+$/, ""), key = `${ev}-${Math.floor(x.due / 86400000)}`;
+      if (seen.has(key)) continue; seen.add(key);
+      out.push({ id: `adm-${key}`.slice(0, 40), at: x.due + h * 3600000, title: `🛠️ ${x.title}`, body: T("adminBody") });
+    }
+    return out.filter((x) => x.at > now).sort((x, y) => x.at - y.at);
   }
+
   /* "2:45:12", "45:00", "2h45m", "2h 45m 12s", "45m", "90" (minutes) → milliseconds */
   function parseLeft(s) {
     s = String(s || "").trim().toLowerCase().replace(/[，、]/g, ",");
@@ -436,7 +442,7 @@
       const next = adminTimers().slice(0, 4);
       body = `<div class="tm-cats"><button type="button" class="tm-btn${a.on ? " on" : ""}" data-a="admin">${esc(T("adminOn"))}</button>
         <select class="tm-sel" data-hour="1">${Array.from({ length: 24 }, (_, i) => `<option value="${i}"${h === i ? " selected" : ""}>${esc(T("adminAt").replace("{t}", String(i).padStart(2, "0") + ":00"))} (${loc(i)})</option>`).join("")}</select></div>`
-        + (a.on ? (next.length ? next.map((x) => `<div class="tm-a">• ${esc(fmtAt(x.at))} — ${esc(x.title.replace(/^🛠️ /, ""))}: ${esc(x.body)}</div>`).join("") : `<div class="tm-a">${esc(T("adminEmpty"))}</div>`) : "")
+        + (a.on ? (next.length ? next.map((x) => `<div class="tm-a">• ${esc(fmtAt(x.at))} — ${esc(x.title.replace(/^🛠️ /, ""))}</div>`).join("") : `<div class="tm-a">${esc(T("adminEmpty"))}</div>`) : "")
         + `<div class="tm-hint" style="margin-top:4px">${esc(T("adminUpd").replace("{t}", fmtAt(d.updated)))}</div>`;
     }
     return `<div class="tm-alerts"><b>${esc(T("admin"))}</b><div class="tm-hint" style="margin-top:2px">${esc(T("adminNote"))}</div>${body}</div>`;

@@ -1598,7 +1598,7 @@ function exportAdmin() {
       for (const [i, td] of (e.todo || []).entries()) {
         const due = r.st + (Number(td.due) || 0) * DAY, id = `${r.k}-${isoDay(r.st)}-${i}`;
         if (due < today || due > today + 21 * DAY || (store.done || {})[id]) continue;
-        items.push({ id, due, title: `${e.emoji || "📌"} ${e.en || r.k}`, body: String(td.en || td.zh || "").replace(/\*\*/g, "").slice(0, 190) });
+        items.push({ id, ev: r.k, due, title: `${e.emoji || "📌"} ${e.en || r.k}`, body: String(td.en || td.zh || "").replace(/\*\*/g, "").slice(0, 190) });
       }
     }
     localStorage.setItem("nxs-admin-todos", JSON.stringify({ updated: now, items }));
