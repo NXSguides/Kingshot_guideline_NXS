@@ -866,7 +866,7 @@
       <label><span id="bt_lArc"></span><input class="inp" id="bt_arc" type="number" inputmode="numeric" min="0"></label>
     </div>
     <div class="bt-grid bt-grid2" style="margin-top:10px">
-      <label><span id="bt_lRally"></span><input class="inp" id="bt_rally" type="number" inputmode="numeric" min="0"></label>
+      <label><span id="bt_lRally"></span><input class="inp" id="bt_rally" type="number" inputmode="numeric" min="0" placeholder="—"></label>
       <label><span id="bt_lJoin"></span><input class="inp" id="bt_join" type="number" inputmode="numeric" min="0"></label>
     </div>
     <div class="bt-val">
@@ -4198,7 +4198,7 @@ officerGate();
 const $ = (id) => document.getElementById(id);
 const esc = (x) => String(x).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const LS = "nxs-bt-v2";
-const DEF = { troops: ["", "", ""], rally: 131850, join: 90000,
+const DEF = { troops: ["", "", ""], rally: "", join: 90000,   // rally: everyone's own number (no default); join limit 90,000
   auto: { rr: [20, 40, 40], fixN: 1, fix: [10, 10, 80], hero: 2, noHero: 2, minPct: 5 },
   f: [{ k: "rally", c: [0, 0, 0] }] };
 let S = JSON.parse(JSON.stringify(DEF));
@@ -4361,7 +4361,8 @@ function fill() {
 function readTop() {
   const n = (id, d) => { const v = $(id).value.trim(); return v === "" ? d : Math.max(0, Number(v) || 0); };
   S.troops = ["bt_inf", "bt_cav", "bt_arc"].map((id) => $(id).value.trim());
-  S.rally = n("bt_rally", DEF.rally); S.join = n("bt_join", DEF.join);
+  { const v = $("bt_rally").value.trim(); S.rally = v === "" ? "" : Math.max(0, Number(v) || 0); }
+  S.join = n("bt_join", DEF.join);
   S.savage = +$("bt_savage").value || 0;
   const A = S.auto, d = DEF.auto;
   A.rr = ["bt_r0", "bt_r1", "bt_r2"].map((id, i) => n(id, d.rr[i])); A.fix = ["bt_m0", "bt_m1", "bt_m2"].map((id, i) => n(id, d.fix[i]));
