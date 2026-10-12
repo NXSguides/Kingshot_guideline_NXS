@@ -468,6 +468,7 @@
   #pg-bt .bt-val { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--rule); display: grid; gap: 6px; font-size: 13px; }
   #pg-bt .bt-val label { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
   #pg-bt .bt-val select.inp { width: auto; padding: 3px 6px; margin: 0; }
+  #pg-bt .bt-pre select.inp { width: auto !important; padding: 3px 6px; margin: 0; }
   #pg-bt .bt-chk { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; }
   #pg-bt .bt-fit { margin-top: 10px; padding: 8px 10px; border-radius: 10px; background: color-mix(in srgb, var(--accent) 12%, var(--panel)); font-size: 13px; display: grid; gap: 4px; }
   #pg-bt .bt-fit:empty { display: none; }
@@ -879,6 +880,8 @@
     <summary id="bt_hAuto"></summary>
     <div class="muted" id="bt_autoNote" style="font-size:12.5px;margin:6px 0 8px"></div>
     <div class="bt-set">
+      <div class="bt-pre"><span id="bt_lPre"></span> <select class="inp" id="bt_preGen"></select> <select class="inp" id="bt_preTag"></select>
+        <span class="muted" id="bt_preHeroes" style="flex-basis:100%;font-size:12.5px"></span></div>
       <div><span id="bt_lRR"></span> <input class="inp r" id="bt_r0" type="number" min="0">:<input class="inp r" id="bt_r1" type="number" min="0">:<input class="inp r" id="bt_r2" type="number" min="0"></div>
       <div><span id="bt_lFix"></span> <input class="inp r" id="bt_fixN" type="number" min="0" max="10"> <label class="bt-chk"><input type="checkbox" id="bt_fixAuto"> <span id="bt_lFixAuto"></span></label> × <input class="inp r" id="bt_m0" type="number" min="0">:<input class="inp r" id="bt_m1" type="number" min="0">:<input class="inp r" id="bt_m2" type="number" min="0"></div>
       <div><span id="bt_lHero"></span> <input class="inp r" id="bt_hero" type="number" min="0" max="6"></div>
@@ -4212,7 +4215,9 @@ const TX = {
     hVal: "Valora (Bear Hunt Master) — only if your rally number above doesn't include her", savage: "Valora skill: Bear Hunt march capacity (+3,000 / Lv to your own march in the rally — not the whole rally's size, which counts the joiners)", locked: "Not unlocked",
     eff: "Bear Hunt sizes used below: rally {r} · each march {j}",
     hAuto: "⚡ Auto split", autoNote: "Fills the formations below (replaces them). You can still drag everything afterwards.",
-    rr: "Rally ratio", fix: "Fixed-ratio marches", fixAuto: "as many as fit", hero: "Marches with a hero (full, mixed)", rest: "Marches without a hero (identical, share ALL the rest)", min: "Each later march keeps each type at least",
+    rr: "Rally ratio", fix: "Fixed-ratio marches", fixAuto: "as many as fit",
+    pre: "Rally leader setup (Bear Hunt guide)", preNone: "— my own ratio —", preGen: "Gen {n}", tag_best: "Best", tag_alt: "Alternative", tag_f2p: "F2P",
+    preHeroes: "Heroes", preHint: "Pick your hero generation and setup to fill the rally ratio — you can still type your own.", hero: "Marches with a hero (full, mixed)", rest: "Marches without a hero (identical, share ALL the rest)", min: "Each later march keeps each type at least",
     run: "⚡ Auto split now", ran: "Done — adjust by hand below if you like.",
     fitN: "After a full rally you can fill {n} march(es) at {r} — {t} run out first.", fitMore: "One more would need {x} more {t}: take them out of the rally (its {t} −{p}%) and fill the rally with other troops.",
     fitNo: "One more would need {x} more {t} than you have, even taking them out of the rally.", notRatio: "Not {r} — not enough of one type, so the gap was filled with others.",
@@ -4229,7 +4234,9 @@ const TX = {
     hVal: "維拉（狩獵巨熊大師）— 上面的集結人數沒算到她才需要填", savage: "維拉技能：參與狩獵巨熊時的出征部隊容量（你自己帶進集結的兵 +3,000／級；不是整個集結的人數，那個包含別人）", locked: "未解鎖",
     eff: "下面實際用的狩獵巨熊人數：集結 {r} · 每隊 {j}",
     hAuto: "⚡ 全自動分配", autoNote: "會把下面的編組全部重新填好（取代原本的），之後還是可以手動拉。",
-    rr: "集結比例", fix: "固定比例的隊伍", fixAuto: "能湊幾隊就幾隊", hero: "有英雄的隊伍（滿編，混合）", rest: "沒英雄的隊伍（一模一樣，平分全部剩下的）", min: "後面每隊每種兵至少",
+    rr: "集結比例", fix: "固定比例的隊伍", fixAuto: "能湊幾隊就幾隊",
+    pre: "集結隊長陣容（狩獵巨熊攻略）", preNone: "— 自己填比例 —", preGen: "第 {n} 代", tag_best: "最佳", tag_alt: "替代", tag_f2p: "F2P",
+    preHeroes: "英雄", preHint: "選英雄世代和陣容會自動填好集結比例，也可以自己改。", hero: "有英雄的隊伍（滿編，混合）", rest: "沒英雄的隊伍（一模一樣，平分全部剩下的）", min: "後面每隊每種兵至少",
     run: "⚡ 立即自動分配", ran: "好了 — 可以在下面再手動調整。",
     fitN: "集結填滿之後，還能湊 {n} 隊滿編的 {r} — {t}最先不夠。", fitMore: "要多湊 1 隊，還差 {x} {t}：從集結裡拿出來（集結的{t} −{p}%），集結改用其他兵種補滿。",
     fitNo: "要多湊 1 隊還差 {x} {t}，就算從集結拿出來也不夠。", notRatio: "不是 {r} — 某種兵不夠，缺的用其他兵種補上了。",
@@ -4252,6 +4259,34 @@ const size = (f) => f.k === "rally" ? effRally() : effJoin();
 const used = (skip) => { const u = [0, 0, 0]; S.f.forEach((f, j) => { if (j !== skip) f.c.forEach((n, i) => (u[i] += n)); }); return u; };
 
 /* ---- auto split (same rules as before, with any number of fixed-ratio marches) ---- */
+/* rally-leader formations from the Bear Hunt guide (data/content.js → GUIDES["bear-hunt"].leaders): Gen → Best / Alternative / F2P */
+let PRESETS = [];
+function loadPresets() {
+  try { const L = GUIDES["bear-hunt"].leaders;
+    PRESETS = L.map((g, gi) => ({ gen: gi + 1, rows: g.rows.filter((r) => r.ratio).map((r) => ({ tag: r.tag, heroes: r.heroes.filter(Boolean), ratio: r.ratio.split("-").map(Number) })) })).filter((g) => g.rows.length);
+  } catch (e) { PRESETS = []; }
+}
+const heroName = (h) => { try { return (HEROES[h] && (HEROES[h][lang] || HEROES[h].en)) || h; } catch (e) { return h; } };
+function renderPresets() {
+  const gs = $("bt_preGen"), ts = $("bt_preTag"); if (!gs) return;
+  const box = gs.closest(".bt-pre"); box.hidden = !PRESETS.length; if (!PRESETS.length) return;
+  const [g0, t0] = String(S.auto.preset || "").split("-");
+  gs.innerHTML = `<option value="">${esc(tr("preNone"))}</option>` + PRESETS.map((g) => `<option value="${g.gen}"${+g0 === g.gen ? " selected" : ""}>${esc(tr("preGen", { n: g.gen }))}</option>`).join("");
+  const G = PRESETS.find((g) => g.gen === +g0);
+  ts.hidden = !G;
+  ts.innerHTML = G ? G.rows.map((r) => `<option value="${r.tag}"${r.tag === t0 ? " selected" : ""}>${esc(tr("tag_" + r.tag))} · ${r.ratio.join(":")}</option>`).join("") : "";
+  const R = G && (G.rows.find((r) => r.tag === t0) || G.rows[0]);
+  $("bt_preHeroes").textContent = R ? `${tr("preHeroes")}: ${R.heroes.map(heroName).join(" + ")} → ${tr("rr")} ${R.ratio.join(":")}` : tr("preHint");
+}
+function applyPreset() {
+  const g = +$("bt_preGen").value, G = PRESETS.find((x) => x.gen === g);
+  if (!G) { S.auto.preset = ""; save(); renderPresets(); return; }
+  let t = $("bt_preTag").value; if (!G.rows.some((r) => r.tag === t)) t = G.rows[0].tag;
+  const R = G.rows.find((r) => r.tag === t);
+  S.auto.preset = g + "-" + t; S.auto.rr = R.ratio.slice();
+  ["bt_r0", "bt_r1", "bt_r2"].forEach((id, i) => ($(id).value = R.ratio[i]));
+  save(); renderPresets(); readTop(); renderFit();
+}
 /* the most full fixed-ratio marches that fit after a full rally, keeping each later march's minimum % of every type */
 function maxFix() {
   const A = S.auto, L = effJoin(), k = A.hero + A.noHero, per = Math.floor(L * Math.max(0, A.minPct || 0) / 100), R = effRally();
@@ -4380,16 +4415,21 @@ function applyTexts() {
   $("bt_savage").innerHTML = lv(S.savage);   // Lv.0 = not unlocked → base capacity
   const set = (id, k) => { $(id).textContent = tr(k); };
   [["bt_title", "title"], ["bt_sub", "sub"], ["bt_hTroops", "hTroops"], ["bt_lInf", "inf"], ["bt_lCav", "cav"], ["bt_lArc", "arc"], ["bt_lRally", "rally"], ["bt_lJoin", "join"], ["bt_hVal", "hVal"], ["bt_lSavage", "savage"],
-   ["bt_hAuto", "hAuto"], ["bt_autoNote", "autoNote"], ["bt_lRR", "rr"], ["bt_lFix", "fix"], ["bt_lFixAuto", "fixAuto"], ["bt_lHero", "hero"], ["bt_lRest", "rest"], ["bt_lMin", "min"],
+   ["bt_hAuto", "hAuto"], ["bt_autoNote", "autoNote"], ["bt_lRR", "rr"], ["bt_lPre", "pre"], ["bt_lFix", "fix"], ["bt_lFixAuto", "fixAuto"], ["bt_lHero", "hero"], ["bt_lRest", "rest"], ["bt_lMin", "min"],
    ["bt_run", "run"], ["bt_add", "add"], ["bt_copy", "copy"], ["bt_hHow", "hHow"]].forEach(([id, k]) => set(id, k));
   $("bt_how").innerHTML = tr("how").map((x) => `<li>${esc(x)}</li>`).join("");
-  if ($("bt_autoMsg").textContent) $("bt_autoMsg").textContent = tr("ran");   // the "done" line follows the language button too
+  if ($("bt_autoMsg").textContent) $("bt_autoMsg").textContent = tr("ran");
+  renderPresets();   // the "done" line follows the language button too
   renderForms(); renderFit();
 }
 function init() {
   fill(); applyTexts();
   $("pg-bt").querySelector(".card").addEventListener("input", () => { readTop(); renderForms(); renderFit(); });
-  $("bt_autoBox").addEventListener("input", () => { readTop(); renderFit(); });
+  $("bt_autoBox").addEventListener("input", (e) => {
+    if (e.target.id === "bt_preGen" || e.target.id === "bt_preTag") return applyPreset();
+    if (/^bt_r[012]$/.test(e.target.id) && S.auto.preset) { S.auto.preset = ""; renderPresets(); }   // typed your own ratio → no longer the preset
+    readTop(); renderFit(); });
+  loadScripts(["data/content.js"]).then(() => { loadPresets(); renderPresets(); }, () => {});
   $("bt_run").onclick = () => { readTop(); autoSplit(); };
   $("bt_add").onclick = () => { S.f.push({ k: "m", c: [0, 0, 0] }); save(); renderForms(); };
   $("bt_copy").onclick = async () => { try { await navigator.clipboard.writeText(copyText()); $("bt_copy").textContent = tr("copied"); setTimeout(() => ($("bt_copy").textContent = tr("copy")), 1500); } catch (e) {} };
