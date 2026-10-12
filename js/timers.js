@@ -27,6 +27,8 @@
       local: "Timers still work on this page, but your phone won't ping you until notifications are on.",
       fail: "Couldn't reach the notification server. Your timers are saved; they'll sync next time.",
       body: "is done — time to check the game!", name: "Name",
+      synced: "✓ Saved on the server: {n} notifications scheduled (checked {t}).", sample: "send a sample now", sent: "sent ✓",
+      needOn: "Turn on notifications above first — until then these alerts can't reach your phone.",
       cats: { gather: "Gathering", train: "Troops Training", build: "Building Queue", research: "Tech Research", master: "Master", recruit: "Recruit Heroes",
         pet: "Pet Adventure", intel: "Intel Missions", stamina: "Gourmet Feast", heal: "Healing", other: "Other" },
       subQ: { train: "Which troops?", recruit: "Which recruit?" }, advanced: "Advanced", epic: "Epic",
@@ -273,14 +275,14 @@
     if (!r.ok) throw new Error(r.status);
     return r.json();
   }
-  let syncErr = false;
+  let syncErr = false, synced = null;   // synced = { n, at } after the server confirmed the list
   async function sync() {
     const sub = await getSub();
     if (!sub) return;
     const now = Date.now();
     const list = timers.filter((x) => x.at > now).map((x) => ({ id: x.id, at: x.at, title: `${CAT_EMOJI[x.cat] || "⏰"} ${labelOf(x)}`, body: `${labelOf(x)} ${T("body")}` }))
       .concat(alertTimers());
-    try { await post("/push/save", { sub: sub.toJSON(), timers: list }); syncErr = false; }
+    try { const r = await post("/push/save", { sub: sub.toJSON(), timers: list }); syncErr = false; synced = { n: r.n ?? list.length, at: Date.now() }; }
     catch (e) { syncErr = true; }
     if (!view.hidden) render();
   }
@@ -308,6 +310,8 @@
     .tm-hint{color:var(--text-muted);font-size:12.5px;margin:-2px 0 8px}
     .tm-err{color:#c0392b;font-size:13px;margin-bottom:6px}
     .tm-acts{display:flex;gap:8px;margin-top:6px}
+    .tm-ok{color:#2e7d32;font-size:13px;margin-top:6px;font-weight:600}
+    .tm-link{border:0;background:none;padding:0;color:var(--accent);text-decoration:underline;font:inherit;cursor:pointer}
     .tm-alerts{margin-top:16px;padding-top:12px;border-top:2px solid var(--rule)}
     .tm-ev{padding:8px 0;border-top:1px solid var(--rule)}
     .tm-ev .tm-cats{margin:6px 0 2px;align-items:center}
@@ -338,7 +342,11 @@
     if (!canPush()) return `<div class="tm-note">${esc(isIOS && !standalone() ? T("ios") : T("noPush"))}<br><span class="tm-a">${esc(T("local"))}</span></div>`;
     if (Notification.permission === "denied") return `<div class="tm-note">${esc(T("blocked"))}</div>`;
     const sub = Notification.permission === "granted" ? await getSub() : null;
-    if (sub) return `<div class="tm-note">${esc(T("on"))} <button type="button" class="tm-btn" data-a="test">${esc(T("test"))}</button>${syncErr ? `<div class="tm-err">${esc(T("fail"))}</div>` : ""}</div>`;
+    if (sub) {
+      if (!synced && !syncErr) sync();   // first look: ask the server so the line below is filled in
+      const ok = synced && !syncErr ? `<div class="tm-ok">${esc(T("synced").replace("{n}", synced.n).replace("{t}", new Date(synced.at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })))}</div>` : "";
+      return `<div class="tm-note">${esc(T("on"))} <button type="button" class="tm-btn" data-a="test">${esc(T("test"))}</button>${ok}${syncErr ? `<div class="tm-err">${esc(T("fail"))}</div>` : ""}</div>`;
+    }
     return `<div class="tm-note">${esc(T("local"))}<br><button type="button" class="tm-btn main" data-a="sub">${esc(T("turnOn"))}</button></div>`;
   }
   function listHtml() {
@@ -369,9 +377,11 @@
     } else h += `<div class="tm-acts"><button type="button" class="tm-btn" data-a="cancel">${esc(T("cancel"))}</button></div>`;
     return h + `</div>`;
   }
+  let pushOn = false;   // set by render(): this phone has notifications on
   function alertsHtml() {
     const loc = (h, m = 0) => new Date(Date.UTC(2000, 0, 1, h, m)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-    const nextOf = (k) => { const x = alertTimers().find((t) => t.id.startsWith(`ev-${k}-`)); return x ? `<div class="tm-a">${esc(T("next").replace("{t}", fmtAt(x.at)))}</div>` : ""; };
+    const nextOf = (k) => { const x = alertTimers().find((t) => t.id.startsWith(`ev-${k}-`));
+      return x ? `<div class="tm-a">${esc(T("next").replace("{t}", fmtAt(x.at)))}${pushOn ? ` · <button type="button" class="tm-link" data-sample="${k}">${esc(T("sample"))}</button>` : ""}</div>` : ""; };
     const rows = DEFS.map((d) => {
       const k = d.k, a = alerts[k] || {}, H = hoursOf(d);
       if (!H.length || (d.kind === "event" && !evSched(k))) return "";
@@ -381,13 +391,14 @@
         ${H.map((h) => `<button type="button" class="tm-btn${a.on && a.on[h] ? " on" : ""}" data-al="${k}:${h}">${lab(h)}</button>`).join("")}
         <select class="tm-sel" data-before="${k}">${BEFORE.map((m) => `<option value="${m}"${bf === m ? " selected" : ""}>${esc(m ? T("before").replace("{n}", m) : T("atTime"))}</option>`).join("")}</select></div>${any ? nextOf(k) : ""}</div>`;
     }).join("");
-    return `<div class="tm-alerts"><b>${esc(T("alerts"))}</b><div class="tm-hint" style="margin-top:2px">${esc(T("alertsNote"))}</div>${rows}<div class="tm-hint">${esc(T("alertsSync"))}</div></div>`;
+    return `<div class="tm-alerts"><b>${esc(T("alerts"))}</b><div class="tm-hint" style="margin-top:2px">${esc(T("alertsNote"))}</div>${pushOn ? "" : `<div class="tm-err">${esc(T("needOn"))}</div>`}${rows}<div class="tm-hint">${esc(T("alertsSync"))}</div></div>`;
   }
   view.addEventListener("change", (e) => {
     const k = e.target.dataset.before; if (!k) return;
     (alerts[k] = alerts[k] || {}).before = +e.target.value; saveAlerts(); render(); sync();
   });
   async function render() {
+    pushOn = canPush() && Notification.permission === "granted" && !!(await getSub());
     const n = await notifHtml();
     view.innerHTML = `<div class="tm-top"><b>${esc(T("title"))}</b><button type="button" class="tm-btn" data-a="chat">${esc(T("chat"))}</button></div>
       ${n}<div id="tmAdd">${addHtml()}</div><div id="tmList" style="margin-top:10px">${listHtml()}</div>${alertsHtml()}`;
@@ -420,6 +431,12 @@
     if (a === "row") { adding.rows.push(""); render().then(() => { const el = view.querySelector(`[data-row="${adding.rows.length - 1}"]`); if (el) el.focus(); }); return; }
     if (a === "save") return saveAdding();
     if (a === "sub") { b.disabled = true; try { await subscribe(); } catch (err) {} await sync(); return render(); }
+    if (b.dataset.sample) {   // send this alert's notification right now, to see what it looks like
+      const x = alertTimers().find((t) => t.id.startsWith(`ev-${b.dataset.sample}-`)), sub = await getSub();
+      b.disabled = true;
+      try { if (x && sub) await post("/push/test", { sub: sub.toJSON(), title: x.title, body: x.body }); syncErr = false; } catch (err) { syncErr = true; }
+      b.textContent = T("sent"); return;
+    }
     if (a === "test") {
       b.disabled = true;
       const sub = await getSub();
