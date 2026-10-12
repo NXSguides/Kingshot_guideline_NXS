@@ -1898,9 +1898,9 @@ function seedTodos(list) {
   /* KvK Battle phase only runs 12:00–22:00 UTC: its Castle Battle item shows on that day only, until 22:00 UTC */
   for (const td of ((list.find((x) => x.id === "kvk") || {}).todo || []))
     if (td.until == null && td.due === 5 && /Castle Battle|王城爭奪/.test((td.en || "") + (td.zh || ""))) td.until = 22;
-  /* Swordland: the old 2-step list (sign-ups, then roles) → the 4 real steps; a list officers already edited is left alone */
+  /* Swordland: replace the saved list once with the 4 real steps (todoV marks it, so later edits stick) */
   { const sw = list.find((x) => x.id === "swordland-showdown");
-    if (sw && sw.todo && sw.todo.length === 2 && /^Open sign-ups/.test(sw.todo[0].en || "") && /^Pick Attackers/.test(sw.todo[1].en || "")) sw.todo = SWORDLAND_TODO.map((x) => ({ ...x })); }
+    if (sw && sw.todoV !== 2) { sw.todo = SWORDLAND_TODO.map((x) => ({ ...x })); sw.todoV = 2; sw.todoSeed = 1; } }
   for (const e of list) {
     if (e.todoSeed || (e.todo && e.todo.length)) continue;
     const d = TODO[e.id] || (EXTRA_EVENTS.find((x) => x.id === e.id) || {}).todo;
