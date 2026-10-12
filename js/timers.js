@@ -18,7 +18,7 @@
   const KEEP_DONE_MS = 60 * 60 * 1000;   // a finished timer stays on the list (as "Done ✓") for an hour
 
   const TX = {
-    en: { chip: "⏰ Set a timer", title: "⏰ My timers", chat: "‹ Chat", add: "＋ Set a timer", what: "What is it?", left: "Time left in the game", hint: "e.g. 2:45:12 · 2h45m · 45m",
+    en: { chip: "⏰ Set a timer", title: "⏰ My timers", chat: "‹ Chat", add: "＋ Set a timer", what: "What is it?", left: "Time left in the game", hint: "Type it as the game shows it, e.g. 2:45:12 or 3d 07:51:57",
       another: "＋ Another march", save: "Save", cancel: "Cancel", empty: "No timers yet.", done: "Done ✓", at: "done at {t}", bad: "Check the time — e.g. 2:45:12",
       on: "🔔 Notifications are on for this phone.", turnOn: "🔔 Turn on notifications", test: "Send a test", testMsg: "Notifications work! ✓",
       blocked: "Notifications are blocked. Allow them for this site in your phone's settings, then come back.",
@@ -27,11 +27,15 @@
       local: "Timers still work on this page, but your phone won't ping you until notifications are on.",
       fail: "Couldn't reach the notification server. Your timers are saved; they'll sync next time.",
       body: "is done — time to check the game!", name: "Name",
-      cats: { gather: "Gathering", train: "Training", build: "Construction", research: "Research", heal: "Healing", other: "Other" },
+      cats: { gather: "Gathering", train: "Troops Training", build: "Building Queue", research: "Tech Research", master: "Master", recruit: "Recruit Heroes",
+        pet: "Pet Adventure", intel: "Intel Missions", stamina: "Gourmet Feast", heal: "Healing", other: "Other" },
+      subQ: { train: "Which troops?", recruit: "Which recruit?" }, advanced: "Advanced", epic: "Epic",
       troop: "Which troops?", builder: "＋ Second builder",
       alerts: "🔔 Event alerts", alertsNote: "Tap a time to get a notification before it starts.", before: "{n} min before",
-      next: "next alert: {t}", arenaName: "Arena", arenaTime: "23:57 UTC — 3 min before the daily reset",
-      evTitle: "{e} {name} in {n} min", evBody: "Starts at {t} UTC.", arenaTitle: "🏟️ Arena resets in 3 min", arenaBody: "Use your Arena challenges before 00:00 UTC.",
+      next: "next alert: {t}", atTime: "at the time", reset: "00:00 UTC reset", arenaName: "Arena", journeyName: "Journey Supplies",
+      evTitle: "{e} {name} in {n} min", evNow: "{e} {name} — now!", evBody: "Starts at {t} UTC.",
+      resetTitle: "{e} {name} — daily reset in {n} min", resetNow: "{e} {name} — daily reset now", resetBody: "Resets at 00:00 UTC. Did you use it today?",
+      claimTitle: "{e} {name} in {n} min", claimNow: "{e} {name} — claim now!", claimBody: "Free claim at {t} UTC.",
       alertsSync: "Alerts are planned 3 weeks ahead — open the site now and then to keep them going." },
     zh: { chip: "⏰ 設定計時", title: "⏰ 我的計時", chat: "‹ 對話", add: "＋ 設定計時", what: "要計時什麼？", left: "遊戲裡剩下的時間", hint: "例如 2:45:12、2h45m、45m",
       another: "＋ 再加一隊", save: "儲存", cancel: "取消", empty: "還沒有計時。", done: "完成 ✓", at: "{t} 完成", bad: "請檢查時間，例如 2:45:12",
@@ -144,7 +148,7 @@
       body: "انتهى — تفقّد اللعبة!", name: "الاسم",
       cats: { gather: "الجمع", train: "التدريب", build: "البناء", research: "البحث", heal: "العلاج", other: "أخرى" } },
   };
-  const CAT_EMOJI = { gather: "🌾", train: "⚔️", build: "🔨", research: "📚", heal: "⛑️", other: "⏰" };
+  const CAT_EMOJI = { gather: "🌾", train: "⚔️", build: "🔨", research: "📚", master: "🎓", recruit: "🎴", pet: "🐾", intel: "🔍", stamina: "🍖", heal: "⛑️", other: "⏰" };
   // English only while we test (the other languages are ready — switch this line back to turn them on)
   const lang = () => "en";   // (typeof currentLang !== "undefined" && TX[currentLang] ? currentLang : "en")
   const T = (k) => (TX[lang()] || TX.en)[k] ?? TX.en[k];
@@ -156,23 +160,39 @@
   const store = () => { try { localStorage.setItem(LS, JSON.stringify(timers)); } catch (e) {} };
   const prune = () => { const now = Date.now(); timers = timers.filter((x) => x.at > now - KEEP_DONE_MS); };
   const termOf = (id) => (typeof GLOSSARY !== "undefined" && GLOSSARY[id] ? GLOSSARY[id][lang()] || GLOSSARY[id].en : id);
-  const labelOf = (x) => (x.cat === "other" && x.name ? x.name : (T("cats")[x.cat] || x.cat)) + (x.sub ? ` · ${termOf(x.sub)}` : "") + (x.n ? ` #${x.n}` : "");
+  const labelOf = (x) => (x.cat === "other" && x.name ? x.name : (T("cats")[x.cat] || TX.en.cats[x.cat] || x.cat)) + (x.sub ? ` · ${subName(x.sub)}` : "") + (x.n ? ` #${x.n}` : "");
   const MULTI = { gather: 6, build: 2 };   // several at once: gathering marches, 2 builders
-  const TROOPS = { infantry: "🛡️", cavalry: "🐎", archer: "🏹" };
+  /* categories with a second choice: troop type, recruit type */
+  const SUBS = { train: { infantry: "🛡️", cavalry: "🐎", archer: "🏹" }, recruit: { advanced: "📦", epic: "💎" } };
+  function subName(k) { return SUBS.train[k] ? termOf(k) : T(k); }
 
   /* ---------- event alerts (Bear Hunt, Arena reset, Swordland…) — opt-in per time, N minutes before ---------- */
   const ALS = "nxs-alerts-v1";
   let alerts = {};
   try { alerts = JSON.parse(localStorage.getItem(ALS)) || {}; } catch (e) {}
   const saveAlerts = () => { try { localStorage.setItem(ALS, JSON.stringify(alerts)); } catch (e) {} };
-  const BEFORE = [1, 3, 5, 10, 15, 30, 60];
-  const ALERT_KEYS = ["bear-hunt", "arena", "swordland-showdown", "tri-alliance-clash", "viking-vengeance"];
+  const BEFORE = [0, 1, 3, 5, 10, 15, 30, 60];
+  /* event = alliance event on its battle days (times from EVENT_TIMES); daily = every day at fixed UTC hours (24 = the 00:00 reset) */
+  const DEFS = [
+    { k: "bear-hunt", kind: "event", def: 10 },
+    { k: "arena", kind: "daily", hours: [24], def: 3, emoji: "🏟️", name: "arenaName" },
+    { k: "mystic-trial", kind: "daily", hours: [24], def: 30 },
+    { k: "journey", kind: "daily", hours: [8, 16], def: 0, emoji: "🎒", name: "journeyName" },
+    { k: "swordland-showdown", kind: "event", def: 10 },
+    { k: "tri-alliance-clash", kind: "event", def: 10 },
+    { k: "viking-vengeance", kind: "event", def: 10 },
+  ];
+  if (alerts.arena && alerts.arena.on === true) alerts.arena = { on: { 24: true }, before: 3 };   // older beta setting
   /* which day of the event run has the battle (0 = first day). Default: the last day — check in game. */
   const FIGHT_DAY = { "swordland-showdown": -1, "tri-alliance-clash": -1, "viking-vengeance": -1 };
   const DAY = 86400000, HORIZON = 21 * DAY;
   const evHours = (k) => (typeof EVENT_TIMES !== "undefined" && EVENT_TIMES[k]) || [];
-  const evName = (k) => (typeof GUIDES !== "undefined" && GUIDES[k] ? GUIDES[k].name[lang()] || GUIDES[k].name.en : k);
-  const evEmoji = (k) => (typeof GUIDES !== "undefined" && GUIDES[k] ? GUIDES[k].emoji : "📅");
+  const defOf = (k) => DEFS.find((d) => d.k === k);
+  const hoursOf = (d) => d.hours || evHours(d.k);
+  const beforeOf = (d) => { const a = alerts[d.k]; return a && a.before != null ? a.before : d.def; };
+  const evName = (k) => { const d = defOf(k); if (d && d.name) return T(d.name); return nameFromGuide(k); };
+  const nameFromGuide = (k) => (typeof GUIDES !== "undefined" && GUIDES[k] ? GUIDES[k].name[lang()] || GUIDES[k].name.en : k);
+  const evEmoji = (k) => { const d = defOf(k); if (d && d.emoji) return d.emoji; return typeof GUIDES !== "undefined" && GUIDES[k] ? GUIDES[k].emoji : "📅"; };
   function evSched(k) {
     if (k === "bear-hunt") return typeof BEAR_SCHED !== "undefined" ? BEAR_SCHED : null;
     return typeof EVENT_SCHEDULES !== "undefined" ? EVENT_SCHEDULES[k] : null;
@@ -189,23 +209,20 @@
   /* the alert notifications for the next 3 weeks, from the choices above */
   function alertTimers() {
     const now = Date.now(), out = [], today = Math.floor(now / DAY) * DAY;
-    for (const k of ALERT_KEYS) {
-      const a = alerts[k]; if (!a) continue;
-      for (let d = today; d < now + HORIZON; d += DAY) {
-        if (k === "arena") {
-          const at = d + (23 * 60 + 57) * 60000;
-          if (a.on && at > now) out.push({ id: `ev-arena-${d / DAY}`, at, title: T("arenaTitle"), body: T("arenaBody") });
-          continue;
-        }
-        if (!fightOn(k, d)) continue;
-        const before = a.before || 10;
-        for (const h of evHours(k)) {
-          if (!(a.on && a.on[h])) continue;
-          const at = d + h * 3600000 - before * 60000;
+    const fill = (str, v) => str.replace(/\{(\w+)\}/g, (m, x) => (v[x] ?? m));
+    for (const d of DEFS) {
+      const a = alerts[d.k]; if (!a || !a.on) continue;
+      const H = hoursOf(d), before = beforeOf(d);
+      for (let day = today; day < now + HORIZON; day += DAY) {
+        if (d.kind === "event" && !fightOn(d.k, day)) continue;
+        for (const h of H) {
+          if (!a.on[h]) continue;
+          const at = day + h * 3600000 - before * 60000;
           if (at <= now) continue;
-          out.push({ id: `ev-${k}-${h}-${d / DAY}`, at,
-            title: T("evTitle").replace("{e}", evEmoji(k)).replace("{name}", evName(k)).replace("{n}", before),
-            body: T("evBody").replace("{t}", String(h).padStart(2, "0") + ":00") });
+          const v = { e: evEmoji(d.k), name: evName(d.k), n: before, t: String(h % 24).padStart(2, "0") + ":00" };
+          const kind = h === 24 ? "reset" : d.kind === "daily" ? "claim" : "ev";
+          const title = fill(T(before ? kind + "Title" : kind + "Now"), v), body = fill(T(kind + "Body"), v);
+          out.push({ id: `ev-${d.k}-${h}-${day / DAY}`, at, title, body });
         }
       }
     }
@@ -216,6 +233,8 @@
     s = String(s || "").trim().toLowerCase().replace(/[，、]/g, ",");
     if (!s) return 0;
     let m;
+    // "3d 07:51:57" (how the game shows long timers)
+    if ((m = s.match(/^(\d+)\s*(?:d|天)\s*(\d+\s*[:：].*)$/))) { const rest = parseLeft(m[2]); return rest ? +m[1] * 86400000 + rest : 0; }
     if ((m = s.match(/^(\d+)\s*[:：]\s*(\d{1,2})(?:\s*[:：]\s*(\d{1,2}))?$/))) {
       const [a, b, c] = [m[1], m[2], m[3]].map((x) => +x || 0);
       return (m[3] != null ? a * 3600 + b * 60 + c : a * 60 + b) * 1000;   // h:mm:ss or mm:ss
@@ -335,8 +354,9 @@
     let h = `<div class="tm-note"><b>${esc(T("what"))}</b><div class="tm-cats">${cats}</div>`;
     if (adding.cat) {
       if (adding.cat === "other") h += `<input class="tm-in" data-name placeholder="${esc(T("name"))}" value="${esc(adding.name)}" dir="auto">`;
-      if (adding.cat === "train") {
-        h += `<b>${esc(T("troop"))}</b><div class="tm-cats">${Object.keys(TROOPS).map((k) => `<button type="button" class="tm-btn${adding.sub === k ? " on" : ""}" data-sub="${k}">${TROOPS[k]} ${esc(termOf(k))}</button>`).join("")}</div>`;
+      if (SUBS[adding.cat]) {
+        const S = SUBS[adding.cat];
+        h += `<b>${esc(T("subQ")[adding.cat])}</b><div class="tm-cats">${Object.keys(S).map((k) => `<button type="button" class="tm-btn${adding.sub === k ? " on" : ""}" data-sub="${k}">${S[k]} ${esc(subName(k))}</button>`).join("")}</div>`;
         if (!adding.sub) return h + `<div class="tm-acts"><button type="button" class="tm-btn" data-a="cancel">${esc(T("cancel"))}</button></div></div>`;
       }
       h += `<b>${esc(T("left"))}</b><div class="tm-hint">${esc(T("hint"))}</div>`;
@@ -350,15 +370,14 @@
   function alertsHtml() {
     const loc = (h, m = 0) => new Date(Date.UTC(2000, 0, 1, h, m)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     const nextOf = (k) => { const x = alertTimers().find((t) => t.id.startsWith(`ev-${k}-`)); return x ? `<div class="tm-a">${esc(T("next").replace("{t}", fmtAt(x.at)))}</div>` : ""; };
-    const rows = ALERT_KEYS.map((k) => {
-      const a = alerts[k] || {};
-      if (k === "arena") return `<div class="tm-ev"><div><b>🏟️ ${esc(T("arenaName"))}</b></div><div class="tm-cats">
-        <button type="button" class="tm-btn${a.on ? " on" : ""}" data-al="arena">${esc(T("arenaTime"))}</button></div>${a.on ? nextOf("arena") : ""}</div>`;
-      const H = evHours(k); if (!H.length || !evSched(k)) return "";
-      const any = a.on && H.some((h) => a.on[h]);
+    const rows = DEFS.map((d) => {
+      const k = d.k, a = alerts[k] || {}, H = hoursOf(d);
+      if (!H.length || (d.kind === "event" && !evSched(k))) return "";
+      const any = a.on && H.some((h) => a.on[h]), bf = beforeOf(d);
+      const lab = (h) => h === 24 ? `${esc(T("reset"))} <span class="tm-a">(${loc(0)})</span>` : `${String(h).padStart(2, "0")}:00 UTC <span class="tm-a">(${loc(h)})</span>`;
       return `<div class="tm-ev"><div><b>${evEmoji(k)} ${esc(evName(k))}</b></div><div class="tm-cats">
-        ${H.map((h) => `<button type="button" class="tm-btn${a.on && a.on[h] ? " on" : ""}" data-al="${k}:${h}">${String(h).padStart(2, "0")}:00 UTC <span class="tm-a">(${loc(h)})</span></button>`).join("")}
-        <select class="tm-sel" data-before="${k}">${BEFORE.map((m) => `<option value="${m}"${(a.before || 10) === m ? " selected" : ""}>${esc(T("before").replace("{n}", m))}</option>`).join("")}</select></div>${any ? nextOf(k) : ""}</div>`;
+        ${H.map((h) => `<button type="button" class="tm-btn${a.on && a.on[h] ? " on" : ""}" data-al="${k}:${h}">${lab(h)}</button>`).join("")}
+        <select class="tm-sel" data-before="${k}">${BEFORE.map((m) => `<option value="${m}"${bf === m ? " selected" : ""}>${esc(m ? T("before").replace("{n}", m) : T("atTime"))}</option>`).join("")}</select></div>${any ? nextOf(k) : ""}</div>`;
     }).join("");
     return `<div class="tm-alerts"><b>${esc(T("alerts"))}</b><div class="tm-hint" style="margin-top:2px">${esc(T("alertsNote"))}</div>${rows}<div class="tm-hint">${esc(T("alertsSync"))}</div></div>`;
   }
@@ -389,8 +408,8 @@
     if (b.dataset.sub) { adding.sub = b.dataset.sub; adding.focus = true; return render(); }
     if (b.dataset.al) {   // event alert time toggles: "bear-hunt:13", "arena"
       const [k, h] = b.dataset.al.split(":");
-      const a = (alerts[k] = alerts[k] || { before: 10 });
-      if (k === "arena") a.on = !a.on; else { a.on = a.on || {}; a.on[h] = !a.on[h]; }
+      const a = (alerts[k] = alerts[k] || {});
+      a.on = a.on || {}; a.on[h] = !a.on[h];
       saveAlerts(); render(); sync(); return;
     }
     if (a === "chat") return show(false);
@@ -417,7 +436,7 @@
     let n = number ? Math.max(0, ...used) : 0;
     ms.forEach((d) => {
       timers.push({ id: Math.random().toString(36).slice(2, 10), cat: adding.cat, name: adding.cat === "other" ? adding.name.trim().slice(0, 40) : "",
-        sub: adding.cat === "train" ? adding.sub : "", n: number ? ++n : 0, at: now + d });
+        sub: SUBS[adding.cat] ? adding.sub : "", n: number ? ++n : 0, at: now + d });
     });
     store(); adding = null; render(); sync();
   }
@@ -444,5 +463,5 @@
   if (navigator.serviceWorker) navigator.serviceWorker.addEventListener("message", (e) => { if (e.data && e.data.nxs === "open-timers") openTimers(); });
   // after coming back to the app, re-send the list once (keeps the server in step if a save failed)
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") { prune(); store(); sync(); if (!view.hidden) render(); } });
-  window.NXSTimers = { parseLeft, show };
+  window.NXSTimers = { parseLeft, show, alertTimers };
 })();
