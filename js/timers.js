@@ -265,7 +265,7 @@
     // one short notification per event per day ("⚔️ Swordland Showdown") — the details stay in the checklist
     for (const x of d.items) {
       const ev = x.ev || String(x.id).replace(/-\d{4}-\d\d-\d\d-\d+$/, ""), key = `${ev}-${Math.floor(x.due / 86400000)}`;
-      if (seen.has(key)) continue; seen.add(key);
+      if (ev === "bear-hunt" || seen.has(key)) continue; seen.add(key);   // Bear Hunt repeats by itself — no admin reminder
       out.push({ id: `adm-${key}`.slice(0, 40), at: x.due + h * 3600000, title: `🛠️ ${x.title}`, body: T("adminBody") });
     }
     return out.filter((x) => x.at > now).sort((x, y) => x.at - y.at);
