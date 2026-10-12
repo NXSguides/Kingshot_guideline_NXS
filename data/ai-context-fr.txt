@@ -996,6 +996,13 @@ Les officiers demandent souvent une escouade fixe : un nombre exact (« exacteme
 Steps: 1. Sur l'écran de la ville, touchez votre avatar (en haut à gauche). 2. Touchez Escouade en bas. 3. Dans Aperçu des Troupes, touchez Formations de troupe. 4. Touchez les cartes de héros et choisissez les héros de cette escouade. 5. Touchez Enregistrer. C'est fait — la prochaine fois, choisissez simplement ce slot. Si on vous a donné un NOMBRE: Touchez le nombre de chaque ligne et saisissez la quantité exacte. Le total s'affiche en haut. Si on vous a seulement donné un RATIO: Touchez le bouton de répartition en bas et saisissez les pourcentages — le jeu remplit les troupes. Touchez Enregistrer, choisissez le slot et un nom (1–3 caractères). Puis choisissez COMMENT enregistrer : Nombre → enregistrer par quantité de troupes; Ratio → enregistrer par ratio (s'adapte à vos troupes). Touchez Confirmer. C'est fait — la prochaine fois, choisissez simplement ce slot.
 Astuces : le cadenas du dernier slot signifie qu'il n'est pas encore débloqué. « Équilibré » remplit les trois types à parts égales ; « Tout retirer » vide le slot. Chaque slot garde ses propres héros et troupes.
 
+### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-12 by Sparrow] Finder’s Fusion
+1 Théière · 2 Lune · 3 Oiseau · 4 Horloge · 5 Boussole · 6 Portemanteau · 7 Blé · 8 Chaussure · 9 Cadre photo · 10 Bannière · 11 Gramophone · 12 Fourchette · 13 Arête de poisson · 14 Télescope · 15 Plume · 16 Balai · 17 Enveloppe · 18 Sandwich · 19 Louche · 20 Loupe · 21 Flaque · 22 Sac · 23 Bouquet · 24 Hache · 25 Chapeau · 26 Rose · 27 Coffre · 28 Ours en peluche · 29 Gamelle pour animal · 30 Toile d'araignée · 31 Sablier · 32 Menottes · 33 Sculpture sur bois · 34 Violoncelle · 35 Clou · 36 Nœud · 37 Éventail
+
+
+Il peut y avoir des erreurs de traduction ou des éléments manquants.
+
 ### GAME TERMS (English = official fr name)
 Training = Entraînement
 Research = Recherche

@@ -996,6 +996,13 @@ Los oficiales suelen pedir un escuadrón fijo: una cantidad exacta («exactament
 Steps: 1. En la pantalla de la ciudad, toca tu avatar (arriba a la izquierda). 2. Toca Escuadrón abajo. 3. En Vista previa de tropas, toca Formaciones de tropas. 4. Toca las cartas de héroe y elige los héroes de este escuadrón. 5. Toca Guardar. Listo — la próxima vez solo elige esta ranura. Si te dieron una CANTIDAD: Toca el número de cada fila y escribe la cantidad exacta. El total aparece arriba. Si solo te dieron una PROPORCIÓN: Toca el botón de proporción abajo e introduce los porcentajes — el juego rellena las tropas. Toca Guardar, elige la ranura y un nombre (1–3 caracteres). Luego elige CÓMO guardar: Cantidad → guardar por cantidad de tropas; Proporción → guardar por proporción (se adapta a tus tropas). Toca Confirmar. Listo — la próxima vez solo elige esta ranura.
 Consejos: el candado de la última ranura significa que aún no está desbloqueada. «Equilibrar» rellena los tres tipos por igual; «Retirar todo» vacía la ranura. Cada ranura guarda sus propios héroes y tropas.
 
+### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-12 by Sparrow] Finder’s Fusion
+1 Tetera · 2 Luna · 3 Pájaro · 4 Reloj · 5 Brújula · 6 Perchero · 7 Trigo · 8 Zapato · 9 Marco de fotos · 10 Estandarte · 11 Gramófono · 12 Tenedor · 13 Espina de pescado · 14 Telescopio · 15 Pluma · 16 Escoba · 17 Sobre · 18 Sándwich · 19 Cucharón · 20 Lupa · 21 Charco · 22 Saco · 23 Ramo de flores · 24 Hacha · 25 Sombrero · 26 Rosa · 27 Cofre · 28 Oso de peluche · 29 Comedero de mascota · 30 Telaraña · 31 Reloj de arena · 32 Esposas · 33 Tallado en madera · 34 Violonchelo · 35 Clavo · 36 Lazo · 37 Abanico
+
+
+Es posible que haya algunos errores de traducción o cosas que no se hayan incluido.
+
 ### GAME TERMS (English = official es name)
 Construction = Construcción
 Training = Entrenamiento
