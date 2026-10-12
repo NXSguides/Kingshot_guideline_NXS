@@ -193,6 +193,12 @@ function fmtLimit(k) {
 }
 const withLimits = (str) => String(str).replace(/\{=(\w+)\}/g, (m, k) => (LIMITS[k] ? fmtLimit(k) : m));
 
+function keyPointsHtml() {
+  const hl = typeof HIGHLIGHTS !== "undefined" && HIGHLIGHTS[currentGuide];
+  const lines = hl && (hl[currentLang] || hl.en);
+  if (!lines || !lines.length) return "";
+  return `<div class="key-points"><div class="kp-title">${escapeHtml(t(HIGHLIGHT_TITLE))}</div><ul>${lines.map((x) => `<li>${rich(x)}</li>`).join("")}</ul></div>`;
+}
 function rich(str) {
   return localTimes(richRaw(str), currentLang);
 }
@@ -958,7 +964,7 @@ function renderDoc() {
     ${back ? `<span class="arrow" style="margin:0">‹</span>` : ""}<span class="emoji">${g.emoji}</span><span dir="auto">${escapeHtml(t(g.name))}</span>${back ? "" : `<span class="arrow">›</span>`}</button>`; };
   const kids = Object.keys(GUIDES).filter((k) => GUIDES[k].parent === currentGuide);
   const back = guide.parent && GUIDES[guide.parent] ? btn(guide.parent, true) : "";
-  doc.innerHTML = (currentGuide === HOME_GUIDE ? todayCardHtml() : "") + back + `<div class="doc-title"><span class="emoji">${guide.emoji}</span><span>${escapeHtml(s.title)}</span></div>` + kids.map((k) => btn(k)).join("") + (currentGuide === "formations-rally-tips" ? ratioCardHtml() : "");
+  doc.innerHTML = (currentGuide === HOME_GUIDE ? todayCardHtml() : "") + back + `<div class="doc-title"><span class="emoji">${guide.emoji}</span><span>${escapeHtml(s.title)}</span></div>` + kids.map((k) => btn(k)).join("") + keyPointsHtml() + (currentGuide === "formations-rally-tips" ? ratioCardHtml() : "");
   doc.appendChild(renderBlocks(guide, s));
 }
 

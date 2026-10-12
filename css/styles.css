@@ -708,3 +708,8 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 .ratio-card .rc-r { color: var(--text-muted); font-size: 12.5px; }
 .ratio-card .rc-n { font-variant-numeric: tabular-nums; font-size: 13.5px; margin-top: 2px; }
 .ratio-card .rc-copy { border: 1px solid var(--accent); background: transparent; color: var(--text); border-radius: 8px; padding: 5px 10px; font: inherit; font-size: 13px; cursor: pointer; white-space: nowrap; }
+
+.key-points { border: 1px solid var(--accent); border-radius: 12px; padding: 10px 14px 6px; margin: 0 0 16px; background: var(--panel-2); }
+.key-points .kp-title { font-weight: 800; margin-bottom: 4px; }
+.key-points ul { margin: 0; padding-inline-start: 20px; }
+.key-points li { margin: 0 0 6px; line-height: 1.5; }
