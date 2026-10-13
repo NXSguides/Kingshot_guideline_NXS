@@ -76,6 +76,9 @@
       stack: { minister: ["Activate Double Time", "Activate Wolf", "Start both building queues within 5 min"],
                advisor: ["Use gems to raise troop training capacity", "Start training (all troop types)"] },
       btBody: "Tap to open the BT calculator.", btLink: "🧮 BT calculator",
+      clOn: "🔄 Synced with Discord ({name}) · {t}", clNow: "sync now", clOff: "🔄 Use your timers on all your devices: log in with Discord (officers).", clIn: "Log in with Discord",
+      cl_no_access: "Your Discord account isn't on the officer list yet.", cl_not_member: "Join our alliance Discord server first.", cl_logged_out: "Please log in with Discord again.",
+      cl_cancelled: "Discord login was cancelled.", cl_expired: "Please log in with Discord again.", cl_discord: "Couldn't sync right now — will try again.", cl_discord_unreachable: "Couldn't reach Discord — will try again.", cl_too_big: "Too much to sync.",
       ibT: "🔔 Reminders ({n})", ibClear: "✓ Clear", ibAgo: "{t} ago",
       stackT: "{e} {name} is on — until {t} UTC", stackHint: "Stack your buffs:", stackBody: "Slot at {t} UTC. Then: {list}.",
       naOn: "Noble Advisor buff on now", naHint: "Training is faster with it, so the time is remembered separately (turns on by itself during your Noble Advisor slot).",
@@ -214,7 +217,20 @@
   /* ---------- timers on this phone ---------- */
   let timers = [];
   try { timers = (JSON.parse(localStorage.getItem(LS)) || []).filter((x) => !x.demo); } catch (e) {}   // old 🧪 preview appointments are dropped
-  const store = () => { try { localStorage.setItem(LS, JSON.stringify(timers)); } catch (e) {} };
+  /* 🔄 sync across devices (logged in with Discord): each timer carries its last-change time (mt); deleted ids are remembered */
+  const SYNC_LS = "nxs-sync-meta", DTOK = "nxs-discord-v1", DUSER = "nxs-discord-user";
+  let meta = {}; try { meta = JSON.parse(localStorage.getItem(SYNC_LS)) || {}; } catch (e) {}
+  meta.del = meta.del || {};
+  const saveMeta = () => { try { localStorage.setItem(SYNC_LS, JSON.stringify(meta)); } catch (e) {} };
+  let lastIds = new Set(timers.map((x) => x.id));
+  const store = () => {
+    const now = Date.now(), ids = new Set();
+    for (const x of timers) { if (!x.mt) x.mt = now; ids.add(x.id); }
+    for (const id of lastIds) if (!ids.has(id)) meta.del[id] = now;
+    lastIds = ids; saveMeta();
+    try { localStorage.setItem(LS, JSON.stringify(timers)); } catch (e) {}
+    cloudSoon();
+  };
   const prune = () => { const now = Date.now(); timers = timers.filter((x) => x.at > now - KEEP_DONE_MS); };
   const termOf = (id) => (typeof GLOSSARY !== "undefined" && GLOSSARY[id] ? GLOSSARY[id][lang()] || GLOSSARY[id].en : id.charAt(0).toUpperCase() + id.slice(1));
   const labelOf = (x) => labelBase(x) + (x.na ? " 🎖️" : "");
@@ -228,7 +244,7 @@
   const ALS = "nxs-alerts-v1";
   let alerts = {};
   try { alerts = JSON.parse(localStorage.getItem(ALS)) || {}; } catch (e) {}
-  const saveAlerts = () => { try { localStorage.setItem(ALS, JSON.stringify(alerts)); } catch (e) {} };
+  const saveAlerts = () => { try { localStorage.setItem(ALS, JSON.stringify(alerts)); } catch (e) {} meta.alertsAt = Date.now(); saveMeta(); cloudSoon(); };
   const BEFORE = [0, 1, 3, 5, 10, 15, 30, 60];
   /* event = alliance event on its battle days (times from EVENT_TIMES); daily = every day at fixed UTC hours (24 = the 00:00 reset) */
   const DEFS = [
@@ -374,9 +390,52 @@
         ? { id: x.id, at: x.at, title: T(x.before ? "apTitle" : "apNow").replace("{e}", SUBS.appt[x.sub] || "📅").replace("{name}", subName(x.sub)).replace("{n}", x.before), body: T("stackBody").replace("{t}", utcHM(x.slot)).replace("{list}", (T("stack")[x.sub] || []).join(" · ")).slice(0, 200) }
         : { id: x.id, at: x.at, title: `${CAT_EMOJI[x.cat] || "⏰"} ${labelOf(x)}`, body: `${labelOf(x)} ${T("body")}` })
       .concat(alertTimers(), adminTimers(), testPending && testPending.at > now ? [testPending] : []);
-    try { const r = await post("/push/save", { sub: sub.toJSON(), timers: list }); syncErr = false; synced = { n: r.n ?? list.length, at: Date.now() }; }
+    let tok = null; try { tok = localStorage.getItem(DTOK); } catch (e) {}
+    try { const r = await post("/push/save", { sub: sub.toJSON(), timers: list, ...(tok ? { token: tok } : {}) }); syncErr = false; synced = { n: r.n ?? list.length, at: Date.now(), devices: r.devices }; }
     catch (e) { syncErr = true; }
     if (!view.hidden) render();
+  }
+
+  /* ---------- 🔄 cloud sync: merge this device's ⏰ data with the person's saved copy on the server ---------- */
+  let cloudTimer = null, cloud = { at: 0, err: "" };
+  try { cloud.err = sessionStorage.getItem("nxs-login-error") || ""; sessionStorage.removeItem("nxs-login-error"); } catch (e) {}
+  function cloudSoon() { clearTimeout(cloudTimer); cloudTimer = setTimeout(cloudSync, 1200); }
+  async function cloudSync() {
+    let tok = null; try { tok = localStorage.getItem(DTOK); } catch (e) {}
+    if (!tok) return;
+    let r, j;
+    try {
+      r = await fetch(API + "/sync", { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: tok, state: { timers, del: meta.del, alerts, alertsAt: meta.alertsAt || 0, presets, presetsAt: meta.presetsAt || 0 } }) });
+      j = await r.json();
+    } catch (e) { cloud.err = "discord"; if (!view.hidden) render(); return; }
+    if (!j.ok) {
+      cloud.err = j.error || "discord";
+      if (["logged_out", "no_access", "not_member"].includes(j.error)) { try { localStorage.removeItem(DTOK); } catch (e) {} }
+      if (!view.hidden) render(); return;
+    }
+    const st = j.state || {};
+    timers = Array.isArray(st.timers) ? st.timers : timers; lastIds = new Set(timers.map((x) => x.id));
+    alerts = st.alerts || {}; presets = st.presets || {};
+    meta = { del: st.del || {}, alertsAt: st.alertsAt || 0, presetsAt: st.presetsAt || 0 };
+    try {
+      localStorage.setItem(DTOK, j.token); localStorage.setItem(DUSER, JSON.stringify(j.user || {}));
+      localStorage.setItem(LS, JSON.stringify(timers)); localStorage.setItem(ALS, JSON.stringify(alerts)); localStorage.setItem(PRE_LS, JSON.stringify(presets));
+    } catch (e) {}
+    saveMeta(); cloud = { at: Date.now(), err: "" };
+    pageStack(); sync();   // this device's notification list (it goes to all of this person's devices)
+    if (!view.hidden) render();
+  }
+  function cloudHtml() {
+    let tok = null, u = {}; try { tok = localStorage.getItem(DTOK); u = JSON.parse(localStorage.getItem(DUSER) || "{}"); } catch (e) {}
+    const err = cloud.err ? `<div class="tm-err">${esc(T("cl_" + cloud.err) || T("cl_discord"))}</div>` : "";
+    if (tok) {
+      const t = cloud.at ? new Date(cloud.at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) : "…";
+      return `<div class="tm-note">${esc(T("clOn").replace("{name}", u.name || "Discord").replace("{t}", t))} <button type="button" class="tm-link" data-a="cloudnow">${esc(T("clNow"))}</button>${err}</div>`;
+    }
+    if (!isOfficer()) return err ? `<div class="tm-note">${err}</div>` : "";
+    const back = location.origin + location.pathname + location.search + location.hash;
+    return `<div class="tm-note">${esc(T("clOff"))}<br><a class="tm-btn" style="display:inline-block;margin-top:6px;text-decoration:none" href="${esc(API + "/auth/discord/start?r=" + encodeURIComponent(back))}">${esc(T("clIn"))}</a>${err}</div>`;
   }
 
   /* ---------- the view (inside the AI panel, instead of the chat) ---------- */
@@ -555,7 +614,7 @@
     pushOn = canPush() && Notification.permission === "granted" && !!(await getSub());
     const n = await notifHtml();
     view.innerHTML = `<div class="tm-top"><b>${esc(T("title"))}</b><button type="button" class="tm-btn" data-a="chat">${esc(T("chat"))}</button></div>
-      ${n}${stackHtml()}${suggHtml()}${quickHtml()}<div id="tmAdd">${addHtml()}</div><div id="tmList" style="margin-top:10px">${listHtml()}</div>${alertsHtml()}${adminHtml()}`;
+      ${n}${cloudHtml()}${stackHtml()}${suggHtml()}${quickHtml()}<div id="tmAdd">${addHtml()}</div><div id="tmList" style="margin-top:10px">${listHtml()}</div>${alertsHtml()}${adminHtml()}`;
     const first = view.querySelector("[data-name]") || view.querySelector('[data-row="0"]');
     if (first && adding && adding.focus) { first.focus(); adding.focus = false; }
   }
@@ -590,6 +649,7 @@
     if (a === "row") { adding.rows.push(""); render().then(() => { const el = view.querySelector(`[data-row="${adding.rows.length - 1}"]`); if (el) el.focus(); }); return; }
     if (a === "save") return saveAdding();
     if (a === "sub") { b.disabled = true; try { await subscribe(); } catch (err) {} await sync(); return render(); }
+    if (a === "cloudnow") { b.disabled = true; return cloudSync(); }
     if (a === "admin") { const x = (alerts.admin = alerts.admin || {}); x.on = !x.on; saveAlerts(); render(); sync(); return; }
     if (a === "test") {
       b.disabled = true;
@@ -604,7 +664,7 @@
   const PRE_LS = "nxs-timer-presets";
   let presets = {};
   try { presets = JSON.parse(localStorage.getItem(PRE_LS)) || {}; } catch (e) {}
-  const savePre = () => { try { localStorage.setItem(PRE_LS, JSON.stringify(presets)); } catch (e) {} };
+  const savePre = () => { try { localStorage.setItem(PRE_LS, JSON.stringify(presets)); } catch (e) {} meta.presetsAt = Date.now(); saveMeta(); cloudSoon(); };
   const PRESET_CATS = ["train", "gather"];   // only these change little from one time to the next
   // Training remembers two times per troop type: with 🎖️ Noble Advisor on, and without
   const preKey = (cat, sub, name, na) => [cat, sub || "", cat === "other" ? (name || "").trim().toLowerCase() : "", cat === "train" && na ? "na" : ""].join("|");
@@ -755,6 +815,7 @@
     try { const n = list.filter((x) => !x.seen).length; if (n && navigator.setAppBadge) navigator.setAppBadge(n); else if (navigator.clearAppBadge) navigator.clearAppBadge(); } catch (e) {}
   }
   setTimeout(inbox, 900);
+  setTimeout(cloudSync, 700);
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") inbox(); });
   // after coming back to the app, re-send the list once (keeps the server in step if a save failed)
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") { prune(); store(); sync(); if (!view.hidden) render(); } });

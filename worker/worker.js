@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-13g (Discord login)";
+const VERSION = "2026-10-13h (sync)";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -55,7 +55,7 @@ async function handle(req, env) {
   {
     if (req.method === "OPTIONS") return new Response(null, { headers: cors });
     const path = new URL(req.url).pathname;
-    if (path.startsWith("/auth/")) return authRoute(req, env, path);   // 🔑 officer login with Discord
+    if (path.startsWith("/auth/") || path === "/sync" || path === "/sync/forget") return authRoute(req, env, path);   // 🔑 officer login with Discord
     if (path === "/push/save" || path === "/push/test") {
       if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
       return pushRoute(req, env, path);
@@ -590,6 +590,11 @@ async function pushRoute(req, env, path) {
   const now = Date.now();
   const timers = (Array.isArray(body.timers) ? body.timers : []).filter((x) => x && Number(x.at) > now - 60000 && Number(x.at) < now + 30 * 86400000)
     .slice(0, MAX_TIMERS).map((x) => ({ id: String(x.id).slice(0, 40), at: Math.round(Number(x.at)), title: String(x.title || "").slice(0, 80), body: String(x.body || "").slice(0, 200) }));
+  const s = body.token ? await unseal(env, body.token) : null;
+  if (s && s.u && Date.now() < s.exp) {   // 🔄 logged in with Discord: every device of this person gets the list
+    const devices = await stub.saveFor(s.u.id, body.sub, timers);
+    return json({ ok: true, n: timers.length, devices });
+  }
   await stub.save(body.sub, timers);
   return json({ ok: true, n: timers.length });
 }
@@ -601,6 +606,36 @@ export class PushTimers extends DurableObject {
     this.sql = ctx.storage.sql;
     this.sql.exec(`CREATE TABLE IF NOT EXISTS t (ep TEXT, id TEXT, at INTEGER, title TEXT, body TEXT, sub TEXT, PRIMARY KEY (ep, id))`);
     this.sql.exec(`CREATE INDEX IF NOT EXISTS t_at ON t (at)`);
+    // 🔄 Discord-logged-in people: their phones/computers (one person per device) and their synced ⏰ data
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS usub (ep TEXT PRIMARY KEY, uid TEXT, sub TEXT)`);
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS sync (uid TEXT PRIMARY KEY, data TEXT, at INTEGER)`);
+  }
+  /* this device's notification list goes to every device the same person is logged in on */
+  async saveFor(uid, sub, timers) {
+    this.sql.exec(`INSERT OR REPLACE INTO usub VALUES (?, ?, ?)`, sub.endpoint, uid, JSON.stringify(sub));
+    const subs = [...this.sql.exec(`SELECT sub FROM usub WHERE uid = ?`, uid)].map((r) => JSON.parse(r.sub));
+    for (const x of subs) await this.save(x, timers);
+    return subs.length;
+  }
+  async forget(ep) { this.sql.exec(`DELETE FROM usub WHERE ep = ?`, ep); }
+  /* merge this device's ⏰ data with what's saved for the person (newest edit wins; deletions are remembered) */
+  async syncMerge(uid, inc) {
+    const row = [...this.sql.exec(`SELECT data FROM sync WHERE uid = ?`, uid)][0];
+    let cur = {}; try { cur = row ? JSON.parse(row.data) : {}; } catch (e) { cur = {}; }
+    const now = Date.now(), del = {};
+    for (const src of [cur.del || {}, inc.del || {}]) for (const [id, t] of Object.entries(src)) if (now - t < 30 * 864e5) del[id] = Math.max(del[id] || 0, +t || 0);
+    const byId = {};
+    for (const x of [...(cur.timers || []), ...(inc.timers || [])]) {
+      if (!x || !x.id || del[x.id] >= (x.mt || 0) || !(x.at > now - 2 * 3600000)) continue;
+      if (!byId[x.id] || (x.mt || 0) > (byId[x.id].mt || 0)) byId[x.id] = x;
+    }
+    const pick = (k) => ((inc[k + "At"] || 0) > (cur[k + "At"] || 0) ? [inc[k], inc[k + "At"]] : [cur[k], cur[k + "At"] || 0]);
+    const [alerts, alertsAt] = pick("alerts"), [presets, presetsAt] = pick("presets");
+    const out = { timers: Object.values(byId).sort((a, b) => a.at - b.at).slice(0, 200), del, alerts: alerts || {}, alertsAt, presets: presets || {}, presetsAt };
+    const txt = JSON.stringify(out);
+    if (txt.length > 200000) throw new Error("too_big");
+    this.sql.exec(`INSERT OR REPLACE INTO sync VALUES (?, ?, ?)`, uid, txt, now);
+    return out;
   }
   async save(sub, timers) {
     const ep = sub.endpoint, s = JSON.stringify(sub);
@@ -624,7 +659,7 @@ export class PushTimers extends DurableObject {
         if (st === 404 || st === 410) gone.add(r.ep);
       } catch (e) { /* one bad phone shouldn't stop the others */ }
     }
-    for (const ep of gone) this.sql.exec(`DELETE FROM t WHERE ep = ?`, ep);
+    for (const ep of gone) { this.sql.exec(`DELETE FROM t WHERE ep = ?`, ep); this.sql.exec(`DELETE FROM usub WHERE ep = ?`, ep); }
     await this.schedule();
   }
 }
@@ -691,6 +726,23 @@ async function discordCheck(access) {
   return allowed ? { ok: true, user } : { ok: false, why: "no_access", user };
 }
 
+/* is this session still good? re-asks Discord every 10 minutes (refreshing its key when needed) */
+async function sessionCheck(req, env, token) {
+  const s = await unseal(env, token), now = Date.now();
+  if (!s || now > s.exp) return { error: "logged_out", status: 401 };
+  if (now - s.chk > RECHECK_MS) {
+    try {
+      if (now > s.ax) { const tk = await discordToken(req, env, { grant_type: "refresh_token", refresh_token: s.rt }); Object.assign(s, { at: tk.access_token, rt: tk.refresh_token || s.rt, ax: now + (tk.expires_in || 604800) * 1000 - 60000 }); }
+      const c = await discordCheck(s.at);
+      if (!c.ok) return c.why === "expired" ? { error: "logged_out", status: 401 } : { error: c.why, status: 403, user: c.user };
+      s.u = c.user; s.chk = now;
+    } catch (e) {
+      if (now - s.chk > GRACE_MS) return { error: "discord_unreachable", status: 503 };   // Discord briefly down: keep the last check for a day
+    }
+  }
+  return { s };
+}
+
 async function authRoute(req, env, path) {
   if (!env.DISCORD_CLIENT_SECRET) return json({ error: "discord_secret_missing" }, 503);
   const url = new URL(req.url);
@@ -716,24 +768,22 @@ async function authRoute(req, env, path) {
       return back("login=" + session);
     } catch (e) { return back("login_error=discord"); }
   }
-  if (path === "/auth/me") {
+  if (path === "/auth/me" || path === "/sync" || path === "/sync/forget") {
     if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
     let body; try { body = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
-    const s = await unseal(env, body.token);
-    const now = Date.now();
-    if (!s || now > s.exp) return json({ error: "logged_out" }, 401);
-    if (now - s.chk > RECHECK_MS) {
-      try {
-        if (now > s.ax) { const tk = await discordToken(req, env, { grant_type: "refresh_token", refresh_token: s.rt }); Object.assign(s, { at: tk.access_token, rt: tk.refresh_token || s.rt, ax: now + (tk.expires_in || 604800) * 1000 - 60000 }); }
-        const c = await discordCheck(s.at);
-        if (!c.ok) return json({ error: c.why === "expired" ? "logged_out" : c.why }, c.why === "expired" ? 401 : 403);
-        s.u = c.user; s.chk = now;
-      } catch (e) {
-        if (now - s.chk > GRACE_MS) return json({ error: "discord_unreachable" }, 503);   // Discord briefly down: keep the last check for a day
-      }
+    const c = await sessionCheck(req, env, body.token);
+    if (c.error) return json({ error: c.error, user: c.user }, c.status);
+    const s = c.s, token = await seal(env, s);
+    if (path === "/auth/me") {
+      if (!env.OFFICER_PASSWORD) return json({ error: "officer_password_missing", user: s.u }, 503);
+      return json({ ok: true, user: s.u, pw: String(env.OFFICER_PASSWORD).trim(), token });
     }
-    if (!env.OFFICER_PASSWORD) return json({ error: "officer_password_missing", user: s.u }, 503);
-    return json({ ok: true, user: s.u, pw: String(env.OFFICER_PASSWORD).trim(), token: await seal(env, s) });
+    if (!env.TIMERS) return json({ error: "push_not_set_up" }, 503);
+    const stub = env.TIMERS.get(env.TIMERS.idFromName("all"));
+    if (path === "/sync/forget") { if (body.sub && body.sub.endpoint) await stub.forget(String(body.sub.endpoint)); return json({ ok: true }); }
+    const st = body.state && typeof body.state === "object" ? body.state : {};
+    try { return json({ ok: true, user: s.u, token, state: await stub.syncMerge(s.u.id, st) }); }
+    catch (e) { return json({ error: "too_big" }, 413); }
   }
   return json({ error: "not found" }, 404);
 }

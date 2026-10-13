@@ -83,6 +83,15 @@
 
   <!-- Password gate: the guide data (data/content-core.js + data/content-<lang>.js, built from data/content.js) is only loaded after the correct password is entered -->
   <script>
+  // 🔄 back from "Log in with Discord" (⏰ sync): #login=<session>&to=<old address part> → keep the session, restore the address
+  (function () {
+    var m = location.hash.slice(1).match(/^(login|login_error)=([^&]*)(?:&to=(.*))?$/);
+    if (!m) return;
+    try { if (m[1] === "login") localStorage.setItem("nxs-discord-v1", m[2]); else sessionStorage.setItem("nxs-login-error", m[2]); } catch (e) {}
+    history.replaceState(null, "", location.pathname + location.search + (m[3] ? "#" + decodeURIComponent(m[3]) : ""));
+  })();
+  </script>
+  <script>
   (function () {
     // SHA-256 hash of (salt + password), not the password itself.
     var HASH = "a9dadd1938825b78c31bb62d74173a8e5e1b460ab2484d42707df7a6d5d42160";
