@@ -110,7 +110,7 @@
       display:flex;flex-direction:column;background:var(--panel);color:var(--text);border:1px solid var(--rule);
       border-radius:12px;box-shadow:0 8px 28px var(--shadow);overflow:hidden}
     .ai-panel[hidden]{display:none}
-    .ai-head{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--rule);background:var(--panel-2)}
+    .ai-head{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--rule);background:var(--panel-2);cursor:pointer}
     .ai-head b{flex:1;font-family:"Oswald","Noto Sans TC",sans-serif;letter-spacing:.02em}
     .ai-head button{border:0;background:transparent;color:var(--text);font-size:18px;cursor:pointer;padding:2px 6px}
     .ai-officer{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px;border-bottom:1px solid var(--rule);font-size:13px}
@@ -210,7 +210,10 @@
     try { sessionStorage.setItem(OPEN_KEY, open ? "1" : ""); } catch (e) {}
     if (open) { $("aiLog").scrollTop = $("aiLog").querySelectorAll(".ai-msg").length > 1 ? $("aiLog").scrollHeight : 0; }
   }
-  fab.onclick = () => { setOpen(panel.hidden); if (!panel.hidden) $("aiQ").focus(); };
+  // phones: don't jump into typing (the keyboard would pop up every time); a computer still gets the cursor in the box
+  fab.onclick = () => { setOpen(panel.hidden); if (!panel.hidden && matchMedia("(pointer: fine)").matches) $("aiQ").focus(); };
+  // tap the top bar (not its buttons) to close the panel
+  panel.querySelector(".ai-head").addEventListener("click", (e) => { if (!e.target.closest("button")) setOpen(false); });
   /* first visit on this device: open the chat once (after the language is picked and any event pop-up is closed) */
   const INTRO_KEY = "nxs-ai-intro";
   if (ON_SITE) {
