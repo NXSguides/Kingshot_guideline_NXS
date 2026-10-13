@@ -377,6 +377,8 @@
     .tm-err{color:#c0392b;font-size:13px;margin-bottom:6px}
     .tm-acts{display:flex;gap:8px;margin-top:6px}
     .tm-sg{border:1px solid var(--accent)}
+    .tm-page{max-width:820px;margin:10px auto 0;padding:0 12px}.tm-page .tm-note{background:var(--panel-2);border-radius:12px;padding:10px 14px;margin-bottom:10px;font-size:14.5px}
+    .tm-page .tm-hint{color:var(--text-muted);font-size:13px}
     .tm-stk{display:flex;gap:8px;align-items:flex-start;padding:3px 0;font-size:14px}.tm-stk input{margin-top:3px;width:17px;height:17px}
     .tm-ap{display:flex;flex-direction:column;gap:8px;margin:4px 0 6px}.tm-ap label{display:flex;flex-direction:column;gap:3px;font-size:13px;color:var(--text-muted)}.tm-ap .tm-sel{font-size:15px;padding:7px 8px}
     .tm-quick{background:var(--panel-2);border-radius:10px;padding:9px 11px;margin-bottom:10px}
@@ -503,7 +505,7 @@
   }
   view.addEventListener("change", (e) => {
     if (e.target.dataset.stk) { if (e.target.checked) stackDone[e.target.dataset.stk] = 1; else delete stackDone[e.target.dataset.stk];
-      try { sessionStorage.setItem(STK, JSON.stringify(stackDone)); } catch (err) {} return; }
+      try { sessionStorage.setItem(STK, JSON.stringify(stackDone)); } catch (err) {} if (pageBox) pageBox.innerHTML = stackHtml(); return; }
     if (e.target.dataset.ap && adding) {
       const k = e.target.dataset.ap, v = +e.target.value;
       if (k === "at") adding.apAt = v; else adding.apBefore = v;
@@ -513,7 +515,10 @@
     const k = e.target.dataset.before; if (!k) return;
     (alerts[k] = alerts[k] || {}).before = +e.target.value; saveAlerts(); render(); sync();
   });
+  setInterval(pageStack, 30000);
+  setTimeout(pageStack, 800);
   async function render() {
+    pageStack();
     pushOn = canPush() && Notification.permission === "granted" && !!(await getSub());
     const n = await notifHtml();
     view.innerHTML = `<div class="tm-top"><b>${esc(T("title"))}</b><button type="button" class="tm-btn" data-a="chat">${esc(T("chat"))}</button></div>
@@ -532,7 +537,7 @@
   view.addEventListener("click", async (e) => {
     const b = e.target.closest("button"); if (!b) return;
     const a = b.dataset.a;
-    if (b.dataset.del) { timers = timers.filter((x) => x.id !== b.dataset.del); store(); renderList(); sync(); return; }
+    if (b.dataset.del) { timers = timers.filter((x) => x.id !== b.dataset.del); store(); renderList(); pageStack(); sync(); return; }
     if (b.dataset.sg) { if (b.dataset.sg === "no") { sugg = null; return render(); } return acceptSugg(b.dataset.sg); }
     if (b.dataset.sgfor) { sugg = b.dataset.sgfor; view.scrollTop = 0; return render(); }
     if (b.dataset.quick) { const [cat, sub, name] = b.dataset.quick.split("|"); const v = presets[b.dataset.quick]; if (v) createTimers(cat, sub, name, Array.isArray(v) ? v : [v]); return; }
@@ -610,6 +615,21 @@
     return live.map((x) => { const steps = T("stack")[x.sub] || [], end = new Date(x.slot + 18e5).toISOString().slice(11, 16);
       return `<div class="tm-note tm-sg"><b>${esc(T("stackT").replace("{e}", SUBS.appt[x.sub] || "📅").replace("{name}", subName(x.sub)).replace("{t}", end))}</b><div class="tm-hint" style="margin:2px 0 4px">${esc(T("stackHint"))}</div>` +
         steps.map((t, i) => { const k = `${x.id}-${i}`; return `<label class="tm-stk"><input type="checkbox" data-stk="${k}"${stackDone[k] ? " checked" : ""}> <span>${esc(t)}</span></label>`; }).join("") + `</div>`; }).join("");
+  }
+  /* the same checklist also sits at the top of the page (main site / officer page) while a slot is on */
+  let pageBox = null;
+  function pageStack() {
+    const html = stackHtml();
+    if (!html) { if (pageBox) { pageBox.remove(); pageBox = null; } return; }
+    if (!pageBox) {
+      pageBox = document.createElement("div"); pageBox.className = "tm-page";
+      const doc = document.getElementById("doc"), main = document.getElementById("main");
+      if (doc) doc.before(pageBox); else if (main) main.prepend(pageBox); else document.body.prepend(pageBox);
+      pageBox.addEventListener("change", (e) => { const k = e.target.dataset.stk; if (!k) return;
+        if (e.target.checked) stackDone[k] = 1; else delete stackDone[k];
+        try { sessionStorage.setItem(STK, JSON.stringify(stackDone)); } catch (err) {} if (!view.hidden) render(); });
+    }
+    if (!pageBox.contains(document.activeElement)) pageBox.innerHTML = html;
   }
   function suggHtml() {
     const x = sugg && timers.find((t) => t.id === sugg), sg = x && suggestion(x);
