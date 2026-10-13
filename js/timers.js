@@ -423,9 +423,10 @@
         h += `<b>${esc(T("subQ")[adding.cat])}</b><div class="tm-cats">${Object.keys(S).map((k) => `<button type="button" class="tm-btn${adding.sub === k ? " on" : ""}" data-sub="${k}">${S[k]} ${esc(subName(k))}</button>`).join("")}</div>`;
         if (!adding.sub) return h + `<div class="tm-acts"><button type="button" class="tm-btn" data-a="cancel">${esc(T("cancel"))}</button></div></div>`;
       }
-      const pk2 = preKey(adding.cat, adding.sub, adding.name), last = presets[pk2];
-      if (last && adding.rows.length === 1 && !adding.rows[0] && adding.prefilled !== pk2) { adding.rows[0] = fmtLeft(last); adding.prefilled = pk2; }
-      h += `<b>${esc(T("left"))}</b><div class="tm-hint">${esc(last ? T("lastTime").replace("{t}", fmtLeft(last)) : T("hint"))}</div>`;
+      const pk2 = preKey(adding.cat, adding.sub, adding.name), last = PRESET_CATS.includes(adding.cat) ? presets[pk2] : null;
+      const lastArr = last == null ? [] : Array.isArray(last) ? last : [last];
+      if (lastArr.length && adding.rows.every((v) => !v) && adding.prefilled !== pk2) { adding.rows = lastArr.map(fmtLeft); adding.prefilled = pk2; }
+      h += `<b>${esc(T("left"))}</b><div class="tm-hint">${esc(lastArr.length ? T("lastTime").replace("{t}", lastArr.map(fmtLeft).join(" · ")) : T("hint"))}</div>`;
       h += adding.rows.map((v, i) => `<input class="tm-in" data-row="${i}" inputmode="text" autocomplete="off" placeholder="${MULTI[adding.cat] ? `#${i + 1}  ` : ""}2:45:12" value="${esc(v)}" dir="ltr">`).join("");
       if (MULTI[adding.cat] && adding.rows.length < MULTI[adding.cat]) h += `<button type="button" class="tm-btn" data-a="row">${esc(T(adding.cat === "build" ? "builder" : "another"))}</button>`;
       if (adding.err) h += `<div class="tm-err">${esc(T("bad"))}</div>`;
@@ -489,10 +490,10 @@
     const b = e.target.closest("button"); if (!b) return;
     const a = b.dataset.a;
     if (b.dataset.del) { timers = timers.filter((x) => x.id !== b.dataset.del); store(); renderList(); sync(); return; }
-    if (b.dataset.quick) { const [cat, sub, name] = b.dataset.quick.split("|"); if (presets[b.dataset.quick]) createTimers(cat, sub, name, [presets[b.dataset.quick]]); return; }
+    if (b.dataset.quick) { const [cat, sub, name] = b.dataset.quick.split("|"); const v = presets[b.dataset.quick]; if (v) createTimers(cat, sub, name, Array.isArray(v) ? v : [v]); return; }
     if (b.dataset.forget) { delete presets[b.dataset.forget]; savePre(); return render(); }
-    if (b.dataset.cat) { adding.cat = b.dataset.cat; adding.sub = null; adding.rows = adding.rows.slice(0, MULTI[adding.cat] || 1); adding.err = false; adding.focus = true; return render(); }
-    if (b.dataset.sub) { adding.sub = b.dataset.sub; adding.focus = true; return render(); }
+    if (b.dataset.cat) { adding.cat = b.dataset.cat; adding.sub = null; adding.rows = adding.prefilled ? [""] : adding.rows.slice(0, MULTI[adding.cat] || 1); adding.prefilled = null; adding.err = false; adding.focus = true; return render(); }
+    if (b.dataset.sub) { if (adding.prefilled) { adding.rows = [""]; adding.prefilled = null; } adding.sub = b.dataset.sub; adding.focus = true; return render(); }
     if (b.dataset.al) {   // event alert time toggles: "bear-hunt:13", "arena"
       const [k, h] = b.dataset.al.split(":");
       const a = (alerts[k] = alerts[k] || {});
@@ -530,6 +531,7 @@
   let presets = {};
   try { presets = JSON.parse(localStorage.getItem(PRE_LS)) || {}; } catch (e) {}
   const savePre = () => { try { localStorage.setItem(PRE_LS, JSON.stringify(presets)); } catch (e) {} };
+  const PRESET_CATS = ["train", "gather"];   // only these change little from one time to the next
   const preKey = (cat, sub, name) => [cat, sub || "", cat === "other" ? (name || "").trim().toLowerCase() : ""].join("|");
   function createTimers(cat, sub, name, ms) {
     const now = Date.now(), numbered = !!MULTI[cat];
@@ -539,7 +541,8 @@
     let n = number ? Math.max(0, ...used) : 0;
     ms.forEach((d) => timers.push({ id: Math.random().toString(36).slice(2, 10), cat, name: cat === "other" ? (name || "").trim().slice(0, 40) : "",
       sub: SUBS[cat] ? sub : "", n: number ? ++n : 0, at: now + d }));
-    if (ms.length === 1) { presets[preKey(cat, sub, name)] = ms[0]; savePre(); }
+    // Training: one time per troop type · Gathering: the whole set of marches
+    if (PRESET_CATS.includes(cat) && (ms.length === 1 || cat === "gather")) { presets[preKey(cat, sub, name)] = cat === "gather" ? ms.slice() : ms[0]; savePre(); }
     store(); render(); sync();
   }
   function saveAdding() {
@@ -550,11 +553,12 @@
     createTimers(a.cat, a.sub, a.name, ms);
   }
   function quickHtml() {
-    const keys = Object.keys(presets).filter((k) => CAT_EMOJI[k.split("|")[0]]);
+    const keys = Object.keys(presets).filter((k) => PRESET_CATS.includes(k.split("|")[0]));
+    const show = (v) => (Array.isArray(v) ? v : [v]).map(fmtLeft).join(" · ");
     if (!keys.length || adding) return "";
     return `<div class="tm-quick"><b>${esc(T("quick"))}</b><div class="tm-hint" style="margin:1px 0 6px">${esc(T("quickHint"))}</div><div class="tm-cats">` +
       keys.map((k) => { const [cat, sub, name] = k.split("|"), lab = labelOf({ cat, sub, name });
-        return `<span class="tm-qc"><button type="button" class="tm-btn" data-quick="${esc(k)}">${CAT_EMOJI[cat]} ${esc(lab)} · <b dir="ltr">${fmtLeft(presets[k])}</b> ▶</button><button type="button" class="tm-x" data-forget="${esc(k)}" title="${esc(T("forget"))}" aria-label="${esc(T("forget"))}">✕</button></span>`; }).join("") +
+        return `<span class="tm-qc"><button type="button" class="tm-btn" data-quick="${esc(k)}">${CAT_EMOJI[cat]} ${esc(lab)}${Array.isArray(presets[k]) && presets[k].length > 1 ? ` ×${presets[k].length}` : ""} · <b dir="ltr">${esc(show(presets[k]))}</b> ▶</button><button type="button" class="tm-x" data-forget="${esc(k)}" title="${esc(T("forget"))}" aria-label="${esc(T("forget"))}">✕</button></span>`; }).join("") +
       `</div></div>`;
   }
 
