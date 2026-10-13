@@ -483,7 +483,7 @@ const BLOCKS = {
     const imgs = (a.images || []).map((src) => `<img class="ann-img" src="${escapeHtml(src)}" loading="lazy">`).join("");
     return `
       <div class="ann-board">
-        <div class="ann-tabs">${tabs}</div>
+        <div class="ann-tabs" data-drag="all">${tabs}</div>
         <div class="ann-body">
           <div class="ann-meta">
             <span>${escapeHtml(a.author)}</span>
@@ -826,6 +826,20 @@ function selectAnnouncement(i) {
   window.scrollTo(0, pageY);
 }
 window.selectAnnouncement = selectAnnouncement;
+/* more than one announcement: show the next one every 4 s; stops for a while when someone taps, hovers or scrolls the tabs */
+let annPauseUntil = 0;
+const ANN_EVERY = 4000, ANN_PAUSE = 15000;
+document.addEventListener("pointerdown", (e) => { if (e.target.closest && e.target.closest(".ann-board")) annPauseUntil = Math.max(annPauseUntil, Date.now() + ANN_PAUSE); }, true);
+document.addEventListener("pointerover", (e) => { if (e.pointerType === "mouse" && e.target.closest && e.target.closest(".ann-board")) annPauseUntil = Math.max(annPauseUntil, Date.now() + ANN_EVERY); });
+document.addEventListener("wheel", (e) => { if (e.target.closest && e.target.closest(".ann-board")) annPauseUntil = Math.max(annPauseUntil, Date.now() + ANN_PAUSE); }, { passive: true });
+setInterval(() => {
+  const board = document.querySelector(".ann-board");
+  if (!board || announcements.length < 2 || document.visibilityState !== "visible" || Date.now() < annPauseUntil) return;
+  const r = board.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;   // not on screen
+  selectAnnouncement((currentAnnIndex + 1) % announcements.length);
+  const tabs = document.querySelector(".ann-tabs"), t = tabs && tabs.querySelector(".ann-tab.active");
+  if (t) tabs.scrollTo({ left: t.offsetLeft - (tabs.clientWidth - t.offsetWidth) / 2, behavior: "smooth" });
+}, ANN_EVERY);
 
 function renderAnnTicker() {
   const ticker = document.getElementById("annTicker");

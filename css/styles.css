@@ -489,7 +489,13 @@ body.menu-open { overflow: hidden; }
   overflow-x: auto;
   background: var(--panel-2);
   border-bottom: 1px solid var(--rule);
+  scrollbar-color: var(--accent) transparent;   /* the sideways bar in our orange instead of black */
+  scrollbar-width: thin;
 }
+.ann-tabs::-webkit-scrollbar { height: 6px; }
+.ann-tabs::-webkit-scrollbar-track { background: transparent; }
+.ann-tabs::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 6px; }
+@media (pointer: fine) { .ann-tabs { cursor: grab; } }
 
 .ann-tab {
   flex: none;

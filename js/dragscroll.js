@@ -16,7 +16,8 @@
   };
   let drag = null, moved = false;
   document.addEventListener("pointerdown", (e) => {
-    if (e.pointerType !== "mouse" || e.button !== 0 || e.target.closest(SKIP)) return;
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    if (e.target.closest(SKIP) && !e.target.closest('[data-drag="all"]')) return;   // a strip of buttons (announcement tabs) can be dragged from a button too
     const box = scroller(e.target); if (!box) return;
     drag = { box, x: e.clientX, y: e.clientY, l: box.scrollLeft, t: box.scrollTop }; moved = false;
   });
