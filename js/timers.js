@@ -64,7 +64,7 @@
       cats: { appt: "Appointment", gather: "Gathering", train: "Troops Training", build: "Building Queue", research: "Tech Research", master: "Master", recruit: "Recruit Heroes",
         pet: "Pet Adventure", intel: "Intel Missions", stamina: "Gourmet Feast", heal: "Healing", other: "Other" },
       subQ: { train: "Which troops?", recruit: "Which recruit?", appt: "Which position?" }, advanced: "Advanced", epic: "Epic",
-      minister: "Chief Minister", advisor: "Noble Advisor", apDay: "Day (UTC)", apTime: "Slot start (UTC) — 30 min each", apRemind: "Remind me",
+      minister: "Chief Minister", advisor: "Noble Advisor", apDay: "Day (UTC)", apTime: "Your slot (next 24 h, 30 min each)", apRemind: "Remind me",
       apToday: "today", apStarts: "slot starts {t}", apTitle: "{e} {name} in {n} min", apNow: "{e} {name} — your slot starts now!", apBody: "Your 30-min slot starts at {t} UTC.",
       troop: "Which troops?", builder: "＋ Second builder",
       alerts: "🎮 Game reminders",
@@ -443,20 +443,22 @@
   }
   /* 📅 Appointment: Chief Minister / Noble Advisor are 30-min slots booked ahead (UTC, on :00 or :30) */
   function apptForm() {
-    const DAYMS = 86400000, now = Date.now(), today = Math.floor(now / DAYMS) * DAYMS;
-    if (adding.apDay == null) { adding.apDay = today; const n = Math.ceil((now - today) / 18e5) % 48; adding.apSlot = n; if (n === 0 && now > today) adding.apDay = today + DAYMS; }
+    // the game only lets you book within the next 24 h → the next 48 half-hour slots
+    const now = Date.now(), first = Math.ceil(now / 18e5) * 18e5;
+    const slots = Array.from({ length: 48 }, (_, i) => first + i * 18e5);
+    if (adding.apAt == null || !slots.includes(adding.apAt)) adding.apAt = slots[0];
     if (adding.apBefore == null) adding.apBefore = 5;
-    const loc = (t) => new Date(t).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-    const days = Array.from({ length: 8 }, (_, i) => today + i * DAYMS).map((d) => `<option value="${d}"${d === adding.apDay ? " selected" : ""}>${esc(d === today ? T("apToday") : new Date(d).toLocaleDateString([], { weekday: "short", month: "numeric", day: "numeric", timeZone: "UTC" }))}</option>`).join("");
-    const slots = Array.from({ length: 48 }, (_, i) => { const t = adding.apDay + i * 18e5, hm = String(Math.floor(i / 2)).padStart(2, "0") + ":" + (i % 2 ? "30" : "00");
-      return `<option value="${i}"${i === adding.apSlot ? " selected" : ""}${t <= now ? " disabled" : ""}>${hm} UTC (${loc(t)})</option>`; }).join("");
+    const today = new Date(now).toISOString().slice(0, 10);
+    const lab = (t) => { const iso = new Date(t).toISOString(), day = iso.slice(0, 10) === today ? T("apToday") : new Date(t).toLocaleDateString([], { weekday: "short", timeZone: "UTC" });
+      return `${day} ${iso.slice(11, 16)} UTC (${new Date(t).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })})`; };
+    const opts = slots.map((t) => `<option value="${t}"${t === adding.apAt ? " selected" : ""}>${esc(lab(t))}</option>`).join("");
     const bf = [0, 1, 3, 5, 10, 15, 30].map((m) => `<option value="${m}"${m === adding.apBefore ? " selected" : ""}>${esc(m ? T("before").replace("{n}", m) : T("atTime"))}</option>`).join("");
-    return `<div class="tm-ap"><label>${esc(T("apDay"))}<select class="tm-sel" data-ap="day">${days}</select></label>
-      <label>${esc(T("apTime"))}<select class="tm-sel" data-ap="slot">${slots}</select></label>
+    return `<div class="tm-ap"><label>${esc(T("apTime"))}<select class="tm-sel" data-ap="at">${opts}</select></label>
       <label>${esc(T("apRemind"))}<select class="tm-sel" data-ap="before">${bf}</select></label></div>
       ${adding.err ? `<div class="tm-err">${esc(T("bad"))}</div>` : ""}
       <div class="tm-acts"><button type="button" class="tm-btn main" data-a="save">${esc(T("save"))}</button><button type="button" class="tm-btn" data-a="cancel">${esc(T("cancel"))}</button></div>`;
   }
+
   let pushOn = false;   // set by render(): this phone has notifications on
   function alertsHtml() {
     const loc = (h, m = 0) => new Date(Date.UTC(2000, 0, 1, h, m)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
@@ -491,7 +493,7 @@
   view.addEventListener("change", (e) => {
     if (e.target.dataset.ap && adding) {
       const k = e.target.dataset.ap, v = +e.target.value;
-      if (k === "day") adding.apDay = v; else if (k === "slot") adding.apSlot = v; else adding.apBefore = v;
+      if (k === "at") adding.apAt = v; else adding.apBefore = v;
       adding.err = false; return render();
     }
     if (e.target.dataset.hour) { (alerts.admin = alerts.admin || {}).hour = +e.target.value; saveAlerts(); render(); sync(); return; }
@@ -575,7 +577,7 @@
   }
   function saveAdding() {
     if (adding.cat === "appt") {
-      const slot = adding.apDay + adding.apSlot * 18e5, at = slot - adding.apBefore * 60000;
+      const slot = adding.apAt, at = slot - adding.apBefore * 60000;
       if (!adding.sub || slot <= Date.now()) { adding.err = true; return render(); }
       timers.push({ id: Math.random().toString(36).slice(2, 10), cat: "appt", sub: adding.sub, slot, before: adding.apBefore, at: Math.max(at, Date.now() + 5000) });
       adding = null; store(); render(); sync(); return;
