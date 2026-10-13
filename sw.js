@@ -3,7 +3,8 @@
    - Pages, app code, guide text and data files: try the network first (so new uploads show up
      right away); if it doesn't answer within 1.5 s for pages/code (3 s for data files), or there
      is no internet, show the saved copy. */
-const CACHE = "nxs-v13";
+const CACHE = "nxs-v14";
+const INBOX = "nxs-inbox", INBOX_KEY = "./__inbox";   // reminders that arrived, for the red badge + the "🔔 missed" card
 const NETWORK_TIMEOUT_MS = 3000;        // data files
 const SHELL_TIMEOUT_MS = 1500;          // pages, code, guide text
 const SHELL = [
@@ -32,7 +33,7 @@ self.addEventListener("install", (e) => {
 self.addEventListener("activate", (e) => {
   e.waitUntil(
     caches.keys()
-      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE && k !== INBOX).map((k) => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
@@ -88,18 +89,35 @@ self.addEventListener("fetch", (e) => {
   if (sameOrigin) e.respondWith(networkFirst(e, req, NETWORK_TIMEOUT_MS));
 });
 
+/* Inbox: every reminder that arrives is kept for 24 h (max 30). The app icon shows a red badge with the number
+   not seen yet; the site shows them in a "🔔 Reminders" card at the top and marks them seen. */
+async function inboxGet() {
+  try { const r = await (await caches.open(INBOX)).match(INBOX_KEY); const l = r ? await r.json() : []; return Array.isArray(l) ? l.filter((x) => Date.now() - x.at < 864e5) : []; } catch (e) { return []; }
+}
+async function inboxSet(list) {
+  try { await (await caches.open(INBOX)).put(INBOX_KEY, new Response(JSON.stringify(list), { headers: { "Content-Type": "application/json" } })); } catch (e) {}
+  const n = list.filter((x) => !x.seen).length;
+  try { if (n && self.navigator.setAppBadge) await self.navigator.setAppBadge(n); else if (!n && self.navigator.clearAppBadge) await self.navigator.clearAppBadge(); } catch (e) {}
+  for (const c of await self.clients.matchAll({ type: "window", includeUncontrolled: true })) c.postMessage({ nxs: "inbox" });
+}
+
 /* ⏰ Timer notifications: the Worker sends {title, body, tag}; tapping one opens the site's timer list */
 self.addEventListener("push", (e) => {
   let m = {};
   try { m = e.data ? e.data.json() : {}; } catch (err) { m = { title: "NXS", body: e.data ? e.data.text() : "" }; }
-  e.waitUntil(self.registration.showNotification(m.title || "NXS", {
-    body: m.body || "", tag: m.tag || undefined, renotify: !!m.tag,
-    icon: "icons/icon-192.png", badge: "icons/icon-192.png",
-    data: { url: /^adm-/.test(m.tag || "") ? "./officer-x7k2p9.html#events?ev=" + m.tag.replace(/^adm-/, "").replace(/-\d+$/, "") : "./?timers" }   // admin reminders open the officer checklist
-  }));
+  const url = /^adm-/.test(m.tag || "") ? "./officer-x7k2p9.html#events?ev=" + m.tag.replace(/^adm-/, "").replace(/-\d+$/, "") : "./?timers";   // admin reminders open the officer checklist
+  const id = m.tag || "n" + Date.now();
+  e.waitUntil(Promise.all([
+    self.registration.showNotification(m.title || "NXS", {
+      body: m.body || "", tag: m.tag || undefined, renotify: !!m.tag,
+      icon: "icons/icon-192.png", badge: "icons/icon-192.png", data: { url, id } }),
+    inboxGet().then((l) => inboxSet(l.filter((x) => x.id !== id).concat({ id, title: m.title || "NXS", body: m.body || "", url, at: Date.now() }).slice(-30))),
+  ]));
 });
 self.addEventListener("notificationclick", (e) => {
   e.notification.close();
+  const id = e.notification.data && e.notification.data.id;
+  if (id) e.waitUntil(inboxGet().then((l) => inboxSet(l.filter((x) => x.id !== id))));   // opened from the notification = read
   const url = new URL((e.notification.data && e.notification.data.url) || "./", self.registration.scope).href;
   e.waitUntil(self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((list) => {
     const admin = /officer-x7k2p9/.test(url);

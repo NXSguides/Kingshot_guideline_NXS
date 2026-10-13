@@ -75,6 +75,7 @@
       apToday: "today", apStarts: "slot starts {t}", apTitle: "{e} {name} in {n} min", apNow: "{e} {name} — your slot starts now!", apBody: "Your 30-min slot starts at {t} UTC.",
       stack: { minister: ["Activate Double Time", "Activate Wolf", "Start both building queues within 5 min"],
                advisor: ["Use gems to raise troop training capacity", "Start training (all troop types)"] },
+      ibT: "🔔 Reminders ({n})", ibClear: "✓ Clear", ibAgo: "{t} ago",
       stackT: "{e} {name} is on — until {t} UTC", stackHint: "Stack your buffs:", stackBody: "Slot at {t} UTC. Then: {list}.",
       naOn: "Noble Advisor buff on now", naHint: "Training is faster with it, so the time is remembered separately (turns on by itself during your Noble Advisor slot).",
       sgT: "💡 Line up a {pos}", sgNow: "{what} finishes {when}. Book the {slot} UTC slot so your next one starts with the buff.",
@@ -401,6 +402,8 @@
     .tm-sg{border:1px solid var(--accent)}
     .tm-page{max-width:820px;margin:10px auto 0;padding:0 12px}.tm-page .tm-note{background:var(--panel-2);border-radius:12px;padding:10px 14px;margin-bottom:10px;font-size:14.5px}
     .tm-page .tm-hint{color:var(--text-muted);font-size:13px}
+    .tm-ib{display:block;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--border,rgba(127,127,127,.25));color:inherit;font:inherit;padding:8px 0;cursor:pointer}
+    .tm-ib span{display:block;font-size:13.5px;margin-top:2px;white-space:pre-line}.tm-ib small{display:block;color:var(--text-muted);font-size:12px;margin-top:2px}
     .tm-stk{display:flex;gap:8px;align-items:flex-start;padding:3px 0;font-size:14px}.tm-stk input{margin-top:3px;width:17px;height:17px}
     .tm-ap{display:flex;flex-direction:column;gap:8px;margin:4px 0 6px}.tm-ap label{display:flex;flex-direction:column;gap:3px;font-size:13px;color:var(--text-muted)}.tm-ap .tm-sel{font-size:15px;padding:7px 8px}
     .tm-quick{background:var(--panel-2);border-radius:10px;padding:9px 11px;margin-bottom:10px}
@@ -732,7 +735,43 @@
     setTimeout(openTimers, 600);
     try { history.replaceState(null, "", location.pathname + location.hash); } catch (e) {}
   }
-  if (navigator.serviceWorker) navigator.serviceWorker.addEventListener("message", (e) => { if (e.data && e.data.nxs === "open-timers") openTimers(); });
+  if (navigator.serviceWorker) navigator.serviceWorker.addEventListener("message", (e) => { if (e.data && e.data.nxs === "open-timers") openTimers(); if (e.data && e.data.nxs === "inbox") inbox(); });
+  // the officer page doesn't register the service worker itself (an officer-only Home Screen app needs it for push + the badge)
+  if (navigator.serviceWorker) navigator.serviceWorker.getRegistration().then((r) => r || navigator.serviceWorker.register("sw.js")).catch(() => {});
+
+  /* 🔔 reminders that arrived (kept by sw.js for 24 h): a card at the top of the page; seeing it clears the red badge on the app icon */
+  const IB = "nxs-inbox", IB_KEY = new URL("./__inbox", navigator.serviceWorker && navigator.serviceWorker.controller ? navigator.serviceWorker.controller.scriptURL : location.href).href;
+  let ibBox = null;
+  async function inbox() {
+    if (!window.caches) return;
+    let list = [];
+    try { const r = await (await caches.open(IB)).match(IB_KEY); list = r ? await r.json() : []; } catch (e) {}
+    list = (Array.isArray(list) ? list : []).filter((x) => Date.now() - x.at < 864e5);
+    if (!list.length) { if (ibBox) { ibBox.remove(); ibBox = null; } return; }
+    if (!ibBox) {
+      ibBox = document.createElement("div"); ibBox.className = "tm-page";
+      if (pageBox) pageBox.before(ibBox); else { const doc = document.getElementById("doc"), main = document.getElementById("main"); if (doc) doc.before(ibBox); else if (main) main.prepend(ibBox); else document.body.prepend(ibBox); }
+      ibBox.addEventListener("click", async (e) => {
+        const a = e.target.closest("[data-ib]"); if (!a) return;
+        if (a.dataset.ib === "clear") { try { await (await caches.open(IB)).delete(IB_KEY); } catch (err) {} try { navigator.clearAppBadge && navigator.clearAppBadge(); } catch (err) {} return inbox(); }
+        const it = list.find((x) => x.id === a.dataset.ib); if (!it) return;
+        list = list.filter((x) => x !== it); await ibSave(list);
+        const u = new URL(it.url, IB_KEY);
+        const pth = (x) => x.replace(/index\.html$/, "");
+        if (/[?&]timers\b/.test(u.search) && pth(u.pathname) === pth(location.pathname)) { openTimers(); inbox(); } else location.href = u.href;
+      });
+    }
+    const ago = (t) => { const m = Math.round((Date.now() - t) / 6e4); return m < 60 ? m + " min" : Math.floor(m / 60) + " h"; };
+    ibBox.innerHTML = `<div class="tm-note tm-sg"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><b>${esc(T("ibT").replace("{n}", list.length))}</b><button type="button" class="tm-btn" data-ib="clear">${esc(T("ibClear"))}</button></div>` +
+      list.slice().sort((a, b) => b.at - a.at).map((x) => `<button type="button" class="tm-ib" data-ib="${esc(x.id)}"><b>${esc(x.title)}</b>${x.body ? `<span>${esc(x.body)}</span>` : ""}<small>${esc(T("ibAgo").replace("{t}", ago(x.at)))} ›</small></button>`).join("") + `</div>`;
+    if (list.some((x) => !x.seen) && document.visibilityState === "visible") ibSave(list.map((x) => ({ ...x, seen: 1 })));   // on screen now → red badge off
+  }
+  async function ibSave(list) {
+    try { await (await caches.open(IB)).put(IB_KEY, new Response(JSON.stringify(list), { headers: { "Content-Type": "application/json" } })); } catch (e) {}
+    try { const n = list.filter((x) => !x.seen).length; if (n && navigator.setAppBadge) navigator.setAppBadge(n); else if (navigator.clearAppBadge) navigator.clearAppBadge(); } catch (e) {}
+  }
+  setTimeout(inbox, 900);
+  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") inbox(); });
   // after coming back to the app, re-send the list once (keeps the server in step if a save failed)
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") { prune(); store(); sync(); if (!view.hidden) render(); } });
   window.addEventListener("nxs-admin-todos", () => { if (alerts.admin && alerts.admin.on) sync(); if (!view.hidden) render(); });

@@ -123,6 +123,9 @@
   #pg-events .lim-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   #pg-events .lim-grid label { display: grid; gap: 4px; font-size: 13px; }
   #pg-events .lim-grid .inp { width: 100%; }
+  #pg-events #etGrid label { grid-template-rows: auto 44px auto 44px; align-content: start; }
+  #pg-events #etGrid .inp { height: 44px; box-sizing: border-box; margin: 0; }
+  #pg-events #etGrid .et-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
   #pg-events .ms-list { margin-top: 8px; font-size: 13px; }
   #pg-events .ms-list summary { cursor: pointer; font-weight: 600; }
   #pg-events .ms-row { padding: 6px 4px; border-bottom: 1px solid var(--rule); border-radius: 6px; }
@@ -1386,7 +1389,7 @@ const T = {
     fNote: "Note", fNoteSm: "(e.g. times — shown in the list)", fGuide: "Guide on the site", noGuide: "— none —",
     fTodo: "Action items for officers", addTodo: "+ Action item", editTodo: "Edit items",
     etDay: "Battle on day {n} of {t}",
-    etBearNext: "Next Bear day (UTC) — change it if the game moves Bear Hunt", etBearMoved: "🐻 Bear Hunt now runs every {e} days from {d}.",
+    etBearNext: "Next Bear day (UTC)", etDayLbl: "Battle day", etBearMoved: "🐻 Bear Hunt now runs every {e} days from {d}.",
     etTitle: "⏰ Our event times (UTC)", etNote: "The times we pick for alliance events, and which day of the event the battle is. Used on the home page (Today & this week) and for everyone's ⏰ Game reminders. Type one or more times, e.g. 13:00, 22:00. If the game moves Bear Hunt to another day, change \"Next Bear day\" — the whole site follows.",
     etBad: "Check the times — use HH:MM, e.g. 13:00, 22:30.", etSaved: "Saved ✅ The site and the ⏰ reminders use the new times within a few minutes (reminders update when people open the site).",
     limTitle: "⚙️ Troop limits in the guides", limNote: "Used everywhere the guides mention these numbers (all 12 languages) and by the AI assistant. Change them here when the game or the alliance changes the limit.",
@@ -1421,7 +1424,7 @@ const T = {
     fNote: "備註", fNoteSm: "（例如時間，會顯示在清單上）", fGuide: "網站上的攻略", noGuide: "— 無 —",
     fTodo: "幹部待辦事項", addTodo: "+ 待辦事項", editTodo: "編輯待辦",
     etDay: "第 {n} 天開打（共 {t} 天）",
-    etBearNext: "下一個熊日（UTC）— 遊戲把狩獵巨熊往後移時改這裡", etBearMoved: "🐻 狩獵巨熊改成從 {d} 起每 {e} 天一次。",
+    etBearNext: "下一個熊日（UTC）", etDayLbl: "開打日", etBearMoved: "🐻 狩獵巨熊改成從 {d} 起每 {e} 天一次。",
     etTitle: "⏰ 我們的活動時間（UTC）", etNote: "聯盟活動我們自己決定的時間，以及活動第幾天開打。首頁「今天和這週」和大家的 ⏰ 活動提醒都會用這裡的時間。可以填一個或多個時間，例如 13:00, 22:00。遊戲把狩獵巨熊移到別天時，改「下一個熊日」，整個網站都會跟著變。",
     etBad: "請檢查時間格式（HH:MM），例如 13:00, 22:30。", etSaved: "已儲存 ✅ 幾分鐘內網站和 ⏰ 提醒就會用新的時間（大家打開網站時提醒會跟著更新）。",
     limTitle: "⚙️ 攻略裡的部隊人數上限", limNote: "攻略裡所有提到這兩個數字的地方（12 種語言）和 AI 助理都會用這裡的數字。遊戲或聯盟改上限時，在這裡改就好。",
@@ -1979,7 +1982,7 @@ async function loadEventTimes() {
   } catch (e) {}
   $("etGrid").innerHTML = ET_KEYS.map(([k, e]) => {
     const len = (LIST && byId(k) && byId(k).days) || (EVENTS[k] && EVENTS[k].days) || { "swordland-showdown": 7, "tri-alliance-clash": 6, "viking-vengeance": 3, "cesares-fury": 3 }[k] || 1, cur = (ET.days || {})[k];
-    const day = k === "bear-hunt" ? `<span class="muted" style="font-size:12px;margin-top:6px">${esc(tr("etBearNext"))}</span><input class="inp" type="date" data-etbear style="margin-top:2px">` : `<select class="inp" data-etday="${k}" style="margin-top:4px">${Array.from({ length: len }, (_, i) => `<option value="${i + 1}"${cur === i + 1 ? " selected" : ""}>${esc(tr("etDay").replace("{n}", i + 1).replace("{t}", len))}</option>`).join("")}</select>`;
+    const day = k === "bear-hunt" ? `<span class="et-sub">${esc(tr("etBearNext"))}</span><input class="inp" type="date" data-etbear>` : `<span class="et-sub">${esc(tr("etDayLbl"))}</span><select class="inp" data-etday="${k}">${Array.from({ length: len }, (_, i) => `<option value="${i + 1}"${cur === i + 1 ? " selected" : ""}>${esc(tr("etDay").replace("{n}", i + 1).replace("{t}", len))}</option>`).join("")}</select>`;
     return `<label><span>${e} ${esc((EVENTS[k] && EVENTS[k][lang === "zh" ? "zh" : "en"]) || (k === "bear-hunt" ? (lang === "zh" ? "狩獵巨熊（每個熊日）" : "Bear Hunt (every Bear day)") : k))}</span><input class="inp" data-et="${k}" value="${esc((ET[k] || []).join(", "))}" inputmode="numeric" placeholder="13:00, 22:00">${day}</label>`; }).join("");
   etBearFill();
   if (LIST && $("evList")) renderList();
