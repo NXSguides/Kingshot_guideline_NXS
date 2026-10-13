@@ -66,6 +66,9 @@
       subQ: { train: "Which troops?", recruit: "Which recruit?", appt: "Which position?" }, advanced: "Advanced", epic: "Epic",
       minister: "Chief Minister", advisor: "Noble Advisor", apDay: "Day (UTC)", apTime: "Your slot (next 24 h, 30 min each)", apRemind: "Remind me",
       apToday: "today", apStarts: "slot starts {t}", apTitle: "{e} {name} in {n} min", apNow: "{e} {name} — your slot starts now!", apBody: "Your 30-min slot starts at {t} UTC.",
+      stack: { minister: ["Activate Double Time", "Activate Wolf", "Start both building queues within 5 min"],
+               advisor: ["Use gems to raise troop training capacity", "Start training (all troop types)"] },
+      stackT: "{e} {name} is on — until {t} UTC", stackHint: "Stack your buffs:", stackBody: "Slot at {t} UTC. Then: {list}.",
       sgT: "💡 Line up a {pos}", sgNow: "{what} finishes {when}. Book the {slot} UTC slot so your next one starts with the buff.",
       sgLater: "{what} finishes {when} — more than 24 h away, so you can't book yet. Booking opens {open}.",
       sgRemind: "＋ Remind me of this slot", sgBook: "＋ Remind me to book it", sgNo: "Not now", sgLink: "📅 slot",
@@ -342,7 +345,7 @@
     const list = timers.filter((x) => x.at > now).map((x) => x.cat === "appt" && x.book
         ? { id: x.id, at: x.at, title: T("bookT").replace("{name}", subName(x.sub)), body: T("bookB").replace("{t}", utcHM(x.slot)).replace("{what}", x.what || "") }
         : x.cat === "appt"
-        ? { id: x.id, at: x.at, title: T(x.before ? "apTitle" : "apNow").replace("{e}", SUBS.appt[x.sub] || "📅").replace("{name}", subName(x.sub)).replace("{n}", x.before), body: T("apBody").replace("{t}", utcHM(x.slot)) }
+        ? { id: x.id, at: x.at, title: T(x.before ? "apTitle" : "apNow").replace("{e}", SUBS.appt[x.sub] || "📅").replace("{name}", subName(x.sub)).replace("{n}", x.before), body: T("stackBody").replace("{t}", utcHM(x.slot)).replace("{list}", (T("stack")[x.sub] || []).join(" · ")).slice(0, 200) }
         : { id: x.id, at: x.at, title: `${CAT_EMOJI[x.cat] || "⏰"} ${labelOf(x)}`, body: `${labelOf(x)} ${T("body")}` })
       .concat(alertTimers(), adminTimers());
     try { const r = await post("/push/save", { sub: sub.toJSON(), timers: list }); syncErr = false; synced = { n: r.n ?? list.length, at: Date.now() }; }
@@ -374,6 +377,7 @@
     .tm-err{color:#c0392b;font-size:13px;margin-bottom:6px}
     .tm-acts{display:flex;gap:8px;margin-top:6px}
     .tm-sg{border:1px solid var(--accent)}
+    .tm-stk{display:flex;gap:8px;align-items:flex-start;padding:3px 0;font-size:14px}.tm-stk input{margin-top:3px;width:17px;height:17px}
     .tm-ap{display:flex;flex-direction:column;gap:8px;margin:4px 0 6px}.tm-ap label{display:flex;flex-direction:column;gap:3px;font-size:13px;color:var(--text-muted)}.tm-ap .tm-sel{font-size:15px;padding:7px 8px}
     .tm-quick{background:var(--panel-2);border-radius:10px;padding:9px 11px;margin-bottom:10px}
     .tm-qc{display:inline-flex;align-items:center}.tm-qc .tm-x{font-size:14px;padding:2px 4px}
@@ -498,6 +502,8 @@
     return `<div class="tm-alerts"><b>${esc(T("admin"))}</b><div class="tm-hint" style="margin-top:2px">${esc(T("adminNote"))}</div>${body}</div>`;
   }
   view.addEventListener("change", (e) => {
+    if (e.target.dataset.stk) { if (e.target.checked) stackDone[e.target.dataset.stk] = 1; else delete stackDone[e.target.dataset.stk];
+      try { sessionStorage.setItem(STK, JSON.stringify(stackDone)); } catch (err) {} return; }
     if (e.target.dataset.ap && adding) {
       const k = e.target.dataset.ap, v = +e.target.value;
       if (k === "at") adding.apAt = v; else adding.apBefore = v;
@@ -511,7 +517,7 @@
     pushOn = canPush() && Notification.permission === "granted" && !!(await getSub());
     const n = await notifHtml();
     view.innerHTML = `<div class="tm-top"><b>${esc(T("title"))}</b><button type="button" class="tm-btn" data-a="chat">${esc(T("chat"))}</button></div>
-      ${n}${suggHtml()}${quickHtml()}<div id="tmAdd">${addHtml()}</div><div id="tmList" style="margin-top:10px">${listHtml()}</div>${alertsHtml()}${adminHtml()}`;
+      ${n}${stackHtml()}${suggHtml()}${quickHtml()}<div id="tmAdd">${addHtml()}</div><div id="tmList" style="margin-top:10px">${listHtml()}</div>${alertsHtml()}${adminHtml()}`;
     const first = view.querySelector("[data-name]") || view.querySelector('[data-row="0"]');
     if (first && adding && adding.focus) { first.focus(); adding.focus = false; }
   }
@@ -580,6 +586,16 @@
     // the slot that holds the finish time, or the next one if fewer than 10 min of it would be left
     let slot = Math.floor(x.at / 18e5) * 18e5; if (slot + 18e5 - x.at < 6e5) slot += 18e5;
     return { pos, slot, open: slot - 864e5, bookable: slot - 864e5 <= Date.now() };
+  }
+  /* during a booked slot: a checklist of the buffs to stack (ticks are kept on this phone) */
+  const STK = "nxs-stack-done";
+  let stackDone = {}; try { stackDone = JSON.parse(sessionStorage.getItem(STK)) || {}; } catch (e) {}
+  function stackHtml() {
+    const now = Date.now();
+    const live = timers.filter((x) => x.cat === "appt" && !x.book && x.slot - 6e5 <= now && now < x.slot + 18e5);
+    return live.map((x) => { const steps = T("stack")[x.sub] || [], end = new Date(x.slot + 18e5).toISOString().slice(11, 16);
+      return `<div class="tm-note tm-sg"><b>${esc(T("stackT").replace("{e}", SUBS.appt[x.sub] || "📅").replace("{name}", subName(x.sub)).replace("{t}", end))}</b><div class="tm-hint" style="margin:2px 0 4px">${esc(T("stackHint"))}</div>` +
+        steps.map((t, i) => { const k = `${x.id}-${i}`; return `<label class="tm-stk"><input type="checkbox" data-stk="${k}"${stackDone[k] ? " checked" : ""}> <span>${esc(t)}</span></label>`; }).join("") + `</div>`; }).join("");
   }
   function suggHtml() {
     const x = sugg && timers.find((t) => t.id === sugg), sg = x && suggestion(x);
