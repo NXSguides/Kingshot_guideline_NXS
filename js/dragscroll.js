@@ -1,11 +1,12 @@
 /* Computer mouse: drag a wide table sideways (and up/down) instead of hunting for its scrollbar.
-   Works on every table box that scrolls (.tbl-wrap and the like). Phones already swipe, so touch is left alone.
+   Works on every table box that scrolls (.tbl-wrap and the like) and on the Events calendar strip. Phones already swipe, so touch is left alone.
    A press on a button, link, box or field still works normally; a drag never also "clicks". */
 (function () {
   const SKIP = "a,button,input,select,textarea,label,summary,[contenteditable],[data-nodrag]";
   const scroller = (el) => {
     for (; el && el !== document.body; el = el.parentElement) {
-      if (!el.querySelector || !el.querySelector("table")) continue;
+      // tables, the officer calendar strip, and anything marked data-drag
+      if (!el.querySelector || !(el.querySelector("table") || el.classList.contains("cal-scroll") || el.hasAttribute("data-drag"))) continue;
       const cs = getComputedStyle(el);
       const sx = /(auto|scroll)/.test(cs.overflowX) && el.scrollWidth > el.clientWidth + 2;
       const sy = /(auto|scroll)/.test(cs.overflowY) && el.scrollHeight > el.clientHeight + 2;
