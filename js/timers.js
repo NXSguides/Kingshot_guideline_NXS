@@ -26,11 +26,12 @@
      the officer-edited schedule (data/events-x7k2p9.json "sched") replaces it, like on the main site. */
   const ON_MAIN = typeof EVENT_TIMES !== "undefined";
   const FB = {
-    times: { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23] },
+    times: { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23], "cesares-fury": [22 + 35 / 60] },
     sched: { "bear-hunt": { anchor: Date.UTC(2026, 9, 7), periodDays: 2, activeDays: 1 },
       "swordland-showdown": { anchor: Date.UTC(2026, 8, 28), periodDays: 14, activeDays: 7 },
       "tri-alliance-clash": { anchor: Date.UTC(2026, 8, 28), periodDays: 28, activeDays: 6 },
-      "viking-vengeance": { anchor: Date.UTC(2026, 8, 22), periodDays: 14, activeDays: 3 } },
+      "viking-vengeance": { anchor: Date.UTC(2026, 8, 22), periodDays: 14, activeDays: 3 },
+      "cesares-fury": { anchor: Date.UTC(2026, 9, 10), periodDays: 21, activeDays: 3 } },
     names: { "bear-hunt": ["🐻", "Bear Hunt"], "swordland-showdown": ["⚔️", "Swordland Showdown"], "tri-alliance-clash": ["🔱", "Tri-Alliance Clash"],
       "viking-vengeance": ["🧯", "Viking Vengeance"], "mystic-trial": ["🔮", "Mystic Trial"] },
   };
@@ -83,7 +84,7 @@
       admin: "🛠️ Admin reminders", adminNote: "Officer to-dos from the Events tab, sent on the day they're due.", adminOn: "Send admin reminders",
       adminAt: "at {t} UTC", adminNone: "Open the officer page's Events tab once (in this same app / browser) to load the to-dos — they refresh every time you open it.",
       adminEmpty: "No officer to-dos in the next 3 weeks.", adminUpd: "to-dos loaded {t}", adminBody: "Admin step today — tap to open the checklist.", alertsNote: "Tap a time to get a notification before it starts.", before: "{n} min before",
-      next: "next alert: {t}", atTime: "at the time", reset: "00:00 UTC reset", arenaName: "Arena", journeyName: "Journey Supplies", intelName: "Intel Missions",
+      next: "next alert: {t}", atTime: "at the time", reset: "00:00 UTC reset", arenaName: "Arena", journeyName: "Journey Supplies", cesaresName: "Cesares Fury", intelName: "Intel Missions",
       refreshTitle: "{e} {name} refresh in {n} min", refreshNow: "{e} {name} — new missions now!", refreshBody: "Watchtower refreshes at {t} UTC.",
       evTitle: "{e} {name} in {n} min", evNow: "{e} {name} — now!", evBody: "Starts at {t} UTC.",
       resetTitle: "{e} {name} — daily reset in {n} min", resetNow: "{e} {name} — daily reset now", resetBody: "Resets at 00:00 UTC. Did you use it today?",
@@ -235,6 +236,7 @@
     { k: "swordland-showdown", kind: "event", def: 10 },
     { k: "tri-alliance-clash", kind: "event", def: 10 },
     { k: "viking-vengeance", kind: "event", def: 10 },
+    { k: "cesares-fury", kind: "event", def: 10, emoji: "🗡️", name: "cesaresName" },
   ];
   if (alerts.arena && alerts.arena.on === true) alerts.arena = { on: { 24: true }, before: 3 };   // older beta setting
   // older beta saves: choices keyed by hour → "1st / 2nd time" (#0, #1), so moving a time later keeps them on
@@ -283,7 +285,7 @@
         if (d.kind === "event" && !fightOn(d.k, day)) continue;
         for (const [i, h] of H.entries()) {
           if (!isOn(a, i, h)) continue;
-          const at = day + h * 3600000 - before * 60000;
+          const at = day + Math.round(h * 60) * 60000 - before * 60000;
           if (at <= now) continue;
           const v = { e: evEmoji(d.k), name: evName(d.k), n: before, t: fmtH(h) };
           const kind = d.text || (h === 24 ? "reset" : d.kind === "daily" ? "claim" : "ev");

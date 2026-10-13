@@ -1959,8 +1959,8 @@ async function saveLimits() {
 }
 /* ===== our event times (UTC) → data/event-times.json (plain, public): home page Today card + everyone's ⏰ reminders ===== */
 const ET_PATH = "data/event-times.json";
-const ET_KEYS = [["bear-hunt", "🐻"], ["swordland-showdown", "⚔️"], ["tri-alliance-clash", "🔱"], ["viking-vengeance", "🧯"]];
-let ET = { "bear-hunt": ["13:00", "22:00"], "swordland-showdown": ["02:00", "14:00"], "tri-alliance-clash": ["14:00", "21:00"], "viking-vengeance": ["14:00", "23:00"] }, etSha = null;
+const ET_KEYS = [["bear-hunt", "🐻"], ["swordland-showdown", "⚔️"], ["tri-alliance-clash", "🔱"], ["viking-vengeance", "🧯"], ["cesares-fury", "🗡️"]];
+let ET = { "bear-hunt": ["13:00", "22:00"], "swordland-showdown": ["02:00", "14:00"], "tri-alliance-clash": ["14:00", "21:00"], "viking-vengeance": ["14:00", "23:00"], "cesares-fury": ["22:35"] }, etSha = null;
 async function loadEventTimes() {
   try {
     if (TOKEN) { const f = await gh("GET", ET_PATH); if (f) { etSha = f.sha; ET = { ...ET, ...JSON.parse(b64ToUtf8(f.content)) }; } }
