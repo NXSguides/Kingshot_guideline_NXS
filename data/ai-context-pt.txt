@@ -997,13 +997,6 @@ Os oficiais costumam pedir um esquadrão fixo: uma quantidade exata (“exatamen
 Steps: 1. Na tela da cidade, toque no seu avatar (canto superior esquerdo). 2. Toque em Esquadrão embaixo. 3. Em Prévia das Tropas, toque em Formações das Tropas. 4. Toque nos cartões de herói e escolha os heróis deste esquadrão. 5. Toque em Salvar. Pronto — na próxima marcha ou reunião, é só escolher esse slot. Se foi dada uma QUANTIDADE: Toque no número de cada linha e digite a quantidade exata. O total aparece no topo. Se foi dada só uma PROPORÇÃO: Toque no botão de proporção embaixo e digite as porcentagens — o jogo preenche as tropas. Toque em Salvar, escolha o slot e um nome (1–3 caracteres). Depois escolha COMO salvar: Quantidade → salvar por quantidade de tropas; Proporção → salvar por proporção (acompanha suas tropas). Toque em Confirmar. Pronto — na próxima marcha ou reunião, é só escolher esse slot.
 Dicas: o cadeado no último slot significa que ainda não foi desbloqueado. “Igualar” preenche os três tipos por igual; “Retirar tudo” esvazia o slot. Cada slot guarda seus próprios heróis e tropas.
 
-### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-12 by Sparrow] Finder’s Fusion
-1 Bule de chá · 2 Lua · 3 Pássaro · 4 Relógio · 5 Bússola · 6 Cabideiro · 7 Trigo · 8 Sapato · 9 Porta-retrato · 10 Estandarte · 11 Gramofone · 12 Garfo · 13 Espinha de peixe · 14 Telescópio · 15 Pena · 16 Vassoura · 17 Envelope · 18 Sanduíche · 19 Concha · 20 Lupa · 21 Poça · 22 Saco · 23 Buquê · 24 Machado · 25 Chapéu · 26 Rosa · 27 Baú · 28 Ursinho de pelúcia · 29 Tigela de animal · 30 Teia de aranha · 31 Ampulheta · 32 Algemas · 33 Escultura em madeira · 34 Violoncelo · 35 Prego · 36 Laço · 37 Leque
-
-
-Pode haver alguns erros de tradução ou algo não incluído.
-
 ### GAME TERMS (English = official pt name)
 Construction = Construção
 Training = Treinamento

@@ -997,13 +997,6 @@ Perwira sering minta skuad tetap: jumlah pasti (“tepat 90.000”) atau rasio (
 Steps: 1. Di layar kota, ketuk avatarmu (kiri atas). 2. Ketuk Skuad di bawah. 3. Di Pratinjau Skuad, ketuk Formasi Pasukan. 4. Ketuk kartu hero dan pilih hero untuk skuad ini. 5. Ketuk Simpan. Selesai — lain kali tinggal pilih slot ini. Jika yang diminta JUMLAH: Ketuk angka di tiap baris pasukan dan ketik jumlah pastinya. Totalnya tampil di atas. Jika hanya RASIO: Ketuk tombol rasio di bawah dan masukkan persentasenya — game mengisi pasukannya. Ketuk Simpan, pilih slot dan nama (1–3 karakter). Lalu pilih CARA menyimpan: Jumlah → simpan berdasarkan jumlah pasukan; Rasio → simpan berdasarkan rasio (menyesuaikan jumlah pasukanmu). Ketuk Konfirmasi. Selesai — lain kali tinggal pilih slot ini.
 Tips: ikon gembok di slot terakhir berarti belum terbuka. “Rata” mengisi tiga jenis sama banyak; “Tarik semua” mengosongkan slot. Tiap slot menyimpan hero dan pasukannya sendiri.
 
-### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-12 by Sparrow] Finder’s Fusion
-1 Teko · 2 Bulan · 3 Burung · 4 Jam · 5 Kompas · 6 Gantungan baju · 7 Gandum · 8 Sepatu · 9 Bingkai foto · 10 Spanduk · 11 Gramafon · 12 Garpu · 13 Tulang ikan · 14 Teleskop · 15 Bulu · 16 Sapu · 17 Amplop · 18 Sandwich · 19 Centong · 20 Kaca pembesar · 21 Genangan air · 22 Karung · 23 Buket · 24 Kapak · 25 Topi · 26 Mawar · 27 Peti · 28 Boneka beruang · 29 Mangkuk peliharaan · 30 Sarang laba-laba · 31 Jam pasir · 32 Borgol · 33 Ukiran kayu · 34 Celo · 35 Paku · 36 Pita · 37 Kipas
-
-
-Mungkin ada beberapa kesalahan penerjemahan atau ada yang belum disertakan.
-
 ### GAME TERMS (English = official id name)
 Construction = Konstruksi
 Training = Pelatihan
