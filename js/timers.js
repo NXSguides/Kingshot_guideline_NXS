@@ -69,6 +69,7 @@
       stack: { minister: ["Activate Double Time", "Activate Wolf", "Start both building queues within 5 min"],
                advisor: ["Use gems to raise troop training capacity", "Start training (all troop types)"] },
       stackT: "{e} {name} is on — until {t} UTC", stackHint: "Stack your buffs:", stackBody: "Slot at {t} UTC. Then: {list}.",
+      naOn: "Noble Advisor buff on now", naHint: "Training is faster with it, so the time is remembered separately (turns on by itself during your Noble Advisor slot).",
       sgT: "💡 Line up a {pos}", sgNow: "{what} finishes {when}. Book the {slot} UTC slot so your next one starts with the buff.",
       sgLater: "{what} finishes {when} — more than 24 h away, so you can't book yet. Booking opens {open}.",
       sgRemind: "＋ Remind me of this slot", sgBook: "＋ Remind me to book it", sgNo: "Not now", sgLink: "📅 slot",
@@ -207,7 +208,8 @@
   const store = () => { try { localStorage.setItem(LS, JSON.stringify(timers)); } catch (e) {} };
   const prune = () => { const now = Date.now(); timers = timers.filter((x) => x.at > now - KEEP_DONE_MS); };
   const termOf = (id) => (typeof GLOSSARY !== "undefined" && GLOSSARY[id] ? GLOSSARY[id][lang()] || GLOSSARY[id].en : id.charAt(0).toUpperCase() + id.slice(1));
-  const labelOf = (x) => (x.cat === "other" && x.name ? x.name : (T("cats")[x.cat] || TX.en.cats[x.cat] || x.cat)) + (x.sub ? ` · ${subName(x.sub)}` : "") + (x.n ? ` #${x.n}` : "");
+  const labelOf = (x) => labelBase(x) + (x.na ? " 🎖️" : "");
+  const labelBase = (x) => (x.cat === "other" && x.name ? x.name : (T("cats")[x.cat] || TX.en.cats[x.cat] || x.cat)) + (x.sub ? ` · ${subName(x.sub)}` : "") + (x.n ? ` #${x.n}` : "");
   const MULTI = { gather: 6, build: 2 };   // several at once: gathering marches, 2 builders
   /* categories with a second choice: troop type, recruit type */
   const SUBS = { train: { infantry: "🛡️", cavalry: "🐎", archer: "🏹" }, recruit: { advanced: "📦", epic: "💎" }, appt: { minister: "🏛️", advisor: "🎖️" } };
@@ -443,7 +445,11 @@
         if (!adding.sub) return h + `<div class="tm-acts"><button type="button" class="tm-btn" data-a="cancel">${esc(T("cancel"))}</button></div></div>`;
       }
       if (adding.cat === "appt") return h + apptForm() + `</div>`;
-      const pk2 = preKey(adding.cat, adding.sub, adding.name), last = PRESET_CATS.includes(adding.cat) ? presets[pk2] : null;
+      if (adding.cat === "train") {
+        if (adding.na == null) adding.na = naLive();
+        h += `<div class="tm-cats"><button type="button" class="tm-btn${adding.na ? " on" : ""}" data-a="na">🎖️ ${esc(T("naOn"))}</button></div><div class="tm-hint" style="margin-top:-4px">${esc(T("naHint"))}</div>`;
+      }
+      const pk2 = preKey(adding.cat, adding.sub, adding.name, adding.na), last = PRESET_CATS.includes(adding.cat) ? presets[pk2] : null;
       const lastArr = last == null ? [] : Array.isArray(last) ? last : [last];
       if (lastArr.length && adding.rows.every((v) => !v) && adding.prefilled !== pk2) { adding.rows = lastArr.map(fmtLeft); adding.prefilled = pk2; }
       h += `<b>${esc(T("left"))}</b><div class="tm-hint">${esc(lastArr.length ? T("lastTime").replace("{t}", lastArr.map(fmtLeft).join(" · ")) : T("hint"))}</div>`;
@@ -540,9 +546,10 @@
     if (b.dataset.del) { timers = timers.filter((x) => x.id !== b.dataset.del); store(); renderList(); pageStack(); sync(); return; }
     if (b.dataset.sg) { if (b.dataset.sg === "no") { sugg = null; return render(); } return acceptSugg(b.dataset.sg); }
     if (b.dataset.sgfor) { sugg = b.dataset.sgfor; view.scrollTop = 0; return render(); }
-    if (b.dataset.quick) { const [cat, sub, name] = b.dataset.quick.split("|"); const v = presets[b.dataset.quick]; if (v) createTimers(cat, sub, name, Array.isArray(v) ? v : [v]); return; }
+    if (b.dataset.quick) { const [cat, sub, name, na] = b.dataset.quick.split("|"); const v = presets[b.dataset.quick]; if (v) createTimers(cat, sub, name, Array.isArray(v) ? v : [v], na === "na"); return; }
+    if (a === "na") { adding.na = !adding.na; if (adding.prefilled) { adding.rows = [""]; adding.prefilled = null; } return render(); }
     if (b.dataset.forget) { delete presets[b.dataset.forget]; savePre(); return render(); }
-    if (b.dataset.cat) { adding.cat = b.dataset.cat; adding.sub = null; adding.rows = adding.prefilled ? [""] : adding.rows.slice(0, MULTI[adding.cat] || 1); adding.prefilled = null; adding.err = false; adding.focus = true; return render(); }
+    if (b.dataset.cat) { adding.cat = b.dataset.cat; adding.sub = null; adding.na = null; adding.rows = adding.prefilled ? [""] : adding.rows.slice(0, MULTI[adding.cat] || 1); adding.prefilled = null; adding.err = false; adding.focus = true; return render(); }
     if (b.dataset.sub) { if (adding.prefilled) { adding.rows = [""]; adding.prefilled = null; } adding.sub = b.dataset.sub; adding.focus = true; return render(); }
     if (b.dataset.al) {   // event alert time toggles: "bear-hunt:13", "arena"
       const [k, h] = b.dataset.al.split(":");
@@ -596,7 +603,9 @@
   try { presets = JSON.parse(localStorage.getItem(PRE_LS)) || {}; } catch (e) {}
   const savePre = () => { try { localStorage.setItem(PRE_LS, JSON.stringify(presets)); } catch (e) {} };
   const PRESET_CATS = ["train", "gather"];   // only these change little from one time to the next
-  const preKey = (cat, sub, name) => [cat, sub || "", cat === "other" ? (name || "").trim().toLowerCase() : ""].join("|");
+  // Training remembers two times per troop type: with 🎖️ Noble Advisor on, and without
+  const preKey = (cat, sub, name, na) => [cat, sub || "", cat === "other" ? (name || "").trim().toLowerCase() : "", cat === "train" && na ? "na" : ""].join("|");
+  const naLive = () => { const now = Date.now(); return timers.some((x) => x.cat === "appt" && !x.book && x.sub === "advisor" && x.slot - (x.before || 0) * 6e4 <= now && now < x.slot + 18e5); };
   /* 💡 a Research / Building / Training timer → which appointment slot to book so the NEXT one starts with the buff */
   const APPT_FOR = { build: "minister", research: "minister", train: "advisor" };
   let sugg = null;   // id of the timer the suggestion card is about
@@ -647,16 +656,16 @@
     else timers.push({ ...base, book: true, before: 0, at: Math.max(sg.open, Date.now() + 5000) });
     store(); render(); sync();
   }
-  function createTimers(cat, sub, name, ms) {
+  function createTimers(cat, sub, name, ms, na) {
     const now = Date.now(), numbered = !!MULTI[cat];
     // gathering marches / builders are numbered after the ones already running
     const used = timers.filter((x) => x.cat === cat && x.at > now).map((x) => x.n || 0);
     const number = numbered && (ms.length > 1 || used.length);
     let n = number ? Math.max(0, ...used) : 0;
     ms.forEach((d) => timers.push({ id: Math.random().toString(36).slice(2, 10), cat, name: cat === "other" ? (name || "").trim().slice(0, 40) : "",
-      sub: SUBS[cat] ? sub : "", n: number ? ++n : 0, at: now + d }));
+      sub: SUBS[cat] ? sub : "", n: number ? ++n : 0, at: now + d, ...(cat === "train" && na ? { na: 1 } : {}) }));
     // Training: one time per troop type · Gathering: the whole set of marches
-    if (PRESET_CATS.includes(cat) && (ms.length === 1 || cat === "gather")) { presets[preKey(cat, sub, name)] = cat === "gather" ? ms.slice() : ms[0]; savePre(); }
+    if (PRESET_CATS.includes(cat) && (ms.length === 1 || cat === "gather")) { presets[preKey(cat, sub, name, na)] = cat === "gather" ? ms.slice() : ms[0]; savePre(); }
     if (APPT_FOR[cat]) sugg = timers[timers.length - 1].id;   // show the 💡 slot suggestion for it
     store(); render(); sync();
   }
@@ -671,14 +680,14 @@
     const ms = rows.map(parseLeft);
     if (!rows.length || ms.some((x) => !x || x > 30 * 86400000)) { adding.err = true; return render(); }
     const a = adding; adding = null;
-    createTimers(a.cat, a.sub, a.name, ms);
+    createTimers(a.cat, a.sub, a.name, ms, a.na);
   }
   function quickHtml() {
     const keys = Object.keys(presets).filter((k) => PRESET_CATS.includes(k.split("|")[0]));
     const show = (v) => (Array.isArray(v) ? v : [v]).map(fmtLeft).join(" · ");
     if (!keys.length || adding) return "";
     return `<div class="tm-quick"><b>${esc(T("quick"))}</b><div class="tm-hint" style="margin:1px 0 6px">${esc(T("quickHint"))}</div><div class="tm-cats">` +
-      keys.map((k) => { const [cat, sub, name] = k.split("|"), lab = labelOf({ cat, sub, name });
+      keys.map((k) => { const [cat, sub, name, na] = k.split("|"), lab = labelOf({ cat, sub, name }) + (na === "na" ? " 🎖️" : "");
         return `<span class="tm-qc"><button type="button" class="tm-btn" data-quick="${esc(k)}">${CAT_EMOJI[cat]} ${esc(lab)}${Array.isArray(presets[k]) && presets[k].length > 1 ? ` ×${presets[k].length}` : ""} · <b dir="ltr">${esc(show(presets[k]))}</b> ▶</button><button type="button" class="tm-x" data-forget="${esc(k)}" title="${esc(T("forget"))}" aria-label="${esc(T("forget"))}">✕</button></span>`; }).join("") +
       `</div></div>`;
   }
