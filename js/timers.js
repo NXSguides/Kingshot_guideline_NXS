@@ -749,7 +749,7 @@
     let list = [];
     try { const r = await (await caches.open(IB)).match(IB_KEY); list = r ? await r.json() : []; } catch (e) {}
     list = (Array.isArray(list) ? list : []).filter((x) => Date.now() - x.at < 864e5);
-    if (!list.length) { if (ibBox) { ibBox.remove(); ibBox = null; } return; }
+    if (!list.length) { ibTitle(0); if (ibBox) { ibBox.remove(); ibBox = null; } return; }
     if (!ibBox) {
       ibBox = document.createElement("div"); ibBox.className = "tm-page";
       if (pageBox) pageBox.before(ibBox); else { const doc = document.getElementById("doc"), main = document.getElementById("main"); if (doc) doc.before(ibBox); else if (main) main.prepend(ibBox); else document.body.prepend(ibBox); }
@@ -767,7 +767,11 @@
     ibBox.innerHTML = `<div class="tm-note tm-sg"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><b>${esc(T("ibT").replace("{n}", list.length))}</b><button type="button" class="tm-btn" data-ib="clear">${esc(T("ibClear"))}</button></div>` +
       list.slice().sort((a, b) => b.at - a.at).map((x) => `<button type="button" class="tm-ib" data-ib="${esc(x.id)}"><b>${esc(x.title)}</b>${x.body ? `<span>${esc(x.body)}</span>` : ""}<small>${esc(T("ibAgo").replace("{t}", ago(x.at)))} ›</small></button>`).join("") + `</div>`;
     if (list.some((x) => !x.seen) && document.visibilityState === "visible") ibSave(list.map((x) => ({ ...x, seen: 1 })));   // on screen now → red badge off
+    // computer browser tab in the background: "(2) NXS …" in the tab title until it's looked at
+    const unseen = list.filter((x) => !x.seen).length;
+    ibTitle(document.visibilityState === "visible" ? 0 : unseen);
   }
+  const ibTitle = (n) => { const t = document.title.replace(/^\(\d+\) /, ""); document.title = n ? `(${n}) ${t}` : t; };
   async function ibSave(list) {
     try { await (await caches.open(IB)).put(IB_KEY, new Response(JSON.stringify(list), { headers: { "Content-Type": "application/json" } })); } catch (e) {}
     try { const n = list.filter((x) => !x.seen).length; if (n && navigator.setAppBadge) navigator.setAppBadge(n); else if (navigator.clearAppBadge) navigator.clearAppBadge(); } catch (e) {}
