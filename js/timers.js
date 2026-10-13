@@ -517,7 +517,7 @@
     pushOn = canPush() && Notification.permission === "granted" && !!(await getSub());
     const n = await notifHtml();
     view.innerHTML = `<div class="tm-top"><b>${esc(T("title"))}</b><button type="button" class="tm-btn" data-a="chat">${esc(T("chat"))}</button></div>
-      ${n}${stackHtml()}${suggHtml()}${quickHtml()}<div id="tmAdd">${addHtml()}</div><div id="tmList" style="margin-top:10px">${listHtml()}</div>${alertsHtml()}${adminHtml()}`;
+      ${n}<div class="tm-acts" style="margin:-4px 0 10px"><button type="button" class="tm-btn" data-a="demo">🧪 Preview appointment (test)</button>${timers.some((x) => x.demo) ? `<button type="button" class="tm-btn" data-a="undemo">✕ Remove preview</button>` : ""}</div>${stackHtml()}${suggHtml()}${quickHtml()}<div id="tmAdd">${addHtml()}</div><div id="tmList" style="margin-top:10px">${listHtml()}</div>${alertsHtml()}${adminHtml()}`;
     const first = view.querySelector("[data-name]") || view.querySelector('[data-row="0"]');
     if (first && adding && adding.focus) { first.focus(); adding.focus = false; }
   }
@@ -563,6 +563,20 @@
       try { if (x && sub) await post("/push/test", { sub: sub.toJSON(), title: x.title, body: x.body, tag: x.id }); syncErr = false; } catch (err) { syncErr = true; }
       b.textContent = T("sent"); return;
     }
+    if (a === "demo") {   // TEMP: preview what an appointment looks like (checklist + notifications)
+      const slot = Math.floor(Date.now() / 18e5) * 18e5;
+      timers = timers.filter((x) => !x.demo);
+      for (const sub of ["minister", "advisor"]) timers.push({ id: "demo-" + sub, demo: true, cat: "appt", sub, slot, before: 5, at: slot - 3e5 });
+      store(); view.scrollTop = 0; render();
+      const sub = await getSub();
+      if (sub) for (const k of ["minister", "advisor"]) {
+        const t = new Date(slot).toISOString().slice(11, 16);
+        try { await post("/push/test", { sub: sub.toJSON(), title: T("apTitle").replace("{e}", SUBS.appt[k]).replace("{name}", subName(k)).replace("{n}", 5),
+          body: T("stackBody").replace("{t}", t).replace("{list}", T("stack")[k].join(" · ")).slice(0, 200), tag: "demo-" + k }); } catch (err) {}
+      }
+      return;
+    }
+    if (a === "undemo") { timers = timers.filter((x) => !x.demo); store(); return render(); }
     if (a === "admin") { const x = (alerts.admin = alerts.admin || {}); x.on = !x.on; saveAlerts(); render(); sync(); return; }
     if (a === "test") {
       b.disabled = true;

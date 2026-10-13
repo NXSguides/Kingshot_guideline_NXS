@@ -14,7 +14,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-13b (sanctuary priority)";
+const VERSION = "2026-10-13c (demo tags)";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -579,7 +579,7 @@ async function pushRoute(req, env, path) {
   if (!validSub(body.sub)) return json({ error: "bad subscription" }, 400);
   const stub = env.TIMERS.get(env.TIMERS.idFromName("all"));
   if (path === "/push/test") {
-    const st = await sendPush(body.sub, { title: String(body.title || "NXS").slice(0, 80), body: String(body.body || "").slice(0, 200), tag: /^adm-[\w-]{1,36}$/.test(body.tag || "") ? body.tag : "test" }, env);
+    const st = await sendPush(body.sub, { title: String(body.title || "NXS").slice(0, 80), body: String(body.body || "").slice(0, 200), tag: /^(adm|demo)-[\w-]{1,36}$/.test(body.tag || "") ? body.tag : "test" }, env);
     return json({ ok: st < 300, status: st });
   }
   const now = Date.now();
