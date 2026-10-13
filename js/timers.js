@@ -57,7 +57,7 @@
   const TX = {
     en: { chip: "⏰ Set a timer", title: "⏰ My timers", chat: "‹ Chat", add: "＋ Set a timer", what: "What is it?", left: "Time left in the game", hint: "Type it as the game shows it, e.g. 2:45:12 or 3d 07:51:57",
       another: "＋ Another march", save: "Save", cancel: "Cancel", empty: "No timers yet.", done: "Done ✓", at: "done at {t}", bad: "Check the time — e.g. 2:45:12",
-      on: "🔔 Notifications are on for this phone.", turnOn: "🔔 Turn on notifications", test: "Send a test", testMsg: "Notifications work! ✓",
+      on: "🔔 Notifications are on for this phone.", turnOn: "🔔 Turn on notifications", test: "Send a test", testMsg: "Notifications work! ✓", testWait: "Coming in 15 s — leave the app now (Home Screen) to see the red badge 🔴",
       blocked: "Notifications are blocked. Allow them for this site in your phone's settings, then come back.",
       ios: "On iPhone, add the site to your Home Screen first: tap Share → “Add to Home Screen”, then open NXS from the new icon and come back here.",
       noPush: "This browser can't show notifications. Try Chrome (Android) or the Home Screen app (iPhone).",
@@ -95,7 +95,7 @@
       alertsSync: "Alerts are planned 3 weeks ahead — open the site now and then to keep them going." },
     zh: { chip: "⏰ 設定計時", title: "⏰ 我的計時", chat: "‹ 對話", add: "＋ 設定計時", what: "要計時什麼？", left: "遊戲裡剩下的時間", hint: "例如 2:45:12、2h45m、45m",
       another: "＋ 再加一隊", save: "儲存", cancel: "取消", empty: "還沒有計時。", done: "完成 ✓", at: "{t} 完成", bad: "請檢查時間，例如 2:45:12",
-      on: "🔔 這支手機已開啟通知。", turnOn: "🔔 開啟通知", test: "傳測試通知", testMsg: "通知可以用了！✓",
+      on: "🔔 這支手機已開啟通知。", turnOn: "🔔 開啟通知", test: "傳測試通知", testMsg: "通知可以用了！✓", testWait: "15 秒後送達 — 現在先回主畫面，就能看到紅點點 🔴",
       blocked: "通知被封鎖了。請到手機設定裡允許這個網站的通知，再回來這裡。",
       ios: "iPhone 要先把網站加到主畫面：按「分享」→「加入主畫面」，再從新的 NXS 圖示打開，回到這裡。",
       noPush: "這個瀏覽器不能顯示通知。請改用 Chrome（Android）或主畫面上的 App（iPhone）。",
@@ -359,7 +359,7 @@
     if (!r.ok) throw new Error(r.status);
     return r.json();
   }
-  let syncErr = false, synced = null;   // synced = { n, at } after the server confirmed the list
+  let syncErr = false, synced = null, testPending = null;   // synced = { n, at } after the server confirmed the list
   async function sync() {
     const sub = await getSub();
     if (!sub) return;
@@ -370,7 +370,7 @@
         : x.cat === "appt"
         ? { id: x.id, at: x.at, title: T(x.before ? "apTitle" : "apNow").replace("{e}", SUBS.appt[x.sub] || "📅").replace("{name}", subName(x.sub)).replace("{n}", x.before), body: T("stackBody").replace("{t}", utcHM(x.slot)).replace("{list}", (T("stack")[x.sub] || []).join(" · ")).slice(0, 200) }
         : { id: x.id, at: x.at, title: `${CAT_EMOJI[x.cat] || "⏰"} ${labelOf(x)}`, body: `${labelOf(x)} ${T("body")}` })
-      .concat(alertTimers(), adminTimers());
+      .concat(alertTimers(), adminTimers(), testPending && testPending.at > now ? [testPending] : []);
     try { const r = await post("/push/save", { sub: sub.toJSON(), timers: list }); syncErr = false; synced = { n: r.n ?? list.length, at: Date.now() }; }
     catch (e) { syncErr = true; }
     if (!view.hidden) render();
@@ -443,7 +443,7 @@
     if (sub) {
       if (!synced && !syncErr) sync();   // first look: ask the server so the line below is filled in
       const ok = synced && !syncErr ? `<div class="tm-ok">${esc(T("synced").replace("{n}", synced.n).replace("{t}", new Date(synced.at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })))}</div>` : "";
-      return `<div class="tm-note">${esc(T("on"))} <button type="button" class="tm-btn" data-a="test">${esc(T("test"))}</button>${ok}${syncErr ? `<div class="tm-err">${esc(T("fail"))}</div>` : ""}</div>`;
+      return `<div class="tm-note">${esc(T("on"))} ${testPending && testPending.at > Date.now() ? `<div class="tm-hint">${esc(T("testWait"))}</div>` : `<button type="button" class="tm-btn" data-a="test">${esc(T("test"))}</button>`}${ok}${syncErr ? `<div class="tm-err">${esc(T("fail"))}</div>` : ""}</div>`;
     }
     return `<div class="tm-note">${esc(T("local"))}<br><button type="button" class="tm-btn main" data-a="sub">${esc(T("turnOn"))}</button></div>`;
   }
@@ -616,8 +616,10 @@
     if (a === "test") {
       b.disabled = true;
       const sub = await getSub();
-      try { if (sub) await post("/push/test", { sub: sub.toJSON(), title: "NXS ⏰", body: T("testMsg") }); syncErr = false; } catch (err) { syncErr = true; }
-      return render();
+      // arrives in 15 s, so there's time to leave the app and see the notification + the red badge on the icon
+      testPending = { id: "test-" + Math.random().toString(36).slice(2, 8), at: Date.now() + 15000, title: "NXS ⏰", body: T("testMsg") };
+      if (sub) await sync();
+      render(); setTimeout(() => { if (!view.hidden) render(); }, 16000); return;
     }
   });
   /* ⚡ last time used per kind (e.g. Training · Infantry → 2:24:07), so the same timer starts again with one tap */
