@@ -827,20 +827,29 @@ function selectAnnouncement(i) {
   window.scrollTo(0, pageY);
 }
 window.selectAnnouncement = selectAnnouncement;
-/* more than one announcement: show the next one every 4 s; stops for a while when someone taps, hovers or scrolls the tabs */
-let annPauseUntil = 0;
-const ANN_EVERY = 4000, ANN_PAUSE = 15000;
-document.addEventListener("pointerdown", (e) => { if (e.target.closest && e.target.closest(".ann-board")) annPauseUntil = Math.max(annPauseUntil, Date.now() + ANN_PAUSE); }, true);
-document.addEventListener("pointerover", (e) => { if (e.pointerType === "mouse" && e.target.closest && e.target.closest(".ann-board")) annPauseUntil = Math.max(annPauseUntil, Date.now() + ANN_EVERY); });
-document.addEventListener("wheel", (e) => { if (e.target.closest && e.target.closest(".ann-board")) annPauseUntil = Math.max(annPauseUntil, Date.now() + ANN_PAUSE); }, { passive: true });
+/* more than one announcement: move on to the next one by itself. Only the time it is actually on screen counts
+   (at least half of the board visible, tab open), at least 8 s and longer for long ones (up to 20 s).
+   A tap, swipe, mouse wheel or the mouse resting on it pauses it for a while. */
+let annPauseUntil = 0, annShown = 0, annLast = Date.now(), annIdx = -1;
+const ANN_MIN = 8000, ANN_MAX = 20000, ANN_PAUSE = 15000;
+const annPause = (ms) => { annPauseUntil = Math.max(annPauseUntil, Date.now() + ms); annShown = 0; };
+document.addEventListener("pointerdown", (e) => { if (e.target.closest && e.target.closest(".ann-board")) annPause(ANN_PAUSE); }, true);
+document.addEventListener("pointermove", (e) => { if (e.pointerType === "mouse" && e.target.closest && e.target.closest(".ann-board")) annPause(3000); }, { passive: true });
+document.addEventListener("wheel", (e) => { if (e.target.closest && e.target.closest(".ann-board")) annPause(ANN_PAUSE); }, { passive: true });
 setInterval(() => {
+  const now = Date.now(), dt = Math.min(now - annLast, 1000); annLast = now;
   const board = document.querySelector(".ann-board");
-  if (!board || announcements.length < 2 || document.visibilityState !== "visible" || Date.now() < annPauseUntil) return;
-  const r = board.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;   // not on screen
+  if (!board || announcements.length < 2) return;
+  if (annIdx !== currentAnnIndex) { annIdx = currentAnnIndex; annShown = 0; }   // a new one is showing: start counting again
+  const r = board.getBoundingClientRect(), seen = Math.min(r.bottom, innerHeight) - Math.max(r.top, 0);
+  if (document.visibilityState !== "visible" || now < annPauseUntil || seen < Math.min(r.height, innerHeight) / 2) return;
+  annShown += dt;
+  const a = announcements[currentAnnIndex], len = String((a && (a.content[currentLang] || a.content.en)) || "").length;
+  if (annShown < Math.min(ANN_MAX, Math.max(ANN_MIN, len * 60))) return;
   selectAnnouncement((currentAnnIndex + 1) % announcements.length);
   const tabs = document.querySelector(".ann-tabs"), t = tabs && tabs.querySelector(".ann-tab.active");
   if (t) tabs.scrollTo({ left: t.offsetLeft - (tabs.clientWidth - t.offsetWidth) / 2, behavior: "smooth" });
-}, ANN_EVERY);
+}, 250);
 
 function renderAnnTicker() {
   const ticker = document.getElementById("annTicker");
