@@ -34,6 +34,10 @@
     names: { "bear-hunt": ["🐻", "Bear Hunt"], "swordland-showdown": ["⚔️", "Swordland Showdown"], "tri-alliance-clash": ["🔱", "Tri-Alliance Clash"],
       "viking-vengeance": ["🧯", "Viking Vengeance"], "mystic-trial": ["🔮", "Mystic Trial"] },
   };
+  if (!ON_MAIN) fetch("data/event-times.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((d) => {
+    for (const [k, v] of Object.entries(d || {})) { const hs = (Array.isArray(v) ? v : []).map((x) => { const m = String(x).match(/^(\d{1,2})(?::(\d{2}))?$/); return m ? +m[1] + (+(m[2] || 0)) / 60 : null; }).filter((x) => x != null && x < 24); if (hs.length) FB.times[k] = hs; }
+    if (!view.hidden) render();
+  }).catch(() => {});
   if (!ON_MAIN) fetch("data/events-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((f) => {
     for (const [k, v] of Object.entries((f && f.sched) || {})) {
       const a = Date.parse(v.anchor + "T00:00:00Z");
@@ -233,9 +237,20 @@
     { k: "viking-vengeance", kind: "event", def: 10 },
   ];
   if (alerts.arena && alerts.arena.on === true) alerts.arena = { on: { 24: true }, before: 3 };   // older beta setting
+  // older beta saves: choices keyed by hour → "1st / 2nd time" (#0, #1), so moving a time later keeps them on
+  { const OLD = { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23], arena: [24], "mystic-trial": [24], journey: [8, 16], intel: [0, 8, 16] };
+    let moved = false;
+    for (const [k, a] of Object.entries(alerts)) for (const key of Object.keys((a && a.on) || {})) {
+      const i = (OLD[k] || []).indexOf(+key);
+      if (!key.startsWith("#") && i >= 0) { if (a.on["#" + i] == null) a.on["#" + i] = a.on[key]; delete a.on[key]; moved = true; }
+    }
+    if (moved) saveAlerts(); }
   /* which day of the event run has the battle (0 = first day). Default: the last day — check in game. */
   const FIGHT_DAY = { "swordland-showdown": -1, "tri-alliance-clash": -1, "viking-vengeance": -1 };
   const DAY = 86400000, HORIZON = 21 * DAY;
+  // a choice is kept as "1st / 2nd time" (#0, #1), so officers can move a time without switching people's alerts off (old saves used the hour)
+  const isOn = (a, i, h) => !!(a && a.on && (a.on["#" + i] ?? a.on[h]));
+  const fmtH = (h) => String(Math.floor(h % 24)).padStart(2, "0") + ":" + String(Math.round((h % 1) * 60)).padStart(2, "0");
   const evHours = (k) => (ON_MAIN ? EVENT_TIMES[k] : FB.times[k]) || [];
   const defOf = (k) => DEFS.find((d) => d.k === k);
   const hoursOf = (d) => d.hours || evHours(d.k);
@@ -266,11 +281,11 @@
       const H = hoursOf(d), before = beforeOf(d);
       for (let day = today; day < now + HORIZON; day += DAY) {
         if (d.kind === "event" && !fightOn(d.k, day)) continue;
-        for (const h of H) {
-          if (!a.on[h]) continue;
+        for (const [i, h] of H.entries()) {
+          if (!isOn(a, i, h)) continue;
           const at = day + h * 3600000 - before * 60000;
           if (at <= now) continue;
-          const v = { e: evEmoji(d.k), name: evName(d.k), n: before, t: String(h % 24).padStart(2, "0") + ":00" };
+          const v = { e: evEmoji(d.k), name: evName(d.k), n: before, t: fmtH(h) };
           const kind = d.text || (h === 24 ? "reset" : d.kind === "daily" ? "claim" : "ev");
           const title = fill(T(before ? kind + "Title" : kind + "Now"), v), body = fill(T(kind + "Body"), v);
           out.push({ id: `ev-${d.k}-${h}-${day / DAY}`, at, title, body });
@@ -480,16 +495,16 @@
 
   let pushOn = false;   // set by render(): this phone has notifications on
   function alertsHtml() {
-    const loc = (h, m = 0) => new Date(Date.UTC(2000, 0, 1, h, m)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    const loc = (h, m = 0) => new Date(Date.UTC(2000, 0, 1, 0, Math.round(h * 60) + m)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     const nextOf = (k) => { const x = alertTimers().find((t) => t.id.startsWith(`ev-${k}-`));
       return x ? `<div class="tm-a">${esc(T("next").replace("{t}", fmtAt(x.at)))}${pushOn ? ` · <button type="button" class="tm-link" data-sample="${k}">${esc(T("sample"))}</button>` : ""}</div>` : ""; };
     const rows = DEFS.map((d) => {
       const k = d.k, a = alerts[k] || {}, H = hoursOf(d);
       if (!H.length || (d.kind === "event" && !evSched(k))) return "";
-      const any = a.on && H.some((h) => a.on[h]), bf = beforeOf(d);
-      const lab = (h) => h === 24 ? `${esc(T("reset"))} <span class="tm-a">(${loc(0)})</span>` : `${String(h).padStart(2, "0")}:00 UTC <span class="tm-a">(${loc(h)})</span>`;
+      const any = H.some((h, i) => isOn(a, i, h)), bf = beforeOf(d);
+      const lab = (h) => h === 24 ? `${esc(T("reset"))} <span class="tm-a">(${loc(0)})</span>` : `${fmtH(h)} UTC <span class="tm-a">(${loc(h)})</span>`;
       return `<div class="tm-ev"><div><b>${evEmoji(k)} ${esc(evName(k))}</b></div><div class="tm-cats">
-        ${H.map((h) => `<button type="button" class="tm-btn${a.on && a.on[h] ? " on" : ""}" data-al="${k}:${h}">${lab(h)}</button>`).join("")}
+        ${H.map((h, i) => `<button type="button" class="tm-btn${isOn(a, i, h) ? " on" : ""}" data-al="${k}:${i}" data-h="${h}">${lab(h)}</button>`).join("")}
         <select class="tm-sel" data-before="${k}">${BEFORE.map((m) => `<option value="${m}"${bf === m ? " selected" : ""}>${esc(m ? T("before").replace("{n}", m) : T("atTime"))}</option>`).join("")}</select></div>${any ? nextOf(k) : ""}</div>`;
     }).join("");
     return `<div class="tm-alerts"><b>${esc(T("alerts"))}</b><div class="tm-hint" style="margin-top:2px">${esc(T("alertsNote"))}</div>${pushOn ? "" : `<div class="tm-err">${esc(T("needOn"))}</div>`}${rows}<div class="tm-hint">${esc(T("alertsSync"))}</div></div>`;
@@ -552,9 +567,9 @@
     if (b.dataset.cat) { adding.cat = b.dataset.cat; adding.sub = null; adding.na = null; adding.rows = adding.prefilled ? [""] : adding.rows.slice(0, MULTI[adding.cat] || 1); adding.prefilled = null; adding.err = false; adding.focus = true; return render(); }
     if (b.dataset.sub) { if (adding.prefilled) { adding.rows = [""]; adding.prefilled = null; } adding.sub = b.dataset.sub; adding.focus = true; return render(); }
     if (b.dataset.al) {   // event alert time toggles: "bear-hunt:13", "arena"
-      const [k, h] = b.dataset.al.split(":");
-      const a = (alerts[k] = alerts[k] || {});
-      a.on = a.on || {}; a.on[h] = !a.on[h];
+      const [k, i] = b.dataset.al.split(":"), h = b.dataset.h;
+      const a = (alerts[k] = alerts[k] || {}), cur = isOn(a, +i, h);
+      a.on = a.on || {}; a.on["#" + i] = !cur; delete a.on[h];
       saveAlerts(); render(); sync(); return;
     }
     if (a === "chat") return show(false);

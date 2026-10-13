@@ -553,6 +553,13 @@
       <div class="row" style="margin-top:10px;gap:8px;align-items:center"><button class="btn primary" id="limSave" type="button" data-t="limSave"></button><span class="msg" id="limMsg"></span></div>
     </details>
 
+    <details class="card lim-card" id="etCard">
+      <summary data-t="etTitle"></summary>
+      <div class="muted" data-t="etNote" style="font-size:12.5px;margin:6px 0 10px"></div>
+      <div class="lim-grid" id="etGrid"></div>
+      <div class="row" style="margin-top:10px;gap:8px;align-items:center"><button class="btn primary" id="etSave" type="button" data-t="limSave"></button><span class="msg" id="etMsg"></span></div>
+    </details>
+
     <div class="card">
       <h2 data-t="todoTitle"></h2>
       <div class="weeknav">
@@ -1367,6 +1374,8 @@ const T = {
     fStart: "First day (UTC)", fEvery: "Repeats every … days", fDays: "Lasts … days",
     fNote: "Note", fNoteSm: "(e.g. times — shown in the list)", fGuide: "Guide on the site", noGuide: "— none —",
     fTodo: "Action items for officers", addTodo: "+ Action item", editTodo: "Edit items",
+    etTitle: "⏰ Our event times (UTC)", etNote: "The times we pick for alliance events. Used on the home page (Today & this week) and for everyone's ⏰ Game reminders. Type one or more times, e.g. 13:00, 22:00.",
+    etBad: "Check the times — use HH:MM, e.g. 13:00, 22:30.", etSaved: "Saved ✅ The site and the ⏰ reminders use the new times within a few minutes (reminders update when people open the site).",
     limTitle: "⚙️ Troop limits in the guides", limNote: "Used everywhere the guides mention these numbers (all 12 languages) and by the AI assistant. Change them here when the game or the alliance changes the limit.",
     limBear: "Bear Hunt — joining a rally (exactly)", limRally: "Other rallies / Viking HQ — max per member", limSave: "💾 Save", limSaving: "Saving…",
     limSaved: "Saved ✅ The site shows the new numbers within a few minutes.", limBad: "Enter both numbers.", limNoKey: "Saving needs the officer GitHub key (set up on the Post tab).", limErr: "Couldn't save — try again.", msTitle: "Kingdom #2189 milestones", msNext: "next", msIn: "in {n} days", dueLbl: "Days before (−) / after the start", untilLbl: "Only that day, until UTC hour (optional)", untilShow: "until {h} UTC", tdTxt: "What to do",
@@ -1398,6 +1407,8 @@ const T = {
     fStart: "第一天（UTC）", fEvery: "每幾天一次", fDays: "持續幾天",
     fNote: "備註", fNoteSm: "（例如時間，會顯示在清單上）", fGuide: "網站上的攻略", noGuide: "— 無 —",
     fTodo: "幹部待辦事項", addTodo: "+ 待辦事項", editTodo: "編輯待辦",
+    etTitle: "⏰ 我們的活動時間（UTC）", etNote: "聯盟活動我們自己決定的時間。首頁「今天和這週」和大家的 ⏰ 活動提醒都會用這裡的時間。可以填一個或多個時間，例如 13:00, 22:00。",
+    etBad: "請檢查時間格式（HH:MM），例如 13:00, 22:30。", etSaved: "已儲存 ✅ 幾分鐘內網站和 ⏰ 提醒就會用新的時間（大家打開網站時提醒會跟著更新）。",
     limTitle: "⚙️ 攻略裡的部隊人數上限", limNote: "攻略裡所有提到這兩個數字的地方（12 種語言）和 AI 助理都會用這裡的數字。遊戲或聯盟改上限時，在這裡改就好。",
     limBear: "狩獵巨熊 — 參加集結（剛好）", limRally: "其他集結／維京總部 — 每人上限", limSave: "💾 儲存", limSaving: "儲存中…",
     limSaved: "已儲存 ✅ 網站幾分鐘內就會換成新數字。", limBad: "兩個數字都要填。", limNoKey: "儲存需要幹部的 GitHub 金鑰（在公告分頁設定）。", limErr: "存不進去，請再試一次。", msTitle: "#2189 王國里程碑", msNext: "下一個", msIn: "{n} 天後", dueLbl: "開始前（−）／後第幾天", untilLbl: "只在當天顯示，到 UTC 幾點（可空白）", untilShow: "到 UTC {h}", tdTxt: "要做的事",
@@ -1928,10 +1939,42 @@ async function saveLimits() {
     LIM = next; m.className = "msg okmsg"; m.textContent = tr("limSaved");
   } catch (e) { m.className = "msg warn"; m.textContent = tr(e.message === "auth" ? "limNoKey" : "limErr"); }
 }
+/* ===== our event times (UTC) → data/event-times.json (plain, public): home page Today card + everyone's ⏰ reminders ===== */
+const ET_PATH = "data/event-times.json";
+const ET_KEYS = [["bear-hunt", "🐻"], ["swordland-showdown", "⚔️"], ["tri-alliance-clash", "🔱"], ["viking-vengeance", "🧯"]];
+let ET = { "bear-hunt": ["13:00", "22:00"], "swordland-showdown": ["02:00", "14:00"], "tri-alliance-clash": ["14:00", "21:00"], "viking-vengeance": ["14:00", "23:00"] }, etSha = null;
+async function loadEventTimes() {
+  try {
+    if (TOKEN) { const f = await gh("GET", ET_PATH); if (f) { etSha = f.sha; ET = { ...ET, ...JSON.parse(b64ToUtf8(f.content)) }; } }
+    else { const r = await fetch(ET_PATH + "?t=" + Date.now(), { cache: "no-store" }); if (r.ok) ET = { ...ET, ...(await r.json()) }; }
+  } catch (e) {}
+  $("etGrid").innerHTML = ET_KEYS.map(([k, e]) => `<label><span>${e} ${esc((EVENTS[k] && EVENTS[k][lang === "zh" ? "zh" : "en"]) || (k === "bear-hunt" ? (lang === "zh" ? "狩獵巨熊" : "Bear Hunt") : k))}</span><input class="inp" data-et="${k}" value="${esc((ET[k] || []).join(", "))}" inputmode="numeric" placeholder="13:00, 22:00"></label>`).join("");
+}
+async function saveEventTimes() {
+  const m = $("etMsg"), next = {};
+  for (const inp of $("etGrid").querySelectorAll("[data-et]")) {
+    const parts = inp.value.split(/[,，\s]+/).filter(Boolean), out = [];
+    for (const p of parts) { const x = p.match(/^(\d{1,2})(?::(\d{2}))?$/); if (!x || +x[1] > 23 || +(x[2] || 0) > 59) { m.className = "msg warn"; m.textContent = tr("etBad"); return; }
+      out.push(String(+x[1]).padStart(2, "0") + ":" + (x[2] || "00")); }
+    if (!out.length) { m.className = "msg warn"; m.textContent = tr("etBad"); return; }
+    next[inp.dataset.et] = out.sort();
+  }
+  if (!TOKEN) { m.className = "msg warn"; m.textContent = tr("limNoKey"); return; }
+  m.className = "msg"; m.textContent = tr("limSaving");
+  try {
+    for (let attempt = 0; ; attempt++) {
+      try { const res = await gh("PUT", ET_PATH, { message: "Event times: " + Object.entries(next).map(([k, v]) => k + " " + v.join("/")).join(", "), content: utf8ToB64(JSON.stringify(next) + "\n"), sha: etSha || undefined, branch: BRANCH });
+        etSha = res && res.content ? res.content.sha : etSha; break; }
+      catch (e) { if (e.message !== "busy" || attempt) throw e; const f = await gh("GET", ET_PATH); etSha = f ? f.sha : null; }
+    }
+    ET = next; m.className = "msg okmsg"; m.textContent = tr("etSaved");
+  } catch (e) { m.className = "msg warn"; m.textContent = tr(e.message === "auth" ? "limNoKey" : "limErr"); }
+}
 async function init() {
   applyTexts();
   OFFICER_PW = OFFICER.pw; TOKEN = OFFICER.token;
   loadLimits(); $("limSave").onclick = saveLimits;
+  loadEventTimes(); $("etSave").onclick = saveEventTimes;
   // 0) the copy remembered in this tab (from an earlier visit) is shown right away …
   const remembered = OfficerData.cacheGet("events");
   if (remembered) { LIST = seedTodos(remembered); $("ev_app").hidden = false; if (weekStart === null) weekStart = defaultWeek(); render(); }

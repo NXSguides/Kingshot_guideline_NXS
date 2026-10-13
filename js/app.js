@@ -267,6 +267,15 @@ const ANN_EVENTS = [
 ];
 /* our alliance's fixed times (UTC hours) — set as close to Bear Hunt as possible */
 const EVENT_TIMES = { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23] };
+/* officers set these on the officer Events tab → data/event-times.json ("13:30" → 13.5); the ⏰ timers read them too */
+const hmToH = (v) => { const m = String(v).match(/^(\d{1,2})(?::(\d{2}))?$/); return m && +m[1] < 24 && +(m[2] || 0) < 60 ? +m[1] + (+(m[2] || 0)) / 60 : null; };
+const hToHM = (h) => String(Math.floor(h)).padStart(2, "0") + ":" + String(Math.round((h % 1) * 60)).padStart(2, "0");
+fetch("data/event-times.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((d) => {
+  if (!d) return;
+  let changed = false;
+  for (const [k, v] of Object.entries(d)) { const hs = (Array.isArray(v) ? v : []).map(hmToH).filter((x) => x != null); if (hs.length) { EVENT_TIMES[k] = hs; changed = true; } }
+  if (changed && langChosen) renderAll();
+}).catch(() => {});
 
 /* Schedules edited on the officer Events tab (data/events-x7k2p9.json, "sched") replace the ones above */
 fetch("data/events-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((f) => {
@@ -932,8 +941,8 @@ function todayCardHtml() {
     else if (n < 0 && -n <= 7) soon.push({ ...item, until: -n });
   }
   soon.sort((a, b) => a.until - b.until);
-  const hh = (h) => String(h).padStart(2, "0") + ":00";
-  const local = (h) => { const d = new Date(Date.UTC(1970, 0, 1, h)); return d.toLocaleTimeString(HTML_LANG[currentLang] || currentLang, { hour: "2-digit", minute: "2-digit", hourCycle: "h23" }); };
+  const hh = hToHM;
+  const local = (h) => { const d = new Date(Date.UTC(1970, 0, 1, 0, Math.round(h * 60))); return d.toLocaleTimeString(HTML_LANG[currentLang] || currentLang, { hour: "2-digit", minute: "2-digit", hourCycle: "h23" }); };
   const times = (key) => { const T = EVENT_TIMES[key]; if (!T) return "";
     const off = new Date().getTimezoneOffset() !== 0 ? ` <span class="td-loc">(${escapeHtml(t(TODAY_TXT.yours))} ${T.map(local).join(" & ")})</span>` : "";
     return `<span class="td-time">⏰ ${T.map(hh).join(" & ")} UTC${off}</span>`; };
