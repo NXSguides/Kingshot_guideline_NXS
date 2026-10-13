@@ -999,6 +999,10 @@ Offiziere verlangen oft eine feste Aufstellung – entweder eine genaue Truppenz
 Steps: 1. Tippe im Stadtbildschirm oben links auf dein Profilbild. 2. Tippe unten auf Schwadron. 3. Tippe in der Schwadronvorschau auf Trupp Formationen. 4. Tippe auf die Heldenkarten und wähle die Helden für diese Aufstellung. 5. Tippe auf Speichern. Fertig – beim nächsten Marsch oder Rally einfach diesen Slot wählen. Wenn eine ANZAHL vorgegeben ist: Tippe in jeder Truppenzeile auf die Zahl und gib die genaue Menge ein. Die Summe steht oben. Wenn nur ein VERHÄLTNIS vorgegeben ist: Tippe unten auf den Verhältnis-Button und gib die Prozente ein – das Spiel füllt die Truppen auf. Tippe auf Speichern, wähle den Slot und einen Namen (1–3 Zeichen). Dann wähle, WIE gespeichert wird: Anzahl → nach Truppenzahl speichern; Verhältnis → nach Truppenverhältnis speichern (passt sich deinen Truppen an). Tippe auf Bestätigen. Fertig – beim nächsten Marsch oder Rally einfach diesen Slot wählen.
 Hinweise: Das Schloss am letzten Slot heißt, er ist noch nicht freigeschaltet. „Gleichmäßig“ füllt alle drei Typen gleich, „Alle zurückziehen“ leert den Slot. Jeder Slot merkt sich eigene Helden und Truppen.
 
+### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-13 by Sparrow] Finder’s Fusion Tag 3
+1 Vogel · 2 Hut · 3 Heißluftballon · 4 Loch · 5 N · 6 Trompete · 7 Pfeil · 8 Laterne · 9 Vorhang · 10 Ziel · 11 Bilderrahmen · 12 Leiter · 13 Besen · 14 Käse · 15 Mehl · 16 Mais · 17 Lolli · 18 Geschenkbox · 19 Mond · 20 Schal · 21 Rucksack · 22 Spielzeugauto · 23 Wollknäuel · 24 Ring · 25 Taschenuhr · 26 Umschlag · 27 Brot · 28 Tagebuch · 29 Krone · 30 Federkiel · 31 Kuchen · 32 Musiknote · 33 Apfel · 34 Kaffeetasse · 35 Brille · 36 Gabel · 37 Schlüssel
+
 ### GAME TERMS (English = official de name)
 Construction = Bau
 Research = Forschung
