@@ -3,7 +3,7 @@
    - Pages, app code, guide text and data files: try the network first (so new uploads show up
      right away); if it doesn't answer within 1.5 s for pages/code (3 s for data files), or there
      is no internet, show the saved copy. */
-const CACHE = "nxs-v18";
+const CACHE = "nxs-v19";
 const INBOX = "nxs-inbox", INBOX_KEY = "./__inbox";   // reminders that arrived, for the red badge + the "🔔 missed" card
 const NETWORK_TIMEOUT_MS = 3000;        // data files
 const SHELL_TIMEOUT_MS = 1500;          // pages, code, guide text
@@ -105,7 +105,9 @@ async function inboxSet(list) {
 self.addEventListener("push", (e) => {
   let m = {};
   try { m = e.data ? e.data.json() : {}; } catch (err) { m = { title: "NXS", body: e.data ? e.data.text() : "" }; }
-  const url = /^adm-/.test(m.tag || "") ? "./officer-x7k2p9.html#events?ev=" + m.tag.replace(/^adm-/, "").replace(/-\d+$/, "") : "./?timers";   // admin reminders open the officer checklist
+  // admin reminders open the officer checklist; officers' Bear Hunt reminders ("…-bt") open the BT squad calculator
+  const url = /^adm-/.test(m.tag || "") ? "./officer-x7k2p9.html#events?ev=" + m.tag.replace(/^adm-/, "").replace(/-\d+$/, "")
+    : /-bt$/.test(m.tag || "") ? "./officer-x7k2p9.html#bt" : "./?timers";
   const id = m.tag || "n" + Date.now();
   e.waitUntil(Promise.all([
     self.registration.showNotification(m.title || "NXS", {
@@ -120,7 +122,7 @@ self.addEventListener("notificationclick", (e) => {
   if (id) e.waitUntil(inboxGet().then((l) => inboxSet(l.filter((x) => x.id !== id))));   // opened from the notification = read
   const url = new URL((e.notification.data && e.notification.data.url) || "./", self.registration.scope).href;
   e.waitUntil(self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((list) => {
-    const admin = /officer-x7k2p9/.test(url);
+    const admin = !/[?&]timers\b/.test(url);   // anything but the timer list: go to that page
     for (const c of list) if (c.url.startsWith(self.registration.scope) && "focus" in c) {
       if (admin) return c.navigate ? c.navigate(url).then((w) => w && w.focus()) : self.clients.openWindow(url);
       c.postMessage({ nxs: "open-timers" }); return c.focus();
