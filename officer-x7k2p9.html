@@ -1031,6 +1031,9 @@ const SH = { en: { home: "Home", pw: "🔒 Officer password", remember: "Remembe
                    e_setup: "Discord 登入成功，但網站還沒設定完成，請先用幹部密碼進入。" } };
 /* ===== 🔑 Discord login (testing): the Worker checks who you are on our Discord server and hands back a sealed session ===== */
 const AUTH_API = "https://nxs-ai.tapegirljoke.workers.dev", DISCORD_LS = "nxs-discord-v1";
+/* still being tried out: the Discord buttons only show in a browser that opened this page once with ?discord (or is logged in) */
+const DISCORD_TRY = (() => { try { if (/[?&]discord\b/.test(location.search)) localStorage.setItem("nxs-discord-try", "1");
+  return !!localStorage.getItem("nxs-discord-try") || !!localStorage.getItem(DISCORD_LS) || /^#login/.test(location.hash); } catch (e) { return false; } })();
 let loginMsg = "";
 (function () {   // coming back from Discord: #login=<session>&to=<tab> or #login_error=<why>&to=<tab>
   const m = location.hash.slice(1).match(/^(login|login_error)=([^&]*)(?:&to=(.*))?$/);
@@ -1048,7 +1051,7 @@ async function discordMe(tok) {
 function showMe() {
   const u = OFFICER.user, t = SH[OFFICER.lang];
   document.getElementById("meBox").hidden = !u;
-  document.getElementById("meIn").hidden = !!u || document.getElementById("gate").hidden === false;
+  document.getElementById("meIn").hidden = !DISCORD_TRY || !!u || document.getElementById("gate").hidden === false;
   document.getElementById("meIn").textContent = t.inSmall; document.getElementById("meIn").href = discordStart();
   document.getElementById("meOut").textContent = t.out;
   if (!u) return;
@@ -1067,6 +1070,7 @@ function applyShared() {
   document.getElementById("gateErr").textContent = t.wrong;
   document.getElementById("gateDiscord").textContent = t.discord;
   document.getElementById("gateOr").textContent = t.or;
+  document.getElementById("gateDiscord").style.display = DISCORD_TRY ? "block" : "none"; document.getElementById("gateOr").hidden = !DISCORD_TRY;
   const dm = document.getElementById("gateDiscordMsg"); dm.hidden = !loginMsg; dm.textContent = loginMsg ? t["e_" + loginMsg] || t.e_discord : "";
   if (typeof showMe === "function" && document.getElementById("meBox")) showMe();
 }
