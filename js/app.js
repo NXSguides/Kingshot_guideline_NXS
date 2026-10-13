@@ -837,25 +837,54 @@ document.addEventListener("pointermove", annReset, { passive: true });
 document.addEventListener("wheel", annReset, { passive: true });
 document.addEventListener("scroll", (e) => { if (e.target.classList && e.target.classList.contains("ann-tabs") && Date.now() - annMoved > 1000) annShown = 0; }, true);
 let annMoved = 0;   // when we moved the tabs ourselves (that scroll doesn't count)
-/* swipe left / right on an announcement to see the next / previous one (phones; on a computer: drag with the mouse) */
-let annSwipe = null;
-document.addEventListener("pointerdown", (e) => {
-  const body = e.target.closest && e.target.closest(".ann-body");
-  if (!body || announcements.length < 2 || (e.pointerType === "mouse" && e.button !== 0) || e.target.closest("a,button,img")) return;
-  annSwipe = { x: e.clientX, y: e.clientY, t: Date.now() };
-});
-document.addEventListener("pointerup", (e) => {
-  const s = annSwipe; annSwipe = null;
-  if (!s) return;
-  const dx = e.clientX - s.x, dy = e.clientY - s.y;
-  if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.5 || Date.now() - s.t > 800) return;   // not a sideways swipe
+/* swipe left / right on an announcement: it follows your finger (or the mouse), then slides to the next / previous one */
+function annSlide(dir) {   // dir 1 = next (comes in from the right), -1 = previous
   const n = announcements.length;
-  selectAnnouncement((currentAnnIndex + (dx < 0 ? 1 : n - 1)) % n);
+  selectAnnouncement((currentAnnIndex + (dir > 0 ? 1 : n - 1)) % n);
   annMoved = Date.now();
   const tabs = document.querySelector(".ann-tabs"), t = tabs && tabs.querySelector(".ann-tab.active");
   if (t) tabs.scrollTo({ left: t.offsetLeft - (tabs.clientWidth - t.offsetWidth) / 2, behavior: "smooth" });
+  const body = document.querySelector(".ann-body"); if (!body) return;
+  body.style.transition = "none"; body.style.transform = `translateX(${dir > 0 ? 40 : -40}%)`; body.style.opacity = "0";
+  void body.offsetWidth;
+  body.style.transition = "transform .28s ease-out, opacity .28s ease-out"; body.style.transform = ""; body.style.opacity = "";
+}
+let annSwipe = null;
+document.addEventListener("pointerdown", (e) => {
+  const body = e.target.closest && e.target.closest(".ann-body");
+  if (!body || announcements.length < 2 || (e.pointerType === "mouse" && e.button !== 0) || e.target.closest("a,button")) return;
+  annSwipe = { body, x: e.clientX, y: e.clientY, dx: 0, on: false, t: Date.now() };
 });
-document.addEventListener("pointercancel", () => { annSwipe = null; });
+document.addEventListener("pointermove", (e) => {
+  const s = annSwipe; if (!s) return;
+  const dx = e.clientX - s.x, dy = e.clientY - s.y;
+  if (!s.on) {
+    if (Math.abs(dy) > 12 && Math.abs(dy) > Math.abs(dx)) { annSwipe = null; return; }   // scrolling the page up/down
+    if (Math.abs(dx) < 10) return;
+    s.on = true; s.body.style.transition = "none"; s.body.style.userSelect = "none";
+    try { s.body.setPointerCapture(e.pointerId); } catch (err) {}
+  }
+  s.dx = dx;
+  s.body.style.transform = `translateX(${dx}px)`;
+  s.body.style.opacity = String(Math.max(0.35, 1 - Math.abs(dx) / (s.body.offsetWidth * 1.2)));
+});
+function annRelease() {
+  const s = annSwipe; annSwipe = null;
+  if (!s || !s.on) return;
+  s.body.style.userSelect = "";
+  const w = s.body.offsetWidth, fast = Math.abs(s.dx) / Math.max(1, Date.now() - s.t) > 0.5;
+  if (Math.abs(s.dx) > w * 0.25 || (fast && Math.abs(s.dx) > 30)) {   // far or fast enough: slide out, then the next one slides in
+    const dir = s.dx < 0 ? 1 : -1;
+    s.body.style.transition = "transform .18s ease-in, opacity .18s ease-in";
+    s.body.style.transform = `translateX(${dir > 0 ? -w : w}px)`; s.body.style.opacity = "0";
+    setTimeout(() => annSlide(dir), 170);
+  } else {   // not far enough: back to where it was
+    s.body.style.transition = "transform .2s ease-out, opacity .2s ease-out"; s.body.style.transform = ""; s.body.style.opacity = "";
+  }
+}
+document.addEventListener("pointerup", annRelease);
+document.addEventListener("pointercancel", annRelease);
+document.addEventListener("click", (e) => { if (Date.now() - annMoved < 400 && e.target.closest && e.target.closest(".ann-body")) { e.preventDefault(); e.stopPropagation(); } }, true);
 setInterval(() => {
   const now = Date.now(), dt = Math.min(now - annLast, 1000); annLast = now;
   const board = document.querySelector(".ann-board");
@@ -865,10 +894,7 @@ setInterval(() => {
   if (document.visibilityState !== "visible" || seen < Math.min(r.height, innerHeight) / 2) { annShown = 0; return; }   // off screen: start over when it comes back
   annShown += dt;
   if (annShown < ANN_IDLE) return;
-  annMoved = now;
-  selectAnnouncement((currentAnnIndex + 1) % announcements.length);
-  const tabs = document.querySelector(".ann-tabs"), t = tabs && tabs.querySelector(".ann-tab.active");
-  if (t) tabs.scrollTo({ left: t.offsetLeft - (tabs.clientWidth - t.offsetWidth) / 2, behavior: "smooth" });
+  annSlide(1);
 }, 250);
 
 function renderAnnTicker() {
