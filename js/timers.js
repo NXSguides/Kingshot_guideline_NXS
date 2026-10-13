@@ -611,7 +611,7 @@
   let stackDone = {}; try { stackDone = JSON.parse(sessionStorage.getItem(STK)) || {}; } catch (e) {}
   function stackHtml() {
     const now = Date.now();
-    const live = timers.filter((x) => x.cat === "appt" && !x.book && x.slot - 6e5 <= now && now < x.slot + 18e5);
+    const live = timers.filter((x) => x.cat === "appt" && !x.book && x.slot - (x.before || 0) * 6e4 <= now && now < x.slot + 18e5);
     return live.map((x) => { const steps = T("stack")[x.sub] || [], end = new Date(x.slot + 18e5).toISOString().slice(11, 16);
       return `<div class="tm-note tm-sg"><b>${esc(T("stackT").replace("{e}", SUBS.appt[x.sub] || "📅").replace("{name}", subName(x.sub)).replace("{t}", end))}</b><div class="tm-hint" style="margin:2px 0 4px">${esc(T("stackHint"))}</div>` +
         steps.map((t, i) => { const k = `${x.id}-${i}`; return `<label class="tm-stk"><input type="checkbox" data-stk="${k}"${stackDone[k] ? " checked" : ""}> <span>${esc(t)}</span></label>`; }).join("") + `</div>`; }).join("");
