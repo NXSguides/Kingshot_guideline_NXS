@@ -4131,14 +4131,15 @@ const eff = (b) => { const r = raw(b) === "conflict" && isOp(b) ? "held" : raw(b
 const nextSw = (b) => isOp(b) && PLAN.t[pk(b)] ? cycAt(raw(b) === "conflict" ? "held" : raw(b), PLAN.t[pk(b)], Date.now())[1] : 0;
 /* start of its latest Protected phase (needs a timer) — the later one was taken later */
 const protStart = (b) => { const n = nextSw(b); if (!n) return null; const P = CYC().p * 36e5, V = CYC().v * 36e5; return eff(b) === "held" ? n - P : n - V - P; };
-/* ⚠️ Buff conflict, worked out from the timers: among our Outposts of the same type + level, the one that has
+/* ⚠️ Buff conflict, worked out from the timers: among our Protected Outposts of the same type + level, the one that has
    been Protected the shortest (= more Protected time left when both are Protected) gets no buff. Without timers an
    old hand-set mark still counts. */
 function isConflict(b) {
   if (!isOp(b) || eff(b) !== "held") return false;
   const me = protStart(b);
   if (me == null) return raw(b) === "conflict";
-  return B.some((o) => o !== b && isOp(o) && o.t === b.t && o.lv === b.lv && (eff(o) === "held" || eff(o) === "vuln") && raw(o) !== "conflict" &&
+  // only other Protected ones count: a Vulnerable Outpost gives no buff, so it can't block this one
+  return B.some((o) => o !== b && isOp(o) && o.t === b.t && o.lv === b.lv && eff(o) === "held" && raw(o) !== "conflict" &&
     ((protStart(o) == null) || protStart(o) < me || (protStart(o) === me && o.id < b.id)));
 }
 const st = (b) => { const e = eff(b); return e === "held" && isConflict(b) ? "conflict" : e; };
