@@ -840,7 +840,7 @@ function selectAnnouncement(i) {
 window.selectAnnouncement = selectAnnouncement;
 /* more than one announcement: after 8 s on screen with nothing done to it, the next one shows.
    Only the time it is actually on screen counts (at least half of it visible); any tap, swipe, wheel or mouse move on it starts the 8 s again. */
-const ANN_IDLE = 6000;
+const ANN_IDLE = 7000;
 let annShown = 0, annLast = Date.now(), annIdx = -1;
 const annReset = (e) => { if (e.target.closest && e.target.closest(".ann-board")) annShown = 0; };
 document.addEventListener("pointerdown", annReset, true);
