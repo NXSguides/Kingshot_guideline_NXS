@@ -998,6 +998,44 @@ Steps: 1. Şehir ekranında sol üstteki avatarına dokun. 2. Alttaki Ekip'e dok
 İpuçları: son yuvadaki kilit henüz açılmadığı anlamına gelir. “Eşit dağıt” üç türü eşit doldurur; “Tümünü geri çek” yuvayı boşaltır. Her yuva kendi kahraman ve birliklerini tutar.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-13 by 亗ΔRMΔDΔ亗] 📢 YAKLAŞAN KVK TG BASMA HAZIRLIK VE UYGULAMA KILAVUZU 📢
+9 Kasım 2026'da üyeler binalarını TG3 ➡️ TG5'e yükseltme seçeneğine sahip olacaklar.
+
+Bir sonraki KvK puanlama evresi bu tarihten bir süre sonra başlayacaktır. Tek odak noktası KvK olduğu için, ittifak puanlarını maksimize etmek amacıyla bu yükseltmeler KvK başlayana kadar bekletilmelidir.
+
+Üyeler, mevcut kaynak ve hızlandırma tasarruflarına göre katılım düzeylerini seçebilirler. İşte üç isteğe bağlı yükseltme kademesi ve bunların ilgili KvK puan üretimi:
+
+🔹 SEÇENEK 1: Temel 3 Bina Yükseltmesi (Şehir Merkezi, Embassy, Kraliyet Ahırları)
+🔸 KvK Puanı: Oyuncu başına 10.625.047
+🔸 Kaynak Maliyeti: ~892M Odun/Ekmek, 173M Taş, 44M Demir, 4.055 Hasaltın
+🔸 Süre: Düzenlenmiş 58 Gün
+
+🔹 SEÇENEK 2: Genişletilmiş 5 Bina Yükseltmesi (Şehir Merkezi, Embassy, Kraliyet Ahırları, Barracks, Range)
+🔸 KvK Puanı: Oyuncu başına 19.545.005
+🔸 Kaynak Maliyeti: ~1.57B Odun/Ekmek, 311M Taş, 78M Demir, 7.980 Hasaltın
+🔸 Süre: Düzenlenmiş 82 Gün
+
+🔹 SEÇENEK 3: Maksimum 7 Bina Yükseltmesi (Şehir Merkezi, Embassy, Kraliyet Ahırları, Barracks, Range, Revir, Command Center)
+🔸 KvK Puanı: Oyuncu başına 22.247.410
+🔸 Kaynak Maliyeti: ~1.95B Odun/Ekmek, 388M Taş, 96M Demir, 9.210 Hasaltın
+🔸 Süre: Düzenlenmiş 88 Gün
+
+⚙️ UYGULAMA KILAVUZU VE HIZ DÜZENLEYİCİ TEMELİ:
+Yukarıdaki düzenlenmiş süreler ve KvK puanı hesaplamaları, neredeyse maks seviye bir hesap kurulumuna dayanmaktadır. Buna %80,2 temel inşaat hızı, Sv 5 Pan'ın Usta Mimar yeteneği, Sv 5 Saul yeteneği, Başbakan ataması, Sv 5 Gri Kurt yeteneği, Zemin Çalışmaları bonusu, KvK Bonus ve Çifte Mesai dahildir.
+
+⚠️ KRİTİK 5 DAKİKALIK ARALIK:
+Gri Kurt Yeteneği (%15 hız) ve Çifte Mesai (%20 hız) yalnızca 5 dakika sürer. KvK puanlama evresi başladığında, zaman azalmasını ve puan üretimini maksimize etmek için tüm hızlandırmalar bu dar 5 dakikalık aralık içinde uygulanmalıdır.
+
+🛑 ŞU ANDAN İTİBAREN GEREKEN EYLEMLER:
+Bu çok büyük bir girişimdir. Bu seçeneklerden herhangi birine katılmayı planlıyorsanız, kaynak sınırlarına takılmamak için hazırlıklara derhal başlanmalıdır:
+1️⃣ Biriktirmeye başlayın: Büyük miktarlarda Odun, Ekmek, Taş, Demir ve Hasaltın tasarruf edin. Sürekli toplayın ve toplama bonuslarınızı kullanın.
+2️⃣ Hızlandırmaları saklayın: Bu düzenlenmiş süreleri tamamlamak için mevcut her hızlandırmayı saklayın.
+3️⃣ Hazırda bekleyin: KvK puanlama evresi resmen başlayana kadar bu binaları TG3'te tutun. Başladığında, sıralamayı puanla doldurmak için hep birlikte basın.
+
+Şimdi toplamaya ve biriktirmeye başlayın, böylece bir sonraki KvK'ya hükmetmeye hazır olalım! 🚀🛡️
+
+(see guide #kvk)
+
 [2026-10-13 by Sparrow] Finder’s Fusion 3. Gün
 1 Kuş · 2 Şapka · 3 Sıcak Hava Balonu · 4 Delik · 5 N · 6 Trompet · 7 Ok · 8 Fener · 9 Perde · 10 Hedef · 11 Resim Çerçevesi · 12 Merdiven · 13 Süpürge · 14 Peynir · 15 Un · 16 Mısır · 17 Lolipop · 18 Hediye Kutusu · 19 Ay · 20 Atkı · 21 Çanta · 22 Oyuncak Araba · 23 Yün Yumağı · 24 Yüzük · 25 Cep Saati · 26 Zarf · 27 Ekmek · 28 Günlük · 29 Taç · 30 Tüy Kalem · 31 Pasta · 32 Müzik Notası · 33 Elma · 34 Kahve Fincanı · 35 Gözlük · 36 Çatal · 37 Anahtar
 

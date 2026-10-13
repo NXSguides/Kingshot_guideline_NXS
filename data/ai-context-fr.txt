@@ -998,6 +998,44 @@ Steps: 1. Sur l'écran de la ville, touchez votre avatar (en haut à gauche). 2.
 Astuces : le cadenas du dernier slot signifie qu'il n'est pas encore débloqué. « Équilibré » remplit les trois types à parts égales ; « Tout retirer » vide le slot. Chaque slot garde ses propres héros et troupes.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-13 by 亗ΔRMΔDΔ亗] 📢 GUIDE DE PRÉPARATION ET D'EXÉCUTION DU PUSH KVK TG À VENIR 📢
+Le 9 novembre 2026, les membres auront la possibilité de pousser leurs bâtiments de TG3 ➡️ TG5.
+
+La prochaine phase de score KvK commencera peu après cette date. Comme le KvK est l'unique priorité, ces améliorations doivent être conservées jusqu'au début du KvK pour maximiser les points d'alliance.
+
+Les membres peuvent choisir leur niveau de participation en fonction de leurs économies actuelles en ressources et en accélérateurs. Voici les trois paliers de push optionnels et leur génération respective de points KvK :
+
+🔹 OPTION 1 : Push de base de 3 bâtiments (Centre, Embassy, Écuries Royales)
+🔸 Points KvK : 10 625 047 par joueur
+🔸 Coût en ressources : ~892M Bois/Pain, 173M Pierre, 44M Fer, 4 055 Or Véritable
+🔸 Temps : 58 jours ajustés
+
+🔹 OPTION 2 : Push étendu de 5 bâtiments (Centre, Embassy, Écuries Royales, Barracks, Range)
+🔸 Points KvK : 19 545 005 par joueur
+🔸 Coût en ressources : ~1,57B Bois/Pain, 311M Pierre, 78M Fer, 7 980 Or Véritable
+🔸 Temps : 82 jours ajustés
+
+🔹 OPTION 3 : Push maximum de 7 bâtiments (Centre, Embassy, Écuries Royales, Barracks, Range, Infirmerie, Command Center)
+🔸 Points KvK : 22 247 410 par joueur
+🔸 Coût en ressources : ~1,95B Bois/Pain, 388M Pierre, 96M Fer, 9 210 Or Véritable
+🔸 Temps : 88 jours ajustés
+
+⚙️ GUIDE D'EXÉCUTION ET BASE DES MODIFICATEURS DE VITESSE :
+Les temps ajustés et les calculs de points KvK ci-dessus sont basés sur une configuration de compte presque au maximum. Cela inclut 80,2 % de vitesse de construction de base, Maître-architecte de Pan Niv. 5, compétence de Saul Niv. 5, nomination de Premier Ministre, compétence de Loup Gris Niv. 5, bonus Travaux Terrestres, bonus KvK et Bouchées Doubles.
+
+⚠️ FENÊTRE CRITIQUE DE 5 MINUTES :
+La compétence de Loup Gris (vitesse 15 %) et Bouchées Doubles (vitesse 20 %) ne durent que 5 minutes. Lorsque la phase de score KvK débute, tous les accélérateurs doivent être exécutés dans cette fenêtre étroite de 5 minutes pour maximiser la réduction de temps et la génération de points.
+
+🛑 ACTIONS REQUISES DÈS MAINTENANT :
+C'est une entreprise colossale. Si vous prévoyez de participer à l'une de ces options, la préparation doit commencer immédiatement pour éviter les plafonds de ressources :
+1️⃣ Commencez à stocker : Économisez d'énormes quantités de bois, de pain, de pierre, de fer et d'or véritable. Collectez constamment et utilisez vos bonus de collecte.
+2️⃣ Économisez les accélérateurs : Conservez tous les accélérateurs disponibles pour valider ces minuteries ajustées.
+3️⃣ Restez en attente : Maintenez ces bâtiments au niveau TG3 jusqu'à ce que la phase de score KvK commence officiellement. À ce moment-là, nous pousserons tous ensemble pour inonder le classement de points.
+
+Commencez à collecter et à économiser maintenant pour être prêts à dominer le prochain KvK ! 🚀🛡️
+
+(see guide #kvk)
+
 [2026-10-13 by Sparrow] Finder’s Fusion Jour 3
 1 Oiseau · 2 Chapeau · 3 Montgolfière · 4 Trou · 5 N · 6 Trompette · 7 Flèche · 8 Lanterne · 9 Rideau · 10 Cible · 11 Cadre · 12 Échelle · 13 Balai · 14 Fromage · 15 Farine · 16 Maïs · 17 Sucette · 18 Boîte cadeau · 19 Lune · 20 Écharpe · 21 Sac · 22 Voiture miniature · 23 Pelote de laine · 24 Bague · 25 Montre de poche · 26 Enveloppe · 27 Pain · 28 Journal · 29 Couronne · 30 Plume · 31 Gâteau · 32 Note de musique · 33 Pomme · 34 Tasse à café · 35 Lunettes · 36 Fourchette · 37 Clé
 

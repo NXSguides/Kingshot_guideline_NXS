@@ -1000,6 +1000,44 @@ Steps: 1. Tippe im Stadtbildschirm oben links auf dein Profilbild. 2. Tippe unte
 Hinweise: Das Schloss am letzten Slot heißt, er ist noch nicht freigeschaltet. „Gleichmäßig“ füllt alle drei Typen gleich, „Alle zurückziehen“ leert den Slot. Jeder Slot merkt sich eigene Helden und Truppen.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-13 by 亗ΔRMΔDΔ亗] 📢 BEVORSTEHENDER KVK TG-PUSH-VORBEREITUNGS- UND AUSFÜHRUNGSLEITFADEN 📢
+Am 9. November 2026 haben Mitglieder die Möglichkeit, ihre Gebäude von TG3 ➡️ TG5 zu pushen.
+
+Die nächste KvK-Bewertungsphase wird irgendwann nach diesem Datum beginnen. Da KvK der einzige Fokus ist, müssen diese Aufwertungen bis zum Start von KvK zurückgehalten werden, um die Allianzpunkte zu maximieren.
+
+Mitglieder können ihre Beteiligungsstufe basierend auf ihren aktuellen Ressourcen- und Beschleunigungen-Ersparnissen wählen. Hier sind die drei optionalen Push-Stufen und ihre jeweilige KvK-Punktegenerierung:
+
+🔹 OPTION 1: Kern-Push mit 3 Gebäuden (Stadtzentrum, Embassy, Königliche Ställe)
+🔸 KvK-Punkte: 10.625.047 pro Spieler
+🔸 Ressourcenkosten: ~892M Holz/Brot, 173M Stein, 44M Eisen, 4.055 Echtgold
+🔸 Zeit: 58 Tage angepasst
+
+🔹 OPTION 2: Erweiterter Push mit 5 Gebäuden (Stadtzentrum, Embassy, Königliche Ställe, Barracks, Range)
+🔸 KvK-Punkte: 19.545.005 pro Spieler
+🔸 Ressourcenkosten: ~1,57B Holz/Brot, 311M Stein, 78M Eisen, 7.980 Echtgold
+🔸 Zeit: 82 Tage angepasst
+
+🔹 OPTION 3: Maximaler Push mit 7 Gebäuden (Stadtzentrum, Embassy, Königliche Ställe, Barracks, Range, Krankenstation, Command Center)
+🔸 KvK-Punkte: 22.247.410 pro Spieler
+🔸 Ressourcenkosten: ~1,95B Holz/Brot, 388M Stein, 96M Eisen, 9.210 Echtgold
+🔸 Zeit: 88 Tage angepasst
+
+⚙️ AUSFÜHRUNGSLEITFADEN & BASIS FÜR GESCHWINDIGKEITSMODIFIKATOREN:
+Die oben genannten angepassten Zeiten und KvK-Punkteberechnungen basieren auf einem fast maximalen Account-Setup. Dies beinhaltet 80,2 % Basis-Baugeschwindigkeit, Lv5 Pans Meisterarchitekt, Lv5 Saul-Fertigkeit, Höchster Minister-Ernennung, Lv5 Grauer Wolf-Fertigkeit, Grundarbeit-Ertrag, KvK Bonus und Doppeltes Tempo.
+
+⚠️ KRITISCHES 5-MINUTEN-FENSTER:
+Die Grauer Wolf-Fertigkeit (15 % Geschwindigkeit) und Doppeltes Tempo (20 % Geschwindigkeit) halten nur 5 Minuten lang an. Wenn die KvK-Bewertungsphase beginnt, müssen alle Beschleunigungen innerhalb dieses engen 5-Minuten-Fensters ausgeführt werden, um die Zeitersparnis und Punktegenerierung zu maximieren.
+
+🛑 AB SOFORT ERFORDERLICHE MASSNAHMEN:
+Dies ist ein gewaltiges Unterfangen. Wenn Sie planen, an einer dieser Optionen teilzunehmen, muss die Vorbereitung sofort beginnen, um Ressourcenlimits zu vermeiden:
+1️⃣ Horten beginnen: Sparen Sie riesige Mengen an Holz, Brot, Stein, Eisen und Echtgold. Sammeln Sie ständig und nutzen Sie Ihre Sammel-Erträge.
+2️⃣ Beschleunigungen sparen: Sparen Sie jede verfügbare Beschleunigung, um diese angepassten Timer zu bewältigen.
+3️⃣ Standby: Halten Sie diese Gebäude auf TG3, bis die KvK-Bewertungsphase offiziell beginnt. Wenn sie startet, pushen wir gemeinsam, um die Rangliste mit Punkten zu überfluten.
+
+Beginnen Sie jetzt mit dem Sammeln und Sparen, damit wir bereit sind, das nächste KvK zu dominieren! 🚀🛡️
+
+(see guide #kvk)
+
 [2026-10-13 by Sparrow] Finder’s Fusion Tag 3
 1 Vogel · 2 Hut · 3 Heißluftballon · 4 Loch · 5 N · 6 Trompete · 7 Pfeil · 8 Laterne · 9 Vorhang · 10 Ziel · 11 Bilderrahmen · 12 Leiter · 13 Besen · 14 Käse · 15 Mehl · 16 Mais · 17 Lolli · 18 Geschenkbox · 19 Mond · 20 Schal · 21 Rucksack · 22 Spielzeugauto · 23 Wollknäuel · 24 Ring · 25 Taschenuhr · 26 Umschlag · 27 Brot · 28 Tagebuch · 29 Krone · 30 Federkiel · 31 Kuchen · 32 Musiknote · 33 Apfel · 34 Kaffeetasse · 35 Brille · 36 Gabel · 37 Schlüssel
 

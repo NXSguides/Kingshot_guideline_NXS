@@ -998,6 +998,44 @@ Steps: 1. Na tela da cidade, toque no seu avatar (canto superior esquerdo). 2. T
 Dicas: o cadeado no último slot significa que ainda não foi desbloqueado. “Igualar” preenche os três tipos por igual; “Retirar tudo” esvazia o slot. Cada slot guarda seus próprios heróis e tropas.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-13 by 亗ΔRMΔDΔ亗] 📢 GUIA DE PREPARAÇÃO E EXECUÇÃO DE PUSH DO KVK TG 📢
+Em 9 de novembro de 2026, os membros terão a opção de realizar o push de suas construções de TG3 ➡️ TG5.
+
+A próxima fase de pontuação do KvK começará em algum momento após essa data. Como o KvK é o único foco, esses aprimoramentos devem ser segurados até o início do KvK para maximizar os pontos da aliança.
+
+Os membros podem escolher seu nível de participação com base em suas economias atuais de recursos e velocidade. Aqui estão os três níveis opcionais de push e sua respectiva geração de pontos KvK:
+
+🔹 OPÇÃO 1: Push de 3 Construções Principais (Centro da Cidade, Embassy, Estábulos da Realeza)
+🔸 Pontos KvK: 10.625.047 por jogador
+🔸 Custo de Recursos: ~892M Madeira/Pão, 173M Pedra, 44M Ferro, 4.055 Adamante
+🔸 Tempo: 58 Dias Ajustados
+
+🔹 OPÇÃO 2: Push Expandido de 5 Construções (Centro da Cidade, Embassy, Estábulos da Realeza, Barracks, Range)
+🔸 Pontos KvK: 19.545.005 por jogador
+🔸 Custo de Recursos: ~1.57B Madeira/Pão, 311M Pedra, 78M Ferro, 7.980 Adamante
+🔸 Tempo: 82 Dias Ajustados
+
+🔹 OPÇÃO 3: Push Máximo de 7 Construções (Centro da Cidade, Embassy, Estábulos da Realeza, Barracks, Range, Enfermaria, Command Center)
+🔸 Pontos KvK: 22.247.410 por jogador
+🔸 Custo de Recursos: ~1.95B Madeira/Pão, 388M Pedra, 96M Ferro, 9.210 Adamante
+🔸 Tempo: 88 Dias Ajustados
+
+⚙️ GUIA DE EXECUÇÃO E BASE DE MODIFICADORES DE VELOCIDADE:
+Os tempos ajustados e os cálculos de pontos KvK acima são baseados em uma configuração de conta quase maximizada. Isso inclui 80,2% de velocidade de construção base, Mestre da Arquitetura de Pan Nv. 5, habilidade de Saul Nv. 5, nomeação de Primeiro-ministro, habilidade de Loup Gris Nv. 5, bônus Obras de preparação, bônus KvK e Horário Dobrado.
+
+⚠️ JANELA CRÍTICA DE 5 MINUTOS:
+A habilidade de Loup Gris (15% de velocidade) e Horário Dobrado (20% de velocidade) duram apenas 5 minutos. Quando a fase de pontuação do KvK começar, todos os aceleradores devem ser executados dentro desta janela apertada de 5 minutos para maximizar a redução de tempo e a geração de pontos.
+
+🛑 AÇÕES NECESSÁRIAS A PARTIR DE AGORA:
+Este é um empreendimento enorme. Se você planeja participar de qualquer uma dessas opções, a preparação deve começar imediatamente para evitar limites de recursos:
+1️⃣ Comece a acumular: Economize grandes quantidades de Madeira, Pão, Pedra, Ferro e Adamante. Colete constantemente e use seus bônus de coleta.
+2️⃣ Economize Velocidade: Guarde todos os aceleradores disponíveis para limpar esses cronômetros ajustados.
+3️⃣ Em espera: Mantenha essas construções em TG3 até que a fase de pontuação do KvK comece oficialmente. Quando começar, façam o push juntos para inundar a classificação com pontos.
+
+Comece a coletar e economizar agora para estarmos prontos para dominar o próximo KvK! 🚀🛡️
+
+(see guide #kvk)
+
 [2026-10-13 by Sparrow] Finder’s Fusion Dia 3
 1 Pássaro · 2 Chapéu · 3 Balão de ar quente · 4 Buraco · 5 N · 6 Trompete · 7 Flecha · 8 Lanterna · 9 Cortina · 10 Alvo · 11 Moldura · 12 Escada · 13 Vassoura · 14 Queijo · 15 Farinha · 16 Milho · 17 Pirulito · 18 Caixa de presente · 19 Lua · 20 Cachecol · 21 Mochila · 22 Carro de brinquedo · 23 Novelo de lã · 24 Anel · 25 Relógio de bolso · 26 Envelope · 27 Pão · 28 Diário · 29 Coroa · 30 Pena · 31 Bolo · 32 Nota musical · 33 Maçã · 34 Xícara de café · 35 Óculos · 36 Garfo · 37 Chave
 

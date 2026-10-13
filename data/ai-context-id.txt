@@ -998,6 +998,44 @@ Steps: 1. Di layar kota, ketuk avatarmu (kiri atas). 2. Ketuk Skuad di bawah. 3.
 Tips: ikon gembok di slot terakhir berarti belum terbuka. “Rata” mengisi tiga jenis sama banyak; “Tarik semua” mengosongkan slot. Tiap slot menyimpan hero dan pasukannya sendiri.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-13 by 亗ΔRMΔDΔ亗] 📢 PANDUAN PERSIAPAN & EKSEKUSI PUSH KVK TG MENDATANG 📢
+Pada 9 November 2026, anggota akan memiliki opsi untuk meningkatkan bangunan mereka dari TG3 ➡️ TG5.
+
+Fase skor KvK berikutnya akan dimulai beberapa saat setelah tanggal ini. Karena KvK adalah fokus utama, peningkatan ini harus ditahan hingga KvK dimulai untuk memaksimalkan poin aliansi.
+
+Anggota dapat memilih tingkat partisipasi berdasarkan tabungan sumber daya dan speedup mereka saat ini. Berikut adalah tiga tingkatan push opsional dan perolehan poin KvK masing-masing:
+
+🔹 OPSI 1: Push Inti 3 Bangunan (Tungku, Embassy, Kandang Kuda Kerajaan)
+🔸 Poin KvK: 10.625.047 per pemain
+🔸 Biaya Sumber Daya: ~892jt Kayu/Roti, 173jt Batu, 44jt Besi, 4.055 Truegold
+🔸 Waktu: 58 Hari (Disesuaikan)
+
+🔹 OPSI 2: Push 5 Bangunan Diperluas (Tungku, Embassy, Kandang Kuda Kerajaan, Barracks, Range)
+🔸 Poin KvK: 19.545.005 per pemain
+🔸 Biaya Sumber Daya: ~1,57M Kayu/Roti, 311jt Batu, 78jt Besi, 7.980 Truegold
+🔸 Waktu: 82 Hari (Disesuaikan)
+
+🔹 OPSI 3: Push Maksimum 7 Bangunan (Tungku, Embassy, Kandang Kuda Kerajaan, Barracks, Range, Rumah Sakit, Command Center)
+🔸 Poin KvK: 22.247.410 per pemain
+🔸 Biaya Sumber Daya: ~1,95M Kayu/Roti, 388jt Batu, 96jt Besi, 9.210 Truegold
+🔸 Waktu: 88 Hari (Disesuaikan)
+
+⚙️ PANDUAN EKSEKUSI & DASAR MODIFIKASI KECEPATAN:
+Waktu yang disesuaikan dan perhitungan poin KvK di atas didasarkan pada pengaturan akun yang hampir maksimal. Ini mencakup 80,2% kecepatan konstruksi dasar, Master Architect Pan Lv5, Skill Saul Lv5, penunjukan Perdana Menteri, Skill Gray Wolf Lv5, bonus Pekerjaan Dasar, Bonus KvK, dan Double Time.
+
+⚠️ JENDELA KRITIS 5 MENIT:
+Skill Gray Wolf (kecepatan 15%) dan Double Time (kecepatan 20%) hanya bertahan selama 5 menit. Saat fase skor KvK dimulai, semua speedup harus dieksekusi dalam jendela 5 menit yang sempit ini untuk memaksimalkan pengurangan waktu dan perolehan poin.
+
+🛑 TINDAKAN YANG DIPERLUKAN MULAI SEKARANG:
+Ini adalah tugas besar. Jika Anda berencana untuk berpartisipasi dalam salah satu opsi ini, persiapan harus segera dimulai untuk menghindari batas sumber daya:
+1️⃣ Mulai menimbun: Simpan sejumlah besar Kayu, Roti, Batu, Besi, dan Truegold. Kumpulkan terus-menerus dan gunakan bonus pengumpulan Anda.
+2️⃣ Simpan Speedup: Simpan setiap speedup yang tersedia untuk menyelesaikan pengatur waktu yang telah disesuaikan ini.
+3️⃣ Bersiap: Biarkan bangunan-bangunan ini di TG3 hingga fase skor KvK resmi dimulai. Saat dimulai, lakukan push bersama untuk membanjiri papan peringkat dengan poin.
+
+Mulai kumpulkan dan simpan sekarang agar kita siap mendominasi KvK berikutnya! 🚀🛡️
+
+(see guide #kvk)
+
 [2026-10-13 by Sparrow] Finder’s Fusion Hari 3
 1 Burung · 2 Topi · 3 Balon Udara · 4 Lubang · 5 N · 6 Trompet · 7 Panah · 8 Lentera · 9 Tirai · 10 Target · 11 Bingkai Foto · 12 Tangga · 13 Sapu · 14 Keju · 15 Tepung · 16 Jagung · 17 Lolipop · 18 Kotak Hadiah · 19 Bulan · 20 Syal · 21 Ransel · 22 Mobil Mainan · 23 Bola Benang · 24 Cincin · 25 Jam Saku · 26 Amplop · 27 Roti · 28 Buku Harian · 29 Mahkota · 30 Pena Bulu · 31 Kue · 32 Nada Musik · 33 Apel · 34 Cangkir Kopi · 35 Kacamata · 36 Garpu · 37 Kunci
 
