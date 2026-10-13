@@ -526,6 +526,9 @@ body.menu-open { overflow: hidden; }
 }
 
 .ann-text { font-size: 14.5px; white-space: pre-wrap; }
+/* long titles: the tab shows the start (…), the full title sits on top of the announcement */
+.ann-tab { max-width: 13em; overflow: hidden; text-overflow: ellipsis; }
+.ann-title { font-size: 16px; font-weight: 700; margin: 0 0 8px; line-height: 1.35; }
 
 .ann-img {
   display: block;

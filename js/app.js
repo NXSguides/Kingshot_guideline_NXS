@@ -474,7 +474,7 @@ const BLOCKS = {
     if (!announcements.length) return "";
     if (currentAnnIndex >= announcements.length) currentAnnIndex = 0;
     const tabs = announcements.map((a, i) => `
-      <button type="button" class="ann-tab${i === currentAnnIndex ? " active" : ""}" onclick="selectAnnouncement(${i})">
+      <button type="button" class="ann-tab${i === currentAnnIndex ? " active" : ""}" onclick="selectAnnouncement(${i})" title="${escapeHtml(annLabel(a))}">
         ${escapeHtml(annLabel(a))}
       </button>
     `).join("");
@@ -489,6 +489,7 @@ const BLOCKS = {
             <span>${escapeHtml(a.author)}</span>
             <span>${new Date(a.createdAt).toLocaleDateString(HTML_LANG[currentLang] || "en")}</span>
           </div>
+          ${a.title ? `<div class="ann-title" dir="auto">${escapeHtml(annLabel(a))}</div>` : ""}
           <div class="ann-text">${rich(text)}</div>
           ${imgs}
         </div>
