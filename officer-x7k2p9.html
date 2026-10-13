@@ -513,7 +513,7 @@
 </head>
 <body>
 <div class="wrap" id="main">
-  <div class="shbar"><a class="btn" href="./">← <span id="shHome"></span></a><button class="btn" id="langBtn"></button><button class="btn" id="copyUrlBtn" title="Copy link" aria-label="Copy link" hidden>🔗</button><button class="btn" id="reloadBtn" title="Refresh" aria-label="Refresh" hidden>↻</button></div>
+  <div class="shbar"><a class="btn" href="./">← <span id="shHome"></span></a><button class="btn" id="langBtn"></button><button class="btn" id="copyUrlBtn" title="Copy link" aria-label="Copy link" hidden>🔗</button><button class="btn" id="reloadBtn" title="Refresh" aria-label="Refresh" hidden>↻</button><span id="meBox" hidden style="display:inline-flex;align-items:center;gap:6px;margin-left:auto;font-size:13.5px"><img id="meAv" alt="" width="24" height="24" style="border-radius:50%" hidden><b id="meName"></b><button class="btn" id="meOut" style="padding:4px 8px;font-size:12.5px"></button></span><a class="btn" id="meIn" href="#" hidden style="margin-left:auto;font-size:12.5px;padding:4px 8px"></a></div>
   <nav class="tabs">
     <a href="#events" data-tab="events">📅 Events</a>
     <a href="#map" data-tab="map">🗺️ Map</a>
@@ -524,6 +524,9 @@
     <a href="#views" data-tab="views">📈 Views</a>
   </nav>
   <div id="gate" class="card" hidden style="max-width:360px;margin:24px auto">
+    <a class="btn" id="gateDiscord" href="#" style="display:block;text-align:center;width:100%;box-sizing:border-box;padding:12px;background:#5865F2;border-color:#5865F2;color:#fff;font-weight:700;text-decoration:none"></a>
+    <div class="msg warn" id="gateDiscordMsg" hidden style="margin-top:8px"></div>
+    <div class="muted" id="gateOr" style="text-align:center;margin:12px 0 4px;font-size:13px"></div>
     <h2 id="gateTitle"></h2>
     <input type="password" id="gatePw" autocomplete="current-password" style="width:100%;box-sizing:border-box;padding:10px;font-size:16px;border-radius:8px;border:1px solid var(--rule);background:var(--panel-2);color:var(--text)">
     <label class="row" style="margin-top:8px;font-size:14px"><input type="checkbox" id="gateRemember" checked> <span id="gateRememberTxt"></span></label>
@@ -1014,8 +1017,45 @@ const OFFICER_PAGES = {};
 const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "bt"];
 const inited = {};
 try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
-const SH = { en: { home: "Home", pw: "🔒 Officer password", remember: "Remember on this device", unlock: "Unlock", wrong: "Wrong password", loading: "Loading…" },
-             zh: { home: "首頁", pw: "🔒 幹部密碼", remember: "在這台裝置記住", unlock: "解鎖", wrong: "密碼錯誤", loading: "載入中…" } };
+const SH = { en: { home: "Home", pw: "🔒 Officer password", remember: "Remember on this device", unlock: "Unlock", wrong: "Wrong password", loading: "Loading…",
+                   discord: "Log in with Discord", or: "— or use the officer password —", out: "Log out", inSmall: "🔑 Log in with Discord",
+                   e_no_access: "Your Discord account isn't on the officer list yet. Ask Sparrow.", e_not_member: "Join our alliance Discord server first, then try again.",
+                   e_cancelled: "Discord login was cancelled.", e_expired: "Please log in again.", e_logged_out: "Please log in again.",
+                   e_discord: "Couldn't reach Discord — please try again.", e_discord_unreachable: "Couldn't reach Discord — please try again.",
+                   e_setup: "Discord login worked, but the site isn't fully set up yet. Use the officer password for now." },
+             zh: { home: "首頁", pw: "🔒 幹部密碼", remember: "在這台裝置記住", unlock: "解鎖", wrong: "密碼錯誤", loading: "載入中…",
+                   discord: "用 Discord 登入", or: "— 或輸入幹部密碼 —", out: "登出", inSmall: "🔑 用 Discord 登入",
+                   e_no_access: "你的 Discord 帳號還沒有幹部權限，請找 Sparrow。", e_not_member: "請先加入聯盟的 Discord 伺服器，再試一次。",
+                   e_cancelled: "已取消 Discord 登入。", e_expired: "請重新登入。", e_logged_out: "請重新登入。",
+                   e_discord: "連不上 Discord，請再試一次。", e_discord_unreachable: "連不上 Discord，請再試一次。",
+                   e_setup: "Discord 登入成功，但網站還沒設定完成，請先用幹部密碼進入。" } };
+/* ===== 🔑 Discord login (testing): the Worker checks who you are on our Discord server and hands back a sealed session ===== */
+const AUTH_API = "https://nxs-ai.tapegirljoke.workers.dev", DISCORD_LS = "nxs-discord-v1";
+let loginMsg = "";
+(function () {   // coming back from Discord: #login=<session>&to=<tab> or #login_error=<why>&to=<tab>
+  const m = location.hash.slice(1).match(/^(login|login_error)=([^&]*)(?:&to=(.*))?$/);
+  if (!m) return;
+  if (m[1] === "login") { try { localStorage.setItem(DISCORD_LS, m[2]); } catch (e) {} } else loginMsg = m[2];
+  history.replaceState(null, "", location.pathname + location.search + (m[3] ? "#" + decodeURIComponent(m[3]) : ""));
+})();
+const discordStart = () => AUTH_API + "/auth/discord/start?r=" + encodeURIComponent(location.origin + location.pathname + location.hash);
+async function discordMe(tok) {
+  try {
+    const r = await fetch(AUTH_API + "/auth/me", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: tok }) });
+    return await r.json();
+  } catch (e) { return { error: "discord" }; }
+}
+function showMe() {
+  const u = OFFICER.user, t = SH[OFFICER.lang];
+  document.getElementById("meBox").hidden = !u;
+  document.getElementById("meIn").hidden = !!u || document.getElementById("gate").hidden === false;
+  document.getElementById("meIn").textContent = t.inSmall; document.getElementById("meIn").href = discordStart();
+  document.getElementById("meOut").textContent = t.out;
+  if (!u) return;
+  document.getElementById("meName").textContent = u.name;
+  const av = document.getElementById("meAv"); av.hidden = !u.avatar; if (u.avatar) av.src = u.avatar;
+}
+document.getElementById("meOut").onclick = () => { try { localStorage.removeItem(DISCORD_LS); } catch (e) {} location.reload(); };
 function applyShared() {
   const t = SH[OFFICER.lang];
   document.documentElement.lang = OFFICER.lang === "zh" ? "zh-Hant" : "en";
@@ -1025,6 +1065,10 @@ function applyShared() {
   document.getElementById("gateRememberTxt").textContent = t.remember;
   document.getElementById("gateBtn").textContent = t.unlock;
   document.getElementById("gateErr").textContent = t.wrong;
+  document.getElementById("gateDiscord").textContent = t.discord;
+  document.getElementById("gateOr").textContent = t.or;
+  const dm = document.getElementById("gateDiscordMsg"); dm.hidden = !loginMsg; dm.textContent = loginMsg ? t["e_" + loginMsg] || t.e_discord : "";
+  if (typeof showMe === "function" && document.getElementById("meBox")) showMe();
 }
 /* home-screen app: no browser reload button, so show our own ↻ */
 (function () {
@@ -1089,11 +1133,29 @@ async function officerGate() {
   let blob = await OfficerData.postKey();
   if (!blob) return showTab();                               // not set up yet → open (the Post tab shows the setup card)
   const checkPw = async (pw) => (await officerDecrypt(pw, blob)) || (await officerDecrypt(pw, blob = (await OfficerData.postKey(true)) || blob));
-  const ok = async (pw, tok) => { OFFICER.pw = pw; OFFICER.token = tok; await OfficerData.unlock(pw); document.getElementById("gate").hidden = true; showTab(); };
+  const ok = async (pw, tok) => { OFFICER.pw = pw; OFFICER.token = tok; await OfficerData.unlock(pw); document.getElementById("gate").hidden = true; showMe(); showTab(); };
+  // 🔑 logged in with Discord: the Worker re-checks the list and gives the password to open the officer data
+  let dtok = null; try { dtok = localStorage.getItem(DISCORD_LS); } catch (e) {}
+  if (dtok) {
+    const r = await discordMe(dtok);
+    if (r.ok) {
+      try { localStorage.setItem(DISCORD_LS, r.token); } catch (e) {}
+      OFFICER.user = r.user;
+      const s = officerStore(); if (!s.author) { s.author = r.user.name; try { localStorage.setItem(OFFICER_LS, JSON.stringify(s)); } catch (e) {} }
+      const t = await checkPw(r.pw);
+      if (t) return ok(r.pw, t);
+      loginMsg = "setup";
+    } else {
+      if (["logged_out", "no_access", "not_member"].includes(r.error)) { try { localStorage.removeItem(DISCORD_LS); } catch (e) {} }
+      if (r.error === "officer_password_missing") { OFFICER.user = r.user || null; loginMsg = "setup"; } else loginMsg = r.error || "discord";
+    }
+  }
   const st = officerStore(), tok = st.pw && await checkPw(st.pw);
   if (tok) return ok(st.pw, tok);
   const gate = document.getElementById("gate"), pwEl = document.getElementById("gatePw");
   gate.hidden = false;
+  document.getElementById("gateDiscord").href = discordStart();
+  applyShared();
   const go = async () => {
     const pw = pwEl.value, t = await checkPw(pw);
     if (t) {

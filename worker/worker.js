@@ -5,6 +5,8 @@
      DATA_KEY       — the officer data key from the Post tab (needed once officer data is encrypted)
      GOATCOUNTER_TOKEN — GoatCounter API token (Settings → API → "Read statistics"); for the officer Views tab
    VAPID_PRIVATE  — private half of the push-notification key (for the ⏰ timers)
+   DISCORD_CLIENT_SECRET — Discord app (NXS Guidelines) → OAuth2 → Client Secret (officer login with Discord)
+   OFFICER_PASSWORD — the current officer password (officers who log in with Discord don't need to type it)
    Binding (Settings → Bindings → KV namespace), optional but recommended: LIMITS
      — remembers how many questions each device / IP asked today. Without it the daily
        limits still work, but only roughly (they reset whenever Cloudflare restarts the Worker).
@@ -14,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-13f (auto-delete announcements)";
+const VERSION = "2026-10-13g (Discord login)";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -53,6 +55,7 @@ async function handle(req, env) {
   {
     if (req.method === "OPTIONS") return new Response(null, { headers: cors });
     const path = new URL(req.url).pathname;
+    if (path.startsWith("/auth/")) return authRoute(req, env, path);   // 🔑 officer login with Discord
     if (path === "/push/save" || path === "/push/test") {
       if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
       return pushRoute(req, env, path);
@@ -624,4 +627,113 @@ export class PushTimers extends DurableObject {
     for (const ep of gone) this.sql.exec(`DELETE FROM t WHERE ep = ?`, ep);
     await this.schedule();
   }
+}
+
+/* ================= Officer login with Discord =================
+   The officer page sends people to /auth/discord/start → Discord's own login/approve page → /auth/discord/callback.
+   We check they're on our alliance server and allowed (DISCORD_ACCESS below), then hand the page a sealed "session"
+   (only this Worker can open it). /auth/me re-checks with Discord every 10 minutes, so taking someone off the list
+   (or their role) locks them out on their next visit.
+   Secrets: DISCORD_CLIENT_SECRET (Discord app → OAuth2), OFFICER_PASSWORD (the current officer password — the page
+   still opens the officer data with it for now). */
+const DISCORD = {
+  client: "1559587282615402516",
+  guild: "1530709485042270258",
+  scope: "identify guilds.members.read",
+};
+/* who may open the officer page: Discord user IDs (testing: three people), and/or role IDs on our server */
+const DISCORD_ACCESS = {
+  users: ["1547403844374368327", "1240788094672834623", "762827904341246013"],
+  roles: [],
+};
+const SESSION_DAYS = 30, RECHECK_MS = 10 * 60000, GRACE_MS = 24 * 3600000;
+
+async function sealKey(env) {
+  const raw = await crypto.subtle.digest("SHA-256", utf8("nxs-session|" + String(env.DISCORD_CLIENT_SECRET || "").trim()));
+  return crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["encrypt", "decrypt"]);
+}
+async function seal(env, obj) {
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const ct = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, await sealKey(env), utf8(JSON.stringify(obj)));
+  return b64u.enc(iv) + "." + b64u.enc(ct);
+}
+async function unseal(env, s) {
+  try {
+    const [iv, ct] = String(s || "").split(".");
+    const pt = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64u.dec(iv) }, await sealKey(env), b64u.dec(ct));
+    return JSON.parse(new TextDecoder().decode(pt));
+  } catch (e) { return null; }
+}
+const redirect = (url) => new Response(null, { status: 302, headers: { Location: url, "Cache-Control": "no-store" } });
+const callbackUrl = (req) => new URL(req.url).origin + "/auth/discord/callback";
+
+async function discordToken(req, env, params) {
+  const r = await fetch("https://discord.com/api/v10/oauth2/token", {
+    method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({ client_id: DISCORD.client, client_secret: String(env.DISCORD_CLIENT_SECRET || "").trim(), ...params }),
+  });
+  if (!r.ok) throw new Error("token " + r.status);
+  return r.json();
+}
+/* who is this, and are they allowed? → { ok, user } | { ok:false, why } ; throws when Discord can't be reached */
+async function discordCheck(access) {
+  const h = { Authorization: "Bearer " + access };
+  const me = await fetch("https://discord.com/api/v10/users/@me", { headers: h });
+  if (me.status === 401) return { ok: false, why: "expired" };
+  if (!me.ok) throw new Error("me " + me.status);
+  const u = await me.json();
+  const mr = await fetch(`https://discord.com/api/v10/users/@me/guilds/${DISCORD.guild}/member`, { headers: h });
+  if (mr.status === 404 || mr.status === 403) return { ok: false, why: "not_member" };
+  if (!mr.ok) throw new Error("member " + mr.status);
+  const m = await mr.json();
+  const allowed = DISCORD_ACCESS.users.includes(u.id) || (m.roles || []).some((r) => DISCORD_ACCESS.roles.includes(r));
+  const user = { id: u.id, name: m.nick || u.global_name || u.username, avatar: u.avatar ? `https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png?size=64` : "" };
+  return allowed ? { ok: true, user } : { ok: false, why: "no_access", user };
+}
+
+async function authRoute(req, env, path) {
+  if (!env.DISCORD_CLIENT_SECRET) return json({ error: "discord_secret_missing" }, 503);
+  const url = new URL(req.url);
+  if (path === "/auth/discord/start") {
+    let back = url.searchParams.get("r") || SITE_BASE + "officer-x7k2p9.html";
+    if (!back.startsWith(SITE_BASE)) back = SITE_BASE + "officer-x7k2p9.html";
+    const state = await seal(env, { r: back, t: Date.now() });
+    const q = new URLSearchParams({ client_id: DISCORD.client, redirect_uri: callbackUrl(req), response_type: "code", scope: DISCORD.scope, state, prompt: "none" });
+    return redirect("https://discord.com/oauth2/authorize?" + q);
+  }
+  if (path === "/auth/discord/callback") {
+    const st = await unseal(env, url.searchParams.get("state"));
+    if (!st || Date.now() - st.t > 15 * 60000) return redirect(SITE_BASE + "officer-x7k2p9.html#login_error=expired");
+    const back = (k) => { const u = new URL(st.r); const h = u.hash.slice(1); u.hash = k + (h ? "&to=" + encodeURIComponent(h) : ""); return redirect(u.href); };
+    const code = url.searchParams.get("code");
+    if (!code) return back("login_error=cancelled");
+    try {
+      const tk = await discordToken(req, env, { grant_type: "authorization_code", code, redirect_uri: callbackUrl(req) });
+      const c = await discordCheck(tk.access_token);
+      if (!c.ok) return back("login_error=" + c.why);
+      const now = Date.now();
+      const session = await seal(env, { u: c.user, at: tk.access_token, rt: tk.refresh_token, ax: now + (tk.expires_in || 604800) * 1000 - 60000, chk: now, exp: now + SESSION_DAYS * 86400000 });
+      return back("login=" + session);
+    } catch (e) { return back("login_error=discord"); }
+  }
+  if (path === "/auth/me") {
+    if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
+    let body; try { body = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
+    const s = await unseal(env, body.token);
+    const now = Date.now();
+    if (!s || now > s.exp) return json({ error: "logged_out" }, 401);
+    if (now - s.chk > RECHECK_MS) {
+      try {
+        if (now > s.ax) { const tk = await discordToken(req, env, { grant_type: "refresh_token", refresh_token: s.rt }); Object.assign(s, { at: tk.access_token, rt: tk.refresh_token || s.rt, ax: now + (tk.expires_in || 604800) * 1000 - 60000 }); }
+        const c = await discordCheck(s.at);
+        if (!c.ok) return json({ error: c.why === "expired" ? "logged_out" : c.why }, c.why === "expired" ? 401 : 403);
+        s.u = c.user; s.chk = now;
+      } catch (e) {
+        if (now - s.chk > GRACE_MS) return json({ error: "discord_unreachable" }, 503);   // Discord briefly down: keep the last check for a day
+      }
+    }
+    if (!env.OFFICER_PASSWORD) return json({ error: "officer_password_missing", user: s.u }, 503);
+    return json({ ok: true, user: s.u, pw: String(env.OFFICER_PASSWORD).trim(), token: await seal(env, s) });
+  }
+  return json({ error: "not found" }, 404);
 }
