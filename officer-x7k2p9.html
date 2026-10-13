@@ -412,6 +412,18 @@
   @media (prefers-reduced-motion: reduce) { #pg-map .sel-ring { animation: none; } }
   #pg-map .km-info { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 10px 14px; margin-top: 10px; min-height: 50px; }
   #pg-map .km-info b { font-size: 17px; }
+  #pg-map .km-pr { border-top: 1px solid var(--rule); padding-top: 8px; margin-top: 2px; display: flex; flex-direction: column; gap: 6px; }
+  #pg-map .km-prh { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; } #pg-map .km-prh b { font-size: 15px; }
+  #pg-map .km-prn { display: flex; flex-wrap: wrap; gap: 4px; }
+  #pg-map .km-prn button { min-width: 34px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); border-radius: 8px; padding: 4px 8px; font: inherit; font-size: 13px; cursor: pointer; }
+  #pg-map .km-prn button.on { border-color: #b8860b; background: #ffd34d; color: #3d2a00; font-weight: 800; }
+  #pg-map .km-prf { display: flex; flex-direction: column; gap: 3px; font-size: 13px; color: var(--text-muted); }
+  #pg-map .km-prf textarea, #pg-map .km-prf input { font: inherit; font-size: 14px; color: var(--text); background: var(--panel-2); border: 1px solid var(--rule); border-radius: 8px; padding: 6px 8px; resize: vertical; }
+  #pg-map .km-prb { display: inline-grid; place-items: center; flex: none; width: 26px; height: 26px; border-radius: 50%; background: #ffd34d; color: #3d2a00; border: 2px solid #5a3d00; font-weight: 800; font-size: 13px; }
+  #pg-map .km-prb.sm { width: 18px; height: 18px; font-size: 11px; border-width: 1.5px; margin-right: 4px; vertical-align: -3px; }
+  #pg-map .km-pri { display: flex; align-items: flex-start; gap: 10px; width: 100%; text-align: left; border: 0; border-top: 1px solid var(--rule); background: none; color: var(--text); padding: 8px 2px; font: inherit; cursor: pointer; }
+  #pg-map .km-pri:first-of-type { border-top: 0; }
+  #pg-map .km-prm { display: flex; flex-direction: column; gap: 2px; font-size: 13.5px; } #pg-map .km-prr { font-size: 13px; }
   #pg-map .km-info .co { font-weight: 700; letter-spacing: .02em; font-variant-numeric: tabular-nums; }
   #pg-map .km-info .btn { margin-left: auto; }
   #pg-map .km-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
@@ -4045,15 +4057,30 @@ function renderInfo() {
     if ($("tm_clr")) $("tm_clr").onclick = () => { PLAN.o[pk(b)] = s; delete PLAN.t[pk(b)]; planMsg = ""; refreshPlan(); };
   }
   else if (isOp(b)) $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm muted" style="flex-basis:100%">⏱ ${esc(pt("tmHint"))}</div>`);
+  if (PRIOABLE(b)) {
+    const sp = SP(b), d = hqDist(b), max = B.filter(PRIOABLE).length;
+    $("km_info").insertAdjacentHTML("beforeend", `<div class="km-pr" style="flex-basis:100%">
+      <div class="km-prh"><b>${esc(pt("prio"))}</b>${d != null ? `<span class="muted">📏 ${esc(pt("dist").replace("{n}", d))}</span>` : ""}</div>
+      <div class="km-prn">${Array.from({ length: max }, (_, i) => `<button type="button" data-p="${i + 1}" class="${sp.p === i + 1 ? "on" : ""}">${i + 1}</button>`).join("")}<button type="button" data-p="" class="${sp.p ? "" : "on"}">${esc(pt("prioNone"))}</button></div>
+      <label class="km-prf">${esc(pt("rewards"))}<textarea id="sp_r" rows="2" maxlength="300" placeholder="${esc(pt("rewardsPh"))}">${esc(sp.r || "")}</textarea></label>
+      <label class="km-prf">${esc(pt("note"))}<input id="sp_n" maxlength="120" placeholder="${esc(pt("notePh"))}" value="${esc(sp.n || "")}"></label></div>`);
+    $("km_info").querySelectorAll(".km-prn button").forEach((x) => x.onclick = () => { setSP(b, "p", x.dataset.p ? +x.dataset.p : ""); refreshPlan(); });
+    const save = (id, k) => { const el = $(id); el.onchange = () => { setSP(b, k, el.value.trim()); drawPlan(); renderList(); renderPlan(); }; };
+    save("sp_r", "r"); save("sp_n", "n");
+  }
   $("km_info").querySelectorAll(".km-st button").forEach((x) => x.onclick = () => setStatus(b.id, x.dataset.v));
   $("km_cp").onclick = () => {
     const done = () => { const c = $("km_cp"); if (c) { c.textContent = T("copied"); setTimeout(() => { if ($("km_cp")) $("km_cp").textContent = T("copy"); }, 1500); } };
     try { navigator.clipboard.writeText(`X:${b.x} Y:${b.y}`).then(done, () => {}); } catch (e) {}
   };
 }
-const chip = (b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}">${st(b) ? `<span class="st">${st(b) === "held" ? "✅" : st(b) === "vuln" ? "⚔️" : st(b) === "conflict" ? "⚠️" : "🎯"}</span>` : ""}${b.short ? b.short + " · " : ""}X${b.x} Y${b.y}</button>`;
+const chip = (b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}">${PRIOABLE(b) && SP(b).p ? `<span class="km-prb sm">${SP(b).p}</span>` : ""}${st(b) ? `<span class="st">${st(b) === "held" ? "✅" : st(b) === "vuln" ? "⚔️" : st(b) === "conflict" ? "⚠️" : "🎯"}</span>` : ""}${b.short ? b.short + " · " : ""}X${b.x} Y${b.y}</button>`;
 function renderList() {
-  let h = `<div class="km-c"><div class="hd"><b>${esc(T("ruins"))}</b><span class="bf">${esc(T("noBuff"))}</span></div>
+  const pr = B.filter((b) => PRIOABLE(b) && SP(b).p).sort((a, b) => SP(a).p - SP(b).p);
+  let h = `<div class="km-c km-prc" style="grid-column:1/-1"><div class="hd"><b>${esc(pt("prioList"))}</b></div>` +
+    (pr.length ? pr.map((b) => { const sp = SP(b), d = hqDist(b);
+      return `<button type="button" class="km-pri" data-id="${b.id}"><span class="km-prb">${sp.p}</span><span class="km-prm"><b>${esc(nm(b))}</b> <span class="muted">X${b.x} Y${b.y}${d != null ? ` · 📏 ${d}` : ""}</span>${sp.r ? `<span class="km-prr">🎁 ${esc(sp.r)}</span>` : ""}${sp.n ? `<span class="muted">📝 ${esc(sp.n)}</span>` : ""}</span></button>`; }).join("")
+      : `<div class="muted" style="font-size:13px">${esc(pt("prioEmpty"))}</div>`) + `</div>` + `<div class="km-c"><div class="hd"><b>${esc(T("ruins"))}</b><span class="bf">${esc(T("noBuff"))}</span></div>
     <div class="km-lv"><span class="pill" style="background:#b8860b">👑 ${esc(castleName())}</span><div class="chips">${chip(BY.k)}</div></div>
     ${B.some((b) => b.kind === "hq") ? `<div class="km-lv"><span class="pill" style="background:#2b6cc4">🛡️ [NXS] ${esc(hqName())}</span><div class="chips">${B.filter((b) => b.kind === "hq").map(chip).join("")}</div></div>` : ""}
     <div class="km-lv"><span class="pill" style="background:#7a4a24">◆ ${ZH() ? ZH().fortressS : "Fortress"}</span><div class="chips">${B.filter((b) => b.kind === "fortress").map(chip).join("")}</div></div>
@@ -4064,7 +4091,7 @@ function renderList() {
       lvs.map((lv) => `<div class="km-lv"><span class="pill" style="background:${t.c}">Lv.${lv} +${G.buff[k][lv]}%</span><div class="chips">${B.filter((b) => b.t === k && b.lv === lv).map(chip).join("")}</div></div>`).join("") + `</div>`;
   }
   $("km_cards").innerHTML = h;
-  $("km_cards").querySelectorAll(".chip").forEach((c) => c.onclick = () => select(c.dataset.id, true));
+  $("km_cards").querySelectorAll(".chip, .km-pri").forEach((c) => c.onclick = () => select(c.dataset.id, true));
 }
 function renderLayers() {
   const items = [["ruins", T("ruins"), "#7a4a24"], ...G.types.map(([k, , , c]) => [k, typeName(k), c])];
@@ -4117,7 +4144,18 @@ function isConflict(b) {
 const st = (b) => { const e = eff(b); return e === "held" && isConflict(b) ? "conflict" : e; };
 const left = (ms) => { const m = Math.max(0, Math.round(ms / 6e4)), d = Math.floor(m / 1440), h = Math.floor(m % 1440 / 60);
   return (d ? d + (lang === "zh" ? "天" : "d ") : "") + (d || h ? h + (lang === "zh" ? "時" : "h ") : "") + (d ? "" : (m % 60) + (lang === "zh" ? "分" : "m")); };
-const snap = () => JSON.stringify({ o: PLAN.o, t: PLAN.t, c: PLAN.cyc || null });
+const snap = () => JSON.stringify({ o: PLAN.o, t: PLAN.t, c: PLAN.cyc || null, sp: PLAN.sp || {} });
+/* ⭐ Sanctuary / Fortress priority: PLAN.sp["x,y"] = { p: 1…, r: "rewards", n: "note" } */
+const SP = (b) => (PLAN.sp && PLAN.sp[pk(b)]) || {};
+const PRIOABLE = (b) => b && (b.kind === "sanctuary" || b.kind === "fortress");
+function setSP(b, k, v) {
+  PLAN.sp = PLAN.sp || {}; const cur = { ...SP(b) };
+  if (v === "" || v == null) delete cur[k]; else cur[k] = v;
+  if (Object.keys(cur).length) PLAN.sp[pk(b)] = cur; else delete PLAN.sp[pk(b)];
+  planMsg = "";
+}
+const hqDist = (b) => { const h = G.hq && G.hq[0]; return h ? Math.round(Math.hypot(b.x - h[0], b.y - h[1])) : null; };
+const prioTxt = (n) => (n >= 1 && n <= 20 ? String.fromCharCode(0x2460 + n - 1) : String(n));
 const isOp = (b) => b.kind === "outpost";
 const dirty = () => snap() !== SAVED;
 const PT = {
@@ -4131,6 +4169,9 @@ const PT = {
         saved: "Saved ✅ Other officers see it after a refresh.", unsaved: "Unsaved changes", last: "Last saved by {by} · {at}",
         noKey: "Saving needs the officer GitHub key (set up on the Post tab).", errAuth: "The GitHub key was refused.", errBusy: "Someone else saved at the same moment — try again.", errNet: "Couldn't reach GitHub — try again.",
         planOnly: "📋 Plan only", reset: "Undo changes",
+        prio: "⭐ Priority", prioNone: "—", rewards: "Rewards", rewardsPh: "e.g. what this one gives (from the in-game info)", note: "Note", notePh: "e.g. who held it last week, how contested",
+        dist: "{n} tiles from our HQ", prioList: "⭐ Sanctuary & Fortress priority", prioEmpty: "No priority set yet — tap a Sanctuary or Fortress on the map and pick a number (1 = best).",
+        prioSave: "Remember to press 💾 Save plan so other officers see it.",
         toV: "⚔️ Vulnerable", toP: "✅ Protected", noT: "No timer — the status only changes when an officer changes it.",
         tmHint: "To add a timer: first tap ✅ Ours · Protected or ⚔️ Ours · Vulnerable — the boxes for the in-game countdown appear here.",
         leftP: "Protected time left in game:", leftV: "Vulnerable time left in game:", dd: "d", hh: "h", mm: "m", setT: "Set timer", clrT: "Remove timer",
@@ -4145,6 +4186,9 @@ const PT = {
         saved: "已儲存 ✅ 其他幹部重新整理後就會看到。", unsaved: "有變更還沒儲存", last: "最後由 {by} 儲存 · {at}",
         noKey: "儲存需要幹部的 GitHub 金鑰（在公告分頁設定）。", errAuth: "GitHub 金鑰被拒絕。", errBusy: "剛好有人同時儲存，請再試一次。", errNet: "連不上 GitHub，請再試一次。",
         planOnly: "📋 只看規劃", reset: "復原變更",
+        prio: "⭐ 優先順序", prioNone: "—", rewards: "獎勵", rewardsPh: "例如這個遺跡給什麼（遊戲內資訊）", note: "備註", notePh: "例如上週誰佔領、競爭多激烈",
+        dist: "距離我們總部 {n} 格", prioList: "⭐ 遺跡與要塞優先順序", prioEmpty: "還沒設定優先順序：在地圖上點一個遺跡或要塞，選數字（1 = 最優先）。",
+        prioSave: "記得按「💾 儲存規劃」，其他幹部才看得到。",
         toV: "⚔️ 可爭奪", toP: "✅ 保護", noT: "沒有計時 — 狀態只會在幹部手動改的時候變。",
         tmHint: "要設計時：先點 ✅ 已佔領・保護 或 ⚔️ 已佔領・可爭奪，這裡就會出現輸入遊戲倒數的格子。",
         leftP: "遊戲裡保護狀態剩下：", leftV: "遊戲裡可爭奪狀態剩下：", dd: "天", hh: "時", mm: "分", setT: "設定計時", clrT: "移除計時",
@@ -4163,7 +4207,11 @@ function drawPlan() {
     return s === "held" ? `<circle cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#3ddc84" stroke-width="4"/>`
       : s === "vuln" ? `<circle cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#ff6b4a" stroke-width="4"/>`
       : s === "conflict" ? `<circle cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#f5a623" stroke-width="4" stroke-dasharray="2 3"/>`
-      : `<circle cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#ffe14d" stroke-width="3.5" stroke-dasharray="5 4"/>`; }).join("");
+      : `<circle cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#ffe14d" stroke-width="3.5" stroke-dasharray="5 4"/>`; }).join("")
+    // ⭐ priority badge (gold circle with the number) at the top-right of a Sanctuary / Fortress
+    + B.filter((b) => PRIOABLE(b) && SP(b).p).map((b) => { const [X, Y] = P(b.x, b.y), o = b.kind === "fortress" ? 20 : 15;
+      const w = SP(b).p >= 10 ? 34 : 27, x0 = X + o + 3;   // gold "★n" tag to the right, clear of the name above
+      return `<g><rect x="${x0}" y="${Y - 10}" width="${w}" height="20" rx="10" fill="#ffd34d" stroke="#5a3d00" stroke-width="2"/><text x="${x0 + w / 2}" y="${Y + 4.5}" text-anchor="middle" font-family="Arial" font-size="12.5" font-weight="800" fill="#3d2a00">★${SP(b).p}</text></g>`; }).join("");
 }
 const refreshPlan = () => { drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
 /* once a minute: update the countdowns; redraw everything when an Outpost switched state (not while typing) */
@@ -4222,7 +4270,7 @@ function renderPlan() {
   $("pl_save").onclick = savePlan;
   for (const [id, k] of [["cy_p", "p"], ["cy_v", "v"]]) $(id).onchange = () => { const n = parseInt($(id).value, 10); if (n > 0) { PLAN.cyc = { ...CYC(), [k]: n }; planMsg = ""; refreshPlan(); } };
   lastSig = sig();
-  if ($("pl_reset")) $("pl_reset").onclick = () => { const S = JSON.parse(SAVED); PLAN.o = S.o; PLAN.t = S.t; if (S.c) PLAN.cyc = S.c; else delete PLAN.cyc; planMsg = ""; drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
+  if ($("pl_reset")) $("pl_reset").onclick = () => { const S = JSON.parse(SAVED); PLAN.o = S.o; PLAN.t = S.t; if (S.c) PLAN.cyc = S.c; else delete PLAN.cyc; PLAN.sp = S.sp || {}; planMsg = ""; drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
 }
 async function gh(method, path, body) {
   let res;
@@ -4269,7 +4317,7 @@ async function savePlan() {
   if (!OFFICER.token) { planMsg = pt("noKey"); renderPlan(); return; }
   const by = ($("pl_by").value || "").trim(); try { localStorage.setItem("nxs-plan-by", by); } catch (e) {}
   planMsg = pt("saving"); renderPlan(); $("pl_save").disabled = true;
-  const next = { o: PLAN.o, t: PLAN.t, ...(PLAN.cyc ? { cyc: PLAN.cyc } : {}), by: by || "?", at: new Date().toISOString() };
+  const next = { o: PLAN.o, t: PLAN.t, ...(PLAN.cyc ? { cyc: PLAN.cyc } : {}), ...(PLAN.sp && Object.keys(PLAN.sp).length ? { sp: PLAN.sp } : {}), by: by || "?", at: new Date().toISOString() };
   try {
     for (let attempt = 0; ; attempt++) {
       const f = await gh("GET", PLAN_PATH);
