@@ -837,6 +837,13 @@ document.addEventListener("pointermove", annReset, { passive: true });
 document.addEventListener("wheel", annReset, { passive: true });
 document.addEventListener("scroll", (e) => { if (e.target.classList && e.target.classList.contains("ann-tabs") && Date.now() - annMoved > 1000) annShown = 0; }, true);
 let annMoved = 0;   // when we moved the tabs ourselves (that scroll doesn't count)
+/* a finger (or mouse button) resting on the announcement holds it: nothing moves on until it's lifted, then 8 s again */
+let annHold = false;
+const annDown = (e) => { if (e.target.closest && e.target.closest(".ann-board")) { annHold = true; annShown = 0; } };
+const annUp = () => { if (annHold) { annHold = false; annShown = 0; } };
+document.addEventListener("touchstart", annDown, { passive: true, capture: true });
+document.addEventListener("pointerdown", annDown, true);
+for (const ev of ["touchend", "touchcancel", "pointerup"]) document.addEventListener(ev, annUp, { passive: true, capture: true });
 /* swipe left / right on an announcement: it follows your finger (or the mouse), then slides to the next / previous one */
 function annSlide(dir) {   // dir 1 = next (comes in from the right), -1 = previous
   const n = announcements.length;
@@ -891,6 +898,7 @@ setInterval(() => {
   if (!board || announcements.length < 2) return;
   if (annIdx !== currentAnnIndex) { annIdx = currentAnnIndex; annShown = 0; }
   const r = board.getBoundingClientRect(), seen = Math.min(r.bottom, innerHeight) - Math.max(r.top, 0);
+  if (annHold) return;
   if (document.visibilityState !== "visible" || seen < Math.min(r.height, innerHeight) / 2) { annShown = 0; return; }   // off screen: start over when it comes back
   annShown += dt;
   if (annShown < ANN_IDLE) return;
