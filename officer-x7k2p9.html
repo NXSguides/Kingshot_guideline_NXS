@@ -1108,6 +1108,17 @@ applyShared();
 const ROOT = document.getElementById('pg-events');
 /* Starting content for the Events tab. Used only until the first save; after that data/events-x7k2p9.json is the source. */
 const INGAME_DEFAULTS = {
+  "call-of-sovereign": [
+    { title: "Save your Gold & Platinum Keys", text: `🔑 SAVE YOUR GOLD & PLATINUM KEYS!
+
+Have a stockpile of keys for events:
+
+🏆 Call of the Sovereign: Requires 90 Gold Keys (30/day) and 30 Platinum Keys (10/day) over 3 days to maximize rewards.
+
+⭐ Epic Recruitment: If Jabel and your core heroes are developed, start saving Gold Keys. Older-generation Mythic heroes become available to recruit + new generations arrive.
+
+Don't spend keys just because you have them, use them strategically during seasonal events.` },
+  ],
   "bear-hunt": [
     { title: "Bear Trap rules — Gen 3", text: `🐻 BEAR TRAP RULES — Gen 3
 
@@ -1439,6 +1450,9 @@ const EVENTS = {
     note: "Mon 00:00 – Sun 12:00 UTC · be in the alliance at Sun 23:00 UTC the day before (matching) to count", noteZh: "週一 00:00 – 週日 12:00 UTC · 前一天週日 UTC 23:00 配對時要在聯盟內才算" },
   "merchant-empire":    { emoji: "🐫", en: "Merchant Empire", zh: "貿易復興", noGuide: true, start: "2026-10-12", every: 28, days: 7,
     note: "Escort 2 caravans at a time · last 4 h (until Sun 04:00 UTC) raiding only", noteZh: "同時最多護送 2 輛貨車 · 最後 4 小時（到週日 UTC 04:00）只能掠奪" },
+  // first seen 2026-10-13 – 10-15 (3 days), the day after KvK ended (KvK 10-05 – 10-12) → assumed to follow the 4-week KvK cycle; fix start / "every" on this page if the next one differs
+  "call-of-sovereign":  { emoji: "📯", en: "Call of the Sovereign", zh: "Call of the Sovereign", noGuide: true, start: "2026-10-13", every: 28, days: 3,
+    note: "Max rewards: 90 Gold Keys (30/day) + 30 Platinum Keys (10/day) over the 3 days · resets 00:00 UTC", noteZh: "拿滿獎勵：3 天共 90 把金鑰匙（每天 30）＋ 30 把白金鑰匙（每天 10）· UTC 00:00 重置" },
 };
 const SWORDLAND_TODO = [
   { due: 0, post: 1, en: "Voting phase: set up an alliance poll to confirm 100% attendance for the fixed time windows.",
@@ -1497,6 +1511,10 @@ const TODO = {
   "all-out": [
     { due: -1, post: 1, en: "Post the All Out rules (NAP alliances, no attacks on castles or alliance buildings) and the secured gathering node rotation.",
                zh: "公告全軍出擊規則（NAP 聯盟名單、不能打城堡和聯盟建築）和安全採集點的輪替時間。" },
+  ],
+  "call-of-sovereign": [
+    { due: -3, post: 1, en: "Remind everyone to SAVE Gold & Platinum Keys (90 Gold + 30 Platinum for max rewards) — copy the in-game message.",
+               zh: "提醒大家存金鑰匙和白金鑰匙（拿滿要 90 金＋30 白金），可直接複製遊戲內公告。" },
   ],
   "fishing-tournament": [
     { due: 0, en: "Remind everyone: use Ocean Prospector first to upgrade the Fishing Kit, then switch to Regular Fishing.",
