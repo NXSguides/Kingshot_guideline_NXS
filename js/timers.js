@@ -57,6 +57,8 @@
       local: "Timers still work on this page, but your phone won't ping you until notifications are on.",
       fail: "Couldn't reach the notification server. Your timers are saved; they'll sync next time.",
       body: "is done — time to check the game!", name: "Name",
+      quick: "⚡ Quick start (your last times)", quickHint: "One tap starts it again with the same time.", forget: "Forget this time",
+      lastTime: "Last time: {t} — just press Save, or type a new time.",
       synced: "✓ Saved on the server: {n} notifications scheduled (checked {t}).", sample: "send a sample now", sent: "sent ✓",
       needOn: "Turn on notifications above first — until then these alerts can't reach your phone.",
       cats: { gather: "Gathering", train: "Troops Training", build: "Building Queue", research: "Tech Research", master: "Master", recruit: "Recruit Heroes",
@@ -360,6 +362,8 @@
     .tm-hint{color:var(--text-muted);font-size:12.5px;margin:-2px 0 8px}
     .tm-err{color:#c0392b;font-size:13px;margin-bottom:6px}
     .tm-acts{display:flex;gap:8px;margin-top:6px}
+    .tm-quick{background:var(--panel-2);border-radius:10px;padding:9px 11px;margin-bottom:10px}
+    .tm-qc{display:inline-flex;align-items:center}.tm-qc .tm-x{font-size:14px;padding:2px 4px}
     .tm-ok{color:#2e7d32;font-size:13px;margin-top:6px;font-weight:600}
     .tm-link{border:0;background:none;padding:0;color:var(--accent);text-decoration:underline;font:inherit;cursor:pointer}
     .tm-alerts{margin-top:16px;padding-top:12px;border-top:2px solid var(--rule)}
@@ -419,7 +423,9 @@
         h += `<b>${esc(T("subQ")[adding.cat])}</b><div class="tm-cats">${Object.keys(S).map((k) => `<button type="button" class="tm-btn${adding.sub === k ? " on" : ""}" data-sub="${k}">${S[k]} ${esc(subName(k))}</button>`).join("")}</div>`;
         if (!adding.sub) return h + `<div class="tm-acts"><button type="button" class="tm-btn" data-a="cancel">${esc(T("cancel"))}</button></div></div>`;
       }
-      h += `<b>${esc(T("left"))}</b><div class="tm-hint">${esc(T("hint"))}</div>`;
+      const pk2 = preKey(adding.cat, adding.sub, adding.name), last = presets[pk2];
+      if (last && adding.rows.length === 1 && !adding.rows[0] && adding.prefilled !== pk2) { adding.rows[0] = fmtLeft(last); adding.prefilled = pk2; }
+      h += `<b>${esc(T("left"))}</b><div class="tm-hint">${esc(last ? T("lastTime").replace("{t}", fmtLeft(last)) : T("hint"))}</div>`;
       h += adding.rows.map((v, i) => `<input class="tm-in" data-row="${i}" inputmode="text" autocomplete="off" placeholder="${MULTI[adding.cat] ? `#${i + 1}  ` : ""}2:45:12" value="${esc(v)}" dir="ltr">`).join("");
       if (MULTI[adding.cat] && adding.rows.length < MULTI[adding.cat]) h += `<button type="button" class="tm-btn" data-a="row">${esc(T(adding.cat === "build" ? "builder" : "another"))}</button>`;
       if (adding.err) h += `<div class="tm-err">${esc(T("bad"))}</div>`;
@@ -467,7 +473,7 @@
     pushOn = canPush() && Notification.permission === "granted" && !!(await getSub());
     const n = await notifHtml();
     view.innerHTML = `<div class="tm-top"><b>${esc(T("title"))}</b><button type="button" class="tm-btn" data-a="chat">${esc(T("chat"))}</button></div>
-      ${n}<div id="tmAdd">${addHtml()}</div><div id="tmList" style="margin-top:10px">${listHtml()}</div>${alertsHtml()}${adminHtml()}`;
+      ${n}${quickHtml()}<div id="tmAdd">${addHtml()}</div><div id="tmList" style="margin-top:10px">${listHtml()}</div>${alertsHtml()}${adminHtml()}`;
     const first = view.querySelector("[data-name]") || view.querySelector('[data-row="0"]');
     if (first && adding && adding.focus) { first.focus(); adding.focus = false; }
   }
@@ -483,6 +489,8 @@
     const b = e.target.closest("button"); if (!b) return;
     const a = b.dataset.a;
     if (b.dataset.del) { timers = timers.filter((x) => x.id !== b.dataset.del); store(); renderList(); sync(); return; }
+    if (b.dataset.quick) { const [cat, sub, name] = b.dataset.quick.split("|"); if (presets[b.dataset.quick]) createTimers(cat, sub, name, [presets[b.dataset.quick]]); return; }
+    if (b.dataset.forget) { delete presets[b.dataset.forget]; savePre(); return render(); }
     if (b.dataset.cat) { adding.cat = b.dataset.cat; adding.sub = null; adding.rows = adding.rows.slice(0, MULTI[adding.cat] || 1); adding.err = false; adding.focus = true; return render(); }
     if (b.dataset.sub) { adding.sub = b.dataset.sub; adding.focus = true; return render(); }
     if (b.dataset.al) {   // event alert time toggles: "bear-hunt:13", "arena"
@@ -517,21 +525,39 @@
       return render();
     }
   });
+  /* ⚡ last time used per kind (e.g. Training · Infantry → 2:24:07), so the same timer starts again with one tap */
+  const PRE_LS = "nxs-timer-presets";
+  let presets = {};
+  try { presets = JSON.parse(localStorage.getItem(PRE_LS)) || {}; } catch (e) {}
+  const savePre = () => { try { localStorage.setItem(PRE_LS, JSON.stringify(presets)); } catch (e) {} };
+  const preKey = (cat, sub, name) => [cat, sub || "", cat === "other" ? (name || "").trim().toLowerCase() : ""].join("|");
+  function createTimers(cat, sub, name, ms) {
+    const now = Date.now(), numbered = !!MULTI[cat];
+    // gathering marches / builders are numbered after the ones already running
+    const used = timers.filter((x) => x.cat === cat && x.at > now).map((x) => x.n || 0);
+    const number = numbered && (ms.length > 1 || used.length);
+    let n = number ? Math.max(0, ...used) : 0;
+    ms.forEach((d) => timers.push({ id: Math.random().toString(36).slice(2, 10), cat, name: cat === "other" ? (name || "").trim().slice(0, 40) : "",
+      sub: SUBS[cat] ? sub : "", n: number ? ++n : 0, at: now + d }));
+    if (ms.length === 1) { presets[preKey(cat, sub, name)] = ms[0]; savePre(); }
+    store(); render(); sync();
+  }
   function saveAdding() {
     const rows = adding.rows.map((v) => v.trim()).filter(Boolean);
     const ms = rows.map(parseLeft);
     if (!rows.length || ms.some((x) => !x || x > 30 * 86400000)) { adding.err = true; return render(); }
-    const now = Date.now(), numbered = !!MULTI[adding.cat];
-    // gathering marches / builders are numbered after the ones already running
-    const used = timers.filter((x) => x.cat === adding.cat && x.at > now).map((x) => x.n || 0);
-    const number = numbered && (rows.length > 1 || used.length);
-    let n = number ? Math.max(0, ...used) : 0;
-    ms.forEach((d) => {
-      timers.push({ id: Math.random().toString(36).slice(2, 10), cat: adding.cat, name: adding.cat === "other" ? adding.name.trim().slice(0, 40) : "",
-        sub: SUBS[adding.cat] ? adding.sub : "", n: number ? ++n : 0, at: now + d });
-    });
-    store(); adding = null; render(); sync();
+    const a = adding; adding = null;
+    createTimers(a.cat, a.sub, a.name, ms);
   }
+  function quickHtml() {
+    const keys = Object.keys(presets).filter((k) => CAT_EMOJI[k.split("|")[0]]);
+    if (!keys.length || adding) return "";
+    return `<div class="tm-quick"><b>${esc(T("quick"))}</b><div class="tm-hint" style="margin:1px 0 6px">${esc(T("quickHint"))}</div><div class="tm-cats">` +
+      keys.map((k) => { const [cat, sub, name] = k.split("|"), lab = labelOf({ cat, sub, name });
+        return `<span class="tm-qc"><button type="button" class="tm-btn" data-quick="${esc(k)}">${CAT_EMOJI[cat]} ${esc(lab)} · <b dir="ltr">${fmtLeft(presets[k])}</b> ▶</button><button type="button" class="tm-x" data-forget="${esc(k)}" title="${esc(T("forget"))}" aria-label="${esc(T("forget"))}">✕</button></span>`; }).join("") +
+      `</div></div>`;
+  }
+
 
   /* the "⏰ Set a timer" chip at the top of the chat greeting */
   function addChip() {
