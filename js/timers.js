@@ -61,9 +61,11 @@
       lastTime: "Last time: {t} — just press Save, or type a new time.",
       synced: "✓ Saved on the server: {n} notifications scheduled (checked {t}).", sample: "send a sample now", sent: "sent ✓",
       needOn: "Turn on notifications above first — until then these alerts can't reach your phone.",
-      cats: { gather: "Gathering", train: "Troops Training", build: "Building Queue", research: "Tech Research", master: "Master", recruit: "Recruit Heroes",
+      cats: { appt: "Appointment", gather: "Gathering", train: "Troops Training", build: "Building Queue", research: "Tech Research", master: "Master", recruit: "Recruit Heroes",
         pet: "Pet Adventure", intel: "Intel Missions", stamina: "Gourmet Feast", heal: "Healing", other: "Other" },
-      subQ: { train: "Which troops?", recruit: "Which recruit?" }, advanced: "Advanced", epic: "Epic",
+      subQ: { train: "Which troops?", recruit: "Which recruit?", appt: "Which position?" }, advanced: "Advanced", epic: "Epic",
+      minister: "Chief Minister", advisor: "Noble Advisor", apDay: "Day (UTC)", apTime: "Slot start (UTC) — 30 min each", apRemind: "Remind me",
+      apToday: "today", apStarts: "slot starts {t}", apTitle: "{e} {name} in {n} min", apNow: "{e} {name} — your slot starts now!", apBody: "Your 30-min slot starts at {t} UTC.",
       troop: "Which troops?", builder: "＋ Second builder",
       alerts: "🎮 Game reminders",
       admin: "🛠️ Admin reminders", adminNote: "Officer to-dos from the Events tab, sent on the day they're due.", adminOn: "Send admin reminders",
@@ -186,7 +188,7 @@
       body: "انتهى — تفقّد اللعبة!", name: "الاسم",
       cats: { gather: "الجمع", train: "التدريب", build: "البناء", research: "البحث", heal: "العلاج", other: "أخرى" } },
   };
-  const CAT_EMOJI = { gather: "🌾", train: "⚔️", build: "🔨", research: "📚", master: "🎓", recruit: "🎴", pet: "🐾", intel: "🔍", stamina: "🍖", heal: "⛑️", other: "⏰" };
+  const CAT_EMOJI = { appt: "📅", gather: "🌾", train: "⚔️", build: "🔨", research: "📚", master: "🎓", recruit: "🎴", pet: "🐾", intel: "🔍", stamina: "🍖", heal: "⛑️", other: "⏰" };
   // English only while we test (the other languages are ready — switch this line back to turn them on)
   const lang = () => "en";   // (typeof currentLang !== "undefined" && TX[currentLang] ? currentLang : "en")
   const T = (k) => (TX[lang()] || TX.en)[k] ?? TX.en[k];
@@ -201,7 +203,7 @@
   const labelOf = (x) => (x.cat === "other" && x.name ? x.name : (T("cats")[x.cat] || TX.en.cats[x.cat] || x.cat)) + (x.sub ? ` · ${subName(x.sub)}` : "") + (x.n ? ` #${x.n}` : "");
   const MULTI = { gather: 6, build: 2 };   // several at once: gathering marches, 2 builders
   /* categories with a second choice: troop type, recruit type */
-  const SUBS = { train: { infantry: "🛡️", cavalry: "🐎", archer: "🏹" }, recruit: { advanced: "📦", epic: "💎" } };
+  const SUBS = { train: { infantry: "🛡️", cavalry: "🐎", archer: "🏹" }, recruit: { advanced: "📦", epic: "💎" }, appt: { minister: "🏛️", advisor: "🎖️" } };
   function subName(k) { return SUBS.train[k] ? termOf(k) : T(k); }
 
   /* ---------- event alerts (Bear Hunt, Arena reset, Swordland…) — opt-in per time, N minutes before ---------- */
@@ -332,7 +334,10 @@
     const sub = await getSub();
     if (!sub) return;
     const now = Date.now();
-    const list = timers.filter((x) => x.at > now).map((x) => ({ id: x.id, at: x.at, title: `${CAT_EMOJI[x.cat] || "⏰"} ${labelOf(x)}`, body: `${labelOf(x)} ${T("body")}` }))
+    const utcHM = (t) => new Date(t).toISOString().slice(11, 16);
+    const list = timers.filter((x) => x.at > now).map((x) => x.cat === "appt"
+        ? { id: x.id, at: x.at, title: T(x.before ? "apTitle" : "apNow").replace("{e}", SUBS.appt[x.sub] || "📅").replace("{name}", subName(x.sub)).replace("{n}", x.before), body: T("apBody").replace("{t}", utcHM(x.slot)) }
+        : { id: x.id, at: x.at, title: `${CAT_EMOJI[x.cat] || "⏰"} ${labelOf(x)}`, body: `${labelOf(x)} ${T("body")}` })
       .concat(alertTimers(), adminTimers());
     try { const r = await post("/push/save", { sub: sub.toJSON(), timers: list }); syncErr = false; synced = { n: r.n ?? list.length, at: Date.now() }; }
     catch (e) { syncErr = true; }
@@ -362,6 +367,7 @@
     .tm-hint{color:var(--text-muted);font-size:12.5px;margin:-2px 0 8px}
     .tm-err{color:#c0392b;font-size:13px;margin-bottom:6px}
     .tm-acts{display:flex;gap:8px;margin-top:6px}
+    .tm-ap{display:flex;flex-direction:column;gap:8px;margin:4px 0 6px}.tm-ap label{display:flex;flex-direction:column;gap:3px;font-size:13px;color:var(--text-muted)}.tm-ap .tm-sel{font-size:15px;padding:7px 8px}
     .tm-quick{background:var(--panel-2);border-radius:10px;padding:9px 11px;margin-bottom:10px}
     .tm-qc{display:inline-flex;align-items:center}.tm-qc .tm-x{font-size:14px;padding:2px 4px}
     .tm-ok{color:#2e7d32;font-size:13px;margin-top:6px;font-weight:600}
@@ -408,7 +414,7 @@
     const now = Date.now(), L = timers.slice().sort((a, b) => a.at - b.at);
     if (!L.length) return `<div class="tm-a" style="padding:6px 0">${esc(T("empty"))}</div>`;
     return L.map((x) => `<div class="tm-row${x.at <= now ? " done" : ""}"><span>${CAT_EMOJI[x.cat] || "⏰"}</span>
-      <div class="tm-l"><div dir="auto">${esc(labelOf(x))}</div><div class="tm-a">${esc(T("at").replace("{t}", fmtAt(x.at)))}</div></div>
+      <div class="tm-l"><div dir="auto">${esc(x.cat === "appt" ? subName(x.sub) : labelOf(x))}</div><div class="tm-a">${esc(x.cat === "appt" ? T("apStarts").replace("{t}", `${fmtAt(x.slot)} (${new Date(x.slot).toISOString().slice(11, 16)} UTC)`) : T("at").replace("{t}", fmtAt(x.at)))}</div></div>
       <span class="tm-c" dir="ltr">${x.at <= now ? esc(T("done")) : fmtLeft(x.at - now)}</span>
       <button type="button" class="tm-x" data-del="${esc(x.id)}" aria-label="✕">✕</button></div>`).join("");
   }
@@ -423,6 +429,7 @@
         h += `<b>${esc(T("subQ")[adding.cat])}</b><div class="tm-cats">${Object.keys(S).map((k) => `<button type="button" class="tm-btn${adding.sub === k ? " on" : ""}" data-sub="${k}">${S[k]} ${esc(subName(k))}</button>`).join("")}</div>`;
         if (!adding.sub) return h + `<div class="tm-acts"><button type="button" class="tm-btn" data-a="cancel">${esc(T("cancel"))}</button></div></div>`;
       }
+      if (adding.cat === "appt") return h + apptForm() + `</div>`;
       const pk2 = preKey(adding.cat, adding.sub, adding.name), last = PRESET_CATS.includes(adding.cat) ? presets[pk2] : null;
       const lastArr = last == null ? [] : Array.isArray(last) ? last : [last];
       if (lastArr.length && adding.rows.every((v) => !v) && adding.prefilled !== pk2) { adding.rows = lastArr.map(fmtLeft); adding.prefilled = pk2; }
@@ -433,6 +440,22 @@
       h += `<div class="tm-acts"><button type="button" class="tm-btn main" data-a="save">${esc(T("save"))}</button><button type="button" class="tm-btn" data-a="cancel">${esc(T("cancel"))}</button></div>`;
     } else h += `<div class="tm-acts"><button type="button" class="tm-btn" data-a="cancel">${esc(T("cancel"))}</button></div>`;
     return h + `</div>`;
+  }
+  /* 📅 Appointment: Chief Minister / Noble Advisor are 30-min slots booked ahead (UTC, on :00 or :30) */
+  function apptForm() {
+    const DAYMS = 86400000, now = Date.now(), today = Math.floor(now / DAYMS) * DAYMS;
+    if (adding.apDay == null) { adding.apDay = today; const n = Math.ceil((now - today) / 18e5) % 48; adding.apSlot = n; if (n === 0 && now > today) adding.apDay = today + DAYMS; }
+    if (adding.apBefore == null) adding.apBefore = 5;
+    const loc = (t) => new Date(t).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    const days = Array.from({ length: 8 }, (_, i) => today + i * DAYMS).map((d) => `<option value="${d}"${d === adding.apDay ? " selected" : ""}>${esc(d === today ? T("apToday") : new Date(d).toLocaleDateString([], { weekday: "short", month: "numeric", day: "numeric", timeZone: "UTC" }))}</option>`).join("");
+    const slots = Array.from({ length: 48 }, (_, i) => { const t = adding.apDay + i * 18e5, hm = String(Math.floor(i / 2)).padStart(2, "0") + ":" + (i % 2 ? "30" : "00");
+      return `<option value="${i}"${i === adding.apSlot ? " selected" : ""}${t <= now ? " disabled" : ""}>${hm} UTC (${loc(t)})</option>`; }).join("");
+    const bf = [0, 1, 3, 5, 10, 15, 30].map((m) => `<option value="${m}"${m === adding.apBefore ? " selected" : ""}>${esc(m ? T("before").replace("{n}", m) : T("atTime"))}</option>`).join("");
+    return `<div class="tm-ap"><label>${esc(T("apDay"))}<select class="tm-sel" data-ap="day">${days}</select></label>
+      <label>${esc(T("apTime"))}<select class="tm-sel" data-ap="slot">${slots}</select></label>
+      <label>${esc(T("apRemind"))}<select class="tm-sel" data-ap="before">${bf}</select></label></div>
+      ${adding.err ? `<div class="tm-err">${esc(T("bad"))}</div>` : ""}
+      <div class="tm-acts"><button type="button" class="tm-btn main" data-a="save">${esc(T("save"))}</button><button type="button" class="tm-btn" data-a="cancel">${esc(T("cancel"))}</button></div>`;
   }
   let pushOn = false;   // set by render(): this phone has notifications on
   function alertsHtml() {
@@ -466,6 +489,11 @@
     return `<div class="tm-alerts"><b>${esc(T("admin"))}</b><div class="tm-hint" style="margin-top:2px">${esc(T("adminNote"))}</div>${body}</div>`;
   }
   view.addEventListener("change", (e) => {
+    if (e.target.dataset.ap && adding) {
+      const k = e.target.dataset.ap, v = +e.target.value;
+      if (k === "day") adding.apDay = v; else if (k === "slot") adding.apSlot = v; else adding.apBefore = v;
+      adding.err = false; return render();
+    }
     if (e.target.dataset.hour) { (alerts.admin = alerts.admin || {}).hour = +e.target.value; saveAlerts(); render(); sync(); return; }
     const k = e.target.dataset.before; if (!k) return;
     (alerts[k] = alerts[k] || {}).before = +e.target.value; saveAlerts(); render(); sync();
@@ -546,6 +574,12 @@
     store(); render(); sync();
   }
   function saveAdding() {
+    if (adding.cat === "appt") {
+      const slot = adding.apDay + adding.apSlot * 18e5, at = slot - adding.apBefore * 60000;
+      if (!adding.sub || slot <= Date.now()) { adding.err = true; return render(); }
+      timers.push({ id: Math.random().toString(36).slice(2, 10), cat: "appt", sub: adding.sub, slot, before: adding.apBefore, at: Math.max(at, Date.now() + 5000) });
+      adding = null; store(); render(); sync(); return;
+    }
     const rows = adding.rows.map((v) => v.trim()).filter(Boolean);
     const ms = rows.map(parseLeft);
     if (!rows.length || ms.some((x) => !x || x > 30 * 86400000)) { adding.err = true; return render(); }
