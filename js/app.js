@@ -478,21 +478,10 @@ const BLOCKS = {
         ${escapeHtml(annLabel(a))}
       </button>
     `).join("");
-    const a = announcements[currentAnnIndex];
-    const text = a.content[currentLang] || a.content.en || Object.values(a.content)[0] || "";
-    const imgs = (a.images || []).map((src) => `<img class="ann-img" src="${escapeHtml(src)}" loading="lazy">`).join("");
     return `
       <div class="ann-board">
         <div class="ann-tabs" data-drag="all">${tabs}</div>
-        <div class="ann-body">
-          <div class="ann-meta">
-            <span>${escapeHtml(a.author)}</span>
-            <span>${new Date(a.createdAt).toLocaleDateString(HTML_LANG[currentLang] || "en")}</span>
-          </div>
-          ${a.title ? `<div class="ann-title" dir="auto">${escapeHtml(annLabel(a))}</div>` : ""}
-          <div class="ann-text">${rich(text)}</div>
-          ${imgs}
-        </div>
+        <div class="ann-body">${annBodyHtml(announcements[currentAnnIndex])}</div>
       </div>
     `;
   },
@@ -816,7 +805,29 @@ function annLabel(a) {
   return `${d.getMonth() + 1}/${d.getDate()} ${a.author}`;
 }
 
+function annBodyHtml(a) {
+  const text = a.content[currentLang] || a.content.en || Object.values(a.content)[0] || "";
+  const imgs = (a.images || []).map((src) => `<img class="ann-img" src="${escapeHtml(src)}" loading="lazy">`).join("");
+  return `
+          <div class="ann-meta">
+            <span>${escapeHtml(a.author)}</span>
+            <span>${new Date(a.createdAt).toLocaleDateString(HTML_LANG[currentLang] || "en")}</span>
+          </div>
+          ${a.title ? `<div class="ann-title" dir="auto">${escapeHtml(annLabel(a))}</div>` : ""}
+          <div class="ann-text">${rich(text)}</div>
+          ${imgs}`;
+}
 function selectAnnouncement(i) {
+  // the board is on the page: swap just the announcement (re-drawing the whole page made it jump to the top)
+  const board = document.querySelector(".ann-board"), bodyEl = board && board.querySelector(".ann-body");
+  if (bodyEl && announcements[i]) {
+    currentAnnIndex = i;
+    board.querySelectorAll(".ann-tab").forEach((t, k) => t.classList.toggle("active", k === i));
+    // keep the box at least as tall as before, so a shorter announcement doesn't pull the page up under your finger
+    bodyEl.style.minHeight = Math.max(parseFloat(bodyEl.style.minHeight) || 0, bodyEl.offsetHeight) + "px";
+    bodyEl.innerHTML = annBodyHtml(announcements[i]);
+    return;
+  }
   const tabs = document.querySelector(".ann-tabs");
   const tabScroll = tabs ? tabs.scrollLeft : 0;
   const pageY = window.scrollY;
@@ -829,7 +840,7 @@ function selectAnnouncement(i) {
 window.selectAnnouncement = selectAnnouncement;
 /* more than one announcement: after 8 s on screen with nothing done to it, the next one shows.
    Only the time it is actually on screen counts (at least half of it visible); any tap, swipe, wheel or mouse move on it starts the 8 s again. */
-const ANN_IDLE = 8000;
+const ANN_IDLE = 6000;
 let annShown = 0, annLast = Date.now(), annIdx = -1;
 const annReset = (e) => { if (e.target.closest && e.target.closest(".ann-board")) annShown = 0; };
 document.addEventListener("pointerdown", annReset, true);
