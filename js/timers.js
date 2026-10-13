@@ -66,6 +66,10 @@
       subQ: { train: "Which troops?", recruit: "Which recruit?", appt: "Which position?" }, advanced: "Advanced", epic: "Epic",
       minister: "Chief Minister", advisor: "Noble Advisor", apDay: "Day (UTC)", apTime: "Your slot (next 24 h, 30 min each)", apRemind: "Remind me",
       apToday: "today", apStarts: "slot starts {t}", apTitle: "{e} {name} in {n} min", apNow: "{e} {name} — your slot starts now!", apBody: "Your 30-min slot starts at {t} UTC.",
+      sgT: "💡 Line up a {pos}", sgNow: "{what} finishes {when}. Book the {slot} UTC slot so your next one starts with the buff.",
+      sgLater: "{what} finishes {when} — more than 24 h away, so you can't book yet. Booking opens {open}.",
+      sgRemind: "＋ Remind me of this slot", sgBook: "＋ Remind me to book it", sgNo: "Not now", sgLink: "📅 slot",
+      bookT: "📅 Book {name} now", bookB: "Book the {t} UTC slot — {what} finishes then.",
       troop: "Which troops?", builder: "＋ Second builder",
       alerts: "🎮 Game reminders",
       admin: "🛠️ Admin reminders", adminNote: "Officer to-dos from the Events tab, sent on the day they're due.", adminOn: "Send admin reminders",
@@ -335,7 +339,9 @@
     if (!sub) return;
     const now = Date.now();
     const utcHM = (t) => new Date(t).toISOString().slice(11, 16);
-    const list = timers.filter((x) => x.at > now).map((x) => x.cat === "appt"
+    const list = timers.filter((x) => x.at > now).map((x) => x.cat === "appt" && x.book
+        ? { id: x.id, at: x.at, title: T("bookT").replace("{name}", subName(x.sub)), body: T("bookB").replace("{t}", utcHM(x.slot)).replace("{what}", x.what || "") }
+        : x.cat === "appt"
         ? { id: x.id, at: x.at, title: T(x.before ? "apTitle" : "apNow").replace("{e}", SUBS.appt[x.sub] || "📅").replace("{name}", subName(x.sub)).replace("{n}", x.before), body: T("apBody").replace("{t}", utcHM(x.slot)) }
         : { id: x.id, at: x.at, title: `${CAT_EMOJI[x.cat] || "⏰"} ${labelOf(x)}`, body: `${labelOf(x)} ${T("body")}` })
       .concat(alertTimers(), adminTimers());
@@ -367,6 +373,7 @@
     .tm-hint{color:var(--text-muted);font-size:12.5px;margin:-2px 0 8px}
     .tm-err{color:#c0392b;font-size:13px;margin-bottom:6px}
     .tm-acts{display:flex;gap:8px;margin-top:6px}
+    .tm-sg{border:1px solid var(--accent)}
     .tm-ap{display:flex;flex-direction:column;gap:8px;margin:4px 0 6px}.tm-ap label{display:flex;flex-direction:column;gap:3px;font-size:13px;color:var(--text-muted)}.tm-ap .tm-sel{font-size:15px;padding:7px 8px}
     .tm-quick{background:var(--panel-2);border-radius:10px;padding:9px 11px;margin-bottom:10px}
     .tm-qc{display:inline-flex;align-items:center}.tm-qc .tm-x{font-size:14px;padding:2px 4px}
@@ -414,7 +421,7 @@
     const now = Date.now(), L = timers.slice().sort((a, b) => a.at - b.at);
     if (!L.length) return `<div class="tm-a" style="padding:6px 0">${esc(T("empty"))}</div>`;
     return L.map((x) => `<div class="tm-row${x.at <= now ? " done" : ""}"><span>${CAT_EMOJI[x.cat] || "⏰"}</span>
-      <div class="tm-l"><div dir="auto">${esc(x.cat === "appt" ? subName(x.sub) : labelOf(x))}</div><div class="tm-a">${esc(x.cat === "appt" ? T("apStarts").replace("{t}", `${fmtAt(x.slot)} (${new Date(x.slot).toISOString().slice(11, 16)} UTC)`) : T("at").replace("{t}", fmtAt(x.at)))}</div></div>
+      <div class="tm-l"><div dir="auto">${esc(x.cat === "appt" ? (x.book ? T("bookT").replace("{name}", subName(x.sub)).replace(/^📅 /, "") : subName(x.sub)) : labelOf(x))}${APPT_FOR[x.cat] && x.at > now ? ` <button type="button" class="tm-link" data-sgfor="${esc(x.id)}">${esc(T("sgLink"))}</button>` : ""}</div><div class="tm-a">${esc(x.cat === "appt" ? T("apStarts").replace("{t}", `${fmtAt(x.slot)} (${new Date(x.slot).toISOString().slice(11, 16)} UTC)`) : T("at").replace("{t}", fmtAt(x.at)))}</div></div>
       <span class="tm-c" dir="ltr">${x.at <= now ? esc(T("done")) : fmtLeft(x.at - now)}</span>
       <button type="button" class="tm-x" data-del="${esc(x.id)}" aria-label="✕">✕</button></div>`).join("");
   }
@@ -504,7 +511,7 @@
     pushOn = canPush() && Notification.permission === "granted" && !!(await getSub());
     const n = await notifHtml();
     view.innerHTML = `<div class="tm-top"><b>${esc(T("title"))}</b><button type="button" class="tm-btn" data-a="chat">${esc(T("chat"))}</button></div>
-      ${n}${quickHtml()}<div id="tmAdd">${addHtml()}</div><div id="tmList" style="margin-top:10px">${listHtml()}</div>${alertsHtml()}${adminHtml()}`;
+      ${n}${suggHtml()}${quickHtml()}<div id="tmAdd">${addHtml()}</div><div id="tmList" style="margin-top:10px">${listHtml()}</div>${alertsHtml()}${adminHtml()}`;
     const first = view.querySelector("[data-name]") || view.querySelector('[data-row="0"]');
     if (first && adding && adding.focus) { first.focus(); adding.focus = false; }
   }
@@ -520,6 +527,8 @@
     const b = e.target.closest("button"); if (!b) return;
     const a = b.dataset.a;
     if (b.dataset.del) { timers = timers.filter((x) => x.id !== b.dataset.del); store(); renderList(); sync(); return; }
+    if (b.dataset.sg) { if (b.dataset.sg === "no") { sugg = null; return render(); } return acceptSugg(b.dataset.sg); }
+    if (b.dataset.sgfor) { sugg = b.dataset.sgfor; view.scrollTop = 0; return render(); }
     if (b.dataset.quick) { const [cat, sub, name] = b.dataset.quick.split("|"); const v = presets[b.dataset.quick]; if (v) createTimers(cat, sub, name, Array.isArray(v) ? v : [v]); return; }
     if (b.dataset.forget) { delete presets[b.dataset.forget]; savePre(); return render(); }
     if (b.dataset.cat) { adding.cat = b.dataset.cat; adding.sub = null; adding.rows = adding.prefilled ? [""] : adding.rows.slice(0, MULTI[adding.cat] || 1); adding.prefilled = null; adding.err = false; adding.focus = true; return render(); }
@@ -563,6 +572,31 @@
   const savePre = () => { try { localStorage.setItem(PRE_LS, JSON.stringify(presets)); } catch (e) {} };
   const PRESET_CATS = ["train", "gather"];   // only these change little from one time to the next
   const preKey = (cat, sub, name) => [cat, sub || "", cat === "other" ? (name || "").trim().toLowerCase() : ""].join("|");
+  /* 💡 a Research / Building / Training timer → which appointment slot to book so the NEXT one starts with the buff */
+  const APPT_FOR = { build: "minister", research: "minister", train: "advisor" };
+  let sugg = null;   // id of the timer the suggestion card is about
+  function suggestion(x) {
+    const pos = APPT_FOR[x.cat]; if (!pos) return null;
+    // the slot that holds the finish time, or the next one if fewer than 10 min of it would be left
+    let slot = Math.floor(x.at / 18e5) * 18e5; if (slot + 18e5 - x.at < 6e5) slot += 18e5;
+    return { pos, slot, open: slot - 864e5, bookable: slot - 864e5 <= Date.now() };
+  }
+  function suggHtml() {
+    const x = sugg && timers.find((t) => t.id === sugg), sg = x && suggestion(x);
+    if (!sg || x.at <= Date.now()) return "";
+    const hm = (t) => new Date(t).toISOString().slice(11, 16), what = labelOf(x);
+    const txt = (sg.bookable ? T("sgNow") : T("sgLater")).replace("{what}", what).replace("{when}", fmtAt(x.at)).replace("{slot}", hm(sg.slot)).replace("{open}", `${fmtAt(sg.open)} (${hm(sg.open)} UTC)`);
+    return `<div class="tm-note tm-sg"><b>${esc(T("sgT").replace("{pos}", subName(sg.pos)))}</b><div style="margin:4px 0 6px">${esc(txt)}</div>
+      <div class="tm-acts"><button type="button" class="tm-btn main" data-sg="${sg.bookable ? "slot" : "book"}">${esc(T(sg.bookable ? "sgRemind" : "sgBook"))}</button><button type="button" class="tm-btn" data-sg="no">${esc(T("sgNo"))}</button></div></div>`;
+  }
+  function acceptSugg(kind) {
+    const x = timers.find((t) => t.id === sugg), sg = x && suggestion(x); sugg = null;
+    if (!sg) return render();
+    const base = { id: Math.random().toString(36).slice(2, 10), cat: "appt", sub: sg.pos, slot: sg.slot, what: labelOf(x) };
+    if (kind === "slot") timers.push({ ...base, before: 5, at: Math.max(sg.slot - 3e5, Date.now() + 5000) });
+    else timers.push({ ...base, book: true, before: 0, at: Math.max(sg.open, Date.now() + 5000) });
+    store(); render(); sync();
+  }
   function createTimers(cat, sub, name, ms) {
     const now = Date.now(), numbered = !!MULTI[cat];
     // gathering marches / builders are numbered after the ones already running
@@ -573,6 +607,7 @@
       sub: SUBS[cat] ? sub : "", n: number ? ++n : 0, at: now + d }));
     // Training: one time per troop type · Gathering: the whole set of marches
     if (PRESET_CATS.includes(cat) && (ms.length === 1 || cat === "gather")) { presets[preKey(cat, sub, name)] = cat === "gather" ? ms.slice() : ms[0]; savePre(); }
+    if (APPT_FOR[cat]) sugg = timers[timers.length - 1].id;   // show the 💡 slot suggestion for it
     store(); render(); sync();
   }
   function saveAdding() {
