@@ -35,7 +35,9 @@
     names: { "bear-hunt": ["🐻", "Bear Hunt"], "swordland-showdown": ["⚔️", "Swordland Showdown"], "tri-alliance-clash": ["🔱", "Tri-Alliance Clash"],
       "viking-vengeance": ["🧯", "Viking Vengeance"], "mystic-trial": ["🔮", "Mystic Trial"] },
   };
-  if (!ON_MAIN) fetch("data/event-times.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((d) => {
+  fetch("data/event-times.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((d) => {
+    for (const [k, n] of Object.entries((d && d.days) || {})) if (+n >= 1) FIGHT_DAY[k] = +n;
+    if (ON_MAIN) { if (!view.hidden) render(); return; }
     for (const [k, v] of Object.entries(d || {})) { const hs = (Array.isArray(v) ? v : []).map((x) => { const m = String(x).match(/^(\d{1,2})(?::(\d{2}))?$/); return m ? +m[1] + (+(m[2] || 0)) / 60 : null; }).filter((x) => x != null && x < 24); if (hs.length) FB.times[k] = hs; }
     if (!view.hidden) render();
   }).catch(() => {});
@@ -248,7 +250,8 @@
     }
     if (moved) saveAlerts(); }
   /* which day of the event run has the battle (0 = first day). Default: the last day — check in game. */
-  const FIGHT_DAY = { "swordland-showdown": -1, "tri-alliance-clash": -1, "viking-vengeance": -1 };
+  // battle day (1 = first day of the run, -1 = last); officers set it on the officer Events tab (data/event-times.json "days"). Missing = every day (Bear Hunt).
+  const FIGHT_DAY = { "swordland-showdown": -1, "tri-alliance-clash": -1, "viking-vengeance": -1, "cesares-fury": 1 };
   const DAY = 86400000, HORIZON = 21 * DAY;
   // a choice is kept as "1st / 2nd time" (#0, #1), so officers can move a time without switching people's alerts off (old saves used the hour)
   const isOn = (a, i, h) => !!(a && a.on && (a.on["#" + i] ?? a.on[h]));
@@ -271,7 +274,7 @@
     const n = Math.floor((dayStart - sc.anchor) / DAY); if (n < 0) return false;
     const inRun = n % sc.periodDays; if (inRun >= sc.activeDays) return false;
     if (!(k in FIGHT_DAY)) return true;                      // Bear Hunt: every active day
-    const f = FIGHT_DAY[k] < 0 ? sc.activeDays + FIGHT_DAY[k] : FIGHT_DAY[k];
+    const f = FIGHT_DAY[k] < 0 ? sc.activeDays + FIGHT_DAY[k] : FIGHT_DAY[k] - 1;
     return inRun === f;
   }
   /* the alert notifications for the next 3 weeks, from the choices above */

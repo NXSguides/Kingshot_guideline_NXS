@@ -1385,7 +1385,8 @@ const T = {
     fStart: "First day (UTC)", fEvery: "Repeats every … days", fDays: "Lasts … days",
     fNote: "Note", fNoteSm: "(e.g. times — shown in the list)", fGuide: "Guide on the site", noGuide: "— none —",
     fTodo: "Action items for officers", addTodo: "+ Action item", editTodo: "Edit items",
-    etTitle: "⏰ Our event times (UTC)", etNote: "The times we pick for alliance events. Used on the home page (Today & this week) and for everyone's ⏰ Game reminders. Type one or more times, e.g. 13:00, 22:00.",
+    etDay: "Battle on day {n} of {t}",
+    etTitle: "⏰ Our event times (UTC)", etNote: "The times we pick for alliance events, and which day of the event the battle is. Used on the home page (Today & this week) and for everyone's ⏰ Game reminders. Type one or more times, e.g. 13:00, 22:00.",
     etBad: "Check the times — use HH:MM, e.g. 13:00, 22:30.", etSaved: "Saved ✅ The site and the ⏰ reminders use the new times within a few minutes (reminders update when people open the site).",
     limTitle: "⚙️ Troop limits in the guides", limNote: "Used everywhere the guides mention these numbers (all 12 languages) and by the AI assistant. Change them here when the game or the alliance changes the limit.",
     limBear: "Bear Hunt — joining a rally (exactly)", limRally: "Other rallies / Viking HQ — max per member", limSave: "💾 Save", limSaving: "Saving…",
@@ -1418,7 +1419,8 @@ const T = {
     fStart: "第一天（UTC）", fEvery: "每幾天一次", fDays: "持續幾天",
     fNote: "備註", fNoteSm: "（例如時間，會顯示在清單上）", fGuide: "網站上的攻略", noGuide: "— 無 —",
     fTodo: "幹部待辦事項", addTodo: "+ 待辦事項", editTodo: "編輯待辦",
-    etTitle: "⏰ 我們的活動時間（UTC）", etNote: "聯盟活動我們自己決定的時間。首頁「今天和這週」和大家的 ⏰ 活動提醒都會用這裡的時間。可以填一個或多個時間，例如 13:00, 22:00。",
+    etDay: "第 {n} 天開打（共 {t} 天）",
+    etTitle: "⏰ 我們的活動時間（UTC）", etNote: "聯盟活動我們自己決定的時間，以及活動第幾天開打。首頁「今天和這週」和大家的 ⏰ 活動提醒都會用這裡的時間。可以填一個或多個時間，例如 13:00, 22:00。",
     etBad: "請檢查時間格式（HH:MM），例如 13:00, 22:30。", etSaved: "已儲存 ✅ 幾分鐘內網站和 ⏰ 提醒就會用新的時間（大家打開網站時提醒會跟著更新）。",
     limTitle: "⚙️ 攻略裡的部隊人數上限", limNote: "攻略裡所有提到這兩個數字的地方（12 種語言）和 AI 助理都會用這裡的數字。遊戲或聯盟改上限時，在這裡改就好。",
     limBear: "狩獵巨熊 — 參加集結（剛好）", limRally: "其他集結／維京總部 — 每人上限", limSave: "💾 儲存", limSaving: "儲存中…",
@@ -1960,13 +1962,17 @@ async function saveLimits() {
 /* ===== our event times (UTC) → data/event-times.json (plain, public): home page Today card + everyone's ⏰ reminders ===== */
 const ET_PATH = "data/event-times.json";
 const ET_KEYS = [["bear-hunt", "🐻"], ["swordland-showdown", "⚔️"], ["tri-alliance-clash", "🔱"], ["viking-vengeance", "🧯"], ["cesares-fury", "🗡️"]];
-let ET = { "bear-hunt": ["13:00", "22:00"], "swordland-showdown": ["02:00", "14:00"], "tri-alliance-clash": ["14:00", "21:00"], "viking-vengeance": ["14:00", "23:00"], "cesares-fury": ["22:35"] }, etSha = null;
+let ET = { "bear-hunt": ["13:00", "22:00"], "swordland-showdown": ["02:00", "14:00"], "tri-alliance-clash": ["14:00", "21:00"], "viking-vengeance": ["14:00", "23:00"], "cesares-fury": ["22:35"],
+  days: { "swordland-showdown": 7, "tri-alliance-clash": 6, "viking-vengeance": 3, "cesares-fury": 1 } }, etSha = null;
 async function loadEventTimes() {
   try {
     if (TOKEN) { const f = await gh("GET", ET_PATH); if (f) { etSha = f.sha; ET = { ...ET, ...JSON.parse(b64ToUtf8(f.content)) }; } }
     else { const r = await fetch(ET_PATH + "?t=" + Date.now(), { cache: "no-store" }); if (r.ok) ET = { ...ET, ...(await r.json()) }; }
   } catch (e) {}
-  $("etGrid").innerHTML = ET_KEYS.map(([k, e]) => `<label><span>${e} ${esc((EVENTS[k] && EVENTS[k][lang === "zh" ? "zh" : "en"]) || (k === "bear-hunt" ? (lang === "zh" ? "狩獵巨熊" : "Bear Hunt") : k))}</span><input class="inp" data-et="${k}" value="${esc((ET[k] || []).join(", "))}" inputmode="numeric" placeholder="13:00, 22:00"></label>`).join("");
+  $("etGrid").innerHTML = ET_KEYS.map(([k, e]) => {
+    const len = (LIST && byId(k) && byId(k).days) || (EVENTS[k] && EVENTS[k].days) || { "swordland-showdown": 7, "tri-alliance-clash": 6, "viking-vengeance": 3, "cesares-fury": 3 }[k] || 1, cur = (ET.days || {})[k];
+    const day = k === "bear-hunt" ? "" : `<select class="inp" data-etday="${k}" style="margin-top:4px">${Array.from({ length: len }, (_, i) => `<option value="${i + 1}"${cur === i + 1 ? " selected" : ""}>${esc(tr("etDay").replace("{n}", i + 1).replace("{t}", len))}</option>`).join("")}</select>`;
+    return `<label><span>${e} ${esc((EVENTS[k] && EVENTS[k][lang === "zh" ? "zh" : "en"]) || (k === "bear-hunt" ? (lang === "zh" ? "狩獵巨熊（每個熊日）" : "Bear Hunt (every Bear day)") : k))}</span><input class="inp" data-et="${k}" value="${esc((ET[k] || []).join(", "))}" inputmode="numeric" placeholder="13:00, 22:00">${day}</label>`; }).join("");
 }
 async function saveEventTimes() {
   const m = $("etMsg"), next = {};
@@ -1977,11 +1983,13 @@ async function saveEventTimes() {
     if (!out.length) { m.className = "msg warn"; m.textContent = tr("etBad"); return; }
     next[inp.dataset.et] = out.sort();
   }
+  next.days = {};
+  for (const sel of $("etGrid").querySelectorAll("[data-etday]")) next.days[sel.dataset.etday] = +sel.value;
   if (!TOKEN) { m.className = "msg warn"; m.textContent = tr("limNoKey"); return; }
   m.className = "msg"; m.textContent = tr("limSaving");
   try {
     for (let attempt = 0; ; attempt++) {
-      try { const res = await gh("PUT", ET_PATH, { message: "Event times: " + Object.entries(next).map(([k, v]) => k + " " + v.join("/")).join(", "), content: utf8ToB64(JSON.stringify(next) + "\n"), sha: etSha || undefined, branch: BRANCH });
+      try { const res = await gh("PUT", ET_PATH, { message: "Event times: " + Object.entries(next).filter(([k]) => k !== "days").map(([k, v]) => k + " " + v.join("/") + (next.days[k] ? " (day " + next.days[k] + ")" : "")).join(", "), content: utf8ToB64(JSON.stringify(next) + "\n"), sha: etSha || undefined, branch: BRANCH });
         etSha = res && res.content ? res.content.sha : etSha; break; }
       catch (e) { if (e.message !== "busy" || attempt) throw e; const f = await gh("GET", ET_PATH); etSha = f ? f.sha : null; }
     }
