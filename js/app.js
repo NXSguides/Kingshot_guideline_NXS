@@ -827,25 +827,45 @@ function selectAnnouncement(i) {
   window.scrollTo(0, pageY);
 }
 window.selectAnnouncement = selectAnnouncement;
-/* more than one announcement: move on to the next one by itself. Only the time it is actually on screen counts
-   (at least half of the board visible, tab open), at least 8 s and longer for long ones (up to 20 s).
-   A tap, swipe, mouse wheel or the mouse resting on it pauses it for a while. */
-let annPauseUntil = 0, annShown = 0, annLast = Date.now(), annIdx = -1;
-const ANN_MIN = 8000, ANN_MAX = 20000, ANN_PAUSE = 15000;
-const annPause = (ms) => { annPauseUntil = Math.max(annPauseUntil, Date.now() + ms); annShown = 0; };
-document.addEventListener("pointerdown", (e) => { if (e.target.closest && e.target.closest(".ann-board")) annPause(ANN_PAUSE); }, true);
-document.addEventListener("pointermove", (e) => { if (e.pointerType === "mouse" && e.target.closest && e.target.closest(".ann-board")) annPause(3000); }, { passive: true });
-document.addEventListener("wheel", (e) => { if (e.target.closest && e.target.closest(".ann-board")) annPause(ANN_PAUSE); }, { passive: true });
+/* more than one announcement: after 8 s on screen with nothing done to it, the next one shows.
+   Only the time it is actually on screen counts (at least half of it visible); any tap, swipe, wheel or mouse move on it starts the 8 s again. */
+const ANN_IDLE = 8000;
+let annShown = 0, annLast = Date.now(), annIdx = -1;
+const annReset = (e) => { if (e.target.closest && e.target.closest(".ann-board")) annShown = 0; };
+document.addEventListener("pointerdown", annReset, true);
+document.addEventListener("pointermove", annReset, { passive: true });
+document.addEventListener("wheel", annReset, { passive: true });
+document.addEventListener("scroll", (e) => { if (e.target.classList && e.target.classList.contains("ann-tabs") && Date.now() - annMoved > 1000) annShown = 0; }, true);
+let annMoved = 0;   // when we moved the tabs ourselves (that scroll doesn't count)
+/* swipe left / right on an announcement to see the next / previous one (phones; on a computer: drag with the mouse) */
+let annSwipe = null;
+document.addEventListener("pointerdown", (e) => {
+  const body = e.target.closest && e.target.closest(".ann-body");
+  if (!body || announcements.length < 2 || (e.pointerType === "mouse" && e.button !== 0) || e.target.closest("a,button,img")) return;
+  annSwipe = { x: e.clientX, y: e.clientY, t: Date.now() };
+});
+document.addEventListener("pointerup", (e) => {
+  const s = annSwipe; annSwipe = null;
+  if (!s) return;
+  const dx = e.clientX - s.x, dy = e.clientY - s.y;
+  if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.5 || Date.now() - s.t > 800) return;   // not a sideways swipe
+  const n = announcements.length;
+  selectAnnouncement((currentAnnIndex + (dx < 0 ? 1 : n - 1)) % n);
+  annMoved = Date.now();
+  const tabs = document.querySelector(".ann-tabs"), t = tabs && tabs.querySelector(".ann-tab.active");
+  if (t) tabs.scrollTo({ left: t.offsetLeft - (tabs.clientWidth - t.offsetWidth) / 2, behavior: "smooth" });
+});
+document.addEventListener("pointercancel", () => { annSwipe = null; });
 setInterval(() => {
   const now = Date.now(), dt = Math.min(now - annLast, 1000); annLast = now;
   const board = document.querySelector(".ann-board");
   if (!board || announcements.length < 2) return;
-  if (annIdx !== currentAnnIndex) { annIdx = currentAnnIndex; annShown = 0; }   // a new one is showing: start counting again
+  if (annIdx !== currentAnnIndex) { annIdx = currentAnnIndex; annShown = 0; }
   const r = board.getBoundingClientRect(), seen = Math.min(r.bottom, innerHeight) - Math.max(r.top, 0);
-  if (document.visibilityState !== "visible" || now < annPauseUntil || seen < Math.min(r.height, innerHeight) / 2) return;
+  if (document.visibilityState !== "visible" || seen < Math.min(r.height, innerHeight) / 2) { annShown = 0; return; }   // off screen: start over when it comes back
   annShown += dt;
-  const a = announcements[currentAnnIndex], len = String((a && (a.content[currentLang] || a.content.en)) || "").length;
-  if (annShown < Math.min(ANN_MAX, Math.max(ANN_MIN, len * 60))) return;
+  if (annShown < ANN_IDLE) return;
+  annMoved = now;
   selectAnnouncement((currentAnnIndex + 1) % announcements.length);
   const tabs = document.querySelector(".ann-tabs"), t = tabs && tabs.querySelector(".ann-tab.active");
   if (t) tabs.scrollTo({ left: t.offsetLeft - (tabs.clientWidth - t.offsetWidth) / 2, behavior: "smooth" });

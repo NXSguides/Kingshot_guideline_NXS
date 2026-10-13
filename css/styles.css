@@ -515,7 +515,7 @@ body.menu-open { overflow: hidden; }
   border-bottom-color: var(--accent);
 }
 
-.ann-body { padding: 16px 18px; }
+.ann-body { padding: 16px 18px; touch-action: pan-y; }   /* sideways swipes go to the next / previous announcement */
 
 .ann-meta {
   display: flex;
