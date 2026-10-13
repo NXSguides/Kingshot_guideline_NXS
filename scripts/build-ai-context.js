@@ -29,6 +29,7 @@ catch (e) { console.warn("kvk-plan.js skipped:", e.message); }
 
 let anns = [];
 try { anns = JSON.parse(read("data/announcements.json")); } catch (e) { console.warn("announcements skipped:", e.message); }
+if (Array.isArray(anns)) anns = anns.filter((a) => !a.expiresAt || Date.parse(a.expiresAt) > Date.now());   // auto-deleted ones
 
 const SKIP_KEYS = new Set(["type", "src", "url", "guide", "color", "id", "icon", "emoji", "priority", "c", "k", "alt"]);
 

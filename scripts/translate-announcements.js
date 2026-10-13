@@ -38,8 +38,10 @@ function buildGlossaryText(TERMS) {
 function parseEntries(md) {
   return md.split(/^---$/m).map(s => s.trim()).filter(Boolean).map(b => {
     const data = yaml.load(b);
-    const id = crypto.createHash("sha1").update(JSON.stringify(data)).digest("hex").slice(0, 10);
-    return { id, ...data };
+    // "expires" (auto-delete time) is left out of the id, so changing it doesn't re-translate the announcement
+    const { expires, ...rest } = data || {};
+    const id = crypto.createHash("sha1").update(JSON.stringify(rest)).digest("hex").slice(0, 10);
+    return { id, block: b, ...data };
   });
 }
 
@@ -121,7 +123,14 @@ ${glossaryText}`;
 }
 
 async function main() {
-  const rawEntries = parseEntries(fs.readFileSync(SOURCE, "utf8"));
+  let rawEntries = parseEntries(fs.readFileSync(SOURCE, "utf8"));
+  // auto-delete: announcements whose "expires" time has passed are removed from the source file too
+  const isGone = (e) => e.expires && !isNaN(Date.parse(e.expires)) && Date.parse(e.expires) <= Date.now();
+  if (rawEntries.some(isGone)) {
+    for (const e of rawEntries.filter(isGone)) console.log(`自動刪除到期公告：${e.title}`);
+    rawEntries = rawEntries.filter((e) => !isGone(e));
+    fs.writeFileSync(SOURCE, rawEntries.length ? "---\n" + rawEntries.map((e) => e.block).join("\n---\n") + "\n" : "");
+  }
   const cache = fs.existsSync(CACHE) ? JSON.parse(fs.readFileSync(CACHE, "utf8")) : {};
   const glossaryText = buildGlossaryText(loadTerms());
 
@@ -159,7 +168,7 @@ for (const entry of rawEntries) {
   try { if (fs.existsSync(FIXES)) fixes = JSON.parse(fs.readFileSync(FIXES, "utf8") || "{}"); }
   catch (e) { console.warn("announcements-fixes.json 格式有誤，先略過手動修正"); }
   const published = rawEntries.slice().reverse().map(e => {
-    const item = { id: e.id, ...cache[e.id] };
+    const item = { id: e.id, ...cache[e.id], ...(e.expires ? { expiresAt: new Date(e.expires).toISOString() } : {}) };
     const f = fixes[e.id];
     if (f && item.title && item.content) {
       item.title = { ...item.title }; item.content = { ...item.content }; item.fixed = {};

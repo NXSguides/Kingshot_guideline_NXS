@@ -754,6 +754,9 @@
       <label class="f"><span data-t="fLink"></span> <small data-t="fLinkNote"></small></label>
       <select id="guide"></select>
 
+      <label class="f"><span data-t="fExp"></span> <small data-t="fExpNote"></small></label>
+      <div class="row" style="gap:8px;align-items:center;flex-wrap:wrap"><select id="expSel"></select><input type="date" id="expDate" hidden><select id="expHour" hidden></select><span class="muted" id="expWhen"></span></div>
+
       <label class="f" data-t="preview"></label>
       <div class="preview" id="preview"></div>
 
@@ -2680,6 +2683,9 @@ const T = {
     fBodyNote: "(**text** = bold; links work as normal; pictures: use the button below)",
     addImg: "Add picture", addImgNote: "It goes where the cursor is in the message.", uploadingImg: "Uploading pictures…",
     fLink: "Button to a guide", fLinkNote: "(optional)", noGuide: "— none —",
+    fExp: "Auto-delete", fExpNote: "(the announcement disappears from the site by itself)",
+    expNever: "Never — keep it until I delete it", expToday: "When today ends (00:00 UTC)", expTomorrow: "When tomorrow ends (00:00 UTC)", expD: "After {n} days", expD1: "After 1 day", expPick: "Pick a date & time (UTC)…",
+    expAt: "→ {t} UTC", expTag: "🗑️ auto-delete {t} UTC", expPast: "Pick a time in the future.",
     preview: "Preview", publish: "📢 Publish",
     needAll: "Please fill in your name, the title and the message.",
     confirmPub: "Publish this announcement now?",
@@ -2746,6 +2752,9 @@ const T = {
     fBodyNote: "（**文字** = 粗體；網址會自動變成連結；圖片用下方按鈕加入）",
     addImg: "加入圖片", addImgNote: "圖片會插在內容裡游標所在的位置。", uploadingImg: "上傳圖片中…",
     fLink: "附上指南按鈕", fLinkNote: "（可不選）", noGuide: "— 不附 —",
+    fExp: "自動刪除", fExpNote: "（時間到公告會自己從網站消失）",
+    expNever: "不要 — 留到我手動刪除", expToday: "今天結束時（UTC 00:00）", expTomorrow: "明天結束時（UTC 00:00）", expD: "{n} 天後", expD1: "1 天後", expPick: "自己選日期和時間（UTC）…",
+    expAt: "→ UTC {t}", expTag: "🗑️ UTC {t} 自動刪除", expPast: "請選一個未來的時間。",
     preview: "預覽", publish: "📢 發布",
     needAll: "請填寫名字、標題和內容。",
     confirmPub: "確定現在發布這則公告？",
@@ -2871,14 +2880,15 @@ async function readJson(path) {
 }
 /* same id the translator gives a block: first 10 hex of sha1(JSON of the parsed block) */
 async function blockId(block) {
-  const h = await crypto.subtle.digest("SHA-1", new TextEncoder().encode(JSON.stringify(jsyaml.load(block))));
+  const { expires, ...rest } = jsyaml.load(block) || {};   // the auto-delete time isn't part of the id (changing it doesn't re-translate)
+  const h = await crypto.subtle.digest("SHA-1", new TextEncoder().encode(JSON.stringify(rest)));
   return [...new Uint8Array(h)].map((x) => x.toString(16).padStart(2, "0")).join("").slice(0, 10);
 }
 
 /* ===== announcement blocks ===== */
 const splitBlocks = (md) => md.replace(/\r/g, "").split(/^---$/m).map((s) => s.trim()).filter(Boolean);
 const joinBlocks = (blocks) => "---\n" + blocks.join("\n---\n") + "\n";
-function makeBlock({ author, lang, title, body, created }) {
+function makeBlock({ author, lang, title, body, created, expires }) {
   const content = body.replace(/\r/g, "").replace(/\t/g, "  ").replace(/^\s*\n/, "").trimEnd();
   const lines = content.split("\n").map((l) => (l.trim() ? "  " + l : ""));
   return [
@@ -2887,10 +2897,40 @@ function makeBlock({ author, lang, title, body, created }) {
     `lang: ${lang}`,
     `title: ${JSON.stringify(title.trim())}`,
     `images: []`,
+    ...(expires ? [`expires: ${JSON.stringify(expires)}`] : []),   // auto-delete time (UTC); the hourly clean-up removes it after this
     `content: |`,
     ...lines,
   ].join("\n");
 }
+/* ---- auto-delete ---- */
+const EXP_OPTS = ["never", "today", "tomorrow", "1", "2", "3", "7", "pick"];
+function fillExp() {
+  const keep = $("expSel").value || "never";
+  $("expSel").innerHTML = EXP_OPTS.map((k) => `<option value="${k}">${esc(k === "never" ? tr("expNever") : k === "today" ? tr("expToday") : k === "tomorrow" ? tr("expTomorrow") : k === "pick" ? tr("expPick") : (k === "1" ? tr("expD1") : tr("expD").replace("{n}", k)))}</option>`).join("");
+  $("expSel").value = keep;
+  if (!$("expHour").options.length) $("expHour").innerHTML = Array.from({ length: 24 }, (_, h) => `<option value="${h}">${String(h).padStart(2, "0")}:00 UTC</option>`).join("");
+  showExp();
+}
+const expFmt = (iso) => iso.slice(0, 16).replace("T", " ").slice(5).replace("-", "/");
+/* the chosen auto-delete time as an ISO string ("" = never) */
+function expValue() {
+  const k = $("expSel").value, DAYMS = 864e5, today = Math.floor(Date.now() / DAYMS) * DAYMS;
+  if (k === "never" || !k) return "";
+  if (k === "today") return new Date(today + DAYMS).toISOString();
+  if (k === "tomorrow") return new Date(today + 2 * DAYMS).toISOString();
+  if (k === "pick") { const d = Date.parse($("expDate").value + "T00:00:00Z"); return isNaN(d) ? "" : new Date(d + (+$("expHour").value) * 36e5).toISOString(); }
+  return new Date(Math.round((Date.now() + (+k) * DAYMS) / 36e5) * 36e5).toISOString();   // N days from now, on the hour
+}
+function showExp() {
+  const pick = $("expSel").value === "pick";
+  $("expDate").hidden = $("expHour").hidden = !pick;
+  const v = expValue(); $("expWhen").textContent = v ? tr("expAt").replace("{t}", expFmt(v)) : "";
+}
+function setExp(iso) {   // editing: show the saved time
+  if (!iso || isNaN(Date.parse(iso))) { $("expSel").value = "never"; return showExp(); }
+  const d = new Date(iso); $("expSel").value = "pick"; $("expDate").value = d.toISOString().slice(0, 10); $("expHour").value = String(d.getUTCHours()); showExp();
+}
+["expSel", "expDate", "expHour"].forEach((id) => $(id).addEventListener("change", showExp));
 function fullBody() {
   const g = $("guide").value;
   return $("body").value.trimEnd() + (g ? `\n\n[[link:${g}]]` : "");
@@ -2975,7 +3015,7 @@ async function loadList() {
     const rows = blocks.map((b, i) => { let d = {}; try { d = jsyaml.load(b) || {}; } catch (e) {} return { i, d, id: shownIds[i] }; }).reverse();
     $("po_list").innerHTML = rows.length ? rows.map(({ i, d, id }) => `
       <div class="ann"><div><b dir="auto">${esc(d.title || "—")}</b>
-        <span class="muted">${esc(d.author || "")}${(d.images || []).length ? " · 🖼️ " + esc(tr("img")) : ""}${pubById[id] ? "" : " · ⏳ " + esc(tr("translating"))}</span>
+        <span class="muted">${esc(d.author || "")}${(d.images || []).length ? " · 🖼️ " + esc(tr("img")) : ""}${pubById[id] ? "" : " · ⏳ " + esc(tr("translating"))}${d.expires && !isNaN(Date.parse(d.expires)) ? " · " + esc(tr("expTag").replace("{t}", expFmt(new Date(d.expires).toISOString()))) : ""}</span>
         ${Object.keys(fixes[id] || {}).map((l) => `<span class="badge" title="${esc(tr("fixedTip"))}">✏️ ${esc(langLabel(l))}</span>`).join("")}</div>
         <div class="acts"><button class="btn" data-edit="${i}">${esc(tr("edit"))}</button>
         <button class="btn danger" data-del="${i}">${esc(tr("del"))}</button></div></div>`).join("")
@@ -3083,7 +3123,7 @@ $("editAllGo").onclick = () => {
   if (m && GUIDES[m[1]]) { g = m[1]; body = body.slice(0, m.index); }
   editing = { block: cur.block, created: d.created || (pubById[cur.id] && pubById[cur.id].createdAt) || "", title: d.title || "", author: d.author || "" };
   $("author").value = d.author || ""; $("srcLang").value = d.lang || "en";
-  $("annTitle").value = d.title || ""; $("body").value = body; $("guide").value = g;
+  $("annTitle").value = d.title || ""; $("body").value = body; $("guide").value = g; setExp(d.expires);
   $("editCard").hidden = true; cur = null;
   showEditing(); renderPreview();
   $("annTitle").scrollIntoView({ behavior: "smooth", block: "center" });
@@ -3094,7 +3134,7 @@ function showEditing() {
   $("publishBtn").textContent = tr(editing ? "saveEdit" : "publish");
 }
 $("cancelEdit").onclick = () => {
-  editing = null; $("annTitle").value = ""; $("body").value = ""; $("guide").value = "";
+  editing = null; $("annTitle").value = ""; $("body").value = ""; $("guide").value = ""; setExp("");
   $("author").value = store.author || ""; $("srcLang").value = store.lang || "en";
   showEditing(); renderPreview();
 };
@@ -3213,6 +3253,7 @@ function applyTexts() {
     const v = tr(el.dataset.t);
     el.textContent = v;
   });
+  fillExp();
   $("setupSteps").innerHTML = tr("setupSteps").map((s) => `<li>${esc(s)}</li>`).join("");
   const g = $("guide").value;
   $("guide").innerHTML = `<option value="">${esc(tr("noGuide"))}</option>` + Object.keys(GUIDES).filter((k) => !GUIDES[k].hidden)
@@ -3260,6 +3301,8 @@ $("po_list").onclick = (e) => {
 $("publishBtn").onclick = async () => {
   const author = $("author").value.trim(), title = $("annTitle").value.trim(), body = $("body").value.trim();
   if (!author || !title || !body) { showMsg("pubMsg", "err", tr("needAll")); return; }
+  const expires = expValue();
+  if ($("expSel").value !== "never" && (!expires || Date.parse(expires) <= Date.now())) { showMsg("pubMsg", "err", tr("expPast")); return; }
   if (!(await askYesNo(tr(editing ? "confirmEdit" : "confirmPub")))) return;
   if (!editing) { store.author = author; save(); }
   const btn = $("publishBtn"); btn.disabled = true; showMsg("pubMsg", "info", tr("publishing"));
@@ -3274,7 +3317,7 @@ $("publishBtn").onclick = async () => {
       }
     }
     // 2) add the announcement
-    const block = makeBlock({ author, lang: $("srcLang").value, title, body: fullBody(), created: editing ? editing.created : "" });
+    const block = makeBlock({ author, lang: $("srcLang").value, title, body: fullBody(), created: editing ? editing.created : "", expires });
     jsyaml.load(block); // safety check: must be valid before it reaches the site
     if (editing) {
       // replace the old block in place, so it keeps its spot in the list
@@ -3290,7 +3333,7 @@ $("publishBtn").onclick = async () => {
       await editSource((md) => md.replace(/\r/g, "").trimEnd().replace(/\n?---$/, "") + "\n---\n" + block + "\n", `New announcement: ${title}`.slice(0, 120));
       showMsg("pubMsg", "ok", tr("pubOk"));
     }
-    $("annTitle").value = ""; $("body").value = ""; $("guide").value = "";
+    $("annTitle").value = ""; $("body").value = ""; $("guide").value = ""; setExp("");
     Object.values(pendingImgs).forEach((x) => URL.revokeObjectURL(x.url)); pendingImgs = {};
     renderPreview(); loadList();
   } catch (e) { showMsg("pubMsg", "err", e.message === "gone" ? tr("gone") : e.message === "net" || e.message === "auth" || e.message === "busy" ? errText(e) : String(e.message || e)); }

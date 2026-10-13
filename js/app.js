@@ -794,7 +794,16 @@ async function loadAnnouncements() {
   } catch (e) {
     announcements = [];
   }
+  dropExpired();
   renderAll();
+}
+/* auto-delete time set on the officer Post page: hidden right on time (the hourly clean-up then removes it from the files) */
+function dropExpired() {
+  const now = Date.now(), live = (a) => !a.expiresAt || Date.parse(a.expiresAt) > now;
+  if (!Array.isArray(announcements)) announcements = [];
+  announcements = announcements.filter(live);
+  const next = Math.min(...announcements.filter((a) => a.expiresAt).map((a) => Date.parse(a.expiresAt)));
+  if (isFinite(next) && next - now < 864e5) setTimeout(() => { currentAnnIndex = 0; dropExpired(); if (langChosen) renderAll(); }, next - now + 1000);
 }
 
 function annLabel(a) {
