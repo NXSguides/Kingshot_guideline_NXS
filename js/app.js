@@ -927,7 +927,8 @@ function todayCardHtml() {
   const scheds = Object.entries(EVENT_SCHEDULES).concat([["bear-hunt", BEAR_SCHED]]);
   for (const [key, sc] of scheds) {
     if (!GUIDES[key] || GUIDES[key].hidden) continue;           // only events with a guide on the site
-    const n = Math.floor((today - sc.anchor) / DAY); if (n < 0) continue;
+    const n = Math.floor((today - sc.anchor) / DAY);
+    if (n < 0) { if (-n <= 7) soon.push({ key, until: -n, start: sc.anchor }); continue; }   // schedule moved to a later start (e.g. Bear Hunt pushed back)
     const inRun = n % sc.periodDays;
     if (inRun < sc.activeDays) nowItems.push({ key, day: inRun + 1, days: sc.activeDays });
     else { const until = sc.periodDays - inRun; if (until <= 7) soon.push({ key, until, start: today + until * DAY }); }

@@ -14,7 +14,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-13d (event times)";
+const VERSION = "2026-10-13e (bear day)";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -297,7 +297,7 @@ GETTING IN
 - 🗺️ Map (中文: 王國地圖): kingdom map, Outpost buffs and the shared Outpost plan — see the 🗺️ MAP section below.
 - Language: officer pages are English or 中文. Entering from the Chinese site opens them in 中文, from any other language in English. The language button on any tab switches all officer tabs together.
 - When answering in Chinese, call the tabs by their 中文 names above (they are what officers see on screen).
-- Events tab → "⏰ Our event times (UTC)" (中文: 我們的活動時間): officers set the times we pick for Bear Hunt, Swordland, Tri-Alliance Clash, Viking Vengeance and Cesares Fury (e.g. 13:00, 22:00; Cesares Fury 22:35) and press Save. Used by the home page "Today & this week" card and everyone's ⏰ Game reminders.
+- Events tab → "⏰ Our event times (UTC)" (中文: 我們的活動時間): officers set the times we pick for Bear Hunt, Swordland, Tri-Alliance Clash, Viking Vengeance and Cesares Fury (e.g. 13:00, 22:00; Cesares Fury 22:35) and press Save. Used by the home page "Today & this week" card and everyone's ⏰ Game reminders. The same card has "Next Bear day (UTC)" (中文: 下一個熊日): if the game moves Bear Hunt to another day, set the new date there and Save — the home page, the officer calendar and to-dos, and everyone's ⏰ reminders all follow (Bear Hunt then repeats every 2 days from that date). Bear Hunt times changed? Change them in the same card.
 - Events tab also lists Sanctuary Battle (中文: 遺跡爭奪): every week Tue 00:00 – Fri 24:00 UTC (sign-up first, R4+ picks 3 time slots, the contest happens at the slot most alliances voted; 1 Sanctuary + 1 Fortress per week, last week's Sanctuaries are signed up automatically). Its in-game guides: the rally call (exactly 70,080 troops: 35,040 Inf / 14,016 Cav / 21,024 Arc, rally from home, no solo attacks) and the defence swap after a capture (Howard/Gordon 60:20:20 = 42,048/14,016/14,016; send defence right after the rally departs, wait 20 s, don't speed up).
 - Member data updates automatically every day at 20:13 UTC. If a page says "No data yet": GitHub → Actions → "Update Roster (MightPulse)" → Run workflow, then reload.
 
