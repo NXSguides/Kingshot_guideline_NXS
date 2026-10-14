@@ -188,6 +188,7 @@ const TERMS = [
   "cat": "Heroes — SSR",
   "rows": [
    ["Saul", "薩洛", "살로", "Saul", "Saul", "Saul", "Saul", "Saul", "Соул", "ซอล", "شاول", "Saul"],
+   ["Resourceful", "循環利用", "순환 이용", "Einfallsreich", "Débrouillard", "Talentoso", "Geri Dönüşüm", "Resourceful", "Находчивость", "เจ้าปัญญา", "واسع الحيلة", "Ingenioso", "Saul's skill: Construction Speed +3/6/9/12/15% and Construction Cost −3/6/9/12/15% (Lv1–5). ID keeps the English name."],
    ["Helga", "赫爾加", "헬가", "Helga", "Helga", "Helga", "Helga", "Helga", "Хельга", "เฮลก้า", "هيلجا", "Helga"],
    ["Zoe", "佐伊", "조이", "Zoe", "Zoé", "Zoe", "Zoe", "Zoe", "Зои", "โซอี้", "زوي", "Zoe"],
    ["Hilde", "希爾德", "힐데", "Hilde", "Hilde", "Hilde", "Hilde", "Hilde", "Хильда", "ฮิลเดอร์", "هيلدي", "Hilde"],
