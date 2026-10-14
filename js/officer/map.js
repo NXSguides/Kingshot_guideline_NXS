@@ -188,7 +188,7 @@ function rewardsHtml() {
     const rows = [...groups.values()].sort((a, b) => b.bs.length - a.bs.length || a.bs[0].n - b.bs[0].n).map(({ sp, bs }) =>
       `<div class="km-lv"><span class="pill km-rwp" style="background:${RCOL[sp[0]] || "#5d6876"}">${esc(iName(sp[0]))} ×${sp[1]}</span><div class="chips">${bs.map(chip).join("")}</div></div>`).join("");
     const chests = R.chests.map(([c, n]) => { const C = G.rewards.chests[c];
-      return `<div class="km-rwc"><b>${esc(rt(C.slot))}</b> <span class="muted">${lang === "en" ? esc(C.name.en) + " " : "📦 "}×${n}</span><div>${C.items.map(([i, q]) => `${esc(iName(i))} ×${q}`).join(" · ")}</div></div>`; }).join("");
+      return `<div class="km-rwc"><b>${esc(rt(C.slot))}</b> <span class="muted">📦 ${esc(C.name[lang] || C.name.en)} ×${n}</span><div>${C.items.map(([i, q]) => `${esc(iName(i))} ×${q}`).join(" · ")}</div></div>`; }).join("");
     return `<div class="km-rwk"><div class="hd"><span class="pill" style="background:${col}">${sym} ${esc(kindName(k))}</span><span class="bf">${esc(rt("power"))} ${R.power.toLocaleString("en-US")} · ${esc(rt("gar"))} ${esc(R.garrison)}</span></div>
       <div class="muted km-rws">${esc(rt("special"))}</div>${rows}
       <details class="km-rwd"><summary>${esc(rt("same").replace("{k}", kindName(k)))}</summary>${chests}</details></div>`;

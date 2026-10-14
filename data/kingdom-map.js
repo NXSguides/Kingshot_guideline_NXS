@@ -894,18 +894,24 @@ const KINGDOM_MAP = {
   "items": {
    "gems100": {
     "en": "100 Gems",
-    "zh": "100 鑽石",
-    "ko": "100 다이아",
+    "zh": "100鑽石",
+    "ko": "다이아x100",
     "pt": "100 Gemas",
-    "ar": "100 جواهر"
+    "ar": "100 من الجواهر"
    },
    "train1h": {
     "en": "1h Training Speedup",
-    "zh": "1 小時訓練加速"
+    "zh": "1小時訓練加速",
+    "ko": "1시간 훈련 가속",
+    "pt": "1h de Aceleração de Treinamento",
+    "ar": "تسريع التدريب لمدة 1 ساعة"
    },
    "heal1h": {
     "en": "1h Healing Speedup",
-    "zh": "1 小時治療加速"
+    "zh": "1小時治療加速",
+    "ko": "1시간 치료 가속",
+    "pt": "1h de Aceleração de Cura",
+    "ar": "تسريع الشفاء لمدة 1 ساعة"
    },
    "gen1h": {
     "en": "1h General Speedup",
@@ -913,47 +919,59 @@ const KINGDOM_MAP = {
    },
    "gen5m": {
     "en": "5m General Speedup",
-    "zh": "5 分鐘通用加速"
+    "zh": "5分鐘通用加速",
+    "ko": "5분 공용 가속",
+    "pt": "5m de Aceleração Geral",
+    "ar": "تسريع عام لمدة 5 دقائق"
    },
    "con5m": {
     "en": "5m Construction Speedup",
-    "zh": "5 分鐘建造加速"
+    "zh": "5分鐘建造加速",
+    "ko": "5분 건설 가속",
+    "pt": "5m de Aceleração da Construção",
+    "ar": "تسريع البناء لمدة 5 دقائق"
    },
    "res5m": {
     "en": "5m Research Speedup",
-    "zh": "5 分鐘研究加速"
+    "zh": "5分鐘研究加速",
+    "ko": "연구 가속 5분",
+    "pt": "5m de Aceleração de Pesquisa",
+    "ar": "تسريع البحث لمدة 5 دقائق"
    },
    "heroxp5k": {
     "en": "5,000 Hero XP",
-    "zh": "5,000 英雄經驗"
+    "zh": "5,000點英雄經驗值",
+    "ko": "영웅 경험치 5,000점",
+    "pt": "5.000 XP do Herói",
+    "ar": "5,000 من خبرة البطل"
    },
    "bread1k": {
     "en": "1K Bread",
-    "zh": "1K 麵包",
-    "ko": "1K 빵",
-    "pt": "1K Pão",
-    "ar": "1K خبز"
+    "zh": "1K麵包",
+    "ko": "빵 1K",
+    "pt": "1K de Pão",
+    "ar": "1 ألف من الخبز"
    },
    "wood1k": {
     "en": "1K Wood",
-    "zh": "1K 木材",
-    "ko": "1K 목재",
+    "zh": "1K木材",
+    "ko": "목재 1K",
     "pt": "1K Madeira",
-    "ar": "1K خشب"
+    "ar": "1 ألفًا من الخشب"
    },
    "stone1k": {
     "en": "1K Stone",
-    "zh": "1K 石材",
-    "ko": "1K 석재",
-    "pt": "1K Pedra",
-    "ar": "1K حجر"
+    "zh": "1K石材",
+    "ko": "석재 1K",
+    "pt": "1K de Pedra",
+    "ar": "1 ألف من الحجر"
    },
    "iron1k": {
     "en": "1K Iron",
-    "zh": "1K 鐵礦",
-    "ko": "1K 철광",
-    "pt": "1K Ferro",
-    "ar": "1K حديد"
+    "zh": "1K鐵礦",
+    "ko": "철광 1K",
+    "pt": "1K de Ferro",
+    "ar": "1 ألف من الحديد"
    },
    "goldkey": {
     "en": "Gold Key",
@@ -1024,7 +1042,11 @@ const KINGDOM_MAP = {
   "chests": {
    "warrior": {
     "name": {
-     "en": "Warrior's Chest"
+     "en": "Warrior's Chest",
+     "zh": "奮戰者寶箱",
+     "ko": "전사 보물상자",
+     "pt": "Baú do Guerreiro",
+     "ar": "صندوق المحارب"
     },
     "slot": "part",
     "items": [
@@ -1048,7 +1070,11 @@ const KINGDOM_MAP = {
    },
    "ally": {
     "name": {
-     "en": "Ally's Chest"
+     "en": "Ally's Chest",
+     "zh": "結盟者寶箱",
+     "ko": "동맹 보물상자",
+     "pt": "Baú do Aliado",
+     "ar": "صندوق الحليف"
     },
     "slot": "ally",
     "items": [
@@ -1084,7 +1110,11 @@ const KINGDOM_MAP = {
    },
    "ruler": {
     "name": {
-     "en": "Ruler's Chest"
+     "en": "Ruler's Chest",
+     "zh": "統御者寶箱",
+     "ko": "통솔 보물상자",
+     "pt": "Baú do Governante",
+     "ar": "صندوق الحاكم"
     },
     "slot": "alloc",
     "items": [
@@ -1116,7 +1146,11 @@ const KINGDOM_MAP = {
    },
    "controller": {
     "name": {
-     "en": "Controller's Chest"
+     "en": "Controller's Chest",
+     "zh": "控制者寶箱",
+     "ko": "점령 보물상자",
+     "pt": "Baú do Controlador",
+     "ar": "صندوق المتحكم"
     },
     "slot": "control",
     "items": [
