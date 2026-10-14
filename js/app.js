@@ -1249,6 +1249,7 @@ function renderEventPopup() {
 }
 
 restorePrefs();
+if (langChosen) persistPrefs();   // a link with a language (e.g. ← Home from the officer page) becomes the site's language
 initTheme();
 renderAll();
 loadAnnouncements();

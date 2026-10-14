@@ -172,7 +172,8 @@ function applyShared() {
   const t = SH[OFFICER.lang] || SH.en;
   document.documentElement.lang = HTML_LANG(OFFICER.lang);
   document.getElementById("shHome").textContent = t.home;
-  document.getElementById("shHome").parentElement.href = "./#/" + (siteLang() || OFFICER.lang) + "/";   // ← Home: the site in its own language (e.g. Deutsch), else this one
+  // ← Home opens the site in its language; picking a language here (langBtn) makes it the site's too, so both always match
+  document.getElementById("shHome").parentElement.href = "./#/" + (siteLang() || OFFICER.lang) + "/";
   document.getElementById("langBtn").value = OFFICER.lang;
   document.getElementById("gateTitle").textContent = t.pw;
   document.getElementById("gateRememberTxt").textContent = t.remember;
@@ -206,7 +207,8 @@ function applyShared() {
 })();
 document.getElementById("langBtn").onchange = (ev) => {
   OFFICER.lang = ev.target.value;
-  setOfficerLang(OFFICER.lang); applyShared();
+  setOfficerLang(OFFICER.lang); try { localStorage.setItem("ks-lang", OFFICER.lang); } catch (e) {}   // the site follows (it has all five)
+  applyShared();
   for (const k of TABS) {
     const p = OFFICER_PAGES[k];
     if (!p || !p.setLang) continue;
