@@ -245,14 +245,17 @@
     }
     if (changed) window.dispatchEvent(new CustomEvent("nxs-synced"));   // the page redraws its checklists
   };
+  let lastStored = "";
   const store = () => {
     const now = Date.now(), ids = new Set();
     for (const x of timers) { if (!x.mt) x.mt = now; ids.add(x.id); }
     for (const id of lastIds) if (!ids.has(id)) meta.del[id] = now;
     lastIds = ids; saveMeta();
-    try { localStorage.setItem(LS, JSON.stringify(timers)); } catch (e) {}
-    cloudSoon();
+    const txt = JSON.stringify(timers), changed = txt !== lastStored; lastStored = txt;
+    try { localStorage.setItem(LS, txt); } catch (e) {}
+    if (changed) cloudSoon(); else cloudPeek();   // nothing changed (e.g. app brought back) → no instant server call
   };
+  lastStored = JSON.stringify(timers);
   const prune = () => { const now = Date.now(); timers = timers.filter((x) => x.at > now - KEEP_DONE_MS); };
   const termOf = (id) => (typeof GLOSSARY !== "undefined" && GLOSSARY[id] ? GLOSSARY[id][lang()] || GLOSSARY[id].en : id.charAt(0).toUpperCase() + id.slice(1));
   const labelOf = (x) => labelBase(x) + (x.na ? " 🎖️" : "");
@@ -413,16 +416,26 @@
         : { id: x.id, at: x.at, title: `${CAT_EMOJI[x.cat] || "⏰"} ${labelOf(x)}`, body: `${labelOf(x)} ${T("body")}` })
       .concat(alertTimers(), adminTimers(), testPending && testPending.at > now ? [testPending] : []);
     let tok = null; try { tok = localStorage.getItem(DTOK); } catch (e) {}
+    /* save Cloudflare's daily allowance: send only when the list (or the login) changed, or every 6 h to stay fresh */
+    const sig = JSON.stringify([sub.endpoint, tok ? 1 : 0, list.map((x) => [x.id, x.at, x.title])]);
+    let last = {}; try { last = JSON.parse(localStorage.getItem("nxs-push-sig")) || {}; } catch (e) {}
+    if (last.s === sig && Date.now() - (last.t || 0) < 6 * 3600000 && !syncErr) { if (!view.hidden) render(); return; }
+    try { localStorage.setItem("nxs-push-sig", JSON.stringify({ s: sig, t: Date.now() })); } catch (e) {}
     try { const r = await post("/push/save", { sub: sub.toJSON(), timers: list, ...(tok ? { token: tok } : {}) }); syncErr = false; synced = { n: r.n ?? list.length, at: Date.now(), devices: r.devices }; }
-    catch (e) { syncErr = true; }
+    catch (e) { syncErr = true; try { localStorage.removeItem("nxs-push-sig"); } catch (x) {} }
     if (!view.hidden) render();
   }
 
   /* ---------- 🔄 cloud sync: merge this device's ⏰ data with the person's saved copy on the server ---------- */
   let cloudTimer = null, cloud = { at: 0, err: "" };
   try { cloud.err = sessionStorage.getItem("nxs-login-error") || ""; sessionStorage.removeItem("nxs-login-error"); } catch (e) {}
-  function cloudSoon() { clearTimeout(cloudTimer); cloudTimer = setTimeout(cloudSync, 1200); }
+  let dirty = false;
+  function cloudSoon() { dirty = true; clearTimeout(cloudTimer); cloudTimer = setTimeout(cloudSync, 1200); }
+  /* only looking (page opened / app brought back): at most once every 2 min, to spare Cloudflare's daily allowance */
+  function cloudPeek() { let t = 0; try { t = +localStorage.getItem("nxs-sync-peek") || 0; } catch (e) {} if (Date.now() - t > 2 * 60000) cloudSync(); }
   async function cloudSync() {
+    try { localStorage.setItem("nxs-sync-peek", String(Date.now())); } catch (e) {}
+    dirty = false;
     let tok = null; try { tok = localStorage.getItem(DTOK); } catch (e) {}
     if (!tok) return;
     let r, j;
@@ -839,7 +852,7 @@
     try { const n = list.filter((x) => !x.seen).length; if (n && navigator.setAppBadge) navigator.setAppBadge(n); else if (navigator.clearAppBadge) navigator.clearAppBadge(); } catch (e) {}
   }
   setTimeout(inbox, 900);
-  setTimeout(cloudSync, 700);
+  setTimeout(cloudPeek, 700);
   window.addEventListener("nxs-synced", () => pageStack());
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") inbox(); });
   // after coming back to the app, re-send the list once (keeps the server in step if a save failed)
