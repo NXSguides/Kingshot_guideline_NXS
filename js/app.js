@@ -273,7 +273,9 @@ const hToHM = (h) => String(Math.floor(h)).padStart(2, "0") + ":" + String(Math.
 /* which day of the event the battle is (officer Events tab → "days" in event-times.json): -1 = last day, 1.. = that day, missing = every day */
 const FIGHT_DAY = { "swordland-showdown": -1, "tri-alliance-clash": -1, "viking-vengeance": -1, "cesares-fury": 1, "kvk": 6 };
 /* days after the battle that are a phase of their own (KvK: 2 repair days — heal with first-aid kits) */
-const REPAIR_DAYS = { "kvk": [7, 8] }, REPAIR_EMOJI = "⛑️";
+const REPAIR_DAYS = { "kvk": [7, 8] }, REPAIR_EMOJI = "💊";
+/* events whose prep days matter as much as the battle: prep keeps the guide emoji at full strength, the battle day gets its own */
+const PHASED = { "kvk": { fight: "💥" } };
 const isRepairDay = (k, dayIdx) => (REPAIR_DAYS[k] || []).includes(dayIdx + 1);
 const isFightDay = (k, dayIdx, activeDays) => { if (!(k in FIGHT_DAY)) return true; const f = FIGHT_DAY[k] < 0 ? activeDays + FIGHT_DAY[k] : FIGHT_DAY[k] - 1; return dayIdx === f; };
 fetch("data/event-times.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((d) => {
@@ -1029,6 +1031,7 @@ const TODAY_TXT = {
 const CAL_TXT = {
   title: { en:"📆 Calendar", zh:"📆 行事曆", ko:"📆 달력", de:"📆 Kalender", fr:"📆 Calendrier", pt:"📆 Calendário", es:"📆 Calendario", tr:"📆 Takvim", id:"📆 Kalender", ru:"📆 Календарь", th:"📆 ปฏิทิน", ar:"📆 التقويم" },
   repair: { en:"repair days", zh:"修復日", ko:"복구일", de:"Reparaturtage", fr:"jours de réparation", pt:"dias de reparo", es:"días de reparación", tr:"onarım günleri", id:"hari perbaikan", ru:"дни восстановления", th:"วันซ่อมแซม", ar:"أيام الإصلاح" },
+  prepPhase: { en:"prep days", zh:"準備期", ko:"준비 기간", de:"Vorbereitung", fr:"préparation", pt:"preparação", es:"preparación", tr:"hazırlık", id:"persiapan", ru:"подготовка", th:"ช่วงเตรียมตัว", ar:"أيام التحضير" },
   prep: { en:"not the battle day", zh:"還沒開打", ko:"전투일 아님", de:"kein Kampftag", fr:"pas le jour du combat", pt:"não é o dia da batalha", es:"no es el día de batalla", tr:"savaş günü değil", id:"bukan hari pertempuran", ru:"не день битвы", th:"ยังไม่ใช่วันต่อสู้", ar:"ليس يوم المعركة" },
   none: { en:"No events that day.", zh:"這天沒有活動。", ko:"이 날은 이벤트가 없어요.", de:"An dem Tag kein Event.", fr:"Pas d'événement ce jour-là.", pt:"Nenhum evento nesse dia.", es:"No hay eventos ese día.", tr:"O gün etkinlik yok.", id:"Tidak ada acara hari itu.", ru:"В этот день событий нет.", th:"วันนั้นไม่มีกิจกรรม", ar:"لا توجد فعاليات في ذلك اليوم." },
 };
@@ -1038,7 +1041,8 @@ function calEventsOn(day) {   // [{key|ann, emoji, name, day, days}] active on t
   for (const [key, sc] of Object.entries(EVENT_SCHEDULES).concat([["bear-hunt", BEAR_SCHED]])) {
     if (!GUIDES[key] || GUIDES[key].hidden) continue;
     const n = Math.floor((day - sc.anchor) / DAY); if (n < 0) continue;
-    const r = n % sc.periodDays; if (r < sc.activeDays) { const rep = isRepairDay(key, r); out.push({ key, emoji: rep ? REPAIR_EMOJI : GUIDES[key].emoji, name: t(GUIDES[key].name), day: r + 1, days: sc.activeDays, fight: !rep && isFightDay(key, r, sc.activeDays), repair: rep }); }
+    const r = n % sc.periodDays; if (r < sc.activeDays) { const rep = isRepairDay(key, r); const fight = !rep && isFightDay(key, r, sc.activeDays), ph = PHASED[key];
+      out.push({ key, emoji: rep ? REPAIR_EMOJI : fight && ph ? ph.fight : GUIDES[key].emoji, name: t(GUIDES[key].name), day: r + 1, days: sc.activeDays, fight, repair: rep, prep: !!ph && !fight && !rep }); }
   }
   for (const ev of ANN_EVENTS) {
     const i = announcements.findIndex((a) => ((a.title && (a.title.en || "")) + " " + JSON.stringify(a.title || {})).includes(ev.match)); if (i < 0) continue;
@@ -1058,12 +1062,12 @@ function monthCalHtml() {
   for (let i = 0; i < lead; i++) cells += `<span class="cal-d pad"></span>`;
   for (let d = 0; d < nDays; d++) {
     const day = first + d * DAY, evs = calEventsOn(day), big = evs.filter((e) => e.key !== "bear-hunt"), bear = evs.length !== big.length;
-    const em = big.slice(0, 3).map((e) => `<i class="${e.fight || e.repair ? "f" : "s"}">${e.emoji}</i>`).join("") + (big.length > 3 ? "⋯" : "");
+    const em = big.slice(0, 3).map((e) => `<i class="${e.fight || e.repair || e.prep ? "f" : "s"}">${e.emoji}</i>`).join("") + (big.length > 3 ? "⋯" : "");
     cells += `<button type="button" class="cal-d${day === today ? " today" : ""}${day === pick ? " pick" : ""}${bear ? " bear" : ""}" onclick="calPick=${day};renderCal()"><span class="n">${d + 1}</span><span class="e">${em}</span></button>`;
   }
   const fill = (str, v) => str.replace(/\{(\w+)\}/g, (m, k) => (v[k] ?? m));
   const list = calEventsOn(pick), dl = new Date(pick).toLocaleDateString(loc, { weekday: "short", month: "short", day: "numeric", timeZone: "UTC" });
-  const rows = list.length ? list.map((it) => `<button type="button" class="td-row" onclick="${it.ann !== undefined ? `goToAnnouncements(${it.ann})` : `switchGuide('${it.key}')`}"><span class="emoji">${it.emoji}</span><span class="td-main"><b dir="auto">${escapeHtml(it.name)}${it.fight ? " ⚔️" : ""}</b>${it.days > 1 ? `<span class="td-meta">${escapeHtml(fill(t(TODAY_TXT.day), { n: it.day, d: it.days }))}${it.fight ? "" : " · " + escapeHtml(t(it.repair ? CAL_TXT.repair : CAL_TXT.prep))}</span>` : ""}</span><span class="arrow">›</span></button>`).join("")
+  const rows = list.length ? list.map((it) => `<button type="button" class="td-row" onclick="${it.ann !== undefined ? `goToAnnouncements(${it.ann})` : `switchGuide('${it.key}')`}"><span class="emoji">${it.emoji}</span><span class="td-main"><b dir="auto">${escapeHtml(it.name)}${it.fight ? " ⚔️" : ""}</b>${it.days > 1 ? `<span class="td-meta">${escapeHtml(fill(t(TODAY_TXT.day), { n: it.day, d: it.days }))}${it.fight ? "" : " · " + escapeHtml(t(it.repair ? CAL_TXT.repair : it.prep ? CAL_TXT.prepPhase : CAL_TXT.prep))}</span>` : ""}</span><span class="arrow">›</span></button>`).join("")
     : `<div class="td-none">${escapeHtml(t(CAL_TXT.none))}</div>`;
   return `<div class="td-title cal-head"><span>${escapeHtml(t(CAL_TXT.title))}</span><span class="cal-nav"><button type="button" onclick="calShift--;calPick=null;renderCal()">‹</button><b>${escapeHtml(fd.toLocaleDateString(loc, { month: "long", year: "numeric", timeZone: "UTC" }))}</b><button type="button" onclick="calShift++;calPick=null;renderCal()">›</button></span></div>
     <div class="cal-grid">${wd.map((w) => `<span class="cal-w">${escapeHtml(w)}</span>`).join("")}${cells}</div><div class="td-h">${escapeHtml(dl)}</div>${rows}`;
@@ -1080,6 +1084,7 @@ function todayCardHtml() {
     if (n < 0) { if (-n <= 7) soon.push({ key, until: -n, start: sc.anchor }); continue; }   // schedule moved to a later start (e.g. Bear Hunt pushed back)
     const inRun = n % sc.periodDays;
     if (inRun < sc.activeDays && isRepairDay(key, inRun)) { nowItems.push({ key, day: inRun + 1, days: sc.activeDays, repair: true }); continue; }
+    if (inRun < sc.activeDays && PHASED[key] && !isFightDay(key, inRun, sc.activeDays)) { nowItems.push({ key, day: inRun + 1, days: sc.activeDays, prep: true }); continue; }
     if (inRun < sc.activeDays && isFightDay(key, inRun, sc.activeDays)) { nowItems.push({ key, day: inRun + 1, days: sc.activeDays }); continue; }
     // next battle day within 7 days (an event already running but not yet at its battle day counts too)
     for (let u = 1; u <= 7; u++) { const r = (inRun + u) % sc.periodDays; if (r < sc.activeDays && isFightDay(key, r, sc.activeDays)) { soon.push({ key, until: u, start: today + u * DAY }); break; } }
@@ -1102,8 +1107,8 @@ function todayCardHtml() {
     if (it.ann !== undefined) return `<button type="button" class="td-row" onclick="goToAnnouncements(${it.ann});setTimeout(()=>{const x=document.querySelector('.ann-tab.active');if(x)x.scrollIntoView({behavior:'smooth',block:'start'})},150)"><span class="emoji">${it.emoji}</span>
       <span class="td-main"><b dir="auto">${escapeHtml(it.name)}</b><span class="td-meta">${meta}</span></span><span class="arrow">›</span></button>`;
     const g = GUIDES[it.key];
-    return `<button type="button" class="td-row" onclick="switchGuide('${it.key}')"><span class="emoji">${it.repair ? REPAIR_EMOJI : g.emoji}</span>
-      <span class="td-main"><b dir="auto">${escapeHtml(t(g.name))}</b><span class="td-meta">${meta}${it.repair ? " · " + escapeHtml(t(CAL_TXT.repair)) : ""}</span>${it.repair ? "" : times(it.key)}</span><span class="arrow">›</span></button>`; };
+    return `<button type="button" class="td-row" onclick="switchGuide('${it.key}')"><span class="emoji">${it.repair ? REPAIR_EMOJI : it.prep ? g.emoji : (PHASED[it.key] || {}).fight || g.emoji}</span>
+      <span class="td-main"><b dir="auto">${escapeHtml(t(g.name))}</b><span class="td-meta">${meta}${it.repair ? " · " + escapeHtml(t(CAL_TXT.repair)) : it.prep ? " · " + escapeHtml(t(CAL_TXT.prepPhase)) : ""}</span>${it.repair || it.prep ? "" : times(it.key)}</span><span class="arrow">›</span></button>`; };
   const when = (u) => u === 1 ? t(TODAY_TXT.tomorrow) : fill(t(TODAY_TXT.inDays), { n: u });
   let h = `<div class="today-card"><div class="td-title">${escapeHtml(t(TODAY_TXT.title))}</div>`;
   if (!nowItems.length && !soon.length) h += `<div class="td-none">${escapeHtml(t(TODAY_TXT.none))}</div>`;
