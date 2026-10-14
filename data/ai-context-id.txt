@@ -1441,6 +1441,7 @@ Conquerors' Camp = Kamp Penakluk
 Court of Justice = Mahkamah Hukum
 Infirmary = Rumah Sakit
 Enlistment Office = Kantor Pendaftaran
+Watchtower = Menara Pengawas
 Covenant-Making = Pembuatan Pakta
 Permanent Alliance Tech Contributions = Kontribusi Teknologi Aliansi
 Contribution Rewards = Hadiah Kontribusi
