@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-14b (officer board)";
+const VERSION = "2026-10-14c (officer board: translation errors shown)";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -774,18 +774,23 @@ async function boardTranslate(env, title, text) {
     terms ? "\n===== TERM TABLE (official in-game names) =====\n" + terms : "",
   ].join("\n");
   const user = (title ? "TITLE:\n" + title + "\n\n" : "") + "TEXT:\n" + text;
+  const errs = [];
   for (const m of MODELS) {
-    const r = await gemini(env, m, system, [{ role: "user", parts: [{ text: user }] }], { responseMimeType: "application/json", temperature: 0.2 });
-    if (r.error) continue;
+    // JSON mode first; if a model rejects it, once more as plain text (the fences are stripped below)
+    let r = await gemini(env, m, system, [{ role: "user", parts: [{ text: user }] }], { responseMimeType: "application/json", temperature: 0.2 });
+    if (r.error && /HTTP 400/.test(r.error)) r = await gemini(env, m, system, [{ role: "user", parts: [{ text: user }] }], { temperature: 0.2 });
+    if (r.error) { errs.push(m + ": " + r.error); continue; }
     try {
-      const j = JSON.parse(r.answer.replace(/^```(?:json)?\s*|\s*```$/g, ""));
+      const raw = r.answer.replace(/^```(?:json)?\s*|\s*```$/g, "");
+      const j = JSON.parse(raw.slice(raw.indexOf("{"), raw.lastIndexOf("}") + 1));
       const src = String(j.src || "").toLowerCase().slice(0, 5);
       const pack = (o, orig) => { const x = { orig, src }; for (const l of BOARD_LANGS) if (o && typeof o[l] === "string" && o[l].trim()) x[l] = o[l].trim(); return x; };
       const out = { ok: true, text: pack(j.text, text) };
       if (title) out.title = pack(j.title, title);
       return out;
-    } catch (e) { continue; }
+    } catch (e) { errs.push(m + ": bad JSON (" + String(r.answer).slice(0, 80) + ")"); continue; }
   }
+  plain.text.err = errs.join(" | ").slice(0, 300);   // kept with the message so the page can show why
   return plain;
 }
 const rid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
