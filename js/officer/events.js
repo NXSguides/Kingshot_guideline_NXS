@@ -352,8 +352,8 @@ const EVENTS = {
   "merchant-empire":    { emoji: "🐫", en: "Merchant Empire", zh: "貿易復興", noGuide: true, start: "2026-10-12", every: 28, days: 7,
     note: "Escort 2 caravans at a time · last 4 h (until Sun 04:00 UTC) raiding only", noteZh: "同時最多護送 2 輛貨車 · 最後 4 小時（到週日 UTC 04:00）只能掠奪" },
   // first seen 2026-10-13 – 10-15 (3 days), the day after KvK ended (KvK 10-05 – 10-12) → assumed to follow the 4-week KvK cycle; fix start / "every" on this page if the next one differs
-  "call-of-sovereign":  { emoji: "📯", en: "Call of the Sovereign", zh: "Call of the Sovereign", noGuide: true, start: "2026-10-13", every: 28, days: 3,
-    note: "Max rewards: 90 Gold Keys (30/day) + 30 Platinum Keys (10/day) over the 3 days · resets 00:00 UTC", noteZh: "拿滿獎勵：3 天共 90 把金鑰匙（每天 30）＋ 30 把白金鑰匙（每天 10）· UTC 00:00 重置" },
+  "call-of-sovereign":  { emoji: "📯", en: "Call of the Sovereign", zh: "崛起的號角", noGuide: true, start: "2026-10-13", every: 28, days: 3,
+    note: "Max rewards: 90 Gold Keys (30/day) + 30 Platinum Keys (10/day) over the 3 days · resets 00:00 UTC", noteZh: "拿滿獎勵：3 天共 90 把黃金鑰匙（每天 30）＋ 30 把白銀鑰匙（每天 10）· UTC 00:00 重置" },
 };
 const SWORDLAND_TODO = [
   { due: 0, post: 1, en: "Voting phase: set up an alliance poll to confirm 100% attendance for the fixed time windows.",
@@ -390,7 +390,7 @@ const MOBILIZATION_TODO = [
 ];
 const BEAR_TODO = [];   // Bear Hunt repeats by itself — nothing for officers to do unless the time changes
 /* built-in lists that replace an already-saved list once (bump the number to push a new version) */
-const TODO_PUSH = { "swordland-showdown": [8, () => SWORDLAND_TODO], "tri-alliance-clash": [1, () => TAC_TODO], "viking-vengeance": [1, () => VV_TODO],
+const TODO_PUSH = { "call-of-sovereign": [1, () => TODO["call-of-sovereign"]], "swordland-showdown": [8, () => SWORDLAND_TODO], "tri-alliance-clash": [1, () => TAC_TODO], "viking-vengeance": [1, () => VV_TODO],
   "sanctuary-battle": [1, () => SANCTUARY_TODO], "alliance-mobilization": [1, () => MOBILIZATION_TODO], "bear-hunt": [2, () => BEAR_TODO] };
 // What officers need to do. due: days relative to the event's first day (−1 = the day before).
 const TODO = {
@@ -415,7 +415,7 @@ const TODO = {
   ],
   "call-of-sovereign": [
     { due: -3, post: 1, en: "Remind everyone to SAVE Gold & Platinum Keys (90 Gold + 30 Platinum for max rewards) — copy the in-game message.",
-               zh: "提醒大家存金鑰匙和白金鑰匙（拿滿要 90 金＋30 白金），可直接複製遊戲內公告。" },
+               zh: "提醒大家存黃金鑰匙和白銀鑰匙（拿滿要 90 把黃金＋30 把白銀），可直接複製遊戲內公告。" },
   ],
   "fishing-tournament": [
     { due: 0, en: "Remind everyone: use Ocean Prospector first to upgrade the Fishing Kit, then switch to Regular Fishing.",
@@ -963,6 +963,8 @@ function seedTodos(list) {
   /* KvK Battle phase only runs 12:00–22:00 UTC: its Castle Battle item shows on that day only, until 22:00 UTC */
   for (const td of ((list.find((x) => x.id === "kvk") || {}).todo || []))
     if (td.until == null && td.due === 5 && /Castle Battle|王城爭奪/.test((td.en || "") + (td.zh || ""))) td.until = 22;
+  /* 📯 the game's Chinese name came later (崛起的號角, 黃金鑰匙 / 白銀鑰匙): fix an already-saved name / note that still has the placeholder */
+  for (const e of list) if (e.id === "call-of-sovereign") { if (!e.zh || e.zh === "Call of the Sovereign") e.zh = EVENTS[e.id].zh; if (e.noteZh && /金鑰匙|白金/.test(e.noteZh) && !/黃金鑰匙/.test(e.noteZh)) e.noteZh = EVENTS[e.id].noteZh; }
   /* replace saved lists once with the newer built-in steps (todoV marks it, so later edits stick) */
   for (const e of list) { const p = TODO_PUSH[e.id]; if (p && e.todoV !== p[0]) { e.todo = p[1]().map((x) => ({ ...x })); e.todoV = p[0]; e.todoSeed = 1; } }
   for (const e of list) {

@@ -1126,6 +1126,8 @@ document.addEventListener("change", (e) => {
 });
 /* the page stays open past 00:00 UTC: clear the ticks on screen too */
 let dailyDay = utcToday();
+/* ✅ ticks changed on another device (synced by js/timers.js when logged in with Discord) → redraw */
+window.addEventListener("nxs-synced", () => { if (langChosen) renderAll(); });
 setInterval(() => { if (utcToday() !== dailyDay) { dailyDay = utcToday(); if (document.getElementById("dailyCard") || document.getElementById("dailyHint")) renderAll(); } }, 60000);
 function dailyHintHtml() {
   const g = GUIDES[DAILY_GUIDE], s = g && (g.sections[currentLang] || g.sections.en), d = s && dailySection(s);

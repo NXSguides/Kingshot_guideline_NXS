@@ -223,6 +223,28 @@
   meta.del = meta.del || {};
   const saveMeta = () => { try { localStorage.setItem(SYNC_LS, JSON.stringify(meta)); } catch (e) {} };
   let lastIds = new Set(timers.map((x) => x.id));
+  /* ✅ ticks on the site (daily checklist, KvK checklist, buff-stack steps) ride along with the ⏰ sync when logged in:
+     every write to one of these keys is stamped (meta.ls[key].at) and sent; a newer copy from another device replaces it */
+  const SYNC_KEY = /^(nxs-daily-v1|nxs-stack-done|ks-kvk-check-[\w-]{1,40})$/;
+  meta.ls = meta.ls || {};
+  let applying = false;
+  try {
+    const orig = Storage.prototype.setItem;
+    Storage.prototype.setItem = function (k, v) {
+      orig.call(this, k, v);
+      if (this === window.localStorage && !applying && SYNC_KEY.test(k)) { meta.ls[k] = { at: Date.now() }; orig.call(this, SYNC_LS, JSON.stringify(meta)); cloudSoon(); }
+    };
+  } catch (e) {}
+  const lsOut = () => { const o = {}; for (const [k, m] of Object.entries(meta.ls)) { let v = null; try { v = localStorage.getItem(k); } catch (e) {} if (v != null) o[k] = { v, at: m.at }; } return o; };
+  const lsIn = (ls) => {
+    let changed = false;
+    for (const [k, x] of Object.entries(ls || {})) {
+      if (!SYNC_KEY.test(k) || (meta.ls[k] && meta.ls[k].at >= x.at)) continue;
+      applying = true; try { localStorage.setItem(k, x.v); } catch (e) {} applying = false;
+      meta.ls[k] = { at: x.at }; changed = true;
+    }
+    if (changed) window.dispatchEvent(new CustomEvent("nxs-synced"));   // the page redraws its checklists
+  };
   const store = () => {
     const now = Date.now(), ids = new Set();
     for (const x of timers) { if (!x.mt) x.mt = now; ids.add(x.id); }
@@ -406,7 +428,7 @@
     let r, j;
     try {
       r = await fetch(API + "/sync", { method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token: tok, state: { timers, del: meta.del, alerts, alertsAt: meta.alertsAt || 0, presets, presetsAt: meta.presetsAt || 0 } }) });
+        body: JSON.stringify({ token: tok, state: { timers, del: meta.del, alerts, alertsAt: meta.alertsAt || 0, presets, presetsAt: meta.presetsAt || 0, ls: lsOut() } }) });
       j = await r.json();
     } catch (e) { cloud.err = "discord"; if (!view.hidden) render(); return; }
     if (!j.ok) {
@@ -417,7 +439,8 @@
     const st = j.state || {};
     timers = Array.isArray(st.timers) ? st.timers : timers; lastIds = new Set(timers.map((x) => x.id));
     alerts = st.alerts || {}; presets = st.presets || {};
-    meta = { del: st.del || {}, alertsAt: st.alertsAt || 0, presetsAt: st.presetsAt || 0 };
+    meta = { del: st.del || {}, alertsAt: st.alertsAt || 0, presetsAt: st.presetsAt || 0, ls: meta.ls || {} };
+    lsIn(st.ls);
     try {
       localStorage.setItem(DTOK, j.token); localStorage.setItem(DUSER, JSON.stringify(j.user || {}));
       localStorage.setItem(LS, JSON.stringify(timers)); localStorage.setItem(ALS, JSON.stringify(alerts)); localStorage.setItem(PRE_LS, JSON.stringify(presets));
@@ -817,6 +840,7 @@
   }
   setTimeout(inbox, 900);
   setTimeout(cloudSync, 700);
+  window.addEventListener("nxs-synced", () => pageStack());
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") inbox(); });
   // after coming back to the app, re-send the list once (keeps the server in step if a save failed)
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") { prune(); store(); sync(); if (!view.hidden) render(); } });

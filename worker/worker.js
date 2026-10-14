@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-14g (board: Arabic too)";
+const VERSION = "2026-10-14h (ticked lists sync across devices)";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -725,7 +725,13 @@ export class PushTimers extends DurableObject {
     }
     const pick = (k) => ((inc[k + "At"] || 0) > (cur[k + "At"] || 0) ? [inc[k], inc[k + "At"]] : [cur[k], cur[k + "At"] || 0]);
     const [alerts, alertsAt] = pick("alerts"), [presets, presetsAt] = pick("presets");
-    const out = { timers: Object.values(byId).sort((a, b) => a.at - b.at).slice(0, 200), del, alerts: alerts || {}, alertsAt, presets: presets || {}, presetsAt };
+    // ✅ ticked lists from the site (daily checklist, KvK checklist, buff-stack steps): { key: { v, at } }, newest wins per key; 40 days kept
+    const ls = {};
+    for (const src of [cur.ls || {}, inc.ls || {}]) for (const [k, x] of Object.entries(src)) {
+      if (!/^(nxs-daily-v1|nxs-stack-done|ks-kvk-check-[\w-]{1,40})$/.test(k) || !x || typeof x.v !== "string" || x.v.length > 4000 || !(now - x.at < 40 * 864e5)) continue;
+      if (!ls[k] || x.at > ls[k].at) ls[k] = { v: x.v, at: +x.at };
+    }
+    const out = { timers: Object.values(byId).sort((a, b) => a.at - b.at).slice(0, 200), del, alerts: alerts || {}, alertsAt, presets: presets || {}, presetsAt, ls };
     const txt = JSON.stringify(out);
     if (txt.length > 200000) throw new Error("too_big");
     this.sql.exec(`INSERT OR REPLACE INTO sync VALUES (?, ?, ?)`, uid, txt, now);

@@ -51,9 +51,9 @@ const TERMS = [
    ["UTC Time", "UTC時間", "UTC", "UTC Zeit", "Heure UTC", "Hora UTC", "UTC Saati", "Waktu UTC", "Время UTC", "เวลา UTC", "التوقيت العالمي", "Hora UTC", "Events screen header."],
    ["Starts in", "距離開始", "시작까지", "Beginnt in", "Commence dans", "Começa em", "Başlama", "Dimulai dalam", "Начнется через", "เริ่มใน", "يبدأ بعد", "El evento comienza en", "Event pop-up countdown. ES: Strongest Governor stage pop-up. ES calendar pop-up shortens it to 'Comienza en'."],
    ["All Out", "全軍出擊", "전군 출격", "Aufs Ganze", "Tous dehors", "Vai com Tudo", "Topyekün", "Serangan Penuh", "Полный вперед", "ลุยเลย", "جميع القوات تهاجم", "A la batalla", "Event tab (helmet icon). Tagline: 'Fight for resources to survive!'. Screen uses Honor Ranking / My Ranking / My Points / Target Points. ES tagline: '¡Lucha por recursos para sobrevivir!'."],
-   ["Call of the Sovereign", "—", "—", "—", "—", "Chamado do Soberano", "—", "—", "—", "—", "نداء السيادة", "—", "3-day event after KvK (resets 00:00 UTC; Gold / Platinum Keys). PT confirmed; other languages not captured yet."],
-   ["Gold Key", "—", "—", "—", "—", "Chave Dourada", "—", "—", "—", "—", "المفتاح الذهبي", "—", "Used for 1 Epic Recruitment. Call of the Sovereign: save them up."],
-   ["Platinum Key", "—", "—", "—", "—", "Chave de Platina", "—", "—", "—", "—", "المفتاح البلاتيني", "—", "Used for 1 Advanced Recruitment."]
+   ["Call of the Sovereign", "崛起的號角", "—", "—", "—", "Chamado do Soberano", "—", "—", "—", "—", "نداء السيادة", "—", "3-day event after KvK (resets 00:00 UTC; Gold / Platinum Keys). PT confirmed; other languages not captured yet."],
+   ["Gold Key", "黃金鑰匙", "—", "—", "—", "Chave Dourada", "—", "—", "—", "—", "المفتاح الذهبي", "—", "Used for 1 Epic Recruitment. Call of the Sovereign: save them up."],
+   ["Platinum Key", "白銀鑰匙", "—", "—", "—", "Chave de Platina", "—", "—", "—", "—", "المفتاح البلاتيني", "—", "Used for 1 Advanced Recruitment."]
   ]
  },
  {
