@@ -76,7 +76,7 @@ function postHtml(p, i) {
     : `<div class="bd-text">${linkify(esc(pick(p.txt)))}</div>
        ${!translated && !(src === lang) ? `<div class="bd-warn">${esc(t("noTr"))}<br><span class="muted">${esc(dbg)}${p.txt.err ? " · " + esc(p.txt.err) : ""}</span></div>` : ""}
        ${!sameLang && translated ? `<button class="bd-link" data-orig="${esc(p.id)}">${esc(showOrig ? t("hideOrig") : t("orig"))}</button>` : ""}
-       ${showOrig && !sameLang ? `<div class="bd-orig"><div class="muted" style="font-size:12px">${esc(t("origLang", { l: LANG_LABEL[src] || src || "?" }))}</div>${linkify(esc(p.txt.orig))}</div>` : ""}
+       ${showOrig && !sameLang ? `<div class="bd-orig"><div class="muted" style="font-size:12px">${esc(t("origLang", { l: LANG_LABEL[src] || src || "?" }))}</div>${linkify(esc(p.txt.orig))}<pre class="muted" style="white-space:pre-wrap;font-size:11px;margin:8px 0 0">${esc(JSON.stringify(p.txt, null, 1))}</pre></div>` : ""}
        <div class="bd-acts">
          <button class="btn" data-dec="${esc(isDec ? "" : p.id)}">${esc(isDec ? t("clearDec") : t("setDec"))}</button>
          ${me ? `<button class="btn" data-edit="${esc(p.id)}">${esc(t("edit"))}</button><button class="btn" data-del="${esc(p.id)}">${esc(armed === p.id ? (i === 0 ? t("delTopic") : t("delAsk")) : t("del"))}</button>` : ""}
