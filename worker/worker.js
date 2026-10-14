@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-14c (officer board: translation errors shown)";
+const VERSION = "2026-10-14d (officer board: translation checked)";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -762,36 +762,51 @@ async function boardTranslate(env, title, text) {
   const plain = { ok: false, text: { orig: text }, ...(title ? { title: { orig: title } } : {}) };
   if (!env.GEMINI_API_KEY) return plain;
   let terms = ""; try { terms = termTable(await getTermRows(), (title || "") + "\n" + text); } catch (e) {}
+  const langList = BOARD_LANGS.map((l) => `"${l}" = ${LANG_NAMES[l]}`).join(", ");
   const system = [
-    "You translate messages between the officers (R4/R5) of the NXS alliance in the mobile game Kingshot.",
-    `Translate the TITLE (if given) and the TEXT into each of these languages: ${BOARD_LANGS.map((l) => l + " = " + LANG_NAMES[l]).join(", ")}.`,
-    "First detect the language the officer wrote in (ISO code like zh, en, pt, ko…). For that language, return the original text unchanged.",
-    "Keep the meaning, tone, line breaks, lists, emojis, numbers, coordinates (X:123 Y:456), times and dates exactly. Times are UTC — never convert them.",
+    "You are the translator for the officers (R4/R5) of the NXS alliance in the mobile game Kingshot. They write in different languages; each officer reads the board in their own.",
+    `Languages: ${langList}.`,
+    "Rules: keep the meaning, tone, line breaks, lists, emojis, numbers, coordinates (X:123 Y:456), times and dates exactly; times are UTC — never convert them.",
     "Never translate member names, alliance tags like [NXS], @mentions or links.",
-    "Game terms: whenever a game term from the TERM TABLE appears, use exactly the name given for the target language. Never invent your own translation of a game term; if the table says (none), keep the term as the officer wrote it.",
-    "Chinese must be Traditional Chinese as used in Taiwan.",
-    'Reply with JSON only: {"src":"<code>","title":{"zh":"…","en":"…","pt":"…"},"text":{"zh":"…","en":"…","pt":"…"}} (leave "title" out when no title is given).',
+    "Game terms: when a game term from the TERM TABLE appears, use exactly the name given for the target language; never invent your own translation of a game term; if the table says (none), keep the term as written.",
+    "Chinese = Traditional Chinese as used in Taiwan (繁體中文), never Simplified. Portuguese = Brazilian Portuguese.",
     terms ? "\n===== TERM TABLE (official in-game names) =====\n" + terms : "",
   ].join("\n");
-  const user = (title ? "TITLE:\n" + title + "\n\n" : "") + "TEXT:\n" + text;
+  // the task itself goes in the user turn (small models follow it better there than in the system text)
+  const ask = (label, body) => [
+    `Translate this ${label} into ALL of these languages: ${langList}. Every field must be written in that field's language —`,
+    `"en" must be English text, "pt" must be Portuguese text, "zh" must be Traditional Chinese text. Only the language the ${label} is already written in keeps the original wording.`,
+    `Reply with JSON only, exactly this shape: {"src": "<ISO code of the language the ${label} is written in>", "zh": "...", "en": "...", "pt": "..."}`,
+    "", label.toUpperCase() + ":", body,
+  ].join("\n");
+  const schema = { type: "object", properties: { src: { type: "string" }, zh: { type: "string" }, en: { type: "string" }, pt: { type: "string" } }, required: ["src", ...BOARD_LANGS] };
+  const cjk = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/g;
   const errs = [];
-  for (const m of MODELS) {
-    // JSON mode first; if a model rejects it, once more as plain text (the fences are stripped below)
-    let r = await gemini(env, m, system, [{ role: "user", parts: [{ text: user }] }], { responseMimeType: "application/json", temperature: 0.2 });
-    if (r.error && /HTTP 400/.test(r.error)) r = await gemini(env, m, system, [{ role: "user", parts: [{ text: user }] }], { temperature: 0.2 });
-    if (r.error) { errs.push(m + ": " + r.error); continue; }
-    try {
-      const raw = r.answer.replace(/^```(?:json)?\s*|\s*```$/g, "");
-      const j = JSON.parse(raw.slice(raw.indexOf("{"), raw.lastIndexOf("}") + 1));
-      const src = String(j.src || "").toLowerCase().slice(0, 5);
-      const pack = (o, orig) => { const x = { orig, src }; for (const l of BOARD_LANGS) if (o && typeof o[l] === "string" && o[l].trim()) x[l] = o[l].trim(); return x; };
-      const out = { ok: true, text: pack(j.text, text) };
-      if (title) out.title = pack(j.title, title);
-      return out;
-    } catch (e) { errs.push(m + ": bad JSON (" + String(r.answer).slice(0, 80) + ")"); continue; }
-  }
-  plain.text.err = errs.join(" | ").slice(0, 300);   // kept with the message so the page can show why
-  return plain;
+  // one call per piece (title, text); a result is accepted only if the other languages really differ from the original
+  const one = async (label, body) => {
+    for (const m of MODELS) {
+      let r = await gemini(env, m, system, [{ role: "user", parts: [{ text: ask(label, body) }] }], { responseMimeType: "application/json", responseSchema: schema, temperature: 0.2 });
+      if (r.error && /HTTP 400/.test(r.error)) r = await gemini(env, m, system, [{ role: "user", parts: [{ text: ask(label, body) }] }], { temperature: 0.2 });
+      if (r.error) { errs.push(m + ": " + r.error); continue; }
+      let j;
+      try { const raw = r.answer.replace(/^```(?:json)?\s*|\s*```$/g, ""); j = JSON.parse(raw.slice(raw.indexOf("{"), raw.lastIndexOf("}") + 1)); }
+      catch (e) { errs.push(m + ": bad JSON (" + String(r.answer).slice(0, 60) + ")"); continue; }
+      const src = String(j.src || "").toLowerCase().slice(0, 5), x = { orig: body, src };
+      for (const l of BOARD_LANGS) if (typeof j[l] === "string" && j[l].trim()) x[l] = j[l].trim();
+      // sanity: the non-source languages must not just repeat the original, and en/pt must not be CJK text
+      const others = BOARD_LANGS.filter((l) => l !== src);
+      const mostlyCjk = (t) => (t.match(cjk) || []).length * 2 > t.replace(/[\s\d\p{P}]/gu, "").length;   // more than half of the letters
+      const lazy = others.filter((l) => !x[l] || x[l] === body || (l !== "zh" && mostlyCjk(x[l])));
+      if (lazy.length && others.length) { errs.push(m + ": returned the original for " + lazy.join(",")); continue; }
+      return x;
+    }
+    return null;
+  };
+  const tx = await one("message", text);
+  if (!tx) { plain.text.err = errs.join(" | ").slice(0, 300); return plain; }   // kept with the message so the page can show why
+  const out = { ok: true, text: tx };
+  if (title) out.title = (await one("title", title)) || { orig: title, src: tx.src };
+  return out;
 }
 const rid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
 async function boardRoute(env, ctx, stub, user, body, token) {
