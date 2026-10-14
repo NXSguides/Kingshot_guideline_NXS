@@ -1001,39 +1001,39 @@ Steps: 1. Tippe im Stadtbildschirm oben links auf dein Profilbild. 2. Tippe unte
 Hinweise: Das Schloss am letzten Slot heißt, er ist noch nicht freigeschaltet. „Gleichmäßig“ füllt alle drei Typen gleich, „Alle zurückziehen“ leert den Slot. Jeder Slot merkt sich eigene Helden und Truppen.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-14 by 亗ΔRMΔDΔ亗] 📢 ANSTEHENDER KVK TG-PUSH: VORBEREITUNGS- UND AUSFÜHRUNGSLEITFADEN 📢
+[2026-10-14 by 亗ΔRMΔDΔ亗] 📢 ANSTEHENDER KVK TG PUSH VORBEREITUNGS- & AUSFÜHRUNGSLEITFADEN 📢
 Am 9. November 2026 haben Mitglieder die Möglichkeit, ihre Gebäude von TG3 ➡️ TG5 zu pushen.
 
-Die nächste KvK-Punktephase beginnt einige Zeit nach diesem Datum. Da KvK der einzige Fokus ist, müssen diese Verbesserungen bis zum Start von KvK zurückgehalten werden, um die Allianzpunkte zu maximieren.
+Die nächste KvK-Punktephase beginnt kurze Zeit nach diesem Datum. Da KvK der einzige Fokus ist, müssen diese Upgrades gehalten werden, bis KvK beginnt, um die Allianzpunkte zu maximieren.
 
-Mitglieder können ihren Teilnahmegrad basierend auf ihren aktuellen Ressourcen- und Beschleunigungsvorräten wählen. Hier sind die drei optionalen Push-Stufen und ihre jeweilige KvK-Punktegenerierung:
+Mitglieder können ihren Teilnahmegrad basierend auf ihren aktuellen Ressourcen- und Beschleunigungs-Vorräten wählen. Hier sind die drei optionalen Push-Stufen und ihre jeweilige KvK-Punktegenerierung:
 
-🔹 OPTION 1: Kern-Push (3 Gebäude) (Stadtzentrum, Botschaft, Königliche Ställe)
+🔹 OPTION 1: Kern 3-Gebäude-Push (Stadtzentrum, Botschaft, Stall)
 🔸 KvK-Punkte: 10.625.047 pro Spieler
 🔸 Ressourcenkosten: ~892M Holz/Brot, 173M Stein, 44M Eisen, 4.055 Echtgold
-🔸 Zeit: 58 Tage (angepasst)
+🔸 Zeit: 58 Tage angepasst
 
-🔹 OPTION 2: Erweiterter Push (5 Gebäude) (Stadtzentrum, Botschaft, Königliche Ställe, Kaserne, Schießstand)
+🔹 OPTION 2: Erweiterter 5-Gebäude-Push (Stadtzentrum, Botschaft, Stall, Kaserne, Schießstand)
 🔸 KvK-Punkte: 19.545.005 pro Spieler
 🔸 Ressourcenkosten: ~1,57B Holz/Brot, 311M Stein, 78M Eisen, 7.980 Echtgold
-🔸 Zeit: 82 Tage (angepasst)
+🔸 Zeit: 82 Tage angepasst
 
-🔹 OPTION 3: Maximaler Push (7 Gebäude) (Stadtzentrum, Botschaft, Königliche Ställe, Kaserne, Schießstand, Krankenstation, Kommandozentrale)
+🔹 OPTION 3: Maximaler 7-Gebäude-Push (Stadtzentrum, Botschaft, Stall, Kaserne, Schießstand, Krankenstation, Kommandozentrale)
 🔸 KvK-Punkte: 22.247.410 pro Spieler
 🔸 Ressourcenkosten: ~1,95B Holz/Brot, 388M Stein, 96M Eisen, 9.210 Echtgold
-🔸 Zeit: 88 Tage (angepasst)
+🔸 Zeit: 88 Tage angepasst
 
-⚙️ AUSFÜHRUNGSLEITFADEN & TEMPO-MODIFIKATOR-BASIS:
-Die oben genannten angepassten Zeiten und KvK-Punkteberechnungen basieren auf einem nahezu maximierten Konto-Setup. Dies beinhaltet 80,2% Basis-Baugeschwindigkeit, Lv. 5 Pans Meisterarchitekt, Lv. 5 Sauls Fertigkeit, Höchster Minister Ernennung, Lv. 5 Grauer Wolf Fertigkeit, Grundarbeit-Bonus, Königreich der Macht Bonus und Doppeltes Tempo.
+⚙️ AUSFÜHRUNGSLEITFADEN & GESCHWINDIGKEITS-BASISWERT:
+Die angepassten Zeiten und KvK-Punkteberechnungen oben basieren auf einem nahezu maximalen Account-Setup. Dies beinhaltet 80,2% Basis-Baugeschwindigkeit, Lv5 Pans Meisterarchitekt, Lv5 Saul-Fertigkeit, Ernennung zum Höchsten Minister, Lv5 Grauer Wolf-Fertigkeit, Grundarbeit-Buff, KvK-Bonus und Doppeltes Tempo.
 
 ⚠️ KRITISCHES 5-MINUTEN-FENSTER:
-Grauer Wolf Fertigkeit (15% Tempo) und Doppeltes Tempo (20% Tempo) dauern nur 5 Minuten. Wenn die KvK-Punktephase beginnt, müssen alle Beschleunigungen innerhalb dieses engen 5-Minuten-Fensters ausgeführt werden, um die Zeitreduzierung und Punktegenerierung zu maximieren.
+Die Grauer Wolf-Fertigkeit (15% Geschwindigkeit) und Doppeltes Tempo (20% Geschwindigkeit) dauern nur 5 Minuten. Wenn die KvK-Punktephase beginnt, müssen alle Beschleunigungen innerhalb dieses engen 5-Minuten-Fensters eingesetzt werden, um die Zeitverkürzung und Punktegenerierung zu maximieren.
 
-🛑 ERFORDERLICHE MASSNAHMEN AB SOFORT:
-Dies ist ein riesiges Vorhaben. Wenn du vorhast, an einer dieser Optionen teilzunehmen, muss die Vorbereitung sofort beginnen, um Ressourcenengpässe zu vermeiden:
-1️⃣ Horten beginnen: Spare riesige Mengen an Holz, Brot, Stein, Eisen und Echtgold. Sammle ununterbrochen und nutze deine Sammel-Boosts.
+🛑 SOFORTIGE AKTION ERFORDERLICH:
+Dies ist ein gewaltiges Unterfangen. Wenn du vorhast, an einer dieser Optionen teilzunehmen, muss die Vorbereitung sofort beginnen, um Ressourcen-Obergrenzen zu vermeiden:
+1️⃣ Horten starten: Spare riesige Mengen an Holz, Brot, Stein, Eisen und Echtgold. Sammle ununterbrochen und nutze deine Sammel-Boosts.
 2️⃣ Beschleunigungen sparen: Spare jede verfügbare Beschleunigung, um diese angepassten Timer abzuschließen.
-3️⃣ Bereitschaft: Halte diese Gebäude auf TG3, bis die KvK-Punktephase offiziell beginnt. Wenn sie startet, pusht gemeinsam, um die Bestenliste mit Punkten zu überschwemmen.
+3️⃣ Bereitschaft: Halte diese Gebäude auf TG3, bis die KvK-Punktephase offiziell startet. Wenn sie beginnt, pushen wir gemeinsam, um die Bestenliste mit Punkten zu überschwemmen.
 
 Beginne jetzt mit dem Sammeln und Sparen, damit wir bereit sind, das nächste KvK zu dominieren! 🚀🛡️
 

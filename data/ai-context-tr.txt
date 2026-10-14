@@ -1000,40 +1000,40 @@ Steps: 1. Şehir ekranında sol üstteki avatarına dokun. 2. Alttaki Ekip'e dok
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 YAKLAŞAN KVK TG YÜKSELTME HAZIRLIK VE UYGULAMA KILAVUZU 📢
-9 Kasım 2026'da üyeler binalarını TG3 ➡️ TG5 seviyesine yükseltme seçeneğine sahip olacaklar.
+9 Kasım 2026'da üyeler, binalarını TG3 ➡️ TG5 seviyesine yükseltme seçeneğine sahip olacaklar.
 
-Bir sonraki KvK puanlama evresi bu tarihten kısa bir süre sonra başlayacak. Tek odak noktamız KvK olduğu için, ittifak puanlarını en üst düzeye çıkarmak adına bu yükseltmeler KvK başlayana kadar bekletilmelidir.
+Bir sonraki KvK puan kazanma evresi bu tarihten kısa bir süre sonra başlayacak. Odak noktamız tamamen KvK olduğu için, ittifak puanlarını en üst düzeye çıkarmak adına bu yükseltmeler KvK başlayana kadar bekletilmelidir.
 
-Üyeler, mevcut kaynak ve hızlandırma tasarruflarına göre katılım seviyelerini seçebilirler. İşte üç isteğe bağlı yükseltme kademesi ve bunların üreteceği KvK puanları:
+Üyeler, mevcut kaynak ve hızlandırma birikimlerine göre katılım seviyelerini seçebilirler. İşte üç isteğe bağlı yükseltme kademesi ve bunların kazandıracağı KvK puanları:
 
-🔹 SEÇENEK 1: Temel 3 Bina Yükseltmesi (Şehir Merkezi, Elçilik, Kraliyet Ahırları)
+🔹 SEÇENEK 1: Temel 3 Binalı Yükseltme (Şehir Merkezi, Elçilik, Ahır)
 🔸 KvK Puanı: Oyuncu başına 10.625.047
-🔸 Kaynak Maliyeti: ~892M Odun/Ekmek (Korumalı), 173M Taş, 44M Demir, 4.055 Hasaltın
-🔸 Süre: Ayarlanmış 58 Gün
+🔸 Kaynak Maliyeti: ~892M Odun/Ekmek, 173M Taş, 44M Demir, 4.055 Hasaltın
+🔸 Süre: Düzenlenmiş 58 Gün
 
-🔹 SEÇENEK 2: Genişletilmiş 5 Bina Yükseltmesi (Şehir Merkezi, Elçilik, Kraliyet Ahırları, Kışla, Okçuluk Sahası)
+🔹 SEÇENEK 2: Genişletilmiş 5 Binalı Yükseltme (Şehir Merkezi, Elçilik, Ahır, Kışla, Poligon)
 🔸 KvK Puanı: Oyuncu başına 19.545.005
-🔸 Kaynak Maliyeti: ~1,57B Odun/Ekmek (Korumalı), 311M Taş, 78M Demir, 7.980 Hasaltın
-🔸 Süre: Ayarlanmış 82 Gün
+🔸 Kaynak Maliyeti: ~1.57B Odun/Ekmek, 311M Taş, 78M Demir, 7.980 Hasaltın
+🔸 Süre: Düzenlenmiş 82 Gün
 
-🔹 SEÇENEK 3: Maksimum 7 Bina Yükseltmesi (Şehir Merkezi, Elçilik, Kraliyet Ahırları, Kışla, Okçuluk Sahası, Revir, Komuta Merkezi)
+🔹 SEÇENEK 3: Maksimum 7 Binalı Yükseltme (Şehir Merkezi, Elçilik, Ahır, Kışla, Poligon, Revir, Komuta Merkezi)
 🔸 KvK Puanı: Oyuncu başına 22.247.410
-🔸 Kaynak Maliyeti: ~1,95B Odun/Ekmek (Korumalı), 388M Taş, 96M Demir, 9.210 Hasaltın
-🔸 Süre: Ayarlanmış 88 Gün
+🔸 Kaynak Maliyeti: ~1.95B Odun/Ekmek, 388M Taş, 96M Demir, 9.210 Hasaltın
+🔸 Süre: Düzenlenmiş 88 Gün
 
 ⚙️ UYGULAMA KILAVUZU VE HIZ DEĞİŞTİRİCİ TABANI:
-Yukarıdaki ayarlanmış süreler ve KvK puanı hesaplamaları, neredeyse maksimuma ulaşmış bir hesap kurulumuna dayanmaktadır. Bu kurulum %80,2 temel İnşaat Hızı, Sv. 5 Pan Usta Mimar, Sv. 5 Saul Yeteneği, Başbakan ataması, Sv. 5 Gri Kurt Yeteneği, Zemin Çalışmaları güçlendirmesi, En Güçlü Krallık Bonusu ve Çifte Mesai içerir.
+Yukarıdaki düzenlenmiş süreler ve KvK puan hesaplamaları, neredeyse fulle yakın bir hesap kurulumuna dayanmaktadır. Buna %80.2 temel inşaat hızı, Sv.5 Pan Usta Mimar, Sv.5 Saul Yeteneği, Başbakan ataması, Sv.5 Gri Kurt Yeteneği, Zemin Çalışmaları güçlendirmesi, KvK Bonusu ve Çifte Mesai dahildir.
 
 ⚠️ KRİTİK 5 DAKİKALIK ZAMAN PENCERESİ:
-Gri Kurt Yeteneği (%15 hız) ve Çifte Mesai (%20 hız) yalnızca 5 dakika sürer. KvK puanlama evresi başladığında, süre azaltımını ve puan kazanımını en üst düzeye çıkarmak için tüm hızlandırmalar bu dar 5 dakikalık pencere içinde kullanılmalıdır.
+Gri Kurt Yeteneği (%15 hız) ve Çifte Mesai (%20 hız) yalnızca 5 dakika sürer. KvK puan evresi başladığında, süre azaltımını ve puan kazanımını en üst düzeye çıkarmak için tüm hızlandırmalar bu dar 5 dakikalık pencere içinde kullanılmalıdır.
 
-🛑 ŞİMDİDEN BAŞLAYAN ZORUNLU EYLEMLER:
-Bu devasa bir süreçtir. Bu seçeneklerden herhangi birine katılmayı planlıyorsanız, kaynak sınırına takılmamak için hazırlıklar hemen başlamalıdır:
-1️⃣ Biriktirmeye Başlayın: Büyük miktarlarda Odun, Ekmek (Korumalı), Taş, Demir ve Hasaltın biriktirin. Sürekli toplama yapın ve toplama güçlendirmelerinizi kullanın.
-2️⃣ Hızlandırmaları Saklayın: Bu ayarlanmış süreleri sıfırlamak için elinizdeki her hızlandırmayı saklayın.
-3️⃣ Hazırda Bekleyin: KvK puanlama evresi resmen başlayana kadar bu binaları TG3 seviyesinde tutun. Evre başladığında, liderlik tablosunu puanlarla doldurmak için hep birlikte yükseltme yapın.
+🛑 ŞİMDİDEN YAPILMASI GEREKENLER:
+Bu devasa bir süreçtir. Bu seçeneklerden herhangi birine katılmayı planlıyorsanız, kaynak limitlerine takılmamak için hazırlıklara hemen başlanmalıdır:
+1️⃣ Biriktirmeye Başlayın: Devasa miktarlarda Odun, Ekmek, Taş, Demir ve Hasaltın biriktirin. Sürekli toplama yapın ve toplama takviyelerinizi kullanın.
+2️⃣ Hızlandırmaları Saklayın: Düzenlenmiş süreleri sıfırlamak için elinizdeki her hızlandırmayı saklayın.
+3️⃣ Hazırda Bekleyin: KvK puan evresi resmi olarak başlayana kadar bu binaları TG3 seviyesinde tutun. Evre başladığında, liderlik tablosunu puanlarla doldurmak için hep birlikte yükseltmeyi yapın.
 
-Bir sonraki KvK'da üstünlük kurmaya hazır olmak için şimdiden toplamaya ve biriktirmeye başlayın! 🚀🛡️
+Şimdiden toplamaya ve biriktirmeye başlayın, böylece bir sonraki KvK'ya hükmetmeye hazır olalım! 🚀🛡️
 
 (see guide #kvk)
 

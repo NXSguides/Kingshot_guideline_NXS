@@ -999,39 +999,39 @@ Steps: 1. Sur l'écran de la ville, touchez votre avatar (en haut à gauche). 2.
 Astuces : le cadenas du dernier slot signifie qu'il n'est pas encore débloqué. « Équilibré » remplit les trois types à parts égales ; « Tout retirer » vide le slot. Chaque slot garde ses propres héros et troupes.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-14 by 亗ΔRMΔDΔ亗] 📢 GUIDE DE PRÉPARATION ET D'EXÉCUTION DU PUSH TG KVK À VENIR 📢
+[2026-10-14 by 亗ΔRMΔDΔ亗] 📢 GUIDE DE PRÉPARATION ET D'EXÉCUTION DU PUSH TG DU PROCHAIN KVK 📢
 Le 9 novembre 2026, les membres auront la possibilité de faire passer leurs bâtiments de TG3 ➡️ TG5.
 
 La prochaine phase de points du KvK commencera peu après cette date. Le KvK étant notre seul objectif, ces améliorations doivent être conservées jusqu'au début du KvK afin de maximiser les points d'alliance.
 
-Les membres peuvent choisir leur niveau de participation en fonction de leurs réserves actuelles de ressources et d'accélérateurs. Voici les trois paliers de push optionnels et leurs points KvK respectifs :
+Les membres peuvent choisir leur niveau de participation en fonction de leurs réserves actuelles de ressources et d'accélérateurs. Voici les trois paliers de push optionnels et les points KvK correspondants :
 
-🔹 OPTION 1 : Push de base (3 bâtiments) (Centre, Ambassade, Écuries Royales)
+🔹 OPTION 1 : Push de base de 3 bâtiments (Centre, L'Ambassade, Écurie)
 🔸 Points KvK : 10 625 047 par joueur
-🔸 Coût en ressources : ~892M Bois/Pains (sécurisés), 173M Pierre, 44M Fer, 4 055 Or Véritable
-🔸 Temps : 58 jours (ajusté)
+🔸 Coût en ressources : ~892M Bois/Pains, 173M Pierre, 44M Fer, 4 055 Or Véritable
+🔸 Temps : 58 jours ajustés
 
-🔹 OPTION 2 : Push étendu (5 bâtiments) (Centre, Ambassade, Écuries Royales, Caserne, Stand de tir)
+🔹 OPTION 2 : Push étendu de 5 bâtiments (Centre, L'Ambassade, Écurie, Quartiers, Stand de Tir)
 🔸 Points KvK : 19 545 005 par joueur
-🔸 Coût en ressources : ~1,57B Bois/Pains (sécurisés), 311M Pierre, 78M Fer, 7 980 Or Véritable
-🔸 Temps : 82 jours (ajusté)
+🔸 Coût en ressources : ~1,57B Bois/Pains, 311M Pierre, 78M Fer, 7 980 Or Véritable
+🔸 Temps : 82 jours ajustés
 
-🔹 OPTION 3 : Push maximum (7 bâtiments) (Centre, Ambassade, Écuries Royales, Caserne, Stand de tir, Infirmerie, QG)
+🔹 OPTION 3 : Push maximal de 7 bâtiments (Centre, L'Ambassade, Écurie, Quartiers, Stand de Tir, Infirmerie, Base de Commandement)
 🔸 Points KvK : 22 247 410 par joueur
-🔸 Coût en ressources : ~1,95B Bois/Pains (sécurisés), 388M Pierre, 96M Fer, 9 210 Or Véritable
-🔸 Temps : 88 jours (ajusté)
+🔸 Coût en ressources : ~1,95B Bois/Pains, 388M Pierre, 96M Fer, 9 210 Or Véritable
+🔸 Temps : 88 jours ajustés
 
-⚙️ GUIDE D'EXÉCUTION ET BASE DES MODIFICATEURS DE VITESSE :
-Les temps ajustés et les calculs de points KvK ci-dessus sont basés sur une configuration de compte presque maximale. Cela comprend 80,2% de vitesse de construction de base, Maître-architecte de Pan Niv. 5, compétence de Saul Niv. 5, nomination Premier Ministre, compétence du Loup Gris Niv. 5, bonus Travaux Terrestres, Bonus de Royaume au Pouvoir et Bouchées Doubles.
+⚙️ GUIDE D'EXÉCUTION ET BASELINE DES MODIFICATEURS DE VITESSE :
+Les temps ajustés et les calculs de points KvK ci-dessus sont basés sur une configuration de compte presque optimisée au maximum. Cela inclut 80,2% de vitesse de construction de base, Maître-architecte de Pan Niv. 5, Compétence de Saul Niv. 5, nomination comme Premier Ministre, Compétence du Loup Gris Niv. 5, bonus Travaux Terrestres, Bonus KvK et Bouchées Doubles.
 
 ⚠️ FENÊTRE CRITIQUE DE 5 MINUTES :
-La compétence du Loup Gris (15% de vitesse) et Bouchées Doubles (20% de vitesse) ne durent que 5 minutes. Lorsque la phase de points du KvK commence, tous les accélérateurs doivent être utilisés dans cette fenêtre serrée de 5 minutes pour maximiser la réduction de temps et la génération de points.
+La compétence du Loup Gris (15% de vitesse) et Bouchées Doubles (20% de vitesse) ne durent que 5 minutes. Lorsque la phase de points du KvK commence, tous les accélérateurs doivent être utilisés dans cette étroite fenêtre de 5 minutes pour maximiser la réduction de temps et la génération de points.
 
-🛑 ACTIONS REQUISES DÈS MAINTENANT :
-C'est un projet monumental. Si vous prévoyez de participer à l'une de ces options, la préparation doit commencer immédiatement pour éviter d'être limité par les ressources :
-1️⃣ Accumuler : Économisez d'immenses quantités de Bois, Pains (sécurisés), Pierre, Fer et Or Véritable. Récoltez continuellement et utilisez vos bonus de collecte.
-2️⃣ Économiser les accélérateurs : Conservez tous les accélérateurs disponibles pour terminer ces chronomètres ajustés.
-3️⃣ Rester en attente : Maintenez ces bâtiments à TG3 jusqu'au début officiel de la phase de points du KvK. Une fois lancée, pushez tous ensemble pour envahir le classement de points.
+🛑 ACTION REQUISE DÈS MAINTENANT :
+Il s'agit d'une entreprise massive. Si vous prévoyez de participer à l'une de ces options, la préparation doit commencer immédiatement pour éviter d'atteindre la limite de stockage :
+1️⃣ Accumuler : Économisez d'immenses quantités de Bois, Pains, Pierre, Fer et Or Véritable. Récoltez en permanence et utilisez vos boosts de collecte.
+2️⃣ Économiser les Accélérateurs : Gardez tous les accélérateurs disponibles pour terminer ces chronomètres ajustés.
+3️⃣ Rester en attente : Maintenez ces bâtiments à TG3 jusqu'au début officiel de la phase de points du KvK. Dès qu'elle commence, poussez tous ensemble pour inonder le classement de points.
 
 Commencez à récolter et à économiser dès maintenant afin d'être prêts à dominer le prochain KvK ! 🚀🛡️
 

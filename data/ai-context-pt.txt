@@ -999,41 +999,41 @@ Steps: 1. Na tela da cidade, toque no seu avatar (canto superior esquerdo). 2. T
 Dicas: o cadeado no último slot significa que ainda não foi desbloqueado. “Igualar” preenche os três tipos por igual; “Retirar tudo” esvazia o slot. Cada slot guarda seus próprios heróis e tropas.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-14 by 亗ΔRMΔDΔ亗] 📢 GUIA DE PREPARAÇÃO E EXECUÇÃO DO PUSH DE TG NO PRÓXIMO KVK 📢
+[2026-10-14 by 亗ΔRMΔDΔ亗] 📢 GUIA DE PREPARAÇÃO E EXECUÇÃO DO PUSH TG DO PRÓXIMO KVK 📢
 Em 9 de novembro de 2026, os membros terão a opção de evoluir suas construções de TG3 ➡️ TG5.
 
-A próxima fase de pontuação do KvK começará logo após essa data. Como o KvK é o único foco, esses aprimoramentos devem ser mantidos até o início do KvK para maximizar os pontos da aliança.
+A próxima fase de pontos do KvK começará logo após essa data. Como o KvK é o nosso único foco, esses aprimoramentos devem ser segurados até o início do KvK para maximizar os pontos da aliança.
 
-Os membros podem escolher seu nível de participação com base em suas economias atuais de recursos e aceleradores. Aqui estão as três opções de níveis de push e seus respectivos pontos gerados para o KvK:
+Os membros podem escolher seu nível de participação com base em suas reservas atuais de recursos e aceleradores. Aqui estão as três opções de push e a respectiva geração de pontos no KvK:
 
-🔹 OPÇÃO 1: Push Principal de 3 Construções (Centro da Cidade, Embaixada, Estábulos da Realeza)
+🔹 OPÇÃO 1: Push Principal de 3 Construções (Centro da Cidade, Embaixada, Estábulo)
 🔸 Pontos do KvK: 10.625.047 por jogador
-🔸 Custo de Recursos: ~892M Madeira/Pão (Protegido), 173M Pedra, 44M Ferro, 4.055 Adamante
+🔸 Custo de Recursos: ~892M Madeira/Pão, 173M Pedra, 44M Ferro, 4.055 Adamante
 🔸 Tempo: 58 Dias Ajustado
 
-🔹 OPÇÃO 2: Push Expandido de 5 Construções (Centro da Cidade, Embaixada, Estábulos da Realeza, Quartel, Estande de Tiro)
+🔹 OPÇÃO 2: Push Expandido de 5 Construções (Centro da Cidade, Embaixada, Estábulo, Quartel, Campo de Tiro)
 🔸 Pontos do KvK: 19.545.005 por jogador
-🔸 Custo de Recursos: ~1,57B Madeira/Pão (Protegido), 311M Pedra, 78M Ferro, 7.980 Adamante
+🔸 Custo de Recursos: ~1,57B Madeira/Pão, 311M Pedra, 78M Ferro, 7.980 Adamante
 🔸 Tempo: 82 Dias Ajustado
 
-🔹 OPÇÃO 3: Push Máximo de 7 Construções (Centro da Cidade, Embaixada, Estábulos da Realeza, Quartel, Estande de Tiro, Enfermaria, Centro de Comando)
+🔹 OPÇÃO 3: Push Máximo de 7 Construções (Centro da Cidade, Embaixada, Estábulo, Quartel, Campo de Tiro, Enfermaria, Centro de Comando)
 🔸 Pontos do KvK: 22.247.410 por jogador
-🔸 Custo de Recursos: ~1,95B Madeira/Pão (Protegido), 388M Pedra, 96M Ferro, 9.210 Adamante
+🔸 Custo de Recursos: ~1,95B Madeira/Pão, 388M Pedra, 96M Ferro, 9.210 Adamante
 🔸 Tempo: 88 Dias Ajustado
 
 ⚙️ GUIA DE EXECUÇÃO E BASE DOS MODIFICADORES DE VELOCIDADE:
-Os tempos ajustados e os cálculos de pontos do KvK acima são baseados em uma conta quase no nível máximo. Isso inclui 80,2% de Velocidade de Construção base, Mestre da Arquitetura do Pan Nv. 5, habilidade do Saul Nv. 5, nomeação de Primeiro-ministro, habilidade do Lobo Cinza Nv. 5, bônus de Obras de preparação, Bônus do Reino de Poder e Horário Dobrado.
+Os tempos ajustados e os cálculos de pontos do KvK acima são baseados em uma conta quase maximizada. Isso inclui 80,2% de velocidade de construção base, Mestre da Arquitetura de Pan Nv. 5, Habilidade de Saul Nv. 5, nomeação de Primeiro-ministro, Habilidade do Lobo Cinza Nv. 5, bônus de Obras de preparação, Bônus do KvK e Horário Dobrado.
 
 ⚠️ JANELA CRÍTICA DE 5 MINUTOS:
-A habilidade do Lobo Cinza (15% de velocidade) e o Horário Dobrado (20% de velocidade) duram apenas 5 minutos. Quando a fase de pontuação do KvK começar, todos os aceleradores devem ser aplicados dentro dessa curta janela de 5 minutos para maximizar a redução de tempo e a geração de pontos.
+A habilidade do Lobo Cinza (15% de velocidade) e o Horário Dobrado (20% de velocidade) duram apenas 5 minutos. Quando a fase de pontos do KvK começar, todos os aceleradores devem ser executados dentro dessa janela de 5 minutos para maximizar a redução de tempo e a geração de pontos.
 
 🛑 AÇÃO NECESSÁRIA A PARTIR DE AGORA:
-Esta é uma empreitada enorme. Se você planeja participar de qualquer uma dessas opções, a preparação deve começar imediatamente para evitar faltar recursos:
-1️⃣ Comece a acumular: Economize quantidades massivas de Madeira, Pão (Protegido), Pedra, Ferro e Adamante. Colete constantemente e use seus bônus de coleta.
-2️⃣ Guarde Aceleradores: Guarde todos os aceleradores disponíveis para zerar esses cronômetros ajustados.
-3️⃣ Fique em Alerta: Mantenha essas construções em TG3 até que a fase de pontuação do KvK comece oficialmente. Quando ela iniciar, façam o push juntos para dominar a classificação com pontos.
+Esta é uma tarefa massiva. Se você planeja participar de qualquer uma dessas opções, a preparação deve começar imediatamente para evitar limites de armazenamento:
+1️⃣ Comece a acumular: Guarde quantidades massivas de Madeira, Pão, Pedra, Ferro e Adamante. Colete constantemente e use seus impulsos de coleta.
+2️⃣ Guarde Aceleradores: Guarde todos os aceleradores disponíveis para concluir esses temporizadores ajustados.
+3️⃣ Fique de Prontidão: Mantenha essas construções em TG3 até que a fase de pontos do KvK comece oficialmente. Quando ela começar, façam o push juntos para dominar a classificação com pontos.
 
-Comece a coletar e economizar agora para estarmos prontos para dominar o próximo KvK! 🚀🛡️
+Comece a coletar e guardar agora para estarmos prontos para dominar o próximo KvK! 🚀🛡️
 
 (see guide #kvk)
 
