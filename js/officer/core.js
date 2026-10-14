@@ -69,13 +69,18 @@ OFFICER.util = {
    loadPerms/savePerms talk to the Worker and nothing else here changes.
    Rights per tab: "edit" | "view" | "none". Admins (ADMINS) always have everything and are the only ones who see 👥.
    Someone who unlocked with the password only (no Discord) is not in the table → everything, as before. */
-OFFICER.ADMINS = ["1547403844374368327", "1240788094672834623", "762827904341246013"];   // Sparrow, R5, Nia (Discord user IDs)
+OFFICER.OWNER = "1547403844374368327";   // Sparrow: always admin, can't be demoted or removed (so nobody can lock everyone out)
+OFFICER.ADMINS = [];                       // filled from the table (admin: true) by loadPerms
 OFFICER.PERM_TABS = ["events", "map", "ranking", "post", "watch", "scout", "views", "board", "bt"];
 OFFICER.defaultPerms = () => Object.fromEntries(OFFICER.PERM_TABS.map((k) => [k, k === "events" ? "view" : "none"]));   // new officer: Events, view only
 const PERMS_LS = "nxs-perms-v1";
-OFFICER.resetPerms = () => { OFFICER.perms = { v: 1, users: { "1547403844374368327": { name: "Sparrow", perms: {} }, "1240788094672834623": { name: "R5", perms: {} }, "762827904341246013": { name: "Nia", perms: {} } } }; };
-OFFICER.loadPerms = () => { try { const p = JSON.parse(localStorage.getItem(PERMS_LS)); if (p && p.users) { OFFICER.perms = p; return; } } catch (e) {} OFFICER.resetPerms(); };
-OFFICER.savePerms = () => { try { localStorage.setItem(PERMS_LS, JSON.stringify(OFFICER.perms)); } catch (e) {} };
+OFFICER.resetPerms = () => { OFFICER.perms = { v: 2, users: {
+  "1547403844374368327": { name: "Sparrow", admin: true, perms: {} },
+  "1240788094672834623": { name: "R5", perms: OFFICER.defaultPerms() },
+  "762827904341246013": { name: "Nia", perms: OFFICER.defaultPerms() } } }; OFFICER.syncAdmins(); };
+OFFICER.syncAdmins = () => { const u = OFFICER.perms.users; if (u[OFFICER.OWNER]) u[OFFICER.OWNER].admin = true; OFFICER.ADMINS = Object.keys(u).filter((id) => u[id].admin); };
+OFFICER.loadPerms = () => { try { const p = JSON.parse(localStorage.getItem(PERMS_LS)); if (p && p.users && p.v === 2) { OFFICER.perms = p; OFFICER.syncAdmins(); return; } } catch (e) {} OFFICER.resetPerms(); };
+OFFICER.savePerms = () => { OFFICER.syncAdmins(); try { localStorage.setItem(PERMS_LS, JSON.stringify(OFFICER.perms)); } catch (e) {} };
 OFFICER.loadPerms();
 OFFICER.previewAs = null;   // an admin can look at the page with another officer's rights (👥 tab → "Preview as")
 OFFICER.isAdmin = () => !!OFFICER.user && OFFICER.ADMINS.includes(OFFICER.user.id);   // the real person (a preview never hides the 👥 tab)
