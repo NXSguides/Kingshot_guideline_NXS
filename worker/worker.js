@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-14i (board: Korean too)";
+const VERSION = "2026-10-14j (timer lists: only changed rows are written)";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -620,8 +620,12 @@ export class PushTimers extends DurableObject {
     try { this.sql.exec(`ALTER TABLE bp ADD COLUMN meta TEXT`); } catch (e) {}
   }
   /* ---- 💬 board ---- */
-  boardLang(uid, lang) { if (lang) this.sql.exec(`INSERT OR REPLACE INTO bl VALUES (?, ?)`, uid, lang); }
-  boardUser(by, lang) { this.sql.exec(`INSERT OR REPLACE INTO bu VALUES (?, ?, ?, ?)`, by.id, by.name, by.avatar || "", Date.now()); this.boardLang(by.id, lang); }
+  boardLang(uid, lang) { if (lang && ([...this.sql.exec(`SELECT lang FROM bl WHERE uid = ?`, uid)][0] || {}).lang !== lang) this.sql.exec(`INSERT OR REPLACE INTO bl VALUES (?, ?)`, uid, lang); }
+  boardUser(by, lang) {   // written only when the name / picture changed
+    const r = [...this.sql.exec(`SELECT name, avatar FROM bu WHERE uid = ?`, by.id)][0];
+    if (!r || r.name !== by.name || r.avatar !== (by.avatar || "")) this.sql.exec(`INSERT OR REPLACE INTO bu VALUES (?, ?, ?, ?)`, by.id, by.name, by.avatar || "", Date.now());
+    this.boardLang(by.id, lang);
+  }
   boardUsers() { return [...this.sql.exec(`SELECT uid, name, avatar FROM bu ORDER BY name`)].map((r) => ({ id: r.uid, name: r.name, avatar: r.avatar })); }
   /* open tasks given to this person, across all topics (newest first) */
   boardTasks(uid) {
@@ -706,7 +710,8 @@ export class PushTimers extends DurableObject {
   }
   /* this device's notification list goes to every device the same person is logged in on */
   async saveFor(uid, sub, timers) {
-    this.sql.exec(`INSERT OR REPLACE INTO usub VALUES (?, ?, ?)`, sub.endpoint, uid, JSON.stringify(sub));
+    const cur = [...this.sql.exec(`SELECT uid, sub FROM usub WHERE ep = ?`, sub.endpoint)][0];
+    if (!cur || cur.uid !== uid || cur.sub !== JSON.stringify(sub)) this.sql.exec(`INSERT OR REPLACE INTO usub VALUES (?, ?, ?)`, sub.endpoint, uid, JSON.stringify(sub));
     const subs = [...this.sql.exec(`SELECT sub FROM usub WHERE uid = ?`, uid)].map((r) => JSON.parse(r.sub));
     for (const x of subs) await this.save(x, timers);
     return subs.length;
@@ -734,14 +739,24 @@ export class PushTimers extends DurableObject {
     const out = { timers: Object.values(byId).sort((a, b) => a.at - b.at).slice(0, 200), del, alerts: alerts || {}, alertsAt, presets: presets || {}, presetsAt, ls };
     const txt = JSON.stringify(out);
     if (txt.length > 200000) throw new Error("too_big");
-    this.sql.exec(`INSERT OR REPLACE INTO sync VALUES (?, ?, ?)`, uid, txt, now);
+    if (!row || row.data !== txt) this.sql.exec(`INSERT OR REPLACE INTO sync VALUES (?, ?, ?)`, uid, txt, now);   // unchanged → no write
     return out;
   }
+  /* only the differences are written: the free plan allows 100k written rows a day, and a phone's list
+     (3 weeks of event alerts) is hundreds of rows — rewriting it all on every visit used the allowance up */
   async save(sub, timers) {
     const ep = sub.endpoint, s = JSON.stringify(sub);
-    this.sql.exec(`DELETE FROM t WHERE ep = ?`, ep);
-    for (const x of timers) this.sql.exec(`INSERT OR REPLACE INTO t VALUES (?, ?, ?, ?, ?, ?)`, ep, x.id, x.at, x.title, x.body, s);
-    await this.schedule();
+    const have = new Map([...this.sql.exec(`SELECT id, at, title, body, sub FROM t WHERE ep = ?`, ep)].map((r) => [r.id, r]));
+    const keep = new Set();
+    let changed = false;
+    for (const x of timers) {
+      keep.add(x.id);
+      const r = have.get(x.id);
+      if (r && r.at === x.at && r.title === x.title && r.body === x.body && r.sub === s) continue;
+      this.sql.exec(`INSERT OR REPLACE INTO t VALUES (?, ?, ?, ?, ?, ?)`, ep, x.id, x.at, x.title, x.body, s); changed = true;
+    }
+    for (const id of have.keys()) if (!keep.has(id)) { this.sql.exec(`DELETE FROM t WHERE ep = ? AND id = ?`, ep, id); changed = true; }
+    if (changed) await this.schedule();
   }
   async schedule() {
     const next = [...this.sql.exec(`SELECT MIN(at) AS at FROM t`)][0];
