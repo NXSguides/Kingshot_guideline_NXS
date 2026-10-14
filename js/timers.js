@@ -207,6 +207,12 @@
   /* 🛠️ admin reminders: officer to-dos the officer page left in this browser (nxs-admin-todos), sent at the chosen UTC hour of their due day */
   function adminData() { try { return JSON.parse(localStorage.getItem("nxs-admin-todos")) || null; } catch (e) { return null; } }
   const isOfficer = () => { try { return !!adminData() || !!localStorage.getItem("nxs-discord-v1") || !!(JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw); } catch (e) { return false; } };
+  /* the to-do's event name in the page language: the guide name on the main site, the officer page's names otherwise */
+  const adminName = (x, ev) => {
+    const l = lang(), g = typeof GUIDES !== "undefined" && GUIDES[ev];
+    const n = (g && g.name && (g.name[l] || g.name.en)) || (x.names && (x.names[l] || x.names.en)) || "";
+    return n ? `${x.emoji || (g && g.emoji) || "📌"} ${n}` : x.title;
+  };
   function adminTimers() {
     const a = alerts.admin, d = adminData();
     if (!a || !a.on || !d || !Array.isArray(d.items)) return [];
@@ -215,7 +221,7 @@
     for (const x of d.items) {
       const ev = x.ev || String(x.id).replace(/-\d{4}-\d\d-\d\d-\d+$/, ""), key = `${ev}-${Math.floor(x.due / 86400000)}`;
       if (ev === "bear-hunt" || seen.has(key)) continue; seen.add(key);   // Bear Hunt repeats by itself — no admin reminder
-      out.push({ id: `adm-${key}`.slice(0, 40), at: x.due + h * 3600000, title: `🛠️ ${x.title}`, body: T("adminBody") });
+      out.push({ id: `adm-${key}`.slice(0, 40), at: x.due + h * 3600000, title: `🛠️ ${adminName(x, ev)}`, body: T("adminBody") });
     }
     return out.filter((x) => x.at > now).sort((x, y) => x.at - y.at);
   }

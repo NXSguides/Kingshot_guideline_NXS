@@ -285,7 +285,7 @@ const T = { ko: {"title": "NXS 이벤트", "sub": "이번 주 이벤트와 간�
     fTodo: "Action items for officers", addTodo: "+ Action item", editTodo: "Edit items",
     etDay: "Day {n} of {t}",
     etBearNext: "Next Bear day (UTC)", etDayLbl: "Battle day", etBearMoved: "🐻 Bear Hunt now runs every {e} days from {d}.",
-    etTitle: "⏰ Our event times (UTC)", etNote: "The times we pick for alliance events, and which day of the event the battle is. Used on the home page (Today & this week) and for everyone's ⏰ Game reminders. Type one or more times, e.g. 13:00, 22:00. If the game moves Bear Hunt to another day, change \"Next Bear day\" — the whole site follows.",
+    etTitle: "⏰ Our event times (UTC)", etNote: "The times we pick for alliance events, and which day of the event the battle is. Used on the home page (This week) and for everyone's ⏰ Game reminders. Type one or more times, e.g. 13:00, 22:00. If the game moves Bear Hunt to another day, change \"Next Bear day\" — the whole site follows.",
     etBad: "Check the times — use HH:MM, e.g. 13:00, 22:30.", etSaved: "Saved ✅ The site and the ⏰ reminders use the new times within a few minutes (reminders update when people open the site).",
     limTitle: "⚙️ Troop limits in the guides", limNote: "Used everywhere the guides mention these numbers (all 12 languages) and by the AI assistant. Change them here when the game or the alliance changes the limit.",
     limBear: "Bear Hunt — joining a rally (exactly)", limRally: "Other rallies / Viking HQ — max per member", limSave: "💾 Save", limSaving: "Saving…",
@@ -320,7 +320,7 @@ const T = { ko: {"title": "NXS 이벤트", "sub": "이번 주 이벤트와 간�
     fTodo: "幹部待辦事項", addTodo: "+ 待辦事項", editTodo: "編輯待辦",
     etDay: "第 {n} 天（共 {t} 天）",
     etBearNext: "下一個熊日（UTC）", etDayLbl: "開打日", etBearMoved: "🐻 狩獵巨熊改成從 {d} 起每 {e} 天一次。",
-    etTitle: "⏰ 我們的活動時間（UTC）", etNote: "聯盟活動我們自己決定的時間，以及活動第幾天開打。首頁「今天和這週」和大家的 ⏰ 活動提醒都會用這裡的時間。可以填一個或多個時間，例如 13:00, 22:00。遊戲把狩獵巨熊移到別天時，改「下一個熊日」，整個網站都會跟著變。",
+    etTitle: "⏰ 我們的活動時間（UTC）", etNote: "聯盟活動我們自己決定的時間，以及活動第幾天開打。首頁「這週」和大家的 ⏰ 活動提醒都會用這裡的時間。可以填一個或多個時間，例如 13:00, 22:00。遊戲把狩獵巨熊移到別天時，改「下一個熊日」，整個網站都會跟著變。",
     etBad: "請檢查時間格式（HH:MM），例如 13:00, 22:30。", etSaved: "已儲存 ✅ 幾分鐘內網站和 ⏰ 提醒就會用新的時間（大家打開網站時提醒會跟著更新）。",
     limTitle: "⚙️ 攻略裡的部隊人數上限", limNote: "攻略裡所有提到這兩個數字的地方（12 種語言）和 AI 助理都會用這裡的數字。遊戲或聯盟改上限時，在這裡改就好。",
     limBear: "狩獵巨熊 — 參加集結（剛好）", limRally: "其他集結／維京總部 — 每人上限", limSave: "💾 儲存", limSaving: "儲存中…",
@@ -563,7 +563,8 @@ function exportAdmin() {
       for (const [i, td] of (e.todo || []).entries()) {
         const due = r.st + (Number(td.due) || 0) * DAY, id = `${r.k}-${isoDay(r.st)}-${i}`;
         if (due < today || due > today + 21 * DAY || (store.done || {})[id]) continue;
-        items.push({ id, ev: r.k, due, title: `${e.emoji || "📌"} ${e.en || r.k}`, body: String(td.en || td.zh || "").replace(/\*\*/g, "").slice(0, 190) });
+        const names = {}; for (const l of OFFICER_LANGS) { const v = e[l] || (BY_EN[l] && BY_EN[l][e.en]) || ""; if (v) names[l] = v; }
+        items.push({ id, ev: r.k, due, emoji: e.emoji || "📌", names, title: `${e.emoji || "📌"} ${e.en || r.k}`, body: String(td.en || td.zh || "").replace(/\*\*/g, "").slice(0, 190) });
       }
     }
     localStorage.setItem("nxs-admin-todos", JSON.stringify({ updated: now, items }));

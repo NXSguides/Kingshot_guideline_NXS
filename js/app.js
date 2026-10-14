@@ -1008,7 +1008,7 @@ window.rcCopy = (b) => copyText(b.dataset.copy).then((ok) => { if (!ok) return; 
 
 /* ---- "Today / coming up" card at the top of the home page (from the schedules above) ---- */
 const TODAY_TXT = {
-  title: { en:"📅 Today & this week", zh:"📅 今天和這週", ko:"📅 오늘과 이번 주", de:"📅 Heute & diese Woche", fr:"📅 Aujourd'hui et cette semaine", pt:"📅 Hoje e esta semana", es:"📅 Hoy y esta semana", tr:"📅 Bugün ve bu hafta", id:"📅 Hari ini & minggu ini", ru:"📅 Сегодня и на этой неделе", th:"📅 วันนี้และสัปดาห์นี้", ar:"📅 اليوم وهذا الأسبوع" },
+  title: { en:"📅 This week", zh:"📅 這週", ko:"📅 이번 주", de:"📅 Diese Woche", fr:"📅 Cette semaine", pt:"📅 Esta semana", es:"📅 Esta semana", tr:"📅 Bu hafta", id:"📅 Minggu ini", ru:"📅 На этой неделе", th:"📅 สัปดาห์นี้", ar:"📅 هذا الأسبوع" },
   now: { en:"Now", zh:"進行中", ko:"진행 중", de:"Läuft", fr:"En cours", pt:"Agora", es:"Ahora", tr:"Şimdi", id:"Sekarang", ru:"Сейчас", th:"ตอนนี้", ar:"الآن" },
   soon: { en:"Coming up", zh:"即將開始", ko:"곧 시작", de:"Demnächst", fr:"À venir", pt:"Em breve", es:"Próximamente", tr:"Yaklaşan", id:"Segera", ru:"Скоро", th:"เร็วๆ นี้", ar:"قريبًا" },
   day: { en:"day {n}/{d}", zh:"第 {n}/{d} 天", ko:"{n}/{d}일차", de:"Tag {n}/{d}", fr:"jour {n}/{d}", pt:"dia {n}/{d}", es:"día {n}/{d}", tr:"{n}/{d}. gün", id:"hari {n}/{d}", ru:"день {n}/{d}", th:"วันที่ {n}/{d}", ar:"اليوم {n}/{d}" },
