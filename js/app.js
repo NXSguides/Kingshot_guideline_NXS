@@ -1056,7 +1056,7 @@ function todayCardHtml() {
   if (!nowItems.length && !soon.length) h += `<div class="td-none">${escapeHtml(t(TODAY_TXT.none))}</div>`;
   if (nowItems.length) h += `<div class="td-h">${escapeHtml(t(TODAY_TXT.now))}</div>` + nowItems.map((it) => row(it, it.days > 1 ? escapeHtml(fill(t(TODAY_TXT.day), { n: it.day, d: it.days })) : escapeHtml(t(TODAY_TXT.today)))).join("");
   if (soon.length) h += `<div class="td-h">${escapeHtml(t(TODAY_TXT.soon))}</div>` + soon.map((it) => row(it, escapeHtml(when(it.until)))).join("");
-  return h + `</div>`;
+  return h + dailyHintHtml() + `</div>`;
 }
 function renderDoc() {
   const doc = document.getElementById("doc");
@@ -1075,8 +1075,63 @@ function renderDoc() {
   const kids = Object.keys(GUIDES).filter((k) => GUIDES[k].parent === currentGuide);
   const back = guide.parent && GUIDES[guide.parent] ? btn(guide.parent, true) : "";
   doc.innerHTML = (currentGuide === HOME_GUIDE ? todayCardHtml() : "") + back + `<div class="doc-title"><span class="emoji">${guide.emoji}</span><span>${escapeHtml(s.title)}</span></div>` + kids.map((k) => btn(k)).join("") + keyPointsHtml() + (currentGuide === "formations-rally-tips" ? ratioCardHtml() : "");
-  doc.appendChild(renderBlocks(guide, s));
+  // General Tips: the daily checklist sits on top as a card you can tick (cleared at 00:00 UTC)
+  const daily = currentGuide === DAILY_GUIDE ? dailySection(s) : null;
+  if (daily) doc.insertAdjacentHTML("beforeend", dailyCardHtml(daily));
+  doc.appendChild(renderBlocks(guide, daily ? { ...s, blocks: s.blocks.filter((b, k) => k < daily.from || k >= daily.to) } : s));
   jumpCard(doc);
+}
+
+/* ===== ✅ Daily checklist: the "☐" items of General Tips, ticked per device, cleared every day at 00:00 UTC ===== */
+const DAILY_GUIDE = "general-tips", DAILY_LS = "nxs-daily-v1";
+const DAILY_TXT = {
+  hint: { en:"✅ Not sure what's left for today? Daily checklist", zh:"✅ 想確定今天還有什麼沒做嗎？每日清單", ko:"✅ 오늘 할 일 다 했나요? 일일 체크리스트", de:"✅ Unsicher, was heute noch fehlt? Tägliche Checkliste", fr:"✅ Il te reste quelque chose aujourd'hui ? Checklist quotidienne", pt:"✅ Falta algo hoje? Checklist diário", es:"✅ ¿Te falta algo hoy? Lista diaria", tr:"✅ Bugün eksik bir şey var mı? Günlük kontrol listesi", id:"✅ Masih ada yang belum hari ini? Checklist harian", ru:"✅ Что ещё не сделано сегодня? Ежедневный список", th:"✅ วันนี้ยังเหลืออะไรอยู่ไหม? เช็กลิสต์ประจำวัน", ar:"✅ هل بقي شيء لليوم؟ قائمة المهام اليومية" },
+  reset: { en:"Ticks are saved on this device and cleared at 00:00 UTC.", zh:"勾選只存在這台裝置，每天 UTC 00:00 清空。", ko:"체크는 이 기기에만 저장되며 매일 UTC 00:00에 초기화돼요.", de:"Häkchen bleiben auf diesem Gerät und werden um 00:00 UTC zurückgesetzt.", fr:"Les coches restent sur cet appareil et sont effacées à 00:00 UTC.", pt:"As marcações ficam neste aparelho e são apagadas às 00:00 UTC.", es:"Las marcas se guardan en este dispositivo y se borran a las 00:00 UTC.", tr:"İşaretler bu cihazda kalır ve 00:00 UTC'de sıfırlanır.", id:"Centang disimpan di perangkat ini dan direset pukul 00:00 UTC.", ru:"Отметки хранятся на этом устройстве и сбрасываются в 00:00 UTC.", th:"เครื่องหมายถูกบันทึกในเครื่องนี้และล้างเวลา 00:00 UTC", ar:"تُحفظ العلامات على هذا الجهاز وتُمسح الساعة 00:00 UTC." },
+  all: { en:"All done for today 🎉", zh:"今天都完成了 🎉", ko:"오늘 할 일 끝 🎉", de:"Für heute alles erledigt 🎉", fr:"Tout est fait pour aujourd'hui 🎉", pt:"Tudo feito hoje 🎉", es:"Todo listo por hoy 🎉", tr:"Bugünlük hepsi tamam 🎉", id:"Semua beres hari ini 🎉", ru:"На сегодня всё 🎉", th:"วันนี้ทำครบแล้ว 🎉", ar:"أنجزت كل شيء اليوم 🎉" },
+};
+const utcToday = () => new Date().toISOString().slice(0, 10);
+function dailyState() {
+  let st = null; try { st = JSON.parse(localStorage.getItem(DAILY_LS)); } catch (e) {}
+  return st && st.day === utcToday() ? st : { day: utcToday(), done: {} };
+}
+/* the "✅ …" heading and the lists under it (up to the next heading); items are numbered across the lists */
+function dailySection(s) {
+  const from = (s.blocks || []).findIndex((b) => b.type === "h" && /✅/.test(b.text || ""));
+  if (from < 0) return null;
+  let to = from + 1; while (to < s.blocks.length && s.blocks[to].type !== "h") to++;
+  const groups = []; let n = 0;
+  for (const b of s.blocks.slice(from + 1, to)) {
+    if (b.type === "sub") groups.push({ sub: b.text, items: [] });
+    else if (b.type === "list") { if (!groups.length) groups.push({ sub: "", items: [] }); for (const it of b.items) groups[groups.length - 1].items.push({ n: n++, text: String(it).replace(/^☐\s*/, "") }); }
+  }
+  return n ? { from, to, title: s.blocks[from].text, groups, total: n } : null;
+}
+function dailyCardHtml(d) {
+  const st = dailyState(), done = Object.keys(st.done).filter((k) => +k < d.total).length;
+  return `<div class="daily-card" id="dailyCard"><div class="dl-head"><b>${rich(d.title)}</b><span class="dl-count" id="dailyCount">${done} / ${d.total}</span></div>
+    <div class="dl-bar"><i id="dailyBar" style="width:${(done / d.total) * 100}%"></i></div>
+    <div class="dl-all" id="dailyAll"${done === d.total ? "" : " hidden"}>${escapeHtml(t(DAILY_TXT.all))}</div>` +
+    d.groups.map((g) => (g.sub ? `<div class="dl-sub">${rich(g.sub)}</div>` : "") + g.items.map((it) =>
+      `<label class="dl-item"><input type="checkbox" data-daily="${it.n}"${st.done[it.n] ? " checked" : ""}><span>${rich(it.text)}</span></label>`).join("")).join("") +
+    `<div class="dl-note">${rich(t(DAILY_TXT.reset))}</div></div>`;
+}
+document.addEventListener("change", (e) => {
+  const n = e.target.dataset && e.target.dataset.daily; if (n === undefined) return;
+  const st = dailyState(); if (e.target.checked) st.done[n] = 1; else delete st.done[n];
+  try { localStorage.setItem(DAILY_LS, JSON.stringify(st)); } catch (err) {}
+  const total = document.querySelectorAll("[data-daily]").length, done = document.querySelectorAll("[data-daily]:checked").length;
+  const c = document.getElementById("dailyCount"); if (c) c.textContent = `${done} / ${total}`;
+  const bar = document.getElementById("dailyBar"); if (bar) bar.style.width = (done / total) * 100 + "%";
+  const all = document.getElementById("dailyAll"); if (all) all.hidden = done !== total;
+});
+/* the page stays open past 00:00 UTC: clear the ticks on screen too */
+let dailyDay = utcToday();
+setInterval(() => { if (utcToday() !== dailyDay) { dailyDay = utcToday(); if (document.getElementById("dailyCard") || document.getElementById("dailyHint")) renderAll(); } }, 60000);
+function dailyHintHtml() {
+  const g = GUIDES[DAILY_GUIDE], s = g && (g.sections[currentLang] || g.sections.en), d = s && dailySection(s);
+  if (!d) return "";
+  const st = dailyState(), done = Object.keys(st.done).filter((k) => +k < d.total).length;
+  return `<button type="button" class="kvk-plan-link" id="dailyHint" onclick="switchGuide('${DAILY_GUIDE}');window.scrollTo({top:0,behavior:'smooth'})" dir="auto">${escapeHtml(t(DAILY_TXT.hint))} · ${done}/${d.total} ›</button>`;
 }
 
 /* Grouped events (Swordland roles, Tri-Alliance teams): buttons that jump to your group's part of the guide.
