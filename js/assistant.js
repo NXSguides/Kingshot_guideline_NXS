@@ -344,10 +344,10 @@
   };
   try { if (sessionStorage.getItem(OPEN_KEY)) setOpen(true); } catch (e) {}
   $("aiLog").addEventListener("click", (e) => {
-    // officer pages only know English and 中文: open them in the reader's language (like tapping the title 5×)
+    // officer pages know 中文 / English / Português / العربية / 한국어: open them in the reader's language (others → English)
     const a = e.target.closest('a[href$=".html"]');
     if (a && ON_SITE && typeof currentLang !== "undefined") {
-      try { localStorage.setItem("nxs-officer-lang", currentLang === "zh" ? "zh" : "en"); } catch (err) {}
+      try { localStorage.setItem("nxs-officer-lang", ["zh", "en", "pt", "ar", "ko"].includes(currentLang) ? currentLang : "en"); } catch (err) {}
       return;
     }
     const b = e.target.closest("[data-guide]");

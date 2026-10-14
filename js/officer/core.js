@@ -34,7 +34,9 @@ const OFFICER_LANG = "nxs-officer-lang", OFFICER_LS = "nxs-post-v1";
 const OFFICER_LANGS = ["zh", "en", "pt", "ar", "ko"];   // officer page languages (R4/R5 languages)
 const officerLang = () => { try { const v = localStorage.getItem(OFFICER_LANG); return OFFICER_LANGS.includes(v) ? v : null; } catch (e) { return null; } };
 const setOfficerLang = (v) => { try { localStorage.setItem(OFFICER_LANG, v); } catch (e) {} };
-const OFFICER = { lang: officerLang() || OFFICER_LANGS.find((l) => (navigator.language || "").startsWith(l)) || "en", token: null, pw: null };
+/* first visit: the language chosen on the main site (ks-lang), else the phone's language; a language this page doesn't have → English */
+const siteLang = () => { try { return localStorage.getItem("ks-lang"); } catch (e) { return null; } };
+const OFFICER = { lang: officerLang() || (OFFICER_LANGS.includes(siteLang()) ? siteLang() : null) || OFFICER_LANGS.find((l) => (navigator.language || "").startsWith(l)) || "en", token: null, pw: null };
 /* Dates and <html lang> per language; BY_EN = Portuguese / Arabic for the built-in English texts (event names, default to-dos…) — shown only, never saved */
 const LOCALE = (l) => ({ zh: "zh-TW", pt: "pt-BR", ar: "ar-u-nu-latn", ko: "ko-KR" })[l] || "en-GB";   // Arabic with 0-9 digits, like the game
 const HTML_LANG = (l) => ({ zh: "zh-Hant", pt: "pt-BR", ar: "ar", ko: "ko" })[l] || "en";
@@ -170,6 +172,7 @@ function applyShared() {
   const t = SH[OFFICER.lang] || SH.en;
   document.documentElement.lang = HTML_LANG(OFFICER.lang);
   document.getElementById("shHome").textContent = t.home;
+  document.getElementById("shHome").parentElement.href = "./#/" + (siteLang() || OFFICER.lang) + "/";   // ← Home: the site in its own language (e.g. Deutsch), else this one
   document.getElementById("langBtn").value = OFFICER.lang;
   document.getElementById("gateTitle").textContent = t.pw;
   document.getElementById("gateRememberTxt").textContent = t.remember;

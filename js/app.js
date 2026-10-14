@@ -1299,7 +1299,7 @@ window.addEventListener("hashchange", () => {
     taps++;
     clearTimeout(timer);
     timer = setTimeout(() => { taps = 0; }, 2000);
-    if (taps >= 5) { taps = 0; safeSet("nxs-officer-lang", currentLang === "zh" ? "zh" : "en"); location.href = "officer-x7k2p9.html#events"; }
+    if (taps >= 5) { taps = 0; safeSet("nxs-officer-lang", ["zh", "en", "pt", "ar", "ko"].includes(currentLang) ? currentLang : "en"); location.href = "officer-x7k2p9.html#events"; }   // officer page languages; others → English
   });
 })();
 
