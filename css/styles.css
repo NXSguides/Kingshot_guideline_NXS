@@ -720,6 +720,8 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 .month-card .cal-d.pad { border-color: transparent; background: transparent; cursor: default; }
 .month-card .cal-d .n { font-size: 12px; font-weight: 600; color: var(--text-muted); line-height: 1.1; }
 .month-card .cal-d .e { font-size: 13px; line-height: 1.15; letter-spacing: -1px; text-align: center; word-break: break-all; }
+.month-card .cal-d .e i { font-style: normal; }
+.month-card .cal-d .e i.s { opacity: .3; }   /* event running, but not its battle day */
 .month-card .cal-d.bear .n::after { content: "·"; color: var(--accent); margin-inline-start: 1px; }
 .month-card .cal-d.today .n { color: var(--accent); font-weight: 800; }
 .month-card .cal-d.pick { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--panel)); }

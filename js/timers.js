@@ -36,7 +36,7 @@
       "viking-vengeance": ["🧯", "Viking Vengeance"], "mystic-trial": ["🔮", "Mystic Trial"] },
   };
   fetch("data/event-times.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((d) => {
-    for (const [k, n] of Object.entries((d && d.days) || {})) if (+n >= 1) FIGHT_DAY[k] = +n;
+    for (const [k, n] of Object.entries((d && d.days) || {})) { if (+n >= 1) FIGHT_DAY[k] = +n; else if (+n === 0) delete FIGHT_DAY[k]; }   // 0 = every day is a battle day
     if (ON_MAIN) { if (!view.hidden) render(); return; }
     for (const [k, v] of Object.entries(d || {})) { const hs = (Array.isArray(v) ? v : []).map((x) => { const m = String(x).match(/^(\d{1,2})(?::(\d{2}))?$/); return m ? +m[1] + (+(m[2] || 0)) / 60 : null; }).filter((x) => x != null && x < 24); if (hs.length) FB.times[k] = hs; }
     if (!view.hidden) render();

@@ -270,9 +270,13 @@ const EVENT_TIMES = { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri
 /* officers set these on the officer Events tab → data/event-times.json ("13:30" → 13.5); the ⏰ timers read them too */
 const hmToH = (v) => { const m = String(v).match(/^(\d{1,2})(?::(\d{2}))?$/); return m && +m[1] < 24 && +(m[2] || 0) < 60 ? +m[1] + (+(m[2] || 0)) / 60 : null; };
 const hToHM = (h) => String(Math.floor(h)).padStart(2, "0") + ":" + String(Math.round((h % 1) * 60)).padStart(2, "0");
+/* which day of the event the battle is (officer Events tab → "days" in event-times.json): -1 = last day, 1.. = that day, missing = every day */
+const FIGHT_DAY = { "swordland-showdown": -1, "tri-alliance-clash": -1, "viking-vengeance": -1, "cesares-fury": 1 };
+const isFightDay = (k, dayIdx, activeDays) => { if (!(k in FIGHT_DAY)) return true; const f = FIGHT_DAY[k] < 0 ? activeDays + FIGHT_DAY[k] : FIGHT_DAY[k] - 1; return dayIdx === f; };
 fetch("data/event-times.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((d) => {
   if (!d) return;
   let changed = false;
+  for (const [k, n] of Object.entries(d.days || {})) { if (+n >= 1) FIGHT_DAY[k] = +n; else if (+n === 0) delete FIGHT_DAY[k]; changed = true; }
   for (const [k, v] of Object.entries(d)) { const hs = (Array.isArray(v) ? v : []).map(hmToH).filter((x) => x != null); if (hs.length) { EVENT_TIMES[k] = hs; changed = true; } }
   if (changed && langChosen) renderAll();
 }).catch(() => {});
@@ -1021,6 +1025,7 @@ const TODAY_TXT = {
 /* ---- 📆 month calendar under the "This week" card: every event's active days, from the same schedules ---- */
 const CAL_TXT = {
   title: { en:"📆 Calendar", zh:"📆 行事曆", ko:"📆 달력", de:"📆 Kalender", fr:"📆 Calendrier", pt:"📆 Calendário", es:"📆 Calendario", tr:"📆 Takvim", id:"📆 Kalender", ru:"📆 Календарь", th:"📆 ปฏิทิน", ar:"📆 التقويم" },
+  prep: { en:"not the battle day", zh:"還沒開打", ko:"전투일 아님", de:"kein Kampftag", fr:"pas le jour du combat", pt:"não é o dia da batalha", es:"no es el día de batalla", tr:"savaş günü değil", id:"bukan hari pertempuran", ru:"не день битвы", th:"ยังไม่ใช่วันต่อสู้", ar:"ليس يوم المعركة" },
   none: { en:"No events that day.", zh:"這天沒有活動。", ko:"이 날은 이벤트가 없어요.", de:"An dem Tag kein Event.", fr:"Pas d'événement ce jour-là.", pt:"Nenhum evento nesse dia.", es:"No hay eventos ese día.", tr:"O gün etkinlik yok.", id:"Tidak ada acara hari itu.", ru:"В этот день событий нет.", th:"วันนั้นไม่มีกิจกรรม", ar:"لا توجد فعاليات في ذلك اليوم." },
 };
 let calShift = 0, calPick = null;   // months from the current one; picked day (UTC midnight ms)
@@ -1029,12 +1034,12 @@ function calEventsOn(day) {   // [{key|ann, emoji, name, day, days}] active on t
   for (const [key, sc] of Object.entries(EVENT_SCHEDULES).concat([["bear-hunt", BEAR_SCHED]])) {
     if (!GUIDES[key] || GUIDES[key].hidden) continue;
     const n = Math.floor((day - sc.anchor) / DAY); if (n < 0) continue;
-    const r = n % sc.periodDays; if (r < sc.activeDays) out.push({ key, emoji: GUIDES[key].emoji, name: t(GUIDES[key].name), day: r + 1, days: sc.activeDays });
+    const r = n % sc.periodDays; if (r < sc.activeDays) out.push({ key, emoji: GUIDES[key].emoji, name: t(GUIDES[key].name), day: r + 1, days: sc.activeDays, fight: isFightDay(key, r, sc.activeDays) });
   }
   for (const ev of ANN_EVENTS) {
     const i = announcements.findIndex((a) => ((a.title && (a.title.en || "")) + " " + JSON.stringify(a.title || {})).includes(ev.match)); if (i < 0) continue;
     const n = Math.floor((day - Date.parse(ev.start + "T00:00:00Z")) / DAY);
-    if (n >= 0 && n < ev.days) out.push({ ann: i, emoji: ev.emoji, name: t(announcements[i].title) || ev.match, day: n + 1, days: ev.days });
+    if (n >= 0 && n < ev.days) out.push({ ann: i, emoji: ev.emoji, name: t(announcements[i].title) || ev.match, day: n + 1, days: ev.days, fight: true });
   }
   return out;
 }
@@ -1049,12 +1054,12 @@ function monthCalHtml() {
   for (let i = 0; i < lead; i++) cells += `<span class="cal-d pad"></span>`;
   for (let d = 0; d < nDays; d++) {
     const day = first + d * DAY, evs = calEventsOn(day), big = evs.filter((e) => e.key !== "bear-hunt"), bear = evs.length !== big.length;
-    const em = big.slice(0, 3).map((e) => e.emoji).join("") + (big.length > 3 ? "⋯" : "");
+    const em = big.slice(0, 3).map((e) => `<i class="${e.fight ? "f" : "s"}">${e.emoji}</i>`).join("") + (big.length > 3 ? "⋯" : "");
     cells += `<button type="button" class="cal-d${day === today ? " today" : ""}${day === pick ? " pick" : ""}${bear ? " bear" : ""}" onclick="calPick=${day};renderCal()"><span class="n">${d + 1}</span><span class="e">${em}</span></button>`;
   }
   const fill = (str, v) => str.replace(/\{(\w+)\}/g, (m, k) => (v[k] ?? m));
   const list = calEventsOn(pick), dl = new Date(pick).toLocaleDateString(loc, { weekday: "short", month: "short", day: "numeric", timeZone: "UTC" });
-  const rows = list.length ? list.map((it) => `<button type="button" class="td-row" onclick="${it.ann !== undefined ? `goToAnnouncements(${it.ann})` : `switchGuide('${it.key}')`}"><span class="emoji">${it.emoji}</span><span class="td-main"><b dir="auto">${escapeHtml(it.name)}</b>${it.days > 1 ? `<span class="td-meta">${escapeHtml(fill(t(TODAY_TXT.day), { n: it.day, d: it.days }))}</span>` : ""}</span><span class="arrow">›</span></button>`).join("")
+  const rows = list.length ? list.map((it) => `<button type="button" class="td-row" onclick="${it.ann !== undefined ? `goToAnnouncements(${it.ann})` : `switchGuide('${it.key}')`}"><span class="emoji">${it.emoji}</span><span class="td-main"><b dir="auto">${escapeHtml(it.name)}${it.fight ? " ⚔️" : ""}</b>${it.days > 1 ? `<span class="td-meta">${escapeHtml(fill(t(TODAY_TXT.day), { n: it.day, d: it.days }))}${it.fight ? "" : " · " + escapeHtml(t(CAL_TXT.prep))}</span>` : ""}</span><span class="arrow">›</span></button>`).join("")
     : `<div class="td-none">${escapeHtml(t(CAL_TXT.none))}</div>`;
   return `<div class="td-title cal-head"><span>${escapeHtml(t(CAL_TXT.title))}</span><span class="cal-nav"><button type="button" onclick="calShift--;calPick=null;renderCal()">‹</button><b>${escapeHtml(fd.toLocaleDateString(loc, { month: "long", year: "numeric", timeZone: "UTC" }))}</b><button type="button" onclick="calShift++;calPick=null;renderCal()">›</button></span></div>
     <div class="cal-grid">${wd.map((w) => `<span class="cal-w">${escapeHtml(w)}</span>`).join("")}${cells}</div><div class="td-h">${escapeHtml(dl)}</div>${rows}`;
@@ -1070,8 +1075,9 @@ function todayCardHtml() {
     const n = Math.floor((today - sc.anchor) / DAY);
     if (n < 0) { if (-n <= 7) soon.push({ key, until: -n, start: sc.anchor }); continue; }   // schedule moved to a later start (e.g. Bear Hunt pushed back)
     const inRun = n % sc.periodDays;
-    if (inRun < sc.activeDays) nowItems.push({ key, day: inRun + 1, days: sc.activeDays });
-    else { const until = sc.periodDays - inRun; if (until <= 7) soon.push({ key, until, start: today + until * DAY }); }
+    if (inRun < sc.activeDays && isFightDay(key, inRun, sc.activeDays)) { nowItems.push({ key, day: inRun + 1, days: sc.activeDays }); continue; }
+    // next battle day within 7 days (an event already running but not yet at its battle day counts too)
+    for (let u = 1; u <= 7; u++) { const r = (inRun + u) % sc.periodDays; if (r < sc.activeDays && isFightDay(key, r, sc.activeDays)) { soon.push({ key, until: u, start: today + u * DAY }); break; } }
   }
   for (const ev of ANN_EVENTS) {                                // announcement-only events
     const i = announcements.findIndex((a) => ((a.title && (a.title.en || "")) + " " + JSON.stringify(a.title || {})).includes(ev.match));
