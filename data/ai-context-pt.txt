@@ -1072,6 +1072,7 @@ Merchant Empire = Império Mercante
 UTC Time = Hora UTC
 Starts in = Começa em
 All Out = Vai com Tudo
+Call of the Sovereign = Chamado do Soberano
 Details = Detalhes
 Conquest = Conquista
 Heroes = Heróis
