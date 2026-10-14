@@ -615,6 +615,8 @@ Jaeger — Gen 3, Archer, SSR, Combat
   Skip unless you focus on PvP / garrison defense.
 
 ### GUIDE #kvk — KvK Prep & Battle Guide
+kvk-push
+📢 Nov 9: TG3 ➡️ TG5 push plan (for the next KvK only) — jump to it
 Truegold
 ✅
 <span class="chk-ok">OK</span>
@@ -701,6 +703,29 @@ How to increase it:
 Medical Satchels: +10% Rescue Rate
 Rescue Orders: +1% each, up to +50%
 ⚠️ IMPORTANT: Everyone must exchange Rescue Orders in alliance chat before the timer expires!
+📢 KvK push plan: TG3 ➡️ TG5 (November 9)
+When this applies: only the first KvK after November 9, 2026, when buildings can go from TG3 to TG5. Taking part is optional: pick a tier that fits the resources and speedups you have saved. The times and points below assume a near-maxed account.
+From November 9 you can push buildings from TG3 to TG5. The next KvK prep phase starts some time after that, so hold these upgrades until KvK starts — only then do they score points for the alliance.
+🔹 Option 1: Core 3 buildings (Town Center, Embassy, Stable)
+KvK points: 10,625,047 per player
+Resources: ~892M Wood / Bread, 173M Stone, 44M Iron, 4,055 Truegold
+Time: 58 days (adjusted)
+🔹 Option 2: 5 buildings (Town Center, Embassy, Stable, Barracks, Range)
+KvK points: 19,545,005 per player
+Resources: ~1.57B Wood / Bread, 311M Stone, 78M Iron, 7,980 Truegold
+Time: 82 days (adjusted)
+🔹 Option 3: All 7 buildings (Town Center, Embassy, Stable, Barracks, Range, Infirmary, Command Center)
+KvK points: 22,247,410 per player
+Resources: ~1.95B Wood / Bread, 388M Stone, 96M Iron, 9,210 Truegold
+Time: 88 days (adjusted)
+⚙️ What the numbers assume
+A near-maxed account: 80.2% base Construction Speed, Lv.5 Pan (Master Architect), Lv.5 Saul (Resourceful), the Chief Minister appointment, Lv.5 Gray Wolf (Construction Aide), Ground Works, Kingdom of Power Bonus and Double Time. With fewer bonuses your times are longer.
+⚠️ The 5-minute window
+Construction Aide (Gray Wolf, +15%) and Double Time (+20%) last only 5 minutes. When KvK scoring starts, use all your speedups inside those 5 minutes. Have the speedup page of your backpack open and tap fast.
+🛑 Start now
+1️⃣ Save resources: Wood, Bread, Stone, Iron and Truegold. Keep gathering and use gathering boosts.
+2️⃣ Save speedups: keep every speedup for these timers.
+3️⃣ Wait: keep these buildings at TG3 until KvK scoring officially starts, then push together to flood the leaderboard.
 
 ### GUIDE #all-out — All Out
 🪖 All-Out Rules

@@ -615,6 +615,8 @@ Jaeger — Gen 3, Arquearia, SSR, Combate
   Pule, a menos que seu foco seja PvP / defesa de guarnição.
 
 ### GUIDE #kvk — Guia de Preparação e Batalha KvK
+kvk-push
+📢 9 de novembro: plano de push TG3 ➡️ TG5 (só para o próximo KvK) — ir para lá
 Adamante
 ✅
 <span class="chk-ok">OK</span>
@@ -701,6 +703,29 @@ Como aumentar:
 Bolsa Médica: +10% de Taxa de Resgate
 Ordem de Resgate: +1% cada, até +50%
 ⚠️ IMPORTANTE: Todos devem trocar Ordem de Resgate no chat da aliança antes que o cronômetro expire!
+📢 Plano de push do KvK: TG3 ➡️ TG5 (9 de novembro)
+Quando vale: só no primeiro KvK depois de 9 de novembro de 2026, quando as construções podem ir de TG3 para TG5. Participar é opcional: escolha a opção que combina com os recursos e acelerações que você guardou. Os tempos e pontos abaixo consideram uma conta quase no máximo.
+A partir de 9 de novembro, dá para subir as construções de TG3 para TG5. A Fase de Preparação do próximo KvK começa um tempo depois, então segure essas melhorias até o KvK começar — só assim elas valem pontos para a aliança.
+🔹 Opção 1: As 3 construções principais (Centro da Cidade, Embaixada, Estábulo)
+Pontos de KvK: 10.625.047 por jogador
+Recursos: ~892 mi Madeira / Pão, 173 mi Pedra, 44 mi Ferro, 4.055 Adamante
+Tempo: 58 dias (ajustado)
+🔹 Opção 2: 5 construções (Centro da Cidade, Embaixada, Estábulo, Quartel, Campo de Tiro)
+Pontos de KvK: 19.545.005 por jogador
+Recursos: ~1,57 bi Madeira / Pão, 311 mi Pedra, 78 mi Ferro, 7.980 Adamante
+Tempo: 82 dias (ajustado)
+🔹 Opção 3: Todas as 7 construções (Centro da Cidade, Embaixada, Estábulo, Quartel, Campo de Tiro, Enfermaria, Centro de Comando)
+Pontos de KvK: 22.247.410 por jogador
+Recursos: ~1,95 bi Madeira / Pão, 388 mi Pedra, 96 mi Ferro, 9.210 Adamante
+Tempo: 88 dias (ajustado)
+⚙️ O que os números consideram
+Uma conta quase no máximo: 80,2% de Velocidade de Construção base, Lv.5 Pan (Mestre da Arquitetura), Lv.5 Saul (Talentoso), a nomeação de Primeiro-ministro, Lv.5 Lobo Cinza (Auxiliar de construção), Obras de preparação, Bônus do Reino de Poder e Horário Dobrado. Com menos bônus, seus tempos serão maiores.
+⚠️ A janela de 5 minutos
+Auxiliar de construção (Lobo Cinza, +15%) e Horário Dobrado (+20%) duram só 5 minutos. Quando a pontuação do KvK começar, use todas as suas acelerações dentro desses 5 minutos. Deixe a página de acelerações da mochila aberta e toque rápido.
+🛑 Comece agora
+1️⃣ Guarde recursos: Madeira, Pão, Pedra, Ferro e Adamante. Continue coletando e use bônus de coleta.
+2️⃣ Guarde acelerações: guarde todas para esses cronômetros.
+3️⃣ Espere: deixe essas construções em TG3 até a pontuação do KvK começar oficialmente e aí todos sobem juntos para lotar o placar.
 
 ### GUIDE #all-out — Vai com Tudo
 🪖 Regras do Vai com Tudo

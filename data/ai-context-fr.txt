@@ -615,6 +615,8 @@ Jaeger — Gén 3, Archer, SSR, Combat
   À ignorer, sauf si vous misez sur le PvP / la défense de garnison.
 
 ### GUIDE #kvk — Guide de Préparation et Combat KvK
+kvk-push
+📢 9 novembre : plan de push TG3 ➡️ TG5 (uniquement pour le prochain KvK) — y aller
 Or Véritable
 ✅
 <span class="chk-ok">OK</span>
@@ -701,6 +703,29 @@ Comment l'augmenter :
 Kit Médical : +10 % de Taux de Secours
 Ordres de Sauvetage : +1 % chacun, jusqu'à +50 %
 ⚠️ IMPORTANT : Tout le monde doit échanger des Ordres de Sauvetage dans le chat d'alliance avant l'expiration du minuteur !
+📢 Plan de push KvK : TG3 ➡️ TG5 (9 novembre)
+Quand ça s'applique : uniquement le premier KvK après le 9 novembre 2026, quand les bâtiments peuvent passer de TG3 à TG5. La participation est facultative : choisis l'option qui correspond aux ressources et accélérations que tu as mises de côté. Les durées et points ci-dessous supposent un compte presque au max.
+À partir du 9 novembre, tu peux monter les bâtiments de TG3 à TG5. La Phase de Préparation du prochain KvK commence un peu plus tard, donc garde ces améliorations jusqu'au début du KvK — c'est seulement là qu'elles rapportent des points à l'alliance.
+🔹 Option 1 : les 3 bâtiments principaux (Centre, L'Ambassade, Écurie)
+Points KvK : 10 625 047 par joueur
+Ressources : ~892 M Bois / Pain, 173 M Pierre, 44 M Fer, 4 055 Or Véritable
+Durée : 58 jours (ajustée)
+🔹 Option 2 : 5 bâtiments (Centre, L'Ambassade, Écurie, Quartiers, Stand de Tir)
+Points KvK : 19 545 005 par joueur
+Ressources : ~1,57 Md Bois / Pain, 311 M Pierre, 78 M Fer, 7 980 Or Véritable
+Durée : 82 jours (ajustée)
+🔹 Option 3 : les 7 bâtiments (Centre, L'Ambassade, Écurie, Quartiers, Stand de Tir, Infirmerie, Base de Commandement)
+Points KvK : 22 247 410 par joueur
+Ressources : ~1,95 Md Bois / Pain, 388 M Pierre, 96 M Fer, 9 210 Or Véritable
+Durée : 88 jours (ajustée)
+⚙️ Hypothèses derrière les chiffres
+Un compte presque au max : 80,2 % de Vitesse de Construction de base, Lv.5 Pan (Maître-architecte), Lv.5 Saul (Débrouillard), la nomination Premier Ministre, Lv.5 Loup Gris (Aide à la Construction), Travaux Terrestres, Bonus de Royaume au Pouvoir et Bouchées Doubles. Avec moins de bonus, tes durées seront plus longues.
+⚠️ La fenêtre de 5 minutes
+Aide à la Construction (Loup Gris, +15 %) et Bouchées Doubles (+20 %) ne durent que 5 minutes. Quand le décompte des points KvK commence, utilise toutes tes accélérations dans ces 5 minutes. Ouvre à l'avance la page des accélérations de ton sac et tape vite.
+🛑 Commence dès maintenant
+1️⃣ Économise les ressources : Bois, Pain, Pierre, Fer et Or Véritable. Continue la collecte et utilise des bonus de collecte.
+2️⃣ Économise les accélérations : garde-les toutes pour ces minuteurs.
+3️⃣ Attends : laisse ces bâtiments en TG3 jusqu'au début officiel du décompte KvK, puis on pousse tous ensemble pour inonder le classement.
 
 ### GUIDE #all-out — Tous dehors
 🪖 Règles de Tous dehors

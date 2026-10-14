@@ -617,6 +617,8 @@ Jaeger — Gen 3, Bogenschütze, SSR, Kampf
   Überspringen, außer du setzt auf PvP / Garnisonsverteidigung.
 
 ### GUIDE #kvk — KvK-Vorbereitungs- & Kampfguide
+kvk-push
+📢 9. November: TG3 ➡️ TG5 Push-Plan (nur für das nächste KvK) — hierher springen
 Echtgold
 ✅
 <span class="chk-ok">OK</span>
@@ -703,6 +705,29 @@ So erhöhst du sie:
 Medizinkoffer: +10 % Rettungsrate
 Rettungswälzer: je +1 %, bis zu +50 %
 ⚠️ WICHTIG: Alle müssen Rettungswälzer im Allianz-Chat austauschen, bevor der Timer abläuft!
+📢 KvK-Push-Plan: TG3 ➡️ TG5 (9. November)
+Wann das gilt: nur für das erste KvK nach dem 9. November 2026, wenn Gebäude von TG3 auf TG5 gehen können. Mitmachen ist freiwillig: Wähl eine Stufe, die zu deinen gesparten Ressourcen und Beschleunigungen passt. Zeiten und Punkte unten gelten für einen fast maximierten Account.
+Ab dem 9. November kannst du Gebäude von TG3 auf TG5 bringen. Die Vorbereitungsphase des nächsten KvK beginnt erst einige Zeit danach. Halte diese Upgrades also zurück, bis das KvK startet — nur dann bringen sie der Allianz Punkte.
+🔹 Option 1: Die 3 Kerngebäude (Stadtzentrum, Botschaft, Stall)
+KvK-Punkte: 10.625.047 pro Spieler
+Ressourcen: ~892 Mio. Holz / Brot, 173 Mio. Stein, 44 Mio. Eisen, 4.055 Echtgold
+Zeit: 58 Tage (angepasst)
+🔹 Option 2: 5 Gebäude (Stadtzentrum, Botschaft, Stall, Kaserne, Schießstand)
+KvK-Punkte: 19.545.005 pro Spieler
+Ressourcen: ~1,57 Mrd. Holz / Brot, 311 Mio. Stein, 78 Mio. Eisen, 7.980 Echtgold
+Zeit: 82 Tage (angepasst)
+🔹 Option 3: Alle 7 Gebäude (Stadtzentrum, Botschaft, Stall, Kaserne, Schießstand, Krankenstation, Kommandozentrale)
+KvK-Punkte: 22.247.410 pro Spieler
+Ressourcen: ~1,95 Mrd. Holz / Brot, 388 Mio. Stein, 96 Mio. Eisen, 9.210 Echtgold
+Zeit: 88 Tage (angepasst)
+⚙️ Annahmen hinter den Zahlen
+Ein fast maximierter Account: 80,2 % Basis-Baugeschwindigkeit, Lv.5 Pan (Meisterarchitekt), Lv.5 Saul (Einfallsreich), die Ernennung Höchster Minister, Lv.5 Grauer Wolf (Bauhilfe), Grundarbeit, Königreich der Macht Bonus und Doppeltes Tempo. Mit weniger Boni dauert es länger.
+⚠️ Das 5-Minuten-Fenster
+Bauhilfe (Grauer Wolf, +15 %) und Doppeltes Tempo (+20 %) halten nur 5 Minuten. Wenn die KvK-Wertung startet, nutz alle Beschleunigungen innerhalb dieser 5 Minuten. Öffne vorher die Beschleunigungen-Seite im Rucksack und tipp schnell.
+🛑 Jetzt anfangen
+1️⃣ Ressourcen sparen: Holz, Brot, Stein, Eisen und Echtgold. Weiter sammeln und Sammel-Boosts nutzen.
+2️⃣ Beschleunigungen sparen: Heb jede Beschleunigung für diese Timer auf.
+3️⃣ Warten: Lass diese Gebäude auf TG3, bis die KvK-Wertung offiziell startet. Dann alle gemeinsam pushen und die Bestenliste fluten.
 
 ### GUIDE #all-out — Aufs Ganze
 🪖 All-Out-Regeln

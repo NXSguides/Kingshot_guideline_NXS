@@ -615,6 +615,8 @@ Jaeger — Gen 3, Arquero, SSR, Combate
   Sáltalo salvo que te centres en PvP / defensa de guarnición.
 
 ### GUIDE #kvk — Guía de Preparación y Batalla KvK
+kvk-push
+📢 9 nov.: plan de empuje TG3 ➡️ TG5 (solo para el próximo KvK) — ir a la sección
 Adamantina
 ✅
 <span class="chk-ok">OK</span>
@@ -701,6 +703,29 @@ Cómo aumentarla:
 Bolso médico: +10% Tasa de Rescate
 Órdenes de rescate: +1% cada uno, hasta +50%
 ⚠️ IMPORTANTE: ¡Todos deben intercambiar Órdenes de rescate en el chat de alianza antes de que expire el temporizador!
+📢 Plan de empuje para KvK: TG3 ➡️ TG5 (9 de noviembre)
+Cuándo aplica: solo en el primer KvK después del 9 de noviembre de 2026, cuando los edificios pueden pasar de TG3 a TG5. Participar es opcional: elige la opción que se ajuste a los recursos y aceleradores que tengas guardados. Los tiempos y puntos de abajo suponen una cuenta casi al máximo.
+Desde el 9 de noviembre puedes subir edificios de TG3 a TG5. La Fase de Preparación del próximo KvK empieza algo después, así que guarda estas mejoras hasta que empiece el KvK: solo entonces dan puntos a la alianza.
+🔹 Opción 1: los 3 edificios principales (Centro de pueblo, Embajada, Establo)
+Puntos de KvK: 10.625.047 por jugador
+Recursos: ~892 millones de Madera / Pan, 173 millones de Piedra, 44 millones de Hierro, 4.055 de Adamantina
+Tiempo: 58 días (ajustado)
+🔹 Opción 2: 5 edificios (Centro de pueblo, Embajada, Establo, Cuartel, Campo de tiro)
+Puntos de KvK: 19.545.005 por jugador
+Recursos: ~1.570 millones de Madera / Pan, 311 millones de Piedra, 78 millones de Hierro, 7.980 de Adamantina
+Tiempo: 82 días (ajustado)
+🔹 Opción 3: los 7 edificios (Centro de pueblo, Embajada, Establo, Cuartel, Campo de tiro, Enfermería, Centro de mando)
+Puntos de KvK: 22.247.410 por jugador
+Recursos: ~1.950 millones de Madera / Pan, 388 millones de Piedra, 96 millones de Hierro, 9.210 de Adamantina
+Tiempo: 88 días (ajustado)
+⚙️ Qué suponen los números
+Una cuenta casi al máximo: 80,2 % de Velocidad de Construcción base, Pan Lv.5 (Maestro arquitecto), Saul Lv.5 (Ingenioso), la designación de Ministro principal, Lobo gris Lv.5 (Ayudante de construcción), Trabajos de cimentación, Bonificación de Reino del Poder y Doble tiempo. Con menos bonificaciones, tus tiempos serán más largos.
+⚠️ La ventana de 5 minutos
+Ayudante de construcción (Lobo gris, +15 %) y Doble tiempo (+20 %) duran solo 5 minutos. Cuando empiece la puntuación del KvK, usa todos tus aceleradores dentro de esos 5 minutos. Ten abierta la pestaña Acelerar de la Mochila y toca rápido.
+🛑 Empieza ya
+1️⃣ Guarda recursos: Madera, Pan, Piedra, Hierro y Adamantina. Sigue recolectando y usa potenciadores de recolección.
+2️⃣ Guarda aceleradores: reserva todos los aceleradores para estos tiempos.
+3️⃣ Espera: deja estos edificios en TG3 hasta que empiece oficialmente la puntuación del KvK y luego suban todos a la vez para llenar la Clasificación.
 
 ### GUIDE #all-out — Ataque Total
 🪖 Reglas de Ataque Total
