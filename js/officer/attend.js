@@ -5,9 +5,9 @@
 const ROOT = document.getElementById("pg-attend");
 const $ = (id) => ROOT.querySelector("#" + CSS.escape(id)) || document.getElementById(id);
 const esc = OFFICER.util.esc;
-const ROSTER_URL = "data/roster-x7k2p9.json";
+const ROSTER_URL = "data/roster-x7k2p9.json", PLAN_URL = "data/ranking-plans-x7k2p9.json";   // shared plans from the 📊 ranking tab (Legion 1, Legion 2…)
 const T = {
-  zh: { title: "📋 出席", sub: "每場活動一份名單：投票說會來的人，打完後勾誰真的到了。缺席會累計：第 2 次橘、第 3 次紅；⭐ 是戰力前 20。", login: "要先用 Discord 登入才能看出席名單。", loginBtn: "用 Discord 登入",
+  zh: { fromPlan: "📊 從共用計畫匯入…", planN: "{name}（{n} 人）", planNone: "排名分頁還沒有共用計畫。", title: "📋 出席", sub: "每場活動一份名單：投票說會來的人，打完後勾誰真的到了。缺席會累計：第 2 次橘、第 3 次紅；⭐ 是戰力前 20。", login: "要先用 Discord 登入才能看出席名單。", loginBtn: "用 Discord 登入",
     newBtn: "＋ 新活動", evTitle: "活動名稱（例如 聖劍爭奪）", evDate: "日期", slot: "時段", addSlot: "＋ 時段", slotName: "時段名稱（例如 02:00 UTC）",
     confirmed: "① 說會來的人", paste: "貼上投票名單（一行一個，或用逗號分隔）", shot: "📷 或上傳投票者截圖", match: "比對成員表", ocrWait: "辨識中…",
     matched: "比對到 {n} 人", miss: "找不到（請手動加）：{list}", addMember: "手動加入成員…",
@@ -15,7 +15,7 @@ const T = {
     save: "儲存", saved: "已儲存。", del: "刪除這場", delAsk: "確定刪除這場的名單？", back: "‹ 名單列表", empty: "還沒有名單。按「＋ 新活動」開始。",
     summary: "缺席統計", sumNote: "最近 {n} 場。", keys: "數字 = 缺席次數 · 橘 = 第 2 次 · 紅 = 第 3 次以上 · ⭐ = 戰力前 20", name: "成員", events: "場次", missN: "缺席", noData: "成員表載不進來，無法比對名字。",
     copy: "複製給 Discord", copied: "已複製", legend: "X = 沒到 · 🛌 = 請假 · ⭐ = 戰力前 20", nobody: "這個時段還沒有人。", err: "出了點問題：{e}", dbLimit: "⚠️ 伺服器今天的免費額度用完了，UTC 00:00 重置。" },
-  en: { title: "📋 Attendance", sub: "One list per event: who said yes in the poll, and after the battle, who actually showed up. Misses add up: 2nd orange, 3rd red; ⭐ marks the top 20 by power.", login: "Log in with Discord to see attendance lists.", loginBtn: "Log in with Discord",
+  en: { fromPlan: "📊 Import from a shared plan…", planN: "{name} ({n} people)", planNone: "No shared plans on the Ranking tab yet.", title: "📋 Attendance", sub: "One list per event: who said yes in the poll, and after the battle, who actually showed up. Misses add up: 2nd orange, 3rd red; ⭐ marks the top 20 by power.", login: "Log in with Discord to see attendance lists.", loginBtn: "Log in with Discord",
     newBtn: "＋ New event", evTitle: "Event (e.g. Swordland Showdown)", evDate: "Date", slot: "Time slot", addSlot: "＋ Slot", slotName: "Slot name (e.g. 02:00 UTC)",
     confirmed: "① Confirmed (said yes)", paste: "Paste the poll names (one per line or comma-separated)", shot: "📷 or upload voter screenshots", match: "Match roster", ocrWait: "Reading…",
     matched: "Matched {n}", miss: "Not found (add by hand): {list}", addMember: "Add a member by hand…",
@@ -23,7 +23,7 @@ const T = {
     save: "Save", saved: "Saved.", del: "Delete this event", delAsk: "Delete this event's list?", back: "‹ All lists", empty: "No lists yet. Tap “＋ New event” to start.",
     summary: "Missed events", sumNote: "Last {n} events.", keys: "Number = misses · orange = 2nd miss · red = 3rd+ · ⭐ = top 20 by power", name: "Member", events: "Events", missN: "Missed", noData: "The roster didn't load, so names can't be matched.",
     copy: "Copy for Discord", copied: "Copied", legend: "X = no-show · 🛌 = excused · ⭐ = top 20 by power", nobody: "Nobody in this slot yet.", err: "Something went wrong: {e}", dbLimit: "⚠️ The server's free daily allowance is used up; it resets at 00:00 UTC." },
-  pt: { title: "📋 Presença", sub: "Uma lista por evento: quem disse sim na enquete e, depois da batalha, quem realmente apareceu. Faltas acumulam; duas seguidas ficam em vermelho.", login: "Entre com o Discord para ver as listas de presença.", loginBtn: "Entrar com Discord",
+  pt: { fromPlan: "📊 Importar de um plano compartilhado…", planN: "{name} ({n} pessoas)", planNone: "Ainda não há planos compartilhados na aba Ranking.", title: "📋 Presença", sub: "Uma lista por evento: quem disse sim na enquete e, depois da batalha, quem realmente apareceu. Faltas acumulam; duas seguidas ficam em vermelho.", login: "Entre com o Discord para ver as listas de presença.", loginBtn: "Entrar com Discord",
     newBtn: "＋ Novo evento", evTitle: "Evento (ex.: Confronto entre Espadas)", evDate: "Data", slot: "Horário", addSlot: "＋ Horário", slotName: "Nome do horário (ex.: 02:00 UTC)",
     confirmed: "① Confirmados (disseram sim)", paste: "Cole os nomes da enquete (um por linha ou separados por vírgula)", shot: "📷 ou envie capturas dos votantes", match: "Comparar com a lista", ocrWait: "Lendo…",
     matched: "{n} encontrados", miss: "Não encontrados (adicione à mão): {list}", addMember: "Adicionar membro à mão…",
@@ -31,7 +31,7 @@ const T = {
     save: "Salvar", saved: "Salvo.", del: "Excluir este evento", delAsk: "Excluir a lista deste evento?", back: "‹ Todas as listas", empty: "Ainda não há listas. Toque em “＋ Novo evento”.",
     summary: "Faltas", sumNote: "Últimos {n} eventos.", keys: "Número = faltas · laranja = 2ª falta · vermelho = 3ª ou mais · ⭐ = top 20 em poder", name: "Membro", events: "Eventos", missN: "Faltas", noData: "A lista de membros não carregou; não dá para comparar nomes.",
     copy: "Copiar para o Discord", copied: "Copiado", legend: "X = faltou · 🛌 = justificado · ⭐ = top 20 em poder", nobody: "Ninguém neste horário ainda.", err: "Algo deu errado: {e}", dbLimit: "⚠️ A cota gratuita diária do servidor acabou; volta às 00:00 UTC." },
-  ar: { title: "📋 الحضور", sub: "قائمة لكل فعالية: من قال نعم في التصويت، وبعد المعركة من حضر فعلًا. الغيابات تتراكم، ومرتان متتاليتان تظهران بالأحمر.", login: "سجّل الدخول عبر Discord لرؤية قوائم الحضور.", loginBtn: "تسجيل الدخول عبر Discord",
+  ar: { fromPlan: "📊 استيراد من خطة مشتركة…", planN: "{name} ({n} أشخاص)", planNone: "لا توجد خطط مشتركة في تبويب الترتيب بعد.", title: "📋 الحضور", sub: "قائمة لكل فعالية: من قال نعم في التصويت، وبعد المعركة من حضر فعلًا. الغيابات تتراكم، ومرتان متتاليتان تظهران بالأحمر.", login: "سجّل الدخول عبر Discord لرؤية قوائم الحضور.", loginBtn: "تسجيل الدخول عبر Discord",
     newBtn: "＋ فعالية جديدة", evTitle: "الفعالية (مثل مواجهة أرض السيوف)", evDate: "التاريخ", slot: "الفترة", addSlot: "＋ فترة", slotName: "اسم الفترة (مثل 02:00 UTC)",
     confirmed: "① المؤكدون (قالوا نعم)", paste: "الصق أسماء التصويت (اسم في كل سطر أو مفصولة بفواصل)", shot: "📷 أو ارفع لقطات شاشة للمصوّتين", match: "مطابقة مع القائمة", ocrWait: "جارٍ القراءة…",
     matched: "تمت مطابقة {n}", miss: "غير موجود (أضفه يدويًا): {list}", addMember: "إضافة عضو يدويًا…",
@@ -39,7 +39,7 @@ const T = {
     save: "حفظ", saved: "تم الحفظ.", del: "حذف هذه الفعالية", delAsk: "حذف قائمة هذه الفعالية؟", back: "‹ كل القوائم", empty: "لا توجد قوائم بعد. اضغط «＋ فعالية جديدة».",
     summary: "الغيابات", sumNote: "آخر {n} فعاليات.", keys: "الرقم = الغيابات · برتقالي = الغياب الثاني · أحمر = الثالث فأكثر · ⭐ = أقوى 20", name: "العضو", events: "الفعاليات", missN: "غياب", noData: "لم تُحمَّل قائمة الأعضاء، فلا يمكن مطابقة الأسماء.",
     copy: "نسخ إلى Discord", copied: "تم النسخ", legend: "X = غاب · 🛌 = معذور · ⭐ = أقوى 20", nobody: "لا أحد في هذه الفترة بعد.", err: "حدث خطأ: {e}", dbLimit: "⚠️ نفدت حصة الخادم المجانية لليوم، وتتجدد عند 00:00 UTC." },
-  ko: { title: "📋 출석", sub: "이벤트마다 명단 하나: 투표에서 온다고 한 사람, 전투 후 실제로 온 사람. 불참은 누적되고 두 번 연속이면 빨간색.", login: "출석 명단을 보려면 Discord로 로그인하세요.", loginBtn: "Discord로 로그인",
+  ko: { fromPlan: "📊 공유 계획에서 가져오기…", planN: "{name} ({n}명)", planNone: "순위 탭에 아직 공유 계획이 없어요.", title: "📋 출석", sub: "이벤트마다 명단 하나: 투표에서 온다고 한 사람, 전투 후 실제로 온 사람. 불참은 누적되고 두 번 연속이면 빨간색.", login: "출석 명단을 보려면 Discord로 로그인하세요.", loginBtn: "Discord로 로그인",
     newBtn: "＋ 새 이벤트", evTitle: "이벤트 (예: 성검 쟁탈)", evDate: "날짜", slot: "시간대", addSlot: "＋ 시간대", slotName: "시간대 이름 (예: 02:00 UTC)",
     confirmed: "① 온다고 한 사람", paste: "투표 명단 붙여넣기 (한 줄에 하나 또는 쉼표로 구분)", shot: "📷 또는 투표자 스크린샷 업로드", match: "명단과 대조", ocrWait: "읽는 중…",
     matched: "{n}명 일치", miss: "못 찾음 (직접 추가): {list}", addMember: "직접 추가…",
@@ -52,7 +52,7 @@ let lang = OFFICER.lang;
 const t = (k, v = {}) => String((T[lang] && T[lang][k]) ?? T.en[k] ?? k).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
 const token = () => { try { return localStorage.getItem(DISCORD_LS); } catch (e) { return null; } };
 const core = (s) => String(s || "").normalize("NFKC").toLowerCase().replace(/nexus/g, "").replace(/[^\p{L}\p{N}]/gu, "");
-let roster = null, events = [], cur = null, lastErr = null, busy = false;
+let roster = null, plans = {}, events = [], cur = null, lastErr = null, busy = false;
 const canEdit = () => OFFICER.can("attend", "edit");
 const rid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
 
@@ -123,6 +123,7 @@ function renderEdit() {
       <h4>${esc(t("confirmed"))} · ${sl.confirmed.length}</h4><div class="chips">${rowsC}</div>
       ${ro ? "" : `<textarea class="inp" data-paste="${i}" rows="2" placeholder="${esc(t("paste"))}" style="width:100%;margin-top:6px"></textarea>
       <div class="row" style="margin-top:6px;align-items:center"><button type="button" class="btn small" data-match="${i}">${esc(t("match"))}</button><label class="btn small" style="cursor:pointer">${esc(t("shot"))}<input type="file" accept="image/*" multiple data-shot="${i}" hidden></label>
+      <select class="inp" data-plan="${i}" style="max-width:220px"><option value="">${esc(t("fromPlan"))}</option>${Object.entries(plans).map(([id, pl]) => `<option value="${esc(id)}">${esc(t("planN", { name: pl.name || id, n: (pl.picked || []).length }))}</option>`).join("")}</select>
       <select class="inp" data-add="${i}" style="max-width:200px"><option value="">${esc(t("addMember"))}</option>${roster ? roster.members.filter((m) => !sl.confirmed.some((c) => c.id === m.id)).sort((a, b) => a.name.localeCompare(b.name)).map((m) => `<option value="${esc(m.id)}">${esc(m.name)}</option>`).join("") : ""}</select></div>
       <div class="msg" data-msg="${i}"></div>`}
       <h4>${esc(t("present"))}</h4><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(t("presentNote"))}</div>
@@ -140,6 +141,9 @@ function renderEdit() {
   box.querySelectorAll("[data-del]").forEach((el) => el.onclick = () => { const [i, id] = el.dataset.del.split(":"); const sl = cur.slots[+i]; sl.confirmed = sl.confirmed.filter((m) => m.id !== id); sl.present = sl.present.filter((x) => x !== id); sl.excused = sl.excused.filter((x) => x !== id); renderEdit(); });
   box.querySelectorAll("[data-match]").forEach((el) => el.onclick = () => { const i = +el.dataset.match; const names = box.querySelector(`[data-paste="${i}"]`).value.split(/[\n,，]+/).map((s) => s.replace(/^[\s\-•*\d.)]+/, "").trim()).filter(Boolean); addNames(i, names); });
   box.querySelectorAll("[data-shot]").forEach((el) => el.onchange = () => ocr(+el.dataset.shot, [...el.files]));
+  box.querySelectorAll("[data-plan]").forEach((el) => el.onchange = () => { const pl = plans[el.value]; if (!pl || !roster) return; const i = +el.dataset.plan;
+    if (!cur.slots[i].name) cur.slots[i].name = pl.name || "";
+    addMembers(i, (pl.picked || []).map((id) => roster.members.find((m) => m.id === id)).filter(Boolean).map((m) => ({ id: m.id, name: m.name }))); });
   box.querySelectorAll("[data-add]").forEach((el) => el.onchange = () => { const m = roster && roster.members.find((x) => x.id === el.value); if (m) addMembers(+el.dataset.add, [{ id: m.id, name: m.name }]); });
   box.querySelectorAll("[data-tog]").forEach((el) => el.onclick = () => { const [i, id] = el.dataset.tog.split(":"); const sl = cur.slots[+i], st = statusOf(sl, id);
     sl.present = sl.present.filter((x) => x !== id); sl.excused = sl.excused.filter((x) => x !== id);
@@ -194,6 +198,7 @@ function init() {
   $("at_newBtn").onclick = () => { cur = { id: rid(), title: "", date: new Date().toISOString().slice(0, 10), slots: [{ name: "", confirmed: [], present: [], excused: [] }] }; render(); };
   $("at_back").onclick = () => { cur = null; render(); };
   OfficerData.fetchJsonFast(ROSTER_URL, (d) => { roster = d; TOP = top20(); render(); }).then((d) => { if (d) roster = d; TOP = top20(); render(); }).catch(() => {});
+  OfficerData.fetchJsonFast(PLAN_URL, (d) => { plans = (d && d.plans) || {}; if (cur) renderEdit(); }).then((d) => { if (d) plans = d.plans || {}; if (cur) renderEdit(); }).catch(() => {});
   applyTexts();
 }
 function onShow() { if (OFFICER.user && token()) load(); else render(); }
