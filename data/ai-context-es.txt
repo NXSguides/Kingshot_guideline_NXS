@@ -999,41 +999,41 @@ Steps: 1. En la pantalla de la ciudad, toca tu avatar (arriba a la izquierda). 2
 Consejos: el candado de la última ranura significa que aún no está desbloqueada. «Equilibrar» rellena los tres tipos por igual; «Retirar todo» vacía la ranura. Cada ranura guarda sus propios héroes y tropas.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-13 by 亗ΔRMΔDΔ亗] 📢 GUÍA DE PREPARACIÓN Y EJECUCIÓN DEL PUSH DE KVK TG 📢
+[2026-10-14 by 亗ΔRMΔDΔ亗] 📢 GUÍA DE PREPARACIÓN Y EJECUCIÓN PARA EL PUSH DE TG EN EL PRÓXIMO KVK 📢
 El 9 de noviembre de 2026, los miembros tendrán la opción de subir sus edificios de TG3 ➡️ TG5.
 
-La próxima fase de puntuación de KvK comenzará en algún momento después de esta fecha. Dado que el KvK es el único objetivo, estas mejoras deben guardarse hasta que comience el KvK para maximizar los puntos de alianza.
+La próxima fase de puntos de KvK comenzará poco después de esta fecha. Dado que el KvK es nuestro único objetivo, estas mejoras deben guardarse hasta que comience el KvK para maximizar los puntos de alianza.
 
-Los miembros pueden elegir su nivel de participación en función de sus ahorros actuales de recursos y aceleradores. Aquí están los tres niveles de push opcionales y su respectiva generación de puntos KvK:
+Los miembros pueden elegir su nivel de participación según sus ahorros actuales de recursos y aceleradores. A continuación, los tres niveles opcionales de push y los puntos de KvK que genera cada uno:
 
-🔹 OPCIÓN 1: Push de 3 edificios principales (Centro de pueblo, Embassy, Establos Reales)
-🔸 Puntos de KvK: 10,625,047 por jugador
-🔸 Costo de recursos: ~892M Madera/Pan, 173M Piedra, 44M Hierro, 4,055 Adamantina
-🔸 Tiempo: 58 días ajustados
+🔹 OPCIÓN 1: Push básico de 3 edificios (Centro de pueblo, Embajada, Establos Reales)
+🔸 Puntos de KvK: 10 625 047 por jugador
+🔸 Costo de recursos: ~892M Madera/Pan (Asegurado), 173M Piedra, 44M Hierro, 4 055 Adamantina
+🔸 Tiempo: 58 días (ajustado)
 
-🔹 OPCIÓN 2: Push ampliado de 5 edificios (Centro de pueblo, Embassy, Establos Reales, Barracks, Range)
-🔸 Puntos de KvK: 19,545,005 por jugador
-🔸 Costo de recursos: ~1.57B Madera/Pan, 311M Piedra, 78M Hierro, 7,980 Adamantina
-🔸 Tiempo: 82 días ajustados
+🔹 OPCIÓN 2: Push ampliado de 5 edificios (Centro de pueblo, Embajada, Establos Reales, Cuartel, Campo de tiro)
+🔸 Puntos de KvK: 19 545 005 por jugador
+🔸 Costo de recursos: ~1.57B Madera/Pan (Asegurado), 311M Piedra, 78M Hierro, 7 980 Adamantina
+🔸 Tiempo: 82 días (ajustado)
 
-🔹 OPCIÓN 3: Push máximo de 7 edificios (Centro de pueblo, Embassy, Establos Reales, Barracks, Range, Enfermería, Command Center)
-🔸 Puntos de KvK: 22,247,410 por jugador
-🔸 Costo de recursos: ~1.95B Madera/Pan, 388M Piedra, 96M Hierro, 9,210 Adamantina
-🔸 Tiempo: 88 días ajustados
+🔹 OPCIÓN 3: Push máximo de 7 edificios (Centro de pueblo, Embajada, Establos Reales, Cuartel, Campo de tiro, Enfermería, Centro de mando)
+🔸 Puntos de KvK: 22 247 410 por jugador
+🔸 Costo de recursos: ~1.95B Madera/Pan (Asegurado), 388M Piedra, 96M Hierro, 9 210 Adamantina
+🔸 Tiempo: 88 días (ajustado)
 
 ⚙️ GUÍA DE EJECUCIÓN Y BASE DE MODIFICADORES DE VELOCIDAD:
-Los tiempos ajustados y los cálculos de puntos de KvK anteriores se basan en una configuración de cuenta casi al máximo. Esto incluye un 80.2% de velocidad de construcción base, Maestro arquitecto de Pan Nv. 5, habilidad de Saul Nv. 5, designación de Ministro principal, habilidad de Lobo gris Nv. 5, bonificación de Trabajos de cimentación, bonificación de KvK y Doble tiempo.
+Los tiempos ajustados y los cálculos de puntos de KvK anteriores se basan en una cuenta prácticamente al máximo. Esto incluye un 80.2% de Velocidad de Construcción base, Maestro arquitecto de Pan Nv. 5, habilidad de Saul Nv. 5, designación de Ministro principal, habilidad de Lobo gris Nv. 5, bonificación de Trabajos de cimentación, Bonificación de Reino del Poder y Doble tiempo.
 
 ⚠️ VENTANA CRÍTICA DE 5 MINUTOS:
-La habilidad de Lobo gris (15% de velocidad) y el Doble tiempo (20% de velocidad) solo duran 5 minutos. Cuando comience la fase de puntuación de KvK, todos los aceleradores deben ejecutarse dentro de esta estrecha ventana de 5 minutos para maximizar la reducción de tiempo y la generación de puntos.
+La habilidad de Lobo gris (15% de velocidad) y Doble tiempo (20% de velocidad) solo duran 5 minutos. Cuando comience la fase de puntos de KvK, todos los aceleradores deben usarse dentro de este estrecho margen de 5 minutos para maximizar la reducción de tiempo y la generación de puntos.
 
 🛑 ACCIÓN REQUERIDA A PARTIR DE AHORA:
-Esta es una tarea enorme. Si planeas participar en cualquiera de estas opciones, la preparación debe comenzar de inmediato para evitar alcanzar el límite de recursos:
-1️⃣ Empieza a acumular: Ahorra cantidades masivas de Madera, Pan, Piedra, Hierro y Adamantina. Recolecta constantemente y usa tus potenciadores de recolección.
-2️⃣ Ahorra Acelerar: Guarda todos los aceleradores disponibles para completar estos temporizadores ajustados.
-3️⃣ En espera: Mantén estos edificios en TG3 hasta que la fase de puntuación de KvK comience oficialmente. Cuando lo haga, subid todos juntos para inundar la clasificación con puntos.
+Esta es una tarea monumental. Si planeas participar en cualquiera de estas opciones, la preparación debe comenzar de inmediato para evitar que te falten recursos:
+1️⃣ Empieza a acumular: Ahorra cantidades enormes de Madera, Pan (Asegurado), Piedra, Hierro y Adamantina. Recolecta constantemente y usa tus potenciadores de recolección.
+2️⃣ Guarda aceleradores: Guarda todos los aceleradores disponibles para completar estos cronómetros ajustados.
+3️⃣ Mantente a la espera: Mantén estos edificios en TG3 hasta que comience oficialmente la fase de puntos de KvK. Cuando inicie, hagan el push juntos para dominar la clasificación con puntos.
 
-¡Empieza a recolectar y ahorrar ahora para que estemos listos para dominar el próximo KvK! 🚀🛡️
+¡Empieza a recolectar y ahorrar ahora para estar listos para dominar el próximo KvK! 🚀🛡️
 
 (see guide #kvk)
 
