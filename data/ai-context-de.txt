@@ -118,6 +118,7 @@ Spare Edelsteine für:
 ☐ 🔎 Geheimdienst-Missionen abschließen
 ☐ 🏝️ Wasser-Essenz auf der Insel sammeln + Verbündeten helfen
 ☐ 🔮 Versuche der Mystische Prüfung nutzen
+☐ 🧭 Reisevorräte benutzen (Gratis-Vorräte um 08:00 & 16:00 UTC abholen)
 ☐ 📋 Tägliche Missionen (Täglich) erledigen
 ☐ 🏟️ Arena des Ruhms 3 Minuten vor dem Reset spielen
 ☐ 🐻 Bärenjagd — jeden zweiten Tag + Formationen aktualisieren

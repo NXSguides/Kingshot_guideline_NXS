@@ -118,6 +118,7 @@ Simpan Permata untuk:
 ☐ 🔎 Selesaikan Misi Intel
 ☐ 🏝️ Kumpulkan Esensi Air di pulau + bantu sekutu
 ☐ 🔮 Gunakan kesempatan Ujian Mistis
+☐ 🧭 Pakai Perbekalan Perjalanan (ambil yang gratis pukul 08:00 & 16:00 UTC)
 ☐ 📋 Selesaikan misi Harian
 ☐ 🏟️ Main Arena Kemuliaan 3 menit sebelum reset
 ☐ 🐻 Bear Hunt — dua hari sekali + perbarui formasi

@@ -118,6 +118,7 @@ Garde tes Gemmes pour :
 ☐ 🔎 Termine tes missions (Mission de renseignements)
 ☐ 🏝️ Récupère l'Essence d'Eau de l'île + aide tes alliés
 ☐ 🔮 Utilise tes tentatives de l'Épreuve Mystique
+☐ 🧭 Utilise tes Provisions de voyage (récupère les gratuites à 08:00 & 16:00 UTC)
 ☐ 📋 Termine les missions quotidiennes (Quotidien)
 ☐ 🏟️ Fais l'Arène de la Gloire 3 minutes avant la réinitialisation
 ☐ 🐻 Chasse à l'Ours — un jour sur deux + mets à jour tes formations

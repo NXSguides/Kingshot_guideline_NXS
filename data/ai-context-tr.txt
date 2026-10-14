@@ -118,6 +118,7 @@ Elmas şunlar için sakla:
 ☐ 🔎 Bilgi Görevi listesini bitir
 ☐ 🏝️ Adadaki Su Özü topla + müttefiklere yardım et
 ☐ 🔮 Mistik İmtihan haklarını kullan
+☐ 🧭 Yolculuk Malzemeleri kullan (ücretsizleri 08:00 & 16:00 UTC'de al)
 ☐ 📋 Günlük görevleri (Günlük) tamamla
 ☐ 🏟️ Şan Arenası'nı sıfırlamadan 3 dakika önce yap
 ☐ 🐻 Ayı Avı — gün aşırı + dizilişleri güncelle

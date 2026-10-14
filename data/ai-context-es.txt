@@ -118,6 +118,7 @@ Ahorra Gemas para:
 ☐ 🔎 Completa las misiones (Misión de Inteligencia)
 ☐ 🏝️ Recoge la Esencia de Agua de la isla + ayuda a aliados
 ☐ 🔮 Usa los intentos de la Prueba Mística
+☐ 🧭 Usa tus Suministros de Travesía (recoge los gratis a las 08:00 & 16:00 UTC)
 ☐ 📋 Completa las misiones diarias (Diario)
 ☐ 🏟️ Haz la Arena de la gloria 3 minutos antes del reinicio
 ☐ 🐻 Cacería del Oso — cada dos días + actualiza las formaciones
