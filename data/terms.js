@@ -249,6 +249,8 @@ const TERMS = [
   "cat": "Sanctuary Battle",
   "rows": [
    ["Sanctuary Battle", "遺跡爭奪", "유적 쟁탈", "Heiligtumskampf", "Bataille du Sanctuaire", "Batalha do Santuário", "Tapınak Savaşı", "Pertempuran Tempat Perlindungan", "Битва за святилище", "การต่อสู้ชิงวิหาร", "معركة المأوى", "Batalla de santuario", "Event tab name. Indonesian text was cut off; 'Pertempuran Tempat Perlindungan' is reconstructed from two truncated screens ('Pertempuran T… Perlindung…' and 'Pertempuran Tempat…')."],
+   ["Mythic Expedition Skill Manual", "傳說遠征技能書", "레전드 원정 스킬북", "—", "—", "Instrucional de Expedição Mítico", "—", "—", "—", "—", "تعليمات حملة استكشافية خيالية", "—", ""],
+   ["Mythic Conquest Skill Book", "傳說討伐技能書", "레전드 토벌 스킬북", "—", "—", "Livro de Habilidades de Conquista Mítica", "—", "—", "—", "—", "كتاب مهارة الغزو الخيالي", "—", ""],
    ["1h General Speedup", "1小時通用加速", "1시간 공용 가속", "—", "—", "1h de Aceleração Geral", "—", "—", "—", "—", "تسريع عام لمدة 1 ساعة", "—", ""],
    ["Saul Shard", "薩洛碎片", "살로 파편", "—", "—", "Fragmento de Saul", "—", "—", "—", "—", "شظية شاول", "—", "Hero shard name pattern: PT 'Fragmento de <hero>'."],
    ["Jabel Shard", "潔貝爾碎片", "제이벨 파편", "—", "—", "Fragmento de Jabel", "—", "—", "—", "—", "شظية جبل", "—", ""],

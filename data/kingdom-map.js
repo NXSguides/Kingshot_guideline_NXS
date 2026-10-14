@@ -999,11 +999,17 @@ const KINGDOM_MAP = {
    },
    "expbook": {
     "en": "Mythic Expedition Skill Manual",
-    "zh": "傳說遠征技能書"
+    "zh": "傳說遠征技能書",
+    "ko": "레전드 원정 스킬북",
+    "pt": "Instrucional de Expedição Mítico",
+    "ar": "تعليمات حملة استكشافية خيالية"
    },
    "conqbook": {
     "en": "Mythic Conquest Skill Book",
-    "zh": "傳說討伐技能書"
+    "zh": "傳說討伐技能書",
+    "ko": "레전드 토벌 스킬북",
+    "pt": "Livro de Habilidades de Conquista Mítica",
+    "ar": "كتاب مهارة الغزو الخيالي"
    },
    "saul": {
     "en": "Saul Shard",
