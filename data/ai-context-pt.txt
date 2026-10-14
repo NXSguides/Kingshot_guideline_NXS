@@ -1036,9 +1036,6 @@ Comece a coletar e economizar agora para estarmos prontos para dominar o próxim
 
 (see guide #kvk)
 
-[2026-10-13 by Sparrow] Finder’s Fusion Dia 3
-1 Pássaro · 2 Chapéu · 3 Balão de ar quente · 4 Buraco · 5 N · 6 Trompete · 7 Flecha · 8 Lanterna · 9 Cortina · 10 Alvo · 11 Moldura · 12 Escada · 13 Vassoura · 14 Queijo · 15 Farinha · 16 Milho · 17 Pirulito · 18 Caixa de presente · 19 Lua · 20 Cachecol · 21 Mochila · 22 Carro de brinquedo · 23 Novelo de lã · 24 Anel · 25 Relógio de bolso · 26 Envelope · 27 Pão · 28 Diário · 29 Coroa · 30 Pena · 31 Bolo · 32 Nota musical · 33 Maçã · 34 Xícara de café · 35 Óculos · 36 Garfo · 37 Chave
-
 ### GAME TERMS (English = official pt name)
 Construction = Construção
 Training = Treinamento

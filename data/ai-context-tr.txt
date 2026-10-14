@@ -1036,9 +1036,6 @@ Bu çok büyük bir girişimdir. Bu seçeneklerden herhangi birine katılmayı p
 
 (see guide #kvk)
 
-[2026-10-13 by Sparrow] Finder’s Fusion 3. Gün
-1 Kuş · 2 Şapka · 3 Sıcak Hava Balonu · 4 Delik · 5 N · 6 Trompet · 7 Ok · 8 Fener · 9 Perde · 10 Hedef · 11 Resim Çerçevesi · 12 Merdiven · 13 Süpürge · 14 Peynir · 15 Un · 16 Mısır · 17 Lolipop · 18 Hediye Kutusu · 19 Ay · 20 Atkı · 21 Çanta · 22 Oyuncak Araba · 23 Yün Yumağı · 24 Yüzük · 25 Cep Saati · 26 Zarf · 27 Ekmek · 28 Günlük · 29 Taç · 30 Tüy Kalem · 31 Pasta · 32 Müzik Notası · 33 Elma · 34 Kahve Fincanı · 35 Gözlük · 36 Çatal · 37 Anahtar
-
 ### GAME TERMS (English = official tr name)
 Construction = İnşaat
 Training = Eğitim

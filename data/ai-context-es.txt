@@ -1036,9 +1036,6 @@ Esta es una tarea enorme. Si planeas participar en cualquiera de estas opciones,
 
 (see guide #kvk)
 
-[2026-10-13 by Sparrow] Finder’s Fusion - Día 3
-1 Pájaro · 2 Sombrero · 3 Globo aerostático · 4 Agujero · 5 N · 6 Trompeta · 7 Flecha · 8 Linterna · 9 Cortina · 10 Objetivo · 11 Marco de fotos · 12 Escalera · 13 Escoba · 14 Queso · 15 Harina · 16 Maíz · 17 Piruleta · 18 Caja de regalo · 19 Luna · 20 Bufanda · 21 Mochila · 22 Coche de juguete · 23 Ovillo de lana · 24 Anillo · 25 Reloj de bolsillo · 26 Sobre · 27 Pan · 28 Diario · 29 Corona · 30 Pluma · 31 Pastel · 32 Nota musical · 33 Manzana · 34 Taza de café · 35 Gafas · 36 Tenedor · 37 Llave
-
 ### GAME TERMS (English = official es name)
 Construction = Construcción
 Training = Entrenamiento

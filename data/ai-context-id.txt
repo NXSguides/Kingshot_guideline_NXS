@@ -1036,9 +1036,6 @@ Mulai kumpulkan dan simpan sekarang agar kita siap mendominasi KvK berikutnya! �
 
 (see guide #kvk)
 
-[2026-10-13 by Sparrow] Finder’s Fusion Hari 3
-1 Burung · 2 Topi · 3 Balon Udara · 4 Lubang · 5 N · 6 Trompet · 7 Panah · 8 Lentera · 9 Tirai · 10 Target · 11 Bingkai Foto · 12 Tangga · 13 Sapu · 14 Keju · 15 Tepung · 16 Jagung · 17 Lolipop · 18 Kotak Hadiah · 19 Bulan · 20 Syal · 21 Ransel · 22 Mobil Mainan · 23 Bola Benang · 24 Cincin · 25 Jam Saku · 26 Amplop · 27 Roti · 28 Buku Harian · 29 Mahkota · 30 Pena Bulu · 31 Kue · 32 Nada Musik · 33 Apel · 34 Cangkir Kopi · 35 Kacamata · 36 Garpu · 37 Kunci
-
 ### GAME TERMS (English = official id name)
 Construction = Konstruksi
 Training = Pelatihan

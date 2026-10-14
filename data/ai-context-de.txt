@@ -1038,9 +1038,6 @@ Beginnen Sie jetzt mit dem Sammeln und Sparen, damit wir bereit sind, das nächs
 
 (see guide #kvk)
 
-[2026-10-13 by Sparrow] Finder’s Fusion Tag 3
-1 Vogel · 2 Hut · 3 Heißluftballon · 4 Loch · 5 N · 6 Trompete · 7 Pfeil · 8 Laterne · 9 Vorhang · 10 Ziel · 11 Bilderrahmen · 12 Leiter · 13 Besen · 14 Käse · 15 Mehl · 16 Mais · 17 Lolli · 18 Geschenkbox · 19 Mond · 20 Schal · 21 Rucksack · 22 Spielzeugauto · 23 Wollknäuel · 24 Ring · 25 Taschenuhr · 26 Umschlag · 27 Brot · 28 Tagebuch · 29 Krone · 30 Federkiel · 31 Kuchen · 32 Musiknote · 33 Apfel · 34 Kaffeetasse · 35 Brille · 36 Gabel · 37 Schlüssel
-
 ### GAME TERMS (English = official de name)
 Construction = Bau
 Research = Forschung

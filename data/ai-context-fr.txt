@@ -1036,9 +1036,6 @@ Commencez à collecter et à économiser maintenant pour être prêts à dominer
 
 (see guide #kvk)
 
-[2026-10-13 by Sparrow] Finder’s Fusion Jour 3
-1 Oiseau · 2 Chapeau · 3 Montgolfière · 4 Trou · 5 N · 6 Trompette · 7 Flèche · 8 Lanterne · 9 Rideau · 10 Cible · 11 Cadre · 12 Échelle · 13 Balai · 14 Fromage · 15 Farine · 16 Maïs · 17 Sucette · 18 Boîte cadeau · 19 Lune · 20 Écharpe · 21 Sac · 22 Voiture miniature · 23 Pelote de laine · 24 Bague · 25 Montre de poche · 26 Enveloppe · 27 Pain · 28 Journal · 29 Couronne · 30 Plume · 31 Gâteau · 32 Note de musique · 33 Pomme · 34 Tasse à café · 35 Lunettes · 36 Fourchette · 37 Clé
-
 ### GAME TERMS (English = official fr name)
 Training = Entraînement
 Research = Recherche
