@@ -696,6 +696,19 @@ const TERMS = [
    ["Storehouse", "倉庫", "창고", "Lagerhaus", "L'Entrepôt", "Armazém", "Ambar", "—", "Склад", "โกดัง", "المستودع", "Almacén", "City view label."],
    ["Defense Tower", "防禦塔", "방어탑", "Verteidigungstürme", "Tours de Défense", "Torres de Defesa", "Savunma Kuleleri", "—", "Защитная башня", "หอคอยป้องกัน", "أبراج الدفاع", "Torres defensivas", "City view label with a number (e.g. 'Verteidigungstürme 5'). Most languages use the plural; ZH/KO/RU/TH singular."],
    ["Beast Cage", "獸欄", "사육장", "Bestienkäfig", "Enclos", "Jaula da Fera", "Hayvan Kafesi", "Beast Cage", "Загон для зверей", "กรงสัตว์", "قفص الوحش", "Jaula de bestias", "City view label. Pet Skill panel button: ZH 前往獸欄, KO 사육장으로 이동, FR Cage à bête, TH กรงสัตว์อสูร, AR قفص الوحوش, ES Jaula de Bestias."]
+   ["Stable", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "City view label (EN screenshot). Other languages not seen yet."],
+   ["Barracks", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "City view label (EN screenshot). Other languages not seen yet."],
+   ["Range", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "City view label (EN screenshot). Other languages not seen yet."],
+   ["Arena", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "City view label (EN screenshot); the building for Arena of Glory. Other languages not seen yet."],
+   ["Embassy", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "City view label (EN screenshot). Other languages not seen yet."],
+   ["Command Center", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "City view label (EN screenshot). Other languages not seen yet."],
+   ["Watchtower", "瞭望塔", "전망대", "Wachturm", "Observatoire", "Torre de Vigia", "Bekçi Kulesi", "Menara Pengawas", "Дозорная вышка", "หอคอยเฝ้าระวัง", "برج المراقبة", "Torre vigía", "City view label (EN screenshot). Other languages taken from the Watchtower Intel text, not yet seen as the building label."],
+   ["Hero Hall", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "City view label (EN screenshot). NOT the same as 'Hall of Heroes' (Deals tab). Other languages not seen yet."],
+   ["Monument", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "City view label (EN screenshot). Other languages not seen yet."],
+   ["Academy", "學院", "아카데미", "Akademie", "Académie", "Academia", "Akademi", "Akademi", "Университет", "อาคาเดมี", "الأكاديمية", "Academia", "City view label (EN screenshot); research building. Names from the KvK terms row."],
+   ["House", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "City view label (EN screenshot), numbered in the city: House 1, House 2… Other languages not seen yet."],
+   ["Alarm Bell", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "City view label (EN screenshot). Other languages not seen yet."],
+   ["Suggestion Box", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "City view label (EN screenshot). Other languages not seen yet."],
   ]
  },
  {

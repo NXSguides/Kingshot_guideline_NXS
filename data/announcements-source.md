@@ -43,3 +43,4 @@ content: |
   Start gathering and saving now so we are ready to dominate the next KvK! 🚀🛡️
 
   [[link:kvk]]
+
