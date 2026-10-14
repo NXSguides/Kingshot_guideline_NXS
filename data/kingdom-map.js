@@ -6,98 +6,114 @@ const KINGDOM_MAP = {
    "en": "Kingdom #2189 Map",
    "zh": "#2189 王國地圖",
    "pt": "Mapa do Reino #2189",
-   "ar": "خريطة المملكة #2189"
+   "ar": "خريطة المملكة #2189",
+   "ko": "#2189 왕국 지도"
   },
   "intro": {
    "en": "Tap a building on the map, or a coordinate in the list, to see where it is. Outposts give buffs; Fortresses and Sanctuaries do not.",
    "zh": "點地圖上的建築，或點下方清單裡的座標，就能看到它在哪裡。據點有增益，要塞和遺跡沒有。",
    "pt": "Toque num prédio no mapa, ou numa coordenada da lista, para ver onde ele fica. Postos Avançados dão bônus; Fortalezas e Santuários não.",
-   "ar": "اضغط على مبنى في الخريطة أو على إحداثية في القائمة لترى مكانه. المستوطنات تمنح مكافآت؛ الحصون والمآوي لا تمنح."
+   "ar": "اضغط على مبنى في الخريطة أو على إحداثية في القائمة لترى مكانه. المستوطنات تمنح مكافآت؛ الحصون والمآوي لا تمنح.",
+   "ko": "지도에서 건물을 누르거나 아래 목록의 좌표를 누르면 위치를 볼 수 있습니다. 거점은 버프를 주고, 성채와 유적은 버프가 없습니다."
   },
   "back": {
    "en": "Guides",
    "zh": "回到攻略",
    "pt": "Guias",
-   "ar": "الأدلة"
+   "ar": "الأدلة",
+   "ko": "공략"
   },
   "orient": {
    "en": "Same direction as the in-game World map: up = bigger X and Y. Number on a square = Outpost level.",
    "zh": "方向和遊戲大地圖一樣：往上 = X、Y 都變大。方塊上的數字 = 據點等級。",
    "pt": "Mesma direção do mapa-múndi do jogo: para cima = X e Y maiores. Número no quadrado = nível do Posto Avançado.",
-   "ar": "بنفس اتجاه خريطة العالم في اللعبة: الأعلى = X و Y أكبر. الرقم على المربع = مستوى المستوطنة."
+   "ar": "بنفس اتجاه خريطة العالم في اللعبة: الأعلى = X و Y أكبر. الرقم على المربع = مستوى المستوطنة.",
+   "ko": "게임 월드 지도와 같은 방향: 위쪽 = X, Y가 더 큼. 사각형 위 숫자 = 거점 레벨."
   },
   "pick": {
    "en": "Tap a building to see its details.",
    "zh": "點一個建築來看詳細資料。",
    "pt": "Toque num prédio para ver os detalhes.",
-   "ar": "اضغط على مبنى لرؤية التفاصيل."
+   "ar": "اضغط على مبنى لرؤية التفاصيل.",
+   "ko": "건물을 누르면 자세한 정보가 표시됩니다."
   },
   "all": {
    "en": "All",
    "zh": "全部",
    "pt": "Tudo",
-   "ar": "الكل"
+   "ar": "الكل",
+   "ko": "전체"
   },
   "copy": {
    "en": "Copy",
    "zh": "複製",
    "pt": "Copiar",
-   "ar": "نسخ"
+   "ar": "نسخ",
+   "ko": "복사"
   },
   "copied": {
    "en": "Copied",
    "zh": "已複製",
    "pt": "Copiado",
-   "ar": "تم النسخ"
+   "ar": "تم النسخ",
+   "ko": "복사됨"
   },
   "noBuff": {
    "en": "No buff",
    "zh": "無增益",
    "pt": "Sem bônus",
-   "ar": "بدون مكافأة"
+   "ar": "بدون مكافأة",
+   "ko": "버프 없음"
   },
   "ruins": {
    "en": "Castle, Fortresses & Sanctuaries",
    "zh": "王城、要塞、遺跡",
    "pt": "Castelo, Fortalezas e Santuários",
-   "ar": "القلعة والحصون والمآوي"
+   "ar": "القلعة والحصون والمآوي",
+   "ko": "캐슬, 성채, 유적"
   },
   "outposts": {
    "en": "Outposts",
    "zh": "據點",
    "pt": "Postos Avançados",
-   "ar": "المستوطنات"
+   "ar": "المستوطنات",
+   "ko": "거점"
   },
   "rulesT": {
    "en": "Rules",
    "zh": "規則",
    "pt": "Regras",
-   "ar": "القواعد"
+   "ar": "القواعد",
+   "ko": "규칙"
   },
   "rules": [
    {
     "en": "Only the same Outpost type at the same level does not stack. The same type at a different level stacks, and different types stack (also at the same level).",
     "zh": "只有同類型、同等級的據點效果不疊加；同類型不同等級、不同類型同等級都可以疊加。",
     "pt": "Só o mesmo tipo de Posto Avançado no mesmo nível não acumula. O mesmo tipo em nível diferente acumula, e tipos diferentes acumulam (também no mesmo nível).",
-    "ar": "فقط نفس نوع المستوطنة بنفس المستوى لا تتراكم. نفس النوع بمستوى مختلف يتراكم، والأنواع المختلفة تتراكم (حتى بنفس المستوى)."
+    "ar": "فقط نفس نوع المستوطنة بنفس المستوى لا تتراكم. نفس النوع بمستوى مختلف يتراكم، والأنواع المختلفة تتراكم (حتى بنفس المستوى).",
+    "ko": "유형과 레벨이 같은 거점 버프만 중첩되지 않습니다. 같은 유형이라도 레벨이 다르면 중첩되고, 유형이 다르면 (같은 레벨이라도) 중첩됩니다."
    },
    {
     "en": "You can only compete for Outposts that border your alliance territory.",
     "zh": "只能爭奪和自家聯盟領地相鄰的據點。",
     "pt": "Só dá para disputar Postos Avançados que fazem fronteira com o território da sua aliança.",
-    "ar": "يمكنك التنافس فقط على المستوطنات المجاورة لإقليم تحالفك."
+    "ar": "يمكنك التنافس فقط على المستوطنات المجاورة لإقليم تحالفك.",
+    "ko": "연맹 영지와 접한 거점만 쟁탈할 수 있습니다."
    },
    {
     "en": "Higher-level Outposts cause more severely injured and lost troops. Severely injured troops go to the Infirmary.",
     "zh": "等級越高的據點，交戰時重傷和陣亡越多；重傷的部隊要到野戰醫院治療。",
     "pt": "Postos Avançados de nível mais alto causam mais tropas gravemente feridas e perdidas. As gravemente feridas vão para a Enfermaria.",
-    "ar": "المستوطنات ذات المستوى الأعلى تسبب خسائر وإصابات خطيرة أكثر. الجنود المصابون بجروح خطيرة يذهبون إلى المستوصف."
+    "ar": "المستوطنات ذات المستوى الأعلى تسبب خسائر وإصابات خطيرة أكثر. الجنود المصابون بجروح خطيرة يذهبون إلى المستوصف.",
+    "ko": "레벨이 높은 거점일수록 중상과 전사가 많아집니다. 중상을 입은 병사는 야전 병원에서 치료해야 합니다."
    },
    {
     "en": "An Outpost in the Vulnerable state gives no buff until it is Protected again, so a total can drop for a while.",
     "zh": "據點在「可爭奪狀態」時沒有增益，回到「保護狀態」才恢復，所以總和有時會暫時變少。",
     "pt": "Um Posto Avançado no estado Vulnerável não dá bônus até voltar a ser Protegido, então o total pode cair por um tempo.",
-    "ar": "المستوطنة في حالة مستضعف لا تمنح مكافأة حتى تعود محمي، لذلك قد ينخفض المجموع لفترة."
+    "ar": "المستوطنة في حالة مستضعف لا تمنح مكافأة حتى تعود محمي، لذلك قد ينخفض المجموع لفترة.",
+    "ko": "쟁탈 가능 상태의 거점은 다시 보호 상태가 될 때까지 버프를 주지 않으므로, 합계가 잠시 줄어들 수 있습니다."
    }
   ]
  },
@@ -828,6 +844,48 @@ const KINGDOM_MAP = {
    "harvest": [
     "نصب الحصاد",
     "سرعة إنتاج الموارد"
+   ]
+  }
+ },
+ "ko": {
+  "castle": "캐슬",
+  "hq": "[평원] 본부",
+  "fortress": "{n}번 성채",
+  "sanctuary": "{n}호 유적",
+  "fortressS": "성채",
+  "sanctuaryS": "유적",
+  "types": {
+   "arsenal": [
+    "무기 창고",
+    "부대 공격력"
+   ],
+   "armory": [
+    "방어구 창고",
+    "부대 방어력"
+   ],
+   "drill": [
+    "훈련 캠프",
+    "훈련 속도"
+   ],
+   "lodge": [
+    "원정 캠프",
+    "부대 행군 속도"
+   ],
+   "scholar": [
+    "연구소",
+    "연구 속도"
+   ],
+   "builder": [
+    "건설소",
+    "건설 속도"
+   ],
+   "forager": [
+    "채집 제단",
+    "자원 채집 속도"
+   ],
+   "harvest": [
+    "풍작 제단",
+    "자원 생산 속도"
    ]
   }
  }
