@@ -22,6 +22,7 @@ async function get(path) {
     let p = await get(`/players/${m.governor_id}?include=${includes}`);
     if (p.status === 400 || p.status === 422) p = await get(`/players/${m.governor_id}?include=base,ranks`);   // unknown include names → the basics
     players.push({ governor_id: m.governor_id, status: p.status, body: p.body });
+    if (players.length % 10 === 0 || players.length === a.body.members.length) console.log(`${players.length}/${a.body.members.length} · ok ${players.filter((x) => x.status === 200).length}`);
     await sleep(1100);
   }
   fs.writeFileSync("raw-mightpulse.json", JSON.stringify({ fetched: new Date().toISOString(), includes, alliance: a.body, players }));
