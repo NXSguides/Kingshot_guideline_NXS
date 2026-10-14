@@ -272,7 +272,14 @@ const REW={
  iron:{zh:"10K 鐵礦",en:"10K Iron",kvk:0},
  goldkey:{zh:"金鑰匙",en:"Gold Key",kvk:0},
  spmin:{zh:"加速（分鐘，三種合計）",en:"Speedups (minutes, all types)",kvk:30},
- medal:{zh:"挑戰勳章",en:"Challenge Medal",kvk:3040}
+ medal:{zh:"挑戰勳章",en:"Challenge Medal",kvk:3040},
+ bread100:{zh:"100K 麵包",en:"100K Bread",kvk:0},
+ wood100:{zh:"100K 木材",en:"100K Wood",kvk:0},
+ stone100:{zh:"100K 石材",en:"100K Stone",kvk:0},
+ iron100:{zh:"100K 鐵礦",en:"100K Iron",kvk:0},
+ enhxp:{zh:"100 點強化經驗部件",en:"100 Enhancement XP Part",kvk:0},
+ luckygear:{zh:"英雄裝備幸運寶箱",en:"Hero Gear Lucky Chest",kvk:0},
+ tradepass:{zh:"通商券",en:"Trade Pass",kvk:0}
 };
 const RW=(...a)=>a.map(x=>Array.isArray(x)?{id:x[0],q:x[1]}:{id:x,q:""});
 const RES=["bread","wood","stone","iron"];
@@ -305,6 +312,7 @@ const AB_PTS=[
  {mithril:18750,truck:10000,widget:3750,intel:3000,hammer:1875,charm:45,t11:30,t10:24,t9:18,t8:14,t7:10,t6:7,gemuse:1},
  {tempered:18750,terror:15000,truck:10000,beast:6000,truegold:1250,dust:625,gear:22,speed:18,gemuse:1},
  {mithril:18750,tempered:18750,terror:15000,truck:10000,atm:9370,beast:6000,widget:3750,hammer:1875,mythic:1875,truegold:1250,epic:750,ctm:680,dust:625,rare:210,charm:45,petadv:30,gear:22,speed:18,gemuse:1}];
+const AB_RW=()=>[RW(["enhxp",2],["bread100",4],["wood100",4]),RW(["luckygear",1],["stone",8],["iron",2]),RW(["tradepass",1],["c5",25],["r5",25],["t5",25]),RW(["gems",3500],["tradepass",1],["bread100",20],["wood100",20]),RW(["charmd",15],["tradepass",1],["stone100",4],["iron100",1])];
 const AB_THEME=[["城鎮崛起","Rise of the City"],["英雄養成","Hero Development"],["寵物訓練","Pet Training"],["裝備強化","Gear Enhancement"],["貿易爭霸","Trade Baron"],["全面競爭","Full-Scale Competition"]];
 const FAMS={sg:{zh:"至高領主",en:"Strongest Governor",dz:"7 天・每天 4 個里程碑",de:"7 days · 4 milestones a day",days:7},
  ab:{zh:"聯盟對決",en:"Alliance Brawl",dz:"6 天・每天 5 個里程碑",de:"6 days · 5 milestones a day",days:6}};
@@ -326,9 +334,9 @@ SG_PTS.forEach((pts,i)=>{EVENTS["sg"+(i+1)]={fam:"sg",day:i+1,zh:"至高領主 �
  const r=SG_RW[i];TPL["sg"+(i+1)]=()=>[RW(),RW(),RW(),RW(["spmin",r[0]],["gems",r[1]],["medal",2],...(r[2]?[r[2]]:[]))]});
 AB_PTS.forEach((pts,i)=>{const th=i<4?[100,25000,50000,87500,125000]:[100,37500,75000,125000,187500];
  EVENTS["ab"+(i+1)]={fam:"ab",day:i+1,zh:"聯盟對決 第 "+(i+1)+" 天",en:"Alliance Brawl Day "+(i+1),dz:AB_THEME[i][0],de:AB_THEME[i][1],pts,th:[0,1,2,3].map(()=>th),noRank:1};
- TPL["ab"+(i+1)]=()=>[RW(),RW(),RW(),RW(),RW()]});
+ TPL["ab"+(i+1)]=()=>i<4?AB_RW():[RW(),RW(),RW(),RW(),RW()]});
 const NOTES={sg:{zh:"門檻和每單位分數來自 Kingshot Optimizer（所有城鎮中心等級相同）。Optimizer 只給每天 M1–M4 的獎勵總和，所以都先放在 M4；挑戰勳章用 Optimizer 的換算。",en:"Thresholds and points per unit from Kingshot Optimizer (same for every Town Center level). Optimizer only gives each day's M1–M4 rewards as one total, so they're all on M4; Challenge Medals use Optimizer's value."},
- ab:{zh:"門檻和每單位分數來自 Kingshot Optimizer，已和遊戲畫面核對（回火黃金、黃金研究粉塵只有 Optimizer 有列，我們的畫面上沒有）。聯盟對決的里程碑獎勵還沒有資料，請照自己的遊戲畫面填。情報事件的 KvK 分用 Optimizer 的倍率（×2）換算。",en:"Thresholds and points per unit from Kingshot Optimizer, checked against the game (Tempered Truegold and Truegold Dust are only in Optimizer's list, not on our screens). Alliance Brawl milestone rewards aren't known yet; enter them from your own screen. Intel Missions use Optimizer's ×2 KvK ratio."}};
+ ab:{zh:"門檻和每單位分數來自 Kingshot Optimizer，已和遊戲畫面核對（回火黃金、黃金研究粉塵只有 Optimizer 有列，我們的畫面上沒有）。里程碑獎勵是第 3 天（寵物訓練）的實際畫面；第 1、2、4 天門檻一樣，先當作獎勵也一樣；第 5、6 天還沒有資料，請照自己的畫面填。情報事件的 KvK 分用 Optimizer 的倍率（×2）換算。",en:"Thresholds and points per unit from Kingshot Optimizer, checked against the game (Tempered Truegold and Truegold Dust are only in Optimizer's list, not on our screens). Milestone rewards are from an actual Day 3 (Pet Training) screen; Days 1, 2 and 4 have the same thresholds and are assumed the same; Days 5–6 aren't known yet, enter them from your own screen. Intel Missions use Optimizer's ×2 KvK ratio."}};
 const GROUPS=[{zh:"1–21 級",en:"Lv 1–21"},{zh:"22–25 級",en:"Lv 22–25"},{zh:"26–29 級",en:"Lv 26–29"},{zh:"30 級以上（含 TG）",en:"Lv 30+ (incl. TG)"}];
 const VERIFIED={opB:[3],ac2:[3]};
 const KEYS={"1":3,"2":2,"3":1};
