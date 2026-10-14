@@ -5,83 +5,99 @@ const KINGDOM_MAP = {
   "title": {
    "en": "Kingdom #2189 Map",
    "zh": "#2189 王國地圖",
-   "pt": "Mapa do Reino #2189"
+   "pt": "Mapa do Reino #2189",
+   "ar": "خريطة المملكة #2189"
   },
   "intro": {
    "en": "Tap a building on the map, or a coordinate in the list, to see where it is. Outposts give buffs; Fortresses and Sanctuaries do not.",
    "zh": "點地圖上的建築，或點下方清單裡的座標，就能看到它在哪裡。據點有增益，要塞和遺跡沒有。",
-   "pt": "Toque num prédio no mapa, ou numa coordenada da lista, para ver onde ele fica. Postos Avançados dão bônus; Fortalezas e Santuários não."
+   "pt": "Toque num prédio no mapa, ou numa coordenada da lista, para ver onde ele fica. Postos Avançados dão bônus; Fortalezas e Santuários não.",
+   "ar": "اضغط على مبنى في الخريطة أو على إحداثية في القائمة لترى مكانه. المستوطنات تمنح مكافآت؛ الحصون والمآوي لا تمنح."
   },
   "back": {
    "en": "Guides",
    "zh": "回到攻略",
-   "pt": "Guias"
+   "pt": "Guias",
+   "ar": "الأدلة"
   },
   "orient": {
    "en": "Same direction as the in-game World map: up = bigger X and Y. Number on a square = Outpost level.",
    "zh": "方向和遊戲大地圖一樣：往上 = X、Y 都變大。方塊上的數字 = 據點等級。",
-   "pt": "Mesma direção do mapa-múndi do jogo: para cima = X e Y maiores. Número no quadrado = nível do Posto Avançado."
+   "pt": "Mesma direção do mapa-múndi do jogo: para cima = X e Y maiores. Número no quadrado = nível do Posto Avançado.",
+   "ar": "بنفس اتجاه خريطة العالم في اللعبة: الأعلى = X و Y أكبر. الرقم على المربع = مستوى المستوطنة."
   },
   "pick": {
    "en": "Tap a building to see its details.",
    "zh": "點一個建築來看詳細資料。",
-   "pt": "Toque num prédio para ver os detalhes."
+   "pt": "Toque num prédio para ver os detalhes.",
+   "ar": "اضغط على مبنى لرؤية التفاصيل."
   },
   "all": {
    "en": "All",
    "zh": "全部",
-   "pt": "Tudo"
+   "pt": "Tudo",
+   "ar": "الكل"
   },
   "copy": {
    "en": "Copy",
    "zh": "複製",
-   "pt": "Copiar"
+   "pt": "Copiar",
+   "ar": "نسخ"
   },
   "copied": {
    "en": "Copied",
    "zh": "已複製",
-   "pt": "Copiado"
+   "pt": "Copiado",
+   "ar": "تم النسخ"
   },
   "noBuff": {
    "en": "No buff",
    "zh": "無增益",
-   "pt": "Sem bônus"
+   "pt": "Sem bônus",
+   "ar": "بدون مكافأة"
   },
   "ruins": {
    "en": "Castle, Fortresses & Sanctuaries",
    "zh": "王城、要塞、遺跡",
-   "pt": "Castelo, Fortalezas e Santuários"
+   "pt": "Castelo, Fortalezas e Santuários",
+   "ar": "القلعة والحصون والمآوي"
   },
   "outposts": {
    "en": "Outposts",
    "zh": "據點",
-   "pt": "Postos Avançados"
+   "pt": "Postos Avançados",
+   "ar": "المستوطنات"
   },
   "rulesT": {
    "en": "Rules",
    "zh": "規則",
-   "pt": "Regras"
+   "pt": "Regras",
+   "ar": "القواعد"
   },
   "rules": [
    {
     "en": "Only the same Outpost type at the same level does not stack. The same type at a different level stacks, and different types stack (also at the same level).",
     "zh": "只有同類型、同等級的據點效果不疊加；同類型不同等級、不同類型同等級都可以疊加。",
-    "pt": "Só o mesmo tipo de Posto Avançado no mesmo nível não acumula. O mesmo tipo em nível diferente acumula, e tipos diferentes acumulam (também no mesmo nível)."
+    "pt": "Só o mesmo tipo de Posto Avançado no mesmo nível não acumula. O mesmo tipo em nível diferente acumula, e tipos diferentes acumulam (também no mesmo nível).",
+    "ar": "فقط نفس نوع المستوطنة بنفس المستوى لا تتراكم. نفس النوع بمستوى مختلف يتراكم، والأنواع المختلفة تتراكم (حتى بنفس المستوى)."
    },
    {
     "en": "You can only compete for Outposts that border your alliance territory.",
     "zh": "只能爭奪和自家聯盟領地相鄰的據點。",
-    "pt": "Só dá para disputar Postos Avançados que fazem fronteira com o território da sua aliança."
+    "pt": "Só dá para disputar Postos Avançados que fazem fronteira com o território da sua aliança.",
+    "ar": "يمكنك التنافس فقط على المستوطنات المجاورة لإقليم تحالفك."
    },
    {
     "en": "Higher-level Outposts cause more severely injured and lost troops. Severely injured troops go to the Infirmary.",
     "zh": "等級越高的據點，交戰時重傷和陣亡越多；重傷的部隊要到野戰醫院治療。",
-    "pt": "Postos Avançados de nível mais alto causam mais tropas gravemente feridas e perdidas. As gravemente feridas vão para a Enfermaria."
+    "pt": "Postos Avançados de nível mais alto causam mais tropas gravemente feridas e perdidas. As gravemente feridas vão para a Enfermaria.",
+    "ar": "المستوطنات ذات المستوى الأعلى تسبب خسائر وإصابات خطيرة أكثر. الجنود المصابون بجروح خطيرة يذهبون إلى المستوصف."
    },
    {
     "en": "An Outpost in the Vulnerable state gives no buff until it is Protected again, so a total can drop for a while.",
     "zh": "據點在「可爭奪狀態」時沒有增益，回到「保護狀態」才恢復，所以總和有時會暫時變少。",
-    "pt": "Um Posto Avançado no estado Vulnerável não dá bônus até voltar a ser Protegido, então o total pode cair por um tempo."
+    "pt": "Um Posto Avançado no estado Vulnerável não dá bônus até voltar a ser Protegido, então o total pode cair por um tempo.",
+    "ar": "المستوطنة في حالة مستضعف لا تمنح مكافأة حتى تعود محمي، لذلك قد ينخفض المجموع لفترة."
    }
   ]
  },
@@ -770,6 +786,48 @@ const KINGDOM_MAP = {
    "harvest": [
     "Altar da Colheita",
     "Velocidade de Produção de Recursos"
+   ]
+  }
+ },
+ "ar": {
+  "castle": "قلعة الملك",
+  "hq": "مقر [السهول]",
+  "fortress": "القلعة رقم {n}",
+  "sanctuary": "المأوى {n}",
+  "fortressS": "حصن",
+  "sanctuaryS": "المأوى",
+  "types": {
+   "arsenal": [
+    "ترسانة أسلحة",
+    "هجوم الفرق"
+   ],
+   "armory": [
+    "مخزن الدروع",
+    "دفاع الفرق"
+   ],
+   "drill": [
+    "معسكر التدريبات",
+    "سرعة التدريب"
+   ],
+   "lodge": [
+    "نزل المغامرين",
+    "سرعة زحف الفرق"
+   ],
+   "scholar": [
+    "برج العالم",
+    "سرعة البحث"
+   ],
+   "builder": [
+    "نقابة البنائين",
+    "سرعة البناء"
+   ],
+   "forager": [
+    "بستان جامع الطعام",
+    "سرعة جمع الموارد"
+   ],
+   "harvest": [
+    "نصب الحصاد",
+    "سرعة إنتاج الموارد"
    ]
   }
  }

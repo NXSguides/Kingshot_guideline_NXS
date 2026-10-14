@@ -5,7 +5,8 @@
 (function () {
 const ROOT = document.getElementById("pg-board");
 const $ = (id) => document.getElementById(id);
-const BD = {
+const BD = { ar: {"title": "💬 لوحة النقاش", "sub": "للتخطيط معًا. تُترجم كل رسالة إلى 中文 وEnglish وPortuguês بمصطلحات اللعبة نفسها. يراها فقط الضباط المسجلون عبر Discord.", "login": "لوحة النقاش تحتاج تسجيل الدخول عبر Discord (ليعرف الجميع من كتب ماذا).", "loginBtn": "🔑 الدخول عبر Discord", "newBtn": "+ موضوع جديد", "newTitle": "الموضوع (مثلًا: أي مأوى نسجل فيه)", "newText": "اكتب أفكارك…", "post": "نشر", "cancel": "إلغاء", "reply": "رد", "replyPh": "اكتب ردًا…", "back": "← كل المواضيع", "empty": "لا توجد مواضيع بعد. اضغط “+ موضوع جديد” للبدء.", "replies": "{n} رسالة", "by": "بدأه {name}", "last": "آخر تحديث {t}", "decided": "📌 تقرر", "decision": "📌 القرار", "decBy": "قرره {name} · {t}", "setDec": "📌 اعتماده كقرار", "clearDec": "إلغاء القرار", "orig": "عرض الأصل", "hideOrig": "إخفاء الأصل", "origLang": "الأصل ({l})", "edit": "✏️ تعديل", "del": "🗑️ حذف", "save": "حفظ", "edited": "(معدّل)", "delAsk": "اضغط مرة أخرى للحذف", "delTopic": "حذف الرسالة الأولى يحذف الموضوع بأكمله — اضغط مرة أخرى", "sending": "جارٍ النشر والترجمة…", "saving": "جارٍ الحفظ…", "noTr": "⚠️ لم تُترجم هذه الرسالة، لذا يظهر الأصل (التعديل والحفظ يعيدان ترجمتها).", "err": "حدث خطأ: {e}", "gone": "تم حذف هذا الموضوع.", "needBoth": "اكتب موضوعًا ورسالة.", "loading": "جارٍ التحميل…", "assign": "📋 إسناد إلى", "taskTo": "📋 مهمة لـ", "done": "✅ تم", "undone": "↩︎ لم يتم", "doneBy": "أنجزها {name}", "myTasks": "📋 مهام لك ({n})", "noUsers": "لم يستخدم أي ضابط آخر لوحة النقاش بعد.", "inTopic": "في “{t}”"},
+
   zh: { title: "💬 留言板", sub: "幹部一起規劃用。每則留言都會自動翻成中文、English、Português，並使用遊戲裡的正式名稱。只有用 Discord 登入的幹部看得到。",
     login: "留言板要用 Discord 登入才能使用（這樣大家才知道是誰留言）。", loginBtn: "🔑 用 Discord 登入",
     newBtn: "＋ 新主題", newTitle: "主題（例如：這期遺跡要報哪裡）", newText: "寫下你的想法…", post: "送出", cancel: "取消", reply: "回覆", replyPh: "回覆…",
@@ -56,7 +57,7 @@ const esc = OFFICER.util.esc;
 const linkify = (h) => h.replace(/https?:\/\/[^\s<]+/g, (u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`).replace(/(^|[\s(（,，])@([^\s@,，:：]{1,30})/g, (m, a, n) => `${a}<span class="bd-mention">@${n}</span>`);
 const pick = (o) => (o && (o[lang] || o.orig)) || "";
 const when = (ms) => { const d = new Date(ms), p = (n) => String(n).padStart(2, "0");
-  return `${lang === "pt" ? d.getUTCDate() + "/" + (d.getUTCMonth() + 1) : (d.getUTCMonth() + 1) + "/" + d.getUTCDate()} ${p(d.getUTCHours())}:${p(d.getUTCMinutes())} UTC`; };
+  return `${lang === "pt" || lang === "ar" ? d.getUTCDate() + "/" + (d.getUTCMonth() + 1) : (d.getUTCMonth() + 1) + "/" + d.getUTCDate()} ${p(d.getUTCHours())}:${p(d.getUTCMinutes())} UTC`; };
 const token = () => { try { return localStorage.getItem(DISCORD_LS); } catch (e) { return null; } };
 const topicId = () => { const m = location.hash.match(/^#board\?t=([\w-]+)/); return m ? m[1] : null; };
 const postParam = () => { const m = location.hash.match(/[?&]p=([\w-]+)/); return m ? m[1] : null; };
@@ -97,7 +98,7 @@ const av = (u) => u.avatar ? `<img src="${esc(u.avatar)}" alt="">` : `<span clas
 function postHtml(p, i) {
   const me = OFFICER.user && p.by.id === OFFICER.user.id, isDec = cur.dec === p.id, src = p.txt.src;
   const translated = !!p.txt[lang] && p.txt[lang] !== p.txt.orig, showOrig = openOrig.has(p.id);
-  const dbg = `src=${src || "?"} · ${["zh", "en", "pt"].map((l) => l + (p.txt[l] ? (p.txt[l] === p.txt.orig ? "=orig" : " ✓") : " ✗")).join(" · ")}`;
+  const dbg = `src=${src || "?"} · ${OFFICER_LANGS.map((l) => l + (p.txt[l] ? (p.txt[l] === p.txt.orig ? "=orig" : " ✓") : " ✗")).join(" · ")}`;
   const sameLang = src === lang || (!translated && !p.txt.en && !p.txt.zh && !p.txt.pt);
   const body = editing === p.id
     ? `${i === 0 ? `<input class="inp" data-edtitle value="${esc(cur.title.orig)}" maxlength="120" style="margin:8px 0 6px">` : ""}<textarea class="inp" data-edtext rows="4" maxlength="4000" style="margin-top:8px;resize:vertical">${esc(p.txt.orig)}</textarea>

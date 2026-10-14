@@ -372,6 +372,10 @@
   #pg-map .km-layers button[aria-pressed="false"] { opacity: .45; }
   #pg-map .sw { width: 14px; height: 14px; border-radius: 4px; flex: none; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.2); }
   #pg-map .km-card { background: #22301a; border-radius: 14px; overflow: hidden; position: relative; border: 1px solid var(--rule); }
+  /* Arabic page (right to left): the map, the day strip and number tables keep left-to-right scrolling */
+  [dir="rtl"] #pg-map .km-box, [dir="rtl"] #pg-events .cal-scroll { direction: ltr; }
+  [dir="rtl"] .shbar #meBox, [dir="rtl"] .shbar #meIn { margin-left: 0 !important; margin-right: auto !important; }
+  [dir="rtl"] .tabs a.dot::after { right: auto; left: 4px; }
   #pg-map .km-box { overflow: auto; max-height: 75vh; scrollbar-width: thin; overscroll-behavior: contain; touch-action: pan-x pan-y; }   /* pinch = zoom the map, not the page */
   @media (pointer: fine) { #pg-map .km-box { cursor: grab; } #pg-map .km-box.dragging { cursor: grabbing; user-select: none; } #pg-map .km-box.dragging .mk { cursor: grabbing; } }
   #pg-map .km-box svg { display: block; width: 100%; height: auto; }
@@ -482,7 +486,7 @@
 </head>
 <body>
 <div class="wrap" id="main">
-  <div class="shbar"><a class="btn" href="./">←&nbsp;<span id="shHome"></span></a><select class="btn" id="langBtn" aria-label="Language"><option value="zh">中文</option><option value="en">English</option><option value="pt">Português</option></select><button class="btn" id="copyUrlBtn" title="Copy link" aria-label="Copy link" hidden>🔗</button><button class="btn" id="reloadBtn" title="Refresh" aria-label="Refresh" hidden>↻</button><span id="meBox" hidden style="display:inline-flex;align-items:center;gap:6px;margin-left:auto;font-size:13.5px"><img id="meAv" alt="" width="24" height="24" style="border-radius:50%" hidden><b id="meName"></b><button class="btn" id="meOut" style="padding:0 8px;font-size:12.5px;height:30px"></button></span><a class="btn" id="meIn" href="#" hidden style="margin-left:auto;font-size:12.5px;padding:0 8px;height:30px"></a></div>
+  <div class="shbar"><a class="btn" href="./">←&nbsp;<span id="shHome"></span></a><select class="btn" id="langBtn" aria-label="Language"><option value="zh">中文</option><option value="en">English</option><option value="pt">Português</option><option value="ar">العربية</option></select><button class="btn" id="copyUrlBtn" title="Copy link" aria-label="Copy link" hidden>🔗</button><button class="btn" id="reloadBtn" title="Refresh" aria-label="Refresh" hidden>↻</button><span id="meBox" hidden style="display:inline-flex;align-items:center;gap:6px;margin-left:auto;font-size:13.5px"><img id="meAv" alt="" width="24" height="24" style="border-radius:50%" hidden><b id="meName"></b><button class="btn" id="meOut" style="padding:0 8px;font-size:12.5px;height:30px"></button></span><a class="btn" id="meIn" href="#" hidden style="margin-left:auto;font-size:12.5px;padding:0 8px;height:30px"></a></div>
   <nav class="tabs">
     <a href="#events" data-tab="events">📅 Events</a>
     <a href="#map" data-tab="map">🗺️ Map</a>

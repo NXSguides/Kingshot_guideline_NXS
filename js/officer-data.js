@@ -135,11 +135,12 @@ window.OfficerData = (() => {
   const NAMES = {
     en: { ranking: "📊 Ranking", post: "📢 Post", watch: "🕵️ Watch", events: "📅 Events", scout: "🔭 Scout", views: "📈 Views", map: "🗺️ Map", bt: "🐻 Bear calc", board: "💬 Board", perms: "👥 Officers" },
     zh: { ranking: "📊 成員排序", post: "📢 發布公告", watch: "🕵️ 觀察名單", events: "📅 活動排程", scout: "🔭 偵察", views: "📈 網站瀏覽", map: "🗺️ 王國地圖", bt: "🐻 巨熊編組", board: "💬 留言板", perms: "👥 幹部權限" },
+    ar: { ranking: "📊 الترتيب", post: "📢 الإعلانات", watch: "🕵️ المراقبة", events: "📅 الفعاليات", scout: "🔭 الاستطلاع", views: "📈 الزيارات", map: "🗺️ الخريطة", bt: "🐻 حاسبة الدب", board: "💬 لوحة النقاش", perms: "👥 الضباط" },
     pt: { ranking: "📊 Ranking", post: "📢 Anúncios", watch: "🕵️ Vigilância", events: "📅 Eventos", scout: "🔭 Reconhecimento", views: "📈 Visitas", map: "🗺️ Mapa", bt: "🐻 Calc. do Urso", board: "💬 Mural", perms: "👥 Oficiais" },
   };
   function apply() {
     const l = document.documentElement.lang || "";
-    const n = NAMES[l.startsWith("zh") ? "zh" : l.startsWith("pt") ? "pt" : "en"];
+    const n = NAMES[l.slice(0, 2)] || NAMES.en;
     document.querySelectorAll(".tabs a[data-tab]").forEach((a) => { if (n[a.dataset.tab]) a.textContent = n[a.dataset.tab]; });
   }
   // each page sets <html lang> when it shows its texts (and again when the language button is used)

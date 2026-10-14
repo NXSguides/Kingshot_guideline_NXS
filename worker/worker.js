@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-14f (board: @mentions and tasks)";
+const VERSION = "2026-10-14g (board: Arabic too)";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -691,7 +691,7 @@ export class PushTimers extends DurableObject {
   async boardNotify(fromUid, tid, title, name, txt, meta) {
     if (!this.env.VAPID_PRIVATE) return 0;
     const langs = Object.fromEntries([...this.sql.exec(`SELECT uid, lang FROM bl`)].map((r) => [r.uid, r.lang]));
-    const MENTION = { zh: "📣 提到你", en: "📣 Mentioned you", pt: "📣 Mencionou você" }, TASK = { zh: "📋 指派給你", en: "📋 Task for you", pt: "📋 Tarefa para você" };
+    const MENTION = { zh: "📣 提到你", en: "📣 Mentioned you", pt: "📣 Mencionou você", ar: "📣 أشار إليك" }, TASK = { zh: "📋 指派給你", en: "📋 Task for you", pt: "📋 Tarefa para você", ar: "📋 مهمة لك" };
     let n = 0;
     for (const r of [...this.sql.exec(`SELECT ep, uid, sub FROM usub WHERE uid != ?`, fromUid)]) {
       const l = langs[r.uid] || "en", pick = (o) => (o && (o[l] || o.en || o.orig)) || "";
@@ -762,7 +762,7 @@ export class PushTimers extends DurableObject {
    Topics and replies for planning together. Only people logged in with Discord (DISCORD_ACCESS) can read or write.
    Every message is translated into the R4/R5 languages (BOARD_LANGS) with the game's own terms from data/terms.js;
    the original is always kept. Stored in the PushTimers Durable Object (tables bt / bp). */
-const BOARD_LANGS = ["zh", "en", "pt"];
+const BOARD_LANGS = ["zh", "en", "pt", "ar"];
 const TERM_COL = { en: 0, zh: 1, ko: 2, de: 3, fr: 4, pt: 5, tr: 6, id: 7, ru: 8, th: 9, ar: 10, es: 11 };
 let termRows = { rows: null, at: 0 };
 async function getTermRows() {
@@ -796,13 +796,13 @@ async function boardTranslate(env, title, text) {
     "Rules: keep the meaning, tone, line breaks, lists, emojis, numbers, coordinates (X:123 Y:456), times and dates exactly; times are UTC — never convert them.",
     "Never translate member names, alliance tags like [NXS], @mentions or links.",
     "Game terms: when a game term from the TERM TABLE appears, use exactly the name given for the target language; never invent your own translation of a game term; if the table says (none), keep the term as written.",
-    "Chinese = Traditional Chinese as used in Taiwan (繁體中文), never Simplified. Portuguese = Brazilian Portuguese.",
+    "Chinese = Traditional Chinese as used in Taiwan (繁體中文), never Simplified. Portuguese = Brazilian Portuguese. Arabic = Modern Standard Arabic (keep numbers as 0-9).",
     terms ? "\n===== TERM TABLE (official in-game names) =====\n" + terms : "",
   ].join("\n");
   // the task itself goes in the user turn (small models follow it better there than in the system text)
   const ask = (label, body) => [
     `Translate this ${label} into ALL of these languages: ${langList}. Every field must be written in that field's language —`,
-    `"en" must be English text, "pt" must be Portuguese text, "zh" must be Traditional Chinese text. Only the language the ${label} is already written in keeps the original wording.`,
+    `"en" must be English text, "pt" must be Portuguese text, "zh" must be Traditional Chinese text, "ar" must be Arabic text. Only the language the ${label} is already written in keeps the original wording.`,
     `Reply with JSON only, exactly this shape: {"src": "<ISO code of the language the ${label} is written in>", "zh": "...", "en": "...", "pt": "..."}`,
     "", label.toUpperCase() + ":", body,
   ].join("\n");
@@ -823,7 +823,10 @@ async function boardTranslate(env, title, text) {
       // sanity: the non-source languages must not just repeat the original, and en/pt must not be CJK text
       const others = BOARD_LANGS.filter((l) => l !== src);
       const mostlyCjk = (t) => (t.match(cjk) || []).length * 2 > t.replace(/[\s\d\p{P}]/gu, "").length;   // more than half of the letters
-      const lazy = others.filter((l) => !x[l] || x[l] === body || (l !== "zh" && mostlyCjk(x[l])));
+      const share = (t, re) => (t.match(re) || []).length / Math.max(1, t.replace(/[\s\d\p{P}\p{S}]/gu, "").length);
+      const arab = /[\u0600-\u06ff]/g;
+      // en/pt must be mostly Latin letters, zh mostly Chinese, ar mostly Arabic — otherwise the model just copied the original
+      const lazy = others.filter((l) => !x[l] || x[l] === body || (l === "en" || l === "pt" ? mostlyCjk(x[l]) || share(x[l], arab) > 0.5 : l === "ar" ? share(x[l], arab) < 0.3 : share(x[l], cjk) < 0.3));
       if (lazy.length && others.length) { errs.push(m + ": returned the original for " + lazy.join(",")); continue; }
       return x;
     }
