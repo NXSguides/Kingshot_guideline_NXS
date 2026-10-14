@@ -1000,13 +1000,25 @@ const KINGDOM_MAP = {
     "ar": "ناقل متقدم"
    },
    "dmg2": {
-    "en": "Troops Damage Up II (12h)"
+    "en": "Troops Damage Up II (12hrs)",
+    "zh": "部隊傷害提升II（12小時）",
+    "ko": "부대 피해 증가 II (12시간)",
+    "pt": "Aumento de Dano das Tropas II (12h)",
+    "ar": "رفع ضرر القوات 2 (لمدة 12 ساعة)"
    },
    "hp2": {
-    "en": "Troops Health Up II (12h)"
+    "en": "Troops Health Up II (12hrs)",
+    "zh": "部隊生命值提升II（12小時）",
+    "ko": "부대 HP 증가 II (12시간)",
+    "pt": "Aumento de Vida das Tropas II (12h)",
+    "ar": "رفع صحة القوات 2 (لمدة 12 ساعة)"
    },
    "deploy2": {
-    "en": "Deployment Capacity Boost II (12h)"
+    "en": "Deployment Capacity Boost II (12hrs)",
+    "zh": "出征部隊數量提升II（12小時）",
+    "ko": "출정 수용량 증가 II (12시간)",
+    "pt": "Impulso da Capacidade de Envio II (12h)",
+    "ar": "تعزيز قدرة النشر 2 (لمدة 12 ساعة)"
    }
   },
   "chests": {
@@ -1173,18 +1185,17 @@ const KINGDOM_MAP = {
     ],
     [
      "ally",
-     null
+     1
     ],
     [
      "ruler",
-     null
+     40
     ],
     [
      "controller",
      1
     ]
    ],
-   "chestsKnown": false,
    "special": {
     "1": [
      "gen1h",
