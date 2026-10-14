@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-14d (officer board: translation checked)";
+const VERSION = "2026-10-14e (board polls answered from KV, DO left asleep)";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -811,22 +811,37 @@ async function boardTranslate(env, title, text) {
   return out;
 }
 const rid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+/* "anything new?" is answered from KV (or this isolate's memory) — the pages poll, and every poll must NOT wake the
+   Durable Object: a DO that is kept awake all day eats the free plan's daily duration allowance. */
+let boardStampMem = 0;
+async function boardStamp(env) {
+  if (env.LIMITS) { try { const v = Number(await env.LIMITS.get("board:stamp")); if (v) return v; } catch (e) {} }
+  return boardStampMem;
+}
+async function boardTouch(env) {
+  boardStampMem = Date.now();
+  if (env.LIMITS) { try { await env.LIMITS.put("board:stamp", String(boardStampMem)); } catch (e) {} }
+  return boardStampMem;
+}
 async function boardRoute(env, ctx, stub, user, body, token) {
   const op = body.op, lang = BOARD_LANGS.includes(body.lang) ? body.lang : null;
   const by = { id: user.id, name: user.name, avatar: user.avatar || "" };
-  await stub.boardLang(user.id, lang);
   const ok = (o) => json({ ok: true, token, ...o });
+  // polls: nothing changed since the page last looked → answer without touching the Durable Object
+  const since = +body.since || 0, stamp = await boardStamp(env);
+  if ((op === "list" || op === "get") && since && stamp && stamp <= since) return ok({ unchanged: true, stamp });
+  if (op !== "list" && op !== "get" || body.first) await stub.boardLang(user.id, lang);   // language for notifications: on writes and on the first look of a visit
   const str = (v, max) => String(v || "").replace(/\r/g, "").trim().slice(0, max);
   const notify = (t, tx) => { const p = stub.boardNotify(user.id, t.id, t.title, user.name, tx); if (ctx && ctx.waitUntil) ctx.waitUntil(p); };
-  if (op === "list") return ok({ topics: await stub.boardList() });
-  if (op === "get") { const t = await stub.boardThread(String(body.id || "")); return t ? ok({ topic: t }) : json({ error: "gone", token }, 404); }
+  if (op === "list") return ok({ topics: await stub.boardList(), stamp: stamp || await boardTouch(env) });
+  if (op === "get") { const t = await stub.boardThread(String(body.id || "")); return t ? ok({ topic: t, stamp: stamp || await boardTouch(env) }) : json({ error: "gone", token }, 404); }
   if (op === "new") {
     const title = str(body.title, 120), text = str(body.text, 4000);
     if (!title || !text) return json({ error: "empty" }, 400);
     const tr = await boardTranslate(env, title, text);
     const t = await stub.boardNew(rid(), tr.title, by, rid(), tr.text);
     notify(t, tr.text);
-    return ok({ topic: t, translated: tr.ok });
+    return ok({ topic: t, translated: tr.ok, stamp: await boardTouch(env) });
   }
   if (op === "reply") {
     const text = str(body.text, 4000);
@@ -835,21 +850,21 @@ async function boardRoute(env, ctx, stub, user, body, token) {
     const t = await stub.boardReply(String(body.id || ""), by, rid(), tr.text);
     if (!t) return json({ error: "gone" }, 404);
     notify(t, tr.text);
-    return ok({ topic: t, translated: tr.ok });
+    return ok({ topic: t, translated: tr.ok, stamp: await boardTouch(env) });
   }
   const p = body.post ? await stub.boardPost(String(body.post)) : null;
   if (op === "edit" || op === "del") {
     if (!p) return json({ error: "gone" }, 404);
     if (p.by.id !== user.id) return json({ error: "not_yours" }, 403);
-    if (op === "del") return ok(await stub.boardDelete(p.id));
+    if (op === "del") return ok({ ...(await stub.boardDelete(p.id)), stamp: await boardTouch(env) });
     const text = str(body.text, 4000), title = body.title != null ? str(body.title, 120) : "";
     if (!text) return json({ error: "empty" }, 400);
     const tr = await boardTranslate(env, title, text);
-    return ok({ topic: await stub.boardEdit(p.id, tr.text, title ? tr.title : null), translated: tr.ok });
+    return ok({ topic: await stub.boardEdit(p.id, tr.text, title ? tr.title : null), translated: tr.ok, stamp: await boardTouch(env) });
   }
   if (op === "decide") {   // 📌 any officer can mark (or clear) the decision of a topic
     const t = await stub.boardDecide(String(body.id || ""), p ? p.id : null, by);
-    return t ? ok({ topic: t }) : json({ error: "gone" }, 404);
+    return t ? ok({ topic: t, stamp: await boardTouch(env) }) : json({ error: "gone" }, 404);
   }
   return json({ error: "bad op" }, 400);
 }

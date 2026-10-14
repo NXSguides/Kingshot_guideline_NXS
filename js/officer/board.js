@@ -56,11 +56,15 @@ const when = (ms) => { const d = new Date(ms), p = (n) => String(n).padStart(2, 
   return `${lang === "pt" ? d.getUTCDate() + "/" + (d.getUTCMonth() + 1) : (d.getUTCMonth() + 1) + "/" + d.getUTCDate()} ${p(d.getUTCHours())}:${p(d.getUTCMinutes())} UTC`; };
 const token = () => { try { return localStorage.getItem(DISCORD_LS); } catch (e) { return null; } };
 const topicId = () => { const m = location.hash.match(/^#board\?t=([\w-]+)/); return m ? m[1] : null; };
+/* stamp = when the board last changed (from the Worker); polls send it back as "since" and get a tiny "unchanged"
+   answer when nothing happened — that answer costs the Worker almost nothing and leaves its database asleep */
+let stamp = 0, firstCall = true;
 async function api(op, extra = {}) {
-  const r = await fetch(AUTH_API + "/board", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: token(), lang, op, ...extra }) });
+  const r = await fetch(AUTH_API + "/board", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: token(), lang, op, ...(firstCall ? { first: true } : {}), ...extra }) });
   const j = await r.json().catch(() => ({ error: "network" }));
   if (j.token) { try { localStorage.setItem(DISCORD_LS, j.token); } catch (e) {} }
   if (!r.ok || j.error) throw Object.assign(new Error(j.error || "HTTP " + r.status), { code: j.error });
+  firstCall = false; if (j.stamp) stamp = j.stamp;
   return j;
 }
 function applyTexts() {
@@ -107,12 +111,12 @@ function renderTopic() {
 }
 async function loadList(quiet) {
   if (!quiet) $("bd_list").innerHTML = `<div class="muted">${esc(t("loading"))}</div>`;
-  try { topics = (await api("list")).topics; renderList(); }
+  try { const j = await api("list", quiet ? { since: stamp } : {}); if (j.unchanged) return; topics = j.topics; renderList(); }
   catch (e) { if (!quiet) $("bd_list").innerHTML = `<div class="card msg warn">${esc(t("err", { e: e.message }))}</div>`; if (e.code === "logged_out") showLogin(); }
 }
 async function loadTopic(id, quiet) {
   if (!quiet) { $("bd_posts").innerHTML = `<div class="muted">${esc(t("loading"))}</div>`; $("bd_tTitle").textContent = ""; $("bd_decision").innerHTML = ""; }
-  try { cur = (await api("get", { id })).topic; if (editing && !quiet) editing = null; if (!editing) renderTopic(); markSeen(cur.id, cur.last); const tp = topics.find((x) => x.id === cur.id); if (tp) tp.last = cur.last; }
+  try { const j = await api("get", { id, ...(quiet ? { since: stamp } : {}) }); if (j.unchanged) return; cur = j.topic; if (editing && !quiet) editing = null; if (!editing) renderTopic(); markSeen(cur.id, cur.last); const tp = topics.find((x) => x.id === cur.id); if (tp) tp.last = cur.last; }
   catch (e) { if (e.code === "gone") { $("bd_posts").innerHTML = `<div class="card">${esc(t("gone"))}</div>`; cur = null; } else if (!quiet) $("bd_posts").innerHTML = `<div class="card msg warn">${esc(t("err", { e: e.message }))}</div>`; }
 }
 function showLogin() { $("bd_login").hidden = false; $("bd_app").hidden = true; }
@@ -124,14 +128,14 @@ function route() {
   armed = null; editing = null;
   if (id) { if (!cur || cur.id !== id) { cur = null; openOrig = new Set(); } loadTopic(id); } else loadList();
 }
-/* new messages from the others show up by themselves (every 20 s while this tab is open and visible) */
+/* new messages from the others show up by themselves (every 45 s while this tab is open and visible; a poll that finds nothing new is almost free) */
 function poll() {
   clearInterval(timer);
   timer = setInterval(() => {
     if (ROOT.hidden || document.hidden || !token()) return;
     const id = topicId();
     if (id) { if (!editing && !$("bd_replyText").value) loadTopic(id, true); } else loadList(true);
-  }, 20000);
+  }, 45000);
 }
 $("bd_reload").onclick = () => route();
 $("bd_newBtn").onclick = () => { $("bd_newForm").hidden = false; $("bd_newTitle").focus(); };
@@ -184,8 +188,8 @@ $("bd_posts").addEventListener("click", async (ev) => {
 function alertMsg(e) { $("bd_replyMsg").textContent = t("err", { e: e.message }); }
 function init() { applyTexts(); poll(); }
 /* the tab's dot is kept fresh even while another tab is open (once a minute) */
-async function dotCheck() { if (document.hidden || !token() || !OFFICER.user) return; try { topics = (await api("list")).topics; tabDot(); if (!ROOT.hidden && !topicId()) renderList(); } catch (e) {} }
-setInterval(dotCheck, 60000); setTimeout(dotCheck, 3000);
+async function dotCheck() { if (document.hidden || !token() || !OFFICER.user || !ROOT.hidden) return; try { const j = await api("list", { since: stamp }); if (j.unchanged) return; topics = j.topics; tabDot(); } catch (e) {} }
+setInterval(dotCheck, 3 * 60000); setTimeout(dotCheck, 3000);
 function onShow() { route(); }
 function setLang(l) { lang = l; applyTexts(); if (!ROOT.hidden) { if (cur && topicId()) renderTopic(); else renderList(); } }
 OFFICER_PAGES.board = { init, onShow, applyTexts, setLang };
