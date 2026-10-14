@@ -639,11 +639,7 @@
     <!-- 1. weights -->
     <div class="card">
       <h2 data-t="weights"></h2>
-      <div class="row">
-        <label class="w"><span data-t="power"></span><input type="number" id="wPower" min="0" max="100" step="5"> %</label>
-        <label class="w"><span data-t="mystic"></span><input type="number" id="wMystic" min="0" max="100" step="5"> %</label>
-      </div>
-      <div class="muted msg" data-t="weightNote"></div>
+      <div class="muted msg" data-t="weightNote" style="margin-top:0"></div>
     </div>
 
     <!-- 2. pick participants -->
@@ -660,7 +656,7 @@
         <div class="row" style="margin-top:6px"><button class="btn" id="pasteBtn" data-t="pasteGo"></button></div>
         <div class="msg" id="pasteMsg"></div>
       </details>
-      <input type="search" id="rk_q">
+      <div class="row" style="align-items:center;gap:10px"><input type="search" id="rk_q" style="flex:1"><label style="white-space:nowrap;font-size:13.5px"><input type="checkbox" id="rk_onlyTicked"> <span data-t="onlyTicked"></span></label></div>
       <div class="tbl-wrap">
         <table>
           <thead><tr>
@@ -680,7 +676,7 @@
     <div class="card">
       <div class="top">
         <h2 data-t="result"></h2>
-        <button class="btn primary" id="rk_copyBtn" data-t="copy"></button>
+        <div class="row" style="align-items:center;gap:8px"><label style="white-space:nowrap;font-size:13.5px"><span data-t="topN"></span> <input type="number" id="rk_topN" min="0" style="width:64px"></label><button class="btn primary" id="rk_copyBtn" data-t="copy"></button></div>
       </div>
       <div class="tbl-wrap" style="max-height:none">
         <table>

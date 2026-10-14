@@ -77,7 +77,9 @@ function findRows(o, depth = 0) {
   const members = a.body.members;
   console.log(`✅ Roster: ${members.length} members (roster snapshot age ${a.body.age_seconds ?? "?"} s)`);
 
-  const players = await getMany(members.map((m) => `/players/${m.governor_id}?include=base,ranks`), "Players");
+  // everything MightPulse has per player (base, ranks incl. all leaderboards, heroes with gear) — kept whole under `raw`
+  // so any future event formula can use it; only the fields the tabs read are lifted to the top level
+  const players = await getMany(members.map((m) => `/players/${m.governor_id}?include=base,ranks,heroes`), "Players");
 
   let fresh = 0, withMystic = 0, failed = 0;
   const ages = [];
@@ -109,6 +111,7 @@ function findRows(o, depth = 0) {
       x: pl.x ?? null, y: pl.y ?? null,
       lastLogin: pl.last_login ?? null,
       allianceNow: pl.alliance?.abbr ?? null,
+      raw: ok ? { player: p.body.player, ranks: p.body.ranks, heroes: p.body.heroes } : null,
     };
   });
 
