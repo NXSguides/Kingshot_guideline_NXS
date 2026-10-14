@@ -2,12 +2,13 @@
 (function () {
 const ROOT = document.getElementById('pg-ranking');
 const DATA_URL = "data/roster-x7k2p9.json";
-const T = { ko: {"title": "NXS 멤버 순위", "home": "홈", "weights": "① 부대 전투력 추정 (Squad Power fit)", "power": "총 전투력", "mystic": "신비한 시련", "weightNote": "성검 쟁탈 군단 화면의 부대 전투력을 연맹원 98명 전원의 실제 값과 MightPulse 데이터로 맞춘 식: 부대 전투력 ≈ 2.70 × 전투력(M) + 0.5 × 신비한 시련 점수 + 8.7 × 도시 레벨 − 296. 평균 오차 6.5%, 실제 상위 20명 중 18명이 상위 20에 들어감. 중간(500–650)은 순위가 느슨함. 추정치이며 정확한 값은 게임의 군단 화면이 기준.", "pick": "② 이번 이벤트 참가자 체크", "all": "전체 선택", "none": "선택 해제", "paste": "신청 명단을 붙여넣어 한 번에 체크", "pasteNote": "한 줄에 이름 하나(또는 쉼표로 구분). ♛ 같은 장식과 Nexus 태그는 생략해도 되고, 대소문자는 상관없습니다. (?)는 여러 명이 일치한다는 뜻이니 직접 체크하세요.", "pasteGo": "이 플레이어들 체크", "pasteOk": "{n}명을 체크했습니다.", "pasteMiss": "찾을 수 없음: {list}", "search": "이름 검색…", "colName": "이름", "colRank": "등급", "colTc": "TC", "colActive": "마지막 접속", "rest": "나머지 전원", "events": "④ 이벤트 조 편성", "eventsNote": "위 순위(가중 점수가 높은 순)에 따라 조를 나눕니다.", "n": "{n}명", "result": "③ 순위", "copy": "결과 복사", "copied": "복사했어요!", "colScore": "부대 전투력(추정)", "scoreNote": "추정 부대 전투력, 식은 ①. 신비한 시련 값이 없는 사람은 0으로 계산(? 표시)되어 낮게 나옴.", "empty": "아직 체크한 사람이 없습니다.", "selected": "{n} / {t}명 선택", "updated": "데이터 업데이트: {t} ({ago})", "members": "멤버 {n}명", "noData": "아직 데이터가 없습니다. GitHub → Actions → “Update Roster (MightPulse)” → Run workflow를 실행한 뒤 이 페이지를 새로고침하세요.", "ago": {"now": "방금", "m": "{n}분 전", "h": "{n}시간 전", "d": "{n}일 전"}, "onlyTicked": "체크한 사람만", "topN": "③ 상위만 표시", "topNAll": "전체"},
- ar: {"title": "ترتيب أعضاء NXS", "home": "الرئيسية", "weights": "① تقدير قوة الفرقة (Squad Power fit)", "power": "إجمالي القوة", "mystic": "الاختبارات الغامضة", "weightNote": "قوة الفرقة التي تعرضها اللعبة في شاشة الكتيبة في مواجهة أرض السيوف، مطابقة مع بيانات MightPulse لكل الأعضاء الـ98: قوة الفرقة ≈ 2.70 × القوة(M) + 0.5 × الاختبارات الغامضة + 8.7 × مستوى المدينة − 296. متوسط الخطأ 6.5%؛ 18 من أقوى 20 فعليًا يقعون ضمن أقوى 20. الوسط (500–650) أقل دقة. مجرد تقدير، والرقم الحقيقي في شاشة الكتيبة داخل اللعبة.", "pick": "② حدّد المشاركين في هذه الفعالية", "all": "تحديد الكل", "none": "مسح", "paste": "الصق قائمة تسجيل لتحديدهم دفعة واحدة", "pasteNote": "اسم واحد في كل سطر (أو مفصولة بفواصل). يمكن حذف الزخارف مثل ♛ ووسم Nexus؛ حالة الأحرف لا تهم. (?) تعني أن عدة لاعبين مطابقون — حدّد الصحيح يدويًا.", "pasteGo": "حدّد هؤلاء اللاعبين", "pasteOk": "تم تحديد {n} لاعبين.", "pasteMiss": "غير موجود: {list}", "search": "ابحث عن اسم…", "colName": "الاسم", "colRank": "الرتبة", "colTc": "مركز البلدة", "colActive": "آخر ظهور", "rest": "كل الباقين", "events": "④ مجموعات الفعالية", "eventsNote": "تتبع المجموعات الترتيب أعلاه (الأعلى نقاطًا موزونة أولًا).", "n": "{n}", "result": "③ الترتيب", "copy": "نسخ النتيجة", "copied": "تم النسخ!", "colScore": "قوة الفرقة (تقدير)", "scoreNote": "قوة الفرقة المقدّرة، المعادلة في ①. من لا قيمة له في الاختبارات الغامضة يُحتسب 0 (علامة ?) فتظهر قيمته منخفضة.", "empty": "لم يُحدَّد أحد بعد.", "selected": "تم تحديد {n} / {t}", "updated": "تحديث البيانات: {t} ({ago})", "members": "{n} عضو", "noData": "لا توجد بيانات بعد. اذهب إلى GitHub ← Actions ← “Update Roster (MightPulse)” ← Run workflow، ثم أعد تحميل هذه الصفحة.", "ago": {"now": "الآن", "m": "قبل {n} دقيقة", "h": "قبل {n} ساعة", "d": "قبل {n} يوم"}, "onlyTicked": "المحددون فقط", "topN": "③ عرض الأوائل فقط", "topNAll": "الكل"},
- pt: {"title": "Ranking da lista NXS", "home": "Início", "weights": "① Estimativa de Poder do Esquadrão (Squad Power fit)", "power": "Poder total", "mystic": "Prova Mística", "weightNote": "O Poder do Esquadrão que o jogo mostra na tela da Legião do Confronto entre Espadas, ajustado aos dados do MightPulse de todos os 98 membros: SP ≈ 2,70 × Poder(M) + 0,5 × Prova Mística + 8,7 × nível do CC − 296. Erro médio 6,5%; 18 dos 20 melhores reais ficam no top 20; o meio (500–650) é menos preciso. É uma estimativa — o número real está na tela da Legião no jogo.", "pick": "② Marque os participantes deste evento", "all": "Marcar todos", "none": "Limpar", "paste": "Colar uma lista de inscritos para marcar de uma vez", "pasteNote": "Um nome por linha (ou separados por vírgula). Enfeites como ♛ e a tag Nexus podem ficar de fora; maiúsculas não importam. (?) significa que vários jogadores combinam — marque esse à mão.", "pasteGo": "Marcar esses jogadores", "pasteOk": "{n} jogadores marcados.", "pasteMiss": "Não encontrado: {list}", "search": "Buscar um nome…", "colName": "Nome", "colRank": "Cargo", "colTc": "CC", "colActive": "Último acesso", "rest": "todos os restantes", "events": "④ Grupos do evento", "eventsNote": "Os grupos seguem o ranking acima (maior pontuação ponderada primeiro).", "n": "{n}", "result": "③ Ranking", "copy": "Copiar resultado", "copied": "Copiado!", "colScore": "Poder do Esquadrão (est.)", "scoreNote": "Poder do Esquadrão estimado, fórmula em ①. Quem não tem valor de Prova Mística conta como 0 (marcado ?) e sai baixo.", "empty": "Ninguém marcado ainda.", "selected": "{n} / {t} marcados", "updated": "Dados atualizados: {t} ({ago})", "members": "{n} membros", "noData": "Ainda não há dados. Vá ao GitHub → Actions → “Update Roster (MightPulse)” → Run workflow e depois recarregue esta página.", "ago": {"now": "agora mesmo", "m": "há {n} min", "h": "há {n} h", "d": "há {n} d"}, "onlyTicked": "Só os marcados", "topN": "③ Mostrar só os primeiros", "topNAll": "todos"},
+const T = { ko: {"title": "NXS 멤버 순위", "home": "홈", "weights": "① 순위 방식", "power": "총 전투력", "mystic": "신비한 시련", "weightNote": "성검 쟁탈 군단 화면의 부대 전투력을 연맹원 98명 전원의 실제 값과 MightPulse 데이터로 맞춘 식: 부대 전투력 ≈ 2.70 × 전투력(M) + 0.5 × 신비한 시련 점수 + 8.7 × 도시 레벨 − 296. 평균 오차 6.5%, 실제 상위 20명 중 18명이 상위 20에 들어감. 중간(500–650)은 순위가 느슨함. 추정치이며 정확한 값은 게임의 군단 화면이 기준.", "pick": "② 이번 이벤트 참가자 체크", "all": "전체 선택", "none": "선택 해제", "paste": "신청 명단을 붙여넣어 한 번에 체크", "pasteNote": "한 줄에 이름 하나(또는 쉼표로 구분). ♛ 같은 장식과 Nexus 태그는 생략해도 되고, 대소문자는 상관없습니다. (?)는 여러 명이 일치한다는 뜻이니 직접 체크하세요.", "pasteGo": "이 플레이어들 체크", "pasteOk": "{n}명을 체크했습니다.", "pasteMiss": "찾을 수 없음: {list}", "search": "이름 검색…", "colName": "이름", "colRank": "등급", "colTc": "TC", "colActive": "마지막 접속", "rest": "나머지 전원", "events": "④ 이벤트 조 편성", "eventsNote": "위 순위(가중 점수가 높은 순)에 따라 조를 나눕니다.", "n": "{n}명", "result": "③ 순위", "copy": "결과 복사", "copied": "복사했어요!", "colScore": "부대 전투력(추정)", "scoreNote": "추정 부대 전투력, 식은 ①. 신비한 시련 값이 없는 사람은 0으로 계산(? 표시)되어 낮게 나옴.", "empty": "아직 체크한 사람이 없습니다.", "selected": "{n} / {t}명 선택", "updated": "데이터 업데이트: {t} ({ago})", "members": "멤버 {n}명", "noData": "아직 데이터가 없습니다. GitHub → Actions → “Update Roster (MightPulse)” → Run workflow를 실행한 뒤 이 페이지를 새로고침하세요.", "ago": {"now": "방금", "m": "{n}분 전", "h": "{n}시간 전", "d": "{n}일 전"}, "onlyTicked": "체크한 사람만", "topN": "③ 상위만 표시", "topNAll": "전체", "modeSp": "부대 전투력 추정 (Squad Power fit)", "modeW": "비중 (전투력 / 신비한 시련)", "wNote": "두 항목의 합은 100%입니다. 하나를 바꾸면 다른 하나가 자동으로 조정됩니다.", "colScoreW": "점수", "scoreNoteW": "점수: 각 항목을 체크한 인원 중 최고값 = 100으로 환산한 뒤 비중대로 합산. 신비한 시련 값이 없는 사람은 0 (? 표시)."},
+ ar: {"title": "ترتيب أعضاء NXS", "home": "الرئيسية", "weights": "① طريقة الترتيب", "power": "إجمالي القوة", "mystic": "الاختبارات الغامضة", "weightNote": "قوة الفرقة التي تعرضها اللعبة في شاشة الكتيبة في مواجهة أرض السيوف، مطابقة مع بيانات MightPulse لكل الأعضاء الـ98: قوة الفرقة ≈ 2.70 × القوة(M) + 0.5 × الاختبارات الغامضة + 8.7 × مستوى المدينة − 296. متوسط الخطأ 6.5%؛ 18 من أقوى 20 فعليًا يقعون ضمن أقوى 20. الوسط (500–650) أقل دقة. مجرد تقدير، والرقم الحقيقي في شاشة الكتيبة داخل اللعبة.", "pick": "② حدّد المشاركين في هذه الفعالية", "all": "تحديد الكل", "none": "مسح", "paste": "الصق قائمة تسجيل لتحديدهم دفعة واحدة", "pasteNote": "اسم واحد في كل سطر (أو مفصولة بفواصل). يمكن حذف الزخارف مثل ♛ ووسم Nexus؛ حالة الأحرف لا تهم. (?) تعني أن عدة لاعبين مطابقون — حدّد الصحيح يدويًا.", "pasteGo": "حدّد هؤلاء اللاعبين", "pasteOk": "تم تحديد {n} لاعبين.", "pasteMiss": "غير موجود: {list}", "search": "ابحث عن اسم…", "colName": "الاسم", "colRank": "الرتبة", "colTc": "مركز البلدة", "colActive": "آخر ظهور", "rest": "كل الباقين", "events": "④ مجموعات الفعالية", "eventsNote": "تتبع المجموعات الترتيب أعلاه (الأعلى نقاطًا موزونة أولًا).", "n": "{n}", "result": "③ الترتيب", "copy": "نسخ النتيجة", "copied": "تم النسخ!", "colScore": "قوة الفرقة (تقدير)", "scoreNote": "قوة الفرقة المقدّرة، المعادلة في ①. من لا قيمة له في الاختبارات الغامضة يُحتسب 0 (علامة ?) فتظهر قيمته منخفضة.", "empty": "لم يُحدَّد أحد بعد.", "selected": "تم تحديد {n} / {t}", "updated": "تحديث البيانات: {t} ({ago})", "members": "{n} عضو", "noData": "لا توجد بيانات بعد. اذهب إلى GitHub ← Actions ← “Update Roster (MightPulse)” ← Run workflow، ثم أعد تحميل هذه الصفحة.", "ago": {"now": "الآن", "m": "قبل {n} دقيقة", "h": "قبل {n} ساعة", "d": "قبل {n} يوم"}, "onlyTicked": "المحددون فقط", "topN": "③ عرض الأوائل فقط", "topNAll": "الكل", "modeSp": "تقدير قوة الفرقة (Squad Power fit)", "modeW": "الأوزان (القوة / الاختبارات الغامضة)", "wNote": "المجموع 100% — تغيير أحدهما يعدّل الآخر.", "colScoreW": "النقاط", "scoreNoteW": "النقاط: كل قيمة تُقاس بحيث الأعلى بين المحددين = 100، ثم تُجمع حسب الأوزان. من لا قيمة له في الاختبارات الغامضة يُحتسب 0 (علامة ?)."},
+ pt: {"title": "Ranking da lista NXS", "home": "Início", "weights": "① Método de ranking", "power": "Poder total", "mystic": "Prova Mística", "weightNote": "O Poder do Esquadrão que o jogo mostra na tela da Legião do Confronto entre Espadas, ajustado aos dados do MightPulse de todos os 98 membros: SP ≈ 2,70 × Poder(M) + 0,5 × Prova Mística + 8,7 × nível do CC − 296. Erro médio 6,5%; 18 dos 20 melhores reais ficam no top 20; o meio (500–650) é menos preciso. É uma estimativa — o número real está na tela da Legião no jogo.", "pick": "② Marque os participantes deste evento", "all": "Marcar todos", "none": "Limpar", "paste": "Colar uma lista de inscritos para marcar de uma vez", "pasteNote": "Um nome por linha (ou separados por vírgula). Enfeites como ♛ e a tag Nexus podem ficar de fora; maiúsculas não importam. (?) significa que vários jogadores combinam — marque esse à mão.", "pasteGo": "Marcar esses jogadores", "pasteOk": "{n} jogadores marcados.", "pasteMiss": "Não encontrado: {list}", "search": "Buscar um nome…", "colName": "Nome", "colRank": "Cargo", "colTc": "CC", "colActive": "Último acesso", "rest": "todos os restantes", "events": "④ Grupos do evento", "eventsNote": "Os grupos seguem o ranking acima (maior pontuação ponderada primeiro).", "n": "{n}", "result": "③ Ranking", "copy": "Copiar resultado", "copied": "Copiado!", "colScore": "Poder do Esquadrão (est.)", "scoreNote": "Poder do Esquadrão estimado, fórmula em ①. Quem não tem valor de Prova Mística conta como 0 (marcado ?) e sai baixo.", "empty": "Ninguém marcado ainda.", "selected": "{n} / {t} marcados", "updated": "Dados atualizados: {t} ({ago})", "members": "{n} membros", "noData": "Ainda não há dados. Vá ao GitHub → Actions → “Update Roster (MightPulse)” → Run workflow e depois recarregue esta página.", "ago": {"now": "agora mesmo", "m": "há {n} min", "h": "há {n} h", "d": "há {n} d"}, "onlyTicked": "Só os marcados", "topN": "③ Mostrar só os primeiros", "topNAll": "todos", "modeSp": "Estimativa de Poder do Esquadrão (Squad Power fit)", "modeW": "Pesos (Poder / Prova Mística)", "wNote": "Os dois somam 100% — mudar um ajusta o outro.", "colScoreW": "Pontuação", "scoreNoteW": "Pontuação: cada valor é escalado para que o maior entre os marcados = 100, depois combinado pelos pesos. Quem não tem Prova Mística conta como 0 (marcado ?)."},
 
   zh: {
-    title: "NXS 成員排序", home: "回主頁", weights: "① 部隊戰力估算（Squad Power fit）", power: "總戰力", mystic: "秘境試煉",
+    title: "NXS 成員排序", home: "回主頁", weights: "① 排序方式", power: "總戰力", mystic: "秘境試煉",
+    modeSp: "部隊戰力估算（Squad Power fit）", modeW: "占比（總戰力 / 秘境）", wNote: "兩個加起來是 100%，改一個另一個會自動調整。", colScoreW: "分數", scoreNoteW: "分數算法：兩項各自以「這次勾選的人裡面最高的那個 = 100」換算，再依占比加總。沒有秘境數字的人以 0 計，標 ?。",
     weightNote: "聖劍爭奪分組時遊戲算的部隊戰力，用全聯盟 98 人的實際數字跟 MightPulse 資料擬合：部隊戰力 ≈ 2.70 × 總戰力(M) + 0.5 × 秘境分數 + 8.7 × 主城等級 − 296。平均誤差 6.5%，前 20 名命中 18 個；中段（500–650）名次會比較鬆。只是估計，正確數字以遊戲裡的 Legion 畫面為準。",
     onlyTicked: "只顯示勾選的人", topN: "③ 只列前幾名", topNAll: "全部",
     pick: "② 勾選這次參戰的人", all: "全選", none: "全部取消",
@@ -23,7 +24,8 @@ const T = { ko: {"title": "NXS 멤버 순위", "home": "홈", "weights": "① �
     ago: { now: "剛剛", m: "{n} 分鐘前", h: "{n} 小時前", d: "{n} 天前" },
   },
   en: {
-    title: "NXS Roster Ranking", home: "Home", weights: "① Squad Power fit", power: "Total Power", mystic: "Mystic Trial",
+    title: "NXS Roster Ranking", home: "Home", weights: "① Ranking method", power: "Total Power", mystic: "Mystic Trial",
+    modeSp: "Squad Power fit", modeW: "Weights (Power / Mystic)", wNote: "The two add up to 100% — changing one adjusts the other.", colScoreW: "Score", scoreNoteW: "Score: each stat is scaled so the highest among the ticked players = 100, then combined by the weights. Players with no Mystic Trial value count as 0 (marked ?).",
     weightNote: "The Squad Power the game shows on the Swordland Legion screens, fitted to MightPulse data for all 98 members: SP ≈ 2.70 × Power(M) + 0.5 × Mystic Trial + 8.7 × TC level − 296. Mean error 6.5%; 18 of the real top 20 land in the top 20; the middle (500–650) is looser. An estimate — the in-game Legion screen is the real number.",
     onlyTicked: "Only ticked", topN: "③ Show top", topNAll: "all",
     pick: "② Tick this event's participants", all: "Select all", none: "Clear",
@@ -81,6 +83,10 @@ function applyTexts() {
   document.documentElement.lang = HTML_LANG(lang);
   ROOT.querySelectorAll("[data-t]").forEach((el) => { el.textContent = tr(el.dataset.t); });
   $("rk_q").placeholder = tr("search"); $("rk_topN").value = topN || ""; $("rk_topN").placeholder = tr("topNAll");
+  $("rk_mode").innerHTML = `<option value="sp">${esc(tr("modeSp"))}</option><option value="w">${esc(tr("modeW"))}</option>`; $("rk_mode").value = mode;
+  $("rk_wRow").hidden = mode !== "w"; $("rk_spNote").hidden = mode === "w"; $("rk_wNote").hidden = mode !== "w";
+  ROOT.querySelectorAll("[data-t=colScore]").forEach((el) => { el.textContent = tr(mode === "w" ? "colScoreW" : "colScore"); });
+  ROOT.querySelector("[data-t=scoreNote]").textContent = tr(mode === "w" ? "scoreNoteW" : "scoreNote");
   if (data) $("rk_meta").textContent = `${data.alliance?.tag ? "[" + data.alliance.tag + "] " : ""}${tr("members", { n: data.members.length })} · ${tr("updated", { t: new Date(data.updated).toLocaleString(LOCALE(lang)), ago: ago(data.updated) })}`;
   $("rk_noData").textContent = tr("noData");
 }
@@ -128,9 +134,12 @@ function renderList() {
 const SP_FIT = { power: 2.70, mystic: 0.499, tc: 8.7, c: -296 };
 const squadPower = (m) => Math.max(0, SP_FIT.power * (m.power || 0) / 1e6 + SP_FIT.mystic * (m.mystic || 0) + SP_FIT.tc * (m.tc || 0) + SP_FIT.c);
 let topN = store.topN || 0;   // ③ show only the first N of the ranking (0 = all)
+let mode = store.mode || "sp";   // "sp" = Squad Power fit · "w" = the old power/mystic weights (still there to compare)
 function ranking(all) {
   const sel = data.members.filter((m) => picked.has(m.id));
-  const r = sel.map((m) => ({ ...m, score: squadPower(m) })).sort((a, b) => b.score - a.score);
+  const maxP = Math.max(1, ...sel.map((m) => m.power || 0)), maxM = Math.max(1, ...sel.map((m) => m.mystic || 0)), wp = wPower / 100;
+  const score = (m) => mode === "w" ? 100 * (wp * (m.power || 0) / maxP + (1 - wp) * (m.mystic || 0) / maxM) : squadPower(m);
+  const r = sel.map((m) => ({ ...m, score: score(m) })).sort((a, b) => b.score - a.score);
   return !all && topN > 0 ? r.slice(0, topN) : r;
 }
 
@@ -142,7 +151,7 @@ function renderResult() {
     <tr>
       <td class="num">${i + 1}</td>
       <td class="name"><span dir="auto">${esc(m.name)}</span><div style="font-size:12px;opacity:.65;font-variant-numeric:tabular-nums;user-select:all">ID ${esc(m.id)}</div></td>
-      <td class="num">${m.score.toFixed(0)}<span class="bar" style="width:${Math.round(m.score / 20)}px"></span></td>
+      <td class="num">${m.score.toFixed(mode === "w" ? 1 : 0)}<span class="bar" style="width:${Math.round(mode === "w" ? m.score * 0.6 : m.score / 20)}px"></span></td>
       <td class="num">${big(m.power)}</td>
       <td class="num">${m.mystic == null ? '<span class="warn">?</span>' : big(m.mystic)}</td>
     </tr>`).join("") : `<tr><td colspan="5" class="empty">${tr("empty")}</td></tr>`;
@@ -178,13 +187,14 @@ function renderPresets() {
   if (!picked.size) { $("presetOut").innerHTML = `<p class="empty">${tr("empty")}</p>`; return; }
   $("presetOut").innerHTML = `<div class="grp-out">` + presetGroups(pr).map(({ g, list }) => `
     <h3>${esc(g.name[lang] || ptOf(g.name.en))} <span class="muted">(${tr("n", { n: list.length })})</span></h3>
-    ${list.length ? `<ol>${list.map((m) => `<li dir="auto">${esc(m.name)} <span class="muted">· ${m.score.toFixed(0)}</span></li>`).join("")}</ol>` : `<div class="muted">—</div>`}`).join("") + `</div>`;
+    ${list.length ? `<ol>${list.map((m) => `<li dir="auto">${esc(m.name)} <span class="muted">· ${m.score.toFixed(mode === "w" ? 1 : 0)}</span></li>`).join("")}</ol>` : `<div class="muted">—</div>`}`).join("") + `</div>`;
 }
 function renderAll() { applyTexts(); renderList(); renderResult(); }
-function persist() { store.picked = [...picked]; store.wPower = wPower; store.topN = topN; store.sortKey = sortKey; store.sortDir = sortDir; store.lang = lang; save(); }
+function persist() { store.picked = [...picked]; store.wPower = wPower; store.topN = topN; store.mode = mode; store.sortKey = sortKey; store.sortDir = sortDir; store.lang = lang; save(); }
 
 function setWeights(p) {
-  wPower = Math.min(100, Math.max(0, Math.round(Number(p) || 0)));   // kept only so older shared plans still load
+  wPower = Math.min(100, Math.max(0, Math.round(Number(p) || 0)));
+  $("wPower").value = wPower; $("wMystic").value = 100 - wPower;
   persist(); renderResult();
 }
 
@@ -207,6 +217,9 @@ async function init() {
 function setLang(l) { lang = l; persist(); if (data) renderAll(); else applyTexts(); };
 $("rk_q").oninput = renderList;
 $("rk_onlyTicked").onchange = renderList;
+$("wPower").oninput = (e) => setWeights(e.target.value);
+$("wMystic").oninput = (e) => setWeights(100 - (Number(e.target.value) || 0));
+$("rk_mode").onchange = (e) => { mode = e.target.value; persist(); applyTexts(); renderResult(); };
 $("rk_topN").oninput = (e) => { topN = Math.max(0, Math.round(Number(e.target.value) || 0)); persist(); renderResult(); };
 $("rk_list").onclick = (e) => {
   const g = e.target.closest("tr.grp");
@@ -243,7 +256,7 @@ $("pasteBtn").onclick = () => {
 };
 $("rk_copyBtn").onclick = async () => {
   const r = ranking();
-  const text = r.map((m, i) => `${i + 1}. ${m.name} (ID ${m.id}) — ${m.score.toFixed(0)}`).join("\n");
+  const text = r.map((m, i) => `${i + 1}. ${m.name} (ID ${m.id}) — ${m.score.toFixed(mode === "w" ? 1 : 0)}`).join("\n");
   try { await navigator.clipboard.writeText(text); } catch (e) {
     const ta = document.createElement("textarea"); ta.value = text; ROOT.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
   }

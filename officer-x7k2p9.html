@@ -639,7 +639,13 @@
     <!-- 1. weights -->
     <div class="card">
       <h2 data-t="weights"></h2>
-      <div class="muted msg" data-t="weightNote" style="margin-top:0"></div>
+      <select class="inp" id="rk_mode" style="margin-bottom:8px"></select>
+      <div class="row" id="rk_wRow" hidden>
+        <label class="w"><span data-t="power"></span><input type="number" id="wPower" min="0" max="100" step="5"> %</label>
+        <label class="w"><span data-t="mystic"></span><input type="number" id="wMystic" min="0" max="100" step="5"> %</label>
+      </div>
+      <div class="muted msg" id="rk_spNote" data-t="weightNote" style="margin-top:0"></div>
+      <div class="muted msg" id="rk_wNote" data-t="wNote" hidden></div>
     </div>
 
     <!-- 2. pick participants -->
