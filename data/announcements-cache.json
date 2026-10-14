@@ -1,38 +1,4 @@
 {
-  "be1e9581f9": {
-    "author": "Sparrow",
-    "createdAt": "2026-10-13T01:53:11.666Z",
-    "images": [],
-    "links": [],
-    "title": {
-      "zh": "Finder’s Fusion 第3天",
-      "ko": "Finder’s Fusion 3일차",
-      "de": "Finder’s Fusion Tag 3",
-      "fr": "Finder’s Fusion Jour 3",
-      "pt": "Finder’s Fusion Dia 3",
-      "tr": "Finder’s Fusion 3. Gün",
-      "id": "Finder’s Fusion Hari 3",
-      "ru": "Finder’s Fusion: день 3",
-      "th": "Finder’s Fusion วันที่ 3",
-      "ar": "Finder’s Fusion اليوم 3",
-      "es": "Finder’s Fusion - Día 3",
-      "en": "Finder’s Fusion Day 3"
-    },
-    "content": {
-      "zh": "[[img:figures/ann/20261013-014729-1.jpg]]\n1 鳥 · 2 帽子 · 3 熱氣球 · 4 洞 · 5 N · 6 小號 · 7 箭 · 8 照明燈 · 9 窗簾 · 10 目標 · 11 相框 · 12 梯子 · 13 掃帚 · 14 起司 · 15 麵粉 · 16 玉米 · 17 棒棒糖 · 18 禮物盒 · 19 月亮 · 20 圍巾 · 21 背包 · 22 玩具車 · 23 毛線球 · 24 戒指 · 25 懷錶 · 26 信封 · 27 麵包 · 28 日誌 · 29 皇冠 · 30 羽毛筆 · 31 蛋糕 · 32 音符 · 33 蘋果 · 34 咖啡杯 · 35 眼鏡 · 36 叉子 · 37 鑰匙\n",
-      "ko": "[[img:figures/ann/20261013-014729-1.jpg]]\n1 새 · 2 모자 · 3 열기구 · 4 구멍 · 5 N · 6 트럼펫 · 7 화살 · 8 조명등 · 9 커튼 · 10 목표 · 11 액자 · 12 사다리 · 13 빗자루 · 14 치즈 · 15 밀가루 · 16 옥수수 · 17 롤리팝 · 18 선물 상자 · 19 달 · 20 스카프 · 21 가방 · 22 장난감 자동차 · 23 실뭉치 · 24 반지 · 25 회중시계 · 26 봉투 · 27 빵 · 28 일기장 · 29 왕관 · 30 깃펜 · 31 케이크 · 32 음표 · 33 사과 · 34 커피 잔 · 35 안경 · 36 포크 · 37 열쇠\n",
-      "de": "[[img:figures/ann/20261013-014729-1.jpg]]\n1 Vogel · 2 Hut · 3 Heißluftballon · 4 Loch · 5 N · 6 Trompete · 7 Pfeil · 8 Laterne · 9 Vorhang · 10 Ziel · 11 Bilderrahmen · 12 Leiter · 13 Besen · 14 Käse · 15 Mehl · 16 Mais · 17 Lolli · 18 Geschenkbox · 19 Mond · 20 Schal · 21 Rucksack · 22 Spielzeugauto · 23 Wollknäuel · 24 Ring · 25 Taschenuhr · 26 Umschlag · 27 Brot · 28 Tagebuch · 29 Krone · 30 Federkiel · 31 Kuchen · 32 Musiknote · 33 Apfel · 34 Kaffeetasse · 35 Brille · 36 Gabel · 37 Schlüssel\n",
-      "fr": "[[img:figures/ann/20261013-014729-1.jpg]]\n1 Oiseau · 2 Chapeau · 3 Montgolfière · 4 Trou · 5 N · 6 Trompette · 7 Flèche · 8 Lanterne · 9 Rideau · 10 Cible · 11 Cadre · 12 Échelle · 13 Balai · 14 Fromage · 15 Farine · 16 Maïs · 17 Sucette · 18 Boîte cadeau · 19 Lune · 20 Écharpe · 21 Sac · 22 Voiture miniature · 23 Pelote de laine · 24 Bague · 25 Montre de poche · 26 Enveloppe · 27 Pain · 28 Journal · 29 Couronne · 30 Plume · 31 Gâteau · 32 Note de musique · 33 Pomme · 34 Tasse à café · 35 Lunettes · 36 Fourchette · 37 Clé\n",
-      "pt": "[[img:figures/ann/20261013-014729-1.jpg]]\n1 Pássaro · 2 Chapéu · 3 Balão de ar quente · 4 Buraco · 5 N · 6 Trompete · 7 Flecha · 8 Lanterna · 9 Cortina · 10 Alvo · 11 Moldura · 12 Escada · 13 Vassoura · 14 Queijo · 15 Farinha · 16 Milho · 17 Pirulito · 18 Caixa de presente · 19 Lua · 20 Cachecol · 21 Mochila · 22 Carro de brinquedo · 23 Novelo de lã · 24 Anel · 25 Relógio de bolso · 26 Envelope · 27 Pão · 28 Diário · 29 Coroa · 30 Pena · 31 Bolo · 32 Nota musical · 33 Maçã · 34 Xícara de café · 35 Óculos · 36 Garfo · 37 Chave\n",
-      "tr": "[[img:figures/ann/20261013-014729-1.jpg]]\n1 Kuş · 2 Şapka · 3 Sıcak Hava Balonu · 4 Delik · 5 N · 6 Trompet · 7 Ok · 8 Fener · 9 Perde · 10 Hedef · 11 Resim Çerçevesi · 12 Merdiven · 13 Süpürge · 14 Peynir · 15 Un · 16 Mısır · 17 Lolipop · 18 Hediye Kutusu · 19 Ay · 20 Atkı · 21 Çanta · 22 Oyuncak Araba · 23 Yün Yumağı · 24 Yüzük · 25 Cep Saati · 26 Zarf · 27 Ekmek · 28 Günlük · 29 Taç · 30 Tüy Kalem · 31 Pasta · 32 Müzik Notası · 33 Elma · 34 Kahve Fincanı · 35 Gözlük · 36 Çatal · 37 Anahtar\n",
-      "id": "[[img:figures/ann/20261013-014729-1.jpg]]\n1 Burung · 2 Topi · 3 Balon Udara · 4 Lubang · 5 N · 6 Trompet · 7 Panah · 8 Lentera · 9 Tirai · 10 Target · 11 Bingkai Foto · 12 Tangga · 13 Sapu · 14 Keju · 15 Tepung · 16 Jagung · 17 Lolipop · 18 Kotak Hadiah · 19 Bulan · 20 Syal · 21 Ransel · 22 Mobil Mainan · 23 Bola Benang · 24 Cincin · 25 Jam Saku · 26 Amplop · 27 Roti · 28 Buku Harian · 29 Mahkota · 30 Pena Bulu · 31 Kue · 32 Nada Musik · 33 Apel · 34 Cangkir Kopi · 35 Kacamata · 36 Garpu · 37 Kunci\n",
-      "ru": "[[img:figures/ann/20261013-014729-1.jpg]]\n1 Птица · 2 Шляпа · 3 Воздушный шар · 4 Дыра · 5 N · 6 Труба · 7 Стрела · 8 Фонарь · 9 Штора · 10 Цель · 11 Рамка для картины · 12 Лестница · 13 Метла · 14 Сыр · 15 Мука · 16 Кукуруза · 17 Леденец · 18 Подарочная коробка · 19 Луна · 20 Шарф · 21 Рюкзак · 22 Игрушечная машинка · 23 Клубок ниток · 24 Кольцо · 25 Карманные часы · 26 Конверт · 27 Хлеб · 28 Дневник · 29 Корона · 30 Перо · 31 Торт · 32 Нота · 33 Яблоко · 34 Кофейная чашка · 35 Очки · 36 Вилка · 37 Ключ\n",
-      "th": "[[img:figures/ann/20261013-014729-1.jpg]]\n1 นก · 2 หมวก · 3 บอลลูนลมร้อน · 4 รู · 5 N · 6 ทรัมเป็ต · 7 ลูกศร · 8 โคมไฟ · 9 ผ้าม่าน · 10 เป้าหมาย · 11 กรอบรูป · 12 บันได · 13 ไม้กวาด · 14 ชีส · 15 แป้ง · 16 ข้าวโพด · 17 อมยิ้ม · 18 กล่องของขวัญ · 19 ดวงจันทร์ · 20 ผ้าพันคอ · 21 กระเป๋า · 22 รถของเล่น · 23 ไหมพรม · 24 แหวน · 25 นาฬิกาพก · 26 ซองจดหมาย · 27 ขนมปัง · 28 บันทึกประจำวัน · 29 มงกุฎ · 30 ปากกาขนนก · 31 เค้ก · 32 ตัวโน้ต · 33 แอปเปิ้ล · 34 ถ้วยกาแฟ · 35 แว่นตา · 36 ส้อม · 37 กุญแจ\n",
-      "ar": "[[img:figures/ann/20261013-014729-1.jpg]]\n1 طائر · 2 قبعة · 3 منطاد · 4 حفرة · 5 N · 6 بوق · 7 سهم · 8 الفانوس · 9 ستارة · 10 هدف · 11 إطار صورة · 12 سلم · 13 مكنسة · 14 جبن · 15 دقيق · 16 ذرة · 17 مصاصة · 18 صندوق هدايا · 19 القمر · 20 وشاح · 21 حقيبة الظهر · 22 سيارة لعبة · 23 كرة صوف · 24 خاتم · 25 ساعة جيب · 26 ظرف · 27 الخبز · 28 المذكرات · 29 تاج · 30 ريشة · 31 كعكة · 32 نوتة موسيقية · 33 تفاحة · 34 فنجان قهوة · 35 نظارات · 36 شوكة · 37 مفتاح\n",
-      "es": "[[img:figures/ann/20261013-014729-1.jpg]]\n1 Pájaro · 2 Sombrero · 3 Globo aerostático · 4 Agujero · 5 N · 6 Trompeta · 7 Flecha · 8 Linterna · 9 Cortina · 10 Objetivo · 11 Marco de fotos · 12 Escalera · 13 Escoba · 14 Queso · 15 Harina · 16 Maíz · 17 Piruleta · 18 Caja de regalo · 19 Luna · 20 Bufanda · 21 Mochila · 22 Coche de juguete · 23 Ovillo de lana · 24 Anillo · 25 Reloj de bolsillo · 26 Sobre · 27 Pan · 28 Diario · 29 Corona · 30 Pluma · 31 Pastel · 32 Nota musical · 33 Manzana · 34 Taza de café · 35 Gafas · 36 Tenedor · 37 Llave\n",
-      "en": "[[img:figures/ann/20261013-014729-1.jpg]]\n1 Bird · 2 Hat · 3 Hot Air Balloon · 4 Hole · 5 N · 6 Trumpet · 7 Arrow · 8 Lamp · 9 Curtain · 10 Target · 11 Picture Frame · 12 Ladder · 13 Broom · 14 Cheese · 15 Flour · 16 Corn · 17 Lollipop · 18 Gift Box · 19 Moon · 20 Scarf · 21 Backpack · 22 Toy Car · 23 Yarn Ball · 24 Ring · 25 Pocket Watch · 26 Envelope · 27 Bread · 28 Diary · 29 Crown · 30 Quill · 31 Cake · 32 Music Note · 33 Apple · 34 Coffee Cup · 35 Glasses · 36 Fork · 37 Key\n"
-    }
-  },
   "30e43a9688": {
     "author": "亗ΔRMΔDΔ亗",
     "createdAt": "2026-10-13T18:03:30.004Z",
