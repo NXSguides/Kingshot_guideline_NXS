@@ -915,7 +915,8 @@ const KINGDOM_MAP = {
    },
    "gen1h": {
     "en": "1h General Speedup",
-    "zh": "1 小時通用加速"
+    "zh": "1 小時通用加速",
+    "pt": "1h de Aceleração Geral"
    },
    "gen5m": {
     "en": "5m General Speedup",
@@ -970,7 +971,7 @@ const KINGDOM_MAP = {
     "en": "1K Iron",
     "zh": "1K鐵礦",
     "ko": "철광 1K",
-    "pt": "1K de Ferro",
+    "pt": "1K Ferro",
     "ar": "1 ألف من الحديد"
    },
    "goldkey": {
@@ -1004,11 +1005,13 @@ const KINGDOM_MAP = {
    },
    "saul": {
     "en": "Saul Shard",
-    "zh": "薩洛碎片"
+    "zh": "薩洛碎片",
+    "pt": "Fragmento de Saul"
    },
    "jabel": {
     "en": "Jabel Shard",
-    "zh": "潔貝爾碎片"
+    "zh": "潔貝爾碎片",
+    "pt": "Fragmento de Jabel"
    },
    "teleport": {
     "en": "Advanced Teleporter",

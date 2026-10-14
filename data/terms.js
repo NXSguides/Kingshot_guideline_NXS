@@ -249,6 +249,9 @@ const TERMS = [
   "cat": "Sanctuary Battle",
   "rows": [
    ["Sanctuary Battle", "遺跡爭奪", "유적 쟁탈", "Heiligtumskampf", "Bataille du Sanctuaire", "Batalha do Santuário", "Tapınak Savaşı", "Pertempuran Tempat Perlindungan", "Битва за святилище", "การต่อสู้ชิงวิหาร", "معركة المأوى", "Batalla de santuario", "Event tab name. Indonesian text was cut off; 'Pertempuran Tempat Perlindungan' is reconstructed from two truncated screens ('Pertempuran T… Perlindung…' and 'Pertempuran Tempat…')."],
+   ["1h General Speedup", "1小時通用加速", "—", "—", "—", "1h de Aceleração Geral", "—", "—", "—", "—", "—", "—", ""],
+   ["Saul Shard", "薩洛碎片", "—", "—", "—", "Fragmento de Saul", "—", "—", "—", "—", "—", "—", "Hero shard name pattern: PT 'Fragmento de <hero>'."],
+   ["Jabel Shard", "潔貝爾碎片", "—", "—", "—", "Fragmento de Jabel", "—", "—", "—", "—", "—", "—", ""],
    ["Warrior's Chest", "奮戰者寶箱", "전사 보물상자", "—", "—", "Baú do Guerreiro", "—", "—", "—", "—", "صندوق المحارب", "—", "Sanctuary Battle: Participation Rewards chest."],
    ["Ally's Chest", "結盟者寶箱", "동맹 보물상자", "—", "—", "Baú do Aliado", "—", "—", "—", "—", "صندوق الحليف", "—", "Sanctuary Battle: Alliance Rewards chest."],
    ["Ruler's Chest", "統御者寶箱", "통솔 보물상자", "—", "—", "Baú do Governante", "—", "—", "—", "—", "صندوق الحاكم", "—", "Sanctuary Battle: Allocatable Rewards chest."],
@@ -260,7 +263,7 @@ const TERMS = [
    ["5m General Speedup", "5分鐘通用加速", "5분 공용 가속", "—", "—", "5m de Aceleração Geral", "—", "—", "—", "—", "تسريع عام لمدة 5 دقائق", "—", ""],
    ["5,000 Hero XP", "5,000點英雄經驗值", "영웅 경험치 5,000점", "—", "—", "5.000 XP do Herói", "—", "—", "—", "—", "5,000 من خبرة البطل", "—", ""],
    ["100 Gems (item)", "100鑽石", "다이아x100", "—", "—", "100 Gemas", "—", "—", "—", "—", "100 من الجواهر", "—", ""],
-   ["1K Bread / Wood / Stone (item)", "1K麵包 / 1K木材 / 1K石材", "빵 1K / 목재 1K / 석재 1K", "—", "—", "1K de Pão / 1K Madeira / 1K de Pedra", "—", "—", "—", "—", "1 ألف من الخبز / 1 ألفًا من الخشب / 1 ألف من الحجر", "—", "Iron not seen yet."],
+   ["1K Bread / Wood / Stone (item)", "1K麵包 / 1K木材 / 1K石材", "빵 1K / 목재 1K / 석재 1K", "—", "—", "1K de Pão / 1K Madeira / 1K de Pedra / 1K Ferro", "—", "—", "—", "—", "1 ألف من الخبز / 1 ألفًا من الخشب / 1 ألف من الحجر", "—", "Iron not seen yet."],
    ["Participation Rewards", "參與獎勵", "참여 보상", "—", "—", "Recompensas de Participação", "—", "—", "—", "—", "مكافآت المشاركة", "—", "Sanctuary Battle chest (Warrior's Chest)."],
    ["Alliance Rewards", "聯盟獎勵", "연맹 보상", "—", "—", "Recompensas da Aliança", "—", "—", "—", "—", "مكافآت التحالف", "—", "Sanctuary Battle chest (Ally's Chest; the Control Rewards chest has the same label)."],
    ["Allocatable Rewards", "可分配獎勵", "분배 가능 보상", "—", "—", "Recompensas Distribuíveis", "—", "—", "—", "—", "مكافآت قابلة للتخصيص", "—", "Sanctuary Battle chest (Ruler's Chest) and the Sanctuary Reward item."],
