@@ -74,7 +74,7 @@ async function api(op, extra = {}) {
   const r = await fetch(AUTH_API + "/board", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: token(), lang, op, ...(firstCall ? { first: true } : {}), ...extra }) });
   const j = await r.json().catch(() => ({ error: "network" }));
   if (j.token) { try { localStorage.setItem(DISCORD_LS, j.token); } catch (e) {} }
-  if (!r.ok || j.error) throw Object.assign(new Error(j.error || "HTTP " + r.status), { code: j.error });
+  if (!r.ok || j.error) throw Object.assign(new Error((j.error || "HTTP " + r.status) + (j.detail ? " — " + [].concat(j.detail).join("; ").slice(0, 200) : "")), { code: j.error });
   firstCall = false; if (j.stamp) stamp = j.stamp;
   return j;
 }
@@ -133,13 +133,13 @@ function renderTopic() {
 async function loadList(quiet) {
   if (!quiet) $("bd_list").innerHTML = `<div class="muted">${esc(t("loading"))}</div>`;
   try { const j = await api("list", quiet ? { since: stamp } : {}); if (j.unchanged) return; topics = j.topics; users = j.users || users; tasks = j.tasks || []; renderList(); }
-  catch (e) { if (!quiet) $("bd_list").innerHTML = `<div class="card msg warn">${esc(t("err", { e: e.message }))}</div>`; if (e.code === "logged_out") showLogin(); }
+  catch (e) { if (!quiet) $("bd_list").innerHTML = `<div class="card msg warn">${esc(errText(e))}</div>`; if (e.code === "logged_out") showLogin(); }
 }
 async function loadTopic(id, quiet) {
   if (!quiet) { $("bd_posts").innerHTML = `<div class="muted">${esc(t("loading"))}</div>`; $("bd_tTitle").textContent = ""; $("bd_decision").innerHTML = ""; }
   try { const j = await api("get", { id, ...(quiet ? { since: stamp } : {}) }); if (j.unchanged) return; cur = j.topic; if (editing && !quiet) editing = null; if (!editing) renderTopic(); markSeen(cur.id, cur.last); const tp = topics.find((x) => x.id === cur.id); if (tp) tp.last = cur.last;
     const pp = postParam(); if (!quiet && pp && $("bdp-" + pp)) $("bdp-" + pp).scrollIntoView({ behavior: "smooth", block: "center" }); }
-  catch (e) { if (e.code === "gone") { $("bd_posts").innerHTML = `<div class="card">${esc(t("gone"))}</div>`; cur = null; } else if (!quiet) $("bd_posts").innerHTML = `<div class="card msg warn">${esc(t("err", { e: e.message }))}</div>`; }
+  catch (e) { if (e.code === "gone") { $("bd_posts").innerHTML = `<div class="card">${esc(t("gone"))}</div>`; cur = null; } else if (!quiet) $("bd_posts").innerHTML = `<div class="card msg warn">${esc(errText(e))}</div>`; }
 }
 function showLogin() { $("bd_login").hidden = false; $("bd_app").hidden = true; }
 function route() {
@@ -149,6 +149,7 @@ function route() {
   $("bd_listView").hidden = !!id; $("bd_topicView").hidden = !id;
   armed = null; editing = null;
   if (id) { if (!cur || cur.id !== id) { cur = null; openOrig = new Set(); } loadTopic(id); } else loadList();
+  draftLoad();
 }
 /* new messages from the others show up by themselves (every 45 s while this tab is open and visible; a poll that finds nothing new is almost free) */
 function poll() {
@@ -192,6 +193,11 @@ ROOT.querySelectorAll(".bd-tools").forEach((host) => {
 /* ids of the people whose @name is still in the text when it is sent */
 const mentionsIn = (box, text) => [...compose[box].m].filter((id) => text.includes("@" + userName(id)));
 const composeReset = (box) => { compose[box].m.clear(); compose[box].to.clear(); chipsRender(box); };
+/* drafts: what is typed in the two boxes is kept on this device until it is sent, so a failed send or a reload loses nothing */
+const DRAFT_LS = "nxs-board-draft";
+const draftLoad = () => { try { const d = JSON.parse(localStorage.getItem(DRAFT_LS)) || {}; if (d.title) $("bd_newTitle").value = d.title; if (d.text) { $("bd_newText").value = d.text; $("bd_newForm").hidden = false; } if (d.reply && d.replyFor === topicId()) $("bd_replyText").value = d.reply; } catch (e) {} };
+const draftSave = () => { try { localStorage.setItem(DRAFT_LS, JSON.stringify({ title: $("bd_newTitle").value, text: $("bd_newText").value, reply: $("bd_replyText").value, replyFor: topicId() })); } catch (e) {} };
+for (const id of ["bd_newTitle", "bd_newText", "bd_replyText"]) $(id).addEventListener("input", draftSave);
 $("bd_reload").onclick = () => route();
 $("bd_newBtn").onclick = () => { $("bd_newForm").hidden = false; $("bd_newTitle").focus(); };
 $("bd_newCancel").onclick = () => { $("bd_newForm").hidden = true; $("bd_newMsg").textContent = ""; };
@@ -201,7 +207,7 @@ $("bd_newPost").onclick = async () => {
   $("bd_newPost").disabled = true; m.textContent = t("sending");
   try {
     const j = await api("new", { title, text, mentions: mentionsIn("new", text), to: [...compose.new.to] }); composeReset("new");
-    $("bd_newTitle").value = ""; $("bd_newText").value = ""; $("bd_newForm").hidden = true; m.textContent = "";
+    $("bd_newTitle").value = ""; $("bd_newText").value = ""; $("bd_newForm").hidden = true; m.textContent = ""; draftSave();
     if (!j.translated) $("bd_replyMsg").textContent = t("noTr") + " " + (j.topic.posts[0].txt.err || "");
     cur = j.topic; markSeen(cur.id, cur.last); location.hash = "#board?t=" + j.topic.id;
   } catch (e) { m.textContent = errText(e); }
@@ -212,7 +218,7 @@ $("bd_replyPost").onclick = async () => {
   if (!text || !cur) return;
   $("bd_replyPost").disabled = true; m.textContent = t("sending");
   try {
-    const j = await api("reply", { id: cur.id, text, mentions: mentionsIn("reply", text), to: [...compose.reply.to] }); composeReset("reply"); cur = j.topic; markSeen(cur.id, cur.last); $("bd_replyText").value = ""; renderTopic();
+    const j = await api("reply", { id: cur.id, text, mentions: mentionsIn("reply", text), to: [...compose.reply.to] }); composeReset("reply"); cur = j.topic; markSeen(cur.id, cur.last); $("bd_replyText").value = ""; draftSave(); renderTopic();
     m.textContent = j.translated ? "" : t("noTr") + " " + (cur.posts[cur.posts.length - 1].txt.err || "");
     const last = cur.posts[cur.posts.length - 1]; if (last) $("bdp-" + last.id).scrollIntoView({ behavior: "smooth", block: "center" });
   } catch (e) { m.textContent = errText(e); }
@@ -241,13 +247,13 @@ $("bd_posts").addEventListener("click", async (ev) => {
     }
   } catch (e) { b.disabled = false; alertMsg(e); }
 });
-const errText = (e) => e.code === "db_limit" ? t("dbLimit") : e.code === "db" ? t("dbErr") : t("err", { e: e.message });
+const errText = (e) => e.code === "db_limit" || /limit|exceed|quota|allow/i.test(e.message) ? t("dbLimit") : e.code === "db" ? t("dbErr") : t("err", { e: e.message });
 function alertMsg(e) { $("bd_replyMsg").textContent = errText(e); }
 function init() { applyTexts(); poll(); }
 /* the tab's dot is kept fresh even while another tab is open (once a minute) */
 async function dotCheck() { if (document.hidden || !token() || !OFFICER.user || !ROOT.hidden) return; try { const j = await api("list", { since: stamp }); if (j.unchanged) return; topics = j.topics; tabDot(); } catch (e) {} }
 setInterval(dotCheck, 3 * 60000); setTimeout(dotCheck, 3000);
-function onShow() { route(); }
+function onShow() { route(); draftLoad(); }
 function setLang(l) { lang = l; applyTexts(); if (!ROOT.hidden) { if (cur && topicId()) renderTopic(); else renderList(); } }
 OFFICER_PAGES.board = { init, onShow, applyTexts, setLang };
 })();
