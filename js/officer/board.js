@@ -64,7 +64,7 @@ const topicId = () => { const m = location.hash.match(/^#board\?t=([\w-]+)/); re
 const postParam = () => { const m = location.hash.match(/[?&]p=([\w-]+)/); return m ? m[1] : null; };
 /* stamp = when the board last changed (from the Worker); polls send it back as "since" and get a tiny "unchanged"
    answer when nothing happened — that answer costs the Worker almost nothing and leaves its database asleep */
-let stamp = 0, firstCall = true, users = [], tasks = [];
+let stamp = 0, firstCall = true, users = [], tasks = [], lastErr = null;   // lastErr: the failure shown instead of the list / topic (redrawn in the new language on a switch)
 /* what the two compose boxes carry besides text: @mentioned ids and 📋 assignees */
 const compose = { new: { m: new Set(), to: new Set() }, reply: { m: new Set(), to: new Set() } };
 const userName = (id) => { const u = users.find((x) => x.id === id) || (OFFICER.user && OFFICER.user.id === id ? OFFICER.user : null) || (cur && cur.posts.map((p) => p.by).find((b) => b.id === id)) || ((OFFICER.perms && OFFICER.perms.users) || {})[id]; return u ? u.name : "?"; };
@@ -88,6 +88,7 @@ function applyTexts() {
 }
 function renderList() {
   tabDot();
+  if (lastErr) { $("bd_tasks").hidden = true; $("bd_list").innerHTML = `<div class="card msg warn">${esc(errText(lastErr))}</div>`; return; }
   const tk = $("bd_tasks"); tk.hidden = !tasks.length;
   if (tasks.length) tk.innerHTML = `<h3>${esc(t("myTasks", { n: tasks.length }))}</h3>` + tasks.map((x) => `<a href="#board?t=${esc(x.tid)}&p=${esc(x.id)}">${linkify(esc(pick(x.txt))).slice(0, 400)}<div class="muted">${esc(x.by.name)} · ${esc(when(x.at))} · ${esc(t("inTopic", { t: pick(x.title) }))}</div></a>`).join("");
   $("bd_list").innerHTML = topics.length ? topics.map((x) => `<a class="card bd-topic${unread(x) ? " unread" : ""}" href="#board?t=${esc(x.id)}">
@@ -132,14 +133,14 @@ function renderTopic() {
 }
 async function loadList(quiet) {
   if (!quiet) $("bd_list").innerHTML = `<div class="muted">${esc(t("loading"))}</div>`;
-  try { const j = await api("list", quiet ? { since: stamp } : {}); if (j.unchanged) return; topics = j.topics; users = j.users || users; tasks = j.tasks || []; renderList(); }
-  catch (e) { if (!quiet) $("bd_list").innerHTML = `<div class="card msg warn">${esc(errText(e))}</div>`; if (e.code === "logged_out") showLogin(); }
+  try { const j = await api("list", quiet ? { since: stamp } : {}); if (j.unchanged) return; topics = j.topics; users = j.users || users; tasks = j.tasks || []; lastErr = null; renderList(); }
+  catch (e) { if (!quiet) { lastErr = e; renderList(); } if (e.code === "logged_out") showLogin(); }
 }
 async function loadTopic(id, quiet) {
   if (!quiet) { $("bd_posts").innerHTML = `<div class="muted">${esc(t("loading"))}</div>`; $("bd_tTitle").textContent = ""; $("bd_decision").innerHTML = ""; }
-  try { const j = await api("get", { id, ...(quiet ? { since: stamp } : {}) }); if (j.unchanged) return; cur = j.topic; if (editing && !quiet) editing = null; if (!editing) renderTopic(); markSeen(cur.id, cur.last); const tp = topics.find((x) => x.id === cur.id); if (tp) tp.last = cur.last;
+  try { const j = await api("get", { id, ...(quiet ? { since: stamp } : {}) }); if (j.unchanged) return; cur = j.topic; lastErr = null; if (editing && !quiet) editing = null; if (!editing) renderTopic(); markSeen(cur.id, cur.last); const tp = topics.find((x) => x.id === cur.id); if (tp) tp.last = cur.last;
     const pp = postParam(); if (!quiet && pp && $("bdp-" + pp)) $("bdp-" + pp).scrollIntoView({ behavior: "smooth", block: "center" }); }
-  catch (e) { if (e.code === "gone") { $("bd_posts").innerHTML = `<div class="card">${esc(t("gone"))}</div>`; cur = null; } else if (!quiet) $("bd_posts").innerHTML = `<div class="card msg warn">${esc(errText(e))}</div>`; }
+  catch (e) { if (e.code === "gone") { $("bd_posts").innerHTML = `<div class="card">${esc(t("gone"))}</div>`; cur = null; } else if (!quiet) { lastErr = e; $("bd_posts").innerHTML = `<div class="card msg warn">${esc(errText(e))}</div>`; } }
 }
 function showLogin() { $("bd_login").hidden = false; $("bd_app").hidden = true; }
 function route() {
@@ -207,10 +208,10 @@ $("bd_newPost").onclick = async () => {
   $("bd_newPost").disabled = true; m.textContent = t("sending");
   try {
     const j = await api("new", { title, text, mentions: mentionsIn("new", text), to: [...compose.new.to] }); composeReset("new");
-    $("bd_newTitle").value = ""; $("bd_newText").value = ""; $("bd_newForm").hidden = true; m.textContent = ""; draftSave();
+    $("bd_newTitle").value = ""; $("bd_newText").value = ""; $("bd_newForm").hidden = true; m.textContent = ""; delete m.dataset.err; draftSave();
     if (!j.translated) $("bd_replyMsg").textContent = t("noTr") + " " + (j.topic.posts[0].txt.err || "");
     cur = j.topic; markSeen(cur.id, cur.last); location.hash = "#board?t=" + j.topic.id;
-  } catch (e) { m.textContent = errText(e); }
+  } catch (e) { m.textContent = errText(e); m.dataset.err = JSON.stringify({ code: e.code, message: e.message }); }
   $("bd_newPost").disabled = false;
 };
 $("bd_replyPost").onclick = async () => {
@@ -219,9 +220,9 @@ $("bd_replyPost").onclick = async () => {
   $("bd_replyPost").disabled = true; m.textContent = t("sending");
   try {
     const j = await api("reply", { id: cur.id, text, mentions: mentionsIn("reply", text), to: [...compose.reply.to] }); composeReset("reply"); cur = j.topic; markSeen(cur.id, cur.last); $("bd_replyText").value = ""; draftSave(); renderTopic();
-    m.textContent = j.translated ? "" : t("noTr") + " " + (cur.posts[cur.posts.length - 1].txt.err || "");
+    delete m.dataset.err; m.textContent = j.translated ? "" : t("noTr") + " " + (cur.posts[cur.posts.length - 1].txt.err || "");
     const last = cur.posts[cur.posts.length - 1]; if (last) $("bdp-" + last.id).scrollIntoView({ behavior: "smooth", block: "center" });
-  } catch (e) { m.textContent = errText(e); }
+  } catch (e) { m.textContent = errText(e); m.dataset.err = JSON.stringify({ code: e.code, message: e.message }); }
   $("bd_replyPost").disabled = false;
 };
 $("bd_posts").addEventListener("click", async (ev) => {
@@ -254,6 +255,13 @@ function init() { applyTexts(); poll(); }
 async function dotCheck() { if (document.hidden || !token() || !OFFICER.user || !ROOT.hidden) return; try { const j = await api("list", { since: stamp }); if (j.unchanged) return; topics = j.topics; tabDot(); } catch (e) {} }
 setInterval(dotCheck, 3 * 60000); setTimeout(dotCheck, 3000);
 function onShow() { route(); draftLoad(); }
-function setLang(l) { lang = l; applyTexts(); if (!ROOT.hidden) { if (cur && topicId()) renderTopic(); else renderList(); } }
+function setLang(l) {
+  lang = l; applyTexts();
+  if (ROOT.hidden) return;
+  if (topicId()) { if (lastErr && !cur) $("bd_posts").innerHTML = `<div class="card msg warn">${esc(errText(lastErr))}</div>`; else if (cur) renderTopic(); }
+  else renderList();
+  // messages under the compose boxes are redrawn too
+  for (const id of ["bd_newMsg", "bd_replyMsg"]) { const m = $(id); if (m.dataset.err) m.textContent = errText(JSON.parse(m.dataset.err)); }
+}
 OFFICER_PAGES.board = { init, onShow, applyTexts, setLang };
 })();
