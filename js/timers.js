@@ -210,8 +210,10 @@
   /* the to-do's event name in the page language: the guide name on the main site, the officer page's names otherwise */
   const adminName = (x, ev) => {
     const l = lang(), g = typeof GUIDES !== "undefined" && GUIDES[ev];
-    const n = (g && g.name && (g.name[l] || g.name.en)) || (x.names && (x.names[l] || x.names.en)) || "";
-    return n ? `${x.emoji || (g && g.emoji) || "📌"} ${n}` : x.title;
+    const en = (x.names && x.names.en) || String(x.title || "").replace(/^\S+\s/, ""), tm = typeof EVENT_NAMES !== "undefined" && EVENT_NAMES[en];
+    const n = (g && g.name && (g.name[l] || g.name.en)) || (tm && tm[l]) || (x.names && x.names[l]) || (tm && tm.en) || en || "";
+    const em = x.emoji || (g && g.emoji) || (String(x.title || "").match(/^(\S+)\s/) || [])[1] || "📌";
+    return n ? `${em} ${n}` : x.title;
   };
   function adminTimers() {
     const a = alerts.admin, d = adminData();
