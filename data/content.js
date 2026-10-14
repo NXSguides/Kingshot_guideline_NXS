@@ -156,6 +156,16 @@ const HEROES = {
 
 /* 遊戲用語：一律照對照表。內文用 {id} 引用 */
 const GLOSSARY = {
+  /* KvK TG5 push (Nov 9) — city buildings and buffs, from terms.js */
+  townCenter: { en:"Town Center", zh:"城鎮中心", ko:"도시 센터", de:"Stadtzentrum", fr:"Centre", pt:"Centro da Cidade", tr:"Şehir Merkezi", id:"Pusat Kota", ru:"центр города", th:"ศูนย์กลางเมือง", ar:"مركز البلدة", es:"Centro de pueblo" },
+  embassy: { en:"Embassy", zh:"使館", ko:"대사관", de:"Botschaft", fr:"L'Ambassade", pt:"Embaixada", tr:"Elçilik", id:"Kedutaan", ru:"Посольство", th:"หอการทูต", ar:"السفارة", es:"Embajada" },
+  stable: { en:"Stable", zh:"騎兵營", ko:"기병대", de:"Stall", fr:"Écurie", pt:"Estábulo", tr:"Ahır", id:"Istal", ru:"Конный двор", th:"คอกม้า", ar:"الإسطبل", es:"Establo" },
+  barracks: { en:"Barracks", zh:"步兵營", ko:"보병대", de:"Kaserne", fr:"Quartiers", pt:"Quartel", tr:"Kışla", id:"Barak", ru:"Казармы", th:"ค่ายทหาร", ar:"الثكنات", es:"Cuartel" },
+  range: { en:"Range", zh:"弓兵營", ko:"궁병대", de:"Schießstand", fr:"Stand de Tir", pt:"Campo de Tiro", tr:"Poligon", id:"Tempat Latihan", ru:"Стрельбище", th:"สนามยิงธนู", ar:"النطاق", es:"Campo de tiro" },
+  commandCenter: { en:"Command Center", zh:"指揮部", ko:"지휘부", de:"Kommandozentrale", fr:"Base de Commandement", pt:"Centro de Comando", tr:"Komuta Merkezi", id:"Pusat Komando", ru:"Командный центр", th:"ศูนย์บัญชาการ", ar:"مركز القيادة", es:"Centro de mando" },
+  chiefMinister: { en:"Chief Minister", zh:"總理大臣", ko:"총리대신", de:"Höchster Minister", fr:"Premier Ministre", pt:"Primeiro-ministro", tr:"Başbakan", id:"Perdana Menteri", ru:"Премьер-министр", th:"อัครเสนาบดี", ar:"رئيس الوزراء", es:"Ministro principal" },
+  masterArchitect: { en:"Master Architect", zh:"建築計畫", ko:"건설 계획", de:"Meisterarchitekt", fr:"Maître-architecte", pt:"Mestre da Arquitetura", tr:"Usta Mimar", id:"Master Architect", ru:"Великий архитектор", th:"สถาปนิกชั้นครู", ar:"كبير المهندسين", es:"Maestro arquitecto" },
+  resourceful: { en:"Resourceful", zh:"循環利用", ko:"순환 이용", de:"Einfallsreich", fr:"Débrouillard", pt:"Talentoso", tr:"Geri Dönüşüm", id:"Resourceful", ru:"Находчивость", th:"เจ้าปัญญา", ar:"واسع الحيلة", es:"Ingenioso" },
   /* City Bonus（城鎮增益，12 語言截圖確認） */
   cityBonus: { en:"City Bonus", zh:"城鎮增益", ko:"도시 버프", de:"Stadts Bonus", fr:"Revenu de la Ville", pt:"Bônus da Cidade", tr:"Şehir Bonusu", id:"Bonus Kota", ru:"Бонус города", th:"โบนัสค่ายอพยพ", ar:"مكافأة المدينة", es:"Bonificaciones de la Colonia" },
   groundWorks: { en:"Ground Works", zh:"土木工程", ko:"토목 공정", de:"Grundarbeit", fr:"Travaux Terrestres", pt:"Obras de preparação", tr:"Zemin Çalışmaları", id:"Pekerjaan Dasar", ru:"Гражданское строительство", th:"งานวางรากฐาน", ar:"أعمال تمهيدية", es:"Trabajos de cimentación" },
@@ -7893,6 +7903,7 @@ const GUIDES = {
   name: { zh: "KvK 準備與戰鬥指南", en: "KvK Prep & Battle Guide", ko: "KvK 준비 및 전투 가이드", de: "KvK-Vorbereitungs- & Kampfguide", fr: "Guide de Préparation et Combat KvK", pt: "Guia de Preparação e Batalha KvK", es: "Guía de Preparación y Batalla KvK", tr: "KvK Hazırlık ve Savaş Rehberi", id: "Panduan Persiapan & Pertempuran KvK", ru: "Гайд по подготовке и битве KvK", th: "คู่มือเตรียมตัวและการต่อสู้ KvK", ar: "دليل استعداد وقتال KvK" },
   sections: {
     zh: { title: "KvK 準備與戰鬥指南（Gen 3 版本）", blocks: [
+      {"type":"jump","to":"kvk-push","text":"📢 11/9 TG3 ➡️ TG5 推進計畫（只針對下一場 KvK）— 點這裡跳過去"},
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
           { label: "{truegold}", icons: ["✅", "<span class=\"chk-ok\">OK</span>", "🚫", "🚫", "✅"] },
@@ -7974,8 +7985,26 @@ const GUIDES = {
       { type: "p", text: "**提升方式：**" },
       { type: "list", items: ["{medicalSatchels}：+10% 救援率", "{rescueOrders}：每個 +1%，最多 +50%"]},
       { type: "callout", text: "⚠️ **重要：** 所有人都必須在計時器結束前，於聯盟聊天交換{rescueOrders}！" }
+    ,
+      // 📢 Nov 9 TG3 → TG5 push plan (for that KvK only)
+      {"type":"h","id":"kvk-push","text":"📢 KvK 推進計畫：TG3 ➡️ TG5（11 月 9 日）"},
+      {"type":"callout","text":"**適用情況：**只針對 2026 年 11 月 9 日開放建築從 TG3 升到 TG5 之後的第一場 KvK。是否參加自己決定，依你存下的資源和加速選一個方案。下面的時間和分數是以接近滿配的帳號估算的。"},
+      {"type":"p","text":"11 月 9 日起可以把建築從 TG3 升到 TG5。下一場 KvK 備戰階段在這之後開始，所以**這些升級要留到 KvK 開始才做**，分數才會算給聯盟。"},
+      {"type":"sub","text":"🔹 方案 1：核心 3 棟（{townCenter}、{embassy}、{stable}）"},
+      {"type":"list","items":["KvK 積分：每人 10,625,047","資源：約 8.92 億{wood}／{bread}、1.73 億{stone}、4,400 萬{iron}、4,055 {truegold}","時間：調整後 58 天"]},
+      {"type":"sub","text":"🔹 方案 2：5 棟（{townCenter}、{embassy}、{stable}、{barracks}、{range}）"},
+      {"type":"list","items":["KvK 積分：每人 19,545,005","資源：約 15.7 億{wood}／{bread}、3.11 億{stone}、7,800 萬{iron}、7,980 {truegold}","時間：調整後 82 天"]},
+      {"type":"sub","text":"🔹 方案 3：全部 7 棟（{townCenter}、{embassy}、{stable}、{barracks}、{range}、{infirmary}、{commandCenter}）"},
+      {"type":"list","items":["KvK 積分：每人 22,247,410","資源：約 19.5 億{wood}／{bread}、3.88 億{stone}、9,600 萬{iron}、9,210 {truegold}","時間：調整後 88 天"]},
+      {"type":"sub","text":"⚙️ 這些數字的前提"},
+      {"type":"p","text":"以接近滿配的帳號計算：基礎建造速度 80.2%、Lv.5 {pan}「{masterArchitect}」、Lv.5 {saul}「{resourceful}」、{chiefMinister}任期、Lv.5 {grayWolf}「{constructionAide}」、{groundWorks}、{kopBonus}和{doubleTime}。加成比較少的話，時間會更長。"},
+      {"type":"sub","text":"⚠️ 關鍵的 5 分鐘"},
+      {"type":"p","text":"{grayWolf}的「{constructionAide}」（+15%）和{doubleTime}（+20%）都只持續 5 分鐘。KvK 計分一開始，就要在這 5 分鐘內把加速全部用完。先把背包的加速頁打開準備好，一開始就連點。"},
+      {"type":"sub","text":"🛑 現在就開始準備"},
+      {"type":"list","items":["1️⃣ 囤資源：大量存{wood}、{bread}、{stone}、{iron}和{truegold}，持續採集並開採集增益。","2️⃣ 存加速：所有加速都留著，用來清這些時間。","3️⃣ 先別升：這些建築維持在 TG3，等 KvK 計分正式開始再一起推，把積分灌上排行榜。"]}
     ]},
     en: { title: "KvK Prep & Battle Guide (Gen 3 Era)", blocks: [
+      {"type":"jump","to":"kvk-push","text":"📢 Nov 9: TG3 ➡️ TG5 push plan (for the next KvK only) — jump to it"},
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
           { label: "{truegold}", icons: ["✅", "<span class=\"chk-ok\">OK</span>", "🚫", "🚫", "✅"] },
@@ -8057,8 +8086,26 @@ const GUIDES = {
       { type: "p", text: "**How to increase it:**" },
       { type: "list", items: ["{medicalSatchels}: +10% Rescue Rate", "{rescueOrders}: +1% each, up to +50%"]},
       { type: "callout", text: "⚠️ **IMPORTANT:** Everyone must exchange {rescueOrders} in alliance chat before the timer expires!" }
+    ,
+      // 📢 Nov 9 TG3 → TG5 push plan (for that KvK only)
+      {"type":"h","id":"kvk-push","text":"📢 KvK push plan: TG3 ➡️ TG5 (November 9)"},
+      {"type":"callout","text":"**When this applies:** only the first KvK after November 9, 2026, when buildings can go from TG3 to TG5. Taking part is optional: pick a tier that fits the resources and speedups you have saved. The times and points below assume a near-maxed account."},
+      {"type":"p","text":"From November 9 you can push buildings from TG3 to TG5. The next KvK prep phase starts some time after that, so **hold these upgrades until KvK starts** — only then do they score points for the alliance."},
+      {"type":"sub","text":"🔹 Option 1: Core 3 buildings ({townCenter}, {embassy}, {stable})"},
+      {"type":"list","items":["KvK points: 10,625,047 per player","Resources: ~892M {wood} / {bread}, 173M {stone}, 44M {iron}, 4,055 {truegold}","Time: 58 days (adjusted)"]},
+      {"type":"sub","text":"🔹 Option 2: 5 buildings ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+      {"type":"list","items":["KvK points: 19,545,005 per player","Resources: ~1.57B {wood} / {bread}, 311M {stone}, 78M {iron}, 7,980 {truegold}","Time: 82 days (adjusted)"]},
+      {"type":"sub","text":"🔹 Option 3: All 7 buildings ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+      {"type":"list","items":["KvK points: 22,247,410 per player","Resources: ~1.95B {wood} / {bread}, 388M {stone}, 96M {iron}, 9,210 {truegold}","Time: 88 days (adjusted)"]},
+      {"type":"sub","text":"⚙️ What the numbers assume"},
+      {"type":"p","text":"A near-maxed account: 80.2% base Construction Speed, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), the {chiefMinister} appointment, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} and {doubleTime}. With fewer bonuses your times are longer."},
+      {"type":"sub","text":"⚠️ The 5-minute window"},
+      {"type":"p","text":"{constructionAide} ({grayWolf}, +15%) and {doubleTime} (+20%) last only 5 minutes. When KvK scoring starts, use all your speedups inside those 5 minutes. Have the speedup page of your backpack open and tap fast."},
+      {"type":"sub","text":"🛑 Start now"},
+      {"type":"list","items":["1️⃣ Save resources: {wood}, {bread}, {stone}, {iron} and {truegold}. Keep gathering and use gathering boosts.","2️⃣ Save speedups: keep every speedup for these timers.","3️⃣ Wait: keep these buildings at TG3 until KvK scoring officially starts, then push together to flood the leaderboard."]}
     ]},
     ko: { title: "킹샷 KvK (서버전) 가이드 — 3세대 시즌", blocks: [
+      {"type":"jump","to":"kvk-push","text":"📢 11월 9일: TG3 ➡️ TG5 푸시 계획 (다음 KvK 전용) — 바로 가기"},
         {"type":"checklist","days":[1,2,3,4,5],"rows":[{"label":"{truegold}","icons":["✅","<span class=\"chk-ok\">OK</span>","🚫","🚫","✅"]},{"label":"{heroShard}","icons":["🚫","✅","✅","🚫","🚫"]},{"label":"⏩️ {construction}","icons":["✅","<span class=\"chk-ok\">OK</span>","🚫","🚫","✅"]},{"label":"⏩️ {training}","icons":["🚫","🚫","🚫","✅","✅"]},{"label":"⏩️ {research}","icons":["<span class=\"chk-ok\">OK</span>","✅","🚫","🚫","✅"]},{"label":"{heroRoulette}","icons":["🚫","✅","✅","🚫","🚫"]},{"label":"{gathering}","icons":["👍","✅","👍","✅","👍"]},{"label":"{intel}","icons":["✅","👍","✅","👍","✅"]},{"label":"{petAdvancement}","icons":["🚫","🚫","✅","🚫","✅"]},{"label":"{governorCharm}","icons":["✅","🚫","<span class=\"chk-ok\">OK</span>","✅","🚫"]},{"label":"{governorGear}","icons":["🚫","🚫","🚫","🚫","✅"]},{"label":"{heroExclusiveGear} {widget}","icons":["🚫","🚫","🚫","<span class=\"chk-ok\">OK</span>","✅"]},{"label":"{mithril} ","icons":["🚫","🚫","🚫","<span class=\"chk-ok\">OK</span>","✅"]},{"label":"{forgehammer}","icons":["🚫","🚫","🚫","<span class=\"chk-ok\">OK</span>","✅"]},{"label":"{masterEmblem}","icons":["🚫","✅","<span class=\"chk-ok\">OK</span>","🚫","🚫"]},{"label":"{manuscript}","icons":["🚫","🚫","✅","🚫","🚫"]},{"label":"⏩️ {learning}","icons":["<span class=\"chk-ok\">OK</span>","✅","🚫","🚫","<span class=\"chk-ok\">OK</span>"]}],"legend":[{"icon":"✅","label":"{useIcon}"},{"icon":"<span class=\"chk-ok\">OK</span>","label":"{okayIfNeeded}"},{"icon":"🚫","label":"{dontUseIcon}"},{"icon":"👍","label":"{needDaily}"}]},
         {"type":"h","text":"📅 1단계: 최강 왕국 준비 단계 (1일차 ~ 5일차)"},
         {"type":"p","text":"KvK 승리의 핵심은 준비 단계 동안 상대 왕국보다 높은 총점을 기록하는 것입니다. 준비 단계 승리 시 공격자 우위(어드밴티지)를 획득하여, 전쟁 단계에서 우리 {kingsCastle}을 적으로부터 안전하게 보호합니다."},
@@ -8114,8 +8161,26 @@ const GUIDES = {
         {"type":"p","text":"**구조율 올리는 법:**"},
         {"type":"list","items":["{medicalSatchels}: 구조율 +10%","{rescueOrders}: 개당 +1% (최대 +50%까지 적용)"]},
         {"type":"callout","text":"⚠️ **주의사항:** 제한 시간이 지나기 전에 연맹 채팅창에서 서로 {rescueOrders}을 품앗이(교환)해야 합니다!"}
-      ]},
+      ,
+      // 📢 Nov 9 TG3 → TG5 push plan (for that KvK only)
+      {"type":"h","id":"kvk-push","text":"📢 KvK 푸시 계획: TG3 ➡️ TG5 (11월 9일)"},
+      {"type":"callout","text":"**적용 대상:** 2026년 11월 9일 건물을 TG3에서 TG5로 올릴 수 있게 된 뒤의 첫 KvK만 해당됩니다. 참여는 자유입니다. 모아 둔 자원과 가속에 맞는 방안을 고르세요. 아래 시간과 점수는 거의 최대치 계정을 기준으로 했습니다."},
+      {"type":"p","text":"11월 9일부터 건물을 TG3에서 TG5로 올릴 수 있습니다. 다음 KvK 준비 단계는 그 이후에 시작되므로 **이 업그레이드는 KvK가 시작될 때까지 미뤄 두세요**. 그때 해야 연맹 점수로 들어갑니다."},
+      {"type":"sub","text":"🔹 방안 1: 핵심 건물 3개 ({townCenter}, {embassy}, {stable})"},
+      {"type":"list","items":["KvK 점수: 1인당 10,625,047","자원: 약 8.92억 {wood} / {bread}, 1.73억 {stone}, 4,400만 {iron}, 4,055 {truegold}","시간: 58일 (보정 후)"]},
+      {"type":"sub","text":"🔹 방안 2: 건물 5개 ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+      {"type":"list","items":["KvK 점수: 1인당 19,545,005","자원: 약 15.7억 {wood} / {bread}, 3.11억 {stone}, 7,800만 {iron}, 7,980 {truegold}","시간: 82일 (보정 후)"]},
+      {"type":"sub","text":"🔹 방안 3: 건물 7개 전부 ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+      {"type":"list","items":["KvK 점수: 1인당 22,247,410","자원: 약 19.5억 {wood} / {bread}, 3.88억 {stone}, 9,600만 {iron}, 9,210 {truegold}","시간: 88일 (보정 후)"]},
+      {"type":"sub","text":"⚙️ 수치의 전제 조건"},
+      {"type":"p","text":"거의 최대치 계정 기준: 기본 건설 속도 80.2%, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), {chiefMinister} 관직 임명, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus}, {doubleTime}. 보너스가 적으면 시간이 더 걸립니다."},
+      {"type":"sub","text":"⚠️ 5분의 기회"},
+      {"type":"p","text":"{constructionAide} ({grayWolf}, +15%)와 {doubleTime} (+20%)은 5분만 유지됩니다. KvK 점수 집계가 시작되면 이 5분 안에 가속을 모두 쓰세요. 가방의 가속 페이지를 미리 열어 두고 빠르게 누르세요."},
+      {"type":"sub","text":"🛑 지금 시작하세요"},
+      {"type":"list","items":["1️⃣ 자원 모으기: {wood}, {bread}, {stone}, {iron}, {truegold}를 모으세요. 채집을 계속하고 채집 버프를 사용하세요.","2️⃣ 가속 모으기: 이 타이머에 쓸 가속은 전부 아껴 두세요.","3️⃣ 기다리기: KvK 점수 집계가 공식적으로 시작될 때까지 이 건물들을 TG3에 두고, 그때 다 함께 올려서 랭킹을 휩쓰세요."]}
+    ]},
     de: { title: "KvK-Vorbereitungs- & Kampfguide (Gen-3-Ära)", blocks: [
+      {"type":"jump","to":"kvk-push","text":"📢 9. November: TG3 ➡️ TG5 Push-Plan (nur für das nächste KvK) — hierher springen"},
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
           { label: "{truegold}", icons: ["✅", "<span class=\"chk-ok\">OK</span>", "🚫", "🚫", "✅"] },
@@ -8197,8 +8262,26 @@ const GUIDES = {
       { type: "p", text: "**So erhöhst du sie:**" },
       { type: "list", items: ["{medicalSatchels}: +10 % Rettungsrate", "{rescueOrders}: je +1 %, bis zu +50 %"]},
       { type: "callout", text: "⚠️ **WICHTIG:** Alle müssen {rescueOrders} im Allianz-Chat austauschen, bevor der Timer abläuft!" }
+    ,
+      // 📢 Nov 9 TG3 → TG5 push plan (for that KvK only)
+      {"type":"h","id":"kvk-push","text":"📢 KvK-Push-Plan: TG3 ➡️ TG5 (9. November)"},
+      {"type":"callout","text":"**Wann das gilt:** nur für das erste KvK nach dem 9. November 2026, wenn Gebäude von TG3 auf TG5 gehen können. Mitmachen ist freiwillig: Wähl eine Stufe, die zu deinen gesparten Ressourcen und Beschleunigungen passt. Zeiten und Punkte unten gelten für einen fast maximierten Account."},
+      {"type":"p","text":"Ab dem 9. November kannst du Gebäude von TG3 auf TG5 bringen. Die Vorbereitungsphase des nächsten KvK beginnt erst einige Zeit danach. **Halte diese Upgrades also zurück, bis das KvK startet** — nur dann bringen sie der Allianz Punkte."},
+      {"type":"sub","text":"🔹 Option 1: Die 3 Kerngebäude ({townCenter}, {embassy}, {stable})"},
+      {"type":"list","items":["KvK-Punkte: 10.625.047 pro Spieler","Ressourcen: ~892 Mio. {wood} / {bread}, 173 Mio. {stone}, 44 Mio. {iron}, 4.055 {truegold}","Zeit: 58 Tage (angepasst)"]},
+      {"type":"sub","text":"🔹 Option 2: 5 Gebäude ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+      {"type":"list","items":["KvK-Punkte: 19.545.005 pro Spieler","Ressourcen: ~1,57 Mrd. {wood} / {bread}, 311 Mio. {stone}, 78 Mio. {iron}, 7.980 {truegold}","Zeit: 82 Tage (angepasst)"]},
+      {"type":"sub","text":"🔹 Option 3: Alle 7 Gebäude ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+      {"type":"list","items":["KvK-Punkte: 22.247.410 pro Spieler","Ressourcen: ~1,95 Mrd. {wood} / {bread}, 388 Mio. {stone}, 96 Mio. {iron}, 9.210 {truegold}","Zeit: 88 Tage (angepasst)"]},
+      {"type":"sub","text":"⚙️ Annahmen hinter den Zahlen"},
+      {"type":"p","text":"Ein fast maximierter Account: 80,2 % Basis-Baugeschwindigkeit, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), die Ernennung {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} und {doubleTime}. Mit weniger Boni dauert es länger."},
+      {"type":"sub","text":"⚠️ Das 5-Minuten-Fenster"},
+      {"type":"p","text":"{constructionAide} ({grayWolf}, +15 %) und {doubleTime} (+20 %) halten nur 5 Minuten. Wenn die KvK-Wertung startet, nutz alle Beschleunigungen innerhalb dieser 5 Minuten. Öffne vorher die Beschleunigungen-Seite im Rucksack und tipp schnell."},
+      {"type":"sub","text":"🛑 Jetzt anfangen"},
+      {"type":"list","items":["1️⃣ Ressourcen sparen: {wood}, {bread}, {stone}, {iron} und {truegold}. Weiter sammeln und Sammel-Boosts nutzen.","2️⃣ Beschleunigungen sparen: Heb jede Beschleunigung für diese Timer auf.","3️⃣ Warten: Lass diese Gebäude auf TG3, bis die KvK-Wertung offiziell startet. Dann alle gemeinsam pushen und die Bestenliste fluten."]}
     ]},
     fr: { title: "Guide de Préparation et Combat KvK (Ère Gen 3)", blocks: [
+      {"type":"jump","to":"kvk-push","text":"📢 9 novembre : plan de push TG3 ➡️ TG5 (uniquement pour le prochain KvK) — y aller"},
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
           { label: "{truegold}", icons: ["✅", "<span class=\"chk-ok\">OK</span>", "🚫", "🚫", "✅"] },
@@ -8280,8 +8363,26 @@ const GUIDES = {
       { type: "p", text: "**Comment l'augmenter :**" },
       { type: "list", items: ["{medicalSatchels} : +10 % de Taux de Secours", "{rescueOrders} : +1 % chacun, jusqu'à +50 %"]},
       { type: "callout", text: "⚠️ **IMPORTANT :** Tout le monde doit échanger des {rescueOrders} dans le chat d'alliance avant l'expiration du minuteur !" }
+    ,
+      // 📢 Nov 9 TG3 → TG5 push plan (for that KvK only)
+      {"type":"h","id":"kvk-push","text":"📢 Plan de push KvK : TG3 ➡️ TG5 (9 novembre)"},
+      {"type":"callout","text":"**Quand ça s'applique :** uniquement le premier KvK après le 9 novembre 2026, quand les bâtiments peuvent passer de TG3 à TG5. La participation est facultative : choisis l'option qui correspond aux ressources et accélérations que tu as mises de côté. Les durées et points ci-dessous supposent un compte presque au max."},
+      {"type":"p","text":"À partir du 9 novembre, tu peux monter les bâtiments de TG3 à TG5. La Phase de Préparation du prochain KvK commence un peu plus tard, donc **garde ces améliorations jusqu'au début du KvK** — c'est seulement là qu'elles rapportent des points à l'alliance."},
+      {"type":"sub","text":"🔹 Option 1 : les 3 bâtiments principaux ({townCenter}, {embassy}, {stable})"},
+      {"type":"list","items":["Points KvK : 10 625 047 par joueur","Ressources : ~892 M {wood} / {bread}, 173 M {stone}, 44 M {iron}, 4 055 {truegold}","Durée : 58 jours (ajustée)"]},
+      {"type":"sub","text":"🔹 Option 2 : 5 bâtiments ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+      {"type":"list","items":["Points KvK : 19 545 005 par joueur","Ressources : ~1,57 Md {wood} / {bread}, 311 M {stone}, 78 M {iron}, 7 980 {truegold}","Durée : 82 jours (ajustée)"]},
+      {"type":"sub","text":"🔹 Option 3 : les 7 bâtiments ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+      {"type":"list","items":["Points KvK : 22 247 410 par joueur","Ressources : ~1,95 Md {wood} / {bread}, 388 M {stone}, 96 M {iron}, 9 210 {truegold}","Durée : 88 jours (ajustée)"]},
+      {"type":"sub","text":"⚙️ Hypothèses derrière les chiffres"},
+      {"type":"p","text":"Un compte presque au max : 80,2 % de Vitesse de Construction de base, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), la nomination {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} et {doubleTime}. Avec moins de bonus, tes durées seront plus longues."},
+      {"type":"sub","text":"⚠️ La fenêtre de 5 minutes"},
+      {"type":"p","text":"{constructionAide} ({grayWolf}, +15 %) et {doubleTime} (+20 %) ne durent que 5 minutes. Quand le décompte des points KvK commence, utilise toutes tes accélérations dans ces 5 minutes. Ouvre à l'avance la page des accélérations de ton sac et tape vite."},
+      {"type":"sub","text":"🛑 Commence dès maintenant"},
+      {"type":"list","items":["1️⃣ Économise les ressources : {wood}, {bread}, {stone}, {iron} et {truegold}. Continue la collecte et utilise des bonus de collecte.","2️⃣ Économise les accélérations : garde-les toutes pour ces minuteurs.","3️⃣ Attends : laisse ces bâtiments en TG3 jusqu'au début officiel du décompte KvK, puis on pousse tous ensemble pour inonder le classement."]}
     ]},
     pt: { title: "Guia de Preparação e Batalha KvK (Era Gen 3)", blocks: [
+      {"type":"jump","to":"kvk-push","text":"📢 9 de novembro: plano de push TG3 ➡️ TG5 (só para o próximo KvK) — ir para lá"},
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
           { label: "{truegold}", icons: ["✅", "<span class=\"chk-ok\">OK</span>", "🚫", "🚫", "✅"] },
@@ -8363,8 +8464,26 @@ const GUIDES = {
       { type: "p", text: "**Como aumentar:**" },
       { type: "list", items: ["{medicalSatchels}: +10% de Taxa de Resgate", "{rescueOrders}: +1% cada, até +50%"]},
       { type: "callout", text: "⚠️ **IMPORTANTE:** Todos devem trocar {rescueOrders} no chat da aliança antes que o cronômetro expire!" }
+    ,
+      // 📢 Nov 9 TG3 → TG5 push plan (for that KvK only)
+      {"type":"h","id":"kvk-push","text":"📢 Plano de push do KvK: TG3 ➡️ TG5 (9 de novembro)"},
+      {"type":"callout","text":"**Quando vale:** só no primeiro KvK depois de 9 de novembro de 2026, quando as construções podem ir de TG3 para TG5. Participar é opcional: escolha a opção que combina com os recursos e acelerações que você guardou. Os tempos e pontos abaixo consideram uma conta quase no máximo."},
+      {"type":"p","text":"A partir de 9 de novembro, dá para subir as construções de TG3 para TG5. A Fase de Preparação do próximo KvK começa um tempo depois, então **segure essas melhorias até o KvK começar** — só assim elas valem pontos para a aliança."},
+      {"type":"sub","text":"🔹 Opção 1: As 3 construções principais ({townCenter}, {embassy}, {stable})"},
+      {"type":"list","items":["Pontos de KvK: 10.625.047 por jogador","Recursos: ~892 mi {wood} / {bread}, 173 mi {stone}, 44 mi {iron}, 4.055 {truegold}","Tempo: 58 dias (ajustado)"]},
+      {"type":"sub","text":"🔹 Opção 2: 5 construções ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+      {"type":"list","items":["Pontos de KvK: 19.545.005 por jogador","Recursos: ~1,57 bi {wood} / {bread}, 311 mi {stone}, 78 mi {iron}, 7.980 {truegold}","Tempo: 82 dias (ajustado)"]},
+      {"type":"sub","text":"🔹 Opção 3: Todas as 7 construções ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+      {"type":"list","items":["Pontos de KvK: 22.247.410 por jogador","Recursos: ~1,95 bi {wood} / {bread}, 388 mi {stone}, 96 mi {iron}, 9.210 {truegold}","Tempo: 88 dias (ajustado)"]},
+      {"type":"sub","text":"⚙️ O que os números consideram"},
+      {"type":"p","text":"Uma conta quase no máximo: 80,2% de Velocidade de Construção base, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), a nomeação de {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} e {doubleTime}. Com menos bônus, seus tempos serão maiores."},
+      {"type":"sub","text":"⚠️ A janela de 5 minutos"},
+      {"type":"p","text":"{constructionAide} ({grayWolf}, +15%) e {doubleTime} (+20%) duram só 5 minutos. Quando a pontuação do KvK começar, use todas as suas acelerações dentro desses 5 minutos. Deixe a página de acelerações da mochila aberta e toque rápido."},
+      {"type":"sub","text":"🛑 Comece agora"},
+      {"type":"list","items":["1️⃣ Guarde recursos: {wood}, {bread}, {stone}, {iron} e {truegold}. Continue coletando e use bônus de coleta.","2️⃣ Guarde acelerações: guarde todas para esses cronômetros.","3️⃣ Espere: deixe essas construções em TG3 até a pontuação do KvK começar oficialmente e aí todos sobem juntos para lotar o placar."]}
     ]},
     es: { title: "Guía de Preparación y Batalla KvK (Era Gen 3)", blocks: [
+      {"type":"jump","to":"kvk-push","text":"📢 9 nov.: plan de empuje TG3 ➡️ TG5 (solo para el próximo KvK) — ir a la sección"},
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
           { label: "{truegold}", icons: ["✅", "<span class=\"chk-ok\">OK</span>", "🚫", "🚫", "✅"] },
@@ -8446,8 +8565,26 @@ const GUIDES = {
       { type: "p", text: "**Cómo aumentarla:**" },
       { type: "list", items: ["{medicalSatchels}: +10% Tasa de Rescate", "{rescueOrders}: +1% cada uno, hasta +50%"]},
       { type: "callout", text: "⚠️ **IMPORTANTE:** ¡Todos deben intercambiar {rescueOrders} en el chat de alianza antes de que expire el temporizador!" }
+    ,
+      // 📢 Nov 9 TG3 → TG5 push plan (for that KvK only)
+      {"type":"h","id":"kvk-push","text":"📢 Plan de empuje para KvK: TG3 ➡️ TG5 (9 de noviembre)"},
+      {"type":"callout","text":"**Cuándo aplica:** solo en el primer KvK después del 9 de noviembre de 2026, cuando los edificios pueden pasar de TG3 a TG5. Participar es opcional: elige la opción que se ajuste a los recursos y aceleradores que tengas guardados. Los tiempos y puntos de abajo suponen una cuenta casi al máximo."},
+      {"type":"p","text":"Desde el 9 de noviembre puedes subir edificios de TG3 a TG5. La Fase de Preparación del próximo KvK empieza algo después, así que **guarda estas mejoras hasta que empiece el KvK**: solo entonces dan puntos a la alianza."},
+      {"type":"sub","text":"🔹 Opción 1: los 3 edificios principales ({townCenter}, {embassy}, {stable})"},
+      {"type":"list","items":["Puntos de KvK: 10.625.047 por jugador","Recursos: ~892 millones de {wood} / {bread}, 173 millones de {stone}, 44 millones de {iron}, 4.055 de {truegold}","Tiempo: 58 días (ajustado)"]},
+      {"type":"sub","text":"🔹 Opción 2: 5 edificios ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+      {"type":"list","items":["Puntos de KvK: 19.545.005 por jugador","Recursos: ~1.570 millones de {wood} / {bread}, 311 millones de {stone}, 78 millones de {iron}, 7.980 de {truegold}","Tiempo: 82 días (ajustado)"]},
+      {"type":"sub","text":"🔹 Opción 3: los 7 edificios ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+      {"type":"list","items":["Puntos de KvK: 22.247.410 por jugador","Recursos: ~1.950 millones de {wood} / {bread}, 388 millones de {stone}, 96 millones de {iron}, 9.210 de {truegold}","Tiempo: 88 días (ajustado)"]},
+      {"type":"sub","text":"⚙️ Qué suponen los números"},
+      {"type":"p","text":"Una cuenta casi al máximo: 80,2 % de Velocidad de Construcción base, {pan} Lv.5 ({masterArchitect}), {saul} Lv.5 ({resourceful}), la designación de {chiefMinister}, {grayWolf} Lv.5 ({constructionAide}), {groundWorks}, {kopBonus} y {doubleTime}. Con menos bonificaciones, tus tiempos serán más largos."},
+      {"type":"sub","text":"⚠️ La ventana de 5 minutos"},
+      {"type":"p","text":"{constructionAide} ({grayWolf}, +15 %) y {doubleTime} (+20 %) duran solo 5 minutos. Cuando empiece la puntuación del KvK, usa todos tus aceleradores dentro de esos 5 minutos. Ten abierta la pestaña Acelerar de la Mochila y toca rápido."},
+      {"type":"sub","text":"🛑 Empieza ya"},
+      {"type":"list","items":["1️⃣ Guarda recursos: {wood}, {bread}, {stone}, {iron} y {truegold}. Sigue recolectando y usa potenciadores de recolección.","2️⃣ Guarda aceleradores: reserva todos los aceleradores para estos tiempos.","3️⃣ Espera: deja estos edificios en TG3 hasta que empiece oficialmente la puntuación del KvK y luego suban todos a la vez para llenar la Clasificación."]}
     ]},
     tr: { title: "KvK Hazırlık ve Savaş Rehberi (Gen 3 Dönemi)", blocks: [
+      {"type":"jump","to":"kvk-push","text":"📢 9 Kasım: TG3 ➡️ TG5 yükseltme planı (sadece bir sonraki KvK için) — oraya git"},
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
           { label: "{truegold}", icons: ["✅", "<span class=\"chk-ok\">OK</span>", "🚫", "🚫", "✅"] },
@@ -8529,8 +8666,26 @@ const GUIDES = {
       { type: "p", text: "**Nasıl artırılır:**" },
       { type: "list", items: ["{medicalSatchels}: +%10 Kurtarma Oranı", "{rescueOrders}: her biri +%1, %50'ye kadar"]},
       { type: "callout", text: "⚠️ **ÖNEMLİ:** Süre dolmadan önce herkes ittifak sohbetinde {rescueOrders} takas etmelidir!" }
+    ,
+      // 📢 Nov 9 TG3 → TG5 push plan (for that KvK only)
+      {"type":"h","id":"kvk-push","text":"📢 KvK yükseltme planı: TG3 ➡️ TG5 (9 Kasım)"},
+      {"type":"callout","text":"**Ne zaman geçerli:** sadece 9 Kasım 2026'dan sonraki ilk KvK, binalar TG3'ten TG5'e çıkabildiğinde. Katılmak isteğe bağlı: biriktirdiğin kaynaklara ve hızlandırmalara uyan seçeneği seç. Aşağıdaki süreler ve puanlar neredeyse maksimum bir hesaba göre."},
+      {"type":"p","text":"9 Kasım'dan itibaren binaları TG3'ten TG5'e çıkarabilirsin. Bir sonraki KvK'nın Hazırlık Evresi bundan bir süre sonra başlar, bu yüzden **bu yükseltmeleri KvK başlayana kadar beklet** — ittifaka puan ancak o zaman gelir."},
+      {"type":"sub","text":"🔹 Seçenek 1: Ana 3 bina ({townCenter}, {embassy}, {stable})"},
+      {"type":"list","items":["KvK puanı: oyuncu başına 10.625.047","Kaynaklar: ~892 Mn {wood} / {bread}, 173 Mn {stone}, 44 Mn {iron}, 4.055 {truegold}","Süre: 58 gün (düzeltilmiş)"]},
+      {"type":"sub","text":"🔹 Seçenek 2: 5 bina ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+      {"type":"list","items":["KvK puanı: oyuncu başına 19.545.005","Kaynaklar: ~1,57 Mr {wood} / {bread}, 311 Mn {stone}, 78 Mn {iron}, 7.980 {truegold}","Süre: 82 gün (düzeltilmiş)"]},
+      {"type":"sub","text":"🔹 Seçenek 3: 7 binanın hepsi ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+      {"type":"list","items":["KvK puanı: oyuncu başına 22.247.410","Kaynaklar: ~1,95 Mr {wood} / {bread}, 388 Mn {stone}, 96 Mn {iron}, 9.210 {truegold}","Süre: 88 gün (düzeltilmiş)"]},
+      {"type":"sub","text":"⚙️ Rakamların varsayımları"},
+      {"type":"p","text":"Neredeyse maksimum bir hesap: %80,2 temel İnşaat Hızı, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), {chiefMinister} ataması, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} ve {doubleTime}. Bonusların daha azsa süren daha uzun olur."},
+      {"type":"sub","text":"⚠️ 5 dakikalık pencere"},
+      {"type":"p","text":"{constructionAide} ({grayWolf}, +%15) ve {doubleTime} (+%20) sadece 5 dakika sürer. KvK puanlaması başlayınca tüm hızlandırmalarını bu 5 dakika içinde kullan. Çantadaki hızlandırma sayfasını önceden aç ve hızlı dokun."},
+      {"type":"sub","text":"🛑 Şimdi başla"},
+      {"type":"list","items":["1️⃣ Kaynak biriktir: {wood}, {bread}, {stone}, {iron} ve {truegold}. Toplamaya devam et ve toplama güçlendirmeleri kullan.","2️⃣ Hızlandırma biriktir: tüm hızlandırmaları bu sayaçlar için sakla.","3️⃣ Bekle: KvK puanlaması resmen başlayana kadar bu binaları TG3'te tut, sonra hep birlikte yükseltip liderlik tablosunu doldur."]}
     ]},
     id: { title: "Panduan Persiapan & Pertempuran KvK (Era Gen 3)", blocks: [
+      {"type":"jump","to":"kvk-push","text":"📢 9 Nov: Rencana dorong TG3 ➡️ TG5 (hanya untuk KvK berikutnya) — lompat ke sini"},
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
           { label: "{truegold}", icons: ["✅", "<span class=\"chk-ok\">OK</span>", "🚫", "🚫", "✅"] },
@@ -8612,8 +8767,26 @@ const GUIDES = {
       { type: "p", text: "**Cara meningkatkannya:**" },
       { type: "list", items: ["{medicalSatchels}: +10% Tingkat Penyelamatan", "{rescueOrders}: masing-masing +1%, hingga +50%"]},
       { type: "callout", text: "⚠️ **PENTING:** Semua orang harus menukar {rescueOrders} di chat aliansi sebelum timer habis!" }
+    ,
+      // 📢 Nov 9 TG3 → TG5 push plan (for that KvK only)
+      {"type":"h","id":"kvk-push","text":"📢 Rencana dorong KvK: TG3 ➡️ TG5 (9 November)"},
+      {"type":"callout","text":"**Kapan berlaku:** hanya KvK pertama setelah 9 November 2026, saat bangunan bisa naik dari TG3 ke TG5. Ikut atau tidak, bebas: pilih opsi yang sesuai dengan sumber daya dan Speedup yang sudah kamu simpan. Waktu dan poin di bawah dihitung untuk akun yang hampir maksimal."},
+      {"type":"p","text":"Mulai 9 November kamu bisa menaikkan bangunan dari TG3 ke TG5. Fase Persiapan KvK berikutnya dimulai beberapa waktu setelah itu, jadi **tahan upgrade ini sampai KvK dimulai** — baru saat itu upgrade-nya memberi poin untuk aliansi."},
+      {"type":"sub","text":"🔹 Opsi 1: 3 bangunan inti ({townCenter}, {embassy}, {stable})"},
+      {"type":"list","items":["Poin KvK: 10.625.047 per pemain","Sumber Daya: ~892 jt {wood} / {bread}, 173 jt {stone}, 44 jt {iron}, 4.055 {truegold}","Waktu: 58 hari (setelah penyesuaian)"]},
+      {"type":"sub","text":"🔹 Opsi 2: 5 bangunan ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+      {"type":"list","items":["Poin KvK: 19.545.005 per pemain","Sumber Daya: ~1,57 M {wood} / {bread}, 311 jt {stone}, 78 jt {iron}, 7.980 {truegold}","Waktu: 82 hari (setelah penyesuaian)"]},
+      {"type":"sub","text":"🔹 Opsi 3: Semua 7 bangunan ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+      {"type":"list","items":["Poin KvK: 22.247.410 per pemain","Sumber Daya: ~1,95 M {wood} / {bread}, 388 jt {stone}, 96 jt {iron}, 9.210 {truegold}","Waktu: 88 hari (setelah penyesuaian)"]},
+      {"type":"sub","text":"⚙️ Asumsi angka-angka ini"},
+      {"type":"p","text":"Akun yang hampir maksimal: Kecepatan Konstruksi dasar 80,2%, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), jabatan {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} dan {doubleTime}. Kalau bonusmu lebih sedikit, waktunya lebih lama."},
+      {"type":"sub","text":"⚠️ Jendela 5 menit"},
+      {"type":"p","text":"{constructionAide} ({grayWolf}, +15%) dan {doubleTime} (+20%) hanya bertahan 5 menit. Saat penghitungan poin KvK dimulai, pakai semua Speedup dalam 5 menit itu. Buka tab Speedup di Ransel lebih dulu dan tekan secepatnya."},
+      {"type":"sub","text":"🛑 Mulai sekarang"},
+      {"type":"list","items":["1️⃣ Simpan sumber daya: {wood}, {bread}, {stone}, {iron} dan {truegold}. Terus Mengumpulkan dan pakai boost pengumpulan.","2️⃣ Simpan Speedup: simpan semua Speedup untuk waktu-waktu ini.","3️⃣ Tunggu: biarkan bangunan ini di TG3 sampai penghitungan poin KvK resmi dimulai, lalu dorong bersama untuk membanjiri Leaderboard."]}
     ]},
     ru: { title: "Гайд по подготовке и битве KvK (Эпоха Gen 3)", blocks: [
+      {"type":"jump","to":"kvk-push","text":"📢 9 нояб.: план рывка TG3 ➡️ TG5 (только на ближайший KvK) — перейти"},
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
           { label: "{truegold}", icons: ["✅", "<span class=\"chk-ok\">OK</span>", "🚫", "🚫", "✅"] },
@@ -8695,8 +8868,26 @@ const GUIDES = {
       { type: "p", text: "**Как повысить:**" },
       { type: "list", items: ["{medicalSatchels}: +10% к скорости спасения", "{rescueOrders}: по +1% каждый, до +50%"]},
       { type: "callout", text: "⚠️ **ВАЖНО:** Все должны обменяться {rescueOrders} в чате альянса до истечения таймера!" }
+    ,
+      // 📢 Nov 9 TG3 → TG5 push plan (for that KvK only)
+      {"type":"h","id":"kvk-push","text":"📢 План рывка на KvK: TG3 ➡️ TG5 (9 ноября)"},
+      {"type":"callout","text":"**Когда это действует:** только на первом KvK после 9 ноября 2026 г., когда здания можно улучшать с TG3 до TG5. Участие по желанию: выберите вариант по своим запасам ресурсов и ускорений. Время и очки ниже рассчитаны для почти максимального аккаунта."},
+      {"type":"p","text":"С 9 ноября здания можно улучшать с TG3 до TG5. Стадия подготовки следующего KvK начнётся позже, поэтому **не делайте эти улучшения до начала KvK** — только тогда они принесут очки альянсу."},
+      {"type":"sub","text":"🔹 Вариант 1: 3 основных здания ({townCenter}, {embassy}, {stable})"},
+      {"type":"list","items":["Очки KvK: 10 625 047 на игрока","Ресурсы: ~892 млн {wood} / {bread}, 173 млн {stone}, 44 млн {iron}, 4 055 {truegold}","Время: 58 дней (с учётом бонусов)"]},
+      {"type":"sub","text":"🔹 Вариант 2: 5 зданий ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+      {"type":"list","items":["Очки KvK: 19 545 005 на игрока","Ресурсы: ~1,57 млрд {wood} / {bread}, 311 млн {stone}, 78 млн {iron}, 7 980 {truegold}","Время: 82 дня (с учётом бонусов)"]},
+      {"type":"sub","text":"🔹 Вариант 3: все 7 зданий ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+      {"type":"list","items":["Очки KvK: 22 247 410 на игрока","Ресурсы: ~1,95 млрд {wood} / {bread}, 388 млн {stone}, 96 млн {iron}, 9 210 {truegold}","Время: 88 дней (с учётом бонусов)"]},
+      {"type":"sub","text":"⚙️ Из чего исходят расчёты"},
+      {"type":"p","text":"Почти максимальный аккаунт: базовая скорость строительства 80,2%, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), назначение {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} и {doubleTime}. Если бонусов меньше, времени уйдёт больше."},
+      {"type":"sub","text":"⚠️ Окно в 5 минут"},
+      {"type":"p","text":"{constructionAide} ({grayWolf}, +15%) и {doubleTime} (+20%) действуют всего 5 минут. Когда начнётся подсчёт очков KvK, потратьте все ускорения в эти 5 минут. Заранее откройте вкладку ускорений в рюкзаке и жмите быстро."},
+      {"type":"sub","text":"🛑 Начинайте сейчас"},
+      {"type":"list","items":["1️⃣ Копите ресурсы: {wood}, {bread}, {stone}, {iron} и {truegold}. Не прекращайте сбор и используйте бонусы к сбору.","2️⃣ Копите ускорения: сохраните все ускорения для этих таймеров.","3️⃣ Ждите: держите эти здания на TG3, пока официально не начнётся подсчёт очков KvK, затем улучшайте все вместе, чтобы заполнить таблицу лидеров."]}
     ]},
     th: { title: "คู่มือเตรียมตัวและการต่อสู้ KvK (ยุค Gen 3)", blocks: [
+      {"type":"jump","to":"kvk-push","text":"📢 9 พ.ย.: แผนดัน TG3 ➡️ TG5 (เฉพาะ KvK ครั้งถัดไป) — กดเพื่อไปที่ส่วนนี้"},
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
           { label: "{truegold}", icons: ["✅", "<span class=\"chk-ok\">OK</span>", "🚫", "🚫", "✅"] },
@@ -8778,8 +8969,26 @@ const GUIDES = {
       { type: "p", text: "**วิธีเพิ่มอัตรา:**" },
       { type: "list", items: ["{medicalSatchels}: +10% อัตราการช่วยเหลือ", "{rescueOrders}: +1% ต่อชิ้น สูงสุด +50%"]},
       { type: "callout", text: "⚠️ **สำคัญ:** ทุกคนต้องแลกเปลี่ยน {rescueOrders} ในแชทพันธมิตรก่อนหมดเวลา!" }
+    ,
+      // 📢 Nov 9 TG3 → TG5 push plan (for that KvK only)
+      {"type":"h","id":"kvk-push","text":"📢 แผนดัน KvK: TG3 ➡️ TG5 (9 พฤศจิกายน)"},
+      {"type":"callout","text":"**ใช้เมื่อไหร่:** เฉพาะ KvK ครั้งแรกหลังวันที่ 9 พฤศจิกายน 2026 ที่สิ่งปลูกสร้างอัปจาก TG3 เป็น TG5 ได้ จะร่วมหรือไม่ก็ได้ เลือกแผนที่เหมาะกับทรัพยากรและไอเทมเร่งสปีดที่เก็บไว้ เวลาและคะแนนด้านล่างคิดจากบัญชีที่เกือบเต็มทุกอย่าง"},
+      {"type":"p","text":"ตั้งแต่ 9 พฤศจิกายน อัปสิ่งปลูกสร้างจาก TG3 เป็น TG5 ได้ ช่วงการเตรียมตัวของ KvK ครั้งถัดไปจะเริ่มหลังจากนั้น ดังนั้น **เก็บการอัปเกรดเหล่านี้ไว้จนกว่า KvK จะเริ่ม** — ตอนนั้นเท่านั้นที่จะได้คะแนนให้พันธมิตร"},
+      {"type":"sub","text":"🔹 แผน 1: สิ่งปลูกสร้างหลัก 3 หลัง ({townCenter}, {embassy}, {stable})"},
+      {"type":"list","items":["คะแนน KvK: 10,625,047 ต่อคน","ทรัพยากร: ~892 ล้าน {wood} / {bread}, 173 ล้าน {stone}, 44 ล้าน {iron}, 4,055 {truegold}","เวลา: 58 วัน (หลังปรับแล้ว)"]},
+      {"type":"sub","text":"🔹 แผน 2: 5 หลัง ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+      {"type":"list","items":["คะแนน KvK: 19,545,005 ต่อคน","ทรัพยากร: ~1,570 ล้าน {wood} / {bread}, 311 ล้าน {stone}, 78 ล้าน {iron}, 7,980 {truegold}","เวลา: 82 วัน (หลังปรับแล้ว)"]},
+      {"type":"sub","text":"🔹 แผน 3: ครบทั้ง 7 หลัง ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+      {"type":"list","items":["คะแนน KvK: 22,247,410 ต่อคน","ทรัพยากร: ~1,950 ล้าน {wood} / {bread}, 388 ล้าน {stone}, 96 ล้าน {iron}, 9,210 {truegold}","เวลา: 88 วัน (หลังปรับแล้ว)"]},
+      {"type":"sub","text":"⚙️ ตัวเลขเหล่านี้คิดจากอะไร"},
+      {"type":"p","text":"บัญชีที่เกือบเต็มทุกอย่าง: สปีดการสร้างพื้นฐาน 80.2%, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), การแต่งตั้ง {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} และ {doubleTime} ถ้าโบนัสน้อยกว่านี้ เวลาจะนานขึ้น"},
+      {"type":"sub","text":"⚠️ ช่วง 5 นาที"},
+      {"type":"p","text":"{constructionAide} ({grayWolf}, +15%) และ {doubleTime} (+20%) อยู่ได้แค่ 5 นาที เมื่อเริ่มนับคะแนน KvK ให้ใช้ไอเทมเร่งสปีดทั้งหมดภายใน 5 นาทีนั้น เปิดแท็บเร่งสปีดในกระเป๋ารอไว้แล้วกดให้เร็ว"},
+      {"type":"sub","text":"🛑 เริ่มตอนนี้เลย"},
+      {"type":"list","items":["1️⃣ เก็บทรัพยากร: {wood}, {bread}, {stone}, {iron} และ {truegold} ออกไปเก็บทรัพยากรต่อเนื่องและใช้บัฟการเก็บทรัพยากร","2️⃣ เก็บไอเทมเร่งสปีด: เก็บไว้ทั้งหมดสำหรับเวลาเหล่านี้","3️⃣ รอก่อน: ให้สิ่งปลูกสร้างเหล่านี้อยู่ที่ TG3 จนกว่าการนับคะแนน KvK จะเริ่มอย่างเป็นทางการ แล้วดันพร้อมกันเพื่อยึดกระดานผู้นำ"]}
     ]},
     ar: { title: "دليل استعداد وقتال KvK (حقبة Gen 3)", blocks: [
+      {"type":"jump","to":"kvk-push","text":"📢 9 نوفمبر: خطة الدفع من TG3 ➡️ TG5 (لـ KvK القادم فقط) — انتقل إليها"},
       { type: "checklist", days: [1, 2, 3, 4, 5],
         rows: [
           { label: "{truegold}", icons: ["✅", "<span class=\"chk-ok\">OK</span>", "🚫", "🚫", "✅"] },
@@ -8861,6 +9070,23 @@ const GUIDES = {
       { type: "p", text: "**كيفية زيادته:**" },
       { type: "list", items: ["{medicalSatchels}: +10% معدل إنقاذ", "{rescueOrders}: +1% لكل واحد، حتى +50%"]},
       { type: "callout", text: "⚠️ **مهم:** يجب على الجميع تبادل {rescueOrders} في دردشة التحالف قبل انتهاء المؤقت!" }
+    ,
+      // 📢 Nov 9 TG3 → TG5 push plan (for that KvK only)
+      {"type":"h","id":"kvk-push","text":"📢 خطة الدفع في KvK: من TG3 ➡️ TG5 (9 نوفمبر)"},
+      {"type":"callout","text":"**متى تنطبق:** فقط في أول KvK بعد 9 نوفمبر 2026، حين يمكن ترقية المباني من TG3 إلى TG5. المشاركة اختيارية: اختر الخيار الذي يناسب ما ادخرته من الموارد وعناصر التسريع. الأوقات والنقاط أدناه محسوبة لحساب شبه مكتمل."},
+      {"type":"p","text":"ابتداءً من 9 نوفمبر يمكنك ترقية المباني من TG3 إلى TG5. تبدأ مرحلة التحضير لـ KvK القادم بعد ذلك بفترة، لذا **احتفظ بهذه الترقيات حتى يبدأ KvK** — عندها فقط تُحتسب نقاطها للتحالف."},
+      {"type":"sub","text":"🔹 الخيار 1: المباني الأساسية الثلاثة ({townCenter}، {embassy}، {stable})"},
+      {"type":"list","items":["نقاط KvK: ‏10,625,047 لكل لاعب","الموارد: ~892 مليون {wood} / {bread}، و173 مليون {stone}، و44 مليون {iron}، و4,055 {truegold}","الوقت: 58 يومًا (بعد التعديل)"]},
+      {"type":"sub","text":"🔹 الخيار 2: خمسة مبانٍ ({townCenter}، {embassy}، {stable}، {barracks}، {range})"},
+      {"type":"list","items":["نقاط KvK: ‏19,545,005 لكل لاعب","الموارد: ~1.57 مليار {wood} / {bread}، و311 مليون {stone}، و78 مليون {iron}، و7,980 {truegold}","الوقت: 82 يومًا (بعد التعديل)"]},
+      {"type":"sub","text":"🔹 الخيار 3: جميع المباني السبعة ({townCenter}، {embassy}، {stable}، {barracks}، {range}، {infirmary}، {commandCenter})"},
+      {"type":"list","items":["نقاط KvK: ‏22,247,410 لكل لاعب","الموارد: ~1.95 مليار {wood} / {bread}، و388 مليون {stone}، و96 مليون {iron}، و9,210 {truegold}","الوقت: 88 يومًا (بعد التعديل)"]},
+      {"type":"sub","text":"⚙️ ما تفترضه هذه الأرقام"},
+      {"type":"p","text":"حساب شبه مكتمل: سرعة البناء الأساسية 80.2%، و{pan} Lv.5 ({masterArchitect})، و{saul} Lv.5 ({resourceful})، وتعيين {chiefMinister}، و{grayWolf} Lv.5 ({constructionAide})، و{groundWorks}، و{kopBonus}، و{doubleTime}. إذا كانت مكافآتك أقل، فستكون أوقاتك أطول."},
+      {"type":"sub","text":"⚠️ نافذة الدقائق الخمس"},
+      {"type":"p","text":"يدوم {constructionAide} ({grayWolf}، +15%) و{doubleTime} (+20%) خمس دقائق فقط. عندما يبدأ احتساب نقاط KvK، استخدم كل عناصر التسريع خلال هذه الدقائق الخمس. افتح صفحة عناصر التسريع في حقيبة الظهر مسبقًا واضغط بسرعة."},
+      {"type":"sub","text":"🛑 ابدأ الآن"},
+      {"type":"list","items":["1️⃣ ادّخر الموارد: {wood} و{bread} و{stone} و{iron} و{truegold}. واصل الجمع واستخدم معززات الجمع.","2️⃣ ادّخر عناصر التسريع: احتفظ بكل عناصر التسريع لهذه المؤقتات.","3️⃣ انتظر: أبقِ هذه المباني على TG3 حتى يبدأ احتساب نقاط KvK رسميًا، ثم ارفعوها معًا لتتصدروا لوحة الصدارة."]}
     ]}
   }
 },

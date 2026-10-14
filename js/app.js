@@ -355,7 +355,9 @@ function hcSet(k, v) {
 }
 
 const BLOCKS = {
-  h: (b) => `<h3 class="section-h">${rich(b.text)}</h3>`,
+  h: (b) => `<h3 class="section-h"${b.id ? ` id="sec-${escapeHtml(b.id)}"` : ""}>${rich(b.text)}</h3>`,
+  /* a button that scrolls to a heading with that id in the same guide (the hash is used for routing, so no #anchor links) */
+  jump: (b) => `<button type="button" class="guide-link-btn jump-btn" onclick="(document.getElementById('sec-${escapeHtml(b.to)}')||{}).scrollIntoView&&document.getElementById('sec-${escapeHtml(b.to)}').scrollIntoView({behavior:'smooth',block:'start'})"><span dir="auto">${rich(b.text)}</span><span class="arrow">›</span></button>`,
   sub: (b) => `<h4 class="sub-h">${rich(b.text)}</h4>`,
   p: (b) => `<p>${rich(b.text)}</p>`,
   list: (b) => ul(b.items),
