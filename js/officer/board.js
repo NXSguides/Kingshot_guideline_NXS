@@ -67,13 +67,14 @@ function renderList() {
 const av = (u) => u.avatar ? `<img src="${esc(u.avatar)}" alt="">` : `<span class="bd-av">${esc((u.name || "?").slice(0, 1))}</span>`;
 function postHtml(p, i) {
   const me = OFFICER.user && p.by.id === OFFICER.user.id, isDec = cur.dec === p.id, src = p.txt.src;
-  const translated = !!p.txt[lang], showOrig = openOrig.has(p.id);
+  const translated = !!p.txt[lang] && p.txt[lang] !== p.txt.orig, showOrig = openOrig.has(p.id);
+  const dbg = `src=${src || "?"} · ${["zh", "en", "pt"].map((l) => l + (p.txt[l] ? (p.txt[l] === p.txt.orig ? "=orig" : " ✓") : " ✗")).join(" · ")}`;
   const sameLang = src === lang || (!translated && !p.txt.en && !p.txt.zh && !p.txt.pt);
   const body = editing === p.id
     ? `${i === 0 ? `<input class="inp" data-edtitle value="${esc(cur.title.orig)}" maxlength="120" style="margin:8px 0 6px">` : ""}<textarea class="inp" data-edtext rows="4" maxlength="4000" style="margin-top:8px;resize:vertical">${esc(p.txt.orig)}</textarea>
        <div class="bd-acts"><button class="btn primary" data-save="${esc(p.id)}">${esc(t("save"))}</button><button class="btn" data-cancel>${esc(t("cancel"))}</button></div>`
     : `<div class="bd-text">${linkify(esc(pick(p.txt)))}</div>
-       ${!translated && !(src === lang) && !p.txt.en ? `<div class="bd-warn">${esc(t("noTr"))}${p.txt.err ? `<br><span class="muted">${esc(p.txt.err)}</span>` : ""}</div>` : ""}
+       ${!translated && !(src === lang) ? `<div class="bd-warn">${esc(t("noTr"))}<br><span class="muted">${esc(dbg)}${p.txt.err ? " · " + esc(p.txt.err) : ""}</span></div>` : ""}
        ${!sameLang && translated ? `<button class="bd-link" data-orig="${esc(p.id)}">${esc(showOrig ? t("hideOrig") : t("orig"))}</button>` : ""}
        ${showOrig && !sameLang ? `<div class="bd-orig"><div class="muted" style="font-size:12px">${esc(t("origLang", { l: LANG_LABEL[src] || src || "?" }))}</div>${linkify(esc(p.txt.orig))}</div>` : ""}
        <div class="bd-acts">
@@ -129,6 +130,7 @@ $("bd_newPost").onclick = async () => {
   try {
     const j = await api("new", { title, text });
     $("bd_newTitle").value = ""; $("bd_newText").value = ""; $("bd_newForm").hidden = true; m.textContent = "";
+    if (!j.translated) $("bd_replyMsg").textContent = t("noTr") + " " + (j.topic.posts[0].txt.err || "");
     cur = j.topic; location.hash = "#board?t=" + j.topic.id;
   } catch (e) { m.textContent = t("err", { e: e.message }); }
   $("bd_newPost").disabled = false;
@@ -138,7 +140,8 @@ $("bd_replyPost").onclick = async () => {
   if (!text || !cur) return;
   $("bd_replyPost").disabled = true; m.textContent = t("sending");
   try {
-    cur = (await api("reply", { id: cur.id, text })).topic; $("bd_replyText").value = ""; m.textContent = ""; renderTopic();
+    const j = await api("reply", { id: cur.id, text }); cur = j.topic; $("bd_replyText").value = ""; renderTopic();
+    m.textContent = j.translated ? "" : t("noTr") + " " + (cur.posts[cur.posts.length - 1].txt.err || "");
     const last = cur.posts[cur.posts.length - 1]; if (last) $("bdp-" + last.id).scrollIntoView({ behavior: "smooth", block: "center" });
   } catch (e) { m.textContent = t("err", { e: e.message }); }
   $("bd_replyPost").disabled = false;
