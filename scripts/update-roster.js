@@ -101,6 +101,7 @@ function findRows(o, depth = 0) {
       rank: m.alliance_rank_label || (m.alliance_rank != null ? `R${m.alliance_rank}` : ""),
       lastActive: pl.last_active_at ?? m.last_active_at ?? null,
       mystic: r.mystic_trial ?? null,
+      migrant: r.migrant_score ?? null,   // the game's migration score ≈ Squad Power × 317 (checked on all 98 members, 2026-10-14)
       mysticRank: r.mystic_rank ?? null,
       asOf: ok && p.body.cached_at ? p.body.cached_at : null,
       // extra fields for the Watch tab
