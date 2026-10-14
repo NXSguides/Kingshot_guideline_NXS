@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-14j (timer lists: only changed rows are written)";
+const VERSION = "2026-10-14k (board: reading works even when writing is refused)";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -879,14 +879,18 @@ async function boardRoute(env, ctx, stub, user, body, token) {
   // polls: nothing changed since the page last looked → answer without touching the Durable Object
   const since = +body.since || 0, stamp = await boardStamp(env);
   if ((op === "list" || op === "get") && since && stamp && stamp <= since) return ok({ unchanged: true, stamp });
-  if (op !== "list" && op !== "get" || body.first) await stub.boardUser(by, lang);   // name + language (for @ pickers and notifications): on writes and on the first look of a visit
+  // name + language (for @ pickers and notifications): on writes and on the first look of a visit. Reading must still work when
+  // writing is impossible (daily write allowance used up), so a failure here is ignored
+  if (op !== "list" && op !== "get" || body.first) { try { await stub.boardUser(by, lang); } catch (e) {} }
   const ids = (v) => (Array.isArray(v) ? v : []).map(String).filter((x) => /^\d{17,20}$/.test(x)).slice(0, 20);
   const metaOf = (b, old) => { const m = { m: ids(b.mentions), to: ids(b.to) }; if (old && old.done) m.done = old.done; return m.m.length || m.to.length || m.done ? m : null; };
   const str = (v, max) => String(v || "").replace(/\r/g, "").trim().slice(0, max);
   const notify = (t, tx, meta) => { const p = stub.boardNotify(user.id, t.id, t.title, user.name, tx, meta); if (ctx && ctx.waitUntil) ctx.waitUntil(p); };
   if (op === "list") return ok({ topics: await stub.boardList(), users: await stub.boardUsers(), tasks: await stub.boardTasks(user.id), stamp: stamp || await boardTouch(env) });
   if (op === "get") { const t = await stub.boardThread(String(body.id || "")); return t ? ok({ topic: t, stamp: stamp || await boardTouch(env) }) : json({ error: "gone", token }, 404); }
-  if (op === "new") {
+  // writes: when the database refuses (allowance used up), say so clearly — the page keeps the text so nothing is lost
+  const write = async (fn) => { try { return await fn(); } catch (e) { return json({ error: /limit|exceed|quota|allow/i.test(String(e && e.message)) ? "db_limit" : "db", detail: [String(e && e.message || e)] }, 503); } };
+  if (op === "new") return write(async () => {
     const title = str(body.title, 120), text = str(body.text, 4000);
     if (!title || !text) return json({ error: "empty" }, 400);
     const tr = await boardTranslate(env, title, text);
@@ -894,8 +898,8 @@ async function boardRoute(env, ctx, stub, user, body, token) {
     const t = await stub.boardNew(rid(), tr.title, by, rid(), tr.text, meta);
     notify(t, tr.text, meta);
     return ok({ topic: t, translated: tr.ok, stamp: await boardTouch(env) });
-  }
-  if (op === "reply") {
+  });
+  if (op === "reply") return write(async () => {
     const text = str(body.text, 4000);
     if (!text) return json({ error: "empty" }, 400);
     const tr = await boardTranslate(env, "", text);
@@ -904,13 +908,13 @@ async function boardRoute(env, ctx, stub, user, body, token) {
     if (!t) return json({ error: "gone" }, 404);
     notify(t, tr.text, meta);
     return ok({ topic: t, translated: tr.ok, stamp: await boardTouch(env) });
-  }
+  });
   const p = body.post ? await stub.boardPost(String(body.post)) : null;
-  if (op === "done") {   // ✅ tick / untick a task (anyone may; the name of who ticked is kept)
+  if (op === "done") return write(async () => {   // ✅ tick / untick a task (anyone may; the name of who ticked is kept)
     if (!p) return json({ error: "gone" }, 404);
     return ok({ topic: await stub.boardDone(p.id, user.id, !!body.on), stamp: await boardTouch(env) });
-  }
-  if (op === "edit" || op === "del") {
+  });
+  if (op === "edit" || op === "del") return write(async () => {
     if (!p) return json({ error: "gone" }, 404);
     if (p.by.id !== user.id) return json({ error: "not_yours" }, 403);
     if (op === "del") return ok({ ...(await stub.boardDelete(p.id)), stamp: await boardTouch(env) });
@@ -919,11 +923,11 @@ async function boardRoute(env, ctx, stub, user, body, token) {
     const tr = await boardTranslate(env, title, text);
     const meta = body.mentions || body.to ? metaOf(body, p.meta) : p.meta;
     return ok({ topic: await stub.boardEdit(p.id, tr.text, title ? tr.title : null, meta), translated: tr.ok, stamp: await boardTouch(env) });
-  }
-  if (op === "decide") {   // 📌 any officer can mark (or clear) the decision of a topic
+  });
+  if (op === "decide") return write(async () => {   // 📌 any officer can mark (or clear) the decision of a topic
     const t = await stub.boardDecide(String(body.id || ""), p ? p.id : null, by);
     return t ? ok({ topic: t, stamp: await boardTouch(env) }) : json({ error: "gone" }, 404);
-  }
+  });
   return json({ error: "bad op" }, 400);
 }
 
