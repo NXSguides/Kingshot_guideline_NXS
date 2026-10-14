@@ -1,3 +1,11 @@
 {
- "kingdoms": []
+ "kingdoms": [
+  {
+   "kid": 2189,
+   "auto": false
+  }
+ ],
+ "requested": [
+  2189
+ ]
 }
