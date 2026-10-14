@@ -733,7 +733,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 @keyframes jumpflash { 0%, 30% { box-shadow: 0 0 0 4px var(--accent); } 100% { box-shadow: 0 0 0 4px transparent; } }
 
 /* ✅ Daily checklist card (General Tips) — tick per device, cleared at 00:00 UTC */
-.daily-card { border: 1px solid var(--rule); border-radius: 12px; background: var(--panel); box-shadow: 0 8px 24px var(--shadow); padding: 14px 16px; margin: 6px 0 18px; }
+.daily-card { scroll-margin-top: 12px; border: 1px solid var(--rule); border-radius: 12px; background: var(--panel); box-shadow: 0 8px 24px var(--shadow); padding: 14px 16px; margin: 6px 0 18px; }
 .daily-card .dl-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-size: 16px; }
 .daily-card .dl-count { font-weight: 700; color: var(--accent); white-space: nowrap; }
 .daily-card .dl-bar { height: 6px; border-radius: 6px; background: var(--panel-2); margin: 8px 0 4px; overflow: hidden; }

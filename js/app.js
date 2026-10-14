@@ -1131,7 +1131,7 @@ function dailyHintHtml() {
   const g = GUIDES[DAILY_GUIDE], s = g && (g.sections[currentLang] || g.sections.en), d = s && dailySection(s);
   if (!d) return "";
   const st = dailyState(), done = Object.keys(st.done).filter((k) => +k < d.total).length;
-  return `<button type="button" class="kvk-plan-link" id="dailyHint" onclick="switchGuide('${DAILY_GUIDE}');window.scrollTo({top:0,behavior:'smooth'})" dir="auto">${escapeHtml(t(DAILY_TXT.hint))} · ${done}/${d.total} ›</button>`;
+  return `<button type="button" class="kvk-plan-link" id="dailyHint" onclick="switchGuide('${DAILY_GUIDE}');setTimeout(()=>{const c=document.getElementById('dailyCard');if(c)c.scrollIntoView({behavior:'smooth',block:'start'})},60)" dir="auto">${escapeHtml(t(DAILY_TXT.hint))} · ${done}/${d.total} ›</button>`;
 }
 
 /* Grouped events (Swordland roles, Tri-Alliance teams): buttons that jump to your group's part of the guide.
