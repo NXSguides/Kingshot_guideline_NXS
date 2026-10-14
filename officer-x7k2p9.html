@@ -305,9 +305,27 @@
   .vw-row i { display: block; height: 3px; background: var(--accent); border-radius: 2px; margin-top: 3px; opacity: .7; }
   .shbar { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; align-items: center; }
   .shbar .btn { white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; height: 36px; box-sizing: border-box; padding-top: 0; padding-bottom: 0; line-height: 1; font-family: inherit; }   /* link, select and buttons: one height */
+  /* 👥 officer rights */
+  #pg-perms .pm-wrap { overflow-x: auto; }
+  #pg-perms .pm-tbl { border-collapse: collapse; font-size: 13px; min-width: 100%; }
+  #pg-perms .pm-tbl th, #pg-perms .pm-tbl td { padding: 6px 6px; text-align: center; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+  #pg-perms .pm-tbl tbody th { text-align: left; font-weight: 700; }
+  #pg-perms .pm-tbl tr.pv th { color: var(--accent); }
+  #pg-perms .pm-adm { font-size: 11px; font-weight: 600; color: var(--accent); }
+  #pg-perms .pm-sel { padding: 4px 6px; font-size: 12.5px; }
+  #pg-perms .pm-acts { white-space: nowrap; } #pg-perms .pm-acts .btn { margin-left: 4px; }
+  /* 👁️ view only: the tab is shown but nothing can be changed */
+  .pg.readonly::before { content: attr(data-ro); display: block; margin: 0 0 10px; padding: 8px 12px; border-radius: 10px; font-size: 13px; background: color-mix(in srgb, var(--accent) 12%, var(--panel)); border: 1px solid var(--accent); }
+  .pg.readonly .btn.primary, .pg.readonly .inp, .pg.readonly textarea, .pg.readonly select:not(#langBtn), .pg.readonly input:not([type="search"]),
+  .pg.readonly [data-edit], .pg.readonly [data-edtodo], .pg.readonly [data-del], .pg.readonly [data-rm], .pg.readonly [data-save], .pg.readonly [data-dec], .pg.readonly [data-pv],
+  .pg.readonly button[id$="Save"], .pg.readonly button[id$="save"], .pg.readonly button[id$="Btn"]:not([id$="reloadBtn"]) { pointer-events: none; opacity: .45; }
   /* 💬 board */
   #pg-board .bd-topic { display: block; text-decoration: none; color: inherit; }
   #pg-board .bd-topic:hover { border-color: var(--accent); }
+  #pg-board .bd-topic.unread { border-color: color-mix(in srgb, #e53935 55%, var(--rule)); }
+  #pg-board .bd-dot, .tabs a.dot::after { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #e53935; box-shadow: 0 0 0 2px var(--panel); vertical-align: middle; }
+  #pg-board .bd-dot { margin-right: 6px; }
+  .tabs a.dot { position: relative; } .tabs a.dot::after { content: ""; position: absolute; top: 6px; right: 4px; }
   #pg-board .bd-topic h3 { margin: 0 0 4px; font-size: 16px; }
   #pg-board .bd-topic .muted { font-size: 12.5px; }
   #pg-board .bd-badge { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 22%, var(--panel)); border: 1px solid var(--accent); margin-left: 6px; vertical-align: middle; font-weight: 600; }
@@ -457,6 +475,7 @@
     <a href="#scout" data-tab="scout">🔭 Scout</a>
     <a href="#views" data-tab="views">📈 Views</a>
     <a href="#board" data-tab="board" id="boardTab" hidden>💬 Board</a>
+    <a href="#perms" data-tab="perms" id="permsTab" hidden>👥 Officers</a>
   </nav>
   <div id="gate" class="card" hidden style="max-width:360px;margin:24px auto">
     <a class="btn" id="gateDiscord" href="#" style="display:block;text-align:center;width:100%;box-sizing:border-box;padding:12px;background:#5865F2;border-color:#5865F2;color:#fff;font-weight:700;text-decoration:none"></a>
@@ -926,6 +945,14 @@
     </div>
   </div>
 </section>
+<section class="pg" id="pg-perms" hidden>
+  <div class="top"><div><h1 id="pm_title"></h1><div class="muted" id="pm_sub"></div></div></div>
+  <div class="card msg warn" id="pm_trial" style="font-size:13px"></div>
+  <div class="card msg warn" id="pm_preview" hidden style="font-size:13px"></div>
+  <div class="card"><div class="pm-wrap" id="pm_tbl"></div><div class="muted" id="pm_adminNote" style="margin-top:8px;font-size:12.5px"></div><div class="msg" id="pm_msg"></div></div>
+  <div class="card"><h3 id="pm_addH" style="margin:0 0 8px"></h3><div class="row"><input class="inp" id="pm_name" style="width:140px"><input class="inp" id="pm_id" inputmode="numeric" style="width:220px"><button class="btn primary" id="pm_addBtn"></button></div>
+    <div class="row" style="margin-top:10px"><button class="btn small" id="pm_reset"></button></div></div>
+</section>
 <section class="pg" id="pg-views" hidden>
   <div class="top">
     <div>
@@ -974,6 +1001,7 @@
 <script src="js/officer/map.js"></script>
 <script src="js/officer/bt.js"></script>
 <script src="js/officer/board.js"></script>
+<script src="js/officer/perms.js"></script>
 <script>officerGate();</script>
 <script src="js/assistant.js"></script>
 <script src="js/timers.js"></script>

@@ -36,6 +36,18 @@ const BD = {
 };
 const LANG_LABEL = { zh: "中文", en: "English", pt: "Português", ko: "한국어", de: "Deutsch", fr: "Français", es: "Español", tr: "Türkçe", id: "Bahasa Indonesia", ru: "Русский", th: "ไทย", ar: "العربية", ja: "日本語" };
 let lang = OFFICER.lang, topics = [], cur = null, timer = null, openOrig = new Set(), armed = null, editing = null;
+/* 🔴 unread: the last time each topic was opened on this device (localStorage); a topic changed after that gets a dot,
+   and the 💬 Board tab gets one when any topic does. Push notifications already add the red badge on the app icon. */
+const SEEN_LS = "nxs-board-seen";
+const seen = (() => { try { return JSON.parse(localStorage.getItem(SEEN_LS)) || {}; } catch (e) { return {}; } })();
+const saveSeen = () => { try { localStorage.setItem(SEEN_LS, JSON.stringify(seen)); } catch (e) {} };
+const unread = (x) => x.last > (seen[x.id] || 0) && !(OFFICER.user && x.lastBy === OFFICER.user.id);
+function markSeen(id, at) { seen[id] = Math.max(seen[id] || 0, at || Date.now()); saveSeen(); tabDot(); }
+function tabDot(n) {
+  const a = document.getElementById("boardTab"); if (!a) return;
+  if (n == null) n = topics.filter(unread).length;
+  a.classList.toggle("dot", n > 0);
+}
 const t = (k, v = {}) => String((BD[lang] || BD.en)[k] ?? BD.en[k] ?? k).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
 const esc = OFFICER.util.esc;
 const linkify = (h) => h.replace(/https?:\/\/[^\s<]+/g, (u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
@@ -59,8 +71,9 @@ function applyTexts() {
   $("bd_replyText").placeholder = t("replyPh"); $("bd_replyPost").textContent = t("reply");
 }
 function renderList() {
-  $("bd_list").innerHTML = topics.length ? topics.map((x) => `<a class="card bd-topic" href="#board?t=${esc(x.id)}">
-      <h3>${esc(pick(x.title))}${x.dec ? `<span class="bd-badge">${esc(t("decided"))}</span>` : ""}</h3>
+  tabDot();
+  $("bd_list").innerHTML = topics.length ? topics.map((x) => `<a class="card bd-topic${unread(x) ? " unread" : ""}" href="#board?t=${esc(x.id)}">
+      <h3>${unread(x) ? '<span class="bd-dot"></span>' : ""}${esc(pick(x.title))}${x.dec ? `<span class="bd-badge">${esc(t("decided"))}</span>` : ""}</h3>
       <div class="muted">${esc(t("by", { name: x.by.name }))} · ${esc(t("replies", { n: x.n }))} · ${esc(t("last", { t: when(x.last) }))}</div></a>`).join("")
     : `<div class="card muted">${esc(t("empty"))}</div>`;
 }
@@ -99,7 +112,7 @@ async function loadList(quiet) {
 }
 async function loadTopic(id, quiet) {
   if (!quiet) { $("bd_posts").innerHTML = `<div class="muted">${esc(t("loading"))}</div>`; $("bd_tTitle").textContent = ""; $("bd_decision").innerHTML = ""; }
-  try { cur = (await api("get", { id })).topic; if (editing && !quiet) editing = null; if (!editing) renderTopic(); }
+  try { cur = (await api("get", { id })).topic; if (editing && !quiet) editing = null; if (!editing) renderTopic(); markSeen(cur.id, cur.last); const tp = topics.find((x) => x.id === cur.id); if (tp) tp.last = cur.last; }
   catch (e) { if (e.code === "gone") { $("bd_posts").innerHTML = `<div class="card">${esc(t("gone"))}</div>`; cur = null; } else if (!quiet) $("bd_posts").innerHTML = `<div class="card msg warn">${esc(t("err", { e: e.message }))}</div>`; }
 }
 function showLogin() { $("bd_login").hidden = false; $("bd_app").hidden = true; }
@@ -131,7 +144,7 @@ $("bd_newPost").onclick = async () => {
     const j = await api("new", { title, text });
     $("bd_newTitle").value = ""; $("bd_newText").value = ""; $("bd_newForm").hidden = true; m.textContent = "";
     if (!j.translated) $("bd_replyMsg").textContent = t("noTr") + " " + (j.topic.posts[0].txt.err || "");
-    cur = j.topic; location.hash = "#board?t=" + j.topic.id;
+    cur = j.topic; markSeen(cur.id, cur.last); location.hash = "#board?t=" + j.topic.id;
   } catch (e) { m.textContent = t("err", { e: e.message }); }
   $("bd_newPost").disabled = false;
 };
@@ -140,7 +153,7 @@ $("bd_replyPost").onclick = async () => {
   if (!text || !cur) return;
   $("bd_replyPost").disabled = true; m.textContent = t("sending");
   try {
-    const j = await api("reply", { id: cur.id, text }); cur = j.topic; $("bd_replyText").value = ""; renderTopic();
+    const j = await api("reply", { id: cur.id, text }); cur = j.topic; markSeen(cur.id, cur.last); $("bd_replyText").value = ""; renderTopic();
     m.textContent = j.translated ? "" : t("noTr") + " " + (cur.posts[cur.posts.length - 1].txt.err || "");
     const last = cur.posts[cur.posts.length - 1]; if (last) $("bdp-" + last.id).scrollIntoView({ behavior: "smooth", block: "center" });
   } catch (e) { m.textContent = t("err", { e: e.message }); }
@@ -170,6 +183,9 @@ $("bd_posts").addEventListener("click", async (ev) => {
 });
 function alertMsg(e) { $("bd_replyMsg").textContent = t("err", { e: e.message }); }
 function init() { applyTexts(); poll(); }
+/* the tab's dot is kept fresh even while another tab is open (once a minute) */
+async function dotCheck() { if (document.hidden || !token() || !OFFICER.user) return; try { topics = (await api("list")).topics; tabDot(); if (!ROOT.hidden && !topicId()) renderList(); } catch (e) {} }
+setInterval(dotCheck, 60000); setTimeout(dotCheck, 3000);
 function onShow() { route(); }
 function setLang(l) { lang = l; applyTexts(); if (!ROOT.hidden) { if (cur && topicId()) renderTopic(); else renderList(); } }
 OFFICER_PAGES.board = { init, onShow, applyTexts, setLang };

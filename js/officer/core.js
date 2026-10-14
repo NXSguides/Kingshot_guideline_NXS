@@ -64,11 +64,38 @@ OFFICER.util = {
   b64ToUtf8: (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\s/g, "")), (c) => c.charCodeAt(0))),
   utf8ToB64: (str) => { const u = new TextEncoder().encode(str); let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); },
 };
-/* 👥 permissions (next step: a per-officer table set on the page). For now every unlocked officer may edit every tab;
-   tabs ask OFFICER.can(tab, "edit") before showing their save buttons, so switching the table on later is one change here. */
-OFFICER.can = (tab, what = "view") => true;
+/* 👥 permissions — FIRST VERSION: the officer table is kept on this device (localStorage) so the 👥 tab and its effect
+   can be tried. Final goal: the Worker keeps this table next to the Discord login and checks it on every save; then
+   loadPerms/savePerms talk to the Worker and nothing else here changes.
+   Rights per tab: "edit" | "view" | "none". Admins (ADMINS) always have everything and are the only ones who see 👥.
+   Someone who unlocked with the password only (no Discord) is not in the table → everything, as before. */
+OFFICER.ADMINS = ["1547403844374368327", "1240788094672834623", "762827904341246013"];   // Sparrow, R5, Nia (Discord user IDs)
+OFFICER.PERM_TABS = ["events", "map", "ranking", "post", "watch", "scout", "views", "board", "bt"];
+OFFICER.defaultPerms = () => Object.fromEntries(OFFICER.PERM_TABS.map((k) => [k, k === "events" ? "view" : "none"]));   // new officer: Events, view only
+const PERMS_LS = "nxs-perms-v1";
+OFFICER.resetPerms = () => { OFFICER.perms = { v: 1, users: { "1547403844374368327": { name: "Sparrow", perms: {} }, "1240788094672834623": { name: "R5", perms: {} }, "762827904341246013": { name: "Nia", perms: {} } } }; };
+OFFICER.loadPerms = () => { try { const p = JSON.parse(localStorage.getItem(PERMS_LS)); if (p && p.users) { OFFICER.perms = p; return; } } catch (e) {} OFFICER.resetPerms(); };
+OFFICER.savePerms = () => { try { localStorage.setItem(PERMS_LS, JSON.stringify(OFFICER.perms)); } catch (e) {} };
+OFFICER.loadPerms();
+OFFICER.previewAs = null;   // an admin can look at the page with another officer's rights (👥 tab → "Preview as")
+OFFICER.isAdmin = () => !!OFFICER.user && OFFICER.ADMINS.includes(OFFICER.user.id);   // the real person (a preview never hides the 👥 tab)
+OFFICER.can = (tab, what = "view") => {
+  const uid = OFFICER.previewAs || (OFFICER.user && OFFICER.user.id);
+  if (tab === "perms") return OFFICER.isAdmin();
+  if (!uid) return true;                                              // password-only officer: unchanged for now
+  if (OFFICER.ADMINS.includes(uid)) return true;
+  const u = OFFICER.perms.users[uid], lv = (u && u.perms && u.perms[tab]) || (u ? "none" : "edit");   // Discord user not in the table yet → everything
+  return what === "edit" ? lv === "edit" : lv !== "none";
+};
+/* tab list + read-only look follow the rights (called after login, after a change on the 👥 tab, and when previewing) */
+OFFICER.applyPerms = () => {
+  document.querySelectorAll(".tabs a[data-tab]").forEach((a) => { const k = a.dataset.tab; a.hidden = k === "board" ? !(OFFICER.user && OFFICER.can("board")) : !OFFICER.can(k, "view"); });
+  const ro = { zh: "👁️ 這個分頁你只能看，不能修改。", en: "👁️ View only: you can look at this tab but not change it.", pt: "👁️ Só leitura: você pode ver esta aba, mas não mudar nada." }[OFFICER.lang] || "";
+  for (const k of TABS) { const pg = document.getElementById("pg-" + k); if (pg) { pg.classList.toggle("readonly", !OFFICER.can(k, "edit")); pg.dataset.ro = ro; } }
+  if (!OFFICER.can(currentTab(), "view")) location.hash = "#" + (TABS.find((k) => OFFICER.can(k, "view")) || "events");
+};
 const OFFICER_PAGES = {};
-const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "bt", "board"];
+const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "bt", "board", "perms"];
 const inited = {};
 try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
 const SH = { pt: {"home": "Início", "pw": "🔒 Senha dos oficiais", "remember": "Lembrar neste aparelho", "unlock": "Desbloquear", "wrong": "Senha errada", "loading": "Carregando…", "discord": "Entrar com o Discord", "or": "— ou use a senha dos oficiais —", "out": "Sair", "inSmall": "🔑 Entrar com o Discord", "e_no_access": "Sua conta do Discord ainda não está na lista de oficiais. Fale com a Sparrow.", "e_not_member": "Entre primeiro no servidor do Discord da aliança e tente de novo.", "e_cancelled": "O login pelo Discord foi cancelado.", "e_expired": "Entre de novo, por favor.", "e_logged_out": "Entre de novo, por favor.", "e_discord": "Não foi possível conectar ao Discord — tente de novo.", "e_discord_unreachable": "Não foi possível conectar ao Discord — tente de novo.", "e_setup": "O login pelo Discord funcionou, mas o site ainda não está todo configurado. Use a senha dos oficiais por enquanto."},
@@ -109,7 +136,7 @@ function showMe() {
   document.getElementById("meIn").hidden = !DISCORD_TRY || !!u || document.getElementById("gate").hidden === false;
   document.getElementById("meIn").textContent = t.inSmall; document.getElementById("meIn").href = discordStart();
   document.getElementById("meOut").textContent = t.out;
-  document.getElementById("boardTab").hidden = !u;   // 💬 Board: only for people logged in with Discord
+  OFFICER.applyPerms();   // 💬 Board and 👥 Officers: only for people logged in with Discord
   if (!u) return;
   document.getElementById("meName").textContent = u.name;
   const av = document.getElementById("meAv"); av.hidden = !u.avatar; if (u.avatar) av.src = u.avatar;
@@ -175,10 +202,10 @@ function loadScripts(list) {
   }))), Promise.resolve());
 }
 /* tabs: #events / #ranking / #post / #watch (the part after "?" is kept for the page) */
-function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|scout|views|map|bt|board)/); return m ? m[1] : "events"; }
+function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|scout|views|map|bt|board|perms)/); return m ? m[1] : "events"; }
 async function showTab() {
   const k = currentTab();
-  document.querySelectorAll(".tabs a[data-tab]").forEach((a) => { if (a.id !== "boardTab") a.hidden = !OFFICER.can(a.dataset.tab, "view"); });
+  OFFICER.applyPerms();
   document.querySelectorAll(".tabs a").forEach((a) => a.classList.toggle("on", a.dataset.tab === k));
   for (const t of TABS) document.getElementById("pg-" + t).hidden = t !== k;
   const p = OFFICER_PAGES[k];

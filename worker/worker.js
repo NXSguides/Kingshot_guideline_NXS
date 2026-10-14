@@ -619,7 +619,9 @@ export class PushTimers extends DurableObject {
   /* ---- 💬 board ---- */
   boardLang(uid, lang) { if (lang) this.sql.exec(`INSERT OR REPLACE INTO bl VALUES (?, ?)`, uid, lang); }
   boardList() {
-    return [...this.sql.exec(`SELECT * FROM bt ORDER BY last DESC LIMIT 200`)].map((r) => ({ id: r.id, title: JSON.parse(r.title), by: JSON.parse(r.by), at: r.at, last: r.last, n: r.n, dec: r.dec || null }));
+    // lastBy = who wrote the newest message (the page shows no "unread" dot for your own)
+    return [...this.sql.exec(`SELECT t.*, (SELECT by FROM bp WHERE tid = t.id ORDER BY at DESC LIMIT 1) AS lb FROM bt t ORDER BY last DESC LIMIT 200`)]
+      .map((r) => ({ id: r.id, title: JSON.parse(r.title), by: JSON.parse(r.by), at: r.at, last: r.last, n: r.n, dec: r.dec || null, lastBy: r.lb ? JSON.parse(r.lb).id : null }));
   }
   boardThread(id) {
     const t = [...this.sql.exec(`SELECT * FROM bt WHERE id = ?`, id)][0];
