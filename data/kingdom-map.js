@@ -1,4 +1,5 @@
-/* Data + text for kingdom-map.html (Kingdom #2189 buildings). Coordinates and Outpost levels/buffs were checked against
+/* Data + text for kingdom-map.html. rewards = Sanctuary Battle rewards per Fortress / Sanctuary, from in-game screens (2026-10-15).
+   (Kingdom #2189 buildings). Coordinates and Outpost levels/buffs were checked against
    in-game screenshots (Outpost Occupied/Occupiable tabs, Ruins tab). buff = % per level. outposts: [type, level, x, y] */
 const KINGDOM_MAP = {
  "ui": {
@@ -887,6 +888,353 @@ const KINGDOM_MAP = {
     "풍작 제단",
     "자원 생산 속도"
    ]
+  }
+ },
+ "rewards": {
+  "items": {
+   "gems100": {
+    "en": "100 Gems",
+    "zh": "100 鑽石",
+    "ko": "100 다이아",
+    "pt": "100 Gemas",
+    "ar": "100 جواهر"
+   },
+   "train1h": {
+    "en": "1h Training Speedup",
+    "zh": "1 小時訓練加速"
+   },
+   "heal1h": {
+    "en": "1h Healing Speedup",
+    "zh": "1 小時治療加速"
+   },
+   "gen1h": {
+    "en": "1h General Speedup",
+    "zh": "1 小時通用加速"
+   },
+   "gen5m": {
+    "en": "5m General Speedup",
+    "zh": "5 分鐘通用加速"
+   },
+   "con5m": {
+    "en": "5m Construction Speedup",
+    "zh": "5 分鐘建造加速"
+   },
+   "res5m": {
+    "en": "5m Research Speedup",
+    "zh": "5 分鐘研究加速"
+   },
+   "heroxp5k": {
+    "en": "5,000 Hero XP",
+    "zh": "5,000 英雄經驗"
+   },
+   "bread1k": {
+    "en": "1K Bread",
+    "zh": "1K 麵包",
+    "ko": "1K 빵",
+    "pt": "1K Pão",
+    "ar": "1K خبز"
+   },
+   "wood1k": {
+    "en": "1K Wood",
+    "zh": "1K 木材",
+    "ko": "1K 목재",
+    "pt": "1K Madeira",
+    "ar": "1K خشب"
+   },
+   "stone1k": {
+    "en": "1K Stone",
+    "zh": "1K 石材",
+    "ko": "1K 석재",
+    "pt": "1K Pedra",
+    "ar": "1K حجر"
+   },
+   "iron1k": {
+    "en": "1K Iron",
+    "zh": "1K 鐵礦",
+    "ko": "1K 철광",
+    "pt": "1K Ferro",
+    "ar": "1K حديد"
+   },
+   "goldkey": {
+    "en": "Gold Key",
+    "zh": "黃金鑰匙",
+    "ko": "황금 열쇠",
+    "pt": "Chave Dourada",
+    "ar": "المفتاح الذهبي"
+   },
+   "platkey": {
+    "en": "Platinum Key",
+    "zh": "白銀鑰匙",
+    "ko": "백은 열쇠",
+    "pt": "Chave de Platina",
+    "ar": "المفتاح البلاتيني"
+   },
+   "enhxp": {
+    "en": "100 Enhancement XP Part",
+    "zh": "100點強化經驗部件",
+    "ko": "경험치 강화 부품 100점",
+    "pt": "100 Peças de XP de Aprimoramento",
+    "ar": "100 مكون خبرة تحسين"
+   },
+   "expbook": {
+    "en": "Mythic Expedition Skill Manual",
+    "zh": "傳說遠征技能書"
+   },
+   "conqbook": {
+    "en": "Mythic Conquest Skill Book",
+    "zh": "傳說討伐技能書"
+   },
+   "saul": {
+    "en": "Saul Shard",
+    "zh": "薩洛碎片"
+   },
+   "jabel": {
+    "en": "Jabel Shard",
+    "zh": "潔貝爾碎片"
+   },
+   "teleport": {
+    "en": "Advanced Teleporter",
+    "zh": "高級遷城",
+    "ko": "고급 도시 이전",
+    "pt": "Teletransportador Avançado",
+    "ar": "ناقل متقدم"
+   },
+   "dmg2": {
+    "en": "Troops Damage Up II (12h)"
+   },
+   "hp2": {
+    "en": "Troops Health Up II (12h)"
+   },
+   "deploy2": {
+    "en": "Deployment Capacity Boost II (12h)"
+   }
+  },
+  "chests": {
+   "warrior": {
+    "name": {
+     "en": "Warrior's Chest"
+    },
+    "slot": "part",
+    "items": [
+     [
+      "gems100",
+      4
+     ],
+     [
+      "train1h",
+      10
+     ],
+     [
+      "heal1h",
+      10
+     ],
+     [
+      "heroxp5k",
+      5
+     ]
+    ]
+   },
+   "ally": {
+    "name": {
+     "en": "Ally's Chest"
+    },
+    "slot": "ally",
+    "items": [
+     [
+      "gems100",
+      2
+     ],
+     [
+      "con5m",
+      60
+     ],
+     [
+      "res5m",
+      60
+     ],
+     [
+      "bread1k",
+      400
+     ],
+     [
+      "wood1k",
+      400
+     ],
+     [
+      "stone1k",
+      80
+     ],
+     [
+      "iron1k",
+      20
+     ]
+    ]
+   },
+   "ruler": {
+    "name": {
+     "en": "Ruler's Chest"
+    },
+    "slot": "alloc",
+    "items": [
+     [
+      "platkey",
+      2
+     ],
+     [
+      "gen5m",
+      10
+     ],
+     [
+      "bread1k",
+      200
+     ],
+     [
+      "wood1k",
+      200
+     ],
+     [
+      "stone1k",
+      40
+     ],
+     [
+      "iron1k",
+      10
+     ]
+    ]
+   },
+   "controller": {
+    "name": {
+     "en": "Controller's Chest"
+    },
+    "slot": "control",
+    "items": [
+     [
+      "goldkey",
+      1
+     ],
+     [
+      "platkey",
+      2
+     ],
+     [
+      "heroxp5k",
+      2
+     ]
+    ]
+   }
+  },
+  "fortress": {
+   "power": 53047200,
+   "garrison": "345K",
+   "chests": [
+    [
+     "warrior",
+     2
+    ],
+    [
+     "ally",
+     2
+    ],
+    [
+     "ruler",
+     100
+    ],
+    [
+     "controller",
+     2
+    ]
+   ],
+   "special": {
+    "1": [
+     "expbook",
+     600
+    ],
+    "2": [
+     "enhxp",
+     500
+    ],
+    "3": [
+     "saul",
+     420
+    ],
+    "4": [
+     "conqbook",
+     600
+    ]
+   }
+  },
+  "sanctuary": {
+   "power": 10491876,
+   "garrison": "169.4K",
+   "chests": [
+    [
+     "warrior",
+     1
+    ],
+    [
+     "ally",
+     null
+    ],
+    [
+     "ruler",
+     null
+    ],
+    [
+     "controller",
+     1
+    ]
+   ],
+   "chestsKnown": false,
+   "special": {
+    "1": [
+     "gen1h",
+     400
+    ],
+    "2": [
+     "hp2",
+     60
+    ],
+    "3": [
+     "jabel",
+     200
+    ],
+    "4": [
+     "teleport",
+     90
+    ],
+    "5": [
+     "gen1h",
+     400
+    ],
+    "6": [
+     "dmg2",
+     60
+    ],
+    "7": [
+     "jabel",
+     200
+    ],
+    "8": [
+     "teleport",
+     90
+    ],
+    "9": [
+     "gen1h",
+     400
+    ],
+    "10": [
+     "deploy2",
+     60
+    ],
+    "11": [
+     "jabel",
+     200
+    ],
+    "12": [
+     "teleport",
+     90
+    ]
+   }
   }
  }
 };

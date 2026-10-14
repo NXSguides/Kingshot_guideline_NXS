@@ -157,6 +157,8 @@ function renderInfo() {
     const save = (id, k) => { const el = $(id); el.onchange = () => { setSP(b, k, el.value.trim()); drawPlan(); renderList(); renderPlan(); }; };
     save("sp_r", "r"); save("sp_n", "n");
   }
+  const spR = specialOf(b);
+  if (spR) $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm" style="flex-basis:100%">🎁 ${esc(rt("special"))}: <b>${esc(iName(spR[0]))} ×${spR[1]}</b></div>`);
   $("km_info").querySelectorAll(".km-st button").forEach((x) => x.onclick = () => setStatus(b.id, x.dataset.v));
   $("km_cp").onclick = () => {
     const done = () => { const c = $("km_cp"); if (c) { c.textContent = T("copied"); setTimeout(() => { if ($("km_cp")) $("km_cp").textContent = T("copy"); }, 1500); } };
@@ -164,12 +166,41 @@ function renderInfo() {
   };
 }
 const chip = (b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}">${PRIOABLE(b) && SP(b).p ? `<span class="km-prb sm">${SP(b).p}</span>` : ""}${st(b) ? `<span class="st">${st(b) === "held" ? "✅" : st(b) === "vuln" ? "⚔️" : st(b) === "conflict" ? "⚠️" : "🎯"}</span>` : ""}${b.short ? b.short + " · " : ""}X${b.x} Y${b.y}</button>`;
+/* 🎁 Sanctuary Battle rewards (data/kingdom-map.js → rewards): one row per reward, the Fortresses / Sanctuaries that give it as chips,
+   so it's easy to see which ones give the same thing. Item / chest names: the language given, else English. */
+const RT = {
+  zh: { title: "🎁 要塞與遺跡獎勵", note: "每座要塞 / 遺跡的「遺跡獎勵」不同（下面每一行）；其他寶箱同一種建築都一樣。", same: "每座{k}都一樣的寶箱", part: "參與獎勵", ally: "聯盟獎勵", alloc: "可分配獎勵", control: "控制獎勵", special: "遺跡獎勵", unknown: "內容還沒記錄。", power: "推薦實力", gar: "駐軍" },
+  en: { title: "🎁 Fortress & Sanctuary rewards", note: "Each Fortress / Sanctuary gives a different Sanctuary Reward (one row each below); the other chests are the same for every building of a kind.", same: "Chests every {k} gives", part: "Participation Rewards", ally: "Alliance Rewards", alloc: "Allocatable Rewards", control: "Control Rewards", special: "Sanctuary Rewards", unknown: "Contents not recorded yet.", power: "Recommended Power", gar: "Garrisoned" },
+  pt: { title: "🎁 Recompensas de Fortalezas e Santuários", note: "Cada Fortaleza / Santuário dá uma Recompensa do Santuário diferente (uma linha cada abaixo); os outros baús são iguais para todos do mesmo tipo.", same: "Baús que toda {k} dá", part: "Recompensas de Participação", ally: "Recompensas da Aliança", alloc: "Recompensas Distribuíveis", control: "Recompensas de Controle", special: "Recompensas do Santuário", unknown: "Conteúdo ainda não registrado.", power: "Poder Recomendado", gar: "Guarnição" },
+  ar: { title: "🎁 مكافآت الحصون والمآوي", note: "كل حصن / مأوى يمنح مكافأة مأوى مختلفة (سطر لكل منها أدناه)؛ باقي الصناديق متماثلة لكل مبنى من النوع نفسه.", same: "الصناديق التي يمنحها كل {k}", part: "مكافآت المشاركة", ally: "مكافآت التحالف", alloc: "مكافآت قابلة للتوزيع", control: "مكافآت السيطرة", special: "مكافآت المأوى", unknown: "لم تُسجَّل المحتويات بعد.", power: "القوة الموصى بها", gar: "الحامية" },
+  ko: { title: "🎁 성채 · 유적 보상", note: "성채 / 유적마다 「유적 보상」이 다릅니다 (아래 한 줄씩). 나머지 상자는 같은 종류 건물이면 모두 같습니다.", same: "모든 {k} 공통 상자", part: "참여 보상", ally: "연맹 보상", alloc: "분배 가능 보상", control: "점령 보상", special: "유적 보상", unknown: "내용이 아직 기록되지 않았습니다.", power: "추천 전투력", gar: "주둔" },
+};
+const rt = (k) => (RT[lang] || RT.en)[k] ?? RT.en[k];
+const iName = (id) => { const it = G.rewards.items[id]; return it ? it[lang] || it.en : id; };
+const RCOL = { gen1h: "#2b6cc4", jabel: "#c0640a", saul: "#c0640a", teleport: "#2e7d32", dmg2: "#b3261e", hp2: "#b3261e", deploy2: "#b3261e", expbook: "#7b4bb7", conqbook: "#7b4bb7", enhxp: "#5d6876" };
+const specialOf = (b) => G.rewards && G.rewards[b.kind] && G.rewards[b.kind].special[b.n];
+function rewardsHtml() {
+  if (!G.rewards) return "";
+  const kindName = (k) => k === "fortress" ? (ZH() ? ZH().fortressS : "Fortress") : (ZH() ? ZH().sanctuaryS : "Sanctuary");
+  const block = (k, sym, col) => {
+    const R = G.rewards[k], groups = new Map();
+    for (const b of B.filter((x) => x.kind === k)) { const sp = R.special[b.n]; if (!sp) continue; const key = sp.join("|"); if (!groups.has(key)) groups.set(key, { sp, bs: [] }); groups.get(key).bs.push(b); }
+    const rows = [...groups.values()].sort((a, b) => b.bs.length - a.bs.length || a.bs[0].n - b.bs[0].n).map(({ sp, bs }) =>
+      `<div class="km-lv"><span class="pill km-rwp" style="background:${RCOL[sp[0]] || "#5d6876"}">${esc(iName(sp[0]))} ×${sp[1]}</span><div class="chips">${bs.map(chip).join("")}</div></div>`).join("");
+    const chests = R.chests.map(([c, n]) => { const C = G.rewards.chests[c];
+      return `<div class="km-rwc"><b>${esc(rt(C.slot))}</b> <span class="muted">${esc(C.name[lang] || C.name.en)} ×${n == null ? "?" : n}</span>${R.chestsKnown === false ? "" : `<div>${C.items.map(([i, q]) => `${esc(iName(i))} ×${q}`).join(" · ")}</div>`}</div>`; }).join("");
+    return `<div class="km-rwk"><div class="hd"><span class="pill" style="background:${col}">${sym} ${esc(kindName(k))}</span><span class="bf">${esc(rt("power"))} ${R.power.toLocaleString("en-US")} · ${esc(rt("gar"))} ${esc(R.garrison)}</span></div>
+      <div class="muted km-rws">${esc(rt("special"))}</div>${rows}
+      <details class="km-rwd"><summary>${esc(rt("same").replace("{k}", kindName(k)))}</summary>${chests}${R.chestsKnown === false ? `<div class="muted" style="font-size:12.5px">${esc(rt("unknown"))}</div>` : ""}</details></div>`;
+  };
+  return `<div class="km-c km-rw" style="grid-column:1/-1"><div class="hd"><b>${esc(rt("title"))}</b></div><div class="muted" style="font-size:12.5px">${esc(rt("note"))}</div>${block("fortress", "◆", "#7a4a24")}${block("sanctuary", "●", "#5d6876")}</div>`;
+}
 function renderList() {
   const pr = B.filter((b) => PRIOABLE(b) && SP(b).p).sort((a, b) => SP(a).p - SP(b).p);
   let h = `<div class="km-c km-prc" style="grid-column:1/-1"><div class="hd"><b>${esc(pt("prioList"))}</b></div>` +
     (pr.length ? pr.map((b) => { const sp = SP(b), d = hqDist(b);
       return `<button type="button" class="km-pri" data-id="${b.id}"><span class="km-prb">${sp.p}</span><span class="km-prm"><b>${esc(nm(b))}</b> <span class="muted">X${b.x} Y${b.y}${d != null ? ` · 📏 ${d}` : ""}</span>${sp.r ? `<span class="km-prr">🎁 ${esc(sp.r)}</span>` : ""}${sp.n ? `<span class="muted">📝 ${esc(sp.n)}</span>` : ""}</span></button>`; }).join("")
-      : `<div class="muted" style="font-size:13px">${esc(pt("prioEmpty"))}</div>`) + `</div>` + `<div class="km-c"><div class="hd"><b>${esc(T("ruins"))}</b><span class="bf">${esc(T("noBuff"))}</span></div>
+      : `<div class="muted" style="font-size:13px">${esc(pt("prioEmpty"))}</div>`) + `</div>` + rewardsHtml() + `<div class="km-c"><div class="hd"><b>${esc(T("ruins"))}</b><span class="bf">${esc(T("noBuff"))}</span></div>
     <div class="km-lv"><span class="pill" style="background:#b8860b">👑 ${esc(castleName())}</span><div class="chips">${chip(BY.k)}</div></div>
     ${B.some((b) => b.kind === "hq") ? `<div class="km-lv"><span class="pill" style="background:#2b6cc4">🛡️ [NXS] ${esc(hqName())}</span><div class="chips">${B.filter((b) => b.kind === "hq").map(chip).join("")}</div></div>` : ""}
     <div class="km-lv"><span class="pill" style="background:#7a4a24">◆ ${ZH() ? ZH().fortressS : "Fortress"}</span><div class="chips">${B.filter((b) => b.kind === "fortress").map(chip).join("")}</div></div>
