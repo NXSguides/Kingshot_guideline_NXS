@@ -154,7 +154,7 @@
     if (moved) saveAlerts(); }
   /* which day of the event run has the battle (0 = first day). Default: the last day — check in game. */
   // battle day (1 = first day of the run, -1 = last); officers set it on the officer Events tab (data/event-times.json "days"). Missing = every day (Bear Hunt).
-  const FIGHT_DAY = { "swordland-showdown": -1, "tri-alliance-clash": -1, "viking-vengeance": -1, "cesares-fury": 1 };
+  const FIGHT_DAY = { "swordland-showdown": -1, "tri-alliance-clash": -1, "viking-vengeance": -1, "cesares-fury": 1, "kvk": 6 };
   const DAY = 86400000, HORIZON = 21 * DAY;
   // a choice is kept as "1st / 2nd time" (#0, #1), so officers can move a time without switching people's alerts off (old saves used the hour)
   const isOn = (a, i, h) => !!(a && a.on && (a.on["#" + i] ?? a.on[h]));
