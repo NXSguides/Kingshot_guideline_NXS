@@ -396,7 +396,34 @@
   .vw-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; font-size: 13px; padding: 3px 0; border-bottom: 1px solid var(--rule); }
   .vw-row span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .vw-row i { display: block; height: 3px; background: var(--accent); border-radius: 2px; margin-top: 3px; opacity: .7; }
-  .shbar { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 8px; }
+  .shbar { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; align-items: center; }
+  .shbar .btn { white-space: nowrap; }
+  /* 💬 board */
+  #pg-board .bd-topic { display: block; text-decoration: none; color: inherit; }
+  #pg-board .bd-topic:hover { border-color: var(--accent); }
+  #pg-board .bd-topic h3 { margin: 0 0 4px; font-size: 16px; }
+  #pg-board .bd-topic .muted { font-size: 12.5px; }
+  #pg-board .bd-badge { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 22%, var(--panel)); border: 1px solid var(--accent); margin-left: 6px; vertical-align: middle; font-weight: 600; }
+  #pg-board .bd-post { padding: 12px 14px; }
+  #pg-board .bd-head { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+  #pg-board .bd-head img, #pg-board .bd-av { width: 26px; height: 26px; border-radius: 50%; flex: none; background: var(--panel-2); display: inline-grid; place-items: center; font-size: 13px; font-weight: 700; }
+  #pg-board .bd-head .muted { font-size: 12px; }
+  #pg-board .bd-text { white-space: pre-wrap; word-break: break-word; margin: 8px 0 4px; font-size: 15px; line-height: 1.5; }
+  #pg-board .bd-orig { white-space: pre-wrap; word-break: break-word; font-size: 13.5px; border-left: 3px solid var(--rule); padding: 4px 0 4px 10px; margin: 6px 0; }
+  #pg-board .bd-acts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  #pg-board .bd-acts .btn, #pg-board .bd-link { padding: 3px 9px; font-size: 12.5px; }
+  #pg-board .bd-link { background: none; border: none; color: var(--accent); cursor: pointer; padding-left: 0; }
+  #pg-board .bd-dec { border: 2px solid var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--panel)); }
+  #pg-board .bd-dec h3 { margin: 0 0 4px; font-size: 14px; }
+  #pg-board .bd-post.is-dec { border-color: var(--accent); }
+  #pg-board .bd-warn { font-size: 12px; color: #d9822b; }
+  /* phone: you (avatar · name · log out) on its own line, the buttons below — one row was too crowded */
+  @media (max-width: 600px) {
+    .shbar { gap: 6px; }
+    .shbar .btn { padding: 6px 10px; font-size: 13.5px; }
+    .shbar #meBox, .shbar #meIn { order: -1; flex-basis: 100%; justify-content: flex-end; margin-left: 0 !important; }
+    .shbar #meIn { flex-basis: auto; margin-left: auto !important; }
+  }
   /* ===== Map tab ===== */
   #pg-map .km-layers { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; }
   #pg-map .km-layers button { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); border-radius: 999px; padding: 4px 10px 4px 6px; font: inherit; font-size: 13px; cursor: pointer; }
@@ -522,6 +549,7 @@
     <a href="#watch" data-tab="watch">🕵️ Watch</a>
     <a href="#scout" data-tab="scout">🔭 Scout</a>
     <a href="#views" data-tab="views">📈 Views</a>
+    <a href="#board" data-tab="board" id="boardTab" hidden>💬 Board</a>
   </nav>
   <div id="gate" class="card" hidden style="max-width:360px;margin:24px auto">
     <a class="btn" id="gateDiscord" href="#" style="display:block;text-align:center;width:100%;box-sizing:border-box;padding:12px;background:#5865F2;border-color:#5865F2;color:#fff;font-weight:700;text-decoration:none"></a>
@@ -957,6 +985,40 @@
   <div class="row" style="gap:8px;margin:4px 0 14px"><button type="button" class="btn" id="bt_add"></button><button type="button" class="btn" id="bt_copy"></button></div>
   <div class="card" style="font-size:13px"><h3 id="bt_hHow"></h3><ul id="bt_how" style="margin:6px 0 0;padding-left:20px"></ul></div>
 </section>
+<section class="pg" id="pg-board" hidden>
+  <div class="top">
+    <div>
+      <h1 id="bd_title"></h1>
+      <div class="muted" id="bd_sub"></div>
+    </div>
+    <div class="row" style="gap:6px"><button class="btn" id="bd_reload" aria-label="Refresh">↻</button></div>
+  </div>
+  <div class="card" id="bd_login" hidden></div>
+  <div id="bd_app" hidden>
+    <div id="bd_listView">
+      <div class="row" style="margin:4px 0 10px"><button class="btn primary" id="bd_newBtn"></button></div>
+      <div class="card bd-form" id="bd_newForm" hidden>
+        <input class="inp" id="bd_newTitle" maxlength="120">
+        <textarea class="inp" id="bd_newText" rows="5" maxlength="4000" style="margin-top:8px;resize:vertical"></textarea>
+        <div class="row" style="gap:8px;margin-top:8px"><button class="btn primary" id="bd_newPost"></button><button class="btn" id="bd_newCancel"></button></div>
+        <div class="msg" id="bd_newMsg"></div>
+      </div>
+      <div id="bd_list"></div>
+    </div>
+    <div id="bd_topicView" hidden>
+      <div class="row" style="margin:4px 0 10px"><a class="btn" href="#board" id="bd_back"></a></div>
+      <h2 id="bd_tTitle" style="margin:4px 0"></h2>
+      <div class="muted" id="bd_tMeta" style="font-size:13px"></div>
+      <div id="bd_decision"></div>
+      <div id="bd_posts"></div>
+      <div class="card bd-form">
+        <textarea class="inp" id="bd_replyText" rows="3" maxlength="4000" style="resize:vertical"></textarea>
+        <div class="row" style="gap:8px;margin-top:8px"><button class="btn primary" id="bd_replyPost"></button></div>
+        <div class="msg" id="bd_replyMsg"></div>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="pg" id="pg-views" hidden>
   <div class="top">
     <div>
@@ -1030,7 +1092,7 @@ const HTML_LANG = (l) => l === "zh" ? "zh-Hant" : l === "pt" ? "pt-BR" : "en";
 const PT_BY_EN = {"Bear Hunt": "Caça ao Urso", "13:00 & 22:00 UTC, 30 min each": "13:00 & 22:00 UTC, 30 min cada", "Alliance Championship": "Campeonato da Aliança", "Weekly, Monday reset · shown = 2-day registration; battles run automatically": "Semanal, reinicia na segunda · mostra os 2 dias de inscrição; as batalhas são automáticas", "Remind everyone: register in the Middle Lane, strongest heroes, 50/20/30, buffs on.": "Lembre a todos: inscrever-se na pista do meio, heróis mais fortes, 50/20/30, bônus ativados.", "Alliance Mobilization": "Mobilização da Aliança", "Follows the 4-week cycle (after KvK / after Strongest Governor; Alliance Brawl can replace one) — check the start date": "Segue o ciclo de 4 semanas (depois do KvK / depois de O Governador mais Forte; a Briga da Aliança pode substituir uma) — confira a data de início", "Post the mission rules (no KvK Prep items; best picks).": "Publique as regras das missões (sem itens da Fase de Preparação do KvK; melhores escolhas).", "Mystic Trial": "Prova Mística", "Alliance rules": "Regras da aliança", "KvK": "KvK", "Viking Vengeance": "Vingança Viking", "Swordland Showdown": "Confronto entre Espadas", "Tri-Alliance Clash": "Confronto Tri-Aliança", "Eternity's Reach": "Alcance da Eternidade", "All Out": "Vai com Tudo", "Fishing Tournament": "Torneio de Pesca", "Hero Roulette": "Roleta do Herói", "Cesares Fury": "Fúria dos Césares", "Sanctuary Battle": "Batalha do Santuário", "Alliance Brawl": "Briga da Aliança", "Mon 00:00 – Sun 12:00 UTC · be in the alliance at Sun 23:00 UTC the day before (matching) to count": "Seg 00:00 – Dom 12:00 UTC · esteja na aliança no domingo anterior às 23:00 UTC (pareamento) para contar", "Merchant Empire": "Império Mercante", "Escort 2 caravans at a time · last 4 h (until Sun 04:00 UTC) raiding only": "Escolte até 2 caravanas por vez · nas últimas 4 h (até Dom 04:00 UTC) só saque", "Call of the Sovereign": "Chamado do Soberano", "Max rewards: 90 Gold Keys (30/day) + 30 Platinum Keys (10/day) over the 3 days · resets 00:00 UTC": "Recompensa máxima: 90 Gold Keys (30/dia) + 30 Platinum Keys (10/dia) nos 3 dias · reinicia 00:00 UTC", "R4/R5 start Viking Vengeance: pick a time that suits members and announce it beforehand (UTC), so everyone can return troops, prepare reinforcements and stay online for the important waves.": "R4/R5 iniciam a Vingança Viking: escolham um horário bom para os membros e anunciem antes (em UTC), para todos recolherem as tropas, prepararem reforços e ficarem online nas ondas importantes.", "Start Viking Vengeance in game at the announced time.": "Inicie a Vingança Viking no jogo no horário anunciado.", "Voting phase: set up an alliance poll to confirm 100% attendance for the fixed time windows.": "Fase de votação: crie uma enquete da aliança para confirmar 100% de presença nos horários fixos.", "Registration phase: based on the voting, assign each confirmed member to a Legion.": "Fase de inscrição: com base na votação, coloque cada membro confirmado numa Legião.", "Reminder: ask everyone to check their assigned Legion and time and confirm 100% attendance — it affects matchmaking and roles.": "Lembrete: peça a todos para conferir a Legião e o horário e confirmar 100% de presença — isso afeta o pareamento e as funções.", "Planning phase: assign roles (Attacker, Defender, Joiner) to Legion 1 and Legion 2.": "Fase de planejamento: defina as funções (Attacker, Defender, Joiner) da Legião 1 e da Legião 2.", "Voting phase: set up an alliance poll to find out who can 100% attend.": "Fase de votação: crie uma enquete da aliança para saber quem pode participar com 100% de certeza.", "Sign-up phase: split confirmed players into Legion 1 and Legion 2 (separate time slots) so both have enough reliable players — don't put every strong account in one group.": "Fase de inscrição: divida os confirmados entre Legião 1 e Legião 2 (horários diferentes) para que as duas tenham gente confiável — não coloque todas as contas fortes no mesmo grupo.", "Planning phase: assign roles to Legion 1 and Legion 2 and post the plan.": "Fase de planejamento: defina as funções da Legião 1 e da Legião 2 e publique o plano.", "Remind everyone: each member gets 5 rally requests — use them, unused ones are lost when the event ends.": "Lembre a todos: cada membro tem 5 pedidos de rally — usem, os que sobrarem somem quando o evento acaba.", "R4+: once enough members have beaten high-level targets, apply to challenge the Captain and post a time for everyone to join.": "R4+: quando membros suficientes vencerem alvos de nível alto, peçam para desafiar o Capitão e publiquem um horário para todos participarem.", "R4+: register if we meet the requirements — 1 Sanctuary + 1 Fortress, 3 time slots (the slot most alliances pick wins). Pick targets we can realistically take and hold (competition, location, our strength), not just the most prestigious. Sanctuaries we held last week are signed up automatically.": "R4+: inscrevam-se se cumprirmos os requisitos — 1 Santuário + 1 Fortaleza, 3 horários (vale o horário que mais alianças escolherem). Escolham alvos que realmente conseguimos tomar e manter (concorrência, localização, nossa força), não só os mais famosos. Santuários que tínhamos na semana passada são inscritos automaticamente.", "Contest day: post the rally message about 1.5 h before the slot (exact 70,080 troops, rally from home, no solo attacks). Once a building is taken, post the defence swap (Howard/Gordon 60:20:20).": "Dia da disputa: publique a mensagem de rally cerca de 1,5 h antes do horário (exatamente 70.080 tropas, rally de casa, sem ataques solo). Depois de tomar um prédio, publique a troca de defesa (Howard/Gordon 60:20:20).", "Remind everyone: 30-minute solo event. Skill picks Right / Right / Left / Left / Right; send one march into a Copper Vein every minute.": "Lembre a todos: evento individual de 30 minutos. Habilidades: Direita / Direita / Esquerda / Esquerda / Direita; mande uma marcha para um veio de cobre a cada minuto.", "Post the All Out rules (NAP alliances, no attacks on castles or alliance buildings) and the secured gathering node rotation.": "Publique as regras do Vai com Tudo (alianças NAP, sem ataques a castelos ou prédios da aliança) e o rodízio dos pontos de coleta seguros.", "Remind everyone to SAVE Gold & Platinum Keys (90 Gold + 30 Platinum for max rewards) — copy the in-game message.": "Lembre a todos de GUARDAR Gold & Platinum Keys (90 Gold + 30 Platinum para a recompensa máxima) — copie a mensagem do jogo.", "Remind everyone: use Ocean Prospector first to upgrade the Fishing Kit, then switch to Regular Fishing.": "Lembre a todos: usem primeiro a Prospecção do Oceano para melhorar o Kit de Pesca e depois passem para a Pesca Normal.", "Remind everyone: 1 free spin a day; milestone rewards at 5 / 15 / 35 / 70 / 120 spins. Spins on KvK Prep Day 2–3 also score KvK points.": "Lembre a todos: 1 giro grátis por dia; recompensas de marco em 5 / 15 / 35 / 70 / 120 giros. Giros nos dias 2–3 da Fase de Preparação do KvK também dão pontos de KvK.", "Remind members: book Chief Minister slots, save Intel Missions, count saved items (the site's KvK checklist pops up).": "Lembre os membros: reservar horários de Primeiro-ministro, guardar Missões de Informação, contar os itens guardados (a checklist de KvK do site aparece).", "Castle Battle on the last day: agree rally leaders and times.": "Batalha do Castelo no último dia: combinem os líderes de rally e os horários.", "Post the mission rules (no KvK Prep items; best picks). R4+: refresh shared missions — remove poor ones so members aren't left with tasks they avoid.": "Publique as regras das missões (sem itens da Fase de Preparação do KvK; melhores escolhas). R4+: atualizem as missões compartilhadas — tirem as ruins para os membros não ficarem com tarefas que evitam.", "KvK Prep & Battle Guide": "Guia de Preparação e Batalha do KvK", "Formations & Rally Tips": "Formações e dicas de rally", "Gen 3 Master Academy Guide": "Guia da Academia dos Mestres (Ger. 3)", "Pets": "Pets", "F2P Heroes Guide": "Guia de heróis F2P", "Hero Cards (Gen 1–3)": "Cartas de heróis (Ger. 1–3)", "General Tips": "Dicas gerais", "Attackers": "Atacantes", "Defenders": "Defensores", "Joiners": "Joiners", "Home (language picker)": "Início (escolha de idioma)", "KvK Points Planner": "Planejador de pontos do KvK", "Booking guide": "Guia de reservas", "Squad guide": "Guia de esquadrões", "KvK calculator": "Calculadora de KvK", "Bear Hunt (every Bear day)": "Caça ao Urso (todo dia de Urso)"};
 const ptOf = (en) => (en && PT_BY_EN[en]) || en;
 const OFFICER_PAGES = {};
-const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "bt"];
+const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "bt", "board"];
 const inited = {};
 try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
 const SH = { pt: {"home": "Início", "pw": "🔒 Senha dos oficiais", "remember": "Lembrar neste aparelho", "unlock": "Desbloquear", "wrong": "Senha errada", "loading": "Carregando…", "discord": "Entrar com o Discord", "or": "— ou use a senha dos oficiais —", "out": "Sair", "inSmall": "🔑 Entrar com o Discord", "e_no_access": "Sua conta do Discord ainda não está na lista de oficiais. Fale com a Sparrow.", "e_not_member": "Entre primeiro no servidor do Discord da aliança e tente de novo.", "e_cancelled": "O login pelo Discord foi cancelado.", "e_expired": "Entre de novo, por favor.", "e_logged_out": "Entre de novo, por favor.", "e_discord": "Não foi possível conectar ao Discord — tente de novo.", "e_discord_unreachable": "Não foi possível conectar ao Discord — tente de novo.", "e_setup": "O login pelo Discord funcionou, mas o site ainda não está todo configurado. Use a senha dos oficiais por enquanto."},
@@ -1071,6 +1133,7 @@ function showMe() {
   document.getElementById("meIn").hidden = !DISCORD_TRY || !!u || document.getElementById("gate").hidden === false;
   document.getElementById("meIn").textContent = t.inSmall; document.getElementById("meIn").href = discordStart();
   document.getElementById("meOut").textContent = t.out;
+  document.getElementById("boardTab").hidden = !u;   // 💬 Board: only for people logged in with Discord
   if (!u) return;
   document.getElementById("meName").textContent = u.name;
   const av = document.getElementById("meAv"); av.hidden = !u.avatar; if (u.avatar) av.src = u.avatar;
@@ -1136,7 +1199,7 @@ function loadScripts(list) {
   }))), Promise.resolve());
 }
 /* tabs: #events / #ranking / #post / #watch (the part after "?" is kept for the page) */
-function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|scout|views|map|bt)/); return m ? m[1] : "events"; }
+function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|scout|views|map|bt|board)/); return m ? m[1] : "events"; }
 async function showTab() {
   const k = currentTab();
   document.querySelectorAll(".tabs a").forEach((a) => a.classList.toggle("on", a.dataset.tab === k));
@@ -5056,6 +5119,180 @@ document.addEventListener("click", (e) => {
   const now = Date.now(); taps = taps.filter((t) => now - t < 1500); taps.push(now);
   if (taps.length >= 3) { taps = []; e.preventDefault(); location.hash = "#bt"; }
 });
+})();
+</script>
+<script>
+/* ============ 💬 Board — topics and replies for planning together (officers logged in with Discord only).
+   Every message is translated into 中文 / English / Português by the Worker (with the game's own terms); the original is
+   always one tap away. 📌 marks the message that is the decision of a topic. Data lives in the Worker, not on GitHub. ============ */
+(function () {
+const ROOT = document.getElementById("pg-board");
+const $ = (id) => document.getElementById(id);
+const BD = {
+  zh: { title: "💬 留言板", sub: "幹部一起規劃用。每則留言都會自動翻成中文、English、Português，並使用遊戲裡的正式名稱。只有用 Discord 登入的幹部看得到。",
+    login: "留言板要用 Discord 登入才能使用（這樣大家才知道是誰留言）。", loginBtn: "🔑 用 Discord 登入",
+    newBtn: "＋ 新主題", newTitle: "主題（例如：這期遺跡要報哪裡）", newText: "寫下你的想法…", post: "送出", cancel: "取消", reply: "回覆", replyPh: "回覆…",
+    back: "← 所有主題", empty: "還沒有主題。按「＋ 新主題」開始討論。", replies: "{n} 則留言", by: "{name} 開的", last: "最後更新 {t}",
+    decided: "📌 已定案", decision: "📌 定案", decBy: "{name} 在 {t} 定案", setDec: "📌 設為定案", clearDec: "取消定案",
+    orig: "看原文", hideOrig: "收起原文", origLang: "原文（{l}）", edit: "✏️ 編輯", del: "🗑️ 刪除", save: "儲存", edited: "（已編輯）",
+    delAsk: "再按一次確定刪除", delTopic: "刪掉第一則會刪掉整個主題，再按一次確定", sending: "送出中，正在翻譯…", saving: "儲存中…",
+    noTr: "⚠️ 這則沒翻譯成功，先顯示原文（編輯後儲存會再翻一次）。", err: "出了點問題：{e}", gone: "這個主題已經被刪除了。",
+    needBoth: "主題和內容都要寫。", loading: "載入中…" },
+  en: { title: "💬 Board", sub: "For planning together. Every message is translated into 中文, English and Português with the game's own terms. Only officers logged in with Discord can see it.",
+    login: "The board needs a Discord login (so everyone knows who wrote what).", loginBtn: "🔑 Log in with Discord",
+    newBtn: "+ New topic", newTitle: "Topic (e.g. which Sanctuary to sign up for)", newText: "Write your thoughts…", post: "Post", cancel: "Cancel", reply: "Reply", replyPh: "Reply…",
+    back: "← All topics", empty: "No topics yet. Tap “+ New topic” to start.", replies: "{n} messages", by: "started by {name}", last: "last update {t}",
+    decided: "📌 Decided", decision: "📌 Decision", decBy: "decided by {name} · {t}", setDec: "📌 Set as decision", clearDec: "Clear decision",
+    orig: "Show original", hideOrig: "Hide original", origLang: "Original ({l})", edit: "✏️ Edit", del: "🗑️ Delete", save: "Save", edited: "(edited)",
+    delAsk: "Tap again to delete", delTopic: "Deleting the first message deletes the whole topic — tap again", sending: "Posting and translating…", saving: "Saving…",
+    noTr: "⚠️ This one wasn't translated, so the original is shown (editing and saving translates it again).", err: "Something went wrong: {e}", gone: "This topic was deleted.",
+    needBoth: "Write a topic and a message.", loading: "Loading…" },
+  pt: { title: "💬 Mural", sub: "Para planejar juntos. Cada mensagem é traduzida para 中文, English e Português com os nomes oficiais do jogo. Só oficiais que entraram com o Discord podem ver.",
+    login: "O mural precisa do login com o Discord (assim todos sabem quem escreveu).", loginBtn: "🔑 Entrar com o Discord",
+    newBtn: "+ Novo tópico", newTitle: "Tópico (ex.: em qual Santuário vamos nos inscrever)", newText: "Escreva sua ideia…", post: "Enviar", cancel: "Cancelar", reply: "Responder", replyPh: "Responder…",
+    back: "← Todos os tópicos", empty: "Nenhum tópico ainda. Toque em “+ Novo tópico” para começar.", replies: "{n} mensagens", by: "aberto por {name}", last: "atualizado {t}",
+    decided: "📌 Decidido", decision: "📌 Decisão", decBy: "decidido por {name} · {t}", setDec: "📌 Marcar como decisão", clearDec: "Tirar decisão",
+    orig: "Ver original", hideOrig: "Esconder original", origLang: "Original ({l})", edit: "✏️ Editar", del: "🗑️ Apagar", save: "Salvar", edited: "(editado)",
+    delAsk: "Toque de novo para apagar", delTopic: "Apagar a primeira mensagem apaga o tópico inteiro — toque de novo", sending: "Enviando e traduzindo…", saving: "Salvando…",
+    noTr: "⚠️ Esta não foi traduzida, então aparece o original (editar e salvar traduz de novo).", err: "Algo deu errado: {e}", gone: "Este tópico foi apagado.",
+    needBoth: "Escreva o tópico e a mensagem.", loading: "Carregando…" },
+};
+const LANG_LABEL = { zh: "中文", en: "English", pt: "Português", ko: "한국어", de: "Deutsch", fr: "Français", es: "Español", tr: "Türkçe", id: "Bahasa Indonesia", ru: "Русский", th: "ไทย", ar: "العربية", ja: "日本語" };
+let lang = OFFICER.lang, topics = [], cur = null, timer = null, openOrig = new Set(), armed = null, editing = null;
+const t = (k, v = {}) => String((BD[lang] || BD.en)[k] ?? BD.en[k] ?? k).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const linkify = (h) => h.replace(/https?:\/\/[^\s<]+/g, (u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
+const pick = (o) => (o && (o[lang] || o.orig)) || "";
+const when = (ms) => { const d = new Date(ms), p = (n) => String(n).padStart(2, "0");
+  return `${lang === "pt" ? d.getUTCDate() + "/" + (d.getUTCMonth() + 1) : (d.getUTCMonth() + 1) + "/" + d.getUTCDate()} ${p(d.getUTCHours())}:${p(d.getUTCMinutes())} UTC`; };
+const token = () => { try { return localStorage.getItem(DISCORD_LS); } catch (e) { return null; } };
+const topicId = () => { const m = location.hash.match(/^#board\?t=([\w-]+)/); return m ? m[1] : null; };
+async function api(op, extra = {}) {
+  const r = await fetch(AUTH_API + "/board", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: token(), lang, op, ...extra }) });
+  const j = await r.json().catch(() => ({ error: "network" }));
+  if (j.token) { try { localStorage.setItem(DISCORD_LS, j.token); } catch (e) {} }
+  if (!r.ok || j.error) throw Object.assign(new Error(j.error || "HTTP " + r.status), { code: j.error });
+  return j;
+}
+function applyTexts() {
+  $("bd_title").textContent = t("title"); $("bd_sub").textContent = t("sub");
+  $("bd_login").innerHTML = `<p style="margin:0 0 10px">${esc(t("login"))}</p><a class="btn" style="background:#5865F2;border-color:#5865F2;color:#fff;font-weight:700" href="${esc(discordStart())}">${esc(t("loginBtn"))}</a>`;
+  $("bd_newBtn").textContent = t("newBtn"); $("bd_newTitle").placeholder = t("newTitle"); $("bd_newText").placeholder = t("newText");
+  $("bd_newPost").textContent = t("post"); $("bd_newCancel").textContent = t("cancel"); $("bd_back").textContent = t("back");
+  $("bd_replyText").placeholder = t("replyPh"); $("bd_replyPost").textContent = t("reply");
+}
+function renderList() {
+  $("bd_list").innerHTML = topics.length ? topics.map((x) => `<a class="card bd-topic" href="#board?t=${esc(x.id)}">
+      <h3>${esc(pick(x.title))}${x.dec ? `<span class="bd-badge">${esc(t("decided"))}</span>` : ""}</h3>
+      <div class="muted">${esc(t("by", { name: x.by.name }))} · ${esc(t("replies", { n: x.n }))} · ${esc(t("last", { t: when(x.last) }))}</div></a>`).join("")
+    : `<div class="card muted">${esc(t("empty"))}</div>`;
+}
+const av = (u) => u.avatar ? `<img src="${esc(u.avatar)}" alt="">` : `<span class="bd-av">${esc((u.name || "?").slice(0, 1))}</span>`;
+function postHtml(p, i) {
+  const me = OFFICER.user && p.by.id === OFFICER.user.id, isDec = cur.dec === p.id, src = p.txt.src;
+  const translated = !!p.txt[lang], showOrig = openOrig.has(p.id);
+  const sameLang = src === lang || (!translated && !p.txt.en && !p.txt.zh && !p.txt.pt);
+  const body = editing === p.id
+    ? `${i === 0 ? `<input class="inp" data-edtitle value="${esc(cur.title.orig)}" maxlength="120" style="margin:8px 0 6px">` : ""}<textarea class="inp" data-edtext rows="4" maxlength="4000" style="margin-top:8px;resize:vertical">${esc(p.txt.orig)}</textarea>
+       <div class="bd-acts"><button class="btn primary" data-save="${esc(p.id)}">${esc(t("save"))}</button><button class="btn" data-cancel>${esc(t("cancel"))}</button></div>`
+    : `<div class="bd-text">${linkify(esc(pick(p.txt)))}</div>
+       ${!translated && !(src === lang) && !p.txt.en ? `<div class="bd-warn">${esc(t("noTr"))}</div>` : ""}
+       ${!sameLang && translated ? `<button class="bd-link" data-orig="${esc(p.id)}">${esc(showOrig ? t("hideOrig") : t("orig"))}</button>` : ""}
+       ${showOrig && !sameLang ? `<div class="bd-orig"><div class="muted" style="font-size:12px">${esc(t("origLang", { l: LANG_LABEL[src] || src || "?" }))}</div>${linkify(esc(p.txt.orig))}</div>` : ""}
+       <div class="bd-acts">
+         <button class="btn" data-dec="${esc(isDec ? "" : p.id)}">${esc(isDec ? t("clearDec") : t("setDec"))}</button>
+         ${me ? `<button class="btn" data-edit="${esc(p.id)}">${esc(t("edit"))}</button><button class="btn" data-del="${esc(p.id)}">${esc(armed === p.id ? (i === 0 ? t("delTopic") : t("delAsk")) : t("del"))}</button>` : ""}
+       </div>`;
+  return `<div class="card bd-post${isDec ? " is-dec" : ""}" id="bdp-${esc(p.id)}">
+    <div class="bd-head">${av(p.by)}<b>${esc(p.by.name)}</b><span class="muted">${esc(when(p.at))}${p.ed ? " " + esc(t("edited")) : ""}</span></div>${body}</div>`;
+}
+function renderTopic() {
+  $("bd_tTitle").textContent = pick(cur.title);
+  $("bd_tMeta").textContent = `${t("by", { name: cur.by.name })} · ${when(cur.at)}`;
+  const d = cur.dec && cur.posts.find((p) => p.id === cur.dec);
+  $("bd_decision").innerHTML = d ? `<div class="card bd-dec"><h3>${esc(t("decision"))}</h3><div class="bd-text" style="margin-top:4px">${linkify(esc(pick(d.txt)))}</div>
+      <div class="muted" style="font-size:12px">${esc(d.by.name)} · ${esc(t("decBy", { name: cur.dby ? cur.dby.name : "?", t: when(cur.dat) }))}</div></div>` : "";
+  $("bd_posts").innerHTML = cur.posts.map(postHtml).join("");
+}
+async function loadList(quiet) {
+  if (!quiet) $("bd_list").innerHTML = `<div class="muted">${esc(t("loading"))}</div>`;
+  try { topics = (await api("list")).topics; renderList(); }
+  catch (e) { if (!quiet) $("bd_list").innerHTML = `<div class="card msg warn">${esc(t("err", { e: e.message }))}</div>`; if (e.code === "logged_out") showLogin(); }
+}
+async function loadTopic(id, quiet) {
+  if (!quiet) { $("bd_posts").innerHTML = `<div class="muted">${esc(t("loading"))}</div>`; $("bd_tTitle").textContent = ""; $("bd_decision").innerHTML = ""; }
+  try { cur = (await api("get", { id })).topic; if (editing && !quiet) editing = null; if (!editing) renderTopic(); }
+  catch (e) { if (e.code === "gone") { $("bd_posts").innerHTML = `<div class="card">${esc(t("gone"))}</div>`; cur = null; } else if (!quiet) $("bd_posts").innerHTML = `<div class="card msg warn">${esc(t("err", { e: e.message }))}</div>`; }
+}
+function showLogin() { $("bd_login").hidden = false; $("bd_app").hidden = true; }
+function route() {
+  if (!token()) return showLogin();
+  $("bd_login").hidden = true; $("bd_app").hidden = false;
+  const id = topicId();
+  $("bd_listView").hidden = !!id; $("bd_topicView").hidden = !id;
+  armed = null; editing = null;
+  if (id) { if (!cur || cur.id !== id) { cur = null; openOrig = new Set(); } loadTopic(id); } else loadList();
+}
+/* new messages from the others show up by themselves (every 20 s while this tab is open and visible) */
+function poll() {
+  clearInterval(timer);
+  timer = setInterval(() => {
+    if (ROOT.hidden || document.hidden || !token()) return;
+    const id = topicId();
+    if (id) { if (!editing && !$("bd_replyText").value) loadTopic(id, true); } else loadList(true);
+  }, 20000);
+}
+$("bd_reload").onclick = () => route();
+$("bd_newBtn").onclick = () => { $("bd_newForm").hidden = false; $("bd_newTitle").focus(); };
+$("bd_newCancel").onclick = () => { $("bd_newForm").hidden = true; $("bd_newMsg").textContent = ""; };
+$("bd_newPost").onclick = async () => {
+  const title = $("bd_newTitle").value.trim(), text = $("bd_newText").value.trim(), m = $("bd_newMsg");
+  if (!title || !text) { m.textContent = t("needBoth"); return; }
+  $("bd_newPost").disabled = true; m.textContent = t("sending");
+  try {
+    const j = await api("new", { title, text });
+    $("bd_newTitle").value = ""; $("bd_newText").value = ""; $("bd_newForm").hidden = true; m.textContent = "";
+    cur = j.topic; location.hash = "#board?t=" + j.topic.id;
+  } catch (e) { m.textContent = t("err", { e: e.message }); }
+  $("bd_newPost").disabled = false;
+};
+$("bd_replyPost").onclick = async () => {
+  const text = $("bd_replyText").value.trim(), m = $("bd_replyMsg");
+  if (!text || !cur) return;
+  $("bd_replyPost").disabled = true; m.textContent = t("sending");
+  try {
+    cur = (await api("reply", { id: cur.id, text })).topic; $("bd_replyText").value = ""; m.textContent = ""; renderTopic();
+    const last = cur.posts[cur.posts.length - 1]; if (last) $("bdp-" + last.id).scrollIntoView({ behavior: "smooth", block: "center" });
+  } catch (e) { m.textContent = t("err", { e: e.message }); }
+  $("bd_replyPost").disabled = false;
+};
+$("bd_posts").addEventListener("click", async (ev) => {
+  const b = ev.target.closest("button"); if (!b || !cur) return;
+  const d = b.dataset;
+  if (d.orig) { openOrig.has(d.orig) ? openOrig.delete(d.orig) : openOrig.add(d.orig); return renderTopic(); }
+  if (d.edit) { editing = d.edit; armed = null; return renderTopic(); }
+  if ("cancel" in d) { editing = null; return renderTopic(); }
+  try {
+    if (d.dec !== undefined) { b.disabled = true; cur = (await api("decide", { id: cur.id, post: d.dec || null })).topic; return renderTopic(); }
+    if (d.del) {
+      if (armed !== d.del) { armed = d.del; return renderTopic(); }
+      b.disabled = true; const j = await api("del", { post: d.del }); armed = null;
+      if (j.gone) { cur = null; location.hash = "#board"; return; }
+      cur = j.topic; return renderTopic();
+    }
+    if (d.save) {
+      const card = $("bdp-" + d.save), text = card.querySelector("[data-edtext]").value.trim(), ti = card.querySelector("[data-edtitle]");
+      if (!text) return;
+      b.disabled = true; b.textContent = t("saving");
+      cur = (await api("edit", { post: d.save, text, ...(ti ? { title: ti.value.trim() || cur.title.orig } : {}) })).topic; editing = null; return renderTopic();
+    }
+  } catch (e) { b.disabled = false; alertMsg(e); }
+});
+function alertMsg(e) { $("bd_replyMsg").textContent = t("err", { e: e.message }); }
+function init() { applyTexts(); poll(); }
+function onShow() { route(); }
+function setLang(l) { lang = l; applyTexts(); if (!ROOT.hidden) { if (cur && topicId()) renderTopic(); else renderList(); } }
+OFFICER_PAGES.board = { init, onShow, applyTexts, setLang };
 })();
 </script>
 <script src="js/assistant.js"></script>

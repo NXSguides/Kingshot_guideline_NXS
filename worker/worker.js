@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-14a (shared ranking plans)";
+const VERSION = "2026-10-14b (officer board)";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -45,17 +45,17 @@ const cors = {
 const json = (obj, status = 200) => Response.json(obj, { status, headers: cors });
 
 export default {
-  async fetch(req, env) {
-    try { return await handle(req, env); }
+  async fetch(req, env, ctx) {
+    try { return await handle(req, env, ctx); }
     catch (e) { return json({ error: "worker", detail: [String(e && e.message || e)] }, 500); }
   },
 };
 
-async function handle(req, env) {
+async function handle(req, env, ctx) {
   {
     if (req.method === "OPTIONS") return new Response(null, { headers: cors });
     const path = new URL(req.url).pathname;
-    if (path.startsWith("/auth/") || path === "/sync" || path === "/sync/forget") return authRoute(req, env, path);   // 🔑 officer login with Discord
+    if (path.startsWith("/auth/") || path === "/sync" || path === "/sync/forget" || path === "/board") return authRoute(req, env, path, ctx);   // 🔑 officer login with Discord
     if (path === "/push/save" || path === "/push/test") {
       if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
       return pushRoute(req, env, path);
@@ -179,7 +179,7 @@ async function handle(req, env) {
 
 /* One Gemini call. Thinking is kept low: on "thinking" models it uses the same token budget as
    the answer, and a too-small budget gives an empty answer. */
-async function gemini(env, model, system, contents) {
+async function gemini(env, model, system, contents, extra = {}) {
   const thinking = model.startsWith("gemini-2.5") ? { thinkingBudget: 0 } : { thinkingLevel: "low" };
   for (const withThinking of [true, false]) {
     let r;
@@ -190,7 +190,7 @@ async function gemini(env, model, system, contents) {
         body: JSON.stringify({
           systemInstruction: { parts: [{ text: system }] },
           contents,
-          generationConfig: { maxOutputTokens: 4096, temperature: 0.3, ...(withThinking ? { thinkingConfig: thinking } : {}) },
+          generationConfig: { maxOutputTokens: 4096, temperature: 0.3, ...extra, ...(withThinking ? { thinkingConfig: thinking } : {}) },
         }),
       });
     } catch (e) { return { error: "network " + e.message }; }
@@ -610,6 +610,72 @@ export class PushTimers extends DurableObject {
     // 🔄 Discord-logged-in people: their phones/computers (one person per device) and their synced ⏰ data
     this.sql.exec(`CREATE TABLE IF NOT EXISTS usub (ep TEXT PRIMARY KEY, uid TEXT, sub TEXT)`);
     this.sql.exec(`CREATE TABLE IF NOT EXISTS sync (uid TEXT PRIMARY KEY, data TEXT, at INTEGER)`);
+    // 💬 officer board: topics (bt), messages (bp), each person's page language (bl, for notifications)
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS bt (id TEXT PRIMARY KEY, title TEXT, by TEXT, at INTEGER, last INTEGER, n INTEGER, dec TEXT, dby TEXT, dat INTEGER)`);
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS bp (id TEXT PRIMARY KEY, tid TEXT, by TEXT, at INTEGER, txt TEXT, ed INTEGER)`);
+    this.sql.exec(`CREATE INDEX IF NOT EXISTS bp_tid ON bp (tid, at)`);
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS bl (uid TEXT PRIMARY KEY, lang TEXT)`);
+  }
+  /* ---- 💬 board ---- */
+  boardLang(uid, lang) { if (lang) this.sql.exec(`INSERT OR REPLACE INTO bl VALUES (?, ?)`, uid, lang); }
+  boardList() {
+    return [...this.sql.exec(`SELECT * FROM bt ORDER BY last DESC LIMIT 200`)].map((r) => ({ id: r.id, title: JSON.parse(r.title), by: JSON.parse(r.by), at: r.at, last: r.last, n: r.n, dec: r.dec || null }));
+  }
+  boardThread(id) {
+    const t = [...this.sql.exec(`SELECT * FROM bt WHERE id = ?`, id)][0];
+    if (!t) return null;
+    const posts = [...this.sql.exec(`SELECT * FROM bp WHERE tid = ? ORDER BY at`, id)].map((r) => ({ id: r.id, by: JSON.parse(r.by), at: r.at, txt: JSON.parse(r.txt), ed: r.ed || 0 }));
+    return { id: t.id, title: JSON.parse(t.title), by: JSON.parse(t.by), at: t.at, last: t.last, dec: t.dec || null, dby: t.dby ? JSON.parse(t.dby) : null, dat: t.dat || 0, posts };
+  }
+  boardNew(id, title, by, pid, txt) {
+    const now = Date.now();
+    this.sql.exec(`INSERT INTO bt VALUES (?, ?, ?, ?, ?, 1, NULL, NULL, NULL)`, id, JSON.stringify(title), JSON.stringify(by), now, now);
+    this.sql.exec(`INSERT INTO bp VALUES (?, ?, ?, ?, ?, 0)`, pid, id, JSON.stringify(by), now, JSON.stringify(txt));
+    return this.boardThread(id);
+  }
+  boardReply(tid, by, pid, txt) {
+    if (![...this.sql.exec(`SELECT id FROM bt WHERE id = ?`, tid)].length) return null;
+    const now = Date.now();
+    this.sql.exec(`INSERT INTO bp VALUES (?, ?, ?, ?, ?, 0)`, pid, tid, JSON.stringify(by), now, JSON.stringify(txt));
+    this.sql.exec(`UPDATE bt SET last = ?, n = n + 1 WHERE id = ?`, now, tid);
+    return this.boardThread(tid);
+  }
+  boardPost(pid) { const r = [...this.sql.exec(`SELECT * FROM bp WHERE id = ?`, pid)][0]; return r ? { id: r.id, tid: r.tid, by: JSON.parse(r.by), at: r.at } : null; }
+  boardEdit(pid, txt, title) {
+    const p = this.boardPost(pid); if (!p) return null;
+    this.sql.exec(`UPDATE bp SET txt = ?, ed = ? WHERE id = ?`, JSON.stringify(txt), Date.now(), pid);
+    if (title) this.sql.exec(`UPDATE bt SET title = ? WHERE id = ?`, JSON.stringify(title), p.tid);
+    return this.boardThread(p.tid);
+  }
+  boardDecide(tid, pid, by) {
+    if (pid && !this.boardPost(pid)) return null;
+    this.sql.exec(`UPDATE bt SET dec = ?, dby = ?, dat = ? WHERE id = ?`, pid || null, pid ? JSON.stringify(by) : null, pid ? Date.now() : null, tid);
+    return this.boardThread(tid);
+  }
+  boardDelete(pid) {
+    const p = this.boardPost(pid); if (!p) return null;
+    const first = [...this.sql.exec(`SELECT id FROM bp WHERE tid = ? ORDER BY at LIMIT 1`, p.tid)][0];
+    if (first && first.id === pid) {   // the opening message → the whole topic goes
+      this.sql.exec(`DELETE FROM bp WHERE tid = ?`, p.tid); this.sql.exec(`DELETE FROM bt WHERE id = ?`, p.tid); return { gone: true };
+    }
+    this.sql.exec(`DELETE FROM bp WHERE id = ?`, pid);
+    this.sql.exec(`UPDATE bt SET n = n - 1, dec = CASE WHEN dec = ? THEN NULL ELSE dec END WHERE id = ?`, pid, p.tid);
+    return { topic: this.boardThread(p.tid) };
+  }
+  /* new message → a notification on the other officers' phones, in each one's own page language */
+  async boardNotify(fromUid, tid, title, name, txt) {
+    if (!this.env.VAPID_PRIVATE) return 0;
+    const langs = Object.fromEntries([...this.sql.exec(`SELECT uid, lang FROM bl`)].map((r) => [r.uid, r.lang]));
+    let n = 0;
+    for (const r of [...this.sql.exec(`SELECT ep, uid, sub FROM usub WHERE uid != ?`, fromUid)]) {
+      const l = langs[r.uid] || "en", pick = (o) => (o && (o[l] || o.en || o.orig)) || "";
+      const body = (name + ": " + pick(txt)).replace(/\s+/g, " ").slice(0, 160);
+      try {
+        const st = await sendPush(JSON.parse(r.sub), { title: "💬 " + pick(title).slice(0, 80), body, tag: "brd-" + tid }, this.env);
+        if (st === 404 || st === 410) this.sql.exec(`DELETE FROM usub WHERE ep = ?`, r.ep); else n++;
+      } catch (e) {}
+    }
+    return n;
   }
   /* this device's notification list goes to every device the same person is logged in on */
   async saveFor(uid, sub, timers) {
@@ -663,6 +729,107 @@ export class PushTimers extends DurableObject {
     for (const ep of gone) { this.sql.exec(`DELETE FROM t WHERE ep = ?`, ep); this.sql.exec(`DELETE FROM usub WHERE ep = ?`, ep); }
     await this.schedule();
   }
+}
+
+/* ================= 💬 Officer board =================
+   Topics and replies for planning together. Only people logged in with Discord (DISCORD_ACCESS) can read or write.
+   Every message is translated into the R4/R5 languages (BOARD_LANGS) with the game's own terms from data/terms.js;
+   the original is always kept. Stored in the PushTimers Durable Object (tables bt / bp). */
+const BOARD_LANGS = ["zh", "en", "pt"];
+const TERM_COL = { en: 0, zh: 1, ko: 2, de: 3, fr: 4, pt: 5, tr: 6, id: 7, ru: 8, th: 9, ar: 10, es: 11 };
+let termRows = { rows: null, at: 0 };
+async function getTermRows() {
+  if (termRows.rows && Date.now() - termRows.at < CACHE_MS) return termRows.rows;
+  const s = await (await fetch(SITE_BASE + "data/terms.js", { cf: { cacheTtl: 300 } })).text();
+  const a = s.indexOf("const TERMS = ") + 14, b = s.indexOf("\n];", a) + 2;
+  const cats = JSON.parse(s.slice(a, b).replace(/,(\s*[\]}])/g, "$1"));
+  termRows = { rows: cats.flatMap((c) => c.rows), at: Date.now() };
+  return termRows.rows;
+}
+/* only the terms that actually appear in the message (in any language) → a small table for the translator */
+function termTable(rows, text) {
+  const low = text.toLowerCase(), out = [];
+  const clean = (v) => String(v || "").replace(/\s*\(.*?\)\s*/g, " ").replace(/\{\w+\}/g, "").trim();   // "{n}號要塞" → "號要塞"
+  for (const r of rows) {
+    const hit = Object.values(TERM_COL).some((i) => { const v = clean(r[i]); return v && v !== "—" && v.length >= (/[　-鿿가-힯]/.test(v) ? 2 : 4) && low.includes(v.toLowerCase()); });
+    if (hit) out.push(BOARD_LANGS.map((l) => { const v = r[TERM_COL[l]]; return `${l}: ${v && v !== "—" ? v : "(none)"}`; }).join(" | "));
+    if (out.length >= 120) break;
+  }
+  return out.join("\n");
+}
+/* → { ok, title?: {orig, src, zh, en, pt}, text: {orig, src, zh, en, pt} } ; on failure only the original is kept (ok: false) */
+async function boardTranslate(env, title, text) {
+  const plain = { ok: false, text: { orig: text }, ...(title ? { title: { orig: title } } : {}) };
+  if (!env.GEMINI_API_KEY) return plain;
+  let terms = ""; try { terms = termTable(await getTermRows(), (title || "") + "\n" + text); } catch (e) {}
+  const system = [
+    "You translate messages between the officers (R4/R5) of the NXS alliance in the mobile game Kingshot.",
+    `Translate the TITLE (if given) and the TEXT into each of these languages: ${BOARD_LANGS.map((l) => l + " = " + LANG_NAMES[l]).join(", ")}.`,
+    "First detect the language the officer wrote in (ISO code like zh, en, pt, ko…). For that language, return the original text unchanged.",
+    "Keep the meaning, tone, line breaks, lists, emojis, numbers, coordinates (X:123 Y:456), times and dates exactly. Times are UTC — never convert them.",
+    "Never translate member names, alliance tags like [NXS], @mentions or links.",
+    "Game terms: whenever a game term from the TERM TABLE appears, use exactly the name given for the target language. Never invent your own translation of a game term; if the table says (none), keep the term as the officer wrote it.",
+    "Chinese must be Traditional Chinese as used in Taiwan.",
+    'Reply with JSON only: {"src":"<code>","title":{"zh":"…","en":"…","pt":"…"},"text":{"zh":"…","en":"…","pt":"…"}} (leave "title" out when no title is given).',
+    terms ? "\n===== TERM TABLE (official in-game names) =====\n" + terms : "",
+  ].join("\n");
+  const user = (title ? "TITLE:\n" + title + "\n\n" : "") + "TEXT:\n" + text;
+  for (const m of MODELS) {
+    const r = await gemini(env, m, system, [{ role: "user", parts: [{ text: user }] }], { responseMimeType: "application/json", temperature: 0.2 });
+    if (r.error) continue;
+    try {
+      const j = JSON.parse(r.answer.replace(/^```(?:json)?\s*|\s*```$/g, ""));
+      const src = String(j.src || "").toLowerCase().slice(0, 5);
+      const pack = (o, orig) => { const x = { orig, src }; for (const l of BOARD_LANGS) if (o && typeof o[l] === "string" && o[l].trim()) x[l] = o[l].trim(); return x; };
+      const out = { ok: true, text: pack(j.text, text) };
+      if (title) out.title = pack(j.title, title);
+      return out;
+    } catch (e) { continue; }
+  }
+  return plain;
+}
+const rid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+async function boardRoute(env, ctx, stub, user, body, token) {
+  const op = body.op, lang = BOARD_LANGS.includes(body.lang) ? body.lang : null;
+  const by = { id: user.id, name: user.name, avatar: user.avatar || "" };
+  await stub.boardLang(user.id, lang);
+  const ok = (o) => json({ ok: true, token, ...o });
+  const str = (v, max) => String(v || "").replace(/\r/g, "").trim().slice(0, max);
+  const notify = (t, tx) => { const p = stub.boardNotify(user.id, t.id, t.title, user.name, tx); if (ctx && ctx.waitUntil) ctx.waitUntil(p); };
+  if (op === "list") return ok({ topics: await stub.boardList() });
+  if (op === "get") { const t = await stub.boardThread(String(body.id || "")); return t ? ok({ topic: t }) : json({ error: "gone", token }, 404); }
+  if (op === "new") {
+    const title = str(body.title, 120), text = str(body.text, 4000);
+    if (!title || !text) return json({ error: "empty" }, 400);
+    const tr = await boardTranslate(env, title, text);
+    const t = await stub.boardNew(rid(), tr.title, by, rid(), tr.text);
+    notify(t, tr.text);
+    return ok({ topic: t, translated: tr.ok });
+  }
+  if (op === "reply") {
+    const text = str(body.text, 4000);
+    if (!text) return json({ error: "empty" }, 400);
+    const tr = await boardTranslate(env, "", text);
+    const t = await stub.boardReply(String(body.id || ""), by, rid(), tr.text);
+    if (!t) return json({ error: "gone" }, 404);
+    notify(t, tr.text);
+    return ok({ topic: t, translated: tr.ok });
+  }
+  const p = body.post ? await stub.boardPost(String(body.post)) : null;
+  if (op === "edit" || op === "del") {
+    if (!p) return json({ error: "gone" }, 404);
+    if (p.by.id !== user.id) return json({ error: "not_yours" }, 403);
+    if (op === "del") return ok(await stub.boardDelete(p.id));
+    const text = str(body.text, 4000), title = body.title != null ? str(body.title, 120) : "";
+    if (!text) return json({ error: "empty" }, 400);
+    const tr = await boardTranslate(env, title, text);
+    return ok({ topic: await stub.boardEdit(p.id, tr.text, title ? tr.title : null), translated: tr.ok });
+  }
+  if (op === "decide") {   // 📌 any officer can mark (or clear) the decision of a topic
+    const t = await stub.boardDecide(String(body.id || ""), p ? p.id : null, by);
+    return t ? ok({ topic: t }) : json({ error: "gone" }, 404);
+  }
+  return json({ error: "bad op" }, 400);
 }
 
 /* ================= Officer login with Discord =================
@@ -744,7 +911,7 @@ async function sessionCheck(req, env, token) {
   return { s };
 }
 
-async function authRoute(req, env, path) {
+async function authRoute(req, env, path, ctx) {
   if (!env.DISCORD_CLIENT_SECRET) return json({ error: "discord_secret_missing" }, 503);
   const url = new URL(req.url);
   if (path === "/auth/discord/start") {
@@ -769,7 +936,7 @@ async function authRoute(req, env, path) {
       return back("login=" + session);
     } catch (e) { return back("login_error=discord"); }
   }
-  if (path === "/auth/me" || path === "/sync" || path === "/sync/forget") {
+  if (path === "/auth/me" || path === "/sync" || path === "/sync/forget" || path === "/board") {
     if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
     let body; try { body = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
     const c = await sessionCheck(req, env, body.token);
@@ -781,6 +948,7 @@ async function authRoute(req, env, path) {
     }
     if (!env.TIMERS) return json({ error: "push_not_set_up" }, 503);
     const stub = env.TIMERS.get(env.TIMERS.idFromName("all"));
+    if (path === "/board") return boardRoute(env, ctx, stub, s.u, body, token);
     if (path === "/sync/forget") { if (body.sub && body.sub.endpoint) await stub.forget(String(body.sub.endpoint)); return json({ ok: true }); }
     const st = body.state && typeof body.state === "object" ? body.state : {};
     try { return json({ ok: true, user: s.u, token, state: await stub.syncMerge(s.u.id, st) }); }
