@@ -1,11 +1,6 @@
 {
- "kingdoms": [
-  {
-   "kid": 344312621,
-   "auto": false
-  }
- ],
- "requested": [
+ "kingdoms": [],
+ "drop": [
   344312621
  ]
 }
