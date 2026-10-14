@@ -77,11 +77,11 @@ function matchNames(names) {
   return { hit, miss };
 }
 /* * = top 20 by power in the roster (the matchmaking uses them, so their absence hurts most) */
-const top20 = () => { if (!roster) return new Set(); return new Set([...roster.members].filter((m) => m.power > 0).sort((a, b) => b.power - a.power).slice(0, 20).map((m) => m.id)); };
+const top20 = () => { if (!roster) return new Set(); return new Set([...roster.members].filter((m) => m.power > 0).sort((a, b) => b.power - a.power).slice(0, 20).map((m) => String(m.id))); };
 let TOP = new Set();
-const star = (id) => TOP.has(id) ? "⭐ " : "";
-const statusOf = (sl, id) => sl.present.includes(id) ? "ok" : sl.excused.includes(id) ? "ex" : "no";
-const missesOf = (ev) => { const out = new Map(); for (const sl of ev.slots) for (const m of sl.confirmed) { const st = statusOf(sl, m.id); if (st !== "ex") out.set(m.id, { name: m.name, miss: st === "no" }); } return out; };
+const star = (id) => TOP.has(String(id)) ? "⭐ " : "";
+const statusOf = (sl, id) => { id = String(id); return sl.present.map(String).includes(id) ? "ok" : sl.excused.map(String).includes(id) ? "ex" : "no"; };
+const missesOf = (ev) => { const out = new Map(); for (const sl of ev.slots) for (const m of sl.confirmed) { const st = statusOf(sl, m.id); if (st !== "ex") out.set(String(m.id), { name: m.name, miss: st === "no" }); } return out; };
 
 /* ---------- views ---------- */
 function applyTexts() {
@@ -126,7 +126,7 @@ function renderEdit() {
       ${ro ? "" : `<textarea class="inp" data-paste="${i}" rows="2" placeholder="${esc(t("paste"))}" style="width:100%;margin-top:6px"></textarea>
       <div class="row" style="margin-top:6px;align-items:center"><button type="button" class="btn small" data-match="${i}">${esc(t("match"))}</button><label class="btn small" style="cursor:pointer">${esc(t("shot"))}<input type="file" accept="image/*" multiple data-shot="${i}" hidden></label>
       <select class="inp" data-plan="${i}" style="max-width:220px"><option value="">${esc(t("fromPlan"))}</option>${Object.entries(plans).map(([id, pl]) => `<option value="${esc(id)}">${esc(t("planN", { name: pl.name || id, n: (pl.picked || []).length }))}</option>`).join("")}</select>
-      <select class="inp" data-add="${i}" style="max-width:200px"><option value="">${esc(t("addMember"))}</option>${roster ? roster.members.filter((m) => !sl.confirmed.some((c) => c.id === m.id)).sort((a, b) => a.name.localeCompare(b.name)).map((m) => `<option value="${esc(m.id)}">${esc(m.name)}</option>`).join("") : ""}</select></div>
+      <select class="inp" data-add="${i}" style="max-width:200px"><option value="">${esc(t("addMember"))}</option>${roster ? roster.members.filter((m) => !sl.confirmed.some((c) => String(c.id) === String(m.id))).sort((a, b) => a.name.localeCompare(b.name)).map((m) => `<option value="${esc(m.id)}">${esc(m.name)}</option>`).join("") : ""}</select></div>
       <div class="msg" data-msg="${i}"></div>`}
       <h4>${esc(t("present"))}</h4><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(t("presentNote"))}<br><b>${esc(t("keysLine"))}</b></div>
       ${ro || !sl.confirmed.length ? "" : `<button type="button" class="btn small" data-all="${i}" style="margin-bottom:6px">${esc(t("allPresent"))}</button>`}<div class="at-plist">${rowsP}</div></div>`;
@@ -140,18 +140,18 @@ function renderEdit() {
   $("at_evDate").oninput = (e) => { cur.date = e.target.value; };
   box.querySelectorAll("[data-sn]").forEach((el) => el.oninput = () => { cur.slots[+el.dataset.sn].name = el.value; });
   box.querySelectorAll("[data-rm]").forEach((el) => el.onclick = () => { cur.slots.splice(+el.dataset.rm, 1); renderEdit(); });
-  box.querySelectorAll("[data-del]").forEach((el) => el.onclick = () => { const [i, id] = el.dataset.del.split(":"); const sl = cur.slots[+i]; sl.confirmed = sl.confirmed.filter((m) => m.id !== id); sl.present = sl.present.filter((x) => x !== id); sl.excused = sl.excused.filter((x) => x !== id); renderEdit(); });
+  box.querySelectorAll("[data-del]").forEach((el) => el.onclick = () => { const [i, id] = el.dataset.del.split(":"); const sl = cur.slots[+i]; sl.confirmed = sl.confirmed.filter((m) => String(m.id) !== id); sl.present = sl.present.filter((x) => String(x) !== id); sl.excused = sl.excused.filter((x) => String(x) !== id); renderEdit(); });
   box.querySelectorAll("[data-match]").forEach((el) => el.onclick = () => { const i = +el.dataset.match; const names = box.querySelector(`[data-paste="${i}"]`).value.split(/[\n,，]+/).map((s) => s.replace(/^[\s\-•*\d.)]+/, "").trim()).filter(Boolean); addNames(i, names); });
   box.querySelectorAll("[data-shot]").forEach((el) => el.onchange = () => ocr(+el.dataset.shot, [...el.files]));
   box.querySelectorAll("[data-plan]").forEach((el) => el.onchange = () => { const pl = plans[el.value]; if (!pl || !roster) return; const i = +el.dataset.plan;
     if (!cur.slots[i].name) cur.slots[i].name = pl.name || "";
-    addMembers(i, (pl.picked || []).map((id) => roster.members.find((m) => m.id === id)).filter(Boolean).map((m) => ({ id: m.id, name: m.name }))); });
-  box.querySelectorAll("[data-add]").forEach((el) => el.onchange = () => { const m = roster && roster.members.find((x) => x.id === el.value); if (m) addMembers(+el.dataset.add, [{ id: m.id, name: m.name }]); });
+    addMembers(i, (pl.picked || []).map((id) => roster.members.find((m) => String(m.id) === String(id))).filter(Boolean).map((m) => ({ id: m.id, name: m.name }))); });
+  box.querySelectorAll("[data-add]").forEach((el) => el.onchange = () => { const m = roster && roster.members.find((x) => String(x.id) === el.value); if (m) addMembers(+el.dataset.add, [{ id: m.id, name: m.name }]); });
   box.querySelectorAll("[data-tog]").forEach((el) => el.onclick = () => { const [i, id] = el.dataset.tog.split(":"); const sl = cur.slots[+i], st = statusOf(sl, id);
-    sl.present = sl.present.filter((x) => x !== id); sl.excused = sl.excused.filter((x) => x !== id);
+    sl.present = sl.present.filter((x) => String(x) !== id); sl.excused = sl.excused.filter((x) => String(x) !== id);
     if (st === "no") sl.present.push(id); else if (st === "ok") sl.excused.push(id);   // no → ok → excused → no
     renderEdit(); });
-  box.querySelectorAll("[data-all]").forEach((el) => el.onclick = () => { const sl = cur.slots[+el.dataset.all]; sl.present = sl.confirmed.map((m) => m.id); sl.excused = []; renderEdit(); });
+  box.querySelectorAll("[data-all]").forEach((el) => el.onclick = () => { const sl = cur.slots[+el.dataset.all]; sl.present = sl.confirmed.map((m) => String(m.id)); sl.excused = []; renderEdit(); });
   $("at_addSlot").onclick = () => { cur.slots.push({ name: "", confirmed: [], present: [], excused: [] }); renderEdit(); };
   $("at_save").onclick = save;
   if ($("at_del")) $("at_del").onclick = async () => { if (!confirm(t("delAsk"))) return; try { await api("del", { id: cur.id }); events = events.filter((e) => e.id !== cur.id); cur = null; render(); } catch (e) { $("at_msg").textContent = errText(e); } };
@@ -170,7 +170,7 @@ function wireCopy() { $("at_copy").onclick = () => {
   for (const sl of cur.slots) { if (cur.slots.length > 1) lines.push(`— ${sl.name || t("slot")} —`); for (const m of sl.confirmed) { const st = statusOf(sl, m.id), n = cnt.get(m.id) || 0;
     lines.push(`- ${star(m.id)}${m.name}${st === "no" ? ": X" + (n >= 2 ? ` (${nth(n)} miss)` : "") : st === "ex" ? ": 🛌" : ""}`); } }
   navigator.clipboard.writeText(lines.join("\n")).then(() => { $("at_msg").textContent = t("copied"); }); }; }
-function addMembers(i, list) { const sl = cur.slots[i]; for (const m of list) if (!sl.confirmed.some((c) => c.id === m.id)) sl.confirmed.push(m); renderEdit(); }   // duplicates (overlapping screenshots) are skipped
+function addMembers(i, list) { const sl = cur.slots[i]; for (const m of list) { const id = String(m.id); if (!sl.confirmed.some((c) => String(c.id) === id)) sl.confirmed.push({ id, name: m.name }); } renderEdit(); }   // duplicates (overlapping screenshots) are skipped
 function addNames(i, names) {
   if (!roster) return;
   const { hit, miss } = matchNames(names);
@@ -206,10 +206,10 @@ async function newFromPlans() {
   try { const d = await OfficerData.fetchJsonFast(PLAN_URL); if (d) plans = d.plans || {}; } catch (e) {}
   const list = Object.values(plans).filter((pl) => (pl.picked || []).length).sort((a, b) => String(a.name).localeCompare(String(b.name), undefined, { numeric: true }));
   if (!list.length) { lastErr = null; $("at_list").insertAdjacentHTML("afterbegin", `<div class="msg warn">${esc(t("planNone"))}</div>`); return; }
-  const byId = new Map(((roster && roster.members) || []).map((m) => [m.id, m]));
+  const byId = new Map(((roster && roster.members) || []).map((m) => [String(m.id), m]));
   const ss = typeof EVENT_NAMES !== "undefined" && EVENT_NAMES["Swordland Showdown"];
   cur = { id: rid(), title: (ss && (ss[lang] || ss.en)) || "Swordland Showdown", date: new Date().toISOString().slice(0, 10),
-    slots: list.map((pl) => ({ name: pl.name || "", confirmed: pl.picked.map((id) => byId.get(id)).filter(Boolean).map((m) => ({ id: m.id, name: m.name })), present: [], excused: [] })) };
+    slots: list.map((pl) => ({ name: pl.name || "", confirmed: pl.picked.map((id) => byId.get(String(id))).filter(Boolean).map((m) => ({ id: String(m.id), name: m.name })), present: [], excused: [] })) };
   render();
 }
 function init() {
