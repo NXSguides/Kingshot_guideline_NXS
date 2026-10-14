@@ -631,6 +631,17 @@
   <div id="rk_noData" class="card" hidden></div>
 
   <div id="rk_app" hidden>
+    <!-- shared plans: everyone sees the same ticks / table -->
+    <div class="card" id="planCard">
+      <h2 id="planTitle"></h2>
+      <div class="row" style="gap:8px;flex-wrap:wrap;align-items:center">
+        <select class="inp" id="planSel" style="min-width:200px;flex:1"></select>
+        <button class="btn" id="planNew"></button>
+        <button class="btn" id="planRen" hidden></button>
+        <button class="btn danger" id="planDel" hidden></button>
+      </div>
+      <div class="muted msg" id="planStatus" style="margin-top:6px"></div>
+    </div>
     <!-- 1. weights -->
     <div class="card">
       <h2 data-t="weights"></h2>
@@ -2215,7 +2226,7 @@ const PRESETS = [
 ];
 const LS = "nxs-roster-v2";
 const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
-const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };
+const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} planTouched(); };
 
 /* one language for all officer tabs (set from the main site when you enter, and by the language button on any tab) */
 let lang = OFFICER.lang;
@@ -2363,6 +2374,7 @@ async function init() {
   $("rk_app").hidden = false;
   setWeights(wPower);
   renderAll();
+  plansInit();
 }
 
 function setLang(l) { lang = l; persist(); if (data) renderAll(); else applyTexts(); };
@@ -2478,7 +2490,7 @@ function tbDefault() {
   };
 }
 let TB = (() => { try { return Object.assign(tbDefault(), JSON.parse(localStorage.getItem(TB_LS)) || {}); } catch (e) { return tbDefault(); } })();
-const tbSave = () => { try { localStorage.setItem(TB_LS, JSON.stringify(TB)); } catch (e) {} };
+const tbSave = () => { try { localStorage.setItem(TB_LS, JSON.stringify(TB)); } catch (e) {} planTouched(); };
 let tbPick = null;          // selected chip: { kind: "p", id } | { kind: "t", text }
 let tbUid = Date.now();
 const newRow = (stage = "") => ({ id: ++tbUid, att: [], stage, target: "", def: [], join: [], note: "" });
@@ -2716,6 +2728,156 @@ function tbImage() {
   host.addEventListener("drop", tbDrop);
 })();
 
+
+/* ===== 🔄 Shared plans: a named plan (e.g. "Legion 1") that every officer sees — ticks, weights, group sizes and the battle table.
+   Saved encrypted on the site (data/ranking-plans-x7k2p9.json); open plans check for others' changes every 10 s.
+   "Only on this device" works as before. ===== */
+const PL = {
+  en: { title: "📋 Plan", local: "🔒 Only on this device", newP: "+ New shared plan", ren: "Rename", del: "Delete",
+        name: "Name of the shared plan (e.g. Legion 1)", copyQ: "Start it with the people ticked now? (Cancel = start empty)",
+        delQ: "Delete the shared plan “{n}” for everyone?", localNote: "Changes here stay on this device only.",
+        shared: "🔄 Shared — every officer sees the same ticks and table.", last: "Last change: {who} · {t}", saving: "Saving…", saved: "✓ Saved",
+        err: "Couldn't save — trying again…", noKey: "Shared plans need the officer GitHub key (Post tab).", loading: "Loading shared plans…" },
+  zh: { title: "📋 方案", local: "🔒 只在這台裝置", newP: "+ 新增共用方案", ren: "改名", del: "刪除",
+        name: "共用方案的名字（例如 Legion 1）", copyQ: "要用現在勾選的人開始嗎？（取消 = 從空白開始）",
+        delQ: "確定要為所有人刪除共用方案「{n}」？", localNote: "這裡的變更只存在這台裝置。",
+        shared: "🔄 共用中 — 所有幹部看到的勾選和表格都一樣。", last: "最後修改：{who} · {t}", saving: "儲存中…", saved: "✓ 已儲存",
+        err: "存不進去，正在重試…", noKey: "共用方案需要幹部的 GitHub 金鑰（在公告分頁設定）。", loading: "正在讀取共用方案…" },
+};
+const pl = (k, v = {}) => String((PL[lang] || PL.en)[k] ?? PL.en[k]).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
+const PLAN_PATH = "data/ranking-plans-x7k2p9.json";
+const P_OWNER = location.hostname.endsWith("github.io") ? location.hostname.split(".")[0] : "NXSguides";
+const P_REPO = location.hostname.endsWith("github.io") ? (location.pathname.split("/")[1] || "Kingshot_guideline_NXS") : "Kingshot_guideline_NXS";
+const p64 = { enc: (str) => { const u = new TextEncoder().encode(str); let x = ""; for (let i = 0; i < u.length; i += 0x8000) x += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(x); },
+              dec: (b) => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\s/g, "")), (c) => c.charCodeAt(0))) };
+async function pgh(method, body) {
+  let res;
+  try {
+    res = await fetch(`https://api.github.com/repos/${P_OWNER}/${P_REPO}/contents/${PLAN_PATH}${method === "GET" ? "?ref=main&t=" + Date.now() : ""}`, {
+      method, headers: { Authorization: `Bearer ${OFFICER.token}`, Accept: "application/vnd.github+json" }, body: body ? JSON.stringify(body) : undefined, cache: "no-store" });
+  } catch (e) { throw new Error("net"); }
+  if (res.status === 401 || res.status === 403) throw new Error("auth");
+  if (res.status === 409 || res.status === 422) throw new Error("busy");
+  if (method === "GET" && res.status === 404) return null;
+  if (!res.ok) throw new Error("net");
+  return res.json();
+}
+let planNewName = "";
+let plans = {}, planSha = null, planId = store.planId || "", planBase = null, planDirty = false, planBusy = false, planTimer = null, planErr = "", planApplying = false;
+const planWho = () => (OFFICER.user && OFFICER.user.name) || (() => { try { return JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").author || ""; } catch (e) { return ""; } })() || "?";
+async function planFetch() {
+  const f = await pgh("GET");
+  if (!f) { plans = {}; planSha = null; return; }
+  planSha = f.sha;
+  const d = await OfficerData.open(JSON.parse(p64.dec(f.content)));
+  plans = (d && d.plans) || {};
+}
+function planSnapshot() { return { picked: [...picked], wPower, counts: JSON.parse(JSON.stringify(store.counts || {})), tb: JSON.parse(JSON.stringify(TB)) }; }
+/* put a plan's contents on screen (keeping ticks this device hasn't saved yet) */
+function planApply(p) {
+  planApplying = true;
+  let ids = new Set(p.picked || []);
+  if (planDirty && planBase) { for (const id of picked) if (!planBase.has(id)) ids.add(id); for (const id of planBase) if (!picked.has(id)) ids.delete(id); }
+  else planBase = new Set(p.picked || []);
+  picked = ids;
+  if (!planDirty) { store.counts = p.counts || {}; TB = Object.assign(tbDefault(), p.tb || {}); setWeights(p.wPower ?? 40); }
+  renderAll(); tbRender(); renderPresets && renderPresets();
+  planApplying = false;
+}
+function planRenderBar() {
+  $("planTitle").textContent = pl("title");
+  $("planNew").textContent = pl("newP"); $("planRen").textContent = pl("ren"); $("planDel").textContent = pl("del");
+  const ids = Object.keys(plans).sort((a, b) => (plans[a].name || "").localeCompare(plans[b].name || ""));
+  $("planSel").innerHTML = `<option value="">${esc(pl("local"))}</option>` + ids.map((id) => `<option value="${esc(id)}">🔄 ${esc(plans[id].name || id)}</option>`).join("");
+  if (planId && !plans[planId]) planId = "";
+  $("planSel").value = planId;
+  $("planRen").hidden = $("planDel").hidden = !planId;
+  const p = planId && plans[planId];
+  $("planStatus").textContent = !OFFICER.token ? pl("noKey") : !p ? pl("localNote")
+    : [pl("shared"), p.by ? pl("last", { who: p.by, t: new Date(p.at).toISOString().slice(5, 16).replace("-", "/").replace("T", " ") + " UTC" }) : "", planBusy ? pl("saving") : planErr || (planDirty ? "" : "")].filter(Boolean).join(" · ");
+}
+/* local edits while a shared plan is open → save a moment later */
+function planTouched() {
+  if (!planId || planApplying) return;
+  planDirty = true; clearTimeout(planTimer); planTimer = setTimeout(planSave, 1200);
+}
+async function planSave(tries = 0) {
+  if (!planId || !planDirty || planBusy) return;
+  planBusy = true; planRenderBar();
+  const mine = planSnapshot(), base = planBase || new Set(), localMeta = plans[planId] || { name: "?" };
+  try {
+    await planFetch();
+    const cur = { ...(plans[planId] || localMeta), ...(planNewName ? { name: planNewName } : {}) };
+    // ticks: apply only what changed here, so two officers ticking at once don't undo each other
+    const ids = new Set(cur.picked || []);
+    for (const id of mine.picked) if (!base.has(id)) ids.add(id);
+    for (const id of base) if (!mine.picked.includes(id)) ids.delete(id);
+    plans[planId] = { ...cur, picked: [...ids], wPower: mine.wPower, counts: mine.counts, tb: mine.tb, by: planWho(), at: Date.now() };
+    const res = await pgh("PUT", { message: `Ranking plan: ${cur.name}`.slice(0, 100), content: p64.enc(JSON.stringify(await OfficerData.seal({ plans }), null, 1) + "\n"), sha: planSha || undefined, branch: "main" });
+    planSha = res && res.content ? res.content.sha : planSha;
+    planBase = new Set(ids); planErr = ""; planNewName = "";
+    planDirty = JSON.stringify(planSnapshot()) !== JSON.stringify(mine);   // more edits came in while saving
+    if (JSON.stringify([...picked].sort()) !== JSON.stringify([...ids].sort())) { picked = ids; renderAll(); tbRender(); }
+  } catch (e) {
+    planErr = e.message === "auth" ? pl("noKey") : pl("err");
+    if (e.message !== "auth" && tries < 3) setTimeout(() => planSave(tries + 1), 1500 * (tries + 1));
+  }
+  planBusy = false; planRenderBar();
+  if (planDirty) { clearTimeout(planTimer); planTimer = setTimeout(planSave, 800); }
+}
+async function planPoll() {
+  if (!planId || planBusy || planDirty || document.visibilityState !== "visible" || ROOT.hidden) return;
+  try {
+    const before = planSha; await planFetch();
+    if (planSha !== before && plans[planId]) planApply(plans[planId]);
+    planRenderBar();
+  } catch (e) {}
+}
+function planSwitch(id) {
+  if (!planId) store.local = planSnapshot();   // leaving "only this device": keep it to come back to
+  planId = id; store.planId = id; planDirty = false; planBase = null;
+  if (id && plans[id]) planApply(plans[id]);
+  else if (store.local) { const l = store.local; planApplying = true; picked = new Set(l.picked || []); store.counts = l.counts || {}; TB = Object.assign(tbDefault(), l.tb || {}); setWeights(l.wPower ?? 40); renderAll(); tbRender(); planApplying = false; }
+  planApplying = true; save(); planApplying = false; planRenderBar();
+}
+async function plansInit() {
+  if (!OFFICER.token) { planId = ""; planRenderBar(); return; }
+  $("planStatus").textContent = pl("loading");
+  try { await planFetch(); } catch (e) {}
+  if (planId && plans[planId]) planApply(plans[planId]); else planId = "";
+  planRenderBar();
+  setInterval(planPoll, 10000);
+  document.addEventListener("visibilitychange", planPoll);
+}
+$("planSel").onchange = (e) => planSwitch(e.target.value);
+$("planNew").onclick = async () => {
+  const name = (window.prompt(pl("name")) || "").trim(); if (!name) return;
+  const start = picked.size && window.confirm(pl("copyQ"));
+  const id = Math.random().toString(36).slice(2, 9);
+  try { await planFetch(); } catch (e) {}
+  const snap = planSnapshot();
+  plans[id] = { name: name.slice(0, 40), picked: start ? snap.picked : [], wPower: snap.wPower, counts: snap.counts, tb: start ? snap.tb : tbDefault(), by: planWho(), at: Date.now() };
+  if (!planId) store.local = snap;
+  planId = id; store.planId = id; planDirty = false;
+  planApply(plans[id]);
+  planBase = new Set();   // base empty → the whole tick list counts as this device's change on the first save
+  planApplying = true; save(); planApplying = false; planDirty = true; planSave();
+};
+$("planRen").onclick = () => {
+  const p = plans[planId]; if (!p) return;
+  const name = (window.prompt(pl("name"), p.name) || "").trim(); if (!name) return;
+  p.name = planNewName = name.slice(0, 40); planDirty = true; planSave(); planRenderBar();
+};
+$("planDel").onclick = async () => {
+  const p = plans[planId]; if (!p || !window.confirm(pl("delQ", { n: p.name }))) return;
+  const id = planId;
+  try {
+    await planFetch(); delete plans[id];
+    const res = await pgh("PUT", { message: `Delete ranking plan: ${p.name}`.slice(0, 100), content: p64.enc(JSON.stringify(await OfficerData.seal({ plans }), null, 1) + "\n"), sha: planSha || undefined, branch: "main" });
+    planSha = res && res.content ? res.content.sha : planSha;
+  } catch (e) { planErr = pl("err"); }
+  planSwitch("");
+};
 OFFICER_PAGES.ranking = { init, applyTexts, setLang };
 
 
