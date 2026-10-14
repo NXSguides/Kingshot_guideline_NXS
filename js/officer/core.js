@@ -82,7 +82,7 @@ OFFICER.util = {
    Someone who unlocked with the password only (no Discord) is not in the table → everything, as before. */
 OFFICER.OWNER = "1547403844374368327";   // Sparrow: always admin, can't be demoted or removed (so nobody can lock everyone out)
 OFFICER.ADMINS = [];                       // filled from the table (admin: true) by loadPerms
-OFFICER.PERM_TABS = ["events", "map", "ranking", "post", "watch", "scout", "views", "board", "bt"];
+OFFICER.PERM_TABS = ["events", "map", "ranking", "post", "watch", "scout", "views", "board", "attend", "bt"];
 OFFICER.defaultPerms = () => Object.fromEntries(OFFICER.PERM_TABS.map((k) => [k, k === "events" ? "view" : "none"]));   // new officer: Events, view only
 const PERMS_LS = "nxs-perms-v1";
 OFFICER.resetPerms = () => { OFFICER.perms = { v: 2, users: {
@@ -105,13 +105,13 @@ OFFICER.can = (tab, what = "view") => {
 };
 /* tab list + read-only look follow the rights (called after login, after a change on the 👥 tab, and when previewing) */
 OFFICER.applyPerms = () => {
-  document.querySelectorAll(".tabs a[data-tab]").forEach((a) => { const k = a.dataset.tab; a.hidden = k === "board" ? !(OFFICER.user && OFFICER.can("board")) : !OFFICER.can(k, "view"); });
+  document.querySelectorAll(".tabs a[data-tab]").forEach((a) => { const k = a.dataset.tab; a.hidden = k === "board" || k === "attend" ? !(OFFICER.user && OFFICER.can(k)) : !OFFICER.can(k, "view"); });
   const ro = { zh: "👁️ 這個分頁你只能看，不能修改。", en: "👁️ View only: you can look at this tab but not change it.", pt: "👁️ Só leitura: você pode ver esta aba, mas não mudar nada.", ar: "👁️ للعرض فقط: يمكنك مشاهدة هذا القسم دون تعديله.", ko: "👁️ 보기 전용: 이 탭은 볼 수만 있고 수정할 수 없습니다." }[OFFICER.lang] || "";
   for (const k of TABS) { const pg = document.getElementById("pg-" + k); if (pg) { pg.classList.toggle("readonly", !OFFICER.can(k, "edit")); pg.dataset.ro = ro; } }
   if (!OFFICER.can(currentTab(), "view")) location.hash = "#" + (TABS.find((k) => OFFICER.can(k, "view")) || "events");
 };
 const OFFICER_PAGES = {};
-const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "bt", "board", "perms"];
+const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "bt", "board", "attend", "perms"];
 const inited = {};
 try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
 const SH = { ko: {"home": "홈", "pw": "🔒 간부 비밀번호", "remember": "이 기기에서 기억하기", "unlock": "잠금 해제", "wrong": "비밀번호가 틀렸습니다", "loading": "불러오는 중…", "discord": "Discord로 로그인", "or": "— 또는 간부 비밀번호 사용 —", "out": "로그아웃", "inSmall": "🔑 Discord로 로그인", "e_no_access": "Discord 계정이 아직 간부 목록에 없습니다. Sparrow에게 문의하세요.", "e_not_member": "먼저 연맹 Discord 서버에 가입한 뒤 다시 시도하세요.", "e_cancelled": "Discord 로그인이 취소되었습니다.", "e_expired": "다시 로그인하세요.", "e_logged_out": "다시 로그인하세요.", "e_discord": "Discord에 연결할 수 없습니다 — 다시 시도하세요.", "e_discord_unreachable": "Discord에 연결할 수 없습니다 — 다시 시도하세요.", "e_setup": "Discord 로그인은 됐지만 사이트 설정이 아직 끝나지 않았습니다. 지금은 간부 비밀번호를 사용하세요."},

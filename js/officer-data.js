@@ -133,11 +133,11 @@ window.OfficerData = (() => {
 /* ===== Tab names at the top of the officer pages follow the page language (English / 中文 / Português) ===== */
 (function () {
   const NAMES = {
-    en: { ranking: "📊 Ranking", post: "📢 Post", watch: "🕵️ Watch", events: "📅 Events", scout: "🔭 Scout", views: "📈 Views", map: "🗺️ Map", bt: "🐻 Bear calc", board: "💬 Board", perms: "👥 Officers" },
-    zh: { ranking: "📊 成員排序", post: "📢 發布公告", watch: "🕵️ 觀察名單", events: "📅 活動排程", scout: "🔭 偵察", views: "📈 網站瀏覽", map: "🗺️ 王國地圖", bt: "🐻 巨熊編組", board: "💬 留言板", perms: "👥 幹部權限" },
-    ko: { ranking: "📊 순위", post: "📢 공지", watch: "🕵️ 감시", events: "📅 이벤트", scout: "🔭 정찰", views: "📈 방문", map: "🗺️ 지도", bt: "🐻 곰 사냥 편성", board: "💬 게시판", perms: "👥 간부 권한" },
-    ar: { ranking: "📊 الترتيب", post: "📢 الإعلانات", watch: "🕵️ المراقبة", events: "📅 الفعاليات", scout: "🔭 الاستطلاع", views: "📈 الزيارات", map: "🗺️ الخريطة", bt: "🐻 حاسبة الدب", board: "💬 لوحة النقاش", perms: "👥 الضباط" },
-    pt: { ranking: "📊 Ranking", post: "📢 Anúncios", watch: "🕵️ Vigilância", events: "📅 Eventos", scout: "🔭 Reconhecimento", views: "📈 Visitas", map: "🗺️ Mapa", bt: "🐻 Calc. do Urso", board: "💬 Mural", perms: "👥 Oficiais" },
+    en: { ranking: "📊 Ranking", post: "📢 Post", watch: "🕵️ Watch", events: "📅 Events", scout: "🔭 Scout", views: "📈 Views", map: "🗺️ Map", bt: "🐻 Bear calc", board: "💬 Board", attend: "📋 Attendance", perms: "👥 Officers" },
+    zh: { ranking: "📊 成員排序", post: "📢 發布公告", watch: "🕵️ 觀察名單", events: "📅 活動排程", scout: "🔭 偵察", views: "📈 網站瀏覽", map: "🗺️ 王國地圖", bt: "🐻 巨熊編組", board: "💬 留言板", attend: "📋 出席", perms: "👥 幹部權限" },
+    ko: { ranking: "📊 순위", post: "📢 공지", watch: "🕵️ 감시", events: "📅 이벤트", scout: "🔭 정찰", views: "📈 방문", map: "🗺️ 지도", bt: "🐻 곰 사냥 편성", board: "💬 게시판", attend: "📋 출석", perms: "👥 간부 권한" },
+    ar: { ranking: "📊 الترتيب", post: "📢 الإعلانات", watch: "🕵️ المراقبة", events: "📅 الفعاليات", scout: "🔭 الاستطلاع", views: "📈 الزيارات", map: "🗺️ الخريطة", bt: "🐻 حاسبة الدب", board: "💬 لوحة النقاش", attend: "📋 الحضور", perms: "👥 الضباط" },
+    pt: { ranking: "📊 Ranking", post: "📢 Anúncios", watch: "🕵️ Vigilância", events: "📅 Eventos", scout: "🔭 Reconhecimento", views: "📈 Visitas", map: "🗺️ Mapa", bt: "🐻 Calc. do Urso", board: "💬 Mural", attend: "📋 Presença", perms: "👥 Oficiais" },
   };
   function apply() {
     const l = document.documentElement.lang || "";

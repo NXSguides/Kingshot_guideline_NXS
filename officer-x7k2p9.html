@@ -198,6 +198,23 @@
   #pg-post .wrap { max-width: 760px; margin: 0 auto; }
   #pg-post .btn { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 15px; text-decoration: none; display: inline-block; }
   #pg-post .btn.big { width: 100%; padding: 14px; font-size: 17px; }
+  /* 📋 attendance */
+  #pg-attend .at-ev { display: flex; flex-direction: column; gap: 2px; width: 100%; text-align: start; padding: 10px 12px; margin: 0 0 8px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: inherit; font: inherit; cursor: pointer; }
+  #pg-attend .at-ev .bad { color: #b3261e; font-weight: 700; }
+  #pg-attend .at-slot h4 { margin: 12px 0 6px; font-size: 14px; }
+  #pg-attend .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  #pg-attend .chip { display: inline-block; padding: 2px 10px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; cursor: pointer; }
+  #pg-attend .at-plist { display: flex; flex-wrap: wrap; gap: 6px; }
+  #pg-attend .at-p { padding: 5px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: inherit; font: inherit; font-size: 13px; cursor: pointer; }
+  #pg-attend .at-p.ok { border-color: #2e7d32; color: #2e7d32; }
+  #pg-attend .at-p.no { border-color: #b3261e; color: #b3261e; background: color-mix(in srgb, #b3261e 10%, transparent); }
+  #pg-attend .at-p.ex { opacity: .6; }
+  #pg-attend .at-sum { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  #pg-attend .at-sum th, #pg-attend .at-sum td { padding: 4px 8px; border-bottom: 1px solid var(--line); text-align: start; }
+  #pg-attend .at-sum tr.red td { color: #b3261e; font-weight: 700; }
+  #pg-attend .at-sum .seq { font-family: ui-monospace, monospace; letter-spacing: 2px; }
+  #pg-attend .btn.danger { color: #b3261e; border-color: #b3261e; }
+  #pg-attend .msg.warn, #pg-attend .msg .warn { color: var(--accent); }
   #pg-post .btn.danger { color: #b3261e; border-color: #b3261e; }
   #pg-post .btn:disabled { opacity: .5; cursor: default; }
   #pg-post .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 16px; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
@@ -496,6 +513,7 @@
     <a href="#scout" data-tab="scout">🔭 Scout</a>
     <a href="#views" data-tab="views">📈 Views</a>
     <a href="#board" data-tab="board" id="boardTab" hidden>💬 Board</a>
+    <a href="#attend" data-tab="attend" id="attendTab" hidden>📋 Attendance</a>
     <a href="#perms" data-tab="perms" id="permsTab" hidden>👥 Officers</a>
   </nav>
   <div id="gate" class="card" hidden style="max-width:360px;margin:24px auto">
@@ -969,6 +987,14 @@
     </div>
   </div>
 </section>
+<section class="pg" id="pg-attend" hidden>
+  <div class="top"><div><h1 id="at_title"></h1><div class="muted" id="at_sub"></div></div><div class="row"><button class="btn small" id="at_newBtn"></button></div></div>
+  <div class="card" id="at_login" hidden></div>
+  <div id="at_app" hidden>
+    <div id="at_list"></div>
+    <div id="at_edit" hidden><button type="button" class="btn small" id="at_back" style="margin-bottom:10px"></button><div id="at_edit_body"></div></div>
+  </div>
+</section>
 <section class="pg" id="pg-perms" hidden>
   <div class="top"><div><h1 id="pm_title"></h1><div class="muted" id="pm_sub"></div></div></div>
   <div class="card msg warn" id="pm_trial" style="font-size:13px"></div>
@@ -1026,6 +1052,7 @@
 <script src="js/officer/bt.js"></script>
 <script src="js/officer/board.js"></script>
 <script src="js/officer/perms.js"></script>
+<script src="js/officer/attend.js"></script>
 <script>officerGate();</script>
 <script src="js/assistant.js"></script>
 <script src="data/event-names.js"></script>

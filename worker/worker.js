@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-14l";
+const VERSION = "2026-10-14m";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -617,6 +617,7 @@ export class PushTimers extends DurableObject {
     this.sql.exec(`CREATE TABLE IF NOT EXISTS bl (uid TEXT PRIMARY KEY, lang TEXT)`);
     // 📣 @mentions and 📋 tasks: bu = officers seen on the board (for the @ picker); bp.meta = { m: [uid], to: [uid], done: { uid: at } }
     this.sql.exec(`CREATE TABLE IF NOT EXISTS bu (uid TEXT PRIMARY KEY, name TEXT, avatar TEXT, at INTEGER)`);
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS att (id TEXT PRIMARY KEY, data TEXT, at INTEGER)`);   // 📋 attendance: one row per event (JSON)
     try { this.sql.exec(`ALTER TABLE bp ADD COLUMN meta TEXT`); } catch (e) {}
   }
   /* ---- 💬 board ---- */
@@ -709,6 +710,14 @@ export class PushTimers extends DurableObject {
     return n;
   }
   /* this device's notification list goes to every device the same person is logged in on */
+  /* 📋 attendance lists (who confirmed, who showed up) — one JSON row per event */
+  attList() { return [...this.sql.exec(`SELECT id, data, at FROM att ORDER BY at DESC LIMIT 60`)].map((r) => ({ ...JSON.parse(r.data), id: r.id, at: r.at })); }
+  attSave(id, data, at) {
+    const cur = [...this.sql.exec(`SELECT data FROM att WHERE id = ?`, id)][0];
+    if (cur && cur.data === data) return false;
+    this.sql.exec(`INSERT OR REPLACE INTO att VALUES (?, ?, ?)`, id, data, at); return true;
+  }
+  attDel(id) { this.sql.exec(`DELETE FROM att WHERE id = ?`, id); }
   async saveFor(uid, sub, timers, retext) {
     const cur = [...this.sql.exec(`SELECT uid, sub FROM usub WHERE ep = ?`, sub.endpoint)][0];
     if (!cur || cur.uid !== uid || cur.sub !== JSON.stringify(sub)) this.sql.exec(`INSERT OR REPLACE INTO usub VALUES (?, ?, ?)`, sub.endpoint, uid, JSON.stringify(sub));
@@ -874,6 +883,43 @@ async function boardTouch(env) {
   if (env.LIMITS) { try { await env.LIMITS.put("board:stamp", String(boardStampMem)); } catch (e) {} }
   return boardStampMem;
 }
+/* 📋 /attend — who confirmed for an event and who showed up. ops: list · save {ev} · del {id} · ocr {images: [dataURL…]}
+   An event: { id, title, date: "2026-10-18", slots: [{ name, confirmed: [{id, name}], present: [id…], excused: [id…] }] } */
+async function attendRoute(env, stub, user, body, token) {
+  const op = String(body.op || "list");
+  const write = async (fn) => { try { return await fn(); } catch (e) { return json({ error: /limit|exceed|quota|allow/i.test(String(e && e.message)) ? "db_limit" : "db", detail: [String(e && e.message || e)] }, 503); } };
+  if (op === "list") return json({ ok: true, token, events: await stub.attList() });
+  if (op === "save") return write(async () => {
+    const ev = body.ev && typeof body.ev === "object" ? body.ev : null;
+    if (!ev || !/^[\w-]{1,40}$/.test(String(ev.id || ""))) return json({ error: "bad request" }, 400);
+    const clean = { title: String(ev.title || "").slice(0, 80), date: String(ev.date || "").slice(0, 10), by: { id: user.id, name: user.name },
+      slots: (Array.isArray(ev.slots) ? ev.slots : []).slice(0, 8).map((sl) => ({
+        name: String(sl.name || "").slice(0, 40),
+        confirmed: (Array.isArray(sl.confirmed) ? sl.confirmed : []).slice(0, 200).map((m) => ({ id: String(m.id || "").slice(0, 40), name: String(m.name || "").slice(0, 60) })),
+        present: (Array.isArray(sl.present) ? sl.present : []).slice(0, 200).map((x) => String(x).slice(0, 40)),
+        excused: (Array.isArray(sl.excused) ? sl.excused : []).slice(0, 200).map((x) => String(x).slice(0, 40)) })) };
+    const data = JSON.stringify(clean);
+    if (data.length > 60000) return json({ error: "too_big" }, 413);
+    const changed = await stub.attSave(String(ev.id), data, Date.now());
+    return json({ ok: true, token, changed });
+  });
+  if (op === "del") return write(async () => { await stub.attDel(String(body.id || "")); return json({ ok: true, token }); });
+  if (op === "ocr") {
+    // screenshots of the in-game voter / participant list → player names (the phone matches them against the roster)
+    const imgs = (Array.isArray(body.images) ? body.images : []).slice(0, 6).map((u) => String(u).match(/^data:(image\/(?:png|jpeg|webp));base64,([A-Za-z0-9+/=]+)$/)).filter(Boolean);
+    if (!imgs.length) return json({ error: "no_image" }, 400);
+    if (imgs.some((m) => m[2].length > 4_500_000)) return json({ error: "too_big" }, 413);
+    const sys = "You read screenshots from the mobile game Kingshot. Each shows player cards in a 2-column grid (an alliance poll's voter list, or an event participant list): every card has a rank badge (R2–R5) on the left, the player NAME in bold at the top of the card, then a power number (e.g. 64.4M) and a level (Lv.30 or a medal icon). Return ONLY a JSON array of the player names exactly as written, reading cards left-to-right, top-to-bottom, one entry per card. Keep the name's own characters (emoji, brackets, symbols); the small superscript alliance tag 'Nexus' and the 山-like tag marks around it are decoration and may be dropped. Skip cards that are cut off at the top or bottom edge if the name is not readable. Ignore headings, counts, power numbers, levels and buttons.";
+    const parts = imgs.map((m) => ({ inlineData: { mimeType: m[1], data: m[2] } }));
+    parts.push({ text: "List the player names in these screenshots as a JSON array of strings." });
+    const r = await gemini(env, MODELS[0], sys, [{ role: "user", parts }], { responseMimeType: "application/json", maxOutputTokens: 2048, temperature: 0 });
+    if (r.error) return json({ error: "ai", detail: [r.error] }, 502);
+    let names = []; try { names = JSON.parse(r.answer); } catch (e) { const m = String(r.answer || "").match(/\[[\s\S]*\]/); try { names = m ? JSON.parse(m[0]) : []; } catch (x) {} }
+    names = (Array.isArray(names) ? names : []).map((x) => String(x).trim()).filter(Boolean).slice(0, 300);
+    return json({ ok: true, token, names });
+  }
+  return json({ error: "bad op" }, 400);
+}
 async function boardRoute(env, ctx, stub, user, body, token) {
   const op = body.op, lang = BOARD_LANGS.includes(body.lang) ? body.lang : null;
   const by = { id: user.id, name: user.name, avatar: user.avatar || "" };
@@ -1037,7 +1083,7 @@ async function authRoute(req, env, path, ctx) {
       return back("login=" + session);
     } catch (e) { return back("login_error=discord"); }
   }
-  if (path === "/auth/me" || path === "/sync" || path === "/sync/forget" || path === "/board") {
+  if (path === "/auth/me" || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend") {
     if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
     let body; try { body = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
     const c = await sessionCheck(req, env, body.token);
@@ -1050,6 +1096,7 @@ async function authRoute(req, env, path, ctx) {
     if (!env.TIMERS) return json({ error: "push_not_set_up" }, 503);
     const stub = env.TIMERS.get(env.TIMERS.idFromName("all"));
     if (path === "/board") return boardRoute(env, ctx, stub, s.u, body, token);
+    if (path === "/attend") return attendRoute(env, stub, s.u, body, token);
     if (path === "/sync/forget") { if (body.sub && body.sub.endpoint) await stub.forget(String(body.sub.endpoint)); return json({ ok: true }); }
     const st = body.state && typeof body.state === "object" ? body.state : {};
     try { return json({ ok: true, user: s.u, token, state: await stub.syncMerge(s.u.id, st) }); }
