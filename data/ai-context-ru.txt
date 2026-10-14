@@ -1163,6 +1163,7 @@ Infantry = пехотинец
 Cavalry = кавалерист
 Archer = стрелок
 Saul = Соул
+Resourceful = Находчивость
 Helga = Хельга
 Zoe = Зои
 Hilde = Хильда

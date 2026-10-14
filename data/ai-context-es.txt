@@ -1140,6 +1140,7 @@ Troops Capacity = Capacidad de despliegue
 Infantry = Infantería
 Cavalry = Caballería
 Archer = Arquero
+Resourceful = Ingenioso
 Bear Hunt = Cacería del Oso
 Trap 1 / Trap 2 = Trampa 1 / Trampa 2
 Raging Bear = Oso Enfurecido

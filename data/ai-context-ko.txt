@@ -1193,6 +1193,7 @@ Infantry = 보병
 Cavalry = 기병
 Archer = 궁병
 Saul = 살로
+Resourceful = 순환 이용
 Helga = 헬가
 Zoe = 조이
 Hilde = 힐데

@@ -1167,6 +1167,7 @@ Infantry = 步兵
 Cavalry = 騎兵
 Archer = 弓兵
 Saul = 薩洛
+Resourceful = 循環利用
 Helga = 赫爾加
 Zoe = 佐伊
 Hilde = 希爾德

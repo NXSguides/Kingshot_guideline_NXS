@@ -1159,6 +1159,7 @@ Level = Niveau
 Troops Capacity = Capacité de Troupes
 Infantry = Infanterie
 Cavalry = Cavalerie
+Resourceful = Débrouillard
 Zoe = Zoé
 Bear Hunt = Chasse à l'Ours
 Trap 1 / Trap 2 = Piège 1 / Piège 2

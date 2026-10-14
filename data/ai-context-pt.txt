@@ -1164,6 +1164,7 @@ Troops Capacity = Capacidade de Tropa
 Infantry = Infantaria
 Cavalry = Cavalaria
 Archer = Arquearia
+Resourceful = Talentoso
 Marlin = Peixe Marlin
 Bear Hunt = Caça ao Urso
 Trap 1 / Trap 2 = Armadilha 1 / Armadilha 2

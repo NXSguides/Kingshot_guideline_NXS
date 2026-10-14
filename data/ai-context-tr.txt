@@ -1161,6 +1161,7 @@ Troops Capacity = Birlik Kapasitesi
 Infantry = Piyade
 Cavalry = Süvari
 Archer = Okçu
+Resourceful = Geri Dönüşüm
 Bear Hunt = Ayı Avı
 Trap 1 / Trap 2 = 1. Tuzak / 2. Tuzak
 Raging Bear = Öfkeli Ayı

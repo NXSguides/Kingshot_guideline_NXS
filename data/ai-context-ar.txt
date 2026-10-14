@@ -1166,6 +1166,7 @@ Infantry = المشاة
 Cavalry = الفرسان
 Archer = الرماة
 Saul = شاول
+Resourceful = واسع الحيلة
 Helga = هيلجا
 Zoe = زوي
 Hilde = هيلدي

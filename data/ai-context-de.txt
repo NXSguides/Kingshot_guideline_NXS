@@ -1155,6 +1155,7 @@ Troops Capacity = Truppenkapazität
 Infantry = Infanterie
 Cavalry = Kavallerie
 Archer = Bogenschütze
+Resourceful = Einfallsreich
 Bear Hunt = Bärenjagd
 Trap 1 / Trap 2 = Falle 1 / Falle 2
 Raging Bear = Wütender Bär
