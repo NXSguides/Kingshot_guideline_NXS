@@ -14,7 +14,8 @@ const BD = {
     orig: "看原文", hideOrig: "收起原文", origLang: "原文（{l}）", edit: "✏️ 編輯", del: "🗑️ 刪除", save: "儲存", edited: "（已編輯）",
     delAsk: "再按一次確定刪除", delTopic: "刪掉第一則會刪掉整個主題，再按一次確定", sending: "送出中，正在翻譯…", saving: "儲存中…",
     noTr: "⚠️ 這則沒翻譯成功，先顯示原文（編輯後儲存會再翻一次）。", err: "出了點問題：{e}", gone: "這個主題已經被刪除了。",
-    needBoth: "主題和內容都要寫。", loading: "載入中…" },
+    needBoth: "主題和內容都要寫。", loading: "載入中…",
+    assign: "📋 指派給", taskTo: "📋 指派給", done: "✅ 完成", undone: "↩︎ 取消完成", doneBy: "{name} 已完成", myTasks: "📋 指派給你的事（{n}）", noUsers: "還沒有其他幹部用過留言板。", inTopic: "在「{t}」" },
   en: { title: "💬 Board", sub: "For planning together. Every message is translated into 中文, English and Português with the game's own terms. Only officers logged in with Discord can see it.",
     login: "The board needs a Discord login (so everyone knows who wrote what).", loginBtn: "🔑 Log in with Discord",
     newBtn: "+ New topic", newTitle: "Topic (e.g. which Sanctuary to sign up for)", newText: "Write your thoughts…", post: "Post", cancel: "Cancel", reply: "Reply", replyPh: "Reply…",
@@ -23,7 +24,8 @@ const BD = {
     orig: "Show original", hideOrig: "Hide original", origLang: "Original ({l})", edit: "✏️ Edit", del: "🗑️ Delete", save: "Save", edited: "(edited)",
     delAsk: "Tap again to delete", delTopic: "Deleting the first message deletes the whole topic — tap again", sending: "Posting and translating…", saving: "Saving…",
     noTr: "⚠️ This one wasn't translated, so the original is shown (editing and saving translates it again).", err: "Something went wrong: {e}", gone: "This topic was deleted.",
-    needBoth: "Write a topic and a message.", loading: "Loading…" },
+    needBoth: "Write a topic and a message.", loading: "Loading…",
+    assign: "📋 Assign to", taskTo: "📋 Task for", done: "✅ Done", undone: "↩︎ Not done", doneBy: "{name} done", myTasks: "📋 Tasks for you ({n})", noUsers: "No other officer has used the board yet.", inTopic: "in “{t}”" },
   pt: { title: "💬 Mural", sub: "Para planejar juntos. Cada mensagem é traduzida para 中文, English e Português com os nomes oficiais do jogo. Só oficiais que entraram com o Discord podem ver.",
     login: "O mural precisa do login com o Discord (assim todos sabem quem escreveu).", loginBtn: "🔑 Entrar com o Discord",
     newBtn: "+ Novo tópico", newTitle: "Tópico (ex.: em qual Santuário vamos nos inscrever)", newText: "Escreva sua ideia…", post: "Enviar", cancel: "Cancelar", reply: "Responder", replyPh: "Responder…",
@@ -32,7 +34,8 @@ const BD = {
     orig: "Ver original", hideOrig: "Esconder original", origLang: "Original ({l})", edit: "✏️ Editar", del: "🗑️ Apagar", save: "Salvar", edited: "(editado)",
     delAsk: "Toque de novo para apagar", delTopic: "Apagar a primeira mensagem apaga o tópico inteiro — toque de novo", sending: "Enviando e traduzindo…", saving: "Salvando…",
     noTr: "⚠️ Esta não foi traduzida, então aparece o original (editar e salvar traduz de novo).", err: "Algo deu errado: {e}", gone: "Este tópico foi apagado.",
-    needBoth: "Escreva o tópico e a mensagem.", loading: "Carregando…" },
+    needBoth: "Escreva o tópico e a mensagem.", loading: "Carregando…",
+    assign: "📋 Atribuir a", taskTo: "📋 Tarefa para", done: "✅ Feito", undone: "↩︎ Desfazer", doneBy: "{name} concluiu", myTasks: "📋 Tarefas para você ({n})", noUsers: "Nenhum outro oficial usou o mural ainda.", inTopic: "em “{t}”" },
 };
 const LANG_LABEL = { zh: "中文", en: "English", pt: "Português", ko: "한국어", de: "Deutsch", fr: "Français", es: "Español", tr: "Türkçe", id: "Bahasa Indonesia", ru: "Русский", th: "ไทย", ar: "العربية", ja: "日本語" };
 let lang = OFFICER.lang, topics = [], cur = null, timer = null, openOrig = new Set(), armed = null, editing = null;
@@ -50,15 +53,21 @@ function tabDot(n) {
 }
 const t = (k, v = {}) => String((BD[lang] || BD.en)[k] ?? BD.en[k] ?? k).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
 const esc = OFFICER.util.esc;
-const linkify = (h) => h.replace(/https?:\/\/[^\s<]+/g, (u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
+const linkify = (h) => h.replace(/https?:\/\/[^\s<]+/g, (u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`).replace(/(^|[\s(（,，])@([^\s@,，:：]{1,30})/g, (m, a, n) => `${a}<span class="bd-mention">@${n}</span>`);
 const pick = (o) => (o && (o[lang] || o.orig)) || "";
 const when = (ms) => { const d = new Date(ms), p = (n) => String(n).padStart(2, "0");
   return `${lang === "pt" ? d.getUTCDate() + "/" + (d.getUTCMonth() + 1) : (d.getUTCMonth() + 1) + "/" + d.getUTCDate()} ${p(d.getUTCHours())}:${p(d.getUTCMinutes())} UTC`; };
 const token = () => { try { return localStorage.getItem(DISCORD_LS); } catch (e) { return null; } };
 const topicId = () => { const m = location.hash.match(/^#board\?t=([\w-]+)/); return m ? m[1] : null; };
+const postParam = () => { const m = location.hash.match(/[?&]p=([\w-]+)/); return m ? m[1] : null; };
 /* stamp = when the board last changed (from the Worker); polls send it back as "since" and get a tiny "unchanged"
    answer when nothing happened — that answer costs the Worker almost nothing and leaves its database asleep */
-let stamp = 0, firstCall = true;
+let stamp = 0, firstCall = true, users = [], tasks = [];
+/* what the two compose boxes carry besides text: @mentioned ids and 📋 assignees */
+const compose = { new: { m: new Set(), to: new Set() }, reply: { m: new Set(), to: new Set() } };
+const userName = (id) => { const u = users.find((x) => x.id === id) || (OFFICER.user && OFFICER.user.id === id ? OFFICER.user : null) || (cur && cur.posts.map((p) => p.by).find((b) => b.id === id)) || ((OFFICER.perms && OFFICER.perms.users) || {})[id]; return u ? u.name : "?"; };
+/* people to pick from: everyone who used the board + the 👥 officer table (names there are set by admins) */
+const others = () => { const m = new Map(users.map((u) => [u.id, u])); for (const [id, u] of Object.entries((OFFICER.perms && OFFICER.perms.users) || {})) if (!m.has(id)) m.set(id, { id, name: u.name, avatar: "" }); return [...m.values()].filter((u) => !OFFICER.user || u.id !== OFFICER.user.id).sort((a, b) => a.name.localeCompare(b.name)); };
 async function api(op, extra = {}) {
   const r = await fetch(AUTH_API + "/board", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: token(), lang, op, ...(firstCall ? { first: true } : {}), ...extra }) });
   const j = await r.json().catch(() => ({ error: "network" }));
@@ -73,9 +82,12 @@ function applyTexts() {
   $("bd_newBtn").textContent = t("newBtn"); $("bd_newTitle").placeholder = t("newTitle"); $("bd_newText").placeholder = t("newText");
   $("bd_newPost").textContent = t("post"); $("bd_newCancel").textContent = t("cancel"); $("bd_back").textContent = t("back");
   $("bd_replyText").placeholder = t("replyPh"); $("bd_replyPost").textContent = t("reply");
+  chipsRender("new"); chipsRender("reply");
 }
 function renderList() {
   tabDot();
+  const tk = $("bd_tasks"); tk.hidden = !tasks.length;
+  if (tasks.length) tk.innerHTML = `<h3>${esc(t("myTasks", { n: tasks.length }))}</h3>` + tasks.map((x) => `<a href="#board?t=${esc(x.tid)}&p=${esc(x.id)}">${linkify(esc(pick(x.txt))).slice(0, 400)}<div class="muted">${esc(x.by.name)} · ${esc(when(x.at))} · ${esc(t("inTopic", { t: pick(x.title) }))}</div></a>`).join("");
   $("bd_list").innerHTML = topics.length ? topics.map((x) => `<a class="card bd-topic${unread(x) ? " unread" : ""}" href="#board?t=${esc(x.id)}">
       <h3>${unread(x) ? '<span class="bd-dot"></span>' : ""}${esc(pick(x.title))}${x.dec ? `<span class="bd-badge">${esc(t("decided"))}</span>` : ""}</h3>
       <div class="muted">${esc(t("by", { name: x.by.name }))} · ${esc(t("replies", { n: x.n }))} · ${esc(t("last", { t: when(x.last) }))}</div></a>`).join("")
@@ -90,7 +102,7 @@ function postHtml(p, i) {
   const body = editing === p.id
     ? `${i === 0 ? `<input class="inp" data-edtitle value="${esc(cur.title.orig)}" maxlength="120" style="margin:8px 0 6px">` : ""}<textarea class="inp" data-edtext rows="4" maxlength="4000" style="margin-top:8px;resize:vertical">${esc(p.txt.orig)}</textarea>
        <div class="bd-acts"><button class="btn primary" data-save="${esc(p.id)}">${esc(t("save"))}</button><button class="btn" data-cancel>${esc(t("cancel"))}</button></div>`
-    : `<div class="bd-text">${linkify(esc(pick(p.txt)))}</div>
+    : `<div class="bd-text">${linkify(esc(pick(p.txt)))}</div>${taskHtml(p)}
        ${!translated && !(src === lang) ? `<div class="bd-warn">${esc(t("noTr"))}<br><span class="muted">${esc(dbg)}${p.txt.err ? " · " + esc(p.txt.err) : ""}</span></div>` : ""}
        ${!sameLang && translated ? `<button class="bd-link" data-orig="${esc(p.id)}">${esc(showOrig ? t("hideOrig") : t("orig"))}</button>` : ""}
        ${showOrig && !sameLang ? `<div class="bd-orig"><div class="muted" style="font-size:12px">${esc(t("origLang", { l: LANG_LABEL[src] || src || "?" }))}</div>${linkify(esc(p.txt.orig))}<pre class="muted" style="white-space:pre-wrap;font-size:11px;margin:8px 0 0">${esc(JSON.stringify(p.txt, null, 1))}</pre></div>` : ""}
@@ -100,6 +112,13 @@ function postHtml(p, i) {
        </div>`;
   return `<div class="card bd-post${isDec ? " is-dec" : ""}" id="bdp-${esc(p.id)}">
     <div class="bd-head">${av(p.by)}<b>${esc(p.by.name)}</b><span class="muted">${esc(when(p.at))}${p.ed ? " " + esc(t("edited")) : ""}</span></div>${body}</div>`;
+}
+function taskHtml(p) {
+  const m = p.meta; if (!m || !(m.to || []).length) return "";
+  const me = OFFICER.user && OFFICER.user.id, done = m.done || {}, mine = m.to.includes(me);
+  return `<div class="bd-task"><span>${esc(t("taskTo"))}</span>${m.to.map((id) => `<span class="bd-chip task${done[id] ? " done" : ""}">${esc(userName(id))}${done[id] ? " ✅" : ""}</span>`).join("")}
+    ${me ? `<button class="btn" data-done="${esc(p.id)}" data-on="${done[me] ? 0 : 1}">${esc(done[me] ? t("undone") : t("done"))}</button>` : ""}
+    ${Object.keys(done).filter((id) => !m.to.includes(id)).map((id) => `<span class="muted">${esc(t("doneBy", { name: userName(id) }))}</span>`).join("")}</div>`;
 }
 function renderTopic() {
   $("bd_tTitle").textContent = pick(cur.title);
@@ -111,12 +130,13 @@ function renderTopic() {
 }
 async function loadList(quiet) {
   if (!quiet) $("bd_list").innerHTML = `<div class="muted">${esc(t("loading"))}</div>`;
-  try { const j = await api("list", quiet ? { since: stamp } : {}); if (j.unchanged) return; topics = j.topics; renderList(); }
+  try { const j = await api("list", quiet ? { since: stamp } : {}); if (j.unchanged) return; topics = j.topics; users = j.users || users; tasks = j.tasks || []; renderList(); }
   catch (e) { if (!quiet) $("bd_list").innerHTML = `<div class="card msg warn">${esc(t("err", { e: e.message }))}</div>`; if (e.code === "logged_out") showLogin(); }
 }
 async function loadTopic(id, quiet) {
   if (!quiet) { $("bd_posts").innerHTML = `<div class="muted">${esc(t("loading"))}</div>`; $("bd_tTitle").textContent = ""; $("bd_decision").innerHTML = ""; }
-  try { const j = await api("get", { id, ...(quiet ? { since: stamp } : {}) }); if (j.unchanged) return; cur = j.topic; if (editing && !quiet) editing = null; if (!editing) renderTopic(); markSeen(cur.id, cur.last); const tp = topics.find((x) => x.id === cur.id); if (tp) tp.last = cur.last; }
+  try { const j = await api("get", { id, ...(quiet ? { since: stamp } : {}) }); if (j.unchanged) return; cur = j.topic; if (editing && !quiet) editing = null; if (!editing) renderTopic(); markSeen(cur.id, cur.last); const tp = topics.find((x) => x.id === cur.id); if (tp) tp.last = cur.last;
+    const pp = postParam(); if (!quiet && pp && $("bdp-" + pp)) $("bdp-" + pp).scrollIntoView({ behavior: "smooth", block: "center" }); }
   catch (e) { if (e.code === "gone") { $("bd_posts").innerHTML = `<div class="card">${esc(t("gone"))}</div>`; cur = null; } else if (!quiet) $("bd_posts").innerHTML = `<div class="card msg warn">${esc(t("err", { e: e.message }))}</div>`; }
 }
 function showLogin() { $("bd_login").hidden = false; $("bd_app").hidden = true; }
@@ -137,6 +157,39 @@ function poll() {
     if (id) { if (!editing && !$("bd_replyText").value) loadTopic(id, true); } else loadList(true);
   }, 45000);
 }
+/* ---- compose tools: "@" inserts a name into the text (and remembers who), "📋 Assign to" picks who has to do it ---- */
+function chipsRender(box) {
+  const host = ROOT.querySelector(`.bd-tools[data-box="${box}"]`), c = compose[box];
+  host.querySelector("[data-assign]").textContent = t("assign");
+  host.querySelector(".bd-chips").innerHTML = [...c.to].map((id) => `<span class="bd-chip task">📋 ${esc(userName(id))}<button type="button" data-unto="${esc(id)}" aria-label="remove">✕</button></span>`).join("");
+}
+function pickerOpen(host, kind) {
+  pickerClose();
+  const box = host.dataset.box, list = others();
+  const el = document.createElement("div"); el.className = "bd-pick";
+  el.innerHTML = list.length ? list.map((u) => `<button type="button" data-u="${esc(u.id)}"${kind === "to" && compose[box].to.has(u.id) ? ' class="on"' : ""}>${av(u)}<span>${esc(u.name)}</span>${kind === "to" && compose[box].to.has(u.id) ? " ✓" : ""}</button>`).join("") : `<div class="muted" style="padding:6px 10px;font-size:13px">${esc(t("noUsers"))}</div>`;
+  el.onclick = (e) => {
+    const b = e.target.closest("[data-u]"); if (!b) return;
+    const id = b.dataset.u, c = compose[box];
+    if (kind === "at") {
+      const ta = box === "new" ? $("bd_newText") : $("bd_replyText"), s = ta.selectionStart ?? ta.value.length, v = ta.value;
+      const ins = (s && !/\s$/.test(v.slice(0, s)) ? " " : "") + "@" + userName(id) + " ";
+      ta.value = v.slice(0, s) + ins + v.slice(s); ta.focus(); ta.selectionStart = ta.selectionEnd = s + ins.length;
+      c.m.add(id); pickerClose();
+    } else { c.to.has(id) ? c.to.delete(id) : c.to.add(id); chipsRender(box); pickerOpen(host, "to"); }
+  };
+  host.appendChild(el);
+}
+function pickerClose() { ROOT.querySelectorAll(".bd-pick").forEach((e) => e.remove()); }
+document.addEventListener("click", (e) => { if (!e.target.closest(".bd-tools")) pickerClose(); });
+ROOT.querySelectorAll(".bd-tools").forEach((host) => {
+  host.querySelector("[data-at]").onclick = () => pickerOpen(host, "at");
+  host.querySelector("[data-assign]").onclick = () => pickerOpen(host, "to");
+  host.addEventListener("click", (e) => { const b = e.target.closest("[data-unto]"); if (b) { compose[host.dataset.box].to.delete(b.dataset.unto); chipsRender(host.dataset.box); } });
+});
+/* ids of the people whose @name is still in the text when it is sent */
+const mentionsIn = (box, text) => [...compose[box].m].filter((id) => text.includes("@" + userName(id)));
+const composeReset = (box) => { compose[box].m.clear(); compose[box].to.clear(); chipsRender(box); };
 $("bd_reload").onclick = () => route();
 $("bd_newBtn").onclick = () => { $("bd_newForm").hidden = false; $("bd_newTitle").focus(); };
 $("bd_newCancel").onclick = () => { $("bd_newForm").hidden = true; $("bd_newMsg").textContent = ""; };
@@ -145,7 +198,7 @@ $("bd_newPost").onclick = async () => {
   if (!title || !text) { m.textContent = t("needBoth"); return; }
   $("bd_newPost").disabled = true; m.textContent = t("sending");
   try {
-    const j = await api("new", { title, text });
+    const j = await api("new", { title, text, mentions: mentionsIn("new", text), to: [...compose.new.to] }); composeReset("new");
     $("bd_newTitle").value = ""; $("bd_newText").value = ""; $("bd_newForm").hidden = true; m.textContent = "";
     if (!j.translated) $("bd_replyMsg").textContent = t("noTr") + " " + (j.topic.posts[0].txt.err || "");
     cur = j.topic; markSeen(cur.id, cur.last); location.hash = "#board?t=" + j.topic.id;
@@ -157,7 +210,7 @@ $("bd_replyPost").onclick = async () => {
   if (!text || !cur) return;
   $("bd_replyPost").disabled = true; m.textContent = t("sending");
   try {
-    const j = await api("reply", { id: cur.id, text }); cur = j.topic; markSeen(cur.id, cur.last); $("bd_replyText").value = ""; renderTopic();
+    const j = await api("reply", { id: cur.id, text, mentions: mentionsIn("reply", text), to: [...compose.reply.to] }); composeReset("reply"); cur = j.topic; markSeen(cur.id, cur.last); $("bd_replyText").value = ""; renderTopic();
     m.textContent = j.translated ? "" : t("noTr") + " " + (cur.posts[cur.posts.length - 1].txt.err || "");
     const last = cur.posts[cur.posts.length - 1]; if (last) $("bdp-" + last.id).scrollIntoView({ behavior: "smooth", block: "center" });
   } catch (e) { m.textContent = t("err", { e: e.message }); }
@@ -171,6 +224,7 @@ $("bd_posts").addEventListener("click", async (ev) => {
   if ("cancel" in d) { editing = null; return renderTopic(); }
   try {
     if (d.dec !== undefined) { b.disabled = true; cur = (await api("decide", { id: cur.id, post: d.dec || null })).topic; return renderTopic(); }
+    if (d.done) { b.disabled = true; cur = (await api("done", { post: d.done, on: d.on === "1" })).topic; return renderTopic(); }
     if (d.del) {
       if (armed !== d.del) { armed = d.del; return renderTopic(); }
       b.disabled = true; const j = await api("del", { post: d.del }); armed = null;

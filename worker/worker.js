@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-14e (board polls answered from KV, DO left asleep)";
+const VERSION = "2026-10-14f (board: @mentions and tasks)";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -615,9 +615,24 @@ export class PushTimers extends DurableObject {
     this.sql.exec(`CREATE TABLE IF NOT EXISTS bp (id TEXT PRIMARY KEY, tid TEXT, by TEXT, at INTEGER, txt TEXT, ed INTEGER)`);
     this.sql.exec(`CREATE INDEX IF NOT EXISTS bp_tid ON bp (tid, at)`);
     this.sql.exec(`CREATE TABLE IF NOT EXISTS bl (uid TEXT PRIMARY KEY, lang TEXT)`);
+    // 📣 @mentions and 📋 tasks: bu = officers seen on the board (for the @ picker); bp.meta = { m: [uid], to: [uid], done: { uid: at } }
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS bu (uid TEXT PRIMARY KEY, name TEXT, avatar TEXT, at INTEGER)`);
+    try { this.sql.exec(`ALTER TABLE bp ADD COLUMN meta TEXT`); } catch (e) {}
   }
   /* ---- 💬 board ---- */
   boardLang(uid, lang) { if (lang) this.sql.exec(`INSERT OR REPLACE INTO bl VALUES (?, ?)`, uid, lang); }
+  boardUser(by, lang) { this.sql.exec(`INSERT OR REPLACE INTO bu VALUES (?, ?, ?, ?)`, by.id, by.name, by.avatar || "", Date.now()); this.boardLang(by.id, lang); }
+  boardUsers() { return [...this.sql.exec(`SELECT uid, name, avatar FROM bu ORDER BY name`)].map((r) => ({ id: r.uid, name: r.name, avatar: r.avatar })); }
+  /* open tasks given to this person, across all topics (newest first) */
+  boardTasks(uid) {
+    const out = [];
+    for (const r of this.sql.exec(`SELECT p.id, p.tid, p.by, p.at, p.txt, p.meta, t.title FROM bp p JOIN bt t ON t.id = p.tid WHERE p.meta IS NOT NULL ORDER BY p.at DESC LIMIT 300`)) {
+      let m = null; try { m = JSON.parse(r.meta); } catch (e) {}
+      if (!m || !(m.to || []).includes(uid) || (m.done && m.done[uid])) continue;
+      out.push({ id: r.id, tid: r.tid, by: JSON.parse(r.by), at: r.at, txt: JSON.parse(r.txt), title: JSON.parse(r.title) });
+    }
+    return out;
+  }
   boardList() {
     // lastBy = who wrote the newest message (the page shows no "unread" dot for your own)
     return [...this.sql.exec(`SELECT t.*, (SELECT by FROM bp WHERE tid = t.id ORDER BY at DESC LIMIT 1) AS lb FROM bt t ORDER BY last DESC LIMIT 200`)]
@@ -626,27 +641,35 @@ export class PushTimers extends DurableObject {
   boardThread(id) {
     const t = [...this.sql.exec(`SELECT * FROM bt WHERE id = ?`, id)][0];
     if (!t) return null;
-    const posts = [...this.sql.exec(`SELECT * FROM bp WHERE tid = ? ORDER BY at`, id)].map((r) => ({ id: r.id, by: JSON.parse(r.by), at: r.at, txt: JSON.parse(r.txt), ed: r.ed || 0 }));
+    const posts = [...this.sql.exec(`SELECT * FROM bp WHERE tid = ? ORDER BY at`, id)].map((r) => { let m = null; try { m = r.meta ? JSON.parse(r.meta) : null; } catch (e) {} return { id: r.id, by: JSON.parse(r.by), at: r.at, txt: JSON.parse(r.txt), ed: r.ed || 0, ...(m ? { meta: m } : {}) }; });
     return { id: t.id, title: JSON.parse(t.title), by: JSON.parse(t.by), at: t.at, last: t.last, dec: t.dec || null, dby: t.dby ? JSON.parse(t.dby) : null, dat: t.dat || 0, posts };
   }
-  boardNew(id, title, by, pid, txt) {
+  boardNew(id, title, by, pid, txt, meta) {
     const now = Date.now();
     this.sql.exec(`INSERT INTO bt VALUES (?, ?, ?, ?, ?, 1, NULL, NULL, NULL)`, id, JSON.stringify(title), JSON.stringify(by), now, now);
-    this.sql.exec(`INSERT INTO bp VALUES (?, ?, ?, ?, ?, 0)`, pid, id, JSON.stringify(by), now, JSON.stringify(txt));
+    this.sql.exec(`INSERT INTO bp (id, tid, by, at, txt, ed, meta) VALUES (?, ?, ?, ?, ?, 0, ?)`, pid, id, JSON.stringify(by), now, JSON.stringify(txt), meta ? JSON.stringify(meta) : null);
     return this.boardThread(id);
   }
-  boardReply(tid, by, pid, txt) {
+  boardReply(tid, by, pid, txt, meta) {
     if (![...this.sql.exec(`SELECT id FROM bt WHERE id = ?`, tid)].length) return null;
     const now = Date.now();
-    this.sql.exec(`INSERT INTO bp VALUES (?, ?, ?, ?, ?, 0)`, pid, tid, JSON.stringify(by), now, JSON.stringify(txt));
+    this.sql.exec(`INSERT INTO bp (id, tid, by, at, txt, ed, meta) VALUES (?, ?, ?, ?, ?, 0, ?)`, pid, tid, JSON.stringify(by), now, JSON.stringify(txt), meta ? JSON.stringify(meta) : null);
     this.sql.exec(`UPDATE bt SET last = ?, n = n + 1 WHERE id = ?`, now, tid);
     return this.boardThread(tid);
   }
-  boardPost(pid) { const r = [...this.sql.exec(`SELECT * FROM bp WHERE id = ?`, pid)][0]; return r ? { id: r.id, tid: r.tid, by: JSON.parse(r.by), at: r.at } : null; }
-  boardEdit(pid, txt, title) {
+  boardPost(pid) { const r = [...this.sql.exec(`SELECT * FROM bp WHERE id = ?`, pid)][0]; let m = null; try { m = r && r.meta ? JSON.parse(r.meta) : null; } catch (e) {} return r ? { id: r.id, tid: r.tid, by: JSON.parse(r.by), at: r.at, meta: m } : null; }
+  boardEdit(pid, txt, title, meta) {
     const p = this.boardPost(pid); if (!p) return null;
-    this.sql.exec(`UPDATE bp SET txt = ?, ed = ? WHERE id = ?`, JSON.stringify(txt), Date.now(), pid);
+    this.sql.exec(`UPDATE bp SET txt = ?, ed = ?, meta = ? WHERE id = ?`, JSON.stringify(txt), Date.now(), meta ? JSON.stringify(meta) : null, pid);
     if (title) this.sql.exec(`UPDATE bt SET title = ? WHERE id = ?`, JSON.stringify(title), p.tid);
+    return this.boardThread(p.tid);
+  }
+  /* ✅ a task is ticked per person (the ones it was given to; anyone else's tick is kept too, named) */
+  boardDone(pid, uid, on) {
+    const p = this.boardPost(pid); if (!p) return null;
+    const m = p.meta || {}; m.done = m.done || {};
+    if (on) m.done[uid] = Date.now(); else delete m.done[uid];
+    this.sql.exec(`UPDATE bp SET meta = ? WHERE id = ?`, JSON.stringify(m), pid);
     return this.boardThread(p.tid);
   }
   boardDecide(tid, pid, by) {
@@ -665,15 +688,17 @@ export class PushTimers extends DurableObject {
     return { topic: this.boardThread(p.tid) };
   }
   /* new message → a notification on the other officers' phones, in each one's own page language */
-  async boardNotify(fromUid, tid, title, name, txt) {
+  async boardNotify(fromUid, tid, title, name, txt, meta) {
     if (!this.env.VAPID_PRIVATE) return 0;
     const langs = Object.fromEntries([...this.sql.exec(`SELECT uid, lang FROM bl`)].map((r) => [r.uid, r.lang]));
+    const MENTION = { zh: "📣 提到你", en: "📣 Mentioned you", pt: "📣 Mencionou você" }, TASK = { zh: "📋 指派給你", en: "📋 Task for you", pt: "📋 Tarefa para você" };
     let n = 0;
     for (const r of [...this.sql.exec(`SELECT ep, uid, sub FROM usub WHERE uid != ?`, fromUid)]) {
       const l = langs[r.uid] || "en", pick = (o) => (o && (o[l] || o.en || o.orig)) || "";
       const body = (name + ": " + pick(txt)).replace(/\s+/g, " ").slice(0, 160);
+      const head = meta && (meta.to || []).includes(r.uid) ? (TASK[l] || TASK.en) + " · " : meta && (meta.m || []).includes(r.uid) ? (MENTION[l] || MENTION.en) + " · " : "💬 ";
       try {
-        const st = await sendPush(JSON.parse(r.sub), { title: "💬 " + pick(title).slice(0, 80), body, tag: "brd-" + tid }, this.env);
+        const st = await sendPush(JSON.parse(r.sub), { title: head + pick(title).slice(0, 70), body, tag: "brd-" + tid }, this.env);
         if (st === 404 || st === 410) this.sql.exec(`DELETE FROM usub WHERE ep = ?`, r.ep); else n++;
       } catch (e) {}
     }
@@ -830,29 +855,37 @@ async function boardRoute(env, ctx, stub, user, body, token) {
   // polls: nothing changed since the page last looked → answer without touching the Durable Object
   const since = +body.since || 0, stamp = await boardStamp(env);
   if ((op === "list" || op === "get") && since && stamp && stamp <= since) return ok({ unchanged: true, stamp });
-  if (op !== "list" && op !== "get" || body.first) await stub.boardLang(user.id, lang);   // language for notifications: on writes and on the first look of a visit
+  if (op !== "list" && op !== "get" || body.first) await stub.boardUser(by, lang);   // name + language (for @ pickers and notifications): on writes and on the first look of a visit
+  const ids = (v) => (Array.isArray(v) ? v : []).map(String).filter((x) => /^\d{17,20}$/.test(x)).slice(0, 20);
+  const metaOf = (b, old) => { const m = { m: ids(b.mentions), to: ids(b.to) }; if (old && old.done) m.done = old.done; return m.m.length || m.to.length || m.done ? m : null; };
   const str = (v, max) => String(v || "").replace(/\r/g, "").trim().slice(0, max);
-  const notify = (t, tx) => { const p = stub.boardNotify(user.id, t.id, t.title, user.name, tx); if (ctx && ctx.waitUntil) ctx.waitUntil(p); };
-  if (op === "list") return ok({ topics: await stub.boardList(), stamp: stamp || await boardTouch(env) });
+  const notify = (t, tx, meta) => { const p = stub.boardNotify(user.id, t.id, t.title, user.name, tx, meta); if (ctx && ctx.waitUntil) ctx.waitUntil(p); };
+  if (op === "list") return ok({ topics: await stub.boardList(), users: await stub.boardUsers(), tasks: await stub.boardTasks(user.id), stamp: stamp || await boardTouch(env) });
   if (op === "get") { const t = await stub.boardThread(String(body.id || "")); return t ? ok({ topic: t, stamp: stamp || await boardTouch(env) }) : json({ error: "gone", token }, 404); }
   if (op === "new") {
     const title = str(body.title, 120), text = str(body.text, 4000);
     if (!title || !text) return json({ error: "empty" }, 400);
     const tr = await boardTranslate(env, title, text);
-    const t = await stub.boardNew(rid(), tr.title, by, rid(), tr.text);
-    notify(t, tr.text);
+    const meta = metaOf(body);
+    const t = await stub.boardNew(rid(), tr.title, by, rid(), tr.text, meta);
+    notify(t, tr.text, meta);
     return ok({ topic: t, translated: tr.ok, stamp: await boardTouch(env) });
   }
   if (op === "reply") {
     const text = str(body.text, 4000);
     if (!text) return json({ error: "empty" }, 400);
     const tr = await boardTranslate(env, "", text);
-    const t = await stub.boardReply(String(body.id || ""), by, rid(), tr.text);
+    const meta = metaOf(body);
+    const t = await stub.boardReply(String(body.id || ""), by, rid(), tr.text, meta);
     if (!t) return json({ error: "gone" }, 404);
-    notify(t, tr.text);
+    notify(t, tr.text, meta);
     return ok({ topic: t, translated: tr.ok, stamp: await boardTouch(env) });
   }
   const p = body.post ? await stub.boardPost(String(body.post)) : null;
+  if (op === "done") {   // ✅ tick / untick a task (anyone may; the name of who ticked is kept)
+    if (!p) return json({ error: "gone" }, 404);
+    return ok({ topic: await stub.boardDone(p.id, user.id, !!body.on), stamp: await boardTouch(env) });
+  }
   if (op === "edit" || op === "del") {
     if (!p) return json({ error: "gone" }, 404);
     if (p.by.id !== user.id) return json({ error: "not_yours" }, 403);
@@ -860,7 +893,8 @@ async function boardRoute(env, ctx, stub, user, body, token) {
     const text = str(body.text, 4000), title = body.title != null ? str(body.title, 120) : "";
     if (!text) return json({ error: "empty" }, 400);
     const tr = await boardTranslate(env, title, text);
-    return ok({ topic: await stub.boardEdit(p.id, tr.text, title ? tr.title : null), translated: tr.ok, stamp: await boardTouch(env) });
+    const meta = body.mentions || body.to ? metaOf(body, p.meta) : p.meta;
+    return ok({ topic: await stub.boardEdit(p.id, tr.text, title ? tr.title : null, meta), translated: tr.ok, stamp: await boardTouch(env) });
   }
   if (op === "decide") {   // 📌 any officer can mark (or clear) the decision of a topic
     const t = await stub.boardDecide(String(body.id || ""), p ? p.id : null, by);

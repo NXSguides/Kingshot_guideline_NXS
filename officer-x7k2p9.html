@@ -319,6 +319,23 @@
   .pg.readonly .btn.primary, .pg.readonly .inp, .pg.readonly textarea, .pg.readonly select:not(#langBtn), .pg.readonly input:not([type="search"]),
   .pg.readonly [data-edit], .pg.readonly [data-edtodo], .pg.readonly [data-del], .pg.readonly [data-rm], .pg.readonly [data-save], .pg.readonly [data-dec], .pg.readonly [data-pv],
   .pg.readonly button[id$="Save"], .pg.readonly button[id$="save"], .pg.readonly button[id$="Btn"]:not([id$="reloadBtn"]) { pointer-events: none; opacity: .45; }
+  /* 💬 board: @mentions and 📋 tasks */
+  #pg-board .bd-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 6px; position: relative; }
+  #pg-board .bd-tools .btn { padding: 3px 9px; font-size: 12.5px; }
+  #pg-board .bd-chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 999px; font-size: 12.5px; border: 1px solid var(--rule); background: var(--panel-2); }
+  #pg-board .bd-chip.task { border-color: var(--accent); }
+  #pg-board .bd-chip button { border: 0; background: none; color: inherit; cursor: pointer; padding: 0 0 0 2px; font-size: 13px; line-height: 1; }
+  #pg-board .bd-pick { position: absolute; left: 0; top: 100%; z-index: 5; background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; box-shadow: 0 6px 20px var(--shadow); padding: 6px; display: grid; gap: 2px; min-width: 180px; max-height: 240px; overflow: auto; }
+  #pg-board .bd-pick button { text-align: left; border: 0; background: none; color: var(--text); padding: 7px 10px; border-radius: 8px; cursor: pointer; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+  #pg-board .bd-pick button:hover, #pg-board .bd-pick button.on { background: var(--panel-2); }
+  #pg-board .bd-pick img, #pg-board .bd-pick .bd-av { width: 22px; height: 22px; font-size: 11px; }
+  #pg-board .bd-mention { color: var(--accent); font-weight: 700; }
+  #pg-board .bd-task { margin: 6px 0 2px; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--panel)); font-size: 13px; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+  #pg-board .bd-task .done { opacity: .6; text-decoration: line-through; }
+  #pg-board .bd-task .btn { padding: 3px 9px; font-size: 12.5px; }
+  #pg-board .bd-tasks h3 { margin: 0 0 6px; font-size: 15px; }
+  #pg-board .bd-tasks a { display: block; text-decoration: none; color: inherit; padding: 6px 0; border-top: 1px solid var(--rule); font-size: 13.5px; }
+  #pg-board .bd-tasks a .muted { font-size: 12px; }
   /* 💬 board */
   #pg-board .bd-topic { display: block; text-decoration: none; color: inherit; }
   #pg-board .bd-topic:hover { border-color: var(--accent); }
@@ -922,10 +939,12 @@
   <div class="card" id="bd_login" hidden></div>
   <div id="bd_app" hidden>
     <div id="bd_listView">
+      <div class="card bd-tasks" id="bd_tasks" hidden></div>
       <div class="row" style="margin:4px 0 10px"><button class="btn primary" id="bd_newBtn"></button></div>
       <div class="card bd-form" id="bd_newForm" hidden>
         <input class="inp" id="bd_newTitle" maxlength="120">
         <textarea class="inp" id="bd_newText" rows="5" maxlength="4000" style="margin-top:8px;resize:vertical"></textarea>
+        <div class="bd-tools" data-box="new"><button type="button" class="btn small" data-at>@</button><button type="button" class="btn small" data-assign></button><span class="bd-chips"></span></div>
         <div class="row" style="gap:8px;margin-top:8px"><button class="btn primary" id="bd_newPost"></button><button class="btn" id="bd_newCancel"></button></div>
         <div class="msg" id="bd_newMsg"></div>
       </div>
@@ -939,6 +958,7 @@
       <div id="bd_posts"></div>
       <div class="card bd-form">
         <textarea class="inp" id="bd_replyText" rows="3" maxlength="4000" style="resize:vertical"></textarea>
+        <div class="bd-tools" data-box="reply"><button type="button" class="btn small" data-at>@</button><button type="button" class="btn small" data-assign></button><span class="bd-chips"></span></div>
         <div class="row" style="gap:8px;margin-top:8px"><button class="btn primary" id="bd_replyPost"></button></div>
         <div class="msg" id="bd_replyMsg"></div>
       </div>
