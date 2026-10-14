@@ -87,6 +87,23 @@ function mouseControls() {
   window.addEventListener("pointerup", () => { drag = null; box.classList.remove("dragging"); });
   // a drag that ends on a marker must not also select it
   box.addEventListener("click", (e) => { if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; } }, true);
+  touchControls(box);
+}
+/* phone: one finger scrolls the box (the browser does that); two fingers pinch to zoom around the point between them and move the map */
+function touchControls(box) {
+  let pinch = null;
+  const mid = (t) => { const r = box.getBoundingClientRect(); return { x: (t[0].clientX + t[1].clientX) / 2 - r.left, y: (t[0].clientY + t[1].clientY) / 2 - r.top, d: Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY) }; };
+  box.addEventListener("touchstart", (e) => { if (e.touches.length === 2) { const m = mid(e.touches); pinch = { z: Z, d: m.d, x: m.x, y: m.y }; } }, { passive: true });
+  box.addEventListener("touchmove", (e) => {
+    if (!pinch || e.touches.length !== 2) return;
+    e.preventDefault();
+    const m = mid(e.touches);
+    setZoom(pinch.z * m.d / pinch.d, true, m.x, m.y);           // zoom so the point between the fingers stays put…
+    box.scrollLeft -= m.x - pinch.x; box.scrollTop -= m.y - pinch.y;   // …then follow the fingers
+    pinch.x = m.x; pinch.y = m.y;
+  }, { passive: false });
+  const end = (e) => { if (e.touches.length < 2) pinch = null; };
+  box.addEventListener("touchend", end); box.addEventListener("touchcancel", end);
 }
 function centerOn(b, smooth) {
   const box = $("km_box"), [X, Y] = P(b.x, b.y), s = $("km_svg").clientWidth / W;

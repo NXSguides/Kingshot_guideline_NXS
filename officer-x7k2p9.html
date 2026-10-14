@@ -110,7 +110,10 @@
   #pg-events .lim-grid label { display: grid; gap: 4px; font-size: 13px; }
   #pg-events .lim-grid .inp { width: 100%; }
   #pg-events #etGrid label { grid-template-rows: auto 44px auto 44px; align-content: start; }
-  #pg-events #etGrid .inp { height: 44px; box-sizing: border-box; margin: 0; }
+  #pg-events #etGrid .inp { height: 44px; min-height: 44px; max-height: 44px; box-sizing: border-box; margin: 0; display: block; }
+  /* iPhone draws date fields with its own (taller) style → same box as the others */
+  #pg-events #etGrid input[type="date"].inp { -webkit-appearance: none; appearance: none; line-height: 28px; padding: 7px 10px; text-align: left; font: inherit; font-size: 15px; -webkit-min-logical-height: 44px; }
+  #pg-events #etGrid input[type="date"].inp::-webkit-date-and-time-value { text-align: left; min-height: 28px; line-height: 28px; }
   #pg-events #etGrid .et-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
   #pg-events .ms-list { margin-top: 8px; font-size: 13px; }
   #pg-events .ms-list summary { cursor: pointer; font-weight: 600; }
@@ -334,7 +337,7 @@
   #pg-map .km-layers button[aria-pressed="false"] { opacity: .45; }
   #pg-map .sw { width: 14px; height: 14px; border-radius: 4px; flex: none; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.2); }
   #pg-map .km-card { background: #22301a; border-radius: 14px; overflow: hidden; position: relative; border: 1px solid var(--rule); }
-  #pg-map .km-box { overflow: auto; max-height: 75vh; scrollbar-width: thin; overscroll-behavior: contain; }
+  #pg-map .km-box { overflow: auto; max-height: 75vh; scrollbar-width: thin; overscroll-behavior: contain; touch-action: pan-x pan-y; }   /* pinch = zoom the map, not the page */
   @media (pointer: fine) { #pg-map .km-box { cursor: grab; } #pg-map .km-box.dragging { cursor: grabbing; user-select: none; } #pg-map .km-box.dragging .mk { cursor: grabbing; } }
   #pg-map .km-box svg { display: block; width: 100%; height: auto; }
   #pg-map .km-zoom { position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 6px; z-index: 2; }
