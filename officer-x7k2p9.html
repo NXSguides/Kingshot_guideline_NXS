@@ -513,7 +513,7 @@
 </head>
 <body>
 <div class="wrap" id="main">
-  <div class="shbar"><a class="btn" href="./">← <span id="shHome"></span></a><button class="btn" id="langBtn"></button><button class="btn" id="copyUrlBtn" title="Copy link" aria-label="Copy link" hidden>🔗</button><button class="btn" id="reloadBtn" title="Refresh" aria-label="Refresh" hidden>↻</button><span id="meBox" hidden style="display:inline-flex;align-items:center;gap:6px;margin-left:auto;font-size:13.5px"><img id="meAv" alt="" width="24" height="24" style="border-radius:50%" hidden><b id="meName"></b><button class="btn" id="meOut" style="padding:4px 8px;font-size:12.5px"></button></span><a class="btn" id="meIn" href="#" hidden style="margin-left:auto;font-size:12.5px;padding:4px 8px"></a></div>
+  <div class="shbar"><a class="btn" href="./">← <span id="shHome"></span></a><select class="btn" id="langBtn" aria-label="Language"><option value="zh">中文</option><option value="en">English</option><option value="pt">Português</option></select><button class="btn" id="copyUrlBtn" title="Copy link" aria-label="Copy link" hidden>🔗</button><button class="btn" id="reloadBtn" title="Refresh" aria-label="Refresh" hidden>↻</button><span id="meBox" hidden style="display:inline-flex;align-items:center;gap:6px;margin-left:auto;font-size:13.5px"><img id="meAv" alt="" width="24" height="24" style="border-radius:50%" hidden><b id="meName"></b><button class="btn" id="meOut" style="padding:4px 8px;font-size:12.5px"></button></span><a class="btn" id="meIn" href="#" hidden style="margin-left:auto;font-size:12.5px;padding:4px 8px"></a></div>
   <nav class="tabs">
     <a href="#events" data-tab="events">📅 Events</a>
     <a href="#map" data-tab="map">🗺️ Map</a>
@@ -1021,14 +1021,20 @@ function localTimes(html, lang) {
 }
 /* ===== shared: language, password, tabs (the four pages below register themselves in OFFICER_PAGES) ===== */
 const OFFICER_LANG = "nxs-officer-lang", OFFICER_LS = "nxs-post-v1";
-const officerLang = () => { try { const v = localStorage.getItem(OFFICER_LANG); return v === "zh" || v === "en" ? v : null; } catch (e) { return null; } };
+const officerLang = () => { try { const v = localStorage.getItem(OFFICER_LANG); return v === "zh" || v === "en" || v === "pt" ? v : null; } catch (e) { return null; } };
 const setOfficerLang = (v) => { try { localStorage.setItem(OFFICER_LANG, v); } catch (e) {} };
-const OFFICER = { lang: officerLang() || ((navigator.language || "").startsWith("zh") ? "zh" : "en"), token: null, pw: null };
+const OFFICER = { lang: officerLang() || ((navigator.language || "").startsWith("zh") ? "zh" : (navigator.language || "").startsWith("pt") ? "pt" : "en"), token: null, pw: null };
+/* officer page languages: zh / en / pt. Dates and <html lang> per language; PT_BY_EN = Portuguese for the built-in English texts (event names, default to-dos…) — shown only, never saved */
+const LOCALE = (l) => l === "zh" ? "zh-TW" : l === "pt" ? "pt-BR" : "en-GB";
+const HTML_LANG = (l) => l === "zh" ? "zh-Hant" : l === "pt" ? "pt-BR" : "en";
+const PT_BY_EN = {"Bear Hunt": "Caça ao Urso", "13:00 & 22:00 UTC, 30 min each": "13:00 & 22:00 UTC, 30 min cada", "Alliance Championship": "Campeonato da Aliança", "Weekly, Monday reset · shown = 2-day registration; battles run automatically": "Semanal, reinicia na segunda · mostra os 2 dias de inscrição; as batalhas são automáticas", "Remind everyone: register in the Middle Lane, strongest heroes, 50/20/30, buffs on.": "Lembre a todos: inscrever-se na pista do meio, heróis mais fortes, 50/20/30, bônus ativados.", "Alliance Mobilization": "Mobilização da Aliança", "Follows the 4-week cycle (after KvK / after Strongest Governor; Alliance Brawl can replace one) — check the start date": "Segue o ciclo de 4 semanas (depois do KvK / depois de O Governador mais Forte; a Briga da Aliança pode substituir uma) — confira a data de início", "Post the mission rules (no KvK Prep items; best picks).": "Publique as regras das missões (sem itens da Fase de Preparação do KvK; melhores escolhas).", "Mystic Trial": "Prova Mística", "Alliance rules": "Regras da aliança", "KvK": "KvK", "Viking Vengeance": "Vingança Viking", "Swordland Showdown": "Confronto entre Espadas", "Tri-Alliance Clash": "Confronto Tri-Aliança", "Eternity's Reach": "Alcance da Eternidade", "All Out": "Vai com Tudo", "Fishing Tournament": "Torneio de Pesca", "Hero Roulette": "Roleta do Herói", "Cesares Fury": "Fúria dos Césares", "Sanctuary Battle": "Batalha do Santuário", "Alliance Brawl": "Briga da Aliança", "Mon 00:00 – Sun 12:00 UTC · be in the alliance at Sun 23:00 UTC the day before (matching) to count": "Seg 00:00 – Dom 12:00 UTC · esteja na aliança no domingo anterior às 23:00 UTC (pareamento) para contar", "Merchant Empire": "Império Mercante", "Escort 2 caravans at a time · last 4 h (until Sun 04:00 UTC) raiding only": "Escolte até 2 caravanas por vez · nas últimas 4 h (até Dom 04:00 UTC) só saque", "Call of the Sovereign": "Call of the Sovereign", "Max rewards: 90 Gold Keys (30/day) + 30 Platinum Keys (10/day) over the 3 days · resets 00:00 UTC": "Recompensa máxima: 90 Gold Keys (30/dia) + 30 Platinum Keys (10/dia) nos 3 dias · reinicia 00:00 UTC", "R4/R5 start Viking Vengeance: pick a time that suits members and announce it beforehand (UTC), so everyone can return troops, prepare reinforcements and stay online for the important waves.": "R4/R5 iniciam a Vingança Viking: escolham um horário bom para os membros e anunciem antes (em UTC), para todos recolherem as tropas, prepararem reforços e ficarem online nas ondas importantes.", "Start Viking Vengeance in game at the announced time.": "Inicie a Vingança Viking no jogo no horário anunciado.", "Voting phase: set up an alliance poll to confirm 100% attendance for the fixed time windows.": "Fase de votação: crie uma enquete da aliança para confirmar 100% de presença nos horários fixos.", "Registration phase: based on the voting, assign each confirmed member to a Legion.": "Fase de inscrição: com base na votação, coloque cada membro confirmado numa Legião.", "Reminder: ask everyone to check their assigned Legion and time and confirm 100% attendance — it affects matchmaking and roles.": "Lembrete: peça a todos para conferir a Legião e o horário e confirmar 100% de presença — isso afeta o pareamento e as funções.", "Planning phase: assign roles (Attacker, Defender, Joiner) to Legion 1 and Legion 2.": "Fase de planejamento: defina as funções (Attacker, Defender, Joiner) da Legião 1 e da Legião 2.", "Voting phase: set up an alliance poll to find out who can 100% attend.": "Fase de votação: crie uma enquete da aliança para saber quem pode participar com 100% de certeza.", "Sign-up phase: split confirmed players into Legion 1 and Legion 2 (separate time slots) so both have enough reliable players — don't put every strong account in one group.": "Fase de inscrição: divida os confirmados entre Legião 1 e Legião 2 (horários diferentes) para que as duas tenham gente confiável — não coloque todas as contas fortes no mesmo grupo.", "Planning phase: assign roles to Legion 1 and Legion 2 and post the plan.": "Fase de planejamento: defina as funções da Legião 1 e da Legião 2 e publique o plano.", "Remind everyone: each member gets 5 rally requests — use them, unused ones are lost when the event ends.": "Lembre a todos: cada membro tem 5 pedidos de rally — usem, os que sobrarem somem quando o evento acaba.", "R4+: once enough members have beaten high-level targets, apply to challenge the Captain and post a time for everyone to join.": "R4+: quando membros suficientes vencerem alvos de nível alto, peçam para desafiar o Capitão e publiquem um horário para todos participarem.", "R4+: register if we meet the requirements — 1 Sanctuary + 1 Fortress, 3 time slots (the slot most alliances pick wins). Pick targets we can realistically take and hold (competition, location, our strength), not just the most prestigious. Sanctuaries we held last week are signed up automatically.": "R4+: inscrevam-se se cumprirmos os requisitos — 1 Santuário + 1 Fortress, 3 horários (vale o horário que mais alianças escolherem). Escolham alvos que realmente conseguimos tomar e manter (concorrência, localização, nossa força), não só os mais famosos. Santuários que tínhamos na semana passada são inscritos automaticamente.", "Contest day: post the rally message about 1.5 h before the slot (exact 70,080 troops, rally from home, no solo attacks). Once a building is taken, post the defence swap (Howard/Gordon 60:20:20).": "Dia da disputa: publique a mensagem de rally cerca de 1,5 h antes do horário (exatamente 70.080 tropas, rally de casa, sem ataques solo). Depois de tomar um prédio, publique a troca de defesa (Howard/Gordon 60:20:20).", "Remind everyone: 30-minute solo event. Skill picks Right / Right / Left / Left / Right; send one march into a Copper Vein every minute.": "Lembre a todos: evento individual de 30 minutos. Habilidades: Direita / Direita / Esquerda / Esquerda / Direita; mande uma marcha para um veio de cobre a cada minuto.", "Post the All Out rules (NAP alliances, no attacks on castles or alliance buildings) and the secured gathering node rotation.": "Publique as regras do Vai com Tudo (alianças NAP, sem ataques a castelos ou prédios da aliança) e o rodízio dos pontos de coleta seguros.", "Remind everyone to SAVE Gold & Platinum Keys (90 Gold + 30 Platinum for max rewards) — copy the in-game message.": "Lembre a todos de GUARDAR Gold & Platinum Keys (90 Gold + 30 Platinum para a recompensa máxima) — copie a mensagem do jogo.", "Remind everyone: use Ocean Prospector first to upgrade the Fishing Kit, then switch to Regular Fishing.": "Lembre a todos: usem primeiro a Prospecção do Oceano para melhorar o Kit de Pesca e depois passem para a Pesca Normal.", "Remind everyone: 1 free spin a day; milestone rewards at 5 / 15 / 35 / 70 / 120 spins. Spins on KvK Prep Day 2–3 also score KvK points.": "Lembre a todos: 1 giro grátis por dia; recompensas de marco em 5 / 15 / 35 / 70 / 120 giros. Giros nos dias 2–3 da Fase de Preparação do KvK também dão pontos de KvK.", "Remind members: book Chief Minister slots, save Intel Missions, count saved items (the site's KvK checklist pops up).": "Lembre os membros: reservar horários de Primeiro-ministro, guardar Missões de Informação, contar os itens guardados (a checklist de KvK do site aparece).", "Castle Battle on the last day: agree rally leaders and times.": "Batalha do Castelo no último dia: combinem os líderes de rally e os horários.", "Post the mission rules (no KvK Prep items; best picks). R4+: refresh shared missions — remove poor ones so members aren't left with tasks they avoid.": "Publique as regras das missões (sem itens da Fase de Preparação do KvK; melhores escolhas). R4+: atualizem as missões compartilhadas — tirem as ruins para os membros não ficarem com tarefas que evitam.", "KvK Prep & Battle Guide": "Guia de Preparação e Batalha do KvK", "Formations & Rally Tips": "Formações e dicas de rally", "Gen 3 Master Academy Guide": "Guia da Academia dos Mestres (Ger. 3)", "Pets": "Pets", "F2P Heroes Guide": "Guia de heróis F2P", "Hero Cards (Gen 1–3)": "Cartas de heróis (Ger. 1–3)", "General Tips": "Dicas gerais", "Attackers": "Atacantes", "Defenders": "Defensores", "Joiners": "Joiners", "Home (language picker)": "Início (escolha de idioma)", "KvK Points Planner": "Planejador de pontos do KvK", "Booking guide": "Guia de reservas", "Squad guide": "Guia de esquadrões", "KvK calculator": "Calculadora de KvK", "Bear Hunt (every Bear day)": "Caça ao Urso (todo dia de Urso)"};
+const ptOf = (en) => (en && PT_BY_EN[en]) || en;
 const OFFICER_PAGES = {};
 const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "bt"];
 const inited = {};
 try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
-const SH = { en: { home: "Home", pw: "🔒 Officer password", remember: "Remember on this device", unlock: "Unlock", wrong: "Wrong password", loading: "Loading…",
+const SH = { pt: {"home": "Início", "pw": "🔒 Senha dos oficiais", "remember": "Lembrar neste aparelho", "unlock": "Desbloquear", "wrong": "Senha errada", "loading": "Carregando…", "discord": "Entrar com o Discord", "or": "— ou use a senha dos oficiais —", "out": "Sair", "inSmall": "🔑 Entrar com o Discord", "e_no_access": "Sua conta do Discord ainda não está na lista de oficiais. Fale com a Sparrow.", "e_not_member": "Entre primeiro no servidor do Discord da aliança e tente de novo.", "e_cancelled": "O login pelo Discord foi cancelado.", "e_expired": "Entre de novo, por favor.", "e_logged_out": "Entre de novo, por favor.", "e_discord": "Não foi possível conectar ao Discord — tente de novo.", "e_discord_unreachable": "Não foi possível conectar ao Discord — tente de novo.", "e_setup": "O login pelo Discord funcionou, mas o site ainda não está todo configurado. Use a senha dos oficiais por enquanto."},
+ en: { home: "Home", pw: "🔒 Officer password", remember: "Remember on this device", unlock: "Unlock", wrong: "Wrong password", loading: "Loading…",
                    discord: "Log in with Discord", or: "— or use the officer password —", out: "Log out", inSmall: "🔑 Log in with Discord",
                    e_no_access: "Your Discord account isn't on the officer list yet. Ask Sparrow.", e_not_member: "Join our alliance Discord server first, then try again.",
                    e_cancelled: "Discord login was cancelled.", e_expired: "Please log in again.", e_logged_out: "Please log in again.",
@@ -1060,7 +1066,7 @@ async function discordMe(tok) {
   } catch (e) { return { error: "discord" }; }
 }
 function showMe() {
-  const u = OFFICER.user, t = SH[OFFICER.lang];
+  const u = OFFICER.user, t = SH[OFFICER.lang] || SH.en;
   document.getElementById("meBox").hidden = !u;
   document.getElementById("meIn").hidden = !DISCORD_TRY || !!u || document.getElementById("gate").hidden === false;
   document.getElementById("meIn").textContent = t.inSmall; document.getElementById("meIn").href = discordStart();
@@ -1079,10 +1085,10 @@ document.getElementById("meOut").onclick = async () => {
   location.reload();
 };
 function applyShared() {
-  const t = SH[OFFICER.lang];
-  document.documentElement.lang = OFFICER.lang === "zh" ? "zh-Hant" : "en";
+  const t = SH[OFFICER.lang] || SH.en;
+  document.documentElement.lang = HTML_LANG(OFFICER.lang);
   document.getElementById("shHome").textContent = t.home;
-  document.getElementById("langBtn").textContent = OFFICER.lang === "zh" ? "English" : "中文";
+  document.getElementById("langBtn").value = OFFICER.lang;
   document.getElementById("gateTitle").textContent = t.pw;
   document.getElementById("gateRememberTxt").textContent = t.remember;
   document.getElementById("gateBtn").textContent = t.unlock;
@@ -1113,8 +1119,8 @@ function applyShared() {
     location.reload();
   };
 })();
-document.getElementById("langBtn").onclick = () => {
-  OFFICER.lang = OFFICER.lang === "zh" ? "en" : "zh";
+document.getElementById("langBtn").onchange = (ev) => {
+  OFFICER.lang = ev.target.value;
   setOfficerLang(OFFICER.lang); applyShared();
   for (const k of TABS) {
     const p = OFFICER_PAGES[k];
@@ -1456,7 +1462,8 @@ const EXTRA_EVENTS = [
 
 /* Event list for the week. Saved in data/events-x7k2p9.json (editable on this page); before the first save it starts from EVENT_SCHEDULES in js/app.js.
    Weeks run Monday–Sunday in UTC (game reset = 00:00 UTC). On Sunday the page opens on next week. */
-const T = {
+const T = { pt: {"title": "Eventos NXS", "sub": "Os eventos desta semana e o que os oficiais precisam organizar.", "home": "Início", "thisWeek": "Esta semana", "nextWeek": "Próxima semana", "todoTitle": "✅ Tarefas", "weekTitle": "📅 Eventos", "late": "atrasada", "calNote": "Role para o lado. Preenchido = acontecendo agora · ✅ = tem algo a fazer (toque → as tarefas) · os outros abrem o item na lista abaixo.", "today": "hoje", "todoNote": "As marcações ficam salvas só neste aparelho.", "note": "As datas vêm da agenda de eventos do site. O dia do jogo começa às 00:00 UTC. Se o calendário do jogo for diferente, vale o do jogo.", "noTodo": "Nada para organizar esta semana 🎉", "none": "—", "day": "Dia {n}/{t}", "starts": "começa", "ends": "último dia", "noData": "Não foi possível ler a agenda de eventos do site.", "toPost": "📢 Escrever anúncio", "toRanking": "📊 Abrir Ranking", "toGuide": "📖 Guia", "week": "{a} – {b}", "wd": ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"], "runs": "{a} – {b} ({n} dias)", "mgrTitle": "📋 Eventos e guias para o jogo", "addEv": "+ Novo evento", "mgrNote": "Toque num evento para ver o guia dele para o jogo. Cada caixa é uma mensagem do chat (o jogo limita o tamanho das mensagens) — copie e envie uma por uma. O ✏️ ao lado de uma mensagem edita só aquela mensagem; ✏️ Editar no final muda o evento inteiro (datas, tarefas, adicionar ou remover mensagens). As mudanças ficam salvas no site para todos os oficiais.", "sched": "a cada {e} dias desde {s} · {d} dia(s)", "noSched": "sem agenda fixa", "every1": "todos os dias", "edit": "✏️ Editar", "copy": "📋 Copiar", "copied": "Copiado ✅", "noIg": "Ainda não há guia para o jogo.", "chars": "caracteres", "newEv": "Novo evento", "editEv": "Editar evento", "fEmoji": "Emoji", "fName": "Nome", "fFixed": "Repete numa agenda fixa", "fStart": "Primeiro dia (UTC)", "fEvery": "Repete a cada … dias", "fDays": "Dura … dias", "fNote": "Observação", "fNoteSm": "(ex.: horários — aparece na lista)", "fGuide": "Guia no site", "noGuide": "— nenhum —", "fTodo": "Tarefas dos oficiais", "addTodo": "+ Tarefa", "editTodo": "Editar tarefas", "etDay": "Batalha no dia {n} de {t}", "etBearNext": "Próximo dia de Caça ao Urso (UTC)", "etDayLbl": "Dia da batalha", "etBearMoved": "🐻 A Caça ao Urso agora acontece a cada {e} dias a partir de {d}.", "etTitle": "⏰ Nossos horários de eventos (UTC)", "etNote": "Os horários que escolhemos para os eventos da aliança e em que dia do evento é a batalha. Usados na página inicial (Hoje e esta semana) e nos ⏰ lembretes de jogo de todos. Digite um ou mais horários, ex.: 13:00, 22:00. Se o jogo mudar a Caça ao Urso para outro dia, mude o \"Próximo dia de Caça ao Urso\" — o site inteiro acompanha.", "etBad": "Confira os horários — use HH:MM, ex.: 13:00, 22:30.", "etSaved": "Salvo ✅ O site e os ⏰ lembretes usam os novos horários em poucos minutos (os lembretes se atualizam quando a pessoa abre o site).", "limTitle": "⚙️ Limites de tropas nos guias", "limNote": "Usado em todos os lugares dos guias que mostram esses números (nos 12 idiomas) e pelo assistente de IA. Mude aqui quando o jogo ou a aliança mudar o limite.", "limBear": "Caça ao Urso — entrar num rally (exatamente)", "limRally": "Outros rallies / QG Viking — máximo por membro", "limSave": "💾 Salvar", "limSaving": "Salvando…", "limSaved": "Salvo ✅ O site mostra os novos números em poucos minutos.", "limBad": "Preencha os dois números.", "limNoKey": "Para salvar é preciso a chave do GitHub dos oficiais (configurada na aba Post).", "limErr": "Não foi possível salvar — tente de novo.", "msTitle": "Marcos do Reino #2189", "msNext": "próximo", "msIn": "em {n} dias", "dueLbl": "Dias antes (−) / depois do início", "untilLbl": "Só nesse dia, até a hora UTC (opcional)", "untilShow": "até {h} UTC", "tdTxt": "O que fazer", "tdPost": "Botão de anúncio", "tdRank": "Botão de Ranking", "fIngame": "Guias para o jogo", "fIngameSm": "(uma caixa = uma mensagem do chat; o jogo limita o tamanho das mensagens, então divida guias longos em várias caixas)", "addIg": "+ Mensagem", "igTitle": "Título", "igText": "Texto", "del": "Excluir evento", "cancel": "Cancelar", "save": "💾 Salvar", "needName": "Digite um nome.", "needSched": "Preencha o primeiro dia (AAAA-MM-DD), a repetição e a duração.", "confirmDel": "Excluir este evento para todos?", "saving": "Salvando…", "saved": "Salvo ✅ Os outros oficiais veem depois de atualizar a página (cerca de 1 minuto).", "errAuth": "A chave do GitHub salva não funciona mais. Peça à Sherry para refazer a configuração na aba Post.", "errBusy": "Outra pessoa mudou os eventos ao mesmo tempo. Atualize a página e tente de novo.", "errNet": "Não foi possível conectar ao GitHub. Tente de novo.", "noKey": "Para salvar é preciso a chave do GitHub (configurada na aba Post).", "remove": "✕"},
+
   en: {
     title: "NXS Events", sub: "Events this week, and what officers need to schedule.", home: "Home",
     thisWeek: "This week", nextWeek: "Next week", todoTitle: "✅ Action items", weekTitle: "📅 Events", late: "overdue", calNote: "Scroll sideways. Filled = running now · ✅ = has something to do (tap → its action items) · others open their entry below.", today: "today",
@@ -1646,12 +1653,13 @@ const $ = (id) => ROOT.querySelector("#" + CSS.escape(id)) || document["getEleme
 const tr = (k, v = {}) => { const s = (T[lang] && T[lang][k]) ?? T.en[k] ?? k; return typeof s === "string" ? s.replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m) : s; };
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const utcDay = (t) => Math.floor(t / DAY) * DAY;
-const fmt = (t) => { const d = new Date(t); return `${d.getUTCMonth() + 1}/${d.getUTCDate()}（${tr("wd")[(d.getUTCDay() + 6) % 7]}）`.replace("（", lang === "zh" ? "（" : " (").replace("）", lang === "zh" ? "）" : ")"); };
+const fmt = (t) => { const d = new Date(t); return `${lang === "pt" ? d.getUTCDate() + "/" + (d.getUTCMonth() + 1) : (d.getUTCMonth() + 1) + "/" + d.getUTCDate()}（${tr("wd")[(d.getUTCDay() + 6) % 7]}）`.replace("（", lang === "zh" ? "（" : " (").replace("）", lang === "zh" ? "）" : ")"); };
 const isoDay = (t) => new Date(t).toISOString().slice(0, 10);
 const dayMs = (iso) => Date.parse(iso + "T00:00:00Z");
 const byId = (id) => LIST.find((e) => e.id === id);
-const evName = (k) => { const e = byId(k); return e ? `${e.emoji || ""} ${e[lang] || e.en || e.zh || k}`.trim() : k; };
-const txt = (o) => (o && (o[lang] || o.en || o.zh)) || "";
+const nm = (o) => (o && (o[lang] || (lang === "pt" && PT_BY_EN[o.en]) || o.en || o.zh || o.pt)) || "";
+const evName = (k) => { const e = byId(k); return e ? `${e.emoji || ""} ${nm(e) || k}`.trim() : k; };
+const txt = nm;
 function mondayOf(t) { const d = utcDay(t); const wd = (new Date(d).getUTCDay() + 6) % 7; return d - wd * DAY; }
 
 /* starting list, built from what the site already had (used until the first save) */
@@ -1716,7 +1724,7 @@ function render() {
       <div style="flex:1;min-width:0">
         <div class="txt"><b>${esc(evName(r.k))}</b> <span class="when">· ${esc(when)}</span></div>
         ${list.map(({ r: ir, td, due, id }) => `<label class="task${store.done[id] ? " done" : ""}"><input type="checkbox" data-id="${esc(id)}" ${store.done[id] ? "checked" : ""}><div><div>${rr.length > 1 ? `<b>${esc(fmt(ir.st))}</b> · ` : ""}${localTimes(esc(txt(td)), lang)}</div><div class="when">⏰ ${esc(fmt(due))}${td.until != null && td.until !== "" ? ` · ${esc(tr("untilShow", { h: String(+td.until).padStart(2, "0") + ":00" }))}` : ""}${due < today && !store.done[id] ? ` <b class="warn">${esc(tr("late"))}</b>` : ""}</div></div></label>`).join("")}
-        <div class="acts"><button type="button" class="btn small" data-edtodo="${esc(r.k)}">✏️ ${esc(tr("editTodo"))}</button>${list.some((x) => x.td.post) ? `<a class="btn small" href="#post">${esc(tr("toPost"))}</a>` : ""}${list.some((x) => x.td.ranking) ? `<a class="btn small" href="#ranking">${esc(tr("toRanking"))}</a>` : ""}${e.guide ? `<a class="btn small" href="./#/${lang === "zh" ? "zh" : "en"}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}${(e.ingame || []).length ? `<button type="button" class="btn small" data-open="${esc(r.k)}">📋 ${esc(tr("fIngame"))}</button>` : ""}</div>
+        <div class="acts"><button type="button" class="btn small" data-edtodo="${esc(r.k)}">✏️ ${esc(tr("editTodo"))}</button>${list.some((x) => x.td.post) ? `<a class="btn small" href="#post">${esc(tr("toPost"))}</a>` : ""}${list.some((x) => x.td.ranking) ? `<a class="btn small" href="#ranking">${esc(tr("toRanking"))}</a>` : ""}${e.guide ? `<a class="btn small" href="./#/${lang}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}${(e.ingame || []).length ? `<button type="button" class="btn small" data-open="${esc(r.k)}">📋 ${esc(tr("fIngame"))}</button>` : ""}</div>
       </div>
     </div>`; }).join("") : `<div class="none">${esc(tr("noTodo"))}</div>`;
   $("todos").querySelectorAll("input[type=checkbox]").forEach((cb) => cb.onchange = () => {
@@ -1843,10 +1851,10 @@ function schedText(e) {
   return e.every === 1 ? `${tr("every1")} · ${fmt(dayMs(e.start))}` : tr("sched", { e: e.every, s: fmt(dayMs(e.start)), d: e.days });
 }
 const noteOf = (e) => {
-  const n = (lang === "zh" ? e.noteZh || e.note : e.note || e.noteZh) || "";
+  const n = (lang === "zh" ? e.noteZh || e.note : lang === "pt" ? e.notePt || ptOf(e.note) || e.noteZh : e.note || e.noteZh) || "";
   // Bear Hunt's times always follow "⏰ Our event times" (the note's "13:00 & 22:00" is swapped for the saved times)
   const t = e.id === "bear-hunt" && typeof ET !== "undefined" && ET["bear-hunt"];
-  return t && t.length ? n.replace(/\d{1,2}:\d{2}(\s*(?:&|和|,|、)\s*\d{1,2}:\d{2})*/, t.join(lang === "zh" ? " 和 " : " & ")) : n;
+  return t && t.length ? n.replace(/\d{1,2}:\d{2}(\s*(?:&|和|,|、|e)\s*\d{1,2}:\d{2})*/, t.join(lang === "zh" ? " 和 " : lang === "pt" ? " e " : " & ")) : n;
 };
 function renderList() {
   const open = new Set([...ROOT.querySelectorAll(".evrow[open]")].map((d) => d.dataset.id));
@@ -1858,7 +1866,7 @@ function renderList() {
       ${(e.ingame || []).length ? e.ingame.map((g, i) => `
         <div class="ig"><div class="head"><span>${esc(g.title || tr("fIngame"))} <span class="sched">· ${[...g.text].length} ${esc(tr("chars"))}</span></span><span class="row" style="flex:none"><button type="button" class="btn small" data-igedit="${esc(e.id)}:${i}">✏️</button><button type="button" class="btn small" data-copy="${esc(e.id)}:${i}">${esc(tr("copy"))}</button></span></div>
         <pre>${esc(g.text)}</pre></div>`).join("") : `<div class="none" style="margin:8px 0">${esc(tr("noIg"))}</div>`}
-      <div class="row">${e.guide ? `<a class="btn small" href="./#/${lang === "zh" ? "zh" : "en"}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}<button type="button" class="btn small" data-edit="${esc(e.id)}">${esc(tr("edit"))}</button></div>
+      <div class="row">${e.guide ? `<a class="btn small" href="./#/${lang}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}<button type="button" class="btn small" data-edit="${esc(e.id)}">${esc(tr("edit"))}</button></div>
     </details>`).join("");
 }
 function openEvent(id) {
@@ -1901,7 +1909,7 @@ let editing = null;   // id of the event being edited, or null for a new one
 function todoRow(td = {}) {
   return `<div class="sub todo-ed">
     <div class="row"><label class="due">${esc(tr("dueLbl"))} <input class="inp" type="number" data-k="due" value="${esc(td.due ?? 0)}"></label><label class="due">${esc(tr("untilLbl"))} <input class="inp" type="number" min="1" max="24" data-k="until" value="${esc(td.until ?? "")}" style="width:60px"></label><button type="button" class="btn small" data-rm>${esc(tr("remove"))}</button></div>
-    <textarea class="inp" data-k="txt" rows="2" placeholder="${esc(tr("tdTxt"))}" data-orig="${esc(td[lang] || td[lang === "zh" ? "en" : "zh"] || "")}" data-other="${esc(td[lang === "zh" ? "en" : "zh"] || "")}" data-had="${td[lang] ? 1 : 0}" style="margin-top:6px;width:100%;min-height:0;resize:vertical">${esc(td[lang] || td[lang === "zh" ? "en" : "zh"] || "")}</textarea>
+    <textarea class="inp" data-k="txt" rows="2" placeholder="${esc(tr("tdTxt"))}" data-orig="${esc(txt(td))}" data-keep="${esc(JSON.stringify({ en: td.en, zh: td.zh, pt: td.pt }))}" data-had="${td[lang] ? 1 : 0}" style="margin-top:6px;width:100%;min-height:0;resize:vertical">${esc(txt(td) || td[lang === "zh" ? "en" : "zh"] || "")}</textarea>
     <div class="row" style="justify-content:flex-start;font-size:13px;margin-top:6px"><label><input type="checkbox" data-k="post"${td.post ? " checked" : ""}> ${esc(tr("tdPost"))}</label><label><input type="checkbox" data-k="ranking"${td.ranking ? " checked" : ""}> ${esc(tr("tdRank"))}</label></div>
   </div>`;
 }
@@ -1915,12 +1923,12 @@ function openEditor(id) {
   editing = id;
   const e = id ? byId(id) : { emoji: "📅", en: "", zh: "", start: isoDay(utcDay(Date.now())), every: 7, days: 1, guide: "", note: "", todo: [], ingame: [] };
   $("edTitle").textContent = tr(id ? "editEv" : "newEv");
-  $("edEmoji").value = e.emoji || ""; $("edName").value = e[lang] || e[lang === "zh" ? "en" : "zh"] || "";
+  $("edEmoji").value = e.emoji || ""; $("edName").value = nm(e);
   const fixed = !!(e.start && e.every > 0);
   $("edFixed").checked = fixed; $("edSched").hidden = !fixed;
   $("edStart").value = e.start || isoDay(utcDay(Date.now())); showStart(); $("edEvery").value = e.every || 7; $("edDays").value = e.days || 1;
   $("edNote").value = noteOf(e);
-  $("edGuide").innerHTML = `<option value="">${esc(tr("noGuide"))}</option>` + Object.entries(GUIDE_LIST).map(([k, g]) => `<option value="${k}">${g.e} ${esc(g[lang] || g.en)}</option>`).join("");
+  $("edGuide").innerHTML = `<option value="">${esc(tr("noGuide"))}</option>` + Object.entries(GUIDE_LIST).map(([k, g]) => `<option value="${k}">${g.e} ${esc(nm(g))}</option>`).join("");
   $("edGuide").value = e.guide || "";
   $("edTodos").innerHTML = (e.todo || []).map(todoRow).join("");
   $("edIgs").innerHTML = (e.ingame || []).map(igRow).join("");
@@ -1946,26 +1954,29 @@ $("edCancel").onclick = () => { $("editor").hidden = true; };
 function readEditor() {
   const e = editing ? { ...byId(editing) } : {};
   // only the page language is edited; the other language's text is kept as it was
-  const other = lang === "zh" ? "en" : "zh";
-  e.emoji = $("edEmoji").value.trim(); e[lang] = $("edName").value.trim();
-  if (!e[lang]) throw new Error(tr("needName"));
-  if (!e[other]) e[other] = e[lang];
+  const other = lang === "zh" ? "en" : lang === "pt" ? "en" : "zh";
+  const was = nm(e);
+  e.emoji = $("edEmoji").value.trim(); const name = $("edName").value.trim();
+  if (!name) throw new Error(tr("needName"));
+  if (name !== was || e[lang]) e[lang] = name;   // pt: an untouched built-in name stays a display-only translation
+  if (!e[other]) e[other] = name;
   if ($("edFixed").checked) {
     e.start = $("edStart").value.trim(); e.every = Math.round(+$("edEvery").value); e.days = Math.round(+$("edDays").value);
     if (!/^\d{4}-\d\d-\d\d$/.test(e.start) || isNaN(dayMs(e.start)) || !(e.every > 0) || !(e.days > 0)) throw new Error(tr("needSched"));
   } else { e.start = ""; e.every = 0; e.days = 0; }
   const nv = $("edNote").value.trim();
-  if (lang === "zh") e.noteZh = nv; else e.note = nv;
+  if (nv !== noteOf(e)) { if (lang === "zh") e.noteZh = nv; else if (lang === "pt") e.notePt = nv; else e.note = nv; }
   e.guide = $("edGuide").value;
   e.todo = [...ROOT.querySelectorAll("#edTodos .todo-ed")].map((r) => {
     const g = (k) => r.querySelector(`[data-k="${k}"]`);
     const t = g("txt"), v = t.value.trim();
-    const o = { due: Math.round(+g("due").value || 0), [lang]: v };
-    if (v === (t.dataset.orig || "") && t.dataset.other) o[other] = t.dataset.other;   // edited → the other language just shows this text (no translation needed)
+    let o = { due: Math.round(+g("due").value || 0) };
+    if (v === (t.dataset.orig || "")) { const k = JSON.parse(t.dataset.keep || "{}"); for (const l of ["en", "zh", "pt"]) if (k[l]) o[l] = k[l]; if (!o.en && !o.zh && !o.pt) o[lang] = v; }
+    else o[lang] = v;   // edited → the other languages just show this text (no translation needed)
     if (g("post").checked) o.post = 1; if (g("ranking").checked) o.ranking = 1;
     const u = parseInt(g("until").value, 10); if (u >= 1 && u <= 24) o.until = u;
     return o;
-  }).filter((o) => o.zh || o.en);
+  }).filter((o) => o.zh || o.en || o.pt);
   e.ingame = [...ROOT.querySelectorAll("#edIgs .ig-ed")].map((r) => ({ title: r.querySelector('[data-k="title"]').value.trim(), text: r.querySelector('[data-k="text"]').value.replace(/\r/g, "").trimEnd() })).filter((g) => g.text);
   if (!e.id) { const base = (e.en || "event").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "event"; let id = base, n = 2; while (byId(id)) id = base + "-" + n++; e.id = id; }
   return e;
@@ -2023,7 +2034,7 @@ async function saveList(next, message) {
 }
 
 function applyTexts() {
-  document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+  document.documentElement.lang = HTML_LANG(lang);
   ROOT.querySelectorAll("[data-t]").forEach((el) => { const v = tr(el.dataset.t); if (/UTC/.test(v)) el.innerHTML = localTimes(esc(v), lang); else el.textContent = v; });
 }
 function setLang(l) { lang = l; store.lang = lang; save(); applyTexts(); if (LIST) render(); };
@@ -2071,7 +2082,7 @@ async function loadEventTimes() {
   $("etGrid").innerHTML = ET_KEYS.map(([k, e]) => {
     const len = (LIST && byId(k) && byId(k).days) || (EVENTS[k] && EVENTS[k].days) || { "swordland-showdown": 7, "tri-alliance-clash": 6, "viking-vengeance": 3, "cesares-fury": 3 }[k] || 1, cur = (ET.days || {})[k];
     const day = k === "bear-hunt" ? `<span class="et-sub">${esc(tr("etBearNext"))}</span><input class="inp" type="date" data-etbear>` : `<span class="et-sub">${esc(tr("etDayLbl"))}</span><select class="inp" data-etday="${k}">${Array.from({ length: len }, (_, i) => `<option value="${i + 1}"${cur === i + 1 ? " selected" : ""}>${esc(tr("etDay").replace("{n}", i + 1).replace("{t}", len))}</option>`).join("")}</select>`;
-    return `<label><span>${e} ${esc((EVENTS[k] && EVENTS[k][lang === "zh" ? "zh" : "en"]) || (k === "bear-hunt" ? (lang === "zh" ? "狩獵巨熊（每個熊日）" : "Bear Hunt (every Bear day)") : k))}</span><input class="inp" data-et="${k}" value="${esc((ET[k] || []).join(", "))}" inputmode="numeric" placeholder="13:00, 22:00">${day}</label>`; }).join("");
+    return `<label><span>${e} ${esc((EVENTS[k] && nm(EVENTS[k])) || (k === "bear-hunt" ? (lang === "zh" ? "狩獵巨熊（每個熊日）" : lang === "pt" ? ptOf("Bear Hunt (every Bear day)") : "Bear Hunt (every Bear day)") : k))}</span><input class="inp" data-et="${k}" value="${esc((ET[k] || []).join(", "))}" inputmode="numeric" placeholder="13:00, 22:00">${day}</label>`; }).join("");
   etBearFill();
   if (LIST && $("evList")) renderList();
 }
@@ -2183,7 +2194,8 @@ OFFICER_PAGES.events = { init, applyTexts, setLang };
 (function () {
 const ROOT = document.getElementById('pg-ranking');
 const DATA_URL = "data/roster-x7k2p9.json";
-const T = {
+const T = { pt: {"title": "Ranking da lista NXS", "home": "Início", "weights": "① Pesos", "power": "Poder total", "mystic": "Prova Mística", "weightNote": "Os dois somam 100% — mudar um ajusta o outro.", "pick": "② Marque os participantes deste evento", "all": "Marcar todos", "none": "Limpar", "paste": "Colar uma lista de inscritos para marcar de uma vez", "pasteNote": "Um nome por linha (ou separados por vírgula). Enfeites como ♛ e a tag Nexus podem ficar de fora; maiúsculas não importam. (?) significa que vários jogadores combinam — marque esse à mão.", "pasteGo": "Marcar esses jogadores", "pasteOk": "{n} jogadores marcados.", "pasteMiss": "Não encontrado: {list}", "search": "Buscar um nome…", "colName": "Nome", "colRank": "Cargo", "colTc": "CC", "colActive": "Último acesso", "rest": "todos os restantes", "events": "④ Grupos do evento", "eventsNote": "Os grupos seguem o ranking acima (maior pontuação ponderada primeiro).", "n": "{n}", "result": "③ Ranking", "copy": "Copiar resultado", "copied": "Copiado!", "colScore": "Pontos", "scoreNote": "Pontuação: cada número é ajustado para que o maior entre os jogadores marcados = 100, depois combinado pelos pesos. Jogadores sem valor de Prova Mística contam como 0 (marcados com ?).", "empty": "Ninguém marcado ainda.", "selected": "{n} / {t} marcados", "updated": "Dados atualizados: {t} ({ago})", "members": "{n} membros", "noData": "Ainda não há dados. Vá ao GitHub → Actions → “Update Roster (MightPulse)” → Run workflow e depois recarregue esta página.", "ago": {"now": "agora mesmo", "m": "há {n} min", "h": "há {n} h", "d": "há {n} d"}},
+
   zh: {
     title: "NXS 成員排序", home: "回主頁", weights: "① 占比", power: "總戰力", mystic: "秘境試煉",
     weightNote: "兩個加起來是 100%，改一個另一個會自動調整。",
@@ -2235,7 +2247,7 @@ let picked = new Set(store.picked || []);
 let wPower = store.wPower ?? 40;
 
 const $ = (id) => ROOT.querySelector("#" + CSS.escape(id)) || document["getElementById"](id);
-const tr = (k, vars = {}) => String(k.split(".").reduce((o, x) => o && o[x], T[lang]) ?? k).replace(/\{(\w+)\}/g, (m, v) => vars[v] ?? m);
+const tr = (k, vars = {}) => String(k.split(".").reduce((o, x) => o && o[x], T[lang]) ?? k.split(".").reduce((o, x) => o && o[x], T.en) ?? k).replace(/\{(\w+)\}/g, (m, v) => vars[v] ?? m);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const big = (n) => n == null ? "?" : n >= 1e9 ? (n / 1e9).toFixed(2) + "B" : n >= 1e6 ? (n / 1e6).toFixed(1) + "M" : n >= 1e3 ? (n / 1e3).toFixed(1) + "K" : String(n);
 const toMs = (v) => v == null ? null : (typeof v === "number" ? (v < 1e12 ? v * 1000 : v) : Date.parse(v));
@@ -2254,10 +2266,10 @@ const norm = (s) => String(s || "").trim().toLowerCase();
 const core = (s) => String(s || "").normalize("NFKC").toLowerCase().replace(/nexus/g, "").replace(/[^\p{L}\p{N}]/gu, "");
 
 function applyTexts() {
-  document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+  document.documentElement.lang = HTML_LANG(lang);
   ROOT.querySelectorAll("[data-t]").forEach((el) => { el.textContent = tr(el.dataset.t); });
   $("rk_q").placeholder = tr("search");
-  if (data) $("rk_meta").textContent = `${data.alliance?.tag ? "[" + data.alliance.tag + "] " : ""}${tr("members", { n: data.members.length })} · ${tr("updated", { t: new Date(data.updated).toLocaleString(lang === "zh" ? "zh-TW" : "en-GB"), ago: ago(data.updated) })}`;
+  if (data) $("rk_meta").textContent = `${data.alliance?.tag ? "[" + data.alliance.tag + "] " : ""}${tr("members", { n: data.members.length })} · ${tr("updated", { t: new Date(data.updated).toLocaleString(LOCALE(lang)), ago: ago(data.updated) })}`;
   $("rk_noData").textContent = tr("noData");
 }
 
@@ -2337,19 +2349,19 @@ function renderCounts() {
   const pr = PRESETS.find((x) => x.id === activePreset);
   if (!pr) { $("presetCounts").innerHTML = ""; return; }
   $("presetCounts").innerHTML = pr.groups.map((g, gi) => g.count == null
-    ? `<span class="muted">${esc(g.name[lang] || g.name.en)}: ${tr("rest")}</span>`
-    : `<label class="w">${esc(g.name[lang] || g.name.en)}<input type="number" min="0" max="99" step="1" data-gi="${gi}" value="${groupCount(pr, gi)}"></label>`).join("");
+    ? `<span class="muted">${esc(g.name[lang] || ptOf(g.name.en))}: ${tr("rest")}</span>`
+    : `<label class="w">${esc(g.name[lang] || ptOf(g.name.en))}<input type="number" min="0" max="99" step="1" data-gi="${gi}" value="${groupCount(pr, gi)}"></label>`).join("");
 }
 function renderPresets() {
   $("presetBtns").innerHTML = PRESETS.map((pr) =>
-    `<button class="btn${activePreset === pr.id ? " on" : ""}" data-p="${pr.id}">${pr.emoji} ${esc(pr.name[lang] || pr.name.en)}</button>`).join("");
+    `<button class="btn${activePreset === pr.id ? " on" : ""}" data-p="${pr.id}">${pr.emoji} ${esc(pr.name[lang] || ptOf(pr.name.en))}</button>`).join("");
   const pr = PRESETS.find((x) => x.id === activePreset);
   $("presetCopy").hidden = !pr;
   if (!document.activeElement || !document.activeElement.closest("#presetCounts")) renderCounts();
   if (!pr) { $("presetOut").innerHTML = ""; return; }
   if (!picked.size) { $("presetOut").innerHTML = `<p class="empty">${tr("empty")}</p>`; return; }
   $("presetOut").innerHTML = `<div class="grp-out">` + presetGroups(pr).map(({ g, list }) => `
-    <h3>${esc(g.name[lang] || g.name.en)} <span class="muted">(${tr("n", { n: list.length })})</span></h3>
+    <h3>${esc(g.name[lang] || ptOf(g.name.en))} <span class="muted">(${tr("n", { n: list.length })})</span></h3>
     ${list.length ? `<ol>${list.map((m) => `<li dir="auto">${esc(m.name)} <span class="muted">· ${m.score.toFixed(1)}</span></li>`).join("")}</ol>` : `<div class="muted">—</div>`}`).join("") + `</div>`;
 }
 function renderAll() { applyTexts(); renderList(); renderResult(); }
@@ -2437,8 +2449,8 @@ $("presetCounts").oninput = (e) => {
 };
 $("presetCopy").onclick = async () => {
   const pr = PRESETS.find((x) => x.id === activePreset); if (!pr) return;
-  const text = `**${pr.emoji} ${pr.name[lang] || pr.name.en}**\n` + presetGroups(pr).map(({ g, list }) =>
-    `\n**${g.name[lang] || g.name.en} (${list.length})**\n` + (list.map((m, i) => `${i + 1}. ${m.name}`).join("\n") || "—")).join("\n");
+  const text = `**${pr.emoji} ${pr.name[lang] || ptOf(pr.name.en)}**\n` + presetGroups(pr).map(({ g, list }) =>
+    `\n**${g.name[lang] || ptOf(g.name.en)} (${list.length})**\n` + (list.map((m, i) => `${i + 1}. ${m.name}`).join("\n") || "—")).join("\n");
   try { await navigator.clipboard.writeText(text); } catch (e) {
     const ta = document.createElement("textarea"); ta.value = text; ROOT.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
   }
@@ -2450,7 +2462,8 @@ $("presetCopy").onclick = async () => {
 /* ===== ⑤ Battle table builder (saved only in this browser) ===== */
 const TB_LS = "nxs-table-v1";
 const TB_COLORS = ["#e6a3d9", "#8fd0ec", "#f6c3a2", "#d6ecc4", "#f6e58d", "#c9c3f0", "#d9d9d9", "#b8e0d2"];
-const TT = {
+const TT = { pt: {"title": "⑤ Tabela de batalha", "note": "Escolha pessoas na lista e toque numa caixa para colocá-las lá (no computador também dá para arrastar). Toque em × para remover.", "setup": "Configurar tabela", "stages": "Etapas", "targets": "Alvos", "cols": "Colunas", "sep": "(separe com vírgulas)", "shortNames": "Nomes curtos (sem enfeites como 亗 e Nexus)", "draft": "Montar um rascunho pelo ranking", "draftNote": "Usa os números de Attackers / Defenders do ④.", "clear": "Limpar tabela", "addGroup": "+ Grupo", "addRow": "+ Linha", "delGroup": "Excluir grupo", "dupRow": "Copiar linha", "delRow": "Excluir linha", "pool": "Pessoas — funções sugeridas pela pontuação (toque numa, depois numa caixa)", "poolEmpty": "Marque os participantes no ② primeiro.", "addText": "+ texto", "textPrompt": "Texto para adicionar (ex.: Stays behind)", "image": "🖼️ Gerar imagem", "text": "📋 Copiar texto", "toPost": "📢 Usar num novo anúncio", "saveHint": "No celular: toque e segure a imagem para salvar.", "download": "Baixar", "close": "Fechar", "confirmClear": "Limpar a tabela inteira?", "confirmDraft": "Trocar a tabela por um novo rascunho?", "copied": "Copiado!", "group": "Grupo", "picked": "Selecionado:"},
+
   en: {
     title: "⑤ Battle table", note: "Pick people from the list, then tap a box to put them there (on a computer you can also drag). Tap × to remove.",
     setup: "Table setup", stages: "Stages", targets: "Targets", cols: "Columns", sep: "(separate with commas)",
@@ -2541,8 +2554,8 @@ function tbRender() {
     </div>
     <div class="muted" style="font-size:12px;margin:-4px 0 8px">${esc(tt("draftNote"))}</div>
     <div class="tb-sticky"><div class="tb-pool-h">${esc(tt("pool"))}${tbPick ? ` · <b>${esc(tt("picked"))} ${esc(chipLabel(tbPick))}</b>` : ""}</div>
-    <div class="tb-counts">${swPreset.groups.map((g, gi) => g.count == null ? "" : `<label>${esc(g.name[lang] || g.name.en)} <input type="number" min="0" max="99" data-rolecount="${gi}" value="${groupCount(swPreset, gi)}"></label>`).join("")}</div>
-    <div class="tb-pool">${pool.length ? roleGroups.map(({ g, list }, ri) => list.length ? `<div class="tb-role r${ri}"><div class="tb-role-h">${esc(g.name[lang] || g.name.en)} <span>(${list.length})</span></div>${list.map((m) => `<span class="tb-chip pool r${ri}${tbPick && tbPick.kind === "p" && String(tbPick.id) === String(m.id) ? " on" : ""}" draggable="true" data-pid="${m.id}">${esc(TB.short ? shortName(m.name) : m.name)}${counts[m.id] ? `<i>${counts[m.id]}</i>` : ""}</span>`).join("")}</div>` : "").join("") : `<span class="muted">${esc(tt("poolEmpty"))}</span>`}</div></div>
+    <div class="tb-counts">${swPreset.groups.map((g, gi) => g.count == null ? "" : `<label>${esc(g.name[lang] || ptOf(g.name.en))} <input type="number" min="0" max="99" data-rolecount="${gi}" value="${groupCount(swPreset, gi)}"></label>`).join("")}</div>
+    <div class="tb-pool">${pool.length ? roleGroups.map(({ g, list }, ri) => list.length ? `<div class="tb-role r${ri}"><div class="tb-role-h">${esc(g.name[lang] || ptOf(g.name.en))} <span>(${list.length})</span></div>${list.map((m) => `<span class="tb-chip pool r${ri}${tbPick && tbPick.kind === "p" && String(tbPick.id) === String(m.id) ? " on" : ""}" draggable="true" data-pid="${m.id}">${esc(TB.short ? shortName(m.name) : m.name)}${counts[m.id] ? `<i>${counts[m.id]}</i>` : ""}</span>`).join("")}</div>` : "").join("") : `<span class="muted">${esc(tt("poolEmpty"))}</span>`}</div></div>
     ${TB.groups.map((g, gi) => `
       <div class="tb-group" style="border-color:${g.color};background:color-mix(in srgb, ${g.color} 22%, var(--panel))">
         <div class="tb-ghead">
@@ -2732,7 +2745,8 @@ function tbImage() {
 /* ===== 🔄 Shared plans: a named plan (e.g. "Legion 1") that every officer sees — ticks, weights, group sizes and the battle table.
    Saved encrypted on the site (data/ranking-plans-x7k2p9.json); open plans check for others' changes every 10 s.
    "Only on this device" works as before. ===== */
-const PL = {
+const PL = { pt: {"title": "📋 Plano", "local": "🔒 Só neste aparelho", "newP": "+ Novo plano compartilhado", "ren": "Renomear", "del": "Excluir", "name": "Nome do plano compartilhado (ex.: Legião 1)", "copyQ": "Começar com as pessoas marcadas agora? (Cancelar = começar vazio)", "delQ": "Excluir o plano compartilhado “{n}” para todos?", "localNote": "As mudanças aqui ficam só neste aparelho.", "shared": "🔄 Compartilhado — todos os oficiais veem as mesmas marcações e a mesma tabela.", "last": "Última mudança: {who} · {t}", "saving": "Salvando…", "saved": "✓ Salvo", "err": "Não foi possível salvar — tentando de novo…", "noKey": "Planos compartilhados precisam da chave do GitHub dos oficiais (aba Post).", "loading": "Carregando planos compartilhados…"},
+
   en: { title: "📋 Plan", local: "🔒 Only on this device", newP: "+ New shared plan", ren: "Rename", del: "Delete",
         name: "Name of the shared plan (e.g. Legion 1)", copyQ: "Start it with the people ticked now? (Cancel = start empty)",
         delQ: "Delete the shared plan “{n}” for everyone?", localNote: "Changes here stay on this device only.",
@@ -2896,7 +2910,8 @@ const REPO = location.hostname.endsWith("github.io") ? (location.pathname.split(
 const BRANCH = "main";
 const LS = "nxs-post-v1";
 
-const T = {
+const T = { pt: {"title": "Publicar um anúncio", "subtitle": "Escreva uma vez — o site traduz automaticamente para os 12 idiomas.", "home": "Início", "unlockTitle": "Digite a senha dos oficiais", "password": "Senha", "remember": "Lembrar neste aparelho", "unlock": "Desbloquear", "wrongPw": "Senha errada. Peça a senha dos oficiais à Sherry.", "setupTitle": "Primeira configuração (só a dona do site)", "setupIntro": "Faça isso uma vez. Depois, os oficiais só precisam da senha que você escolher aqui.", "setupSteps": ["No GitHub, abra Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token.", "Resource owner: a organização dona do site. Repository access: Only select repositories → o repositório deste site.", "Permissions → Repository permissions → Contents: Read and write. Expiration: o maior prazo permitido. Gere e copie o token.", "Cole o token abaixo e escolha uma senha para os oficiais (pelo menos 10 caracteres)."], "token": "Token do GitHub", "newPw": "Senha dos oficiais", "newPw2": "Digite a senha de novo", "setupGo": "Salvar configuração", "pwShort": "A senha precisa de pelo menos 10 caracteres.", "pwMismatch": "As duas senhas são diferentes.", "setupOk": "Configuração salva ✅ Passe o link desta página e a senha para os oficiais.", "writeTitle": "Escrever", "fName": "Seu nome", "fLang": "Idioma em que você está escrevendo", "fLangNote": "(escreva no seu idioma — ele é traduzido)", "fTitle": "Título", "fBody": "Mensagem", "fBodyNote": "(**texto** = negrito; links funcionam normalmente; imagens: use o botão abaixo)", "addImg": "Adicionar imagem", "addImgNote": "Ela entra onde o cursor estiver na mensagem.", "uploadingImg": "Enviando imagens…", "fLink": "Botão para um guia", "fLinkNote": "(opcional)", "noGuide": "— nenhum —", "fExp": "Exclusão automática", "fExpNote": "(o anúncio some do site sozinho)", "expNever": "Nunca — manter até eu excluir", "expToday": "Quando hoje terminar (00:00 UTC)", "expTomorrow": "Quando amanhã terminar (00:00 UTC)", "expD": "Depois de {n} dias", "expD1": "Depois de 1 dia", "expPick": "Escolher data e hora (UTC)…", "expAt": "→ {t} UTC", "expTag": "🗑️ exclusão automática {t} UTC", "expPast": "Escolha um horário no futuro.", "preview": "Prévia", "publish": "📢 Publicar", "needAll": "Preencha seu nome, o título e a mensagem.", "confirmPub": "Publicar este anúncio agora?", "publishing": "Enviando…", "pubOk": "Enviado ✅ O anúncio traduzido aparece no site em cerca de 2–3 minutos.", "listTitle": "Anúncios no site", "reload": "Atualizar", "listNote": "Os mais novos primeiro. Excluir remove do site em todos os idiomas.", "del": "Excluir", "confirmDel": "Excluir este anúncio para todos?", "deleting": "Excluindo…", "delOk": "Excluído ✅ Some do site em cerca de 2–3 minutos.", "empty": "Nenhum anúncio.", "img": "tem imagens", "errNet": "Não foi possível conectar ao GitHub. Confira a internet e tente de novo.", "errAuth": "A chave do GitHub salva não funciona mais (pode ter expirado). Peça à Sherry para refazer a configuração.", "errBusy": "Outra pessoa acabou de mudar os anúncios. Tente de novo.", "adminMore": "Mais", "adminMoreNote": "Para a dona do site.", "forget": "Esquecer a senha neste aparelho", "resetup": "Refazer a configuração (novo token / nova senha)", "dataKeyBtn": "🔐 Criptografia dos dados dos oficiais", "dataKeyConfirm": "Criar a chave de dados agora? Logo depois você vai copiá-la no GitHub e no Cloudflare.", "dataKeyMade": "Chave de dados criada ✅ Copie a chave abaixo, guarde uma cópia num lugar seguro e depois:\n1. Repositório no GitHub → Settings → Secrets and variables → Actions → New repository secret. Nome: DATA_KEY\n2. Cloudflare → seu Worker → Settings → Variables and Secrets → Add → Secret. Nome: DATA_KEY\n3. GitHub → Actions → \"Encrypt Officer Data\" → Run workflow", "dataKeyShown": "A criptografia está ligada. Esta é a chave de dados (o mesmo valor dos secrets DATA_KEY):", "dataKeyNeedPw": "Desbloqueie esta página com a senha dos oficiais primeiro.", "dataKeyRelock": "Não foi possível abrir a chave de dados com a senha atual, então a configuração não foi alterada.", "yes": "Sim", "no": "Cancelar", "edit": "Editar", "editTitle": "Editar um anúncio", "close": "Fechar", "editWhat": "O que mudar", "editAll": "Todos os idiomas — mudar o original e traduzir de novo", "editAllNote": "O original abre no formulário Escrever acima. Ao salvar, os 12 idiomas são traduzidos de novo, e as correções feitas num só idioma neste anúncio são substituídas.", "editAllGo": "Abrir no formulário Escrever", "editLangNote": "Só este idioma muda. Os outros idiomas ficam como estão.", "saveFix": "💾 Salvar este idioma", "unfix": "Usar a tradução automática de novo", "needFix": "Preencha seu nome, o título e a mensagem.", "confirmFix": "Salvar este idioma para todos?", "savingFix": "Salvando…", "fixOk": "Salvo ✅ Aparece no site em cerca de 2–3 minutos.", "confirmUnfix": "Descartar a versão feita à mão deste idioma e usar a tradução automática de novo?", "unfixOk": "Pronto ✅ A tradução automática volta ao site em cerca de 2–3 minutos.", "notYet": "Este anúncio ainda está sendo traduzido. Toque em Atualizar daqui a alguns minutos e tente de novo.", "fixedTip": "editado à mão", "translating": "traduzindo…", "editing": "Editando", "cancelEdit": "Parar de editar", "saveEdit": "💾 Salvar mudanças", "confirmEdit": "Salvar as mudanças? Todos os idiomas são traduzidos de novo, e as correções feitas num só idioma neste anúncio são substituídas.", "editOk": "Salvo ✅ A nova versão aparece no site em cerca de 2–3 minutos.", "gone": "Este anúncio foi mudado ou excluído nesse meio-tempo. Toque em Atualizar e tente de novo.", "editPics": "Só adicionar imagens — sem nova tradução", "picNote": "As imagens entram em todos os idiomas de uma vez. O texto fica exatamente como está (inclusive as correções num só idioma), então nada é traduzido de novo.", "picWhere": "Onde", "picEnd": "No final", "picTop": "No início", "picSave": "💾 Adicionar as imagens", "picNone": "Escolha pelo menos uma imagem primeiro.", "confirmPics": "Adicionar estas imagens ao anúncio em todos os idiomas?", "picOk": "Adicionadas ✅ As imagens aparecem no site em cerca de 2–3 minutos."},
+
   en: {
     title: "Post an announcement", subtitle: "Write it once — the site translates it into all 12 languages automatically.",
     home: "Home",
@@ -3484,7 +3499,7 @@ $("picSave").onclick = async () => {
 let keyBlob = null;
 function applyTexts() {
   if (typeof GUIDES === "undefined") return;
-  document.documentElement.lang = ui === "zh" ? "zh-Hant" : "en";
+  document.documentElement.lang = HTML_LANG(ui);
   ROOT.querySelectorAll("[data-t]").forEach((el) => {
     const v = tr(el.dataset.t);
     el.textContent = v;
@@ -3625,7 +3640,8 @@ OFFICER_PAGES.post = { init: () => loadScripts(["data/content.js", "https://cdnj
 })();
 (function () {
 const ROOT = document.getElementById('pg-watch');
-const T = {
+const T = { pt: {"title": "Vigilância NXS", "home": "Início", "export": "Exportar para a planilha do Google", "copy": "📋 Copiar para o Google Sheets", "csv": "⬇️ Baixar CSV", "copied": "Copiado! Cole na célula A1 da planilha.", "exportNote": "Copia todos os membros mostrados abaixo, incluindo as notas dos oficiais e o histórico que eles adicionaram à mão.", "rivalsL": "Alianças vigiadas:", "farmsL": "Nossas alianças farm / irmãs:", "colHops": "Alianças vistas", "fRival": "Esteve em {t}", "fHops": "Visto em {n} alianças", "fRivalName": "Mesmo nome em {t}", "members": "Membros", "onlyFlag": "Mostrar só membros com sinais", "newDays": "“Novo” = entrou há no máximo (dias)", "search": "Buscar nome ou ID…", "colName": "Nome", "colRank": "Cargo", "colPower": "Poder", "colPowerD": "Mudança de poder", "colKills": "Abates", "colKillsD": "Mudança de abates", "colTc": "CC", "colKid": "Reino", "colLang": "Idioma", "colSince": "Na NXS desde", "colFrom": "Visto em outras alianças", "colNames": "Nomes anteriores", "colSimilar": "Nomes parecidos em outros lugares", "colLogin": "Último login", "colFlags": "Sinais", "colClear": "Liberado", "colWhy": "Por quê / comentários", "before": "antes de {d}", "between": "entre {a} e {b}", "leftTitle": "Saíram da NXS", "colLeft": "Saiu em", "colNow": "Visto depois em", "fNew": "Novo ({n} d)", "fKid": "Do reino {k}", "fRenamed": "Mudou de nome", "fFrom": "Esteve em {t}", "fSimilar": "Nome parecido em {t}", "fDrop": "Poder caiu", "noData": "Ainda não há dados. Rode GitHub → Actions → “Update Roster (MightPulse)” e depois recarregue.", "updated": "Atualizado {t} · histórico desde {s}", "empty": "Nenhum membro encontrado.", "n1": "O histórico começou em {s}. “antes de {s}” quer dizer que a pessoa já estava na NXS quando o acompanhamento começou.", "n2": "“Visto em outras alianças” vem das listas de membros de outras alianças. O MightPulse pode ter só uma cópia antiga dessas listas, então a data mostra quão antiga era a cópia.", "n3": "Mudança de poder / abates = nos últimos {d} dias de dados salvos.", "n4": "Os sinais são só pistas de onde olhar. Não provam nada.", "n5": "O histórico de alianças e nomes também inclui o Record do MightPulse puxado em {d}.", "n6": "Toque em ✏️ para adicionar notas ou histórico do Record de um membro. Tudo o que for adicionado é compartilhado com todos os oficiais. Membros novos que ninguém conferiu ainda aparecem como “Conferir Record” e vêm primeiro.", "fCleared": "Liberado", "fNotClear": "Não liberado", "csNone": "Não conferido", "fNeedCheck": "Conferir Record", "yourName": "Seu nome", "saveBtn": "Salvar", "cancel": "Cancelar", "saving": "Salvando…", "openRec": "Abrir Record ↗", "histAlli": "Alianças anteriores", "histAlliNote": "(uma por linha: RED 2026-09-30 · outro reino: RED #1234 2026-09-30)", "histNames": "Nomes anteriores", "histNamesNote": "(um por linha)", "checked": "Já conferi o Record deste membro", "errAuth": "A chave do GitHub salva não funciona mais (pode ter expirado). Refaça a configuração na aba Post.", "errBusy": "Outra pessoa acabou de salvar uma nota. Tente de novo.", "errNet": "Não foi possível conectar ao GitHub. Confira a internet e tente de novo."},
+
   en: {
     title: "NXS Watch", home: "Home",
     export: "Export for the Google Sheet", copy: "📋 Copy for Google Sheets", csv: "⬇️ Download CSV", copied: "Copied! Paste into cell A1 of the sheet.",
@@ -3960,10 +3976,10 @@ $("rows").onclick = (e) => {
 };
 
 function applyTexts() {
-  document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+  document.documentElement.lang = HTML_LANG(lang);
   ROOT.querySelectorAll("[data-t]").forEach((el) => { el.textContent = tr(el.dataset.t); });
   $("wa_q").placeholder = tr("search");
-  if (watch) $("wa_meta").textContent = tr("updated", { t: new Date(watch.updated || roster.updated).toLocaleString(lang === "zh" ? "zh-TW" : "en-GB"), s: watch.started });
+  if (watch) $("wa_meta").textContent = tr("updated", { t: new Date(watch.updated || roster.updated).toLocaleString(LOCALE(lang)), s: watch.started });
 }
 
 function table() {
@@ -4041,7 +4057,8 @@ const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } ca
 store.hide = store.hide || {};                         // kingdoms taken out of the ranking (this browser only)
 let sortKey = store.sortKey || "power", sortDir = store.sortDir || -1;
 
-const T = {
+const T = { pt: {"title": "Reconhecimento NXS", "addTitle": "Reconhecer um reino", "fetch": "Buscar agora", "auto": "atualizar todo dia", "include": "no ranking", "remove": "Remover", "colKingdom": "Reino", "ranking": "Ranking", "rankingNote": "Marque “no ranking” num reino para listar os jogadores dele aqui. A coluna usada para ordenar aparece logo ao lado do nome.", "sortBy": "Ordenar por", "desc": "maior → menor", "asc": "menor → maior", "addNote": "Digite o número de um reino e toque em Buscar: uma tarefa do GitHub lê os 20 melhores jogadores desse reino no MightPulse (poder, Centro da Cidade, Prova Mística, abates, VIP). Leva cerca de 2–3 minutos; esta página se atualiza sozinha. Marque “atualizar todo dia” para o adversário do KvK, assim ele se atualiza todo dia junto com a lista.", "needKid": "Digite o número de um reino.", "noKey": "Para salvar é preciso a chave do GitHub — configure na aba Post primeiro.", "saving": "Enviando o pedido…", "requested": "Pedido feito — a busca leva cerca de 2–3 minutos. A tabela aparece aqui quando terminar.", "stillWaiting": "Ainda buscando… (veja GitHub → Actions → Scout Kingdom se passar de 5 minutos)", "done": "Atualizado ✅", "errAuth": "O GitHub recusou a chave.", "errBusy": "O GitHub estava ocupado — tente de novo.", "errNet": "Problema de rede — tente de novo.", "updated": "Dados: {t}", "noData": "Nenhum reino reconhecido ainda. Adicione um acima.", "ours": "nosso reino", "players": "Top {n} jogadores", "alliances": "Alianças mais fortes", "colRank": "#", "colName": "Nome", "colAlliance": "Aliança", "colPower": "Poder", "colTc": "CC", "colMystic": "Prova Mística", "colKills": "Abates", "colVip": "VIP", "openRec": "MightPulse", "asOf": "em {t}", "source": "lista de {s}"},
+
   en: { title: "NXS Scout", addTitle: "Scout a kingdom", fetch: "Fetch now", auto: "update daily", include: "in ranking", remove: "Remove", colKingdom: "Kingdom", ranking: "Ranking", rankingNote: "Tick “in ranking” on a kingdom to list its players here. The column you sort by is shown right next to the name.", sortBy: "Sort by", desc: "high → low", asc: "low → high",
     addNote: "Type a kingdom number and press Fetch: a GitHub job reads that kingdom's top 20 players from MightPulse (power, Town Center, Mystic Trial, kills, VIP). It takes about 2–3 minutes; this page refreshes by itself. Tick “update daily” for the KvK opponent so it refreshes every day with the roster.",
     needKid: "Enter a kingdom number.", noKey: "Saving needs the GitHub key — set it up on the Post tab first.", saving: "Sending the request…",
@@ -4060,7 +4077,7 @@ const T = {
     asOf: "資料時間 {t}", source: "名單來源：{s}" },
 };
 const tr = (k, v) => { let s = (T[lang] || T.en)[k] ?? T.en[k] ?? k; for (const x in v || {}) s = s.replace("{" + x + "}", v[x]); return s; };
-const fmtT = (iso) => iso ? new Date(iso).toLocaleString(lang === "zh" ? "zh-TW" : "en-GB", { dateStyle: "short", timeStyle: "short" }) : "";
+const fmtT = (iso) => iso ? new Date(iso).toLocaleString(LOCALE(lang), { dateStyle: "short", timeStyle: "short" }) : "";
 
 async function gh(method, path, body) {
   let res;
@@ -4224,7 +4241,8 @@ OFFICER_PAGES.scout = { init, applyTexts, setLang };
 const ROOT = document.getElementById("pg-views"), $ = (id) => document.getElementById(id);
 const AI_URL = "https://nxs-ai.tapegirljoke.workers.dev";
 let lang = OFFICER.lang, DATA = null, proof = null;
-const T = {
+const T = { pt: {"title": "📈 Visitas ao site", "meta": "Visitantes por dia · quais guias e idiomas as pessoas abrem · de onde vêm. Oficiais (qualquer navegador com a senha dos oficiais salva) e esta página não contam.", "note": "Este navegador: não conta (oficial). A contagem é anônima — sem cookies, sem nomes, sem IPs salvos.", "days": "dias", "loading": "Carregando…", "daily": "Visitantes por dia", "pages": "Páginas / guias", "langs": "Idiomas do site", "loc": "Países", "refs": "Vieram de", "sys": "Aparelhos", "total": "{n} visitantes nos últimos {d} dias", "err": "Não foi possível carregar: {e}", "noToken": "O token do GoatCounter ainda não foi configurado no Worker (GOATCOUNTER_TOKEN).", "direct": "(direto / app)"},
+
   en: { title: "📈 Site views", meta: "Visitors per day · which guides and languages people open · where they come from. Officers (any browser with the officer password saved) and this page are not counted.",
         note: "This browser: not counted (officer). Counting is anonymous — no cookies, no names, no IPs stored.", days: "days", loading: "Loading…",
         daily: "Visitors per day", pages: "Pages / guides", langs: "Site languages", loc: "Countries", refs: "Came from", sys: "Devices",
@@ -4245,7 +4263,7 @@ function applyTexts() {
   for (const k of ["daily", "pages", "langs", "loc", "refs", "sys"]) $("vw_h_" + k).textContent = t[k];
   const sel = $("vw_days"), cur = sel.value || "7";
   sel.innerHTML = [7, 30, 90].map((d) => `<option value="${d}"${String(d) === cur ? " selected" : ""}>${d} ${t.days}</option>`).join("");
-  document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+  document.documentElement.lang = HTML_LANG(lang);
 }
 async function proofCompute() {
   if (proof) return proof;
@@ -4293,8 +4311,8 @@ function render() {
   const pages = {}, langs = {};
   for (const h of DATA.hits || []) {
     const { file, lang: lg, guide } = splitPath(h.path);
-    let name = PAGE_NAMES[file] ? PAGE_NAMES[file][lang] : file;
-    if (guide && file === "/index.html") { const g = typeof GUIDES !== "undefined" && GUIDES[guide]; name = (g && g.name ? (g.name[lang] || g.name.en) : guide); }
+    let name = PAGE_NAMES[file] ? PAGE_NAMES[file][lang] || ptOf(PAGE_NAMES[file].en) : file;
+    if (guide && file === "/index.html") { const g = typeof GUIDES !== "undefined" && GUIDES[guide]; name = (g && g.name ? (g.name[lang] || ptOf(g.name.en)) : guide); }
     pages[name] = (pages[name] || 0) + h.count;
     if (lg) langs[LANG_NAMES[lg] || lg] = (langs[LANG_NAMES[lg] || lg] || 0) + h.count;
   }
@@ -4542,7 +4560,8 @@ const hqDist = (b) => { const h = G.hq && G.hq[0]; return h ? Math.round(Math.hy
 const prioTxt = (n) => (n >= 1 && n <= 20 ? String.fromCharCode(0x2460 + n - 1) : String(n));
 const isOp = (b) => b.kind === "outpost";
 const dirty = () => snap() !== SAVED;
-const PT = {
+const PT = { pt: {"title": "📋 Plano dos Outposts", "hint": "Toque num Outpost no mapa ou na lista e marque como 🎯 Alvo, ✅ Nosso (Protected), ⚔️ Nosso (Vulnerable). Nos nossos, digite uma vez a contagem regressiva do jogo e a página troca Protected ⇄ Vulnerable sozinha. Os totais seguem a regra do jogo: só o mesmo tipo no mesmo nível não acumula — nível diferente ou tipo diferente sempre somam.", "target": "🎯 Alvo", "held": "✅ Nosso · Protected", "vuln": "⚔️ Nosso · Vulnerable", "clear": "✕ Limpar", "type": "Outpost", "buff": "Bônus", "now": "Agora (como no jogo)", "after": "Com os alvos", "nowNote": "\"Agora\" deixa de fora os Outposts Vulnerable, como a tela de bônus de ocupação do jogo. \"Com os alvos\" conta tudo o que temos mais os alvos.", "conflict": "Conflito de bônus", "conflictBtn": "⚠️ Nosso · Conflito de bônus", "conflicts": "⚠️ Nosso · Conflito de bônus (calculado pelos timers, sem bônus)", "conflictAuto": "Conflito de bônus: temos outro do mesmo tipo e nível que está Protected há mais tempo — só esse dá o bônus. (Pelos timers: o que tem mais tempo de Protected restante é o conflito.)", "heldR": "✅ Nosso", "ruinsT": "🏛️ Fortresses e Santuários (Batalha do Santuário)", "ruinsNote": "Sem bônus — dão pontos de temporada a cada fase: Santuário 1, Fortress 2. Os que já temos se inscrevem de novo sozinhos; a cada fase só podemos inscrever ativamente mais 1 Santuário + mais 1 Fortress.", "ptsNow": "Agora", "ptsAfter": "Com os alvos", "ptsRow": "Pontos de temporada por fase", "tooMany": "Mais de 1 Santuário ou 1 Fortress como alvo — só dá para inscrever 1 de cada por fase.", "targets": "🎯 Alvos", "helds": "✅ Nossos · Protected", "vulns": "⚔️ Nossos · Vulnerable (sem bônus agora)", "none": "Nenhum ainda", "save": "💾 Salvar plano", "by": "Seu nome", "saving": "Salvando…", "saved": "Salvo ✅ Os outros oficiais veem depois de atualizar.", "unsaved": "Mudanças não salvas", "last": "Salvo por último por {by} · {at}", "noKey": "Para salvar é preciso a chave do GitHub dos oficiais (configurada na aba Post).", "errAuth": "A chave do GitHub foi recusada.", "errBusy": "Outra pessoa salvou no mesmo momento — tente de novo.", "errNet": "Não foi possível conectar ao GitHub — tente de novo.", "planOnly": "📋 Só o plano", "reset": "Desfazer mudanças", "prio": "⭐ Prioridade", "prioNone": "—", "rewards": "Recompensas", "rewardsPh": "ex.: o que este dá (pelas informações do jogo)", "note": "Observação", "notePh": "ex.: quem ficou com ele na semana passada, quão disputado é", "dist": "{n} casas do nosso QG", "prioList": "⭐ Prioridade de Santuários e Fortresses", "prioEmpty": "Nenhuma prioridade definida ainda — toque num Santuário ou Fortress no mapa e escolha um número (1 = melhor).", "prioSave": "Lembre de tocar em 💾 Salvar plano para os outros oficiais verem.", "toV": "⚔️ Vulnerable", "toP": "✅ Protected", "noT": "Sem timer — o status só muda quando um oficial muda.", "tmHint": "Para adicionar um timer: primeiro toque em ✅ Nosso · Protected ou ⚔️ Nosso · Vulnerable — as caixas para a contagem regressiva do jogo aparecem aqui.", "leftP": "Tempo Protected restante no jogo:", "leftV": "Tempo Vulnerable restante no jogo:", "dd": "d", "hh": "h", "mm": "m", "setT": "Definir timer", "clrT": "Remover timer", "cyc": "Ciclo:", "cycNote": "Com um timer a página troca Protected ⇄ Vulnerable sozinha. Se perdermos um Outpost, marque de novo à mão."},
+
   en: { title: "📋 Outpost plan", hint: "Tap an Outpost on the map or in the list, then mark it 🎯 Target, ✅ Ours (Protected), ⚔️ Ours (Vulnerable) For ours, type the countdown from the game once and the page switches Protected ⇄ Vulnerable by itself. Totals follow the in-game rule: only the same type at the same level does not stack — a different level or a different type always adds up.",
         target: "🎯 Target", held: "✅ Ours · Protected", vuln: "⚔️ Ours · Vulnerable", clear: "✕ Clear", type: "Outpost", buff: "Buff", now: "Now (as in game)", after: "With targets",
         nowNote: "\"Now\" leaves out Vulnerable Outposts, like the in-game Occupation Buff screen. \"With targets\" counts everything we hold plus the targets.",
@@ -4638,7 +4657,7 @@ function renderPlan() {
   let by = importBy; if (!by) { try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {} }
   $("km_plan").innerHTML = `<h3 style="margin-bottom:2px">${esc(pt("title"))}</h3><div class="muted" style="font-size:12.5px">${esc(pt("hint"))}</div>
     <div class="pl-sub">${esc(T("rulesT"))}</div><ul class="km-rules">${T("rules").map((r) => `<li>${esc(r)}</li>`).join("")}</ul>
-    ${PLAN.by ? `<div class="muted" style="font-size:12px;margin-top:10px">${esc(pt("last").replace("{by}", PLAN.by).replace("{at}", new Date(PLAN.at).toLocaleString(lang === "zh" ? "zh-TW" : "en", { dateStyle: "medium", timeStyle: "short" })))}</div>` : ""}
+    ${PLAN.by ? `<div class="muted" style="font-size:12px;margin-top:10px">${esc(pt("last").replace("{by}", PLAN.by).replace("{at}", new Date(PLAN.at).toLocaleString(LOCALE(lang), { dateStyle: "medium", timeStyle: "short" })))}</div>` : ""}
     <table class="pl-tbl"><tr><th>${esc(pt("type"))}</th><th>${esc(pt("buff"))}</th><th style="text-align:right">${esc(pt("now"))}</th><th style="text-align:right">${esc(pt("after"))}</th></tr>${rows}</table>
     <div class="muted" style="font-size:12px;margin-top:6px">${esc(pt("nowNote"))}</div>
     <div class="pl-sub">${esc(pt("targets"))} (${cnt("target")})</div>${list("target")}
@@ -4693,7 +4712,7 @@ function importFromLink() {
   }
   importBy = (prm.get("by") || "").slice(0, 30);
   if (!n) return 0;
-  planMsg = (lang === "zh" ? "從連結帶入 {n} 個標記，確認後按「儲存規劃」。" : "{n} marks added from the link — check them, then press Save plan.").replace("{n}", n);
+  planMsg = (lang === "zh" ? "從連結帶入 {n} 個標記，確認後按「儲存規劃」。" : lang === "pt" ? "{n} marcações vieram do link — confira e toque em Salvar plano." : "{n} marks added from the link — check them, then press Save plan.").replace("{n}", n);
   try { history.replaceState(null, "", location.pathname + location.search + "#map"); } catch (e) {}
   return n;
 }
@@ -4714,7 +4733,8 @@ async function savePlan() {
 }
 
 /* Sanctuary Battle sign-ups, drawn as two example timelines (same content as the picture sent to officers) */
-const SB = {
+const SB = { pt: {"t": "🏛️ Batalha do Santuário — como as inscrições acumulam", "sub": "1 temporada = 8 fases (uma por semana) · Pontos de temporada por fase controlada: Santuário 1 · Fortress 2", "act": "Inscrição ativa (só 1 Santuário + 1 Fortress por fase)", "auto": "Inscrição automática (controlado na fase anterior · grátis)", "fort": "Fortress", "keep": "Manter o que ganhamos", "keepTag": "trocar por temporada", "rot": "Trocar a cada fase", "rotTag": "lento e caro", "ph": "Fase {n}", "san": "Santuário", "gave": "cedido", "pts": "{n} pts", "keepNote": "Cada Santuário que mantemos vira uma inscrição automática grátis, então nosso total continua crescendo. No fim da temporada todos se inscrevem de novo de qualquer jeito → troque Santuários com outras alianças nessa hora; não custa uma fase a ninguém.", "rotNote": "A cada troca: cancelamos nossa inscrição automática, e a outra aliança precisa gastar sua única inscrição ativa daquela fase para pegá-lo. Ninguém acumula Santuários, então os dois lados perdem pontos de temporada a cada fase."},
+
   en: { t: "🏛️ Sanctuary Battle — how sign-ups stack", sub: "1 season = 8 phases (one per week) · Season points per phase controlled: Sanctuary 1 · Fortress 2",
         act: "Active sign-up (only 1 Sanctuary + 1 Fortress per phase)", auto: "Auto-sign-up (controlled last phase · free)", fort: "Fortress",
         keep: "Keep what we win", keepTag: "rotate per season", rot: "Rotate every phase", rotTag: "slow & costly",
@@ -4792,7 +4812,8 @@ try { const o = JSON.parse(localStorage.getItem(LS)); if (o && o.f) S = { ...S, 
 try { const old = JSON.parse(localStorage.getItem("nxs-bt-v1")); if (old && !localStorage.getItem(LS)) { S.troops = old.troops || S.troops; S.rally = old.rally || S.rally; S.join = old.march || S.join; } } catch (e) {}
 if (!S.f.length || S.f[0].k !== "rally") S.f.unshift({ k: "rally", c: [0, 0, 0] });
 let lang = OFFICER.lang;
-const TX = {
+const TX = { pt: {"title": "🐻 Formações da Caça ao Urso", "sub": "Divida suas tropas entre o seu rally e as suas marchas. Salvo só neste aparelho.", "hTroops": "Suas tropas e limites", "inf": "Infantaria", "cav": "Cavalaria", "arc": "Arquearia", "rally": "Suas próprias tropas no seu rally (sem a Valora)", "join": "Entrar num rally: máximo de tropas", "hVal": "Valora (Mestre da Caça ao Urso) — só se o número do seu rally acima não a incluir", "savage": "Habilidade da Valora: capacidade da marcha na Caça ao Urso (+3.000 / Nv na sua própria marcha dentro do rally — não no tamanho total do rally, que conta quem entra)", "locked": "Não desbloqueada", "eff": "Tamanhos da Caça ao Urso usados abaixo: rally {r} · cada marcha {j}", "hAuto": "⚡ Divisão automática", "autoNote": "Preenche as formações abaixo (substitui o que houver). Depois você ainda pode arrastar tudo.", "rr": "Proporção do rally", "fix": "Marchas com proporção fixa", "fixAuto": "quantas couberem", "pre": "Configuração do líder do rally (guia da Caça ao Urso)", "preNone": "— minha própria proporção —", "preGen": "Ger {n}", "tag_best": "Melhor", "tag_alt": "Alternativa", "tag_f2p": "F2P", "preHeroes": "Heróis", "preHint": "Escolha a geração dos seus heróis e a configuração para preencher a proporção do rally — você ainda pode digitar a sua.", "hero": "Marchas com herói (cheias, mistas)", "rest": "Marchas sem herói (iguais, dividem TODO o resto)", "min": "Cada marcha seguinte mantém cada tipo em pelo menos", "run": "⚡ Dividir agora", "ran": "Pronto — ajuste à mão abaixo se quiser.", "fitN": "Depois de um rally cheio você consegue encher {n} marcha(s) em {r} — {t} acaba primeiro.", "fitMore": "Mais uma precisaria de mais {x} de {t}: tire do rally (o {t} dele −{p}%) e complete o rally com outras tropas.", "fitNo": "Mais uma precisaria de mais {x} de {t} do que você tem, mesmo tirando do rally.", "notRatio": "Não é {r} — faltou um tipo, então o espaço foi completado com outros.", "use": "Usado", "left": "restante", "fRally": "👑 Rally (você lidera)", "fMarch": "Marcha {n}", "tFix": "proporção fixa", "tHero": "herói", "tNo": "sem herói", "total": "Total", "full": "cheia", "of": "de", "add": "+ Adicionar marcha", "copy": "📋 Copiar", "copied": "Copiado ✓", "del": "Remover", "over": "⚠️ Mais do que você tem", "hHow": "Como funciona", "how": ["Cada formação tem um controle deslizante por tipo de tropa, em % do tamanho dela: a capacidade do seu rally para o rally, o limite de entrada para cada marcha. Os três não podem somar mais de 100%.", "Um controle para de mexer quando a formação está cheia ou quando aquele tipo de tropa acabou — a barra no topo mostra o que foi usado e o que sobrou.", "Digite um % na caixa ao lado de um controle para números exatos; a quantidade de tropas aparece à direita.", "⚡ Divisão automática: rally (cheio, na proporção dele) → marchas com proporção fixa (cheias) → marchas com herói (cheias, com a mesma mistura do que sobrou) → as marchas sem herói dividem tudo o que sobrou, todas iguais. Cada marcha seguinte mantém pelo menos o % definido de cada tipo, então nenhuma sai sem arqueiros.", "Só se até as marchas sem herói passarem do limite de entrada é que tropas ficam em casa — primeiro infantaria, depois cavalaria."]},
+
   en: { title: "🐻 Bear Hunt formations", sub: "Split your troops between your rally and your marches. Saved on this device only.",
     hTroops: "Your troops & limits", inf: "Infantry", cav: "Cavalry", arc: "Archers", rally: "Your own troops in your rally (without Valora)", join: "Joining a rally: max troops",
     hVal: "Valora (Bear Hunt Master) — only if your rally number above doesn't include her", savage: "Valora skill: Bear Hunt march capacity (+3,000 / Lv to your own march in the rally — not the whole rally's size, which counts the joiners)", locked: "Not unlocked",

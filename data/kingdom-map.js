@@ -4,68 +4,84 @@ const KINGDOM_MAP = {
  "ui": {
   "title": {
    "en": "Kingdom #2189 Map",
-   "zh": "#2189 王國地圖"
+   "zh": "#2189 王國地圖",
+   "pt": "Mapa do Reino #2189"
   },
   "intro": {
    "en": "Tap a building on the map, or a coordinate in the list, to see where it is. Outposts give buffs; Fortresses and Sanctuaries do not.",
-   "zh": "點地圖上的建築，或點下方清單裡的座標，就能看到它在哪裡。據點有增益，要塞和遺跡沒有。"
+   "zh": "點地圖上的建築，或點下方清單裡的座標，就能看到它在哪裡。據點有增益，要塞和遺跡沒有。",
+   "pt": "Toque num prédio no mapa, ou numa coordenada da lista, para ver onde ele fica. Outposts dão bônus; Fortresses e Santuários não."
   },
   "back": {
    "en": "Guides",
-   "zh": "回到攻略"
+   "zh": "回到攻略",
+   "pt": "Guias"
   },
   "orient": {
    "en": "Same direction as the in-game World map: up = bigger X and Y. Number on a square = Outpost level.",
-   "zh": "方向和遊戲大地圖一樣：往上 = X、Y 都變大。方塊上的數字 = 據點等級。"
+   "zh": "方向和遊戲大地圖一樣：往上 = X、Y 都變大。方塊上的數字 = 據點等級。",
+   "pt": "Mesma direção do mapa-múndi do jogo: para cima = X e Y maiores. Número no quadrado = nível do Outpost."
   },
   "pick": {
    "en": "Tap a building to see its details.",
-   "zh": "點一個建築來看詳細資料。"
+   "zh": "點一個建築來看詳細資料。",
+   "pt": "Toque num prédio para ver os detalhes."
   },
   "all": {
    "en": "All",
-   "zh": "全部"
+   "zh": "全部",
+   "pt": "Tudo"
   },
   "copy": {
    "en": "Copy",
-   "zh": "複製"
+   "zh": "複製",
+   "pt": "Copiar"
   },
   "copied": {
    "en": "Copied",
-   "zh": "已複製"
+   "zh": "已複製",
+   "pt": "Copiado"
   },
   "noBuff": {
    "en": "No buff",
-   "zh": "無增益"
+   "zh": "無增益",
+   "pt": "Sem bônus"
   },
   "ruins": {
    "en": "Castle, Fortresses & Sanctuaries",
-   "zh": "王城、要塞、遺跡"
+   "zh": "王城、要塞、遺跡",
+   "pt": "Castelo, Fortresses e Santuários"
   },
   "outposts": {
    "en": "Outposts",
-   "zh": "據點"
+   "zh": "據點",
+   "pt": "Outposts"
   },
   "rulesT": {
    "en": "Rules",
-   "zh": "規則"
+   "zh": "規則",
+   "pt": "Regras"
   },
   "rules": [
    {
     "en": "Only the same Outpost type at the same level does not stack. The same type at a different level stacks, and different types stack (also at the same level).",
-    "zh": "只有同類型、同等級的據點效果不疊加；同類型不同等級、不同類型同等級都可以疊加。"
+    "zh": "只有同類型、同等級的據點效果不疊加；同類型不同等級、不同類型同等級都可以疊加。",
+    "pt": "Só o mesmo tipo de Outpost no mesmo nível não acumula. O mesmo tipo em nível diferente acumula, e tipos diferentes acumulam (também no mesmo nível)."
    },
    {
     "en": "You can only compete for Outposts that border your alliance territory.",
-    "zh": "只能爭奪和自家聯盟領地相鄰的據點。"
+    "zh": "只能爭奪和自家聯盟領地相鄰的據點。",
+    "pt": "Só dá para disputar Outposts que fazem fronteira com o território da sua aliança."
    },
    {
     "en": "Higher-level Outposts cause more severely injured and lost troops. Severely injured troops go to the Infirmary.",
-    "zh": "等級越高的據點，交戰時重傷和陣亡越多；重傷的部隊要到野戰醫院治療。"
+    "zh": "等級越高的據點，交戰時重傷和陣亡越多；重傷的部隊要到野戰醫院治療。",
+    "pt": "Outposts de nível mais alto causam mais tropas gravemente feridas e perdidas. As gravemente feridas vão para a Enfermaria."
    },
    {
     "en": "An Outpost in the Vulnerable state gives no buff until it is Protected again, so a total can drop for a while.",
-    "zh": "據點在「可爭奪狀態」時沒有增益，回到「保護狀態」才恢復，所以總和有時會暫時變少。"
+    "zh": "據點在「可爭奪狀態」時沒有增益，回到「保護狀態」才恢復，所以總和有時會暫時變少。",
+    "pt": "Um Outpost no estado Vulnerable não dá bônus até voltar a ser Protected, então o total pode cair por um tempo."
    }
   ]
  },
