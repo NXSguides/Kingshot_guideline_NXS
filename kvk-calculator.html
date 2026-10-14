@@ -244,7 +244,9 @@ const ITEMS={
  intel:{zh:"情報事件（次）",en:"Intel Mission",kvk:6000},
  truck:{zh:"護送／掠奪貨車（輛）",en:"Escort / Raid Truck",kvk:0},
  beast:{zh:"擊敗 26–30 級野獸",en:"Defeat Lv 26–30 Beast",kvk:0},
- terror:{zh:"集結巨獸",en:"Terror Rally",kvk:0}
+ terror:{zh:"發起集結獵殺巨獸",en:"Terror Rally",kvk:0},
+ gather:{zh:"採集（每 2,000 麵包／木材、400 石材、100 鐵礦）",en:"Gathering (per 2,000 bread/wood, 400 stone, 100 iron)",kvk:0},
+ gemuse:{zh:"消耗鑽石（個）",en:"Spend gems",kvk:"gem"}
 };
 const REW={
  gems:{zh:"鑽石",en:"Gems",kvk:"gem"},
@@ -295,14 +297,15 @@ const SG_TH=[[6700,80000,186000,333000],[5800,70000,161000,312000],[14000,105000
 /* Optimizer lists each day's milestone rewards as one total (M1–M4 together) → put on M4 */
 const SG_RW=[[375,4000,["truegold",18]],[375,4000],[390,3900],[450,3900],[450,4000,["truegold",18]],[450,3400],[375,3200]];
 const SG_THEME=[["城鎮建設","City Construction"],["英雄養成","Hero Development"],["技能提升","Skill Up"],["戰鬥訓練","Combat Training"],["技能提升","Skill Up"],["戰鬥訓練","Combat Training"],["英雄養成","Hero Development"]];
+/* checked against in-game screens 2026-10-14; Tempered Truegold / Truegold Dust are only in Optimizer's list (not on our screens) */
 const AB_PTS=[
- {tempered:18750,truck:10000,emblem:3600,truegold:1250,dust:625,manuscript:36,speed:18},
- {tempered:18750,truck:10000,emblem:3600,intel:3000,mythic:1875,truegold:1250,epic:750,dust:625,rare:210,manuscript:36,speed:18},
- {truck:10000,atm:9370,ctm:680,charm:45,petadv:30},
- {mithril:18750,truck:10000,widget:3750,intel:3000,hammer:1875,charm:45,t11:30,t10:24,t9:18,t8:14,t7:10,t6:7},
- {tempered:18750,terror:15000,truck:10000,beast:6000,truegold:1250,dust:625,gear:22,speed:18},
- {mithril:18750,tempered:18750,terror:15000,truck:10000,atm:9370,beast:6000,widget:3750,hammer:1875,mythic:1875,truegold:1250,epic:750,ctm:680,dust:625,rare:210,charm:45,petadv:30,gear:22,speed:18}];
-const AB_THEME=[["城市崛起","Rise of the City"],["英雄養成","Hero Development"],["寵物訓練","Pet Training"],["裝備強化","Gear Enhancement"],["貿易大亨","Trade Baron"],["全面競爭","Full-Scale Competition"]];
+ {tempered:18750,truck:10000,emblem:3600,truegold:1250,dust:625,manuscript:36,speed:18,gather:2,gemuse:1},
+ {tempered:18750,truck:10000,emblem:3600,intel:3000,mythic:1875,truegold:1250,epic:750,dust:625,rare:210,manuscript:36,speed:18,gemuse:1},
+ {truck:10000,atm:9370,ctm:680,charm:45,petadv:30,gather:2,gemuse:1},
+ {mithril:18750,truck:10000,widget:3750,intel:3000,hammer:1875,charm:45,t11:30,t10:24,t9:18,t8:14,t7:10,t6:7,gemuse:1},
+ {tempered:18750,terror:15000,truck:10000,beast:6000,truegold:1250,dust:625,gear:22,speed:18,gemuse:1},
+ {mithril:18750,tempered:18750,terror:15000,truck:10000,atm:9370,beast:6000,widget:3750,hammer:1875,mythic:1875,truegold:1250,epic:750,ctm:680,dust:625,rare:210,charm:45,petadv:30,gear:22,speed:18,gemuse:1}];
+const AB_THEME=[["城鎮崛起","Rise of the City"],["英雄養成","Hero Development"],["寵物訓練","Pet Training"],["裝備強化","Gear Enhancement"],["貿易爭霸","Trade Baron"],["全面競爭","Full-Scale Competition"]];
 const FAMS={sg:{zh:"至高領主",en:"Strongest Governor",dz:"7 天・每天 4 個里程碑",de:"7 days · 4 milestones a day",days:7},
  ab:{zh:"聯盟對決",en:"Alliance Brawl",dz:"6 天・每天 5 個里程碑",de:"6 days · 5 milestones a day",days:6}};
 const EVENTS={
@@ -325,7 +328,7 @@ AB_PTS.forEach((pts,i)=>{const th=i<4?[100,25000,50000,87500,125000]:[100,37500,
  EVENTS["ab"+(i+1)]={fam:"ab",day:i+1,zh:"聯盟對決 第 "+(i+1)+" 天",en:"Alliance Brawl Day "+(i+1),dz:AB_THEME[i][0],de:AB_THEME[i][1],pts,th:[0,1,2,3].map(()=>th),noRank:1};
  TPL["ab"+(i+1)]=()=>[RW(),RW(),RW(),RW(),RW()]});
 const NOTES={sg:{zh:"門檻和每單位分數來自 Kingshot Optimizer（所有城鎮中心等級相同）。Optimizer 只給每天 M1–M4 的獎勵總和，所以都先放在 M4；挑戰勳章用 Optimizer 的換算。",en:"Thresholds and points per unit from Kingshot Optimizer (same for every Town Center level). Optimizer only gives each day's M1–M4 rewards as one total, so they're all on M4; Challenge Medals use Optimizer's value."},
- ab:{zh:"門檻和每單位分數來自 Kingshot Optimizer。聯盟對決的里程碑獎勵還沒有資料，請照自己的遊戲畫面填。情報事件的 KvK 分用 Optimizer 的倍率（×2）換算。",en:"Thresholds and points per unit from Kingshot Optimizer. Alliance Brawl milestone rewards aren't known yet; enter them from your own screen. Intel Missions use Optimizer's ×2 KvK ratio."}};
+ ab:{zh:"門檻和每單位分數來自 Kingshot Optimizer，已和遊戲畫面核對（回火黃金、黃金研究粉塵只有 Optimizer 有列，我們的畫面上沒有）。聯盟對決的里程碑獎勵還沒有資料，請照自己的遊戲畫面填。情報事件的 KvK 分用 Optimizer 的倍率（×2）換算。",en:"Thresholds and points per unit from Kingshot Optimizer, checked against the game (Tempered Truegold and Truegold Dust are only in Optimizer's list, not on our screens). Alliance Brawl milestone rewards aren't known yet; enter them from your own screen. Intel Missions use Optimizer's ×2 KvK ratio."}};
 const GROUPS=[{zh:"1–21 級",en:"Lv 1–21"},{zh:"22–25 級",en:"Lv 22–25"},{zh:"26–29 級",en:"Lv 26–29"},{zh:"30 級以上（含 TG）",en:"Lv 30+ (incl. TG)"}];
 const VERIFIED={opB:[3],ac2:[3]};
 const KEYS={"1":3,"2":2,"3":1};
@@ -347,7 +350,7 @@ const fmt=n=>Math.round(n).toLocaleString("en-US");
 const L=()=>T[S.lang];
 const name=k=>ITEMS[k][S.lang];
 /* a roulette spin costs 1,350 gems → its KvK value follows the gem setting in step 4 */
-const kv=k=>ITEMS[k].kvk==="spin"?1350*GEMRATES[S.gem][1]:ITEMS[k].kvk;
+const kv=k=>ITEMS[k].kvk==="spin"?1350*GEMRATES[S.gem][1]:ITEMS[k].kvk==="gem"?GEMRATES[S.gem][1]:ITEMS[k].kvk;
 const num=v=>{const n=parseFloat(v);return isFinite(n)&&n>0?n:0};
 function ratioClass(r){return r<=1?"r-good":r<=6?"r-mid":"r-bad"}
 
