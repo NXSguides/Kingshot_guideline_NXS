@@ -1515,6 +1515,7 @@ Infirmary = المستوصف
 Enlistment Office = مكتب التجنيد
 Storehouse = المستودع
 Defense Tower = أبراج الدفاع
+Beast Cage = قفص الوحش
 Watchtower = برج المراقبة
 Covenant-Making = عقد العهد
 Permanent Alliance Tech Contributions = مساهمات تقنيات التحالف الدائمة

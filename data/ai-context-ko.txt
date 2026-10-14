@@ -1539,6 +1539,7 @@ Infirmary = 야전 병원
 Enlistment Office = 징병소
 Storehouse = 창고
 Defense Tower = 방어탑
+Beast Cage = 사육장
 Watchtower = 전망대
 Covenant-Making = 영원한 연맹
 Permanent Alliance Tech Contributions = 영원한 연맹 과학 기술 기부

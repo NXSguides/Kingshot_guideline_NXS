@@ -1489,6 +1489,7 @@ Infirmary = Revir
 Enlistment Office = Görevlendirme Ofisi
 Storehouse = Ambar
 Defense Tower = Savunma Kuleleri
+Beast Cage = Hayvan Kafesi
 Watchtower = Bekçi Kulesi
 Covenant-Making = Antlaşma
 Permanent Alliance Tech Contributions = Kalıcı İttifak Teknoloji Katkıları

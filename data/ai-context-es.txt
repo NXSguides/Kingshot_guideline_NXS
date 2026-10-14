@@ -1439,6 +1439,7 @@ Infirmary = Enfermería
 Enlistment Office = Oficina de Reclutamiento
 Storehouse = Almacén
 Defense Tower = Torres defensivas
+Beast Cage = Jaula de bestias
 Watchtower = Torre vigía
 Covenant-Making = Establecimiento de pactos
 Permanent Alliance Tech Contributions = Contribuciones de tecnología de la alianza permanentes

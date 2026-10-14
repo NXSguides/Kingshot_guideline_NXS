@@ -1479,6 +1479,7 @@ Infirmary = Krankenstation
 Enlistment Office = Musterungsamt
 Storehouse = Lagerhaus
 Defense Tower = Verteidigungstürme
+Beast Cage = Bestienkäfig
 Watchtower = Wachturm
 Covenant-Making = Schließen von Bündnissen
 Permanent Alliance Tech Contributions = Dauerhafte Allianztechnologie-Beiträge

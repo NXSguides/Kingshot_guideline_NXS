@@ -1486,6 +1486,7 @@ Infirmary = Infirmerie
 Enlistment Office = Bureau d'Enrôlement
 Storehouse = L'Entrepôt
 Defense Tower = Tours de Défense
+Beast Cage = Enclos
 Watchtower = Observatoire
 Covenant-Making = Marché Conclu
 Permanent Alliance Tech Contributions = Contributions Tech de l'Alliance Permanentes

@@ -1513,6 +1513,7 @@ Infirmary = โรงพยาบาล
 Enlistment Office = ศูนย์เกณฑ์ทหาร
 Storehouse = โกดัง
 Defense Tower = หอคอยป้องกัน
+Beast Cage = กรงสัตว์
 Watchtower = หอคอยเฝ้าระวัง
 Covenant-Making = การทำข้อตกลง
 Permanent Alliance Tech Contributions = ความอนุเคราะห์เทคโนโลยีพันธมิตรถาวร
