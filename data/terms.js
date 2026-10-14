@@ -50,7 +50,8 @@ const TERMS = [
    ["Merchant Empire", "貿易復興", "무역 부흥", "Händlerimperium", "Empire Marchand", "Império Mercante", "Tüccar İmparatorluğu", "Kekaisaran Pedagang", "Торговая империя", "จักรวรรดิการค้า", "إمبراطورية التجارة", "—", "Event tab name."],
    ["UTC Time", "UTC時間", "UTC", "UTC Zeit", "Heure UTC", "Hora UTC", "UTC Saati", "Waktu UTC", "Время UTC", "เวลา UTC", "التوقيت العالمي", "Hora UTC", "Events screen header."],
    ["Starts in", "距離開始", "시작까지", "Beginnt in", "Commence dans", "Começa em", "Başlama", "Dimulai dalam", "Начнется через", "เริ่มใน", "يبدأ بعد", "El evento comienza en", "Event pop-up countdown. ES: Strongest Governor stage pop-up. ES calendar pop-up shortens it to 'Comienza en'."],
-   ["All Out", "全軍出擊", "전군 출격", "Aufs Ganze", "Tous dehors", "Vai com Tudo", "Topyekün", "Serangan Penuh", "Полный вперед", "ลุยเลย", "جميع القوات تهاجم", "A la batalla", "Event tab (helmet icon). Tagline: 'Fight for resources to survive!'. Screen uses Honor Ranking / My Ranking / My Points / Target Points. ES tagline: '¡Lucha por recursos para sobrevivir!'."]
+   ["All Out", "全軍出擊", "전군 출격", "Aufs Ganze", "Tous dehors", "Vai com Tudo", "Topyekün", "Serangan Penuh", "Полный вперед", "ลุยเลย", "جميع القوات تهاجم", "A la batalla", "Event tab (helmet icon). Tagline: 'Fight for resources to survive!'. Screen uses Honor Ranking / My Ranking / My Points / Target Points. ES tagline: '¡Lucha por recursos para sobrevivir!'."],
+   ["Call of the Sovereign", "—", "—", "—", "—", "Chamado do Soberano", "—", "—", "—", "—", "—", "—", "3-day event after KvK (resets 00:00 UTC; Gold / Platinum Keys). PT confirmed; other languages not captured yet."]
   ]
  },
  {
