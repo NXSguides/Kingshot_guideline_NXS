@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-14k (board: reading works even when writing is refused)";
+const VERSION = "2026-10-14l";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -593,10 +593,10 @@ async function pushRoute(req, env, path) {
     .slice(0, MAX_TIMERS).map((x) => ({ id: String(x.id).slice(0, 40), at: Math.round(Number(x.at)), title: String(x.title || "").slice(0, 80), body: String(x.body || "").slice(0, 200) }));
   const s = body.token ? await unseal(env, body.token) : null;
   if (s && s.u && Date.now() < s.exp) {   // 🔄 logged in with Discord: every device of this person gets the list
-    const devices = await stub.saveFor(s.u.id, body.sub, timers);
+    const devices = await stub.saveFor(s.u.id, body.sub, timers, !!body.retext);
     return json({ ok: true, n: timers.length, devices });
   }
-  await stub.save(body.sub, timers);
+  await stub.save(body.sub, timers, !!body.retext);
   return json({ ok: true, n: timers.length });
 }
 
@@ -709,11 +709,11 @@ export class PushTimers extends DurableObject {
     return n;
   }
   /* this device's notification list goes to every device the same person is logged in on */
-  async saveFor(uid, sub, timers) {
+  async saveFor(uid, sub, timers, retext) {
     const cur = [...this.sql.exec(`SELECT uid, sub FROM usub WHERE ep = ?`, sub.endpoint)][0];
     if (!cur || cur.uid !== uid || cur.sub !== JSON.stringify(sub)) this.sql.exec(`INSERT OR REPLACE INTO usub VALUES (?, ?, ?)`, sub.endpoint, uid, JSON.stringify(sub));
     const subs = [...this.sql.exec(`SELECT sub FROM usub WHERE uid = ?`, uid)].map((r) => JSON.parse(r.sub));
-    for (const x of subs) await this.save(x, timers);
+    for (const x of subs) await this.save(x, timers, retext);
     return subs.length;
   }
   async forget(ep) { this.sql.exec(`DELETE FROM usub WHERE ep = ?`, ep); }
@@ -744,7 +744,9 @@ export class PushTimers extends DurableObject {
   }
   /* only the differences are written: the free plan allows 100k written rows a day, and a phone's list
      (3 weeks of event alerts) is hundreds of rows — rewriting it all on every visit used the allowance up */
-  async save(sub, timers) {
+  /* retext: the phone says the wording changed on purpose (an edit). Without it, rows whose time is the same
+     are left alone even if the text differs — a language switch alone must not cost any row writes. */
+  async save(sub, timers, retext) {
     const ep = sub.endpoint, s = JSON.stringify(sub);
     const have = new Map([...this.sql.exec(`SELECT id, at, title, body, sub FROM t WHERE ep = ?`, ep)].map((r) => [r.id, r]));
     const keep = new Set();
@@ -752,7 +754,7 @@ export class PushTimers extends DurableObject {
     for (const x of timers) {
       keep.add(x.id);
       const r = have.get(x.id);
-      if (r && r.at === x.at && r.title === x.title && r.body === x.body && r.sub === s) continue;
+      if (r && r.at === x.at && r.sub === s && (!retext || (r.title === x.title && r.body === x.body))) continue;
       this.sql.exec(`INSERT OR REPLACE INTO t VALUES (?, ?, ?, ?, ?, ?)`, ep, x.id, x.at, x.title, x.body, s); changed = true;
     }
     for (const id of have.keys()) if (!keep.has(id)) { this.sql.exec(`DELETE FROM t WHERE ep = ? AND id = ?`, ep, id); changed = true; }

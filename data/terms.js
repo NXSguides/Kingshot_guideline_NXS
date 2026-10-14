@@ -78,6 +78,9 @@ const TERMS = [
    ["Bonus Effect", "額外效果", "추가 효과", "Bonuseffekte", "Effet Bonus", "Efeito Bônus", "Bonus Etki", "Efek Bonus", "Бонусный эффект", "เอฟเฟกต์โบนัส", "تأثير المكافأة", "Efecto de Bonificación", "—"],
    ["/m (per minute)", "/分鐘", "/분", "/M", "/m", "/m", "/dk", "/m", "/мин.", "/น.", "/د", "/m", "—"],
    ["Recruit", "招募", "모집", "Rekrutieren", "Recruter", "Recrutar", "Görevlendir", "Rekrut", "Нанять", "เกณฑ์", "تجنيد", "Reclutar héroe", "ES: Heroes list button; the button text includes 'héroe'."],
+   ["Recruit Heroes", "英雄招募", "영웅 모집", "Helden rekrutieren", "Recruter des Héros", "Recrutar Heróis", "Kahraman Görevlendir", "Rekrut Hero", "Найм героев", "เกณฑ์ฮีโร่", "تجنيد الأبطال", "Reclutar héroes", "Section heading in the City task list (the two recruit cooldowns sit under it)."],
+   ["Advanced (recruit)", "高級招募", "고급 모집", "Erweitert", "Avancé", "Avançado", "Gelişmiş", "Lanjutan", "Продвинутый найм", "ขั้นสูง", "المتقدم", "Avanzado", "Recruit cooldown row under Recruit Heroes. zh/ko/ru say 'Advanced Recruit' in full."],
+   ["Epic (recruit)", "史詩招募", "에픽 모집", "Episch", "Épique", "Épico", "Epik", "Epik", "Великий найм", "มหากาพย์", "الملحمي", "Épico", "Recruit cooldown row under Recruit Heroes. zh/ko/ru say 'Epic Recruit' in full."],
    ["Stats", "屬性", "속성", "Werte", "Stats", "Atributos", "Nitelikler", "Stats", "Показатели", "ค่าสถานะ", "السمات", "Atributos", "ES: hero page tab."],
    ["Skills", "技能", "스킬", "Fertigkeiten", "Compétences", "Habilidades", "Yetenekler", "Skill", "Навыки", "ทักษะ", "المهارات", "Habilidades", "ES: hero page tab."],
    ["Gear", "裝備", "장비", "Ausrüstung", "Équipement", "Equipamento", "Donanım", "Gear", "Снаряж.", "อุปกรณ์", "العتاد", "Equipo", "Portuguese hero page tab: 'Equipamento'. The Backpack tab shows the short form 'Equip'. ES: hero page tab and Backpack tab."],
@@ -806,6 +809,7 @@ const TERMS = [
   "rows": [
    ["Pet Adventure", "寵物尋寶", "펫 보물찾기", "Begleittier Abenteuer", "Aventure Animalière", "Aventura do Pet", "Evcil Hayvan Macerası", "Petualangan Hewan Peliharaan", "Приключение питомца", "การผจญภัยสัตว์เลี้ยง", "مغامرة الحيوان الأليف", "Aventura de Mascotas"],
    ["Governor Stamina", "領主體力", "영주 스태미나", "Gouverneur-Ausdauer", "Endurance du Chef", "Vigor do Chefe", "Şef Enerjisi", "Stamina Gubernur", "энергию губернатора", "ความแข็งแกร่งผู้นำ", "قدرة تحمل الحاكم", "Vigor de Líder", "Rules text."],
+   ["Gourmet Feast", "美食大餐", "맛있는 식사", "Feinschmecker-Festmahl", "Banquet Gastronomique", "Festa Gourmet", "Gurme Ziyafeti", "Pesta Hidangan", "Гурманский пир", "งานเลี้ยงอาหารโอชะ", "وليمة الذواقة", "Festín Gourmet", "Governor Stamina 'Get more' popup: Gordon's warehouse supply (+140), 'Next supply' timer."],
    ["Treasure spot", "藏寶點", "보물 거점", "Schatzplätze", "sites au trésor", "locais de tesouro", "hazine noktası", "lokasi harta karun", "клад", "จุดสมบัติ", "بقعة الكنوز", "lugares con tesoros", "Rules text."],
    ["Personal Treasure", "—", "나만의 보물", "persönlicher Schatz", "Trésor Individuel", "tesouro pessoal", "kişisel bir hazine", "Harta Karun Pribadi", "личные сокровища", "สมบัติส่วนบุคคล", "كنزاً شخصياً", "tesoro personal", "Rules text."],
    ["Ally Treasure", "聯盟寶藏", "연맹 보물", "—", "Trésor d'Allié", "tesouro compartilhado com o aliado", "paylaşılabilir bir müttefik hazinesi", "Harta Karun Sekutu", "сокровища союзников", "สมบัติพันธมิตรที่แบ่งปันได้", "كنز مشترك يمكن مشاركته مع الحلفاء", "tesoro compartible con aliados", "Rules text. DE only describes it in a sentence."]
