@@ -709,6 +709,20 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 .today-card .td-time { font-size: 13px; font-weight: 600; }
 .today-card .td-loc { font-weight: 400; color: var(--text-muted); }
 .today-card .td-none { font-size: 14px; color: var(--text-muted); padding: 6px 0 8px; }
+/* 📆 month calendar */
+.month-card { border-color: var(--rule); background: var(--panel); padding-bottom: 8px; }
+.month-card .cal-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.month-card .cal-nav { display: flex; direction: ltr; align-items: center; gap: 6px; font-size: 14px; }
+.month-card .cal-nav button { width: 30px; height: 30px; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); color: var(--accent); font: inherit; font-size: 18px; line-height: 1; cursor: pointer; }
+.month-card .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; margin: 6px 0 2px; }
+.month-card .cal-w { text-align: center; font-size: 11px; font-weight: 700; color: var(--text-muted); padding: 2px 0; }
+.month-card .cal-d { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 46px; padding: 3px 1px; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); color: var(--text); font: inherit; cursor: pointer; }
+.month-card .cal-d.pad { border-color: transparent; background: transparent; cursor: default; }
+.month-card .cal-d .n { font-size: 12px; font-weight: 600; color: var(--text-muted); line-height: 1.1; }
+.month-card .cal-d .e { font-size: 13px; line-height: 1.15; letter-spacing: -1px; text-align: center; word-break: break-all; }
+.month-card .cal-d.bear .n::after { content: "·"; color: var(--accent); margin-inline-start: 1px; }
+.month-card .cal-d.today .n { color: var(--accent); font-weight: 800; }
+.month-card .cal-d.pick { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--panel)); }
 .guide-link-btn.sub-back { width: auto; display: inline-flex; margin: 0 0 10px; padding: 6px 12px; font-size: 14px; }
 .ratio-card { border: 1px solid var(--rule); border-radius: 12px; padding: 10px 12px 4px; margin: 0 0 16px; background: var(--panel-2); }
 .ratio-card .td-title { font-weight: 800; margin-bottom: 6px; }

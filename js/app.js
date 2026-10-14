@@ -1018,6 +1018,48 @@ const TODAY_TXT = {
   yours: { en:"local time", zh:"當地時間", ko:"현지 시간", de:"Ortszeit", fr:"heure locale", pt:"horário local", es:"hora local", tr:"yerel saat", id:"waktu lokal", ru:"местное время", th:"เวลาท้องถิ่น", ar:"التوقيت المحلي" },
   none: { en:"Nothing scheduled in the next 7 days.", zh:"接下來 7 天沒有排定的活動。", ko:"앞으로 7일간 예정된 이벤트가 없어요.", de:"Keine Events in den nächsten 7 Tagen.", fr:"Rien de prévu dans les 7 prochains jours.", pt:"Nada marcado para os próximos 7 dias.", es:"Nada programado en los próximos 7 días.", tr:"Önümüzdeki 7 günde etkinlik yok.", id:"Tidak ada event 7 hari ke depan.", ru:"В ближайшие 7 дней ничего нет.", th:"ไม่มีกิจกรรมใน 7 วันข้างหน้า", ar:"لا شيء مجدول خلال 7 أيام." },
 };
+/* ---- 📆 month calendar under the "This week" card: every event's active days, from the same schedules ---- */
+const CAL_TXT = {
+  title: { en:"📆 Calendar", zh:"📆 行事曆", ko:"📆 달력", de:"📆 Kalender", fr:"📆 Calendrier", pt:"📆 Calendário", es:"📆 Calendario", tr:"📆 Takvim", id:"📆 Kalender", ru:"📆 Календарь", th:"📆 ปฏิทิน", ar:"📆 التقويم" },
+  none: { en:"No events that day.", zh:"這天沒有活動。", ko:"이 날은 이벤트가 없어요.", de:"An dem Tag kein Event.", fr:"Pas d'événement ce jour-là.", pt:"Nenhum evento nesse dia.", es:"No hay eventos ese día.", tr:"O gün etkinlik yok.", id:"Tidak ada acara hari itu.", ru:"В этот день событий нет.", th:"วันนั้นไม่มีกิจกรรม", ar:"لا توجد فعاليات في ذلك اليوم." },
+};
+let calShift = 0, calPick = null;   // months from the current one; picked day (UTC midnight ms)
+function calEventsOn(day) {   // [{key|ann, emoji, name, day, days}] active on that UTC day
+  const DAY = 86400000, out = [];
+  for (const [key, sc] of Object.entries(EVENT_SCHEDULES).concat([["bear-hunt", BEAR_SCHED]])) {
+    if (!GUIDES[key] || GUIDES[key].hidden) continue;
+    const n = Math.floor((day - sc.anchor) / DAY); if (n < 0) continue;
+    const r = n % sc.periodDays; if (r < sc.activeDays) out.push({ key, emoji: GUIDES[key].emoji, name: t(GUIDES[key].name), day: r + 1, days: sc.activeDays });
+  }
+  for (const ev of ANN_EVENTS) {
+    const i = announcements.findIndex((a) => ((a.title && (a.title.en || "")) + " " + JSON.stringify(a.title || {})).includes(ev.match)); if (i < 0) continue;
+    const n = Math.floor((day - Date.parse(ev.start + "T00:00:00Z")) / DAY);
+    if (n >= 0 && n < ev.days) out.push({ ann: i, emoji: ev.emoji, name: t(announcements[i].title) || ev.match, day: n + 1, days: ev.days });
+  }
+  return out;
+}
+function monthCalHtml() {
+  const DAY = 86400000, today = Math.floor(Date.now() / DAY) * DAY, td = new Date(today);
+  const first = Date.UTC(td.getUTCFullYear(), td.getUTCMonth() + calShift, 1), fd = new Date(first), nDays = new Date(Date.UTC(fd.getUTCFullYear(), fd.getUTCMonth() + 1, 0)).getUTCDate();
+  const loc = HTML_LANG[currentLang] || currentLang;
+  const pick = calPick != null && calPick >= first && calPick < first + nDays * DAY ? calPick : (today >= first && today < first + nDays * DAY ? today : first);
+  calPick = pick;
+  const wd = Array.from({ length: 7 }, (_, i) => new Date(Date.UTC(2024, 0, 1 + i)).toLocaleDateString(loc, { weekday: "narrow", timeZone: "UTC" }));   // Monday first
+  let cells = ""; const lead = (fd.getUTCDay() + 6) % 7;
+  for (let i = 0; i < lead; i++) cells += `<span class="cal-d pad"></span>`;
+  for (let d = 0; d < nDays; d++) {
+    const day = first + d * DAY, evs = calEventsOn(day), big = evs.filter((e) => e.key !== "bear-hunt"), bear = evs.length !== big.length;
+    const em = big.slice(0, 3).map((e) => e.emoji).join("") + (big.length > 3 ? "⋯" : "");
+    cells += `<button type="button" class="cal-d${day === today ? " today" : ""}${day === pick ? " pick" : ""}${bear ? " bear" : ""}" onclick="calPick=${day};renderCal()"><span class="n">${d + 1}</span><span class="e">${em}</span></button>`;
+  }
+  const fill = (str, v) => str.replace(/\{(\w+)\}/g, (m, k) => (v[k] ?? m));
+  const list = calEventsOn(pick), dl = new Date(pick).toLocaleDateString(loc, { weekday: "short", month: "short", day: "numeric", timeZone: "UTC" });
+  const rows = list.length ? list.map((it) => `<button type="button" class="td-row" onclick="${it.ann !== undefined ? `goToAnnouncements(${it.ann})` : `switchGuide('${it.key}')`}"><span class="emoji">${it.emoji}</span><span class="td-main"><b dir="auto">${escapeHtml(it.name)}</b>${it.days > 1 ? `<span class="td-meta">${escapeHtml(fill(t(TODAY_TXT.day), { n: it.day, d: it.days }))}</span>` : ""}</span><span class="arrow">›</span></button>`).join("")
+    : `<div class="td-none">${escapeHtml(t(CAL_TXT.none))}</div>`;
+  return `<div class="td-title cal-head"><span>${escapeHtml(t(CAL_TXT.title))}</span><span class="cal-nav"><button type="button" onclick="calShift--;calPick=null;renderCal()">‹</button><b>${escapeHtml(fd.toLocaleDateString(loc, { month: "long", year: "numeric", timeZone: "UTC" }))}</b><button type="button" onclick="calShift++;calPick=null;renderCal()">›</button></span></div>
+    <div class="cal-grid">${wd.map((w) => `<span class="cal-w">${escapeHtml(w)}</span>`).join("")}${cells}</div><div class="td-h">${escapeHtml(dl)}</div>${rows}`;
+}
+function renderCal() { const el = document.getElementById("monthCal"); if (el) el.innerHTML = monthCalHtml(); }
 function todayCardHtml() {
   const DAY = 86400000, now = Date.now(), today = Math.floor(now / DAY) * DAY;
   const fill = (str, v) => str.replace(/\{(\w+)\}/g, (m, k) => (v[k] ?? m));
@@ -1056,7 +1098,7 @@ function todayCardHtml() {
   if (!nowItems.length && !soon.length) h += `<div class="td-none">${escapeHtml(t(TODAY_TXT.none))}</div>`;
   if (nowItems.length) h += `<div class="td-h">${escapeHtml(t(TODAY_TXT.now))}</div>` + nowItems.map((it) => row(it, it.days > 1 ? escapeHtml(fill(t(TODAY_TXT.day), { n: it.day, d: it.days })) : escapeHtml(t(TODAY_TXT.today)))).join("");
   if (soon.length) h += `<div class="td-h">${escapeHtml(t(TODAY_TXT.soon))}</div>` + soon.map((it) => row(it, escapeHtml(when(it.until)))).join("");
-  return h + dailyHintHtml() + `</div>`;
+  return h + dailyHintHtml() + `</div><div class="today-card month-card" id="monthCal">${monthCalHtml()}</div>`;
 }
 function renderDoc() {
   const doc = document.getElementById("doc");
