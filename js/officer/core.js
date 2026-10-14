@@ -223,7 +223,7 @@ function loadScripts(list) {
   }))), Promise.resolve());
 }
 /* tabs: #events / #ranking / #post / #watch (the part after "?" is kept for the page) */
-function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|scout|views|map|bt|board|perms)/); return m ? m[1] : "events"; }
+function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|scout|views|map|bt|board|attend|perms)/); return m ? m[1] : "events"; }
 async function showTab() {
   const k = currentTab();
   OFFICER.applyPerms();
