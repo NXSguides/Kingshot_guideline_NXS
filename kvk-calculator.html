@@ -92,6 +92,11 @@ input[type=text]{width:100%;padding:6px 8px;border:1px solid var(--line);border-
 .foot{color:var(--muted);font-size:.8rem;margin-top:20px;max-width:80ch}
 .foot a{color:inherit}
 button.reset{align-self:flex-start;background:none;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:5px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:6px;margin-top:10px}
+.days .day{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:7px 9px;border:1px solid var(--line, #444);border-radius:10px;background:transparent;color:inherit;font:inherit;cursor:pointer;text-align:start}
+.days .day b{font-size:13px}.days .day span{font-size:11px;opacity:.75}
+.days .day[aria-pressed="true"]{border-color:var(--accent, #e0a96d);box-shadow:inset 0 0 0 1px var(--accent, #e0a96d)}
+[hidden]{display:none!important}
 </style>
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-title" content="NXS">
@@ -116,7 +121,8 @@ button.reset{align-self:flex-start;background:none;border:1px solid var(--line);
         <h2><span class="n">1</span><span data-t="s1"></span></h2>
         <p class="hint" data-t="s1hint"></p>
         <div class="events" id="events"></div>
-        <div class="row" style="margin-top:12px"><label><span data-t="tcLabel"></span><select id="tcg"></select></label></div>
+        <div class="days" id="days" hidden></div>
+        <div class="row" id="tcrow" style="margin-top:12px"><label><span data-t="tcLabel"></span><select id="tcg"></select></label></div>
       </section>
 
       <section class="step">
@@ -135,7 +141,7 @@ button.reset{align-self:flex-start;background:none;border:1px solid var(--line);
       <section class="step">
         <h2><span class="n">4</span><span data-t="s4"></span></h2>
         <div class="row">
-          <label><span data-t="rankLabel"></span><select id="rank"></select></label>
+          <label id="rankrow"><span data-t="rankLabel"></span><select id="rank"></select></label>
           <label><span data-t="gemLabel"></span><select id="gemrate"></select></label>
         </div>
         <p class="note" data-t="s4note"></p>
@@ -170,7 +176,7 @@ button.reset{align-self:flex-start;background:none;border:1px solid var(--line);
 (function(){
 const T={
  zh:{title:"KvK 換算計算器",subtitle:"想衝活動獎勵前的參考：花掉的資源在 KvK 值多少分、會拿到哪些獎勵。要不要花，由你自己決定。",
-  s1:"選活動",s1hint:"倍率＝在這個活動拿 1 分，KvK 就少幾分。數字越小，代價越低。",
+  s1:"選活動",s1hint:"倍率＝在這個活動拿 1 分，KvK 就少幾分。數字越小，代價越低。至高領主和聯盟對決要再選第幾天。",
   s2:"打算花多少",s2hint:"只列這個活動有算分的資源。",
   s3:"里程碑獎勵",s3hint:"照遊戲畫面填門檻，再從清單選獎勵、填數量。KvK 不算分的道具也可以加，會列在「你會拿到」裡。",
   s4:"排名與鑽石換算",rankLabel:"預計排名",gemLabel:"1 鑽石 = ? KvK 分",
@@ -188,9 +194,9 @@ const T={
   msnoteAC2:"預填的是某位玩家的實際畫面；門檻和獎勵會隨城鎮中心等級不同，請以自己的畫面為準。",
   msVer:"門檻來自 Kingshot Optimizer，獎勵已和實際遊戲畫面核對過。",msUnver:"門檻來自 Kingshot Optimizer；這一組的獎勵數量還沒有資料，請照自己的遊戲畫面填。",tcLabel:"城鎮中心等級",
   msnoteAC1:"這個類型還沒有資料，請照自己的遊戲畫面填。",
-  foot:"KvK 分數來源：Kingshot Optimizer 的 KvK Event Guide；活動分數來源：遊戲畫面與 Kingshot Wiki。資源不管花在哪個活動，帳號一樣會變強，這裡只比較 KvK 分數。"},
+  foot:"KvK 分數來源：Kingshot Optimizer 的 KvK Event Guide；至高領主、聯盟對決的分數與門檻：Kingshot Optimizer 的 Event Guide；活動分數來源：遊戲畫面與 Kingshot Wiki。資源不管花在哪個活動，帳號一樣會變強，這裡只比較 KvK 分數。"},
  en:{title:"KvK Trade-off Calculator",subtitle:"A reference before you push an event: what your resources are worth in KvK and which rewards you get. Whether to spend is your call.",
-  s1:"Pick the event",s1hint:"Ratio = KvK points lost for each event point. Lower means a smaller cost.",
+  s1:"Pick the event",s1hint:"Ratio = KvK points lost for each event point. Lower means a smaller cost. For Strongest Governor and Alliance Brawl, also pick the day.",
   s2:"What you plan to spend",s2hint:"Only resources that score in this event are listed.",
   s3:"Milestone rewards",s3hint:"Fill thresholds from your game screen, then pick each reward from the list and enter the amount. Items that don't score in KvK still show under You get.",
   s4:"Ranking and gem value",rankLabel:"Expected rank",gemLabel:"1 gem = ? KvK pts",
@@ -208,7 +214,7 @@ const T={
   msnoteAC2:"Prefilled from one player's screen; thresholds and rewards scale with Town Center level.",
   msVer:"Thresholds from Kingshot Optimizer; rewards checked against an actual game screen.",msUnver:"Thresholds from Kingshot Optimizer. Reward amounts for this group aren't known yet; enter them from your own screen.",tcLabel:"Town Center level",
   msnoteAC1:"No data yet for this type. Fill it from your own screen.",
-  foot:"KvK point values: Kingshot Optimizer KvK Event Guide. Event point values: in-game screens and Kingshot Wiki. Spending resources grows your account in any event; this only compares KvK points."}
+  foot:"KvK point values: Kingshot Optimizer KvK Event Guide. Strongest Governor and Alliance Brawl points and thresholds: Kingshot Optimizer Event Guides. Other event point values: in-game screens and Kingshot Wiki. Spending resources grows your account in any event; this only compares KvK points."}
 };
 const ITEMS={
  truegold:{zh:"黃金",en:"Truegold",kvk:2000},
@@ -227,7 +233,18 @@ const ITEMS={
  charm:{zh:"寶石評分",en:"Charm score",kvk:70},
  t9:{zh:"訓練 T9 士兵",en:"Train T9 troop",kvk:45},
  t10:{zh:"訓練 T10 士兵",en:"Train T10 troop",kvk:60},
- t11:{zh:"訓練 T11 士兵",en:"Train T11 troop",kvk:75}
+ t11:{zh:"訓練 T11 士兵",en:"Train T11 troop",kvk:75},
+ t8:{zh:"訓練 T8 士兵",en:"Train T8 troop",kvk:35},
+ t7:{zh:"訓練 T7 士兵",en:"Train T7 troop",kvk:25},
+ t6:{zh:"訓練 T6 士兵",en:"Train T6 troop",kvk:18},
+ roulette:{zh:"英雄轉盤（次，1,350 鑽）",en:"Hero Roulette (spins, 1,350 gems)",kvk:"spin"},
+ atm:{zh:"高級馴化印記",en:"Advanced Taming Mark",kvk:15000},
+ ctm:{zh:"普通馴化印記",en:"Common Taming Mark",kvk:1150},
+ petadv:{zh:"寵物突破評分",en:"Pet Advancement score",kvk:50},
+ intel:{zh:"情報事件（次）",en:"Intel Mission",kvk:6000},
+ truck:{zh:"護送／掠奪貨車（輛）",en:"Escort / Raid Truck",kvk:0},
+ beast:{zh:"擊敗 26–30 級野獸",en:"Defeat Lv 26–30 Beast",kvk:0},
+ terror:{zh:"集結巨獸",en:"Terror Rally",kvk:0}
 };
 const REW={
  gems:{zh:"鑽石",en:"Gems",kvk:"gem"},
@@ -251,7 +268,9 @@ const REW={
  wood:{zh:"10K 木材",en:"10K Wood",kvk:0},
  stone:{zh:"10K 石材",en:"10K Stone",kvk:0},
  iron:{zh:"10K 鐵礦",en:"10K Iron",kvk:0},
- goldkey:{zh:"金鑰匙",en:"Gold Key",kvk:0}
+ goldkey:{zh:"金鑰匙",en:"Gold Key",kvk:0},
+ spmin:{zh:"加速（分鐘，三種合計）",en:"Speedups (minutes, all types)",kvk:30},
+ medal:{zh:"挑戰勳章",en:"Challenge Medal",kvk:3040}
 };
 const RW=(...a)=>a.map(x=>Array.isArray(x)?{id:x[0],q:x[1]}:{id:x,q:""});
 const RES=["bread","wood","stone","iron"];
@@ -263,6 +282,29 @@ const TPL={
  ac2:g=>g===3?[RW(["bread",35],["wood",35],["stone",7],["iron",2]),RW(["xp1k",16],["c5",45],["r5",45],["t5",45]),RW(["gems",4700],["bread",280],["wood",280],["stone",70]),RW(["truegold",18],["conquest",5],["expedition",5],["iron",14])]
    :[RW(...RES),RW("xp1k","c5","r5","t5"),RW("gems","bread","wood","stone"),RW(["truegold",[15,16,17][g]],"conquest","expedition","iron")]
 };
+/* Strongest Governor & Alliance Brawl: one entry per day, same thresholds for every Town Center level (Kingshot Optimizer, 2026-09) */
+const SG_PTS=[
+ {tempered:30000,truegold:2000,dust:1000,charm:70,speed:30},
+ {mithril:40000,tempered:30000,roulette:8000,widget:8000,emblem:6000,hammer:4000,mythic:3040,truegold:2000,epic:1220,dust:1000,rare:350,manuscript:60,speed:30},
+ {atm:15000,roulette:8000,emblem:6000,mythic:3040,epic:1220,ctm:1150,rare:350,charm:70,manuscript:60,petadv:50},
+ {mithril:40000,widget:8000,hammer:4000,charm:70,t11:49,t10:39,t9:30,t8:23,t7:16,t6:11},
+ {mithril:40000,widget:8000,hammer:4000,truegold:2000,speed:30},
+ {t11:49,t10:39,gear:36,t9:30,t8:23,t7:16,t6:11},
+ {tempered:30000,atm:15000,mythic:3040,truegold:2000,epic:1220,ctm:1150,dust:1000,rare:350,petadv:50,gear:36,speed:30}];
+const SG_TH=[[6700,80000,186000,333000],[5800,70000,161000,312000],[14000,105000,210000,362000],[12000,90000,140000,250000],[5800,69000,161000,333000],[12000,106000,212000,380000],[9400,84000,180000,333000]];
+/* Optimizer lists each day's milestone rewards as one total (M1–M4 together) → put on M4 */
+const SG_RW=[[375,4000,["truegold",18]],[375,4000],[390,3900],[450,3900],[450,4000,["truegold",18]],[450,3400],[375,3200]];
+const SG_THEME=[["城鎮建設","City Construction"],["英雄養成","Hero Development"],["技能提升","Skill Up"],["戰鬥訓練","Combat Training"],["技能提升","Skill Up"],["戰鬥訓練","Combat Training"],["英雄養成","Hero Development"]];
+const AB_PTS=[
+ {tempered:18750,truck:10000,emblem:3600,truegold:1250,dust:625,manuscript:36,speed:18},
+ {tempered:18750,truck:10000,emblem:3600,intel:3000,mythic:1875,truegold:1250,epic:750,dust:625,rare:210,manuscript:36,speed:18},
+ {truck:10000,atm:9370,ctm:680,charm:45,petadv:30},
+ {mithril:18750,truck:10000,widget:3750,intel:3000,hammer:1875,charm:45,t11:30,t10:24,t9:18,t8:14,t7:10,t6:7},
+ {tempered:18750,terror:15000,truck:10000,beast:6000,truegold:1250,dust:625,gear:22,speed:18},
+ {mithril:18750,tempered:18750,terror:15000,truck:10000,atm:9370,beast:6000,widget:3750,hammer:1875,mythic:1875,truegold:1250,epic:750,ctm:680,dust:625,rare:210,charm:45,petadv:30,gear:22,speed:18}];
+const AB_THEME=[["城市崛起","Rise of the City"],["英雄養成","Hero Development"],["寵物訓練","Pet Training"],["裝備強化","Gear Enhancement"],["貿易大亨","Trade Baron"],["全面競爭","Full-Scale Competition"]];
+const FAMS={sg:{zh:"至高領主",en:"Strongest Governor",dz:"7 天・每天 4 個里程碑",de:"7 days · 4 milestones a day",days:7},
+ ab:{zh:"聯盟對決",en:"Alliance Brawl",dz:"6 天・每天 5 個里程碑",de:"6 days · 5 milestones a day",days:6}};
 const EVENTS={
  opA:{zh:"士官計畫 A",en:"Officer Project A",dz:"週三・鍛造錘",de:"Wed · Forgehammer",
   pts:{hammer:6000,widget:12000,mithril:60000,charm:70,t9:22,t10:30,t11:37},
@@ -277,6 +319,13 @@ const EVENTS={
   pts:{mithril:8000,widget:1600,tempered:1500,hammer:800,truegold:100,dust:50,gear:3,speed:1},
   th:[[580,4300,11000,17000],[650,4800,12000,19000],[900,5800,14000,23000],[1300,9700,24000,38000]]}
 };
+SG_PTS.forEach((pts,i)=>{EVENTS["sg"+(i+1)]={fam:"sg",day:i+1,zh:"至高領主 第 "+(i+1)+" 天",en:"Strongest Governor Day "+(i+1),dz:SG_THEME[i][0],de:SG_THEME[i][1],pts,th:[0,1,2,3].map(()=>SG_TH[i]),noRank:1};
+ const r=SG_RW[i];TPL["sg"+(i+1)]=()=>[RW(),RW(),RW(),RW(["spmin",r[0]],["gems",r[1]],["medal",2],...(r[2]?[r[2]]:[]))]});
+AB_PTS.forEach((pts,i)=>{const th=i<4?[100,25000,50000,87500,125000]:[100,37500,75000,125000,187500];
+ EVENTS["ab"+(i+1)]={fam:"ab",day:i+1,zh:"聯盟對決 第 "+(i+1)+" 天",en:"Alliance Brawl Day "+(i+1),dz:AB_THEME[i][0],de:AB_THEME[i][1],pts,th:[0,1,2,3].map(()=>th),noRank:1};
+ TPL["ab"+(i+1)]=()=>[RW(),RW(),RW(),RW(),RW()]});
+const NOTES={sg:{zh:"門檻和每單位分數來自 Kingshot Optimizer（所有城鎮中心等級相同）。Optimizer 只給每天 M1–M4 的獎勵總和，所以都先放在 M4；挑戰勳章用 Optimizer 的換算。",en:"Thresholds and points per unit from Kingshot Optimizer (same for every Town Center level). Optimizer only gives each day's M1–M4 rewards as one total, so they're all on M4; Challenge Medals use Optimizer's value."},
+ ab:{zh:"門檻和每單位分數來自 Kingshot Optimizer。聯盟對決的里程碑獎勵還沒有資料，請照自己的遊戲畫面填。情報事件的 KvK 分用 Optimizer 的倍率（×2）換算。",en:"Thresholds and points per unit from Kingshot Optimizer. Alliance Brawl milestone rewards aren't known yet; enter them from your own screen. Intel Missions use Optimizer's ×2 KvK ratio."}};
 const GROUPS=[{zh:"1–21 級",en:"Lv 1–21"},{zh:"22–25 級",en:"Lv 22–25"},{zh:"26–29 級",en:"Lv 26–29"},{zh:"30 級以上（含 TG）",en:"Lv 30+ (incl. TG)"}];
 const VERIFIED={opB:[3],ac2:[3]};
 const KEYS={"1":3,"2":2,"3":1};
@@ -290,12 +339,15 @@ const dk=()=>S.ev+"|"+S.g;
 const D=()=>{if(!S.data[dk()])S.data[dk()]=blank(S.ev,S.g);return S.data[dk()]};
 let S=fresh();
 try{const raw=localStorage.getItem(KEY);if(raw){const p=JSON.parse(raw);if(p&&p.data)S={...S,...p}}}catch(e){}
+if(!EVENTS[S.ev])S.ev="opB";
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
 
 const $=id=>document.getElementById(id);
 const fmt=n=>Math.round(n).toLocaleString("en-US");
 const L=()=>T[S.lang];
 const name=k=>ITEMS[k][S.lang];
+/* a roulette spin costs 1,350 gems → its KvK value follows the gem setting in step 4 */
+const kv=k=>ITEMS[k].kvk==="spin"?1350*GEMRATES[S.gem][1]:ITEMS[k].kvk;
 const num=v=>{const n=parseFloat(v);return isFinite(n)&&n>0?n:0};
 function ratioClass(r){return r<=1?"r-good":r<=6?"r-mid":"r-bad"}
 
@@ -307,19 +359,28 @@ function renderStatic(){
   $("lang-en").setAttribute("aria-pressed",S.lang==="en");
   $("foot").textContent=L().foot;
   const ev=$("events");ev.innerHTML="";
-  for(const k in EVENTS){const e=EVENTS[k];const b=document.createElement("button");b.type="button";b.className="ev";b.id="ev-"+k;
-    b.setAttribute("aria-pressed",S.ev===k);b.innerHTML=`<b>${e[S.lang]}</b><span>${S.lang==="zh"?e.dz:e.de}</span>`;
-    b.onclick=()=>{S.ev=k;save();renderAll()};ev.appendChild(b)}
+  const cur=EVENTS[S.ev]||{};
+  for(const k in EVENTS){const e=EVENTS[k];if(e.fam&&e.day!==1)continue;
+    const f=e.fam?FAMS[e.fam]:e,on=e.fam?cur.fam===e.fam:S.ev===k;
+    const b=document.createElement("button");b.type="button";b.className="ev";b.id="ev-"+(e.fam||k);
+    b.setAttribute("aria-pressed",on);b.innerHTML=`<b>${f[S.lang]}</b><span>${S.lang==="zh"?f.dz:f.de}</span>`;
+    b.onclick=()=>{if(!on)S.ev=k;save();renderAll()};ev.appendChild(b)}
+  const dy=$("days");
+  if(cur.fam){dy.hidden=false;dy.innerHTML=Array.from({length:FAMS[cur.fam].days},(_,i)=>{const k=cur.fam+(i+1),e=EVENTS[k];
+      return`<button type="button" class="day" aria-pressed="${S.ev===k}" data-k="${k}"><b>${S.lang==="zh"?"第 "+(i+1)+" 天":"Day "+(i+1)}</b><span>${S.lang==="zh"?e.dz:e.de}</span></button>`}).join("");
+    dy.querySelectorAll("button").forEach(b=>b.onclick=()=>{S.ev=b.dataset.k;save();renderAll()})}
+  else{dy.hidden=true;dy.innerHTML=""}
+  $("tcrow").hidden=!!cur.fam;$("rankrow").hidden=!!cur.noRank;
   const tg=$("tcg");tg.innerHTML=GROUPS.map((x,i)=>`<option value="${i}">${x[S.lang]}</option>`).join("");tg.value=S.g;
   const g=$("gemrate");g.innerHTML=GEMRATES.map((r,i)=>`<option value="${i}">${L()[r[0]]}</option>`).join("");g.value=S.gem;
 }
 
 function renderEvent(){
   const k=S.ev,e=EVENTS[k],d=D();
-  const keys=Object.keys(e.pts).sort((a,b)=>ITEMS[a].kvk/e.pts[a]-ITEMS[b].kvk/e.pts[b]);
+  const keys=Object.keys(e.pts).sort((a,b)=>kv(a)/e.pts[a]-kv(b)/e.pts[b]);
   let h=`<thead><tr><th>${L().colItem}</th><th class="num">${L().colRatio}</th><th class="num">${L().colQty}</th><th class="num">${L().colEvent}</th><th class="num">${L().colKvk}</th></tr></thead><tbody>`;
-  for(const it of keys){const r=ITEMS[it].kvk/e.pts[it];
-    h+=`<tr><td>${name(it)}<div class="hint" style="margin:0">${S.lang==="zh"?"活動":"Event"} ${fmt(e.pts[it])} · KvK ${fmt(ITEMS[it].kvk)}</div></td>
+  for(const it of keys){const r=kv(it)/e.pts[it];
+    h+=`<tr><td>${name(it)}<div class="hint" style="margin:0">${S.lang==="zh"?"活動":"Event"} ${fmt(e.pts[it])} · KvK ${fmt(kv(it))}</div></td>
     <td class="num"><span class="ratio ${ratioClass(r)}">×${r<10?r.toFixed(2).replace(/\.?0+$/,""):Math.round(r)}</span></td>
     <td class="num"><input type="number" min="0" inputmode="numeric" id="q-${k}-${it}" data-it="${it}" value="${d.spend[it]||""}"></td>
     <td class="num" id="ep-${it}">0</td><td class="num" id="kp-${it}">0</td></tr>`}
@@ -336,7 +397,7 @@ function renderEvent(){
   box.querySelectorAll('input[id^="rq-"]').forEach(inp=>inp.oninput=()=>{d.ms[+inp.dataset.i].rw[+inp.dataset.j].q=inp.value;save();calc()});
   box.querySelectorAll(".x").forEach(bt=>bt.onclick=()=>{d.ms[+bt.dataset.i].rw.splice(+bt.dataset.j,1);save();renderEvent();calc()});
   box.querySelectorAll(".add").forEach(bt=>bt.onclick=()=>{d.ms[+bt.dataset.i].rw.push({id:"gems",q:""});save();renderEvent();calc()});
-  $("msnote").textContent=(VERIFIED[k]||[]).includes(S.g)?L().msVer:L().msUnver;
+  $("msnote").textContent=e.fam?NOTES[e.fam][S.lang]:(VERIFIED[k]||[]).includes(S.g)?L().msVer:L().msUnver;
 
   const rk=$("rank");rk.innerHTML=`<option value="-1">${L().noRank}</option>`+RANKS.map((r,i)=>`<option value="${i}">${L().rankOpt(r[0],fmt(r[1]),r[2])}</option>`).join("");
   rk.value=d.rank;rk.onchange=()=>{d.rank=+rk.value;save();calc()};
@@ -345,7 +406,7 @@ function renderEvent(){
 function calc(){
   const k=S.ev,e=EVENTS[k],d=D(),gr=GEMRATES[S.gem][1];
   let ev=0,cost=0;
-  for(const it in e.pts){const q=num(d.spend[it]);const ep=q*e.pts[it],kp=q*ITEMS[it].kvk;ev+=ep;cost+=kp;
+  for(const it in e.pts){const q=num(d.spend[it]);const ep=q*e.pts[it],kp=q*kv(it);ev+=ep;cost+=kp;
     const a=$("ep-"+it),b=$("kp-"+it);if(a)a.textContent=fmt(ep);if(b)b.textContent=fmt(kp)}
   const rv=id=>REW[id].kvk==="gem"?gr:REW[id].kvk;
   let gain=0,chips="",next=null,anyTh=false;const tot={};
@@ -356,7 +417,7 @@ function calc(){
     if(hit)m.rw.forEach(r=>addItem(r.id,num(r.q)));
     else if(th>0&&next===null)next=th;
     chips+=`<span class="chip${hit?" on":""}">M${i+1}${th?" · "+fmt(th):""}</span>`});
-  if(d.rank>=0&&ev>=4000){const r=RANKS[d.rank];addItem("gems",r[1]);["c60","r60","t60"].forEach(id=>addItem(id,r[2]));if(KEYS[r[0]])addItem("goldkey",KEYS[r[0]])}
+  if(!e.noRank&&d.rank>=0&&ev>=4000){const r=RANKS[d.rank];addItem("gems",r[1]);["c60","r60","t60"].forEach(id=>addItem(id,r[2]));if(KEYS[r[0]])addItem("goldkey",KEYS[r[0]])}
   const ids=Object.keys(tot).sort((a,b)=>tot[b]*rv(b)-tot[a]*rv(a));
   $("oGets").innerHTML=ids.length?ids.map(id=>{const v=tot[id]*rv(id);return`<li>${REW[id][S.lang]} ×${fmt(tot[id])}${v>0?` <span class="kv">≈ ${L().kvkPts} ${fmt(v)}</span>`:""}</li>`}).join(""):`<li class="none">${L().getNone}</li>`;
   const net=gain-cost;
@@ -367,17 +428,17 @@ function calc(){
   const v=$("verdict");
   if(cost===0&&gain===0){v.className="verdict v-none";v.innerHTML=L().vNone}
   else{v.className="verdict "+(net>=0?"v-good":"v-bad");v.innerHTML=`${L().vHead((net>=0?"+":"−")+fmt(Math.abs(net)))}<small>${L().vSub}</small>`}
-  let best=null;for(const it in e.pts){const r=ITEMS[it].kvk/e.pts[it];if(!best||r<best.r)best={it,r}}
+  let best=null;for(const it in e.pts){const r=kv(it)/e.pts[it];if(!best||r<best.r)best={it,r}}
   const nx=$("oNext");
   if(!anyTh)nx.textContent=L().nextUnknown;
   else if(next===null)nx.textContent=L().nextNone;
-  else{const gap=next-ev,n=Math.ceil(gap/e.pts[best.it]);nx.innerHTML=L().next(fmt(gap),name(best.it),fmt(n),fmt(n*ITEMS[best.it].kvk))}
+  else{const gap=next-ev,n=Math.ceil(gap/e.pts[best.it]);nx.innerHTML=L().next(fmt(gap),name(best.it),fmt(n),fmt(n*kv(best.it)))}
 }
 
 function renderAll(){renderStatic();renderEvent();calc()}
 $("lang-zh").onclick=()=>{S.lang="zh";save();renderAll()};
 $("lang-en").onclick=()=>{S.lang="en";save();renderAll()};
-$("gemrate").onchange=e=>{S.gem=+e.target.value;save();calc()};
+$("gemrate").onchange=e=>{S.gem=+e.target.value;save();renderEvent();calc()};
 $("reset").onclick=()=>{S.data[dk()]=blank(S.ev,S.g);save();renderAll()};
 $("tcg").onchange=e=>{S.g=+e.target.value;save();renderAll()};
 // example state on first visit: Armament 2 with a few forgehammers
