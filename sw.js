@@ -3,7 +3,7 @@
    - Pages, app code, guide text and data files: try the network first (so new uploads show up
      right away); if it doesn't answer within 1.5 s for pages/code (3 s for data files), or there
      is no internet, show the saved copy. */
-const CACHE = "nxs-v110";
+const CACHE = "nxs-v111";
 const INBOX = "nxs-inbox", INBOX_KEY = "./__inbox";   // reminders that arrived, for the red badge + the "🔔 missed" card
 const NETWORK_TIMEOUT_MS = 3000;        // data files
 const SHELL_TIMEOUT_MS = 1500;          // pages, code, guide text
@@ -108,7 +108,7 @@ self.addEventListener("push", (e) => {
   try { m = e.data ? e.data.json() : {}; } catch (err) { m = { title: "NXS", body: e.data ? e.data.text() : "" }; }
   // admin reminders open the officer checklist; officers' Bear Hunt reminders ("…-bt") open the BT squad calculator
   const url = /^adm-/.test(m.tag || "") ? "./officer-x7k2p9.html#events?ev=" + m.tag.replace(/^adm-/, "").replace(/-\d+$/, "")
-    : /-bt$/.test(m.tag || "") ? "./officer-x7k2p9.html#bt"
+    : /-bt$/.test(m.tag || "") ? "./bear-calculator.html"
     : /^brd-/.test(m.tag || "") ? "./officer-x7k2p9.html#board?t=" + m.tag.slice(4) : "./?timers";   // 💬 new board message → that topic
   const id = m.tag || "n" + Date.now();
   e.waitUntil(Promise.all([

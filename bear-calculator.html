@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bear Hunt Calculator</title>
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  body { padding: 16px 16px 90px; }
+  .wrap { max-width: 900px; margin: 0 auto; }
+  h1 { font-family: "Oswald", "Noto Sans TC", sans-serif; margin: 0 0 4px; font-size: 26px; }
+  .muted { color: var(--text-muted); font-size: 13px; }
+  .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
+  .btn { padding: 7px 12px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 14px; }
+  a.btn { text-decoration: none; display: inline-block; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+  .btn.small { padding: 4px 9px; font-size: 13px; }
+  .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 14px; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
+  .card h2 { margin: 0 0 10px; font-size: 18px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .msg { margin-top: 6px; font-size: 13px; }
+  .warn { color: var(--accent); }
+  .inp, .modal select, .modal textarea { width: 100%; box-sizing: border-box; padding: 8px 10px; font-size: 15px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-family: inherit; }
+  .inp { display: block; min-width: 0; max-width: 100%; }
+  [hidden] { display: none !important; }
+  .shbar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+  #pg-bt .bt-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  #pg-bt .bt-grid.bt-grid2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #pg-bt .bt-grid label { display: grid; gap: 4px; font-size: 13px; }
+  #pg-bt .bt-grid .inp { width: 100%; }
+  #pg-bt .bt-auto summary { cursor: pointer; font-weight: 700; font-size: 15px; }
+  #pg-bt .bt-set { display: grid; gap: 8px; font-size: 13.5px; }
+  #pg-bt .bt-set > div { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
+  #pg-bt .bt-set .inp { display: inline-block; width: 110px !important; padding: 4px 6px; margin: 0; }
+  #pg-bt .bt-set .inp.r { width: 54px !important; }
+  #pg-bt .bt-use { position: sticky; top: 0; z-index: 3; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 8px 10px; margin-bottom: 10px;
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.08); font-size: 12px; }
+  #pg-bt .bt-ut { display: flex; flex-direction: column; } #pg-bt .bt-ut span { color: var(--text-muted); font-variant-numeric: tabular-nums; }
+  #pg-bt .bt-bar { height: 6px; border-radius: 3px; background: var(--rule); margin: 4px 0 2px; overflow: hidden; } #pg-bt .bt-bar i { display: block; height: 100%; background: var(--accent); }
+  #pg-bt .bt-u.bad .bt-bar i { background: #c0473a; } #pg-bt .bt-u.bad .bt-ul { color: #c0473a; font-weight: 700; }
+  #pg-bt .bt-ul { font-variant-numeric: tabular-nums; }
+  #pg-bt .bt-fh { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; } #pg-bt .bt-fh > b { flex: 1; }
+  #pg-bt .bt-ft { font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  #pg-bt .bt-sl { display: grid; grid-template-columns: 42px 1fr 62px auto 66px; align-items: center; gap: 6px; font-size: 13px; margin: 4px 0; }
+  #pg-bt .bt-sl .inp.bt-p { width: 62px; padding: 3px 4px; margin: 0; }
+  #pg-bt .bt-c { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+  #pg-bt input[type=range] { width: 100%; accent-color: var(--accent); }
+  #pg-bt input[type=range].t2 { accent-color: #c0473a; } #pg-bt input[type=range].t1 { accent-color: #2b6cc4; } #pg-bt input[type=range].t0 { accent-color: #6b7d3a; }
+  #pg-bt .bt-val { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--rule); display: grid; gap: 6px; font-size: 13px; }
+  #pg-bt .bt-val label { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
+  #pg-bt .bt-val select.inp { width: auto; padding: 3px 6px; margin: 0; }
+  #pg-bt .bt-pre select.inp { width: auto !important; padding: 3px 6px; margin: 0; }
+  #pg-bt .bt-chk { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; }
+  #pg-bt .bt-fit { margin-top: 10px; padding: 8px 10px; border-radius: 10px; background: color-mix(in srgb, var(--accent) 12%, var(--panel)); font-size: 13px; display: grid; gap: 4px; }
+  #pg-bt .bt-fit:empty { display: none; }
+  #pg-bt .bt-warn2 { color: #c0473a; font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+  #pg-bt .bt-ok { color: #2f8a4e; font-size: 12px; font-weight: 600; }
+</style>
+</head>
+<body>
+<!-- 🐻 Bear Hunt calculator for everyone (the same calculator as the officer page's #bt; js/officer/bt.js).
+     Everything stays in this browser; nothing is uploaded. -->
+<div class="wrap">
+  <div class="shbar"><a class="btn" href="./" id="bc_home">←</a><select class="btn" id="bc_lang" aria-label="Language"><option value="en">English</option><option value="zh">中文</option><option value="ko">한국어</option><option value="pt">Português</option><option value="ar">العربية</option></select></div>
+<section id="pg-bt">
+  <div class="top"><div><h1 id="bt_title"></h1><div class="muted" id="bt_sub"></div></div></div>
+  <div class="card">
+    <h3 id="bt_hTroops"></h3>
+    <div class="bt-grid">
+      <label><span id="bt_lInf"></span><input class="inp" id="bt_inf" type="number" inputmode="numeric" min="0"></label>
+      <label><span id="bt_lCav"></span><input class="inp" id="bt_cav" type="number" inputmode="numeric" min="0"></label>
+      <label><span id="bt_lArc"></span><input class="inp" id="bt_arc" type="number" inputmode="numeric" min="0"></label>
+    </div>
+    <div class="bt-grid bt-grid2" style="margin-top:10px">
+      <label><span id="bt_lRally"></span><input class="inp" id="bt_rally" type="number" inputmode="numeric" min="0" placeholder="—"></label>
+      <label><span id="bt_lJoin"></span><input class="inp" id="bt_join" type="number" inputmode="numeric" min="0"></label>
+    </div>
+    <div class="bt-val">
+      <div><b id="bt_hVal"></b></div>
+      <label><span id="bt_lSavage"></span> <select class="inp" id="bt_savage"></select></label>
+      <div class="muted" id="bt_eff" style="font-size:12.5px"></div>
+    </div>
+  </div>
+  <details class="card bt-auto" id="bt_autoBox">
+    <summary id="bt_hAuto"></summary>
+    <div class="muted" id="bt_autoNote" style="font-size:12.5px;margin:6px 0 8px"></div>
+    <div class="bt-set">
+      <div class="bt-pre"><span id="bt_lPre"></span> <select class="inp" id="bt_preGen"></select> <select class="inp" id="bt_preTag"></select>
+        <span class="muted" id="bt_preHeroes" style="flex-basis:100%;font-size:12.5px"></span></div>
+      <div><span id="bt_lRR"></span> <input class="inp r" id="bt_r0" type="number" min="0">:<input class="inp r" id="bt_r1" type="number" min="0">:<input class="inp r" id="bt_r2" type="number" min="0"></div>
+      <div><span id="bt_lFix"></span> <input class="inp r" id="bt_fixN" type="number" min="0" max="10"> <label class="bt-chk"><input type="checkbox" id="bt_fixAuto"> <span id="bt_lFixAuto"></span></label> × <input class="inp r" id="bt_m0" type="number" min="0">:<input class="inp r" id="bt_m1" type="number" min="0">:<input class="inp r" id="bt_m2" type="number" min="0"></div>
+      <div><span id="bt_lHero"></span> <input class="inp r" id="bt_hero" type="number" min="0" max="6"></div>
+      <div><span id="bt_lRest"></span> <input class="inp r" id="bt_rest" type="number" min="0" max="6"></div>
+      <div><span id="bt_lMin"></span> <input class="inp r" id="bt_min" type="number" min="0" max="30">%</div>
+    </div>
+    <button type="button" class="btn primary" id="bt_run" style="margin-top:10px"></button>
+    <div class="msg" id="bt_autoMsg"></div>
+    <div class="bt-fit" id="bt_fit"></div>
+  </details>
+  <div class="bt-use" id="bt_use"></div>
+  <div id="bt_forms"></div>
+  <div class="row" style="gap:8px;margin:4px 0 14px"><button type="button" class="btn" id="bt_add"></button><button type="button" class="btn" id="bt_copy"></button></div>
+  <div class="card" style="font-size:13px"><h3 id="bt_hHow"></h3><ul id="bt_how" style="margin:6px 0 0;padding-left:20px"></ul></div>
+</section>
+</div>
+<script>
+  /* what js/officer/bt.js needs from the officer page */
+  try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
+  const BC_LANGS = ["en", "zh", "ko", "pt", "ar"];
+  const bcLang = (() => { let l = ""; try { l = localStorage.getItem("nxs-bc-lang") || localStorage.getItem("ks-lang") || ""; } catch (e) {} l = String(l).toLowerCase().slice(0, 2); return BC_LANGS.includes(l) ? l : (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en"; })();
+  const OFFICER = { lang: bcLang, util: { esc: (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])) } };
+  const OFFICER_PAGES = {};
+  const loadedScripts = {};
+  function loadScripts(list) {
+    return list.reduce((p, src) => p.then(() => loadedScripts[src] || (loadedScripts[src] = new Promise((res, rej) => {
+      const s = document.createElement("script"); s.src = src; s.onload = res; s.onerror = () => rej(new Error(src)); document.head.appendChild(s); }))), Promise.resolve());
+  }
+  const HOME = { en: "← Guides", zh: "← 回指南", ko: "← 가이드", pt: "← Guias", ar: "→ الأدلة" };
+  function bcDir(l) { document.documentElement.lang = l === "zh" ? "zh-Hant" : l; document.documentElement.dir = l === "ar" ? "rtl" : "ltr"; document.getElementById("bc_home").textContent = HOME[l] || HOME.en; document.title = l === "zh" ? "熊熊計算機" : "Bear Hunt Calculator"; }
+</script>
+<script src="js/officer/bt.js"></script>
+<script>
+  bcDir(bcLang);
+  document.getElementById("bc_lang").value = bcLang;
+  OFFICER_PAGES.bt.init();
+  document.getElementById("bc_lang").onchange = (e) => { const l = e.target.value; try { localStorage.setItem("nxs-bc-lang", l); } catch (x) {} bcDir(l); OFFICER_PAGES.bt.setLang(l); };
+</script>
+</body>
+</html>

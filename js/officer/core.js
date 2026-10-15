@@ -289,6 +289,7 @@ function loadScripts(list) {
 function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|scout|views|map|bt|board|attend|perms)/); return m ? m[1] : "events"; }
 async function showTab() {
   const k = currentTab();
+  if (k === "bt") { location.replace("bear-calculator.html"); return; }   // 🐻 the bear calculator moved to its own public page
   OFFICER.applyPerms();
   document.querySelectorAll(".tabs a").forEach((a) => a.classList.toggle("on", a.dataset.tab === k));
   for (const t of TABS) document.getElementById("pg-" + t).hidden = t !== k;

@@ -196,8 +196,8 @@
           const v = { e: evEmoji(d.k), name: evName(d.k), n: before, t: fmtH(h) };
           const kind = d.text || (h === 24 ? "reset" : d.kind === "daily" ? "claim" : "ev");
           const title = fill(T(before ? kind + "Title" : kind + "Now"), v), body = fill(T(kind + "Body"), v);
-          // officers: the Bear Hunt notification opens the BT squad calculator ("-bt" at the end tells sw.js)
-          const bt = d.k === "bear-hunt" && isOfficer();
+          // the Bear Hunt notification opens the bear calculator ("-bt" at the end tells sw.js) — for everyone with timers
+          const bt = d.k === "bear-hunt";
           out.push({ id: `ev-${d.k}-${h}-${day / DAY}${bt ? "-bt" : ""}`, at, title, body: bt ? body + " " + T("btBody") : body });
         }
       }
@@ -499,7 +499,7 @@
       if (!H.length || (d.kind === "event" && !evSched(k))) return "";
       const any = H.some((h, i) => isOn(a, i, h)), bf = beforeOf(d);
       const lab = (h) => h === 24 ? `${esc(T("reset"))} <span class="tm-a">(${loc(0)})</span>` : `${fmtH(h)} UTC <span class="tm-a">(${loc(h)})</span>`;
-      const btLink = k === "bear-hunt" && isOfficer() ? ` <a class="tm-link" href="${/officer-/.test(location.pathname) ? "" : "./officer-x7k2p9.html"}#bt">${esc(T("btLink"))}</a>` : "";
+      const btLink = k === "bear-hunt" ? ` <a class="tm-link" href="./bear-calculator.html">${esc(T("btLink"))}</a>` : "";
       return `<div class="tm-ev"><div><b>${evEmoji(k)} ${esc(evName(k))}</b>${btLink}</div><div class="tm-cats">
         ${H.map((h, i) => `<button type="button" class="tm-btn${isOn(a, i, h) ? " on" : ""}" data-al="${k}:${i}" data-h="${h}">${lab(h)}</button>`).join("")}
         <select class="tm-sel" data-before="${k}">${BEFORE.map((m) => `<option value="${m}"${bf === m ? " selected" : ""}>${esc(m ? T("before").replace("{n}", m) : T("atTime"))}</option>`).join("")}</select></div>${any ? nextOf(k) : ""}</div>`;

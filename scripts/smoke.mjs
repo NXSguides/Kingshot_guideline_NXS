@@ -19,7 +19,7 @@ const server = createServer(async (req, res) => {
 await new Promise((r) => server.listen(0, "127.0.0.1", r));
 const BASE = `http://127.0.0.1:${server.address().port}`;
 
-const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "bt", "board", "attend", "perms"];
+const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "board", "attend", "perms"];
 const errors = [];
 const browser = await chromium.launch(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {});
 const ctx = await browser.newContext({ locale: "zh-TW" });
@@ -45,8 +45,10 @@ for (const h of guideLinks) { await page.goto(BASE + "/index.html" + h); await p
 const chip = await page.$("[data-a='timers'], .tm-chip, #tm-chip");
 if (chip) { await chip.click().catch(() => {}); await page.waitForTimeout(400); }
 
-/* 2. KvK calculator */
+/* 2. KvK calculator + bear calculator */
 await open("/kvk-calculator.html");
+await open("/bear-calculator.html");
+if (!(await page.$eval("#bt_title", (e) => e.textContent.trim()).catch(() => ""))) errors.push("bear calculator: no title (bt.js did not start)");
 
 /* 3. officer page: every tab must at least render without throwing (the data stays locked — no password in CI) */
 await open("/officer-x7k2p9.html");

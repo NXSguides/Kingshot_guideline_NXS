@@ -1,4 +1,5 @@
-/* NXS officer page — bt tab (loaded by officer-x7k2p9.html; registers OFFICER_PAGES.bt) */
+/* 🐻 Bear calculator — used by the public page bear-calculator.html (which gives it OFFICER.lang / OFFICER.util / OFFICER_PAGES);
+   the officer page's old #bt link now opens that page. */
 /* ===== 🐻 Bear calc: split your troops between your Bear Hunt rally and your marches.
    Manual: % sliders per formation (rally = your rally capacity, marches = the join limit); a slider stops when its
    formation is full or that troop type runs out. Auto fills the formations, and they stay adjustable by hand.
