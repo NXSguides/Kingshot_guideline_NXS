@@ -934,7 +934,12 @@ const TERMS = [
    ["Productivity Day", "效率工作", "효율 업무", "Tag der Produktivität", "Journée de la Productivité", "Dia de Produtividade", "Üretkenlik Günü", "Productivity Day", "Продуктивный день", "วันแห่งผลผลิต", "يوم الإنتاجية", "Día de la Productividad", "Governor Order. ID keeps English."],
    ["Festivities", "節日狂歡", "카니발 페스티벌", "Festlichkeiten", "Festivités", "Celebrações", "Şenlikler", "Festivities", "Праздники", "งานรื่นเริง", "الاحتفالات", "Celebraciones", "Governor Order. ID keeps English."],
    ["On cooldown", "冷卻中", "쿨타임 중", "Abklingzeit läuft", "Se recharge", "Em recarga", "Beklemede", "Sedang cooldown", "Перезаряжается", "อยู่ระหว่างคูลดาวน์", "في فترة التهدئة", "En enfriamiento", "Governor Order status label."],
-   ["Active", "—", "—", "Aktiv", "Actif", "Ativo(a)", "Aktif", "Aktif", "Активно", "เปิดใช้งาน", "نشيط", "Activo", "Governor Order status label. EN/ZH/KO not seen yet (no order was active in those screenshots)."]
+   ["Active", "生效中", "활성화 중", "Aktiv", "Actif", "Ativo(a)", "Aktif", "Aktif", "Активно", "เปิดใช้งาน", "نشيط", "Activo", "Governor Order status label while the order runs (green). EN/ZH/KO confirmed 2026-10-16."],
+   ["Order Effect", "法令效果", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Governor Order detail page label."],
+   ["Cooldown (Governor Order)", "冷卻時間", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Governor Order detail page. Cooldowns: Urgent Mobilization 8 h · Rush Job 1 day · Comprehensive Care 4 h · Double Time 1 day · Productivity Day 12 h · Festivities 1 day."],
+   ["Enact", "頒布", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Governor Order button (costs ★: Comprehensive Care 150,000 · Double Time 800,000)."],
+   ["Resident time", "居民時間", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Governor Order effects run on resident time, not real time."],
+   ["No sick residents in town", "城鎮內沒有生病的居民", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Shown instead of the Enact button on Comprehensive Care."]
   ]
  },
  {
