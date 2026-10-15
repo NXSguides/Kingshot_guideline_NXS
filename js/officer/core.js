@@ -157,7 +157,22 @@ OFFICER.applyPerms = () => {
 const OFFICER_PAGES = {};
 const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "bt", "board", "attend", "perms"];
 const inited = {};
-try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
+/* ☀ / ☾ light or dark: the same setting as the main site (ks-theme), so switching here also switches there and back */
+function officerTheme(th) {
+  const root = document.documentElement;
+  if (th === "light" || th === "dark") root.setAttribute("data-theme", th); else root.removeAttribute("data-theme");
+  const shown = th === "light" || th === "dark" ? th : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  const b = document.getElementById("themeBtn"); if (b) b.textContent = shown === "dark" ? "☀" : "☾";
+}
+try { officerTheme(localStorage.getItem("ks-theme")); } catch (e) {}
+document.addEventListener("DOMContentLoaded", () => { try { officerTheme(localStorage.getItem("ks-theme")); } catch (e) {} });
+document.getElementById("themeBtn") && (document.getElementById("themeBtn").onclick = () => {
+  const cur = document.documentElement.getAttribute("data-theme"), sysDark = matchMedia("(prefers-color-scheme: dark)").matches;
+  const next = cur === "dark" ? "light" : cur === "light" ? "dark" : sysDark ? "light" : "dark";
+  try { localStorage.setItem("ks-theme", next); } catch (e) {}
+  officerTheme(next);
+});
+window.addEventListener("storage", (e) => { if (e.key === "ks-theme") officerTheme(e.newValue); });   // switched in another tab (main site) → follow
 const SH = { ko: {"rename": "눌러서 사이트에 보이는 이름을 바꿀 수 있어요", "home": "홈", "pw": "🔒 간부 비밀번호", "remember": "이 기기에서 기억하기", "unlock": "잠금 해제", "wrong": "비밀번호가 틀렸습니다", "loading": "불러오는 중…", "discord": "Discord로 로그인", "or": "— 또는 간부 비밀번호 사용 —", "out": "로그아웃", "inSmall": "🔑 Discord로 로그인", "e_no_access": "Discord 계정이 아직 간부 목록에 없습니다. Sparrow에게 문의하세요.", "e_not_member": "먼저 연맹 Discord 서버에 가입한 뒤 다시 시도하세요.", "e_cancelled": "Discord 로그인이 취소되었습니다.", "e_expired": "다시 로그인하세요.", "e_logged_out": "다시 로그인하세요.", "e_discord": "Discord에 연결할 수 없습니다 — 다시 시도하세요.", "e_discord_unreachable": "Discord에 연결할 수 없습니다 — 다시 시도하세요.", "e_setup": "Discord 로그인은 됐지만 사이트 설정이 아직 끝나지 않았습니다. 지금은 간부 비밀번호를 사용하세요."},
  ar: {"rename": "اضغط لتغيير الاسم الظاهر على الموقع", "home": "الرئيسية", "pw": "🔒 كلمة مرور المسؤولين", "remember": "تذكّر على هذا الجهاز", "unlock": "فتح", "wrong": "كلمة مرور خاطئة", "loading": "جارٍ التحميل…", "discord": "تسجيل الدخول عبر Discord", "or": "— أو استخدم كلمة مرور المسؤولين —", "out": "تسجيل الخروج", "inSmall": "🔑 تسجيل الدخول عبر Discord", "e_no_access": "حسابك في Discord ليس في قائمة المسؤولين بعد. اسأل Sparrow.", "e_not_member": "انضم أولًا إلى خادم Discord الخاص بتحالفنا، ثم حاول مرة أخرى.", "e_cancelled": "تم إلغاء تسجيل الدخول عبر Discord.", "e_expired": "يرجى تسجيل الدخول مرة أخرى.", "e_logged_out": "يرجى تسجيل الدخول مرة أخرى.", "e_discord": "تعذّر الوصول إلى Discord — حاول مرة أخرى.", "e_discord_unreachable": "تعذّر الوصول إلى Discord — حاول مرة أخرى.", "e_setup": "نجح تسجيل الدخول عبر Discord، لكن الموقع لم يُجهَّز بالكامل بعد. استخدم كلمة مرور المسؤولين حاليًا."},
  pt: {"rename": "Toque para mudar o nome que aparece no site", "home": "Início", "pw": "🔒 Senha dos oficiais", "remember": "Lembrar neste aparelho", "unlock": "Desbloquear", "wrong": "Senha errada", "loading": "Carregando…", "discord": "Entrar com o Discord", "or": "— ou use a senha dos oficiais —", "out": "Sair", "inSmall": "🔑 Entrar com o Discord", "e_no_access": "Sua conta do Discord ainda não está na lista de oficiais. Fale com a Sparrow.", "e_not_member": "Entre primeiro no servidor do Discord da aliança e tente de novo.", "e_cancelled": "O login pelo Discord foi cancelado.", "e_expired": "Entre de novo, por favor.", "e_logged_out": "Entre de novo, por favor.", "e_discord": "Não foi possível conectar ao Discord — tente de novo.", "e_discord_unreachable": "Não foi possível conectar ao Discord — tente de novo.", "e_setup": "O login pelo Discord funcionou, mas o site ainda não está todo configurado. Use a senha dos oficiais por enquanto."},

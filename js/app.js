@@ -134,6 +134,7 @@ function applyTheme(theme) {
 function initTheme() {
   const saved = safeGet(STORAGE_KEYS.theme);
   applyTheme(saved);
+  window.addEventListener("storage", (e) => { if (e.key === STORAGE_KEYS.theme) applyTheme(e.newValue); });   // switched on the officer page in another tab
   document.getElementById("themeToggle").addEventListener("click", () => {
     const cur = document.documentElement.getAttribute("data-theme");
     const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
