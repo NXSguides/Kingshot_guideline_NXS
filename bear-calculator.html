@@ -64,7 +64,7 @@
 <!-- 🐻 Bear Hunt calculator for everyone (the same calculator as the officer page's #bt; js/officer/bt.js).
      Everything stays in this browser; nothing is uploaded. -->
 <div class="wrap">
-  <div class="shbar"><a class="btn" href="./" id="bc_home">←</a><select class="btn" id="bc_lang" aria-label="Language"><option value="en">English</option><option value="zh">中文</option><option value="ko">한국어</option><option value="pt">Português</option><option value="ar">العربية</option></select></div>
+  <div class="shbar"><a class="btn" href="./" id="bc_home" onclick="nxsBack(event)">←</a><select class="btn" id="bc_lang" aria-label="Language"><option value="en">English</option><option value="zh">中文</option><option value="ko">한국어</option><option value="pt">Português</option><option value="ar">العربية</option></select></div>
 <section id="pg-bt">
   <div class="top"><div><h1 id="bt_title"></h1><div class="muted" id="bt_sub"></div></div></div>
   <div class="card">
@@ -107,6 +107,14 @@
 </section>
 </div>
 <script>
+/* ← back: to the page you came from on this site; opened directly (a notification, a bookmark) → the guides in your language, not the language picker */
+function nxsBack(e) {
+  if (e) e.preventDefault();
+  let same = false; try { same = !!document.referrer && new URL(document.referrer).origin === location.origin && !/officer-|bear-calculator|kvk-calculator/.test(new URL(document.referrer).pathname); } catch (x) {}
+  if (same && history.length > 1) { history.back(); return; }
+  let l = "", g = ""; try { l = localStorage.getItem("ks-lang") || ""; g = localStorage.getItem("ks-guide") || ""; } catch (x) {}
+  location.href = "./" + (l ? `#/${l}/${g || "recent-events"}` : "");
+}
   /* what js/officer/bt.js needs from the officer page */
   try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
   const BC_LANGS = ["en", "zh", "ko", "pt", "ar"];

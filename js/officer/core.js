@@ -157,6 +157,14 @@ OFFICER.applyPerms = () => {
 const OFFICER_PAGES = {};
 const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "bt", "board", "attend", "perms"];
 const inited = {};
+/* ← back: to the page you came from on this site; opened directly (a notification, a bookmark) → the guides in your language, not the language picker */
+function nxsBack(e) {
+  if (e) e.preventDefault();
+  let same = false; try { same = !!document.referrer && new URL(document.referrer).origin === location.origin && !/officer-|bear-calculator|kvk-calculator/.test(new URL(document.referrer).pathname); } catch (x) {}
+  if (same && history.length > 1) { history.back(); return; }
+  let l = "", g = ""; try { l = localStorage.getItem("ks-lang") || ""; g = localStorage.getItem("ks-guide") || ""; } catch (x) {}
+  location.href = "./" + (l ? `#/${l}/${g || "recent-events"}` : "");
+}
 /* ☀ / ☾ light or dark: the same setting as the main site (ks-theme), so switching here also switches there and back */
 function officerTheme(th) {
   const root = document.documentElement;
