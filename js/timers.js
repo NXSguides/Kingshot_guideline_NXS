@@ -275,7 +275,7 @@
   const HOLD_LS = "nxs-push-hold";
   const nextUtcDay = () => { const d = new Date(); return Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + 1, 0, 10); };
   const onHold = () => { try { return +localStorage.getItem(HOLD_LS) > Date.now(); } catch (e) { return false; } };
-  let syncErr = false, synced = null, testPending = null;   // synced = { n, at } after the server confirmed the list
+  let syncErr = false, synced = null, testPending = null, syncing = false;   // synced = { n, at } after the server confirmed the list
   async function sync() {
     const sub = await getSub();
     if (!sub) return;
@@ -296,7 +296,11 @@
     const sig = JSON.stringify([sub.endpoint, tok ? 1 : 0, list.map(key)]);
     let last = {}; try { last = JSON.parse(localStorage.getItem("nxs-push-sig")) || {}; } catch (e) {}
     if (onHold()) { syncErr = "limit"; if (!view.hidden) render(); return; }
-    if (last.s === sig && Date.now() - (last.t || 0) < 6 * 3600000 && !syncErr) { if (!view.hidden) render(); return; }
+    if (last.s === sig && Date.now() - (last.t || 0) < 6 * 3600000 && !syncErr) {
+      // nothing changed since the last send: no request — but remember that, or notifHtml() asks again on every draw (endless redraw loop: nothing could be tapped)
+      if (!synced) { synced = { n: list.length, at: last.t || Date.now(), cached: true }; if (!view.hidden) render(); }
+      return;
+    }
     const retext = last.s !== sig;
     try { localStorage.setItem("nxs-push-sig", JSON.stringify({ s: sig, t: Date.now() })); } catch (e) {}
     try { const r = await post("/push/save", { sub: sub.toJSON(), timers: list, retext, ...(tok ? { token: tok } : {}) }); syncErr = false; synced = { n: r.n ?? list.length, at: Date.now(), devices: r.devices }; }
@@ -425,7 +429,7 @@
     if (Notification.permission === "denied") return `<div class="tm-note">${esc(T("blocked"))}</div>`;
     const sub = Notification.permission === "granted" ? await getSub() : null;
     if (sub) {
-      if (!synced && !syncErr) sync();   // first look: ask the server so the line below is filled in
+      if (!synced && !syncErr && !syncing) { syncing = true; sync().finally(() => { syncing = false; }); }   // first look: ask the server so the line below is filled in
       const ok = synced && !syncErr ? `<div class="tm-ok">${esc(T("synced").replace("{n}", synced.n).replace("{t}", new Date(synced.at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })))}</div>` : "";
       return `<div class="tm-note">${esc(T("on"))} ${testPending && testPending.at > Date.now() ? `<div class="tm-hint">${esc(T("testWait"))}</div>` : `<button type="button" class="tm-btn" data-a="test">${esc(T("test"))}</button>`}${ok}${syncErr ? `<div class="tm-err">${esc(T(syncErr === "limit" ? "limitHold" : "fail"))}</div>` : ""}</div>`;
     }
