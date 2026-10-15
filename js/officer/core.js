@@ -154,17 +154,17 @@ const OFFICER_PAGES = {};
 const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "bt", "board", "attend", "perms"];
 const inited = {};
 try { const th = localStorage.getItem("ks-theme"); if (th === "light" || th === "dark") document.documentElement.setAttribute("data-theme", th); } catch (e) {}
-const SH = { ko: {"home": "홈", "pw": "🔒 간부 비밀번호", "remember": "이 기기에서 기억하기", "unlock": "잠금 해제", "wrong": "비밀번호가 틀렸습니다", "loading": "불러오는 중…", "discord": "Discord로 로그인", "or": "— 또는 간부 비밀번호 사용 —", "out": "로그아웃", "inSmall": "🔑 Discord로 로그인", "e_no_access": "Discord 계정이 아직 간부 목록에 없습니다. Sparrow에게 문의하세요.", "e_not_member": "먼저 연맹 Discord 서버에 가입한 뒤 다시 시도하세요.", "e_cancelled": "Discord 로그인이 취소되었습니다.", "e_expired": "다시 로그인하세요.", "e_logged_out": "다시 로그인하세요.", "e_discord": "Discord에 연결할 수 없습니다 — 다시 시도하세요.", "e_discord_unreachable": "Discord에 연결할 수 없습니다 — 다시 시도하세요.", "e_setup": "Discord 로그인은 됐지만 사이트 설정이 아직 끝나지 않았습니다. 지금은 간부 비밀번호를 사용하세요."},
- ar: {"home": "الرئيسية", "pw": "🔒 كلمة مرور المسؤولين", "remember": "تذكّر على هذا الجهاز", "unlock": "فتح", "wrong": "كلمة مرور خاطئة", "loading": "جارٍ التحميل…", "discord": "تسجيل الدخول عبر Discord", "or": "— أو استخدم كلمة مرور المسؤولين —", "out": "تسجيل الخروج", "inSmall": "🔑 تسجيل الدخول عبر Discord", "e_no_access": "حسابك في Discord ليس في قائمة المسؤولين بعد. اسأل Sparrow.", "e_not_member": "انضم أولًا إلى خادم Discord الخاص بتحالفنا، ثم حاول مرة أخرى.", "e_cancelled": "تم إلغاء تسجيل الدخول عبر Discord.", "e_expired": "يرجى تسجيل الدخول مرة أخرى.", "e_logged_out": "يرجى تسجيل الدخول مرة أخرى.", "e_discord": "تعذّر الوصول إلى Discord — حاول مرة أخرى.", "e_discord_unreachable": "تعذّر الوصول إلى Discord — حاول مرة أخرى.", "e_setup": "نجح تسجيل الدخول عبر Discord، لكن الموقع لم يُجهَّز بالكامل بعد. استخدم كلمة مرور المسؤولين حاليًا."},
- pt: {"home": "Início", "pw": "🔒 Senha dos oficiais", "remember": "Lembrar neste aparelho", "unlock": "Desbloquear", "wrong": "Senha errada", "loading": "Carregando…", "discord": "Entrar com o Discord", "or": "— ou use a senha dos oficiais —", "out": "Sair", "inSmall": "🔑 Entrar com o Discord", "e_no_access": "Sua conta do Discord ainda não está na lista de oficiais. Fale com a Sparrow.", "e_not_member": "Entre primeiro no servidor do Discord da aliança e tente de novo.", "e_cancelled": "O login pelo Discord foi cancelado.", "e_expired": "Entre de novo, por favor.", "e_logged_out": "Entre de novo, por favor.", "e_discord": "Não foi possível conectar ao Discord — tente de novo.", "e_discord_unreachable": "Não foi possível conectar ao Discord — tente de novo.", "e_setup": "O login pelo Discord funcionou, mas o site ainda não está todo configurado. Use a senha dos oficiais por enquanto."},
+const SH = { ko: {"rename": "눌러서 사이트에 보이는 이름을 바꿀 수 있어요", "home": "홈", "pw": "🔒 간부 비밀번호", "remember": "이 기기에서 기억하기", "unlock": "잠금 해제", "wrong": "비밀번호가 틀렸습니다", "loading": "불러오는 중…", "discord": "Discord로 로그인", "or": "— 또는 간부 비밀번호 사용 —", "out": "로그아웃", "inSmall": "🔑 Discord로 로그인", "e_no_access": "Discord 계정이 아직 간부 목록에 없습니다. Sparrow에게 문의하세요.", "e_not_member": "먼저 연맹 Discord 서버에 가입한 뒤 다시 시도하세요.", "e_cancelled": "Discord 로그인이 취소되었습니다.", "e_expired": "다시 로그인하세요.", "e_logged_out": "다시 로그인하세요.", "e_discord": "Discord에 연결할 수 없습니다 — 다시 시도하세요.", "e_discord_unreachable": "Discord에 연결할 수 없습니다 — 다시 시도하세요.", "e_setup": "Discord 로그인은 됐지만 사이트 설정이 아직 끝나지 않았습니다. 지금은 간부 비밀번호를 사용하세요."},
+ ar: {"rename": "اضغط لتغيير الاسم الظاهر على الموقع", "home": "الرئيسية", "pw": "🔒 كلمة مرور المسؤولين", "remember": "تذكّر على هذا الجهاز", "unlock": "فتح", "wrong": "كلمة مرور خاطئة", "loading": "جارٍ التحميل…", "discord": "تسجيل الدخول عبر Discord", "or": "— أو استخدم كلمة مرور المسؤولين —", "out": "تسجيل الخروج", "inSmall": "🔑 تسجيل الدخول عبر Discord", "e_no_access": "حسابك في Discord ليس في قائمة المسؤولين بعد. اسأل Sparrow.", "e_not_member": "انضم أولًا إلى خادم Discord الخاص بتحالفنا، ثم حاول مرة أخرى.", "e_cancelled": "تم إلغاء تسجيل الدخول عبر Discord.", "e_expired": "يرجى تسجيل الدخول مرة أخرى.", "e_logged_out": "يرجى تسجيل الدخول مرة أخرى.", "e_discord": "تعذّر الوصول إلى Discord — حاول مرة أخرى.", "e_discord_unreachable": "تعذّر الوصول إلى Discord — حاول مرة أخرى.", "e_setup": "نجح تسجيل الدخول عبر Discord، لكن الموقع لم يُجهَّز بالكامل بعد. استخدم كلمة مرور المسؤولين حاليًا."},
+ pt: {"rename": "Toque para mudar o nome que aparece no site", "home": "Início", "pw": "🔒 Senha dos oficiais", "remember": "Lembrar neste aparelho", "unlock": "Desbloquear", "wrong": "Senha errada", "loading": "Carregando…", "discord": "Entrar com o Discord", "or": "— ou use a senha dos oficiais —", "out": "Sair", "inSmall": "🔑 Entrar com o Discord", "e_no_access": "Sua conta do Discord ainda não está na lista de oficiais. Fale com a Sparrow.", "e_not_member": "Entre primeiro no servidor do Discord da aliança e tente de novo.", "e_cancelled": "O login pelo Discord foi cancelado.", "e_expired": "Entre de novo, por favor.", "e_logged_out": "Entre de novo, por favor.", "e_discord": "Não foi possível conectar ao Discord — tente de novo.", "e_discord_unreachable": "Não foi possível conectar ao Discord — tente de novo.", "e_setup": "O login pelo Discord funcionou, mas o site ainda não está todo configurado. Use a senha dos oficiais por enquanto."},
  en: { home: "Home", pw: "🔒 Officer password", remember: "Remember on this device", unlock: "Unlock", wrong: "Wrong password", loading: "Loading…",
-                   discord: "Log in with Discord", or: "— or use the officer password —", out: "Log out", inSmall: "🔑 Log in with Discord",
+                   discord: "Log in with Discord", or: "— or use the officer password —", out: "Log out", inSmall: "🔑 Log in with Discord", rename: "Tap to change the name shown on the site",
                    e_no_access: "Your Discord account isn't on the officer list yet. Ask Sparrow.", e_not_member: "Join our alliance Discord server first, then try again.",
                    e_cancelled: "Discord login was cancelled.", e_expired: "Please log in again.", e_logged_out: "Please log in again.",
                    e_discord: "Couldn't reach Discord — please try again.", e_discord_unreachable: "Couldn't reach Discord — please try again.",
                    e_setup: "Discord login worked, but the site isn't fully set up yet. Use the officer password for now." },
              zh: { home: "首頁", pw: "🔒 幹部密碼", remember: "在這台裝置記住", unlock: "解鎖", wrong: "密碼錯誤", loading: "載入中…",
-                   discord: "用 Discord 登入", or: "— 或輸入幹部密碼 —", out: "登出", inSmall: "🔑 用 Discord 登入",
+                   discord: "用 Discord 登入", or: "— 或輸入幹部密碼 —", out: "登出", inSmall: "🔑 用 Discord 登入", rename: "點一下可以改你在網站上顯示的名字",
                    e_no_access: "你的 Discord 帳號還沒有幹部權限，請找 Sparrow。", e_not_member: "請先加入聯盟的 Discord 伺服器，再試一次。",
                    e_cancelled: "已取消 Discord 登入。", e_expired: "請重新登入。", e_logged_out: "請重新登入。",
                    e_discord: "連不上 Discord，請再試一次。", e_discord_unreachable: "連不上 Discord，請再試一次。",
@@ -195,9 +195,33 @@ function showMe() {
   document.getElementById("meOut").textContent = t.out;
   OFFICER.applyPerms();   // 💬 Board and 👥 Officers: only for people logged in with Discord
   if (!u) return;
-  document.getElementById("meName").textContent = u.name;
+  const mn = document.getElementById("meName");
+  mn.textContent = u.name; mn.title = (t.rename || SH.en.rename) + (u.discordName ? " · Discord: " + u.discordName : ""); mn.style.cursor = "pointer";
   const av = document.getElementById("meAv"); av.hidden = !u.avatar; if (u.avatar) av.src = u.avatar;
 }
+/* ✏️ tap your name at the top to change how it's shown on the site (saved on the server, every device) */
+document.getElementById("meName").onclick = () => {
+  const mn = document.getElementById("meName"); if (!OFFICER.user || mn.querySelector("input")) return;
+  const inp = document.createElement("input"); inp.value = OFFICER.user.name; inp.maxLength = 40; inp.dir = "auto";
+  inp.style.cssText = "font:inherit;font-weight:700;width:9em;padding:2px 4px;border:1px solid var(--rule);border-radius:6px;background:var(--panel);color:inherit";
+  mn.textContent = ""; mn.appendChild(inp); inp.focus(); inp.select();
+  let done = false;
+  const finish = async (save) => {
+    if (done) return; done = true;
+    const v = inp.value.replace(/\s+/g, " ").trim().slice(0, 40);
+    if (save && v && v !== OFFICER.user.name) {
+      mn.textContent = v + " …";
+      try {
+        const j = await permsApi("rename", { name: v });
+        OFFICER.user = { ...OFFICER.user, ...(j.user || {}), name: v };
+        if (j.perms && j.perms.users) { OFFICER.perms = j.perms; OFFICER.syncAdmins(); permsCache(); permsChanged(); }
+      } catch (e) { mn.textContent = OFFICER.user.name + " ⚠️"; setTimeout(showMe, 2500); return; }
+    }
+    showMe();
+  };
+  inp.onkeydown = (e) => { if (e.key === "Enter") finish(true); if (e.key === "Escape") finish(false); };
+  inp.onblur = () => finish(true);
+};
 document.getElementById("meOut").onclick = async () => {
   // this device stops getting the other devices' ⏰ notifications
   try {

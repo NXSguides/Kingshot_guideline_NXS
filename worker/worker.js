@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-15f";
+const VERSION = "2026-10-15g";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -640,6 +640,7 @@ export class PushTimers extends DurableObject {
     o.alarm_runs_today = this.alarmRuns || 0;
     return o;
   }
+  nameOf(uid) { const n = this.kvGet("names"); if (n && n[uid]) return n[uid]; const p = this.kvGet("perms"); return (p && p.users && p.users[uid] && p.users[uid].name) || null; }
   kvGet(k) { const r = [...this.sql.exec(`SELECT v FROM kv WHERE k = ?`, k)][0]; try { return r ? JSON.parse(r.v) : null; } catch (e) { return null; } }
   kvSet(k, obj) { const v = JSON.stringify(obj); const r = [...this.sql.exec(`SELECT v FROM kv WHERE k = ?`, k)][0]; if (r && r.v === v) return false; this.sql.exec(`INSERT OR REPLACE INTO kv VALUES (?, ?, ?)`, k, v, Date.now()); return true; }
   /* ---- 💬 board ---- */
@@ -917,7 +918,16 @@ const PERM_LEVELS = ["edit", "view", "none"];
 async function permsRoute(stub, user, body, token) {
   const op = String(body.op || "get");
   const cur = await stub.kvGet("perms");
-  if (op === "get") return json({ ok: true, token, perms: cur });
+  if (op === "get") return json({ ok: true, token, perms: cur, user });
+  if (op === "rename") {   // everyone may change their OWN name on the site (admins change anyone's in the table)
+    const name = String(body.name || "").replace(/\s+/g, " ").trim().slice(0, 40);
+    if (!name) return json({ error: "bad request" }, 400);
+    try {
+      const names = (await stub.kvGet("names")) || {}; names[user.id] = name; await stub.kvSet("names", names);
+      if (cur && cur.users && cur.users[user.id] && cur.users[user.id].name !== name) { cur.users[user.id].name = name; await stub.kvSet("perms", cur); }
+    } catch (e) { return json({ error: /exceeded allowed|free tier|limit/i.test(String(e && e.message)) ? "db_limit" : "db", detail: [String(e && e.message || e)] }, 503); }
+    return json({ ok: true, token, perms: await stub.kvGet("perms"), user: { ...user, name } });
+  }
   if (op !== "save") return json({ error: "bad request" }, 400);
   const isAdmin = user.id === PERMS_OWNER || !!(cur && cur.users && cur.users[user.id] && cur.users[user.id].admin);
   if (!isAdmin) return json({ error: "not_admin" }, 403);
@@ -932,7 +942,12 @@ async function permsRoute(stub, user, body, token) {
   }
   if (!users[PERMS_OWNER]) users[PERMS_OWNER] = { name: "Sparrow", admin: true, perms: {} };   // nobody can lock the owner out
   const perms = { v: 2, users, by: { id: user.id, name: user.name }, at: Date.now() };
-  try { await stub.kvSet("perms", perms); }
+  try {
+    await stub.kvSet("perms", perms);
+    const names = (await stub.kvGet("names")) || {}; let ch = false;   // names given in the table are the site names too
+    for (const [id, x] of Object.entries(users)) if (x.name && names[id] !== x.name) { names[id] = x.name; ch = true; }
+    if (ch) await stub.kvSet("names", names);
+  }
   catch (e) { return json({ error: /exceeded allowed|free tier|limit/i.test(String(e && e.message)) ? "db_limit" : "db", detail: [String(e && e.message || e)] }, 503); }
   return json({ ok: true, token, perms });
 }
@@ -1158,15 +1173,18 @@ async function authRoute(req, env, path, ctx) {
     const c = await sessionCheck(req, env, body.token);
     if (c.error) return json({ error: c.error, user: c.user }, c.status);
     const s = c.s, token = await seal(env, s);
+    const stub = env.TIMERS ? env.TIMERS.get(env.TIMERS.idFromName("all")) : null;
+    // ✏️ the name shown on the site can be changed (👥 table / the name at the top of the officer page); the Discord name stays underneath
+    let u = s.u;
+    if (stub) { try { const nm = await stub.nameOf(s.u.id); if (nm && nm !== s.u.name) u = { ...s.u, name: nm, discordName: s.u.name }; } catch (e) {} }
     if (path === "/auth/me") {
-      if (!env.OFFICER_PASSWORD) return json({ error: "officer_password_missing", user: s.u }, 503);
-      return json({ ok: true, user: s.u, pw: String(env.OFFICER_PASSWORD).trim(), token });
+      if (!env.OFFICER_PASSWORD) return json({ error: "officer_password_missing", user: u }, 503);
+      return json({ ok: true, user: u, pw: String(env.OFFICER_PASSWORD).trim(), token });
     }
-    if (!env.TIMERS) return json({ error: "push_not_set_up" }, 503);
-    const stub = env.TIMERS.get(env.TIMERS.idFromName("all"));
-    if (path === "/board") return boardRoute(env, ctx, stub, s.u, body, token);
-    if (path === "/attend") return attendRoute(env, stub, s.u, body, token);
-    if (path === "/perms") return permsRoute(stub, s.u, body, token);
+    if (!stub) return json({ error: "push_not_set_up" }, 503);
+    if (path === "/board") return boardRoute(env, ctx, stub, u, body, token);
+    if (path === "/attend") return attendRoute(env, stub, u, body, token);
+    if (path === "/perms") return permsRoute(stub, u, body, token);
     if (path === "/sync/forget") { if (body.sub && body.sub.endpoint) await stub.forget(String(body.sub.endpoint)); return json({ ok: true }); }
     const st = body.state && typeof body.state === "object" ? body.state : {};
     try { return json({ ok: true, user: s.u, token, state: await stub.syncMerge(s.u.id, st) }); }
