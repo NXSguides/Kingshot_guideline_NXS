@@ -984,6 +984,8 @@ function switchGuide(id) {
   currentGuide = pickGuide(id);
   persistPrefs();
   renderAll();
+  // a new guide always opens at its top (links in announcements, the This-week card… used to keep the old scroll position)
+  window.scrollTo({ top: 0, behavior: "auto" });
 }
 window.switchGuide = switchGuide;
 
