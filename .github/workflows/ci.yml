@@ -26,6 +26,8 @@ jobs:
       - name: 2. Worker builds (wrangler dry run)
         working-directory: worker
         run: npx --yes wrangler@4 deploy --dry-run --outdir /tmp/wrangler-out
+      - name: 2b. Worker routes answer as the site expects (local run, dummy secrets)
+        run: bash scripts/worker-test.sh
       - name: 3. site smoke test (headless browser)
         run: |
           npm i --no-save playwright@1.49.0

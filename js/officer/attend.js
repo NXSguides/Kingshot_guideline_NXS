@@ -176,7 +176,7 @@ function renderEdit() {
     <div class="card"><h4>${esc(t("present"))} · ${esc(t("rate"))} ${r.pct == null ? "—" : r.pct + "%"} <span class="muted">(${r.ok}/${r.n})</span></h4>
       <div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(t("presentNote"))}<br><b>${esc(t("keysLine"))}</b></div>
       ${ro || !sl.confirmed.length ? "" : `<button type="button" class="btn small" id="at_all" style="margin-bottom:6px">${esc(t("allPresent"))}</button>`}<div class="at-plist">${plist}</div></div>
-    <div class="row" style="margin-top:4px;align-items:center">${ro ? "" : `<button type="button" class="btn" id="at_save">${esc(t("save"))}</button>`}<button type="button" class="btn small" id="at_copy">${esc(t("copy"))}</button>${ro || !events.some((e) => e.id === cur.id) ? "" : `<button type="button" class="btn small danger" id="at_del">${esc(t("del"))}</button>`}<span class="msg" id="at_msg"></span></div>`;
+    <div class="row" style="margin-top:4px;align-items:center">${ro ? "" : `<button type="button" class="btn primary" id="at_save">${esc(t("save"))}</button>`}<button type="button" class="btn" id="at_copy">${esc(t("copy"))}</button>${ro || !events.some((e) => e.id === cur.id) ? "" : `<button type="button" class="btn danger" id="at_del">${esc(t("del"))}</button>`}<span class="msg" id="at_msg"></span></div>`;
   if (!roster) h = `<div class="msg warn">${esc(t("noData"))}</div>` + h;
   const box = $("at_edit_body"); box.innerHTML = h;
   wireCopy();
