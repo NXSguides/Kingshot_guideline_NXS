@@ -34,6 +34,8 @@ function drawMap() {
   s.push(`<polygon points="${pts([[0, 0], [1200, 0], [1200, 1200], [0, 1200]])}" fill="#567d33" stroke="#3a5a20" stroke-width="3"/>`);
   s.push(`<polygon points="${pts([[200, 200], [1000, 200], [1000, 1000], [200, 1000]])}" fill="#628c3b" stroke="rgba(255,255,255,.2)" stroke-width="2" stroke-dasharray="8 8"/>`);
   s.push(`<polygon points="${pts([[320, 320], [880, 320], [880, 880], [320, 880]])}" fill="#6f9a45" stroke="rgba(255,255,255,.2)" stroke-width="2" stroke-dasharray="8 8"/>`);
+  /* 🛰️ territory picture: the in-game map stitched from officers' screenshots (2026-10-15), lined up on the 4 Fortresses */
+  s.push(`<image id="km_terr" href="${TERR.src}" width="4000" height="2850" preserveAspectRatio="none" transform="matrix(${TERR.m})" opacity=".95"${terrOn ? "" : ' style="display:none"'}/>`);
   for (const b of B) {
     const [X, Y] = P(b.x, b.y);
     const g = `<g class="mk" data-id="${b.id}" data-t="${b.kind === "outpost" ? b.t : b.kind === "hq" ? "hq" : "ruins"}" tabindex="0" role="button" aria-label="${esc(b.name)} X${b.x} Y${b.y}">`;
@@ -51,6 +53,19 @@ function drawMap() {
   });
 }
 let planOnly = false;
+const TERR = { src: "data/territory-2189.webp", m: "0.336526 -0.001286 -0.000211 0.305687 -12.768 21.275", date: "2026-10-15" };
+const TT = { zh: ["🛰️ 領地圖", "領地圖：幹部截圖拼成，同色塊 = 同一個聯盟的領地（{d} 截圖）。"],
+  en: ["🛰️ Territory", "Territory: stitched from officers' screenshots; same colour = same alliance ({d})."],
+  pt: ["🛰️ Território", "Território: montado com capturas dos oficiais; mesma cor = mesma aliança ({d})."],
+  ko: ["🛰️ 영토", "영토: 간부 스크린샷을 이어 붙임, 같은 색 = 같은 연맹 ({d})."],
+  ar: ["🛰️ الأراضي", "الأراضي: مجمّعة من لقطات الضباط؛ اللون نفسه = التحالف نفسه ({d})."] };
+const tt = (i) => (TT[lang] || TT.en)[i].replace("{d}", TERR.date);
+let terrOn = (() => { try { return localStorage.getItem("km-terr") !== "0"; } catch (e) { return true; } })();
+function setTerr(on) {
+  terrOn = on; try { localStorage.setItem("km-terr", on ? "1" : "0"); } catch (e) {}
+  const im = $("km_terr"); if (im) im.style.display = on ? "" : "none";
+  $("km_svg").classList.toggle("terr", on); renderLayers();
+}
 const applyHidden = () => $("km_svg").querySelectorAll(".mk").forEach((m) => { const b = BY[m.dataset.id];
   m.classList.toggle("off", m.dataset.id !== SEL && (hidden.has(m.dataset.t) || (planOnly && b.kind === "outpost" && !st(b)))); });
 
@@ -215,11 +230,13 @@ function renderList() {
 }
 function renderLayers() {
   const items = [["ruins", T("ruins"), "#7a4a24"], ...G.types.map(([k, , , c]) => [k, typeName(k), c])];
-  $("km_layers").innerHTML = `<button type="button" data-k="*" aria-pressed="${hidden.size === 0 && !planOnly}">${esc(T("all"))}</button><button type="button" data-k="plan" aria-pressed="${planOnly}">${esc(pt("planOnly"))}</button>` +
+  $("km_layers").innerHTML = `<button type="button" data-k="*" aria-pressed="${hidden.size === 0 && !planOnly}">${esc(T("all"))}</button><button type="button" data-k="plan" aria-pressed="${planOnly}">${esc(pt("planOnly"))}</button><button type="button" data-k="terr" aria-pressed="${terrOn}" title="${esc(tt(1))}">${esc(tt(0))}</button>` +
     items.map(([k, n, c]) => `<button type="button" data-k="${k}" aria-pressed="${!hidden.has(k)}"><span class="sw" style="background:${c}"></span>${esc(n)}</button>`).join("");
+  if ($("km_terrNote")) { $("km_terrNote").hidden = !terrOn; $("km_terrNote").textContent = tt(1); }
   $("km_layers").querySelectorAll("button").forEach((btn) => btn.onclick = () => {
     const k = btn.dataset.k;
     if (k === "plan") { planOnly = !planOnly; renderLayers(); applyHidden(); return; }
+    if (k === "terr") return setTerr(!terrOn);
     if (k === "*") { hidden.clear(); planOnly = false; }
     else if (hidden.size === 0) items.forEach(([kk]) => { if (kk !== k) hidden.add(kk); });   // first tap on a type = show only that type
     else if (hidden.has(k)) hidden.delete(k); else hidden.add(k);
@@ -509,7 +526,7 @@ function onShow() {
 }
 async function init() {
   await loadScripts(["data/kingdom-map.js"]);
-  G = KINGDOM_MAP; build(); await loadPlan(); importFromLink(); drawMap(); drawPlan(); applyTexts(); ready = true;
+  G = KINGDOM_MAP; build(); await loadPlan(); importFromLink(); drawMap(); $("km_svg").classList.toggle("terr", terrOn); drawPlan(); applyTexts(); ready = true;
   $("km_in").onclick = () => setZoom(Z * 1.5); $("km_out").onclick = () => setZoom(Z / 1.5);
   mouseControls();
 }
