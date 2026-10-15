@@ -234,7 +234,7 @@
   fab.addEventListener("pointerdown", (e) => {
     if (e.button) return;
     const x0 = e.clientX, y0 = e.clientY, r = fab.getBoundingClientRect(); let moving = false;
-    try { fab.setPointerCapture(e.pointerId); } catch (x) {}
+    // no pointer capture: iOS keeps the capture after the tap, and every later tap on the page is swallowed by the button
     const move = (ev) => {
       const dx = ev.clientX - x0, dy = ev.clientY - y0;
       if (!moving && Math.hypot(dx, dy) < 8) return;
@@ -244,7 +244,7 @@
       fab.style.left = left + "px"; fab.style.right = "auto"; fab.style.top = top + "px"; fab.style.bottom = "auto";
     };
     const up = (ev) => {
-      fab.removeEventListener("pointermove", move); fab.removeEventListener("pointerup", up); fab.removeEventListener("pointercancel", up);
+      window.removeEventListener("pointermove", move); window.removeEventListener("pointerup", up); window.removeEventListener("pointercancel", up);
       if (!moving) return;
       dragged = true; setTimeout(() => { dragged = false; }, 300);
       const b = fab.getBoundingClientRect();
@@ -252,7 +252,7 @@
       try { localStorage.setItem(POS_KEY, JSON.stringify(pos)); } catch (x) {}
       fab.style.transition = ""; place();
     };
-    fab.addEventListener("pointermove", move); fab.addEventListener("pointerup", up); fab.addEventListener("pointercancel", up);
+    window.addEventListener("pointermove", move, { passive: false }); window.addEventListener("pointerup", up); window.addEventListener("pointercancel", up);
   });
   fab.style.touchAction = "none";
   addEventListener("resize", place);
