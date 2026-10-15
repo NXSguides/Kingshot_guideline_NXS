@@ -1,0 +1,33 @@
+# ✅ Safety net for every push: nothing reaches the live site or the Worker with a broken file.
+#   1. every .js file must parse
+#   2. the Worker must build exactly as Cloudflare will build it (wrangler dry run — no deploy, no account needed)
+#   3. the site opens in a headless browser: home page in 3 languages, guides, ⏰ panel, KvK calculator,
+#      and every officer tab — any uncaught JavaScript error fails the run (the Worker is stubbed, no allowance used)
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: 1. syntax check (all JavaScript)
+        run: |
+          set -e
+          n=0
+          for f in $(git ls-files '*.js' '*.mjs'); do node --check "$f"; n=$((n+1)); done
+          echo "✅ $n files parse"
+      - name: 2. Worker builds (wrangler dry run)
+        working-directory: worker
+        run: npx --yes wrangler@4 deploy --dry-run --outdir /tmp/wrangler-out
+      - name: 3. site smoke test (headless browser)
+        run: |
+          npm i --no-save playwright@1.49.0
+          npx playwright install --with-deps chromium
+          node scripts/smoke.mjs

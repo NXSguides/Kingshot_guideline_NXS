@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-15a";
+const VERSION = "2026-10-15b";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -42,12 +42,17 @@ const cors = {
   "Access-Control-Allow-Headers": "Content-Type",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
+const isLimitErr = (e) => /exceeded allowed|free tier/i.test(String(e && e.message || e));
 const json = (obj, status = 200) => Response.json(obj, { status, headers: cors });
 
 export default {
   async fetch(req, env, ctx) {
     try { return await handle(req, env, ctx); }
-    catch (e) { return json({ error: "worker", detail: [String(e && e.message || e)] }, 500); }
+    catch (e) {
+      // Cloudflare's free-plan daily storage allowance is used up (resets 00:00 UTC): say so clearly, nothing is broken
+      if (isLimitErr(e)) return json({ error: "db_limit", detail: [String(e && e.message || e)] }, 503);
+      return json({ error: "worker", detail: [String(e && e.message || e)] }, 500);
+    }
   },
 };
 
@@ -276,6 +281,10 @@ async function check(req, env) {
   if (env.DATA_KEY) {
     try { const r = await openData(JSON.parse(await getText("data/ai-officer.json")), env); out.officer_data = `ok (built ${String(r.built).slice(0, 16)}, ${r.text.length} characters)`; }
     catch (e) { out.officer_data = "ERROR " + e.message; }
+  }
+  if (env.TIMERS) {   // how big the stored data is (reads only) — a table that keeps growing points at what eats the daily write allowance
+    try { out.db = await env.TIMERS.get(env.TIMERS.idFromName("all")).counts(); }
+    catch (e) { out.db = "ERROR " + e.message; }
   }
   out.models = {};
   if (env.GEMINI_API_KEY) {
@@ -620,6 +629,15 @@ export class PushTimers extends DurableObject {
     this.sql.exec(`CREATE TABLE IF NOT EXISTS att (id TEXT PRIMARY KEY, data TEXT, at INTEGER)`);   // 📋 attendance: one row per event (JSON)
     try { this.sql.exec(`ALTER TABLE bp ADD COLUMN meta TEXT`); } catch (e) {}
   }
+  counts() {
+    const o = {};
+    for (const t of ["t", "usub", "sync", "bt", "bp", "bl", "bu", "att"]) o[t] = [...this.sql.exec(`SELECT COUNT(*) AS n FROM ${t}`)][0].n;
+    o.phones = [...this.sql.exec(`SELECT COUNT(DISTINCT ep) AS n FROM t`)][0].n;
+    const nx = [...this.sql.exec(`SELECT MIN(at) AS at FROM t`)][0].at;
+    o.next_alarm = nx ? new Date(nx).toISOString() : null;
+    o.alarm_runs_today = this.alarmRuns || 0;
+    return o;
+  }
   /* ---- 💬 board ---- */
   boardLang(uid, lang) { if (lang && ([...this.sql.exec(`SELECT lang FROM bl WHERE uid = ?`, uid)][0] || {}).lang !== lang) this.sql.exec(`INSERT OR REPLACE INTO bl VALUES (?, ?)`, uid, lang); }
   boardUser(by, lang) {   // written only when the name / picture changed
@@ -775,7 +793,10 @@ export class PushTimers extends DurableObject {
     else await this.ctx.storage.deleteAlarm();
   }
   async alarm() {
+    this.alarmRuns = (this.alarmRuns || 0) + 1;
     const due = [...this.sql.exec(`SELECT * FROM t WHERE at <= ? ORDER BY at LIMIT 200`, Date.now() + 2000)];
+    // alarms can fire a moment early: with nothing due, wait for the real time (never a tight 500 ms loop — every setAlarm is a write)
+    if (!due.length) { const nx = [...this.sql.exec(`SELECT MIN(at) AS at FROM t`)][0]; if (nx && nx.at != null) { await this.ctx.storage.setAlarm(Math.max(Date.now() + 10000, nx.at)); return; } }
     const gone = new Set();
     for (const r of due) {
       this.sql.exec(`DELETE FROM t WHERE ep = ? AND id = ?`, r.ep, r.id);
