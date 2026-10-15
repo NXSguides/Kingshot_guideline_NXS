@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-15j";
+const VERSION = "2026-10-15k";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -414,29 +414,45 @@ async function sha(s) {
   return [...new Uint8Array(b)].map((x) => x.toString(16).padStart(2, "0")).join("");
 }
 
-/* Views tab: site statistics from GoatCounter, officers only. Cached 5 minutes per range. */
+/* Views tab: site statistics from GoatCounter, officers only.
+   GoatCounter allows only 4 API requests per second: the 5 pieces are fetched one after another (a short pause between),
+   a "slow down" answer is retried after the wait it asks for, results are kept 15 minutes per range,
+   and if GoatCounter can't be reached the last good numbers are shown (marked stale) instead of an error. */
 const statsCache = {};
+const pause = (ms) => new Promise((r) => setTimeout(r, ms));
 async function stats(body, env) {
   if (!(await isOfficer(body, env))) return json({ error: "no_permission" }, 403);
   if (!env.GOATCOUNTER_TOKEN) return json({ error: "no_token" }, 500);
   const days = [7, 30, 90].includes(+body.days) ? +body.days : 7;
   const c = statsCache[days];
-  if (c && Date.now() - c.at < 5 * 60 * 1000) return json(c.data);
+  if (c && Date.now() - c.at < 15 * 60 * 1000) return json(c.data);
   const end = new Date(), start = new Date(end.getTime() - days * 86400000);
   const q = `start=${start.toISOString()}&end=${end.toISOString()}`;
-  const get = async (p) => {
-    const r = await fetch(`${GC_SITE}/api/v0/stats/${p}${p.includes("?") ? "&" : "?"}${q}`, { headers: { Authorization: `Bearer ${env.GOATCOUNTER_TOKEN.trim()}`, "Content-Type": "application/json" } });
+  const get = async (p, tries = 0) => {
+    let r;
+    try { r = await fetch(`${GC_SITE}/api/v0/stats/${p}${p.includes("?") ? "&" : "?"}${q}`, { headers: { Authorization: `Bearer ${env.GOATCOUNTER_TOKEN.trim()}`, "Content-Type": "application/json" } }); }
+    catch (e) { if (tries < 2) { await pause(800 * (tries + 1)); return get(p, tries + 1); } throw e; }
+    if ((r.status === 429 || r.status >= 500) && tries < 3) {   // rate limited / GoatCounter hiccup → wait and try again
+      const wait = Math.min(5, Math.max(1, +r.headers.get("X-Rate-Limit-Reset") || +r.headers.get("Retry-After") || 1));
+      await pause(wait * 1000 + 100); return get(p, tries + 1);
+    }
     if (!r.ok) throw new Error(`goatcounter ${p.split("?")[0]} ${r.status}`);
     return r.json();
   };
   try {
     const soft = (p) => get(p).catch(() => null);       // the breakdown pages may be missing on some sites → leave them empty
-    const [total, hits, locations, toprefs, systems] = await Promise.all([
-      get("total"), get("hits?limit=100&group=day"), soft("locations?limit=15"), soft("toprefs?limit=15"), soft("systems?limit=10")]);
+    const total = await get("total"); await pause(300);
+    const hits = await get("hits?limit=100&group=day"); await pause(300);
+    const locations = await soft("locations?limit=15"); await pause(300);
+    const toprefs = await soft("toprefs?limit=15"); await pause(300);
+    const systems = await soft("systems?limit=10");
     const data = { days, at: Date.now(), total, hits: hits.hits, locations: locations?.stats || [], toprefs: toprefs?.stats || [], systems: systems?.stats || [] };
     statsCache[days] = { data, at: Date.now() };
     return json(data);
-  } catch (e) { return json({ error: "goatcounter", detail: String(e.message || e) }, 502); }
+  } catch (e) {
+    if (c) return json({ ...c.data, stale: true });   // keep showing the last good numbers
+    return json({ error: "goatcounter", detail: String(e.message || e) }, 502);
+  }
 }
 
 /* Officer = knows the officer password. The browser opens data/data-key.json with it and sends

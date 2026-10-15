@@ -48,8 +48,9 @@ async function load() {
   $("vw_err").hidden = true; $("vw_daily").innerHTML = `<div class="muted">${L().loading}</div>`;
   try {
     const p = await proofCompute();
-    const r = await fetch(AI_URL, { method: "POST", headers: { "Content-Type": "text/plain" }, body: JSON.stringify({ stats: 1, days, officerProof: p }) });
-    const d = await r.json();
+    // one quiet retry: a phone switching networks or a brief GoatCounter hiccup shouldn't show an error right away
+    const ask = () => fetch(AI_URL, { method: "POST", headers: { "Content-Type": "text/plain" }, body: JSON.stringify({ stats: 1, days, officerProof: p }) }).then((r) => r.json());
+    let d; try { d = await ask(); if (d.error === "goatcounter") throw 0; } catch (e) { await new Promise((r) => setTimeout(r, 1500)); d = await ask(); }
     if (d.error) throw new Error(d.error === "no_token" ? L().noToken : (d.detail || d.error));
     DATA = d; render();
   } catch (e) { $("vw_daily").innerHTML = ""; $("vw_err").hidden = false; $("vw_err").textContent = f(L().err, { e: e.message || e }); }
