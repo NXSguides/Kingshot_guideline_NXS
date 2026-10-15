@@ -605,16 +605,16 @@ function tbImage() {
 /* ===== 🔄 Shared plans: a named plan (e.g. "Legion 1") that every officer sees — ticks, weights, group sizes and the battle table.
    Saved encrypted on the site (data/ranking-plans-x7k2p9.json); open plans check for others' changes every 10 s.
    "Only on this device" works as before. ===== */
-const PL = { ko: {"noName": "이름 없음", "gone": "다른 사람이 이 계획을 삭제했어요. 체크한 사람은 이 기기에 남아 있어요.", "title": "📋 계획", "local": "🔒 이 기기에만", "newP": "+ 새 공유 계획", "ren": "이름 변경", "del": "삭제", "name": "공유 계획 이름 (예: 군단 1)", "copyQ": "지금 체크된 인원으로 시작할까요? (취소 = 빈 상태로 시작)", "delQ": "공유 계획 “{n}”을(를) 모두에게서 삭제할까요?", "localNote": "여기서 변경한 내용은 이 기기에만 남습니다.", "shared": "🔄 공유됨 — 모든 간부가 같은 체크와 표를 봅니다.", "last": "마지막 변경: {who} · {t}", "saving": "저장 중…", "saved": "✓ 저장됨", "err": "저장하지 못했습니다 — 다시 시도하는 중…", "noKey": "공유 계획에는 간부 GitHub 키가 필요합니다(공지 탭).", "loading": "공유 계획 불러오는 중…"},
- ar: {"noName": "بلا اسم", "gone": "حذف شخص آخر هذه الخطة؛ اختياراتك محفوظة على هذا الجهاز.", "title": "📋 الخطة", "local": "🔒 على هذا الجهاز فقط", "newP": "+ خطة مشتركة جديدة", "ren": "إعادة تسمية", "del": "حذف", "name": "اسم الخطة المشتركة (مثل الكتيبة 1)", "copyQ": "البدء بالأشخاص المحددين الآن؟ (إلغاء = البدء فارغة)", "delQ": "حذف الخطة المشتركة “{n}” للجميع؟", "localNote": "التغييرات هنا تبقى على هذا الجهاز فقط.", "shared": "🔄 مشتركة — يرى كل المسؤولين نفس العلامات والجدول.", "last": "آخر تغيير: {who} · {t}", "saving": "جارٍ الحفظ…", "saved": "✓ تم الحفظ", "err": "تعذّر الحفظ — جارٍ إعادة المحاولة…", "noKey": "الخطط المشتركة تتطلب مفتاح GitHub للمسؤولين (تبويب النشر).", "loading": "جارٍ تحميل الخطط المشتركة…"},
- pt: {"noName": "sem nome", "gone": "Este plano foi excluído por outra pessoa; suas marcações ficaram neste aparelho.", "title": "📋 Plano", "local": "🔒 Só neste aparelho", "newP": "+ Novo plano compartilhado", "ren": "Renomear", "del": "Excluir", "name": "Nome do plano compartilhado (ex.: Legião 1)", "copyQ": "Começar com as pessoas marcadas agora? (Cancelar = começar vazio)", "delQ": "Excluir o plano compartilhado “{n}” para todos?", "localNote": "As mudanças aqui ficam só neste aparelho.", "shared": "🔄 Compartilhado — todos os oficiais veem as mesmas marcações e a mesma tabela.", "last": "Última mudança: {who} · {t}", "saving": "Salvando…", "saved": "✓ Salvo", "err": "Não foi possível salvar — tentando de novo…", "noKey": "Planos compartilhados precisam da chave do GitHub dos oficiais (aba Post).", "loading": "Carregando planos compartilhados…"},
+const PL = { ko: {"edWho": "편집 가능:", "edAll": "모든 간부가 편집 가능", "edSome": "내가 고른 사람만", "edLimited": "이 사람들만 편집 가능:", "edNote": "👑 만든 사람과 관리자는 항상 편집할 수 있어요.", "edNo": "👁️ 보기만 가능: 만든 사람이 편집할 사람을 제한했어요.", "noName": "이름 없음", "gone": "다른 사람이 이 계획을 삭제했어요. 체크한 사람은 이 기기에 남아 있어요.", "title": "📋 계획", "local": "🔒 이 기기에만", "newP": "+ 새 공유 계획", "ren": "이름 변경", "del": "삭제", "name": "공유 계획 이름 (예: 군단 1)", "copyQ": "지금 체크된 인원으로 시작할까요? (취소 = 빈 상태로 시작)", "delQ": "공유 계획 “{n}”을(를) 모두에게서 삭제할까요?", "localNote": "여기서 변경한 내용은 이 기기에만 남습니다.", "shared": "🔄 공유됨 — 모든 간부가 같은 체크와 표를 봅니다.", "last": "마지막 변경: {who} · {t}", "saving": "저장 중…", "saved": "✓ 저장됨", "err": "저장하지 못했습니다 — 다시 시도하는 중…", "noKey": "공유 계획에는 간부 GitHub 키가 필요합니다(공지 탭).", "loading": "공유 계획 불러오는 중…"},
+ ar: {"edWho": "من يمكنه التعديل:", "edAll": "كل الضباط يمكنهم التعديل", "edSome": "فقط من أختارهم", "edLimited": "فقط هؤلاء يمكنهم التعديل:", "edNote": "👑 المُنشئ والمشرفون يمكنهم التعديل دائمًا.", "edNo": "👁️ عرض فقط: حدّد المُنشئ من يمكنه تغيير هذه الخطة.", "noName": "بلا اسم", "gone": "حذف شخص آخر هذه الخطة؛ اختياراتك محفوظة على هذا الجهاز.", "title": "📋 الخطة", "local": "🔒 على هذا الجهاز فقط", "newP": "+ خطة مشتركة جديدة", "ren": "إعادة تسمية", "del": "حذف", "name": "اسم الخطة المشتركة (مثل الكتيبة 1)", "copyQ": "البدء بالأشخاص المحددين الآن؟ (إلغاء = البدء فارغة)", "delQ": "حذف الخطة المشتركة “{n}” للجميع؟", "localNote": "التغييرات هنا تبقى على هذا الجهاز فقط.", "shared": "🔄 مشتركة — يرى كل المسؤولين نفس العلامات والجدول.", "last": "آخر تغيير: {who} · {t}", "saving": "جارٍ الحفظ…", "saved": "✓ تم الحفظ", "err": "تعذّر الحفظ — جارٍ إعادة المحاولة…", "noKey": "الخطط المشتركة تتطلب مفتاح GitHub للمسؤولين (تبويب النشر).", "loading": "جارٍ تحميل الخطط المشتركة…"},
+ pt: {"edWho": "Quem pode editar:", "edAll": "Todos os oficiais podem editar", "edSome": "Só quem eu escolher", "edLimited": "Só estes podem editar:", "edNote": "👑 O criador e os admins sempre podem editar.", "edNo": "👁️ Só leitura: o criador limitou quem pode mudar este plano.", "noName": "sem nome", "gone": "Este plano foi excluído por outra pessoa; suas marcações ficaram neste aparelho.", "title": "📋 Plano", "local": "🔒 Só neste aparelho", "newP": "+ Novo plano compartilhado", "ren": "Renomear", "del": "Excluir", "name": "Nome do plano compartilhado (ex.: Legião 1)", "copyQ": "Começar com as pessoas marcadas agora? (Cancelar = começar vazio)", "delQ": "Excluir o plano compartilhado “{n}” para todos?", "localNote": "As mudanças aqui ficam só neste aparelho.", "shared": "🔄 Compartilhado — todos os oficiais veem as mesmas marcações e a mesma tabela.", "last": "Última mudança: {who} · {t}", "saving": "Salvando…", "saved": "✓ Salvo", "err": "Não foi possível salvar — tentando de novo…", "noKey": "Planos compartilhados precisam da chave do GitHub dos oficiais (aba Post).", "loading": "Carregando planos compartilhados…"},
 
-  en: { noName: "no name", gone: "This plan was deleted by someone else; your ticks are kept on this device.", title: "📋 Plan", local: "🔒 Only on this device", newP: "+ New shared plan", ren: "Rename", del: "Delete",
+  en: { edWho: "Who can edit:", edAll: "Every officer can edit", edSome: "Only people I pick", edLimited: "Only these can edit:", edNote: "👑 The creator and admins can always edit.", edNo: "👁️ View only: the creator limited who can change this plan.", noName: "no name", gone: "This plan was deleted by someone else; your ticks are kept on this device.", title: "📋 Plan", local: "🔒 Only on this device", newP: "+ New shared plan", ren: "Rename", del: "Delete",
         name: "Name of the shared plan (e.g. Legion 1)", copyQ: "Start it with the people ticked now? (Cancel = start empty)",
         delQ: "Delete the shared plan “{n}” for everyone?", localNote: "Changes here stay on this device only.",
         shared: "🔄 Shared — every officer sees the same ticks and table.", last: "Last change: {who} · {t}", saving: "Saving…", saved: "✓ Saved",
         err: "Couldn't save — trying again…", noKey: "Shared plans need the officer GitHub key (Post tab).", loading: "Loading shared plans…" },
-  zh: { noName: "沒有名字", gone: "這個計畫已經被別人刪掉了，你勾的人留在這台裝置上。", title: "📋 方案", local: "🔒 只在這台裝置", newP: "+ 新增共用方案", ren: "改名", del: "刪除",
+  zh: { edWho: "誰可以編輯：", edAll: "所有幹部都可以編輯", edSome: "只有我選的人", edLimited: "只有這些人可以編輯：", edNote: "👑 建立者和管理員一定可以編輯。", edNo: "👁️ 這個計畫你只能看，不能改（建立者限定了編輯的人）。", noName: "沒有名字", gone: "這個計畫已經被別人刪掉了，你勾的人留在這台裝置上。", title: "📋 方案", local: "🔒 只在這台裝置", newP: "+ 新增共用方案", ren: "改名", del: "刪除",
         name: "共用方案的名字（例如 Legion 1）", copyQ: "要用現在勾選的人開始嗎？（取消 = 從空白開始）",
         delQ: "確定要為所有人刪除共用方案「{n}」？", localNote: "這裡的變更只存在這台裝置。",
         shared: "🔄 共用中 — 所有幹部看到的勾選和表格都一樣。", last: "最後修改：{who} · {t}", saving: "儲存中…", saved: "✓ 已儲存",
@@ -671,14 +671,42 @@ function planRenderBar() {
   $("planSel").innerHTML = `<option value="">${esc(pl("local"))}</option>` + ids.map((id) => `<option value="${esc(id)}">🔄 ${esc(planLabel(plans[id]))}</option>`).join("");
   if (planId && !plans[planId]) planId = "";
   $("planSel").value = planId;
-  $("planRen").hidden = $("planDel").hidden = !planId;
+  $("planRen").hidden = $("planDel").hidden = !planId || !planCanEdit(plans[planId]);
+  if ($("planEd") && !(document.activeElement && document.activeElement.closest && document.activeElement.closest("#planEd"))) $("planEd").innerHTML = OFFICER.token ? planEditorsHtml() : "";
   const p = planId && plans[planId];
   $("planStatus").textContent = !OFFICER.token ? pl("noKey") : !p ? pl("localNote")
-    : [pl("shared"), p.by ? pl("last", { who: p.by, t: new Date(p.at).toISOString().slice(5, 16).replace("-", "/").replace("T", " ") + " UTC" }) : "", planBusy ? pl("saving") : planErr || (planDirty ? "" : "")].filter(Boolean).join(" · ");
+    : [pl("shared"), planCanEdit(p) ? "" : pl("edNo"), p.by ? pl("last", { who: p.by, t: new Date(p.at).toISOString().slice(5, 16).replace("-", "/").replace("T", " ") + " UTC" }) : "", planBusy ? pl("saving") : planErr || (planDirty ? "" : "")].filter(Boolean).join(" · ");
 }
 /* local edits while a shared plan is open → save a moment later */
+/* ✏️ who may change a shared plan: "everyone" (default) or the plan's creator + chosen officers (+ admins).
+   Kept in the plan itself: owner = { id, name } of whoever made it (or first restricted it), editors = [Discord ids] when restricted.
+   Checked on this page (the plan file is shared by all officers, so it is a working rule, not a lock). */
+const myId = () => (OFFICER.user && OFFICER.user.id) || "";
+const planCanEdit = (p) => { if (!p || !p.editors) return true; const me = myId(); return !!me && (OFFICER.isAdmin() || (p.owner && p.owner.id === me) || p.editors.includes(me)); };
+const planCanSetEditors = (p) => !!p && !!myId() && (OFFICER.isAdmin() || !p.owner || p.owner.id === myId());
+function planEditorsHtml() {
+  const p = planId && plans[planId]; if (!p) return "";
+  const can = planCanSetEditors(p), users = (OFFICER.perms && OFFICER.perms.users) || {};
+  const ids = Object.keys(users).filter((id) => !(p.owner && p.owner.id === id));
+  const who = p.editors ? [p.owner && p.owner.name, ...p.editors.map((id) => (users[id] && users[id].name) || id)].filter(Boolean).join(", ") : "";
+  if (!can) return `<div class="muted" style="font-size:12.5px;margin-top:6px">✏️ ${esc(p.editors ? pl("edLimited") + " " + who : pl("edAll"))}</div>`;
+  return `<div class="pl-ed" style="margin-top:8px"><label class="muted" style="font-size:13px">✏️ ${esc(pl("edWho"))} <select class="inp" id="planEdMode" style="display:inline-block;width:auto;min-height:32px;padding:2px 8px">
+      <option value="all"${p.editors ? "" : " selected"}>${esc(pl("edAll"))}</option><option value="some"${p.editors ? " selected" : ""}>${esc(pl("edSome"))}</option></select></label>
+    ${p.editors ? `<div class="pl-edl">${p.owner ? `<span class="pl-edc on">👑 ${esc(p.owner.name || "?")}</span>` : ""}${ids.map((id) => `<label class="pl-edc${p.editors.includes(id) ? " on" : ""}"><input type="checkbox" data-ed="${esc(id)}"${p.editors.includes(id) ? " checked" : ""}> ${esc(users[id].name || id)}${users[id].admin ? " ⭐" : ""}</label>`).join("")}</div><div class="muted" style="font-size:12px">${esc(pl("edNote"))}</div>` : ""}</div>`;
+}
+function planSetEditors(editors) {
+  const p = plans[planId]; if (!p || !planCanSetEditors(p)) return;
+  if (!p.owner && myId()) p.owner = { id: myId(), name: planWho() };
+  if (editors) p.editors = editors; else delete p.editors;
+  planEdChange = { editors: editors || null, owner: p.owner || null }; planDirty = true; planSave(); planRenderBar();
+}
+let planEdChange = null;   // the who-can-edit change waiting to be saved
 function planTouched() {
   if (!planId || planApplying) return;
+  if (!planCanEdit(plans[planId])) {   // view only: put the plan back as it is and say why
+    planApplying = true; planBase = null; planApply(plans[planId]); planApplying = false;
+    $("planStatus").textContent = pl("edNo"); return;
+  }
   planDirty = true; clearTimeout(planTimer); planTimer = setTimeout(planSave, 1200);
 }
 async function planSave(tries = 0) {
@@ -694,6 +722,9 @@ async function planSave(tries = 0) {
     const ids = new Set(cur.picked || []);
     for (const id of mine.picked) if (!base.has(id)) ids.add(id);
     for (const id of base) if (!mine.picked.includes(id)) ids.delete(id);
+    if (planEdChange) { if (planEdChange.editors) cur.editors = planEdChange.editors; else delete cur.editors; if (planEdChange.owner) cur.owner = planEdChange.owner; }
+    if (!planCanEdit(cur) && !planEdChange) { planBusy = false; planDirty = false; planApply(cur); planRenderBar(); $("planStatus").textContent = pl("edNo"); return; }   // restricted meanwhile
+    planEdChange = null;
     plans[planId] = { ...cur, picked: [...ids], subs: mine.subs.filter((id) => ids.has(id)), wPower: mine.wPower, wts: mine.wts, counts: mine.counts, tb: mine.tb, by: planWho(), at: Date.now() };
     const res = await pgh("PUT", { message: `Ranking plan: ${cur.name}`.slice(0, 100), content: p64.enc(JSON.stringify(await OfficerData.seal({ plans }), null, 1) + "\n"), sha: planSha || undefined, branch: "main" });
     planSha = res && res.content ? res.content.sha : planSha;
@@ -732,13 +763,20 @@ async function plansInit() {
   document.addEventListener("visibilitychange", planPoll);
 }
 $("planSel").onchange = (e) => planSwitch(e.target.value);
+$("planEd").addEventListener("change", (e) => {
+  const p = plans[planId]; if (!p) return;
+  if (e.target.id === "planEdMode") return planSetEditors(e.target.value === "some" ? (p.editors || []) : null);
+  const id = e.target.dataset.ed; if (!id) return;
+  const ed = new Set(p.editors || []); if (e.target.checked) ed.add(id); else ed.delete(id);
+  planSetEditors([...ed]);
+});
 $("planNew").onclick = async () => {
   const name = (window.prompt(pl("name")) || "").trim(); if (!name) return;
   const start = picked.size && window.confirm(pl("copyQ"));
   const id = Math.random().toString(36).slice(2, 9);
   try { await planFetch(); } catch (e) {}
   const snap = planSnapshot();
-  plans[id] = { name: name.slice(0, 40), picked: start ? snap.picked : [], wPower: snap.wPower, wts: snap.wts, counts: snap.counts, tb: start ? snap.tb : tbDefault(), by: planWho(), at: Date.now() };
+  plans[id] = { ...(myId() ? { owner: { id: myId(), name: planWho() } } : {}), name: name.slice(0, 40), picked: start ? snap.picked : [], wPower: snap.wPower, wts: snap.wts, counts: snap.counts, tb: start ? snap.tb : tbDefault(), by: planWho(), at: Date.now() };
   if (!planId) store.local = snap;
   planId = id; store.planId = id; planDirty = false;
   planApply(plans[id]);
