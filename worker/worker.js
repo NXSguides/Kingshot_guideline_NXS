@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-15b";
+const VERSION = "2026-10-15c";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -282,6 +282,7 @@ async function check(req, env) {
     try { const r = await openData(JSON.parse(await getText("data/ai-officer.json")), env); out.officer_data = `ok (built ${String(r.built).slice(0, 16)}, ${r.text.length} characters)`; }
     catch (e) { out.officer_data = "ERROR " + e.message; }
   }
+  if (env.LIMITS) { try { out.session_key = (await env.LIMITS.get("session-key")) ? "set (logins survive secret changes)" : "made on first login"; } catch (e) { out.session_key = "ERROR " + e.message; } }
   if (env.TIMERS) {   // how big the stored data is (reads only) — a table that keeps growing points at what eats the daily write allowance
     try { out.db = await env.TIMERS.get(env.TIMERS.idFromName("all")).counts(); }
     catch (e) { out.db = "ERROR " + e.message; }
@@ -1020,21 +1021,38 @@ const DISCORD_ACCESS = {
 };
 const SESSION_DAYS = 30, RECHECK_MS = 10 * 60000, GRACE_MS = 24 * 3600000;
 
-async function sealKey(env) {
-  const raw = await crypto.subtle.digest("SHA-256", utf8("nxs-session|" + String(env.DISCORD_CLIENT_SECRET || "").trim()));
-  return crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["encrypt", "decrypt"]);
+/* Login tokens are sealed with a key made once and kept in KV ("session-key"), so re-pasting a secret or
+   reconnecting Cloudflare never logs everyone out. Tokens sealed with the old secret-derived key still open (legacy). */
+let sessionKeys = null;   // { main, legacy } cached per isolate
+async function sealKeys(env) {
+  if (sessionKeys) return sessionKeys;
+  const imp = (raw) => crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["encrypt", "decrypt"]);
+  const legacy = await imp(await crypto.subtle.digest("SHA-256", utf8("nxs-session|" + String(env.DISCORD_CLIENT_SECRET || "").trim())));
+  let main = legacy;
+  try {
+    if (env.LIMITS) {
+      let hex = await env.LIMITS.get("session-key");
+      if (!hex || hex.length !== 64) { hex = [...crypto.getRandomValues(new Uint8Array(32))].map((b) => b.toString(16).padStart(2, "0")).join(""); await env.LIMITS.put("session-key", hex); }
+      main = await imp(Uint8Array.from(hex.match(/../g), (h) => parseInt(h, 16)));
+    }
+  } catch (e) { main = legacy; sessionKeys = null; return { main, legacy }; }   // KV hiccup: don't cache, try again next time
+  return (sessionKeys = { main, legacy });
 }
 async function seal(env, obj) {
   const iv = crypto.getRandomValues(new Uint8Array(12));
-  const ct = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, await sealKey(env), utf8(JSON.stringify(obj)));
+  const ct = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, (await sealKeys(env)).main, utf8(JSON.stringify(obj)));
   return b64u.enc(iv) + "." + b64u.enc(ct);
 }
 async function unseal(env, s) {
-  try {
-    const [iv, ct] = String(s || "").split(".");
-    const pt = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64u.dec(iv) }, await sealKey(env), b64u.dec(ct));
-    return JSON.parse(new TextDecoder().decode(pt));
-  } catch (e) { return null; }
+  const [iv, ct] = String(s || "").split(".");
+  const keys = await sealKeys(env);
+  for (const k of [keys.main, keys.legacy]) {
+    try {
+      const pt = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64u.dec(iv) }, k, b64u.dec(ct));
+      return JSON.parse(new TextDecoder().decode(pt));
+    } catch (e) {}
+  }
+  return null;
 }
 const redirect = (url) => new Response(null, { status: 302, headers: { Location: url, "Cache-Control": "no-store" } });
 const callbackUrl = (req) => new URL(req.url).origin + "/auth/discord/callback";
