@@ -30,7 +30,7 @@ const T = { ko: {"rename": "이름을 눌러 바꿀 수 있어요 (사이트에 
 let lang = OFFICER.lang;
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
 const PP = () => OFFICER.perms;   // { users: { id: { name, perms: { tab: "edit"|"view"|"none" } } } } — shared with core.js (replaced when the server copy arrives)
-const TABS_P = ["events", "map", "ranking", "post", "watch", "scout", "views", "board", "attend"];   // 🐻 bear calculator is a public page now
+const TABS_P = ["events", "board", "map", "ranking", "attend", "post", "watch", "scout", "views"];   // same order as the tab bar   // 🐻 bear calculator is a public page now
 function render() {
   const tt = t("tabs"), lv = t("lv"), me = OFFICER.user && OFFICER.user.id;
   const rows = Object.entries(PP().users);

@@ -91,7 +91,7 @@ OFFICER.util = {
 OFFICER.OWNER = "1547403844374368327";   // Sparrow: always admin, can't be demoted or removed (so nobody can lock everyone out)
 OFFICER.ADMINS = [];                       // filled from the table (admin: true) by loadPerms
 OFFICER.PERMS_TRIAL = true;   // the 👥 table is kept and editable, but not enforced yet (set false when the login system goes live)
-OFFICER.PERM_TABS = ["events", "map", "ranking", "post", "watch", "scout", "views", "board", "attend"];
+OFFICER.PERM_TABS = ["events", "board", "map", "ranking", "attend", "post", "watch", "scout", "views"];
 OFFICER.defaultPerms = () => Object.fromEntries(OFFICER.PERM_TABS.map((k) => [k, k === "events" ? "view" : "none"]));   // new officer: Events, view only
 const PERMS_LS = "nxs-perms-v1";
 OFFICER.resetPerms = () => { OFFICER.perms = { v: 2, users: {
