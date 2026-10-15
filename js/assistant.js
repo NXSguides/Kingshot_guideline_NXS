@@ -223,11 +223,12 @@
     const bottom = Math.min(Math.max(pos && pos.bottom != null ? pos.bottom : 16, 8), vh - fh - 8), side = pos && pos.side === "r" ? "r" : "l";
     fab.style.left = side === "l" ? "16px" : "auto"; fab.style.right = side === "r" ? "16px" : "auto"; fab.style.bottom = bottom + "px"; fab.style.top = "auto";
     panel.style.left = side === "l" ? "16px" : "auto"; panel.style.right = side === "r" ? "16px" : "auto";
-    const ph = Math.min(520, vh - 110);
-    let pb = bottom + fh + 16;   // above the button
-    if (pb + ph > vh - 8) pb = Math.max(8, bottom - ph - 16);   // not enough room above: below it
-    if (pb < 8) pb = Math.max(8, vh - ph - 8);
-    panel.style.bottom = pb + "px"; panel.style.top = "auto";
+    // the panel never covers the button (so it can always be closed): it takes the larger of the room above / below, shrinking if needed
+    const above = vh - (bottom + fh + 12) - 8, below = bottom - 12 - 8, want = Math.min(520, vh - 110);
+    const useAbove = above >= want || above >= below;
+    const ph = Math.max(200, Math.min(want, useAbove ? above : below));
+    panel.style.height = ph + "px";
+    panel.style.bottom = (useAbove ? bottom + fh + 12 : Math.max(8, bottom - 12 - ph)) + "px"; panel.style.top = "auto";
     void vw;
   }
   fab.addEventListener("pointerdown", (e) => {

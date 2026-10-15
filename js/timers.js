@@ -665,7 +665,7 @@
   function quickHtml() {
     const keys = Object.keys(presets).filter((k) => PRESET_CATS.includes(k.split("|")[0]));
     const show = (v) => (Array.isArray(v) ? v : [v]).map(fmtLeft).join(" · ");
-    if (!keys.length || adding) return "";
+    if (!keys.length) return "";   // stays visible while the "set a timer" form is open
     return `<div class="tm-quick"><b>${esc(T("quick"))}</b><div class="tm-hint" style="margin:1px 0 6px">${esc(T("quickHint"))}</div><div class="tm-cats">` +
       keys.map((k) => { const [cat, sub, name, na] = k.split("|"), lab = labelOf({ cat, sub, name }) + (na === "na" ? " 🎖️" : "");
         return `<span class="tm-qc"><button type="button" class="tm-btn" data-quick="${esc(k)}">${CAT_EMOJI[cat]} ${esc(lab)}${Array.isArray(presets[k]) && presets[k].length > 1 ? ` ×${presets[k].length}` : ""} · <b dir="ltr">${esc(show(presets[k]))}</b> ▶</button><button type="button" class="tm-x" data-forget="${esc(k)}" title="${esc(T("forget"))}" aria-label="${esc(T("forget"))}">✕</button></span>`; }).join("") +
