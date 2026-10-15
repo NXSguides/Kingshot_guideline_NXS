@@ -141,15 +141,7 @@ function renderList() {
   $("rk_thMain").textContent = tr("colMain"); $("rk_thSub").textContent = tr("sub"); $("rk_thSub").title = tr("subHint");
 }
 
-/* Squad Power (the number on the Swordland "Legion" screens), checked against MightPulse for all 98 members on 2026-10-14:
-   the game's Migrant Score is almost exactly Squad Power × 317 → SP ≈ 0.00309 · migrant + 10 (mean error 1.7%, 20/20 of the top 20).
-   Members without a Migrant Score (not on that leaderboard) fall back to the fit on power / Mystic Trial / TC
-   (SP ≈ 2.70·power(M) + 0.499·Mystic + 8.7·TC − 296, mean error 6.5%). Refit from new Legion screenshots now and then. */
-const SP_FIT = { migrant: 0.00309, migrantC: 10, power: 2.70, mystic: 0.499, tc: 8.7, c: -296 };
-const migrantOf = (m) => m.migrant ?? (m.raw && m.raw.ranks && m.raw.ranks.migrant_score) ?? 0;
-const squadPower = (m) => migrantOf(m) > 0 ? SP_FIT.migrant * migrantOf(m) + SP_FIT.migrantC
-  : Math.max(0, SP_FIT.power * (m.power || 0) / 1e6 + SP_FIT.mystic * (m.mystic || 0) + SP_FIT.tc * (m.tc || 0) + SP_FIT.c);
-const spIsFallback = (m) => !(migrantOf(m) > 0);
+const SP_FIT = OFFICER.SP_FIT, migrantOf = OFFICER.migrantOf, squadPower = OFFICER.squadPower, spIsFallback = OFFICER.spIsFallback;   // formula: core.js
 const statOf = (m, k) => k === "migrant" ? (migrantOf(m) || null) : k === "sp" ? squadPower(m) : m[k];
 const statLabel = (k) => tr({ power: "power", mystic: "mystic", tc: "colTc", migrant: "colMigrant", sp: "colSp" }[k]);
 const fmtStat = (m, k) => { const v = statOf(m, k); if (v == null || v === 0 && k !== "tc") return '<span class="warn">?</span>'; return k === "tc" ? String(v) : k === "sp" ? (spIsFallback(m) ? "~" : "") + Math.round(v) : big(v); };

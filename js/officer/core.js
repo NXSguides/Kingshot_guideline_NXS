@@ -70,6 +70,14 @@ OFFICER.gh = async (method, path, body, token = OFFICER.token) => {
   if (!res.ok) throw new Error("net");
   return res.json();
 };
+/* Squad Power (the number on the Swordland "Legion" screens), checked against MightPulse for all 98 members on 2026-10-14:
+   the game's Migrant Score is almost exactly Squad Power × 317 → SP ≈ 0.00309 · migrant + 10 (mean error 1.7%, 20/20 of the top 20).
+   Without a Migrant Score: fit on power / Mystic Trial / TC (SP ≈ 2.70·power(M) + 0.499·Mystic + 8.7·TC − 296, mean error 6.5%).
+   Used by 📊 Ranking and 🔭 Scout. Refit from new Legion screenshots now and then. */
+OFFICER.SP_FIT = { migrant: 0.00309, migrantC: 10, power: 2.70, mystic: 0.499, tc: 8.7, c: -296 };
+OFFICER.migrantOf = (m) => m.migrant ?? (m.raw && m.raw.ranks && m.raw.ranks.migrant_score) ?? 0;
+OFFICER.squadPower = (m) => { const F = OFFICER.SP_FIT, mg = OFFICER.migrantOf(m); return mg > 0 ? F.migrant * mg + F.migrantC : Math.max(0, F.power * (m.power || 0) / 1e6 + F.mystic * (m.mystic || 0) + F.tc * (m.tc || 0) + F.c); };
+OFFICER.spIsFallback = (m) => !(OFFICER.migrantOf(m) > 0);
 OFFICER.util = {
   esc: (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])),
   b64ToUtf8: (b64) => new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\s/g, "")), (c) => c.charCodeAt(0))),

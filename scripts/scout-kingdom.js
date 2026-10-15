@@ -78,7 +78,7 @@ async function scoutKingdom(kid) {
   log(`  top list from ${source}: ${top.length} players, ${alliances.length} alliances`);
   if (!top.length) return null;
   // 2) each player's own record: TC, Mystic Trial, kills, VIP
-  const pl = await getMany(top.map((t) => `/players/${t.id}?include=base,ranks`), `Kingdom ${kid} players`);
+  const pl = await getMany(top.map((t) => `/players/${t.id}?include=base,ranks,heroes`), `Kingdom ${kid} players`);
   let ok = 0;
   const players = top.map((t, i) => {
     const r = pl[i], good = r.status === 200 && r.body;
@@ -89,6 +89,8 @@ async function scoutKingdom(kid) {
       power: p.power ?? t.power ?? null, tc: p.town_center_level ?? null, kills: p.kills ?? null,
       mystic: rk.mystic_trial ?? null, mysticRank: rk.mystic_rank ?? null, vip: p.vip ?? null,
       alliance: p.alliance?.abbr ?? t.alliance ?? null, kid: p.kid ?? kid,
+      migrant: rk.migrant_score ?? null,   // ≈ Squad Power × 317 (see js/officer/core.js)
+      raw: good ? { player: r.body.player, ranks: r.body.ranks, heroes: r.body.heroes } : null,   // everything MightPulse has, like the roster
     };
   }).sort((a, b) => (b.power || 0) - (a.power || 0));
   log(`  players read: ${ok}/${top.length}`);
