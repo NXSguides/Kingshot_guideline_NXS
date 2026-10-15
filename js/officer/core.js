@@ -100,7 +100,37 @@ OFFICER.resetPerms = () => { OFFICER.perms = { v: 2, users: {
   "762827904341246013": { name: "Nia", perms: OFFICER.defaultPerms() } } }; OFFICER.syncAdmins(); };
 OFFICER.syncAdmins = () => { const u = OFFICER.perms.users; if (u[OFFICER.OWNER]) u[OFFICER.OWNER].admin = true; OFFICER.ADMINS = Object.keys(u).filter((id) => u[id].admin); };
 OFFICER.loadPerms = () => { try { const p = JSON.parse(localStorage.getItem(PERMS_LS)); if (p && p.users && p.v === 2) { OFFICER.perms = p; OFFICER.syncAdmins(); return; } } catch (e) {} OFFICER.resetPerms(); };
-OFFICER.savePerms = () => { OFFICER.syncAdmins(); try { localStorage.setItem(PERMS_LS, JSON.stringify(OFFICER.perms)); } catch (e) {} };
+/* the table lives on the Worker (one copy for every device); the copy on this device only makes the page open at once */
+const permsCache = () => { try { localStorage.setItem(PERMS_LS, JSON.stringify(OFFICER.perms)); } catch (e) {} };
+OFFICER.permsState = "";   // "" | "saving" | "saved" | "error:<code>"
+async function permsApi(op, extra) {
+  let tok = null; try { tok = localStorage.getItem(DISCORD_LS); } catch (e) {}
+  if (!tok) throw Object.assign(new Error("logged_out"), { code: "logged_out" });
+  const r = await fetch(AUTH_API + "/perms", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: tok, op, ...extra }) });
+  const j = await r.json().catch(() => ({ error: "network" }));
+  if (j.token) { try { localStorage.setItem(DISCORD_LS, j.token); } catch (e) {} }
+  if (!r.ok || j.error) throw Object.assign(new Error(j.error || "HTTP " + r.status), { code: j.error || "network" });
+  return j;
+}
+const permsChanged = () => { OFFICER.applyPerms && OFFICER.applyPerms(); window.dispatchEvent(new Event("nxs-perms")); };
+OFFICER.fetchPerms = async () => {
+  try {
+    const j = await permsApi("get");
+    if (j.perms && j.perms.users) { OFFICER.perms = j.perms; OFFICER.syncAdmins(); permsCache(); permsChanged(); }
+    else if (OFFICER.isAdmin()) OFFICER.savePerms();   // nothing on the server yet: the admin's table becomes the shared one
+  } catch (e) {}
+};
+let permsTimer = null;
+OFFICER.savePerms = () => {
+  OFFICER.syncAdmins(); permsCache();
+  OFFICER.permsState = "saving"; permsChanged();
+  clearTimeout(permsTimer);
+  permsTimer = setTimeout(async () => {
+    try { const j = await permsApi("save", { perms: OFFICER.perms }); if (j.perms) { OFFICER.perms = j.perms; OFFICER.syncAdmins(); permsCache(); } OFFICER.permsState = "saved"; }
+    catch (e) { OFFICER.permsState = "error:" + (e.code || e.message); if (e.code === "not_admin") { permsChanged(); return OFFICER.fetchPerms(); } }   // not allowed: show the real table again
+    permsChanged();
+  }, 600);
+};
 OFFICER.loadPerms();
 OFFICER.previewAs = null;   // an admin can look at the page with another officer's rights (👥 tab → "Preview as")
 OFFICER.isAdmin = () => !!OFFICER.user && OFFICER.ADMINS.includes(OFFICER.user.id);   // the real person (a preview never hides the 👥 tab)
@@ -259,7 +289,7 @@ async function officerGate() {
   let blob = await OfficerData.postKey();
   if (!blob) return showTab();                               // not set up yet → open (the Post tab shows the setup card)
   const checkPw = async (pw) => (await officerDecrypt(pw, blob)) || (await officerDecrypt(pw, blob = (await OfficerData.postKey(true)) || blob));
-  const ok = async (pw, tok) => { OFFICER.pw = pw; OFFICER.token = tok; await OfficerData.unlock(pw); document.getElementById("gate").hidden = true; showMe(); showTab(); };
+  const ok = async (pw, tok) => { OFFICER.pw = pw; OFFICER.token = tok; await OfficerData.unlock(pw); document.getElementById("gate").hidden = true; showMe(); showTab(); if (OFFICER.user) OFFICER.fetchPerms(); };
   // 🔑 logged in with Discord: the Worker re-checks the list and gives the password to open the officer data
   let dtok = null; try { dtok = localStorage.getItem(DISCORD_LS); } catch (e) {}
   if (dtok) {

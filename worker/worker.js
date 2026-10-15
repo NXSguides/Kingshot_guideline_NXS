@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-15e";
+const VERSION = "2026-10-15f";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -60,7 +60,7 @@ async function handle(req, env, ctx) {
   {
     if (req.method === "OPTIONS") return new Response(null, { headers: cors });
     const path = new URL(req.url).pathname;
-    if (path.startsWith("/auth/") || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend") return authRoute(req, env, path, ctx);   // 🔑 officer login with Discord
+    if (path.startsWith("/auth/") || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/perms") return authRoute(req, env, path, ctx);   // 🔑 officer login with Discord
     if (path === "/push/save" || path === "/push/test") {
       if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
       return pushRoute(req, env, path);
@@ -627,18 +627,21 @@ export class PushTimers extends DurableObject {
     this.sql.exec(`CREATE TABLE IF NOT EXISTS bl (uid TEXT PRIMARY KEY, lang TEXT)`);
     // 📣 @mentions and 📋 tasks: bu = officers seen on the board (for the @ picker); bp.meta = { m: [uid], to: [uid], done: { uid: at } }
     this.sql.exec(`CREATE TABLE IF NOT EXISTS bu (uid TEXT PRIMARY KEY, name TEXT, avatar TEXT, at INTEGER)`);
-    this.sql.exec(`CREATE TABLE IF NOT EXISTS att (id TEXT PRIMARY KEY, data TEXT, at INTEGER)`);   // 📋 attendance: one row per event (JSON)
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS att (id TEXT PRIMARY KEY, data TEXT, at INTEGER)`);
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS kv (k TEXT PRIMARY KEY, v TEXT, at INTEGER)`);   // small shared settings (👥 officer table)   // 📋 attendance: one row per event (JSON)
     try { this.sql.exec(`ALTER TABLE bp ADD COLUMN meta TEXT`); } catch (e) {}
   }
   counts() {
     const o = {};
-    for (const t of ["t", "usub", "sync", "bt", "bp", "bl", "bu", "att"]) o[t] = [...this.sql.exec(`SELECT COUNT(*) AS n FROM ${t}`)][0].n;
+    for (const t of ["t", "usub", "sync", "bt", "bp", "bl", "bu", "att", "kv"]) o[t] = [...this.sql.exec(`SELECT COUNT(*) AS n FROM ${t}`)][0].n;
     o.phones = [...this.sql.exec(`SELECT COUNT(DISTINCT ep) AS n FROM t`)][0].n;
     const nx = [...this.sql.exec(`SELECT MIN(at) AS at FROM t`)][0].at;
     o.next_alarm = nx ? new Date(nx).toISOString() : null;
     o.alarm_runs_today = this.alarmRuns || 0;
     return o;
   }
+  kvGet(k) { const r = [...this.sql.exec(`SELECT v FROM kv WHERE k = ?`, k)][0]; try { return r ? JSON.parse(r.v) : null; } catch (e) { return null; } }
+  kvSet(k, obj) { const v = JSON.stringify(obj); const r = [...this.sql.exec(`SELECT v FROM kv WHERE k = ?`, k)][0]; if (r && r.v === v) return false; this.sql.exec(`INSERT OR REPLACE INTO kv VALUES (?, ?, ?)`, k, v, Date.now()); return true; }
   /* ---- 💬 board ---- */
   boardLang(uid, lang) { if (lang && ([...this.sql.exec(`SELECT lang FROM bl WHERE uid = ?`, uid)][0] || {}).lang !== lang) this.sql.exec(`INSERT OR REPLACE INTO bl VALUES (?, ?)`, uid, lang); }
   boardUser(by, lang) {   // written only when the name / picture changed
@@ -907,6 +910,32 @@ async function boardTouch(env) {
 }
 /* 📋 /attend — who confirmed for an event and who showed up. ops: list · save {ev} · del {id} · ocr {images: [dataURL…]}
    An event: { id, title, date: "2026-10-18", slots: [{ name, confirmed: [{id, name}], present: [id…], excused: [id…] }] } */
+/* 👥 officer table (who sees / edits which tab), kept on the server so every device shows the same table.
+   Anyone logged in can read it (it decides their own tabs); only admins in the table (and the owner) can change it. */
+const PERMS_OWNER = "1547403844374368327";   // Sparrow — always admin (same as OFFICER.OWNER on the page)
+const PERM_LEVELS = ["edit", "view", "none"];
+async function permsRoute(stub, user, body, token) {
+  const op = String(body.op || "get");
+  const cur = await stub.kvGet("perms");
+  if (op === "get") return json({ ok: true, token, perms: cur });
+  if (op !== "save") return json({ error: "bad request" }, 400);
+  const isAdmin = user.id === PERMS_OWNER || !!(cur && cur.users && cur.users[user.id] && cur.users[user.id].admin);
+  if (!isAdmin) return json({ error: "not_admin" }, 403);
+  const inc = body.perms && typeof body.perms === "object" && body.perms.users && typeof body.perms.users === "object" ? body.perms.users : null;
+  if (!inc) return json({ error: "bad request" }, 400);
+  const users = {};
+  for (const [id, u] of Object.entries(inc).slice(0, 200)) {
+    if (!/^\d{5,25}$/.test(id) || !u || typeof u !== "object") continue;
+    const perms = {};
+    for (const [k, v] of Object.entries(u.perms || {}).slice(0, 30)) if (/^[a-z]{1,12}$/.test(k) && PERM_LEVELS.includes(v)) perms[k] = v;
+    users[id] = { name: String(u.name || "").slice(0, 40), ...(u.admin || id === PERMS_OWNER ? { admin: true } : {}), perms };
+  }
+  if (!users[PERMS_OWNER]) users[PERMS_OWNER] = { name: "Sparrow", admin: true, perms: {} };   // nobody can lock the owner out
+  const perms = { v: 2, users, by: { id: user.id, name: user.name }, at: Date.now() };
+  try { await stub.kvSet("perms", perms); }
+  catch (e) { return json({ error: /exceeded allowed|free tier|limit/i.test(String(e && e.message)) ? "db_limit" : "db", detail: [String(e && e.message || e)] }, 503); }
+  return json({ ok: true, token, perms });
+}
 async function attendRoute(env, stub, user, body, token) {
   const op = String(body.op || "list");
   const write = async (fn) => { try { return await fn(); } catch (e) { return json({ error: /limit|exceed|quota|allow/i.test(String(e && e.message)) ? "db_limit" : "db", detail: [String(e && e.message || e)] }, 503); } };
@@ -1123,7 +1152,7 @@ async function authRoute(req, env, path, ctx) {
       return back("login=" + session);
     } catch (e) { return back("login_error=discord"); }
   }
-  if (path === "/auth/me" || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend") {
+  if (path === "/auth/me" || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/perms") {
     if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
     let body; try { body = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
     const c = await sessionCheck(req, env, body.token);
@@ -1137,6 +1166,7 @@ async function authRoute(req, env, path, ctx) {
     const stub = env.TIMERS.get(env.TIMERS.idFromName("all"));
     if (path === "/board") return boardRoute(env, ctx, stub, s.u, body, token);
     if (path === "/attend") return attendRoute(env, stub, s.u, body, token);
+    if (path === "/perms") return permsRoute(stub, s.u, body, token);
     if (path === "/sync/forget") { if (body.sub && body.sub.endpoint) await stub.forget(String(body.sub.endpoint)); return json({ ok: true }); }
     const st = body.state && typeof body.state === "object" ? body.state : {};
     try { return json({ ok: true, user: s.u, token, state: await stub.syncMerge(s.u.id, st) }); }

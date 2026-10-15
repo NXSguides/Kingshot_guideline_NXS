@@ -15,6 +15,7 @@ fail=0
 expect() { local got; got=$(post "$1" "$2"); if echo "$got" | grep -q "$3"; then echo "✅ $1 → $3"; else echo "❌ $1 expected $3, got: $got"; fail=1; fi; }
 expect /board   '{"op":"list"}'   '"logged_out"'
 expect /attend  '{"op":"list"}'   '"logged_out"'
+expect /perms   '{"op":"get"}'    '"logged_out"'
 expect /sync    '{}'              '"logged_out"'
 expect /auth/me '{}'              '"logged_out"'
 expect /push/save '{"sub":{"endpoint":"https://x.example/a","keys":{"p256dh":"a","auth":"b"}},"timers":[]}' '"ok":true\|push_key_missing'
