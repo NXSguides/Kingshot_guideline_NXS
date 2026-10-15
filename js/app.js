@@ -1367,7 +1367,8 @@ window.addEventListener("hashchange", () => {
   const go = () => { safeSet("nxs-officer-lang", ["zh", "en", "pt", "ar", "ko"].includes(currentLang) ? currentLang : "en"); location.href = "officer-x7k2p9.html#events"; };
   /* 📋 a browser that has already got in (Discord login or a remembered officer password) gets a one-tap button at the top */
   const ob = document.getElementById("officerBtn");
-  const isIn = () => { try { return !!localStorage.getItem("nxs-discord-v1") || !!(JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw); } catch (e) { return false; } };
+  // only a Discord login can have got in (the Worker only gives a login to people in the 👥 table); a saved officer password no longer counts
+  const isIn = () => { try { return !!localStorage.getItem("nxs-discord-v1"); } catch (e) { return false; } };
   if (ob) { ob.hidden = !isIn(); ob.onclick = go; window.addEventListener("storage", () => { ob.hidden = !isIn(); }); }
   let taps = 0, timer = null;
   title.addEventListener("click", () => {
