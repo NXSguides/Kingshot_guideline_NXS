@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-15i";
+const VERSION = "2026-10-15j";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -996,6 +996,7 @@ async function boardRoute(env, ctx, stub, user, body, token) {
   // polls: nothing changed since the page last looked → answer without touching the Durable Object
   const since = +body.since || 0, stamp = await boardStamp(env);
   if ((op === "list" || op === "get") && since && stamp && stamp <= since) return ok({ unchanged: true, stamp });
+  if (user.pw && op !== "list" && op !== "get") return json({ error: "login_to_post" }, 403);   // officer password only: read, but log in with Discord to write
   // name + language (for @ pickers and notifications): on writes and on the first look of a visit. Reading must still work when
   // writing is impossible (daily write allowance used up), so a failure here is ignored
   if (op !== "list" && op !== "get" || body.first) { try { await stub.boardUser(by, lang); } catch (e) {} }
