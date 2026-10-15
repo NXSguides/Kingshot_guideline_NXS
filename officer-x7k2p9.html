@@ -214,6 +214,14 @@
   #pg-map .km-mp iframe { width: 100%; height: min(75vh, 640px); border: 1px solid var(--rule); border-radius: 10px; margin-top: 10px; background: var(--panel-2); }
   #pg-board .bd-note { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--panel)); display: flex; flex-wrap: wrap; align-items: center; gap: 10px; justify-content: space-between; }
   #pg-board .bd-tip { clear: both; margin: 12px 0 14px; padding: 10px 14px; font-size: 15px; line-height: 1.5; font-weight: 600; color: var(--text); background: color-mix(in srgb, #e0a800 16%, var(--panel)); border: 1px solid #e0a800; border-inline-start: 5px solid #e0a800; border-radius: 10px; }
+  /* 🔒 Discord login only: the officer-password part of the gate is gone */
+  #gate #gateOr, #gate #gateTitle, #gate #gatePw, #gate label, #gate #gateBtn, #gate #gateErr { display: none !important; }
+  /* 👁️ view-only officers on the board: read only; posts that @ them or assign them a task stand out */
+  #pg-board.view-only #bd_newBtn, #pg-board.view-only .bd-form, #pg-board.view-only [data-edit], #pg-board.view-only [data-del], #pg-board.view-only [data-dec], #pg-board.view-only [data-done], #pg-board.view-only #bd_reply, #pg-board.view-only .bd-reply { display: none !important; }
+  #pg-board.view-only.readonly::before, #pg-board.view-only #bd_tip { display: none; }
+  #pg-board .bd-post.bd-forme { border: 2px solid #f0a500; background: color-mix(in srgb, #f0a500 12%, var(--panel)); box-shadow: 0 0 0 3px color-mix(in srgb, #f0a500 25%, transparent); }
+  #pg-board .bd-forme-tag { display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: 999px; background: #f0a500; color: #1b1300; font-size: 12px; font-weight: 800; }
+  #pg-board .bd-tasks { border: 2px solid #f0a500; background: color-mix(in srgb, #f0a500 10%, var(--panel)); }
   #pg-board.pw-only #bd_newBtn, #pg-board.pw-only .bd-form, #pg-board.pw-only [data-edit], #pg-board.pw-only [data-del], #pg-board.pw-only [data-dec], #pg-board.pw-only [data-done] { display: none !important; }
   #pg-attend .chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
   #pg-attend .chip { display: inline-flex; align-items: stretch; border: 1px solid var(--rule); border-radius: 8px; font-size: 13px; overflow: hidden; }

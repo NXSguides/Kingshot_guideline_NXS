@@ -103,6 +103,11 @@ window.OfficerData = (() => {
     return true;
   }
 
+  /* 👁️ view-only officers: the Worker hands the data key itself (no password), and an admin page reads it out once to give it to the Worker */
+  let rawB64 = null;
+  async function unlockRaw(b64) { if (!b64) return false; key = await crypto.subtle.importKey("raw", dec(b64), "AES-GCM", false, ["decrypt"]); rawB64 = b64; return true; }
+  async function rawKey() { if (rawB64) return rawB64; try { const blob = await keyBlob(KEY_FILE); const raw = blob && window.__nxsOfficerPw && await unwrap(blob, window.__nxsOfficerPw); return raw ? (rawB64 = enc(raw)) : null; } catch (e) { return null; } }
+
   /* gz: 1 = gzipped before encryption (the big files download 5–8× faster that way) */
   const canZip = typeof CompressionStream !== "undefined" && typeof DecompressionStream !== "undefined";
   const pipe = (bytes, stream) => new Response(new Blob([bytes]).stream().pipeThrough(stream)).arrayBuffer();
@@ -127,7 +132,7 @@ window.OfficerData = (() => {
     return open(await r.json());
   }
 
-  return { KEY_FILE, unlock, open, seal, fetchJson, fetchJsonFast, cacheGet, cacheSet, fetchKeyFile, dataKeyBlob, postKey, unwrap, wrap, enc, pbkdf, ready: () => !!key };
+  return { KEY_FILE, unlock, unlockRaw, rawKey, open, seal, fetchJson, fetchJsonFast, cacheGet, cacheSet, fetchKeyFile, dataKeyBlob, postKey, unwrap, wrap, enc, pbkdf, ready: () => !!key };
 })();
 
 /* ===== Tab names at the top of the officer pages follow the page language (English / 中文 / Português) ===== */

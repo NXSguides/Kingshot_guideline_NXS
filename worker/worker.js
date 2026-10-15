@@ -932,12 +932,18 @@ async function boardTouch(env) {
    Anyone logged in can read it (it decides their own tabs); only admins in the table (and the owner) can change it. */
 const PERMS_OWNER = "1547403844374368327";   // Sparrow — always admin (same as OFFICER.OWNER on the page)
 const PERM_LEVELS = ["edit", "view", "none"];
-async function permsRoute(stub, user, body, token) {
+async function permsRoute(stub, user, body, token, role) {
   const op = String(body.op || "get");
-  const cur = await stub.kvGet("perms");
+  const cur = withSeed(await stub.kvGet("perms"));
   if (op === "get") return json({ ok: true, token, perms: cur, user });
-  if (op === "rename") {   // everyone may change their OWN name on the site (admins change anyone's in the table)
-    if (user.pw) return json({ error: "logged_out" }, 401);   // password-only: the name is the author name kept on the device
+  if (op === "setdk") {   // 🔐 an admin's page hands over the data key once, so viewers can read without the password
+    if (role !== "admin") return json({ error: "not_admin" }, 403);
+    const k = String(body.dk || ""); if (!/^[A-Za-z0-9+/]{43}=$/.test(k)) return json({ error: "bad request" }, 400);
+    try { await stub.kvSet("dk", { k, at: Date.now() }); } catch (e) { return json({ error: "db" }, 503); }
+    return json({ ok: true, token });
+  }
+  if (op === "rename") {   // admins / editors may change their OWN name on the site (viewers can't change anything)
+    if (role === "viewer") return json({ error: "view_only" }, 403);
     const name = String(body.name || "").replace(/\s+/g, " ").trim().slice(0, 40);
     if (!name) return json({ error: "bad request" }, 400);
     try {
@@ -947,7 +953,7 @@ async function permsRoute(stub, user, body, token) {
     return json({ ok: true, token, perms: await stub.kvGet("perms"), user: { ...user, name } });
   }
   if (op !== "save") return json({ error: "bad request" }, 400);
-  const isAdmin = user.id === PERMS_OWNER || !!(cur && cur.users && cur.users[user.id] && cur.users[user.id].admin);
+  const isAdmin = role === "admin";
   if (!isAdmin) return json({ error: "not_admin" }, 403);
   const inc = body.perms && typeof body.perms === "object" && body.perms.users && typeof body.perms.users === "object" ? body.perms.users : null;
   if (!inc) return json({ error: "bad request" }, 400);
@@ -956,10 +962,11 @@ async function permsRoute(stub, user, body, token) {
     if (!/^\d{5,25}$/.test(id) || !u || typeof u !== "object") continue;
     const perms = {};
     for (const [k, v] of Object.entries(u.perms || {}).slice(0, 30)) if (/^[a-z]{1,12}$/.test(k) && PERM_LEVELS.includes(v)) perms[k] = v;
-    users[id] = { name: String(u.name || "").slice(0, 40), ...(u.admin || id === PERMS_OWNER ? { admin: true } : {}), perms };
+    users[id] = { name: String(u.name || "").slice(0, 40), ...(u.admin || ADMIN_IDS.includes(id) ? { admin: true } : {}), perms };
   }
   if (!users[PERMS_OWNER]) users[PERMS_OWNER] = { name: "Sparrow", admin: true, perms: {} };   // nobody can lock the owner out
-  const perms = { v: 2, users, by: { id: user.id, name: user.name }, at: Date.now() };
+  const seedOut = Object.keys(SEED_VIEWERS).filter((id) => !users[id]);   // seeded people the admin removed stay removed
+  const perms = { v: 2, users, seedOut, by: { id: user.id, name: user.name }, at: Date.now() };
   try {
     await stub.kvSet("perms", perms);
     const names = (await stub.kvGet("names")) || {}; let ch = false;   // names given in the table are the site names too
@@ -969,8 +976,9 @@ async function permsRoute(stub, user, body, token) {
   catch (e) { return json({ error: /exceeded allowed|free tier|limit/i.test(String(e && e.message)) ? "db_limit" : "db", detail: [String(e && e.message || e)] }, 503); }
   return json({ ok: true, token, perms });
 }
-async function attendRoute(env, stub, user, body, token) {
+async function attendRoute(env, stub, user, body, token, mayEdit) {
   const op = String(body.op || "list");
+  if (op !== "list" && !mayEdit) return json({ error: "view_only" }, 403);
   const write = async (fn) => { try { return await fn(); } catch (e) { return json({ error: /limit|exceed|quota|allow/i.test(String(e && e.message)) ? "db_limit" : "db", detail: [String(e && e.message || e)] }, 503); } };
   if (op === "list") return json({ ok: true, token, events: await stub.attList() });
   if (op === "save") return write(async () => {
@@ -1005,14 +1013,14 @@ async function attendRoute(env, stub, user, body, token) {
   }
   return json({ error: "bad op" }, 400);
 }
-async function boardRoute(env, ctx, stub, user, body, token) {
+async function boardRoute(env, ctx, stub, user, body, token, mayPost) {
   const op = body.op, lang = BOARD_LANGS.includes(body.lang) ? body.lang : null;
   const by = { id: user.id, name: user.name, avatar: user.avatar || "" };
   const ok = (o) => json({ ok: true, token, ...o });
   // polls: nothing changed since the page last looked → answer without touching the Durable Object
   const since = +body.since || 0, stamp = await boardStamp(env);
   if ((op === "list" || op === "get") && since && stamp && stamp <= since) return ok({ unchanged: true, stamp });
-  if (user.pw && op !== "list" && op !== "get") return json({ error: "login_to_post" }, 403);   // officer password only: read, but log in with Discord to write
+  if (!mayPost && op !== "list" && op !== "get") return json({ error: "view_only" }, 403);   // 👁️ view-only on the 👥 table: read, nothing else
   // name + language (for @ pickers and notifications): on writes and on the first look of a visit. Reading must still work when
   // writing is impossible (daily write allowance used up), so a failure here is ignored
   if (op !== "list" && op !== "get" || body.first) { try { await stub.boardUser(by, lang); } catch (e) {} }
@@ -1075,9 +1083,31 @@ async function boardRoute(env, ctx, stub, user, body, token) {
 const DISCORD = {
   client: "1559587282615402516",
   guild: "1530709485042270258",
-  scope: "identify guilds.members.read",
+  scope: "identify",   // no server check any more: who may log in = the 👥 table (+ ADMIN_IDS)
 };
-/* who may open the officer page: Discord user IDs (testing: three people), and/or role IDs on our server */
+/* the three admins (Sparrow, R5, Nia): always allowed, always admin. Everyone else must be in the 👥 table (kv "perms"). */
+const ADMIN_IDS = ["1547403844374368327", "1240788094672834623", "762827904341246013"];
+/* view-only officers added by Sparrow (2026-10-16): put into the 👥 table with Events / Board / Map "view" if they aren't in it yet.
+   After that the table is the truth — change or remove them on the 👥 tab. */
+const SEED_VIEWERS = {"741447079804797041": "firebaugh", "734803550672257104": "ASHISH", "961642100150124555": "BOO", "1526789098210197638": "ELR", "216564539041251329": "flip", "1534039396461056172": "JORDAN", "1525666601456767171": "PAPA", "706153853460021341": "Tiger", "1003385592983322664": "Δйʊвιŝ"};
+const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", scout: "none", views: "none" };
+function withSeed(perms) {
+  const p = perms && perms.users ? perms : { v: 2, users: {} };
+  const gone = new Set(p.seedOut || []);   // removed on the 👥 tab → don't bring back
+  for (const [id, name] of Object.entries(SEED_VIEWERS)) if (!p.users[id] && !gone.has(id)) p.users[id] = { name, perms: { ...VIEW_DEFAULT } };
+  for (const id of ADMIN_IDS) if (p.users[id]) p.users[id].admin = true;
+  return p;
+}
+/* role from the 👥 table: "admin" | "editor" (edit right on some tab) | "viewer" | null (not on the list) */
+function roleOf(perms, id) {
+  if (ADMIN_IDS.includes(id)) return "admin";
+  const u = perms && perms.users && perms.users[id];
+  if (!u) return null;
+  if (u.admin) return "admin";
+  return Object.values(u.perms || {}).includes("edit") ? "editor" : "viewer";
+}
+const canEdit = (perms, id, tab) => { const r = roleOf(perms, id); if (r === "admin") return true; const u = perms && perms.users && perms.users[id]; return !!(u && u.perms && u.perms[tab] === "edit"); };
+/* (old) who may open the officer page: Discord user IDs, and/or role IDs on our server */
 const DISCORD_ACCESS = {
   users: ["1547403844374368327", "1240788094672834623", "762827904341246013"],
   roles: [],
@@ -1129,17 +1159,17 @@ async function discordToken(req, env, params) {
   return r.json();
 }
 /* who is this, and are they allowed? → { ok, user } | { ok:false, why } ; throws when Discord can't be reached */
-async function discordCheck(access) {
+async function discordCheck(access, env) {
   const h = { Authorization: "Bearer " + access };
   const me = await fetch("https://discord.com/api/v10/users/@me", { headers: h });
   if (me.status === 401) return { ok: false, why: "expired" };
   if (!me.ok) throw new Error("me " + me.status);
   const u = await me.json();
-  const mr = await fetch(`https://discord.com/api/v10/users/@me/guilds/${DISCORD.guild}/member`, { headers: h });
-  if (mr.status === 404 || mr.status === 403) return { ok: false, why: "not_member" };
-  if (!mr.ok) throw new Error("member " + mr.status);
-  const m = await mr.json();
-  const allowed = DISCORD_ACCESS.users.includes(u.id) || (m.roles || []).some((r) => DISCORD_ACCESS.roles.includes(r));
+  let m = {};   // server nickname if we can still see it (older logins); not needed to get in
+  try { const mr = await fetch(`https://discord.com/api/v10/users/@me/guilds/${DISCORD.guild}/member`, { headers: h }); if (mr.ok) m = await mr.json(); } catch (e) {}
+  let perms = null; try { const stub = env && env.TIMERS ? env.TIMERS.get(env.TIMERS.idFromName("all")) : null; perms = stub ? await stub.kvGet("perms") : null; } catch (e) {}
+  perms = withSeed(perms);
+  const allowed = !!roleOf(perms, u.id);
   const user = { id: u.id, name: m.nick || u.global_name || u.username, avatar: u.avatar ? `https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png?size=64` : "" };
   return allowed ? { ok: true, user } : { ok: false, why: "no_access", user };
 }
@@ -1151,7 +1181,7 @@ async function sessionCheck(req, env, token) {
   if (now - s.chk > RECHECK_MS) {
     try {
       if (now > s.ax) { const tk = await discordToken(req, env, { grant_type: "refresh_token", refresh_token: s.rt }); Object.assign(s, { at: tk.access_token, rt: tk.refresh_token || s.rt, ax: now + (tk.expires_in || 604800) * 1000 - 60000 }); }
-      const c = await discordCheck(s.at);
+      const c = await discordCheck(s.at, env);
       if (!c.ok) return c.why === "expired" ? { error: "logged_out", status: 401 } : { error: c.why, status: 403, user: c.user };
       s.u = c.user; s.chk = now;
     } catch (e) {
@@ -1179,7 +1209,7 @@ async function authRoute(req, env, path, ctx) {
     if (!code) return back("login_error=cancelled");
     try {
       const tk = await discordToken(req, env, { grant_type: "authorization_code", code, redirect_uri: callbackUrl(req) });
-      const c = await discordCheck(tk.access_token);
+      const c = await discordCheck(tk.access_token, env);
       if (!c.ok) return back("login_error=" + c.why);
       const now = Date.now();
       const session = await seal(env, { u: c.user, at: tk.access_token, rt: tk.refresh_token, ax: now + (tk.expires_in || 604800) * 1000 - 60000, chk: now, exp: now + SESSION_DAYS * 86400000 });
@@ -1189,27 +1219,25 @@ async function authRoute(req, env, path, ctx) {
   if (path === "/auth/me" || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/perms") {
     if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
     let body; try { body = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
-    let c;
-    // 🔑 unlocked with the officer password only (no Discord): allowed on the board, attendance and reading the 👥 table
-    if (!body.token && body.pw && (path === "/board" || path === "/attend" || path === "/perms")) {
-      if (!env.OFFICER_PASSWORD || String(body.pw).trim() !== String(env.OFFICER_PASSWORD).trim()) return json({ error: "logged_out" }, 401);
-      const nm = String(body.pwName || "").replace(/\s+/g, " ").trim().slice(0, 40) || "Officer";
-      c = { s: { pw: true, u: { id: "pw-" + (nm.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-|-$/g, "").slice(0, 30) || "officer"), name: nm, pw: true } } };
-    } else c = await sessionCheck(req, env, body.token);
+    const c = await sessionCheck(req, env, body.token);   // Discord login only (the officer password alone no longer opens anything)
     if (c.error) return json({ error: c.error, user: c.user }, c.status);
     const s = c.s, token = s.pw ? undefined : await seal(env, s);
     const stub = env.TIMERS ? env.TIMERS.get(env.TIMERS.idFromName("all")) : null;
     // ✏️ the name shown on the site can be changed (👥 table / the name at the top of the officer page); the Discord name stays underneath
     let u = s.u;
     if (stub && !s.pw) { try { const nm = await stub.nameOf(s.u.id); if (nm && nm !== s.u.name) u = { ...s.u, name: nm, discordName: s.u.name }; } catch (e) {} }
+    const perms = withSeed(stub ? await stub.kvGet("perms") : null), role = roleOf(perms, s.u.id);
     if (path === "/auth/me") {
       if (!env.OFFICER_PASSWORD) return json({ error: "officer_password_missing", user: u }, 503);
-      return json({ ok: true, user: u, pw: String(env.OFFICER_PASSWORD).trim(), token });
+      if (!role) return json({ error: "no_access", user: u }, 403);
+      // 👁️ viewers never get the password (it also opens the GitHub key for saving): only the data key, to read
+      if (role === "viewer") { const dk = stub ? await stub.kvGet("dk") : null; return json({ ok: true, user: u, role, dk: dk && dk.k || null, token }); }
+      return json({ ok: true, user: u, role, pw: String(env.OFFICER_PASSWORD).trim(), token, needDk: !!stub && !(await stub.kvGet("dk")) });
     }
     if (!stub) return json({ error: "push_not_set_up" }, 503);
-    if (path === "/board") return boardRoute(env, ctx, stub, u, body, token);
-    if (path === "/attend") return attendRoute(env, stub, u, body, token);
-    if (path === "/perms") return permsRoute(stub, u, body, token);
+    if (path === "/board") return boardRoute(env, ctx, stub, u, body, token, canEdit(perms, s.u.id, "board"));
+    if (path === "/attend") return attendRoute(env, stub, u, body, token, canEdit(perms, s.u.id, "attend"));
+    if (path === "/perms") return permsRoute(stub, u, body, token, role);
     if (path === "/sync/forget") { if (body.sub && body.sub.endpoint) await stub.forget(String(body.sub.endpoint)); return json({ ok: true }); }
     const st = body.state && typeof body.state === "object" ? body.state : {};
     try { return json({ ok: true, user: s.u, token, state: await stub.syncMerge(s.u.id, st) }); }

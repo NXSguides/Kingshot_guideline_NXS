@@ -43,7 +43,7 @@ function render() {
   $("pm_preview").hidden = !pv; if (pv) $("pm_preview").textContent = t("previewing").replace("{name}", pv.name);
 }
 function applyTexts() {
-  $("pm_title").textContent = t("title"); $("pm_sub").textContent = t("sub"); $("pm_trial").textContent = t("trial"); $("pm_adminNote").textContent = t("adminNote");
+  $("pm_title").textContent = t("title"); $("pm_sub").textContent = t("sub"); $("pm_trial").textContent = t("trial"); $("pm_trial").hidden = !OFFICER.PERMS_TRIAL; $("pm_adminNote").textContent = t("adminNote");
   $("pm_addBtn").textContent = t("addBtn"); $("pm_name").placeholder = t("addName"); $("pm_id").placeholder = t("addId"); $("pm_addH").textContent = t("add"); $("pm_reset").textContent = t("reset");
   if (ROOT && !ROOT.hidden) render();
 }

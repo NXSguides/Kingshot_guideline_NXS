@@ -90,15 +90,17 @@ OFFICER.util = {
    Someone who unlocked with the password only (no Discord) is not in the table → everything, as before. */
 OFFICER.OWNER = "1547403844374368327";   // Sparrow: always admin, can't be demoted or removed (so nobody can lock everyone out)
 OFFICER.ADMINS = [];                       // filled from the table (admin: true) by loadPerms
-OFFICER.PERMS_TRIAL = true;   // the 👥 table is kept and editable, but not enforced yet (set false when the login system goes live)
+OFFICER.PERMS_TRIAL = false;   // 2026-10-16: the login system is live — the 👥 table decides   // the 👥 table is kept and editable, but not enforced yet (set false when the login system goes live)
 OFFICER.PERM_TABS = ["events", "board", "map", "ranking", "attend", "post", "watch", "scout", "views"];
-OFFICER.defaultPerms = () => Object.fromEntries(OFFICER.PERM_TABS.map((k) => [k, k === "events" ? "view" : "none"]));   // new officer: Events, view only
+OFFICER.VIEW_TABS = ["events", "board", "map"];
+OFFICER.defaultPerms = () => Object.fromEntries(OFFICER.PERM_TABS.map((k) => [k, OFFICER.VIEW_TABS.includes(k) ? "view" : "none"]));   // new officer: Events, Board, Map — view only
+OFFICER.ADMIN_IDS = ["1547403844374368327", "1240788094672834623", "762827904341246013"];   // Sparrow, R5, Nia: always admins (same list in the Worker)
 const PERMS_LS = "nxs-perms-v1";
 OFFICER.resetPerms = () => { OFFICER.perms = { v: 2, users: {
   "1547403844374368327": { name: "Sparrow", admin: true, perms: {} },
-  "1240788094672834623": { name: "R5", perms: OFFICER.defaultPerms() },
-  "762827904341246013": { name: "Nia", perms: OFFICER.defaultPerms() } } }; OFFICER.syncAdmins(); };
-OFFICER.syncAdmins = () => { const u = OFFICER.perms.users; if (u[OFFICER.OWNER]) u[OFFICER.OWNER].admin = true; OFFICER.ADMINS = Object.keys(u).filter((id) => u[id].admin); };
+  "1240788094672834623": { name: "R5", admin: true, perms: {} },
+  "762827904341246013": { name: "Nia", admin: true, perms: {} } } }; OFFICER.syncAdmins(); };
+OFFICER.syncAdmins = () => { const u = OFFICER.perms.users; for (const id of OFFICER.ADMIN_IDS) if (u[id]) u[id].admin = true; OFFICER.ADMINS = Object.keys(u).filter((id) => u[id].admin); };
 OFFICER.loadPerms = () => { try { const p = JSON.parse(localStorage.getItem(PERMS_LS)); if (p && p.users && p.v === 2) { OFFICER.perms = p; OFFICER.syncAdmins(); return; } } catch (e) {} OFFICER.resetPerms(); };
 /* the table lives on the Worker (one copy for every device); the copy on this device only makes the page open at once */
 const permsCache = () => { try { localStorage.setItem(PERMS_LS, JSON.stringify(OFFICER.perms)); } catch (e) {} };
@@ -142,9 +144,9 @@ OFFICER.can = (tab, what = "view") => {
   const uid = OFFICER.previewAs || (OFFICER.user && OFFICER.user.id);
   if (tab === "perms") return OFFICER.isAdmin();
   if (OFFICER.PERMS_TRIAL) return true;                               // 🔓 until the login system is rolled out: every tab open to every officer (👥 stays admin-only)
-  if (!uid) return true;                                              // password-only officer: unchanged for now
-  if (OFFICER.ADMINS.includes(uid)) return true;
-  const u = OFFICER.perms.users[uid], lv = (u && u.perms && u.perms[tab]) || (u ? "none" : "edit");   // Discord user not in the table yet → everything
+  if (!uid) return false;                                             // only Discord logins get in now
+  if (OFFICER.ADMINS.includes(uid) || OFFICER.ADMIN_IDS.includes(uid)) return true;
+  const u = OFFICER.perms.users[uid], lv = (u && u.perms && u.perms[tab]) || "none";
   return what === "edit" ? lv === "edit" : lv !== "none";
 };
 /* tab list + read-only look follow the rights (called after login, after a change on the 👥 tab, and when previewing) */
@@ -191,13 +193,13 @@ const SH = { ko: {"rename": "눌러서 사이트에 보이는 이름을 바꿀 �
                    e_no_access: "Your Discord account isn't on the officer list yet. Ask Sparrow.", e_not_member: "Join our alliance Discord server first, then try again.",
                    e_cancelled: "Discord login was cancelled.", e_expired: "Please log in again.", e_logged_out: "Please log in again.",
                    e_discord: "Couldn't reach Discord — please try again.", e_discord_unreachable: "Couldn't reach Discord — please try again.",
-                   e_setup: "Discord login worked, but the site isn't fully set up yet. Use the officer password for now." },
+                   e_setup: "Logged in, but the site isn't ready for view-only accounts yet — an admin needs to log in once first. Try again later." },
              zh: { home: "首頁", pw: "🔒 幹部密碼", remember: "在這台裝置記住", unlock: "解鎖", wrong: "密碼錯誤", loading: "載入中…",
                    discord: "用 Discord 登入", or: "— 或輸入幹部密碼 —", out: "登出", inSmall: "🔑 用 Discord 登入", rename: "點一下可以改你在網站上顯示的名字",
                    e_no_access: "你的 Discord 帳號還沒有幹部權限，請找 Sparrow。", e_not_member: "請先加入聯盟的 Discord 伺服器，再試一次。",
                    e_cancelled: "已取消 Discord 登入。", e_expired: "請重新登入。", e_logged_out: "請重新登入。",
                    e_discord: "連不上 Discord，請再試一次。", e_discord_unreachable: "連不上 Discord，請再試一次。",
-                   e_setup: "Discord 登入成功，但網站還沒設定完成，請先用幹部密碼進入。" } };
+                   e_setup: "登入成功，但網站還沒準備好給唯讀帳號使用（需要管理員先登入一次），請稍後再試。" } };
 /* ===== 🔑 Discord login (testing): the Worker checks who you are on our Discord server and hands back a sealed session ===== */
 const AUTH_API = "https://nxs-ai.tapegirljoke.workers.dev", DISCORD_LS = "nxs-discord-v1";
 /* still being tried out: the Discord buttons only show in a browser that opened this page once with ?discord (or is logged in) */
@@ -343,7 +345,12 @@ async function officerGate() {
   let blob = await OfficerData.postKey();
   if (!blob) return showTab();                               // not set up yet → open (the Post tab shows the setup card)
   const checkPw = async (pw) => (await officerDecrypt(pw, blob)) || (await officerDecrypt(pw, blob = (await OfficerData.postKey(true)) || blob));
-  const ok = async (pw, tok) => { OFFICER.pw = pw; OFFICER.token = tok; await OfficerData.unlock(pw); document.getElementById("gate").hidden = true; showMe(); showTab(); if (OFFICER.user) OFFICER.fetchPerms(); };
+  const ok = async (pw, tok, r) => {
+    OFFICER.pw = pw; OFFICER.token = tok; await OfficerData.unlock(pw);
+    // 🔐 first admin login: hand the data key to the Worker so view-only officers can read without the password
+    if (r && r.needDk && r.role === "admin" && OfficerData.rawKey) { try { const raw = await OfficerData.rawKey(); if (raw) await permsApi("setdk", { dk: raw }); } catch (e) {} }
+    document.getElementById("gate").hidden = true; showMe(); showTab(); if (OFFICER.user) OFFICER.fetchPerms(); };
+  const okView = async (dk) => { OFFICER.viewOnly = true; await OfficerData.unlockRaw(dk); document.getElementById("gate").hidden = true; showMe(); showTab(); OFFICER.fetchPerms(); };
   // 🔑 logged in with Discord: the Worker re-checks the list and gives the password to open the officer data
   let dtok = null; try { dtok = localStorage.getItem(DISCORD_LS); } catch (e) {}
   if (dtok) {
@@ -352,16 +359,14 @@ async function officerGate() {
       try { localStorage.setItem(DISCORD_LS, r.token); } catch (e) {}
       OFFICER.user = r.user;
       const s = officerStore(); if (!s.author) { s.author = r.user.name; try { localStorage.setItem(OFFICER_LS, JSON.stringify(s)); } catch (e) {} }
-      const t = await checkPw(r.pw);
-      if (t) return ok(r.pw, t);
-      loginMsg = "setup";
+      if (r.role === "viewer") { if (r.dk) return okView(r.dk); loginMsg = "setup"; }
+      else { const t = await checkPw(r.pw); if (t) return ok(r.pw, t, r); loginMsg = "setup"; }
     } else {
       if (["logged_out", "no_access", "not_member"].includes(r.error)) { try { localStorage.removeItem(DISCORD_LS); } catch (e) {} }
       if (r.error === "officer_password_missing") { OFFICER.user = r.user || null; loginMsg = "setup"; } else loginMsg = r.error || "discord";
     }
   }
-  const st = officerStore(), tok = st.pw && await checkPw(st.pw);
-  if (tok) return ok(st.pw, tok);
+  // 🔒 the officer password alone no longer opens the page: Discord login only
   const gate = document.getElementById("gate"), pwEl = document.getElementById("gatePw");
   gate.hidden = false;
   document.getElementById("gateDiscord").href = discordStart();

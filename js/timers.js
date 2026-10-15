@@ -222,7 +222,7 @@
   const isOfficerUser = () => { try {
     if (JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw) return true;   // unlocked with the officer password (just opening the officer page is not enough)
     const u = JSON.parse(localStorage.getItem("nxs-discord-user") || "{}"), p = JSON.parse(localStorage.getItem("nxs-perms-v1") || "{}");
-    return !!(u.id && p.users && p.users[u.id]);
+    return !!(u.id && p.users && p.users[u.id] && p.users[u.id].admin);   // admins only — view-only officers are in the table too
   } catch (e) { return false; } };
   const isOfficer = () => { try { return !!adminData() || !!localStorage.getItem("nxs-discord-v1") || !!(JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw); } catch (e) { return false; } };
   /* the to-do's event name in the page language: the guide name on the main site, the officer page's names otherwise */

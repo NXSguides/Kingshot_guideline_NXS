@@ -24,7 +24,11 @@ const errors = [];
 const browser = await chromium.launch(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {});
 const ctx = await browser.newContext({ locale: "zh-TW" });
 // the Worker is stubbed: no real traffic, no allowance used
-await ctx.route(/workers\.dev/, (route) => route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ ok: true, n: 0, topics: [], items: [], error: "logged_out" }) }));
+// the officer page needs a Discord login now: /auth/me answers as an admin (Sparrow) with a dummy data key, so every tab can open
+await ctx.route(/workers\.dev/, (route) => route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(/\/auth\/me/.test(route.request().url())
+  ? { ok: true, role: "viewer", dk: Buffer.alloc(32, 7).toString("base64"), token: "t", user: { id: "1547403844374368327", name: "Smoke" } }
+  : { ok: true, n: 0, topics: [], items: [], error: "logged_out" }) }));
+await ctx.addInitScript(() => { if (/officer-/.test(location.pathname)) try { localStorage.setItem("nxs-discord-v1", "t"); } catch (e) {} });
 const page = await ctx.newPage();
 page.on("pageerror", (e) => errors.push(`[${page.url().replace(BASE, "")}] ${e.message}`));
 page.on("console", (m) => { if (m.type() === "error" && !/favicon|net::|Failed to load resource|cdnjs|cdn\./.test(m.text())) errors.push(`[console ${page.url().replace(BASE, "")}] ${m.text()}`); });
