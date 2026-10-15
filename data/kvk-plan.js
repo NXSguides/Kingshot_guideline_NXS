@@ -1389,12 +1389,12 @@ const KVK_PLAN = {
     "ko": "보석 매뉴얼",
     "de": "Talismanleitfaden",
     "fr": "Guide de Talisman",
-    "pt": "Guia do Talismã",
-    "es": "Guía de talismán",
-    "tr": "Tılsım Rehberi",
+    "pt": "Guia de Acessórios",
+    "es": "Guía de talismanes",
+    "tr": "Tılsım Kılavuzu",
     "id": "Panduan Charm",
-    "ru": "Руководство по талисману",
-    "th": "คู่มือเครื่องราง",
+    "ru": "Руководство талисмана",
+    "th": "คำแนะนำเกี่ยวกับเครื่องราง",
     "ar": "دليل تميمة"
    },
    "pf": {
