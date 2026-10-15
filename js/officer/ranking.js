@@ -605,16 +605,16 @@ function tbImage() {
 /* ===== 🔄 Shared plans: a named plan (e.g. "Legion 1") that every officer sees — ticks, weights, group sizes and the battle table.
    Saved encrypted on the site (data/ranking-plans-x7k2p9.json); open plans check for others' changes every 10 s.
    "Only on this device" works as before. ===== */
-const PL = { ko: {"title": "📋 계획", "local": "🔒 이 기기에만", "newP": "+ 새 공유 계획", "ren": "이름 변경", "del": "삭제", "name": "공유 계획 이름 (예: 군단 1)", "copyQ": "지금 체크된 인원으로 시작할까요? (취소 = 빈 상태로 시작)", "delQ": "공유 계획 “{n}”을(를) 모두에게서 삭제할까요?", "localNote": "여기서 변경한 내용은 이 기기에만 남습니다.", "shared": "🔄 공유됨 — 모든 간부가 같은 체크와 표를 봅니다.", "last": "마지막 변경: {who} · {t}", "saving": "저장 중…", "saved": "✓ 저장됨", "err": "저장하지 못했습니다 — 다시 시도하는 중…", "noKey": "공유 계획에는 간부 GitHub 키가 필요합니다(공지 탭).", "loading": "공유 계획 불러오는 중…"},
- ar: {"title": "📋 الخطة", "local": "🔒 على هذا الجهاز فقط", "newP": "+ خطة مشتركة جديدة", "ren": "إعادة تسمية", "del": "حذف", "name": "اسم الخطة المشتركة (مثل الكتيبة 1)", "copyQ": "البدء بالأشخاص المحددين الآن؟ (إلغاء = البدء فارغة)", "delQ": "حذف الخطة المشتركة “{n}” للجميع؟", "localNote": "التغييرات هنا تبقى على هذا الجهاز فقط.", "shared": "🔄 مشتركة — يرى كل المسؤولين نفس العلامات والجدول.", "last": "آخر تغيير: {who} · {t}", "saving": "جارٍ الحفظ…", "saved": "✓ تم الحفظ", "err": "تعذّر الحفظ — جارٍ إعادة المحاولة…", "noKey": "الخطط المشتركة تتطلب مفتاح GitHub للمسؤولين (تبويب النشر).", "loading": "جارٍ تحميل الخطط المشتركة…"},
- pt: {"title": "📋 Plano", "local": "🔒 Só neste aparelho", "newP": "+ Novo plano compartilhado", "ren": "Renomear", "del": "Excluir", "name": "Nome do plano compartilhado (ex.: Legião 1)", "copyQ": "Começar com as pessoas marcadas agora? (Cancelar = começar vazio)", "delQ": "Excluir o plano compartilhado “{n}” para todos?", "localNote": "As mudanças aqui ficam só neste aparelho.", "shared": "🔄 Compartilhado — todos os oficiais veem as mesmas marcações e a mesma tabela.", "last": "Última mudança: {who} · {t}", "saving": "Salvando…", "saved": "✓ Salvo", "err": "Não foi possível salvar — tentando de novo…", "noKey": "Planos compartilhados precisam da chave do GitHub dos oficiais (aba Post).", "loading": "Carregando planos compartilhados…"},
+const PL = { ko: {"noName": "이름 없음", "gone": "다른 사람이 이 계획을 삭제했어요. 체크한 사람은 이 기기에 남아 있어요.", "title": "📋 계획", "local": "🔒 이 기기에만", "newP": "+ 새 공유 계획", "ren": "이름 변경", "del": "삭제", "name": "공유 계획 이름 (예: 군단 1)", "copyQ": "지금 체크된 인원으로 시작할까요? (취소 = 빈 상태로 시작)", "delQ": "공유 계획 “{n}”을(를) 모두에게서 삭제할까요?", "localNote": "여기서 변경한 내용은 이 기기에만 남습니다.", "shared": "🔄 공유됨 — 모든 간부가 같은 체크와 표를 봅니다.", "last": "마지막 변경: {who} · {t}", "saving": "저장 중…", "saved": "✓ 저장됨", "err": "저장하지 못했습니다 — 다시 시도하는 중…", "noKey": "공유 계획에는 간부 GitHub 키가 필요합니다(공지 탭).", "loading": "공유 계획 불러오는 중…"},
+ ar: {"noName": "بلا اسم", "gone": "حذف شخص آخر هذه الخطة؛ اختياراتك محفوظة على هذا الجهاز.", "title": "📋 الخطة", "local": "🔒 على هذا الجهاز فقط", "newP": "+ خطة مشتركة جديدة", "ren": "إعادة تسمية", "del": "حذف", "name": "اسم الخطة المشتركة (مثل الكتيبة 1)", "copyQ": "البدء بالأشخاص المحددين الآن؟ (إلغاء = البدء فارغة)", "delQ": "حذف الخطة المشتركة “{n}” للجميع؟", "localNote": "التغييرات هنا تبقى على هذا الجهاز فقط.", "shared": "🔄 مشتركة — يرى كل المسؤولين نفس العلامات والجدول.", "last": "آخر تغيير: {who} · {t}", "saving": "جارٍ الحفظ…", "saved": "✓ تم الحفظ", "err": "تعذّر الحفظ — جارٍ إعادة المحاولة…", "noKey": "الخطط المشتركة تتطلب مفتاح GitHub للمسؤولين (تبويب النشر).", "loading": "جارٍ تحميل الخطط المشتركة…"},
+ pt: {"noName": "sem nome", "gone": "Este plano foi excluído por outra pessoa; suas marcações ficaram neste aparelho.", "title": "📋 Plano", "local": "🔒 Só neste aparelho", "newP": "+ Novo plano compartilhado", "ren": "Renomear", "del": "Excluir", "name": "Nome do plano compartilhado (ex.: Legião 1)", "copyQ": "Começar com as pessoas marcadas agora? (Cancelar = começar vazio)", "delQ": "Excluir o plano compartilhado “{n}” para todos?", "localNote": "As mudanças aqui ficam só neste aparelho.", "shared": "🔄 Compartilhado — todos os oficiais veem as mesmas marcações e a mesma tabela.", "last": "Última mudança: {who} · {t}", "saving": "Salvando…", "saved": "✓ Salvo", "err": "Não foi possível salvar — tentando de novo…", "noKey": "Planos compartilhados precisam da chave do GitHub dos oficiais (aba Post).", "loading": "Carregando planos compartilhados…"},
 
-  en: { title: "📋 Plan", local: "🔒 Only on this device", newP: "+ New shared plan", ren: "Rename", del: "Delete",
+  en: { noName: "no name", gone: "This plan was deleted by someone else; your ticks are kept on this device.", title: "📋 Plan", local: "🔒 Only on this device", newP: "+ New shared plan", ren: "Rename", del: "Delete",
         name: "Name of the shared plan (e.g. Legion 1)", copyQ: "Start it with the people ticked now? (Cancel = start empty)",
         delQ: "Delete the shared plan “{n}” for everyone?", localNote: "Changes here stay on this device only.",
         shared: "🔄 Shared — every officer sees the same ticks and table.", last: "Last change: {who} · {t}", saving: "Saving…", saved: "✓ Saved",
         err: "Couldn't save — trying again…", noKey: "Shared plans need the officer GitHub key (Post tab).", loading: "Loading shared plans…" },
-  zh: { title: "📋 方案", local: "🔒 只在這台裝置", newP: "+ 新增共用方案", ren: "改名", del: "刪除",
+  zh: { noName: "沒有名字", gone: "這個計畫已經被別人刪掉了，你勾的人留在這台裝置上。", title: "📋 方案", local: "🔒 只在這台裝置", newP: "+ 新增共用方案", ren: "改名", del: "刪除",
         name: "共用方案的名字（例如 Legion 1）", copyQ: "要用現在勾選的人開始嗎？（取消 = 從空白開始）",
         delQ: "確定要為所有人刪除共用方案「{n}」？", localNote: "這裡的變更只存在這台裝置。",
         shared: "🔄 共用中 — 所有幹部看到的勾選和表格都一樣。", last: "最後修改：{who} · {t}", saving: "儲存中…", saved: "✓ 已儲存",
@@ -638,7 +638,7 @@ async function pgh(method, body) {
   if (!res.ok) throw new Error("net");
   return res.json();
 }
-let planNewName = "";
+let planNewName = "", planCreating = null;
 let plans = {}, planSha = null, planId = store.planId || "", planBase = null, planDirty = false, planBusy = false, planTimer = null, planErr = "", planApplying = false;
 const planWho = () => (OFFICER.user && OFFICER.user.name) || (() => { try { return JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").author || ""; } catch (e) { return ""; } })() || "?";
 async function planFetch() {
@@ -647,7 +647,10 @@ async function planFetch() {
   planSha = f.sha;
   const d = await OfficerData.open(JSON.parse(p64.dec(f.content)));
   plans = (d && d.plans) || {};
+  // a plan saved under an empty / odd key can't be picked in the list (its value would clash with "only on this device"): give it a proper key
+  for (const k of Object.keys(plans)) if (!/^[A-Za-z0-9_-]{1,40}$/.test(k)) { let nk; do nk = "p" + Math.random().toString(36).slice(2, 9); while (plans[nk]); plans[nk] = plans[k]; delete plans[k]; }
 }
+const planLabel = (p) => { const n = String((p && p.name) || "").trim(); return n && n !== "?" ? n : `(${pl("noName")}${p && p.by ? " · " + p.by : ""})`; };
 function planSnapshot() { return { picked: [...picked], subs: [...picked].filter((id) => subs.has(id)), wPower, wts: { ...wts }, counts: JSON.parse(JSON.stringify(store.counts || {})), tb: JSON.parse(JSON.stringify(TB)) }; }
 /* put a plan's contents on screen (keeping ticks this device hasn't saved yet) */
 function planApply(p) {
@@ -665,7 +668,7 @@ function planRenderBar() {
   $("planTitle").textContent = pl("title");
   $("planNew").textContent = pl("newP"); $("planRen").textContent = pl("ren"); $("planDel").textContent = pl("del");
   const ids = Object.keys(plans).sort((a, b) => (plans[a].name || "").localeCompare(plans[b].name || ""));
-  $("planSel").innerHTML = `<option value="">${esc(pl("local"))}</option>` + ids.map((id) => `<option value="${esc(id)}">🔄 ${esc(plans[id].name || id)}</option>`).join("");
+  $("planSel").innerHTML = `<option value="">${esc(pl("local"))}</option>` + ids.map((id) => `<option value="${esc(id)}">🔄 ${esc(planLabel(plans[id]))}</option>`).join("");
   if (planId && !plans[planId]) planId = "";
   $("planSel").value = planId;
   $("planRen").hidden = $("planDel").hidden = !planId;
@@ -681,9 +684,11 @@ function planTouched() {
 async function planSave(tries = 0) {
   if (!planId || !planDirty || planBusy) return;
   planBusy = true; planRenderBar();
-  const mine = planSnapshot(), base = planBase || new Set(), localMeta = plans[planId] || { name: "?" };
+  const mine = planSnapshot(), base = planBase || new Set(), localMeta = plans[planId] || { name: "" };
   try {
     await planFetch();
+    // someone deleted this plan while it was open here: don't bring it back as a nameless copy — keep the ticks on this device instead
+    if (!plans[planId] && planCreating !== planId) { planBusy = false; planDirty = false; planErr = pl("gone"); store.local = mine; planId = ""; planSwitch(""); planErr = pl("gone"); planRenderBar(); $("planStatus").textContent = pl("gone"); return; }
     const cur = { ...(plans[planId] || localMeta), ...(planNewName ? { name: planNewName } : {}) };
     // ticks: apply only what changed here, so two officers ticking at once don't undo each other
     const ids = new Set(cur.picked || []);
@@ -738,7 +743,7 @@ $("planNew").onclick = async () => {
   planId = id; store.planId = id; planDirty = false;
   planApply(plans[id]);
   planBase = new Set();   // base empty → the whole tick list counts as this device's change on the first save
-  planApplying = true; save(); planApplying = false; planDirty = true; planSave();
+  planApplying = true; save(); planApplying = false; planDirty = true; planCreating = id; await planSave(); planCreating = null;
 };
 $("planRen").onclick = () => {
   const p = plans[planId]; if (!p) return;
@@ -746,7 +751,7 @@ $("planRen").onclick = () => {
   p.name = planNewName = name.slice(0, 40); planDirty = true; planSave(); planRenderBar();
 };
 $("planDel").onclick = async () => {
-  const p = plans[planId]; if (!p || !window.confirm(pl("delQ", { n: p.name }))) return;
+  const p = plans[planId]; if (!p || !window.confirm(pl("delQ", { n: planLabel(p) }))) return;
   const id = planId;
   try {
     await planFetch(); delete plans[id];
