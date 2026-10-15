@@ -1,60 +1,57 @@
 /* NXS officer page — 📋 attendance tab (loaded by officer-x7k2p9.html; registers OFFICER_PAGES.attend)
-   Who confirmed for an event (poll) and who actually showed up. One list per event, kept on the Worker (Discord login).
-   Names are matched against the roster (data/roster-x7k2p9.json) the same way the ranking tab's paste box does. */
+   One sheet per event type (Swordland, Tri-Alliance…). Each record on a sheet = one date + ONE list (usually imported from one
+   shared plan of the 📊 Ranking tab): who confirmed (with substitutes marked), and after the battle who showed up.
+   Kept on the Worker (Discord login). Names are matched against the roster like the ranking tab's paste box. */
 (function () {
 const ROOT = document.getElementById("pg-attend");
 const $ = (id) => ROOT.querySelector("#" + CSS.escape(id)) || document.getElementById(id);
 const esc = OFFICER.util.esc;
-const ROSTER_URL = "data/roster-x7k2p9.json", PLAN_URL = "data/ranking-plans-x7k2p9.json";   // shared plans from the 📊 ranking tab (Legion 1, Legion 2…)
+const ROSTER_URL = "data/roster-x7k2p9.json", PLAN_URL = "data/ranking-plans-x7k2p9.json";
 const T = {
-  zh: { fromPlans: "📊 用聖劍共用計畫建立", fromPlan: "📊 從共用計畫匯入…", planN: "{name}（{n} 人）", planNone: "排名分頁還沒有共用計畫。", title: "📋 出席", sub: "每場活動一份名單：投票說會來的人，打完後勾誰真的到了。缺席會累計：第 2 次橘、第 3 次紅；⭐ 是戰力前 20。", login: "要先用 Discord 登入才能看出席名單。", loginBtn: "用 Discord 登入",
-    newBtn: "＋ 新活動", evTitle: "活動名稱（例如 聖劍爭奪）", evDate: "日期", slot: "時段", addSlot: "＋ 時段", slotName: "時段名稱（例如 02:00 UTC）",
-    confirmed: "① 說會來的人", paste: "貼上投票名單（一行一個，或用逗號分隔）", shot: "📷 或上傳投票者截圖", match: "比對成員表", ocrWait: "辨識中…",
-    matched: "比對到 {n} 人", miss: "找不到（請手動加）：{list}", addMember: "手動加入成員…",
-    present: "② 打完後：誰有到", presentNote: "點名字切換：✓ 有到 · ✗ 沒到 · 🛌 請假（不算缺席）", allPresent: "全部有到", noshow: "沒到", excused: "請假",
-    save: "儲存", saved: "已儲存。", del: "刪除這場", delAsk: "確定刪除這場的名單？", back: "‹ 名單列表", empty: "還沒有名單。按「＋ 新活動」開始。",
-    summary: "缺席統計", sumNote: "最近 {n} 場。", keys: "數字 = 缺席次數 · 橘 = 第 2 次 · 紅 = 第 3 次以上 · ⭐ = 戰力前 20", name: "成員", events: "場次", missN: "缺席", noData: "成員表載不進來，無法比對名字。",
-    copy: "複製給 Discord", copied: "已複製", legend: "X = 沒到 · 🛌 = 請假 · ⭐ = 戰力前 20", keysLine: "Keys: X = 沒到 · 橘 = 第 2 次缺席 · 紅 = 第 3 次以上 · 🛌 = 請假 · ⭐ = 戰力前 20（次數自動累計）", nobody: "這個時段還沒有人。", err: "出了點問題：{e}", dbLimit: "⚠️ 伺服器今天的免費額度用完了，UTC 00:00 重置。" },
-  en: { fromPlans: "📊 New from the SS plans", fromPlan: "📊 Import from a shared plan…", planN: "{name} ({n} people)", planNone: "No shared plans on the Ranking tab yet.", title: "📋 Attendance", sub: "One list per event: who said yes in the poll, and after the battle, who actually showed up. Misses add up: 2nd orange, 3rd red; ⭐ marks the top 20 by power.", login: "Log in with Discord to see attendance lists.", loginBtn: "Log in with Discord",
-    newBtn: "＋ New event", evTitle: "Event (e.g. Swordland Showdown)", evDate: "Date", slot: "Time slot", addSlot: "＋ Slot", slotName: "Slot name (e.g. 02:00 UTC)",
-    confirmed: "① Confirmed (said yes)", paste: "Paste the poll names (one per line or comma-separated)", shot: "📷 or upload voter screenshots", match: "Match roster", ocrWait: "Reading…",
-    matched: "Matched {n}", miss: "Not found (add by hand): {list}", addMember: "Add a member by hand…",
-    present: "② After the battle: who showed up", presentNote: "Tap a name to cycle: ✓ showed up · ✗ no-show · 🛌 excused (not counted)", allPresent: "All showed up", noshow: "No-show", excused: "Excused",
-    save: "Save", saved: "Saved.", del: "Delete this event", delAsk: "Delete this event's list?", back: "‹ All lists", empty: "No lists yet. Tap “＋ New event” to start.",
-    summary: "Missed events", sumNote: "Last {n} events.", keys: "Number = misses · orange = 2nd miss · red = 3rd+ · ⭐ = top 20 by power", name: "Member", events: "Events", missN: "Missed", noData: "The roster didn't load, so names can't be matched.",
-    copy: "Copy for Discord", copied: "Copied", legend: "X = no-show · 🛌 = excused · ⭐ = top 20 by power", keysLine: "Keys: X = missed · orange = 2nd miss · red = 3rd+ · 🛌 = excused · ⭐ = top 20 (counted automatically)", nobody: "Nobody in this slot yet.", err: "Something went wrong: {e}", dbLimit: "⚠️ The server's free daily allowance is used up; it resets at 00:00 UTC." },
-  pt: { fromPlans: "📊 Criar a partir dos planos do Confronto", fromPlan: "📊 Importar de um plano compartilhado…", planN: "{name} ({n} pessoas)", planNone: "Ainda não há planos compartilhados na aba Ranking.", title: "📋 Presença", sub: "Uma lista por evento: quem disse sim na enquete e, depois da batalha, quem realmente apareceu. Faltas acumulam; duas seguidas ficam em vermelho.", login: "Entre com o Discord para ver as listas de presença.", loginBtn: "Entrar com Discord",
-    newBtn: "＋ Novo evento", evTitle: "Evento (ex.: Confronto entre Espadas)", evDate: "Data", slot: "Horário", addSlot: "＋ Horário", slotName: "Nome do horário (ex.: 02:00 UTC)",
-    confirmed: "① Confirmados (disseram sim)", paste: "Cole os nomes da enquete (um por linha ou separados por vírgula)", shot: "📷 ou envie capturas dos votantes", match: "Comparar com a lista", ocrWait: "Lendo…",
-    matched: "{n} encontrados", miss: "Não encontrados (adicione à mão): {list}", addMember: "Adicionar membro à mão…",
-    present: "② Depois da batalha: quem apareceu", presentNote: "Toque no nome para alternar: ✓ apareceu · ✗ faltou · 🛌 justificado (não conta)", allPresent: "Todos apareceram", noshow: "Faltou", excused: "Justificado",
-    save: "Salvar", saved: "Salvo.", del: "Excluir este evento", delAsk: "Excluir a lista deste evento?", back: "‹ Todas as listas", empty: "Ainda não há listas. Toque em “＋ Novo evento”.",
-    summary: "Faltas", sumNote: "Últimos {n} eventos.", keys: "Número = faltas · laranja = 2ª falta · vermelho = 3ª ou mais · ⭐ = top 20 em poder", name: "Membro", events: "Eventos", missN: "Faltas", noData: "A lista de membros não carregou; não dá para comparar nomes.",
-    copy: "Copiar para o Discord", copied: "Copiado", legend: "X = faltou · 🛌 = justificado · ⭐ = top 20 em poder", keysLine: "Legenda: X = faltou · laranja = 2ª falta · vermelho = 3ª ou mais · 🛌 = justificado · ⭐ = top 20 (contado automaticamente)", nobody: "Ninguém neste horário ainda.", err: "Algo deu errado: {e}", dbLimit: "⚠️ A cota gratuita diária do servidor acabou; volta às 00:00 UTC." },
-  ar: { fromPlans: "📊 إنشاء من خطط أرض السيوف", fromPlan: "📊 استيراد من خطة مشتركة…", planN: "{name} ({n} أشخاص)", planNone: "لا توجد خطط مشتركة في تبويب الترتيب بعد.", title: "📋 الحضور", sub: "قائمة لكل فعالية: من قال نعم في التصويت، وبعد المعركة من حضر فعلًا. الغيابات تتراكم، ومرتان متتاليتان تظهران بالأحمر.", login: "سجّل الدخول عبر Discord لرؤية قوائم الحضور.", loginBtn: "تسجيل الدخول عبر Discord",
-    newBtn: "＋ فعالية جديدة", evTitle: "الفعالية (مثل مواجهة أرض السيوف)", evDate: "التاريخ", slot: "الفترة", addSlot: "＋ فترة", slotName: "اسم الفترة (مثل 02:00 UTC)",
-    confirmed: "① المؤكدون (قالوا نعم)", paste: "الصق أسماء التصويت (اسم في كل سطر أو مفصولة بفواصل)", shot: "📷 أو ارفع لقطات شاشة للمصوّتين", match: "مطابقة مع القائمة", ocrWait: "جارٍ القراءة…",
-    matched: "تمت مطابقة {n}", miss: "غير موجود (أضفه يدويًا): {list}", addMember: "إضافة عضو يدويًا…",
-    present: "② بعد المعركة: من حضر", presentNote: "اضغط على الاسم للتبديل: ✓ حضر · ✗ غاب · 🛌 معذور (لا يُحتسب)", allPresent: "حضر الجميع", noshow: "غاب", excused: "معذور",
-    save: "حفظ", saved: "تم الحفظ.", del: "حذف هذه الفعالية", delAsk: "حذف قائمة هذه الفعالية؟", back: "‹ كل القوائم", empty: "لا توجد قوائم بعد. اضغط «＋ فعالية جديدة».",
-    summary: "الغيابات", sumNote: "آخر {n} فعاليات.", keys: "الرقم = الغيابات · برتقالي = الغياب الثاني · أحمر = الثالث فأكثر · ⭐ = أقوى 20", name: "العضو", events: "الفعاليات", missN: "غياب", noData: "لم تُحمَّل قائمة الأعضاء، فلا يمكن مطابقة الأسماء.",
-    copy: "نسخ إلى Discord", copied: "تم النسخ", legend: "X = غاب · 🛌 = معذور · ⭐ = أقوى 20", keysLine: "المفتاح: X = غاب · برتقالي = الغياب الثاني · أحمر = الثالث فأكثر · 🛌 = معذور · ⭐ = أقوى 20 (يُحسب تلقائيًا)", nobody: "لا أحد في هذه الفترة بعد.", err: "حدث خطأ: {e}", dbLimit: "⚠️ نفدت حصة الخادم المجانية لليوم، وتتجدد عند 00:00 UTC." },
-  ko: { fromPlans: "📊 성검 공유 계획으로 만들기", fromPlan: "📊 공유 계획에서 가져오기…", planN: "{name} ({n}명)", planNone: "순위 탭에 아직 공유 계획이 없어요.", title: "📋 출석", sub: "이벤트마다 명단 하나: 투표에서 온다고 한 사람, 전투 후 실제로 온 사람. 불참은 누적되고 두 번 연속이면 빨간색.", login: "출석 명단을 보려면 Discord로 로그인하세요.", loginBtn: "Discord로 로그인",
-    newBtn: "＋ 새 이벤트", evTitle: "이벤트 (예: 성검 쟁탈)", evDate: "날짜", slot: "시간대", addSlot: "＋ 시간대", slotName: "시간대 이름 (예: 02:00 UTC)",
-    confirmed: "① 온다고 한 사람", paste: "투표 명단 붙여넣기 (한 줄에 하나 또는 쉼표로 구분)", shot: "📷 또는 투표자 스크린샷 업로드", match: "명단과 대조", ocrWait: "읽는 중…",
-    matched: "{n}명 일치", miss: "못 찾음 (직접 추가): {list}", addMember: "직접 추가…",
-    present: "② 전투 후: 누가 왔나", presentNote: "이름을 눌러 전환: ✓ 옴 · ✗ 불참 · 🛌 사전 양해 (불참으로 세지 않음)", allPresent: "전원 참석", noshow: "불참", excused: "양해",
-    save: "저장", saved: "저장됨.", del: "이 이벤트 삭제", delAsk: "이 이벤트의 명단을 삭제할까요?", back: "‹ 전체 명단", empty: "아직 명단이 없어요. “＋ 새 이벤트”를 누르세요.",
-    summary: "불참 집계", sumNote: "최근 {n}회.", keys: "숫자 = 불참 횟수 · 주황 = 2번째 · 빨강 = 3번째 이상 · ⭐ = 전투력 상위 20", name: "멤버", events: "횟수", missN: "불참", noData: "멤버 명단을 불러오지 못해 이름을 대조할 수 없어요.",
-    copy: "Discord용 복사", copied: "복사됨", legend: "X = 불참 · 🛌 = 양해 · ⭐ = 전투력 상위 20", keysLine: "Keys: X = 불참 · 주황 = 2번째 불참 · 빨강 = 3번째 이상 · 🛌 = 양해 · ⭐ = 전투력 상위 20 (자동 집계)", nobody: "이 시간대에 아직 아무도 없어요.", err: "문제가 생겼어요: {e}", dbLimit: "⚠️ 서버의 오늘 무료 할당량을 다 썼어요. UTC 00:00에 초기화돼요." },
+  zh: { title: "📋 出席", sub: "每種活動一張表（聖劍、三盟…），表裡每個日期一份名單：說會來的人（可標替補），打完後勾誰真的到了。缺席會累計：第 2 次橘、第 3 次紅；⭐ 是戰力前 20。", login: "要先用 Discord 登入才能看出席名單。", loginBtn: "用 Discord 登入",
+    newBtn: "＋ 新名單", sheet: "活動表", sheetPh: "活動名稱（例如 聖劍爭奪、三盟爭霸）", date: "日期", plan: "從排名分頁的共用計畫匯入", planNone: "（不匯入，手動加人）", planHint: "一份名單只放一個計畫。兩個軍團就分別建兩份。", create: "建立名單",
+    confirmed: "① 說會來的人", paste: "貼上名單（一行一個，或用逗號分隔）", shot: "📷 或上傳投票者截圖", match: "比對成員表", ocrWait: "辨識中…", matched: "比對到 {n} 人", miss: "找不到（請手動加）：{list}", addMember: "手動加入成員…", subHint: "點名字切換「替補」，點 × 移除。替補沒到不算缺席。",
+    present: "② 打完後：誰有到", presentNote: "點名字切換：✓ 有到 · X 沒到 · 🛌 請假（不算缺席）", allPresent: "全部有到", keysLine: "Keys: X = 沒到 · 橘 = 第 2 次缺席 · 紅 = 第 3 次以上 · 🛌 = 請假 · 替 = 替補 · ⭐ = 戰力前 20（次數自動累計）",
+    save: "儲存", saved: "已儲存。", del: "刪除這份名單", delAsk: "確定刪除這份名單？", back: "‹ 全部活動表", empty: "還沒有名單。按「＋ 新名單」開始。",
+    rate: "出席率", rateNote: "正選有到 ÷ 正選人數（請假不算、替補不算）。", missN: "缺席", events: "場次", name: "成員", noData: "成員表載不進來，無法比對名字。",
+    copy: "複製給 Discord", copied: "已複製", nobody: "還沒有人。", sub2: "替補", err: "出了點問題：{e}", dbLimit: "⚠️ 伺服器今天的免費額度用完了，UTC 00:00 重置。" },
+  en: { title: "📋 Attendance", sub: "One sheet per event (Swordland, Tri-Alliance…); each date on a sheet is one list: who confirmed (subs can be marked), and after the battle who showed up. Misses add up: 2nd orange, 3rd red; ⭐ = top 20 by power.", login: "Log in with Discord to see attendance lists.", loginBtn: "Log in with Discord",
+    newBtn: "＋ New list", sheet: "Event sheet", sheetPh: "Event (e.g. Swordland Showdown, Tri-Alliance Clash)", date: "Date", plan: "Import from a shared plan on the Ranking tab", planNone: "(no import, add people by hand)", planHint: "One list holds one plan. For two legions make two lists.", create: "Create list",
+    confirmed: "① Confirmed (said yes)", paste: "Paste names (one per line or comma-separated)", shot: "📷 or upload voter screenshots", match: "Match roster", ocrWait: "Reading…", matched: "Matched {n}", miss: "Not found (add by hand): {list}", addMember: "Add a member by hand…", subHint: "Tap a name to toggle “sub”, × removes. A sub who doesn't show isn't a miss.",
+    present: "② After the battle: who showed up", presentNote: "Tap a name to cycle: ✓ showed up · X no-show · 🛌 excused (not counted)", allPresent: "All showed up", keysLine: "Keys: X = missed · orange = 2nd miss · red = 3rd+ · 🛌 = excused · sub = substitute · ⭐ = top 20 (counted automatically)",
+    save: "Save", saved: "Saved.", del: "Delete this list", delAsk: "Delete this list?", back: "‹ All sheets", empty: "No lists yet. Tap “＋ New list” to start.",
+    rate: "Attendance", rateNote: "Starters who showed up ÷ starters (excused and subs not counted).", missN: "Missed", events: "Events", name: "Member", noData: "The roster didn't load, so names can't be matched.",
+    copy: "Copy for Discord", copied: "Copied", nobody: "Nobody yet.", sub2: "sub", err: "Something went wrong: {e}", dbLimit: "⚠️ The server's free daily allowance is used up; it resets at 00:00 UTC." },
+  pt: { title: "📋 Presença", sub: "Uma planilha por evento (Confronto entre Espadas, Tri-Aliança…); cada data é uma lista: quem confirmou (reservas podem ser marcados) e, depois da batalha, quem apareceu. Faltas acumulam: 2ª laranja, 3ª vermelha; ⭐ = top 20 em poder.", login: "Entre com o Discord para ver as listas.", loginBtn: "Entrar com Discord",
+    newBtn: "＋ Nova lista", sheet: "Planilha do evento", sheetPh: "Evento (ex.: Confronto entre Espadas, Confronto Tri-Aliança)", date: "Data", plan: "Importar de um plano compartilhado da aba Ranking", planNone: "(sem importar, adicionar à mão)", planHint: "Uma lista guarda um plano. Para duas legiões, faça duas listas.", create: "Criar lista",
+    confirmed: "① Confirmados", paste: "Cole os nomes (um por linha ou separados por vírgula)", shot: "📷 ou envie capturas dos votantes", match: "Comparar com a lista", ocrWait: "Lendo…", matched: "{n} encontrados", miss: "Não encontrados (adicione à mão): {list}", addMember: "Adicionar membro à mão…", subHint: "Toque no nome para marcar “reserva”, × remove. Reserva que não aparece não conta como falta.",
+    present: "② Depois da batalha: quem apareceu", presentNote: "Toque no nome para alternar: ✓ apareceu · X faltou · 🛌 justificado (não conta)", allPresent: "Todos apareceram", keysLine: "Legenda: X = faltou · laranja = 2ª falta · vermelho = 3ª ou mais · 🛌 = justificado · res = reserva · ⭐ = top 20 (contado automaticamente)",
+    save: "Salvar", saved: "Salvo.", del: "Excluir esta lista", delAsk: "Excluir esta lista?", back: "‹ Todas as planilhas", empty: "Ainda não há listas. Toque em “＋ Nova lista”.",
+    rate: "Presença", rateNote: "Titulares que apareceram ÷ titulares (justificados e reservas não contam).", missN: "Faltas", events: "Eventos", name: "Membro", noData: "A lista de membros não carregou; não dá para comparar nomes.",
+    copy: "Copiar para o Discord", copied: "Copiado", nobody: "Ninguém ainda.", sub2: "res", err: "Algo deu errado: {e}", dbLimit: "⚠️ A cota gratuita diária do servidor acabou; volta às 00:00 UTC." },
+  ar: { title: "📋 الحضور", sub: "جدول لكل فعالية (أرض السيوف، التحالف الثلاثي…)؛ كل تاريخ في الجدول قائمة واحدة: من أكّد (يمكن تمييز البدلاء)، وبعد المعركة من حضر. الغيابات تتراكم: الثاني برتقالي، الثالث أحمر؛ ⭐ = أقوى 20.", login: "سجّل الدخول عبر Discord لرؤية القوائم.", loginBtn: "تسجيل الدخول عبر Discord",
+    newBtn: "＋ قائمة جديدة", sheet: "جدول الفعالية", sheetPh: "الفعالية (مثل مواجهة أرض السيوف، صراع التحالف الثلاثي)", date: "التاريخ", plan: "استيراد من خطة مشتركة في تبويب الترتيب", planNone: "(بدون استيراد، إضافة يدوية)", planHint: "القائمة الواحدة تحمل خطة واحدة. لكتيبتين أنشئ قائمتين.", create: "إنشاء القائمة",
+    confirmed: "① المؤكدون", paste: "الصق الأسماء (اسم في كل سطر أو مفصولة بفواصل)", shot: "📷 أو ارفع لقطات المصوّتين", match: "مطابقة مع القائمة", ocrWait: "جارٍ القراءة…", matched: "تمت مطابقة {n}", miss: "غير موجود (أضفه يدويًا): {list}", addMember: "إضافة عضو يدويًا…", subHint: "اضغط على الاسم لتبديل «بديل»، × للحذف. غياب البديل لا يُحتسب.",
+    present: "② بعد المعركة: من حضر", presentNote: "اضغط على الاسم للتبديل: ✓ حضر · X غاب · 🛌 معذور (لا يُحتسب)", allPresent: "حضر الجميع", keysLine: "المفتاح: X = غاب · برتقالي = الغياب الثاني · أحمر = الثالث فأكثر · 🛌 = معذور · بديل · ⭐ = أقوى 20 (يُحسب تلقائيًا)",
+    save: "حفظ", saved: "تم الحفظ.", del: "حذف هذه القائمة", delAsk: "حذف هذه القائمة؟", back: "‹ كل الجداول", empty: "لا توجد قوائم بعد. اضغط «＋ قائمة جديدة».",
+    rate: "الحضور", rateNote: "الأساسيون الحاضرون ÷ الأساسيون (المعذورون والبدلاء لا يُحسبون).", missN: "غياب", events: "الفعاليات", name: "العضو", noData: "لم تُحمَّل قائمة الأعضاء، فلا يمكن مطابقة الأسماء.",
+    copy: "نسخ إلى Discord", copied: "تم النسخ", nobody: "لا أحد بعد.", sub2: "بديل", err: "حدث خطأ: {e}", dbLimit: "⚠️ نفدت حصة الخادم المجانية لليوم، وتتجدد عند 00:00 UTC." },
+  ko: { title: "📋 출석", sub: "이벤트마다 시트 하나(성검, 삼대 연맹전…); 시트의 각 날짜가 명단 하나: 온다고 한 사람(후보 표시 가능), 전투 후 실제로 온 사람. 불참은 누적: 2번째 주황, 3번째 빨강; ⭐ = 전투력 상위 20.", login: "출석 명단을 보려면 Discord로 로그인하세요.", loginBtn: "Discord로 로그인",
+    newBtn: "＋ 새 명단", sheet: "이벤트 시트", sheetPh: "이벤트 (예: 성검 쟁탈, 삼대 연맹전)", date: "날짜", plan: "순위 탭의 공유 계획에서 가져오기", planNone: "(가져오지 않고 직접 추가)", planHint: "명단 하나에 계획 하나. 군단이 둘이면 명단을 둘 만드세요.", create: "명단 만들기",
+    confirmed: "① 온다고 한 사람", paste: "명단 붙여넣기 (한 줄에 하나 또는 쉼표로 구분)", shot: "📷 또는 투표자 스크린샷 업로드", match: "명단과 대조", ocrWait: "읽는 중…", matched: "{n}명 일치", miss: "못 찾음 (직접 추가): {list}", addMember: "직접 추가…", subHint: "이름을 누르면 “후보” 전환, ×는 제거. 후보의 불참은 세지 않아요.",
+    present: "② 전투 후: 누가 왔나", presentNote: "이름을 눌러 전환: ✓ 옴 · X 불참 · 🛌 양해 (세지 않음)", allPresent: "전원 참석", keysLine: "Keys: X = 불참 · 주황 = 2번째 · 빨강 = 3번째 이상 · 🛌 = 양해 · 후보 · ⭐ = 상위 20 (자동 집계)",
+    save: "저장", saved: "저장됨.", del: "이 명단 삭제", delAsk: "이 명단을 삭제할까요?", back: "‹ 전체 시트", empty: "아직 명단이 없어요. “＋ 새 명단”을 누르세요.",
+    rate: "출석률", rateNote: "참석한 주전 ÷ 주전 인원 (양해·후보 제외).", missN: "불참", events: "횟수", name: "멤버", noData: "멤버 명단을 불러오지 못해 이름을 대조할 수 없어요.",
+    copy: "Discord용 복사", copied: "복사됨", nobody: "아직 아무도 없어요.", sub2: "후보", err: "문제가 생겼어요: {e}", dbLimit: "⚠️ 서버의 오늘 무료 할당량을 다 썼어요. UTC 00:00에 초기화돼요." },
 };
 let lang = OFFICER.lang;
 const t = (k, v = {}) => String((T[lang] && T[lang][k]) ?? T.en[k] ?? k).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
 const token = () => { try { return localStorage.getItem(DISCORD_LS); } catch (e) { return null; } };
 const core = (s) => String(s || "").normalize("NFKC").toLowerCase().replace(/nexus/g, "").replace(/[^\p{L}\p{N}]/gu, "");
-let roster = null, plans = {}, events = [], cur = null, lastErr = null, busy = false;
+let roster = null, plans = {}, events = [], cur = null, lastErr = null, busy = false, creating = false;
 const canEdit = () => OFFICER.can("attend", "edit");
 const rid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+const S = (x) => String(x);
 
 async function api(op, extra = {}) {
   const r = await fetch(AUTH_API + "/attend", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: token(), op, ...extra }) });
@@ -65,130 +62,152 @@ async function api(op, extra = {}) {
 }
 const errText = (e) => (e.code === "db_limit" || /limit|exceed|quota|allow/i.test(String(e.message))) ? t("dbLimit") : t("err", { e: e.message + (e.detail ? " — " + [].concat(e.detail).join("; ").slice(0, 160) : "") });
 
-/* match pasted / OCR'd names against the roster: exact core match, else unique substring */
 function matchNames(names) {
   const hit = [], miss = [];
   for (const nm of names) {
     const c = core(nm); if (!c) continue;
     let m = roster.members.filter((x) => core(x.name) === c);
     if (!m.length && c.length >= 3) m = roster.members.filter((x) => core(x.name).includes(c) || c.includes(core(x.name)));
-    if (m.length === 1) hit.push({ id: m[0].id, name: m[0].name }); else miss.push(nm + (m.length > 1 ? " (?)" : ""));
+    if (m.length === 1) hit.push({ id: S(m[0].id), name: m[0].name }); else miss.push(nm + (m.length > 1 ? " (?)" : ""));
   }
   return { hit, miss };
 }
-/* * = top 20 by power in the roster (the matchmaking uses them, so their absence hurts most) */
-const top20 = () => { if (!roster) return new Set(); return new Set([...roster.members].filter((m) => m.power > 0).sort((a, b) => b.power - a.power).slice(0, 20).map((m) => String(m.id))); };
+const top20 = () => { if (!roster) return new Set(); return new Set([...roster.members].filter((m) => m.power > 0).sort((a, b) => b.power - a.power).slice(0, 20).map((m) => S(m.id))); };
 let TOP = new Set();
-const star = (id) => TOP.has(String(id)) ? "⭐ " : "";
-const statusOf = (sl, id) => { id = String(id); return sl.present.map(String).includes(id) ? "ok" : sl.excused.map(String).includes(id) ? "ex" : "no"; };
-const missesOf = (ev) => { const out = new Map(); for (const sl of ev.slots) for (const m of sl.confirmed) { const st = statusOf(sl, m.id); if (st !== "ex") out.set(String(m.id), { name: m.name, miss: st === "no" }); } return out; };
+const star = (id) => TOP.has(S(id)) ? "⭐ " : "";
+/* one list per record: ev.slots[0] */
+const slot = (ev) => ev.slots[0];
+const statusOf = (sl, id) => { id = S(id); return sl.present.map(S).includes(id) ? "ok" : sl.excused.map(S).includes(id) ? "ex" : "no"; };
+/* starters only (subs don't count as misses): id → { name, miss } */
+const missesOf = (ev) => { const out = new Map(); const sl = slot(ev); for (const m of sl.confirmed) { if (m.sub) continue; const st = statusOf(sl, m.id); if (st !== "ex") out.set(S(m.id), { name: m.name, miss: st === "no" }); } return out; };
+const rateOf = (ev) => { const m = [...missesOf(ev).values()]; const n = m.length, ok = m.filter((x) => !x.miss).length; return { n, ok, pct: n ? Math.round(ok / n * 100) : null }; };
+const sheetOf = (ev) => (ev.sheet || ev.title || "").trim();
+/* misses on the same sheet, counting this record and every saved one up to its date */
+function missCounts(ev) {
+  const cnt = new Map(), list = [ev, ...events.filter((e) => e.id !== ev.id && sheetOf(e) === sheetOf(ev) && (e.date || "") <= (ev.date || ""))];
+  for (const e of list) for (const [id, v] of missesOf(e)) if (v.miss) cnt.set(id, (cnt.get(id) || 0) + 1);
+  return cnt;
+}
+const nth = (n) => n === 1 ? "1st" : n === 2 ? "2nd" : n === 3 ? "3rd" : n + "th";
+const ssName = () => { const ss = typeof EVENT_NAMES !== "undefined" && EVENT_NAMES["Swordland Showdown"]; return (ss && (ss[lang] || ss.en)) || "Swordland Showdown"; };
 
 /* ---------- views ---------- */
 function applyTexts() {
   document.documentElement.lang = HTML_LANG(lang);
   $("at_title").textContent = t("title"); $("at_sub").textContent = t("sub");
   $("at_login").innerHTML = `<p style="margin:0 0 10px">${esc(t("login"))}</p><a class="btn" style="background:#5865F2;border-color:#5865F2;color:#fff;font-weight:700" href="${esc(discordStart())}">${esc(t("loginBtn"))}</a>`;
-  $("at_newBtn").textContent = t("newBtn"); $("at_back").textContent = t("back"); $("at_fromPlans").textContent = t("fromPlans");
+  $("at_newBtn").textContent = t("newBtn"); $("at_back").textContent = t("back");
   render();
 }
 function render() {
   const logged = !!(OFFICER.user && token());
   $("at_login").hidden = logged; $("at_app").hidden = !logged;
   if (!logged) return;
-  $("at_list").hidden = !!cur; $("at_edit").hidden = !cur; $("at_newBtn").hidden = !!cur || !canEdit(); $("at_fromPlans").hidden = !!cur || !canEdit();
+  $("at_list").hidden = !!cur; $("at_edit").hidden = !cur; $("at_newBtn").hidden = !!cur || !canEdit() || creating;
   if (cur) renderEdit(); else renderList();
 }
 function renderList() {
   const err = lastErr ? `<div class="msg warn">${esc(errText(lastErr))}</div>` : "";
-  if (!events.length) { $("at_list").innerHTML = err + `<div class="muted">${esc(t("empty"))}</div>`; return; }
-  const recent = events.slice(0, 8);
-  // per member: misses over the recent events, newest first
-  const rows = new Map();
-  recent.forEach((ev, i) => { for (const [id, v] of missesOf(ev)) { const r = rows.get(id) || { name: v.name, n: 0, miss: 0, seq: [] }; r.n++; if (v.miss) r.miss++; r.seq[i] = v.miss ? "X" : "✓"; r.name = v.name; rows.set(id, r); } });
-  const list = [...rows.entries()].filter(([, r]) => r.miss > 0).sort((a, b) => b[1].miss - a[1].miss || (TOP.has(b[0]) - TOP.has(a[0])) || a[1].name.localeCompare(b[1].name));
-  const cls = (r) => r.miss >= 3 ? "red" : r.miss === 2 ? "orange" : "";
-  const sum = list.length ? `<div class="card"><h3 style="margin:0 0 4px">${esc(t("summary"))}</h3><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(t("sumNote", { n: recent.length }))} ${esc(t("keys"))}</div>
-    <table class="at-sum"><thead><tr><th>${esc(t("name"))}</th><th>${esc(t("missN"))}</th><th>${esc(t("events"))}</th><th></th></tr></thead><tbody>${list.map(([id, r]) => `<tr class="${cls(r)}"><td dir="auto">${star(id)}${esc(r.name)}</td><td><b>${r.miss}</b></td><td>${r.n}</td><td class="seq">${recent.map((_, i) => r.seq[i] || "·").join(" ")}</td></tr>`).join("")}</tbody></table></div>` : "";
-  $("at_list").innerHTML = err + sum + events.map((ev) => { const m = missesOf(ev), miss = [...m.values()].filter((x) => x.miss).length, tot = m.size;
-    return `<button type="button" class="at-ev" data-id="${esc(ev.id)}"><b dir="auto">${esc(ev.title || "—")}</b><span class="muted">${esc(ev.date || "")} · ${ev.slots.length} ${esc(t("slot"))} · ${tot - miss}/${tot} ✓${miss ? ` · <span class="bad">${miss} X</span>` : ""}</span></button>`; }).join("");
+  let h = err + (creating ? createHtml() : "");
+  if (!events.length && !creating) { $("at_list").innerHTML = h + `<div class="muted">${esc(t("empty"))}</div>`; return; }
+  const sheets = new Map();
+  for (const ev of events) { const k = sheetOf(ev); if (!sheets.has(k)) sheets.set(k, []); sheets.get(k).push(ev); }
+  for (const [name, list] of sheets) {
+    list.sort((a, b) => (b.date || "").localeCompare(a.date || "") || b.at - a.at);
+    // per-member misses on this sheet (recent 8), for the summary
+    const recent = list.slice(0, 8), rows = new Map();
+    recent.forEach((ev, i) => { for (const [id, v] of missesOf(ev)) { const r = rows.get(id) || { name: v.name, n: 0, miss: 0, seq: [] }; r.n++; if (v.miss) r.miss++; r.seq[i] = v.miss ? "X" : "✓"; r.name = v.name; rows.set(id, r); } });
+    const bad = [...rows.entries()].filter(([, r]) => r.miss > 0).sort((a, b) => b[1].miss - a[1].miss || (TOP.has(b[0]) - TOP.has(a[0])) || a[1].name.localeCompare(b[1].name));
+    const cls = (r) => r.miss >= 3 ? "red" : r.miss === 2 ? "orange" : "";
+    h += `<div class="card at-sheet"><h3 style="margin:0 0 6px" dir="auto">${esc(name || "—")}</h3>
+      <table class="at-sum"><thead><tr><th>${esc(t("date"))}</th><th></th><th>${esc(t("rate"))}</th><th></th></tr></thead><tbody>${list.map((ev) => { const r = rateOf(ev), sl = slot(ev);
+        return `<tr class="at-ev" data-id="${esc(ev.id)}" style="cursor:pointer"><td>${esc(ev.date || "")}</td><td dir="auto" class="muted">${esc(sl.name || "")}</td><td><b>${r.pct == null ? "—" : r.pct + "%"}</b> <span class="muted">${r.ok}/${r.n}</span></td><td>›</td></tr>`; }).join("")}</tbody></table>
+      <div class="muted" style="font-size:12px;margin-top:4px">${esc(t("rateNote"))}</div>` +
+      (bad.length ? `<table class="at-sum" style="margin-top:10px"><thead><tr><th>${esc(t("name"))}</th><th>${esc(t("missN"))}</th><th>${esc(t("events"))}</th><th></th></tr></thead><tbody>${bad.map(([id, r]) => `<tr class="${cls(r)}"><td dir="auto">${star(id)}${esc(r.name)}</td><td><b>${r.miss}</b></td><td>${r.n}</td><td class="seq">${recent.map((_, i) => r.seq[i] || "·").join(" ")}</td></tr>`).join("")}</tbody></table>` : "") + `</div>`;
+  }
+  $("at_list").innerHTML = h;
   $("at_list").querySelectorAll(".at-ev").forEach((b) => b.onclick = () => { cur = JSON.parse(JSON.stringify(events.find((e) => e.id === b.dataset.id))); render(); });
+  wireCreate();
+}
+/* ＋ New list: sheet (existing names suggested), date, one plan to import */
+function createHtml() {
+  const names = [...new Set(events.map(sheetOf).filter(Boolean))];
+  const pl = Object.entries(plans).filter(([, p]) => (p.picked || []).length).sort((a, b) => String(a[1].name).localeCompare(String(b[1].name), undefined, { numeric: true }));
+  return `<div class="card"><h3 style="margin:0 0 8px">${esc(t("newBtn"))}</h3>
+    <div class="row"><label style="flex:1;min-width:180px"><span class="muted" style="font-size:12.5px">${esc(t("sheet"))}</span><input class="inp" id="at_cSheet" list="at_sheets" placeholder="${esc(t("sheetPh"))}" value="${esc(names[0] || ssName())}" style="width:100%"><datalist id="at_sheets">${names.map((n) => `<option value="${esc(n)}">`).join("")}<option value="${esc(ssName())}"></datalist></label>
+    <label><span class="muted" style="font-size:12.5px">${esc(t("date"))}</span><input class="inp" id="at_cDate" type="date" value="${new Date().toISOString().slice(0, 10)}"></label></div>
+    <label style="display:block;margin-top:8px"><span class="muted" style="font-size:12.5px">${esc(t("plan"))}</span><select class="inp" id="at_cPlan" style="width:100%"><option value="">${esc(t("planNone"))}</option>${pl.map(([id, p]) => `<option value="${esc(id)}">${esc(p.name || id)} (${(p.picked || []).length})</option>`).join("")}</select></label>
+    <div class="muted" style="font-size:12px;margin-top:4px">${esc(t("planHint"))}</div>
+    <div class="row" style="margin-top:8px"><button type="button" class="btn" id="at_cGo">${esc(t("create"))}</button><button type="button" class="btn small" id="at_cCancel">✕</button></div></div>`;
+}
+function wireCreate() {
+  if (!$("at_cGo")) return;
+  $("at_cCancel").onclick = () => { creating = false; render(); };
+  $("at_cGo").onclick = () => {
+    const sheet = $("at_cSheet").value.trim() || ssName(), date = $("at_cDate").value, pl = plans[$("at_cPlan").value];
+    const byId = new Map(((roster && roster.members) || []).map((m) => [S(m.id), m]));
+    const confirmed = pl ? (pl.picked || []).map((id) => byId.get(S(id))).filter(Boolean).map((m) => ({ id: S(m.id), name: m.name })) : [];
+    cur = { id: rid(), title: sheet, sheet, date, slots: [{ name: pl ? pl.name || "" : "", confirmed, present: [], excused: [] }] };
+    creating = false; render();
+  };
 }
 function renderEdit() {
-  const ro = !canEdit();
-  let h = `<div class="card"><div class="row"><input class="inp" id="at_evTitle" placeholder="${esc(t("evTitle"))}" value="${esc(cur.title || "")}" ${ro ? "disabled" : ""} style="flex:1;min-width:160px"><input class="inp" id="at_evDate" type="date" value="${esc(cur.date || "")}" ${ro ? "disabled" : ""}></div></div>`;
-  const cnt = missCounts(cur);
-  cur.slots.forEach((sl, i) => {
-    const rowsC = sl.confirmed.length ? sl.confirmed.map((m) => `<span class="chip" data-del="${i}:${esc(m.id)}" dir="auto">${star(m.id)}${esc(m.name)}${ro ? "" : " ×"}</span>`).join("") : `<span class="muted">${esc(t("nobody"))}</span>`;
-    const rowsP = sl.confirmed.map((m) => { const st = statusOf(sl, m.id), n = st === "no" ? (cnt.get(m.id) || 1) : 0;
-      return `<button type="button" class="at-p ${st}${n >= 3 ? " m3" : n === 2 ? " m2" : ""}" data-tog="${i}:${esc(m.id)}" ${ro ? "disabled" : ""} dir="auto">${st === "ok" ? "✓" : st === "ex" ? "🛌" : "X"} ${star(m.id)}${esc(m.name)}${n >= 2 ? ` <small>(${nth(n)})</small>` : ""}</button>`; }).join("");
-    h += `<div class="card at-slot" data-i="${i}"><div class="row" style="align-items:center"><b>${esc(t("slot"))} ${i + 1}</b><input class="inp" data-sn="${i}" placeholder="${esc(t("slotName"))}" value="${esc(sl.name || "")}" ${ro ? "disabled" : ""} style="flex:1">${ro || cur.slots.length < 2 ? "" : `<button type="button" class="btn small" data-rm="${i}">×</button>`}</div>
-      <h4>${esc(t("confirmed"))} · ${sl.confirmed.length}</h4><div class="chips">${rowsC}</div>
-      ${ro ? "" : `<textarea class="inp" data-paste="${i}" rows="2" placeholder="${esc(t("paste"))}" style="width:100%;margin-top:6px"></textarea>
-      <div class="row" style="margin-top:6px;align-items:center"><button type="button" class="btn small" data-match="${i}">${esc(t("match"))}</button><label class="btn small" style="cursor:pointer">${esc(t("shot"))}<input type="file" accept="image/*" multiple data-shot="${i}" hidden></label>
-      <select class="inp" data-plan="${i}" style="max-width:220px"><option value="">${esc(t("fromPlan"))}</option>${Object.entries(plans).map(([id, pl]) => `<option value="${esc(id)}">${esc(t("planN", { name: pl.name || id, n: (pl.picked || []).length }))}</option>`).join("")}</select>
-      <select class="inp" data-add="${i}" style="max-width:200px"><option value="">${esc(t("addMember"))}</option>${roster ? roster.members.filter((m) => !sl.confirmed.some((c) => String(c.id) === String(m.id))).sort((a, b) => a.name.localeCompare(b.name)).map((m) => `<option value="${esc(m.id)}">${esc(m.name)}</option>`).join("") : ""}</select></div>
-      <div class="msg" data-msg="${i}"></div>`}
-      <h4>${esc(t("present"))}</h4><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(t("presentNote"))}<br><b>${esc(t("keysLine"))}</b></div>
-      ${ro || !sl.confirmed.length ? "" : `<button type="button" class="btn small" data-all="${i}" style="margin-bottom:6px">${esc(t("allPresent"))}</button>`}<div class="at-plist">${rowsP}</div></div>`;
-  });
-  h += `<div class="row" style="margin-top:4px;align-items:center">${ro ? "" : `<button type="button" class="btn small" id="at_addSlot">${esc(t("addSlot"))}</button><button type="button" class="btn" id="at_save">${esc(t("save"))}</button>`}<button type="button" class="btn small" id="at_copy">${esc(t("copy"))}</button>${ro || !events.some((e) => e.id === cur.id) ? "" : `<button type="button" class="btn small danger" id="at_del">${esc(t("del"))}</button>`}<span class="msg" id="at_msg"></span></div>
-    <div class="muted" style="font-size:12px;margin-top:6px">${esc(t("legend"))}</div>`;
+  const ro = !canEdit(), sl = slot(cur), cnt = missCounts(cur);
+  const chips = sl.confirmed.length ? sl.confirmed.map((m) => `<span class="chip${m.sub ? " sub" : ""}" dir="auto"><button type="button" class="chip-n" data-sub="${esc(m.id)}" ${ro ? "disabled" : ""}>${star(m.id)}${esc(m.name)}${m.sub ? ` <small>${esc(t("sub2"))}</small>` : ""}</button>${ro ? "" : `<button type="button" class="chip-x" data-del="${esc(m.id)}">×</button>`}</span>`).join("") : `<span class="muted">${esc(t("nobody"))}</span>`;
+  const plist = sl.confirmed.map((m) => { const st = statusOf(sl, m.id), n = st === "no" && !m.sub ? (cnt.get(S(m.id)) || 1) : 0;
+    return `<button type="button" class="at-p ${st}${m.sub ? " issub" : ""}${n >= 3 ? " m3" : n === 2 ? " m2" : ""}" data-tog="${esc(m.id)}" ${ro ? "disabled" : ""} dir="auto">${st === "ok" ? "✓" : st === "ex" ? "🛌" : "X"} ${star(m.id)}${esc(m.name)}${m.sub ? ` <small>${esc(t("sub2"))}</small>` : ""}${n >= 2 ? ` <small>(${nth(n)})</small>` : ""}</button>`; }).join("");
+  const r = rateOf(cur);
+  let h = `<div class="card"><div class="row"><input class="inp" id="at_evSheet" placeholder="${esc(t("sheetPh"))}" value="${esc(sheetOf(cur))}" ${ro ? "disabled" : ""} style="flex:1;min-width:160px"><input class="inp" id="at_evDate" type="date" value="${esc(cur.date || "")}" ${ro ? "disabled" : ""}><input class="inp" id="at_evSlot" placeholder="Legion 1" value="${esc(sl.name || "")}" ${ro ? "disabled" : ""} style="width:110px"></div></div>
+    <div class="card"><h4>${esc(t("confirmed"))} · ${sl.confirmed.length}</h4><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(t("subHint"))}</div><div class="chips">${chips}</div>
+      ${ro ? "" : `<textarea class="inp" id="at_paste" rows="2" placeholder="${esc(t("paste"))}" style="width:100%;margin-top:8px"></textarea>
+      <div class="row" style="margin-top:6px;align-items:center"><button type="button" class="btn small" id="at_match">${esc(t("match"))}</button><label class="btn small" style="cursor:pointer">${esc(t("shot"))}<input type="file" accept="image/*" multiple id="at_shot" hidden></label>
+      <select class="inp" id="at_add" style="max-width:200px"><option value="">${esc(t("addMember"))}</option>${roster ? roster.members.filter((m) => !sl.confirmed.some((c) => S(c.id) === S(m.id))).sort((a, b) => a.name.localeCompare(b.name)).map((m) => `<option value="${esc(m.id)}">${esc(m.name)}</option>`).join("") : ""}</select></div>
+      <div class="msg" id="at_pmsg"></div>`}</div>
+    <div class="card"><h4>${esc(t("present"))} · ${esc(t("rate"))} ${r.pct == null ? "—" : r.pct + "%"} <span class="muted">(${r.ok}/${r.n})</span></h4>
+      <div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(t("presentNote"))}<br><b>${esc(t("keysLine"))}</b></div>
+      ${ro || !sl.confirmed.length ? "" : `<button type="button" class="btn small" id="at_all" style="margin-bottom:6px">${esc(t("allPresent"))}</button>`}<div class="at-plist">${plist}</div></div>
+    <div class="row" style="margin-top:4px;align-items:center">${ro ? "" : `<button type="button" class="btn" id="at_save">${esc(t("save"))}</button>`}<button type="button" class="btn small" id="at_copy">${esc(t("copy"))}</button>${ro || !events.some((e) => e.id === cur.id) ? "" : `<button type="button" class="btn small danger" id="at_del">${esc(t("del"))}</button>`}<span class="msg" id="at_msg"></span></div>`;
   if (!roster) h = `<div class="msg warn">${esc(t("noData"))}</div>` + h;
   const box = $("at_edit_body"); box.innerHTML = h;
-  if (ro) return wireCopy();
-  $("at_evTitle").oninput = (e) => { cur.title = e.target.value; };
+  wireCopy();
+  if (ro) return;
+  $("at_evSheet").oninput = (e) => { cur.sheet = cur.title = e.target.value; };
   $("at_evDate").oninput = (e) => { cur.date = e.target.value; };
-  box.querySelectorAll("[data-sn]").forEach((el) => el.oninput = () => { cur.slots[+el.dataset.sn].name = el.value; });
-  box.querySelectorAll("[data-rm]").forEach((el) => el.onclick = () => { cur.slots.splice(+el.dataset.rm, 1); renderEdit(); });
-  box.querySelectorAll("[data-del]").forEach((el) => el.onclick = () => { const [i, id] = el.dataset.del.split(":"); const sl = cur.slots[+i]; sl.confirmed = sl.confirmed.filter((m) => String(m.id) !== id); sl.present = sl.present.filter((x) => String(x) !== id); sl.excused = sl.excused.filter((x) => String(x) !== id); renderEdit(); });
-  box.querySelectorAll("[data-match]").forEach((el) => el.onclick = () => { const i = +el.dataset.match; const names = box.querySelector(`[data-paste="${i}"]`).value.split(/[\n,，]+/).map((s) => s.replace(/^[\s\-•*\d.)]+/, "").trim()).filter(Boolean); addNames(i, names); });
-  box.querySelectorAll("[data-shot]").forEach((el) => el.onchange = () => ocr(+el.dataset.shot, [...el.files]));
-  box.querySelectorAll("[data-plan]").forEach((el) => el.onchange = () => { const pl = plans[el.value]; if (!pl || !roster) return; const i = +el.dataset.plan;
-    if (!cur.slots[i].name) cur.slots[i].name = pl.name || "";
-    addMembers(i, (pl.picked || []).map((id) => roster.members.find((m) => String(m.id) === String(id))).filter(Boolean).map((m) => ({ id: m.id, name: m.name }))); });
-  box.querySelectorAll("[data-add]").forEach((el) => el.onchange = () => { const m = roster && roster.members.find((x) => String(x.id) === el.value); if (m) addMembers(+el.dataset.add, [{ id: m.id, name: m.name }]); });
-  box.querySelectorAll("[data-tog]").forEach((el) => el.onclick = () => { const [i, id] = el.dataset.tog.split(":"); const sl = cur.slots[+i], st = statusOf(sl, id);
-    sl.present = sl.present.filter((x) => String(x) !== id); sl.excused = sl.excused.filter((x) => String(x) !== id);
+  $("at_evSlot").oninput = (e) => { sl.name = e.target.value; };
+  box.querySelectorAll("[data-sub]").forEach((el) => el.onclick = () => { const m = sl.confirmed.find((x) => S(x.id) === el.dataset.sub); if (m) { if (m.sub) delete m.sub; else m.sub = 1; } renderEdit(); });
+  box.querySelectorAll("[data-del]").forEach((el) => el.onclick = () => { const id = el.dataset.del; sl.confirmed = sl.confirmed.filter((m) => S(m.id) !== id); sl.present = sl.present.filter((x) => S(x) !== id); sl.excused = sl.excused.filter((x) => S(x) !== id); renderEdit(); });
+  $("at_match").onclick = () => addNames($("at_paste").value.split(/[\n,，]+/).map((s) => s.replace(/^[\s\-•*\d.)]+/, "").trim()).filter(Boolean));
+  $("at_shot").onchange = () => ocr([...$("at_shot").files]);
+  $("at_add").onchange = () => { const m = roster && roster.members.find((x) => S(x.id) === $("at_add").value); if (m) addMembers([{ id: S(m.id), name: m.name }]); };
+  box.querySelectorAll("[data-tog]").forEach((el) => el.onclick = () => { const id = el.dataset.tog, st = statusOf(sl, id);
+    sl.present = sl.present.filter((x) => S(x) !== id); sl.excused = sl.excused.filter((x) => S(x) !== id);
     if (st === "no") sl.present.push(id); else if (st === "ok") sl.excused.push(id);   // no → ok → excused → no
     renderEdit(); });
-  box.querySelectorAll("[data-all]").forEach((el) => el.onclick = () => { const sl = cur.slots[+el.dataset.all]; sl.present = sl.confirmed.map((m) => String(m.id)); sl.excused = []; renderEdit(); });
-  $("at_addSlot").onclick = () => { cur.slots.push({ name: "", confirmed: [], present: [], excused: [] }); renderEdit(); };
+  if ($("at_all")) $("at_all").onclick = () => { sl.present = sl.confirmed.map((m) => S(m.id)); sl.excused = []; renderEdit(); };
   $("at_save").onclick = save;
   if ($("at_del")) $("at_del").onclick = async () => { if (!confirm(t("delAsk"))) return; try { await api("del", { id: cur.id }); events = events.filter((e) => e.id !== cur.id); cur = null; render(); } catch (e) { $("at_msg").textContent = errText(e); } };
-  wireCopy();
 }
-/* how many times each member has missed, counting this event and every saved event up to its date (later events don't count) */
-function missCounts(ev) {
-  const cnt = new Map(), list = [ev, ...events.filter((e) => e.id !== ev.id && (e.date || "") <= (ev.date || ""))];
-  for (const e of list) for (const [id, v] of missesOf(e)) if (v.miss) cnt.set(id, (cnt.get(id) || 0) + 1);
-  return cnt;
-}
-const nth = (n) => n === 1 ? "1st" : n === 2 ? "2nd" : n === 3 ? "3rd" : n + "th";
 function wireCopy() { $("at_copy").onclick = () => {
-  const cnt = missCounts(cur);
-  const lines = [`${cur.title || ""} ${cur.date || ""}`, "Keys: X = missed · (2nd) / (3rd) = repeat miss · 🛌 = excused · ⭐ = top 20", ""];
-  for (const sl of cur.slots) { if (cur.slots.length > 1) lines.push(`— ${sl.name || t("slot")} —`); for (const m of sl.confirmed) { const st = statusOf(sl, m.id), n = cnt.get(m.id) || 0;
-    lines.push(`- ${star(m.id)}${m.name}${st === "no" ? ": X" + (n >= 2 ? ` (${nth(n)} miss)` : "") : st === "ex" ? ": 🛌" : ""}`); } }
+  const cnt = missCounts(cur), sl = slot(cur), r = rateOf(cur);
+  const lines = [`${sheetOf(cur)} ${cur.date || ""}${sl.name ? " — " + sl.name : ""} · ${r.ok}/${r.n}${r.pct == null ? "" : " (" + r.pct + "%)"}`, "Keys: X = missed · (2nd) / (3rd) = repeat miss · 🛌 = excused · (sub) = substitute · ⭐ = top 20", ""];
+  for (const m of sl.confirmed) { const st = statusOf(sl, m.id), n = m.sub ? 0 : (cnt.get(S(m.id)) || 0);
+    lines.push(`- ${star(m.id)}${m.name}${m.sub ? " (sub)" : ""}${st === "no" ? ": X" + (n >= 2 ? ` (${nth(n)} miss)` : "") : st === "ex" ? ": 🛌" : ""}`); }
   navigator.clipboard.writeText(lines.join("\n")).then(() => { $("at_msg").textContent = t("copied"); }); }; }
-function addMembers(i, list) { const sl = cur.slots[i]; for (const m of list) { const id = String(m.id); if (!sl.confirmed.some((c) => String(c.id) === id)) sl.confirmed.push({ id, name: m.name }); } renderEdit(); }   // duplicates (overlapping screenshots) are skipped
-function addNames(i, names) {
+function addMembers(list) { const sl = slot(cur); for (const m of list) { const id = S(m.id); if (!sl.confirmed.some((c) => S(c.id) === id)) sl.confirmed.push({ id, name: m.name }); } renderEdit(); }
+function addNames(names) {
   if (!roster) return;
   const { hit, miss } = matchNames(names);
-  addMembers(i, hit);
-  const el = $("at_edit_body").querySelector(`[data-msg="${i}"]`);
+  addMembers(hit);
+  const el = $("at_pmsg");
   if (el) el.innerHTML = esc(t("matched", { n: hit.length })) + (miss.length ? `<br><span class="warn">${esc(t("miss", { list: miss.join(", ") }))}</span>` : "");
 }
-async function ocr(i, files) {
+async function ocr(files) {
   if (!files.length || busy) return; busy = true;
-  const el = $("at_edit_body").querySelector(`[data-msg="${i}"]`); if (el) el.textContent = t("ocrWait");
-  try {
-    const images = await Promise.all(files.slice(0, 6).map(shrink));
-    const r = await api("ocr", { images });
-    addNames(i, r.names);
-  } catch (e) { if (el) el.textContent = errText(e); }
+  const el = $("at_pmsg"); if (el) el.textContent = t("ocrWait");
+  try { const images = await Promise.all(files.slice(0, 6).map(shrink)); const r = await api("ocr", { images }); addNames(r.names); }
+  catch (e) { if (el) el.textContent = errText(e); }
   busy = false;
 }
-/* phone screenshots are big: scale to ≤1400 px JPEG before upload */
 function shrink(file) { return new Promise((res, rej) => { const img = new Image(); img.onload = () => { const k = Math.min(1, 1400 / Math.max(img.width, img.height)); const c = document.createElement("canvas"); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k); c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); res(c.toDataURL("image/jpeg", 0.85)); }; img.onerror = rej; img.src = URL.createObjectURL(file); }); }
 async function save() {
   const msg = $("at_msg"); msg.textContent = "…";
@@ -197,27 +216,15 @@ async function save() {
 }
 async function load() {
   lastErr = null;
-  try { const r = await api("list"); events = r.events.map((e) => ({ ...e, slots: (e.slots || []).map((s) => ({ name: s.name || "", confirmed: s.confirmed || [], present: s.present || [], excused: s.excused || [] })) })); }
+  try { const r = await api("list"); events = r.events.map((e) => { const sl = (e.slots || [])[0] || {}; return { ...e, sheet: e.sheet || e.title || "", slots: [{ name: sl.name || "", confirmed: (sl.confirmed || []).map((m) => ({ ...m, id: S(m.id) })), present: (sl.present || []).map(S), excused: (sl.excused || []).map(S) }] }; }); }
   catch (e) { lastErr = e; }
   render();
 }
-/* 📊 one click: a new Swordland list with one slot per shared plan of the Ranking tab (Legion 1, Legion 2…), everyone ticked there = confirmed */
-async function newFromPlans() {
-  try { const d = await OfficerData.fetchJsonFast(PLAN_URL); if (d) plans = d.plans || {}; } catch (e) {}
-  const list = Object.values(plans).filter((pl) => (pl.picked || []).length).sort((a, b) => String(a.name).localeCompare(String(b.name), undefined, { numeric: true }));
-  if (!list.length) { lastErr = null; $("at_list").insertAdjacentHTML("afterbegin", `<div class="msg warn">${esc(t("planNone"))}</div>`); return; }
-  const byId = new Map(((roster && roster.members) || []).map((m) => [String(m.id), m]));
-  const ss = typeof EVENT_NAMES !== "undefined" && EVENT_NAMES["Swordland Showdown"];
-  cur = { id: rid(), title: (ss && (ss[lang] || ss.en)) || "Swordland Showdown", date: new Date().toISOString().slice(0, 10),
-    slots: list.map((pl) => ({ name: pl.name || "", confirmed: pl.picked.map((id) => byId.get(String(id))).filter(Boolean).map((m) => ({ id: String(m.id), name: m.name })), present: [], excused: [] })) };
-  render();
-}
 function init() {
-  $("at_fromPlans").onclick = newFromPlans;
-  $("at_newBtn").onclick = () => { cur = { id: rid(), title: "", date: new Date().toISOString().slice(0, 10), slots: [{ name: "", confirmed: [], present: [], excused: [] }] }; render(); };
-  $("at_back").onclick = () => { cur = null; render(); };
+  $("at_newBtn").onclick = async () => { try { const d = await OfficerData.fetchJsonFast(PLAN_URL); if (d) plans = d.plans || {}; } catch (e) {} creating = true; render(); };
+  $("at_back").onclick = () => { cur = null; creating = false; render(); };
   OfficerData.fetchJsonFast(ROSTER_URL, (d) => { roster = d; TOP = top20(); render(); }).then((d) => { if (d) roster = d; TOP = top20(); render(); }).catch(() => {});
-  OfficerData.fetchJsonFast(PLAN_URL, (d) => { plans = (d && d.plans) || {}; if (cur) renderEdit(); }).then((d) => { if (d) plans = d.plans || {}; if (cur) renderEdit(); }).catch(() => {});
+  OfficerData.fetchJsonFast(PLAN_URL, (d) => { plans = (d && d.plans) || {}; if (creating) render(); }).then((d) => { if (d) plans = d.plans || {}; if (creating) render(); }).catch(() => {});
   applyTexts();
 }
 function onShow() { if (OFFICER.user && token()) load(); else render(); }

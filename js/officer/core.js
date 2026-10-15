@@ -82,6 +82,7 @@ OFFICER.util = {
    Someone who unlocked with the password only (no Discord) is not in the table → everything, as before. */
 OFFICER.OWNER = "1547403844374368327";   // Sparrow: always admin, can't be demoted or removed (so nobody can lock everyone out)
 OFFICER.ADMINS = [];                       // filled from the table (admin: true) by loadPerms
+OFFICER.PERMS_TRIAL = true;   // the 👥 table is kept and editable, but not enforced yet (set false when the login system goes live)
 OFFICER.PERM_TABS = ["events", "map", "ranking", "post", "watch", "scout", "views", "board", "attend", "bt"];
 OFFICER.defaultPerms = () => Object.fromEntries(OFFICER.PERM_TABS.map((k) => [k, k === "events" ? "view" : "none"]));   // new officer: Events, view only
 const PERMS_LS = "nxs-perms-v1";
@@ -98,6 +99,7 @@ OFFICER.isAdmin = () => !!OFFICER.user && OFFICER.ADMINS.includes(OFFICER.user.i
 OFFICER.can = (tab, what = "view") => {
   const uid = OFFICER.previewAs || (OFFICER.user && OFFICER.user.id);
   if (tab === "perms") return OFFICER.isAdmin();
+  if (OFFICER.PERMS_TRIAL) return true;                               // 🔓 until the login system is rolled out: every tab open to every officer (👥 stays admin-only)
   if (!uid) return true;                                              // password-only officer: unchanged for now
   if (OFFICER.ADMINS.includes(uid)) return true;
   const u = OFFICER.perms.users[uid], lv = (u && u.perms && u.perms[tab]) || (u ? "none" : "edit");   // Discord user not in the table yet → everything

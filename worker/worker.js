@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-14m";
+const VERSION = "2026-10-15a";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -892,10 +892,11 @@ async function attendRoute(env, stub, user, body, token) {
   if (op === "save") return write(async () => {
     const ev = body.ev && typeof body.ev === "object" ? body.ev : null;
     if (!ev || !/^[\w-]{1,40}$/.test(String(ev.id || ""))) return json({ error: "bad request" }, 400);
-    const clean = { title: String(ev.title || "").slice(0, 80), date: String(ev.date || "").slice(0, 10), by: { id: user.id, name: user.name },
+    // sheet = the event type this list belongs to (Swordland, Tri-Alliance…); one list = one plan / one slot. sub = substitute
+    const clean = { title: String(ev.title || "").slice(0, 80), sheet: String(ev.sheet || "").slice(0, 40), date: String(ev.date || "").slice(0, 10), by: { id: user.id, name: user.name },
       slots: (Array.isArray(ev.slots) ? ev.slots : []).slice(0, 8).map((sl) => ({
         name: String(sl.name || "").slice(0, 40),
-        confirmed: (Array.isArray(sl.confirmed) ? sl.confirmed : []).slice(0, 200).map((m) => ({ id: String(m.id || "").slice(0, 40), name: String(m.name || "").slice(0, 60) })),
+        confirmed: (Array.isArray(sl.confirmed) ? sl.confirmed : []).slice(0, 200).map((m) => ({ id: String(m.id || "").slice(0, 40), name: String(m.name || "").slice(0, 60), ...(m.sub ? { sub: 1 } : {}) })),
         present: (Array.isArray(sl.present) ? sl.present : []).slice(0, 200).map((x) => String(x).slice(0, 40)),
         excused: (Array.isArray(sl.excused) ? sl.excused : []).slice(0, 200).map((x) => String(x).slice(0, 40)) })) };
     const data = JSON.stringify(clean);
