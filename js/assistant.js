@@ -444,7 +444,9 @@
     if (q.toLowerCase() === "/debug") {
       $("aiQ").value = "";
       let sw = "?"; try { sw = navigator.serviceWorker && navigator.serviceWorker.controller ? "yes" : "no"; } catch (x) {}
-      say("a", ["🐞 " + navigator.userAgent.slice(0, 120), "standalone: " + (matchMedia("(display-mode: standalone)").matches || navigator.standalone === true), "service worker: " + sw, "size: " + innerWidth + "×" + innerHeight,
+      let ver = "?"; try { ver = ((await (await fetch("sw.js", { cache: "no-store" })).text()).match(/nxs-v\d+/) || ["?"])[0]; } catch (x) {}
+      let have = "?"; try { have = (((await caches.keys()).filter((k) => /^nxs-v/.test(k))).join(",")) || "-"; } catch (x) {}
+      say("a", ["🐞 site: " + ver + " · this phone: " + have, navigator.userAgent.slice(0, 120), "standalone: " + (matchMedia("(display-mode: standalone)").matches || navigator.standalone === true), "service worker: " + sw, "size: " + innerWidth + "×" + innerHeight,
         "ai-pos: " + (localStorage.getItem("nxs-ai-pos") || "-"), ...(ERRS.length ? ["errors:", ...ERRS] : ["no JavaScript errors so far"])].join("\n"), false);
       return;
     }
