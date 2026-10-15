@@ -134,8 +134,7 @@ const SH = { ko: {"home": "홈", "pw": "🔒 간부 비밀번호", "remember": "
 /* ===== 🔑 Discord login (testing): the Worker checks who you are on our Discord server and hands back a sealed session ===== */
 const AUTH_API = "https://nxs-ai.tapegirljoke.workers.dev", DISCORD_LS = "nxs-discord-v1";
 /* still being tried out: the Discord buttons only show in a browser that opened this page once with ?discord (or is logged in) */
-const DISCORD_TRY = (() => { try { if (/[?&]discord\b/.test(location.search)) localStorage.setItem("nxs-discord-try", "1");
-  return !!localStorage.getItem("nxs-discord-try") || !!localStorage.getItem(DISCORD_LS) || /^#login/.test(location.hash); } catch (e) { return false; } })();
+const DISCORD_TRY = true;   // the Discord login buttons are shown everywhere (the ?discord trial switch is over)
 let loginMsg = "";
 (function () {   // coming back from Discord: #login=<session>&to=<tab> or #login_error=<why>&to=<tab>
   const m = location.hash.slice(1).match(/^(login|login_error)=([^&]*)(?:&to=(.*))?$/);

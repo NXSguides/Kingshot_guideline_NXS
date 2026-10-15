@@ -342,8 +342,7 @@
       const t = cloud.at ? new Date(cloud.at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) : "…";
       return `<div class="tm-note">${esc(T("clOn").replace("{name}", u.name || "Discord").replace("{t}", t))} <button type="button" class="tm-link" data-a="cloudnow">${esc(T("clNow"))}</button>${err}</div>`;
     }
-    let tryIt = false; try { tryIt = /[?&]discord\b/.test(location.search) || !!localStorage.getItem("nxs-discord-try"); if (tryIt) localStorage.setItem("nxs-discord-try", "1"); } catch (e) {}
-    if (!isOfficer() || !tryIt) return err ? `<div class="tm-note">${err}</div>` : "";   // still being tried out: only after opening a page once with ?discord
+    if (!isOfficer()) return err ? `<div class="tm-note">${err}</div>` : "";   // the Discord sync card is for officers
     const back = location.origin + location.pathname + location.search + location.hash;
     return `<div class="tm-note">${esc(T("clOff"))}<br><a class="tm-btn" style="display:inline-block;margin-top:6px;text-decoration:none" href="${esc(API + "/auth/discord/start?r=" + encodeURIComponent(back))}">${esc(T("clIn"))}</a>${err}</div>`;
   }
