@@ -475,11 +475,11 @@ function renderSB() {
 }
 /* 📍 MightPulse's live map of every city in #2189 (their site, shown inside ours; opened only when asked, so the tab stays fast) */
 const MP_URL = "https://mightpulse.com/map?kid=2189";
-const MP = { zh: { t: "📍 即時城市地圖（MightPulse）", s: "王國裡每座城堡的位置、聯盟、護盾狀態，資料來自 MightPulse。", show: "在這裡顯示地圖", hide: "收起地圖", open: "在 MightPulse 開啟 ↗", note: "如果下面是空白或顯示拒絕連線，代表 MightPulse 不允許嵌入，請改用「在 MightPulse 開啟」。" },
-  en: { t: "📍 Live city map (MightPulse)", s: "Every city in the kingdom with its alliance and shield status, from MightPulse.", show: "Show the map here", hide: "Hide the map", open: "Open on MightPulse ↗", note: "If the box below stays blank or says it refused to connect, MightPulse doesn't allow embedding — use “Open on MightPulse”." },
-  pt: { t: "📍 Mapa de cidades ao vivo (MightPulse)", s: "Todas as cidades do reino com aliança e escudo, do MightPulse.", show: "Mostrar o mapa aqui", hide: "Esconder o mapa", open: "Abrir no MightPulse ↗", note: "Se a caixa abaixo ficar em branco ou recusar a conexão, o MightPulse não permite incorporar — use “Abrir no MightPulse”." },
-  ko: { t: "📍 실시간 도시 지도 (MightPulse)", s: "왕국의 모든 성 위치, 연맹, 보호막 상태 — MightPulse 데이터.", show: "여기에 지도 보기", hide: "지도 접기", open: "MightPulse에서 열기 ↗", note: "아래가 비어 있거나 연결이 거부되면 MightPulse가 삽입을 허용하지 않는 것이니 “MightPulse에서 열기”를 사용하세요." },
-  ar: { t: "📍 خريطة المدن المباشرة (MightPulse)", s: "كل مدن المملكة مع التحالف وحالة الدرع، من MightPulse.", show: "اعرض الخريطة هنا", hide: "إخفاء الخريطة", open: "افتح في MightPulse ↗", note: "إن بقي المربع أدناه فارغًا أو رفض الاتصال فإن MightPulse لا يسمح بالتضمين — استخدم «افتح في MightPulse»." } };
+const MP = { zh: { t: "📍 城市地圖（MightPulse）", s: "王國裡每座城堡的位置、聯盟、護盾狀態，資料來自 MightPulse；位置是他們上次掃描時的，可能是幾週前。", show: "在這裡顯示地圖", hide: "收起地圖", open: "在 MightPulse 開啟 ↗", note: "如果下面是空白或顯示拒絕連線，代表 MightPulse 不允許嵌入，請改用「在 MightPulse 開啟」。" },
+  en: { t: "📍 City map (MightPulse)", s: "Every city in the kingdom with its alliance and shield status, from MightPulse — positions are from their last scan and can be weeks old.", show: "Show the map here", hide: "Hide the map", open: "Open on MightPulse ↗", note: "If the box below stays blank or says it refused to connect, MightPulse doesn't allow embedding — use “Open on MightPulse”." },
+  pt: { t: "📍 Mapa de cidades (MightPulse)", s: "Todas as cidades do reino com aliança e escudo, do MightPulse — as posições são da última varredura deles e podem ter semanas.", show: "Mostrar o mapa aqui", hide: "Esconder o mapa", open: "Abrir no MightPulse ↗", note: "Se a caixa abaixo ficar em branco ou recusar a conexão, o MightPulse não permite incorporar — use “Abrir no MightPulse”." },
+  ko: { t: "📍 도시 지도 (MightPulse)", s: "왕국의 모든 성 위치, 연맹, 보호막 상태 — MightPulse 데이터. 위치는 마지막 스캔 기준이라 몇 주 전일 수 있어요.", show: "여기에 지도 보기", hide: "지도 접기", open: "MightPulse에서 열기 ↗", note: "아래가 비어 있거나 연결이 거부되면 MightPulse가 삽입을 허용하지 않는 것이니 “MightPulse에서 열기”를 사용하세요." },
+  ar: { t: "📍 خريطة المدن (MightPulse)", s: "كل مدن المملكة مع التحالف وحالة الدرع، من MightPulse — المواقع من آخر مسح لديهم وقد تكون قديمة بأسابيع.", show: "اعرض الخريطة هنا", hide: "إخفاء الخريطة", open: "افتح في MightPulse ↗", note: "إن بقي المربع أدناه فارغًا أو رفض الاتصال فإن MightPulse لا يسمح بالتضمين — استخدم «افتح في MightPulse»." } };
 let mpOpen = false;
 function renderMp() {
   const box = $("km_mp"); if (!box) return;
