@@ -63,5 +63,9 @@ for (const t of TABS) {
 
 await browser.close();
 server.close();
-if (errors.length) { console.error("❌ smoke test failed:\n" + errors.map((e) => " - " + e).join("\n")); process.exit(1); }
+if (errors.length) {
+  console.error("❌ smoke test failed:\n" + errors.map((e) => " - " + e).join("\n"));
+  if (process.env.GITHUB_ACTIONS) for (const e of errors.slice(0, 10)) console.log("::error::" + e.replace(/\r?\n/g, " ").slice(0, 400));   // shows up in the run's annotations
+  process.exit(1);
+}
 console.log("✅ smoke test passed (site, calculator, officer tabs: " + TABS.join(" ") + ")");
