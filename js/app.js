@@ -891,7 +891,7 @@ document.addEventListener("pointermove", (e) => {
     if (Math.abs(dy) > 12 && Math.abs(dy) > Math.abs(dx)) { annSwipe = null; return; }   // scrolling the page up/down
     if (Math.abs(dx) < 10) return;
     s.on = true; s.body.style.transition = "none"; s.body.style.userSelect = "none";
-    try { s.body.setPointerCapture(e.pointerId); } catch (err) {}
+    // no pointer capture here: iOS keeps it after the swipe and then swallows every later tap on the page (the listeners are on document anyway)
   }
   s.dx = dx;
   s.body.style.transform = `translateX(${dx}px)`;
