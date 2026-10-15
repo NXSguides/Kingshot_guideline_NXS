@@ -211,6 +211,8 @@
   #pg-ranking td.ck input { accent-color: #f59e0b; }
   #pg-ranking td.ck.main input { accent-color: var(--accent); }
   #pg-ranking tr.member.sub td.name { opacity: .75; }
+  #pg-ranking tr.rk-subrow td { opacity: .8; }
+  #pg-ranking .rk-subtag { background: #f59e0b; color: #000; border-radius: 4px; padding: 0 5px; font: 700 11px/1.6 system-ui, sans-serif; vertical-align: middle; }
   #pg-attend .at-p.issub { border-style: dashed; }
   #pg-attend .chip.sub small, #pg-attend .at-p.issub small { background: #f59e0b; color: #000; border-radius: 4px; padding: 0 5px; font-weight: 700; font-size: 11px; margin-inline-start: 2px; }
   #pg-attend .at-p.no.issub { background: transparent; color: var(--text-muted); border-color: var(--line); }
@@ -661,10 +663,7 @@
     <div class="card">
       <h2 data-t="weights"></h2>
       <select class="inp" id="rk_mode" style="margin-bottom:8px"></select>
-      <div class="row" id="rk_wRow" hidden>
-        <label class="w"><span data-t="power"></span><input type="number" id="wPower" min="0" max="100" step="5"> %</label>
-        <label class="w"><span data-t="mystic"></span><input type="number" id="wMystic" min="0" max="100" step="5"> %</label>
-      </div>
+      <div class="row" id="rk_wRow" hidden></div>
       <div class="muted msg" id="rk_spNote" data-t="weightNote" style="margin-top:0"></div>
       <div class="muted msg" id="rk_wNote" data-t="wNote" hidden></div>
     </div>
@@ -694,6 +693,8 @@
             <th data-sort="tc" class="num" data-t="colTc"></th>
             <th data-sort="power" class="num" data-t="power"></th>
             <th data-sort="mystic" class="num" data-t="mystic"></th>
+            <th data-sort="sp" class="num" data-t="colSp"></th>
+            <th data-sort="migrant" class="num" data-t="colMigrant"></th>
           </tr></thead>
           <tbody id="rk_list"></tbody>
         </table>
@@ -708,13 +709,7 @@
       </div>
       <div class="tbl-wrap" style="max-height:none">
         <table>
-          <thead><tr>
-            <th class="num">#</th>
-            <th data-t="colName"></th>
-            <th class="num" data-t="colScore"></th>
-            <th class="num" data-t="power"></th>
-            <th class="num" data-t="mystic"></th>
-          </tr></thead>
+          <thead><tr id="resultHead"></tr></thead>
           <tbody id="result"></tbody>
         </table>
       </div>
