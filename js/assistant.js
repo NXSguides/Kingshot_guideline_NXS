@@ -432,10 +432,22 @@
     return `${why}\n${ids.length ? L("guides") + "\n" + links : L("none")}${officer}`;
   }
 
+  /* 🐞 "/debug" in the chat box shows the last JavaScript errors on this device (home-screen apps have no console) */
+  const ERRS = [];
+  const noteErr = (m) => { ERRS.push(new Date().toISOString().slice(11, 19) + " " + String(m).slice(0, 300)); if (ERRS.length > 12) ERRS.shift(); };
+  window.addEventListener("error", (e) => noteErr((e.message || "error") + (e.filename ? " @ " + e.filename.split("/").pop() + ":" + e.lineno : "")));
+  window.addEventListener("unhandledrejection", (e) => noteErr("promise: " + (e.reason && (e.reason.stack || e.reason.message) || e.reason)));
   $("aiForm").onsubmit = async (e) => {
     e.preventDefault();
     const q = $("aiQ").value.trim();
     if (!q) return;
+    if (q.toLowerCase() === "/debug") {
+      $("aiQ").value = "";
+      let sw = "?"; try { sw = navigator.serviceWorker && navigator.serviceWorker.controller ? "yes" : "no"; } catch (x) {}
+      say("a", ["🐞 " + navigator.userAgent.slice(0, 120), "standalone: " + (matchMedia("(display-mode: standalone)").matches || navigator.standalone === true), "service worker: " + sw, "size: " + innerWidth + "×" + innerHeight,
+        "ai-pos: " + (localStorage.getItem("nxs-ai-pos") || "-"), ...(ERRS.length ? ["errors:", ...ERRS] : ["no JavaScript errors so far"])].join("\n"), false);
+      return;
+    }
     $("aiQ").value = "";
     say("u", q);
     const wait = say("a", "…", false);

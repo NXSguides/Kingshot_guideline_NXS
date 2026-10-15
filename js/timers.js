@@ -411,7 +411,12 @@
     view.hidden = !on; log.hidden = on; form.hidden = on;
     log.style.display = on ? "none" : ""; form.style.display = on ? "none" : "";
     clearInterval(tick);
-    if (on) { if (startAdding && !adding) adding = { cat: null, rows: [""], name: "" }; render(); tick = setInterval(renderList, 1000); }
+    if (on) {
+      if (startAdding && !adding) adding = { cat: null, rows: [""], name: "" };
+      // if drawing the list fails, show why (and a way back) instead of an empty panel
+      render().catch((e) => { view.innerHTML = `<div class="tm-top"><b>${esc(T("title"))}</b><button type="button" class="tm-btn" data-a="chat">${esc(T("chat"))}</button></div><div class="tm-note">⚠️ ${esc(String(e && e.stack || e).slice(0, 400))}</div>`; });
+      tick = setInterval(renderList, 1000);
+    }
     else adding = null;
   }
 
