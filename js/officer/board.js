@@ -46,7 +46,7 @@ let lang = OFFICER.lang, topics = [], cur = null, timer = null, openOrig = new S
 const SEEN_LS = "nxs-board-seen";
 const seen = (() => { try { return JSON.parse(localStorage.getItem(SEEN_LS)) || {}; } catch (e) { return {}; } })();
 const saveSeen = () => { try { localStorage.setItem(SEEN_LS, JSON.stringify(seen)); } catch (e) {} };
-const unread = (x) => x.last > (seen[x.id] || 0) && !(OFFICER.user && x.lastBy === OFFICER.user.id);
+const unread = (x) => x.last > (seen[x.id] || 0) && !(OFFICER.me() && x.lastBy === OFFICER.me().id);
 function markSeen(id, at) { seen[id] = Math.max(seen[id] || 0, at || Date.now()); saveSeen(); tabDot(); }
 function tabDot(n) {
   const a = document.getElementById("boardTab"); if (!a) return;
@@ -67,11 +67,11 @@ const postParam = () => { const m = location.hash.match(/[?&]p=([\w-]+)/); retur
 let stamp = 0, firstCall = true, users = [], tasks = [], lastErr = null;   // lastErr: the failure shown instead of the list / topic (redrawn in the new language on a switch)
 /* what the two compose boxes carry besides text: @mentioned ids and 📋 assignees */
 const compose = { new: { m: new Set(), to: new Set() }, reply: { m: new Set(), to: new Set() } };
-const userName = (id) => { const u = users.find((x) => x.id === id) || (OFFICER.user && OFFICER.user.id === id ? OFFICER.user : null) || (cur && cur.posts.map((p) => p.by).find((b) => b.id === id)) || ((OFFICER.perms && OFFICER.perms.users) || {})[id]; return u ? u.name : "?"; };
+const userName = (id) => { const u = users.find((x) => x.id === id) || (OFFICER.me() && OFFICER.me().id === id ? OFFICER.me() : null) || (cur && cur.posts.map((p) => p.by).find((b) => b.id === id)) || ((OFFICER.perms && OFFICER.perms.users) || {})[id]; return u ? u.name : "?"; };
 /* people to pick from: everyone who used the board + the 👥 officer table (names there are set by admins) */
-const others = () => { const m = new Map(users.map((u) => [u.id, u])); for (const [id, u] of Object.entries((OFFICER.perms && OFFICER.perms.users) || {})) if (!m.has(id)) m.set(id, { id, name: u.name, avatar: "" }); return [...m.values()].filter((u) => !OFFICER.user || u.id !== OFFICER.user.id).sort((a, b) => a.name.localeCompare(b.name)); };
+const others = () => { const m = new Map(users.map((u) => [u.id, u])); for (const [id, u] of Object.entries((OFFICER.perms && OFFICER.perms.users) || {})) if (!m.has(id)) m.set(id, { id, name: u.name, avatar: "" }); return [...m.values()].filter((u) => !OFFICER.me() || u.id !== OFFICER.me().id).sort((a, b) => a.name.localeCompare(b.name)); };
 async function api(op, extra = {}) {
-  const r = await fetch(AUTH_API + "/board", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: token(), lang, op, ...(firstCall ? { first: true } : {}), ...extra }) });
+  const r = await fetch(AUTH_API + "/board", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), lang, op, ...(firstCall ? { first: true } : {}), ...extra }) });
   const j = await r.json().catch(() => ({ error: "network" }));
   if (j.token) { try { localStorage.setItem(DISCORD_LS, j.token); } catch (e) {} }
   if (!r.ok || j.error) throw Object.assign(new Error((j.error || "HTTP " + r.status) + (j.detail ? " — " + [].concat(j.detail).join("; ").slice(0, 200) : "")), { code: j.error });
@@ -98,7 +98,7 @@ function renderList() {
 }
 const av = (u) => u.avatar ? `<img src="${esc(u.avatar)}" alt="">` : `<span class="bd-av">${esc((u.name || "?").slice(0, 1))}</span>`;
 function postHtml(p, i) {
-  const me = OFFICER.user && p.by.id === OFFICER.user.id, isDec = cur.dec === p.id, src = p.txt.src;
+  const me = OFFICER.me() && p.by.id === OFFICER.me().id, isDec = cur.dec === p.id, src = p.txt.src;
   const translated = !!p.txt[lang] && p.txt[lang] !== p.txt.orig, showOrig = openOrig.has(p.id);
   const dbg = `src=${src || "?"} · ${OFFICER_LANGS.map((l) => l + (p.txt[l] ? (p.txt[l] === p.txt.orig ? "=orig" : " ✓") : " ✗")).join(" · ")}`;
   const sameLang = src === lang || (!translated && !p.txt.en && !p.txt.zh && !p.txt.pt);
@@ -118,7 +118,7 @@ function postHtml(p, i) {
 }
 function taskHtml(p) {
   const m = p.meta; if (!m || !(m.to || []).length) return "";
-  const me = OFFICER.user && OFFICER.user.id, done = m.done || {}, mine = m.to.includes(me);
+  const me = OFFICER.me() && OFFICER.me().id, done = m.done || {}, mine = m.to.includes(me);
   return `<div class="bd-task"><span>${esc(t("taskTo"))}</span>${m.to.map((id) => `<span class="bd-chip task${done[id] ? " done" : ""}">${esc(userName(id))}${done[id] ? " ✅" : ""}</span>`).join("")}
     ${me ? `<button class="btn" data-done="${esc(p.id)}" data-on="${done[me] ? 0 : 1}">${esc(done[me] ? t("undone") : t("done"))}</button>` : ""}
     ${Object.keys(done).filter((id) => !m.to.includes(id)).map((id) => `<span class="muted">${esc(t("doneBy", { name: userName(id) }))}</span>`).join("")}</div>`;
@@ -144,7 +144,7 @@ async function loadTopic(id, quiet) {
 }
 function showLogin() { $("bd_login").hidden = false; $("bd_app").hidden = true; }
 function route() {
-  if (!token()) return showLogin();
+  if (!token() && !OFFICER.pw) return showLogin();
   $("bd_login").hidden = true; $("bd_app").hidden = false;
   const id = topicId();
   $("bd_listView").hidden = !!id; $("bd_topicView").hidden = !id;
@@ -156,7 +156,7 @@ function route() {
 function poll() {
   clearInterval(timer);
   timer = setInterval(() => {
-    if (ROOT.hidden || document.hidden || !token()) return;
+    if (ROOT.hidden || document.hidden || (!token() && !OFFICER.pw)) return;
     const id = topicId();
     if (id) { if (!editing && !$("bd_replyText").value) loadTopic(id, true); } else loadList(true);
   }, 45000);
@@ -252,7 +252,7 @@ const errText = (e) => e.code === "db_limit" || /limit|exceed|quota|allow/i.test
 function alertMsg(e) { $("bd_replyMsg").textContent = errText(e); }
 function init() { applyTexts(); poll(); }
 /* the tab's dot is kept fresh even while another tab is open (once a minute) */
-async function dotCheck() { if (document.hidden || !token() || !OFFICER.user || !ROOT.hidden) return; try { const j = await api("list", { since: stamp }); if (j.unchanged) return; topics = j.topics; tabDot(); } catch (e) {} }
+async function dotCheck() { if (document.hidden || (!token() && !OFFICER.pw) || !OFFICER.me() || !ROOT.hidden) return; try { const j = await api("list", { since: stamp }); if (j.unchanged) return; topics = j.topics; tabDot(); } catch (e) {} }
 setInterval(dotCheck, 3 * 60000); setTimeout(dotCheck, 3000);
 function onShow() { route(); draftLoad(); }
 function setLang(l) {

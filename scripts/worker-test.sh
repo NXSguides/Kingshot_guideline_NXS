@@ -4,7 +4,7 @@
 set -e
 cd "$(dirname "$0")/../worker"
 PORT=${PORT:-8787}
-printf 'DISCORD_CLIENT_SECRET=test-only\nVAPID_PRIVATE=\n' > .dev.vars   # dummy secrets for the local run only (file is git-ignored)
+printf 'DISCORD_CLIENT_SECRET=test-only\nOFFICER_PASSWORD=test-pw\nVAPID_PRIVATE=\n' > .dev.vars   # dummy secrets for the local run only (file is git-ignored)
 npx --yes wrangler@4 dev --local --port "$PORT" --ip 127.0.0.1 >/tmp/wrangler-dev.log 2>&1 &
 WP=$!
 trap 'kill $WP 2>/dev/null || true; rm -f .dev.vars' EXIT
@@ -16,6 +16,9 @@ expect() { local got; got=$(post "$1" "$2"); if echo "$got" | grep -q "$3"; then
 expect /board   '{"op":"list"}'   '"logged_out"'
 expect /attend  '{"op":"list"}'   '"logged_out"'
 expect /perms   '{"op":"get"}'    '"logged_out"'
+expect /attend  '{"op":"list","pw":"test-pw","pwName":"Tester"}' '"ok":true'
+expect /attend  '{"op":"list","pw":"wrong"}' '"logged_out"'
+expect /perms   '{"op":"save","pw":"test-pw","perms":{"users":{}}}' '"not_admin"'
 expect /sync    '{}'              '"logged_out"'
 expect /auth/me '{}'              '"logged_out"'
 expect /push/save '{"sub":{"endpoint":"https://x.example/a","keys":{"p256dh":"a","auth":"b"}},"timers":[]}' '"ok":true\|push_key_missing'

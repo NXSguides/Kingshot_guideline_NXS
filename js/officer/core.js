@@ -133,6 +133,10 @@ OFFICER.savePerms = () => {
 };
 OFFICER.loadPerms();
 OFFICER.previewAs = null;   // an admin can look at the page with another officer's rights (👥 tab → "Preview as")
+/* the person using the page: Discord user, or (trial) someone who unlocked with the officer password — named by the author name on the Post tab */
+OFFICER.me = () => OFFICER.user || (OFFICER.pw ? (() => { const n = (officerStore().author || "").trim() || "Officer"; return { id: "pw-" + (n.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-|-$/g, "").slice(0, 30) || "officer"), name: n, pw: true }; })() : null);
+/* what the Worker needs to know who is asking: the Discord session, else (trial) the officer password */
+OFFICER.authBody = () => { let tok = null; try { tok = localStorage.getItem(DISCORD_LS); } catch (e) {} return tok ? { token: tok } : OFFICER.pw ? { pw: OFFICER.pw, pwName: OFFICER.me().name } : {}; };
 OFFICER.isAdmin = () => !!OFFICER.user && OFFICER.ADMINS.includes(OFFICER.user.id);   // the real person (a preview never hides the 👥 tab)
 OFFICER.can = (tab, what = "view") => {
   const uid = OFFICER.previewAs || (OFFICER.user && OFFICER.user.id);
@@ -145,7 +149,7 @@ OFFICER.can = (tab, what = "view") => {
 };
 /* tab list + read-only look follow the rights (called after login, after a change on the 👥 tab, and when previewing) */
 OFFICER.applyPerms = () => {
-  document.querySelectorAll(".tabs a[data-tab]").forEach((a) => { const k = a.dataset.tab; a.hidden = k === "board" || k === "attend" ? !(OFFICER.user && OFFICER.can(k)) : !OFFICER.can(k, "view"); });
+  document.querySelectorAll(".tabs a[data-tab]").forEach((a) => { const k = a.dataset.tab; a.hidden = k === "board" || k === "attend" ? !((OFFICER.user || OFFICER.pw) && OFFICER.can(k)) : !OFFICER.can(k, "view"); });
   const ro = { zh: "👁️ 這個分頁你只能看，不能修改。", en: "👁️ View only: you can look at this tab but not change it.", pt: "👁️ Só leitura: você pode ver esta aba, mas não mudar nada.", ar: "👁️ للعرض فقط: يمكنك مشاهدة هذا القسم دون تعديله.", ko: "👁️ 보기 전용: 이 탭은 볼 수만 있고 수정할 수 없습니다." }[OFFICER.lang] || "";
   for (const k of TABS) { const pg = document.getElementById("pg-" + k); if (pg) { pg.classList.toggle("readonly", !OFFICER.can(k, "edit")); pg.dataset.ro = ro; } }
   if (!OFFICER.can(currentTab(), "view")) location.hash = "#" + (TABS.find((k) => OFFICER.can(k, "view")) || "events");

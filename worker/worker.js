@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-15g";
+const VERSION = "2026-10-15h";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -920,6 +920,7 @@ async function permsRoute(stub, user, body, token) {
   const cur = await stub.kvGet("perms");
   if (op === "get") return json({ ok: true, token, perms: cur, user });
   if (op === "rename") {   // everyone may change their OWN name on the site (admins change anyone's in the table)
+    if (user.pw) return json({ error: "logged_out" }, 401);   // password-only: the name is the author name kept on the device
     const name = String(body.name || "").replace(/\s+/g, " ").trim().slice(0, 40);
     if (!name) return json({ error: "bad request" }, 400);
     try {
@@ -1170,13 +1171,19 @@ async function authRoute(req, env, path, ctx) {
   if (path === "/auth/me" || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/perms") {
     if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
     let body; try { body = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
-    const c = await sessionCheck(req, env, body.token);
+    let c;
+    // 🔑 unlocked with the officer password only (no Discord): allowed on the board, attendance and reading the 👥 table
+    if (!body.token && body.pw && (path === "/board" || path === "/attend" || path === "/perms")) {
+      if (!env.OFFICER_PASSWORD || String(body.pw).trim() !== String(env.OFFICER_PASSWORD).trim()) return json({ error: "logged_out" }, 401);
+      const nm = String(body.pwName || "").replace(/\s+/g, " ").trim().slice(0, 40) || "Officer";
+      c = { s: { pw: true, u: { id: "pw-" + (nm.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-|-$/g, "").slice(0, 30) || "officer"), name: nm, pw: true } } };
+    } else c = await sessionCheck(req, env, body.token);
     if (c.error) return json({ error: c.error, user: c.user }, c.status);
-    const s = c.s, token = await seal(env, s);
+    const s = c.s, token = s.pw ? undefined : await seal(env, s);
     const stub = env.TIMERS ? env.TIMERS.get(env.TIMERS.idFromName("all")) : null;
     // ✏️ the name shown on the site can be changed (👥 table / the name at the top of the officer page); the Discord name stays underneath
     let u = s.u;
-    if (stub) { try { const nm = await stub.nameOf(s.u.id); if (nm && nm !== s.u.name) u = { ...s.u, name: nm, discordName: s.u.name }; } catch (e) {} }
+    if (stub && !s.pw) { try { const nm = await stub.nameOf(s.u.id); if (nm && nm !== s.u.name) u = { ...s.u, name: nm, discordName: s.u.name }; } catch (e) {} }
     if (path === "/auth/me") {
       if (!env.OFFICER_PASSWORD) return json({ error: "officer_password_missing", user: u }, 503);
       return json({ ok: true, user: u, pw: String(env.OFFICER_PASSWORD).trim(), token });

@@ -682,7 +682,8 @@ function planRenderBar() {
    Kept in the plan itself: owner = { id, name } of whoever made it (or first restricted it), editors = [Discord ids] when restricted.
    Checked on this page (the plan file is shared by all officers, so it is a working rule, not a lock). */
 const myId = () => (OFFICER.user && OFFICER.user.id) || "";
-const planCanEdit = (p) => { if (!p || !p.editors) return true; const me = myId(); return !!me && (OFFICER.isAdmin() || (p.owner && p.owner.id === me) || p.editors.includes(me)); };
+const planCanEdit = (p) => { if (!p || !p.editors) return true; if (OFFICER.PERMS_TRIAL && !OFFICER.user && OFFICER.pw) return true;   // trial: the officer password opens everything
+  const me = myId(); return !!me && (OFFICER.isAdmin() || (p.owner && p.owner.id === me) || p.editors.includes(me)); };
 const planCanSetEditors = (p) => !!p && !!myId() && (OFFICER.isAdmin() || !p.owner || p.owner.id === myId());
 function planEditorsHtml() {
   const p = planId && plans[planId]; if (!p) return "";
