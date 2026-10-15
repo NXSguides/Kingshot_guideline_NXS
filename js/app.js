@@ -1363,12 +1363,17 @@ window.addEventListener("hashchange", () => {
 (function () {
   const title = document.getElementById("siteTitle");
   if (!title) return;
+  const go = () => { safeSet("nxs-officer-lang", ["zh", "en", "pt", "ar", "ko"].includes(currentLang) ? currentLang : "en"); location.href = "officer-x7k2p9.html#events"; };
+  /* 🛡️ a browser that has already got in (Discord login or a remembered officer password) gets a one-tap button at the top */
+  const ob = document.getElementById("officerBtn");
+  const isIn = () => { try { return !!localStorage.getItem("nxs-discord-v1") || !!(JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw); } catch (e) { return false; } };
+  if (ob) { ob.hidden = !isIn(); ob.onclick = go; window.addEventListener("storage", () => { ob.hidden = !isIn(); }); }
   let taps = 0, timer = null;
   title.addEventListener("click", () => {
     taps++;
     clearTimeout(timer);
     timer = setTimeout(() => { taps = 0; }, 2000);
-    if (taps >= 5) { taps = 0; safeSet("nxs-officer-lang", ["zh", "en", "pt", "ar", "ko"].includes(currentLang) ? currentLang : "en"); location.href = "officer-x7k2p9.html#events"; }   // officer page languages; others → English
+    if (taps >= 5) { taps = 0; go(); }   // officer page languages; others → English
   });
 })();
 
