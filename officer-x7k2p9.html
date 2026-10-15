@@ -868,17 +868,7 @@
       <div class="msg" id="listMsg"></div>
     </div>
 
-    <details class="card">
-      <summary data-t="adminMore"></summary>
-      <p class="muted" data-t="adminMoreNote"></p>
-      <div class="row">
-        <button class="btn" id="forgetBtn" data-t="forget"></button>
-        <button class="btn" id="resetupBtn" data-t="resetup"></button>
-      </div>
-      <div class="row" style="margin-top:10px"><button class="btn" id="dataKeyBtn" data-t="dataKeyBtn"></button></div>
-      <div class="msg" id="dataKeyMsg" style="white-space:pre-line"></div>
-      <pre id="dataKeyOut" hidden style="user-select:all;white-space:pre-wrap;word-break:break-all;padding:10px;border-radius:8px;border:1px solid currentColor"></pre>
-    </details>
+
   </div>
 </section>
 <section class="pg" id="pg-watch" hidden>
@@ -1047,6 +1037,18 @@
   <div class="card"><div class="pm-wrap" id="pm_tbl"></div><div class="muted" id="pm_adminNote" style="margin-top:8px;font-size:12.5px"></div><div class="msg" id="pm_msg"></div></div>
   <div class="card"><h3 id="pm_addH" style="margin:0 0 8px"></h3><div class="row"><input class="inp" id="pm_name" style="width:140px"><input class="inp" id="pm_id" inputmode="numeric" style="width:220px"><button class="btn primary" id="pm_addBtn"></button></div>
     <div class="row" style="margin-top:10px"><button class="btn small" id="pm_reset"></button></div></div>
+  <!-- 🔑 site-owner tools: kept with the 👥 Officers tab (admins only); the buttons are wired by js/officer/post.js -->
+    <details class="card" id="po_owner">
+    <summary data-t="adminMore"></summary>
+    <p class="muted" data-t="adminMoreNote"></p>
+    <div class="row">
+      <button class="btn" id="forgetBtn" data-t="forget"></button>
+      <button class="btn" id="resetupBtn" data-t="resetup"></button>
+    </div>
+    <div class="row" style="margin-top:10px"><button class="btn" id="dataKeyBtn" data-t="dataKeyBtn"></button></div>
+    <div class="msg" id="dataKeyMsg" style="white-space:pre-line"></div>
+    <pre id="dataKeyOut" hidden style="user-select:all;white-space:pre-wrap;word-break:break-all;padding:10px;border-radius:8px;border:1px solid currentColor"></pre>
+  </details>
 </section>
 <section class="pg" id="pg-views" hidden>
   <div class="top">

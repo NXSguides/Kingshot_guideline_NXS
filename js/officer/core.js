@@ -157,6 +157,8 @@ OFFICER.applyPerms = () => {
 const OFFICER_PAGES = {};
 const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "bt", "board", "attend", "perms"];
 const inited = {};
+/* start another tab's module without showing it (the 👥 tab uses the Post tab's owner tools) */
+OFFICER.ensure = async (k) => { const p = OFFICER_PAGES[k]; if (!p) return; if (!inited[k]) inited[k] = p.init(); try { await inited[k]; } catch (e) { inited[k] = null; console.error(e); } };
 /* ← back: to the page you came from on this site; opened directly (a notification, a bookmark) → the guides in your language, not the language picker */
 function nxsBack(e) {
   if (e) e.preventDefault();

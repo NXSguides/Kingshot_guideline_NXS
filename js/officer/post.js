@@ -590,7 +590,7 @@ let keyBlob = null;
 function applyTexts() {
   if (typeof GUIDES === "undefined") return;
   document.documentElement.lang = HTML_LANG(ui);
-  ROOT.querySelectorAll("[data-t]").forEach((el) => {
+  [...ROOT.querySelectorAll("[data-t]"), ...document.querySelectorAll("#po_owner [data-t]")].forEach((el) => {
     const v = tr(el.dataset.t);
     el.textContent = v;
   });
@@ -704,7 +704,7 @@ $("setupBtn").onclick = async () => {
   } catch (e) { showMsg("setupMsg", "err", errText(e)); }
 };
 $("forgetBtn").onclick = () => { delete store.pw; save(); location.reload(); };
-$("resetupBtn").onclick = () => { $("po_app").hidden = true; $("setupCard").hidden = false; };
+$("resetupBtn").onclick = () => { $("po_app").hidden = true; $("setupCard").hidden = false; if (location.hash.slice(1) !== "post") location.hash = "post"; };
 $("dataKeyBtn").onclick = async () => {
   const out = $("dataKeyOut"); out.hidden = true;
   if (!OFFICER_PW || !TOKEN) return showMsg("dataKeyMsg", "err", tr("dataKeyNeedPw"));

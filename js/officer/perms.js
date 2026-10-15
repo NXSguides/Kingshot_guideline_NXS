@@ -73,5 +73,5 @@ function init() {
   $("pm_reset").onclick = () => { OFFICER.resetPerms(); OFFICER.previewAs = null; changed(); };
 }
 function setLang(l) { lang = l; applyTexts(); }
-OFFICER_PAGES.perms = { init, onShow: () => { render(); OFFICER.fetchPerms(); }, applyTexts, setLang };
+OFFICER_PAGES.perms = { init, onShow: () => { render(); OFFICER.fetchPerms(); OFFICER.ensure("post"); }, applyTexts, setLang };
 })();
