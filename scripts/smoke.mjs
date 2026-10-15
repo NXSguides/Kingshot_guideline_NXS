@@ -27,7 +27,7 @@ const ctx = await browser.newContext({ locale: "zh-TW" });
 await ctx.route(/workers\.dev/, (route) => route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ ok: true, n: 0, topics: [], items: [], error: "logged_out" }) }));
 const page = await ctx.newPage();
 page.on("pageerror", (e) => errors.push(`[${page.url().replace(BASE, "")}] ${e.message}`));
-page.on("console", (m) => { if (m.type() === "error" && !/favicon|net::|404|cdnjs|cdn\./.test(m.text())) errors.push(`[console ${page.url().replace(BASE, "")}] ${m.text()}`); });
+page.on("console", (m) => { if (m.type() === "error" && !/favicon|net::|Failed to load resource|cdnjs|cdn\./.test(m.text())) errors.push(`[console ${page.url().replace(BASE, "")}] ${m.text()}`); });
 
 async function open(path) {
   await page.goto(BASE + path, { waitUntil: "load" });
