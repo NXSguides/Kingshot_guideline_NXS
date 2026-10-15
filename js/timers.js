@@ -11,6 +11,7 @@
     if (/[?&]timers\b/.test(location.search) || /officer-/.test(location.pathname)) localStorage.setItem(BETA, "1");
     beta = !!localStorage.getItem(BETA) || !!(JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw);
   } catch (e) {}
+  beta = true;   // ⏰ open to everyone (2026-10-16) — the 🛠️ admin reminders stay officer-only (isOfficerUser below)
   if (!beta) {
     // home-screen / Dock apps have no address bar: typing "/timers" in the AI chat turns it on too
     const f = NXSAI.panel.querySelector("#aiForm"), q = NXSAI.panel.querySelector("#aiQ");
@@ -216,6 +217,13 @@
   }
   /* 🛠️ admin reminders: officer to-dos the officer page left in this browser (nxs-admin-todos), sent at the chosen UTC hour of their due day */
   function adminData() { try { return JSON.parse(localStorage.getItem("nxs-admin-todos")) || null; } catch (e) { return null; } }
+  /* 🛠️ officer to-do reminders: only on a device where an officer opened the officer page (it leaves the to-dos / the officer password there),
+     or whose Discord account is in the 👥 officer table cached by the officer page. A plain Discord login is not enough. */
+  const isOfficerUser = () => { try {
+    if (adminData() || (JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw)) return true;
+    const u = JSON.parse(localStorage.getItem("nxs-discord-user") || "{}"), p = JSON.parse(localStorage.getItem("nxs-perms-v1") || "{}");
+    return !!(u.id && p.users && p.users[u.id]);
+  } catch (e) { return false; } };
   const isOfficer = () => { try { return !!adminData() || !!localStorage.getItem("nxs-discord-v1") || !!(JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw); } catch (e) { return false; } };
   /* the to-do's event name in the page language: the guide name on the main site, the officer page's names otherwise */
   const adminName = (x, ev) => {
@@ -227,7 +235,7 @@
   };
   function adminTimers() {
     const a = alerts.admin, d = adminData();
-    if (!a || !a.on || !d || !Array.isArray(d.items)) return [];
+    if (!a || !a.on || !d || !Array.isArray(d.items) || !isOfficerUser()) return [];
     const now = Date.now(), h = a.hour ?? 0, seen = new Set(), out = [];
     // one short notification per event per day ("⚔️ Swordland Showdown") — the details stay in the checklist
     for (const x of d.items) {
@@ -532,7 +540,7 @@
     return `<div class="tm-alerts"><b>${esc(T("alerts"))}</b><div class="tm-hint" style="margin-top:2px">${esc(T("alertsNote"))}</div>${pushOn ? "" : `<div class="tm-err">${esc(T("needOn"))}</div>`}${rows}<div class="tm-hint">${esc(T("alertsSync"))}</div></div>`;
   }
   function adminHtml() {
-    // (testing phase: shown to every tester; later only to officers → `if (!isOfficer()) return "";`)
+    if (!isOfficerUser()) return "";   // members never see the 🛠️ officer to-dos
     const a = alerts.admin || {}, d = adminData(), h = a.hour ?? 0;
     const loc = (x) => new Date(Date.UTC(2000, 0, 1, x)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     let body = "";

@@ -1079,7 +1079,8 @@ function monthCalHtml() {
 }
 function renderCal() { const el = document.getElementById("monthCal"); if (el) el.innerHTML = monthCalHtml(); }
 /* ⏰ timers are still a test (js/timers.js): the bear calculator link shows where they are on. To open it to everyone: return true */
-const timersOn = () => { try { return !!localStorage.getItem("nxs-timers-beta") || !!localStorage.getItem("nxs-discord-v1") || !!(JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw); } catch (e) { return false; } };
+const timersOn = () => true;   // ⏰ open to everyone (2026-10-16)
+const timersOnOld = () => { try { return !!localStorage.getItem("nxs-timers-beta") || !!localStorage.getItem("nxs-discord-v1") || !!(JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw); } catch (e) { return false; } };
 const BT_LINK = { en: "🧮 BT calculator", zh: "🧮 BT 計算器", ko: "🧮 BT 계산기", de: "🧮 BT-Rechner", fr: "🧮 Calculateur BT", pt: "🧮 Calculadora BT", es: "🧮 Calculadora BT",
   tr: "🧮 BT hesaplayıcı", id: "🧮 Kalkulator BT", ru: "🧮 Калькулятор BT", th: "🧮 เครื่องคำนวณ BT", ar: "🧮 حاسبة BT" };
 function todayCardHtml() {
