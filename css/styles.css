@@ -765,3 +765,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 /* jump-to-section button at the top of a guide (e.g. KvK → Nov 9 push plan) */
 .guide-link-btn.jump-btn { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--panel)); font-weight: 700; margin-bottom: 14px; }
 h3.section-h[id] { scroll-margin-top: 70px; }
+
+/* 🧮 officers: BT calculator link under the Bear Hunt row of the This-week card */
+.today-card .td-bt { display: inline-block; margin: -2px 0 8px 46px; padding: 4px 10px; border: 1px solid var(--accent); border-radius: 8px; color: var(--accent); font-size: 13px; font-weight: 600; text-decoration: none; }
+[dir="rtl"] .today-card .td-bt { margin: -2px 46px 8px 0; }

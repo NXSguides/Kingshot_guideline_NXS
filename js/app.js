@@ -1075,6 +1075,10 @@ function monthCalHtml() {
     <div class="cal-grid">${wd.map((w) => `<span class="cal-w">${escapeHtml(w)}</span>`).join("")}${cells}</div><div class="td-h">${escapeHtml(dl)}</div>${rows}`;
 }
 function renderCal() { const el = document.getElementById("monthCal"); if (el) el.innerHTML = monthCalHtml(); }
+/* this browser belongs to an officer (Discord login, saved officer password, or officer to-dos) — same test as js/timers.js */
+const isOfficerDevice = () => { try { return !!localStorage.getItem("nxs-discord-v1") || !!(JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw) || !!localStorage.getItem("nxs-admin-todos"); } catch (e) { return false; } };
+const BT_LINK = { en: "🧮 BT calculator", zh: "🧮 BT 計算器", ko: "🧮 BT 계산기", de: "🧮 BT-Rechner", fr: "🧮 Calculateur BT", pt: "🧮 Calculadora BT", es: "🧮 Calculadora BT",
+  tr: "🧮 BT hesaplayıcı", id: "🧮 Kalkulator BT", ru: "🧮 Калькулятор BT", th: "🧮 เครื่องคำนวณ BT", ar: "🧮 حاسبة BT" };
 function todayCardHtml() {
   const DAY = 86400000, now = Date.now(), today = Math.floor(now / DAY) * DAY;
   const fill = (str, v) => str.replace(/\{(\w+)\}/g, (m, k) => (v[k] ?? m));
@@ -1114,7 +1118,9 @@ function todayCardHtml() {
   const when = (u) => u === 1 ? t(TODAY_TXT.tomorrow) : fill(t(TODAY_TXT.inDays), { n: u });
   let h = `<div class="today-card"><div class="td-title">${escapeHtml(t(TODAY_TXT.title))}</div>`;
   if (!nowItems.length && !soon.length) h += `<div class="td-none">${escapeHtml(t(TODAY_TXT.none))}</div>`;
-  if (nowItems.length) h += `<div class="td-h">${escapeHtml(t(TODAY_TXT.now))}</div>` + nowItems.map((it) => row(it, it.days > 1 ? escapeHtml(fill(t(TODAY_TXT.day), { n: it.day, d: it.days })) : escapeHtml(t(TODAY_TXT.today)))).join("");
+  if (nowItems.length) h += `<div class="td-h">${escapeHtml(t(TODAY_TXT.now))}</div>` + nowItems.map((it) => row(it, it.days > 1 ? escapeHtml(fill(t(TODAY_TXT.day), { n: it.day, d: it.days })) : escapeHtml(t(TODAY_TXT.today)))
+    // 🧮 officers: on a Bear Hunt day the card also links to the BT squad calculator (same as the Bear Hunt notification)
+    + (it.key === "bear-hunt" && isOfficerDevice() ? `<a class="td-bt" href="./officer-x7k2p9.html#bt">${escapeHtml(t(BT_LINK))}</a>` : "")).join("");
   if (soon.length) h += `<div class="td-h">${escapeHtml(t(TODAY_TXT.soon))}</div>` + soon.map((it) => row(it, escapeHtml(when(it.until)))).join("");
   return h + dailyHintHtml() + `</div><div class="today-card month-card" id="monthCal">${monthCalHtml()}</div>`;
 }
