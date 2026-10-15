@@ -1082,6 +1082,7 @@ Calendar = 日曆
 Forsaken Temple = 神廟大冒險
 Hero Roulette = 英雄轉盤
 Lucky Chip = 幸運幣
+Officer Project = 士官計畫
 Swordland Showdown = 聖劍爭奪
 Swordland = 聖劍戰場
 Battlefield = 聖劍戰場
