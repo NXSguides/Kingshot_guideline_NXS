@@ -211,7 +211,51 @@
     if (open) { $("aiLog").scrollTop = $("aiLog").querySelectorAll(".ai-msg").length > 1 ? $("aiLog").scrollHeight : 0; }
   }
   // phones: don't jump into typing (the keyboard would pop up every time); a computer still gets the cursor in the box
-  fab.onclick = () => { setOpen(panel.hidden); if (!panel.hidden && matchMedia("(pointer: fine)").matches) $("aiQ").focus(); };
+  fab.onclick = () => { if (dragged) { dragged = false; return; } setOpen(panel.hidden); if (!panel.hidden && matchMedia("(pointer: fine)").matches) $("aiQ").focus(); };
+
+  /* 🖐 the button can be dragged anywhere (press, then move): it snaps to the left or right edge and the spot is remembered.
+     The chat panel opens on the same side, above the button (below it when the button is near the top). */
+  const POS_KEY = "nxs-ai-pos";
+  let pos = null; try { pos = JSON.parse(localStorage.getItem(POS_KEY)); } catch (e) {}
+  let dragged = false;
+  function place() {
+    const vh = innerHeight, vw = innerWidth, fh = fab.offsetHeight || 46;
+    const bottom = Math.min(Math.max(pos && pos.bottom != null ? pos.bottom : 16, 8), vh - fh - 8), side = pos && pos.side === "r" ? "r" : "l";
+    fab.style.left = side === "l" ? "16px" : "auto"; fab.style.right = side === "r" ? "16px" : "auto"; fab.style.bottom = bottom + "px"; fab.style.top = "auto";
+    panel.style.left = side === "l" ? "16px" : "auto"; panel.style.right = side === "r" ? "16px" : "auto";
+    const ph = Math.min(520, vh - 110);
+    let pb = bottom + fh + 16;   // above the button
+    if (pb + ph > vh - 8) pb = Math.max(8, bottom - ph - 16);   // not enough room above: below it
+    if (pb < 8) pb = Math.max(8, vh - ph - 8);
+    panel.style.bottom = pb + "px"; panel.style.top = "auto";
+    void vw;
+  }
+  fab.addEventListener("pointerdown", (e) => {
+    if (e.button) return;
+    const x0 = e.clientX, y0 = e.clientY, r = fab.getBoundingClientRect(); let moving = false;
+    try { fab.setPointerCapture(e.pointerId); } catch (x) {}
+    const move = (ev) => {
+      const dx = ev.clientX - x0, dy = ev.clientY - y0;
+      if (!moving && Math.hypot(dx, dy) < 8) return;
+      if (!moving) { moving = true; fab.style.transition = "none"; }
+      ev.preventDefault();
+      const left = Math.min(Math.max(r.left + dx, 4), innerWidth - r.width - 4), top = Math.min(Math.max(r.top + dy, 4), innerHeight - r.height - 4);
+      fab.style.left = left + "px"; fab.style.right = "auto"; fab.style.top = top + "px"; fab.style.bottom = "auto";
+    };
+    const up = (ev) => {
+      fab.removeEventListener("pointermove", move); fab.removeEventListener("pointerup", up); fab.removeEventListener("pointercancel", up);
+      if (!moving) return;
+      dragged = true; setTimeout(() => { dragged = false; }, 300);
+      const b = fab.getBoundingClientRect();
+      pos = { side: b.left + b.width / 2 < innerWidth / 2 ? "l" : "r", bottom: Math.round(innerHeight - b.bottom) };
+      try { localStorage.setItem(POS_KEY, JSON.stringify(pos)); } catch (x) {}
+      fab.style.transition = ""; place();
+    };
+    fab.addEventListener("pointermove", move); fab.addEventListener("pointerup", up); fab.addEventListener("pointercancel", up);
+  });
+  fab.style.touchAction = "none";
+  addEventListener("resize", place);
+  place();
   // tap the top bar (not its buttons) to close the panel
   panel.querySelector(".ai-head").addEventListener("click", (e) => { if (!e.target.closest("button")) setOpen(false); });
   /* first visit on this device: open the chat once (after the language is picked and any event pop-up is closed) */
