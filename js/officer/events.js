@@ -631,6 +631,13 @@ function renderCal() {
   const pinNames = () => { const L = sc.getBoundingClientRect().left;
     for (const b of bars) { const off = L - b.getBoundingClientRect().left; b.style.paddingLeft = off > 0 ? Math.max(0, Math.min(off, b.offsetWidth - 60)) + 8 + "px" : ""; } };
   sc.addEventListener("scroll", pinNames, { passive: true }); pinNames();
+  /* ⤺ scrolled far away: a button brings the strip back to today */
+  const home = (CAL_BACK - 1) * COLW, tb = document.createElement("button");
+  tb.type = "button"; tb.className = "btn small cal-today"; tb.textContent = "⤺ " + tr("today"); tb.hidden = true;
+  tb.onclick = () => sc.scrollTo({ left: home, behavior: "smooth" });
+  cal.appendChild(tb);
+  const showTb = () => { tb.hidden = Math.abs(sc.scrollLeft - home) < COLW * 3; };
+  sc.addEventListener("scroll", showTb, { passive: true }); showTb();
   cal.querySelectorAll("[data-ms]").forEach((b) => b.onclick = () => {   // open the milestone list at that day
     const d = $("msList"); d.open = true; const r = d.querySelector(`.ms-row[data-ms="${b.dataset.ms}"]`);
     if (r) { r.classList.remove("flash"); void r.offsetWidth; r.classList.add("flash"); r.scrollIntoView({ behavior: "smooth", block: "center" }); }
