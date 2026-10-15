@@ -210,6 +210,8 @@
   #pg-attend .at-ev { display: flex; flex-direction: column; gap: 2px; width: 100%; text-align: start; padding: 10px 12px; margin: 0 0 8px; border: 1px solid var(--rule); border-radius: 10px; background: var(--panel); color: inherit; font: inherit; cursor: pointer; }
   #pg-attend .at-ev .bad { color: #b3261e; font-weight: 700; }
   #pg-attend .at-slot h4 { margin: 12px 0 6px; font-size: 14px; }
+  #pg-map .km-mp h3 { margin: 0 0 4px; }
+  #pg-map .km-mp iframe { width: 100%; height: min(75vh, 640px); border: 1px solid var(--rule); border-radius: 10px; margin-top: 10px; background: var(--panel-2); }
   #pg-board .bd-note { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--panel)); display: flex; flex-wrap: wrap; align-items: center; gap: 10px; justify-content: space-between; }
   #pg-board .bd-tip { clear: both; margin: 12px 0 14px; padding: 10px 14px; font-size: 15px; line-height: 1.5; font-weight: 600; color: var(--text); background: color-mix(in srgb, #e0a800 16%, var(--panel)); border: 1px solid #e0a800; border-inline-start: 5px solid #e0a800; border-radius: 10px; }
   #pg-board.pw-only #bd_newBtn, #pg-board.pw-only .bd-form, #pg-board.pw-only [data-edit], #pg-board.pw-only [data-del], #pg-board.pw-only [data-dec], #pg-board.pw-only [data-done] { display: none !important; }
@@ -1076,6 +1078,7 @@
     <div class="km-box" id="km_box"><svg id="km_svg" viewBox="0 0 1320 900" role="img" aria-label="Kingdom #2189 map"></svg></div>
   </div>
   <div class="km-info" id="km_info"></div>
+  <div class="card km-mp" id="km_mp"></div>
   <div class="muted" id="km_orient" style="font-size:12px;margin-top:6px"></div>
   <div class="card" style="margin-top:14px" id="km_plan"></div>
   <h3 id="km_listT" style="margin:18px 0 10px"></h3>

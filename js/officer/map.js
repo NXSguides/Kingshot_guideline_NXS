@@ -473,7 +473,24 @@ function renderSB() {
     <div class="sb-h">${esc(t.keep)} <span class="sb-tag sb-good">${esc(t.keepTag)}</span></div>${keep.join("")}<div class="sb-note">${esc(t.keepNote)}</div>
     <div class="sb-h">${esc(t.rot)} <span class="sb-tag sb-bad">${esc(t.rotTag)}</span></div>${rot.join("")}<div class="sb-note red">${esc(t.rotNote)}</div>`;
 }
+/* 📍 MightPulse's live map of every city in #2189 (their site, shown inside ours; opened only when asked, so the tab stays fast) */
+const MP_URL = "https://mightpulse.com/map?kid=2189";
+const MP = { zh: { t: "📍 即時城市地圖（MightPulse）", s: "王國裡每座城堡的位置、聯盟、護盾狀態，資料來自 MightPulse。", show: "在這裡顯示地圖", hide: "收起地圖", open: "在 MightPulse 開啟 ↗", note: "如果下面是空白或顯示拒絕連線，代表 MightPulse 不允許嵌入，請改用「在 MightPulse 開啟」。" },
+  en: { t: "📍 Live city map (MightPulse)", s: "Every city in the kingdom with its alliance and shield status, from MightPulse.", show: "Show the map here", hide: "Hide the map", open: "Open on MightPulse ↗", note: "If the box below stays blank or says it refused to connect, MightPulse doesn't allow embedding — use “Open on MightPulse”." },
+  pt: { t: "📍 Mapa de cidades ao vivo (MightPulse)", s: "Todas as cidades do reino com aliança e escudo, do MightPulse.", show: "Mostrar o mapa aqui", hide: "Esconder o mapa", open: "Abrir no MightPulse ↗", note: "Se a caixa abaixo ficar em branco ou recusar a conexão, o MightPulse não permite incorporar — use “Abrir no MightPulse”." },
+  ko: { t: "📍 실시간 도시 지도 (MightPulse)", s: "왕국의 모든 성 위치, 연맹, 보호막 상태 — MightPulse 데이터.", show: "여기에 지도 보기", hide: "지도 접기", open: "MightPulse에서 열기 ↗", note: "아래가 비어 있거나 연결이 거부되면 MightPulse가 삽입을 허용하지 않는 것이니 “MightPulse에서 열기”를 사용하세요." },
+  ar: { t: "📍 خريطة المدن المباشرة (MightPulse)", s: "كل مدن المملكة مع التحالف وحالة الدرع، من MightPulse.", show: "اعرض الخريطة هنا", hide: "إخفاء الخريطة", open: "افتح في MightPulse ↗", note: "إن بقي المربع أدناه فارغًا أو رفض الاتصال فإن MightPulse لا يسمح بالتضمين — استخدم «افتح في MightPulse»." } };
+let mpOpen = false;
+function renderMp() {
+  const box = $("km_mp"); if (!box) return;
+  const t = MP[lang] || MP.en;
+  box.innerHTML = `<h3>${t.t}</h3><div class="muted" style="font-size:13px">${t.s}</div>
+    <div class="row" style="margin-top:8px"><button type="button" class="btn" id="km_mpTog">${mpOpen ? t.hide : t.show}</button><a class="btn" href="${MP_URL}" target="_blank" rel="noopener">${t.open}</a></div>
+    ${mpOpen ? `<div class="muted" style="font-size:12px;margin-top:6px">${t.note}</div><iframe src="${MP_URL}" title="MightPulse map" loading="lazy" referrerpolicy="no-referrer"></iframe>` : ""}`;
+  $("km_mpTog").onclick = () => { mpOpen = !mpOpen; renderMp(); };
+}
 function applyTexts() {
+  renderMp();
   if (!G) return;
   renderPlan();
   $("km_title").textContent = "🗺️ " + T("title"); $("km_intro").textContent = T("intro");
