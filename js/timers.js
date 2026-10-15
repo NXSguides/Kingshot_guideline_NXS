@@ -85,7 +85,9 @@
   let lastIds = new Set(timers.map((x) => x.id));
   /* ✅ ticks on the site (daily checklist, KvK checklist, buff-stack steps) ride along with the ⏰ sync when logged in:
      every write to one of these keys is stamped (meta.ls[key].at) and sent; a newer copy from another device replaces it */
-  const SYNC_KEY = /^(nxs-daily-v1|nxs-stack-done|ks-kvk-check-[\w-]{1,40})$/;
+  // also: 🐻 bear calculator, 🧮 KvK calculator, and the officer page's own settings (ranking ticks, battle table, to-dos, board read marks, Watch/Scout views)
+  // keep in step with js/sync-lite.js and worker/worker.js (syncMerge)
+  const SYNC_KEY = /^(nxs-daily-v1|nxs-stack-done|ks-kvk-check-[\w-]{1,40}|nxs-bt-v2|kvk-calc-v5|nxs-roster-v2|nxs-table-v1|nxs-events-v1|nxs-board-seen|nxs-watch-v1|nxs-scout-v1)$/;
   meta.ls = meta.ls || {};
   let applying = false;
   try {

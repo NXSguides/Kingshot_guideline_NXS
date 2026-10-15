@@ -16,7 +16,7 @@
 
 import { DurableObject } from "cloudflare:workers";
 
-const VERSION = "2026-10-15h";
+const VERSION = "2026-10-15i";
 const GC_SITE = "https://incrediblesparrow.goatcounter.com";   // GoatCounter site; token = GOATCOUNTER_TOKEN secret
 const SITE_ORIGIN = "https://nxsguides.github.io";
 const SITE_BASE = SITE_ORIGIN + "/Kingshot_guideline_NXS/";
@@ -765,7 +765,8 @@ export class PushTimers extends DurableObject {
     // ✅ ticked lists from the site (daily checklist, KvK checklist, buff-stack steps): { key: { v, at } }, newest wins per key; 40 days kept
     const ls = {};
     for (const src of [cur.ls || {}, inc.ls || {}]) for (const [k, x] of Object.entries(src)) {
-      if (!/^(nxs-daily-v1|nxs-stack-done|ks-kvk-check-[\w-]{1,40})$/.test(k) || !x || typeof x.v !== "string" || x.v.length > 4000 || !(now - x.at < 40 * 864e5)) continue;
+      // synced page data (keep in step with js/timers.js and js/sync-lite.js); calculators can be bigger than a checklist
+      if (!/^(nxs-daily-v1|nxs-stack-done|ks-kvk-check-[\w-]{1,40}|nxs-bt-v2|kvk-calc-v5|nxs-roster-v2|nxs-table-v1|nxs-events-v1|nxs-board-seen|nxs-watch-v1|nxs-scout-v1)$/.test(k) || !x || typeof x.v !== "string" || x.v.length > 30000 || !(now - x.at < 120 * 864e5)) continue;
       if (!ls[k] || x.at > ls[k].at) ls[k] = { v: x.v, at: +x.at };
     }
     const out = { timers: Object.values(byId).sort((a, b) => a.at - b.at).slice(0, 200), del, alerts: alerts || {}, alertsAt, presets: presets || {}, presetsAt, ls };
