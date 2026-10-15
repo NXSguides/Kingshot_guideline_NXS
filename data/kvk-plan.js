@@ -1385,7 +1385,7 @@ const KVK_PLAN = {
    },
    "cg": {
     "en": "Charm Guide",
-    "zh": "寶石指南",
+    "zh": "寶石手冊",
     "ko": "보석 가이드",
     "de": "Talisman-Anleitung",
     "fr": "Guide de Talisman",

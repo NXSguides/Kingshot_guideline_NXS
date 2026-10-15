@@ -408,6 +408,7 @@ const TERMS = [
    ["Charm Upgrades", "寶石升級", "보석 레벨업", "Talisman-Verbesserungen", "Améliorations du Talisman", "Aprimoramentos de Acessório", "Tılsım Yükseltmeleri", "Upgrade Charm", "Улучшение талисманов", "การอัปเกรดเครื่องราง", "ترقيات التميمة", "Mejoras de talismanes", "Second tab of the Governor Gear screen."],
    ["Charm", "寶石", "보석", "Talisman", "Talisman", "Talismã", "Tılsım", "Charm", "талисман", "เครื่องราง", "التميمة", "Talismán", "Confirmed: 'Governor Charm' IS a real in-game term (see item tooltip 'A Governor Charm upgrade material'). Singular form taken from the 'Charm Upgrades' titles (Russian and Arabic show it in a plural or definite form). ES: tooltip says 'Talismán del Gobernador'."],
    ["Charm Design", "寶石圖紙", "보석 도면", "Talismanpläne", "Plans de Talisman", "Design do Talismã", "Tılsım Tasarımı", "Desain Charm", "Чертеж талисмана", "แผนเครื่องราง", "تصميم تميمة", "Planos de talismán"]
+   ["Charm Guide", "寶石手冊", "보석 가이드", "Talisman-Anleitung", "Guide de Talisman", "Guia do Talismã", "Tılsım Rehberi", "Panduan Charm", "Руководство по талисману", "คู่มือเครื่องราง", "دليل التميمة", "Guía de talismán", "NOT the same item as Charm Design (寶石圖紙): both upgrade Governor Charms. ZH 寶石手冊 confirmed on the Alliance Brawl milestone screen (2026-10-15). Other languages not yet checked against the game."],
   ]
  },
  {
