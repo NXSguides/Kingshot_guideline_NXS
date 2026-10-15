@@ -207,8 +207,10 @@
   #pg-attend .chip button { border: 0; background: transparent; color: inherit; font: inherit; padding: 3px 8px; cursor: pointer; }
   #pg-attend .chip .chip-x { border-inline-start: 1px solid var(--line); color: #b3261e; padding: 3px 7px; }
   #pg-attend .chip.sub { border-style: dashed; opacity: .8; }
-  #pg-ranking .rk-sub { margin-inline-start: 6px; border: 1px dashed var(--rule); background: transparent; color: var(--muted); border-radius: 6px; padding: 0 6px; font: 600 11px/1.6 system-ui, sans-serif; cursor: pointer; vertical-align: middle; }
-  #pg-ranking .rk-sub.on { background: #f59e0b; border-color: #f59e0b; color: #000; }
+  #pg-ranking th.ck, #pg-ranking td.ck { padding: 6px 4px; text-align: center; font-size: 11px; color: var(--muted); }
+  #pg-ranking td.ck input { accent-color: #f59e0b; }
+  #pg-ranking td.ck.main input { accent-color: var(--accent); }
+  #pg-ranking tr.member.sub td.name { opacity: .75; }
   #pg-attend .at-p.issub { border-style: dashed; }
   #pg-attend .at-p.no.issub { background: transparent; color: var(--text-muted); border-color: var(--line); }
   #pg-attend h4 { margin: 0 0 4px; font-size: 14px; }
@@ -684,7 +686,8 @@
       <div class="tbl-wrap">
         <table>
           <thead><tr>
-            <th></th>
+            <th id="rk_thMain" class="ck"></th>
+            <th id="rk_thSub" class="ck"></th>
             <th data-sort="name" data-t="colName"></th>
             <th data-sort="rank" data-t="colRank"></th>
             <th data-sort="tc" class="num" data-t="colTc"></th>
