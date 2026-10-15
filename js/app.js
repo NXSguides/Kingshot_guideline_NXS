@@ -1114,13 +1114,12 @@ function todayCardHtml() {
       <span class="td-main"><b dir="auto">${escapeHtml(it.name)}</b><span class="td-meta">${meta}</span></span><span class="arrow">›</span></button>`;
     const g = GUIDES[it.key];
     return `<button type="button" class="td-row" onclick="switchGuide('${it.key}')"><span class="emoji">${it.repair ? REPAIR_EMOJI : it.prep ? g.emoji : (PHASED[it.key] || {}).fight || g.emoji}</span>
-      <span class="td-main"><b dir="auto">${escapeHtml(t(g.name))}</b><span class="td-meta">${meta}${it.repair ? " · " + escapeHtml(t(CAL_TXT.repair)) : it.prep ? " · " + escapeHtml(t(CAL_TXT.prepPhase)) : ""}</span>${it.repair || it.prep ? "" : times(it.key)}</span><span class="arrow">›</span></button>`; };
+      <span class="td-main"><b dir="auto">${escapeHtml(t(g.name))}</b><span class="td-meta">${meta}${it.repair ? " · " + escapeHtml(t(CAL_TXT.repair)) : it.prep ? " · " + escapeHtml(t(CAL_TXT.prepPhase)) : ""}</span>${it.repair || it.prep ? "" : times(it.key)}${it.bt ? `<span class="td-bt" role="link" tabindex="0" onclick="event.stopPropagation();location.href='./bear-calculator.html'">${escapeHtml(t(BT_LINK))}</span>` : ""}</span><span class="arrow">›</span></button>`; };
   const when = (u) => u === 1 ? t(TODAY_TXT.tomorrow) : fill(t(TODAY_TXT.inDays), { n: u });
   let h = `<div class="today-card"><div class="td-title">${escapeHtml(t(TODAY_TXT.title))}</div>`;
   if (!nowItems.length && !soon.length) h += `<div class="td-none">${escapeHtml(t(TODAY_TXT.none))}</div>`;
-  if (nowItems.length) h += `<div class="td-h">${escapeHtml(t(TODAY_TXT.now))}</div>` + nowItems.map((it) => row(it, it.days > 1 ? escapeHtml(fill(t(TODAY_TXT.day), { n: it.day, d: it.days })) : escapeHtml(t(TODAY_TXT.today)))
-    // 🧮 on a Bear Hunt day the card also links to the bear calculator (for now: browsers that have ⏰ timers; later everyone)
-    + (it.key === "bear-hunt" && timersOn() ? `<a class="td-bt" href="./bear-calculator.html">${escapeHtml(t(BT_LINK))}</a>` : "")).join("");
+  // 🧮 on a Bear Hunt day its row also links to the bear calculator (for now: browsers that have ⏰ timers; later everyone)
+  if (nowItems.length) h += `<div class="td-h">${escapeHtml(t(TODAY_TXT.now))}</div>` + nowItems.map((it) => row({ ...it, bt: it.key === "bear-hunt" && timersOn() }, it.days > 1 ? escapeHtml(fill(t(TODAY_TXT.day), { n: it.day, d: it.days })) : escapeHtml(t(TODAY_TXT.today)))).join("");
   if (soon.length) h += `<div class="td-h">${escapeHtml(t(TODAY_TXT.soon))}</div>` + soon.map((it) => row(it, escapeHtml(when(it.until)))).join("");
   return h + dailyHintHtml() + `</div><div class="today-card month-card" id="monthCal">${monthCalHtml()}</div>`;
 }

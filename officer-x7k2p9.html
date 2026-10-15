@@ -17,6 +17,11 @@
   a.btn { text-decoration: none; display: inline-block; }
   .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
   .btn.small { padding: 4px 9px; font-size: 13px; }
+  /* one height for controls that sit side by side: a button is as tall as the text box / select next to it */
+  .btn { min-height: 36px; box-sizing: border-box; line-height: 1.2; vertical-align: middle; }
+  a.btn, button.btn, label.btn { display: inline-flex; align-items: center; justify-content: center; gap: 4px; }
+  .btn.small { min-height: 30px; }
+  .row > .inp, .row > input:not([type=checkbox]):not([type=radio]):not([type=range]), .row > select { min-height: 36px; box-sizing: border-box; vertical-align: middle; }
   .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 14px; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
   .card h2 { margin: 0 0 10px; font-size: 18px; }
   .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
@@ -202,27 +207,31 @@
   #pg-post .btn { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 15px; text-decoration: none; display: inline-block; }
   #pg-post .btn.big { width: 100%; padding: 14px; font-size: 17px; }
   /* 📋 attendance */
-  #pg-attend .at-ev { display: flex; flex-direction: column; gap: 2px; width: 100%; text-align: start; padding: 10px 12px; margin: 0 0 8px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: inherit; font: inherit; cursor: pointer; }
+  #pg-attend .at-ev { display: flex; flex-direction: column; gap: 2px; width: 100%; text-align: start; padding: 10px 12px; margin: 0 0 8px; border: 1px solid var(--rule); border-radius: 10px; background: var(--panel); color: inherit; font: inherit; cursor: pointer; }
   #pg-attend .at-ev .bad { color: #b3261e; font-weight: 700; }
   #pg-attend .at-slot h4 { margin: 12px 0 6px; font-size: 14px; }
-  #pg-attend .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-  #pg-attend .chip { display: inline-flex; align-items: stretch; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; overflow: hidden; }
+  #pg-attend .chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  #pg-attend .chip { display: inline-flex; align-items: stretch; border: 1px solid var(--rule); border-radius: 8px; font-size: 13px; overflow: hidden; }
   #pg-attend .chip button { border: 0; background: transparent; color: inherit; font: inherit; padding: 3px 8px; cursor: pointer; }
-  #pg-attend .chip .chip-x { border-inline-start: 1px solid var(--line); color: #b3261e; padding: 3px 7px; }
-  #pg-attend .chip.sub { border-style: dashed; opacity: .8; }
-  #pg-ranking th.ck, #pg-ranking td.ck { padding: 6px 4px; text-align: center; font-size: 11px; color: var(--muted); }
+  #pg-attend .chip .chip-x { border-inline-start: 1px solid var(--rule); color: #b3261e; padding: 3px 7px; }
+  #pg-attend .chip.is-sub { border-style: dashed; opacity: .8; }
+  #pg-attend .chip { align-items: center; min-height: 32px; box-sizing: border-box; }
+  #pg-attend .chip button { line-height: 1.2; min-height: 30px; }
+  #pg-attend .row > select.inp { height: 36px; padding-top: 0; padding-bottom: 0; }
+  #pg-ranking #rk_topN { box-sizing: border-box; height: 36px; padding: 0 8px; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel-2); color: var(--text); font: inherit; vertical-align: middle; }
+  #pg-ranking th.ck, #pg-ranking td.ck { padding: 6px 4px; text-align: center; font-size: 11px; color: var(--text-muted); }
   #pg-ranking td.ck input { accent-color: #f59e0b; }
   #pg-ranking td.ck.main input { accent-color: var(--accent); }
-  #pg-ranking tr.member.sub td.name { opacity: .75; }
+  #pg-ranking tr.member.is-sub td.name { opacity: .75; }
   #pg-ranking tr.rk-subrow td { opacity: .8; }
   #pg-ranking .rk-subtag { background: #f59e0b; color: #000; border-radius: 4px; padding: 0 5px; font: 700 11px/1.6 system-ui, sans-serif; vertical-align: middle; }
   #pg-attend .at-p.issub { border-style: dashed; }
-  #pg-attend .chip.sub small, #pg-attend .at-p.issub small { background: #f59e0b; color: #000; border-radius: 4px; padding: 0 5px; font-weight: 700; font-size: 11px; margin-inline-start: 2px; }
-  #pg-attend .at-p.no.issub { background: transparent; color: var(--text-muted); border-color: var(--line); }
+  #pg-attend .chip.is-sub small, #pg-attend .at-p.issub small { background: #f59e0b; color: #000; border-radius: 4px; padding: 0 5px; font-weight: 700; font-size: 11px; margin-inline-start: 2px; }
+  #pg-attend .at-p.no.issub { background: transparent; color: var(--text-muted); border-color: var(--rule); }
   #pg-attend h4 { margin: 0 0 4px; font-size: 14px; }
   #pg-attend .at-sheet h3 { font-size: 16px; }
   #pg-attend .at-plist { display: flex; flex-wrap: wrap; gap: 6px; }
-  #pg-attend .at-p { padding: 5px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: inherit; font: inherit; font-size: 13px; cursor: pointer; }
+  #pg-attend .at-p { padding: 5px 10px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: inherit; font: inherit; font-size: 13px; cursor: pointer; }
   #pg-attend .at-p.ok { border-color: #2e7d32; color: #2e7d32; }
   #pg-attend .at-p.no { border-color: #b3261e; color: #b3261e; background: color-mix(in srgb, #b3261e 10%, transparent); }
   #pg-attend .at-p.no.m2 { border-color: #c0640a; color: #c0640a; background: color-mix(in srgb, #c0640a 12%, transparent); }
@@ -230,7 +239,7 @@
   #pg-attend .at-p small { font-size: 11px; opacity: .85; }
   #pg-attend .at-p.ex { opacity: .6; }
   #pg-attend .at-sum { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-  #pg-attend .at-sum th, #pg-attend .at-sum td { padding: 4px 8px; border-bottom: 1px solid var(--line); text-align: start; }
+  #pg-attend .at-sum th, #pg-attend .at-sum td { padding: 4px 8px; border-bottom: 1px solid var(--rule); text-align: start; }
   #pg-attend .at-sum tr.orange td { color: #c0640a; font-weight: 700; }
   #pg-attend .at-sum tr.red td { color: #b3261e; font-weight: 700; }
   #pg-attend .at-sum .seq { font-family: ui-monospace, monospace; letter-spacing: 2px; }
@@ -522,7 +531,7 @@
   #pg-map .pl-cyc { font-size: 12.5px; margin-top: 8px; }
   #pg-map .pl-sub { font-weight: 700; margin: 12px 0 4px; font-size: 13.5px; }
   #pg-map .pl-save { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
-  #pg-map .pl-save input { padding: 7px 9px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font: inherit; width: 140px; }
+  #pg-map .pl-save input { box-sizing: border-box; height: 36px; padding: 0 9px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font: inherit; width: 140px; }
   #pg-map .chip .st { margin-right: 3px; }
 </style>
 <meta name="apple-mobile-web-app-capable" content="yes">

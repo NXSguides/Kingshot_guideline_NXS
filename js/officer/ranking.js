@@ -120,7 +120,7 @@ function renderList() {
       head = `<tr class="grp" data-r="${lastRank}"><td class="ck main"><input type="checkbox" tabindex="-1" ${on === grp.length ? "checked" : ""}></td><td class="ck"></td><td colspan="7"><b>${esc(rankLabel(m))}</b> <span class="muted">· ${on} / ${grp.length}</span></td></tr>`;
     }
     return head + `
-    <tr class="member${picked.has(m.id) ? " on" : ""}${subs.has(m.id) ? " sub" : ""}" data-id="${m.id}">
+    <tr class="member${picked.has(m.id) ? " on" : ""}${subs.has(m.id) ? " is-sub" : ""}" data-id="${m.id}">
       <td class="ck main"><input type="checkbox" ${picked.has(m.id) && !subs.has(m.id) ? "checked" : ""} tabindex="-1" aria-label="${esc(tr("colMain"))}"></td>
       <td class="ck"><input type="checkbox" class="ck-sub" ${subs.has(m.id) ? "checked" : ""} tabindex="-1" aria-label="${esc(tr("sub"))}"></td>
       <td class="name" dir="auto">${esc(m.name)}</td>
