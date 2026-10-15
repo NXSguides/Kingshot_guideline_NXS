@@ -1386,8 +1386,8 @@ const KVK_PLAN = {
    "cg": {
     "en": "Charm Guide",
     "zh": "寶石手冊",
-    "ko": "보석 가이드",
-    "de": "Talisman-Anleitung",
+    "ko": "보석 매뉴얼",
+    "de": "Talismanleitfaden",
     "fr": "Guide de Talisman",
     "pt": "Guia do Talismã",
     "es": "Guía de talismán",
@@ -1395,7 +1395,7 @@ const KVK_PLAN = {
     "id": "Panduan Charm",
     "ru": "Руководство по талисману",
     "th": "คู่มือเครื่องราง",
-    "ar": "دليل التميمة"
+    "ar": "دليل تميمة"
    },
    "pf": {
     "en": "Pet Food",
