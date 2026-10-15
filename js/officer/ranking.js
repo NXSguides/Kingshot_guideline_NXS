@@ -2,9 +2,9 @@
 (function () {
 const ROOT = document.getElementById('pg-ranking');
 const DATA_URL = "data/roster-x7k2p9.json";
-const T = { ko: {"title": "NXS 멤버 순위", "home": "홈", "weights": "① 순위 방식", "power": "총 전투력", "mystic": "신비한 시련", "weightNote": "성검 쟁탈 군단 화면의 부대 전투력. 연맹원 98명 전원을 MightPulse와 대조한 결과 게임의 「이전 점수(Migrant Score)」가 거의 정확히 부대 전투력 × 317이라서, 여기서는 부대 전투력 ≈ 이전 점수 ÷ 323을 씁니다 (평균 오차 1.7%, 상위 20명 전원, 상위 40명 중 39명 일치). 이전 점수가 없는 사람(~ 표시)은 2.70 × 전투력(M) + 0.5 × 신비한 시련 + 8.7 × 도시 레벨 − 296 (오차 약 6.5%). 정확한 값은 게임의 군단 화면이 기준.", "pick": "② 이번 이벤트 참가자 체크", "all": "전체 선택", "none": "선택 해제", "paste": "신청 명단을 붙여넣어 한 번에 체크", "pasteNote": "한 줄에 이름 하나(또는 쉼표로 구분). ♛ 같은 장식과 Nexus 태그는 생략해도 되고, 대소문자는 상관없습니다. (?)는 여러 명이 일치한다는 뜻이니 직접 체크하세요.", "pasteGo": "이 플레이어들 체크", "pasteOk": "{n}명을 체크했습니다.", "pasteMiss": "찾을 수 없음: {list}", "search": "이름 검색…", "colName": "이름", "colRank": "등급", "colTc": "TC", "colActive": "마지막 접속", "rest": "나머지 전원", "events": "④ 이벤트 조 편성", "eventsNote": "위 순위(가중 점수가 높은 순)에 따라 조를 나눕니다.", "n": "{n}명", "result": "③ 순위", "copy": "결과 복사", "copied": "복사했어요!", "colScore": "부대 전투력(추정)", "scoreNote": "추정 부대 전투력, 식은 ①. ~ = 이전 점수 없음, 대체 식 사용으로 덜 정확.", "empty": "아직 체크한 사람이 없습니다.", "selected": "{n} / {t}명 선택", "updated": "데이터 업데이트: {t} ({ago})", "members": "멤버 {n}명", "noData": "아직 데이터가 없습니다. GitHub → Actions → “Update Roster (MightPulse)” → Run workflow를 실행한 뒤 이 페이지를 새로고침하세요.", "ago": {"now": "방금", "m": "{n}분 전", "h": "{n}시간 전", "d": "{n}일 전"}, "onlyTicked": "체크한 사람만", "topN": "③ 상위만 표시", "topNAll": "전체", "modeSp": "부대 전투력 추정 (Squad Power fit)", "modeW": "비중 (전투력 / 신비한 시련)", "wNote": "두 항목의 합은 100%입니다. 하나를 바꾸면 다른 하나가 자동으로 조정됩니다.", "colScoreW": "점수", "scoreNoteW": "점수: 각 항목을 체크한 인원 중 최고값 = 100으로 환산한 뒤 비중대로 합산. 신비한 시련 값이 없는 사람은 0 (? 표시)."},
- ar: {"title": "ترتيب أعضاء NXS", "home": "الرئيسية", "weights": "① طريقة الترتيب", "power": "إجمالي القوة", "mystic": "الاختبارات الغامضة", "weightNote": "قوة الفرقة في شاشة الكتيبة في مواجهة أرض السيوف. بمقارنة كل الأعضاء الـ98 مع MightPulse تبيّن أن «نقاط الهجرة» في اللعبة تساوي تقريبًا قوة الفرقة × 317، لذا نستخدم: قوة الفرقة ≈ نقاط الهجرة ÷ 323 (متوسط الخطأ 1.7%، أقوى 20 كلهم صحيحون، 39 من أقوى 40). من لا نقاط هجرة له (علامة ~) يُستخدم له 2.70 × القوة(M) + 0.5 × الاختبارات الغامضة + 8.7 × مستوى المدينة − 296 (خطأ نحو 6.5%). الرقم الحقيقي في شاشة الكتيبة داخل اللعبة.", "pick": "② حدّد المشاركين في هذه الفعالية", "all": "تحديد الكل", "none": "مسح", "paste": "الصق قائمة تسجيل لتحديدهم دفعة واحدة", "pasteNote": "اسم واحد في كل سطر (أو مفصولة بفواصل). يمكن حذف الزخارف مثل ♛ ووسم Nexus؛ حالة الأحرف لا تهم. (?) تعني أن عدة لاعبين مطابقون — حدّد الصحيح يدويًا.", "pasteGo": "حدّد هؤلاء اللاعبين", "pasteOk": "تم تحديد {n} لاعبين.", "pasteMiss": "غير موجود: {list}", "search": "ابحث عن اسم…", "colName": "الاسم", "colRank": "الرتبة", "colTc": "مركز البلدة", "colActive": "آخر ظهور", "rest": "كل الباقين", "events": "④ مجموعات الفعالية", "eventsNote": "تتبع المجموعات الترتيب أعلاه (الأعلى نقاطًا موزونة أولًا).", "n": "{n}", "result": "③ الترتيب", "copy": "نسخ النتيجة", "copied": "تم النسخ!", "colScore": "قوة الفرقة (تقدير)", "scoreNote": "قوة الفرقة المقدّرة، المعادلة في ①. ~ = لا نقاط هجرة، معادلة بديلة أقل دقة.", "empty": "لم يُحدَّد أحد بعد.", "selected": "تم تحديد {n} / {t}", "updated": "تحديث البيانات: {t} ({ago})", "members": "{n} عضو", "noData": "لا توجد بيانات بعد. اذهب إلى GitHub ← Actions ← “Update Roster (MightPulse)” ← Run workflow، ثم أعد تحميل هذه الصفحة.", "ago": {"now": "الآن", "m": "قبل {n} دقيقة", "h": "قبل {n} ساعة", "d": "قبل {n} يوم"}, "onlyTicked": "المحددون فقط", "topN": "③ عرض الأوائل فقط", "topNAll": "الكل", "modeSp": "تقدير قوة الفرقة (Squad Power fit)", "modeW": "الأوزان (القوة / الاختبارات الغامضة)", "wNote": "المجموع 100% — تغيير أحدهما يعدّل الآخر.", "colScoreW": "النقاط", "scoreNoteW": "النقاط: كل قيمة تُقاس بحيث الأعلى بين المحددين = 100، ثم تُجمع حسب الأوزان. من لا قيمة له في الاختبارات الغامضة يُحتسب 0 (علامة ?)."},
- pt: {"title": "Ranking da lista NXS", "home": "Início", "weights": "① Método de ranking", "power": "Poder total", "mystic": "Prova Mística", "weightNote": "O Poder do Esquadrão da tela da Legião do Confronto entre Espadas. Comparando os 98 membros com o MightPulse, a Pontuação de Migração do jogo é quase exatamente Poder do Esquadrão × 317, então usamos SP ≈ Pontuação de Migração ÷ 323 (erro médio 1,7%, 20/20 do top 20, 39/40 do top 40). Quem não tem Pontuação de Migração (marcado ~) usa 2,70 × Poder(M) + 0,5 × Prova Mística + 8,7 × CC − 296, erro de ~6,5%. O número real está na tela da Legião no jogo.", "pick": "② Marque os participantes deste evento", "all": "Marcar todos", "none": "Limpar", "paste": "Colar uma lista de inscritos para marcar de uma vez", "pasteNote": "Um nome por linha (ou separados por vírgula). Enfeites como ♛ e a tag Nexus podem ficar de fora; maiúsculas não importam. (?) significa que vários jogadores combinam — marque esse à mão.", "pasteGo": "Marcar esses jogadores", "pasteOk": "{n} jogadores marcados.", "pasteMiss": "Não encontrado: {list}", "search": "Buscar um nome…", "colName": "Nome", "colRank": "Cargo", "colTc": "CC", "colActive": "Último acesso", "rest": "todos os restantes", "events": "④ Grupos do evento", "eventsNote": "Os grupos seguem o ranking acima (maior pontuação ponderada primeiro).", "n": "{n}", "result": "③ Ranking", "copy": "Copiar resultado", "copied": "Copiado!", "colScore": "Poder do Esquadrão (est.)", "scoreNote": "Poder do Esquadrão estimado, fórmula em ①. ~ = sem Pontuação de Migração, fórmula alternativa, menos precisa.", "empty": "Ninguém marcado ainda.", "selected": "{n} / {t} marcados", "updated": "Dados atualizados: {t} ({ago})", "members": "{n} membros", "noData": "Ainda não há dados. Vá ao GitHub → Actions → “Update Roster (MightPulse)” → Run workflow e depois recarregue esta página.", "ago": {"now": "agora mesmo", "m": "há {n} min", "h": "há {n} h", "d": "há {n} d"}, "onlyTicked": "Só os marcados", "topN": "③ Mostrar só os primeiros", "topNAll": "todos", "modeSp": "Estimativa de Poder do Esquadrão (Squad Power fit)", "modeW": "Pesos (Poder / Prova Mística)", "wNote": "Os dois somam 100% — mudar um ajusta o outro.", "colScoreW": "Pontuação", "scoreNoteW": "Pontuação: cada valor é escalado para que o maior entre os marcados = 100, depois combinado pelos pesos. Quem não tem Prova Mística conta como 0 (marcado ?)."},
+const T = { ko: {"title": "NXS 멤버 순위", "home": "홈", "weights": "① 순위 방식", "power": "총 전투력", "mystic": "신비한 시련", "weightNote": "성검 쟁탈 군단 화면의 부대 전투력. 연맹원 98명 전원을 MightPulse와 대조한 결과 게임의 「이전 점수(Migrant Score)」가 거의 정확히 부대 전투력 × 317이라서, 여기서는 부대 전투력 ≈ 이전 점수 ÷ 323을 씁니다 (평균 오차 1.7%, 상위 20명 전원, 상위 40명 중 39명 일치). 이전 점수가 없는 사람(~ 표시)은 2.70 × 전투력(M) + 0.5 × 신비한 시련 + 8.7 × 도시 레벨 − 296 (오차 약 6.5%). 정확한 값은 게임의 군단 화면이 기준.", "pick": "② 이번 이벤트 참가자 체크", "all": "전체 선택", "none": "선택 해제", "paste": "신청 명단을 붙여넣어 한 번에 체크", "pasteNote": "한 줄에 이름 하나(또는 쉼표로 구분). ♛ 같은 장식과 Nexus 태그는 생략해도 되고, 대소문자는 상관없습니다. (?)는 여러 명이 일치한다는 뜻이니 직접 체크하세요.", "pasteGo": "이 플레이어들 체크", "pasteOk": "{n}명을 체크했습니다.", "pasteMiss": "찾을 수 없음: {list}", "search": "이름 검색…", "colName": "이름", "colRank": "등급", "colTc": "TC", "colActive": "마지막 접속", "rest": "나머지 전원", "events": "④ 이벤트 조 편성", "eventsNote": "위 순위(가중 점수가 높은 순)에 따라 조를 나눕니다.", "n": "{n}명", "result": "③ 순위", "copy": "결과 복사", "copied": "복사했어요!", "colScore": "부대 전투력(추정)", "scoreNote": "추정 부대 전투력, 식은 ①. ~ = 이전 점수 없음, 대체 식 사용으로 덜 정확.", "empty": "아직 체크한 사람이 없습니다.", "selected": "{n} / {t}명 선택", "subN": "(후보 {k}명 포함)", "sub": "후보", "subHint": "체크한 뒤 “후보”를 누르면 후보가 됩니다: 순위에서 빠지고 출석 탭에 후보로 들어갑니다.", "updated": "데이터 업데이트: {t} ({ago})", "members": "멤버 {n}명", "noData": "아직 데이터가 없습니다. GitHub → Actions → “Update Roster (MightPulse)” → Run workflow를 실행한 뒤 이 페이지를 새로고침하세요.", "ago": {"now": "방금", "m": "{n}분 전", "h": "{n}시간 전", "d": "{n}일 전"}, "onlyTicked": "체크한 사람만", "topN": "③ 상위만 표시", "topNAll": "전체", "modeSp": "부대 전투력 추정 (Squad Power fit)", "modeW": "비중 (전투력 / 신비한 시련)", "wNote": "두 항목의 합은 100%입니다. 하나를 바꾸면 다른 하나가 자동으로 조정됩니다.", "colScoreW": "점수", "scoreNoteW": "점수: 각 항목을 체크한 인원 중 최고값 = 100으로 환산한 뒤 비중대로 합산. 신비한 시련 값이 없는 사람은 0 (? 표시)."},
+ ar: {"title": "ترتيب أعضاء NXS", "home": "الرئيسية", "weights": "① طريقة الترتيب", "power": "إجمالي القوة", "mystic": "الاختبارات الغامضة", "weightNote": "قوة الفرقة في شاشة الكتيبة في مواجهة أرض السيوف. بمقارنة كل الأعضاء الـ98 مع MightPulse تبيّن أن «نقاط الهجرة» في اللعبة تساوي تقريبًا قوة الفرقة × 317، لذا نستخدم: قوة الفرقة ≈ نقاط الهجرة ÷ 323 (متوسط الخطأ 1.7%، أقوى 20 كلهم صحيحون، 39 من أقوى 40). من لا نقاط هجرة له (علامة ~) يُستخدم له 2.70 × القوة(M) + 0.5 × الاختبارات الغامضة + 8.7 × مستوى المدينة − 296 (خطأ نحو 6.5%). الرقم الحقيقي في شاشة الكتيبة داخل اللعبة.", "pick": "② حدّد المشاركين في هذه الفعالية", "all": "تحديد الكل", "none": "مسح", "paste": "الصق قائمة تسجيل لتحديدهم دفعة واحدة", "pasteNote": "اسم واحد في كل سطر (أو مفصولة بفواصل). يمكن حذف الزخارف مثل ♛ ووسم Nexus؛ حالة الأحرف لا تهم. (?) تعني أن عدة لاعبين مطابقون — حدّد الصحيح يدويًا.", "pasteGo": "حدّد هؤلاء اللاعبين", "pasteOk": "تم تحديد {n} لاعبين.", "pasteMiss": "غير موجود: {list}", "search": "ابحث عن اسم…", "colName": "الاسم", "colRank": "الرتبة", "colTc": "مركز البلدة", "colActive": "آخر ظهور", "rest": "كل الباقين", "events": "④ مجموعات الفعالية", "eventsNote": "تتبع المجموعات الترتيب أعلاه (الأعلى نقاطًا موزونة أولًا).", "n": "{n}", "result": "③ الترتيب", "copy": "نسخ النتيجة", "copied": "تم النسخ!", "colScore": "قوة الفرقة (تقدير)", "scoreNote": "قوة الفرقة المقدّرة، المعادلة في ①. ~ = لا نقاط هجرة، معادلة بديلة أقل دقة.", "empty": "لم يُحدَّد أحد بعد.", "selected": "تم تحديد {n} / {t}", "subN": "(منهم {k} بدلاء)", "sub": "بديل", "subHint": "بعد التحديد اضغط «بديل» لجعله احتياطيًا: لا يدخل الترتيب ويُستورد كبديل في تبويب الحضور.", "updated": "تحديث البيانات: {t} ({ago})", "members": "{n} عضو", "noData": "لا توجد بيانات بعد. اذهب إلى GitHub ← Actions ← “Update Roster (MightPulse)” ← Run workflow، ثم أعد تحميل هذه الصفحة.", "ago": {"now": "الآن", "m": "قبل {n} دقيقة", "h": "قبل {n} ساعة", "d": "قبل {n} يوم"}, "onlyTicked": "المحددون فقط", "topN": "③ عرض الأوائل فقط", "topNAll": "الكل", "modeSp": "تقدير قوة الفرقة (Squad Power fit)", "modeW": "الأوزان (القوة / الاختبارات الغامضة)", "wNote": "المجموع 100% — تغيير أحدهما يعدّل الآخر.", "colScoreW": "النقاط", "scoreNoteW": "النقاط: كل قيمة تُقاس بحيث الأعلى بين المحددين = 100، ثم تُجمع حسب الأوزان. من لا قيمة له في الاختبارات الغامضة يُحتسب 0 (علامة ?)."},
+ pt: {"title": "Ranking da lista NXS", "home": "Início", "weights": "① Método de ranking", "power": "Poder total", "mystic": "Prova Mística", "weightNote": "O Poder do Esquadrão da tela da Legião do Confronto entre Espadas. Comparando os 98 membros com o MightPulse, a Pontuação de Migração do jogo é quase exatamente Poder do Esquadrão × 317, então usamos SP ≈ Pontuação de Migração ÷ 323 (erro médio 1,7%, 20/20 do top 20, 39/40 do top 40). Quem não tem Pontuação de Migração (marcado ~) usa 2,70 × Poder(M) + 0,5 × Prova Mística + 8,7 × CC − 296, erro de ~6,5%. O número real está na tela da Legião no jogo.", "pick": "② Marque os participantes deste evento", "all": "Marcar todos", "none": "Limpar", "paste": "Colar uma lista de inscritos para marcar de uma vez", "pasteNote": "Um nome por linha (ou separados por vírgula). Enfeites como ♛ e a tag Nexus podem ficar de fora; maiúsculas não importam. (?) significa que vários jogadores combinam — marque esse à mão.", "pasteGo": "Marcar esses jogadores", "pasteOk": "{n} jogadores marcados.", "pasteMiss": "Não encontrado: {list}", "search": "Buscar um nome…", "colName": "Nome", "colRank": "Cargo", "colTc": "CC", "colActive": "Último acesso", "rest": "todos os restantes", "events": "④ Grupos do evento", "eventsNote": "Os grupos seguem o ranking acima (maior pontuação ponderada primeiro).", "n": "{n}", "result": "③ Ranking", "copy": "Copiar resultado", "copied": "Copiado!", "colScore": "Poder do Esquadrão (est.)", "scoreNote": "Poder do Esquadrão estimado, fórmula em ①. ~ = sem Pontuação de Migração, fórmula alternativa, menos precisa.", "empty": "Ninguém marcado ainda.", "selected": "{n} / {t} marcados", "subN": "(incl. {k} reservas)", "sub": "res", "subHint": "Depois de marcar, toque em “res” para deixar no banco: fora do ranking, importado como reserva na aba Presença.", "updated": "Dados atualizados: {t} ({ago})", "members": "{n} membros", "noData": "Ainda não há dados. Vá ao GitHub → Actions → “Update Roster (MightPulse)” → Run workflow e depois recarregue esta página.", "ago": {"now": "agora mesmo", "m": "há {n} min", "h": "há {n} h", "d": "há {n} d"}, "onlyTicked": "Só os marcados", "topN": "③ Mostrar só os primeiros", "topNAll": "todos", "modeSp": "Estimativa de Poder do Esquadrão (Squad Power fit)", "modeW": "Pesos (Poder / Prova Mística)", "wNote": "Os dois somam 100% — mudar um ajusta o outro.", "colScoreW": "Pontuação", "scoreNoteW": "Pontuação: cada valor é escalado para que o maior entre os marcados = 100, depois combinado pelos pesos. Quem não tem Prova Mística conta como 0 (marcado ?)."},
 
   zh: {
     title: "NXS 成員排序", home: "回主頁", weights: "① 排序方式", power: "總戰力", mystic: "秘境試煉",
@@ -18,7 +18,7 @@ const T = { ko: {"title": "NXS 멤버 순위", "home": "홈", "weights": "① �
     rest: "剩下的人", events: "④ 活動分組", eventsNote: "依上面的排序結果（加權分數高到低）分組。", n: "{n} 人",
     result: "③ 排序結果", copy: "複製結果", copied: "已複製！", colScore: "部隊戰力（估）",
     scoreNote: "估計部隊戰力，公式見 ①。~ = 沒有遷城分數，用備用公式，比較不準。",
-    empty: "還沒勾選任何人。", selected: "已選 {n} / {t} 人",
+    empty: "還沒勾選任何人。", selected: "已選 {n} / {t} 人", subN: "（含替補 {k}）", sub: "替補", subHint: "勾選後按「替補」可改成備取：不進排序，出席分頁會標成替補。",
     updated: "資料更新：{t}（{ago}）", members: "{n} 名成員",
     noData: "還沒有資料。請到 GitHub → Actions → 「Update Roster (MightPulse)」→ Run workflow，跑完後重新整理這頁。",
     ago: { now: "剛剛", m: "{n} 分鐘前", h: "{n} 小時前", d: "{n} 天前" },
@@ -35,7 +35,7 @@ const T = { ko: {"title": "NXS 멤버 순위", "home": "홈", "weights": "① �
     rest: "everyone left", events: "④ Event groups", eventsNote: "Groups follow the ranking above (highest weighted score first).", n: "{n}",
     result: "③ Ranking", copy: "Copy result", copied: "Copied!", colScore: "Squad Power (est.)",
     scoreNote: "Estimated Squad Power, formula in ①. ~ = no Migrant Score, fallback formula, less accurate.",
-    empty: "Nobody ticked yet.", selected: "{n} / {t} selected",
+    empty: "Nobody ticked yet.", selected: "{n} / {t} selected", subN: "(incl. {k} subs)", sub: "sub", subHint: "After ticking, press “sub” to bench someone: not ranked, imported as a substitute by the Attendance tab.",
     updated: "Data updated: {t} ({ago})", members: "{n} members",
     noData: "No data yet. Go to GitHub → Actions → “Update Roster (MightPulse)” → Run workflow, then reload this page.",
     ago: { now: "just now", m: "{n} min ago", h: "{n} h ago", d: "{n} d ago" },
@@ -58,6 +58,7 @@ const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } ca
 let lang = OFFICER.lang;
 let data = null, sortKey = store.sortKey || "rank", sortDir = store.sortDir || -1;
 let picked = new Set(store.picked || []);
+let subs = new Set(store.subs || []);   // 備取 substitutes: ticked, but on the bench (not ranked, imported as "sub" by the 📋 Attendance tab)
 let wPower = store.wPower ?? 40;
 
 const $ = (id) => ROOT.querySelector("#" + CSS.escape(id)) || document["getElementById"](id);
@@ -115,14 +116,15 @@ function renderList() {
     return head + `
     <tr class="member${picked.has(m.id) ? " on" : ""}" data-id="${m.id}">
       <td><input type="checkbox" ${picked.has(m.id) ? "checked" : ""} tabindex="-1"></td>
-      <td class="name" dir="auto">${esc(m.name)}</td>
+      <td class="name" dir="auto">${esc(m.name)}${picked.has(m.id) ? ` <button type="button" class="rk-sub${subs.has(m.id) ? " on" : ""}" data-sub="${m.id}" title="${esc(tr("subHint"))}">${esc(tr("sub"))}</button>` : ""}</td>
       <td>${esc(rankLabel(m))}</td>
       <td class="num">${m.tc ?? "?"}</td>
       <td class="num">${big(m.power)}</td>
       <td class="num">${big(m.mystic)}</td>
     </tr>`;
   }).join("");
-  $("pickCount").textContent = tr("selected", { n: picked.size, t: data.members.length });
+  const k = [...picked].filter((id) => subs.has(id)).length;
+  $("pickCount").textContent = tr("selected", { n: picked.size, t: data.members.length }) + (k ? " " + tr("subN", { k }) : "");
   ROOT.querySelectorAll("th[data-sort]").forEach((th) => {
     th.textContent = tr(th.dataset.t) + (th.dataset.sort === sortKey ? (sortDir < 0 ? " ▼" : " ▲") : "");
   });
@@ -140,7 +142,7 @@ const spIsFallback = (m) => !(migrantOf(m) > 0);
 let topN = store.topN || 0;   // ③ show only the first N of the ranking (0 = all)
 let mode = store.mode || "sp";   // "sp" = Squad Power fit · "w" = the old power/mystic weights (still there to compare)
 function ranking(all) {
-  const sel = data.members.filter((m) => picked.has(m.id));
+  const sel = data.members.filter((m) => picked.has(m.id) && !subs.has(m.id));   // substitutes stay on the bench
   const maxP = Math.max(1, ...sel.map((m) => m.power || 0)), maxM = Math.max(1, ...sel.map((m) => m.mystic || 0)), wp = wPower / 100;
   const score = (m) => mode === "w" ? 100 * (wp * (m.power || 0) / maxP + (1 - wp) * (m.mystic || 0) / maxM) : squadPower(m);
   const r = sel.map((m) => ({ ...m, score: score(m) })).sort((a, b) => b.score - a.score);
@@ -194,7 +196,7 @@ function renderPresets() {
     ${list.length ? `<ol>${list.map((m) => `<li dir="auto">${esc(m.name)} <span class="muted">· ${m.score.toFixed(mode === "w" ? 1 : 0)}</span></li>`).join("")}</ol>` : `<div class="muted">—</div>`}`).join("") + `</div>`;
 }
 function renderAll() { applyTexts(); renderList(); renderResult(); }
-function persist() { store.picked = [...picked]; store.wPower = wPower; store.topN = topN; store.mode = mode; store.sortKey = sortKey; store.sortDir = sortDir; store.lang = lang; save(); }
+function persist() { store.picked = [...picked]; store.subs = [...picked].filter((id) => subs.has(id)); store.wPower = wPower; store.topN = topN; store.mode = mode; store.sortKey = sortKey; store.sortDir = sortDir; store.lang = lang; save(); }
 
 function setWeights(p) {
   wPower = Math.min(100, Math.max(0, Math.round(Number(p) || 0)));
@@ -234,13 +236,15 @@ $("rk_list").onclick = (e) => {
     grp.forEach((m) => all ? picked.delete(m.id) : picked.add(m.id));
     persist(); renderList(); renderResult(); return;
   }
+  const sb = e.target.closest("button.rk-sub");
+  if (sb) { const id = Number(sb.dataset.sub) || sb.dataset.sub; subs.has(id) ? subs.delete(id) : subs.add(id); persist(); renderList(); renderResult(); return; }
   const row = e.target.closest("tr.member"); if (!row) return;
   const id = Number(row.dataset.id) || row.dataset.id;
-  picked.has(id) ? picked.delete(id) : picked.add(id);
+  picked.has(id) ? (picked.delete(id), subs.delete(id)) : picked.add(id);
   persist(); renderList(); renderResult();
 };
 $("allBtn").onclick = () => { data.members.forEach((m) => picked.add(m.id)); persist(); renderList(); renderResult(); };
-$("noneBtn").onclick = () => { picked.clear(); persist(); renderList(); renderResult(); };
+$("noneBtn").onclick = () => { picked.clear(); subs.clear(); persist(); renderList(); renderResult(); };
 ROOT.querySelectorAll("th[data-sort]").forEach((th) => th.onclick = () => {
   const k = th.dataset.sort;
   if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = k === "name" ? 1 : -1; }
@@ -622,7 +626,7 @@ async function planFetch() {
   const d = await OfficerData.open(JSON.parse(p64.dec(f.content)));
   plans = (d && d.plans) || {};
 }
-function planSnapshot() { return { picked: [...picked], wPower, counts: JSON.parse(JSON.stringify(store.counts || {})), tb: JSON.parse(JSON.stringify(TB)) }; }
+function planSnapshot() { return { picked: [...picked], subs: [...picked].filter((id) => subs.has(id)), wPower, counts: JSON.parse(JSON.stringify(store.counts || {})), tb: JSON.parse(JSON.stringify(TB)) }; }
 /* put a plan's contents on screen (keeping ticks this device hasn't saved yet) */
 function planApply(p) {
   planApplying = true;
@@ -630,6 +634,7 @@ function planApply(p) {
   if (planDirty && planBase) { for (const id of picked) if (!planBase.has(id)) ids.add(id); for (const id of planBase) if (!picked.has(id)) ids.delete(id); }
   else planBase = new Set(p.picked || []);
   picked = ids;
+  if (!planDirty) subs = new Set((p.subs || []).filter((id) => ids.has(id)));
   if (!planDirty) { store.counts = p.counts || {}; TB = Object.assign(tbDefault(), p.tb || {}); setWeights(p.wPower ?? 40); }
   renderAll(); tbRender(); renderPresets && renderPresets();
   planApplying = false;
@@ -662,7 +667,7 @@ async function planSave(tries = 0) {
     const ids = new Set(cur.picked || []);
     for (const id of mine.picked) if (!base.has(id)) ids.add(id);
     for (const id of base) if (!mine.picked.includes(id)) ids.delete(id);
-    plans[planId] = { ...cur, picked: [...ids], wPower: mine.wPower, counts: mine.counts, tb: mine.tb, by: planWho(), at: Date.now() };
+    plans[planId] = { ...cur, picked: [...ids], subs: mine.subs.filter((id) => ids.has(id)), wPower: mine.wPower, counts: mine.counts, tb: mine.tb, by: planWho(), at: Date.now() };
     const res = await pgh("PUT", { message: `Ranking plan: ${cur.name}`.slice(0, 100), content: p64.enc(JSON.stringify(await OfficerData.seal({ plans }), null, 1) + "\n"), sha: planSha || undefined, branch: "main" });
     planSha = res && res.content ? res.content.sha : planSha;
     planBase = new Set(ids); planErr = ""; planNewName = "";
@@ -728,7 +733,12 @@ $("planDel").onclick = async () => {
   } catch (e) { planErr = pl("err"); }
   planSwitch("");
 };
-OFFICER_PAGES.ranking = { init, applyTexts, setLang };
+/* 📋 Attendance tab: the freshest shared plans (straight from GitHub when the officer key is there, else the published copy) */
+async function freshPlans() {
+  if (OFFICER.token) { try { await planFetch(); return plans; } catch (e) {} }
+  return plans;
+}
+OFFICER_PAGES.ranking = { init, applyTexts, setLang, freshPlans };
 
 
 })();
