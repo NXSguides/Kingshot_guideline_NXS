@@ -287,7 +287,8 @@ const REW={
 const RW=(...a)=>a.map(x=>Array.isArray(x)?{id:x[0],q:x[1]}:{id:x,q:""});
 const RES=["bread","wood","stone","iron"];
 const TPL={
- opA:g=>[RW(...RES),RW("xp1k","c5","r5","t5"),RW("gems","bread","wood","stone"),RW("hammer","conquest","expedition","iron")],
+ opA:g=>g===3?[RW(["bread",35],["wood",35],["stone",7],["iron",2]),RW(["xp1k",16],["c5",45],["r5",45],["t5",45]),RW(["gems",5000],["bread",280],["wood",280],["stone",70]),RW(["hammer",8],["conquest",5],["expedition",5],["iron",14])]
+   :[RW(...RES),RW("xp1k","c5","r5","t5"),RW("gems","bread","wood","stone"),RW("hammer","conquest","expedition","iron")],   /* top tier: in-game screen 2026-10-15 */
  opB:g=>g===3?[RW(["bread",35],["wood",35],["stone",7],["iron",2]),RW(["xp1k",16],["c5",35],["r5",35],["t5",35]),RW(["gems",5000],["bread",280],["wood",280],["stone",70]),RW(["charmd",16],["conquest",5],["expedition",5],["iron",14])]
    :[RW(...RES),RW("xp1k","c5","r5","t5"),RW("gems","bread","wood","stone"),RW("charmd","conquest","expedition","iron")],
  ac1:g=>[RW(...RES),RW("xp1k","c5","r5","t5"),RW("gems","bread","wood","stone"),RW("artisan","conquest","expedition","iron")],
