@@ -61,7 +61,7 @@ function init() {
   ROOT.addEventListener("click", (e) => {
     const b = e.target.closest("button"); if (!b) return;
     if (b.dataset.rm) { delete PP().users[b.dataset.rm]; if (OFFICER.previewAs === b.dataset.rm) OFFICER.previewAs = null; changed(); }
-    if (b.dataset.pv) { OFFICER.previewAs = OFFICER.previewAs === b.dataset.pv ? null : b.dataset.pv; render(); OFFICER.applyPerms(); }
+    if (b.dataset.pv) { OFFICER.setPreview(OFFICER.previewAs === b.dataset.pv ? null : b.dataset.pv); render(); }   // the 👥 tab hides itself; the bar at the bottom brings you back
     if (b.dataset.adm) { const u = PP().users[b.dataset.adm]; u.admin = !u.admin; if (u.admin) u.perms = {}; else u.perms = u.perms && Object.keys(u.perms).length ? u.perms : OFFICER.defaultPerms(); changed(); }
   });
   $("pm_addBtn").onclick = () => {

@@ -139,7 +139,8 @@ OFFICER.previewAs = null;   // an admin can look at the page with another office
 OFFICER.me = () => OFFICER.user || (OFFICER.pw ? (() => { const n = (officerStore().author || "").trim() || "Officer"; return { id: "pw-" + (n.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-|-$/g, "").slice(0, 30) || "officer"), name: n, pw: true }; })() : null);
 /* what the Worker needs to know who is asking: the Discord session, else (trial) the officer password */
 OFFICER.authBody = () => { let tok = null; try { tok = localStorage.getItem(DISCORD_LS); } catch (e) {} return tok ? { token: tok } : OFFICER.pw ? { pw: OFFICER.pw, pwName: OFFICER.me().name } : {}; };
-OFFICER.isAdmin = () => !!OFFICER.user && OFFICER.ADMINS.includes(OFFICER.user.id);   // the real person (a preview never hides the 👥 tab)
+OFFICER.isRealAdmin = () => !!OFFICER.user && (OFFICER.ADMINS.includes(OFFICER.user.id) || OFFICER.ADMIN_IDS.includes(OFFICER.user.id));
+OFFICER.isAdmin = () => OFFICER.isRealAdmin() && !OFFICER.previewAs;   // 👁️ while previewing, the page looks exactly like theirs (no 👥, no admin tools)
 OFFICER.can = (tab, what = "view") => {
   const uid = OFFICER.previewAs || (OFFICER.user && OFFICER.user.id);
   if (tab === "perms") return OFFICER.isAdmin();
@@ -150,7 +151,28 @@ OFFICER.can = (tab, what = "view") => {
   return what === "edit" ? lv === "edit" : lv !== "none";
 };
 /* tab list + read-only look follow the rights (called after login, after a change on the 👥 tab, and when previewing) */
+/* 👁️ preview bar: the only way back while previewing (the 👥 tab is hidden then, like for them) */
+OFFICER.setPreview = (id) => {
+  OFFICER.previewAs = id || null; OFFICER.applyPerms(); window.dispatchEvent(new Event("nxs-perms"));
+  if (!id && OFFICER.isAdmin()) location.hash = "#perms";
+};
+function previewBar() {
+  let bar = document.getElementById("pvBar");
+  const u = OFFICER.previewAs && OFFICER.perms.users[OFFICER.previewAs];
+  if (!u || !OFFICER.isRealAdmin()) { if (bar) bar.remove(); return; }
+  const L = { zh: ["👁️ 預覽中：{n} 看到的畫面", "結束預覽"], en: ["👁️ Previewing as {n}", "Exit preview"], pt: ["👁️ Visualizando como {n}", "Sair da prévia"], ko: ["👁️ {n}(으)로 미리보기 중", "미리보기 종료"], ar: ["👁️ معاينة كـ {n}", "إنهاء المعاينة"] }[OFFICER.lang] || ["👁️ Previewing as {n}", "Exit preview"];
+  if (!bar) {
+    bar = document.createElement("div"); bar.id = "pvBar";
+    bar.style.cssText = "position:fixed;left:50%;transform:translateX(-50%);top:10px;z-index:9999;display:flex;gap:10px;white-space:nowrap;font-size:14px;align-items:center;padding:10px 14px;border-radius:999px;background:#f0a500;color:#1b1300;font-weight:700;box-shadow:0 4px 16px rgba(0,0,0,.35);max-width:calc(100% - 32px)";
+    document.body.appendChild(bar);
+  }
+  bar.innerHTML = `<span></span><button type="button" class="btn small" style="background:#1b1300;color:#fff;border-color:#1b1300"></button>`;
+  bar.firstChild.textContent = L[0].replace("{n}", u.name || OFFICER.previewAs); bar.lastChild.textContent = L[1];
+  bar.lastChild.onclick = () => OFFICER.setPreview(null);
+}
 OFFICER.applyPerms = () => {
+  previewBar();
+  const bp = document.getElementById("pg-board"); if (bp) bp.classList.toggle("view-only", !OFFICER.can("board", "edit"));
   document.querySelectorAll(".tabs a[data-tab]").forEach((a) => { const k = a.dataset.tab; a.hidden = k === "board" || k === "attend" ? !((OFFICER.user || OFFICER.pw) && OFFICER.can(k)) : !OFFICER.can(k, "view"); });
   const ro = { zh: "👁️ 這個分頁你只能看，不能修改。", en: "👁️ View only: you can look at this tab but not change it.", pt: "👁️ Só leitura: você pode ver esta aba, mas não mudar nada.", ar: "👁️ للعرض فقط: يمكنك مشاهدة هذا القسم دون تعديله.", ko: "👁️ 보기 전용: 이 탭은 볼 수만 있고 수정할 수 없습니다." }[OFFICER.lang] || "";
   for (const k of TABS) { const pg = document.getElementById("pg-" + k); if (pg) { pg.classList.toggle("readonly", !OFFICER.can(k, "edit")); pg.dataset.ro = ro; } }
