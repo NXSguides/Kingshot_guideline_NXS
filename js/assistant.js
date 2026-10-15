@@ -260,7 +260,7 @@
   // tap the top bar (not its buttons) to close the panel
   panel.querySelector(".ai-head").addEventListener("click", (e) => { if (!e.target.closest("button")) setOpen(false); });
   /* first visit on this device: open the chat once (after the language is picked and any event pop-up is closed) */
-  const INTRO_KEY = "nxs-ai-intro";
+  const INTRO_KEY = "nxs-ai-intro-2";   // bumped 2026-10-16: open once more for everyone to show the new ⏰ timers
   if (ON_SITE) {
     let seen = false; try { seen = !!localStorage.getItem(INTRO_KEY); } catch (e) { seen = true; }
     if (!seen) {
@@ -269,7 +269,7 @@
         if (document.querySelector(".popup-overlay")) return;                     // event pop-up still open
         clearInterval(tick);
         try { localStorage.setItem(INTRO_KEY, "1"); } catch (e) {}
-        if (panel.hidden) setTimeout(() => setOpen(true), 800);
+        if (panel.hidden) setTimeout(() => { setOpen(true); window.dispatchEvent(new Event("nxs-ai-intro")); }, 800);
       }, 700);
     }
   }

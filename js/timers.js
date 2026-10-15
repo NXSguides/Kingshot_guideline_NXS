@@ -220,7 +220,7 @@
   /* 🛠️ officer to-do reminders: only on a device where an officer opened the officer page (it leaves the to-dos / the officer password there),
      or whose Discord account is in the 👥 officer table cached by the officer page. A plain Discord login is not enough. */
   const isOfficerUser = () => { try {
-    if (adminData() || (JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw)) return true;
+    if (JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw) return true;   // unlocked with the officer password (just opening the officer page is not enough)
     const u = JSON.parse(localStorage.getItem("nxs-discord-user") || "{}"), p = JSON.parse(localStorage.getItem("nxs-perms-v1") || "{}");
     return !!(u.id && p.users && p.users[u.id]);
   } catch (e) { return false; } };
@@ -383,6 +383,8 @@
   /* ---------- the view (inside the AI panel, instead of the chat) ---------- */
   const st = document.createElement("style");
   st.textContent = `
+    @keyframes tmGlow{0%{box-shadow:0 0 0 0 rgba(255,196,0,.95)}70%{box-shadow:0 0 0 12px rgba(255,196,0,0)}100%{box-shadow:0 0 0 0 rgba(255,196,0,0)}}
+    .tm-hl{animation:tmGlow 1s ease-out 3;border-radius:999px;background:rgba(255,196,0,.25)!important;outline:2px solid #ffc400;outline-offset:1px}
     .tm-view{flex:1;overflow-y:auto;padding:12px;font-size:14.5px;line-height:1.5}
     .tm-view[hidden]{display:none}
     .tm-top{display:flex;align-items:center;gap:8px;margin-bottom:10px}
@@ -729,6 +731,11 @@
     if (box) box.prepend(b); else g.appendChild(b);
   }
   addChip();
+  /* ✨ first opening after the update: make the ⏰ button and the "Set a timer" chip glow for ~3 s */
+  window.addEventListener("nxs-ai-intro", () => {
+    const els = [headBtn, panel.querySelector(".tm-chip")].filter(Boolean);
+    els.forEach((el) => el.classList.add("tm-hl")); setTimeout(() => els.forEach((el) => el.classList.remove("tm-hl")), 3200);
+  });
   window.addEventListener("nxs-ai-lang", () => { addChip(); headBtn.title = T("title"); if (!view.hidden) render(); });
   headBtn.title = T("title");
 
