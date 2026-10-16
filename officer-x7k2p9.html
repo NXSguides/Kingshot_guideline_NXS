@@ -219,6 +219,17 @@
   /* 👁️ view-only officers on the board: read only; posts that @ them or assign them a task stand out */
   #pg-board.view-only #bd_newBtn, #pg-board.view-only .bd-form, #pg-board.view-only [data-edit], #pg-board.view-only [data-del], #pg-board.view-only [data-dec], #pg-board.view-only [data-done], #pg-board.view-only #bd_reply, #pg-board.view-only .bd-reply { display: none !important; }
   #pg-board.view-only.readonly::before, #pg-board.view-only #bd_tip { display: none; }
+  /* 💬 switch on: a view-only officer who was @'d / assigned in this topic gets the reply box (no 📋 assign) */
+  #pg-board.view-only.can-reply #bd_replyForm { display: block !important; } #pg-board.can-reply #bd_replyForm .btn, #pg-board.can-reply #bd_replyForm textarea, #pg-board.can-reply #bd_replyForm input { pointer-events: auto !important; opacity: 1 !important; } #pg-board.view-only [data-assign] { display: none; }
+  /* 🖼️ pictures on the board */
+  #pg-board .bd-imgs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; } #pg-board .bd-imgs:empty { display: none; }
+  #pg-board .bd-thumb { position: relative; width: 84px; height: 84px; border-radius: 8px; overflow: hidden; border: 1px solid var(--rule); }
+  #pg-board .bd-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  #pg-board .bd-thumb button { position: absolute; top: 2px; right: 2px; width: 22px; height: 22px; border-radius: 50%; border: 0; background: rgba(0,0,0,.65); color: #fff; font-size: 13px; line-height: 22px; padding: 0; cursor: pointer; }
+  #pg-board .bd-pics { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+  #pg-board .bd-pics img { max-width: min(100%, 320px); max-height: 240px; border-radius: 8px; border: 1px solid var(--rule); cursor: zoom-in; background: var(--panel-2); min-width: 60px; min-height: 60px; object-fit: contain; }
+  #bdLight { position: fixed; inset: 0; z-index: 9998; background: rgba(0,0,0,.88); display: flex; align-items: center; justify-content: center; cursor: zoom-out; }
+  #bdLight img { max-width: 96vw; max-height: 92vh; border-radius: 6px; }
   #pg-board .bd-post.bd-forme { border: 2px solid #f0a500; background: color-mix(in srgb, #f0a500 12%, var(--panel)); box-shadow: 0 0 0 3px color-mix(in srgb, #f0a500 25%, transparent); }
   #pg-board .bd-forme-tag { display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: 999px; background: #f0a500; color: #1b1300; font-size: 12px; font-weight: 800; }
   #pg-board .bd-tasks { border: 2px solid #f0a500; background: color-mix(in srgb, #f0a500 10%, var(--panel)); }
@@ -1027,7 +1038,7 @@
       <div class="card bd-form" id="bd_newForm" hidden>
         <input class="inp" id="bd_newTitle" maxlength="120">
         <textarea class="inp" id="bd_newText" rows="5" maxlength="4000" style="margin-top:8px;resize:vertical"></textarea>
-        <div class="bd-tools" data-box="new"><button type="button" class="btn small" data-at>@</button><button type="button" class="btn small" data-assign></button><span class="bd-chips"></span></div>
+        <div class="bd-tools" data-box="new"><button type="button" class="btn small" data-at>@</button><button type="button" class="btn small" data-assign></button><button type="button" class="btn small" data-img>🖼️</button><input type="file" accept="image/*" multiple hidden data-file><span class="bd-chips"></span></div><div class="bd-imgs" data-imgs="new"></div>
         <div class="row" style="gap:8px;margin-top:8px"><button class="btn primary" id="bd_newPost"></button><button class="btn" id="bd_newCancel"></button></div>
         <div class="msg" id="bd_newMsg"></div>
       </div>
@@ -1039,9 +1050,9 @@
       <div class="muted" id="bd_tMeta" style="font-size:13px"></div>
       <div id="bd_decision"></div>
       <div id="bd_posts"></div>
-      <div class="card bd-form">
+      <div class="card bd-form" id="bd_replyForm">
         <textarea class="inp" id="bd_replyText" rows="3" maxlength="4000" style="resize:vertical"></textarea>
-        <div class="bd-tools" data-box="reply"><button type="button" class="btn small" data-at>@</button><button type="button" class="btn small" data-assign></button><span class="bd-chips"></span></div>
+        <div class="bd-tools" data-box="reply"><button type="button" class="btn small" data-at>@</button><button type="button" class="btn small" data-assign></button><button type="button" class="btn small" data-img>🖼️</button><input type="file" accept="image/*" multiple hidden data-file><span class="bd-chips"></span></div><div class="bd-imgs" data-imgs="reply"></div>
         <div class="row" style="gap:8px;margin-top:8px"><button class="btn primary" id="bd_replyPost"></button></div>
         <div class="msg" id="bd_replyMsg"></div>
       </div>

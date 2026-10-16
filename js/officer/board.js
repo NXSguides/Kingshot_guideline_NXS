@@ -66,7 +66,43 @@ const postParam = () => { const m = location.hash.match(/[?&]p=([\w-]+)/); retur
    answer when nothing happened — that answer costs the Worker almost nothing and leaves its database asleep */
 let stamp = 0, firstCall = true, users = [], tasks = [], lastErr = null;   // lastErr: the failure shown instead of the list / topic (redrawn in the new language on a switch)
 /* what the two compose boxes carry besides text: @mentioned ids and 📋 assignees */
-const compose = { new: { m: new Set(), to: new Set() }, reply: { m: new Set(), to: new Set() } };
+const compose = { new: { m: new Set(), to: new Set(), img: [] }, reply: { m: new Set(), to: new Set(), img: [] } };
+/* 🖼️ pictures: shrunk on the phone (longest side ≤ 1600 px, WebP/JPEG) so each one stays well under the server's limit; at most 4 per message */
+const IMG_MAX = 4;
+function shrink(file) {
+  return new Promise((ok, no) => { const fr = new FileReader(); fr.onerror = no; fr.onload = () => { const im = new Image(); im.onerror = no; im.onload = () => {
+    let w = im.naturalWidth, h = im.naturalHeight, side = 1600, q = .82, out = "";
+    for (let k = 0; k < 6; k++) {
+      const sc = Math.min(1, side / Math.max(w, h)), c = document.createElement("canvas"); c.width = Math.round(w * sc); c.height = Math.round(h * sc);
+      c.getContext("2d").drawImage(im, 0, 0, c.width, c.height);
+      out = c.toDataURL("image/webp", q); if (!out.startsWith("data:image/webp")) out = c.toDataURL("image/jpeg", q);
+      if (out.length < 850000) return ok(out);
+      side *= .8; q -= .08;
+    }
+    no(new Error("too_big")); }; im.src = fr.result; }; fr.readAsDataURL(file); });
+}
+async function addImgs(box, files) {
+  const c = compose[box];
+  for (const f of [...files].filter((f) => /^image\//.test(f.type))) { if (c.img.length >= IMG_MAX) break; try { c.img.push(await shrink(f)); } catch (e) {} }
+  imgsRender(box);
+}
+function imgsRender(box) {
+  const host = ROOT.querySelector(`[data-imgs="${box}"]`); if (!host) return;
+  host.innerHTML = compose[box].img.map((u, i) => `<div class="bd-thumb"><img src="${u}" alt=""><button type="button" data-unimg="${i}" aria-label="remove">✕</button></div>`).join("");
+}
+ROOT.addEventListener("click", (e) => {
+  const x = e.target.closest("[data-unimg]"); if (x) { const box = x.closest("[data-imgs]").dataset.imgs; compose[box].img.splice(+x.dataset.unimg, 1); imgsRender(box); return; }
+  const pic = e.target.closest(".bd-pics img"); if (pic && pic.src) { const lb = document.createElement("div"); lb.id = "bdLight"; lb.innerHTML = `<img src="${pic.src}" alt="">`; lb.onclick = () => lb.remove(); document.body.appendChild(lb); }
+});
+// paste a screenshot straight into the text box
+for (const [id, box] of [["bd_newText", "new"], ["bd_replyText", "reply"]]) $(id).addEventListener("paste", (e) => { const f = [...(e.clipboardData && e.clipboardData.files || [])]; if (f.length) { e.preventDefault(); addImgs(box, f); } });
+const IMG_CACHE = new Map();
+async function loadPic(el) {
+  const id = el.dataset.bimg; if (!id) return;
+  if (!IMG_CACHE.has(id)) IMG_CACHE.set(id, api("img", { id }).then((j) => j.data).catch(() => ""));
+  const d = await IMG_CACHE.get(id); if (d) el.src = d;
+}
+const picsHtml = (p) => { const ids = (p.meta && p.meta.img) || []; return ids.length ? `<div class="bd-pics">${ids.map((id) => `<img data-bimg="${esc(id)}" alt="🖼️" loading="lazy">`).join("")}</div>` : ""; };
 const userName = (id) => { const u = users.find((x) => x.id === id) || (OFFICER.me() && OFFICER.me().id === id ? OFFICER.me() : null) || (cur && cur.posts.map((p) => p.by).find((b) => b.id === id)) || ((OFFICER.perms && OFFICER.perms.users) || {})[id]; return u ? u.name : "?"; };
 /* people to pick from: everyone who used the board + the 👥 officer table (names there are set by admins) */
 const others = () => { const m = new Map(users.map((u) => [u.id, u])); for (const [id, u] of Object.entries((OFFICER.perms && OFFICER.perms.users) || {})) if (!m.has(id)) m.set(id, { id, name: u.name, avatar: "" }); return [...m.values()].filter((u) => !OFFICER.me() || u.id !== OFFICER.me().id).sort((a, b) => a.name.localeCompare(b.name)); };
@@ -96,6 +132,7 @@ function applyTexts() {
   chipsRender("new"); chipsRender("reply");
 }
 function renderList() {
+  $("pg-board").classList.remove("can-reply");
   tabDot();
   if (lastErr) { $("bd_tasks").hidden = true; $("bd_list").innerHTML = `<div class="card msg warn">${esc(errText(lastErr))}</div>`; return; }
   const tk = $("bd_tasks"); tk.hidden = !tasks.length;
@@ -114,7 +151,7 @@ function postHtml(p, i) {
   const body = editing === p.id
     ? `${i === 0 ? `<input class="inp" data-edtitle value="${esc(cur.title.orig)}" maxlength="120" style="margin:8px 0 6px">` : ""}<textarea class="inp" data-edtext rows="4" maxlength="4000" style="margin-top:8px;resize:vertical">${esc(p.txt.orig)}</textarea>
        <div class="bd-acts"><button class="btn primary" data-save="${esc(p.id)}">${esc(t("save"))}</button><button class="btn" data-cancel>${esc(t("cancel"))}</button></div>`
-    : `<div class="bd-text">${linkify(esc(pick(p.txt)))}</div>${taskHtml(p)}
+    : `<div class="bd-text">${linkify(esc(pick(p.txt)))}</div>${picsHtml(p)}${taskHtml(p)}
        ${!translated && !(src === lang) ? `<div class="bd-warn">${esc(t("noTr"))}<br><span class="muted">${esc(dbg)}${p.txt.err ? " · " + esc(p.txt.err) : ""}</span></div>` : ""}
        ${!sameLang && translated ? `<button class="bd-link" data-orig="${esc(p.id)}">${esc(showOrig ? t("hideOrig") : t("orig"))}</button>` : ""}
        ${showOrig && !sameLang ? `<div class="bd-orig"><div class="muted" style="font-size:12px">${esc(t("origLang", { l: LANG_LABEL[src] || src || "?" }))}</div>${linkify(esc(p.txt.orig))}<pre class="muted" style="white-space:pre-wrap;font-size:11px;margin:8px 0 0">${esc(JSON.stringify(p.txt, null, 1))}</pre></div>` : ""}
@@ -140,6 +177,10 @@ function renderTopic() {
   $("bd_decision").innerHTML = d ? `<div class="card bd-dec"><h3>${esc(t("decision"))}</h3><div class="bd-text" style="margin-top:4px">${linkify(esc(pick(d.txt)))}</div>
       <div class="muted" style="font-size:12px">${esc(d.by.name)} · ${esc(t("decBy", { name: cur.dby ? cur.dby.name : "?", t: when(cur.dat) }))}</div></div>` : "";
   $("bd_posts").innerHTML = cur.posts.map(postHtml).join("");
+  $("bd_posts").querySelectorAll("img[data-bimg]").forEach(loadPic);
+  // 💬 switch (👥 tab): view-only officers may answer where they were @'d or assigned
+  const me = OFFICER.me() && OFFICER.me().id, cfg = (OFFICER.perms && OFFICER.perms.cfg) || {};
+  $("pg-board").classList.toggle("can-reply", !!(cfg.mReply && me && cur.posts.some((p) => p.meta && ((p.meta.m || []).includes(me) || (p.meta.to || []).includes(me)))));
 }
 async function loadList(quiet) {
   if (!quiet) $("bd_list").innerHTML = `<div class="muted">${esc(t("loading"))}</div>`;
@@ -205,12 +246,14 @@ document.addEventListener("click", (e) => { if (!e.target.closest(".bd-tools")) 
 ROOT.querySelectorAll(".bd-tools").forEach((host) => {
   host.querySelector("[data-at]").onclick = () => pickerOpen(host, "at");
   host.querySelector("[data-assign]").onclick = () => pickerOpen(host, "to");
+  const fi = host.querySelector("[data-file]"); host.querySelector("[data-img]").onclick = () => fi.click();
+  fi.onchange = () => { addImgs(host.dataset.box, fi.files); fi.value = ""; };
   host.addEventListener("click", (e) => { const b = e.target.closest("[data-unto]"); if (b) { compose[host.dataset.box].to.delete(b.dataset.unto); chipsRender(host.dataset.box); } });
 });
 /* ids of the people whose @name is still in the text when it is sent */
 const mentionsIn = (box, text) => /(^|\s)@all\b/i.test(text) ? others().map((u) => u.id)   // 📣 @all → everyone
   : [...compose[box].m].filter((id) => text.includes("@" + userName(id)));
-const composeReset = (box) => { compose[box].m.clear(); compose[box].to.clear(); chipsRender(box); };
+const composeReset = (box) => { compose[box].m.clear(); compose[box].to.clear(); compose[box].img = []; chipsRender(box); imgsRender(box); };
 /* drafts: what is typed in the two boxes is kept on this device until it is sent, so a failed send or a reload loses nothing */
 const DRAFT_LS = "nxs-board-draft";
 const draftLoad = () => { try { const d = JSON.parse(localStorage.getItem(DRAFT_LS)) || {}; if (d.title) $("bd_newTitle").value = d.title; if (d.text) { $("bd_newText").value = d.text; $("bd_newForm").hidden = false; } if (d.reply && d.replyFor === topicId()) $("bd_replyText").value = d.reply; } catch (e) {} };
@@ -224,7 +267,7 @@ $("bd_newPost").onclick = async () => {
   if (!title || !text) { m.textContent = t("needBoth"); return; }
   $("bd_newPost").disabled = true; m.textContent = t("sending");
   try {
-    const j = await api("new", { title, text, mentions: mentionsIn("new", text), to: [...compose.new.to] }); composeReset("new");
+    const j = await api("new", { title, text, mentions: mentionsIn("new", text), to: [...compose.new.to], images: compose.new.img }); composeReset("new");
     $("bd_newTitle").value = ""; $("bd_newText").value = ""; $("bd_newForm").hidden = true; m.textContent = ""; delete m.dataset.err; draftSave();
     if (!j.translated) $("bd_replyMsg").textContent = t("noTr") + " " + (j.topic.posts[0].txt.err || "");
     cur = j.topic; markSeen(cur.id, cur.last); location.hash = "#board?t=" + j.topic.id;
@@ -233,10 +276,10 @@ $("bd_newPost").onclick = async () => {
 };
 $("bd_replyPost").onclick = async () => {
   const text = $("bd_replyText").value.trim(), m = $("bd_replyMsg");
-  if (!text || !cur) return;
+  if ((!text && !compose.reply.img.length) || !cur) return;
   $("bd_replyPost").disabled = true; m.textContent = t("sending");
   try {
-    const j = await api("reply", { id: cur.id, text, mentions: mentionsIn("reply", text), to: [...compose.reply.to] }); composeReset("reply"); cur = j.topic; markSeen(cur.id, cur.last); $("bd_replyText").value = ""; draftSave(); renderTopic();
+    const j = await api("reply", { id: cur.id, text, mentions: mentionsIn("reply", text), to: [...compose.reply.to], images: compose.reply.img }); composeReset("reply"); cur = j.topic; markSeen(cur.id, cur.last); $("bd_replyText").value = ""; draftSave(); renderTopic();
     delete m.dataset.err; m.textContent = j.translated ? "" : t("noTr") + " " + (cur.posts[cur.posts.length - 1].txt.err || "");
     const last = cur.posts[cur.posts.length - 1]; if (last) $("bdp-" + last.id).scrollIntoView({ behavior: "smooth", block: "center" });
   } catch (e) { m.textContent = errText(e); m.dataset.err = JSON.stringify({ code: e.code, message: e.message }); }

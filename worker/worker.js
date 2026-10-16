@@ -646,6 +646,7 @@ export class PushTimers extends DurableObject {
     this.sql.exec(`CREATE TABLE IF NOT EXISTS att (id TEXT PRIMARY KEY, data TEXT, at INTEGER)`);
     this.sql.exec(`CREATE TABLE IF NOT EXISTS kv (k TEXT PRIMARY KEY, v TEXT, at INTEGER)`);   // small shared settings (👥 officer table)   // 📋 attendance: one row per event (JSON)
     try { this.sql.exec(`ALTER TABLE bp ADD COLUMN meta TEXT`); } catch (e) {}
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS bimg (id TEXT PRIMARY KEY, data TEXT, at INTEGER)`);   // 🖼️ board pictures (data URLs, made small on the phone first)
   }
   counts() {
     const o = {};
@@ -721,12 +722,17 @@ export class PushTimers extends DurableObject {
     this.sql.exec(`UPDATE bt SET dec = ?, dby = ?, dat = ? WHERE id = ?`, pid || null, pid ? JSON.stringify(by) : null, pid ? Date.now() : null, tid);
     return this.boardThread(tid);
   }
+  boardImgPut(id, data) { this.sql.exec(`INSERT OR REPLACE INTO bimg VALUES (?, ?, ?)`, id, data, Date.now()); }
+  boardImg(id) { const r = [...this.sql.exec(`SELECT data FROM bimg WHERE id = ?`, id)][0]; return r ? r.data : null; }
+  boardImgDrop(metas) { for (const m of metas) for (const id of (m && m.img) || []) this.sql.exec(`DELETE FROM bimg WHERE id = ?`, id); }
   boardDelete(pid) {
     const p = this.boardPost(pid); if (!p) return null;
     const first = [...this.sql.exec(`SELECT id FROM bp WHERE tid = ? ORDER BY at LIMIT 1`, p.tid)][0];
     if (first && first.id === pid) {   // the opening message → the whole topic goes
+      this.boardImgDrop([...this.sql.exec(`SELECT meta FROM bp WHERE tid = ?`, p.tid)].map((r) => { try { return JSON.parse(r.meta); } catch (e) { return null; } }));
       this.sql.exec(`DELETE FROM bp WHERE tid = ?`, p.tid); this.sql.exec(`DELETE FROM bt WHERE id = ?`, p.tid); return { gone: true };
     }
+    this.boardImgDrop([p.meta]);
     this.sql.exec(`DELETE FROM bp WHERE id = ?`, pid);
     this.sql.exec(`UPDATE bt SET n = n - 1, dec = CASE WHEN dec = ? THEN NULL ELSE dec END WHERE id = ?`, pid, p.tid);
     return { topic: this.boardThread(p.tid) };
@@ -967,7 +973,8 @@ async function permsRoute(stub, user, body, token, role) {
   }
   if (!users[PERMS_OWNER]) users[PERMS_OWNER] = { name: "Sparrow", admin: true, perms: {} };   // nobody can lock the owner out
   const seedOut = Object.keys(SEED_VIEWERS).filter((id) => !users[id]);   // seeded people the admin removed stay removed
-  const perms = { v: 2, users, seedOut, by: { id: user.id, name: user.name }, at: Date.now() };
+  const cfg = { mReply: !!(body.perms.cfg && body.perms.cfg.mReply) };   // 💬 switch: view-only officers may reply where they were @'d / assigned
+  const perms = { v: 2, users, seedOut, cfg, by: { id: user.id, name: user.name }, at: Date.now() };
   try {
     await stub.kvSet("perms", perms);
     const names = (await stub.kvGet("names")) || {}; let ch = false;   // names given in the table are the site names too
@@ -1014,19 +1021,31 @@ async function attendRoute(env, stub, user, body, token, mayEdit) {
   }
   return json({ error: "bad op" }, 400);
 }
-async function boardRoute(env, ctx, stub, user, body, token, mayPost) {
+async function boardRoute(env, ctx, stub, user, body, token, mayPost, perms) {
   const op = body.op, lang = BOARD_LANGS.includes(body.lang) ? body.lang : null;
   const by = { id: user.id, name: user.name, avatar: user.avatar || "" };
   const ok = (o) => json({ ok: true, token, ...o });
   // polls: nothing changed since the page last looked → answer without touching the Durable Object
   const since = +body.since || 0, stamp = await boardStamp(env);
   if ((op === "list" || op === "get") && since && stamp && stamp <= since) return ok({ unchanged: true, stamp });
-  if (!mayPost && op !== "list" && op !== "get") return json({ error: "view_only" }, 403);   // 👁️ view-only on the 👥 table: read, nothing else
+  if (op === "img") { const d = await stub.boardImg(String(body.id || "")); return d ? ok({ data: d }) : json({ error: "gone", token }, 404); }   // 🖼️ anyone who can read
+  if (!mayPost && op !== "list" && op !== "get") {
+    // 💬 (switch on the 👥 tab) a view-only officer may reply in a topic where someone @'d or assigned them
+    let okReply = false;
+    if (op === "reply" && perms && perms.cfg && perms.cfg.mReply) { const t = await stub.boardThread(String(body.id || "")); okReply = !!(t && t.posts.some((q) => q.meta && ((q.meta.m || []).includes(user.id) || (q.meta.to || []).includes(user.id)))); }
+    if (!okReply) return json({ error: "view_only" }, 403);
+  }   // 👁️ view-only on the 👥 table: read, nothing else
   // name + language (for @ pickers and notifications): on writes and on the first look of a visit. Reading must still work when
   // writing is impossible (daily write allowance used up), so a failure here is ignored
   if (op !== "list" && op !== "get" || body.first) { try { await stub.boardUser(by, lang); } catch (e) {} }
   const ids = (v) => (Array.isArray(v) ? v : []).map(String).filter((x) => /^\d{17,20}$/.test(x)).slice(0, 60);   // 60: room for @all
-  const metaOf = (b, old) => { const m = { m: ids(b.mentions), to: ids(b.to) }; if (old && old.done) m.done = old.done; return m.m.length || m.to.length || m.done ? m : null; };
+  const metaOf = (b, old, img) => { const m = { m: ids(b.mentions), to: ids(b.to) }; if (old && old.done) m.done = old.done; const im = img || (old && old.img); if (im && im.length) m.img = im; return m.m.length || m.to.length || m.done || m.img ? m : null; };
+  // 🖼️ up to 4 pictures per message, already shrunk on the phone (≤ ~900 KB each)
+  const saveImgs = async () => { const out = [];
+    for (const u of (Array.isArray(body.images) ? body.images : []).slice(0, 4)) {
+      const v = String(u); if (!/^data:image\/(?:webp|jpeg|png);base64,[A-Za-z0-9+/=]+$/.test(v) || v.length > 900_000) continue;
+      const id = rid(); await stub.boardImgPut(id, v); out.push(id); }
+    return out; };
   const str = (v, max) => String(v || "").replace(/\r/g, "").trim().slice(0, max);
   const notify = (t, tx, meta) => { const p = stub.boardNotify(user.id, t.id, t.title, user.name, tx, meta); if (ctx && ctx.waitUntil) ctx.waitUntil(p); };
   if (op === "list") return ok({ topics: await stub.boardList(), users: await stub.boardUsers(), tasks: await stub.boardTasks(user.id), stamp: stamp || await boardTouch(env) });
@@ -1037,16 +1056,16 @@ async function boardRoute(env, ctx, stub, user, body, token, mayPost) {
     const title = str(body.title, 120), text = str(body.text, 4000);
     if (!title || !text) return json({ error: "empty" }, 400);
     const tr = await boardTranslate(env, title, text);
-    const meta = metaOf(body);
+    const meta = metaOf(body, null, await saveImgs());
     const t = await stub.boardNew(rid(), tr.title, by, rid(), tr.text, meta);
     notify(t, tr.text, meta);
     return ok({ topic: t, translated: tr.ok, stamp: await boardTouch(env) });
   });
   if (op === "reply") return write(async () => {
-    const text = str(body.text, 4000);
+    const text = str(body.text, 4000) || ((body.images || []).length ? "📷" : "");
     if (!text) return json({ error: "empty" }, 400);
     const tr = await boardTranslate(env, "", text);
-    const meta = metaOf(body);
+    const meta = metaOf(body, null, await saveImgs());
     const t = await stub.boardReply(String(body.id || ""), by, rid(), tr.text, meta);
     if (!t) return json({ error: "gone" }, 404);
     notify(t, tr.text, meta);
@@ -1064,7 +1083,7 @@ async function boardRoute(env, ctx, stub, user, body, token, mayPost) {
     const text = str(body.text, 4000), title = body.title != null ? str(body.title, 120) : "";
     if (!text) return json({ error: "empty" }, 400);
     const tr = await boardTranslate(env, title, text);
-    const meta = body.mentions || body.to ? metaOf(body, p.meta) : p.meta;
+    const meta = body.mentions || body.to ? metaOf(body, p.meta) : p.meta;   // pictures stay as they were
     return ok({ topic: await stub.boardEdit(p.id, tr.text, title ? tr.title : null, meta), translated: tr.ok, stamp: await boardTouch(env) });
   });
   if (op === "decide") return write(async () => {   // 📌 any officer can mark (or clear) the decision of a topic
@@ -1255,7 +1274,7 @@ async function authRoute(req, env, path, ctx) {
       return json({ ok: true, user: u, role, pw: String(env.OFFICER_PASSWORD).trim(), token, needDk: !!stub && !(await stub.kvGet("dk")) });
     }
     if (!stub) return json({ error: "push_not_set_up" }, 503);
-    if (path === "/board") return boardRoute(env, ctx, stub, u, body, token, canEdit(perms, s.u.id, "board"));
+    if (path === "/board") return boardRoute(env, ctx, stub, u, body, token, canEdit(perms, s.u.id, "board"), perms);
     if (path === "/attend") return attendRoute(env, stub, u, body, token, canEdit(perms, s.u.id, "attend"));
     if (path === "/perms") return permsRoute(stub, u, body, token, role);
     if (path === "/sync/forget") { if (body.sub && body.sub.endpoint) await stub.forget(String(body.sub.endpoint)); return json({ ok: true }); }

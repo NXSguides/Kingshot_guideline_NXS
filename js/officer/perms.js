@@ -68,7 +68,9 @@ function seenHtml(id) {
 function render() {
   const tt = t("tabs"), lv = t("lv"), me = OFFICER.user && OFFICER.user.id;
   const rows = Object.entries(PP().users);
-  $("pm_tbl").innerHTML = `<table class="pm-tbl"><thead><tr><th></th>${TABS_P.map((k) => `<th>${esc(tt[k])}</th>`).join("")}<th>${esc(nt("h"))}</th><th></th></tr></thead><tbody>${rows.map(([id, u]) => {
+  const MR = { zh: "💬 被 @ 或被指派的唯讀幹部，可以在那一串留言回覆", en: "💬 View-only officers can reply in a topic where they were @'d or assigned", pt: "💬 Oficiais só-leitura podem responder num tópico onde foram marcados (@) ou receberam tarefa", ko: "💬 보기 전용 간부도 자신이 @되거나 맡은 글타래에는 답글 가능", ar: "💬 يمكن للضباط (عرض فقط) الرد في الموضوع الذي ذُكروا فيه (@) أو كُلّفوا بمهمة" };
+  const cfg = PP().cfg || {};
+  $("pm_tbl").innerHTML = `<label class="pm-cfg" style="display:flex;gap:8px;align-items:center;margin:0 0 10px;font-size:14px;cursor:pointer"><input type="checkbox" id="pm_mReply"${cfg.mReply ? " checked" : ""}> ${esc(MR[lang] || MR.en)}</label><table class="pm-tbl"><thead><tr><th></th>${TABS_P.map((k) => `<th>${esc(tt[k])}</th>`).join("")}<th>${esc(nt("h"))}</th><th></th></tr></thead><tbody>${rows.map(([id, u]) => {
     const admin = !!u.admin, owner = id === OFFICER.OWNER;
     return `<tr${OFFICER.previewAs === id ? ' class="pv"' : ""}><th><div><input class="pm-name" data-nm="${esc(id)}" value="${esc(u.name)}" maxlength="40" dir="auto" title="${esc(t("rename"))}"> ${id === me ? `<span class="muted">${esc(t("you"))}</span>` : ""}</div>${seenHtml(id)}${admin ? `<span class="pm-adm">${esc(t("admin"))}</span> ` : ""}<span class="muted" style="font-weight:400;font-size:11px">${esc(id)}</span></th>
       ${TABS_P.map((k) => admin ? `<td class="muted">✏️</td>` : `<td><select class="btn pm-sel" data-u="${esc(id)}" data-t="${k}">${["edit", "view", "none"].map((l) => `<option value="${l}"${(u.perms[k] || "none") === l ? " selected" : ""}>${esc(lv[l])}</option>`).join("")}</select></td>`).join("")}
@@ -90,6 +92,7 @@ function init() {
   ROOT.addEventListener("change", (e) => {
     const nm = e.target.closest(".pm-name");   // ✏️ the name is only a label on this site (the Discord ID is what counts), so admins can change it
     if (nm) { const v = nm.value.trim().slice(0, 40), u = PP().users[nm.dataset.nm]; if (!u) return; if (!v) { nm.value = u.name; return; } if (v !== u.name) { u.name = v; changed(); } return; }
+    if (e.target.id === "pm_mReply") { PP().cfg = { ...(PP().cfg || {}), mReply: e.target.checked }; changed(); return; }
     const s = e.target.closest(".pm-sel"); if (!s) return; PP().users[s.dataset.u].perms[s.dataset.t] = s.value; changed(); });
   ROOT.addEventListener("keydown", (e) => { if (e.key === "Enter" && e.target.closest(".pm-name")) e.target.blur(); });
   ROOT.addEventListener("click", (e) => {
