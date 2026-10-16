@@ -581,7 +581,7 @@ function rebuildOwn() {
   for (const [x, y] of keep) sq(x, y, (t) => { if (OV[t] !== 2) OV[t] = 1; });
   for (const [x, y] of G.hq || []) for (let i = x - 6; i <= x + 8; i++) for (let j = y - 6; j <= y + 8; j++) OV[j * FN + i] = 1;
 }
-async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=18").then((r) => r.json()); } catch (e) { EXB = null; } rebuildOwn(); drawEx(); drawFlags(); renderFlags(); }
+async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=20").then((r) => r.json()); } catch (e) { EXB = null; } rebuildOwn(); drawEx(); drawFlags(); renderFlags(); }
 function drawEx() {
   const g = $("km_exG"); if (!g) return;
   // our two HQs claim 15×15 too (3×3 building from its X, Y + 6 tiles around)
