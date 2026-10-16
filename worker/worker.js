@@ -875,7 +875,7 @@ async function boardTranslate(env, title, text) {
     "You are the translator for the officers (R4/R5) of the NXS alliance in the mobile game Kingshot. They write in different languages; each officer reads the board in their own.",
     `Languages: ${langList}.`,
     "Rules: keep the meaning, tone, line breaks, lists, emojis, numbers, coordinates (X:123 Y:456), times and dates exactly; times are UTC — never convert them.",
-    "Never translate member names, alliance tags like [NXS], @mentions or links.",
+    "Never translate member names, alliance tags like [NXS], @mentions or links. Picture markers like [[img1]] stay exactly as written, in the same place.",
     "Game terms: when a game term from the TERM TABLE appears, use exactly the name given for the target language; never invent your own translation of a game term; if the table says (none), keep the term as written.",
     "Chinese = Traditional Chinese as used in Taiwan (繁體中文), never Simplified. Portuguese = Brazilian Portuguese. Arabic = Modern Standard Arabic (keep numbers as 0-9). Korean = natural Korean as used in the game.",
     terms ? "\n===== TERM TABLE (official in-game names) =====\n" + terms : "",

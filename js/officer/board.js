@@ -83,15 +83,29 @@ function shrink(file) {
 }
 async function addImgs(box, files) {
   const c = compose[box];
-  for (const f of [...files].filter((f) => /^image\//.test(f.type))) { if (c.img.length >= IMG_MAX()) break; try { c.img.push(await shrink(f)); } catch (e) {} }
+  for (const f of [...files].filter((f) => /^image\//.test(f.type))) { if (c.img.length >= IMG_MAX()) break; try { c.img.push(await shrink(f)); putMark(box, c.img.length); } catch (e) {} }
   imgsRender(box);
+}
+/* where a picture goes: a [[imgN]] marker at the cursor (like announcements); move it in the text to move the picture */
+const TA = (box) => $(box === "new" ? "bd_newText" : "bd_replyText");
+function putMark(box, n) {
+  const ta = TA(box); if (!ta) return;
+  const v = ta.value, a = ta.selectionStart ?? v.length, b = ta.selectionEnd ?? a, mk = `[[img${n}]]`;
+  const pre = v.slice(0, a), post = v.slice(b), ins = (pre && !pre.endsWith("\n") ? "\n" : "") + mk + (post.startsWith("\n") ? "" : "\n");
+  ta.value = pre + ins + post; const at = (pre + ins).length; try { ta.setSelectionRange(at, at); } catch (e) {}
+  ta.dispatchEvent(new Event("input", { bubbles: true }));
+}
+function dropMark(box, n) {   // picture n removed: take its marker out, later numbers move down by one
+  const ta = TA(box); if (!ta) return;
+  ta.value = ta.value.replace(new RegExp(`\\[\\[img${n}\\]\\]\\n?`, "g"), "").replace(/\[\[img(\d+)\]\]/g, (m, k) => +k > n ? `[[img${+k - 1}]]` : m);
+  ta.dispatchEvent(new Event("input", { bubbles: true }));
 }
 function imgsRender(box) {
   const host = ROOT.querySelector(`[data-imgs="${box}"]`); if (!host) return;
   host.innerHTML = compose[box].img.map((u, i) => `<div class="bd-thumb"><img src="${u}" alt=""><button type="button" data-unimg="${i}" aria-label="remove">✕</button></div>`).join("");
 }
 ROOT.addEventListener("click", (e) => {
-  const x = e.target.closest("[data-unimg]"); if (x) { const box = x.closest("[data-imgs]").dataset.imgs; compose[box].img.splice(+x.dataset.unimg, 1); imgsRender(box); return; }
+  const x = e.target.closest("[data-unimg]"); if (x) { const box = x.closest("[data-imgs]").dataset.imgs; compose[box].img.splice(+x.dataset.unimg, 1); dropMark(box, +x.dataset.unimg + 1); imgsRender(box); return; }
   const pic = e.target.closest(".bd-pics img"); if (pic && pic.src) { const lb = document.createElement("div"); lb.id = "bdLight"; lb.innerHTML = `<img src="${pic.src}" alt="">`; lb.onclick = () => lb.remove(); document.body.appendChild(lb); }
 });
 // paste a screenshot straight into the text box
@@ -102,7 +116,14 @@ async function loadPic(el) {
   if (!IMG_CACHE.has(id)) IMG_CACHE.set(id, api("img", { id }).then((j) => j.data).catch(() => ""));
   const d = await IMG_CACHE.get(id); if (d) el.src = d;
 }
-const picsHtml = (p) => { const ids = (p.meta && p.meta.img) || []; return ids.length ? `<div class="bd-pics">${ids.map((id) => `<img data-bimg="${esc(id)}" alt="🖼️" loading="lazy">`).join("")}</div>` : ""; };
+const picTag = (id) => `<img data-bimg="${esc(id)}" alt="🖼️" loading="lazy">`;
+/* the text with each [[imgN]] marker replaced by that picture; pictures without a marker (or whose marker got lost) go underneath */
+function bodyHtml(p) {
+  const ids = (p.meta && p.meta.img) || [], used = new Set();
+  let h = linkify(esc(pick(p.txt))).replace(/\n?\[\[img(\d+)\]\]\n?/g, (m, k) => { const id = ids[+k - 1]; if (!id || used.has(id)) return m.includes("\n") ? "\n" : ""; used.add(id); return `</div><div class="bd-pics">${picTag(id)}</div><div class="bd-text">`; });
+  const rest = ids.filter((id) => !used.has(id));
+  return `<div class="bd-text">${h}</div>${rest.length ? `<div class="bd-pics">${rest.map(picTag).join("")}</div>` : ""}`.replace(/<div class="bd-text"><\/div>/g, "");
+}
 const userName = (id) => { const u = users.find((x) => x.id === id) || (OFFICER.me() && OFFICER.me().id === id ? OFFICER.me() : null) || (cur && cur.posts.map((p) => p.by).find((b) => b.id === id)) || ((OFFICER.perms && OFFICER.perms.users) || {})[id]; return u ? u.name : "?"; };
 /* (pw-… = old shared-password logins, switched off — never listed) */
 /* people to pick from: everyone who used the board + the 👥 officer table (names there are set by admins) */
@@ -152,7 +173,7 @@ function postHtml(p, i) {
   const body = editing === p.id
     ? `${i === 0 ? `<input class="inp" data-edtitle value="${esc(cur.title.orig)}" maxlength="120" style="margin:8px 0 6px">` : ""}<textarea class="inp" data-edtext rows="4" maxlength="4000" style="margin-top:8px;resize:vertical">${esc(p.txt.orig)}</textarea>
        <div class="bd-acts"><button class="btn primary" data-save="${esc(p.id)}">${esc(t("save"))}</button><button class="btn" data-cancel>${esc(t("cancel"))}</button></div>`
-    : `<div class="bd-text">${linkify(esc(pick(p.txt)))}</div>${picsHtml(p)}${taskHtml(p)}
+    : `${bodyHtml(p)}${taskHtml(p)}
        ${!translated && !(src === lang) ? `<div class="bd-warn">${esc(t("noTr"))}<br><span class="muted">${esc(dbg)}${p.txt.err ? " · " + esc(p.txt.err) : ""}</span></div>` : ""}
        ${!sameLang && translated ? `<button class="bd-link" data-orig="${esc(p.id)}">${esc(showOrig ? t("hideOrig") : t("orig"))}</button>` : ""}
        ${showOrig && !sameLang ? `<div class="bd-orig"><div class="muted" style="font-size:12px">${esc(t("origLang", { l: LANG_LABEL[src] || src || "?" }))}</div>${linkify(esc(p.txt.orig))}<pre class="muted" style="white-space:pre-wrap;font-size:11px;margin:8px 0 0">${esc(JSON.stringify(p.txt, null, 1))}</pre></div>` : ""}
