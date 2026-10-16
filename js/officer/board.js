@@ -55,7 +55,17 @@ function tabDot(n) {
 }
 const t = (k, v = {}) => String((BD[lang] || BD.en)[k] ?? BD.en[k] ?? k).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
 const esc = OFFICER.util.esc;
-const linkify = (h) => h.replace(/https?:\/\/[^\s<]+/g, (u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`).replace(/(^|[\s(（,，])@([^\s@,，:：]{1,30})/g, (m, a, n) => `${a}<span class="bd-mention">@${n}</span>`);
+const linkify = (h) => h.replace(/https?:\/\/[^\s<]+/g, (u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`).replace(mentionRe(), (m, a, n) => `${a}<span class="bd-mention">@${n}</span>`);
+/* only real names (and @all) are highlighted — Chinese has no space after a name, so "@all 大家…" must not swallow the sentence */
+function mentionRe() {
+  const names = new Set(["all"]);
+  try { for (const u of users || []) names.add(u.name); } catch (e) {}
+  for (const u of Object.values((OFFICER.perms && OFFICER.perms.users) || {})) names.add(u.name);
+  if (OFFICER.me && OFFICER.me()) names.add(OFFICER.me().name);
+  try { if (cur) for (const p of cur.posts) names.add(p.by.name); } catch (e) {}
+  const list = [...names].filter(Boolean).map((n) => esc(n).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).sort((a, b) => b.length - a.length);
+  return new RegExp(`(^|[^A-Za-z0-9_])@(${list.join("|")})(?![A-Za-z0-9_])`, "gi");
+}
 const pick = (o) => (o && (o[lang] || o.orig)) || "";
 const when = (ms) => { const d = new Date(ms), p = (n) => String(n).padStart(2, "0");
   return `${lang === "pt" || lang === "ar" ? d.getUTCDate() + "/" + (d.getUTCMonth() + 1) : (d.getUTCMonth() + 1) + "/" + d.getUTCDate()} ${p(d.getUTCHours())}:${p(d.getUTCMinutes())} UTC`; };
@@ -285,7 +295,7 @@ ROOT.querySelectorAll(".bd-tools").forEach((host) => {
   host.addEventListener("click", (e) => { const b = e.target.closest("[data-unto]"); if (b) { compose[host.dataset.box].to.delete(b.dataset.unto); chipsRender(host.dataset.box); } });
 });
 /* ids of the people whose @name is still in the text when it is sent */
-const mentionsIn = (box, text) => /(^|\s)@all\b/i.test(text) ? others().map((u) => u.id)   // 📣 @all → everyone
+const mentionsIn = (box, text) => /(^|[^A-Za-z0-9_])@all(?![A-Za-z0-9_])/i.test(text) ? others().map((u) => u.id)   // 📣 @all → everyone
   : [...compose[box].m].filter((id) => text.includes("@" + userName(id)));
 const composeReset = (box) => { compose[box].m.clear(); compose[box].to.clear(); compose[box].img = []; chipsRender(box); imgsRender(box); };
 /* drafts: what is typed in the two boxes is kept on this device until it is sent, so a failed send or a reload loses nothing */
