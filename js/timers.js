@@ -219,11 +219,18 @@
   function adminData() { try { return JSON.parse(localStorage.getItem("nxs-admin-todos")) || null; } catch (e) { return null; } }
   /* 🛠️ officer to-do reminders: only on a device where an officer opened the officer page (it leaves the to-dos / the officer password there),
      or whose Discord account is in the 👥 officer table cached by the officer page. A plain Discord login is not enough. */
-  const isOfficerUser = () => { try {
-    if (JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw) return true;   // unlocked with the officer password (just opening the officer page is not enough)
+  /* which events' to-dos this person is told about: set on the 👥 Officers tab (users[id].notify = event keys).
+     "all" = admins with no list of their own (and the officer password); a Set = only those events; null = none */
+  const myNotify = () => { try {
+    if (JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw) return "all";   // unlocked with the officer password (just opening the officer page is not enough)
     const u = JSON.parse(localStorage.getItem("nxs-discord-user") || "{}"), p = JSON.parse(localStorage.getItem("nxs-perms-v1") || "{}");
-    return !!(u.id && p.users && p.users[u.id] && p.users[u.id].admin);   // admins only — view-only officers are in the table too
-  } catch (e) { return false; } };
+    const x = u.id && p.users && p.users[u.id]; if (!x) return null;
+    if (Array.isArray(x.notify)) return x.notify.length ? new Set(x.notify) : null;
+    return x.admin ? "all" : null;   // view-only officers get nothing unless an admin picked events for them
+  } catch (e) { return null; } };
+  const isOfficerUser = () => !!myNotify();
+  // on/off: their own choice once they tap it; until then ON for people an admin assigned events to
+  const adminOn = () => { const a = alerts.admin; return a && typeof a.on === "boolean" ? a.on : myNotify() instanceof Set; };
   const isOfficer = () => { try { return !!adminData() || !!localStorage.getItem("nxs-discord-v1") || !!(JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw); } catch (e) { return false; } };
   /* the to-do's event name in the page language: the guide name on the main site, the officer page's names otherwise */
   const adminName = (x, ev) => {
@@ -234,13 +241,14 @@
     return n ? `${em} ${n}` : x.title;
   };
   function adminTimers() {
-    const a = alerts.admin, d = adminData();
-    if (!a || !a.on || !d || !Array.isArray(d.items) || !isOfficerUser()) return [];
+    const a = alerts.admin || {}, d = adminData(), nf = myNotify();
+    if (!adminOn() || !d || !Array.isArray(d.items) || !nf) return [];
     const now = Date.now(), h = a.hour ?? 0, seen = new Set(), out = [];
     // one short notification per event per day ("⚔️ Swordland Showdown") — the details stay in the checklist
     for (const x of d.items) {
       const ev = x.ev || String(x.id).replace(/-\d{4}-\d\d-\d\d-\d+$/, ""), key = `${ev}-${Math.floor(x.due / 86400000)}`;
-      if (ev === "bear-hunt" || seen.has(key)) continue; seen.add(key);   // Bear Hunt repeats by itself — no admin reminder
+      if (nf === "all" ? ev === "bear-hunt" : !nf.has(ev)) continue;   // Bear Hunt repeats by itself — only for whoever was assigned it
+      if (seen.has(key)) continue; seen.add(key);
       out.push({ id: `adm-${key}`.slice(0, 40), at: x.due + h * 3600000, title: `🛠️ ${adminName(x, ev)}`, body: T("adminBody") });
     }
     return out.filter((x) => x.at > now).sort((x, y) => x.at - y.at);
@@ -553,9 +561,9 @@
     if (!d) body = `<div class="tm-hint">${esc(T("adminNone"))}</div>`;
     else {
       const next = adminTimers().slice(0, 4);
-      body = `<div class="tm-cats"><button type="button" class="tm-btn${a.on ? " on" : ""}" data-a="admin">${esc(T("adminOn"))}</button>
+      body = `<div class="tm-cats"><button type="button" class="tm-btn${adminOn() ? " on" : ""}" data-a="admin">${esc(T("adminOn"))}</button>
         <select class="tm-sel" data-hour="1">${Array.from({ length: 24 }, (_, i) => `<option value="${i}"${h === i ? " selected" : ""}>${esc(T("adminAt").replace("{t}", String(i).padStart(2, "0") + ":00"))} (${loc(i)})</option>`).join("")}</select></div>`
-        + (a.on ? (next.length ? next.map((x, i) => `<div class="tm-a">• ${esc(fmtAt(x.at))} — ${esc(x.title.replace(/^🛠️ /, ""))}</div>`).join("") : `<div class="tm-a">${esc(T("adminEmpty"))}</div>`) : "")
+        + (adminOn() ? (next.length ? next.map((x, i) => `<div class="tm-a">• ${esc(fmtAt(x.at))} — ${esc(x.title.replace(/^🛠️ /, ""))}</div>`).join("") : `<div class="tm-a">${esc(T("adminEmpty"))}</div>`) : "")
         + `<div class="tm-hint" style="margin-top:4px">${esc(T("adminUpd").replace("{t}", fmtAt(d.updated)))}</div>`;
     }
     return `<div class="tm-alerts"><b>${esc(T("admin"))}</b><div class="tm-hint" style="margin-top:2px">${esc(T("adminNote"))}</div>${body}</div>`;
@@ -619,7 +627,7 @@
     if (a === "save") return saveAdding();
     if (a === "sub") { b.disabled = true; try { await subscribe(); } catch (err) {} await sync(); return render(); }
     if (a === "cloudnow") { b.disabled = true; return cloudSync(); }
-    if (a === "admin") { const x = (alerts.admin = alerts.admin || {}); x.on = !x.on; saveAlerts(); render(); sync(); return; }
+    if (a === "admin") { const x = (alerts.admin = alerts.admin || {}); x.on = !adminOn(); saveAlerts(); render(); sync(); return; }
     if (a === "test") {
       b.disabled = true;
       const sub = await getSub();
@@ -794,6 +802,6 @@
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") inbox(); });
   // after coming back to the app, re-send the list once (keeps the server in step if a save failed)
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") { prune(); store(); sync(); if (!view.hidden) render(); } });
-  window.addEventListener("nxs-admin-todos", () => { if (alerts.admin && alerts.admin.on) sync(); if (!view.hidden) render(); });
+  window.addEventListener("nxs-admin-todos", () => { if (adminOn()) sync(); if (!view.hidden) render(); });
   window.NXSTimers = { parseLeft, show, alertTimers };
 })();

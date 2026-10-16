@@ -962,7 +962,8 @@ async function permsRoute(stub, user, body, token, role) {
     if (!/^\d{5,25}$/.test(id) || !u || typeof u !== "object") continue;
     const perms = {};
     for (const [k, v] of Object.entries(u.perms || {}).slice(0, 30)) if (/^[a-z]{1,12}$/.test(k) && PERM_LEVELS.includes(v)) perms[k] = v;
-    users[id] = { name: String(u.name || "").slice(0, 40), ...(u.admin || ADMIN_IDS.includes(id) ? { admin: true } : {}), perms };
+    const notify = cleanNotify(u.notify);   // 🔔 events whose officer to-dos this person is reminded of
+    users[id] = { name: String(u.name || "").slice(0, 40), ...(u.admin || ADMIN_IDS.includes(id) ? { admin: true } : {}), perms, ...(notify ? { notify } : {}) };
   }
   if (!users[PERMS_OWNER]) users[PERMS_OWNER] = { name: "Sparrow", admin: true, perms: {} };   // nobody can lock the owner out
   const seedOut = Object.keys(SEED_VIEWERS).filter((id) => !users[id]);   // seeded people the admin removed stay removed
@@ -1091,11 +1092,25 @@ const ADMIN_IDS = ["1547403844374368327", "1240788094672834623", "76282790434124
    After that the table is the truth — change or remove them on the 👥 tab. */
 const SEED_VIEWERS = {"741447079804797041": "firebaugh", "734803550672257104": "ASHISH", "961642100150124555": "BOO", "1526789098210197638": "ELR", "216564539041251329": "flip", "1534039396461056172": "JORDAN", "1525666601456767171": "PAPA", "706153853460021341": "Tiger", "1003385592983322664": "Δйʊвιŝ"};
 const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", scout: "none", views: "none" };
+/* 🛠️ which events' officer to-dos each person gets as a reminder (from Sparrow's role list, 2026-10-16) — only a starting point:
+   once an admin changes someone's 🔔 on the 👥 tab, the saved list wins. Admins with no list get every event. */
+const MOB = "alliance-mobilization";
+const NOTIFY_DEFAULT = {
+  "216564539041251329": ["bear-hunt", "viking-vengeance", "cesares-fury", MOB],              // Flip
+  "961642100150124555": ["swordland-showdown", "tri-alliance-clash", "viking-vengeance", MOB], // Boo
+  "1526789098210197638": ["swordland-showdown", "tri-alliance-clash", MOB],                   // ELR
+  "1534039396461056172": ["swordland-showdown", "kvk", "call-of-sovereign", MOB],             // Jordan
+  "1525666601456767171": ["sanctuary-battle", MOB],                                           // Papa
+  "741447079804797041": ["cesares-fury", MOB],                                                // Fire (firebaugh)
+  "706153853460021341": [MOB], "734803550672257104": [MOB], "1003385592983322664": [MOB],    // Tiger, Ashish, Anubis
+};
+const cleanNotify = (a) => Array.isArray(a) ? [...new Set(a.filter((k) => typeof k === "string" && /^[a-z][a-z-]{0,39}$/.test(k)))].slice(0, 40) : undefined;
 function withSeed(perms) {
   const p = perms && perms.users ? perms : { v: 2, users: {} };
   const gone = new Set(p.seedOut || []);   // removed on the 👥 tab → don't bring back
   for (const [id, name] of Object.entries(SEED_VIEWERS)) if (!p.users[id] && !gone.has(id)) p.users[id] = { name, perms: { ...VIEW_DEFAULT } };
   for (const id of ADMIN_IDS) if (p.users[id]) p.users[id].admin = true;
+  for (const [id, keys] of Object.entries(NOTIFY_DEFAULT)) if (p.users[id] && !Array.isArray(p.users[id].notify)) p.users[id].notify = [...keys];
   return p;
 }
 /* role from the 👥 table: "admin" | "editor" (edit right on some tab) | "viewer" | null (not on the list) */

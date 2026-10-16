@@ -384,6 +384,7 @@ async function officerGate() {
     if (r.ok) {
       try { localStorage.setItem(DISCORD_LS, r.token); } catch (e) {}
       OFFICER.user = r.user;
+      try { localStorage.setItem("nxs-discord-user", JSON.stringify(r.user || {})); } catch (e) {}   // ⏰ the timer panel reads who this is (🛠️ reminders picked on the 👥 tab)
       const s = officerStore(); if (!s.author) { s.author = r.user.name; try { localStorage.setItem(OFFICER_LS, JSON.stringify(s)); } catch (e) {} }
       if (r.role === "viewer") { if (r.dk) return okView(r.dk); loginMsg = "setup"; }
       else { const t = await checkPw(r.pw); if (t) return ok(r.pw, t, r); loginMsg = "setup"; }

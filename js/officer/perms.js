@@ -31,6 +31,32 @@ let lang = OFFICER.lang;
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
 const PP = () => OFFICER.perms;   // { users: { id: { name, perms: { tab: "edit"|"view"|"none" } } } } — shared with core.js (replaced when the server copy arrives)
 const TABS_P = ["events", "board", "map", "ranking", "attend", "post", "watch", "scout", "views"];   // same order as the tab bar   // 🐻 bear calculator is a public page now
+/* 🔔 which events' officer to-dos each person is reminded of (users[id].notify; admins with no list get all of them).
+   The ⏰ panel on the main site turns those to-dos into notifications at the hour the person picks. */
+const NT_EV = [["alliance-mobilization", "🔥", "Alliance Mobilization", "聯盟總動員"], ["bear-hunt", "🐻", "Bear Hunt", "狩獵巨熊"],
+  ["swordland-showdown", "⚔️", "Swordland Showdown", "聖劍爭奪"], ["tri-alliance-clash", "🛡️", "Tri-Alliance Clash", "三盟爭霸"],
+  ["alliance-championship", "🏆", "Alliance Championship", "聯盟爭霸賽"], ["viking-vengeance", "🪓", "Viking Vengeance", "維京人的掠奪"],
+  ["cesares-fury", "🗡️", "Cesares Fury", "征討切薩雷"], ["sanctuary-battle", "🏯", "Sanctuary Battle", "遺跡爭奪"],
+  ["kvk", "👑", "KvK", "KvK"], ["call-of-sovereign", "📯", "Call of the Sovereign", "崛起的號角"],
+  ["all-out", "🔥", "All Out", "全軍出擊"], ["eternity-reach", "⛏️", "Eternity's Reach", "失落的遺跡"], ["hero-roulette", "🎰", "Hero Roulette", "英雄轉盤"],
+  ["fishing-tournament", "🎣", "Fishing Tournament", "釣魚大賽"], ["mystic-trial", "🔮", "Mystic Trial", "秘境試煉"]];
+const NT = { zh: { h: "🔔 提醒", all: "全部", none: "—", hint: "勾選要提醒這個人的活動：活動的幹部待辦到期那天，他的手機會收到通知（時間由他在 ⏰ 裡自己選）。管理員沒勾任何活動時會收到全部。", allBtn: "全部（預設）", clr: "清除" },
+  en: { h: "🔔 Reminders", all: "All", none: "—", hint: "Pick the events this person is reminded of: on the day an officer to-do for that event is due, their phone gets a notification (they pick the hour in ⏰). Admins with nothing picked get every event.", allBtn: "All (default)", clr: "Clear" } };
+const nt = (k) => (NT[lang] || NT.en)[k];
+let ntOpen = null;
+const ntOf = (u) => Array.isArray(u.notify) ? u.notify : u.admin ? null : [];   // null = all
+function ntCell(id, u) {
+  const l = ntOf(u), txt = l === null ? nt("all") : l.length ? NT_EV.filter(([k]) => l.includes(k)).map(([, e]) => e).join("") || l.length : nt("none");
+  return `<td><button type="button" class="btn small pm-nt${ntOpen === id ? " on" : ""}" data-nt="${esc(id)}">🔔 ${esc(String(txt))}</button></td>`;
+}
+function ntRow(id, u, cols) {
+  if (ntOpen !== id) return "";
+  const l = ntOf(u), zh = lang === "zh";
+  return `<tr class="pm-ntrow"><td colspan="${cols}"><div class="muted" style="font-size:12px;white-space:normal;text-align:left;margin-bottom:6px">${esc(nt("hint"))}</div><div class="pm-ntc">`
+    + NT_EV.map(([k, e, en, zhn]) => `<button type="button" class="btn small${l === null || l.includes(k) ? " on" : ""}" data-ntk="${esc(k)}" data-ntu="${esc(id)}">${e} ${esc(zh ? zhn : en)}</button>`).join("")
+    + (u.admin ? `<button type="button" class="btn small${l === null ? " on" : ""}" data-ntall="${esc(id)}">${esc(nt("allBtn"))}</button>` : "")
+    + `<button type="button" class="btn small" data-ntclr="${esc(id)}">${esc(nt("clr"))}</button></div></td></tr>`;
+}
 /* 🟢 last login (from the Worker, admins only): who has got in so far */
 const SEEN = { zh: ["🟢 上次登入 {t}", "⚪ 還沒登入過"], en: ["🟢 Last login {t}", "⚪ Never logged in"], pt: ["🟢 Último login {t}", "⚪ Nunca entrou"], ko: ["🟢 마지막 로그인 {t}", "⚪ 아직 로그인 안 함"], ar: ["🟢 آخر دخول {t}", "⚪ لم يسجّل الدخول بعد"] };
 function seenHtml(id) {
@@ -42,11 +68,11 @@ function seenHtml(id) {
 function render() {
   const tt = t("tabs"), lv = t("lv"), me = OFFICER.user && OFFICER.user.id;
   const rows = Object.entries(PP().users);
-  $("pm_tbl").innerHTML = `<table class="pm-tbl"><thead><tr><th></th>${TABS_P.map((k) => `<th>${esc(tt[k])}</th>`).join("")}<th></th></tr></thead><tbody>${rows.map(([id, u]) => {
+  $("pm_tbl").innerHTML = `<table class="pm-tbl"><thead><tr><th></th>${TABS_P.map((k) => `<th>${esc(tt[k])}</th>`).join("")}<th>${esc(nt("h"))}</th><th></th></tr></thead><tbody>${rows.map(([id, u]) => {
     const admin = !!u.admin, owner = id === OFFICER.OWNER;
     return `<tr${OFFICER.previewAs === id ? ' class="pv"' : ""}><th><div><input class="pm-name" data-nm="${esc(id)}" value="${esc(u.name)}" maxlength="40" dir="auto" title="${esc(t("rename"))}"> ${id === me ? `<span class="muted">${esc(t("you"))}</span>` : ""}</div>${seenHtml(id)}${admin ? `<span class="pm-adm">${esc(t("admin"))}</span> ` : ""}<span class="muted" style="font-weight:400;font-size:11px">${esc(id)}</span></th>
       ${TABS_P.map((k) => admin ? `<td class="muted">✏️</td>` : `<td><select class="btn pm-sel" data-u="${esc(id)}" data-t="${k}">${["edit", "view", "none"].map((l) => `<option value="${l}"${(u.perms[k] || "none") === l ? " selected" : ""}>${esc(lv[l])}</option>`).join("")}</select></td>`).join("")}
-      <td class="pm-acts">${id !== me ? `<button class="btn small" data-pv="${esc(id)}">${esc(OFFICER.previewAs === id ? t("previewOff") : t("preview"))}</button>` : ""}${owner || id === me ? "" : `<button class="btn small" data-adm="${esc(id)}">${esc(admin ? t("unAdmin") : t("mkAdmin"))}</button><button class="btn small" data-rm="${esc(id)}">${esc(t("remove"))}</button>`}</td></tr>`; }).join("")}</tbody></table>`;
+      ${ntCell(id, u)}<td class="pm-acts">${id !== me ? `<button class="btn small" data-pv="${esc(id)}">${esc(OFFICER.previewAs === id ? t("previewOff") : t("preview"))}</button>` : ""}${owner || id === me ? "" : `<button class="btn small" data-adm="${esc(id)}">${esc(admin ? t("unAdmin") : t("mkAdmin"))}</button><button class="btn small" data-rm="${esc(id)}">${esc(t("remove"))}</button>`}</td></tr>${ntRow(id, u, TABS_P.length + 3)}`; }).join("")}</tbody></table>`;
   const pv = OFFICER.previewAs && PP().users[OFFICER.previewAs];
   $("pm_preview").hidden = !pv; if (pv) $("pm_preview").textContent = t("previewing").replace("{name}", pv.name);
 }
@@ -68,6 +94,12 @@ function init() {
   ROOT.addEventListener("keydown", (e) => { if (e.key === "Enter" && e.target.closest(".pm-name")) e.target.blur(); });
   ROOT.addEventListener("click", (e) => {
     const b = e.target.closest("button"); if (!b) return;
+    if (b.dataset.nt) { ntOpen = ntOpen === b.dataset.nt ? null : b.dataset.nt; render(); return; }
+    const nu = PP().users[b.dataset.ntu || b.dataset.ntall || b.dataset.ntclr];
+    if (nu && b.dataset.ntk) { const l = ntOf(nu), cur = l === null ? NT_EV.map(([k]) => k) : [...l], i = cur.indexOf(b.dataset.ntk);
+      if (i >= 0) cur.splice(i, 1); else cur.push(b.dataset.ntk); nu.notify = cur; changed(); return; }
+    if (nu && b.dataset.ntall) { delete nu.notify; changed(); return; }
+    if (nu && b.dataset.ntclr) { nu.notify = []; changed(); return; }
     if (b.dataset.rm) { delete PP().users[b.dataset.rm]; if (OFFICER.previewAs === b.dataset.rm) OFFICER.previewAs = null; changed(); }
     if (b.dataset.pv) { OFFICER.setPreview(OFFICER.previewAs === b.dataset.pv ? null : b.dataset.pv); render(); }   // the 👥 tab hides itself; the bar at the bottom brings you back
     if (b.dataset.adm) { const u = PP().users[b.dataset.adm]; u.admin = !u.admin; if (u.admin) u.perms = {}; else u.perms = u.perms && Object.keys(u.perms).length ? u.perms : OFFICER.defaultPerms(); changed(); }
