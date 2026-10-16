@@ -65,14 +65,28 @@ function seenHtml(id) {
   const txt = at ? L[0].replace("{t}", new Date(at).toISOString().slice(5, 16).replace("-", "/").replace("T", " ") + " UTC") : L[1];
   return `<div class="muted" style="font-size:11.5px;font-weight:400;white-space:nowrap">${esc(txt)}</div>`;
 }
+/* 🖼️ Discord picture = has opened the officer page; grey ⚪ = hasn't yet */
+function avHtml(id) {
+  if (!OFFICER.seen) return "";
+  const a = OFFICER.avatars && OFFICER.avatars[id], L = SEEN[lang] || SEEN.en;
+  if (a) return `<img class="pm-av" src="${esc(a)}" alt="">`;
+  return OFFICER.seen[id] ? `<span class="pm-av pm-av0">🟢</span>` : `<span class="pm-av pm-av0" title="${esc(L[1])}">⚪</span>`;
+}
+function missingHtml() {
+  if (!OFFICER.seen) return "";
+  const miss = Object.entries(PP().users).filter(([id]) => !OFFICER.seen[id]).map(([, u]) => u.name);
+  const M = { zh: ["⚪ 還沒進來過：", "✅ 大家都進來過了"], en: ["⚪ Not in yet: ", "✅ Everyone has been in"], pt: ["⚪ Ainda não entraram: ", "✅ Todos já entraram"], ko: ["⚪ 아직 안 들어온 사람: ", "✅ 모두 들어왔어요"], ar: ["⚪ لم يدخلوا بعد: ", "✅ دخل الجميع"] }[lang] || null;
+  const L = M || ["⚪ Not in yet: ", "✅ Everyone has been in"];
+  return `<div class="pm-miss" style="margin:0 0 10px;font-size:14px">${esc(miss.length ? L[0] + miss.join("、") : L[1])}</div>`;
+}
 function render() {
   const tt = t("tabs"), lv = t("lv"), me = OFFICER.user && OFFICER.user.id;
   const rows = Object.entries(PP().users);
   const MR = { zh: "💬 被 @ 或被指派的唯讀幹部，可以在那一串留言回覆", en: "💬 View-only officers can reply in a topic where they were @'d or assigned", pt: "💬 Oficiais só-leitura podem responder num tópico onde foram marcados (@) ou receberam tarefa", ko: "💬 보기 전용 간부도 자신이 @되거나 맡은 글타래에는 답글 가능", ar: "💬 يمكن للضباط (عرض فقط) الرد في الموضوع الذي ذُكروا فيه (@) أو كُلّفوا بمهمة" };
   const cfg = PP().cfg || {};
-  $("pm_tbl").innerHTML = `<label class="pm-cfg" style="display:flex;gap:8px;align-items:center;margin:0 0 10px;font-size:14px;cursor:pointer"><input type="checkbox" id="pm_mReply"${cfg.mReply ? " checked" : ""}> ${esc(MR[lang] || MR.en)}</label><table class="pm-tbl"><thead><tr><th></th>${TABS_P.map((k) => `<th>${esc(tt[k])}</th>`).join("")}<th>${esc(nt("h"))}</th><th></th></tr></thead><tbody>${rows.map(([id, u]) => {
+  $("pm_tbl").innerHTML = `${missingHtml()}<label class="pm-cfg" style="display:flex;gap:8px;align-items:center;margin:0 0 10px;font-size:14px;cursor:pointer"><input type="checkbox" id="pm_mReply"${cfg.mReply ? " checked" : ""}> ${esc(MR[lang] || MR.en)}</label><table class="pm-tbl"><thead><tr><th></th>${TABS_P.map((k) => `<th>${esc(tt[k])}</th>`).join("")}<th>${esc(nt("h"))}</th><th></th></tr></thead><tbody>${rows.map(([id, u]) => {
     const admin = !!u.admin, owner = id === OFFICER.OWNER;
-    return `<tr${OFFICER.previewAs === id ? ' class="pv"' : ""}><th><div><input class="pm-name" data-nm="${esc(id)}" value="${esc(u.name)}" maxlength="40" dir="auto" title="${esc(t("rename"))}"> ${id === me ? `<span class="muted">${esc(t("you"))}</span>` : ""}</div>${seenHtml(id)}${admin ? `<span class="pm-adm">${esc(t("admin"))}</span> ` : ""}<span class="muted" style="font-weight:400;font-size:11px">${esc(id)}</span></th>
+    return `<tr${OFFICER.previewAs === id ? ' class="pv"' : ""}><th><div>${avHtml(id)}<input class="pm-name" data-nm="${esc(id)}" value="${esc(u.name)}" maxlength="40" dir="auto" title="${esc(t("rename"))}"> ${id === me ? `<span class="muted">${esc(t("you"))}</span>` : ""}</div>${seenHtml(id)}${admin ? `<span class="pm-adm">${esc(t("admin"))}</span> ` : ""}<span class="muted" style="font-weight:400;font-size:11px">${esc(id)}</span></th>
       ${TABS_P.map((k) => admin ? `<td class="muted">✏️</td>` : `<td><select class="btn pm-sel" data-u="${esc(id)}" data-t="${k}">${["edit", "view", "none"].map((l) => `<option value="${l}"${(u.perms[k] || "none") === l ? " selected" : ""}>${esc(lv[l])}</option>`).join("")}</select></td>`).join("")}
       ${ntCell(id, u)}<td class="pm-acts">${id !== me ? `<button class="btn small" data-pv="${esc(id)}">${esc(OFFICER.previewAs === id ? t("previewOff") : t("preview"))}</button>` : ""}${owner || id === me ? "" : `<button class="btn small" data-adm="${esc(id)}">${esc(admin ? t("unAdmin") : t("mkAdmin"))}</button><button class="btn small" data-rm="${esc(id)}">${esc(t("remove"))}</button>`}</td></tr>${ntRow(id, u, TABS_P.length + 3)}`; }).join("")}</tbody></table>`;
   const pv = OFFICER.previewAs && PP().users[OFFICER.previewAs];

@@ -941,7 +941,7 @@ const PERM_LEVELS = ["edit", "view", "none"];
 async function permsRoute(stub, user, body, token, role) {
   const op = String(body.op || "get");
   const cur = withSeed(await stub.kvGet("perms"));
-  if (op === "get") return json({ ok: true, token, perms: cur, user, ...(role === "admin" ? { seen: (await stub.kvGet("seen")) || {} } : {}) });
+  if (op === "get") return json({ ok: true, token, perms: cur, user, ...(role === "admin" ? { seen: (await stub.kvGet("seen")) || {}, avatars: Object.fromEntries((await stub.boardUsers()).filter((x) => x.avatar).map((x) => [x.id, x.avatar])) } : {}) });
   if (op === "setdk") {   // 🔐 an admin's page hands over the data key once, so viewers can read without the password
     if (role !== "admin") return json({ error: "not_admin" }, 403);
     const k = String(body.dk || ""); if (!/^[A-Za-z0-9+/]{43}=$/.test(k)) return json({ error: "bad request" }, 400);
@@ -1265,6 +1265,7 @@ async function authRoute(req, env, path, ctx) {
     const perms = withSeed(stub ? await stub.kvGet("perms") : null), role = roleOf(perms, s.u.id);
     if (path === "/auth/me" && stub && role) {   // 👥 "last seen": who has logged in, and when (written at most once an hour per person)
       try { const seen = (await stub.kvGet("seen")) || {}; const now = Date.now(); if (!seen[s.u.id] || now - seen[s.u.id] > 3600000) { seen[s.u.id] = now; await stub.kvSet("seen", seen); } } catch (e) {}
+      try { await stub.boardUser({ id: s.u.id, name: s.u.name, avatar: s.u.avatar || "" }, null); } catch (e) {}   // 🖼️ Discord picture (written only when it changes)
     }
     if (path === "/auth/me") {
       if (!env.OFFICER_PASSWORD) return json({ error: "officer_password_missing", user: u }, 503);

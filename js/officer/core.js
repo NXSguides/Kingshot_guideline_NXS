@@ -118,7 +118,7 @@ const permsChanged = () => { OFFICER.applyPerms && OFFICER.applyPerms(); window.
 OFFICER.fetchPerms = async () => {
   try {
     const j = await permsApi("get");
-    if (j.seen) OFFICER.seen = j.seen;   // 👥 last login per Discord ID (admins only)
+    if (j.seen) OFFICER.seen = j.seen; if (j.avatars) OFFICER.avatars = j.avatars;   // 👥 last login per Discord ID (admins only)
     if (j.perms && j.perms.users) { OFFICER.perms = j.perms; OFFICER.syncAdmins(); permsCache(); permsChanged(); }
     else if (OFFICER.isAdmin()) OFFICER.savePerms();   // nothing on the server yet: the admin's table becomes the shared one
   } catch (e) {}
