@@ -54,7 +54,7 @@ function drawMap() {
   });
 }
 let planOnly = false;
-const TERR = { src: "data/territory-2189.webp?v=3",   /* bump ?v= when the picture changes (images are cached first by sw.js) */ m: "0.336526 -0.001286 -0.000211 0.305687 -12.768 21.275", date: "2026-10-15" };
+const TERR = { src: "data/territory-2189.webp?v=4",   /* bump ?v= when the picture changes (images are cached first by sw.js) */ m: "0.336526 -0.001286 -0.000211 0.305687 -12.768 21.275", date: "2026-10-15" };
 const TT = { zh: ["🛰️ 領地圖", "領地圖：幹部截圖拼成，同色塊 = 同一個聯盟的領地（{d} 截圖）。"],
   en: ["🛰️ Territory", "Territory: stitched from officers' screenshots; same colour = same alliance ({d})."],
   pt: ["🛰️ Território", "Território: montado com capturas dos oficiais; mesma cor = mesma aliança ({d})."],
@@ -541,7 +541,7 @@ const FT = { zh: { t: "🚩 插旗規劃", hint: "每面聯盟旗幟佔 7×7 格
 const ft = (k) => (FT[lang] || FT.en)[k];
 const FN = 1200, FR = 3;   // kingdom size · banner reach (7×7 = 3 tiles each side)
 let EXB = null, exOn = (() => { try { return localStorage.getItem("km-exb") !== "0"; } catch (e) { return true; } })();   // 🏳️ our banners already standing (data/banners-2189.json)
-async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=1").then((r) => r.json()); } catch (e) { EXB = null; } drawEx(); renderFlags(); }
+async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=2").then((r) => r.json()); } catch (e) { EXB = null; } drawEx(); renderFlags(); }
 function drawEx() {
   const g = $("km_exG"); if (!g) return;
   g.innerHTML = exOn && EXB ? EXB.b.map(([x, y, c]) => `<polygon points="${pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]])}" fill="rgba(60,150,255,.18)" stroke="rgba(120,190,255,.7)" stroke-width=".25"/><polygon points="${tilePts(x, y)}" fill="${c ? "#0b3d91" : "#4a7fd0"}" stroke="#fff" stroke-width=".2"/>`).join("") : "";
@@ -582,7 +582,7 @@ function loadGrid() {
   im.onload = () => { try { const c = document.createElement("canvas"); c.width = FN; c.height = FN; const x = c.getContext("2d", { willReadFrequently: true }); x.drawImage(im, 0, 0);
     const d = x.getImageData(0, 0, FN, FN).data; GRID = new Uint8Array(FN * FN); OBST = new Uint8Array(FN * FN);
     for (let i = 0; i < FN * FN; i++) { GRID[i] = d[i * 4]; OBST[i] = d[i * 4 + 1]; } } catch (e) {} buildZones(); drawObst(); drawFlags(); renderFlags(); };
-  im.src = "data/territory-2189-grid.png?v=3";
+  im.src = "data/territory-2189-grid.png?v=4";
 }
 const own = (x, y) => (x < 0 || y < 0 || x >= FN || y >= FN) ? 2 : GRID ? GRID[y * FN + x] : 0;   // 0 free · 1 ours · 2 another alliance
 /* every banner in list order → its new tiles, the tiles another alliance holds, and whether it touches our territory */
