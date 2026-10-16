@@ -234,9 +234,10 @@
 #pg-board .bd-pics img { max-width: min(100%, 320px); max-height: 240px; border-radius: 8px; border: 1px solid var(--rule); cursor: zoom-in; background: var(--panel-2); min-width: 60px; min-height: 60px; object-fit: contain; }
   #bdLight { position: fixed; inset: 0; z-index: 9998; background: rgba(0,0,0,.88); display: flex; align-items: center; justify-content: center; cursor: zoom-out; }
   #bdLight img { max-width: 96vw; max-height: 92vh; border-radius: 6px; }
-  #pg-board .bd-post.bd-forme { border: 2px solid #f0a500; background: color-mix(in srgb, #f0a500 12%, var(--panel)); box-shadow: 0 0 0 3px color-mix(in srgb, #f0a500 25%, transparent); }
+  #pg-board .bd-post.bd-forme { border: 3px solid #f0a500; background: color-mix(in srgb, #f0a500 26%, var(--panel)); box-shadow: 0 0 0 4px color-mix(in srgb, #f0a500 30%, transparent); animation: bdGlow 1.2s ease-in-out 2; }
+  @keyframes bdGlow { 50% { box-shadow: 0 0 0 9px color-mix(in srgb, #f0a500 45%, transparent); } }
   #pg-board .bd-forme-bar { border: 2px solid #f0a500; background: color-mix(in srgb, #f0a500 18%, var(--panel)); font-weight: 800; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  #pg-board .bd-topic.forme { border: 2px solid #f0a500; background: color-mix(in srgb, #f0a500 10%, var(--panel)); }
+  #pg-board .bd-topic.forme, #pg-board .bd-topic.forme.unread { border: 3px solid #f0a500; background: color-mix(in srgb, #f0a500 22%, var(--panel)); }
   #pg-board .bd-post.bd-forme .bd-forme-tag { font-size: 13.5px; padding: 3px 10px; }
   #pg-board .bd-forme-tag { display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: 999px; background: #f0a500; color: #1b1300; font-size: 12px; font-weight: 800; }
   #pg-board .bd-tasks { border: 2px solid #f0a500; background: color-mix(in srgb, #f0a500 10%, var(--panel)); }
@@ -1042,7 +1043,7 @@
   <div class="bd-tip" id="bd_tip"></div>
   <div id="bd_app" hidden>
     <div id="bd_listView">
-      <div class="card bd-tasks" id="bd_tasks" hidden></div><div class="card bd-tasks bd-ments" id="bd_ments" hidden></div>
+      <div class="card bd-tasks" id="bd_tasks" hidden></div>
       <div class="row" style="margin:4px 0 10px"><button class="btn primary" id="bd_newBtn"></button></div>
       <div class="card bd-form" id="bd_newForm" hidden>
         <input class="inp" id="bd_newTitle" maxlength="120">

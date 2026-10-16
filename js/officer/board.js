@@ -54,13 +54,6 @@ function tabDot(n) {
   if (n == null) n = topics.filter(unread).length;
   a.classList.toggle("dot", n > 0);
 }
-Object.entries({
-  zh: { myMents: "📣 提到你的新留言（{n}）", barAt: "📣 這一串有 {n} 則提到你", barTask: "📋 {n} 則指派給你", jump: "跳過去 ↓" },
-  en: { myMents: "📣 New messages that mention you ({n})", barAt: "📣 {n} in this topic mention you", barTask: "📋 {n} assigned to you", jump: "Jump there ↓" },
-  pt: { myMents: "📣 Novas mensagens que te marcam ({n})", barAt: "📣 {n} neste tópico te marcam", barTask: "📋 {n} atribuídas a você", jump: "Ir até lá ↓" },
-  ko: { myMents: "📣 나를 언급한 새 글 ({n})", barAt: "📣 이 글타래에서 나를 언급한 글 {n}개", barTask: "📋 나에게 맡겨진 글 {n}개", jump: "바로 가기 ↓" },
-  ar: { myMents: "📣 رسائل جديدة تذكرك ({n})", barAt: "📣 {n} في هذا الموضوع تذكرك", barTask: "📋 {n} مُسندة إليك", jump: "اذهب إليها ↓" },
-}).forEach(([l, o]) => { BD[l] = Object.assign(BD[l] || {}, o); });
 /* 👁️ whose eyes: the officer an admin is previewing as (👥 tab), else me. Previewing never edits, deletes or ticks anything. */
 const VID = () => OFFICER.previewAs || (OFFICER.me() && OFFICER.me().id) || null;
 const PV = () => !!OFFICER.previewAs;
@@ -187,11 +180,10 @@ function applyTexts() {
 function renderList() {
   $("pg-board").classList.remove("can-reply");
   tabDot();
-  if (lastErr) { $("bd_tasks").hidden = true; if ($("bd_ments")) $("bd_ments").hidden = true; $("bd_list").innerHTML = `<div class="card msg warn">${esc(errText(lastErr))}</div>`; return; }
+  if (lastErr) { $("bd_tasks").hidden = true;  $("bd_list").innerHTML = `<div class="card msg warn">${esc(errText(lastErr))}</div>`; return; }
   const tk = $("bd_tasks"); tk.hidden = !tasks.length;
   if (tasks.length) tk.innerHTML = `<h3>${esc(t("myTasks", { n: tasks.length }))}</h3>` + tasks.map((x) => `<a href="#board?t=${esc(x.tid)}&p=${esc(x.id)}">${linkify(esc(pick(x.txt))).slice(0, 400)}<div class="muted">${esc(x.by.name)} · ${esc(when(x.at))} · ${esc(t("inTopic", { t: pick(x.title) }))}</div></a>`).join("");
-  const newM = ments.filter((x) => x.at > (seen[x.tid] || 0)), mt = new Set(newM.map((x) => x.tid)), tt = new Set(tasks.map((x) => x.tid));
-  const mk = $("bd_ments"); if (mk) { mk.hidden = !newM.length; mk.innerHTML = newM.length ? `<h3>${esc(t("myMents", { n: newM.length }))}</h3>` + newM.map((x) => `<a href="#board?t=${esc(x.tid)}&p=${esc(x.id)}">${linkify(esc(pick(x.txt))).slice(0, 400)}<div class="muted">${esc(x.by.name)} · ${esc(when(x.at))} · ${esc(t("inTopic", { t: pick(x.title) }))}</div></a>`).join("") : ""; }
+  const mt = new Set(ments.map((x) => x.tid)), tt = new Set(tasks.map((x) => x.tid));   // topics that @ this person / give them a task
   $("bd_list").innerHTML = topics.length ? topics.map((x) => `<a class="card bd-topic${unread(x) ? " unread" : ""}${mt.has(x.id) || tt.has(x.id) ? " forme" : ""}" href="#board?t=${esc(x.id)}">
       <h3>${unread(x) ? '<span class="bd-dot"></span>' : ""}${mt.has(x.id) ? '<span class="bd-forme-tag" style="margin:0 6px 0 0">📣 @</span>' : ""}${tt.has(x.id) ? '<span class="bd-forme-tag" style="margin:0 6px 0 0">📋</span>' : ""}${esc(pick(x.title))}${x.dec ? `<span class="bd-badge">${esc(t("decided"))}</span>` : ""}</h3>
       <div class="muted">${esc(t("by", { name: x.by.name }))} · ${esc(t("replies", { n: x.n }))} · ${esc(t("last", { t: when(x.last) }))}</div></a>`).join("")
@@ -233,9 +225,7 @@ function renderTopic0() {
   const d = cur.dec && cur.posts.find((p) => p.id === cur.dec);
   $("bd_decision").innerHTML = d ? `<div class="card bd-dec"><h3>${esc(t("decision"))}</h3><div class="bd-text" style="margin-top:4px">${linkify(esc(pick(d.txt)))}</div>
       <div class="muted" style="font-size:12px">${esc(d.by.name)} · ${esc(t("decBy", { name: cur.dby ? cur.dby.name : "?", t: when(cur.dat) }))}</div></div>` : "";
-  const vid = VID(), fm = (p) => p.meta && p.by.id !== vid ? ((p.meta.to || []).includes(vid) ? "to" : (p.meta.m || []).includes(vid) ? "m" : "") : "";
-  const nAt = cur.posts.filter((p) => fm(p) === "m").length, nTo = cur.posts.filter((p) => fm(p) === "to").length, first = cur.posts.find((p) => fm(p));
-  $("bd_posts").innerHTML = (first ? `<div class="card bd-forme-bar">${[nAt ? esc(t("barAt", { n: nAt })) : "", nTo ? esc(t("barTask", { n: nTo })) : ""].filter(Boolean).join(" · ")} <a class="btn" href="#board?t=${esc(cur.id)}&p=${esc(first.id)}">${esc(t("jump"))}</a></div>` : "") + cur.posts.map(postHtml).join("");
+  $("bd_posts").innerHTML = cur.posts.map(postHtml).join("");
   $("bd_posts").querySelectorAll("img[data-bimg]").forEach(loadPic);
   // 💬 switch (👥 tab): view-only officers may answer where they were @'d or assigned
   const me = VID(), cfg = (OFFICER.perms && OFFICER.perms.cfg) || {};
