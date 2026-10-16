@@ -275,7 +275,13 @@ const pk = (b) => b.x + "," + b.y;
 const PLANNABLE = (b) => b && (b.kind === "outpost" || b.kind === "fortress" || b.kind === "sanctuary");
 const raw = (b) => (PLANNABLE(b) && PLAN.o[pk(b)]) || "";
 /* eff = ✅ held / ⚔️ vuln after the timer (an old hand-set "conflict" counts as held) */
-const eff = (b) => { const r = raw(b) === "conflict" && isOp(b) ? "held" : raw(b); return isOp(b) && PLAN.t[pk(b)] ? cycAt(r, PLAN.t[pk(b)], Date.now())[0] : r; };
+/* 🏯 Fortress / Sanctuary: one Sanctuary Battle period = start…start+every days (the battle is its last day). A "held" one that was
+   marked before the current period began belongs to the last period → shown as 🎯 target again. PLAN.h[xy] = when it was marked held. */
+const sancStart = () => { let e = null; try { e = (OfficerData.cacheGet("events") || []).find((x) => x && x.id === "sanctuary-battle"); } catch (err) {}
+  const st = Date.parse(((e && e.start) || "2026-10-06") + "T00:00:00Z"), ev = ((e && e.every > 0 && e.every) || 7) * 864e5;
+  return st + Math.floor((Date.now() - st) / ev) * ev; };
+const stale = (b) => !isOp(b) && raw(b) === "held" && (((PLAN.h || {})[pk(b)]) || Date.parse(PLAN.at || "") || 0) < sancStart();
+const eff = (b) => { if (stale(b)) return "target"; const r = raw(b) === "conflict" && isOp(b) ? "held" : raw(b); return isOp(b) && PLAN.t[pk(b)] ? cycAt(r, PLAN.t[pk(b)], Date.now())[0] : r; };
 const nextSw = (b) => isOp(b) && PLAN.t[pk(b)] ? cycAt(raw(b) === "conflict" ? "held" : raw(b), PLAN.t[pk(b)], Date.now())[1] : 0;
 /* start of its latest Protected phase (needs a timer) — the later one was taken later */
 const protStart = (b) => { const n = nextSw(b); if (!n) return null; const P = CYC().p * 36e5, V = CYC().v * 36e5; return eff(b) === "held" ? n - P : n - V - P; };
@@ -293,7 +299,7 @@ function isConflict(b) {
 const st = (b) => { const e = eff(b); return e === "held" && isConflict(b) ? "conflict" : e; };
 const left = (ms) => { const m = Math.max(0, Math.round(ms / 6e4)), d = Math.floor(m / 1440), h = Math.floor(m % 1440 / 60);
   return (d ? d + (lang === "zh" ? "天" : "d ") : "") + (d || h ? h + (lang === "zh" ? "時" : "h ") : "") + (d ? "" : (m % 60) + (lang === "zh" ? "分" : "m")); };
-const snap = () => JSON.stringify({ o: PLAN.o, t: PLAN.t, c: PLAN.cyc || null, sp: PLAN.sp || {}, fl: PLAN.fl || [], ex: PLAN.ex || null });
+const snap = () => JSON.stringify({ o: PLAN.o, t: PLAN.t, h: PLAN.h || {}, c: PLAN.cyc || null, sp: PLAN.sp || {}, fl: PLAN.fl || [], ex: PLAN.ex || null });
 /* ⭐ Sanctuary / Fortress priority: PLAN.sp["x,y"] = { p: 1…, r: "rewards", n: "note" } */
 const SP = (b) => (PLAN.sp && PLAN.sp[pk(b)]) || {};
 const PRIOABLE = (b) => b && (b.kind === "sanctuary" || b.kind === "fortress");
@@ -382,6 +388,7 @@ function setStatus(id, v) {
   const b = BY[id]; if (!PLANNABLE(b)) return;
   if (v) PLAN.o[pk(b)] = v; else delete PLAN.o[pk(b)];
   delete PLAN.t[pk(b)];   // a hand-set status starts without a timer — type the in-game countdown again
+  if (!isOp(b)) { PLAN.h = PLAN.h || {}; if (v === "held") PLAN.h[pk(b)] = Date.now(); else delete PLAN.h[pk(b)]; }
   planMsg = ""; drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan();
 }
 function renderPlan() {
@@ -432,7 +439,7 @@ function renderPlan() {
   for (const [id, k] of [["cy_p", "p"], ["cy_v", "v"]]) if ($(id)) $(id).onchange = () => { const n = parseInt($(id).value, 10); if (n > 0) { PLAN.cyc = { ...CYC(), [k]: n }; planMsg = ""; refreshPlan(); } };
   lastSig = sig();
   renderFlags();
-  if ($("pl_reset")) $("pl_reset").onclick = () => { const S = JSON.parse(SAVED); PLAN.o = S.o; PLAN.t = S.t; if (S.c) PLAN.cyc = S.c; else delete PLAN.cyc; PLAN.sp = S.sp || {}; PLAN.fl = S.fl || []; if (S.ex) PLAN.ex = S.ex; else delete PLAN.ex; rebuildOwn(); drawEx(); planMsg = ""; drawFlags(); renderFlags(); drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
+  if ($("pl_reset")) $("pl_reset").onclick = () => { const S = JSON.parse(SAVED); PLAN.o = S.o; PLAN.t = S.t; PLAN.h = S.h || {}; if (S.c) PLAN.cyc = S.c; else delete PLAN.cyc; PLAN.sp = S.sp || {}; PLAN.fl = S.fl || []; if (S.ex) PLAN.ex = S.ex; else delete PLAN.ex; rebuildOwn(); drawEx(); planMsg = ""; drawFlags(); renderFlags(); drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
 }
 const gh = (method, path, body, token = OFFICER.token) => OFFICER.gh(method, path, body, token);   // shared (js/officer/core.js)
 const u8b64 = (str) => { const u = new TextEncoder().encode(str); let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
@@ -470,7 +477,8 @@ async function savePlan() {
   if (!OFFICER.token) { planMsg = pt("noKey"); renderPlan(); return; }
   const by = ($("pl_by").value || "").trim(); try { localStorage.setItem("nxs-plan-by", by); } catch (e) {}
   planMsg = pt("saving"); renderPlan(); for (const id of ["pl_save", "pl_save2"]) if ($(id)) $(id).disabled = true;
-  const next = { o: PLAN.o, t: PLAN.t, ...(PLAN.cyc ? { cyc: PLAN.cyc } : {}), ...(PLAN.sp && Object.keys(PLAN.sp).length ? { sp: PLAN.sp } : {}), ...(PLAN.fl && PLAN.fl.length ? { fl: PLAN.fl } : {}), ...(PLAN.ex && ((PLAN.ex.off || []).length || (PLAN.ex.add || []).length) ? { ex: PLAN.ex } : {}), by: by || "?", at: new Date().toISOString() };
+  for (const b of B) if (PLANNABLE(b) && !isOp(b) && raw(b) === "held" && !(PLAN.h || {})[pk(b)]) { PLAN.h = PLAN.h || {}; PLAN.h[pk(b)] = Date.parse(PLAN.at || "") || 0; }   // keep the old date, or saving would make last period's ones current again
+  const next = { o: PLAN.o, t: PLAN.t, ...(PLAN.h && Object.keys(PLAN.h).length ? { h: PLAN.h } : {}), ...(PLAN.cyc ? { cyc: PLAN.cyc } : {}), ...(PLAN.sp && Object.keys(PLAN.sp).length ? { sp: PLAN.sp } : {}), ...(PLAN.fl && PLAN.fl.length ? { fl: PLAN.fl } : {}), ...(PLAN.ex && ((PLAN.ex.off || []).length || (PLAN.ex.add || []).length) ? { ex: PLAN.ex } : {}), by: by || "?", at: new Date().toISOString() };
   try {
     for (let attempt = 0; ; attempt++) {
       const f = await gh("GET", PLAN_PATH);
