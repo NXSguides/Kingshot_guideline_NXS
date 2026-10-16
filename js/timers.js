@@ -230,7 +230,7 @@
   } catch (e) { return null; } };
   const isOfficerUser = () => !!myNotify();
   // on/off: their own choice once they tap it; until then ON for people an admin assigned events to
-  const adminOn = () => { const a = alerts.admin; return a && typeof a.on === "boolean" ? a.on : myNotify() instanceof Set; };
+  const adminOn = () => { const a = alerts.admin; return a && typeof a.on === "boolean" ? a.on : !!myNotify(); };   // on by default for every officer who gets reminders (admins too)
   const isOfficer = () => { try { return !!adminData() || !!localStorage.getItem("nxs-discord-v1") || !!(JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw); } catch (e) { return false; } };
   /* the to-do's event name in the page language: the guide name on the main site, the officer page's names otherwise */
   const adminName = (x, ev) => {
@@ -570,7 +570,8 @@
       body = `<div class="tm-cats"><button type="button" class="tm-btn${adminOn() ? " on" : ""}" data-a="admin">${esc(T("adminOn"))}</button>
         <select class="tm-sel" data-hour="1">${Array.from({ length: 24 }, (_, i) => `<option value="${i}"${h === i ? " selected" : ""}>${esc(T("adminAt").replace("{t}", String(i).padStart(2, "0") + ":00"))} (${loc(i)})</option>`).join("")}</select></div>`
         + (adminOn() ? (next.length ? next.map((x, i) => `<div class="tm-a">• ${esc(fmtAt(x.at))} — ${esc(x.title.replace(/^🛠️ /, ""))}</div>`).join("") : `<div class="tm-a">${esc(T("adminEmpty"))}</div>`) : "")
-        + `<div class="tm-hint" style="margin-top:4px">${esc(T("adminUpd").replace("{t}", fmtAt(d.updated)))}</div>`;
+        + `<div class="tm-hint" style="margin-top:4px">${esc(T("adminUpd").replace("{t}", fmtAt(d.updated)))}</div>`
+        + (Date.now() - d.updated > 2 * 86400000 ? `<div class="tm-hint" style="margin-top:4px;color:#e0a040">⚠️ ${esc(T("adminNone"))}</div>` : "");   // old copy: ask for a refresh
     }
     return `<div class="tm-alerts"><b>${esc(T("admin"))}</b><div class="tm-hint" style="margin-top:2px">${esc(T("adminNote"))}</div>${body}</div>`;
   }
