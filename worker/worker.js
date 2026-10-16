@@ -1107,7 +1107,18 @@ async function boardRoute(env, ctx, stub, user, body, token, mayPost, perms) {
     const text = str(body.text, 4000), title = body.title != null ? str(body.title, 120) : "";
     if (!text) return json({ error: "empty" }, 400);
     const tr = await boardTranslate(env, title, text);
-    const meta = body.mentions || body.to ? metaOf(body, p.meta) : p.meta;   // pictures stay as they were
+    let meta = body.mentions || body.to ? metaOf(body, p.meta) : p.meta;
+    if (Array.isArray(body.imgs)) {   // 🖼️ edited pictures: "id:<id>" = keep that one, a data URL = a new one; the rest are deleted
+      const old = (p.meta && p.meta.img) || [], keep = [];
+      for (const x of body.imgs.slice(0, roleOf(perms, user.id) === "admin" ? 50 : 4)) {
+        const v = String(x);
+        if (v.startsWith("id:")) { const id = v.slice(3); if (old.includes(id) && !keep.includes(id)) keep.push(id); }
+        else if (/^data:image\/(?:webp|jpeg|png);base64,[A-Za-z0-9+/=]+$/.test(v) && v.length <= 900_000) { const id = rid(); await stub.boardImgPut(id, v); keep.push(id); }
+      }
+      const gone = old.filter((id) => !keep.includes(id)); if (gone.length) await stub.boardImgDrop([{ img: gone }]);
+      meta = { ...(meta || {}) }; if (keep.length) meta.img = keep; else delete meta.img;
+      if (!["m", "to", "img"].some((k) => (meta[k] || []).length) && !meta.done) meta = null;
+    }
     return ok({ topic: await stub.boardEdit(p.id, tr.text, title ? tr.title : null, meta), translated: tr.ok, stamp: await boardTouch(env) });
   });
   if (op === "decide") return write(async () => {   // 📌 any officer can mark (or clear) the decision of a topic

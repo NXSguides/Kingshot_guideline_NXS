@@ -66,7 +66,7 @@ const postParam = () => { const m = location.hash.match(/[?&]p=([\w-]+)/); retur
    answer when nothing happened — that answer costs the Worker almost nothing and leaves its database asleep */
 let stamp = 0, firstCall = true, users = [], tasks = [], lastErr = null;   // lastErr: the failure shown instead of the list / topic (redrawn in the new language on a switch)
 /* what the two compose boxes carry besides text: @mentioned ids and 📋 assignees */
-const compose = { new: { m: new Set(), to: new Set(), img: [] }, reply: { m: new Set(), to: new Set(), img: [] } };
+const compose = { new: { m: new Set(), to: new Set(), img: [] }, reply: { m: new Set(), to: new Set(), img: [] }, edit: { m: new Set(), to: new Set(), img: [] } };   // edit.img: "id:<id>" = a picture already posted, data URL = new
 /* 🖼️ pictures: shrunk on the phone (longest side ≤ 1600 px, WebP/JPEG) so each one stays well under the server's limit; at most 4 per message */
 const IMG_MAX = () => (OFFICER.isAdmin && OFFICER.isAdmin() ? 50 : 4);   // 🖼️ pictures per message: admins 50, others 4
 function shrink(file) {
@@ -89,7 +89,7 @@ async function addImgs(box, files) {
   imgsRender(box);
 }
 /* where a picture goes: a [[imgN]] marker at the cursor (like announcements); move it in the text to move the picture */
-const TA = (box) => $(box === "new" ? "bd_newText" : "bd_replyText");
+const TA = (box) => box === "edit" ? ROOT.querySelector("[data-edtext]") : $(box === "new" ? "bd_newText" : "bd_replyText");
 function putMark(box, ns) {   // pictures picked together go on one line = shown side by side
   const ta = TA(box); if (!ta) return;
   const v = ta.value, a = ta.selectionStart ?? v.length, b = ta.selectionEnd ?? a, mk = ns.map((n) => `[[img${n}]]`).join(" ");
@@ -104,8 +104,13 @@ function dropMark(box, n) {   // picture n removed: take its marker out, later n
 }
 function imgsRender(box) {
   const host = ROOT.querySelector(`[data-imgs="${box}"]`); if (!host) return;
-  host.innerHTML = compose[box].img.map((u, i) => `<div class="bd-thumb"><img src="${u}" alt=""><button type="button" data-unimg="${i}" aria-label="remove">✕</button></div>`).join("");
+  host.innerHTML = compose[box].img.map((u, i) => `<div class="bd-thumb">${u.startsWith("id:") ? `<img data-bimg="${esc(u.slice(3))}" alt="">` : `<img src="${u}" alt="">`}<button type="button" data-unimg="${i}" aria-label="remove">✕</button></div>`).join("");
+  host.querySelectorAll("img[data-bimg]").forEach(loadPic);
 }
+// ✏️ edit box: add pictures (button or paste)
+ROOT.addEventListener("click", (e) => { const b = e.target.closest("[data-eimg]"); if (b) { const f = b.parentElement.querySelector("[data-efile]"); if (f) f.click(); } });
+ROOT.addEventListener("change", (e) => { const f = e.target.closest("[data-efile]"); if (f) { addImgs("edit", f.files).then(() => { f.value = ""; }); } });
+ROOT.addEventListener("paste", (e) => { if (!e.target.matches || !e.target.matches("[data-edtext]")) return; const f = [...(e.clipboardData && e.clipboardData.files || [])]; if (f.length) { e.preventDefault(); addImgs("edit", f); } });
 ROOT.addEventListener("click", (e) => {
   const x = e.target.closest("[data-unimg]"); if (x) { const box = x.closest("[data-imgs]").dataset.imgs; compose[box].img.splice(+x.dataset.unimg, 1); dropMark(box, +x.dataset.unimg + 1); imgsRender(box); return; }
   const pic = e.target.closest(".bd-pics img"); if (pic && pic.src) { const lb = document.createElement("div"); lb.id = "bdLight"; lb.innerHTML = `<img src="${pic.src}" alt="">`; lb.onclick = () => lb.remove(); document.body.appendChild(lb); }
@@ -177,6 +182,7 @@ function postHtml(p, i) {
   const sameLang = src === lang || (!translated && !p.txt.en && !p.txt.zh && !p.txt.pt);
   const body = editing === p.id
     ? `${i === 0 ? `<input class="inp" data-edtitle value="${esc(cur.title.orig)}" maxlength="120" style="margin:8px 0 6px">` : ""}<textarea class="inp" data-edtext rows="4" maxlength="4000" style="margin-top:8px;resize:vertical">${esc(p.txt.orig)}</textarea>
+       <div class="bd-tools" data-box="edit"><button type="button" class="btn" data-eimg>🖼️</button><input type="file" accept="image/*" multiple hidden data-efile></div><div class="bd-imgs" data-imgs="edit"></div>
        <div class="bd-acts"><button class="btn primary" data-save="${esc(p.id)}">${esc(t("save"))}</button><button class="btn" data-cancel>${esc(t("cancel"))}</button></div>`
     : `${bodyHtml(p)}${taskHtml(p)}
        ${!translated && !(src === lang) ? `<div class="bd-warn">${esc(t("noTr"))}<br><span class="muted">${esc(dbg)}${p.txt.err ? " · " + esc(p.txt.err) : ""}</span></div>` : ""}
@@ -197,7 +203,8 @@ function taskHtml(p) {
     ${me ? `<button class="btn" data-done="${esc(p.id)}" data-on="${done[me] ? 0 : 1}">${esc(done[me] ? t("undone") : t("done"))}</button>` : ""}
     ${Object.keys(done).filter((id) => !m.to.includes(id)).map((id) => `<span class="muted">${esc(t("doneBy", { name: userName(id) }))}</span>`).join("")}</div>`;
 }
-function renderTopic() {
+function renderTopic() { renderTopic0(); if (editing) imgsRender("edit"); }   // the edit box shows its pictures
+function renderTopic0() {
   $("bd_tTitle").textContent = pick(cur.title);
   $("bd_tMeta").textContent = `${t("by", { name: cur.by.name })} · ${when(cur.at)}`;
   const d = cur.dec && cur.posts.find((p) => p.id === cur.dec);
@@ -316,7 +323,7 @@ $("bd_posts").addEventListener("click", async (ev) => {
   const b = ev.target.closest("button"); if (!b || !cur) return;
   const d = b.dataset;
   if (d.orig) { openOrig.has(d.orig) ? openOrig.delete(d.orig) : openOrig.add(d.orig); return renderTopic(); }
-  if (d.edit) { editing = d.edit; armed = null; return renderTopic(); }
+  if (d.edit) { editing = d.edit; armed = null; const ep = cur.posts.find((x) => x.id === d.edit); compose.edit.img = (((ep && ep.meta) || {}).img || []).map((id) => "id:" + id); return renderTopic(); }
   if ("cancel" in d) { editing = null; return renderTopic(); }
   try {
     if (d.dec !== undefined) { b.disabled = true; cur = (await api("decide", { id: cur.id, post: d.dec || null })).topic; return renderTopic(); }
@@ -331,7 +338,7 @@ $("bd_posts").addEventListener("click", async (ev) => {
       const card = $("bdp-" + d.save), text = card.querySelector("[data-edtext]").value.trim(), ti = card.querySelector("[data-edtitle]");
       if (!text) return;
       b.disabled = true; b.textContent = t("saving");
-      cur = (await api("edit", { post: d.save, text, ...(ti ? { title: ti.value.trim() || cur.title.orig } : {}) })).topic; editing = null; return renderTopic();
+      cur = (await api("edit", { post: d.save, text, imgs: compose.edit.img, ...(ti ? { title: ti.value.trim() || cur.title.orig } : {}) })).topic; editing = null; return renderTopic();
     }
   } catch (e) { b.disabled = false; alertMsg(e); }
 });
