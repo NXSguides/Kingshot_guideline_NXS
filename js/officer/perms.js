@@ -62,6 +62,7 @@ const SEEN = { zh: ["🟢 上次登入 {t}", "⚪ 還沒登入過"], en: ["🟢 
 function seenHtml(id) {
   const L = SEEN[lang] || SEEN.en, at = OFFICER.seen && OFFICER.seen[id];
   if (!OFFICER.seen) return "";
+  if (!at && OFFICER.avatars && OFFICER.avatars[id]) return "";   // has a picture = has been in (from before last-login was recorded)
   const txt = at ? L[0].replace("{t}", new Date(at).toISOString().slice(5, 16).replace("-", "/").replace("T", " ") + " UTC") : L[1];
   return `<div class="muted" style="font-size:11.5px;font-weight:400;white-space:nowrap">${esc(txt)}</div>`;
 }
@@ -74,7 +75,7 @@ function avHtml(id) {
 }
 function missingHtml() {
   if (!OFFICER.seen) return "";
-  const miss = Object.entries(PP().users).filter(([id]) => !OFFICER.seen[id]).map(([, u]) => u.name);
+  const miss = Object.entries(PP().users).filter(([id]) => !OFFICER.seen[id] && !(OFFICER.avatars && OFFICER.avatars[id])).map(([, u]) => u.name);
   const M = { zh: ["⚪ 還沒進來過：", "✅ 大家都進來過了"], en: ["⚪ Not in yet: ", "✅ Everyone has been in"], pt: ["⚪ Ainda não entraram: ", "✅ Todos já entraram"], ko: ["⚪ 아직 안 들어온 사람: ", "✅ 모두 들어왔어요"], ar: ["⚪ لم يدخلوا بعد: ", "✅ دخل الجميع"] }[lang] || null;
   const L = M || ["⚪ Not in yet: ", "✅ Everyone has been in"];
   return `<div class="pm-miss" style="margin:0 0 10px;font-size:14px">${esc(miss.length ? L[0] + miss.join("、") : L[1])}</div>`;
