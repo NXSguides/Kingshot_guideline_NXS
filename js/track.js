@@ -6,6 +6,7 @@
   const SITE = "https://incrediblesparrow.goatcounter.com/count";
   let officer = false;
   try { officer = !!(JSON.parse(localStorage.getItem("nxs-post-v1")) || {}).pw; } catch (e) {}
+  try { const u = JSON.parse(localStorage.getItem("nxs-discord-user") || "{}"), p = JSON.parse(localStorage.getItem("nxs-perms-v1") || "{}"); if (u.id && p.users && p.users[u.id]) officer = true; } catch (e) {}   // an officer who has logged in to the officer page (members who log in only to sync timers still count)
   try { if (localStorage.getItem("skipgc") === "t") officer = true; } catch (e) {}   // GoatCounter's own opt-out flag
   if (officer || /^(localhost|127\.)/.test(location.hostname)) return;
   const path = () => location.pathname.replace(/^\/Kingshot_guideline_NXS/i, "").replace(/^\/$/, "/index.html") + location.hash;
