@@ -11,8 +11,8 @@ const ZH = () => lang === "en" ? null : G[lang] || null;   // localized building
 const typeName = (k) => ZH() ? ZH().types[k][0] : TY[k].n;
 const buffName = (k) => ZH() ? ZH().types[k][1] : TY[k].b;
 const castleName = () => ZH() ? ZH().castle : "King's Castle";
-const hqName = () => ZH() ? ZH().hq : "Plains HQ";
-const nm = (b) => b.kind === "outpost" ? typeName(b.t) : b.kind === "castle" ? castleName() : b.kind === "hq" ? hqName()
+const hqName = (b) => b && b.n === 2 ? (ZH() && ZH().hq2 || "Badland HQ") : ZH() ? ZH().hq : "Plains HQ";   // our two HQs: Plains (1) and Badland (2)
+const nm = (b) => b.kind === "outpost" ? typeName(b.t) : b.kind === "castle" ? castleName() : b.kind === "hq" ? hqName(b)
   : ZH() ? ZH()[b.kind].replace("{n}", b.n) : (b.kind === "fortress" ? "Fortress " : "Sanctuary ") + b.n;
 
 /* screen right = X−Y, up = X+Y — same direction as the in-game World map */
@@ -23,7 +23,7 @@ const pts = (c) => c.map(([x, y]) => P(x, y).map((v) => v.toFixed(1)).join(","))
 function build() {
   G.types.forEach(([k, n, b, c]) => TY[k] = { n, b, c });
   B.push({ id: "k", kind: "castle", name: "King's Castle", x: G.castle[0], y: G.castle[1] });
-  (G.hq || []).forEach(([x, y], i) => B.push({ id: "h" + i, kind: "hq", name: "Plains HQ", x, y }));   // our [NXS] alliance HQ
+  (G.hq || []).forEach(([x, y], i) => B.push({ id: "h" + i, kind: "hq", n: i + 1, name: i ? "Badland HQ" : "Plains HQ", x, y }));   // our [NXS] alliance HQ
   G.fortress.forEach(([x, y], i) => B.push({ id: "f" + (i + 1), kind: "fortress", name: "Fortress " + (i + 1), short: "F" + (i + 1), n: i + 1, x, y }));
   G.sanctuary.forEach(([x, y], i) => B.push({ id: "s" + (i + 1), kind: "sanctuary", name: "Sanctuary " + (i + 1), short: "S" + (i + 1), n: i + 1, x, y }));
   G.outposts.forEach(([t, lv, x, y], i) => B.push({ id: "o" + i, kind: "outpost", t, lv, x, y, name: TY[t].n, buff: G.buff[t][lv] }));
@@ -42,11 +42,11 @@ function drawMap() {
     if (b.kind === "outpost") s.push(`${g}<rect x="${X - 12}" y="${Y - 12}" width="24" height="24" rx="6" fill="${TY[b.t].c}" stroke="#fff" stroke-width="2.5"/><text x="${X}" y="${Y + 5}" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#fff">${b.lv}</text></g>`);
     else if (b.kind === "sanctuary") s.push(`${g}<circle cx="${X}" cy="${Y}" r="15" fill="#eef2f6" stroke="#2a3340" stroke-width="2.5"/><text x="${X}" y="${Y + 5}" text-anchor="middle" font-family="Arial" font-size="14" font-weight="800" fill="#2a3340">${b.n}</text><text class="lbl" x="${X}" y="${Y - 21}" text-anchor="middle" font-size="13">${b.short}</text></g>`);
     else if (b.kind === "fortress") s.push(`${g}<rect x="${X - 16}" y="${Y - 16}" width="32" height="32" rx="5" transform="rotate(45 ${X} ${Y})" fill="#7a4a24" stroke="#fff" stroke-width="2.5"/><text x="${X}" y="${Y + 5}" text-anchor="middle" font-family="Arial" font-size="15" font-weight="800" fill="#fff">${b.n}</text><text class="lbl" x="${X}" y="${Y - 26}" text-anchor="middle" font-size="14">${b.short}</text></g>`);
-    else if (b.kind === "hq") s.push(`${g}<path d="M${X - 15} ${Y - 14}h30v16c0 9-8 14-15 17c-7-3-15-8-15-17z" fill="#2b6cc4" stroke="#fff" stroke-width="2.5"/><text x="${X}" y="${Y + 5}" text-anchor="middle" font-family="Arial" font-size="11" font-weight="800" fill="#fff">HQ</text><text class="lbl km-hqLbl" x="${X}" y="${Y - 22}" text-anchor="middle" font-size="13">[NXS] ${esc(hqName())}</text></g>`);
+    else if (b.kind === "hq") s.push(`${g}<path d="M${X - 15} ${Y - 14}h30v16c0 9-8 14-15 17c-7-3-15-8-15-17z" fill="#2b6cc4" stroke="#fff" stroke-width="2.5"/><text x="${X}" y="${Y + 5}" text-anchor="middle" font-family="Arial" font-size="11" font-weight="800" fill="#fff">HQ</text><text class="lbl km-hqLbl" data-n="${b.n}" x="${X}" y="${Y - 22}" text-anchor="middle" font-size="13">[NXS] ${esc(hqName(b))}</text></g>`);
     else s.push(`${g}<circle cx="${X}" cy="${Y}" r="26" fill="#f2c33d" stroke="#fff" stroke-width="3"/><text x="${X}" y="${Y + 9}" text-anchor="middle" font-size="25">👑</text><text class="lbl" id="km_castleLbl" x="${X}" y="${Y + 46}" text-anchor="middle" font-size="16">King's Castle</text></g>`);
   }
   s.push(`<image id="km_obst" width="${FN}" height="${FN}" preserveAspectRatio="none" transform="matrix(${KX} ${-KY} ${-KX} ${-KY} ${CX} ${CY + 1200 * KY})" style="display:none;image-rendering:pixelated;pointer-events:none"/>`);
-  s.push(`<g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_sel"></g>`);
+  s.push(`<g id="km_exG" style="pointer-events:none"></g><g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_sel"></g>`);
   $("km_svg").innerHTML = s.join("");
   $("km_svg").querySelectorAll(".mk").forEach((m) => {
     m.addEventListener("click", () => select(m.dataset.id, false));
@@ -54,7 +54,7 @@ function drawMap() {
   });
 }
 let planOnly = false;
-const TERR = { src: "data/territory-2189.webp?v=2",   /* bump ?v= when the picture changes (images are cached first by sw.js) */ m: "0.336526 -0.001286 -0.000211 0.305687 -12.768 21.275", date: "2026-10-15" };
+const TERR = { src: "data/territory-2189.webp?v=3",   /* bump ?v= when the picture changes (images are cached first by sw.js) */ m: "0.336526 -0.001286 -0.000211 0.305687 -12.768 21.275", date: "2026-10-15" };
 const TT = { zh: ["🛰️ 領地圖", "領地圖：幹部截圖拼成，同色塊 = 同一個聯盟的領地（{d} 截圖）。"],
   en: ["🛰️ Territory", "Territory: stitched from officers' screenshots; same colour = same alliance ({d})."],
   pt: ["🛰️ Território", "Território: montado com capturas dos oficiais; mesma cor = mesma aliança ({d})."],
@@ -229,7 +229,7 @@ function renderList() {
       return `<button type="button" class="km-pri" data-id="${b.id}"><span class="km-prb">${sp.p}</span><span class="km-prm"><b>${esc(nm(b))}</b> <span class="muted">X${b.x} Y${b.y}${d != null ? ` · 📏 ${d}` : ""}</span>${sp.r ? `<span class="km-prr">🎁 ${esc(sp.r)}</span>` : ""}${sp.n ? `<span class="muted">📝 ${esc(sp.n)}</span>` : ""}</span></button>`; }).join("")
       : `<div class="muted" style="font-size:13px">${esc(pt("prioEmpty"))}</div>`) + `</div>` + rewardsHtml() + `<div class="km-c"><div class="hd"><b>${esc(T("ruins"))}</b><span class="bf">${esc(T("noBuff"))}</span></div>
     <div class="km-lv"><span class="pill" style="background:#b8860b">👑 ${esc(castleName())}</span><div class="chips">${chip(BY.k)}</div></div>
-    ${B.some((b) => b.kind === "hq") ? `<div class="km-lv"><span class="pill" style="background:#2b6cc4">🛡️ [NXS] ${esc(hqName())}</span><div class="chips">${B.filter((b) => b.kind === "hq").map(chip).join("")}</div></div>` : ""}
+    ${B.some((b) => b.kind === "hq") ? `<div class="km-lv"><span class="pill" style="background:#2b6cc4">🛡️ [NXS] HQ</span><div class="chips">${B.filter((b) => b.kind === "hq").map(chip).join("")}</div></div>` : ""}
     <div class="km-lv"><span class="pill" style="background:#7a4a24">◆ ${ZH() ? ZH().fortressS : "Fortress"}</span><div class="chips">${B.filter((b) => b.kind === "fortress").map(chip).join("")}</div></div>
     <div class="km-lv"><span class="pill" style="background:#5d6876">● ${ZH() ? ZH().sanctuaryS : "Sanctuary"}</span><div class="chips">${B.filter((b) => b.kind === "sanctuary").map(chip).join("")}</div></div></div>`;
   for (const [k] of G.types) {
@@ -303,7 +303,7 @@ function setSP(b, k, v) {
   if (Object.keys(cur).length) PLAN.sp[pk(b)] = cur; else delete PLAN.sp[pk(b)];
   planMsg = "";
 }
-const hqDist = (b) => { const h = G.hq && G.hq[0]; return h ? Math.round(Math.hypot(b.x - h[0], b.y - h[1])) : null; };
+const hqDist = (b) => { const d = (G.hq || []).map((h) => Math.hypot(b.x - h[0], b.y - h[1])); return d.length ? Math.round(Math.min(...d)) : null; };   // to the nearer of our two HQs
 const prioTxt = (n) => (n >= 1 && n <= 20 ? String.fromCharCode(0x2460 + n - 1) : String(n));
 const isOp = (b) => b.kind === "outpost";
 const dirty = () => snap() !== SAVED;
@@ -531,15 +531,21 @@ function renderMp() {
 const FT = { zh: { t: "🚩 插旗規劃", hint: "每面聯盟旗幟佔 7×7 格（旗子在正中間），領地要跟現有、連到總部的領地接壤，可以一面接一面延伸。先蓋的優先：別人已經佔的格子不會算給我們，所以照清單順序計算。地圖上藍格 = 這面旗子新增的領地，紅格 = 已經是別人的。",
     on: "🚩 點地圖放旗：開", off: "🚩 點地圖放旗：關", tapHint: "放大地圖後點一格就會放一面旗子；之後可以在下面改座標。", add: "＋ 加入",
     row: "+{n} 格", lost: "{n} 格是別人的", notConn: "⚠️ 沒接到我們的領地（失效旗幟：沒有領地加成，也不能讓後面的旗子接上）", onOther: "❌ 旗子位置是別人的領地", total: "共 {f} 面旗 · 新增 {n} 格",
-    empty: "還沒有規劃旗子。", obst: "⛰️ 障礙物／禁建區", onMt: "❌ 旗子位置是山", onLake: "❌ 旗子位置是湖", inZone: "❌ 在禁建區（{n}）", del: "移除", up: "上移", save: "改完記得按上面的「💾 儲存規劃」，其他幹部才看得到。",
+    empty: "還沒有規劃旗子。", obst: "⛰️ 障礙物／禁建區", ex: "🏳️ 現有旗子", exNote: "🏳️ 現有旗子 {n} 面（深藍 = 在遊戲裡確認過的 {c} 面，淺藍 = 從領地圖推算，可能差幾格）。", onMt: "❌ 旗子位置是山", onLake: "❌ 旗子位置是湖", inZone: "❌ 在禁建區（{n}）", del: "移除", up: "上移", save: "改完記得按上面的「💾 儲存規劃」，其他幹部才看得到。",
     note: "領地資料來自 {d} 的截圖，可能差 1～2 格，別人的領地之後也會變；實際插旗前請在遊戲裡確認。", loading: "讀取領地資料中…" },
   en: { t: "🚩 Banner plan", hint: "Each Alliance Banner claims 7×7 tiles (banner in the middle); its territory must border territory already linked to the HQ, so banners chain one after another. Built first = owned: tiles another alliance already holds stay theirs, so the list is counted in order. On the map, blue tiles = new territory from that banner, red = already someone else's.",
     on: "🚩 Tap map to place: ON", off: "🚩 Tap map to place: OFF", tapHint: "Zoom in and tap a tile to drop a banner; fine-tune the coordinates below.", add: "+ Add",
     row: "+{n} tiles", lost: "{n} tiles are someone else's", notConn: "⚠️ Not connected to our territory (inactive: no Territory Bonus, and later banners can't connect through it)", onOther: "❌ Banner tile is another alliance's", total: "{f} banners · +{n} tiles",
-    empty: "No banners planned yet.", obst: "⛰️ Obstacles / no-build", onMt: "❌ Banner tile is a mountain", onLake: "❌ Banner tile is a lake", inZone: "❌ In a no-build zone ({n})", del: "Remove", up: "Move up", save: "Press 💾 Save plan above so the other officers see it.",
+    empty: "No banners planned yet.", obst: "⛰️ Obstacles / no-build", ex: "🏳️ Our banners", exNote: "🏳️ {n} banners standing (dark = checked in game: {c}, light = estimated from the territory picture, can be a few tiles off).", onMt: "❌ Banner tile is a mountain", onLake: "❌ Banner tile is a lake", inZone: "❌ In a no-build zone ({n})", del: "Remove", up: "Move up", save: "Press 💾 Save plan above so the other officers see it.",
     note: "Territory read from screenshots taken {d}; it can be 1–2 tiles off and other alliances move — check in game before building.", loading: "Loading territory data…" } };
 const ft = (k) => (FT[lang] || FT.en)[k];
 const FN = 1200, FR = 3;   // kingdom size · banner reach (7×7 = 3 tiles each side)
+let EXB = null, exOn = (() => { try { return localStorage.getItem("km-exb") !== "0"; } catch (e) { return true; } })();   // 🏳️ our banners already standing (data/banners-2189.json)
+async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=1").then((r) => r.json()); } catch (e) { EXB = null; } drawEx(); renderFlags(); }
+function drawEx() {
+  const g = $("km_exG"); if (!g) return;
+  g.innerHTML = exOn && EXB ? EXB.b.map(([x, y, c]) => `<polygon points="${pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]])}" fill="rgba(60,150,255,.18)" stroke="rgba(120,190,255,.7)" stroke-width=".25"/><polygon points="${tilePts(x, y)}" fill="${c ? "#0b3d91" : "#4a7fd0"}" stroke="#fff" stroke-width=".2"/>`).join("") : "";
+}
 let GRID = null, OBST = null, ZONE = null, ZNAME = [], flagMode = false;
 let obstOn = (() => { try { return localStorage.getItem("km-obst") === "1"; } catch (e) { return false; } })();
 /* 🚫 no-build zones (same for every kingdom): a square around each building — Fortress / Sanctuary 60 tiles, Outpost 15 tiles —
@@ -576,7 +582,7 @@ function loadGrid() {
   im.onload = () => { try { const c = document.createElement("canvas"); c.width = FN; c.height = FN; const x = c.getContext("2d", { willReadFrequently: true }); x.drawImage(im, 0, 0);
     const d = x.getImageData(0, 0, FN, FN).data; GRID = new Uint8Array(FN * FN); OBST = new Uint8Array(FN * FN);
     for (let i = 0; i < FN * FN; i++) { GRID[i] = d[i * 4]; OBST[i] = d[i * 4 + 1]; } } catch (e) {} buildZones(); drawObst(); drawFlags(); renderFlags(); };
-  im.src = "data/territory-2189-grid.png?v=2";
+  im.src = "data/territory-2189-grid.png?v=3";
 }
 const own = (x, y) => (x < 0 || y < 0 || x >= FN || y >= FN) ? 2 : GRID ? GRID[y * FN + x] : 0;   // 0 free · 1 ours · 2 another alliance
 /* every banner in list order → its new tiles, the tiles another alliance holds, and whether it touches our territory */
@@ -614,8 +620,8 @@ function renderFlags() {
   el.innerHTML = `<h3 style="margin-bottom:2px">${esc(ft("t"))}</h3><div class="muted" style="font-size:12.5px">${esc(ft("hint"))}</div>`
     + (GRID ? "" : `<div class="muted" style="font-size:12px;margin-top:6px">${esc(ft("loading"))}</div>`)
     + (ed ? `<div class="row km-fl-add" style="margin-top:10px"><button type="button" class="btn${flagMode ? " primary" : ""}" id="fl_mode">${esc(ft(flagMode ? "on" : "off"))}</button>
-        <label>X <input id="fl_x" type="number" min="0" max="1199" inputmode="numeric"></label><label>Y <input id="fl_y" type="number" min="0" max="1199" inputmode="numeric"></label><button type="button" class="btn" id="fl_add">${esc(ft("add"))}</button><button type="button" class="btn${obstOn ? " primary" : ""}" id="fl_obst">${esc(ft("obst"))}</button></div>
-        ${flagMode ? `<div class="muted" style="font-size:12px;margin-top:4px">${esc(ft("tapHint"))}</div>` : ""}` : `<div class="row" style="margin-top:10px"><button type="button" class="btn${obstOn ? " primary" : ""}" id="fl_obst">${esc(ft("obst"))}</button></div>`)
+        <label>X <input id="fl_x" type="number" min="0" max="1199" inputmode="numeric"></label><label>Y <input id="fl_y" type="number" min="0" max="1199" inputmode="numeric"></label><button type="button" class="btn" id="fl_add">${esc(ft("add"))}</button><button type="button" class="btn${obstOn ? " primary" : ""}" id="fl_obst">${esc(ft("obst"))}</button><button type="button" class="btn${exOn ? " primary" : ""}" id="fl_ex">${esc(ft("ex"))}</button></div>
+        ${flagMode ? `<div class="muted" style="font-size:12px;margin-top:4px">${esc(ft("tapHint"))}</div>` : ""}` : `<div class="row" style="margin-top:10px"><button type="button" class="btn${obstOn ? " primary" : ""}" id="fl_obst">${esc(ft("obst"))}</button><button type="button" class="btn${exOn ? " primary" : ""}" id="fl_ex">${esc(ft("ex"))}</button></div>`)
     + (fl.length ? `<div class="km-fl-list">${fl.map((f, i) => `<div class="km-fl" data-i="${i}"><b>#${i + 1}</b>`
         + (ed ? `<label>X <input type="number" data-fx="${i}" value="${f.x}" min="0" max="1199" inputmode="numeric"></label><label>Y <input type="number" data-fy="${i}" value="${f.y}" min="0" max="1199" inputmode="numeric"></label>` : `<span class="co">X:${f.x} Y:${f.y}</span>`)
         + `<button type="button" class="btn small" data-fcp="${i}">${esc(T("copy"))}</button>`
@@ -628,6 +634,7 @@ function renderFlags() {
         + `</div>`).join("")}</div><div style="margin-top:8px;font-weight:700">${esc(ft("total").replace("{f}", fl.length).replace("{n}", tot))}</div>`
       : `<div class="muted" style="margin-top:8px">${esc(ft("empty"))}</div>`)
     + (ed && dirty() ? `<div class="muted" style="font-size:12px;margin-top:6px">${esc(ft("save"))}</div>` : "")
+    + (EXB ? `<div class="muted" style="font-size:12px;margin-top:6px">${esc(ft("exNote").replace("{n}", EXB.b.length).replace("{c}", EXB.b.filter((b) => b[2]).length))}</div>` : "")
     + `<div class="muted" style="font-size:12px;margin-top:6px">${esc(ft("note").replace("{d}", TERR.date))}</div>`;
 }
 function flagsChanged() { planMsg = ""; drawFlags(); renderFlags(); renderPlan(); }
@@ -639,6 +646,7 @@ function flagEvents() {
   const el = $("km_flags");
   el.addEventListener("click", (e) => {
     const b = e.target.closest("button"); if (!b) return;
+    if (b.id === "fl_ex") { exOn = !exOn; try { localStorage.setItem("km-exb", exOn ? "1" : "0"); } catch (err) {} drawEx(); renderFlags(); return; }
     if (b.id === "fl_obst") { obstOn = !obstOn; try { localStorage.setItem("km-obst", obstOn ? "1" : "0"); } catch (err) {} drawObst(); renderFlags(); return; }
     if (b.dataset.fcp != null) { const f = PLAN.fl[+b.dataset.fcp]; try { navigator.clipboard.writeText(`X:${f[0]} Y:${f[1]}`).then(() => { b.textContent = T("copied"); setTimeout(() => b.textContent = T("copy"), 1500); }, () => {}); } catch (err) {} return; }
     if (!ME()) return;
@@ -669,7 +677,7 @@ function applyTexts() {
   $("km_title").textContent = "🗺️ " + T("title"); $("km_intro").textContent = T("intro");
   $("km_orient").textContent = T("orient"); $("km_listT").textContent = T("ruins") + " · " + T("outposts");
   if ($("km_castleLbl")) $("km_castleLbl").textContent = castleName();
-  document.querySelectorAll("#pg-map .km-hqLbl").forEach((e) => e.textContent = "[NXS] " + hqName());
+  document.querySelectorAll("#pg-map .km-hqLbl").forEach((e) => e.textContent = "[NXS] " + hqName({ n: +e.dataset.n }));
   renderLayers(); renderList(); renderInfo();
 }
 let first = true, ready = false;   // ready = the saved plan has loaded (a link imported before that would be overwritten)
@@ -682,7 +690,7 @@ function onShow() {
 }
 async function init() {
   await loadScripts(["data/kingdom-map.js"]);
-  G = KINGDOM_MAP; build(); await loadPlan(); importFromLink(); drawMap(); $("km_svg").classList.toggle("terr", terrOn); drawPlan(); drawFlags(); flagEvents(); applyTexts(); ready = true; loadGrid();
+  G = KINGDOM_MAP; build(); await loadPlan(); importFromLink(); drawMap(); $("km_svg").classList.toggle("terr", terrOn); drawPlan(); drawFlags(); flagEvents(); applyTexts(); ready = true; loadGrid(); loadEx();
   $("km_in").onclick = () => setZoom(Z * 1.5); $("km_out").onclick = () => setZoom(Z / 1.5);
   mouseControls();
 }

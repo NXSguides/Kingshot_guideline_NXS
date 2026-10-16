@@ -206,6 +206,10 @@ const KINGDOM_MAP = {
   [
    409,
    668
+  ],
+  [
+   741,
+   283
   ]
  ],
  "fortress": [
@@ -725,6 +729,7 @@ const KINGDOM_MAP = {
  "zh": {
   "castle": "王城",
   "hq": "平原總部",
+  "hq2": "荒野總部",
   "fortress": "{n}號要塞",
   "sanctuary": "{n}號遺跡",
   "fortressS": "要塞",
@@ -767,6 +772,7 @@ const KINGDOM_MAP = {
  "pt": {
   "castle": "Castelo da Realeza",
   "hq": "QG das Planícies",
+  "hq2": "QG da Terra Maligna",
   "fortress": "Fortaleza Nº {n}",
   "sanctuary": "Santuário {n}",
   "fortressS": "Fortaleza",
@@ -809,6 +815,7 @@ const KINGDOM_MAP = {
  "ar": {
   "castle": "قلعة الملك",
   "hq": "مقر [السهول]",
+  "hq2": "مقر [أرض الشر]",
   "fortress": "القلعة رقم {n}",
   "sanctuary": "المأوى {n}",
   "fortressS": "حصن",
@@ -851,6 +858,7 @@ const KINGDOM_MAP = {
  "ko": {
   "castle": "캐슬",
   "hq": "[평원] 본부",
+  "hq2": "[황야] 본부",
   "fortress": "{n}번 성채",
   "sanctuary": "{n}호 유적",
   "fortressS": "성채",
