@@ -144,7 +144,7 @@
   const BEFORE = [0, 1, 3, 5, 10, 15, 30, 60];
   /* event = alliance event on its battle days (times from EVENT_TIMES); daily = every day at fixed UTC hours (24 = the 00:00 reset) */
   const DEFS = [
-    { k: "bear-hunt", kind: "event", def: 10 },
+    { k: "bear-hunt", kind: "event", def: 30 },
     { k: "arena", kind: "daily", hours: [24], def: 3, emoji: "🏟️", name: "arenaName" },
     { k: "mystic-trial", kind: "daily", hours: [24], def: 30 },
     { k: "journey", kind: "daily", hours: [8, 16], def: 0, emoji: "🎒", name: "journeyName" },
