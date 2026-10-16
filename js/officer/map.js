@@ -35,7 +35,7 @@ function drawMap() {
   s.push(`<polygon points="${pts([[200, 200], [1000, 200], [1000, 1000], [200, 1000]])}" fill="#628c3b" stroke="rgba(255,255,255,.2)" stroke-width="2" stroke-dasharray="8 8"/>`);
   s.push(`<polygon points="${pts([[320, 320], [880, 320], [880, 880], [320, 880]])}" fill="#6f9a45" stroke="rgba(255,255,255,.2)" stroke-width="2" stroke-dasharray="8 8"/>`);
   /* 🛰️ territory picture: the in-game map stitched from officers' screenshots (2026-10-15), lined up on the 4 Fortresses */
-  s.push(`<image id="km_terr" href="${TERR.src}" width="4000" height="2850" preserveAspectRatio="none" transform="matrix(${TERR.m})" opacity=".95"${terrOn ? "" : ' style="display:none"'}/>`);
+  s.push(`<image id="km_terr" href="${TERR.src}" xlink:href="${TERR.src}" width="4000" height="2850" preserveAspectRatio="none" transform="matrix(${TERR.m})" opacity=".95"${terrOn ? "" : ' style="display:none"'}/>`);
   for (const b of B) {
     const [X, Y] = P(b.x, b.y);
     const g = `<g class="mk" data-id="${b.id}" data-t="${b.kind === "outpost" ? b.t : b.kind === "hq" ? "hq" : "ruins"}" tabindex="0" role="button" aria-label="${esc(b.name)} X${b.x} Y${b.y}">`;
@@ -53,7 +53,7 @@ function drawMap() {
   });
 }
 let planOnly = false;
-const TERR = { src: "data/territory-2189.webp", m: "0.336526 -0.001286 -0.000211 0.305687 -12.768 21.275", date: "2026-10-15" };
+const TERR = { src: "data/territory-2189.webp?v=2",   /* bump ?v= when the picture changes (images are cached first by sw.js) */ m: "0.336526 -0.001286 -0.000211 0.305687 -12.768 21.275", date: "2026-10-15" };
 const TT = { zh: ["🛰️ 領地圖", "領地圖：幹部截圖拼成，同色塊 = 同一個聯盟的領地（{d} 截圖）。"],
   en: ["🛰️ Territory", "Territory: stitched from officers' screenshots; same colour = same alliance ({d})."],
   pt: ["🛰️ Território", "Território: montado com capturas dos oficiais; mesma cor = mesma aliança ({d})."],
