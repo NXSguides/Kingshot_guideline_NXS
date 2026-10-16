@@ -550,7 +550,7 @@ let timedMsg = "";
 function renderTimed() {
   const el = $("ev_timed"); if (!el) return;
   const ed = OFFICER.can("events", "edit"), now = Date.now();
-  TIMED = TIMED.filter((t) => t.at > now - 6 * 3600000);   // gone 6 h after it started
+  TIMED = TIMED.filter((t) => t.at > now - 3600000);   // gone 1 h after it started
   const loc = (at) => new Date(at).toLocaleString(LOCALE(lang), { weekday: "short", hour: "2-digit", minute: "2-digit" });
   const evs = (LIST || []).filter((e) => e.id !== "alliance-rules");
   el.innerHTML = `<h2>${esc(tt2("h"))}</h2><div class="muted msg">${esc(tt2("sub"))}</div>`
