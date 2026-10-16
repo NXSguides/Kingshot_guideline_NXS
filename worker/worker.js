@@ -667,7 +667,7 @@ export class PushTimers extends DurableObject {
     if (!r || r.name !== by.name || r.avatar !== (by.avatar || "")) this.sql.exec(`INSERT OR REPLACE INTO bu VALUES (?, ?, ?, ?)`, by.id, by.name, by.avatar || "", Date.now());
     this.boardLang(by.id, lang);
   }
-  boardUsers() { return [...this.sql.exec(`SELECT uid, name, avatar FROM bu ORDER BY name`)].map((r) => ({ id: r.uid, name: r.name, avatar: r.avatar })); }
+  boardUsers() { return [...this.sql.exec(`SELECT uid, name, avatar FROM bu WHERE uid NOT LIKE 'pw-%' ORDER BY name`)].map((r) => ({ id: r.uid, name: r.name, avatar: r.avatar })); }
   /* open tasks given to this person, across all topics (newest first) */
   boardTasks(uid) {
     const out = [];

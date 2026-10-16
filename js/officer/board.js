@@ -105,7 +105,7 @@ async function loadPic(el) {
 const picsHtml = (p) => { const ids = (p.meta && p.meta.img) || []; return ids.length ? `<div class="bd-pics">${ids.map((id) => `<img data-bimg="${esc(id)}" alt="🖼️" loading="lazy">`).join("")}</div>` : ""; };
 const userName = (id) => { const u = users.find((x) => x.id === id) || (OFFICER.me() && OFFICER.me().id === id ? OFFICER.me() : null) || (cur && cur.posts.map((p) => p.by).find((b) => b.id === id)) || ((OFFICER.perms && OFFICER.perms.users) || {})[id]; return u ? u.name : "?"; };
 /* people to pick from: everyone who used the board + the 👥 officer table (names there are set by admins) */
-const others = () => { const m = new Map(users.map((u) => [u.id, u])); for (const [id, u] of Object.entries((OFFICER.perms && OFFICER.perms.users) || {})) if (!m.has(id)) m.set(id, { id, name: u.name, avatar: "" }); return [...m.values()].filter((u) => !OFFICER.me() || u.id !== OFFICER.me().id).sort((a, b) => a.name.localeCompare(b.name)); };
+const others = () => { const m = new Map(users.map((u) => [u.id, u])); for (const [id, u] of Object.entries((OFFICER.perms && OFFICER.perms.users) || {})) if (!m.has(id)) m.set(id, { id, name: u.name, avatar: "" }); return [...m.values()].filter((u) => !/^pw-/.test(u.id) && (!OFFICER.me() || u.id !== OFFICER.me().id))   // pw-… = old shared-password logins (switched off).sort((a, b) => a.name.localeCompare(b.name)); };
 async function api(op, extra = {}) {
   const r = await fetch(AUTH_API + "/board", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), lang, op, ...(firstCall ? { first: true } : {}), ...extra }) });
   const j = await r.json().catch(() => ({ error: "network" }));
