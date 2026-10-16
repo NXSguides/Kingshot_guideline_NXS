@@ -395,10 +395,12 @@ async function officerGate() {
   }
   // 🔒 the officer password alone no longer opens the page: Discord login only
   const gate = document.getElementById("gate"), pwEl = document.getElementById("gatePw");
+  forgetOldPw();
   gate.hidden = false;
   document.getElementById("gateDiscord").href = discordStart();
   applyShared();
   const go = async () => {
+    return;   // password login is switched off (Discord only)
     const pw = pwEl.value, t = await checkPw(pw);
     if (t) {
       if (document.getElementById("gateRemember").checked) {
@@ -412,4 +414,7 @@ async function officerGate() {
   pwEl.onkeydown = (e) => { if (e.key === "Enter") go(); };
   pwEl.focus();
 }
+/* 🧹 devices that unlocked with the old shared password still had it saved: wipe it, so only a Discord login gets in */
+function forgetOldPw() { try { const s = officerStore(); if (s.pw) { delete s.pw; localStorage.setItem(OFFICER_LS, JSON.stringify(s)); } } catch (e) {} }
+forgetOldPw();
 applyShared();

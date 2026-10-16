@@ -222,7 +222,7 @@
   /* which events' to-dos this person is told about: set on the 👥 Officers tab (users[id].notify = event keys).
      "all" = admins with no list of their own (and the officer password); a Set = only those events; null = none */
   const myNotify = () => { try {
-    if (JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").pw) return "all";   // unlocked with the officer password (just opening the officer page is not enough)
+    { const o = JSON.parse(localStorage.getItem("nxs-post-v1") || "{}"); if (o.pw) { delete o.pw; localStorage.setItem("nxs-post-v1", JSON.stringify(o)); } }   // the old shared password counts for nothing now (Discord only) — wipe it
     const u = JSON.parse(localStorage.getItem("nxs-discord-user") || "{}"), p = JSON.parse(localStorage.getItem("nxs-perms-v1") || "{}");
     const x = u.id && p.users && p.users[u.id]; if (!x) return null;
     if (Array.isArray(x.notify)) return x.notify.length ? new Set(x.notify) : null;
