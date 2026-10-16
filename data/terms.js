@@ -60,7 +60,11 @@ const TERMS = [
   "cat": "Interface",
   "rows": [
    ["Details","詳細資訊","상세","Details","Détails","Detalhes","Detaylar","Detail","Детали","รายละเอียด","التفاصيل","Detalles"],
-   ["Conquest","討伐","토벌","Eroberung","Conquête","Conquista","Fetih","Penaklukan","Завоевание","การพิชิต","غزو","Conquista"],
+   ["Conquest", "討伐", "토벌", "Eroberung", "Conquête", "Conquista", "Fetih", "Penaklukan", "Завоевание", "การพิชิต", "غزو", "Conquista", "Idle Income stores up to 9 h (based on the highest stage cleared) — claim before then."],
+   ["Conquest Battle", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Conquest rules title. Only EN seen so far."],
+   ["Conquer", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Conquest button. Only EN seen so far."],
+   ["Idle Income", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Conquest: income while away, up to 9 h. Only EN seen so far."],
+   ["Victory is assured", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Conquest quick-clear button after Auto Battle is unlocked. Only EN seen so far."],
    ["Heroes","英雄","영웅","Helden","Héros","Heróis","Kahramanlar","Pahlawan","Герои","ฮีโร่","الأبطال","Héroes"],
    ["Shop","商店","상점","Laden","Magasin","Loja","Mağaza","Toko","Магазин","ร้านค้า","متجر","Tienda"],
    ["Alliance (tab)","聯盟","연맹","Allianz","Alliance","Aliança","İttifak","Aliansi","Альянс","พันธมิตร","التحالف","Alianza"],
