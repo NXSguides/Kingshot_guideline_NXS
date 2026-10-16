@@ -545,8 +545,8 @@ async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=16")
 function drawEx() {
   const g = $("km_exG"); if (!g) return;
   // our two HQs claim 15×15 too (3×3 building from its X, Y + 6 tiles around)
-  const hq = exOn ? (G.hq || []).map(([x, y]) => `<polygon points="${pts([[x - 6, y - 6], [x + 9, y - 6], [x + 9, y + 9], [x - 6, y + 9]])}" fill="rgba(60,150,255,.18)" stroke="rgba(120,190,255,.9)" stroke-width=".35"/>`).join("") : "";
-  g.innerHTML = hq + (exOn && EXB ? EXB.b.map(([x, y, c]) => `<polygon points="${pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]])}" fill="rgba(60,150,255,.18)" stroke="rgba(120,190,255,.7)" stroke-width=".25"/><polygon points="${tilePts(x, y)}" fill="${c ? "#0b3d91" : "#4a7fd0"}" stroke="#fff" stroke-width=".2"/>`).join("") : "");
+  const hq = exOn ? (G.hq || []).map(([x, y]) => `<polygon points="${pts([[x - 6, y - 6], [x + 9, y - 6], [x + 9, y + 9], [x - 6, y + 9]])}" fill="rgba(30,120,255,.42)" stroke="#9fd0ff" stroke-width=".5"/>`).join("") : "";
+  g.innerHTML = hq + (exOn && EXB ? EXB.b.map(([x, y, c]) => `<polygon points="${pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]])}" fill="rgba(30,120,255,.42)" stroke="#9fd0ff" stroke-width=".35"/><polygon points="${tilePts(x, y)}" fill="${c ? "#0b3d91" : "#2a6fd6"}" stroke="#fff" stroke-width=".35"/>`).join("") : "");
 }
 let GRID = null, OBST = null, ZONE = null, ZNAME = [], flagMode = false;
 let obstOn = (() => { try { return localStorage.getItem("km-obst") === "1"; } catch (e) { return false; } })();
