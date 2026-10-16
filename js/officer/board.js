@@ -88,7 +88,7 @@ function applyTexts() {
   const pwOnly = false;   // the officer password alone no longer opens the page
   const viewOnly = !OFFICER.can("board", "edit");
   $("pg-board").classList.toggle("view-only", viewOnly);
-  if (viewOnly) { $("bd_pwNote").hidden = false; $("bd_pwNote").innerHTML = `<span>${esc(t("viewOnly"))}</span>`; }
+  if (viewOnly) $("bd_pwNote").hidden = true;   // no "view only" note: the write buttons are just not there
   $("pg-board").classList.toggle("pw-only", pwOnly);
   if (!viewOnly) $("bd_pwNote").hidden = !pwOnly;
   if (pwOnly) $("bd_pwNote").innerHTML = `<span>${esc(t("pwOnly"))}</span><a class="btn" style="background:#5865F2;border-color:#5865F2;color:#fff;font-weight:700" href="${esc(discordStart())}">${esc(t("loginBtn"))}</a>`;

@@ -380,7 +380,11 @@
   #pg-perms .pm-sel { padding: 4px 6px; font-size: 12.5px; }
   #pg-perms .pm-acts { white-space: nowrap; } #pg-perms .pm-acts .btn { margin-left: 4px; }
   /* 👁️ view only: the tab is shown but nothing can be changed */
-  .pg.readonly::before { content: attr(data-ro); display: block; margin: 0 0 10px; padding: 8px 12px; border-radius: 10px; font-size: 13px; background: color-mix(in srgb, var(--accent) 12%, var(--panel)); border: 1px solid var(--accent); }
+  /* 👁️ read-only: edit buttons (✏️, plan buttons) and "write announcement" links are simply not there; 📋 copy stays */
+  .pg.readonly [data-edit], .pg.readonly [data-edtodo], .pg.readonly [data-igedit], .pg.readonly a[href^="#post"],
+  .pg.readonly [data-v], .pg.readonly [data-p], .pg.readonly [data-tmset] { display: none !important; }
+  .pg.readonly::before { display: none !important; }   /* no "view only" banner on top: the missing buttons say enough */
+  .pg-unused-ro-banner { content: attr(data-ro); display: block; margin: 0 0 10px; padding: 8px 12px; border-radius: 10px; font-size: 13px; background: color-mix(in srgb, var(--accent) 12%, var(--panel)); border: 1px solid var(--accent); }
   .pg.readonly .btn.primary, .pg.readonly .inp, .pg.readonly textarea, .pg.readonly select:not(#langBtn), .pg.readonly input:not([type="search"]),
   .pg.readonly [data-edit], .pg.readonly [data-edtodo], .pg.readonly [data-del], .pg.readonly [data-rm], .pg.readonly [data-save], .pg.readonly [data-dec], .pg.readonly [data-pv],
   .pg.readonly button[id$="Save"], .pg.readonly button[id$="save"], .pg.readonly button[id$="Btn"]:not([id$="reloadBtn"]) { pointer-events: none; opacity: .45; }

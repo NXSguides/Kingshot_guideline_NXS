@@ -690,6 +690,7 @@ async function copyText(t, btn) {
 ROOT.addEventListener("click", (ev) => {
   const o = ev.target.closest("[data-open]"); if (o) { ev.preventDefault(); return openEvent(o.dataset.open); }
   const c = ev.target.closest("[data-copy]"); if (c) { ev.preventDefault(); const [id, i] = c.dataset.copy.split(":"); return copyText(byId(id).ingame[+i].text, c); }
+  if (!OFFICER.can("events", "edit") && ev.target.closest("[data-edit],[data-igedit],[data-edtodo]")) { ev.preventDefault(); return; }   // 👁️ read-only
   const ed = ev.target.closest("[data-edit]"); if (ed) { ev.preventDefault(); return openEditor(ed.dataset.edit); }
   const ie = ev.target.closest("[data-igedit]"); if (ie) { ev.preventDefault(); return igInline(ie); }
   const et = ev.target.closest("[data-edtodo]"); if (et) { ev.preventDefault(); openEditor(et.dataset.edtodo);   // straight to the action items of that event
