@@ -177,6 +177,8 @@ OFFICER.applyPerms = () => {
   document.querySelectorAll(".tabs a[data-tab]").forEach((a) => { const k = a.dataset.tab; a.hidden = k === "board" || k === "attend" ? !((OFFICER.user || OFFICER.pw) && OFFICER.can(k)) : !OFFICER.can(k, "view"); });
   const ro = { zh: "👁️ 這個分頁你只能看，不能修改。", en: "👁️ View only: you can look at this tab but not change it.", pt: "👁️ Só leitura: você pode ver esta aba, mas não mudar nada.", ar: "👁️ للعرض فقط: يمكنك مشاهدة هذا القسم دون تعديله.", ko: "👁️ 보기 전용: 이 탭은 볼 수만 있고 수정할 수 없습니다." }[OFFICER.lang] || "";
   for (const k of TABS) { const pg = document.getElementById("pg-" + k); if (pg) { pg.classList.toggle("readonly", !OFFICER.can(k, "edit")); pg.dataset.ro = ro; } }
+  // links into a tab they can't open (📊 Ranking / 📢 Post buttons on the to-do cards…) disappear too: body.no-<tab> + CSS
+  for (const k of TABS) document.body.classList.toggle("no-" + k, !OFFICER.can(k, "view"));
   // only once someone is logged in: before that nobody can see anything, and a link like #map must survive until the login check is done
   if (OFFICER.user && !OFFICER.can(currentTab(), "view")) location.hash = "#" + (TABS.find((k) => OFFICER.can(k, "view")) || "events");
 };
