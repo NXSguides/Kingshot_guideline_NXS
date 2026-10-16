@@ -66,8 +66,13 @@ function setTerr(on) {
   const im = $("km_terr"); if (im) im.style.display = on ? "" : "none";
   $("km_svg").classList.toggle("terr", on); renderLayers();
 }
-const applyHidden = () => $("km_svg").querySelectorAll(".mk").forEach((m) => { const b = BY[m.dataset.id];
-  m.classList.toggle("off", m.dataset.id !== SEL && (hidden.has(m.dataset.t) || (planOnly && b.kind === "outpost" && !st(b)))); });
+const applyHidden = () => {
+  const off = new Set();
+  $("km_svg").querySelectorAll(".mk").forEach((m) => { const b = BY[m.dataset.id];
+    const o = m.dataset.id !== SEL && (hidden.has(m.dataset.t) || (planOnly && b.kind === "outpost" && !st(b))); m.classList.toggle("off", o); if (o) off.add(m.dataset.id); });
+  // the plan rings and ★ tags of a filtered-out building go away with it
+  $("km_svg").querySelectorAll(".pl-mk").forEach((r) => r.classList.toggle("off", off.has(r.dataset.id)));
+};
 
 /* zoom: 100% wide at 1; phones start zoomed in so the level numbers are readable */
 /* ax, ay = the point (inside the map box) that stays put — the mouse when zooming with the wheel, else the middle */
@@ -137,31 +142,36 @@ function select(id, fromList) {
   }
   centerOn(b, true);
 }
+const ME = () => OFFICER.can("map", "edit");   // read-only officers can look at the plan but not change it
 function renderInfo() {
   const b = SEL && BY[SEL];
   if (!b) { $("km_info").innerHTML = `<span class="muted">${esc(T("pick"))}</span>`; return; }
   const sw = b.kind === "outpost" ? `<span class="sw" style="background:${TY[b.t].c}"></span>` : "";
   const what = b.kind === "outpost" ? `Lv.${b.lv} · ${esc(buffName(b.t))} +${b.buff}%` : b.kind === "castle" ? "" : b.kind === "hq" ? "[NXS]" : esc(T("noBuff"));
   $("km_info").innerHTML = `${sw}<b>${esc(nm(b))}</b>${what ? `<span class="muted">${what}</span>` : ""}<span class="co">X:${b.x} Y:${b.y}</span><button type="button" class="btn" id="km_cp">${esc(T("copy"))}</button>` +
-    (PLANNABLE(b) ? `<div class="km-st" style="flex-basis:100%">${(isOp(b) ? [["target", "target"], ["held", "held"], ["vuln", "vuln"], ["", "clear"]] : [["target", "target"], ["held", "heldR"], ["", "clear"]]).map(([v, k]) => `<button type="button" data-v="${v}" class="${eff(b) === v && v ? "on" : ""}">${esc(pt(k))}</button>`).join("")}</div>` : "") +
+    (PLANNABLE(b) && ME() ? `<div class="km-st" style="flex-basis:100%">${(isOp(b) ? [["target", "target"], ["held", "held"], ["vuln", "vuln"], ["", "clear"]] : [["target", "target"], ["held", "heldR"], ["", "clear"]]).map(([v, k]) => `<button type="button" data-v="${v}" class="${eff(b) === v && v ? "on" : ""}">${esc(pt(k))}</button>`).join("")}</div>` : "") +
     (isOp(b) && st(b) === "conflict" ? `<div class="km-tm" style="flex-basis:100%;color:#c0473a">⚠️ ${esc(pt("conflictAuto"))}</div>` : "");
   const s = eff(b);
   if (isOp(b) && (s === "held" || s === "vuln")) {
     const n = nextSw(b);
     $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm" style="flex-basis:100%">
       <div>${n ? `⏱ <b>${esc(left(n - Date.now()))}</b> → ${esc(pt(s === "held" ? "toV" : "toP"))}` : `<span class="muted">${esc(pt("noT"))}</span>`}</div>
-      <div class="km-tmin"><span class="muted" style="flex-basis:100%">${esc(pt(s === "held" ? "leftP" : "leftV"))}</span>
+      ${ME() ? `<div class="km-tmin"><span class="muted" style="flex-basis:100%">${esc(pt(s === "held" ? "leftP" : "leftV"))}</span>
         <input id="tm_d" type="number" min="0" max="9" inputmode="numeric">${esc(pt("dd"))}<input id="tm_h" type="number" min="0" max="23" inputmode="numeric">${esc(pt("hh"))}<input id="tm_m" type="number" min="0" max="59" inputmode="numeric">${esc(pt("mm"))}
-        <button type="button" class="btn" id="tm_set">${esc(pt("setT"))}</button>${n ? `<button type="button" class="btn" id="tm_clr">${esc(pt("clrT"))}</button>` : ""}</div></div>`);
-    $("tm_set").onclick = () => {
+        <button type="button" class="btn" id="tm_set">${esc(pt("setT"))}</button>${n ? `<button type="button" class="btn" id="tm_clr">${esc(pt("clrT"))}</button>` : ""}</div>` : ""}</div>`);
+    if ($("tm_set")) $("tm_set").onclick = () => {
       const v = (id) => Math.max(0, parseInt($(id).value, 10) || 0), ms = ((v("tm_d") * 24 + v("tm_h")) * 60 + v("tm_m")) * 6e4;
       if (!ms) return;
       PLAN.o[pk(b)] = s; PLAN.t[pk(b)] = Date.now() + ms; planMsg = ""; refreshPlan();
     };
     if ($("tm_clr")) $("tm_clr").onclick = () => { PLAN.o[pk(b)] = s; delete PLAN.t[pk(b)]; planMsg = ""; refreshPlan(); };
   }
-  else if (isOp(b)) $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm muted" style="flex-basis:100%">⏱ ${esc(pt("tmHint"))}</div>`);
-  if (PRIOABLE(b)) {
+  else if (isOp(b) && ME()) $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm muted" style="flex-basis:100%">⏱ ${esc(pt("tmHint"))}</div>`);
+  if (PRIOABLE(b) && !ME()) {
+    const sp = SP(b);
+    if (sp.p || sp.r || sp.n) $("km_info").insertAdjacentHTML("beforeend", `<div class="km-pr" style="flex-basis:100%"><div class="km-prh"><b>${esc(pt("prio"))}</b><span>${sp.p ? "★" + sp.p : esc(pt("prioNone"))}</span></div>${sp.r ? `<div class="muted" style="font-size:12.5px">${esc(pt("rewards"))}: ${esc(sp.r)}</div>` : ""}${sp.n ? `<div class="muted" style="font-size:12.5px">${esc(pt("note"))}: ${esc(sp.n)}</div>` : ""}</div>`);
+  }
+  else if (PRIOABLE(b)) {
     const sp = SP(b), d = hqDist(b), max = B.filter(PRIOABLE).length;
     $("km_info").insertAdjacentHTML("beforeend", `<div class="km-pr" style="flex-basis:100%">
       <div class="km-prh"><b>${esc(pt("prio"))}</b>${d != null ? `<span class="muted">📏 ${esc(pt("dist").replace("{n}", d))}</span>` : ""}</div>
@@ -285,6 +295,7 @@ const snap = () => JSON.stringify({ o: PLAN.o, t: PLAN.t, c: PLAN.cyc || null, s
 const SP = (b) => (PLAN.sp && PLAN.sp[pk(b)]) || {};
 const PRIOABLE = (b) => b && (b.kind === "sanctuary" || b.kind === "fortress");
 function setSP(b, k, v) {
+  if (!ME()) return;
   PLAN.sp = PLAN.sp || {}; const cur = { ...SP(b) };
   if (v === "" || v == null) delete cur[k]; else cur[k] = v;
   if (Object.keys(cur).length) PLAN.sp[pk(b)] = cur; else delete PLAN.sp[pk(b)];
@@ -343,14 +354,15 @@ function totals(states) {
 function drawPlan() {
   const g = $("km_planG"); if (!g) return;
   g.innerHTML = B.filter((b) => st(b)).map((b) => { const [X, Y] = P(b.x, b.y), s = st(b), r = b.kind === "fortress" ? 27 : b.kind === "sanctuary" ? 21 : 17;
-    return s === "held" ? `<circle cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#3ddc84" stroke-width="4"/>`
-      : s === "vuln" ? `<circle cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#ff6b4a" stroke-width="4"/>`
-      : s === "conflict" ? `<circle cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#f5a623" stroke-width="4" stroke-dasharray="2 3"/>`
-      : `<circle cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#ffe14d" stroke-width="3.5" stroke-dasharray="5 4"/>`; }).join("")
+    const d = `data-id="${b.id}" class="pl-mk"`;   // same id as the marker → hidden together by the filter
+    return s === "held" ? `<circle ${d} cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#3ddc84" stroke-width="4"/>`
+      : s === "vuln" ? `<circle ${d} cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#ff6b4a" stroke-width="4"/>`
+      : s === "conflict" ? `<circle ${d} cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#f5a623" stroke-width="4" stroke-dasharray="2 3"/>`
+      : `<circle ${d} cx="${X}" cy="${Y}" r="${r}" fill="none" stroke="#ffe14d" stroke-width="3.5" stroke-dasharray="5 4"/>`; }).join("")
     // ⭐ priority badge (gold circle with the number) at the top-right of a Sanctuary / Fortress
     + B.filter((b) => PRIOABLE(b) && SP(b).p).map((b) => { const [X, Y] = P(b.x, b.y), o = b.kind === "fortress" ? 20 : 15;
       const w = SP(b).p >= 10 ? 34 : 27, x0 = X + o + 3;   // gold "★n" tag to the right, clear of the name above
-      return `<g><rect x="${x0}" y="${Y - 10}" width="${w}" height="20" rx="10" fill="#ffd34d" stroke="#5a3d00" stroke-width="2"/><text x="${x0 + w / 2}" y="${Y + 4.5}" text-anchor="middle" font-family="Arial" font-size="12.5" font-weight="800" fill="#3d2a00">★${SP(b).p}</text></g>`; }).join("");
+      return `<g data-id="${b.id}" class="pl-mk"><rect x="${x0}" y="${Y - 10}" width="${w}" height="20" rx="10" fill="#ffd34d" stroke="#5a3d00" stroke-width="2"/><text x="${x0 + w / 2}" y="${Y + 4.5}" text-anchor="middle" font-family="Arial" font-size="12.5" font-weight="800" fill="#3d2a00">★${SP(b).p}</text></g>`; }).join("");
 }
 const refreshPlan = () => { drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
 /* once a minute: update the countdowns; redraw everything when an Outpost switched state (not while typing) */
@@ -363,6 +375,7 @@ setInterval(() => {
   document.querySelectorAll("#pg-map [data-sw]").forEach((e) => e.textContent = left(+e.dataset.sw - Date.now()));
 }, 60000);
 function setStatus(id, v) {
+  if (!ME()) return;
   const b = BY[id]; if (!PLANNABLE(b)) return;
   if (v) PLAN.o[pk(b)] = v; else delete PLAN.o[pk(b)];
   delete PLAN.t[pk(b)];   // a hand-set status starts without a timer — type the in-game countdown again
@@ -399,15 +412,15 @@ function renderPlan() {
     <div class="pl-sub">${esc(pt("targets"))} (${cnt("target")})</div>${list("target")}
     <div class="pl-sub">${esc(pt("helds"))} (${cnt("held")})</div>${list("held")}
     <div class="pl-sub">${esc(pt("vulns"))} (${cnt("vuln")})</div>${list("vuln")}
-    <div class="pl-cyc muted">${esc(pt("cyc"))} <input id="cy_p" type="number" min="1" max="240" value="${CYC().p}"> h ✅ → <input id="cy_v" type="number" min="1" max="240" value="${CYC().v}"> h ⚔️ <span style="display:block;font-size:12px">${esc(pt("cycNote"))}</span></div>
+    <div class="pl-cyc muted">${esc(pt("cyc"))} ${ME() ? `<input id="cy_p" type="number" min="1" max="240" value="${CYC().p}">` : `<b>${CYC().p}</b>`} h ✅ → ${ME() ? `<input id="cy_v" type="number" min="1" max="240" value="${CYC().v}">` : `<b>${CYC().v}</b>`} h ⚔️ <span style="display:block;font-size:12px">${esc(pt("cycNote"))}</span></div>
     ${cnt("conflict") ? `<div class="pl-sub">${esc(pt("conflicts"))} (${cnt("conflict")})</div>${list("conflict")}` : ""}
     ${ruinsHtml}
-    <div class="pl-save"><input id="pl_by" maxlength="30" placeholder="${esc(pt("by"))}" value="${esc(by)}"><button class="btn primary" id="pl_save" type="button"${dirty() ? "" : " disabled"}>${esc(pt("save"))}</button>${dirty() ? `<button class="btn" id="pl_reset" type="button">${esc(pt("reset"))}</button>` : ""}
-      <span class="muted" style="font-size:12.5px">${esc(planMsg || (dirty() ? pt("unsaved") : ""))}</span></div>`;
+    ${ME() ? `<div class="pl-save"><input id="pl_by" maxlength="30" placeholder="${esc(pt("by"))}" value="${esc(by)}"><button class="btn primary" id="pl_save" type="button"${dirty() ? "" : " disabled"}>${esc(pt("save"))}</button>${dirty() ? `<button class="btn" id="pl_reset" type="button">${esc(pt("reset"))}</button>` : ""}
+      <span class="muted" style="font-size:12.5px">${esc(planMsg || (dirty() ? pt("unsaved") : ""))}</span></div>` : ""}`;
   renderSB();   // the Sanctuary Battle sign-up drawing sits under the Fortress/Sanctuary part of the plan
   $("km_plan").querySelectorAll(".chip").forEach((c) => c.onclick = () => select(c.dataset.id, true));
-  $("pl_save").onclick = savePlan;
-  for (const [id, k] of [["cy_p", "p"], ["cy_v", "v"]]) $(id).onchange = () => { const n = parseInt($(id).value, 10); if (n > 0) { PLAN.cyc = { ...CYC(), [k]: n }; planMsg = ""; refreshPlan(); } };
+  if ($("pl_save")) $("pl_save").onclick = savePlan;
+  for (const [id, k] of [["cy_p", "p"], ["cy_v", "v"]]) if ($(id)) $(id).onchange = () => { const n = parseInt($(id).value, 10); if (n > 0) { PLAN.cyc = { ...CYC(), [k]: n }; planMsg = ""; refreshPlan(); } };
   lastSig = sig();
   if ($("pl_reset")) $("pl_reset").onclick = () => { const S = JSON.parse(SAVED); PLAN.o = S.o; PLAN.t = S.t; if (S.c) PLAN.cyc = S.c; else delete PLAN.cyc; PLAN.sp = S.sp || {}; planMsg = ""; drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
 }
@@ -424,6 +437,7 @@ async function loadPlan() {
    (not saved yet — the officer checks the map and presses 💾 Save plan). Coordinates that are not Outposts are ignored. */
 let importBy = "";
 function importFromLink() {
+  if (!ME()) return;
   const q = (location.hash.split("?")[1] || ""); if (!q) return;
   const prm = new URLSearchParams(q), coords = new Set(B.filter(PLANNABLE).map(pk));
   let n = 0;
@@ -442,6 +456,7 @@ function importFromLink() {
   return n;
 }
 async function savePlan() {
+  if (!ME()) return;
   if (!OFFICER.token) { planMsg = pt("noKey"); renderPlan(); return; }
   const by = ($("pl_by").value || "").trim(); try { localStorage.setItem("nxs-plan-by", by); } catch (e) {}
   planMsg = pt("saving"); renderPlan(); $("pl_save").disabled = true;
