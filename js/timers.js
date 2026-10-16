@@ -544,7 +544,7 @@
 
   let pushOn = false;   // set by render(): this phone has notifications on
   function alertsHtml() {
-    const loc = (h, m = 0) => new Date(Date.UTC(2000, 0, 1, 0, Math.round(h * 60) + m)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    const loc = (h, m = 0) => new Date(Math.floor(Date.now() / 864e5) * 864e5 + (Math.round(h * 60) + m) * 6e4).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     const nextOf = (k) => { const x = alertTimers().find((t) => t.id.startsWith(`ev-${k}-`));
       return x ? `<div class="tm-a">${esc(T("next").replace("{t}", fmtAt(x.at)))}</div>` : ""; };
     const rows = DEFS.map((d) => {
@@ -562,7 +562,7 @@
   function adminHtml() {
     if (!isOfficerUser()) return "";   // members never see the 🛠️ officer to-dos
     const a = alerts.admin || {}, d = adminData(), h = a.hour ?? 0;
-    const loc = (x) => new Date(Date.UTC(2000, 0, 1, x)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    const loc = (x) => new Date(Math.floor(Date.now() / 864e5) * 864e5 + x * 36e5).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     let body = "";
     if (!d) body = `<div class="tm-hint">${esc(T("adminNone"))}</div>`;
     else {

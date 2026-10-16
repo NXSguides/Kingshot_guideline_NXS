@@ -1109,7 +1109,7 @@ function todayCardHtml() {
   }
   soon.sort((a, b) => a.until - b.until);
   const hh = hToHM;
-  const local = (h) => { const d = new Date(Date.UTC(1970, 0, 1, 0, Math.round(h * 60))); return d.toLocaleTimeString(HTML_LANG[currentLang] || currentLang, { hour: "2-digit", minute: "2-digit", hourCycle: "h23" }); };
+  const local = (h) => { const d = new Date(Math.floor(Date.now() / 864e5) * 864e5 + Math.round(h * 60) * 6e4); return d.toLocaleTimeString(HTML_LANG[currentLang] || currentLang, { hour: "2-digit", minute: "2-digit", hourCycle: "h23" }); };
   const times = (key) => { const T = EVENT_TIMES[key]; if (!T) return "";
     const off = new Date().getTimezoneOffset() !== 0 ? ` <span class="td-loc">(${escapeHtml(t(TODAY_TXT.yours))} ${T.map(local).join(" & ")})</span>` : "";
     return `<span class="td-time">⏰ ${T.map(hh).join(" & ")} UTC${off}</span>`; };
