@@ -468,6 +468,7 @@
   #pg-map .km-fl { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 8px 10px; border: 1px solid var(--rule); border-radius: 10px; background: var(--panel-2); }
   #pg-map .km-fl-n { font-weight: 700; color: #3c96ff; } #pg-map .km-fl-w { font-size: 12.5px; color: #c0473a; } #pg-map .km-fl-act { margin-left: auto; display: flex; gap: 4px; }
   #pg-map svg.flag-mode { cursor: crosshair; }
+  #pg-map .km-savebar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 8px 0; padding: 8px 12px; border-radius: 10px; background: color-mix(in srgb, var(--accent) 14%, var(--panel)); border: 1px solid var(--accent); }
   #pg-map .mk, #pg-map .pl-mk, #pg-map .sel-ring { transform-box: view-box; transform: scale(var(--mk, 1)); }
   #pg-map .km-pr { border-top: 1px solid var(--rule); padding-top: 8px; margin-top: 2px; display: flex; flex-direction: column; gap: 6px; }
   #pg-map .km-prh { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; } #pg-map .km-prh b { font-size: 15px; }
@@ -1105,6 +1106,7 @@
     <div class="km-zoom"><button type="button" id="km_in" aria-label="Zoom in">+</button><button type="button" id="km_out" aria-label="Zoom out">−</button></div>
     <div class="km-box" id="km_box"><svg id="km_svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1320 900" role="img" aria-label="Kingdom #2189 map"></svg></div>
   </div>
+  <div class="km-savebar" id="km_saveBar" hidden></div>
   <div class="km-info" id="km_info"></div>
   <div class="card km-flags" id="km_flags" style="margin-top:14px"></div>
   <div class="card km-mp" id="km_mp"></div>

@@ -419,6 +419,12 @@ function renderPlan() {
     ${ruinsHtml}
     ${ME() ? `<div class="pl-save"><input id="pl_by" maxlength="30" placeholder="${esc(pt("by"))}" value="${esc(by)}"><button class="btn primary" id="pl_save" type="button"${dirty() ? "" : " disabled"}>${esc(pt("save"))}</button>${dirty() ? `<button class="btn" id="pl_reset" type="button">${esc(pt("reset"))}</button>` : ""}
       <span class="muted" style="font-size:12.5px">${esc(planMsg || (dirty() ? pt("unsaved") : ""))}</span></div>` : ""}`;
+  // 💾 the same Save right under the map, so a change made on the map isn't forgotten
+  const sb = $("km_saveBar");
+  if (sb) { const show = ME() && (dirty() || planMsg);
+    sb.hidden = !show;
+    if (show) { sb.innerHTML = `${dirty() ? `<button class="btn primary" id="pl_save2" type="button">${esc(pt("save"))}</button>` : ""}<span class="muted" style="font-size:12.5px">${esc(planMsg || pt("unsaved"))}</span>`;
+      if ($("pl_save2")) $("pl_save2").onclick = savePlan; } }
   renderSB();   // the Sanctuary Battle sign-up drawing sits under the Fortress/Sanctuary part of the plan
   $("km_plan").querySelectorAll(".chip").forEach((c) => c.onclick = () => select(c.dataset.id, true));
   if ($("pl_save")) $("pl_save").onclick = savePlan;
@@ -462,7 +468,7 @@ async function savePlan() {
   if (!ME()) return;
   if (!OFFICER.token) { planMsg = pt("noKey"); renderPlan(); return; }
   const by = ($("pl_by").value || "").trim(); try { localStorage.setItem("nxs-plan-by", by); } catch (e) {}
-  planMsg = pt("saving"); renderPlan(); $("pl_save").disabled = true;
+  planMsg = pt("saving"); renderPlan(); for (const id of ["pl_save", "pl_save2"]) if ($(id)) $(id).disabled = true;
   const next = { o: PLAN.o, t: PLAN.t, ...(PLAN.cyc ? { cyc: PLAN.cyc } : {}), ...(PLAN.sp && Object.keys(PLAN.sp).length ? { sp: PLAN.sp } : {}), ...(PLAN.fl && PLAN.fl.length ? { fl: PLAN.fl } : {}), by: by || "?", at: new Date().toISOString() };
   try {
     for (let attempt = 0; ; attempt++) {
