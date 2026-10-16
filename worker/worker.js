@@ -900,8 +900,8 @@ async function boardTranslate(env, title, text) {
    for (let round = 0; round < 2; round++) {
     if (round) { if (!errs.length || !errs.every((e) => /HTTP (429|500|502|503|504)|UNAVAILABLE|overloaded|high demand|timeout/i.test(e))) break; await new Promise((r) => setTimeout(r, 2500)); }   // all just busy → wait a moment, try once more
     for (const m of MODELS) {
-      let r = await gemini(env, m, system, [{ role: "user", parts: [{ text: ask(label, body) }] }], { responseMimeType: "application/json", responseSchema: schema, temperature: 0.2 });
-      if (r.error && /HTTP 400/.test(r.error)) r = await gemini(env, m, system, [{ role: "user", parts: [{ text: ask(label, body) }] }], { temperature: 0.2 });
+      let r = await gemini(env, m, system, [{ role: "user", parts: [{ text: ask(label, body) }] }], { responseMimeType: "application/json", responseSchema: schema, temperature: 0.2, maxOutputTokens: 32768 });   // a long post × 5 languages needs far more than the default 4096
+      if (r.error && /HTTP 400/.test(r.error)) r = await gemini(env, m, system, [{ role: "user", parts: [{ text: ask(label, body) }] }], { temperature: 0.2, maxOutputTokens: 32768 });
       if (r.error) { errs.push(m + ": " + r.error); continue; }
       let j;
       try { const raw = r.answer.replace(/^```(?:json)?\s*|\s*```$/g, ""); j = JSON.parse(raw.slice(raw.indexOf("{"), raw.lastIndexOf("}") + 1)); }
@@ -922,7 +922,7 @@ async function boardTranslate(env, title, text) {
     return null;
   };
   const tx = await one("message", text);
-  if (!tx) { plain.text.err = errs.join(" | ").slice(0, 300); return plain; }   // kept with the message so the page can show why
+  if (!tx) { plain.text.err = errs.map((e) => e.slice(0, 120)).join(" | ").slice(0, 700); return plain; }   // kept with the message so the page can show why
   const out = { ok: true, text: tx };
   if (title) out.title = (await one("title", title)) || { orig: title, src: tx.src };
   return out;
