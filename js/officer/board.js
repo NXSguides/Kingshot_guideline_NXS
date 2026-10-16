@@ -68,7 +68,7 @@ let stamp = 0, firstCall = true, users = [], tasks = [], lastErr = null;   // la
 /* what the two compose boxes carry besides text: @mentioned ids and 📋 assignees */
 const compose = { new: { m: new Set(), to: new Set(), img: [] }, reply: { m: new Set(), to: new Set(), img: [] } };
 /* 🖼️ pictures: shrunk on the phone (longest side ≤ 1600 px, WebP/JPEG) so each one stays well under the server's limit; at most 4 per message */
-const IMG_MAX = 4;
+const IMG_MAX = () => (OFFICER.isAdmin && OFFICER.isAdmin() ? 50 : 4);   // 🖼️ pictures per message: admins 50, others 4
 function shrink(file) {
   return new Promise((ok, no) => { const fr = new FileReader(); fr.onerror = no; fr.onload = () => { const im = new Image(); im.onerror = no; im.onload = () => {
     let w = im.naturalWidth, h = im.naturalHeight, side = 1600, q = .82, out = "";
@@ -83,7 +83,7 @@ function shrink(file) {
 }
 async function addImgs(box, files) {
   const c = compose[box];
-  for (const f of [...files].filter((f) => /^image\//.test(f.type))) { if (c.img.length >= IMG_MAX) break; try { c.img.push(await shrink(f)); } catch (e) {} }
+  for (const f of [...files].filter((f) => /^image\//.test(f.type))) { if (c.img.length >= IMG_MAX()) break; try { c.img.push(await shrink(f)); } catch (e) {} }
   imgsRender(box);
 }
 function imgsRender(box) {

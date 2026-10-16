@@ -1042,7 +1042,7 @@ async function boardRoute(env, ctx, stub, user, body, token, mayPost, perms) {
   const metaOf = (b, old, img) => { const m = { m: ids(b.mentions), to: ids(b.to) }; if (old && old.done) m.done = old.done; const im = img || (old && old.img); if (im && im.length) m.img = im; return m.m.length || m.to.length || m.done || m.img ? m : null; };
   // 🖼️ up to 4 pictures per message, already shrunk on the phone (≤ ~900 KB each)
   const saveImgs = async () => { const out = [];
-    for (const u of (Array.isArray(body.images) ? body.images : []).slice(0, 4)) {
+    for (const u of (Array.isArray(body.images) ? body.images : []).slice(0, roleOf(perms, user.id) === "admin" ? 50 : 4)) {   // 🖼️ admins: 50, others: 4
       const v = String(u); if (!/^data:image\/(?:webp|jpeg|png);base64,[A-Za-z0-9+/=]+$/.test(v) || v.length > 900_000) continue;
       const id = rid(); await stub.boardImgPut(id, v); out.push(id); }
     return out; };
