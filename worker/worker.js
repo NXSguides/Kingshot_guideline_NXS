@@ -703,6 +703,11 @@ export class PushTimers extends DurableObject {
     return this.boardThread(tid);
   }
   boardPost(pid) { const r = [...this.sql.exec(`SELECT * FROM bp WHERE id = ?`, pid)][0]; let m = null; try { m = r && r.meta ? JSON.parse(r.meta) : null; } catch (e) {} return r ? { id: r.id, tid: r.tid, by: JSON.parse(r.by), at: r.at, meta: m } : null; }
+  boardRetx(pid, txt, title) {   // 🔁 a translation that failed earlier, done again in the background (not shown as "edited")
+    const p = this.boardPost(pid); if (!p) return;
+    this.sql.exec(`UPDATE bp SET txt = ? WHERE id = ?`, JSON.stringify(txt), pid);
+    if (title) this.sql.exec(`UPDATE bt SET title = ? WHERE id = ?`, JSON.stringify(title), p.tid);
+  }
   boardEdit(pid, txt, title, meta) {
     const p = this.boardPost(pid); if (!p) return null;
     this.sql.exec(`UPDATE bp SET txt = ?, ed = ?, meta = ? WHERE id = ?`, JSON.stringify(txt), Date.now(), meta ? JSON.stringify(meta) : null, pid);
@@ -892,6 +897,8 @@ async function boardTranslate(env, title, text) {
   const errs = [];
   // one call per piece (title, text); a result is accepted only if the other languages really differ from the original
   const one = async (label, body) => {
+   for (let round = 0; round < 2; round++) {
+    if (round) { if (!errs.length || !errs.every((e) => /HTTP (429|500|502|503|504)|UNAVAILABLE|overloaded|high demand|timeout/i.test(e))) break; await new Promise((r) => setTimeout(r, 2500)); }   // all just busy → wait a moment, try once more
     for (const m of MODELS) {
       let r = await gemini(env, m, system, [{ role: "user", parts: [{ text: ask(label, body) }] }], { responseMimeType: "application/json", responseSchema: schema, temperature: 0.2 });
       if (r.error && /HTTP 400/.test(r.error)) r = await gemini(env, m, system, [{ role: "user", parts: [{ text: ask(label, body) }] }], { temperature: 0.2 });
@@ -911,6 +918,7 @@ async function boardTranslate(env, title, text) {
       if (lazy.length && others.length) { errs.push(m + ": returned the original for " + lazy.join(",")); continue; }
       return x;
     }
+   }
     return null;
   };
   const tx = await one("message", text);
@@ -918,6 +926,22 @@ async function boardTranslate(env, title, text) {
   const out = { ok: true, text: tx };
   if (title) out.title = (await one("title", title)) || { orig: title, src: tx.src };
   return out;
+}
+/* 🔁 posts whose translation failed (e.g. the AI was busy): translated again in the background when someone opens the thread;
+   the page picks the result up on its next poll. Each post is tried at most every 5 minutes (txt.rt = last try). */
+function retryTx(env, ctx, stub, t) {
+  const now = Date.now(), todo = t.posts.filter((p) => p.txt && p.txt.err && !(now - (p.txt.rt || 0) < 300000)).slice(0, 2);
+  if (!todo.length || !ctx || !ctx.waitUntil) return;
+  ctx.waitUntil((async () => {
+    let any = false;
+    for (const p of todo) {
+      const first = t.posts[0] && t.posts[0].id === p.id, needTitle = first && t.title && Object.keys(t.title).length <= 2 ? t.title.orig : "";
+      const tr = await boardTranslate(env, needTitle, p.txt.orig);
+      if (tr.ok) { await stub.boardRetx(p.id, tr.text, needTitle ? tr.title : null); any = true; }
+      else await stub.boardRetx(p.id, { ...p.txt, err: tr.text.err || p.txt.err, rt: Date.now() }, null);
+    }
+    if (any) await boardTouch(env);
+  })().catch(() => {}));
 }
 const rid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
 /* "anything new?" is answered from KV (or this isolate's memory) — the pages poll, and every poll must NOT wake the
@@ -1049,7 +1073,7 @@ async function boardRoute(env, ctx, stub, user, body, token, mayPost, perms) {
   const str = (v, max) => String(v || "").replace(/\r/g, "").trim().slice(0, max);
   const notify = (t, tx, meta) => { const p = stub.boardNotify(user.id, t.id, t.title, user.name, tx, meta); if (ctx && ctx.waitUntil) ctx.waitUntil(p); };
   if (op === "list") return ok({ topics: await stub.boardList(), users: await stub.boardUsers(), tasks: await stub.boardTasks(user.id), stamp: stamp || await boardTouch(env) });
-  if (op === "get") { const t = await stub.boardThread(String(body.id || "")); return t ? ok({ topic: t, stamp: stamp || await boardTouch(env) }) : json({ error: "gone", token }, 404); }
+  if (op === "get") { const t = await stub.boardThread(String(body.id || "")); if (t) retryTx(env, ctx, stub, t); return t ? ok({ topic: t, stamp: stamp || await boardTouch(env) }) : json({ error: "gone", token }, 404); }
   // writes: when the database refuses (allowance used up), say so clearly — the page keeps the text so nothing is lost
   const write = async (fn) => { try { return await fn(); } catch (e) { return json({ error: /limit|exceed|quota|allow/i.test(String(e && e.message)) ? "db_limit" : "db", detail: [String(e && e.message || e)] }, 503); } };
   if (op === "new") return write(async () => {
