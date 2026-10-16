@@ -527,14 +527,14 @@ function renderMp() {
    X:531 Y:919). Who owns which tile comes from data/territory-2189-grid.png — one pixel per tile (red channel: 0 free · 1 ours · 2 another
    alliance), read from the officers' screenshots (same date as the 🛰️ picture), so it can be 1–2 tiles off. Built first = owned: tiles another
    alliance already holds stay theirs; the banners are counted in list order. Saved with the plan (PLAN.fl = [[x, y], …]). */
-const FT = { zh: { t: "🚩 插旗規劃", hint: "每面聯盟旗幟佔 7×7 格（旗子在正中間）。先蓋的優先：別人已經佔的格子不會算給我們，所以照清單順序計算。地圖上藍格 = 這面旗子新增的領地，紅格 = 已經是別人的。",
+const FT = { zh: { t: "🚩 插旗規劃", hint: "每面聯盟旗幟佔 7×7 格（旗子在正中間），領地要跟現有、連到總部的領地接壤，可以一面接一面延伸。先蓋的優先：別人已經佔的格子不會算給我們，所以照清單順序計算。地圖上藍格 = 這面旗子新增的領地，紅格 = 已經是別人的。",
     on: "🚩 點地圖放旗：開", off: "🚩 點地圖放旗：關", tapHint: "放大地圖後點一格就會放一面旗子；之後可以在下面改座標。", add: "＋ 加入",
-    row: "+{n} 格", lost: "{n} 格是別人的", notConn: "⚠️ 沒接到我們的領地", onOther: "❌ 旗子位置是別人的領地", total: "共 {f} 面旗 · 新增 {n} 格",
+    row: "+{n} 格", lost: "{n} 格是別人的", notConn: "⚠️ 沒接到我們的領地（失效旗幟：沒有領地加成，也不能讓後面的旗子接上）", onOther: "❌ 旗子位置是別人的領地", total: "共 {f} 面旗 · 新增 {n} 格",
     empty: "還沒有規劃旗子。", del: "移除", up: "上移", save: "改完記得按上面的「💾 儲存規劃」，其他幹部才看得到。",
     note: "領地資料來自 {d} 的截圖，可能差 1～2 格，別人的領地之後也會變；實際插旗前請在遊戲裡確認。", loading: "讀取領地資料中…" },
-  en: { t: "🚩 Banner plan", hint: "Each Alliance Banner claims 7×7 tiles (banner in the middle). Built first = owned: tiles another alliance already holds stay theirs, so the list is counted in order. On the map, blue tiles = new territory from that banner, red = already someone else's.",
+  en: { t: "🚩 Banner plan", hint: "Each Alliance Banner claims 7×7 tiles (banner in the middle); its territory must border territory already linked to the HQ, so banners chain one after another. Built first = owned: tiles another alliance already holds stay theirs, so the list is counted in order. On the map, blue tiles = new territory from that banner, red = already someone else's.",
     on: "🚩 Tap map to place: ON", off: "🚩 Tap map to place: OFF", tapHint: "Zoom in and tap a tile to drop a banner; fine-tune the coordinates below.", add: "+ Add",
-    row: "+{n} tiles", lost: "{n} tiles are someone else's", notConn: "⚠️ Not connected to our territory", onOther: "❌ Banner tile is another alliance's", total: "{f} banners · +{n} tiles",
+    row: "+{n} tiles", lost: "{n} tiles are someone else's", notConn: "⚠️ Not connected to our territory (inactive: no Territory Bonus, and later banners can't connect through it)", onOther: "❌ Banner tile is another alliance's", total: "{f} banners · +{n} tiles",
     empty: "No banners planned yet.", del: "Remove", up: "Move up", save: "Press 💾 Save plan above so the other officers see it.",
     note: "Territory read from screenshots taken {d}; it can be 1–2 tiles off and other alliances move — check in game before building.", loading: "Loading territory data…" } };
 const ft = (k) => (FT[lang] || FT.en)[k];
@@ -558,9 +558,10 @@ function flagCalc() {
       if (o === 1 || mine.has(k)) { conn = true; continue; }
       fresh.push([x, y]);
     }
-    if (!conn) for (let x = fx - FR - 1; x <= fx + FR + 1 && !conn; x++) for (const y of [fy - FR - 1, fy + FR + 1]) if (own(x, y) === 1 || mine.has(x * FN + y)) conn = true;
+    // in-game rules 3–4: a banner's territory must border (share an edge with) territory that already reaches the HQ
+    if (!conn) for (let x = fx - FR; x <= fx + FR && !conn; x++) for (const y of [fy - FR - 1, fy + FR + 1]) if (own(x, y) === 1 || mine.has(x * FN + y)) conn = true;
     if (!conn) for (let y = fy - FR; y <= fy + FR && !conn; y++) for (const x of [fx - FR - 1, fx + FR + 1]) if (own(x, y) === 1 || mine.has(x * FN + y)) conn = true;
-    fresh.forEach(([x, y]) => mine.add(x * FN + y));
+    if (conn) fresh.forEach(([x, y]) => mine.add(x * FN + y));   // a cut-off banner is inactive: later banners can't lean on it
     out.push({ x: fx, y: fy, fresh, lost, conn, onOther: own(fx, fy) === 2 });
   }
   return out;
