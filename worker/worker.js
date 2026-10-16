@@ -1099,7 +1099,7 @@ const NOTIFY_DEFAULT = {
   "216564539041251329": ["bear-hunt", "viking-vengeance", "cesares-fury", MOB],              // Flip
   "961642100150124555": ["swordland-showdown", "tri-alliance-clash", "viking-vengeance", MOB], // Boo
   "1526789098210197638": ["swordland-showdown", "tri-alliance-clash", MOB],                   // ELR
-  "1534039396461056172": ["swordland-showdown", "kvk", "call-of-sovereign", MOB],             // Jordan
+  "1534039396461056172": ["swordland-showdown", "kvk", MOB],                                  // Jordan (Castle Battle = KvK's last day)
   "1525666601456767171": ["sanctuary-battle", MOB],                                           // Papa
   "741447079804797041": ["cesares-fury", MOB],                                                // Fire (firebaugh)
   "706153853460021341": [MOB], "734803550672257104": [MOB], "1003385592983322664": [MOB],    // Tiger, Ashish, Anubis
@@ -1111,6 +1111,8 @@ function withSeed(perms) {
   for (const [id, name] of Object.entries(SEED_VIEWERS)) if (!p.users[id] && !gone.has(id)) p.users[id] = { name, perms: { ...VIEW_DEFAULT } };
   for (const id of ADMIN_IDS) if (p.users[id]) p.users[id].admin = true;
   for (const [id, keys] of Object.entries(NOTIFY_DEFAULT)) if (p.users[id] && !Array.isArray(p.users[id].notify)) p.users[id].notify = [...keys];
+  const jo = p.users["1534039396461056172"];   // first list wrongly had Call of the Sovereign for Jordan — drop it if that list is still unchanged
+  if (jo && Array.isArray(jo.notify) && jo.notify.join() === "swordland-showdown,kvk,call-of-sovereign,alliance-mobilization") jo.notify = NOTIFY_DEFAULT["1534039396461056172"].slice();
   return p;
 }
 /* role from the 👥 table: "admin" | "editor" (edit right on some tab) | "viewer" | null (not on the list) */
