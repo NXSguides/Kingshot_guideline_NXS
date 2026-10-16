@@ -40,19 +40,30 @@ const BD = { ko: {"viewOnly": "👁️ 보기 전용: 게시판을 읽을 수만
     assign: "📋 Atribuir a", taskTo: "📋 Tarefa para", done: "✅ Feito", undone: "↩︎ Desfazer", doneBy: "{name} concluiu", myTasks: "📋 Tarefas para você ({n})", noUsers: "Nenhum outro oficial usou o mural ainda.", inTopic: "em “{t}”" },
 };
 const LANG_LABEL = { zh: "中文", en: "English", pt: "Português", ko: "한국어", de: "Deutsch", fr: "Français", es: "Español", tr: "Türkçe", id: "Bahasa Indonesia", ru: "Русский", th: "ไทย", ar: "العربية", ja: "日本語" };
+let ments = [];
 let lang = OFFICER.lang, topics = [], cur = null, timer = null, openOrig = new Set(), armed = null, editing = null;
 /* 🔴 unread: the last time each topic was opened on this device (localStorage); a topic changed after that gets a dot,
    and the 💬 Board tab gets one when any topic does. Push notifications already add the red badge on the app icon. */
 const SEEN_LS = "nxs-board-seen";
 const seen = (() => { try { return JSON.parse(localStorage.getItem(SEEN_LS)) || {}; } catch (e) { return {}; } })();
 const saveSeen = () => { try { localStorage.setItem(SEEN_LS, JSON.stringify(seen)); } catch (e) {} };
-const unread = (x) => x.last > (seen[x.id] || 0) && !(OFFICER.me() && x.lastBy === OFFICER.me().id);
+const unread = (x) => x.last > (seen[x.id] || 0) && x.lastBy !== VID();
 function markSeen(id, at) { seen[id] = Math.max(seen[id] || 0, at || Date.now()); saveSeen(); tabDot(); }
 function tabDot(n) {
   const a = document.getElementById("boardTab"); if (!a) return;
   if (n == null) n = topics.filter(unread).length;
   a.classList.toggle("dot", n > 0);
 }
+Object.entries({
+  zh: { myMents: "📣 提到你的新留言（{n}）", barAt: "📣 這一串有 {n} 則提到你", barTask: "📋 {n} 則指派給你", jump: "跳過去 ↓" },
+  en: { myMents: "📣 New messages that mention you ({n})", barAt: "📣 {n} in this topic mention you", barTask: "📋 {n} assigned to you", jump: "Jump there ↓" },
+  pt: { myMents: "📣 Novas mensagens que te marcam ({n})", barAt: "📣 {n} neste tópico te marcam", barTask: "📋 {n} atribuídas a você", jump: "Ir até lá ↓" },
+  ko: { myMents: "📣 나를 언급한 새 글 ({n})", barAt: "📣 이 글타래에서 나를 언급한 글 {n}개", barTask: "📋 나에게 맡겨진 글 {n}개", jump: "바로 가기 ↓" },
+  ar: { myMents: "📣 رسائل جديدة تذكرك ({n})", barAt: "📣 {n} في هذا الموضوع تذكرك", barTask: "📋 {n} مُسندة إليك", jump: "اذهب إليها ↓" },
+}).forEach(([l, o]) => { BD[l] = Object.assign(BD[l] || {}, o); });
+/* 👁️ whose eyes: the officer an admin is previewing as (👥 tab), else me. Previewing never edits, deletes or ticks anything. */
+const VID = () => OFFICER.previewAs || (OFFICER.me() && OFFICER.me().id) || null;
+const PV = () => !!OFFICER.previewAs;
 const t = (k, v = {}) => String((BD[lang] || BD.en)[k] ?? BD.en[k] ?? k).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
 const esc = OFFICER.util.esc;
 const linkify = (h) => h.replace(/https?:\/\/[^\s<]+/g, (u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`).replace(mentionRe(), (m, a, n) => `${a}<span class="bd-mention">@${n}</span>`);
@@ -149,7 +160,7 @@ const userName = (id) => { const u = users.find((x) => x.id === id) || (OFFICER.
 /* people to pick from: everyone who used the board + the 👥 officer table (names there are set by admins) */
 const others = () => { const m = new Map(users.map((u) => [u.id, u])); for (const [id, u] of Object.entries((OFFICER.perms && OFFICER.perms.users) || {})) if (!m.has(id)) m.set(id, { id, name: u.name, avatar: "" }); return [...m.values()].filter((u) => !/^pw-/.test(u.id) && (!OFFICER.me() || u.id !== OFFICER.me().id)).sort((a, b) => a.name.localeCompare(b.name)); };
 async function api(op, extra = {}) {
-  const r = await fetch(AUTH_API + "/board", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), lang, op, ...(firstCall ? { first: true } : {}), ...extra }) });
+  const r = await fetch(AUTH_API + "/board", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), lang, op, ...(OFFICER.previewAs ? { as: OFFICER.previewAs } : {}), ...(firstCall ? { first: true } : {}), ...extra }) });
   const j = await r.json().catch(() => ({ error: "network" }));
   if (j.token) { try { localStorage.setItem(DISCORD_LS, j.token); } catch (e) {} }
   if (!r.ok || j.error) throw Object.assign(new Error((j.error || "HTTP " + r.status) + (j.detail ? " — " + [].concat(j.detail).join("; ").slice(0, 200) : "")), { code: j.error });
@@ -176,17 +187,19 @@ function applyTexts() {
 function renderList() {
   $("pg-board").classList.remove("can-reply");
   tabDot();
-  if (lastErr) { $("bd_tasks").hidden = true; $("bd_list").innerHTML = `<div class="card msg warn">${esc(errText(lastErr))}</div>`; return; }
+  if (lastErr) { $("bd_tasks").hidden = true; if ($("bd_ments")) $("bd_ments").hidden = true; $("bd_list").innerHTML = `<div class="card msg warn">${esc(errText(lastErr))}</div>`; return; }
   const tk = $("bd_tasks"); tk.hidden = !tasks.length;
   if (tasks.length) tk.innerHTML = `<h3>${esc(t("myTasks", { n: tasks.length }))}</h3>` + tasks.map((x) => `<a href="#board?t=${esc(x.tid)}&p=${esc(x.id)}">${linkify(esc(pick(x.txt))).slice(0, 400)}<div class="muted">${esc(x.by.name)} · ${esc(when(x.at))} · ${esc(t("inTopic", { t: pick(x.title) }))}</div></a>`).join("");
-  $("bd_list").innerHTML = topics.length ? topics.map((x) => `<a class="card bd-topic${unread(x) ? " unread" : ""}" href="#board?t=${esc(x.id)}">
-      <h3>${unread(x) ? '<span class="bd-dot"></span>' : ""}${esc(pick(x.title))}${x.dec ? `<span class="bd-badge">${esc(t("decided"))}</span>` : ""}</h3>
+  const newM = ments.filter((x) => x.at > (seen[x.tid] || 0)), mt = new Set(newM.map((x) => x.tid)), tt = new Set(tasks.map((x) => x.tid));
+  const mk = $("bd_ments"); if (mk) { mk.hidden = !newM.length; mk.innerHTML = newM.length ? `<h3>${esc(t("myMents", { n: newM.length }))}</h3>` + newM.map((x) => `<a href="#board?t=${esc(x.tid)}&p=${esc(x.id)}">${linkify(esc(pick(x.txt))).slice(0, 400)}<div class="muted">${esc(x.by.name)} · ${esc(when(x.at))} · ${esc(t("inTopic", { t: pick(x.title) }))}</div></a>`).join("") : ""; }
+  $("bd_list").innerHTML = topics.length ? topics.map((x) => `<a class="card bd-topic${unread(x) ? " unread" : ""}${mt.has(x.id) || tt.has(x.id) ? " forme" : ""}" href="#board?t=${esc(x.id)}">
+      <h3>${unread(x) ? '<span class="bd-dot"></span>' : ""}${mt.has(x.id) ? '<span class="bd-forme-tag" style="margin:0 6px 0 0">📣 @</span>' : ""}${tt.has(x.id) ? '<span class="bd-forme-tag" style="margin:0 6px 0 0">📋</span>' : ""}${esc(pick(x.title))}${x.dec ? `<span class="bd-badge">${esc(t("decided"))}</span>` : ""}</h3>
       <div class="muted">${esc(t("by", { name: x.by.name }))} · ${esc(t("replies", { n: x.n }))} · ${esc(t("last", { t: when(x.last) }))}</div></a>`).join("")
     : `<div class="card muted">${esc(t("empty"))}</div>`;
 }
 const av = (u) => u.avatar ? `<img src="${esc(u.avatar)}" alt="">` : `<span class="bd-av">${esc((u.name || "?").slice(0, 1))}</span>`;
 function postHtml(p, i) {
-  const me = OFFICER.me() && p.by.id === OFFICER.me().id, isDec = cur.dec === p.id, src = p.txt.src;
+  const me = !PV() && OFFICER.me() && p.by.id === OFFICER.me().id, isDec = cur.dec === p.id, src = p.txt.src;
   const translated = !!p.txt[lang] && p.txt[lang] !== p.txt.orig, showOrig = openOrig.has(p.id);
   const dbg = `src=${src || "?"} · ${OFFICER_LANGS.map((l) => l + (p.txt[l] ? (p.txt[l] === p.txt.orig ? "=orig" : " ✓") : " ✗")).join(" · ")}`;
   const sameLang = src === lang || (!translated && !p.txt.en && !p.txt.zh && !p.txt.pt);
@@ -202,15 +215,15 @@ function postHtml(p, i) {
          <button class="btn" data-dec="${esc(isDec ? "" : p.id)}">${esc(isDec ? t("clearDec") : t("setDec"))}</button>
          ${me ? `<button class="btn" data-edit="${esc(p.id)}">${esc(t("edit"))}</button><button class="btn" data-del="${esc(p.id)}">${esc(armed === p.id ? (i === 0 ? t("delTopic") : t("delAsk")) : t("del"))}</button>` : ""}
        </div>`;
-  const myId = OFFICER.me() && OFFICER.me().id, mt = p.meta || {}, toMe = (mt.to || []).includes(myId), atMe = (mt.m || []).includes(myId);
+  const myId = VID(), mt = p.meta || {}, toMe = (mt.to || []).includes(myId), atMe = (mt.m || []).includes(myId);
   return `<div class="card bd-post${isDec ? " is-dec" : ""}${toMe || atMe ? " bd-forme" : ""}" id="bdp-${esc(p.id)}">
     <div class="bd-head">${av(p.by)}<b>${esc(p.by.name)}</b><span class="muted">${esc(when(p.at))}${p.ed ? " " + esc(t("edited")) : ""}</span>${toMe ? `<span class="bd-forme-tag">📋 ${esc(t("forMeTask"))}</span>` : atMe ? `<span class="bd-forme-tag">@ ${esc(t("forMeAt"))}</span>` : ""}</div>${body}</div>`;
 }
 function taskHtml(p) {
   const m = p.meta; if (!m || !(m.to || []).length) return "";
-  const me = OFFICER.me() && OFFICER.me().id, done = m.done || {}, mine = m.to.includes(me);
+  const me = VID(), done = m.done || {}, mine = m.to.includes(me);
   return `<div class="bd-task"><span>${esc(t("taskTo"))}</span>${m.to.map((id) => `<span class="bd-chip task${done[id] ? " done" : ""}">${esc(userName(id))}${done[id] ? " ✅" : ""}</span>`).join("")}
-    ${me ? `<button class="btn" data-done="${esc(p.id)}" data-on="${done[me] ? 0 : 1}">${esc(done[me] ? t("undone") : t("done"))}</button>` : ""}
+    ${me && !PV() ? `<button class="btn" data-done="${esc(p.id)}" data-on="${done[me] ? 0 : 1}">${esc(done[me] ? t("undone") : t("done"))}</button>` : ""}
     ${Object.keys(done).filter((id) => !m.to.includes(id)).map((id) => `<span class="muted">${esc(t("doneBy", { name: userName(id) }))}</span>`).join("")}</div>`;
 }
 function renderTopic() { renderTopic0(); if (editing) imgsRender("edit"); }   // the edit box shows its pictures
@@ -220,15 +233,17 @@ function renderTopic0() {
   const d = cur.dec && cur.posts.find((p) => p.id === cur.dec);
   $("bd_decision").innerHTML = d ? `<div class="card bd-dec"><h3>${esc(t("decision"))}</h3><div class="bd-text" style="margin-top:4px">${linkify(esc(pick(d.txt)))}</div>
       <div class="muted" style="font-size:12px">${esc(d.by.name)} · ${esc(t("decBy", { name: cur.dby ? cur.dby.name : "?", t: when(cur.dat) }))}</div></div>` : "";
-  $("bd_posts").innerHTML = cur.posts.map(postHtml).join("");
+  const vid = VID(), fm = (p) => p.meta && p.by.id !== vid ? ((p.meta.to || []).includes(vid) ? "to" : (p.meta.m || []).includes(vid) ? "m" : "") : "";
+  const nAt = cur.posts.filter((p) => fm(p) === "m").length, nTo = cur.posts.filter((p) => fm(p) === "to").length, first = cur.posts.find((p) => fm(p));
+  $("bd_posts").innerHTML = (first ? `<div class="card bd-forme-bar">${[nAt ? esc(t("barAt", { n: nAt })) : "", nTo ? esc(t("barTask", { n: nTo })) : ""].filter(Boolean).join(" · ")} <a class="btn" href="#board?t=${esc(cur.id)}&p=${esc(first.id)}">${esc(t("jump"))}</a></div>` : "") + cur.posts.map(postHtml).join("");
   $("bd_posts").querySelectorAll("img[data-bimg]").forEach(loadPic);
   // 💬 switch (👥 tab): view-only officers may answer where they were @'d or assigned
-  const me = OFFICER.me() && OFFICER.me().id, cfg = (OFFICER.perms && OFFICER.perms.cfg) || {};
+  const me = VID(), cfg = (OFFICER.perms && OFFICER.perms.cfg) || {};
   $("pg-board").classList.toggle("can-reply", !!(cfg.mReply && me && cur.posts.some((p) => p.meta && ((p.meta.m || []).includes(me) || (p.meta.to || []).includes(me)))));
 }
 async function loadList(quiet) {
   if (!quiet) $("bd_list").innerHTML = `<div class="muted">${esc(t("loading"))}</div>`;
-  try { const j = await api("list", quiet ? { since: stamp } : {}); if (j.unchanged) return; topics = j.topics; users = j.users || users; tasks = j.tasks || []; lastErr = null; renderList(); }
+  try { const j = await api("list", quiet ? { since: stamp } : {}); if (j.unchanged) return; topics = j.topics; users = j.users || users; tasks = j.tasks || []; ments = j.ments || []; lastErr = null; renderList(); }
   catch (e) { if (!quiet) { lastErr = e; renderList(); } if (e.code === "logged_out") showLogin(); }
 }
 async function loadTopic(id, quiet) {
@@ -238,6 +253,8 @@ async function loadTopic(id, quiet) {
   catch (e) { if (e.code === "gone") { $("bd_posts").innerHTML = `<div class="card">${esc(t("gone"))}</div>`; cur = null; } else if (!quiet) { lastErr = e; $("bd_posts").innerHTML = `<div class="card msg warn">${esc(errText(e))}</div>`; } }
 }
 function showLogin() { $("bd_login").hidden = false; $("bd_app").hidden = true; }
+// 👁️ preview on / off (👥 tab): load again with the other person's tasks and @s
+window.addEventListener("nxs-perms", () => { stamp = 0; tasks = []; ments = []; if (!ROOT.hidden && ROOT.offsetParent !== null) route(); });
 function route() {
   if (!token() && !OFFICER.pw) return showLogin();
   $("bd_login").hidden = true; $("bd_app").hidden = false;

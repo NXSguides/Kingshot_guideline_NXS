@@ -678,6 +678,16 @@ export class PushTimers extends DurableObject {
     }
     return out;
   }
+  boardMentions(uid) {   // 📣 recent messages (14 days) that @ this person — not their own
+    const out = [], since = Date.now() - 14 * 864e5;
+    for (const r of this.sql.exec(`SELECT p.id, p.tid, p.by, p.at, p.txt, p.meta, t.title FROM bp p JOIN bt t ON t.id = p.tid WHERE p.meta IS NOT NULL AND p.at > ? ORDER BY p.at DESC LIMIT 300`, since)) {
+      let m = null; try { m = JSON.parse(r.meta); } catch (e) {}
+      const by = JSON.parse(r.by); if (!m || !(m.m || []).includes(uid) || by.id === uid) continue;
+      out.push({ id: r.id, tid: r.tid, by, at: r.at, txt: JSON.parse(r.txt), title: JSON.parse(r.title) });
+      if (out.length >= 30) break;
+    }
+    return out;
+  }
   boardList() {
     // lastBy = who wrote the newest message (the page shows no "unread" dot for your own)
     return [...this.sql.exec(`SELECT t.*, (SELECT by FROM bp WHERE tid = t.id ORDER BY at DESC LIMIT 1) AS lb FROM bt t ORDER BY last DESC LIMIT 200`)]
@@ -1072,7 +1082,9 @@ async function boardRoute(env, ctx, stub, user, body, token, mayPost, perms) {
     return out; };
   const str = (v, max) => String(v || "").replace(/\r/g, "").trim().slice(0, max);
   const notify = (t, tx, meta) => { const p = stub.boardNotify(user.id, t.id, t.title, user.name, tx, meta); if (ctx && ctx.waitUntil) ctx.waitUntil(p); };
-  if (op === "list") return ok({ topics: await stub.boardList(), users: await stub.boardUsers(), tasks: await stub.boardTasks(user.id), stamp: stamp || await boardTouch(env) });
+  // 👁️ an admin previewing as another officer sees that officer's tasks and @s
+  const vid = body.as && roleOf(perms, user.id) === "admin" ? String(body.as).slice(0, 40) : user.id;
+  if (op === "list") return ok({ topics: await stub.boardList(), users: await stub.boardUsers(), tasks: await stub.boardTasks(vid), ments: await stub.boardMentions(vid), stamp: stamp || await boardTouch(env) });
   if (op === "get") { const t = await stub.boardThread(String(body.id || "")); if (t) retryTx(env, ctx, stub, t); return t ? ok({ topic: t, stamp: stamp || await boardTouch(env) }) : json({ error: "gone", token }, 404); }
   // writes: when the database refuses (allowance used up), say so clearly — the page keeps the text so nothing is lost
   const write = async (fn) => { try { return await fn(); } catch (e) { return json({ error: /limit|exceed|quota|allow/i.test(String(e && e.message)) ? "db_limit" : "db", detail: [String(e && e.message || e)] }, 503); } };
