@@ -45,6 +45,7 @@ function drawMap() {
     else if (b.kind === "hq") s.push(`${g}<path d="M${X - 15} ${Y - 14}h30v16c0 9-8 14-15 17c-7-3-15-8-15-17z" fill="#2b6cc4" stroke="#fff" stroke-width="2.5"/><text x="${X}" y="${Y + 5}" text-anchor="middle" font-family="Arial" font-size="11" font-weight="800" fill="#fff">HQ</text><text class="lbl km-hqLbl" x="${X}" y="${Y - 22}" text-anchor="middle" font-size="13">[NXS] ${esc(hqName())}</text></g>`);
     else s.push(`${g}<circle cx="${X}" cy="${Y}" r="26" fill="#f2c33d" stroke="#fff" stroke-width="3"/><text x="${X}" y="${Y + 9}" text-anchor="middle" font-size="25">👑</text><text class="lbl" id="km_castleLbl" x="${X}" y="${Y + 46}" text-anchor="middle" font-size="16">King's Castle</text></g>`);
   }
+  s.push(`<image id="km_obst" width="${FN}" height="${FN}" preserveAspectRatio="none" transform="matrix(${KX} ${-KY} ${-KX} ${-KY} ${CX} ${CY + 1200 * KY})" style="display:none;image-rendering:pixelated;pointer-events:none"/>`);
   s.push(`<g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_sel"></g>`);
   $("km_svg").innerHTML = s.join("");
   $("km_svg").querySelectorAll(".mk").forEach((m) => {
@@ -530,21 +531,52 @@ function renderMp() {
 const FT = { zh: { t: "🚩 插旗規劃", hint: "每面聯盟旗幟佔 7×7 格（旗子在正中間），領地要跟現有、連到總部的領地接壤，可以一面接一面延伸。先蓋的優先：別人已經佔的格子不會算給我們，所以照清單順序計算。地圖上藍格 = 這面旗子新增的領地，紅格 = 已經是別人的。",
     on: "🚩 點地圖放旗：開", off: "🚩 點地圖放旗：關", tapHint: "放大地圖後點一格就會放一面旗子；之後可以在下面改座標。", add: "＋ 加入",
     row: "+{n} 格", lost: "{n} 格是別人的", notConn: "⚠️ 沒接到我們的領地（失效旗幟：沒有領地加成，也不能讓後面的旗子接上）", onOther: "❌ 旗子位置是別人的領地", total: "共 {f} 面旗 · 新增 {n} 格",
-    empty: "還沒有規劃旗子。", del: "移除", up: "上移", save: "改完記得按上面的「💾 儲存規劃」，其他幹部才看得到。",
+    empty: "還沒有規劃旗子。", obst: "⛰️ 障礙物／禁建區", onMt: "❌ 旗子位置是山", onLake: "❌ 旗子位置是湖", inZone: "❌ 在禁建區（{n}）", del: "移除", up: "上移", save: "改完記得按上面的「💾 儲存規劃」，其他幹部才看得到。",
     note: "領地資料來自 {d} 的截圖，可能差 1～2 格，別人的領地之後也會變；實際插旗前請在遊戲裡確認。", loading: "讀取領地資料中…" },
   en: { t: "🚩 Banner plan", hint: "Each Alliance Banner claims 7×7 tiles (banner in the middle); its territory must border territory already linked to the HQ, so banners chain one after another. Built first = owned: tiles another alliance already holds stay theirs, so the list is counted in order. On the map, blue tiles = new territory from that banner, red = already someone else's.",
     on: "🚩 Tap map to place: ON", off: "🚩 Tap map to place: OFF", tapHint: "Zoom in and tap a tile to drop a banner; fine-tune the coordinates below.", add: "+ Add",
     row: "+{n} tiles", lost: "{n} tiles are someone else's", notConn: "⚠️ Not connected to our territory (inactive: no Territory Bonus, and later banners can't connect through it)", onOther: "❌ Banner tile is another alliance's", total: "{f} banners · +{n} tiles",
-    empty: "No banners planned yet.", del: "Remove", up: "Move up", save: "Press 💾 Save plan above so the other officers see it.",
+    empty: "No banners planned yet.", obst: "⛰️ Obstacles / no-build", onMt: "❌ Banner tile is a mountain", onLake: "❌ Banner tile is a lake", inZone: "❌ In a no-build zone ({n})", del: "Remove", up: "Move up", save: "Press 💾 Save plan above so the other officers see it.",
     note: "Territory read from screenshots taken {d}; it can be 1–2 tiles off and other alliances move — check in game before building.", loading: "Loading territory data…" } };
 const ft = (k) => (FT[lang] || FT.en)[k];
 const FN = 1200, FR = 3;   // kingdom size · banner reach (7×7 = 3 tiles each side)
-let GRID = null, flagMode = false;
+let GRID = null, OBST = null, ZONE = null, ZNAME = [], flagMode = false;
+let obstOn = (() => { try { return localStorage.getItem("km-obst") === "1"; } catch (e) { return false; } })();
+/* 🚫 no-build zones (same for every kingdom): a square around each building — Fortress / Sanctuary 60 tiles, Outpost 15 tiles —
+   and the ring around the King's Castle. Buildings are anchored at their X, Y and take 6×6 (Fortress, Sanctuary) or 3×3 (Outpost) tiles. */
+function buildZones() {
+  ZONE = new Uint16Array(FN * FN); ZNAME = [""];
+  const mark = (x1, y1, x2, y2, name) => { ZNAME.push(name); const n = ZNAME.length - 1;
+    for (let x = Math.max(0, x1); x <= Math.min(FN - 1, x2); x++) for (let y = Math.max(0, y1); y <= Math.min(FN - 1, y2); y++) if (!ZONE[y * FN + x]) ZONE[y * FN + x] = n; };
+  mark(586, 586, 613, 613, castleName());
+  for (const b of B) {
+    if (b.kind !== "fortress" && b.kind !== "sanctuary" && b.kind !== "outpost") continue;
+    const sz = b.kind === "outpost" ? 3 : 6, fz = b.kind === "outpost" ? 15 : 60;
+    const x1 = Math.round(b.x + sz / 2 - fz / 2), r1 = Math.round((FN - b.y - sz) + sz / 2 - fz / 2);   // rows run the other way: row = 1199 − Y
+    mark(x1, FN - 1 - (r1 + fz - 1), x1 + fz - 1, FN - 1 - r1, nm(b));
+  }
+}
+const obstAt = (x, y) => OBST && x >= 0 && y >= 0 && x < FN && y < FN ? OBST[y * FN + x] : 0;   // 1 mountain · 2 lake
+const zoneAt = (x, y) => ZONE && x >= 0 && y >= 0 && x < FN && y < FN ? ZONE[y * FN + x] : 0;
+/* ⛰️ map layer: mountains, lakes and no-build zones as one picture, one pixel per tile */
+function drawObst() {
+  const im = $("km_obst"); if (!im || !OBST) return;
+  if (!im.getAttribute("href")) {
+    const c = document.createElement("canvas"); c.width = FN; c.height = FN; const x = c.getContext("2d"), d = x.createImageData(FN, FN);
+    for (let i = 0; i < FN * FN; i++) { const o = OBST[i], z = ZONE[i], k = i * 4;
+      if (o === 1) { d.data[k] = 120; d.data[k + 1] = 120; d.data[k + 2] = 132; d.data[k + 3] = 235; }
+      else if (o === 2) { d.data[k] = 40; d.data[k + 1] = 110; d.data[k + 2] = 200; d.data[k + 3] = 235; }
+      else if (z) { d.data[k] = 220; d.data[k + 1] = 40; d.data[k + 2] = 40; d.data[k + 3] = 60; } }
+    x.putImageData(d, 0, 0); const u = c.toDataURL(); im.setAttribute("href", u); im.setAttributeNS("http://www.w3.org/1999/xlink", "href", u);
+  }
+  im.style.display = obstOn ? "" : "none";
+}
 function loadGrid() {
   const im = new Image();
   im.onload = () => { try { const c = document.createElement("canvas"); c.width = FN; c.height = FN; const x = c.getContext("2d", { willReadFrequently: true }); x.drawImage(im, 0, 0);
-    const d = x.getImageData(0, 0, FN, FN).data; GRID = new Uint8Array(FN * FN); for (let i = 0; i < FN * FN; i++) GRID[i] = d[i * 4]; } catch (e) {} drawFlags(); renderFlags(); };
-  im.src = "data/territory-2189-grid.png?v=1";
+    const d = x.getImageData(0, 0, FN, FN).data; GRID = new Uint8Array(FN * FN); OBST = new Uint8Array(FN * FN);
+    for (let i = 0; i < FN * FN; i++) { GRID[i] = d[i * 4]; OBST[i] = d[i * 4 + 1]; } } catch (e) {} buildZones(); drawObst(); drawFlags(); renderFlags(); };
+  im.src = "data/territory-2189-grid.png?v=2";
 }
 const own = (x, y) => (x < 0 || y < 0 || x >= FN || y >= FN) ? 2 : GRID ? GRID[y * FN + x] : 0;   // 0 free · 1 ours · 2 another alliance
 /* every banner in list order → its new tiles, the tiles another alliance holds, and whether it touches our territory */
@@ -562,7 +594,7 @@ function flagCalc() {
     if (!conn) for (let x = fx - FR; x <= fx + FR && !conn; x++) for (const y of [fy - FR - 1, fy + FR + 1]) if (own(x, y) === 1 || mine.has(x * FN + y)) conn = true;
     if (!conn) for (let y = fy - FR; y <= fy + FR && !conn; y++) for (const x of [fx - FR - 1, fx + FR + 1]) if (own(x, y) === 1 || mine.has(x * FN + y)) conn = true;
     if (conn) fresh.forEach(([x, y]) => mine.add(x * FN + y));   // a cut-off banner is inactive: later banners can't lean on it
-    out.push({ x: fx, y: fy, fresh, lost, conn, onOther: own(fx, fy) === 2 });
+    out.push({ x: fx, y: fy, fresh, lost, conn, onOther: own(fx, fy) === 2, ob: obstAt(fx, fy), zone: ZNAME[zoneAt(fx, fy)] || "" });
   }
   return out;
 }
@@ -572,7 +604,7 @@ function drawFlags() {
   g.innerHTML = flagCalc().map((f, i) => {
     const [X, Y] = P(f.x + .5, f.y + .5);
     return `<g>${f.fresh.map(([x, y]) => `<polygon points="${tilePts(x, y)}" fill="rgba(60,150,255,.55)"/>`).join("")}${f.lost.map(([x, y]) => `<polygon points="${tilePts(x, y)}" fill="rgba(230,50,50,.6)"/>`).join("")}`
-      + `<polygon points="${pts([[f.x - FR, f.y - FR], [f.x + FR + 1, f.y - FR], [f.x + FR + 1, f.y + FR + 1], [f.x - FR, f.y + FR + 1]])}" fill="none" stroke="${f.conn && !f.onOther ? "#fff" : "#ffb020"}" stroke-width=".5"/>`
+      + `<polygon points="${pts([[f.x - FR, f.y - FR], [f.x + FR + 1, f.y - FR], [f.x + FR + 1, f.y + FR + 1], [f.x - FR, f.y + FR + 1]])}" fill="none" stroke="${f.conn && !f.onOther && !f.ob && !f.zone ? "#fff" : "#ffb020"}" stroke-width=".5"/>`
       + `<polygon points="${tilePts(f.x, f.y)}" fill="#0b3d91" stroke="#fff" stroke-width=".25"/><text x="${X}" y="${Y - 1.6}" text-anchor="middle" font-family="Arial" font-size="2.6" font-weight="800" fill="#fff" stroke="#0b3d91" stroke-width=".5" paint-order="stroke">${i + 1}</text></g>`;
   }).join("");
 }
@@ -582,14 +614,16 @@ function renderFlags() {
   el.innerHTML = `<h3 style="margin-bottom:2px">${esc(ft("t"))}</h3><div class="muted" style="font-size:12.5px">${esc(ft("hint"))}</div>`
     + (GRID ? "" : `<div class="muted" style="font-size:12px;margin-top:6px">${esc(ft("loading"))}</div>`)
     + (ed ? `<div class="row km-fl-add" style="margin-top:10px"><button type="button" class="btn${flagMode ? " primary" : ""}" id="fl_mode">${esc(ft(flagMode ? "on" : "off"))}</button>
-        <label>X <input id="fl_x" type="number" min="0" max="1199" inputmode="numeric"></label><label>Y <input id="fl_y" type="number" min="0" max="1199" inputmode="numeric"></label><button type="button" class="btn" id="fl_add">${esc(ft("add"))}</button></div>
-        ${flagMode ? `<div class="muted" style="font-size:12px;margin-top:4px">${esc(ft("tapHint"))}</div>` : ""}` : "")
+        <label>X <input id="fl_x" type="number" min="0" max="1199" inputmode="numeric"></label><label>Y <input id="fl_y" type="number" min="0" max="1199" inputmode="numeric"></label><button type="button" class="btn" id="fl_add">${esc(ft("add"))}</button><button type="button" class="btn${obstOn ? " primary" : ""}" id="fl_obst">${esc(ft("obst"))}</button></div>
+        ${flagMode ? `<div class="muted" style="font-size:12px;margin-top:4px">${esc(ft("tapHint"))}</div>` : ""}` : `<div class="row" style="margin-top:10px"><button type="button" class="btn${obstOn ? " primary" : ""}" id="fl_obst">${esc(ft("obst"))}</button></div>`)
     + (fl.length ? `<div class="km-fl-list">${fl.map((f, i) => `<div class="km-fl" data-i="${i}"><b>#${i + 1}</b>`
         + (ed ? `<label>X <input type="number" data-fx="${i}" value="${f.x}" min="0" max="1199" inputmode="numeric"></label><label>Y <input type="number" data-fy="${i}" value="${f.y}" min="0" max="1199" inputmode="numeric"></label>` : `<span class="co">X:${f.x} Y:${f.y}</span>`)
         + `<button type="button" class="btn small" data-fcp="${i}">${esc(T("copy"))}</button>`
         + `<span class="km-fl-n">${esc(ft("row").replace("{n}", f.fresh.length))}</span>`
         + (f.lost.length ? `<span class="km-fl-w">${esc(ft("lost").replace("{n}", f.lost.length))}</span>` : "")
         + (f.onOther ? `<span class="km-fl-w">${esc(ft("onOther"))}</span>` : !f.conn ? `<span class="km-fl-w">${esc(ft("notConn"))}</span>` : "")
+        + (f.ob ? `<span class="km-fl-w">${esc(ft(f.ob === 1 ? "onMt" : "onLake"))}</span>` : "")
+        + (f.zone ? `<span class="km-fl-w">${esc(ft("inZone").replace("{n}", f.zone))}</span>` : "")
         + (ed ? `<span class="km-fl-act">${i ? `<button type="button" class="btn small" data-fup="${i}" title="${esc(ft("up"))}">↑</button>` : ""}<button type="button" class="btn small" data-fdel="${i}">${esc(ft("del"))}</button></span>` : "")
         + `</div>`).join("")}</div><div style="margin-top:8px;font-weight:700">${esc(ft("total").replace("{f}", fl.length).replace("{n}", tot))}</div>`
       : `<div class="muted" style="margin-top:8px">${esc(ft("empty"))}</div>`)
@@ -605,6 +639,7 @@ function flagEvents() {
   const el = $("km_flags");
   el.addEventListener("click", (e) => {
     const b = e.target.closest("button"); if (!b) return;
+    if (b.id === "fl_obst") { obstOn = !obstOn; try { localStorage.setItem("km-obst", obstOn ? "1" : "0"); } catch (err) {} drawObst(); renderFlags(); return; }
     if (b.dataset.fcp != null) { const f = PLAN.fl[+b.dataset.fcp]; try { navigator.clipboard.writeText(`X:${f[0]} Y:${f[1]}`).then(() => { b.textContent = T("copied"); setTimeout(() => b.textContent = T("copy"), 1500); }, () => {}); } catch (err) {} return; }
     if (!ME()) return;
     if (b.id === "fl_mode") { flagMode = !flagMode; $("km_svg").classList.toggle("flag-mode", flagMode); renderFlags(); return; }
