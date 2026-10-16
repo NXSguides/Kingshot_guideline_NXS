@@ -181,10 +181,16 @@ function pickerOpen(host, kind) {
   pickerClose();
   const box = host.dataset.box, list = others();
   const el = document.createElement("div"); el.className = "bd-pick";
-  el.innerHTML = list.length ? list.map((u) => `<button type="button" data-u="${esc(u.id)}"${kind === "to" && compose[box].to.has(u.id) ? ' class="on"' : ""}>${av(u)}<span>${esc(u.name)}</span>${kind === "to" && compose[box].to.has(u.id) ? " ✓" : ""}</button>`).join("") : `<div class="muted" style="padding:6px 10px;font-size:13px">${esc(t("noUsers"))}</div>`;
+  const allBtn = kind === "at" && list.length ? `<button type="button" data-u="*"><span class="bd-av">📣</span><span>@all · ${esc(({ zh: "所有人", ko: "모두", pt: "todos", ar: "الجميع" })[lang] || "everyone")}</span></button>` : "";
+  el.innerHTML = allBtn + (list.length ? list.map((u) => `<button type="button" data-u="${esc(u.id)}"${kind === "to" && compose[box].to.has(u.id) ? ' class="on"' : ""}>${av(u)}<span>${esc(u.name)}</span>${kind === "to" && compose[box].to.has(u.id) ? " ✓" : ""}</button>`).join("") : `<div class="muted" style="padding:6px 10px;font-size:13px">${esc(t("noUsers"))}</div>`);
   el.onclick = (e) => {
     const b = e.target.closest("[data-u]"); if (!b) return;
     const id = b.dataset.u, c = compose[box];
+    if (kind === "at" && id === "*") {   // 📣 @all: everyone on the 👥 list gets it as a mention
+      const ta = box === "new" ? $("bd_newText") : $("bd_replyText"), s = ta.selectionStart ?? ta.value.length, v = ta.value;
+      const ins = (s && !/\s$/.test(v.slice(0, s)) ? " " : "") + "@all ";
+      ta.value = v.slice(0, s) + ins + v.slice(s); ta.focus(); ta.selectionStart = ta.selectionEnd = s + ins.length; pickerClose(); return;
+    }
     if (kind === "at") {
       const ta = box === "new" ? $("bd_newText") : $("bd_replyText"), s = ta.selectionStart ?? ta.value.length, v = ta.value;
       const ins = (s && !/\s$/.test(v.slice(0, s)) ? " " : "") + "@" + userName(id) + " ";
@@ -202,7 +208,8 @@ ROOT.querySelectorAll(".bd-tools").forEach((host) => {
   host.addEventListener("click", (e) => { const b = e.target.closest("[data-unto]"); if (b) { compose[host.dataset.box].to.delete(b.dataset.unto); chipsRender(host.dataset.box); } });
 });
 /* ids of the people whose @name is still in the text when it is sent */
-const mentionsIn = (box, text) => [...compose[box].m].filter((id) => text.includes("@" + userName(id)));
+const mentionsIn = (box, text) => /(^|\s)@all\b/i.test(text) ? others().map((u) => u.id)   // 📣 @all → everyone
+  : [...compose[box].m].filter((id) => text.includes("@" + userName(id)));
 const composeReset = (box) => { compose[box].m.clear(); compose[box].to.clear(); chipsRender(box); };
 /* drafts: what is typed in the two boxes is kept on this device until it is sent, so a failed send or a reload loses nothing */
 const DRAFT_LS = "nxs-board-draft";

@@ -1025,7 +1025,7 @@ async function boardRoute(env, ctx, stub, user, body, token, mayPost) {
   // name + language (for @ pickers and notifications): on writes and on the first look of a visit. Reading must still work when
   // writing is impossible (daily write allowance used up), so a failure here is ignored
   if (op !== "list" && op !== "get" || body.first) { try { await stub.boardUser(by, lang); } catch (e) {} }
-  const ids = (v) => (Array.isArray(v) ? v : []).map(String).filter((x) => /^\d{17,20}$/.test(x)).slice(0, 20);
+  const ids = (v) => (Array.isArray(v) ? v : []).map(String).filter((x) => /^\d{17,20}$/.test(x)).slice(0, 60);   // 60: room for @all
   const metaOf = (b, old) => { const m = { m: ids(b.mentions), to: ids(b.to) }; if (old && old.done) m.done = old.done; return m.m.length || m.to.length || m.done ? m : null; };
   const str = (v, max) => String(v || "").replace(/\r/g, "").trim().slice(0, max);
   const notify = (t, tx, meta) => { const p = stub.boardNotify(user.id, t.id, t.title, user.name, tx, meta); if (ctx && ctx.waitUntil) ctx.waitUntil(p); };
