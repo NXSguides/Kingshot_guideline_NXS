@@ -54,7 +54,7 @@ function drawMap() {
   });
 }
 let planOnly = false;
-const TERR = { src: "data/territory-2189.webp?v=20",   /* bump ?v= when the picture changes (images are cached first by sw.js) */ m: "0.336526 -0.001286 -0.000211 0.305687 -12.768 21.275", date: "2026-10-15" };
+const TERR = { src: "data/territory-2189.webp?v=21",   /* bump ?v= when the picture changes (images are cached first by sw.js) */ m: "0.336526 -0.001286 -0.000211 0.305687 -12.768 21.275", date: "2026-10-15" };
 const TT = { zh: ["🛰️ 領地圖", "領地圖：幹部截圖拼成，同色塊 = 同一個聯盟的領地（{d} 截圖）。"],
   en: ["🛰️ Territory", "Territory: stitched from officers' screenshots; same colour = same alliance ({d})."],
   pt: ["🛰️ Território", "Território: montado com capturas dos oficiais; mesma cor = mesma aliança ({d})."],
@@ -470,7 +470,7 @@ async function savePlan() {
   if (!OFFICER.token) { planMsg = pt("noKey"); renderPlan(); return; }
   const by = ($("pl_by").value || "").trim(); try { localStorage.setItem("nxs-plan-by", by); } catch (e) {}
   planMsg = pt("saving"); renderPlan(); for (const id of ["pl_save", "pl_save2"]) if ($(id)) $(id).disabled = true;
-  const next = { o: PLAN.o, t: PLAN.t, ...(PLAN.cyc ? { cyc: PLAN.cyc } : {}), ...(PLAN.sp && Object.keys(PLAN.sp).length ? { sp: PLAN.sp } : {}), ...(PLAN.fl && PLAN.fl.length ? { fl: PLAN.fl } : {}), ...(PLAN.ex && ((PLAN.ex.off || []).length || (PLAN.ex.add || []).length) ? { ex: PLAN.ex } : {}), by: by || "?", at: new Date().toISOString() };
+  const next = { o: PLAN.o, t: PLAN.t, ...(PLAN.cyc ? { cyc: PLAN.cyc } : {}), ...(PLAN.sp && Object.keys(PLAN.sp).length ? { sp: PLAN.sp } : {}), ...(PLAN.fl && PLAN.fl.length ? { fl: PLAN.fl } : {}), ...(PLAN.ex && ["off", "gone", "mv", "add"].some((k) => (PLAN.ex[k] || []).length) ? { ex: PLAN.ex } : {}), by: by || "?", at: new Date().toISOString() };
   try {
     for (let attempt = 0; ; attempt++) {
       const f = await gh("GET", PLAN_PATH);
@@ -570,18 +570,27 @@ const ft = (k) => (FT[lang] || FT.en)[k];
 const FN = 1200, FR = 3;   // kingdom size · banner reach (7×7 = 3 tiles each side)
 let EXB = null, exOn = (() => { try { return localStorage.getItem("km-exb") !== "0"; } catch (e) { return true; } })();   // 🏳️ our banners already standing (data/banners-2189.json)
 /* edits officers make to the standing banners (saved with the plan): PLAN.ex = { off: ["x,y" demolished / moved away], add: [[x, y] built / corrected] } */
-const exList = () => { const e = PLAN.ex || {}, off = new Set(e.off || []);
-  return (EXB ? EXB.b.filter(([x, y]) => !off.has(x + "," + y)) : []).concat((e.add || []).map(([x, y]) => [x, y, 1])); };
+/* PLAN.ex: off = estimated banners marked wrong (a spare guess takes the place, so the count stays at the in-game total) ·
+   gone = real banners demolished · mv = [[x, y, nx, ny]] coordinates corrected · add = [[x, y]] newly built */
+const exList = () => { const e = PLAN.ex || {}, off = new Set(e.off || []), gone = new Set(e.gone || []), mv = new Map((e.mv || []).map(([a, b, c, d]) => [a + "," + b, [c, d]]));
+  const add = (e.add || []).map(([x, y]) => [x, y, 1, "a"]);
+  if (!EXB) return add;
+  const list = [];
+  for (const [x, y, c] of EXB.b) { if (c === 2) continue; const k = x + "," + y; if (off.has(k)) continue;
+    const m = mv.get(k), q = m ? m[0] + "," + m[1] : k; if (gone.has(q)) continue; list.push(m ? [m[0], m[1], 1, "m", k] : [x, y, c, "f", k]); }
+  let spare = [...off].filter((k) => EXB.b.some(([x, y, c]) => c === 0 && x + "," + y === k)).length;
+  for (const sp of EXB.b) { if (spare <= 0) break; if (sp[2] === 2 && !off.has(sp[0] + "," + sp[1])) { list.push([sp[0], sp[1], 0, "f", sp[0] + "," + sp[1]]); spare--; } }
+  return list.concat(add); };
 let OV = null;   // GRID with the officers' banner edits applied
 function rebuildOwn() {
   if (!GRID) { OV = null; return; }
   OV = GRID.slice(); const e = PLAN.ex || {}, keep = exList();
   const sq = (x, y, f) => { for (let i = x - FR; i <= x + FR; i++) for (let j = y - FR; j <= y + FR; j++) if (i >= 0 && j >= 0 && i < FN && j < FN) f(j * FN + i); };
-  for (const k of e.off || []) { const [x, y] = k.split(",").map(Number); sq(x, y, (t) => { if (OV[t] === 1 && !(ZONE && ZONE[t])) OV[t] = 0; }); }
+  for (const k of [...(e.off || []), ...(e.gone || []), ...(e.mv || []).map(([a, b]) => a + "," + b)]) { const [x, y] = k.split(",").map(Number); sq(x, y, (t) => { if (OV[t] === 1 && !(ZONE && ZONE[t])) OV[t] = 0; }); }
   for (const [x, y] of keep) sq(x, y, (t) => { if (OV[t] !== 2) OV[t] = 1; });
   for (const [x, y] of G.hq || []) for (let i = x - 6; i <= x + 8; i++) for (let j = y - 6; j <= y + 8; j++) OV[j * FN + i] = 1;
 }
-async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=18").then((r) => r.json()); } catch (e) { EXB = null; } rebuildOwn(); drawEx(); drawFlags(); renderFlags(); }
+async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=19").then((r) => r.json()); } catch (e) { EXB = null; } rebuildOwn(); drawEx(); drawFlags(); renderFlags(); }
 function drawEx() {
   const g = $("km_exG"); if (!g) return;
   // our two HQs claim 15×15 too (3×3 building from its X, Y + 6 tiles around)
@@ -624,7 +633,7 @@ function loadGrid() {
   im.onload = () => { try { const c = document.createElement("canvas"); c.width = FN; c.height = FN; const x = c.getContext("2d", { willReadFrequently: true }); x.drawImage(im, 0, 0);
     const d = x.getImageData(0, 0, FN, FN).data; GRID = new Uint8Array(FN * FN); OBST = new Uint8Array(FN * FN);
     for (let i = 0; i < FN * FN; i++) { GRID[i] = d[i * 4]; OBST[i] = d[i * 4 + 1]; } } catch (e) {} buildZones(); rebuildOwn(); drawObst(); drawFlags(); renderFlags(); };
-  im.src = "data/territory-2189-grid.png?v=20";
+  im.src = "data/territory-2189-grid.png?v=21";
 }
 const own = (x, y) => (x < 0 || y < 0 || x >= FN || y >= FN) ? 2 : OV ? OV[y * FN + x] : GRID ? GRID[y * FN + x] : 0;   // 0 free · 1 ours · 2 another alliance
 /* every banner in list order → its new tiles, the tiles another alliance holds, and whether it touches our territory */
@@ -687,7 +696,7 @@ function selectFlagAt(x, y) {
   let i = near(PLAN.fl || [], x, y);
   if (i >= 0) { FSEL = { k: "p", i }; flagInfo(); return true; }
   const ex = exOn ? exList() : []; i = near(ex, x, y);
-  if (i >= 0) { FSEL = { k: "e", x: ex[i][0], y: ex[i][1], c: ex[i][2] }; flagInfo(); return true; }
+  if (i >= 0) { FSEL = { k: "e", x: ex[i][0], y: ex[i][1], c: ex[i][2], o: ex[i][3], key: ex[i][4] }; flagInfo(); return true; }
   return false;
 }
 function flagInfo() {
@@ -702,14 +711,24 @@ function flagInfo() {
   const [X, Y] = P(x + .5, y + .5); $("km_sel").innerHTML = `<circle class="sel-ring" style="transform-origin:${X}px ${Y}px" cx="${X}" cy="${Y}" r="6"/>`;
   $("fs_cp").onclick = () => { try { navigator.clipboard.writeText(`X:${x} Y:${y}`).then(() => { $("fs_cp").textContent = T("copied"); }, () => {}); } catch (e) {} };
   if (!ed) return;
-  const ex = () => (PLAN.ex = PLAN.ex || { off: [], add: [] }, PLAN.ex.off = PLAN.ex.off || [], PLAN.ex.add = PLAN.ex.add || [], PLAN.ex);
-  const dropEx = (a, b) => { const e = ex(), j = e.add.findIndex(([p, q]) => p === a && q === b); if (j >= 0) e.add.splice(j, 1); else if (!e.off.includes(a + "," + b)) e.off.push(a + "," + b); };
+  const ex = () => { const e = (PLAN.ex = PLAN.ex || {}); for (const k of ["off", "gone", "mv", "add"]) e[k] = e[k] || []; return e; };
+  const S = FSEL;
   const move = () => { const nx = parseInt($("fs_x").value, 10), ny = parseInt($("fs_y").value, 10); if (!(nx >= 0 && ny >= 0 && nx < FN && ny < FN) || (nx === x && ny === y)) return;
-    if (FSEL.k === "p") PLAN.fl[FSEL.i] = [nx, ny]; else { dropEx(x, y); ex().add.push([nx, ny]); FSEL = { k: "e", x: nx, y: ny, c: 1 }; } flagsChanged(); };
+    if (S.k === "p") PLAN.fl[S.i] = [nx, ny];
+    else { const e = ex();
+      if (S.o === "a") { const j = e.add.findIndex(([p, q]) => p === x && q === y); if (j >= 0) e.add[j] = [nx, ny]; }
+      else { const [a, b] = S.key.split(",").map(Number), j = e.mv.findIndex(([p, q]) => p === a && q === b); if (j >= 0) e.mv[j] = [a, b, nx, ny]; else e.mv.push([a, b, nx, ny]); }
+      FSEL = { ...S, x: nx, y: ny, c: 1 }; }
+    flagsChanged(); };
+  // 🗑️ demolished: a built one just goes; one from the map file goes as "gone" (checked) or "off" (estimate that was wrong → a spare guess takes its place)
+  const dropEx = () => { const e = ex();
+    if (S.o === "a") { const j = e.add.findIndex(([p, q]) => p === x && q === y); if (j >= 0) e.add.splice(j, 1); return; }
+    if (S.c === 0 && S.o === "f") { if (!e.off.includes(S.key)) e.off.push(S.key); return; }
+    e.gone.push(x + "," + y); };
   $("fs_x").onchange = move; $("fs_y").onchange = move;
   if ($("fs_del")) $("fs_del").onclick = () => { PLAN.fl.splice(FSEL.i, 1); FSEL = null; flagsChanged(); renderInfo(); $("km_sel").innerHTML = ""; };
-  if ($("fs_built")) $("fs_built").onclick = () => { PLAN.fl.splice(FSEL.i, 1); ex().add.push([x, y]); FSEL = { k: "e", x, y, c: 1 }; flagsChanged(); };
-  if ($("fs_gone")) $("fs_gone").onclick = () => { dropEx(x, y); FSEL = null; flagsChanged(); renderInfo(); $("km_sel").innerHTML = ""; };
+  if ($("fs_built")) $("fs_built").onclick = () => { PLAN.fl.splice(S.i, 1); ex().add.push([x, y]); FSEL = { k: "e", x, y, c: 1, o: "a" }; flagsChanged(); };
+  if ($("fs_gone")) $("fs_gone").onclick = () => { dropEx(); FSEL = null; flagsChanged(); renderInfo(); $("km_sel").innerHTML = ""; };
 }
 function addFlag(x, y) {
   if (!ME() || !(x >= 0 && x < FN && y >= 0 && y < FN)) return;
