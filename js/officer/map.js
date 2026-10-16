@@ -54,7 +54,7 @@ function drawMap() {
   });
 }
 let planOnly = false;
-const TERR = { src: "data/territory-2189.webp?v=19",   /* bump ?v= when the picture changes (images are cached first by sw.js) */ m: "0.336526 -0.001286 -0.000211 0.305687 -12.768 21.275", date: "2026-10-15" };
+const TERR = { src: "data/territory-2189.webp?v=20",   /* bump ?v= when the picture changes (images are cached first by sw.js) */ m: "0.336526 -0.001286 -0.000211 0.305687 -12.768 21.275", date: "2026-10-15" };
 const TT = { zh: ["🛰️ 領地圖", "領地圖：幹部截圖拼成，同色塊 = 同一個聯盟的領地（{d} 截圖）。"],
   en: ["🛰️ Territory", "Territory: stitched from officers' screenshots; same colour = same alliance ({d})."],
   pt: ["🛰️ Território", "Território: montado com capturas dos oficiais; mesma cor = mesma aliança ({d})."],
@@ -581,7 +581,7 @@ function rebuildOwn() {
   for (const [x, y] of keep) sq(x, y, (t) => { if (OV[t] !== 2) OV[t] = 1; });
   for (const [x, y] of G.hq || []) for (let i = x - 6; i <= x + 8; i++) for (let j = y - 6; j <= y + 8; j++) OV[j * FN + i] = 1;
 }
-async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=17").then((r) => r.json()); } catch (e) { EXB = null; } rebuildOwn(); drawEx(); drawFlags(); renderFlags(); }
+async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=18").then((r) => r.json()); } catch (e) { EXB = null; } rebuildOwn(); drawEx(); drawFlags(); renderFlags(); }
 function drawEx() {
   const g = $("km_exG"); if (!g) return;
   // our two HQs claim 15×15 too (3×3 building from its X, Y + 6 tiles around)
@@ -624,7 +624,7 @@ function loadGrid() {
   im.onload = () => { try { const c = document.createElement("canvas"); c.width = FN; c.height = FN; const x = c.getContext("2d", { willReadFrequently: true }); x.drawImage(im, 0, 0);
     const d = x.getImageData(0, 0, FN, FN).data; GRID = new Uint8Array(FN * FN); OBST = new Uint8Array(FN * FN);
     for (let i = 0; i < FN * FN; i++) { GRID[i] = d[i * 4]; OBST[i] = d[i * 4 + 1]; } } catch (e) {} buildZones(); rebuildOwn(); drawObst(); drawFlags(); renderFlags(); };
-  im.src = "data/territory-2189-grid.png?v=19";
+  im.src = "data/territory-2189-grid.png?v=20";
 }
 const own = (x, y) => (x < 0 || y < 0 || x >= FN || y >= FN) ? 2 : OV ? OV[y * FN + x] : GRID ? GRID[y * FN + x] : 0;   // 0 free · 1 ours · 2 another alliance
 /* every banner in list order → its new tiles, the tiles another alliance holds, and whether it touches our territory */
