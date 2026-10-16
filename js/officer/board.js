@@ -83,21 +83,23 @@ function shrink(file) {
 }
 async function addImgs(box, files) {
   const c = compose[box];
-  for (const f of [...files].filter((f) => /^image\//.test(f.type))) { if (c.img.length >= IMG_MAX()) break; try { c.img.push(await shrink(f)); putMark(box, c.img.length); } catch (e) {} }
+  const ns = [];
+  for (const f of [...files].filter((f) => /^image\//.test(f.type))) { if (c.img.length >= IMG_MAX()) break; try { c.img.push(await shrink(f)); ns.push(c.img.length); } catch (e) {} }
+  if (ns.length) putMark(box, ns);
   imgsRender(box);
 }
 /* where a picture goes: a [[imgN]] marker at the cursor (like announcements); move it in the text to move the picture */
 const TA = (box) => $(box === "new" ? "bd_newText" : "bd_replyText");
-function putMark(box, n) {
+function putMark(box, ns) {   // pictures picked together go on one line = shown side by side
   const ta = TA(box); if (!ta) return;
-  const v = ta.value, a = ta.selectionStart ?? v.length, b = ta.selectionEnd ?? a, mk = `[[img${n}]]`;
+  const v = ta.value, a = ta.selectionStart ?? v.length, b = ta.selectionEnd ?? a, mk = ns.map((n) => `[[img${n}]]`).join(" ");
   const pre = v.slice(0, a), post = v.slice(b), ins = (pre && !pre.endsWith("\n") ? "\n" : "") + mk + (post.startsWith("\n") ? "" : "\n");
   ta.value = pre + ins + post; const at = (pre + ins).length; try { ta.setSelectionRange(at, at); } catch (e) {}
   ta.dispatchEvent(new Event("input", { bubbles: true }));
 }
 function dropMark(box, n) {   // picture n removed: take its marker out, later numbers move down by one
   const ta = TA(box); if (!ta) return;
-  ta.value = ta.value.replace(new RegExp(`\\[\\[img${n}\\]\\]\\n?`, "g"), "").replace(/\[\[img(\d+)\]\]/g, (m, k) => +k > n ? `[[img${+k - 1}]]` : m);
+  ta.value = ta.value.replace(new RegExp(`\\[\\[img${n}\\]\\] ?`, "g"), "").replace(/^\n/, "").replace(/\n{3,}/g, "\n\n").replace(/\[\[img(\d+)\]\]/g, (m, k) => +k > n ? `[[img${+k - 1}]]` : m);
   ta.dispatchEvent(new Event("input", { bubbles: true }));
 }
 function imgsRender(box) {
@@ -120,7 +122,10 @@ const picTag = (id) => `<img data-bimg="${esc(id)}" alt="🖼️" loading="lazy"
 /* the text with each [[imgN]] marker replaced by that picture; pictures without a marker (or whose marker got lost) go underneath */
 function bodyHtml(p) {
   const ids = (p.meta && p.meta.img) || [], used = new Set();
-  let h = linkify(esc(pick(p.txt))).replace(/\n?\[\[img(\d+)\]\]\n?/g, (m, k) => { const id = ids[+k - 1]; if (!id || used.has(id)) return m.includes("\n") ? "\n" : ""; used.add(id); return `</div><div class="bd-pics">${picTag(id)}</div><div class="bd-text">`; });
+  let h = linkify(esc(pick(p.txt))).replace(/\n?(?:\[\[img\d+\]\][ \t]*)+\n?/g, (m) => {
+    const got = [...m.matchAll(/\[\[img(\d+)\]\]/g)].map((x) => ids[+x[1] - 1]).filter((id) => id && !used.has(id) && used.add(id));
+    if (!got.length) return m.includes("\n") ? "\n" : "";
+    return `</div><div class="bd-pics${got.length > 1 ? " row" : ""}">${got.map(picTag).join("")}</div><div class="bd-text">`; });
   const rest = ids.filter((id) => !used.has(id));
   return `<div class="bd-text">${h}</div>${rest.length ? `<div class="bd-pics">${rest.map(picTag).join("")}</div>` : ""}`.replace(/<div class="bd-text"><\/div>/g, "");
 }
