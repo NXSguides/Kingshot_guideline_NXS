@@ -441,135 +441,39 @@ const GUIDES = {
     },
     sections: {
       en: { title: "Recent Events", blocks: [
-        { type: "guideLink", guide: "all-out" },
-        { type: "guideLink", guide: "kvk" },
-        { type: "guideLink", guide: "swordland-showdown" },
-        { type: "guideLink", guide: "fishing-tournament" },
-        { type: "guideLink", guide: "tri-alliance-clash" },
-        { type: "guideLink", guide: "hero-roulette" },
-        { type: "guideLink", guide: "viking-vengeance" },
-        { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
       ]},
       zh: { title: "近期活動", blocks: [
-        { type: "guideLink", guide: "all-out" },
-        { type: "guideLink", guide: "kvk" },
-        { type: "guideLink", guide: "swordland-showdown" },
-        { type: "guideLink", guide: "fishing-tournament" },
-        { type: "guideLink", guide: "tri-alliance-clash" },
-        { type: "guideLink", guide: "hero-roulette" },
-        { type: "guideLink", guide: "viking-vengeance" },
-        { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
       ]},
       ko: { title: "최근 이벤트", blocks: [
-        { type: "guideLink", guide: "all-out" },
-        { type: "guideLink", guide: "kvk" },
-        { type: "guideLink", guide: "swordland-showdown" },
-        { type: "guideLink", guide: "fishing-tournament" },
-        { type: "guideLink", guide: "tri-alliance-clash" },
-        { type: "guideLink", guide: "hero-roulette" },
-        { type: "guideLink", guide: "viking-vengeance" },
-        { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
       ]},
       de: { title: "Aktuelle Events", blocks: [
-        { type: "guideLink", guide: "all-out" },
-        { type: "guideLink", guide: "kvk" },
-        { type: "guideLink", guide: "swordland-showdown" },
-        { type: "guideLink", guide: "fishing-tournament" },
-        { type: "guideLink", guide: "tri-alliance-clash" },
-        { type: "guideLink", guide: "hero-roulette" },
-        { type: "guideLink", guide: "viking-vengeance" },
-        { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
       ]},
       fr: { title: "Événements récents", blocks: [
-        { type: "guideLink", guide: "all-out" },
-        { type: "guideLink", guide: "kvk" },
-        { type: "guideLink", guide: "swordland-showdown" },
-        { type: "guideLink", guide: "fishing-tournament" },
-        { type: "guideLink", guide: "tri-alliance-clash" },
-        { type: "guideLink", guide: "hero-roulette" },
-        { type: "guideLink", guide: "viking-vengeance" },
-        { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
       ]},
       pt: { title: "Eventos Recentes", blocks: [
-        { type: "guideLink", guide: "all-out" },
-        { type: "guideLink", guide: "kvk" },
-        { type: "guideLink", guide: "swordland-showdown" },
-        { type: "guideLink", guide: "fishing-tournament" },
-        { type: "guideLink", guide: "tri-alliance-clash" },
-        { type: "guideLink", guide: "hero-roulette" },
-        { type: "guideLink", guide: "viking-vengeance" },
-        { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
       ]},
       es: { title: "Eventos Recientes", blocks: [
-        { type: "guideLink", guide: "all-out" },
-        { type: "guideLink", guide: "kvk" },
-        { type: "guideLink", guide: "swordland-showdown" },
-        { type: "guideLink", guide: "fishing-tournament" },
-        { type: "guideLink", guide: "tri-alliance-clash" },
-        { type: "guideLink", guide: "hero-roulette" },
-        { type: "guideLink", guide: "viking-vengeance" },
-        { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
       ]},
       tr: { title: "Son Etkinlikler", blocks: [
-        { type: "guideLink", guide: "all-out" },
-        { type: "guideLink", guide: "kvk" },
-        { type: "guideLink", guide: "swordland-showdown" },
-        { type: "guideLink", guide: "fishing-tournament" },
-        { type: "guideLink", guide: "tri-alliance-clash" },
-        { type: "guideLink", guide: "hero-roulette" },
-        { type: "guideLink", guide: "viking-vengeance" },
-        { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
       ]},
       id: { title: "Acara Terbaru", blocks: [
-        { type: "guideLink", guide: "all-out" },
-        { type: "guideLink", guide: "kvk" },
-        { type: "guideLink", guide: "swordland-showdown" },
-        { type: "guideLink", guide: "fishing-tournament" },
-        { type: "guideLink", guide: "tri-alliance-clash" },
-        { type: "guideLink", guide: "hero-roulette" },
-        { type: "guideLink", guide: "viking-vengeance" },
-        { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
       ]},
       ru: { title: "Последние события", blocks: [
-        { type: "guideLink", guide: "all-out" },
-        { type: "guideLink", guide: "kvk" },
-        { type: "guideLink", guide: "swordland-showdown" },
-        { type: "guideLink", guide: "fishing-tournament" },
-        { type: "guideLink", guide: "tri-alliance-clash" },
-        { type: "guideLink", guide: "hero-roulette" },
-        { type: "guideLink", guide: "viking-vengeance" },
-        { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
       ]},
       th: { title: "กิจกรรมล่าสุด", blocks: [
-        { type: "guideLink", guide: "all-out" },
-        { type: "guideLink", guide: "kvk" },
-        { type: "guideLink", guide: "swordland-showdown" },
-        { type: "guideLink", guide: "fishing-tournament" },
-        { type: "guideLink", guide: "tri-alliance-clash" },
-        { type: "guideLink", guide: "hero-roulette" },
-        { type: "guideLink", guide: "viking-vengeance" },
-        { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
       ]},
       ar: { title: "أحدث الفعاليات", blocks: [
-        { type: "guideLink", guide: "all-out" },
-        { type: "guideLink", guide: "kvk" },
-        { type: "guideLink", guide: "swordland-showdown" },
-        { type: "guideLink", guide: "fishing-tournament" },
-        { type: "guideLink", guide: "tri-alliance-clash" },
-        { type: "guideLink", guide: "hero-roulette" },
-        { type: "guideLink", guide: "viking-vengeance" },
-        { type: "guideLink", guide: "eternity-reach" },
         { type: "announcements" }
       ]}
     }
