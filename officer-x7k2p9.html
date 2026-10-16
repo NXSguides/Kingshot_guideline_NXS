@@ -21,6 +21,9 @@
   .btn { min-height: 36px; box-sizing: border-box; line-height: 1.2; vertical-align: middle; }
   a.btn, button.btn, label.btn { display: inline-flex; align-items: center; justify-content: center; gap: 4px; }
   .btn.small { min-height: 30px; }
+  /* every button visibly sinks when tapped; switches that are ON show a ✓ */
+  button, .btn { transition: transform .08s, filter .08s; } button:active:not(:disabled), .btn:active { transform: scale(.95); filter: brightness(.88); }
+  .btn.tg.primary::before, #pg-perms .pm-ntc .btn.on::before, #pg-map .km-layers button[aria-pressed="true"]::before { content: "✓ "; }
   .row > .inp, .row > input:not([type=checkbox]):not([type=radio]):not([type=range]), .row > select { min-height: 36px; box-sizing: border-box; vertical-align: middle; }
   .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 14px; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
   .card h2 { margin: 0 0 10px; font-size: 18px; }
