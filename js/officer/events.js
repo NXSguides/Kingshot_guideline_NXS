@@ -535,8 +535,54 @@ function render() {
   });
   renderList();
   renderCal();
+  renderTimed();
   exportAdmin();
   jumpToEvent();
+}
+/* ⏱️ Timed admin reminders: one-off times an officer types in (e.g. "Sanctuary Battle S1 S9 at 13:00 UTC"). Saved inside the
+   (encrypted) events file next to the list; each one is sent to the people whose 🔔 covers that event, 10 minutes before. */
+const TIMED_LS = "nxs-timed-v1";
+let TIMED = (() => { try { return JSON.parse(localStorage.getItem(TIMED_LS)) || []; } catch (e) { return []; } })(), timedDirty = false;
+const TT2 = { zh: { h: "⏱️ 定時管理提醒", sub: "一次性的時間（例如遺跡爭奪開打），開始前 10 分鐘通知 🔔 有勾這個活動的人。時間是 UTC。", ev: "活動", label: "內容", date: "日期 (UTC)", hour: "時 (UTC)", add: "＋ 加入", save: "💾 儲存", unsaved: "有變更還沒儲存", saved: "已儲存 ✅", none: "目前沒有定時提醒。", del: "刪除", link: "從連結帶入 {n} 個定時提醒，確認後按「儲存」。" },
+  en: { h: "⏱️ Timed admin reminders", sub: "One-off times (e.g. a Sanctuary Battle start). Sent 10 minutes before to the people whose 🔔 covers that event. Times are UTC.", ev: "Event", label: "What", date: "Date (UTC)", hour: "Hour (UTC)", add: "+ Add", save: "💾 Save", unsaved: "Unsaved changes", saved: "Saved ✅", none: "No timed reminders.", del: "Delete", link: "{n} timed reminders came from the link — check them and press Save." } };
+const tt2 = (k) => (TT2[lang] || TT2.en)[k];
+let timedMsg = "";
+function renderTimed() {
+  const el = $("ev_timed"); if (!el) return;
+  const ed = OFFICER.can("events", "edit"), now = Date.now();
+  TIMED = TIMED.filter((t) => t.at > now - 6 * 3600000);   // gone 6 h after it started
+  const loc = (at) => new Date(at).toLocaleString(LOCALE(lang), { weekday: "short", hour: "2-digit", minute: "2-digit" });
+  const evs = (LIST || []).filter((e) => e.id !== "alliance-rules");
+  el.innerHTML = `<h2>${esc(tt2("h"))}</h2><div class="muted msg">${esc(tt2("sub"))}</div>`
+    + (TIMED.length ? TIMED.slice().sort((a, b) => a.at - b.at).map((t) => `<div class="todo"><div style="flex:1;min-width:0"><div class="txt"><b>${esc(evName(t.ev))}</b> ${esc(t.label || "")}</div>
+        <div class="when">⏰ ${esc(new Date(t.at).toISOString().slice(5, 16).replace("T", " "))} UTC · ${esc(loc(t.at))}</div></div>${ed ? `<button type="button" class="btn small" data-tdel="${esc(t.id)}">${esc(tt2("del"))}</button>` : ""}</div>`).join("")
+      : `<div class="none">${esc(tt2("none"))}</div>`)
+    + (ed ? `<div class="row" style="margin-top:10px;flex-wrap:wrap;gap:6px"><select class="btn" id="td_ev">${evs.map((e) => `<option value="${esc(e.id)}"${e.id === "sanctuary-battle" ? " selected" : ""}>${esc(evName(e.id))}</option>`).join("")}</select>
+        <input id="td_label" maxlength="60" placeholder="${esc(tt2("label"))}" style="flex:1;min-width:120px">
+        <input id="td_date" type="date" value="${new Date().toISOString().slice(0, 10)}"><select class="btn" id="td_hour">${Array.from({ length: 24 }, (_, h) => `<option value="${h}">${String(h).padStart(2, "0")}:00</option>`).join("")}</select>
+        <button type="button" class="btn" id="td_add">${esc(tt2("add"))}</button>${timedDirty ? `<button type="button" class="btn primary" id="td_save">${esc(tt2("save"))}</button>` : ""}</div>
+        <div class="msg">${esc(timedMsg || (timedDirty ? tt2("unsaved") : ""))}</div>` : "");
+  if (!ed) return;
+  $("td_add").onclick = () => {
+    const d = $("td_date").value, h = +$("td_hour").value; if (!d) return;
+    const at = Date.parse(d + "T" + String(h).padStart(2, "0") + ":00:00Z"); if (!(at > 0)) return;
+    TIMED.push({ id: "t" + Date.now().toString(36), ev: $("td_ev").value, label: $("td_label").value.trim().slice(0, 60), at }); timedDirty = true; timedMsg = ""; renderTimed(); exportAdmin();
+  };
+  if ($("td_save")) $("td_save").onclick = async () => { if (!LIST) return; const ok = await saveList(LIST, "Timed reminders"); if (ok) { timedDirty = false; timedMsg = tt2("saved"); try { localStorage.setItem(TIMED_LS, JSON.stringify(TIMED)); } catch (e) {} } renderTimed(); };
+  el.querySelectorAll("[data-tdel]").forEach((b) => b.onclick = () => { TIMED = TIMED.filter((t) => t.id !== b.dataset.tdel); timedDirty = true; timedMsg = ""; renderTimed(); exportAdmin(); });
+}
+/* a link like #events?timed=sanctuary-battle@2026-10-16T13:00Z~S1%20S9 pre-fills timed reminders (not saved until Save is pressed) */
+function importTimed() {
+  if (!OFFICER.can("events", "edit")) return;
+  const q = (location.hash.split("?")[1] || ""), v = new URLSearchParams(q).get("timed"); if (!v) return;
+  let n = 0;
+  for (const part of v.split(",")) {
+    const m = part.match(/^([a-z-]+)@(\d{4}-\d\d-\d\dT\d\d:\d\dZ)(?:~(.*))?$/); if (!m) continue;
+    const at = Date.parse(m[2]); if (!(at > Date.now()) || TIMED.some((t) => t.ev === m[1] && t.at === at)) continue;
+    TIMED.push({ id: "t" + (Date.now() + n).toString(36), ev: m[1], label: (m[3] || "").slice(0, 60), at }); n++;
+  }
+  if (n) { timedDirty = true; timedMsg = tt2("link").replace("{n}", n); }
+  try { history.replaceState(null, "", location.pathname + location.search + "#events"); } catch (e) {}
 }
 /* #events?ev=swordland-showdown (from an admin reminder notification): scroll to that event's card and flash it once */
 let jumped = "";
@@ -567,6 +613,8 @@ function exportAdmin() {
         items.push({ id, ev: r.k, due, emoji: e.emoji || "📌", names, title: `${e.emoji || "📌"} ${e.en || r.k}`, body: String(td.en || td.zh || "").replace(/\*\*/g, "").slice(0, 190) });
       }
     }
+    for (const t of TIMED) if (t.at > now) { const e = byId(t.ev) || {}; const names = {}; for (const l of OFFICER_LANGS) { const v = e[l] || (BY_EN[l] && BY_EN[l][e.en]) || ""; if (v) names[l] = v; }
+      items.push({ id: "t-" + t.id, ev: t.ev, at: t.at, emoji: e.emoji || "⏱️", names, title: `${e.emoji || "⏱️"} ${e.en || t.ev}`, body: t.label || "" }); }
     localStorage.setItem("nxs-admin-todos", JSON.stringify({ updated: now, items }));
     window.dispatchEvent(new Event("nxs-admin-todos"));   // the ⏰ panel on this page re-sends the reminders
   } catch (err) {}
@@ -818,7 +866,7 @@ async function saveList(next, message) {
   em.textContent = ""; m.className = "msg"; m.textContent = tr("saving");
   const sched = {};
   for (const e of next) if (e.start && e.every > 0 && e.days > 0) sched[e.id] = { anchor: e.start, periodDays: e.every, activeDays: e.days };
-  const file = { v: 1, updated: new Date().toISOString(), sched, data: await OfficerData.seal({ events: next }) };
+  const file = { v: 1, updated: new Date().toISOString(), sched, data: await OfficerData.seal({ events: next, timed: TIMED }) };
   try {
     const r = await gh("PUT", EV_PATH, { message: message.slice(0, 120), content: utf8ToB64(JSON.stringify(file, null, 1) + "\n"), sha: FILE_SHA || undefined, branch: BRANCH });
     FILE_SHA = r && r.content ? r.content.sha : FILE_SHA;
@@ -932,6 +980,7 @@ async function init() {
   loadLimits(); $("limSave").onclick = saveLimits;
   loadEventTimes(); $("etSave").onclick = saveEventTimes;
   // 0) the copy remembered in this tab (from an earlier visit) is shown right away …
+  importTimed();   // ⏱️ a link with timed reminders (kept even when the saved list is unchanged)
   const remembered = OfficerData.cacheGet("events");
   if (remembered) { LIST = seedTodos(remembered); $("ev_app").hidden = false; if (weekStart === null) weekStart = defaultWeek(); render(); }
   // 1) … then the saved list (fresh copy from GitHub when the key works, otherwise the site's copy)
@@ -939,7 +988,7 @@ async function init() {
   try {
     if (TOKEN) { const f = await gh("GET", EV_PATH); if (f) { FILE_SHA = f.sha; file = JSON.parse(b64ToUtf8(f.content)); } }
     else { const r = await fetch(EV_PATH + "?t=" + Date.now(), { cache: "no-store" }); if (r.ok) file = await r.json(); }
-    if (file && file.data) { const d = await OfficerData.open(file.data); fresh = d && d.events; }
+    if (file && file.data) { const d = await OfficerData.open(file.data); fresh = d && d.events; if (d && Array.isArray(d.timed) && !timedDirty) { TIMED = d.timed; try { localStorage.setItem(TIMED_LS, JSON.stringify(TIMED)); } catch (e) {} } }
   } catch (e) { fresh = null; }
   if (fresh) {
     OfficerData.cacheSet("events", fresh);

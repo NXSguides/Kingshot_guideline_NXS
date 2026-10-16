@@ -247,6 +247,12 @@
     // one short notification per event per day ("⚔️ Swordland Showdown") — the details stay in the checklist
     for (const x of d.items) {
       const ev = x.ev || String(x.id).replace(/-\d{4}-\d\d-\d\d-\d+$/, ""), key = `${ev}-${Math.floor(x.due / 86400000)}`;
+      if (x.at) {   // ⏱️ a timed reminder from the Events tab: 10 minutes before its start, to everyone whose 🔔 covers that event (admins too)
+        if (nf !== "all" && !nf.has(ev)) continue;
+        const hm = new Date(x.at).toISOString().slice(11, 16);
+        out.push({ id: `adm-${x.id}`.slice(0, 40), at: x.at - 600000, title: `🛠️ ${adminName(x, ev)} ${x.body || ""} · ${hm} UTC`.replace(/\s+/g, " ").slice(0, 90), body: T("adminBody") });
+        continue;
+      }
       if (nf === "all" ? ev === "bear-hunt" : !nf.has(ev)) continue;   // Bear Hunt repeats by itself — only for whoever was assigned it
       if (seen.has(key)) continue; seen.add(key);
       out.push({ id: `adm-${key}`.slice(0, 40), at: x.due + h * 3600000, title: `🛠️ ${adminName(x, ev)}`, body: T("adminBody") });
