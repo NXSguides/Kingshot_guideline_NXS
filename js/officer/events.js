@@ -922,8 +922,8 @@ async function saveLimits() {
 }
 /* ===== our event times (UTC) → data/event-times.json (plain, public): home page Today card + everyone's ⏰ reminders ===== */
 const ET_PATH = "data/event-times.json";
-const ET_KEYS = [["bear-hunt", "🐻"], ["swordland-showdown", "⚔️"], ["tri-alliance-clash", "🔱"], ["viking-vengeance", "🧯"], ["cesares-fury", "🗡️"]];
-let ET = { "bear-hunt": ["13:00", "22:00"], "swordland-showdown": ["02:00", "14:00"], "tri-alliance-clash": ["14:00", "21:00"], "viking-vengeance": ["14:00", "23:00"], "cesares-fury": ["22:35"],
+const ET_KEYS = [["bear-hunt", "🐻"], ["swordland-showdown", "⚔️"], ["tri-alliance-clash", "🔱"], ["viking-vengeance", "🧯"], ["cesares-fury", "🗡️"], ["eternity-reach", "⛏️"]];
+let ET = { "bear-hunt": ["13:00", "22:00"], "swordland-showdown": ["02:00", "14:00"], "tri-alliance-clash": ["14:00", "21:00"], "viking-vengeance": ["14:00", "23:00"], "cesares-fury": ["22:35"], "eternity-reach": ["02:00", "05:00", "11:00", "14:00", "16:00", "18:00", "21:00"],
   days: { "swordland-showdown": 7, "tri-alliance-clash": 6, "viking-vengeance": 3, "cesares-fury": 1 } }, etSha = null;
 async function loadEventTimes() {
   try {

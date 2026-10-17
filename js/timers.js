@@ -27,14 +27,15 @@
      the officer-edited schedule (data/events-x7k2p9.json "sched") replaces it, like on the main site. */
   const ON_MAIN = typeof EVENT_TIMES !== "undefined";
   const FB = {
-    times: { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23], "cesares-fury": [22 + 35 / 60] },
+    times: { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23], "cesares-fury": [22 + 35 / 60], "eternity-reach": [2, 5, 11, 14, 16, 18, 21] },
     sched: { "bear-hunt": { anchor: Date.UTC(2026, 9, 7), periodDays: 2, activeDays: 1 },
       "swordland-showdown": { anchor: Date.UTC(2026, 8, 28), periodDays: 14, activeDays: 7 },
       "tri-alliance-clash": { anchor: Date.UTC(2026, 8, 28), periodDays: 28, activeDays: 6 },
       "viking-vengeance": { anchor: Date.UTC(2026, 8, 22), periodDays: 14, activeDays: 3 },
-      "cesares-fury": { anchor: Date.UTC(2026, 9, 10), periodDays: 21, activeDays: 3 } },
+      "cesares-fury": { anchor: Date.UTC(2026, 9, 10), periodDays: 21, activeDays: 3 },
+      "eternity-reach": { anchor: Date.UTC(2026, 8, 22), periodDays: 14, activeDays: 1 } },
     names: { "bear-hunt": ["🐻", "Bear Hunt"], "swordland-showdown": ["⚔️", "Swordland Showdown"], "tri-alliance-clash": ["🔱", "Tri-Alliance Clash"],
-      "viking-vengeance": ["🧯", "Viking Vengeance"], "mystic-trial": ["🔮", "Mystic Trial"] },
+      "viking-vengeance": ["🧯", "Viking Vengeance"], "eternity-reach": ["⛏️", "Eternity's Reach"], "mystic-trial": ["🔮", "Mystic Trial"] },
   };
   fetch("data/event-times.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((d) => {
     for (const [k, n] of Object.entries((d && d.days) || {})) { if (+n >= 1) FIGHT_DAY[k] = +n; else if (+n === 0) delete FIGHT_DAY[k]; }   // 0 = every day is a battle day
@@ -151,7 +152,7 @@
     { k: "intel", kind: "daily", hours: [0, 8, 16], def: 0, emoji: "🔍", name: "intelName", text: "refresh" },
     { k: "swordland-showdown", kind: "event", def: 10 },
     { k: "tri-alliance-clash", kind: "event", def: 10 },
-    { k: "viking-vengeance", kind: "event", def: 10 },
+    { k: "viking-vengeance", kind: "event", def: 10 }, { k: "eternity-reach", kind: "event", def: 10 },
     { k: "cesares-fury", kind: "event", def: 10, emoji: "🗡️", name: "cesaresName" },
   ];
   if (alerts.arena && alerts.arena.on === true) alerts.arena = { on: { 24: true }, before: 3 };   // older beta setting
