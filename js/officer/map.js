@@ -360,6 +360,16 @@ function totals(states) {
   for (const b of B) if (b.kind === "outpost" && states.includes(st(b)) && !seen.has(b.t + b.lv)) { seen.add(b.t + b.lv); sum[b.t] = (sum[b.t] || 0) + b.buff; }
   return sum;
 }
+/* 👀 look-only marks from a link: #map?look=387-717~UNI~r,588-327~替代~g (r = red, g = green, b = blue). Never saved. */
+function lookHtml() {
+  const q = (location.hash.split("?")[1] || ""), v = new URLSearchParams(q).get("look"); if (!v) return "";
+  const C = { r: "#ff3b30", g: "#22c55e", b: "#3b82f6", y: "#facc15" };
+  return v.split(",").map((e) => { const [xy, label = "", c = "r"] = e.split("~"), m = (xy || "").match(/^(\d+)-(\d+)$/); if (!m) return "";
+    const [X, Y] = P(+m[1], +m[2]), col = C[c] || C.r, t = esc(label).slice(0, 24);
+    return `<g class="km-look" pointer-events="none"><circle cx="${X}" cy="${Y}" r="26" fill="none" stroke="${col}" stroke-width="6"/><circle cx="${X}" cy="${Y}" r="26" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="4 4"/>`
+      + (t ? `<text x="${X}" y="${Y - 32}" text-anchor="middle" font-family="Arial" font-size="15" font-weight="800" fill="${col}" stroke="#000" stroke-width="3.5" paint-order="stroke">${t}</text>` : "") + `</g>`; }).join("");
+}
+window.addEventListener("hashchange", () => { if (/^#map/.test(location.hash)) drawPlan(); });
 function drawPlan() {
   const g = $("km_planG"); if (!g) return;
   g.innerHTML = B.filter((b) => st(b)).map((b) => { const [X, Y] = P(b.x, b.y), s = st(b), r = b.kind === "fortress" ? 27 : b.kind === "sanctuary" ? 21 : 17;
@@ -372,6 +382,7 @@ function drawPlan() {
     + B.filter((b) => PRIOABLE(b) && SP(b).p).map((b) => { const [X, Y] = P(b.x, b.y), o = b.kind === "fortress" ? 20 : 15;
       const w = SP(b).p >= 10 ? 34 : 27, x0 = X + o + 3;   // gold "★n" tag to the right, clear of the name above
       return `<g data-id="${b.id}" class="pl-mk" style="transform-origin:${X}px ${Y}px"><rect x="${x0}" y="${Y - 10}" width="${w}" height="20" rx="10" fill="#ffd34d" stroke="#5a3d00" stroke-width="2"/><text x="${x0 + w / 2}" y="${Y + 4.5}" text-anchor="middle" font-family="Arial" font-size="12.5" font-weight="800" fill="#3d2a00">★${SP(b).p}</text></g>`; }).join("");
+  g.insertAdjacentHTML("beforeend", lookHtml());   // 👀 on top of everything
 }
 const refreshPlan = () => { drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
 /* once a minute: update the countdowns; redraw everything when an Outpost switched state (not while typing) */
