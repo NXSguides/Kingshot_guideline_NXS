@@ -352,6 +352,13 @@ const EVENTS = {
     note: "Mon 00:00 – Sun 12:00 UTC · be in the alliance at Sun 23:00 UTC the day before (matching) to count", noteZh: "週一 00:00 – 週日 12:00 UTC · 前一天週日 UTC 23:00 配對時要在聯盟內才算" },
   "merchant-empire":    { emoji: "🐫", en: "Merchant Empire", zh: "貿易復興", noGuide: true, start: "2026-10-12", every: 28, days: 7,
     note: "Escort 2 caravans at a time · last 4 h (until Sun 04:00 UTC) raiding only", noteZh: "同時最多護送 2 輛貨車 · 最後 4 小時（到週日 UTC 04:00）只能掠奪" },
+  // the week after Alliance Brawl in the 4-week cycle (Brawl → Strongest Governor → Mobilization → KvK prep); 2026-10-19 – 10-25 from Sherry
+  "strongest-governor": { emoji: "🏆", en: "Strongest Governor", zh: "至高領主", noGuide: true, start: "2026-10-19", every: 28, days: 7,
+    note: "7 days, a new theme each day (daily ranking, rewards at 00:00 UTC): City Construction · Hero Development · Skill Up · Combat Training · Skill Up · Combat Training · Hero Development",
+    noteZh: "7 天，每天換主題（每日排名，UTC 00:00 發獎）：城鎮建設 · 英雄養成 · 技能提升 · 戰鬥訓練 · 技能提升 · 戰鬥訓練 · 英雄養成" },
+  // every 2 weeks (with Strongest Governor and KvK prep); 2026-10-19 – 10-20 from Sherry
+  "golden-glaives":     { emoji: "✨", en: "Golden Glaives", zh: "黃金與巨刃", noGuide: true, start: "2026-10-19", every: 14, days: 2,
+    note: "Every 2 weeks · a guide site says the exchange stays open 1 more day after collecting ends — check in game", noteZh: "每 2 週一次 · 有攻略網站說收集結束後還可以再兌換 1 天，請在遊戲裡確認" },
   // first seen 2026-10-13 – 10-15 (3 days), the day after KvK ended (KvK 10-05 – 10-12) → assumed to follow the 4-week KvK cycle; fix start / "every" on this page if the next one differs
   "call-of-sovereign":  { emoji: "📯", en: "Call of the Sovereign", zh: "崛起的號角", noGuide: true, start: "2026-10-13", every: 28, days: 3,
     note: "Max rewards: 90 Gold Keys (30/day) + 30 Platinum Keys (10/day) over the 3 days · resets 00:00 UTC", noteZh: "拿滿獎勵：3 天共 90 把黃金鑰匙（每天 30）＋ 30 把白銀鑰匙（每天 10）· UTC 00:00 重置" },
