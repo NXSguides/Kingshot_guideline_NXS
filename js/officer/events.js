@@ -511,11 +511,10 @@ function render() {
     for (const [i, td] of ((byId(r.k) || {}).todo || []).entries()) {
       const due = r.st + (Number(td.due) || 0) * DAY;
       if (!startsHere && !(due >= ws && due < we)) continue;   // … unless it started earlier and this task is due this week (long events like KvK)
-      // kept until the event is over (its day passing doesn't hide it — an unticked one shows "overdue"); a timed item appears on its day
-      const until = td.until === "" || td.until == null ? null : +td.until, id = `${r.k}-${isoDay(r.st)}-${i}`;
-      if (until != null && Date.now() < due) continue;
-      if (until != null && Date.now() >= due + until * 3600000 && (store.done || {})[id]) continue;   // timed and ticked: gone after its hour
-      items.push({ r, td, due, id, more: [] });
+      if (due < today) continue;                         // its day has passed → gone (no "overdue" leftovers)
+      const until = td.until === "" || td.until == null ? null : +td.until;
+      if (until != null && (Date.now() < due || Date.now() >= due + until * 3600000)) continue;   // a timed item: only on its day, until that UTC hour
+      items.push({ r, td, due, id: `${r.k}-${isoDay(r.st)}-${i}`, more: [] });
     }
   }
   items.sort((a, b) => a.r.st - b.r.st || a.due - b.due);
