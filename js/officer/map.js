@@ -46,7 +46,7 @@ function drawMap() {
     else s.push(`${g}<circle cx="${X}" cy="${Y}" r="26" fill="#f2c33d" stroke="#fff" stroke-width="3"/><text x="${X}" y="${Y + 9}" text-anchor="middle" font-size="25">👑</text><text class="lbl" id="km_castleLbl" x="${X}" y="${Y + 46}" text-anchor="middle" font-size="16">King's Castle</text></g>`);
   }
   s.push(`<image id="km_obst" width="${FN}" height="${FN}" preserveAspectRatio="none" transform="matrix(${KX} ${-KY} ${-KX} ${-KY} ${CX} ${CY + 1200 * KY})" style="display:none;image-rendering:pixelated;pointer-events:none"/>`);
-  s.push(`<g id="km_exG" style="pointer-events:none"></g><g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_sel"></g>`);
+  s.push(`<g id="km_otG" style="pointer-events:none"></g><g id="km_exG" style="pointer-events:none"></g><g id="km_planG" style="pointer-events:none"></g><g id="km_flagG" style="pointer-events:none"></g><g id="km_sel"></g>`);
   $("km_svg").innerHTML = s.join("");
   $("km_svg").querySelectorAll(".mk").forEach((m) => {
     m.addEventListener("click", () => select(m.dataset.id, false));
@@ -557,32 +557,32 @@ function renderMp() {
 const FT = { zh: { t: "🚩 插旗規劃", hint: "每面聯盟旗幟佔 7×7 格（旗子在正中間），領地要跟現有、連到總部的領地接壤，可以一面接一面延伸。先蓋的優先：別人已經佔的格子不會算給我們，所以照清單順序計算。地圖上藍格 = 這面旗子新增的領地，紅格 = 已經是別人的。",
     on: "🚩 點地圖放旗：開", off: "🚩 點地圖放旗：關", tapHint: "放大地圖後點一格就會放一面旗子；之後可以在下面改座標。", add: "＋ 加入",
     row: "+{n} 格", lost: "{n} 格是別人的", notConn: "⚠️ 沒接到我們的領地（失效旗幟：沒有領地加成，也不能讓後面的旗子接上）", onOther: "❌ 旗子位置是別人的領地", total: "共 {f} 面旗 · 新增 {n} 格",
-    empty: "還沒有規劃旗子。", obst: "⛰️ 障礙物／禁建區", ex: "🏳️ 現有旗子", exNote: "🏳️ 現有旗子 {n} 面（深藍 = 在遊戲裡確認過的 {c} 面，淺藍 = 從領地圖推算，可能差幾格）。", onMt: "❌ 旗子位置是山", onLake: "❌ 旗子位置是湖", inZone: "❌ 在禁建區（{n}）", del: "移除", up: "上移", save: "改完記得按上面的「💾 儲存規劃」，其他幹部才看得到。",
+    empty: "還沒有規劃旗子。", obst: "⛰️ 障礙物／禁建區", ot: "🏴 其他聯盟", ex: "🏳️ 現有旗子", exNote: "🏳️ 現有旗子 {n} 面（深藍 = 在遊戲裡確認過的 {c} 面，淺藍 = 從領地圖推算，可能差幾格）。", onMt: "❌ 旗子位置是山", onLake: "❌ 旗子位置是湖", inZone: "❌ 在禁建區（{n}）", del: "移除", up: "上移", save: "改完記得按上面的「💾 儲存規劃」，其他幹部才看得到。",
     note: "領地資料來自 {d} 的截圖，可能差 1～2 格，別人的領地之後也會變；實際插旗前請在遊戲裡確認。", loading: "讀取領地資料中…",
     selP: "🚩 規劃旗 #{n}", selE: "🏳️ 聯盟旗幟", conf: "遊戲裡確認過", est: "推算位置", built: "✅ 已蓋好", gone: "🗑️ 已拆除", fix: "修正座標", editNote: "改完要按「💾 儲存規劃」才會存起來。", tapSel: "點地圖上的旗子可以修改或刪除。" },
   ko: { t: "🚩 깃발 계획", hint: "연맹 깃발 하나는 7×7칸을 차지해요(깃발이 한가운데). 영지는 본부까지 이어진 기존 연맹 영지와 맞닿아야 하고, 깃발을 하나씩 이어서 넓힐 수 있어요. 먼저 세운 쪽이 우선: 다른 연맹이 이미 가진 칸은 우리 것이 되지 않으니 목록 순서대로 계산해요. 지도에서 파란 칸 = 이 깃발로 새로 생기는 영지, 빨간 칸 = 이미 다른 연맹 것.",
     on: "🚩 지도를 눌러 배치: 켜짐", off: "🚩 지도를 눌러 배치: 꺼짐", tapHint: "지도를 확대한 뒤 칸을 누르면 깃발이 놓여요. 좌표는 아래에서 고칠 수 있어요.", add: "+ 추가",
     row: "+{n}칸", lost: "{n}칸은 다른 연맹 것", notConn: "⚠️ 우리 영지와 이어지지 않음 (무효 깃발: 영지 보너스 없음, 뒤의 깃발도 이걸로 이어질 수 없음)", onOther: "❌ 깃발 자리가 다른 연맹 영지", total: "깃발 {f}개 · +{n}칸",
-    empty: "아직 계획한 깃발이 없어요.", obst: "⛰️ 장애물 / 금지 구역", ex: "🏳️ 우리 깃발", exNote: "🏳️ 세워진 깃발 {n}개 (진한 파랑 = 게임에서 확인한 {c}개, 연한 파랑 = 영지 그림에서 추정, 몇 칸 차이 날 수 있음).", onMt: "❌ 깃발 자리가 산", onLake: "❌ 깃발 자리가 호수", inZone: "❌ 금지 구역 안 ({n})", del: "삭제", up: "위로", save: "다른 간부도 보려면 위의 「💾 계획 저장」을 눌러 주세요.",
+    empty: "아직 계획한 깃발이 없어요.", obst: "⛰️ 장애물 / 금지 구역", ot: "🏴 다른 연맹", ex: "🏳️ 우리 깃발", exNote: "🏳️ 세워진 깃발 {n}개 (진한 파랑 = 게임에서 확인한 {c}개, 연한 파랑 = 영지 그림에서 추정, 몇 칸 차이 날 수 있음).", onMt: "❌ 깃발 자리가 산", onLake: "❌ 깃발 자리가 호수", inZone: "❌ 금지 구역 안 ({n})", del: "삭제", up: "위로", save: "다른 간부도 보려면 위의 「💾 계획 저장」을 눌러 주세요.",
     note: "영지 정보는 {d} 스크린샷 기준이라 1~2칸 차이 날 수 있고, 다른 연맹 영지도 바뀌어요. 실제로 세우기 전에 게임에서 확인하세요.", loading: "영지 정보 불러오는 중…",
     selP: "🚩 계획한 깃발 #{n}", selE: "🏳️ 연맹 깃발", conf: "게임에서 확인", est: "추정 위치", built: "✅ 세웠어요", gone: "🗑️ 철거됨", fix: "좌표 고치기", editNote: "바꾼 뒤 「💾 계획 저장」을 눌러야 저장돼요.", tapSel: "깃발을 누르면 고치거나 삭제할 수 있어요." },
   pt: { t: "🚩 Plano de Estandartes", hint: "Cada Estandarte da Aliança ocupa 7×7 casas (o estandarte no meio). O território precisa encostar no Território já ligado ao QG, então os estandartes vão em corrente, um depois do outro. Quem constrói primeiro fica com a casa: casas que outra aliança já tem continuam dela, por isso a lista conta na ordem. No mapa, azul = território novo desse estandarte, vermelho = já é de outra aliança.",
     on: "🚩 Tocar no mapa para pôr: LIGADO", off: "🚩 Tocar no mapa para pôr: DESLIGADO", tapHint: "Amplie o mapa e toque numa casa para pôr um estandarte; ajuste as coordenadas abaixo.", add: "+ Adicionar",
     row: "+{n} casas", lost: "{n} casas são de outra aliança", notConn: "⚠️ Não está ligado ao nosso território (inativo: sem bônus de território, e os próximos não se ligam por ele)", onOther: "❌ A casa do estandarte é de outra aliança", total: "{f} estandartes · +{n} casas",
-    empty: "Nenhum estandarte planejado ainda.", obst: "⛰️ Obstáculos / Área Proibida", ex: "🏳️ Nossos estandartes", exNote: "🏳️ {n} estandartes de pé (escuro = conferido no jogo: {c}, claro = estimado pela imagem do território, pode errar umas casas).", onMt: "❌ A casa do estandarte é montanha", onLake: "❌ A casa do estandarte é lago", inZone: "❌ Numa Área Proibida ({n})", del: "Remover", up: "Subir", save: "Toque em 💾 Salvar plano acima para os outros oficiais verem.",
+    empty: "Nenhum estandarte planejado ainda.", obst: "⛰️ Obstáculos / Área Proibida", ot: "🏴 Outras alianças", ex: "🏳️ Nossos estandartes", exNote: "🏳️ {n} estandartes de pé (escuro = conferido no jogo: {c}, claro = estimado pela imagem do território, pode errar umas casas).", onMt: "❌ A casa do estandarte é montanha", onLake: "❌ A casa do estandarte é lago", inZone: "❌ Numa Área Proibida ({n})", del: "Remover", up: "Subir", save: "Toque em 💾 Salvar plano acima para os outros oficiais verem.",
     note: "Território lido de capturas de {d}; pode errar 1–2 casas e as outras alianças mudam — confira no jogo antes de construir.", loading: "Carregando o território…",
     selP: "🚩 Estandarte planejado #{n}", selE: "🏳️ Estandarte da Aliança", conf: "conferido no jogo", est: "posição estimada", built: "✅ Construído", gone: "🗑️ Demolido", fix: "Corrigir coordenadas", editNote: "Depois de mudar, toque em 💾 Salvar plano.", tapSel: "Toque num estandarte para editar ou remover." },
   ar: { t: "🚩 خطة اللافتات", hint: "كل لافتة تحالف تأخذ 7×7 مربعات (اللافتة في الوسط). يجب أن يلامس إقليمها إقليمًا متصلًا بالمقر، فتمتد اللافتات واحدة بعد الأخرى. من يبني أولًا يملك: المربعات التي يملكها تحالف آخر تبقى له، لذلك تُحسب القائمة بالترتيب. على الخريطة: الأزرق = إقليم جديد من هذه اللافتة، الأحمر = لتحالف آخر.",
     on: "🚩 الضغط على الخريطة للوضع: يعمل", off: "🚩 الضغط على الخريطة للوضع: متوقف", tapHint: "كبّر الخريطة واضغط على مربع لوضع لافتة؛ عدّل الإحداثيات بالأسفل.", add: "+ إضافة",
     row: "+{n} مربع", lost: "{n} مربع لتحالف آخر", notConn: "⚠️ غير متصلة بإقليمنا (غير فعالة: لا مكافأة إقليم، ولا تتصل بها اللافتات التالية)", onOther: "❌ مربع اللافتة لتحالف آخر", total: "{f} لافتة · +{n} مربع",
-    empty: "لا توجد لافتات مخططة بعد.", obst: "⛰️ عوائق / المنطقة المحظورة", ex: "🏳️ لافتاتنا", exNote: "🏳️ {n} لافتة قائمة (الداكن = تم التحقق في اللعبة: {c}، الفاتح = تقدير من صورة الإقليم وقد يخطئ ببضعة مربعات).", onMt: "❌ مربع اللافتة جبل", onLake: "❌ مربع اللافتة بحيرة", inZone: "❌ داخل المنطقة المحظورة ({n})", del: "حذف", up: "للأعلى", save: "اضغط 💾 حفظ الخطة بالأعلى ليراها الضباط الآخرون.",
+    empty: "لا توجد لافتات مخططة بعد.", obst: "⛰️ عوائق / المنطقة المحظورة", ot: "🏴 تحالفات أخرى", ex: "🏳️ لافتاتنا", exNote: "🏳️ {n} لافتة قائمة (الداكن = تم التحقق في اللعبة: {c}، الفاتح = تقدير من صورة الإقليم وقد يخطئ ببضعة مربعات).", onMt: "❌ مربع اللافتة جبل", onLake: "❌ مربع اللافتة بحيرة", inZone: "❌ داخل المنطقة المحظورة ({n})", del: "حذف", up: "للأعلى", save: "اضغط 💾 حفظ الخطة بالأعلى ليراها الضباط الآخرون.",
     note: "الإقليم مأخوذ من لقطات {d}؛ قد يخطئ بمربع أو اثنين والتحالفات الأخرى تتغير — تحقق في اللعبة قبل البناء.", loading: "جارٍ تحميل الإقليم…",
     selP: "🚩 لافتة مخططة #{n}", selE: "🏳️ لافتة التحالف", conf: "تم التحقق في اللعبة", est: "موقع تقديري", built: "✅ تم البناء", gone: "🗑️ أُزيلت", fix: "تصحيح الإحداثيات", editNote: "بعد التغيير اضغط 💾 حفظ الخطة.", tapSel: "اضغط على لافتة لتعديلها أو حذفها." },
 
   en: { t: "🚩 Banner plan", hint: "Each Alliance Banner claims 7×7 tiles (banner in the middle); its territory must border territory already linked to the HQ, so banners chain one after another. Built first = owned: tiles another alliance already holds stay theirs, so the list is counted in order. On the map, blue tiles = new territory from that banner, red = already someone else's.",
     on: "🚩 Tap map to place: ON", off: "🚩 Tap map to place: OFF", tapHint: "Zoom in and tap a tile to drop a banner; fine-tune the coordinates below.", add: "+ Add",
     row: "+{n} tiles", lost: "{n} tiles are someone else's", notConn: "⚠️ Not connected to our territory (inactive: no Territory Bonus, and later banners can't connect through it)", onOther: "❌ Banner tile is another alliance's", total: "{f} banners · +{n} tiles",
-    empty: "No banners planned yet.", obst: "⛰️ Obstacles / no-build", ex: "🏳️ Our banners", exNote: "🏳️ {n} banners standing (dark = checked in game: {c}, light = estimated from the territory picture, can be a few tiles off).", onMt: "❌ Banner tile is a mountain", onLake: "❌ Banner tile is a lake", inZone: "❌ In a no-build zone ({n})", del: "Remove", up: "Move up", save: "Press 💾 Save plan above so the other officers see it.",
+    empty: "No banners planned yet.", obst: "⛰️ Obstacles / no-build", ot: "🏴 Other alliances", ex: "🏳️ Our banners", exNote: "🏳️ {n} banners standing (dark = checked in game: {c}, light = estimated from the territory picture, can be a few tiles off).", onMt: "❌ Banner tile is a mountain", onLake: "❌ Banner tile is a lake", inZone: "❌ In a no-build zone ({n})", del: "Remove", up: "Move up", save: "Press 💾 Save plan above so the other officers see it.",
     note: "Territory read from screenshots taken {d}; it can be 1–2 tiles off and other alliances move — check in game before building.", loading: "Loading territory data…",
     selP: "🚩 Planned banner #{n}", selE: "🏳️ Alliance Banner", conf: "checked in game", est: "estimated position", built: "✅ Built", gone: "🗑️ Demolished", fix: "Fix coordinates", editNote: "Press 💾 Save plan to keep the change.", tapSel: "Tap a banner on the map to edit or remove it." } };
 const ft = (k) => (FT[lang] || FT.en)[k];
@@ -599,6 +599,13 @@ function rebuildOwn() {
   for (const k of e.off || []) { const [x, y] = k.split(",").map(Number); sq(x, y, (t) => { if (OV[t] === 1 && !(ZONE && ZONE[t])) OV[t] = 0; }); }
   for (const [x, y] of keep) sq(x, y, (t) => { if (OV[t] !== 2) OV[t] = 1; });
   for (const [x, y] of G.hq || []) for (let i = x - 6; i <= x + 8; i++) for (let j = y - 6; j <= y + 8; j++) OV[j * FN + i] = 1;
+}
+/* 🏴 other alliances' banners (data/banners-others-2189.json, from the territory overlay — estimates): own layer, never mixed with ours */
+let OTB = null, otOn = (() => { try { return localStorage.getItem("km-otb") === "1"; } catch (e) { return false; } })();
+async function loadOt() { try { OTB = await fetch("data/banners-others-2189.json?v=1").then((r) => r.json()); } catch (e) { OTB = null; } drawOt(); }
+function drawOt() {
+  const g = $("km_otG"); if (!g) return;
+  g.innerHTML = otOn && OTB ? Object.values(OTB.a).map((a) => a.b.map(([x, y]) => `<polygon points="${pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]])}" fill="${a.c}" fill-opacity=".55" stroke="#000" stroke-opacity=".5" stroke-width=".35"/>`).join("")).join("") : "";
 }
 async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=20").then((r) => r.json()); } catch (e) { EXB = null; } rebuildOwn(); drawEx(); drawFlags(); renderFlags(); }
 function drawEx() {
@@ -681,8 +688,8 @@ function renderFlags() {
   el.innerHTML = `<h3 style="margin-bottom:2px">${esc(ft("t"))}</h3><div class="muted" style="font-size:12.5px">${esc(ft("hint"))}</div>`
     + (GRID ? "" : `<div class="muted" style="font-size:12px;margin-top:6px">${esc(ft("loading"))}</div>`)
     + (ed ? `<div class="row km-fl-add" style="margin-top:10px"><button type="button" class="btn${flagMode ? " primary" : ""}" id="fl_mode">${esc(ft(flagMode ? "on" : "off"))}</button>
-        <label>X <input id="fl_x" type="number" min="0" max="1199" inputmode="numeric"></label><label>Y <input id="fl_y" type="number" min="0" max="1199" inputmode="numeric"></label><button type="button" class="btn" id="fl_add">${esc(ft("add"))}</button><button type="button" class="btn tg${obstOn ? " primary" : ""}" id="fl_obst">${esc(ft("obst"))}</button><button type="button" class="btn tg${exOn ? " primary" : ""}" id="fl_ex">${esc(ft("ex"))}</button></div>
-        ${flagMode ? `<div class="muted" style="font-size:12px;margin-top:4px">${esc(ft("tapHint"))}</div>` : ""}` : `<div class="row" style="margin-top:10px"><button type="button" class="btn tg${obstOn ? " primary" : ""}" id="fl_obst">${esc(ft("obst"))}</button><button type="button" class="btn tg${exOn ? " primary" : ""}" id="fl_ex">${esc(ft("ex"))}</button></div>`)
+        <label>X <input id="fl_x" type="number" min="0" max="1199" inputmode="numeric"></label><label>Y <input id="fl_y" type="number" min="0" max="1199" inputmode="numeric"></label><button type="button" class="btn" id="fl_add">${esc(ft("add"))}</button><button type="button" class="btn tg${obstOn ? " primary" : ""}" id="fl_obst">${esc(ft("obst"))}</button><button type="button" class="btn tg${exOn ? " primary" : ""}" id="fl_ex">${esc(ft("ex"))}</button><button type="button" class="btn tg${otOn ? " primary" : ""}" id="fl_ot">${esc(ft("ot"))}</button>${otOn && OTB ? `<span class="muted" style="font-size:12px;align-self:center">${Object.entries(OTB.a).map(([n, a]) => `<span style="color:${a.c}">■</span> ${esc(n)}`).join(" · ")}</span>` : ""}</div>
+        ${flagMode ? `<div class="muted" style="font-size:12px;margin-top:4px">${esc(ft("tapHint"))}</div>` : ""}` : `<div class="row" style="margin-top:10px"><button type="button" class="btn tg${obstOn ? " primary" : ""}" id="fl_obst">${esc(ft("obst"))}</button><button type="button" class="btn tg${exOn ? " primary" : ""}" id="fl_ex">${esc(ft("ex"))}</button><button type="button" class="btn tg${otOn ? " primary" : ""}" id="fl_ot">${esc(ft("ot"))}</button>${otOn && OTB ? `<span class="muted" style="font-size:12px;align-self:center">${Object.entries(OTB.a).map(([n, a]) => `<span style="color:${a.c}">■</span> ${esc(n)}`).join(" · ")}</span>` : ""}</div>`)
     + (fl.length ? `<div class="km-fl-list">${fl.map((f, i) => `<div class="km-fl" data-i="${i}"><b>#${i + 1}</b>`
         + (ed ? `<label>X <input type="number" data-fx="${i}" value="${f.x}" min="0" max="1199" inputmode="numeric"></label><label>Y <input type="number" data-fy="${i}" value="${f.y}" min="0" max="1199" inputmode="numeric"></label>` : `<span class="co">X:${f.x} Y:${f.y}</span>`)
         + `<button type="button" class="btn small" data-fcp="${i}">${esc(T("copy"))}</button>`
@@ -738,6 +745,7 @@ function flagEvents() {
   const el = $("km_flags");
   el.addEventListener("click", (e) => {
     const b = e.target.closest("button"); if (!b) return;
+    if (b.id === "fl_ot") { otOn = !otOn; try { localStorage.setItem("km-otb", otOn ? "1" : "0"); } catch (err) {} drawOt(); renderFlags(); return; }
     if (b.id === "fl_ex") { exOn = !exOn; try { localStorage.setItem("km-exb", exOn ? "1" : "0"); } catch (err) {} drawEx(); renderFlags(); return; }
     if (b.id === "fl_obst") { obstOn = !obstOn; try { localStorage.setItem("km-obst", obstOn ? "1" : "0"); } catch (err) {} drawObst(); renderFlags(); return; }
     if (b.dataset.fcp != null) { const f = PLAN.fl[+b.dataset.fcp]; try { navigator.clipboard.writeText(`X:${f[0]} Y:${f[1]}`).then(() => { b.textContent = T("copied"); setTimeout(() => b.textContent = T("copy"), 1500); }, () => {}); } catch (err) {} return; }
@@ -784,7 +792,7 @@ function onShow() {
 }
 async function init() {
   await loadScripts(["data/kingdom-map.js"]);
-  G = KINGDOM_MAP; build(); await loadPlan(); importFromLink(); drawMap(); $("km_svg").classList.toggle("terr", terrOn); drawPlan(); drawFlags(); flagEvents(); applyTexts(); ready = true; loadGrid(); loadEx();
+  G = KINGDOM_MAP; build(); await loadPlan(); importFromLink(); drawMap(); $("km_svg").classList.toggle("terr", terrOn); drawPlan(); drawFlags(); flagEvents(); applyTexts(); ready = true; loadGrid(); loadEx(); loadOt();
   $("km_in").onclick = () => setZoom(Z * 1.5); $("km_out").onclick = () => setZoom(Z / 1.5);
   mouseControls();
 }
