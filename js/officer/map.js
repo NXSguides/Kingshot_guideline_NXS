@@ -299,7 +299,7 @@ function isConflict(b) {
 const st = (b) => { const e = eff(b); return e === "held" && isConflict(b) ? "conflict" : e; };
 const left = (ms) => { const m = Math.max(0, Math.round(ms / 6e4)), d = Math.floor(m / 1440), h = Math.floor(m % 1440 / 60);
   return (d ? d + (lang === "zh" ? "天" : "d ") : "") + (d || h ? h + (lang === "zh" ? "時" : "h ") : "") + (d ? "" : (m % 60) + (lang === "zh" ? "分" : "m")); };
-const snap = () => JSON.stringify({ o: PLAN.o, t: PLAN.t, h: PLAN.h || {}, c: PLAN.cyc || null, sp: PLAN.sp || {}, fl: PLAN.fl || [], ex: PLAN.ex || null });
+const snap = () => JSON.stringify({ o: PLAN.o, t: PLAN.t, h: PLAN.h || {}, c: PLAN.cyc || null, sp: PLAN.sp || {}, fl: PLAN.fl || [], ex: PLAN.ex || null, ot: PLAN.ot || null });
 /* ⭐ Sanctuary / Fortress priority: PLAN.sp["x,y"] = { p: 1…, r: "rewards", n: "note" } */
 const SP = (b) => (PLAN.sp && PLAN.sp[pk(b)]) || {};
 const PRIOABLE = (b) => b && (b.kind === "sanctuary" || b.kind === "fortress");
@@ -450,7 +450,7 @@ function renderPlan() {
   for (const [id, k] of [["cy_p", "p"], ["cy_v", "v"]]) if ($(id)) $(id).onchange = () => { const n = parseInt($(id).value, 10); if (n > 0) { PLAN.cyc = { ...CYC(), [k]: n }; planMsg = ""; refreshPlan(); } };
   lastSig = sig();
   renderFlags();
-  if ($("pl_reset")) $("pl_reset").onclick = () => { const S = JSON.parse(SAVED); PLAN.o = S.o; PLAN.t = S.t; PLAN.h = S.h || {}; if (S.c) PLAN.cyc = S.c; else delete PLAN.cyc; PLAN.sp = S.sp || {}; PLAN.fl = S.fl || []; if (S.ex) PLAN.ex = S.ex; else delete PLAN.ex; rebuildOwn(); drawEx(); planMsg = ""; drawFlags(); renderFlags(); drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
+  if ($("pl_reset")) $("pl_reset").onclick = () => { const S = JSON.parse(SAVED); PLAN.o = S.o; PLAN.t = S.t; PLAN.h = S.h || {}; if (S.c) PLAN.cyc = S.c; else delete PLAN.cyc; PLAN.sp = S.sp || {}; PLAN.fl = S.fl || []; if (S.ex) PLAN.ex = S.ex; else delete PLAN.ex; if (S.ot) PLAN.ot = S.ot; else delete PLAN.ot; drawOt(); rebuildOwn(); drawEx(); planMsg = ""; drawFlags(); renderFlags(); drawPlan(); applyHidden(); renderInfo(); renderList(); renderPlan(); };
 }
 const gh = (method, path, body, token = OFFICER.token) => OFFICER.gh(method, path, body, token);   // shared (js/officer/core.js)
 const u8b64 = (str) => { const u = new TextEncoder().encode(str); let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
@@ -489,7 +489,7 @@ async function savePlan() {
   const by = ($("pl_by").value || "").trim(); try { localStorage.setItem("nxs-plan-by", by); } catch (e) {}
   planMsg = pt("saving"); renderPlan(); for (const id of ["pl_save", "pl_save2"]) if ($(id)) $(id).disabled = true;
   for (const b of B) if (PLANNABLE(b) && !isOp(b) && raw(b) === "held" && !(PLAN.h || {})[pk(b)]) { PLAN.h = PLAN.h || {}; PLAN.h[pk(b)] = Date.parse(PLAN.at || "") || 0; }   // keep the old date, or saving would make last period's ones current again
-  const next = { o: PLAN.o, t: PLAN.t, ...(PLAN.h && Object.keys(PLAN.h).length ? { h: PLAN.h } : {}), ...(PLAN.cyc ? { cyc: PLAN.cyc } : {}), ...(PLAN.sp && Object.keys(PLAN.sp).length ? { sp: PLAN.sp } : {}), ...(PLAN.fl && PLAN.fl.length ? { fl: PLAN.fl } : {}), ...(PLAN.ex && ((PLAN.ex.off || []).length || (PLAN.ex.add || []).length) ? { ex: PLAN.ex } : {}), by: by || "?", at: new Date().toISOString() };
+  const next = { o: PLAN.o, t: PLAN.t, ...(PLAN.h && Object.keys(PLAN.h).length ? { h: PLAN.h } : {}), ...(PLAN.cyc ? { cyc: PLAN.cyc } : {}), ...(PLAN.sp && Object.keys(PLAN.sp).length ? { sp: PLAN.sp } : {}), ...(PLAN.fl && PLAN.fl.length ? { fl: PLAN.fl } : {}), ...(PLAN.ex && ((PLAN.ex.off || []).length || (PLAN.ex.add || []).length) ? { ex: PLAN.ex } : {}), ...(PLAN.ot && ((PLAN.ot.off || []).length || (PLAN.ot.add || []).length) ? { ot: PLAN.ot } : {}), by: by || "?", at: new Date().toISOString() };
   try {
     for (let attempt = 0; ; attempt++) {
       const f = await gh("GET", PLAN_PATH);
@@ -557,32 +557,32 @@ function renderMp() {
 const FT = { zh: { t: "🚩 插旗規劃", hint: "每面聯盟旗幟佔 7×7 格（旗子在正中間），領地要跟現有、連到總部的領地接壤，可以一面接一面延伸。先蓋的優先：別人已經佔的格子不會算給我們，所以照清單順序計算。地圖上藍格 = 這面旗子新增的領地，紅格 = 已經是別人的。",
     on: "🚩 點地圖放旗：開", off: "🚩 點地圖放旗：關", tapHint: "放大地圖後點一格就會放一面旗子；之後可以在下面改座標。", add: "＋ 加入",
     row: "+{n} 格", lost: "{n} 格是別人的", notConn: "⚠️ 沒接到我們的領地（失效旗幟：沒有領地加成，也不能讓後面的旗子接上）", onOther: "❌ 旗子位置是別人的領地", total: "共 {f} 面旗 · 新增 {n} 格",
-    empty: "還沒有規劃旗子。", obst: "⛰️ 障礙物／禁建區", ot: "🏴 其他聯盟", ex: "🏳️ 現有旗子", exNote: "🏳️ 現有旗子 {n} 面（深藍 = 在遊戲裡確認過的 {c} 面，淺藍 = 從領地圖推算，可能差幾格）。", onMt: "❌ 旗子位置是山", onLake: "❌ 旗子位置是湖", inZone: "❌ 在禁建區（{n}）", del: "移除", up: "上移", save: "改完記得按上面的「💾 儲存規劃」，其他幹部才看得到。",
+    empty: "還沒有規劃旗子。", obst: "⛰️ 障礙物／禁建區", ot: "🏴 其他聯盟", putKind: "點地圖放的是：", ourPlan: "🚩 我們的規劃旗", ex: "🏳️ 現有旗子", exNote: "🏳️ 現有旗子 {n} 面（深藍 = 在遊戲裡確認過的 {c} 面，淺藍 = 從領地圖推算，可能差幾格）。", onMt: "❌ 旗子位置是山", onLake: "❌ 旗子位置是湖", inZone: "❌ 在禁建區（{n}）", del: "移除", up: "上移", save: "改完記得按上面的「💾 儲存規劃」，其他幹部才看得到。",
     note: "領地資料來自 {d} 的截圖，可能差 1～2 格，別人的領地之後也會變；實際插旗前請在遊戲裡確認。", loading: "讀取領地資料中…",
     selP: "🚩 規劃旗 #{n}", selE: "🏳️ 聯盟旗幟", conf: "遊戲裡確認過", est: "推算位置", built: "✅ 已蓋好", gone: "🗑️ 已拆除", fix: "修正座標", editNote: "改完要按「💾 儲存規劃」才會存起來。", tapSel: "點地圖上的旗子可以修改或刪除。" },
   ko: { t: "🚩 깃발 계획", hint: "연맹 깃발 하나는 7×7칸을 차지해요(깃발이 한가운데). 영지는 본부까지 이어진 기존 연맹 영지와 맞닿아야 하고, 깃발을 하나씩 이어서 넓힐 수 있어요. 먼저 세운 쪽이 우선: 다른 연맹이 이미 가진 칸은 우리 것이 되지 않으니 목록 순서대로 계산해요. 지도에서 파란 칸 = 이 깃발로 새로 생기는 영지, 빨간 칸 = 이미 다른 연맹 것.",
     on: "🚩 지도를 눌러 배치: 켜짐", off: "🚩 지도를 눌러 배치: 꺼짐", tapHint: "지도를 확대한 뒤 칸을 누르면 깃발이 놓여요. 좌표는 아래에서 고칠 수 있어요.", add: "+ 추가",
     row: "+{n}칸", lost: "{n}칸은 다른 연맹 것", notConn: "⚠️ 우리 영지와 이어지지 않음 (무효 깃발: 영지 보너스 없음, 뒤의 깃발도 이걸로 이어질 수 없음)", onOther: "❌ 깃발 자리가 다른 연맹 영지", total: "깃발 {f}개 · +{n}칸",
-    empty: "아직 계획한 깃발이 없어요.", obst: "⛰️ 장애물 / 금지 구역", ot: "🏴 다른 연맹", ex: "🏳️ 우리 깃발", exNote: "🏳️ 세워진 깃발 {n}개 (진한 파랑 = 게임에서 확인한 {c}개, 연한 파랑 = 영지 그림에서 추정, 몇 칸 차이 날 수 있음).", onMt: "❌ 깃발 자리가 산", onLake: "❌ 깃발 자리가 호수", inZone: "❌ 금지 구역 안 ({n})", del: "삭제", up: "위로", save: "다른 간부도 보려면 위의 「💾 계획 저장」을 눌러 주세요.",
+    empty: "아직 계획한 깃발이 없어요.", obst: "⛰️ 장애물 / 금지 구역", ot: "🏴 다른 연맹", putKind: "지도에 놓을 것:", ourPlan: "🚩 우리 계획 깃발", ex: "🏳️ 우리 깃발", exNote: "🏳️ 세워진 깃발 {n}개 (진한 파랑 = 게임에서 확인한 {c}개, 연한 파랑 = 영지 그림에서 추정, 몇 칸 차이 날 수 있음).", onMt: "❌ 깃발 자리가 산", onLake: "❌ 깃발 자리가 호수", inZone: "❌ 금지 구역 안 ({n})", del: "삭제", up: "위로", save: "다른 간부도 보려면 위의 「💾 계획 저장」을 눌러 주세요.",
     note: "영지 정보는 {d} 스크린샷 기준이라 1~2칸 차이 날 수 있고, 다른 연맹 영지도 바뀌어요. 실제로 세우기 전에 게임에서 확인하세요.", loading: "영지 정보 불러오는 중…",
     selP: "🚩 계획한 깃발 #{n}", selE: "🏳️ 연맹 깃발", conf: "게임에서 확인", est: "추정 위치", built: "✅ 세웠어요", gone: "🗑️ 철거됨", fix: "좌표 고치기", editNote: "바꾼 뒤 「💾 계획 저장」을 눌러야 저장돼요.", tapSel: "깃발을 누르면 고치거나 삭제할 수 있어요." },
   pt: { t: "🚩 Plano de Estandartes", hint: "Cada Estandarte da Aliança ocupa 7×7 casas (o estandarte no meio). O território precisa encostar no Território já ligado ao QG, então os estandartes vão em corrente, um depois do outro. Quem constrói primeiro fica com a casa: casas que outra aliança já tem continuam dela, por isso a lista conta na ordem. No mapa, azul = território novo desse estandarte, vermelho = já é de outra aliança.",
     on: "🚩 Tocar no mapa para pôr: LIGADO", off: "🚩 Tocar no mapa para pôr: DESLIGADO", tapHint: "Amplie o mapa e toque numa casa para pôr um estandarte; ajuste as coordenadas abaixo.", add: "+ Adicionar",
     row: "+{n} casas", lost: "{n} casas são de outra aliança", notConn: "⚠️ Não está ligado ao nosso território (inativo: sem bônus de território, e os próximos não se ligam por ele)", onOther: "❌ A casa do estandarte é de outra aliança", total: "{f} estandartes · +{n} casas",
-    empty: "Nenhum estandarte planejado ainda.", obst: "⛰️ Obstáculos / Área Proibida", ot: "🏴 Outras alianças", ex: "🏳️ Nossos estandartes", exNote: "🏳️ {n} estandartes de pé (escuro = conferido no jogo: {c}, claro = estimado pela imagem do território, pode errar umas casas).", onMt: "❌ A casa do estandarte é montanha", onLake: "❌ A casa do estandarte é lago", inZone: "❌ Numa Área Proibida ({n})", del: "Remover", up: "Subir", save: "Toque em 💾 Salvar plano acima para os outros oficiais verem.",
+    empty: "Nenhum estandarte planejado ainda.", obst: "⛰️ Obstáculos / Área Proibida", ot: "🏴 Outras alianças", putKind: "Tocar no mapa coloca:", ourPlan: "🚩 Nosso estandarte planejado", ex: "🏳️ Nossos estandartes", exNote: "🏳️ {n} estandartes de pé (escuro = conferido no jogo: {c}, claro = estimado pela imagem do território, pode errar umas casas).", onMt: "❌ A casa do estandarte é montanha", onLake: "❌ A casa do estandarte é lago", inZone: "❌ Numa Área Proibida ({n})", del: "Remover", up: "Subir", save: "Toque em 💾 Salvar plano acima para os outros oficiais verem.",
     note: "Território lido de capturas de {d}; pode errar 1–2 casas e as outras alianças mudam — confira no jogo antes de construir.", loading: "Carregando o território…",
     selP: "🚩 Estandarte planejado #{n}", selE: "🏳️ Estandarte da Aliança", conf: "conferido no jogo", est: "posição estimada", built: "✅ Construído", gone: "🗑️ Demolido", fix: "Corrigir coordenadas", editNote: "Depois de mudar, toque em 💾 Salvar plano.", tapSel: "Toque num estandarte para editar ou remover." },
   ar: { t: "🚩 خطة اللافتات", hint: "كل لافتة تحالف تأخذ 7×7 مربعات (اللافتة في الوسط). يجب أن يلامس إقليمها إقليمًا متصلًا بالمقر، فتمتد اللافتات واحدة بعد الأخرى. من يبني أولًا يملك: المربعات التي يملكها تحالف آخر تبقى له، لذلك تُحسب القائمة بالترتيب. على الخريطة: الأزرق = إقليم جديد من هذه اللافتة، الأحمر = لتحالف آخر.",
     on: "🚩 الضغط على الخريطة للوضع: يعمل", off: "🚩 الضغط على الخريطة للوضع: متوقف", tapHint: "كبّر الخريطة واضغط على مربع لوضع لافتة؛ عدّل الإحداثيات بالأسفل.", add: "+ إضافة",
     row: "+{n} مربع", lost: "{n} مربع لتحالف آخر", notConn: "⚠️ غير متصلة بإقليمنا (غير فعالة: لا مكافأة إقليم، ولا تتصل بها اللافتات التالية)", onOther: "❌ مربع اللافتة لتحالف آخر", total: "{f} لافتة · +{n} مربع",
-    empty: "لا توجد لافتات مخططة بعد.", obst: "⛰️ عوائق / المنطقة المحظورة", ot: "🏴 تحالفات أخرى", ex: "🏳️ لافتاتنا", exNote: "🏳️ {n} لافتة قائمة (الداكن = تم التحقق في اللعبة: {c}، الفاتح = تقدير من صورة الإقليم وقد يخطئ ببضعة مربعات).", onMt: "❌ مربع اللافتة جبل", onLake: "❌ مربع اللافتة بحيرة", inZone: "❌ داخل المنطقة المحظورة ({n})", del: "حذف", up: "للأعلى", save: "اضغط 💾 حفظ الخطة بالأعلى ليراها الضباط الآخرون.",
+    empty: "لا توجد لافتات مخططة بعد.", obst: "⛰️ عوائق / المنطقة المحظورة", ot: "🏴 تحالفات أخرى", putKind: "الضغط على الخريطة يضع:", ourPlan: "🚩 لافتتنا المخططة", ex: "🏳️ لافتاتنا", exNote: "🏳️ {n} لافتة قائمة (الداكن = تم التحقق في اللعبة: {c}، الفاتح = تقدير من صورة الإقليم وقد يخطئ ببضعة مربعات).", onMt: "❌ مربع اللافتة جبل", onLake: "❌ مربع اللافتة بحيرة", inZone: "❌ داخل المنطقة المحظورة ({n})", del: "حذف", up: "للأعلى", save: "اضغط 💾 حفظ الخطة بالأعلى ليراها الضباط الآخرون.",
     note: "الإقليم مأخوذ من لقطات {d}؛ قد يخطئ بمربع أو اثنين والتحالفات الأخرى تتغير — تحقق في اللعبة قبل البناء.", loading: "جارٍ تحميل الإقليم…",
     selP: "🚩 لافتة مخططة #{n}", selE: "🏳️ لافتة التحالف", conf: "تم التحقق في اللعبة", est: "موقع تقديري", built: "✅ تم البناء", gone: "🗑️ أُزيلت", fix: "تصحيح الإحداثيات", editNote: "بعد التغيير اضغط 💾 حفظ الخطة.", tapSel: "اضغط على لافتة لتعديلها أو حذفها." },
 
   en: { t: "🚩 Banner plan", hint: "Each Alliance Banner claims 7×7 tiles (banner in the middle); its territory must border territory already linked to the HQ, so banners chain one after another. Built first = owned: tiles another alliance already holds stay theirs, so the list is counted in order. On the map, blue tiles = new territory from that banner, red = already someone else's.",
     on: "🚩 Tap map to place: ON", off: "🚩 Tap map to place: OFF", tapHint: "Zoom in and tap a tile to drop a banner; fine-tune the coordinates below.", add: "+ Add",
     row: "+{n} tiles", lost: "{n} tiles are someone else's", notConn: "⚠️ Not connected to our territory (inactive: no Territory Bonus, and later banners can't connect through it)", onOther: "❌ Banner tile is another alliance's", total: "{f} banners · +{n} tiles",
-    empty: "No banners planned yet.", obst: "⛰️ Obstacles / no-build", ot: "🏴 Other alliances", ex: "🏳️ Our banners", exNote: "🏳️ {n} banners standing (dark = checked in game: {c}, light = estimated from the territory picture, can be a few tiles off).", onMt: "❌ Banner tile is a mountain", onLake: "❌ Banner tile is a lake", inZone: "❌ In a no-build zone ({n})", del: "Remove", up: "Move up", save: "Press 💾 Save plan above so the other officers see it.",
+    empty: "No banners planned yet.", obst: "⛰️ Obstacles / no-build", ot: "🏴 Other alliances", putKind: "Tapping the map places:", ourPlan: "🚩 Our planned banner", ex: "🏳️ Our banners", exNote: "🏳️ {n} banners standing (dark = checked in game: {c}, light = estimated from the territory picture, can be a few tiles off).", onMt: "❌ Banner tile is a mountain", onLake: "❌ Banner tile is a lake", inZone: "❌ In a no-build zone ({n})", del: "Remove", up: "Move up", save: "Press 💾 Save plan above so the other officers see it.",
     note: "Territory read from screenshots taken {d}; it can be 1–2 tiles off and other alliances move — check in game before building.", loading: "Loading territory data…",
     selP: "🚩 Planned banner #{n}", selE: "🏳️ Alliance Banner", conf: "checked in game", est: "estimated position", built: "✅ Built", gone: "🗑️ Demolished", fix: "Fix coordinates", editNote: "Press 💾 Save plan to keep the change.", tapSel: "Tap a banner on the map to edit or remove it." } };
 const ft = (k) => (FT[lang] || FT.en)[k];
@@ -603,9 +603,17 @@ function rebuildOwn() {
 /* 🏴 other alliances' banners (data/banners-others-2189.json, from the territory overlay — estimates): own layer, never mixed with ours */
 let OTB = null, otOn = (() => { try { return localStorage.getItem("km-otb") === "1"; } catch (e) { return false; } })();
 async function loadOt() { try { OTB = await fetch("data/banners-others-2189.json?v=1").then((r) => r.json()); } catch (e) { OTB = null; } drawOt(); }
+/* officers' fixes (saved with the plan): PLAN.ot = { off: ["UNI:x,y" gone / moved away], add: [["UNI", x, y] built / corrected] } */
+const otCol = (n) => (OTB && OTB.a[n] && OTB.a[n].c) || "#999";
+const otList = () => { if (!OTB) return []; const o = PLAN.ot || {}, off = new Set(o.off || []), out = [];
+  for (const [n, a] of Object.entries(OTB.a)) for (const [x, y] of a.b) if (!off.has(`${n}:${x},${y}`)) out.push([n, x, y, 0]);
+  for (const [n, x, y] of o.add || []) out.push([n, x, y, 1]); return out; };
+const otEd = () => (PLAN.ot = PLAN.ot || { off: [], add: [] }, PLAN.ot.off = PLAN.ot.off || [], PLAN.ot.add = PLAN.ot.add || [], PLAN.ot);
+const otDrop = (n, x, y) => { const o = otEd(), j = o.add.findIndex(([m, a, b]) => m === n && a === x && b === y); if (j >= 0) o.add.splice(j, 1); else if (!o.off.includes(`${n}:${x},${y}`)) o.off.push(`${n}:${x},${y}`); };
+let otKind = "";   // 🚩 tap-to-place puts: "" = our planned banner, or an alliance name
 function drawOt() {
   const g = $("km_otG"); if (!g) return;
-  g.innerHTML = otOn && OTB ? Object.values(OTB.a).map((a) => a.b.map(([x, y]) => `<polygon points="${pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]])}" fill="${a.c}" fill-opacity=".55" stroke="#000" stroke-opacity=".5" stroke-width=".35"/>`).join("")).join("") : "";
+  g.innerHTML = otOn && OTB ? otList().map(([n, x, y, c]) => `<polygon points="${pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]])}" fill="${otCol(n)}" fill-opacity="${c ? .8 : .55}" stroke="${c ? "#fff" : "#000"}" stroke-opacity=".6" stroke-width="${c ? .6 : .35}"/>`).join("") : "";
 }
 async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=20").then((r) => r.json()); } catch (e) { EXB = null; } rebuildOwn(); drawEx(); drawFlags(); renderFlags(); }
 function drawEx() {
@@ -689,6 +697,7 @@ function renderFlags() {
     + (GRID ? "" : `<div class="muted" style="font-size:12px;margin-top:6px">${esc(ft("loading"))}</div>`)
     + (ed ? `<div class="row km-fl-add" style="margin-top:10px"><button type="button" class="btn${flagMode ? " primary" : ""}" id="fl_mode">${esc(ft(flagMode ? "on" : "off"))}</button>
         <label>X <input id="fl_x" type="number" min="0" max="1199" inputmode="numeric"></label><label>Y <input id="fl_y" type="number" min="0" max="1199" inputmode="numeric"></label><button type="button" class="btn" id="fl_add">${esc(ft("add"))}</button><button type="button" class="btn tg${obstOn ? " primary" : ""}" id="fl_obst">${esc(ft("obst"))}</button><button type="button" class="btn tg${exOn ? " primary" : ""}" id="fl_ex">${esc(ft("ex"))}</button><button type="button" class="btn tg${otOn ? " primary" : ""}" id="fl_ot">${esc(ft("ot"))}</button>${otOn && OTB ? `<span class="muted" style="font-size:12px;align-self:center">${Object.entries(OTB.a).map(([n, a]) => `<span style="color:${a.c}">■</span> ${esc(n)}`).join(" · ")}</span>` : ""}</div>
+        ${flagMode && otOn && OTB ? `<div class="row" style="margin-top:6px;gap:6px;align-items:center"><span class="muted" style="font-size:12.5px">${esc(ft("putKind"))}</span><select class="btn" id="fl_kind"><option value="">${esc(ft("ourPlan"))}</option>${Object.keys(OTB.a).map((n) => `<option value="${esc(n)}"${otKind === n ? " selected" : ""}>🏴 ${esc(n)}</option>`).join("")}</select></div>` : ""}
         ${flagMode ? `<div class="muted" style="font-size:12px;margin-top:4px">${esc(ft("tapHint"))}</div>` : ""}` : `<div class="row" style="margin-top:10px"><button type="button" class="btn tg${obstOn ? " primary" : ""}" id="fl_obst">${esc(ft("obst"))}</button><button type="button" class="btn tg${exOn ? " primary" : ""}" id="fl_ex">${esc(ft("ex"))}</button><button type="button" class="btn tg${otOn ? " primary" : ""}" id="fl_ot">${esc(ft("ot"))}</button>${otOn && OTB ? `<span class="muted" style="font-size:12px;align-self:center">${Object.entries(OTB.a).map(([n, a]) => `<span style="color:${a.c}">■</span> ${esc(n)}`).join(" · ")}</span>` : ""}</div>`)
     + (fl.length ? `<div class="km-fl-list">${fl.map((f, i) => `<div class="km-fl" data-i="${i}"><b>#${i + 1}</b>`
         + (ed ? `<label>X <input type="number" data-fx="${i}" value="${f.x}" min="0" max="1199" inputmode="numeric"></label><label>Y <input type="number" data-fy="${i}" value="${f.y}" min="0" max="1199" inputmode="numeric"></label>` : `<span class="co">X:${f.x} Y:${f.y}</span>`)
@@ -705,7 +714,7 @@ function renderFlags() {
     + (EXB ? `<div class="muted" style="font-size:12px;margin-top:6px">${esc(ft("exNote").replace("{n}", exList().length).replace("{c}", exList().filter((b) => b[2]).length))} ${esc(ft("tapSel"))}</div>` : "")
     + `<div class="muted" style="font-size:12px;margin-top:6px">${esc(ft("note").replace("{d}", TERR.date))}</div>`;
 }
-function flagsChanged() { planMsg = ""; rebuildOwn(); drawEx(); drawFlags(); renderFlags(); renderPlan(); if (FSEL) flagInfo(); }
+function flagsChanged() { planMsg = ""; rebuildOwn(); drawEx(); drawOt(); drawFlags(); renderFlags(); renderPlan(); if (FSEL) flagInfo(); }
 /* 🎯 tapped banner (planned or standing): shown in the info box under the map, where it can be moved, marked built / demolished or removed */
 let FSEL = null;
 const near = (list, x, y) => { let best = -1, bd = 3; list.forEach(([a, b], i) => { const d = Math.max(Math.abs(a - x), Math.abs(b - y)); if (d < bd) { bd = d; best = i; } }); return best; };
@@ -714,16 +723,19 @@ function selectFlagAt(x, y) {
   if (i >= 0) { FSEL = { k: "p", i }; flagInfo(); return true; }
   const ex = exOn ? exList() : []; i = near(ex, x, y);
   if (i >= 0) { FSEL = { k: "e", x: ex[i][0], y: ex[i][1], c: ex[i][2] }; flagInfo(); return true; }
+  const ot = otOn ? otList() : []; i = near(ot.map(([, a, b]) => [a, b]), x, y);
+  if (i >= 0) { FSEL = { k: "o", n: ot[i][0], x: ot[i][1], y: ot[i][2], c: ot[i][3] }; flagInfo(); return true; }
   return false;
 }
 function flagInfo() {
   const el = $("km_info"), ed = ME(); if (!el || !FSEL) return;
   let x, y, head, sub = "";
   if (FSEL.k === "p") { const f = (PLAN.fl || [])[FSEL.i]; if (!f) { FSEL = null; renderInfo(); return; } [x, y] = f; head = ft("selP").replace("{n}", FSEL.i + 1); }
+  else if (FSEL.k === "o") { x = FSEL.x; y = FSEL.y; head = "🏴 " + FSEL.n; sub = ft(FSEL.c ? "conf" : "est"); }
   else { x = FSEL.x; y = FSEL.y; head = ft("selE"); sub = ft(FSEL.c ? "conf" : "est"); }
   el.innerHTML = `<b>${esc(head)}</b>${sub ? `<span class="muted">${esc(sub)}</span>` : ""}<span class="co">X:${x} Y:${y}</span><button type="button" class="btn" id="fs_cp">${esc(T("copy"))}</button>`
     + (ed ? `<div class="km-fl-add" style="flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px;align-items:center"><span class="muted">${esc(ft("fix"))}</span><label>X <input id="fs_x" type="number" min="0" max="1199" value="${x}" inputmode="numeric"></label><label>Y <input id="fs_y" type="number" min="0" max="1199" value="${y}" inputmode="numeric"></label>`
-        + (FSEL.k === "p" ? `<button type="button" class="btn" id="fs_built">${esc(ft("built"))}</button><button type="button" class="btn" id="fs_del">${esc(ft("del"))}</button>` : `<button type="button" class="btn" id="fs_gone">${esc(ft("gone"))}</button>`)
+        + (FSEL.k === "o" ? `<select class="btn" id="fs_al">${Object.keys(OTB.a).map((n) => `<option${n === FSEL.n ? " selected" : ""}>${esc(n)}</option>`).join("")}</select><button type="button" class="btn" id="fs_ogone">${esc(ft("gone"))}</button>` : FSEL.k === "p" ? `<button type="button" class="btn" id="fs_built">${esc(ft("built"))}</button><button type="button" class="btn" id="fs_del">${esc(ft("del"))}</button>` : `<button type="button" class="btn" id="fs_gone">${esc(ft("gone"))}</button>`)
         + `</div><div class="muted" style="flex-basis:100%;font-size:12px">${esc(ft("editNote"))}</div>` : "");
   const [X, Y] = P(x + .5, y + .5); $("km_sel").innerHTML = `<circle class="sel-ring" style="transform-origin:${X}px ${Y}px" cx="${X}" cy="${Y}" r="6"/>`;
   $("fs_cp").onclick = () => { try { navigator.clipboard.writeText(`X:${x} Y:${y}`).then(() => { $("fs_cp").textContent = T("copied"); }, () => {}); } catch (e) {} };
@@ -731,10 +743,13 @@ function flagInfo() {
   const ex = () => (PLAN.ex = PLAN.ex || { off: [], add: [] }, PLAN.ex.off = PLAN.ex.off || [], PLAN.ex.add = PLAN.ex.add || [], PLAN.ex);
   const dropEx = (a, b) => { const e = ex(), j = e.add.findIndex(([p, q]) => p === a && q === b); if (j >= 0) e.add.splice(j, 1); else if (!e.off.includes(a + "," + b)) e.off.push(a + "," + b); };
   const move = () => { const nx = parseInt($("fs_x").value, 10), ny = parseInt($("fs_y").value, 10); if (!(nx >= 0 && ny >= 0 && nx < FN && ny < FN) || (nx === x && ny === y)) return;
+    if (FSEL.k === "o") { otDrop(FSEL.n, x, y); otEd().add.push([FSEL.n, nx, ny]); FSEL = { ...FSEL, x: nx, y: ny, c: 1 }; flagsChanged(); return; }
     if (FSEL.k === "p") PLAN.fl[FSEL.i] = [nx, ny]; else { dropEx(x, y); ex().add.push([nx, ny]); FSEL = { k: "e", x: nx, y: ny, c: 1 }; } flagsChanged(); };
   $("fs_x").onchange = move; $("fs_y").onchange = move;
   if ($("fs_del")) $("fs_del").onclick = () => { PLAN.fl.splice(FSEL.i, 1); FSEL = null; flagsChanged(); renderInfo(); $("km_sel").innerHTML = ""; };
   if ($("fs_built")) $("fs_built").onclick = () => { PLAN.fl.splice(FSEL.i, 1); ex().add.push([x, y]); FSEL = { k: "e", x, y, c: 1 }; flagsChanged(); };
+  if ($("fs_ogone")) $("fs_ogone").onclick = () => { otDrop(FSEL.n, x, y); FSEL = null; flagsChanged(); renderInfo(); $("km_sel").innerHTML = ""; };
+  if ($("fs_al")) $("fs_al").onchange = () => { const n = $("fs_al").value; otDrop(FSEL.n, x, y); otEd().add.push([n, x, y]); FSEL = { ...FSEL, n, c: 1 }; flagsChanged(); };
   if ($("fs_gone")) $("fs_gone").onclick = () => { dropEx(x, y); FSEL = null; flagsChanged(); renderInfo(); $("km_sel").innerHTML = ""; };
 }
 function addFlag(x, y) {
@@ -757,6 +772,7 @@ function flagEvents() {
   });
   el.addEventListener("change", (e) => {
     if (!ME()) return;
+    if (e.target.id === "fl_kind") { otKind = e.target.value; return; }
     const t = e.target, i = t.dataset.fx ?? t.dataset.fy; if (i == null) return;
     const v = parseInt(t.value, 10); if (!(v >= 0 && v < FN)) { renderFlags(); return; }
     PLAN.fl[+i][t.dataset.fx != null ? 0 : 1] = v; flagsChanged();
@@ -769,6 +785,7 @@ function flagEvents() {
     const a = (p.x - CX) / KX, s2 = (CY - p.y) / KY + 1200;   // a = x − y, s2 = x + y
     const tx = Math.floor((a + s2) / 2), ty = Math.floor((s2 - a) / 2);
     if (selectFlagAt(tx, ty)) return;   // tapped a banner → edit it
+    if (flagMode && ME() && otKind && OTB && OTB.a[otKind] && tx >= 0 && ty >= 0 && tx < FN && ty < FN) { otEd().add.push([otKind, tx, ty]); FSEL = { k: "o", n: otKind, x: tx, y: ty, c: 1 }; flagsChanged(); return; }
     if (flagMode && ME()) { addFlag(tx, ty); FSEL = { k: "p", i: PLAN.fl.length - 1 }; flagInfo(); }
   });
 }
