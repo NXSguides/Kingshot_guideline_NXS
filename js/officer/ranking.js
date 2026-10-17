@@ -45,7 +45,7 @@ const T = { ko: {"colSp": "부대 전투력 (추정)", "colMigrant": "이주 점
 };
 /* ---- Event presets: add a new event by copying one entry. count: null = everyone left ---- */
 const PRESETS = [
-  { id: "swordland", emoji: "⚔️", name: { en: "Swordland Showdown", zh: "聖劍爭奪" },
+  { id: "swordland", emoji: "⚔️", name: { en: "Swordland Showdown", zh: "聖劍爭奪" }, img: "figures/SS_map.webp",   // map shown next to the groups
     groups: [
       { name: { en: "Attackers", zh: "攻擊者" }, count: 4 },
       { name: { en: "Defenders", zh: "防守者" }, count: 6 },
@@ -202,10 +202,11 @@ function renderPresets() {
   $("presetCopy").hidden = !pr;
   if (!document.activeElement || !document.activeElement.closest("#presetCounts")) renderCounts();
   if (!pr) { $("presetOut").innerHTML = ""; return; }
-  if (!picked.size) { $("presetOut").innerHTML = `<p class="empty">${tr("empty")}</p>`; return; }
-  $("presetOut").innerHTML = `<div class="grp-out">` + presetGroups(pr).map(({ g, list }) => `
+  const pic = pr.img ? `<a class="grp-img" href="${pr.img}" target="_blank" rel="noopener"><img src="${pr.img}" alt="${esc(pr.name[lang] || pr.name.en)}" loading="lazy"></a>` : "";
+  if (!picked.size) { $("presetOut").innerHTML = `<p class="empty">${tr("empty")}</p>` + pic; return; }
+  $("presetOut").innerHTML = `<div class="grp-wrap"><div class="grp-out">` + presetGroups(pr).map(({ g, list }) => `
     <h3>${esc(g.name[lang] || ptOf(g.name.en))} <span class="muted">(${tr("n", { n: list.length })})</span></h3>
-    ${list.length ? `<ol>${list.map((m) => `<li dir="auto">${esc(m.name)} <span class="muted">· ${m.score.toFixed(mode === "w" ? 1 : 0)}</span></li>`).join("")}</ol>` : `<div class="muted">—</div>`}`).join("") + `</div>`;
+    ${list.length ? `<ol>${list.map((m) => `<li dir="auto">${esc(m.name)} <span class="muted">· ${m.score.toFixed(mode === "w" ? 1 : 0)}</span></li>`).join("")}</ol>` : `<div class="muted">—</div>`}`).join("") + `</div>${pic}</div>`;
 }
 function renderAll() { applyTexts(); renderList(); renderResult(); }
 function persist() { store.wts = wts; store.picked = [...picked]; store.subs = [...picked].filter((id) => subs.has(id)); store.wPower = wPower; store.topN = topN; store.mode = mode; store.sortKey = sortKey; store.sortDir = sortDir; store.lang = lang; save(); }

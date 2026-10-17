@@ -159,6 +159,11 @@
   #pg-ranking .grp-out h3 { margin: 14px 0 6px; font-size: 16px; }
   #pg-ranking .grp-out ol { margin: 0; padding-inline-start: 26px; }
   #pg-ranking .grp-out li { padding: 2px 0; }
+  #pg-ranking .grp-wrap { display: flex; gap: 18px; align-items: flex-start; }
+  #pg-ranking .grp-wrap .grp-out { flex: 0 1 auto; min-width: 0; }
+  #pg-ranking .grp-img { display: block; flex: 1 1 0; min-width: 0; position: sticky; top: 8px; margin-top: 14px; }
+  #pg-ranking .grp-img img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--rule); }
+  @media (max-width: 700px) { #pg-ranking .grp-wrap { flex-direction: column; } #pg-ranking .grp-img { position: static; width: 100%; } }
   #pg-ranking .btn.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
   #pg-ranking .tabs { display: flex; gap: 6px; margin: 14px 0 0; border-bottom: 2px solid var(--rule); }
   @media (max-width: 440px) {
