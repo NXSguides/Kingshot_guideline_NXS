@@ -615,8 +615,8 @@ const otDrop = (n, x, y) => { const o = otEd(), j = o.add.findIndex(([m, a, b]) 
 let otKind = "";   // 🚩 tap-to-place puts: "" = our planned banner, or an alliance name
 function drawOt() {
   const g = $("km_otG"); if (!g) return;
-  g.innerHTML = otOn && OTB ? otList().map(([n, x, y, c]) => `<polygon points="${pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]])}" fill="${otCol(n)}" fill-opacity="${c ? .8 : .55}" stroke="${c ? "#fff" : "#000"}" stroke-opacity=".6" stroke-width="${c ? .6 : .35}"/>`).join("")
-    + otHq().map(([n, x, y]) => { const [X, Y] = P(x + 1.5, y + 1.5); return `<polygon points="${pts([[x - 6, y - 6], [x + 9, y - 6], [x + 9, y + 9], [x - 6, y + 9]])}" fill="${otCol(n)}" fill-opacity=".8" stroke="#fff" stroke-opacity=".8" stroke-width=".7"/><polygon points="${pts([[x, y], [x + 3, y], [x + 3, y + 3], [x, y + 3]])}" fill="#1b1b1b" fill-opacity=".75" stroke="#fff" stroke-width=".4"/><text x="${X}" y="${Y + 1}" text-anchor="middle" font-family="Arial" font-size="3" font-weight="800" fill="#fff">HQ</text>`; }).join("") : "";
+  g.innerHTML = otOn && OTB ? otList().map(([n, x, y]) => `<polygon points="${pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]])}" fill="${otCol(n)}" fill-opacity=".55" stroke="#000" stroke-opacity=".6" stroke-width=".35"/>`).join("")
+    + otHq().map(([n, x, y]) => { const [X, Y] = P(x + 1.5, y + 1.5); return `<polygon points="${pts([[x - 6, y - 6], [x + 9, y - 6], [x + 9, y + 9], [x - 6, y + 9]])}" fill="${otCol(n)}" fill-opacity=".55" stroke="#000" stroke-opacity=".6" stroke-width=".35"/><polygon points="${pts([[x, y], [x + 3, y], [x + 3, y + 3], [x, y + 3]])}" fill="#1b1b1b" fill-opacity=".75" stroke="#fff" stroke-width=".4"/><text x="${X}" y="${Y + 1}" text-anchor="middle" font-family="Arial" font-size="3" font-weight="800" fill="#fff">HQ</text>`; }).join("") : "";
 }
 async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=20").then((r) => r.json()); } catch (e) { EXB = null; } rebuildOwn(); drawEx(); drawFlags(); renderFlags(); }
 function drawEx() {
