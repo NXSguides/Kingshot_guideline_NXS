@@ -152,7 +152,7 @@
     { k: "intel", kind: "daily", hours: [0, 8, 16], def: 0, emoji: "🔍", name: "intelName", text: "refresh" },
     { k: "swordland-showdown", kind: "event", def: 10 },
     { k: "tri-alliance-clash", kind: "event", def: 10 },
-    { k: "viking-vengeance", kind: "event", def: 10 }, { k: "eternity-reach", kind: "event", def: 10 },
+    { k: "viking-vengeance", kind: "event", def: 10 }, { k: "eternity-reach", kind: "event", def: 30 },
     { k: "cesares-fury", kind: "event", def: 10, emoji: "🗡️", name: "cesaresName" },
   ];
   if (alerts.arena && alerts.arena.on === true) alerts.arena = { on: { 24: true }, before: 3 };   // older beta setting
