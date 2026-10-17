@@ -553,7 +553,8 @@
     const nextOf = (k, d, any) => { const x = any && alertTimers().find((t) => t.id.startsWith(`ev-${k}-`));
       const H = hoursOf(d), now = Date.now(), today = Math.floor(now / DAY) * DAY; let run = 0;
       for (let day = today; day < today + 70 * DAY && !run; day += DAY) { if (d.kind === "event" && !fightOn(k, day)) continue; const h = H.map((v) => day + Math.round(v * 60) * 60000).find((t) => t > now); if (h) run = h; }
-      const fd = (at) => new Date(at).toLocaleString([], { month: "numeric", day: "numeric", weekday: "short", hour: "2-digit", minute: "2-digit" });
+      const LOC = { zh: "zh-TW", en: "en-US", ko: "ko-KR", de: "de-DE", fr: "fr-FR", pt: "pt-BR", es: "es-ES", tr: "tr-TR", id: "id-ID", ru: "ru-RU", th: "th-TH", ar: "ar-EG" }[lang()] || "en-US";   // the site language, not the browser's (an English browser in the UK would show day/month)
+      const fd = (at) => new Date(at).toLocaleString(LOC, { month: "numeric", day: "numeric", weekday: "short", hour: "2-digit", minute: "2-digit" });
       return (run ? `<div class="tm-a">📅 ${esc(T("nextRun").replace("{t}", fd(run)))}</div>` : "") + (x ? `<div class="tm-a">🔔 ${esc(T("next").replace("{t}", fd(x.at)))}</div>` : ""); };
     const rows = DEFS.map((d) => {
       const k = d.k, a = alerts[k] || {}, H = hoursOf(d);
