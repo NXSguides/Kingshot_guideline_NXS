@@ -125,8 +125,8 @@
   const labelOf = (x) => labelBase(x) + (x.na ? " 🎖️" : "");
   const labelBase = (x) => (x.cat === "other" && x.name ? x.name : (T("cats")[x.cat] || TX.en.cats[x.cat] || x.cat)) + (x.sub ? ` · ${subName(x.sub)}` : "") + (x.n ? ` #${x.n}` : "");
   const MULTI = { gather: 6, build: 2, caravan: 4 };
-  /* 🤝 alliance help on building / research: each help takes off a fixed time (Embassy help time + Alliance Tech), up to the help count */
-  const HELP_CATS = ["build", "research"], HELP_LS = "nxs-tm-help";
+  /* 🤝 alliance help on building / research / healing: each help takes off a fixed time (Embassy help time + Alliance Tech), up to the help count */
+  const HELP_CATS = ["build", "research", "heal"], HELP_LS = "nxs-tm-help";
   // Embassy Lv.L: L helps, 7 + 3L seconds each (Lv.30 and Truegold: 30 helps, 97 s); Alliance Tech (maxed): +15 helps, +150 s
   const embN = (lv) => Math.min(30, lv), embS = (lv) => 7 + 3 * Math.min(30, lv);
   const help = (() => { const d = { on: false, lv: 30, tn: 15, ts: 150, n: 45, s: 247 };
@@ -513,8 +513,7 @@
       }
       if (HELP_CATS.includes(adding.cat)) {
         h += `<div class="tm-cats"><button type="button" class="tm-btn${help.on ? " on" : ""}" data-a="help">${esc(T("helpOn"))}</button></div>`;
-        if (help.on) h += `<div class="tm-cats" style="align-items:center;gap:6px;font-size:13px">${esc(T("helpLv"))} <select class="tm-in" data-hlv style="width:auto" dir="ltr">${Array.from({ length: 30 }, (_, i) => i + 1).map((v) => `<option value="${v}"${v === Math.min(30, help.lv) ? " selected" : ""}>Lv.${v}${v === 30 ? " / TG" : ""}</option>`).join("")}</select> ${esc(T("helpTech"))} <input class="tm-in" data-htn type="number" min="0" max="30" value="${help.tn}" style="width:58px" dir="ltr"> / <input class="tm-in" data-hts type="number" min="0" max="999" value="${help.ts}" style="width:64px" dir="ltr">s</div>
-          <div class="tm-cats" style="align-items:center;gap:6px;font-size:13px">${esc(T("helpN"))} <input class="tm-in" data-hn type="number" min="0" max="99" inputmode="numeric" value="${help.n}" style="width:70px" dir="ltr"> × ${esc(T("helpS"))} <input class="tm-in" data-hs type="number" min="0" max="9999" inputmode="numeric" value="${help.s}" style="width:80px" dir="ltr"></div><div class="tm-hint" style="margin-top:-4px" data-hcut>${esc(T("helpHint").replace("{t}", "−" + fmtLeft(helpCut())))}</div>`;
+        if (help.on) h += `<div class="tm-cats" style="align-items:center;gap:6px;font-size:13px">${esc(T("helpLv"))} <select class="tm-in" data-hlv style="width:auto" dir="ltr">${[20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30].map((v) => `<option value="${v}"${v === Math.min(30, help.lv) ? " selected" : ""}>Lv.${v}${v === 30 ? " / TG" : ""}</option>`).join("")}</select> <span data-hns dir="ltr">${help.n} × ${help.s}s</span></div><div class="tm-hint" style="margin-top:-4px" data-hcut>${esc(T("helpHint").replace("{t}", "−" + fmtLeft(helpCut())))}</div>`;
       }
       const pk2 = preKey(adding.cat, adding.sub, adding.name, adding.na), last = PRESET_CATS.includes(adding.cat) ? (presets[pk2] ?? (adding.cat === "gather" ? presets[preKey("gather", "", "", 0)] : null)) : null;
       const lastArr = last == null ? [] : Array.isArray(last) ? last : [last];
@@ -630,7 +629,7 @@
     if (e.target.hasAttribute("data-hlv") || e.target.hasAttribute("data-htn") || e.target.hasAttribute("data-hts")) {   // Embassy level / tech → helps and seconds
       const v = Math.max(0, parseInt(e.target.value, 10) || 0);
       if (e.target.hasAttribute("data-hlv")) help.lv = Math.max(1, v); else if (e.target.hasAttribute("data-htn")) help.tn = v; else help.ts = v;
-      fromLv(); saveHelp(); const n = view.querySelector("[data-hn]"), sx = view.querySelector("[data-hs]"); if (n) n.value = help.n; if (sx) sx.value = help.s;
+      fromLv(); saveHelp(); const ns = view.querySelector("[data-hns]"); if (ns) ns.textContent = `${help.n} × ${help.s}s`;
       const c = view.querySelector("[data-hcut]"); if (c) c.textContent = T("helpHint").replace("{t}", "−" + fmtLeft(helpCut())); return;
     }
     if (e.target.hasAttribute("data-hn") || e.target.hasAttribute("data-hs")) {
