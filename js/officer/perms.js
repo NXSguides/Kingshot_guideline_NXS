@@ -39,7 +39,8 @@ const NT_EV = [["alliance-mobilization", "🔥", "Alliance Mobilization", "聯�
   ["cesares-fury", "🗡️", "Cesares Fury", "征討切薩雷"], ["sanctuary-battle", "🏯", "Sanctuary Battle", "遺跡爭奪"],
   ["kvk", "👑", "KvK", "KvK"], ["call-of-sovereign", "📯", "Call of the Sovereign", "崛起的號角"],
   ["all-out", "🔥", "All Out", "全軍出擊"], ["eternity-reach", "⛏️", "Eternity's Reach", "失落的遺跡"], ["hero-roulette", "🎰", "Hero Roulette", "英雄轉盤"],
-  ["fishing-tournament", "🎣", "Fishing Tournament", "釣魚大賽"], ["mystic-trial", "🔮", "Mystic Trial", "秘境試煉"]];
+  ["fishing-tournament", "🎣", "Fishing Tournament", "釣魚大賽"], ["mystic-trial", "🔮", "Mystic Trial", "秘境試煉"],
+  ["outposts", "📍", "Outpost reminder (ours turning Vulnerable)", "據點提醒（我們的據點變成可爭奪）"]];
 const NT = { zh: { h: "🔔 提醒", all: "全部", none: "—", hint: "勾選要提醒這個人的活動：活動的幹部待辦到期那天，他的手機會收到通知（時間由他在 ⏰ 裡自己選）。管理員沒勾任何活動時會收到全部。", allBtn: "全部（預設）", clr: "清除" },
   en: { h: "🔔 Reminders", all: "All", none: "—", hint: "Pick the events this person is reminded of: on the day an officer to-do for that event is due, their phone gets a notification (they pick the hour in ⏰). Admins with nothing picked get every event.", allBtn: "All (default)", clr: "Clear" } };
 const nt = (k) => (NT[lang] || NT.en)[k];
