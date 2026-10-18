@@ -835,9 +835,16 @@ function selectAnnouncement(i) {
   if (bodyEl && announcements[i]) {
     currentAnnIndex = i;
     board.querySelectorAll(".ann-tab").forEach((t, k) => t.classList.toggle("active", k === i));
-    // keep the box at least as tall as before, so a shorter announcement doesn't pull the page up under your finger
-    bodyEl.style.minHeight = Math.max(parseFloat(bodyEl.style.minHeight) || 0, bodyEl.offsetHeight) + "px";
+    // each announcement keeps its own height; the box eases from the old height to the new one instead of jumping
+    const from = bodyEl.offsetHeight;
+    bodyEl.style.minHeight = ""; bodyEl.style.transition = ""; bodyEl.style.height = "";
     bodyEl.innerHTML = annBodyHtml(announcements[i]);
+    const to = bodyEl.offsetHeight;
+    if (from !== to && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      bodyEl.style.overflow = "hidden"; bodyEl.style.height = from + "px"; void bodyEl.offsetHeight;
+      bodyEl.style.transition = "height .25s ease"; bodyEl.style.height = to + "px";
+      clearTimeout(bodyEl._annT); bodyEl._annT = setTimeout(() => { bodyEl.style.height = ""; bodyEl.style.overflow = ""; bodyEl.style.transition = ""; }, 300);
+    }
     return;
   }
   const tabs = document.querySelector(".ann-tabs");
