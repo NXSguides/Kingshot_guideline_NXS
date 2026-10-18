@@ -629,11 +629,11 @@ const otEd = () => (PLAN.ot = PLAN.ot || { off: [], add: [] }, PLAN.ot.off = PLA
 const hqLbl = (t) => ft(t === 2 ? "hqB" : "hqP");
 const otHq = () => (PLAN.ot && PLAN.ot.hq) || [];
 /* ⚔️ Outpost contest: an Outpost takes 15×15 tiles (its X, Y − 6 … + 8, e.g. X 1068 → 1062–1076). An alliance can contest it
-   when any of its territory is inside that square (only next to it doesn't count). Ours = our banners + HQs;
+   when any of its territory is inside that square or right next to it (sharing an edge). Ours = our banners + HQs;
    other alliances = their 🏴 banners (7×7) + 🏯 HQs (15×15). */
 const opSq = (b) => [b.x - 6, b.y - 6, b.x + 8, b.y + 8];
 const ovl = (a0, a1, b0, b1) => a0 <= b1 && b0 <= a1;
-const rTouch = ([x0, y0, x1, y1], [p0, q0, p1, q1]) => ovl(p0, p1, x0, x1) && ovl(q0, q1, y0, y1);   // territory must reach INTO the 15×15 square (only next to it doesn't count)
+const rTouch = ([x0, y0, x1, y1], [p0, q0, p1, q1]) => (ovl(p0, p1, x0 - 1, x1 + 1) && ovl(q0, q1, y0, y1)) || (ovl(p0, p1, x0, x1) && ovl(q0, q1, y0 - 1, y1 + 1));   // inside the square or sharing an edge with it
 function contesters(b) {
   const sq = opSq(b), out = [], [x0, y0, x1, y1] = sq;
   // ours: only our real banners (7×7) and HQs (15×15) — the territory picture is a few tiles off at the edges, so it is not used here
