@@ -330,15 +330,17 @@ $("imgPick").onchange = async (e) => {
 
 /* picture handed over from the Ranking tab ("Use in a new announcement") */
 async function takeCarriedImage() {
-  let url = null; try { url = sessionStorage.getItem("nxs-carry-img"); sessionStorage.removeItem("nxs-carry-img"); } catch (e) {}
+  let url = null, map = null; try { url = sessionStorage.getItem("nxs-carry-img"); map = sessionStorage.getItem("nxs-carry-map"); sessionStorage.removeItem("nxs-carry-img"); sessionStorage.removeItem("nxs-carry-map"); } catch (e) {}
   if (!url) return;
+  // the event map goes right under the table (it's already on the site, so no upload)
+  const mapTag = map && /^figures\/[\w./-]+$/.test(map) ? `\n[[img:${map}]]` : "";
   const blob = await (await fetch(url)).blob();
   const f = new File([blob], "table.png", { type: blob.type });
   const shrunk = await shrink(f, 2000);
   const stamp = new Date().toISOString().slice(0, 19).replace(/[-:]/g, "").replace("T", "-");
   const path = `figures/ann/${stamp}-${++imgCounter}.jpg`;
   pendingImgs[path] = { blob: shrunk, url: URL.createObjectURL(shrunk) };
-  insertAtCursor(`[[img:${path}]]`); renderPreview();
+  insertAtCursor(`[[img:${path}]]` + mapTag); renderPreview();
 }
 
 /* ===== list ===== */

@@ -782,7 +782,7 @@ function tbImage() {
     <button class="btn" data-close="1">${esc(tt("close"))}</button></div></div>`;
   m.onclick = (e) => {
     if (e.target === m || e.target.dataset.close) m.remove();
-    if (e.target.dataset.topost) { try { sessionStorage.setItem("nxs-carry-img", url); } catch (err) {} location.hash = "#post"; }
+    if (e.target.dataset.topost) { const pr = PRESETS.find((x) => x.id === activePreset) || PRESETS.find((x) => x.id === "swordland"); try { sessionStorage.setItem("nxs-carry-img", url); if (pr && pr.img) sessionStorage.setItem("nxs-carry-map", pr.img); } catch (err) {} location.hash = "#post"; }
   };
   ROOT.appendChild(m);
 }
