@@ -1027,9 +1027,6 @@ Steps: 1. Şehir ekranında sol üstteki avatarına dokun. 2. Alttaki Ekip'e dok
 [2026-10-18 by Sparrow] ⚔️ SAVAŞ GÖREVLERİ VE STRATEJİ - 1. LEJYON
 
 
-[2026-10-18 by Sparrow] ⚔️ SAVAŞ GÖREVLERİ VE STRATEJİ - 1. LEJYON
-(see guide #swordland-showdown)
-
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 YAKLAŞAN KVK TG YÜKSELTME HAZIRLIK VE UYGULAMA KILAVUZU 📢
 9 Kasım 2026'da üyeler, binalarını TG3 ➡️ TG5 seviyesine yükseltme seçeneğine sahip olacaklar.
 

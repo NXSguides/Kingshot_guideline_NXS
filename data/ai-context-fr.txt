@@ -1027,9 +1027,6 @@ Astuces : le cadenas du dernier slot signifie qu'il n'est pas encore débloqué.
 [2026-10-18 by Sparrow] ⚔️ RÉPARTITION DES COMBATS ET STRATÉGIE - LÉGION 1
 
 
-[2026-10-18 by Sparrow] ⚔️ RÉPARTITION DES COMBATS ET STRATÉGIE - LÉGION 1
-(see guide #swordland-showdown)
-
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 GUIDE DE PRÉPARATION ET D'EXÉCUTION DU PUSH TG DU PROCHAIN KVK 📢
 Le 9 novembre 2026, les membres auront la possibilité de faire passer leurs bâtiments de TG3 ➡️ TG5.
 
