@@ -423,7 +423,7 @@ function tbRender() {
   const stageOpts = listOf(TB.stages), targetOpts = listOf(TB.targets);
   const cell = (g, gi, r, ri, k) => {
     const chips = r[k].map((x, xi) => `<span class="tb-chip${x.kind === "t" ? " txt" : ""}" draggable="true" data-g="${gi}" data-r="${ri}" data-k="${k}" data-x="${xi}">${esc(chipLabel(x))}<b class="tb-x" data-del="1">×</b></span>`).join("");
-    return `<div class="tb-cell" data-g="${gi}" data-r="${ri}" data-k="${k}"><div class="tb-lab">${esc(TB.cols[k])}</div>${chips}<span class="tb-add" data-g="${gi}" data-r="${ri}" data-k="${k}" data-addtext="1">${esc(tt("addText"))}</span></div>`;
+    return `<div class="tb-cell" data-g="${gi}" data-r="${ri}" data-k="${k}"><span class="tb-lab">${{ att: "⚔️", def: "🛡️", join: "👥" }[k] || ""} ${esc(TB.cols[k])}:</span>${chips}<span class="tb-add" data-g="${gi}" data-r="${ri}" data-k="${k}" data-addtext="1">${esc(tt("addText"))}</span></div>`;
   };
   host.innerHTML = `
     <h2>${esc(tt("title"))}</h2>
@@ -447,19 +447,15 @@ function tbRender() {
     <div class="tb-pool">${pool.length ? roleGroups.map(({ g, list }, ri) => list.length ? `<div class="tb-role r${ri}"><div class="tb-role-h">${esc(g.name[lang] || ptOf(g.name.en))} <span>(${list.length})</span></div>${list.map((m) => `<span class="tb-chip pool r${ri}${tbPick && tbPick.kind === "p" && String(tbPick.id) === String(m.id) ? " on" : ""}" draggable="true" data-pid="${m.id}">${esc(TB.short ? shortName(m.name) : m.name)}${counts[m.id] ? `<i>${counts[m.id]}</i>` : ""}</span>`).join("")}</div>` : "").join("") : `<span class="muted">${esc(tt("poolEmpty"))}</span>`}</div></div>
     ${stList().map((sn, si) => `<h3 class="tb-sec">${esc(sn)}</h3>${TB.groups.map((g, gi) => g.sec !== si ? "" : `
       <div class="tb-group" style="border-color:${g.color};background:color-mix(in srgb, ${g.color} 22%, var(--panel))">
-        <div class="tb-ghead">
-          <span class="tb-swatches">${TB_COLORS.map((c) => `<span class="tb-sw${c === g.color ? " on" : ""}" style="background:${c}" data-color="${c}" data-g="${gi}"></span>`).join("")}</span>
-          ${stList().length > 1 ? `<label class="muted" style="font-size:12px">${esc(tt("moveTo"))} <select data-gsec="${gi}">${stList().map((n, i) => `<option value="${i}"${i === g.sec ? " selected" : ""}>${esc(n)}</option>`).join("")}</select></label>` : ""}
-          <button class="btn small" data-act="delGroup" data-g="${gi}">${esc(tt("delGroup"))}</button>
-        </div>
         ${g.rows.slice(0, 1).map((r, ri) => `
-          <div class="tb-row">
-            <div class="tb-rowtop">
-              ${TB.show.target ? `<label class="tb-in"><span>${esc(TB.cols.target)}</span><input list="tbTargets" data-g="${gi}" data-r="${ri}" data-field="target" value="${esc(r.target || "")}"></label><label class="tb-in"><span>( )</span><input list="tbTLabels" data-g="${gi}" data-r="${ri}" data-field="tl" value="${esc(r.tl || "")}" placeholder="—"></label>` : ""}
-            </div>
-            ${PEOPLE_COLS.filter((k) => TB.show[k]).map((k) => cell(g, gi, r, ri, k)).join("")}
-            ${TB.show.note ? `<label class="tb-in wide"><span>${esc(TB.cols.note)}</span><input data-g="${gi}" data-r="${ri}" data-field="note" value="${esc(r.note || "")}"></label>` : ""}
-          </div>`).join("")}
+        <div class="tb-ghead">
+          ${TB.show.target ? `<input class="tb-num" list="tbTargets" data-g="${gi}" data-r="${ri}" data-field="target" value="${esc(r.target || "")}" placeholder="#" title="${esc(TB.cols.target)}"><input class="tb-name" list="tbTLabels" data-g="${gi}" data-r="${ri}" data-field="tl" value="${esc(r.tl || "")}" placeholder="${esc(TB.cols.target)}">` : ""}
+          <button class="btn small" data-act="delGroup" data-g="${gi}" title="${esc(tt("delGroup"))}">🗑</button>
+        </div>
+        ${PEOPLE_COLS.filter((k) => TB.show[k]).map((k) => cell(g, gi, r, ri, k)).join("")}
+        ${TB.show.note ? `<label class="tb-cell tb-notel"><span class="tb-lab">📝 ${esc(TB.cols.note)}:</span><input class="tb-note" data-g="${gi}" data-r="${ri}" data-field="note" value="${esc(r.note || "")}"></label>` : ""}
+        <div class="tb-swatches">${TB_COLORS.map((c) => `<span class="tb-sw${c === g.color ? " on" : ""}" style="background:${c}" data-color="${c}" data-g="${gi}"></span>`).join("")}
+          ${stList().length > 1 ? `<label class="muted" style="margin-left:auto;font-size:12px">${esc(tt("moveTo"))} <select class="tb-secsel" data-gsec="${gi}">${stList().map((n, i) => `<option value="${i}"${i === g.sec ? " selected" : ""}>${esc(n)}</option>`).join("")}</select></label>` : ""}</div>`).join("")}
       </div>`).join("")}
     <div class="row" style="margin:6px 0 4px"><button class="btn small" data-act="addGroup" data-sec="${si}">${esc(tt("addB"))}</button></div>`).join("")}
     <label class="f" style="display:block;margin-top:14px"><b>${esc(tt("rem"))}</b><textarea data-set="rem" style="display:block;width:100%;box-sizing:border-box;min-height:150px;margin-top:4px;font:inherit;font-size:13px">${esc(TB.rem || "")}</textarea></label>
@@ -760,6 +756,33 @@ function tbImage() {
   host.addEventListener("dragstart", tbDragStart);
   host.addEventListener("dragover", (e) => { if (e.target.closest(".tb-cell")) e.preventDefault(); });
   host.addEventListener("drop", tbDrop);
+  /* 📱 phones: press and hold a name (~¼ s), then drag it onto a line */
+  let tp = null, ghost = null, skipClick = false;
+  const endTouch = () => { clearTimeout(tp && tp.timer); if (ghost) ghost.remove(); ghost = null; host.querySelectorAll(".tb-cell.over").forEach((x) => x.classList.remove("over")); tp = null; };
+  host.addEventListener("pointerdown", (e) => {
+    if (e.pointerType === "mouse") return; const c = e.target.closest(".tb-chip"); if (!c || e.target.dataset.del) return;
+    tp = { c, x: e.clientX, y: e.clientY, on: false, timer: setTimeout(() => { if (!tp) return; tp.on = true;
+      ghost = c.cloneNode(true); ghost.style.cssText = "position:fixed;z-index:80;pointer-events:none;opacity:.9;box-shadow:0 4px 14px rgba(0,0,0,.3);left:" + (tp.x - 30) + "px;top:" + (tp.y - 40) + "px"; document.body.appendChild(ghost);
+      try { navigator.vibrate && navigator.vibrate(15); } catch (err) {} }, 260) };
+  });
+  host.addEventListener("pointermove", (e) => {
+    if (!tp) return;
+    if (!tp.on) { if (Math.hypot(e.clientX - tp.x, e.clientY - tp.y) > 8) endTouch(); return; }
+    ghost.style.left = (e.clientX - 30) + "px"; ghost.style.top = (e.clientY - 40) + "px";
+    host.querySelectorAll(".tb-cell.over").forEach((x) => x.classList.remove("over"));
+    const el = document.elementFromPoint(e.clientX, e.clientY), cl = el && el.closest(".tb-cell[data-k]"); if (cl) cl.classList.add("over");
+  });
+  host.addEventListener("touchmove", (e) => { if (tp && tp.on) e.preventDefault(); }, { passive: false });   // no scrolling while dragging a name
+  const dropTouch = (e) => {
+    if (!tp) return; if (!tp.on) { endTouch(); return; }
+    const c = tp.c, el = document.elementFromPoint(e.clientX, e.clientY), cl = el && el.closest(".tb-cell[data-k]");
+    if (cl) { const chip = c.dataset.pid ? { kind: "p", id: Number(c.dataset.pid) || c.dataset.pid } : TB.groups[c.dataset.g].rows[c.dataset.r][c.dataset.k][c.dataset.x];
+      if (chip) { if (!c.dataset.pid) gDel(c.dataset.g, c.dataset.k, chip); tbPut(cl.dataset.g, cl.dataset.r, cl.dataset.k, chip); tbPick = null; tbSave(); } }
+    skipClick = true; setTimeout(() => (skipClick = false), 400); endTouch(); tbRender();
+  };
+  host.addEventListener("pointerup", dropTouch); host.addEventListener("pointercancel", (e) => { if (tp && tp.on) dropTouch(e); else endTouch(); });
+  host.addEventListener("contextmenu", (e) => { if (e.target.closest(".tb-chip")) e.preventDefault(); });
+  host.addEventListener("click", (e) => { if (skipClick) { e.stopPropagation(); e.preventDefault(); } }, true);
 })();
 
 

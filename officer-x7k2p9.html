@@ -181,6 +181,7 @@
   #pg-ranking .tb-chip .tb-pt { width: 3.2em; padding: 1px 4px; font-size: 12px; border-radius: 6px; border: 1px solid var(--rule); background: var(--panel-2, var(--panel)); color: var(--text); text-align: center; }
   #pg-ranking .tb-chip .tb-pt:not(:placeholder-shown) { border-color: var(--accent); font-weight: 700; }
   #pg-ranking .tb-sec { margin: 16px 0 6px; padding: 6px 10px; border-radius: 8px; background: var(--text); color: var(--bg, #fff); font-size: 15px; letter-spacing: .5px; }
+  #pg-ranking .tb-chip { -webkit-touch-callout: none; -webkit-user-select: none; }
   #pg-ranking .tb-chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 9px; border-radius: 999px; background: var(--panel); border: 1px solid var(--rule); font-size: 13px; cursor: pointer; user-select: none; margin: 2px; }
   #pg-ranking .tb-counts { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 6px; font-size: 13px; }
   #pg-ranking .tb-counts input { width: 52px; padding: 4px 6px; border-radius: 6px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-size: 15px; }
@@ -196,10 +197,14 @@
   #pg-ranking .tb-chip i { font-style: normal; font-size: 11px; background: var(--text-muted); color: var(--panel); border-radius: 999px; padding: 0 5px; }
   #pg-ranking .tb-chip.txt { font-style: italic; }
   #pg-ranking .tb-x { font-weight: 700; opacity: .55; padding: 0 2px; }
-  #pg-ranking .tb-group { border: 2px solid; border-radius: 12px; padding: 10px; margin: 12px 0; }
-  #pg-ranking .tb-ghead { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px; }
+  #pg-ranking .tb-group { border: 2px solid; border-radius: 12px; padding: 8px 10px; margin: 8px 0; }
+  #pg-ranking .tb-ghead { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+  #pg-ranking .tb-ghead input, #pg-ranking .tb-ghead select, #pg-ranking .tb-note { padding: 5px 7px; border-radius: 6px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-size: 15px; font-weight: 700; min-width: 0; }
+  #pg-ranking .tb-num { width: 2.4em; flex: none; text-align: center; padding: 5px 2px !important; } #pg-ranking .tb-name { flex: 1 1 auto; width: 0; } #pg-ranking .tb-secsel { font-size: 12px; padding: 3px 2px; border-radius: 6px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); max-width: 150px; }
+  #pg-ranking .tb-note { flex: 1; font-weight: 400; font-size: 13px; }
+  #pg-ranking .tb-notel { cursor: default; } #pg-ranking .tb-group > .tb-swatches { margin-top: 6px; align-items: center; }
   #pg-ranking .tb-swatches { display: flex; gap: 4px; flex-wrap: wrap; }
-  #pg-ranking .tb-sw { width: 20px; height: 20px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; }
+  #pg-ranking .tb-sw { width: 16px; height: 16px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; }
   #pg-ranking .tb-sw.on { border-color: var(--text); }
   #pg-ranking .tb-row { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 8px; margin-bottom: 8px; }
   #pg-ranking .tb-rowtop { display: flex; gap: 8px; align-items: end; flex-wrap: wrap; }
@@ -207,8 +212,9 @@
   #pg-ranking .tb-in.wide { margin-top: 6px; }
   #pg-ranking .tb-in input { padding: 6px 8px; border-radius: 6px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-size: 15px; }
   #pg-ranking .tb-rowbtns { display: flex; gap: 4px; }
-  #pg-ranking .tb-cell { margin-top: 6px; padding: 6px; min-height: 30px; border: 1px dashed var(--rule); border-radius: 8px; cursor: pointer; }
-  #pg-ranking .tb-lab { font-size: 12px; color: var(--text-muted); margin-bottom: 2px; }
+  #pg-ranking .tb-cell { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 4px; margin-top: 3px; padding: 3px 6px; min-height: 30px; border: 1px dashed color-mix(in srgb, var(--rule) 70%, transparent); border-radius: 8px; cursor: pointer; }
+  #pg-ranking .tb-cell.over { border: 2px solid var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
+  #pg-ranking .tb-lab { font-size: 13.5px; font-weight: 700; margin-right: 2px; white-space: nowrap; }
   #pg-ranking .tb-add { display: inline-block; font-size: 12px; color: var(--text-muted); padding: 3px 6px; cursor: pointer; }
   #pg-ranking .tb-modal { position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 60; display: grid; place-items: center; padding: 12px; overflow: auto; }
   #pg-ranking .tb-modal .card { max-width: 96vw; }
