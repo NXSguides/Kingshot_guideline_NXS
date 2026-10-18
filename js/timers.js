@@ -130,8 +130,8 @@
   // Embassy Lv.L: L helps, 7 + 3L seconds each (Lv.30 and Truegold: 30 helps, 97 s); Alliance Tech (maxed): +15 helps, +150 s
   const embN = (lv) => Math.min(30, lv), embS = (lv) => 7 + 3 * Math.min(30, lv);
   // the game can give more helps than Embassy + Tech (our research shows 51/51), so the count is typed; the level gives the seconds
-  const help = (() => { const d = { on: false, lv: 30, ts: 150, n: 51, s: 247, v: 2 };
-    try { const o = JSON.parse(localStorage.getItem(HELP_LS) || "{}"); return o.v === 2 ? { ...d, ...o } : { ...d, on: !!o.on, lv: o.lv || 30, s: embS(o.lv || 30) + 150 }; } catch (e) { return d; } })();
+  const help = (() => { const d = { on: true, lv: 30, ts: 150, n: 51, s: 247, v: 2 };   // on by default (easy to miss otherwise); turning it off is remembered
+    try { const o = JSON.parse(localStorage.getItem(HELP_LS) || "{}"); const r = o.v === 2 ? { ...d, ...o } : { ...d, lv: o.lv || 30, s: embS(o.lv || 30) + 150 }; if (!o.offSet) r.on = true; return r; } catch (e) { return d; } })();
   const fromLv = () => { help.s = embS(help.lv) + help.ts; };
   const saveHelp = () => { try { localStorage.setItem(HELP_LS, JSON.stringify(help)); } catch (e) {} };
   const helpCut = () => Math.max(0, help.n) * Math.max(0, help.s) * 1000;   // several at once: gathering marches, 2 builders
@@ -650,7 +650,7 @@
     if (b.dataset.sg) { if (b.dataset.sg === "no") { sugg = null; return render(); } return acceptSugg(b.dataset.sg); }
     if (b.dataset.sgfor) { sugg = b.dataset.sgfor; view.scrollTop = 0; return render(); }
     if (b.dataset.quick) { const [cat, sub, name, na] = b.dataset.quick.split("|"); const v = presets[b.dataset.quick]; if (v) createTimers(cat, sub, name, Array.isArray(v) ? v : [v], na === "na"); return; }
-    if (a === "help") { help.on = !help.on; saveHelp(); return render(); }
+    if (a === "help") { help.on = !help.on; help.offSet = !help.on; saveHelp(); return render(); }
     if (a === "na") { adding.na = !adding.na; if (adding.prefilled) { adding.rows = [""]; adding.prefilled = null; } return render(); }
     if (b.dataset.forget) { delete presets[b.dataset.forget]; savePre(); return render(); }
     if (b.dataset.cat) { adding.cat = b.dataset.cat; adding.sub = null; adding.na = null; adding.rows = adding.prefilled ? [""] : adding.rows.slice(0, MULTI[adding.cat] || 1); adding.prefilled = null; adding.err = false; adding.focus = true; return render(); }
