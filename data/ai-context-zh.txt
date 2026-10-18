@@ -1023,85 +1023,85 @@ Steps: 1. 在城內畫面點左上角的頭像。 2. 按下方的「部隊」。
 小提醒：最後一格的鎖頭表示還沒解鎖。「平均配置」會三種兵平均填；「全部撤回」把那格清空。每一格各自記住英雄和兵力。
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-18 by Sparrow] ⚔️ 戰鬥分配與策略
-🏰 階段 1 — 初始建築
+[2026-10-18 by Sparrow] ⚔️ BATTLE ASSIGNMENTS & STRATEGY
+🏰 PHASE 1 — INITIAL BUILDINGS
 
-① 馬廄
+① ROYAL STABLES
 
-* ⚔️ 攻擊方：Papa
-* 🛡️ 防守方：Meow, Perci
-* 👥 參戰人員：Nia, Big Yahu
+* ⚔️ Attacker: Papa
+* 🛡️ Defenders: Meow, Perci
+* 👥 Joiners: Nia, Big Yahu
 
-② 鐘塔
+② BELL TOWER
 
-* ⚔️ 攻擊方：MTP
-* 🛡️ 防守方：Kuya Jay, Raccoon
-* 👥 參戰人員：L, Gianna
+* ⚔️ Attacker: MTP
+* 🛡️ Defenders: Kuya Jay, Raccoon
+* 👥 Joiners: L, Gianna
 
-③ 聖所 — 靠近敵方
+③ SANCTUM — NEAR ENEMY
 
-* ⚔️ 攻擊方：Firebaugh
-* 🛡️ 防守方：Jordan
-* 👥 參戰人員：Bravus, Lovely
+* ⚔️ Attacker: Firebaugh
+* 🛡️ Defender: Jordan
+* 👥 Joiners: Bravus, Lovely
 
-③ 聖所 — 靠近我方
+③ SANCTUM — NEAR HOME
 
-* ⚔️ 攻擊方：Faniel
-* 🛡️ 防守方：Adan
-* 👥 參戰人員：Thanoss, Sir Tav
+* ⚔️ Attacker: Faniel
+* 🛡️ Defender: Adan
+* 👥 Joiners: Thanoss, Sir Tav
 
-④ 修道院（共4座）
+④ ABBEYS (4 TOTAL)
 
-* 所有人均可派遣第二支行軍隊伍前往修道院。
-* 將第二支隊伍派往距離你指定建築最近的修道院。
-* 主力隊伍請留守在指定的建築。
-
-━━━━━━━━━━━━━━━━━━
-
-⚔️ 階段 2 — 新目標
-
-⑦ 聖劍祭壇 — 重兵駐守
-
-* ⚔️ 攻擊方：Papa
-* 🛡️ 防守方：MTP, Firebaugh
-* 👥 參戰人員：L, Gianna
-
-⑤ 傭兵駐地
-
-* ⚔️ 攻擊方：Sir Tav
-* 🛡️ 防守方：Thanoss
-
-⑥ 教化大廳
-
-* ⚔️ 攻擊方：Jordan
-* 🛡️ 防守方：Nia
+* Anyone can send a second march to an Abbey.
+* Send your secondary march to the closest Abbey to your assigned building.
+* Keep your primary march at your assigned building.
 
 ━━━━━━━━━━━━━━━━━━
 
-🛡️ 留守 — 防守
+⚔️ PHASE 2 — NEW OBJECTIVES
 
-① 馬廄
+⑦ SWORD SHRINE — HEAVY GUARD
+
+* ⚔️ Attacker: Papa
+* 🛡️ Defenders: MTP, Firebaugh
+* 👥 Joiners: L, Gianna
+
+⑤ MERCENARY CAMP
+
+* ⚔️ Attacker: Sir Tav
+* 🛡️ Defender: Thanoss
+
+⑥ HALL OF REFORMATION
+
+* ⚔️ Attacker: Jordan
+* 🛡️ Defender: Nia
+
+━━━━━━━━━━━━━━━━━━
+
+🛡️ STAY BEHIND — DEFENSE
+
+① Royal Stables
 
 * Percival
 * Meow
 
-② 鐘塔
+② Bell Tower
 
 * Kuya Jay
 * Raccoon
 
-④ 修道院
+④ Abbeys
 
-- 被分配至聖所的人員，應派遣一支隊伍返回修道院
+-Those assigned sanctums, should send a march back to abbey
 
 ━━━━━━━━━━━━━━━━━━
 
-📌 重要提醒
+📌 IMPORTANT REMINDERS
 
-* 請遵循你被分配的攻擊方、防守方或參戰人員角色。
-* 在階段 1 期間，將第二支隊伍派往最近的修道院。
-* 階段 2 的玩家應移防至新目標。
-* 留守的防守人員必須保持對建築的佔領控制。
+* Follow your assigned attacker, defender, or joiner role.
+* Send your secondary march to the nearest Abbey during Phase 1.
+* Phase 2 players should move to their new objectives.
+* Assigned defenders staying behind must maintain control of their buildings.
 
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 即將到來的 KvK TG 衝刺準備與執行指南 📢
 2026年11月9日，成員可選擇將建築等級從 TG3 ➡️ TG5。

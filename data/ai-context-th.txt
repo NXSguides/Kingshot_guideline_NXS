@@ -1023,85 +1023,85 @@ Steps: 1. ที่หน้าเมือง แตะรูปโปรไฟ
 เคล็ดลับ: แม่กุญแจที่ช่องสุดท้ายแปลว่ายังไม่ปลดล็อก “เฉลี่ย” เติมสามประเภทเท่ากัน “ถอนทั้งหมด” ล้างช่องนั้น แต่ละช่องจำฮีโร่และทหารแยกกัน
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-18 by Sparrow] ⚔️ การมอบหมายการต่อสู้และกลยุทธ์
-🏰 ช่วงที่ 1 — สิ่งปลูกสร้างเริ่มต้น
+[2026-10-18 by Sparrow] ⚔️ BATTLE ASSIGNMENTS & STRATEGY
+🏰 PHASE 1 — INITIAL BUILDINGS
 
-① คอกม้าหลวง
+① ROYAL STABLES
 
-* ⚔️ ผู้โจมตี: Papa
-* 🛡️ ผู้ป้องกัน: Meow, Perci
-* 👥 ผู้ต่อสู้: Nia, Big Yahu
+* ⚔️ Attacker: Papa
+* 🛡️ Defenders: Meow, Perci
+* 👥 Joiners: Nia, Big Yahu
 
-② หอระฆัง
+② BELL TOWER
 
-* ⚔️ ผู้โจมตี: MTP
-* 🛡️ ผู้ป้องกัน: Kuya Jay, Raccoon
-* 👥 ผู้ต่อสู้: L, Gianna
+* ⚔️ Attacker: MTP
+* 🛡️ Defenders: Kuya Jay, Raccoon
+* 👥 Joiners: L, Gianna
 
-③ วิหารศักดิ์สิทธิ์ — ใกล้ศัตรู
+③ SANCTUM — NEAR ENEMY
 
-* ⚔️ ผู้โจมตี: Firebaugh
-* 🛡️ ผู้ป้องกัน: Jordan
-* 👥 ผู้ต่อสู้: Bravus, Lovely
+* ⚔️ Attacker: Firebaugh
+* 🛡️ Defender: Jordan
+* 👥 Joiners: Bravus, Lovely
 
-③ วิหารศักดิ์สิทธิ์ — ใกล้ฐานฝั่งเรา
+③ SANCTUM — NEAR HOME
 
-* ⚔️ ผู้โจมตี: Faniel
-* 🛡️ ผู้ป้องกัน: Adan
-* 👥 ผู้ต่อสู้: Thanoss, Sir Tav
+* ⚔️ Attacker: Faniel
+* 🛡️ Defender: Adan
+* 👥 Joiners: Thanoss, Sir Tav
 
-④ อาราม (ทั้งหมด 4 แห่ง)
+④ ABBEYS (4 TOTAL)
 
-* ทุกคนสามารถส่งทีมที่สองไปยังอารามได้
-* ส่งทีมสำรองของคุณไปยังอารามที่อยู่ใกล้กับสิ่งปลูกสร้างที่คุณได้รับมอบหมายมากที่สุด
-* รักษาทีมหลักของคุณไว้ที่สิ่งปลูกสร้างที่คุณได้รับมอบหมาย
-
-━━━━━━━━━━━━━━━━━━
-
-⚔️ ช่วงที่ 2 — เป้าหมายใหม่
-
-⑦ วิหารดาบ — การป้องกันแน่นหนา
-
-* ⚔️ ผู้โจมตี: Papa
-* 🛡️ ผู้ป้องกัน: MTP, Firebaugh
-* 👥 ผู้ต่อสู้: L, Gianna
-
-⑤ ค่ายทหารรับจ้าง
-
-* ⚔️ ผู้โจมตี: Sir Tav
-* 🛡️ ผู้ป้องกัน: Thanoss
-
-⑥ หอปฏิรูป
-
-* ⚔️ ผู้โจมตี: Jordan
-* 🛡️ ผู้ป้องกัน: Nia
+* Anyone can send a second march to an Abbey.
+* Send your secondary march to the closest Abbey to your assigned building.
+* Keep your primary march at your assigned building.
 
 ━━━━━━━━━━━━━━━━━━
 
-🛡️ เฝ้าระวังประจำจุด — การป้องกัน
+⚔️ PHASE 2 — NEW OBJECTIVES
 
-① คอกม้าหลวง
+⑦ SWORD SHRINE — HEAVY GUARD
+
+* ⚔️ Attacker: Papa
+* 🛡️ Defenders: MTP, Firebaugh
+* 👥 Joiners: L, Gianna
+
+⑤ MERCENARY CAMP
+
+* ⚔️ Attacker: Sir Tav
+* 🛡️ Defender: Thanoss
+
+⑥ HALL OF REFORMATION
+
+* ⚔️ Attacker: Jordan
+* 🛡️ Defender: Nia
+
+━━━━━━━━━━━━━━━━━━
+
+🛡️ STAY BEHIND — DEFENSE
+
+① Royal Stables
 
 * Percival
 * Meow
 
-② หอระฆัง
+② Bell Tower
 
 * Kuya Jay
 * Raccoon
 
-④ อาราม
+④ Abbeys
 
-- ผู้ที่ได้รับมอบหมายประจำวิหารศักดิ์สิทธิ์ ควรส่งทีมกลับไปที่อาราม
+-Those assigned sanctums, should send a march back to abbey
 
 ━━━━━━━━━━━━━━━━━━
 
-📌 คำเตือนสำคัญ
+📌 IMPORTANT REMINDERS
 
-* ปฏิบัติตามบทบาทผู้โจมตี ผู้ป้องกัน หรือผู้ต่อสู้ที่คุณได้รับมอบหมาย
-* ส่งทีมสำรองของคุณไปยังอารามที่ใกล้ที่สุดในระหว่างช่วงที่ 1
-* ผู้เล่นในช่วงที่ 2 ควรเคลื่อนพลไปยังเป้าหมายใหม่
-* ผู้ป้องกันที่ได้รับมอบหมายให้ประจำจุดต้องรักษาการควบคุมสิ่งปลูกสร้างไว้
+* Follow your assigned attacker, defender, or joiner role.
+* Send your secondary march to the nearest Abbey during Phase 1.
+* Phase 2 players should move to their new objectives.
+* Assigned defenders staying behind must maintain control of their buildings.
 
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 คู่มือการเตรียมตัวและดำเนินการ TG PUSH สำหรับ KVK ที่กำลังจะมาถึง 📢
 ในวันที่ 9 พฤศจิกายน 2026 สมาชิกจะมีตัวเลือกในการดันระดับสิ่งปลูกสร้างจาก TG3 ➡️ TG5

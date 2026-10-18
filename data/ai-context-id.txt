@@ -1024,85 +1024,85 @@ Steps: 1. Di layar kota, ketuk avatarmu (kiri atas). 2. Ketuk Skuad di bawah. 3.
 Tips: ikon gembok di slot terakhir berarti belum terbuka. “Rata” mengisi tiga jenis sama banyak; “Tarik semua” mengosongkan slot. Tiap slot menyimpan hero dan pasukannya sendiri.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-18 by Sparrow] ⚔️ TUGAS PERTEMPURAN & STRATEGI
-🏰 FASE 1 — BANGUNAN AWAL
+[2026-10-18 by Sparrow] ⚔️ BATTLE ASSIGNMENTS & STRATEGY
+🏰 PHASE 1 — INITIAL BUILDINGS
 
-① KANDANG KUDA KERAJAAN
+① ROYAL STABLES
 
-* ⚔️ Penyerang: Papa
-* 🛡️ Pertahanan: Meow, Perci
-* 👥 Petarung: Nia, Big Yahu
+* ⚔️ Attacker: Papa
+* 🛡️ Defenders: Meow, Perci
+* 👥 Joiners: Nia, Big Yahu
 
-② MENARA LONCENG
+② BELL TOWER
 
-* ⚔️ Penyerang: MTP
-* 🛡️ Pertahanan: Kuya Jay, Raccoon
-* 👥 Petarung: L, Gianna
+* ⚔️ Attacker: MTP
+* 🛡️ Defenders: Kuya Jay, Raccoon
+* 👥 Joiners: L, Gianna
 
-③ SANCTUM — DEKAT MUSUH
+③ SANCTUM — NEAR ENEMY
 
-* ⚔️ Penyerang: Firebaugh
-* 🛡️ Pertahanan: Jordan
-* 👥 Petarung: Bravus, Lovely
+* ⚔️ Attacker: Firebaugh
+* 🛡️ Defender: Jordan
+* 👥 Joiners: Bravus, Lovely
 
-③ SANCTUM — DEKAT BASE
+③ SANCTUM — NEAR HOME
 
-* ⚔️ Penyerang: Faniel
-* 🛡️ Pertahanan: Adan
-* 👥 Petarung: Thanoss, Sir Tav
+* ⚔️ Attacker: Faniel
+* 🛡️ Defender: Adan
+* 👥 Joiners: Thanoss, Sir Tav
 
-④ BIARA (TOTAL 4)
+④ ABBEYS (4 TOTAL)
 
-* Siapa pun dapat mengirim skuad kedua ke Biara.
-* Kirim skuad sekunder Anda ke Biara terdekat dari bangunan yang ditugaskan kepada Anda.
-* Pertahankan skuad utama Anda di bangunan yang ditugaskan.
-
-━━━━━━━━━━━━━━━━━━
-
-⚔️ FASE 2 — TARGET BARU
-
-⑦ SWORDSHRINE — PENJAGAAN KETAT
-
-* ⚔️ Penyerang: Papa
-* 🛡️ Pertahanan: MTP, Firebaugh
-* 👥 Petarung: L, Gianna
-
-⑤ KAMP TENTARA BAYARAN
-
-* ⚔️ Penyerang: Sir Tav
-* 🛡️ Pertahanan: Thanoss
-
-⑥ AULA REFORMASI
-
-* ⚔️ Penyerang: Jordan
-* 🛡️ Pertahanan: Nia
+* Anyone can send a second march to an Abbey.
+* Send your secondary march to the closest Abbey to your assigned building.
+* Keep your primary march at your assigned building.
 
 ━━━━━━━━━━━━━━━━━━
 
-🛡️ BERTAHAN DI BELAKANG — PERTAHANAN
+⚔️ PHASE 2 — NEW OBJECTIVES
 
-① Kandang Kuda Kerajaan
+⑦ SWORD SHRINE — HEAVY GUARD
+
+* ⚔️ Attacker: Papa
+* 🛡️ Defenders: MTP, Firebaugh
+* 👥 Joiners: L, Gianna
+
+⑤ MERCENARY CAMP
+
+* ⚔️ Attacker: Sir Tav
+* 🛡️ Defender: Thanoss
+
+⑥ HALL OF REFORMATION
+
+* ⚔️ Attacker: Jordan
+* 🛡️ Defender: Nia
+
+━━━━━━━━━━━━━━━━━━
+
+🛡️ STAY BEHIND — DEFENSE
+
+① Royal Stables
 
 * Percival
 * Meow
 
-② Menara Lonceng
+② Bell Tower
 
 * Kuya Jay
 * Raccoon
 
-④ Biara
+④ Abbeys
 
-- Mereka yang ditugaskan di Sanctum harus mengirim skuad kembali ke biara
+-Those assigned sanctums, should send a march back to abbey
 
 ━━━━━━━━━━━━━━━━━━
 
-📌 PENGINGAT PENTING
+📌 IMPORTANT REMINDERS
 
-* Ikuti peran penyerang, pertahanan, atau petarung yang ditugaskan kepada Anda.
-* Kirim skuad sekunder Anda ke Biara terdekat selama Fase 1.
-* Pemain Fase 2 harus berpindah ke target baru mereka.
-* Pertahanan yang ditugaskan bertahan di belakang harus mempertahankan penguasaan atas bangunan mereka.
+* Follow your assigned attacker, defender, or joiner role.
+* Send your secondary march to the nearest Abbey during Phase 1.
+* Phase 2 players should move to their new objectives.
+* Assigned defenders staying behind must maintain control of their buildings.
 
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 PANDUAN PERSIAPAN & EKSEKUSI TG PUSH KVK MENDATANG 📢
 Pada 9 November 2026, anggota akan memiliki opsi untuk melakukan push bangunan mereka dari TG3 ➡️ TG5.

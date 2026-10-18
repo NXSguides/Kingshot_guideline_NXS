@@ -1023,85 +1023,85 @@ Steps: 1. في شاشة المدينة اضغط على صورتك الشخصية
 نصائح: القفل بجانب الخانة الأخيرة يعني أنها لم تُفتح بعد. «توزيع متساوٍ» يملأ الأنواع الثلاثة بالتساوي؛ «سحب الكل» يفرغ الخانة. كل خانة تحتفظ بأبطالها وقواتها.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-18 by Sparrow] ⚔️ مهام المعركة والاستراتيجية
-🏰 المرحلة 1 — المباني الأولية
+[2026-10-18 by Sparrow] ⚔️ BATTLE ASSIGNMENTS & STRATEGY
+🏰 PHASE 1 — INITIAL BUILDINGS
 
-① الاسطبلات الملكية
+① ROYAL STABLES
 
-* ⚔️ المهاجم: Papa
-* 🛡️ المدافعون: Meow, Perci
-* 👥 المقاتلين: Nia, Big Yahu
+* ⚔️ Attacker: Papa
+* 🛡️ Defenders: Meow, Perci
+* 👥 Joiners: Nia, Big Yahu
 
-② برج الجرس
+② BELL TOWER
 
-* ⚔️ المهاجم: MTP
-* 🛡️ المدافعون: Kuya Jay, Raccoon
-* 👥 المقاتلين: L, Gianna
+* ⚔️ Attacker: MTP
+* 🛡️ Defenders: Kuya Jay, Raccoon
+* 👥 Joiners: L, Gianna
 
-③ مزار — بالقرب من العدو
+③ SANCTUM — NEAR ENEMY
 
-* ⚔️ المهاجم: Firebaugh
-* 🛡️ المدافع: Jordan
-* 👥 المقاتلين: Bravus, Lovely
+* ⚔️ Attacker: Firebaugh
+* 🛡️ Defender: Jordan
+* 👥 Joiners: Bravus, Lovely
 
-③ مزار — بالقرب من الديار
+③ SANCTUM — NEAR HOME
 
-* ⚔️ المهاجم: Faniel
-* 🛡️ المدافع: Adan
-* 👥 المقاتلين: Thanoss, Sir Tav
+* ⚔️ Attacker: Faniel
+* 🛡️ Defender: Adan
+* 👥 Joiners: Thanoss, Sir Tav
 
-④ الأديرة (4 إجماليًا)
+④ ABBEYS (4 TOTAL)
 
-* يمكن لأي شخص إرسال فرقة ثانية إلى دير.
-* أرسل فرقتك الثانوية إلى أقرب دير للمبنى المخصص لك.
-* احتفظ بفرقتك الأساسية في المبنى المخصص لك.
-
-━━━━━━━━━━━━━━━━━━
-
-⚔️ المرحلة 2 — الأهداف الجديدة
-
-⑦ ضريح السيوف — حراسة مشددة
-
-* ⚔️ المهاجم: Papa
-* 🛡️ المدافعون: MTP, Firebaugh
-* 👥 المقاتلين: L, Gianna
-
-⑤ معسكر المرتزقة
-
-* ⚔️ المهاجم: Sir Tav
-* 🛡️ المدافع: Thanoss
-
-⑥ قاعة الإصلاح
-
-* ⚔️ المهاجم: Jordan
-* 🛡️ المدافع: Nia
+* Anyone can send a second march to an Abbey.
+* Send your secondary march to the closest Abbey to your assigned building.
+* Keep your primary march at your assigned building.
 
 ━━━━━━━━━━━━━━━━━━
 
-🛡️ البقاء في الخلف — الدفاع
+⚔️ PHASE 2 — NEW OBJECTIVES
 
-① الاسطبلات الملكية
+⑦ SWORD SHRINE — HEAVY GUARD
+
+* ⚔️ Attacker: Papa
+* 🛡️ Defenders: MTP, Firebaugh
+* 👥 Joiners: L, Gianna
+
+⑤ MERCENARY CAMP
+
+* ⚔️ Attacker: Sir Tav
+* 🛡️ Defender: Thanoss
+
+⑥ HALL OF REFORMATION
+
+* ⚔️ Attacker: Jordan
+* 🛡️ Defender: Nia
+
+━━━━━━━━━━━━━━━━━━
+
+🛡️ STAY BEHIND — DEFENSE
+
+① Royal Stables
 
 * Percival
 * Meow
 
-② برج الجرس
+② Bell Tower
 
 * Kuya Jay
 * Raccoon
 
-④ الأديرة
+④ Abbeys
 
-- يجب على المكلفين بالمزارات إرسال فرقة مرة أخرى إلى الدير
+-Those assigned sanctums, should send a march back to abbey
 
 ━━━━━━━━━━━━━━━━━━
 
-📌 تذكيرات مهمة
+📌 IMPORTANT REMINDERS
 
-* التزم بدورك المخصص كمهاجم أو مدافع أو مقاتل.
-* أرسل فرقتك الثانوية إلى أقرب دير خلال المرحلة 1.
-* يجب على لاعبي المرحلة 2 الانتقال إلى أهدافهم الجديدة.
-* يجب على المدافعين المخصصين للبقاء في الخلف الحفاظ على السيطرة على مبانيهم.
+* Follow your assigned attacker, defender, or joiner role.
+* Send your secondary march to the nearest Abbey during Phase 1.
+* Phase 2 players should move to their new objectives.
+* Assigned defenders staying behind must maintain control of their buildings.
 
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 دليل التحضير والتنفيذ لدفع TG في KVK القادم 📢
 في 9 نوفمبر 2026، سيكون لدى الأعضاء خيار ترقية مبانيهم من TG3 ➡️ TG5.
