@@ -135,10 +135,36 @@ async function main() {
   const glossaryText = buildGlossaryText(loadTerms());
 
   // 只翻譯快取裡還沒有的（也就是真正新增的）公告
+// only a picture / video / guide-button marker added, removed or moved → keep the old translations, just move the markers
+const MK = /\[\[(?:img|video|link):[^\]]+\]\]/g;
+const bare = (t) => String(t || "").replace(MK, "").replace(/\s+/g, " ").trim();
+function reuseFor(entry) {
+  for (const [oid, c] of Object.entries(cache)) {
+    if (!c || !c.content || !c.title || c.title[entry.lang] !== (entry.title || "")) continue;
+    if (bare(c.content[entry.lang]) !== bare(entry.content) || !TERM_LANGS.every((l) => l in c.content)) continue;
+    const want = entry.content.match(MK) || [], content = {};
+    for (const [l, t0] of Object.entries(c.content)) {
+      let t = String(t0).replace(MK, (m) => (want.includes(m) ? m : "")).replace(/\n{3,}/g, "\n\n");
+      want.forEach((m, i) => { if (t.includes(m)) return; const prev = want.slice(0, i).reverse().find((x) => t.includes(x));
+        t = prev ? t.replace(prev, prev + "\n\n" + m) : m + "\n\n" + t; });
+      content[l] = t.trim();
+    }
+    content[entry.lang] = entry.content;
+    return { oid, item: { ...c, content } };
+  }
+  return null;
+}
 for (const entry of rawEntries) {
   const cached = cache[entry.id];
   const hasAllLangs = cached && TERM_LANGS.every(l => cached.title && l in cached.title);
   if (hasAllLangs) continue;
+  const reuse = reuseFor(entry);
+  if (reuse) {
+    console.log(`只改了圖片／按鈕，沿用原本的翻譯：${entry.title}`);
+    cache[entry.id] = reuse.item;
+    try { const fx = JSON.parse(fs.readFileSync(FIXES, "utf8")); if (fx[reuse.oid] && !fx[entry.id]) { fx[entry.id] = fx[reuse.oid]; fs.writeFileSync(FIXES, JSON.stringify(fx, null, 1)); } } catch (e) {}
+    continue;
+  }
   const result = await translateOne(entry, glossaryText);
   const titleMap = {};
   const contentMap = {};
