@@ -54,7 +54,7 @@ const PRESETS = [
 ];
 const LS = "nxs-roster-v2";
 const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
-const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} planTouched(); };
+const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} histNote(); planTouched(); };
 
 /* one language for all officer tabs (set from the main site when you enter, and by the language button on any tab) */
 let lang = OFFICER.lang;
@@ -233,7 +233,7 @@ async function init() {
   picked = new Set([...picked].filter((id) => ids.has(id)));
   $("rk_app").hidden = false;
   setWeights(wts);
-  renderAll();
+  renderAll(); histReset();
   plansInit();
 }
 
@@ -366,11 +366,9 @@ function tbDefault() {
   };
 }
 let TB = (() => { try { return Object.assign(tbDefault(), JSON.parse(localStorage.getItem(TB_LS)) || {}); } catch (e) { return tbDefault(); } })();
-const tbSave = () => { try { localStorage.setItem(TB_LS, JSON.stringify(TB)); } catch (e) {} planTouched(); };
+const tbSave = () => { try { localStorage.setItem(TB_LS, JSON.stringify(TB)); } catch (e) {} histNote(); planTouched(); };
 let tbPick = null;
-/* ↩️ undo for the big changes (clear / ✨ draft / 📥 paste / delete a building): the table as it was just before, up to 10 steps */
-const tbUndo = [];
-const tbKeep = () => { tbUndo.push(JSON.stringify(TB)); if (tbUndo.length > 10) tbUndo.shift(); };          // selected chip: { kind: "p", id } | { kind: "t", text }
+const tbKeep = () => {};   // (the ↩️ undo below records every change by itself)
 let tbUid = Date.now();
 const newRow = (stage = "") => ({ id: ++tbUid, att: [], stage, target: "", def: [], join: [], note: "", pt: {}, tg: [] });
 /* 📋 sections: TB.stages = the phases ("Phase 1, Phase 2, Stay behind"), each its own table of buildings.
@@ -443,7 +441,7 @@ function tbRender() {
       <button class="btn" data-act="draft">✨ ${esc(tt("draft"))}</button>
       <button class="btn" data-act="import">${esc(tt("imp"))}</button>
       <button class="btn" data-act="clear">${esc(tt("clear"))}</button>
-      ${tbUndo.length ? `<button class="btn primary" data-act="undo">${esc(tt("undo"))}</button>` : ""}
+      <button class="btn" data-act="undo" ${hist.length ? "" : "disabled"}>${esc(tt("undo"))}</button>
     </div>
     <div class="muted" style="font-size:12px;margin:-4px 0 8px">${esc(tt("draftNote"))}</div>
     <div class="tb-sticky"><div class="tb-pool-h">${esc(tt("pool"))}${tbPick ? ` · <b>${esc(tt("picked"))} ${esc(chipLabel(tbPick))}</b>` : ""}</div>
@@ -512,7 +510,7 @@ function tbClick(e) {
   const a = t.closest("[data-act]"); if (!a) return;
   const gi = a.dataset.g, ri = a.dataset.r, act = a.dataset.act;
   if (act === "addGroup") TB.groups.push({ color: TB_COLORS[TB.groups.length % TB_COLORS.length], sec: +a.dataset.sec || 0, rows: [newRow()] });
-  if (act === "undo") { const u = tbUndo.pop(); if (u) TB = Object.assign(tbDefault(), JSON.parse(u)); }
+  if (act === "undo") return histUndo();
   if (act === "delGroup") { tbKeep(); TB.groups.splice(gi, 1); }
   if (act === "addRow") { const rows = TB.groups[gi].rows, last = rows[rows.length - 1], st = listOf(TB.stages), nx = last ? st[st.indexOf(last.stage) + 1] : st[0];
     const r = newRow(nx ?? (last ? last.stage : st[0] || "")); if (last) PEOPLE_COLS.forEach((k) => { r[k] = last[k].map((x) => ({ ...x })); }); rows.push(r); }   // same people, next stage
@@ -875,9 +873,31 @@ async function planFetch() {
 }
 const planLabel = (p) => { const n = String((p && p.name) || "").trim(); return n && n !== "?" ? n : `(${pl("noName")}${p && p.by ? " · " + p.by : ""})`; };
 function planSnapshot() { return { picked: [...picked], subs: [...picked].filter((id) => subs.has(id)), wPower, wts: { ...wts }, counts: JSON.parse(JSON.stringify(store.counts || {})), tb: JSON.parse(JSON.stringify(TB)) }; }
+/* ↩️ undo: every change on this tab (ticks, subs, weights, group sizes, battle table) is remembered — the state just before it, up to 30 steps.
+   Quick changes in a row (typing a number) count as one step. Cleared when another plan, or someone else's newer copy, comes on screen. */
+const hist = []; let histLast = null, histAt = 0, histBusy = false;
+function histSnap() { try { return JSON.stringify(planSnapshot()); } catch (e) { return null; } }
+function histShow() { const b = $("planUndo"); if (b) { b.disabled = !hist.length; b.textContent = tt("undo"); } ROOT.querySelectorAll('[data-act="undo"]').forEach((x) => { x.disabled = !hist.length; }); }
+function histReset() { hist.length = 0; histLast = histSnap(); histShow(); }
+function histNote() {
+  if (histBusy || planApplying) return;
+  const now = histSnap(); if (!now || now === histLast) return;
+  if (histLast && (!hist.length || Date.now() - histAt > 700)) { hist.push(histLast); if (hist.length > 30) hist.shift(); }
+  histLast = now; histAt = Date.now(); histShow();
+}
+function histUndo() {
+  const s = hist.pop(); if (!s) return histShow();
+  const o = JSON.parse(s);
+  histBusy = true;
+  picked = new Set(o.picked || []); subs = new Set(o.subs || []); store.counts = o.counts || {};
+  TB = Object.assign(tbDefault(), o.tb || {}); tbPick = null;
+  setWeights(wtsFrom(o.wts, o.wPower)); persist(); tbSave();
+  renderAll(); tbRender(); renderPresets && renderPresets();
+  histBusy = false; histLast = s; histAt = 0; histShow();
+}
 /* put a plan's contents on screen (keeping ticks this device hasn't saved yet) */
 function planApply(p) {
-  planApplying = true; tbUndo.length = 0;   // ↩️ undo never carries one plan's table into another
+  planApplying = true;
   let ids = new Set(p.picked || []);
   if (planDirty && planBase) { for (const id of picked) if (!planBase.has(id)) ids.add(id); for (const id of planBase) if (!picked.has(id)) ids.delete(id); }
   else planBase = new Set(p.picked || []);
@@ -885,7 +905,7 @@ function planApply(p) {
   if (!planDirty) subs = new Set((p.subs || []).filter((id) => ids.has(id)));
   if (!planDirty) { store.counts = p.counts || {}; TB = Object.assign(tbDefault(), p.tb || {}); setWeights(wtsFrom(p.wts, p.wPower)); }
   renderAll(); tbRender(); renderPresets && renderPresets();
-  planApplying = false;
+  planApplying = false; histReset();   // ↩️ undo never carries one plan (or someone else's older copy) into another
 }
 function planRenderBar() {
   $("planTitle").textContent = pl("title");
@@ -893,7 +913,7 @@ function planRenderBar() {
   const ids = Object.keys(plans).sort((a, b) => (plans[a].name || "").localeCompare(plans[b].name || ""));
   $("planSel").innerHTML = `<option value="">${esc(pl("local"))}</option>` + ids.map((id) => `<option value="${esc(id)}">🔄 ${esc(planLabel(plans[id]))}</option>`).join("");
   if (planId && !plans[planId]) planId = "";
-  $("planSel").value = planId;
+  $("planSel").value = planId; histShow();
   $("planRen").hidden = $("planDel").hidden = !planId || !planCanEdit(plans[planId]);
   if ($("planEd") && !(document.activeElement && document.activeElement.closest && document.activeElement.closest("#planEd"))) $("planEd").innerHTML = OFFICER.token ? planEditorsHtml() : "";
   const p = planId && plans[planId];
@@ -971,12 +991,11 @@ async function planPoll() {
   } catch (e) {}
 }
 function planSwitch(id) {
-  tbUndo.length = 0;
   if (!planId) store.local = planSnapshot();   // leaving "only this device": keep it to come back to
   planId = id; store.planId = id; planDirty = false; planBase = null;
   if (id && plans[id]) planApply(plans[id]);
   else if (store.local) { const l = store.local; planApplying = true; picked = new Set(l.picked || []); store.counts = l.counts || {}; TB = Object.assign(tbDefault(), l.tb || {}); setWeights(wtsFrom(l.wts, l.wPower)); renderAll(); tbRender(); planApplying = false; }
-  planApplying = true; save(); planApplying = false; planRenderBar();
+  planApplying = true; save(); planApplying = false; histReset(); planRenderBar();
 }
 async function plansInit() {
   if (!OFFICER.token) { planId = ""; planRenderBar(); return; }
@@ -988,6 +1007,7 @@ async function plansInit() {
   document.addEventListener("visibilitychange", planPoll);
 }
 /* switching plans right after an edit: save the edit to the plan it was made in first (the save waits 1.2 s otherwise, and was lost) */
+$("planUndo").onclick = () => histUndo();
 $("planSel").onchange = async (e) => { const to = e.target.value;
   if (planDirty && planId) { clearTimeout(planTimer); e.target.disabled = true; try { for (let i = 0; i < 40 && planBusy; i++) await new Promise((r) => setTimeout(r, 250)); if (planDirty) await planSave(); } catch (err) {} e.target.disabled = false; }
   planSwitch(to); };
