@@ -81,7 +81,9 @@ const statusOf = (sl, id) => { id = S(id); return sl.present.map(S).includes(id)
 /* starters only (subs don't count as misses): id → { name, miss } */
 const missesOf = (ev) => { const out = new Map(); const sl = slot(ev); for (const m of sl.confirmed) { if (m.sub) continue; const st = statusOf(sl, m.id); if (st !== "ex") out.set(S(m.id), { name: m.name, miss: st === "no" }); } return out; };
 const rateOf = (ev) => { const m = [...missesOf(ev).values()]; const n = m.length, ok = m.filter((x) => !x.miss).length; return { n, ok, pct: n ? Math.round(ok / n * 100) : null }; };
-const sheetOf = (ev) => (ev.sheet || ev.title || "").trim();
+/* the Swordland sheet is saved in whatever language the officer used; show it in the viewer's language (and keep one sheet, not one per language) */
+const ssAll = () => { const ss = typeof EVENT_NAMES !== "undefined" && EVENT_NAMES["Swordland Showdown"]; return new Set(["Swordland Showdown", ...(ss ? Object.values(ss) : [])].map((x) => String(x).trim().toLowerCase())); };
+const sheetOf = (ev) => { const n = (ev.sheet || ev.title || "").trim(); return ssAll().has(n.toLowerCase()) ? ssName() : n; };
 /* misses on the same sheet, counting this record and every saved one up to its date */
 function missCounts(ev) {
   const cnt = new Map(), list = [ev, ...events.filter((e) => e.id !== ev.id && sheetOf(e) === sheetOf(ev) && (e.date || "") <= (ev.date || ""))];
