@@ -321,9 +321,9 @@ $("presetCopy").onclick = async () => {
 /* ===== ⑤ Battle table builder (saved only in this browser) ===== */
 const TB_LS = "nxs-table-v1";
 const TB_COLORS = ["#e6a3d9", "#8fd0ec", "#f6c3a2", "#d6ecc4", "#f6e58d", "#c9c3f0", "#d9d9d9", "#b8e0d2"];
-const TT = { ko: {"title": "⑤ 전투 배치표", "note": "목록에서 사람을 고른 뒤 칸을 눌러 배치하세요(컴퓨터에서는 드래그도 가능). ×를 누르면 제거됩니다.", "setup": "표 설정", "stages": "단계", "targets": "목표", "cols": "열 이름", "sep": "(쉼표로 구분)", "shortNames": "짧은 이름 (亗, Nexus 같은 장식 제거)", "draft": "순위로 초안 자동 작성", "draftNote": "④의 Attackers / Defenders 인원수를 사용합니다.", "clear": "표 비우기", "addGroup": "+ 조", "addRow": "+ 행", "delGroup": "조 삭제", "dupRow": "행 복사", "delRow": "행 삭제", "pool": "인원 — 점수 기준 추천 역할 (이름을 누른 뒤 칸을 누르세요)", "poolEmpty": "먼저 ②에서 참가자를 체크하세요.", "addText": "+ 텍스트", "textPrompt": "추가할 텍스트 (예: Stays behind)", "image": "🖼️ 이미지 만들기", "text": "📋 텍스트 복사", "toPost": "📢 새 공지에 사용", "saveHint": "휴대폰: 이미지를 길게 눌러 저장하세요.", "download": "다운로드", "close": "닫기", "confirmClear": "표 전체를 비울까요?", "confirmDraft": "현재 표를 새 초안으로 바꿀까요?", "copied": "복사했어요!", "group": "조", "picked": "선택됨:"},
- ar: {"title": "⑤ جدول المعركة", "note": "اختر أشخاصًا من القائمة، ثم انقر على خانة لوضعهم فيها (على الكمبيوتر يمكنك السحب أيضًا). انقر × للإزالة.", "setup": "إعداد الجدول", "stages": "المراحل", "targets": "الأهداف", "cols": "الأعمدة", "sep": "(افصل بفواصل)", "shortNames": "أسماء مختصرة (بدون زخارف مثل 亗 وNexus)", "draft": "املأ مسودة أولى من الترتيب", "draftNote": "يستخدم أعداد المهاجمين / المدافعين من ④.", "clear": "مسح الجدول", "addGroup": "+ مجموعة", "addRow": "+ صف", "delGroup": "حذف المجموعة", "dupRow": "نسخ الصف", "delRow": "حذف الصف", "pool": "الأشخاص — أدوار مقترحة حسب النقاط (انقر على واحد، ثم على خانة)", "poolEmpty": "حدّد المشاركين في ② أولًا.", "addText": "+ نص", "textPrompt": "النص المراد إضافته (مثلًا: يبقى في الخلف)", "image": "🖼️ إنشاء صورة", "text": "📋 نسخ النص", "toPost": "📢 استخدام في إعلان جديد", "saveHint": "الهاتف: اضغط مطولًا على الصورة لحفظها.", "download": "تنزيل", "close": "إغلاق", "confirmClear": "مسح الجدول بالكامل؟", "confirmDraft": "استبدال الجدول بمسودة جديدة؟", "copied": "تم النسخ!", "group": "مجموعة", "picked": "المحدد:"},
- pt: {"title": "⑤ Tabela de batalha", "note": "Escolha pessoas na lista e toque numa caixa para colocá-las lá (no computador também dá para arrastar). Toque em × para remover.", "setup": "Configurar tabela", "stages": "Etapas", "targets": "Alvos", "cols": "Colunas", "sep": "(separe com vírgulas)", "shortNames": "Nomes curtos (sem enfeites como 亗 e Nexus)", "draft": "Montar um rascunho pelo ranking", "draftNote": "Usa os números de Attackers / Defenders do ④.", "clear": "Limpar tabela", "addGroup": "+ Grupo", "addRow": "+ Linha", "delGroup": "Excluir grupo", "dupRow": "Copiar linha", "delRow": "Excluir linha", "pool": "Pessoas — funções sugeridas pela pontuação (toque numa, depois numa caixa)", "poolEmpty": "Marque os participantes no ② primeiro.", "addText": "+ texto", "textPrompt": "Texto para adicionar (ex.: Stays behind)", "image": "🖼️ Gerar imagem", "text": "📋 Copiar texto", "toPost": "📢 Usar num novo anúncio", "saveHint": "No celular: toque e segure a imagem para salvar.", "download": "Baixar", "close": "Fechar", "confirmClear": "Limpar a tabela inteira?", "confirmDraft": "Trocar a tabela por um novo rascunho?", "copied": "Copiado!", "group": "Grupo", "picked": "Selecionado:"},
+const TT = { ko: {"title": "⑤ 전투 배치표", "note": "목록에서 사람을 고른 뒤 칸을 눌러 배치하세요(컴퓨터에서는 드래그도 가능). ×를 누르면 제거됩니다.", "setup": "표 설정", "stages": "단계", "targets": "목표", "cols": "열 이름", "sep": "(쉼표로 구분)", "shortNames": "짧은 이름 (亗, Nexus 같은 장식 제거)", "draft": "순위로 초안 자동 작성", "draftNote": "④의 Attackers / Defenders 인원수를 사용합니다.", "clear": "표 비우기", "addGroup": "+ 조", "addRow": "+ 행", "delGroup": "조 삭제", "dupRow": "행 복사", "delRow": "행 삭제", "pool": "인원 — 점수 기준 추천 역할 (이름을 누른 뒤 칸을 누르세요)", "poolEmpty": "먼저 ②에서 참가자를 체크하세요.", "addText": "+ 텍스트", "sync": "🔗 같은 색 그룹의 행(Stage)은 같은 사람들입니다. 한 행에서 사람을 추가/삭제하면 다른 행도 같이 바뀝니다. 이름 옆의 칸으로 그 사람만 다른 목표를 줄 수 있어요(비우면 그 행의 목표).", "textPrompt": "추가할 텍스트 (예: Stays behind)", "image": "🖼️ 이미지 만들기", "text": "📋 텍스트 복사", "toPost": "📢 새 공지에 사용", "saveHint": "휴대폰: 이미지를 길게 눌러 저장하세요.", "download": "다운로드", "close": "닫기", "confirmClear": "표 전체를 비울까요?", "confirmDraft": "현재 표를 새 초안으로 바꿀까요?", "copied": "복사했어요!", "group": "조", "picked": "선택됨:"},
+ ar: {"title": "⑤ جدول المعركة", "note": "اختر أشخاصًا من القائمة، ثم انقر على خانة لوضعهم فيها (على الكمبيوتر يمكنك السحب أيضًا). انقر × للإزالة.", "setup": "إعداد الجدول", "stages": "المراحل", "targets": "الأهداف", "cols": "الأعمدة", "sep": "(افصل بفواصل)", "shortNames": "أسماء مختصرة (بدون زخارف مثل 亗 وNexus)", "draft": "املأ مسودة أولى من الترتيب", "draftNote": "يستخدم أعداد المهاجمين / المدافعين من ④.", "clear": "مسح الجدول", "addGroup": "+ مجموعة", "addRow": "+ صف", "delGroup": "حذف المجموعة", "dupRow": "نسخ الصف", "delRow": "حذف الصف", "pool": "الأشخاص — أدوار مقترحة حسب النقاط (انقر على واحد، ثم على خانة)", "poolEmpty": "حدّد المشاركين في ② أولًا.", "addText": "+ نص", "sync": "🔗 صفوف (المراحل) المجموعة ذات اللون نفسه تضم الأشخاص أنفسهم: الإضافة أو الحذف في صف يغيّر باقي الصفوف. استخدم الخانة بجانب الاسم لإعطاء هذا الشخص هدفًا خاصًا (فارغ = هدف الصف).", "textPrompt": "النص المراد إضافته (مثلًا: يبقى في الخلف)", "image": "🖼️ إنشاء صورة", "text": "📋 نسخ النص", "toPost": "📢 استخدام في إعلان جديد", "saveHint": "الهاتف: اضغط مطولًا على الصورة لحفظها.", "download": "تنزيل", "close": "إغلاق", "confirmClear": "مسح الجدول بالكامل؟", "confirmDraft": "استبدال الجدول بمسودة جديدة؟", "copied": "تم النسخ!", "group": "مجموعة", "picked": "المحدد:"},
+ pt: {"title": "⑤ Tabela de batalha", "note": "Escolha pessoas na lista e toque numa caixa para colocá-las lá (no computador também dá para arrastar). Toque em × para remover.", "setup": "Configurar tabela", "stages": "Etapas", "targets": "Alvos", "cols": "Colunas", "sep": "(separe com vírgulas)", "shortNames": "Nomes curtos (sem enfeites como 亗 e Nexus)", "draft": "Montar um rascunho pelo ranking", "draftNote": "Usa os números de Attackers / Defenders do ④.", "clear": "Limpar tabela", "addGroup": "+ Grupo", "addRow": "+ Linha", "delGroup": "Excluir grupo", "dupRow": "Copiar linha", "delRow": "Excluir linha", "pool": "Pessoas — funções sugeridas pela pontuação (toque numa, depois numa caixa)", "poolEmpty": "Marque os participantes no ② primeiro.", "addText": "+ texto", "sync": "🔗 As linhas (Stages) de um grupo da mesma cor têm as mesmas pessoas: adicionar ou remover numa linha muda as outras. Use a caixa ao lado do nome para dar a essa pessoa um alvo próprio (vazio = o alvo da linha).", "textPrompt": "Texto para adicionar (ex.: Stays behind)", "image": "🖼️ Gerar imagem", "text": "📋 Copiar texto", "toPost": "📢 Usar num novo anúncio", "saveHint": "No celular: toque e segure a imagem para salvar.", "download": "Baixar", "close": "Fechar", "confirmClear": "Limpar a tabela inteira?", "confirmDraft": "Trocar a tabela por um novo rascunho?", "copied": "Copiado!", "group": "Grupo", "picked": "Selecionado:"},
 
   en: {
     title: "⑤ Battle table", note: "Pick people from the list, then tap a box to put them there (on a computer you can also drag). Tap × to remove.",
@@ -332,7 +332,7 @@ const TT = { ko: {"title": "⑤ 전투 배치표", "note": "목록에서 사람�
     draft: "Fill a first draft from the ranking", draftNote: "Uses the Attackers / Defenders numbers from ④.",
     clear: "Clear table", addGroup: "+ Group", addRow: "+ Row", delGroup: "Delete group", dupRow: "Copy row", delRow: "Delete row",
     pool: "People — suggested roles by score (tap one, then tap a box)", poolEmpty: "Tick participants in ② first.",
-    addText: "+ text", textPrompt: "Text to add (e.g. Stays behind)",
+    addText: "+ text", sync: "🔗 The rows (stages) of one colour group are the same people: adding or removing someone in one row changes the others too. Use the box next to a name to give that person their own target (empty = the row's target).", textPrompt: "Text to add (e.g. Stays behind)",
     image: "🖼️ Make image", text: "📋 Copy text", toPost: "📢 Use in a new announcement",
     saveHint: "Phone: press and hold the picture to save it.", download: "Download", close: "Close",
     confirmClear: "Clear the whole table?", confirmDraft: "Replace the table with a new draft?", copied: "Copied!",
@@ -345,7 +345,7 @@ const TT = { ko: {"title": "⑤ 전투 배치표", "note": "목록에서 사람�
     draft: "依排序自動排一份草稿", draftNote: "使用 ④ 裡 Attackers／Defenders 的人數。",
     clear: "清空表格", addGroup: "+ 新增組", addRow: "+ 新增列", delGroup: "刪除這組", dupRow: "複製這列", delRow: "刪除這列",
     pool: "人員 — 依分數建議的角色（先點名字，再點格子）", poolEmpty: "請先在 ② 勾選參戰的人。",
-    addText: "+ 文字", textPrompt: "要加入的文字（例如 Stays behind）",
+    addText: "+ 文字", sync: "🔗 同一個顏色的組，每一列（Stage）都是同一批人：在任何一列加人、刪人，其他列會一起變。名字旁邊的小格可以替那個人單獨指定 Target（空白＝跟著這一列的 Target）。", textPrompt: "要加入的文字（例如 Stays behind）",
     image: "🖼️ 產生圖片", text: "📋 複製文字", toPost: "📢 拿去發公告",
     saveHint: "手機：長按圖片即可儲存。", download: "下載", close: "關閉",
     confirmClear: "確定清空整張表？", confirmDraft: "用新的草稿取代目前的表格？", copied: "已複製！",
@@ -367,7 +367,18 @@ let TB = (() => { try { return Object.assign(tbDefault(), JSON.parse(localStorag
 const tbSave = () => { try { localStorage.setItem(TB_LS, JSON.stringify(TB)); } catch (e) {} planTouched(); };
 let tbPick = null;          // selected chip: { kind: "p", id } | { kind: "t", text }
 let tbUid = Date.now();
-const newRow = (stage = "") => ({ id: ++tbUid, att: [], stage, target: "", def: [], join: [], note: "" });
+const newRow = (stage = "") => ({ id: ++tbUid, att: [], stage, target: "", def: [], join: [], note: "", pt: {} });
+/* 🔗 one colour group = one batch of people: every row (stage) of a group holds the same people (kept in every row, so older copies of
+   the page still read it). Each row can give a person their own target: row.pt = { memberId: "3" } (empty = the row's target). */
+const chipKey = (x) => x.kind === "p" ? "p:" + x.id : "t:" + x.text;
+function tbSync() {
+  TB.groups.forEach((g) => { if (!g.rows || g.rows.length < 2) return;
+    PEOPLE_COLS.forEach((k) => { const seen = new Set(), all = [];
+      g.rows.forEach((r) => (r[k] || []).forEach((x) => { const key = chipKey(x); if (!seen.has(key)) { seen.add(key); all.push(x); } }));
+      g.rows.forEach((r) => { r[k] = all.map((x) => ({ ...x })); }); }); });
+}
+const gPut = (gi, k, chip) => TB.groups[gi].rows.forEach((r) => { if (!r[k].some((x) => chipKey(x) === chipKey(chip))) r[k].push({ ...chip }); });
+const gDel = (gi, k, chip) => TB.groups[gi].rows.forEach((r) => { const j = r[k].findIndex((x) => chipKey(x) === chipKey(chip)); if (j >= 0) r[k].splice(j, 1); });
 
 const memberById = (id) => (data && data.members.find((m) => String(m.id) === String(id))) || null;
 function shortName(n) {
@@ -384,24 +395,25 @@ const listOf = (s) => String(s || "").split(/[,，]/).map((x) => x.trim()).filte
 
 function tbCounts() {
   const c = {};
-  TB.groups.forEach((g) => g.rows.forEach((r) => PEOPLE_COLS.forEach((k) => r[k].forEach((x) => { if (x.kind === "p") c[x.id] = (c[x.id] || 0) + 1; }))));
+  TB.groups.forEach((g) => g.rows.slice(0, 1).forEach((r) => PEOPLE_COLS.forEach((k) => r[k].forEach((x) => { if (x.kind === "p") c[x.id] = (c[x.id] || 0) + 1; }))));   // rows of a group = the same people
   return c;
 }
 
 function tbRender() {
   const host = $("tbCard"); if (!host || !data) return;
+  tbSync();
   const counts = tbCounts();
   const pool = ranking();
   const swPreset = PRESETS.find((x) => x.id === "swordland");
   const roleGroups = presetGroups(swPreset);   // suggested Attackers / Defenders / Joiners by score
   const stageOpts = listOf(TB.stages), targetOpts = listOf(TB.targets);
   const cell = (g, gi, r, ri, k) => {
-    const chips = r[k].map((x, xi) => `<span class="tb-chip${x.kind === "t" ? " txt" : ""}" draggable="true" data-g="${gi}" data-r="${ri}" data-k="${k}" data-x="${xi}">${esc(chipLabel(x))}<b class="tb-x" data-del="1">×</b></span>`).join("");
+    const chips = r[k].map((x, xi) => `<span class="tb-chip${x.kind === "t" ? " txt" : ""}" draggable="true" data-g="${gi}" data-r="${ri}" data-k="${k}" data-x="${xi}">${esc(chipLabel(x))}${x.kind === "p" && TB.show.target ? `<input class="tb-pt" list="tbTargets" data-g="${gi}" data-r="${ri}" data-pt="${esc(x.id)}" value="${esc((r.pt || {})[x.id] || "")}" placeholder="${esc(r.target || "→")}" size="2" title="${esc(TB.cols.target)}">` : ""}<b class="tb-x" data-del="1">×</b></span>`).join("");
     return `<div class="tb-cell" data-g="${gi}" data-r="${ri}" data-k="${k}"><div class="tb-lab">${esc(TB.cols[k])}</div>${chips}<span class="tb-add" data-g="${gi}" data-r="${ri}" data-k="${k}" data-addtext="1">${esc(tt("addText"))}</span></div>`;
   };
   host.innerHTML = `
     <h2>${esc(tt("title"))}</h2>
-    <div class="muted msg" style="margin:0 0 10px">${esc(tt("note"))}</div>
+    <div class="muted msg" style="margin:0 0 4px">${esc(tt("note"))}</div><div class="muted msg" style="margin:0 0 10px">${esc(tt("sync"))}</div>
     <details class="tb-setup"><summary>${esc(tt("setup"))}</summary>
       <label class="f">${esc(tt("stages"))} <span class="muted">${esc(tt("sep"))}</span><input type="text" data-set="stages" value="${esc(TB.stages)}"></label>
       <label class="f">${esc(tt("targets"))} <span class="muted">${esc(tt("sep"))}</span><input type="text" data-set="targets" value="${esc(TB.targets)}"></label>
@@ -445,11 +457,7 @@ function tbRender() {
 }
 
 /* ----- editing ----- */
-function tbPut(gi, ri, k, chip) {
-  const arr = TB.groups[gi].rows[ri][k];
-  if (chip.kind === "p" && arr.some((x) => x.kind === "p" && String(x.id) === String(chip.id))) return;
-  arr.push(chip);
-}
+function tbPut(gi, ri, k, chip) { gPut(gi, k, chip); }   // the whole colour group (every stage row) gets them
 function tbDraft() {
   const pr = PRESETS.find((x) => x.id === "swordland");
   const A = groupCount(pr, 0), D = groupCount(pr, 1);
@@ -468,7 +476,8 @@ function tbDraft() {
 function tbClick(e) {
   const t = e.target;
   // remove chip
-  if (t.dataset.del) { const c = t.closest(".tb-chip"); TB.groups[c.dataset.g].rows[c.dataset.r][c.dataset.k].splice(c.dataset.x, 1); tbSave(); tbRender(); return; }
+  if (t.dataset.del) { const c = t.closest(".tb-chip"), x = TB.groups[c.dataset.g].rows[c.dataset.r][c.dataset.k][c.dataset.x]; if (x) gDel(c.dataset.g, c.dataset.k, x); tbSave(); tbRender(); return; }
+  if (t.dataset.pt !== undefined) return;   // the person's own target box
   // pick from pool
   const pc = t.closest(".tb-chip.pool");
   if (pc) { const id = pc.dataset.pid; tbPick = tbPick && tbPick.kind === "p" && String(tbPick.id) === String(id) ? null : { kind: "p", id: Number(id) || id }; tbRender(); return; }
@@ -486,7 +495,8 @@ function tbClick(e) {
   const gi = a.dataset.g, ri = a.dataset.r, act = a.dataset.act;
   if (act === "addGroup") TB.groups.push({ color: TB_COLORS[TB.groups.length % TB_COLORS.length], rows: [newRow(listOf(TB.stages)[0] || "")] });
   if (act === "delGroup") TB.groups.splice(gi, 1);
-  if (act === "addRow") TB.groups[gi].rows.push(newRow(listOf(TB.stages)[0] || ""));
+  if (act === "addRow") { const rows = TB.groups[gi].rows, last = rows[rows.length - 1], st = listOf(TB.stages), nx = last ? st[st.indexOf(last.stage) + 1] : st[0];
+    const r = newRow(nx ?? (last ? last.stage : st[0] || "")); if (last) PEOPLE_COLS.forEach((k) => { r[k] = last[k].map((x) => ({ ...x })); }); rows.push(r); }   // same people, next stage
   if (act === "delRow") TB.groups[gi].rows.splice(ri, 1);
   if (act === "dupRow") { const r = JSON.parse(JSON.stringify(TB.groups[gi].rows[ri])); r.id = ++tbUid; TB.groups[gi].rows.splice(Number(ri) + 1, 0, r); }
   if (act === "clear") { if (!window.confirm(tt("confirmClear"))) return; TB.groups = []; }
@@ -502,6 +512,7 @@ function tbInput(e) {
     store.counts = store.counts || {}; store.counts.swordland = store.counts.swordland || {};
     store.counts.swordland[t.dataset.rolecount] = v; save(); renderPresets(); return;
   }
+  if (t.dataset.pt !== undefined) { const r = TB.groups[t.dataset.g].rows[t.dataset.r]; r.pt = r.pt || {}; if (t.value.trim()) r.pt[t.dataset.pt] = t.value.trim(); else delete r.pt[t.dataset.pt]; tbSave(); return; }
   if (t.dataset.field) { TB.groups[t.dataset.g].rows[t.dataset.r][t.dataset.field] = t.value; tbSave(); return; }
   if (t.dataset.set === "short") { TB.short = t.checked; tbSave(); tbRender(); return; }
   if (t.dataset.set) { TB[t.dataset.set] = t.value; tbSave(); return; }
@@ -519,7 +530,7 @@ function tbDragStart(e) {
 function tbDrop(e) {
   const cl = e.target.closest(".tb-cell"); if (!cl || !tbDrag) return;
   e.preventDefault();
-  if (tbDrag.from) { const [g, r, k, x] = tbDrag.from; TB.groups[g].rows[r][k].splice(x, 1); }
+  if (tbDrag.from) { const [g, , k] = tbDrag.from; gDel(g, k, tbDrag.chip); }
   tbPut(cl.dataset.g, cl.dataset.r, cl.dataset.k, tbDrag.chip);
   tbDrag = null; tbSave(); tbRender();
 }
@@ -528,7 +539,8 @@ function tbDrop(e) {
 function tbRowsFlat() {
   const cols = COL_KEYS.filter((k) => TB.show[k]);
   const rows = [];
-  TB.groups.forEach((g) => g.rows.forEach((r) => rows.push({ color: g.color, cells: cols.map((k) => PEOPLE_COLS.includes(k) ? r[k].map(chipLabel).join(", ") : (r[k] || "")) })));
+  const lab = (r, x) => { const t = x.kind === "p" && (r.pt || {})[x.id]; return chipLabel(x) + (t && t !== r.target ? ` → ${t}` : ""); };   // own target shown after the name
+  TB.groups.forEach((g) => g.rows.forEach((r) => rows.push({ color: g.color, cells: cols.map((k) => PEOPLE_COLS.includes(k) ? r[k].map((x) => lab(r, x)).join(", ") : (r[k] || "")) })));
   return { cols, head: cols.map((k) => TB.cols[k]), rows };
 }
 function tbCopyText(btn) {
