@@ -417,12 +417,12 @@ function tbRender() {
   const host = $("tbCard"); if (!host || !data) return;
   tbSync();
   const counts = tbCounts();
-  const pool = ranking();
+  const pool = ranking(), subPool = [];   // 🔁 subs never show up to be placed (ticking "sub" keeps someone out of every assignment)
   const swPreset = PRESETS.find((x) => x.id === "swordland");
   const roleGroups = presetGroups(swPreset);   // suggested Attackers / Defenders / Joiners by score
   const stageOpts = listOf(TB.stages), targetOpts = listOf(TB.targets);
   const cell = (g, gi, r, ri, k) => {
-    const chips = r[k].map((x, xi) => `<span class="tb-chip${x.kind === "t" ? " txt" : ""}" draggable="true" data-g="${gi}" data-r="${ri}" data-k="${k}" data-x="${xi}">${esc(chipLabel(x))}<b class="tb-x" data-del="1">×</b></span>`).join("");
+    const chips = r[k].map((x, xi) => `<span class="tb-chip${x.kind === "t" ? " txt" : ""}${x.kind === "p" && subs.has(x.id) ? " is-sub" : ""}"${x.kind === "p" && subs.has(x.id) ? ` title="${esc(tr("sub"))}"` : ""} draggable="true" data-g="${gi}" data-r="${ri}" data-k="${k}" data-x="${xi}">${esc(chipLabel(x))}${x.kind === "p" && subs.has(x.id) ? ` <b class="tb-subtag">${esc(tr("sub"))}</b>` : ""}<b class="tb-x" data-del="1">×</b></span>`).join("");
     return `<div class="tb-cell" data-g="${gi}" data-r="${ri}" data-k="${k}"><span class="tb-lab">${{ att: "⚔️", def: "🛡️", join: "👥" }[k] || ""} ${esc(TB.cols[k])}:</span>${chips}<span class="tb-add" data-g="${gi}" data-r="${ri}" data-k="${k}" data-addtext="1">${esc(tt("addText"))}</span></div>`;
   };
   host.innerHTML = `
@@ -444,7 +444,7 @@ function tbRender() {
     <div class="muted" style="font-size:12px;margin:-4px 0 8px">${esc(tt("draftNote"))}</div>
     <div class="tb-sticky"><div class="tb-pool-h">${esc(tt("pool"))}${tbPick ? ` · <b>${esc(tt("picked"))} ${esc(chipLabel(tbPick))}</b>` : ""}</div>
     <div class="tb-counts">${swPreset.groups.map((g, gi) => g.count == null ? "" : `<label>${esc(g.name[lang] || ptOf(g.name.en))} <input type="number" min="0" max="99" data-rolecount="${gi}" value="${groupCount(swPreset, gi)}"></label>`).join("")}</div>
-    <div class="tb-pool">${pool.length ? roleGroups.map(({ g, list }, ri) => list.length ? `<div class="tb-role r${ri}"><div class="tb-role-h">${esc(g.name[lang] || ptOf(g.name.en))} <span>(${list.length})</span></div>${list.map((m) => `<span class="tb-chip pool r${ri}${tbPick && tbPick.kind === "p" && String(tbPick.id) === String(m.id) ? " on" : ""}" draggable="true" data-pid="${m.id}">${esc(TB.short ? shortName(m.name) : m.name)}${counts[m.id] ? `<i>${counts[m.id]}</i>` : ""}</span>`).join("")}</div>` : "").join("") : `<span class="muted">${esc(tt("poolEmpty"))}</span>`}</div></div>
+    <div class="tb-pool">${pool.length ? roleGroups.map(({ g, list }, ri) => list.length ? `<div class="tb-role r${ri}"><div class="tb-role-h">${esc(g.name[lang] || ptOf(g.name.en))} <span>(${list.length})</span></div>${list.map((m) => `<span class="tb-chip pool r${ri}${tbPick && tbPick.kind === "p" && String(tbPick.id) === String(m.id) ? " on" : ""}" draggable="true" data-pid="${m.id}">${esc(TB.short ? shortName(m.name) : m.name)}${counts[m.id] ? `<i>${counts[m.id]}</i>` : ""}</span>`).join("")}</div>` : "").join("") : `<span class="muted">${esc(tt("poolEmpty"))}</span>`}${subPool.length ? `<div class="tb-role rsub"><div class="tb-role-h">🔁 ${esc(tr("sub"))} <span>(${subPool.length})</span></div>${subPool.map((m) => `<span class="tb-chip pool rsub${tbPick && tbPick.kind === "p" && String(tbPick.id) === String(m.id) ? " on" : ""}" draggable="true" data-pid="${m.id}">${esc(TB.short ? shortName(m.name) : m.name)} <b class="tb-subtag">${esc(tr("sub"))}</b>${counts[m.id] ? `<i>${counts[m.id]}</i>` : ""}</span>`).join("")}</div>` : ""}</div></div>
     ${stList().map((sn, si) => `<h3 class="tb-sec">${esc(sn)}</h3>${TB.groups.map((g, gi) => g.sec !== si ? "" : `
       <div class="tb-group" style="border-color:${g.color};background:color-mix(in srgb, ${g.color} 22%, var(--panel))">
         ${g.rows.slice(0, 1).map((r, ri) => `
