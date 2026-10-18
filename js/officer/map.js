@@ -154,7 +154,7 @@ function renderInfo() {
   const what = b.kind === "outpost" ? `Lv.${b.lv} · ${esc(buffName(b.t))} +${b.buff}%` : b.kind === "castle" ? "" : b.kind === "hq" ? "[NXS]" : esc(T("noBuff"));
   $("km_info").innerHTML = `${sw}<b>${esc(nm(b))}</b>${what ? `<span class="muted">${what}</span>` : ""}<span class="co">X:${b.x} Y:${b.y}</span><button type="button" class="btn" id="km_cp">${esc(T("copy"))}</button>` +
     (PLANNABLE(b) && ME() ? `<div class="km-st" style="flex-basis:100%">${(isOp(b) ? [["target", "target"], ["held", "held"], ["vuln", "vuln"], ["", "clear"]] : [["target", "target"], ["held", "heldR"], ["", "clear"]]).map(([v, k]) => `<button type="button" data-v="${v}" class="${eff(b) === v && v ? "on" : ""}">${esc(pt(k))}</button>`).join("")}</div>` : "") +
-    (b.kind === "outpost" && (OV || OTB) ? (() => { const c = contesters(b); return `<div class="km-tm" style="flex-basis:100%">${c.length ? `${esc(ft("cont"))} <b>${c.map((n) => `<span style="color:${n === "NXS" ? "#2b6cc4" : otCol(n)}">■</span> ${esc(n)}`).join("、")}</b>` : esc(ft("contNone"))}</div>`; })() : "") +
+    (b.kind === "outpost" && (EXB || OTB) ? (() => { const c = contesters(b); return `<div class="km-tm" style="flex-basis:100%">${c.length ? `${esc(ft("cont"))} <b>${c.map((n) => `<span style="color:${n === "NXS" ? "#2b6cc4" : otCol(n)}">■</span> ${esc(n)}`).join("、")}</b>` : esc(ft("contNone"))}</div>`; })() : "") +
     (isOp(b) && st(b) === "conflict" ? `<div class="km-tm" style="flex-basis:100%;color:#c0473a">⚠️ ${esc(pt("conflictAuto"))}</div>` : "");
   const s = eff(b);
   if (isOp(b) && (s === "held" || s === "vuln")) {
@@ -629,18 +629,15 @@ const otEd = () => (PLAN.ot = PLAN.ot || { off: [], add: [] }, PLAN.ot.off = PLA
 const hqLbl = (t) => ft(t === 2 ? "hqB" : "hqP");
 const otHq = () => (PLAN.ot && PLAN.ot.hq) || [];
 /* ⚔️ Outpost contest: an Outpost takes 15×15 tiles (its X, Y − 6 … + 8, e.g. X 1068 → 1062–1076). An alliance can contest it
-   when any of its territory is on that square or right next to it (sharing an edge). Ours = territory picture + our banners + HQs;
+   when any of its territory is inside that square (only next to it doesn't count). Ours = our banners + HQs;
    other alliances = their 🏴 banners (7×7) + 🏯 HQs (15×15). */
 const opSq = (b) => [b.x - 6, b.y - 6, b.x + 8, b.y + 8];
 const ovl = (a0, a1, b0, b1) => a0 <= b1 && b0 <= a1;
-const rTouch = ([x0, y0, x1, y1], [p0, q0, p1, q1]) => (ovl(p0, p1, x0 - 1, x1 + 1) && ovl(q0, q1, y0, y1)) || (ovl(p0, p1, x0, x1) && ovl(q0, q1, y0 - 1, y1 + 1));
+const rTouch = ([x0, y0, x1, y1], [p0, q0, p1, q1]) => ovl(p0, p1, x0, x1) && ovl(q0, q1, y0, y1);   // territory must reach INTO the 15×15 square (only next to it doesn't count)
 function contesters(b) {
   const sq = opSq(b), out = [], [x0, y0, x1, y1] = sq;
-  if (OV) { let hit = false;
-    for (let y = y0 - 1; y <= y1 + 1 && !hit; y++) for (let x = x0 - 1; x <= x1 + 1; x++) {
-      if ((x < x0 || x > x1) && (y < y0 || y > y1)) continue;   // corners only touch diagonally
-      if (x >= 0 && y >= 0 && x < FN && y < FN && OV[y * FN + x] === 1) { hit = true; break; } }
-    if (hit) out.push("NXS"); }
+  // ours: only our real banners (7×7) and HQs (15×15) — the territory picture is a few tiles off at the edges, so it is not used here
+  if (EXB && (exList().some(([x, y]) => rTouch(sq, [x - FR, y - FR, x + FR, y + FR])) || (G.hq || []).some(([x, y]) => rTouch(sq, [x - 6, y - 6, x + 8, y + 8])))) out.push("NXS");
   if (OTB) { const seen = new Set();
     for (const [n, x, y] of otList()) if (!seen.has(n) && rTouch(sq, [x - FR, y - FR, x + FR, y + FR])) seen.add(n);
     for (const [n, x, y] of otHq()) if (!seen.has(n) && rTouch(sq, [x - 6, y - 6, x + 8, y + 8])) seen.add(n);
