@@ -321,9 +321,9 @@ $("presetCopy").onclick = async () => {
 /* ===== ⑤ Battle table builder (saved only in this browser) ===== */
 const TB_LS = "nxs-table-v1";
 const TB_COLORS = ["#e6a3d9", "#8fd0ec", "#f6c3a2", "#d6ecc4", "#f6e58d", "#c9c3f0", "#d9d9d9", "#b8e0d2"];
-const TT = { ko: {"title": "⑤ 전투 배치표", "note": "목록에서 사람을 고른 뒤 칸을 눌러 배치하세요(컴퓨터에서는 드래그도 가능). ×를 누르면 제거됩니다.", "setup": "표 설정", "stages": "단계", "targets": "목표", "tlabels": "목표 뒤 괄호 설명", "cols": "열 이름", "sep": "(쉼표로 구분)", "shortNames": "짧은 이름 (亗, Nexus 같은 장식 제거)", "draft": "순위로 초안 자동 작성", "draftNote": "④의 Attackers / Defenders 인원수를 사용합니다.", "clear": "표 비우기", "addGroup": "+ 조", "addRow": "+ 행", "delGroup": "조 삭제", "dupRow": "행 복사", "delRow": "행 삭제", "pool": "인원 — 점수 기준 추천 역할 (이름을 누른 뒤 칸을 누르세요)", "poolEmpty": "먼저 ②에서 참가자를 체크하세요.", "addText": "+ 텍스트", "sync": "📋 단계(Phase 1, Phase 2, Stay behind…)마다 건물 표가 하나씩, 한 줄 = 건물 하나. 같은 사람이 여러 단계에 나올 수 있어요. 단계 이름은 「표 설정」에서 바꿔요.", "addB": "+ 건물", "moveTo": "단계:", "stay": "남음", "textPrompt": "추가할 텍스트 (예: Stays behind)", "image": "🖼️ 이미지 만들기", "text": "📋 텍스트 복사", "toPost": "📢 새 공지에 사용", "saveHint": "휴대폰: 이미지를 길게 눌러 저장하세요.", "download": "다운로드", "close": "닫기", "confirmClear": "표 전체를 비울까요?", "confirmDraft": "현재 표를 새 초안으로 바꿀까요?", "copied": "복사했어요!", "group": "조", "picked": "선택됨:"},
- ar: {"title": "⑤ جدول المعركة", "note": "اختر أشخاصًا من القائمة، ثم انقر على خانة لوضعهم فيها (على الكمبيوتر يمكنك السحب أيضًا). انقر × للإزالة.", "setup": "إعداد الجدول", "stages": "المراحل", "targets": "الأهداف", "tlabels": "ملاحظة الهدف (بين قوسين)", "cols": "الأعمدة", "sep": "(افصل بفواصل)", "shortNames": "أسماء مختصرة (بدون زخارف مثل 亗 وNexus)", "draft": "املأ مسودة أولى من الترتيب", "draftNote": "يستخدم أعداد المهاجمين / المدافعين من ④.", "clear": "مسح الجدول", "addGroup": "+ مجموعة", "addRow": "+ صف", "delGroup": "حذف المجموعة", "dupRow": "نسخ الصف", "delRow": "حذف الصف", "pool": "الأشخاص — أدوار مقترحة حسب النقاط (انقر على واحد، ثم على خانة)", "poolEmpty": "حدّد المشاركين في ② أولًا.", "addText": "+ نص", "sync": "📋 لكل مرحلة (Phase 1، Phase 2، Stay behind…) جدول مبانٍ خاص، وكل صف = مبنى. يمكن أن يظهر الشخص نفسه في عدة مراحل. تُغيَّر أسماء المراحل في «إعداد الجدول».", "addB": "+ مبنى", "moveTo": "المرحلة:", "stay": "يبقى", "textPrompt": "النص المراد إضافته (مثلًا: يبقى في الخلف)", "image": "🖼️ إنشاء صورة", "text": "📋 نسخ النص", "toPost": "📢 استخدام في إعلان جديد", "saveHint": "الهاتف: اضغط مطولًا على الصورة لحفظها.", "download": "تنزيل", "close": "إغلاق", "confirmClear": "مسح الجدول بالكامل؟", "confirmDraft": "استبدال الجدول بمسودة جديدة؟", "copied": "تم النسخ!", "group": "مجموعة", "picked": "المحدد:"},
- pt: {"title": "⑤ Tabela de batalha", "note": "Escolha pessoas na lista e toque numa caixa para colocá-las lá (no computador também dá para arrastar). Toque em × para remover.", "setup": "Configurar tabela", "stages": "Etapas", "targets": "Alvos", "tlabels": "Notas do alvo (entre parênteses)", "cols": "Colunas", "sep": "(separe com vírgulas)", "shortNames": "Nomes curtos (sem enfeites como 亗 e Nexus)", "draft": "Montar um rascunho pelo ranking", "draftNote": "Usa os números de Attackers / Defenders do ④.", "clear": "Limpar tabela", "addGroup": "+ Grupo", "addRow": "+ Linha", "delGroup": "Excluir grupo", "dupRow": "Copiar linha", "delRow": "Excluir linha", "pool": "Pessoas — funções sugeridas pela pontuação (toque numa, depois numa caixa)", "poolEmpty": "Marque os participantes no ② primeiro.", "addText": "+ texto", "sync": "📋 Cada fase (Phase 1, Phase 2, Stay behind…) tem sua própria tabela de prédios, uma linha = um prédio. A mesma pessoa pode aparecer em fases diferentes. Os nomes das fases mudam em «Configurar tabela».", "addB": "+ Prédio", "moveTo": "Fase:", "stay": "fica", "textPrompt": "Texto para adicionar (ex.: Stays behind)", "image": "🖼️ Gerar imagem", "text": "📋 Copiar texto", "toPost": "📢 Usar num novo anúncio", "saveHint": "No celular: toque e segure a imagem para salvar.", "download": "Baixar", "close": "Fechar", "confirmClear": "Limpar a tabela inteira?", "confirmDraft": "Trocar a tabela por um novo rascunho?", "copied": "Copiado!", "group": "Grupo", "picked": "Selecionado:"},
+const TT = { ko: {"title": "⑤ 전투 배치표", "note": "목록에서 사람을 고른 뒤 칸을 눌러 배치하세요(컴퓨터에서는 드래그도 가능). ×를 누르면 제거됩니다.", "setup": "표 설정", "stages": "단계", "targets": "목표", "tlabels": "목표 뒤 괄호 설명", "cols": "열 이름", "sep": "(쉼표로 구분)", "shortNames": "짧은 이름 (亗, Nexus 같은 장식 제거)", "draft": "순위로 초안 자동 작성", "draftNote": "④의 Attackers / Defenders 인원수를 사용합니다.", "clear": "표 비우기", "addGroup": "+ 조", "addRow": "+ 행", "delGroup": "조 삭제", "dupRow": "행 복사", "delRow": "행 삭제", "pool": "인원 — 점수 기준 추천 역할 (이름을 누른 뒤 칸을 누르세요)", "poolEmpty": "먼저 ②에서 참가자를 체크하세요.", "addText": "+ 텍스트", "sync": "📋 단계(Phase 1, Phase 2, Stay behind…)마다 건물 표가 하나씩, 한 줄 = 건물 하나. 같은 사람이 여러 단계에 나올 수 있어요. 단계 이름은 「표 설정」에서 바꿔요.", "imp": "📥 텍스트 붙여넣기 → 표", "impNote": "Discord에 쓴 배치 글을 그대로 붙여넣으세요 (① ROYAL STABLES / * ⚔️ Attacker: Papa …). 이름은 명단과 자동으로 맞춰지고, 못 찾은 이름은 글자로 들어가요.", "impGo": "표로 바꾸기", "impBad": "알아볼 수 있는 건물이 없어요.", "addB": "+ 건물", "moveTo": "단계:", "stay": "남음", "textPrompt": "추가할 텍스트 (예: Stays behind)", "image": "🖼️ 이미지 만들기", "text": "📋 텍스트 복사", "toPost": "📢 새 공지에 사용", "saveHint": "휴대폰: 이미지를 길게 눌러 저장하세요.", "download": "다운로드", "close": "닫기", "confirmClear": "표 전체를 비울까요?", "confirmDraft": "현재 표를 새 초안으로 바꿀까요?", "copied": "복사했어요!", "group": "조", "picked": "선택됨:"},
+ ar: {"title": "⑤ جدول المعركة", "note": "اختر أشخاصًا من القائمة، ثم انقر على خانة لوضعهم فيها (على الكمبيوتر يمكنك السحب أيضًا). انقر × للإزالة.", "setup": "إعداد الجدول", "stages": "المراحل", "targets": "الأهداف", "tlabels": "ملاحظة الهدف (بين قوسين)", "cols": "الأعمدة", "sep": "(افصل بفواصل)", "shortNames": "أسماء مختصرة (بدون زخارف مثل 亗 وNexus)", "draft": "املأ مسودة أولى من الترتيب", "draftNote": "يستخدم أعداد المهاجمين / المدافعين من ④.", "clear": "مسح الجدول", "addGroup": "+ مجموعة", "addRow": "+ صف", "delGroup": "حذف المجموعة", "dupRow": "نسخ الصف", "delRow": "حذف الصف", "pool": "الأشخاص — أدوار مقترحة حسب النقاط (انقر على واحد، ثم على خانة)", "poolEmpty": "حدّد المشاركين في ② أولًا.", "addText": "+ نص", "sync": "📋 لكل مرحلة (Phase 1، Phase 2، Stay behind…) جدول مبانٍ خاص، وكل صف = مبنى. يمكن أن يظهر الشخص نفسه في عدة مراحل. تُغيَّر أسماء المراحل في «إعداد الجدول».", "imp": "📥 لصق نص ← جدول", "impNote": "الصق نص التوزيع كما كتبته في Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). تُطابق الأسماء مع القائمة تلقائيًا، وما لا يُعثر عليه يُضاف كنص.", "impGo": "حوّل إلى جدول", "impBad": "لم يُعثر على أي مبنى.", "addB": "+ مبنى", "moveTo": "المرحلة:", "stay": "يبقى", "textPrompt": "النص المراد إضافته (مثلًا: يبقى في الخلف)", "image": "🖼️ إنشاء صورة", "text": "📋 نسخ النص", "toPost": "📢 استخدام في إعلان جديد", "saveHint": "الهاتف: اضغط مطولًا على الصورة لحفظها.", "download": "تنزيل", "close": "إغلاق", "confirmClear": "مسح الجدول بالكامل؟", "confirmDraft": "استبدال الجدول بمسودة جديدة؟", "copied": "تم النسخ!", "group": "مجموعة", "picked": "المحدد:"},
+ pt: {"title": "⑤ Tabela de batalha", "note": "Escolha pessoas na lista e toque numa caixa para colocá-las lá (no computador também dá para arrastar). Toque em × para remover.", "setup": "Configurar tabela", "stages": "Etapas", "targets": "Alvos", "tlabels": "Notas do alvo (entre parênteses)", "cols": "Colunas", "sep": "(separe com vírgulas)", "shortNames": "Nomes curtos (sem enfeites como 亗 e Nexus)", "draft": "Montar um rascunho pelo ranking", "draftNote": "Usa os números de Attackers / Defenders do ④.", "clear": "Limpar tabela", "addGroup": "+ Grupo", "addRow": "+ Linha", "delGroup": "Excluir grupo", "dupRow": "Copiar linha", "delRow": "Excluir linha", "pool": "Pessoas — funções sugeridas pela pontuação (toque numa, depois numa caixa)", "poolEmpty": "Marque os participantes no ② primeiro.", "addText": "+ texto", "sync": "📋 Cada fase (Phase 1, Phase 2, Stay behind…) tem sua própria tabela de prédios, uma linha = um prédio. A mesma pessoa pode aparecer em fases diferentes. Os nomes das fases mudam em «Configurar tabela».", "imp": "📥 Colar texto → tabela", "impNote": "Cole o texto das funções como escreveu no Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). Os nomes são ligados à lista sozinhos; os não encontrados entram como texto.", "impGo": "Transformar em tabela", "impBad": "Nenhum prédio encontrado.", "addB": "+ Prédio", "moveTo": "Fase:", "stay": "fica", "textPrompt": "Texto para adicionar (ex.: Stays behind)", "image": "🖼️ Gerar imagem", "text": "📋 Copiar texto", "toPost": "📢 Usar num novo anúncio", "saveHint": "No celular: toque e segure a imagem para salvar.", "download": "Baixar", "close": "Fechar", "confirmClear": "Limpar a tabela inteira?", "confirmDraft": "Trocar a tabela por um novo rascunho?", "copied": "Copiado!", "group": "Grupo", "picked": "Selecionado:"},
 
   en: {
     title: "⑤ Battle table", note: "Pick people from the list, then tap a box to put them there (on a computer you can also drag). Tap × to remove.",
@@ -332,7 +332,7 @@ const TT = { ko: {"title": "⑤ 전투 배치표", "note": "목록에서 사람�
     draft: "Fill a first draft from the ranking", draftNote: "Uses the Attackers / Defenders numbers from ④.",
     clear: "Clear table", addGroup: "+ Group", addRow: "+ Row", delGroup: "Delete group", dupRow: "Copy row", delRow: "Delete row",
     pool: "People — suggested roles by score (tap one, then tap a box)", poolEmpty: "Tick participants in ② first.",
-    addText: "+ text", sync: "📋 Each phase (Phase 1, Phase 2, Stay behind…) has its own table of buildings, one row = one building. The same person can be in several phases. Rename the phases in Table setup.", addB: "+ Building", moveTo: "Phase:", stay: "stay", textPrompt: "Text to add (e.g. Stays behind)",
+    addText: "+ text", sync: "📋 Each phase (Phase 1, Phase 2, Stay behind…) has its own table of buildings, one row = one building. The same person can be in several phases. Rename the phases in Table setup.", imp: "📥 Paste text → table", impNote: "Paste the assignment post as you wrote it for Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). Names are matched to the roster automatically; any not found go in as text.", impGo: "Turn into table", impBad: "No buildings found in that text.", addB: "+ Building", moveTo: "Phase:", stay: "stay", textPrompt: "Text to add (e.g. Stays behind)",
     image: "🖼️ Make image", text: "📋 Copy text", toPost: "📢 Use in a new announcement",
     saveHint: "Phone: press and hold the picture to save it.", download: "Download", close: "Close",
     confirmClear: "Clear the whole table?", confirmDraft: "Replace the table with a new draft?", copied: "Copied!",
@@ -345,7 +345,7 @@ const TT = { ko: {"title": "⑤ 전투 배치표", "note": "목록에서 사람�
     draft: "依排序自動排一份草稿", draftNote: "使用 ④ 裡 Attackers／Defenders 的人數。",
     clear: "清空表格", addGroup: "+ 新增組", addRow: "+ 新增列", delGroup: "刪除這組", dupRow: "複製這列", delRow: "刪除這列",
     pool: "人員 — 依分數建議的角色（先點名字，再點格子）", poolEmpty: "請先在 ② 勾選參戰的人。",
-    addText: "+ 文字", sync: "📋 每個階段（Phase 1、Phase 2、Stay behind…）各一張建築表，一列＝一個建築。同一個人可以出現在不同階段。階段名稱在「表格設定」裡改。", addB: "+ 新增建築", moveTo: "階段：", stay: "留守", textPrompt: "要加入的文字（例如 Stays behind）",
+    addText: "+ 文字", sync: "📋 每個階段（Phase 1、Phase 2、Stay behind…）各一張建築表，一列＝一個建築。同一個人可以出現在不同階段。階段名稱在「表格設定」裡改。", imp: "📥 貼上文字轉成表格", impNote: "把寫給 Discord 的分配文字整段貼進來（① ROYAL STABLES／* ⚔️ Attacker: Papa …）。名字會自動對到名單，對不到的會變成文字格。", impGo: "轉成表格", impBad: "這段文字裡找不到建築。", addB: "+ 新增建築", moveTo: "階段：", stay: "留守", textPrompt: "要加入的文字（例如 Stays behind）",
     image: "🖼️ 產生圖片", text: "📋 複製文字", toPost: "📢 拿去發公告",
     saveHint: "手機：長按圖片即可儲存。", download: "下載", close: "關閉",
     confirmClear: "確定清空整張表？", confirmDraft: "用新的草稿取代目前的表格？", copied: "已複製！",
@@ -437,6 +437,7 @@ function tbRender() {
     </details>
     <div class="row" style="margin:10px 0">
       <button class="btn" data-act="draft">✨ ${esc(tt("draft"))}</button>
+      <button class="btn" data-act="import">${esc(tt("imp"))}</button>
       <button class="btn" data-act="clear">${esc(tt("clear"))}</button>
     </div>
     <div class="muted" style="font-size:12px;margin:-4px 0 8px">${esc(tt("draftNote"))}</div>
@@ -515,6 +516,7 @@ function tbClick(e) {
   if (act === "clear") { if (!window.confirm(tt("confirmClear"))) return; TB.groups = []; }
   if (act === "draft") { if (TB.groups.length && !window.confirm(tt("confirmDraft"))) return; tbDraft(); }
   if (act === "image") return tbImage();
+  if (act === "import") return tbImportBox();
   if (act === "text") return tbCopyText(a);
   tbSave(); tbRender();
 }
@@ -534,6 +536,56 @@ function tbInput(e) {
   if (t.dataset.set) { TB[t.dataset.set] = t.value; tbSave(); return; }
   if (t.dataset.col) { TB.cols[t.dataset.col] = t.value; tbSave(); return; }
   if (t.dataset.show) { TB.show[t.dataset.show] = t.checked; tbSave(); tbRender(); return; }
+}
+/* 📥 the assignment post (the Discord text) → the table. Sections: "PHASE 1 …", "PHASE 2 …", "STAY BEHIND …"; buildings: "① ROYAL STABLES" or "#5 …";
+   people: "* ⚔️ Attacker: Papa", "Defenders: Meow, Perci", "Joiners: …"; other bullets → a name (Stay behind lists) or the building's note. Stops at "IMPORTANT REMINDERS". */
+const nkey = (x) => shortName(x).toLowerCase().replace(/[δΔ]/g, "a").replace(/\s+/g, "");
+function findMember(raw) {
+  const k = nkey(raw); if (!k) return null;
+  const pool = [...ranking(true, true), ...data.members.filter((m) => !picked.has(m.id))];
+  const words = (m) => shortName(m.name).toLowerCase().replace(/[δΔ]/g, "a").split(/\s+/);
+  return pool.find((m) => nkey(m.name) === k) || (k.length >= 3 && pool.find((m) => nkey(m.name).startsWith(k)))
+    || pool.find((m) => words(m).includes(k)) || (k.length >= 4 && pool.find((m) => nkey(m.name).includes(k))) || null;
+}
+const tcase = (x) => /[a-z]/.test(x) ? x : x.toLowerCase().replace(/(^|[\s(—-])([a-z])/g, (m, a, b) => a + b.toUpperCase());
+function tbParse(text) {
+  const secs = [], groups = []; let sec = -1, g = null;
+  const secName = (l) => { const m = l.match(/phase\s*(\d+)/i); if (m) return "Phase " + m[1]; if (/stay\s*behind/i.test(l)) return "Stay behind"; return null; };
+  const chips = (str) => str.split(/,|&|\band\b|、|，/i).map((x) => x.trim()).filter(Boolean).map((n) => { const m = findMember(n); return m ? { kind: "p", id: m.id } : { kind: "t", text: n }; });
+  for (let raw of String(text).split(/\r?\n/)) {
+    const l = raw.trim(); if (!l || /^[━─—=_-]{3,}$/.test(l)) continue;
+    if (/reminders?/i.test(l) && /📌|important/i.test(l)) break;
+    const sn = secName(l);
+    if (sn && !/attacker|defender|joiner/i.test(l)) { sec = secs.indexOf(sn); if (sec < 0) { secs.push(sn); sec = secs.length - 1; } g = null; continue; }
+    const b = l.match(/^([①②③④⑤⑥⑦⑧⑨])\s*(.*)$/) || l.match(/^#\s*(\d+)\s*[-–—.:]?\s*(.*)$/);
+    if (b) { if (sec < 0) { secs.push("Phase 1"); sec = 0; } const t = /\d/.test(b[1]) ? b[1] : String("①②③④⑤⑥⑦⑧⑨".indexOf(b[1]) + 1);
+      g = { color: TB_COLORS[(+t - 1 + TB_COLORS.length) % TB_COLORS.length], sec, rows: [{ ...newRow(), target: t, tl: tcase(b[2].trim()) }] }; groups.push(g); continue; }
+    if (!g) continue;
+    const body = l.replace(/^[*•·\-–]\s*/, "").replace(/^[\p{Extended_Pictographic}\uFE0F\u200D\s]+/u, "");
+    const r = g.rows[0], role = body.match(/^(attackers?|defenders?|joiners?)\s*[:：]\s*(.*)$/i);
+    if (role) { const k = /^a/i.test(role[1]) ? "att" : /^d/i.test(role[1]) ? "def" : "join"; chips(role[2]).forEach((c) => { if (!r[k].some((x) => chipKey(x) === chipKey(c))) r[k].push(c); }); continue; }
+    const m = /stay/i.test(secs[g.sec] || "") && !/[.!?]/.test(body) && body.split(/\s+/).length <= 3 ? findMember(body) : null;
+    if (m) { r.def.push({ kind: "p", id: m.id }); continue; }
+    r.note = (r.note ? r.note + " " : "") + body.replace(/^\*+\s*/, "");
+  }
+  return { secs, groups };
+}
+function tbImportBox() {
+  const m = document.createElement("div");
+  m.className = "tb-modal";
+  m.innerHTML = `<div class="card" style="width:min(640px,96vw)"><b>${esc(tt("imp"))}</b><div class="muted" style="margin:6px 0;font-size:12.5px">${esc(tt("impNote"))}</div>
+    <textarea style="width:100%;box-sizing:border-box;min-height:260px;font:inherit;font-size:13px" data-imptext="1"></textarea><div class="msg" data-impmsg="1"></div>
+    <div class="row" style="margin-top:8px"><button class="btn primary" data-impgo="1">${esc(tt("impGo"))}</button><button class="btn" data-close="1">${esc(tt("close"))}</button></div></div>`;
+  m.onclick = (e) => {
+    if (e.target === m || e.target.dataset.close) { m.remove(); return; }
+    if (!e.target.dataset.impgo) return;
+    const { secs, groups } = tbParse(m.querySelector("[data-imptext]").value);
+    if (!groups.length) { m.querySelector("[data-impmsg]").textContent = tt("impBad"); return; }
+    if (TB.groups.length && !window.confirm(tt("confirmDraft"))) return;
+    TB.stages = secs.join(", "); TB.groups = groups; TB.show.note = TB.show.note || groups.some((x) => x.rows[0].note);
+    m.remove(); tbSave(); tbRender();
+  };
+  ROOT.appendChild(m); m.querySelector("textarea").focus();
 }
 /* drag & drop (computer) */
 let tbDrag = null;
