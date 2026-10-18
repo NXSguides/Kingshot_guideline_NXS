@@ -1024,6 +1024,86 @@ Steps: 1. On the city screen tap your avatar (top left). 2. Tap Squad at the bot
 Tips: the lock icon next to the last slot means it still has to be unlocked. “Even” fills all three types equally; “Withdraw all” clears the slot. Each slot keeps its own heroes and troops.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-18 by Sparrow] ⚔️ BATTLE ASSIGNMENTS & STRATEGY
+🏰 PHASE 1 — INITIAL BUILDINGS
+
+① ROYAL STABLES
+
+* ⚔️ Attacker: Papa
+* 🛡️ Defenders: Meow, Perci
+* 👥 Joiners: Nia, Big Yahu
+
+② BELL TOWER
+
+* ⚔️ Attacker: MTP
+* 🛡️ Defenders: Kuya Jay, Raccoon
+* 👥 Joiners: L, Gianna
+
+③ SANCTUM — NEAR ENEMY
+
+* ⚔️ Attacker: Firebaugh
+* 🛡️ Defender: Jordan
+* 👥 Joiners: Bravus, Lovely
+
+③ SANCTUM — NEAR HOME
+
+* ⚔️ Attacker: Faniel
+* 🛡️ Defender: Adan
+* 👥 Joiners: Thanoss, Sir Tav
+
+④ ABBEYS (4 TOTAL)
+
+* Anyone can send a second march to an Abbey.
+* Send your secondary march to the closest Abbey to your assigned building.
+* Keep your primary march at your assigned building.
+
+━━━━━━━━━━━━━━━━━━
+
+⚔️ PHASE 2 — NEW OBJECTIVES
+
+⑦ SWORD SHRINE — HEAVY GUARD
+
+* ⚔️ Attacker: Papa
+* 🛡️ Defenders: MTP, Firebaugh
+* 👥 Joiners: L, Gianna
+
+⑤ MERCENARY CAMP
+
+* ⚔️ Attacker: Sir Tav
+* 🛡️ Defender: Thanoss
+
+⑥ HALL OF REFORMATION
+
+* ⚔️ Attacker: Jordan
+* 🛡️ Defender: Nia
+
+━━━━━━━━━━━━━━━━━━
+
+🛡️ STAY BEHIND — DEFENSE
+
+① Royal Stables
+
+* Percival
+* Meow
+
+② Bell Tower
+
+* Kuya Jay
+* Raccoon
+
+④ Abbeys
+
+-Those assigned sanctums, should send a march back to abbey
+
+━━━━━━━━━━━━━━━━━━
+
+📌 IMPORTANT REMINDERS
+
+* Follow your assigned attacker, defender, or joiner role.
+* Send your secondary march to the nearest Abbey during Phase 1.
+* Phase 2 players should move to their new objectives.
+* Assigned defenders staying behind must maintain control of their buildings.
+
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 UPCOMING KVK TG PUSH PREPARATION & EXECUTION GUIDE 📢
 On November 9, 2026, members will have the option to push their buildings from TG3 ➡️ TG5.
 

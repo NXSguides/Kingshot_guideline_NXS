@@ -1024,6 +1024,86 @@ Steps: 1. Na tela da cidade, toque no seu avatar (canto superior esquerdo). 2. T
 Dicas: o cadeado no último slot significa que ainda não foi desbloqueado. “Igualar” preenche os três tipos por igual; “Retirar tudo” esvazia o slot. Cada slot guarda seus próprios heróis e tropas.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-18 by Sparrow] ⚔️ DESIGNAÇÕES DE BATALHA E ESTRATÉGIA
+🏰 FASE 1 — CONSTRUÇÕES INICIAIS
+
+① ESTÁBULOS DA REALEZA
+
+* ⚔️ Atacante: Papa
+* 🛡️ Defensores: Meow, Perci
+* 👥 Combatentes: Nia, Big Yahu
+
+② TORRE DO SINO
+
+* ⚔️ Atacante: MTP
+* 🛡️ Defensores: Kuya Jay, Raccoon
+* 👥 Combatentes: L, Gianna
+
+③ SANTUÁRIO — PERTO DO INIMIGO
+
+* ⚔️ Atacante: Firebaugh
+* 🛡️ Defensor: Jordan
+* 👥 Combatentes: Bravus, Lovely
+
+③ SANTUÁRIO — PERTO DA BASE
+
+* ⚔️ Atacante: Faniel
+* 🛡️ Defensor: Adan
+* 👥 Combatentes: Thanoss, Sir Tav
+
+④ ABADIAS (4 NO TOTAL)
+
+* Qualquer pessoa pode enviar um segundo esquadrão para uma Abadia.
+* Envie seu esquadrão secundário para a Abadia mais próxima da sua construção designada.
+* Mantenha seu esquadrão principal na sua construção designada.
+
+━━━━━━━━━━━━━━━━━━
+
+⚔️ FASE 2 — NOVOS OBJETIVOS
+
+⑦ TEMPLO DA ESPADA — GUARDA PESADA
+
+* ⚔️ Atacante: Papa
+* 🛡️ Defensores: MTP, Firebaugh
+* 👥 Combatentes: L, Gianna
+
+⑤ ACAMPAMENTO MERCENÁRIO
+
+* ⚔️ Atacante: Sir Tav
+* 🛡️ Defensor: Thanoss
+
+⑥ SALÃO DA REFORMA
+
+* ⚔️ Atacante: Jordan
+* 🛡️ Defensor: Nia
+
+━━━━━━━━━━━━━━━━━━
+
+🛡️ FICAR PARA TRÁS — DEFESA
+
+① Estábulos da Realeza
+
+* Percival
+* Meow
+
+② Torre do Sino
+
+* Kuya Jay
+* Raccoon
+
+④ Abadias
+
+- Aqueles designados aos santuários devem enviar um esquadrão de volta para a abadia
+
+━━━━━━━━━━━━━━━━━━
+
+📌 LEMBRETES IMPORTANTES
+
+* Siga seu papel designado de atacante, defensor ou combatente.
+* Envie seu esquadrão secundário para a Abadia mais próxima durante a Fase 1.
+* Os jogadores da Fase 2 devem avançar para seus novos objetivos.
+* Os defensores designados que ficarem para trás devem manter o controle de suas construções.
+
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 GUIA DE PREPARAÇÃO E EXECUÇÃO DO PUSH TG DO PRÓXIMO KVK 📢
 Em 9 de novembro de 2026, os membros terão a opção de evoluir suas construções de TG3 ➡️ TG5.
 

@@ -1024,6 +1024,86 @@ Steps: 1. Di layar kota, ketuk avatarmu (kiri atas). 2. Ketuk Skuad di bawah. 3.
 Tips: ikon gembok di slot terakhir berarti belum terbuka. “Rata” mengisi tiga jenis sama banyak; “Tarik semua” mengosongkan slot. Tiap slot menyimpan hero dan pasukannya sendiri.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-18 by Sparrow] ⚔️ TUGAS PERTEMPURAN & STRATEGI
+🏰 FASE 1 — BANGUNAN AWAL
+
+① KANDANG KUDA KERAJAAN
+
+* ⚔️ Penyerang: Papa
+* 🛡️ Pertahanan: Meow, Perci
+* 👥 Petarung: Nia, Big Yahu
+
+② MENARA LONCENG
+
+* ⚔️ Penyerang: MTP
+* 🛡️ Pertahanan: Kuya Jay, Raccoon
+* 👥 Petarung: L, Gianna
+
+③ SANCTUM — DEKAT MUSUH
+
+* ⚔️ Penyerang: Firebaugh
+* 🛡️ Pertahanan: Jordan
+* 👥 Petarung: Bravus, Lovely
+
+③ SANCTUM — DEKAT BASE
+
+* ⚔️ Penyerang: Faniel
+* 🛡️ Pertahanan: Adan
+* 👥 Petarung: Thanoss, Sir Tav
+
+④ BIARA (TOTAL 4)
+
+* Siapa pun dapat mengirim skuad kedua ke Biara.
+* Kirim skuad sekunder Anda ke Biara terdekat dari bangunan yang ditugaskan kepada Anda.
+* Pertahankan skuad utama Anda di bangunan yang ditugaskan.
+
+━━━━━━━━━━━━━━━━━━
+
+⚔️ FASE 2 — TARGET BARU
+
+⑦ SWORDSHRINE — PENJAGAAN KETAT
+
+* ⚔️ Penyerang: Papa
+* 🛡️ Pertahanan: MTP, Firebaugh
+* 👥 Petarung: L, Gianna
+
+⑤ KAMP TENTARA BAYARAN
+
+* ⚔️ Penyerang: Sir Tav
+* 🛡️ Pertahanan: Thanoss
+
+⑥ AULA REFORMASI
+
+* ⚔️ Penyerang: Jordan
+* 🛡️ Pertahanan: Nia
+
+━━━━━━━━━━━━━━━━━━
+
+🛡️ BERTAHAN DI BELAKANG — PERTAHANAN
+
+① Kandang Kuda Kerajaan
+
+* Percival
+* Meow
+
+② Menara Lonceng
+
+* Kuya Jay
+* Raccoon
+
+④ Biara
+
+- Mereka yang ditugaskan di Sanctum harus mengirim skuad kembali ke biara
+
+━━━━━━━━━━━━━━━━━━
+
+📌 PENGINGAT PENTING
+
+* Ikuti peran penyerang, pertahanan, atau petarung yang ditugaskan kepada Anda.
+* Kirim skuad sekunder Anda ke Biara terdekat selama Fase 1.
+* Pemain Fase 2 harus berpindah ke target baru mereka.
+* Pertahanan yang ditugaskan bertahan di belakang harus mempertahankan penguasaan atas bangunan mereka.
+
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 PANDUAN PERSIAPAN & EKSEKUSI TG PUSH KVK MENDATANG 📢
 Pada 9 November 2026, anggota akan memiliki opsi untuk melakukan push bangunan mereka dari TG3 ➡️ TG5.
 
