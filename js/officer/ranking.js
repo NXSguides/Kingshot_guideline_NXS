@@ -915,6 +915,7 @@ function planRenderBar() {
   if (planId && !plans[planId]) planId = "";
   $("planSel").value = planId; histShow();
   $("planRen").hidden = $("planDel").hidden = !planId || !planCanEdit(plans[planId]);
+  $("planVer").hidden = !planId || !OFFICER.token || !planCanEdit(plans[planId]); $("planVer").textContent = pv("btn");
   if ($("planEd") && !(document.activeElement && document.activeElement.closest && document.activeElement.closest("#planEd"))) $("planEd").innerHTML = OFFICER.token ? planEditorsHtml() : "";
   const p = planId && plans[planId];
   $("planStatus").textContent = !OFFICER.token ? pl("noKey") : !p ? pl("localNote")
@@ -1007,6 +1008,67 @@ async function plansInit() {
   document.addEventListener("visibilitychange", planPoll);
 }
 /* switching plans right after an edit: save the edit to the plan it was made in first (the save waits 1.2 s otherwise, and was lost) */
+/* 🕘 version history: every save of the shared plans file is kept on GitHub. Pick a time to load this plan as it was then
+   (it comes in as a normal change: saved for everyone, and ↩️ undo takes it back). */
+const PV = {
+  zh: { btn: "🕘 版本紀錄", title: "🕘 {n} 的版本紀錄", note: "每次存檔都會留下來。選一個時間點，把這個計畫換回那時的樣子（之後可以按 ↩️ 復原）。時間為 UTC。", loading: "讀取中…", none: "找不到這個計畫的舊版本。", err: "讀不到版本紀錄。", use: "換回這版", now: "目前", ppl: "{n} 人", sub: "替補 {n}", bld: "建築 {n}", diff: "和現在比：+{a} −{r}", same: "和現在一樣", ask: "把這個計畫換回 {t} UTC 的版本？", done: "✓ 已換回 {t} UTC 的版本（按 ↩️ 復原可取消）", more: "顯示更早的", close: "關閉" },
+  en: { btn: "🕘 Versions", title: "🕘 Versions of {n}", note: "Every save is kept. Pick a time to put this plan back the way it was then (↩️ Undo takes it back). Times in UTC.", loading: "Loading…", none: "No older versions of this plan found.", err: "Couldn't load the history.", use: "Use this one", now: "now", ppl: "{n} people", sub: "{n} subs", bld: "{n} buildings", diff: "vs now: +{a} −{r}", same: "same as now", ask: "Put this plan back to the {t} UTC version?", done: "✓ Back to the {t} UTC version (↩️ Undo to cancel)", more: "Show older", close: "Close" },
+  ko: { btn: "🕘 버전 기록", title: "🕘 {n} 버전 기록", note: "저장할 때마다 기록이 남아요. 시점을 고르면 이 계획을 그때 상태로 되돌려요 (↩️ 되돌리기로 취소 가능). 시간은 UTC.", loading: "불러오는 중…", none: "이 계획의 이전 버전이 없어요.", err: "기록을 불러오지 못했어요.", use: "이 버전으로", now: "현재", ppl: "{n}명", sub: "후보 {n}", bld: "건물 {n}", diff: "현재와 비교: +{a} −{r}", same: "현재와 같음", ask: "이 계획을 {t} UTC 버전으로 되돌릴까요?", done: "✓ {t} UTC 버전으로 되돌렸어요 (↩️ 되돌리기로 취소)", more: "더 이전 보기", close: "닫기" },
+  pt: { btn: "🕘 Versões", title: "🕘 Versões de {n}", note: "Cada salvamento fica guardado. Escolha um horário para voltar este plano àquela versão (↩️ Desfazer volta atrás). Horários em UTC.", loading: "Carregando…", none: "Nenhuma versão anterior deste plano.", err: "Não foi possível carregar o histórico.", use: "Usar esta", now: "agora", ppl: "{n} pessoas", sub: "{n} reservas", bld: "{n} construções", diff: "vs agora: +{a} −{r}", same: "igual a agora", ask: "Voltar este plano para a versão de {t} UTC?", done: "✓ Voltou para a versão de {t} UTC (↩️ Desfazer para cancelar)", more: "Mostrar mais antigas", close: "Fechar" },
+  ar: { btn: "🕘 الإصدارات", title: "🕘 إصدارات {n}", note: "يُحفظ كل حفظ. اختر وقتًا لإرجاع هذه الخطة كما كانت حينها (↩️ تراجع يلغي ذلك). الأوقات بتوقيت UTC.", loading: "جارٍ التحميل…", none: "لا توجد إصدارات أقدم لهذه الخطة.", err: "تعذّر تحميل السجل.", use: "استخدم هذا", now: "الآن", ppl: "{n} أشخاص", sub: "{n} بدلاء", bld: "{n} مبانٍ", diff: "مقارنة بالآن: +{a} −{r}", same: "مثل الآن", ask: "إرجاع هذه الخطة إلى إصدار {t} UTC؟", done: "✓ تم الإرجاع إلى إصدار {t} UTC (↩️ تراجع للإلغاء)", more: "عرض الأقدم", close: "إغلاق" },
+};
+const pv = (k, v = {}) => String((PV[lang] || PV.en)[k] ?? PV.en[k]).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
+const ghGet = async (url) => { const r = await fetch(url, { headers: { Authorization: `Bearer ${OFFICER.token}`, Accept: "application/vnd.github+json" }, cache: "no-store" }); if (!r.ok) throw new Error("net"); return r.json(); };
+const pvKey = (p) => JSON.stringify([[...(p.picked || [])].sort(), [...(p.subs || [])].sort(), p.tb || null, p.counts || null, p.wts || null]);
+async function planVersions() {
+  const id = planId, cur = plans[id]; if (!id || !cur) return;
+  const m = document.createElement("div"); m.className = "tb-modal";
+  m.innerHTML = `<div class="card" style="width:min(640px,96vw);max-height:90vh;overflow:auto"><b>${esc(pv("title", { n: planLabel(cur) }))}</b>
+    <div class="muted" style="margin:6px 0;font-size:12.5px">${esc(pv("note"))}</div><div data-pvlist="1" class="muted">${esc(pv("loading"))}</div>
+    <div class="row" style="margin-top:8px"><button class="btn" data-pvmore="1" hidden>${esc(pv("more"))}</button><button class="btn" data-close="1">${esc(pv("close"))}</button></div></div>`;
+  ROOT.appendChild(m);
+  const list = m.querySelector("[data-pvlist]"), moreBtn = m.querySelector("[data-pvmore]");
+  const seen = new Set([pvKey(planSnapshot()), pvKey(cur)]), vers = []; let page = 1, done = false;
+  const nowSet = new Set(picked);
+  const show = () => {
+    if (!vers.length) { list.innerHTML = done ? esc(pv("none")) : esc(pv("loading")); return; }
+    list.className = ""; list.innerHTML = vers.map((v, i) => { const p = v.p, ids = new Set(p.picked || []);
+      const a = [...ids].filter((x) => !nowSet.has(x)).length, r = [...nowSet].filter((x) => !ids.has(x)).length, nb = ((p.tb && p.tb.groups) || []).reduce((n, g) => n + (g.rows || []).length, 0);
+      return `<div class="row" style="justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--rule)"><div><b>${esc(v.t)} UTC</b>${p.by ? ` · ${esc(p.by)}` : ""}<div class="muted" style="font-size:12.5px">${esc(pv("ppl", { n: ids.size }))}${(p.subs || []).length ? " · " + esc(pv("sub", { n: p.subs.length })) : ""} · ${esc(pv("bld", { n: nb }))} · ${esc(a || r ? pv("diff", { a, r }) : pv("same"))}</div></div><button class="btn small" data-pvuse="${i}">${esc(pv("use"))}</button></div>`; }).join("");
+  };
+  const load = async () => {
+    moreBtn.hidden = true;
+    try {
+      const cs = await ghGet(`https://api.github.com/repos/${P_OWNER}/${P_REPO}/commits?path=${encodeURIComponent(PLAN_PATH)}&sha=main&per_page=30&page=${page}`);
+      page++; if (cs.length < 30) done = true;
+      for (let i = 0; i < cs.length; i += 6) {
+        const got = await Promise.all(cs.slice(i, i + 6).map(async (c) => { try {
+          const f = await ghGet(`https://api.github.com/repos/${P_OWNER}/${P_REPO}/contents/${PLAN_PATH}?ref=${c.sha}`);
+          const d = await OfficerData.open(JSON.parse(p64.dec(f.content))); const p = d && d.plans && d.plans[id];
+          return p ? { p, t: new Date(c.commit.committer.date).toISOString().slice(5, 16).replace("T", " ") } : null; } catch (e) { return null; } }));
+        for (const v of got) { if (!v) continue; const k = pvKey(v.p); if (seen.has(k)) continue; seen.add(k); vers.push(v); }
+        if (!m.isConnected) return; show();
+      }
+      if (!vers.length && !done) return load();
+    } catch (e) { list.textContent = pv("err"); return; }
+    show(); moreBtn.hidden = done;
+  };
+  m.onclick = (e) => {
+    if (e.target === m || e.target.dataset.close) { m.remove(); return; }
+    if (e.target.dataset.pvmore) return load();
+    const i = e.target.dataset.pvuse; if (i == null) return;
+    const v = vers[+i]; if (!v || !window.confirm(pv("ask", { t: v.t }))) return;
+    if (planId !== id) { m.remove(); return; }
+    const p = v.p;
+    picked = new Set(p.picked || []); subs = new Set((p.subs || []).filter((x) => picked.has(x))); store.counts = JSON.parse(JSON.stringify(p.counts || {}));
+    TB = Object.assign(tbDefault(), JSON.parse(JSON.stringify(p.tb || {}))); tbPick = null;
+    setWeights(wtsFrom(p.wts, p.wPower)); persist(); tbSave();
+    renderAll(); tbRender(); renderPresets && renderPresets();
+    m.remove(); $("planStatus").textContent = pv("done", { t: v.t });
+  };
+  load();
+}
+$("planVer").onclick = () => planVersions();
 $("planUndo").onclick = () => histUndo();
 $("planSel").onchange = async (e) => { const to = e.target.value;
   if (planDirty && planId) { clearTimeout(planTimer); e.target.disabled = true; try { for (let i = 0; i < 40 && planBusy; i++) await new Promise((r) => setTimeout(r, 250)); if (planDirty) await planSave(); } catch (err) {} e.target.disabled = false; }
