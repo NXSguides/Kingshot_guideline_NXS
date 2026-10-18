@@ -321,9 +321,9 @@ $("presetCopy").onclick = async () => {
 /* ===== ⑤ Battle table builder (saved only in this browser) ===== */
 const TB_LS = "nxs-table-v1";
 const TB_COLORS = ["#e6a3d9", "#8fd0ec", "#f6c3a2", "#d6ecc4", "#f6e58d", "#c9c3f0", "#d9d9d9", "#b8e0d2"];
-const TT = { ko: {"title": "⑤ 전투 배치표", "note": "목록에서 사람을 고른 뒤 칸을 눌러 배치하세요(컴퓨터에서는 드래그도 가능). ×를 누르면 제거됩니다.", "setup": "표 설정", "stages": "단계", "targets": "목표", "tlabels": "목표 뒤 괄호 설명", "cols": "열 이름", "sep": "(쉼표로 구분)", "shortNames": "짧은 이름 (亗, Nexus 같은 장식 제거)", "draft": "순위로 초안 자동 작성", "draftNote": "④의 Attackers / Defenders 인원수를 사용합니다.", "clear": "표 비우기", "addGroup": "+ 조", "addRow": "+ 행", "delGroup": "조 삭제", "dupRow": "행 복사", "delRow": "행 삭제", "pool": "인원 — 점수 기준 추천 역할 (이름을 누른 뒤 칸을 누르세요)", "poolEmpty": "먼저 ②에서 참가자를 체크하세요.", "addText": "+ 텍스트", "sync": "🔗 그룹당 한 줄. Stage 2는 공격자와 수비자가 각각 어디로 가는지 따로 적어요. 비우면 = 남음.", "stay": "남음", "textPrompt": "추가할 텍스트 (예: Stays behind)", "image": "🖼️ 이미지 만들기", "text": "📋 텍스트 복사", "toPost": "📢 새 공지에 사용", "saveHint": "휴대폰: 이미지를 길게 눌러 저장하세요.", "download": "다운로드", "close": "닫기", "confirmClear": "표 전체를 비울까요?", "confirmDraft": "현재 표를 새 초안으로 바꿀까요?", "copied": "복사했어요!", "group": "조", "picked": "선택됨:"},
- ar: {"title": "⑤ جدول المعركة", "note": "اختر أشخاصًا من القائمة، ثم انقر على خانة لوضعهم فيها (على الكمبيوتر يمكنك السحب أيضًا). انقر × للإزالة.", "setup": "إعداد الجدول", "stages": "المراحل", "targets": "الأهداف", "tlabels": "ملاحظة الهدف (بين قوسين)", "cols": "الأعمدة", "sep": "(افصل بفواصل)", "shortNames": "أسماء مختصرة (بدون زخارف مثل 亗 وNexus)", "draft": "املأ مسودة أولى من الترتيب", "draftNote": "يستخدم أعداد المهاجمين / المدافعين من ④.", "clear": "مسح الجدول", "addGroup": "+ مجموعة", "addRow": "+ صف", "delGroup": "حذف المجموعة", "dupRow": "نسخ الصف", "delRow": "حذف الصف", "pool": "الأشخاص — أدوار مقترحة حسب النقاط (انقر على واحد، ثم على خانة)", "poolEmpty": "حدّد المشاركين في ② أولًا.", "addText": "+ نص", "sync": "🔗 صف واحد لكل مجموعة. في المرحلة 2 يُكتب مكان المهاجم ومكان المدافعين كلٌّ على حدة. فارغ = يبقى.", "stay": "يبقى", "textPrompt": "النص المراد إضافته (مثلًا: يبقى في الخلف)", "image": "🖼️ إنشاء صورة", "text": "📋 نسخ النص", "toPost": "📢 استخدام في إعلان جديد", "saveHint": "الهاتف: اضغط مطولًا على الصورة لحفظها.", "download": "تنزيل", "close": "إغلاق", "confirmClear": "مسح الجدول بالكامل؟", "confirmDraft": "استبدال الجدول بمسودة جديدة؟", "copied": "تم النسخ!", "group": "مجموعة", "picked": "المحدد:"},
- pt: {"title": "⑤ Tabela de batalha", "note": "Escolha pessoas na lista e toque numa caixa para colocá-las lá (no computador também dá para arrastar). Toque em × para remover.", "setup": "Configurar tabela", "stages": "Etapas", "targets": "Alvos", "tlabels": "Notas do alvo (entre parênteses)", "cols": "Colunas", "sep": "(separe com vírgulas)", "shortNames": "Nomes curtos (sem enfeites como 亗 e Nexus)", "draft": "Montar um rascunho pelo ranking", "draftNote": "Usa os números de Attackers / Defenders do ④.", "clear": "Limpar tabela", "addGroup": "+ Grupo", "addRow": "+ Linha", "delGroup": "Excluir grupo", "dupRow": "Copiar linha", "delRow": "Excluir linha", "pool": "Pessoas — funções sugeridas pela pontuação (toque numa, depois numa caixa)", "poolEmpty": "Marque os participantes no ② primeiro.", "addText": "+ texto", "sync": "🔗 Uma linha por grupo. No Stage 2, para onde vai o atacante e para onde vão os defensores ficam em colunas separadas. Vazio = fica.", "stay": "fica", "textPrompt": "Texto para adicionar (ex.: Stays behind)", "image": "🖼️ Gerar imagem", "text": "📋 Copiar texto", "toPost": "📢 Usar num novo anúncio", "saveHint": "No celular: toque e segure a imagem para salvar.", "download": "Baixar", "close": "Fechar", "confirmClear": "Limpar a tabela inteira?", "confirmDraft": "Trocar a tabela por um novo rascunho?", "copied": "Copiado!", "group": "Grupo", "picked": "Selecionado:"},
+const TT = { ko: {"title": "⑤ 전투 배치표", "note": "목록에서 사람을 고른 뒤 칸을 눌러 배치하세요(컴퓨터에서는 드래그도 가능). ×를 누르면 제거됩니다.", "setup": "표 설정", "stages": "단계", "targets": "목표", "tlabels": "목표 뒤 괄호 설명", "cols": "열 이름", "sep": "(쉼표로 구분)", "shortNames": "짧은 이름 (亗, Nexus 같은 장식 제거)", "draft": "순위로 초안 자동 작성", "draftNote": "④의 Attackers / Defenders 인원수를 사용합니다.", "clear": "표 비우기", "addGroup": "+ 조", "addRow": "+ 행", "delGroup": "조 삭제", "dupRow": "행 복사", "delRow": "행 삭제", "pool": "인원 — 점수 기준 추천 역할 (이름을 누른 뒤 칸을 누르세요)", "poolEmpty": "먼저 ②에서 참가자를 체크하세요.", "addText": "+ 텍스트", "sync": "📋 단계(Phase 1, Phase 2, Stay behind…)마다 건물 표가 하나씩, 한 줄 = 건물 하나. 같은 사람이 여러 단계에 나올 수 있어요. 단계 이름은 「표 설정」에서 바꿔요.", "addB": "+ 건물", "moveTo": "단계:", "stay": "남음", "textPrompt": "추가할 텍스트 (예: Stays behind)", "image": "🖼️ 이미지 만들기", "text": "📋 텍스트 복사", "toPost": "📢 새 공지에 사용", "saveHint": "휴대폰: 이미지를 길게 눌러 저장하세요.", "download": "다운로드", "close": "닫기", "confirmClear": "표 전체를 비울까요?", "confirmDraft": "현재 표를 새 초안으로 바꿀까요?", "copied": "복사했어요!", "group": "조", "picked": "선택됨:"},
+ ar: {"title": "⑤ جدول المعركة", "note": "اختر أشخاصًا من القائمة، ثم انقر على خانة لوضعهم فيها (على الكمبيوتر يمكنك السحب أيضًا). انقر × للإزالة.", "setup": "إعداد الجدول", "stages": "المراحل", "targets": "الأهداف", "tlabels": "ملاحظة الهدف (بين قوسين)", "cols": "الأعمدة", "sep": "(افصل بفواصل)", "shortNames": "أسماء مختصرة (بدون زخارف مثل 亗 وNexus)", "draft": "املأ مسودة أولى من الترتيب", "draftNote": "يستخدم أعداد المهاجمين / المدافعين من ④.", "clear": "مسح الجدول", "addGroup": "+ مجموعة", "addRow": "+ صف", "delGroup": "حذف المجموعة", "dupRow": "نسخ الصف", "delRow": "حذف الصف", "pool": "الأشخاص — أدوار مقترحة حسب النقاط (انقر على واحد، ثم على خانة)", "poolEmpty": "حدّد المشاركين في ② أولًا.", "addText": "+ نص", "sync": "📋 لكل مرحلة (Phase 1، Phase 2، Stay behind…) جدول مبانٍ خاص، وكل صف = مبنى. يمكن أن يظهر الشخص نفسه في عدة مراحل. تُغيَّر أسماء المراحل في «إعداد الجدول».", "addB": "+ مبنى", "moveTo": "المرحلة:", "stay": "يبقى", "textPrompt": "النص المراد إضافته (مثلًا: يبقى في الخلف)", "image": "🖼️ إنشاء صورة", "text": "📋 نسخ النص", "toPost": "📢 استخدام في إعلان جديد", "saveHint": "الهاتف: اضغط مطولًا على الصورة لحفظها.", "download": "تنزيل", "close": "إغلاق", "confirmClear": "مسح الجدول بالكامل؟", "confirmDraft": "استبدال الجدول بمسودة جديدة؟", "copied": "تم النسخ!", "group": "مجموعة", "picked": "المحدد:"},
+ pt: {"title": "⑤ Tabela de batalha", "note": "Escolha pessoas na lista e toque numa caixa para colocá-las lá (no computador também dá para arrastar). Toque em × para remover.", "setup": "Configurar tabela", "stages": "Etapas", "targets": "Alvos", "tlabels": "Notas do alvo (entre parênteses)", "cols": "Colunas", "sep": "(separe com vírgulas)", "shortNames": "Nomes curtos (sem enfeites como 亗 e Nexus)", "draft": "Montar um rascunho pelo ranking", "draftNote": "Usa os números de Attackers / Defenders do ④.", "clear": "Limpar tabela", "addGroup": "+ Grupo", "addRow": "+ Linha", "delGroup": "Excluir grupo", "dupRow": "Copiar linha", "delRow": "Excluir linha", "pool": "Pessoas — funções sugeridas pela pontuação (toque numa, depois numa caixa)", "poolEmpty": "Marque os participantes no ② primeiro.", "addText": "+ texto", "sync": "📋 Cada fase (Phase 1, Phase 2, Stay behind…) tem sua própria tabela de prédios, uma linha = um prédio. A mesma pessoa pode aparecer em fases diferentes. Os nomes das fases mudam em «Configurar tabela».", "addB": "+ Prédio", "moveTo": "Fase:", "stay": "fica", "textPrompt": "Texto para adicionar (ex.: Stays behind)", "image": "🖼️ Gerar imagem", "text": "📋 Copiar texto", "toPost": "📢 Usar num novo anúncio", "saveHint": "No celular: toque e segure a imagem para salvar.", "download": "Baixar", "close": "Fechar", "confirmClear": "Limpar a tabela inteira?", "confirmDraft": "Trocar a tabela por um novo rascunho?", "copied": "Copiado!", "group": "Grupo", "picked": "Selecionado:"},
 
   en: {
     title: "⑤ Battle table", note: "Pick people from the list, then tap a box to put them there (on a computer you can also drag). Tap × to remove.",
@@ -332,7 +332,7 @@ const TT = { ko: {"title": "⑤ 전투 배치표", "note": "목록에서 사람�
     draft: "Fill a first draft from the ranking", draftNote: "Uses the Attackers / Defenders numbers from ④.",
     clear: "Clear table", addGroup: "+ Group", addRow: "+ Row", delGroup: "Delete group", dupRow: "Copy row", delRow: "Delete row",
     pool: "People — suggested roles by score (tap one, then tap a box)", poolEmpty: "Tick participants in ② first.",
-    addText: "+ text", sync: "🔗 One row per group. In Stage 2, where the attacker goes and where the defenders go are separate columns. Empty = stay.", stay: "stay", textPrompt: "Text to add (e.g. Stays behind)",
+    addText: "+ text", sync: "📋 Each phase (Phase 1, Phase 2, Stay behind…) has its own table of buildings, one row = one building. The same person can be in several phases. Rename the phases in Table setup.", addB: "+ Building", moveTo: "Phase:", stay: "stay", textPrompt: "Text to add (e.g. Stays behind)",
     image: "🖼️ Make image", text: "📋 Copy text", toPost: "📢 Use in a new announcement",
     saveHint: "Phone: press and hold the picture to save it.", download: "Download", close: "Close",
     confirmClear: "Clear the whole table?", confirmDraft: "Replace the table with a new draft?", copied: "Copied!",
@@ -345,7 +345,7 @@ const TT = { ko: {"title": "⑤ 전투 배치표", "note": "목록에서 사람�
     draft: "依排序自動排一份草稿", draftNote: "使用 ④ 裡 Attackers／Defenders 的人數。",
     clear: "清空表格", addGroup: "+ 新增組", addRow: "+ 新增列", delGroup: "刪除這組", dupRow: "複製這列", delRow: "刪除這列",
     pool: "人員 — 依分數建議的角色（先點名字，再點格子）", poolEmpty: "請先在 ② 勾選參戰的人。",
-    addText: "+ 文字", sync: "🔗 一組一列。第二階段分成「攻擊者去哪」和「防守者去哪」兩欄，空白＝留守。", stay: "留守", textPrompt: "要加入的文字（例如 Stays behind）",
+    addText: "+ 文字", sync: "📋 每個階段（Phase 1、Phase 2、Stay behind…）各一張建築表，一列＝一個建築。同一個人可以出現在不同階段。階段名稱在「表格設定」裡改。", addB: "+ 新增建築", moveTo: "階段：", stay: "留守", textPrompt: "要加入的文字（例如 Stays behind）",
     image: "🖼️ 產生圖片", text: "📋 複製文字", toPost: "📢 拿去發公告",
     saveHint: "手機：長按圖片即可儲存。", download: "下載", close: "關閉",
     confirmClear: "確定清空整張表？", confirmDraft: "用新的草稿取代目前的表格？", copied: "已複製！",
@@ -357,10 +357,10 @@ const COL_KEYS = ["att", "stage", "target", "def", "join", "note"];
 const PEOPLE_COLS = ["att", "def", "join"];
 function tbDefault() {
   return {
-    stages: "Stage 1, Stage 2", targets: "1, 2, 3, 4, 5, 6, 7", short: true,
-    tlabels: "Royal Stables, Bell Tower, Sanctum near enemy, Sanctum near home, Abbey, Mercenary Camp, Hall of Reformation, Centre",
-    cols: { att: "Attackers", stage: "Stage", target: "Target", def: "Defenders", join: "Joiners", note: "Note" },
-    show: { att: true, stage: true, target: true, def: true, join: true, note: false },
+    stages: "Phase 1, Phase 2, Stay behind", targets: "1, 2, 3, 4, 5, 6, 7", short: true,
+    tlabels: "Royal Stables, Bell Tower, Sanctum — near enemy, Sanctum — near home, Abbeys (4 total), Mercenary Camp, Hall of Reformation, Sword Shrine — heavy guard",
+    cols: { att: "Attacker", stage: "Stage", target: "Building", def: "Defenders", join: "Joiners", note: "Note" },
+    show: { att: true, stage: true, target: true, def: true, join: true, note: true },
     groups: [],
   };
 }
@@ -369,35 +369,26 @@ const tbSave = () => { try { localStorage.setItem(TB_LS, JSON.stringify(TB)); } 
 let tbPick = null;          // selected chip: { kind: "p", id } | { kind: "t", text }
 let tbUid = Date.now();
 const newRow = (stage = "") => ({ id: ++tbUid, att: [], stage, target: "", def: [], join: [], note: "", pt: {}, tg: [] });
-/* 🔗 one colour group = one batch of people: every row (stage) of a group holds the same people (kept in every row, so older copies of
-   the page still read it). Each row can give a person their own target: row.pt = { memberId: "3" } (empty = the row's target). */
+/* 📋 sections: TB.stages = the phases ("Phase 1, Phase 2, Stay behind"), each its own table of buildings.
+   A group = one building row: { color, sec, rows: [{ target, tl, att, def, join, note }] } (rows stays an array so older copies still read it). */
 const chipKey = (x) => x.kind === "p" ? "p:" + x.id : "t:" + x.text;
-/* stages are columns: one row per group, r.tg = [{ t, tl }, …] per stage (TB.stages order); r.pt = { "1:memberId": "4" } = that person's own target from stage 2 on */
-const stList = () => { const l = listOf(TB.stages); return l.length ? l : ["Stage 1"]; };
-function tbOneRow() {
-  const st = stList();
-  TB.groups.forEach((g) => {
-    if (!g.rows || !g.rows.length) { g.rows = [newRow()]; }
-    const one = g.rows.length === 1 && Array.isArray(g.rows[0].tg);
-    if (one) return;
-    const base = g.rows[0], tg = [], pt = {}, notes = [];   // (ta / td on base were filled by tbSync)
-    g.rows.forEach((r, i) => { let si = st.indexOf(r.stage); if (si < 0) si = i; if (!tg[si] && (r.target || r.tl)) tg[si] = { t: r.target || "", tl: r.tl || "" };
-      if (si > 0) Object.entries(r.pt || {}).forEach(([id, t]) => { pt[si + ":" + id] = t; }); if (r.note && !notes.includes(r.note)) notes.push(r.note); });
-    base.tg = Array.from({ length: Math.max(st.length, tg.length) }, (_, i) => tg[i] || { t: "", tl: "" }); base.pt = pt; base.note = notes.join(" · ");
-    g.rows = [base];
-  });
-}
+const stList = () => { const l = listOf(TB.stages); return l.length ? l : ["Phase 1"]; };
 function tbSync() {
-  TB.groups.forEach((g) => (g.rows || []).forEach((r) => { const m = !r.tl && String(r.target || "").match(/^(.*?)\s*[(（](.+)[)）]\s*$/); if (m) { r.target = m[1]; r.tl = m[2]; } }));   // old "1 (Royal Stables)" → target + bracket note
-  { const st = stList(); TB.groups.forEach((g) => { if (!g.rows || g.rows.length < 2) return; const b = g.rows[0]; b.ta = b.ta || []; b.td = b.td || [];
-    g.rows.forEach((r, i) => { let si = st.indexOf(r.stage); if (si < 0) si = i; if (si < 1) return; const v = { t: r.target || "", tl: r.tl || "" };
-      if ((r.att || []).length && !b.ta[si]) b.ta[si] = v; if ((r.def || []).length && !b.td[si]) b.td[si] = v; }); }); }   // old stage rows: the role listed in that row is the one that moved
-  TB.groups.forEach((g) => { if (!g.rows || g.rows.length < 2) return;
-    PEOPLE_COLS.forEach((k) => { const seen = new Set(), all = [];
-      g.rows.forEach((r) => (r[k] || []).forEach((x) => { const key = chipKey(x); if (!seen.has(key)) { seen.add(key); all.push(x); } }));
-      g.rows.forEach((r) => { r[k] = all.map((x) => ({ ...x })); }); }); });
-  tbOneRow();
-  TB.groups.forEach((g) => { const r = g.rows[0], t0 = (r.tg && r.tg[0]) || {}; r.target = t0.t || ""; r.tl = t0.tl || ""; r.stage = stList()[0]; });   // older copies of the page still show stage 1
+  if (/^\s*Stage 1\s*,\s*Stage 2\s*$/.test(TB.stages || "")) TB.stages = tbDefault().stages;   // the old default → the phases
+  if (TB.cols.target === "Target") TB.cols.target = "Building";
+  if (TB.tlabels === "Royal Stables, Bell Tower, Sanctum near enemy, Sanctum near home, Abbey, Mercenary Camp, Hall of Reformation, Centre") TB.tlabels = tbDefault().tlabels;
+  if (TB.cols.att === "Attackers") TB.cols.att = "Attacker";
+  TB.groups.forEach((g) => {
+    if (!g.rows || !g.rows.length) g.rows = [newRow()];
+    g.rows.forEach((r) => { if (!r.target && r.tg && r.tg[0]) { r.target = r.tg[0].t || ""; r.tl = r.tl || r.tg[0].tl || ""; }
+      const m = !r.tl && String(r.target || "").match(/^(.*?)\s*[(（](.+)[)）]\s*$/); if (m) { r.target = m[1]; r.tl = m[2]; } });   // "1 (Royal Stables)" → 1 + note
+    if (g.rows.length > 1) {   // older "stage rows" → the first row's building, everyone in it
+      const b = g.rows[0]; PEOPLE_COLS.forEach((k) => { const seen = new Set(), all = [];
+        g.rows.forEach((r) => (r[k] || []).forEach((x) => { const key = chipKey(x); if (!seen.has(key)) { seen.add(key); all.push(x); } })); b[k] = all; });
+      g.rows = [b]; }
+    if (!(g.sec >= 0)) g.sec = 0;
+    if (g.sec >= stList().length) g.sec = stList().length - 1;
+  });
 }
 const gPut = (gi, k, chip) => TB.groups[gi].rows.forEach((r) => { if (!r[k].some((x) => chipKey(x) === chipKey(chip))) r[k].push({ ...chip }); });
 const gDel = (gi, k, chip) => TB.groups[gi].rows.forEach((r) => { const j = r[k].findIndex((x) => chipKey(x) === chipKey(chip)); if (j >= 0) r[k].splice(j, 1); });
@@ -417,7 +408,7 @@ const listOf = (s) => String(s || "").split(/[,，]/).map((x) => x.trim()).filte
 
 function tbCounts() {
   const c = {};
-  TB.groups.forEach((g) => g.rows.slice(0, 1).forEach((r) => PEOPLE_COLS.forEach((k) => r[k].forEach((x) => { if (x.kind === "p") c[x.id] = (c[x.id] || 0) + 1; }))));   // rows of a group = the same people
+  TB.groups.filter((g) => !g.sec).forEach((g) => g.rows.slice(0, 1).forEach((r) => PEOPLE_COLS.forEach((k) => r[k].forEach((x) => { if (x.kind === "p") c[x.id] = (c[x.id] || 0) + 1; }))));   // rows of a group = the same people
   return c;
 }
 
@@ -452,23 +443,23 @@ function tbRender() {
     <div class="tb-sticky"><div class="tb-pool-h">${esc(tt("pool"))}${tbPick ? ` · <b>${esc(tt("picked"))} ${esc(chipLabel(tbPick))}</b>` : ""}</div>
     <div class="tb-counts">${swPreset.groups.map((g, gi) => g.count == null ? "" : `<label>${esc(g.name[lang] || ptOf(g.name.en))} <input type="number" min="0" max="99" data-rolecount="${gi}" value="${groupCount(swPreset, gi)}"></label>`).join("")}</div>
     <div class="tb-pool">${pool.length ? roleGroups.map(({ g, list }, ri) => list.length ? `<div class="tb-role r${ri}"><div class="tb-role-h">${esc(g.name[lang] || ptOf(g.name.en))} <span>(${list.length})</span></div>${list.map((m) => `<span class="tb-chip pool r${ri}${tbPick && tbPick.kind === "p" && String(tbPick.id) === String(m.id) ? " on" : ""}" draggable="true" data-pid="${m.id}">${esc(TB.short ? shortName(m.name) : m.name)}${counts[m.id] ? `<i>${counts[m.id]}</i>` : ""}</span>`).join("")}</div>` : "").join("") : `<span class="muted">${esc(tt("poolEmpty"))}</span>`}</div></div>
-    ${TB.groups.map((g, gi) => `
+    ${stList().map((sn, si) => `<h3 class="tb-sec">${esc(sn)}</h3>${TB.groups.map((g, gi) => g.sec !== si ? "" : `
       <div class="tb-group" style="border-color:${g.color};background:color-mix(in srgb, ${g.color} 22%, var(--panel))">
         <div class="tb-ghead">
           <span class="tb-swatches">${TB_COLORS.map((c) => `<span class="tb-sw${c === g.color ? " on" : ""}" style="background:${c}" data-color="${c}" data-g="${gi}"></span>`).join("")}</span>
+          ${stList().length > 1 ? `<label class="muted" style="font-size:12px">${esc(tt("moveTo"))} <select data-gsec="${gi}">${stList().map((n, i) => `<option value="${i}"${i === g.sec ? " selected" : ""}>${esc(n)}</option>`).join("")}</select></label>` : ""}
           <button class="btn small" data-act="delGroup" data-g="${gi}">${esc(tt("delGroup"))}</button>
         </div>
-        ${g.rows.map((r, ri) => `
+        ${g.rows.slice(0, 1).map((r, ri) => `
           <div class="tb-row">
             <div class="tb-rowtop">
-              ${TB.show.target ? stList().map((sn, si) => (si === 0 ? [["tg", sn + " · " + TB.cols.target]] : [["ta", sn + " · " + TB.cols.att], ["td", sn + " · " + TB.cols.def]]).map(([role, lab]) => { const v = (r[role] || [])[si] || {};
-                return `<label class="tb-in"><span>${esc(lab)}</span><input list="tbTargets" data-g="${gi}" data-r="${ri}" data-tg="${si}" data-role="${role}" data-tk="t" value="${esc(v.t || "")}"${si ? ` placeholder="${esc(tt("stay"))}"` : ""}></label><label class="tb-in"><span>( )</span><input list="tbTLabels" data-g="${gi}" data-r="${ri}" data-tg="${si}" data-role="${role}" data-tk="tl" value="${esc(v.tl || "")}" placeholder="—"></label>`; }).join("")).join("") : ""}
+              ${TB.show.target ? `<label class="tb-in"><span>${esc(TB.cols.target)}</span><input list="tbTargets" data-g="${gi}" data-r="${ri}" data-field="target" value="${esc(r.target || "")}"></label><label class="tb-in"><span>( )</span><input list="tbTLabels" data-g="${gi}" data-r="${ri}" data-field="tl" value="${esc(r.tl || "")}" placeholder="—"></label>` : ""}
             </div>
             ${PEOPLE_COLS.filter((k) => TB.show[k]).map((k) => cell(g, gi, r, ri, k)).join("")}
-            ${TB.show.note ? `<label class="tb-in wide"><span>${esc(TB.cols.note)}</span><input data-g="${gi}" data-r="${ri}" data-field="note" value="${esc(r.note)}"></label>` : ""}
+            ${TB.show.note ? `<label class="tb-in wide"><span>${esc(TB.cols.note)}</span><input data-g="${gi}" data-r="${ri}" data-field="note" value="${esc(r.note || "")}"></label>` : ""}
           </div>`).join("")}
       </div>`).join("")}
-    <div class="row" style="margin-top:10px"><button class="btn" data-act="addGroup">${esc(tt("addGroup"))}</button></div>
+    <div class="row" style="margin:6px 0 4px"><button class="btn small" data-act="addGroup" data-sec="${si}">${esc(tt("addB"))}</button></div>`).join("")}
     <div class="row" style="margin-top:14px">
       <button class="btn primary" data-act="image">${esc(tt("image"))}</button>
       <button class="btn" data-act="text">${esc(tt("text"))}</button>
@@ -486,7 +477,7 @@ function tbDraft() {
   const r = ranking(); if (!r.length) return;
   const nG = Math.max(1, Math.min(A, r.length));
   const stage = listOf(TB.stages)[0] || "";
-  TB.groups = Array.from({ length: nG }, (_, i) => ({ color: TB_COLORS[i % TB_COLORS.length], rows: [newRow(stage)] }));
+  TB.groups = Array.from({ length: nG }, (_, i) => ({ color: TB_COLORS[i % TB_COLORS.length], sec: 0, rows: [newRow(stage)] }));
   r.forEach((m, i) => {
     const chip = { kind: "p", id: m.id };
     if (i < nG) TB.groups[i].rows[0].att.push(chip);
@@ -515,7 +506,7 @@ function tbClick(e) {
   if (t.dataset.color) { TB.groups[t.dataset.g].color = t.dataset.color; tbSave(); tbRender(); return; }
   const a = t.closest("[data-act]"); if (!a) return;
   const gi = a.dataset.g, ri = a.dataset.r, act = a.dataset.act;
-  if (act === "addGroup") TB.groups.push({ color: TB_COLORS[TB.groups.length % TB_COLORS.length], rows: [newRow(listOf(TB.stages)[0] || "")] });
+  if (act === "addGroup") TB.groups.push({ color: TB_COLORS[TB.groups.length % TB_COLORS.length], sec: +a.dataset.sec || 0, rows: [newRow()] });
   if (act === "delGroup") TB.groups.splice(gi, 1);
   if (act === "addRow") { const rows = TB.groups[gi].rows, last = rows[rows.length - 1], st = listOf(TB.stages), nx = last ? st[st.indexOf(last.stage) + 1] : st[0];
     const r = newRow(nx ?? (last ? last.stage : st[0] || "")); if (last) PEOPLE_COLS.forEach((k) => { r[k] = last[k].map((x) => ({ ...x })); }); rows.push(r); }   // same people, next stage
@@ -534,6 +525,7 @@ function tbInput(e) {
     store.counts = store.counts || {}; store.counts.swordland = store.counts.swordland || {};
     store.counts.swordland[t.dataset.rolecount] = v; save(); renderPresets(); return;
   }
+  if (t.dataset.gsec !== undefined) { TB.groups[t.dataset.gsec].sec = +t.value; tbSave(); tbRender(); return; }
   if (t.dataset.tg !== undefined) { const r = TB.groups[t.dataset.g].rows[t.dataset.r], ro = t.dataset.role || "tg"; r[ro] = r[ro] || []; const i = +t.dataset.tg; r[ro][i] = r[ro][i] || { t: "", tl: "" }; r[ro][i][t.dataset.tk] = t.value;
     if (ro === "tg" && i === 0) { r.target = r.tg[0].t; r.tl = r.tg[0].tl; } tbSave(); return; }
   if (t.dataset.pt !== undefined) { const r = TB.groups[t.dataset.g].rows[t.dataset.r]; r.pt = r.pt || {}; if (t.value.trim()) r.pt[t.dataset.pt] = t.value.trim(); else delete r.pt[t.dataset.pt]; tbSave(); return; }
@@ -560,62 +552,68 @@ function tbDrop(e) {
 }
 
 /* ----- output ----- */
-function tbRowsFlat() {
+const CIRC = "⓪①②③④⑤⑥⑦⑧⑨";
+const bName = (r) => { const t = String(r.target || "").trim(), n = /^[0-9]$/.test(t) ? CIRC[+t] : t ? "#" + t : ""; return [n, r.tl || ""].filter(Boolean).join(" "); };
+function tbSections() {
   tbSync();
-  const st = stList(), tgt = (v) => v && (v.t || v.tl) ? (v.t || "") + (v.tl ? ` (${v.tl})` : "") : "";
-  // Attacker | Defenders | Joiners | Stage 1 | Stage 2 Attacker | Stage 2 Defenders | Note — empty Stage 2 = "Stay" (the picture is shared in English)
-  const keys = [...["att", "def", "join"].filter((k) => TB.show[k]), ...(TB.show.target ? ["tg0", ...st.slice(1).flatMap((_, j) => ["ta" + (j + 1), "td" + (j + 1)])] : []), ...(TB.show.note ? ["note"] : [])];
-  const head = keys.map((k) => k === "tg0" ? st[0] : /^t[ad]\d/.test(k) ? `${st[+k.slice(2)]} ${TB.cols[k[1] === "a" ? "att" : "def"]}` : TB.cols[k]);
-  const rows = [];
-  TB.groups.forEach((g) => g.rows.forEach((r) => rows.push({ color: g.color, cells: keys.map((k) => PEOPLE_COLS.includes(k) ? r[k].map(chipLabel).join(", ")
-    : k === "tg0" ? tgt((r.tg || [])[0]) : /^t[ad]\d/.test(k) ? (tgt((r[k.slice(0, 2)] || [])[+k.slice(2)]) || "Stay") : (r[k] || "")) })));
-  const maxW = keys.map((k) => ({ att: 200, def: 300, join: 300, note: 260 }[k] || 200));
-  return { cols: keys, head, rows, maxW };
+  const people = PEOPLE_COLS.filter((k) => TB.show[k]), note = TB.show.note && TB.groups.some((g) => (g.rows[0].note || "").trim());
+  const keys = [...(TB.show.target ? ["b"] : []), ...people, ...(note ? ["note"] : [])];
+  const head = keys.map((k) => k === "b" ? TB.cols.target : TB.cols[k]);
+  const secs = stList().map((name, si) => ({ name, rows: TB.groups.filter((g) => g.sec === si).map((g) => { const r = g.rows[0];
+    return { color: g.color, r, cells: keys.map((k) => k === "b" ? bName(r) : PEOPLE_COLS.includes(k) ? r[k].map(chipLabel).join(", ") : (r[k] || "")) }; }) })).filter((x) => x.rows.length);
+  const maxW = keys.map((k) => ({ b: 260, att: 200, def: 300, join: 300, note: 320 }[k] || 220));
+  return { keys, head, secs, maxW };
 }
 function tbCopyText(btn) {
-  const { head, rows } = tbRowsFlat();
-  const text = [head.join(" | "), ...rows.map((r) => r.cells.map((c) => c || "—").join(" | "))].join("\n");
+  const { secs } = tbSections(), L = [];
+  secs.forEach((sec, i) => {
+    if (i) L.push("", "━━━━━━━━━━━━━━━━━━", "");
+    L.push(`${/stay|留守/i.test(sec.name) ? "🛡️" : i ? "⚔️" : "🏰"} ${sec.name.toUpperCase()}`);
+    sec.rows.forEach(({ r }) => { L.push("", bName(r).toUpperCase() || "—");
+      [["att", "⚔️"], ["def", "🛡️"], ["join", "👥"]].forEach(([k, ic]) => { if (TB.show[k] && r[k].length) L.push(`* ${ic} ${TB.cols[k]}: ${r[k].map(chipLabel).join(", ")}`); });
+      if (TB.show.note && (r.note || "").trim()) L.push(`* ${r.note.trim()}`); });
+  });
+  const text = L.join("\n");
   (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).catch(() => {
     const ta = document.createElement("textarea"); ta.value = text; ROOT.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
   });
   const old = btn.textContent; btn.textContent = tt("copied"); setTimeout(() => (btn.textContent = old), 1500);
 }
 function tbImage() {
-  const { head, rows, maxW } = tbRowsFlat();
-  const S = 2, pad = 8, lineH = 20, font = '15px "Noto Sans TC","Noto Sans KR","Noto Sans",Arial,sans-serif', bold = 'bold ' + font;
+  const { head, secs, maxW } = tbSections();
+  const all = secs.flatMap((x) => x.rows);
+  const S = 2, pad = 8, lineH = 20, font = '15px "Noto Sans TC","Noto Sans KR","Noto Sans",Arial,sans-serif', bold = 'bold ' + font, big = 'bold 17px "Noto Sans TC","Noto Sans",Arial,sans-serif';
   const cv = document.createElement("canvas"), g = cv.getContext("2d");
-  g.font = font;
   const widths = head.map((h, i) => {
     g.font = bold; let w = g.measureText(h).width;
-    g.font = font; rows.forEach((r) => { w = Math.max(w, Math.min(g.measureText(r.cells[i]).width, maxW[i] || 300)); });
+    g.font = i === 0 && TB.show.target ? bold : font; all.forEach((r) => { w = Math.max(w, Math.min(g.measureText(r.cells[i]).width, maxW[i] || 300)); });
     return Math.ceil(Math.min(w, maxW[i] || 300) + pad * 2);
   });
-  const wrap = (text, w) => {
-    g.font = font; const out = []; let line = "";
+  const wrap = (text, w, f = font) => {
+    g.font = f; const out = []; let line = "";
     for (const word of String(text).split(/\s+/)) {
-      const tryL = line ? line + (line.endsWith(",") ? " " : " ") + word : word;
+      const tryL = line ? line + " " + word : word;
       if (g.measureText(tryL).width <= w || !line) line = tryL; else { out.push(line); line = word; }
     }
     if (line) out.push(line); return out.length ? out : [""];
   };
-  const lines = rows.map((r) => r.cells.map((c, i) => wrap(c, widths[i] - pad * 2)));
-  const heights = lines.map((ls) => Math.max(...ls.map((l) => l.length)) * lineH + pad * 2);
-  const headH = lineH + pad * 2, W = widths.reduce((a, b) => a + b, 0) + 1, H = headH + heights.reduce((a, b) => a + b, 0) + 1;
+  secs.forEach((sec) => sec.rows.forEach((r) => { r.lines = r.cells.map((c, i) => wrap(c, widths[i] - pad * 2, i === 0 && TB.show.target ? bold : font)); r.h = Math.max(...r.lines.map((l) => l.length)) * lineH + pad * 2; }));
+  const titleH = 34, headH = lineH + pad * 2, gap = 12, W = widths.reduce((a, b) => a + b, 0) + 1;
+  const H = secs.reduce((a, sec) => a + titleH + headH + sec.rows.reduce((b, r) => b + r.h, 0), 0) + gap * (secs.length - 1) + 1;
   cv.width = W * S; cv.height = H * S; g.scale(S, S);
   g.fillStyle = "#fff"; g.fillRect(0, 0, W, H); g.strokeStyle = "#9a9a9a"; g.lineWidth = 1; g.textBaseline = "top";
-  let x = 0.5;
-  head.forEach((h, i) => { g.font = bold; g.fillStyle = "#000"; g.fillText(h, x + pad, pad + 2); g.strokeRect(x, 0.5, widths[i], headH); x += widths[i]; });
-  let y = headH + 0.5;
-  rows.forEach((r, ri) => {
-    x = 0.5;
-    r.cells.forEach((c, i) => {
-      g.fillStyle = r.color; g.fillRect(x, y, widths[i], heights[ri]);
-      g.strokeRect(x, y, widths[i], heights[ri]);
-      g.font = font; g.fillStyle = "#111";
-      lines[ri][i].forEach((l, li) => g.fillText(l, x + pad, y + pad + 2 + li * lineH));
-      x += widths[i];
-    });
-    y += heights[ri];
+  let y = 0.5;
+  secs.forEach((sec, si) => {
+    if (si) y += gap;
+    g.fillStyle = "#2b2b2b"; g.fillRect(0.5, y, W - 1, titleH); g.font = big; g.fillStyle = "#fff"; g.fillText(sec.name.toUpperCase(), pad + 2, y + 8); y += titleH;
+    let x = 0.5;
+    head.forEach((h, i) => { g.fillStyle = "#f2f2f2"; g.fillRect(x, y, widths[i], headH); g.strokeRect(x, y, widths[i], headH); g.font = bold; g.fillStyle = "#000"; g.fillText(h, x + pad, y + pad + 2); x += widths[i]; });
+    y += headH;
+    sec.rows.forEach((r) => { x = 0.5;
+      r.cells.forEach((c, i) => { g.fillStyle = r.color; g.fillRect(x, y, widths[i], r.h); g.strokeRect(x, y, widths[i], r.h);
+        g.font = i === 0 && head.length && TB.show.target ? bold : font; g.fillStyle = "#111";
+        r.lines[i].forEach((l, li) => g.fillText(l, x + pad, y + pad + 2 + li * lineH)); x += widths[i]; });
+      y += r.h; });
   });
   const url = cv.toDataURL("image/png");
   const m = document.createElement("div");
