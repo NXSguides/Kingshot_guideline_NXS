@@ -1024,85 +1024,85 @@ Steps: 1. Na tela da cidade, toque no seu avatar (canto superior esquerdo). 2. T
 Dicas: o cadeado no último slot significa que ainda não foi desbloqueado. “Igualar” preenche os três tipos por igual; “Retirar tudo” esvazia o slot. Cada slot guarda seus próprios heróis e tropas.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-18 by Sparrow] ⚔️ BATTLE ASSIGNMENTS & STRATEGY
-🏰 PHASE 1 — INITIAL BUILDINGS
+[2026-10-18 by Sparrow] ⚔️ DESIGNAÇÕES DE BATALHA E ESTRATÉGIA
+🏰 FASE 1 — CONSTRUÇÕES INICIAIS
 
-① ROYAL STABLES
+① ESTÁBULOS DA REALEZA
 
-* ⚔️ Attacker: Papa
-* 🛡️ Defenders: Meow, Perci
-* 👥 Joiners: Nia, Big Yahu
+* ⚔️ Atacante: Papa
+* 🛡️ Defensores: Meow, Perci
+* 👥 Combatentes: Nia, Big Yahu
 
-② BELL TOWER
+② TORRE DO SINO
 
-* ⚔️ Attacker: MTP
-* 🛡️ Defenders: Kuya Jay, Raccoon
-* 👥 Joiners: L, Gianna
+* ⚔️ Atacante: MTP
+* 🛡️ Defensores: Kuya Jay, Raccoon
+* 👥 Combatentes: L, Gianna
 
-③ SANCTUM — NEAR ENEMY
+③ SANTUÁRIO — PERTO DO INIMIGO
 
-* ⚔️ Attacker: Firebaugh
-* 🛡️ Defender: Jordan
-* 👥 Joiners: Bravus, Lovely
+* ⚔️ Atacante: Firebaugh
+* 🛡️ Defensor: Jordan
+* 👥 Combatentes: Bravus, Lovely
 
-③ SANCTUM — NEAR HOME
+③ SANTUÁRIO — PERTO DA BASE
 
-* ⚔️ Attacker: Faniel
-* 🛡️ Defender: Adan
-* 👥 Joiners: Thanoss, Sir Tav
+* ⚔️ Atacante: Faniel
+* 🛡️ Defensor: Adan
+* 👥 Combatentes: Thanoss, Sir Tav
 
-④ ABBEYS (4 TOTAL)
+④ ABADIAS (4 NO TOTAL)
 
-* Anyone can send a second march to an Abbey.
-* Send your secondary march to the closest Abbey to your assigned building.
-* Keep your primary march at your assigned building.
-
-━━━━━━━━━━━━━━━━━━
-
-⚔️ PHASE 2 — NEW OBJECTIVES
-
-⑦ SWORD SHRINE — HEAVY GUARD
-
-* ⚔️ Attacker: Papa
-* 🛡️ Defenders: MTP, Firebaugh
-* 👥 Joiners: L, Gianna
-
-⑤ MERCENARY CAMP
-
-* ⚔️ Attacker: Sir Tav
-* 🛡️ Defender: Thanoss
-
-⑥ HALL OF REFORMATION
-
-* ⚔️ Attacker: Jordan
-* 🛡️ Defender: Nia
+* Qualquer pessoa pode enviar um segundo esquadrão para uma Abadia.
+* Envie seu esquadrão secundário para a Abadia mais próxima da sua construção designada.
+* Mantenha seu esquadrão principal na sua construção designada.
 
 ━━━━━━━━━━━━━━━━━━
 
-🛡️ STAY BEHIND — DEFENSE
+⚔️ FASE 2 — NOVOS OBJETIVOS
 
-① Royal Stables
+⑦ TEMPLO DA ESPADA — GUARDA PESADA
+
+* ⚔️ Atacante: Papa
+* 🛡️ Defensores: MTP, Firebaugh
+* 👥 Combatentes: L, Gianna
+
+⑤ ACAMPAMENTO MERCENÁRIO
+
+* ⚔️ Atacante: Sir Tav
+* 🛡️ Defensor: Thanoss
+
+⑥ SALÃO DA REFORMA
+
+* ⚔️ Atacante: Jordan
+* 🛡️ Defensor: Nia
+
+━━━━━━━━━━━━━━━━━━
+
+🛡️ FICAR PARA TRÁS — DEFESA
+
+① Estábulos da Realeza
 
 * Percival
 * Meow
 
-② Bell Tower
+② Torre do Sino
 
 * Kuya Jay
 * Raccoon
 
-④ Abbeys
+④ Abadias
 
--Those assigned sanctums, should send a march back to abbey
+- Aqueles designados aos santuários devem enviar um esquadrão de volta para a abadia
 
 ━━━━━━━━━━━━━━━━━━
 
-📌 IMPORTANT REMINDERS
+📌 LEMBRETES IMPORTANTES
 
-* Follow your assigned attacker, defender, or joiner role.
-* Send your secondary march to the nearest Abbey during Phase 1.
-* Phase 2 players should move to their new objectives.
-* Assigned defenders staying behind must maintain control of their buildings.
+* Siga seu papel designado de atacante, defensor ou combatente.
+* Envie seu esquadrão secundário para a Abadia mais próxima durante a Fase 1.
+* Os jogadores da Fase 2 devem avançar para seus novos objetivos.
+* Os defensores designados que ficarem para trás devem manter o controle de suas construções.
 
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 GUIA DE PREPARAÇÃO E EXECUÇÃO DO PUSH TG DO PRÓXIMO KVK 📢
 Em 9 de novembro de 2026, os membros terão a opção de evoluir suas construções de TG3 ➡️ TG5.

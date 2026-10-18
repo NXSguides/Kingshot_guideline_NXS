@@ -1024,85 +1024,85 @@ Steps: 1. На экране города нажмите на свой авата
 Подсказки: замок у последнего слота — он ещё не открыт. «Поровну» заполняет все три типа одинаково; «Отозвать всех» очищает слот. Каждый слот хранит своих героев и войска.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-18 by Sparrow] ⚔️ BATTLE ASSIGNMENTS & STRATEGY
-🏰 PHASE 1 — INITIAL BUILDINGS
+[2026-10-18 by Sparrow] ⚔️ БОЕВЫЕ НАЗНАЧЕНИЯ И СТРАТЕГИЯ
+🏰 СТАДИЯ 1 — НАЧАЛЬНЫЕ ЗДАНИЯ
 
-① ROYAL STABLES
+① КОРОЛЕВСКИЙ КОННЫЙ ДВОР
 
-* ⚔️ Attacker: Papa
-* 🛡️ Defenders: Meow, Perci
-* 👥 Joiners: Nia, Big Yahu
+* ⚔️ Нападающий: Papa
+* 🛡️ Защитники: Meow, Perci
+* 👥 Участники битвы: Nia, Big Yahu
 
-② BELL TOWER
+② КОЛОКОЛЬНЯ
 
-* ⚔️ Attacker: MTP
-* 🛡️ Defenders: Kuya Jay, Raccoon
-* 👥 Joiners: L, Gianna
+* ⚔️ Нападающий: MTP
+* 🛡️ Защитники: Kuya Jay, Raccoon
+* 👥 Участники битвы: L, Gianna
 
-③ SANCTUM — NEAR ENEMY
+③ СВЯТИЛИЩЕ — РЯДОМ С ВРАГОМ
 
-* ⚔️ Attacker: Firebaugh
-* 🛡️ Defender: Jordan
-* 👥 Joiners: Bravus, Lovely
+* ⚔️ Нападающий: Firebaugh
+* 🛡️ Защитник: Jordan
+* 👥 Участники битвы: Bravus, Lovely
 
-③ SANCTUM — NEAR HOME
+③ СВЯТИЛИЩЕ — РЯДОМ С БАЗОЙ
 
-* ⚔️ Attacker: Faniel
-* 🛡️ Defender: Adan
-* 👥 Joiners: Thanoss, Sir Tav
+* ⚔️ Нападающий: Faniel
+* 🛡️ Защитник: Adan
+* 👥 Участники битвы: Thanoss, Sir Tav
 
-④ ABBEYS (4 TOTAL)
+④ МОНАСТЫРИ (ВСЕГО 4)
 
-* Anyone can send a second march to an Abbey.
-* Send your secondary march to the closest Abbey to your assigned building.
-* Keep your primary march at your assigned building.
-
-━━━━━━━━━━━━━━━━━━
-
-⚔️ PHASE 2 — NEW OBJECTIVES
-
-⑦ SWORD SHRINE — HEAVY GUARD
-
-* ⚔️ Attacker: Papa
-* 🛡️ Defenders: MTP, Firebaugh
-* 👥 Joiners: L, Gianna
-
-⑤ MERCENARY CAMP
-
-* ⚔️ Attacker: Sir Tav
-* 🛡️ Defender: Thanoss
-
-⑥ HALL OF REFORMATION
-
-* ⚔️ Attacker: Jordan
-* 🛡️ Defender: Nia
+* Каждый может отправить второй отряд в монастырь.
+* Отправьте свой второй отряд в ближайший монастырь от назначенного вам здания.
+* Держите свой основной отряд у назначенного здания.
 
 ━━━━━━━━━━━━━━━━━━
 
-🛡️ STAY BEHIND — DEFENSE
+⚔️ СТАДИЯ 2 — НОВЫЕ ЦЕЛИ
 
-① Royal Stables
+⑦ СВЯТИЛИЩЕ МЕЧА — УСИЛЕННАЯ ОХРАНА
+
+* ⚔️ Нападающий: Papa
+* 🛡️ Защитники: MTP, Firebaugh
+* 👥 Участники битвы: L, Gianna
+
+⑤ ЛАГЕРЬ НАЕМНИКОВ
+
+* ⚔️ Нападающий: Sir Tav
+* 🛡️ Защитник: Thanoss
+
+⑥ ЗАЛ ИСКУПЛЕНИЯ
+
+* ⚔️ Нападающий: Jordan
+* 🛡️ Защитник: Nia
+
+━━━━━━━━━━━━━━━━━━
+
+🛡️ ОСТАВАТЬСЯ В ТЫЛУ — ЗАЩИТА
+
+① Королевский конный двор
 
 * Percival
 * Meow
 
-② Bell Tower
+② Колокольня
 
 * Kuya Jay
 * Raccoon
 
-④ Abbeys
+④ Монастыри
 
--Those assigned sanctums, should send a march back to abbey
+- Игроки, назначенные в святилища, должны отправить один отряд обратно в монастырь
 
 ━━━━━━━━━━━━━━━━━━
 
-📌 IMPORTANT REMINDERS
+📌 ВАЖНЫЕ НАПОМИНАНИЯ
 
-* Follow your assigned attacker, defender, or joiner role.
-* Send your secondary march to the nearest Abbey during Phase 1.
-* Phase 2 players should move to their new objectives.
-* Assigned defenders staying behind must maintain control of their buildings.
+* Следуйте своей назначенной роли нападающего, защитника или участника битвы.
+* Отправьте свой второй отряд в ближайший монастырь во время Стадии 1.
+* Игроки Стадии 2 должны переместиться к своим новым целям.
+* Назначенные защитники, остающиеся в тылу, должны удерживать контроль над своими зданиями.
 
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 RUKOVODSTVO PO PODGOTOVKE I PROVEDENIYU TG PUSHA K PRESTOYAŞÇEMU KVK 📢
 9 ноября 2026 года у участников появится возможность поднять уровень своих зданий с TG3 ➡️ TG5.

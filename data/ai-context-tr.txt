@@ -1024,85 +1024,85 @@ Steps: 1. Şehir ekranında sol üstteki avatarına dokun. 2. Alttaki Ekip'e dok
 İpuçları: son yuvadaki kilit henüz açılmadığı anlamına gelir. “Eşit dağıt” üç türü eşit doldurur; “Tümünü geri çek” yuvayı boşaltır. Her yuva kendi kahraman ve birliklerini tutar.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-18 by Sparrow] ⚔️ BATTLE ASSIGNMENTS & STRATEGY
-🏰 PHASE 1 — INITIAL BUILDINGS
+[2026-10-18 by Sparrow] ⚔️ SAVAŞ GÖREVLERİ VE STRATEJİSİ
+🏰 EVRE 1 — İLK BİNALAR
 
-① ROYAL STABLES
+① KRALİYET AHIRLARI
 
-* ⚔️ Attacker: Papa
-* 🛡️ Defenders: Meow, Perci
-* 👥 Joiners: Nia, Big Yahu
+* ⚔️ Saldırgan: Papa
+* 🛡️ Savunmacılar: Meow, Perci
+* 👥 Savaşçılar: Nia, Big Yahu
 
-② BELL TOWER
+② ÇAN KULESİ
 
-* ⚔️ Attacker: MTP
-* 🛡️ Defenders: Kuya Jay, Raccoon
-* 👥 Joiners: L, Gianna
+* ⚔️ Saldırgan: MTP
+* 🛡️ Savunmacılar: Kuya Jay, Raccoon
+* 👥 Savaşçılar: L, Gianna
 
-③ SANCTUM — NEAR ENEMY
+③ TAPINAK — DÜŞMANA YAKIN
 
-* ⚔️ Attacker: Firebaugh
-* 🛡️ Defender: Jordan
-* 👥 Joiners: Bravus, Lovely
+* ⚔️ Saldırgan: Firebaugh
+* 🛡️ Savunmacı: Jordan
+* 👥 Savaşçılar: Bravus, Lovely
 
-③ SANCTUM — NEAR HOME
+③ TAPINAK — ÜSE YAKIN
 
-* ⚔️ Attacker: Faniel
-* 🛡️ Defender: Adan
-* 👥 Joiners: Thanoss, Sir Tav
+* ⚔️ Saldırgan: Faniel
+* 🛡️ Savunmacı: Adan
+* 👥 Savaşçılar: Thanoss, Sir Tav
 
-④ ABBEYS (4 TOTAL)
+④ MANASTIRLAR (TOPLAM 4)
 
-* Anyone can send a second march to an Abbey.
-* Send your secondary march to the closest Abbey to your assigned building.
-* Keep your primary march at your assigned building.
-
-━━━━━━━━━━━━━━━━━━
-
-⚔️ PHASE 2 — NEW OBJECTIVES
-
-⑦ SWORD SHRINE — HEAVY GUARD
-
-* ⚔️ Attacker: Papa
-* 🛡️ Defenders: MTP, Firebaugh
-* 👥 Joiners: L, Gianna
-
-⑤ MERCENARY CAMP
-
-* ⚔️ Attacker: Sir Tav
-* 🛡️ Defender: Thanoss
-
-⑥ HALL OF REFORMATION
-
-* ⚔️ Attacker: Jordan
-* 🛡️ Defender: Nia
+* Herkes bir Manastıra ikinci bir ekip gönderebilir.
+* İkinci ekibinizi size atanan binaya en yakın Manastıra gönderin.
+* Birincil ekibinizi size atanan binada tutun.
 
 ━━━━━━━━━━━━━━━━━━
 
-🛡️ STAY BEHIND — DEFENSE
+⚔️ EVRE 2 — YENİ HEDEFLER
 
-① Royal Stables
+⑦ KILIÇ ALTARI — YOĞUN MUHAFIZ
+
+* ⚔️ Saldırgan: Papa
+* 🛡️ Savunmacılar: MTP, Firebaugh
+* 👥 Savaşçılar: L, Gianna
+
+⑤ PARALI ASKER KAMPI
+
+* ⚔️ Saldırgan: Sir Tav
+* 🛡️ Savunmacı: Thanoss
+
+⑥ DEVRİM SALONU
+
+* ⚔️ Saldırgan: Jordan
+* 🛡️ Savunmacı: Nia
+
+━━━━━━━━━━━━━━━━━━
+
+🛡️ GERİDE KAL — SAVUNMA
+
+① Kraliyet Ahırları
 
 * Percival
 * Meow
 
-② Bell Tower
+② Çan Kulesi
 
 * Kuya Jay
 * Raccoon
 
-④ Abbeys
+④ Manastırlar
 
--Those assigned sanctums, should send a march back to abbey
+- Tapınaklara atananlar, Manastıra geri bir ekip göndermelidir
 
 ━━━━━━━━━━━━━━━━━━
 
-📌 IMPORTANT REMINDERS
+📌 ÖNEMLİ HATIRLATMALAR
 
-* Follow your assigned attacker, defender, or joiner role.
-* Send your secondary march to the nearest Abbey during Phase 1.
-* Phase 2 players should move to their new objectives.
-* Assigned defenders staying behind must maintain control of their buildings.
+* Size atanan saldırgan, savunmacı veya savaşçı rolüne uyun.
+* Evre 1 sırasında ikinci ekibinizi en yakın Manastıra gönderin.
+* Evre 2 oyuncuları yeni hedeflerine doğru ilerlemelidir.
+* Geride kalan atanmış savunmacılar binaların kontrolünü korumalıdır.
 
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 YAKLAŞAN KVK TG YÜKSELTME HAZIRLIK VE UYGULAMA KILAVUZU 📢
 9 Kasım 2026'da üyeler, binalarını TG3 ➡️ TG5 seviyesine yükseltme seçeneğine sahip olacaklar.
