@@ -1023,6 +1023,9 @@ Steps: 1. 在城內畫面點左上角的頭像。 2. 按下方的「部隊」。
 小提醒：最後一格的鎖頭表示還沒解鎖。「平均配置」會三種兵平均填；「全部撤回」把那格清空。每一格各自記住英雄和兵力。
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-18 by Sparrow] ⚔️ 戰鬥分配與策略 - 軍團1
+(see guide #swordland-showdown)
+
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 即將到來的 KvK TG 衝刺準備與執行指南 📢
 2026年11月9日，成員可選擇將建築等級從 TG3 ➡️ TG5。
 

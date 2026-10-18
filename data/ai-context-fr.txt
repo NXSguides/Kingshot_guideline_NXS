@@ -1024,6 +1024,9 @@ Steps: 1. Sur l'écran de la ville, touchez votre avatar (en haut à gauche). 2.
 Astuces : le cadenas du dernier slot signifie qu'il n'est pas encore débloqué. « Équilibré » remplit les trois types à parts égales ; « Tout retirer » vide le slot. Chaque slot garde ses propres héros et troupes.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-18 by Sparrow] ⚔️ RÉPARTITION DES COMBATS ET STRATÉGIE - LÉGION 1
+(see guide #swordland-showdown)
+
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 GUIDE DE PRÉPARATION ET D'EXÉCUTION DU PUSH TG DU PROCHAIN KVK 📢
 Le 9 novembre 2026, les membres auront la possibilité de faire passer leurs bâtiments de TG3 ➡️ TG5.
 
