@@ -1041,7 +1041,8 @@ function seedTodos(list) {
   return list;
 }
 
-OFFICER_PAGES.events = { init, applyTexts, setLang };
+OFFICER_PAGES.events = { init, applyTexts, setLang,
+  ingame: (id) => { try { const e = byId(id); if (e && e.ingame) return e.ingame; } catch (x) {} return INGAME_DEFAULTS[id] || []; } };   // ⑤ battle table reads the Swordland chat map from here
 
 
 })();
