@@ -1341,12 +1341,14 @@ window.addEventListener("hashchange", () => {
   const st = document.createElement("style");
   st.textContent = `
     .ann-img,.fig{cursor:zoom-in}
-    .img-zoom{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);overflow:auto;-webkit-overflow-scrolling:touch;cursor:zoom-out}
-    .img-zoom img{display:block;margin:auto;max-width:none;width:auto;min-width:100%;height:auto}
-    .img-zoom img.fit{min-width:0;max-width:100%;max-height:100vh;position:absolute;inset:0}
+    .img-zoom{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);overflow:auto;-webkit-overflow-scrolling:touch;cursor:zoom-out;display:flex;touch-action:pan-x pan-y;overscroll-behavior:contain}
+    .img-zoom img{display:block;margin:auto;max-width:none;max-height:none;height:auto;flex:none;cursor:zoom-in;user-select:none;-webkit-user-drag:none}
     .img-zoom-x{position:fixed;top:10px;right:12px;z-index:10000;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.9);font-size:22px;line-height:40px;cursor:pointer}
+    .img-zoom-bar{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:10000;display:flex;gap:8px}
+    .img-zoom-bar button{width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.9);font-size:22px;line-height:44px;cursor:pointer;padding:0}
   `;
   document.head.appendChild(st);
+  /* the big view: pinch (or ctrl + wheel / trackpad pinch) to zoom, drag to move, double-tap to switch between whole picture and close-up, ＋ / − buttons */
   document.addEventListener("click", (e) => {
     const img = e.target.closest && e.target.closest("img.ann-img, img.fig");
     if (!img) return;
@@ -1354,15 +1356,61 @@ window.addEventListener("hashchange", () => {
     box.className = "img-zoom";
     const big = document.createElement("img");
     big.src = img.currentSrc || img.src;
-    // small images (e.g. tables) are shown at 2× so the text can be read; tap to toggle
-    big.onload = () => { if (big.naturalWidth < window.innerWidth * 1.5) big.style.width = Math.max(window.innerWidth, big.naturalWidth) * 2 + "px"; };
+    let fitW = window.innerWidth, maxW = 4000;
+    const setW = (w, cx = box.clientWidth / 2, cy = box.clientHeight / 2) => {
+      w = Math.max(fitW, Math.min(maxW, w));
+      const old = big.offsetWidth || w, r = w / old;
+      const px = cx + box.scrollLeft - big.offsetLeft, py = cy + box.scrollTop - big.offsetTop;
+      big.style.width = w + "px";
+      box.scrollLeft = px * r + big.offsetLeft - cx; box.scrollTop = py * r + big.offsetTop - cy;
+    };
+    big.onload = () => {
+      const nw = big.naturalWidth || 1, nh = big.naturalHeight || 1;
+      fitW = Math.min(box.clientWidth, box.clientHeight * nw / nh);   // the whole picture on screen
+      maxW = Math.max(fitW * 5, nw * 2);
+      // small images (e.g. tables) open at 2× so the text can be read; others open across the screen width
+      big.style.width = (nw < window.innerWidth * 1.5 ? Math.max(window.innerWidth, nw) * 2 : Math.max(fitW, Math.min(box.clientWidth, nw))) + "px";
+    };
     const x = document.createElement("button");
     x.className = "img-zoom-x"; x.type = "button"; x.textContent = "×";
-    const close = () => { box.remove(); x.remove(); document.body.style.overflow = ""; };
+    const bar = document.createElement("div"); bar.className = "img-zoom-bar";
+    bar.innerHTML = '<button type="button" data-z="-1">−</button><button type="button" data-z="0">⤢</button><button type="button" data-z="1">＋</button>';
+    bar.onclick = (ev) => { const b = ev.target.closest("button"); if (!b) return; const z = +b.dataset.z; setW(z ? big.offsetWidth * (z > 0 ? 1.5 : 1 / 1.5) : fitW); };
+    const close = () => { box.remove(); x.remove(); bar.remove(); document.body.style.overflow = ""; };
     x.onclick = close;
-    box.onclick = (ev) => { if (ev.target === box) close(); };
+    let moved = false;
+    box.onclick = (ev) => { if (ev.target === box && !moved) close(); };
+    // double-tap / double-click: whole picture ⇄ 2.5× at that spot
+    let lastTap = 0;
+    big.addEventListener("click", (ev) => {
+      if (moved) return;
+      const now = Date.now();
+      if (now - lastTap < 350) { const r = box.getBoundingClientRect(); setW(big.offsetWidth > fitW * 1.2 ? fitW : fitW * 2.5, ev.clientX - r.left, ev.clientY - r.top); lastTap = 0; }
+      else lastTap = now;
+    });
+    big.addEventListener("dblclick", (ev) => ev.preventDefault());
+    // ctrl + wheel (also what a laptop trackpad pinch sends)
+    box.addEventListener("wheel", (ev) => { if (!ev.ctrlKey) return; ev.preventDefault(); const r = box.getBoundingClientRect(); setW(big.offsetWidth * Math.exp(-Math.max(-60, Math.min(60, ev.deltaY)) / 150), ev.clientX - r.left, ev.clientY - r.top); }, { passive: false });
+    // two-finger pinch
+    const pts = new Map(); let pinch = null;
+    const dist = () => { const [a, b] = [...pts.values()]; return Math.hypot(a.x - b.x, a.y - b.y); };
+    const mid = () => { const [a, b] = [...pts.values()], r = box.getBoundingClientRect(); return [(a.x + b.x) / 2 - r.left, (a.y + b.y) / 2 - r.top]; };
+    box.addEventListener("pointerdown", (ev) => { moved = false; pts.set(ev.pointerId, { x: ev.clientX, y: ev.clientY }); if (pts.size === 2) pinch = { d: dist(), w: big.offsetWidth }; });
+    box.addEventListener("pointermove", (ev) => {
+      if (!pts.has(ev.pointerId)) return;
+      const p = pts.get(ev.pointerId); if (Math.hypot(ev.clientX - p.x, ev.clientY - p.y) > 6) moved = true;
+      pts.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
+      if (pinch && pts.size === 2) { const [cx, cy] = mid(); setW(pinch.w * dist() / pinch.d, cx, cy); }
+    });
+    const up = (ev) => { pts.delete(ev.pointerId); if (pts.size < 2) pinch = null; };
+    box.addEventListener("pointerup", up); box.addEventListener("pointercancel", up);
+    // mouse: drag to move around
+    let drag = null;
+    box.addEventListener("mousedown", (ev) => { if (ev.button) return; drag = { x: ev.clientX, y: ev.clientY, l: box.scrollLeft, t: box.scrollTop }; ev.preventDefault(); });
+    window.addEventListener("mousemove", (ev) => { if (!drag) return; box.scrollLeft = drag.l - (ev.clientX - drag.x); box.scrollTop = drag.t - (ev.clientY - drag.y); });
+    window.addEventListener("mouseup", () => { drag = null; });
     box.appendChild(big);
-    document.body.appendChild(box); document.body.appendChild(x);
+    document.body.appendChild(box); document.body.appendChild(x); document.body.appendChild(bar);
     document.body.style.overflow = "hidden";
   });
 })();
