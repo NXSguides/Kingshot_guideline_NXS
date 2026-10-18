@@ -50,6 +50,9 @@ title: "⚔️ BATTLE ASSIGNMENTS & STRATEGY"
 images: []
 content: |
   [[img:figures/ann/20261018-013712-1.jpg]]
+
+  [[img:figures/SS_map.webp]]
+
   🏰 PHASE 1 — INITIAL BUILDINGS
 
   ① ROYAL STABLES
