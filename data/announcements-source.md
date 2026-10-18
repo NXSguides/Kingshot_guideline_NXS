@@ -50,16 +50,5 @@ title: "⚔️ BATTLE ASSIGNMENTS & STRATEGY - LEGION 1"
 images: []
 expires: "2026-10-19T00:00:00.000Z"
 content: |
-  [[img:figures/ann/20261018-133252-1.jpg]]
-  [[img:figures/ann/20261018-133324-2.jpg]]
-
-  [[link:swordland-showdown]]
----
-author: "Sparrow"
-lang: en
-title: "⚔️ BATTLE ASSIGNMENTS & STRATEGY - LEGION 1"
-images: []
-expires: "2026-10-19T00:00:00.000Z"
-content: |
   [[img:figures/ann/20261018-134104-3.jpg]]
   [[img:figures/ann/20261018-134109-4.jpg]]
