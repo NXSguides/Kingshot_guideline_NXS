@@ -845,5 +845,14 @@
   // after coming back to the app, re-send the list once (keeps the server in step if a save failed)
   document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") { prune(); store(); sync(); if (!view.hidden) render(); } });
   window.addEventListener("nxs-admin-todos", () => { if (adminOn()) sync(); if (!view.hidden) render(); });
-  window.NXSTimers = { parseLeft, show, alertTimers };
+  /* timers another page keeps up to date (e.g. 🔔 Outposts turning Vulnerable on the officer map): items [{ id, name, at }] replace that page's set */
+  function setExt(tag, items) {
+    const want = new Map(items.filter((i) => i.at > Date.now()).map((i) => [i.id, i])); let changed = false;
+    timers = timers.filter((x) => { if (x.ext !== tag || want.has(x.id)) return true; changed = true; return false; });
+    for (const i of want.values()) { const t = timers.find((x) => x.id === i.id), name = String(i.name).slice(0, 60);
+      if (t) { if (t.at !== i.at || t.name !== name) { t.at = i.at; t.name = name; t.mt = Date.now(); changed = true; } }
+      else { timers.push({ id: i.id, cat: "other", name, sub: "", n: 0, at: i.at, ext: tag }); changed = true; } }
+    if (!changed) return; store(); if (!view.hidden) render(); sync();
+  }
+  window.NXSTimers = { parseLeft, show, alertTimers, setExt };
 })();
