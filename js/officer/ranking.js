@@ -691,6 +691,10 @@ function tbGameBox() {
   };
   ROOT.appendChild(m);
 }
+/* file names carry the plan's name (Legion 1 / Legion 2…) and the time, so a phone never opens an older download of another plan */
+const tbFile = (ext) => { const p = typeof planId !== "undefined" && planId && plans[planId], n = String((p && p.name) || "battle").replace(/[\\/:*?"<>|]+/g, "").trim() || "battle";
+  const d = new Date(), t = `${d.getUTCMonth() + 1}-${d.getUTCDate()} ${String(d.getUTCHours()).padStart(2, "0")}${String(d.getUTCMinutes()).padStart(2, "0")} UTC`; return `${n} - battle assignments ${t}.${ext}`; };
+const tbPlanName = () => { const p = typeof planId !== "undefined" && planId && plans[planId]; return (p && p.name) || ""; };
 /* 📊 the same tables as an Excel file (ExcelJS is in js/vendor, loaded only when this is tapped) */
 async function tbExcel(btn) {
   const old = btn.textContent; btn.textContent = "…";
@@ -701,6 +705,7 @@ async function tbExcel(btn) {
     const argb = (c) => "FF" + String(c || "#ffffff").replace("#", "").toUpperCase().padEnd(6, "F").slice(0, 6);
     ws.columns = keys.map((k) => ({ width: { b: 34, att: 16, def: 26, join: 26, note: 60 }[k] || 24 }));
     const band = (text) => { const r = ws.addRow([text]); ws.mergeCells(r.number, 1, r.number, n); r.getCell(1).font = { ...F, bold: true, size: 12, color: { argb: "FFFFFFFF" } }; r.getCell(1).fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FF2B2B2B" } }; };
+    if (tbPlanName()) { const t = ws.addRow([tbPlanName()]); ws.mergeCells(t.number, 1, t.number, n); t.getCell(1).font = { ...F, bold: true, size: 14 }; ws.addRow([]); }   // which plan this is
     secs.forEach((sec, si) => {
       if (si) ws.addRow([]);
       band(sec.name.toUpperCase());
@@ -712,7 +717,7 @@ async function tbExcel(btn) {
     if (rem.length) { ws.addRow([]); band("📌 IMPORTANT REMINDERS");
       rem.forEach((x) => { const r = ws.addRow([x]); ws.mergeCells(r.number, 1, r.number, n); r.getCell(1).font = { ...F, bold: !/^[•*\-]/.test(x) }; }); }
     const blob = new Blob([await wb.xlsx.writeBuffer()], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
-    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "battle-assignments.xlsx"; document.body.appendChild(a); a.click(); a.remove();
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = tbFile("xlsx"); document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 5000);
     btn.textContent = "✓";
   } catch (e) { btn.textContent = "⚠️"; }
@@ -767,7 +772,7 @@ function tbImage() {
   m.className = "tb-modal";
   m.innerHTML = `<div class="card"><img src="${url}" style="max-width:100%;display:block;border-radius:6px">
     <div class="muted" style="margin:8px 0">${esc(tt("saveHint"))}</div>
-    <div class="row"><a class="btn" download="battle-table.png" href="${url}">${esc(tt("download"))}</a>
+    <div class="row"><a class="btn" download="${esc(tbFile("png"))}" href="${url}">${esc(tt("download"))}</a>
     <button class="btn primary" data-topost="1">${esc(tt("toPost"))}</button>
     <button class="btn" data-close="1">${esc(tt("close"))}</button></div></div>`;
   m.onclick = (e) => {
@@ -976,7 +981,10 @@ async function plansInit() {
   setInterval(planPoll, 10000);
   document.addEventListener("visibilitychange", planPoll);
 }
-$("planSel").onchange = (e) => planSwitch(e.target.value);
+/* switching plans right after an edit: save the edit to the plan it was made in first (the save waits 1.2 s otherwise, and was lost) */
+$("planSel").onchange = async (e) => { const to = e.target.value;
+  if (planDirty && planId) { clearTimeout(planTimer); e.target.disabled = true; try { for (let i = 0; i < 40 && planBusy; i++) await new Promise((r) => setTimeout(r, 250)); if (planDirty) await planSave(); } catch (err) {} e.target.disabled = false; }
+  planSwitch(to); };
 $("planEd").addEventListener("change", (e) => {
   const p = plans[planId]; if (!p) return;
   if (e.target.id === "planEdMode") return planSetEditors(e.target.value === "some" ? (p.editors || []) : null);
