@@ -788,7 +788,7 @@ Pendant la Phase de Préparation du KvK, les jours 2 et 3 donnent 8 000 points p
 
 ### GUIDE #wavebound-voyage — Voyage au Fil des Vagues
 QUAND
-Événement ponctuel (pas de cycle fixe). 5 jours : 2026-10-20 00:00 – 10-24 24:00 UTC, puis 1 jour pour ouvrir ou fusionner les trésors (plus de voyages).
+Événement ponctuel (pas de cycle fixe). 5 jours : 10/20 00:00 UTC – 10/24 24:00 UTC, puis 1 jour pour ouvrir ou fusionner les trésors (plus de voyages).
 FONCTIONNEMENT
 Envoie un Équipage en voyage — chaque équipage peut repartir toutes les 8 heures.
 1 équipage gratuit au départ. Les équipages 2 et 3 coûtent 2 000 et 10 000 Gemmes, le 4e est payant.

@@ -788,7 +788,7 @@ En la Fase de Preparación del KvK, los días 2 y 3 dan 8.000 puntos por giro de
 
 ### GUIDE #wavebound-voyage — Viaje Ligado a las Olas
 CUÁNDO
-Evento irregular (sin ciclo fijo). 5 días: 2026-10-20 00:00 – 10-24 24:00 UTC, luego 1 día más para abrir o fusionar tesoros (sin nuevos viajes).
+Evento irregular (sin ciclo fijo). 5 días: 10/20 00:00 UTC – 10/24 24:00 UTC, luego 1 día más para abrir o fusionar tesoros (sin nuevos viajes).
 CÓMO FUNCIONA
 Envía un Equipo de Viajeros de viaje — cada equipo puede salir cada 8 horas.
 Empiezas con 1 equipo gratis. Los equipos 2 y 3 cuestan 2.000 y 10.000 Gemas; el 4 es de pago.

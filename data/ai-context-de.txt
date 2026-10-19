@@ -790,7 +790,7 @@ In der KvK-Vorbereitungsphase bringt an Tag 2 und 3 jede Helden-Roulette-Drehung
 
 ### GUIDE #wavebound-voyage — Wellenwärtsreise
 WANN
-Unregelmäßiges Event (kein fester Zyklus). 5 Tage: 2026-10-20 00:00 – 10-24 24:00 UTC, danach 1 Tag zum Öffnen oder Zusammenführen der Schätze (keine neuen Reisen).
+Unregelmäßiges Event (kein fester Zyklus). 5 Tage: 10/20 00:00 UTC – 10/24 24:00 UTC, danach 1 Tag zum Öffnen oder Zusammenführen der Schätze (keine neuen Reisen).
 SO FUNKTIONIERT'S
 Schicke ein Seefahrer-Team auf Reise — jedes Team kann alle 8 Stunden los.
 1 Team ist gratis. Team 2 und 3 kosten 2.000 und 10.000 Edelsteine, Team 4 ist kostenpflichtig.
