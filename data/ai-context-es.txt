@@ -1057,9 +1057,6 @@ Steps: 1. En la pantalla de la ciudad, toca tu avatar (arriba a la izquierda). 2
 Consejos: el candado de la última ranura significa que aún no está desbloqueada. «Equilibrar» rellena los tres tipos por igual; «Retirar todo» vacía la ranura. Cada ranura guarda sus propios héroes y tropas.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-19 by ΔRMΔDΔ] Ausentes en SS
-(see guide #swordland-showdown)
-
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 GUÍA DE PREPARACIÓN Y EJECUCIÓN DEL PUSH TG DEL PRÓXIMO KVK 📢
 El 9 de noviembre de 2026, los miembros tendrán la opción de subir sus edificios de TG3 ➡️ TG5.
 
