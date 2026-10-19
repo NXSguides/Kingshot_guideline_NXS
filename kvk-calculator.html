@@ -247,6 +247,7 @@ const ITEMS={
  truck:{zh:"護送／掠奪貨車（輛）",en:"Escort / Raid Truck",kvk:0},
  beast:{zh:"擊敗 26–30 級野獸",en:"Defeat Lv 26–30 Beast",kvk:0},
  terror:{zh:"發起集結獵殺巨獸",en:"Terror Rally",kvk:0},
+ gathersg:{zh:"採集（每 2,500 木材、500 石材、100 鐵礦）",en:"Gathering (per 2,500 wood, 500 stone, 100 iron)",kvk:0},
  gather:{zh:"採集（每 2,000 麵包／木材、400 石材、100 鐵礦）",en:"Gathering (per 2,000 bread/wood, 400 stone, 100 iron)",kvk:0},
  gemuse:{zh:"消耗鑽石（個）",en:"Spend gems",kvk:"gem"}
 };
@@ -299,12 +300,13 @@ const TPL={
 /* Strongest Governor & Alliance Brawl: one entry per day, same thresholds for every Town Center level (Kingshot Optimizer, 2026-09) */
 const SG_PTS=[
  {truegold:2000,speed:30,charm:70},   /* day 1: in-game screen 2026-10-19 (building / research / training / Master Skill speedups, no gem speedups) */
- {mithril:40000,tempered:30000,roulette:8000,widget:8000,emblem:6000,hammer:4000,mythic:3040,truegold:2000,epic:1220,dust:1000,rare:350,manuscript:60,speed:30},
+ {mithril:40000,roulette:8000,widget:8000,emblem:6000,hammer:4000,mythic:3040,truegold:2000,epic:1220,rare:350,manuscript:60,speed:30},
  {atm:15000,roulette:8000,emblem:6000,mythic:3040,epic:1220,ctm:1150,rare:350,charm:70,manuscript:60,petadv:50},
- {mithril:40000,widget:8000,hammer:4000,charm:70,t11:49,t10:39,t9:30,t8:23,t7:16,t6:11},
+ {mithril:40000,widget:8000,hammer:4000,charm:70,t10:39,t9:30,t8:23,t7:16,t6:11},
  {mithril:40000,widget:8000,hammer:4000,truegold:2000,speed:30},
- {t11:49,t10:39,gear:36,t9:30,t8:23,t7:16,t6:11},
- {tempered:30000,atm:15000,mythic:3040,truegold:2000,epic:1220,ctm:1150,dust:1000,rare:350,petadv:50,gear:36,speed:30}];
+ {t10:39,gear:36,t9:30,t8:23,t7:16,t6:11},
+ {atm:15000,mythic:3040,truegold:2000,epic:1220,ctm:1150,rare:350,petadv:50,speed:30,gathersg:3}];
+/* days 2–7 points per unit: in-game screens 2026-10-19 (T1–T5 troops left out) */
 const SG_TH=[[6700,80000,186000,333000],[5800,70000,161000,312000],[14000,105000,210000,362000],[12000,90000,140000,250000],[5800,69000,161000,333000],[12000,106000,212000,380000],[9400,84000,180000,333000]];
 /* Optimizer lists each day's milestone rewards as one total (M1–M4 together) → put on M4 */
 const SG_RW=[[375,4000,["truegold",18]],[375,4000],[390,3900],[450,3900],[450,4000,["truegold",18]],[450,3400],[375,3200]];
@@ -312,7 +314,7 @@ const SG_RW=[[375,4000,["truegold",18]],[375,4000],[390,3900],[450,3900],[450,40
 const SG_RL=["1","2","3","4–5","6–10","11–20","21–50","51–100","101–200","201–500","501–1000"];
 const SG_RK1=SG_RL.map((l,i)=>[l,[["gems",[20000,15000,10000,7000,5000,3500,2000,1200,800,400,200][i]],["r60",[10,9,8,7,6,5,4,3,2,1,1][i]],["goldkey",[3,2,2,1,1,1,1,1,0,0,0][i]],["silverkey",[0,0,0,0,0,0,0,0,3,2,1][i]]]]);
 const SG_RK2=SG_RL.map((l,i)=>[l,[["gems",[20000,12000,10000,7000,5000,3500,2000,1200,800,400,200][i]],["c60",[10,9,8,7,6,5,4,3,2,1,1][i]],["t60",[10,9,8,7,6,5,4,3,2,1,0][i]]]]);
-const SG_THEME=[["城鎮建設","City Construction"],["英雄養成","Hero Development"],["技能提升","Skill Up"],["戰鬥訓練","Combat Training"],["技能提升","Skill Up"],["戰鬥訓練","Combat Training"],["英雄養成","Hero Development"]];
+const SG_THEME=[["城鎮建設","City Construction"],["英雄成長","Hero Development"],["基礎能力提升","Skill Up"],["戰鬥能力提升","Combat Training"],["基礎能力提升","Skill Up"],["戰鬥能力提升","Combat Training"],["英雄成長","Hero Development"]];
 /* checked against in-game screens 2026-10-14; Tempered Truegold / Truegold Dust are only in Optimizer's list (not on our screens) */
 const AB_PTS=[
  {tempered:18750,truck:10000,emblem:3600,truegold:1250,dust:625,manuscript:36,speed:18,gather:2,gemuse:1},
@@ -347,7 +349,7 @@ TPL.sg1=()=>[RW(["bread",47],["wood",47],["stone",9],["iron",2]),RW(["xp1k",65],
 AB_PTS.forEach((pts,i)=>{const th=i<4?[100,25000,50000,87500,125000]:[100,37500,75000,125000,187500];
  EVENTS["ab"+(i+1)]={fam:"ab",day:i+1,zh:"聯盟對決 第 "+(i+1)+" 天",en:"Alliance Brawl Day "+(i+1),dz:AB_THEME[i][0],de:AB_THEME[i][1],pts,th:[0,1,2,3].map(()=>th),noRank:1};
  TPL["ab"+(i+1)]=()=>i<4?AB_RW():i===4?AB_RW("artisan"):AB_RW("hammer",8)});
-const NOTES={sg:{zh:"門檻和每單位分數來自 Kingshot Optimizer（所有城鎮中心等級相同）。Optimizer 只給每天 M1–M4 的獎勵總和，所以都先放在 M4；挑戰勳章照遊戲裡的勳章獎勵換算：擁有 2～14 枚共 13 階，每階 1 個耶格爾碎片＋1 小時訓練加速（另有技能書、裝扮設計圖，不算王國爭霸分數），平均每枚約 4,494 分。第 1 天的分數和每個里程碑的獎勵已照遊戲畫面（2026-10-19）更新。",en:"Thresholds and points per unit from Kingshot Optimizer (same for every Town Center level). Optimizer only gives each day's M1–M4 rewards as one total, so they're all on M4; A Challenge Medal is valued from the in-game medal track: owning 2–14 medals is 13 steps, each 1 Jaeger Shard + 1h Training Speedup (plus skill books and a blueprint, which don't score in KvK), about 4,494 pts per medal. Day 1 points and each milestone's rewards are updated from the in-game screen (2026-10-19)."},
+const NOTES={sg:{zh:"門檻和每單位分數來自 Kingshot Optimizer（所有城鎮中心等級相同）。Optimizer 只給每天 M1–M4 的獎勵總和，所以都先放在 M4；挑戰勳章照遊戲裡的勳章獎勵換算：擁有 2～14 枚共 13 階，每階 1 個耶格爾碎片＋1 小時訓練加速（另有技能書、裝扮設計圖，不算王國爭霸分數），平均每枚約 4,494 分。7 天的每單位分數，和第 1 天每個里程碑的獎勵，已照遊戲畫面（2026-10-19）更新；第 2～7 天的門檻和獎勵還是 Optimizer 的。",en:"Thresholds and points per unit from Kingshot Optimizer (same for every Town Center level). Optimizer only gives each day's M1–M4 rewards as one total, so they're all on M4; A Challenge Medal is valued from the in-game medal track: owning 2–14 medals is 13 steps, each 1 Jaeger Shard + 1h Training Speedup (plus skill books and a blueprint, which don't score in KvK), about 4,494 pts per medal. Points per unit for all 7 days, and Day 1's milestone rewards, are updated from the in-game screens (2026-10-19); Days 2–7 thresholds and rewards are still Optimizer's."},
  ab:{zh:"門檻和每單位分數來自 Kingshot Optimizer，已和遊戲畫面核對（回火黃金、黃金研究粉塵只有 Optimizer 有列，我們的畫面上沒有）。里程碑獎勵是第 3 天（寵物訓練）和第 4 天（裝備強化）的實際畫面，兩天完全一樣；第 1、2 天門檻一樣，先當作獎勵也一樣；第 5 天（貿易爭霸）也有實際畫面：門檻不同，獎勵一樣，只有最後一個寶箱是設計圖紙 15（不是寶石手冊）；第 6 天（全面競爭）也一樣，最後一個寶箱是鍛造錘 8。情報事件的 KvK 分用 Optimizer 的倍率（×2）換算。",en:"Thresholds and points per unit from Kingshot Optimizer, checked against the game (Tempered Truegold and Truegold Dust are only in Optimizer's list, not on our screens). Milestone rewards are from actual Day 3 (Pet Training) and Day 4 (Gear Enhancement) screens, identical on both days; Days 1 and 2 have the same thresholds and are assumed the same; Day 5 (Trade Baron) is from an actual screen too: different thresholds, same rewards except the last chest has 15 Artisan's Vision instead of Charm Guides; Day 6 (Full-Scale Competition) is the same with 8 Forgehammers in the last chest. Intel Missions use Optimizer's ×2 KvK ratio."}};
 const GROUPS=[{zh:"1–21 級",en:"Lv 1–21"},{zh:"22–25 級",en:"Lv 22–25"},{zh:"26–29 級",en:"Lv 26–29"},{zh:"30 級以上（含 TG）",en:"Lv 30+ (incl. TG)"}];
 const VERIFIED={opB:[3],ac2:[3]};
