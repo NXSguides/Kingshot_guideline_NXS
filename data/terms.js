@@ -3,6 +3,19 @@
 const TERM_LANGS = ["en", "zh", "ko", "de", "fr", "pt", "tr", "id", "ru", "th", "ar", "es"];
 const TERMS = [
  {
+  "cat": "Wavebound Voyage",
+  "rows": [
+   ["Wavebound Voyage", "踏浪之旅", "파도 위를 가르는 여행", "Wellenwärtsreise", "Voyage au Fil des Vagues", "Viagem das Ondas", "Dalgalara Karşı Yolculuk", "Pelayaran Ombak", "Вояж по волнам", "การเดินทางคลื่น", "رحلة الأمواج", "Viaje Ligado a las Olas", "Wavebound Voyage (event 2026-10-20), in-game screens 2026-10-19"],
+   ["Voyager Team", "探索隊", "탐사대", "Seefahrer-Team", "Équipage", "Equipe de Viajantes", "Yolcu Takımı", "Tim Pelayaran", "отряд путешественников", "ทีมนักเดินทาง", "فريق الرحلة", "Equipo de Viajeros", "Wavebound Voyage (event 2026-10-20), in-game screens 2026-10-19"],
+   ["Compass", "航海羅盤", "항해 나침반", "Kompass", "Boussole", "Bússola", "Pusula", "Kompas", "компас", "เข็มทิศ", "بوصلة", "Brújula", "Wavebound Voyage (event 2026-10-20), in-game screens 2026-10-19"],
+   ["Sails Aloft Pack", "揚帆起航禮包", "본격적인 출항 패키지", "Segel gehisst Paket", "Pack Voiles Hissées", "Pacote Velas ao Alto", "Yelkenler Fora Paketi", "Paket Layar Terbentang", "набор «Поднять паруса»", "แพ็กกางใบเรือสู่การเดินทาง", "حزم الأشرعة العالية", "Paquete de Velas Izadas", "Wavebound Voyage (event 2026-10-20), in-game screens 2026-10-19"],
+   ["Common Tidal Treasure", "普通潮汐寶藏", "일반 파도 보물", "Gewöhnlicher Gezeitenschatz", "Trésor des Marées Commun", "Tesouro das Marés Comum", "Sıradan Gelgit Hazinesi", "Harta Karun Lautan Common", "Обычное сокровище прилива", "สมบัติกระแสน้ำทั่วไป", "كنز المد والجزر الشائع", "Tesoro de Marea Común", "Wavebound Voyage (event 2026-10-20), in-game screens 2026-10-19"],
+   ["Premium Tidal Treasure", "高級潮汐寶藏", "고급 파도 보물", "Höherwertiger Gezeitenschatz", "Trésor des Marées Premium", "Tesouro das Marés Premium", "Premium Gelgit Hazinesi", "Harta Karun Lautan Premium", "Премиум-сокровище прилива", "สมบัติกระแสน้ำพรีเมียม", "كنز المد والجزر المميز", "Tesoro de Marea Premium", "Wavebound Voyage (event 2026-10-20), in-game screens 2026-10-19"],
+   ["Exquisite Tidal Treasure", "精緻潮汐寶藏", "정교한 파도 보물", "Exquisiter Gezeitenschatz", "Trésor des Marées Exquis", "Tesouro das Marés Requintado", "Seçkin Gelgit Hazinesi", "Harta Karun Lautan Exquisite", "Изящное сокровище прилива", "สมบัติกระแสน้ำวิจิตร", "كنز المد والجزر الرائع", "Tesoro de Marea Exquisito", "Wavebound Voyage (event 2026-10-20), in-game screens 2026-10-19"],
+   ["Majestic Tidal Treasure", "卓越潮汐寶藏", "탁월한 파도 보물", "Majestätischer Gezeitenschatz", "Trésor des Marées Majestueux", "Tesouro das Marés Majestoso", "İhtişamlı Gelgit Hazinesi", "Harta Karun Lautan Majestic", "Великолепное сокровище прилива", "สมบัติกระแสน้ำมหาอำนาจ", "كنز المد والجزر المهيب", "Tesoro de Marea Majestuoso", "Wavebound Voyage (event 2026-10-20), in-game screens 2026-10-19"]
+  ]
+ },
+ {
   "cat": "Speedup Queue Types",
   "rows": [
    ["Construction","建造","건설","Bau","Construction","Construção","İnşaat","Konstruksi","Строительство","การสร้าง","البناء","Construcción","The queue name used in 'Construction Speedup'. ES: Backpack tooltip 'Acelerador de Construcción de 1 h'."],

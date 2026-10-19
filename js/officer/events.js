@@ -346,6 +346,7 @@ const EVENTS = {
   "fishing-tournament": { emoji: "🎣", en: "Fishing Tournament", zh: "釣魚大賽" },
   "hero-roulette":      { emoji: "🎰", en: "Hero Roulette", zh: "英雄轉盤" },
   "cesares-fury":       { emoji: "🗡️", en: "Cesares Fury", zh: "征討切薩雷", noGuide: true },
+  "wavebound-voyage":   { emoji: "⛵", en: "Wavebound Voyage", zh: "踏浪之旅", start: "2026-10-20", every: 100000, days: 5 },   // one-off (irregular)
   "sanctuary-battle":   { emoji: "🏯", en: "Sanctuary Battle", zh: "遺跡爭奪", noGuide: true, start: "2026-10-06", every: 7, days: 4 },   // added after the list was first saved → start/every/days seed it
   // the week right after KvK (first seen 2026-10-12; check the dates in game)
   "alliance-brawl":     { emoji: "🤜", en: "Alliance Brawl", zh: "聯盟對決", noGuide: true, start: "2026-10-12", every: 28, days: 7,
@@ -452,7 +453,7 @@ let LIST = null, weekStart = null, OFFICER_PW = null, TOKEN = null, FILE_SHA = n
    "sched" stays readable so the main site can follow schedule changes; the in-game guides etc. are in "data". */
 const EV_PATH = "data/events-x7k2p9.json";
 const { owner: OWNER, name: REPO, branch: BRANCH } = OFFICER.repo;
-const GUIDE_LIST = {"bear-hunt":{"e":"🐻","en":"Bear Hunt","zh":"狩獵巨熊"},"viking-vengeance":{"e":"🧯","en":"Viking Vengeance","zh":"維京人的掠奪"},"swordland-showdown":{"e":"⚔️","en":"Swordland Showdown","zh":"聖劍爭奪"},"tri-alliance-clash":{"e":"🔱","en":"Tri-Alliance Clash","zh":"三盟爭霸"},"eternity-reach":{"e":"⛏️","en":"Eternity's Reach","zh":"失落的遺跡"},"all-out":{"e":"🪖","en":"All Out","zh":"全軍出擊"},"kvk":{"e":"👑","en":"KvK Prep & Battle Guide","zh":"KvK 準備與戰鬥指南"},"hero-roulette":{"e":"🎡","en":"Hero Roulette","zh":"英雄轉盤"},"fishing-tournament":{"e":"🎣","en":"Fishing Tournament","zh":"釣魚大賽"},"mystic-trial":{"e":"🔮","en":"Mystic Trial","zh":"秘境試煉"},"formations-rally-tips":{"e":"🛡️","en":"Formations & Rally Tips","zh":"部隊編組與集結技巧"},"master-academy":{"e":"🎓","en":"Gen 3 Master Academy Guide","zh":"第3代大師學院指南"},"pet":{"e":"🦁","en":"Pets","zh":"寵物"},"f2p-heroes":{"e":"🎯","en":"F2P Heroes Guide","zh":"英雄培養指南（F2P）"},"hero-cards":{"e":"🃏","en":"Hero Cards (Gen 1–3)","zh":"英雄卡（第 1–3 代）"},"general-tips":{"e":"🔍","en":"General Tips","zh":"通用小技巧"}};
+const GUIDE_LIST = {"wavebound-voyage":{"e":"⛵","en":"Wavebound Voyage","zh":"踏浪之旅"},"bear-hunt":{"e":"🐻","en":"Bear Hunt","zh":"狩獵巨熊"},"viking-vengeance":{"e":"🧯","en":"Viking Vengeance","zh":"維京人的掠奪"},"swordland-showdown":{"e":"⚔️","en":"Swordland Showdown","zh":"聖劍爭奪"},"tri-alliance-clash":{"e":"🔱","en":"Tri-Alliance Clash","zh":"三盟爭霸"},"eternity-reach":{"e":"⛏️","en":"Eternity's Reach","zh":"失落的遺跡"},"all-out":{"e":"🪖","en":"All Out","zh":"全軍出擊"},"kvk":{"e":"👑","en":"KvK Prep & Battle Guide","zh":"KvK 準備與戰鬥指南"},"hero-roulette":{"e":"🎡","en":"Hero Roulette","zh":"英雄轉盤"},"fishing-tournament":{"e":"🎣","en":"Fishing Tournament","zh":"釣魚大賽"},"mystic-trial":{"e":"🔮","en":"Mystic Trial","zh":"秘境試煉"},"formations-rally-tips":{"e":"🛡️","en":"Formations & Rally Tips","zh":"部隊編組與集結技巧"},"master-academy":{"e":"🎓","en":"Gen 3 Master Academy Guide","zh":"第3代大師學院指南"},"pet":{"e":"🦁","en":"Pets","zh":"寵物"},"f2p-heroes":{"e":"🎯","en":"F2P Heroes Guide","zh":"英雄培養指南（F2P）"},"hero-cards":{"e":"🃏","en":"Hero Cards (Gen 1–3)","zh":"英雄卡（第 1–3 代）"},"general-tips":{"e":"🔍","en":"General Tips","zh":"通用小技巧"}};
 
 const $ = (id) => ROOT.querySelector("#" + CSS.escape(id)) || document["getElementById"](id);
 const tr = (k, v = {}) => { const s = (T[lang] && T[lang][k]) ?? T.en[k] ?? k; return typeof s === "string" ? s.replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m) : s; };
@@ -1022,7 +1023,7 @@ async function init() {
 function seedTodos(list) {
   // events added to the site after the list was saved (they carry their own default schedule)
   for (const [id, e] of Object.entries(EVENTS)) {
-    if (e.start && !list.some((x) => x.id === id)) list.push({ id, emoji: e.emoji, en: e.en, zh: e.zh, start: e.start, every: e.every, days: e.days, guide: "", note: e.note || "", ...(e.noteZh ? { noteZh: e.noteZh } : {}), todo: [], ingame: INGAME_DEFAULTS[id] || [] });
+    if (e.start && !list.some((x) => x.id === id)) list.push({ id, emoji: e.emoji, en: e.en, zh: e.zh, start: e.start, every: e.every, days: e.days, guide: e.noGuide ? "" : (GUIDE_LIST[id] ? id : ""), note: e.note || "", ...(e.noteZh ? { noteZh: e.noteZh } : {}), todo: [], ingame: INGAME_DEFAULTS[id] || [] });
   }
   /* Bear Hunt moved from 11:00 to 13:00 UTC: fix the note in an already-saved list */
   for (const e of list) if (e.id === "bear-hunt") { if (e.note) e.note = e.note.replace("11:00 & 22:00", "13:00 & 22:00"); if (e.noteZh) e.noteZh = e.noteZh.replace("11:00 和 22:00", "13:00 和 22:00"); }
