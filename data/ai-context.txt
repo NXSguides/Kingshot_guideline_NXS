@@ -1024,9 +1024,6 @@ Steps: 1. On the city screen tap your avatar (top left). 2. Tap Squad at the bot
 Tips: the lock icon next to the last slot means it still has to be unlocked. “Even” fills all three types equally; “Withdraw all” clears the slot. Each slot keeps its own heroes and troops.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-18 by Sparrow] ⚔️ BATTLE ASSIGNMENTS & STRATEGY - LEGION 1
-
-
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 UPCOMING KVK TG PUSH PREPARATION & EXECUTION GUIDE 📢
 On November 9, 2026, members will have the option to push their buildings from TG3 ➡️ TG5.
 
