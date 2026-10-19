@@ -45,6 +45,7 @@ content: |
   [[link:kvk]]
 ---
 author: "ΔRMΔDΔ"
+created: "2026-10-19T20:09:06.946Z"
 lang: en
 title: "SS No-Shows"
 images: []
@@ -57,7 +58,7 @@ content: |
 
   ⚔️ We miss your strength: We need everyone on the battlefield.
 
-  ⚖️ Unfair Matchmaking: Because your registered power is counted, we end up         matched against much stronger alliances.
+  ⚖️ Unfair Matchmaking: Because your registered power is counted, we end up matched against much stronger alliances.
 
   🗣️ Complaints: It generates a lot of frustration and complaints from our active players.
 
