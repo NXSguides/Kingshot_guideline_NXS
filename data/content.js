@@ -9628,7 +9628,7 @@ const GUIDES = {
     sections: {
       en: { title: "Wavebound Voyage", blocks: [
         {"type": "h", "text": "WHEN"},
-        {"type": "p", "text": "Irregular event (no fixed cycle). 5 days: 2026-10-20 00:00 – 10-24 24:00 UTC, then 1 more day to open or merge treasures (no new voyages)."},
+        {"type": "p", "text": "Irregular event (no fixed cycle). 5 days: 10/20 00:00 UTC – 10/24 24:00 UTC, then 1 more day to open or merge treasures (no new voyages)."},
         {"type": "h", "text": "HOW IT WORKS"},
         {"type": "list", "items": ["Send a {voyagerTeam} on a voyage — each team can go out every 8 hours.", "You start with 1 free team. Teams 2 and 3 cost 2,000 and 10,000 {gems}; team 4 is paid.", "Each voyage brings back a {tidalCommon} (90%) or a {tidalPremium} (10%).", "Merge 3 {tidalCommon} → 1 {tidalPremium}. Merge 3 {tidalPremium} → {tidalExquisite} (75%) or {tidalMajestic} (25%).", "Each {voyageCompass} cuts a voyage by 1 hour. Compasses come from the {sailsAloftPack}."]},
         {"type": "h", "text": "🎯 MILESTONE REWARDS (total voyages)"},
@@ -9641,7 +9641,7 @@ const GUIDES = {
       ]},
       zh: { title: "踏浪之旅", blocks: [
         {"type": "h", "text": "開放時間"},
-        {"type": "p", "text": "不定期活動（沒有固定週期）。共 5 天：UTC 2026-10-20 00:00 – 10-24 24:00，之後還有 1 天可以開啟或合成寶藏（不能再派隊）。"},
+        {"type": "p", "text": "不定期活動（沒有固定週期）。共 5 天：10/20 00:00 UTC – 10/24 24:00 UTC，之後還有 1 天可以開啟或合成寶藏（不能再派隊）。"},
         {"type": "h", "text": "怎麼玩"},
         {"type": "list", "items": ["派{voyagerTeam}出去探索，每支隊伍每 8 小時可以出發一次。", "一開始有 1 支免費隊伍。第 2、3 支要 2,000 和 10,000 {gems}，第 4 支要付費。", "每次探索回來會拿到{tidalCommon}（90%）或{tidalPremium}（10%）。", "3 個{tidalCommon} → 1 個{tidalPremium}。3 個{tidalPremium} → {tidalExquisite}（75%）或{tidalMajestic}（25%）。", "每個{voyageCompass}可以讓一次探索縮短 1 小時，從{sailsAloftPack}取得。"]},
         {"type": "h", "text": "🎯 累計探索次數獎勵"},
@@ -9654,7 +9654,7 @@ const GUIDES = {
       ]},
       ko: { title: "파도 위를 가르는 여행", blocks: [
         {"type": "h", "text": "일정"},
-        {"type": "p", "text": "비정기 이벤트. 5일간: UTC 2026-10-20 00:00 – 10-24 24:00, 이후 1일 동안 보물 개봉·합성만 가능 (추가 탐사 불가)."},
+        {"type": "p", "text": "비정기 이벤트. 5일간: 10/20 00:00 UTC – 10/24 24:00 UTC, 이후 1일 동안 보물 개봉·합성만 가능 (추가 탐사 불가)."},
         {"type": "h", "text": "진행 방식"},
         {"type": "list", "items": ["{voyagerTeam}를 파견해 탐사 — 탐사대마다 8시간 간격으로 파견 가능.", "기본 탐사대 1개는 무료. 2·3번째는 2,000 / 10,000 {gems}, 4번째는 유료.", "복귀 시 {tidalCommon} (90%) 또는 {tidalPremium} (10%) 획득.", "{tidalCommon} 3개 → {tidalPremium} 1개. {tidalPremium} 3개 → {tidalExquisite} (75%) 또는 {tidalMajestic} (25%).", "{voyageCompass} 1개당 탐사 시간 1시간 단축. {sailsAloftPack}로 획득."]},
         {"type": "h", "text": "🎯 누적 탐사 횟수 보상"},
@@ -9667,7 +9667,7 @@ const GUIDES = {
       ]},
       de: { title: "Wellenwärtsreise", blocks: [
         {"type": "h", "text": "WANN"},
-        {"type": "p", "text": "Unregelmäßiges Event (kein fester Zyklus). 5 Tage: 2026-10-20 00:00 – 10-24 24:00 UTC, danach 1 Tag zum Öffnen oder Zusammenführen der Schätze (keine neuen Reisen)."},
+        {"type": "p", "text": "Unregelmäßiges Event (kein fester Zyklus). 5 Tage: 10/20 00:00 UTC – 10/24 24:00 UTC, danach 1 Tag zum Öffnen oder Zusammenführen der Schätze (keine neuen Reisen)."},
         {"type": "h", "text": "SO FUNKTIONIERT'S"},
         {"type": "list", "items": ["Schicke ein {voyagerTeam} auf Reise — jedes Team kann alle 8 Stunden los.", "1 Team ist gratis. Team 2 und 3 kosten 2.000 und 10.000 {gems}, Team 4 ist kostenpflichtig.", "Jede Reise bringt einen {tidalCommon} (90 %) oder einen {tidalPremium} (10 %).", "3 × {tidalCommon} → 1 {tidalPremium}. 3 × {tidalPremium} → {tidalExquisite} (75 %) oder {tidalMajestic} (25 %).", "Jeder {voyageCompass} verkürzt eine Reise um 1 Stunde. Kompasse gibt es im {sailsAloftPack}."]},
         {"type": "h", "text": "🎯 MEILENSTEINE (Reisen insgesamt)"},
@@ -9680,7 +9680,7 @@ const GUIDES = {
       ]},
       fr: { title: "Voyage au Fil des Vagues", blocks: [
         {"type": "h", "text": "QUAND"},
-        {"type": "p", "text": "Événement ponctuel (pas de cycle fixe). 5 jours : 2026-10-20 00:00 – 10-24 24:00 UTC, puis 1 jour pour ouvrir ou fusionner les trésors (plus de voyages)."},
+        {"type": "p", "text": "Événement ponctuel (pas de cycle fixe). 5 jours : 10/20 00:00 UTC – 10/24 24:00 UTC, puis 1 jour pour ouvrir ou fusionner les trésors (plus de voyages)."},
         {"type": "h", "text": "FONCTIONNEMENT"},
         {"type": "list", "items": ["Envoie un {voyagerTeam} en voyage — chaque équipage peut repartir toutes les 8 heures.", "1 équipage gratuit au départ. Les équipages 2 et 3 coûtent 2 000 et 10 000 {gems}, le 4e est payant.", "Chaque voyage rapporte un {tidalCommon} (90 %) ou un {tidalPremium} (10 %).", "3 {tidalCommon} → 1 {tidalPremium}. 3 {tidalPremium} → {tidalExquisite} (75 %) ou {tidalMajestic} (25 %).", "Chaque {voyageCompass} réduit un voyage d'1 heure. Les boussoles viennent du {sailsAloftPack}."]},
         {"type": "h", "text": "🎯 RÉCOMPENSES DE PALIER (voyages au total)"},
@@ -9693,7 +9693,7 @@ const GUIDES = {
       ]},
       pt: { title: "Viagem das Ondas", blocks: [
         {"type": "h", "text": "QUANDO"},
-        {"type": "p", "text": "Evento irregular (sem ciclo fixo). 5 dias: 2026-10-20 00:00 – 10-24 24:00 UTC, depois mais 1 dia para abrir ou combinar tesouros (sem novas viagens)."},
+        {"type": "p", "text": "Evento irregular (sem ciclo fixo). 5 dias: 10/20 00:00 UTC – 10/24 24:00 UTC, depois mais 1 dia para abrir ou combinar tesouros (sem novas viagens)."},
         {"type": "h", "text": "COMO FUNCIONA"},
         {"type": "list", "items": ["Envie uma {voyagerTeam} em viagem — cada equipe pode sair a cada 8 horas.", "Você começa com 1 equipe grátis. As equipes 2 e 3 custam 2.000 e 10.000 {gems}; a 4ª é paga.", "Cada viagem traz um {tidalCommon} (90%) ou um {tidalPremium} (10%).", "3 {tidalCommon} → 1 {tidalPremium}. 3 {tidalPremium} → {tidalExquisite} (75%) ou {tidalMajestic} (25%).", "Cada {voyageCompass} reduz uma viagem em 1 hora. Bússolas vêm do {sailsAloftPack}."]},
         {"type": "h", "text": "🎯 RECOMPENSAS DE MARCO (total de viagens)"},
@@ -9706,7 +9706,7 @@ const GUIDES = {
       ]},
       tr: { title: "Dalgalara Karşı Yolculuk", blocks: [
         {"type": "h", "text": "NE ZAMAN"},
-        {"type": "p", "text": "Düzensiz etkinlik (sabit döngü yok). 5 gün: 2026-10-20 00:00 – 10-24 24:00 UTC, ardından hazineleri açmak veya birleştirmek için 1 gün daha (yeni yolculuk yok)."},
+        {"type": "p", "text": "Düzensiz etkinlik (sabit döngü yok). 5 gün: 10/20 00:00 UTC – 10/24 24:00 UTC, ardından hazineleri açmak veya birleştirmek için 1 gün daha (yeni yolculuk yok)."},
         {"type": "h", "text": "NASIL OYNANIR"},
         {"type": "list", "items": ["{voyagerTeam} yolculuğa gönder — her takım 8 saatte bir çıkabilir.", "1 takım ücretsiz. 2. ve 3. takım 2.000 ve 10.000 {gems}; 4. takım ücretli.", "Her yolculuk {tidalCommon} (%90) veya {tidalPremium} (%10) getirir.", "3 {tidalCommon} → 1 {tidalPremium}. 3 {tidalPremium} → {tidalExquisite} (%75) veya {tidalMajestic} (%25).", "Her {voyageCompass} bir yolculuğu 1 saat kısaltır. Pusulalar {sailsAloftPack} ile alınır."]},
         {"type": "h", "text": "🎯 EŞİK ÖDÜLLERİ (toplam yolculuk)"},
@@ -9719,7 +9719,7 @@ const GUIDES = {
       ]},
       id: { title: "Pelayaran Ombak", blocks: [
         {"type": "h", "text": "KAPAN"},
-        {"type": "p", "text": "Event tidak rutin (tanpa siklus tetap). 5 hari: 2026-10-20 00:00 – 10-24 24:00 UTC, lalu 1 hari lagi untuk membuka atau menggabungkan harta karun (tanpa pelayaran baru)."},
+        {"type": "p", "text": "Event tidak rutin (tanpa siklus tetap). 5 hari: 10/20 00:00 UTC – 10/24 24:00 UTC, lalu 1 hari lagi untuk membuka atau menggabungkan harta karun (tanpa pelayaran baru)."},
         {"type": "h", "text": "CARA MAIN"},
         {"type": "list", "items": ["Kirim {voyagerTeam} berlayar — tiap tim bisa berangkat setiap 8 jam.", "1 tim gratis di awal. Tim ke-2 dan ke-3 seharga 2.000 dan 10.000 {gems}; tim ke-4 berbayar.", "Setiap pelayaran membawa {tidalCommon} (90%) atau {tidalPremium} (10%).", "3 {tidalCommon} → 1 {tidalPremium}. 3 {tidalPremium} → {tidalExquisite} (75%) atau {tidalMajestic} (25%).", "Setiap {voyageCompass} memangkas pelayaran 1 jam. Kompas didapat dari {sailsAloftPack}."]},
         {"type": "h", "text": "🎯 HADIAH MILESTONE (total pelayaran)"},
@@ -9732,7 +9732,7 @@ const GUIDES = {
       ]},
       ru: { title: "Вояж по волнам", blocks: [
         {"type": "h", "text": "КОГДА"},
-        {"type": "p", "text": "Нерегулярное событие (без фиксированного цикла). 5 дней: 2026-10-20 00:00 – 10-24 24:00 UTC, затем ещё 1 день, чтобы открыть или синтезировать сокровища (новые путешествия недоступны)."},
+        {"type": "p", "text": "Нерегулярное событие (без фиксированного цикла). 5 дней: 10/20 00:00 UTC – 10/24 24:00 UTC, затем ещё 1 день, чтобы открыть или синтезировать сокровища (новые путешествия недоступны)."},
         {"type": "h", "text": "КАК ЭТО РАБОТАЕТ"},
         {"type": "list", "items": ["Отправляйте {voyagerTeam} в путешествие — каждый отряд можно отправлять раз в 8 часов.", "1 отряд бесплатный. 2-й и 3-й стоят 2 000 и 10 000 {gems}, 4-й — платный.", "Каждое путешествие приносит {tidalCommon} (90%) или {tidalPremium} (10%).", "3 × {tidalCommon} → 1 {tidalPremium}. 3 × {tidalPremium} → {tidalExquisite} (75%) или {tidalMajestic} (25%).", "Каждый {voyageCompass} сокращает путешествие на 1 час. Компасы — из набора {sailsAloftPack}."]},
         {"type": "h", "text": "🎯 НАГРАДЫ ЗА ПРОГРЕСС (всего путешествий)"},
@@ -9745,7 +9745,7 @@ const GUIDES = {
       ]},
       th: { title: "การเดินทางคลื่น", blocks: [
         {"type": "h", "text": "ช่วงเวลา"},
-        {"type": "p", "text": "อีเวนต์ไม่ประจำ (ไม่มีรอบตายตัว) 5 วัน: 2026-10-20 00:00 – 10-24 24:00 UTC จากนั้นมีอีก 1 วันให้เปิดหรือรวมหีบสมบัติ (ส่งทีมใหม่ไม่ได้)"},
+        {"type": "p", "text": "อีเวนต์ไม่ประจำ (ไม่มีรอบตายตัว) 5 วัน: 10/20 00:00 UTC – 10/24 24:00 UTC จากนั้นมีอีก 1 วันให้เปิดหรือรวมหีบสมบัติ (ส่งทีมใหม่ไม่ได้)"},
         {"type": "h", "text": "วิธีเล่น"},
         {"type": "list", "items": ["ส่ง{voyagerTeam}ออกเดินทาง — แต่ละทีมออกได้ทุก 8 ชั่วโมง", "เริ่มต้นมี 1 ทีมฟรี ทีมที่ 2 และ 3 ใช้ 2,000 และ 10,000 {gems} ทีมที่ 4 ต้องซื้อ", "การเดินทางแต่ละครั้งได้{tidalCommon} (90%) หรือ{tidalPremium} (10%)", "{tidalCommon} 3 ชิ้น → {tidalPremium} 1 ชิ้น / {tidalPremium} 3 ชิ้น → {tidalExquisite} (75%) หรือ{tidalMajestic} (25%)", "{voyageCompass}แต่ละชิ้นลดเวลาเดินทาง 1 ชั่วโมง ได้จาก{sailsAloftPack}"]},
         {"type": "h", "text": "🎯 รางวัลเป้าหมาย (จำนวนการเดินทางสะสม)"},
@@ -9758,7 +9758,7 @@ const GUIDES = {
       ]},
       ar: { title: "رحلة الأمواج", blocks: [
         {"type": "h", "text": "متى"},
-        {"type": "p", "text": "فعالية غير دورية (بدون موعد ثابت). 5 أيام: 2026-10-20 00:00 – 10-24 24:00 UTC، ثم يوم إضافي لفتح الكنوز أو دمجها (بدون رحلات جديدة)."},
+        {"type": "p", "text": "فعالية غير دورية (بدون موعد ثابت). 5 أيام: 10/20 00:00 UTC – 10/24 24:00 UTC، ثم يوم إضافي لفتح الكنوز أو دمجها (بدون رحلات جديدة)."},
         {"type": "h", "text": "طريقة اللعب"},
         {"type": "list", "items": ["أرسل {voyagerTeam} في رحلة — يمكن لكل فريق الانطلاق كل 8 ساعات.", "تبدأ بفريق واحد مجاني. الفريقان 2 و3 بـ 2,000 و10,000 من {gems}، والفريق 4 مدفوع.", "كل رحلة تعود بـ {tidalCommon} (90%) أو {tidalPremium} (10%).", "3 × {tidalCommon} ← 1 {tidalPremium}. و3 × {tidalPremium} ← {tidalExquisite} (75%) أو {tidalMajestic} (25%).", "كل {voyageCompass} تختصر الرحلة ساعة واحدة، وتأتي من {sailsAloftPack}."]},
         {"type": "h", "text": "🎯 مكافآت الأهداف (إجمالي الرحلات)"},
@@ -9771,7 +9771,7 @@ const GUIDES = {
       ]},
       es: { title: "Viaje Ligado a las Olas", blocks: [
         {"type": "h", "text": "CUÁNDO"},
-        {"type": "p", "text": "Evento irregular (sin ciclo fijo). 5 días: 2026-10-20 00:00 – 10-24 24:00 UTC, luego 1 día más para abrir o fusionar tesoros (sin nuevos viajes)."},
+        {"type": "p", "text": "Evento irregular (sin ciclo fijo). 5 días: 10/20 00:00 UTC – 10/24 24:00 UTC, luego 1 día más para abrir o fusionar tesoros (sin nuevos viajes)."},
         {"type": "h", "text": "CÓMO FUNCIONA"},
         {"type": "list", "items": ["Envía un {voyagerTeam} de viaje — cada equipo puede salir cada 8 horas.", "Empiezas con 1 equipo gratis. Los equipos 2 y 3 cuestan 2.000 y 10.000 {gems}; el 4 es de pago.", "Cada viaje trae un {tidalCommon} (90 %) o un {tidalPremium} (10 %).", "3 {tidalCommon} → 1 {tidalPremium}. 3 {tidalPremium} → {tidalExquisite} (75 %) o {tidalMajestic} (25 %).", "Cada {voyageCompass} acorta un viaje 1 hora. Las brújulas vienen del {sailsAloftPack}."]},
         {"type": "h", "text": "🎯 RECOMPENSAS POR OBJETIVOS (viajes en total)"},
