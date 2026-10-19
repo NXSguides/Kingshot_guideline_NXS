@@ -1057,6 +1057,9 @@ Steps: 1. Na tela da cidade, toque no seu avatar (canto superior esquerdo). 2. T
 Dicas: o cadeado no último slot significa que ainda não foi desbloqueado. “Igualar” preenche os três tipos por igual; “Retirar tudo” esvazia o slot. Cada slot guarda seus próprios heróis e tropas.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-19 by ΔRMΔDΔ] Ausentes do SS
+(see guide #swordland-showdown)
+
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 GUIA DE PREPARAÇÃO E EXECUÇÃO DO PUSH TG DO PRÓXIMO KVK 📢
 Em 9 de novembro de 2026, os membros terão a opção de evoluir suas construções de TG3 ➡️ TG5.
 

@@ -1059,6 +1059,9 @@ Steps: 1. Tippe im Stadtbildschirm oben links auf dein Profilbild. 2. Tippe unte
 Hinweise: Das Schloss am letzten Slot heißt, er ist noch nicht freigeschaltet. „Gleichmäßig“ füllt alle drei Typen gleich, „Alle zurückziehen“ leert den Slot. Jeder Slot merkt sich eigene Helden und Truppen.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-19 by ΔRMΔDΔ] SS-Abwesende
+(see guide #swordland-showdown)
+
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 ANSTEHENDER KVK TG PUSH VORBEREITUNGS- & AUSFÜHRUNGSLEITFADEN 📢
 Am 9. November 2026 haben Mitglieder die Möglichkeit, ihre Gebäude von TG3 ➡️ TG5 zu pushen.
 
