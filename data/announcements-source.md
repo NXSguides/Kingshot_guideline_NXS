@@ -43,3 +43,14 @@ content: |
   Start gathering and saving now so we are ready to dominate the next KvK! 🚀🛡️
 
   [[link:kvk]]
+---
+author: "ΔRMΔDΔ"
+lang: en
+title: "SS No-Shows"
+images: []
+content: |
+  [[img:figures/ann/20261019-194108-1.jpg]]
+  [[img:figures/ann/20261019-195742-2.jpg]]
+  [[img:figures/ann/20261019-195753-3.jpg]]
+
+  [[link:swordland-showdown]]
