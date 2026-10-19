@@ -786,6 +786,39 @@ Setelah 3 putaran gratis, tiap event butuh 159.000 Permata — sekitar 954.000 P
 ⚔️ TIPS KVK
 Di Fase Persiapan KvK, hari ke-2 dan ke-3 memberi 8.000 poin per putaran Rolet Hero — jadi Chip Keberuntungan dan Permata untuk memutar sebaiknya disimpan untuk dua hari itu.
 
+### GUIDE #wavebound-voyage — Pelayaran Ombak
+KAPAN
+Event tidak rutin (tanpa siklus tetap). 5 hari: 2026-10-20 00:00 – 10-24 24:00 UTC, lalu 1 hari lagi untuk membuka atau menggabungkan harta karun (tanpa pelayaran baru).
+CARA MAIN
+Kirim Tim Pelayaran berlayar — tiap tim bisa berangkat setiap 8 jam.
+1 tim gratis di awal. Tim ke-2 dan ke-3 seharga 2.000 dan 10.000 Permata; tim ke-4 berbayar.
+Setiap pelayaran membawa Harta Karun Lautan Common (90%) atau Harta Karun Lautan Premium (10%).
+3 Harta Karun Lautan Common → 1 Harta Karun Lautan Premium. 3 Harta Karun Lautan Premium → Harta Karun Lautan Exquisite (75%) atau Harta Karun Lautan Majestic (25%).
+Setiap Kompas memangkas pelayaran 1 jam. Kompas didapat dari Paket Layar Terbentang.
+🎯 HADIAH MILESTONE (total pelayaran)
+1 → 9 Panduan Charm
+5 → 18 Panduan Charm
+20 → 36 Panduan Charm
+60 → 72 Desain Charm
+120 → 162 Desain Charm
+200 → 216 Desain Charm
+350 → 144 peti material Charm Gubernur acak
+600 → 600 peti material Charm Gubernur acak
+🎁 ISI TIAP HARTA KARUN
+Harta Karun Lautan Common: Desain Charm ×5 · Percepatan Umum 5 menit ×18 · 100 Permata ×2
+Harta Karun Lautan Premium: Panduan Charm ×10 · Desain Charm ×10 · Percepatan Umum 1 jam ×6
+Harta Karun Lautan Exquisite: Panduan Charm ×15 · Desain Charm ×15 · Paket Chip Keberuntungan Mitos ×2
+Harta Karun Lautan Majestic: Panduan Charm ×50 · Desain Charm ×50 · Paket Chip Keberuntungan Mitos ×6
+Common = material dasar · Premium = awal penggabungan · Exquisite & Majestic = hadiah utama. Jumlah bisa berbeda sesuai progres server.
+💡 TIPS
+Kirim tim setiap 8 jam. Hanya dengan tim gratis, progres lambat.
+F2P: tambah tim dengan Permata sampai milestone yang kamu incar.
+Spender kecil: capai 196 pelayaran lalu tutup dengan 4 terakhir (milestone 200) — hadiah bagus tanpa boros.
+Spender besar: terus sampai 600, milestone tertinggi.
+Simpan Kompas untuk akhir — jangan dipakai di awal. Pakai untuk mencapai 196 atau menutup kekurangan.
+Menggabungkan ke harta karun lebih tinggi adalah kuncinya, tapi tiap peti beda hadiah — ambil yang kamu butuhkan dulu.
+Tim yang masih berlayar saat event berakhir tetap kembali dan dihitung untuk milestone.
+
 ### GUIDE #fishing-tournament — Turnamen Memancing
 KAPAN
 Setiap 4 minggu.
@@ -1063,6 +1096,14 @@ Mulai mengumpulkan dan menyimpan sekarang agar kita siap untuk mendominasi KvK b
 (see guide #kvk)
 
 ### GAME TERMS (English = official id name)
+Wavebound Voyage = Pelayaran Ombak
+Voyager Team = Tim Pelayaran
+Compass = Kompas
+Sails Aloft Pack = Paket Layar Terbentang
+Common Tidal Treasure = Harta Karun Lautan Common
+Premium Tidal Treasure = Harta Karun Lautan Premium
+Exquisite Tidal Treasure = Harta Karun Lautan Exquisite
+Majestic Tidal Treasure = Harta Karun Lautan Majestic
 Construction = Konstruksi
 Training = Pelatihan
 Research = Penelitian
@@ -1653,6 +1694,7 @@ use = gunakan
 okay if needed = boleh jika perlu
 don't use = jangan digunakan
 need to do daily = perlu dilakukan setiap hari
+Charm Guide = Panduan Charm
 Conscript = wajib militer
 neutral buildings = bangunan netral
 Deploy = Mengerahkan

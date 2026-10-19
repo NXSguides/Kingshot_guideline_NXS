@@ -786,6 +786,39 @@ Quitando los 3 giros gratis, cada evento cuesta 159.000 Gemas: unas 954.000 Gema
 ⚔️ CONSEJO PARA EL KVK
 En la Fase de Preparación del KvK, los días 2 y 3 dan 8.000 puntos por giro de la Ruleta de Héroes, así que conviene guardar tus Ficha de la suertes y las Gemas para girar hasta esos dos días.
 
+### GUIDE #wavebound-voyage — Viaje Ligado a las Olas
+CUÁNDO
+Evento irregular (sin ciclo fijo). 5 días: 2026-10-20 00:00 – 10-24 24:00 UTC, luego 1 día más para abrir o fusionar tesoros (sin nuevos viajes).
+CÓMO FUNCIONA
+Envía un Equipo de Viajeros de viaje — cada equipo puede salir cada 8 horas.
+Empiezas con 1 equipo gratis. Los equipos 2 y 3 cuestan 2.000 y 10.000 Gemas; el 4 es de pago.
+Cada viaje trae un Tesoro de Marea Común (90 %) o un Tesoro de Marea Premium (10 %).
+3 Tesoro de Marea Común → 1 Tesoro de Marea Premium. 3 Tesoro de Marea Premium → Tesoro de Marea Exquisito (75 %) o Tesoro de Marea Majestuoso (25 %).
+Cada Brújula acorta un viaje 1 hora. Las brújulas vienen del Paquete de Velas Izadas.
+🎯 RECOMPENSAS POR OBJETIVOS (viajes en total)
+1 → 9 Guía de talismanes
+5 → 18 Guía de talismanes
+20 → 36 Guía de talismanes
+60 → 72 Planos de talismán
+120 → 162 Planos de talismán
+200 → 216 Planos de talismán
+350 → 144 cofres aleatorios de materiales de Talismán del Gobernador
+600 → 600 cofres aleatorios de materiales de Talismán del Gobernador
+🎁 QUÉ TRAE CADA TESORO
+Tesoro de Marea Común: Planos de talismán ×5 · Acelerador general de 5 min ×18 · 100 Gemas ×2
+Tesoro de Marea Premium: Guía de talismanes ×10 · Planos de talismán ×10 · Acelerador general de 1 h ×6
+Tesoro de Marea Exquisito: Guía de talismanes ×15 · Planos de talismán ×15 · Fragmento de héroe General Mítico ×2
+Tesoro de Marea Majestuoso: Guía de talismanes ×50 · Planos de talismán ×50 · Fragmento de héroe General Mítico ×6
+Común = materiales básicos · Premium = base para fusionar · Exquisito y Majestuoso = las recompensas principales. Las cantidades pueden variar según el progreso del servidor.
+💡 CONSEJOS
+Envía equipos cada 8 horas. Solo con el equipo gratis va lento.
+F2P: añade equipos con Gemas hasta llegar al objetivo que buscas.
+Gasto bajo: llega a 196 viajes y termina con los últimos 4 (objetivo 200) — buenas recompensas sin gastar de más.
+Gasto alto: sigue hasta 600, el objetivo máximo.
+Guarda las Brújula para el final, no las uses pronto. Úsalas para llegar a 196 o cubrir lo que falte.
+Fusionar en tesoros superiores es la clave, pero cada cofre da recompensas distintas — primero lo que necesites.
+Los equipos que sigan de viaje al acabar el evento vuelven y cuentan para los objetivos.
+
 ### GUIDE #fishing-tournament — Torneo de Pesca
 CUÁNDO
 Cada 4 semanas.
@@ -1063,6 +1096,14 @@ Esta es una tarea enorme. Si planeas participar en cualquiera de estas opciones,
 (see guide #kvk)
 
 ### GAME TERMS (English = official es name)
+Wavebound Voyage = Viaje Ligado a las Olas
+Voyager Team = Equipo de Viajeros
+Compass = Brújula
+Sails Aloft Pack = Paquete de Velas Izadas
+Common Tidal Treasure = Tesoro de Marea Común
+Premium Tidal Treasure = Tesoro de Marea Premium
+Exquisite Tidal Treasure = Tesoro de Marea Exquisito
+Majestic Tidal Treasure = Tesoro de Marea Majestuoso
 Construction = Construcción
 Training = Entrenamiento
 Research = Investigación
@@ -1714,6 +1755,7 @@ use = usar
 okay if needed = aceptable si es necesario
 don't use = no usar
 need to do daily = hacer a diario
+Charm Guide = Guía de talismanes
 Captain = Capitán
 Conscript = reclutar
 neutral buildings = edificios neutrales

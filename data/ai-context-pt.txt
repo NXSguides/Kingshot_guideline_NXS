@@ -786,6 +786,39 @@ Tirando os 3 giros grátis, cada evento custa 159.000 Gemas — cerca de 954.000
 ⚔️ DICA PARA O KVK
 Na Fase de Preparação do KvK, os dias 2 e 3 dão 8.000 pontos por giro na Roleta do Herói — vale guardar suas Ficha da Sortes e as Gemas dos giros para esses dois dias.
 
+### GUIDE #wavebound-voyage — Viagem das Ondas
+QUANDO
+Evento irregular (sem ciclo fixo). 5 dias: 2026-10-20 00:00 – 10-24 24:00 UTC, depois mais 1 dia para abrir ou combinar tesouros (sem novas viagens).
+COMO FUNCIONA
+Envie uma Equipe de Viajantes em viagem — cada equipe pode sair a cada 8 horas.
+Você começa com 1 equipe grátis. As equipes 2 e 3 custam 2.000 e 10.000 Gemas; a 4ª é paga.
+Cada viagem traz um Tesouro das Marés Comum (90%) ou um Tesouro das Marés Premium (10%).
+3 Tesouro das Marés Comum → 1 Tesouro das Marés Premium. 3 Tesouro das Marés Premium → Tesouro das Marés Requintado (75%) ou Tesouro das Marés Majestoso (25%).
+Cada Bússola reduz uma viagem em 1 hora. Bússolas vêm do Pacote Velas ao Alto.
+🎯 RECOMPENSAS DE MARCO (total de viagens)
+1 → 9 Guia de Acessórios
+5 → 18 Guia de Acessórios
+20 → 36 Guia de Acessórios
+60 → 72 Design do Talismã
+120 → 162 Design do Talismã
+200 → 216 Design do Talismã
+350 → 144 baús aleatórios de materiais de Talismã do Governador
+600 → 600 baús aleatórios de materiais de Talismã do Governador
+🎁 O QUE VEM EM CADA TESOURO
+Tesouro das Marés Comum: Design do Talismã ×5 · 5m de Aceleração Geral ×18 · 100 Gemas ×2
+Tesouro das Marés Premium: Guia de Acessórios ×10 · Design do Talismã ×10 · 1h de Aceleração Geral ×6
+Tesouro das Marés Requintado: Guia de Acessórios ×15 · Design do Talismã ×15 · Fragmento de Herói Geral Mítico ×2
+Tesouro das Marés Majestoso: Guia de Acessórios ×50 · Design do Talismã ×50 · Fragmento de Herói Geral Mítico ×6
+Comum = materiais básicos · Premium = início das combinações · Requintado e Majestoso = as recompensas principais. As quantidades podem variar com o progresso do servidor.
+💡 DICAS
+Envie equipes a cada 8 horas. Só com a equipe grátis é lento.
+F2P: adicione equipes com Gemas para chegar ao marco que você quer.
+Quem gasta pouco: chegue a 196 viagens e termine com as últimas 4 (marco 200) — boas recompensas sem gastar demais.
+Quem gasta muito: siga até 600, o marco máximo.
+Guarde as Bússola para o final — não use cedo. Use para chegar a 196 ou cobrir o que faltar.
+Combinar em tesouros melhores é o principal, mas cada baú dá recompensas diferentes — pegue primeiro o que precisa.
+Equipes que ainda estiverem viajando no fim do evento voltam e contam para os marcos.
+
 ### GUIDE #fishing-tournament — Torneio de Pesca
 QUANDO
 A cada 4 semanas.
@@ -1063,6 +1096,14 @@ Comece a coletar e guardar agora para estarmos prontos para dominar o próximo K
 (see guide #kvk)
 
 ### GAME TERMS (English = official pt name)
+Wavebound Voyage = Viagem das Ondas
+Voyager Team = Equipe de Viajantes
+Compass = Bússola
+Sails Aloft Pack = Pacote Velas ao Alto
+Common Tidal Treasure = Tesouro das Marés Comum
+Premium Tidal Treasure = Tesouro das Marés Premium
+Exquisite Tidal Treasure = Tesouro das Marés Requintado
+Majestic Tidal Treasure = Tesouro das Marés Majestoso
 Construction = Construção
 Training = Treinamento
 Research = Pesquisa
@@ -1827,6 +1868,7 @@ use = usar
 okay if needed = ok se necessário
 don't use = não usar
 need to do daily = fazer diariamente
+Charm Guide = Guia de Acessórios
 Conscript = recrutar
 neutral buildings = construções neutras
 Deploy = Posicionar

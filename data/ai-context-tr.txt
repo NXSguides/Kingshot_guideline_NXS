@@ -786,6 +786,39 @@ Neden tek etkinlikte çevirmeye devam etmemeli?
 ⚔️ KVK İPUCU
 KvK Hazırlık Evresi'nin 2. ve 3. gününde Kahraman Ruleti'nde her çevirme 8.000 puan verir — Uğurlu Fiş'lerini ve çevirme Elmas'larını bu iki güne saklamaya değer.
 
+### GUIDE #wavebound-voyage — Dalgalara Karşı Yolculuk
+NE ZAMAN
+Düzensiz etkinlik (sabit döngü yok). 5 gün: 2026-10-20 00:00 – 10-24 24:00 UTC, ardından hazineleri açmak veya birleştirmek için 1 gün daha (yeni yolculuk yok).
+NASIL OYNANIR
+Yolcu Takımı yolculuğa gönder — her takım 8 saatte bir çıkabilir.
+1 takım ücretsiz. 2. ve 3. takım 2.000 ve 10.000 Elmas; 4. takım ücretli.
+Her yolculuk Sıradan Gelgit Hazinesi (%90) veya Premium Gelgit Hazinesi (%10) getirir.
+3 Sıradan Gelgit Hazinesi → 1 Premium Gelgit Hazinesi. 3 Premium Gelgit Hazinesi → Seçkin Gelgit Hazinesi (%75) veya İhtişamlı Gelgit Hazinesi (%25).
+Her Pusula bir yolculuğu 1 saat kısaltır. Pusulalar Yelkenler Fora Paketi ile alınır.
+🎯 EŞİK ÖDÜLLERİ (toplam yolculuk)
+1 → 9 Tılsım Kılavuzu
+5 → 18 Tılsım Kılavuzu
+20 → 36 Tılsım Kılavuzu
+60 → 72 Tılsım Tasarımı
+120 → 162 Tılsım Tasarımı
+200 → 216 Tılsım Tasarımı
+350 → 144 rastgele Vali Tılsımı malzeme sandığı
+600 → 600 rastgele Vali Tılsımı malzeme sandığı
+🎁 HAZİNELERİN İÇİNDEKİLER
+Sıradan Gelgit Hazinesi: Tılsım Tasarımı ×5 · 5 dk Genel Hızlandırma ×18 · 100 Elmas ×2
+Premium Gelgit Hazinesi: Tılsım Kılavuzu ×10 · Tılsım Tasarımı ×10 · 1 sa Genel Hızlandırma ×6
+Seçkin Gelgit Hazinesi: Tılsım Kılavuzu ×15 · Tılsım Tasarımı ×15 · Mitik Genel Kahraman Parçası ×2
+İhtişamlı Gelgit Hazinesi: Tılsım Kılavuzu ×50 · Tılsım Tasarımı ×50 · Mitik Genel Kahraman Parçası ×6
+Sıradan = temel malzeme · Premium = birleştirmenin başlangıcı · Seçkin ve İhtişamlı = asıl ödüller. Miktarlar sunucu ilerlemesine göre değişebilir.
+💡 İPUÇLARI
+Takımları 8 saatte bir gönder. Sadece ücretsiz takımla yavaş ilerler.
+F2P: hedeflediğin eşiğe ulaşmak için Elmas ile takım ekle.
+Az harcayanlar: 196 yolculuğa kadar git, son 4 ile bitir (eşik 200) — fazla harcamadan iyi ödüller.
+Çok harcayanlar: en yüksek eşik olan 600'e kadar devam et.
+Pusula sona sakla, erken kullanma. 196'ya ulaşmak veya eksiği kapatmak için kullan.
+Üst hazinelere birleştirmek esas, ama her sandık farklı ödül verir — önce ihtiyacın olanı al.
+Etkinlik bittiğinde yolda olan takımlar döner ve eşiklere sayılır.
+
 ### GUIDE #fishing-tournament — Balık Avı Turnuvası
 NE ZAMAN
 Her 4 haftada bir.
@@ -1063,6 +1096,14 @@ Bu devasa bir süreçtir. Bu seçeneklerden herhangi birine katılmayı planlıy
 (see guide #kvk)
 
 ### GAME TERMS (English = official tr name)
+Wavebound Voyage = Dalgalara Karşı Yolculuk
+Voyager Team = Yolcu Takımı
+Compass = Pusula
+Sails Aloft Pack = Yelkenler Fora Paketi
+Common Tidal Treasure = Sıradan Gelgit Hazinesi
+Premium Tidal Treasure = Premium Gelgit Hazinesi
+Exquisite Tidal Treasure = Seçkin Gelgit Hazinesi
+Majestic Tidal Treasure = İhtişamlı Gelgit Hazinesi
 Construction = İnşaat
 Training = Eğitim
 Research = Araştırma
@@ -1763,6 +1804,7 @@ use = kullan
 okay if needed = gerekirse uygun
 don't use = kullanma
 need to do daily = her gün gerekli
+Charm Guide = Tılsım Kılavuzu
 Conscript = görevlendirmek
 neutral buildings = tarafsız binalar
 Deploy = Konuşlandırmak

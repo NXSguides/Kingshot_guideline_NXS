@@ -788,6 +788,39 @@ Nach den 3 Gratis-Drehungen kostet jedes Event 159.000 Edelsteine – für alle 
 ⚔️ KVK-TIPP
 In der KvK-Vorbereitungsphase bringt an Tag 2 und 3 jede Helden-Roulette-Drehung 8.000 Punkte – Glückschips und Edelsteine fürs Drehen lohnt es sich also für diese zwei Tage aufzuheben.
 
+### GUIDE #wavebound-voyage — Wellenwärtsreise
+WANN
+Unregelmäßiges Event (kein fester Zyklus). 5 Tage: 2026-10-20 00:00 – 10-24 24:00 UTC, danach 1 Tag zum Öffnen oder Zusammenführen der Schätze (keine neuen Reisen).
+SO FUNKTIONIERT'S
+Schicke ein Seefahrer-Team auf Reise — jedes Team kann alle 8 Stunden los.
+1 Team ist gratis. Team 2 und 3 kosten 2.000 und 10.000 Edelsteine, Team 4 ist kostenpflichtig.
+Jede Reise bringt einen Gewöhnlicher Gezeitenschatz (90 %) oder einen Höherwertiger Gezeitenschatz (10 %).
+3 × Gewöhnlicher Gezeitenschatz → 1 Höherwertiger Gezeitenschatz. 3 × Höherwertiger Gezeitenschatz → Exquisiter Gezeitenschatz (75 %) oder Majestätischer Gezeitenschatz (25 %).
+Jeder Kompass verkürzt eine Reise um 1 Stunde. Kompasse gibt es im Segel gehisst Paket.
+🎯 MEILENSTEINE (Reisen insgesamt)
+1 → 9 Talismanleitfaden
+5 → 18 Talismanleitfaden
+20 → 36 Talismanleitfaden
+60 → 72 Talismanpläne
+120 → 162 Talismanpläne
+200 → 216 Talismanpläne
+350 → 144 zufällige Gouverneur Talisman-Materialtruhen
+600 → 600 zufällige Gouverneur Talisman-Materialtruhen
+🎁 INHALT DER SCHÄTZE
+Gewöhnlicher Gezeitenschatz: Talismanpläne ×5 · 5-Min.-Beschleunigung (allgemein) ×18 · 100 Edelsteine ×2
+Höherwertiger Gezeitenschatz: Talismanleitfaden ×10 · Talismanpläne ×10 · 1-Std.-Beschleunigung (allgemein) ×6
+Exquisiter Gezeitenschatz: Talismanleitfaden ×15 · Talismanpläne ×15 · Mythisches Helden-Fragment ×2
+Majestätischer Gezeitenschatz: Talismanleitfaden ×50 · Talismanpläne ×50 · Mythisches Helden-Fragment ×6
+Gewöhnlich = Grundmaterial · Höherwertig = Start fürs Zusammenführen · Exquisit & Majestätisch = die Hauptbelohnungen. Mengen können je nach Serverfortschritt abweichen.
+💡 TIPPS
+Alle 8 Stunden Teams schicken. Nur mit dem Gratis-Team geht es langsam.
+F2P: mit Edelsteine Teams dazunehmen, bis dein Meilenstein erreicht ist.
+Wenigzahler: bis 196 Reisen, dann mit den letzten 4 abschließen (Meilenstein 200) — gute Belohnungen ohne zu viel auszugeben.
+Vielzahler: stetig bis 600, dem höchsten Meilenstein.
+Kompass fürs Ende aufheben, nicht früh verbrauchen — für 196 oder um Lücken zu füllen.
+Zusammenführen ist der Kern, aber jede Truhe gibt andere Belohnungen — zuerst, was du brauchst.
+Teams, die bei Eventende noch unterwegs sind, kommen zurück und zählen für die Meilensteine.
+
 ### GUIDE #fishing-tournament — Fischerturnier
 WANN
 Alle 4 Wochen.
@@ -1065,6 +1098,14 @@ Beginne jetzt mit dem Sammeln und Sparen, damit wir bereit sind, das nächste Kv
 (see guide #kvk)
 
 ### GAME TERMS (English = official de name)
+Wavebound Voyage = Wellenwärtsreise
+Voyager Team = Seefahrer-Team
+Compass = Kompass
+Sails Aloft Pack = Segel gehisst Paket
+Common Tidal Treasure = Gewöhnlicher Gezeitenschatz
+Premium Tidal Treasure = Höherwertiger Gezeitenschatz
+Exquisite Tidal Treasure = Exquisiter Gezeitenschatz
+Majestic Tidal Treasure = Majestätischer Gezeitenschatz
 Construction = Bau
 Research = Forschung
 Healing = Heilung
@@ -1748,6 +1789,7 @@ use = nutzen
 okay if needed = bei Bedarf okay
 don't use = nicht nutzen
 need to do daily = täglich nötig
+Charm Guide = Talismanleitfaden
 Conscript = Einberufen
 neutral buildings = neutrale Gebäude
 Deploy = Aufstellen

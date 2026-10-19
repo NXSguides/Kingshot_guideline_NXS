@@ -786,6 +786,39 @@ After the 3 free spins, each event costs 159,000 Gems — about 954,000 Gems for
 ⚔️ KvK TIP
 In the KvK Preparation Phase, Days 2 and 3 give 8,000 points per Hero Roulette spin — so it's worth saving your Lucky Chips and spin Gems for those two days.
 
+### GUIDE #wavebound-voyage — Wavebound Voyage
+WHEN
+Irregular event (no fixed cycle). 5 days: 2026-10-20 00:00 – 10-24 24:00 UTC, then 1 more day to open or merge treasures (no new voyages).
+HOW IT WORKS
+Send a Voyager Team on a voyage — each team can go out every 8 hours.
+You start with 1 free team. Teams 2 and 3 cost 2,000 and 10,000 Gems; team 4 is paid.
+Each voyage brings back a Common Tidal Treasure (90%) or a Premium Tidal Treasure (10%).
+Merge 3 Common Tidal Treasure → 1 Premium Tidal Treasure. Merge 3 Premium Tidal Treasure → Exquisite Tidal Treasure (75%) or Majestic Tidal Treasure (25%).
+Each Compass cuts a voyage by 1 hour. Compasses come from the Sails Aloft Pack.
+🎯 MILESTONE REWARDS (total voyages)
+1 → 9 Charm Guide
+5 → 18 Charm Guide
+20 → 36 Charm Guide
+60 → 72 Charm Design
+120 → 162 Charm Design
+200 → 216 Charm Design
+350 → 144 random Governor Charm material chest
+600 → 600 random Governor Charm material chest
+🎁 WHAT'S IN EACH TREASURE
+Common Tidal Treasure: Charm Design ×5 · 5m General Speedup ×18 · 100 Gems ×2
+Premium Tidal Treasure: Charm Guide ×10 · Charm Design ×10 · 1h General Speedup ×6
+Exquisite Tidal Treasure: Charm Guide ×15 · Charm Design ×15 · Mythic General Hero Shard ×2
+Majestic Tidal Treasure: Charm Guide ×50 · Charm Design ×50 · Mythic General Hero Shard ×6
+Common = basic materials · Premium = the start for merging · Exquisite & Majestic = the main rewards. Amounts may differ with your server's progress.
+💡 TIPS
+Send teams every 8 hours. One free team alone is slow.
+F2P: add teams with Gems to reach the milestone you're aiming for.
+Light spenders: reach 196 voyages, then finish with your last 4 (milestone 200) — good rewards without overspending.
+Big spenders: keep going to 600, the top milestone.
+Save Compass for the end — don't use them early. Use them to reach 196 or to fill a gap.
+Merging into higher treasures is the key, but each chest gives different rewards — merge for what you need first.
+Teams already out when the event ends still come back and count toward the milestones.
+
 ### GUIDE #fishing-tournament — Fishing Tournament
 WHEN
 Every 4 weeks.
