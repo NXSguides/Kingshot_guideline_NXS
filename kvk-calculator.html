@@ -299,14 +299,14 @@ const TPL={
 };
 /* Strongest Governor & Alliance Brawl: one entry per day, same thresholds for every Town Center level (Kingshot Optimizer, 2026-09) */
 const SG_PTS=[
- {truegold:2000,speed:30,charm:70},   /* day 1: in-game screen 2026-10-19 (building / research / training / Master Skill speedups, no gem speedups) */
- {mithril:40000,roulette:8000,widget:8000,emblem:6000,hammer:4000,mythic:3040,truegold:2000,epic:1220,rare:350,manuscript:60,speed:30},
+ {tempered:30000,truegold:2000,dust:1000,speed:30,charm:70},   /* day 1: in-game screen 2026-10-19 (building / research / training / Master Skill speedups, no gem speedups) */
+ {mithril:40000,tempered:30000,roulette:8000,widget:8000,emblem:6000,hammer:4000,mythic:3040,truegold:2000,epic:1220,dust:1000,rare:350,manuscript:60,speed:30},
  {atm:15000,roulette:8000,emblem:6000,mythic:3040,epic:1220,ctm:1150,rare:350,charm:70,manuscript:60,petadv:50},
- {mithril:40000,widget:8000,hammer:4000,charm:70,t10:39,t9:30,t8:23,t7:16,t6:11},
+ {mithril:40000,widget:8000,hammer:4000,charm:70,t11:49,t10:39,t9:30,t8:23,t7:16,t6:11},
  {mithril:40000,widget:8000,hammer:4000,truegold:2000,speed:30},
- {t10:39,gear:36,t9:30,t8:23,t7:16,t6:11},
- {atm:15000,mythic:3040,truegold:2000,epic:1220,ctm:1150,rare:350,petadv:50,speed:30,gathersg:3}];
-/* days 2–7 points per unit: in-game screens 2026-10-19 (T1–T5 troops left out) */
+ {t11:49,t10:39,gear:36,t9:30,t8:23,t7:16,t6:11},
+ {tempered:30000,atm:15000,mythic:3040,truegold:2000,epic:1220,ctm:1150,dust:1000,rare:350,petadv:50,speed:30,gathersg:3}];
+/* points per unit: in-game screens 2026-10-19 (T1–T5 left out). Tempered Truegold, Truegold Dust and T11 aren't unlocked in our kingdom yet, so they weren't on our screens — kept from Optimizer for kingdoms that have them */
 const SG_TH=[[6700,80000,186000,333000],[5800,70000,161000,312000],[14000,105000,210000,362000],[12000,90000,140000,250000],[5800,69000,161000,333000],[12000,106000,212000,380000],[9400,84000,180000,333000]];
 /* Optimizer lists each day's milestone rewards as one total (M1–M4 together) → put on M4 */
 const SG_RW=[[375,4000,["truegold",18]],[375,4000],[390,3900],[450,3900],[450,4000,["truegold",18]],[450,3400],[375,3200]];
