@@ -274,6 +274,7 @@ const REW={
  stone:{zh:"10K 石材",en:"10K Stone",kvk:0},
  iron:{zh:"10K 鐵礦",en:"10K Iron",kvk:0},
  goldkey:{zh:"金鑰匙",en:"Gold Key",kvk:0},
+ silverkey:{zh:"銀鑰匙",en:"Silver Key",kvk:0},
  spmin:{zh:"加速（分鐘，三種合計）",en:"Speedups (minutes, all types)",kvk:30},
  medal:{zh:"挑戰勳章",en:"Challenge Medal",kvk:4494},   /* medal track (in-game 2026-10-19): owning 2…14 medals = 13 steps, each 1 Jaeger Shard (3,040) + 1h Training Speedup (1,800) + skill books / blueprint (0 in KvK) → 62,920 ÷ 14 medals */
  bread100:{zh:"100K 麵包",en:"100K Bread",kvk:0},
@@ -307,6 +308,10 @@ const SG_PTS=[
 const SG_TH=[[6700,80000,186000,333000],[5800,70000,161000,312000],[14000,105000,210000,362000],[12000,90000,140000,250000],[5800,69000,161000,333000],[12000,106000,212000,380000],[9400,84000,180000,333000]];
 /* Optimizer lists each day's milestone rewards as one total (M1–M4 together) → put on M4 */
 const SG_RW=[[375,4000,["truegold",18]],[375,4000],[390,3900],[450,3900],[450,4000,["truegold",18]],[450,3400],[375,3200]];
+/* Strongest Governor daily ranking (in-game 2026-10-19): top 1000 in the kingdom with at least 50,000 pts that day; day 1 differs, days 2–7 are the same */
+const SG_RL=["1","2","3","4–5","6–10","11–20","21–50","51–100","101–200","201–500","501–1000"];
+const SG_RK1=SG_RL.map((l,i)=>[l,[["gems",[20000,15000,10000,7000,5000,3500,2000,1200,800,400,200][i]],["r60",[10,9,8,7,6,5,4,3,2,1,1][i]],["goldkey",[3,2,2,1,1,1,1,1,0,0,0][i]],["silverkey",[0,0,0,0,0,0,0,0,3,2,1][i]]]]);
+const SG_RK2=SG_RL.map((l,i)=>[l,[["gems",[20000,12000,10000,7000,5000,3500,2000,1200,800,400,200][i]],["c60",[10,9,8,7,6,5,4,3,2,1,1][i]],["t60",[10,9,8,7,6,5,4,3,2,1,0][i]]]]);
 const SG_THEME=[["城鎮建設","City Construction"],["英雄養成","Hero Development"],["技能提升","Skill Up"],["戰鬥訓練","Combat Training"],["技能提升","Skill Up"],["戰鬥訓練","Combat Training"],["英雄養成","Hero Development"]];
 /* checked against in-game screens 2026-10-14; Tempered Truegold / Truegold Dust are only in Optimizer's list (not on our screens) */
 const AB_PTS=[
@@ -335,7 +340,7 @@ const EVENTS={
   pts:{mithril:8000,widget:1600,tempered:1500,hammer:800,truegold:100,dust:50,gear:3,speed:1},
   th:[[580,4300,11000,17000],[650,4800,12000,19000],[900,5800,14000,23000],[1300,9700,24000,38000]]}
 };
-SG_PTS.forEach((pts,i)=>{EVENTS["sg"+(i+1)]={fam:"sg",day:i+1,zh:"至高領主 第 "+(i+1)+" 天",en:"Strongest Governor Day "+(i+1),dz:SG_THEME[i][0],de:SG_THEME[i][1],pts,th:[0,1,2,3].map(()=>SG_TH[i]),noRank:1};
+SG_PTS.forEach((pts,i)=>{EVENTS["sg"+(i+1)]={fam:"sg",day:i+1,zh:"至高領主 第 "+(i+1)+" 天",en:"Strongest Governor Day "+(i+1),dz:SG_THEME[i][0],de:SG_THEME[i][1],pts,th:[0,1,2,3].map(()=>SG_TH[i]),rk:i?SG_RK2:SG_RK1,rkMin:50000};
  const r=SG_RW[i];TPL["sg"+(i+1)]=()=>[RW(),RW(),RW(),RW(["spmin",r[0]],["gems",r[1]],["medal",2],...(r[2]?[r[2]]:[]))]});
 /* day 1 milestones as shown in game (2026-10-19) */
 TPL.sg1=()=>[RW(["bread",47],["wood",47],["stone",9],["iron",2]),RW(["xp1k",65],["c5",25],["r5",25],["t5",25]),RW(["gems",4000],["medal",1],["bread",225],["wood",225]),RW(["truegold",15],["medal",1],["stone",45],["iron",11])];
@@ -417,7 +422,7 @@ function renderEvent(){
   box.querySelectorAll(".add").forEach(bt=>bt.onclick=()=>{d.ms[+bt.dataset.i].rw.push({id:"gems",q:""});save();renderEvent();calc()});
   $("msnote").textContent=e.fam?NOTES[e.fam][S.lang]:(VERIFIED[k]||[]).includes(S.g)?L().msVer:L().msUnver;
 
-  const rk=$("rank");rk.innerHTML=`<option value="-1">${L().noRank}</option>`+RANKS.map((r,i)=>`<option value="${i}">${L().rankOpt(r[0],fmt(r[1]),r[2])}</option>`).join("");
+  const rk=$("rank");rk.innerHTML=`<option value="-1">${L().noRank}</option>`+(e.rk?e.rk.map((r,i)=>`<option value="${i}">${S.lang==="zh"?"第 "+r[0]+" 名：":"Rank "+r[0]+": "}${r[1].filter(x=>x[1]>0).map(x=>REW[x[0]][S.lang]+" ×"+fmt(x[1])).join(S.lang==="zh"?"、":", ")}</option>`).join(""):RANKS.map((r,i)=>`<option value="${i}">${L().rankOpt(r[0],fmt(r[1]),r[2])}</option>`).join(""));
   rk.value=d.rank;rk.onchange=()=>{d.rank=+rk.value;save();calc()};
 }
 
@@ -435,7 +440,8 @@ function calc(){
     if(hit)m.rw.forEach(r=>addItem(r.id,num(r.q)));
     else if(th>0&&next===null)next=th;
     chips+=`<span class="chip${hit?" on":""}">M${i+1}${th?" · "+fmt(th):""}</span>`});
-  if(!e.noRank&&d.rank>=0&&ev>=4000){const r=RANKS[d.rank];addItem("gems",r[1]);["c60","r60","t60"].forEach(id=>addItem(id,r[2]));if(KEYS[r[0]])addItem("goldkey",KEYS[r[0]])}
+  if(e.rk&&d.rank>=0&&ev>=e.rkMin){for(const [id,q] of (e.rk[d.rank]||[,[]])[1])addItem(id,q)}
+  else if(!e.rk&&!e.noRank&&d.rank>=0&&ev>=4000){const r=RANKS[d.rank];addItem("gems",r[1]);["c60","r60","t60"].forEach(id=>addItem(id,r[2]));if(KEYS[r[0]])addItem("goldkey",KEYS[r[0]])}
   const ids=Object.keys(tot).sort((a,b)=>tot[b]*rv(b)-tot[a]*rv(a));
   $("oGets").innerHTML=ids.length?ids.map(id=>{const v=tot[id]*rv(id);return`<li>${REW[id][S.lang]} ×${fmt(tot[id])}${v>0?` <span class="kv">≈ ${L().kvkPts} ${fmt(v)}</span>`:""}</li>`}).join(""):`<li class="none">${L().getNone}</li>`;
   const net=gain-cost;
