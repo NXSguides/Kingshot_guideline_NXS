@@ -232,7 +232,7 @@ const ITEMS={
  manuscript:{zh:"大師手稿",en:"Master's Manuscript",kvk:60},
  speed:{zh:"加速（分鐘）",en:"Speedup (minutes)",kvk:30},
  gear:{zh:"領主裝備評分",en:"Governor Gear score",kvk:36},
- charm:{zh:"寶石評分",en:"Charm score",kvk:70},
+ charm:{zh:"領主寶石評分",en:"Charm score",kvk:70},
  t9:{zh:"訓練 T9 士兵",en:"Train T9 troop",kvk:45},
  t10:{zh:"訓練 T10 士兵",en:"Train T10 troop",kvk:60},
  t11:{zh:"訓練 T11 士兵",en:"Train T11 troop",kvk:75},
@@ -297,7 +297,7 @@ const TPL={
 };
 /* Strongest Governor & Alliance Brawl: one entry per day, same thresholds for every Town Center level (Kingshot Optimizer, 2026-09) */
 const SG_PTS=[
- {tempered:30000,truegold:2000,dust:1000,charm:70,speed:30},
+ {truegold:2000,speed:30,charm:70},   /* day 1: in-game screen 2026-10-19 (building / research / training / Master Skill speedups, no gem speedups) */
  {mithril:40000,tempered:30000,roulette:8000,widget:8000,emblem:6000,hammer:4000,mythic:3040,truegold:2000,epic:1220,dust:1000,rare:350,manuscript:60,speed:30},
  {atm:15000,roulette:8000,emblem:6000,mythic:3040,epic:1220,ctm:1150,rare:350,charm:70,manuscript:60,petadv:50},
  {mithril:40000,widget:8000,hammer:4000,charm:70,t11:49,t10:39,t9:30,t8:23,t7:16,t6:11},
@@ -337,10 +337,12 @@ const EVENTS={
 };
 SG_PTS.forEach((pts,i)=>{EVENTS["sg"+(i+1)]={fam:"sg",day:i+1,zh:"至高領主 第 "+(i+1)+" 天",en:"Strongest Governor Day "+(i+1),dz:SG_THEME[i][0],de:SG_THEME[i][1],pts,th:[0,1,2,3].map(()=>SG_TH[i]),noRank:1};
  const r=SG_RW[i];TPL["sg"+(i+1)]=()=>[RW(),RW(),RW(),RW(["spmin",r[0]],["gems",r[1]],["medal",2],...(r[2]?[r[2]]:[]))]});
+/* day 1 milestones as shown in game (2026-10-19) */
+TPL.sg1=()=>[RW(["bread",47],["wood",47],["stone",9],["iron",2]),RW(["xp1k",65],["c5",25],["r5",25],["t5",25]),RW(["gems",4000],["medal",1],["bread",225],["wood",225]),RW(["truegold",15],["medal",1],["stone",45],["iron",11])];
 AB_PTS.forEach((pts,i)=>{const th=i<4?[100,25000,50000,87500,125000]:[100,37500,75000,125000,187500];
  EVENTS["ab"+(i+1)]={fam:"ab",day:i+1,zh:"聯盟對決 第 "+(i+1)+" 天",en:"Alliance Brawl Day "+(i+1),dz:AB_THEME[i][0],de:AB_THEME[i][1],pts,th:[0,1,2,3].map(()=>th),noRank:1};
  TPL["ab"+(i+1)]=()=>i<4?AB_RW():i===4?AB_RW("artisan"):AB_RW("hammer",8)});
-const NOTES={sg:{zh:"門檻和每單位分數來自 Kingshot Optimizer（所有城鎮中心等級相同）。Optimizer 只給每天 M1–M4 的獎勵總和，所以都先放在 M4；挑戰勳章用 Optimizer 的換算。",en:"Thresholds and points per unit from Kingshot Optimizer (same for every Town Center level). Optimizer only gives each day's M1–M4 rewards as one total, so they're all on M4; Challenge Medals use Optimizer's value."},
+const NOTES={sg:{zh:"門檻和每單位分數來自 Kingshot Optimizer（所有城鎮中心等級相同）。Optimizer 只給每天 M1–M4 的獎勵總和，所以都先放在 M4；挑戰勳章用 Optimizer 的換算。第 1 天的分數和每個里程碑的獎勵已照遊戲畫面（2026-10-19）更新。",en:"Thresholds and points per unit from Kingshot Optimizer (same for every Town Center level). Optimizer only gives each day's M1–M4 rewards as one total, so they're all on M4; Challenge Medals use Optimizer's value. Day 1 points and each milestone's rewards are updated from the in-game screen (2026-10-19)."},
  ab:{zh:"門檻和每單位分數來自 Kingshot Optimizer，已和遊戲畫面核對（回火黃金、黃金研究粉塵只有 Optimizer 有列，我們的畫面上沒有）。里程碑獎勵是第 3 天（寵物訓練）和第 4 天（裝備強化）的實際畫面，兩天完全一樣；第 1、2 天門檻一樣，先當作獎勵也一樣；第 5 天（貿易爭霸）也有實際畫面：門檻不同，獎勵一樣，只有最後一個寶箱是設計圖紙 15（不是寶石手冊）；第 6 天（全面競爭）也一樣，最後一個寶箱是鍛造錘 8。情報事件的 KvK 分用 Optimizer 的倍率（×2）換算。",en:"Thresholds and points per unit from Kingshot Optimizer, checked against the game (Tempered Truegold and Truegold Dust are only in Optimizer's list, not on our screens). Milestone rewards are from actual Day 3 (Pet Training) and Day 4 (Gear Enhancement) screens, identical on both days; Days 1 and 2 have the same thresholds and are assumed the same; Day 5 (Trade Baron) is from an actual screen too: different thresholds, same rewards except the last chest has 15 Artisan's Vision instead of Charm Guides; Day 6 (Full-Scale Competition) is the same with 8 Forgehammers in the last chest. Intel Missions use Optimizer's ×2 KvK ratio."}};
 const GROUPS=[{zh:"1–21 級",en:"Lv 1–21"},{zh:"22–25 級",en:"Lv 22–25"},{zh:"26–29 級",en:"Lv 26–29"},{zh:"30 級以上（含 TG）",en:"Lv 30+ (incl. TG)"}];
 const VERIFIED={opB:[3],ac2:[3]};
