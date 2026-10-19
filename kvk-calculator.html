@@ -275,7 +275,7 @@ const REW={
  iron:{zh:"10K 鐵礦",en:"10K Iron",kvk:0},
  goldkey:{zh:"金鑰匙",en:"Gold Key",kvk:0},
  spmin:{zh:"加速（分鐘，三種合計）",en:"Speedups (minutes, all types)",kvk:30},
- medal:{zh:"挑戰勳章",en:"Challenge Medal",kvk:3040},
+ medal:{zh:"挑戰勳章",en:"Challenge Medal",kvk:4494},   /* medal track (in-game 2026-10-19): owning 2…14 medals = 13 steps, each 1 Jaeger Shard (3,040) + 1h Training Speedup (1,800) + skill books / blueprint (0 in KvK) → 62,920 ÷ 14 medals */
  bread100:{zh:"100K 麵包",en:"100K Bread",kvk:0},
  wood100:{zh:"100K 木材",en:"100K Wood",kvk:0},
  stone100:{zh:"100K 石材",en:"100K Stone",kvk:0},
@@ -342,7 +342,7 @@ TPL.sg1=()=>[RW(["bread",47],["wood",47],["stone",9],["iron",2]),RW(["xp1k",65],
 AB_PTS.forEach((pts,i)=>{const th=i<4?[100,25000,50000,87500,125000]:[100,37500,75000,125000,187500];
  EVENTS["ab"+(i+1)]={fam:"ab",day:i+1,zh:"聯盟對決 第 "+(i+1)+" 天",en:"Alliance Brawl Day "+(i+1),dz:AB_THEME[i][0],de:AB_THEME[i][1],pts,th:[0,1,2,3].map(()=>th),noRank:1};
  TPL["ab"+(i+1)]=()=>i<4?AB_RW():i===4?AB_RW("artisan"):AB_RW("hammer",8)});
-const NOTES={sg:{zh:"門檻和每單位分數來自 Kingshot Optimizer（所有城鎮中心等級相同）。Optimizer 只給每天 M1–M4 的獎勵總和，所以都先放在 M4；挑戰勳章用 Optimizer 的換算。第 1 天的分數和每個里程碑的獎勵已照遊戲畫面（2026-10-19）更新。",en:"Thresholds and points per unit from Kingshot Optimizer (same for every Town Center level). Optimizer only gives each day's M1–M4 rewards as one total, so they're all on M4; Challenge Medals use Optimizer's value. Day 1 points and each milestone's rewards are updated from the in-game screen (2026-10-19)."},
+const NOTES={sg:{zh:"門檻和每單位分數來自 Kingshot Optimizer（所有城鎮中心等級相同）。Optimizer 只給每天 M1–M4 的獎勵總和，所以都先放在 M4；挑戰勳章照遊戲裡的勳章獎勵換算：擁有 2～14 枚共 13 階，每階 1 個耶格爾碎片＋1 小時訓練加速（另有技能書、裝扮設計圖，不算王國爭霸分數），平均每枚約 4,494 分。第 1 天的分數和每個里程碑的獎勵已照遊戲畫面（2026-10-19）更新。",en:"Thresholds and points per unit from Kingshot Optimizer (same for every Town Center level). Optimizer only gives each day's M1–M4 rewards as one total, so they're all on M4; A Challenge Medal is valued from the in-game medal track: owning 2–14 medals is 13 steps, each 1 Jaeger Shard + 1h Training Speedup (plus skill books and a blueprint, which don't score in KvK), about 4,494 pts per medal. Day 1 points and each milestone's rewards are updated from the in-game screen (2026-10-19)."},
  ab:{zh:"門檻和每單位分數來自 Kingshot Optimizer，已和遊戲畫面核對（回火黃金、黃金研究粉塵只有 Optimizer 有列，我們的畫面上沒有）。里程碑獎勵是第 3 天（寵物訓練）和第 4 天（裝備強化）的實際畫面，兩天完全一樣；第 1、2 天門檻一樣，先當作獎勵也一樣；第 5 天（貿易爭霸）也有實際畫面：門檻不同，獎勵一樣，只有最後一個寶箱是設計圖紙 15（不是寶石手冊）；第 6 天（全面競爭）也一樣，最後一個寶箱是鍛造錘 8。情報事件的 KvK 分用 Optimizer 的倍率（×2）換算。",en:"Thresholds and points per unit from Kingshot Optimizer, checked against the game (Tempered Truegold and Truegold Dust are only in Optimizer's list, not on our screens). Milestone rewards are from actual Day 3 (Pet Training) and Day 4 (Gear Enhancement) screens, identical on both days; Days 1 and 2 have the same thresholds and are assumed the same; Day 5 (Trade Baron) is from an actual screen too: different thresholds, same rewards except the last chest has 15 Artisan's Vision instead of Charm Guides; Day 6 (Full-Scale Competition) is the same with 8 Forgehammers in the last chest. Intel Missions use Optimizer's ×2 KvK ratio."}};
 const GROUPS=[{zh:"1–21 級",en:"Lv 1–21"},{zh:"22–25 級",en:"Lv 22–25"},{zh:"26–29 級",en:"Lv 26–29"},{zh:"30 級以上（含 TG）",en:"Lv 30+ (incl. TG)"}];
 const VERIFIED={opB:[3],ac2:[3]};
