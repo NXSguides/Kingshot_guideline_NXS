@@ -1057,6 +1057,28 @@ Steps: 1. Na tela da cidade, toque no seu avatar (canto superior esquerdo). 2. T
 Dicas: o cadeado no último slot significa que ainda não foi desbloqueado. “Igualar” preenche os três tipos por igual; “Retirar tudo” esvazia o slot. Cada slot guarda seus próprios heróis e tropas.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-19 by ΔRMΔDΔ] Ausências no Confronto entre Espadas
+⚠️ Atualização Importante de Regra: Ausências no Confronto entre Espadas
+
+Equipe, precisamos tratar de um problema recorrente no Confronto entre Espadas. Recentemente, muitos jogadores votaram e se inscreveram, mas não compareceram. Isso cria uma situação ruim para todos:
+
+⚔️ Sentimos falta da sua força: Precisamos de todos no campo de batalha.
+
+⚖️ Pareamento Injusto: Como o seu poder registrado é contabilizado, acabamos sendo pareados contra Alianças muito mais fortes.
+
+🗣️ Reclamações: Isso gera muita frustração e reclamações dos nossos jogadores ativos.
+
+Para evitar isso e nos poupar de problemas no futuro, estou implementando uma nova regra a partir de hoje:
+
+🛑 A Nova Regra: Se você votar e se inscrever no Confronto entre Espadas, mas não comparecer sem um motivo válido, você será banido automaticamente de participar (apenas) do próximo Confronto entre Espadas.
+
+Por favor, só se inscreva se tiver 100% de certeza de que poderá comparecer. Vamos trabalhar juntos para ter partidas justas e vencer! 🤝
+
+
+
+
+(see guide #swordland-showdown)
+
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 GUIA DE PREPARAÇÃO E EXECUÇÃO DO PUSH TG DO PRÓXIMO KVK 📢
 Em 9 de novembro de 2026, os membros terão a opção de evoluir suas construções de TG3 ➡️ TG5.
 

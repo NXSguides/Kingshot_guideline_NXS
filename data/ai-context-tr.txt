@@ -1057,6 +1057,28 @@ Steps: 1. Şehir ekranında sol üstteki avatarına dokun. 2. Alttaki Ekip'e dok
 İpuçları: son yuvadaki kilit henüz açılmadığı anlamına gelir. “Eşit dağıt” üç türü eşit doldurur; “Tümünü geri çek” yuvayı boşaltır. Her yuva kendi kahraman ve birliklerini tutar.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-19 by ΔRMΔDΔ] Kılıçdiyarı Hesaplaşması Katılımsızlıkları
+⚠️ Önemli Kural Güncellemesi: Kılıçdiyarı Hesaplaşması Katılımsızlıkları
+
+Takım, Kılıçdiyarı Hesaplaşması ile ilgili devam eden bir soruna değinmemiz gerekiyor. Son zamanlarda birçok oyuncumuz oy verip kaydoldu ancak savaşa katılmadı. Bu durum herkes için olumsuz bir sonuç doğuruyor:
+
+⚔️ Gücünüzden mahrum kalıyoruz: Savaş alanında herkese ihtiyacımız var.
+
+⚖️ Adaletsiz Eşleştirme: Kayıtlı gücünüz hesaba katıldığı için çok daha güçlü İttifaklarla eşleşiyoruz.
+
+🗣️ Şikayetler: Bu durum aktif oyuncularımız arasında büyük bir hayal kırıklığı ve şikayet yaratıyor.
+
+Bunun önüne geçmek ve gelecekte sorun yaşamamak adına bugünden itibaren yeni bir kural uyguluyorum:
+
+🛑 Yeni Kural: Kılıçdiyarı Hesaplaşması için oy verip kaydolur, ancak geçerli bir mazeretiniz olmadan katılmazsanız, (yalnızca) bir sonraki Kılıçdiyarı Hesaplaşması katılımından otomatik olarak menedileceksiniz.
+
+Lütfen yalnızca katılabileceğinizden %100 eminseniz kaydolun. Adil eşleşmeler elde etmek ve kazanmak için birlikte çalışalım! 🤝
+
+
+
+
+(see guide #swordland-showdown)
+
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 YAKLAŞAN KVK TG YÜKSELTME HAZIRLIK VE UYGULAMA KILAVUZU 📢
 9 Kasım 2026'da üyeler, binalarını TG3 ➡️ TG5 seviyesine yükseltme seçeneğine sahip olacaklar.
 

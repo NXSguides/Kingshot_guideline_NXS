@@ -1057,6 +1057,28 @@ Steps: 1. On the city screen tap your avatar (top left). 2. Tap Squad at the bot
 Tips: the lock icon next to the last slot means it still has to be unlocked. “Even” fills all three types equally; “Withdraw all” clears the slot. Each slot keeps its own heroes and troops.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-19 by ΔRMΔDΔ] SS No-Shows
+⚠️ Important Rule Update: SS No-Shows
+
+Team, we need to address an ongoing issue with the Swordland Showdown (SS). Recently, many players have voted and registered but failed to show up. This creates a lose-lose situation for everyone:
+
+⚔️ We miss your strength: We need everyone on the battlefield.
+
+⚖️ Unfair Matchmaking: Because your registered power is counted, we end up         matched against much stronger alliances.
+
+🗣️ Complaints: It generates a lot of frustration and complaints from our active players.
+
+To prevent this and save us trouble in the future, I am implementing a new rule starting today:
+
+🛑 The New Rule: If you vote and register for SS, but do not show up without a valid reason, you will be automatically banned from participating in the next SS (only).
+
+Please, only register if you are 100% sure you can attend. Let's work together to get fair matches and win! 🤝
+
+
+
+
+(see guide #swordland-showdown)
+
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 UPCOMING KVK TG PUSH PREPARATION & EXECUTION GUIDE 📢
 On November 9, 2026, members will have the option to push their buildings from TG3 ➡️ TG5.
 

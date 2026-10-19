@@ -1057,6 +1057,28 @@ Steps: 1. Sur l'écran de la ville, touchez votre avatar (en haut à gauche). 2.
 Astuces : le cadenas du dernier slot signifie qu'il n'est pas encore débloqué. « Équilibré » remplit les trois types à parts égales ; « Tout retirer » vide le slot. Chaque slot garde ses propres héros et troupes.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-19 by ΔRMΔDΔ] Absences au Choc du Glaive
+⚠️ Mise à jour importante des règles : Absences au Choc du Glaive
+
+L'équipe, nous devons aborder un problème récurrent concernant le Choc du Glaive. Récemment, de nombreux joueurs ont voté et se sont inscrits, mais ne se sont pas présentés. Cela crée une situation désavantageuse pour tout le monde :
+
+⚔️ Votre puissance nous manque : Nous avons besoin de tout le monde sur le champ de bataille.
+
+⚖️ Matchmaking injuste : Comme votre puissance inscrite est prise en compte, nous nous retrouvons face à des Alliances bien plus fortes.
+
+🗣️ Plaintes : Cela génère beaucoup de frustration et de plaintes de la part de nos joueurs actifs.
+
+Afin d'éviter cela et de nous épargner des soucis à l'avenir, j'impose une nouvelle règle dès aujourd'hui :
+
+🛑 La nouvelle règle : Si vous votez et vous inscrivez au Choc du Glaive, mais que vous ne vous présentez pas sans raison valable, vous serez automatiquement banni de la participation au prochain Choc du Glaive (uniquement le prochain).
+
+S'il vous plaît, ne vous inscrivez que si vous êtes sûr à 100 % de pouvoir venir. Travaillons ensemble pour obtenir des matchs équitables et gagner ! 🤝
+
+
+
+
+(see guide #swordland-showdown)
+
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 GUIDE DE PRÉPARATION ET D'EXÉCUTION DU PUSH TG DU PROCHAIN KVK 📢
 Le 9 novembre 2026, les membres auront la possibilité de faire passer leurs bâtiments de TG3 ➡️ TG5.
 

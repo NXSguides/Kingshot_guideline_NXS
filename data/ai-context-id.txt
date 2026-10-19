@@ -1057,6 +1057,28 @@ Steps: 1. Di layar kota, ketuk avatarmu (kiri atas). 2. Ketuk Skuad di bawah. 3.
 Tips: ikon gembok di slot terakhir berarti belum terbuka. “Rata” mengisi tiga jenis sama banyak; “Tarik semua” mengosongkan slot. Tiap slot menyimpan hero dan pasukannya sendiri.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-19 by ΔRMΔDΔ] Ketidakhadiran di Swordland Showdown
+⚠️ Pembaruan Aturan Penting: Ketidakhadiran di Swordland Showdown
+
+Tim, kita perlu membahas masalah yang terus terjadi pada Swordland Showdown. Akhir-akhir ini, banyak pemain yang memilih dan mendaftar tetapi tidak hadir. Ini menciptakan situasi yang merugikan bagi semua orang:
+
+⚔️ Kami merindukan kekuatanmu: Kami membutuhkan semua orang di medan perang.
+
+⚖️ Matchmaking Tidak Adil: Karena kekuatan terdaftarmu dihitung, kita malah dipasangkan dengan Aliansi yang jauh lebih kuat.
+
+🗣️ Keluhan: Hal ini menimbulkan banyak kekecewaan dan keluhan dari pemain aktif kita.
+
+Untuk mencegah hal ini dan terhindar dari masalah di masa mendatang, saya menerapkan aturan baru mulai hari ini:
+
+🛑 Aturan Baru: Jika kamu memilih dan mendaftar untuk Swordland Showdown, tetapi tidak hadir tanpa alasan yang sah, kamu akan secara otomatis dilarang berpartisipasi pada Swordland Showdown berikutnya (saja).
+
+Harap hanya mendaftar jika kamu 100% yakin bisa hadir. Mari bekerja sama untuk mendapatkan pertandingan yang adil dan menang! 🤝
+
+
+
+
+(see guide #swordland-showdown)
+
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 PANDUAN PERSIAPAN & EKSEKUSI TG PUSH KVK MENDATANG 📢
 Pada 9 November 2026, anggota akan memiliki opsi untuk melakukan push bangunan mereka dari TG3 ➡️ TG5.
 

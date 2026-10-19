@@ -1059,6 +1059,28 @@ Steps: 1. Tippe im Stadtbildschirm oben links auf dein Profilbild. 2. Tippe unte
 Hinweise: Das Schloss am letzten Slot heißt, er ist noch nicht freigeschaltet. „Gleichmäßig“ füllt alle drei Typen gleich, „Alle zurückziehen“ leert den Slot. Jeder Slot merkt sich eigene Helden und Truppen.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-19 by ΔRMΔDΔ] Schwertland-Showdown Nicht-Erscheinen
+⚠️ Wichtiges Regel-Update: Nicht-Erscheinen beim Schwertland-Showdown
+
+Team, wir müssen ein laufendes Problem beim Schwertland-Showdown ansprechen. In letzter Zeit haben viele Spieler abgestimmt und sich angemeldet, sind dann aber nicht erschienen. Das erzeugt eine Lose-Lose-Situation für alle:
+
+⚔️ Uns fehlt eure Stärke: Wir brauchen jeden auf dem Schlachtfeld.
+
+⚖️ Unfaires Matchmaking: Da deine angemeldete Kraft gezählt wird, treffen wir auf viel stärkere Allianzen.
+
+🗣️ Beschwerden: Es sorgt für viel Frust und Beschwerden von unseren aktiven Spielern.
+
+Um dies zu verhindern und uns in Zukunft Ärger zu ersparen, führe ich ab heute eine neue Regel ein:
+
+🛑 Die neue Regel: Wenn du beim Schwertland-Showdown abstimmst und dich anmeldest, aber ohne gültigen Grund nicht erscheinst, wirst du automatisch von der Teilnahme am (nur) nächsten Schwertland-Showdown ausgeschlossen.
+
+Bitte melde dich nur an, wenn du dir 100% sicher bist, dass du teilnehmen kannst. Lasst uns zusammenarbeiten, um faire Matches zu bekommen und zu gewinnen! 🤝
+
+
+
+
+(see guide #swordland-showdown)
+
 [2026-10-14 by 亗ΔRMΔDΔ亗] 📢 ANSTEHENDER KVK TG PUSH VORBEREITUNGS- & AUSFÜHRUNGSLEITFADEN 📢
 Am 9. November 2026 haben Mitglieder die Möglichkeit, ihre Gebäude von TG3 ➡️ TG5 zu pushen.
 
