@@ -27,7 +27,7 @@
      the officer-edited schedule (data/events-x7k2p9.json "sched") replaces it, like on the main site. */
   const ON_MAIN = typeof EVENT_TIMES !== "undefined";
   const FB = {
-    times: { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23], "cesares-fury": [22 + 35 / 60], "eternity-reach": [2, 5, 11, 14, 16, 18, 21] },
+    times: { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23], "cesares-fury": [22 + 35 / 60], "eternity-reach": [3, 5, 11, 14, 16, 18] },
     sched: { "bear-hunt": { anchor: Date.UTC(2026, 9, 7), periodDays: 2, activeDays: 1 },
       "swordland-showdown": { anchor: Date.UTC(2026, 8, 28), periodDays: 14, activeDays: 7 },
       "tri-alliance-clash": { anchor: Date.UTC(2026, 8, 28), periodDays: 28, activeDays: 6 },
