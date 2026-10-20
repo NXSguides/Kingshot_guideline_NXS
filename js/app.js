@@ -268,7 +268,7 @@ const ANN_EVENTS = [
   { match: "Finder", emoji: "🔍", start: "2026-10-11", days: 3 },
 ];
 /* our alliance's fixed times (UTC hours) — set as close to Bear Hunt as possible */
-const EVENT_TIMES = { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23], "cesares-fury": [22 + 35 / 60], "eternity-reach": [2, 5, 11, 14, 16, 18, 21] };
+const EVENT_TIMES = { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23], "cesares-fury": [22 + 35 / 60], "eternity-reach": [3, 5, 11, 14, 16, 18] };
 /* officers set these on the officer Events tab → data/event-times.json ("13:30" → 13.5); the ⏰ timers read them too */
 const hmToH = (v) => { const m = String(v).match(/^(\d{1,2})(?::(\d{2}))?$/); return m && +m[1] < 24 && +(m[2] || 0) < 60 ? +m[1] + (+(m[2] || 0)) / 60 : null; };
 const hToHM = (h) => String(Math.floor(h)).padStart(2, "0") + ":" + String(Math.round((h % 1) * 60)).padStart(2, "0");
