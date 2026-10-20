@@ -796,14 +796,15 @@ Setiap pelayaran membawa Harta Karun Lautan Common (90%) atau Harta Karun Lautan
 3 Harta Karun Lautan Common → 1 Harta Karun Lautan Premium. 3 Harta Karun Lautan Premium → Harta Karun Lautan Exquisite (75%) atau Harta Karun Lautan Majestic (25%).
 Setiap Kompas memangkas pelayaran 1 jam. Kompas didapat dari Paket Layar Terbentang.
 🎯 HADIAH MILESTONE (total pelayaran)
-1 → 9 Panduan Charm
-5 → 18 Panduan Charm
-20 → 36 Panduan Charm
-60 → 72 Desain Charm
-120 → 162 Desain Charm
-200 → 216 Desain Charm
-350 → 144 peti material Charm Gubernur acak
-600 → 600 peti material Charm Gubernur acak
+1 → 5 Panduan Charm
+5 → 10 Panduan Charm
+20 → 20 Panduan Charm
+60 → 40 Desain Charm
+120 → 90 Desain Charm
+200 → 120 Desain Charm
+350 → 80 peti material Charm Gubernur acak
+550 → 100 peti material Charm Gubernur acak
+800 → 120 peti material Charm Gubernur acak
 🎁 ISI TIAP HARTA KARUN
 Harta Karun Lautan Common: Desain Charm ×5 · Percepatan Umum 5 menit ×18 · 100 Permata ×2
 Harta Karun Lautan Premium: Panduan Charm ×10 · Desain Charm ×10 · Percepatan Umum 1 jam ×6
@@ -814,7 +815,7 @@ Common = material dasar · Premium = awal penggabungan · Exquisite & Majestic =
 Kirim tim setiap 8 jam. Hanya dengan tim gratis, progres lambat.
 F2P: tambah tim dengan Permata sampai milestone yang kamu incar.
 Spender kecil: capai 196 pelayaran lalu tutup dengan 4 terakhir (milestone 200) — hadiah bagus tanpa boros.
-Spender besar: terus sampai 600, milestone tertinggi.
+Spender besar: terus sampai 800, milestone tertinggi.
 Simpan Kompas untuk akhir — jangan dipakai di awal. Pakai untuk mencapai 196 atau menutup kekurangan.
 Menggabungkan ke harta karun lebih tinggi adalah kuncinya, tapi tiap peti beda hadiah — ambil yang kamu butuhkan dulu.
 Tim yang masih berlayar saat event berakhir tetap kembali dan dihitung untuk milestone.

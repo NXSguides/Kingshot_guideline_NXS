@@ -796,14 +796,15 @@ Chaque voyage rapporte un Trésor des Marées Commun (90 %) ou un Trésor des Ma
 3 Trésor des Marées Commun → 1 Trésor des Marées Premium. 3 Trésor des Marées Premium → Trésor des Marées Exquis (75 %) ou Trésor des Marées Majestueux (25 %).
 Chaque Boussole réduit un voyage d'1 heure. Les boussoles viennent du Pack Voiles Hissées.
 🎯 RÉCOMPENSES DE PALIER (voyages au total)
-1 → 9 Guide de Talisman
-5 → 18 Guide de Talisman
-20 → 36 Guide de Talisman
-60 → 72 Plans de Talisman
-120 → 162 Plans de Talisman
-200 → 216 Plans de Talisman
-350 → 144 coffres de matériaux de Talisman du Gouverneur aléatoires
-600 → 600 coffres de matériaux de Talisman du Gouverneur aléatoires
+1 → 5 Guide de Talisman
+5 → 10 Guide de Talisman
+20 → 20 Guide de Talisman
+60 → 40 Plans de Talisman
+120 → 90 Plans de Talisman
+200 → 120 Plans de Talisman
+350 → 80 coffres de matériaux de Talisman du Gouverneur aléatoires
+550 → 100 coffres de matériaux de Talisman du Gouverneur aléatoires
+800 → 120 coffres de matériaux de Talisman du Gouverneur aléatoires
 🎁 CONTENU DES TRÉSORS
 Trésor des Marées Commun: Plans de Talisman ×5 · Accélérateur général 5 min ×18 · 100 Gemmes ×2
 Trésor des Marées Premium: Guide de Talisman ×10 · Plans de Talisman ×10 · Accélérateur général 1 h ×6
@@ -814,7 +815,7 @@ Commun = matériaux de base · Premium = point de départ des fusions · Exquis 
 Envoie tes équipages toutes les 8 heures. Avec le seul équipage gratuit, c'est lent.
 F2P : ajoute des équipages avec des Gemmes pour atteindre ton palier.
 Petits payeurs : monte à 196 voyages puis termine avec tes 4 derniers (palier 200) — de bonnes récompenses sans trop dépenser.
-Gros payeurs : continue jusqu'à 600, le palier max.
+Gros payeurs : continue jusqu'à 800, le palier max.
 Garde les Boussole pour la fin — pas au début. Utilise-les pour atteindre 196 ou combler un manque.
 La fusion est la clé, mais chaque coffre donne des récompenses différentes — prends d'abord ce dont tu as besoin.
 Les équipages encore en mer à la fin reviennent et comptent pour les paliers.

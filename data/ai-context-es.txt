@@ -796,14 +796,15 @@ Cada viaje trae un Tesoro de Marea Común (90 %) o un Tesoro de Marea Premium (1
 3 Tesoro de Marea Común → 1 Tesoro de Marea Premium. 3 Tesoro de Marea Premium → Tesoro de Marea Exquisito (75 %) o Tesoro de Marea Majestuoso (25 %).
 Cada Brújula acorta un viaje 1 hora. Las brújulas vienen del Paquete de Velas Izadas.
 🎯 RECOMPENSAS POR OBJETIVOS (viajes en total)
-1 → 9 Guía de talismanes
-5 → 18 Guía de talismanes
-20 → 36 Guía de talismanes
-60 → 72 Planos de talismán
-120 → 162 Planos de talismán
-200 → 216 Planos de talismán
-350 → 144 cofres aleatorios de materiales de Talismán del Gobernador
-600 → 600 cofres aleatorios de materiales de Talismán del Gobernador
+1 → 5 Guía de talismanes
+5 → 10 Guía de talismanes
+20 → 20 Guía de talismanes
+60 → 40 Planos de talismán
+120 → 90 Planos de talismán
+200 → 120 Planos de talismán
+350 → 80 cofres aleatorios de materiales de Talismán del Gobernador
+550 → 100 cofres aleatorios de materiales de Talismán del Gobernador
+800 → 120 cofres aleatorios de materiales de Talismán del Gobernador
 🎁 QUÉ TRAE CADA TESORO
 Tesoro de Marea Común: Planos de talismán ×5 · Acelerador general de 5 min ×18 · 100 Gemas ×2
 Tesoro de Marea Premium: Guía de talismanes ×10 · Planos de talismán ×10 · Acelerador general de 1 h ×6
@@ -814,7 +815,7 @@ Común = materiales básicos · Premium = base para fusionar · Exquisito y Maje
 Envía equipos cada 8 horas. Solo con el equipo gratis va lento.
 F2P: añade equipos con Gemas hasta llegar al objetivo que buscas.
 Gasto bajo: llega a 196 viajes y termina con los últimos 4 (objetivo 200) — buenas recompensas sin gastar de más.
-Gasto alto: sigue hasta 600, el objetivo máximo.
+Gasto alto: sigue hasta 800, el objetivo máximo.
 Guarda las Brújula para el final, no las uses pronto. Úsalas para llegar a 196 o cubrir lo que falte.
 Fusionar en tesoros superiores es la clave, pero cada cofre da recompensas distintas — primero lo que necesites.
 Los equipos que sigan de viaje al acabar el evento vuelven y cuentan para los objetivos.

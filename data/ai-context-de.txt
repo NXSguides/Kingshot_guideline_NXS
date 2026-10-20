@@ -798,14 +798,15 @@ Jede Reise bringt einen Gewöhnlicher Gezeitenschatz (90 %) oder einen Höherwer
 3 × Gewöhnlicher Gezeitenschatz → 1 Höherwertiger Gezeitenschatz. 3 × Höherwertiger Gezeitenschatz → Exquisiter Gezeitenschatz (75 %) oder Majestätischer Gezeitenschatz (25 %).
 Jeder Kompass verkürzt eine Reise um 1 Stunde. Kompasse gibt es im Segel gehisst Paket.
 🎯 MEILENSTEINE (Reisen insgesamt)
-1 → 9 Talismanleitfaden
-5 → 18 Talismanleitfaden
-20 → 36 Talismanleitfaden
-60 → 72 Talismanpläne
-120 → 162 Talismanpläne
-200 → 216 Talismanpläne
-350 → 144 zufällige Gouverneur Talisman-Materialtruhen
-600 → 600 zufällige Gouverneur Talisman-Materialtruhen
+1 → 5 Talismanleitfaden
+5 → 10 Talismanleitfaden
+20 → 20 Talismanleitfaden
+60 → 40 Talismanpläne
+120 → 90 Talismanpläne
+200 → 120 Talismanpläne
+350 → 80 zufällige Gouverneur Talisman-Materialtruhen
+550 → 100 zufällige Gouverneur Talisman-Materialtruhen
+800 → 120 zufällige Gouverneur Talisman-Materialtruhen
 🎁 INHALT DER SCHÄTZE
 Gewöhnlicher Gezeitenschatz: Talismanpläne ×5 · 5-Min.-Beschleunigung (allgemein) ×18 · 100 Edelsteine ×2
 Höherwertiger Gezeitenschatz: Talismanleitfaden ×10 · Talismanpläne ×10 · 1-Std.-Beschleunigung (allgemein) ×6
@@ -816,7 +817,7 @@ Gewöhnlich = Grundmaterial · Höherwertig = Start fürs Zusammenführen · Exq
 Alle 8 Stunden Teams schicken. Nur mit dem Gratis-Team geht es langsam.
 F2P: mit Edelsteine Teams dazunehmen, bis dein Meilenstein erreicht ist.
 Wenigzahler: bis 196 Reisen, dann mit den letzten 4 abschließen (Meilenstein 200) — gute Belohnungen ohne zu viel auszugeben.
-Vielzahler: stetig bis 600, dem höchsten Meilenstein.
+Vielzahler: stetig bis 800, dem höchsten Meilenstein.
 Kompass fürs Ende aufheben, nicht früh verbrauchen — für 196 oder um Lücken zu füllen.
 Zusammenführen ist der Kern, aber jede Truhe gibt andere Belohnungen — zuerst, was du brauchst.
 Teams, die bei Eventende noch unterwegs sind, kommen zurück und zählen für die Meilensteine.

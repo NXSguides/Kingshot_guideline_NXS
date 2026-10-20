@@ -796,14 +796,15 @@ Each voyage brings back a Common Tidal Treasure (90%) or a Premium Tidal Treasur
 Merge 3 Common Tidal Treasure → 1 Premium Tidal Treasure. Merge 3 Premium Tidal Treasure → Exquisite Tidal Treasure (75%) or Majestic Tidal Treasure (25%).
 Each Compass cuts a voyage by 1 hour. Compasses come from the Sails Aloft Pack.
 🎯 MILESTONE REWARDS (total voyages)
-1 → 9 Charm Guide
-5 → 18 Charm Guide
-20 → 36 Charm Guide
-60 → 72 Charm Design
-120 → 162 Charm Design
-200 → 216 Charm Design
-350 → 144 random Governor Charm material chest
-600 → 600 random Governor Charm material chest
+1 → 5 Charm Guide
+5 → 10 Charm Guide
+20 → 20 Charm Guide
+60 → 40 Charm Design
+120 → 90 Charm Design
+200 → 120 Charm Design
+350 → 80 random Governor Charm material chest
+550 → 100 random Governor Charm material chest
+800 → 120 random Governor Charm material chest
 🎁 WHAT'S IN EACH TREASURE
 Common Tidal Treasure: Charm Design ×5 · 5m General Speedup ×18 · 100 Gems ×2
 Premium Tidal Treasure: Charm Guide ×10 · Charm Design ×10 · 1h General Speedup ×6
@@ -814,7 +815,7 @@ Common = basic materials · Premium = the start for merging · Exquisite & Majes
 Send teams every 8 hours. One free team alone is slow.
 F2P: add teams with Gems to reach the milestone you're aiming for.
 Light spenders: reach 196 voyages, then finish with your last 4 (milestone 200) — good rewards without overspending.
-Big spenders: keep going to 600, the top milestone.
+Big spenders: keep going to 800, the top milestone.
 Save Compass for the end — don't use them early. Use them to reach 196 or to fill a gap.
 Merging into higher treasures is the key, but each chest gives different rewards — merge for what you need first.
 Teams already out when the event ends still come back and count toward the milestones.

@@ -796,14 +796,15 @@ Her yolculuk Sıradan Gelgit Hazinesi (%90) veya Premium Gelgit Hazinesi (%10) g
 3 Sıradan Gelgit Hazinesi → 1 Premium Gelgit Hazinesi. 3 Premium Gelgit Hazinesi → Seçkin Gelgit Hazinesi (%75) veya İhtişamlı Gelgit Hazinesi (%25).
 Her Pusula bir yolculuğu 1 saat kısaltır. Pusulalar Yelkenler Fora Paketi ile alınır.
 🎯 EŞİK ÖDÜLLERİ (toplam yolculuk)
-1 → 9 Tılsım Kılavuzu
-5 → 18 Tılsım Kılavuzu
-20 → 36 Tılsım Kılavuzu
-60 → 72 Tılsım Tasarımı
-120 → 162 Tılsım Tasarımı
-200 → 216 Tılsım Tasarımı
-350 → 144 rastgele Vali Tılsımı malzeme sandığı
-600 → 600 rastgele Vali Tılsımı malzeme sandığı
+1 → 5 Tılsım Kılavuzu
+5 → 10 Tılsım Kılavuzu
+20 → 20 Tılsım Kılavuzu
+60 → 40 Tılsım Tasarımı
+120 → 90 Tılsım Tasarımı
+200 → 120 Tılsım Tasarımı
+350 → 80 rastgele Vali Tılsımı malzeme sandığı
+550 → 100 rastgele Vali Tılsımı malzeme sandığı
+800 → 120 rastgele Vali Tılsımı malzeme sandığı
 🎁 HAZİNELERİN İÇİNDEKİLER
 Sıradan Gelgit Hazinesi: Tılsım Tasarımı ×5 · 5 dk Genel Hızlandırma ×18 · 100 Elmas ×2
 Premium Gelgit Hazinesi: Tılsım Kılavuzu ×10 · Tılsım Tasarımı ×10 · 1 sa Genel Hızlandırma ×6
@@ -814,7 +815,7 @@ Sıradan = temel malzeme · Premium = birleştirmenin başlangıcı · Seçkin v
 Takımları 8 saatte bir gönder. Sadece ücretsiz takımla yavaş ilerler.
 F2P: hedeflediğin eşiğe ulaşmak için Elmas ile takım ekle.
 Az harcayanlar: 196 yolculuğa kadar git, son 4 ile bitir (eşik 200) — fazla harcamadan iyi ödüller.
-Çok harcayanlar: en yüksek eşik olan 600'e kadar devam et.
+Çok harcayanlar: en yüksek eşik olan 800'e kadar devam et.
 Pusula sona sakla, erken kullanma. 196'ya ulaşmak veya eksiği kapatmak için kullan.
 Üst hazinelere birleştirmek esas, ama her sandık farklı ödül verir — önce ihtiyacın olanı al.
 Etkinlik bittiğinde yolda olan takımlar döner ve eşiklere sayılır.
