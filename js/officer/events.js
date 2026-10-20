@@ -284,7 +284,7 @@ const T = { ko: {"etPerDay": "전투일: 시간마다 따로 설정 (@ 뒤 = 이
     fNote: "Note", fNoteSm: "(e.g. times — shown in the list)", fGuide: "Guide on the site", noGuide: "— none —",
     fTodo: "Action items for officers", addTodo: "+ Action item", editTodo: "Edit items",
     etDay: "Day {n} of {t}",
-    etBearNext: "Next Bear day (UTC)", etPerDay: "Battle day: set per time (@ = day of the event)", etDayLbl: "Battle day", etDayAll: "Every day is a battle day", etBearMoved: "🐻 Bear Hunt now runs every {e} days from {d}.",
+    anTitle: "📣 Announcement draft", anNote: "Upcoming events with our times, ready to paste in game. Add a short line where you like — the game allows 300 characters.", anDays: "Next {n} days", anGen: "🔄 Make again", anCopy: "📋 Copy", anCount: "{n} / 300 characters", anOver: "⚠️ {n} / 300 — too long for the game", etBearNext: "Next Bear day (UTC)", etPerDay: "Battle day: set per time (@ = day of the event)", etDayLbl: "Battle day", etDayAll: "Every day is a battle day", etBearMoved: "🐻 Bear Hunt now runs every {e} days from {d}.",
     etTitle: "⏰ Our event times (UTC)", etNote: "The times we pick for alliance events, and which day of the event the battle is. Used on the home page (This week) and for everyone's ⏰ Game reminders. Type one or more times, e.g. 13:00, 22:00. If the game moves Bear Hunt to another day, change \"Next Bear day\" — the whole site follows. Battles on different days: add @ and the day of the event, e.g. 22:00@1, 13:00@3.",
     etBad: "Check the times — use HH:MM, e.g. 13:00, 22:30.", etSaved: "Saved ✅ The site and the ⏰ reminders use the new times within a few minutes (reminders update when people open the site).",
     limTitle: "⚙️ Troop limits in the guides", limNote: "Used everywhere the guides mention these numbers (all 12 languages) and by the AI assistant. Change them here when the game or the alliance changes the limit.",
@@ -319,7 +319,7 @@ const T = { ko: {"etPerDay": "전투일: 시간마다 따로 설정 (@ 뒤 = 이
     fNote: "備註", fNoteSm: "（例如時間，會顯示在清單上）", fGuide: "網站上的攻略", noGuide: "— 無 —",
     fTodo: "幹部待辦事項", addTodo: "+ 待辦事項", editTodo: "編輯待辦",
     etDay: "第 {n} 天（共 {t} 天）",
-    etBearNext: "下一個熊日（UTC）", etPerDay: "開打日：每個時間各自設定（@ 後面是活動第幾天）", etDayLbl: "開打日", etDayAll: "每天都開打", etBearMoved: "🐻 狩獵巨熊改成從 {d} 起每 {e} 天一次。",
+    anTitle: "📣 公告草稿", anNote: "接下來的活動和我們的時間，可以直接貼到遊戲裡。想補一句的話直接改 — 遊戲限制 300 字元。", anDays: "接下來 {n} 天", anGen: "🔄 重新產生", anCopy: "📋 複製", anCount: "{n} / 300 字元", anOver: "⚠️ {n} / 300 — 超過遊戲限制", etBearNext: "下一個熊日（UTC）", etPerDay: "開打日：每個時間各自設定（@ 後面是活動第幾天）", etDayLbl: "開打日", etDayAll: "每天都開打", etBearMoved: "🐻 狩獵巨熊改成從 {d} 起每 {e} 天一次。",
     etTitle: "⏰ 我們的活動時間（UTC）", etNote: "聯盟活動我們自己決定的時間，以及活動第幾天開打。首頁「這週」和大家的 ⏰ 活動提醒都會用這裡的時間。可以填一個或多個時間，例如 13:00, 22:00。遊戲把狩獵巨熊移到別天時，改「下一個熊日」，整個網站都會跟著變。不同天開打的：在時間後面加 @ 和活動第幾天，例如 22:00@1, 13:00@3。",
     etBad: "請檢查時間格式（HH:MM），例如 13:00, 22:30。", etSaved: "已儲存 ✅ 幾分鐘內網站和 ⏰ 提醒就會用新的時間（大家打開網站時提醒會跟著更新）。",
     limTitle: "⚙️ 攻略裡的部隊人數上限", limNote: "攻略裡所有提到這兩個數字的地方（12 種語言）和 AI 助理都會用這裡的數字。遊戲或聯盟改上限時，在這裡改就好。",
@@ -888,10 +888,50 @@ async function saveList(next, message) {
 function applyTexts() {
   document.documentElement.lang = HTML_LANG(lang);
   ROOT.querySelectorAll("[data-t]").forEach((el) => { const v = tr(el.dataset.t); if (/UTC/.test(v)) el.innerHTML = localTimes(esc(v), lang); else el.textContent = v; });
+  if ($("anGen")) { $("anGen").textContent = tr("anGen"); $("anCopy").textContent = tr("anCopy"); }
 }
 function setLang(l) { lang = l; store.lang = lang; save(); applyTexts(); if (LIST) render(); };
 $("nextW").onclick = () => { weekStart = mondayOf(Date.now()) + 7 * DAY; render(); };
 $("thisW").onclick = () => { weekStart = mondayOf(Date.now()); render(); };
+/* ===== 📣 announcement draft: "UPCOMING KEY EVENTS" from the event list + our times (the game allows 300 characters) ===== */
+const AN_SKIP = new Set(["bear-hunt", "mystic-trial", "alliance-rules"]);   // every-other-day / no fixed date → not news
+const AN_FOOT = "\n\nFull Guides:\n• Website: https://tinyurl.com/NXS2189\n• Discord: https://discord.gg/5RakbEK5RS";
+const WDAY = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const anHour = (t) => { const [h, m] = t.split(":"); return +m ? `${+h}:${m}` : String(+h); };
+let anOn = null;   // event ids ticked for the draft (null = defaults)
+function anRuns(nDays) {
+  const today = utcDay(Date.now()), end = today + nDays * DAY, out = [];
+  for (const r of runs(today, end)) { if (AN_SKIP.has(r.k) || r.en <= today || out.some((x) => x.k === r.k)) continue; out.push(r); }
+  return out;
+}
+function anLine(r) {
+  const e = byId(r.k) || {}, name = e.en || (EVENTS[r.k] || {}).en || r.k;
+  const T = ET[r.k] || [], td = (ET.timeDays || {})[r.k], fd = (ET.days || {})[r.k];
+  const wd = (t) => WDAY[new Date(t).getUTCDay()];
+  let when;
+  if (T.length && td) when = T.map((t, i) => [t, td[i]]).sort((a, b) => a[1] - b[1]).map(([t, d]) => `${wd(r.st + (d - 1) * DAY)} ${anHour(t)} UTC`).join(" & ");
+  else if (T.length && T.length <= 2 && (fd > 0 || r.days === 1)) when = `${wd(r.st + ((fd > 0 ? fd : 1) - 1) * DAY)} ${T.map(anHour).join(" & ")} UTC`;
+  else when = r.days > 1 ? `${wd(r.st)}–${wd(r.en - DAY)}` : wd(r.st);   // many time slots (Eternity's Reach): just the day
+  return `• ${name}: ${when}.`;
+}
+function anMake(nDays) {
+  const today = utcDay(Date.now()), rs = anRuns(nDays);
+  // default: events that start in this window (long ones already running are off) — tick / untick above
+  if (!anOn) {   // default: events that start in this window, as many as fit in 300 characters (long ones already running are off)
+    anOn = new Set(); const len = () => [..."UPCOMING KEY EVENTS\n\n" + rs.filter((r) => anOn.has(r.k)).map(anLine).join("\n") + AN_FOOT].length;
+    for (const r of rs) if (r.st >= today) { anOn.add(r.k); if (len() > 300) anOn.delete(r.k); }
+  }
+  $("anPick").innerHTML = rs.map((r) => { const e = byId(r.k) || EVENTS[r.k] || {}; return `<label class="row" style="gap:4px;font-size:13px;display:inline-flex;margin:2px 8px 2px 0"><input type="checkbox" data-anpick="${esc(r.k)}"${anOn.has(r.k) ? " checked" : ""}> ${esc((e.emoji || "") + " " + (nm(e) || r.k))}</label>`; }).join("");
+  const lines = rs.filter((r) => anOn.has(r.k)).map(anLine);
+  return "UPCOMING KEY EVENTS\n\n" + (lines.length ? lines.join("\n") : "•") + AN_FOOT;
+}
+function anCount() { const n = [...$("anText").value].length, c = $("anCount"); c.textContent = tr(n > 300 ? "anOver" : "anCount", { n }); c.style.color = n > 300 ? "#b3261e" : ""; }
+function anFill() { $("anText").value = anMake(+$("anDays").value || 3); anCount(); }
+$("anDays").innerHTML = [3, 5, 7].map((n) => `<option value="${n}">${esc(tr("anDays", { n }))}</option>`).join("");
+$("anCard").addEventListener("toggle", () => { if ($("anCard").open && !$("anText").value) anFill(); });
+$("anGen").onclick = anFill; $("anDays").onchange = () => { anOn = null; anFill(); };
+$("anPick").addEventListener("change", (e) => { const k = e.target.dataset.anpick; if (!k) return; if (e.target.checked) anOn.add(k); else anOn.delete(k); anFill(); }); $("anText").oninput = anCount;
+$("anCopy").onclick = (e) => copyText($("anText").value, e.target);
 $("addEv").onclick = () => openEditor(null);
 // On Sunday, open on next week (that's when the weekly planning happens)
 function defaultWeek() { const now = Date.now(); const m = mondayOf(now); return new Date(utcDay(now)).getUTCDay() === 0 ? m + 7 * DAY : m; }
