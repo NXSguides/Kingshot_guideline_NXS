@@ -795,6 +795,7 @@ Envoie un Équipage en voyage — chaque équipage peut repartir toutes les 8 he
 Chaque voyage rapporte un Trésor des Marées Commun (90 %) ou un Trésor des Marées Premium (10 %).
 3 Trésor des Marées Commun → 1 Trésor des Marées Premium. 3 Trésor des Marées Premium → Trésor des Marées Exquis (75 %) ou Trésor des Marées Majestueux (25 %).
 Chaque Boussole réduit un voyage d'1 heure. Les boussoles viennent du Pack Voiles Hissées.
+Tu reçois 1 Boussole gratuite par jour ; celles non utilisées restent pour le prochain événement.
 🎯 RÉCOMPENSES DE PALIER (voyages au total)
 1 → 5 Guide de Talisman
 5 → 10 Guide de Talisman
@@ -806,14 +807,16 @@ Chaque Boussole réduit un voyage d'1 heure. Les boussoles viennent du Pack Voil
 550 → 100 coffres de matériaux de Talisman du Gouverneur aléatoires
 800 → 120 coffres de matériaux de Talisman du Gouverneur aléatoires
 🎁 CONTENU DES TRÉSORS
-Trésor des Marées Commun: Plans de Talisman ×5 · Accélérateur général 5 min ×18 · 100 Gemmes ×2
-Trésor des Marées Premium: Guide de Talisman ×10 · Plans de Talisman ×10 · Accélérateur général 1 h ×6
-Trésor des Marées Exquis: Guide de Talisman ×15 · Plans de Talisman ×15 · Fragment Universel de Héros Mythique ×2
-Trésor des Marées Majestueux: Guide de Talisman ×50 · Plans de Talisman ×50 · Fragment Universel de Héros Mythique ×6
+Trésor des Marées Commun: Plans de Talisman ×3 · Accélérateur général 5 min ×12 · 100 Gemmes ×2
+Trésor des Marées Premium: Guide de Talisman ×3 · Plans de Talisman ×6 · Accélérateur général 1 h ×4
+Trésor des Marées Exquis: Guide de Talisman ×9 · Plans de Talisman ×9 · Fragment Universel de Héros Mythique ×2
+Trésor des Marées Majestueux: Guide de Talisman ×30 · Plans de Talisman ×30 · Fragment Universel de Héros Mythique ×6
 Commun = matériaux de base · Premium = point de départ des fusions · Exquis & Majestueux = les vraies récompenses. Les quantités peuvent varier selon la progression du serveur.
 💡 CONSEILS
 Envoie tes équipages toutes les 8 heures. Avec le seul équipage gratuit, c'est lent.
-F2P : ajoute des équipages avec des Gemmes pour atteindre ton palier.
+Crée un ⏰ minuteur perso sur ce site (dans le chat IA) pour un rappel toutes les 8 heures.
+F2P : l'équipage 2 (2 000 Gemmes) vaut le coup — 30 voyages atteignent le palier 20, et les Trésor des Marées Commun remboursent à peu près les Gemmes.
+Avec l'équipage 3 (10 000 Gemmes) seul, tu fais env. 45 voyages ; le palier 60 demande les 4 équipages.
 Petits payeurs : monte à 196 voyages puis termine avec tes 4 derniers (palier 200) — de bonnes récompenses sans trop dépenser.
 Gros payeurs : continue jusqu'à 800, le palier max.
 Garde les Boussole pour la fin — pas au début. Utilise-les pour atteindre 196 ou combler un manque.

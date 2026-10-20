@@ -797,6 +797,7 @@ Schicke ein Seefahrer-Team auf Reise — jedes Team kann alle 8 Stunden los.
 Jede Reise bringt einen Gewöhnlicher Gezeitenschatz (90 %) oder einen Höherwertiger Gezeitenschatz (10 %).
 3 × Gewöhnlicher Gezeitenschatz → 1 Höherwertiger Gezeitenschatz. 3 × Höherwertiger Gezeitenschatz → Exquisiter Gezeitenschatz (75 %) oder Majestätischer Gezeitenschatz (25 %).
 Jeder Kompass verkürzt eine Reise um 1 Stunde. Kompasse gibt es im Segel gehisst Paket.
+Du bekommst täglich 1 Kompass gratis; übrige bleiben bis zur nächsten Wellenwärtsreise.
 🎯 MEILENSTEINE (Reisen insgesamt)
 1 → 5 Talismanleitfaden
 5 → 10 Talismanleitfaden
@@ -808,14 +809,16 @@ Jeder Kompass verkürzt eine Reise um 1 Stunde. Kompasse gibt es im Segel gehiss
 550 → 100 zufällige Gouverneur Talisman-Materialtruhen
 800 → 120 zufällige Gouverneur Talisman-Materialtruhen
 🎁 INHALT DER SCHÄTZE
-Gewöhnlicher Gezeitenschatz: Talismanpläne ×5 · 5-Min.-Beschleunigung (allgemein) ×18 · 100 Edelsteine ×2
-Höherwertiger Gezeitenschatz: Talismanleitfaden ×10 · Talismanpläne ×10 · 1-Std.-Beschleunigung (allgemein) ×6
-Exquisiter Gezeitenschatz: Talismanleitfaden ×15 · Talismanpläne ×15 · Mythisches Helden-Fragment ×2
-Majestätischer Gezeitenschatz: Talismanleitfaden ×50 · Talismanpläne ×50 · Mythisches Helden-Fragment ×6
+Gewöhnlicher Gezeitenschatz: Talismanpläne ×3 · 5-Min.-Beschleunigung (allgemein) ×12 · 100 Edelsteine ×2
+Höherwertiger Gezeitenschatz: Talismanleitfaden ×3 · Talismanpläne ×6 · 1-Std.-Beschleunigung (allgemein) ×4
+Exquisiter Gezeitenschatz: Talismanleitfaden ×9 · Talismanpläne ×9 · Mythisches Helden-Fragment ×2
+Majestätischer Gezeitenschatz: Talismanleitfaden ×30 · Talismanpläne ×30 · Mythisches Helden-Fragment ×6
 Gewöhnlich = Grundmaterial · Höherwertig = Start fürs Zusammenführen · Exquisit & Majestätisch = die Hauptbelohnungen. Mengen können je nach Serverfortschritt abweichen.
 💡 TIPPS
 Alle 8 Stunden Teams schicken. Nur mit dem Gratis-Team geht es langsam.
-F2P: mit Edelsteine Teams dazunehmen, bis dein Meilenstein erreicht ist.
+Stell dir auf dieser Seite einen eigenen ⏰-Timer (im KI-Chat) als Erinnerung alle 8 Stunden.
+F2P: Team 2 (2.000 Edelsteine) lohnt sich — 30 Reisen erreichen Meilenstein 20, und die Gewöhnlicher Gezeitenschatz bringen die Edelsteine ungefähr zurück.
+Mit Team 3 (10.000 Edelsteine) kommst du nur auf ca. 45 Reisen; Meilenstein 60 braucht alle 4 Teams.
 Wenigzahler: bis 196 Reisen, dann mit den letzten 4 abschließen (Meilenstein 200) — gute Belohnungen ohne zu viel auszugeben.
 Vielzahler: stetig bis 800, dem höchsten Meilenstein.
 Kompass fürs Ende aufheben, nicht früh verbrauchen — für 196 oder um Lücken zu füllen.

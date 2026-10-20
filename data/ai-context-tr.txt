@@ -795,6 +795,7 @@ Yolcu Takımı yolculuğa gönder — her takım 8 saatte bir çıkabilir.
 Her yolculuk Sıradan Gelgit Hazinesi (%90) veya Premium Gelgit Hazinesi (%10) getirir.
 3 Sıradan Gelgit Hazinesi → 1 Premium Gelgit Hazinesi. 3 Premium Gelgit Hazinesi → Seçkin Gelgit Hazinesi (%75) veya İhtişamlı Gelgit Hazinesi (%25).
 Her Pusula bir yolculuğu 1 saat kısaltır. Pusulalar Yelkenler Fora Paketi ile alınır.
+Her gün 1 ücretsiz Pusula gelir; kullanılmayanlar sonraki etkinliğe kalır.
 🎯 EŞİK ÖDÜLLERİ (toplam yolculuk)
 1 → 5 Tılsım Kılavuzu
 5 → 10 Tılsım Kılavuzu
@@ -806,14 +807,16 @@ Her Pusula bir yolculuğu 1 saat kısaltır. Pusulalar Yelkenler Fora Paketi ile
 550 → 100 rastgele Vali Tılsımı malzeme sandığı
 800 → 120 rastgele Vali Tılsımı malzeme sandığı
 🎁 HAZİNELERİN İÇİNDEKİLER
-Sıradan Gelgit Hazinesi: Tılsım Tasarımı ×5 · 5 dk Genel Hızlandırma ×18 · 100 Elmas ×2
-Premium Gelgit Hazinesi: Tılsım Kılavuzu ×10 · Tılsım Tasarımı ×10 · 1 sa Genel Hızlandırma ×6
-Seçkin Gelgit Hazinesi: Tılsım Kılavuzu ×15 · Tılsım Tasarımı ×15 · Mitik Genel Kahraman Parçası ×2
-İhtişamlı Gelgit Hazinesi: Tılsım Kılavuzu ×50 · Tılsım Tasarımı ×50 · Mitik Genel Kahraman Parçası ×6
+Sıradan Gelgit Hazinesi: Tılsım Tasarımı ×3 · 5 dk Genel Hızlandırma ×12 · 100 Elmas ×2
+Premium Gelgit Hazinesi: Tılsım Kılavuzu ×3 · Tılsım Tasarımı ×6 · 1 sa Genel Hızlandırma ×4
+Seçkin Gelgit Hazinesi: Tılsım Kılavuzu ×9 · Tılsım Tasarımı ×9 · Mitik Genel Kahraman Parçası ×2
+İhtişamlı Gelgit Hazinesi: Tılsım Kılavuzu ×30 · Tılsım Tasarımı ×30 · Mitik Genel Kahraman Parçası ×6
 Sıradan = temel malzeme · Premium = birleştirmenin başlangıcı · Seçkin ve İhtişamlı = asıl ödüller. Miktarlar sunucu ilerlemesine göre değişebilir.
 💡 İPUÇLARI
 Takımları 8 saatte bir gönder. Sadece ücretsiz takımla yavaş ilerler.
-F2P: hedeflediğin eşiğe ulaşmak için Elmas ile takım ekle.
+Bu sitede özel bir ⏰ zamanlayıcı (AI sohbetinde) kurup 8 saatte bir hatırlatma alabilirsin.
+F2P: 2. takım (2.000 Elmas) değer — 30 yolculuk 20 eşiğine ulaşır, Sıradan Gelgit Hazinesi harcadığın Elmas kadarını geri verir.
+Sadece 3. takımla (10.000 Elmas) yaklaşık 45 yolculuk olur; 60 eşiği için 4 takım gerekir.
 Az harcayanlar: 196 yolculuğa kadar git, son 4 ile bitir (eşik 200) — fazla harcamadan iyi ödüller.
 Çok harcayanlar: en yüksek eşik olan 800'e kadar devam et.
 Pusula sona sakla, erken kullanma. 196'ya ulaşmak veya eksiği kapatmak için kullan.

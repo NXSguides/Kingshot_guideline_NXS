@@ -795,6 +795,7 @@ Você começa com 1 equipe grátis. As equipes 2 e 3 custam 2.000 e 10.000 Gemas
 Cada viagem traz um Tesouro das Marés Comum (90%) ou um Tesouro das Marés Premium (10%).
 3 Tesouro das Marés Comum → 1 Tesouro das Marés Premium. 3 Tesouro das Marés Premium → Tesouro das Marés Requintado (75%) ou Tesouro das Marés Majestoso (25%).
 Cada Bússola reduz uma viagem em 1 hora. Bússolas vêm do Pacote Velas ao Alto.
+Você ganha 1 Bússola grátis por dia; as não usadas ficam para o próximo evento.
 🎯 RECOMPENSAS DE MARCO (total de viagens)
 1 → 5 Guia de Acessórios
 5 → 10 Guia de Acessórios
@@ -806,14 +807,16 @@ Cada Bússola reduz uma viagem em 1 hora. Bússolas vêm do Pacote Velas ao Alto
 550 → 100 baús aleatórios de materiais de Talismã do Governador
 800 → 120 baús aleatórios de materiais de Talismã do Governador
 🎁 O QUE VEM EM CADA TESOURO
-Tesouro das Marés Comum: Design do Talismã ×5 · 5m de Aceleração Geral ×18 · 100 Gemas ×2
-Tesouro das Marés Premium: Guia de Acessórios ×10 · Design do Talismã ×10 · 1h de Aceleração Geral ×6
-Tesouro das Marés Requintado: Guia de Acessórios ×15 · Design do Talismã ×15 · Fragmento de Herói Geral Mítico ×2
-Tesouro das Marés Majestoso: Guia de Acessórios ×50 · Design do Talismã ×50 · Fragmento de Herói Geral Mítico ×6
+Tesouro das Marés Comum: Design do Talismã ×3 · 5m de Aceleração Geral ×12 · 100 Gemas ×2
+Tesouro das Marés Premium: Guia de Acessórios ×3 · Design do Talismã ×6 · 1h de Aceleração Geral ×4
+Tesouro das Marés Requintado: Guia de Acessórios ×9 · Design do Talismã ×9 · Fragmento de Herói Geral Mítico ×2
+Tesouro das Marés Majestoso: Guia de Acessórios ×30 · Design do Talismã ×30 · Fragmento de Herói Geral Mítico ×6
 Comum = materiais básicos · Premium = início das combinações · Requintado e Majestoso = as recompensas principais. As quantidades podem variar com o progresso do servidor.
 💡 DICAS
 Envie equipes a cada 8 horas. Só com a equipe grátis é lento.
-F2P: adicione equipes com Gemas para chegar ao marco que você quer.
+Crie um ⏰ timer personalizado neste site (no chat da IA) para lembrar a cada 8 horas.
+F2P: a equipe 2 (2.000 Gemas) vale a pena — 30 viagens chegam ao marco 20, e os Tesouro das Marés Comum devolvem mais ou menos as Gemas.
+Só com a equipe 3 (10.000 Gemas) você faz cerca de 45 viagens; o marco 60 precisa das 4 equipes.
 Quem gasta pouco: chegue a 196 viagens e termine com as últimas 4 (marco 200) — boas recompensas sem gastar demais.
 Quem gasta muito: siga até 800, o marco máximo.
 Guarde as Bússola para o final — não use cedo. Use para chegar a 196 ou cobrir o que faltar.
