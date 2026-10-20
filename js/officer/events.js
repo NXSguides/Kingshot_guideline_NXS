@@ -49,8 +49,8 @@ Please launch at your assigned time to keep rallies properly staggered. Remember
   "viking-vengeance": [
     { title: "Viking Vengeance (full)", text: `VIKING VENGEANCE
 
-📅 Tue 14:00 UTC
-📅 Thu 23:00 UTC
+📅 Tue 22:00 UTC
+📅 Thu 13:00 UTC
 
 🔹 Empty your city before event starts, even if offline. Post in Alliance Chat when empty.
 🔹 Reinforce using Chenko, Amadeus, Yeonwoo or Amane first. Prioritize Infantry & Cavalry.
@@ -963,6 +963,7 @@ async function saveEventTimes() {
     next[inp.dataset.et] = out.sort();
   }
   next.days = {};
+  if (ET.timeDays) next.timeDays = ET.timeDays;   // per-time battle days (Viking: two days) are kept as they are
   for (const sel of $("etGrid").querySelectorAll("[data-etday]")) next.days[sel.dataset.etday] = +sel.value;
   if (!TOKEN) { m.className = "msg warn"; m.textContent = tr("limNoKey"); return; }
   m.className = "msg"; m.textContent = tr("limSaving");

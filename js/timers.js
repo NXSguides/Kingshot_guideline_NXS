@@ -39,6 +39,7 @@
   };
   fetch("data/event-times.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((d) => {
     for (const [k, n] of Object.entries((d && d.days) || {})) { if (+n >= 1) FIGHT_DAY[k] = +n; else if (+n === 0) delete FIGHT_DAY[k]; }   // 0 = every day is a battle day
+    for (const [k, v] of Object.entries((d && d.timeDays) || {})) if (Array.isArray(v) && v.length) TIME_DAY[k] = v.map(Number);   // n-th time → that day of the run
     if (ON_MAIN) { if (!view.hidden) render(); return; }
     for (const [k, v] of Object.entries(d || {})) { const hs = (Array.isArray(v) ? v : []).map((x) => { const m = String(x).match(/^(\d{1,2})(?::(\d{2}))?$/); return m ? +m[1] + (+(m[2] || 0)) / 60 : null; }).filter((x) => x != null && x < 24); if (hs.length) FB.times[k] = hs; }
     if (!view.hidden) render();
@@ -177,6 +178,7 @@
   /* which day of the event run has the battle (0 = first day). Default: the last day — check in game. */
   // battle day (1 = first day of the run, -1 = last); officers set it on the officer Events tab (data/event-times.json "days"). Missing = every day (Bear Hunt).
   const FIGHT_DAY = { "swordland-showdown": -1, "tri-alliance-clash": -1, "viking-vengeance": -1, "cesares-fury": 1, "kvk": 6 };
+  const TIME_DAY = {};
   const DAY = 86400000, HORIZON = 21 * DAY;
   // a choice is kept as "1st / 2nd time" (#0, #1), so officers can move a time without switching people's alerts off (old saves used the hour)
   const isOn = (a, i, h) => !!(a && a.on && (a.on["#" + i] ?? a.on[h]));
@@ -193,11 +195,13 @@
     if (k === "bear-hunt") return typeof BEAR_SCHED !== "undefined" ? BEAR_SCHED : null;
     return typeof EVENT_SCHEDULES !== "undefined" ? EVENT_SCHEDULES[k] : null;
   }
+  const runDay = (k, dayStart) => { const sc = evSched(k); if (!sc) return 0; const n = Math.floor((dayStart - sc.anchor) / DAY); return n < 0 ? 0 : (n % sc.periodDays) + 1; };
   /* is there a battle of event k on the UTC day starting at dayStart? */
   function fightOn(k, dayStart) {
     const sc = evSched(k); if (!sc) return false;
     const n = Math.floor((dayStart - sc.anchor) / DAY); if (n < 0) return false;
     const inRun = n % sc.periodDays; if (inRun >= sc.activeDays) return false;
+    if (TIME_DAY[k]) return TIME_DAY[k].includes(inRun + 1);
     if (!(k in FIGHT_DAY)) return true;                      // Bear Hunt: every active day
     const f = FIGHT_DAY[k] < 0 ? sc.activeDays + FIGHT_DAY[k] : FIGHT_DAY[k] - 1;
     return inRun === f;
@@ -211,8 +215,10 @@
       const H = hoursOf(d), before = beforeOf(d);
       for (let day = today; day < now + HORIZON; day += DAY) {
         if (d.kind === "event" && !fightOn(d.k, day)) continue;
+        const rd = TIME_DAY[d.k] ? runDay(d.k, day) : 0;
         for (const [i, h] of H.entries()) {
           if (!isOn(a, i, h)) continue;
+          if (rd && TIME_DAY[d.k][i] !== rd) continue;
           const at = day + Math.round(h * 60) * 60000 - before * 60000;
           if (at <= now) continue;
           const v = { e: evEmoji(d.k), name: evName(d.k), n: before, t: fmtH(h) };

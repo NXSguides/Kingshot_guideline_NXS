@@ -279,12 +279,16 @@ const REPAIR_DAYS = { "kvk": [7, 8] }, REPAIR_EMOJI = "💊";
 /* events whose prep days matter as much as the battle: prep keeps the guide emoji at full strength, the battle day gets its own */
 const PHASED = { "kvk": { fight: "💥" } };
 const isRepairDay = (k, dayIdx) => (REPAIR_DAYS[k] || []).includes(dayIdx + 1);
-const isFightDay = (k, dayIdx, activeDays) => { if (!(k in FIGHT_DAY)) return true; const f = FIGHT_DAY[k] < 0 ? activeDays + FIGHT_DAY[k] : FIGHT_DAY[k] - 1; return dayIdx === f; };
+/* times on different days of the run (event-times.json "timeDays": the n-th time → that day of the run, e.g. Viking: 13:00 on day 3, 22:00 on day 1) */
+const TIME_DAY = {};
+const timesOnDay = (k, day) => (TIME_DAY[k] && day ? (EVENT_TIMES[k] || []).filter((_, i) => TIME_DAY[k][i] === day) : EVENT_TIMES[k]);
+const isFightDay = (k, dayIdx, activeDays) => { if (TIME_DAY[k]) return TIME_DAY[k].includes(dayIdx + 1); if (!(k in FIGHT_DAY)) return true; const f = FIGHT_DAY[k] < 0 ? activeDays + FIGHT_DAY[k] : FIGHT_DAY[k] - 1; return dayIdx === f; };
 fetch("data/event-times.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((d) => {
   if (!d) return;
   let changed = false;
   for (const [k, n] of Object.entries(d.days || {})) { if (+n >= 1) FIGHT_DAY[k] = +n; else if (+n === 0) delete FIGHT_DAY[k]; changed = true; }
-  for (const [k, v] of Object.entries(d)) { const hs = (Array.isArray(v) ? v : []).map(hmToH).filter((x) => x != null); if (hs.length) { EVENT_TIMES[k] = hs; changed = true; } }
+  for (const [k, v] of Object.entries(d.timeDays || {})) if (Array.isArray(v) && v.length) { TIME_DAY[k] = v.map(Number); changed = true; }
+  for (const [k, v] of Object.entries(d)) { if (k === "timeDays") continue; const hs = (Array.isArray(v) ? v : []).map(hmToH).filter((x) => x != null); if (hs.length) { EVENT_TIMES[k] = hs; changed = true; } }
   if (changed && langChosen) renderAll();
 }).catch(() => {});
 
@@ -1105,7 +1109,7 @@ function todayCardHtml() {
     if (inRun < sc.activeDays && PHASED[key] && !isFightDay(key, inRun, sc.activeDays)) { nowItems.push({ key, day: inRun + 1, days: sc.activeDays, prep: true }); continue; }
     if (inRun < sc.activeDays && isFightDay(key, inRun, sc.activeDays)) { nowItems.push({ key, day: inRun + 1, days: sc.activeDays }); continue; }
     // next battle day within 7 days (an event already running but not yet at its battle day counts too)
-    for (let u = 1; u <= 7; u++) { const r = (inRun + u) % sc.periodDays; if (r < sc.activeDays && isFightDay(key, r, sc.activeDays)) { soon.push({ key, until: u, start: today + u * DAY }); break; } }
+    for (let u = 1; u <= 7; u++) { const r = (inRun + u) % sc.periodDays; if (r < sc.activeDays && isFightDay(key, r, sc.activeDays)) { soon.push({ key, until: u, start: today + u * DAY, day: r + 1 }); break; } }
   }
   for (const ev of ANN_EVENTS) {                                // announcement-only events
     const i = announcements.findIndex((a) => ((a.title && (a.title.en || "")) + " " + JSON.stringify(a.title || {})).includes(ev.match));
@@ -1118,7 +1122,7 @@ function todayCardHtml() {
   soon.sort((a, b) => a.until - b.until);
   const hh = hToHM;
   const local = (h) => { const d = new Date(Math.floor(Date.now() / 864e5) * 864e5 + Math.round(h * 60) * 6e4); return d.toLocaleTimeString(HTML_LANG[currentLang] || currentLang, { hour: "2-digit", minute: "2-digit", hourCycle: "h23" }); };
-  const times = (key) => { const T = EVENT_TIMES[key]; if (!T) return "";
+  const times = (key, day) => { const T = timesOnDay(key, day); if (!T || !T.length) return "";
     const off = new Date().getTimezoneOffset() !== 0 ? ` <span class="td-loc">(${escapeHtml(t(TODAY_TXT.yours))} ${T.map(local).join(" & ")})</span>` : "";
     return `<span class="td-time">⏰ ${T.map(hh).join(" & ")} UTC${off}</span>`; };
   const row = (it, meta) => {
@@ -1126,7 +1130,7 @@ function todayCardHtml() {
       <span class="td-main"><b dir="auto">${escapeHtml(it.name)}</b><span class="td-meta">${meta}</span></span><span class="arrow">›</span></button>`;
     const g = GUIDES[it.key];
     return `<button type="button" class="td-row" onclick="switchGuide('${it.key}')"><span class="emoji">${it.repair ? REPAIR_EMOJI : it.prep ? g.emoji : (PHASED[it.key] || {}).fight || g.emoji}</span>
-      <span class="td-main"><b dir="auto">${escapeHtml(t(g.name))}</b><span class="td-meta">${meta}${it.repair ? " · " + escapeHtml(t(CAL_TXT.repair)) : it.prep ? " · " + escapeHtml(t(CAL_TXT.prepPhase)) : ""}</span>${it.repair || it.prep ? "" : times(it.key)}${it.bt ? `<span class="td-bt" role="link" tabindex="0" onclick="event.stopPropagation();location.href='./bear-calculator.html'">${escapeHtml(t(BT_LINK))}</span>` : ""}</span><span class="arrow">›</span></button>`; };
+      <span class="td-main"><b dir="auto">${escapeHtml(t(g.name))}</b><span class="td-meta">${meta}${it.repair ? " · " + escapeHtml(t(CAL_TXT.repair)) : it.prep ? " · " + escapeHtml(t(CAL_TXT.prepPhase)) : ""}</span>${it.repair || it.prep ? "" : times(it.key, it.day)}${it.bt ? `<span class="td-bt" role="link" tabindex="0" onclick="event.stopPropagation();location.href='./bear-calculator.html'">${escapeHtml(t(BT_LINK))}</span>` : ""}</span><span class="arrow">›</span></button>`; };
   const when = (u) => u === 1 ? t(TODAY_TXT.tomorrow) : fill(t(TODAY_TXT.inDays), { n: u });
   let h = `<div class="today-card"><div class="td-title">${escapeHtml(t(TODAY_TXT.title))}</div>`;
   if (!nowItems.length && !soon.length) h += `<div class="td-none">${escapeHtml(t(TODAY_TXT.none))}</div>`;
