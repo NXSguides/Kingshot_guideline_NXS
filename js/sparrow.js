@@ -28,11 +28,11 @@
       noneA: "그럼 그 참새(Sparrow)를 찾아가 줘 🐦", pageA: "원하는 페이지를 누르면 내가 날아가서 보여줄게.", here: "여기야. 찾던 게 이거 맞지?",
       howA: "여기서 하나 고르면 단계별로 알려줄게. AI에게 물어봐도 돼.", sulky: "내가 필요 없어…? 알았어.", hide: "작은 참새 숨기기", show: "작은 참새", call: "작은 참새 불러서 설명 듣기",
       msg: "너에게 온 메시지가 있어 💌 오른쪽 위 📋 를 눌러 봐.", got: "알겠어", from: "Sparrow가 보냄", oGreet: "안녕 {name}! 나는 작은 참새야. 나를 누르면 탭을 안내하고, 기능 옆 🐦 를 누르면 그것만 설명해 줘. 그래도 모르겠으면 그 Sparrow를 찾아가 😄" },
-    de: { greet: "Hi! Ich bin der kleine Spatz 🐦 Brauchst du Hilfe?", page: "🔎 Eine Seite finden", how: "🎓 Wie benutze ich…", none: "🤔 Keins von beiden",
+    de: { callBtn: "Dieses 🐦 ruft mich — tipp drauf und ich erkläre nur diese eine Funktion.", greet: "Hi! Ich bin der kleine Spatz 🐦 Brauchst du Hilfe?", page: "🔎 Eine Seite finden", how: "🎓 Wie benutze ich…", none: "🤔 Keins von beiden",
       noneA: "Dann geh bitte zu DEM Spatz (Sparrow) 🐦", pageA: "Tippe auf die Seite, die du willst – ich fliege hin.", here: "Hier ist es. Das hast du gesucht, oder?",
       howA: "Such dir hier eins aus, ich führe dich Schritt für Schritt durch. Oder frag einfach die KI.", sulky: "Brauchst du mich nicht…? Na gut.", hide: "Kleinen Spatz ausblenden", show: "Kleiner Spatz", call: "Kleinen Spatz rufen – erklärt das hier",
       msg: "Da ist eine Nachricht für dich 💌 Tippe oben rechts auf 📋.", got: "Alles klar", from: "von Sparrow", oGreet: "Hi {name}! Ich bin der kleine Spatz. Wenn ich dir etwas nicht erklären kann, geh zu DEM Sparrow 😄" },
-    fr: { greet: "Salut ! Je suis Petit Moineau 🐦 Besoin d'aide ?", page: "🔎 Trouver une page", how: "🎓 Comment utiliser…", none: "🤔 Ni l'un ni l'autre",
+    fr: { callBtn: "Ce 🐦 m'appelle — touche-le et j'explique juste cette fonction.", greet: "Salut ! Je suis Petit Moineau 🐦 Besoin d'aide ?", page: "🔎 Trouver une page", how: "🎓 Comment utiliser…", none: "🤔 Ni l'un ni l'autre",
       noneA: "Alors va voir CE Moineau-là (Sparrow) 🐦", pageA: "Touche la page que tu veux, je t'y emmène.", here: "C'est ici. C'est ce que tu cherchais, non ?",
       howA: "Choisis-en un ici et je te guide étape par étape. Ou demande à l'IA.", sulky: "Tu n'as pas besoin de moi… ? Bon.", hide: "Cacher Petit Moineau", show: "Petit Moineau", call: "Appeler Petit Moineau pour expliquer",
       msg: "Il y a un message pour toi 💌 Touche 📋 en haut à droite.", got: "Compris", from: "de Sparrow", oGreet: "Salut {name} ! Je suis Petit Moineau. Si je n'arrive pas à t'expliquer, va voir CE Sparrow-là 😄" },
@@ -40,23 +40,23 @@
       noneA: "Então vá falar com AQUELA Sparrow 🐦", pageA: "Toque na página que você quer e eu voo até lá.", here: "Aqui está. Era isso que você procurava, né?",
       howA: "Escolha um aqui e eu te guio passo a passo. Ou pergunte à IA.", sulky: "Não precisa de mim…? Tá bom.", hide: "Esconder o Pardalzinho", show: "Pardalzinho", call: "Chamar o Pardalzinho para explicar",
       msg: "Tem uma mensagem para você 💌 Toque em 📋 no canto superior direito.", got: "Entendi", from: "da Sparrow", oGreet: "Oi {name}! Eu sou o Pardalzinho. Toque em mim para um tour de qualquer aba, ou no 🐦 ao lado de uma função e eu explico só aquela. Se eu não conseguir te ensinar algo, vá falar com AQUELA Sparrow 😄" },
-    es: { greet: "¡Hola! Soy Gorrioncito 🐦 ¿Necesitas ayuda?", page: "🔎 Buscar una página", how: "🎓 Cómo usar…", none: "🤔 Ninguna de las dos",
+    es: { callBtn: "Este 🐦 me llama — tócalo y te explico solo esa función.", greet: "¡Hola! Soy Gorrioncito 🐦 ¿Necesitas ayuda?", page: "🔎 Buscar una página", how: "🎓 Cómo usar…", none: "🤔 Ninguna de las dos",
       noneA: "Entonces ve con ESA Sparrow 🐦", pageA: "Toca la página que quieres y vuelo hasta allí.", here: "Aquí está. Esto es lo que buscabas, ¿no?",
       howA: "Elige uno aquí y te guío paso a paso. O pregúntale a la IA.", sulky: "¿No me necesitas…? Bueno.", hide: "Ocultar a Gorrioncito", show: "Gorrioncito", call: "Llamar a Gorrioncito para que lo explique",
       msg: "Tienes un mensaje 💌 Toca 📋 arriba a la derecha.", got: "Entendido", from: "de Sparrow", oGreet: "¡Hola {name}! Soy Gorrioncito. Si no logro enseñarte algo, ve con ESA Sparrow 😄" },
-    tr: { greet: "Selam! Ben Küçük Serçe 🐦 Yardım lazım mı?", page: "🔎 Sayfa bul", how: "🎓 Nasıl kullanılır…", none: "🤔 İkisi de değil",
+    tr: { callBtn: "Bu 🐦 beni çağırır — dokun, sadece o özelliği anlatayım.", greet: "Selam! Ben Küçük Serçe 🐦 Yardım lazım mı?", page: "🔎 Sayfa bul", how: "🎓 Nasıl kullanılır…", none: "🤔 İkisi de değil",
       noneA: "O zaman O Serçe'ye (Sparrow) git 🐦", pageA: "İstediğin sayfaya dokun, oraya uçayım.", here: "İşte burada. Aradığın buydu, değil mi?",
       howA: "Buradan birini seç, adım adım anlatayım. Ya da yapay zekâya sor.", sulky: "Bana ihtiyacın yok mu…? Peki.", hide: "Küçük Serçe'yi gizle", show: "Küçük Serçe", call: "Küçük Serçe'yi çağır, anlatsın",
       msg: "Sana bir mesaj var 💌 Sağ üstteki 📋 simgesine dokun.", got: "Anladım", from: "Sparrow'dan", oGreet: "Selam {name}! Ben Küçük Serçe. Bir şeyi öğretemezsem O Sparrow'a git 😄" },
-    id: { greet: "Hai! Aku Burung Gereja Kecil 🐦 Perlu bantuan?", page: "🔎 Cari halaman", how: "🎓 Cara memakai…", none: "🤔 Bukan dua-duanya",
+    id: { callBtn: "🐦 ini memanggilku — ketuk, dan aku jelaskan fitur itu saja.", greet: "Hai! Aku Burung Gereja Kecil 🐦 Perlu bantuan?", page: "🔎 Cari halaman", how: "🎓 Cara memakai…", none: "🤔 Bukan dua-duanya",
       noneA: "Kalau begitu cari Sparrow yang ITU ya 🐦", pageA: "Ketuk halaman yang kamu mau, aku terbang ke sana.", here: "Ini dia. Ini yang kamu cari, kan?",
       howA: "Pilih satu di sini, aku pandu langkah demi langkah. Atau tanya AI saja.", sulky: "Tidak butuh aku…? Ya sudah.", hide: "Sembunyikan Burung Gereja Kecil", show: "Burung Gereja Kecil", call: "Panggil Burung Gereja Kecil untuk menjelaskan",
       msg: "Ada pesan untukmu 💌 Ketuk 📋 di kanan atas.", got: "Oke", from: "dari Sparrow", oGreet: "Hai {name}! Aku Burung Gereja Kecil. Kalau aku tetap tidak bisa mengajarimu, cari Sparrow yang ITU ya 😄" },
-    ru: { greet: "Привет! Я Воробушек 🐦 Нужна помощь?", page: "🔎 Найти страницу", how: "🎓 Как пользоваться…", none: "🤔 Ни то, ни другое",
+    ru: { callBtn: "Это 🐦 зовёт меня — нажми, и я объясню только эту функцию.", greet: "Привет! Я Воробушек 🐦 Нужна помощь?", page: "🔎 Найти страницу", how: "🎓 Как пользоваться…", none: "🤔 Ни то, ни другое",
       noneA: "Тогда иди к ТОМУ Воробью (Sparrow) 🐦", pageA: "Нажми на нужную страницу — я прилечу туда.", here: "Вот оно. Ты это искал, да?",
       howA: "Выбери здесь, и я проведу тебя по шагам. Или просто спроси ИИ.", sulky: "Я не нужен…? Ну ладно.", hide: "Скрыть Воробушка", show: "Воробушек", call: "Позвать Воробушка — объяснит",
       msg: "Для тебя есть сообщение 💌 Нажми 📋 справа вверху.", got: "Понятно", from: "от Sparrow", oGreet: "Привет, {name}! Я Воробушек. Если я не смогу что-то объяснить, иди к ТОМУ Sparrow 😄" },
-    th: { greet: "หวัดดี! ฉันคือนกกระจอกน้อย 🐦 ต้องการความช่วยเหลือไหม?", page: "🔎 หาหน้า", how: "🎓 ใช้ฟีเจอร์ยังไง…", none: "🤔 ไม่ใช่ทั้งสองอย่าง",
+    th: { callBtn: "🐦 นี้คือปุ่มเรียกฉัน แตะแล้วฉันจะอธิบายเฉพาะฟีเจอร์นั้น", greet: "หวัดดี! ฉันคือนกกระจอกน้อย 🐦 ต้องการความช่วยเหลือไหม?", page: "🔎 หาหน้า", how: "🎓 ใช้ฟีเจอร์ยังไง…", none: "🤔 ไม่ใช่ทั้งสองอย่าง",
       noneA: "งั้นไปหานกกระจอกตัวนั้น (Sparrow) นะ 🐦", pageA: "แตะหน้าที่ต้องการ แล้วฉันจะบินพาไป", here: "อยู่นี่ไง นี่คือที่หาอยู่ใช่ไหม?",
       howA: "เลือกตรงนี้สักอัน ฉันจะพาทำทีละขั้น หรือถาม AI ก็ได้", sulky: "ไม่ต้องการฉันเหรอ…? ก็ได้", hide: "ซ่อนนกกระจอกน้อย", show: "นกกระจอกน้อย", call: "เรียกนกกระจอกน้อยมาอธิบาย",
       msg: "มีข้อความถึงคุณ 💌 แตะ 📋 มุมขวาบน", got: "เข้าใจแล้ว", from: "จาก Sparrow", oGreet: "หวัดดี {name}! ฉันคือนกกระจอกน้อย ถ้าฉันสอนไม่ได้ ไปหา Sparrow ตัวนั้นนะ 😄" },
@@ -855,12 +855,24 @@
     await step(el, () => otStep(tab, key, act), true);
     clearTarget(); tour = null; busy = false; await goHome(); hush();
   }
-  if (!IS_OFFICER) setInterval(() => {
+  let tmHinted = false; try { tmHinted = !!sessionStorage.getItem("nxs-sparrow-tmhint"); } catch (e) {}
+  setInterval(() => {
     if (root.hidden) return;
     const view = document.querySelector(".tm-view"); if (!view || view.hidden) return;
     const mk = (id) => { const b = document.createElement("button"); b.type = "button"; b.className = "sp-call"; b.textContent = "🐦"; b.title = t("call"); b.setAttribute("aria-label", t("call")); b.onclick = (e) => { e.preventDefault(); e.stopPropagation(); hush(); runTour(id); }; return b; };
     const top = view.querySelector(".tm-top > b"); if (top && !top.querySelector(".sp-call")) top.appendChild(mk("tmr"));
     const al = view.querySelector(".tm-alerts > b"); if (al && !al.querySelector(".sp-call")) al.appendChild(mk("rem"));
+    // first time the timers panel is open this session: show what the 🐦 is for
+    const cb = view.querySelector(".tm-top .sp-call");
+    if (cb && !tmHinted && !busy && !tour && state !== "sleep") {
+      tmHinted = true; try { sessionStorage.setItem("nxs-sparrow-tmhint", "1"); } catch (e) {}
+      (async () => {
+        busy = true; hush(); clearTarget(); cb.scrollIntoView({ block: "center" }); await wait(350);
+        const p = pointAt(cb); if (!(await flyTo(p.x, p.y))) { busy = false; return; }
+        setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(cb); const c = play("point"); say(esc(t("callBtn")), { foot: false }); await c;
+        await play("idle", { squash: false }); await wait(4000); hush(); clearTarget(); busy = false; await goHome();
+      })();
+    }
   }, 1500);
   if (IS_OFFICER) {
     setInterval(() => { if (root.hidden) return; try { addCallButtons(); } catch (e) {} }, 1500);
