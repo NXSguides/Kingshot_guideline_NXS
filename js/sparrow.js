@@ -339,7 +339,12 @@
     bird.style.transformOrigin = "0 0";
   }
   function place() { root.style.transform = `translate(${Math.round(pos.x)}px,${Math.round(pos.y)}px)`; placeBubble(); }
-  function setFlip(f) { flip = !!f; bird.classList.toggle("sp-flip", flip); }
+  /* which way each clip was drawn: l = looks left, r = looks right, f = faces the viewer. The bird is mirrored when the clip's
+     own direction differs from where it should be looking (`facing`), so its front is always toward what it's attending to. */
+  const FACE = { idle: "l", fly: "l", sulky: "l", hi: "r", sleep: "r", point: "r", bow: "r", thumbs: "r", walk: "r", pop: "r", tilt: "r", wake: "f", hop: "f", teacher: "f", heart: "f", cry: "f" };
+  let facing = "r";
+  function applyFlip() { const nf = FACE[cur] || "l"; flip = nf !== "f" && nf !== facing; bird.classList.toggle("sp-flip", flip); }
+  function setFacing(d) { facing = d === "l" ? "l" : "r"; applyFlip(); }
   /* show a clip. still=true keeps the last frame after it ends. Returns a promise that resolves when the clip ends (loops: right away). */
   function play(name, opts) {
     opts = opts || {};
@@ -356,7 +361,7 @@
         if (old) URL.revokeObjectURL(old);
         back.onload = () => {
           if (cur !== name) return;
-          back.classList.remove("sp-off"); front.classList.add("sp-off");
+          applyFlip(); back.classList.remove("sp-off"); front.classList.add("sp-off");
           const o = front; front = back; back = o;
           if (!m.loop) clipTimer = setTimeout(() => { if (cur === name) { front.src = IMG + name + "_end.png"; } if (pending === resolve) pending = null; resolve(true); }, dur(name) - 40);
           else resolve(true);
@@ -381,13 +386,13 @@
       const from = { ...pos }, dx = x - from.x, dy = y - from.y, dist = Math.hypot(dx, dy);
       if (dist < 4) { pos = { x, y }; place(); resolve(); return; }
       if (REDUCED) { pos = { x, y }; place(); resolve(); return; }
-      setFlip(dx > 0);                                 // the fly clip faces left; mirror it when flying right
+      setFacing(dx > 0 ? "r" : "l");                   // look where it's flying
       play("fly", { squash: false });
       const D = Math.min(1600, 500 + dist * 1.6), t0 = performance.now(), lift = Math.min(90, 30 + dist * 0.25);
       const step = (now) => {
         const k = Math.min(1, (now - t0) / D), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
         pos = { x: from.x + dx * e, y: from.y + dy * e - Math.sin(Math.PI * k) * lift }; place();
-        if (k < 1) flying.raf = requestAnimationFrame(step); else { flying = null; setFlip(false); resolve(); }
+        if (k < 1) flying.raf = requestAnimationFrame(step); else { flying = null; resolve(); }
       };
       flying = { raf: requestAnimationFrame(step) };
     });
@@ -478,7 +483,7 @@
       await wait(2600); hush(); await play("sleep"); sleepZ(true); state = "sleep"; busy = false;
     }, IDLE_MS);
   }
-  const faceIn = () => setFlip(perchPoint().x < innerWidth / 2);   // perched at the left edge → look right, into the page (not at the wall)
+  const faceIn = () => setFacing(perchPoint().x < innerWidth / 2 ? "r" : "l");   // perched at the left edge → look right, into the page (not at the wall)
   async function goHome() { const p = perchPoint(); if (Math.hypot(p.x - pos.x, p.y - pos.y) > 6) { await flyTo(p.x, p.y); } faceIn(); await play("idle", { squash: false }); }
   async function greet() {
     busy = true; clearTarget(); sleepZ(false);
@@ -502,7 +507,7 @@
     } else if (a === "how") {
       hush(); if (window.NXSAI) { NXSAI.open(); addAISection(); const sec = document.querySelector(".sp-ai-sec"); if (sec) sec.scrollIntoView({ block: "center" }); }
       const c = play("teacher"); state = "how"; busy = false;
-      const sec = document.querySelector(".sp-ai-sec"); if (sec) { await wait(300); const p = pointAt(sec); await flyTo(p.x, p.y); setFlip(p.side === "r" || (p.side === "top" && p.x > p.cx)); highlight(sec); say(esc(t("howA")), { foot: false }); clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { hush(); clearTarget(); }, 4000); }
+      const sec = document.querySelector(".sp-ai-sec"); if (sec) { await wait(300); const p = pointAt(sec); await flyTo(p.x, p.y); setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(sec); say(esc(t("howA")), { foot: false }); clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { hush(); clearTarget(); }, 4000); }
       if (await c) play("idle", { squash: false }); return;
     } else if (a === "tour") {
       busy = false; runTour(b.dataset.t); return;
@@ -532,7 +537,7 @@
   function cancelStep() { if (stepResolve) { const r = stepResolve; stepResolve = null; r("stop"); } }
   async function step(el, text, last) {
     cancelStep();
-    if (el) { const tall = el.getBoundingClientRect().height > innerHeight * 0.4; el.scrollIntoView({ block: tall ? "start" : "center", behavior: REDUCED ? "auto" : "smooth" }); await wait(420); if (tall) { const sc = el.closest(".ai-log, .tm-view, .ai-panel") || window; try { (sc === window ? window : sc).scrollBy(0, -70); } catch (e) {} await wait(150); } const p = pointAt(el); await flyTo(p.x, p.y); setFlip(p.side === "r" || (p.side === "top" && p.x > p.cx)); highlight(el); placeBubble(); }
+    if (el) { const tall = el.getBoundingClientRect().height > innerHeight * 0.4; el.scrollIntoView({ block: tall ? "start" : "center", behavior: REDUCED ? "auto" : "smooth" }); await wait(420); if (tall) { const sc = el.closest(".ai-log, .tm-view, .ai-panel") || window; try { (sc === window ? window : sc).scrollBy(0, -70); } catch (e) {} await wait(150); } const p = pointAt(el); await flyTo(p.x, p.y); setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(el); placeBubble(); }
     const c = play(el ? "point" : "teacher");
     return new Promise((resolve) => {
       stepResolve = resolve;
@@ -552,7 +557,7 @@
   async function runTour(id) {
     if (busy) return; busy = true; ["point", "teacher", "fly", "idle"].forEach(preload); hush(); clearTarget(); tour = id; clearTimeout(idleTimer);
     const ai = window.NXSAI, tm = window.NXSTimers, panel = ai && ai.panel;
-    const end = async () => { clearTarget(); setFlip(false); tour = null; busy = false; await goHome(); hush(); state = "menu"; armIdle(); };
+    const end = async () => { clearTarget(); tour = null; busy = false; await goHome(); hush(); state = "menu"; armIdle(); };
     const go = async (el, text, last) => { const r = await step(el, text, last); if (r === "stop") { await end(); return false; } return true; };
     if (id === "inst") {
       hush(); if (panel) panel.hidden = true;
@@ -692,7 +697,7 @@
       if (!el) continue;
       const r = await step(el, () => tl(key), i === steps.length - 1); if (r === "stop") break;
     }
-    clearTarget(); setFlip(false); tour = null; busy = false; await goHome(); hush();
+    clearTarget(); tour = null; busy = false; await goHome(); hush();
   }
   function toolAsk() {
     say(`<b>${esc(tl("ask"))}</b><div class="sp-opts"><button type="button" class="sp-main" data-a="ttour">${esc(tl("yes"))}</button><button type="button" data-a="tno">${esc(tl("no"))}</button></div>`);
@@ -713,9 +718,9 @@
     await wait(250);
     title.scrollIntoView({ block: "center", behavior: REDUCED ? "auto" : "smooth" }); await wait(450);
     const p = pointAt(title); await flyTo(p.x, p.y);
-    setFlip(p.side === "r" || (p.side === "top" && p.x > p.cx));   // the point clip points to the right; mirror it when the sparrow lands on the left
+    setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r");   // face the thing it points at
     highlight(title); const c = play("point"); say(esc(t("here"))); state = "menu"; busy = false; armIdle();
-    if (await c) { play("idle", { squash: false }); setFlip(false); }
+    if (await c) { play("idle", { squash: false }); }
   }
   bird.addEventListener("click", async () => {
     if (busy || tour) return;
@@ -731,8 +736,8 @@
     const ob = document.getElementById("officerBtn"); const u = me(); const m = messageFor(u);
     if (!ob || ob.hidden || !m || isRead(m)) return false;
     busy = true; await goHome(); await play("hi"); say(esc(t("msg")), { foot: false }); await wait(1800); hush();
-    const p = pointAt(ob); await flyTo(p.x, p.y); setFlip(p.side === "r" || (p.side === "top" && p.x > p.cx)); highlight(ob); await play("point"); say(esc(t("msg")));
-    await play("idle", { squash: false }); setFlip(false); busy = false; state = "menu"; armIdle(); return true;
+    const p = pointAt(ob); await flyTo(p.x, p.y); setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(ob); await play("point"); say(esc(t("msg")));
+    await play("idle", { squash: false }); busy = false; state = "menu"; armIdle(); return true;
   }
 
   async function start() {
@@ -772,7 +777,7 @@
     NXSAI.open(); addOfficerAISection();
     const sec = document.querySelector(".sp-ai-sec"); if (!sec) return;
     sec.scrollIntoView({ block: "center" }); await wait(300);
-    const p = pointAt(sec); await flyTo(p.x, p.y); setFlip(p.side === "r" || (p.side === "top" && p.x > p.cx)); highlight(sec);
+    const p = pointAt(sec); await flyTo(p.x, p.y); setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(sec);
     const c = play("point"); say(esc(t("howA")), { foot: false }); clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { hush(); clearTarget(); }, 4000);
     if (await c) play("idle", { squash: false });
   }
@@ -786,10 +791,10 @@
   window.addEventListener("nxs-ai-lang", () => { if (IS_OFFICER) addOfficerAISection(); });
   async function runOfficerTour(tab) {
     if (busy) return; busy = true; hush(); clearTarget(); tour = tab;
-    const end = async () => { clearTarget(); setFlip(false); tour = null; busy = false; await goHome(); hush(); };
+    const end = async () => { clearTarget(); tour = null; busy = false; await goHome(); hush(); };
     const a = document.querySelector(`.tabs a[data-tab="${tab}"]`); if (!a) { await end(); return; }
     a.scrollIntoView({ block: "center", behavior: REDUCED ? "auto" : "smooth" }); await wait(300);
-    const p = pointAt(a); await flyTo(p.x, p.y); setFlip(p.side === "r" || (p.side === "top" && p.x > p.cx)); highlight(a); play("point"); await wait(700); a.click(); await wait(600);
+    const p = pointAt(a); await flyTo(p.x, p.y); setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(a); play("point"); await wait(700); a.click(); await wait(600);
     const steps = OTOURS[tab];
     for (let i = 0; i < steps.length; i++) {
       const [sel, key, act] = steps[i];
@@ -822,7 +827,7 @@
     if (busy) return; busy = true; hush(); clearTarget(); tour = tab;
     const [sel, key, act] = OTOURS[tab][i]; const el = document.querySelector(sel) || document.querySelector(`.tabs a[data-tab="${tab}"]`);
     await step(el, () => otStep(tab, key, act), true);
-    clearTarget(); setFlip(false); tour = null; busy = false; await goHome(); hush();
+    clearTarget(); tour = null; busy = false; await goHome(); hush();
   }
   if (IS_OFFICER) {
     setInterval(() => { if (root.hidden) return; try { addCallButtons(); } catch (e) {} }, 1500);
