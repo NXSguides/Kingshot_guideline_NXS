@@ -59,6 +59,7 @@
   #pg-bt .bt-warn2 { color: #c0473a; font-size: 12px; font-weight: 600; margin-bottom: 4px; }
   #pg-bt .bt-ok { color: #2f8a4e; font-size: 12px; font-weight: 600; }
 </style>
+<link rel="stylesheet" href="css/sparrow.css">
 </head>
 <body>
 <!-- 🐻 Bear Hunt calculator for everyone (the same calculator as the officer page's #bt; js/officer/bt.js).
@@ -137,5 +138,6 @@ function nxsBack(e) {
   OFFICER_PAGES.bt.init();
   document.getElementById("bc_lang").onchange = (e) => { const l = e.target.value; try { localStorage.setItem("nxs-bc-lang", l); } catch (x) {} bcDir(l); OFFICER_PAGES.bt.setLang(l); };
 </script>
+<script src="js/sparrow.js"></script>
 </body>
 </html>

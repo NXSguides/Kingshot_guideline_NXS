@@ -9,7 +9,7 @@
   const IMG = BASE + "img/sparrow/";
   const SIZE = 0.40;                      // display scale of the clips (standing bird ≈ 100px tall)
   const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const IS_OFFICER = typeof OFFICER !== "undefined";   // officer page (js/officer/core.js) vs the main site
+  const IS_OFFICER = /officer-x7k2p9\.html/.test(location.pathname);   // the officer page (js/officer/core.js) vs the main site / tool pages
   const PREVIEW = (location.search.match(/[?&]sparrow=(nia|armada)/) || [])[1] || null;   // 👀 …/?sparrow=nia shows Nia's message on the main site (nothing is marked read)
   const LS = "nxs-sparrow", READ_LS = "nxs-sparrow-read";
   const ls = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} } };
@@ -65,7 +65,8 @@
       howA: "اختر واحدًا هنا وسأرشدك خطوة بخطوة. أو اسأل الذكاء الاصطناعي.", sulky: "لا تحتاجني…؟ حسنًا.", hide: "إخفاء العصفور الصغير", show: "العصفور الصغير", call: "نادِ العصفور الصغير ليشرح",
       msg: "لديك رسالة 💌 اضغط على 📋 في الأعلى يمينًا.", got: "فهمت", from: "من Sparrow", oGreet: "مرحبًا {name}! أنا العصفور الصغير. اضغط عليّ لجولة في أي تبويب، أو على 🐦 بجانب أي ميزة لأشرحها وحدها. إن لم أستطع تعليمك شيئًا، اذهب إلى Sparrow تلك 😄" },
   };
-  const lang = () => { if (typeof currentLang !== "undefined") return currentLang; return ls.get("nxs-officer-lang") || "en"; };
+  const IS_TOOL = !IS_OFFICER && typeof langChosen === "undefined";   // a stand-alone tool page (calculators, booking / squad guide): language from <html lang>
+  const lang = () => { if (typeof currentLang !== "undefined") return currentLang; if (IS_TOOL) { const l = (document.documentElement.lang || "en").toLowerCase().split("-")[0]; return T[l] ? l : "en"; } return ls.get("nxs-officer-lang") || "en"; };
   const t = (k) => (T[lang()] || T.en)[k] || T.en[k];
 
   /* ---------- guided tours: texts ---------- */
@@ -439,8 +440,8 @@
   function turnOff() { ls.set(LS, "off"); hush(); clearTarget(); root.hidden = true; showToggle(true); }
   function turnOn() { ls.set(LS, "on"); showToggle(false); root.hidden = false; start(); }
   function showToggle(show) {
-    const bar = document.querySelector(".top-btns");
-    if (!bar) return;
+    let bar = document.querySelector(".top-btns");
+    if (!bar) { bar = document.querySelector(".sp-toggle-bar") || Object.assign(document.body.appendChild(document.createElement("div")), { className: "sp-toggle-bar" }); }
     if (!toggleBtn) { toggleBtn = document.createElement("button"); toggleBtn.className = "theme-toggle sp-toggle"; toggleBtn.type = "button"; toggleBtn.textContent = "🐦"; toggleBtn.onclick = turnOn; bar.prepend(toggleBtn); }
     toggleBtn.title = t("show"); toggleBtn.setAttribute("aria-label", t("show")); toggleBtn.hidden = !show;
   }
@@ -591,6 +592,111 @@
   }
   document.addEventListener("click", (e) => { const b = e.target.closest("[data-tour]"); if (!b) return; e.preventDefault(); if (window.NXSAI && NXSAI.panel) NXSAI.panel.hidden = true; runTour(b.dataset.tour); });
   window.addEventListener("nxs-ai-lang", () => { const s2 = document.querySelector(".sp-ai-sec"); if (s2) s2.remove(); addAISection(); });
+
+  /* ---------- stand-alone tool pages: Bear Hunt calculator, KvK trade-off calculator, KvK points planner, booking guide, squad guide ---------- */
+  const PAGE = (location.pathname.match(/(bear-calculator|kvk-calculator|kvk-optimizer|booking-guide|squad-guide)\.html/) || [])[1] || null;
+  const TOOL = {
+    en: { ask: "Want me to walk you through this page?", yes: "🐦 Show me", no: "No thanks",
+      bear1: "Your troops & limits: type your infantry / cavalry / archers, your rally size and how many joiners' troops fit. These come from your own city screen.", bear2: "Valora (Bear Hunt Master): fill this only if the rally number above doesn't already include her.", bear3: "⚡ Auto split: the calculator splits your troops across marches for you — pick how many marches and whether to keep a reserve.", bear4: "The result: one line per march, with the exact troop counts. Copy it and set your marches like that.", bear5: "How it works: the rules behind the split, if you want to check the maths.",
+      kcalc1: "Pick the event you're about to push, and how many days it runs.", kcalc2: "What you plan to spend: type the resources, speed-ups and items you'd use. The page shows what they would be worth in KvK points.", kcalc3: "Milestone rewards: what you get back at each tier for that spend — so you can see if it's worth it.", kcalc4: "Ranking and gem value: what a rank would cost and what the gems are worth. It's a reference only — whether to spend is your call.",
+      kopt1: "Pick your goal: your personal total, or a push on one day for the ranking.", kopt2: "Targets and resources: type what you have (resources, speed-ups) — the planner only counts what you're willing to use.", kopt3: "Troops (Day 4): your troop numbers for the training day.", kopt4: "Score items, level by level: which upgrades give the most points for what you have, and the verdict at the bottom.",
+      book1: "Pick the position you want to book — each tab is one.", book2: "Then follow the steps in order; the pictures show exactly where to tap in the game.", book3: "The tip at the end: the one thing people get wrong — read it before you book.",
+      squad1: "Follow the steps in order; the pictures show the screens in the game.", squad2: "The tip at the end is the part people miss — read it before KvK." },
+    zh: { ask: "要我帶你看這一頁嗎？", yes: "🐦 帶我看", no: "不用了",
+      bear1: "你的士兵和上限：填步兵／騎兵／弓兵的數量、集結人數、還有別人加入能放多少。這些都在你自己的城裡看得到。", bear2: "維拉（狩獵巨熊大師）：上面的集結人數沒有算到她才需要填。", bear3: "⚡ 全自動分配：計算器幫你把兵分到每一隊，選幾隊、要不要留預備兵。", bear4: "結果：一隊一行，寫好確切的兵數。照著設定你的出征就好。", bear5: "怎麼用：分配背後的規則，想核對的可以看。",
+      kcalc1: "選你要衝的活動，還有它跑幾天。", kcalc2: "打算花多少：填你會用掉的資源、加速、道具。頁面會算這些在 KvK 值多少分。", kcalc3: "里程碑獎勵：花這些能拿回每一階的什麼獎勵，看看值不值得。", kcalc4: "排名與鑽石換算：一個名次要花多少、鑽石值多少。這只是參考，花不花你自己決定。",
+      kopt1: "選目標：個人總分，還是某一天衝排名。", kopt2: "目標和資源：填你有的（資源、加速），規劃器只算你願意用的。", kopt3: "士兵（第 4 天）：訓練日的兵數。", kopt4: "計分項目，一級一級列：手上的東西拿去升什麼最划算，最下面有結論。",
+      book1: "選你要預約的官職，一個分頁一個。", book2: "然後照順序做，圖片就是遊戲裡要點的地方。", book3: "最後的小提醒是大家最常弄錯的地方，預約前先看一下。",
+      squad1: "照順序做，圖片就是遊戲裡的畫面。", squad2: "最後的小提醒是大家最容易漏掉的，KvK 前先看。" },
+    ko: { ask: "이 페이지를 안내해 줄까요?", yes: "🐦 보여줘", no: "괜찮아",
+      bear1: "내 병력과 제한: 보병 / 기병 / 궁병 수, 집결 규모, 참가자 병력이 얼마나 들어가는지 입력해요. 내 도시 화면에서 볼 수 있어요.", bear2: "발로라(곰 사냥 마스터): 위 집결 수에 이미 포함되지 않았을 때만 입력해요.", bear3: "⚡ 자동 분배: 계산기가 병력을 부대별로 나눠 줘요 — 부대 수와 예비 병력 여부를 고르세요.", bear4: "결과: 부대마다 한 줄, 정확한 병력 수. 그대로 출정을 설정하세요.", bear5: "작동 방식: 분배 규칙이에요. 계산을 확인하고 싶을 때.",
+      kcalc1: "밀 이벤트와 진행 일수를 고르세요.", kcalc2: "쓸 계획: 사용할 자원, 가속, 아이템을 입력하면 KvK 점수로 얼마인지 보여줘요.", kcalc3: "마일스톤 보상: 그만큼 쓰면 단계마다 무엇을 돌려받는지 — 가치가 있는지 보세요.", kcalc4: "랭킹과 다이아 가치: 순위에 드는 비용과 다이아 가치. 참고용이에요 — 쓸지는 본인이 정해요.",
+      kopt1: "목표 선택: 개인 총점인지, 하루에 랭킹을 노릴지.", kopt2: "목표와 자원: 가진 것(자원, 가속)을 입력해요 — 쓸 의향이 있는 것만 계산해요.", kopt3: "병력(4일차): 훈련일의 병력 수.", kopt4: "점수 항목, 레벨별: 가진 걸로 어떤 업그레이드가 점수가 가장 높은지, 맨 아래 결론.",
+      book1: "예약할 관직을 고르세요 — 탭 하나가 관직 하나예요.", book2: "순서대로 따라 하세요. 사진이 게임에서 누를 곳이에요.", book3: "마지막 팁은 사람들이 가장 많이 틀리는 부분 — 예약 전에 읽으세요.",
+      squad1: "순서대로 따라 하세요. 사진이 게임 화면이에요.", squad2: "마지막 팁은 놓치기 쉬운 부분 — KvK 전에 읽으세요." },
+    de: { ask: "Soll ich dich durch diese Seite führen?", yes: "🐦 Zeig mir", no: "Nein danke",
+      bear1: "Deine Truppen & Limits: Infanterie / Kavallerie / Bogenschützen, deine Rallygröße und wie viele Truppen von Mitstreitern passen. Steht alles in deiner Stadt.", bear2: "Valora (Bärenjagd-Meisterin): nur ausfüllen, wenn die Rallyzahl oben sie nicht schon enthält.", bear3: "⚡ Auto-Aufteilung: der Rechner verteilt deine Truppen auf die Märsche – wähle die Anzahl und ob eine Reserve bleibt.", bear4: "Das Ergebnis: eine Zeile pro Marsch mit genauen Truppenzahlen. Kopieren und die Märsche so einstellen.", bear5: "So funktioniert es: die Regeln hinter der Aufteilung, falls du nachrechnen willst.",
+      kcalc1: "Wähle das Event, das du pushen willst, und wie viele Tage es läuft.", kcalc2: "Was du ausgeben willst: Ressourcen, Beschleuniger, Items. Die Seite zeigt, was das in KvK-Punkten wert wäre.", kcalc3: "Meilenstein-Belohnungen: was du je Stufe dafür zurückbekommst – so siehst du, ob es sich lohnt.", kcalc4: "Rang und Edelstein-Wert: was ein Rang kostet und was die Edelsteine wert sind. Nur eine Referenz – ob du ausgibst, entscheidest du.",
+      kopt1: "Wähle dein Ziel: persönliche Gesamtpunkte oder ein Push an einem Tag für die Rangliste.", kopt2: "Ziele und Ressourcen: trag ein, was du hast – der Planer zählt nur, was du einsetzen willst.", kopt3: "Truppen (Tag 4): deine Truppenzahlen für den Trainingstag.", kopt4: "Punkte-Items Stufe für Stufe: welche Upgrades die meisten Punkte bringen, und unten das Fazit.",
+      book1: "Wähle das Amt, das du buchen willst – jeder Tab ist eins.", book2: "Dann die Schritte der Reihe nach; die Bilder zeigen genau, wo du im Spiel tippst.", book3: "Der Tipp am Ende: das, was die meisten falsch machen – vor dem Buchen lesen.",
+      squad1: "Folge den Schritten der Reihe nach; die Bilder zeigen die Spiel-Bildschirme.", squad2: "Der Tipp am Ende ist der Teil, den viele übersehen – vor dem KvK lesen." },
+    fr: { ask: "Je te guide sur cette page ?", yes: "🐦 Montre-moi", no: "Non merci",
+      bear1: "Tes troupes et limites : infanterie / cavalerie / archers, la taille de ton rassemblement et combien de troupes des participants rentrent. Tout est dans ta ville.", bear2: "Valora (Maîtresse de la chasse à l'ours) : à remplir seulement si le nombre du rassemblement ne l'inclut pas déjà.", bear3: "⚡ Répartition auto : le calculateur répartit tes troupes entre les marches – choisis le nombre de marches et si tu gardes une réserve.", bear4: "Le résultat : une ligne par marche avec les effectifs exacts. Copie et règle tes marches comme ça.", bear5: "Comment ça marche : les règles derrière la répartition, si tu veux vérifier.",
+      kcalc1: "Choisis l'événement que tu veux pousser et sa durée en jours.", kcalc2: "Ce que tu comptes dépenser : ressources, accélérations, objets. La page montre ce que ça vaudrait en points KvK.", kcalc3: "Récompenses de paliers : ce que tu récupères à chaque palier pour cette dépense – pour voir si ça vaut le coup.", kcalc4: "Classement et valeur en gemmes : ce que coûte un rang et ce que valent les gemmes. Simple référence – dépenser ou non, c'est toi qui décides.",
+      kopt1: "Choisis ton objectif : ton total personnel, ou un push sur un jour pour le classement.", kopt2: "Objectifs et ressources : indique ce que tu as – le planificateur ne compte que ce que tu veux bien utiliser.", kopt3: "Troupes (Jour 4) : tes effectifs pour le jour d'entraînement.", kopt4: "Objets à points, niveau par niveau : quelles améliorations rapportent le plus avec ce que tu as, et le verdict en bas.",
+      book1: "Choisis le poste à réserver – un onglet par poste.", book2: "Puis suis les étapes dans l'ordre ; les images montrent exactement où toucher dans le jeu.", book3: "L'astuce à la fin : ce que les gens ratent – lis-la avant de réserver.",
+      squad1: "Suis les étapes dans l'ordre ; les images montrent les écrans du jeu.", squad2: "L'astuce à la fin est ce que les gens oublient – lis-la avant le KvK." },
+    pt: { ask: "Quer que eu te guie nesta página?", yes: "🐦 Me mostra", no: "Não, obrigado",
+      bear1: "Suas tropas e limites: infantaria / cavalaria / arqueiros, o tamanho da sua rally e quantas tropas dos participantes cabem. Está tudo na sua cidade.", bear2: "Valora (Mestra da Caça ao Urso): preencha só se o número da rally acima ainda não a inclui.", bear3: "⚡ Divisão automática: a calculadora divide suas tropas entre as marchas — escolha quantas marchas e se guarda reserva.", bear4: "O resultado: uma linha por marcha, com as tropas exatas. Copie e configure as marchas assim.", bear5: "Como funciona: as regras por trás da divisão, se quiser conferir.",
+      kcalc1: "Escolha o evento que vai empurrar e quantos dias ele dura.", kcalc2: "O que pretende gastar: recursos, acelerações e itens. A página mostra quanto valeriam em pontos de KvK.", kcalc3: "Recompensas de marcos: o que você recebe em cada nível por esse gasto — para ver se vale a pena.", kcalc4: "Ranking e valor em gemas: quanto custa uma posição e quanto valem as gemas. Só referência — gastar ou não é decisão sua.",
+      kopt1: "Escolha a meta: seu total pessoal, ou um empurrão num dia para o ranking.", kopt2: "Metas e recursos: digite o que tem (recursos, acelerações) — o planejador só conta o que você quer usar.", kopt3: "Tropas (Dia 4): seus números de tropas para o dia de treino.", kopt4: "Itens de pontuação, nível a nível: quais melhorias dão mais pontos com o que você tem, e o veredito embaixo.",
+      book1: "Escolha o cargo que quer agendar — cada aba é um.", book2: "Depois siga os passos em ordem; as imagens mostram exatamente onde tocar no jogo.", book3: "A dica no fim é o que as pessoas erram — leia antes de agendar.",
+      squad1: "Siga os passos em ordem; as imagens mostram as telas do jogo.", squad2: "A dica no fim é a parte que as pessoas perdem — leia antes do KvK." },
+    es: { ask: "¿Te guío por esta página?", yes: "🐦 Muéstrame", no: "No, gracias",
+      bear1: "Tus tropas y límites: infantería / caballería / arqueros, el tamaño de tu rally y cuántas tropas de los participantes caben. Todo está en tu ciudad.", bear2: "Valora (Maestra de la Cacería del Oso): rellénalo solo si el número del rally de arriba no la incluye ya.", bear3: "⚡ Reparto automático: la calculadora reparte tus tropas entre las marchas — elige cuántas marchas y si guardas reserva.", bear4: "El resultado: una línea por marcha con las tropas exactas. Cópialo y configura las marchas así.", bear5: "Cómo funciona: las reglas detrás del reparto, por si quieres comprobarlo.",
+      kcalc1: "Elige el evento que vas a empujar y cuántos días dura.", kcalc2: "Lo que piensas gastar: recursos, aceleradores y objetos. La página muestra cuánto valdrían en puntos de KvK.", kcalc3: "Recompensas por hitos: lo que recibes en cada nivel por ese gasto — para ver si merece la pena.", kcalc4: "Ranking y valor en gemas: lo que cuesta un puesto y lo que valen las gemas. Solo es una referencia — gastar o no es cosa tuya.",
+      kopt1: "Elige tu meta: tu total personal, o un empujón en un día para el ranking.", kopt2: "Metas y recursos: escribe lo que tienes (recursos, aceleradores) — el planificador solo cuenta lo que quieras usar.", kopt3: "Tropas (Día 4): tus números de tropas para el día de entrenamiento.", kopt4: "Objetos de puntos, nivel a nivel: qué mejoras dan más puntos con lo que tienes, y el veredicto abajo.",
+      book1: "Elige el cargo que quieres reservar — cada pestaña es uno.", book2: "Luego sigue los pasos en orden; las imágenes muestran exactamente dónde tocar en el juego.", book3: "El consejo del final es lo que la gente hace mal — léelo antes de reservar.",
+      squad1: "Sigue los pasos en orden; las imágenes muestran las pantallas del juego.", squad2: "El consejo del final es la parte que la gente se salta — léelo antes del KvK." },
+    tr: { ask: "Bu sayfayı adım adım göstereyim mi?", yes: "🐦 Göster", no: "Gerek yok",
+      bear1: "Birliklerin ve sınırlar: piyade / süvari / okçu sayıların, rally büyüklüğün ve katılanların kaç birliği sığıyor. Hepsi kendi şehrinde yazar.", bear2: "Valora (Ayı Avı Ustası): yalnızca yukarıdaki rally sayısı onu içermiyorsa doldur.", bear3: "⚡ Otomatik bölme: hesaplayıcı birliklerini seferlere senin yerine böler — sefer sayısını ve yedek bırakıp bırakmayacağını seç.", bear4: "Sonuç: her sefer için bir satır, tam birlik sayılarıyla. Kopyala ve seferlerini öyle ayarla.", bear5: "Nasıl çalışır: bölmenin arkasındaki kurallar, kontrol etmek istersen.",
+      kcalc1: "Zorlayacağın etkinliği ve kaç gün sürdüğünü seç.", kcalc2: "Harcamayı planladığın: kaynaklar, hızlandırmalar, eşyalar. Sayfa bunların KvK puanı olarak değerini gösterir.", kcalc3: "Kilometre taşı ödülleri: o harcama için her kademede ne geri alırsın — değer mi diye bak.", kcalc4: "Sıralama ve elmas değeri: bir sıranın maliyeti ve elmasların değeri. Sadece referans — harcamak sana kalmış.",
+      kopt1: "Hedefini seç: kişisel toplam mı, sıralama için tek günlük atak mı.", kopt2: "Hedefler ve kaynaklar: elindekileri yaz (kaynak, hızlandırma) — planlayıcı yalnızca kullanmak istediklerini sayar.", kopt3: "Birlikler (4. Gün): eğitim günü için birlik sayıların.", kopt4: "Puan veren öğeler, seviye seviye: elindekiyle hangi yükseltmeler en çok puan verir, altta sonuç.",
+      book1: "Ayırtmak istediğin makamı seç — her sekme bir makam.", book2: "Sonra adımları sırayla izle; görseller oyunda tam nereye dokunacağını gösterir.", book3: "Sondaki ipucu herkesin yanlış yaptığı şey — ayırtmadan önce oku.",
+      squad1: "Adımları sırayla izle; görseller oyun ekranlarını gösterir.", squad2: "Sondaki ipucu herkesin kaçırdığı kısım — KvK'dan önce oku." },
+    id: { ask: "Mau aku pandu halaman ini?", yes: "🐦 Tunjukkan", no: "Tidak perlu",
+      bear1: "Pasukan & batasmu: jumlah infanteri / kavaleri / pemanah, ukuran rally, dan berapa pasukan peserta yang muat. Semua ada di layar kotamu.", bear2: "Valora (Master Bear Hunt): isi hanya jika angka rally di atas belum memasukkannya.", bear3: "⚡ Bagi otomatis: kalkulator membagi pasukanmu ke tiap march — pilih jumlah march dan apakah menyisakan cadangan.", bear4: "Hasil: satu baris per march dengan jumlah pasukan persis. Salin dan atur march-mu seperti itu.", bear5: "Cara kerja: aturan di balik pembagian, kalau mau mengecek.",
+      kcalc1: "Pilih event yang mau kamu kejar dan berapa hari berlangsung.", kcalc2: "Yang mau dipakai: sumber daya, speed-up, item. Halaman menunjukkan nilainya dalam poin KvK.", kcalc3: "Hadiah milestone: apa yang kamu dapat di tiap tingkat untuk pengeluaran itu — lihat apakah sepadan.", kcalc4: "Ranking dan nilai gem: biaya satu peringkat dan nilai gem. Hanya referensi — mau pakai atau tidak, terserah kamu.",
+      kopt1: "Pilih tujuan: total pribadi, atau dorong di satu hari untuk ranking.", kopt2: "Target dan sumber daya: isi yang kamu punya (sumber daya, speed-up) — perencana hanya menghitung yang mau kamu pakai.", kopt3: "Pasukan (Hari 4): jumlah pasukanmu untuk hari latihan.", kopt4: "Item skor, per level: upgrade mana yang paling banyak poin dengan yang kamu punya, dan kesimpulan di bawah.",
+      book1: "Pilih jabatan yang mau dipesan — satu tab satu jabatan.", book2: "Lalu ikuti langkahnya berurutan; gambar menunjukkan persis di mana harus mengetuk di game.", book3: "Tips di akhir adalah yang sering salah — baca sebelum memesan.",
+      squad1: "Ikuti langkahnya berurutan; gambar menunjukkan layar game.", squad2: "Tips di akhir adalah bagian yang sering terlewat — baca sebelum KvK." },
+    ru: { ask: "Провести тебя по этой странице?", yes: "🐦 Покажи", no: "Не нужно",
+      bear1: "Твои войска и лимиты: пехота / кавалерия / лучники, размер сбора и сколько войск участников помещается. Всё это есть в твоём городе.", bear2: "Валора (мастер Охоты на медведя): заполняй только если число сбора выше её не учитывает.", bear3: "⚡ Авторазбивка: калькулятор сам делит войска по маршам — выбери число маршей и оставлять ли резерв.", bear4: "Результат: по строке на марш с точным числом войск. Скопируй и выставь марши так.", bear5: "Как это работает: правила разбивки, если хочешь проверить.",
+      kcalc1: "Выбери событие, которое собираешься пушить, и сколько дней оно идёт.", kcalc2: "Что планируешь потратить: ресурсы, ускорения, предметы. Страница покажет, сколько это стоит в очках KvK.", kcalc3: "Награды за рубежи: что вернётся на каждом уровне за эти траты — видно, стоит ли оно того.", kcalc4: "Рейтинг и цена в самоцветах: сколько стоит место и сколько стоят самоцветы. Только справка — тратить или нет, решаешь ты.",
+      kopt1: "Выбери цель: личный итог или пуш в один день ради рейтинга.", kopt2: "Цели и ресурсы: впиши, что есть (ресурсы, ускорения) — планировщик считает только то, что ты готов использовать.", kopt3: "Войска (день 4): числа войск на день обучения.", kopt4: "Очковые предметы по уровням: какие улучшения дают больше всего очков с тем, что есть, и вывод внизу.",
+      book1: "Выбери должность для брони — каждая вкладка одна должность.", book2: "Дальше по шагам; картинки показывают, куда нажимать в игре.", book3: "Совет в конце — то, что все делают неправильно. Прочитай перед бронью.",
+      squad1: "Иди по шагам; картинки показывают экраны игры.", squad2: "Совет в конце — то, что все упускают. Прочитай перед KvK." },
+    th: { ask: "ให้ฉันพาดูหน้านี้ไหม?", yes: "🐦 พาดูหน่อย", no: "ไม่เป็นไร",
+      bear1: "ทหารและขีดจำกัดของคุณ: ใส่จำนวนทหารราบ / ม้า / ธนู ขนาดการรวมพล และทหารของผู้เข้าร่วมใส่ได้เท่าไร ดูได้จากเมืองของคุณเอง", bear2: "วาโลรา (ปรมาจารย์ล่าหมี): กรอกเฉพาะเมื่อจำนวนรวมพลด้านบนยังไม่ได้นับเธอ", bear3: "⚡ แบ่งอัตโนมัติ: เครื่องคิดเลขแบ่งทหารให้แต่ละกองทัพ — เลือกจำนวนกองและจะเก็บสำรองไหม", bear4: "ผลลัพธ์: หนึ่งบรรทัดต่อกอง พร้อมจำนวนทหารที่แน่นอน คัดลอกแล้วตั้งค่ากองทัพตามนั้น", bear5: "วิธีทำงาน: กฎเบื้องหลังการแบ่ง ถ้าอยากตรวจสอบ",
+      kcalc1: "เลือกกิจกรรมที่จะทุ่ม และจำนวนวันที่จัด", kcalc2: "ตั้งใจจะใช้เท่าไร: ใส่ทรัพยากร เร่งความเร็ว ไอเทมที่จะใช้ หน้านี้จะแสดงว่าคิดเป็นแต้ม KvK เท่าไร", kcalc3: "รางวัลไมล์สโตน: ใช้เท่านี้ได้อะไรกลับมาในแต่ละขั้น — ดูว่าคุ้มไหม", kcalc4: "อันดับและมูลค่าเพชร: อันดับหนึ่งใช้เท่าไร เพชรมีค่าเท่าไร เป็นแค่ข้อมูลอ้างอิง — จะใช้หรือไม่คุณตัดสินใจเอง",
+      kopt1: "เลือกเป้าหมาย: แต้มรวมส่วนตัว หรือทุ่มวันเดียวเพื่ออันดับ", kopt2: "เป้าหมายและทรัพยากร: ใส่สิ่งที่มี (ทรัพยากร เร่งความเร็ว) — ตัวช่วยวางแผนนับเฉพาะที่คุณยอมใช้", kopt3: "ทหาร (วันที่ 4): จำนวนทหารสำหรับวันฝึก", kopt4: "รายการทำแต้ม ทีละระดับ: อัปเกรดอะไรได้แต้มมากที่สุดจากที่มี และสรุปด้านล่าง",
+      book1: "เลือกตำแหน่งที่จะจอง — แต่ละแท็บคือหนึ่งตำแหน่ง", book2: "แล้วทำตามขั้นตอนตามลำดับ รูปแสดงจุดที่ต้องแตะในเกม", book3: "เคล็ดลับท้ายสุดคือจุดที่คนทำผิดบ่อย — อ่านก่อนจอง",
+      squad1: "ทำตามขั้นตอนตามลำดับ รูปแสดงหน้าจอในเกม", squad2: "เคล็ดลับท้ายสุดคือส่วนที่คนมักพลาด — อ่านก่อน KvK" },
+    ar: { ask: "هل أرافقك في هذه الصفحة؟", yes: "🐦 أرني", no: "لا شكرًا",
+      bear1: "قواتك وحدودك: اكتب المشاة / الفرسان / الرماة، حجم حشدك وكم تتسع قوات المنضمين. كل هذا في شاشة مدينتك.", bear2: "فالورا (سيدة صيد الدببة): املأها فقط إن كان رقم الحشد أعلاه لا يشملها.", bear3: "⚡ التقسيم التلقائي: تقسم الحاسبة قواتك على المسيرات — اختر عدد المسيرات وهل تبقي احتياطيًا.", bear4: "النتيجة: سطر لكل مسيرة بأعداد القوات بالضبط. انسخه واضبط مسيراتك هكذا.", bear5: "كيف يعمل: قواعد التقسيم، إن أردت التحقق من الحساب.",
+      kcalc1: "اختر الحدث الذي ستدفع فيه وكم يومًا يستمر.", kcalc2: "ما تنوي إنفاقه: الموارد والتسريعات والعناصر. تعرض الصفحة قيمتها بنقاط KvK.", kcalc3: "مكافآت المراحل: ما تستعيده في كل مستوى مقابل ذلك الإنفاق — لترى إن كان يستحق.", kcalc4: "الترتيب وقيمة الجواهر: كم يكلف مركز وكم تساوي الجواهر. مرجع فقط — الإنفاق قرارك.",
+      kopt1: "اختر هدفك: مجموعك الشخصي، أم دفعة في يوم واحد للترتيب.", kopt2: "الأهداف والموارد: اكتب ما لديك (موارد، تسريعات) — المخطط يحسب ما أنت مستعد لاستخدامه فقط.", kopt3: "القوات (اليوم 4): أعداد قواتك ليوم التدريب.", kopt4: "عناصر النقاط مستوى بمستوى: أي ترقيات تعطي أكثر النقاط بما لديك، والخلاصة في الأسفل.",
+      book1: "اختر المنصب الذي تريد حجزه — كل تبويب منصب.", book2: "ثم اتبع الخطوات بالترتيب؛ الصور تبيّن بالضبط أين تضغط في اللعبة.", book3: "النصيحة في النهاية هي ما يخطئ فيه الناس — اقرأها قبل الحجز.",
+      squad1: "اتبع الخطوات بالترتيب؛ الصور تبيّن شاشات اللعبة.", squad2: "النصيحة في النهاية هي ما يفوته الناس — اقرأها قبل KvK." },
+  };
+  const tl = (k) => (TOOL[lang()] || TOOL.en)[k] || TOOL.en[k];
+  const TOOL_STEPS = {
+    "bear-calculator": [["#bt_hTroops", "bear1"], ["#bt_hVal", "bear2"], ["#bt_hAuto", "bear3"], ["#bt_forms", "bear4"], ["#bt_hHow", "bear5"]],
+    "kvk-calculator": [["#events", "kcalc1"], ["#spend", "kcalc2"], ["#ms", "kcalc3"], ["#rank", "kcalc4"]],
+    "kvk-optimizer": [["#modes", "kopt1"], ["#targets", "kopt2"], ["#troops", "kopt3"], ["#lv", "kopt4"]],
+    "booking-guide": [["#tabs", "book1"], ["#steps", "book2"], ["#tip", "book3"]],
+    "squad-guide": [["#steps", "squad1"], ["#tip", "squad2"]],
+  };
+  async function runToolTour() {
+    if (busy || !PAGE) return; busy = true; hush(); clearTarget(); tour = PAGE; ["point", "fly", "idle"].forEach(preload);
+    const steps = TOOL_STEPS[PAGE] || [];
+    for (let i = 0; i < steps.length; i++) {
+      const [sel, key] = steps[i]; const el = await waitFor(() => { const e = document.querySelector(sel); return visible(e) ? e : null; }, 1500);
+      if (!el) continue;
+      const r = await step(el, () => tl(key), i === steps.length - 1); if (r === "stop") break;
+    }
+    clearTarget(); setFlip(false); tour = null; busy = false; await goHome(); hush();
+  }
+  function toolAsk() {
+    say(`<b>${esc(tl("ask"))}</b><div class="sp-opts"><button type="button" class="sp-main" data-a="ttour">${esc(tl("yes"))}</button><button type="button" data-a="tno">${esc(tl("no"))}</button></div>`);
+    redraw = toolAsk; clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { if (!busy) hush(); }, 6000);
+  }
+  async function startTool() {
+    if (ls.get(LS) === "off") { showToggle(true); return; }
+    root.hidden = false; pos = perchPoint(); place(); await play("idle", { squash: false }); state = "menu";
+    if (!sessionStorage.getItem("nxs-sparrow-tool-" + PAGE)) { try { sessionStorage.setItem("nxs-sparrow-tool-" + PAGE, "1"); } catch (e) {} const c = play("hi"); toolAsk(); if (await c) play("idle", { squash: false }); }
+  }
+  bubble.addEventListener("click", (e) => { const b = e.target.closest("button[data-a=ttour], button[data-a=tno]"); if (!b) return; hush(); if (b.dataset.a === "ttour") runToolTour(); });
   /* a guide was opened while the sparrow was helping to find a page → fly to its title and point at it */
   async function onGuideOpened() {
     if (state !== "page" || busy) return;
@@ -608,6 +714,7 @@
     if (busy || tour) return;
     if (!bubble.hidden && bubble.querySelector(".sp-opts")) { hush(); clearTarget(); return; }   // a tap on the sparrow tucks its menu away
     if (IS_OFFICER) { officerMenu(); return; }
+    if (IS_TOOL) { const c = play("hi"); toolAsk(); if (await c) play("idle", { squash: false }); return; }
     if (typeof langChosen !== "undefined" && !langChosen) return;   // language picker is up: stay asleep
     if (state === "sleep") { busy = true; sleepZ(false); await play("wake"); busy = false; }
     greet();
@@ -759,7 +866,7 @@
   /* ---------- boot ---------- */
   async function boot() {
     try { META = await (await fetch(IMG + "meta.json")).json(); } catch (e) { return; }
-    (IS_OFFICER ? ["idle", "hi", "pop", "heart"] : ["sleep", "wake", "idle", "hi", "fly", "point"]).forEach(preload);   // the rest load when first played
+    (IS_OFFICER || IS_TOOL ? ["idle", "hi", "point", "fly"] : ["sleep", "wake", "idle", "hi", "fly", "point"]).forEach(preload);   // the rest load when first played
     document.body.append(root, bubble);
     const first = (typeof langChosen !== "undefined" && !langChosen) ? "sleep" : "idle";   // a small still shows at once; the clip replaces it when it has loaded
     layout(first, front); front.src = IMG + first + "_end.webp"; cur = first;
@@ -768,7 +875,7 @@
     window.addEventListener("hashchange", () => setTimeout(onGuideOpened, 300));
     document.addEventListener("click", (e) => { if (e.target.closest && e.target.closest(".ai-panel .guide-link-btn, .guide-row button")) setTimeout(onGuideOpened, 400); }, true);
     new MutationObserver(() => { if (toggleBtn) toggleBtn.title = t("show"); if (!bubble.hidden && redraw) { const r = redraw; r(); } document.querySelectorAll(".sp-call").forEach((b) => { b.title = t("call"); }); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
-    if (IS_OFFICER) { addOfficerAISection(); startOfficer(); } else { addAISection(); start(); }
+    if (IS_OFFICER) { addOfficerAISection(); startOfficer(); } else if (IS_TOOL) startTool(); else { addAISection(); start(); }
   }
   window.NXSSparrow = { play, flyTo, say, hush, start, off: turnOff, on: turnOn, messages: MESSAGES, tour: (id) => IS_OFFICER ? runOfficerTour(id) : runTour(id), state: () => ({ busy, tour, state }), active: () => ls.get(LS) !== "off" && !REDUCED };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
