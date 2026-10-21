@@ -341,7 +341,7 @@
   function place() { root.style.transform = `translate(${Math.round(pos.x)}px,${Math.round(pos.y)}px)`; placeBubble(); }
   /* which way each clip was drawn: l = looks left, r = looks right, f = faces the viewer. The bird is mirrored when the clip's
      own direction differs from where it should be looking (`facing`), so its front is always toward what it's attending to. */
-  const FACE = { idle: "l", fly: "l", sulky: "l", hi: "l", sleep: "f" /* never mirrored: the zzz in the clip would read backwards */, point: "r", bow: "r", thumbs: "r", walk: "r", pop: "r", tilt: "r", wake: "f", hop: "f", teacher: "f", heart: "f", cry: "f" };
+  const FACE = { idle: "l", fly: "l", sulky: "l", hi: "l", sleep: "f" /* never mirrored: the zzz in the clip would read backwards */, point: "r", bow: "r", thumbs: "r", walk: "r", pop: "l", tilt: "r", wake: "f", hop: "f", teacher: "f", heart: "f", cry: "f" };
   let facing = "r";
   function applyFlip() { const nf = FACE[cur] || "l"; flip = nf !== "f" && nf !== facing; bird.classList.toggle("sp-flip", flip); }
   function setFacing(d) { facing = d === "l" ? "l" : "r"; applyFlip(); }
@@ -596,6 +596,21 @@
   }
   /* the chat panel scrolls on its own: keep the sparrow and the ring on the element */
   setInterval(() => { if (tour && targetEl && !flying) { const p = pointAt(targetEl); if (Math.hypot(p.x - pos.x, p.y - pos.y) > 3) { pos = { x: p.x, y: p.y }; place(); } } }, 120);
+  /* 👀 watchdog: the thing being pointed at disappeared (panel closed, tab switched, guide closed) while the sparrow was waiting
+     there → drop the step and fly home instead of staying put next to nothing. Only while idle or waiting for Next, never mid-flow. */
+  let lostSince = 0;
+  const shown = (el) => { if (!el || !el.isConnected) return false; const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && !el.closest("[hidden]"); };   // scrolled out of view still counts as there
+  setInterval(async () => {
+    if (root.hidden || flying || state === "sleep" || state === "off") return;
+    if (targetEl && (stepResolve || !busy)) {
+      if (shown(targetEl)) { lostSince = 0; return; }
+      lostSince = lostSince || Date.now(); if (Date.now() - lostSince < 500) return; lostSince = 0;
+      cancelStep(); clearTarget(); hush(); tour = null; busy = false; if (state !== "menu" && state !== "how") state = "menu"; await goHome(); if (!IS_OFFICER && !IS_TOOL) armIdle();
+      return;
+    }
+    // idle with nothing to point at but away from the perch → go home
+    if (!busy && !tour && !targetEl && bubble.hidden) { const h = perchPoint(); if (Math.hypot(h.x - pos.x, h.y - pos.y) > 6) { await goHome(); } }
+  }, 300);
 
   /* 🐦 "Show me how to…" inside the AI chat greeting: one button per tour; the AI's answers can also carry [label](tour:id) links */
   function addAISection() {
@@ -833,6 +848,13 @@
     await step(el, () => otStep(tab, key, act), true);
     clearTarget(); tour = null; busy = false; await goHome(); hush();
   }
+  if (!IS_OFFICER) setInterval(() => {
+    if (root.hidden) return;
+    const view = document.querySelector(".tm-view"); if (!view || view.hidden) return;
+    const mk = (id) => { const b = document.createElement("button"); b.type = "button"; b.className = "sp-call"; b.textContent = "🐦"; b.title = t("call"); b.setAttribute("aria-label", t("call")); b.onclick = (e) => { e.preventDefault(); e.stopPropagation(); hush(); runTour(id); }; return b; };
+    const top = view.querySelector(".tm-top > b"); if (top && !top.querySelector(".sp-call")) top.appendChild(mk("tmr"));
+    const al = view.querySelector(".tm-alerts > b"); if (al && !al.querySelector(".sp-call")) al.appendChild(mk("rem"));
+  }, 1500);
   if (IS_OFFICER) {
     setInterval(() => { if (root.hidden) return; try { addCallButtons(); } catch (e) {} }, 1500);
     window.addEventListener("hashchange", () => { if (tour) cancelStep(); });
