@@ -2489,8 +2489,8 @@
     steps.forEach((st) => {
       if (st.pre || typeof st.s === "function") return;   // steps that open something belong to the card they open from; the card itself carries the button
       const el = Q(st.s); if (!el || !shown(el) || (scope && !scope.contains(el))) return;
-      const card = el.closest(".card, details, .tm-page, .tm-note, .tm-alerts, .tm-quick, #tmAdd, section.step, aside, .lvc, .mcard") || el;
-      if (seen.has(card)) return; seen.add(card);
+      const card = el.closest(".card, details, .tm-page, .tm-note, .tm-alerts, .tm-quick, #tmAdd, section.step, aside, .lvc, .mcard, .km-card, .km-layers, .km-c, .km-info");
+      if (!card || seen.has(card)) return; seen.add(card);   // a lone control outside any card (the map's + −, a header button) gets no 🐦 of its own
       if ([...document.querySelectorAll(".sp-call")].some((x) => x.spCard === card)) return;   // already has one (a re-rendered card loses it and gets a fresh one)
       const head = card.querySelector(":scope > h1, :scope > h2, :scope > .top h2, :scope > summary, :scope > .top h1, :scope > h3, :scope > .tm-top > b, :scope > b, :scope > .mhead, :scope > .hd");
       const b = document.createElement("button"); b.type = "button"; b.className = "sp-call"; b.textContent = "🐦"; b.title = t("call"); b.setAttribute("aria-label", t("call")); b.spCard = card;
