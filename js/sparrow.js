@@ -478,7 +478,8 @@
       await wait(2600); hush(); await play("sleep"); sleepZ(true); state = "sleep"; busy = false;
     }, IDLE_MS);
   }
-  async function goHome() { const p = perchPoint(); if (Math.hypot(p.x - pos.x, p.y - pos.y) > 6) { await flyTo(p.x, p.y); } await play("idle", { squash: false }); }
+  const faceIn = () => setFlip(perchPoint().x < innerWidth / 2);   // perched at the left edge → look right, into the page (not at the wall)
+  async function goHome() { const p = perchPoint(); if (Math.hypot(p.x - pos.x, p.y - pos.y) > 6) { await flyTo(p.x, p.y); } faceIn(); await play("idle", { squash: false }); }
   async function greet() {
     busy = true; clearTarget(); sleepZ(false);
     await goHome(); const hi = play("hi");
@@ -699,7 +700,7 @@
   }
   async function startTool() {
     if (ls.get(LS) === "off") { showToggle(true); return; }
-    root.hidden = false; pos = perchPoint(); place(); await play("idle", { squash: false }); state = "menu";
+    root.hidden = false; pos = perchPoint(); place(); faceIn(); await play("idle", { squash: false }); state = "menu";
     if (!sessionStorage.getItem("nxs-sparrow-tool-" + PAGE)) { try { sessionStorage.setItem("nxs-sparrow-tool-" + PAGE, "1"); } catch (e) {} const c = play("hi"); toolAsk(); if (await c) play("idle", { squash: false }); }
   }
   bubble.addEventListener("click", (e) => { const b = e.target.closest("button[data-a=ttour], button[data-a=tno]"); if (!b) return; hush(); if (b.dataset.a === "ttour") runToolTour(); });
@@ -738,14 +739,14 @@
     if (ls.get(LS) === "off") { showToggle(true); return; }
     root.hidden = false;
     const site = typeof langChosen !== "undefined";
-    pos = perchPoint(); place();
+    pos = perchPoint(); place(); faceIn();
     const picker = () => site && !langChosen;
     const wakeUp = async () => {
       sleepZ(false); busy = true; await play("wake"); busy = false;
       if (PREVIEW) { busy = true; await playMessage(MESSAGES[PREVIEW === "nia" ? 0 : 1], true); busy = false; state = "menu"; armIdle(); return; }   // 👀 preview of a personal message
       if (!(await msgHint())) greet();
     };
-    const doze = async () => { clearTimeout(idleTimer); cancelStep(); hush(); clearTarget(); tour = null; busy = false; pos = perchPoint(); place(); await play("sleep", { squash: false }); sleepZ(true); state = "sleep"; };
+    const doze = async () => { clearTimeout(idleTimer); cancelStep(); hush(); clearTarget(); tour = null; busy = false; pos = perchPoint(); place(); faceIn(); await play("sleep", { squash: false }); sleepZ(true); state = "sleep"; };
     if (picker()) await doze(); else { await play("idle", { squash: false }); state = "menu"; await wakeUp(); }
     // 🌐 the language picker can come back any time ("Change language"): sleep while it is up, wake and greet again (in the new language) when a language is picked
     let wasPicker = picker();
@@ -839,7 +840,7 @@
     if (ls.get(LS) === "off") { showToggle(true); return; }
     const gate = document.getElementById("gate");
     await new Promise((r) => { const tick = setInterval(() => { if ((!gate || gate.hidden) && OFFICER.user) { clearInterval(tick); r(); } }, 500); });
-    root.hidden = false; pos = perchPoint(); place();
+    root.hidden = false; pos = perchPoint(); place(); faceIn();
     const u = OFFICER.user, m = messageFor(u);
     if (m && !isRead(m)) { await playMessage(m); return; }
     if (sessionStorage.getItem("nxs-sparrow-greeted")) { await play("idle", { squash: false }); return; }
@@ -876,8 +877,8 @@
     document.body.append(root, bubble);
     const first = (typeof langChosen !== "undefined" && !langChosen) ? "sleep" : "idle";   // a small still shows at once; the clip replaces it when it has loaded
     layout(first, front); front.src = IMG + first + "_end.webp"; cur = first;
-    window.addEventListener("resize", () => { if (!busy && state !== "off" && root.hidden === false) { pos = perchPoint(); place(); } placeBubble(); });
-    const f = fab(); if (f) new MutationObserver(() => { if (!busy && !flying) { pos = perchPoint(); place(); } }).observe(f, { attributes: true, attributeFilter: ["style", "class"] });
+    window.addEventListener("resize", () => { if (!busy && state !== "off" && root.hidden === false && !targetEl) { pos = perchPoint(); place(); faceIn(); } placeBubble(); });
+    const f = fab(); if (f) new MutationObserver(() => { if (!busy && !flying && !targetEl) { pos = perchPoint(); place(); faceIn(); } }).observe(f, { attributes: true, attributeFilter: ["style", "class"] });
     window.addEventListener("hashchange", () => setTimeout(onGuideOpened, 300));
     document.addEventListener("click", (e) => { if (e.target.closest && e.target.closest(".ai-panel .guide-link-btn, .guide-row button")) setTimeout(onGuideOpened, 400); }, true);
     new MutationObserver(() => { if (toggleBtn) toggleBtn.title = t("show"); if (!bubble.hidden && redraw) { const r = redraw; r(); } document.querySelectorAll(".sp-call").forEach((b) => { b.title = t("call"); }); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
