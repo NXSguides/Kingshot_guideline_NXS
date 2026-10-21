@@ -401,7 +401,7 @@
     if (top < 8) { top = pos.y + 12; up = true; }
     // 🎯 while pointing at something, the bubble must not cover it: go above it, else below it, else beside the bird
     if (targetEl) {
-      const r = targetEl.getBoundingClientRect(), birdTop = pos.y - h;
+      const r = visRect(targetEl), birdTop = pos.y - h;
       const above = Math.min(r.top, birdTop) - bh - 12, below = Math.max(r.bottom, pos.y) + 12;
       if (above >= 8) { top = above; up = false; }
       else if (below + bh <= vh - 8) { top = below; up = true; }
@@ -417,7 +417,7 @@
       else { left = bx1 + 8 <= vw - bw - 8 ? bx1 + 8 : Math.max(8, bx0 - bw - 8); }
     }
     bubble.style.left = left + "px"; bubble.style.top = top + "px"; bubble.classList.toggle("sp-up", up);
-    bubble.style.setProperty("--sp-tail", Math.max(14, Math.min(bw - 26, (targetEl ? targetEl.getBoundingClientRect().left + targetEl.getBoundingClientRect().width / 2 : pos.x) - left - 6)) + "px");
+    bubble.style.setProperty("--sp-tail", Math.max(14, Math.min(bw - 26, (targetEl ? visRect(targetEl).left + visRect(targetEl).width / 2 : pos.x) - left - 6)) + "px");
     void w; void ax;
   }
   function say(html, opts) {
@@ -452,11 +452,13 @@
     const f = fab(); if (!f) return { x: 60, y: innerHeight - 70 };
     const r = f.getBoundingClientRect(); return { x: r.left + Math.min(r.width - 24, 34), y: r.top + 3 };
   }
+  // the part of an element that is on screen (a long list scrolled half-way must not send the sparrow off the top)
+  function visRect(el) { const r = el.getBoundingClientRect(), top = Math.max(r.top, 56), bottom = Math.min(r.bottom, innerHeight - 8); return { left: r.left, right: r.right, width: r.width, top, bottom, height: Math.max(0, bottom - top) }; }
   function pointAt(el) {   // land next to an element (right side when there is room, else left)
-    const r = el.getBoundingClientRect(), m = META[cur] || META.idle, w = m.w * SIZE, h = m.h * SIZE;
+    const r = visRect(el), m = META[cur] || META.idle, w = m.w * SIZE, h = m.h * SIZE;
     const right = r.right + 8 + w < innerWidth - 8, left = r.left - 8 - w > 8;
-    if (right) return { x: r.right + 10 + w * 0.45, y: Math.min(innerHeight - 10, r.top + Math.min(r.height, 60)), side: "r" };
-    if (left) return { x: r.left - 10 - w * 0.45, y: Math.min(innerHeight - 10, r.top + Math.min(r.height, 60)), side: "l" };
+    if (right) return { x: r.right + 10 + w * 0.45, y: Math.min(innerHeight - 10, r.top + Math.min(r.height, 60) + h * 0.3), side: "r" };
+    if (left) return { x: r.left - 10 - w * 0.45, y: Math.min(innerHeight - 10, r.top + Math.min(r.height, 60) + h * 0.3), side: "l" };
     return { x: r.left + Math.min(r.width - w * 0.5, w * 0.55), y: Math.max(h + 8, r.top - 6), side: "top" };   // no room beside it: stand on its top edge
   }
   let targetEl = null;
@@ -528,7 +530,7 @@
   function cancelStep() { if (stepResolve) { const r = stepResolve; stepResolve = null; r("stop"); } }
   async function step(el, text, last) {
     cancelStep();
-    if (el) { el.scrollIntoView({ block: "center", behavior: REDUCED ? "auto" : "smooth" }); await wait(420); const p = pointAt(el); await flyTo(p.x, p.y); setFlip(p.side === "l"); highlight(el); placeBubble(); }
+    if (el) { const tall = el.getBoundingClientRect().height > innerHeight * 0.4; el.scrollIntoView({ block: tall ? "start" : "center", behavior: REDUCED ? "auto" : "smooth" }); await wait(420); if (tall) { const sc = el.closest(".ai-log, .tm-view, .ai-panel") || window; try { (sc === window ? window : sc).scrollBy(0, -70); } catch (e) {} await wait(150); } const p = pointAt(el); await flyTo(p.x, p.y); setFlip(p.side === "l"); highlight(el); placeBubble(); }
     const c = play(el ? "point" : "teacher");
     return new Promise((resolve) => {
       stepResolve = resolve;
