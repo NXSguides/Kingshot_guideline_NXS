@@ -353,6 +353,13 @@
       left = r.left + r.width / 2 - bw / 2;
     }
     left = Math.max(8, Math.min(left, vw - bw - 8));
+    // …and never the sparrow itself: if the bubble would sit on the bird, move it to the other side of the bird
+    const bx0 = pos.x - ax, bx1 = bx0 + w, by0 = pos.y - h, by1 = pos.y;
+    if (left < bx1 && left + bw > bx0 && top < by1 && top + bh > by0) {
+      if (by0 - bh - 10 >= 8) { top = by0 - bh - 10; up = false; }
+      else if (by1 + 10 + bh <= vh - 8) { top = by1 + 10; up = true; }
+      else { left = bx1 + 8 <= vw - bw - 8 ? bx1 + 8 : Math.max(8, bx0 - bw - 8); }
+    }
     bubble.style.left = left + "px"; bubble.style.top = top + "px"; bubble.classList.toggle("sp-up", up);
     bubble.style.setProperty("--sp-tail", Math.max(14, Math.min(bw - 26, (targetEl ? targetEl.getBoundingClientRect().left + targetEl.getBoundingClientRect().width / 2 : pos.x) - left - 6)) + "px");
     void w; void ax;
@@ -616,9 +623,13 @@
     const p = pointAt(a); await flyTo(p.x, p.y); setFlip(p.side === "l"); highlight(a); play("point"); await wait(700); a.click(); await wait(600);
     const steps = OTOURS[tab];
     for (let i = 0; i < steps.length; i++) {
-      const [sel, key, act] = steps[i]; let el = await waitFor(() => { const e = document.querySelector(sel); return visible(e) ? e : null; }, 2500);
-      if (!el && act === "open") { const r0 = await step(document.querySelector(`#pg-${tab} h1`) || a, () => ot(key), true); if (r0 === "stop") break; break; }   // nothing to open yet → say it and finish
-      if (!el) el = document.querySelector(`#pg-${tab} h1`) || a;
+      const [sel, key, act] = steps[i]; let el = await waitFor(() => { const e = document.querySelector(sel); return visible(e) ? e : null; }, i ? 1200 : 2500);
+      if (!el) {
+        const later = steps.slice(i + 1).some(([s2]) => visible(document.querySelector(s2)));
+        if (later) continue;   // this part isn't on screen (e.g. the list, because a sheet is already open) → go on with what is
+        if (act === "open") { const r0 = await step(document.querySelector(`#pg-${tab} h1`) || a, () => ot(key), true); break; }   // nothing to open yet → say it and finish
+        el = document.querySelector(`#pg-${tab} h1`) || a;
+      }
       const r = await step(el, () => ot(key), i === steps.length - 1); if (r === "stop") break;
       if (act === "open" && r === "next") { el.click(); await wait(600); }
     }
