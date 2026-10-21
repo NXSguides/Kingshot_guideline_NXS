@@ -461,23 +461,31 @@ Nível 2 → Direita
 Nível 3 → Esquerda
 Nível 4 → Esquerda
 Nível 5 → Direita
+Posicionamento
+No início, explore Veios de Cobre Nv.2 e Guardas Césares Nv.2 próximos e 2 ou mais lugares para onde teleportar depois com o teletransporte grátis.
+Use a teletransportação gratuita para se mover perto de 3 Veios ou para uma área menos lotada.
+Se você for mais forte que os jogadores ao redor, não precisa correr para os veios assim que aparecem — mesmo que alguém mais fraco chegue antes, você o empurra para fora.
 Início
 Ataque os Guardas Césares → Avance rapidamente até desbloquear a Habilidade 3.
 Foque nos Guardas Césares de Nv.2 quando possível, e evite os que já estão sendo atacados.
-A cada 60 segundos
+Depois de desbloquear a Habilidade 3 — a cada 60 segundos
 Entre em um Veio de Cobre → Ganhe 5.000 de Cobre → Recolha imediatamente → Anote o horário → Repita a cada 1 minuto.
 Apenas uma marcha é necessária para ativar o bônus de 5.000 de Cobre.
+Dica: deixe um cronômetro separado à sua frente — só dois botões, zerar e iniciar.
 Veios Fraturados
 Quando aparecerem → Envie marchas disponíveis imediatamente → Colete até desaparecerem.
 Carroça de Espólio
 Deixe-a coletando o Cobre solto durante todo o evento. Ela não ocupa uma vaga na fila de marcha.
 Habilidade 5
-Ative a 5ª habilidade durante uma explosão de veio e envie todas as tropas para coletar nos veios.
+Ative a 5ª habilidade durante uma explosão de veio e envie todas as tropas para coletar nos veios. Não use a habilidade de nível 5 nos Veios Fraturados — ela só aumenta os Veios de Cobre normais.
 Pico da Eternidade
 Abre nos últimos 7 minutos.
-Evite PvP desnecessário se você não for forte o suficiente para disputar → Capture apenas quando valer a pena.
-Posicionamento
-Use a teletransportação gratuita para se mover perto de 3 Veios ou para uma área menos lotada.
+Seja rápido: com 07:00 restantes, teleporte para bem do lado.
+Se você estiver num campo de batalha mais fraco
+Se há poucas baleias e a maioria é mais fraca que você, tente capturar o Pico para pontos extras — até 1 segundo segurando já dá pontos. Teleporte para o lado assim que abrir e ataque com sua marcha mais forte.
+Se for derrotado, teleporte na hora para um lugar explorado antes e volte a coletar Cobre e derrotar Guardas Césares.
+Se você estiver num campo de batalha mais forte
+Se estiver em desvantagem, evite PvP desnecessário e foque em coletar Cobre e derrotar Guardas Césares.
 
 ### GUIDE #f2p-heroes — Guia de Heróis F2P
 Fragmentos Míticos e equipamentos exclusivos de rally são limitados. Não tente desenvolver todos os heróis — concentre seus recursos nos que têm valor forte a longo prazo.

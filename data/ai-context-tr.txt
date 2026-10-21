@@ -461,23 +461,31 @@ Seviye 2 → Sağ
 Seviye 3 → Sol
 Seviye 4 → Sol
 Seviye 5 → Sağ
+Konumlandırma
+Başta yakındaki Sv.2 Bakır Damarlarını, Sv.2 Cesares Muhafızlarını ve sonra ücretsiz ışınlanmayla gidebileceğin 2 veya daha fazla yeri keşfet.
+Ücretsiz ışınlanmayı kullanarak 3 Damara yakın veya daha az kalabalık bir bölgeye taşın.
+Çevrendekilerden güçlüysen damarlar çıkar çıkmaz koşmana gerek yok — senden zayıf biri önce gelse bile onu dışarı itersin.
 Başlangıç
 Cesares Muhafızlarına saldır → Yetenek 3 açılana kadar hızla ilerle.
 Mümkün olduğunda Sv.2 Cesares Muhafızlarını hedef al ve zaten saldırılanları atla.
-Her 60 Saniyede Bir
+Yetenek 3 açıldıktan sonra — her 60 saniyede bir
 Bir Bakır Damarına gir → 5.000 Bakır kazan → Hemen geri çağır → Zamanı not et → Her 1 dakikada bir tekrarla.
 5.000 Bakır bonusunu tetiklemek için tek bir sefer yeterlidir.
+İpucu: önünde ayrı bir zamanlayıcı tut — sadece iki tuş: sıfırla ve başlat.
 Çatlak Damarlar
 Ortaya çıktıklarında → Mevcut seferleri hemen gönder → Kaybolana kadar topla.
 Ganimet Arabası
 Etkinlik boyunca serbest Bakırı toplamaya devam etsin. Sefer slotu kullanmaz.
 Yetenek 5
-Damar patlaması sırasında 5. yeteneği etkinleştir ve tüm birlikleri damarlarda toplanmaya gönder.
+Damar patlaması sırasında 5. yeteneği etkinleştir ve tüm birlikleri damarlarda toplanmaya gönder. Seviye 5 yeteneğini Çatlak Damarlarda harcama — sadece normal Bakır Damarlarını güçlendirir.
 Sonsuzluğun Zirvesi
 Son 7 dakika içinde açılır.
-Rekabet edecek kadar güçlü değilsen gereksiz PvP'den kaçın → Sadece değdiğinde ele geçir.
-Konumlandırma
-Ücretsiz ışınlanmayı kullanarak 3 Damara yakın veya daha az kalabalık bir bölgeye taşın.
+Hızlı ol: kalan süre 07:00 olunca hemen yanına ışınlan.
+Daha zayıf bir savaş alanındaysan
+Balina az ve çoğu oyuncu senden zayıfsa, ek puan için Zirveyi almaya çalış — 1 saniye tutmak bile puan verir. Açılır açılmaz yanına ışınlan ve en güçlü seferinle saldır.
+Yenilirsen hemen önceden keşfettiğin bir yere ışınlan ve Bakır toplamaya, Cesares Muhafızlarını yenmeye devam et.
+Daha güçlü bir savaş alanındaysan
+Rakipler çok güçlüyse gereksiz PvP'den kaçın, Bakır toplamaya ve Cesares Muhafızlarına odaklan.
 
 ### GUIDE #f2p-heroes — F2P Kahraman Rehberi
 Mitik Parçalar ve seferberliğe özel donanımlar sınırlıdır. Her kahramanı geliştirmeye çalışma — kaynaklarını uzun vadede güçlü değer sağlayan kahramanlara yoğunlaştır.

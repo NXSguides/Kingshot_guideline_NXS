@@ -461,23 +461,31 @@ Niveau 2 → Droite
 Niveau 3 → Gauche
 Niveau 4 → Gauche
 Niveau 5 → Droite
+Positionnement
+Au début, repère les Filons de Cuivre niv. 2, les Gardes Césarès niv. 2 proches et 2 endroits ou plus où te téléporter ensuite avec la téléportation gratuite.
+Utilise la téléportation gratuite pour te rapprocher de 3 filons ou vers une zone moins fréquentée.
+Si tu es plus fort que les joueurs autour, pas besoin de te jeter sur les filons dès qu'ils apparaissent — même si un plus faible arrive avant, tu le pousseras dehors.
 Début
 Attaque les Gardes Césarès → Fonce jusqu'à débloquer la Compétence 3.
 Vise les Gardes Césarès de niveau 2 quand c'est possible, et évite ceux déjà attaqués.
-Toutes les 60 secondes
+Une fois la Compétence 3 débloquée — toutes les 60 secondes
 Entre dans un Filon de Cuivre → Obtiens 5 000 cuivre → Rappelle immédiatement → Note l'heure → Répète toutes les 1 minute.
 Une seule marche suffit pour déclencher le bonus de 5 000 cuivre.
+Astuce : garde un minuteur à part devant toi — deux boutons suffisent, remise à zéro et départ.
 Filons Fracturés
 Quand ils apparaissent → Envoie immédiatement les marches disponibles → Récolte jusqu'à leur disparition.
 Chariot de Butin
 Laisse-le collecter le cuivre au sol pendant tout l'événement. Il n'occupe pas de place de marche.
 Compétence 5
-Active la 5e compétence pendant une éruption de filon et envoie toutes tes troupes récolter aux filons.
+Active la 5e compétence pendant une éruption de filon et envoie toutes tes troupes récolter aux filons. N'utilise pas la compétence niveau 5 sur les Filons Fracturés — elle ne booste que les Filons de Cuivre normaux.
 Pic de l'Éternité
 S'ouvre pendant les 7 dernières minutes.
-Évite les PvP inutiles si tu n'es pas assez fort pour rivaliser → Capture uniquement quand cela en vaut la peine.
-Positionnement
-Utilise la téléportation gratuite pour te rapprocher de 3 filons ou vers une zone moins fréquentée.
+Sois rapide : à 07:00 restantes, téléporte-toi juste à côté.
+Sur un champ de bataille plus faible
+S'il y a peu de baleines et que la plupart sont plus faibles que toi, tente de prendre le Pic pour des points en plus — même 1 seconde rapporte des points. Téléporte-toi à côté dès l'ouverture et attaque avec ta marche la plus forte.
+Si tu es battu, téléporte-toi tout de suite vers un endroit repéré avant et reprends le cuivre et les Gardes Césarès.
+Sur un champ de bataille plus fort
+Si tu es dépassé, évite les PvP inutiles et concentre-toi sur le cuivre et les Gardes Césarès.
 
 ### GUIDE #f2p-heroes — Guide des héros F2P
 Les Éclats mythiques et les équipements exclusifs de ralliement sont limités. N'essayez pas de développer tous les héros — concentrez vos ressources sur ceux qui ont une valeur forte et durable.

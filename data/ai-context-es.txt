@@ -461,23 +461,31 @@ Nivel 2 → Derecha
 Nivel 3 → Izquierda
 Nivel 4 → Izquierda
 Nivel 5 → Derecha
+Posicionamiento
+Al empezar, explora las Vetas de Cobre Nv.2 y Guardias Césares Nv.2 cercanas y 2 o más sitios a los que teletransportarte luego con el teletransporte gratis.
+Usa el [Teletransportador avanzado] gratuito para moverte cerca de 3 Vetas o hacia una zona menos concurrida.
+Si eres más fuerte que los de alrededor, no hace falta lanzarse a las vetas en cuanto aparecen — aunque llegue antes alguien más débil, lo echarás.
 Inicio
 Ataca a los Guardias Césares → Avanza rápido hasta desbloquear la Habilidad 3.
 Apunta a Guardias Césares Nv.2 cuando sea posible, y salta los que ya estén siendo atacados.
-Cada 60 segundos
+Tras desbloquear la Habilidad 3 — cada 60 segundos
 Entra en una Veta de Cobre → Obtén 5.000 Minerales de Cobre → Recupera de inmediato → Anota la hora → Repite cada 1 minuto.
 Solo se necesita una marcha para activar el bono de 5.000 Minerales de Cobre.
+Consejo: ten un temporizador aparte delante — solo dos botones, reiniciar e iniciar.
 Vetas fracturadas
 Cuando aparezcan → Envía marchas disponibles de inmediato → Recolecta hasta que desaparezcan.
 Carreta de Botín
 Déjala recolectando los Minerales de Cobre dispersos durante todo el evento. No ocupa un espacio de marcha.
 Habilidad 5
-Activa la 5ª habilidad durante un estallido de veta y envía todas las tropas a recolectar en las vetas.
+Activa la 5ª habilidad durante un estallido de veta y envía todas las tropas a recolectar en las vetas. No uses la habilidad de nivel 5 en las Vetas fracturadas — solo potencia las Vetas de Cobre normales.
 Pico de la Eternidad
 Se abre durante los últimos 7 minutos.
-Evita el PvP innecesario si no eres lo bastante fuerte para disputarla → Captura solo cuando valga la pena.
-Posicionamiento
-Usa el [Teletransportador avanzado] gratuito para moverte cerca de 3 Vetas o hacia una zona menos concurrida.
+Sé rápido: con 07:00 restantes, teletranspórtate justo al lado.
+Si estás en un campo de batalla más débil
+Si hay pocas ballenas y la mayoría es más débil que tú, intenta capturar el Pico para puntos extra — incluso 1 segundo da puntos. Teletranspórtate al lado en cuanto abra y ataca con tu marcha más fuerte.
+Si te derrotan, teletranspórtate enseguida a un sitio explorado antes y vuelve a recolectar cobre y derrotar Guardias Césares.
+Si estás en un campo de batalla más fuerte
+Si te superan, evita el PvP innecesario y céntrate en recolectar cobre y derrotar Guardias Césares.
 
 ### GUIDE #f2p-heroes — Guía de Héroes F2P
 Los Fragmentos Míticos y los dispositivos de ataque conjunto son limitados. No intentes desarrollar a todos los héroes; concentra tus recursos en héroes con valor fuerte y a largo plazo.

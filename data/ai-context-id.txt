@@ -461,23 +461,31 @@ Level 2 → Kanan
 Level 3 → Kiri
 Level 4 → Kiri
 Level 5 → Kanan
+Posisi
+Di awal, intai Vein Tembaga Lv.2 dan Cesares Guards Lv.2 di sekitar serta 2 atau lebih lokasi untuk teleport nanti dengan teleport gratis.
+Gunakan teleport gratis untuk pindah dekat 3 Vein atau ke area yang lebih sepi.
+Kalau kamu lebih kuat dari pemain sekitar, tidak perlu buru-buru merebut vein saat muncul — meski yang lebih lemah datang duluan, kamu bisa menyingkirkannya.
 Mulai
 Serang Cesares Guards → Rush sampai Skill 3 terbuka.
 Targetkan Cesares Guards Lv.2 jika memungkinkan, dan lewati yang sudah diserang.
-Setiap 60 Detik
+Setelah Skill 3 terbuka — setiap 60 detik
 Masuk ke Vein Tembaga → Dapatkan 5.000 Tembaga → Segera tarik pulang → Catat waktunya → Ulangi setiap 1 menit.
 Hanya perlu satu pasukan untuk memicu bonus 5.000 Tembaga.
+Tips: siapkan timer terpisah di depanmu — cukup dua tombol, reset dan mulai.
 Fracture Vein
 Saat muncul → Segera kirim pasukan yang tersedia → Kumpulkan sampai menghilang.
 Gerobak Jarahan
 Biarkan terus mengumpulkan Tembaga yang berserakan sepanjang event. Tidak menggunakan slot barisan.
 Skill 5
-Aktifkan skill ke-5 saat vein meletus dan kirim semua pasukan untuk mengumpulkan di vein.
+Aktifkan skill ke-5 saat vein meletus dan kirim semua pasukan untuk mengumpulkan di vein. Jangan pakai skill level 5 di Fracture Vein — skill itu hanya menambah Vein Tembaga biasa.
 Peak of Eternity
 Terbuka pada 7 menit terakhir.
-Hindari PvP yang tidak perlu jika kamu belum cukup kuat untuk memperebutkannya → Rebut hanya jika sepadan.
-Posisi
-Gunakan teleport gratis untuk pindah dekat 3 Vein atau ke area yang lebih sepi.
+Cepat: saat waktu tersisa 07:00, teleport tepat di sebelahnya.
+Jika kamu di medan perang yang lebih lemah
+Jika sedikit whale dan kebanyakan pemain lebih lemah darimu, coba rebut Peak untuk poin tambahan — menahannya 1 detik saja sudah dapat poin. Teleport ke sebelahnya begitu terbuka dan serang dengan pasukan terkuatmu.
+Jika kalah, langsung teleport ke lokasi yang sudah kamu intai dan lanjut kumpulkan Tembaga serta kalahkan Cesares Guards.
+Jika kamu di medan perang yang lebih kuat
+Jika kalah kuat, hindari PvP yang tidak perlu dan fokus kumpulkan Tembaga dan kalahkan Cesares Guards.
 
 ### GUIDE #f2p-heroes — Panduan Hero F2P
 Serpihan Mitos dan perlengkapan eksklusif reli jumlahnya terbatas. Jangan coba kembangkan semua hero — fokuskan sumber dayamu pada hero dengan nilai jangka panjang yang kuat.

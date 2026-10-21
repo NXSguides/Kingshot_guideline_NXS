@@ -461,23 +461,31 @@ Level 2 → Right
 Level 3 → Left
 Level 4 → Left
 Level 5 → Right
+Positioning
+At the start, scout nearby Lv.2 Copper Veins, Lv.2 Cesares Guards and 2 or more spots you can teleport to later with the free teleport.
+Use the free teleport to move near 3 Veins or into a less crowded area.
+If you're stronger than the players around you, you don't have to grab the veins as they appear — even if a weaker player gets there first, you'll push them out.
 Start
 Attack Cesares Guards → Rush until Skill 3 is unlocked.
 Target Lv.2 Cesares Guards when possible, and skip ones already being attacked.
-Every 60 Seconds
+Once Skill 3 is unlocked — every 60 seconds
 Enter a Copper Vein → Get 5,000 Copper → Recall immediately → Note the time → Repeat every 1 minute.
 Only one march is needed to trigger the 5,000 Copper bonus.
-Fracture Veins
+Tip: keep a separate timer in front of you — just two buttons, reset and start.
+Fractured Veins
 When they appear → Send available marches immediately → Gather until they disappear.
 Loot Wagon
 Keep it collecting loose Copper throughout the event. It does not use a march slot.
 Skill 5
-Activate the 5th skill during a vein outburst and send all troops to gather at veins.
+Activate the 5th skill during a vein outburst and send all troops to gather at veins. Don't use the Level 5 skill on Fractured Veins — it only boosts regular Copper Veins.
 Peak of Eternity
 Opens during the final 7 minutes.
-Avoid unnecessary PvP if you are not strong enough to contest it → Capture only when worthwhile.
-Positioning
-Use the free teleport to move near 3 Veins or into a less crowded area.
+Be fast: at 07:00 time remaining, teleport right next to it.
+If you're on a weaker battlefield
+If there are few whales and most players are weaker than you, try to capture the Peak for extra points — even holding it for 1 second earns points. Teleport next to it as soon as it opens and attack with your strongest march.
+If you're defeated, teleport straight to a spot you scouted earlier and go back to farming Copper and killing Cesares Guards.
+If you're on a stronger battlefield
+If you're outmatched, avoid unnecessary PvP and focus on farming Copper and killing Cesares Guards.
 
 ### GUIDE #f2p-heroes — F2P Heroes Guide
 Mythic Shards and rally widgets are limited. Don't try to build every hero — focus your resources on heroes with strong, long-term value.

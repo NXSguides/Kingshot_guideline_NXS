@@ -463,23 +463,31 @@ Stufe 2 → Rechts
 Stufe 3 → Links
 Stufe 4 → Links
 Stufe 5 → Rechts
+Positionierung
+Erkunde am Anfang Stufe-2-Kupferadern und Stufe-2-Cesares-Wächter in der Nähe sowie 2 oder mehr Stellen, zu denen du später mit dem Gratis-Teleport kannst.
+Nutze den kostenlosen Teleport, um dich in die Nähe von 3 Adern oder in ein weniger überfülltes Gebiet zu bewegen.
+Bist du stärker als die Spieler um dich herum, musst du Adern nicht sofort schnappen — auch wenn ein Schwächerer zuerst da ist, verdrängst du ihn.
 Start
 Greife Cesares Wächter an → Rushe, bis Fähigkeit 3 freigeschaltet ist.
 Ziele nach Möglichkeit auf Stufe-2-Cesares-Wächter und überspringe bereits angegriffene.
-Alle 60 Sekunden
+Ab Fähigkeit 3 — alle 60 Sekunden
 Betrete eine Kupferader → Erhalte 5.000 Kupfer → Sofort zurückrufen → Zeit notieren → Alle 1 Minute wiederholen.
 Nur ein Marsch ist nötig, um den 5.000-Kupfer-Bonus auszulösen.
+Tipp: Leg dir einen eigenen Timer hin — nur zwei Tasten, Zurücksetzen und Start.
 Gebrochene Adern
 Wenn sie erscheinen → Schicke sofort verfügbare Märsche → Sammle, bis sie verschwinden.
 Beutewagen
 Lasse ihn während des gesamten Events lose Kupfer sammeln. Er belegt keinen Marschplatz.
 Fähigkeit 5
-Aktiviere die 5. Fähigkeit während eines Ader-Ausbruchs und schicke alle Truppen zu den Adern.
+Aktiviere die 5. Fähigkeit während eines Ader-Ausbruchs und schicke alle Truppen zu den Adern. Die Stufe-5-Fähigkeit nicht an Gebrochenen Adern verschwenden — sie verstärkt nur normale Kupferadern.
 Gipfel der Ewigkeit
 Öffnet sich in den letzten 7 Minuten.
-Vermeide unnötiges PvP, wenn du nicht stark genug bist, um mitzuhalten → Erobere nur, wenn es sich lohnt.
-Positionierung
-Nutze den kostenlosen Teleport, um dich in die Nähe von 3 Adern oder in ein weniger überfülltes Gebiet zu bewegen.
+Sei schnell: Bei 07:00 Restzeit direkt daneben teleportieren.
+Auf einem schwächeren Schlachtfeld
+Gibt es wenige Wale und sind die meisten schwächer als du, versuch den Gipfel für Extrapunkte zu erobern — schon 1 Sekunde Halten bringt Punkte. Teleportiere direkt daneben, sobald er öffnet, und greif mit deinem stärksten Marsch an.
+Wirst du besiegt, teleportiere sofort zu einer vorher erkundeten Stelle und sammle weiter Kupfer und besiege Cesares Wächter.
+Auf einem stärkeren Schlachtfeld
+Bist du unterlegen, vermeide unnötiges PvP und konzentrier dich auf Kupfer und Cesares Wächter.
 
 ### GUIDE #f2p-heroes — F2P-Helden-Guide
 Mythische Helden Fragmente und Rally-Ausrüstungen sind begrenzt. Versuche nicht, jeden Helden aufzubauen — konzentriere deine Ressourcen auf Helden mit starkem, langfristigem Wert.
