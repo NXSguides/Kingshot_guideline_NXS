@@ -2489,12 +2489,14 @@
     steps.forEach((st) => {
       if (st.pre || typeof st.s === "function") return;   // steps that open something belong to the card they open from; the card itself carries the button
       const el = Q(st.s); if (!el || !shown(el) || (scope && !scope.contains(el))) return;
-      const card = el.closest(".card, details, .tm-page, .tm-note, .tm-alerts, .tm-quick, #tmAdd, section.step, aside, .lvc, .mcard, .km-card, .km-layers, .km-c, .km-info");
+      let card = el.closest(".card, details, .tm-page, .tm-note, .tm-alerts, .tm-quick, #tmAdd, section.step, aside, .lvc, .mcard, .km-card, .km-layers, .km-c, .km-info");
+      if (card && card.classList.contains("km-card")) card = Q("#km_layers") || card;   // the map itself has no room for a 🐦: the layer chips' button covers layers + zoom + map
       if (!card || seen.has(card)) return; seen.add(card);   // a lone control outside any card (the map's + −, a header button) gets no 🐦 of its own
       if ([...document.querySelectorAll(".sp-call")].some((x) => x.spCard === card)) return;   // already has one (a re-rendered card loses it and gets a fresh one)
       const head = card.querySelector(":scope > h1, :scope > h2, :scope > .top h2, :scope > summary, :scope > .top h1, :scope > h3, :scope > .tm-top > b, :scope > b, :scope > .mhead, :scope > .hd");
       const b = document.createElement("button"); b.type = "button"; b.className = "sp-call"; b.textContent = "🐦"; b.title = t("call"); b.setAttribute("aria-label", t("call")); b.spCard = card;
-      b.onclick = (e) => { e.preventDefault(); e.stopPropagation(); hush(); run(steps.filter((s2) => { const e2 = Q(s2.s); return e2 && (card === e2 || card.contains(e2)); })); };
+      const within = (e2) => card === e2 || card.contains(e2) || (card.id === "km_layers" && !!e2.closest(".km-card"));
+      b.onclick = (e) => { e.preventDefault(); e.stopPropagation(); hush(); run(steps.filter((s2) => { const e2 = Q(s2.s); return e2 && within(e2); })); };
       if (head) head.appendChild(b); else { b.style.cssText = "float:inline-end;margin:0 0 4px 6px"; card.prepend(b); }
     });
   }
