@@ -341,7 +341,7 @@
   function place() { root.style.transform = `translate(${Math.round(pos.x)}px,${Math.round(pos.y)}px)`; placeBubble(); }
   /* which way each clip was drawn: l = looks left, r = looks right, f = faces the viewer. The bird is mirrored when the clip's
      own direction differs from where it should be looking (`facing`), so its front is always toward what it's attending to. */
-  const FACE = { idle: "l", fly: "l", sulky: "l", hi: "r", sleep: "f" /* never mirrored: the zzz in the clip would read backwards */, point: "r", bow: "r", thumbs: "r", walk: "r", pop: "r", tilt: "r", wake: "f", hop: "f", teacher: "f", heart: "f", cry: "f" };
+  const FACE = { idle: "l", fly: "l", sulky: "l", hi: "l", sleep: "f" /* never mirrored: the zzz in the clip would read backwards */, point: "r", bow: "r", thumbs: "r", walk: "r", pop: "r", tilt: "r", wake: "f", hop: "f", teacher: "f", heart: "f", cry: "f" };
   let facing = "r";
   function applyFlip() { const nf = FACE[cur] || "l"; flip = nf !== "f" && nf !== facing; bird.classList.toggle("sp-flip", flip); }
   function setFacing(d) { facing = d === "l" ? "l" : "r"; applyFlip(); }
