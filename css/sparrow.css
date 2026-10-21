@@ -36,3 +36,7 @@
 /* 🐦 show-again button when the sparrow is switched off */
 .sp-toggle { font-size: 16px; }
 @media (prefers-reduced-motion: reduce) { .sp-squash, .sp-bird.sp-flip.sp-squash { animation: none; } .sp-zz { animation: none; opacity: .9; } .sp-target { animation: none; } }
+/* 🐦 call button next to a feature (officer page) */
+.sp-call { margin-inline-start: 8px; vertical-align: middle; font-size: 15px; line-height: 1; padding: 2px 6px; border-radius: 12px; border: 1px solid var(--rule, #ccc); background: var(--panel-2, #f5f5f5); cursor: pointer; }
+.sp-call:hover { filter: brightness(.95); }
+summary .sp-call { margin-inline-start: 6px; }
