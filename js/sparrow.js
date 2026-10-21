@@ -457,9 +457,10 @@
   function pointAt(el) {   // land next to an element (right side when there is room, else left)
     const r = visRect(el), m = META[cur] || META.idle, w = m.w * SIZE, h = m.h * SIZE;
     const right = r.right + 8 + w < innerWidth - 8, left = r.left - 8 - w > 8;
-    if (right) return { x: r.right + 10 + w * 0.45, y: Math.min(innerHeight - 10, r.top + Math.min(r.height, 60) + h * 0.3), side: "r" };
-    if (left) return { x: r.left - 10 - w * 0.45, y: Math.min(innerHeight - 10, r.top + Math.min(r.height, 60) + h * 0.3), side: "l" };
-    return { x: r.left + Math.min(r.width - w * 0.5, w * 0.55), y: Math.max(h + 8, r.top - 6), side: "top" };   // no room beside it: stand on its top edge
+    const cx = r.left + r.width / 2;
+    if (right) return { x: r.right + 10 + w * 0.45, y: Math.min(innerHeight - 10, r.top + Math.min(r.height, 60) + h * 0.3), side: "r", cx };
+    if (left) return { x: r.left - 10 - w * 0.45, y: Math.min(innerHeight - 10, r.top + Math.min(r.height, 60) + h * 0.3), side: "l", cx };
+    return { x: r.left + Math.min(r.width - w * 0.5, w * 0.55), y: Math.max(h + 8, r.top - 6), side: "top", cx };   // no room beside it: stand on its top edge
   }
   let targetEl = null;
   const clearTarget = () => { if (targetEl) targetEl.classList.remove("sp-target"); targetEl = null; };
@@ -500,7 +501,7 @@
     } else if (a === "how") {
       hush(); if (window.NXSAI) { NXSAI.open(); addAISection(); const sec = document.querySelector(".sp-ai-sec"); if (sec) sec.scrollIntoView({ block: "center" }); }
       const c = play("teacher"); state = "how"; busy = false;
-      const sec = document.querySelector(".sp-ai-sec"); if (sec) { await wait(300); const p = pointAt(sec); await flyTo(p.x, p.y); setFlip(p.side === "l"); highlight(sec); say(esc(t("howA")), { foot: false }); clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { hush(); clearTarget(); }, 4000); }
+      const sec = document.querySelector(".sp-ai-sec"); if (sec) { await wait(300); const p = pointAt(sec); await flyTo(p.x, p.y); setFlip(p.side === "r" || (p.side === "top" && p.x > p.cx)); highlight(sec); say(esc(t("howA")), { foot: false }); clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { hush(); clearTarget(); }, 4000); }
       if (await c) play("idle", { squash: false }); return;
     } else if (a === "tour") {
       busy = false; runTour(b.dataset.t); return;
@@ -530,7 +531,7 @@
   function cancelStep() { if (stepResolve) { const r = stepResolve; stepResolve = null; r("stop"); } }
   async function step(el, text, last) {
     cancelStep();
-    if (el) { const tall = el.getBoundingClientRect().height > innerHeight * 0.4; el.scrollIntoView({ block: tall ? "start" : "center", behavior: REDUCED ? "auto" : "smooth" }); await wait(420); if (tall) { const sc = el.closest(".ai-log, .tm-view, .ai-panel") || window; try { (sc === window ? window : sc).scrollBy(0, -70); } catch (e) {} await wait(150); } const p = pointAt(el); await flyTo(p.x, p.y); setFlip(p.side === "l"); highlight(el); placeBubble(); }
+    if (el) { const tall = el.getBoundingClientRect().height > innerHeight * 0.4; el.scrollIntoView({ block: tall ? "start" : "center", behavior: REDUCED ? "auto" : "smooth" }); await wait(420); if (tall) { const sc = el.closest(".ai-log, .tm-view, .ai-panel") || window; try { (sc === window ? window : sc).scrollBy(0, -70); } catch (e) {} await wait(150); } const p = pointAt(el); await flyTo(p.x, p.y); setFlip(p.side === "r" || (p.side === "top" && p.x > p.cx)); highlight(el); placeBubble(); }
     const c = play(el ? "point" : "teacher");
     return new Promise((resolve) => {
       stepResolve = resolve;
@@ -711,7 +712,7 @@
     await wait(250);
     title.scrollIntoView({ block: "center", behavior: REDUCED ? "auto" : "smooth" }); await wait(450);
     const p = pointAt(title); await flyTo(p.x, p.y);
-    setFlip(p.side === "l");   // the point clip points to the right; mirror it when the sparrow lands on the left
+    setFlip(p.side === "r" || (p.side === "top" && p.x > p.cx));   // the point clip points to the right; mirror it when the sparrow lands on the left
     highlight(title); const c = play("point"); say(esc(t("here"))); state = "menu"; busy = false; armIdle();
     if (await c) { play("idle", { squash: false }); setFlip(false); }
   }
@@ -729,7 +730,7 @@
     const ob = document.getElementById("officerBtn"); const u = me(); const m = messageFor(u);
     if (!ob || ob.hidden || !m || isRead(m)) return false;
     busy = true; await goHome(); await play("hi"); say(esc(t("msg")), { foot: false }); await wait(1800); hush();
-    const p = pointAt(ob); await flyTo(p.x, p.y); setFlip(p.side === "l"); highlight(ob); await play("point"); say(esc(t("msg")));
+    const p = pointAt(ob); await flyTo(p.x, p.y); setFlip(p.side === "r" || (p.side === "top" && p.x > p.cx)); highlight(ob); await play("point"); say(esc(t("msg")));
     await play("idle", { squash: false }); setFlip(false); busy = false; state = "menu"; armIdle(); return true;
   }
 
@@ -770,7 +771,7 @@
     NXSAI.open(); addOfficerAISection();
     const sec = document.querySelector(".sp-ai-sec"); if (!sec) return;
     sec.scrollIntoView({ block: "center" }); await wait(300);
-    const p = pointAt(sec); await flyTo(p.x, p.y); setFlip(p.side === "l"); highlight(sec);
+    const p = pointAt(sec); await flyTo(p.x, p.y); setFlip(p.side === "r" || (p.side === "top" && p.x > p.cx)); highlight(sec);
     const c = play("point"); say(esc(t("howA")), { foot: false }); clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { hush(); clearTarget(); }, 4000);
     if (await c) play("idle", { squash: false });
   }
@@ -787,7 +788,7 @@
     const end = async () => { clearTarget(); setFlip(false); tour = null; busy = false; await goHome(); hush(); };
     const a = document.querySelector(`.tabs a[data-tab="${tab}"]`); if (!a) { await end(); return; }
     a.scrollIntoView({ block: "center", behavior: REDUCED ? "auto" : "smooth" }); await wait(300);
-    const p = pointAt(a); await flyTo(p.x, p.y); setFlip(p.side === "l"); highlight(a); play("point"); await wait(700); a.click(); await wait(600);
+    const p = pointAt(a); await flyTo(p.x, p.y); setFlip(p.side === "r" || (p.side === "top" && p.x > p.cx)); highlight(a); play("point"); await wait(700); a.click(); await wait(600);
     const steps = OTOURS[tab];
     for (let i = 0; i < steps.length; i++) {
       const [sel, key, act] = steps[i];
