@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Sans+Thai:wght@400;500;700;800&family=Noto+Sans+Arabic:wght@400;500;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/sparrow.css">
   <style>
     #gate { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center;
             padding: 20px; background: var(--bg); color: var(--text); }
@@ -128,7 +129,7 @@
     function unlock() {
       gate.remove();
       // the three files download at the same time (instead of one after another) and still run in this order
-      return Promise.all([load("data/content-core.js"), load("data/highlights.js"), load("data/event-names.js"), load("js/app.js"), load("js/assistant.js"), load("js/timers.js"), load("js/dragscroll.js")]);
+      return Promise.all([load("data/content-core.js"), load("data/highlights.js"), load("data/event-names.js"), load("js/app.js"), load("js/assistant.js"), load("js/timers.js"), load("js/dragscroll.js"), load("js/sparrow.js")]);
     }
     function saved() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
     function remember(h) { try { localStorage.setItem(KEY, h); } catch (e) {} }

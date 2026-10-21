@@ -1,0 +1,38 @@
+/* 🐦 Little Sparrow — the site's guide mascot (js/sparrow.js). Art: Sherry's Gemini sparrow, animated by Vidnoz; frames in img/sparrow/ */
+.sp-root { position: fixed; left: 0; top: 0; z-index: 860; pointer-events: none; will-change: transform; }
+.sp-root[hidden] { display: none; }
+.sp-bird { position: absolute; left: 0; top: 0; transform-origin: 50% 100%; cursor: pointer; pointer-events: auto; }
+.sp-bird img { position: absolute; left: 0; top: 0; display: block; user-select: none; -webkit-user-drag: none; pointer-events: none;
+  transition: opacity .14s linear; }
+.sp-bird img.sp-off { opacity: 0; }
+.sp-bird.sp-flip { transform: scaleX(-1); }
+.sp-squash { animation: sp-squash .34s cubic-bezier(.3,1.4,.5,1); }
+@keyframes sp-squash { 0% { transform: scale(1,1); } 35% { transform: scale(1.12,.86); } 70% { transform: scale(.96,1.05); } 100% { transform: scale(1,1); } }
+.sp-bird.sp-flip.sp-squash { animation-name: sp-squash-flip; }
+@keyframes sp-squash-flip { 0% { transform: scale(-1,1); } 35% { transform: scale(-1.12,.86); } 70% { transform: scale(-.96,1.05); } 100% { transform: scale(-1,1); } }
+.sp-zz { position: absolute; font: 800 16px/1 "Noto Sans", system-ui, sans-serif; color: #8fa6d6; pointer-events: none; opacity: 0;
+  animation: sp-zz 2.4s ease-in infinite; }
+.sp-zz.z2 { animation-delay: .8s; } .sp-zz.z3 { animation-delay: 1.6s; }
+@keyframes sp-zz { 0% { opacity: 0; transform: translate(0, 6px) scale(.8); } 30% { opacity: 1; } 100% { opacity: 0; transform: translate(10px, -22px) scale(1.2); } }
+/* speech bubble */
+.sp-bubble { position: fixed; z-index: 861; max-width: min(300px, calc(100vw - 32px)); background: var(--panel, #fff); color: var(--text, #222);
+  border: 1.5px solid var(--rule, #ccc); border-radius: 14px; padding: 10px 12px; font-size: 14px; line-height: 1.45;
+  box-shadow: 0 8px 24px var(--shadow, rgba(0,0,0,.18)); pointer-events: auto; overflow-wrap: anywhere; }
+.sp-bubble[hidden] { display: none; }
+.sp-bubble:after { content: ""; position: absolute; width: 12px; height: 12px; background: inherit; border-right: 1.5px solid var(--rule, #ccc); border-bottom: 1.5px solid var(--rule, #ccc);
+  bottom: -7.5px; left: var(--sp-tail, 30px); transform: rotate(45deg); }
+.sp-bubble.sp-up:after { bottom: auto; top: -7.5px; transform: rotate(-135deg); }
+.sp-bubble b { display: block; margin-bottom: 2px; }
+.sp-bubble .sp-opts { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.sp-bubble button { font: inherit; font-size: 13.5px; text-align: start; padding: 7px 10px; border-radius: 10px; cursor: pointer;
+  border: 1px solid var(--rule, #ccc); background: var(--panel-2, #f5f5f5); color: var(--text, #222); }
+.sp-bubble button.sp-main { background: var(--accent, #c7743f); color: var(--accent-ink, #fff); border-color: transparent; font-weight: 700; }
+.sp-bubble .sp-foot { display: flex; justify-content: space-between; gap: 8px; margin-top: 8px; font-size: 12px; color: var(--text-muted, #777); }
+.sp-bubble .sp-foot button { border: 0; background: transparent; color: inherit; padding: 2px 4px; font-size: 12px; text-decoration: underline; }
+.sp-bubble .sp-from { font-size: 12px; color: var(--text-muted, #777); margin-top: 4px; }
+/* highlight ring around the thing the sparrow points at */
+.sp-target { outline: 3px dashed #f0bf55 !important; outline-offset: 4px; border-radius: 10px; animation: sp-ring 1.1s ease-in-out infinite; }
+@keyframes sp-ring { 50% { outline-color: #ffe08a; } }
+/* 🐦 show-again button when the sparrow is switched off */
+.sp-toggle { font-size: 16px; }
+@media (prefers-reduced-motion: reduce) { .sp-squash, .sp-bird.sp-flip.sp-squash { animation: none; } .sp-zz { animation: none; opacity: .9; } .sp-target { animation: none; } }

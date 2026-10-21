@@ -1,0 +1,194 @@
+{
+ "idle": {
+  "w": 221,
+  "h": 216,
+  "n": 40,
+  "fps": 10,
+  "loop": true,
+  "entry": 0,
+  "anchor": [
+   110,
+   211
+  ]
+ },
+ "fly": {
+  "w": 222,
+  "h": 224,
+  "n": 40,
+  "fps": 10,
+  "loop": true,
+  "entry": 0,
+  "anchor": [
+   99,
+   217
+  ]
+ },
+ "hi": {
+  "w": 259,
+  "h": 233,
+  "n": 54,
+  "fps": 10,
+  "loop": false,
+  "entry": 9,
+  "anchor": [
+   94,
+   229
+  ]
+ },
+ "point": {
+  "w": 269,
+  "h": 213,
+  "n": 28,
+  "fps": 10,
+  "loop": false,
+  "entry": 9,
+  "anchor": [
+   106,
+   208
+  ]
+ },
+ "hop": {
+  "w": 301,
+  "h": 281,
+  "n": 44,
+  "fps": 10,
+  "loop": false,
+  "entry": 9,
+  "anchor": [
+   152,
+   277
+  ]
+ },
+ "teacher": {
+  "w": 216,
+  "h": 261,
+  "n": 55,
+  "fps": 10,
+  "loop": false,
+  "entry": 9,
+  "anchor": [
+   98,
+   257
+  ]
+ },
+ "bow": {
+  "w": 220,
+  "h": 209,
+  "n": 30,
+  "fps": 10,
+  "loop": false,
+  "entry": 9,
+  "anchor": [
+   105,
+   204
+  ]
+ },
+ "heart": {
+  "w": 292,
+  "h": 208,
+  "n": 51,
+  "fps": 10,
+  "loop": false,
+  "entry": 9,
+  "anchor": [
+   147,
+   204
+  ]
+ },
+ "cry": {
+  "w": 273,
+  "h": 209,
+  "n": 46,
+  "fps": 10,
+  "loop": false,
+  "entry": 9,
+  "anchor": [
+   145,
+   204
+  ]
+ },
+ "tilt": {
+  "w": 235,
+  "h": 230,
+  "n": 47,
+  "fps": 10,
+  "loop": false,
+  "entry": 9,
+  "anchor": [
+   158,
+   226
+  ]
+ },
+ "thumbs": {
+  "w": 249,
+  "h": 210,
+  "n": 39,
+  "fps": 10,
+  "loop": false,
+  "entry": 9,
+  "anchor": [
+   97,
+   204
+  ]
+ },
+ "walk": {
+  "w": 508,
+  "h": 213,
+  "n": 27,
+  "fps": 10,
+  "loop": false,
+  "entry": 9,
+  "anchor": [
+   254,
+   204
+  ]
+ },
+ "pop": {
+  "w": 242,
+  "h": 274,
+  "n": 26,
+  "fps": 10,
+  "loop": false,
+  "entry": 0,
+  "anchor": [
+   123,
+   270
+  ]
+ },
+ "sulky": {
+  "w": 199,
+  "h": 285,
+  "n": 51,
+  "fps": 10,
+  "loop": false,
+  "entry": 0,
+  "anchor": [
+   99,
+   279
+  ]
+ },
+ "sleep": {
+  "w": 257,
+  "h": 260,
+  "n": 8,
+  "fps": 10,
+  "loop": true,
+  "entry": 0,
+  "anchor": [
+   111,
+   255
+  ]
+ },
+ "wake": {
+  "w": 261,
+  "h": 236,
+  "n": 26,
+  "fps": 10,
+  "loop": false,
+  "entry": 0,
+  "anchor": [
+   141,
+   231
+  ]
+ }
+}

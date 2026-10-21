@@ -266,6 +266,7 @@
     if (!seen) {
       const tick = setInterval(() => {
         if (typeof langChosen !== "undefined" && !langChosen) return;            // still on the language picker
+        if (window.NXSSparrow && NXSSparrow.active()) { clearInterval(tick); try { localStorage.setItem(INTRO_KEY, "1"); } catch (e) {} return; }   // 🐦 Little Sparrow does the welcome instead
         if (document.querySelector(".popup-overlay")) return;                     // event pop-up still open
         clearInterval(tick);
         try { localStorage.setItem(INTRO_KEY, "1"); } catch (e) {}
