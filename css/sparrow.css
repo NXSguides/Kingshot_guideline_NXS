@@ -15,11 +15,17 @@
 .sp-zz.z2 { animation-delay: .8s; } .sp-zz.z3 { animation-delay: 1.6s; }
 @keyframes sp-zz { 0% { opacity: 0; transform: translate(0, 6px) scale(.8); } 30% { opacity: 1; } 100% { opacity: 0; transform: translate(10px, -22px) scale(1.2); } }
 /* speech bubble */
-.sp-bubble { position: fixed; z-index: 861; max-width: min(300px, calc(100vw - 32px)); background: var(--panel, #fff); color: var(--text, #222);
-  border: 1.5px solid var(--rule, #ccc); border-radius: 14px; padding: 10px 12px; font-size: 14px; line-height: 1.45;
-  box-shadow: 0 8px 24px var(--shadow, rgba(0,0,0,.18)); pointer-events: auto; overflow-wrap: anywhere; }
+.sp-bubble { position: fixed; z-index: 861; max-width: min(300px, calc(100vw - 32px)); background: #fffaf0; color: #2b2520;
+  border: 2px solid #3a2e25; border-radius: 14px; padding: 10px 12px; font-size: 14px; line-height: 1.45;
+  box-shadow: 0 10px 28px rgba(0,0,0,.28); pointer-events: auto; overflow-wrap: anywhere; }
+.sp-bubble button { color: #2b2520; background: #fff; border-color: #cbbda8; }
+.sp-bubble .sp-foot, .sp-bubble .sp-from { color: #7a6a5a; }
+.sp-bubble .sp-nav { display: flex; gap: 6px; margin-top: 8px; align-items: center; }
+.sp-bubble .sp-nav button { flex: 1; text-align: center; font-size: 16px; padding: 6px 8px; }
+.sp-bubble .sp-nav button[disabled] { opacity: .35; }
+.sp-bubble .sp-msg { font-size: 15px; }
 .sp-bubble[hidden] { display: none; }
-.sp-bubble:after { content: ""; position: absolute; width: 12px; height: 12px; background: inherit; border-right: 1.5px solid var(--rule, #ccc); border-bottom: 1.5px solid var(--rule, #ccc);
+.sp-bubble:after { content: ""; position: absolute; width: 12px; height: 12px; background: inherit; border-right: 2px solid #3a2e25; border-bottom: 2px solid #3a2e25;
   bottom: -7.5px; left: var(--sp-tail, 30px); transform: rotate(45deg); }
 .sp-bubble.sp-up:after { bottom: auto; top: -7.5px; transform: rotate(-135deg); }
 .sp-bubble b { display: block; margin-bottom: 2px; }

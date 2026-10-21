@@ -17,13 +17,13 @@
   /* ---------- texts (12 site languages; officer page uses zh/en/pt/ar/ko) ---------- */
   const T = {
     en: { greet: "Hi! I'm Little Sparrow 🐦 Need any help?", page: "🔎 Find a page", how: "🎓 How do I use…", none: "🤔 Neither of these",
-      noneA: "Then please go find the real Sparrow (Sparrow) 🐦", pageA: "Tap the page you want and I'll fly you there.", here: "Here it is. This is what you were looking for, right?",
+      noneA: "Then please go find the real Sparrow 🐦", pageA: "Tap the page you want and I'll fly you there.", here: "Here it is. This is what you were looking for, right?",
       howA: "Pick one here and I'll walk you through it step by step. Or just ask the AI.", sulky: "Don't need me…? Okay then.", hide: "Hide Little Sparrow", show: "Little Sparrow",
       msg: "There's a message for you 💌 Tap 📋 at the top right.", got: "Got it", from: "from Sparrow", oGreet: "Hi {name}! I'm Little Sparrow. If I still can't teach you something, go find the real Sparrow 😄" },
     zh: { greet: "嗨囉！我是小麻雀 🐦 需要幫忙嗎？", page: "🔎 找頁面", how: "🎓 怎麼用某個功能…", none: "🤔 都不是",
       noneA: "那請你去找真麻雀喔（Sparrow）🐦", pageA: "點你要的頁面，我飛過去帶你看。", here: "在這裡。這應該就是你要找的對吧？",
       howA: "從這裡選一個，我一步一步帶你做。也可以直接問 AI。", sulky: "不需要我嗎…？好吧。", hide: "隱藏小麻雀", show: "小麻雀",
-      msg: "有給你的留言 💌 點右上角的 📋", got: "知道了", from: "來自 Sparrow", oGreet: "嗨 {name}！我是小麻雀。如果我還是教不會你，就去找真麻雀吧 😄" },
+      msg: "有給你的留言 💌 點右上角的 📋", got: "知道了", from: "來自 Sparrow", oGreet: "嗨 {name}！我是小麻雀。如果我還是教不會你，就去找真麻雀（Sparrow）吧 😄" },
     ko: { greet: "안녕! 나는 작은 참새 🐦 도움이 필요해?", page: "🔎 페이지 찾기", how: "🎓 기능 사용법…", none: "🤔 둘 다 아니야",
       noneA: "그럼 진짜 참새(Sparrow)를 찾아가 줘 🐦", pageA: "원하는 페이지를 누르면 내가 날아가서 보여줄게.", here: "여기야. 찾던 게 이거 맞지?",
       howA: "여기서 하나 고르면 단계별로 알려줄게. AI에게 물어봐도 돼.", sulky: "내가 필요 없어…? 알았어.", hide: "작은 참새 숨기기", show: "작은 참새",
@@ -82,7 +82,7 @@
       tmr2ios: "iPhone 要從安裝好的 App 才會收到提醒。先看 📲 安裝成 App，再回來。",
       tmr3: "⚡ 快速開始：上次的時間。訓練和採集會記住時間，點一下就重新開始。參謀長加成會另外記一組時間。", tmr4: "＋ 設定計時：選是什麼、照遊戲顯示的時間輸入、儲存。清單裡沒有的用「其他」。",
       tmr5: "官職只能預約 24 小時內的，所以時段已經幫你排好，而且換算成你的當地時間。訓練、建造、研究快完成時，我會建議你預約一個時段。",
-      rem1: "🎮 遊戲提醒：勾你容易忘記的。點一下時間就開啟（變橘色打 ✓），再點一次關閉。", rem2: "聯盟活動的時間是我們更新的。如果發現我忘了更新，去找真麻雀，那是她的問題，不是小麻雀的問題 🐦",
+      rem1: "🎮 遊戲提醒：勾你容易忘記的。點一下時間就開啟（變橘色打 ✓），再點一次關閉。", rem2: "聯盟活動的時間是我們更新的。如果發現我忘了更新，去找真麻雀（Sparrow），那是她的問題，不是小麻雀的問題 🐦",
       inst1: "這一頁教你把網站安裝成 App。請仔細看，iPhone 一定要從安裝好的 App 才收得到通知。" },
     ko: { pick: "무엇을 배울까요?", tmr: "⏰ 타이머 설정", rem: "🎮 게임 알림", inst: "📲 앱으로 설치", back: "‹ 뒤로", next: "다음 ›", done: "완료 ✓", stop: "✕ 중지",
       tmr1: "이게 ⏰ 내 타이머예요. 눌러서 열어요.", tmr2: "먼저 알림이에요. 켜져 있다고 나오면 “테스트 보내기”를 누르고 앱을 나간 뒤 15초 기다려 빨간 배지를 확인하세요. 아니면 여기 적힌 대로 먼저 하세요.",
@@ -161,7 +161,7 @@
 
   /* ---------- officer page tours (zh / en / pt / ar / ko — the officer page languages) ---------- */
   const OT = {
-    en: { pick: "Which tab do you want me to show you?", onlyView: "(you can look, not edit)",
+    en: { msgs: "💌 Message from Sparrow", pick: "Which tab do you want me to show you?", onlyView: "(you can look, not edit)",
       events: "📅 Events", board: "💬 Board", map: "🗺️ Map", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers",
       ev1: "This week's calendar. Tap a day to see what runs, and the officer to-dos for it.", ev2: "📣 The announcement helper: pick the next days and it writes the in-game announcement for you — copy it into the game.",
       ev3: "Officer to-dos for this week / next week. Tick them off as you go.", ev4: "Add or edit events here: name, when it starts, how often, and its to-dos. Only if you have edit rights.",
@@ -175,12 +175,12 @@
       wa1: "Watch: name changes, power history, who joined or left. Use the search box and the filters.", sc1: "Scout: top players of other kingdoms, from the public data. Type a kingdom number and fetch.",
       vw1: "Views: how many people open the site, which pages and which languages. Pick the number of days.",
       pm1: "Officer rights: who may view or edit each tab. A new officer starts with Events, Board and Map, view only. Admins change this here.", pm2: "Add an officer by Discord ID. They log in with Discord and get exactly the tabs you gave them." },
-    zh: { pick: "想看哪個分頁？", onlyView: "（你只能看，不能改）",
+    zh: { msgs: "💌 真麻雀的留言", pick: "想看哪個分頁？", onlyView: "（你只能看，不能改）",
       events: "📅 活動", board: "💬 留言板", map: "🗺️ 地圖", ranking: "📊 排名", attend: "📋 出席", post: "📢 公告", watch: "🕵️ 觀察", scout: "🔭 偵查", views: "📈 瀏覽", perms: "👥 幹部",
       ev1: "這週的日曆。點一天會列出當天的活動，還有幹部要做的事。", ev2: "📣 公告小幫手：選接下來幾天，它會幫你寫好遊戲內公告，複製貼進遊戲就好。",
       ev3: "這週／下週的幹部待辦，做完打勾。", ev4: "在這裡新增或修改活動：名稱、開始時間、多久一次、待辦事項。要有編輯權限才能改。",
       bd1: "留言板：一個計畫一個主題。所有內容會用遊戲用語翻成每個幹部的語言，聊天才不會被洗掉。", bd2: "打開主題就能回覆。打 ✓ 的是已經決定的。有人 @ 你會特別標出來。",
-      mp1: "王國地圖和我們的領地。真麻雀要先道歉：她不常翻地圖，所以地圖只是偶爾更新。有東西需要馬上改的話，直接去戳她 🐦", mp2: "圖層：旗子、領地、計畫可以開關。用 ＋ － 縮放。",
+      mp1: "王國地圖和我們的領地。真麻雀（Sparrow）要先道歉：她不常翻地圖，所以地圖只是偶爾更新。有東西需要馬上改的話，直接去戳她 🐦", mp2: "圖層：旗子、領地、計畫可以開關。用 ＋ － 縮放。",
       rk1: "先選：只是在自己的裝置上玩一玩，還是要跟大家共享這個計畫？共享的計畫名單會跑到 📋 出席，可以在那邊輸入東西。", rk2: "權重：戰力、TC、秘境試煉各算多少。勾選參加的成員，下面就會排好順序。",
       rk3: "把截圖的名字貼在這裡，會自動幫你勾好。", rk4: "結果：前 N 名，有複製按鈕可以貼到 Discord。活動預設會直接給你每個活動的名單。",
       at1: "出席表來自共享的排名計畫。打開一個就能標記誰有到，還能寫備註。",
@@ -189,7 +189,7 @@
       wa1: "觀察：改名、戰力歷史、誰加入誰離開。用搜尋框和篩選。", sc1: "偵查：其他王國的頂尖玩家，來自公開資料。輸入王國編號就能抓。",
       vw1: "瀏覽：多少人開過網站、看哪些頁面、用什麼語言。可以選天數。",
       pm1: "幹部權限：每個分頁誰能看、誰能改。新幹部預設只有活動、留言板、地圖，而且只能看。管理員在這裡改。", pm2: "用 Discord ID 新增幹部。他們用 Discord 登入，就只會看到你給的分頁。" },
-    pt: { pick: "Qual aba você quer que eu mostre?", onlyView: "(você pode ver, não editar)",
+    pt: { msgs: "💌 Mensagem da Sparrow", pick: "Qual aba você quer que eu mostre?", onlyView: "(você pode ver, não editar)",
       events: "📅 Eventos", board: "💬 Quadro", map: "🗺️ Mapa", ranking: "📊 Ranking", attend: "📋 Presença", post: "📢 Postar", watch: "🕵️ Vigiar", scout: "🔭 Espiar", views: "📈 Visitas", perms: "👥 Oficiais",
       ev1: "O calendário da semana. Toque num dia para ver o que acontece e as tarefas dos oficiais.", ev2: "📣 O ajudante de anúncios: escolha os próximos dias e ele escreve o anúncio do jogo — copie para o jogo.",
       ev3: "Tarefas dos oficiais desta / próxima semana. Marque conforme faz.", ev4: "Adicione ou edite eventos aqui: nome, início, frequência e tarefas. Só com direito de edição.",
@@ -203,7 +203,7 @@
       wa1: "Vigiar: mudanças de nome, histórico de poder, quem entrou ou saiu. Use a busca e os filtros.", sc1: "Espiar: os melhores jogadores de outros reinos, dos dados públicos. Digite o número do reino e busque.",
       vw1: "Visitas: quantas pessoas abrem o site, quais páginas e idiomas. Escolha o número de dias.",
       pm1: "Direitos dos oficiais: quem pode ver ou editar cada aba. Um oficial novo começa com Eventos, Quadro e Mapa, só visualização. Admins mudam isso aqui.", pm2: "Adicione um oficial pelo ID do Discord. Ele entra com o Discord e vê exatamente as abas que você deu." },
-    ar: { pick: "أي تبويب تريد أن أريك إياه؟", onlyView: "(يمكنك المشاهدة فقط، لا التعديل)",
+    ar: { msgs: "💌 رسالة من Sparrow", pick: "أي تبويب تريد أن أريك إياه؟", onlyView: "(يمكنك المشاهدة فقط، لا التعديل)",
       events: "📅 الأحداث", board: "💬 اللوحة", map: "🗺️ الخريطة", ranking: "📊 الترتيب", attend: "📋 الحضور", post: "📢 نشر", watch: "🕵️ مراقبة", scout: "🔭 استطلاع", views: "📈 الزيارات", perms: "👥 الضباط",
       ev1: "تقويم هذا الأسبوع. اضغط على يوم لترى ما يجري فيه ومهام الضباط.", ev2: "📣 مساعد الإعلانات: اختر الأيام القادمة فيكتب لك إعلان اللعبة — انسخه إلى اللعبة.",
       ev3: "مهام الضباط لهذا الأسبوع / الأسبوع القادم. علّمها عند إنجازها.", ev4: "أضف أو عدّل الأحداث هنا: الاسم، وقت البدء، التكرار، والمهام. فقط إن كان لديك حق التعديل.",
@@ -217,7 +217,7 @@
       wa1: "مراقبة: تغييرات الأسماء، سجل القوة، من انضم أو غادر. استخدم مربع البحث والمرشحات.", sc1: "استطلاع: أفضل لاعبي الممالك الأخرى من البيانات العامة. اكتب رقم المملكة واجلب.",
       vw1: "الزيارات: كم شخصًا يفتح الموقع، وأي الصفحات واللغات. اختر عدد الأيام.",
       pm1: "صلاحيات الضباط: من يستطيع مشاهدة أو تعديل كل تبويب. الضابط الجديد يبدأ بالأحداث واللوحة والخريطة للمشاهدة فقط. يغيّر المدراء ذلك هنا.", pm2: "أضف ضابطًا بمعرّف Discord. يسجّل الدخول بـ Discord ويرى التبويبات التي أعطيته إياها بالضبط." },
-    ko: { pick: "어느 탭을 보여줄까요?", onlyView: "(보기만 가능, 수정 불가)",
+    ko: { msgs: "💌 Sparrow의 메시지", pick: "어느 탭을 보여줄까요?", onlyView: "(보기만 가능, 수정 불가)",
       events: "📅 이벤트", board: "💬 게시판", map: "🗺️ 지도", ranking: "📊 랭킹", attend: "📋 출석", post: "📢 공지", watch: "🕵️ 감시", scout: "🔭 정찰", views: "📈 조회", perms: "👥 간부",
       ev1: "이번 주 달력이에요. 날짜를 누르면 그날 이벤트와 간부 할 일이 나와요.", ev2: "📣 공지 도우미: 다음 며칠을 고르면 게임 내 공지를 써 줘요 — 게임에 복사하세요.",
       ev3: "이번 주 / 다음 주 간부 할 일. 하면서 체크하세요.", ev4: "여기서 이벤트를 추가·수정해요: 이름, 시작, 주기, 할 일. 수정 권한이 있을 때만요.",
@@ -356,7 +356,8 @@
       bubble.appendChild(f);
     }
   }
-  const hush = () => { clearTimeout(bubbleTimer); bubble.hidden = true; bubble.innerHTML = ""; };
+  let redraw = null;   // how to draw the open bubble again (used when the language changes while it is open)
+  const hush = () => { clearTimeout(bubbleTimer); redraw = null; bubble.hidden = true; bubble.innerHTML = ""; };
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -404,7 +405,8 @@
   async function greet() {
     busy = true; clearTarget(); sleepZ(false);
     await goHome(); const hi = play("hi");
-    say(`<b>${esc(t("greet"))}</b><div class="sp-opts"><button type="button" class="sp-main" data-a="page">${esc(t("page"))}</button><button type="button" data-a="how">${esc(t("how"))}</button><button type="button" data-a="none">${esc(t("none"))}</button></div>`);
+    const menu = () => say(`<b>${esc(t("greet"))}</b><div class="sp-opts"><button type="button" class="sp-main" data-a="page">${esc(t("page"))}</button><button type="button" data-a="how">${esc(t("how"))}</button><button type="button" data-a="none">${esc(t("none"))}</button></div>`);
+    menu(); redraw = menu;
     state = "menu"; busy = false; armIdle();
     clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { if (state === "menu" && !busy) hush(); }, 4000);   // 4 s, then tuck away until tapped
     if (await hi) play("idle", { squash: false });
@@ -436,6 +438,7 @@
     const items = [["tmr", tt("tmr")], ["rem", tt("rem")]];
     if (typeof GUIDES !== "undefined" && GUIDES["install-app"] && !standalone()) items.push(["inst", tt("inst")]);
     say(`<b>${esc(tt("pick"))}</b><div class="sp-opts">${items.map(([k, l]) => `<button type="button" class="sp-main" data-a="tour" data-t="${k}">${esc(l)}</button>`).join("")}<button type="button" data-a="menu">${esc(tt("back"))}</button></div>`);
+    redraw = tourMenu;
   }
   let tour = null;
   const q = (sel, root) => (root || document).querySelector(sel);
@@ -450,8 +453,12 @@
     const c = play(el ? "point" : "teacher");
     return new Promise((resolve) => {
       stepResolve = resolve;
-      say(`<div>${esc(text)}</div><div class="sp-opts"><button type="button" class="sp-main" data-s="next">${esc(last ? tt("done") : tt("next"))}</button><button type="button" data-s="stop">${esc(tt("stop"))}</button></div>`, { foot: false });
-      bubble.querySelectorAll("[data-s]").forEach((b) => b.onclick = () => { stepResolve = null; resolve(b.dataset.s); });
+      const draw = () => {
+        say(`<div>${esc(typeof text === "function" ? text() : text)}</div><div class="sp-opts"><button type="button" class="sp-main" data-s="next">${esc(last ? tt("done") : tt("next"))}</button><button type="button" data-s="stop">${esc(tt("stop"))}</button></div>`, { foot: false });
+        bubble.querySelectorAll("[data-s]").forEach((b) => b.onclick = () => { stepResolve = null; redraw = null; resolve(b.dataset.s); });
+        redraw = draw;
+      };
+      draw();
       c.then((ok) => { if (ok) play("idle", { squash: false }); });
     });
   }
@@ -464,29 +471,32 @@
       hush(); if (panel) panel.hidden = true;
       if (typeof switchGuide === "function") switchGuide("install-app");
       const title = await waitFor(() => q("#doc .doc-title"), 3000);
-      if (!(await go(title, tt("inst1"), true))) return; await end(); return;
+      if (!(await go(title, () => tt("inst1"), true))) return; await end(); return;
     }
     if (!ai || !tm) { await end(); return; }
     // open the chat, point at the ⏰ button in its header, then open the timers view
     ai.open(); await wait(250);
     const head = q(".ai-head button", panel);
     if (id === "tmr") {
-      if (!(await go(head, tt("tmr1")))) return;
+      if (!(await go(head, () => tt("tmr1")))) return;
       tm.show(true); await wait(500);
       const note = await waitFor(() => { const n = q(".tm-view .tm-note"); return visible(n) ? n : null; }, 2500);
-      if (!(await go(note, isIOS && !standalone() ? tt("tmr2ios") : tt("tmr2")))) return;
+      if (!(await go(note, () => isIOS && !standalone() ? tt("tmr2ios") : tt("tmr2")))) return;
       const quick = q(".tm-view .tm-quick");
-      if (quick && visible(quick)) { if (!(await go(quick, tt("tmr3")))) return; }
+      if (quick && visible(quick)) { if (!(await go(quick, () => tt("tmr3")))) return; }
       const add = q(".tm-view [data-a=add]");
-      if (!(await go(add || q(".tm-view #tmAdd"), tt("tmr4")))) return;
-      if (!(await go(add || q(".tm-view #tmAdd"), tt("tmr5"), true))) return;
+      if (!(await go(add || q(".tm-view #tmAdd"), () => tt("tmr4")))) return;
+      if (!(await go(add || q(".tm-view #tmAdd"), () => tt("tmr5")))) return;
+      const al2 = await waitFor(() => { const n = q(".tm-view .tm-alerts"); return visible(n) ? n : null; }, 2500);
+      if (!(await go(al2, () => tt("rem1")))) return;
+      if (!(await go(al2, () => tt("rem2"), true))) return;
       await end(); return;
     }
     if (id === "rem") {
       tm.show(true); await wait(500);
       const al = await waitFor(() => { const n = q(".tm-view .tm-alerts"); return visible(n) ? n : null; }, 2500);
-      if (!(await go(al, tt("rem1")))) return;
-      if (!(await go(al, tt("rem2"), true))) return;
+      if (!(await go(al, () => tt("rem1")))) return;
+      if (!(await go(al, () => tt("rem2"), true))) return;
       await end(); return;
     }
     await end();
@@ -520,7 +530,7 @@
   }
   bird.addEventListener("click", async () => {
     if (busy || tour) return;
-    if (!bubble.hidden) { hush(); clearTarget(); return; }   // a tap on the sparrow tucks its bubble away
+    if (!bubble.hidden && bubble.querySelector(".sp-opts")) { hush(); clearTarget(); return; }   // a tap on the sparrow tucks its menu away
     if (IS_OFFICER) { const c = play("hi"); officerMenu(); await c; play("idle", { squash: false }); return; }
     if (typeof langChosen !== "undefined" && !langChosen) return;   // language picker is up: stay asleep
     if (state === "sleep") { busy = true; sleepZ(false); await play("wake"); busy = false; }
@@ -559,7 +569,9 @@
   /* ---------- officer page: greeting once per visit, or the personal message from Sparrow ---------- */
   function officerMenu() {
     const tabs = [...document.querySelectorAll(".tabs a[data-tab]")].filter((a) => !a.hidden && OTOURS[a.dataset.tab]);
-    say(`<b>${esc(ot("pick"))}</b><div class="sp-opts">${tabs.map((a) => `<button type="button" class="sp-main" data-a="otour" data-t="${a.dataset.tab}">${esc(ot(a.dataset.tab))}${OFFICER.can && !OFFICER.can(a.dataset.tab, "edit") ? ` <small>${esc(ot("onlyView"))}</small>` : ""}</button>`).join("")}</div>`);
+    const mine = messageFor(OFFICER.user);
+    say(`<b>${esc(ot("pick"))}</b><div class="sp-opts">${tabs.map((a) => `<button type="button" class="sp-main" data-a="otour" data-t="${a.dataset.tab}">${esc(ot(a.dataset.tab))}${OFFICER.can && !OFFICER.can(a.dataset.tab, "edit") ? ` <small>${esc(ot("onlyView"))}</small>` : ""}</button>`).join("")}${mine ? `<button type="button" data-a="omsg">${esc(ot("msgs"))}</button>` : ""}</div>`);
+    redraw = officerMenu;
     clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { if (!busy) hush(); }, 6000);
   }
   async function runOfficerTour(tab) {
@@ -572,11 +584,14 @@
     for (let i = 0; i < steps.length; i++) {
       const [sel, key] = steps[i]; let el = await waitFor(() => { const e = document.querySelector(sel); return visible(e) ? e : null; }, 2500);
       if (!el) el = document.querySelector(`#pg-${tab} h1`) || a;
-      const r = await step(el, ot(key), i === steps.length - 1); if (r === "stop") break;
+      const r = await step(el, () => ot(key), i === steps.length - 1); if (r === "stop") break;
     }
     await end();
   }
-  bubble.addEventListener("click", (e) => { const b = e.target.closest("button[data-a=otour]"); if (b) runOfficerTour(b.dataset.t); });
+  bubble.addEventListener("click", async (e) => {
+    const b = e.target.closest("button[data-a=otour]"); if (b) runOfficerTour(b.dataset.t);
+    if (e.target.closest("button[data-a=omsg]") && !busy) { const m = messageFor(OFFICER.user); if (m) { busy = true; hush(); await playMessage(m, true); busy = false; } }   // 💌 read Sparrow's message again
+  });
   /* 🐦 a small "call Little Sparrow" button next to every feature on the officer page: tap → the sparrow flies there and explains just that one */
   function addCallButtons() {
     for (const tab in OTOURS) OTOURS[tab].forEach(([sel, key], i) => {
@@ -591,7 +606,7 @@
   async function runOfficerStep(tab, i) {
     if (busy) return; busy = true; hush(); clearTarget(); tour = tab;
     const [sel, key] = OTOURS[tab][i]; const el = document.querySelector(sel) || document.querySelector(`.tabs a[data-tab="${tab}"]`);
-    await step(el, ot(key), true);
+    await step(el, () => ot(key), true);
     clearTarget(); setFlip(false); tour = null; busy = false; await goHome(); hush();
   }
   if (IS_OFFICER) {
@@ -620,14 +635,22 @@
   }
   async function playMessage(m, preview) {
     busy = true; await play("pop");
-    for (let i = 0; i < m.lines.length; i++) {
+    let i = 0, done = false;
+    const showLine = async () => {
       const [clip, text] = m.lines[i], last = i === m.lines.length - 1;
-      say(`<div>${esc(text)}</div><div class="sp-from">${esc(t("from"))}</div>` + (last ? `<div class="sp-opts"><button type="button" class="sp-main" data-m="got">${esc(t("got"))}</button></div>` : ""), { foot: false });
-      await play(clip);
-      if (!last) await wait(Math.max(900, 1600 + text.length * 35 - dur(clip)));
-    }
-    await play("idle", { squash: false });
-    await new Promise((r) => { bubble.querySelector("[data-m=got]").onclick = () => { if (!preview) markRead(m); r(); }; });
+      say(`<div class="sp-msg" dir="auto">${esc(text)}</div><div class="sp-from">${esc(t("from"))} · ${i + 1}/${m.lines.length}</div>
+        <div class="sp-nav"><button type="button" data-n="-1" ${i ? "" : "disabled"}>‹</button>${last ? `<button type="button" class="sp-main" data-m="got">${esc(t("got"))}</button>` : `<button type="button" class="sp-main" data-n="1">›</button>`}</div>`, { foot: false });
+      bubble.querySelectorAll("[data-n]").forEach((b) => b.onclick = () => go(+b.dataset.n));
+      const g = bubble.querySelector("[data-m=got]"); if (g) g.onclick = () => { if (!preview) markRead(m); done = true; };
+      const c = play(clip); if (await c) play("idle", { squash: false });
+    };
+    const go = (d) => { const n = i + d; if (n < 0 || n >= m.lines.length) return; i = n; showLine(); };
+    let x0 = null;   // 👈👉 swipe between lines
+    const ts = (e) => { x0 = e.touches[0].clientX; }, te = (e) => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1); };
+    bubble.addEventListener("touchstart", ts, { passive: true }); bubble.addEventListener("touchend", te);
+    await showLine();
+    await new Promise((r) => { const tick = setInterval(() => { if (done || bubble.hidden) { clearInterval(tick); r(); } }, 150); });
+    bubble.removeEventListener("touchstart", ts); bubble.removeEventListener("touchend", te);
     hush(); await play("heart"); await play("idle", { squash: false }); busy = false;
   }
 
@@ -640,7 +663,7 @@
     const f = fab(); if (f) new MutationObserver(() => { if (!busy && !flying) { pos = perchPoint(); place(); } }).observe(f, { attributes: true, attributeFilter: ["style", "class"] });
     window.addEventListener("hashchange", () => setTimeout(onGuideOpened, 300));
     document.addEventListener("click", (e) => { if (e.target.closest && e.target.closest(".ai-panel .guide-link-btn, .guide-row button")) setTimeout(onGuideOpened, 400); }, true);
-    new MutationObserver(() => { if (toggleBtn) toggleBtn.title = t("show"); if (!bubble.hidden && !tour && !busy) hush(); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+    new MutationObserver(() => { if (toggleBtn) toggleBtn.title = t("show"); if (!bubble.hidden && redraw) { const r = redraw; r(); } document.querySelectorAll(".sp-call").forEach((b) => { b.title = t("show"); }); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
     if (IS_OFFICER) startOfficer(); else { addAISection(); start(); }
   }
   window.NXSSparrow = { play, flyTo, say, hush, start, off: turnOff, on: turnOn, messages: MESSAGES, active: () => ls.get(LS) !== "off" && !REDUCED };
