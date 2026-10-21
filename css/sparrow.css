@@ -2,8 +2,9 @@
 .sp-root { position: fixed; left: 0; top: 0; z-index: 860; pointer-events: none; will-change: transform; }
 .sp-root[hidden] { display: none; }
 .sp-bird { position: absolute; left: 0; top: 0; transform-origin: 50% 100%; cursor: pointer; pointer-events: auto; }
-.sp-bird img { position: absolute; left: 0; top: 0; display: block; user-select: none; -webkit-user-drag: none; pointer-events: none;
+.sp-bird img { position: absolute; left: 0; top: 0; display: block; user-select: none; -webkit-user-drag: none; pointer-events: auto; cursor: pointer;
   transition: opacity .14s linear; }
+.sp-bird img.sp-off { pointer-events: none; }
 .sp-bird img.sp-off { opacity: 0; }
 .sp-bird.sp-flip { transform: scaleX(-1); }
 .sp-squash { animation: sp-squash .34s cubic-bezier(.3,1.4,.5,1); }
