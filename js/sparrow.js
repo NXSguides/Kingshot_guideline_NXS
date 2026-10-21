@@ -273,14 +273,13 @@
   const loaded = {};
   function preload(name) { if (!loaded[name]) { const i = new Image(); i.src = IMG + name + ".webp"; loaded[name] = i; } }
   const dur = (name) => { const m = META && META[name]; return m ? (m.n / m.fps) * 1000 : 3000; };
-  function layout(name) {
+  function layout(name, img) {
     const m = META[name]; if (!m) return;
     const w = m.w * SIZE, h = m.h * SIZE, ax = m.anchor[0] * SIZE, ay = m.anchor[1] * SIZE;
-    bird.style.width = w + "px"; bird.style.height = h + "px";
-    [imgA, imgB].forEach((i) => { i.style.width = w + "px"; i.style.height = h + "px"; });
-    // the feet (anchor) sit on pos; bird box is placed so the anchor lands on the root origin
-    bird.style.left = (-ax) + "px"; bird.style.top = (-ay) + "px";
-    bird.style.transformOrigin = ax + "px " + ay + "px";
+    // each image keeps its own clip's size; it is placed so its feet (anchor) land on the root origin
+    img.style.width = w + "px"; img.style.height = h + "px"; img.style.left = (-ax) + "px"; img.style.top = (-ay) + "px";
+    bird.style.width = w + "px"; bird.style.height = h + "px"; bird.style.left = "0"; bird.style.top = "0";
+    bird.style.transformOrigin = "0 0";
   }
   function place() { root.style.transform = `translate(${Math.round(pos.x)}px,${Math.round(pos.y)}px)`; placeBubble(); }
   function setFlip(f) { flip = !!f; bird.classList.toggle("sp-flip", flip); }
@@ -291,10 +290,10 @@
       if (!META || !META[name]) { resolve(true); return; }
       clearTimeout(clipTimer);
       if (pending) { const r = pending; pending = null; r(false); }   // the clip that was playing is cut short → its promise says so
-      const m = META[name], same = cur === name;
+      const m = META[name], same = cur === name && !front.src.includes("_end.webp");
       cur = name; if (!m.loop) pending = resolve;
       const swap = () => {
-        layout(name);
+        layout(name, back);
         back.src = IMG + name + ".webp?r=" + Date.now();   // fresh load → the clip starts from its first frame
         back.onload = () => {
           back.classList.remove("sp-off"); front.classList.add("sp-off");
@@ -304,8 +303,7 @@
         };
       };
       if (same && m.loop) { resolve(true); return; }
-      if (opts.squash !== false && !REDUCED) { bird.classList.remove("sp-squash"); void bird.offsetWidth; bird.classList.add("sp-squash"); setTimeout(swap, 110); }
-      else swap();
+      swap();
     });
   }
   function sleepZ(on) {
@@ -659,6 +657,8 @@
     try { META = await (await fetch(IMG + "meta.json")).json(); } catch (e) { return; }
     (IS_OFFICER ? ["idle", "hi", "pop", "heart"] : ["sleep", "wake", "idle", "hi", "fly", "point"]).forEach(preload);   // the rest load when first played
     document.body.append(root, bubble);
+    const first = (typeof langChosen !== "undefined" && !langChosen) ? "sleep" : "idle";   // a small still shows at once; the clip replaces it when it has loaded
+    layout(first, front); front.src = IMG + first + "_end.webp"; cur = first;
     window.addEventListener("resize", () => { if (!busy && state !== "off" && root.hidden === false) { pos = perchPoint(); place(); } placeBubble(); });
     const f = fab(); if (f) new MutationObserver(() => { if (!busy && !flying) { pos = perchPoint(); place(); } }).observe(f, { attributes: true, attributeFilter: ["style", "class"] });
     window.addEventListener("hashchange", () => setTimeout(onGuideOpened, 300));

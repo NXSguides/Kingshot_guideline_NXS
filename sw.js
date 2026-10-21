@@ -3,7 +3,7 @@
    - Pages, app code, guide text and data files: try the network first (so new uploads show up
      right away); if it doesn't answer within 1.5 s for pages/code (3 s for data files), or there
      is no internet, show the saved copy. */
-const CACHE = "nxs-v281";
+const CACHE = "nxs-v282";
 const INBOX = "nxs-inbox", INBOX_KEY = "./__inbox";   // reminders that arrived, for the red badge + the "🔔 missed" card
 const NETWORK_TIMEOUT_MS = 3000;        // data files
 const SHELL_TIMEOUT_MS = 1500;          // pages, code, guide text
@@ -22,7 +22,10 @@ const SHELL = [
   "data/announcements.json",
   "manifest.json",
   "icons/icon-192.png",
-  "icons/icon-512.png"
+  "icons/icon-512.png",
+  // 🐦 Little Sparrow: what the main site needs right away (the other clips load when first played)
+  "img/sparrow/meta.json", "img/sparrow/idle_end.webp", "img/sparrow/sleep_end.webp",
+  "img/sparrow/sleep.webp", "img/sparrow/wake.webp", "img/sparrow/idle.webp", "img/sparrow/hi.webp", "img/sparrow/fly.webp", "img/sparrow/point.webp"
 ];
 
 self.addEventListener("install", (e) => {
@@ -51,6 +54,8 @@ function save(req, res) {
 
 /* Images & fonts: saved copy first, refresh in the background */
 function cacheFirst(e, req) {
+  // 🐦 the sparrow's clips are asked for with "?r=…" (to restart the animation): the saved copy without it counts
+  if (/\/img\/sparrow\/.*\?r=/.test(req.url)) { const u = new URL(req.url); u.search = ""; req = new Request(u.href); }
   return caches.match(req).then((hit) => {
     const update = fetch(req).then((res) => save(req, res)).catch(() => hit);
     if (hit) { e.waitUntil(update); return hit; }
