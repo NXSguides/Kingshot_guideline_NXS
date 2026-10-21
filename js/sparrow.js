@@ -517,7 +517,7 @@
     } else if (a === "how") {
       hush(); if (window.NXSAI) { NXSAI.open(); addAISection(); const sec = document.querySelector(".sp-ai-sec"); if (sec) sec.scrollIntoView({ block: "center" }); }
       const c = play("teacher"); state = "how"; busy = false;
-      const sec = document.querySelector(".sp-ai-sec"); if (sec) { await wait(300); const p = pointAt(sec); if (!(await flyTo(p.x, p.y))) return; setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(sec); say(esc(t("howA")), { foot: false }); clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { hush(); clearTarget(); goHome(); }, 4000);   // nothing more to show → back to the perch, out of the way }
+      const sec = document.querySelector(".sp-ai-sec"); if (sec) { await wait(300); const p = pointAt(sec); if (!(await flyTo(p.x, p.y))) return; setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(sec); say(esc(t("howA")), { foot: false }); clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { hush(); clearTarget(); goHome(); /* nothing more to show → back to the perch, out of the way */ }, 4000); }
       if (await c) play("idle", { squash: false }); return;
     } else if (a === "tour") {
       busy = false; runTour(b.dataset.t); return;
@@ -804,7 +804,7 @@
     const sec = document.querySelector(".sp-ai-sec"); if (!sec) return;
     sec.scrollIntoView({ block: "center" }); await wait(300);
     const p = pointAt(sec); if (!(await flyTo(p.x, p.y))) return; setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(sec);
-    const c = play("point"); say(esc(t("howA")), { foot: false }); clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { hush(); clearTarget(); goHome(); }, 4000);   // nothing more to show → back to the perch, out of the way
+    const c = play("point"); say(esc(t("howA")), { foot: false }); clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { hush(); clearTarget(); goHome(); /* nothing more to show → back to the perch, out of the way */ }, 4000);
     if (await c) play("idle", { squash: false });
   }
   document.addEventListener("click", async (e) => {
