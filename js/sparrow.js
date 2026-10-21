@@ -342,7 +342,7 @@
   /* which way each clip was drawn: l = looks left, r = looks right, f = faces the viewer. The bird is mirrored when the clip's
      own direction differs from where it should be looking (`facing`), so its front is always toward what it's attending to. */
   const FACE = { idle: "l", fly: "l", sulky: "l", hi: "r", sleep: "f" /* never mirrored: the zzz in the clip would read backwards */, point: "r", bow: "r", thumbs: "r", walk: "r",
-    pop: { start: "l", at: 7 / 26, then: "r" },   // peeks out of the hole looking left, then turns right and hops out
+    pop: "l",   // whole clip mirrored as one piece (a mid-clip turn looked like it changed its mind halfway)
     tilt: "r", wake: "f", hop: "f", teacher: "f", heart: "f", cry: "f" };
   let facing = "r", clipFace = "l", turnTimer = null;
   function applyFlip() { flip = clipFace !== "f" && clipFace !== facing; bird.classList.toggle("sp-flip", flip); }
