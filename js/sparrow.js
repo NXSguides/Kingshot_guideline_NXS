@@ -71,89 +71,293 @@
 
   /* ---------- guided tours: texts ---------- */
   const TT = {
-    en: { pick: "What do you want to learn?", tmr: "⏰ Set a timer", rem: "🎮 Game reminders", inst: "📲 Install as an app", back: "‹ Back", next: "Next ›", done: "Done ✓", stop: "✕ Stop", also: "Want me to show {x} too?", alsoYes: "Yes, show me", alsoNo: "No thanks",
-      tmr1: "This is ⏰ My timers. Tap it to open.", tmr2: "First, notifications. If it says they're on, tap “Send a test”, leave the app, and wait 15 s for the red badge. If not, follow what it says here first.",
-      tmr2ios: "On iPhone, timers only ping you from the installed app. Read 📲 Install as an app first, then come back.",
-      tmr3: "⚡ Quick start: your last times. Troops Training and Gathering remember the time — one tap starts them again. Noble Advisor has its own time.", tmr4: "＋ Set a timer: pick what it is, type the time the game shows, and save. “Other” is for anything not in the list.",
-      tmr5: "Appointments can only be booked 24 h ahead, so the slots are ready for you here, in your local time. When Troops Training, Building or Research finishes, I'll suggest a slot to book.",
-      rem1: "🎮 Game reminders: tick what you tend to forget. Tap a time to turn it on (it goes orange with a ✓), tap again to turn it off.", rem2: "Alliance events use the times we post. If I got one wrong, go find THAT Sparrow — that's her problem, not mine 🐦",
+    en: {
+      tm01: "⏰ in the chat header opens My timers; tap it again to go back to the chat. Let me open it…",
+      tm02: "‹ Chat goes back to the chat; your timers keep running.",
+      tm03: "Notifications: timers run on this page, but your phone only pings you when notifications are on. 🔔 Turn on notifications asks once; after that Send a test sends a push in 15 seconds — leave the app to see the red badge.",
+      tm03ios: "On iPhone, notifications only work from the installed app: Share → Add to Home Screen, open NXS from the new icon and come back here. Timers still run on this page meanwhile.",
+      tm04: "🔄 Officers logged in with Discord get their timers and reminders on every device; sync now pushes right away.",
+      tm05: "⚡ Quick start: your last Training time and Gathering set. One tap starts it again with the same time; ✕ forgets it.",
+      tm06: "＋ Set a timer opens the form. Let me open it…",
+      tm07: "What is it? Pick the category: Gathering, Troops Training, Building, Research, Master, Recruit, Pet, Feast, Healing, Governor Order, Fountain, Alliance Tech, Conquest, Caravan, Appointment — or Other, with a name.",
+      tm08: "Some categories ask a second choice: which troops, resource, order or position. I'll pick Troops Training…",
+      tm09: "🎖️ Noble Advisor buff on now: training is faster with it, so that time is remembered separately — it switches on by itself during your Noble Advisor slot.",
+      tm10: "Time left in the game: type it as the game shows it — 2:45:12, 45:00 or 3d 07:51:57. Last time's value is filled in for Training and Gathering; Gathering gets ＋ Another march, one row per march. Some categories prefill the cooldown (Governor Orders, Conquest 9 h, Fountain 12 h, Alliance Tech attempts).",
+      tm11: "🤝 Count alliance help: for Building, Research and Healing the helps you'll get are taken off the time — set your Embassy level and how many helps. Turn it on right after you start, before anyone has helped.",
+      tm12: "Save starts the timer (Enter does the same); Cancel closes the form.",
+      tm13: "📅 Appointment: pick your Chief Minister or Noble Advisor slot (next 24 h, 30 minutes each) and how early to remind you. While the slot is live, a buff-stack checklist appears at the top of the site.",
+      tm14: "Your timers, soonest first: countdown, finish time, 📅 slot (on Building, Research and Training) suggests the matching Appointment slot, ✕ removes. Done timers stay for an hour.",
+      tm15: "💡 After a Building, Research or Training timer, a card suggests the Appointment slot that fits: ＋ Remind me of this slot, or ＋ Remind me to book it when booking isn't open yet; Not now hides it.",
+      tm16: "🎮 Game reminders: one row per event — Bear Hunt, Arena, Mystic Trial, Journey Supplies, Intel, Swordland, Tri-Alliance, Viking, Eternity's Reach, Cesares Fury — each with the date of the next one.",
+      tm17: "Tap a time to turn that reminder on (orange with ✓); tap again to turn it off. The times are our alliance's event times in UTC, your local time in brackets.",
+      tm18: "How early: at the time, or 1–60 minutes before.",
+      tm19: "🧮 BT calculator opens the Bear Hunt rally calculator — tapping a Bear reminder opens it too.",
+      tm20: "🛠️ Admin reminders (officers): the to-dos from the officer Events tab, sent on the day they're due at the hour you pick, and 📍 Outpost reminders 10 minutes before one of ours turns Vulnerable.",
+      tm21: "🔔 Reminders at the top of the site lists the pushes received in the last 24 hours; tap one to open it, ✓ Clear empties the list.", pick: "What do you want to learn?", tmr: "⏰ Set a timer", rem: "🎮 Game reminders", inst: "📲 Install as an app", back: "‹ Back", next: "Next ›", done: "Done ✓", stop: "✕ Stop", also: "Want me to show {x} too?", alsoYes: "Yes, show me", alsoNo: "No thanks",
       inst1: "This page shows how to install the site as an app. Read it carefully — on iPhone, notifications only work from the installed app." },
-    zh: { pick: "想學哪一個？", tmr: "⏰ 設定計時", rem: "🎮 遊戲提醒", inst: "📲 安裝成 App", back: "‹ 返回", next: "下一步 ›", done: "完成 ✓", stop: "✕ 停止", also: "要不要也順便講 {x}？", alsoYes: "好，講吧", alsoNo: "不用了",
-      tmr1: "這是 ⏰ 我的計時，點一下打開。", tmr2: "先看通知。如果顯示已開啟，點「傳測試通知」，退出 App 等 15 秒，看有沒有紅點點和通知。沒有的話，先照這裡寫的做。",
-      tmr2ios: "iPhone 要從安裝好的 App 才會收到提醒。先看 📲 安裝成 App，再回來。",
-      tmr3: "⚡ 快速開始：上次的時間。訓練和採集會記住時間，點一下就重新開始。參謀長加成會另外記一組時間。", tmr4: "＋ 設定計時：選是什麼、照遊戲顯示的時間輸入、儲存。清單裡沒有的用「其他」。",
-      tmr5: "官職只能預約 24 小時內的，所以時段已經幫你排好，而且換算成你的當地時間。訓練、建造、研究快完成時，我會建議你預約一個時段。",
-      rem1: "🎮 遊戲提醒：勾你容易忘記的。點一下時間就開啟（變橘色打 ✓），再點一次關閉。", rem2: "聯盟活動的時間是我們更新的。如果發現我忘了更新，去找那個麻雀（Sparrow），那是她的問題，不是小麻雀的問題 🐦",
+    zh: {
+      tm01: "聊天標題列的 ⏰ 會打開「我的計時器」；再點一次就回到聊天。我來打開它…",
+      tm02: "‹ 聊天 會回到聊天，你的計時器會繼續跑。",
+      tm03: "通知：計時器在這個頁面上運行，但只有開啟通知時手機才會提醒你。🔔 開啟通知 只會詢問一次；之後 發送測試 會在 15 秒後送出一則推播——離開 app 就能看到紅色標記。",
+      tm03ios: "在 iPhone 上，通知只在已安裝的 app 裡有效：分享 → 加入主畫面，從新的圖示打開 NXS 再回到這裡。在這期間計時器仍會在這個頁面上運行。",
+      tm04: "🔄 用 Discord 登入的官員，在每個裝置上都能看到自己的計時器和提醒；立即同步 會馬上推送。",
+      tm05: "⚡ 快速開始：你上一次的訓練時間和採集設定。點一下就用同樣的時間再開一次；✕ 會把它忘掉。",
+      tm06: "＋ 設定計時器 會打開表單。我來打開它…",
+      tm07: "這是什麼？選一個類別：採集、訓練部隊、建造、研究、大師、招募、寵物、盛宴、治療、總督命令、生命之泉、聯盟科技、征服、商隊、任命——或者「其他」，並填上名稱。",
+      tm08: "有些類別會要你再選一項：哪種部隊、資源、命令或職位。我選訓練部隊…",
+      tm09: "🎖️ 貴族顧問加成生效中：有加成時訓練比較快，所以那個時間會另外記住——在你的貴族顧問時段內它會自動開啟。",
+      tm10: "遊戲中的剩餘時間：照遊戲顯示的方式輸入——2:45:12、45:00 或 3d 07:51:57。訓練和採集會自動填入上次的值；採集有 ＋ 再一支行軍，一支行軍一列。有些類別會預填冷卻時間（總督命令、征服 9 h、生命之泉 12 h、聯盟科技次數）。",
+      tm11: "🤝 計入聯盟幫助：建造、研究和治療會把你將獲得的幫助從時間裡扣掉——設定你的大使館等級和幫助次數。開始後馬上打開它，要在有人幫助之前。",
+      tm12: "儲存 會啟動計時器（按 Enter 也一樣）；取消 會關閉表單。",
+      tm13: "📅 任命：選你的首席大臣或貴族顧問時段（接下來 24 h，每段 30 分鐘）以及要提前多久提醒你。時段進行中時，網站最上方會出現一份加成疊加清單。",
+      tm14: "你的計時器，最快到期的在前：倒數、結束時間、📅 時段（在建造、研究和訓練上）會建議對應的任命時段，✕ 會移除。完成的計時器會保留一小時。",
+      tm15: "💡 建造、研究或訓練計時器結束後，會有一張卡片建議合適的任命時段：＋ 提醒我這個時段，或在還不能預約時 ＋ 提醒我去預約；先不要 會把它隱藏。",
+      tm16: "🎮 遊戲提醒：每個活動一列——狩獵巨熊、競技場、秘境試煉、旅途補給、情報任務、聖劍爭奪、三盟爭霸、維京人的掠奪、遠征永恆、凱撒之怒——每個都附有下一場的日期。",
+      tm17: "點一個時間就會開啟那個提醒（橘色加 ✓）；再點一次就關閉。這些時間是我們聯盟的活動時間，以 UTC 顯示，括號內是你的當地時間。",
+      tm18: "提前多久：準時，或提前 1–60 分鐘。",
+      tm19: "🧮 BT 計算器 會打開狩獵巨熊集結計算器——點巨熊提醒也會打開它。",
+      tm20: "🛠️ 管理提醒（官員）：來自官員活動分頁的待辦事項，會在到期當天、你選的時刻送出，還有 📍 前哨提醒，在我們的前哨變成「可攻擊」前 10 分鐘送出。",
+      tm21: "網站最上方的 🔔 提醒 會列出最近 24 小時收到的推播；點一則就會打開它，✓ 清除 會清空列表。", pick: "想學哪一個？", tmr: "⏰ 設定計時", rem: "🎮 遊戲提醒", inst: "📲 安裝成 App", back: "‹ 返回", next: "下一步 ›", done: "完成 ✓", stop: "✕ 停止", also: "要不要也順便講 {x}？", alsoYes: "好，講吧", alsoNo: "不用了",
       inst1: "這一頁教你把網站安裝成 App。請仔細看，iPhone 一定要從安裝好的 App 才收得到通知。" },
-    ko: { pick: "무엇을 배울까요?", tmr: "⏰ 타이머 설정", rem: "🎮 게임 알림", inst: "📲 앱으로 설치", back: "‹ 뒤로", next: "다음 ›", done: "완료 ✓", stop: "✕ 중지", also: "{x}도 보여줄까요?", alsoYes: "응, 보여줘", alsoNo: "괜찮아",
-      tmr1: "이게 ⏰ 내 타이머예요. 눌러서 열어요.", tmr2: "먼저 알림이에요. 켜져 있다고 나오면 “테스트 보내기”를 누르고 앱을 나간 뒤 15초 기다려 빨간 배지를 확인하세요. 아니면 여기 적힌 대로 먼저 하세요.",
-      tmr2ios: "아이폰은 설치한 앱에서만 알림이 와요. 먼저 📲 앱으로 설치를 읽고 돌아오세요.",
-      tmr3: "⚡ 빠른 시작: 최근 시간이에요. 훈련과 채집은 시간을 기억해서 한 번만 누르면 다시 시작돼요. 참모장 버프는 따로 기억해요.", tmr4: "＋ 타이머 설정: 무엇인지 고르고, 게임에 보이는 시간을 입력하고 저장하세요. 목록에 없으면 “기타”.",
-      tmr5: "관직은 24시간 안에만 예약할 수 있어서 시간대를 미리 준비해 뒀고, 내 현지 시간으로 보여줘요. 훈련·건설·연구가 끝날 때 예약할 시간대를 제안할게요.",
-      rem1: "🎮 게임 알림: 자주 잊는 걸 체크하세요. 시간을 누르면 켜지고(주황색 ✓), 다시 누르면 꺼져요.", rem2: "연맹 이벤트 시간은 우리가 올려요. 틀렸다면 그 Sparrow를 찾아가세요 — 그건 그녀 잘못이에요 🐦",
+    ko: {
+      tm01: "채팅 헤더의 ⏰ 를 누르면 내 타이머가 열려. 다시 누르면 채팅으로 돌아가. 내가 열어 볼게…",
+      tm02: "‹ 채팅 을 누르면 채팅으로 돌아가고, 타이머는 계속 돌아가.",
+      tm03: "알림: 타이머는 이 페이지에서 돌아가지만, 알림을 켜야 폰이 알려 줘. 🔔 알림 켜기 는 한 번만 물어봐. 그다음 테스트 보내기 를 누르면 15초 뒤에 푸시가 와. 앱을 나가면 빨간 배지가 보여.",
+      tm03ios: "iPhone에서는 설치된 앱에서만 알림이 돼. 공유 → 홈 화면에 추가 를 하고, 새 아이콘으로 NXS를 열어서 여기로 다시 와. 그동안에도 타이머는 이 페이지에서 계속 돌아가.",
+      tm04: "🔄 Discord로 로그인한 관리자는 모든 기기에서 타이머와 알림을 볼 수 있어. 지금 동기화 를 누르면 바로 보내 줘.",
+      tm05: "⚡ 빠른 시작: 마지막 훈련 시간과 채집 설정이야. 한 번 누르면 같은 시간으로 다시 시작하고, ✕ 를 누르면 잊어버려.",
+      tm06: "＋ 타이머 설정 을 누르면 입력 폼이 열려. 내가 열어 볼게…",
+      tm07: "무엇인지 고르기: 채집, 병력 훈련, 건설, 연구, 마스터, 모집, 펫, 연회, 치료, 총독 명령, 생명의 샘, 연맹 기술, 정복, 상단, 임명 중에서 골라. 아니면 기타 를 고르고 이름을 적어.",
+      tm08: "어떤 분류는 하나 더 골라야 해. 어떤 병력인지, 자원인지, 명령인지, 직위인지. 나는 병력 훈련을 고를게…",
+      tm09: "🎖️ 귀족 고문 버프 켜짐: 버프가 있으면 훈련이 더 빠르니까 그 시간은 따로 기억해 둬. 네 귀족 고문 시간대에는 자동으로 켜져.",
+      tm10: "게임의 남은 시간: 게임에 나오는 대로 적어. 2:45:12, 45:00 또는 3d 07:51:57 처럼. 훈련과 채집은 지난번 값이 채워져 있어. 채집에는 ＋ 행군 추가 가 있어서 행군마다 한 줄씩이야. 어떤 분류는 쿨타임이 미리 채워져 (총독 명령, 정복 9 h, 생명의 샘 12 h, 연맹 기술 횟수).",
+      tm11: "🤝 연맹 도움 계산: 건설, 연구, 치료는 네가 받을 도움을 시간에서 빼 줘. 대사관 레벨과 도움 횟수를 정해. 시작하자마자, 아무도 돕기 전에 켜 둬.",
+      tm12: "저장 을 누르면 타이머가 시작돼 (Enter도 같아). 취소 는 폼을 닫아.",
+      tm13: "📅 임명: 재상이나 귀족 고문 시간대를 고르고 (앞으로 24 h, 30분씩) 얼마나 미리 알려 줄지 정해. 시간대가 진행 중이면 사이트 맨 위에 버프 쌓기 체크리스트가 나타나.",
+      tm14: "네 타이머, 빨리 끝나는 순서대로야. 카운트다운, 끝나는 시각, 📅 시간대 (건설, 연구, 훈련에 있음) 는 맞는 임명 시간대를 추천하고, ✕ 는 지워. 끝난 타이머는 한 시간 동안 남아 있어.",
+      tm15: "💡 건설, 연구, 훈련 타이머가 끝나면 맞는 임명 시간대를 추천하는 카드가 떠. ＋ 이 시간대 알려 줘, 아직 예약이 안 열렸으면 ＋ 예약하라고 알려 줘 가 있고, 나중에 를 누르면 숨겨져.",
+      tm16: "🎮 게임 알림: 이벤트마다 한 줄씩이야. 곰 사냥, 아레나, 신비한 시련, 여정 보급, 정보 임무, 소드랜드 결전, 삼국 연맹전, 바이킹의 복수, 영원의 손길, 케사르의 분노. 각각 다음 이벤트 날짜가 적혀 있어.",
+      tm17: "시간을 누르면 그 알림이 켜져 (주황색에 ✓). 다시 누르면 꺼져. 시간은 우리 연맹의 이벤트 시간이고 UTC 기준이야. 괄호 안은 네 현지 시간이야.",
+      tm18: "얼마나 미리: 정각에, 아니면 1–60분 전에.",
+      tm19: "🧮 BT 계산기 를 누르면 곰 사냥 집결 계산기가 열려. 곰 알림을 눌러도 열려.",
+      tm20: "🛠️ 관리 알림 (관리자용): 관리자 이벤트 탭의 할 일이 마감 당일, 네가 고른 시각에 와. 그리고 📍 전초기지 알림은 우리 전초기지가 취약 상태가 되기 10분 전에 와.",
+      tm21: "사이트 맨 위의 🔔 알림 은 최근 24시간 동안 받은 푸시를 보여 줘. 하나를 누르면 열리고, ✓ 지우기 를 누르면 목록이 비워져.", pick: "무엇을 배울까요?", tmr: "⏰ 타이머 설정", rem: "🎮 게임 알림", inst: "📲 앱으로 설치", back: "‹ 뒤로", next: "다음 ›", done: "완료 ✓", stop: "✕ 중지", also: "{x}도 보여줄까요?", alsoYes: "응, 보여줘", alsoNo: "괜찮아",
       inst1: "이 페이지는 사이트를 앱으로 설치하는 방법이에요. 아이폰은 설치한 앱에서만 알림이 와요. 꼼꼼히 읽어 주세요." },
-    de: { pick: "Was willst du lernen?", tmr: "⏰ Timer stellen", rem: "🎮 Spiel-Erinnerungen", inst: "📲 Als App installieren", back: "‹ Zurück", next: "Weiter ›", done: "Fertig ✓", stop: "✕ Stopp", also: "Soll ich dir auch {x} zeigen?", alsoYes: "Ja, zeig mir", alsoNo: "Nein danke",
-      tmr1: "Das ist ⏰ Meine Timer. Tippe darauf.", tmr2: "Zuerst die Benachrichtigungen. Steht da „an“, tippe auf „Test senden“, verlasse die App und warte 15 s auf den roten Punkt. Sonst erst das machen, was hier steht.",
-      tmr2ios: "Auf dem iPhone kommen Timer nur aus der installierten App. Lies zuerst 📲 Als App installieren.",
-      tmr3: "⚡ Schnellstart: deine letzten Zeiten. Training und Sammeln merken sich die Zeit – ein Tipp startet sie neu. Der Adelsberater hat eine eigene Zeit.", tmr4: "＋ Timer stellen: auswählen, die Zeit aus dem Spiel eintippen, speichern. „Sonstiges“ für alles, was nicht in der Liste ist.",
-      tmr5: "Ämter kann man nur 24 h im Voraus buchen, darum stehen die Slots hier schon bereit – in deiner Ortszeit. Wenn Training, Bauen oder Forschung fertig wird, schlage ich dir einen Slot vor.",
-      rem1: "🎮 Spiel-Erinnerungen: hake an, was du oft vergisst. Tippe auf eine Zeit zum Einschalten (orange mit ✓), nochmal zum Ausschalten.", rem2: "Allianz-Events nutzen unsere Zeiten. Ist eine falsch, geh zu DEM Sparrow – ihr Problem, nicht meins 🐦",
+    de: {
+      tm01: "⏰ oben im Chat öffnet Meine Timer; tipp noch mal darauf, um zum Chat zurückzukommen. Ich öffne es mal…",
+      tm02: "‹ Chat bringt dich zurück zum Chat; deine Timer laufen weiter.",
+      tm03: "Benachrichtigungen: Die Timer laufen auf dieser Seite, aber dein Handy meldet sich nur, wenn Benachrichtigungen an sind. 🔔 Benachrichtigungen einschalten fragt einmal; danach schickt Test senden in 15 Sekunden einen Push — verlass die App, um das rote Abzeichen zu sehen.",
+      tm03ios: "Auf dem iPhone funktionieren Benachrichtigungen nur aus der installierten App: Teilen → Zum Home-Bildschirm, NXS über das neue Symbol öffnen und hierher zurückkommen. Die Timer laufen auf dieser Seite inzwischen weiter.",
+      tm04: "🔄 Offiziere, die mit Discord angemeldet sind, bekommen ihre Timer und Erinnerungen auf jedem Gerät; Jetzt synchronisieren überträgt sie sofort.",
+      tm05: "⚡ Schnellstart: deine letzte Truppentraining-Zeit und dein letztes Sammeln-Set. Ein Tipp startet es mit derselben Zeit noch mal; ✕ vergisst es.",
+      tm06: "＋ Timer setzen öffnet das Formular. Ich öffne es mal…",
+      tm07: "Was ist es? Wähl die Kategorie: Sammeln, Truppentraining, Bauen, Forschung, Meister, Rekrutieren, Haustier, Festmahl, Heilung, Gouverneursbefehl, Lebensquelle, Allianztechnologie, Eroberung, Karawane, Ernennung — oder Sonstiges, mit einem Namen.",
+      tm08: "Manche Kategorien fragen nach einer zweiten Auswahl: welche Truppen, welche Ressource, welcher Befehl oder welche Position. Ich nehme Truppentraining…",
+      tm09: "🎖️ Edler-Berater-Buff aktiv: Damit geht das Training schneller, deshalb wird diese Zeit separat gemerkt — es schaltet sich während deines Edler-Berater-Slots von selbst ein.",
+      tm10: "Restzeit im Spiel: Tipp sie so ein, wie das Spiel sie anzeigt — 2:45:12, 45:00 oder 3d 07:51:57. Für Truppentraining und Sammeln ist der Wert vom letzten Mal schon eingetragen; bei Sammeln gibt es ＋ Weiterer Marsch, eine Zeile pro Marsch. Manche Kategorien füllen die Abklingzeit vor (Gouverneursbefehle, Eroberung 9 h, Lebensquelle 12 h, Allianztechnologie-Versuche).",
+      tm11: "🤝 Allianzhilfe einrechnen: Bei Bauen, Forschung und Heilung werden die Hilfen, die du bekommst, von der Zeit abgezogen — stell dein Botschaft-Level und die Anzahl der Hilfen ein. Schalt es direkt nach dem Start ein, bevor jemand geholfen hat.",
+      tm12: "Speichern startet den Timer (Enter macht dasselbe); Abbrechen schließt das Formular.",
+      tm13: "📅 Ernennung: Wähl deinen Premierminister- oder Edler-Berater-Slot (nächste 24 h, je 30 Minuten) und wie früh du erinnert werden willst. Solange der Slot läuft, erscheint oben auf der Seite eine Buff-Stack-Checkliste.",
+      tm14: "Deine Timer, die nächsten zuerst: Countdown, Endzeit, 📅 Slot (bei Bauen, Forschung und Truppentraining) schlägt den passenden Ernennungs-Slot vor, ✕ entfernt. Abgelaufene Timer bleiben eine Stunde stehen.",
+      tm15: "💡 Nach einem Bauen-, Forschungs- oder Truppentraining-Timer schlägt eine Karte den passenden Ernennungs-Slot vor: ＋ An diesen Slot erinnern, oder ＋ Ans Buchen erinnern, wenn die Buchung noch nicht offen ist; Jetzt nicht blendet sie aus.",
+      tm16: "🎮 Spiel-Erinnerungen: eine Zeile pro Event — Bärenjagd, Arena, Mystische Prüfung, Reiseproviant, Geheimdienstmissionen, Schwertland-Showdown, Dreier-Allianz-Konflikt, Wikinger-Vergeltung, Ewigkeitsgriff, Cesares' Zorn — jeweils mit dem Datum des nächsten.",
+      tm17: "Tipp auf eine Uhrzeit, um diese Erinnerung einzuschalten (orange mit ✓); tipp noch mal, um sie auszuschalten. Die Zeiten sind die Event-Zeiten unserer Allianz in UTC, deine Ortszeit in Klammern.",
+      tm18: "Wie früh: zur Uhrzeit selbst oder 1–60 Minuten davor.",
+      tm19: "🧮 BT-Rechner öffnet den Bärenjagd-Rally-Rechner — ein Tipp auf eine Bären-Erinnerung öffnet ihn auch.",
+      tm20: "🛠️ Admin-Erinnerungen (Offiziere): die To-dos aus dem Events-Tab der Offiziere, am Fälligkeitstag zu der Stunde geschickt, die du wählst, und 📍 Außenposten-Erinnerungen 10 Minuten bevor einer von unseren Verwundbar wird.",
+      tm21: "🔔 Erinnerungen oben auf der Seite listet die Pushes der letzten 24 Stunden; tipp auf einen, um ihn zu öffnen, ✓ Leeren leert die Liste.", pick: "Was willst du lernen?", tmr: "⏰ Timer stellen", rem: "🎮 Spiel-Erinnerungen", inst: "📲 Als App installieren", back: "‹ Zurück", next: "Weiter ›", done: "Fertig ✓", stop: "✕ Stopp", also: "Soll ich dir auch {x} zeigen?", alsoYes: "Ja, zeig mir", alsoNo: "Nein danke",
       inst1: "Diese Seite zeigt, wie du die Seite als App installierst. Lies sie genau – auf dem iPhone gibt es Benachrichtigungen nur in der App." },
-    fr: { pick: "Tu veux apprendre quoi ?", tmr: "⏰ Mettre un minuteur", rem: "🎮 Rappels du jeu", inst: "📲 Installer en appli", back: "‹ Retour", next: "Suivant ›", done: "Terminé ✓", stop: "✕ Stop", also: "Je te montre aussi {x} ?", alsoYes: "Oui, montre-moi", alsoNo: "Non merci",
-      tmr1: "Voici ⏰ Mes minuteurs. Touche pour ouvrir.", tmr2: "D'abord les notifications. Si c'est écrit « activées », touche « Envoyer un test », quitte l'appli et attends 15 s le point rouge. Sinon, fais d'abord ce qui est écrit ici.",
-      tmr2ios: "Sur iPhone, les minuteurs ne préviennent que depuis l'appli installée. Lis d'abord 📲 Installer en appli.",
-      tmr3: "⚡ Démarrage rapide : tes derniers temps. Entraînement et récolte retiennent le temps – un tap les relance. Le Conseiller noble a son propre temps.", tmr4: "＋ Mettre un minuteur : choisis quoi, tape le temps affiché par le jeu, enregistre. « Autre » pour ce qui n'est pas dans la liste.",
-      tmr5: "Les postes se réservent seulement 24 h à l'avance, donc les créneaux sont déjà prêts ici, dans ton heure locale. Quand l'entraînement, la construction ou la recherche se termine, je te propose un créneau.",
-      rem1: "🎮 Rappels du jeu : coche ce que tu oublies souvent. Touche une heure pour l'activer (orange avec ✓), encore une fois pour la couper.", rem2: "Les événements d'alliance utilisent nos horaires. S'il y en a un faux, va voir le vrai Moineau – c'est son problème, pas le mien 🐦",
+    fr: {
+      tm01: "⏰ en haut du chat ouvre Mes minuteurs ; touche-le encore pour revenir au chat. Je l'ouvre…",
+      tm02: "‹ Chat ramène au chat ; tes minuteurs continuent de tourner.",
+      tm03: "Notifications : les minuteurs tournent sur cette page, mais ton téléphone ne te prévient que si les notifications sont activées. 🔔 Activer les notifications demande une fois ; ensuite Envoyer un test envoie une notification push dans 15 secondes — quitte l'appli pour voir le badge rouge.",
+      tm03ios: "Sur iPhone, les notifications ne marchent que depuis l'appli installée : Partager → Sur l'écran d'accueil, ouvre NXS depuis la nouvelle icône et reviens ici. En attendant, les minuteurs tournent quand même sur cette page.",
+      tm04: "🔄 Les officiers connectés avec Discord retrouvent leurs minuteurs et rappels sur tous leurs appareils ; Synchroniser maintenant les envoie tout de suite.",
+      tm05: "⚡ Démarrage rapide : ton dernier temps d'Entraînement des troupes et ton dernier jeu de Collecte. Une touche le relance avec le même temps ; ✕ l'oublie.",
+      tm06: "＋ Créer un minuteur ouvre le formulaire. Je l'ouvre…",
+      tm07: "C'est quoi ? Choisis la catégorie : Collecte, Entraînement des troupes, Construction, Recherche, Maître, Recruter, Familier, Festin, Soins, Ordre du gouverneur, Fontaine de vie, Technologie d'alliance, Conquête, Caravane, Nomination — ou Autre, avec un nom.",
+      tm08: "Certaines catégories demandent un second choix : quelles troupes, quelle ressource, quel ordre ou quel poste. Je prends Entraînement des troupes…",
+      tm09: "🎖️ Bonus Conseiller noble actif : l'entraînement est plus rapide avec, donc ce temps est mémorisé à part — il s'active tout seul pendant ton créneau de Conseiller noble.",
+      tm10: "Temps restant dans le jeu : tape-le comme le jeu l'affiche — 2:45:12, 45:00 ou 3d 07:51:57. La valeur de la dernière fois est pré-remplie pour l'Entraînement des troupes et la Collecte ; la Collecte a ＋ Une autre marche, une ligne par marche. Certaines catégories pré-remplissent le temps de recharge (Ordres du gouverneur, Conquête 9 h, Fontaine de vie 12 h, tentatives de Technologie d'alliance).",
+      tm11: "🤝 Compter l'aide d'alliance : pour Construction, Recherche et Soins, les aides que tu vas recevoir sont déduites du temps — règle ton niveau d'Ambassade et le nombre d'aides. Active-le juste après le lancement, avant que quelqu'un ait aidé.",
+      tm12: "Enregistrer lance le minuteur (Entrée fait pareil) ; Annuler ferme le formulaire.",
+      tm13: "📅 Nomination : choisis ton créneau de Premier ministre ou de Conseiller noble (24 h à venir, 30 minutes chacun) et combien de temps à l'avance te rappeler. Pendant que le créneau est actif, une checklist de cumul de bonus apparaît en haut du site.",
+      tm14: "Tes minuteurs, le plus proche d'abord : compte à rebours, heure de fin, 📅 créneau (sur Construction, Recherche et Entraînement des troupes) propose le créneau de Nomination qui correspond, ✕ supprime. Les minuteurs terminés restent une heure.",
+      tm15: "💡 Après un minuteur de Construction, Recherche ou Entraînement des troupes, une carte propose le créneau de Nomination qui convient : ＋ Me rappeler ce créneau, ou ＋ Me rappeler de le réserver quand la réservation n'est pas encore ouverte ; Pas maintenant la masque.",
+      tm16: "🎮 Rappels de jeu : une ligne par événement — Chasse à l'ours, Arène, Épreuve mystique, Provisions de voyage, Missions de renseignement, Affrontement de Swordland, Choc des trois alliances, Vengeance viking, Portée de l'éternité, Fureur de Cesares — chacun avec la date du prochain.",
+      tm17: "Touche une heure pour activer ce rappel (orange avec ✓) ; touche encore pour le désactiver. Les heures sont celles des événements de notre alliance en UTC, ton heure locale entre parenthèses.",
+      tm18: "Combien de temps à l'avance : à l'heure même, ou 1–60 minutes avant.",
+      tm19: "🧮 Calculateur BT ouvre le calculateur de rallye Chasse à l'ours — toucher un rappel Ours l'ouvre aussi.",
+      tm20: "🛠️ Rappels admin (officiers) : les tâches de l'onglet Événements des officiers, envoyées le jour de l'échéance à l'heure que tu choisis, et 📍 Rappels d'avant-poste 10 minutes avant qu'un des nôtres devienne Vulnérable.",
+      tm21: "🔔 Rappels en haut du site liste les notifications push reçues dans les dernières 24 heures ; touches-en une pour l'ouvrir, ✓ Effacer vide la liste.", pick: "Tu veux apprendre quoi ?", tmr: "⏰ Mettre un minuteur", rem: "🎮 Rappels du jeu", inst: "📲 Installer en appli", back: "‹ Retour", next: "Suivant ›", done: "Terminé ✓", stop: "✕ Stop", also: "Je te montre aussi {x} ?", alsoYes: "Oui, montre-moi", alsoNo: "Non merci",
       inst1: "Cette page montre comment installer le site en appli. Lis-la bien – sur iPhone, les notifications ne marchent que depuis l'appli installée." },
-    pt: { pick: "O que você quer aprender?", tmr: "⏰ Criar um timer", rem: "🎮 Lembretes do jogo", inst: "📲 Instalar como app", back: "‹ Voltar", next: "Próximo ›", done: "Pronto ✓", stop: "✕ Parar", also: "Quer que eu mostre {x} também?", alsoYes: "Sim, mostra", alsoNo: "Não, obrigado",
-      tmr1: "Isto é ⏰ Meus timers. Toque para abrir.", tmr2: "Primeiro, as notificações. Se disser que estão ativas, toque em “Enviar teste”, saia do app e espere 15 s pelo ponto vermelho. Se não, siga o que está escrito aqui antes.",
-      tmr2ios: "No iPhone, os timers só avisam pelo app instalado. Leia 📲 Instalar como app primeiro e volte.",
-      tmr3: "⚡ Início rápido: seus últimos tempos. Treino e coleta lembram o tempo — um toque reinicia. O Conselheiro nobre tem um tempo separado.", tmr4: "＋ Criar um timer: escolha o que é, digite o tempo que o jogo mostra e salve. “Outro” é para o que não está na lista.",
-      tmr5: "Cargos só podem ser agendados com 24 h, então os horários já estão prontos aqui, no seu horário local. Quando treino, construção ou pesquisa terminar, eu sugiro um horário para agendar.",
-      rem1: "🎮 Lembretes do jogo: marque o que você costuma esquecer. Toque num horário para ligar (fica laranja com ✓), toque de novo para desligar.", rem2: "Eventos da aliança usam os horários que postamos. Se algum estiver errado, vá falar com AQUELA Sparrow — o problema é dela, não meu 🐦",
+    pt: {
+      tm01: "⏰ no cabeçalho do chat abre Meus timers; toque de novo para voltar ao chat. Deixa eu abrir…",
+      tm02: "‹ Chat volta para o chat; seus timers continuam rodando.",
+      tm03: "Notificações: os timers rodam nesta página, mas seu celular só avisa você quando as notificações estão ativadas. 🔔 Ativar notificações pede permissão uma vez; depois disso, Enviar um teste manda um push em 15 segundos — saia do app para ver o selo vermelho.",
+      tm03ios: "No iPhone, as notificações só funcionam a partir do app instalado: Compartilhar → Adicionar à Tela de Início, abra o NXS pelo novo ícone e volte aqui. Enquanto isso, os timers continuam rodando nesta página.",
+      tm04: "🔄 Oficiais logados com o Discord têm seus timers e lembretes em todos os dispositivos; sincronizar agora envia na hora.",
+      tm05: "⚡ Início rápido: seu último tempo de Treino e seu conjunto de Coleta. Um toque inicia de novo com o mesmo tempo; ✕ esquece.",
+      tm06: "＋ Definir um timer abre o formulário. Deixa eu abrir…",
+      tm07: "O que é? Escolha a categoria: Coleta, Treino de Tropas, Construção, Pesquisa, Mestre, Recrutar, Pet, Banquete, Cura, Ordem do Governador, Fonte, Tecnologia da Aliança, Conquista, Caravana, Nomeação — ou Outro, com um nome.",
+      tm08: "Algumas categorias pedem uma segunda escolha: quais tropas, recurso, ordem ou posição. Vou escolher Treino de Tropas…",
+      tm09: "🎖️ Buff de Conselheiro Nobre ativo: o treino é mais rápido com ele, então esse tempo é lembrado separadamente — ele liga sozinho durante seu horário de Conselheiro Nobre.",
+      tm10: "Tempo restante no jogo: digite como o jogo mostra — 2:45:12, 45:00 ou 3d 07:51:57. O valor da última vez já vem preenchido para Treino e Coleta; Coleta ganha ＋ Outra marcha, uma linha por marcha. Algumas categorias preenchem o tempo de recarga (Ordens do Governador, Conquista 9 h, Fonte 12 h, tentativas de Tecnologia da Aliança).",
+      tm11: "🤝 Contar ajudas da aliança: para Construção, Pesquisa e Cura, as ajudas que você vai receber são descontadas do tempo — defina o nível da sua Embaixada e quantas ajudas. Ative logo depois de iniciar, antes de alguém ajudar.",
+      tm12: "Salvar inicia o timer (Enter faz o mesmo); Cancelar fecha o formulário.",
+      tm13: "📅 Nomeação: escolha seu horário de Primeiro-Ministro ou Conselheiro Nobre (próximas 24 h, 30 minutos cada) e com quanta antecedência avisar você. Enquanto o horário estiver ativo, uma lista de buffs para acumular aparece no topo do site.",
+      tm14: "Seus timers, o mais próximo primeiro: contagem regressiva, hora de término, 📅 horário (em Construção, Pesquisa e Treino) sugere o horário de Nomeação correspondente, ✕ remove. Timers concluídos ficam por uma hora.",
+      tm15: "💡 Depois de um timer de Construção, Pesquisa ou Treino, um cartão sugere o horário de Nomeação que encaixa: ＋ Me lembrar deste horário, ou ＋ Me lembrar de reservar quando a reserva ainda não estiver aberta; Agora não esconde o cartão.",
+      tm16: "🎮 Lembretes do jogo: uma linha por evento — Caçada ao Urso, Arena, Provação Mística, Suprimentos de Jornada, Missões de Inteligência, Swordland, Tri-Aliança, Viking, Alcance da Eternidade, Fúria de Cesares — cada um com a data do próximo.",
+      tm17: "Toque em um horário para ativar esse lembrete (laranja com ✓); toque de novo para desativar. Os horários são os horários de evento da nossa aliança em UTC, com seu horário local entre parênteses.",
+      tm18: "Com quanta antecedência: na hora, ou de 1 a 60 minutos antes.",
+      tm19: "🧮 Calculadora BT abre a calculadora de rally da Caçada ao Urso — tocar em um lembrete do Urso também abre.",
+      tm20: "🛠️ Lembretes de admin (oficiais): as tarefas da aba Eventos dos oficiais, enviadas no dia em que vencem na hora que você escolher, e 📍 lembretes de Posto Avançado 10 minutos antes de um dos nossos ficar Vulnerável.",
+      tm21: "🔔 Lembretes no topo do site lista os pushes recebidos nas últimas 24 horas; toque em um para abrir, ✓ Limpar esvazia a lista.", pick: "O que você quer aprender?", tmr: "⏰ Criar um timer", rem: "🎮 Lembretes do jogo", inst: "📲 Instalar como app", back: "‹ Voltar", next: "Próximo ›", done: "Pronto ✓", stop: "✕ Parar", also: "Quer que eu mostre {x} também?", alsoYes: "Sim, mostra", alsoNo: "Não, obrigado",
       inst1: "Esta página mostra como instalar o site como app. Leia com atenção — no iPhone, as notificações só funcionam pelo app instalado." },
-    es: { pick: "¿Qué quieres aprender?", tmr: "⏰ Poner un temporizador", rem: "🎮 Recordatorios del juego", inst: "📲 Instalar como app", back: "‹ Atrás", next: "Siguiente ›", done: "Listo ✓", stop: "✕ Parar", also: "¿Te muestro también {x}?", alsoYes: "Sí, muéstrame", alsoNo: "No, gracias",
-      tmr1: "Esto es ⏰ Mis temporizadores. Toca para abrir.", tmr2: "Primero, las notificaciones. Si dice que están activas, toca «Enviar prueba», sal de la app y espera 15 s el punto rojo. Si no, sigue primero lo que dice aquí.",
-      tmr2ios: "En iPhone, los temporizadores solo avisan desde la app instalada. Lee primero 📲 Instalar como app y vuelve.",
-      tmr3: "⚡ Inicio rápido: tus últimos tiempos. Entrenamiento y recolección recuerdan el tiempo: un toque los reinicia. El Consejero noble tiene su propio tiempo.", tmr4: "＋ Poner un temporizador: elige qué es, escribe el tiempo que muestra el juego y guarda. «Otro» es para lo que no está en la lista.",
-      tmr5: "Los cargos solo se reservan con 24 h, así que los turnos ya están listos aquí, en tu hora local. Cuando termine el entrenamiento, la construcción o la investigación, te sugeriré un turno.",
-      rem1: "🎮 Recordatorios del juego: marca lo que sueles olvidar. Toca una hora para activarla (naranja con ✓), toca otra vez para apagarla.", rem2: "Los eventos de alianza usan las horas que publicamos. Si alguna está mal, ve con ESA Sparrow: es su problema, no el mío 🐦",
+    es: {
+      tm01: "⏰ en el encabezado del chat abre Mis temporizadores; tócalo de nuevo para volver al chat. Déjame abrirlo…",
+      tm02: "‹ Chat vuelve al chat; tus temporizadores siguen corriendo.",
+      tm03: "Notificaciones: los temporizadores corren en esta página, pero tu teléfono solo te avisa cuando las notificaciones están activadas. 🔔 Activar notificaciones pide permiso una vez; después, Enviar una prueba manda un push en 15 segundos — sal de la app para ver la insignia roja.",
+      tm03ios: "En iPhone, las notificaciones solo funcionan desde la app instalada: Compartir → Agregar a pantalla de inicio, abre NXS desde el nuevo ícono y vuelve aquí. Mientras tanto, los temporizadores siguen corriendo en esta página.",
+      tm04: "🔄 Los oficiales conectados con Discord tienen sus temporizadores y recordatorios en todos sus dispositivos; sincronizar ahora los envía de inmediato.",
+      tm05: "⚡ Inicio rápido: tu último tiempo de Entrenamiento y tu conjunto de Recolección. Un toque lo inicia de nuevo con el mismo tiempo; ✕ lo olvida.",
+      tm06: "＋ Crear un temporizador abre el formulario. Déjame abrirlo…",
+      tm07: "¿Qué es? Elige la categoría: Recolección, Entrenamiento de Tropas, Construcción, Investigación, Maestro, Reclutar, Mascota, Banquete, Curación, Orden del Gobernador, Fuente, Tecnología de Alianza, Conquista, Caravana, Nombramiento — u Otro, con un nombre.",
+      tm08: "Algunas categorías piden una segunda elección: qué tropas, recurso, orden o posición. Voy a elegir Entrenamiento de Tropas…",
+      tm09: "🎖️ Buff de Consejero Noble activo: el entrenamiento es más rápido con él, así que ese tiempo se recuerda por separado — se activa solo durante tu turno de Consejero Noble.",
+      tm10: "Tiempo restante en el juego: escríbelo como lo muestra el juego — 2:45:12, 45:00 o 3d 07:51:57. El valor de la última vez ya viene puesto para Entrenamiento y Recolección; Recolección tiene ＋ Otra marcha, una fila por marcha. Algunas categorías rellenan el tiempo de espera (Órdenes del Gobernador, Conquista 9 h, Fuente 12 h, intentos de Tecnología de Alianza).",
+      tm11: "🤝 Contar ayudas de la alianza: para Construcción, Investigación y Curación, las ayudas que vas a recibir se descuentan del tiempo — pon el nivel de tu Embajada y cuántas ayudas. Actívalo justo después de empezar, antes de que alguien haya ayudado.",
+      tm12: "Guardar inicia el temporizador (Enter hace lo mismo); Cancelar cierra el formulario.",
+      tm13: "📅 Nombramiento: elige tu turno de Primer Ministro o Consejero Noble (próximas 24 h, 30 minutos cada uno) y con cuánta anticipación avisarte. Mientras el turno está activo, aparece una lista de buffs para acumular en la parte superior del sitio.",
+      tm14: "Tus temporizadores, el más próximo primero: cuenta regresiva, hora de fin, 📅 turno (en Construcción, Investigación y Entrenamiento) sugiere el turno de Nombramiento que corresponde, ✕ elimina. Los temporizadores terminados se quedan una hora.",
+      tm15: "💡 Después de un temporizador de Construcción, Investigación o Entrenamiento, una tarjeta sugiere el turno de Nombramiento que encaja: ＋ Recordarme este turno, o ＋ Recordarme reservarlo cuando la reserva todavía no esté abierta; Ahora no la oculta.",
+      tm16: "🎮 Recordatorios del juego: una fila por evento — Caza del Oso, Arena, Prueba Mística, Suministros de Viaje, Misiones de Inteligencia, Swordland, Tri-Alianza, Vikinga, Alcance de la Eternidad, Furia de Cesares — cada uno con la fecha del próximo.",
+      tm17: "Toca una hora para activar ese recordatorio (naranja con ✓); tócala de nuevo para desactivarlo. Las horas son las de los eventos de nuestra alianza en UTC, con tu hora local entre paréntesis.",
+      tm18: "Con cuánta anticipación: a la hora, o de 1 a 60 minutos antes.",
+      tm19: "🧮 Calculadora BT abre la calculadora de rally de la Caza del Oso — tocar un recordatorio del Oso también la abre.",
+      tm20: "🛠️ Recordatorios de admin (oficiales): las tareas de la pestaña Eventos de oficiales, enviadas el día que vencen a la hora que elijas, y 📍 recordatorios de Puesto de Avanzada 10 minutos antes de que uno de los nuestros se vuelva Vulnerable.",
+      tm21: "🔔 Recordatorios en la parte superior del sitio muestra los pushes recibidos en las últimas 24 horas; toca uno para abrirlo, ✓ Borrar vacía la lista.", pick: "¿Qué quieres aprender?", tmr: "⏰ Poner un temporizador", rem: "🎮 Recordatorios del juego", inst: "📲 Instalar como app", back: "‹ Atrás", next: "Siguiente ›", done: "Listo ✓", stop: "✕ Parar", also: "¿Te muestro también {x}?", alsoYes: "Sí, muéstrame", alsoNo: "No, gracias",
       inst1: "Esta página explica cómo instalar el sitio como app. Léela bien: en iPhone, las notificaciones solo funcionan desde la app instalada." },
-    tr: { pick: "Neyi öğrenmek istersin?", tmr: "⏰ Zamanlayıcı kur", rem: "🎮 Oyun hatırlatmaları", inst: "📲 Uygulama olarak yükle", back: "‹ Geri", next: "İleri ›", done: "Bitti ✓", stop: "✕ Durdur", also: "{x} de göstereyim mi?", alsoYes: "Evet, göster", alsoNo: "Gerek yok",
-      tmr1: "Bu ⏰ Zamanlayıcılarım. Açmak için dokun.", tmr2: "Önce bildirimler. Açık yazıyorsa “Test gönder”e dokun, uygulamadan çık ve kırmızı nokta için 15 sn bekle. Değilse önce burada yazanı yap.",
-      tmr2ios: "iPhone'da zamanlayıcılar yalnızca yüklü uygulamadan uyarır. Önce 📲 Uygulama olarak yükle'yi oku, sonra dön.",
-      tmr3: "⚡ Hızlı başlat: son sürelerin. Eğitim ve toplama süreyi hatırlar — tek dokunuşla yeniden başlar. Soylu Danışman'ın ayrı süresi vardır.", tmr4: "＋ Zamanlayıcı kur: ne olduğunu seç, oyunun gösterdiği süreyi yaz, kaydet. Listede olmayanlar için “Diğer”.",
-      tmr5: "Makamlar sadece 24 saat önceden ayırtılabilir, bu yüzden saatler burada hazır, senin yerel saatinle. Eğitim, inşaat veya araştırma bitince ayırtman için bir saat öneririm.",
-      rem1: "🎮 Oyun hatırlatmaları: sık unuttuklarını işaretle. Saate dokununca açılır (turuncu ✓), tekrar dokununca kapanır.", rem2: "İttifak etkinlikleri bizim yazdığımız saatleri kullanır. Yanlışsa O Sparrow'a git — onun sorunu, benim değil 🐦",
+    tr: {
+      tm01: "Sohbet başlığındaki ⏰ Zamanlayıcılarım'ı açar; tekrar dokununca sohbete dönersin. Açıyorum…",
+      tm02: "‹ Sohbet seni sohbete geri götürür; zamanlayıcıların çalışmaya devam eder.",
+      tm03: "Bildirimler: zamanlayıcılar bu sayfada çalışır ama telefonun sana ancak bildirimler açıkken ses verir. 🔔 Bildirimleri aç bir kez izin ister; sonrasında Test gönder 15 saniye içinde bir bildirim yollar — kırmızı rozeti görmek için uygulamadan çık.",
+      tm03ios: "iPhone'da bildirimler yalnızca yüklü uygulamadan çalışır: Paylaş → Ana Ekrana Ekle, NXS'i yeni simgeden aç ve buraya geri dön. Bu arada zamanlayıcılar bu sayfada çalışmaya devam eder.",
+      tm04: "🔄 Discord ile giriş yapan subaylar zamanlayıcılarını ve hatırlatıcılarını her cihazda görür; şimdi eşitle hemen gönderir.",
+      tm05: "⚡ Hızlı başlat: son Birlik Eğitimi süren ve Toplama setin. Tek dokunuşla aynı süreyle yeniden başlar; ✕ unutturur.",
+      tm06: "＋ Zamanlayıcı kur formu açar. Açıyorum…",
+      tm07: "Bu ne? Kategoriyi seç: Toplama, Birlik Eğitimi, İnşaat, Araştırma, Usta, Askere Alma, Evcil Hayvan, Ziyafet, İyileştirme, Vali Emri, Hayat Çeşmesi, İttifak Teknolojisi, Fetih, Kervan, Atama — ya da bir adla Diğer.",
+      tm08: "Bazı kategoriler ikinci bir seçim ister: hangi birlik, kaynak, emir ya da makam. Ben Birlik Eğitimi'ni seçiyorum…",
+      tm09: "🎖️ Soylu Danışman buff'ı açık: onunla eğitim daha hızlı olduğundan bu süre ayrı hatırlanır — Soylu Danışman slotun sırasında kendiliğinden açılır.",
+      tm10: "Oyunda kalan süre: oyunun gösterdiği gibi yaz — 2:45:12, 45:00 ya da 3d 07:51:57. Birlik Eğitimi ve Toplama için son değer hazır doldurulur; Toplama'da ＋ Başka yürüyüş var, her yürüyüş için bir satır. Bazı kategoriler bekleme süresini önceden doldurur (Vali Emirleri, Fetih 9 h, Hayat Çeşmesi 12 h, İttifak Teknolojisi denemeleri).",
+      tm11: "🤝 İttifak yardımını say: İnşaat, Araştırma ve İyileştirme için alacağın yardımlar süreden düşülür — Elçilik seviyeni ve kaç yardım alacağını ayarla. Başlattıktan hemen sonra, kimse yardım etmeden aç.",
+      tm12: "Kaydet zamanlayıcıyı başlatır (Enter da aynısını yapar); İptal formu kapatır.",
+      tm13: "📅 Atama: Başbakan ya da Soylu Danışman slotunu (sonraki 24 h, her biri 30 dakika) ve ne kadar önce hatırlatılacağını seç. Slot aktifken sitenin en üstünde bir buff yığma kontrol listesi belirir.",
+      tm14: "Zamanlayıcıların, en yakın önce: geri sayım, bitiş saati, 📅 slot (İnşaat, Araştırma ve Birlik Eğitimi'nde) uygun Atama slotunu önerir, ✕ kaldırır. Biten zamanlayıcılar bir saat kalır.",
+      tm15: "💡 Bir İnşaat, Araştırma ya da Birlik Eğitimi zamanlayıcısından sonra bir kart uygun Atama slotunu önerir: ＋ Bu slotu hatırlat, ya da rezervasyon henüz açık değilse ＋ Rezervasyonu hatırlat; Şimdi değil kartı gizler.",
+      tm16: "🎮 Oyun hatırlatıcıları: her etkinlik için bir satır — Ayı Avı, Arena, Mistik Sınav, Yolculuk Erzağı, İstihbarat Görevleri, Swordland Hesaplaşması, Üçlü İttifak Çatışması, Viking İntikamı, Sonsuzluğun Erişimi, Cesares'in Gazabı — her birinde bir sonrakinin tarihi.",
+      tm17: "Bir saate dokununca o hatırlatıcı açılır (turuncu, ✓ ile); tekrar dokununca kapanır. Saatler ittifakımızın etkinlik saatleri, UTC olarak; parantez içinde senin yerel saatin.",
+      tm18: "Ne kadar önce: tam zamanında ya da 1–60 dakika önce.",
+      tm19: "🧮 BT hesaplayıcı Ayı Avı rally hesaplayıcısını açar — bir Ayı hatırlatıcısına dokunmak da açar.",
+      tm20: "🛠️ Yönetici hatırlatıcıları (subaylar): subay Etkinlikler sekmesindeki yapılacaklar, vade gününde seçtiğin saatte gönderilir; ayrıca 📍 Karakol hatırlatıcıları, bizimkilerden biri Savunmasız olmadan 10 dakika önce.",
+      tm21: "Sitenin en üstündeki 🔔 Hatırlatıcılar son 24 saatte alınan bildirimleri listeler; birine dokununca açılır, ✓ Temizle listeyi boşaltır.", pick: "Neyi öğrenmek istersin?", tmr: "⏰ Zamanlayıcı kur", rem: "🎮 Oyun hatırlatmaları", inst: "📲 Uygulama olarak yükle", back: "‹ Geri", next: "İleri ›", done: "Bitti ✓", stop: "✕ Durdur", also: "{x} de göstereyim mi?", alsoYes: "Evet, göster", alsoNo: "Gerek yok",
       inst1: "Bu sayfa siteyi uygulama olarak nasıl yükleyeceğini gösterir. Dikkatle oku — iPhone'da bildirimler yalnızca yüklü uygulamada çalışır." },
-    id: { pick: "Mau belajar yang mana?", tmr: "⏰ Pasang timer", rem: "🎮 Pengingat game", inst: "📲 Pasang sebagai aplikasi", back: "‹ Kembali", next: "Lanjut ›", done: "Selesai ✓", stop: "✕ Berhenti", also: "Mau aku tunjukkan {x} juga?", alsoYes: "Ya, tunjukkan", alsoNo: "Tidak perlu",
-      tmr1: "Ini ⏰ Timer saya. Ketuk untuk membuka.", tmr2: "Pertama, notifikasi. Kalau tertulis sudah aktif, ketuk “Kirim tes”, keluar dari aplikasi, dan tunggu 15 detik sampai titik merah muncul. Kalau belum, ikuti dulu yang tertulis di sini.",
-      tmr2ios: "Di iPhone, timer hanya memberi tahu dari aplikasi yang terpasang. Baca dulu 📲 Pasang sebagai aplikasi, lalu kembali.",
-      tmr3: "⚡ Mulai cepat: waktu terakhirmu. Latihan dan pengumpulan mengingat waktunya — satu ketukan memulai lagi. Noble Advisor punya waktu sendiri.", tmr4: "＋ Pasang timer: pilih apa, ketik waktu yang ditampilkan game, simpan. “Lainnya” untuk yang tidak ada di daftar.",
-      tmr5: "Jabatan hanya bisa dipesan 24 jam sebelumnya, jadi slotnya sudah siap di sini, dalam waktu lokalmu. Saat latihan, bangunan, atau riset selesai, aku akan menyarankan slot untuk dipesan.",
-      rem1: "🎮 Pengingat game: centang yang sering kamu lupa. Ketuk waktu untuk menyalakan (jadi oranye dengan ✓), ketuk lagi untuk mematikan.", rem2: "Acara aliansi memakai waktu yang kami posting. Kalau ada yang salah, cari Sparrow yang ITU — itu salahnya, bukan salahku 🐦",
+    id: {
+      tm01: "⏰ di header chat membuka Timer saya; ketuk lagi untuk kembali ke chat. Aku bukakan…",
+      tm02: "‹ Chat kembali ke chat; timer kamu tetap berjalan.",
+      tm03: "Notifikasi: timer berjalan di halaman ini, tapi ponselmu hanya berbunyi kalau notifikasi aktif. 🔔 Aktifkan notifikasi meminta izin sekali; setelah itu Kirim tes mengirim push dalam 15 detik — keluar dari aplikasi untuk melihat badge merahnya.",
+      tm03ios: "Di iPhone, notifikasi hanya berfungsi dari aplikasi yang terpasang: Bagikan → Tambah ke Layar Utama, buka NXS dari ikon baru itu dan kembali ke sini. Sementara itu timer tetap berjalan di halaman ini.",
+      tm04: "🔄 Perwira yang login dengan Discord mendapat timer dan pengingatnya di setiap perangkat; sinkronkan sekarang langsung mengirimnya.",
+      tm05: "⚡ Mulai cepat: waktu Pelatihan Pasukan terakhir dan set Pengumpulan terakhirmu. Satu ketukan memulainya lagi dengan waktu yang sama; ✕ melupakannya.",
+      tm06: "＋ Pasang timer membuka formulirnya. Aku bukakan…",
+      tm07: "Apa ini? Pilih kategorinya: Pengumpulan, Pelatihan Pasukan, Pembangunan, Penelitian, Master, Rekrut, Hewan Peliharaan, Pesta, Penyembuhan, Perintah Gubernur, Mata Air Kehidupan, Teknologi Aliansi, Penaklukan, Karavan, Penunjukan — atau Lainnya, dengan nama.",
+      tm08: "Beberapa kategori meminta pilihan kedua: pasukan, sumber daya, perintah, atau posisi yang mana. Aku pilih Pelatihan Pasukan…",
+      tm09: "🎖️ Buff Penasihat Bangsawan aktif: pelatihan lebih cepat dengannya, jadi waktu itu diingat terpisah — ia menyala sendiri selama slot Penasihat Bangsawan kamu.",
+      tm10: "Sisa waktu di game: ketik seperti yang ditampilkan game — 2:45:12, 45:00 atau 3d 07:51:57. Nilai terakhir sudah terisi untuk Pelatihan Pasukan dan Pengumpulan; Pengumpulan punya ＋ Pawai lain, satu baris per pawai. Beberapa kategori mengisi cooldown lebih dulu (Perintah Gubernur, Penaklukan 9 h, Mata Air Kehidupan 12 h, percobaan Teknologi Aliansi).",
+      tm11: "🤝 Hitung bantuan aliansi: untuk Pembangunan, Penelitian, dan Penyembuhan, bantuan yang akan kamu terima dikurangkan dari waktunya — atur level Kedutaan kamu dan berapa bantuannya. Aktifkan tepat setelah memulai, sebelum ada yang membantu.",
+      tm12: "Simpan memulai timer (Enter juga bisa); Batal menutup formulir.",
+      tm13: "📅 Penunjukan: pilih slot Perdana Menteri atau Penasihat Bangsawan kamu (24 h ke depan, masing-masing 30 menit) dan seberapa awal pengingatnya. Saat slot berlangsung, daftar periksa tumpukan buff muncul di bagian atas situs.",
+      tm14: "Timer kamu, yang paling dekat lebih dulu: hitung mundur, waktu selesai, 📅 slot (pada Pembangunan, Penelitian, dan Pelatihan Pasukan) menyarankan slot Penunjukan yang cocok, ✕ menghapus. Timer yang selesai tetap ada selama satu jam.",
+      tm15: "💡 Setelah timer Pembangunan, Penelitian, atau Pelatihan Pasukan, sebuah kartu menyarankan slot Penunjukan yang pas: ＋ Ingatkan slot ini, atau ＋ Ingatkan untuk memesannya kalau pemesanan belum dibuka; Nanti saja menyembunyikannya.",
+      tm16: "🎮 Pengingat game: satu baris per event — Perburuan Beruang, Arena, Ujian Mistik, Perbekalan Perjalanan, Misi Intel, Pertarungan Swordland, Bentrokan Tri-Aliansi, Pembalasan Viking, Jangkauan Keabadian, Amukan Cesares — masing-masing dengan tanggal event berikutnya.",
+      tm17: "Ketuk sebuah waktu untuk mengaktifkan pengingat itu (oranye dengan ✓); ketuk lagi untuk mematikannya. Waktunya adalah waktu event aliansi kita dalam UTC, waktu lokalmu dalam tanda kurung.",
+      tm18: "Seberapa awal: tepat waktu, atau 1–60 menit sebelumnya.",
+      tm19: "🧮 Kalkulator BT membuka kalkulator rally Perburuan Beruang — mengetuk pengingat Beruang juga membukanya.",
+      tm20: "🛠️ Pengingat admin (perwira): daftar tugas dari tab Event perwira, dikirim pada hari jatuh temponya pada jam yang kamu pilih, dan 📍 pengingat Pos Terdepan 10 menit sebelum salah satu milik kita menjadi Rentan.",
+      tm21: "🔔 Pengingat di bagian atas situs menampilkan push yang diterima dalam 24 jam terakhir; ketuk salah satunya untuk membukanya, ✓ Bersihkan mengosongkan daftarnya.", pick: "Mau belajar yang mana?", tmr: "⏰ Pasang timer", rem: "🎮 Pengingat game", inst: "📲 Pasang sebagai aplikasi", back: "‹ Kembali", next: "Lanjut ›", done: "Selesai ✓", stop: "✕ Berhenti", also: "Mau aku tunjukkan {x} juga?", alsoYes: "Ya, tunjukkan", alsoNo: "Tidak perlu",
       inst1: "Halaman ini menunjukkan cara memasang situs sebagai aplikasi. Baca baik-baik — di iPhone, notifikasi hanya berfungsi dari aplikasi yang terpasang." },
-    ru: { pick: "Чему научить?", tmr: "⏰ Поставить таймер", rem: "🎮 Игровые напоминания", inst: "📲 Установить как приложение", back: "‹ Назад", next: "Далее ›", done: "Готово ✓", stop: "✕ Стоп", also: "Показать ещё и {x}?", alsoYes: "Да, покажи", alsoNo: "Не нужно",
-      tmr1: "Это ⏰ Мои таймеры. Нажми, чтобы открыть.", tmr2: "Сначала уведомления. Если написано, что включены, нажми «Отправить тест», выйди из приложения и подожди 15 с красную точку. Если нет — сначала сделай то, что здесь написано.",
-      tmr2ios: "На iPhone таймеры уведомляют только из установленного приложения. Сначала прочитай 📲 Установить как приложение.",
-      tmr3: "⚡ Быстрый старт: твои последние времена. Обучение и сбор помнят время — один тап запускает снова. У Благородного советника своё время.", tmr4: "＋ Поставить таймер: выбери что, впиши время из игры, сохрани. «Другое» — для того, чего нет в списке.",
-      tmr5: "Должности бронируются только за 24 ч, поэтому слоты уже готовы здесь, в твоём местном времени. Когда закончится обучение, стройка или исследование, я предложу слот.",
-      rem1: "🎮 Игровые напоминания: отметь то, что часто забываешь. Нажми на время, чтобы включить (оранжевое с ✓), ещё раз — выключить.", rem2: "События альянса идут по нашему расписанию. Если что-то не так — иди к настоящему Воробью, это её проблема, не моя 🐦",
+    ru: {
+      tm01: "⏰ в шапке чата открывает Мои таймеры; нажми ещё раз, чтобы вернуться в чат. Сейчас открою…",
+      tm02: "‹ Чат возвращает в чат; твои таймеры продолжают идти.",
+      tm03: "Уведомления: таймеры идут на этой странице, но телефон оповестит тебя только при включённых уведомлениях. 🔔 Включить уведомления спросит один раз; после этого Отправить тест пришлёт пуш через 15 секунд — выйди из приложения, чтобы увидеть красный значок.",
+      tm03ios: "На iPhone уведомления работают только из установленного приложения: Поделиться → На экран «Домой», открой NXS с новой иконки и вернись сюда. Таймеры на этой странице тем временем продолжают идти.",
+      tm04: "🔄 Офицеры, вошедшие через Discord, получают свои таймеры и напоминания на всех устройствах; Синхронизировать сейчас отправляет их сразу.",
+      tm05: "⚡ Быстрый старт: твоё последнее время Обучения войск и набор Сбора. Одно нажатие запускает его снова с тем же временем; ✕ забывает его.",
+      tm06: "＋ Поставить таймер открывает форму. Сейчас открою…",
+      tm07: "Что это? Выбери категорию: Сбор, Обучение войск, Строительство, Исследование, Мастер, Набор, Питомец, Пир, Лечение, Указ губернатора, Источник жизни, Технологии альянса, Завоевание, Караван, Назначение — или Другое, с названием.",
+      tm08: "Некоторые категории просят второй выбор: какие войска, ресурс, указ или должность. Я выберу Обучение войск…",
+      tm09: "🎖️ Бафф Благородного советника включён: с ним обучение быстрее, поэтому это время запоминается отдельно — он включается сам во время твоего слота Благородного советника.",
+      tm10: "Осталось времени в игре: введи так, как показывает игра — 2:45:12, 45:00 или 3d 07:51:57. Для Обучения войск и Сбора подставляется прошлое значение; у Сбора есть ＋ Ещё марш, по строке на каждый марш. Некоторые категории подставляют кулдаун (Указы губернатора, Завоевание 9 h, Источник жизни 12 h, попытки Технологий альянса).",
+      tm11: "🤝 Учесть помощь альянса: для Строительства, Исследования и Лечения помощь, которую ты получишь, вычитается из времени — укажи уровень Посольства и сколько помощей. Включай сразу после запуска, пока никто ещё не помог.",
+      tm12: "Сохранить запускает таймер (Enter делает то же самое); Отмена закрывает форму.",
+      tm13: "📅 Назначение: выбери свой слот Премьер-министра или Благородного советника (ближайшие 24 h, по 30 минут каждый) и за сколько напомнить. Пока слот активен, вверху сайта появляется чеклист стака баффов.",
+      tm14: "Твои таймеры, ближайшие первыми: обратный отсчёт, время окончания, 📅 слот (у Строительства, Исследования и Обучения войск) предлагает подходящий слот Назначения, ✕ удаляет. Завершённые таймеры остаются ещё час.",
+      tm15: "💡 После таймера Строительства, Исследования или Обучения войск карточка предлагает подходящий слот Назначения: ＋ Напомнить об этом слоте или ＋ Напомнить забронировать, если бронирование ещё не открыто; Не сейчас скрывает её.",
+      tm16: "🎮 Игровые напоминания: по строке на событие — Охота на медведя, Арена, Мистическое испытание, Припасы в дорогу, Разведмиссии, Схватка в Swordland, Столкновение трёх альянсов, Месть викингов, Предел вечности, Ярость Цезаря — у каждого дата следующего.",
+      tm17: "Нажми на время, чтобы включить это напоминание (оранжевое с ✓); нажми ещё раз, чтобы выключить. Это время событий нашего альянса в UTC, твоё местное время в скобках.",
+      tm18: "За сколько: в момент события или за 1–60 минут до него.",
+      tm19: "🧮 BT калькулятор открывает калькулятор ралли для Охоты на медведя — нажатие на напоминание о Медведе тоже его открывает.",
+      tm20: "🛠️ Админ-напоминания (офицеры): дела из вкладки События для офицеров, присылаются в день срока в выбранный тобой час, и 📍 напоминания об аванпостах за 10 минут до того, как один из наших станет Уязвимым.",
+      tm21: "🔔 Напоминания вверху сайта показывают пуши, полученные за последние 24 часа; нажми на одно, чтобы открыть его, ✓ Очистить очищает список.", pick: "Чему научить?", tmr: "⏰ Поставить таймер", rem: "🎮 Игровые напоминания", inst: "📲 Установить как приложение", back: "‹ Назад", next: "Далее ›", done: "Готово ✓", stop: "✕ Стоп", also: "Показать ещё и {x}?", alsoYes: "Да, покажи", alsoNo: "Не нужно",
       inst1: "Эта страница показывает, как установить сайт как приложение. Читай внимательно — на iPhone уведомления работают только из установленного приложения." },
-    th: { pick: "อยากเรียนอะไร?", tmr: "⏰ ตั้งตัวจับเวลา", rem: "🎮 แจ้งเตือนในเกม", inst: "📲 ติดตั้งเป็นแอป", back: "‹ กลับ", next: "ถัดไป ›", done: "เสร็จ ✓", stop: "✕ หยุด", also: "ให้ฉันพาดู {x} ด้วยไหม?", alsoYes: "เอาสิ พาดู", alsoNo: "ไม่เป็นไร",
-      tmr1: "นี่คือ ⏰ ตัวจับเวลาของฉัน แตะเพื่อเปิด", tmr2: "ดูการแจ้งเตือนก่อน ถ้าบอกว่าเปิดแล้ว แตะ “ส่งทดสอบ” ออกจากแอปแล้วรอ 15 วินาที ดูจุดแดง ถ้ายังไม่เปิด ทำตามที่เขียนตรงนี้ก่อน",
-      tmr2ios: "บน iPhone ตัวจับเวลาจะแจ้งเตือนได้เฉพาะจากแอปที่ติดตั้งแล้ว อ่าน 📲 ติดตั้งเป็นแอป ก่อนแล้วค่อยกลับมา",
-      tmr3: "⚡ เริ่มด่วน: เวลาครั้งล่าสุด ฝึกทหารกับเก็บทรัพยากรจะจำเวลาไว้ แตะครั้งเดียวก็เริ่มใหม่ ที่ปรึกษาขุนนางมีเวลาแยกต่างหาก", tmr4: "＋ ตั้งตัวจับเวลา: เลือกว่าคืออะไร พิมพ์เวลาที่เกมแสดง แล้วบันทึก ที่ไม่อยู่ในรายการใช้ “อื่น ๆ”",
-      tmr5: "ตำแหน่งจองได้แค่ล่วงหน้า 24 ชม. ช่วงเวลาจึงเตรียมไว้ให้แล้วตรงนี้ เป็นเวลาท้องถิ่นของคุณ พอฝึกทหาร ก่อสร้าง หรือวิจัยเสร็จ ฉันจะแนะนำช่วงเวลาให้จอง",
-      rem1: "🎮 แจ้งเตือนในเกม: ติ๊กสิ่งที่มักลืม แตะเวลาเพื่อเปิด (เป็นสีส้มมี ✓) แตะอีกครั้งเพื่อปิด", rem2: "กิจกรรมพันธมิตรใช้เวลาที่เราโพสต์ ถ้าผิด ไปหา Sparrow ตัวนั้น — เป็นความผิดของเธอ ไม่ใช่ฉัน 🐦",
+    th: {
+      tm01: "⏰ ที่หัวแชทจะเปิด ตัวจับเวลาของฉัน แตะอีกครั้งเพื่อกลับไปที่แชท เดี๋ยวฉันเปิดให้…",
+      tm02: "‹ แชท จะพากลับไปที่แชท ตัวจับเวลาของคุณยังเดินต่อ",
+      tm03: "การแจ้งเตือน: ตัวจับเวลาเดินอยู่บนหน้านี้ แต่มือถือจะเตือนคุณก็ต่อเมื่อเปิดการแจ้งเตือนไว้ 🔔 เปิดการแจ้งเตือน จะถามแค่ครั้งเดียว หลังจากนั้น ส่งทดสอบ จะส่งพุชใน 15 วินาที — ออกจากแอปเพื่อดูป้ายสีแดง",
+      tm03ios: "บน iPhone การแจ้งเตือนใช้ได้จากแอปที่ติดตั้งแล้วเท่านั้น: แชร์ → เพิ่มไปยังหน้าจอโฮม เปิด NXS จากไอคอนใหม่แล้วกลับมาที่นี่ ระหว่างนั้นตัวจับเวลายังเดินอยู่บนหน้านี้",
+      tm04: "🔄 นายทหารที่ล็อกอินด้วย Discord จะได้ตัวจับเวลาและการเตือนบนทุกอุปกรณ์ ซิงค์ตอนนี้ จะส่งทันที",
+      tm05: "⚡ เริ่มด่วน: เวลา ฝึกทหาร ล่าสุดและชุด เก็บทรัพยากร ของคุณ แตะครั้งเดียวเพื่อเริ่มใหม่ด้วยเวลาเดิม ✕ จะลืมมัน",
+      tm06: "＋ ตั้งตัวจับเวลา จะเปิดฟอร์ม เดี๋ยวฉันเปิดให้…",
+      tm07: "คืออะไร? เลือกหมวด: เก็บทรัพยากร, ฝึกทหาร, ก่อสร้าง, วิจัย, มาสเตอร์, รับสมัคร, สัตว์เลี้ยง, งานเลี้ยง, รักษา, คำสั่งผู้ว่า, น้ำพุแห่งชีวิต, เทคโนโลยีพันธมิตร, การพิชิต, คาราวาน, การแต่งตั้ง — หรือ อื่นๆ พร้อมตั้งชื่อ",
+      tm08: "บางหมวดจะถามตัวเลือกที่สอง: ทหารประเภทไหน ทรัพยากร คำสั่ง หรือตำแหน่งใด ฉันจะเลือก ฝึกทหาร…",
+      tm09: "🎖️ บัฟ ที่ปรึกษาผู้สูงศักดิ์ เปิดอยู่: มีบัฟนี้แล้วฝึกเร็วขึ้น เวลานั้นจึงถูกจำแยกไว้ต่างหาก — มันจะเปิดเองในช่วงสล็อต ที่ปรึกษาผู้สูงศักดิ์ ของคุณ",
+      tm10: "เวลาที่เหลือในเกม: พิมพ์ตามที่เกมแสดง — 2:45:12, 45:00 หรือ 3d 07:51:57 ค่าครั้งก่อนจะถูกใส่ให้สำหรับ ฝึกทหาร และ เก็บทรัพยากร โดย เก็บทรัพยากร จะมี ＋ เพิ่มเดินทัพ หนึ่งแถวต่อหนึ่งเดินทัพ บางหมวดจะใส่คูลดาวน์ให้ล่วงหน้า (คำสั่งผู้ว่า, การพิชิต 9 h, น้ำพุแห่งชีวิต 12 h, จำนวนครั้ง เทคโนโลยีพันธมิตร)",
+      tm11: "🤝 นับความช่วยเหลือพันธมิตร: สำหรับ ก่อสร้าง, วิจัย และ รักษา ความช่วยเหลือที่คุณจะได้รับจะถูกหักออกจากเวลา — ตั้งเลเวล สถานทูต และจำนวนครั้งที่ช่วย เปิดทันทีหลังเริ่ม ก่อนที่จะมีใครมาช่วย",
+      tm12: "บันทึก จะเริ่มตัวจับเวลา (กด Enter ก็ได้เหมือนกัน) ยกเลิก จะปิดฟอร์ม",
+      tm13: "📅 การแต่งตั้ง: เลือกสล็อต อัครมหาเสนาบดี หรือ ที่ปรึกษาผู้สูงศักดิ์ ของคุณ (ภายใน 24 h ข้างหน้า สล็อตละ 30 นาที) และจะให้เตือนล่วงหน้าเท่าไหร่ ระหว่างที่สล็อตกำลังใช้งาน จะมีเช็กลิสต์ซ้อนบัฟปรากฏที่ด้านบนของเว็บไซต์",
+      tm14: "ตัวจับเวลาของคุณ เรียงจากใกล้สุดก่อน: นับถอยหลัง เวลาเสร็จ 📅 สล็อต (ที่ ก่อสร้าง, วิจัย และ ฝึกทหาร) จะแนะนำสล็อต การแต่งตั้ง ที่เข้ากัน ✕ จะลบออก ตัวจับเวลาที่เสร็จแล้วจะยังอยู่อีกหนึ่งชั่วโมง",
+      tm15: "💡 หลังตัวจับเวลา ก่อสร้าง, วิจัย หรือ ฝึกทหาร จะมีการ์ดแนะนำสล็อต การแต่งตั้ง ที่เหมาะ: ＋ เตือนฉันเรื่องสล็อตนี้ หรือ ＋ เตือนให้ฉันจอง เมื่อยังเปิดจองไม่ได้ ไม่ใช่ตอนนี้ จะซ่อนการ์ด",
+      tm16: "🎮 เตือนกิจกรรมในเกม: หนึ่งแถวต่อกิจกรรม — ล่าหมี, อารีน่า, การทดสอบลึกลับ, เสบียงเดินทาง, ภารกิจข่าวกรอง, ศึก Swordland, ศึกสามพันธมิตร, การแก้แค้นของไวกิ้ง, ขอบเขตแห่งนิรันดร์, ความโกรธของเซซาเรส — แต่ละอันมีวันที่ของรอบถัดไป",
+      tm17: "แตะเวลาเพื่อเปิดการเตือนนั้น (สีส้มพร้อม ✓) แตะอีกครั้งเพื่อปิด เวลาเหล่านี้คือเวลากิจกรรมของพันธมิตรเราใน UTC เวลาท้องถิ่นของคุณอยู่ในวงเล็บ",
+      tm18: "เตือนล่วงหน้าเท่าไหร่: ตรงเวลา หรือก่อน 1–60 นาที",
+      tm19: "🧮 เครื่องคิด BT จะเปิดเครื่องคำนวณรวมพล ล่าหมี — แตะการเตือน หมี ก็เปิดได้เหมือนกัน",
+      tm20: "🛠️ เตือนงานแอดมิน (นายทหาร): สิ่งที่ต้องทำจากแท็บ กิจกรรม ของนายทหาร ส่งในวันครบกำหนดตามชั่วโมงที่คุณเลือก และ 📍 เตือนด่านหน้า 10 นาทีก่อนที่ด่านของเราจะกลายเป็น เปราะบาง",
+      tm21: "🔔 การเตือน ที่ด้านบนของเว็บไซต์จะแสดงพุชที่ได้รับใน 24 ชั่วโมงล่าสุด แตะอันหนึ่งเพื่อเปิด ✓ ล้าง จะล้างรายการ", pick: "อยากเรียนอะไร?", tmr: "⏰ ตั้งตัวจับเวลา", rem: "🎮 แจ้งเตือนในเกม", inst: "📲 ติดตั้งเป็นแอป", back: "‹ กลับ", next: "ถัดไป ›", done: "เสร็จ ✓", stop: "✕ หยุด", also: "ให้ฉันพาดู {x} ด้วยไหม?", alsoYes: "เอาสิ พาดู", alsoNo: "ไม่เป็นไร",
       inst1: "หน้านี้สอนวิธีติดตั้งเว็บเป็นแอป อ่านให้ละเอียด — บน iPhone การแจ้งเตือนใช้ได้เฉพาะจากแอปที่ติดตั้งแล้ว" },
-    ar: { pick: "ماذا تريد أن تتعلم؟", tmr: "⏰ ضبط مؤقّت", rem: "🎮 تذكيرات اللعبة", inst: "📲 التثبيت كتطبيق", back: "‹ رجوع", next: "التالي ›", done: "تم ✓", stop: "✕ إيقاف", also: "هل أريك {x} أيضًا؟", alsoYes: "نعم، أرني", alsoNo: "لا شكرًا",
-      tmr1: "هذا ⏰ مؤقّتاتي. اضغط لفتحه.", tmr2: "أولًا الإشعارات. إن كانت مفعّلة، اضغط «إرسال اختبار» واخرج من التطبيق وانتظر 15 ثانية لتظهر النقطة الحمراء. وإلا فافعل ما هو مكتوب هنا أولًا.",
-      tmr2ios: "على iPhone لا تصلك المؤقّتات إلا من التطبيق المثبّت. اقرأ 📲 التثبيت كتطبيق أولًا ثم عد.",
-      tmr3: "⚡ بدء سريع: أوقاتك الأخيرة. التدريب والجمع يتذكّران الوقت — ضغطة واحدة تعيد التشغيل. للمستشار النبيل وقت خاص.", tmr4: "＋ ضبط مؤقّت: اختر ما هو، اكتب الوقت كما تعرضه اللعبة، واحفظ. «أخرى» لما ليس في القائمة.",
-      tmr5: "المناصب تُحجز قبل 24 ساعة فقط، لذلك الفترات جاهزة هنا بتوقيتك المحلي. عندما ينتهي التدريب أو البناء أو البحث سأقترح عليك فترة للحجز.",
-      rem1: "🎮 تذكيرات اللعبة: علّم ما تنساه عادة. اضغط على وقت لتفعيله (يصبح برتقاليًا مع ✓)، واضغط مجددًا لإيقافه.", rem2: "أحداث التحالف تستخدم الأوقات التي ننشرها. إن كان أحدها خطأ فاذهب إلى Sparrow تلك — المشكلة مشكلتها لا مشكلتي 🐦",
+    ar: {
+      tm01: "⏰ في رأس الدردشة يفتح مؤقتاتي؛ اضغط عليه مرة أخرى للعودة إلى الدردشة. دعني أفتحه…",
+      tm02: "‹ الدردشة يعيدك إلى الدردشة؛ وتبقى مؤقتاتك تعمل.",
+      tm03: "الإشعارات: المؤقتات تعمل على هذه الصفحة، لكن هاتفك لا ينبّهك إلا إذا كانت الإشعارات مفعّلة. 🔔 تفعيل الإشعارات يسأل مرة واحدة؛ وبعدها إرسال تجربة يرسل إشعارًا خلال 15 ثانية — اخرج من التطبيق لترى الشارة الحمراء.",
+      tm03ios: "على iPhone، الإشعارات تعمل فقط من التطبيق المثبّت: مشاركة → إضافة إلى الشاشة الرئيسية، افتح NXS من الأيقونة الجديدة ثم عد إلى هنا. وفي هذه الأثناء تبقى المؤقتات تعمل على هذه الصفحة.",
+      tm04: "🔄 الضباط الذين سجّلوا الدخول عبر Discord يحصلون على مؤقتاتهم وتذكيراتهم على كل الأجهزة؛ مزامنة الآن يرسلها فورًا.",
+      tm05: "⚡ بداية سريعة: آخر وقت تدريب القوات وآخر مجموعة الجمع لديك. ضغطة واحدة تشغّلها من جديد بالوقت نفسه؛ ✕ ينساها.",
+      tm06: "＋ ضبط مؤقت يفتح النموذج. دعني أفتحه…",
+      tm07: "ما هو؟ اختر الفئة: الجمع، تدريب القوات، البناء، البحث، الخبير، التجنيد، الحيوان الأليف، الوليمة، العلاج، أمر الحاكم، نبع الحياة، تقنية التحالف، الفتح، القافلة، التعيين — أو أخرى، مع اسم.",
+      tm08: "بعض الفئات تطلب اختيارًا ثانيًا: أي قوات أو مورد أو أمر أو منصب. سأختار تدريب القوات…",
+      tm09: "🎖️ تعزيز المستشار النبيل مفعّل الآن: التدريب أسرع معه، لذا يُحفظ ذلك الوقت بشكل منفصل — ويُفعَّل من تلقاء نفسه خلال فترة المستشار النبيل الخاصة بك.",
+      tm10: "الوقت المتبقي في اللعبة: اكتبه كما تعرضه اللعبة — 2:45:12 أو 45:00 أو 3d 07:51:57. القيمة السابقة تُملأ تلقائيًا لتدريب القوات والجمع؛ والجمع له ＋ مسيرة أخرى، صف لكل مسيرة. بعض الفئات تملأ وقت الانتظار مسبقًا (أوامر الحاكم، الفتح 9 h، نبع الحياة 12 h، محاولات تقنية التحالف).",
+      tm11: "🤝 احتساب مساعدة التحالف: للبناء والبحث والعلاج تُخصم المساعدات التي ستحصل عليها من الوقت — حدد مستوى السفارة وعدد المساعدات. فعّله مباشرة بعد البدء، قبل أن يساعدك أحد.",
+      tm12: "حفظ يشغّل المؤقت (Enter يفعل الشيء نفسه)؛ إلغاء يغلق النموذج.",
+      tm13: "📅 التعيين: اختر فترة رئيس الوزراء أو المستشار النبيل الخاصة بك (خلال 24 h القادمة، 30 دقيقة لكل فترة) وموعد التذكير قبلها. وأثناء الفترة تظهر قائمة تحقق لتجميع التعزيزات أعلى الموقع.",
+      tm14: "مؤقتاتك، الأقرب أولًا: العد التنازلي، وقت الانتهاء، 📅 فترة (في البناء والبحث وتدريب القوات) يقترح فترة التعيين المناسبة، ✕ يحذف. المؤقتات المنتهية تبقى لساعة.",
+      tm15: "💡 بعد مؤقت بناء أو بحث أو تدريب قوات، تقترح بطاقة فترة التعيين المناسبة: ＋ ذكّرني بهذه الفترة، أو ＋ ذكّرني بحجزها عندما لا يكون الحجز مفتوحًا بعد؛ ليس الآن يخفيها.",
+      tm16: "🎮 تذكيرات اللعبة: صف لكل حدث — صيد الدب، الساحة، التجربة الغامضة، مؤن الرحلة، مهام الاستخبارات، مواجهة أرض السيوف، صراع التحالفات الثلاثة، انتقام الفايكنج، مدى الأبدية، غضب سيزار — مع تاريخ الحدث القادم لكل منها.",
+      tm17: "اضغط على وقت لتفعيل ذلك التذكير (برتقالي مع ✓)؛ اضغط مرة أخرى لإيقافه. الأوقات هي أوقات أحداث تحالفنا بتوقيت UTC، وتوقيتك المحلي بين قوسين.",
+      tm18: "موعد التذكير: في الوقت نفسه، أو قبله بـ 1–60 دقيقة.",
+      tm19: "🧮 حاسبة BT يفتح حاسبة حشد صيد الدب — والضغط على تذكير الدب يفتحها أيضًا.",
+      tm20: "🛠️ تذكيرات الإدارة (للضباط): المهام من تبويب الأحداث الخاص بالضباط، تُرسل في يوم استحقاقها في الساعة التي تختارها، و📍 تذكيرات المواقع الأمامية قبل 10 دقائق من تحوّل أحد مواقعنا إلى ضعيف.",
+      tm21: "🔔 التذكيرات أعلى الموقع يعرض الإشعارات المستلمة خلال آخر 24 ساعة؛ اضغط على أحدها لفتحه، ✓ مسح يفرغ القائمة.", pick: "ماذا تريد أن تتعلم؟", tmr: "⏰ ضبط مؤقّت", rem: "🎮 تذكيرات اللعبة", inst: "📲 التثبيت كتطبيق", back: "‹ رجوع", next: "التالي ›", done: "تم ✓", stop: "✕ إيقاف", also: "هل أريك {x} أيضًا؟", alsoYes: "نعم، أرني", alsoNo: "لا شكرًا",
       inst1: "هذه الصفحة تشرح تثبيت الموقع كتطبيق. اقرأها جيدًا — على iPhone لا تعمل الإشعارات إلا من التطبيق المثبّت." },
   };
   const tt = (k) => (TT[lang()] || TT.en)[k] || TT.en[k];
@@ -1375,6 +1579,8 @@
       if (hs) { const hr = hs.getBoundingClientRect(); try { hs.scrollTo({ left: hs.scrollLeft + (r2.left - hr.left) - (hr.width - r2.width) / 2, behavior: beh }); } catch (e) {} let lx = null; for (let i = 0; i < 20; i++) { await wait(60); const x = Math.round(el.getBoundingClientRect().left); if (x === lx) break; lx = x; } }
     }
   }
+  /* wait up to ms while something is being pointed at: ends early when that thing disappears (the page moved on) or the step was cancelled */
+  async function showFor(ms) { const g = stepGen, t0 = Date.now(); while (Date.now() - t0 < ms) { await wait(150); if (g !== stepGen || (targetEl && !shown(targetEl))) return false; } return true; }
   let stepGen = 0;   // bumped by every cancel: a step that was scrolling or flying when cancelled notices and stops, instead of finishing somewhere odd
   function cancelStep() { stepGen++; stopFlight(); if (stepResolve) { const r = stepResolve; stepResolve = null; r("stop"); } }
   async function step(el, text, last) {
@@ -1401,47 +1607,54 @@
     const draw = () => say(`<b>${esc(tt("also").replace("{x}", tt(other)))}</b><div class="sp-opts"><button type="button" class="sp-main" data-a="tour" data-t="${other}">${esc(tt("alsoYes"))}</button><button type="button" data-a="hush">${esc(tt("alsoNo"))}</button></div>`);
     draw(); redraw = draw; clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { if (!busy) hush(); }, 8000);
   }
-  async function runTour(id) {
+  /* ⏰ the timers / reminders walkthrough, one step per control (the form is opened, filled a little and closed again as it goes) */
+  const TM_STEPS = [
+    { s: ".ai-head button", k: "tm01" },
+    { s: ".tm-view .tm-top [data-a=chat]", k: "tm02", pre: () => window.NXSTimers && NXSTimers.show(true) },
+    { s: ".tm-view .tm-note", k: "tm03" },
+    { s: ".tm-view [data-a=cloudnow], .tm-view .tm-note a.tm-btn", k: "tm04" },
+    { s: ".tm-view .tm-quick", k: "tm05" },
+    { s: "#tmAdd [data-a=add]", k: "tm06" },
+    { s: "#tmAdd .tm-cats", k: "tm07", pre: () => clickQ("#tmAdd [data-a=add]") },
+    { s: () => { const b = Q("#tmAdd [data-sub]"); return b && b.parentElement; }, k: "tm08", pre: () => clickQ("#tmAdd [data-cat=train]") },
+    { s: "#tmAdd [data-row]", k: "tm10", pre: () => clickQ("#tmAdd [data-sub]") },
+    { s: "#tmAdd [data-a=na]", k: "tm09" },
+    { s: "#tmAdd [data-a=help]", k: "tm11", pre: () => clickQ("#tmAdd [data-cat=build]") },
+    { s: "#tmAdd [data-a=save]", k: "tm12" },
+    { s: "#tmAdd [data-ap=at]", k: "tm13", pre: async () => { clickQ("#tmAdd [data-cat=appt]"); await wait(300); clickQ("#tmAdd [data-sub]"); } },
+    { s: "#tmList .tm-row", k: "tm14", pre: () => clickQ("#tmAdd [data-a=cancel]") },
+    { s: ".tm-view .tm-sg", k: "tm15" },
+    { s: ".tm-view .tm-alerts > b", k: "tm16" },
+    { s: ".tm-view .tm-alerts [data-al]", k: "tm17" },
+    { s: ".tm-view .tm-alerts [data-before]", k: "tm18" },
+    { s: ".tm-view .tm-alerts a[href*=bear]", k: "tm19" },
+    { s: ".tm-view .tm-alerts [data-a=admin]", k: "tm20" },
+    { s: ".tm-page [data-ib=clear]", k: "tm21" },
+  ];
+  const tmText = (st) => st.k === "tm03" && isIOS && !standalone() ? tt("tm03ios") : tt(st.k);
+  async function runTour(id, only) {
     if (busy) return; busy = true; ["point", "teacher", "fly", "idle"].forEach(preload); hush(); clearTarget(); tour = id; clearTimeout(idleTimer);
     const ai = window.NXSAI, tm = window.NXSTimers, panel = ai && ai.panel;
-    const end = async () => { clearTarget(); tour = null; busy = false; await goHome(); hush(); state = "menu"; armIdle(); };
-    const go = async (el, text, last) => { const r = await step(el, text, last); if (r === "stop") { await end(); return false; } return true; };
+    const end = async () => { clearTarget(); tour = null; busy = false; try { clickQ("#tmAdd [data-a=cancel]"); } catch (e) {} await goHome(); hush(); state = "menu"; armIdle(); };
     if (id === "inst") {
       hush(); if (panel) panel.hidden = true;
       if (typeof switchGuide === "function") switchGuide("install-app");
       const title = await waitFor(() => q("#doc .doc-title"), 3000);
-      if (!(await go(title, () => tt("inst1"), true))) return; await end(); return;
+      await step(title, () => tt("inst1"), true); await end(); return;
     }
     if (!ai || !tm) { await end(); return; }
-    // open the chat, point at the ⏰ button in its header, then open the timers view
     ai.open(); await wait(250);
-    const head = q(".ai-head button", panel);
-    if (id === "tmr") {
-      if (!(await go(head, () => tt("tmr1")))) return;
-      tm.show(true); await wait(500);
-      const note = await waitFor(() => { const n = q(".tm-view .tm-note"); return visible(n) ? n : null; }, 2500);
-      if (!(await go(note, () => isIOS && !standalone() ? tt("tmr2ios") : tt("tmr2")))) return;
-      const quick = q(".tm-view .tm-quick");
-      if (quick && visible(quick)) { if (!(await go(quick, () => tt("tmr3")))) return; }
-      const add = q(".tm-view [data-a=add]");
-      if (!(await go(add || q(".tm-view #tmAdd"), () => tt("tmr4")))) return;
-      if (!(await go(add || q(".tm-view #tmAdd"), () => tt("tmr5"), true))) return;
-      await end(); offerTour("rem"); return;
-    }
-    if (id === "rem") {
-      tm.show(true); await wait(500);
-      const al = await waitFor(() => { const n = q(".tm-view .tm-alerts"); return visible(n) ? n : null; }, 2500);
-      if (!(await go(al, () => tt("rem1")))) return;
-      if (!(await go(al, () => tt("rem2"), true))) return;
-      await end(); offerTour("tmr"); return;
-    }
+    let steps = only || TM_STEPS;
+    if (id === "rem" && !only) { tm.show(true); await wait(400); steps = TM_STEPS.slice(TM_STEPS.findIndex((st) => st.k === "tm16")); }
+    const r = await walk(steps, tmText);
     await end();
+    if (!r.stopped && !only) offerTour(id === "rem" ? "tmr" : "rem");
   }
   /* the chat panel scrolls on its own: keep the sparrow and the ring on the element */
   setInterval(() => { if (tour && targetEl && !flying) { const p = pointAt(targetEl); if (Math.hypot(p.x - pos.x, p.y - pos.y) > 3) { pos = { x: p.x, y: p.y }; place(); } } }, 120);
   /* 👀 watchdog: the thing being pointed at disappeared (panel closed, tab switched, guide closed) while the sparrow was waiting
      there → drop the step and fly home instead of staying put next to nothing. Only while idle or waiting for Next, never mid-flow. */
-  let lostSince = 0;
+  let lostSince = 0, lastPerch = null;
   const shown = (el) => { if (!el || !el.isConnected) return false; const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && !el.closest("[hidden]"); };   // scrolled out of view still counts as there
   setInterval(async () => {
     if (root.hidden || flying || state === "sleep" || state === "off") return;
@@ -1452,7 +1665,11 @@
       return;
     }
     // idle with nothing to point at but away from the perch → go home (a small drift, e.g. the browser bar changing height, is just corrected in place)
-    if (!busy && !tour && !targetEl && bubble.hidden) { const h = perchPoint(), d = Math.hypot(h.x - pos.x, h.y - pos.y); if (d > 40) await goHome(); else if (d > 1) { pos = h; place(); faceIn(); } }
+    if (!busy && !tour && !targetEl && bubble.hidden) {
+      const h = perchPoint(), d = Math.hypot(h.x - pos.x, h.y - pos.y), stable = lastPerch && Math.abs(lastPerch.x - h.x) < 1 && Math.abs(lastPerch.y - h.y) < 1; lastPerch = h;
+      if (!stable) return;   // the button itself is still moving (bounce, toolbar) → wait for it to settle, then follow
+      if (d > 40) await goHome(); else if (d > 1) { pos = h; place(); faceIn(); }
+    }
   }, 300);
 
   /* 🐦 "Show me how to…" inside the AI chat greeting: one button per tour; the AI's answers can also carry [label](tour:id) links */
@@ -1470,97 +1687,681 @@
   /* ---------- stand-alone tool pages: Bear Hunt calculator, KvK trade-off calculator, KvK points planner, booking guide, squad guide ---------- */
   const PAGE = (location.pathname.match(/(bear-calculator|kvk-calculator|kvk-optimizer|booking-guide|squad-guide)\.html/) || [])[1] || null;
   const TOOL = {
-    en: { ask: "Want me to walk you through this page?", yes: "🐦 Show me", no: "No thanks",
-      bear1: "Your troops & limits: type your infantry / cavalry / archers, your rally size and how many joiners' troops fit. These come from your own city screen.", bear2: "Valora (Bear Hunt Master): fill this only if the rally number above doesn't already include her.", bear3: "⚡ Auto split: the calculator splits your troops across marches for you — pick how many marches and whether to keep a reserve.", bear4: "The result: one line per march, with the exact troop counts. Copy it and set your marches like that.", bear5: "How it works: the rules behind the split, if you want to check the maths.",
-      kcalc1: "Pick the event you're about to push, and how many days it runs.", kcalc2: "What you plan to spend: type the resources, speed-ups and items you'd use. The page shows what they would be worth in KvK points.", kcalc3: "Milestone rewards: what you get back at each tier for that spend — so you can see if it's worth it.", kcalc4: "Ranking and gem value: what a rank would cost and what the gems are worth. It's a reference only — whether to spend is your call.",
-      kopt1: "Pick your goal: your personal total, or a push on one day for the ranking.", kopt2: "Targets and resources: type what you have (resources, speed-ups) — the planner only counts what you're willing to use.", kopt3: "Troops (Day 4): your troop numbers for the training day.", kopt4: "Score items, level by level: which upgrades give the most points for what you have, and the verdict at the bottom.",
-      book1: "Pick the position you want to book — each tab is one.", book2: "Then follow the steps in order; the pictures show exactly where to tap in the game.", book3: "The tip at the end: the one thing people get wrong — read it before you book.",
-      squad1: "Follow the steps in order; the pictures show the screens in the game.", squad2: "The tip at the end is the part people miss — read it before KvK." },
-    zh: { ask: "要我帶你看這一頁嗎？", yes: "🐦 帶我看", no: "不用了",
-      bear1: "你的士兵和上限：填步兵／騎兵／弓兵的數量、集結人數、還有別人加入能放多少。這些都在你自己的城裡看得到。", bear2: "維拉（狩獵巨熊大師）：上面的集結人數沒有算到她才需要填。", bear3: "⚡ 全自動分配：計算器幫你把兵分到每一隊，選幾隊、要不要留預備兵。", bear4: "結果：一隊一行，寫好確切的兵數。照著設定你的出征就好。", bear5: "怎麼用：分配背後的規則，想核對的可以看。",
-      kcalc1: "選你要衝的活動，還有它跑幾天。", kcalc2: "打算花多少：填你會用掉的資源、加速、道具。頁面會算這些在 KvK 值多少分。", kcalc3: "里程碑獎勵：花這些能拿回每一階的什麼獎勵，看看值不值得。", kcalc4: "排名與鑽石換算：一個名次要花多少、鑽石值多少。這只是參考，花不花你自己決定。",
-      kopt1: "選目標：個人總分，還是某一天衝排名。", kopt2: "目標和資源：填你有的（資源、加速），規劃器只算你願意用的。", kopt3: "士兵（第 4 天）：訓練日的兵數。", kopt4: "計分項目，一級一級列：手上的東西拿去升什麼最划算，最下面有結論。",
-      book1: "選你要預約的官職，一個分頁一個。", book2: "然後照順序做，圖片就是遊戲裡要點的地方。", book3: "最後的小提醒是大家最常弄錯的地方，預約前先看一下。",
-      squad1: "照順序做，圖片就是遊戲裡的畫面。", squad2: "最後的小提醒是大家最容易漏掉的，KvK 前先看。" },
-    ko: { ask: "이 페이지를 안내해 줄까요?", yes: "🐦 보여줘", no: "괜찮아",
-      bear1: "내 병력과 제한: 보병 / 기병 / 궁병 수, 집결 규모, 참가자 병력이 얼마나 들어가는지 입력해요. 내 도시 화면에서 볼 수 있어요.", bear2: "발로라(곰 사냥 마스터): 위 집결 수에 이미 포함되지 않았을 때만 입력해요.", bear3: "⚡ 자동 분배: 계산기가 병력을 부대별로 나눠 줘요 — 부대 수와 예비 병력 여부를 고르세요.", bear4: "결과: 부대마다 한 줄, 정확한 병력 수. 그대로 출정을 설정하세요.", bear5: "작동 방식: 분배 규칙이에요. 계산을 확인하고 싶을 때.",
-      kcalc1: "밀 이벤트와 진행 일수를 고르세요.", kcalc2: "쓸 계획: 사용할 자원, 가속, 아이템을 입력하면 KvK 점수로 얼마인지 보여줘요.", kcalc3: "마일스톤 보상: 그만큼 쓰면 단계마다 무엇을 돌려받는지 — 가치가 있는지 보세요.", kcalc4: "랭킹과 다이아 가치: 순위에 드는 비용과 다이아 가치. 참고용이에요 — 쓸지는 본인이 정해요.",
-      kopt1: "목표 선택: 개인 총점인지, 하루에 랭킹을 노릴지.", kopt2: "목표와 자원: 가진 것(자원, 가속)을 입력해요 — 쓸 의향이 있는 것만 계산해요.", kopt3: "병력(4일차): 훈련일의 병력 수.", kopt4: "점수 항목, 레벨별: 가진 걸로 어떤 업그레이드가 점수가 가장 높은지, 맨 아래 결론.",
-      book1: "예약할 관직을 고르세요 — 탭 하나가 관직 하나예요.", book2: "순서대로 따라 하세요. 사진이 게임에서 누를 곳이에요.", book3: "마지막 팁은 사람들이 가장 많이 틀리는 부분 — 예약 전에 읽으세요.",
-      squad1: "순서대로 따라 하세요. 사진이 게임 화면이에요.", squad2: "마지막 팁은 놓치기 쉬운 부분 — KvK 전에 읽으세요." },
-    de: { ask: "Soll ich dich durch diese Seite führen?", yes: "🐦 Zeig mir", no: "Nein danke",
-      bear1: "Deine Truppen & Limits: Infanterie / Kavallerie / Bogenschützen, deine Rallygröße und wie viele Truppen von Mitstreitern passen. Steht alles in deiner Stadt.", bear2: "Valora (Bärenjagd-Meisterin): nur ausfüllen, wenn die Rallyzahl oben sie nicht schon enthält.", bear3: "⚡ Auto-Aufteilung: der Rechner verteilt deine Truppen auf die Märsche – wähle die Anzahl und ob eine Reserve bleibt.", bear4: "Das Ergebnis: eine Zeile pro Marsch mit genauen Truppenzahlen. Kopieren und die Märsche so einstellen.", bear5: "So funktioniert es: die Regeln hinter der Aufteilung, falls du nachrechnen willst.",
-      kcalc1: "Wähle das Event, das du pushen willst, und wie viele Tage es läuft.", kcalc2: "Was du ausgeben willst: Ressourcen, Beschleuniger, Items. Die Seite zeigt, was das in KvK-Punkten wert wäre.", kcalc3: "Meilenstein-Belohnungen: was du je Stufe dafür zurückbekommst – so siehst du, ob es sich lohnt.", kcalc4: "Rang und Edelstein-Wert: was ein Rang kostet und was die Edelsteine wert sind. Nur eine Referenz – ob du ausgibst, entscheidest du.",
-      kopt1: "Wähle dein Ziel: persönliche Gesamtpunkte oder ein Push an einem Tag für die Rangliste.", kopt2: "Ziele und Ressourcen: trag ein, was du hast – der Planer zählt nur, was du einsetzen willst.", kopt3: "Truppen (Tag 4): deine Truppenzahlen für den Trainingstag.", kopt4: "Punkte-Items Stufe für Stufe: welche Upgrades die meisten Punkte bringen, und unten das Fazit.",
-      book1: "Wähle das Amt, das du buchen willst – jeder Tab ist eins.", book2: "Dann die Schritte der Reihe nach; die Bilder zeigen genau, wo du im Spiel tippst.", book3: "Der Tipp am Ende: das, was die meisten falsch machen – vor dem Buchen lesen.",
-      squad1: "Folge den Schritten der Reihe nach; die Bilder zeigen die Spiel-Bildschirme.", squad2: "Der Tipp am Ende ist der Teil, den viele übersehen – vor dem KvK lesen." },
-    fr: { ask: "Je te guide sur cette page ?", yes: "🐦 Montre-moi", no: "Non merci",
-      bear1: "Tes troupes et limites : infanterie / cavalerie / archers, la taille de ton rassemblement et combien de troupes des participants rentrent. Tout est dans ta ville.", bear2: "Valora (Maîtresse de la chasse à l'ours) : à remplir seulement si le nombre du rassemblement ne l'inclut pas déjà.", bear3: "⚡ Répartition auto : le calculateur répartit tes troupes entre les marches – choisis le nombre de marches et si tu gardes une réserve.", bear4: "Le résultat : une ligne par marche avec les effectifs exacts. Copie et règle tes marches comme ça.", bear5: "Comment ça marche : les règles derrière la répartition, si tu veux vérifier.",
-      kcalc1: "Choisis l'événement que tu veux pousser et sa durée en jours.", kcalc2: "Ce que tu comptes dépenser : ressources, accélérations, objets. La page montre ce que ça vaudrait en points KvK.", kcalc3: "Récompenses de paliers : ce que tu récupères à chaque palier pour cette dépense – pour voir si ça vaut le coup.", kcalc4: "Classement et valeur en gemmes : ce que coûte un rang et ce que valent les gemmes. Simple référence – dépenser ou non, c'est toi qui décides.",
-      kopt1: "Choisis ton objectif : ton total personnel, ou un push sur un jour pour le classement.", kopt2: "Objectifs et ressources : indique ce que tu as – le planificateur ne compte que ce que tu veux bien utiliser.", kopt3: "Troupes (Jour 4) : tes effectifs pour le jour d'entraînement.", kopt4: "Objets à points, niveau par niveau : quelles améliorations rapportent le plus avec ce que tu as, et le verdict en bas.",
-      book1: "Choisis le poste à réserver – un onglet par poste.", book2: "Puis suis les étapes dans l'ordre ; les images montrent exactement où toucher dans le jeu.", book3: "L'astuce à la fin : ce que les gens ratent – lis-la avant de réserver.",
-      squad1: "Suis les étapes dans l'ordre ; les images montrent les écrans du jeu.", squad2: "L'astuce à la fin est ce que les gens oublient – lis-la avant le KvK." },
-    pt: { ask: "Quer que eu te guie nesta página?", yes: "🐦 Me mostra", no: "Não, obrigado",
-      bear1: "Suas tropas e limites: infantaria / cavalaria / arqueiros, o tamanho da sua rally e quantas tropas dos participantes cabem. Está tudo na sua cidade.", bear2: "Valora (Mestra da Caça ao Urso): preencha só se o número da rally acima ainda não a inclui.", bear3: "⚡ Divisão automática: a calculadora divide suas tropas entre as marchas — escolha quantas marchas e se guarda reserva.", bear4: "O resultado: uma linha por marcha, com as tropas exatas. Copie e configure as marchas assim.", bear5: "Como funciona: as regras por trás da divisão, se quiser conferir.",
-      kcalc1: "Escolha o evento que vai empurrar e quantos dias ele dura.", kcalc2: "O que pretende gastar: recursos, acelerações e itens. A página mostra quanto valeriam em pontos de KvK.", kcalc3: "Recompensas de marcos: o que você recebe em cada nível por esse gasto — para ver se vale a pena.", kcalc4: "Ranking e valor em gemas: quanto custa uma posição e quanto valem as gemas. Só referência — gastar ou não é decisão sua.",
-      kopt1: "Escolha a meta: seu total pessoal, ou um empurrão num dia para o ranking.", kopt2: "Metas e recursos: digite o que tem (recursos, acelerações) — o planejador só conta o que você quer usar.", kopt3: "Tropas (Dia 4): seus números de tropas para o dia de treino.", kopt4: "Itens de pontuação, nível a nível: quais melhorias dão mais pontos com o que você tem, e o veredito embaixo.",
-      book1: "Escolha o cargo que quer agendar — cada aba é um.", book2: "Depois siga os passos em ordem; as imagens mostram exatamente onde tocar no jogo.", book3: "A dica no fim é o que as pessoas erram — leia antes de agendar.",
-      squad1: "Siga os passos em ordem; as imagens mostram as telas do jogo.", squad2: "A dica no fim é a parte que as pessoas perdem — leia antes do KvK." },
-    es: { ask: "¿Te guío por esta página?", yes: "🐦 Muéstrame", no: "No, gracias",
-      bear1: "Tus tropas y límites: infantería / caballería / arqueros, el tamaño de tu rally y cuántas tropas de los participantes caben. Todo está en tu ciudad.", bear2: "Valora (Maestra de la Cacería del Oso): rellénalo solo si el número del rally de arriba no la incluye ya.", bear3: "⚡ Reparto automático: la calculadora reparte tus tropas entre las marchas — elige cuántas marchas y si guardas reserva.", bear4: "El resultado: una línea por marcha con las tropas exactas. Cópialo y configura las marchas así.", bear5: "Cómo funciona: las reglas detrás del reparto, por si quieres comprobarlo.",
-      kcalc1: "Elige el evento que vas a empujar y cuántos días dura.", kcalc2: "Lo que piensas gastar: recursos, aceleradores y objetos. La página muestra cuánto valdrían en puntos de KvK.", kcalc3: "Recompensas por hitos: lo que recibes en cada nivel por ese gasto — para ver si merece la pena.", kcalc4: "Ranking y valor en gemas: lo que cuesta un puesto y lo que valen las gemas. Solo es una referencia — gastar o no es cosa tuya.",
-      kopt1: "Elige tu meta: tu total personal, o un empujón en un día para el ranking.", kopt2: "Metas y recursos: escribe lo que tienes (recursos, aceleradores) — el planificador solo cuenta lo que quieras usar.", kopt3: "Tropas (Día 4): tus números de tropas para el día de entrenamiento.", kopt4: "Objetos de puntos, nivel a nivel: qué mejoras dan más puntos con lo que tienes, y el veredicto abajo.",
-      book1: "Elige el cargo que quieres reservar — cada pestaña es uno.", book2: "Luego sigue los pasos en orden; las imágenes muestran exactamente dónde tocar en el juego.", book3: "El consejo del final es lo que la gente hace mal — léelo antes de reservar.",
-      squad1: "Sigue los pasos en orden; las imágenes muestran las pantallas del juego.", squad2: "El consejo del final es la parte que la gente se salta — léelo antes del KvK." },
-    tr: { ask: "Bu sayfayı adım adım göstereyim mi?", yes: "🐦 Göster", no: "Gerek yok",
-      bear1: "Birliklerin ve sınırlar: piyade / süvari / okçu sayıların, rally büyüklüğün ve katılanların kaç birliği sığıyor. Hepsi kendi şehrinde yazar.", bear2: "Valora (Ayı Avı Ustası): yalnızca yukarıdaki rally sayısı onu içermiyorsa doldur.", bear3: "⚡ Otomatik bölme: hesaplayıcı birliklerini seferlere senin yerine böler — sefer sayısını ve yedek bırakıp bırakmayacağını seç.", bear4: "Sonuç: her sefer için bir satır, tam birlik sayılarıyla. Kopyala ve seferlerini öyle ayarla.", bear5: "Nasıl çalışır: bölmenin arkasındaki kurallar, kontrol etmek istersen.",
-      kcalc1: "Zorlayacağın etkinliği ve kaç gün sürdüğünü seç.", kcalc2: "Harcamayı planladığın: kaynaklar, hızlandırmalar, eşyalar. Sayfa bunların KvK puanı olarak değerini gösterir.", kcalc3: "Kilometre taşı ödülleri: o harcama için her kademede ne geri alırsın — değer mi diye bak.", kcalc4: "Sıralama ve elmas değeri: bir sıranın maliyeti ve elmasların değeri. Sadece referans — harcamak sana kalmış.",
-      kopt1: "Hedefini seç: kişisel toplam mı, sıralama için tek günlük atak mı.", kopt2: "Hedefler ve kaynaklar: elindekileri yaz (kaynak, hızlandırma) — planlayıcı yalnızca kullanmak istediklerini sayar.", kopt3: "Birlikler (4. Gün): eğitim günü için birlik sayıların.", kopt4: "Puan veren öğeler, seviye seviye: elindekiyle hangi yükseltmeler en çok puan verir, altta sonuç.",
-      book1: "Ayırtmak istediğin makamı seç — her sekme bir makam.", book2: "Sonra adımları sırayla izle; görseller oyunda tam nereye dokunacağını gösterir.", book3: "Sondaki ipucu herkesin yanlış yaptığı şey — ayırtmadan önce oku.",
-      squad1: "Adımları sırayla izle; görseller oyun ekranlarını gösterir.", squad2: "Sondaki ipucu herkesin kaçırdığı kısım — KvK'dan önce oku." },
-    id: { ask: "Mau aku pandu halaman ini?", yes: "🐦 Tunjukkan", no: "Tidak perlu",
-      bear1: "Pasukan & batasmu: jumlah infanteri / kavaleri / pemanah, ukuran rally, dan berapa pasukan peserta yang muat. Semua ada di layar kotamu.", bear2: "Valora (Master Bear Hunt): isi hanya jika angka rally di atas belum memasukkannya.", bear3: "⚡ Bagi otomatis: kalkulator membagi pasukanmu ke tiap march — pilih jumlah march dan apakah menyisakan cadangan.", bear4: "Hasil: satu baris per march dengan jumlah pasukan persis. Salin dan atur march-mu seperti itu.", bear5: "Cara kerja: aturan di balik pembagian, kalau mau mengecek.",
-      kcalc1: "Pilih event yang mau kamu kejar dan berapa hari berlangsung.", kcalc2: "Yang mau dipakai: sumber daya, speed-up, item. Halaman menunjukkan nilainya dalam poin KvK.", kcalc3: "Hadiah milestone: apa yang kamu dapat di tiap tingkat untuk pengeluaran itu — lihat apakah sepadan.", kcalc4: "Ranking dan nilai gem: biaya satu peringkat dan nilai gem. Hanya referensi — mau pakai atau tidak, terserah kamu.",
-      kopt1: "Pilih tujuan: total pribadi, atau dorong di satu hari untuk ranking.", kopt2: "Target dan sumber daya: isi yang kamu punya (sumber daya, speed-up) — perencana hanya menghitung yang mau kamu pakai.", kopt3: "Pasukan (Hari 4): jumlah pasukanmu untuk hari latihan.", kopt4: "Item skor, per level: upgrade mana yang paling banyak poin dengan yang kamu punya, dan kesimpulan di bawah.",
-      book1: "Pilih jabatan yang mau dipesan — satu tab satu jabatan.", book2: "Lalu ikuti langkahnya berurutan; gambar menunjukkan persis di mana harus mengetuk di game.", book3: "Tips di akhir adalah yang sering salah — baca sebelum memesan.",
-      squad1: "Ikuti langkahnya berurutan; gambar menunjukkan layar game.", squad2: "Tips di akhir adalah bagian yang sering terlewat — baca sebelum KvK." },
-    ru: { ask: "Провести тебя по этой странице?", yes: "🐦 Покажи", no: "Не нужно",
-      bear1: "Твои войска и лимиты: пехота / кавалерия / лучники, размер сбора и сколько войск участников помещается. Всё это есть в твоём городе.", bear2: "Валора (мастер Охоты на медведя): заполняй только если число сбора выше её не учитывает.", bear3: "⚡ Авторазбивка: калькулятор сам делит войска по маршам — выбери число маршей и оставлять ли резерв.", bear4: "Результат: по строке на марш с точным числом войск. Скопируй и выставь марши так.", bear5: "Как это работает: правила разбивки, если хочешь проверить.",
-      kcalc1: "Выбери событие, которое собираешься пушить, и сколько дней оно идёт.", kcalc2: "Что планируешь потратить: ресурсы, ускорения, предметы. Страница покажет, сколько это стоит в очках KvK.", kcalc3: "Награды за рубежи: что вернётся на каждом уровне за эти траты — видно, стоит ли оно того.", kcalc4: "Рейтинг и цена в самоцветах: сколько стоит место и сколько стоят самоцветы. Только справка — тратить или нет, решаешь ты.",
-      kopt1: "Выбери цель: личный итог или пуш в один день ради рейтинга.", kopt2: "Цели и ресурсы: впиши, что есть (ресурсы, ускорения) — планировщик считает только то, что ты готов использовать.", kopt3: "Войска (день 4): числа войск на день обучения.", kopt4: "Очковые предметы по уровням: какие улучшения дают больше всего очков с тем, что есть, и вывод внизу.",
-      book1: "Выбери должность для брони — каждая вкладка одна должность.", book2: "Дальше по шагам; картинки показывают, куда нажимать в игре.", book3: "Совет в конце — то, что все делают неправильно. Прочитай перед бронью.",
-      squad1: "Иди по шагам; картинки показывают экраны игры.", squad2: "Совет в конце — то, что все упускают. Прочитай перед KvK." },
-    th: { ask: "ให้ฉันพาดูหน้านี้ไหม?", yes: "🐦 พาดูหน่อย", no: "ไม่เป็นไร",
-      bear1: "ทหารและขีดจำกัดของคุณ: ใส่จำนวนทหารราบ / ม้า / ธนู ขนาดการรวมพล และทหารของผู้เข้าร่วมใส่ได้เท่าไร ดูได้จากเมืองของคุณเอง", bear2: "วาโลรา (ปรมาจารย์ล่าหมี): กรอกเฉพาะเมื่อจำนวนรวมพลด้านบนยังไม่ได้นับเธอ", bear3: "⚡ แบ่งอัตโนมัติ: เครื่องคิดเลขแบ่งทหารให้แต่ละกองทัพ — เลือกจำนวนกองและจะเก็บสำรองไหม", bear4: "ผลลัพธ์: หนึ่งบรรทัดต่อกอง พร้อมจำนวนทหารที่แน่นอน คัดลอกแล้วตั้งค่ากองทัพตามนั้น", bear5: "วิธีทำงาน: กฎเบื้องหลังการแบ่ง ถ้าอยากตรวจสอบ",
-      kcalc1: "เลือกกิจกรรมที่จะทุ่ม และจำนวนวันที่จัด", kcalc2: "ตั้งใจจะใช้เท่าไร: ใส่ทรัพยากร เร่งความเร็ว ไอเทมที่จะใช้ หน้านี้จะแสดงว่าคิดเป็นแต้ม KvK เท่าไร", kcalc3: "รางวัลไมล์สโตน: ใช้เท่านี้ได้อะไรกลับมาในแต่ละขั้น — ดูว่าคุ้มไหม", kcalc4: "อันดับและมูลค่าเพชร: อันดับหนึ่งใช้เท่าไร เพชรมีค่าเท่าไร เป็นแค่ข้อมูลอ้างอิง — จะใช้หรือไม่คุณตัดสินใจเอง",
-      kopt1: "เลือกเป้าหมาย: แต้มรวมส่วนตัว หรือทุ่มวันเดียวเพื่ออันดับ", kopt2: "เป้าหมายและทรัพยากร: ใส่สิ่งที่มี (ทรัพยากร เร่งความเร็ว) — ตัวช่วยวางแผนนับเฉพาะที่คุณยอมใช้", kopt3: "ทหาร (วันที่ 4): จำนวนทหารสำหรับวันฝึก", kopt4: "รายการทำแต้ม ทีละระดับ: อัปเกรดอะไรได้แต้มมากที่สุดจากที่มี และสรุปด้านล่าง",
-      book1: "เลือกตำแหน่งที่จะจอง — แต่ละแท็บคือหนึ่งตำแหน่ง", book2: "แล้วทำตามขั้นตอนตามลำดับ รูปแสดงจุดที่ต้องแตะในเกม", book3: "เคล็ดลับท้ายสุดคือจุดที่คนทำผิดบ่อย — อ่านก่อนจอง",
-      squad1: "ทำตามขั้นตอนตามลำดับ รูปแสดงหน้าจอในเกม", squad2: "เคล็ดลับท้ายสุดคือส่วนที่คนมักพลาด — อ่านก่อน KvK" },
-    ar: { ask: "هل أرافقك في هذه الصفحة؟", yes: "🐦 أرني", no: "لا شكرًا",
-      bear1: "قواتك وحدودك: اكتب المشاة / الفرسان / الرماة، حجم حشدك وكم تتسع قوات المنضمين. كل هذا في شاشة مدينتك.", bear2: "فالورا (سيدة صيد الدببة): املأها فقط إن كان رقم الحشد أعلاه لا يشملها.", bear3: "⚡ التقسيم التلقائي: تقسم الحاسبة قواتك على المسيرات — اختر عدد المسيرات وهل تبقي احتياطيًا.", bear4: "النتيجة: سطر لكل مسيرة بأعداد القوات بالضبط. انسخه واضبط مسيراتك هكذا.", bear5: "كيف يعمل: قواعد التقسيم، إن أردت التحقق من الحساب.",
-      kcalc1: "اختر الحدث الذي ستدفع فيه وكم يومًا يستمر.", kcalc2: "ما تنوي إنفاقه: الموارد والتسريعات والعناصر. تعرض الصفحة قيمتها بنقاط KvK.", kcalc3: "مكافآت المراحل: ما تستعيده في كل مستوى مقابل ذلك الإنفاق — لترى إن كان يستحق.", kcalc4: "الترتيب وقيمة الجواهر: كم يكلف مركز وكم تساوي الجواهر. مرجع فقط — الإنفاق قرارك.",
-      kopt1: "اختر هدفك: مجموعك الشخصي، أم دفعة في يوم واحد للترتيب.", kopt2: "الأهداف والموارد: اكتب ما لديك (موارد، تسريعات) — المخطط يحسب ما أنت مستعد لاستخدامه فقط.", kopt3: "القوات (اليوم 4): أعداد قواتك ليوم التدريب.", kopt4: "عناصر النقاط مستوى بمستوى: أي ترقيات تعطي أكثر النقاط بما لديك، والخلاصة في الأسفل.",
-      book1: "اختر المنصب الذي تريد حجزه — كل تبويب منصب.", book2: "ثم اتبع الخطوات بالترتيب؛ الصور تبيّن بالضبط أين تضغط في اللعبة.", book3: "النصيحة في النهاية هي ما يخطئ فيه الناس — اقرأها قبل الحجز.",
-      squad1: "اتبع الخطوات بالترتيب؛ الصور تبيّن شاشات اللعبة.", squad2: "النصيحة في النهاية هي ما يفوته الناس — اقرأها قبل KvK." },
+    en: {
+      bc01: "← Guides takes you back to the site; the box next to it switches this page's language.",
+      bc02: "Your troops: the infantry, cavalry and archers you own. Everything below is capped by these numbers.",
+      bc03: "Your own troops in your rally — the number the game shows, without Valora.",
+      bc04: "Joining a rally: the most troops one march may bring (the alliance's Bear limit is filled in).",
+      bc05: "Valora (Bear Hunt Master): only if your rally number doesn't include her — each level adds 3,000 to your own march in the rally.",
+      bc06: "The sizes used below: your rally and each march.",
+      bc07: "⚡ Auto split fills all the formations for you (it replaces them); you can still drag afterwards.",
+      bc08: "Your March Queues: how many marches you have — your rally uses one. Empty = the counts come from the fields below.",
+      bc09: "Rally leader setup from the Bear Hunt guide: pick your hero generation and setup and the rally ratio is filled in — or type your own.",
+      bc10: "Rally ratio: infantry : cavalry : archers for your rally.",
+      bc11: "Fixed-ratio marches: how many full marches at the ratio below — or 'as many as fit'.",
+      bc12: "The fixed-ratio marches' ratio (default 10 : 10 : 80).",
+      bc13: "Marches with a hero: full marches with the same mix as whatever is left.",
+      bc14: "Marches without a hero: identical marches that share all the rest.",
+      bc15: "Each later march keeps at least this % of every type, so no march goes out without archers.",
+      bc16: "⚡ Auto split now builds the formations. The text below tells how many full marches fit and which type runs out first.",
+      bc17: "Used / left per troop type, always in view — it turns red if you assign more than you have.",
+      bc18: "One card per formation: 👑 Rally first, then March 2, 3… Drag a slider or type a % per type; it stops when the formation is full or that type runs out. ✕ removes a march.",
+      bc19: "+ Add march adds an empty one.",
+      bc20: "📋 Copy puts a one-line-per-formation summary on your clipboard, ready for chat.",
+      bc21: "How it works: the rules in five lines.",
+      kc01: "中文 / EN switch the language.",
+      kc02: "Step 1: pick the event — Officer Project A / B, Armament Competition 1 / 2, Strongest Governor, Alliance Brawl. Ratio = KvK points lost per event point; lower is cheaper.",
+      kc03: "For Strongest Governor and Alliance Brawl also pick the day — each day has its own points, thresholds and rewards.",
+      kc04: "Your Town Center level picks the right thresholds and reward amounts.",
+      kc05: "Step 2: what you plan to spend — one row per resource that scores, cheapest first. Type the quantity; event points and KvK points update as you go.",
+      kc06: "Step 3: milestone rewards — the threshold from your game screen, then each reward and its amount; a card turns green when your score reaches it. + Add reward adds a row, × removes it.",
+      kc07: "Step 4: expected rank adds the ranking reward (gems, speedups, keys) — only counted from 4,000 points.",
+      kc08: "1 gem = ? KvK pts: how gems are valued — roulette + shards, roulette only, or not at all.",
+      kc09: "The result: event score, KvK points lost, rewards worth and the net — green = worth it, red = you lose KvK points. Below: milestones reached, what you get, and the cheapest way to the next milestone.",
+      kc10: "Clear this event resets spend, thresholds, rewards and rank for this event only.",
+      kp01: "Language, and Back to the KvK guide.",
+      kp02: "Step 1: Personal total (only the total matters) or Daily push (items that score on several days go to the day you want to push).",
+      kp03: "Daily push: the minimum points per day. Days without a target get no 'Can use' items; all empty = spread evenly.",
+      kp04: "Speedups by type, as d / h / m. Will use = you'd spend them anyway; Can use = fine to spend for points. The boxes 1–5 show which days they score on.",
+      kp05: "Resources: Truegold, Mithril, gear, hero shards, roulette, emblems, manuscripts, taming marks, charm / pet / gear scores — each with its points and days. Will use and Can use again.",
+      kp06: "Troops (Day 4): the tier you train and how many; Promote only scores the difference between tiers.",
+      kp07: "Step 4: score items level by level — Governor Charm, pets, Governor Gear, Mastery Forging. Add rows From → To × pieces; 'What I have' stops counting when a material runs out; → Will use / → Can use writes the score into step 2.",
+      kp08: "The result: points per day with a bar (will use / can use / target), whether each day reaches its target, and what 'Can use' was left unused.",
+      kp09: "Clear all empties every field; the mode stays.",
+      bk01: "Language, and Back to the KvK guide; the screenshots change language too.",
+      bk02: "Pick the position: Chief Minister (construction / research / training +10%) or Noble Advisor (training +50%, capacity +200). Steps 4–5 change with it.",
+      bk03: "1 — on the city screen tap Events, top right.",
+      bk04: "2 — the Castle Battle tab (the castle icon), then 3 — Details next to Appointment.",
+      bk05: "4 — in the Ministers tab, tap the position you want.",
+      bk06: "5 — pick a slot and tap the button on the right to book it; the small button next to the date switches local time ⇄ UTC. To cancel, open the same window again.",
+      bk07: "Tips: one booking per position at a time; each slot shows how many players already applied.",
+      sq01: "Language, and Back to the guides.",
+      sq02: "1 — tap your avatar (top left), 2 — Squad at the bottom, 3 — Formations in Troops Preview.",
+      sq03: "4 — tap the hero cards and pick the heroes for this squad.",
+      sq04: "5 — if a troop COUNT was given, type the exact number on each row; if only a RATIO, tap the ratio button at the bottom and enter the percentages.",
+      sq05: "6 — Save, pick the slot and name it; 7 — save by Troop Quantity (count) or Troop Ratio (it scales with your troops); 8 — Confirm.",
+      sq06: "Tips: the lock on the last slot means it still has to be unlocked; Even fills all three types equally; Withdraw all clears the slot.", ask: "Want me to walk you through this page?", yes: "🐦 Show me", no: "No thanks",
+      },
+    zh: {
+      bc01: "← 指南 會帶你回到網站；旁邊的方塊可以切換這個頁面的語言。",
+      bc02: "你的部隊：你擁有的步兵、騎兵和弓兵。下面的一切都以這些數字為上限。",
+      bc03: "你自己集結裡的部隊——遊戲顯示的數字，不含瓦洛拉。",
+      bc04: "加入集結：一支行軍最多能帶的部隊數（已填入聯盟的巨熊上限）。",
+      bc05: "瓦洛拉（狩獵巨熊大師）：只在你的集結數字不包含她時才填——每一級會為你在集結裡的自己那支行軍加上 3,000。",
+      bc06: "下面使用的規模：你的集結和每支行軍。",
+      bc07: "⚡ 自動分配 會幫你填好所有編隊（會覆蓋原本的）；之後你還是可以拖曳調整。",
+      bc08: "你的行軍隊列：你有幾支行軍——你的集結會占用一支。留空 = 數量由下面的欄位決定。",
+      bc09: "集結隊長配置，取自狩獵巨熊指南：選你的英雄世代和配置，集結比例就會自動填入——或者自己輸入。",
+      bc10: "集結比例：你集結的 步兵 : 騎兵 : 弓兵。",
+      bc11: "固定比例行軍：按下面的比例要幾支滿編行軍——或「能塞幾支就幾支」。",
+      bc12: "固定比例行軍的比例（預設 10 : 10 : 80）。",
+      bc13: "有英雄的行軍：滿編行軍，組成跟剩下的部隊相同。",
+      bc14: "沒有英雄的行軍：相同的行軍，平分剩下的全部部隊。",
+      bc15: "之後的每支行軍至少保留每種兵種的這個 %，這樣就不會有行軍沒帶弓兵就出發。",
+      bc16: "⚡ 自動分配 現在會建立編隊。下方文字會說明能塞下幾支滿編行軍，以及哪種兵種會先用完。",
+      bc17: "每種兵種的已用 / 剩餘，一直顯示在畫面上——如果你分配的比你擁有的多，它會變紅。",
+      bc18: "每個編隊一張卡片：先是 👑 集結，然後是行軍 2、3…拖曳滑桿或輸入每種兵種的 %；編隊滿了或那種兵種用完時就會停住。✕ 會移除一支行軍。",
+      bc19: "+ 新增行軍 會加一支空的。",
+      bc20: "📋 複製 會把每個編隊一行的摘要放到你的剪貼簿，可以直接貼到聊天。",
+      bc21: "運作方式：五行說明規則。",
+      kc01: "中文 / EN 切換語言。",
+      kc02: "步驟 1：選活動——官員計畫 A / B、軍備競賽 1 / 2、最強總督、聯盟亂鬥。比值 = 每 1 活動分要犧牲的 KvK 分數；越低越划算。",
+      kc03: "最強總督和聯盟亂鬥還要選日期——每一天有自己的分數、門檻和獎勵。",
+      kc04: "你的城鎮中心等級會決定正確的門檻和獎勵數量。",
+      kc05: "步驟 2：你打算花費的東西——每種能得分的資源一列，最便宜的在前。輸入數量；活動分數和 KvK 分數會隨著更新。",
+      kc06: "步驟 3：里程碑獎勵——從你的遊戲畫面抄下門檻，再填每項獎勵和數量；分數達到時卡片會變綠。+ 新增獎勵 會加一列，× 會移除。",
+      kc07: "步驟 4：預期排名會加上排名獎勵（寶石、加速、鑰匙）——只有 4,000 分以上才計算。",
+      kc08: "1 寶石 = ? KvK 分：寶石怎麼估值——轉盤 + 碎片、只算轉盤，或完全不算。",
+      kc09: "結果：活動分數、損失的 KvK 分數、獎勵價值和淨值——綠色 = 划算，紅色 = 你會損失 KvK 分數。下方：已達成的里程碑、你會拿到什麼，以及到下一個里程碑最便宜的方法。",
+      kc10: "清除此活動 只會重設這個活動的花費、門檻、獎勵和排名。",
+      kp01: "語言，以及 返回 KvK 指南。",
+      kp02: "步驟 1：個人總分（只看總分）或每日衝刺（能在多天得分的項目會分配到你想衝的那一天）。",
+      kp03: "每日衝刺：每天最少要的分數。沒有目標的日子不會分到「可用」的項目；全部留空 = 平均分配。",
+      kp04: "各類加速，以 d / h / m 填寫。會用 = 你反正都會用掉；可用 = 為了分數用掉也沒關係。1–5 的方框顯示它們在哪幾天得分。",
+      kp05: "資源：真金、秘銀、裝備、英雄碎片、轉盤、徽章、手稿、馴獸印記、魅力 / 寵物 / 裝備分數——每項都有自己的分數和日期。同樣分成 會用 和 可用。",
+      kp06: "部隊（第 4 天）：你訓練的等級和數量；晉升只計算等級之間的差額。",
+      kp07: "步驟 4：逐級計分的項目——總督魅力、寵物、總督裝備、精通鍛造。新增 從 → 到 × 件數 的列；「我擁有的」會在某種材料用完時停止計算；→ 會用 / → 可用 會把分數寫進步驟 2。",
+      kp08: "結果：每天的分數和一條長條（會用 / 可用 / 目標）、每天是否達到目標，以及哪些「可用」的項目沒用到。",
+      kp09: "全部清除 會清空每個欄位；模式會保留。",
+      bk01: "語言，以及 返回 KvK 指南；截圖也會跟著切換語言。",
+      bk02: "選職位：首席大臣（建造 / 研究 / 訓練 +10%）或貴族顧問（訓練 +50%，容量 +200）。步驟 4–5 會隨之改變。",
+      bk03: "1 — 在城市畫面點右上角的 活動。",
+      bk04: "2 — 城堡之戰分頁（城堡圖示），然後 3 — 任命旁邊的 詳情。",
+      bk05: "4 — 在大臣分頁，點你想要的職位。",
+      bk06: "5 — 選一個時段，點右邊的按鈕預約；日期旁邊的小按鈕可以切換當地時間 ⇄ UTC。要取消的話，再打開同一個視窗。",
+      bk07: "小提醒：每個職位同時只能預約一個；每個時段都會顯示已經有多少玩家申請。",
+      sq01: "語言，以及 返回指南。",
+      sq02: "1 — 點你的頭像（左上角），2 — 底部的 部隊，3 — 部隊預覽裡的 編隊。",
+      sq03: "4 — 點英雄卡片，選這支部隊的英雄。",
+      sq04: "5 — 如果給的是部隊「數量」，在每一列輸入確切的數字；如果只給了「比例」，點底部的比例按鈕並輸入百分比。",
+      sq05: "6 — 儲存，選位置並命名；7 — 以部隊數量（數目）或部隊比例（會隨你的部隊規模縮放）儲存；8 — 確認。",
+      sq06: "小提醒：最後一格的鎖表示它還需要解鎖；平均 會把三種兵種填成一樣；全部撤回 會清空該格。", ask: "要我帶你看這一頁嗎？", yes: "🐦 帶我看", no: "不用了",
+      },
+    ko: {
+      bc01: "← 가이드 를 누르면 사이트로 돌아가. 옆의 상자는 이 페이지의 언어를 바꿔.",
+      bc02: "네 병력: 네가 가진 보병, 기병, 궁병이야. 아래의 모든 건 이 숫자를 넘을 수 없어.",
+      bc03: "네 집결에 들어가는 네 병력. 게임에 나오는 숫자야, 발로라 빼고.",
+      bc04: "집결 참여: 행군 하나가 가져갈 수 있는 최대 병력이야 (연맹의 곰 상한이 채워져 있어).",
+      bc05: "발로라 (곰 사냥 마스터): 네 집결 숫자에 발로라가 안 들어 있을 때만 써. 레벨마다 집결 안의 네 행군에 3,000이 더해져.",
+      bc06: "아래에서 쓰는 크기: 네 집결과 각 행군이야.",
+      bc07: "⚡ 자동 분배 가 편성을 전부 채워 줘 (기존 편성을 덮어써). 그 뒤에도 드래그로 바꿀 수 있어.",
+      bc08: "네 행군 대기열: 행군이 몇 개 있는지야. 집결이 하나를 써. 비워 두면 = 아래 칸의 수로 정해져.",
+      bc09: "곰 사냥 가이드의 집결 리더 세팅: 영웅 세대와 세팅을 고르면 집결 비율이 채워져. 직접 적어도 돼.",
+      bc10: "집결 비율: 네 집결의 보병 : 기병 : 궁병이야.",
+      bc11: "고정 비율 행군: 아래 비율로 꽉 채운 행군을 몇 개 만들지야. 아니면 '들어가는 만큼'.",
+      bc12: "고정 비율 행군의 비율이야 (기본 10 : 10 : 80).",
+      bc13: "영웅 있는 행군: 남은 병력과 같은 구성으로 꽉 채운 행군이야.",
+      bc14: "영웅 없는 행군: 나머지 병력을 전부 나눠 갖는 똑같은 행군들이야.",
+      bc15: "뒤에 나가는 행군마다 각 병종을 최소 이 % 만큼 남겨 둬서, 궁병 없이 나가는 행군이 없게 해.",
+      bc16: "⚡ 자동 분배 를 누르면 이제 편성을 만들어. 아래 글은 꽉 채운 행군이 몇 개 들어가는지, 어떤 병종이 먼저 떨어지는지 알려 줘.",
+      bc17: "병종별 사용 / 남은 수가 항상 보여. 가진 것보다 많이 배정하면 빨갛게 변해.",
+      bc18: "편성마다 카드 하나야. 👑 집결이 먼저, 그다음 행군 2, 3… 슬라이더를 끌거나 병종별 % 를 적어. 편성이 꽉 차거나 그 병종이 떨어지면 멈춰. ✕ 는 행군을 지워.",
+      bc19: "+ 행군 추가 를 누르면 빈 행군이 하나 생겨.",
+      bc20: "📋 복사 를 누르면 편성마다 한 줄인 요약이 클립보드에 들어가. 바로 채팅에 붙일 수 있어.",
+      bc21: "작동 방식: 규칙을 다섯 줄로 설명해.",
+      kc01: "中文 / EN 으로 언어를 바꿔.",
+      kc02: "1단계: 이벤트 고르기. 관리 프로젝트 A / B, 군비 경쟁 1 / 2, 최강 총독, 연맹 난투. 비율 = 이벤트 1점당 잃는 KvK 점수야. 낮을수록 싸.",
+      kc03: "최강 총독과 연맹 난투는 날짜도 골라야 해. 날마다 점수, 기준, 보상이 달라.",
+      kc04: "네 타운 센터 레벨에 맞는 기준과 보상 수량이 골라져.",
+      kc05: "2단계: 쓸 계획인 것. 점수가 되는 자원마다 한 줄씩, 싼 것부터야. 수량을 적으면 이벤트 점수와 KvK 점수가 바로 바뀌어.",
+      kc06: "3단계: 단계 보상. 게임 화면의 기준을 적고, 보상마다 종류와 수량을 적어. 점수가 기준에 닿으면 카드가 초록색이 돼. + 보상 추가 는 줄을 더하고, × 는 지워.",
+      kc07: "4단계: 예상 순위는 순위 보상 (보석, 가속, 열쇠) 을 더해 줘. 4,000점부터만 계산돼.",
+      kc08: "보석 1 = ? KvK 점: 보석을 어떻게 값을 매길지야. 룰렛 + 조각, 룰렛만, 아니면 안 세기.",
+      kc09: "결과: 이벤트 점수, 잃는 KvK 점수, 보상 가치, 그리고 순이익이야. 초록 = 할 만함, 빨강 = KvK 점수를 잃어. 아래에는 도달한 단계, 받는 것, 다음 단계까지 가장 싼 방법이 있어.",
+      kc10: "이 이벤트 지우기 는 이 이벤트의 소비, 기준, 보상, 순위만 초기화해.",
+      kp01: "언어, 그리고 KvK 가이드로 돌아가기 야.",
+      kp02: "1단계: 개인 총점 (총점만 중요함) 또는 일일 푸시 (여러 날에 점수가 되는 항목은 네가 밀고 싶은 날로 가).",
+      kp03: "일일 푸시: 하루 최소 점수야. 목표가 없는 날에는 '써도 됨' 항목이 안 들어가. 전부 비우면 = 고르게 나눠.",
+      kp04: "종류별 가속, d / h / m 으로 적어. 쓸 것 = 어차피 쓸 것, 써도 됨 = 점수 때문에 써도 괜찮은 것. 1–5 상자는 어느 날에 점수가 되는지 보여 줘.",
+      kp05: "자원: 진금, 미스릴, 장비, 영웅 조각, 룰렛, 문장, 필사본, 조련 표식, 매력 / 펫 / 장비 점수. 각각 점수와 날짜가 있어. 여기도 쓸 것 과 써도 됨 이야.",
+      kp06: "병력 (4일차): 훈련하는 등급과 수야. 승급은 등급 간 차이만 점수가 돼.",
+      kp07: "4단계: 레벨별로 점수가 되는 항목이야. 총독 매력, 펫, 총독 장비, 숙련 단조. 시작 → 끝 × 개수 로 줄을 추가해. '내가 가진 것' 은 재료가 떨어지면 계산을 멈춰. → 쓸 것 / → 써도 됨 은 점수를 2단계에 적어 줘.",
+      kp08: "결과: 날짜별 점수와 막대 (쓸 것 / 써도 됨 / 목표), 날마다 목표에 닿는지, 그리고 '써도 됨' 중 안 쓴 게 뭔지야.",
+      kp09: "전체 지우기 는 모든 칸을 비워. 모드는 그대로야.",
+      bk01: "언어, 그리고 KvK 가이드로 돌아가기 야. 스크린샷도 같이 언어가 바뀌어.",
+      bk02: "직위 고르기: 재상 (건설 / 연구 / 훈련 +10%) 또는 귀족 고문 (훈련 +50%, 수용량 +200). 4–5단계가 그에 따라 바뀌어.",
+      bk03: "1 — 도시 화면에서 오른쪽 위의 이벤트 를 눌러.",
+      bk04: "2 — 성 전투 탭 (성 아이콘), 그다음 3 — 임명 옆의 상세 를 눌러.",
+      bk05: "4 — 대신 탭에서 원하는 직위를 눌러.",
+      bk06: "5 — 시간대를 고르고 오른쪽 버튼을 눌러서 예약해. 날짜 옆의 작은 버튼은 현지 시간 ⇄ UTC 를 바꿔. 취소하려면 같은 창을 다시 열어.",
+      bk07: "팁: 직위마다 한 번에 예약 하나만 돼. 시간대마다 이미 몇 명이 신청했는지 보여.",
+      sq01: "언어, 그리고 가이드로 돌아가기 야.",
+      sq02: "1 — 아바타 (왼쪽 위) 를 누르고, 2 — 아래의 부대, 3 — 병력 미리보기의 편성 을 눌러.",
+      sq03: "4 — 영웅 카드를 눌러서 이 부대의 영웅을 골라.",
+      sq04: "5 — 병력 수가 주어졌으면 줄마다 정확한 숫자를 적어. 비율만 주어졌으면 아래의 비율 버튼을 누르고 퍼센트를 넣어.",
+      sq05: "6 — 저장 을 누르고 칸을 고른 뒤 이름을 붙여. 7 — 병력 수량 (수) 또는 병력 비율 (네 병력에 맞춰 늘어남) 로 저장해. 8 — 확인.",
+      sq06: "팁: 마지막 칸의 자물쇠는 아직 해금해야 한다는 뜻이야. 균등 은 세 병종을 똑같이 채워. 전부 철수 는 칸을 비워.", ask: "이 페이지를 안내해 줄까요?", yes: "🐦 보여줘", no: "괜찮아",
+      },
+    de: {
+      bc01: "← Guides bringt dich zurück zur Seite; das Feld daneben wechselt die Sprache dieser Seite.",
+      bc02: "Deine Truppen: die Infanterie, Kavallerie und Bogenschützen, die du besitzt. Alles darunter ist durch diese Zahlen begrenzt.",
+      bc03: "Deine eigenen Truppen in deiner Rally — die Zahl, die das Spiel anzeigt, ohne Valora.",
+      bc04: "Rally beitreten: die meisten Truppen, die ein Marsch mitbringen darf (das Bären-Limit der Allianz ist eingetragen).",
+      bc05: "Valora (Bärenjagd-Meister): nur, wenn deine Rally-Zahl sie nicht enthält — jedes Level fügt deinem eigenen Marsch in der Rally 3.000 hinzu.",
+      bc06: "Die Größen, die unten verwendet werden: deine Rally und jeder Marsch.",
+      bc07: "⚡ Automatisch aufteilen füllt alle Formationen für dich aus (es ersetzt sie); du kannst danach trotzdem noch ziehen.",
+      bc08: "Deine Marsch-Warteschlangen: wie viele Märsche du hast — deine Rally belegt einen. Leer = die Anzahl kommt aus den Feldern darunter.",
+      bc09: "Rally-Leiter-Setup aus dem Bärenjagd-Guide: Wähl deine Helden-Generation und dein Setup, und das Rally-Verhältnis wird eingetragen — oder tipp dein eigenes ein.",
+      bc10: "Rally-Verhältnis: Infanterie : Kavallerie : Bogenschützen für deine Rally.",
+      bc11: "Märsche mit festem Verhältnis: wie viele volle Märsche mit dem Verhältnis darunter — oder 'so viele wie passen'.",
+      bc12: "Das Verhältnis der Märsche mit festem Verhältnis (Standard 10 : 10 : 80).",
+      bc13: "Märsche mit Held: volle Märsche mit derselben Mischung wie das, was übrig ist.",
+      bc14: "Märsche ohne Held: identische Märsche, die sich den ganzen Rest teilen.",
+      bc15: "Jeder spätere Marsch behält mindestens diesen % jedes Typs, damit kein Marsch ohne Bogenschützen losgeht.",
+      bc16: "⚡ Automatisch aufteilen baut jetzt die Formationen. Der Text darunter sagt, wie viele volle Märsche passen und welcher Typ zuerst ausgeht.",
+      bc17: "Verwendet / übrig pro Truppentyp, immer im Blick — es wird rot, wenn du mehr zuweist, als du hast.",
+      bc18: "Eine Karte pro Formation: 👑 Rally zuerst, dann Marsch 2, 3… Zieh einen Regler oder tipp einen % pro Typ ein; es stoppt, wenn die Formation voll ist oder dieser Typ ausgeht. ✕ entfernt einen Marsch.",
+      bc19: "+ Marsch hinzufügen fügt einen leeren hinzu.",
+      bc20: "📋 Kopieren legt eine Zusammenfassung mit einer Zeile pro Formation in deine Zwischenablage, fertig für den Chat.",
+      bc21: "So funktioniert's: die Regeln in fünf Zeilen.",
+      kc01: "中文 / EN wechseln die Sprache.",
+      kc02: "Schritt 1: Wähl das Event — Offiziersprojekt A / B, Rüstungswettbewerb 1 / 2, Stärkster Gouverneur, Allianz-Schlägerei. Verhältnis = verlorene KvK-Punkte pro Event-Punkt; niedriger ist günstiger.",
+      kc03: "Bei Stärkster Gouverneur und Allianz-Schlägerei wähl auch den Tag — jeder Tag hat eigene Punkte, Schwellen und Belohnungen.",
+      kc04: "Dein Stadtzentrum-Level wählt die richtigen Schwellen und Belohnungsmengen.",
+      kc05: "Schritt 2: was du ausgeben willst — eine Zeile pro Ressource, die Punkte bringt, die günstigste zuerst. Tipp die Menge ein; Event-Punkte und KvK-Punkte aktualisieren sich dabei.",
+      kc06: "Schritt 3: Meilenstein-Belohnungen — die Schwelle von deinem Spielbildschirm, dann jede Belohnung und ihre Menge; eine Karte wird grün, wenn dein Score sie erreicht. + Belohnung hinzufügen fügt eine Zeile hinzu, × entfernt sie.",
+      kc07: "Schritt 4: Erwarteter Rang rechnet die Ranglisten-Belohnung dazu (Edelsteine, Beschleuniger, Schlüssel) — erst ab 4.000 Punkten gezählt.",
+      kc08: "1 Edelstein = ? KvK-Pkt: wie Edelsteine bewertet werden — Roulette + Splitter, nur Roulette oder gar nicht.",
+      kc09: "Das Ergebnis: Event-Score, verlorene KvK-Punkte, Wert der Belohnungen und das Netto — grün = lohnt sich, rot = du verlierst KvK-Punkte. Darunter: erreichte Meilensteine, was du bekommst, und der günstigste Weg zum nächsten Meilenstein.",
+      kc10: "Dieses Event leeren setzt Ausgaben, Schwellen, Belohnungen und Rang nur für dieses Event zurück.",
+      kp01: "Sprache, und Zurück zum KvK-Guide.",
+      kp02: "Schritt 1: Persönliche Gesamtsumme (nur die Summe zählt) oder Tages-Push (Items, die an mehreren Tagen Punkte bringen, gehen auf den Tag, den du pushen willst).",
+      kp03: "Tages-Push: die Mindestpunkte pro Tag. Tage ohne Ziel bekommen keine 'Kann nutzen'-Items; alle leer = gleichmäßig verteilt.",
+      kp04: "Beschleuniger nach Typ, als d / h / m. Werde nutzen = die gibst du sowieso aus; Kann nutzen = darf für Punkte ausgegeben werden. Die Kästchen 1–5 zeigen, an welchen Tagen sie Punkte bringen.",
+      kp05: "Ressourcen: Wahrgold, Mithril, Ausrüstung, Heldensplitter, Roulette, Embleme, Manuskripte, Zähmungsmarken, Charme- / Haustier- / Ausrüstungs-Scores — jeweils mit Punkten und Tagen. Wieder Werde nutzen und Kann nutzen.",
+      kp06: "Truppen (Tag 4): die Stufe, die du trainierst, und wie viele; Befördern zählt nur die Differenz zwischen den Stufen.",
+      kp07: "Schritt 4: Score-Items Level für Level — Gouverneurs-Charme, Haustiere, Gouverneursausrüstung, Meisterschmieden. Zeilen hinzufügen Von → Bis × Teile; 'Was ich habe' hört auf zu zählen, wenn ein Material ausgeht; → Werde nutzen / → Kann nutzen schreibt den Score in Schritt 2.",
+      kp08: "Das Ergebnis: Punkte pro Tag mit einem Balken (werde nutzen / kann nutzen / Ziel), ob jeder Tag sein Ziel erreicht, und welche 'Kann nutzen'-Items ungenutzt blieben.",
+      kp09: "Alles leeren leert jedes Feld; der Modus bleibt.",
+      bk01: "Sprache, und Zurück zum KvK-Guide; die Screenshots wechseln die Sprache auch.",
+      bk02: "Wähl die Position: Premierminister (Bauen / Forschung / Training +10%) oder Edler Berater (Training +50%, Kapazität +200). Die Schritte 4–5 ändern sich damit.",
+      bk03: "1 — Tipp auf dem Stadtbildschirm oben rechts auf Events.",
+      bk04: "2 — der Burgschlacht-Tab (das Burg-Symbol), dann 3 — Details neben Ernennung.",
+      bk05: "4 — Tipp im Minister-Tab auf die Position, die du willst.",
+      bk06: "5 — Wähl einen Slot und tipp rechts auf den Button, um ihn zu buchen; der kleine Button neben dem Datum wechselt Ortszeit ⇄ UTC. Zum Abbrechen öffnest du dasselbe Fenster noch mal.",
+      bk07: "Tipps: eine Buchung pro Position gleichzeitig; jeder Slot zeigt, wie viele Spieler sich schon beworben haben.",
+      sq01: "Sprache, und Zurück zu den Guides.",
+      sq02: "1 — Tipp auf deinen Avatar (oben links), 2 — Trupp unten, 3 — Formationen in der Truppenvorschau.",
+      sq03: "4 — Tipp auf die Heldenkarten und wähl die Helden für diesen Trupp.",
+      sq04: "5 — Wenn eine Truppen-ANZAHL angegeben wurde, tipp in jede Zeile die genaue Zahl ein; wenn nur ein VERHÄLTNIS, tipp unten auf den Verhältnis-Button und gib die Prozente ein.",
+      sq05: "6 — Speichern, Slot wählen und benennen; 7 — speichern nach Truppenanzahl (Anzahl) oder Truppenverhältnis (es skaliert mit deinen Truppen); 8 — Bestätigen.",
+      sq06: "Tipps: Das Schloss am letzten Slot heißt, er muss noch freigeschaltet werden; Gleichmäßig füllt alle drei Typen gleich; Alle abziehen leert den Slot.", ask: "Soll ich dich durch diese Seite führen?", yes: "🐦 Zeig mir", no: "Nein danke",
+      },
+    fr: {
+      bc01: "← Guides te ramène au site ; la case à côté change la langue de cette page.",
+      bc02: "Tes troupes : l'infanterie, la cavalerie et les archers que tu possèdes. Tout ce qui est en dessous est plafonné par ces nombres.",
+      bc03: "Tes propres troupes dans ton rallye — le nombre que le jeu affiche, sans Valora.",
+      bc04: "Rejoindre un rallye : le maximum de troupes qu'une marche peut amener (la limite Ours de l'alliance est pré-remplie).",
+      bc05: "Valora (Maître de la Chasse à l'ours) : seulement si ton nombre de rallye ne l'inclut pas — chaque niveau ajoute 3 000 à ta propre marche dans le rallye.",
+      bc06: "Les tailles utilisées en dessous : ton rallye et chaque marche.",
+      bc07: "⚡ Répartition auto remplit toutes les formations pour toi (elle les remplace) ; tu peux quand même glisser après.",
+      bc08: "Tes files de marche : combien de marches tu as — ton rallye en utilise une. Vide = les nombres viennent des champs en dessous.",
+      bc09: "Configuration de chef de rallye depuis le guide Chasse à l'ours : choisis ta génération de héros et ta configuration, et le ratio de rallye se remplit — ou tape le tien.",
+      bc10: "Ratio de rallye : infanterie : cavalerie : archers pour ton rallye.",
+      bc11: "Marches à ratio fixe : combien de marches pleines au ratio ci-dessous — ou 'autant que possible'.",
+      bc12: "Le ratio des marches à ratio fixe (par défaut 10 : 10 : 80).",
+      bc13: "Marches avec héros : des marches pleines avec le même mélange que ce qui reste.",
+      bc14: "Marches sans héros : des marches identiques qui se partagent tout le reste.",
+      bc15: "Chaque marche suivante garde au moins ce % de chaque type, pour qu'aucune marche ne parte sans archers.",
+      bc16: "⚡ Répartition auto construit maintenant les formations. Le texte en dessous dit combien de marches pleines rentrent et quel type s'épuise en premier.",
+      bc17: "Utilisé / restant par type de troupe, toujours visible — ça passe au rouge si tu assignes plus que ce que tu as.",
+      bc18: "Une carte par formation : 👑 Rallye d'abord, puis Marche 2, 3… Glisse un curseur ou tape un % par type ; ça s'arrête quand la formation est pleine ou que ce type est épuisé. ✕ supprime une marche.",
+      bc19: "+ Ajouter une marche en ajoute une vide.",
+      bc20: "📋 Copier met dans ton presse-papiers un résumé d'une ligne par formation, prêt pour le chat.",
+      bc21: "Comment ça marche : les règles en cinq lignes.",
+      kc01: "中文 / EN changent la langue.",
+      kc02: "Étape 1 : choisis l'événement — Projet d'officier A / B, Compétition d'armement 1 / 2, Gouverneur le plus fort, Bagarre d'alliances. Ratio = points KvK perdus par point d'événement ; plus bas, c'est moins cher.",
+      kc03: "Pour Gouverneur le plus fort et Bagarre d'alliances, choisis aussi le jour — chaque jour a ses propres points, paliers et récompenses.",
+      kc04: "Ton niveau de Centre-ville sélectionne les bons paliers et montants de récompense.",
+      kc05: "Étape 2 : ce que tu comptes dépenser — une ligne par ressource qui rapporte des points, la moins chère d'abord. Tape la quantité ; les points d'événement et les points KvK se mettent à jour au fur et à mesure.",
+      kc06: "Étape 3 : récompenses de palier — le palier depuis ton écran de jeu, puis chaque récompense et sa quantité ; une carte passe au vert quand ton score l'atteint. + Ajouter une récompense ajoute une ligne, × la supprime.",
+      kc07: "Étape 4 : le rang attendu ajoute la récompense de classement (gemmes, accélérateurs, clés) — comptée seulement à partir de 4 000 points.",
+      kc08: "1 gemme = ? pts KvK : comment les gemmes sont valorisées — roulette + fragments, roulette seule, ou pas du tout.",
+      kc09: "Le résultat : score d'événement, points KvK perdus, valeur des récompenses et le net — vert = ça vaut le coup, rouge = tu perds des points KvK. En dessous : paliers atteints, ce que tu obtiens, et le chemin le moins cher vers le prochain palier.",
+      kc10: "Effacer cet événement réinitialise les dépenses, paliers, récompenses et rang pour cet événement seulement.",
+      kp01: "Langue, et Retour au guide KvK.",
+      kp02: "Étape 1 : Total personnel (seul le total compte) ou Poussée par jour (les objets qui rapportent sur plusieurs jours vont au jour que tu veux pousser).",
+      kp03: "Poussée par jour : le minimum de points par jour. Les jours sans objectif ne reçoivent aucun objet 'Peut utiliser' ; tout vide = réparti également.",
+      kp04: "Accélérateurs par type, en d / h / m. Va utiliser = tu les dépenserais de toute façon ; Peut utiliser = ok à dépenser pour des points. Les cases 1–5 montrent quels jours ils rapportent.",
+      kp05: "Ressources : Or véritable, Mithril, équipement, Fragments de héros, roulette, emblèmes, manuscrits, Marques de dressage, scores de charme / familier / équipement — chacun avec ses points et ses jours. Encore Va utiliser et Peut utiliser.",
+      kp06: "Troupes (Jour 4) : le niveau que tu entraînes et combien ; Promouvoir ne compte que la différence entre les niveaux.",
+      kp07: "Étape 4 : objets à score niveau par niveau — Charme du gouverneur, familiers, Équipement du gouverneur, Forge de maîtrise. Ajoute des lignes De → À × pièces ; 'Ce que j'ai' arrête de compter quand un matériau s'épuise ; → Va utiliser / → Peut utiliser écrit le score dans l'étape 2.",
+      kp08: "Le résultat : points par jour avec une barre (va utiliser / peut utiliser / objectif), si chaque jour atteint son objectif, et ce qui est resté inutilisé en 'Peut utiliser'.",
+      kp09: "Tout effacer vide chaque champ ; le mode reste.",
+      bk01: "Langue, et Retour au guide KvK ; les captures d'écran changent de langue aussi.",
+      bk02: "Choisis le poste : Premier ministre (construction / recherche / entraînement +10%) ou Conseiller noble (entraînement +50%, capacité +200). Les étapes 4–5 changent avec.",
+      bk03: "1 — sur l'écran de la ville, touche Événements, en haut à droite.",
+      bk04: "2 — l'onglet Bataille du château (l'icône de château), puis 3 — Détails à côté de Nomination.",
+      bk05: "4 — dans l'onglet Ministres, touche le poste que tu veux.",
+      bk06: "5 — choisis un créneau et touche le bouton à droite pour le réserver ; le petit bouton à côté de la date bascule heure locale ⇄ UTC. Pour annuler, rouvre la même fenêtre.",
+      bk07: "Conseils : une réservation par poste à la fois ; chaque créneau montre combien de joueurs ont déjà postulé.",
+      sq01: "Langue, et Retour aux guides.",
+      sq02: "1 — touche ton avatar (en haut à gauche), 2 — Escouade en bas, 3 — Formations dans l'Aperçu des troupes.",
+      sq03: "4 — touche les cartes de héros et choisis les héros pour cette escouade.",
+      sq04: "5 — si une QUANTITÉ de troupes a été donnée, tape le nombre exact sur chaque ligne ; si seulement un RATIO, touche le bouton de ratio en bas et entre les pourcentages.",
+      sq05: "6 — Enregistrer, choisis l'emplacement et nomme-le ; 7 — enregistre par Quantité de troupes (nombre) ou Ratio de troupes (ça s'adapte à tes troupes) ; 8 — Confirmer.",
+      sq06: "Conseils : le cadenas sur le dernier emplacement veut dire qu'il doit encore être débloqué ; Équilibré remplit les trois types à égalité ; Tout retirer vide l'emplacement.", ask: "Je te guide sur cette page ?", yes: "🐦 Montre-moi", no: "Non merci",
+      },
+    pt: {
+      bc01: "← Guias leva você de volta ao site; a caixa ao lado troca o idioma desta página.",
+      bc02: "Suas tropas: a infantaria, a cavalaria e os arqueiros que você tem. Tudo abaixo é limitado por esses números.",
+      bc03: "Suas próprias tropas no seu rally — o número que o jogo mostra, sem a Valora.",
+      bc04: "Entrando em um rally: o máximo de tropas que uma marcha pode levar (o limite da aliança para o Urso já vem preenchido).",
+      bc05: "Valora (Mestre da Caçada ao Urso): só se o número do seu rally não incluir ela — cada nível soma 3.000 à sua própria marcha no rally.",
+      bc06: "Os tamanhos usados abaixo: seu rally e cada marcha.",
+      bc07: "⚡ Divisão automática preenche todas as formações para você (ela substitui as existentes); você ainda pode arrastar depois.",
+      bc08: "Suas Filas de Marcha: quantas marchas você tem — seu rally usa uma. Vazio = as quantidades vêm dos campos abaixo.",
+      bc09: "Configuração de líder de rally do guia da Caçada ao Urso: escolha sua geração de heróis e configuração e a proporção do rally é preenchida — ou digite a sua.",
+      bc10: "Proporção do rally: infantaria : cavalaria : arqueiros para o seu rally.",
+      bc11: "Marchas de proporção fixa: quantas marchas cheias na proporção abaixo — ou 'quantas couberem'.",
+      bc12: "A proporção das marchas de proporção fixa (padrão 10 : 10 : 80).",
+      bc13: "Marchas com herói: marchas cheias com a mesma mistura do que sobrar.",
+      bc14: "Marchas sem herói: marchas idênticas que dividem todo o resto.",
+      bc15: "Cada marcha seguinte mantém pelo menos esta % de cada tipo, para nenhuma marcha sair sem arqueiros.",
+      bc16: "⚡ Divisão automática agora monta as formações. O texto abaixo diz quantas marchas cheias cabem e qual tipo acaba primeiro.",
+      bc17: "Usado / restante por tipo de tropa, sempre à vista — fica vermelho se você atribuir mais do que tem.",
+      bc18: "Um cartão por formação: 👑 Rally primeiro, depois Marcha 2, 3… Arraste um controle ou digite uma % por tipo; ele para quando a formação está cheia ou aquele tipo acaba. ✕ remove uma marcha.",
+      bc19: "+ Adicionar marcha adiciona uma vazia.",
+      bc20: "📋 Copiar coloca um resumo de uma linha por formação na sua área de transferência, pronto para o chat.",
+      bc21: "Como funciona: as regras em cinco linhas.",
+      kc01: "中文 / EN trocam o idioma.",
+      kc02: "Passo 1: escolha o evento — Projeto de Oficial A / B, Competição de Armamento 1 / 2, Governador Mais Forte, Briga de Alianças. Proporção = pontos de KvK perdidos por ponto de evento; quanto menor, mais barato.",
+      kc03: "Para Governador Mais Forte e Briga de Alianças, escolha também o dia — cada dia tem seus próprios pontos, limites e recompensas.",
+      kc04: "O nível do seu Centro da Cidade escolhe os limites e as quantidades de recompensa certos.",
+      kc05: "Passo 2: o que você planeja gastar — uma linha por recurso que pontua, do mais barato para o mais caro. Digite a quantidade; os pontos de evento e os pontos de KvK atualizam conforme você digita.",
+      kc06: "Passo 3: recompensas por marco — o limite da sua tela do jogo, depois cada recompensa e sua quantidade; um cartão fica verde quando sua pontuação chega lá. + Adicionar recompensa adiciona uma linha, × remove.",
+      kc07: "Passo 4: a classificação esperada adiciona a recompensa de ranking (gemas, aceleradores, chaves) — só conta a partir de 4.000 pontos.",
+      kc08: "1 gema = ? pts de KvK: como as gemas são avaliadas — roleta + fragmentos, só roleta, ou nada.",
+      kc09: "O resultado: pontuação do evento, pontos de KvK perdidos, valor das recompensas e o saldo — verde = vale a pena, vermelho = você perde pontos de KvK. Abaixo: marcos alcançados, o que você ganha e o caminho mais barato até o próximo marco.",
+      kc10: "Limpar este evento zera gastos, limites, recompensas e classificação só deste evento.",
+      kp01: "Idioma, e Voltar ao guia de KvK.",
+      kp02: "Passo 1: Total pessoal (só o total importa) ou Empurrão diário (itens que pontuam em vários dias vão para o dia que você quer empurrar).",
+      kp03: "Empurrão diário: o mínimo de pontos por dia. Dias sem meta não recebem itens de 'Posso usar'; todos vazios = distribuição igual.",
+      kp04: "Aceleradores por tipo, em d / h / m. Vou usar = você gastaria de qualquer jeito; Posso usar = tudo bem gastar por pontos. As caixas 1–5 mostram em quais dias eles pontuam.",
+      kp05: "Recursos: Ouro Verdadeiro, Mithril, equipamento, fragmentos de herói, roleta, emblemas, manuscritos, marcas de domesticação, pontuações de encanto / pet / equipamento — cada um com seus pontos e dias. Vou usar e Posso usar de novo.",
+      kp06: "Tropas (Dia 4): o nível que você treina e quantas; Promover só pontua a diferença entre os níveis.",
+      kp07: "Passo 4: itens pontuados nível por nível — Encanto do Governador, pets, Equipamento do Governador, Forja de Maestria. Adicione linhas De → Para × peças; 'O que eu tenho' para de contar quando um material acaba; → Vou usar / → Posso usar escreve a pontuação no passo 2.",
+      kp08: "O resultado: pontos por dia com uma barra (vou usar / posso usar / meta), se cada dia atinge a meta, e o que de 'Posso usar' ficou sem uso.",
+      kp09: "Limpar tudo esvazia todos os campos; o modo fica.",
+      bk01: "Idioma, e Voltar ao guia de KvK; as capturas de tela também mudam de idioma.",
+      bk02: "Escolha a posição: Primeiro-Ministro (construção / pesquisa / treino +10%) ou Conselheiro Nobre (treino +50%, capacidade +200). Os passos 4–5 mudam conforme a escolha.",
+      bk03: "1 — na tela da cidade, toque em Eventos, no canto superior direito.",
+      bk04: "2 — a aba Batalha do Castelo (o ícone do castelo), depois 3 — Detalhes ao lado de Nomeação.",
+      bk05: "4 — na aba Ministros, toque na posição que você quer.",
+      bk06: "5 — escolha um horário e toque no botão à direita para reservar; o botãozinho ao lado da data alterna horário local ⇄ UTC. Para cancelar, abra a mesma janela de novo.",
+      bk07: "Dicas: uma reserva por posição de cada vez; cada horário mostra quantos jogadores já se candidataram.",
+      sq01: "Idioma, e Voltar aos guias.",
+      sq02: "1 — toque no seu avatar (canto superior esquerdo), 2 — Esquadrão na parte de baixo, 3 — Formações em Prévia de Tropas.",
+      sq03: "4 — toque nos cartões de herói e escolha os heróis deste esquadrão.",
+      sq04: "5 — se foi dada uma QUANTIDADE de tropas, digite o número exato em cada linha; se foi só uma PROPORÇÃO, toque no botão de proporção na parte de baixo e insira as porcentagens.",
+      sq05: "6 — Salvar, escolha o espaço e dê um nome; 7 — salve por Quantidade de Tropas (número) ou Proporção de Tropas (ela acompanha suas tropas); 8 — Confirmar.",
+      sq06: "Dicas: o cadeado no último espaço significa que ele ainda precisa ser desbloqueado; Igualar preenche os três tipos por igual; Retirar tudo esvazia o espaço.", ask: "Quer que eu te guie nesta página?", yes: "🐦 Me mostra", no: "Não, obrigado",
+      },
+    es: {
+      bc01: "← Guías te lleva de vuelta al sitio; la casilla de al lado cambia el idioma de esta página.",
+      bc02: "Tus tropas: la infantería, la caballería y los arqueros que tienes. Todo lo de abajo está limitado por estos números.",
+      bc03: "Tus propias tropas en tu rally — el número que muestra el juego, sin Valora.",
+      bc04: "Al unirte a un rally: el máximo de tropas que puede llevar una marcha (el límite de la alianza para el Oso ya viene puesto).",
+      bc05: "Valora (Maestra de la Caza del Oso): solo si el número de tu rally no la incluye — cada nivel suma 3,000 a tu propia marcha en el rally.",
+      bc06: "Los tamaños que se usan abajo: tu rally y cada marcha.",
+      bc07: "⚡ División automática rellena todas las formaciones por ti (las reemplaza); después puedes seguir arrastrando.",
+      bc08: "Tus Colas de Marcha: cuántas marchas tienes — tu rally usa una. Vacío = las cantidades salen de los campos de abajo.",
+      bc09: "Configuración de líder de rally de la guía de la Caza del Oso: elige tu generación de héroes y configuración y la proporción del rally se rellena — o escribe la tuya.",
+      bc10: "Proporción del rally: infantería : caballería : arqueros para tu rally.",
+      bc11: "Marchas de proporción fija: cuántas marchas completas con la proporción de abajo — o 'todas las que quepan'.",
+      bc12: "La proporción de las marchas de proporción fija (por defecto 10 : 10 : 80).",
+      bc13: "Marchas con héroe: marchas completas con la misma mezcla que lo que quede.",
+      bc14: "Marchas sin héroe: marchas idénticas que se reparten todo lo demás.",
+      bc15: "Cada marcha siguiente conserva al menos este % de cada tipo, para que ninguna marcha salga sin arqueros.",
+      bc16: "⚡ División automática ahora arma las formaciones. El texto de abajo dice cuántas marchas completas caben y qué tipo se acaba primero.",
+      bc17: "Usado / restante por tipo de tropa, siempre a la vista — se pone rojo si asignas más de lo que tienes.",
+      bc18: "Una tarjeta por formación: 👑 Rally primero, luego Marcha 2, 3… Arrastra un control o escribe un % por tipo; se detiene cuando la formación está llena o ese tipo se acaba. ✕ elimina una marcha.",
+      bc19: "+ Agregar marcha añade una vacía.",
+      bc20: "📋 Copiar pone en tu portapapeles un resumen de una línea por formación, listo para el chat.",
+      bc21: "Cómo funciona: las reglas en cinco líneas.",
+      kc01: "中文 / EN cambian el idioma.",
+      kc02: "Paso 1: elige el evento — Proyecto de Oficial A / B, Competencia de Armamento 1 / 2, Gobernador Más Fuerte, Reyerta de Alianzas. Proporción = puntos de KvK perdidos por punto de evento; más bajo es más barato.",
+      kc03: "Para Gobernador Más Fuerte y Reyerta de Alianzas elige también el día — cada día tiene sus propios puntos, umbrales y recompensas.",
+      kc04: "El nivel de tu Centro de la Ciudad elige los umbrales y las cantidades de recompensa correctos.",
+      kc05: "Paso 2: lo que planeas gastar — una fila por recurso que da puntos, del más barato al más caro. Escribe la cantidad; los puntos de evento y los puntos de KvK se actualizan mientras escribes.",
+      kc06: "Paso 3: recompensas por hito — el umbral de tu pantalla del juego, luego cada recompensa y su cantidad; una tarjeta se pone verde cuando tu puntaje lo alcanza. + Agregar recompensa añade una fila, × la elimina.",
+      kc07: "Paso 4: el rango esperado añade la recompensa de clasificación (gemas, aceleradores, llaves) — solo cuenta a partir de 4,000 puntos.",
+      kc08: "1 gema = ? pts de KvK: cómo se valoran las gemas — ruleta + fragmentos, solo ruleta, o nada.",
+      kc09: "El resultado: puntaje del evento, puntos de KvK perdidos, valor de las recompensas y el neto — verde = vale la pena, rojo = pierdes puntos de KvK. Abajo: hitos alcanzados, lo que recibes y el camino más barato al siguiente hito.",
+      kc10: "Borrar este evento reinicia gasto, umbrales, recompensas y rango solo de este evento.",
+      kp01: "Idioma, y Volver a la guía de KvK.",
+      kp02: "Paso 1: Total personal (solo importa el total) o Empuje diario (los ítems que dan puntos en varios días van al día que quieres empujar).",
+      kp03: "Empuje diario: los puntos mínimos por día. Los días sin meta no reciben ítems de 'Puedo usar'; todos vacíos = reparto parejo.",
+      kp04: "Aceleradores por tipo, en d / h / m. Voy a usar = los gastarías de todos modos; Puedo usar = está bien gastarlos por puntos. Las casillas 1–5 muestran en qué días dan puntos.",
+      kp05: "Recursos: Oro Verdadero, Mithril, equipo, fragmentos de héroe, ruleta, emblemas, manuscritos, marcas de doma, puntajes de encanto / mascota / equipo — cada uno con sus puntos y días. Voy a usar y Puedo usar otra vez.",
+      kp06: "Tropas (Día 4): el nivel que entrenas y cuántas; Promover solo da puntos por la diferencia entre niveles.",
+      kp07: "Paso 4: ítems que puntúan nivel por nivel — Encanto del Gobernador, mascotas, Equipo del Gobernador, Forja de Maestría. Agrega filas De → A × piezas; 'Lo que tengo' deja de contar cuando se acaba un material; → Voy a usar / → Puedo usar escribe el puntaje en el paso 2.",
+      kp08: "El resultado: puntos por día con una barra (voy a usar / puedo usar / meta), si cada día alcanza su meta, y qué de 'Puedo usar' quedó sin usar.",
+      kp09: "Borrar todo vacía todos los campos; el modo se mantiene.",
+      bk01: "Idioma, y Volver a la guía de KvK; las capturas de pantalla también cambian de idioma.",
+      bk02: "Elige la posición: Primer Ministro (construcción / investigación / entrenamiento +10%) o Consejero Noble (entrenamiento +50%, capacidad +200). Los pasos 4–5 cambian según la elección.",
+      bk03: "1 — en la pantalla de la ciudad toca Eventos, arriba a la derecha.",
+      bk04: "2 — la pestaña Batalla del Castillo (el ícono del castillo), luego 3 — Detalles junto a Nombramiento.",
+      bk05: "4 — en la pestaña Ministros, toca la posición que quieres.",
+      bk06: "5 — elige un turno y toca el botón de la derecha para reservarlo; el botoncito junto a la fecha alterna hora local ⇄ UTC. Para cancelar, abre la misma ventana otra vez.",
+      bk07: "Consejos: una reserva por posición a la vez; cada turno muestra cuántos jugadores ya se postularon.",
+      sq01: "Idioma, y Volver a las guías.",
+      sq02: "1 — toca tu avatar (arriba a la izquierda), 2 — Escuadrón abajo, 3 — Formaciones en Vista previa de Tropas.",
+      sq03: "4 — toca las tarjetas de héroe y elige los héroes de este escuadrón.",
+      sq04: "5 — si te dieron una CANTIDAD de tropas, escribe el número exacto en cada fila; si solo una PROPORCIÓN, toca el botón de proporción de abajo e ingresa los porcentajes.",
+      sq05: "6 — Guardar, elige la ranura y ponle nombre; 7 — guarda por Cantidad de Tropas (número) o Proporción de Tropas (se ajusta a tus tropas); 8 — Confirmar.",
+      sq06: "Consejos: el candado en la última ranura significa que todavía hay que desbloquearla; Igualar rellena los tres tipos por igual; Retirar todo vacía la ranura.", ask: "¿Te guío por esta página?", yes: "🐦 Muéstrame", no: "No, gracias",
+      },
+    tr: {
+      bc01: "← Rehberler seni siteye geri götürür; yanındaki kutu bu sayfanın dilini değiştirir.",
+      bc02: "Birliklerin: sahip olduğun piyade, süvari ve okçular. Aşağıdaki her şey bu sayılarla sınırlıdır.",
+      bc03: "Rally'ndeki kendi birliklerin — oyunun gösterdiği sayı, Valora hariç.",
+      bc04: "Rally'ye katılım: bir yürüyüşün getirebileceği en fazla birlik (ittifakın Ayı limiti hazır doldurulmuştur).",
+      bc05: "Valora (Ayı Avı Ustası): yalnızca rally sayın onu içermiyorsa — her seviye rally'deki kendi yürüyüşüne 3.000 ekler.",
+      bc06: "Aşağıda kullanılan boyutlar: rally'n ve her yürüyüş.",
+      bc07: "⚡ Otomatik böl tüm düzenleri senin yerine doldurur (var olanların yerine geçer); sonra yine sürükleyebilirsin.",
+      bc08: "Yürüyüş Kuyrukların: kaç yürüyüşün var — rally'n birini kullanır. Boş = sayılar aşağıdaki alanlardan gelir.",
+      bc09: "Ayı Avı rehberinden rally lideri kurulumu: kahraman neslini ve kurulumunu seç, rally oranı doldurulur — ya da kendininkini yaz.",
+      bc10: "Rally oranı: rally'n için piyade : süvari : okçu.",
+      bc11: "Sabit oranlı yürüyüşler: aşağıdaki oranda kaç tam yürüyüş — ya da 'sığdığı kadar'.",
+      bc12: "Sabit oranlı yürüyüşlerin oranı (varsayılan 10 : 10 : 80).",
+      bc13: "Kahramanlı yürüyüşler: kalanla aynı karışımda tam yürüyüşler.",
+      bc14: "Kahramansız yürüyüşler: geri kalan her şeyi paylaşan birbirinin aynı yürüyüşler.",
+      bc15: "Sonraki her yürüyüş her türden en az bu % kadarını tutar, böylece hiçbir yürüyüş okçusuz çıkmaz.",
+      bc16: "⚡ Otomatik böl şimdi düzenleri oluşturur. Alttaki yazı kaç tam yürüyüşün sığdığını ve hangi türün önce bittiğini söyler.",
+      bc17: "Birlik türü başına kullanılan / kalan, hep görünür — sahip olduğundan fazlasını atarsan kırmızıya döner.",
+      bc18: "Her düzen için bir kart: önce 👑 Rally, sonra Yürüyüş 2, 3… Bir kaydırıcıyı sürükle ya da tür başına % yaz; düzen dolunca ya da o tür bitince durur. ✕ bir yürüyüşü kaldırır.",
+      bc19: "+ Yürüyüş ekle boş bir tane ekler.",
+      bc20: "📋 Kopyala her düzen için tek satırlık bir özeti panona koyar, sohbete hazır.",
+      bc21: "Nasıl çalışır: kurallar beş satırda.",
+      kc01: "中文 / EN dili değiştirir.",
+      kc02: "Adım 1: etkinliği seç — Subay Projesi A / B, Silahlanma Yarışması 1 / 2, En Güçlü Vali, İttifak Kavgası. Oran = etkinlik puanı başına kaybedilen KvK puanı; düşük olan daha ucuzdur.",
+      kc03: "En Güçlü Vali ve İttifak Kavgası için günü de seç — her günün kendi puanları, eşikleri ve ödülleri vardır.",
+      kc04: "Şehir Merkezi seviyen doğru eşikleri ve ödül miktarlarını belirler.",
+      kc05: "Adım 2: harcamayı planladıkların — puan kazandıran her kaynak için bir satır, en ucuz önce. Miktarı yaz; etkinlik puanları ve KvK puanları anında güncellenir.",
+      kc06: "Adım 3: kilometre taşı ödülleri — oyun ekranındaki eşik, sonra her ödül ve miktarı; puanın eşiğe ulaşınca kart yeşile döner. + Ödül ekle bir satır ekler, × kaldırır.",
+      kc07: "Adım 4: beklenen sıralama, sıralama ödülünü ekler (mücevher, hızlandırıcılar, anahtarlar) — yalnızca 4.000 puandan itibaren sayılır.",
+      kc08: "1 mücevher = ? KvK puanı: mücevherlerin nasıl değerlendiği — rulet + parçalar, yalnızca rulet ya da hiç.",
+      kc09: "Sonuç: etkinlik puanı, kaybedilen KvK puanı, ödüllerin değeri ve net — yeşil = değer, kırmızı = KvK puanı kaybedersin. Altta: ulaşılan kilometre taşları, ne alacağın ve bir sonraki kilometre taşına en ucuz yol.",
+      kc10: "Bu etkinliği temizle yalnızca bu etkinliğin harcama, eşik, ödül ve sıralamasını sıfırlar.",
+      kp01: "Dil ve KvK rehberine dön.",
+      kp02: "Adım 1: Kişisel toplam (yalnızca toplam önemli) ya da Günlük itiş (birden fazla günde puan veren eşyalar, itmek istediğin güne gider).",
+      kp03: "Günlük itiş: gün başına en az puan. Hedefi olmayan günlere 'Kullanılabilir' eşya verilmez; hepsi boşsa = eşit dağıtılır.",
+      kp04: "Türe göre hızlandırıcılar, d / h / m olarak. Kullanacağım = zaten harcayacakların; Kullanılabilir = puan için harcanması sorun olmayanlar. 1–5 kutuları hangi günlerde puan verdiklerini gösterir.",
+      kp05: "Kaynaklar: Gerçek Altın, Mithril, ekipman, Kahraman Parçaları, rulet, amblemler, el yazmaları, Evcilleştirme İşaretleri, cazibe / evcil hayvan / ekipman puanları — her biri puanı ve günleriyle. Yine Kullanacağım ve Kullanılabilir.",
+      kp06: "Birlikler (4. Gün): eğittiğin kademe ve kaç tane; Terfi yalnızca kademeler arasındaki farkı puanlar.",
+      kp07: "Adım 4: seviye seviye puan veren eşyalar — Vali Cazibesi, evcil hayvanlar, Vali Ekipmanı, Ustalık Dövmesi. Satır ekle: Başlangıç → Bitiş × parça; 'Elimdekiler' bir malzeme bitince saymayı durdurur; → Kullanacağım / → Kullanılabilir puanı 2. adıma yazar.",
+      kp08: "Sonuç: gün başına puanlar bir çubukla (kullanacağım / kullanılabilir / hedef), her günün hedefine ulaşıp ulaşmadığı ve hangi 'Kullanılabilir' eşyaların kullanılmadan kaldığı.",
+      kp09: "Tümünü temizle her alanı boşaltır; mod kalır.",
+      bk01: "Dil ve KvK rehberine dön; ekran görüntüleri de dil değiştirir.",
+      bk02: "Makamı seç: Başbakan (inşaat / araştırma / eğitim +10%) ya da Soylu Danışman (eğitim +50%, kapasite +200). 4–5. adımlar buna göre değişir.",
+      bk03: "1 — şehir ekranında sağ üstteki Etkinlikler'e dokun.",
+      bk04: "2 — Kale Savaşı sekmesi (kale simgesi), sonra 3 — Atama'nın yanındaki Detaylar.",
+      bk05: "4 — Bakanlar sekmesinde istediğin makama dokun.",
+      bk06: "5 — bir slot seç ve rezerve etmek için sağdaki düğmeye dokun; tarihin yanındaki küçük düğme yerel saat ⇄ UTC arasında geçiş yapar. İptal için aynı pencereyi yeniden aç.",
+      bk07: "İpuçları: aynı anda makam başına bir rezervasyon; her slot kaç oyuncunun başvurduğunu gösterir.",
+      sq01: "Dil ve Rehberlere dön.",
+      sq02: "1 — avatarına dokun (sol üst), 2 — alttaki Birlik, 3 — Birlik Önizleme'de Düzenler.",
+      sq03: "4 — kahraman kartlarına dokun ve bu Birlik için kahramanları seç.",
+      sq04: "5 — bir asker SAYISI verildiyse her satıra tam sayıyı yaz; yalnızca ORAN verildiyse alttaki oran düğmesine dokun ve yüzdeleri gir.",
+      sq05: "6 — Kaydet, slotu seç ve adlandır; 7 — Asker Sayısı (sayı) ya da Asker Oranı (birliklerinle ölçeklenir) ile kaydet; 8 — Onayla.",
+      sq06: "İpuçları: son slottaki kilit, henüz açılması gerektiğini gösterir; Eşit üç türü de eşit doldurur; Tümünü geri çek slotu boşaltır.", ask: "Bu sayfayı adım adım göstereyim mi?", yes: "🐦 Göster", no: "Gerek yok",
+      },
+    id: {
+      bc01: "← Panduan membawamu kembali ke situs; kotak di sebelahnya mengganti bahasa halaman ini.",
+      bc02: "Pasukanmu: infanteri, kavaleri, dan pemanah yang kamu miliki. Semua di bawah dibatasi oleh angka-angka ini.",
+      bc03: "Pasukanmu sendiri di rally kamu — angka yang ditampilkan game, tanpa Valora.",
+      bc04: "Bergabung ke rally: pasukan terbanyak yang boleh dibawa satu pawai (batas Beruang aliansi sudah terisi).",
+      bc05: "Valora (Master Perburuan Beruang): hanya kalau angka rally kamu belum menyertakannya — tiap level menambah 3.000 ke pawaimu sendiri di rally.",
+      bc06: "Ukuran yang dipakai di bawah: rally kamu dan tiap pawai.",
+      bc07: "⚡ Bagi otomatis mengisi semua formasi untukmu (menggantikan yang ada); setelah itu kamu masih bisa menggeser.",
+      bc08: "Antrean Pawai kamu: berapa pawai yang kamu punya — rally kamu memakai satu. Kosong = jumlahnya diambil dari kolom di bawah.",
+      bc09: "Setelan pemimpin rally dari panduan Perburuan Beruang: pilih generasi hero dan setelanmu, rasio rally langsung terisi — atau ketik sendiri.",
+      bc10: "Rasio rally: infanteri : kavaleri : pemanah untuk rally kamu.",
+      bc11: "Pawai rasio tetap: berapa pawai penuh dengan rasio di bawah — atau 'sebanyak yang muat'.",
+      bc12: "Rasio pawai rasio tetap (bawaan 10 : 10 : 80).",
+      bc13: "Pawai dengan hero: pawai penuh dengan campuran yang sama seperti sisa yang ada.",
+      bc14: "Pawai tanpa hero: pawai-pawai identik yang berbagi semua sisanya.",
+      bc15: "Tiap pawai berikutnya menyimpan minimal % ini dari setiap jenis, jadi tidak ada pawai yang berangkat tanpa pemanah.",
+      bc16: "⚡ Bagi otomatis sekarang menyusun formasinya. Teks di bawah memberi tahu berapa pawai penuh yang muat dan jenis mana yang habis lebih dulu.",
+      bc17: "Terpakai / sisa per jenis pasukan, selalu terlihat — berubah merah kalau kamu menetapkan lebih dari yang kamu punya.",
+      bc18: "Satu kartu per formasi: 👑 Rally dulu, lalu Pawai 2, 3… Geser slider atau ketik % per jenis; berhenti saat formasi penuh atau jenis itu habis. ✕ menghapus sebuah pawai.",
+      bc19: "+ Tambah pawai menambahkan satu yang kosong.",
+      bc20: "📋 Salin menaruh ringkasan satu baris per formasi ke clipboard-mu, siap untuk chat.",
+      bc21: "Cara kerjanya: aturannya dalam lima baris.",
+      kc01: "中文 / EN mengganti bahasa.",
+      kc02: "Langkah 1: pilih event — Proyek Perwira A / B, Kompetisi Persenjataan 1 / 2, Gubernur Terkuat, Pertarungan Aliansi. Rasio = poin KvK yang hilang per poin event; makin rendah makin murah.",
+      kc03: "Untuk Gubernur Terkuat dan Pertarungan Aliansi pilih juga harinya — tiap hari punya poin, ambang, dan hadiahnya sendiri.",
+      kc04: "Level Pusat Kota kamu menentukan ambang dan jumlah hadiah yang tepat.",
+      kc05: "Langkah 2: apa yang kamu rencanakan untuk dipakai — satu baris per sumber daya yang memberi poin, yang termurah lebih dulu. Ketik jumlahnya; poin event dan poin KvK diperbarui langsung.",
+      kc06: "Langkah 3: hadiah milestone — ambang dari layar game kamu, lalu tiap hadiah dan jumlahnya; kartu berubah hijau saat skormu mencapainya. + Tambah hadiah menambah baris, × menghapusnya.",
+      kc07: "Langkah 4: peringkat yang diharapkan menambahkan hadiah peringkat (gem, percepatan, kunci) — hanya dihitung mulai 4.000 poin.",
+      kc08: "1 gem = ? poin KvK: cara gem dinilai — roulette + pecahan, roulette saja, atau tidak sama sekali.",
+      kc09: "Hasilnya: skor event, poin KvK yang hilang, nilai hadiah, dan netonya — hijau = sepadan, merah = kamu kehilangan poin KvK. Di bawah: milestone yang tercapai, apa yang kamu dapat, dan cara termurah ke milestone berikutnya.",
+      kc10: "Bersihkan event ini mereset pengeluaran, ambang, hadiah, dan peringkat untuk event ini saja.",
+      kp01: "Bahasa, dan Kembali ke panduan KvK.",
+      kp02: "Langkah 1: Total pribadi (hanya totalnya yang penting) atau Dorongan harian (item yang memberi poin di beberapa hari masuk ke hari yang ingin kamu dorong).",
+      kp03: "Dorongan harian: poin minimum per hari. Hari tanpa target tidak mendapat item 'Boleh dipakai'; semua kosong = dibagi rata.",
+      kp04: "Percepatan per jenis, sebagai d / h / m. Akan dipakai = kamu memang akan menghabiskannya; Boleh dipakai = tidak masalah dipakai untuk poin. Kotak 1–5 menunjukkan di hari mana saja item itu memberi poin.",
+      kp05: "Sumber daya: Emas Sejati, Mithril, perlengkapan, Pecahan Pahlawan, roulette, lambang, manuskrip, Tanda Penjinakan, skor pesona / hewan peliharaan / perlengkapan — masing-masing dengan poin dan harinya. Lagi-lagi Akan dipakai dan Boleh dipakai.",
+      kp06: "Pasukan (Hari 4): tier yang kamu latih dan berapa banyak; Promosi hanya menghitung selisih antar tier.",
+      kp07: "Langkah 4: item yang memberi poin per level — Pesona Gubernur, hewan peliharaan, Perlengkapan Gubernur, Penempaan Mahir. Tambah baris Dari → Ke × jumlah; 'Yang kumiliki' berhenti menghitung saat suatu bahan habis; → Akan dipakai / → Boleh dipakai menulis skornya ke langkah 2.",
+      kp08: "Hasilnya: poin per hari dengan bilah (akan dipakai / boleh dipakai / target), apakah tiap hari mencapai targetnya, dan 'Boleh dipakai' mana yang tersisa tak terpakai.",
+      kp09: "Bersihkan semua mengosongkan semua kolom; modenya tetap.",
+      bk01: "Bahasa, dan Kembali ke panduan KvK; tangkapan layarnya juga ikut ganti bahasa.",
+      bk02: "Pilih posisinya: Perdana Menteri (pembangunan / penelitian / pelatihan +10%) atau Penasihat Bangsawan (pelatihan +50%, kapasitas +200). Langkah 4–5 berubah mengikutinya.",
+      bk03: "1 — di layar kota ketuk Event, kanan atas.",
+      bk04: "2 — tab Pertempuran Kastil (ikon kastil), lalu 3 — Detail di sebelah Penunjukan.",
+      bk05: "4 — di tab Menteri, ketuk posisi yang kamu mau.",
+      bk06: "5 — pilih slot dan ketuk tombol di kanan untuk memesannya; tombol kecil di sebelah tanggal mengganti waktu lokal ⇄ UTC. Untuk membatalkan, buka lagi jendela yang sama.",
+      bk07: "Tips: satu pemesanan per posisi dalam satu waktu; tiap slot menunjukkan berapa pemain yang sudah mendaftar.",
+      sq01: "Bahasa, dan Kembali ke panduan.",
+      sq02: "1 — ketuk avatarmu (kiri atas), 2 — Regu di bagian bawah, 3 — Formasi di Pratinjau Pasukan.",
+      sq03: "4 — ketuk kartu hero dan pilih hero untuk Regu ini.",
+      sq04: "5 — kalau JUMLAH pasukan diberikan, ketik angka pastinya di tiap baris; kalau hanya RASIO, ketuk tombol rasio di bawah dan masukkan persentasenya.",
+      sq05: "6 — Simpan, pilih slot dan beri nama; 7 — simpan dengan Jumlah Pasukan (jumlah) atau Rasio Pasukan (menyesuaikan dengan pasukanmu); 8 — Konfirmasi.",
+      sq06: "Tips: gembok di slot terakhir berarti slot itu masih harus dibuka; Rata mengisi ketiga jenis sama banyak; Tarik semua mengosongkan slot.", ask: "Mau aku pandu halaman ini?", yes: "🐦 Tunjukkan", no: "Tidak perlu",
+      },
+    ru: {
+      bc01: "← Гайды возвращает на сайт; поле рядом переключает язык этой страницы.",
+      bc02: "Твои войска: пехота, кавалерия и лучники, которые у тебя есть. Всё ниже ограничено этими числами.",
+      bc03: "Твои собственные войска в твоём ралли — число, которое показывает игра, без Валоры.",
+      bc04: "Присоединение к ралли: максимум войск, который может взять один марш (подставлен лимит альянса на Медведя).",
+      bc05: "Валора (Мастер Охоты на медведя): только если число твоего ралли её не включает — каждый уровень добавляет 3,000 к твоему собственному маршу в ралли.",
+      bc06: "Размеры, используемые ниже: твоё ралли и каждый марш.",
+      bc07: "⚡ Авторазбивка заполняет за тебя все построения (она их заменяет); потом всё равно можно двигать ползунки.",
+      bc08: "Твои очереди марша: сколько у тебя маршей — твоё ралли занимает один. Пусто = количество берётся из полей ниже.",
+      bc09: "Настройка лидера ралли из гайда по Охоте на медведя: выбери поколение героев и сетап, и соотношение ралли подставится — или введи своё.",
+      bc10: "Соотношение ралли: пехота : кавалерия : лучники для твоего ралли.",
+      bc11: "Марши с фиксированным соотношением: сколько полных маршей с соотношением ниже — или «сколько поместится».",
+      bc12: "Соотношение маршей с фиксированным соотношением (по умолчанию 10 : 10 : 80).",
+      bc13: "Марши с героем: полные марши с той же смесью, что и всё оставшееся.",
+      bc14: "Марши без героя: одинаковые марши, которые делят между собой весь остаток.",
+      bc15: "Каждый следующий марш сохраняет хотя бы этот % каждого типа, чтобы ни один марш не ушёл без лучников.",
+      bc16: "⚡ Авторазбивка теперь строит построения. Текст ниже говорит, сколько полных маршей помещается и какой тип закончится первым.",
+      bc17: "Использовано / осталось по каждому типу войск, всегда на виду — становится красным, если назначишь больше, чем у тебя есть.",
+      bc18: "По карточке на построение: сначала 👑 Ралли, потом Марш 2, 3… Двигай ползунок или введи % для каждого типа; остановится, когда построение заполнено или этот тип закончился. ✕ удаляет марш.",
+      bc19: "+ Добавить марш добавляет пустой.",
+      bc20: "📋 Копировать кладёт в буфер обмена сводку по одной строке на построение, готовую для чата.",
+      bc21: "Как это работает: правила в пяти строках.",
+      kc01: "中文 / EN переключают язык.",
+      kc02: "Шаг 1: выбери событие — Проект офицера A / B, Соревнование вооружений 1 / 2, Сильнейший губернатор, Драка альянсов. Соотношение = очки KvK, потерянные за очко события; чем ниже, тем дешевле.",
+      kc03: "Для Сильнейшего губернатора и Драки альянсов выбери ещё и день — у каждого дня свои очки, пороги и награды.",
+      kc04: "Уровень твоей Ратуши выбирает нужные пороги и размеры наград.",
+      kc05: "Шаг 2: что ты планируешь потратить — по строке на каждый ресурс, который приносит очки, самые дешёвые первыми. Введи количество; очки события и очки KvK обновляются по ходу.",
+      kc06: "Шаг 3: награды за этапы — порог с твоего игрового экрана, затем каждая награда и её количество; карточка становится зелёной, когда твой счёт его достигает. + Добавить награду добавляет строку, × удаляет её.",
+      kc07: "Шаг 4: ожидаемое место добавляет награду за рейтинг (самоцветы, ускорения, ключи) — учитывается только от 4,000 очков.",
+      kc08: "1 самоцвет = ? очков KvK: как оцениваются самоцветы — Рулетка героев + осколки, только рулетка или никак.",
+      kc09: "Результат: счёт события, потерянные очки KvK, стоимость наград и итог — зелёный = стоит того, красный = ты теряешь очки KvK. Ниже: достигнутые этапы, что ты получишь и самый дешёвый путь к следующему этапу.",
+      kc10: "Очистить это событие сбрасывает траты, пороги, награды и место только для этого события.",
+      kp01: "Язык и Назад к гайду по KvK.",
+      kp02: "Шаг 1: Личный итог (важен только общий итог) или Дневной рывок (предметы, которые приносят очки в несколько дней, идут в тот день, который ты хочешь усилить).",
+      kp03: "Дневной рывок: минимум очков в день. Дни без цели не получают предметов «Можно использовать»; все пустые = распределяется поровну.",
+      kp04: "Ускорения по типам, в d / h / m. Использую = ты всё равно их потратишь; Можно использовать = не жалко потратить ради очков. Кнопки 1–5 показывают, в какие дни они приносят очки.",
+      kp05: "Ресурсы: Истинное золото, Мифрил, снаряжение, Осколки героя, рулетка, эмблемы, манускрипты, Знаки приручения, очки обаяния / питомца / снаряжения — у каждого свои очки и дни. Снова Использую и Можно использовать.",
+      kp06: "Войска (День 4): уровень, который ты обучаешь, и сколько; Повышение приносит только разницу между уровнями.",
+      kp07: "Шаг 4: предметы с очками по уровням — Обаяние губернатора, питомцы, Снаряжение губернатора, Мастерская ковка. Добавляй строки С → До × штук; «Что у меня есть» перестаёт считать, когда материал заканчивается; → Использую / → Можно использовать записывает очки в шаг 2.",
+      kp08: "Результат: очки по дням с полоской (использую / можно использовать / цель), достигает ли каждый день своей цели и что из «Можно использовать» осталось неиспользованным.",
+      kp09: "Очистить всё очищает все поля; режим остаётся.",
+      bk01: "Язык и Назад к гайду по KvK; скриншоты тоже меняют язык.",
+      bk02: "Выбери должность: Премьер-министр (строительство / исследование / обучение +10%) или Благородный советник (обучение +50%, вместимость +200). Шаги 4–5 меняются вместе с ней.",
+      bk03: "1 — на экране города нажми События, вверху справа.",
+      bk04: "2 — вкладка Битва за замок (иконка замка), затем 3 — Подробнее рядом с Назначением.",
+      bk05: "4 — во вкладке Министры нажми на нужную должность.",
+      bk06: "5 — выбери слот и нажми кнопку справа, чтобы забронировать; маленькая кнопка рядом с датой переключает местное время ⇄ UTC. Чтобы отменить, снова открой то же окно.",
+      bk07: "Советы: одна бронь на должность за раз; у каждого слота видно, сколько игроков уже подали заявку.",
+      sq01: "Язык и Назад к гайдам.",
+      sq02: "1 — нажми на свой аватар (вверху слева), 2 — Отряд внизу, 3 — Построения в Обзоре войск.",
+      sq03: "4 — нажми на карточки героев и выбери героев для этого отряда.",
+      sq04: "5 — если дано КОЛИЧЕСТВО войск, введи точное число в каждой строке; если только СООТНОШЕНИЕ, нажми кнопку соотношения внизу и введи проценты.",
+      sq05: "6 — Сохранить, выбери слот и назови его; 7 — сохрани по Количеству войск (число) или по Соотношению войск (оно масштабируется под твои войска); 8 — Подтвердить.",
+      sq06: "Советы: замок на последнем слоте означает, что его ещё нужно открыть; Поровну заполняет все три типа одинаково; Вывести всех очищает слот.", ask: "Провести тебя по этой странице?", yes: "🐦 Покажи", no: "Не нужно",
+      },
+    th: {
+      bc01: "← ไกด์ จะพาคุณกลับไปที่เว็บไซต์ ช่องข้างๆ ใช้เปลี่ยนภาษาของหน้านี้",
+      bc02: "ทหารของคุณ: ทหารราบ ทหารม้า และพลธนูที่คุณมี ทุกอย่างด้านล่างถูกจำกัดด้วยตัวเลขเหล่านี้",
+      bc03: "ทหารของคุณเองในรวมพลของคุณ — ตัวเลขที่เกมแสดง ไม่รวม วาโลร่า",
+      bc04: "การเข้าร่วมรวมพล: จำนวนทหารสูงสุดที่หนึ่งเดินทัพพาไปได้ (ใส่ลิมิต หมี ของพันธมิตรให้แล้ว)",
+      bc05: "วาโลร่า (มาสเตอร์ ล่าหมี): เฉพาะเมื่อตัวเลขรวมพลของคุณไม่รวมเธอ — แต่ละเลเวลเพิ่ม 3,000 ให้กับเดินทัพของคุณเองในรวมพล",
+      bc06: "ขนาดที่ใช้ด้านล่าง: รวมพลของคุณและแต่ละเดินทัพ",
+      bc07: "⚡ แบ่งอัตโนมัติ จะเติม รูปแบบกองทัพ ทั้งหมดให้คุณ (แทนที่ของเดิม) หลังจากนั้นยังลากปรับได้",
+      bc08: "คิวเดินทัพของคุณ: คุณมีกี่เดินทัพ — รวมพลของคุณใช้ไปหนึ่ง เว้นว่าง = จำนวนจะมาจากช่องด้านล่าง",
+      bc09: "การตั้งค่าหัวหน้ารวมพลจากไกด์ ล่าหมี: เลือกรุ่นฮีโร่และเซ็ตของคุณ แล้วอัตราส่วนรวมพลจะถูกใส่ให้ — หรือพิมพ์ของคุณเอง",
+      bc10: "อัตราส่วนรวมพล: ทหารราบ : ทหารม้า : พลธนู สำหรับรวมพลของคุณ",
+      bc11: "เดินทัพอัตราส่วนคงที่: จะมีเดินทัพเต็มกี่ชุดตามอัตราส่วนด้านล่าง — หรือ 'เท่าที่ใส่ได้'",
+      bc12: "อัตราส่วนของเดินทัพอัตราส่วนคงที่ (ค่าเริ่มต้น 10 : 10 : 80)",
+      bc13: "เดินทัพที่มีฮีโร่: เดินทัพเต็มที่มีส่วนผสมเหมือนกับที่เหลืออยู่",
+      bc14: "เดินทัพที่ไม่มีฮีโร่: เดินทัพเหมือนกันทุกชุดที่แบ่งส่วนที่เหลือทั้งหมด",
+      bc15: "เดินทัพถัดไปแต่ละชุดจะเก็บอย่างน้อย % นี้ของทุกประเภทไว้ เพื่อไม่ให้มีเดินทัพไหนออกไปโดยไม่มีพลธนู",
+      bc16: "⚡ แบ่งอัตโนมัติ จะสร้าง รูปแบบกองทัพ ตอนนี้ ข้อความด้านล่างบอกว่ามีเดินทัพเต็มกี่ชุดและประเภทไหนหมดก่อน",
+      bc17: "ใช้ไป / เหลือ ต่อประเภททหาร มองเห็นตลอด — จะเป็นสีแดงถ้าคุณจัดเกินกว่าที่มี",
+      bc18: "หนึ่งการ์ดต่อหนึ่ง รูปแบบกองทัพ: 👑 รวมพล ก่อน แล้ว เดินทัพ 2, 3… ลากสไลเดอร์หรือพิมพ์ % ต่อประเภท จะหยุดเมื่อรูปแบบเต็มหรือประเภทนั้นหมด ✕ จะลบเดินทัพ",
+      bc19: "+ เพิ่มเดินทัพ จะเพิ่มอันว่างหนึ่งอัน",
+      bc20: "📋 คัดลอก จะวางสรุปแบบหนึ่งบรรทัดต่อหนึ่งรูปแบบลงคลิปบอร์ดของคุณ พร้อมส่งในแชท",
+      bc21: "วิธีทำงาน: กฎในห้าบรรทัด",
+      kc01: "中文 / EN เปลี่ยนภาษา",
+      kc02: "ขั้นที่ 1: เลือกกิจกรรม — โครงการนายทหาร A / B, การแข่งขันยุทโธปกรณ์ 1 / 2, ผู้ว่าที่แข็งแกร่งที่สุด, ศึกพันธมิตร อัตราส่วน = แต้ม KvK ที่เสียต่อหนึ่งแต้มกิจกรรม ยิ่งต่ำยิ่งถูก",
+      kc03: "สำหรับ ผู้ว่าที่แข็งแกร่งที่สุด และ ศึกพันธมิตร ให้เลือกวันด้วย — แต่ละวันมีแต้ม เกณฑ์ และรางวัลของตัวเอง",
+      kc04: "เลเวล ศูนย์กลางเมือง ของคุณจะเลือกเกณฑ์และจำนวนรางวัลที่ถูกต้อง",
+      kc05: "ขั้นที่ 2: สิ่งที่คุณวางแผนจะใช้ — หนึ่งแถวต่อทรัพยากรที่ให้แต้ม เรียงจากถูกสุดก่อน พิมพ์จำนวน แต้มกิจกรรมและแต้ม KvK จะอัปเดตไปเรื่อยๆ",
+      kc06: "ขั้นที่ 3: รางวัลตามเป้าหมาย — เกณฑ์จากหน้าจอเกมของคุณ ตามด้วยแต่ละรางวัลและจำนวน การ์ดจะเป็นสีเขียวเมื่อคะแนนของคุณถึง + เพิ่มรางวัล เพิ่มแถว × ลบออก",
+      kc07: "ขั้นที่ 4: อันดับที่คาดไว้จะเพิ่มรางวัลจัดอันดับ (เพชร ตัวเร่ง กุญแจ) — นับตั้งแต่ 4,000 แต้มขึ้นไปเท่านั้น",
+      kc08: "1 เพชร = ? แต้ม KvK: วิธีตีค่าเพชร — รูเล็ต + เศษ, รูเล็ตอย่างเดียว หรือไม่นับเลย",
+      kc09: "ผลลัพธ์: คะแนนกิจกรรม แต้ม KvK ที่เสีย มูลค่ารางวัล และสุทธิ — สีเขียว = คุ้ม สีแดง = คุณเสียแต้ม KvK ด้านล่าง: เป้าหมายที่ถึงแล้ว สิ่งที่คุณได้ และทางที่ถูกที่สุดไปยังเป้าหมายถัดไป",
+      kc10: "ล้างกิจกรรมนี้ จะรีเซ็ตการใช้ เกณฑ์ รางวัล และอันดับของกิจกรรมนี้เท่านั้น",
+      kp01: "ภาษา และ กลับไปไกด์ KvK",
+      kp02: "ขั้นที่ 1: ยอดรวมส่วนตัว (สนใจแค่ยอดรวม) หรือ ดันรายวัน (ไอเทมที่ให้แต้มหลายวันจะไปอยู่วันที่คุณอยากดัน)",
+      kp03: "ดันรายวัน: แต้มขั้นต่ำต่อวัน วันที่ไม่มีเป้าหมายจะไม่ได้ไอเทม 'ใช้ได้' ว่างทั้งหมด = กระจายเท่าๆ กัน",
+      kp04: "ตัวเร่ง ตามประเภท เป็น d / h / m จะใช้ = คุณจะใช้อยู่แล้ว ใช้ได้ = ใช้เพื่อแต้มก็ได้ กล่อง 1–5 แสดงว่าให้แต้มวันไหน",
+      kp05: "ทรัพยากร: ทองแท้, มิธริล, อุปกรณ์, เศษฮีโร่, รูเล็ต, ตราสัญลักษณ์, ตำรา, ตราฝึกสัตว์, คะแนนเสน่ห์ / สัตว์เลี้ยง / อุปกรณ์ — แต่ละอย่างมีแต้มและวันของมัน จะใช้ และ ใช้ได้ อีกเช่นกัน",
+      kp06: "ทหาร (วันที่ 4): เทียร์ที่คุณฝึกและจำนวน เลื่อนขั้น ให้แต้มเฉพาะส่วนต่างระหว่างเทียร์",
+      kp07: "ขั้นที่ 4: ไอเทมที่ให้แต้มเป็นเลเวล — เสน่ห์ผู้ว่า, สัตว์เลี้ยง, อุปกรณ์ผู้ว่า, การตีเหล็กชำนาญ เพิ่มแถว จาก → ถึง × ชิ้น 'ที่ฉันมี' จะหยุดนับเมื่อวัสดุหมด → จะใช้ / → ใช้ได้ จะเขียนคะแนนลงในขั้นที่ 2",
+      kp08: "ผลลัพธ์: แต้มต่อวันพร้อมแถบ (จะใช้ / ใช้ได้ / เป้าหมาย) แต่ละวันถึงเป้าหมายหรือไม่ และ 'ใช้ได้' ส่วนไหนที่ยังไม่ได้ใช้",
+      kp09: "ล้างทั้งหมด จะล้างทุกช่อง โหมดยังคงอยู่",
+      bk01: "ภาษา และ กลับไปไกด์ KvK สกรีนช็อตจะเปลี่ยนภาษาด้วย",
+      bk02: "เลือกตำแหน่ง: อัครมหาเสนาบดี (ก่อสร้าง / วิจัย / ฝึกทหาร +10%) หรือ ที่ปรึกษาผู้สูงศักดิ์ (ฝึกทหาร +50%, ความจุ +200) ขั้นที่ 4–5 จะเปลี่ยนตามไปด้วย",
+      bk03: "1 — บนหน้าจอเมือง แตะ กิจกรรม ที่มุมขวาบน",
+      bk04: "2 — แท็บ ศึกปราสาท (ไอคอนปราสาท) แล้ว 3 — รายละเอียด ข้าง การแต่งตั้ง",
+      bk05: "4 — ในแท็บ เสนาบดี แตะตำแหน่งที่คุณต้องการ",
+      bk06: "5 — เลือกสล็อตแล้วแตะปุ่มด้านขวาเพื่อจอง ปุ่มเล็กข้างวันที่ใช้สลับเวลาท้องถิ่น ⇄ UTC หากจะยกเลิก ให้เปิดหน้าต่างเดิมอีกครั้ง",
+      bk07: "เคล็ดลับ: จองได้ตำแหน่งละหนึ่งครั้งในแต่ละช่วง แต่ละสล็อตแสดงว่ามีผู้เล่นสมัครไปแล้วกี่คน",
+      sq01: "ภาษา และ กลับไปไกด์",
+      sq02: "1 — แตะอวาตาร์ของคุณ (มุมซ้ายบน) 2 — หน่วยรบ ที่ด้านล่าง 3 — รูปแบบกองทัพ ใน ตัวอย่างทหาร",
+      sq03: "4 — แตะการ์ดฮีโร่แล้วเลือกฮีโร่สำหรับ หน่วยรบ นี้",
+      sq04: "5 — ถ้ากำหนด จำนวน ทหารมา ให้พิมพ์ตัวเลขที่แน่นอนในแต่ละแถว ถ้ากำหนดแค่ อัตราส่วน ให้แตะปุ่มอัตราส่วนด้านล่างแล้วใส่เปอร์เซ็นต์",
+      sq05: "6 — บันทึก เลือกสล็อตแล้วตั้งชื่อ 7 — บันทึกแบบ จำนวนทหาร (จำนวน) หรือ อัตราส่วนทหาร (ปรับตามทหารของคุณ) 8 — ยืนยัน",
+      sq06: "เคล็ดลับ: กุญแจล็อกที่สล็อตสุดท้ายหมายความว่ายังต้องปลดล็อกก่อน เท่ากัน จะเติมทั้งสามประเภทเท่าๆ กัน ถอนทั้งหมด จะล้างสล็อต", ask: "ให้ฉันพาดูหน้านี้ไหม?", yes: "🐦 พาดูหน่อย", no: "ไม่เป็นไร",
+      },
+    ar: {
+      bc01: "← الأدلة يعيدك إلى الموقع؛ والمربع المجاور له يبدّل لغة هذه الصفحة.",
+      bc02: "قواتك: المشاة والفرسان والرماة الذين تملكهم. كل ما تحته محدود بهذه الأرقام.",
+      bc03: "قواتك أنت في حشدك — الرقم الذي تعرضه اللعبة، من دون فالورا.",
+      bc04: "الانضمام إلى حشد: أكبر عدد من القوات يمكن أن تحمله مسيرة واحدة (حد الدب الخاص بالتحالف مملوء مسبقًا).",
+      bc05: "فالورا (خبيرة صيد الدب): فقط إذا كان رقم حشدك لا يشملها — كل مستوى يضيف 3,000 إلى مسيرتك أنت في الحشد.",
+      bc06: "الأحجام المستخدمة أدناه: حشدك وكل مسيرة.",
+      bc07: "⚡ تقسيم تلقائي يملأ كل التشكيلات لك (ويستبدلها)؛ ويمكنك السحب بعدها.",
+      bc08: "طوابير المسيرة لديك: عدد المسيرات التي تملكها — حشدك يستخدم واحدة. فارغ = تؤخذ الأعداد من الحقول أدناه.",
+      bc09: "إعداد قائد الحشد من دليل صيد الدب: اختر جيل أبطالك وإعدادك فتُملأ نسبة الحشد — أو اكتب نسبتك.",
+      bc10: "نسبة الحشد: المشاة : الفرسان : الرماة لحشدك.",
+      bc11: "مسيرات بنسبة ثابتة: عدد المسيرات الكاملة بالنسبة أدناه — أو 'بقدر ما يتسع'.",
+      bc12: "نسبة المسيرات ذات النسبة الثابتة (الافتراضي 10 : 10 : 80).",
+      bc13: "مسيرات مع بطل: مسيرات كاملة بالمزيج نفسه لما تبقى.",
+      bc14: "مسيرات من دون بطل: مسيرات متطابقة تتقاسم كل ما تبقى.",
+      bc15: "كل مسيرة لاحقة تحتفظ بهذه الـ % على الأقل من كل نوع، حتى لا تخرج أي مسيرة من دون رماة.",
+      bc16: "⚡ تقسيم تلقائي يبني التشكيلات الآن. النص أدناه يخبرك كم مسيرة كاملة تتسع وأي نوع ينفد أولًا.",
+      bc17: "المستخدم / المتبقي لكل نوع قوات، ظاهر دائمًا — يتحوّل إلى الأحمر إذا خصصت أكثر مما تملك.",
+      bc18: "بطاقة لكل تشكيل: 👑 الحشد أولًا، ثم المسيرة 2، 3… اسحب شريطًا أو اكتب % لكل نوع؛ يتوقف عندما يمتلئ التشكيل أو ينفد ذلك النوع. ✕ يحذف مسيرة.",
+      bc19: "+ إضافة مسيرة يضيف مسيرة فارغة.",
+      bc20: "📋 نسخ يضع ملخصًا بسطر لكل تشكيل في حافظتك، جاهزًا للدردشة.",
+      bc21: "كيف يعمل: القواعد في خمسة أسطر.",
+      kc01: "中文 / EN يبدّلان اللغة.",
+      kc02: "الخطوة 1: اختر الحدث — مشروع الضابط A / B، مسابقة التسلح 1 / 2، أقوى حاكم، شجار التحالفات. النسبة = نقاط KvK المفقودة لكل نقطة حدث؛ الأقل أرخص.",
+      kc03: "لأقوى حاكم وشجار التحالفات اختر اليوم أيضًا — لكل يوم نقاطه وعتباته ومكافآته.",
+      kc04: "مستوى مركز المدينة لديك يحدد العتبات وكميات المكافآت الصحيحة.",
+      kc05: "الخطوة 2: ما تخطط لإنفاقه — صف لكل مورد يمنح نقاطًا، الأرخص أولًا. اكتب الكمية؛ فتتحدث نقاط الحدث ونقاط KvK أثناء الكتابة.",
+      kc06: "الخطوة 3: مكافآت المراحل — العتبة من شاشة لعبتك، ثم كل مكافأة وكميتها؛ تتحوّل البطاقة إلى الأخضر عندما تبلغها نقاطك. + إضافة مكافأة يضيف صفًا، × يحذفه.",
+      kc07: "الخطوة 4: المركز المتوقع يضيف مكافأة الترتيب (الجواهر، التسريعات، المفاتيح) — ولا تُحتسب إلا من 4,000 نقطة.",
+      kc08: "1 جوهرة = ? نقطة KvK: كيف تُقدَّر قيمة الجواهر — روليت الأبطال + الشظايا، أو الروليت فقط، أو لا تُحتسب.",
+      kc09: "النتيجة: نقاط الحدث، نقاط KvK المفقودة، قيمة المكافآت والصافي — أخضر = يستحق، أحمر = تخسر نقاط KvK. وتحتها: المراحل المحققة، وما تحصل عليه، وأرخص طريق إلى المرحلة التالية.",
+      kc10: "مسح هذا الحدث يعيد ضبط الإنفاق والعتبات والمكافآت والمركز لهذا الحدث فقط.",
+      kp01: "اللغة، والعودة إلى دليل KvK.",
+      kp02: "الخطوة 1: المجموع الشخصي (المجموع وحده هو المهم) أو دفعة يومية (العناصر التي تمنح نقاطًا في عدة أيام تذهب إلى اليوم الذي تريد دفعه).",
+      kp03: "دفعة يومية: الحد الأدنى من النقاط في اليوم. الأيام بلا هدف لا تحصل على عناصر 'يمكن استخدامه'؛ وكلها فارغة = توزيع بالتساوي.",
+      kp04: "التسريعات حسب النوع، بصيغة d / h / m. سأستخدمه = ستنفقه على أي حال؛ يمكن استخدامه = لا بأس بإنفاقه من أجل النقاط. المربعات 1–5 تبيّن في أي الأيام يمنح نقاطًا.",
+      kp05: "الموارد: الذهب الحقيقي، الميثريل، العتاد، شظايا الأبطال، الروليت، الشعارات، المخطوطات، علامات الترويض، نقاط السحر / الحيوان الأليف / العتاد — لكل منها نقاطه وأيامه. ومرة أخرى سأستخدمه ويمكن استخدامه.",
+      kp06: "القوات (اليوم 4): الدرجة التي تدربها وعددها؛ الترقية لا تمنح إلا الفرق بين الدرجتين.",
+      kp07: "الخطوة 4: عناصر تمنح نقاطًا مستوى بمستوى — سحر الحاكم، الحيوانات الأليفة، عتاد الحاكم، صياغة الإتقان. أضف صفوفًا من → إلى × قطعة؛ 'ما أملكه' يتوقف عن الحساب عندما ينفد أحد المواد؛ → سأستخدمه / → يمكن استخدامه يكتب النقاط في الخطوة 2.",
+      kp08: "النتيجة: النقاط لكل يوم مع شريط (سأستخدمه / يمكن استخدامه / الهدف)، وهل يبلغ كل يوم هدفه، وما تبقى من 'يمكن استخدامه' من دون استخدام.",
+      kp09: "مسح الكل يفرغ كل الحقول؛ ويبقى الوضع كما هو.",
+      bk01: "اللغة، والعودة إلى دليل KvK؛ ولقطات الشاشة تغيّر لغتها أيضًا.",
+      bk02: "اختر المنصب: رئيس الوزراء (البناء / البحث / التدريب +10%) أو المستشار النبيل (التدريب +50%، السعة +200). الخطوتان 4–5 تتغيران معه.",
+      bk03: "1 — في شاشة المدينة اضغط الأحداث، أعلى اليمين.",
+      bk04: "2 — تبويب معركة القلعة (أيقونة القلعة)، ثم 3 — التفاصيل بجانب التعيين.",
+      bk05: "4 — في تبويب الوزراء، اضغط على المنصب الذي تريده.",
+      bk06: "5 — اختر فترة واضغط الزر على اليمين لحجزها؛ الزر الصغير بجانب التاريخ يبدّل التوقيت المحلي ⇄ UTC. للإلغاء، افتح النافذة نفسها مرة أخرى.",
+      bk07: "نصائح: حجز واحد لكل منصب في المرة الواحدة؛ وكل فترة تعرض عدد اللاعبين الذين تقدموا بالفعل.",
+      sq01: "اللغة، والعودة إلى الأدلة.",
+      sq02: "1 — اضغط على صورتك الرمزية (أعلى اليسار)، 2 — الفرقة في الأسفل، 3 — التشكيلات في معاينة القوات.",
+      sq03: "4 — اضغط على بطاقات الأبطال واختر أبطال هذه الفرقة.",
+      sq04: "5 — إذا أُعطيت كمية للقوات، اكتب العدد الدقيق في كل صف؛ وإذا أُعطيت نسبة فقط، اضغط زر النسبة في الأسفل وأدخل النسب المئوية.",
+      sq05: "6 — حفظ، اختر الخانة وسمّها؛ 7 — احفظ حسب كمية القوات (العدد) أو نسبة القوات (تتناسب مع قواتك)؛ 8 — تأكيد.",
+      sq06: "نصائح: القفل على الخانة الأخيرة يعني أنها لم تُفتح بعد؛ بالتساوي يملأ الأنواع الثلاثة بالتساوي؛ سحب الكل يفرغ الخانة.", ask: "هل أرافقك في هذه الصفحة؟", yes: "🐦 أرني", no: "لا شكرًا",
+      },
   };
   const tl = (k) => (TOOL[lang()] || TOOL.en)[k] || TOOL.en[k];
   const TOOL_STEPS = {
-    "bear-calculator": [["#bt_hTroops", "bear1"], ["#bt_hVal", "bear2"], ["#bt_hAuto", "bear3"], ["#bt_forms", "bear4"], ["#bt_hHow", "bear5"]],
-    "kvk-calculator": [["#events", "kcalc1"], ["#spend", "kcalc2"], ["#ms", "kcalc3"], ["#rank", "kcalc4"]],
-    "kvk-optimizer": [["#modes", "kopt1"], ["#targets", "kopt2"], ["#troops", "kopt3"], ["#lv", "kopt4"]],
-    "booking-guide": [["#tabs", "book1"], ["#steps", "book2"], ["#tip", "book3"]],
-    "squad-guide": [["#steps", "squad1"], ["#tip", "squad2"]],
-  };
-  async function runToolTour() {
+    "bear-calculator": [{ s: "#bc_home", k: "bc01" }, { s: ".bt-grid", k: "bc02" }, { s: "#bt_rally", k: "bc03" }, { s: "#bt_join", k: "bc04" }, { s: "#bt_savage", k: "bc05" }, { s: "#bt_eff", k: "bc06" },
+      { s: "#bt_hAuto", k: "bc07", pre: () => { const d = Q("#bt_autoBox"); if (d) d.open = true; } }, { s: "#bt_tot", k: "bc08" }, { s: "#bt_preGen", k: "bc09" }, { s: "#bt_r0", k: "bc10" }, { s: "#bt_fixN", k: "bc11" }, { s: "#bt_m0", k: "bc12" }, { s: "#bt_hero", k: "bc13" }, { s: "#bt_rest", k: "bc14" }, { s: "#bt_min", k: "bc15" }, { s: "#bt_run", k: "bc16" },
+      { s: "#bt_use", k: "bc17" }, { s: "#bt_forms .bt-f", k: "bc18" }, { s: "#bt_add", k: "bc19" }, { s: "#bt_copy", k: "bc20" }, { s: "#bt_hHow", k: "bc21" }],
+    "kvk-calculator": [{ s: "header .lang", k: "kc01" }, { s: "#events", k: "kc02" }, { s: "#days", k: "kc03" }, { s: "#tcg", k: "kc04" }, { s: "#spend", k: "kc05" }, { s: "#ms", k: "kc06" }, { s: "#rank", k: "kc07" }, { s: "#gemrate", k: "kc08" }, { s: "#verdict", k: "kc09" }, { s: "#reset", k: "kc10" }],
+    "kvk-optimizer": [{ s: "header .hdr-r", k: "kp01" }, { s: "#modes", k: "kp02" }, { s: "#targets", k: "kp03" }, { s: "#speed", k: "kp04" }, { s: "#res", k: "kp05" }, { s: "#troops", k: "kp06" }, { s: "#lv", k: "kp07" }, { s: "#verdict", k: "kp08" }, { s: "#reset", k: "kp09" }],
+  };   // the booking and squad guides are plain step-by-step pictures: nothing to explain, so no tour there
+  async function runToolTour(only) {
     if (busy || !PAGE) return; busy = true; hush(); clearTarget(); tour = PAGE; ["point", "fly", "idle"].forEach(preload);
-    const steps = TOOL_STEPS[PAGE] || [];
-    for (let i = 0; i < steps.length; i++) {
-      const [sel, key] = steps[i]; const el = await waitFor(() => { const e = document.querySelector(sel); return visible(e) ? e : null; }, 1500);
-      if (!el) continue;
-      const r = await step(el, () => tl(key), i === steps.length - 1); if (r === "stop") break;
-    }
+    await walk(only || TOOL_STEPS[PAGE] || [], (st) => tl(st.k));
     clearTarget(); tour = null; busy = false; await goHome(); hush();
   }
+  if (IS_TOOL) setInterval(() => { if (root.hidden || !TOOL_STEPS[PAGE]) return; try { callButtonsFor(TOOL_STEPS[PAGE], (sub) => runToolTour(sub)); } catch (e) {} }, 1500);
   function toolAsk() {
     say(`<b>${esc(tl("ask"))}</b><div class="sp-opts"><button type="button" class="sp-main" data-a="ttour">${esc(tl("yes"))}</button><button type="button" data-a="tno">${esc(tl("no"))}</button></div>`);
     redraw = toolAsk; clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { if (!busy) hush(); }, 6000);
@@ -1568,7 +2369,7 @@
   async function startTool() {
     if (ls.get(LS) === "off") { showToggle(true); return; }
     root.hidden = false; pos = perchPoint(); place(); faceIn(); await play("idle", { squash: false }); state = "menu";
-    if (!sessionStorage.getItem("nxs-sparrow-tool-" + PAGE)) { try { sessionStorage.setItem("nxs-sparrow-tool-" + PAGE, "1"); } catch (e) {} const c = play("hi"); toolAsk(); if (await c) play("idle", { squash: false }); }
+    if (TOOL_STEPS[PAGE] && !sessionStorage.getItem("nxs-sparrow-tool-" + PAGE)) { try { sessionStorage.setItem("nxs-sparrow-tool-" + PAGE, "1"); } catch (e) {} const c = play("hi"); toolAsk(); if (await c) play("idle", { squash: false }); }
   }
   bubble.addEventListener("click", (e) => { const b = e.target.closest("button[data-a=ttour], button[data-a=tno]"); if (!b) return; hush(); if (b.dataset.a === "ttour") runToolTour(); });
   /* a guide was opened while the sparrow was helping to find a page → fly to its title and point at it */
@@ -1651,6 +2452,23 @@
   });
   window.addEventListener("nxs-perms", () => { if (IS_OFFICER) addOfficerAISection(); });
   window.addEventListener("nxs-ai-lang", () => { if (IS_OFFICER) addOfficerAISection(); });
+  /* walk a list of steps: {s: selector|fn, k: text key, e: editor-only, pre: do this first}. txt(key) gives the wording; applies(step) filters.
+     Steps whose element isn't on screen are skipped quietly. Returns false when the user pressed Stop. */
+  async function walk(steps, txt, applies) {
+    steps = steps.filter((st) => !applies || applies(st));
+    const find = (st) => { const el = Q(st.s); return el && shown(el) ? el : null; };
+    let shownAny = false, stopped = false;
+    for (let i = 0; i < steps.length; i++) {
+      const st = steps[i];
+      if (st.pre) { try { selfNav(); await st.pre(); } catch (e) {} await wait(450); }
+      const el = await waitFor(() => find(st), st.pre ? 1800 : 250);
+      if (!el) continue;   // not on this page right now (view-only, nothing to open, empty list…) → next
+      shownAny = true;
+      const more = steps.slice(i + 1).some((s2) => s2.pre || find(s2));
+      const r = await step(el, () => txt(st), !more); if (r === "stop") { stopped = true; break; }
+    }
+    return { shownAny, stopped };
+  }
   async function runOfficerTour(tab, only) {
     if (busy) return; busy = true; hush(); clearTarget(); tour = tab;
     const end = async () => { clearTarget(); tour = null; busy = false; try { if (!only && OEXIT[tab]) OEXIT[tab](); } catch (e) {} await goHome(); hush(); };
@@ -1660,54 +2478,48 @@
       const p = pointAt(a); if (!(await flyTo(p.x, p.y))) { busy = false; tour = null; return; } setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(a); play("point"); await wait(700);
       if (!a.classList.contains("on")) { selfNav(); a.click(); await wait(600); }
     }
-    const steps = (only || OTOURS[tab]).filter((st) => stepApplies(tab, st));
-    const find = (st) => { const el = Q(st.s); return el && shown(el) ? el : null; };
-    let shownAny = false;
-    for (let i = 0; i < steps.length; i++) {
-      const st = steps[i];
-      if (st.pre) { try { selfNav(); await st.pre(); } catch (e) {} await wait(450); }
-      const el = await waitFor(() => find(st), st.pre ? 1800 : 250);
-      if (!el) continue;   // not on this page right now (view-only, nothing to open, empty list…) → next
-      shownAny = true;
-      const more = steps.slice(i + 1).some((s2) => s2.pre || find(s2));
-      const r = await step(el, () => otStep(tab, st.k), !more); if (r === "stop") break;
-    }
-    if (!shownAny && steps.length) { const h = Q(`#pg-${tab} h1`); await step(h && shown(h) ? h : a, () => otStep(tab, steps[0].k), true); }   // nothing rendered yet (no data) → at least say what the tab is for
+    const steps = only || OTOURS[tab];
+    const r = await walk(steps, (st) => otStep(tab, st.k), (st) => stepApplies(tab, st));
+    if (!r.shownAny && steps.length && !r.stopped) { const h = Q(`#pg-${tab} h1`); await step(h && shown(h) ? h : a, () => otStep(tab, steps[0].k), true); }   // nothing rendered yet (no data) → at least say what the tab is for
     await end();
   }
-
+  /* 🐦 one "call Little Sparrow" button per card: tap → the sparrow walks through just that card's steps. Generic: steps + how to run a subset */
+  function callButtonsFor(steps, run, scope) {
+    const seen = new Set();
+    steps.forEach((st) => {
+      if (st.pre || typeof st.s === "function") return;   // steps that open something belong to the card they open from; the card itself carries the button
+      const el = Q(st.s); if (!el || !shown(el) || (scope && !scope.contains(el))) return;
+      const card = el.closest(".card, details, .tm-page, .tm-note, .tm-alerts, .tm-quick, #tmAdd, section.step, aside, .lvc, .mcard") || el;
+      if (seen.has(card)) return; seen.add(card);
+      if ([...document.querySelectorAll(".sp-call")].some((x) => x.spCard === card)) return;   // already has one (a re-rendered card loses it and gets a fresh one)
+      const head = card.querySelector(":scope > h1, :scope > h2, :scope > .top h2, :scope > summary, :scope > .top h1, :scope > h3, :scope > .tm-top > b, :scope > b, :scope > .mhead, :scope > .hd");
+      const b = document.createElement("button"); b.type = "button"; b.className = "sp-call"; b.textContent = "🐦"; b.title = t("call"); b.setAttribute("aria-label", t("call")); b.spCard = card;
+      b.onclick = (e) => { e.preventDefault(); e.stopPropagation(); hush(); run(steps.filter((s2) => { const e2 = Q(s2.s); return e2 && (card === e2 || card.contains(e2)); })); };
+      if (head) head.appendChild(b); else { b.style.cssText = "float:inline-end;margin:0 0 4px 6px"; card.prepend(b); }
+    });
+  }
   /* 🐦 a small "call Little Sparrow" button on every card of the officer page: tap → the sparrow walks through just that card's buttons */
   function addCallButtons() {
     const tab = (location.hash.match(/^#([a-z]+)/) || [])[1]; const steps = OTOURS[tab]; if (!steps) return;
-    const seen = new Set();
-    steps.forEach((st) => {
-      if (st.pre) return;   // steps that open something belong to the card they open from; the card itself carries the button
-      const el = Q(st.s); if (!el || !shown(el)) return;
-      const card = el.closest(".card, details, .tm-page") || el;
-      if (seen.has(card)) return; seen.add(card);
-      if ([...document.querySelectorAll(".sp-call")].some((x) => x.spCard === card)) return;   // already has one (a re-rendered card loses it and gets a fresh one)
-      const head = card.querySelector(":scope > h2, :scope > .top h2, :scope > summary, :scope > .top h1, :scope > h3, :scope > .tm-top > b");
-      const b = document.createElement("button"); b.type = "button"; b.className = "sp-call"; b.textContent = "🐦"; b.title = t("call"); b.setAttribute("aria-label", t("call")); b.spCard = card;
-      b.onclick = (e) => { e.preventDefault(); e.stopPropagation(); hush(); runOfficerTour(tab, steps.filter((s2) => { const e2 = Q(s2.s); return e2 && (card === e2 || card.contains(e2)); })); };
-      if (head) head.appendChild(b); else card.before(b);
-    });
+    callButtonsFor(steps, (sub) => runOfficerTour(tab, sub), Q(`#pg-${tab}`));
   }
-  let tmHinted = false; try { tmHinted = !!sessionStorage.getItem("nxs-sparrow-tmhint"); } catch (e) {}
+  let tmHinted = !!ls.get("nxs-sparrow-callhint");
   setInterval(() => {
     if (root.hidden) return;
     const view = document.querySelector(".tm-view"); if (!view || view.hidden) return;
     const mk = (id) => { const b = document.createElement("button"); b.type = "button"; b.className = "sp-call"; b.textContent = "🐦"; b.title = t("call"); b.setAttribute("aria-label", t("call")); b.onclick = (e) => { e.preventDefault(); e.stopPropagation(); hush(); runTour(id); }; return b; };
     const top = view.querySelector(".tm-top > b"); if (top && !top.querySelector(".sp-call")) top.appendChild(mk("tmr"));
-    const al = view.querySelector(".tm-alerts > b"); if (al && !al.querySelector(".sp-call")) al.appendChild(mk("rem"));
+    const al = view.querySelector(".tm-alerts > b"); if (al && !al.querySelector(".sp-call")) { const b = mk("rem"); b.spCard = al.parentElement; al.appendChild(b); }
+    try { callButtonsFor(TM_STEPS.filter((st) => st.k !== "tm01" && st.k !== "tm02" && st.k !== "tm21"), (sub) => runTour("tmr", sub), view); } catch (e) {}
     // first time the timers panel is open this session: show what the 🐦 is for
     const cb = view.querySelector(".tm-top .sp-call");
     if (cb && !tmHinted && !busy && !tour && state !== "sleep") {
-      tmHinted = true; try { sessionStorage.setItem("nxs-sparrow-tmhint", "1"); } catch (e) {}
+      tmHinted = true; ls.set("nxs-sparrow-callhint", "1");
       (async () => {
         busy = true; hush(); clearTarget(); cb.scrollIntoView({ block: "center" }); await wait(350);
         const p = pointAt(cb); if (!(await flyTo(p.x, p.y))) { busy = false; return; }
         setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(cb); const c = play("point"); say(esc(t("callBtn")), { foot: false }); await c;
-        await play("idle", { squash: false }); await wait(4000); hush(); clearTarget(); busy = false; await goHome();
+        await play("idle", { squash: false }); await showFor(4000); hush(); clearTarget(); busy = false; await goHome();
       })();
     }
   }, 1500);
@@ -1735,12 +2547,14 @@
     const c = play("hi"); say(esc(t("oGreet").replace("{name}", u.name || "")), { foot: false }); await c;
     await play("idle", { squash: false }); await wait(5000); hush();
     // …then show one of the 🐦 call buttons on the tab they're on: fly over, point at it, explain
+    if (ls.get("nxs-sparrow-callhint")) return;   // the 🐦 button was explained before (once per officer is enough)
     try { addCallButtons(); } catch (e) {}
     const cb = [...document.querySelectorAll(".sp-call")].find((b) => b.getBoundingClientRect().width > 0);
     if (!cb) return;
-    busy = true; cb.scrollIntoView({ block: "center", behavior: REDUCED ? "auto" : "smooth" }); await wait(500); const p = pointAt(cb); if (!(await flyTo(p.x, p.y))) { busy = false; return; }
+    busy = true; await scrollToEl(cb, null); const p = pointAt(cb); if (!(await flyTo(p.x, p.y)) || !shown(cb)) { busy = false; await goHome(); return; }
+    ls.set("nxs-sparrow-callhint", "1");
     setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(cb); const c2 = play("point"); say(esc(t("callBtn")), { foot: false }); await c2;
-    await play("idle", { squash: false }); await wait(4500); hush(); clearTarget(); busy = false; await goHome();
+    await play("idle", { squash: false }); await showFor(4500); hush(); clearTarget(); busy = false; await goHome();
   }
   async function playMessage(m, preview) {
     busy = true; if (!preview) markRead(m);   // shown once → never again by itself (💌 in the sparrow's menu replays it)
@@ -1771,7 +2585,8 @@
     document.body.append(root, bubble);
     const first = (typeof langChosen !== "undefined" && !langChosen) ? "sleep" : "idle";   // a small still shows at once; the clip replaces it when it has loaded
     layout(first, front); front.src = IMG + first + "_end.webp"; cur = first;
-    const rePerch = () => { if (!busy && !flying && state !== "off" && root.hidden === false && !targetEl) { pos = perchPoint(); place(); faceIn(); } placeBubble(); };
+    // re-perch a moment after the viewport settles (not during an iOS rubber-band bounce or a toolbar animation, or the bird would hop around)
+    let rpT = null; const rePerch = () => { placeBubble(); clearTimeout(rpT); rpT = setTimeout(() => { if (!busy && !flying && state !== "off" && root.hidden === false && !targetEl) { pos = perchPoint(); place(); faceIn(); } placeBubble(); }, 350); };
     window.addEventListener("resize", rePerch);
     if (window.visualViewport) visualViewport.addEventListener("resize", rePerch);   // iOS: the browser bar folding away moves the Ask AI button → the bird follows
     const f = fab(); if (f) new MutationObserver(() => { if (!busy && !flying && !targetEl) { pos = perchPoint(); place(); faceIn(); } }).observe(f, { attributes: true, attributeFilter: ["style", "class"] });

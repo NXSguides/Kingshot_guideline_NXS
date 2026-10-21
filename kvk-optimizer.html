@@ -440,7 +440,7 @@ function calc(){
 }
 
 $("lang").onchange=e=>{LANG=e.target.value;try{history.replaceState(null,"","?lang="+LANG)}catch(x){}renderStatic();calc();renderLv()};
-$("reset").onclick=()=>{S={...S,tg:["","","","",""],m:{},o:{},tr:{t:10,m:"",o:""},pr:{f:9,t:10,m:"",o:""},lv:{charm:{have:{},rows:[]},pet:{max:100,have:{},rows:[]},gear:{have:{},rows:[]}}};save();renderStatic();calc();renderLv()};
+$("reset").onclick=()=>{S={...S,tg:["","","","",""],m:{},o:{},tr:{t:10,m:"",o:""},pr:{f:9,t:10,m:"",o:""},lv:{charm:{have:{},rows:[]},pet:{max:100,have:{},rows:[]},gear:{have:{},rows:[]},hg:{have:{},rows:[]}}};save();renderStatic();calc();renderLv()};
 renderStatic();calc();renderLv();
 })();
 </script>
