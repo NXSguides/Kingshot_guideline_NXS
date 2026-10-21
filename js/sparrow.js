@@ -636,14 +636,15 @@
     await play("idle", { squash: false }); await wait(5000); hush();
   }
   async function playMessage(m, preview) {
-    busy = true; m.lines.forEach(([clip]) => preload(clip)); preload("heart"); await play("pop");
+    busy = true; if (!preview) markRead(m);   // shown once → never again by itself (💌 in the sparrow's menu replays it)
+    m.lines.forEach(([clip]) => preload(clip)); preload("heart"); await play("pop");
     let i = 0, done = false;
     const showLine = async () => {
       const [clip, text] = m.lines[i], last = i === m.lines.length - 1;
       say(`<div class="sp-msg" dir="auto">${esc(text)}</div><div class="sp-from">${esc(t("from"))} · ${i + 1}/${m.lines.length}</div>
         <div class="sp-nav"><button type="button" data-n="-1" ${i ? "" : "disabled"}>‹</button>${last ? `<button type="button" class="sp-main" data-m="got">${esc(t("got"))}</button>` : `<button type="button" class="sp-main" data-n="1">›</button>`}</div>`, { foot: false });
       bubble.querySelectorAll("[data-n]").forEach((b) => b.onclick = () => go(+b.dataset.n));
-      const g = bubble.querySelector("[data-m=got]"); if (g) g.onclick = () => { if (!preview) markRead(m); done = true; };
+      const g = bubble.querySelector("[data-m=got]"); if (g) g.onclick = () => { done = true; };
       const c = play(clip); if (await c) play("idle", { squash: false });
     };
     const go = (d) => { const n = i + d; if (n < 0 || n >= m.lines.length) return; i = n; showLine(); };
