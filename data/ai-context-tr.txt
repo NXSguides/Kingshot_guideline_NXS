@@ -113,7 +113,6 @@ Elmas şunlar için sakla:
 ☀️ ÇEVRİMİÇİYKEN
 ☐ 🎁 VIP sandığını al + VIP XP kullan
 ☐ 🤝 İttifak Yardım + ittifak Teknoloji katkısı
-☐ 📊 Kahraman XP eşyalarını kullan
 ☐ ⚔️ Kampları fethet (Fatihler Kampı)
 ☐ 🔎 Bilgi Görevi listesini bitir
 ☐ 🏝️ Adadaki Su Özü topla + müttefiklere yardım et

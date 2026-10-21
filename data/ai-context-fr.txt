@@ -113,7 +113,6 @@ Garde tes Gemmes pour :
 ☀️ PENDANT QUE TU ES EN LIGNE
 ☐ 🎁 Récupère le coffre VIP + utilise l'EXP VIP
 ☐ 🤝 Aide d'alliance + contribue à la Tech d'alliance
-☐ 📊 Utilise les objets d'EXP de héros
 ☐ ⚔️ Conquiers des camps (Camp des Conquérants)
 ☐ 🔎 Termine tes missions (Mission de renseignements)
 ☐ 🏝️ Récupère l'Essence d'Eau de l'île + aide tes alliés
