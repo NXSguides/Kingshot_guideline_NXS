@@ -71,84 +71,84 @@
 
   /* ---------- guided tours: texts ---------- */
   const TT = {
-    en: { pick: "What do you want to learn?", tmr: "⏰ Set a timer", rem: "🎮 Game reminders", inst: "📲 Install as an app", back: "‹ Back", next: "Next ›", done: "Done ✓", stop: "✕ Stop",
+    en: { pick: "What do you want to learn?", tmr: "⏰ Set a timer", rem: "🎮 Game reminders", inst: "📲 Install as an app", back: "‹ Back", next: "Next ›", done: "Done ✓", stop: "✕ Stop", also: "Want me to show {x} too?", alsoYes: "Yes, show me", alsoNo: "No thanks",
       tmr1: "This is ⏰ My timers. Tap it to open.", tmr2: "First, notifications. If it says they're on, tap “Send a test”, leave the app, and wait 15 s for the red badge. If not, follow what it says here first.",
       tmr2ios: "On iPhone, timers only ping you from the installed app. Read 📲 Install as an app first, then come back.",
       tmr3: "⚡ Quick start: your last times. Troops Training and Gathering remember the time — one tap starts them again. Noble Advisor has its own time.", tmr4: "＋ Set a timer: pick what it is, type the time the game shows, and save. “Other” is for anything not in the list.",
       tmr5: "Appointments can only be booked 24 h ahead, so the slots are ready for you here, in your local time. When Troops Training, Building or Research finishes, I'll suggest a slot to book.",
       rem1: "🎮 Game reminders: tick what you tend to forget. Tap a time to turn it on (it goes orange with a ✓), tap again to turn it off.", rem2: "Alliance events use the times we post. If I got one wrong, go find THAT Sparrow — that's her problem, not mine 🐦",
       inst1: "This page shows how to install the site as an app. Read it carefully — on iPhone, notifications only work from the installed app." },
-    zh: { pick: "想學哪一個？", tmr: "⏰ 設定計時", rem: "🎮 遊戲提醒", inst: "📲 安裝成 App", back: "‹ 返回", next: "下一步 ›", done: "完成 ✓", stop: "✕ 停止",
+    zh: { pick: "想學哪一個？", tmr: "⏰ 設定計時", rem: "🎮 遊戲提醒", inst: "📲 安裝成 App", back: "‹ 返回", next: "下一步 ›", done: "完成 ✓", stop: "✕ 停止", also: "要不要也順便講 {x}？", alsoYes: "好，講吧", alsoNo: "不用了",
       tmr1: "這是 ⏰ 我的計時，點一下打開。", tmr2: "先看通知。如果顯示已開啟，點「傳測試通知」，退出 App 等 15 秒，看有沒有紅點點和通知。沒有的話，先照這裡寫的做。",
       tmr2ios: "iPhone 要從安裝好的 App 才會收到提醒。先看 📲 安裝成 App，再回來。",
       tmr3: "⚡ 快速開始：上次的時間。訓練和採集會記住時間，點一下就重新開始。參謀長加成會另外記一組時間。", tmr4: "＋ 設定計時：選是什麼、照遊戲顯示的時間輸入、儲存。清單裡沒有的用「其他」。",
       tmr5: "官職只能預約 24 小時內的，所以時段已經幫你排好，而且換算成你的當地時間。訓練、建造、研究快完成時，我會建議你預約一個時段。",
       rem1: "🎮 遊戲提醒：勾你容易忘記的。點一下時間就開啟（變橘色打 ✓），再點一次關閉。", rem2: "聯盟活動的時間是我們更新的。如果發現我忘了更新，去找那個麻雀（Sparrow），那是她的問題，不是小麻雀的問題 🐦",
       inst1: "這一頁教你把網站安裝成 App。請仔細看，iPhone 一定要從安裝好的 App 才收得到通知。" },
-    ko: { pick: "무엇을 배울까요?", tmr: "⏰ 타이머 설정", rem: "🎮 게임 알림", inst: "📲 앱으로 설치", back: "‹ 뒤로", next: "다음 ›", done: "완료 ✓", stop: "✕ 중지",
+    ko: { pick: "무엇을 배울까요?", tmr: "⏰ 타이머 설정", rem: "🎮 게임 알림", inst: "📲 앱으로 설치", back: "‹ 뒤로", next: "다음 ›", done: "완료 ✓", stop: "✕ 중지", also: "{x}도 보여줄까요?", alsoYes: "응, 보여줘", alsoNo: "괜찮아",
       tmr1: "이게 ⏰ 내 타이머예요. 눌러서 열어요.", tmr2: "먼저 알림이에요. 켜져 있다고 나오면 “테스트 보내기”를 누르고 앱을 나간 뒤 15초 기다려 빨간 배지를 확인하세요. 아니면 여기 적힌 대로 먼저 하세요.",
       tmr2ios: "아이폰은 설치한 앱에서만 알림이 와요. 먼저 📲 앱으로 설치를 읽고 돌아오세요.",
       tmr3: "⚡ 빠른 시작: 최근 시간이에요. 훈련과 채집은 시간을 기억해서 한 번만 누르면 다시 시작돼요. 참모장 버프는 따로 기억해요.", tmr4: "＋ 타이머 설정: 무엇인지 고르고, 게임에 보이는 시간을 입력하고 저장하세요. 목록에 없으면 “기타”.",
       tmr5: "관직은 24시간 안에만 예약할 수 있어서 시간대를 미리 준비해 뒀고, 내 현지 시간으로 보여줘요. 훈련·건설·연구가 끝날 때 예약할 시간대를 제안할게요.",
       rem1: "🎮 게임 알림: 자주 잊는 걸 체크하세요. 시간을 누르면 켜지고(주황색 ✓), 다시 누르면 꺼져요.", rem2: "연맹 이벤트 시간은 우리가 올려요. 틀렸다면 그 Sparrow를 찾아가세요 — 그건 그녀 잘못이에요 🐦",
       inst1: "이 페이지는 사이트를 앱으로 설치하는 방법이에요. 아이폰은 설치한 앱에서만 알림이 와요. 꼼꼼히 읽어 주세요." },
-    de: { pick: "Was willst du lernen?", tmr: "⏰ Timer stellen", rem: "🎮 Spiel-Erinnerungen", inst: "📲 Als App installieren", back: "‹ Zurück", next: "Weiter ›", done: "Fertig ✓", stop: "✕ Stopp",
+    de: { pick: "Was willst du lernen?", tmr: "⏰ Timer stellen", rem: "🎮 Spiel-Erinnerungen", inst: "📲 Als App installieren", back: "‹ Zurück", next: "Weiter ›", done: "Fertig ✓", stop: "✕ Stopp", also: "Soll ich dir auch {x} zeigen?", alsoYes: "Ja, zeig mir", alsoNo: "Nein danke",
       tmr1: "Das ist ⏰ Meine Timer. Tippe darauf.", tmr2: "Zuerst die Benachrichtigungen. Steht da „an“, tippe auf „Test senden“, verlasse die App und warte 15 s auf den roten Punkt. Sonst erst das machen, was hier steht.",
       tmr2ios: "Auf dem iPhone kommen Timer nur aus der installierten App. Lies zuerst 📲 Als App installieren.",
       tmr3: "⚡ Schnellstart: deine letzten Zeiten. Training und Sammeln merken sich die Zeit – ein Tipp startet sie neu. Der Adelsberater hat eine eigene Zeit.", tmr4: "＋ Timer stellen: auswählen, die Zeit aus dem Spiel eintippen, speichern. „Sonstiges“ für alles, was nicht in der Liste ist.",
       tmr5: "Ämter kann man nur 24 h im Voraus buchen, darum stehen die Slots hier schon bereit – in deiner Ortszeit. Wenn Training, Bauen oder Forschung fertig wird, schlage ich dir einen Slot vor.",
       rem1: "🎮 Spiel-Erinnerungen: hake an, was du oft vergisst. Tippe auf eine Zeit zum Einschalten (orange mit ✓), nochmal zum Ausschalten.", rem2: "Allianz-Events nutzen unsere Zeiten. Ist eine falsch, geh zu DEM Sparrow – ihr Problem, nicht meins 🐦",
       inst1: "Diese Seite zeigt, wie du die Seite als App installierst. Lies sie genau – auf dem iPhone gibt es Benachrichtigungen nur in der App." },
-    fr: { pick: "Tu veux apprendre quoi ?", tmr: "⏰ Mettre un minuteur", rem: "🎮 Rappels du jeu", inst: "📲 Installer en appli", back: "‹ Retour", next: "Suivant ›", done: "Terminé ✓", stop: "✕ Stop",
+    fr: { pick: "Tu veux apprendre quoi ?", tmr: "⏰ Mettre un minuteur", rem: "🎮 Rappels du jeu", inst: "📲 Installer en appli", back: "‹ Retour", next: "Suivant ›", done: "Terminé ✓", stop: "✕ Stop", also: "Je te montre aussi {x} ?", alsoYes: "Oui, montre-moi", alsoNo: "Non merci",
       tmr1: "Voici ⏰ Mes minuteurs. Touche pour ouvrir.", tmr2: "D'abord les notifications. Si c'est écrit « activées », touche « Envoyer un test », quitte l'appli et attends 15 s le point rouge. Sinon, fais d'abord ce qui est écrit ici.",
       tmr2ios: "Sur iPhone, les minuteurs ne préviennent que depuis l'appli installée. Lis d'abord 📲 Installer en appli.",
       tmr3: "⚡ Démarrage rapide : tes derniers temps. Entraînement et récolte retiennent le temps – un tap les relance. Le Conseiller noble a son propre temps.", tmr4: "＋ Mettre un minuteur : choisis quoi, tape le temps affiché par le jeu, enregistre. « Autre » pour ce qui n'est pas dans la liste.",
       tmr5: "Les postes se réservent seulement 24 h à l'avance, donc les créneaux sont déjà prêts ici, dans ton heure locale. Quand l'entraînement, la construction ou la recherche se termine, je te propose un créneau.",
       rem1: "🎮 Rappels du jeu : coche ce que tu oublies souvent. Touche une heure pour l'activer (orange avec ✓), encore une fois pour la couper.", rem2: "Les événements d'alliance utilisent nos horaires. S'il y en a un faux, va voir le vrai Moineau – c'est son problème, pas le mien 🐦",
       inst1: "Cette page montre comment installer le site en appli. Lis-la bien – sur iPhone, les notifications ne marchent que depuis l'appli installée." },
-    pt: { pick: "O que você quer aprender?", tmr: "⏰ Criar um timer", rem: "🎮 Lembretes do jogo", inst: "📲 Instalar como app", back: "‹ Voltar", next: "Próximo ›", done: "Pronto ✓", stop: "✕ Parar",
+    pt: { pick: "O que você quer aprender?", tmr: "⏰ Criar um timer", rem: "🎮 Lembretes do jogo", inst: "📲 Instalar como app", back: "‹ Voltar", next: "Próximo ›", done: "Pronto ✓", stop: "✕ Parar", also: "Quer que eu mostre {x} também?", alsoYes: "Sim, mostra", alsoNo: "Não, obrigado",
       tmr1: "Isto é ⏰ Meus timers. Toque para abrir.", tmr2: "Primeiro, as notificações. Se disser que estão ativas, toque em “Enviar teste”, saia do app e espere 15 s pelo ponto vermelho. Se não, siga o que está escrito aqui antes.",
       tmr2ios: "No iPhone, os timers só avisam pelo app instalado. Leia 📲 Instalar como app primeiro e volte.",
       tmr3: "⚡ Início rápido: seus últimos tempos. Treino e coleta lembram o tempo — um toque reinicia. O Conselheiro nobre tem um tempo separado.", tmr4: "＋ Criar um timer: escolha o que é, digite o tempo que o jogo mostra e salve. “Outro” é para o que não está na lista.",
       tmr5: "Cargos só podem ser agendados com 24 h, então os horários já estão prontos aqui, no seu horário local. Quando treino, construção ou pesquisa terminar, eu sugiro um horário para agendar.",
       rem1: "🎮 Lembretes do jogo: marque o que você costuma esquecer. Toque num horário para ligar (fica laranja com ✓), toque de novo para desligar.", rem2: "Eventos da aliança usam os horários que postamos. Se algum estiver errado, vá falar com AQUELA Sparrow — o problema é dela, não meu 🐦",
       inst1: "Esta página mostra como instalar o site como app. Leia com atenção — no iPhone, as notificações só funcionam pelo app instalado." },
-    es: { pick: "¿Qué quieres aprender?", tmr: "⏰ Poner un temporizador", rem: "🎮 Recordatorios del juego", inst: "📲 Instalar como app", back: "‹ Atrás", next: "Siguiente ›", done: "Listo ✓", stop: "✕ Parar",
+    es: { pick: "¿Qué quieres aprender?", tmr: "⏰ Poner un temporizador", rem: "🎮 Recordatorios del juego", inst: "📲 Instalar como app", back: "‹ Atrás", next: "Siguiente ›", done: "Listo ✓", stop: "✕ Parar", also: "¿Te muestro también {x}?", alsoYes: "Sí, muéstrame", alsoNo: "No, gracias",
       tmr1: "Esto es ⏰ Mis temporizadores. Toca para abrir.", tmr2: "Primero, las notificaciones. Si dice que están activas, toca «Enviar prueba», sal de la app y espera 15 s el punto rojo. Si no, sigue primero lo que dice aquí.",
       tmr2ios: "En iPhone, los temporizadores solo avisan desde la app instalada. Lee primero 📲 Instalar como app y vuelve.",
       tmr3: "⚡ Inicio rápido: tus últimos tiempos. Entrenamiento y recolección recuerdan el tiempo: un toque los reinicia. El Consejero noble tiene su propio tiempo.", tmr4: "＋ Poner un temporizador: elige qué es, escribe el tiempo que muestra el juego y guarda. «Otro» es para lo que no está en la lista.",
       tmr5: "Los cargos solo se reservan con 24 h, así que los turnos ya están listos aquí, en tu hora local. Cuando termine el entrenamiento, la construcción o la investigación, te sugeriré un turno.",
       rem1: "🎮 Recordatorios del juego: marca lo que sueles olvidar. Toca una hora para activarla (naranja con ✓), toca otra vez para apagarla.", rem2: "Los eventos de alianza usan las horas que publicamos. Si alguna está mal, ve con ESA Sparrow: es su problema, no el mío 🐦",
       inst1: "Esta página explica cómo instalar el sitio como app. Léela bien: en iPhone, las notificaciones solo funcionan desde la app instalada." },
-    tr: { pick: "Neyi öğrenmek istersin?", tmr: "⏰ Zamanlayıcı kur", rem: "🎮 Oyun hatırlatmaları", inst: "📲 Uygulama olarak yükle", back: "‹ Geri", next: "İleri ›", done: "Bitti ✓", stop: "✕ Durdur",
+    tr: { pick: "Neyi öğrenmek istersin?", tmr: "⏰ Zamanlayıcı kur", rem: "🎮 Oyun hatırlatmaları", inst: "📲 Uygulama olarak yükle", back: "‹ Geri", next: "İleri ›", done: "Bitti ✓", stop: "✕ Durdur", also: "{x} de göstereyim mi?", alsoYes: "Evet, göster", alsoNo: "Gerek yok",
       tmr1: "Bu ⏰ Zamanlayıcılarım. Açmak için dokun.", tmr2: "Önce bildirimler. Açık yazıyorsa “Test gönder”e dokun, uygulamadan çık ve kırmızı nokta için 15 sn bekle. Değilse önce burada yazanı yap.",
       tmr2ios: "iPhone'da zamanlayıcılar yalnızca yüklü uygulamadan uyarır. Önce 📲 Uygulama olarak yükle'yi oku, sonra dön.",
       tmr3: "⚡ Hızlı başlat: son sürelerin. Eğitim ve toplama süreyi hatırlar — tek dokunuşla yeniden başlar. Soylu Danışman'ın ayrı süresi vardır.", tmr4: "＋ Zamanlayıcı kur: ne olduğunu seç, oyunun gösterdiği süreyi yaz, kaydet. Listede olmayanlar için “Diğer”.",
       tmr5: "Makamlar sadece 24 saat önceden ayırtılabilir, bu yüzden saatler burada hazır, senin yerel saatinle. Eğitim, inşaat veya araştırma bitince ayırtman için bir saat öneririm.",
       rem1: "🎮 Oyun hatırlatmaları: sık unuttuklarını işaretle. Saate dokununca açılır (turuncu ✓), tekrar dokununca kapanır.", rem2: "İttifak etkinlikleri bizim yazdığımız saatleri kullanır. Yanlışsa O Sparrow'a git — onun sorunu, benim değil 🐦",
       inst1: "Bu sayfa siteyi uygulama olarak nasıl yükleyeceğini gösterir. Dikkatle oku — iPhone'da bildirimler yalnızca yüklü uygulamada çalışır." },
-    id: { pick: "Mau belajar yang mana?", tmr: "⏰ Pasang timer", rem: "🎮 Pengingat game", inst: "📲 Pasang sebagai aplikasi", back: "‹ Kembali", next: "Lanjut ›", done: "Selesai ✓", stop: "✕ Berhenti",
+    id: { pick: "Mau belajar yang mana?", tmr: "⏰ Pasang timer", rem: "🎮 Pengingat game", inst: "📲 Pasang sebagai aplikasi", back: "‹ Kembali", next: "Lanjut ›", done: "Selesai ✓", stop: "✕ Berhenti", also: "Mau aku tunjukkan {x} juga?", alsoYes: "Ya, tunjukkan", alsoNo: "Tidak perlu",
       tmr1: "Ini ⏰ Timer saya. Ketuk untuk membuka.", tmr2: "Pertama, notifikasi. Kalau tertulis sudah aktif, ketuk “Kirim tes”, keluar dari aplikasi, dan tunggu 15 detik sampai titik merah muncul. Kalau belum, ikuti dulu yang tertulis di sini.",
       tmr2ios: "Di iPhone, timer hanya memberi tahu dari aplikasi yang terpasang. Baca dulu 📲 Pasang sebagai aplikasi, lalu kembali.",
       tmr3: "⚡ Mulai cepat: waktu terakhirmu. Latihan dan pengumpulan mengingat waktunya — satu ketukan memulai lagi. Noble Advisor punya waktu sendiri.", tmr4: "＋ Pasang timer: pilih apa, ketik waktu yang ditampilkan game, simpan. “Lainnya” untuk yang tidak ada di daftar.",
       tmr5: "Jabatan hanya bisa dipesan 24 jam sebelumnya, jadi slotnya sudah siap di sini, dalam waktu lokalmu. Saat latihan, bangunan, atau riset selesai, aku akan menyarankan slot untuk dipesan.",
       rem1: "🎮 Pengingat game: centang yang sering kamu lupa. Ketuk waktu untuk menyalakan (jadi oranye dengan ✓), ketuk lagi untuk mematikan.", rem2: "Acara aliansi memakai waktu yang kami posting. Kalau ada yang salah, cari Sparrow yang ITU — itu salahnya, bukan salahku 🐦",
       inst1: "Halaman ini menunjukkan cara memasang situs sebagai aplikasi. Baca baik-baik — di iPhone, notifikasi hanya berfungsi dari aplikasi yang terpasang." },
-    ru: { pick: "Чему научить?", tmr: "⏰ Поставить таймер", rem: "🎮 Игровые напоминания", inst: "📲 Установить как приложение", back: "‹ Назад", next: "Далее ›", done: "Готово ✓", stop: "✕ Стоп",
+    ru: { pick: "Чему научить?", tmr: "⏰ Поставить таймер", rem: "🎮 Игровые напоминания", inst: "📲 Установить как приложение", back: "‹ Назад", next: "Далее ›", done: "Готово ✓", stop: "✕ Стоп", also: "Показать ещё и {x}?", alsoYes: "Да, покажи", alsoNo: "Не нужно",
       tmr1: "Это ⏰ Мои таймеры. Нажми, чтобы открыть.", tmr2: "Сначала уведомления. Если написано, что включены, нажми «Отправить тест», выйди из приложения и подожди 15 с красную точку. Если нет — сначала сделай то, что здесь написано.",
       tmr2ios: "На iPhone таймеры уведомляют только из установленного приложения. Сначала прочитай 📲 Установить как приложение.",
       tmr3: "⚡ Быстрый старт: твои последние времена. Обучение и сбор помнят время — один тап запускает снова. У Благородного советника своё время.", tmr4: "＋ Поставить таймер: выбери что, впиши время из игры, сохрани. «Другое» — для того, чего нет в списке.",
       tmr5: "Должности бронируются только за 24 ч, поэтому слоты уже готовы здесь, в твоём местном времени. Когда закончится обучение, стройка или исследование, я предложу слот.",
       rem1: "🎮 Игровые напоминания: отметь то, что часто забываешь. Нажми на время, чтобы включить (оранжевое с ✓), ещё раз — выключить.", rem2: "События альянса идут по нашему расписанию. Если что-то не так — иди к настоящему Воробью, это её проблема, не моя 🐦",
       inst1: "Эта страница показывает, как установить сайт как приложение. Читай внимательно — на iPhone уведомления работают только из установленного приложения." },
-    th: { pick: "อยากเรียนอะไร?", tmr: "⏰ ตั้งตัวจับเวลา", rem: "🎮 แจ้งเตือนในเกม", inst: "📲 ติดตั้งเป็นแอป", back: "‹ กลับ", next: "ถัดไป ›", done: "เสร็จ ✓", stop: "✕ หยุด",
+    th: { pick: "อยากเรียนอะไร?", tmr: "⏰ ตั้งตัวจับเวลา", rem: "🎮 แจ้งเตือนในเกม", inst: "📲 ติดตั้งเป็นแอป", back: "‹ กลับ", next: "ถัดไป ›", done: "เสร็จ ✓", stop: "✕ หยุด", also: "ให้ฉันพาดู {x} ด้วยไหม?", alsoYes: "เอาสิ พาดู", alsoNo: "ไม่เป็นไร",
       tmr1: "นี่คือ ⏰ ตัวจับเวลาของฉัน แตะเพื่อเปิด", tmr2: "ดูการแจ้งเตือนก่อน ถ้าบอกว่าเปิดแล้ว แตะ “ส่งทดสอบ” ออกจากแอปแล้วรอ 15 วินาที ดูจุดแดง ถ้ายังไม่เปิด ทำตามที่เขียนตรงนี้ก่อน",
       tmr2ios: "บน iPhone ตัวจับเวลาจะแจ้งเตือนได้เฉพาะจากแอปที่ติดตั้งแล้ว อ่าน 📲 ติดตั้งเป็นแอป ก่อนแล้วค่อยกลับมา",
       tmr3: "⚡ เริ่มด่วน: เวลาครั้งล่าสุด ฝึกทหารกับเก็บทรัพยากรจะจำเวลาไว้ แตะครั้งเดียวก็เริ่มใหม่ ที่ปรึกษาขุนนางมีเวลาแยกต่างหาก", tmr4: "＋ ตั้งตัวจับเวลา: เลือกว่าคืออะไร พิมพ์เวลาที่เกมแสดง แล้วบันทึก ที่ไม่อยู่ในรายการใช้ “อื่น ๆ”",
       tmr5: "ตำแหน่งจองได้แค่ล่วงหน้า 24 ชม. ช่วงเวลาจึงเตรียมไว้ให้แล้วตรงนี้ เป็นเวลาท้องถิ่นของคุณ พอฝึกทหาร ก่อสร้าง หรือวิจัยเสร็จ ฉันจะแนะนำช่วงเวลาให้จอง",
       rem1: "🎮 แจ้งเตือนในเกม: ติ๊กสิ่งที่มักลืม แตะเวลาเพื่อเปิด (เป็นสีส้มมี ✓) แตะอีกครั้งเพื่อปิด", rem2: "กิจกรรมพันธมิตรใช้เวลาที่เราโพสต์ ถ้าผิด ไปหา Sparrow ตัวนั้น — เป็นความผิดของเธอ ไม่ใช่ฉัน 🐦",
       inst1: "หน้านี้สอนวิธีติดตั้งเว็บเป็นแอป อ่านให้ละเอียด — บน iPhone การแจ้งเตือนใช้ได้เฉพาะจากแอปที่ติดตั้งแล้ว" },
-    ar: { pick: "ماذا تريد أن تتعلم؟", tmr: "⏰ ضبط مؤقّت", rem: "🎮 تذكيرات اللعبة", inst: "📲 التثبيت كتطبيق", back: "‹ رجوع", next: "التالي ›", done: "تم ✓", stop: "✕ إيقاف",
+    ar: { pick: "ماذا تريد أن تتعلم؟", tmr: "⏰ ضبط مؤقّت", rem: "🎮 تذكيرات اللعبة", inst: "📲 التثبيت كتطبيق", back: "‹ رجوع", next: "التالي ›", done: "تم ✓", stop: "✕ إيقاف", also: "هل أريك {x} أيضًا؟", alsoYes: "نعم، أرني", alsoNo: "لا شكرًا",
       tmr1: "هذا ⏰ مؤقّتاتي. اضغط لفتحه.", tmr2: "أولًا الإشعارات. إن كانت مفعّلة، اضغط «إرسال اختبار» واخرج من التطبيق وانتظر 15 ثانية لتظهر النقطة الحمراء. وإلا فافعل ما هو مكتوب هنا أولًا.",
       tmr2ios: "على iPhone لا تصلك المؤقّتات إلا من التطبيق المثبّت. اقرأ 📲 التثبيت كتطبيق أولًا ثم عد.",
       tmr3: "⚡ بدء سريع: أوقاتك الأخيرة. التدريب والجمع يتذكّران الوقت — ضغطة واحدة تعيد التشغيل. للمستشار النبيل وقت خاص.", tmr4: "＋ ضبط مؤقّت: اختر ما هو، اكتب الوقت كما تعرضه اللعبة، واحفظ. «أخرى» لما ليس في القائمة.",
@@ -504,6 +504,8 @@
       busy = false; runTour(b.dataset.t); return;
     } else if (a === "menu") {
       busy = false; greet(); return;
+    } else if (a === "hush") {
+      busy = false; hush(); return;
     } else if (a === "none") {
       const c = play("point"); say(esc(t("noneA"))); state = "menu"; busy = false; if (await c) play("idle", { squash: false }); return;
     }
@@ -539,6 +541,10 @@
       c.then((ok) => { if (ok) play("idle", { squash: false }); });
     });
   }
+  function offerTour(other) {
+    const draw = () => say(`<b>${esc(tt("also").replace("{x}", tt(other)))}</b><div class="sp-opts"><button type="button" class="sp-main" data-a="tour" data-t="${other}">${esc(tt("alsoYes"))}</button><button type="button" data-a="hush">${esc(tt("alsoNo"))}</button></div>`);
+    draw(); redraw = draw; clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { if (!busy) hush(); }, 8000);
+  }
   async function runTour(id) {
     if (busy) return; busy = true; ["point", "teacher", "fly", "idle"].forEach(preload); hush(); clearTarget(); tour = id; clearTimeout(idleTimer);
     const ai = window.NXSAI, tm = window.NXSTimers, panel = ai && ai.panel;
@@ -563,18 +569,15 @@
       if (quick && visible(quick)) { if (!(await go(quick, () => tt("tmr3")))) return; }
       const add = q(".tm-view [data-a=add]");
       if (!(await go(add || q(".tm-view #tmAdd"), () => tt("tmr4")))) return;
-      if (!(await go(add || q(".tm-view #tmAdd"), () => tt("tmr5")))) return;
-      const al2 = await waitFor(() => { const n = q(".tm-view .tm-alerts"); return visible(n) ? n : null; }, 2500);
-      if (!(await go(al2, () => tt("rem1")))) return;
-      if (!(await go(al2, () => tt("rem2"), true))) return;
-      await end(); return;
+      if (!(await go(add || q(".tm-view #tmAdd"), () => tt("tmr5"), true))) return;
+      await end(); offerTour("rem"); return;
     }
     if (id === "rem") {
       tm.show(true); await wait(500);
       const al = await waitFor(() => { const n = q(".tm-view .tm-alerts"); return visible(n) ? n : null; }, 2500);
       if (!(await go(al, () => tt("rem1")))) return;
       if (!(await go(al, () => tt("rem2"), true))) return;
-      await end(); return;
+      await end(); offerTour("tmr"); return;
     }
     await end();
   }
