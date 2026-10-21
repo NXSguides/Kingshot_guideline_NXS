@@ -18,52 +18,52 @@
   const T = {
     en: { greet: "Hi! I'm Little Sparrow 🐦 Need any help?", page: "🔎 Find a page", how: "🎓 How do I use…", none: "🤔 Neither of these",
       noneA: "Then please go find THAT Sparrow 🐦", pageA: "Tap the page you want and I'll fly you there.", here: "Here it is. This is what you were looking for, right?",
-      howA: "Pick one here and I'll walk you through it step by step. Or just ask the AI.", sulky: "Don't need me…? Okay then.", hide: "Hide Little Sparrow", show: "Little Sparrow",
-      msg: "There's a message for you 💌 Tap 📋 at the top right.", got: "Got it", from: "from Sparrow", oGreet: "Hi {name}! I'm Little Sparrow. If I still can't teach you something, go find THAT Sparrow 😄" },
+      howA: "Pick one here and I'll walk you through it step by step. Or just ask the AI.", sulky: "Don't need me…? Okay then.", hide: "Hide Little Sparrow", show: "Little Sparrow", call: "Call Little Sparrow to explain this",
+      msg: "There's a message for you 💌 Tap 📋 at the top right.", got: "Got it", from: "from Sparrow", oGreet: "Hi {name}! I'm Little Sparrow. Tap me for a tour of any tab, or tap a 🐦 next to a feature and I'll explain just that one. If I still can't teach you something, go find THAT Sparrow 😄" },
     zh: { greet: "嗨囉！我是小麻雀 🐦 需要幫忙嗎？", page: "🔎 找頁面", how: "🎓 怎麼用某個功能…", none: "🤔 都不是",
       noneA: "那請你去找那個麻雀喔（Sparrow）🐦", pageA: "點你要的頁面，我飛過去帶你看。", here: "在這裡。這應該就是你要找的對吧？",
-      howA: "從這裡選一個，我一步一步帶你做。也可以直接問 AI。", sulky: "不需要我嗎…？好吧。", hide: "隱藏小麻雀", show: "小麻雀",
-      msg: "有給你的留言 💌 點右上角的 📋", got: "知道了", from: "來自 Sparrow", oGreet: "嗨 {name}！我是小麻雀。如果我還是教不會你，就去找那個麻雀（Sparrow）吧 😄" },
+      howA: "從這裡選一個，我一步一步帶你做。也可以直接問 AI。", sulky: "不需要我嗎…？好吧。", hide: "隱藏小麻雀", show: "小麻雀", call: "呼喚小麻雀來講解",
+      msg: "有給你的留言 💌 點右上角的 📋", got: "知道了", from: "來自 Sparrow", oGreet: "嗨 {name}！我是小麻雀。點我可以導覽任何分頁，功能旁邊的 🐦 點下去我就只講那一個。如果我還是教不會你，就去找那個麻雀（Sparrow）吧 😄" },
     ko: { greet: "안녕! 나는 작은 참새 🐦 도움이 필요해?", page: "🔎 페이지 찾기", how: "🎓 기능 사용법…", none: "🤔 둘 다 아니야",
       noneA: "그럼 그 참새(Sparrow)를 찾아가 줘 🐦", pageA: "원하는 페이지를 누르면 내가 날아가서 보여줄게.", here: "여기야. 찾던 게 이거 맞지?",
-      howA: "여기서 하나 고르면 단계별로 알려줄게. AI에게 물어봐도 돼.", sulky: "내가 필요 없어…? 알았어.", hide: "작은 참새 숨기기", show: "작은 참새",
-      msg: "너에게 온 메시지가 있어 💌 오른쪽 위 📋 를 눌러 봐.", got: "알겠어", from: "Sparrow가 보냄", oGreet: "안녕 {name}! 나는 작은 참새야. 내가 못 알려주는 게 있으면 그 Sparrow를 찾아가 😄" },
+      howA: "여기서 하나 고르면 단계별로 알려줄게. AI에게 물어봐도 돼.", sulky: "내가 필요 없어…? 알았어.", hide: "작은 참새 숨기기", show: "작은 참새", call: "작은 참새 불러서 설명 듣기",
+      msg: "너에게 온 메시지가 있어 💌 오른쪽 위 📋 를 눌러 봐.", got: "알겠어", from: "Sparrow가 보냄", oGreet: "안녕 {name}! 나는 작은 참새야. 나를 누르면 탭을 안내하고, 기능 옆 🐦 를 누르면 그것만 설명해 줘. 그래도 모르겠으면 그 Sparrow를 찾아가 😄" },
     de: { greet: "Hi! Ich bin der kleine Spatz 🐦 Brauchst du Hilfe?", page: "🔎 Eine Seite finden", how: "🎓 Wie benutze ich…", none: "🤔 Keins von beiden",
       noneA: "Dann geh bitte zu DEM Spatz (Sparrow) 🐦", pageA: "Tippe auf die Seite, die du willst – ich fliege hin.", here: "Hier ist es. Das hast du gesucht, oder?",
-      howA: "Such dir hier eins aus, ich führe dich Schritt für Schritt durch. Oder frag einfach die KI.", sulky: "Brauchst du mich nicht…? Na gut.", hide: "Kleinen Spatz ausblenden", show: "Kleiner Spatz",
+      howA: "Such dir hier eins aus, ich führe dich Schritt für Schritt durch. Oder frag einfach die KI.", sulky: "Brauchst du mich nicht…? Na gut.", hide: "Kleinen Spatz ausblenden", show: "Kleiner Spatz", call: "Kleinen Spatz rufen – erklärt das hier",
       msg: "Da ist eine Nachricht für dich 💌 Tippe oben rechts auf 📋.", got: "Alles klar", from: "von Sparrow", oGreet: "Hi {name}! Ich bin der kleine Spatz. Wenn ich dir etwas nicht erklären kann, geh zu DEM Sparrow 😄" },
     fr: { greet: "Salut ! Je suis Petit Moineau 🐦 Besoin d'aide ?", page: "🔎 Trouver une page", how: "🎓 Comment utiliser…", none: "🤔 Ni l'un ni l'autre",
       noneA: "Alors va voir CE Moineau-là (Sparrow) 🐦", pageA: "Touche la page que tu veux, je t'y emmène.", here: "C'est ici. C'est ce que tu cherchais, non ?",
-      howA: "Choisis-en un ici et je te guide étape par étape. Ou demande à l'IA.", sulky: "Tu n'as pas besoin de moi… ? Bon.", hide: "Cacher Petit Moineau", show: "Petit Moineau",
+      howA: "Choisis-en un ici et je te guide étape par étape. Ou demande à l'IA.", sulky: "Tu n'as pas besoin de moi… ? Bon.", hide: "Cacher Petit Moineau", show: "Petit Moineau", call: "Appeler Petit Moineau pour expliquer",
       msg: "Il y a un message pour toi 💌 Touche 📋 en haut à droite.", got: "Compris", from: "de Sparrow", oGreet: "Salut {name} ! Je suis Petit Moineau. Si je n'arrive pas à t'expliquer, va voir CE Sparrow-là 😄" },
     pt: { greet: "Oi! Eu sou o Pardalzinho 🐦 Precisa de ajuda?", page: "🔎 Encontrar uma página", how: "🎓 Como usar…", none: "🤔 Nenhum dos dois",
       noneA: "Então vá falar com AQUELA Sparrow 🐦", pageA: "Toque na página que você quer e eu voo até lá.", here: "Aqui está. Era isso que você procurava, né?",
-      howA: "Escolha um aqui e eu te guio passo a passo. Ou pergunte à IA.", sulky: "Não precisa de mim…? Tá bom.", hide: "Esconder o Pardalzinho", show: "Pardalzinho",
-      msg: "Tem uma mensagem para você 💌 Toque em 📋 no canto superior direito.", got: "Entendi", from: "da Sparrow", oGreet: "Oi {name}! Eu sou o Pardalzinho. Se eu não conseguir te ensinar algo, vá falar com AQUELA Sparrow 😄" },
+      howA: "Escolha um aqui e eu te guio passo a passo. Ou pergunte à IA.", sulky: "Não precisa de mim…? Tá bom.", hide: "Esconder o Pardalzinho", show: "Pardalzinho", call: "Chamar o Pardalzinho para explicar",
+      msg: "Tem uma mensagem para você 💌 Toque em 📋 no canto superior direito.", got: "Entendi", from: "da Sparrow", oGreet: "Oi {name}! Eu sou o Pardalzinho. Toque em mim para um tour de qualquer aba, ou no 🐦 ao lado de uma função e eu explico só aquela. Se eu não conseguir te ensinar algo, vá falar com AQUELA Sparrow 😄" },
     es: { greet: "¡Hola! Soy Gorrioncito 🐦 ¿Necesitas ayuda?", page: "🔎 Buscar una página", how: "🎓 Cómo usar…", none: "🤔 Ninguna de las dos",
       noneA: "Entonces ve con ESA Sparrow 🐦", pageA: "Toca la página que quieres y vuelo hasta allí.", here: "Aquí está. Esto es lo que buscabas, ¿no?",
-      howA: "Elige uno aquí y te guío paso a paso. O pregúntale a la IA.", sulky: "¿No me necesitas…? Bueno.", hide: "Ocultar a Gorrioncito", show: "Gorrioncito",
+      howA: "Elige uno aquí y te guío paso a paso. O pregúntale a la IA.", sulky: "¿No me necesitas…? Bueno.", hide: "Ocultar a Gorrioncito", show: "Gorrioncito", call: "Llamar a Gorrioncito para que lo explique",
       msg: "Tienes un mensaje 💌 Toca 📋 arriba a la derecha.", got: "Entendido", from: "de Sparrow", oGreet: "¡Hola {name}! Soy Gorrioncito. Si no logro enseñarte algo, ve con ESA Sparrow 😄" },
     tr: { greet: "Selam! Ben Küçük Serçe 🐦 Yardım lazım mı?", page: "🔎 Sayfa bul", how: "🎓 Nasıl kullanılır…", none: "🤔 İkisi de değil",
       noneA: "O zaman O Serçe'ye (Sparrow) git 🐦", pageA: "İstediğin sayfaya dokun, oraya uçayım.", here: "İşte burada. Aradığın buydu, değil mi?",
-      howA: "Buradan birini seç, adım adım anlatayım. Ya da yapay zekâya sor.", sulky: "Bana ihtiyacın yok mu…? Peki.", hide: "Küçük Serçe'yi gizle", show: "Küçük Serçe",
+      howA: "Buradan birini seç, adım adım anlatayım. Ya da yapay zekâya sor.", sulky: "Bana ihtiyacın yok mu…? Peki.", hide: "Küçük Serçe'yi gizle", show: "Küçük Serçe", call: "Küçük Serçe'yi çağır, anlatsın",
       msg: "Sana bir mesaj var 💌 Sağ üstteki 📋 simgesine dokun.", got: "Anladım", from: "Sparrow'dan", oGreet: "Selam {name}! Ben Küçük Serçe. Bir şeyi öğretemezsem O Sparrow'a git 😄" },
     id: { greet: "Hai! Aku Burung Gereja Kecil 🐦 Perlu bantuan?", page: "🔎 Cari halaman", how: "🎓 Cara memakai…", none: "🤔 Bukan dua-duanya",
       noneA: "Kalau begitu cari Sparrow yang ITU ya 🐦", pageA: "Ketuk halaman yang kamu mau, aku terbang ke sana.", here: "Ini dia. Ini yang kamu cari, kan?",
-      howA: "Pilih satu di sini, aku pandu langkah demi langkah. Atau tanya AI saja.", sulky: "Tidak butuh aku…? Ya sudah.", hide: "Sembunyikan Burung Gereja Kecil", show: "Burung Gereja Kecil",
+      howA: "Pilih satu di sini, aku pandu langkah demi langkah. Atau tanya AI saja.", sulky: "Tidak butuh aku…? Ya sudah.", hide: "Sembunyikan Burung Gereja Kecil", show: "Burung Gereja Kecil", call: "Panggil Burung Gereja Kecil untuk menjelaskan",
       msg: "Ada pesan untukmu 💌 Ketuk 📋 di kanan atas.", got: "Oke", from: "dari Sparrow", oGreet: "Hai {name}! Aku Burung Gereja Kecil. Kalau aku tetap tidak bisa mengajarimu, cari Sparrow yang ITU ya 😄" },
     ru: { greet: "Привет! Я Воробушек 🐦 Нужна помощь?", page: "🔎 Найти страницу", how: "🎓 Как пользоваться…", none: "🤔 Ни то, ни другое",
       noneA: "Тогда иди к ТОМУ Воробью (Sparrow) 🐦", pageA: "Нажми на нужную страницу — я прилечу туда.", here: "Вот оно. Ты это искал, да?",
-      howA: "Выбери здесь, и я проведу тебя по шагам. Или просто спроси ИИ.", sulky: "Я не нужен…? Ну ладно.", hide: "Скрыть Воробушка", show: "Воробушек",
+      howA: "Выбери здесь, и я проведу тебя по шагам. Или просто спроси ИИ.", sulky: "Я не нужен…? Ну ладно.", hide: "Скрыть Воробушка", show: "Воробушек", call: "Позвать Воробушка — объяснит",
       msg: "Для тебя есть сообщение 💌 Нажми 📋 справа вверху.", got: "Понятно", from: "от Sparrow", oGreet: "Привет, {name}! Я Воробушек. Если я не смогу что-то объяснить, иди к ТОМУ Sparrow 😄" },
     th: { greet: "หวัดดี! ฉันคือนกกระจอกน้อย 🐦 ต้องการความช่วยเหลือไหม?", page: "🔎 หาหน้า", how: "🎓 ใช้ฟีเจอร์ยังไง…", none: "🤔 ไม่ใช่ทั้งสองอย่าง",
       noneA: "งั้นไปหานกกระจอกตัวนั้น (Sparrow) นะ 🐦", pageA: "แตะหน้าที่ต้องการ แล้วฉันจะบินพาไป", here: "อยู่นี่ไง นี่คือที่หาอยู่ใช่ไหม?",
-      howA: "เลือกตรงนี้สักอัน ฉันจะพาทำทีละขั้น หรือถาม AI ก็ได้", sulky: "ไม่ต้องการฉันเหรอ…? ก็ได้", hide: "ซ่อนนกกระจอกน้อย", show: "นกกระจอกน้อย",
+      howA: "เลือกตรงนี้สักอัน ฉันจะพาทำทีละขั้น หรือถาม AI ก็ได้", sulky: "ไม่ต้องการฉันเหรอ…? ก็ได้", hide: "ซ่อนนกกระจอกน้อย", show: "นกกระจอกน้อย", call: "เรียกนกกระจอกน้อยมาอธิบาย",
       msg: "มีข้อความถึงคุณ 💌 แตะ 📋 มุมขวาบน", got: "เข้าใจแล้ว", from: "จาก Sparrow", oGreet: "หวัดดี {name}! ฉันคือนกกระจอกน้อย ถ้าฉันสอนไม่ได้ ไปหา Sparrow ตัวนั้นนะ 😄" },
     ar: { greet: "مرحبًا! أنا العصفور الصغير 🐦 هل تحتاج مساعدة؟", page: "🔎 البحث عن صفحة", how: "🎓 كيف أستخدم…", none: "🤔 لا هذا ولا ذاك",
       noneA: "إذًا اذهب إلى ذلك العصفور (Sparrow) 🐦", pageA: "اضغط على الصفحة التي تريدها وسأطير إليها.", here: "ها هي. هذا ما كنت تبحث عنه، صحيح؟",
-      howA: "اختر واحدًا هنا وسأرشدك خطوة بخطوة. أو اسأل الذكاء الاصطناعي.", sulky: "لا تحتاجني…؟ حسنًا.", hide: "إخفاء العصفور الصغير", show: "العصفور الصغير",
-      msg: "لديك رسالة 💌 اضغط على 📋 في الأعلى يمينًا.", got: "فهمت", from: "من Sparrow", oGreet: "مرحبًا {name}! أنا العصفور الصغير. إن لم أستطع تعليمك شيئًا، اذهب إلى Sparrow تلك 😄" },
+      howA: "اختر واحدًا هنا وسأرشدك خطوة بخطوة. أو اسأل الذكاء الاصطناعي.", sulky: "لا تحتاجني…؟ حسنًا.", hide: "إخفاء العصفور الصغير", show: "العصفور الصغير", call: "نادِ العصفور الصغير ليشرح",
+      msg: "لديك رسالة 💌 اضغط على 📋 في الأعلى يمينًا.", got: "فهمت", from: "من Sparrow", oGreet: "مرحبًا {name}! أنا العصفور الصغير. اضغط عليّ لجولة في أي تبويب، أو على 🐦 بجانب أي ميزة لأشرحها وحدها. إن لم أستطع تعليمك شيئًا، اذهب إلى Sparrow تلك 😄" },
   };
   const lang = () => { if (typeof currentLang !== "undefined") return currentLang; return ls.get("nxs-officer-lang") || "en"; };
   const t = (k) => (T[lang()] || T.en)[k] || T.en[k];
@@ -161,88 +161,143 @@
 
   /* ---------- officer page tours (zh / en / pt / ar / ko — the officer page languages) ---------- */
   const OT = {
-    en: { msgs: "💌 Message from Sparrow", pick: "Which tab do you want me to show you?", onlyView: "(you can look, not edit)",
+    en: { msgs: "💌 Message from THAT Sparrow", pick: "Which tab do you want me to show you?", onlyView: "(you can look, not edit)", ro: "You can look here but not change anything.",
       events: "📅 Events", board: "💬 Board", map: "🗺️ Map", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers",
-      ev1: "This week's calendar. Tap a day to see what runs, and the officer to-dos for it.", ev2: "📣 The announcement helper: pick the next days and it writes the in-game announcement for you — copy it into the game.",
-      ev3: "Officer to-dos for this week / next week. Tick them off as you go.", ev4: "Add or edit events here: name, when it starts, how often, and its to-dos. Only if you have edit rights.",
-      bd1: "The board: one topic per plan. Everything is translated into each officer's language with the game's own terms, so nobody gets lost in chat.", bd2: "Open a topic to reply. Topics with a ✓ are decided. If someone @'s you, it's highlighted.",
-      mp1: "The kingdom map with our territory. A confession from THAT Sparrow: she doesn't open the map often, so it's updated only now and then. Need something changed right away? Go poke her 🐦", mp2: "Layers: switch banners, territory and plans on and off. Zoom with + and −.",
-      rk1: "First choose: just play with this on your own device, or share the plan with everyone? A shared plan's roster goes to 📋 Attendance, where you can fill things in.", rk2: "Weights: how much power, TC and Mystic Trial count. Tick the members who are in, then read the sorted result below.",
-      rk3: "Paste names from a screenshot here and they get ticked for you.", rk4: "The result: top N, with a copy button for Discord. Event presets give you a ready list for each event.",
+      ev1: "This week's calendar. Tap a day to see what runs that day. Filled = running now, ✅ = has an officer to-do (tap it to jump to the action items), the rest open the event's notes.", ev1b: "Kingdom #2189 milestones: the next one and when it lands.",
+      ev2: "📣 Announcement draft: pick the next days and it writes the in-game announcement for you. 🔄 makes it again, 📋 copies it — paste it into the game.",
+      ev2b: "⚙️ Troop limits used in the guides (Bear Hunt, rallies). Change a number and Save — every guide updates.", ev2c: "⏰ Our event times (UTC): the slots we run each event at. The timers on the main site use these.",
+      ev3: "✅ Action items: officer to-dos for this week / next week. Tick them as you go; they are also what the admin reminders send.",
+      ev4: "📋 Events & in-game guides: add or edit an event — emoji, name, when it starts, how often, days, notes, a guide link, its to-dos and the in-game guide text that gets pasted into the game.", ev4v: "📋 Events & in-game guides: every event with its notes, to-dos and the in-game guide text (tap to copy). Only editors can change them.",
+      bd0: "Tasks assigned to you or where you were @'d show up here first.", bd1: "The board: one topic per plan. Everything is translated into each officer's language with the game's own terms, so nobody gets lost in chat.", bd1e: "＋ New topic: title and text, in your language — the others read it in theirs.",
+      bd2: "Open a topic to read the replies and answer. Topics with a ✓ are decided (an admin marks the decision at the top). Only editors can post, but anyone @'d or assigned can reply in that topic.",
+      mp1: "The kingdom map with our territory. A confession from THAT Sparrow: she doesn't open the map often, so it's updated only now and then. Need something changed right away? Go poke her 🐦", mp2: "Layers: switch banners, territory and the plan on and off. Zoom with + and −, drag to move.",
+      mp3: "Tap an outpost on the map or in the list and this box tells you about it: type, buff, who holds it.", mp4: "🎁 Fortress & Sanctuary rewards: what each one gives, and the season points.",
+      mp5: "📋 Outpost plan: mark 🎯 targets, ✅ ours (protected) and ⚔️ ours (vulnerable). Type the game's countdown once and the page flips protected ⇄ vulnerable by itself. 💾 Save so the other officers see it.", mp5v: "📋 Outpost plan: 🎯 targets, ✅ ours (protected), ⚔️ ours (vulnerable), with timers. Editors keep it up to date.",
+      rk1: "First choose: just play with this on your own device, or share the plan with everyone? A shared plan's roster goes to 📋 Attendance. ↩️ undoes a step, 🕘 shows older versions.", rk1v: "Shared plans: everyone sees the same ticks and table. You can look; editors change them.",
+      rk2: "Weights: how much power, TC and Mystic Trial count in the score. The note explains the formula.", rk2b: "Tick who is in: All / None, or tick members one by one in the table.",
+      rk3: "Paste names from a screenshot (or the game's list) here and they get ticked for you.", rk3b: "Search a name, or show only the ticked members.",
+      rk4: "The table: rank, TC, power, Mystic Trial, SP, migrant — sorted by the score.", rk5: "The result: top N by score, with a copy button for Discord.", rk6: "Event presets: a ready list for each event (Swordland, Tri-Alliance…) with the counts it needs — copy and post.",
       at1: "One sheet per event (Swordland, Tri-Alliance…). Sheets come from shared plans on 📊 Ranking: make a plan there, tick people, and it shows up here as a list.", at2: "Tap a sheet to open it. Each date on a sheet is one list: who confirmed, and after the battle who actually showed up.", at3: "✅ Confirmed: who signed up. Paste names from a screenshot to tick them, mark subs, or add someone from the roster.", at4: "Present: after the battle tap each name — ✓ came, 🛌 excused, ✗ missed. Misses add up: 2nd orange, 3rd red. ⭐ = top 20 by power. Save when done; Copy gives a text for Discord.",
-      po1: "Write an announcement: title, text, a picture, a link to a guide, and when it expires. It's translated into all 12 languages when you publish.", po2: "Edit an announcement that's already out — fix one language, or re-translate all of them.",
-      po3: "All announcements that are out. Reload to see the latest.",
-      wa1: "Watch: name changes, power history, who joined or left. Use the search box and the filters.", sc1: "Scout: top players of other kingdoms, from the public data. Type a kingdom number and fetch.",
-      vw1: "Views: how many people open the site, which pages and which languages. Pick the number of days.",
-      pm1: "Officer rights: who may view or edit each tab. A new officer starts with Events, Board and Map, view only. Admins change this here.", pm2: "Add an officer by Discord ID. They log in with Discord and get exactly the tabs you gave them." },
-    zh: { msgs: "💌 那個麻雀的留言", pick: "想看哪個分頁？", onlyView: "（你只能看，不能改）",
+      po0: "🛠️ Setup (admins): the GitHub key that lets this page publish. Already done — leave it.",
+      po1: "✍️ Write an announcement: your name, the language you write in, title, text, a picture, a link to a guide, and when it expires. Preview, then Publish — it's translated into all 12 languages.", po1v: "✍️ Announcements are written here by editors: title, text, picture, guide link, expiry — published in all 12 languages.",
+      po2: "✏️ Edit an announcement that's already out: pick it, then fix one language, re-translate all of them, or swap the picture.", po3: "📋 All announcements that are out, newest first. Reload to see the latest.",
+      wa1: "Watch: the whole roster with name changes, power history, who joined or left. Type a name to search.", wa2: "Filters: only members with flags, what counts as “new”, rivals and farm alliances.", wa3: "The table: tap a row for the member's history and notes. Flags mark things worth a look.", wa4: "Who left, and when. Copy or CSV exports the list.",
+      sc1: "Scout: top players of other kingdoms, from the public data. Type a kingdom number and fetch.", sc2: "Kingdoms already scouted — tap one to open its list again.",
+      vw1: "Views: how many people open the site. Pick the number of days.", vw2: "Which pages and guides get opened.", vw3: "Site languages, countries, where visitors came from, and devices.",
+      pm1: "Officer rights: who may view or edit each tab. A new officer starts with Events, Board and Map, view only. Tap a cell to change it; 👁️ previews the page as that officer.", pm2: "Add an officer by Discord ID. They log in with Discord and get exactly the tabs you gave them.", pm3: "🔑 Site-owner tools: keys and resets — admins only, rarely needed." },
+    zh: { msgs: "💌 那個麻雀的留言", pick: "想看哪個分頁？", onlyView: "（你只能看，不能改）", ro: "這裡你只能看，不能改。",
       events: "📅 活動", board: "💬 留言板", map: "🗺️ 地圖", ranking: "📊 排名", attend: "📋 出席", post: "📢 公告", watch: "🕵️ 觀察", scout: "🔭 偵查", views: "📈 瀏覽", perms: "👥 幹部",
-      ev1: "這週的日曆。點一天會列出當天的活動，還有幹部要做的事。", ev2: "📣 公告小幫手：選接下來幾天，它會幫你寫好遊戲內公告，複製貼進遊戲就好。",
-      ev3: "這週／下週的幹部待辦，做完打勾。", ev4: "在這裡新增或修改活動：名稱、開始時間、多久一次、待辦事項。要有編輯權限才能改。",
-      bd1: "留言板：一個計畫一個主題。所有內容會用遊戲用語翻成每個幹部的語言，聊天才不會被洗掉。", bd2: "打開主題就能回覆。打 ✓ 的是已經決定的。有人 @ 你會特別標出來。",
-      mp1: "王國地圖和我們的領地。那個麻雀（Sparrow）要先道歉：她不常翻地圖，所以地圖只是偶爾更新。有東西需要馬上改的話，直接去戳她 🐦", mp2: "圖層：旗子、領地、計畫可以開關。用 ＋ － 縮放。",
-      rk1: "先選：只是在自己的裝置上玩一玩，還是要跟大家共享這個計畫？共享的計畫名單會跑到 📋 出席，可以在那邊輸入東西。", rk2: "權重：戰力、TC、秘境試煉各算多少。勾選參加的成員，下面就會排好順序。",
-      rk3: "把截圖的名字貼在這裡，會自動幫你勾好。", rk4: "結果：前 N 名，有複製按鈕可以貼到 Discord。活動預設會直接給你每個活動的名單。",
-      at1: "一個活動一張表（聖劍爭奪、三盟爭霸…）。表來自 📊 排名的共享計畫：在那邊建計畫、勾人，這裡就會出現名單。", at2: "點一張表打開。表裡每個日期是一份名單：誰報名了，打完之後誰真的有來。", at3: "✅ 已確認：報名的人。可以貼截圖的名字自動勾、標記替補，或從名冊加人。", at4: "出席：打完之後點每個名字 — ✓ 有來、🛌 請假、✗ 沒來。缺席會累積：第 2 次橘色、第 3 次紅色。⭐ = 戰力前 20。做完按儲存；複製會給你一段可以貼到 Discord 的文字。",
-      po1: "寫公告：標題、內容、圖片、連結到哪一篇指南、什麼時候到期。發布時會翻成 12 種語言。", po2: "修改已經發出去的公告：改某一個語言，或全部重新翻譯。",
-      po3: "所有已發布的公告。按重新整理看最新的。",
-      wa1: "觀察：改名、戰力歷史、誰加入誰離開。用搜尋框和篩選。", sc1: "偵查：其他王國的頂尖玩家，來自公開資料。輸入王國編號就能抓。",
-      vw1: "瀏覽：多少人開過網站、看哪些頁面、用什麼語言。可以選天數。",
-      pm1: "幹部權限：每個分頁誰能看、誰能改。新幹部預設只有活動、留言板、地圖，而且只能看。管理員在這裡改。", pm2: "用 Discord ID 新增幹部。他們用 Discord 登入，就只會看到你給的分頁。" },
-    pt: { msgs: "💌 Mensagem da Sparrow", pick: "Qual aba você quer que eu mostre?", onlyView: "(você pode ver, não editar)",
+      ev1: "這週的日曆。點一天會列出當天的活動。實心＝進行中，✅＝有幹部待辦（點了跳到待辦事項），其他的會打開活動說明。", ev1b: "王國 #2189 里程碑：下一個是什麼、什麼時候到。",
+      ev2: "📣 公告草稿：選接下來幾天，它會幫你寫好遊戲內公告。🔄 重新產生、📋 複製，貼進遊戲就好。",
+      ev2b: "⚙️ 指南裡用的部隊上限（狩獵巨熊、集結）。改數字按儲存，所有指南一起更新。", ev2c: "⏰ 我們的活動時間（UTC）：每個活動我們固定開的時段。主網站的計時器用的就是這些。",
+      ev3: "✅ 待辦事項：這週／下週的幹部待辦，做完打勾。管理提醒送的也是這些。",
+      ev4: "📋 活動與遊戲內指南：新增或修改活動——表情符號、名稱、開始時間、多久一次、天數、備註、指南連結、待辦，還有要貼進遊戲的指南文字。", ev4v: "📋 活動與遊戲內指南：每個活動的說明、待辦和遊戲內指南文字（點一下複製）。只有編輯者能改。",
+      bd0: "指派給你、或 @ 到你的事情會先出現在這裡。", bd1: "留言板：一個計畫一個主題。所有內容會用遊戲用語翻成每個幹部的語言，聊天才不會被洗掉。", bd1e: "＋ 新主題：用你的語言打標題和內容，其他人會看到他們的語言。",
+      bd2: "打開主題可以看回覆、回答。打 ✓ 的是已經決定的（管理員會在最上面標決定）。只有編輯者能發文，但被 @ 或指派的人可以在那個主題裡回覆。",
+      mp1: "王國地圖和我們的領地。那個麻雀（Sparrow）要先道歉：她不常翻地圖，所以地圖只是偶爾更新。有東西需要馬上改的話，直接去戳她 🐦", mp2: "圖層：旗子、領地、計畫可以開關。用 ＋ － 縮放，拖曳移動。",
+      mp3: "點地圖上或清單裡的據點，這個框會告訴你：種類、加成、誰持有。", mp4: "🎁 要塞與遺跡獎勵：每個給什麼，還有賽季積分。",
+      mp5: "📋 據點計畫：標 🎯 目標、✅ 我方（保護中）、⚔️ 我方（可爭奪）。輸入一次遊戲裡的倒數，頁面會自己切換保護 ⇄ 可爭奪。按 💾 儲存其他幹部才看得到。", mp5v: "📋 據點計畫：🎯 目標、✅ 我方（保護中）、⚔️ 我方（可爭奪），附倒數。由編輯者更新。",
+      rk1: "先選：只是在自己的裝置上玩一玩，還是要跟大家共享這個計畫？共享的計畫名單會跑到 📋 出席。↩️ 可以退一步，🕘 看舊版本。", rk1v: "共享計畫：大家看到同一份勾選和表格。你可以看，編輯者才能改。",
+      rk2: "權重：戰力、TC、秘境試煉各佔多少分。下面的說明有公式。", rk2b: "勾選參加的人：全選／全不選，或在表格裡一個一個勾。",
+      rk3: "把截圖（或遊戲清單）的名字貼在這裡，會自動幫你勾好。", rk3b: "搜尋名字，或只顯示勾選的人。",
+      rk4: "表格：階級、TC、戰力、秘境試煉、SP、移民——照分數排好。", rk5: "結果：分數前 N 名，有複製按鈕可以貼到 Discord。", rk6: "活動預設：每個活動（聖劍爭奪、三盟爭霸…）直接給你需要人數的名單，複製貼出去。",
+      at1: "一個活動一張表（聖劍爭奪、三盟爭霸…）。表來自 📊 排名的共享計畫：在那邊建計畫、勾人，這裡就會出現名單。", at2: "點一張表打開。表裡每個日期是一份名單：誰報名了，打完之後誰真的有來。", at3: "✅ 已確認：報名的人。可以貼截圖的名字自動勾、標記替補，或從名冊加人。", at4: "出席：打完之後點每個名字——✓ 有來、🛌 請假、✗ 沒來。缺席會累積：第 2 次橘色、第 3 次紅色。⭐＝戰力前 20。做完按儲存；複製會給你一段可以貼到 Discord 的文字。",
+      po0: "🛠️ 設定（管理員）：讓這頁能發布的 GitHub 金鑰。已經設好了，不用動。",
+      po1: "✍️ 寫公告：你的名字、你用的語言、標題、內容、圖片、指南連結、什麼時候到期。先預覽再發布，會翻成 12 種語言。", po1v: "✍️ 公告由編輯者在這裡寫：標題、內容、圖片、指南連結、到期時間，發布時翻成 12 種語言。",
+      po2: "✏️ 修改已經發出去的公告：選一則，改某一個語言、全部重新翻譯，或換圖片。", po3: "📋 所有已發布的公告，最新的在上面。按重新整理看最新的。",
+      wa1: "觀察：整個名冊，含改名、戰力歷史、誰加入誰離開。打名字搜尋。", wa2: "篩選：只看有標記的人、「新成員」算幾天內、敵對聯盟和小號聯盟。", wa3: "表格：點一列看那個人的歷史和備註。標記是值得注意的事。", wa4: "誰離開了、什麼時候。複製或 CSV 可以匯出。",
+      sc1: "偵查：其他王國的頂尖玩家，來自公開資料。輸入王國編號就能抓。", sc2: "已經偵查過的王國，點一個再打開它的名單。",
+      vw1: "瀏覽：多少人開過網站。可以選天數。", vw2: "哪些頁面和指南被打開。", vw3: "網站語言、國家、從哪裡來、用什麼裝置。",
+      pm1: "幹部權限：每個分頁誰能看、誰能改。新幹部預設只有活動、留言板、地圖，而且只能看。點格子就能改；👁️ 用那個人的身分預覽。", pm2: "用 Discord ID 新增幹部。他們用 Discord 登入，就只會看到你給的分頁。", pm3: "🔑 站長工具：金鑰和重設——只有管理員，很少用到。" },
+    pt: { msgs: "💌 Mensagem dAQUELA Sparrow", pick: "Qual aba você quer que eu mostre?", onlyView: "(você pode ver, não editar)", ro: "Aqui você pode ver, mas não mudar nada.",
       events: "📅 Eventos", board: "💬 Quadro", map: "🗺️ Mapa", ranking: "📊 Ranking", attend: "📋 Presença", post: "📢 Postar", watch: "🕵️ Vigiar", scout: "🔭 Espiar", views: "📈 Visitas", perms: "👥 Oficiais",
-      ev1: "O calendário da semana. Toque num dia para ver o que acontece e as tarefas dos oficiais.", ev2: "📣 O ajudante de anúncios: escolha os próximos dias e ele escreve o anúncio do jogo — copie para o jogo.",
-      ev3: "Tarefas dos oficiais desta / próxima semana. Marque conforme faz.", ev4: "Adicione ou edite eventos aqui: nome, início, frequência e tarefas. Só com direito de edição.",
-      bd1: "O quadro: um tópico por plano. Tudo é traduzido para o idioma de cada oficial com os termos do jogo, para ninguém se perder no chat.", bd2: "Abra um tópico para responder. Tópicos com ✓ estão decididos. Se alguém te marcar com @, fica destacado.",
-      mp1: "O mapa do reino com nosso território. Confissão dAQUELA Sparrow: ela não abre o mapa com frequência, então ele é atualizado só de vez em quando. Precisa de algo urgente? Vá cutucá-la 🐦", mp2: "Camadas: ligue e desligue bandeiras, território e planos. Zoom com + e −.",
-      rk1: "Primeiro escolha: brincar só no seu aparelho, ou compartilhar o plano com todos? A lista de um plano compartilhado vai para 📋 Presença, onde você pode preencher coisas.", rk2: "Pesos: quanto contam poder, TC e Prova Mística. Marque quem participa e veja o resultado ordenado abaixo.",
-      rk3: "Cole aqui os nomes de uma captura de tela e eles são marcados para você.", rk4: "O resultado: top N, com botão de copiar para o Discord. As predefinições de evento dão a lista pronta de cada evento.",
+      ev1: "O calendário da semana. Toque num dia para ver o que acontece. Cheio = em andamento, ✅ = tem tarefa de oficial (toque para ir às tarefas), os outros abrem as notas do evento.", ev1b: "Marcos do reino #2189: o próximo e quando chega.",
+      ev2: "📣 Rascunho de anúncio: escolha os próximos dias e ele escreve o anúncio do jogo. 🔄 refaz, 📋 copia — cole no jogo.",
+      ev2b: "⚙️ Limites de tropas usados nos guias (Caça ao Urso, rallies). Mude um número e Salve — todos os guias atualizam.", ev2c: "⏰ Nossos horários de evento (UTC): os horários em que fazemos cada evento. Os timers do site principal usam estes.",
+      ev3: "✅ Tarefas: pendências dos oficiais desta / próxima semana. Marque conforme faz; os lembretes de admin enviam estas.",
+      ev4: "📋 Eventos e guias do jogo: adicione ou edite um evento — emoji, nome, início, frequência, dias, notas, link de guia, tarefas e o texto do guia que é colado no jogo.", ev4v: "📋 Eventos e guias do jogo: cada evento com notas, tarefas e o texto do guia (toque para copiar). Só editores mudam.",
+      bd0: "Tarefas atribuídas a você ou onde te marcaram com @ aparecem aqui primeiro.", bd1: "O quadro: um tópico por plano. Tudo é traduzido para o idioma de cada oficial com os termos do jogo.", bd1e: "＋ Novo tópico: título e texto no seu idioma — os outros leem no deles.",
+      bd2: "Abra um tópico para ler e responder. Tópicos com ✓ estão decididos (um admin marca a decisão no topo). Só editores postam, mas quem foi marcado ou designado pode responder nesse tópico.",
+      mp1: "O mapa do reino com nosso território. Confissão dAQUELA Sparrow: ela não abre o mapa com frequência, então ele é atualizado só de vez em quando. Precisa de algo urgente? Vá cutucá-la 🐦", mp2: "Camadas: ligue e desligue bandeiras, território e o plano. Zoom com + e −, arraste para mover.",
+      mp3: "Toque num posto no mapa ou na lista e esta caixa mostra: tipo, bônus, quem o tem.", mp4: "🎁 Recompensas de Fortalezas e Santuários: o que cada um dá e os pontos de temporada.",
+      mp5: "📋 Plano de postos: marque 🎯 alvos, ✅ nossos (protegidos) e ⚔️ nossos (vulneráveis). Digite a contagem do jogo uma vez e a página alterna protegido ⇄ vulnerável sozinha. 💾 Salve para os outros verem.", mp5v: "📋 Plano de postos: 🎯 alvos, ✅ nossos (protegidos), ⚔️ nossos (vulneráveis), com timers. Os editores mantêm atualizado.",
+      rk1: "Primeiro escolha: brincar só no seu aparelho, ou compartilhar o plano com todos? A lista de um plano compartilhado vai para 📋 Presença. ↩️ desfaz um passo, 🕘 mostra versões antigas.", rk1v: "Planos compartilhados: todos veem as mesmas marcações e tabela. Você vê; editores mudam.",
+      rk2: "Pesos: quanto poder, TC e Prova Mística contam na pontuação. A nota explica a fórmula.", rk2b: "Marque quem participa: Todos / Nenhum, ou um por um na tabela.",
+      rk3: "Cole aqui os nomes de uma captura (ou da lista do jogo) e eles são marcados para você.", rk3b: "Procure um nome, ou mostre só os marcados.",
+      rk4: "A tabela: rank, TC, poder, Prova Mística, SP, migrante — ordenada pela pontuação.", rk5: "O resultado: top N por pontuação, com botão de copiar para o Discord.", rk6: "Predefinições de evento: lista pronta de cada evento (Swordland, Tri-Alliance…) com as quantidades — copie e poste.",
       at1: "Uma folha por evento (Swordland, Tri-Alliance…). As folhas vêm dos planos compartilhados do 📊 Ranking: crie um plano lá, marque as pessoas, e a lista aparece aqui.", at2: "Toque numa folha para abrir. Cada data é uma lista: quem confirmou e, depois da batalha, quem realmente apareceu.", at3: "✅ Confirmados: quem se inscreveu. Cole nomes de uma captura para marcar, indique reservas ou adicione alguém da lista de membros.", at4: "Presentes: depois da batalha toque em cada nome — ✓ veio, 🛌 justificado, ✗ faltou. Faltas acumulam: 2ª laranja, 3ª vermelha. ⭐ = top 20 por poder. Salve ao terminar; Copiar gera um texto para o Discord.",
-      po1: "Escreva um anúncio: título, texto, imagem, link para um guia e validade. É traduzido para os 12 idiomas ao publicar.", po2: "Edite um anúncio já publicado — corrija um idioma ou retraduza todos.",
-      po3: "Todos os anúncios publicados. Recarregue para ver os mais recentes.",
-      wa1: "Vigiar: mudanças de nome, histórico de poder, quem entrou ou saiu. Use a busca e os filtros.", sc1: "Espiar: os melhores jogadores de outros reinos, dos dados públicos. Digite o número do reino e busque.",
-      vw1: "Visitas: quantas pessoas abrem o site, quais páginas e idiomas. Escolha o número de dias.",
-      pm1: "Direitos dos oficiais: quem pode ver ou editar cada aba. Um oficial novo começa com Eventos, Quadro e Mapa, só visualização. Admins mudam isso aqui.", pm2: "Adicione um oficial pelo ID do Discord. Ele entra com o Discord e vê exatamente as abas que você deu." },
-    ar: { msgs: "💌 رسالة من Sparrow", pick: "أي تبويب تريد أن أريك إياه؟", onlyView: "(يمكنك المشاهدة فقط، لا التعديل)",
+      po0: "🛠️ Configuração (admins): a chave do GitHub que deixa esta página publicar. Já está feita — deixe como está.",
+      po1: "✍️ Escrever um anúncio: seu nome, o idioma em que escreve, título, texto, imagem, link para um guia e validade. Pré-visualize e Publique — é traduzido para os 12 idiomas.", po1v: "✍️ Os anúncios são escritos aqui pelos editores: título, texto, imagem, link de guia, validade — publicados em 12 idiomas.",
+      po2: "✏️ Editar um anúncio já publicado: escolha-o, corrija um idioma, retraduza todos ou troque a imagem.", po3: "📋 Todos os anúncios publicados, do mais novo ao mais antigo. Recarregue para ver os mais recentes.",
+      wa1: "Vigiar: toda a lista de membros com mudanças de nome, histórico de poder, quem entrou ou saiu. Digite um nome para buscar.", wa2: "Filtros: só membros com marcações, o que conta como “novo”, rivais e alianças farm.", wa3: "A tabela: toque numa linha para o histórico e as notas do membro. As marcações indicam o que vale olhar.", wa4: "Quem saiu, e quando. Copiar ou CSV exporta a lista.",
+      sc1: "Espiar: os melhores jogadores de outros reinos, dos dados públicos. Digite o número do reino e busque.", sc2: "Reinos já espiados — toque num para abrir a lista de novo.",
+      vw1: "Visitas: quantas pessoas abrem o site. Escolha o número de dias.", vw2: "Quais páginas e guias são abertos.", vw3: "Idiomas do site, países, de onde vieram e dispositivos.",
+      pm1: "Direitos dos oficiais: quem pode ver ou editar cada aba. Um oficial novo começa com Eventos, Quadro e Mapa, só visualização. Toque numa célula para mudar; 👁️ vê a página como esse oficial.", pm2: "Adicione um oficial pelo ID do Discord. Ele entra com o Discord e vê exatamente as abas que você deu.", pm3: "🔑 Ferramentas do dono do site: chaves e resets — só admins, raramente necessário." },
+    ar: { msgs: "💌 رسالة من Sparrow تلك", pick: "أي تبويب تريد أن أريك إياه؟", onlyView: "(يمكنك المشاهدة فقط، لا التعديل)", ro: "هنا يمكنك المشاهدة فقط دون تغيير أي شيء.",
       events: "📅 الأحداث", board: "💬 اللوحة", map: "🗺️ الخريطة", ranking: "📊 الترتيب", attend: "📋 الحضور", post: "📢 نشر", watch: "🕵️ مراقبة", scout: "🔭 استطلاع", views: "📈 الزيارات", perms: "👥 الضباط",
-      ev1: "تقويم هذا الأسبوع. اضغط على يوم لترى ما يجري فيه ومهام الضباط.", ev2: "📣 مساعد الإعلانات: اختر الأيام القادمة فيكتب لك إعلان اللعبة — انسخه إلى اللعبة.",
-      ev3: "مهام الضباط لهذا الأسبوع / الأسبوع القادم. علّمها عند إنجازها.", ev4: "أضف أو عدّل الأحداث هنا: الاسم، وقت البدء، التكرار، والمهام. فقط إن كان لديك حق التعديل.",
-      bd1: "اللوحة: موضوع لكل خطة. كل شيء يُترجم إلى لغة كل ضابط بمصطلحات اللعبة نفسها، كي لا يضيع أحد في الدردشة.", bd2: "افتح موضوعًا للرد. المواضيع التي عليها ✓ محسومة. إن أشار إليك أحد بـ @ فسيُبرز لك.",
-      mp1: "خريطة المملكة مع أراضينا. اعتراف من Sparrow تلك: لا تفتح الخريطة كثيرًا، لذا تُحدَّث بين حين وآخر فقط. تحتاج تغييرًا فوريًا؟ اذهب ونبّهها 🐦", mp2: "الطبقات: فعّل أو عطّل الرايات والأراضي والخطط. كبّر وصغّر بـ + و −.",
-      rk1: "اختر أولًا: تجرّب على جهازك فقط، أم تشارك الخطة مع الجميع؟ قائمة الخطة المشتركة تذهب إلى 📋 الحضور حيث يمكنك تعبئة الأشياء.", rk2: "الأوزان: كم تُحسب القوة وTC والتجربة الغامضة. علّم الأعضاء المشاركين ثم اقرأ النتيجة المرتبة أدناه.",
-      rk3: "الصق هنا الأسماء من لقطة شاشة فتُعلَّم لك تلقائيًا.", rk4: "النتيجة: أفضل N، مع زر نسخ إلى Discord. إعدادات الأحداث تعطيك قائمة جاهزة لكل حدث.",
+      ev1: "تقويم هذا الأسبوع. اضغط على يوم لترى ما يجري فيه. الممتلئ = جارٍ الآن، ✅ = له مهمة ضابط (اضغط للانتقال إلى المهام)، والباقي يفتح ملاحظات الحدث.", ev1b: "إنجازات المملكة #2189: التالي ومتى يحل.",
+      ev2: "📣 مسودة الإعلان: اختر الأيام القادمة فيكتب لك إعلان اللعبة. 🔄 يعيد الكتابة، 📋 ينسخ — الصقه في اللعبة.",
+      ev2b: "⚙️ حدود القوات المستخدمة في الأدلة (صيد الدببة، الحشود). غيّر رقمًا واحفظ — تتحدث كل الأدلة.", ev2c: "⏰ أوقات أحداثنا (UTC): الفترات التي نقيم فيها كل حدث. مؤقّتات الموقع الرئيسي تستخدمها.",
+      ev3: "✅ المهام: مهام الضباط لهذا الأسبوع / الأسبوع القادم. علّمها عند إنجازها؛ وهي ما ترسله تذكيرات المدراء.",
+      ev4: "📋 الأحداث وأدلة اللعبة: أضف أو عدّل حدثًا — الرمز، الاسم، وقت البدء، التكرار، الأيام، الملاحظات، رابط الدليل، المهام، ونص الدليل الذي يُلصق في اللعبة.", ev4v: "📋 الأحداث وأدلة اللعبة: كل حدث مع ملاحظاته ومهامه ونص الدليل (اضغط للنسخ). المحرّرون فقط يغيّرونها.",
+      bd0: "المهام المسندة إليك أو التي أُشير إليك فيها بـ @ تظهر هنا أولًا.", bd1: "اللوحة: موضوع لكل خطة. كل شيء يُترجم إلى لغة كل ضابط بمصطلحات اللعبة.", bd1e: "＋ موضوع جديد: عنوان ونص بلغتك — يقرأه الآخرون بلغاتهم.",
+      bd2: "افتح موضوعًا لقراءة الردود والإجابة. المواضيع التي عليها ✓ محسومة (يعلّم المدير القرار في الأعلى). المحرّرون فقط ينشرون، لكن من أُشير إليه أو أُسند إليه يستطيع الرد في ذلك الموضوع.",
+      mp1: "خريطة المملكة مع أراضينا. اعتراف من Sparrow تلك: لا تفتح الخريطة كثيرًا، لذا تُحدَّث بين حين وآخر فقط. تحتاج تغييرًا فوريًا؟ اذهب ونبّهها 🐦", mp2: "الطبقات: فعّل أو عطّل الرايات والأراضي والخطة. كبّر وصغّر بـ + و −، واسحب للتحريك.",
+      mp3: "اضغط على موقع في الخريطة أو القائمة فيخبرك هذا الصندوق: النوع، التعزيز، من يحوزه.", mp4: "🎁 مكافآت الحصون والمآوي: ما يعطيه كل منها ونقاط الموسم.",
+      mp5: "📋 خطة المواقع: علّم 🎯 الأهداف، ✅ مواقعنا (محمية) و⚔️ مواقعنا (معرضة). اكتب عدّ اللعبة التنازلي مرة فتبدّل الصفحة محمي ⇄ معرض بنفسها. 💾 احفظ ليراها الضباط.", mp5v: "📋 خطة المواقع: 🎯 الأهداف، ✅ مواقعنا (محمية)، ⚔️ مواقعنا (معرضة)، مع مؤقّتات. يحدّثها المحرّرون.",
+      rk1: "اختر أولًا: تجرّب على جهازك فقط، أم تشارك الخطة مع الجميع؟ قائمة الخطة المشتركة تذهب إلى 📋 الحضور. ↩️ يتراجع خطوة، 🕘 يعرض النسخ القديمة.", rk1v: "الخطط المشتركة: الجميع يرى التعليمات والجدول نفسه. أنت تشاهد؛ المحرّرون يغيّرون.",
+      rk2: "الأوزان: كم تُحسب القوة وTC والتجربة الغامضة في النتيجة. الملاحظة تشرح المعادلة.", rk2b: "علّم المشاركين: الكل / لا أحد، أو واحدًا واحدًا في الجدول.",
+      rk3: "الصق هنا الأسماء من لقطة شاشة (أو قائمة اللعبة) فتُعلَّم لك تلقائيًا.", rk3b: "ابحث عن اسم، أو اعرض المعلَّمين فقط.",
+      rk4: "الجدول: الرتبة، TC، القوة، التجربة الغامضة، SP، مهاجر — مرتّب حسب النتيجة.", rk5: "النتيجة: أفضل N حسب النتيجة، مع زر نسخ إلى Discord.", rk6: "إعدادات الأحداث: قائمة جاهزة لكل حدث (Swordland، Tri-Alliance…) بالأعداد المطلوبة — انسخ وانشر.",
       at1: "ورقة لكل حدث (Swordland، Tri-Alliance…). الأوراق تأتي من الخطط المشتركة في 📊 الترتيب: أنشئ خطة هناك وعلّم الأعضاء، فتظهر هنا كقائمة.", at2: "اضغط على ورقة لفتحها. كل تاريخ فيها قائمة: من أكّد، وبعد المعركة من حضر فعلًا.", at3: "✅ المؤكَّدون: من سجّل. الصق الأسماء من لقطة شاشة لتعليمهم، أو علّم البدلاء، أو أضف أحدًا من القائمة.", at4: "الحضور: بعد المعركة اضغط على كل اسم — ✓ حضر، 🛌 معذور، ✗ غاب. الغيابات تتراكم: الثاني برتقالي، الثالث أحمر. ⭐ = أفضل 20 بالقوة. احفظ عند الانتهاء؛ نسخ يعطيك نصًا لـ Discord.",
-      po1: "اكتب إعلانًا: عنوان، نص، صورة، رابط إلى دليل، وموعد انتهائه. يُترجم إلى 12 لغة عند النشر.", po2: "عدّل إعلانًا منشورًا — أصلح لغة واحدة أو أعد ترجمتها كلها.",
-      po3: "كل الإعلانات المنشورة. أعد التحميل لترى الأحدث.",
-      wa1: "مراقبة: تغييرات الأسماء، سجل القوة، من انضم أو غادر. استخدم مربع البحث والمرشحات.", sc1: "استطلاع: أفضل لاعبي الممالك الأخرى من البيانات العامة. اكتب رقم المملكة واجلب.",
-      vw1: "الزيارات: كم شخصًا يفتح الموقع، وأي الصفحات واللغات. اختر عدد الأيام.",
-      pm1: "صلاحيات الضباط: من يستطيع مشاهدة أو تعديل كل تبويب. الضابط الجديد يبدأ بالأحداث واللوحة والخريطة للمشاهدة فقط. يغيّر المدراء ذلك هنا.", pm2: "أضف ضابطًا بمعرّف Discord. يسجّل الدخول بـ Discord ويرى التبويبات التي أعطيته إياها بالضبط." },
-    ko: { msgs: "💌 Sparrow의 메시지", pick: "어느 탭을 보여줄까요?", onlyView: "(보기만 가능, 수정 불가)",
+      po0: "🛠️ الإعداد (المدراء): مفتاح GitHub الذي يسمح لهذه الصفحة بالنشر. مُعدّ مسبقًا — اتركه.",
+      po1: "✍️ اكتب إعلانًا: اسمك، لغة الكتابة، العنوان، النص، صورة، رابط إلى دليل، وموعد الانتهاء. عاين ثم انشر — يُترجم إلى 12 لغة.", po1v: "✍️ يكتب المحرّرون الإعلانات هنا: عنوان، نص، صورة، رابط دليل، انتهاء — تُنشر بـ 12 لغة.",
+      po2: "✏️ عدّل إعلانًا منشورًا: اختره ثم أصلح لغة واحدة، أو أعد ترجمتها كلها، أو بدّل الصورة.", po3: "📋 كل الإعلانات المنشورة، الأحدث أولًا. أعد التحميل لترى الأحدث.",
+      wa1: "مراقبة: القائمة كاملة مع تغييرات الأسماء وسجل القوة ومن انضم أو غادر. اكتب اسمًا للبحث.", wa2: "المرشحات: الأعضاء ذوو العلامات فقط، ما يُعد «جديدًا»، المنافسون وتحالفات المزارع.", wa3: "الجدول: اضغط على صف لترى سجل العضو وملاحظاته. العلامات تشير إلى ما يستحق النظر.", wa4: "من غادر ومتى. نسخ أو CSV يصدّر القائمة.",
+      sc1: "استطلاع: أفضل لاعبي الممالك الأخرى من البيانات العامة. اكتب رقم المملكة واجلب.", sc2: "الممالك المستطلَعة سابقًا — اضغط على واحدة لفتح قائمتها مجددًا.",
+      vw1: "الزيارات: كم شخصًا يفتح الموقع. اختر عدد الأيام.", vw2: "أي الصفحات والأدلة تُفتح.", vw3: "لغات الموقع، الدول، من أين جاء الزوار، والأجهزة.",
+      pm1: "صلاحيات الضباط: من يستطيع مشاهدة أو تعديل كل تبويب. الضابط الجديد يبدأ بالأحداث واللوحة والخريطة للمشاهدة فقط. اضغط على خلية لتغييرها؛ 👁️ يعاين الصفحة بهوية ذلك الضابط.", pm2: "أضف ضابطًا بمعرّف Discord. يسجّل الدخول بـ Discord ويرى التبويبات التي أعطيته إياها بالضبط.", pm3: "🔑 أدوات مالك الموقع: المفاتيح وإعادة الضبط — للمدراء فقط، نادرًا ما تُحتاج." },
+    ko: { msgs: "💌 그 Sparrow의 메시지", pick: "어느 탭을 보여줄까요?", onlyView: "(보기만 가능, 수정 불가)", ro: "여기는 보기만 할 수 있고 바꿀 수는 없어요.",
       events: "📅 이벤트", board: "💬 게시판", map: "🗺️ 지도", ranking: "📊 랭킹", attend: "📋 출석", post: "📢 공지", watch: "🕵️ 감시", scout: "🔭 정찰", views: "📈 조회", perms: "👥 간부",
-      ev1: "이번 주 달력이에요. 날짜를 누르면 그날 이벤트와 간부 할 일이 나와요.", ev2: "📣 공지 도우미: 다음 며칠을 고르면 게임 내 공지를 써 줘요 — 게임에 복사하세요.",
-      ev3: "이번 주 / 다음 주 간부 할 일. 하면서 체크하세요.", ev4: "여기서 이벤트를 추가·수정해요: 이름, 시작, 주기, 할 일. 수정 권한이 있을 때만요.",
-      bd1: "게시판: 계획마다 주제 하나. 모든 내용이 게임 용어로 각 간부의 언어로 번역돼서 채팅에 묻히지 않아요.", bd2: "주제를 열어 답글을 달아요. ✓가 있는 주제는 결정된 거예요. 누가 @로 부르면 강조돼요.",
-      mp1: "우리 영토가 있는 왕국 지도예요. 그 Sparrow의 고백: 지도를 자주 안 열어서 가끔만 업데이트돼요. 바로 바꿔야 하면 가서 찔러 주세요 🐦", mp2: "레이어: 깃발, 영토, 계획을 켜고 끌 수 있어요. + − 로 확대·축소.",
-      rk1: "먼저 고르세요: 내 기기에서만 해 볼지, 모두와 계획을 공유할지. 공유한 계획의 명단은 📋 출석으로 가고, 거기서 입력할 수 있어요.", rk2: "가중치: 전투력, TC, 신비 시련을 얼마나 반영할지. 참가 멤버를 체크하면 아래에 정렬된 결과가 나와요.",
-      rk3: "스크린샷의 이름을 여기 붙여 넣으면 자동으로 체크돼요.", rk4: "결과: 상위 N명, Discord용 복사 버튼. 이벤트 프리셋은 이벤트별 명단을 바로 줘요.",
+      ev1: "이번 주 달력이에요. 날짜를 누르면 그날 이벤트가 나와요. 채워진 것 = 진행 중, ✅ = 간부 할 일 있음(누르면 할 일로 이동), 나머지는 이벤트 메모를 열어요.", ev1b: "왕국 #2189 마일스톤: 다음 것과 언제 도달하는지.",
+      ev2: "📣 공지 초안: 다음 며칠을 고르면 게임 내 공지를 써 줘요. 🔄 다시 만들기, 📋 복사 — 게임에 붙여 넣으세요.",
+      ev2b: "⚙️ 가이드에 쓰는 병력 제한(곰 사냥, 집결). 숫자를 바꾸고 저장하면 모든 가이드가 업데이트돼요.", ev2c: "⏰ 우리 이벤트 시간(UTC): 각 이벤트를 여는 시간대. 메인 사이트 타이머가 이걸 써요.",
+      ev3: "✅ 할 일: 이번 주 / 다음 주 간부 할 일. 하면서 체크하세요. 관리 알림도 이걸 보내요.",
+      ev4: "📋 이벤트 & 게임 내 가이드: 이벤트 추가·수정 — 이모지, 이름, 시작, 주기, 일수, 메모, 가이드 링크, 할 일, 게임에 붙여 넣는 가이드 텍스트.", ev4v: "📋 이벤트 & 게임 내 가이드: 이벤트마다 메모, 할 일, 가이드 텍스트(눌러서 복사). 편집자만 바꿀 수 있어요.",
+      bd0: "나에게 배정됐거나 @로 불린 일이 여기 먼저 보여요.", bd1: "게시판: 계획마다 주제 하나. 모든 내용이 게임 용어로 각 간부의 언어로 번역돼요.", bd1e: "＋ 새 주제: 내 언어로 제목과 내용을 쓰면 다른 사람은 자기 언어로 읽어요.",
+      bd2: "주제를 열어 답글을 읽고 답해요. ✓가 있는 주제는 결정된 거예요(관리자가 맨 위에 결정 표시). 편집자만 글을 쓰지만, @로 불리거나 배정된 사람은 그 주제에 답할 수 있어요.",
+      mp1: "우리 영토가 있는 왕국 지도예요. 그 Sparrow의 고백: 지도를 자주 안 열어서 가끔만 업데이트돼요. 바로 바꿔야 하면 가서 찔러 주세요 🐦", mp2: "레이어: 깃발, 영토, 계획을 켜고 끌 수 있어요. + − 로 확대·축소, 드래그로 이동.",
+      mp3: "지도나 목록에서 거점을 누르면 이 상자가 알려줘요: 종류, 버프, 누가 가졌는지.", mp4: "🎁 성채 · 유적 보상: 각각 무엇을 주는지, 시즌 포인트.",
+      mp5: "📋 거점 계획: 🎯 목표, ✅ 우리 거점(보호), ⚔️ 우리 거점(쟁탈 가능)을 표시해요. 게임 카운트다운을 한 번 입력하면 페이지가 보호 ⇄ 쟁탈 가능을 알아서 바꿔요. 💾 저장해야 다른 간부가 봐요.", mp5v: "📋 거점 계획: 🎯 목표, ✅ 우리 거점(보호), ⚔️ 우리 거점(쟁탈 가능), 타이머 포함. 편집자가 업데이트해요.",
+      rk1: "먼저 고르세요: 내 기기에서만 해 볼지, 모두와 계획을 공유할지. 공유한 계획의 명단은 📋 출석으로 가요. ↩️ 한 단계 되돌리기, 🕘 이전 버전 보기.", rk1v: "공유 계획: 모두 같은 체크와 표를 봐요. 보는 건 되고, 편집자가 바꿔요.",
+      rk2: "가중치: 전투력, TC, 신비 시련을 점수에 얼마나 반영할지. 메모에 공식이 있어요.", rk2b: "참가자 체크: 전체 / 없음, 또는 표에서 한 명씩.",
+      rk3: "스크린샷(또는 게임 목록)의 이름을 여기 붙여 넣으면 자동으로 체크돼요.", rk3b: "이름 검색, 또는 체크한 멤버만 보기.",
+      rk4: "표: 등급, TC, 전투력, 신비 시련, SP, 이주 — 점수순.", rk5: "결과: 점수 상위 N명, Discord용 복사 버튼.", rk6: "이벤트 프리셋: 이벤트별(Swordland, Tri-Alliance…) 필요 인원에 맞춘 명단 — 복사해서 올리세요.",
       at1: "이벤트마다 시트 하나 (Swordland, Tri-Alliance…). 시트는 📊 랭킹의 공유 계획에서 와요: 거기서 계획을 만들고 사람을 체크하면 여기에 명단이 생겨요.", at2: "시트를 눌러 열어요. 날짜마다 명단 하나: 누가 확인했는지, 전투 후 누가 실제로 왔는지.", at3: "✅ 확인됨: 신청한 사람. 스크린샷 이름을 붙여 넣어 체크하거나, 후보를 표시하거나, 명단에서 추가하세요.", at4: "출석: 전투 후 이름을 눌러요 — ✓ 옴, 🛌 사유, ✗ 불참. 불참은 쌓여요: 2번째 주황, 3번째 빨강. ⭐ = 전투력 상위 20. 끝나면 저장; 복사하면 Discord용 텍스트가 나와요.",
-      po1: "공지 쓰기: 제목, 내용, 사진, 가이드 링크, 만료 시간. 게시하면 12개 언어로 번역돼요.", po2: "이미 올린 공지 수정 — 한 언어만 고치거나 전부 다시 번역.",
-      po3: "게시된 모든 공지. 새로고침해서 최신 걸 보세요.",
-      wa1: "감시: 이름 변경, 전투력 기록, 가입·탈퇴. 검색창과 필터를 쓰세요.", sc1: "정찰: 공개 데이터로 본 다른 왕국의 상위 플레이어. 왕국 번호를 입력하고 가져오세요.",
-      vw1: "조회: 사이트를 연 사람 수, 어떤 페이지와 언어인지. 일수를 고르세요.",
-      pm1: "간부 권한: 탭마다 누가 보고 수정할 수 있는지. 새 간부는 이벤트·게시판·지도 보기만으로 시작해요. 관리자가 여기서 바꿔요.", pm2: "Discord ID로 간부를 추가해요. Discord로 로그인하면 준 탭만 보여요." },
+      po0: "🛠️ 설정(관리자): 이 페이지가 게시할 수 있게 하는 GitHub 키. 이미 돼 있어요 — 그대로 두세요.",
+      po1: "✍️ 공지 쓰기: 이름, 쓰는 언어, 제목, 내용, 사진, 가이드 링크, 만료. 미리보기 후 게시 — 12개 언어로 번역돼요.", po1v: "✍️ 공지는 편집자가 여기서 써요: 제목, 내용, 사진, 가이드 링크, 만료 — 12개 언어로 게시.",
+      po2: "✏️ 이미 올린 공지 수정: 골라서 한 언어만 고치거나, 전부 다시 번역하거나, 사진을 바꿔요.", po3: "📋 게시된 모든 공지, 최신순. 새로고침하면 최신 걸 봐요.",
+      wa1: "감시: 이름 변경, 전투력 기록, 가입·탈퇴가 있는 전체 명단. 이름을 입력해 검색.", wa2: "필터: 표시된 멤버만, “신규” 기준 일수, 라이벌과 농장 연맹.", wa3: "표: 행을 누르면 멤버의 기록과 메모. 표시는 눈여겨볼 것.", wa4: "누가 언제 나갔는지. 복사 또는 CSV로 내보내기.",
+      sc1: "정찰: 공개 데이터로 본 다른 왕국의 상위 플레이어. 왕국 번호를 입력하고 가져오세요.", sc2: "이미 정찰한 왕국 — 누르면 명단을 다시 열어요.",
+      vw1: "조회: 사이트를 연 사람 수. 일수를 고르세요.", vw2: "어떤 페이지와 가이드가 열리는지.", vw3: "사이트 언어, 국가, 유입 경로, 기기.",
+      pm1: "간부 권한: 탭마다 누가 보고 수정할 수 있는지. 새 간부는 이벤트·게시판·지도 보기만으로 시작해요. 칸을 눌러 바꾸고, 👁️ 로 그 간부의 화면을 미리 봐요.", pm2: "Discord ID로 간부를 추가해요. Discord로 로그인하면 준 탭만 보여요.", pm3: "🔑 사이트 소유자 도구: 키와 초기화 — 관리자 전용, 거의 안 써요." },
   };
   const ot = (k) => (OT[lang()] || OT.en)[k] || OT.en[k];
   const OTOURS = {
-    events: [["#cal", "ev1"], ["#anCard", "ev2"], ["#todos", "ev3"], ["#ev_timed", "ev4"]],
-    board: [["#bd_listView", "bd1"], ["#bd_listView", "bd2"]],
-    map: [["#km_box", "mp1"], ["#km_layers", "mp2"]],
-    ranking: [["#planCard", "rk1"], ["#rk_wRow", "rk2"], ["#pasteBox", "rk3"], ["#result", "rk4"]],
+    events: [["#cal", "ev1"], ["#msList", "ev1b"], ["#anCard", "ev2"], ["#limCard", "ev2b"], ["#etCard", "ev2c"], ["#todos", "ev3"], ["#ev_timed", "ev4"]],
+    board: [["#bd_tasks", "bd0"], ["#bd_listView", "bd1"], ["#bd_newBtn", "bd1e", "edit"], ["#bd_list", "bd2"]],
+    map: [["#km_box", "mp1"], ["#km_layers", "mp2"], ["#km_info", "mp3"], ["#km_flags", "mp4"], ["#km_plan", "mp5"]],
+    ranking: [["#planCard", "rk1"], ["#rk_wRow", "rk2"], ["#allBtn", "rk2b"], ["#pasteBox", "rk3"], ["#rk_q", "rk3b"], ["#rk_list", "rk4"], ["#result", "rk5"], ["#presetBtns", "rk6"]],
     attend: [["#at_list", "at1"], ["#at_list .at-ev, #at_list .at-open, #at_list .at-make", "at2", "open"], ["#at_edit_body .chips", "at3"], ["#at_edit_body .at-plist", "at4"]],
-    post: [["#po_app", "po1"], ["#editCard", "po2"], ["#po_list", "po3"]],
-    watch: [["#wa_app", "wa1"]], scout: [["#sc_app", "sc1"]], views: [["#vw_daily", "vw1"]],
-    perms: [["#pm_tbl", "pm1"], ["#pm_name", "pm2"]],
+    post: [["#setupCard", "po0", "edit"], ["#po_app", "po1"], ["#editCard", "po2", "edit"], ["#po_list", "po3"]],
+    watch: [["#wa_q", "wa1"], ["#onlyFlag", "wa2"], ["#rows", "wa3"], ["#left", "wa4"]],
+    scout: [["#sc_kid", "sc1"], ["#sc_kingdoms", "sc2"]],
+    views: [["#vw_daily", "vw1"], ["#vw_pages", "vw2"], ["#vw_langs", "vw3"]],
+    perms: [["#pm_tbl", "pm1"], ["#pm_name", "pm2"], ["#po_owner", "pm3", "edit"]],
   };
+  /* text for a step: view-only officers get the "…v" variant when there is one, otherwise the text plus a short "look only" note on edit-only parts */
+  const otStep = (tab, key, act) => { const ro = OFFICER.can && !OFFICER.can(tab, "edit"); if (ro && OT.en[key + "v"]) return ot(key + "v"); return ot(key) + (ro && act === "edit" ? " " + ot("ro") : ""); };
+
   /* ---------- personal messages from Sparrow (officer page). Lines: [clip, text]. Matched by Discord user id, or by name until the id is known ---------- */
   const MESSAGES = [
     { id: "762827904341246013", match: /^nia$|milk/i, lines: [
@@ -623,14 +678,16 @@
     const p = pointAt(a); await flyTo(p.x, p.y); setFlip(p.side === "l"); highlight(a); play("point"); await wait(700); a.click(); await wait(600);
     const steps = OTOURS[tab];
     for (let i = 0; i < steps.length; i++) {
-      const [sel, key, act] = steps[i]; let el = await waitFor(() => { const e = document.querySelector(sel); return visible(e) ? e : null; }, i ? 1200 : 2500);
+      const [sel, key, act] = steps[i];
+      if (act === "edit" && OFFICER.can && !OFFICER.can(tab, "edit") && !OT.en[key + "v"]) continue;   // editor-only part: nothing to show a view-only officer
+      let el = await waitFor(() => { const e = document.querySelector(sel); return visible(e) ? e : null; }, i ? 1200 : 2500);
       if (!el) {
         const later = steps.slice(i + 1).some(([s2]) => visible(document.querySelector(s2)));
         if (later) continue;   // this part isn't on screen (e.g. the list, because a sheet is already open) → go on with what is
-        if (act === "open") { const r0 = await step(document.querySelector(`#pg-${tab} h1`) || a, () => ot(key), true); break; }   // nothing to open yet → say it and finish
+        if (act === "open") { await step(document.querySelector(`#pg-${tab} h1`) || a, () => otStep(tab, key, act), true); break; }   // nothing to open yet → say it and finish
         el = document.querySelector(`#pg-${tab} h1`) || a;
       }
-      const r = await step(el, () => ot(key), i === steps.length - 1); if (r === "stop") break;
+      const r = await step(el, () => otStep(tab, key, act), i === steps.length - 1); if (r === "stop") break;
       if (act === "open" && r === "next") { el.click(); await wait(600); }
     }
     await end();
@@ -642,15 +699,15 @@
       const el = document.querySelector(sel); if (!el || el.querySelector(":scope > .sp-call") || (el.previousElementSibling && el.previousElementSibling.classList.contains("sp-call"))) return;
       const card = el.closest(".card, details, section"); const head = card && card !== el ? card.querySelector(":scope > h2, :scope > .top h2, :scope > summary, :scope > .top h1, :scope > h3") : null;
       if (head && head.querySelector(".sp-call")) return;
-      const b = document.createElement("button"); b.type = "button"; b.className = "sp-call"; b.textContent = "🐦"; b.title = t("show"); b.setAttribute("aria-label", t("show"));
+      const b = document.createElement("button"); b.type = "button"; b.className = "sp-call"; b.textContent = "🐦"; b.title = t("call"); b.setAttribute("aria-label", t("call"));
       b.onclick = (e) => { e.preventDefault(); e.stopPropagation(); runOfficerStep(tab, i); };
       if (head) head.appendChild(b); else el.before(b);
     });
   }
   async function runOfficerStep(tab, i) {
     if (busy) return; busy = true; hush(); clearTarget(); tour = tab;
-    const [sel, key] = OTOURS[tab][i]; const el = document.querySelector(sel) || document.querySelector(`.tabs a[data-tab="${tab}"]`);
-    await step(el, () => ot(key), true);
+    const [sel, key, act] = OTOURS[tab][i]; const el = document.querySelector(sel) || document.querySelector(`.tabs a[data-tab="${tab}"]`);
+    await step(el, () => otStep(tab, key, act), true);
     clearTarget(); setFlip(false); tour = null; busy = false; await goHome(); hush();
   }
   if (IS_OFFICER) {
@@ -710,9 +767,9 @@
     const f = fab(); if (f) new MutationObserver(() => { if (!busy && !flying) { pos = perchPoint(); place(); } }).observe(f, { attributes: true, attributeFilter: ["style", "class"] });
     window.addEventListener("hashchange", () => setTimeout(onGuideOpened, 300));
     document.addEventListener("click", (e) => { if (e.target.closest && e.target.closest(".ai-panel .guide-link-btn, .guide-row button")) setTimeout(onGuideOpened, 400); }, true);
-    new MutationObserver(() => { if (toggleBtn) toggleBtn.title = t("show"); if (!bubble.hidden && redraw) { const r = redraw; r(); } document.querySelectorAll(".sp-call").forEach((b) => { b.title = t("show"); }); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+    new MutationObserver(() => { if (toggleBtn) toggleBtn.title = t("show"); if (!bubble.hidden && redraw) { const r = redraw; r(); } document.querySelectorAll(".sp-call").forEach((b) => { b.title = t("call"); }); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
     if (IS_OFFICER) { addOfficerAISection(); startOfficer(); } else { addAISection(); start(); }
   }
-  window.NXSSparrow = { play, flyTo, say, hush, start, off: turnOff, on: turnOn, messages: MESSAGES, active: () => ls.get(LS) !== "off" && !REDUCED };
+  window.NXSSparrow = { play, flyTo, say, hush, start, off: turnOff, on: turnOn, messages: MESSAGES, tour: (id) => IS_OFFICER ? runOfficerTour(id) : runTour(id), state: () => ({ busy, tour, state }), active: () => ls.get(LS) !== "off" && !REDUCED };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
 })();
