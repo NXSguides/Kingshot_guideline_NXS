@@ -16,15 +16,15 @@
 
   /* ---------- texts (12 site languages; officer page uses zh/en/pt/ar/ko) ---------- */
   const T = {
-    en: { greet: "Hi! I'm Little Sparrow 🐦 Need any help?", page: "🔎 Find a page", how: "🎓 How do I use…", none: "🤔 Neither of these",
+    en: { callBtn: "This 🐦 calls me — tap it and I'll explain just that feature.", greet: "Hi! I'm Little Sparrow 🐦 Need any help?", page: "🔎 Find a page", how: "🎓 How do I use…", none: "🤔 Neither of these",
       noneA: "Then please go find THAT Sparrow 🐦", pageA: "Tap the page you want and I'll fly you there.", here: "Here it is. This is what you were looking for, right?",
       howA: "Pick one here and I'll walk you through it step by step. Or just ask the AI.", sulky: "Don't need me…? Okay then.", hide: "Hide Little Sparrow", show: "Little Sparrow", call: "Call Little Sparrow to explain this",
       msg: "There's a message for you 💌 Tap 📋 at the top right.", got: "Got it", from: "from Sparrow", oGreet: "Hi {name}! I'm Little Sparrow. Tap me for a tour of any tab, or tap a 🐦 next to a feature and I'll explain just that one. If I still can't teach you something, go find THAT Sparrow 😄" },
-    zh: { greet: "嗨囉！我是小麻雀 🐦 需要幫忙嗎？", page: "🔎 找頁面", how: "🎓 怎麼用某個功能…", none: "🤔 都不是",
+    zh: { callBtn: "這個 🐦 就是呼叫我的按鈕，點下去我就只講那一個功能。", greet: "嗨囉！我是小麻雀 🐦 需要幫忙嗎？", page: "🔎 找頁面", how: "🎓 怎麼用某個功能…", none: "🤔 都不是",
       noneA: "那請你去找那個麻雀喔（Sparrow）🐦", pageA: "點你要的頁面，我飛過去帶你看。", here: "在這裡。這應該就是你要找的對吧？",
       howA: "從這裡選一個，我一步一步帶你做。也可以直接問 AI。", sulky: "不需要我嗎…？好吧。", hide: "隱藏小麻雀", show: "小麻雀", call: "呼喚小麻雀來講解",
       msg: "有給你的留言 💌 點右上角的 📋", got: "知道了", from: "來自 Sparrow", oGreet: "嗨 {name}！我是小麻雀。點我可以導覽任何分頁，功能旁邊的 🐦 點下去我就只講那一個。如果我還是教不會你，就去找那個麻雀（Sparrow）吧 😄" },
-    ko: { greet: "안녕! 나는 작은 참새 🐦 도움이 필요해?", page: "🔎 페이지 찾기", how: "🎓 기능 사용법…", none: "🤔 둘 다 아니야",
+    ko: { callBtn: "이 🐦 가 나를 부르는 버튼이야. 누르면 그 기능만 설명해 줄게.", greet: "안녕! 나는 작은 참새 🐦 도움이 필요해?", page: "🔎 페이지 찾기", how: "🎓 기능 사용법…", none: "🤔 둘 다 아니야",
       noneA: "그럼 그 참새(Sparrow)를 찾아가 줘 🐦", pageA: "원하는 페이지를 누르면 내가 날아가서 보여줄게.", here: "여기야. 찾던 게 이거 맞지?",
       howA: "여기서 하나 고르면 단계별로 알려줄게. AI에게 물어봐도 돼.", sulky: "내가 필요 없어…? 알았어.", hide: "작은 참새 숨기기", show: "작은 참새", call: "작은 참새 불러서 설명 듣기",
       msg: "너에게 온 메시지가 있어 💌 오른쪽 위 📋 를 눌러 봐.", got: "알겠어", from: "Sparrow가 보냄", oGreet: "안녕 {name}! 나는 작은 참새야. 나를 누르면 탭을 안내하고, 기능 옆 🐦 를 누르면 그것만 설명해 줘. 그래도 모르겠으면 그 Sparrow를 찾아가 😄" },
@@ -36,7 +36,7 @@
       noneA: "Alors va voir CE Moineau-là (Sparrow) 🐦", pageA: "Touche la page que tu veux, je t'y emmène.", here: "C'est ici. C'est ce que tu cherchais, non ?",
       howA: "Choisis-en un ici et je te guide étape par étape. Ou demande à l'IA.", sulky: "Tu n'as pas besoin de moi… ? Bon.", hide: "Cacher Petit Moineau", show: "Petit Moineau", call: "Appeler Petit Moineau pour expliquer",
       msg: "Il y a un message pour toi 💌 Touche 📋 en haut à droite.", got: "Compris", from: "de Sparrow", oGreet: "Salut {name} ! Je suis Petit Moineau. Si je n'arrive pas à t'expliquer, va voir CE Sparrow-là 😄" },
-    pt: { greet: "Oi! Eu sou o Pardalzinho 🐦 Precisa de ajuda?", page: "🔎 Encontrar uma página", how: "🎓 Como usar…", none: "🤔 Nenhum dos dois",
+    pt: { callBtn: "Este 🐦 me chama — toque nele e eu explico só aquela função.", greet: "Oi! Eu sou o Pardalzinho 🐦 Precisa de ajuda?", page: "🔎 Encontrar uma página", how: "🎓 Como usar…", none: "🤔 Nenhum dos dois",
       noneA: "Então vá falar com AQUELA Sparrow 🐦", pageA: "Toque na página que você quer e eu voo até lá.", here: "Aqui está. Era isso que você procurava, né?",
       howA: "Escolha um aqui e eu te guio passo a passo. Ou pergunte à IA.", sulky: "Não precisa de mim…? Tá bom.", hide: "Esconder o Pardalzinho", show: "Pardalzinho", call: "Chamar o Pardalzinho para explicar",
       msg: "Tem uma mensagem para você 💌 Toque em 📋 no canto superior direito.", got: "Entendi", from: "da Sparrow", oGreet: "Oi {name}! Eu sou o Pardalzinho. Toque em mim para um tour de qualquer aba, ou no 🐦 ao lado de uma função e eu explico só aquela. Se eu não conseguir te ensinar algo, vá falar com AQUELA Sparrow 😄" },
@@ -60,7 +60,7 @@
       noneA: "งั้นไปหานกกระจอกตัวนั้น (Sparrow) นะ 🐦", pageA: "แตะหน้าที่ต้องการ แล้วฉันจะบินพาไป", here: "อยู่นี่ไง นี่คือที่หาอยู่ใช่ไหม?",
       howA: "เลือกตรงนี้สักอัน ฉันจะพาทำทีละขั้น หรือถาม AI ก็ได้", sulky: "ไม่ต้องการฉันเหรอ…? ก็ได้", hide: "ซ่อนนกกระจอกน้อย", show: "นกกระจอกน้อย", call: "เรียกนกกระจอกน้อยมาอธิบาย",
       msg: "มีข้อความถึงคุณ 💌 แตะ 📋 มุมขวาบน", got: "เข้าใจแล้ว", from: "จาก Sparrow", oGreet: "หวัดดี {name}! ฉันคือนกกระจอกน้อย ถ้าฉันสอนไม่ได้ ไปหา Sparrow ตัวนั้นนะ 😄" },
-    ar: { greet: "مرحبًا! أنا العصفور الصغير 🐦 هل تحتاج مساعدة؟", page: "🔎 البحث عن صفحة", how: "🎓 كيف أستخدم…", none: "🤔 لا هذا ولا ذاك",
+    ar: { callBtn: "هذا 🐦 يناديني — اضغط عليه وسأشرح تلك الميزة فقط.", greet: "مرحبًا! أنا العصفور الصغير 🐦 هل تحتاج مساعدة؟", page: "🔎 البحث عن صفحة", how: "🎓 كيف أستخدم…", none: "🤔 لا هذا ولا ذاك",
       noneA: "إذًا اذهب إلى ذلك العصفور (Sparrow) 🐦", pageA: "اضغط على الصفحة التي تريدها وسأطير إليها.", here: "ها هي. هذا ما كنت تبحث عنه، صحيح؟",
       howA: "اختر واحدًا هنا وسأرشدك خطوة بخطوة. أو اسأل الذكاء الاصطناعي.", sulky: "لا تحتاجني…؟ حسنًا.", hide: "إخفاء العصفور الصغير", show: "العصفور الصغير", call: "نادِ العصفور الصغير ليشرح",
       msg: "لديك رسالة 💌 اضغط على 📋 في الأعلى يمينًا.", got: "فهمت", from: "من Sparrow", oGreet: "مرحبًا {name}! أنا العصفور الصغير. اضغط عليّ لجولة في أي تبويب، أو على 🐦 بجانب أي ميزة لأشرحها وحدها. إن لم أستطع تعليمك شيئًا، اذهب إلى Sparrow تلك 😄" },
@@ -380,21 +380,24 @@
   }
   /* fly (whole bird on an arc) to a screen point where the feet should land */
   let flying = null;
+  /* abort a flight in progress: the bird stays where it is, and whoever awaited that flight gets `false` so it stops its flow
+     instead of carrying on (highlighting, talking) somewhere the bird never arrived */
+  function stopFlight() { if (!flying) return; cancelAnimationFrame(flying.raf); const r = flying.resolve; flying = null; r(false); }
   function flyTo(x, y) {
     return new Promise((resolve) => {
-      if (flying) cancelAnimationFrame(flying.raf);
+      stopFlight();
       const from = { ...pos }, dx = x - from.x, dy = y - from.y, dist = Math.hypot(dx, dy);
-      if (dist < 4) { pos = { x, y }; place(); resolve(); return; }
-      if (REDUCED) { pos = { x, y }; place(); resolve(); return; }
+      if (dist < 4) { pos = { x, y }; place(); resolve(true); return; }
+      if (REDUCED) { pos = { x, y }; place(); resolve(true); return; }
       setFacing(dx > 0 ? "r" : "l");                   // look where it's flying
       play("fly", { squash: false });
       const D = Math.min(1600, 500 + dist * 1.6), t0 = performance.now(), lift = Math.min(90, 30 + dist * 0.25);
       const step = (now) => {
         const k = Math.min(1, (now - t0) / D), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
         pos = { x: from.x + dx * e, y: from.y + dy * e - Math.sin(Math.PI * k) * lift }; place();
-        if (k < 1) flying.raf = requestAnimationFrame(step); else { flying = null; resolve(); }
+        if (k < 1) flying.raf = requestAnimationFrame(step); else { flying = null; resolve(true); }
       };
-      flying = { raf: requestAnimationFrame(step) };
+      flying = { raf: requestAnimationFrame(step), resolve };
     });
   }
   /* ---------- bubble ---------- */
@@ -484,7 +487,7 @@
     }, IDLE_MS);
   }
   const faceIn = () => setFacing(perchPoint().x < innerWidth / 2 ? "r" : "l");   // perched at the left edge → look right, into the page (not at the wall)
-  async function goHome() { const p = perchPoint(); if (Math.hypot(p.x - pos.x, p.y - pos.y) > 6) { await flyTo(p.x, p.y); } faceIn(); await play("idle", { squash: false }); }
+  async function goHome() { const p = perchPoint(); if (Math.hypot(p.x - pos.x, p.y - pos.y) > 6) { if (!(await flyTo(p.x, p.y))) return false; } faceIn(); await play("idle", { squash: false }); return true; }
   async function greet() {
     busy = true; clearTarget(); sleepZ(false);
     await goHome(); const hi = play("hi");
@@ -507,7 +510,7 @@
     } else if (a === "how") {
       hush(); if (window.NXSAI) { NXSAI.open(); addAISection(); const sec = document.querySelector(".sp-ai-sec"); if (sec) sec.scrollIntoView({ block: "center" }); }
       const c = play("teacher"); state = "how"; busy = false;
-      const sec = document.querySelector(".sp-ai-sec"); if (sec) { await wait(300); const p = pointAt(sec); await flyTo(p.x, p.y); setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(sec); say(esc(t("howA")), { foot: false }); clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { hush(); clearTarget(); }, 4000); }
+      const sec = document.querySelector(".sp-ai-sec"); if (sec) { await wait(300); const p = pointAt(sec); if (!(await flyTo(p.x, p.y))) return; setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(sec); say(esc(t("howA")), { foot: false }); clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { hush(); clearTarget(); }, 4000); }
       if (await c) play("idle", { squash: false }); return;
     } else if (a === "tour") {
       busy = false; runTour(b.dataset.t); return;
@@ -534,10 +537,11 @@
   async function waitFor(fn, ms) { const t0 = Date.now(); while (Date.now() - t0 < ms) { const v = fn(); if (v) return v; await wait(120); } return null; }
   /* go to an element: scroll it into view, fly next to it, highlight, explain. Buttons: Next / Done + Stop. Resolves "next" | "stop". */
   let stepResolve = null;   // the open step's "Next / Stop" promise, so a tab change can end the tour
-  function cancelStep() { if (stepResolve) { const r = stepResolve; stepResolve = null; r("stop"); } }
+  let stepGen = 0;   // bumped by every cancel: a step that was scrolling or flying when cancelled notices and stops, instead of finishing somewhere odd
+  function cancelStep() { stepGen++; stopFlight(); if (stepResolve) { const r = stepResolve; stepResolve = null; r("stop"); } }
   async function step(el, text, last) {
-    cancelStep();
-    if (el) { const tall = el.getBoundingClientRect().height > innerHeight * 0.4; el.scrollIntoView({ block: tall ? "start" : "center", behavior: REDUCED ? "auto" : "smooth" }); await wait(420); if (tall) { const sc = el.closest(".ai-log, .tm-view, .ai-panel") || window; try { (sc === window ? window : sc).scrollBy(0, -70); } catch (e) {} await wait(150); } const p = pointAt(el); await flyTo(p.x, p.y); setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(el); placeBubble(); }
+    cancelStep(); const g = stepGen;
+    if (el) { const tall = el.getBoundingClientRect().height > innerHeight * 0.4; el.scrollIntoView({ block: tall ? "start" : "center", behavior: REDUCED ? "auto" : "smooth" }); await wait(420); if (g !== stepGen) return "stop"; if (tall) { const sc = el.closest(".ai-log, .tm-view, .ai-panel") || window; try { (sc === window ? window : sc).scrollBy(0, -70); } catch (e) {} await wait(150); if (g !== stepGen) return "stop"; } const p = pointAt(el); if (!(await flyTo(p.x, p.y)) || g !== stepGen) return "stop"; setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(el); placeBubble(); }
     const c = play(el ? "point" : "teacher");
     return new Promise((resolve) => {
       stepResolve = resolve;
@@ -717,7 +721,7 @@
     if (window.NXSAI && NXSAI.panel) NXSAI.panel.hidden = true;
     await wait(250);
     title.scrollIntoView({ block: "center", behavior: REDUCED ? "auto" : "smooth" }); await wait(450);
-    const p = pointAt(title); await flyTo(p.x, p.y);
+    const p = pointAt(title); if (!(await flyTo(p.x, p.y))) { busy = false; return; }
     setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r");   // face the thing it points at
     highlight(title); const c = play("point"); say(esc(t("here"))); state = "menu"; busy = false; armIdle();
     if (await c) { play("idle", { squash: false }); }
@@ -736,7 +740,7 @@
     const ob = document.getElementById("officerBtn"); const u = me(); const m = messageFor(u);
     if (!ob || ob.hidden || !m || isRead(m)) return false;
     busy = true; await goHome(); await play("hi"); say(esc(t("msg")), { foot: false }); await wait(1800); hush();
-    const p = pointAt(ob); await flyTo(p.x, p.y); setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(ob); await play("point"); say(esc(t("msg")));
+    const p = pointAt(ob); if (!(await flyTo(p.x, p.y))) { busy = false; return false; } setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(ob); await play("point"); say(esc(t("msg")));
     await play("idle", { squash: false }); busy = false; state = "menu"; armIdle(); return true;
   }
 
@@ -751,7 +755,7 @@
       if (PREVIEW) { busy = true; await playMessage(MESSAGES[PREVIEW === "nia" ? 0 : 1], true); busy = false; state = "menu"; armIdle(); return; }   // 👀 preview of a personal message
       if (!(await msgHint())) greet();
     };
-    const doze = async () => { clearTimeout(idleTimer); cancelStep(); hush(); clearTarget(); tour = null; busy = false; pos = perchPoint(); place(); faceIn(); await play("sleep", { squash: false }); sleepZ(true); state = "sleep"; };
+    const doze = async () => { clearTimeout(idleTimer); cancelStep(); stopFlight(); hush(); clearTarget(); tour = null; busy = false; pos = perchPoint(); place(); faceIn(); await play("sleep", { squash: false }); sleepZ(true); state = "sleep"; };
     if (picker()) await doze(); else { await play("idle", { squash: false }); state = "menu"; await wakeUp(); }
     // 🌐 the language picker can come back any time ("Change language"): sleep while it is up, wake and greet again (in the new language) when a language is picked
     let wasPicker = picker();
@@ -777,7 +781,7 @@
     NXSAI.open(); addOfficerAISection();
     const sec = document.querySelector(".sp-ai-sec"); if (!sec) return;
     sec.scrollIntoView({ block: "center" }); await wait(300);
-    const p = pointAt(sec); await flyTo(p.x, p.y); setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(sec);
+    const p = pointAt(sec); if (!(await flyTo(p.x, p.y))) return; setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(sec);
     const c = play("point"); say(esc(t("howA")), { foot: false }); clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { hush(); clearTarget(); }, 4000);
     if (await c) play("idle", { squash: false });
   }
@@ -794,7 +798,7 @@
     const end = async () => { clearTarget(); tour = null; busy = false; await goHome(); hush(); };
     const a = document.querySelector(`.tabs a[data-tab="${tab}"]`); if (!a) { await end(); return; }
     a.scrollIntoView({ block: "center", behavior: REDUCED ? "auto" : "smooth" }); await wait(300);
-    const p = pointAt(a); await flyTo(p.x, p.y); setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(a); play("point"); await wait(700); a.click(); await wait(600);
+    const p = pointAt(a); if (!(await flyTo(p.x, p.y))) { busy = false; return; } setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(a); play("point"); await wait(700); a.click(); await wait(600);
     const steps = OTOURS[tab];
     for (let i = 0; i < steps.length; i++) {
       const [sel, key, act] = steps[i];
@@ -852,6 +856,13 @@
     try { sessionStorage.setItem("nxs-sparrow-greeted", "1"); } catch (e) {}
     const c = play("hi"); say(esc(t("oGreet").replace("{name}", u.name || "")), { foot: false }); await c;
     await play("idle", { squash: false }); await wait(5000); hush();
+    // …then show one of the 🐦 call buttons on the tab they're on: fly over, point at it, explain
+    try { addCallButtons(); } catch (e) {}
+    const cb = [...document.querySelectorAll(".sp-call")].find((b) => { const r = b.getBoundingClientRect(); return r.width && r.top > 0 && r.bottom < innerHeight; });
+    if (!cb) return;
+    busy = true; const p = pointAt(cb); if (!(await flyTo(p.x, p.y))) { busy = false; return; }
+    setFacing(p.side === "r" || (p.side === "top" && p.x > p.cx) ? "l" : "r"); highlight(cb); const c2 = play("point"); say(esc(t("callBtn")), { foot: false }); await c2;
+    await play("idle", { squash: false }); await wait(4500); hush(); clearTarget(); busy = false; await goHome();
   }
   async function playMessage(m, preview) {
     busy = true; if (!preview) markRead(m);   // shown once → never again by itself (💌 in the sparrow's menu replays it)
@@ -884,7 +895,8 @@
     layout(first, front); front.src = IMG + first + "_end.webp"; cur = first;
     window.addEventListener("resize", () => { if (!busy && state !== "off" && root.hidden === false && !targetEl) { pos = perchPoint(); place(); faceIn(); } placeBubble(); });
     const f = fab(); if (f) new MutationObserver(() => { if (!busy && !flying && !targetEl) { pos = perchPoint(); place(); faceIn(); } }).observe(f, { attributes: true, attributeFilter: ["style", "class"] });
-    window.addEventListener("hashchange", () => setTimeout(onGuideOpened, 300));
+    // navigating to another guide mid-tour: drop the tour (the thing being pointed at may be gone) instead of carrying on somewhere odd
+    window.addEventListener("hashchange", () => { if (tour) { cancelStep(); } setTimeout(onGuideOpened, 300); });
     document.addEventListener("click", (e) => { if (e.target.closest && e.target.closest(".ai-panel .guide-link-btn, .guide-row button")) setTimeout(onGuideOpened, 400); }, true);
     new MutationObserver(() => { if (toggleBtn) toggleBtn.title = t("show"); if (!bubble.hidden && redraw) { const r = redraw; r(); } document.querySelectorAll(".sp-call").forEach((b) => { b.title = t("call"); }); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
     if (IS_OFFICER) { addOfficerAISection(); startOfficer(); } else if (IS_TOOL) startTool(); else { addAISection(); start(); }
