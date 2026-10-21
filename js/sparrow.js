@@ -163,6 +163,18 @@
   /* ---------- officer page tours (zh / en / pt / ar / ko — the officer page languages) ---------- */
   const OT = {
     en: {
+      mp08: "📋 Outpost plan: everything we hold and want, worked out from the marks set in the info box. Let me go through it…",
+      mp20: "⭐ Priority — for a Fortress or Sanctuary: pick a number (1 = the one we want most; — clears it). 📏 is the distance from our HQ.",
+      mp20v: "⭐ Priority: the number the editors gave this Fortress or Sanctuary (1 = wanted most) and its distance from our HQ.",
+      mp21: "Rewards and Note: what this one gives (from the in-game info) and anything worth knowing — who held it last week, how contested. Kept with 💾 Save plan.",
+      mp22: "Outposts by type and level, with the buff per level; ✅ ⚔️ 🎯 show their plan status. Tap a chip to select it.",
+      mp23: "The in-game rules the totals follow: the same type at the same level doesn't stack, it must border our territory, Vulnerable = no buff.",
+      mp24: "The buff table: one row per Outpost type — Now (as in game: Protected only) and With targets (held + vulnerable + targets).",
+      mp25: "🎯 Targets: the Outposts we want next. Tap a chip to select it on the map.",
+      mp26: "✅ Ours · Protected: what we hold with the buff active, each with its ⏱ time until it turns Vulnerable.",
+      mp27: "⚔️ Ours · Vulnerable: held but giving no buff right now, with the time until it's Protected again.",
+      mp28: "⚠️ Buff conflict: two of ours with the same type and level — only the one Protected longer counts.",
+      mp29: "🏛️ Fortresses & Sanctuaries: no buffs, but season points each phase (Sanctuary 1, Fortress 2…) — points Now and With targets, then the 🎯 Targets and ✅ Ours lists. Only one Sanctuary and one Fortress can be signed up per phase.",
       ev01: "📅 The calendar strip. Scroll it sideways: 14 days back, 70 ahead, in UTC. A filled bar is running now. ✅ on a bar = something for officers to do this week — tap it to jump to that to-do. Other bars open the event's entry further down.",
       ev02: "👑 Crown markers are Kingdom #2189 milestones: things that unlock as the server gets older. Tap one to see the whole list.",
       ev03: "👑 The milestone list: every upcoming unlock with its date and how many days to go.",
@@ -230,7 +242,6 @@
       mp06v: "⏱ The countdown to the next Protected ⇄ Vulnerable switch, when editors have set a timer.",
       mp07: "⭐ Sanctuary & Fortress priority: select a Fortress or Sanctuary on the map and pick a number (1 = best), with its rewards and a note. This list shows them in order; tap a row to select it.",
       mp07v: "⭐ Sanctuary & Fortress priority, as the editors ranked them (1 = best), with rewards and notes. Tap a row to select it.",
-      mp08: "📋 Outpost plan: the buff table — Now (as in game: Protected only) and With targets — then the lists of 🎯 Targets, ✅ Protected, ⚔️ Vulnerable and ⚠️ buff conflicts, with each one's countdown. Tap a chip to select that building.",
       mp09: "Cycle: how many hours an Outpost stays Protected, then Vulnerable (default 72 h / 24 h). The timers follow it.",
       mp09v: "Cycle: the hours an Outpost stays Protected, then Vulnerable — editors set it; the timers follow it.",
       mp10: "💾 Save plan writes everything — statuses, timers, priorities, banners — to the site for all officers; your name goes in Last saved by. Undo changes restores the last saved version.",
@@ -327,6 +338,18 @@
       events: "📅 Events", board: "💬 Board", map: "🗺️ Map", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers",
       },
     zh: {
+      mp08: "📋 據點計畫：我們持有和想要的一切，全部從資訊框裡設定的標記算出來。我一項一項講…",
+      mp20: "⭐ 優先順序——要塞或遺跡用的：選一個數字（1 = 最想要的；— 清除）。📏 是離我們總部的距離。",
+      mp20v: "⭐ 優先順序：編輯者給這個要塞或遺跡的數字（1 = 最想要），還有離我們總部的距離。",
+      mp21: "獎勵和備註：這個據點給什麼（照遊戲裡的資訊寫），以及值得知道的事——上週誰拿、競爭激不激烈。按 💾 儲存計畫一起存。",
+      mp22: "據點依種類和等級列出，每級的加成都寫著；✅ ⚔️ 🎯 代表它們在計畫裡的狀態。點標籤就選取它。",
+      mp23: "總計依照遊戲規則：同種類同等級不疊加、必須和我們的領地相鄰、可爭奪 = 沒有加成。",
+      mp24: "加成表：每種據點一列——目前（照遊戲：只算保護中）和含目標（持有 + 可爭奪 + 目標）。",
+      mp25: "🎯 目標：我們接下來想拿的據點。點標籤就在地圖上選取它。",
+      mp26: "✅ 我方・保護中：我們持有且加成生效的，各自有 ⏱ 距離變成可爭奪的時間。",
+      mp27: "⚔️ 我方・可爭奪：持有中但現在沒有加成，顯示距離再次保護的時間。",
+      mp28: "⚠️ 加成衝突：我們有兩個同種類同等級的——只有保護比較久的那個算數。",
+      mp29: "🏛️ 要塞與遺跡：沒有加成，但每個階段給賽季積分（遺跡 1、要塞 2…）——目前和含目標的積分，然後是 🎯 目標和 ✅ 我方的清單。每個階段只能報名一個遺跡和一個要塞。",
       ev01: "📅 日曆列。可以左右滑動：往前 14 天、往後 70 天，都是 UTC。實心的長條是現在正在進行的。長條上有 ✅ = 這週有幹部要做的事，點一下就跳到那個待辦。其他長條會打開下面那個活動的條目。",
       ev02: "👑 皇冠標記是 2189 王國的里程碑：隨著伺服器變老會解鎖的東西。點一下就能看到完整清單。",
       ev03: "👑 里程碑清單：每一個即將解鎖的項目，附日期和還剩幾天。",
@@ -394,7 +417,6 @@
       mp06v: "⏱ 到下一次保護中 ⇄ 可爭奪切換的倒數，當有編輯權限的人設了計時器時。",
       mp07: "⭐ 遺跡與要塞優先順序：在地圖上選一個要塞或遺跡，然後選一個數字（1 = 最好），附上獎勵和備註。這個清單會依順序顯示；點一列就選取它。",
       mp07v: "⭐ 遺跡與要塞優先順序，由有編輯權限的人排的（1 = 最好），附獎勵和備註。點一列就選取它。",
-      mp08: "📋 據點計畫：加成表——目前（跟遊戲一樣：只算保護中）和含目標——然後是 🎯 目標、✅ 保護中、⚔️ 可爭奪和 ⚠️ 加成衝突的清單，每一個都有倒數。點小標籤就選取那個建築。",
       mp09: "週期：據點保護中幾小時、然後可爭奪幾小時（預設 72 h / 24 h）。計時器跟著它走。",
       mp09v: "週期：據點保護中、然後可爭奪的小時數——由有編輯權限的人設定；計時器跟著它走。",
       mp10: "💾 儲存計畫會把所有東西——狀態、計時器、優先順序、旗幟——寫到網站，所有幹部都看得到；你的名字會出現在「最後儲存者」。復原變更會回到最後儲存的版本。",
@@ -491,6 +513,18 @@
       events: "📅 活動", board: "💬 留言板", map: "🗺️ 地圖", ranking: "📊 排名", attend: "📋 出席", post: "📢 公告", watch: "🕵️ 觀察", scout: "🔭 偵查", views: "📈 瀏覽", perms: "👥 幹部",
       },
     pt: {
+      mp08: "📋 Plano de postos: tudo o que temos e queremos, calculado a partir das marcas feitas na caixa de informações. Deixa eu passar por ele…",
+      mp20: "⭐ Prioridade — para uma Fortaleza ou Santuário: escolha um número (1 = o que mais queremos; — limpa). 📏 é a distância até nosso QG.",
+      mp20v: "⭐ Prioridade: o número que os editores deram a esta Fortaleza ou Santuário (1 = mais desejado) e a distância até nosso QG.",
+      mp21: "Recompensas e Nota: o que este dá (da informação do jogo) e o que vale saber — quem o teve na semana passada, quão disputado. Fica salvo com 💾 Salvar plano.",
+      mp22: "Postos Avançados por tipo e nível, com o bônus por nível; ✅ ⚔️ 🎯 mostram o status no plano. Toque num chip para selecioná-lo.",
+      mp23: "As regras do jogo que os totais seguem: o mesmo tipo no mesmo nível não acumula, precisa fazer fronteira com nosso território, Vulnerável = sem bônus.",
+      mp24: "A tabela de bônus: uma linha por tipo de Posto — Agora (como no jogo: só Protegidos) e Com alvos (nossos + vulneráveis + alvos).",
+      mp25: "🎯 Alvos: os Postos que queremos a seguir. Toque num chip para selecioná-lo no mapa.",
+      mp26: "✅ Nossos · Protegidos: o que temos com o bônus ativo, cada um com o tempo ⏱ até virar Vulnerável.",
+      mp27: "⚔️ Nossos · Vulneráveis: nossos mas sem bônus agora, com o tempo até ficar Protegido de novo.",
+      mp28: "⚠️ Conflito de bônus: dois nossos do mesmo tipo e nível — só conta o que está Protegido há mais tempo.",
+      mp29: "🏛️ Fortalezas e Santuários: sem bônus, mas pontos de temporada a cada fase (Santuário 1, Fortaleza 2…) — pontos Agora e Com alvos, depois as listas 🎯 Alvos e ✅ Nossos. Só um Santuário e uma Fortaleza podem ser inscritos por fase.",
       ev01: "📅 A faixa do calendário. Role de lado: 14 dias para trás, 70 para a frente, em UTC. Uma barra preenchida está rolando agora. ✅ numa barra = algo para os oficiais fazerem nesta semana — toque nela para ir até essa tarefa. As outras barras abrem a entrada do evento mais abaixo.",
       ev02: "👑 Marcadores de coroa são marcos do Reino #2189: coisas que desbloqueiam conforme o servidor envelhece. Toque num deles para ver a lista inteira.",
       ev03: "👑 A lista de marcos: cada desbloqueio futuro com sua data e quantos dias faltam.",
@@ -558,7 +592,6 @@
       mp06v: "⏱ A contagem regressiva até a próxima troca Protegido ⇄ Vulnerável, quando os editores definiram um timer.",
       mp07: "⭐ Prioridade de Santuário e Fortaleza: selecione uma Fortaleza ou um Santuário no mapa e escolha um número (1 = melhor), com suas recompensas e uma nota. Esta lista mostra em ordem; toque numa linha para selecionar.",
       mp07v: "⭐ Prioridade de Santuário e Fortaleza, como os editores classificaram (1 = melhor), com recompensas e notas. Toque numa linha para selecionar.",
-      mp08: "📋 Plano de Postos Avançados: a tabela de bônus — Agora (como no jogo: só Protegidos) e Com alvos — e depois as listas de 🎯 Alvos, ✅ Protegidos, ⚔️ Vulneráveis e ⚠️ conflitos de bônus, com a contagem regressiva de cada um. Toque num chip para selecionar aquela construção.",
       mp09: "Ciclo: quantas horas um Posto Avançado fica Protegido, e depois Vulnerável (padrão 72 h / 24 h). Os timers seguem isso.",
       mp09v: "Ciclo: as horas que um Posto Avançado fica Protegido, e depois Vulnerável — os editores definem; os timers seguem isso.",
       mp10: "💾 Salvar plano grava tudo — status, timers, prioridades, bandeiras — no site para todos os oficiais; seu nome vai em Salvo por último por. Desfazer mudanças restaura a última versão salva.",
@@ -655,6 +688,18 @@
       events: "📅 Eventos", board: "💬 Quadro", map: "🗺️ Mapa", ranking: "📊 Ranking", attend: "📋 Presença", post: "📢 Postar", watch: "🕵️ Vigiar", scout: "🔭 Espiar", views: "📈 Visitas", perms: "👥 Oficiais",
       },
     ar: {
+      mp08: "📋 خطة المواقع المتقدمة: كل ما نملكه ونريده، محسوب من العلامات التي وُضعت في مربع المعلومات. دعني أمرّ عليها…",
+      mp20: "⭐ الأولوية — لقلعة أو معبد: اختر رقمًا (1 = الأكثر رغبة؛ — يمسحه). 📏 هي المسافة من مقرنا.",
+      mp20v: "⭐ الأولوية: الرقم الذي أعطاه المحررون لهذه القلعة أو المعبد (1 = الأكثر رغبة) ومسافته من مقرنا.",
+      mp21: "المكافآت والملاحظة: ما يعطيه هذا (من معلومات اللعبة) وما يستحق المعرفة — من امتلكه الأسبوع الماضي، وكم هو متنازع عليه. يُحفظ مع 💾 حفظ الخطة.",
+      mp22: "المواقع المتقدمة حسب النوع والمستوى، مع التعزيز لكل مستوى؛ ✅ ⚔️ 🎯 تبيّن حالتها في الخطة. اضغط شريحة لتحديدها.",
+      mp23: "قواعد اللعبة التي تتبعها المجاميع: النوع نفسه بالمستوى نفسه لا يتراكم، يجب أن يحدّ أراضينا، معرّض = بلا تعزيز.",
+      mp24: "جدول التعزيزات: صف لكل نوع موقع — الآن (كما في اللعبة: المحمي فقط) ومع الأهداف (المملوك + المعرّض + الأهداف).",
+      mp25: "🎯 الأهداف: المواقع التي نريدها تاليًا. اضغط شريحة لتحديدها على الخريطة.",
+      mp26: "✅ لنا · محمي: ما نملكه والتعزيز فعّال، لكل منها ⏱ الوقت حتى يصبح معرّضًا.",
+      mp27: "⚔️ لنا · معرّض: مملوك لكننا لا نحصل على تعزيز الآن، مع الوقت حتى يصبح محميًا من جديد.",
+      mp28: "⚠️ تعارض تعزيز: اثنان لنا بالنوع والمستوى نفسه — يُحتسب فقط المحمي لمدة أطول.",
+      mp29: "🏛️ القلاع والمعابد: بلا تعزيزات، لكنها تعطي نقاط موسم في كل مرحلة (معبد 1، قلعة 2…) — النقاط الآن ومع الأهداف، ثم قائمتا 🎯 الأهداف و ✅ لنا. يمكن تسجيل معبد واحد وقلعة واحدة فقط في كل مرحلة.",
       ev01: "📅 شريط التقويم. مرّره جانبياً: 14 يوماً إلى الخلف و70 يوماً إلى الأمام، بتوقيت UTC. الشريط الممتلئ يعني حدثاً جارياً الآن. ✅ على شريط = شيء على الضباط فعله هذا الأسبوع — اضغط عليه للانتقال إلى تلك المهمة. بقية الأشرطة تفتح مدخل الحدث في الأسفل.",
       ev02: "👑 علامات التاج هي مراحل المملكة #2189: أشياء تُفتح كلما تقدّم عمر السيرفر. اضغط على واحدة لرؤية القائمة كاملة.",
       ev03: "👑 قائمة المراحل: كل فتح قادم مع تاريخه وعدد الأيام المتبقية.",
@@ -722,7 +767,6 @@
       mp06v: "⏱ العد التنازلي حتى التبديل التالي محمي ⇄ معرّض، عندما يكون المحررون قد ضبطوا مؤقتاً.",
       mp07: "⭐ أولوية المعابد والقلاع: حدد قلعة أو معبداً على الخريطة واختر رقماً (1 = الأفضل)، مع مكافآته وملاحظة. تعرضها هذه القائمة بالترتيب؛ اضغط على صف لتحديده.",
       mp07v: "⭐ أولوية المعابد والقلاع، كما رتّبها المحررون (1 = الأفضل)، مع المكافآت والملاحظات. اضغط على صف لتحديده.",
-      mp08: "📋 خطة المواقع المتقدمة: جدول التعزيزات — الآن (كما في اللعبة: المحمية فقط) ومع الأهداف — ثم قوائم 🎯 الأهداف و✅ المحمية و⚔️ المعرّضة و⚠️ تعارضات التعزيزات، مع العد التنازلي لكل منها. اضغط على شريحة لتحديد ذلك المبنى.",
       mp09: "الدورة: كم ساعة يبقى الموقع المتقدم محمياً، ثم معرّضاً (الافتراضي 72 س / 24 س). المؤقتات تتبعها.",
       mp09v: "الدورة: الساعات التي يبقى فيها الموقع المتقدم محمياً، ثم معرّضاً — المحررون يضبطونها؛ المؤقتات تتبعها.",
       mp10: "💾 حفظ الخطة يكتب كل شيء — الحالات، المؤقتات، الأولويات، الرايات — في الموقع لكل الضباط؛ يُسجَّل اسمك في آخر من حفظ. تراجع عن التغييرات يعيد آخر نسخة محفوظة.",
@@ -819,6 +863,18 @@
       events: "📅 الأحداث", board: "💬 اللوحة", map: "🗺️ الخريطة", ranking: "📊 الترتيب", attend: "📋 الحضور", post: "📢 نشر", watch: "🕵️ مراقبة", scout: "🔭 استطلاع", views: "📈 الزيارات", perms: "👥 الضباط",
       },
     ko: {
+      mp08: "📋 전초기지 계획: 우리가 가진 것과 원하는 것 전부, 정보 상자에서 찍은 표시로 계산돼. 하나씩 볼게…",
+      mp20: "⭐ 우선순위 — 요새나 성소용: 숫자를 골라 (1 = 제일 원하는 것, — 는 지우기). 📏 는 우리 본부에서의 거리야.",
+      mp20v: "⭐ 우선순위: 편집자가 이 요새/성소에 준 숫자(1 = 제일 원함)와 우리 본부에서의 거리.",
+      mp21: "보상과 메모: 이게 뭘 주는지(게임 정보 기준)랑 알아둘 것 — 지난주 누가 가졌는지, 얼마나 치열한지. 💾 계획 저장으로 같이 저장돼.",
+      mp22: "전초기지를 종류와 레벨별로, 레벨당 버프와 함께. ✅ ⚔️ 🎯 는 계획 상태야. 칩을 누르면 선택돼.",
+      mp23: "합계가 따르는 게임 규칙: 같은 종류 같은 레벨은 중첩 안 됨, 우리 영토와 붙어 있어야 함, 취약 = 버프 없음.",
+      mp24: "버프 표: 전초기지 종류별 한 줄 — 지금(게임 기준: 보호 중만)과 목표 포함(보유 + 취약 + 목표).",
+      mp25: "🎯 목표: 다음에 노릴 전초기지. 칩을 누르면 지도에서 선택돼.",
+      mp26: "✅ 우리 것 · 보호 중: 버프가 켜진 보유 기지, 각각 취약으로 바뀌기까지의 ⏱ 시간.",
+      mp27: "⚔️ 우리 것 · 취약: 보유 중이지만 지금은 버프가 없고, 다시 보호되기까지의 시간이 보여.",
+      mp28: "⚠️ 버프 충돌: 같은 종류 같은 레벨이 둘 — 더 오래 보호 중인 것만 쳐줘.",
+      mp29: "🏛️ 요새와 성소: 버프는 없지만 페이즈마다 시즌 점수(성소 1, 요새 2…) — 지금과 목표 포함 점수, 그리고 🎯 목표와 ✅ 우리 것 목록. 페이즈당 성소 하나, 요새 하나만 신청할 수 있어.",
       ev01: "📅 달력 띠야. 옆으로 밀어서 봐. 14일 전부터 70일 뒤까지, UTC 기준이야. 채워진 막대는 지금 진행 중인 거야. 막대의 ✅ = 이번 주에 간부가 할 일이 있다는 뜻이고, 누르면 그 할 일로 바로 이동해. 다른 막대는 아래쪽에 있는 그 이벤트 항목을 열어.",
       ev02: "👑 왕관 표시는 왕국 #2189의 마일스톤이야. 서버가 오래될수록 열리는 것들이지. 하나 눌러 보면 전체 목록이 보여.",
       ev03: "👑 마일스톤 목록이야. 앞으로 열릴 것마다 날짜와 며칠 남았는지가 나와.",
@@ -886,7 +942,6 @@
       mp06v: "⏱ 다음 보호 중 ⇄ 취약 전환까지의 카운트다운이야. 편집자가 타이머를 설정했을 때 보여.",
       mp07: "⭐ 성소 & 요새 우선순위야. 지도에서 요새나 성소를 선택하고 번호를 골라(1 = 최고), 보상과 메모도 같이. 이 목록은 순서대로 보여줘. 줄을 누르면 선택돼.",
       mp07v: "⭐ 성소 & 요새 우선순위야. 편집자가 정한 순위(1 = 최고)와 보상, 메모야. 줄을 누르면 선택돼.",
-      mp08: "📋 전초기지 계획이야. 버프 표는 현재(게임과 같이, 보호 중만)와 목표 포함, 그다음 🎯 목표, ✅ 보호 중, ⚔️ 취약, ⚠️ 버프 충돌 목록이 각각의 카운트다운과 같이 나와. 칩을 누르면 그 건물이 선택돼.",
       mp09: "주기야. 전초기지가 보호 중으로 몇 시간, 그다음 취약으로 몇 시간 있는지(기본 72시간 / 24시간). 타이머가 이걸 따라가.",
       mp09v: "주기야. 전초기지가 보호 중, 그다음 취약으로 있는 시간이야. 편집자가 정하고 타이머가 따라가.",
       mp10: "💾 계획 저장은 전부(상태, 타이머, 우선순위, 깃발)를 모든 간부용으로 사이트에 기록해. 마지막 저장자에 네 이름이 들어가. 변경 취소는 마지막으로 저장된 버전으로 되돌려.",
@@ -987,7 +1042,8 @@
   /* 🗺️ the officer tours, one step per button / control. s = selector, k = text key (a "…v" twin is the view-only wording),
      e = editor-only (view-only officers skip it unless a "…v" twin exists), pre = something to do first (open a sheet, select an outpost…).
      A step whose element isn't on screen is skipped quietly, so the tour fits whatever the page is showing. */
-  const Q = (sel) => document.querySelector(sel);
+  const Q = (sel) => typeof sel === "function" ? (sel() || null) : document.querySelector(sel);
+  const plSub = (emoji) => [...document.querySelectorAll("#km_plan .pl-sub")].find((e) => e.textContent.includes(emoji)) || null;   // a section heading of the outpost plan
   const clickQ = (sel) => { const el = Q(sel); if (el) el.click(); };
   const OTOURS = {
     events: [
@@ -1010,10 +1066,13 @@
     ],
     map: [
       { s: "#km_layers", k: "mp01" }, { s: "#km_in", k: "mp02" }, { s: "#km_box", k: "mp03" },
-      { s: "#km_info", k: "mp04", pre: () => clickQ("#km_cards .km-c .chip") }, { s: "#km_info .km-st", k: "mp05", e: 1 }, { s: "#km_info .km-tm", k: "mp06", e: 1 },
-      { s: "#km_cards .km-prc", k: "mp07", e: 1 }, { s: "#km_plan", k: "mp08" }, { s: "#km_plan .pl-cyc", k: "mp09", e: 1 }, { s: "#km_plan .pl-save, #pl_save", k: "mp10", e: 1 }, { s: "#km_sb", k: "mp11" },
+      { s: "#km_info", k: "mp04", pre: () => clickQ("#km_cards .chip[data-id^=o]") }, { s: "#km_info .km-st", k: "mp05", e: 1 }, { s: "#km_info .km-tm", k: "mp06", e: 1 },
+      { s: "#km_info .km-prn, #km_info .km-prv", k: "mp20", e: 1, pre: () => clickQ("#km_cards .chip[data-id^=s]") }, { s: "#sp_r", k: "mp21", e: 1 }, { s: "#km_cards .km-prc", k: "mp07", e: 1 },
+      { s: "#km_plan > h3", k: "mp08" }, { s: "#km_plan .km-rules", k: "mp23" }, { s: "#km_plan table.pl-tbl", k: "mp24" },
+      { s: () => plSub("🎯"), k: "mp25" }, { s: () => plSub("✅"), k: "mp26" }, { s: () => plSub("⚔️"), k: "mp27" }, { s: "#km_plan .pl-cyc", k: "mp09", e: 1 }, { s: () => plSub("⚠️"), k: "mp28" },
+      { s: () => plSub("🏛️"), k: "mp29" }, { s: "#km_sb", k: "mp11" }, { s: "#km_plan .pl-save", k: "mp10", e: 1 },
       { s: "#km_flags", k: "mp12" }, { s: "#fl_mode", k: "mp13", e: 1 }, { s: "#fl_obst", k: "mp14" }, { s: "#fl_kind", k: "mp15", e: 1 }, { s: "#km_flags .km-fl-list", k: "mp16", e: 1 },
-      { s: "#km_mp", k: "mp17" }, { s: "#km_cards .km-rw", k: "mp18" }, { s: "#km_cards .km-c", k: "mp19" },
+      { s: "#km_mp", k: "mp17" }, { s: "#km_cards .km-rw", k: "mp18" }, { s: "#km_cards .km-c:not(.km-prc):not(.km-rw)", k: "mp19" }, { s: "#km_cards .km-c:not(.km-prc):not(.km-rw) ~ .km-c", k: "mp22" },
     ],
     ranking: [
       { s: "#planSel", k: "rk01" }, { s: "#planUndo", k: "rk02" }, { s: "#planNew", k: "rk03", e: 1 }, { s: "#planEd", k: "rk04", e: 1 },
@@ -1392,8 +1451,8 @@
       cancelStep(); clearTarget(); hush(); tour = null; busy = false; if (state !== "menu" && state !== "how") state = "menu"; await goHome(); if (!IS_OFFICER && !IS_TOOL) armIdle();
       return;
     }
-    // idle with nothing to point at but away from the perch → go home
-    if (!busy && !tour && !targetEl && bubble.hidden) { const h = perchPoint(); if (Math.hypot(h.x - pos.x, h.y - pos.y) > 6) { await goHome(); } }
+    // idle with nothing to point at but away from the perch → go home (a small drift, e.g. the browser bar changing height, is just corrected in place)
+    if (!busy && !tour && !targetEl && bubble.hidden) { const h = perchPoint(), d = Math.hypot(h.x - pos.x, h.y - pos.y); if (d > 40) await goHome(); else if (d > 1) { pos = h; place(); faceIn(); } }
   }, 300);
 
   /* 🐦 "Show me how to…" inside the AI chat greeting: one button per tour; the AI's answers can also carry [label](tour:id) links */
@@ -1668,7 +1727,7 @@
     if (ls.get(LS) === "off") { showToggle(true); return; }
     const gate = document.getElementById("gate");
     await new Promise((r) => { const tick = setInterval(() => { if ((!gate || gate.hidden) && OFFICER.user) { clearInterval(tick); r(); } }, 500); });
-    root.hidden = false; pos = perchPoint(); place(); faceIn();
+    root.hidden = false; pos = perchPoint(); place(); faceIn(); state = "menu";   // (not "off": the resize re-perch and the watchdog only run for a live bird)
     const u = OFFICER.user, m = messageFor(u);
     if (m && !isRead(m)) { await playMessage(m); return; }
     if (sessionStorage.getItem("nxs-sparrow-greeted")) { await play("idle", { squash: false }); return; }
@@ -1712,7 +1771,9 @@
     document.body.append(root, bubble);
     const first = (typeof langChosen !== "undefined" && !langChosen) ? "sleep" : "idle";   // a small still shows at once; the clip replaces it when it has loaded
     layout(first, front); front.src = IMG + first + "_end.webp"; cur = first;
-    window.addEventListener("resize", () => { if (!busy && state !== "off" && root.hidden === false && !targetEl) { pos = perchPoint(); place(); faceIn(); } placeBubble(); });
+    const rePerch = () => { if (!busy && !flying && state !== "off" && root.hidden === false && !targetEl) { pos = perchPoint(); place(); faceIn(); } placeBubble(); };
+    window.addEventListener("resize", rePerch);
+    if (window.visualViewport) visualViewport.addEventListener("resize", rePerch);   // iOS: the browser bar folding away moves the Ask AI button → the bird follows
     const f = fab(); if (f) new MutationObserver(() => { if (!busy && !flying && !targetEl) { pos = perchPoint(); place(); faceIn(); } }).observe(f, { attributes: true, attributeFilter: ["style", "class"] });
     // navigating to another guide mid-tour: drop the tour (the thing being pointed at may be gone) instead of carrying on somewhere odd
     window.addEventListener("hashchange", () => { if (tour) { cancelStep(); } setTimeout(onGuideOpened, 300); });
