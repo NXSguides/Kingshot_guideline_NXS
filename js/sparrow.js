@@ -521,6 +521,7 @@
   bird.addEventListener("click", async () => {
     if (busy || tour) return;
     if (IS_OFFICER) { const c = play("hi"); officerMenu(); await c; play("idle", { squash: false }); return; }
+    if (typeof langChosen !== "undefined" && !langChosen) return;   // language picker is up: stay asleep
     if (state === "sleep") { busy = true; sleepZ(false); await play("wake"); busy = false; }
     greet();
   });
@@ -538,13 +539,21 @@
     root.hidden = false;
     const site = typeof langChosen !== "undefined";
     pos = perchPoint(); place();
-    if (site && !langChosen) {
-      await play("sleep", { squash: false }); sleepZ(true); state = "sleep";
-      await new Promise((r) => { const tick = setInterval(() => { if (langChosen && !document.querySelector(".popup-overlay")) { clearInterval(tick); r(); } }, 400); });
+    const picker = () => site && !langChosen;
+    const wakeUp = async () => {
       sleepZ(false); busy = true; await play("wake"); busy = false;
-    } else { await play("idle", { squash: false }); state = "menu"; }
-    if (PREVIEW) { busy = true; await playMessage(MESSAGES[PREVIEW === "nia" ? 0 : 1], true); busy = false; state = "menu"; armIdle(); return; }   // 👀 preview of a personal message
-    if (!(await msgHint())) greet();
+      if (PREVIEW) { busy = true; await playMessage(MESSAGES[PREVIEW === "nia" ? 0 : 1], true); busy = false; state = "menu"; armIdle(); return; }   // 👀 preview of a personal message
+      if (!(await msgHint())) greet();
+    };
+    const doze = async () => { clearTimeout(idleTimer); cancelStep(); hush(); clearTarget(); tour = null; busy = false; pos = perchPoint(); place(); await play("sleep", { squash: false }); sleepZ(true); state = "sleep"; };
+    if (picker()) await doze(); else { await play("idle", { squash: false }); state = "menu"; await wakeUp(); }
+    // 🌐 the language picker can come back any time ("Change language"): sleep while it is up, wake and greet again (in the new language) when a language is picked
+    let wasPicker = picker();
+    setInterval(async () => {
+      const now = picker();
+      if (now && !wasPicker) { wasPicker = true; await doze(); }
+      else if (!now && wasPicker && !document.querySelector(".popup-overlay")) { wasPicker = false; await wakeUp(); }
+    }, 400);
   }
   /* ---------- officer page: greeting once per visit, or the personal message from Sparrow ---------- */
   function officerMenu() {
@@ -619,7 +628,7 @@
     const f = fab(); if (f) new MutationObserver(() => { if (!busy && !flying) { pos = perchPoint(); place(); } }).observe(f, { attributes: true, attributeFilter: ["style", "class"] });
     window.addEventListener("hashchange", () => setTimeout(onGuideOpened, 300));
     document.addEventListener("click", (e) => { if (e.target.closest && e.target.closest(".ai-panel .guide-link-btn, .guide-row button")) setTimeout(onGuideOpened, 400); }, true);
-    new MutationObserver(() => { if (bubble.hidden) return; const f2 = document.querySelector(".sp-foot .sp-hide"); if (f2) f2.textContent = t("hide"); if (toggleBtn) toggleBtn.title = t("show"); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+    new MutationObserver(() => { if (toggleBtn) toggleBtn.title = t("show"); if (!bubble.hidden && !tour && !busy) hush(); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
     if (IS_OFFICER) startOfficer(); else { addAISection(); start(); }
   }
   window.NXSSparrow = { play, flyTo, say, hush, start, off: turnOff, on: turnOn, messages: MESSAGES, active: () => ls.get(LS) !== "off" && !REDUCED };

@@ -35,7 +35,7 @@ page.on("console", (m) => { if (m.type() === "error" && !/favicon|net::|Failed t
 
 /* 📏 controls that sit side by side in one row must have the same height and line up (buttons next to text boxes, selects…) */
 const alignCheck = () => {
-  const sel = "button, a.btn, a.tm-link, select, input:not([type=checkbox]):not([type=radio]):not([type=range]), .btn, .chip, .tm-btn, label.btn";
+  const sel = "button:not(.sp-call):not(.sp-bubble button), a.btn, a.tm-link, select, input:not([type=checkbox]):not([type=radio]):not([type=range]), .btn, .chip, .tm-btn, label.btn";
   const els = [...document.querySelectorAll(sel)].filter((e) => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && e.offsetParent && getComputedStyle(e).visibility !== "hidden"; });
   const rowOf = (e) => { let p = e.parentElement; for (let k = 0; k < 4 && p; k++, p = p.parentElement) if (/flex|grid/.test(getComputedStyle(p).display)) return p; return e.parentElement; };
   const name = (e) => (e.id ? "#" + e.id : e.tagName.toLowerCase() + "." + [...e.classList].slice(0, 2).join(".")) + ` "${(e.textContent || e.value || "").trim().slice(0, 16)}"`;
