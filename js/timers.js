@@ -826,11 +826,13 @@
   const IB = "nxs-inbox", IB_KEY = new URL("./__inbox", navigator.serviceWorker && navigator.serviceWorker.controller ? navigator.serviceWorker.controller.scriptURL : location.href).href;
   let ibBox = null;
   async function inbox() {
-    if (!window.caches) return;
-    let list = [];
-    try { const r = await (await caches.open(IB)).match(IB_KEY); list = r ? await r.json() : []; } catch (e) {}
-    list = (Array.isArray(list) ? list : []).filter((x) => Date.now() - x.at < 864e5);
-    if (!list.length) { ibTitle(0); if (ibBox) { ibBox.remove(); ibBox = null; } return; }
+    if (!window.caches) { badge(0); return; }
+    let list = [], raw = [];
+    try { const r = await (await caches.open(IB)).match(IB_KEY); raw = r ? await r.json() : []; } catch (e) {}
+    list = (Array.isArray(raw) ? raw : []).filter((x) => Date.now() - x.at < 864e5);
+    // reminders older than 24 h drop out of the list — the app-icon number must drop with them (it used to stay forever)
+    if (Array.isArray(raw) && raw.length !== list.length) await ibSave(list);
+    if (!list.length) { badge(0); ibTitle(0); if (ibBox) { ibBox.remove(); ibBox = null; } return; }
     if (!ibBox) {
       ibBox = document.createElement("div"); ibBox.className = "tm-page";
       if (pageBox) pageBox.before(ibBox); else { const doc = document.getElementById("doc"), main = document.getElementById("main"); if (doc) doc.before(ibBox); else if (main) main.prepend(ibBox); else document.body.prepend(ibBox); }
@@ -847,11 +849,12 @@
     const ago = (t) => { const m = Math.round((Date.now() - t) / 6e4); return m < 60 ? m + " min" : Math.floor(m / 60) + " h"; };
     ibBox.innerHTML = `<div class="tm-note tm-sg"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><b>${esc(T("ibT").replace("{n}", list.length))}</b><button type="button" class="tm-btn" data-ib="clear">${esc(T("ibClear"))}</button></div>` +
       list.slice().sort((a, b) => b.at - a.at).map((x) => `<button type="button" class="tm-ib" data-ib="${esc(x.id)}"><b>${esc(x.title)}</b>${x.body ? `<span>${esc(x.body)}</span>` : ""}<small>${esc(T("ibAgo").replace("{t}", ago(x.at)))} ›</small></button>`).join("") + `</div>`;
-    if (list.some((x) => !x.seen) && document.visibilityState === "visible") ibSave(list.map((x) => ({ ...x, seen: 1 })));   // on screen now → red badge off
+    if (document.visibilityState === "visible") { if (list.some((x) => !x.seen)) ibSave(list.map((x) => ({ ...x, seen: 1 }))); else badge(0); }   // on screen now → red badge off (also re-clears a badge left over from before)
     // computer browser tab in the background: "(2) NXS …" in the tab title until it's looked at
     const unseen = list.filter((x) => !x.seen).length;
     ibTitle(document.visibilityState === "visible" ? 0 : unseen);
   }
+  const badge = (n) => { try { if (n && navigator.setAppBadge) navigator.setAppBadge(n); else if (navigator.clearAppBadge) navigator.clearAppBadge(); } catch (e) {} };
   const ibTitle = (n) => { const t = document.title.replace(/^\(\d+\) /, ""); document.title = n ? `(${n}) ${t}` : t; };
   async function ibSave(list) {
     try { await (await caches.open(IB)).put(IB_KEY, new Response(JSON.stringify(list), { headers: { "Content-Type": "application/json" } })); } catch (e) {}
