@@ -1225,7 +1225,7 @@
   function pointAt(el) {   // land next to an element (right side when there is room, else left); the whole bird always stays on screen
     const r = visRect(el), m = META[cur] || META.idle, w = m.w * SIZE, h = m.h * SIZE, minY = safeTop() + h + 8;
     const right = r.right + 8 + w < innerWidth - 8, left = r.left - 8 - w > 8;
-    const cx = r.left + r.width / 2, clampX = (x) => Math.max(w * 0.5 + 4, Math.min(innerWidth - w * 0.5 - 4, x));
+    const cx = r.left + r.width / 2, clampX = (x) => Math.max(w * 0.6 + 4, Math.min(innerWidth - w * 0.6 - 4, x));   // the whole bird stays on screen whichever way it faces
     const sideY = Math.max(minY, Math.min(innerHeight - 10, r.top + Math.min(r.height, 60) + h * 0.3));
     if (right) return { x: clampX(r.right + 10 + w * 0.45), y: sideY, side: "r", cx };
     if (left) return { x: clampX(r.left - 10 - w * 0.45), y: sideY, side: "l", cx };
@@ -1309,6 +1309,12 @@
       else window.scrollTo({ top: scrollY + want, behavior: beh });
     } catch (e) { el.scrollIntoView({ block: top == null ? "center" : "start" }); }
     let last = null; for (let i = 0; i < 25; i++) { await wait(60); const y = Math.round(el.getBoundingClientRect().top); if (y === last) break; last = y; }
+    // sideways too: a target inside a strip that scrolls left/right (the calendar) is brought into view
+    const r2 = el.getBoundingClientRect();
+    if (r2.left < 8 || r2.right > innerWidth - 8) {
+      let hs = null; for (let n = el.parentElement; n; n = n.parentElement) { const cs = getComputedStyle(n); if (/(auto|scroll)/.test(cs.overflowX) && n.scrollWidth > n.clientWidth + 4) { hs = n; break; } }
+      if (hs) { const hr = hs.getBoundingClientRect(); try { hs.scrollTo({ left: hs.scrollLeft + (r2.left - hr.left) - (hr.width - r2.width) / 2, behavior: beh }); } catch (e) {} let lx = null; for (let i = 0; i < 20; i++) { await wait(60); const x = Math.round(el.getBoundingClientRect().left); if (x === lx) break; lx = x; } }
+    }
   }
   let stepGen = 0;   // bumped by every cancel: a step that was scrolling or flying when cancelled notices and stops, instead of finishing somewhere odd
   function cancelStep() { stepGen++; stopFlight(); if (stepResolve) { const r = stepResolve; stepResolve = null; r("stop"); } }
