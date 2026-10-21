@@ -270,8 +270,9 @@
   bird.append(imgA, imgB); root.appendChild(bird);
   const bubble = document.createElement("div"); bubble.className = "sp-bubble"; bubble.hidden = true; bubble.dir = "auto";
   let front = imgA, back = imgB, cur = null, clipTimer = null, pending = null, pos = { x: 0, y: 0 }, flip = false, zz = null;
-  const loaded = {};
-  function preload(name) { if (!loaded[name]) { const i = new Image(); i.src = IMG + name + ".webp"; loaded[name] = i; } }
+  /* clips are fetched once into memory; every play gets a fresh object URL, so the animation starts from its first frame at once (no re-download) */
+  const blobs = {};
+  function preload(name) { if (!blobs[name]) blobs[name] = fetch(IMG + name + ".webp").then((r) => r.blob()).catch(() => { delete blobs[name]; return null; }); return blobs[name]; }
   const dur = (name) => { const m = META && META[name]; return m ? (m.n / m.fps) * 1000 : 3000; };
   function layout(name, img) {
     const m = META[name]; if (!m) return;
@@ -292,10 +293,13 @@
       if (pending) { const r = pending; pending = null; r(false); }   // the clip that was playing is cut short → its promise says so
       const m = META[name], same = cur === name && !front.src.includes("_end.webp");
       cur = name; if (!m.loop) pending = resolve;
-      const swap = () => {
+      const swap = async () => {
+        const blob = await preload(name); if (cur !== name) return;   // another clip was asked for meanwhile
         layout(name, back);
-        back.src = IMG + name + ".webp?r=" + Date.now();   // fresh load → the clip starts from its first frame
+        const old = back.dataset.url; back.src = blob ? URL.createObjectURL(blob) : IMG + name + ".webp?r=" + Date.now(); back.dataset.url = blob ? back.src : "";
+        if (old) URL.revokeObjectURL(old);
         back.onload = () => {
+          if (cur !== name) return;
           back.classList.remove("sp-off"); front.classList.add("sp-off");
           const o = front; front = back; back = o;
           if (!m.loop) clipTimer = setTimeout(() => { if (cur === name) { front.src = IMG + name + "_end.png"; } if (pending === resolve) pending = null; resolve(true); }, dur(name) - 40);
@@ -461,7 +465,7 @@
     });
   }
   async function runTour(id) {
-    if (busy) return; busy = true; hush(); clearTarget(); tour = id; clearTimeout(idleTimer);
+    if (busy) return; busy = true; ["point", "teacher", "fly", "idle"].forEach(preload); hush(); clearTarget(); tour = id; clearTimeout(idleTimer);
     const ai = window.NXSAI, tm = window.NXSTimers, panel = ai && ai.panel;
     const end = async () => { clearTarget(); setFlip(false); tour = null; busy = false; await goHome(); hush(); state = "menu"; armIdle(); };
     const go = async (el, text, last) => { const r = await step(el, text, last); if (r === "stop") { await end(); return false; } return true; };
@@ -632,7 +636,7 @@
     await play("idle", { squash: false }); await wait(5000); hush();
   }
   async function playMessage(m, preview) {
-    busy = true; await play("pop");
+    busy = true; m.lines.forEach(([clip]) => preload(clip)); preload("heart"); await play("pop");
     let i = 0, done = false;
     const showLine = async () => {
       const [clip, text] = m.lines[i], last = i === m.lines.length - 1;
