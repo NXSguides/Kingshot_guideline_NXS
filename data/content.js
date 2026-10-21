@@ -1165,7 +1165,6 @@ const GUIDES = {
         { type: "list", items: [
           "☐ 🎁 Collect the VIP chest + use {vipXp}",
           "☐ 🤝 Alliance {allianceHelp} + contribute to Alliance {allianceTech}",
-          "☐ 📊 Use Hero XP items",
           "☐ ⚔️ Conquer camps ({conquerorsCamp})",
           "☐ 🔎 Complete {intelMission}s",
           "☐ 🏝️ Collect {waterEssence} on the island + assist allies",
@@ -1258,7 +1257,6 @@ const GUIDES = {
         { type: "list", items: [
           "☐ 🎁 領取VIP寶箱＋使用{vipXp}",
           "☐ 🤝 {allianceHelp}＋{allianceTech}捐獻",
-          "☐ 📊 使用英雄經驗道具",
           "☐ ⚔️ 派兵討伐（{conquerorsCamp}）",
           "☐ 🔎 完成{intelMission}",
           "☐ 🏝️ 收集島上的{waterEssence}＋協助盟友",
@@ -1319,7 +1317,7 @@ const GUIDES = {
         {"type":"callout","text":"🏛️ {hallOfHeroes} → {marlin}이 해제되지 않은 경우에만 약 13,500~14,850 {gems} 사용. 해제 직후 중단할 것 — 이후에는 공용 조각이 업그레이드에 더 좋은 가치를 지닙니다."},
         {"type":"h","text":"✅ 일일 체크리스트"},
         {"type":"sub","text":"☀️ 접속 중일 때"},
-        {"type":"list","items":["☐ 🎁 VIP 상자 수집 + {vipXp} 사용","☐ 🤝 {allianceHelp} + {allianceTech} 기여","☐ 📊 영웅 경험치 아이템 사용","☐ ⚔️ {conquerorsCamp}","☐ 🔎 {intelMission} 완료","☐ 🏝️ 섬의 {waterEssence} 수집 + 기여","☐ 🔮 {mysticTrial} 도전 횟수 소모","☐ 🧭 {journeySupplies} 사용 (UTC 08:00 & 16:00 무료분 받기)","☐ 📋 {dailyMissions} 완료","☐ 🏟️ 초기화 3분 전 {arenaOfGlory} 진행","☐ 🐻 {bearHunt} — 격일 진행 + 부대 편성 업데이트","☐ 📅 활성 이벤트 등록 및 참여"]},
+        {"type":"list","items":["☐ 🎁 VIP 상자 수집 + {vipXp} 사용","☐ 🤝 {allianceHelp} + {allianceTech} 기여","☐ ⚔️ {conquerorsCamp}","☐ 🔎 {intelMission} 완료","☐ 🏝️ 섬의 {waterEssence} 수집 + 기여","☐ 🔮 {mysticTrial} 도전 횟수 소모","☐ 🧭 {journeySupplies} 사용 (UTC 08:00 & 16:00 무료분 받기)","☐ 📋 {dailyMissions} 완료","☐ 🏟️ 초기화 3분 전 {arenaOfGlory} 진행","☐ 🐻 {bearHunt} — 격일 진행 + 부대 편성 업데이트","☐ 📅 활성 이벤트 등록 및 참여"]},
         {"type":"sub","text":"🌙 접속 종료 전"},
         {"type":"list","items":["☐ 🐉 {petAdventure} 보내기","☐ 🌾 {gathering} 부대 보내기","☐ ⚔️ 부대 {training} 계속 유지하기","☐ 🔬 필요에 따라 {research} / {construction} 계속 유지하기"]}
       ]},
@@ -1397,7 +1395,6 @@ const GUIDES = {
         { type: "list", items: [
           "☐ 🎁 VIP-Truhe abholen + {vipXp} verwenden",
           "☐ 🤝 Allianz-{allianceHelp} + zur Allianz-{allianceTech} beitragen",
-          "☐ 📊 Helden-EP-Gegenstände verwenden",
           "☐ ⚔️ Lager erobern ({conquerorsCamp})",
           "☐ 🔎 {intelMission}en abschließen",
           "☐ 🏝️ {waterEssence} auf der Insel sammeln + Verbündeten helfen",
@@ -1490,7 +1487,6 @@ const GUIDES = {
         { type: "list", items: [
           "☐ 🎁 Récupère le coffre VIP + utilise l'{vipXp}",
           "☐ 🤝 {allianceHelp} d'alliance + contribue à la {allianceTech} d'alliance",
-          "☐ 📊 Utilise les objets d'EXP de héros",
           "☐ ⚔️ Conquiers des camps ({conquerorsCamp})",
           "☐ 🔎 Termine tes missions ({intelMission})",
           "☐ 🏝️ Récupère l'{waterEssence} de l'île + aide tes alliés",
@@ -1583,7 +1579,6 @@ const GUIDES = {
         { type: "list", items: [
           "☐ 🎁 Colete o baú VIP + use o {vipXp}",
           "☐ 🤝 {allianceHelp} da aliança + contribua com a {allianceTech} da aliança",
-          "☐ 📊 Use itens de XP de herói",
           "☐ ⚔️ Conquiste acampamentos ({conquerorsCamp})",
           "☐ 🔎 Complete as missões ({intelMission})",
           "☐ 🏝️ Colete a {waterEssence} da ilha + ajude aliados",
@@ -1676,7 +1671,6 @@ const GUIDES = {
         { type: "list", items: [
           "☐ 🎁 VIP sandığını al + {vipXp} kullan",
           "☐ 🤝 İttifak {allianceHelp} + ittifak {allianceTech} katkısı",
-          "☐ 📊 Kahraman XP eşyalarını kullan",
           "☐ ⚔️ Kampları fethet ({conquerorsCamp})",
           "☐ 🔎 {intelMission} listesini bitir",
           "☐ 🏝️ Adadaki {waterEssence} topla + müttefiklere yardım et",
@@ -1769,7 +1763,6 @@ const GUIDES = {
         { type: "list", items: [
           "☐ 🎁 Ambil peti VIP + gunakan {vipXp}",
           "☐ 🤝 {allianceHelp} aliansi + kontribusi {allianceTech} aliansi",
-          "☐ 📊 Gunakan item XP Hero",
           "☐ ⚔️ Taklukkan kamp ({conquerorsCamp})",
           "☐ 🔎 Selesaikan {intelMission}",
           "☐ 🏝️ Kumpulkan {waterEssence} di pulau + bantu sekutu",
@@ -1862,7 +1855,6 @@ const GUIDES = {
         { type: "list", items: [
           "☐ 🎁 Заберите VIP-сундук + используйте {vipXp}",
           "☐ 🤝 {allianceHelp} альянсу + взносы в {allianceTech}",
-          "☐ 📊 Используйте предметы опыта героев",
           "☐ ⚔️ Захватывайте лагеря ({conquerorsCamp})",
           "☐ 🔎 Выполните задания: {intelMission}",
           "☐ 🏝️ Соберите {waterEssence} на острове + помогите союзникам",
@@ -1955,7 +1947,6 @@ const GUIDES = {
         { type: "list", items: [
           "☐ 🎁 รับหีบ VIP + ใช้{vipXp}",
           "☐ 🤝 {allianceHelp}พันธมิตร + อนุเคราะห์{allianceTech}พันธมิตร",
-          "☐ 📊 ใช้ไอเทม EXP ฮีโร่",
           "☐ ⚔️ พิชิตค่าย ({conquerorsCamp})",
           "☐ 🔎 ทำ{intelMission}ให้ครบ",
           "☐ 🏝️ เก็บ{waterEssence}บนเกาะ + ช่วยพันธมิตร",
@@ -2048,7 +2039,6 @@ const GUIDES = {
         { type: "list", items: [
           "☐ 🎁 استلم صندوق VIP + استخدم {vipXp}",
           "☐ 🤝 {allianceHelp} في التحالف + ساهم في {allianceTech}",
-          "☐ 📊 استخدم عناصر خبرة الأبطال",
           "☐ ⚔️ اغزُ المعسكرات ({conquerorsCamp})",
           "☐ 🔎 أكمل {intelMission}",
           "☐ 🏝️ اجمع {waterEssence} في الجزيرة + ساعد الحلفاء",
@@ -2141,7 +2131,6 @@ const GUIDES = {
         { type: "list", items: [
           "☐ 🎁 Recoge el cofre VIP + usa la {vipXp}",
           "☐ 🤝 {allianceHelp} de alianza + contribuye a la {allianceTech} de alianza",
-          "☐ 📊 Usa objetos de EXP de héroe",
           "☐ ⚔️ Conquista campamentos ({conquerorsCamp})",
           "☐ 🔎 Completa las misiones ({intelMission})",
           "☐ 🏝️ Recoge la {waterEssence} de la isla + ayuda a aliados",
