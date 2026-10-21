@@ -520,6 +520,7 @@
   }
   bird.addEventListener("click", async () => {
     if (busy || tour) return;
+    if (!bubble.hidden) { hush(); clearTarget(); return; }   // a tap on the sparrow tucks its bubble away
     if (IS_OFFICER) { const c = play("hi"); officerMenu(); await c; play("idle", { squash: false }); return; }
     if (typeof langChosen !== "undefined" && !langChosen) return;   // language picker is up: stay asleep
     if (state === "sleep") { busy = true; sleepZ(false); await play("wake"); busy = false; }
@@ -593,7 +594,18 @@
     await step(el, ot(key), true);
     clearTarget(); setFlip(false); tour = null; busy = false; await goHome(); hush();
   }
-  if (IS_OFFICER) { setInterval(() => { if (root.hidden) return; try { addCallButtons(); } catch (e) {} }, 1500); window.addEventListener("hashchange", () => { if (tour) cancelStep(); }); }
+  if (IS_OFFICER) {
+    setInterval(() => { if (root.hidden) return; try { addCallButtons(); } catch (e) {} }, 1500);
+    window.addEventListener("hashchange", () => { if (tour) cancelStep(); });
+    // 👁️ "Preview as" another officer (👥 tab): the sparrow delivers that officer's message, so Sparrow can see what they will see (nothing is marked read)
+    let lastPv = null;
+    window.addEventListener("nxs-perms", async () => {
+      const pv = OFFICER.previewAs || null; if (pv === lastPv) return; lastPv = pv;
+      if (!pv || busy || root.hidden) return;
+      const m = messageFor({ id: pv }); if (!m) return;
+      await wait(600); busy = true; await playMessage(m, true); busy = false;
+    });
+  }
   async function startOfficer() {
     if (ls.get(LS) === "off") { showToggle(true); return; }
     const gate = document.getElementById("gate");
