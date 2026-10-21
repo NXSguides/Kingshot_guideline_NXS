@@ -414,6 +414,9 @@
     if (await hi) play("idle", { squash: false });
   }
   let bubbleTimer = null;
+  // taps inside the bubble stay inside it: nothing behind gets them, and a tap also stops the bubble's auto-hide
+  ["pointerdown", "touchstart", "mousedown"].forEach((ev) => bubble.addEventListener(ev, (e) => { e.stopPropagation(); clearTimeout(bubbleTimer); }, { passive: true }));
+  bubble.addEventListener("click", (e) => e.stopPropagation());
   bubble.addEventListener("click", async (e) => {
     const b = e.target.closest("button[data-a]"); if (!b || busy) return;
     const a = b.dataset.a; busy = true; armIdle();
