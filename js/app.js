@@ -830,9 +830,11 @@ function annBodyHtml(a) {
             <span>${escapeHtml(a.author)}</span>
             <span>${new Date(a.createdAt).toLocaleDateString(HTML_LANG[currentLang] || "en")}</span>
           </div>
-          ${a.title ? `<div class="ann-title" dir="auto">${escapeHtml(annLabel(a))}</div>` : ""}
+          ${a.style === "scroll"   /* 📜 scroll style: the paper grows with the text */
+            ? `<div class="ann-scroll"><div class="sc-rod"></div><div class="sc-paper">${a.title ? `<div class="sc-title" dir="auto">${escapeHtml(annLabel(a))}</div><div class="sc-hr"></div>` : ""}<div class="ann-text" dir="auto">${rich(text)}</div>${imgs}<span class="sc-seal">NXS</span></div><div class="sc-rod"></div></div>`
+            : `${a.title ? `<div class="ann-title" dir="auto">${escapeHtml(annLabel(a))}</div>` : ""}
           <div class="ann-text">${rich(text)}</div>
-          ${imgs}`;
+          ${imgs}`}`;
 }
 function selectAnnouncement(i) {
   // the board is on the page: swap just the announcement (re-drawing the whole page made it jump to the top)

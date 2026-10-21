@@ -32,10 +32,12 @@
     --tag-alt: #8fae7a;
     --tag-f2p: #6fae9a;
     --shadow: rgba(0, 0, 0, 0.45);
+    --sc-edge: #9c875e; --sc-mid: #b39f77; --sc-core: #bba881; --sc-ink: #21160b; --sc-head: #4a210d; --sc-glow: transparent;
   }
 }
 
 :root[data-theme="dark"] {
+  --sc-edge: #9c875e; --sc-mid: #b39f77; --sc-core: #bba881; --sc-ink: #21160b; --sc-head: #4a210d; --sc-glow: transparent;
   --bg: #17130f;
   --bg-texture: #1d1811;
   --panel: #241d15;
@@ -773,3 +775,19 @@ h3.section-h[id] { scroll-margin-top: 70px; }
 /* every button visibly sinks when tapped */
 button, .btn, .guide-chip, .td-row { transition: transform .08s, filter .08s; }
 button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale(.95); filter: brightness(.88); }
+
+/* 📜 scroll style for an announcement (chosen on the officer Post page): the paper grows with the text in every language */
+:root { --sc-edge: #e5cf9f; --sc-mid: #f6e7c3; --sc-core: #f8ecd0; --sc-ink: #3b2a18; --sc-head: #5b2f17; --sc-glow: #fff6; }
+.ann-scroll { position: relative; padding: 2px 10px; margin: 4px 0; }
+.ann-scroll .sc-rod { position: relative; z-index: 1; height: 20px; border-radius: 10px; background: linear-gradient(#8a5a35, #d9a875 35%, #b07a4a 60%, #6e4426); box-shadow: 0 3px 5px #0004; }
+.ann-scroll .sc-rod::before, .ann-scroll .sc-rod::after { content: ""; position: absolute; top: -3px; width: 13px; height: 26px; border-radius: 7px; background: radial-gradient(circle at 40% 35%, #f1d38f, #a6782a 70%, #6b4b17); }
+.ann-scroll .sc-rod::before { left: -8px; } .ann-scroll .sc-rod::after { right: -8px; }
+.ann-scroll .sc-paper { position: relative; margin: -3px 8px; padding: 20px 20px 46px; color: var(--sc-ink); line-height: 1.6; font-family: Georgia, "Times New Roman", serif;
+  background: radial-gradient(circle at 20% 30%, var(--sc-glow), transparent 40%), linear-gradient(90deg, var(--sc-edge), var(--sc-mid) 8%, var(--sc-core) 50%, var(--sc-mid) 92%, var(--sc-edge));
+  box-shadow: inset 0 0 22px #6b4a1a55; }
+.ann-scroll .sc-title { font: bold 19px Georgia, "Times New Roman", serif; text-align: center; letter-spacing: .5px; color: var(--sc-head); line-height: 1.35; }
+.ann-scroll .sc-hr { height: 1px; margin: 10px 0 12px; background: linear-gradient(90deg, transparent, #8a6a3f, transparent); }
+.ann-scroll .ann-text { color: var(--sc-ink); }
+.ann-scroll a { color: #7a2f12; }
+.ann-scroll .sc-seal { position: absolute; right: 14px; bottom: 8px; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(circle at 40% 35%, #d9675c, #9b2c24 70%); color: #ffe9d6; font: bold 11px sans-serif; box-shadow: 0 2px 4px #0005; transform: rotate(-12deg); }

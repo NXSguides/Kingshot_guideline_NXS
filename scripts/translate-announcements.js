@@ -38,8 +38,8 @@ function buildGlossaryText(TERMS) {
 function parseEntries(md) {
   return md.split(/^---$/m).map(s => s.trim()).filter(Boolean).map(b => {
     const data = yaml.load(b);
-    // "expires" (auto-delete time) is left out of the id, so changing it doesn't re-translate the announcement
-    const { expires, ...rest } = data || {};
+    // "expires" (auto-delete time) and "style" (📜 scroll …) are left out of the id, so changing them doesn't re-translate the announcement
+    const { expires, style, ...rest } = data || {};
     const id = crypto.createHash("sha1").update(JSON.stringify(rest)).digest("hex").slice(0, 10);
     return { id, block: b, ...data };
   });
@@ -194,7 +194,7 @@ for (const entry of rawEntries) {
   try { if (fs.existsSync(FIXES)) fixes = JSON.parse(fs.readFileSync(FIXES, "utf8") || "{}"); }
   catch (e) { console.warn("announcements-fixes.json 格式有誤，先略過手動修正"); }
   const published = rawEntries.slice().reverse().map(e => {
-    const item = { id: e.id, ...cache[e.id], ...(e.expires ? { expiresAt: new Date(e.expires).toISOString() } : {}) };
+    const item = { id: e.id, ...cache[e.id], ...(e.expires ? { expiresAt: new Date(e.expires).toISOString() } : {}), ...(e.style ? { style: String(e.style) } : {}) };
     const f = fixes[e.id];
     if (f && item.title && item.content) {
       item.title = { ...item.title }; item.content = { ...item.content }; item.fixed = {};
