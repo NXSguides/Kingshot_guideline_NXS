@@ -677,25 +677,26 @@ Scoring Activities: Governor Gear, Hero Gear, Pet Refining, Mithril, Truegold, A
 Clear remaining Intel Missions, burn leftover resources/speedups, and upgrade Governor Gear using accumulated Satin/Gilded Threads.
 Push Governor Gear to Mythic / Mythic 3-Star (6,250 pts per tier boost).
 Liquidate all remaining Mithril, Widgets, and Forgehammers to secure daily Top 2000 / Top 200 personal ranking rewards.
-⚔️ PHASE 2: BATTLE PHASE (12 HOURS)
-Castle Battle Window: 12:00 UTC to 22:00 UTC.
-Target: Control the King's Castle and 4 Turrets.
-🎯 GEN 3 PVP META & RALLY SETUP
-🛡️ Garrison Defense — Castle/Turrets
-Lead Hero: Eric (Gen 3) — Unbreakable infantry wall with superior Gen 3 stats and survival mechanics. Paired with Zoe (Gen 2) for shields.
-⚔️ Offensive Rallies (Attacking Castle/Turrets)
-Lead Hero: Petra (Gen 3) — Devastating Cavalry leader with high-scaling offensive rally Widgets.
-🤝 Rally Joiners (Crucial for F2P!)
-Do NOT use random heroes when joining rallies. Join with:
-Chenko (Skill 1 maxed)
-Amane
-Yeonwoo
-These heroes stack Lethality multipliers.
-💣 DOUBLE-RALLY "WHALE SMASHER" STRATEGY
-For heavy enemy garrisons:
-Rally 1 (Meat Shield / Clearer): Launched 1–2 seconds ahead. Focuses pure lethality to overflow the enemy's Infirmary and clear defending troops.
-Rally 2 (Main Striker): Arrives immediately behind Rally 1 to wipe out remaining troops and take control of the Castle.
-Turret Advantage: Capturing Turrets provides up to +20% Squad Lethality if held by the same kingdom holding the Castle.
+⚔️ PHASE 2: KVK BATTLE
+Be online 1 hour before 10:00 UTC.
+📋 BEFORE THE BATTLE
+Save your attack and defense formations in advance:
+⚔️ Attack: 50:20:30 (bear joiner setup)
+🛡️ Defense: 60:20:20 with Howard or Gordon
+Rally Leaders & Joiners: activate your Deployment Capacity buff.
+🔊 All Rally Leads need to be on Discord voice chat.
+👑 FOR RALLY LEADERS
+Use your strongest heroes:
+⚔️ Attack: Amadeus, Marlin and Petra (or Hilde or Jabel)
+🛡️ Defense: Zoe, Hilde and Saul
+🔄 Swapping Attack → Defense
+Once we take control, immediately dispatch your defense heroes with troops. When their arrival timer reaches 5–6 seconds, recall your attack heroes so your defense heroes arrive just in time to garrison.
+🏰 Garrison Captain rotation
+Assign joiners as Garrison Captain, rotating until spots 2–5 have:
+2 × Howard
+2 × Gordon
+This gives us +50% Defense and +50% Health. Once they're in place, put yourself back as Garrison Captain in spot #1.
+⚠️ You are responsible for your garrison. Keep the correct troop ratio for all joiners. Kick players when needed so the correct troops and heroes can get in.
 🩺 PHASE 3: FIELD TRIAGE (TROOP RECOVERY)
 Base Rescue Rate: 30% of lost troops that bypassed the Infirmary.
 Target Rescue Rate: 90%

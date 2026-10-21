@@ -677,25 +677,26 @@ Activités notées : Équipement Chef, Équipement de Héros, Raffinage des Anim
 Terminez les Missions de Renseignement restantes, utilisez les ressources/accélérations restantes, et améliorez Équipement Chef avec les Satin/Fils Dorés accumulés.
 Poussez Équipement Chef au niveau Mythique / Mythique 3 étoiles (6 250 pts par palier).
 Liquidez tout le Mithril, les Composant et les Marteau de Forge restants pour sécuriser les récompenses du classement personnel Top 2000 / Top 200 quotidien.
-⚔️ PHASE 2 : PHASE DE COMBAT (12 HEURES)
-Fenêtre de Combat du Château : 12h00 UTC à 22h00 UTC.
-Objectif : Contrôler le Château Royal et 4 tourelle.
-🎯 META PVP GEN 3 ET CONFIGURATION DE RASSEMBLEMENT
-🛡️ Défense de Garnison — Château/Tourelles
-Héros Leader : Éric (Gen 3) — Mur d'infanterie incassable avec des statistiques Gen 3 supérieures et des mécanismes de survie. Associé à Zoé (Gen 2) pour les boucliers.
-⚔️ Rassemblements Offensifs (Attaque du Château/Tourelles)
-Héros Leader : Petra (Gen 3) — Leader de Cavalerie dévastateur avec des Composant de rassemblement offensif à forte montée en puissance.
-🤝 Participants au Rassemblement (Crucial pour les F2P !)
-N'utilisez PAS de héros au hasard en rejoignant les rassemblements. Rejoignez avec :
-Chenko (Compétence 1 maximisée)
-Amane
-Yeonwoo
-Ces héros cumulent les multiplicateurs de létalité.
-💣 STRATÉGIE DU DOUBLE RASSEMBLEMENT « BROYEUR DE BALEINES »
-Contre de fortes garnisons ennemies :
-Rassemblement 1 (Bouclier Humain / Nettoyeur) : Lancé 1 à 2 secondes en avance. Se concentre sur la létalité pure pour saturer l'infirmerie ennemie et éliminer les troupes défensives.
-Rassemblement 2 (Frappeur Principal) : Arrive juste après le Rassemblement 1 pour éliminer les troupes restantes et prendre le contrôle du Château.
-Avantage tourelle : Capturer des tourelle offre jusqu'à +20 % de Létalité d'Escouade si détenues par le même royaume que celui qui tient le Château.
+⚔️ PHASE 2 : BATAILLE KVK
+Sois en ligne 1 heure avant 10:00 UTC.
+📋 AVANT LA BATAILLE
+Enregistre tes formations d'attaque et de défense à l'avance :
+⚔️ Attaque : 50:20:30 (comme pour rejoindre l'Ours)
+🛡️ Défense : 60:20:20 avec Howard ou Gordon
+Chefs de ralliement & participants : activez le bonus de capacité de déploiement.
+🔊 Tous les chefs de ralliement doivent être sur le vocal Discord.
+👑 POUR LES CHEFS DE RALLIEMENT
+Utilise tes héros les plus forts :
+⚔️ Attaque : Amadeus, Marlin et Petra (ou Hilde ou Jabel)
+🛡️ Défense : Zoé, Hilde et Saul
+🔄 Passer de l'attaque à la défense
+Dès qu'on prend le contrôle, envoie tout de suite tes héros de défense avec des troupes. Quand leur minuteur d'arrivée affiche 5–6 secondes, rappelle tes héros d'attaque pour que la défense arrive pile à temps en garnison.
+🏰 Rotation du capitaine de garnison
+Nomme des participants capitaine de garnison à tour de rôle jusqu'à avoir aux places 2–5 :
+2 × Howard
+2 × Gordon
+Cela donne +50 % de défense et +50 % de PV. Ensuite, remets-toi capitaine de garnison en place n°1.
+⚠️ Tu es responsable de ta garnison. Garde le bon ratio de troupes pour tous les participants. Expulse des joueurs si besoin pour laisser entrer les bonnes troupes et héros.
 🩺 PHASE 3 : TRIAGE SUR LE TERRAIN (RÉCUPÉRATION DES TROUPES)
 Taux de Secours de Base : 30 % des troupes perdues n'ayant pas atteint l'infirmerie.
 Taux de Secours Cible : 90 %

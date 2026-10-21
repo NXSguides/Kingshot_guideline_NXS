@@ -677,25 +677,26 @@ Atividades que pontuam: Equipamento do Chefe, Equipamento de Herói, Refinamento
 Complete as Missões de Inteligência restantes, use os recursos/velocidades restantes, e melhore Equipamento do Chefe usando Cetim/Fios Dourados acumulados.
 Leve Equipamento do Chefe até Mítico / Mítico 3 Estrelas (6.250 pts por nível).
 Liquide todo o Mithril, Ferramenta e Martelo de forja restantes para garantir as recompensas diárias do ranking pessoal Top 2000 / Top 200.
-⚔️ FASE 2: FASE DE BATALHA (12 HORAS)
-Janela de Batalha do Castelo: 12h00 UTC às 22h00 UTC.
-Objetivo: Controlar o Castelo da Realeza e 4 torreão.
-🎯 META PVP GEN 3 E CONFIGURAÇÃO DE ARREGIMENTAÇÃO
-🛡️ Defesa de Guarnição — Castelo/Torres
-Herói Líder: Eric (Gen 3) — Muro de infantaria inquebrável com estatísticas Gen 3 superiores e mecânicas de sobrevivência. Combinado com Zoe (Gen 2) para escudos.
-⚔️ Arregimentações Ofensivas (Atacando Castelo/Torres)
-Herói Líder: Petra (Gen 3) — Líder de Cavalaria devastador com Ferramenta de arregimentação ofensiva de alto escalonamento.
-🤝 Participantes de Arregimentação (Crucial para F2P!)
-NÃO use heróis aleatórios ao entrar em arregimentações. Entre com:
-Chenko (Habilidade 1 no máximo)
-Amane
-Yeonwoo
-Esses heróis acumulam multiplicadores de Letalidade.
-💣 ESTRATÉGIA DE ARREGIMENTAÇÃO DUPLA "ESMAGA-BALEIAS"
-Para guarnições inimigas fortes:
-Arregimentação 1 (Escudo Humano / Limpeza): Lançada 1–2 segundos antes. Foca em letalidade pura para lotar a Enfermaria inimiga e eliminar tropas defensoras.
-Arregimentação 2 (Atacante Principal): Chega logo atrás da Arregimentação 1 para eliminar as tropas restantes e assumir o controle do Castelo.
-Vantagem torreão: Capturar torreão concede até +20% de Letalidade de Esquadrão se controlada pelo mesmo reino que detém o Castelo.
+⚔️ FASE 2: BATALHA DO KVK
+Fique online 1 hora antes das 10:00 UTC.
+📋 ANTES DA BATALHA
+Salve suas formações de ataque e defesa com antecedência:
+⚔️ Ataque: 50:20:30 (igual ao de participante do Urso)
+🛡️ Defesa: 60:20:20 com Howard ou Gordon
+Líderes de rally e participantes: ativem o bônus de capacidade de envio.
+🔊 Todos os líderes de rally precisam estar no chat de voz do Discord.
+👑 PARA LÍDERES DE RALLY
+Use seus heróis mais fortes:
+⚔️ Ataque: Amadeus, Peixe Marlin e Petra (ou Hilde ou Jabel)
+🛡️ Defesa: Zoe, Hilde e Saul
+🔄 Trocar ataque → defesa
+Assim que tomarmos o controle, envie na hora seus heróis de defesa com tropas. Quando o tempo de chegada estiver em 5–6 segundos, chame de volta os heróis de ataque para a defesa chegar bem a tempo de guarnecer.
+🏰 Rodízio do capitão da guarnição
+Coloque participantes como capitão da guarnição, em rodízio, até as vagas 2–5 terem:
+2 × Howard
+2 × Gordon
+Isso dá +50% de defesa e +50% de vida. Depois, volte você como capitão da guarnição na vaga 1.
+⚠️ Você é responsável pela sua guarnição. Mantenha a proporção certa de tropas de todos os participantes. Expulse jogadores quando preciso para entrarem as tropas e heróis certos.
 🩺 FASE 3: TRIAGEM DE CAMPO (RECUPERAÇÃO DE TROPAS)
 Taxa de Resgate Base: 30% das tropas perdidas que não chegaram à Enfermaria.
 Taxa de Resgate Alvo: 90%

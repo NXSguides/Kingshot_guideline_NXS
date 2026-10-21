@@ -677,25 +677,26 @@ Puan Kazandıran Aktiviteler: Şef Donanımı, Kahraman Donanımı, Evcil Hayvan
 Kalan İstihbarat Görevlerini tamamlayın, kalan kaynakları/hızlandırmaları harcayın ve biriken Saten/Yaldızlı İplikler kullanarak Şef Donanımı'ı yükseltin.
 Şef Donanımı'ı Mitik / Mitik 3 Yıldız'a çıkarın (seviye başına 6.250 puan).
 Günlük Top 2000 / Top 200 kişisel sıralama ödüllerini garantilemek için kalan tüm Mithril, Alet ve Demirci Çekici'ları tüketin.
-⚔️ 2. AŞAMA: SAVAŞ AŞAMASI (12 SAAT)
-Şato Savaş Penceresi: 12:00 UTC – 22:00 UTC.
-Hedef: Kralın Şatosu ve 4 taret'ı kontrol edin.
-🎯 GEN 3 PVP META VE İNTİKAL KURULUMU
-🛡️ Garnizon Savunması — Şato/Kuleler
-Lider Kahraman: Eric (Gen 3) — Üstün Gen 3 istatistiklerine ve hayatta kalma mekaniklerine sahip yıkılmaz piyade duvarı. Kalkan için Zoe (Gen 2) ile eşleştirilir.
-⚔️ Saldırı İntikalleri (Şato/Kulelere Saldırı)
-Lider Kahraman: Petra (Gen 3) — Yüksek ölçekli saldırı intikal Alet'larına sahip yıkıcı Süvari lideri.
-🤝 İntikale Katılanlar (F2P İçin Çok Önemli!)
-İntikale katılırken rastgele kahraman KULLANMAYIN. Şunlarla katılın:
-Chenko (1. Yetenek maksimum)
-Amane
-Yeonwoo
-Bu kahramanlar Öldürücülük çarpanlarını üst üste bindirir.
-💣 ÇİFT İNTİKAL "BALİNA EZİCİ" STRATEJİSİ
-Ağır düşman garnizonları için:
-İntikal 1 (Et Kalkanı / Temizleyici): 1–2 saniye önce başlatılır. Düşmanın Revirini taşırmak ve savunma askerlerini temizlemek için saf öldürücülüğe odaklanır.
-İntikal 2 (Ana Vurucu): İntikal 1'in hemen ardından gelerek kalan askerleri yok eder ve Şato'nun kontrolünü ele geçirir.
-taret Avantajı: Şato'yu elinde tutan aynı krallık tarafından tutuluyorsa, taret'ları ele geçirmek %20'ye kadar Birlik Öldürücülüğü sağlar.
+⚔️ 2. AŞAMA: KVK SAVAŞI
+10:00 UTC'den 1 saat önce çevrimiçi ol.
+📋 SAVAŞTAN ÖNCE
+Saldırı ve savunma dizilişlerini önceden kaydet:
+⚔️ Saldırı: 50:20:30 (Ayı katılımcı düzeni)
+🛡️ Savunma: 60:20:20, Howard veya Gordon ile
+Seferberlik liderleri ve katılımcılar: konuşlanma kapasitesi takviyesini aç.
+🔊 Tüm seferberlik liderleri Discord sesli sohbette olmalı.
+👑 SEFERBERLİK LİDERLERİ İÇİN
+En güçlü kahramanlarını kullan:
+⚔️ Saldırı: Amadeus, Marlin ve Petra (Hilde veya Jabel de olur)
+🛡️ Savunma: Zoe, Hilde ve Saul
+🔄 Saldırıdan savunmaya geçiş
+Kontrolü alır almaz savunma kahramanlarını askerleriyle gönder. Varış sayacı 5–6 saniyeye gelince saldırı kahramanlarını geri çağır; savunma tam zamanında garnizona girer.
+🏰 Garnizon önderi rotasyonu
+Katılımcıları sırayla garnizon önderi yap; 2–5. sıralarda şunlar olana kadar:
+2 × Howard
+2 × Gordon
+Bu +%50 savunma ve +%50 can verir. Sonra kendini tekrar 1. sırada garnizon önderi yap.
+⚠️ Garnizonundan sen sorumlusun. Tüm katılımcılarda doğru asker oranını koru. Gerekirse oyuncuları çıkar ki doğru asker ve kahramanlar girebilsin.
 🩺 3. AŞAMA: SAHA TRİYAJI (ASKER KURTARMA)
 Temel Kurtarma Oranı: Revire ulaşamayan kayıp askerlerin %30'u.
 Hedef Kurtarma Oranı: %90

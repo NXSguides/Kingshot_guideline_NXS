@@ -677,25 +677,26 @@ Actividades que puntúan: Equipo de gobernador, Equipo de Héroe, Refinamiento d
 Vacía las Misiones de Inteligencia restantes, gasta los recursos/aceleradores sobrantes, y mejora Equipo de gobernador usando Satén/Hilos dorados acumulados.
 Sube Equipo de gobernador a Mítico / Mítico 3 Estrellas (6,250 pts por cada subida de nivel).
 Liquida todo el Mitrilo, Complemento y Martillo de Forja restantes para asegurar las recompensas del ranking personal diario Top 2000 / Top 200.
-⚔️ FASE 2: FASE DE BATALLA (12 HORAS)
-Ventana de Batalla del Castillo: 12:00 UTC a 22:00 UTC.
-Objetivo: Controlar el Castillo del Rey y 4 torreta.
-🎯 META PVP GEN 3 Y CONFIGURACIÓN DE ATAQUES CONJUNTOS
-🛡️ Defensa de Guarnición — Castillo/Torretas
-Héroe líder: Eric (Gen 3) — Muralla de infantería inquebrantable con estadísticas Gen 3 superiores y mecánicas de supervivencia. Combinado con Zoe (Gen 2) para escudos.
-⚔️ Ataques Conjuntos Ofensivos (Atacando Castillo/Torretas)
-Héroe líder: Petra (Gen 3) — Comandante de caballería devastador con Complemento de Ataque Conjunto ofensivo de alta escala.
-🤝 Participantes de Ataque Conjunto (¡Crucial para F2P!)
-NO uses héroes al azar al unirte a Ataques Conjuntos. Únete con:
-Chenko (Habilidad 1 al máximo)
-Amane
-Yeonwoo
-Estos héroes acumulan multiplicadores de Letalidad.
-💣 ESTRATEGIA DE DOBLE ATAQUE CONJUNTO "ROMPE-BALLENAS"
-Para guarniciones enemigas fuertes:
-Ataque Conjunto 1 (Escudo de Carne / Limpiadora): Se lanza 1–2 segundos antes. Se enfoca en pura letalidad para desbordar la Enfermería enemiga y eliminar las tropas defensoras.
-Ataque Conjunto 2 (Atacante Principal): Llega justo después del Ataque Conjunto 1 para eliminar las tropas restantes y tomar el control del Castillo.
-Ventaja de torreta: capturar torreta otorga hasta +20% de Letalidad de Escuadrón si es mantenida por el mismo reino que posee el Castillo.
+⚔️ FASE 2: BATALLA DEL KVK
+Conéctate 1 hora antes de las 10:00 UTC.
+📋 ANTES DE LA BATALLA
+Guarda tus formaciones de ataque y defensa con antelación:
+⚔️ Ataque: 50:20:30 (como para unirte al Oso)
+🛡️ Defensa: 60:20:20 con Howard o Gordon
+Líderes de rally y participantes: activad el potenciador de capacidad de despliegue.
+🔊 Todos los líderes de rally deben estar en el chat de voz de Discord.
+👑 PARA LÍDERES DE RALLY
+Usa tus héroes más fuertes:
+⚔️ Ataque: Amadeus, Marlin y Petra (o Hilde o Jabel)
+🛡️ Defensa: Zoe, Hilde y Saul
+🔄 Cambiar de ataque a defensa
+En cuanto tomemos el control, envía enseguida tus héroes de defensa con tropas. Cuando su llegada marque 5–6 segundos, retira tus héroes de ataque para que la defensa llegue justo a tiempo a guarnecer.
+🏰 Rotación del capitán de guarnición
+Pon a participantes como capitán de guarnición, rotando, hasta que los puestos 2–5 tengan:
+2 × Howard
+2 × Gordon
+Esto da +50 % de defensa y +50 % de salud. Después, vuelve a ponerte como capitán de guarnición en el puesto 1.
+⚠️ Eres responsable de tu guarnición. Mantén la proporción correcta de tropas de todos. Expulsa jugadores si hace falta para que entren las tropas y héroes correctos.
 🩺 FASE 3: TRIAJE DE CAMPO (RECUPERACIÓN DE TROPAS)
 Tasa de Rescate Base: 30% de las tropas perdidas que no llegaron a la Enfermería.
 Tasa de Rescate Objetivo: 90%

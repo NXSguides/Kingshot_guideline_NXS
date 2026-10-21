@@ -679,25 +679,26 @@ Punktebringende Aktivitäten: Gouverneur-Ausrüstung, Heldenausrüstung, Haustie
 Erledige verbliebene Geheimdienstmissionen, verbrauche übrige Ressourcen/Beschleunigungen und werte Gouverneur-Ausrüstung mit angesammeltem Satin/Vergoldete Fäden auf.
 Bringe Gouverneur-Ausrüstung auf Mythisch / Mythisch 3-Sterne (6.250 Punkte pro Stufenanstieg).
 Verbrauche alles verbliebene Mithril, Element und Schmiedehammer, um die täglichen Top-2000-/Top-200-Rangbelohnungen zu sichern.
-⚔️ PHASE 2: SCHLACHTPHASE (12 STUNDEN)
-Schloss-Kampffenster: 12:00 UTC bis 22:00 UTC.
-Ziel: Kontrolliere das Königliches Schloss und 4 Geschützturm.
-🎯 GEN-3-PVP-META & RALLY-SETUP
-🛡️ Garnisonsverteidigung — Schloss/Türme
-Anführer-Held: Eric (Gen 3) — Unzerstörbare Infanteriewand mit überlegenen Gen-3-Werten und Überlebensmechanik. Kombiniert mit Zoe (Gen 2) für Schilde.
-⚔️ Offensive Rallys (Angriff auf Schloss/Türme)
-Anführer-Held: Petra (Gen 3) — Verheerender Kavallerie-Anführer mit stark skalierenden offensiven Rally-Element.
-🤝 Rally-Teilnehmer (entscheidend für F2P!)
-Nutze NICHT irgendwelche Helden beim Beitritt zu Rallys. Tritt bei mit:
-Chenko (Fähigkeit 1 maximiert)
-Amane
-Yeonwoo
-Diese Helden stapeln Tödlichkeits-Multiplikatoren.
-💣 DOPPEL-RALLY-"WALFÄNGER"-STRATEGIE
-Für starke feindliche Garnisonen:
-Rally 1 (Schutzschild/Räumer): 1–2 Sekunden früher gestartet. Fokussiert reine Tödlichkeit, um das feindliche Lazarett zu überfluten und Verteidigungstruppen zu räumen.
-Rally 2 (Hauptangreifer): Trifft unmittelbar nach Rally 1 ein, um verbliebene Truppen auszulöschen und die Kontrolle über das Schloss zu übernehmen.
-Geschützturm-Vorteil: Die Einnahme von Geschützturm bietet bis zu +20 % Truppen-Tödlichkeit, wenn dasselbe Königreich auch das Schloss hält.
+⚔️ PHASE 2: KVK-SCHLACHT
+Sei 1 Stunde vor 10:00 UTC online.
+📋 VOR DER SCHLACHT
+Speichere vorher deine Angriffs- und Verteidigungsformation:
+⚔️ Angriff: 50:20:30 (wie beim Bären-Beitritt)
+🛡️ Verteidigung: 60:20:20 mit Howard oder Gordon
+Rally-Leiter & Teilnehmer: aktiviert den Buff Einsatzkapazität.
+🔊 Alle Rally-Leiter müssen im Discord-Sprachkanal sein.
+👑 FÜR RALLY-LEITER
+Nimm deine stärksten Helden:
+⚔️ Angriff: Amadeus, Marlin und Petra (oder Hilde oder Jabel)
+🛡️ Verteidigung: Zoe, Hilde und Saul
+🔄 Wechsel Angriff → Verteidigung
+Sobald wir übernehmen, sofort die Verteidigungshelden mit Truppen schicken. Wenn ihr Ankunftstimer bei 5–6 Sekunden steht, die Angriffshelden zurückrufen, damit die Verteidiger genau rechtzeitig besetzen.
+🏰 Garnisonskapitän-Rotation
+Teilnehmer reihum als Garnisonskapitän setzen, bis die Plätze 2–5 so belegt sind:
+2 × Howard
+2 × Gordon
+Das gibt +50 % Verteidigung und +50 % Leben. Danach dich selbst wieder als Garnisonskapitän auf Platz 1 setzen.
+⚠️ Du bist für deine Garnison verantwortlich. Halte bei allen Teilnehmern das richtige Truppenverhältnis. Wirf Spieler raus, wenn nötig, damit die richtigen Truppen und Helden reinkommen.
 🩺 PHASE 3: FELDVERSORGUNG (TRUPPENRETTUNG)
 Basis-Rettungsrate: 30 % der verlorenen Truppen, die das Lazarett nicht erreicht haben.
 Ziel-Rettungsrate: 90 %

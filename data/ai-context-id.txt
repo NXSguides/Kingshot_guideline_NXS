@@ -677,25 +677,26 @@ Aktivitas Bernilai: Gear Gubernur, Gear Hero, Penyempurnaan Pet, Mithril, Truego
 Selesaikan sisa Misi Intel, habiskan sisa sumber daya/speedup, dan tingkatkan Gear Gubernur menggunakan Satin/Gilded Threads yang terkumpul.
 Dorong Gear Gubernur ke Mythic / Mythic 3-Bintang (6.250 poin per naik level).
 Habiskan semua sisa Mithril, Widget, dan Forgehammer untuk mengamankan hadiah peringkat pribadi harian Top 2000 / Top 200.
-⚔️ FASE 2: FASE PERTEMPURAN (12 JAM)
-Jendela Pertempuran Kastil: 12:00 UTC hingga 22:00 UTC.
-Target: Kuasai Kastil Raja dan 4 meriam.
-🎯 META PVP GEN 3 & SETUP RALLY
-🛡️ Pertahanan Garnisun — Kastil/Menara
-Hero Utama: Eric (Gen 3) — Tembok infanteri tak tertembus dengan statistik Gen 3 unggul dan mekanisme bertahan hidup. Dipasangkan dengan Zoe (Gen 2) untuk perisai.
-⚔️ Rally Ofensif (Menyerang Kastil/Menara)
-Hero Utama: Petra (Gen 3) — Pemimpin Kavaleri mematikan dengan Widget rally ofensif berskala tinggi.
-🤝 Peserta Rally (Krusial untuk F2P!)
-JANGAN gunakan hero sembarangan saat bergabung rally. Bergabunglah dengan:
-Chenko (Skill 1 maksimal)
-Amane
-Yeonwoo
-Hero-hero ini menumpuk pengganda Lethality.
-💣 STRATEGI RALLY GANDA "PENGHANCUR PAUS"
-Untuk garnisun musuh yang kuat:
-Rally 1 (Tameng / Pembersih): Diluncurkan 1–2 detik lebih awal. Fokus pada lethality murni untuk membanjiri Infirmary musuh dan membersihkan pasukan bertahan.
-Rally 2 (Penyerang Utama): Tiba tepat di belakang Rally 1 untuk menghabisi sisa pasukan dan mengambil alih Kastil.
-Keuntungan meriam: Merebut meriam memberikan hingga +20% Lethality Skuad jika dipegang oleh kerajaan yang sama dengan yang memegang Kastil.
+⚔️ FASE 2: PERTEMPURAN KVK
+Online 1 jam sebelum 10:00 UTC.
+📋 SEBELUM PERTEMPURAN
+Simpan formasi serang dan bertahan lebih dulu:
+⚔️ Serang: 50:20:30 (sama seperti join Beruang)
+🛡️ Bertahan: 60:20:20 dengan Howard atau Gordon
+Pemimpin reli & peserta: aktifkan buff kapasitas pengerahan.
+🔊 Semua pemimpin reli harus ada di voice chat Discord.
+👑 UNTUK PEMIMPIN RELI
+Pakai hero terkuatmu:
+⚔️ Serang: Amadeus, Marlin dan Petra (atau Hilde atau Jabel)
+🛡️ Bertahan: Zoe, Hilde dan Saul
+🔄 Ganti serang → bertahan
+Begitu kita menguasai, langsung kirim hero bertahan beserta pasukan. Saat timer kedatangan tinggal 5–6 detik, tarik kembali hero serang supaya hero bertahan tiba tepat waktu untuk berjaga.
+🏰 Rotasi kapten garnisun
+Jadikan peserta kapten garnisun bergantian sampai slot 2–5 berisi:
+2 × Howard
+2 × Gordon
+Ini memberi +50% pertahanan dan +50% HP. Setelah itu, jadikan dirimu lagi kapten garnisun di slot 1.
+⚠️ Garnisunmu tanggung jawabmu. Jaga rasio pasukan semua peserta tetap benar. Keluarkan pemain bila perlu agar pasukan dan hero yang tepat bisa masuk.
 🩺 FASE 3: TRIASE LAPANGAN (PEMULIHAN PASUKAN)
 Tingkat Penyelamatan Dasar: 30% dari pasukan yang hilang dan tidak sempat masuk Infirmary.
 Target Tingkat Penyelamatan: 90%
