@@ -1,5 +1,5 @@
 /* 🐦 Little Sparrow — the site's guide mascot (js/sparrow.js). Art: Sherry's Gemini sparrow, animated by Vidnoz; frames in img/sparrow/ */
-.sp-root { position: fixed; left: 0; top: 0; z-index: 860; pointer-events: none; will-change: transform; }
+.sp-root { position: fixed; left: 0; top: 0; z-index: 860; pointer-events: none; will-change: transform; --sp-sat: env(safe-area-inset-top, 0px); }
 .sp-root[hidden] { display: none; }
 .sp-bird { position: absolute; left: 0; top: 0; transform-origin: 50% 100%; cursor: pointer; pointer-events: none; }
 .sp-bird img { position: absolute; left: 0; top: 0; display: block; user-select: none; -webkit-user-drag: none; pointer-events: auto; cursor: pointer;
