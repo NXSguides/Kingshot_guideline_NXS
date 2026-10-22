@@ -1672,7 +1672,9 @@
      there → drop the step and fly home instead of staying put next to nothing. Only while idle or waiting for Next, never mid-flow. */
   let lostSince = 0, lastPerch = null;
   const shown = (el) => { if (!el || !el.isConnected) return false; const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && !el.closest("[hidden]"); };   // scrolled out of view still counts as there
-  const pinched = () => !!window.visualViewport && Math.abs(visualViewport.scale - 1) > 0.02;   // the page is pinch-zoomed: every measurement is off, so hold still until it's back to 1×
+  // hold still while the page is pinch-zoomed (every measurement is off until it's back to 1×) or while someone is typing (the keyboard squeezes the viewport)
+  const typing = () => { const a = document.activeElement; return !!a && (a.tagName === "INPUT" || a.tagName === "TEXTAREA" || a.tagName === "SELECT" || a.isContentEditable); };
+  const pinched = () => (!!window.visualViewport && Math.abs(visualViewport.scale - 1) > 0.02) || typing();
   setInterval(async () => {
     if (root.hidden || flying || state === "sleep" || state === "off" || pinched()) return;
     if (targetEl && (stepResolve || !busy)) {
@@ -2607,6 +2609,7 @@
     // re-perch a moment after the viewport settles (not during an iOS rubber-band bounce or a toolbar animation, or the bird would hop around)
     let rpT = null; const rePerch = () => { placeBubble(); clearTimeout(rpT); rpT = setTimeout(() => { if (!busy && !flying && !pinched() && state !== "off" && root.hidden === false && !targetEl) { pos = perchPoint(); place(); faceIn(); } placeBubble(); }, 350); };
     window.addEventListener("resize", rePerch);
+    document.addEventListener("focusout", () => setTimeout(rePerch, 250));   // keyboard closed → settle back on the button
     if (window.visualViewport) visualViewport.addEventListener("resize", rePerch);   // iOS: the browser bar folding away moves the Ask AI button → the bird follows
     const f = fab(); if (f) new MutationObserver(() => { if (!busy && !flying && !targetEl) { pos = perchPoint(); place(); faceIn(); } }).observe(f, { attributes: true, attributeFilter: ["style", "class"] });
     // navigating to another guide mid-tour: drop the tour (the thing being pointed at may be gone) instead of carrying on somewhere odd
