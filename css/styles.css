@@ -783,7 +783,11 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 .sc2 { position: relative; container-type: inline-size; }
 .sc2-bg { position: absolute; inset: 0; display: flex; flex-direction: column; filter: drop-shadow(0 4px 8px #0007); }
 .sc2-t { flex-shrink: 0; width: 100%; aspect-ratio: 800 / 446; background: 0 0 / 100% 100% no-repeat; }
-.sc2-m { width: 100%; flex: 1; margin-top: -1px; background: url(../figures/scroll/mid.webp) 0 0 / 100% auto repeat-y; }
+.sc2-m { position: relative; z-index: 0; width: 100%; flex: 1; margin-top: -1px; }
+/* long text: the paper is a mirrored tile (no hard seams); one copy runs down from the top roll, one up from the bottom roll, and they fade into each other */
+.sc2-m::before, .sc2-m::after { content: ""; position: absolute; inset: 0; background: url(../figures/scroll/mid-tile.webp) 0 0 / 100% auto repeat-y; }
+.sc2-m::before { -webkit-mask-image: linear-gradient(#000 35%, transparent 65%); mask-image: linear-gradient(#000 35%, transparent 65%); }
+.sc2-m::after { z-index: -1; background-image: url(../figures/scroll/mid-tile-b.webp); background-position: 0 100%; }   /* full underneath, so the fade never lets the background through */
 .sc2-b { flex-shrink: 0; width: 100%; aspect-ratio: 800 / 132; margin-top: -1px; background: url(../figures/scroll/bot.webp) 0 0 / 100% 100% no-repeat; }
 .sc2-tx { position: relative; box-sizing: border-box; min-height: 106.4cqw; padding: 26cqw 21cqw 19cqw 23cqw; color: #3b2a18; font-family: Georgia, "Times New Roman", serif; line-height: 1.55; }
 .sc2-tx .ann-text { color: inherit; font-size: 14px; }
