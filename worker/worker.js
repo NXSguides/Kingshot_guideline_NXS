@@ -392,7 +392,7 @@ NEWER TOOLS (officers)
 [perms] - 👥 Officers (幹部, admins only): one row per officer; per tab ✏️ Edit / 👁️ View / — Hidden (saves by itself); 🔔 which events they get officer to-do reminders for; 👁️ Preview as; + Add officer (name + 18-digit Discord ID).
 
 LITTLE SPARROW (🐦 on the officer page)
-- When an officer opens the officer page (once per session, after the greeting) and whenever they tap the sparrow, it asks "Want a quick tour of this tab?": 👀 Yes = one stop per card of the tab you are on, then "🎓 How do I use…" leads on to the other tabs' tours; "No thanks" = the list of tab tours in the chat. Every card also has its own 🐦 button that explains just that card.
+- When an officer opens the officer page (once per session, after the greeting) and whenever they tap the sparrow, it asks "Want a quick tour of the officer page?": 👀 Yes = the page's own controls top to bottom (← main site, language, light/dark, 🔗 copy link, ↻ refresh, your Discord name (tap to change how it shows; Log out), the tabs you have, the 🐦 button next to every feature, Ask AI), then "🎓 How do I use…" leads on to the tab tours; "No thanks" = the list of tab tours in the chat.
 
 AI ASSISTANT
 - The chat knows an officer by their Discord login on this browser (log in on the officer page once). It follows the 👥 table: it only explains and answers from the tabs this officer may open. Officers have no daily question limit.

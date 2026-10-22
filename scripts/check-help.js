@@ -40,7 +40,7 @@ const FEATURES = [
   ["Site: notifications help", /Notifications not coming/, /tm03b:/],
   ["Site: top buttons", /↻ refresh/, /si03:/],
   ["Site: install the app", /install-app/, /inst1:/],
-  ["Sparrow: quick tour of this page / tab", /quick tour of this page[\s\S]*quick tour of this tab|quick tour of this tab[\s\S]*quick tour of this page/, /tourQ:[\s\S]*tourQo:/],
+  ["Sparrow: quick tour of this page / the officer page", /quick tour of this page[\s\S]*quick tour of the officer page|quick tour of the officer page[\s\S]*quick tour of this page/, /tourQ:[\s\S]*tourQo:[\s\S]*ob07:/],
 ];
 const STALE = [
   [/other browsers can't install|其他瀏覽器無法安裝/, "iPhone: Chrome can add to the Home Screen too (iOS 16.4+)"],
