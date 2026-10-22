@@ -110,6 +110,10 @@
       display:flex;flex-direction:column;background:var(--panel);color:var(--text);border:1px solid var(--rule);
       border-radius:12px;box-shadow:0 8px 28px var(--shadow);overflow:hidden}
     .ai-panel[hidden]{display:none}
+    /* the page behind dims a little when the chat is open, and the panel gets a firm edge, so it reads as a window on top rather than part of the page */
+    .ai-panel{border:2px solid var(--accent);box-shadow:0 12px 40px rgba(0,0,0,.45),0 0 0 1px var(--panel)}
+    .ai-dim{position:fixed;inset:0;z-index:849;background:rgba(0,0,0,.32);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+    .ai-dim[hidden]{display:none}
     .ai-head{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--rule);background:var(--panel-2);cursor:pointer}
     .ai-head b{flex:1;font-family:"Oswald","Noto Sans TC",sans-serif;letter-spacing:.02em}
     .ai-head button{border:0;background:transparent;color:var(--text);font-size:18px;cursor:pointer;padding:2px 6px}
@@ -140,6 +144,8 @@
   fab.innerHTML = `<span class="ai-fi">💬</span><span class="ai-ft"></span>`;
   const panel = document.createElement("div");
   panel.className = "ai-panel"; panel.hidden = true;
+  const dim = document.createElement("div"); dim.className = "ai-dim"; dim.hidden = true; dim.onclick = () => setOpen(false); document.body.appendChild(dim);
+  new MutationObserver(() => { dim.hidden = panel.hidden; }).observe(panel, { attributes: true, attributeFilter: ["hidden"] });   // other scripts hide the panel directly: the dimming follows
   panel.innerHTML = `
     <div class="ai-head"><b>NXS AI</b>
       <button type="button" id="aiClear">🗑</button>
@@ -206,7 +212,7 @@
   /* the chat stays open (and keeps its messages) when you move to another page in this tab */
   const OPEN_KEY = "nxs-ai-open";
   function setOpen(open) {
-    panel.hidden = !open; fab.classList.toggle("open", !!open);   // open: just the icon, so it covers less
+    panel.hidden = !open; dim.hidden = !open; fab.classList.toggle("open", !!open);   // open: just the icon, so it covers less
     try { sessionStorage.setItem(OPEN_KEY, open ? "1" : ""); } catch (e) {}
     if (open) { $("aiLog").scrollTop = $("aiLog").querySelectorAll(".ai-msg").length > 1 ? $("aiLog").scrollHeight : 0; }
   }
