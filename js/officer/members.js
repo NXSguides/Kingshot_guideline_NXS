@@ -10,12 +10,12 @@ const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&":
 const T = {
   en: { fixed: "{n} names changed to the roster spelling.", t: "👥 Member positions", note: "Our cities as they sit in game (X:Y = the city's tile in game). Tap a city for its coordinates. Blue = on the roster, orange = name not found on the roster.",
     find: "Find a member…", none: "No positions saved yet.", noneEd: "No positions saved yet — paste them below (one per line: name X Y).", count: "{n} cities", pw: "Power", copy: "📋 Copy X:Y", copied: "Copied ✅",
-    notOn: "On the map but not found on the roster:", notMap: "On the roster but not on the map:", paste: "📋 Paste positions", pasteNote: "One per line: name X Y (e.g. Sparrow 401 662). A name that is already on the map moves; new names are added. BT1 / BT2 lines set the Bear Traps.",
+    notOn: "On the map but not found on the roster:", notMap: "On the roster but not on the map:", paste: "📋 Paste positions", pasteNote: "One per line: name X Y (e.g. Sparrow 401 662). The box shows the current list — fix any name or coordinates here and press Replace all. Apply only adds new names and moves existing ones. BT1 / BT2 lines set the Bear Traps.",
     apply: "Apply", replace: "Replace all", cancel: "Cancel", save: "💾 Save", saving: "Saving…", saved: "Saved ✅ The other officers see it after a refresh.", unsaved: "Not saved yet.", by: "Your name",
     edit: "Change", del: "Remove", name: "Name", bad: "Couldn't read: {l}", added: "{a} added, {m} moved.", errAuth: "The saved GitHub key doesn't work any more — ask Sherry.", errBusy: "Someone else saved at the same time — refresh and try again.", errNet: "Couldn't reach GitHub — try again.", noKey: "Saving needs the officers' GitHub key (set up on the Post tab).", locked: "Unlock the officer data to see member positions.", bt: "Bear Trap", hq: "HQ", banner: "Banner", last: "Last saved {d} by {b}" },
   zh: { fixed: "{n} 個名字已改成名單上的寫法。", t: "👥 成員位置", note: "我們的城在遊戲裡的位置（X:Y 是遊戲裡城的座標）。點一下城可以看座標。藍色 = 名單上有，橘色 = 名單上找不到這個名字。",
     find: "找成員…", none: "還沒有存位置。", noneEd: "還沒有存位置，請在下面貼上（一行一個：名字 X Y）。", count: "{n} 座城", pw: "戰力", copy: "📋 複製 X:Y", copied: "已複製 ✅",
-    notOn: "地圖上有、名單上找不到：", notMap: "名單上有、地圖上沒有：", paste: "📋 貼上位置", pasteNote: "一行一個：名字 X Y（例如 Sparrow 401 662）。地圖上已有的名字會移過去，新名字會加上。BT1／BT2 那行是熊陷阱。",
+    notOn: "地圖上有、名單上找不到：", notMap: "名單上有、地圖上沒有：", paste: "📋 貼上位置", pasteNote: "一行一個：名字 X Y（例如 Sparrow 401 662）。框裡會先放目前的整份名單，直接在這裡改名字或座標，再按「全部取代」就好。「套用」只會新增新名字、移動已有的名字。BT1／BT2 那行是熊陷阱。",
     apply: "套用", replace: "全部取代", cancel: "取消", save: "💾 儲存", saving: "儲存中…", saved: "已儲存 ✅ 其他幹部重新整理後就看得到。", unsaved: "還沒儲存。", by: "你的名字",
     edit: "修改", del: "移除", name: "名字", bad: "看不懂這行：{l}", added: "新增 {a} 個，移動 {m} 個。", errAuth: "存好的 GitHub 金鑰失效了，請找 Sherry。", errBusy: "有人同時儲存了，請重新整理再試一次。", errNet: "連不到 GitHub，請再試一次。", noKey: "儲存需要幹部的 GitHub 金鑰（在 Post 分頁設定）。", locked: "解鎖幹部資料後才看得到成員位置。", bt: "熊陷阱", hq: "總部", banner: "旗幟", last: "{b} 在 {d} 儲存" },
   pt: { fixed: "{n} nomes trocados pela grafia do roster.", t: "👥 Posições dos membros", note: "Nossas cidades como estão no jogo (X:Y = o tile da cidade no jogo). Toque numa cidade para ver as coordenadas. Azul = está no roster, laranja = nome não encontrado no roster.",
@@ -195,7 +195,10 @@ function render() {
   if ($("mm_find")) $("mm_find").oninput = (e) => { const q = norm(e.target.value); if (!q) return; const i = D.m.findIndex(([n]) => norm(n) === q); const j = i >= 0 ? i : D.m.findIndex(([n]) => norm(n).startsWith(q)); if (j >= 0) select(j, true); };
   el.querySelectorAll(".mm-chip[data-n]").forEach((c) => c.onclick = () => { const i = D.m.findIndex(([n]) => n === c.dataset.n); if (i >= 0) select(i, true); });
   if (!ed) return;
-  $("mm_pbtn").onclick = () => { pasteOpen = !pasteOpen; $("mm_pbox").hidden = !pasteOpen; if (pasteOpen) $("mm_paste").focus(); };
+  /* the box opens with the whole current list, so any name or X Y can be fixed right there, then "Replace all" */
+  const listText = () => D.m.map(([n, x, y]) => `${n} ${x} ${y}`).concat(D.bt.map(([x, y], i) => `BT${i + 1} ${x} ${y}`)).join("\n");
+  if (D.m.length && !$("mm_paste").value) $("mm_paste").value = listText();
+  $("mm_pbtn").onclick = () => { pasteOpen = !pasteOpen; $("mm_pbox").hidden = !pasteOpen; if (pasteOpen) { if (D.m.length) $("mm_paste").value = listText(); $("mm_paste").focus(); } };
   $("mm_apply").onclick = () => applyPaste(false);
   if ($("mm_repl")) $("mm_repl").onclick = () => applyPaste(true);
   $("mm_pcan").onclick = () => { pasteOpen = false; $("mm_pbox").hidden = true; };
