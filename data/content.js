@@ -784,7 +784,7 @@ const GUIDES = {
                 "items": [
                   "**Pre-load:** start sending reinforcements 1–2 hours early, so everyone is covered before Wave 1.",
                   "**Buddy groups:** groups of 3–6, strong and weak mixed. Everyone reinforces everyone.",
-                  "**Buffs first:** before sending marches, ask for the Marshal position (King's Castle → Appointment) and use a Deployment Capacity Boost."
+                  "**Buffs first:** before sending marches, apply for the **Marshal** slot (King's Castle → Appointment → Marshal → Apply; each slot is 30 minutes): Appointment-based Squads' Attack +8% and Troops Deployment Capacity +3,750. Also use a Deployment Capacity Boost."
                 ]
               }
             ]
@@ -1165,7 +1165,7 @@ const GUIDES = {
                 "items": [
                   "**提早派兵：** 開打前 1–2 小時就開始互相增援，第 1 波之前每個人都有人守。",
                   "**夥伴小組：** 3–6 人一組，強弱混搭，每個人都增援每個人。",
-                  "**先開增益：** 派兵前先申請「官職任命」裡的統帥官職（王城），並使用出征部隊數量提升。"
+                  "**先開增益：** 派兵前先到王城「官職任命」→ **統帥** → 預約時段（每段 30 分鐘）：官職賦予部隊攻擊力 +8%、出征部隊容量 +3,750。再使用出征部隊數量提升。"
                 ]
               }
             ]
