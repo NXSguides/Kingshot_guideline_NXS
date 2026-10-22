@@ -270,7 +270,8 @@ const ANN_EVENTS = [
 /* events with no guide and no announcement, straight from the in-game calendar: shown on the Today card and the month
    calendar with their official name (data/event-names.js) and times. h = [from, to] UTC hours. */
 const NOTE_EVENTS = [
-  { name: "Castle Battle", emoji: "🏰", start: "2026-10-24", days: 1, h: [12, 17] },   // in-game calendar: 10/24 12:00 – 17:00 UTC
+  // Castle Battle is every other Saturday, 5 h; on KvK weeks it's the cross-kingdom one (KvK's day 6: 10/10, 11/7 …), so ours comes every 28 days
+  { name: "Castle Battle", emoji: "🏰", start: "2026-10-24", every: 28, days: 1, h: [12, 17] },   // in-game calendar: 10/24 12:00 – 17:00 UTC
 ];
 const noteName = (ev) => (typeof EVENT_NAMES !== "undefined" && EVENT_NAMES[ev.name] && (EVENT_NAMES[ev.name][currentLang] || EVENT_NAMES[ev.name].en)) || ev.name;
 /* our alliance's fixed times (UTC hours) — set as close to Bear Hunt as possible */
@@ -1076,7 +1077,7 @@ function calEventsOn(day) {   // [{key|ann, emoji, name, day, days}] active on t
     if (n >= 0 && n < ev.days) out.push({ ann: i, emoji: ev.emoji, name: t(announcements[i].title) || ev.match, day: n + 1, days: ev.days, fight: true });
   }
   for (const ev of NOTE_EVENTS) {
-    const n = Math.floor((day - Date.parse(ev.start + "T00:00:00Z")) / DAY);
+    let n = Math.floor((day - Date.parse(ev.start + "T00:00:00Z")) / DAY); if (ev.every && n >= 0) n %= ev.every;
     if (n >= 0 && n < ev.days) out.push({ note: ev, emoji: ev.emoji, name: noteName(ev), day: n + 1, days: ev.days, fight: true });
   }
   return out;
@@ -1133,7 +1134,8 @@ function todayCardHtml() {
     else if (n < 0 && -n <= 7) soon.push({ ...item, until: -n });
   }
   for (const ev of NOTE_EVENTS) {                               // in-game calendar events with no guide
-    const st = Date.parse(ev.start + "T00:00:00Z"), n = Math.floor((today - st) / DAY);
+    const st = Date.parse(ev.start + "T00:00:00Z"); let n = Math.floor((today - st) / DAY);
+    if (ev.every && n >= 0) { const m = n % ev.every; n = m < ev.days ? m : m - ev.every; }   // this run, or a countdown to the next one
     const item = { note: ev, emoji: ev.emoji, name: noteName(ev) };
     if (n >= 0 && n < ev.days) nowItems.push({ ...item, day: n + 1, days: ev.days });
     else if (n < 0 && -n <= 7) soon.push({ ...item, until: -n });
