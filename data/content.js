@@ -498,13 +498,81 @@ const GUIDES = {
         "title": "Viking Vengeance",
         "blocks": [
           {
-            "type": "vhead",
-            "img": "figures/themes/viking.webp",
-            "title": "Viking Vengeance",
-            "sub": "Guide & Strategy"
+            "type": "poster",
+            "img": "figures/themes/viking-poster.webp",
+            "alt": "Viking Vengeance guide poster",
+            "hint": "👆 Tap any part of the poster to read it in your language — or open the sections below.",
+            "areas": [
+              {
+                "x": 13.8,
+                "y": 18.6,
+                "w": 72.7,
+                "h": 8.4,
+                "open": [
+                  "core"
+                ]
+              },
+              {
+                "x": 13.8,
+                "y": 27.6,
+                "w": 40.2,
+                "h": 31.2,
+                "open": [
+                  "waves",
+                  "hq"
+                ]
+              },
+              {
+                "x": 54.8,
+                "y": 27.6,
+                "w": 31.8,
+                "h": 33.8,
+                "open": [
+                  "ratios"
+                ]
+              },
+              {
+                "x": 13.8,
+                "y": 59.4,
+                "w": 40.2,
+                "h": 22.8,
+                "open": [
+                  "heroes"
+                ]
+              },
+              {
+                "x": 13.8,
+                "y": 82.5,
+                "w": 40.2,
+                "h": 10.8,
+                "open": [
+                  "mistakes"
+                ]
+              },
+              {
+                "x": 54.8,
+                "y": 62.2,
+                "w": 31.8,
+                "h": 22.4,
+                "open": [
+                  "before",
+                  "during"
+                ]
+              },
+              {
+                "x": 54.8,
+                "y": 85,
+                "w": 31.8,
+                "h": 8.4,
+                "open": [
+                  "tip"
+                ]
+              }
+            ]
           },
           {
             "type": "vcard",
+            "id": "core",
             "icon": "🛡️",
             "title": "The core rule",
             "blocks": [
@@ -520,6 +588,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "when",
             "icon": "⏰",
             "title": "When",
             "blocks": [
@@ -531,6 +600,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "waves",
             "icon": "🌊",
             "title": "The 20 waves",
             "blocks": [
@@ -593,6 +663,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "ratios",
             "icon": "⚔️",
             "title": "Troop ratios",
             "blocks": [
@@ -640,6 +711,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "hq",
             "icon": "🏛️",
             "title": "HQ — waves 10 & 20",
             "blocks": [
@@ -665,6 +737,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "before",
             "icon": "📌",
             "title": "Before it starts",
             "blocks": [
@@ -718,6 +791,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "heroes",
             "icon": "🦸",
             "title": "Heroes",
             "blocks": [
@@ -752,6 +826,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "during",
             "icon": "🤝",
             "title": "During the event",
             "blocks": [
@@ -767,6 +842,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "mistakes",
             "icon": "☠️",
             "title": "Common mistakes",
             "blocks": [
@@ -787,6 +863,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "tip",
             "icon": "🏆",
             "title": "Pro tip for a high score",
             "blocks": [
@@ -802,13 +879,81 @@ const GUIDES = {
         "title": "維京人的掠奪",
         "blocks": [
           {
-            "type": "vhead",
-            "img": "figures/themes/viking.webp",
-            "title": "維京人的掠奪",
-            "sub": "攻略與戰術"
+            "type": "poster",
+            "img": "figures/themes/viking-poster.webp",
+            "alt": "維京人的掠奪攻略海報",
+            "hint": "👆 點海報上任何一區，就能看那一區的中文說明——或展開下面的段落。",
+            "areas": [
+              {
+                "x": 13.8,
+                "y": 18.6,
+                "w": 72.7,
+                "h": 8.4,
+                "open": [
+                  "core"
+                ]
+              },
+              {
+                "x": 13.8,
+                "y": 27.6,
+                "w": 40.2,
+                "h": 31.2,
+                "open": [
+                  "waves",
+                  "hq"
+                ]
+              },
+              {
+                "x": 54.8,
+                "y": 27.6,
+                "w": 31.8,
+                "h": 33.8,
+                "open": [
+                  "ratios"
+                ]
+              },
+              {
+                "x": 13.8,
+                "y": 59.4,
+                "w": 40.2,
+                "h": 22.8,
+                "open": [
+                  "heroes"
+                ]
+              },
+              {
+                "x": 13.8,
+                "y": 82.5,
+                "w": 40.2,
+                "h": 10.8,
+                "open": [
+                  "mistakes"
+                ]
+              },
+              {
+                "x": 54.8,
+                "y": 62.2,
+                "w": 31.8,
+                "h": 22.4,
+                "open": [
+                  "before",
+                  "during"
+                ]
+              },
+              {
+                "x": 54.8,
+                "y": 85,
+                "w": 31.8,
+                "h": 8.4,
+                "open": [
+                  "tip"
+                ]
+              }
+            ]
           },
           {
             "type": "vcard",
+            "id": "core",
             "icon": "🛡️",
             "title": "核心觀念",
             "blocks": [
@@ -824,6 +969,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "when",
             "icon": "⏰",
             "title": "活動時間",
             "blocks": [
@@ -835,6 +981,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "waves",
             "icon": "🌊",
             "title": "20 波怎麼打",
             "blocks": [
@@ -897,6 +1044,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "ratios",
             "icon": "⚔️",
             "title": "兵種比例",
             "blocks": [
@@ -944,6 +1092,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "hq",
             "icon": "🏛️",
             "title": "總部——第 10 與第 20 波",
             "blocks": [
@@ -969,6 +1118,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "before",
             "icon": "📌",
             "title": "開打前",
             "blocks": [
@@ -1022,6 +1172,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "heroes",
             "icon": "🦸",
             "title": "英雄",
             "blocks": [
@@ -1056,6 +1207,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "during",
             "icon": "🤝",
             "title": "活動進行中",
             "blocks": [
@@ -1071,6 +1223,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "mistakes",
             "icon": "☠️",
             "title": "常見錯誤",
             "blocks": [
@@ -1091,6 +1244,7 @@ const GUIDES = {
           },
           {
             "type": "vcard",
+            "id": "tip",
             "icon": "🏆",
             "title": "衝高分小技巧",
             "blocks": [

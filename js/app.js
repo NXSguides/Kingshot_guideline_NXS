@@ -404,7 +404,12 @@ const BLOCKS = {
 
   /* ⛵ poster-style guide (Viking Vengeance): picture header, parchment cards, numbered waves, troop-ratio cards */
   vhead: (b) => `<div class="vv-head"><img src="${escapeHtml(b.img)}" alt="" loading="lazy"><div class="vv-head-tx"><div class="vv-head-t">${rich(b.title)}</div>${b.sub ? `<div class="vv-head-s">${rich(b.sub)}</div>` : ""}</div></div>`,
-  vcard: (b, g) => `<section class="vv-card"><h3 class="vv-card-h"><span class="vv-ic" aria-hidden="true">${escapeHtml(b.icon || "")}</span><span>${rich(b.title)}</span></h3>${(b.blocks || []).map((x) => (BLOCKS[x.type] || (() => ""))(x, g)).join("")}</section>`,
+  /* a card with an id folds open / shut (the poster's tap areas open it in a sheet); without an id it is always open */
+  vcard: (b, g) => { const head = `<span class="vv-ic" aria-hidden="true">${escapeHtml(b.icon || "")}</span><span>${rich(b.title)}</span>`, body = `<div class="vv-body">${(b.blocks || []).map((x) => (BLOCKS[x.type] || (() => ""))(x, g)).join("")}</div>`;
+    return b.id ? `<details class="vv-card vv-fold" id="vv-${escapeHtml(b.id)}"><summary class="vv-card-h">${head}<span class="vv-chev" aria-hidden="true">▾</span></summary>${body}</details>`
+      : `<section class="vv-card"><h3 class="vv-card-h">${head}</h3>${body}</section>`; },
+  /* 🖼️ a poster kept exactly as made; each area is a button that opens the matching cards (in the reader's language) */
+  poster: (b) => `<div class="vv-poster"><img src="${escapeHtml(b.img)}" alt="${escapeHtml(b.alt || "")}" loading="lazy">${(b.areas || []).map((r) => `<button type="button" class="vv-hot" style="left:${r.x}%;top:${r.y}%;width:${r.w}%;height:${r.h}%" data-open="${escapeHtml(r.open.join(","))}" aria-label="${escapeHtml(r.open.join(", "))}" onclick="vvSheet(this.dataset.open)"><span class="vv-hot-i" aria-hidden="true">🔍</span></button>`).join("")}</div>${b.hint ? `<p class="vv-hint">${rich(b.hint)}</p>` : ""}`,
   waves: (b) => `<ol class="vv-waves">${(b.items || []).map((w, i) => `<li class="vv-w${w.k ? " vv-" + w.k : ""}"><span class="vv-n">${i + 1}</span><div><b>${rich(w.l)}</b>${w.tag ? ` <span class="vv-tag">${w.k === "on" ? "⚠️ " : "🏰 "}${rich(w.tag)}</span>` : ""}<div class="vv-wt">${rich(w.t)}</div></div></li>`).join("")}</ol>`,
   ratios: (b) => `<div class="vv-ratios">${(b.items || []).map((r) => `<div class="vv-ratio"><div class="vv-rh"><span aria-hidden="true">${escapeHtml(r.icon || "")}</span> <b>${rich(r.title)}</b></div>
     <div class="vv-rn">${[["infantry", "🛡️"], ["cavalry", "🐎"], ["archer", "🏹"]].map(([k, e], i) => `<div class="vv-rc${r.r[i] ? "" : " zero"}"><span class="vv-rp">${r.r[i]}%</span><span class="vv-rl">${e} ${escapeHtml(term(k))}</span></div>`).join("")}</div>
@@ -1020,6 +1025,26 @@ function switchGuide(id) {
   window.scrollTo({ top: 0, behavior: "auto" });
 }
 window.switchGuide = switchGuide;
+
+/* 🖼️ poster tap → a sheet with those sections (copied from the folded cards below the poster) */
+function vvSheet(ids) {
+  const parts = String(ids || "").split(",").map((id) => document.getElementById("vv-" + id)).filter(Boolean);
+  if (!parts.length) return;
+  let ov = document.getElementById("vvSheet");
+  if (!ov) {
+    ov = document.createElement("div"); ov.id = "vvSheet"; ov.className = "vv-sheet-ov";
+    ov.innerHTML = `<div class="vv-sheet" role="dialog" aria-modal="true"><button type="button" class="vv-sheet-x" aria-label="Close">✕</button><div class="vv-sheet-in"></div></div>`;
+    document.body.appendChild(ov);
+    const close = () => { ov.hidden = true; document.body.style.overflow = ""; };
+    ov.addEventListener("click", (e) => { if (e.target === ov || e.target.closest(".vv-sheet-x")) close(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !ov.hidden) close(); });
+  }
+  ov.querySelector(".vv-sheet-in").innerHTML = parts.map((d) => { const h = d.querySelector("summary").cloneNode(true); h.querySelectorAll(".vv-chev").forEach((c) => c.remove());
+    return `<section class="vv-card"><h3 class="vv-card-h">${h.innerHTML}</h3>${d.querySelector(".vv-body").outerHTML}</section>`; }).join("");
+  ov.hidden = false; document.body.style.overflow = "hidden";
+  ov.querySelector(".vv-sheet-in").scrollTop = 0; ov.querySelector(".vv-sheet-x").focus();
+}
+window.vvSheet = vvSheet;
 
 
 /* ---- troop counts for our usual ratios (from the troop limits) — shown on the Formations guide ---- */
