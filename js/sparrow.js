@@ -1522,8 +1522,8 @@
     idleTimer = setTimeout(async () => {
       if (busy) { armIdle(); return; }
       busy = true; clearTarget(); hush();
-      await goHome(); await play("sulky"); say(esc(t("sulky")), { foot: false });
-      await wait(2600); hush(); await play("sleep"); sleepZ(true); state = "sleep"; busy = false;
+      await goHome(); const c = play("sulky"); say(esc(t("sulky")), { foot: false });   // says it while turning away, and stays sulking until it dozes off
+      await c; await wait(1400); hush(); await play("sleep"); sleepZ(true); state = "sleep"; busy = false;
     }, IDLE_MS);
   }
   const faceIn = () => setFacing(perchPoint().x < innerWidth / 2 ? "r" : "l");   // perched at the left edge → look right, into the page (not at the wall)
