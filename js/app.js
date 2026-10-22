@@ -402,6 +402,15 @@ const BLOCKS = {
   /* Hero cards: one card per hero with filters (data: HERO_CARDS / HERO_CARD_UI in data/content.js) */
   herocards: () => (typeof HERO_CARDS === "undefined" ? "" : `<div id="hcRoot">${heroCardsHtml()}</div>`),
 
+  /* ⛵ poster-style guide (Viking Vengeance): picture header, parchment cards, numbered waves, troop-ratio cards */
+  vhead: (b) => `<div class="vv-head"><img src="${escapeHtml(b.img)}" alt="" loading="lazy"><div class="vv-head-tx"><div class="vv-head-t">${rich(b.title)}</div>${b.sub ? `<div class="vv-head-s">${rich(b.sub)}</div>` : ""}</div></div>`,
+  vcard: (b, g) => `<section class="vv-card"><h3 class="vv-card-h"><span class="vv-ic" aria-hidden="true">${escapeHtml(b.icon || "")}</span><span>${rich(b.title)}</span></h3>${(b.blocks || []).map((x) => (BLOCKS[x.type] || (() => ""))(x, g)).join("")}</section>`,
+  waves: (b) => `<ol class="vv-waves">${(b.items || []).map((w, i) => `<li class="vv-w${w.k ? " vv-" + w.k : ""}"><span class="vv-n">${i + 1}</span><div><b>${rich(w.l)}</b>${w.tag ? ` <span class="vv-tag">${w.k === "on" ? "⚠️ " : "🏰 "}${rich(w.tag)}</span>` : ""}<div class="vv-wt">${rich(w.t)}</div></div></li>`).join("")}</ol>`,
+  ratios: (b) => `<div class="vv-ratios">${(b.items || []).map((r) => `<div class="vv-ratio"><div class="vv-rh"><span aria-hidden="true">${escapeHtml(r.icon || "")}</span> <b>${rich(r.title)}</b></div>
+    <div class="vv-rn">${[["infantry", "🛡️"], ["cavalry", "🐎"], ["archer", "🏹"]].map(([k, e], i) => `<div class="vv-rc${r.r[i] ? "" : " zero"}"><span class="vv-rp">${r.r[i]}%</span><span class="vv-rl">${e} ${escapeHtml(term(k))}</span></div>`).join("")}</div>
+    ${r.note ? `<div class="vv-rnote">${rich(r.note)}</div>` : ""}${r.why ? `<div class="vv-why">${rich(r.why)}</div>` : ""}</div>`).join("")}</div>`,
+  checks: (b) => `<ul class="vv-checks${b.kind === "x" ? " x" : ""}">${(b.items || []).map((x) => `<li>${rich(x)}</li>`).join("")}</ul>`,
+
   cards: (b) => `<div class="card-grid">${(b.items || []).map((c) => `
     <div class="info-card">
       ${c.img ? `<img class="info-card-img" src="${escapeHtml(c.img)}" alt="${escapeHtml(c.alt || "")}" loading="lazy" onerror="this.remove()">` : ""}

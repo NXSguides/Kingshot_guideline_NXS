@@ -829,3 +829,47 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 @font-face { font-family: "NXS Hand"; src: url(../fonts/caveat-latin-500-normal.woff2) format("woff2"); font-weight: 400 500; font-display: swap; }
 @font-face { font-family: "NXS Hand"; src: url(../fonts/caveat-latin-700-normal.woff2) format("woff2"); font-weight: 600 900; font-display: swap; }
 .af-f[style*="NXS Hand"] { font-size: 1.2em; }
+
+/* ⛵ poster-style guide (Viking Vengeance) — parchment cards; navy ribbons (no red) */
+.vv-head { position: relative; margin: 6px 0 14px; border-radius: 14px; overflow: hidden; box-shadow: 0 3px 12px var(--shadow, rgba(0,0,0,.2)); }
+.vv-head img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center 45%; }
+.vv-head-tx { position: absolute; inset: auto 0 0 0; padding: 40px 16px 14px; background: linear-gradient(transparent, rgba(10, 16, 34, .85)); color: #fff; text-align: center; }
+.vv-head-t { font: 800 clamp(24px, 6vw, 34px)/1.1 "NXS Royal", Georgia, serif; letter-spacing: .5px; color: #ffe7a8; text-shadow: 0 2px 6px rgba(0,0,0,.6); }
+.vv-head-s { margin-top: 4px; font: 700 13px/1.3 Georgia, serif; letter-spacing: 2px; text-transform: uppercase; color: #f1e3c2; }
+.vv-card { --vv-bg: #f6ead0; --vv-edge: #a77b46; --vv-ink: #3a2a18; --vv-rib: #1f3557; --vv-rib-tx: #ffe7a8;
+  margin: 0 0 14px; padding: 0 14px 12px; border-radius: 12px; background: linear-gradient(180deg, #fbf3df, var(--vv-bg)); border: 1.5px solid var(--vv-edge); color: var(--vv-ink); box-shadow: 0 2px 8px var(--shadow, rgba(0,0,0,.12)); }
+.vv-card-h { display: flex; align-items: center; gap: 8px; margin: 0 -14px 10px; padding: 9px 14px; border-radius: 10px 10px 0 0; background: var(--vv-rib); color: var(--vv-rib-tx); font: 800 17px/1.25 Georgia, serif; letter-spacing: .3px; }
+.vv-ic { font-size: 20px; }
+.vv-card p { margin: .4em 0 .6em; }
+.vv-card .sub-h { color: var(--vv-rib); margin: .9em 0 .3em; }
+.vv-card .callout { background: rgba(167, 123, 70, .14); border-color: var(--vv-edge); color: inherit; }
+.vv-waves { list-style: none; margin: 0; padding: 0; }
+.vv-w { display: flex; gap: 10px; align-items: flex-start; padding: 7px 0; border-top: 1px dashed rgba(167, 123, 70, .45); }
+.vv-w:first-child { border-top: 0; }
+.vv-n { flex: 0 0 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: #3a2a18; color: #ffe7a8; font: 800 13px Georgia, serif; }
+.vv-w.vv-on .vv-n { background: #c98a1c; color: #fff; }
+.vv-w.vv-hq .vv-n { background: var(--vv-rib); }
+.vv-tag { display: inline-block; padding: 1px 8px; border-radius: 9px; font-size: 12px; font-weight: 700; background: #f4d27a; color: #4a3305; }
+.vv-w.vv-hq .vv-tag { background: #c9d8ef; color: #1f3557; }
+.vv-wt { font-size: 14.5px; margin-top: 2px; }
+.vv-ratios { display: grid; gap: 10px; grid-template-columns: 1fr; }
+.vv-ratio { border: 1px solid rgba(167, 123, 70, .6); border-radius: 10px; padding: 9px 10px; background: rgba(255, 255, 255, .45); }
+.vv-rh { font-size: 15px; margin-bottom: 6px; }
+.vv-rn { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.vv-rc { text-align: center; padding: 6px 2px; border-radius: 8px; background: #e9f0e3; }
+.vv-rc.zero { opacity: .45; }
+.vv-rp { display: block; font: 800 22px/1.1 Georgia, serif; color: #2f5130; }
+.vv-rl { display: block; font-size: 12px; margin-top: 2px; }
+.vv-rnote { font-size: 13px; margin-top: 6px; font-style: italic; }
+.vv-why { font-size: 13.5px; margin-top: 6px; }
+.vv-checks { list-style: none; margin: .3em 0 .6em; padding: 0; }
+.vv-checks li { position: relative; padding: 4px 0 4px 26px; }
+.vv-checks li::before { content: "✅"; position: absolute; left: 0; top: 4px; font-size: 15px; }
+.vv-checks.x li::before { content: "✖️"; }
+[dir="rtl"] .vv-checks li { padding: 4px 26px 4px 0; } [dir="rtl"] .vv-checks li::before { left: auto; right: 0; }
+@media (min-width: 640px) { .vv-ratios { grid-template-columns: repeat(3, 1fr); } }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .vv-card { --vv-bg: #2e261b; --vv-edge: #8a6a3e; --vv-ink: #efe3c8; --vv-rib: #26406a; background: linear-gradient(180deg, #362c1f, var(--vv-bg)); }
+  :root:not([data-theme="light"]) .vv-ratio { background: rgba(0,0,0,.18); } :root:not([data-theme="light"]) .vv-n { background: #6b5434; } :root:not([data-theme="light"]) .vv-rc { background: #2f3b2a; } :root:not([data-theme="light"]) .vv-rp { color: #b9e0a5; } :root:not([data-theme="light"]) .vv-card .sub-h { color: #9fc0ef; } }
+:root[data-theme="dark"] .vv-card { --vv-bg: #2e261b; --vv-edge: #8a6a3e; --vv-ink: #efe3c8; --vv-rib: #26406a; background: linear-gradient(180deg, #362c1f, var(--vv-bg)); }
+:root[data-theme="dark"] .vv-n { background: #6b5434; }
+:root[data-theme="dark"] .vv-ratio { background: rgba(0,0,0,.18); } :root[data-theme="dark"] .vv-rc { background: #2f3b2a; } :root[data-theme="dark"] .vv-rp { color: #b9e0a5; } :root[data-theme="dark"] .vv-card .sub-h { color: #9fc0ef; }

@@ -495,57 +495,611 @@ const GUIDES = {
     },
     sections: {
       en: {
-        title: "Viking Vengeance",
-        blocks: [
-          { type: "h", text: "WHEN" },
-          { type: "p", text: "Every 2 weeks — two 30-minute sessions on Day 1 & Day 3. Scheduled by leadership, usually close to {bearHunt} times." },
-          { type: "h", text: "📌 PREPARATION" },
-          { type: "sub", text: "Empty Your City" },
-          { type: "list", items: ["Send **ALL** {infantry} & {cavalry} out to reinforce alliance members.", "Extra Archers can stay home — they won't steal reinforcement points.", "Even if you'll be offline during the event, empty your city beforehand! You can still earn points while giving other members the opportunity to earn points by reinforcing you."] },
-          { type: "sub", text: "Keep Best 3 Heroes Home" },
-          { type: "p", text: "Leave your best 3 Defense/Offense heroes in your Guard Station." },
-          { type: "list", items: ["**F2P:** {jabel} / {howard} / {quinn}", "**P2W:** {amadeus} or {helga} / {jabel} / {saul}"] },
-          { type: "sub", text: "DO NOT HEAL" },
-          { type: "p", text: "Healed troops return home and can steal kills/points from the members reinforcing you." },
-          { type: "sub", text: "Prioritize Active Members" },
-          { type: "p", text: "Reinforce online members first. Waves 7, 14 & 17 only attack online players." },
-          { type: "h", text: "⚔️ REINFORCING ALLIES" },
-          { type: "p", text: "Use {bearHunt} joiner heroes in slot 1 to maximize kill points." },
-          { type: "p", text: "**Recommended:** {chenko} / {amane} / {yeonwoo} / {amadeus}" },
-          { type: "callout", text: "Avoid defensive heroes such as {howard} or {gordon} in reinforcement marches." },
-          { type: "h", text: "🏛️ HQ — WAVES 10 & 20" },
-          { type: "p", text: "Waves 10 & 20 attack HQ **ONLY**. City attacks pause during these waves." },
-          { type: "p", text: "After Wave 9 / 19 finishes:" },
-          { type: "list", items: ["Recall **ONE** strong march.", "Send it directly to HQ.", "Max {=rally} troops per member.", "Use {chenko} or {amadeus} in slot 1, or your strongest raw-damage hero.", "After the HQ wave, recall and return to reinforcing your assigned member."] },
-          { type: "callout", text: "⚠️ **IMPORTANT:** You can reinforce HQ for Wave 10 **OR** Wave 20 — **NOT BOTH.**" },
-          { type: "p", text: "Coordinate with R4/R5 so everyone gets a turn and we fill HQ efficiently." }
+        "title": "Viking Vengeance",
+        "blocks": [
+          {
+            "type": "vhead",
+            "img": "figures/themes/viking.webp",
+            "title": "Viking Vengeance",
+            "sub": "Guide & Strategy"
+          },
+          {
+            "type": "vcard",
+            "icon": "🛡️",
+            "title": "The core rule",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Points come from **kills**, not from surviving. Troops sitting in your own city earn nothing beyond the fixed wave reward. If five members send {infantry} to each other, everyone scores from five cities at once."
+              },
+              {
+                "type": "callout",
+                "text": "**An organized mid-tier alliance always beats a disorganized strong one.**"
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "⏰",
+            "title": "When",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Every 2 weeks — two 30-minute sessions on Day 1 & Day 3. Scheduled by leadership, usually close to {bearHunt} times."
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "🌊",
+            "title": "The 20 waves",
+            "blocks": [
+              {
+                "type": "waves",
+                "items": [
+                  {
+                    "l": "Waves 1–6",
+                    "t": "Regular. Standard ratio — reinforce online members."
+                  },
+                  {
+                    "l": "Wave 7",
+                    "k": "on",
+                    "tag": "Online only · high points",
+                    "t": "Only hits players who are in the game. Reinforce confirmed online members first."
+                  },
+                  {
+                    "l": "Waves 8–9",
+                    "t": "Regular. Keep reinforcing."
+                  },
+                  {
+                    "l": "Wave 10",
+                    "k": "hq",
+                    "tag": "HQ wave",
+                    "t": "Only HQ is attacked. Recall ONE strong march and send it to HQ (see below)."
+                  },
+                  {
+                    "l": "Waves 11–13",
+                    "t": "Regular. Send the pulled march back to online members."
+                  },
+                  {
+                    "l": "Wave 14",
+                    "k": "on",
+                    "tag": "Online only · high points",
+                    "t": "Same as Wave 7."
+                  },
+                  {
+                    "l": "Waves 15–16",
+                    "t": "Regular. Keep reinforcing."
+                  },
+                  {
+                    "l": "Wave 17",
+                    "k": "on",
+                    "tag": "Online only · highest points",
+                    "t": "Same as Wave 7 — the biggest chance for points."
+                  },
+                  {
+                    "l": "Waves 18–19",
+                    "t": "Regular. Keep reinforcing."
+                  },
+                  {
+                    "l": "Wave 20",
+                    "k": "hq",
+                    "tag": "HQ wave · hardest",
+                    "t": "Second HQ wave. From difficulty 21 it needs {archer}s. Strongest marches only."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "⚔️",
+            "title": "Troop ratios",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Vikings hit {infantry} first, {cavalry} second, {archer}s last."
+              },
+              {
+                "type": "ratios",
+                "items": [
+                  {
+                    "icon": "🪖",
+                    "title": "Regular waves",
+                    "r": [
+                      75,
+                      25,
+                      0
+                    ],
+                    "why": "{infantry} take the most hits. {archer}s rarely get to fire in early and mid waves — keep them home; sending them wastes march space."
+                  },
+                  {
+                    "icon": "🏰",
+                    "title": "HQ · Wave 10",
+                    "r": [
+                      90,
+                      10,
+                      0
+                    ],
+                    "why": "A well-filled HQ clears this wave with {infantry} alone."
+                  },
+                  {
+                    "icon": "👑",
+                    "title": "HQ · Wave 20 (difficulty 21+)",
+                    "r": [
+                      35,
+                      15,
+                      50
+                    ],
+                    "note": "Strong T10/T11 {infantry}? 60 / 40 / 0 also works.",
+                    "why": "At high difficulty {infantry} alone can't finish the wave — {archer}s clean up the rest."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "🏛️",
+            "title": "HQ — waves 10 & 20",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Waves 10 & 20 attack HQ **ONLY**. City attacks pause during these waves. After Wave 9 / 19 finishes:"
+              },
+              {
+                "type": "list",
+                "items": [
+                  "Recall **ONE** strong march.",
+                  "Send it directly to HQ.",
+                  "Max {=rally} troops per member.",
+                  "Use {chenko} or {amadeus} in slot 1, or your strongest raw-damage hero.",
+                  "After the HQ wave, recall and go back to reinforcing your assigned member."
+                ]
+              },
+              {
+                "type": "callout",
+                "text": "⚠️ **IMPORTANT:** reinforce HQ for Wave 10 **OR** Wave 20 — **NOT BOTH**, so everyone gets a turn. Coordinate with R4/R5."
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "📌",
+            "title": "Before it starts",
+            "blocks": [
+              {
+                "type": "sub",
+                "text": "Empty your city"
+              },
+              {
+                "type": "list",
+                "items": [
+                  "Send **ALL** {infantry} & {cavalry} out to reinforce alliance members. {archer}s stay home.",
+                  "Even if you'll be offline during the event, empty your city beforehand — you still earn points, and others earn points by reinforcing you."
+                ]
+              },
+              {
+                "type": "sub",
+                "text": "Keep your best 3 heroes home"
+              },
+              {
+                "type": "p",
+                "text": "They lead your own garrison from the Guard Station — never send them out."
+              },
+              {
+                "type": "list",
+                "items": [
+                  "**F2P:** {jabel} / {howard} / {quinn}",
+                  "**P2W:** {amadeus} or {helga} / {jabel} / {saul}"
+                ]
+              },
+              {
+                "type": "sub",
+                "text": "DO NOT HEAL"
+              },
+              {
+                "type": "p",
+                "text": "Healed troops return home and can steal kills / points from the members reinforcing you."
+              },
+              {
+                "type": "sub",
+                "text": "With the alliance"
+              },
+              {
+                "type": "checks",
+                "items": [
+                  "**Pre-load:** start sending reinforcements 1–2 hours early, so everyone is covered before Wave 1.",
+                  "**Buddy groups:** groups of 3–6, strong and weak mixed. Everyone reinforces everyone.",
+                  "**Buffs first:** turn on the Marshal buff and your Deployment Capacity boosts before sending marches."
+                ]
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "🦸",
+            "title": "Heroes",
+            "blocks": [
+              {
+                "type": "sub",
+                "text": "Reinforcing others (slot 1)"
+              },
+              {
+                "type": "p",
+                "text": "Use {bearHunt} joiner heroes — you want to kill Vikings fast, not just survive."
+              },
+              {
+                "type": "p",
+                "text": "**Recommended:** {chenko} / {yeonwoo} / {amadeus} / {amane} / {hilde} / {zoe} / {jabel} / {saul} / Margot (from 12/21)"
+              },
+              {
+                "type": "callout",
+                "text": "Don't use {howard} or {gordon} in reinforcements — they are for PvP survival, not kills."
+              },
+              {
+                "type": "sub",
+                "text": "What stacks"
+              },
+              {
+                "type": "list",
+                "items": [
+                  "Flat % buffs **stack** (e.g. {gordon}'s health, {howard}'s damage reduction) — several add up.",
+                  "Chance-based skills **don't stack** (e.g. {jabel}): if the city's own leader already has {jabel}, another {jabel} wastes your slot."
+                ]
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "🤝",
+            "title": "During the event",
+            "blocks": [
+              {
+                "type": "checks",
+                "items": [
+                  "**Members tab:** tap the event icon → Members. It shows nearby members and how full their garrison is, live — use it instead of asking in chat.",
+                  "**Who first:** 1. online, low garrison → 2. online in waves 7 / 14 / 17 → 3. weak members / alts → 4. offline (last).",
+                  "**Max 4 reinforcers per city** — don't over-stack."
+                ]
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "☠️",
+            "title": "Common mistakes",
+            "blocks": [
+              {
+                "type": "checks",
+                "kind": "x",
+                "items": [
+                  "Keeping {infantry} and {cavalry} at home.",
+                  "Sending {archer}s on regular waves.",
+                  "{howard} / {gordon} as reinforcement leaders.",
+                  "Reinforcing offline players before online ones (especially waves 7, 14, 17).",
+                  "Two of the same chance-based skill (like {jabel}) in one city.",
+                  "Healing troops during the event.",
+                  "Not pre-loading reinforcements before it starts."
+                ]
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "🏆",
+            "title": "Pro tip for a high score",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "For a top personal rank, send 6 full marches of only {infantry} and {cavalry} to 6 different online members at the same time. The gap between rank 5 and rank 20 is usually just total deployed {infantry}."
+              }
+            ]
+          }
         ]
       },
       zh: {
-        title: "維京人的掠奪",
-        blocks: [
-          { type: "h", text: "活動時間" },
-          { type: "p", text: "每 2 週一次——第 1 天與第 3 天各進行一場，每場 30 分鐘。由幹部安排時間，通常接近{bearHunt}的時段。" },
-          { type: "h", text: "📌 準備工作" },
-          { type: "sub", text: "清空你的城鎮" },
-          { type: "list", items: ["把**所有**{infantry}和{cavalry}派出去增援盟友。", "多出來的{archer}可以留在家裡——不會搶走增援積分。", "就算活動期間你不在線，也要先清空城鎮！這樣你仍然能得分，同時也讓其他成員有機會透過增援你來得分。"] },
-          { type: "sub", text: "把最強的 3 名英雄留在家" },
-          { type: "p", text: "把你最強的 3 名防守／進攻英雄留在你的防衛所。" },
-          { type: "list", items: ["**免費：** {jabel} / {howard} / {quinn}", "**課金：** {amadeus} 或 {helga} / {jabel} / {saul}"] },
-          { type: "sub", text: "不要治療" },
-          { type: "p", text: "治療後的部隊會回到家中，並可能搶走增援你的成員的擊殺／積分。" },
-          { type: "sub", text: "優先照顧在線成員" },
-          { type: "p", text: "優先增援在線的成員。第 7、14、17 波只會攻擊在線的玩家。" },
-          { type: "h", text: "⚔️ 增援盟友" },
-          { type: "p", text: "在第一個位置使用你在{bearHunt}中當參與者（joiner）的英雄，以取得最高的擊殺積分。" },
-          { type: "p", text: "**推薦：** {chenko} / {amane} / {yeonwoo} / {amadeus}" },
-          { type: "callout", text: "增援行軍中請避免使用{howard}或{gordon}這類防守型英雄。" },
-          { type: "h", text: "🏛️ 總部——第 10 與第 20 波" },
-          { type: "p", text: "第 10 與第 20 波**只**會攻擊總部。這兩波期間，城鎮不會受到攻擊。" },
-          { type: "p", text: "第 9／19 波結束後：" },
-          { type: "list", items: ["召回**一支**強力行軍。", "直接派往總部。", "每位成員最多 {=rally} 兵力。", "第一個位置使用{chenko}或{amadeus}，或你最強的純輸出英雄。", "總部這波結束後，召回並回去繼續增援你被分配到的成員。"] },
-          { type: "callout", text: "⚠️ **重要：** 第 10 波或第 20 波，你只能選其中一波增援總部——**不能兩波都增援。**" },
-          { type: "p", text: "請與 R4／R5 協調，讓每個人都輪得到，並有效率地填滿總部。" }
+        "title": "維京人的掠奪",
+        "blocks": [
+          {
+            "type": "vhead",
+            "img": "figures/themes/viking.webp",
+            "title": "維京人的掠奪",
+            "sub": "攻略與戰術"
+          },
+          {
+            "type": "vcard",
+            "icon": "🛡️",
+            "title": "核心觀念",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "分數來自**擊殺**，不是活下來。待在自己城裡的部隊，除了每波固定獎勵之外拿不到任何分數。五個成員互相派{infantry}過去，每個人就能同時從五座城得分。"
+              },
+              {
+                "type": "callout",
+                "text": "**有組織的中等聯盟，一定贏過沒組織的強聯盟。**"
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "⏰",
+            "title": "活動時間",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "每 2 週一次——第 1 天與第 3 天各進行一場，每場 30 分鐘。由幹部安排時間，通常接近{bearHunt}的時段。"
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "🌊",
+            "title": "20 波怎麼打",
+            "blocks": [
+              {
+                "type": "waves",
+                "items": [
+                  {
+                    "l": "第 1–6 波",
+                    "t": "一般波。標準比例，增援在線成員。"
+                  },
+                  {
+                    "l": "第 7 波",
+                    "k": "on",
+                    "tag": "只打在線玩家 · 高分",
+                    "t": "只會攻擊正在遊戲裡的玩家。優先增援確定在線的成員。"
+                  },
+                  {
+                    "l": "第 8–9 波",
+                    "t": "一般波。繼續增援。"
+                  },
+                  {
+                    "l": "第 10 波",
+                    "k": "hq",
+                    "tag": "總部波",
+                    "t": "只攻擊總部。召回一支強力行軍派去總部（見下方）。"
+                  },
+                  {
+                    "l": "第 11–13 波",
+                    "t": "一般波。把召回的行軍派回在線成員。"
+                  },
+                  {
+                    "l": "第 14 波",
+                    "k": "on",
+                    "tag": "只打在線玩家 · 高分",
+                    "t": "跟第 7 波一樣。"
+                  },
+                  {
+                    "l": "第 15–16 波",
+                    "t": "一般波。繼續增援。"
+                  },
+                  {
+                    "l": "第 17 波",
+                    "k": "on",
+                    "tag": "只打在線玩家 · 最高分",
+                    "t": "跟第 7 波一樣——拿分最好的機會。"
+                  },
+                  {
+                    "l": "第 18–19 波",
+                    "t": "一般波。繼續增援。"
+                  },
+                  {
+                    "l": "第 20 波",
+                    "k": "hq",
+                    "tag": "總部波 · 最難",
+                    "t": "第二次總部波。難度 21 以上需要{archer}。只派最強的行軍。"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "⚔️",
+            "title": "兵種比例",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "維京人先打{infantry}，再打{cavalry}，最後才打{archer}。"
+              },
+              {
+                "type": "ratios",
+                "items": [
+                  {
+                    "icon": "🪖",
+                    "title": "一般波",
+                    "r": [
+                      75,
+                      25,
+                      0
+                    ],
+                    "why": "{infantry}承受最多傷害。前中期{archer}幾乎打不到——留在家，派出去只會佔行軍空間。"
+                  },
+                  {
+                    "icon": "🏰",
+                    "title": "總部 · 第 10 波",
+                    "r": [
+                      90,
+                      10,
+                      0
+                    ],
+                    "why": "總部兵力夠滿的話，光靠{infantry}就能清掉這一波。"
+                  },
+                  {
+                    "icon": "👑",
+                    "title": "總部 · 第 20 波（難度 21+）",
+                    "r": [
+                      35,
+                      15,
+                      50
+                    ],
+                    "note": "{infantry}是很強的 T10／T11？60 / 40 / 0 也可以。",
+                    "why": "難度高的時候光靠{infantry}打不完，要靠{archer}收尾。"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "🏛️",
+            "title": "總部——第 10 與第 20 波",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "第 10 與第 20 波**只**會攻擊總部，這兩波期間城鎮不會被攻擊。第 9／19 波結束後："
+              },
+              {
+                "type": "list",
+                "items": [
+                  "召回**一支**強力行軍。",
+                  "直接派往總部。",
+                  "每位成員最多 {=rally} 兵力。",
+                  "第一個位置使用{chenko}或{amadeus}，或你最強的純輸出英雄。",
+                  "總部這波結束後，召回並回去繼續增援你被分配到的成員。"
+                ]
+              },
+              {
+                "type": "callout",
+                "text": "⚠️ **重要：** 第 10 波或第 20 波只能選一波增援總部——**不能兩波都派**，這樣每個人都輪得到。請和 R4／R5 協調。"
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "📌",
+            "title": "開打前",
+            "blocks": [
+              {
+                "type": "sub",
+                "text": "清空你的城鎮"
+              },
+              {
+                "type": "list",
+                "items": [
+                  "把**所有**{infantry}和{cavalry}派出去增援盟友。{archer}留在家。",
+                  "就算活動期間你不在線，也要先清空城鎮——你一樣能得分，其他人也能透過增援你得分。"
+                ]
+              },
+              {
+                "type": "sub",
+                "text": "把最強的 3 名英雄留在家"
+              },
+              {
+                "type": "p",
+                "text": "他們在防衛所帶領你自己的守城部隊——不要派出去。"
+              },
+              {
+                "type": "list",
+                "items": [
+                  "**免費：** {jabel} / {howard} / {quinn}",
+                  "**課金：** {amadeus} 或 {helga} / {jabel} / {saul}"
+                ]
+              },
+              {
+                "type": "sub",
+                "text": "不要治療"
+              },
+              {
+                "type": "p",
+                "text": "治療後的部隊會回到家中，並可能搶走增援你的成員的擊殺／積分。"
+              },
+              {
+                "type": "sub",
+                "text": "跟聯盟一起"
+              },
+              {
+                "type": "checks",
+                "items": [
+                  "**提早派兵：** 開打前 1–2 小時就開始互相增援，第 1 波之前每個人都有人守。",
+                  "**夥伴小組：** 3–6 人一組，強弱混搭，每個人都增援每個人。",
+                  "**先開增益：** 派兵前先開統帥增益和出征容量提升。"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "🦸",
+            "title": "英雄",
+            "blocks": [
+              {
+                "type": "sub",
+                "text": "增援別人（第一個位置）"
+              },
+              {
+                "type": "p",
+                "text": "用{bearHunt}參與集結的英雄——目標是快速擊殺維京人，不只是活下來。"
+              },
+              {
+                "type": "p",
+                "text": "**推薦：** {chenko} / {yeonwoo} / {amadeus} / {amane} / {hilde} / {zoe} / {jabel} / {saul} / Margot（12/21 開放）"
+              },
+              {
+                "type": "callout",
+                "text": "增援不要用{howard}或{gordon}——他們是 PvP 保命用的，不是拿來擊殺的。"
+              },
+              {
+                "type": "sub",
+                "text": "哪些效果會疊加"
+              },
+              {
+                "type": "list",
+                "items": [
+                  "固定 % 的增益**會疊加**（例如{gordon}的生命、{howard}的減傷）——好幾個會加在一起。",
+                  "機率觸發的技能**不會疊加**（例如{jabel}）：如果那座城自己的領隊已經有{jabel}，你再派{jabel}就浪費這個位置。"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "🤝",
+            "title": "活動進行中",
+            "blocks": [
+              {
+                "type": "checks",
+                "items": [
+                  "**成員頁：** 點活動圖示 → 成員。即時顯示附近成員和他們的守城人數——用這個，不用在聊天室問。",
+                  "**先增援誰：** 1. 在線、守城少的 → 2. 第 7／14／17 波在線的 → 3. 弱一點的成員／小號 → 4. 不在線的（最後）。",
+                  "**每座城最多 4 支增援**——不要疊太多。"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "☠️",
+            "title": "常見錯誤",
+            "blocks": [
+              {
+                "type": "checks",
+                "kind": "x",
+                "items": [
+                  "把{infantry}和{cavalry}留在家。",
+                  "一般波派{archer}出去。",
+                  "用{howard}／{gordon}當增援領隊。",
+                  "先增援不在線的人、不顧在線的人（尤其第 7、14、17 波）。",
+                  "同一座城派兩個一樣的機率技能（例如{jabel}）。",
+                  "活動中治療部隊。",
+                  "開打前沒有先派好增援。"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "vcard",
+            "icon": "🏆",
+            "title": "衝高分小技巧",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "想衝個人排名：同時派 6 支滿編、只有{infantry}和{cavalry}的行軍，給 6 個不同的在線成員。第 5 名跟第 20 名的差距，通常就只是派出去的{infantry}總數。"
+              }
+            ]
+          }
         ]
       },
       ko: { title: "바이킹의 약탈", blocks: [
