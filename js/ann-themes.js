@@ -31,11 +31,21 @@ function annThemeHtml(style, titleHtml, innerHtml) {
 }
 
 /* ✍️ Word-like formatting for announcements (toolbar on the 📢 Post page). Works on text that is already escaped.
-   Inline: **bold**  *italic*  __underline__  ~~strike~~  ==highlight==  [[c:gold]]coloured[[/c]]
+   Inline: **bold**  *italic*  __underline__  ~~strike~~  ==highlight==  [[c:gold]]coloured[[/c]]  [[f:royal]]font[[/f]]
    Also understands ChatGPT / Markdown: ### headings, `code`, [text](link), * bullets.
    Lines:  # big heading   ## heading   - bullet (or • ◆ ★ ✔ ➤ … as the bullet)   1. / a. numbered   > quote box   --- line
            two spaces in front of a list line = one level deeper (like Word's indent) */
 const ANN_COLORS = ["gold", "orange", "red", "green", "blue", "purple"];
+/* 🔤 fonts for [[f:key]]text[[/f]] — the font files live in fonts/ (free fonts, SIL Open Font License) and a phone
+   only downloads one when an announcement uses it. They are Latin-letter fonts: Chinese, Korean, Arabic, Thai …
+   keep the site's normal font for those letters. */
+const ANN_FONTS = {
+  serif:    { css: '"NXS Serif", Georgia, serif', name: { en: "Classic serif", zh: "經典襯線", ko: "클래식 세리프", ar: "خط كلاسيكي", pt: "Serifa clássica" } },
+  royal:    { css: '"NXS Royal", Georgia, serif', name: { en: "Royal", zh: "皇家", ko: "로열", ar: "ملكي", pt: "Real" } },
+  medieval: { css: '"NXS Medieval", Georgia, serif', name: { en: "Medieval", zh: "中世紀", ko: "중세", ar: "قروسطي", pt: "Medieval" } },
+  hand:     { css: '"NXS Hand", cursive', name: { en: "Handwritten", zh: "手寫", ko: "손글씨", ar: "خط يد", pt: "Manuscrita" } },
+  bold:     { css: '"Oswald", sans-serif', name: { en: "Bold poster", zh: "粗體海報", ko: "굵은 포스터", ar: "ملصق عريض", pt: "Cartaz forte" } },
+};
 const ANN_BULLETS = ["•", "◦", "▪", "◆", "◇", "★", "☆", "✔", "➤", "►", "✦", "–", "○", "●"];
 const AF_DEFAULT = ["•", "◦", "▪"];   // "-" bullets: one symbol per level, like Word
 function annFormat(html) {
@@ -47,7 +57,8 @@ function annFormat(html) {
     .replace(/__([^_\n]+?)__/g, "<u>$1</u>")
     .replace(/~~([^~\n]+?)~~/g, "<s>$1</s>")
     .replace(/(^|[^*\w])\*(?![\s*])([^*\n]+?)\*(?!\*)/g, "$1<em>$2</em>")
-    .replace(/\[\[c:(\w+)\]\]([\s\S]*?)\[\[\/c\]\]/g, (m, c, t) => ANN_COLORS.includes(c) ? `<span class="af-c af-${c}">${t}</span>` : t);
+    .replace(/\[\[c:(\w+)\]\]([\s\S]*?)\[\[\/c\]\]/g, (m, c, t) => ANN_COLORS.includes(c) ? `<span class="af-c af-${c}">${t}</span>` : t)
+    .replace(/\[\[f:(\w+)\]\]([^\n]*?)\[\[\/f\]\]/g, (m, f, t) => { if (!ANN_FONTS[f]) return t; return `<span class="af-f" style="font-family:${ANN_FONTS[f].css.replace(/"/g, "&quot;")}">${t}</span>`; });
   const out = []; let list = null;
   const close = () => { if (list) { out.push({ b: `<div class="af-list">${list.join("")}</div>` }); list = null; } };
   const bullet = new RegExp("^([ \\t]*)(-|\\*(?!\\*)|" + ANN_BULLETS.map((x) => x.replace(/[-*]/g, "\\$&")).join("|") + "|\\d{1,3}[.)]|[a-zA-Z][.)])[ \\t]+(.*)$");
