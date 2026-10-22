@@ -82,10 +82,10 @@ function draw() {
   /* ⛰️ mountains / lakes from the map tab's obstacle layer (same data as 🗺️ ⛰️ Obstacles) */
   if (KS) for (let x = x1; x <= x2; x++) for (let y = y1; y <= y2; y++) { const o = KS.obst(x, y);
     if (o) s.push(`<polygon points="${poly(x, y, 1)}" fill="${o === 1 ? "#8a8a96" : "#3a7fd0"}" stroke="${o === 1 ? "#77777f" : "#2f6cb3"}" stroke-width=".6"/>`); }
-  /* 🏳️ our banners as the map tab has them (officers' edits included): dark = checked in game, light = estimated; 🚩 planned; 🏴 others */
+  /* 🏳️ our banners exactly as the map tab has them (officers' edits included); 🚩 planned; 🏴 others */
   const bl = KS ? KS.banners() : banners.map(([x, y]) => [x, y, 1]);
   for (const [bx, by, c] of bl) if (inB(bx, by))
-    s.push(`<g class="mm-f"><polygon points="${poly(bx, by, 1)}" fill="${c ? "#0b3d91" : "#4f86d9"}" stroke="#cfe4ff" stroke-width="1"/><title>${esc(t("banner"))} X:${bx} Y:${by}</title></g>`);
+    s.push(`<g class="mm-f"><polygon points="${poly(bx, by, 1)}" fill="#0b3d91" stroke="#cfe4ff" stroke-width="1"/><title>${esc(t("banner"))} X:${bx} Y:${by}</title></g>`);
   if (KS) for (const [bx, by] of KS.planned()) if (inB(bx, by))
     s.push(`<polygon points="${poly(bx, by, 1)}" fill="none" stroke="#ffde4a" stroke-width="1.6" stroke-dasharray="3 2"><title>🚩 X:${bx} Y:${by}</title></polygon>`);
   if (KS) for (const [n, bx, by, col] of KS.others()) if (inB(bx, by))
