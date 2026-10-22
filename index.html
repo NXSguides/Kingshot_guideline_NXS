@@ -129,7 +129,7 @@
     function unlock() {
       gate.remove();
       // the three files download at the same time (instead of one after another) and still run in this order
-      return Promise.all([load("data/content-core.js"), load("data/highlights.js"), load("data/event-names.js"), load("js/app.js"), load("js/assistant.js"), load("js/timers.js"), load("js/dragscroll.js"), load("js/sparrow.js")]);
+      return Promise.all([load("data/content-core.js"), load("data/highlights.js"), load("data/event-names.js"), load("js/ann-themes.js"), load("js/app.js"), load("js/assistant.js"), load("js/timers.js"), load("js/dragscroll.js"), load("js/sparrow.js")]);
     }
     function saved() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
     function remember(h) { try { localStorage.setItem(KEY, h); } catch (e) {} }

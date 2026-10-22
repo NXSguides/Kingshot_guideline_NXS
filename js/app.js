@@ -830,8 +830,8 @@ function annBodyHtml(a) {
             <span>${escapeHtml(a.author)}</span>
             <span>${new Date(a.createdAt).toLocaleDateString(HTML_LANG[currentLang] || "en")}</span>
           </div>
-          ${a.style === "scroll"   /* 📜 scroll style: the paper grows with the text */
-            ? `<div class="ann-scroll"><div class="sc-rod"></div><div class="sc-paper">${a.title ? `<div class="sc-title" dir="auto">${escapeHtml(annLabel(a))}</div><div class="sc-hr"></div>` : ""}<div class="ann-text" dir="auto">${rich(text)}</div>${imgs}<span class="sc-seal">NXS</span></div><div class="sc-rod"></div></div>`
+          ${a.style && typeof annThemeHtml === "function"   /* 📜 scroll / theme look (js/ann-themes.js): the paper grows with the text */
+            ? annThemeHtml(a.style, a.title ? escapeHtml(annLabel(a)) : "", `<div class="ann-text" dir="auto">${rich(text)}</div>${imgs}`)
             : `${a.title ? `<div class="ann-title" dir="auto">${escapeHtml(annLabel(a))}</div>` : ""}
           <div class="ann-text">${rich(text)}</div>
           ${imgs}`}`;
