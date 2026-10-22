@@ -185,7 +185,7 @@ Truegold Dust 이전: 시련 결정을 모으세요
 ### GUIDE #install-app — 앱으로 설치하는 방법
 안전한가요?
 다운로드하는 프로그램(APK)이 아니라, 이 웹사이트를 홈 화면에 저장한 것으로 일반 웹페이지처럼 Safari/Chrome 안에서 실행됩니다.
-어떤 권한도 요청하지 않습니다: 카메라, 연락처, 위치, 파일, 알림 모두 사용하지 않습니다.
+어떤 권한도 요청하지 않습니다 (카메라, 연락처, 위치, 파일 없음). 알림은 선택 사항이에요: ⏰ 알림을 직접 켤 때만 물어봐요.
 언제든 삭제 가능: 일반 앱처럼 아이콘을 길게 눌러 삭제하면 됩니다.
 iPhone / iPad
 Safari로 이 사이트를 여세요 (다른 브라우저로는 설치할 수 없습니다).
@@ -1095,6 +1095,14 @@ Steps: 1. 도시 화면에서 오른쪽 위 '이벤트'를 누릅니다. 2. '캐
 간부가 고정 편성을 요구할 때가 많습니다. '정확히 90,000명' 같은 수량일 때도 있고 '50 / 25 / 25' 같은 비율일 때도 있습니다. 부대 편성으로 한 번 저장해 두면 출정이나 집결 참가 시 그 슬롯만 고르면 됩니다.
 Steps: 1. 도시 화면에서 왼쪽 위 프로필 사진을 누릅니다. 2. 아래쪽의 '부대'를 누릅니다. 3. '부대 보기'에서 '부대 편성'을 누릅니다. 4. 영웅 카드를 눌러 이 부대에 쓸 영웅을 고릅니다. 5. '저장'을 누릅니다. 완료 — 다음부터 출정이나 집결 참가 시 이 슬롯만 고르면 됩니다. 수량이 주어졌을 때: 각 병종 줄의 숫자를 눌러 정확한 수를 입력합니다. 총합은 위에 표시됩니다. 비율만 주어졌을 때: 아래의 비율 버튼을 눌러 퍼센트를 입력하면 게임이 병사를 자동으로 채웁니다. '저장'을 누르고 슬롯과 이름(영숫자 1–3자)을 정한 뒤 저장 방식을 고릅니다: 수량 → 병사 수량으로 저장; 비율 → 병사 비율로 저장 (병력이 바뀌어도 비율 유지). '확인'을 누릅니다. 완료 — 다음부터 출정이나 집결 참가 시 이 슬롯만 고르면 됩니다.
 참고: 마지막 슬롯의 자물쇠는 아직 해금되지 않았다는 뜻입니다. '균등 배치'는 세 병종을 똑같이 채우고, '전부 철수'는 슬롯을 비웁니다. 슬롯마다 영웅과 병력을 따로 기억합니다.
+
+### SITE FEATURES (this website itself)
+⏰ Timers & reminders: tap ⏰ at the top of the 💬 Ask AI panel. Add timers (training, building, research, gathering, appointments…) and 🎮 game reminders for alliance events. The site CAN send push notifications: in the ⏰ panel tap "Turn on notifications" and allow them; "Test" sends one to check. Notifications are optional and only asked for when you turn them on.
+iPhone / iPad: notifications only work from the app added to the Home Screen (Safari → Share → Add to Home Screen, iOS 16.4+), not from a Safari tab (see guide #install-app).
+🔔 Reminders at the top of the site list the pushes received in the last 24 hours.
+If notifications don't come: open "🔧 Notifications not coming?" under the notifications line in the ⏰ panel. Common causes: blocked for this site/app (allow it in phone Settings → Notifications → NXS, or on a computer in the browser's site settings / on a Mac in System Settings → Notifications → the NXS app); the permission reset after a system or browser update or reinstall; Focus / Do Not Disturb / Low Power Mode; Android battery saving. Last resort: remove the app, add it again and tap Allow.
+Top-right buttons (installed app): 🔗 copy the link of this page (briefly shows ✓ when copied), ↻ refresh to the newest version, ☾ / ☀ dark / light mode. 🐦 brings Little Sparrow back if it was turned off.
+🐦 Little Sparrow (the bird by the Ask AI button) can walk you through the site: tap it, then pick a tour.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-19 by ΔRMΔDΔ] 성검 쟁탈 미참석 관련 안내

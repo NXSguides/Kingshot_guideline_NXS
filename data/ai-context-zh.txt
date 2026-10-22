@@ -183,7 +183,7 @@
 ### GUIDE #install-app — 如何下載成應用程式
 安全嗎？
 這不是下載的程式（不是 APK），只是把這個網站存到主畫面，跟平常用 Safari/Chrome 看網頁一樣在瀏覽器裡執行。
-不會要求任何權限：不用相機、聯絡人、位置、檔案或通知。
+不會要求任何權限（不用相機、聯絡人、位置或檔案）。通知是選用的：只有你自己開啟 ⏰ 提醒時才會詢問。
 隨時可以刪除：長按圖示就能像一般 App 一樣移除。
 iPhone / iPad
 用 Safari 打開這個網站（其他瀏覽器無法安裝）。
@@ -1066,6 +1066,14 @@ Steps: 1. 在城內畫面點右上角的「常規活動」。 2. 切到「決戰
 幹部常會要求固定編隊：有時是「剛好 90,000 人」這種數量，有時是「步 50／騎 25／弓 25」這種比例。先存成部隊編組，出征或加入集結時直接選那一格就好。
 Steps: 1. 在城內畫面點左上角的頭像。 2. 按下方的「部隊」。 3. 在「部隊總覽」按「部隊編組」。 4. 點英雄卡，選這隊要用的英雄。 5. 按「儲存」。完成——之後出征或加入集結時直接選這一格。 如果給的是「數量」: 直接點每一排的數字，輸入要的人數。上方會顯示總數。 如果只說「比例」: 按底下的「比例分配」，輸入百分比，遊戲會自動把兵填好。 按「儲存」，選格子並取名（1–3 個英數字）。接著選儲存方式： 給數量 → 按士兵數量儲存; 給比例 → 按士兵比例儲存（兵力變了比例還是對的）. 按「確定」。完成——之後出征或加入集結時直接選這一格。
 小提醒：最後一格的鎖頭表示還沒解鎖。「平均配置」會三種兵平均填；「全部撤回」把那格清空。每一格各自記住英雄和兵力。
+
+### SITE FEATURES (this website itself)
+⏰ Timers & reminders: tap ⏰ at the top of the 💬 Ask AI panel. Add timers (training, building, research, gathering, appointments…) and 🎮 game reminders for alliance events. The site CAN send push notifications: in the ⏰ panel tap "Turn on notifications" and allow them; "Test" sends one to check. Notifications are optional and only asked for when you turn them on.
+iPhone / iPad: notifications only work from the app added to the Home Screen (Safari → Share → Add to Home Screen, iOS 16.4+), not from a Safari tab (see guide #install-app).
+🔔 Reminders at the top of the site list the pushes received in the last 24 hours.
+If notifications don't come: open "🔧 Notifications not coming?" under the notifications line in the ⏰ panel. Common causes: blocked for this site/app (allow it in phone Settings → Notifications → NXS, or on a computer in the browser's site settings / on a Mac in System Settings → Notifications → the NXS app); the permission reset after a system or browser update or reinstall; Focus / Do Not Disturb / Low Power Mode; Android battery saving. Last resort: remove the app, add it again and tap Allow.
+Top-right buttons (installed app): 🔗 copy the link of this page (briefly shows ✓ when copied), ↻ refresh to the newest version, ☾ / ☀ dark / light mode. 🐦 brings Little Sparrow back if it was turned off.
+🐦 Little Sparrow (the bird by the Ask AI button) can walk you through the site: tap it, then pick a tour.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-19 by ΔRMΔDΔ] 聖劍爭奪未出席處理公告

@@ -183,7 +183,7 @@ P2W: أماديوس أو هيلجا / جبل / شاول
 ### GUIDE #install-app — كيفية التثبيت كتطبيق
 هل هو آمن؟
 ليس برنامجًا يتم تنزيله (ليس APK)، بل هو هذا الموقع محفوظًا على الشاشة الرئيسية ويعمل داخل Safari/Chrome مثل أي صفحة ويب.
-لا يطلب أي أذونات: لا كاميرا ولا جهات اتصال ولا موقع ولا ملفات ولا إشعارات.
+لا يطلب أي أذونات (لا كاميرا ولا جهات اتصال ولا موقع ولا ملفات). الإشعارات اختيارية: فقط إذا شغّلت تذكيرات ⏰ بنفسك.
 يمكنك حذفه في أي وقت: اضغط مطولًا على الأيقونة واحذفها مثل أي تطبيق.
 iPhone / iPad
 افتح هذا الموقع في Safari (المتصفحات الأخرى لا يمكنها تثبيته).
@@ -1066,6 +1066,14 @@ Steps: 1. في شاشة المدينة اضغط على الفعاليات (أع�
 يطلب الضباط غالبًا فرقة ثابتة: إما عددًا محددًا («90,000 بالضبط») أو نسبة («50 / 25 / 25»). احفظها مرة واحدة كتشكيلة، ثم اختر تلك الخانة عند المسير أو الانضمام إلى الحشد.
 Steps: 1. في شاشة المدينة اضغط على صورتك الشخصية (أعلى اليسار). 2. اضغط الفرقة في الأسفل. 3. في معاينة القوات اضغط القوات (التشكيلات). 4. اضغط على بطاقات الأبطال واختر أبطال هذه الفرقة. 5. اضغط حفظ. تم — في المرة القادمة اختر هذه الخانة فقط. إذا أُعطي عدد: اضغط على الرقم في كل صف واكتب العدد بالضبط. يظهر المجموع في الأعلى. إذا أُعطيت نسبة فقط: اضغط زر النسبة في الأسفل وأدخل النسب المئوية — تملأ اللعبة القوات تلقائيًا. اضغط حفظ، اختر الخانة والاسم (1–3 أحرف/أرقام). ثم اختر طريقة الحفظ: عدد → الحفظ حسب عدد القوات; نسبة → الحفظ حسب نسبة القوات (تتكيف مع قواتك). اضغط تأكيد. تم — في المرة القادمة اختر هذه الخانة فقط.
 نصائح: القفل بجانب الخانة الأخيرة يعني أنها لم تُفتح بعد. «توزيع متساوٍ» يملأ الأنواع الثلاثة بالتساوي؛ «سحب الكل» يفرغ الخانة. كل خانة تحتفظ بأبطالها وقواتها.
+
+### SITE FEATURES (this website itself)
+⏰ Timers & reminders: tap ⏰ at the top of the 💬 Ask AI panel. Add timers (training, building, research, gathering, appointments…) and 🎮 game reminders for alliance events. The site CAN send push notifications: in the ⏰ panel tap "Turn on notifications" and allow them; "Test" sends one to check. Notifications are optional and only asked for when you turn them on.
+iPhone / iPad: notifications only work from the app added to the Home Screen (Safari → Share → Add to Home Screen, iOS 16.4+), not from a Safari tab (see guide #install-app).
+🔔 Reminders at the top of the site list the pushes received in the last 24 hours.
+If notifications don't come: open "🔧 Notifications not coming?" under the notifications line in the ⏰ panel. Common causes: blocked for this site/app (allow it in phone Settings → Notifications → NXS, or on a computer in the browser's site settings / on a Mac in System Settings → Notifications → the NXS app); the permission reset after a system or browser update or reinstall; Focus / Do Not Disturb / Low Power Mode; Android battery saving. Last resort: remove the app, add it again and tap Allow.
+Top-right buttons (installed app): 🔗 copy the link of this page (briefly shows ✓ when copied), ↻ refresh to the newest version, ☾ / ☀ dark / light mode. 🐦 brings Little Sparrow back if it was turned off.
+🐦 Little Sparrow (the bird by the Ask AI button) can walk you through the site: tap it, then pick a tour.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-19 by ΔRMΔDΔ] عدم الحضور في مواجهة أرض السيوف

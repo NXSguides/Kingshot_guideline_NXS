@@ -2568,7 +2568,7 @@ const GUIDES = {
         { type: "h", text: "Is it safe?" },
         { type: "list", items: [
           "It isn't a downloaded program (no APK) — it's this website saved to your home screen, running inside Safari/Chrome like any web page.",
-          "It asks for no permissions: no camera, contacts, location, files or notifications.",
+          "It asks for no permissions (no camera, contacts, location or files). Notifications are optional: only if you turn on ⏰ reminders yourself.",
           "Remove it anytime: long-press the icon and delete it, like any app."
         ] },
         { type: "h", text: "iPhone / iPad" },
@@ -2599,7 +2599,7 @@ const GUIDES = {
         { type: "h", text: "安全嗎？" },
         { type: "list", items: [
           "這不是下載的程式（不是 APK），只是把這個網站存到主畫面，跟平常用 Safari/Chrome 看網頁一樣在瀏覽器裡執行。",
-          "不會要求任何權限：不用相機、聯絡人、位置、檔案或通知。",
+          "不會要求任何權限（不用相機、聯絡人、位置或檔案）。通知是選用的：只有你自己開啟 ⏰ 提醒時才會詢問。",
           "隨時可以刪除：長按圖示就能像一般 App 一樣移除。"
         ] },
         { type: "h", text: "iPhone / iPad" },
@@ -2630,7 +2630,7 @@ const GUIDES = {
         { type: "h", text: "안전한가요?" },
         { type: "list", items: [
           "다운로드하는 프로그램(APK)이 아니라, 이 웹사이트를 홈 화면에 저장한 것으로 일반 웹페이지처럼 Safari/Chrome 안에서 실행됩니다.",
-          "어떤 권한도 요청하지 않습니다: 카메라, 연락처, 위치, 파일, 알림 모두 사용하지 않습니다.",
+          "어떤 권한도 요청하지 않습니다 (카메라, 연락처, 위치, 파일 없음). 알림은 선택 사항이에요: ⏰ 알림을 직접 켤 때만 물어봐요.",
           "언제든 삭제 가능: 일반 앱처럼 아이콘을 길게 눌러 삭제하면 됩니다."
         ] },
         { type: "h", text: "iPhone / iPad" },
@@ -2661,7 +2661,7 @@ const GUIDES = {
         { type: "h", text: "Ist das sicher?" },
         { type: "list", items: [
           "Es ist kein heruntergeladenes Programm (keine APK), sondern diese Website auf deinem Startbildschirm – sie läuft wie jede Webseite in Safari/Chrome.",
-          "Sie fragt nach keinen Berechtigungen: keine Kamera, Kontakte, Standort, Dateien oder Benachrichtigungen.",
+          "Sie fragt nach keinen Berechtigungen (keine Kamera, Kontakte, Standort oder Dateien). Benachrichtigungen sind freiwillig: nur wenn du die ⏰ Erinnerungen selbst einschaltest.",
           "Jederzeit entfernbar: Symbol lange drücken und löschen, wie bei jeder App."
         ] },
         { type: "h", text: "iPhone / iPad" },
@@ -2692,7 +2692,7 @@ const GUIDES = {
         { type: "h", text: "Est-ce sûr ?" },
         { type: "list", items: [
           "Ce n'est pas un programme téléchargé (pas d'APK) : c'est ce site enregistré sur votre écran d'accueil, qui fonctionne dans Safari/Chrome comme n'importe quelle page web.",
-          "Aucune autorisation demandée : ni caméra, ni contacts, ni position, ni fichiers, ni notifications.",
+          "Aucune autorisation demandée (ni caméra, ni contacts, ni position, ni fichiers). Les notifications sont facultatives : seulement si tu actives toi-même les rappels ⏰.",
           "Supprimable à tout moment : appui long sur l'icône puis supprimer, comme une application."
         ] },
         { type: "h", text: "iPhone / iPad" },
@@ -2723,7 +2723,7 @@ const GUIDES = {
         { type: "h", text: "É seguro?" },
         { type: "list", items: [
           "Não é um programa baixado (não é APK) — é este site salvo na tela inicial, rodando no Safari/Chrome como qualquer página.",
-          "Não pede nenhuma permissão: nada de câmera, contatos, localização, arquivos ou notificações.",
+          "Não pede nenhuma permissão (nada de câmera, contatos, localização ou arquivos). As notificações são opcionais: só se você mesmo ligar os lembretes ⏰.",
           "Remova quando quiser: segure o ícone e exclua, como qualquer app."
         ] },
         { type: "h", text: "iPhone / iPad" },
@@ -2754,7 +2754,7 @@ const GUIDES = {
         { type: "h", text: "Güvenli mi?" },
         { type: "list", items: [
           "İndirilen bir program (APK) değildir; bu sitenin ana ekrana kaydedilmiş hâlidir ve her web sayfası gibi Safari/Chrome içinde çalışır.",
-          "Hiçbir izin istemez: kamera, kişiler, konum, dosyalar veya bildirimler yok.",
+          "Hiçbir izin istemez (kamera, kişiler, konum veya dosya yok). Bildirimler isteğe bağlıdır: yalnızca ⏰ hatırlatıcıları kendin açarsan sorulur.",
           "İstediğiniz zaman kaldırın: simgeye uzun basıp her uygulama gibi silin."
         ] },
         { type: "h", text: "iPhone / iPad" },
@@ -2785,7 +2785,7 @@ const GUIDES = {
         { type: "h", text: "Apakah aman?" },
         { type: "list", items: [
           "Ini bukan program yang diunduh (bukan APK), melainkan situs ini yang disimpan di layar utama dan berjalan di Safari/Chrome seperti halaman web biasa.",
-          "Tidak meminta izin apa pun: tanpa kamera, kontak, lokasi, file, atau notifikasi.",
+          "Tidak meminta izin apa pun (tanpa kamera, kontak, lokasi, atau file). Notifikasi opsional: hanya kalau kamu sendiri menyalakan pengingat ⏰.",
           "Bisa dihapus kapan saja: tekan lama ikonnya lalu hapus, seperti aplikasi biasa."
         ] },
         { type: "h", text: "iPhone / iPad" },
@@ -2816,7 +2816,7 @@ const GUIDES = {
         { type: "h", text: "Это безопасно?" },
         { type: "list", items: [
           "Это не скачанная программа (не APK), а этот сайт на главном экране — он работает внутри Safari/Chrome, как обычная веб-страница.",
-          "Не запрашивает никаких разрешений: ни камеры, ни контактов, ни геолокации, ни файлов, ни уведомлений.",
+          "Не запрашивает никаких разрешений (ни камеры, ни контактов, ни геолокации, ни файлов). Уведомления — по желанию: только если вы сами включите ⏰ напоминания.",
           "Удалить можно в любой момент: удерживайте значок и удалите, как обычное приложение."
         ] },
         { type: "h", text: "iPhone / iPad" },
@@ -2847,7 +2847,7 @@ const GUIDES = {
         { type: "h", text: "ปลอดภัยไหม?" },
         { type: "list", items: [
           "นี่ไม่ใช่โปรแกรมที่ดาวน์โหลด (ไม่ใช่ APK) แต่เป็นเว็บไซต์นี้ที่บันทึกไว้บนหน้าจอหลัก และทำงานใน Safari/Chrome เหมือนหน้าเว็บทั่วไป",
-          "ไม่ขอสิทธิ์ใด ๆ: ไม่ใช้กล้อง รายชื่อติดต่อ ตำแหน่ง ไฟล์ หรือการแจ้งเตือน",
+          "ไม่ขอสิทธิ์ใด ๆ (ไม่ใช้กล้อง รายชื่อติดต่อ ตำแหน่ง หรือไฟล์) การแจ้งเตือนเป็นตัวเลือก: จะถามเฉพาะเมื่อคุณเปิดการเตือน ⏰ เอง",
           "ลบได้ทุกเมื่อ: กดค้างที่ไอคอนแล้วลบ เหมือนแอปทั่วไป"
         ] },
         { type: "h", text: "iPhone / iPad" },
@@ -2878,7 +2878,7 @@ const GUIDES = {
         { type: "h", text: "هل هو آمن؟" },
         { type: "list", items: [
           "ليس برنامجًا يتم تنزيله (ليس APK)، بل هو هذا الموقع محفوظًا على الشاشة الرئيسية ويعمل داخل Safari/Chrome مثل أي صفحة ويب.",
-          "لا يطلب أي أذونات: لا كاميرا ولا جهات اتصال ولا موقع ولا ملفات ولا إشعارات.",
+          "لا يطلب أي أذونات (لا كاميرا ولا جهات اتصال ولا موقع ولا ملفات). الإشعارات اختيارية: فقط إذا شغّلت تذكيرات ⏰ بنفسك.",
           "يمكنك حذفه في أي وقت: اضغط مطولًا على الأيقونة واحذفها مثل أي تطبيق."
         ] },
         { type: "h", text: "iPhone / iPad" },
@@ -2909,7 +2909,7 @@ const GUIDES = {
         { type: "h", text: "¿Es seguro?" },
         { type: "list", items: [
           "No es un programa descargado (no es un APK): es este sitio guardado en tu pantalla de inicio y funciona dentro de Safari/Chrome como cualquier página web.",
-          "No pide ningún permiso: ni cámara, ni contactos, ni ubicación, ni archivos, ni notificaciones.",
+          "No pide ningún permiso (ni cámara, ni contactos, ni ubicación, ni archivos). Las notificaciones son opcionales: solo si tú activas los recordatorios ⏰.",
           "Puedes quitarla cuando quieras: mantén pulsado el icono y elimínala, como cualquier app."
         ] },
         { type: "h", text: "iPhone / iPad" },

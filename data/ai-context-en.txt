@@ -183,7 +183,7 @@ Full guide: https://kingshotmastery.com/guides/kingshot-pet-guide
 ### GUIDE #install-app — How to install as an app
 Is it safe?
 It isn't a downloaded program (no APK) — it's this website saved to your home screen, running inside Safari/Chrome like any web page.
-It asks for no permissions: no camera, contacts, location, files or notifications.
+It asks for no permissions (no camera, contacts, location or files). Notifications are optional: only if you turn on ⏰ reminders yourself.
 Remove it anytime: long-press the icon and delete it, like any app.
 iPhone / iPad
 Open this site in Safari (other browsers can't install it).
@@ -1067,6 +1067,14 @@ Tips: one booking per position at a time. Each slot shows how many players alrea
 Officers often ask for a fixed squad — either an exact troop count (e.g. “exactly 90,000”) or a ratio (e.g. “50 / 25 / 25”). Save it as a Formation once, then just pick that slot when you march or join a rally.
 Steps: 1. On the city screen tap your avatar (top left). 2. Tap Squad at the bottom. 3. In Troops Preview, tap Formations. 4. Tap the hero cards and pick the heroes you want in this squad. 5. Tap Save. Done — next time just pick this slot when marching or joining a rally. If a troop COUNT was given: Tap the number on each troop row and type the exact amount. The total shows at the top. If only a RATIO was given: Tap the ratio button at the bottom and enter the percentages — the game fills the troops for you. Tap Save, pick the slot and name it (1–3 letters/numbers). Then choose HOW to save: Count given → Save by Troop Quantity; Ratio given → Save by Troop Ratio (the squad scales with your troops). Tap Confirm. Done — next time just pick this slot when marching or joining a rally.
 Tips: the lock icon next to the last slot means it still has to be unlocked. “Even” fills all three types equally; “Withdraw all” clears the slot. Each slot keeps its own heroes and troops.
+
+### SITE FEATURES (this website itself)
+⏰ Timers & reminders: tap ⏰ at the top of the 💬 Ask AI panel. Add timers (training, building, research, gathering, appointments…) and 🎮 game reminders for alliance events. The site CAN send push notifications: in the ⏰ panel tap "Turn on notifications" and allow them; "Test" sends one to check. Notifications are optional and only asked for when you turn them on.
+iPhone / iPad: notifications only work from the app added to the Home Screen (Safari → Share → Add to Home Screen, iOS 16.4+), not from a Safari tab (see guide #install-app).
+🔔 Reminders at the top of the site list the pushes received in the last 24 hours.
+If notifications don't come: open "🔧 Notifications not coming?" under the notifications line in the ⏰ panel. Common causes: blocked for this site/app (allow it in phone Settings → Notifications → NXS, or on a computer in the browser's site settings / on a Mac in System Settings → Notifications → the NXS app); the permission reset after a system or browser update or reinstall; Focus / Do Not Disturb / Low Power Mode; Android battery saving. Last resort: remove the app, add it again and tap Allow.
+Top-right buttons (installed app): 🔗 copy the link of this page (briefly shows ✓ when copied), ↻ refresh to the newest version, ☾ / ☀ dark / light mode. 🐦 brings Little Sparrow back if it was turned off.
+🐦 Little Sparrow (the bird by the Ask AI button) can walk you through the site: tap it, then pick a tour.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-19 by ΔRMΔDΔ] SS No-Shows
