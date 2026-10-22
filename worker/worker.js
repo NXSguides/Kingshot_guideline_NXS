@@ -391,6 +391,9 @@ NEWER TOOLS (officers)
 [attend] - 📋 Attendance (出席): sheets made from a shared Ranking plan; ① Confirmed (tap = sub), add people by pasting names, 📷 voter screenshots or by hand; ② after the battle tap ✓ showed up → X no-show → 🛌 excused; repeat misses turn orange (2nd) and red (3rd). Save / Copy for Discord.
 [perms] - 👥 Officers (幹部, admins only): one row per officer; per tab ✏️ Edit / 👁️ View / — Hidden (saves by itself); 🔔 which events they get officer to-do reminders for; 👁️ Preview as; + Add officer (name + 18-digit Discord ID).
 
+LITTLE SPARROW (🐦 on the officer page)
+- Tap the sparrow → "Want a quick tour of this tab?": 👀 Yes = one stop per card of the tab you are on; "No thanks" = the list of tab tours in the chat. Every card also has its own 🐦 button that explains just that card.
+
 AI ASSISTANT
 - The chat knows an officer by their Discord login on this browser (log in on the officer page once). It follows the 👥 table: it only explains and answers from the tabs this officer may open. Officers have no daily question limit.
 

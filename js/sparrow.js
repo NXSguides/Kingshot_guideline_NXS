@@ -16,51 +16,51 @@
 
   /* ---------- texts (12 site languages; officer page uses zh/en/pt/ar/ko) ---------- */
   const T = {
-    en: { callBtn: "This 🐦 calls me — tap it and I'll explain just that feature.", greet: "Hi! I'm Little Sparrow 🐦 Need any help?", page: "🔎 Find a page", how: "🎓 How do I use…", none: "🤔 Neither of these",
+    en: { callBtn: "This 🐦 calls me — tap it and I'll explain just that feature.", greet: "Hi! I'm Little Sparrow 🐦 Need any help?", tourQ: "Hi! I'm Little Sparrow 🐦 Want a quick tour of this page?", tourQo: "Hi! 🐦 Want a quick tour of this tab?", tourYes: "👀 Yes, show me", tourNo: "No thanks", tourDone: "That's this page! Tap me any time if you need something else.", tourDoneO: "Want more on one part? Tap the 🐦 next to it.", page: "🔎 Find a page", how: "🎓 How do I use…", none: "🤔 Neither of these",
       noneA: "Then please go find THAT Sparrow 🐦", pageA: "Tap the page you want and I'll fly you there.", here: "Here it is. This is what you were looking for, right?",
       howA: "Pick one here and I'll walk you through it step by step. Or just ask the AI.", sulky: "Don't need me…? Okay then.", hide: "Hide Little Sparrow", show: "Little Sparrow", call: "Call Little Sparrow to explain this",
       msg: "There's a message for you 💌 Tap 📋 at the top right.", got: "Got it", from: "from Sparrow", oGreet: "Hi {name}! I'm Little Sparrow. Tap me for a tour of any tab, or tap a 🐦 next to a feature and I'll explain just that one. If I still can't teach you something, go find THAT Sparrow 😄" },
-    zh: { callBtn: "這個 🐦 就是呼叫我的按鈕，點下去我就只講那一個功能。", greet: "嗨囉！我是小麻雀 🐦 需要幫忙嗎？", page: "🔎 找頁面", how: "🎓 怎麼用某個功能…", none: "🤔 都不是",
+    zh: { callBtn: "這個 🐦 就是呼叫我的按鈕，點下去我就只講那一個功能。", greet: "嗨囉！我是小麻雀 🐦 需要幫忙嗎？", tourQ: "嗨囉！我是小麻雀 🐦 要不要我帶你快速看一下這一頁？", tourQo: "嗨囉！🐦 要不要我帶你快速看一下這個分頁？", tourYes: "👀 好，帶我看", tourNo: "不用了", tourDone: "這一頁就是這樣！還需要什麼隨時點我。", tourDoneO: "想多了解哪一塊？點它旁邊的 🐦。", page: "🔎 找頁面", how: "🎓 怎麼用某個功能…", none: "🤔 都不是",
       noneA: "那請你去找那個麻雀喔（Sparrow）🐦", pageA: "點你要的頁面，我飛過去帶你看。", here: "在這裡。這應該就是你要找的對吧？",
       howA: "從這裡選一個，我一步一步帶你做。也可以直接問 AI。", sulky: "不需要我嗎…？好吧。", hide: "隱藏小麻雀", show: "小麻雀", call: "呼喚小麻雀來講解",
       msg: "有給你的留言 💌 點右上角的 📋", got: "知道了", from: "來自 Sparrow", oGreet: "嗨 {name}！我是小麻雀。點我可以導覽任何分頁，功能旁邊的 🐦 點下去我就只講那一個。如果我還是教不會你，就去找那個麻雀（Sparrow）吧 😄" },
-    ko: { callBtn: "이 🐦 가 나를 부르는 버튼이야. 누르면 그 기능만 설명해 줄게.", greet: "안녕! 나는 작은 참새 🐦 도움이 필요해?", page: "🔎 페이지 찾기", how: "🎓 기능 사용법…", none: "🤔 둘 다 아니야",
+    ko: { callBtn: "이 🐦 가 나를 부르는 버튼이야. 누르면 그 기능만 설명해 줄게.", greet: "안녕! 나는 작은 참새 🐦 도움이 필요해?", tourQ: "안녕! 나는 작은 참새 🐦 이 페이지 빠르게 둘러볼래?", tourQo: "안녕! 🐦 이 탭 빠르게 둘러볼래?", tourYes: "👀 응, 보여 줘", tourNo: "괜찮아", tourDone: "이 페이지는 여기까지! 다른 게 필요하면 언제든 나를 눌러.", tourDoneO: "한 부분을 더 알고 싶으면 옆의 🐦 를 눌러.", page: "🔎 페이지 찾기", how: "🎓 기능 사용법…", none: "🤔 둘 다 아니야",
       noneA: "그럼 그 참새(Sparrow)를 찾아가 줘 🐦", pageA: "원하는 페이지를 누르면 내가 날아가서 보여줄게.", here: "여기야. 찾던 게 이거 맞지?",
       howA: "여기서 하나 고르면 단계별로 알려줄게. AI에게 물어봐도 돼.", sulky: "내가 필요 없어…? 알았어.", hide: "작은 참새 숨기기", show: "작은 참새", call: "작은 참새 불러서 설명 듣기",
       msg: "너에게 온 메시지가 있어 💌 오른쪽 위 📋 를 눌러 봐.", got: "알겠어", from: "Sparrow가 보냄", oGreet: "안녕 {name}! 나는 작은 참새야. 나를 누르면 탭을 안내하고, 기능 옆 🐦 를 누르면 그것만 설명해 줘. 그래도 모르겠으면 그 Sparrow를 찾아가 😄" },
-    de: { callBtn: "Dieses 🐦 ruft mich — tipp drauf und ich erkläre nur diese eine Funktion.", greet: "Hi! Ich bin der kleine Spatz 🐦 Brauchst du Hilfe?", page: "🔎 Eine Seite finden", how: "🎓 Wie benutze ich…", none: "🤔 Keins von beiden",
+    de: { callBtn: "Dieses 🐦 ruft mich — tipp drauf und ich erkläre nur diese eine Funktion.", greet: "Hi! Ich bin der kleine Spatz 🐦 Brauchst du Hilfe?", tourQ: "Hi! Ich bin der kleine Spatz 🐦 Kurze Tour durch diese Seite?", tourQo: "Hi! 🐦 Kurze Tour durch diesen Tab?", tourYes: "👀 Ja, zeig mal", tourNo: "Nein danke", tourDone: "Das ist diese Seite! Tipp mich jederzeit an, wenn du etwas anderes brauchst.", tourDoneO: "Mehr zu einem Teil? Tipp auf das 🐦 daneben.", page: "🔎 Eine Seite finden", how: "🎓 Wie benutze ich…", none: "🤔 Keins von beiden",
       noneA: "Dann geh bitte zu DEM Spatz (Sparrow) 🐦", pageA: "Tippe auf die Seite, die du willst – ich fliege hin.", here: "Hier ist es. Das hast du gesucht, oder?",
       howA: "Such dir hier eins aus, ich führe dich Schritt für Schritt durch. Oder frag einfach die KI.", sulky: "Brauchst du mich nicht…? Na gut.", hide: "Kleinen Spatz ausblenden", show: "Kleiner Spatz", call: "Kleinen Spatz rufen – erklärt das hier",
       msg: "Da ist eine Nachricht für dich 💌 Tippe oben rechts auf 📋.", got: "Alles klar", from: "von Sparrow", oGreet: "Hi {name}! Ich bin der kleine Spatz. Wenn ich dir etwas nicht erklären kann, geh zu DEM Sparrow 😄" },
-    fr: { callBtn: "Ce 🐦 m'appelle — touche-le et j'explique juste cette fonction.", greet: "Salut ! Je suis Petit Moineau 🐦 Besoin d'aide ?", page: "🔎 Trouver une page", how: "🎓 Comment utiliser…", none: "🤔 Ni l'un ni l'autre",
+    fr: { callBtn: "Ce 🐦 m'appelle — touche-le et j'explique juste cette fonction.", greet: "Salut ! Je suis Petit Moineau 🐦 Besoin d'aide ?", tourQ: "Salut ! Je suis Petit Moineau 🐦 Un petit tour de cette page ?", tourQo: "Salut ! 🐦 Un petit tour de cet onglet ?", tourYes: "👀 Oui, montre-moi", tourNo: "Non merci", tourDone: "Voilà cette page ! Touche-moi quand tu veux pour autre chose.", tourDoneO: "Envie d'en savoir plus sur une partie ? Touche le 🐦 à côté.", page: "🔎 Trouver une page", how: "🎓 Comment utiliser…", none: "🤔 Ni l'un ni l'autre",
       noneA: "Alors va voir CE Moineau-là (Sparrow) 🐦", pageA: "Touche la page que tu veux, je t'y emmène.", here: "C'est ici. C'est ce que tu cherchais, non ?",
       howA: "Choisis-en un ici et je te guide étape par étape. Ou demande à l'IA.", sulky: "Tu n'as pas besoin de moi… ? Bon.", hide: "Cacher Petit Moineau", show: "Petit Moineau", call: "Appeler Petit Moineau pour expliquer",
       msg: "Il y a un message pour toi 💌 Touche 📋 en haut à droite.", got: "Compris", from: "de Sparrow", oGreet: "Salut {name} ! Je suis Petit Moineau. Si je n'arrive pas à t'expliquer, va voir CE Sparrow-là 😄" },
-    pt: { callBtn: "Este 🐦 me chama — toque nele e eu explico só aquela função.", greet: "Oi! Eu sou o Pardalzinho 🐦 Precisa de ajuda?", page: "🔎 Encontrar uma página", how: "🎓 Como usar…", none: "🤔 Nenhum dos dois",
+    pt: { callBtn: "Este 🐦 me chama — toque nele e eu explico só aquela função.", greet: "Oi! Eu sou o Pardalzinho 🐦 Precisa de ajuda?", tourQ: "Oi! Eu sou o Pardalzinho 🐦 Quer um tour rápido por esta página?", tourQo: "Oi! 🐦 Quer um tour rápido por esta aba?", tourYes: "👀 Sim, me mostra", tourNo: "Não, obrigado", tourDone: "Essa é a página! Toque em mim quando precisar de outra coisa.", tourDoneO: "Quer saber mais de uma parte? Toque no 🐦 ao lado dela.", page: "🔎 Encontrar uma página", how: "🎓 Como usar…", none: "🤔 Nenhum dos dois",
       noneA: "Então vá falar com AQUELA Sparrow 🐦", pageA: "Toque na página que você quer e eu voo até lá.", here: "Aqui está. Era isso que você procurava, né?",
       howA: "Escolha um aqui e eu te guio passo a passo. Ou pergunte à IA.", sulky: "Não precisa de mim…? Tá bom.", hide: "Esconder o Pardalzinho", show: "Pardalzinho", call: "Chamar o Pardalzinho para explicar",
       msg: "Tem uma mensagem para você 💌 Toque em 📋 no canto superior direito.", got: "Entendi", from: "da Sparrow", oGreet: "Oi {name}! Eu sou o Pardalzinho. Toque em mim para um tour de qualquer aba, ou no 🐦 ao lado de uma função e eu explico só aquela. Se eu não conseguir te ensinar algo, vá falar com AQUELA Sparrow 😄" },
-    es: { callBtn: "Este 🐦 me llama — tócalo y te explico solo esa función.", greet: "¡Hola! Soy Gorrioncito 🐦 ¿Necesitas ayuda?", page: "🔎 Buscar una página", how: "🎓 Cómo usar…", none: "🤔 Ninguna de las dos",
+    es: { callBtn: "Este 🐦 me llama — tócalo y te explico solo esa función.", greet: "¡Hola! Soy Gorrioncito 🐦 ¿Necesitas ayuda?", tourQ: "¡Hola! Soy Gorrioncito 🐦 ¿Un recorrido rápido por esta página?", tourQo: "¡Hola! 🐦 ¿Un recorrido rápido por esta pestaña?", tourYes: "👀 Sí, enséñame", tourNo: "No, gracias", tourDone: "¡Esa es la página! Tócame cuando necesites otra cosa.", tourDoneO: "¿Quieres más sobre una parte? Toca el 🐦 de al lado.", page: "🔎 Buscar una página", how: "🎓 Cómo usar…", none: "🤔 Ninguna de las dos",
       noneA: "Entonces ve con ESA Sparrow 🐦", pageA: "Toca la página que quieres y vuelo hasta allí.", here: "Aquí está. Esto es lo que buscabas, ¿no?",
       howA: "Elige uno aquí y te guío paso a paso. O pregúntale a la IA.", sulky: "¿No me necesitas…? Bueno.", hide: "Ocultar a Gorrioncito", show: "Gorrioncito", call: "Llamar a Gorrioncito para que lo explique",
       msg: "Tienes un mensaje 💌 Toca 📋 arriba a la derecha.", got: "Entendido", from: "de Sparrow", oGreet: "¡Hola {name}! Soy Gorrioncito. Si no logro enseñarte algo, ve con ESA Sparrow 😄" },
-    tr: { callBtn: "Bu 🐦 beni çağırır — dokun, sadece o özelliği anlatayım.", greet: "Selam! Ben Küçük Serçe 🐦 Yardım lazım mı?", page: "🔎 Sayfa bul", how: "🎓 Nasıl kullanılır…", none: "🤔 İkisi de değil",
+    tr: { callBtn: "Bu 🐦 beni çağırır — dokun, sadece o özelliği anlatayım.", greet: "Selam! Ben Küçük Serçe 🐦 Yardım lazım mı?", tourQ: "Selam! Ben Küçük Serçe 🐦 Bu sayfayı kısaca gezelim mi?", tourQo: "Selam! 🐦 Bu sekmeyi kısaca gezelim mi?", tourYes: "👀 Evet, göster", tourNo: "Hayır, teşekkürler", tourDone: "Sayfa bu kadar! Başka bir şey lazım olursa bana dokun.", tourDoneO: "Bir bölümü daha ayrıntılı mı istiyorsun? Yanındaki 🐦'a dokun.", page: "🔎 Sayfa bul", how: "🎓 Nasıl kullanılır…", none: "🤔 İkisi de değil",
       noneA: "O zaman O Serçe'ye (Sparrow) git 🐦", pageA: "İstediğin sayfaya dokun, oraya uçayım.", here: "İşte burada. Aradığın buydu, değil mi?",
       howA: "Buradan birini seç, adım adım anlatayım. Ya da yapay zekâya sor.", sulky: "Bana ihtiyacın yok mu…? Peki.", hide: "Küçük Serçe'yi gizle", show: "Küçük Serçe", call: "Küçük Serçe'yi çağır, anlatsın",
       msg: "Sana bir mesaj var 💌 Sağ üstteki 📋 simgesine dokun.", got: "Anladım", from: "Sparrow'dan", oGreet: "Selam {name}! Ben Küçük Serçe. Bir şeyi öğretemezsem O Sparrow'a git 😄" },
-    id: { callBtn: "🐦 ini memanggilku — ketuk, dan aku jelaskan fitur itu saja.", greet: "Hai! Aku Burung Gereja Kecil 🐦 Perlu bantuan?", page: "🔎 Cari halaman", how: "🎓 Cara memakai…", none: "🤔 Bukan dua-duanya",
+    id: { callBtn: "🐦 ini memanggilku — ketuk, dan aku jelaskan fitur itu saja.", greet: "Hai! Aku Burung Gereja Kecil 🐦 Perlu bantuan?", tourQ: "Hai! Aku Burung Gereja Kecil 🐦 Mau tur singkat halaman ini?", tourQo: "Hai! 🐦 Mau tur singkat tab ini?", tourYes: "👀 Ya, tunjukkan", tourNo: "Tidak, terima kasih", tourDone: "Itu halaman ini! Ketuk aku kapan saja kalau perlu yang lain.", tourDoneO: "Mau tahu lebih soal satu bagian? Ketuk 🐦 di sebelahnya.", page: "🔎 Cari halaman", how: "🎓 Cara memakai…", none: "🤔 Bukan dua-duanya",
       noneA: "Kalau begitu cari Sparrow yang ITU ya 🐦", pageA: "Ketuk halaman yang kamu mau, aku terbang ke sana.", here: "Ini dia. Ini yang kamu cari, kan?",
       howA: "Pilih satu di sini, aku pandu langkah demi langkah. Atau tanya AI saja.", sulky: "Tidak butuh aku…? Ya sudah.", hide: "Sembunyikan Burung Gereja Kecil", show: "Burung Gereja Kecil", call: "Panggil Burung Gereja Kecil untuk menjelaskan",
       msg: "Ada pesan untukmu 💌 Ketuk 📋 di kanan atas.", got: "Oke", from: "dari Sparrow", oGreet: "Hai {name}! Aku Burung Gereja Kecil. Kalau aku tetap tidak bisa mengajarimu, cari Sparrow yang ITU ya 😄" },
-    ru: { callBtn: "Это 🐦 зовёт меня — нажми, и я объясню только эту функцию.", greet: "Привет! Я Воробушек 🐦 Нужна помощь?", page: "🔎 Найти страницу", how: "🎓 Как пользоваться…", none: "🤔 Ни то, ни другое",
+    ru: { callBtn: "Это 🐦 зовёт меня — нажми, и я объясню только эту функцию.", greet: "Привет! Я Воробушек 🐦 Нужна помощь?", tourQ: "Привет! Я Воробушек 🐦 Показать эту страницу?", tourQo: "Привет! 🐦 Показать эту вкладку?", tourYes: "👀 Да, покажи", tourNo: "Нет, спасибо", tourDone: "Вот и вся страница! Нажми на меня, если нужно что-то ещё.", tourDoneO: "Хочешь подробнее про какую-то часть? Нажми 🐦 рядом с ней.", page: "🔎 Найти страницу", how: "🎓 Как пользоваться…", none: "🤔 Ни то, ни другое",
       noneA: "Тогда иди к ТОМУ Воробью (Sparrow) 🐦", pageA: "Нажми на нужную страницу — я прилечу туда.", here: "Вот оно. Ты это искал, да?",
       howA: "Выбери здесь, и я проведу тебя по шагам. Или просто спроси ИИ.", sulky: "Я не нужен…? Ну ладно.", hide: "Скрыть Воробушка", show: "Воробушек", call: "Позвать Воробушка — объяснит",
       msg: "Для тебя есть сообщение 💌 Нажми 📋 справа вверху.", got: "Понятно", from: "от Sparrow", oGreet: "Привет, {name}! Я Воробушек. Если я не смогу что-то объяснить, иди к ТОМУ Sparrow 😄" },
-    th: { callBtn: "🐦 นี้คือปุ่มเรียกฉัน แตะแล้วฉันจะอธิบายเฉพาะฟีเจอร์นั้น", greet: "หวัดดี! ฉันคือนกกระจอกน้อย 🐦 ต้องการความช่วยเหลือไหม?", page: "🔎 หาหน้า", how: "🎓 ใช้ฟีเจอร์ยังไง…", none: "🤔 ไม่ใช่ทั้งสองอย่าง",
+    th: { callBtn: "🐦 นี้คือปุ่มเรียกฉัน แตะแล้วฉันจะอธิบายเฉพาะฟีเจอร์นั้น", greet: "หวัดดี! ฉันคือนกกระจอกน้อย 🐦 ต้องการความช่วยเหลือไหม?", tourQ: "หวัดดี! ฉันคือนกกระจอกน้อย 🐦 อยากให้พาดูหน้านี้แบบเร็ว ๆ ไหม?", tourQo: "หวัดดี! 🐦 อยากให้พาดูแท็บนี้แบบเร็ว ๆ ไหม?", tourYes: "👀 เอาเลย พาดู", tourNo: "ไม่เป็นไร", tourDone: "หน้านี้มีเท่านี้! ต้องการอะไรอีกแตะฉันได้เลย", tourDoneO: "อยากรู้เพิ่มเรื่องส่วนไหน? แตะ 🐦 ข้าง ๆ ส่วนนั้น", page: "🔎 หาหน้า", how: "🎓 ใช้ฟีเจอร์ยังไง…", none: "🤔 ไม่ใช่ทั้งสองอย่าง",
       noneA: "งั้นไปหานกกระจอกตัวนั้น (Sparrow) นะ 🐦", pageA: "แตะหน้าที่ต้องการ แล้วฉันจะบินพาไป", here: "อยู่นี่ไง นี่คือที่หาอยู่ใช่ไหม?",
       howA: "เลือกตรงนี้สักอัน ฉันจะพาทำทีละขั้น หรือถาม AI ก็ได้", sulky: "ไม่ต้องการฉันเหรอ…? ก็ได้", hide: "ซ่อนนกกระจอกน้อย", show: "นกกระจอกน้อย", call: "เรียกนกกระจอกน้อยมาอธิบาย",
       msg: "มีข้อความถึงคุณ 💌 แตะ 📋 มุมขวาบน", got: "เข้าใจแล้ว", from: "จาก Sparrow", oGreet: "หวัดดี {name}! ฉันคือนกกระจอกน้อย ถ้าฉันสอนไม่ได้ ไปหา Sparrow ตัวนั้นนะ 😄" },
-    ar: { callBtn: "هذا 🐦 يناديني — اضغط عليه وسأشرح تلك الميزة فقط.", greet: "مرحبًا! أنا العصفور الصغير 🐦 هل تحتاج مساعدة؟", page: "🔎 البحث عن صفحة", how: "🎓 كيف أستخدم…", none: "🤔 لا هذا ولا ذاك",
+    ar: { callBtn: "هذا 🐦 يناديني — اضغط عليه وسأشرح تلك الميزة فقط.", greet: "مرحبًا! أنا العصفور الصغير 🐦 هل تحتاج مساعدة؟", tourQ: "مرحبًا! أنا العصفور الصغير 🐦 هل تريد جولة سريعة في هذه الصفحة؟", tourQo: "مرحبًا! 🐦 هل تريد جولة سريعة في هذا التبويب؟", tourYes: "👀 نعم، أرني", tourNo: "لا، شكرًا", tourDone: "هذه هي الصفحة! اضغطني في أي وقت إذا احتجت شيئًا آخر.", tourDoneO: "تريد المزيد عن جزء ما؟ اضغط 🐦 بجانبه.", page: "🔎 البحث عن صفحة", how: "🎓 كيف أستخدم…", none: "🤔 لا هذا ولا ذاك",
       noneA: "إذًا اذهب إلى ذلك العصفور (Sparrow) 🐦", pageA: "اضغط على الصفحة التي تريدها وسأطير إليها.", here: "ها هي. هذا ما كنت تبحث عنه، صحيح؟",
       howA: "اختر واحدًا هنا وسأرشدك خطوة بخطوة. أو اسأل الذكاء الاصطناعي.", sulky: "لا تحتاجني…؟ حسنًا.", hide: "إخفاء العصفور الصغير", show: "العصفور الصغير", call: "نادِ العصفور الصغير ليشرح",
       msg: "لديك رسالة 💌 اضغط على 📋 في الأعلى يمينًا.", got: "فهمت", from: "من Sparrow", oGreet: "مرحبًا {name}! أنا العصفور الصغير. اضغط عليّ لجولة في أي تبويب، أو على 🐦 بجانب أي ميزة لأشرحها وحدها. إن لم أستطع تعليمك شيئًا، اذهب إلى Sparrow تلك 😄" },
@@ -94,6 +94,7 @@
       tm19: "🧮 BT calculator opens the Bear Hunt rally calculator — tapping a Bear reminder opens it too.",
       tm20: "🛠️ Admin reminders (officers): the to-dos from the officer Events tab, sent on the day they're due at the hour you pick, and 📍 Outpost reminders 10 minutes before one of ours turns Vulnerable.",
       tm21: "🔔 Reminders at the top of the site lists the pushes received in the last 24 hours; tap one to open it, ✓ Clear empties the list.", pick: "What do you want to learn?", tmr: "⏰ Set a timer", rem: "🎮 Game reminders", inst: "📲 Install as an app", back: "‹ Back", next: "Next ›", done: "Done ✓", stop: "✕ Stop", also: "Want me to show {x} too?", alsoYes: "Yes, show me", alsoNo: "No thanks",
+      h01: "📅 This week: events running now and coming up, with our times (shown in your own time). Tap a row to open its guide.", h02: "✅ Daily checklist: what's still left to do today.", h03: "📆 Calendar: every event day of the month. Tap a day to see what's on.", h04: "📢 Announcements from the officers, newest first.", h05: "📚 All guides: Event Guides and Growth Guides. Tap a group to pick a guide.", h06: "🌐 Change the language here.", h07: "💬 Ask the AI anything about the guides. ⏰ in its title bar = your timers and game reminders.", g01: "📖 This is the guide you're reading. Read it top to bottom, or just jump to the part you need.", g02: "The headings split the guide into parts (when, prep, who to send…). Skim them to find your part.", g03: "Hero cards: pick the line for your generation (Gen 1, 2, 3…) and use those heroes.", g04: "Boxes like this are rules or important tips — don't skip them.", g05: "Switch to another guide here.", g06: "💬 Not sure about something in this guide? Ask the AI.",
       site: "🧭 What the buttons on the site do", si01: "🌐 Language: tap one to read the whole site in that language.", si02: "🔗 Copies the link of the page you're on (shows ✓ when copied) — handy for sending a guide to someone.", si03: "↻ Refresh: loads the newest version of the site.", si04: "Light / dark mode: tap to switch.", si05: "💬 Ask the AI anything about the guides. The ⏰ in its title bar opens your timers and game reminders.",
       inst1: "This page shows how to install the site as an app. Read it carefully — on iPhone, notifications only work from the installed app." },
     zh: {
@@ -119,6 +120,7 @@
       tm19: "🧮 BT 計算器 會打開狩獵巨熊集結計算器——點巨熊提醒也會打開它。",
       tm20: "🛠️ 管理提醒（官員）：來自官員活動分頁的待辦事項，會在到期當天、你選的時刻送出，還有 📍 前哨提醒，在我們的前哨變成「可攻擊」前 10 分鐘送出。",
       tm21: "網站最上方的 🔔 提醒 會列出最近 24 小時收到的推播；點一則就會打開它，✓ 清除 會清空列表。", pick: "想學哪一個？", tmr: "⏰ 設定計時", rem: "🎮 遊戲提醒", inst: "📲 安裝成 App", back: "‹ 返回", next: "下一步 ›", done: "完成 ✓", stop: "✕ 停止", also: "要不要也順便講 {x}？", alsoYes: "好，講吧", alsoNo: "不用了",
+      h01: "📅 本週：正在進行和即將開始的活動，附我們的時間（會換成你當地的時間）。點一列就打開那個攻略。", h02: "✅ 每日清單：今天還有哪些事沒做。", h03: "📆 行事曆：這個月每天有什麼活動。點某一天就看得到。", h04: "📢 幹部發的公告，最新的在最上面。", h05: "📚 所有攻略：活動攻略和成長攻略。點一組來選攻略。", h06: "🌐 在這裡換語言。", h07: "💬 攻略的問題都可以問 AI。它標題列的 ⏰ 是你的計時器和遊戲提醒。", g01: "📖 這是你正在看的攻略。可以從頭看到尾，也可以直接跳到你要的部分。", g02: "這些標題把攻略分成幾段（時間、準備、派誰…），掃一下就找得到你要的。", g03: "英雄卡：找你的世代那一行（第 1、2、3 代…），用那些英雄。", g04: "像這樣的框框是規則或重點提醒，不要跳過。", g05: "在這裡換到別的攻略。", g06: "💬 攻略裡有不懂的？問 AI。",
       site: "🧭 網站上的按鈕是做什麼的", si01: "🌐 語言：點一個，整個網站就換成那個語言。", si02: "🔗 複製你現在這一頁的連結（複製好會顯示 ✓），要傳攻略給別人很方便。", si03: "↻ 重新整理：載入網站的最新版本。", si04: "淺色／深色模式：點一下切換。", si05: "💬 攻略的問題都可以問 AI。它標題列的 ⏰ 會打開你的計時器和遊戲提醒。",
       inst1: "這一頁教你把網站安裝成 App。請仔細看，iPhone 一定要從安裝好的 App 才收得到通知。" },
     ko: {
@@ -144,6 +146,7 @@
       tm19: "🧮 BT 계산기 를 누르면 곰 사냥 집결 계산기가 열려. 곰 알림을 눌러도 열려.",
       tm20: "🛠️ 관리 알림 (관리자용): 관리자 이벤트 탭의 할 일이 마감 당일, 네가 고른 시각에 와. 그리고 📍 전초기지 알림은 우리 전초기지가 취약 상태가 되기 10분 전에 와.",
       tm21: "사이트 맨 위의 🔔 알림 은 최근 24시간 동안 받은 푸시를 보여 줘. 하나를 누르면 열리고, ✓ 지우기 를 누르면 목록이 비워져.", pick: "무엇을 배울까요?", tmr: "⏰ 타이머 설정", rem: "🎮 게임 알림", inst: "📲 앱으로 설치", back: "‹ 뒤로", next: "다음 ›", done: "완료 ✓", stop: "✕ 중지", also: "{x}도 보여줄까요?", alsoYes: "응, 보여줘", alsoNo: "괜찮아",
+      h01: "📅 이번 주: 진행 중이거나 곧 시작하는 이벤트와 우리 시간 (내 현지 시간으로 표시). 한 줄을 누르면 공략이 열려.", h02: "✅ 일일 체크리스트: 오늘 아직 남은 일.", h03: "📆 달력: 이번 달 매일의 이벤트. 날짜를 누르면 보여.", h04: "📢 간부 공지, 최신순.", h05: "📚 모든 공략: 이벤트 공략과 성장 공략. 그룹을 눌러 공략을 골라.", h06: "🌐 여기서 언어를 바꿔.", h07: "💬 공략에 대해 AI에게 뭐든 물어봐. 제목줄의 ⏰ = 내 타이머와 게임 알림.", g01: "📖 지금 읽는 공략이야. 처음부터 읽어도 되고 필요한 부분으로 바로 가도 돼.", g02: "제목들이 공략을 나눠 (시간, 준비, 누구를 보낼지…). 훑어보고 필요한 부분을 찾아.", g03: "영웅 카드: 내 세대 줄 (1, 2, 3세대…)을 찾아서 그 영웅을 써.", g04: "이런 상자는 규칙이나 중요한 팁이야. 건너뛰지 마.", g05: "여기서 다른 공략으로 바꿔.", g06: "💬 이 공략에서 모르는 게 있으면 AI에게 물어봐.",
       site: "🧭 사이트 버튼 설명", si01: "🌐 언어: 하나를 누르면 사이트 전체가 그 언어로 바뀌어.", si02: "🔗 지금 보는 페이지의 링크를 복사해 (복사되면 ✓). 공략을 누구에게 보낼 때 편해.", si03: "↻ 새로고침: 사이트의 최신 버전을 불러와.", si04: "라이트 / 다크 모드: 누르면 바뀌어.", si05: "💬 공략에 대해 AI에게 뭐든 물어봐. 제목줄의 ⏰ 는 내 타이머와 게임 알림을 열어.",
       inst1: "이 페이지는 사이트를 앱으로 설치하는 방법이에요. 아이폰은 설치한 앱에서만 알림이 와요. 꼼꼼히 읽어 주세요." },
     de: {
@@ -169,6 +172,7 @@
       tm19: "🧮 BT-Rechner öffnet den Bärenjagd-Rally-Rechner — ein Tipp auf eine Bären-Erinnerung öffnet ihn auch.",
       tm20: "🛠️ Admin-Erinnerungen (Offiziere): die To-dos aus dem Events-Tab der Offiziere, am Fälligkeitstag zu der Stunde geschickt, die du wählst, und 📍 Außenposten-Erinnerungen 10 Minuten bevor einer von unseren Verwundbar wird.",
       tm21: "🔔 Erinnerungen oben auf der Seite listet die Pushes der letzten 24 Stunden; tipp auf einen, um ihn zu öffnen, ✓ Leeren leert die Liste.", pick: "Was willst du lernen?", tmr: "⏰ Timer stellen", rem: "🎮 Spiel-Erinnerungen", inst: "📲 Als App installieren", back: "‹ Zurück", next: "Weiter ›", done: "Fertig ✓", stop: "✕ Stopp", also: "Soll ich dir auch {x} zeigen?", alsoYes: "Ja, zeig mir", alsoNo: "Nein danke",
+      h01: "📅 Diese Woche: laufende und kommende Events mit unseren Zeiten (in deiner Ortszeit). Tipp eine Zeile für den Guide.", h02: "✅ Tages-Checkliste: was heute noch offen ist.", h03: "📆 Kalender: alle Event-Tage des Monats. Tipp einen Tag an.", h04: "📢 Ankündigungen der Offiziere, neueste zuerst.", h05: "📚 Alle Guides: Event-Guides und Wachstums-Guides. Tipp eine Gruppe, um einen Guide zu wählen.", h06: "🌐 Hier die Sprache ändern.", h07: "💬 Frag die KI alles zu den Guides. ⏰ in ihrer Titelleiste = deine Timer und Spiel-Erinnerungen.", g01: "📖 Das ist der Guide, den du liest. Von oben nach unten lesen oder direkt zum passenden Teil springen.", g02: "Die Überschriften teilen den Guide (wann, Vorbereitung, wen schicken…). Überfliegen und deinen Teil finden.", g03: "Heldenkarten: nimm die Zeile deiner Generation (Gen 1, 2, 3…) und diese Helden.", g04: "Solche Kästen sind Regeln oder wichtige Tipps – nicht überspringen.", g05: "Hier zu einem anderen Guide wechseln.", g06: "💬 Etwas unklar in diesem Guide? Frag die KI.",
       site: "🧭 Was die Knöpfe der Seite tun", si01: "🌐 Sprache: tippen, um die ganze Seite in dieser Sprache zu lesen.", si02: "🔗 Kopiert den Link der aktuellen Seite (zeigt ✓) — praktisch, um jemandem einen Guide zu schicken.", si03: "↻ Aktualisieren: lädt die neueste Version der Seite.", si04: "Hell / dunkel: tippen zum Umschalten.", si05: "💬 Frag die KI alles zu den Guides. Das ⏰ in ihrer Titelleiste öffnet deine Timer und Spiel-Erinnerungen.",
       inst1: "Diese Seite zeigt, wie du die Seite als App installierst. Lies sie genau – auf dem iPhone gibt es Benachrichtigungen nur in der App." },
     fr: {
@@ -194,6 +198,7 @@
       tm19: "🧮 Calculateur BT ouvre le calculateur de rallye Chasse à l'ours — toucher un rappel Ours l'ouvre aussi.",
       tm20: "🛠️ Rappels admin (officiers) : les tâches de l'onglet Événements des officiers, envoyées le jour de l'échéance à l'heure que tu choisis, et 📍 Rappels d'avant-poste 10 minutes avant qu'un des nôtres devienne Vulnérable.",
       tm21: "🔔 Rappels en haut du site liste les notifications push reçues dans les dernières 24 heures ; touches-en une pour l'ouvrir, ✓ Effacer vide la liste.", pick: "Tu veux apprendre quoi ?", tmr: "⏰ Mettre un minuteur", rem: "🎮 Rappels du jeu", inst: "📲 Installer en appli", back: "‹ Retour", next: "Suivant ›", done: "Terminé ✓", stop: "✕ Stop", also: "Je te montre aussi {x} ?", alsoYes: "Oui, montre-moi", alsoNo: "Non merci",
+      h01: "📅 Cette semaine : les événements en cours et à venir, avec nos horaires (affichés dans ton heure locale). Touche une ligne pour son guide.", h02: "✅ Liste du jour : ce qu'il reste à faire aujourd'hui.", h03: "📆 Calendrier : tous les jours d'événement du mois. Touche un jour pour voir.", h04: "📢 Les annonces des officiers, les plus récentes en premier.", h05: "📚 Tous les guides : guides d'événements et guides de progression. Touche un groupe pour choisir.", h06: "🌐 Change la langue ici.", h07: "💬 Pose n'importe quelle question sur les guides à l'IA. Le ⏰ de sa barre = tes minuteurs et rappels de jeu.", g01: "📖 C'est le guide que tu lis. Lis-le de haut en bas ou va directement à la partie utile.", g02: "Les titres découpent le guide (quand, préparation, qui envoyer…). Survole-les pour trouver ta partie.", g03: "Cartes de héros : prends la ligne de ta génération (Gen 1, 2, 3…) et utilise ces héros.", g04: "Ces encadrés sont des règles ou des conseils importants — ne les saute pas.", g05: "Change de guide ici.", g06: "💬 Un doute sur ce guide ? Demande à l'IA.",
       site: "🧭 À quoi servent les boutons du site", si01: "🌐 Langue : touche-en une pour lire tout le site dans cette langue.", si02: "🔗 Copie le lien de la page actuelle (affiche ✓) — pratique pour envoyer un guide à quelqu'un.", si03: "↻ Actualiser : charge la version la plus récente du site.", si04: "Mode clair / sombre : touche pour changer.", si05: "💬 Pose n'importe quelle question sur les guides à l'IA. Le ⏰ de sa barre de titre ouvre tes minuteurs et rappels de jeu.",
       inst1: "Cette page montre comment installer le site en appli. Lis-la bien – sur iPhone, les notifications ne marchent que depuis l'appli installée." },
     pt: {
@@ -219,6 +224,7 @@
       tm19: "🧮 Calculadora BT abre a calculadora de rally da Caçada ao Urso — tocar em um lembrete do Urso também abre.",
       tm20: "🛠️ Lembretes de admin (oficiais): as tarefas da aba Eventos dos oficiais, enviadas no dia em que vencem na hora que você escolher, e 📍 lembretes de Posto Avançado 10 minutos antes de um dos nossos ficar Vulnerável.",
       tm21: "🔔 Lembretes no topo do site lista os pushes recebidos nas últimas 24 horas; toque em um para abrir, ✓ Limpar esvazia a lista.", pick: "O que você quer aprender?", tmr: "⏰ Criar um timer", rem: "🎮 Lembretes do jogo", inst: "📲 Instalar como app", back: "‹ Voltar", next: "Próximo ›", done: "Pronto ✓", stop: "✕ Parar", also: "Quer que eu mostre {x} também?", alsoYes: "Sim, mostra", alsoNo: "Não, obrigado",
+      h01: "📅 Esta semana: eventos acontecendo agora e os próximos, com nossos horários (no seu horário local). Toque numa linha para abrir o guia.", h02: "✅ Checklist diário: o que ainda falta fazer hoje.", h03: "📆 Calendário: todos os dias de evento do mês. Toque num dia para ver.", h04: "📢 Anúncios dos oficiais, os mais novos primeiro.", h05: "📚 Todos os guias: guias de eventos e guias de crescimento. Toque num grupo para escolher.", h06: "🌐 Troque o idioma aqui.", h07: "💬 Pergunte à IA qualquer coisa sobre os guias. O ⏰ na barra dela = seus timers e lembretes do jogo.", g01: "📖 Este é o guia que você está lendo. Leia de cima a baixo ou pule para a parte que precisa.", g02: "Os títulos dividem o guia (quando, preparação, quem mandar…). Passe o olho para achar sua parte.", g03: "Cartas de heróis: pegue a linha da sua geração (Gen 1, 2, 3…) e use esses heróis.", g04: "Caixas assim são regras ou dicas importantes — não pule.", g05: "Troque de guia aqui.", g06: "💬 Dúvida sobre este guia? Pergunte à IA.",
       site: "🧭 O que fazem os botões do site", si01: "🌐 Idioma: toque em um para ler o site inteiro nesse idioma.", si02: "🔗 Copia o link da página atual (mostra ✓) — prático para mandar um guia a alguém.", si03: "↻ Atualizar: carrega a versão mais nova do site.", si04: "Modo claro / escuro: toque para trocar.", si05: "💬 Pergunte qualquer coisa sobre os guias à IA. O ⏰ na barra de título abre seus timers e lembretes do jogo.",
       inst1: "Esta página mostra como instalar o site como app. Leia com atenção — no iPhone, as notificações só funcionam pelo app instalado." },
     es: {
@@ -244,6 +250,7 @@
       tm19: "🧮 Calculadora BT abre la calculadora de rally de la Caza del Oso — tocar un recordatorio del Oso también la abre.",
       tm20: "🛠️ Recordatorios de admin (oficiales): las tareas de la pestaña Eventos de oficiales, enviadas el día que vencen a la hora que elijas, y 📍 recordatorios de Puesto de Avanzada 10 minutos antes de que uno de los nuestros se vuelva Vulnerable.",
       tm21: "🔔 Recordatorios en la parte superior del sitio muestra los pushes recibidos en las últimas 24 horas; toca uno para abrirlo, ✓ Borrar vacía la lista.", pick: "¿Qué quieres aprender?", tmr: "⏰ Poner un temporizador", rem: "🎮 Recordatorios del juego", inst: "📲 Instalar como app", back: "‹ Atrás", next: "Siguiente ›", done: "Listo ✓", stop: "✕ Parar", also: "¿Te muestro también {x}?", alsoYes: "Sí, muéstrame", alsoNo: "No, gracias",
+      h01: "📅 Esta semana: eventos en curso y próximos, con nuestros horarios (en tu hora local). Toca una fila para abrir su guía.", h02: "✅ Lista diaria: lo que aún queda por hacer hoy.", h03: "📆 Calendario: todos los días de eventos del mes. Toca un día para verlo.", h04: "📢 Anuncios de los oficiales, los más nuevos primero.", h05: "📚 Todas las guías: guías de eventos y de crecimiento. Toca un grupo para elegir.", h06: "🌐 Cambia el idioma aquí.", h07: "💬 Pregúntale a la IA lo que quieras sobre las guías. El ⏰ de su barra = tus temporizadores y recordatorios.", g01: "📖 Esta es la guía que estás leyendo. Léela de arriba abajo o salta a la parte que necesites.", g02: "Los títulos dividen la guía (cuándo, preparación, a quién enviar…). Échales un vistazo para encontrar tu parte.", g03: "Cartas de héroes: elige la fila de tu generación (Gen 1, 2, 3…) y usa esos héroes.", g04: "Los recuadros así son reglas o consejos importantes — no los saltes.", g05: "Cambia de guía aquí.", g06: "💬 ¿Dudas con esta guía? Pregúntale a la IA.",
       site: "🧭 Qué hacen los botones del sitio", si01: "🌐 Idioma: toca uno para leer todo el sitio en ese idioma.", si02: "🔗 Copia el enlace de la página actual (muestra ✓) — útil para enviar una guía a alguien.", si03: "↻ Actualizar: carga la versión más nueva del sitio.", si04: "Modo claro / oscuro: toca para cambiar.", si05: "💬 Pregúntale a la IA lo que quieras sobre las guías. El ⏰ de su barra de título abre tus temporizadores y recordatorios del juego.",
       inst1: "Esta página explica cómo instalar el sitio como app. Léela bien: en iPhone, las notificaciones solo funcionan desde la app instalada." },
     tr: {
@@ -269,6 +276,7 @@
       tm19: "🧮 BT hesaplayıcı Ayı Avı rally hesaplayıcısını açar — bir Ayı hatırlatıcısına dokunmak da açar.",
       tm20: "🛠️ Yönetici hatırlatıcıları (subaylar): subay Etkinlikler sekmesindeki yapılacaklar, vade gününde seçtiğin saatte gönderilir; ayrıca 📍 Karakol hatırlatıcıları, bizimkilerden biri Savunmasız olmadan 10 dakika önce.",
       tm21: "Sitenin en üstündeki 🔔 Hatırlatıcılar son 24 saatte alınan bildirimleri listeler; birine dokununca açılır, ✓ Temizle listeyi boşaltır.", pick: "Neyi öğrenmek istersin?", tmr: "⏰ Zamanlayıcı kur", rem: "🎮 Oyun hatırlatmaları", inst: "📲 Uygulama olarak yükle", back: "‹ Geri", next: "İleri ›", done: "Bitti ✓", stop: "✕ Durdur", also: "{x} de göstereyim mi?", alsoYes: "Evet, göster", alsoNo: "Gerek yok",
+      h01: "📅 Bu hafta: şu an süren ve yaklaşan etkinlikler, bizim saatlerimizle (kendi yerel saatinde). Rehberi açmak için bir satıra dokun.", h02: "✅ Günlük liste: bugün hâlâ yapılacaklar.", h03: "📆 Takvim: ayın tüm etkinlik günleri. Görmek için bir güne dokun.", h04: "📢 Subayların duyuruları, en yenisi önce.", h05: "📚 Tüm rehberler: Etkinlik ve Gelişim rehberleri. Seçmek için bir gruba dokun.", h06: "🌐 Dili buradan değiştir.", h07: "💬 Rehberlerle ilgili her şeyi yapay zekâya sor. Başlıktaki ⏰ = zamanlayıcıların ve oyun hatırlatıcıların.", g01: "📖 Okuduğun rehber bu. Baştan sona oku ya da ihtiyacın olan kısma atla.", g02: "Başlıklar rehberi bölümlere ayırır (ne zaman, hazırlık, kimi gönder…). Göz gezdirip kendi kısmını bul.", g03: "Kahraman kartları: kendi neslinin satırını (Gen 1, 2, 3…) seç ve o kahramanları kullan.", g04: "Böyle kutular kural ya da önemli ipucudur — atlama.", g05: "Başka bir rehbere buradan geç.", g06: "💬 Bu rehberde emin olmadığın bir şey mi var? Yapay zekâya sor.",
       site: "🧭 Sitedeki düğmeler ne işe yarar", si01: "🌐 Dil: birine dokun, tüm site o dilde açılır.", si02: "🔗 Bulunduğun sayfanın bağlantısını kopyalar (✓ gösterir) — birine rehber göndermek için kullanışlı.", si03: "↻ Yenile: sitenin en yeni sürümünü yükler.", si04: "Açık / koyu mod: değiştirmek için dokun.", si05: "💬 Rehberlerle ilgili her şeyi yapay zekâya sor. Başlık çubuğundaki ⏰ zamanlayıcılarını ve oyun hatırlatıcılarını açar.",
       inst1: "Bu sayfa siteyi uygulama olarak nasıl yükleyeceğini gösterir. Dikkatle oku — iPhone'da bildirimler yalnızca yüklü uygulamada çalışır." },
     id: {
@@ -294,6 +302,7 @@
       tm19: "🧮 Kalkulator BT membuka kalkulator rally Perburuan Beruang — mengetuk pengingat Beruang juga membukanya.",
       tm20: "🛠️ Pengingat admin (perwira): daftar tugas dari tab Event perwira, dikirim pada hari jatuh temponya pada jam yang kamu pilih, dan 📍 pengingat Pos Terdepan 10 menit sebelum salah satu milik kita menjadi Rentan.",
       tm21: "🔔 Pengingat di bagian atas situs menampilkan push yang diterima dalam 24 jam terakhir; ketuk salah satunya untuk membukanya, ✓ Bersihkan mengosongkan daftarnya.", pick: "Mau belajar yang mana?", tmr: "⏰ Pasang timer", rem: "🎮 Pengingat game", inst: "📲 Pasang sebagai aplikasi", back: "‹ Kembali", next: "Lanjut ›", done: "Selesai ✓", stop: "✕ Berhenti", also: "Mau aku tunjukkan {x} juga?", alsoYes: "Ya, tunjukkan", alsoNo: "Tidak perlu",
+      h01: "📅 Minggu ini: event yang sedang berjalan dan yang akan datang, dengan jam kita (dalam waktu lokalmu). Ketuk satu baris untuk membuka panduannya.", h02: "✅ Daftar harian: yang masih belum dikerjakan hari ini.", h03: "📆 Kalender: semua hari event bulan ini. Ketuk satu hari untuk melihat.", h04: "📢 Pengumuman dari officer, yang terbaru di atas.", h05: "📚 Semua panduan: panduan event dan panduan pertumbuhan. Ketuk grup untuk memilih.", h06: "🌐 Ganti bahasa di sini.", h07: "💬 Tanyakan apa saja tentang panduan ke AI. ⏰ di bilah judulnya = timer dan pengingat game kamu.", g01: "📖 Ini panduan yang sedang kamu baca. Baca dari atas ke bawah atau langsung ke bagian yang kamu perlukan.", g02: "Judul-judul ini membagi panduan (kapan, persiapan, siapa yang dikirim…). Lihat sekilas untuk menemukan bagianmu.", g03: "Kartu hero: pilih baris generasimu (Gen 1, 2, 3…) dan pakai hero itu.", g04: "Kotak seperti ini adalah aturan atau tips penting — jangan dilewati.", g05: "Ganti ke panduan lain di sini.", g06: "💬 Ada yang kurang jelas di panduan ini? Tanya AI.",
       site: "🧭 Fungsi tombol di situs", si01: "🌐 Bahasa: ketuk salah satu untuk membaca seluruh situs dalam bahasa itu.", si02: "🔗 Menyalin tautan halaman ini (muncul ✓) — praktis untuk mengirim panduan ke orang lain.", si03: "↻ Muat ulang: memuat versi terbaru situs.", si04: "Mode terang / gelap: ketuk untuk mengganti.", si05: "💬 Tanyakan apa saja tentang panduan ke AI. ⏰ di bilah judulnya membuka timer dan pengingat game kamu.",
       inst1: "Halaman ini menunjukkan cara memasang situs sebagai aplikasi. Baca baik-baik — di iPhone, notifikasi hanya berfungsi dari aplikasi yang terpasang." },
     ru: {
@@ -319,6 +328,7 @@
       tm19: "🧮 BT калькулятор открывает калькулятор ралли для Охоты на медведя — нажатие на напоминание о Медведе тоже его открывает.",
       tm20: "🛠️ Админ-напоминания (офицеры): дела из вкладки События для офицеров, присылаются в день срока в выбранный тобой час, и 📍 напоминания об аванпостах за 10 минут до того, как один из наших станет Уязвимым.",
       tm21: "🔔 Напоминания вверху сайта показывают пуши, полученные за последние 24 часа; нажми на одно, чтобы открыть его, ✓ Очистить очищает список.", pick: "Чему научить?", tmr: "⏰ Поставить таймер", rem: "🎮 Игровые напоминания", inst: "📲 Установить как приложение", back: "‹ Назад", next: "Далее ›", done: "Готово ✓", stop: "✕ Стоп", also: "Показать ещё и {x}?", alsoYes: "Да, покажи", alsoNo: "Не нужно",
+      h01: "📅 Эта неделя: события сейчас и скоро, с нашим временем (в вашем местном времени). Нажмите строку, чтобы открыть гайд.", h02: "✅ Ежедневный список: что ещё осталось сделать сегодня.", h03: "📆 Календарь: все дни событий за месяц. Нажмите на день.", h04: "📢 Объявления офицеров, сначала новые.", h05: "📚 Все гайды: по событиям и по развитию. Нажмите группу, чтобы выбрать гайд.", h06: "🌐 Здесь меняется язык.", h07: "💬 Спросите ИИ о чём угодно из гайдов. ⏰ в его заголовке = ваши таймеры и игровые напоминания.", g01: "📖 Это гайд, который вы читаете. Читайте сверху вниз или сразу переходите к нужной части.", g02: "Заголовки делят гайд на части (когда, подготовка, кого отправлять…). Пробегитесь по ним, чтобы найти свою.", g03: "Карточки героев: выберите строку своего поколения (Gen 1, 2, 3…) и используйте этих героев.", g04: "Такие блоки — правила или важные советы, не пропускайте их.", g05: "Здесь можно перейти к другому гайду.", g06: "💬 Что-то непонятно в этом гайде? Спросите ИИ.",
       site: "🧭 Что делают кнопки сайта", si01: "🌐 Язык: нажмите, чтобы читать весь сайт на этом языке.", si02: "🔗 Копирует ссылку на текущую страницу (появится ✓) — удобно, чтобы отправить кому-то гайд.", si03: "↻ Обновить: загружает самую новую версию сайта.", si04: "Светлая / тёмная тема: нажмите, чтобы переключить.", si05: "💬 Спросите ИИ о чём угодно из гайдов. ⏰ в его заголовке открывает ваши таймеры и игровые напоминания.",
       inst1: "Эта страница показывает, как установить сайт как приложение. Читай внимательно — на iPhone уведомления работают только из установленного приложения." },
     th: {
@@ -344,6 +354,7 @@
       tm19: "🧮 เครื่องคิด BT จะเปิดเครื่องคำนวณรวมพล ล่าหมี — แตะการเตือน หมี ก็เปิดได้เหมือนกัน",
       tm20: "🛠️ เตือนงานแอดมิน (นายทหาร): สิ่งที่ต้องทำจากแท็บ กิจกรรม ของนายทหาร ส่งในวันครบกำหนดตามชั่วโมงที่คุณเลือก และ 📍 เตือนด่านหน้า 10 นาทีก่อนที่ด่านของเราจะกลายเป็น เปราะบาง",
       tm21: "🔔 การเตือน ที่ด้านบนของเว็บไซต์จะแสดงพุชที่ได้รับใน 24 ชั่วโมงล่าสุด แตะอันหนึ่งเพื่อเปิด ✓ ล้าง จะล้างรายการ", pick: "อยากเรียนอะไร?", tmr: "⏰ ตั้งตัวจับเวลา", rem: "🎮 แจ้งเตือนในเกม", inst: "📲 ติดตั้งเป็นแอป", back: "‹ กลับ", next: "ถัดไป ›", done: "เสร็จ ✓", stop: "✕ หยุด", also: "ให้ฉันพาดู {x} ด้วยไหม?", alsoYes: "เอาสิ พาดู", alsoNo: "ไม่เป็นไร",
+      h01: "📅 สัปดาห์นี้: กิจกรรมที่กำลังเล่นและที่กำลังจะมา พร้อมเวลาของเรา (แสดงเป็นเวลาท้องถิ่นของคุณ) แตะแถวเพื่อเปิดไกด์", h02: "✅ เช็กลิสต์รายวัน: สิ่งที่ยังเหลือต้องทำวันนี้", h03: "📆 ปฏิทิน: วันกิจกรรมทั้งเดือน แตะวันเพื่อดู", h04: "📢 ประกาศจากเจ้าหน้าที่ ล่าสุดอยู่บนสุด", h05: "📚 ไกด์ทั้งหมด: ไกด์กิจกรรมและไกด์การเติบโต แตะกลุ่มเพื่อเลือกไกด์", h06: "🌐 เปลี่ยนภาษาที่นี่", h07: "💬 ถาม AI เรื่องไกด์ได้ทุกอย่าง ⏰ ที่แถบหัวเรื่อง = ตัวจับเวลาและการเตือนเกมของคุณ", g01: "📖 นี่คือไกด์ที่คุณกำลังอ่าน อ่านจากบนลงล่างหรือข้ามไปส่วนที่ต้องการได้เลย", g02: "หัวข้อเหล่านี้แบ่งไกด์เป็นส่วน ๆ (เมื่อไร เตรียมตัว ส่งใคร…) กวาดตาดูเพื่อหาส่วนของคุณ", g03: "การ์ดฮีโร่: เลือกแถวของเจนของคุณ (Gen 1, 2, 3…) แล้วใช้ฮีโร่เหล่านั้น", g04: "กล่องแบบนี้คือกฎหรือเคล็ดลับสำคัญ อย่าข้าม", g05: "เปลี่ยนไปไกด์อื่นที่นี่", g06: "💬 ไม่แน่ใจตรงไหนในไกด์นี้? ถาม AI",
       site: "🧭 ปุ่มต่าง ๆ บนเว็บทำอะไร", si01: "🌐 ภาษา: แตะเพื่ออ่านทั้งเว็บเป็นภาษานั้น", si02: "🔗 คัดลอกลิงก์ของหน้านี้ (ขึ้น ✓ เมื่อคัดลอกแล้ว) สะดวกเวลาส่งไกด์ให้คนอื่น", si03: "↻ รีเฟรช: โหลดเว็บเวอร์ชันใหม่ล่าสุด", si04: "โหมดสว่าง / มืด: แตะเพื่อสลับ", si05: "💬 ถาม AI เรื่องไกด์ได้ทุกอย่าง ⏰ ที่แถบหัวเรื่องจะเปิดตัวจับเวลาและการเตือนเกมของคุณ",
       inst1: "หน้านี้สอนวิธีติดตั้งเว็บเป็นแอป อ่านให้ละเอียด — บน iPhone การแจ้งเตือนใช้ได้เฉพาะจากแอปที่ติดตั้งแล้ว" },
     ar: {
@@ -369,6 +380,7 @@
       tm19: "🧮 حاسبة BT يفتح حاسبة حشد صيد الدب — والضغط على تذكير الدب يفتحها أيضًا.",
       tm20: "🛠️ تذكيرات الإدارة (للضباط): المهام من تبويب الأحداث الخاص بالضباط، تُرسل في يوم استحقاقها في الساعة التي تختارها، و📍 تذكيرات المواقع الأمامية قبل 10 دقائق من تحوّل أحد مواقعنا إلى ضعيف.",
       tm21: "🔔 التذكيرات أعلى الموقع يعرض الإشعارات المستلمة خلال آخر 24 ساعة؛ اضغط على أحدها لفتحه، ✓ مسح يفرغ القائمة.", pick: "ماذا تريد أن تتعلم؟", tmr: "⏰ ضبط مؤقّت", rem: "🎮 تذكيرات اللعبة", inst: "📲 التثبيت كتطبيق", back: "‹ رجوع", next: "التالي ›", done: "تم ✓", stop: "✕ إيقاف", also: "هل أريك {x} أيضًا؟", alsoYes: "نعم، أرني", alsoNo: "لا شكرًا",
+      h01: "📅 هذا الأسبوع: الفعاليات الجارية والقادمة بمواعيدنا (بتوقيتك المحلي). اضغط سطرًا لفتح دليله.", h02: "✅ القائمة اليومية: ما تبقى لفعله اليوم.", h03: "📆 التقويم: كل أيام الفعاليات في الشهر. اضغط يومًا لترى.", h04: "📢 إعلانات الضباط، الأحدث أولًا.", h05: "📚 كل الأدلة: أدلة الفعاليات وأدلة التطور. اضغط مجموعة لاختيار دليل.", h06: "🌐 غيّر اللغة من هنا.", h07: "💬 اسأل الذكاء الاصطناعي أي شيء عن الأدلة. ⏰ في شريط عنوانه = مؤقتاتك وتذكيرات اللعبة.", g01: "📖 هذا هو الدليل الذي تقرؤه. اقرأه من الأعلى إلى الأسفل أو انتقل مباشرة للجزء الذي تحتاجه.", g02: "العناوين تقسّم الدليل إلى أجزاء (متى، التحضير، من نرسل…). ألقِ نظرة لتجد جزءك.", g03: "بطاقات الأبطال: اختر سطر جيلك (Gen 1، 2، 3…) واستخدم هؤلاء الأبطال.", g04: "المربعات مثل هذا قواعد أو نصائح مهمة — لا تتخطّها.", g05: "انتقل إلى دليل آخر من هنا.", g06: "💬 شيء غير واضح في هذا الدليل؟ اسأل الذكاء الاصطناعي.",
       site: "🧭 ماذا تفعل أزرار الموقع", si01: "🌐 اللغة: اضغط لغة لقراءة الموقع كله بها.", si02: "🔗 ينسخ رابط الصفحة الحالية (تظهر ✓) — مفيد لإرسال دليل لأحد.", si03: "↻ تحديث: يحمّل أحدث نسخة من الموقع.", si04: "الوضع الفاتح / الداكن: اضغط للتبديل.", si05: "💬 اسأل الذكاء الاصطناعي أي شيء عن الأدلة. زر ⏰ في شريط عنوانه يفتح مؤقتاتك وتذكيرات اللعبة.",
       inst1: "هذه الصفحة تشرح تثبيت الموقع كتطبيق. اقرأها جيدًا — على iPhone لا تعمل الإشعارات إلا من التطبيق المثبّت." },
   };
@@ -1568,11 +1580,17 @@
   async function greet() {
     busy = true; clearTarget(); sleepZ(false);
     await goHome(); const hi = play("hi");
-    const menu = () => say(`<b>${esc(t("greet"))}</b><div class="sp-opts"><button type="button" class="sp-main" data-a="page">${esc(t("page"))}</button><button type="button" data-a="how">${esc(t("how"))}</button><button type="button" data-a="none">${esc(t("none"))}</button></div>`);
-    menu(); redraw = menu;
+    // 1️⃣ "Hi! Want a quick tour of this page?" → 👀 Yes = page tour · No thanks = the help menu below
+    const ask = () => say(`<b>${esc(t("tourQ"))}</b><div class="sp-opts"><button type="button" class="sp-main" data-a="ptour">${esc(t("tourYes"))}</button><button type="button" data-a="pno">${esc(t("tourNo"))}</button></div>`);
+    ask(); redraw = ask;
     state = "menu"; busy = false; armIdle();
-    clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { if (state === "menu" && !busy) hush(); }, 4000);   // 4 s, then tuck away until tapped
+    clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => { if (state === "menu" && !busy) hush(); }, 6000);   // 6 s, then tuck away until tapped
     if (await hi) play("idle", { squash: false });
+  }
+  /* 2️⃣ the help menu (after "No thanks", or ‹ Back from a tour list) */
+  function helpMenu() {
+    const menu = () => say(`<b>${esc(t("greet"))}</b><div class="sp-opts"><button type="button" class="sp-main" data-a="page">${esc(t("page"))}</button><button type="button" data-a="how">${esc(t("how"))}</button><button type="button" data-a="none">${esc(t("none"))}</button></div>`);
+    menu(); redraw = menu; state = "menu"; armIdle(); clearTimeout(bubbleTimer);
   }
   let bubbleTimer = null;
   // taps inside the bubble stay inside it: nothing behind gets them, and a tap also stops the bubble's auto-hide
@@ -1591,8 +1609,15 @@
       if (await c) play("idle", { squash: false }); return;
     } else if (a === "tour") {
       busy = false; runTour(b.dataset.t); return;
-    } else if (a === "menu") {
-      busy = false; greet(); return;
+    } else if (a === "menu" || a === "pno") {
+      busy = false; helpMenu(); return;
+    } else if (a === "ptour") {
+      busy = false; runTour("page"); return;
+    } else if (a === "otq") {
+      busy = false; const tab = curTab(); await runOfficerTour(tab, quickSteps(tab));
+      say(esc(t("tourDoneO")), { foot: false }); clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => hush(), 5000); return;
+    } else if (a === "otn") {
+      busy = false; hush(); officerMenu(); return;
     } else if (a === "hush") {
       busy = false; hush(); return;
     } else if (a === "none") {
@@ -1687,6 +1712,9 @@
   ];
   /* 🧭 the buttons every page has (some only show in the installed app; missing ones are skipped) — keep in step with the AI's SITE FEATURES block */
   const SITE_STEPS = [{ s: "#langRow", k: "si01" }, { s: "#copyUrlBtn", k: "si02" }, { s: "#reloadBtn", k: "si03" }, { s: "#themeToggle", k: "si04" }, { s: ".ai-fab", k: "si05" }];
+  /* 👀 quick tour of the page you're on: the home page (Recent Events) or a guide. Missing parts are skipped. */
+  const HOME_STEPS = [{ s: "#doc .today-card:not(.month-card)", k: "h01" }, { s: "#dailyHint", k: "h02" }, { s: "#monthCal", k: "h03" }, { s: "#doc .ann-board", k: "h04" }, { s: "#guideRow", k: "h05" }, { s: "#langRow", k: "h06" }, { s: ".ai-fab", k: "h07" }];
+  const GUIDE_STEPS = [{ s: "#doc .doc-title", k: "g01" }, { s: "#doc h3.section-h", k: "g02" }, { s: "#doc .gen-card, #doc .hc-card", k: "g03" }, { s: "#doc .callout", k: "g04" }, { s: "#guideRow", k: "g05" }, { s: ".ai-fab", k: "g06" }];
   const tmText = (st) => st.k === "tm03" && isIOS && !standalone() ? tt("tm03ios") : tt(st.k);
   async function runTour(id, only) {
     if (busy) return; busy = true; ["point", "teacher", "fly", "idle"].forEach(preload); hush(); clearTarget(); tour = id; clearTimeout(idleTimer);
@@ -1697,6 +1725,14 @@
       if (typeof switchGuide === "function") switchGuide("install-app");
       const title = await waitFor(() => q("#doc .doc-title"), 3000);
       await step(title, () => tt("inst1"), true); await end(); return;
+    }
+    if (id === "page") {
+      hush(); if (panel) panel.hidden = true;
+      const g = (location.hash.match(/^#\/[\w-]+\/([\w-]+)/) || [])[1], home = !g || g === "recent-events";
+      try { window.scrollTo({ top: 0 }); } catch (e) {} await wait(250);
+      const r = await walk(home ? HOME_STEPS : GUIDE_STEPS, (st) => tt(st.k)); await end();
+      if (!r.stopped) { say(esc(t("tourDone")), { foot: false }); clearTimeout(bubbleTimer); bubbleTimer = setTimeout(() => hush(), 5000); }
+      return;
     }
     if (id === "site") { hush(); if (panel) panel.hidden = true; try { window.scrollTo({ top: 0 }); } catch (e) {} await wait(250); await walk(SITE_STEPS, (st) => tt(st.k)); await end(); return; }
     if (!ai || !tm) { await end(); return; }
@@ -2448,7 +2484,7 @@
   bird.addEventListener("click", async () => {
     if (busy || tour) return;
     if (!bubble.hidden && bubble.querySelector(".sp-opts")) { hush(); clearTarget(); return; }   // a tap on the sparrow tucks its menu away
-    if (IS_OFFICER) { officerMenu(); return; }
+    if (IS_OFFICER) { officerAsk(); return; }
     if (IS_TOOL) { const c = play("hi"); toolAsk(); if (await c) play("idle", { squash: false }); return; }
     if (typeof langChosen !== "undefined" && !langChosen) return;   // language picker is up: stay asleep
     if (state === "sleep") { busy = true; sleepZ(false); await play("wake"); busy = false; }
@@ -2494,6 +2530,23 @@
     const d = document.createElement("div"); d.className = "sp-ai-sec";
     d.innerHTML = `<div class="ai-grp">🐦 ${esc(ot("pick"))}</div><div class="ai-chips">${tabs.map((a) => `<button type="button" class="ai-chip" data-otour="${a.dataset.tab}">${esc(ot(a.dataset.tab))}</button>`).join("")}${mine ? `<button type="button" class="ai-chip" data-omsg="1">${esc(ot("msgs"))}</button>` : ""}</div>`;
     const hint = g.querySelector(".ai-hint"); if (hint) hint.before(d); else g.appendChild(d);
+  }
+  /* officer page: "Hi! Want a quick tour of this tab?" → 👀 one stop per card of the open tab · No thanks = the tab list in the chat */
+  const curTab = () => { const h = (location.hash.match(/^#([a-z]+)/) || [])[1]; return OTOURS[h] ? h : "events"; };
+  function quickSteps(tab) {
+    const seen = new Set();
+    return (OTOURS[tab] || []).filter((st) => {
+      if (st.pre || typeof st.s === "function" || !stepApplies(tab, st)) return false;
+      const el = Q(st.s); if (!el || !shown(el)) return false;
+      const card = el.closest(".card, details, .km-card, .km-layers, .km-c, .km-info, .mcard") || el;
+      if (seen.has(card)) return false; seen.add(card); return true;
+    });
+  }
+  async function officerAsk() {
+    clearTarget(); await goHome(); const c = play("hi");
+    const ask = () => say(`<b>${esc(t("tourQo"))}</b><div class="sp-opts"><button type="button" class="sp-main" data-a="otq">${esc(t("tourYes"))}</button><button type="button" data-a="otn">${esc(t("tourNo"))}</button></div>`);
+    ask(); redraw = ask; state = "menu"; clearTimeout(bubbleTimer);
+    if (await c) play("idle", { squash: false });
   }
   async function officerMenu() {
     if (!window.NXSAI) return;
