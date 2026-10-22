@@ -29,3 +29,34 @@ function annThemeHtml(style, titleHtml, innerHtml) {
   return `<div class="annx has-img" style="--annx-ext:${t.ext || "#2a2018"};--annx-pos:${t.pos || "center"}"><div class="annx-blur" style="background-image:url(${t.img})"></div>` +
     `<img class="annx-img" src="${t.img}" alt="" loading="lazy"><div class="annx-wrap">${scroll}</div></div>`;
 }
+
+/* ✍️ Word-like formatting for announcements (toolbar on the 📢 Post page). Works on text that is already escaped.
+   Inline: **bold**  *italic*  __underline__  ~~strike~~  ==highlight==  [[c:gold]]coloured[[/c]]
+   Lines:  # big heading   ## heading   - bullet   1. numbered   > quote box   --- line */
+const ANN_COLORS = ["gold", "orange", "red", "green", "blue", "purple"];
+function annFormat(html) {
+  const inline = (s) => s
+    .replace(/==([^=\n]+?)==/g, '<mark class="af-hl">$1</mark>')
+    .replace(/__([^_\n]+?)__/g, "<u>$1</u>")
+    .replace(/~~([^~\n]+?)~~/g, "<s>$1</s>")
+    .replace(/(^|[^*\w])\*(?![\s*])([^*\n]+?)\*(?!\*)/g, "$1<em>$2</em>")
+    .replace(/\[\[c:(\w+)\]\]([\s\S]*?)\[\[\/c\]\]/g, (m, c, t) => ANN_COLORS.includes(c) ? `<span class="af-c af-${c}">${t}</span>` : t);
+  const out = []; let list = null;
+  const close = () => { if (list) { out.push({ b: `<${list.tag} class="af-list">${list.items.join("")}</${list.tag}>` }); list = null; } };
+  for (const line of inline(html).split("\n")) {
+    let m;
+    if ((m = line.match(/^\s*(?:[-•▪]|\*(?!\*))\s+(.*)$/))) { if (!list || list.tag !== "ul") { close(); list = { tag: "ul", items: [] }; } list.items.push(`<li>${m[1]}</li>`); continue; }
+    if ((m = line.match(/^\s*(\d{1,3})[.)]\s+(.*)$/))) { if (!list || list.tag !== "ol") { close(); list = { tag: "ol", items: [] }; } list.items.push(`<li value="${m[1]}">${m[2]}</li>`); continue; }
+    close();
+    if ((m = line.match(/^##\s+(.*)$/))) out.push({ b: `<div class="af-h2">${m[1]}</div>` });
+    else if ((m = line.match(/^#\s+(.*)$/))) out.push({ b: `<div class="af-h1">${m[1]}</div>` });
+    else if ((m = line.match(/^&gt;\s?(.*)$/))) out.push({ b: `<div class="af-quote">${m[1]}</div>` });
+    else if (/^\s*(---+|———*|___+)\s*$/.test(line)) out.push({ b: '<hr class="af-hr">' });
+    else out.push({ t: line });
+  }
+  close();
+  // text lines keep their line breaks; blocks sit between them without extra blank lines
+  let s = "";
+  out.forEach((x, i) => { if (x.b) s += x.b; else s += x.t + (out[i + 1] && out[i + 1].t !== undefined ? "\n" : ""); });
+  return s;
+}

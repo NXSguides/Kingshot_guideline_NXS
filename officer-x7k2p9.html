@@ -615,6 +615,12 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-title" content="NXS">
+<style>
+  .fmt-bar { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; margin: 4px 0 6px; }
+  .fmt-bar button, .fmt-bar select { min-width: 36px; height: 34px; padding: 0 8px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-size: 14px; cursor: pointer; }
+  .fmt-bar select { width: auto; }
+  .fmt-sep { width: 1px; height: 22px; background: var(--rule); margin: 0 2px; }
+</style>
 </head>
 <body>
 <div class="wrap" id="main">
@@ -874,6 +880,12 @@
       <input type="text" id="annTitle" maxlength="120">
 
       <label class="f"><span data-t="fBody"></span> <small data-t="fBodyNote"></small></label>
+      <div class="fmt-bar" id="fmtBar" role="toolbar">
+        <button type="button" data-fmt="b" style="font-weight:800">B</button><button type="button" data-fmt="i" style="font-style:italic;font-family:Georgia,serif">I</button><button type="button" data-fmt="u" style="text-decoration:underline">U</button><button type="button" data-fmt="s" style="text-decoration:line-through">S</button><button type="button" data-fmt="hl"><span class="af-hl">A</span></button>
+        <select data-fmt="c" id="fmtColor"></select>
+        <span class="fmt-sep"></span>
+        <button type="button" data-fmt="h1" style="font-weight:800">H1</button><button type="button" data-fmt="h2" style="font-weight:700">H2</button><button type="button" data-fmt="ul">• ≡</button><button type="button" data-fmt="ol">1.≡</button><button type="button" data-fmt="q">❝</button><button type="button" data-fmt="hr">―</button>
+      </div>
       <textarea id="body"></textarea>
       <div class="row" style="margin-top:8px">
         <label class="btn" for="imgPick">🖼️ <span data-t="addImg"></span></label>
