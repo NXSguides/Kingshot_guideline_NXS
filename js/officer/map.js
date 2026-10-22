@@ -880,9 +880,10 @@ function onShow() {
 async function init() {
   await loadScripts(["data/kingdom-map.js"]);
   G = KINGDOM_MAP; build(); await loadPlan(); exportOutposts(PLAN); importFromLink(); drawMap(); $("km_svg").classList.toggle("terr", terrOn); drawPlan(); drawFlags(); flagEvents(); applyTexts(); ready = true; loadGrid(); loadEx(); loadOt();
+  if (window.MemberMap) MemberMap.init(G);   // 👥 member positions (js/officer/members.js)
   $("km_in").onclick = () => setZoom(Z * 1.5); $("km_out").onclick = () => setZoom(Z / 1.5);
   mouseControls();
 }
-function setLang(l) { lang = l; applyTexts(); }
+function setLang(l) { lang = l; applyTexts(); if (window.MemberMap) MemberMap.setLang(l); }
 OFFICER_PAGES.map = { init, onShow, applyTexts, setLang };
 })();

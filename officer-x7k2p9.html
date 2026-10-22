@@ -623,6 +623,17 @@
   .fmt-bar .fmt-demo { width: auto; font-weight: 600; }
   .fmt-demo-note { margin: 0 0 6px; padding: 8px 10px; border-radius: 8px; background: color-mix(in srgb, var(--accent) 14%, var(--panel-2)); font-size: 13px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 </style>
+<style>
+  .km-members .mm-map { overflow: auto; max-height: 70vh; border-radius: 10px; background: #3f5f27; -webkit-overflow-scrolling: touch; }
+  .km-members .mm-c, .km-members .mm-b { cursor: pointer; }
+  .km-members .mm-n { font: 700 10px Arial, sans-serif; fill: #1c2433; pointer-events: none; }
+  .km-members .mm-bl { font: 800 14px Arial, sans-serif; fill: #fff; pointer-events: none; }
+  .km-members .mm-info { margin: 8px 0; font-size: 14px; min-height: 1.4em; }
+  .km-members .mm-ed .inp { width: 80px; display: inline-block; }
+  .km-members .mm-l { font-size: 13px; margin: 6px 0; line-height: 1.9; }
+  .km-members .mm-chip { display: inline-block; padding: 0 8px; border-radius: 10px; background: var(--panel-2); border: 1px solid var(--rule); font-size: 12.5px; }
+  .km-members .mm-chip.warn { background: #f3b46b33; border-color: #f3b46b; cursor: pointer; }
+</style>
 </head>
 <body>
 <div class="wrap" id="main">
@@ -1182,6 +1193,7 @@
   </div>
   <div class="km-savebar" id="km_saveBar" hidden></div>
   <div class="km-info" id="km_info"></div>
+  <div class="card km-members" id="km_members" style="margin-top:14px"></div>
   <div class="card km-flags" id="km_flags" style="margin-top:14px"></div>
   <div class="card km-mp" id="km_mp"></div>
   <div class="muted" id="km_orient" style="font-size:12px;margin-top:6px"></div>
@@ -1201,6 +1213,7 @@
 <script src="js/officer/scout.js"></script>
 <script src="js/officer/views.js"></script>
 <script src="js/officer/map.js"></script>
+<script src="js/officer/members.js"></script>
 <script src="js/officer/bt.js"></script>
 <script src="js/officer/board.js"></script>
 <script src="js/officer/perms.js"></script>
