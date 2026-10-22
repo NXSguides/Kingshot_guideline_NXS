@@ -620,6 +620,8 @@
   .fmt-bar button, .fmt-bar select { min-width: 36px; height: 34px; padding: 0 8px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-size: 14px; cursor: pointer; }
   #pg-post .fmt-bar select { width: auto; max-width: 110px; flex: 0 0 auto; min-width: 64px; height: 34px; padding: 0 6px; margin: 0; font-size: 14px; }   /* the 🎨 menu stays a small button in the row */
   .fmt-sep { width: 1px; height: 22px; background: var(--rule); margin: 0 2px; }
+  .fmt-bar .fmt-demo { width: auto; font-weight: 600; }
+  .fmt-demo-note { margin: 0 0 6px; padding: 8px 10px; border-radius: 8px; background: color-mix(in srgb, var(--accent) 14%, var(--panel-2)); font-size: 13px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 </style>
 </head>
 <body>
@@ -885,7 +887,9 @@
         <select data-fmt="c" id="fmtColor"></select><select id="fmtFont"></select>
         <span class="fmt-sep"></span>
         <button type="button" data-fmt="h1" style="font-weight:800">H1</button><button type="button" data-fmt="h2" style="font-weight:700">H2</button><select id="fmtBullet"></select><button type="button" data-fmt="ol">1.≡</button><button type="button" data-fmt="out">⇤</button><button type="button" data-fmt="in">⇥</button><button type="button" data-fmt="q">❝</button><button type="button" data-fmt="hr">―</button>
+        <span class="fmt-sep"></span><button type="button" id="fmtDemo" class="fmt-demo">🐦 <span data-t="demoBtn"></span></button>
       </div>
+      <div class="fmt-demo-note" id="fmtDemoNote" hidden><span data-t="demoNote"></span> <button type="button" class="btn small" id="fmtDemoBack">↩️ <span data-t="demoBack"></span></button></div>
       <textarea id="body"></textarea>
       <div class="row" style="margin-top:8px">
         <label class="btn" for="imgPick">🖼️ <span data-t="addImg"></span></label>
