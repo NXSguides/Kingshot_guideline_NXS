@@ -505,7 +505,7 @@
   async function notifCore() {
     if (!canPush()) return `<div class="tm-note">${esc(isIOS && !standalone() ? T("ios") : T("noPush"))}<br><span class="tm-a">${esc(T("local"))}</span></div>`;
     if (Notification.permission === "denied") {   // blocked in the BROWSER for this site (Windows / phone settings can still say "allowed")
-      const pc = !/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+      const pc = !/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) && !isIOS;   // an iPad says "Macintosh" — isIOS catches it
       return `<div class="tm-note">${esc(T(pc ? "blockedPc" : "blocked"))}</div>`;
     }
     const sub = Notification.permission === "granted" ? await getSub() : null;
