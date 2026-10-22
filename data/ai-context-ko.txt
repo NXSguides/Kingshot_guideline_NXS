@@ -188,7 +188,7 @@ Truegold Dust 이전: 시련 결정을 모으세요
 어떤 권한도 요청하지 않습니다 (카메라, 연락처, 위치, 파일 없음). 알림은 선택 사항이에요: ⏰ 알림을 직접 켤 때만 물어봐요.
 언제든 삭제 가능: 일반 앱처럼 아이콘을 길게 눌러 삭제하면 됩니다.
 iPhone / iPad
-Safari로 이 사이트를 여세요 (다른 브라우저로는 설치할 수 없습니다).
+Safari로 이 사이트를 여세요 (가장 추천). iOS 16.4 이상에서는 Chrome도 됩니다: Chrome의 공유 버튼을 누르고 같은 단계를 따르세요.
 하단의 공유 버튼(화살표가 있는 네모)을 누르세요.
 View More(⌄ 버튼)를 눌러 전체 메뉴를 여세요. 이전 iOS 버전에서는 아래로 스크롤하면 됩니다.
 홈 화면에 추가를 누르세요.
@@ -1102,7 +1102,8 @@ iPhone / iPad: notifications only work from the app added to the Home Screen (Sa
 🔔 Reminders at the top of the site list the pushes received in the last 24 hours.
 If notifications don't come: open "🔧 Notifications not coming?" under the notifications line in the ⏰ panel. Common causes: blocked for this site/app (allow it in phone Settings → Notifications → NXS, or on a computer in the browser's site settings / on a Mac in System Settings → Notifications → the NXS app); the permission reset after a system or browser update or reinstall; Focus / Do Not Disturb / Low Power Mode; Android battery saving. Last resort: remove the app, add it again and tap Allow.
 Top-right buttons (installed app): 🔗 copy the link of this page (briefly shows ✓ when copied), ↻ refresh to the newest version, ☾ / ☀ dark / light mode. 🐦 brings Little Sparrow back if it was turned off.
-🐦 Little Sparrow (the bird by the Ask AI button) can walk you through the site: tap it, then pick a tour.
+🐦 Little Sparrow (the bird by the Ask AI button) can walk you through the site: tap it → 🎓 "How do I use…" → pick a tour: 🧭 What the buttons on the site do (language, 🔗, ↻, light/dark, Ask AI), ⏰ timers, 🔔 game reminders, or installing the app. The same tours are listed at the top of the Ask AI panel.
+The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-19 by ΔRMΔDΔ] 성검 쟁탈 미참석 관련 안내

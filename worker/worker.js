@@ -87,7 +87,8 @@ async function handle(req, env, ctx) {
       .filter((m) => m && (m.role === "user" || m.role === "model") && typeof m.text === "string")
       .map((m) => ({ role: m.role, parts: [{ text: m.text.slice(0, 1500) }] }));
 
-    const officer = await isOfficer(body, env);
+    const acc = await officerAccess(req, env, body);   // 🔒 Discord login + the 👥 table (which tabs this officer may open)
+    const officer = !!acc;
 
     // daily limit (checked now, counted only when an answer is actually given)
     let quota = null;
@@ -103,11 +104,13 @@ async function handle(req, env, ctx) {
       const at = context.indexOf("### GAME TERMS");
       if (at >= 0) { terms = context.slice(context.indexOf("\n", at) + 1).trim(); context = context.slice(0, at).trim(); }
       if (officer) {
-        context += "\n\n" + OFFICER_HELP;
-        try { context += "\n\n" + await getOfficer(env); }
+        context += "\n\n" + helpFor(acc.tabs);
+        try { const od = officerDataFor(await getOfficer(env), acc.tabs); if (od) context += "\n\n" + od; }
         catch (e) { context += "\n\n(OFFICER DATA is unavailable right now: " + e.message + ")"; }
-        try { context += "\n\n" + await getEvents(env); }
-        catch (e) { context += "\n\n(EVENTS DATA is unavailable right now: " + e.message + ")"; }
+        if (acc.tabs.has("events")) {
+          try { context += "\n\n" + await getEvents(env); }
+          catch (e) { context += "\n\n(EVENTS DATA is unavailable right now: " + e.message + ")"; }
+        }
       }
     } catch (e) { return json({ error: "site_unreachable" }, 502); }
 
@@ -126,13 +129,12 @@ async function handle(req, env, ctx) {
         "The guide #install-app is ONLY about adding the site to a phone's home screen — never link it for anything else.",
       "Never translate or change member names.",
       officer
-        ? "This user is a verified OFFICER: answer questions about members, roster, power, name changes, who left, other alliances from the OFFICER DATA section, " +
-          "and explain how to use the officer pages step by step from the OFFICER PAGES — HOW TO USE section (use the button names as written there). " +
-          "Answer event dates, to-dos and in-game guides from the EVENTS DATA section; when giving an in-game guide, copy its text exactly (it is pasted into the game) and keep separate messages separate. " +
-          "Officer pages you may link: [Roster](roster-x7k2p9.html) (member ranking, power, TC, Mystic Trial, battle tables), " +
-          "[Watch](watch-x7k2p9.html) (name changes, power history, who left/joined, notes), [Events](events-x7k2p9.html) (week calendar, officer to-dos, in-game guides to copy, add/edit events), " +
-          "[Post](post-k4m8q2.html) (post / edit announcements), [Scout](officer-x7k2p9.html#scout) (top players of other kingdoms), " +
-          "[Map](officer-x7k2p9.html#map) (kingdom map, Outpost plan, member positions), [Board](officer-x7k2p9.html#board), [Attendance](officer-x7k2p9.html#attend), [Move](officer-x7k2p9.html#move) (alliance move, admins only). " +
+        ? "This user is a verified OFFICER (" + acc.role + "). Tabs this officer may open: " + [...acc.tabs].map((t) => AI_TAB_NAMES[t] || t).join(", ") + ". " +
+          "Answer from the OFFICER PAGES — HOW TO USE section (use the button names as written there), the OFFICER DATA and the EVENTS DATA below — they only contain what this officer may see. " +
+          "If asked about another officer tab, its data, or something not in those sections that sounds internal (members' notes, other officers' settings, who has which permission), " +
+          "reply only with one short sentence meaning \"You don't have access to that tab — an admin can give it on the 👥 Officers tab.\" in the reply language; do not describe what is there. " +
+          "When giving an in-game guide from EVENTS DATA, copy its text exactly (it is pasted into the game) and keep separate messages separate. " +
+          "Officer pages you may link: " + [...acc.tabs].filter((t) => AI_TAB_LINKS[t]).map((t) => AI_TAB_LINKS[t]).join(", ") + ". " +
           "For questions about officer pages, members or the roster, the 📖 line links the matching officer page above, not a guide."
         : "This user has no special access. If asked about member stats, rosters, power rankings, who joined/left/renamed, other alliances, " +
           "hidden or admin pages, or anything else not in the SITE CONTENT that sounds internal, reply only with one short sentence meaning " +
@@ -153,7 +155,7 @@ async function handle(req, env, ctx) {
       const res = wantStream ? await geminiStream(env, model, system, contents) : await gemini(env, model, system, contents);
       if (res.answer) {
         const left = quota ? await quota.count() : null;
-        return json({ answer: res.answer, officer, left });
+        return json({ answer: res.answer, officer, left, token: acc ? acc.token : undefined });
       }
       if (res.stream) {
         // first text already arrived → send the rest as it comes: one JSON object per line
@@ -164,7 +166,7 @@ async function handle(req, env, ctx) {
         const w = writable.getWriter();
         (async () => {
           try {
-            await w.write(enc.encode(JSON.stringify({ meta: { officer, left } }) + "\n"));
+            await w.write(enc.encode(JSON.stringify({ meta: { officer, left, token: acc ? acc.token : undefined } }) + "\n"));
             await w.write(enc.encode(JSON.stringify({ t: res.first }) + "\n"));
             for await (const piece of res.stream) if (piece) await w.write(enc.encode(JSON.stringify({ t: piece }) + "\n"));
             await w.write(enc.encode(JSON.stringify({ done: 1 }) + "\n"));
@@ -300,21 +302,25 @@ async function check(req, env) {
 }
 
 /* ---------- Officer handbook: how to use the hidden officer pages (sent to verified officers only) ----------
-   Edit freely — plain text. Add your alliance's own rules at the end. */
+   Edit freely — plain text. Add your alliance's own rules at the end.
+   🔒 Follows the 👥 table: a line "@tab" makes the lines after it (until the next blank line) belong to that tab;
+   "[tab] " at the start of a line does it for one line. Officers only get the parts of tabs they may open.
+   Untagged lines are for every officer. New feature? Update this AND js/sparrow.js (scripts/check-help.js checks). */
 const OFFICER_HELP = `
 ### OFFICER PAGES — HOW TO USE (officers only)
 GETTING IN
 - Officers log in with Discord. Only people added on the 👥 Officers tab (by an admin, with their Discord ID) can get in. On the main site, tap the title "NXS Guidelines" 5 times quickly (within 2 seconds), or tap the 📋 button at the top right (shown once this browser has logged in) → log in with Discord. The old officer password alone no longer opens the officer pages.
 - Each tab can be ✏️ Edit, 👁️ View or hidden per officer (👥 Officers tab, admins only). A new officer starts with 📅 Events, 💬 Board and 🗺️ Map as view-only. If a tab is missing, ask an admin (Sherry) to give it.
 - All officer tabs are one page now (officer-x7k2p9.html); switching tabs is instant and you log in once. The tabs, in order: 📅 Events (中文: 活動排程), 💬 Board (討論板), 🗺️ Map (王國地圖), 🚚 Move (搬家, admins unless given), 📊 Ranking (成員排序), 📋 Attendance (出席), 📢 Post (發布公告), 🕵️ Watch (觀察名單), 🔭 Scout (偵察), 📈 Views (網站瀏覽), 👥 Officers (幹部, admins only). Each officer only sees the tabs the 👥 table gives them.
-- 📈 Views (中文: 網站瀏覽): site statistics — visitors per day, which guides and languages people open, countries, where they came from, devices; 7 / 30 / 90 days. Counting is GoatCounter, anonymous (no cookies, names or IPs). NOT counted: any browser with the officer password saved (officers test the site all day), and the officer page itself. So "this browser: not counted" on the Views tab is normal for every officer. If it says the token is not set: Cloudflare Worker → Settings → Variables and Secrets → add GOATCOUNTER_TOKEN (GoatCounter → Settings → API → new token with "Read statistics").
-- 🗺️ Map (中文: 王國地圖): kingdom map, Outpost buffs and the shared Outpost plan — see the 🗺️ MAP section below.
+[views] - 📈 Views (中文: 網站瀏覽): site statistics — visitors per day, which guides and languages people open, countries, where they came from, devices; 7 / 30 / 90 days. Counting is GoatCounter, anonymous (no cookies, names or IPs). NOT counted: any browser where an officer has logged in to the officer page (officers test the site all day), and the officer page itself. So "this browser: not counted" on the Views tab is normal for every officer. If it says the token is not set: Cloudflare Worker → Settings → Variables and Secrets → add GOATCOUNTER_TOKEN (GoatCounter → Settings → API → new token with "Read statistics").
+[map] - 🗺️ Map (中文: 王國地圖): kingdom map, Outpost buffs and the shared Outpost plan — see the 🗺️ MAP section below.
 - Language: officer pages are in English, 中文, Português, العربية and 한국어 (the language button on any tab switches all tabs together).
 - When answering in Chinese, call the tabs by their 中文 names above (they are what officers see on screen).
-- Events tab → "⏰ Our event times (UTC)" (中文: 我們的活動時間): officers set the times we pick for Bear Hunt, Swordland, Tri-Alliance Clash, Viking Vengeance and Cesares Fury (e.g. 13:00, 22:00; Cesares Fury 22:35) and press Save. Used by the home page "Today & this week" card and everyone's ⏰ Game reminders. The same card has "Next Bear day (UTC)" (中文: 下一個熊日): if the game moves Bear Hunt to another day, set the new date there and Save — the home page, the officer calendar and to-dos, and everyone's ⏰ reminders all follow (Bear Hunt then repeats every 2 days from that date). Bear Hunt times changed? Change them in the same card.
-- Events tab also lists Sanctuary Battle (中文: 遺跡爭奪): every week Tue 00:00 – Fri 24:00 UTC (sign-up first, R4+ picks 3 time slots, the contest happens at the slot most alliances voted; 1 Sanctuary + 1 Fortress per week, last week's Sanctuaries are signed up automatically). Its in-game guides: the rally call (exactly 70,080 troops: 35,040 Inf / 14,016 Cav / 21,024 Arc, rally from home, no solo attacks) and the defence swap after a capture (Howard/Gordon 60:20:20 = 42,048/14,016/14,016; send defence right after the rally departs, wait 20 s, don't speed up).
+[events] - Events tab → "⏰ Our event times (UTC)" (中文: 我們的活動時間): officers set the times we pick for Bear Hunt, Swordland, Tri-Alliance Clash, Viking Vengeance and Cesares Fury (e.g. 13:00, 22:00; Cesares Fury 22:35) and press Save. Used by the home page "Today & this week" card and everyone's ⏰ Game reminders. The same card has "Next Bear day (UTC)" (中文: 下一個熊日): if the game moves Bear Hunt to another day, set the new date there and Save — the home page, the officer calendar and to-dos, and everyone's ⏰ reminders all follow (Bear Hunt then repeats every 2 days from that date). Bear Hunt times changed? Change them in the same card.
+[events] - Events tab also lists Sanctuary Battle (中文: 遺跡爭奪): every week Tue 00:00 – Fri 24:00 UTC (sign-up first, R4+ picks 3 time slots, the contest happens at the slot most alliances voted; 1 Sanctuary + 1 Fortress per week, last week's Sanctuaries are signed up automatically). Its in-game guides: the rally call (exactly 70,080 troops: 35,040 Inf / 14,016 Cav / 21,024 Arc, rally from home, no solo attacks) and the defence swap after a capture (Howard/Gordon 60:20:20 = 42,048/14,016/14,016; send defence right after the rally departs, wait 20 s, don't speed up).
 - Member data updates automatically every day at 20:13 UTC. If a page says "No data yet": GitHub → Actions → "Update Roster (MightPulse)" → Run workflow, then reload.
 
+@ranking
 📊 RANKING (roster-x7k2p9.html) — pick event participants and split them into groups
 ① Weights: Total Power vs Mystic Trial; the two always add up to 100%.
 ② Tick this event's participants: tick names, use Select all / Clear, or "Paste a sign-up list" (one name per line or comma-separated; decorations like ♛ and the Nexus tag can be left out; case doesn't matter). "(?)" means several players match — tick that one by hand. Names not found are listed.
@@ -322,6 +328,7 @@ GETTING IN
 ④ Event groups: pick an event (e.g. Swordland Showdown: 4 Attackers, 6 Defenders, everyone else Joiners). Group sizes can be changed and are remembered. Groups follow the ranking. "Copy result" copies the groups for chat.
 ⑤ Battle table: set stages, targets and columns (comma-separated). "Fill a first draft from the ranking" uses the Attackers/Defenders numbers from ④. Tap a name, then tap a box (drag on a computer); × removes. "+ text" adds free text (e.g. "Stays behind"). "Short names" drops decorations. Output: 🖼️ Make image (phone: press and hold the picture to save), 📋 Copy text, or 📢 Use in a new announcement. The table is saved on this device only.
 
+@post
 📢 POST (post-k4m8q2.html) — announcements in all 12 languages
 - Write: your name, the language you write in (write in your own language), title, message. **text** = bold; links work; "Add picture" inserts at the cursor. Optional "Button to a guide". Check Preview, then 📢 Publish. The translated announcement appears on the site in about 2–3 minutes.
 - List: newest first. Delete removes it in all languages.
@@ -333,6 +340,7 @@ GETTING IN
 - "More" (site owner only): forget the password on this device, redo the setup (new GitHub token / new officer password — always do this from an unlocked Post page so the data key is re-locked too), 🔐 Officer data encryption (shows the data key).
 - Error "The saved GitHub key no longer works": the token expired → Sherry redoes the setup.
 
+@watch
 🕵️ WATCH (watch-x7k2p9.html) — who joined, left, renamed, and where they came from
 - The table shows every member: power and kills (with change over the last days of saved data), TC, kingdom, language, "In NXS since", earlier names, other alliances they were seen in, similar names elsewhere, last login, flags.
 - Flags are hints only, not proof: New (joined within the "New" days setting), From kingdom X, Renamed, Was in <watched alliance>, Similar name in…, Power dropped, Check Record (new member nobody has checked yet — shown first).
@@ -341,6 +349,7 @@ GETTING IN
 - "Left NXS" lists members who left, when, and where they were seen since.
 - Export: 📋 Copy for Google Sheets (paste into cell A1) or ⬇️ Download CSV — includes officers' notes.
 
+@events
 📅 EVENTS (events-x7k2p9.html) — the first officer tab: week calendar, officer to-dos, and in-game guides
 - Calendar (中文: 活動): one long strip of days in UTC (game day starts 00:00 UTC), two weeks back to ten weeks ahead; scroll sideways. Today is underlined, a dashed line marks each Monday, every event run is one bar (bars that started earlier keep their name in view). Filled bar = running now; a bar with ✅ has open action items (tap → jumps to them); tapping any other bar opens that event's entry below.
 - 👑 Kingdom #2189 milestones (王國里程碑): a gold row at the top of the calendar strip, and a fold-out list under it ("Kingdom #2189 milestones · next: …"). Dates (UTC): 2026-11-09 Truegold 5, Gov Charm Material Exchange, 4th Master (Cassia) · 2026-11-30 Governor Charm cap raised (Lv.12+) · 2026-12-21 Gen 4 Heroes (Alcar, Margot, Rosa), Gen 4 Pets, 5th & 6th Masters (Guinevere, Wilson) · 2027-01-18 War Academy (T11 troops) · 2027-03-15 Gen 5 Heroes, Gen 5 Pets, 7th & 8th Masters (Isnor, Aena) · 2027-04-26 Truegold 8 · 2027-06-07 Gen 6 Heroes & Pets · 2027-08-01 First Flamedragon Tyrant Competition · 2027-08-30 Gen 7 Heroes & Pets · 2027-10-11 Advanced Truegold Research · 2027-11-22 Gen 8 Heroes · 2028-02-14 Gen 9 Heroes (predicted) · 2028-03-27 Truegold 10. (Masters, Gen 3 Heroes & Pets unlocked 2026-09-28.) These are projections and can move.
@@ -349,13 +358,14 @@ GETTING IN
 - ✏️ next to a message edits just that message (title and text, live character count) → 💾 Save.
 - ✏️ Edit at the bottom of an event changes the whole event: emoji, name (中文 / English), "Repeats on a fixed schedule" (first day in UTC, repeats every … days, lasts … days), note (e.g. times), guide on the site, action items (days before (−) / after the start, text in 中文 and English, show an announcement / Ranking button), and the in-game messages (+ Message, ✕ removes). "Delete event" removes it.
 - + New event adds an event. Events without a fixed schedule only appear in the list, not in the calendar.
-- 📊 Ranking tab → "📋 Plan" (中文: 方案) at the top: "🔒 Only on this device" (default, private) or a shared plan made with "+ New shared plan" (e.g. "Legion 1"). In a shared plan every officer sees the same ticked participants, weights, group sizes and battle table; changes show for the others within about 10 seconds. Two officers ticking at the same time don't undo each other. Rename / Delete buttons next to it.
-- 📢 Post tab → "Auto-delete" (中文: 自動刪除) under the guide button: Never / when today ends (00:00 UTC) / when tomorrow ends / after 1, 2, 3 or 7 days / pick a date & time (UTC). The announcement disappears from the site on time by itself (the files are cleaned up within the hour). The list shows "🗑️ auto-delete …". To change or remove the time: Edit → Edit the whole announcement → change Auto-delete → Save (it is not translated again).
+[ranking] - 📊 Ranking tab → "📋 Plan" (中文: 方案) at the top: "🔒 Only on this device" (default, private) or a shared plan made with "+ New shared plan" (e.g. "Legion 1"). In a shared plan every officer sees the same ticked participants, weights, group sizes and battle table; changes show for the others within about 10 seconds. Two officers ticking at the same time don't undo each other. Rename / Delete buttons next to it.
+[post] - 📢 Post tab → "Auto-delete" (中文: 自動刪除) under the guide button: Never / when today ends (00:00 UTC) / when tomorrow ends / after 1, 2, 3 or 7 days / pick a date & time (UTC). The announcement disappears from the site on time by itself (the files are cleaned up within the hour). The list shows "🗑️ auto-delete …". To change or remove the time: Edit → Edit the whole announcement → change Auto-delete → Save (it is not translated again).
 - Changes are saved on the site for all officers (other officers see them after refreshing, about 1 minute). Saving uses the same GitHub key as the Post tab; "Someone else changed the events meanwhile" → refresh and try again. The event texts are encrypted like the other officer data.
 - Changing the dates of KvK, Viking Vengeance, Swordland Showdown, Tri-Alliance Clash, Eternity's Reach, All Out, Fishing Tournament, Hero Roulette or Cesares Fury also changes when the main site shows those guide buttons on Recent Events.
 - If the in-game calendar differs from the page, the game is right — fix the dates with ✏️ Edit.
 - The current events, schedules, notes, action items and in-game guide texts are in the EVENTS DATA section below — use it to answer "when is the next …" or "what is the in-game guide for …" (quote in-game guide texts exactly, they are meant to be pasted into the game).
 
+@map
 🗺️ MAP (officer-x7k2p9.html#map; 中文: 王國地圖) — Kingdom #2189 buildings, Outpost buffs, and the alliance's Outpost plan
 - The map: same direction as the in-game World map (up = bigger X and Y). King's Castle X597 Y597 in the middle; Fortress 1–4 around it (F1 X597 Y800, F2 X400 Y597, F3 X597 Y400, F4 X800 Y597); Sanctuary 1–12 in the outer ring (S1 X237 Y828, S2 X237 Y606, S3 X237 Y348, S4 X366 Y237, S5 X588 Y237, S6 X846 Y237, S7 X957 Y348, S8 X957 Y606, S9 X957 Y828, S10 X846 Y957, S11 X606 Y957, S12 X366 Y957); 74 Outposts as coloured squares, the number = level.
 - Tap a building on the map, or a coordinate in the list below it: the map moves there, a yellow ring marks it, and the bar under the map shows name, level, buff and coordinates with a Copy button (copies "X:… Y:…"). + / − zoom; on phones the map starts zoomed in and can be dragged.
@@ -370,20 +380,21 @@ GETTING IN
 - When answering in Chinese, use the Chinese names above (they match the in-game 據點爭奪 screen: 據點 Outpost, 遺跡 Sanctuary / Ruins tab, 要塞 Fortress, 王城 King's Castle).
 
 NEWER TOOLS (officers)
-- 📢 Post → writing: a Word-like toolbar above the message (select text first): B / I / U / S, highlighter, 🎨 colour, Aa font (Latin letters only; other scripts keep the normal font), H1 / H2 headings, • ≡ bullet list with a chosen symbol, 1.≡ numbered list, ⇤ ⇥ (or Tab / Shift+Tab) to indent list lines, ❝ quote box, ― line. Pasting from ChatGPT, Word or Google Docs keeps the formatting. "🐦 Example" fills the form with a demo of every button (↩️ brings your text back; the example can't be published). The formatting is kept in every language.
-- 📢 Post → "Look" (樣式): Plain, 📜 Scroll, or a theme (⚔️ Swordland Showdown, ⛵ Viking Vengeance) that adds the event picture on top; the banner colour can be picked next to it (never red). The scroll grows with the text. Changing the look later with Edit doesn't translate again.
-- 📅 Events → "📣 Announcement draft" (公告草稿): "UPCOMING KEY EVENTS" with our times for the next 3/5/7 days, ready to paste in game (300-character limit, counter shown; tick which events go in). Each to-do card also has "📣 Game post" (遊戲公告) for a one-event reminder.
-- 📅 Events → "⏰ Our event times": a time can be tied to a battle day with @, e.g. "22:00@1, 13:00@3" (Viking: Day 1 22:00, Day 3 13:00).
-- 📊 Ranking → ⑤ Battle table: "⚔️ Swordland rules draft" fills Phase 1, Phase 2 and Stay behind from the ranking (subs left out); ↩️ Undo next to the plan picker; 🕘 Version history to bring back an earlier saved table.
-- 🗺️ Map → "👥 Member positions" (成員位置): our block drawn like the in-game map (every member's city, Bear Traps, HQ, banners, mountains/lakes from the map). Search a name or tap a city for X:Y and a copy button. Editors: tap a city to change name / X / Y, or "📋 Paste positions" (one per line: name X Y; the box opens with the current list — fix it and press "Replace all"), then 💾 Save. Names are kept exactly as typed; blue = found on the roster, orange = not found.
-- 🚚 Move (搬家, its own tab): only admins see it unless the 👥 table gives it. Load the moving plan (.json saved from the layout planner, cities named), 📍 Now / 🧭 Plan maps, and the moving table: each member's current X:Y → new spot (tap to copy), ✓ Moved, progress bar, "Only not moved yet". A member whose current position on 🗺️ Map already equals the new spot gets ✅ automatically. "➕ Add / change a spot" gives someone a spot or moves them; their old spot becomes free.
-- 💬 Board (討論板): topics translated into 中文 / English / Português / العربية / 한국어; @ mentions, 📋 Assign to (makes a task with ✅ Done), 🖼️ pictures, 📌 Set as decision. "Tasks for you" lists what you were assigned or @'d in.
-- 📋 Attendance (出席): sheets made from a shared Ranking plan; ① Confirmed (tap = sub), add people by pasting names, 📷 voter screenshots or by hand; ② after the battle tap ✓ showed up → X no-show → 🛌 excused; repeat misses turn orange (2nd) and red (3rd). Save / Copy for Discord.
-- 👥 Officers (幹部, admins only): one row per officer; per tab ✏️ Edit / 👁️ View / — Hidden (saves by itself); 🔔 which events they get officer to-do reminders for; 👁️ Preview as; + Add officer (name + 18-digit Discord ID).
+[post] - 📢 Post → writing: a Word-like toolbar above the message (select text first): B / I / U / S, highlighter, 🎨 colour, Aa font (Latin letters only; other scripts keep the normal font), H1 / H2 headings, • ≡ bullet list with a chosen symbol, 1.≡ numbered list, ⇤ ⇥ (or Tab / Shift+Tab) to indent list lines, ❝ quote box, ― line. Pasting from ChatGPT, Word or Google Docs keeps the formatting. "🐦 Example" fills the form with a demo of every button (↩️ brings your text back; the example can't be published). The formatting is kept in every language.
+[post] - 📢 Post → "Look" (樣式): Plain, 📜 Scroll, or a theme (⚔️ Swordland Showdown, ⛵ Viking Vengeance) that adds the event picture on top; the banner colour can be picked next to it (never red). The scroll grows with the text. Changing the look later with Edit doesn't translate again.
+[events] - 📅 Events → "📣 Announcement draft" (公告草稿): "UPCOMING KEY EVENTS" with our times for the next 3/5/7 days, ready to paste in game (300-character limit, counter shown; tick which events go in). Each to-do card also has "📣 Game post" (遊戲公告) for a one-event reminder.
+[events] - 📅 Events → "⏰ Our event times": a time can be tied to a battle day with @, e.g. "22:00@1, 13:00@3" (Viking: Day 1 22:00, Day 3 13:00).
+[ranking] - 📊 Ranking → ⑤ Battle table: "⚔️ Swordland rules draft" fills Phase 1, Phase 2 and Stay behind from the ranking (subs left out); ↩️ Undo next to the plan picker; 🕘 Version history to bring back an earlier saved table.
+[map] - 🗺️ Map → "👥 Member positions" (成員位置): our block drawn like the in-game map (every member's city, Bear Traps, HQ, banners, mountains/lakes from the map). Search a name or tap a city for X:Y and a copy button. Editors: tap a city to change name / X / Y, or "📋 Paste positions" (one per line: name X Y; the box opens with the current list — fix it and press "Replace all"), then 💾 Save. Names are kept exactly as typed; blue = found on the roster, orange = not found.
+[move] - 🚚 Move (搬家, its own tab): only admins see it unless the 👥 table gives it. Load the moving plan (.json saved from the layout planner, cities named), 📍 Now / 🧭 Plan maps, and the moving table: each member's current X:Y → new spot (tap to copy), ✓ Moved, progress bar, "Only not moved yet". A member whose current position on 🗺️ Map already equals the new spot gets ✅ automatically. "➕ Add / change a spot" gives someone a spot or moves them; their old spot becomes free.
+[board] - 💬 Board (討論板): topics translated into 中文 / English / Português / العربية / 한국어; @ mentions, 📋 Assign to (makes a task with ✅ Done), 🖼️ pictures, 📌 Set as decision. "Tasks for you" lists what you were assigned or @'d in.
+[attend] - 📋 Attendance (出席): sheets made from a shared Ranking plan; ① Confirmed (tap = sub), add people by pasting names, 📷 voter screenshots or by hand; ② after the battle tap ✓ showed up → X no-show → 🛌 excused; repeat misses turn orange (2nd) and red (3rd). Save / Copy for Discord.
+[perms] - 👥 Officers (幹部, admins only): one row per officer; per tab ✏️ Edit / 👁️ View / — Hidden (saves by itself); 🔔 which events they get officer to-do reminders for; 👁️ Preview as; + Add officer (name + 18-digit Discord ID).
 
 AI ASSISTANT
-- The chat recognises an officer automatically when this browser has the saved officer login (or an officer page was unlocked in this tab). Officers have no daily question limit and can ask about members, the officer pages and the events data.
+- The chat knows an officer by their Discord login on this browser (log in on the officer page once). It follows the 👥 table: it only explains and answers from the tabs this officer may open. Officers have no daily question limit.
 
+@scout
 🔭 SCOUT (officer-x7k2p9.html#scout) — the top players of other kingdoms (for KvK)
 - Type a kingdom number and press "Fetch now": a GitHub job reads that kingdom's top 20 players from MightPulse (power, Town Center, Mystic Trial score and rank, kills, VIP, alliance) and the kingdom's strongest alliances. It takes about 2–3 minutes; the page refreshes by itself.
 - Each scouted kingdom is a chip at the top: ⟳ fetches it again, ✕ removes it, "update daily" refreshes it every day at 20:25 UTC together with the roster (tick it for the KvK opponent).
@@ -478,6 +489,52 @@ async function isOfficer(body, env) {
   let diff = 0;
   for (let i = 0; i < 64; i++) diff |= proof.charCodeAt(i) ^ proofCache.charCodeAt(i);
   return diff === 0;
+}
+
+/* 🔒 Officer AI = logged in with Discord AND on the 👥 table. Returns which tabs they may open (admins: all),
+   so the AI only gets the handbook parts and data of those tabs. The old officer password / data-key proof no longer counts. */
+const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🚚 Move", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
+const AI_TAB_LINKS = {
+  events: "[Events](officer-x7k2p9.html#events) (week calendar, officer to-dos, in-game guides to copy, add/edit events)",
+  board: "[Board](officer-x7k2p9.html#board)", map: "[Map](officer-x7k2p9.html#map) (kingdom map, Outpost plan, member positions)",
+  move: "[Move](officer-x7k2p9.html#move) (alliance move)", ranking: "[Ranking](officer-x7k2p9.html#ranking) (member ranking, power, TC, Mystic Trial, battle tables)",
+  attend: "[Attendance](officer-x7k2p9.html#attend)", post: "[Post](officer-x7k2p9.html#post) (post / edit announcements)",
+  watch: "[Watch](officer-x7k2p9.html#watch) (name changes, power history, who left/joined, notes)", scout: "[Scout](officer-x7k2p9.html#scout) (top players of other kingdoms)",
+  views: "[Views](officer-x7k2p9.html#views)", perms: "[Officers](officer-x7k2p9.html#perms)",
+};
+async function officerAccess(req, env, body) {
+  if (!body || typeof body.token !== "string" || !body.token) return null;
+  let c; try { c = await sessionCheck(req, env, body.token); } catch (e) { return null; }
+  if (c.error || c.s.pw) return null;
+  const stub = env.TIMERS ? env.TIMERS.get(env.TIMERS.idFromName("all")) : null;
+  const perms = withSeed(stub ? await stub.kvGet("perms") : null), role = roleOf(perms, c.s.u.id);
+  if (!role) return null;
+  const u = (perms.users && perms.users[c.s.u.id]) || {};
+  const tabs = new Set(role === "admin" ? Object.keys(AI_TAB_NAMES) : Object.entries(u.perms || {}).filter(([, v]) => v === "view" || v === "edit").map(([k]) => k).filter((k) => k !== "perms"));
+  return { role, tabs, token: await seal(env, c.s) };
+}
+/* handbook parts for these tabs only (see the @tab / [tab] marks in OFFICER_HELP) */
+function helpFor(tabs) {
+  const out = []; let cur = null, m;
+  for (const line of OFFICER_HELP.split("\n")) {
+    if (!line.trim()) { cur = null; out.push(line); continue; }
+    if ((m = line.match(/^@(\w+)$/))) { cur = m[1]; continue; }
+    let tab = cur, text = line;
+    if ((m = line.match(/^\[(\w+)\] /))) { tab = m[1]; text = line.slice(m[0].length); }
+    if (!tab || tabs.has(tab)) out.push(text);
+  }
+  return out.join("\n").replace(/\n{3,}/g, "\n\n");
+}
+/* officer data parts (### headings from scripts/build-officer-context.js) → the tab that shows them; unknown parts: admins only */
+const DATA_TABS = [["ROSTER", ["ranking", "watch"]], ["WATCH", ["watch"]], ["OTHER ALLIANCES", ["watch"]], ["SCOUT", ["scout"]], ["OUTPOST PLAN", ["map"]]];
+function officerDataFor(text, tabs) {
+  const parts = String(text || "").split(/\n(?=### )/);
+  const keep = parts.filter((p) => {
+    if (!p.startsWith("### ")) return true;   // the "===== OFFICER DATA" title
+    const hit = DATA_TABS.find(([h]) => p.startsWith("### " + h));
+    return hit ? hit[1].some((t) => tabs.has(t)) : tabs.has("perms");
+  });
+  return keep.length > 1 ? keep.join("\n") : "";
 }
 
 /* officer files may be encrypted: { enc: 1, iv, data } with AES-GCM and DATA_KEY */

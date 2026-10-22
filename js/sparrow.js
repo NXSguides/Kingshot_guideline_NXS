@@ -94,6 +94,7 @@
       tm19: "🧮 BT calculator opens the Bear Hunt rally calculator — tapping a Bear reminder opens it too.",
       tm20: "🛠️ Admin reminders (officers): the to-dos from the officer Events tab, sent on the day they're due at the hour you pick, and 📍 Outpost reminders 10 minutes before one of ours turns Vulnerable.",
       tm21: "🔔 Reminders at the top of the site lists the pushes received in the last 24 hours; tap one to open it, ✓ Clear empties the list.", pick: "What do you want to learn?", tmr: "⏰ Set a timer", rem: "🎮 Game reminders", inst: "📲 Install as an app", back: "‹ Back", next: "Next ›", done: "Done ✓", stop: "✕ Stop", also: "Want me to show {x} too?", alsoYes: "Yes, show me", alsoNo: "No thanks",
+      site: "🧭 What the buttons on the site do", si01: "🌐 Language: tap one to read the whole site in that language.", si02: "🔗 Copies the link of the page you're on (shows ✓ when copied) — handy for sending a guide to someone.", si03: "↻ Refresh: loads the newest version of the site.", si04: "Light / dark mode: tap to switch.", si05: "💬 Ask the AI anything about the guides. The ⏰ in its title bar opens your timers and game reminders.",
       inst1: "This page shows how to install the site as an app. Read it carefully — on iPhone, notifications only work from the installed app." },
     zh: {
       tm01: "聊天標題列的 ⏰ 會打開「我的計時器」；再點一次就回到聊天。我來打開它…",
@@ -118,6 +119,7 @@
       tm19: "🧮 BT 計算器 會打開狩獵巨熊集結計算器——點巨熊提醒也會打開它。",
       tm20: "🛠️ 管理提醒（官員）：來自官員活動分頁的待辦事項，會在到期當天、你選的時刻送出，還有 📍 前哨提醒，在我們的前哨變成「可攻擊」前 10 分鐘送出。",
       tm21: "網站最上方的 🔔 提醒 會列出最近 24 小時收到的推播；點一則就會打開它，✓ 清除 會清空列表。", pick: "想學哪一個？", tmr: "⏰ 設定計時", rem: "🎮 遊戲提醒", inst: "📲 安裝成 App", back: "‹ 返回", next: "下一步 ›", done: "完成 ✓", stop: "✕ 停止", also: "要不要也順便講 {x}？", alsoYes: "好，講吧", alsoNo: "不用了",
+      site: "🧭 網站上的按鈕是做什麼的", si01: "🌐 語言：點一個，整個網站就換成那個語言。", si02: "🔗 複製你現在這一頁的連結（複製好會顯示 ✓），要傳攻略給別人很方便。", si03: "↻ 重新整理：載入網站的最新版本。", si04: "淺色／深色模式：點一下切換。", si05: "💬 攻略的問題都可以問 AI。它標題列的 ⏰ 會打開你的計時器和遊戲提醒。",
       inst1: "這一頁教你把網站安裝成 App。請仔細看，iPhone 一定要從安裝好的 App 才收得到通知。" },
     ko: {
       tm01: "채팅 헤더의 ⏰ 를 누르면 내 타이머가 열려. 다시 누르면 채팅으로 돌아가. 내가 열어 볼게…",
@@ -142,6 +144,7 @@
       tm19: "🧮 BT 계산기 를 누르면 곰 사냥 집결 계산기가 열려. 곰 알림을 눌러도 열려.",
       tm20: "🛠️ 관리 알림 (관리자용): 관리자 이벤트 탭의 할 일이 마감 당일, 네가 고른 시각에 와. 그리고 📍 전초기지 알림은 우리 전초기지가 취약 상태가 되기 10분 전에 와.",
       tm21: "사이트 맨 위의 🔔 알림 은 최근 24시간 동안 받은 푸시를 보여 줘. 하나를 누르면 열리고, ✓ 지우기 를 누르면 목록이 비워져.", pick: "무엇을 배울까요?", tmr: "⏰ 타이머 설정", rem: "🎮 게임 알림", inst: "📲 앱으로 설치", back: "‹ 뒤로", next: "다음 ›", done: "완료 ✓", stop: "✕ 중지", also: "{x}도 보여줄까요?", alsoYes: "응, 보여줘", alsoNo: "괜찮아",
+      site: "🧭 사이트 버튼 설명", si01: "🌐 언어: 하나를 누르면 사이트 전체가 그 언어로 바뀌어.", si02: "🔗 지금 보는 페이지의 링크를 복사해 (복사되면 ✓). 공략을 누구에게 보낼 때 편해.", si03: "↻ 새로고침: 사이트의 최신 버전을 불러와.", si04: "라이트 / 다크 모드: 누르면 바뀌어.", si05: "💬 공략에 대해 AI에게 뭐든 물어봐. 제목줄의 ⏰ 는 내 타이머와 게임 알림을 열어.",
       inst1: "이 페이지는 사이트를 앱으로 설치하는 방법이에요. 아이폰은 설치한 앱에서만 알림이 와요. 꼼꼼히 읽어 주세요." },
     de: {
       tm01: "⏰ oben im Chat öffnet Meine Timer; tipp noch mal darauf, um zum Chat zurückzukommen. Ich öffne es mal…",
@@ -166,6 +169,7 @@
       tm19: "🧮 BT-Rechner öffnet den Bärenjagd-Rally-Rechner — ein Tipp auf eine Bären-Erinnerung öffnet ihn auch.",
       tm20: "🛠️ Admin-Erinnerungen (Offiziere): die To-dos aus dem Events-Tab der Offiziere, am Fälligkeitstag zu der Stunde geschickt, die du wählst, und 📍 Außenposten-Erinnerungen 10 Minuten bevor einer von unseren Verwundbar wird.",
       tm21: "🔔 Erinnerungen oben auf der Seite listet die Pushes der letzten 24 Stunden; tipp auf einen, um ihn zu öffnen, ✓ Leeren leert die Liste.", pick: "Was willst du lernen?", tmr: "⏰ Timer stellen", rem: "🎮 Spiel-Erinnerungen", inst: "📲 Als App installieren", back: "‹ Zurück", next: "Weiter ›", done: "Fertig ✓", stop: "✕ Stopp", also: "Soll ich dir auch {x} zeigen?", alsoYes: "Ja, zeig mir", alsoNo: "Nein danke",
+      site: "🧭 Was die Knöpfe der Seite tun", si01: "🌐 Sprache: tippen, um die ganze Seite in dieser Sprache zu lesen.", si02: "🔗 Kopiert den Link der aktuellen Seite (zeigt ✓) — praktisch, um jemandem einen Guide zu schicken.", si03: "↻ Aktualisieren: lädt die neueste Version der Seite.", si04: "Hell / dunkel: tippen zum Umschalten.", si05: "💬 Frag die KI alles zu den Guides. Das ⏰ in ihrer Titelleiste öffnet deine Timer und Spiel-Erinnerungen.",
       inst1: "Diese Seite zeigt, wie du die Seite als App installierst. Lies sie genau – auf dem iPhone gibt es Benachrichtigungen nur in der App." },
     fr: {
       tm01: "⏰ en haut du chat ouvre Mes minuteurs ; touche-le encore pour revenir au chat. Je l'ouvre…",
@@ -190,6 +194,7 @@
       tm19: "🧮 Calculateur BT ouvre le calculateur de rallye Chasse à l'ours — toucher un rappel Ours l'ouvre aussi.",
       tm20: "🛠️ Rappels admin (officiers) : les tâches de l'onglet Événements des officiers, envoyées le jour de l'échéance à l'heure que tu choisis, et 📍 Rappels d'avant-poste 10 minutes avant qu'un des nôtres devienne Vulnérable.",
       tm21: "🔔 Rappels en haut du site liste les notifications push reçues dans les dernières 24 heures ; touches-en une pour l'ouvrir, ✓ Effacer vide la liste.", pick: "Tu veux apprendre quoi ?", tmr: "⏰ Mettre un minuteur", rem: "🎮 Rappels du jeu", inst: "📲 Installer en appli", back: "‹ Retour", next: "Suivant ›", done: "Terminé ✓", stop: "✕ Stop", also: "Je te montre aussi {x} ?", alsoYes: "Oui, montre-moi", alsoNo: "Non merci",
+      site: "🧭 À quoi servent les boutons du site", si01: "🌐 Langue : touche-en une pour lire tout le site dans cette langue.", si02: "🔗 Copie le lien de la page actuelle (affiche ✓) — pratique pour envoyer un guide à quelqu'un.", si03: "↻ Actualiser : charge la version la plus récente du site.", si04: "Mode clair / sombre : touche pour changer.", si05: "💬 Pose n'importe quelle question sur les guides à l'IA. Le ⏰ de sa barre de titre ouvre tes minuteurs et rappels de jeu.",
       inst1: "Cette page montre comment installer le site en appli. Lis-la bien – sur iPhone, les notifications ne marchent que depuis l'appli installée." },
     pt: {
       tm01: "⏰ no cabeçalho do chat abre Meus timers; toque de novo para voltar ao chat. Deixa eu abrir…",
@@ -214,6 +219,7 @@
       tm19: "🧮 Calculadora BT abre a calculadora de rally da Caçada ao Urso — tocar em um lembrete do Urso também abre.",
       tm20: "🛠️ Lembretes de admin (oficiais): as tarefas da aba Eventos dos oficiais, enviadas no dia em que vencem na hora que você escolher, e 📍 lembretes de Posto Avançado 10 minutos antes de um dos nossos ficar Vulnerável.",
       tm21: "🔔 Lembretes no topo do site lista os pushes recebidos nas últimas 24 horas; toque em um para abrir, ✓ Limpar esvazia a lista.", pick: "O que você quer aprender?", tmr: "⏰ Criar um timer", rem: "🎮 Lembretes do jogo", inst: "📲 Instalar como app", back: "‹ Voltar", next: "Próximo ›", done: "Pronto ✓", stop: "✕ Parar", also: "Quer que eu mostre {x} também?", alsoYes: "Sim, mostra", alsoNo: "Não, obrigado",
+      site: "🧭 O que fazem os botões do site", si01: "🌐 Idioma: toque em um para ler o site inteiro nesse idioma.", si02: "🔗 Copia o link da página atual (mostra ✓) — prático para mandar um guia a alguém.", si03: "↻ Atualizar: carrega a versão mais nova do site.", si04: "Modo claro / escuro: toque para trocar.", si05: "💬 Pergunte qualquer coisa sobre os guias à IA. O ⏰ na barra de título abre seus timers e lembretes do jogo.",
       inst1: "Esta página mostra como instalar o site como app. Leia com atenção — no iPhone, as notificações só funcionam pelo app instalado." },
     es: {
       tm01: "⏰ en el encabezado del chat abre Mis temporizadores; tócalo de nuevo para volver al chat. Déjame abrirlo…",
@@ -238,6 +244,7 @@
       tm19: "🧮 Calculadora BT abre la calculadora de rally de la Caza del Oso — tocar un recordatorio del Oso también la abre.",
       tm20: "🛠️ Recordatorios de admin (oficiales): las tareas de la pestaña Eventos de oficiales, enviadas el día que vencen a la hora que elijas, y 📍 recordatorios de Puesto de Avanzada 10 minutos antes de que uno de los nuestros se vuelva Vulnerable.",
       tm21: "🔔 Recordatorios en la parte superior del sitio muestra los pushes recibidos en las últimas 24 horas; toca uno para abrirlo, ✓ Borrar vacía la lista.", pick: "¿Qué quieres aprender?", tmr: "⏰ Poner un temporizador", rem: "🎮 Recordatorios del juego", inst: "📲 Instalar como app", back: "‹ Atrás", next: "Siguiente ›", done: "Listo ✓", stop: "✕ Parar", also: "¿Te muestro también {x}?", alsoYes: "Sí, muéstrame", alsoNo: "No, gracias",
+      site: "🧭 Qué hacen los botones del sitio", si01: "🌐 Idioma: toca uno para leer todo el sitio en ese idioma.", si02: "🔗 Copia el enlace de la página actual (muestra ✓) — útil para enviar una guía a alguien.", si03: "↻ Actualizar: carga la versión más nueva del sitio.", si04: "Modo claro / oscuro: toca para cambiar.", si05: "💬 Pregúntale a la IA lo que quieras sobre las guías. El ⏰ de su barra de título abre tus temporizadores y recordatorios del juego.",
       inst1: "Esta página explica cómo instalar el sitio como app. Léela bien: en iPhone, las notificaciones solo funcionan desde la app instalada." },
     tr: {
       tm01: "Sohbet başlığındaki ⏰ Zamanlayıcılarım'ı açar; tekrar dokununca sohbete dönersin. Açıyorum…",
@@ -262,6 +269,7 @@
       tm19: "🧮 BT hesaplayıcı Ayı Avı rally hesaplayıcısını açar — bir Ayı hatırlatıcısına dokunmak da açar.",
       tm20: "🛠️ Yönetici hatırlatıcıları (subaylar): subay Etkinlikler sekmesindeki yapılacaklar, vade gününde seçtiğin saatte gönderilir; ayrıca 📍 Karakol hatırlatıcıları, bizimkilerden biri Savunmasız olmadan 10 dakika önce.",
       tm21: "Sitenin en üstündeki 🔔 Hatırlatıcılar son 24 saatte alınan bildirimleri listeler; birine dokununca açılır, ✓ Temizle listeyi boşaltır.", pick: "Neyi öğrenmek istersin?", tmr: "⏰ Zamanlayıcı kur", rem: "🎮 Oyun hatırlatmaları", inst: "📲 Uygulama olarak yükle", back: "‹ Geri", next: "İleri ›", done: "Bitti ✓", stop: "✕ Durdur", also: "{x} de göstereyim mi?", alsoYes: "Evet, göster", alsoNo: "Gerek yok",
+      site: "🧭 Sitedeki düğmeler ne işe yarar", si01: "🌐 Dil: birine dokun, tüm site o dilde açılır.", si02: "🔗 Bulunduğun sayfanın bağlantısını kopyalar (✓ gösterir) — birine rehber göndermek için kullanışlı.", si03: "↻ Yenile: sitenin en yeni sürümünü yükler.", si04: "Açık / koyu mod: değiştirmek için dokun.", si05: "💬 Rehberlerle ilgili her şeyi yapay zekâya sor. Başlık çubuğundaki ⏰ zamanlayıcılarını ve oyun hatırlatıcılarını açar.",
       inst1: "Bu sayfa siteyi uygulama olarak nasıl yükleyeceğini gösterir. Dikkatle oku — iPhone'da bildirimler yalnızca yüklü uygulamada çalışır." },
     id: {
       tm01: "⏰ di header chat membuka Timer saya; ketuk lagi untuk kembali ke chat. Aku bukakan…",
@@ -286,6 +294,7 @@
       tm19: "🧮 Kalkulator BT membuka kalkulator rally Perburuan Beruang — mengetuk pengingat Beruang juga membukanya.",
       tm20: "🛠️ Pengingat admin (perwira): daftar tugas dari tab Event perwira, dikirim pada hari jatuh temponya pada jam yang kamu pilih, dan 📍 pengingat Pos Terdepan 10 menit sebelum salah satu milik kita menjadi Rentan.",
       tm21: "🔔 Pengingat di bagian atas situs menampilkan push yang diterima dalam 24 jam terakhir; ketuk salah satunya untuk membukanya, ✓ Bersihkan mengosongkan daftarnya.", pick: "Mau belajar yang mana?", tmr: "⏰ Pasang timer", rem: "🎮 Pengingat game", inst: "📲 Pasang sebagai aplikasi", back: "‹ Kembali", next: "Lanjut ›", done: "Selesai ✓", stop: "✕ Berhenti", also: "Mau aku tunjukkan {x} juga?", alsoYes: "Ya, tunjukkan", alsoNo: "Tidak perlu",
+      site: "🧭 Fungsi tombol di situs", si01: "🌐 Bahasa: ketuk salah satu untuk membaca seluruh situs dalam bahasa itu.", si02: "🔗 Menyalin tautan halaman ini (muncul ✓) — praktis untuk mengirim panduan ke orang lain.", si03: "↻ Muat ulang: memuat versi terbaru situs.", si04: "Mode terang / gelap: ketuk untuk mengganti.", si05: "💬 Tanyakan apa saja tentang panduan ke AI. ⏰ di bilah judulnya membuka timer dan pengingat game kamu.",
       inst1: "Halaman ini menunjukkan cara memasang situs sebagai aplikasi. Baca baik-baik — di iPhone, notifikasi hanya berfungsi dari aplikasi yang terpasang." },
     ru: {
       tm01: "⏰ в шапке чата открывает Мои таймеры; нажми ещё раз, чтобы вернуться в чат. Сейчас открою…",
@@ -310,6 +319,7 @@
       tm19: "🧮 BT калькулятор открывает калькулятор ралли для Охоты на медведя — нажатие на напоминание о Медведе тоже его открывает.",
       tm20: "🛠️ Админ-напоминания (офицеры): дела из вкладки События для офицеров, присылаются в день срока в выбранный тобой час, и 📍 напоминания об аванпостах за 10 минут до того, как один из наших станет Уязвимым.",
       tm21: "🔔 Напоминания вверху сайта показывают пуши, полученные за последние 24 часа; нажми на одно, чтобы открыть его, ✓ Очистить очищает список.", pick: "Чему научить?", tmr: "⏰ Поставить таймер", rem: "🎮 Игровые напоминания", inst: "📲 Установить как приложение", back: "‹ Назад", next: "Далее ›", done: "Готово ✓", stop: "✕ Стоп", also: "Показать ещё и {x}?", alsoYes: "Да, покажи", alsoNo: "Не нужно",
+      site: "🧭 Что делают кнопки сайта", si01: "🌐 Язык: нажмите, чтобы читать весь сайт на этом языке.", si02: "🔗 Копирует ссылку на текущую страницу (появится ✓) — удобно, чтобы отправить кому-то гайд.", si03: "↻ Обновить: загружает самую новую версию сайта.", si04: "Светлая / тёмная тема: нажмите, чтобы переключить.", si05: "💬 Спросите ИИ о чём угодно из гайдов. ⏰ в его заголовке открывает ваши таймеры и игровые напоминания.",
       inst1: "Эта страница показывает, как установить сайт как приложение. Читай внимательно — на iPhone уведомления работают только из установленного приложения." },
     th: {
       tm01: "⏰ ที่หัวแชทจะเปิด ตัวจับเวลาของฉัน แตะอีกครั้งเพื่อกลับไปที่แชท เดี๋ยวฉันเปิดให้…",
@@ -334,6 +344,7 @@
       tm19: "🧮 เครื่องคิด BT จะเปิดเครื่องคำนวณรวมพล ล่าหมี — แตะการเตือน หมี ก็เปิดได้เหมือนกัน",
       tm20: "🛠️ เตือนงานแอดมิน (นายทหาร): สิ่งที่ต้องทำจากแท็บ กิจกรรม ของนายทหาร ส่งในวันครบกำหนดตามชั่วโมงที่คุณเลือก และ 📍 เตือนด่านหน้า 10 นาทีก่อนที่ด่านของเราจะกลายเป็น เปราะบาง",
       tm21: "🔔 การเตือน ที่ด้านบนของเว็บไซต์จะแสดงพุชที่ได้รับใน 24 ชั่วโมงล่าสุด แตะอันหนึ่งเพื่อเปิด ✓ ล้าง จะล้างรายการ", pick: "อยากเรียนอะไร?", tmr: "⏰ ตั้งตัวจับเวลา", rem: "🎮 แจ้งเตือนในเกม", inst: "📲 ติดตั้งเป็นแอป", back: "‹ กลับ", next: "ถัดไป ›", done: "เสร็จ ✓", stop: "✕ หยุด", also: "ให้ฉันพาดู {x} ด้วยไหม?", alsoYes: "เอาสิ พาดู", alsoNo: "ไม่เป็นไร",
+      site: "🧭 ปุ่มต่าง ๆ บนเว็บทำอะไร", si01: "🌐 ภาษา: แตะเพื่ออ่านทั้งเว็บเป็นภาษานั้น", si02: "🔗 คัดลอกลิงก์ของหน้านี้ (ขึ้น ✓ เมื่อคัดลอกแล้ว) สะดวกเวลาส่งไกด์ให้คนอื่น", si03: "↻ รีเฟรช: โหลดเว็บเวอร์ชันใหม่ล่าสุด", si04: "โหมดสว่าง / มืด: แตะเพื่อสลับ", si05: "💬 ถาม AI เรื่องไกด์ได้ทุกอย่าง ⏰ ที่แถบหัวเรื่องจะเปิดตัวจับเวลาและการเตือนเกมของคุณ",
       inst1: "หน้านี้สอนวิธีติดตั้งเว็บเป็นแอป อ่านให้ละเอียด — บน iPhone การแจ้งเตือนใช้ได้เฉพาะจากแอปที่ติดตั้งแล้ว" },
     ar: {
       tm01: "⏰ في رأس الدردشة يفتح مؤقتاتي؛ اضغط عليه مرة أخرى للعودة إلى الدردشة. دعني أفتحه…",
@@ -358,6 +369,7 @@
       tm19: "🧮 حاسبة BT يفتح حاسبة حشد صيد الدب — والضغط على تذكير الدب يفتحها أيضًا.",
       tm20: "🛠️ تذكيرات الإدارة (للضباط): المهام من تبويب الأحداث الخاص بالضباط، تُرسل في يوم استحقاقها في الساعة التي تختارها، و📍 تذكيرات المواقع الأمامية قبل 10 دقائق من تحوّل أحد مواقعنا إلى ضعيف.",
       tm21: "🔔 التذكيرات أعلى الموقع يعرض الإشعارات المستلمة خلال آخر 24 ساعة؛ اضغط على أحدها لفتحه، ✓ مسح يفرغ القائمة.", pick: "ماذا تريد أن تتعلم؟", tmr: "⏰ ضبط مؤقّت", rem: "🎮 تذكيرات اللعبة", inst: "📲 التثبيت كتطبيق", back: "‹ رجوع", next: "التالي ›", done: "تم ✓", stop: "✕ إيقاف", also: "هل أريك {x} أيضًا؟", alsoYes: "نعم، أرني", alsoNo: "لا شكرًا",
+      site: "🧭 ماذا تفعل أزرار الموقع", si01: "🌐 اللغة: اضغط لغة لقراءة الموقع كله بها.", si02: "🔗 ينسخ رابط الصفحة الحالية (تظهر ✓) — مفيد لإرسال دليل لأحد.", si03: "↻ تحديث: يحمّل أحدث نسخة من الموقع.", si04: "الوضع الفاتح / الداكن: اضغط للتبديل.", si05: "💬 اسأل الذكاء الاصطناعي أي شيء عن الأدلة. زر ⏰ في شريط عنوانه يفتح مؤقتاتك وتذكيرات اللعبة.",
       inst1: "هذه الصفحة تشرح تثبيت الموقع كتطبيق. اقرأها جيدًا — على iPhone لا تعمل الإشعارات إلا من التطبيق المثبّت." },
   };
   const tt = (k) => (TT[lang()] || TT.en)[k] || TT.en[k];
@@ -443,6 +455,7 @@
       bd14: "✅ Done: when a message is a task for you, mark it done here (↩︎ Not done undoes it).",
       bd15: "The reply box, with the same @, 📋 Assign to and 🖼️ tools. Reply sends it.",
       bd15v: "Replying needs edit rights — unless you were @'d or assigned here and the admins allow that.",
+      mv01: "🚚 Move: the alliance move (admins, or whoever the 👥 table gives this tab). 📍 Now = where everyone is; 🧭 Plan = where everyone should go.", mv02: "Switch the map between 📍 Now and 🧭 Plan.", mv03: "The moving table: each member's current X:Y → new spot (tap to copy). ✅ appears by itself when their position on 🗺️ Map already equals the new spot. Tick “Only not moved yet” to see who's left.", mv04: "✓ Moved: tick it by hand when someone has moved, then 💾 Save.", mv05: "➕ Add / change a spot: type a name and X Y — their old spot becomes free. Tap a free spot in the list to fill in X Y.", mv06: "Load the moving plan: the .json saved from the layout planner (cities named). “Remove plan” clears it.", mv07: "💾 Save: type your name and save, so the other officers with this tab see the same plan and ticks.",
       mp40: "👥 Member positions: our block like in game — every member's city, the Bear Traps and HQ. Tap a city (or search a name) for its X:Y and a copy button.", mp41: "📋 Paste positions to add or move people (one per line: name X Y), then 💾 Save. Orange = name not found on the roster.", mp01: "Layers: All, 📋 Plan only (just Outposts with a plan status), 🛰️ Territory (stitched from officers' screenshots — same colour = same alliance), then one chip per building type. The first tap on a type shows only that type; more taps toggle.",
       mp02: "+ and − zoom (pinch or the mouse wheel work too); drag to move around.",
       mp04: "The info box for what's selected: name, level and buff, who can contest it, X/Y coordinates — Copy puts them on your clipboard.",
@@ -624,6 +637,7 @@
       bd14: "✅ 完成：當一則訊息是給你的任務，在這裡標記完成（↩︎ 未完成可以撤銷）。",
       bd15: "回覆框，有一樣的 @、📋 指派給和 🖼️ 工具。回覆就送出了。",
       bd15v: "回覆需要編輯權限——除非你在這裡被 @ 到或被指派，而且管理員有開放。",
+      mv01: "🚚 搬家：聯盟搬家用（管理員，或 👥 表格有給這個分頁的人）。📍 現在 = 大家現在的位置；🧭 規劃 = 大家要搬去哪裡。", mv02: "在 📍 現在 和 🧭 規劃 兩張地圖之間切換。", mv03: "搬家對照表：每個人現在的 X:Y → 新位置（點一下複製）。如果 🗺️ 地圖上的位置已經等於新位置，會自動打 ✅。勾「只看還沒搬的」就知道還剩誰。", mv04: "✓ 已搬：有人搬好了可以手動勾，再按 💾 儲存。", mv05: "➕ 新增／更改位置：輸入名字和 X Y，他原本的位置就會空出來。點清單裡的空位會自動填好 X Y。", mv06: "載入搬家規劃：從排版工具存下來的 .json（城要有名字）。「移除規劃」會清掉。", mv07: "💾 儲存：輸入你的名字再儲存，其他有這個分頁的幹部就會看到同一份規劃和勾選。",
       mp40: "👥 成員位置：像遊戲裡一樣的我們這一塊，每個人的城、熊陷阱和總部都在上面。點城或搜尋名字，就看得到 X:Y 和複製按鈕。", mp41: "📋 貼上位置可以新增或移動成員（一行一個：名字 X Y），再按 💾 儲存。橘色 = 名單上找不到這個名字。", mp01: "圖層：全部、📋 只看計畫（只有有計畫狀態的據點）、🛰️ 領地（用幹部的截圖拼起來的——同顏色 = 同聯盟），然後是每種建築類型各一個小標籤。第一次點某個類型只顯示那個類型；再點就是切換開關。",
       mp02: "+ 和 − 縮放（兩指縮放或滑鼠滾輪也可以）；拖曳移動。",
       mp04: "選取項目的資訊框：名稱、等級和加成、誰可以爭奪、X/Y 座標——複製會把座標放到你的剪貼簿。",
@@ -805,6 +819,7 @@
       bd14: "✅ Feito: quando uma mensagem é uma tarefa para você, marque como feita aqui (↩︎ Não feito desfaz).",
       bd15: "A caixa de resposta, com as mesmas ferramentas @, 📋 Atribuir a e 🖼️. Responder envia.",
       bd15v: "Responder exige direitos de edição — a menos que você tenha sido marcado com @ ou atribuído aqui e os admins permitam isso.",
+      mv01: "🚚 Mudança: a mudança da aliança (admins, ou quem a tabela 👥 der esta aba). 📍 Agora = onde todos estão; 🧭 Plano = para onde cada um vai.", mv02: "Troque o mapa entre 📍 Agora e 🧭 Plano.", mv03: "A tabela da mudança: X:Y atual de cada membro → novo lugar (toque para copiar). ✅ aparece sozinho quando a posição no 🗺️ Mapa já é o novo lugar. Marque “Só quem ainda não mudou” para ver quem falta.", mv04: "✓ Mudou: marque à mão quando alguém mudou e 💾 Salve.", mv05: "➕ Adicionar / mudar um lugar: digite o nome e X Y — o lugar antigo fica livre. Toque num lugar livre da lista para preencher X Y.", mv06: "Carregar o plano: o .json salvo no planejador de layout (cidades com nome). “Remover plano” apaga.", mv07: "💾 Salvar: digite seu nome e salve, para os outros oficiais com esta aba verem o mesmo plano.",
       mp40: "👥 Posições dos membros: nosso bloco como no jogo — a cidade de cada membro, as Armadilhas de Urso e o QG. Toque numa cidade (ou busque um nome) para ver X:Y e copiar.", mp41: "📋 Cole posições para adicionar ou mover pessoas (uma por linha: nome X Y) e 💾 Salve. Laranja = nome não encontrado no roster.", mp01: "Camadas: Todos, 📋 Só o plano (apenas Postos Avançados com um status no plano), 🛰️ Território (montado a partir das capturas de tela dos oficiais — mesma cor = mesma aliança), e depois um chip por tipo de construção. O primeiro toque num tipo mostra só aquele tipo; os toques seguintes alternam.",
       mp02: "+ e − dão zoom (pinça ou a roda do mouse também funcionam); arraste para se mover.",
       mp04: "A caixa de informações do que está selecionado: nome, nível e bônus, quem pode disputar, coordenadas X/Y — Copiar põe na sua área de transferência.",
@@ -986,6 +1001,7 @@
       bd14: "✅ تم: عندما تكون رسالة مهمة لك، علّمها كمنجزة هنا (↩︎ لم يتم يتراجع عن ذلك).",
       bd15: "مربع الرد، مع نفس أدوات @ و📋 إسناد إلى و🖼️. رد يرسله.",
       bd15v: "الرد يحتاج إلى حقوق التعديل — إلا إذا ذُكرت بـ@ أو أُسندت إليك مهمة هنا وسمح المشرفون بذلك.",
+      mv01: "🚚 الانتقال: انتقال التحالف (للمشرفين، أو لمن يمنحه جدول 👥 هذه الصفحة). 📍 الآن = مكان الجميع؛ 🧭 الخطة = إلى أين ينتقل كل عضو.", mv02: "بدّل الخريطة بين 📍 الآن و🧭 الخطة.", mv03: "جدول الانتقال: موقع كل عضو الحالي X:Y ← المكان الجديد (اضغط للنسخ). تظهر ✅ تلقائيًا عندما يطابق موقعه في 🗺️ الخريطة المكان الجديد. فعّل «من لم ينتقل بعد فقط» لترى من تبقّى.", mv04: "✓ انتقل: علّمها يدويًا عندما ينتقل أحدهم، ثم 💾 احفظ.", mv05: "➕ إضافة / تغيير مكان: اكتب الاسم وX Y — يصبح مكانه القديم فارغًا. اضغط مكانًا فارغًا في القائمة لملء X Y.", mv06: "تحميل خطة الانتقال: ملف .json المحفوظ من أداة التخطيط (المدن بأسمائها). «إزالة الخطة» تمسحها.", mv07: "💾 حفظ: اكتب اسمك واحفظ، ليرى باقي الضباط الذين لديهم هذه الصفحة نفس الخطة.",
       mp40: "👥 مواقع الأعضاء: منطقتنا كما في اللعبة — مدينة كل عضو ومصائد الدب والمقر. اضغط مدينة (أو ابحث عن اسم) لترى X:Y وزر النسخ.", mp41: "📋 الصق المواقع لإضافة أو نقل الأعضاء (سطر لكل عضو: الاسم X Y) ثم 💾 احفظ. البرتقالي = اسم غير موجود في القائمة.", mp01: "الطبقات: الكل، 📋 الخطة فقط (المواقع المتقدمة التي لها حالة في الخطة فقط)، 🛰️ الأراضي (مجمّعة من لقطات شاشة الضباط — نفس اللون = نفس التحالف)، ثم شريحة لكل نوع مبنى. الضغطة الأولى على نوع تعرض ذلك النوع فقط؛ الضغطات التالية تبدّل.",
       mp02: "+ و− للتكبير والتصغير (القرص أو عجلة الفأرة يعملان أيضاً)؛ اسحب للتنقل.",
       mp04: "مربع المعلومات لما هو محدد: الاسم، المستوى والتعزيز، من يمكنه التنافس عليه، إحداثيات X/Y — نسخ يضعها في الحافظة.",
@@ -1167,6 +1183,7 @@
       bd14: "✅ 완료야. 메시지가 네 할 일이면 여기서 완료 표시해(↩︎ 미완료로 되돌려).",
       bd15: "답글 상자야. 같은 @, 📋 배정, 🖼️ 도구가 있어. 답글을 누르면 보내져.",
       bd15v: "답글을 쓰려면 편집 권한이 필요해. 여기서 @로 언급되거나 배정됐고 관리자가 허용했다면 예외야.",
+      mv01: "🚚 이사: 연맹 이사용이야 (관리자, 또는 👥 표에서 이 탭을 받은 사람). 📍 현재 = 모두의 지금 위치, 🧭 계획 = 각자 옮길 곳.", mv02: "지도를 📍 현재 와 🧭 계획 사이에서 바꿔.", mv03: "이사 표: 각 연맹원의 현재 X:Y → 새 자리 (누르면 복사). 🗺️ 지도의 위치가 이미 새 자리와 같으면 ✅ 가 저절로 붙어. “아직 안 옮긴 사람만”을 체크하면 남은 사람이 보여.", mv04: "✓ 이사 완료: 누가 옮기면 직접 체크하고 💾 저장해.", mv05: "➕ 자리 추가 / 변경: 이름과 X Y를 입력하면 원래 자리는 비게 돼. 목록의 빈자리를 누르면 X Y가 채워져.", mv06: "이사 계획 불러오기: 배치 도구에서 저장한 .json (성 이름 포함). “계획 지우기”로 지울 수 있어.", mv07: "💾 저장: 이름을 쓰고 저장하면 이 탭이 있는 다른 간부들도 같은 계획을 봐.",
       mp40: "👥 연맹원 위치: 게임처럼 보이는 우리 구역 — 모두의 성, 곰 함정, 본부. 성을 누르거나 이름을 검색하면 X:Y와 복사 버튼이 나와.", mp41: "📋 위치 붙여넣기로 사람을 추가하거나 옮기고 (한 줄에 하나: 이름 X Y) 💾 저장해. 주황 = 명단에서 못 찾은 이름.", mp01: "레이어야. 전체, 📋 계획만(계획 상태가 있는 전초기지만), 🛰️ 영토(간부들의 스크린샷을 이어 붙인 거야. 같은 색 = 같은 연맹), 그다음 건물 종류별 칩 하나씩. 종류를 처음 누르면 그 종류만 보이고, 더 누르면 켜고 꺼져.",
       mp02: "+와 −는 확대/축소야(핀치나 마우스 휠도 돼). 드래그해서 움직여.",
       mp04: "선택한 것의 정보 상자야. 이름, 레벨과 버프, 누가 다툴 수 있는지, X/Y 좌표. 복사를 누르면 클립보드에 들어가.",
@@ -1297,6 +1314,10 @@
       { s: "#bd_newTitle", k: "bd04", e: 1, pre: () => { if (Q("#bd_newForm") && Q("#bd_newForm").hidden) clickQ("#bd_newBtn"); } }, { s: "#bd_newForm [data-at]", k: "bd05", e: 1 }, { s: "#bd_newForm [data-assign]", k: "bd06", e: 1 }, { s: "#bd_newForm [data-img]", k: "bd07", e: 1 }, { s: "#bd_newPost", k: "bd08", e: 1 },
       { s: "#bd_list .bd-topic", k: "bd09", pre: () => clickQ("#bd_newCancel") },
       { s: "#bd_back", k: "bd10", pre: () => clickQ("#bd_list .bd-topic") }, { s: "#bd_posts .bd-post", k: "bd11" }, { s: "#bd_posts [data-dec]", k: "bd12", e: 1 }, { s: "#bd_posts [data-edit]", k: "bd13", e: 1 }, { s: "#bd_posts [data-done]", k: "bd14" }, { s: "#bd_replyText", k: "bd15", e: 1 },
+    ],
+    move: [
+      { s: "#mv_map", k: "mv01" }, { s: "#mv_root [data-view]", k: "mv02" }, { s: "#mv_root .mm-mv", k: "mv03" }, { s: "#mv_root [data-done]", k: "mv04", e: 1 },
+      { s: "#mv_an", k: "mv05", e: 1 }, { s: "#mv_root label[for=mv_file]", k: "mv06", e: 1 }, { s: "#mv_save", k: "mv07", e: 1 },
     ],
     map: [
       { s: "#km_layers", k: "mp01" }, { s: "#km_in", k: "mp02" }, { s: "#km_box", k: "mp03" },
@@ -1582,7 +1603,7 @@
 
   /* ---------- guided tours ("how do I use…") ---------- */
   function tourMenu() {
-    const items = [["tmr", tt("tmr")], ["rem", tt("rem")]];
+    const items = [["site", tt("site")], ["tmr", tt("tmr")], ["rem", tt("rem")]];
     if (typeof GUIDES !== "undefined" && GUIDES["install-app"] && !standalone()) items.push(["inst", tt("inst")]);
     say(`<b>${esc(tt("pick"))}</b><div class="sp-opts">${items.map(([k, l]) => `<button type="button" class="sp-main" data-a="tour" data-t="${k}">${esc(l)}</button>`).join("")}<button type="button" data-a="menu">${esc(tt("back"))}</button></div>`);
     redraw = tourMenu;
@@ -1664,6 +1685,8 @@
     { s: ".tm-view .tm-alerts [data-a=admin]", k: "tm20" },
     { s: ".tm-page [data-ib=clear]", k: "tm21" },
   ];
+  /* 🧭 the buttons every page has (some only show in the installed app; missing ones are skipped) — keep in step with the AI's SITE FEATURES block */
+  const SITE_STEPS = [{ s: "#langRow", k: "si01" }, { s: "#copyUrlBtn", k: "si02" }, { s: "#reloadBtn", k: "si03" }, { s: "#themeToggle", k: "si04" }, { s: ".ai-fab", k: "si05" }];
   const tmText = (st) => st.k === "tm03" && isIOS && !standalone() ? tt("tm03ios") : tt(st.k);
   async function runTour(id, only) {
     if (busy) return; busy = true; ["point", "teacher", "fly", "idle"].forEach(preload); hush(); clearTarget(); tour = id; clearTimeout(idleTimer);
@@ -1675,6 +1698,7 @@
       const title = await waitFor(() => q("#doc .doc-title"), 3000);
       await step(title, () => tt("inst1"), true); await end(); return;
     }
+    if (id === "site") { hush(); if (panel) panel.hidden = true; try { window.scrollTo({ top: 0 }); } catch (e) {} await wait(250); await walk(SITE_STEPS, (st) => tt(st.k)); await end(); return; }
     if (!ai || !tm) { await end(); return; }
     ai.open(); await wait(250);
     let steps = only || TM_STEPS;
@@ -1711,7 +1735,7 @@
   /* 🐦 "Show me how to…" inside the AI chat greeting: one button per tour; the AI's answers can also carry [label](tour:id) links */
   function addAISection() {
     const g = document.getElementById("aiGreet"); if (!g || g.querySelector(".sp-ai-sec")) return;
-    const items = [["tmr", tt("tmr")], ["rem", tt("rem")]];
+    const items = [["site", tt("site")], ["tmr", tt("tmr")], ["rem", tt("rem")]];
     if (typeof GUIDES !== "undefined" && GUIDES["install-app"] && !standalone()) items.push(["inst", tt("inst")]);
     const d = document.createElement("div"); d.className = "sp-ai-sec";
     d.innerHTML = `<div class="ai-grp">🐦 ${esc(t("how").replace(/^🎓\s*/, ""))}</div><div class="ai-chips">${items.map(([k, l]) => `<button type="button" class="ai-chip" data-tour="${k}">${esc(l)}</button>`).join("")}</div>`;

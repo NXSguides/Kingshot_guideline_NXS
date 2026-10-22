@@ -186,7 +186,7 @@ Güvenli mi?
 Hiçbir izin istemez (kamera, kişiler, konum veya dosya yok). Bildirimler isteğe bağlıdır: yalnızca ⏰ hatırlatıcıları kendin açarsan sorulur.
 İstediğiniz zaman kaldırın: simgeye uzun basıp her uygulama gibi silin.
 iPhone / iPad
-Bu siteyi Safari ile açın (diğer tarayıcılar yükleyemez).
+Bu siteyi Safari ile açın (en iyisi). iOS 16.4 ve sonrasında Chrome da olur: Chrome'un Paylaş düğmesine dokunun, adımlar aynı.
 Alttaki Paylaş düğmesine (oklu kare) dokunun.
 Tüm menüyü açmak için View More'a (⌄ düğmesi) dokunun. Eski iOS sürümlerinde aşağı kaydırmanız yeterli.
 Ana Ekrana Ekle'ye dokunun.
@@ -1074,7 +1074,8 @@ iPhone / iPad: notifications only work from the app added to the Home Screen (Sa
 🔔 Reminders at the top of the site list the pushes received in the last 24 hours.
 If notifications don't come: open "🔧 Notifications not coming?" under the notifications line in the ⏰ panel. Common causes: blocked for this site/app (allow it in phone Settings → Notifications → NXS, or on a computer in the browser's site settings / on a Mac in System Settings → Notifications → the NXS app); the permission reset after a system or browser update or reinstall; Focus / Do Not Disturb / Low Power Mode; Android battery saving. Last resort: remove the app, add it again and tap Allow.
 Top-right buttons (installed app): 🔗 copy the link of this page (briefly shows ✓ when copied), ↻ refresh to the newest version, ☾ / ☀ dark / light mode. 🐦 brings Little Sparrow back if it was turned off.
-🐦 Little Sparrow (the bird by the Ask AI button) can walk you through the site: tap it, then pick a tour.
+🐦 Little Sparrow (the bird by the Ask AI button) can walk you through the site: tap it → 🎓 "How do I use…" → pick a tour: 🧭 What the buttons on the site do (language, 🔗, ↻, light/dark, Ask AI), ⏰ timers, 🔔 game reminders, or installing the app. The same tours are listed at the top of the Ask AI panel.
+The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-19 by ΔRMΔDΔ] Kılıçdiyarı Hesaplaşması Katılımsızlıkları

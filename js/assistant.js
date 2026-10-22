@@ -19,12 +19,12 @@
 
   /* chat box texts — follow the language picked on the site ({g} = a guide name) */
   const TXT = {
-    en: { retry: "The AI is busy — trying again automatically ({n}/{t})…", clear: "Clear chat", officerFail: "(Officer check failed \u2014 answered as for a normal member. Unlock an officer page, then ask again.)", limit: "You've used today's {n} questions on this device. Try again tomorrow.", left: "{n} questions left today on this device.", greet: "Hi! Ask me anything about the guides.", eg: "e.g. “Which heroes for {g}?”", ph: "Ask a question…",
+    en: { retry: "The AI is busy — trying again automatically ({n}/{t})…", clear: "Clear chat", officerFail: "(Officer check failed \u2014 answered as for a normal member. Log in with Discord on the officer page, then ask again.)", limit: "You've used today's {n} questions on this device. Try again tomorrow.", left: "{n} questions left today on this device.", greet: "Hi! Ask me anything about the guides.", eg: "e.g. “Which heroes for {g}?”", ph: "Ask a question…",
       guides: "These guides might help:", none: "No matching guide found.",
       officerPages: "Officer pages:", notSet: "The AI isn't set up yet.", slow: "Too many questions — please wait a minute.",
       quota: "The AI is resting (daily free limit reached). Please try again later.", site: "The AI couldn't read the site content.",
       broken: "The AI isn't working right now.", net: "Couldn't reach the AI. Check your internet." },
-    zh: { retry: "AI 目前忙碌中，自動重試中（{n}/{t}）…", clear: "清除對話", officerFail: "（幹部驗證失敗，以一般成員的身分回答。請先打開幹部頁面解鎖，再問一次。）", limit: "這台裝置今天的 {n} 次提問已經用完了，明天再來吧。", left: "這台裝置今天還可以問 {n} 次。", greet: "嗨！指南裡的任何問題都可以問我。", eg: "例如：「{g}要派哪些英雄？」", ph: "輸入問題…",
+    zh: { retry: "AI 目前忙碌中，自動重試中（{n}/{t}）…", clear: "清除對話", officerFail: "（幹部驗證失敗，以一般成員的身分回答。請先在幹部頁面用 Discord 登入，再問一次。）", limit: "這台裝置今天的 {n} 次提問已經用完了，明天再來吧。", left: "這台裝置今天還可以問 {n} 次。", greet: "嗨！指南裡的任何問題都可以問我。", eg: "例如：「{g}要派哪些英雄？」", ph: "輸入問題…",
       guides: "這些指南可能有幫助：", none: "找不到相關的指南。",
       officerPages: "幹部頁面：", notSet: "AI 還沒設定好。", slow: "問題太多了，請等一分鐘再問。",
       quota: "AI 正在休息（今天的免費額度用完了），請晚點再試。", site: "AI 讀不到網站內容。",
@@ -283,46 +283,14 @@
   $("aiClose").onclick = () => setOpen(false);
   window.NXSAI = { panel, url: AI_URL, open: () => setOpen(true) };   // used by js/timers.js
 
-  /* ---------- officer unlock: the officer password opens data/data-key.json; the Worker checks a hash of that key ---------- */
-  let officerProof = null;
-  const b64 = (str) => Uint8Array.from(atob(str), (c) => c.charCodeAt(0));
-  function store() { try { return JSON.parse(localStorage.getItem(OFFICER_LS)) || {}; } catch (e) { return {}; } }
-  let proofMemo = { pw: null, proof: null };
-  async function proofFor(pw) {
-    if (proofMemo.pw === pw && proofMemo.proof) return proofMemo.proof;   // same password → same proof (no second download)
-    const proof = await proofCompute(pw);
-    if (proof) proofMemo = { pw, proof };
-    return proof;
-  }
-  async function proofCompute(pw) {
-    try {
-      const blob = window.OfficerData && OfficerData.dataKeyBlob ? await OfficerData.dataKeyBlob()
-        : await fetch("data/data-key.json?t=" + Date.now(), { cache: "no-store" }).then((r) => r.json());
-      // same derivation as the officer pages; OfficerData remembers it so it isn't redone on every tab
-      const key = window.OfficerData && OfficerData.pbkdf ? await OfficerData.pbkdf(pw, blob.salt, blob.iter, ["decrypt"]) : await (async () => {
-        const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
-        return crypto.subtle.deriveKey({ name: "PBKDF2", salt: b64(blob.salt), iterations: blob.iter, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
-      })();
-      const raw = new Uint8Array(await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64(blob.iv) }, key, b64(blob.data)));
-      let k64 = ""; raw.forEach((x) => (k64 += String.fromCharCode(x))); k64 = btoa(k64);
-      const h = await crypto.subtle.digest("SHA-256", new TextEncoder().encode("nxs-officer:" + k64));
-      return [...new Uint8Array(h)].map((x) => x.toString(16).padStart(2, "0")).join("");
-    } catch (e) { return null; }
-  }
-  /* No button: the chat silently knows an officer when this browser has the saved officer login,
-     or when an officer page was unlocked earlier in this tab. Everyone else just gets "no permission". */
-  const PROOF_KEY = "nxs-ai-proof";
-  try { officerProof = sessionStorage.getItem(PROOF_KEY) || null; } catch (e) {}
+  /* ---------- officer: the Discord login saved by the officer page (same browser). The Worker checks it and the
+     👥 table, and only lets the AI use the tabs this officer may open. Everyone else just gets "no permission". ---------- */
+  const DISCORD_LS = "nxs-discord-v1";
+  const officerTok = () => { try { return localStorage.getItem(DISCORD_LS) || null; } catch (e) { return null; } };
+  /* on the 👥 table (saved by the officer page) — members who log in only to sync timers are not officers */
+  const officerHere = () => { try { const u = JSON.parse(localStorage.getItem("nxs-discord-user") || "{}"), p = JSON.parse(localStorage.getItem("nxs-perms-v1") || "{}"); return !!(officerTok() && u.id && p.users && p.users[u.id]); } catch (e) { return false; } };
+  const saveTok = (t) => { if (t && officerTok()) { try { localStorage.setItem(DISCORD_LS, t); } catch (e) {} } };
   applyLang();
-  async function autoUnlock() {
-    if (officerProof) return;
-    const pw = window.__nxsOfficerPw || store().pw;
-    if (!pw) return;
-    officerProof = await proofFor(pw);
-    try { if (officerProof) sessionStorage.setItem(PROOF_KEY, officerProof); } catch (e) {}
-  }
-  autoUnlock();
-  window.addEventListener("nxs-officer", autoUnlock);
 
   /* ---------- chat (saved in this browser, so it survives moving between pages) ---------- */
   const LOG_KEY = "nxs-ai-log-v1", MAX_SAVED = 40;
@@ -382,7 +350,7 @@
       if (text && now - last > 80) { last = now; onText(text); }
     }
     if (!text) return { error: error || "gemini" };
-    return { answer: text, officer: meta.officer, left: meta.left };
+    return { answer: text, officer: meta.officer, left: meta.left, token: meta.token };
   }
   function finish(d, text, hints) {
     paint(d, "a", text, hints);
@@ -435,7 +403,7 @@
   function fallback(q, why) {
     const ids = localSearch(q);
     const links = ids.map((id) => `[${pickName(GUIDES[id].name)}](#${id})`).join("\n");
-    const officer = officerProof ? `\n${L("officerPages")}\n[Roster](roster-x7k2p9.html)\n[Watch](watch-x7k2p9.html)` : "";
+    const officer = officerHere() ? `\n${L("officerPages")}\n[Officer page](officer-x7k2p9.html)` : "";
     return `${why}\n${ids.length ? L("guides") + "\n" + links : L("none")}${officer}`;
   }
 
@@ -479,7 +447,7 @@
         const timer = ctrl && setTimeout(() => ctrl.abort(), 55000);
         r = await fetch(AI_URL, {
           method: "POST", headers: { "Content-Type": "text/plain;charset=UTF-8" },
-          body: JSON.stringify({ question: q, lang: curLang(), history, officerProof, deviceId: DEVICE_ID, stream: 1 }),
+          body: JSON.stringify({ question: q, lang: curLang(), history, token: officerTok() || undefined, deviceId: DEVICE_ID, stream: 1 }),
           signal: ctrl ? ctrl.signal : undefined,
         });
         if (timer) clearTimeout(timer);
@@ -501,7 +469,8 @@
       finish(wait, fallback(q, why), [`(${netErr.name + ": " + netErr.message})`]);
     } else if (r && r.ok && data.answer) {
       const hints = [];
-      if (officerProof && data.officer === false) hints.push(L("officerFail"));
+      saveTok(data.token);
+      if (officerHere() && data.officer === false) hints.push(L("officerFail"));
       if (typeof data.left === "number" && data.left <= 3) hints.push(L("left").replace("{n}", data.left));
       history.push({ role: "user", text: q }, { role: "model", text: data.answer });
       if (history.length > 6) history.splice(0, history.length - 6);

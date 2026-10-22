@@ -2573,7 +2573,7 @@ const GUIDES = {
         ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
-          { text: "Open this site in **Safari** (other browsers can't install it)." },
+          { text: "Open this site in **Safari** (best choice). On iOS 16.4 or newer, Chrome works too: use its Share button, then the same steps." },
           { text: "Tap the Share button (square with an arrow) at the bottom.", img: "figures/file.webp" },
           { text: "Tap **View More** (the ⌄ button) to open the full menu. On older iOS versions, just scroll down.", img: "figures/IMG_8466.webp" },
           { text: "Tap **Add to Home Screen**.", img: "figures/IMG_8467.webp" },
@@ -2604,7 +2604,7 @@ const GUIDES = {
         ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
-          { text: "用 **Safari** 打開這個網站（其他瀏覽器無法安裝）。" },
+          { text: "用 **Safari** 打開這個網站（最推薦）。iOS 16.4 以上也可以用 Chrome：點 Chrome 的分享按鈕，後面步驟一樣。" },
           { text: "點下方的「分享」按鈕（方框加向上箭頭）。", img: "figures/file.webp" },
           { text: "點 **View More**（⌄ 按鈕）展開完整選單；較舊的 iOS 版本直接往下滑即可。", img: "figures/IMG_8466.webp" },
           { text: "點 **加入主畫面**。", img: "figures/IMG_8467.webp" },
@@ -2635,7 +2635,7 @@ const GUIDES = {
         ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
-          { text: "**Safari**로 이 사이트를 여세요 (다른 브라우저로는 설치할 수 없습니다)." },
+          { text: "**Safari**로 이 사이트를 여세요 (가장 추천). iOS 16.4 이상에서는 Chrome도 됩니다: Chrome의 공유 버튼을 누르고 같은 단계를 따르세요." },
           { text: "하단의 공유 버튼(화살표가 있는 네모)을 누르세요.", img: "figures/file.webp" },
           { text: "**View More**(⌄ 버튼)를 눌러 전체 메뉴를 여세요. 이전 iOS 버전에서는 아래로 스크롤하면 됩니다.", img: "figures/IMG_8466.webp" },
           { text: "**홈 화면에 추가**를 누르세요.", img: "figures/IMG_8467.webp" },
@@ -2666,7 +2666,7 @@ const GUIDES = {
         ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
-          { text: "Öffne diese Seite in **Safari** (andere Browser können sie nicht installieren)." },
+          { text: "Öffne diese Seite in **Safari** (am besten). Ab iOS 16.4 geht auch Chrome: über dessen Teilen-Taste, dann dieselben Schritte." },
           { text: "Tippe unten auf die Teilen-Taste (Quadrat mit Pfeil).", img: "figures/file.webp" },
           { text: "Tippe auf **View More** (die ⌄-Taste), um das ganze Menü zu öffnen. Bei älteren iOS-Versionen einfach nach unten scrollen.", img: "figures/IMG_8466.webp" },
           { text: "Tippe auf **Zum Home-Bildschirm**.", img: "figures/IMG_8467.webp" },
@@ -2697,7 +2697,7 @@ const GUIDES = {
         ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
-          { text: "Ouvrez ce site dans **Safari** (les autres navigateurs ne permettent pas l'installation)." },
+          { text: "Ouvrez ce site dans **Safari** (le plus sûr). Depuis iOS 16.4, Chrome marche aussi : son bouton Partager, puis les mêmes étapes." },
           { text: "Touchez le bouton Partager (carré avec une flèche) en bas.", img: "figures/file.webp" },
           { text: "Touchez **View More** (le bouton ⌄) pour ouvrir le menu complet. Sur les anciennes versions d'iOS, faites simplement défiler vers le bas.", img: "figures/IMG_8466.webp" },
           { text: "Touchez **Sur l'écran d'accueil**.", img: "figures/IMG_8467.webp" },
@@ -2728,7 +2728,7 @@ const GUIDES = {
         ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
-          { text: "Abra este site no **Safari** (outros navegadores não conseguem instalar)." },
+          { text: "Abra este site no **Safari** (o melhor). No iOS 16.4 ou mais novo, o Chrome também serve: use o botão Compartilhar dele e siga os mesmos passos." },
           { text: "Toque no botão Compartilhar (quadrado com uma seta) na parte inferior.", img: "figures/file.webp" },
           { text: "Toque em **View More** (o botão ⌄) para abrir o menu completo. Em versões mais antigas do iOS, basta rolar para baixo.", img: "figures/IMG_8466.webp" },
           { text: "Toque em **Adicionar à Tela de Início**.", img: "figures/IMG_8467.webp" },
@@ -2759,7 +2759,7 @@ const GUIDES = {
         ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
-          { text: "Bu siteyi **Safari** ile açın (diğer tarayıcılar yükleyemez)." },
+          { text: "Bu siteyi **Safari** ile açın (en iyisi). iOS 16.4 ve sonrasında Chrome da olur: Chrome'un Paylaş düğmesine dokunun, adımlar aynı." },
           { text: "Alttaki Paylaş düğmesine (oklu kare) dokunun.", img: "figures/file.webp" },
           { text: "Tüm menüyü açmak için **View More**'a (⌄ düğmesi) dokunun. Eski iOS sürümlerinde aşağı kaydırmanız yeterli.", img: "figures/IMG_8466.webp" },
           { text: "**Ana Ekrana Ekle**'ye dokunun.", img: "figures/IMG_8467.webp" },
@@ -2790,7 +2790,7 @@ const GUIDES = {
         ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
-          { text: "Buka situs ini di **Safari** (browser lain tidak bisa memasang)." },
+          { text: "Buka situs ini di **Safari** (paling disarankan). Di iOS 16.4 ke atas, Chrome juga bisa: pakai tombol Bagikan di Chrome, lalu langkah yang sama." },
           { text: "Ketuk tombol Bagikan (kotak dengan panah) di bawah.", img: "figures/file.webp" },
           { text: "Ketuk **View More** (tombol ⌄) untuk membuka menu lengkap. Di iOS versi lama, cukup gulir ke bawah.", img: "figures/IMG_8466.webp" },
           { text: "Ketuk **Tambahkan ke Layar Utama**.", img: "figures/IMG_8467.webp" },
@@ -2821,7 +2821,7 @@ const GUIDES = {
         ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
-          { text: "Откройте сайт в **Safari** (другие браузеры не могут его установить)." },
+          { text: "Откройте сайт в **Safari** (лучший вариант). На iOS 16.4 и новее подойдёт и Chrome: кнопка «Поделиться» в Chrome, дальше те же шаги." },
           { text: "Нажмите кнопку «Поделиться» (квадрат со стрелкой) внизу.", img: "figures/file.webp" },
           { text: "Нажмите **View More** (кнопка ⌄), чтобы открыть всё меню. В старых версиях iOS просто прокрутите вниз.", img: "figures/IMG_8466.webp" },
           { text: "Нажмите **На экран «Домой»**.", img: "figures/IMG_8467.webp" },
@@ -2852,7 +2852,7 @@ const GUIDES = {
         ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
-          { text: "เปิดเว็บไซต์นี้ใน **Safari** (เบราว์เซอร์อื่นติดตั้งไม่ได้)" },
+          { text: "เปิดเว็บไซต์นี้ใน **Safari** (แนะนำที่สุด) ตั้งแต่ iOS 16.4 ขึ้นไปใช้ Chrome ได้ด้วย: กดปุ่มแชร์ของ Chrome แล้วทำขั้นตอนเดียวกัน" },
           { text: "แตะปุ่มแชร์ (สี่เหลี่ยมมีลูกศร) ด้านล่าง", img: "figures/file.webp" },
           { text: "แตะ **View More** (ปุ่ม ⌄) เพื่อเปิดเมนูทั้งหมด ถ้าเป็น iOS รุ่นเก่า ให้เลื่อนลงแทน", img: "figures/IMG_8466.webp" },
           { text: "แตะ **เพิ่มไปยังหน้าจอโฮม**", img: "figures/IMG_8467.webp" },
@@ -2883,7 +2883,7 @@ const GUIDES = {
         ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
-          { text: "افتح هذا الموقع في **Safari** (المتصفحات الأخرى لا يمكنها تثبيته)." },
+          { text: "افتح هذا الموقع في **Safari** (الأفضل). في iOS 16.4 أو أحدث يعمل Chrome أيضًا: استخدم زر المشاركة فيه ثم الخطوات نفسها." },
           { text: "اضغط زر المشاركة (مربع به سهم) في الأسفل.", img: "figures/file.webp" },
           { text: "اضغط **View More** (زر ⌄) لفتح القائمة كاملة. في إصدارات iOS الأقدم، مرّر للأسفل فقط.", img: "figures/IMG_8466.webp" },
           { text: "اضغط **إضافة إلى الشاشة الرئيسية**.", img: "figures/IMG_8467.webp" },
@@ -2914,7 +2914,7 @@ const GUIDES = {
         ] },
         { type: "h", text: "iPhone / iPad" },
         { type: "steps", items: [
-          { text: "Abre este sitio en **Safari** (otros navegadores no pueden instalarlo)." },
+          { text: "Abre este sitio en **Safari** (lo mejor). En iOS 16.4 o posterior también sirve Chrome: usa su botón Compartir y sigue los mismos pasos." },
           { text: "Toca el botón Compartir (cuadrado con una flecha) en la parte inferior.", img: "figures/file.webp" },
           { text: "Toca **View More** (el botón ⌄) para abrir el menú completo. En versiones anteriores de iOS, solo desplázate hacia abajo.", img: "figures/IMG_8466.webp" },
           { text: "Toca **Añadir a pantalla de inicio**.", img: "figures/IMG_8467.webp" },

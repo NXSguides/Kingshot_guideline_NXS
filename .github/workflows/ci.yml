@@ -23,6 +23,8 @@ jobs:
           n=0
           for f in $(git ls-files '*.js' '*.mjs'); do node --check "$f"; n=$((n+1)); done
           echo "✅ $n files parse"
+      - name: 1b. Little Sparrow and the AI explain the same features
+        run: node scripts/check-help.js
       - name: 2. Worker builds (wrangler dry run)
         working-directory: worker
         run: npx --yes wrangler@4 deploy --dry-run --outdir /tmp/wrangler-out
