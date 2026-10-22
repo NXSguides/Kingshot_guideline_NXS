@@ -91,7 +91,7 @@ OFFICER.util = {
 OFFICER.OWNER = "1547403844374368327";   // Sparrow: always admin, can't be demoted or removed (so nobody can lock everyone out)
 OFFICER.ADMINS = [];                       // filled from the table (admin: true) by loadPerms
 OFFICER.PERMS_TRIAL = false;   // 2026-10-16: the login system is live — the 👥 table decides   // the 👥 table is kept and editable, but not enforced yet (set false when the login system goes live)
-OFFICER.PERM_TABS = ["events", "board", "map", "ranking", "attend", "post", "watch", "scout", "views"];
+OFFICER.PERM_TABS = ["events", "board", "map", "ranking", "attend", "post", "watch", "scout", "views", "move"];   // 🚚 move: nobody by default (admins always)
 OFFICER.VIEW_TABS = ["events", "board", "map"];
 OFFICER.defaultPerms = () => Object.fromEntries(OFFICER.PERM_TABS.map((k) => [k, OFFICER.VIEW_TABS.includes(k) ? "view" : "none"]));   // new officer: Events, Board, Map — view only
 OFFICER.ADMIN_IDS = ["1547403844374368327", "1240788094672834623", "762827904341246013"];   // Sparrow, R5, Nia: always admins (same list in the Worker)
@@ -183,7 +183,7 @@ OFFICER.applyPerms = () => {
   if (OFFICER.user && !OFFICER.can(currentTab(), "view")) location.hash = "#" + (TABS.find((k) => OFFICER.can(k, "view")) || "events");
 };
 const OFFICER_PAGES = {};
-const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "bt", "board", "attend", "perms"];
+const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "move", "bt", "board", "attend", "perms"];
 const inited = {};
 /* start another tab's module without showing it (the 👥 tab uses the Post tab's owner tools) */
 OFFICER.ensure = async (k) => { const p = OFFICER_PAGES[k]; if (!p) return; if (!inited[k]) inited[k] = p.init() || true; try { await inited[k]; } catch (e) { inited[k] = null; console.error(e); } };
@@ -343,7 +343,7 @@ function loadScripts(list) {
   }))), Promise.resolve());
 }
 /* tabs: #events / #ranking / #post / #watch (the part after "?" is kept for the page) */
-function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|scout|views|map|bt|board|attend|perms)/); return m ? m[1] : "events"; }
+function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|scout|views|map|move|bt|board|attend|perms)/); return m ? m[1] : "events"; }
 async function showTab() {
   const k = currentTab();
   if (k === "bt") { location.replace("bear-calculator.html"); return; }   // 🐻 the bear calculator moved to its own public page

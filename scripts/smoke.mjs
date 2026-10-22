@@ -19,7 +19,7 @@ const server = createServer(async (req, res) => {
 await new Promise((r) => server.listen(0, "127.0.0.1", r));
 const BASE = `http://127.0.0.1:${server.address().port}`;
 
-const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "board", "attend", "perms"];
+const TABS = ["events", "ranking", "post", "watch", "scout", "views", "map", "move", "board", "attend", "perms"];
 const errors = [];
 const browser = await chromium.launch(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {});
 const ctx = await browser.newContext({ locale: "zh-TW" });
