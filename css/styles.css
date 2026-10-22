@@ -775,11 +775,12 @@ button, .btn, .guide-chip, .td-row { transition: transform .08s, filter .08s; }
 button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale(.95); filter: brightness(.88); }
 
 /* 📜 announcement looks (js/ann-themes.js): Armada's scroll in three slices + an optional theme picture on top */
-.annx { position: relative; margin: 4px -16px 0; }   /* as wide as the announcement box allows */
+.annx { position: relative; margin: 4px -16px 0; }   /* phone: as wide as the announcement box allows */
+@media (min-width: 600px) { .annx { max-width: 520px; margin: 4px auto 0; } }   /* big screens: not a giant scroll */
 .annx.has-img { border-radius: 12px; overflow: hidden; background: var(--annx-ext); }
 .annx-blur { position: absolute; inset: 0; background: center bottom / cover no-repeat; filter: blur(16px) brightness(.5); transform: scale(1.2); }
-.annx-img { position: relative; display: block; width: 100%; height: auto; -webkit-mask-image: linear-gradient(#000 72%, transparent); mask-image: linear-gradient(#000 72%, transparent); }
-.annx-wrap { position: relative; margin-top: -30%; padding: 0 0 3%; }
+.annx-img { position: relative; display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: var(--annx-pos, center); -webkit-mask-image: linear-gradient(#000 72%, transparent); mask-image: linear-gradient(#000 72%, transparent); }
+.annx-wrap { position: relative; margin-top: -19%; padding: 0 0 3%; }
 .sc2 { position: relative; container-type: inline-size; }
 .sc2-bg { position: absolute; inset: 0; display: flex; flex-direction: column; filter: drop-shadow(0 4px 8px #0007); }
 .sc2-t { flex-shrink: 0; width: 100%; aspect-ratio: 800 / 446; background: 0 0 / 100% 100% no-repeat; }
@@ -789,8 +790,9 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 .sc2-m::before { -webkit-mask-image: linear-gradient(#000 35%, transparent 65%); mask-image: linear-gradient(#000 35%, transparent 65%); }
 .sc2-m::after { z-index: -1; background-image: url(../figures/scroll/mid-tile-b.webp); background-position: 0 100%; }   /* full underneath, so the fade never lets the background through */
 .sc2-b { flex-shrink: 0; width: 100%; aspect-ratio: 800 / 132; margin-top: -1px; background: url(../figures/scroll/bot.webp) 0 0 / 100% 100% no-repeat; }
-.sc2-tx { position: relative; box-sizing: border-box; min-height: 106.4cqw; padding: 26cqw 21cqw 19cqw 23cqw; color: #3b2a18; font-family: Georgia, "Times New Roman", serif; line-height: 1.55; }
-.sc2-tx .ann-text { color: inherit; font-size: 14px; }
+.sc2-tx { position: relative; box-sizing: border-box; min-height: 106.4cqw; padding: 24cqw 20cqw 15cqw 20.5cqw; color: #3b2a18; line-height: 1.45; }
+.sc2-tx .ann-text { color: inherit; font-size: 13.5px; }
+.sc2-gap { display: block; height: .5em; }   /* a blank line on the scroll is a small gap, so short announcements stay short */
 .sc2-tx .ann-img { max-width: 100%; border-radius: 6px; }
 .sc2-tx a { color: #7a2f12; }
 .sc2-title { font: bold 18px Georgia, "Times New Roman", serif; text-align: center; color: #5b2311; line-height: 1.3; }

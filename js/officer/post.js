@@ -293,7 +293,7 @@ function renderPreview() {
   const st = $("annStyle").value;
   if (!st || typeof annThemeHtml !== "function") { $("preview").innerHTML = markup($("annTitle").value, fullBody(), $("srcLang").value); return; }
   const t = $("annTitle").value.trim(), body = markup("", fullBody(), $("srcLang").value).replace(/^<b><\/b>\n?/, "");
-  $("preview").innerHTML = annThemeHtml(st, esc(t), `<div style="white-space:pre-wrap" dir="auto">${body}</div>`);
+  $("preview").innerHTML = annThemeHtml(st, esc(t), `<div class="ann-text" style="white-space:pre-wrap" dir="auto">${body.replace(/\n[ \t]*\n\s*/g, "<span class=\"sc2-gap\"></span>")}</div>`);
 }
 /* the look menu: plain + every scroll theme in js/ann-themes.js */
 function fillStyles() {

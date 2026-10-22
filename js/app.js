@@ -831,7 +831,7 @@ function annBodyHtml(a) {
             <span>${new Date(a.createdAt).toLocaleDateString(HTML_LANG[currentLang] || "en")}</span>
           </div>
           ${a.style && typeof annThemeHtml === "function"   /* 📜 scroll / theme look (js/ann-themes.js): the paper grows with the text */
-            ? annThemeHtml(a.style, a.title ? escapeHtml(annLabel(a)) : "", `<div class="ann-text" dir="auto">${rich(text)}</div>${imgs}`)
+            ? annThemeHtml(a.style, a.title ? escapeHtml(annLabel(a)) : "", `<div class="ann-text" dir="auto">${rich(text).replace(/\n[ \t]*\n\s*/g, "<span class=\"sc2-gap\"></span>")}</div>${imgs}`)
             : `${a.title ? `<div class="ann-title" dir="auto">${escapeHtml(annLabel(a))}</div>` : ""}
           <div class="ann-text">${rich(text)}</div>
           ${imgs}`}`;
