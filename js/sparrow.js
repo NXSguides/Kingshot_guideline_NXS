@@ -1603,11 +1603,11 @@
       else window.scrollTo({ top: scrollY + want, behavior: beh });
     } catch (e) { el.scrollIntoView({ block: top == null ? "center" : "start" }); }
     let last = null; for (let i = 0; i < 25; i++) { await wait(60); const y = Math.round(el.getBoundingClientRect().top); if (y === last) break; last = y; }
-    // sideways too: a target inside a strip that scrolls left/right (the calendar) is brought into view
-    const r2 = el.getBoundingClientRect();
-    if (r2.left < 8 || r2.right > innerWidth - 8) {
-      let hs = null; for (let n = el.parentElement; n; n = n.parentElement) { const cs = getComputedStyle(n); if (/(auto|scroll)/.test(cs.overflowX) && n.scrollWidth > n.clientWidth + 4) { hs = n; break; } }
-      if (hs) { const hr = hs.getBoundingClientRect(); try { hs.scrollTo({ left: hs.scrollLeft + (r2.left - hr.left) - (hr.width - r2.width) / 2, behavior: beh }); } catch (e) {} let lx = null; for (let i = 0; i < 20; i++) { await wait(60); const x = Math.round(el.getBoundingClientRect().left); if (x === lx) break; lx = x; } }
+    // sideways too: a target inside a strip that scrolls left/right (the calendar) is centred in that strip — not just peeking in at the edge
+    let hs = null; for (let n = el.parentElement; n; n = n.parentElement) { const cs = getComputedStyle(n); if (/(auto|scroll)/.test(cs.overflowX) && n.scrollWidth > n.clientWidth + 4) { hs = n; break; } }
+    if (hs) {
+      const r2 = el.getBoundingClientRect(), hr = hs.getBoundingClientRect(), want = hs.scrollLeft + (r2.left - hr.left) - (hr.width - r2.width) / 2;
+      if (Math.abs(want - hs.scrollLeft) > 2) { try { hs.scrollTo({ left: want, behavior: beh }); } catch (e) {} let lx = null; for (let i = 0; i < 20; i++) { await wait(60); const x = Math.round(el.getBoundingClientRect().left); if (x === lx) break; lx = x; } }
     }
   }
   /* wait up to ms while something is being pointed at: ends early when that thing disappears (the page moved on) or the step was cancelled */
