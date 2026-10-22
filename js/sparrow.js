@@ -74,7 +74,7 @@
     en: {
       tm01: "⏰ in the chat header opens My timers; tap it again to go back to the chat. Let me open it…",
       tm02: "‹ Chat goes back to the chat; your timers keep running.",
-      tm03: "Notifications: timers run on this page, but your phone only pings you when notifications are on. 🔔 Turn on notifications asks once; after that Send a test sends a push in 15 seconds — leave the app to see the red badge.",
+      tm03b: "🔧 If notifications stop coming, open this: it lists what usually goes wrong (blocked for the site, a system update, Focus mode, iPhone Home Screen app, battery saving) and how to fix each one.", tm03: "Notifications: timers run on this page, but your phone only pings you when notifications are on. 🔔 Turn on notifications asks once; after that Send a test sends a push in 15 seconds — leave the app to see the red badge.",
       tm03ios: "On iPhone, notifications only work from the installed app: Share → Add to Home Screen, open NXS from the new icon and come back here. Timers still run on this page meanwhile.",
       tm04: "🔄 Officers logged in with Discord get their timers and reminders on every device; sync now pushes right away.",
       tm05: "⚡ Quick start: your last Training time and Gathering set. One tap starts it again with the same time; ✕ forgets it.",
@@ -98,7 +98,7 @@
     zh: {
       tm01: "聊天標題列的 ⏰ 會打開「我的計時器」；再點一次就回到聊天。我來打開它…",
       tm02: "‹ 聊天 會回到聊天，你的計時器會繼續跑。",
-      tm03: "通知：計時器在這個頁面上運行，但只有開啟通知時手機才會提醒你。🔔 開啟通知 只會詢問一次；之後 發送測試 會在 15 秒後送出一則推播——離開 app 就能看到紅色標記。",
+      tm03b: "🔧 收不到通知的時候，打開這裡：常見的狀況（網站被封鎖、系統更新、專注模式、iPhone 主畫面 App、省電模式）和解決方法都在裡面。", tm03: "通知：計時器在這個頁面上運行，但只有開啟通知時手機才會提醒你。🔔 開啟通知 只會詢問一次；之後 發送測試 會在 15 秒後送出一則推播——離開 app 就能看到紅色標記。",
       tm03ios: "在 iPhone 上，通知只在已安裝的 app 裡有效：分享 → 加入主畫面，從新的圖示打開 NXS 再回到這裡。在這期間計時器仍會在這個頁面上運行。",
       tm04: "🔄 用 Discord 登入的官員，在每個裝置上都能看到自己的計時器和提醒；立即同步 會馬上推送。",
       tm05: "⚡ 快速開始：你上一次的訓練時間和採集設定。點一下就用同樣的時間再開一次；✕ 會把它忘掉。",
@@ -122,7 +122,7 @@
     ko: {
       tm01: "채팅 헤더의 ⏰ 를 누르면 내 타이머가 열려. 다시 누르면 채팅으로 돌아가. 내가 열어 볼게…",
       tm02: "‹ 채팅 을 누르면 채팅으로 돌아가고, 타이머는 계속 돌아가.",
-      tm03: "알림: 타이머는 이 페이지에서 돌아가지만, 알림을 켜야 폰이 알려 줘. 🔔 알림 켜기 는 한 번만 물어봐. 그다음 테스트 보내기 를 누르면 15초 뒤에 푸시가 와. 앱을 나가면 빨간 배지가 보여.",
+      tm03b: "🔧 알림이 안 오면 여기를 열어 봐: 자주 생기는 문제(사이트 차단, 시스템 업데이트, 집중 모드, iPhone 홈 화면 앱, 배터리 절약)와 해결 방법이 있어.", tm03: "알림: 타이머는 이 페이지에서 돌아가지만, 알림을 켜야 폰이 알려 줘. 🔔 알림 켜기 는 한 번만 물어봐. 그다음 테스트 보내기 를 누르면 15초 뒤에 푸시가 와. 앱을 나가면 빨간 배지가 보여.",
       tm03ios: "iPhone에서는 설치된 앱에서만 알림이 돼. 공유 → 홈 화면에 추가 를 하고, 새 아이콘으로 NXS를 열어서 여기로 다시 와. 그동안에도 타이머는 이 페이지에서 계속 돌아가.",
       tm04: "🔄 Discord로 로그인한 관리자는 모든 기기에서 타이머와 알림을 볼 수 있어. 지금 동기화 를 누르면 바로 보내 줘.",
       tm05: "⚡ 빠른 시작: 마지막 훈련 시간과 채집 설정이야. 한 번 누르면 같은 시간으로 다시 시작하고, ✕ 를 누르면 잊어버려.",
@@ -146,7 +146,7 @@
     de: {
       tm01: "⏰ oben im Chat öffnet Meine Timer; tipp noch mal darauf, um zum Chat zurückzukommen. Ich öffne es mal…",
       tm02: "‹ Chat bringt dich zurück zum Chat; deine Timer laufen weiter.",
-      tm03: "Benachrichtigungen: Die Timer laufen auf dieser Seite, aber dein Handy meldet sich nur, wenn Benachrichtigungen an sind. 🔔 Benachrichtigungen einschalten fragt einmal; danach schickt Test senden in 15 Sekunden einen Push — verlass die App, um das rote Abzeichen zu sehen.",
+      tm03b: "🔧 Wenn keine Benachrichtigungen mehr kommen, öffne das hier: die üblichen Ursachen (für die Seite blockiert, Systemupdate, Fokus, iPhone-Home-Bildschirm-App, Energiesparen) und wie man sie behebt.", tm03: "Benachrichtigungen: Die Timer laufen auf dieser Seite, aber dein Handy meldet sich nur, wenn Benachrichtigungen an sind. 🔔 Benachrichtigungen einschalten fragt einmal; danach schickt Test senden in 15 Sekunden einen Push — verlass die App, um das rote Abzeichen zu sehen.",
       tm03ios: "Auf dem iPhone funktionieren Benachrichtigungen nur aus der installierten App: Teilen → Zum Home-Bildschirm, NXS über das neue Symbol öffnen und hierher zurückkommen. Die Timer laufen auf dieser Seite inzwischen weiter.",
       tm04: "🔄 Offiziere, die mit Discord angemeldet sind, bekommen ihre Timer und Erinnerungen auf jedem Gerät; Jetzt synchronisieren überträgt sie sofort.",
       tm05: "⚡ Schnellstart: deine letzte Truppentraining-Zeit und dein letztes Sammeln-Set. Ein Tipp startet es mit derselben Zeit noch mal; ✕ vergisst es.",
@@ -170,7 +170,7 @@
     fr: {
       tm01: "⏰ en haut du chat ouvre Mes minuteurs ; touche-le encore pour revenir au chat. Je l'ouvre…",
       tm02: "‹ Chat ramène au chat ; tes minuteurs continuent de tourner.",
-      tm03: "Notifications : les minuteurs tournent sur cette page, mais ton téléphone ne te prévient que si les notifications sont activées. 🔔 Activer les notifications demande une fois ; ensuite Envoyer un test envoie une notification push dans 15 secondes — quitte l'appli pour voir le badge rouge.",
+      tm03b: "🔧 Si les notifications n'arrivent plus, ouvre ceci : les causes habituelles (bloquées pour le site, mise à jour, mode Concentration, appli iPhone sur l'écran d'accueil, économie de batterie) et comment les régler.", tm03: "Notifications : les minuteurs tournent sur cette page, mais ton téléphone ne te prévient que si les notifications sont activées. 🔔 Activer les notifications demande une fois ; ensuite Envoyer un test envoie une notification push dans 15 secondes — quitte l'appli pour voir le badge rouge.",
       tm03ios: "Sur iPhone, les notifications ne marchent que depuis l'appli installée : Partager → Sur l'écran d'accueil, ouvre NXS depuis la nouvelle icône et reviens ici. En attendant, les minuteurs tournent quand même sur cette page.",
       tm04: "🔄 Les officiers connectés avec Discord retrouvent leurs minuteurs et rappels sur tous leurs appareils ; Synchroniser maintenant les envoie tout de suite.",
       tm05: "⚡ Démarrage rapide : ton dernier temps d'Entraînement des troupes et ton dernier jeu de Collecte. Une touche le relance avec le même temps ; ✕ l'oublie.",
@@ -194,7 +194,7 @@
     pt: {
       tm01: "⏰ no cabeçalho do chat abre Meus timers; toque de novo para voltar ao chat. Deixa eu abrir…",
       tm02: "‹ Chat volta para o chat; seus timers continuam rodando.",
-      tm03: "Notificações: os timers rodam nesta página, mas seu celular só avisa você quando as notificações estão ativadas. 🔔 Ativar notificações pede permissão uma vez; depois disso, Enviar um teste manda um push em 15 segundos — saia do app para ver o selo vermelho.",
+      tm03b: "🔧 Se as notificações pararem de chegar, abra aqui: os problemas mais comuns (bloqueadas para o site, atualização do sistema, modo Foco, app da Tela de Início no iPhone, economia de bateria) e como resolver cada um.", tm03: "Notificações: os timers rodam nesta página, mas seu celular só avisa você quando as notificações estão ativadas. 🔔 Ativar notificações pede permissão uma vez; depois disso, Enviar um teste manda um push em 15 segundos — saia do app para ver o selo vermelho.",
       tm03ios: "No iPhone, as notificações só funcionam a partir do app instalado: Compartilhar → Adicionar à Tela de Início, abra o NXS pelo novo ícone e volte aqui. Enquanto isso, os timers continuam rodando nesta página.",
       tm04: "🔄 Oficiais logados com o Discord têm seus timers e lembretes em todos os dispositivos; sincronizar agora envia na hora.",
       tm05: "⚡ Início rápido: seu último tempo de Treino e seu conjunto de Coleta. Um toque inicia de novo com o mesmo tempo; ✕ esquece.",
@@ -218,7 +218,7 @@
     es: {
       tm01: "⏰ en el encabezado del chat abre Mis temporizadores; tócalo de nuevo para volver al chat. Déjame abrirlo…",
       tm02: "‹ Chat vuelve al chat; tus temporizadores siguen corriendo.",
-      tm03: "Notificaciones: los temporizadores corren en esta página, pero tu teléfono solo te avisa cuando las notificaciones están activadas. 🔔 Activar notificaciones pide permiso una vez; después, Enviar una prueba manda un push en 15 segundos — sal de la app para ver la insignia roja.",
+      tm03b: "🔧 Si dejan de llegar las notificaciones, abre esto: los fallos más comunes (bloqueadas para el sitio, actualización del sistema, modo Concentración, app de la pantalla de inicio en iPhone, ahorro de batería) y cómo arreglarlos.", tm03: "Notificaciones: los temporizadores corren en esta página, pero tu teléfono solo te avisa cuando las notificaciones están activadas. 🔔 Activar notificaciones pide permiso una vez; después, Enviar una prueba manda un push en 15 segundos — sal de la app para ver la insignia roja.",
       tm03ios: "En iPhone, las notificaciones solo funcionan desde la app instalada: Compartir → Agregar a pantalla de inicio, abre NXS desde el nuevo ícono y vuelve aquí. Mientras tanto, los temporizadores siguen corriendo en esta página.",
       tm04: "🔄 Los oficiales conectados con Discord tienen sus temporizadores y recordatorios en todos sus dispositivos; sincronizar ahora los envía de inmediato.",
       tm05: "⚡ Inicio rápido: tu último tiempo de Entrenamiento y tu conjunto de Recolección. Un toque lo inicia de nuevo con el mismo tiempo; ✕ lo olvida.",
@@ -242,7 +242,7 @@
     tr: {
       tm01: "Sohbet başlığındaki ⏰ Zamanlayıcılarım'ı açar; tekrar dokununca sohbete dönersin. Açıyorum…",
       tm02: "‹ Sohbet seni sohbete geri götürür; zamanlayıcıların çalışmaya devam eder.",
-      tm03: "Bildirimler: zamanlayıcılar bu sayfada çalışır ama telefonun sana ancak bildirimler açıkken ses verir. 🔔 Bildirimleri aç bir kez izin ister; sonrasında Test gönder 15 saniye içinde bir bildirim yollar — kırmızı rozeti görmek için uygulamadan çık.",
+      tm03b: "🔧 Bildirimler gelmezse burayı aç: sık görülen sorunlar (site için engelli, sistem güncellemesi, Odak modu, iPhone Ana Ekran uygulaması, pil tasarrufu) ve çözümleri.", tm03: "Bildirimler: zamanlayıcılar bu sayfada çalışır ama telefonun sana ancak bildirimler açıkken ses verir. 🔔 Bildirimleri aç bir kez izin ister; sonrasında Test gönder 15 saniye içinde bir bildirim yollar — kırmızı rozeti görmek için uygulamadan çık.",
       tm03ios: "iPhone'da bildirimler yalnızca yüklü uygulamadan çalışır: Paylaş → Ana Ekrana Ekle, NXS'i yeni simgeden aç ve buraya geri dön. Bu arada zamanlayıcılar bu sayfada çalışmaya devam eder.",
       tm04: "🔄 Discord ile giriş yapan subaylar zamanlayıcılarını ve hatırlatıcılarını her cihazda görür; şimdi eşitle hemen gönderir.",
       tm05: "⚡ Hızlı başlat: son Birlik Eğitimi süren ve Toplama setin. Tek dokunuşla aynı süreyle yeniden başlar; ✕ unutturur.",
@@ -266,7 +266,7 @@
     id: {
       tm01: "⏰ di header chat membuka Timer saya; ketuk lagi untuk kembali ke chat. Aku bukakan…",
       tm02: "‹ Chat kembali ke chat; timer kamu tetap berjalan.",
-      tm03: "Notifikasi: timer berjalan di halaman ini, tapi ponselmu hanya berbunyi kalau notifikasi aktif. 🔔 Aktifkan notifikasi meminta izin sekali; setelah itu Kirim tes mengirim push dalam 15 detik — keluar dari aplikasi untuk melihat badge merahnya.",
+      tm03b: "🔧 Kalau notifikasi berhenti masuk, buka ini: masalah yang biasa terjadi (diblokir untuk situs, pembaruan sistem, mode Fokus, aplikasi Layar Utama iPhone, penghemat baterai) dan cara mengatasinya.", tm03: "Notifikasi: timer berjalan di halaman ini, tapi ponselmu hanya berbunyi kalau notifikasi aktif. 🔔 Aktifkan notifikasi meminta izin sekali; setelah itu Kirim tes mengirim push dalam 15 detik — keluar dari aplikasi untuk melihat badge merahnya.",
       tm03ios: "Di iPhone, notifikasi hanya berfungsi dari aplikasi yang terpasang: Bagikan → Tambah ke Layar Utama, buka NXS dari ikon baru itu dan kembali ke sini. Sementara itu timer tetap berjalan di halaman ini.",
       tm04: "🔄 Perwira yang login dengan Discord mendapat timer dan pengingatnya di setiap perangkat; sinkronkan sekarang langsung mengirimnya.",
       tm05: "⚡ Mulai cepat: waktu Pelatihan Pasukan terakhir dan set Pengumpulan terakhirmu. Satu ketukan memulainya lagi dengan waktu yang sama; ✕ melupakannya.",
@@ -290,7 +290,7 @@
     ru: {
       tm01: "⏰ в шапке чата открывает Мои таймеры; нажми ещё раз, чтобы вернуться в чат. Сейчас открою…",
       tm02: "‹ Чат возвращает в чат; твои таймеры продолжают идти.",
-      tm03: "Уведомления: таймеры идут на этой странице, но телефон оповестит тебя только при включённых уведомлениях. 🔔 Включить уведомления спросит один раз; после этого Отправить тест пришлёт пуш через 15 секунд — выйди из приложения, чтобы увидеть красный значок.",
+      tm03b: "🔧 Если уведомления перестали приходить, откройте это: частые причины (заблокированы для сайта, обновление системы, режим «Фокус», приложение на экране «Домой» на iPhone, экономия заряда) и как их исправить.", tm03: "Уведомления: таймеры идут на этой странице, но телефон оповестит тебя только при включённых уведомлениях. 🔔 Включить уведомления спросит один раз; после этого Отправить тест пришлёт пуш через 15 секунд — выйди из приложения, чтобы увидеть красный значок.",
       tm03ios: "На iPhone уведомления работают только из установленного приложения: Поделиться → На экран «Домой», открой NXS с новой иконки и вернись сюда. Таймеры на этой странице тем временем продолжают идти.",
       tm04: "🔄 Офицеры, вошедшие через Discord, получают свои таймеры и напоминания на всех устройствах; Синхронизировать сейчас отправляет их сразу.",
       tm05: "⚡ Быстрый старт: твоё последнее время Обучения войск и набор Сбора. Одно нажатие запускает его снова с тем же временем; ✕ забывает его.",
@@ -314,7 +314,7 @@
     th: {
       tm01: "⏰ ที่หัวแชทจะเปิด ตัวจับเวลาของฉัน แตะอีกครั้งเพื่อกลับไปที่แชท เดี๋ยวฉันเปิดให้…",
       tm02: "‹ แชท จะพากลับไปที่แชท ตัวจับเวลาของคุณยังเดินต่อ",
-      tm03: "การแจ้งเตือน: ตัวจับเวลาเดินอยู่บนหน้านี้ แต่มือถือจะเตือนคุณก็ต่อเมื่อเปิดการแจ้งเตือนไว้ 🔔 เปิดการแจ้งเตือน จะถามแค่ครั้งเดียว หลังจากนั้น ส่งทดสอบ จะส่งพุชใน 15 วินาที — ออกจากแอปเพื่อดูป้ายสีแดง",
+      tm03b: "🔧 ถ้าการแจ้งเตือนไม่มา เปิดตรงนี้: มีปัญหาที่เจอบ่อย (เว็บถูกบล็อก อัปเดตระบบ โหมดโฟกัส แอปบนหน้าจอโฮม iPhone โหมดประหยัดแบต) และวิธีแก้แต่ละอย่าง", tm03: "การแจ้งเตือน: ตัวจับเวลาเดินอยู่บนหน้านี้ แต่มือถือจะเตือนคุณก็ต่อเมื่อเปิดการแจ้งเตือนไว้ 🔔 เปิดการแจ้งเตือน จะถามแค่ครั้งเดียว หลังจากนั้น ส่งทดสอบ จะส่งพุชใน 15 วินาที — ออกจากแอปเพื่อดูป้ายสีแดง",
       tm03ios: "บน iPhone การแจ้งเตือนใช้ได้จากแอปที่ติดตั้งแล้วเท่านั้น: แชร์ → เพิ่มไปยังหน้าจอโฮม เปิด NXS จากไอคอนใหม่แล้วกลับมาที่นี่ ระหว่างนั้นตัวจับเวลายังเดินอยู่บนหน้านี้",
       tm04: "🔄 นายทหารที่ล็อกอินด้วย Discord จะได้ตัวจับเวลาและการเตือนบนทุกอุปกรณ์ ซิงค์ตอนนี้ จะส่งทันที",
       tm05: "⚡ เริ่มด่วน: เวลา ฝึกทหาร ล่าสุดและชุด เก็บทรัพยากร ของคุณ แตะครั้งเดียวเพื่อเริ่มใหม่ด้วยเวลาเดิม ✕ จะลืมมัน",
@@ -338,7 +338,7 @@
     ar: {
       tm01: "⏰ في رأس الدردشة يفتح مؤقتاتي؛ اضغط عليه مرة أخرى للعودة إلى الدردشة. دعني أفتحه…",
       tm02: "‹ الدردشة يعيدك إلى الدردشة؛ وتبقى مؤقتاتك تعمل.",
-      tm03: "الإشعارات: المؤقتات تعمل على هذه الصفحة، لكن هاتفك لا ينبّهك إلا إذا كانت الإشعارات مفعّلة. 🔔 تفعيل الإشعارات يسأل مرة واحدة؛ وبعدها إرسال تجربة يرسل إشعارًا خلال 15 ثانية — اخرج من التطبيق لترى الشارة الحمراء.",
+      tm03b: "🔧 إذا توقفت الإشعارات، افتح هذا: الأسباب الشائعة (محظورة للموقع، تحديث النظام، وضع التركيز، تطبيق الشاشة الرئيسية على iPhone، توفير البطارية) وطريقة حل كل منها.", tm03: "الإشعارات: المؤقتات تعمل على هذه الصفحة، لكن هاتفك لا ينبّهك إلا إذا كانت الإشعارات مفعّلة. 🔔 تفعيل الإشعارات يسأل مرة واحدة؛ وبعدها إرسال تجربة يرسل إشعارًا خلال 15 ثانية — اخرج من التطبيق لترى الشارة الحمراء.",
       tm03ios: "على iPhone، الإشعارات تعمل فقط من التطبيق المثبّت: مشاركة → إضافة إلى الشاشة الرئيسية، افتح NXS من الأيقونة الجديدة ثم عد إلى هنا. وفي هذه الأثناء تبقى المؤقتات تعمل على هذه الصفحة.",
       tm04: "🔄 الضباط الذين سجّلوا الدخول عبر Discord يحصلون على مؤقتاتهم وتذكيراتهم على كل الأجهزة؛ مزامنة الآن يرسلها فورًا.",
       tm05: "⚡ بداية سريعة: آخر وقت تدريب القوات وآخر مجموعة الجمع لديك. ضغطة واحدة تشغّلها من جديد بالوقت نفسه؛ ✕ ينساها.",
@@ -1644,6 +1644,7 @@
     { s: ".ai-head button", k: "tm01" },
     { s: ".tm-view .tm-top [data-a=chat]", k: "tm02", pre: () => window.NXSTimers && NXSTimers.show(true) },
     { s: ".tm-view .tm-note", k: "tm03" },
+    { s: ".tm-view .tm-fix", k: "tm03b" },
     { s: ".tm-view [data-a=cloudnow], .tm-view .tm-note a.tm-btn", k: "tm04" },
     { s: ".tm-view .tm-quick", k: "tm05" },
     { s: "#tmAdd [data-a=add]", k: "tm06" },
