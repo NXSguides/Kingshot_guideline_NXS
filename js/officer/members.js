@@ -73,13 +73,23 @@ function draw() {
   const box = $("mm_map"); if (!box) return;
   if (!D.m.length) { box.innerHTML = ""; return; }
   const all = D.m.map(([, x, y]) => [x, y]).concat(D.bt);
-  let x1 = Math.min(...all.map((a) => a[0])) - 3, x2 = Math.max(...all.map((a) => a[0])) + 5, y1 = Math.min(...all.map((a) => a[1])) - 3, y2 = Math.max(...all.map((a) => a[1])) + 5;
+  let x1 = Math.min(...all.map((a) => a[0])) - 6, x2 = Math.max(...all.map((a) => a[0])) + 8, y1 = Math.min(...all.map((a) => a[1])) - 6, y2 = Math.max(...all.map((a) => a[1])) + 8;   // a few tiles around for context
   O = { dx: x1 - y2, sy: x2 + y2 };
   const W = ((x2 - y1) - (x1 - y2)) * K, H = ((x2 + y2) - (x1 + y1)) * K * R;
   const idx = rosterIndex(), s = [];
   s.push(`<polygon points="${[[x1, y1], [x2, y1], [x2, y2], [x1, y2]].map(([a, b]) => P(a, b).map((v) => v.toFixed(1)).join(",")).join(" ")}" fill="#5f8a3a" stroke="#3d5e22" stroke-width="2"/>`);
-  for (const [bx, by] of banners) if (bx >= x1 && bx <= x2 && by >= y1 && by <= y2)
-    s.push(`<polygon points="${poly(bx, by, 1)}" fill="#0b3d91" stroke="#cfe4ff" stroke-width="1"><title>${esc(t("banner"))} X:${bx} Y:${by}</title></polygon>`);
+  const KS = window.KM_SHARED, inB = (x, y) => x >= x1 && x <= x2 && y >= y1 && y <= y2;
+  /* ⛰️ mountains / lakes from the map tab's obstacle layer (same data as 🗺️ ⛰️ Obstacles) */
+  if (KS) for (let x = x1; x <= x2; x++) for (let y = y1; y <= y2; y++) { const o = KS.obst(x, y);
+    if (o) s.push(`<polygon points="${poly(x, y, 1)}" fill="${o === 1 ? "#8a8a96" : "#3a7fd0"}" stroke="${o === 1 ? "#77777f" : "#2f6cb3"}" stroke-width=".6"/>`); }
+  /* 🏳️ our banners as the map tab has them (officers' edits included): dark = checked in game, light = estimated; 🚩 planned; 🏴 others */
+  const bl = KS ? KS.banners() : banners.map(([x, y]) => [x, y, 1]);
+  for (const [bx, by, c] of bl) if (inB(bx, by))
+    s.push(`<g class="mm-f"><polygon points="${poly(bx, by, 1)}" fill="${c ? "#0b3d91" : "#4f86d9"}" stroke="#cfe4ff" stroke-width="1"/><title>${esc(t("banner"))} X:${bx} Y:${by}</title></g>`);
+  if (KS) for (const [bx, by] of KS.planned()) if (inB(bx, by))
+    s.push(`<polygon points="${poly(bx, by, 1)}" fill="none" stroke="#ffde4a" stroke-width="1.6" stroke-dasharray="3 2"><title>🚩 X:${bx} Y:${by}</title></polygon>`);
+  if (KS) for (const [n, bx, by, col] of KS.others()) if (inB(bx, by))
+    s.push(`<polygon points="${poly(bx, by, 1)}" fill="${esc(col)}" stroke="#fff" stroke-width="1"><title>🏴 ${esc(n)} X:${bx} Y:${by}</title></polygon>`);
   for (const [i, [hx, hy]] of (G && G.hq ? G.hq.slice(0, 1) : []).entries()) if (hx >= x1 && hx <= x2 && hy >= y1 && hy <= y2) {
     const [cx, cy] = P(hx + 1.5, hy + 1.5);
     s.push(`<g class="mm-b" data-k="hq${i}"><polygon points="${poly(hx, hy, 3)}" fill="#2b6cc4" stroke="#fff" stroke-width="1.5"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" class="mm-bl">HQ</text></g>`);
@@ -204,7 +214,7 @@ async function init(map) {
   G = map; lang = OFFICER.lang || "en";
   const el = $("km_members"); if (!el) return;
   if (!(window.OfficerData && OfficerData.ready && OfficerData.ready())) { el.innerHTML = `<h3 style="margin:0 0 4px">${esc(t("t"))}</h3><div class="muted">${esc(t("locked"))}</div>`; return; }
-  try { banners = ((await fetch("data/banners-2189.json?v=20").then((r) => r.json())).b || []).map(([x, y]) => [x, y]); } catch (e) {}
+  if (!window.KM_SHARED) { try { banners = ((await fetch("data/banners-2189.json?v=20").then((r) => r.json())).b || []).map(([x, y]) => [x, y]); } catch (e) {} }
   await load(); render();
   try { roster = await OfficerData.fetchJsonFast("data/roster-x7k2p9.json", (r) => { roster = r; fixNames(); render(); }); } catch (e) {}
   fixNames();
@@ -217,5 +227,7 @@ function fixNames() {
   if (n) msg = t("fixed").replace("{n}", n) + " " + t("unsaved");
 }
 function setLang(l) { lang = l; if (D) render(); }
-window.MemberMap = { init, setLang };
+let rT = 0;
+function refresh() { clearTimeout(rT); rT = setTimeout(() => { if (D) draw(); }, 150); }   // the map tab's banners / obstacles changed
+window.MemberMap = { init, setLang, refresh };
 })();

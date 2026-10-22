@@ -631,7 +631,7 @@ function rebuildOwn() {
 }
 /* 🏴 other alliances' banners (data/banners-others-2189.json, from the territory overlay — estimates): own layer, never mixed with ours */
 let OTB = null, otOn = (() => { try { return localStorage.getItem("km-otb") === "1"; } catch (e) { return false; } })();
-async function loadOt() { try { OTB = await fetch("data/banners-others-2189.json?v=1").then((r) => r.json()); } catch (e) { OTB = null; } drawOt(); renderFlags(); }
+async function loadOt() { try { OTB = await fetch("data/banners-others-2189.json?v=1").then((r) => r.json()); } catch (e) { OTB = null; } drawOt(); renderFlags(); memRefresh(); }
 /* officers' fixes (saved with the plan): PLAN.ot = { off: ["UNI:x,y" gone / moved away], add: [["UNI", x, y] built / corrected] } */
 const otCol = (n) => (OTB && OTB.a[n] && OTB.a[n].c) || "#999";
 const otList = () => { if (!OTB) return []; const o = PLAN.ot || {}, off = new Set(o.off || []), out = [];
@@ -664,7 +664,7 @@ function drawOt() {
   g.innerHTML = otOn && OTB ? otList().map(([n, x, y]) => `<polygon points="${pts([[x - FR, y - FR], [x + FR + 1, y - FR], [x + FR + 1, y + FR + 1], [x - FR, y + FR + 1]])}" fill="${otCol(n)}" fill-opacity=".55" stroke="#000" stroke-opacity=".6" stroke-width=".35"/>`).join("")
     + otHq().map(([n, x, y]) => { const [X, Y] = P(x + 1.5, y + 1.5); return `<polygon points="${pts([[x - 6, y - 6], [x + 9, y - 6], [x + 9, y + 9], [x - 6, y + 9]])}" fill="${otCol(n)}" fill-opacity=".55" stroke="#000" stroke-opacity=".6" stroke-width=".35"/><polygon points="${pts([[x, y], [x + 3, y], [x + 3, y + 3], [x, y + 3]])}" fill="#1b1b1b" fill-opacity=".75" stroke="#fff" stroke-width=".4"/><text x="${X}" y="${Y + 1}" text-anchor="middle" font-family="Arial" font-size="3" font-weight="800" fill="#fff">HQ</text>`; }).join("") : "";
 }
-async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=20").then((r) => r.json()); } catch (e) { EXB = null; } rebuildOwn(); drawEx(); drawFlags(); renderFlags(); }
+async function loadEx() { try { EXB = await fetch("data/banners-2189.json?v=20").then((r) => r.json()); } catch (e) { EXB = null; } rebuildOwn(); drawEx(); drawFlags(); renderFlags(); memRefresh(); }
 function drawEx() {
   const g = $("km_exG"); if (!g) return;
   // our two HQs claim 15×15 too (3×3 building from its X, Y + 6 tiles around)
@@ -706,7 +706,7 @@ function loadGrid() {
   const im = new Image();
   im.onload = () => { try { const c = document.createElement("canvas"); c.width = FN; c.height = FN; const x = c.getContext("2d", { willReadFrequently: true }); x.drawImage(im, 0, 0);
     const d = x.getImageData(0, 0, FN, FN).data; GRID = new Uint8Array(FN * FN); OBST = new Uint8Array(FN * FN);
-    for (let i = 0; i < FN * FN; i++) { GRID[i] = d[i * 4]; OBST[i] = d[i * 4 + 1]; } } catch (e) {} buildZones(); rebuildOwn(); drawObst(); drawFlags(); renderFlags(); };
+    for (let i = 0; i < FN * FN; i++) { GRID[i] = d[i * 4]; OBST[i] = d[i * 4 + 1]; } } catch (e) {} buildZones(); rebuildOwn(); drawObst(); drawFlags(); renderFlags(); memRefresh(); };
   im.src = "data/territory-2189-grid.png?v=20";
 }
 const own = (x, y) => (x < 0 || y < 0 || x >= FN || y >= FN) ? 2 : OV ? OV[y * FN + x] : GRID ? GRID[y * FN + x] : 0;   // 0 free · 1 ours · 2 another alliance
@@ -764,7 +764,7 @@ function renderFlags() {
     + (EXB ? `<div class="muted" style="font-size:12px;margin-top:6px">${esc(ft("exNote").replace("{n}", exList().length).replace("{c}", exList().filter((b) => b[2]).length))} ${esc(ft("tapSel"))}</div>` : "")
     + `<div class="muted" style="font-size:12px;margin-top:6px">${esc(ft("note").replace("{d}", TERR.date))}</div>`;
 }
-function flagsChanged() { planMsg = ""; rebuildOwn(); drawEx(); drawOt(); drawFlags(); renderFlags(); renderPlan(); if (FSEL) flagInfo(); }
+function flagsChanged() { planMsg = ""; rebuildOwn(); drawEx(); drawOt(); drawFlags(); renderFlags(); renderPlan(); if (FSEL) flagInfo(); memRefresh(); }
 /* 🎯 tapped banner (planned or standing): shown in the info box under the map, where it can be moved, marked built / demolished or removed */
 let FSEL = null;
 const near = (list, x, y) => { let best = -1, bd = 3; list.forEach(([a, b], i) => { const d = Math.max(Math.abs(a - x), Math.abs(b - y)); if (d < bd) { bd = d; best = i; } }); return best; };
@@ -884,6 +884,15 @@ async function init() {
   $("km_in").onclick = () => setZoom(Z * 1.5); $("km_out").onclick = () => setZoom(Z / 1.5);
   mouseControls();
 }
+/* 👥 the member map (js/officer/members.js) draws the same banners and obstacles as this map, with the officers' edits */
+window.KM_SHARED = {
+  banners: () => exList(),                      // [x, y, 1 = checked in game / 0 = estimated]
+  planned: () => (PLAN && PLAN.fl) || [],      // 🚩 planned banners [x, y]
+  others: () => otList().map(([n, x, y]) => [n, x, y, otCol(n)]),
+  obst: (x, y) => obstAt(x, y),                // 1 mountain · 2 lake · 0 free
+  zone: (x, y) => ZNAME[zoneAt(x, y)] || "",
+};
+const memRefresh = () => { if (window.MemberMap && MemberMap.refresh) MemberMap.refresh(); };
 function setLang(l) { lang = l; applyTexts(); if (window.MemberMap) MemberMap.setLang(l); }
 OFFICER_PAGES.map = { init, onShow, applyTexts, setLang };
 })();
