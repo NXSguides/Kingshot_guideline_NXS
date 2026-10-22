@@ -2,7 +2,7 @@
    A close-up of our block drawn like the in-game World map (screen right = X−Y, up = X+Y): every member's city (2×2 tiles,
    the X:Y is its corner tile like in game), the Bear Traps and HQ (3×3) and our banners. Saved encrypted for all officers in
    data/member-map-x7k2p9.json as { m: [[name, x, y], …], bt: [[x, y], [x, y]], by, at }.
-   Names are matched with the roster (Ranking data) so the box shows power and flags names that aren't on the roster. A pasted name that clearly means one roster member (Andre → Andree) takes the roster spelling. */
+   Names are matched with the roster (Ranking data) so the box shows power and flags names that aren't on the roster. Names stay exactly as the officers type them; a name that clearly means one roster member (Andre → Andree) is only linked to it for the power / colour. */
 (function () {
 const PATH = "data/member-map-x7k2p9.json";
 const $ = (id) => document.getElementById(id);
@@ -119,7 +119,7 @@ function info(k) {
     return; }
   if (SEL == null || !D.m[SEL]) { el.innerHTML = ""; return; }
   const [n, x, y] = D.m[SEL], m = rosterIndex()[norm(n)];
-  el.innerHTML = `<b dir="auto">${esc(n)}</b> · X:${x} Y:${y}${m && m.power ? ` · ${esc(t("pw"))} ${fmtPw(+m.power)}` : ""} <button class="btn small" id="mm_copy">${esc(t("copy"))}</button>`
+  el.innerHTML = `<b dir="auto">${esc(n)}</b>${m && norm(m.name) !== norm(n) ? ` <span class="muted">(≈ ${esc(m.name)})</span>` : ""} · X:${x} Y:${y}${m && m.power ? ` · ${esc(t("pw"))} ${fmtPw(+m.power)}` : ""} <button class="btn small" id="mm_copy">${esc(t("copy"))}</button>`
     + (ED() ? `<div class="mm-ed" style="margin-top:6px"><input class="inp" id="mm_en" value="${esc(n)}" style="width:150px"> X <input class="inp" id="mm_ex" type="number" value="${x}"> Y <input class="inp" id="mm_ey" type="number" value="${y}"> <button class="btn small" id="mm_eok">${esc(t("edit"))}</button> <button class="btn small" id="mm_edel">${esc(t("del"))}</button></div>` : "");
   $("mm_copy").onclick = async () => { try { await navigator.clipboard.writeText(`X:${x} Y:${y}`); $("mm_copy").textContent = t("copied"); } catch (e) {} };
   if ($("mm_eok")) $("mm_eok").onclick = () => { D.m[SEL] = [$("mm_en").value.trim() || n, +$("mm_ex").value, +$("mm_ey").value]; msg = t("unsaved"); render(); };
@@ -142,9 +142,8 @@ function applyPaste(replace) {
   let a = 0, mv = 0;
   for (const [n, x, y] of out) {
     const bt = n.match(/^BT\s*([12])$/i); if (bt) { D.bt[+bt[1] - 1] = [x, y]; continue; }
-    const r = closest(n), nm = r ? r.name : n;   // use the roster's spelling when it clearly means one member
-    const j = D.m.findIndex(([m]) => norm(m) === norm(nm) || norm(m) === norm(n));
-    if (j >= 0) { D.m[j] = [nm, x, y]; mv++; } else { D.m.push([nm, x, y]); a++; }
+    const j = D.m.findIndex(([m]) => norm(m) === norm(n));   // names are kept exactly as typed (members missing from the roster too)
+    if (j >= 0) { D.m[j] = [n, x, y]; mv++; } else { D.m.push([n, x, y]); a++; }
   }
   msg = (bad.length ? t("bad").replace("{l}", bad.slice(0, 3).join(" / ")) + " " : "") + t("added").replace("{a}", a).replace("{m}", mv) + " " + t("unsaved");
   if (!bad.length) { pasteOpen = false; }
@@ -219,15 +218,8 @@ async function init(map) {
   if (!(window.OfficerData && OfficerData.ready && OfficerData.ready())) { el.innerHTML = `<h3 style="margin:0 0 4px">${esc(t("t"))}</h3><div class="muted">${esc(t("locked"))}</div>`; return; }
   if (!window.KM_SHARED) { try { banners = ((await fetch("data/banners-2189.json?v=20").then((r) => r.json())).b || []).map(([x, y]) => [x, y]); } catch (e) {} }
   await load(); render();
-  try { roster = await OfficerData.fetchJsonFast("data/roster-x7k2p9.json", (r) => { roster = r; fixNames(); render(); }); } catch (e) {}
-  fixNames();
+  try { roster = await OfficerData.fetchJsonFast("data/roster-x7k2p9.json", (r) => { roster = r; render(); }); } catch (e) {}
   render();
-}
-/* names saved before the roster matched (or typed slightly differently) take the roster spelling — shown as unsaved */
-function fixNames() {
-  if (!roster || !D || !ED()) return; let n = 0;
-  D.m.forEach((m) => { const r = closest(m[0]); if (r && r.name !== m[0] && norm(r.name) !== norm(m[0])) { m[0] = r.name; n++; } });
-  if (n) msg = t("fixed").replace("{n}", n) + " " + t("unsaved");
 }
 function setLang(l) { lang = l; if (D) render(); }
 let rT = 0;
