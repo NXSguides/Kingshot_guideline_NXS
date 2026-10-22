@@ -267,6 +267,12 @@ const BEAR_SCHED = { anchor: Date.UTC(2026, 9, 7), periodDays: 2, activeDays: 1 
 const ANN_EVENTS = [
   { match: "Finder", emoji: "🔍", start: "2026-10-11", days: 3 },
 ];
+/* events with no guide and no announcement, straight from the in-game calendar: shown on the Today card and the month
+   calendar with their official name (data/event-names.js) and times. h = [from, to] UTC hours. */
+const NOTE_EVENTS = [
+  { name: "Castle Battle", emoji: "🏰", start: "2026-10-24", days: 1, h: [12, 17] },   // in-game calendar: 10/24 12:00 – 17:00 UTC
+];
+const noteName = (ev) => (typeof EVENT_NAMES !== "undefined" && EVENT_NAMES[ev.name] && (EVENT_NAMES[ev.name][currentLang] || EVENT_NAMES[ev.name].en)) || ev.name;
 /* our alliance's fixed times (UTC hours) — set as close to Bear Hunt as possible */
 const EVENT_TIMES = { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23], "cesares-fury": [22 + 35 / 60], "eternity-reach": [3, 5, 11, 14, 16, 18] };
 /* officers set these on the officer Events tab → data/event-times.json ("13:30" → 13.5); the ⏰ timers read them too */
@@ -1069,6 +1075,10 @@ function calEventsOn(day) {   // [{key|ann, emoji, name, day, days}] active on t
     const n = Math.floor((day - Date.parse(ev.start + "T00:00:00Z")) / DAY);
     if (n >= 0 && n < ev.days) out.push({ ann: i, emoji: ev.emoji, name: t(announcements[i].title) || ev.match, day: n + 1, days: ev.days, fight: true });
   }
+  for (const ev of NOTE_EVENTS) {
+    const n = Math.floor((day - Date.parse(ev.start + "T00:00:00Z")) / DAY);
+    if (n >= 0 && n < ev.days) out.push({ note: ev, emoji: ev.emoji, name: noteName(ev), day: n + 1, days: ev.days, fight: true });
+  }
   return out;
 }
 function monthCalHtml() {
@@ -1087,7 +1097,7 @@ function monthCalHtml() {
   }
   const fill = (str, v) => str.replace(/\{(\w+)\}/g, (m, k) => (v[k] ?? m));
   const list = calEventsOn(pick), dl = new Date(pick).toLocaleDateString(loc, { weekday: "short", month: "short", day: "numeric", timeZone: "UTC" });
-  const rows = list.length ? list.map((it) => `<button type="button" class="td-row" onclick="${it.ann !== undefined ? `goToAnnouncements(${it.ann})` : `switchGuide('${it.key}')`}"><span class="emoji">${it.emoji}</span><span class="td-main"><b dir="auto">${escapeHtml(it.name)}${it.fight ? " ⚔️" : ""}</b>${it.days > 1 ? `<span class="td-meta">${escapeHtml(fill(t(TODAY_TXT.day), { n: it.day, d: it.days }))}${it.fight ? "" : " · " + escapeHtml(t(it.repair ? CAL_TXT.repair : it.prep ? CAL_TXT.prepPhase : CAL_TXT.prep))}</span>` : ""}</span><span class="arrow">›</span></button>`).join("")
+  const rows = list.length ? list.map((it) => `<button type="button" class="td-row" onclick="${it.note ? "" : it.ann !== undefined ? `goToAnnouncements(${it.ann})` : `switchGuide('${it.key}')`}"><span class="emoji">${it.emoji}</span><span class="td-main"><b dir="auto">${escapeHtml(it.name)}${it.fight ? " ⚔️" : ""}</b>${it.days > 1 ? `<span class="td-meta">${escapeHtml(fill(t(TODAY_TXT.day), { n: it.day, d: it.days }))}${it.fight ? "" : " · " + escapeHtml(t(it.repair ? CAL_TXT.repair : it.prep ? CAL_TXT.prepPhase : CAL_TXT.prep))}</span>` : ""}</span><span class="arrow">›</span></button>`).join("")
     : `<div class="td-none">${escapeHtml(t(CAL_TXT.none))}</div>`;
   return `<div class="td-title cal-head"><span>${escapeHtml(t(CAL_TXT.title))}</span><span class="cal-nav"><button type="button" onclick="calShift--;calPick=null;renderCal()">‹</button><b>${escapeHtml(fd.toLocaleDateString(loc, { month: "long", year: "numeric", timeZone: "UTC" }))}</b><button type="button" onclick="calShift++;calPick=null;renderCal()">›</button>${calShift !== 0 || pick !== today ? `<button type="button" class="cal-todaybtn" onclick="calShift=0;calPick=null;renderCal()">⤺ ${escapeHtml(t(TODAY_TXT.today))}</button>` : ""}</span></div>
     <div class="cal-grid">${wd.map((w) => `<span class="cal-w">${escapeHtml(w)}</span>`).join("")}${cells}</div><div class="td-h">${escapeHtml(dl)}</div>${rows}`;
@@ -1122,6 +1132,12 @@ function todayCardHtml() {
     if (n >= 0 && n < ev.days) nowItems.push({ ...item, day: n + 1, days: ev.days });
     else if (n < 0 && -n <= 7) soon.push({ ...item, until: -n });
   }
+  for (const ev of NOTE_EVENTS) {                               // in-game calendar events with no guide
+    const st = Date.parse(ev.start + "T00:00:00Z"), n = Math.floor((today - st) / DAY);
+    const item = { note: ev, emoji: ev.emoji, name: noteName(ev) };
+    if (n >= 0 && n < ev.days) nowItems.push({ ...item, day: n + 1, days: ev.days });
+    else if (n < 0 && -n <= 7) soon.push({ ...item, until: -n });
+  }
   soon.sort((a, b) => a.until - b.until);
   const hh = hToHM;
   const local = (h) => { const d = new Date(Math.floor(Date.now() / 864e5) * 864e5 + Math.round(h * 60) * 6e4); return d.toLocaleTimeString(HTML_LANG[currentLang] || currentLang, { hour: "2-digit", minute: "2-digit", hourCycle: "h23" }); };
@@ -1129,6 +1145,9 @@ function todayCardHtml() {
     const off = new Date().getTimezoneOffset() !== 0 ? ` <span class="td-loc">(${escapeHtml(t(TODAY_TXT.yours))} ${T.map(local).join(" & ")})</span>` : "";
     return `<span class="td-time">⏰ ${T.map(hh).join(" & ")} UTC${off}</span>`; };
   const row = (it, meta) => {
+    if (it.note) { const [a, b] = it.note.h || [], off = new Date().getTimezoneOffset() !== 0;
+      const tm = a != null ? `<span class="td-time">⏰ ${hh(a)}–${hh(b)} UTC${off ? ` <span class="td-loc">(${escapeHtml(t(TODAY_TXT.yours))} ${local(a)}–${local(b)})</span>` : ""}</span>` : "";
+      return `<div class="td-row"><span class="emoji">${it.emoji}</span><span class="td-main"><b dir="auto">${escapeHtml(it.name)}</b><span class="td-meta">${meta}</span>${tm}</span></div>`; }
     if (it.ann !== undefined) return `<button type="button" class="td-row" onclick="goToAnnouncements(${it.ann});setTimeout(()=>{const x=document.querySelector('.ann-tab.active');if(x)x.scrollIntoView({behavior:'smooth',block:'start'})},150)"><span class="emoji">${it.emoji}</span>
       <span class="td-main"><b dir="auto">${escapeHtml(it.name)}</b><span class="td-meta">${meta}</span></span><span class="arrow">›</span></button>`;
     const g = GUIDES[it.key];

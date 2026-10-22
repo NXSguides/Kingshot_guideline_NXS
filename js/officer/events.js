@@ -347,6 +347,7 @@ const EVENTS = {
   "hero-roulette":      { emoji: "🎰", en: "Hero Roulette", zh: "英雄轉盤" },
   "cesares-fury":       { emoji: "🗡️", en: "Cesares Fury", zh: "征討切薩雷", noGuide: true },
   "wavebound-voyage":   { emoji: "⛵", en: "Wavebound Voyage", zh: "踏浪之旅", start: "2026-10-20", every: 100000, days: 5 },   // one-off (irregular)
+  "castle-battle":      { emoji: "🏰", en: "Castle Battle", zh: "決戰王城", start: "2026-10-24", every: 100000, days: 1, note: "12:00 – 17:00 UTC", noteZh: "UTC 12:00 – 17:00" },   // in-game calendar (no guide yet)
   "sanctuary-battle":   { emoji: "🏯", en: "Sanctuary Battle", zh: "遺跡爭奪", noGuide: true, start: "2026-10-06", every: 7, days: 4 },   // added after the list was first saved → start/every/days seed it
   // the week right after KvK (first seen 2026-10-12; check the dates in game)
   "alliance-brawl":     { emoji: "🤜", en: "Alliance Brawl", zh: "聯盟對決", noGuide: true, start: "2026-10-12", every: 28, days: 7,
