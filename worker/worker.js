@@ -61,10 +61,6 @@ async function handle(req, env, ctx) {
     if (req.method === "OPTIONS") return new Response(null, { headers: cors });
     const path = new URL(req.url).pathname;
     if (path.startsWith("/auth/") || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/perms") return authRoute(req, env, path, ctx);   // 🔑 officer login with Discord
-    if (path === "/member-map") {   // 📍 main site: where everyone's city is now (read only)
-      if (req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
-      return memberMap(env);
-    }
     if (path === "/push/save" || path === "/push/test") {
       if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
       return pushRoute(req, env, path);
@@ -389,7 +385,7 @@ NEWER TOOLS (officers)
 [events] - 📅 Events → "📣 Announcement draft" (公告草稿): "UPCOMING KEY EVENTS" with our times for the next 3/5/7 days, ready to paste in game (300-character limit, counter shown; tick which events go in). Each to-do card also has "📣 Game post" (遊戲公告) for a one-event reminder.
 [events] - 📅 Events → "⏰ Our event times": a time can be tied to a battle day with @, e.g. "22:00@1, 13:00@3" (Viking: Day 1 22:00, Day 3 13:00).
 [ranking] - 📊 Ranking → ⑤ Battle table: "⚔️ Swordland rules draft" fills Phase 1, Phase 2 and Stay behind from the ranking (subs left out); ↩️ Undo next to the plan picker; 🕘 Version history to bring back an earlier saved table.
-[map] - 🗺️ Map → "👥 Member positions" (成員位置): our block drawn like the in-game map (every member's city, Bear Traps, HQ, banners, mountains/lakes from the map). Search a name or tap a city for X:Y and a copy button. Editors: tap a city to change name / X / Y, or "📋 Paste positions" (one per line: name X Y; the box opens with the current list — fix it and press "Replace all"), then 💾 Save. Names are kept exactly as typed; blue = found on the roster, orange = not found. Saved positions also show (read only, names + X:Y, Bear Traps, our standing banners) to every member on the main site's 📍 Member Map within a minute or two; the 🚚 moving plan and planned banners never do.
+[map] - 🗺️ Map → "👥 Member positions" (成員位置): our block drawn like the in-game map (every member's city, Bear Traps, HQ, banners, mountains/lakes from the map). Search a name or tap a city for X:Y and a copy button. Editors: tap a city to change name / X / Y, or "📋 Paste positions" (one per line: name X Y; the box opens with the current list — fix it and press "Replace all"), then 💾 Save. Names are kept exactly as typed; blue = found on the roster, orange = not found.
 [move] - 🚚 Move (搬家, its own tab): only admins see it unless the 👥 table gives it. Load the moving plan (.json saved from the layout planner, cities named), 📍 Now / 🧭 Plan maps, and the moving table: each member's current X:Y → new spot (tap to copy), ✓ Moved, progress bar, "Only not moved yet". A member whose current position on 🗺️ Map already equals the new spot gets ✅ automatically. "➕ Add / change a spot" gives someone a spot or moves them; their old spot becomes free.
 [board] - 💬 Board (討論板): topics translated into 中文 / English / Português / العربية / 한국어; @ mentions, 📋 Assign to (makes a task with ✅ Done), 🖼️ pictures, 📌 Set as decision. "Tasks for you" lists what you were assigned or @'d in.
 [attend] - 📋 Attendance (出席): sheets made from a shared Ranking plan; ① Confirmed (tap = sub), add people by pasting names, 📷 voter screenshots or by hand; ② after the battle tap ✓ showed up → X no-show → 🛌 excused; repeat misses turn orange (2nd) and red (3rd). Save / Copy for Discord.
@@ -542,28 +538,6 @@ function officerDataFor(text, tabs) {
     return hit ? hit[1].some((t) => tabs.has(t)) : tabs.has("perms");
   });
   return keep.length > 1 ? keep.join("\n") : "";
-}
-
-/* 📍 Member map for everyone (main site, read only). From what officers save on 🗺️ Map → 👥 Member positions:
-   names + current X:Y, the Bear Traps, and our standing banners near the block (with the officers' banner edits).
-   Never the 🚚 moving plan or planned banners (those stay with the officers so nobody moves / builds early). */
-let mmCache = { at: 0, body: null };
-async function memberMap(env) {
-  if (mmCache.body && Date.now() - mmCache.at < 30000) return json(mmCache.body);
-  const fresh = async (f) => { const r = await fetch(SITE_BASE + f + "?t=" + Date.now(), { cf: { cacheTtl: 0 } }); if (!r.ok) throw new Error(f + " " + r.status); return r.json(); };
-  let d;
-  try { d = await openData(await fresh("data/member-map-x7k2p9.json"), env); } catch (e) { return json({ error: "no_data" }, 502); }
-  const num = (v) => Number.isFinite(+v) ? Math.round(+v) : null;
-  const m = (Array.isArray(d && d.m) ? d.m : []).filter((r) => r && r[0] && num(r[1]) != null && num(r[2]) != null).map(([n, x, y]) => [String(n).slice(0, 40), num(x), num(y)]);
-  const bt = (Array.isArray(d && d.bt) ? d.bt : []).filter((a) => a && num(a[0]) != null).map(([x, y]) => [num(x), num(y)]);
-  let ex = {}, b = [];
-  try { const p = await openData(await fresh("data/outpost-plan-x7k2p9.json"), env); ex = (p && p.ex) || {}; } catch (e) {}
-  try { b = (await fresh("data/banners-2189.json")).b || []; } catch (e) {}
-  const off = new Set(ex.off || []), pts = m.map(([, x, y]) => [x, y]).concat(bt);
-  const near = ([x, y]) => pts.some(([a, c]) => Math.abs(a - x) <= 15 && Math.abs(c - y) <= 15);
-  const banners = b.filter(([x, y]) => !off.has(x + "," + y)).map(([x, y]) => [x, y]).concat((ex.add || []).map(([x, y]) => [num(x), num(y)])).filter(near);
-  mmCache = { at: Date.now(), body: { m, bt, banners, at: (d && d.at) || null } };
-  return json(mmCache.body);
 }
 
 /* officer files may be encrypted: { enc: 1, iv, data } with AES-GCM and DATA_KEY */

@@ -829,15 +829,3 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 @font-face { font-family: "NXS Hand"; src: url(../fonts/caveat-latin-500-normal.woff2) format("woff2"); font-weight: 400 500; font-display: swap; }
 @font-face { font-family: "NXS Hand"; src: url(../fonts/caveat-latin-700-normal.woff2) format("woff2"); font-weight: 600 900; font-display: swap; }
 .af-f[style*="NXS Hand"] { font-size: 1.2em; }
-
-/* 📍 Member Map (js/member-map-view.js) — read only */
-.mmv { margin: 8px 0 16px; }
-.mmv-top { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 6px; }
-.mmv-find { flex: 1 1 180px; min-width: 0; max-width: 280px; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--rule); background: var(--panel, transparent); color: inherit; font: inherit; }
-.mmv-meta { font-size: 12.5px; }
-.mmv-info { min-height: 1.6em; margin: 6px 0; font-size: 14px; }
-.mmv-copy { margin-inline-start: 6px; padding: 3px 10px; border-radius: 8px; border: 1px solid var(--rule); background: transparent; color: inherit; font: inherit; font-size: 13px; cursor: pointer; }
-.mmv-map { overflow: auto; max-height: 70vh; border-radius: 12px; background: #3f5f27; -webkit-overflow-scrolling: touch; }
-.mmv-c, .mmv-b { cursor: pointer; }
-.mmv-n { font: 700 10px Arial, sans-serif; fill: #1c2433; pointer-events: none; }
-.mmv-bl { font: 800 14px Arial, sans-serif; fill: #fff; pointer-events: none; }

@@ -402,9 +402,6 @@ const BLOCKS = {
   /* Hero cards: one card per hero with filters (data: HERO_CARDS / HERO_CARD_UI in data/content.js) */
   herocards: () => (typeof HERO_CARDS === "undefined" ? "" : `<div id="hcRoot">${heroCardsHtml()}</div>`),
 
-  /* 📍 Member Map: read-only map of everyone's city (js/member-map-view.js, loaded only here) */
-  membermap: () => `<div id="mmvRoot" class="mmv"></div>`,
-
   cards: (b) => `<div class="card-grid">${(b.items || []).map((c) => `
     <div class="info-card">
       ${c.img ? `<img class="info-card-img" src="${escapeHtml(c.img)}" alt="${escapeHtml(c.alt || "")}" loading="lazy" onerror="this.remove()">` : ""}
@@ -726,9 +723,8 @@ const GUIDE_GROUPS = {
 };
 let openGuideGroup = null;
 
-const MAP_GUIDE = "member-map";   // 📍 its own chip next to Recent Events, not inside a group
 function guideGroupOf(key) {
-  if (key === HOME_GUIDE || key === MAP_GUIDE) return null;
+  if (key === HOME_GUIDE) return null;
   return GUIDE_GROUPS.growth.guides.includes(key) ? "growth" : "events";
 }
 
@@ -746,7 +742,6 @@ function renderGuideRow() {
 
   let html = `<div class="guide-groups">`;
   if (keys.includes(HOME_GUIDE)) html += guideChipHtml(HOME_GUIDE).replace('class="guide-chip', 'class="guide-chip guide-home');
-  if (keys.includes(MAP_GUIDE)) html += guideChipHtml(MAP_GUIDE).replace('class="guide-chip', 'class="guide-chip guide-home');
   for (const id of ["events", "growth"]) {
     if (!members[id].length) continue;
     const grp = GUIDE_GROUPS[id];
@@ -1314,13 +1309,6 @@ function renderAllNow() {
   renderLangRow();
   renderGuideRow();
   renderDoc();
-  mountMemberMap();
-}
-/* 📍 the Member Map guide draws itself after the page is built (its script is fetched the first time it's opened) */
-function mountMemberMap() {
-  if (!document.getElementById("mmvRoot")) return;
-  if (window.MemberMapView) { MemberMapView.mount(currentLang); return; }
-  const s = document.createElement("script"); s.src = "js/member-map-view.js?v=1"; s.onload = () => { if (window.MemberMapView) MemberMapView.mount(currentLang); }; document.head.appendChild(s);
 }
 
 const EVENT_POPUP = {
