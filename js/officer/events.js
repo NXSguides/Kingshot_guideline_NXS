@@ -284,7 +284,7 @@ const T = { ko: {"anOne": "📣 게임 공지", "etPerDay": "전투일: 시간�
     fNote: "Note", fNoteSm: "(e.g. times — shown in the list)", fGuide: "Guide on the site", noGuide: "— none —",
     fTodo: "Action items for officers", addTodo: "+ Action item", editTodo: "Edit items",
     etDay: "Day {n} of {t}",
-    anOne: "📣 Game post", anTitle: "📣 Announcement draft", anNote: "Upcoming events with our times, ready to paste in game. Add a short line where you like — the game allows 300 characters.", anDays: "Next {n} days", anGen: "🔄 Make again", anCopy: "📋 Copy", anCount: "{n} / 300 characters", anOver: "⚠️ {n} / 300 — too long for the game", etBearNext: "Next Bear day (UTC)", etPerDay: "Battle day: set per time (@ = day of the event)", etDayLbl: "Battle day", etDayAll: "Every day is a battle day", etBearMoved: "🐻 Bear Hunt now runs every {e} days from {d}.",
+    anOne: "📣 Game post", anGuides: "📋 In-game guides of the ticked events — open one and add the parts you want to the draft:", anAdd: "＋ Add the ticked messages to the draft", anMsg: "Message {n}", anTitle: "📣 Announcement draft", anNote: "Upcoming events with our times, ready to paste in game. Add a short line where you like — the game allows 300 characters.", anDays: "Next {n} days", anGen: "🔄 Make again", anCopy: "📋 Copy", anCount: "{n} / 300 characters", anOver: "⚠️ {n} / 300 — too long for the game", etBearNext: "Next Bear day (UTC)", etPerDay: "Battle day: set per time (@ = day of the event)", etDayLbl: "Battle day", etDayAll: "Every day is a battle day", etBearMoved: "🐻 Bear Hunt now runs every {e} days from {d}.",
     etTitle: "⏰ Our event times (UTC)", etNote: "The times we pick for alliance events, and which day of the event the battle is. Used on the home page (This week) and for everyone's ⏰ Game reminders. Type one or more times, e.g. 13:00, 22:00. If the game moves Bear Hunt to another day, change \"Next Bear day\" — the whole site follows. Battles on different days: add @ and the day of the event, e.g. 22:00@1, 13:00@3.",
     etBad: "Check the times — use HH:MM, e.g. 13:00, 22:30.", etSaved: "Saved ✅ The site and the ⏰ reminders use the new times within a few minutes (reminders update when people open the site).",
     limTitle: "⚙️ Troop limits in the guides", limNote: "Used everywhere the guides mention these numbers (all 12 languages) and by the AI assistant. Change them here when the game or the alliance changes the limit.",
@@ -319,7 +319,7 @@ const T = { ko: {"anOne": "📣 게임 공지", "etPerDay": "전투일: 시간�
     fNote: "備註", fNoteSm: "（例如時間，會顯示在清單上）", fGuide: "網站上的攻略", noGuide: "— 無 —",
     fTodo: "幹部待辦事項", addTodo: "+ 待辦事項", editTodo: "編輯待辦",
     etDay: "第 {n} 天（共 {t} 天）",
-    anOne: "📣 遊戲公告", anTitle: "📣 公告草稿", anNote: "接下來的活動和我們的時間，可以直接貼到遊戲裡。想補一句的話直接改 — 遊戲限制 300 字元。", anDays: "接下來 {n} 天", anGen: "🔄 重新產生", anCopy: "📋 複製", anCount: "{n} / 300 字元", anOver: "⚠️ {n} / 300 — 超過遊戲限制", etBearNext: "下一個熊日（UTC）", etPerDay: "開打日：每個時間各自設定（@ 後面是活動第幾天）", etDayLbl: "開打日", etDayAll: "每天都開打", etBearMoved: "🐻 狩獵巨熊改成從 {d} 起每 {e} 天一次。",
+    anOne: "📣 遊戲公告", anGuides: "📋 已勾選活動的遊戲內指南——打開一個，把想用的部分加進草稿：", anAdd: "＋ 把勾選的訊息加進草稿", anMsg: "訊息 {n}", anTitle: "📣 公告草稿", anNote: "接下來的活動和我們的時間，可以直接貼到遊戲裡。想補一句的話直接改 — 遊戲限制 300 字元。", anDays: "接下來 {n} 天", anGen: "🔄 重新產生", anCopy: "📋 複製", anCount: "{n} / 300 字元", anOver: "⚠️ {n} / 300 — 超過遊戲限制", etBearNext: "下一個熊日（UTC）", etPerDay: "開打日：每個時間各自設定（@ 後面是活動第幾天）", etDayLbl: "開打日", etDayAll: "每天都開打", etBearMoved: "🐻 狩獵巨熊改成從 {d} 起每 {e} 天一次。",
     etTitle: "⏰ 我們的活動時間（UTC）", etNote: "聯盟活動我們自己決定的時間，以及活動第幾天開打。首頁「這週」和大家的 ⏰ 活動提醒都會用這裡的時間。可以填一個或多個時間，例如 13:00, 22:00。遊戲把狩獵巨熊移到別天時，改「下一個熊日」，整個網站都會跟著變。不同天開打的：在時間後面加 @ 和活動第幾天，例如 22:00@1, 13:00@3。",
     etBad: "請檢查時間格式（HH:MM），例如 13:00, 22:30。", etSaved: "已儲存 ✅ 幾分鐘內網站和 ⏰ 提醒就會用新的時間（大家打開網站時提醒會跟著更新）。",
     limTitle: "⚙️ 攻略裡的部隊人數上限", limNote: "攻略裡所有提到這兩個數字的地方（12 種語言）和 AI 助理都會用這裡的數字。遊戲或聯盟改上限時，在這裡改就好。",
@@ -933,9 +933,28 @@ function anMake(nDays) {
     for (const r of rs) if (r.st >= today) { anOn.add(r.k); if (len() > 300) anOn.delete(r.k); }
   }
   $("anPick").innerHTML = rs.map((r) => { const e = byId(r.k) || EVENTS[r.k] || {}; return `<label class="row" style="gap:4px;font-size:13px;display:inline-flex;margin:2px 8px 2px 0"><input type="checkbox" data-anpick="${esc(r.k)}"${anOn.has(r.k) ? " checked" : ""}> ${esc((e.emoji || "") + " " + (nm(e) || r.k))}</label>`; }).join("");
+  anGuides(rs);
   const lines = rs.filter((r) => anOn.has(r.k)).map(anLine);
   return "UPCOMING KEY EVENTS\n\n" + (lines.length ? lines.join("\n") : "•") + AN_FOOT;
 }
+/* 📋 the ticked events' in-game guides, pulled up under the draft: tick the messages (or parts) you want and add them to the text */
+let anIgOpen = null;
+function anGuides(rs) {
+  let box = $("anGuides"); if (!box) { box = document.createElement("div"); box.id = "anGuides"; box.style.marginTop = "6px"; $("anPick").after(box); }
+  const evs = rs.filter((r) => anOn.has(r.k)).map((r) => byId(r.k)).filter((e, i, a) => e && (e.ingame || []).length && a.indexOf(e) === i);
+  if (!evs.length) { box.innerHTML = ""; return; }
+  if (anIgOpen && !evs.some((e) => e.id === anIgOpen)) anIgOpen = null;
+  box.innerHTML = `<div class="muted" style="font-size:12.5px;margin-bottom:4px">${esc(tr("anGuides"))}</div><div class="row" style="gap:6px;flex-wrap:wrap">${evs.map((e) => `<button type="button" class="btn small${anIgOpen === e.id ? " primary" : ""}" data-anig="${esc(e.id)}">📋 ${esc((e.emoji || "") + " " + nm(e))}</button>`).join("")}</div>`
+    + (anIgOpen ? `<div class="an-ig" style="margin-top:6px;padding:8px 10px;border:1px solid var(--rule);border-radius:10px">${byId(anIgOpen).ingame.map((g, i) => `<label style="display:block;margin:4px 0;font-size:13px"><input type="checkbox" data-anigm="${i}"> <b>${esc(g.title || tr("anMsg", { n: i + 1 }))}</b> <span class="muted">· ${[...(g.text || "")].length}</span><pre style="white-space:pre-wrap;margin:2px 0 0 22px;font:inherit;font-size:12.5px;color:var(--text-muted)">${esc(g.text || "")}</pre></label>`).join("")}<button type="button" class="btn small primary" data-anigadd="1" style="margin-top:4px">${esc(tr("anAdd"))}</button></div>` : "");
+}
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("#anGuides [data-anig], #anGuides [data-anigadd]"); if (!b) return;
+  e.preventDefault();
+  if (b.dataset.anig) { anIgOpen = anIgOpen === b.dataset.anig ? null : b.dataset.anig; anGuides(anRuns(+$("anDays").value || 3)); return; }
+  const picked = [...document.querySelectorAll("#anGuides [data-anigm]:checked")].map((c) => (byId(anIgOpen).ingame[+c.dataset.anigm] || {}).text || "").filter(Boolean);
+  if (!picked.length) return;
+  const t = $("anText"); t.value = t.value.replace(/\s+$/, "") + "\n\n" + picked.join("\n\n"); anCount(); t.focus();
+});
 function anCount() { const n = [...$("anText").value].length, c = $("anCount"); c.textContent = tr(n > 300 ? "anOver" : "anCount", { n }); c.style.color = n > 300 ? "#b3261e" : ""; }
 function anFill() { $("anText").value = anMake(+$("anDays").value || 3); anCount(); }
 $("anDays").innerHTML = [3, 5, 7].map((n) => `<option value="${n}">${esc(tr("anDays", { n }))}</option>`).join("");

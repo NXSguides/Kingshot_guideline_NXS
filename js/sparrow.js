@@ -367,6 +367,9 @@
   /* ---------- officer page tours (zh / en / pt / ar / ko — the officer page languages) ---------- */
   const OT = {
     en: {
+      ev04v: "📣 Announcement draft: the game-chat post of the upcoming events with our times — editors build and copy it from here.",
+      ev18v: "Each card lists the tasks with their due date ⏰ and 'overdue' in red; the ticks are the editors' progress.",
+      ev38: "📋 The ticked events' in-game guides: open one, tick the messages you want and ＋ Add them to the draft — mind the 300-character limit.",
       mp03: "The map. Tap any marker to select it; rings show the plan — green ✅ Protected, red ⚔️ Vulnerable, yellow dashed 🎯 Target. A confession from THAT Sparrow: she doesn't open the map often, so it's updated only now and then 🐦 There are three kinds of markers — let me show each…",
       mp30: "Coloured squares are Outposts: the colour is the type (Arsenal, Armory, Drill Camp…), the number is the level, and each gives a buff while it's ours and Protected. I've selected one — its details are in the box below.",
       mp31: "◆ Fortresses and ● Sanctuaries (F1…, S1…) give no buff: they're the Sanctuary Battle sign-ups, worth season points each phase. A 🎯 ring marks a target, ✅ ours. I've selected one…",
@@ -545,6 +548,9 @@
       events: "📅 Events", board: "💬 Board", map: "🗺️ Map", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers",
       },
     zh: {
+      ev04v: "📣 公告草稿：接下來活動和我們時間的遊戲聊天公告——由有編輯權限的人在這裡產生並複製。",
+      ev18v: "每張卡片列出任務和到期日 ⏰，逾期會顯示紅色「逾期」；打勾是編輯者的進度。",
+      ev38: "📋 已勾選活動的遊戲內指南：打開一個，勾選想用的訊息，＋ 加進草稿——注意 300 字上限。",
       mp03: "地圖。點任何標記就能選取；圓環表示計畫——綠色 ✅ 保護中、紅色 ⚔️ 可爭奪、黃色虛線 🎯 目標。那個麻雀（Sparrow）的告白：她不常開地圖，所以只會偶爾更新一下 🐦 標記有三種，我一種一種示範…",
       mp30: "彩色方塊是據點：顏色是種類（軍械庫、兵工廠、訓練營…），數字是等級，我方持有且保護中的時候會給加成。我選了一個——詳細資料在下面的框裡。",
       mp31: "◆ 要塞和 ● 遺跡（F1…、S1…）沒有加成：它們是遺跡爭奪的報名對象，每個階段給賽季積分。🎯 圓環是目標、✅ 是我方的。我選一個…",
@@ -723,6 +729,9 @@
       events: "📅 活動", board: "💬 留言板", map: "🗺️ 地圖", ranking: "📊 排名", attend: "📋 出席", post: "📢 公告", watch: "🕵️ 觀察", scout: "🔭 偵查", views: "📈 瀏覽", perms: "👥 幹部",
       },
     pt: {
+      ev04v: "📣 Rascunho de anúncio: o post de chat do jogo com os próximos eventos e nossos horários — os editores montam e copiam aqui.",
+      ev18v: "Cada card lista as tarefas com o prazo ⏰ e 'atrasado' em vermelho; as marcações são o progresso dos editores.",
+      ev38: "📋 Guias in-game dos eventos marcados: abra um, marque as mensagens que quer e ＋ adicione ao rascunho — atenção ao limite de 300 caracteres.",
       mp03: "O mapa. Toque em qualquer marcador para selecioná-lo; os anéis mostram o plano — verde ✅ Protegido, vermelho ⚔️ Vulnerável, amarelo tracejado 🎯 Alvo. Confissão dAQUELA Sparrow: ela não abre o mapa com frequência, então ele é atualizado só de vez em quando 🐦 Há três tipos de marcador — deixa eu mostrar cada um…",
       mp30: "Os quadrados coloridos são Postos Avançados: a cor é o tipo (Arsenal, Armaria, Campo de Treino…), o número é o nível, e cada um dá um bônus enquanto é nosso e Protegido. Selecionei um — os detalhes estão na caixa abaixo.",
       mp31: "◆ Fortalezas e ● Santuários (F1…, S1…) não dão bônus: são as inscrições da Batalha do Santuário, que valem pontos de temporada a cada fase. Um anel 🎯 marca um alvo, ✅ é nosso. Selecionei um…",
@@ -901,6 +910,9 @@
       events: "📅 Eventos", board: "💬 Quadro", map: "🗺️ Mapa", ranking: "📊 Ranking", attend: "📋 Presença", post: "📢 Postar", watch: "🕵️ Vigiar", scout: "🔭 Espiar", views: "📈 Visitas", perms: "👥 Oficiais",
       },
     ar: {
+      ev04v: "📣 مسودة الإعلان: منشور دردشة اللعبة بالأحداث القادمة وأوقاتنا — المحررون ينشئونه وينسخونه من هنا.",
+      ev18v: "كل بطاقة تسرد المهام مع موعدها ⏰ وكلمة «متأخر» بالأحمر؛ العلامات هي تقدم المحررين.",
+      ev38: "📋 أدلة اللعبة للأحداث المحددة: افتح واحدًا، حدد الرسائل التي تريدها ثم ＋ أضفها إلى المسودة — انتبه لحد 300 حرف.",
       mp03: "الخريطة. اضغط أي علامة لتحديدها؛ الحلقات تبيّن الخطة — أخضر ✅ محمي، أحمر ⚔️ معرّض، أصفر متقطع 🎯 هدف. اعتراف من ذلك Sparrow: لا تفتح الخريطة كثيرًا، لذا تُحدَّث بين حين وآخر فقط 🐦 هناك ثلاثة أنواع من العلامات — دعني أعرض كل نوع…",
       mp30: "المربعات الملونة هي المواقع المتقدمة: اللون هو النوع (الترسانة، مستودع الأسلحة، معسكر التدريب…)، والرقم هو المستوى، وكل منها يعطي تعزيزًا ما دام لنا ومحميًا. حددت واحدًا — تفاصيله في المربع أدناه.",
       mp31: "◆ القلاع و ● المعابد (F1…، S1…) بلا تعزيز: إنها ما نسجّل فيه لمعركة المعبد، وتعطي نقاط موسم في كل مرحلة. الحلقة 🎯 هدف، و ✅ لنا. سأحدد واحدًا…",
@@ -1079,6 +1091,9 @@
       events: "📅 الأحداث", board: "💬 اللوحة", map: "🗺️ الخريطة", ranking: "📊 الترتيب", attend: "📋 الحضور", post: "📢 نشر", watch: "🕵️ مراقبة", scout: "🔭 استطلاع", views: "📈 الزيارات", perms: "👥 الضباط",
       },
     ko: {
+      ev04v: "📣 공지 초안: 다가오는 이벤트와 우리 시간이 담긴 게임 채팅 공지야 — 편집자가 여기서 만들고 복사해.",
+      ev18v: "카드마다 할 일과 마감일 ⏰, 지나면 빨간 '기한 지남'이 떠. 체크는 편집자들의 진행 상황이야.",
+      ev38: "📋 체크한 이벤트의 게임 내 가이드: 하나 열고 쓰고 싶은 메시지를 체크한 뒤 ＋ 초안에 추가 — 300자 제한에 주의해.",
       mp03: "지도야. 아무 마커나 누르면 선택돼. 고리는 계획을 보여줘 — 초록 ✅ 보호 중, 빨강 ⚔️ 취약, 노란 점선 🎯 목표. 그 Sparrow의 고백: 지도를 자주 안 열어서 가끔만 업데이트돼 🐦 마커는 세 종류야. 하나씩 보여줄게…",
       mp30: "색깔 네모는 전초기지야: 색은 종류(무기고, 병기고, 훈련소…), 숫자는 레벨이고, 우리 것이면서 보호 중일 때 버프를 줘. 하나 선택했어 — 자세한 건 아래 상자에.",
       mp31: "◆ 요새와 ● 성소(F1…, S1…)는 버프가 없어: 성소 전투에 신청하는 대상이고, 페이즈마다 시즌 점수를 줘. 🎯 고리는 목표, ✅ 는 우리 것. 하나 선택할게…",
@@ -1267,10 +1282,10 @@
   const OTOURS = {
     events: [
       { s: "#cal", k: "ev01" }, { s: "#cal .ev.ms", k: "ev02" }, { s: "#msList", k: "ev03", pre: () => { const d = Q("#msList"); if (d) d.open = true; } },
-      { s: "#anCard > summary", k: "ev04", pre: () => { const d = Q("#anCard"); if (d && !d.open) d.open = true; } }, { s: "#anDays", k: "ev05" }, { s: "#anGen", k: "ev06" }, { s: "#anPick", k: "ev07" }, { s: "#anText", k: "ev08" }, { s: "#anCopy", k: "ev09" },
+      { s: "#anCard > summary", k: "ev04", e: 1, pre: () => { const d = Q("#anCard"); if (d && !d.open) d.open = true; } }, { s: "#anDays", k: "ev05", e: 1 }, { s: "#anGen", k: "ev06", e: 1 }, { s: "#anPick", k: "ev07", e: 1 }, { s: "#anGuides", k: "ev38", e: 1 }, { s: "#anText", k: "ev08", e: 1 }, { s: "#anCopy", k: "ev09", e: 1 },
       { s: "#limCard > summary", k: "ev10", e: 1, pre: () => { const d = Q("#limCard"); if (d) d.open = true; } }, { s: "#limBear", k: "ev11", e: 1 }, { s: "#limRally", k: "ev12", e: 1 }, { s: "#limSave", k: "ev13", e: 1 },
       { s: "#etCard > summary", k: "ev14", e: 1, pre: () => { const d = Q("#etCard"); if (d) d.open = true; } }, { s: "#etGrid", k: "ev15", e: 1 }, { s: "#etSave", k: "ev16", e: 1 },
-      { s: "#thisW", k: "ev17" }, { s: "#todos .todo", k: "ev18" }, { s: "#todos .todo [data-edtodo]", k: "ev19", e: 1 }, { s: "#todos .todo [data-anone]", k: "ev20" }, { s: "#todos .todo .acts a, #todos .todo [data-open]", k: "ev21" },
+      { s: "#thisW", k: "ev17" }, { s: "#todos .todo", k: "ev18", e: 1 }, { s: "#todos .todo [data-edtodo]", k: "ev19", e: 1 }, { s: "#todos .todo [data-anone]", k: "ev20", e: 1 }, { s: "#todos .todo .acts a, #todos .todo [data-open]", k: "ev21" },
       { s: "#ev_timed", k: "ev22" }, { s: "#td_add", k: "ev23", e: 1 }, { s: "#td_save", k: "ev24", e: 1 },
       { s: "#addEv", k: "ev25", e: 1 }, { s: "#evList details.evrow", k: "ev26", pre: () => { const d = Q("#evList details.evrow"); if (d) d.open = true; } },
       { s: "#evList details.evrow[open] [data-copy]", k: "ev27" }, { s: "#evList details.evrow[open] [data-igedit]", k: "ev28", e: 1 }, { s: "#evList details.evrow[open] [data-edit]", k: "ev29", e: 1 },
@@ -2451,7 +2466,7 @@
     const tabs = [...document.querySelectorAll(".tabs a[data-tab]")].filter((a) => !a.hidden && OTOURS[a.dataset.tab]);
     const mine = messageFor(OFFICER.user);
     const d = document.createElement("div"); d.className = "sp-ai-sec";
-    d.innerHTML = `<div class="ai-grp">🐦 ${esc(ot("pick"))}</div><div class="ai-chips">${tabs.map((a) => `<button type="button" class="ai-chip" data-otour="${a.dataset.tab}">${esc(ot(a.dataset.tab))}${OFFICER.can && !OFFICER.can(a.dataset.tab, "edit") ? ` <small>${esc(ot("onlyView"))}</small>` : ""}</button>`).join("")}${mine ? `<button type="button" class="ai-chip" data-omsg="1">${esc(ot("msgs"))}</button>` : ""}</div>`;
+    d.innerHTML = `<div class="ai-grp">🐦 ${esc(ot("pick"))}</div><div class="ai-chips">${tabs.map((a) => `<button type="button" class="ai-chip" data-otour="${a.dataset.tab}">${esc(ot(a.dataset.tab))}</button>`).join("")}${mine ? `<button type="button" class="ai-chip" data-omsg="1">${esc(ot("msgs"))}</button>` : ""}</div>`;
     const hint = g.querySelector(".ai-hint"); if (hint) hint.before(d); else g.appendChild(d);
   }
   async function officerMenu() {
