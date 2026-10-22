@@ -32,8 +32,11 @@ function annThemeHtml(style, titleHtml, innerHtml) {
 
 /* ✍️ Word-like formatting for announcements (toolbar on the 📢 Post page). Works on text that is already escaped.
    Inline: **bold**  *italic*  __underline__  ~~strike~~  ==highlight==  [[c:gold]]coloured[[/c]]
-   Lines:  # big heading   ## heading   - bullet   1. numbered   > quote box   --- line */
+   Lines:  # big heading   ## heading   - bullet (or • ◆ ★ ✔ ➤ … as the bullet)   1. / a. numbered   > quote box   --- line
+           two spaces in front of a list line = one level deeper (like Word's indent) */
 const ANN_COLORS = ["gold", "orange", "red", "green", "blue", "purple"];
+const ANN_BULLETS = ["•", "◦", "▪", "◆", "◇", "★", "☆", "✔", "➤", "►", "✦", "–", "○", "●"];
+const AF_DEFAULT = ["•", "◦", "▪"];   // "-" bullets: one symbol per level, like Word
 function annFormat(html) {
   const inline = (s) => s
     .replace(/==([^=\n]+?)==/g, '<mark class="af-hl">$1</mark>')
@@ -42,11 +45,16 @@ function annFormat(html) {
     .replace(/(^|[^*\w])\*(?![\s*])([^*\n]+?)\*(?!\*)/g, "$1<em>$2</em>")
     .replace(/\[\[c:(\w+)\]\]([\s\S]*?)\[\[\/c\]\]/g, (m, c, t) => ANN_COLORS.includes(c) ? `<span class="af-c af-${c}">${t}</span>` : t);
   const out = []; let list = null;
-  const close = () => { if (list) { out.push({ b: `<${list.tag} class="af-list">${list.items.join("")}</${list.tag}>` }); list = null; } };
+  const close = () => { if (list) { out.push({ b: `<div class="af-list">${list.join("")}</div>` }); list = null; } };
+  const bullet = new RegExp("^([ \\t]*)(-|\\*(?!\\*)|" + ANN_BULLETS.map((x) => x.replace(/[-*]/g, "\\$&")).join("|") + "|\\d{1,3}[.)]|[a-zA-Z][.)])[ \\t]+(.*)$");
   for (const line of inline(html).split("\n")) {
     let m;
-    if ((m = line.match(/^\s*(?:[-•▪]|\*(?!\*))\s+(.*)$/))) { if (!list || list.tag !== "ul") { close(); list = { tag: "ul", items: [] }; } list.items.push(`<li>${m[1]}</li>`); continue; }
-    if ((m = line.match(/^\s*(\d{1,3})[.)]\s+(.*)$/))) { if (!list || list.tag !== "ol") { close(); list = { tag: "ol", items: [] }; } list.items.push(`<li value="${m[1]}">${m[2]}</li>`); continue; }
+    if ((m = line.match(bullet))) {
+      const lv = Math.min(4, Math.floor(m[1].replace(/\t/g, "  ").length / 2));
+      const mk = m[2] === "-" || m[2] === "*" ? AF_DEFAULT[lv % 3] : m[2];
+      (list = list || []).push(`<div class="af-li${/[\d.)]$/.test(mk) && mk.length > 1 ? " af-num" : ""}" style="--lv:${lv}"><span class="af-mk">${mk}</span><span class="af-lt">${m[3]}</span></div>`);
+      continue;
+    }
     close();
     if ((m = line.match(/^##\s+(.*)$/))) out.push({ b: `<div class="af-h2">${m[1]}</div>` });
     else if ((m = line.match(/^#\s+(.*)$/))) out.push({ b: `<div class="af-h1">${m[1]}</div>` });

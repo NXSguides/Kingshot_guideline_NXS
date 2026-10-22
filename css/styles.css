@@ -804,8 +804,11 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 /* ✍️ announcement formatting (js/ann-themes.js annFormat) */
 .af-h1 { font-size: 1.3em; font-weight: 800; line-height: 1.3; margin: 6px 0 4px; }
 .af-h2 { font-size: 1.12em; font-weight: 700; line-height: 1.3; margin: 4px 0 2px; }
-.af-list { margin: 2px 0 4px; padding-inline-start: 1.4em; white-space: normal; }
-.af-list li { margin: 1px 0; white-space: pre-wrap; }
+.af-list { margin: 2px 0 4px; white-space: normal; }
+.af-li { display: flex; gap: .45em; margin: 1px 0; padding-inline-start: calc(.3em + var(--lv, 0) * 1.3em); white-space: pre-wrap; }
+.af-mk { flex: 0 0 auto; min-width: .8em; text-align: center; opacity: .85; }
+.af-num .af-mk { min-width: 1.3em; text-align: end; }
+.af-lt { flex: 1; min-width: 0; }
 .af-quote { margin: 4px 0; padding: 6px 10px; border-inline-start: 3px solid var(--accent, #d9843c); background: color-mix(in srgb, var(--accent, #d9843c) 12%, transparent); border-radius: 6px; }
 .af-hr { border: 0; border-top: 1px solid currentColor; opacity: .3; margin: 8px 0; }
 .af-hl { background: #f6d84a99; color: inherit; border-radius: 3px; padding: 0 2px; }

@@ -618,7 +618,7 @@
 <style>
   .fmt-bar { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; margin: 4px 0 6px; }
   .fmt-bar button, .fmt-bar select { min-width: 36px; height: 34px; padding: 0 8px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-size: 14px; cursor: pointer; }
-  #pg-post .fmt-bar select { width: auto; flex: 0 0 auto; min-width: 64px; height: 34px; padding: 0 6px; margin: 0; font-size: 14px; }   /* the 🎨 menu stays a small button in the row */
+  #pg-post .fmt-bar select { width: auto; max-width: 110px; flex: 0 0 auto; min-width: 64px; height: 34px; padding: 0 6px; margin: 0; font-size: 14px; }   /* the 🎨 menu stays a small button in the row */
   .fmt-sep { width: 1px; height: 22px; background: var(--rule); margin: 0 2px; }
 </style>
 </head>
@@ -884,7 +884,7 @@
         <button type="button" data-fmt="b" style="font-weight:800">B</button><button type="button" data-fmt="i" style="font-style:italic;font-family:Georgia,serif">I</button><button type="button" data-fmt="u" style="text-decoration:underline">U</button><button type="button" data-fmt="s" style="text-decoration:line-through">S</button><button type="button" data-fmt="hl"><span class="af-hl">A</span></button>
         <select data-fmt="c" id="fmtColor"></select>
         <span class="fmt-sep"></span>
-        <button type="button" data-fmt="h1" style="font-weight:800">H1</button><button type="button" data-fmt="h2" style="font-weight:700">H2</button><button type="button" data-fmt="ul">• ≡</button><button type="button" data-fmt="ol">1.≡</button><button type="button" data-fmt="q">❝</button><button type="button" data-fmt="hr">―</button>
+        <button type="button" data-fmt="h1" style="font-weight:800">H1</button><button type="button" data-fmt="h2" style="font-weight:700">H2</button><select id="fmtBullet"></select><button type="button" data-fmt="ol">1.≡</button><button type="button" data-fmt="out">⇤</button><button type="button" data-fmt="in">⇥</button><button type="button" data-fmt="q">❝</button><button type="button" data-fmt="hr">―</button>
       </div>
       <textarea id="body"></textarea>
       <div class="row" style="margin-top:8px">
