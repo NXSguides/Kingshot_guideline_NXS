@@ -818,3 +818,4 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 :root[data-theme="dark"] .af-hl { color: #1c140a; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .af-gold { color: #e6b84a; } :root:not([data-theme="light"]) .af-hl { color: #1c140a; } }
 .sc2-tx .af-quote { border-color: #9a7330; background: #9a733022; }
+.af-code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .9em; padding: 0 4px; border-radius: 4px; background: color-mix(in srgb, currentColor 12%, transparent); }

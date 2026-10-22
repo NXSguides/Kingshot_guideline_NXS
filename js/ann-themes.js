@@ -32,6 +32,7 @@ function annThemeHtml(style, titleHtml, innerHtml) {
 
 /* ✍️ Word-like formatting for announcements (toolbar on the 📢 Post page). Works on text that is already escaped.
    Inline: **bold**  *italic*  __underline__  ~~strike~~  ==highlight==  [[c:gold]]coloured[[/c]]
+   Also understands ChatGPT / Markdown: ### headings, `code`, [text](link), * bullets.
    Lines:  # big heading   ## heading   - bullet (or • ◆ ★ ✔ ➤ … as the bullet)   1. / a. numbered   > quote box   --- line
            two spaces in front of a list line = one level deeper (like Word's indent) */
 const ANN_COLORS = ["gold", "orange", "red", "green", "blue", "purple"];
@@ -39,6 +40,9 @@ const ANN_BULLETS = ["•", "◦", "▪", "◆", "◇", "★", "☆", "✔", "�
 const AF_DEFAULT = ["•", "◦", "▪"];   // "-" bullets: one symbol per level, like Word
 function annFormat(html) {
   const inline = (s) => s
+    .replace(/\[([^\]\n]+)\]\(<a href="([^"]+)"[^>]*>[^<]*<\/a>\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')   // [text](link) from ChatGPT / Markdown
+    .replace(/\[([^\]\n]+)\]\((https?:\/\/[^)\s"<]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+    .replace(/`([^`\n]+)`/g, '<code class="af-code">$1</code>')
     .replace(/==([^=\n]+?)==/g, '<mark class="af-hl">$1</mark>')
     .replace(/__([^_\n]+?)__/g, "<u>$1</u>")
     .replace(/~~([^~\n]+?)~~/g, "<s>$1</s>")
@@ -56,7 +60,7 @@ function annFormat(html) {
       continue;
     }
     close();
-    if ((m = line.match(/^##\s+(.*)$/))) out.push({ b: `<div class="af-h2">${m[1]}</div>` });
+    if ((m = line.match(/^#{2,6}\s+(.*)$/))) out.push({ b: `<div class="af-h2">${m[1]}</div>` });   // ## … ###### (ChatGPT uses ###)
     else if ((m = line.match(/^#\s+(.*)$/))) out.push({ b: `<div class="af-h1">${m[1]}</div>` });
     else if ((m = line.match(/^&gt;\s?(.*)$/))) out.push({ b: `<div class="af-quote">${m[1]}</div>` });
     else if (/^\s*(---+|———*|___+)\s*$/.test(line)) out.push({ b: '<hr class="af-hr">' });

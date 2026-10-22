@@ -364,6 +364,59 @@ $("fmtBar").addEventListener("click", (e) => { const btn = e.target.closest("but
 $("fmtBar").addEventListener("mousedown", (e) => { if (e.target.closest("button")) e.preventDefault(); });   // keep the selection in the text box
 $("fmtColor").addEventListener("change", (e) => { if (e.target.value) fmtApply("c", e.target.value); e.target.value = ""; });
 $("fmtBullet").addEventListener("change", (e) => { if (e.target.value) fmtApply("ul", e.target.value); e.target.value = ""; });
+/* 📋 pasting from ChatGPT, Word, Google Docs or a web page: the formatting comes along (turned into the marks above).
+   ChatGPT's own copy button already gives these marks (Markdown), so plain-text pastes are left alone. */
+function htmlToMarks(html) {
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  const walk = (n, depth) => {
+    if (n.nodeType === 3) return n.nodeValue.replace(/\s+/g, " ");
+    if (n.nodeType !== 1) return "";
+    const tag = n.tagName.toLowerCase(), st = (n.getAttribute("style") || "").toLowerCase();
+    if (/^(script|style|meta|title|head)$/.test(tag)) return "";
+    const kids = (d = depth) => [...n.childNodes].map((c) => walk(c, d)).join("");
+    const wrap = (t, m) => t.trim() ? t.match(/^\s*/)[0] + m + t.trim() + m + t.match(/\s*$/)[0] : t;   // keep the spaces outside the marks
+    switch (tag) {
+      case "br": return "\n";
+      case "hr": return "\n---\n";
+      case "h1": return `\n# ${kids().trim()}\n`;
+      case "h2": case "h3": case "h4": case "h5": case "h6": return `\n## ${kids().trim()}\n`;
+      case "strong": case "b": return wrap(kids(), "**");
+      case "em": case "i": return wrap(kids(), "*");
+      case "u": case "ins": return wrap(kids(), "__");
+      case "s": case "del": case "strike": return wrap(kids(), "~~");
+      case "mark": return wrap(kids(), "==");
+      case "code": return n.closest("pre") ? kids() : "`" + kids() + "`";
+      case "pre": return "\n" + n.textContent + "\n";
+      case "a": { const h = n.getAttribute("href") || "", t = kids().trim(); return /^https?:/.test(h) && t && t !== h ? `[${t}](${h})` : (t || h); }
+      case "blockquote": return "\n" + kids().trim().split("\n").map((l) => "> " + l).join("\n") + "\n";
+      case "ul": case "ol": {
+        let i = Number(n.getAttribute("start")) || 1;
+        return "\n" + [...n.children].filter((li) => li.tagName === "LI").map((li) => {
+          const sub = [...li.childNodes].filter((c) => !/^(UL|OL)$/.test(c.nodeName)).map((c) => walk(c, depth + 1)).join("").replace(/\s*\n\s*/g, " ").trim();
+          const nested = [...li.children].filter((c) => /^(UL|OL)$/.test(c.tagName)).map((c) => walk(c, depth + 1)).join("");
+          return "  ".repeat(depth) + (tag === "ol" ? `${i++}. ` : "- ") + sub + nested.replace(/\n+$/, "");
+        }).join("\n") + "\n";
+      }
+      case "p": case "div": case "section": case "article": case "li": case "tr": return "\n" + kids() + "\n";
+      case "td": case "th": return kids().trim() + " | ";
+      default: {
+        let t = kids();
+        if (/font-weight:\s*(bold|[6-9]00)/.test(st)) t = wrap(t, "**");   // Google Docs uses styles instead of <b>
+        if (/font-style:\s*italic/.test(st)) t = wrap(t, "*");
+        return t;
+      }
+    }
+  };
+  return walk(doc.body, 0).replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
+}
+$("body").addEventListener("paste", (e) => {
+  const html = e.clipboardData && e.clipboardData.getData("text/html");
+  if (!html || !/<(strong|b|em|i|u|h[1-6]|ul|ol|li|blockquote|mark|s|del|code)\b|font-weight/i.test(html)) return;   // plain text → normal paste
+  e.preventDefault();
+  const ta = $("body"), a = ta.selectionStart, b = ta.selectionEnd, txt = htmlToMarks(html);
+  ta.value = ta.value.slice(0, a) + txt + ta.value.slice(b); ta.setSelectionRange(a + txt.length, a + txt.length);
+  renderPreview();
+});
 /* Tab / Shift+Tab on list lines = indent / outdent, like Word */
 $("body").addEventListener("keydown", (e) => {
   if (e.key !== "Tab") return;
