@@ -180,6 +180,9 @@
 完整攻略： https://kingshotmastery.com/guides/kingshot-pet-guide
 ℹ️ 內容太長無法翻譯，請大家自行點進連結查看。
 
+### GUIDE #member-map — 成員地圖
+每個人的城現在在哪裡，跟遊戲裡的世界地圖一樣。搜尋你的名字或點城，就能複製 X:Y。這張地圖由幹部更新，這裡不能改任何東西。聯盟搬家時，請等幹部通知再搬，也不要自己搬熊陷阱。
+
 ### GUIDE #install-app — 如何下載成應用程式
 安全嗎？
 這不是下載的程式（不是 APK），只是把這個網站存到主畫面，跟平常用 Safari/Chrome 看網頁一樣在瀏覽器裡執行。
@@ -1075,6 +1078,7 @@ If notifications don't come: open "🔧 Notifications not coming?" under the not
 Top-right buttons (installed app): 🔗 copy the link of this page (briefly shows ✓ when copied), ↻ refresh to the newest version, ☾ / ☀ dark / light mode. 🐦 brings Little Sparrow back if it was turned off.
 🐦 Little Sparrow (the bird by the Ask AI button): tap it and it first asks "Want a quick tour of this page?" — 👀 Yes walks top to bottom through the page you are on: first the top buttons (🔗, ↻, 📋 officers only, light/dark, the announcement ticker, languages, guide menus), then the page (home page: this week, daily checklist, calendar, announcements, guide menus, language, Ask AI; a guide: its headings, hero cards, rule boxes, switching guides). After the tour, or after "No thanks", it shows its help menu: 🔎 Find a page, or 🎓 "How do I use…" → pick a tour: 🧭 What the buttons on the site do (language, 🔗, ↻, light/dark, Ask AI), ⏰ timers, 🔔 game reminders, or installing the app. The same tours are listed at the top of the Ask AI panel.
 The language buttons at the top switch the whole site (12 languages).
+📍 Member Map (guide #member-map, chip next to Recent Events): every member's city where it is now, like the in-game World map — search your name or tap a city to copy its X:Y; Bear Traps, HQ and our banners are shown. Read only: officers update it (🗺️ Map → 👥 Member positions on the officer page), usually visible within a minute or two. It never shows move plans or planned banners — during an alliance move, wait for the officers and never move the Bear Traps yourself.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-19 by ΔRMΔDΔ] 聖劍爭奪未出席處理公告

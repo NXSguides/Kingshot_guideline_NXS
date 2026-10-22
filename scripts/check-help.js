@@ -40,6 +40,7 @@ const FEATURES = [
   ["Site: notifications help", /Notifications not coming/, /tm03b:/],
   ["Site: top buttons", /↻ refresh/, /si03:/],
   ["Site: install the app", /install-app/, /inst1:/],
+  ["Site: 📍 Member Map", /Member Map/, /g07:/],
   ["Sparrow: quick tour of this page / tab", /quick tour of this page[\s\S]*quick tour of this tab|quick tour of this tab[\s\S]*quick tour of this page/, /tourQ:[\s\S]*tourQo:/],
 ];
 const STALE = [

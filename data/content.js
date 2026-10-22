@@ -2559,6 +2559,24 @@ const GUIDES = {
       ]}
     }
   },
+  "member-map": {
+    emoji: "📍",
+    name: { en: "Member Map", zh: "成員地圖", ko: "연맹원 지도", de: "Mitgliederkarte", fr: "Carte des membres", pt: "Mapa dos membros", tr: "Üye Haritası", id: "Peta Anggota", ru: "Карта участников", th: "แผนที่สมาชิก", ar: "خريطة الأعضاء", es: "Mapa de miembros" },
+    sections: {
+      en: { title: "Member Map", blocks: [{ type: "p", text: "Where everyone's city is right now, like on the in-game World map. Search your name or tap a city to copy its X:Y. Officers keep this map up to date; you can't change anything here. During an alliance move, only move when the officers tell you to — and never move the Bear Traps yourself." }, { type: "membermap" }] },
+      zh: { title: "成員地圖", blocks: [{ type: "p", text: "每個人的城現在在哪裡，跟遊戲裡的世界地圖一樣。搜尋你的名字或點城，就能複製 X:Y。這張地圖由幹部更新，這裡不能改任何東西。聯盟搬家時，請等幹部通知再搬，也不要自己搬熊陷阱。" }, { type: "membermap" }] },
+      ko: { title: "연맹원 지도", blocks: [{ type: "p", text: "모두의 성이 지금 어디 있는지, 게임 속 월드 지도처럼 보여 줘요. 이름을 검색하거나 성을 누르면 X:Y를 복사할 수 있어요. 지도는 간부가 업데이트하고, 여기서는 아무것도 바꿀 수 없어요. 연맹 이사 중에는 간부가 말할 때만 옮기고, 곰 함정은 절대 직접 옮기지 마세요." }, { type: "membermap" }] },
+      de: { title: "Mitgliederkarte", blocks: [{ type: "p", text: "Wo die Stadt jedes Mitglieds gerade steht, wie auf der Weltkarte im Spiel. Such deinen Namen oder tipp eine Stadt an, um X:Y zu kopieren. Die Offiziere halten die Karte aktuell; hier kannst du nichts ändern. Beim Allianzumzug nur umziehen, wenn die Offiziere es sagen — und die Bärenfallen nie selbst versetzen." }, { type: "membermap" }] },
+      fr: { title: "Carte des membres", blocks: [{ type: "p", text: "Où se trouve la ville de chacun en ce moment, comme sur la carte du monde du jeu. Cherche ton nom ou touche une ville pour copier son X:Y. Les officiers tiennent la carte à jour ; tu ne peux rien modifier ici. Pendant un déménagement d'alliance, ne bouge que quand les officiers le disent — et ne déplace jamais les pièges à ours toi-même." }, { type: "membermap" }] },
+      pt: { title: "Mapa dos membros", blocks: [{ type: "p", text: "Onde está a cidade de cada um agora, como no mapa-múndi do jogo. Procure seu nome ou toque numa cidade para copiar o X:Y. Os oficiais mantêm o mapa atualizado; aqui não dá para mudar nada. Durante a mudança da aliança, só mude quando os oficiais pedirem — e nunca mova as Armadilhas de Urso por conta própria." }, { type: "membermap" }] },
+      tr: { title: "Üye Haritası", blocks: [{ type: "p", text: "Herkesin şehri şu an nerede, oyundaki Dünya haritası gibi. X:Y'yi kopyalamak için adını ara ya da bir şehre dokun. Haritayı subaylar günceller; burada hiçbir şey değiştiremezsin. İttifak taşınırken sadece subaylar söyleyince taşın — Ayı Tuzaklarını asla kendin taşıma." }, { type: "membermap" }] },
+      id: { title: "Peta Anggota", blocks: [{ type: "p", text: "Lokasi kota setiap anggota saat ini, seperti peta dunia di game. Cari namamu atau ketuk kota untuk menyalin X:Y. Officer yang memperbarui peta ini; di sini tidak bisa mengubah apa pun. Saat pindahan aliansi, pindah hanya jika officer menyuruh — dan jangan pernah memindahkan Jebakan Beruang sendiri." }, { type: "membermap" }] },
+      ru: { title: "Карта участников", blocks: [{ type: "p", text: "Где сейчас город каждого участника — как на карте мира в игре. Найдите своё имя или нажмите на город, чтобы скопировать X:Y. Карту обновляют офицеры; здесь ничего изменить нельзя. Во время переезда альянса переезжайте только по команде офицеров — и никогда не переносите медвежьи ловушки сами." }, { type: "membermap" }] },
+      th: { title: "แผนที่สมาชิก", blocks: [{ type: "p", text: "ตอนนี้เมืองของแต่ละคนอยู่ตรงไหน เหมือนแผนที่โลกในเกม ค้นหาชื่อหรือแตะเมืองเพื่อคัดลอก X:Y เจ้าหน้าที่เป็นคนอัปเดตแผนที่นี้ ที่นี่แก้ไขอะไรไม่ได้ ระหว่างย้ายพันธมิตร ย้ายเมื่อเจ้าหน้าที่บอกเท่านั้น และห้ามย้ายกับดักหมีเอง" }, { type: "membermap" }] },
+      ar: { title: "خريطة الأعضاء", blocks: [{ type: "p", text: "أين مدينة كل عضو الآن، مثل خريطة العالم في اللعبة. ابحث عن اسمك أو اضغط مدينة لنسخ X:Y. الضباط يحدّثون هذه الخريطة؛ لا يمكن تغيير أي شيء هنا. أثناء انتقال التحالف، انتقل فقط عندما يطلب الضباط — ولا تنقل مصائد الدب بنفسك أبدًا." }, { type: "membermap" }] },
+      es: { title: "Mapa de miembros", blocks: [{ type: "p", text: "Dónde está ahora la ciudad de cada uno, como en el mapa del mundo del juego. Busca tu nombre o toca una ciudad para copiar su X:Y. Los oficiales mantienen el mapa al día; aquí no se puede cambiar nada. Durante la mudanza de la alianza, muévete solo cuando los oficiales lo digan — y nunca muevas tú las trampas de oso." }, { type: "membermap" }] },
+    },
+  },
   "install-app": {
     emoji: "📲",
     hidden: true,

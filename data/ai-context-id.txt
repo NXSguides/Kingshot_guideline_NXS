@@ -180,6 +180,9 @@ Di lima zona lainnya, Penjelajah Ujian menyediakan prajurit Lv.10 — cukup ting
 Panduan lengkap: https://kingshotmastery.com/guides/kingshot-pet-guide
 ℹ️ Kontennya terlalu panjang untuk diterjemahkan, silakan buka tautannya dan baca di sana.
 
+### GUIDE #member-map — Peta Anggota
+Lokasi kota setiap anggota saat ini, seperti peta dunia di game. Cari namamu atau ketuk kota untuk menyalin X:Y. Officer yang memperbarui peta ini; di sini tidak bisa mengubah apa pun. Saat pindahan aliansi, pindah hanya jika officer menyuruh — dan jangan pernah memindahkan Jebakan Beruang sendiri.
+
 ### GUIDE #install-app — Cara memasang sebagai aplikasi
 Apakah aman?
 Ini bukan program yang diunduh (bukan APK), melainkan situs ini yang disimpan di layar utama dan berjalan di Safari/Chrome seperti halaman web biasa.
@@ -1076,6 +1079,7 @@ If notifications don't come: open "🔧 Notifications not coming?" under the not
 Top-right buttons (installed app): 🔗 copy the link of this page (briefly shows ✓ when copied), ↻ refresh to the newest version, ☾ / ☀ dark / light mode. 🐦 brings Little Sparrow back if it was turned off.
 🐦 Little Sparrow (the bird by the Ask AI button): tap it and it first asks "Want a quick tour of this page?" — 👀 Yes walks top to bottom through the page you are on: first the top buttons (🔗, ↻, 📋 officers only, light/dark, the announcement ticker, languages, guide menus), then the page (home page: this week, daily checklist, calendar, announcements, guide menus, language, Ask AI; a guide: its headings, hero cards, rule boxes, switching guides). After the tour, or after "No thanks", it shows its help menu: 🔎 Find a page, or 🎓 "How do I use…" → pick a tour: 🧭 What the buttons on the site do (language, 🔗, ↻, light/dark, Ask AI), ⏰ timers, 🔔 game reminders, or installing the app. The same tours are listed at the top of the Ask AI panel.
 The language buttons at the top switch the whole site (12 languages).
+📍 Member Map (guide #member-map, chip next to Recent Events): every member's city where it is now, like the in-game World map — search your name or tap a city to copy its X:Y; Bear Traps, HQ and our banners are shown. Read only: officers update it (🗺️ Map → 👥 Member positions on the officer page), usually visible within a minute or two. It never shows move plans or planned banners — during an alliance move, wait for the officers and never move the Bear Traps yourself.
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-10-19 by ΔRMΔDΔ] Ketidakhadiran di Swordland Showdown
