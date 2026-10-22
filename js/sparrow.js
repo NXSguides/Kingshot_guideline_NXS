@@ -1667,13 +1667,14 @@
     if (!r.stopped && !only) offerTour(id === "rem" ? "tmr" : "rem");
   }
   /* the chat panel scrolls on its own: keep the sparrow and the ring on the element */
-  setInterval(() => { if (tour && targetEl && !flying) { const p = pointAt(targetEl); if (Math.hypot(p.x - pos.x, p.y - pos.y) > 3) { pos = { x: p.x, y: p.y }; place(); } } }, 120);
+  setInterval(() => { if (tour && targetEl && !flying && !pinched()) { const p = pointAt(targetEl); if (Math.hypot(p.x - pos.x, p.y - pos.y) > 3) { pos = { x: p.x, y: p.y }; place(); } } }, 120);
   /* 👀 watchdog: the thing being pointed at disappeared (panel closed, tab switched, guide closed) while the sparrow was waiting
      there → drop the step and fly home instead of staying put next to nothing. Only while idle or waiting for Next, never mid-flow. */
   let lostSince = 0, lastPerch = null;
   const shown = (el) => { if (!el || !el.isConnected) return false; const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && !el.closest("[hidden]"); };   // scrolled out of view still counts as there
+  const pinched = () => !!window.visualViewport && Math.abs(visualViewport.scale - 1) > 0.02;   // the page is pinch-zoomed: every measurement is off, so hold still until it's back to 1×
   setInterval(async () => {
-    if (root.hidden || flying || state === "sleep" || state === "off") return;
+    if (root.hidden || flying || state === "sleep" || state === "off" || pinched()) return;
     if (targetEl && (stepResolve || !busy)) {
       if (shown(targetEl)) { lostSince = 0; return; }
       lostSince = lostSince || Date.now(); if (Date.now() - lostSince < 500) return; lostSince = 0;
@@ -2604,7 +2605,7 @@
     const first = (typeof langChosen !== "undefined" && !langChosen) ? "sleep" : "idle";   // a small still shows at once; the clip replaces it when it has loaded
     layout(first, front); front.src = IMG + first + "_end.webp"; cur = first;
     // re-perch a moment after the viewport settles (not during an iOS rubber-band bounce or a toolbar animation, or the bird would hop around)
-    let rpT = null; const rePerch = () => { placeBubble(); clearTimeout(rpT); rpT = setTimeout(() => { if (!busy && !flying && state !== "off" && root.hidden === false && !targetEl) { pos = perchPoint(); place(); faceIn(); } placeBubble(); }, 350); };
+    let rpT = null; const rePerch = () => { placeBubble(); clearTimeout(rpT); rpT = setTimeout(() => { if (!busy && !flying && !pinched() && state !== "off" && root.hidden === false && !targetEl) { pos = perchPoint(); place(); faceIn(); } placeBubble(); }, 350); };
     window.addEventListener("resize", rePerch);
     if (window.visualViewport) visualViewport.addEventListener("resize", rePerch);   // iOS: the browser bar folding away moves the Ask AI button → the bird follows
     const f = fab(); if (f) new MutationObserver(() => { if (!busy && !flying && !targetEl) { pos = perchPoint(); place(); faceIn(); } }).observe(f, { attributes: true, attributeFilter: ["style", "class"] });
