@@ -2491,29 +2491,43 @@
   let gagRunning = false;
   async function napGag(overlay, force) {
     if (gagRunning || (!force && ls.get(napKey()))) return false;
-    for (let i = 0; i < 30 && (busy || root.hidden) && overlay.isConnected; i++) await wait(150);   // let the wake-up clip finish first
+    for (let i = 0; i < 60 && (busy || root.hidden) && overlay.isConnected; i++) await wait(150);   // let the wake-up clip finish first
     if (busy || root.hidden || !overlay.isConnected) return false;
     gagRunning = true; busy = true; hush(); clearTarget(); clearTimeout(idleTimer); sleepZ(false); preload("hurt"); preload("wake");
     root.classList.add("sp-top"); bubble.classList.add("sp-top");   // above the pop-up's dimming
     const box = overlay.querySelector(".popup-box"), br = box ? box.getBoundingClientRect() : { top: innerHeight * 0.4, left: 40, width: innerWidth - 80 };
     const m = META[cur] || META.idle, w = m.w * SIZE;
-    pos = { x: -w, y: innerHeight * 0.55 }; place();                      // comes in from off-screen
+    // comes in from the right, and the rock gets it right as it reaches the middle (the clip's first frames are wing beats, so it keeps flying into the hit)
     const tx = Math.min(innerWidth - w * 0.6, Math.max(w * 0.6, br.left + br.width * 0.5)), ty = Math.max(safeTop() + m.h * SIZE + 60, br.top - 8);
-    if (!(await flyTo(tx, ty))) { cleanup(); return true; }
-    // the clip itself: hovers in place, a rock flies in and bonks it, it keels over and lies dazed on top of the pop-up
-    setFacing("l"); const c = play(META.hurt ? "hurt" : "cry"); await wait(META.hurt ? 4500 : 300);   // the thought comes once it's down
+    pos = { x: innerWidth + w, y: ty - 90 }; place(); setFacing("l"); play("fly", { squash: false });
+    const D = 1500, HIT = META.hurt ? Math.max(0, D - 450) : D, t0 = performance.now(); let started = false, c = null;
+    await new Promise((res) => { const f = (now) => {
+      const k = Math.min(1, (now - t0) / D), e = 1 - Math.pow(1 - k, 2);
+      pos = { x: innerWidth + w + (tx - innerWidth - w) * e, y: ty - 90 + 90 * e - Math.sin(Math.PI * k) * 40 }; place();
+      if (!started && now - t0 >= HIT) { started = true; c = play(META.hurt ? "hurt" : "cry"); }
+      if (k < 1 && overlay.isConnected) requestAnimationFrame(f); else res(); }; requestAnimationFrame(f); });
+    if (!overlay.isConnected) { cleanup(); return true; }
+    if (!started) c = play(META.hurt ? "hurt" : "cry");
+    await wait(META.hurt ? 3800 : 300);   // the thought comes once it's down
     if (!force) ls.set(napKey(), "1");
     bubble.classList.add("sp-think"); const draw = () => { say(`<div>${esc(t("napThink"))}</div>`, { foot: false }); redraw = draw; }; draw();
     // stays knocked out until the pop-up is confirmed (or 40 s, whichever first)
     await new Promise((res) => { const t1 = setTimeout(res, 40000); const ob = new MutationObserver(() => { if (!overlay.isConnected) { clearTimeout(t1); ob.disconnect(); res(); } }); ob.observe(document.body, { childList: true }); });
     hush(); bubble.classList.remove("sp-think"); redraw = null;
     await play("wake"); cleanup(); return true;
-    function cleanup() { root.classList.remove("sp-top"); bubble.classList.remove("sp-top"); busy = false; gagRunning = false; state = "menu"; goHome().then(() => armIdle()); }
+    function cleanup() { root.classList.remove("sp-top"); bubble.classList.remove("sp-top"); busy = false; gagRunning = false; state = "menu"; goHome().then(() => { if (overlay.isConnected) armIdle(); else greet(); }); }   // back on its perch, then the usual hello
   }
   const safeBottom = () => { const v = parseFloat(getComputedStyle(root).getPropertyValue("--sp-sab")); return isNaN(v) ? 0 : v; };
   if (!IS_OFFICER && !IS_TOOL) {
     if (NAP_PREVIEW) { try { window.isEventActive = () => true; } catch (e) {} }   // the pop-up shows even outside All Out
-    new MutationObserver(() => { const ov = document.querySelector(".popup-overlay"); if (ov && !ov.spSeen) { ov.spSeen = true; setTimeout(() => napGag(ov, NAP_PREVIEW), 500); } }).observe(document.body, { childList: true });
+    const seePopup = () => {
+      const ov = document.querySelector(".popup-overlay"); if (!ov || ov.spSeen) return; ov.spSeen = true;
+      root.classList.add("sp-top"); bubble.classList.add("sp-top");   // the bird sits above the pop-up's dimming for as long as it's up, gag or not
+      const back = new MutationObserver(() => { if (!ov.isConnected) { back.disconnect(); if (!gagRunning) { root.classList.remove("sp-top"); bubble.classList.remove("sp-top"); (async () => { for (let i = 0; i < 60 && (busy || root.hidden); i++) await wait(150); if (!busy && !gagRunning && state === "menu" && bubble.hidden) greet(); })(); } } }); back.observe(document.body, { childList: true });   // pop-up confirmed without the gag → the usual hello
+      setTimeout(() => napGag(ov, NAP_PREVIEW), 500);
+    };
+    new MutationObserver(seePopup).observe(document.body, { childList: true });
+    setTimeout(seePopup, 800);   // the pop-up may already be there when the sparrow loads (language remembered → no picker)
   }
   /* a guide was opened while the sparrow was helping to find a page → fly to its title and point at it */
   async function onGuideOpened() {
