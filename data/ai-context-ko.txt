@@ -765,7 +765,7 @@ KvK 점수: 1인당 22,247,410
 
 ### GUIDE #all-out — 전군 출격
 🪖 전군 출격 규칙
-❌ NAP 6 멤버 공격 금지, 농장/아카데미 포함 (NXS/nxs, RED/ReD, NBD/nBd/Nbd, ESA/EsA/UNI, IDN, KGb)
+❌ NAP 6 멤버 공격 금지, 농장/아카데미 포함 (NXS/nxs/nXs, NBD/nBd/Nbd, RED/ReD, ESA/EsA/UNI, IDN, KGb)
 ❌ 성이나 연맹 건물(본부, 전초기지, 깃발) 공격 금지
 ✅ 자원 채집 타일(방앗간, 채석장, 철광장)은 공격 가능합니다
 ✅ NAP 이외의 플레이어는 공격 가능합니다.

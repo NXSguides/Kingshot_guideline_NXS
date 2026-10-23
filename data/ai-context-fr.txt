@@ -737,7 +737,7 @@ Aide à la Construction (Loup Gris, +15 %) et Bouchées Doubles (+20 %) ne duren
 
 ### GUIDE #all-out — Tous dehors
 🪖 Règles de Tous dehors
-❌ Aucune attaque contre le NAP 6, y compris leurs fermes/académies (NXS/nxs, RED/ReD, NBD/nBd/Nbd, ESA/EsA/UNI, IDN, KGb)
+❌ Aucune attaque contre le NAP 6, y compris leurs fermes/académies (NXS/nxs/nXs, NBD/nBd/Nbd, RED/ReD, ESA/EsA/UNI, IDN, KGb)
 ❌ Aucune attaque contre les châteaux ou les bâtiments d'alliance (QG, avant-postes, bannières)
 ✅ Vous pouvez attaquer les cases de collecte de ressources (Moulin, Carrière, Mine de Fer)
 ✅ Vous pouvez attaquer les joueurs en dehors du NAP.

@@ -114,7 +114,7 @@ Don't miss it, rewards are good.
   "all-out": [
     { title: "All-Out rules", text: `All-Out Rules
 
-❌ No attacks on NAP 6 (NXS, RED, NBD, ESA, IDN, KGb) including their farms/acad
+❌ No attacks on NAP 6 (NXS, NBD, RED, ESA, IDN, KGb) including their farms/acad
 ❌ No attacks on castles or alliance buildings (HQs, outposts, banners)
 ✅ You can attack resource gathering tiles (mills, quarry, mines)
 ✅ You can attack players outside of NAP.
@@ -122,16 +122,19 @@ Don't miss it, rewards are good.
 - If your castle gets attacked by a NAP member, do not retaliate inform R4/5
 - Avoid gathering resources in the wild, use the secured alliance resource node instead
 - Rule breakers will be dealt with according to alliance/NAP agreements` },
-    { title: "NAP list", text: `NAP
+    { title: "NAP list", text: `All Out event is here! Check amessages for rules. Ask if unsure. Use alliance’s secure gathering site.
 
-Do NOT attack any of these alliance cities.
+NAP 6
+DO NOT attack the cities of these alliances or their farms/academies:
 
-NXS/nxs
+NXS/nxs/nXs
 NBD/nBd/Nbd
 RED/ReD
 ESA/EsA/UNI
 IDN
-KGb` },
+KGb
+
+*All Out exception: Gathering resource nodes may be attacked.` },
   ],
   "swordland-showdown": [
     { title: "Swordland map", text: `Swordland Showdown Map!

@@ -737,7 +737,7 @@ Neredeyse maksimum bir hesap: %80,2 temel İnşaat Hızı, Lv.5 Pan (Usta Mimar)
 
 ### GUIDE #all-out — Topyekün
 🪖 Topyekün Kuralları
-❌ NAP 6 üyelerine, çiftlikleri/akademileri dahil saldırı yok (NXS/nxs, RED/ReD, NBD/nBd/Nbd, ESA/EsA/UNI, IDN, KGb)
+❌ NAP 6 üyelerine, çiftlikleri/akademileri dahil saldırı yok (NXS/nxs/nXs, NBD/nBd/Nbd, RED/ReD, ESA/EsA/UNI, IDN, KGb)
 ❌ Şatolara veya ittifak binalarına (karargahlar, ileri karakollar, flamalar) saldırı yok
 ✅ Kaynak toplama alanlarına saldırabilirsiniz (Değirmen, Taş Ocağı, Demir Madeni)
 ✅ NAP dışındaki oyunculara saldırabilirsiniz.

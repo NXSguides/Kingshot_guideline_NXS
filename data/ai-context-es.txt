@@ -737,7 +737,7 @@ Ayudante de construcción (Lobo gris, +15 %) y Doble tiempo (+20 %) duran solo 5
 
 ### GUIDE #all-out — Ataque Total
 🪖 Reglas de Ataque Total
-❌ No atacar a miembros del NAP 6, incluidas sus granjas/academias (NXS/nxs, RED/ReD, NBD/nBd/Nbd, ESA/EsA/UNI, IDN, KGb)
+❌ No atacar a miembros del NAP 6, incluidas sus granjas/academias (NXS/nxs/nXs, NBD/nBd/Nbd, RED/ReD, ESA/EsA/UNI, IDN, KGb)
 ❌ No atacar castillos ni edificios de alianza (cuarteles generales, puestos avanzados, estandartes)
 ✅ Puedes atacar casillas de recolección de recursos (Molino, Cantera, Mina de hierro)
 ✅ Puedes atacar a jugadores fuera del NAP.

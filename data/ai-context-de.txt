@@ -739,7 +739,7 @@ Bauhilfe (Grauer Wolf, +15 %) und Doppeltes Tempo (+20 %) halten nur 5 Minuten. 
 
 ### GUIDE #all-out — Aufs Ganze
 🪖 All-Out-Regeln
-❌ Keine Angriffe auf NAP 6, einschließlich ihrer Farmen/Akademien (NXS/nxs, RED/ReD, NBD/nBd/Nbd, ESA/EsA/UNI, IDN, KGb)
+❌ Keine Angriffe auf NAP 6, einschließlich ihrer Farmen/Akademien (NXS/nxs/nXs, NBD/nBd/Nbd, RED/ReD, ESA/EsA/UNI, IDN, KGb)
 ❌ Keine Angriffe auf Schlösser oder Allianzgebäude (Hauptquartiere, Außenposten, Banner)
 ✅ Ihr könnt Ressourcen-Sammelfelder angreifen (Mühle, Steinbruch, Eisenbergwerk)
 ✅ Ihr könnt Spieler außerhalb der NAP angreifen.

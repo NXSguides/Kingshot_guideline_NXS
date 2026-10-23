@@ -736,7 +736,7 @@ KvK 積分：每人 22,247,410
 
 ### GUIDE #all-out — 全軍出擊
 🪖 全軍出擊規則
-❌ 禁止攻擊 NAP 6 成員，包含他們的農場／學院（NXS/nxs、RED/ReD、NBD/nBd/Nbd、ESA/EsA/UNI、IDN、KGb）
+❌ 禁止攻擊 NAP 6 成員，包含他們的農場／學院（NXS/nxs/nXs、NBD/nBd/Nbd、RED/ReD、ESA/EsA/UNI、IDN、KGb）
 ❌ 禁止攻擊城堡或聯盟建築（總部、前哨站、旗幟）
 ✅ 可以攻擊資源採集點（磨坊、採石場、鐵礦場）
 ✅ 可以攻擊 NAP 以外的玩家。
