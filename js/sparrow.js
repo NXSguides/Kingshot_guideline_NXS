@@ -2490,9 +2490,11 @@
   let gagRunning = false;
   async function napGag(overlay, force) {
     if (gagRunning) return false;   // every time the pop-up shows, the bird flies in with it
-    for (let i = 0; i < 60 && (busy || root.hidden) && overlay.isConnected; i++) await wait(150);   // let the wake-up clip finish first
-    if (busy || root.hidden || !overlay.isConnected) { if (!overlay.isConnected) root.style.visibility = ""; return false; }
-    gagRunning = true; busy = true; hush(); clearTarget(); clearTimeout(idleTimer); sleepZ(false); preload("hurt"); preload("wake");
+    for (let i = 0; i < 40 && root.hidden && overlay.isConnected; i++) await wait(100);   // only until the sparrow has been set up at all
+    if (root.hidden || !overlay.isConnected) { if (!overlay.isConnected) root.style.visibility = ""; return false; }
+    gagRunning = true; busy = true; cancelStep(); stopFlight(); hush(); clearTarget(); clearTimeout(idleTimer); sleepZ(false); preload("wake");
+    await Promise.race([preload("hurt"), wait(4000)]);   // the clip must be in hand before the flight, or it would hover in place waiting for it
+    if (!overlay.isConnected) { cleanup(); return true; }
     root.classList.add("sp-top"); bubble.classList.add("sp-top");   // above the pop-up's dimming
     const box = overlay.querySelector(".popup-box"), br = box ? box.getBoundingClientRect() : { top: innerHeight * 0.4, left: 40, width: innerWidth - 80 };
     const m = META[cur] || META.idle, w = m.w * SIZE;
@@ -2509,20 +2511,23 @@
     if (!started) c = play(META.hurt ? "hurt" : "cry");
     await wait(META.hurt ? 3800 : 300);   // the thought comes once it's down
     bubble.classList.add("sp-think"); const draw = () => { say(`<div>${esc(t("napThink"))}</div>`, { foot: false }); redraw = draw; }; draw();
-    // stays knocked out until the pop-up is confirmed (or 40 s, whichever first)
-    await new Promise((res) => { const t1 = setTimeout(res, 40000); const ob = new MutationObserver(() => { if (!overlay.isConnected) { clearTimeout(t1); ob.disconnect(); res(); } }); ob.observe(document.body, { childList: true }); });
+    // stays knocked out until the pop-up is confirmed
+    await new Promise((res) => { if (!overlay.isConnected) return res(); const ob = new MutationObserver(() => { if (!overlay.isConnected) { ob.disconnect(); res(); } }); ob.observe(document.body, { childList: true }); });
     hush(); bubble.classList.remove("sp-think"); redraw = null;
+    // pop-up confirmed → the bird is simply back at its usual place on the Ask AI button and gets up there (no flight across the page)
+    root.style.visibility = "hidden"; pos = perchPoint(); place(); faceIn(); await wait(80); root.style.visibility = "";
     await play("wake"); cleanup(); return true;
     function cleanup() { root.classList.remove("sp-top"); bubble.classList.remove("sp-top"); root.style.visibility = ""; busy = false; gagRunning = false; state = "menu"; goHome().then(() => { if (overlay.isConnected) armIdle(); else greet(); }); }   // back on its perch, then the usual hello
   }
   const safeBottom = () => { const v = parseFloat(getComputedStyle(root).getPropertyValue("--sp-sab")); return isNaN(v) ? 0 : v; };
   if (!IS_OFFICER && !IS_TOOL) {
     if (NAP_PREVIEW) { try { window.isEventActive = () => true; } catch (e) {} }   // the pop-up shows even outside All Out
+    setTimeout(() => preload("hurt"), 1500);   // fetched early, so the pop-up gag never has to wait for it
     const seePopup = () => {
       const ov = document.querySelector(".popup-overlay"); if (!ov || ov.spSeen) return; ov.spSeen = true;
       root.classList.add("sp-top"); bubble.classList.add("sp-top"); root.style.visibility = "hidden";   // while the pop-up is up the perched bird is out of sight: only the one flying in (the gag) shows; it's back once the pop-up is confirmed
       const back = new MutationObserver(() => { if (!ov.isConnected) { back.disconnect(); if (!gagRunning) { root.classList.remove("sp-top"); bubble.classList.remove("sp-top"); root.style.visibility = ""; (async () => { for (let i = 0; i < 60 && (busy || root.hidden); i++) await wait(150); if (!busy && !gagRunning && state === "menu" && bubble.hidden) greet(); })(); } } }); back.observe(document.body, { childList: true });   // pop-up confirmed without the gag → the usual hello
-      setTimeout(() => napGag(ov, NAP_PREVIEW), 500);
+      napGag(ov, NAP_PREVIEW);
     };
     new MutationObserver(seePopup).observe(document.body, { childList: true });
     setTimeout(seePopup, 800);   // the pop-up may already be there when the sparrow loads (language remembered → no picker)
@@ -2565,9 +2570,9 @@
     pos = perchPoint(); place(); faceIn();
     const picker = () => site && !langChosen;
     const wakeUp = async () => {
+      if (document.querySelector(".popup-overlay")) { state = "menu"; return; }   // an event pop-up is up: the gag has the stage, the greeting comes after the pop-up
       sleepZ(false); busy = true; await play("wake"); busy = false;
       if (PREVIEW) { busy = true; await playMessage(MESSAGES[PREVIEW === "nia" ? 0 : 1], true); busy = false; state = "menu"; armIdle(); return; }   // 👀 preview of a personal message
-      if (document.querySelector(".popup-overlay")) { state = "menu"; armIdle(); return; }   // an event pop-up is up: the gag (or nothing) instead of the greeting
       if (!(await msgHint())) greet();
     };
     const doze = async () => { clearTimeout(idleTimer); cancelStep(); stopFlight(); hush(); clearTarget(); tour = null; busy = false; pos = perchPoint(); place(); faceIn(); await play("sleep", { squash: false }); sleepZ(true); state = "sleep"; };
