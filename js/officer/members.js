@@ -226,8 +226,8 @@ function render() {
   el.innerHTML = `<h3 style="margin:0 0 4px">${esc(t("t"))} <span class="muted" style="font-size:13px;font-weight:400">${D.m.length ? esc(t("count").replace("{n}", D.m.length)) : ""}</span></h3>
     <div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(t("note"))}${D.at ? " · " + esc(t("last").replace("{d}", String(D.at).slice(0, 10)).replace("{b}", D.by || "?")) : ""}</div>
     ${D.m.length ? `<input class="inp" id="mm_find" list="mm_names" placeholder="${esc(t("find"))}" style="max-width:260px;margin-bottom:6px"><datalist id="mm_names">${D.m.map(([n]) => `<option value="${esc(n)}">`).join("")}</datalist>` : `<div class="muted">${esc(t(ed ? "noneEd" : "none"))}</div>`}
-    <div class="mm-map" id="mm_map"></div>
     <div class="mm-info" id="mm_info"></div>
+    <div class="mm-map" id="mm_map"></div>
     ${lists()}
     ${ed ? `<div class="row" style="gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center">
       <button class="btn" id="mm_pbtn">${esc(t("paste"))}</button>
