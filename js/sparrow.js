@@ -2487,7 +2487,7 @@
   bubble.addEventListener("click", (e) => { const b = e.target.closest("button[data-a=ttour], button[data-a=tno]"); if (!b) return; hush(); if (b.dataset.a === "ttour") runToolTour(); });
   /* 🤕 the All Out pop-up: the sparrow flies in and perches on top of the pop-up, something drops on its head, it keels over
      dazed right there and thinks "All Out is really dangerous…" — until the pop-up is confirmed. Once a day. */
-  const napKey = () => "nxs-sparrow-nap-" + Math.floor(Date.now() / 864e5);
+  const napKey = () => "nxs-sparrow-nap2-" + Math.floor(Date.now() / 864e5);   // (key renamed once: earlier builds used the day up before the bird was even visible)
   let gagRunning = false;
   async function napGag(overlay, force) {
     if (gagRunning || (!force && ls.get(napKey()))) return false;
