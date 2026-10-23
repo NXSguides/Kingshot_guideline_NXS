@@ -2490,6 +2490,7 @@
      by the rock as it reaches the middle (the clip), lies dazed on top of the box and thinks about the NAP — until Confirm.
      Meanwhile the regular sparrow sits out of sight and carries on exactly as usual once the pop-up is gone. */
   const safeBottom = () => { const v = parseFloat(getComputedStyle(root).getPropertyValue("--sp-sab")); return isNaN(v) ? 0 : v; };
+  let popupCut = null;
   function gagIn(overlay) {
     const box = overlay.querySelector(".popup-box"); if (!box) return;
     const actor = document.createElement("div"); actor.className = "sp-gag"; const img = document.createElement("img"); img.alt = ""; actor.appendChild(img); overlay.appendChild(actor);
@@ -2529,8 +2530,9 @@
     const seePopup = () => {
       const ov = document.querySelector(".popup-overlay"); if (!ov || ov.spSeen) return; ov.spSeen = true;
       root.style.visibility = "hidden";   // the regular sparrow stays out of sight while the pop-up is up…
-      new MutationObserver((_, ob) => { if (!ov.isConnected) { ob.disconnect(); root.style.visibility = ""; } }).observe(document.body, { childList: true });   // …and is simply back once it's confirmed
+      new MutationObserver((_, ob) => { if (!ov.isConnected) { ob.disconnect(); setTimeout(() => { if (!document.querySelector(".popup-overlay")) root.style.visibility = ""; }, 900); } }).observe(document.body, { childList: true });   // …and is simply back once it's confirmed
       try { gagIn(ov); } catch (e) {}
+      if (popupCut) popupCut();   // the regular sparrow drops whatever it was saying; it starts over after the jump
     };
     new MutationObserver(seePopup).observe(document.body, { childList: true });
     setTimeout(seePopup, 800);   // the pop-up may already be there when the sparrow loads (language remembered → no picker)
@@ -2572,11 +2574,22 @@
     const site = typeof langChosen !== "undefined";
     pos = perchPoint(); place(); faceIn();
     const picker = () => site && !langChosen;
+    let wakeGen = 0, waiting = false;
+    const popupDue = () => { try { return typeof shouldShowEventPopup === "function" && shouldShowEventPopup(); } catch (e) { return false; } };
     const wakeUp = async () => {
-      while (document.querySelector(".popup-overlay")) await wait(300);   // an event pop-up (with its own bird) is up: wait it out, then carry on exactly as usual
-      sleepZ(false); busy = true; await play("wake"); busy = false;
+      const g = ++wakeGen; let saw = false; waiting = true;
+      for (let i = 0; i < 30 && popupDue() && !document.querySelector(".popup-overlay"); i++) await wait(300);   // the event pop-up is about to show: don't greet underneath it
+      while (document.querySelector(".popup-overlay")) { saw = true; await wait(300); }   // pop-up up (with its own bird): wait until it's confirmed…
+      if (saw) await wait(900);   // …and the page has jumped to the guide
+      waiting = false; if (g !== wakeGen) return;
+      sleepZ(false); busy = true; await play("wake"); busy = false; if (g !== wakeGen) return;
       if (PREVIEW) { busy = true; await playMessage(MESSAGES[PREVIEW === "nia" ? 0 : 1], true); busy = false; state = "menu"; armIdle(); return; }   // 👀 preview of a personal message
       if (!(await msgHint())) greet();
+    };
+    popupCut = () => {
+      if (waiting || picker() || state === "sleep") return;   // already waiting for it, or asleep under the language picker
+      ++wakeGen; clearTimeout(idleTimer); cancelStep(); stopFlight(); hush(); clearTarget(); tour = null; busy = false;
+      pos = perchPoint(); place(); faceIn(); state = "menu"; wakeUp();
     };
     const doze = async () => { clearTimeout(idleTimer); cancelStep(); stopFlight(); hush(); clearTarget(); tour = null; busy = false; pos = perchPoint(); place(); faceIn(); await play("sleep", { squash: false }); sleepZ(true); state = "sleep"; };
     if (picker()) await doze(); else { await play("idle", { squash: false }); state = "menu"; await wakeUp(); }
