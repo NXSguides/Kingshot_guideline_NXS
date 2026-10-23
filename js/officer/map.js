@@ -631,7 +631,7 @@ function rebuildOwn() {
 }
 /* 🏴 other alliances' banners (data/banners-others-2189.json, from the territory overlay — estimates): own layer, never mixed with ours */
 let OTB = null, otOn = (() => { try { return localStorage.getItem("km-otb") === "1"; } catch (e) { return false; } })();
-async function loadOt() { try { OTB = await fetch("data/banners-others-2189.json?v=1").then((r) => r.json()); } catch (e) { OTB = null; } drawOt(); renderFlags(); memRefresh(); }
+async function loadOt() { try { OTB = await fetch("data/banners-others-2189.json?v=2").then((r) => r.json()); } catch (e) { OTB = null; } drawOt(); renderFlags(); memRefresh(); }
 /* officers' fixes (saved with the plan): PLAN.ot = { off: ["UNI:x,y" gone / moved away], add: [["UNI", x, y] built / corrected] } */
 const otCol = (n) => (OTB && OTB.a[n] && OTB.a[n].c) || "#999";
 const otList = () => { if (!OTB) return []; const o = PLAN.ot || {}, off = new Set(o.off || []), out = [];
