@@ -191,11 +191,15 @@ function csvPlan(text) {
       if (m && m[1] && !/^label$/i.test(m[1])) rows.push({ t: "city", x: +m[2], y: +m[3], n: m[1].replace(/[,;\t]+$/, "").trim(), c: "", s: null }); }
   }
   const cities = rows.filter((r) => r.t === "city"); if (!cities.length) return null;
+  const lab = {}; cities.forEach((r) => { if (r.n) lab[norm(r.n)] = (lab[norm(r.n)] || 0) + 1; });
+  cities.forEach((r) => { if (r.n && lab[norm(r.n)] > 2) r.n = ""; });   // the same label on many cities ("NXS") is the alliance tag, not a member → an empty spot
   const known = new Set(((D && D.m) || []).map(([n]) => norm(n))), by = {};
   for (const r of cities) { const k = r.c || "-"; by[k] = by[k] || { n: 0, hit: 0 }; by[k].n++; if (r.n && known.has(norm(r.n))) by[k].hit++; }
   const col = Object.keys(by).sort((a, b) => (by[b].hit - by[a].hit) || (by[b].n - by[a].n))[0];
-  const ours = (r) => (r.c || "-") === col || (!r.c && r.t !== "city");   // traps / banners / HQ without a colour count as ours
-  const pick = (k) => rows.filter((r) => r.t === k && ours(r)).map((r) => [r.x, r.y]);
+  const ours = (r) => (r.c || "-") === col;
+  /* traps, HQ and banners have their own colours in Kingshot Mapper: ours are the ones in or around our cities' area */
+  const mc = cities.filter(ours), x1 = Math.min(...mc.map((r) => r.x)) - 12, x2 = Math.max(...mc.map((r) => r.x)) + 12, y1 = Math.min(...mc.map((r) => r.y)) - 12, y2 = Math.max(...mc.map((r) => r.y)) + 12;
+  const pick = (k) => rows.filter((r) => r.t === k && r.x >= x1 && r.x <= x2 && r.y >= y1 && r.y <= y2).map((r) => [r.x, r.y]);
   return { c: cities.filter(ours).map((r) => r.s != null ? [r.n, r.x, r.y, r.s] : [r.n, r.x, r.y]), bt: pick("beartrap"), hq: pick("hq"), b: pick("banner") };
 }
 function importPlan(text, file) {
