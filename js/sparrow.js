@@ -2486,11 +2486,10 @@
   }
   bubble.addEventListener("click", (e) => { const b = e.target.closest("button[data-a=ttour], button[data-a=tno]"); if (!b) return; hush(); if (b.dataset.a === "ttour") runToolTour(); });
   /* 🤕 the All Out pop-up: the sparrow flies in and perches on top of the pop-up, something drops on its head, it keels over
-     dazed right there and thinks "All Out is really dangerous…" — until the pop-up is confirmed. Once a day. */
-  const napKey = () => "nxs-sparrow-nap2-" + Math.floor(Date.now() / 864e5);   // (key renamed once: earlier builds used the day up before the bird was even visible)
+     dazed right there and thinks "All Out is really dangerous…" — until the pop-up is confirmed. Every time the pop-up shows. */
   let gagRunning = false;
   async function napGag(overlay, force) {
-    if (gagRunning || (!force && ls.get(napKey()))) return false;
+    if (gagRunning) return false;   // every time the pop-up shows, the bird flies in with it
     for (let i = 0; i < 60 && (busy || root.hidden) && overlay.isConnected; i++) await wait(150);   // let the wake-up clip finish first
     if (busy || root.hidden || !overlay.isConnected) { if (!overlay.isConnected) root.style.visibility = ""; return false; }
     gagRunning = true; busy = true; hush(); clearTarget(); clearTimeout(idleTimer); sleepZ(false); preload("hurt"); preload("wake");
@@ -2509,7 +2508,6 @@
     if (!overlay.isConnected) { cleanup(); return true; }
     if (!started) c = play(META.hurt ? "hurt" : "cry");
     await wait(META.hurt ? 3800 : 300);   // the thought comes once it's down
-    if (!force) ls.set(napKey(), "1");
     bubble.classList.add("sp-think"); const draw = () => { say(`<div>${esc(t("napThink"))}</div>`, { foot: false }); redraw = draw; }; draw();
     // stays knocked out until the pop-up is confirmed (or 40 s, whichever first)
     await new Promise((res) => { const t1 = setTimeout(res, 40000); const ob = new MutationObserver(() => { if (!overlay.isConnected) { clearTimeout(t1); ob.disconnect(); res(); } }); ob.observe(document.body, { childList: true }); });
