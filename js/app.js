@@ -272,8 +272,12 @@ const ANN_EVENTS = [
 const NOTE_EVENTS = [
   // Castle Battle is every other Saturday, 5 h; on KvK weeks it's the cross-kingdom one (KvK's day 6: 10/10, 11/7 …), so ours comes every 28 days
   { name: "Castle Battle", emoji: "🏰", start: "2026-10-24", every: 28, days: 1, h: [12, 17] },   // in-game calendar: 10/24 12:00 – 17:00 UTC
+  /* 🏛️ Sanctuary Battle sign-ups (Ruins tab, Season 3 phase 4/8): start times from the in-game countdowns. One-off rows: h = [start] */
+  { name: "Sanctuary Battle", emoji: "🏛️", start: "2026-10-23", days: 1, h: [13], sub: () => `${term("sanctuary")} 1 · 6 · 7` },
+  { name: "Fortress 2", emoji: "🏯", start: "2026-10-23", days: 1, h: [14],
+    label: { en: "Fortress 2", zh: "2號要塞", ko: "2번 성채", pt: "Fortaleza Nº 2", ar: "القلعة رقم 2" } },   // only the languages seen in game; the rest show English
 ];
-const noteName = (ev) => (typeof EVENT_NAMES !== "undefined" && EVENT_NAMES[ev.name] && (EVENT_NAMES[ev.name][currentLang] || EVENT_NAMES[ev.name].en)) || ev.name;
+const noteName = (ev) => ev.label ? (ev.label[currentLang] || ev.label.en) : (typeof EVENT_NAMES !== "undefined" && EVENT_NAMES[ev.name] && (EVENT_NAMES[ev.name][currentLang] || EVENT_NAMES[ev.name].en)) || ev.name;
 /* our alliance's fixed times (UTC hours) — set as close to Bear Hunt as possible */
 const EVENT_TIMES = { "bear-hunt": [13, 22], "swordland-showdown": [2, 14], "tri-alliance-clash": [14, 21], "viking-vengeance": [14, 23], "cesares-fury": [22 + 35 / 60], "eternity-reach": [3, 5, 11, 14, 16, 18] };
 /* officers set these on the officer Events tab → data/event-times.json ("13:30" → 13.5); the ⏰ timers read them too */
@@ -1148,8 +1152,10 @@ function todayCardHtml() {
     return `<span class="td-time">⏰ ${T.map(hh).join(" & ")} UTC${off}</span>`; };
   const row = (it, meta) => {
     if (it.note) { const [a, b] = it.note.h || [], off = new Date().getTimezoneOffset() !== 0;
-      const tm = a != null ? `<span class="td-time">⏰ ${hh(a)}–${hh(b)} UTC${off ? ` <span class="td-loc">(${escapeHtml(t(TODAY_TXT.yours))} ${local(a)}–${local(b)})</span>` : ""}</span>` : "";
-      return `<div class="td-row"><span class="emoji">${it.emoji}</span><span class="td-main"><b dir="auto">${escapeHtml(it.name)}</b><span class="td-meta">${meta}</span>${tm}</span></div>`; }
+      const span = (f) => b != null ? `${f(a)}–${f(b)}` : f(a);   // one time (start) or a range
+      const tm = a != null ? `<span class="td-time">⏰ ${span(hh)} UTC${off ? ` <span class="td-loc">(${escapeHtml(t(TODAY_TXT.yours))} ${span(local)})</span>` : ""}</span>` : "";
+      const sub = it.note.sub ? ` · ${escapeHtml(it.note.sub())}` : "";
+      return `<div class="td-row"><span class="emoji">${it.emoji}</span><span class="td-main"><b dir="auto">${escapeHtml(it.name)}</b><span class="td-meta">${meta}${sub}</span>${tm}</span></div>`; }
     if (it.ann !== undefined) return `<button type="button" class="td-row" onclick="goToAnnouncements(${it.ann});setTimeout(()=>{const x=document.querySelector('.ann-tab.active');if(x)x.scrollIntoView({behavior:'smooth',block:'start'})},150)"><span class="emoji">${it.emoji}</span>
       <span class="td-main"><b dir="auto">${escapeHtml(it.name)}</b><span class="td-meta">${meta}</span></span><span class="arrow">›</span></button>`;
     const g = GUIDES[it.key];
