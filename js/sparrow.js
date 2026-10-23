@@ -2529,8 +2529,7 @@
     setTimeout(() => { preload("fly"); preload("hurt"); }, 1200);   // fetched early, so the gag never has to wait for its clip
     const seePopup = () => {
       const ov = document.querySelector(".popup-overlay"); if (!ov || ov.spSeen) return; ov.spSeen = true;
-      root.style.visibility = "hidden";   // the regular sparrow stays out of sight while the pop-up is up…
-      new MutationObserver((_, ob) => { if (!ov.isConnected) { ob.disconnect(); setTimeout(() => { if (!document.querySelector(".popup-overlay")) root.style.visibility = ""; }, 900); } }).observe(document.body, { childList: true });   // …and is simply back once it's confirmed
+      // the regular sparrow just waits at its perch, behind the pop-up's dimmed backdrop, until it's called after the jump
       try { gagIn(ov); } catch (e) {}
       if (popupCut) popupCut();   // the regular sparrow drops whatever it was saying; it starts over after the jump
     };
