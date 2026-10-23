@@ -737,7 +737,13 @@ Auxiliar de construção (Lobo Cinza, +15%) e Horário Dobrado (+20%) duram só 
 
 ### GUIDE #all-out — Vai com Tudo
 🪖 Regras do Vai com Tudo
-❌ Nenhum ataque ao NAP 6, incluindo suas fazendas/academias (NXS/nxs/nXs, NBD/nBd/Nbd, RED/ReD, ESA/EsA/UNI, IDN, KGb)
+❌ Nenhum ataque ao NAP 6, incluindo suas fazendas/academias
+NXS/nxs/nXs
+NBD/nBd/Nbd
+RED/ReD
+ESA/EsA/UNI
+IDN
+KGb
 ❌ Nenhum ataque a castelos ou construções da aliança (QGs, postos avançados, bandeiras)
 ✅ Você pode atacar blocos de coleta de recursos (Moinho, Pedreira, Mina de Ferro)
 ✅ Você pode atacar jogadores fora do NAP.

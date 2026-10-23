@@ -737,7 +737,13 @@ Construction Aide (Gray Wolf, +15%) dan Double Time (+20%) hanya bertahan 5 meni
 
 ### GUIDE #all-out — Serangan Penuh
 🪖 Aturan Serangan Penuh
-❌ Dilarang menyerang anggota NAP 6, termasuk farm/akademi mereka (NXS/nxs/nXs, NBD/nBd/Nbd, RED/ReD, ESA/EsA/UNI, IDN, KGb)
+❌ Dilarang menyerang anggota NAP 6, termasuk farm/akademi mereka
+NXS/nxs/nXs
+NBD/nBd/Nbd
+RED/ReD
+ESA/EsA/UNI
+IDN
+KGb
 ❌ Dilarang menyerang kastil atau bangunan aliansi (markas, pos terdepan, spanduk)
 ✅ Anda boleh menyerang ubin pengumpulan sumber daya (Lumbung, Tambang Batu, Tambang Besi)
 ✅ Anda boleh menyerang pemain di luar NAP.

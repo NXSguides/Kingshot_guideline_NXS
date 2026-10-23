@@ -737,7 +737,13 @@ Construction Aide (Gray Wolf, +15%) and Double Time (+20%) last only 5 minutes. 
 
 ### GUIDE #all-out — All Out
 🪖 All-Out Rules
-❌ No attacks on NAP 6 including their farms/academies (NXS/nxs/nXs, NBD/nBd/Nbd, RED/ReD, ESA/EsA/UNI, IDN, KGb)
+❌ No attacks on NAP 6 including their farms/academies
+NXS/nxs/nXs
+NBD/nBd/Nbd
+RED/ReD
+ESA/EsA/UNI
+IDN
+KGb
 ❌ No attacks on castles or alliance buildings (HQs, outposts, banners)
 ✅ You can attack resource gathering tiles (Mill, Quarry, Iron Mine)
 ✅ You can attack players outside of NAP.

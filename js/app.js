@@ -375,6 +375,8 @@ const BLOCKS = {
   p: (b) => `<p>${rich(b.text)}</p>`,
   list: (b) => ul(b.items),
   callout: (b) => `<div class="callout flat">${rich(b.text)}</div>`,
+  /* the NAP rule: its own card so it stands out (Armada asked), alliance tags as chips */
+  nap: (b) => `<div class="nap-card"><div class="nap-t">${rich(b.text)}</div><div class="nap-tags">${(b.tags || []).map((t) => `<span class="nap-tag" dir="ltr">${escapeHtml(t)}</span>`).join("")}</div></div>`,
   img: (b) => `<img class="fig" src="${escapeHtml(b.src)}" alt="${escapeHtml(b.alt || "")}" loading="lazy">`,
   video: (b) => {
     const cap = b.caption ? `<p class="legend">${rich(b.caption)}</p>` : "";
