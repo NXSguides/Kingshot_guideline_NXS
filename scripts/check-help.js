@@ -40,6 +40,7 @@ const FEATURES = [
   ["Site: notifications help", /Notifications not coming/, /tm03b:/],
   ["Site: top buttons", /↻ refresh/, /si03:/],
   ["Site: install the app", /install-app/, /inst1:/],
+  ["Move: hive rules card", /Hive rules & tips/, /mv00:/],
   ["Sparrow: quick tour of this page / the officer page", /quick tour of this page[\s\S]*quick tour of the officer page|quick tour of the officer page[\s\S]*quick tour of this page/, /tourQ:[\s\S]*tourQo:[\s\S]*ob07:/],
 ];
 const STALE = [
