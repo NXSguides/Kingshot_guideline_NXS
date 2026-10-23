@@ -29,7 +29,7 @@ const FEATURES = [
   ["Ranking: Swordland rules draft", /Swordland rules draft/, /Swordland rules draft/],
   ["Ranking: version history", /Version history/, /🕘/],
   ["Ranking: shared plans", /New shared plan/, /shared plan/i],
-  ["Map: member positions", /Member positions/, /mp40:/],
+  ["Move: member positions (moved from Map)", /\[move\] - 🚚 Move → "👥 Member positions"/, /k: "mv07", e: 1 },\s*{ s: "#mm_map", k: "mp40" }/],
   ["Move tab", /🚚 Move/, /mv01:/],
   ["Board", /💬 Board/, /bd01:/],
   ["Attendance", /📋 Attendance/, /at01:/],
