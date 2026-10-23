@@ -2505,9 +2505,9 @@
       const br = box.getBoundingClientRect(), fw = META.fly.w * SIZE;
       const tx = Math.min(innerWidth - fw * 0.6, Math.max(fw * 0.6, br.left + br.width / 2)), ty = br.top - 8, x0 = innerWidth + fw, y0 = ty - 90;
       fit("fly"); img.src = url(fly); at(x0, y0); actor.style.visibility = "visible";
-      const D = 1500, HIT = hurt && META.hurt ? D - 450 : D, t0 = performance.now(); let hitDone = false;
+      const D = 1400, HIT = hurt && META.hurt ? D - 600 : D, t0 = performance.now(); let hitDone = false;
       const hitNow = () => { hitDone = true; if (hurt && META.hurt) { fit("hurt"); img.src = url(hurt); timers.push(setTimeout(() => { if (!gone) img.src = IMG + "hurt_end.png"; }, dur("hurt") - 40)); } };
-      await new Promise((res) => { const f = (now) => { if (gone) return res(); const k = Math.min(1, (now - t0) / D), e = 1 - Math.pow(1 - k, 2);
+      await new Promise((res) => { const f = (now) => { if (gone) return res(); const k = Math.min(1, (now - t0) / D), e = 1 - Math.pow(1 - k, 1.5);
         at(x0 + (tx - x0) * e, y0 + 90 * e - Math.sin(Math.PI * k) * 40); if (!hitDone && now - t0 >= HIT) hitNow(); if (k < 1) raf = requestAnimationFrame(f); else res(); }; raf = requestAnimationFrame(f); });
       if (gone) return; if (!hitDone) hitNow();
       timers.push(setTimeout(() => {   // the thought, once it's down
