@@ -10,7 +10,8 @@
   const SIZE = 0.40;                      // display scale of the clips (standing bird ≈ 100px tall)
   const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const IS_OFFICER = /officer-x7k2p9\.html/.test(location.pathname);   // the officer page (js/officer/core.js) vs the main site / tool pages
-  const PREVIEW = (location.search.match(/[?&]sparrow=(nia|armada)/) || [])[1] || null;   // 👀 …/?sparrow=nia shows Nia's message on the main site (nothing is marked read)
+  const PREVIEW = (location.search.match(/[?&]sparrow=(nia|armada)/) || [])[1] || null;
+  const NAP_PREVIEW = /[?&]sparrow=nap/.test(location.search);   // 👀 …/?sparrow=nap replays the All Out pop-up gag (pop-up forced, no once-a-day)   // 👀 …/?sparrow=nia shows Nia's message on the main site (nothing is marked read)
   const LS = "nxs-sparrow", READ_LS = "nxs-sparrow-read";
   const ls = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} } };
 
@@ -2492,7 +2493,7 @@
     if (gagRunning || (!force && ls.get(napKey()))) return false;
     for (let i = 0; i < 30 && (busy || root.hidden) && overlay.isConnected; i++) await wait(150);   // let the wake-up clip finish first
     if (busy || root.hidden || !overlay.isConnected) return false;
-    gagRunning = true; ls.set(napKey(), "1"); busy = true; hush(); clearTarget(); clearTimeout(idleTimer); sleepZ(false); preload("hurt"); preload("wake");
+    gagRunning = true; busy = true; hush(); clearTarget(); clearTimeout(idleTimer); sleepZ(false); preload("hurt"); preload("wake");
     root.classList.add("sp-top"); bubble.classList.add("sp-top");   // above the pop-up's dimming
     const box = overlay.querySelector(".popup-box"), br = box ? box.getBoundingClientRect() : { top: innerHeight * 0.4, left: 40, width: innerWidth - 80 };
     const m = META[cur] || META.idle, w = m.w * SIZE;
@@ -2501,6 +2502,7 @@
     if (!(await flyTo(tx, ty))) { cleanup(); return true; }
     // the clip itself: hovers in place, a rock flies in and bonks it, it keels over and lies dazed on top of the pop-up
     setFacing("l"); const c = play(META.hurt ? "hurt" : "cry"); await wait(META.hurt ? 4500 : 300);   // the thought comes once it's down
+    if (!force) ls.set(napKey(), "1");
     bubble.classList.add("sp-think"); const draw = () => { say(`<div>${esc(t("napThink"))}</div>`, { foot: false }); redraw = draw; }; draw();
     // stays knocked out until the pop-up is confirmed (or 40 s, whichever first)
     await new Promise((res) => { const t1 = setTimeout(res, 40000); const ob = new MutationObserver(() => { if (!overlay.isConnected) { clearTimeout(t1); ob.disconnect(); res(); } }); ob.observe(document.body, { childList: true }); });
@@ -2509,7 +2511,10 @@
     function cleanup() { root.classList.remove("sp-top"); bubble.classList.remove("sp-top"); busy = false; gagRunning = false; state = "menu"; goHome().then(() => armIdle()); }
   }
   const safeBottom = () => { const v = parseFloat(getComputedStyle(root).getPropertyValue("--sp-sab")); return isNaN(v) ? 0 : v; };
-  if (!IS_OFFICER && !IS_TOOL) new MutationObserver(() => { const ov = document.querySelector(".popup-overlay"); if (ov && !ov.spSeen) { ov.spSeen = true; setTimeout(() => napGag(ov), 500); } }).observe(document.body, { childList: true });
+  if (!IS_OFFICER && !IS_TOOL) {
+    if (NAP_PREVIEW) { try { window.isEventActive = () => true; } catch (e) {} }   // the pop-up shows even outside All Out
+    new MutationObserver(() => { const ov = document.querySelector(".popup-overlay"); if (ov && !ov.spSeen) { ov.spSeen = true; setTimeout(() => napGag(ov, NAP_PREVIEW), 500); } }).observe(document.body, { childList: true });
+  }
   /* a guide was opened while the sparrow was helping to find a page → fly to its title and point at it */
   async function onGuideOpened() {
     if (state !== "page" || busy) return;
