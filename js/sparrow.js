@@ -1461,7 +1461,7 @@
           if (cur !== name) return;
           startFacing(name); applyFlip(); back.classList.remove("sp-off"); front.classList.add("sp-off");
           const o = front; front = back; back = o;
-          if (!m.loop) clipTimer = setTimeout(() => { if (cur === name) { front.src = IMG + name + "_end.png"; } if (pending === resolve) pending = null; resolve(true); }, dur(name) - 40);
+          if (!m.loop) clipTimer = setTimeout(() => { if (cur === name) { front.onload = null; front.src = IMG + name + "_end.png"; } if (pending === resolve) pending = null; resolve(true); }, dur(name) - 40);   // onload cleared: the still must not re-run the swap and bring the other image back
           else resolve(true);
         };
       };
@@ -2484,32 +2484,24 @@
     if (TOOL_STEPS[PAGE] && !sessionStorage.getItem("nxs-sparrow-tool-" + PAGE)) { try { sessionStorage.setItem("nxs-sparrow-tool-" + PAGE, "1"); } catch (e) {} const c = play("hi"); toolAsk(); if (await c) play("idle", { squash: false }); }
   }
   bubble.addEventListener("click", (e) => { const b = e.target.closest("button[data-a=ttour], button[data-a=tno]"); if (!b) return; hush(); if (b.dataset.a === "ttour") runToolTour(); });
-  /* 🤕 the All Out pop-up: the sparrow flies in to have a look, something drops on its head, it lands dazed on the ground and
-     thinks "All Out is really dangerous…" — until the pop-up is confirmed. Once a day. */
+  /* 🤕 the All Out pop-up: the sparrow flies in and perches on top of the pop-up, something drops on its head, it keels over
+     dazed right there and thinks "All Out is really dangerous…" — until the pop-up is confirmed. Once a day. */
   const napKey = () => "nxs-sparrow-nap-" + Math.floor(Date.now() / 864e5);
   let gagRunning = false;
   async function napGag(overlay, force) {
     if (gagRunning || (!force && ls.get(napKey()))) return false;
     for (let i = 0; i < 30 && (busy || root.hidden) && overlay.isConnected; i++) await wait(150);   // let the wake-up clip finish first
     if (busy || root.hidden || !overlay.isConnected) return false;
-    gagRunning = true; ls.set(napKey(), "1"); busy = true; hush(); clearTarget(); clearTimeout(idleTimer); sleepZ(false);
+    gagRunning = true; ls.set(napKey(), "1"); busy = true; hush(); clearTarget(); clearTimeout(idleTimer); sleepZ(false); preload("hurt"); preload("wake");
     root.classList.add("sp-top"); bubble.classList.add("sp-top");   // above the pop-up's dimming
     const box = overlay.querySelector(".popup-box"), br = box ? box.getBoundingClientRect() : { top: innerHeight * 0.4, left: 40, width: innerWidth - 80 };
     const m = META[cur] || META.idle, w = m.w * SIZE;
     pos = { x: -w, y: innerHeight * 0.55 }; place();                      // comes in from off-screen
     const tx = Math.min(innerWidth - w * 0.6, Math.max(w * 0.6, br.left + br.width * 0.5)), ty = Math.max(safeTop() + m.h * SIZE + 60, br.top - 8);
     if (!(await flyTo(tx, ty))) { cleanup(); return true; }
-    setFacing("l"); await play("idle", { squash: false }); await wait(350);
-    // 🪨 something drops from above…
-    const rock = document.createElement("div"); rock.className = "sp-rock"; rock.textContent = "🪨"; rock.style.left = (pos.x - 16) + "px"; rock.style.top = (safeTop() - 40) + "px"; document.body.appendChild(rock);
-    await wait(30); rock.style.transition = "top .45s cubic-bezier(.5,0,1,1)"; rock.style.top = (pos.y - m.h * SIZE * 0.85) + "px"; await wait(470);
-    const bang = document.createElement("div"); bang.className = "sp-bang"; bang.textContent = "💥"; bang.style.left = (pos.x - 22) + "px"; bang.style.top = (pos.y - m.h * SIZE - 10) + "px"; document.body.appendChild(bang);
-    setTimeout(() => { rock.remove(); bang.remove(); }, 700);
-    // …and down it goes, dazed, onto the ground
-    const c = play(META.hurt ? "hurt" : "cry"); const y0 = pos.y, y1 = innerHeight - 6 - safeBottom(), t0 = performance.now();
-    await new Promise((res) => { const f = (now) => { const k = Math.min(1, (now - t0) / 420); pos = { x: pos.x, y: y0 + (y1 - y0) * k * k }; place(); if (k < 1) requestAnimationFrame(f); else res(); }; requestAnimationFrame(f); });
+    // the clip itself: hovers in place, a rock flies in and bonks it, it keels over and lies dazed on top of the pop-up
+    setFacing("l"); const c = play(META.hurt ? "hurt" : "cry"); await wait(META.hurt ? 4500 : 300);   // the thought comes once it's down
     bubble.classList.add("sp-think"); const draw = () => { say(`<div>${esc(t("napThink"))}</div>`, { foot: false }); redraw = draw; }; draw();
-    c.then((ok) => { if (ok && META.hurt) { /* stays on the clip's last (dazed) frame */ } });
     // stays knocked out until the pop-up is confirmed (or 40 s, whichever first)
     await new Promise((res) => { const t1 = setTimeout(res, 40000); const ob = new MutationObserver(() => { if (!overlay.isConnected) { clearTimeout(t1); ob.disconnect(); res(); } }); ob.observe(document.body, { childList: true }); });
     hush(); bubble.classList.remove("sp-think"); redraw = null;
