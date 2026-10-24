@@ -26,7 +26,7 @@ const T = {
     wC: "City", wT: "Bear Trap", wH: "HQ", wB: "Banner",
     lgR: "Road banner", lgS1: "Stage 1 banner", lgS2: "Stage 2 banner", lgC0: "City inside right after the HQ moves", lgC1: "… after stage 1", lgC2: "… after stage 2", lgC3: "City outside our land",
     lgOurs: "Our banners now", lgOth: "Other alliances", lgObs: "Mountain / lake", lgZone: "No-build zone", lgRes: "Resource", lgKill: "✖ in the way", lgFert: "Fertile Land", lgWarn: "⚠ problem",
-    tipBad: "Can't put a banner there ({w}).", hqSet: "HQ → {xy}", local: "Kept on this phone / browser only until you use it as the moving plan.", rRoadH: "Road from our HQ now", rRoadA: "Shortest road (from any of our banners)", inUse: " ✓ in use", swap: "🔀 Use the other road", lgAlt: "The other road (dashed)", roadN2: "Road from our HQ: {h} banners · shortest road: {a} banners.", nf: "not found", zoom: "Zoom" },
+    tipBad: "Can't put a banner there ({w}).", hqSet: "HQ → {xy}", local: "Kept on this phone / browser only until you use it as the moving plan.", rRoadH: "Road from our HQ now", rRoadA: "Shortest road (from any of our banners)", inUse: " ✓ in use", swap: "🔀 Use the other road", lgAlt: "The other road (dashed)", roadN2: "Road from our HQ: {h} banners · shortest road: {a} banners.", nf: "not found", shPick: "Plan:", shLocal: "🔒 Only on this device", shNew: "➕ Share as a plan", shName: "Plan name (e.g. A – crooked mouth)", shOk: "Share", shCancel: "Cancel", shRen: "✏️ Rename", shDel: "🗑️ Delete", shDelQ: "Delete the shared plan “{n}” for everyone?", shShared: "🔄 Shared — everyone with the 🚚 Move tab sees this plan; changes save by themselves.", shLast: "Last change: {who} · {t}", shSaving: "Saving…", shSaved: "✓ Saved", shErr: "Couldn't save — trying again…", shNoKey: "Sharing needs the officers' GitHub key (set up on the Post tab).", shView: "👁️ View only — you can look and download it, but not change it.", shGone: "This plan was deleted by someone else — it is kept on this device.", localSh: "Shared plans: every officer with the 🚚 Move tab sees them.", zoom: "Zoom" },
   zh: { title: "📐 從 Mapper 自動規劃", intro: "載入新蜂巢的 Kingshot Mapper CSV（Export → CSV）：城、熊陷阱、總部、你畫的旗子、資源點和障礙物。網站會自動算出從我們現在的領地連到新總部的路、把你的旗子分成第 1 階段（BT2 那側）／第 2 階段（BT1 那側）、檢查山、湖、禁建區、資源點和別的聯盟、算 285 上限，並照遊戲的方向畫出來。之後點地圖就能隨意修改。",
     load: "📥 載入 Mapper CSV", paste: "…或把 CSV 貼在這裡", go: "產生規劃", bad: "這個檔案裡找不到我們的城（city 那幾行）。", noHq: "這個布局沒有總部，請在 Mapper 加上。",
     pens: "筆：", mNone: "✋ 只看", mR: "⚫ 路", mS1: "🟡 第 1 階段", mS2: "🟠 第 2 階段", mDel: "🧽 移除", mHq: "🏯 移動總部",
@@ -44,7 +44,7 @@ const T = {
     wC: "城", wT: "熊陷阱", wH: "總部", wB: "旗子",
     lgR: "路的旗子", lgS1: "第 1 階段旗子", lgS2: "第 2 階段旗子", lgC0: "總部搬完就在領地裡的城", lgC1: "…第 1 階段後", lgC2: "…第 2 階段後", lgC3: "不在領地裡的城",
     lgOurs: "我們現在的旗子", lgOth: "別的聯盟", lgObs: "山／湖", lgZone: "禁建區", lgRes: "資源點", lgKill: "✖ 擋路", lgFert: "沃土", lgWarn: "⚠ 有問題",
-    tipBad: "那裡不能插旗（{w}）。", hqSet: "總部 → {xy}", local: "設成搬家計畫之前，只存在這支手機／這個瀏覽器。", rRoadH: "從現在總部出發的路", rRoadA: "最短的路（從任何一面我們的旗子）", inUse: " ✓ 使用中", swap: "🔀 換另一條路", lgAlt: "另一條路（虛線）", roadN2: "從總部出發：{h} 面旗子 · 最短：{a} 面旗子。", nf: "找不到", zoom: "縮放" },
+    tipBad: "那裡不能插旗（{w}）。", hqSet: "總部 → {xy}", local: "設成搬家計畫之前，只存在這支手機／這個瀏覽器。", rRoadH: "從現在總部出發的路", rRoadA: "最短的路（從任何一面我們的旗子）", inUse: " ✓ 使用中", swap: "🔀 換另一條路", lgAlt: "另一條路（虛線）", roadN2: "從總部出發：{h} 面旗子 · 最短：{a} 面旗子。", nf: "找不到", shPick: "計畫：", shLocal: "🔒 只在這台裝置", shNew: "➕ 存成共用計畫", shName: "計畫名字（例如 A 小歪嘴）", shOk: "共用", shCancel: "取消", shRen: "✏️ 改名", shDel: "🗑️ 刪除", shDelQ: "確定要為所有人刪除共用計畫「{n}」？", shShared: "🔄 共用中 — 有 🚚 搬家分頁的人都看得到這個計畫，修改會自動儲存。", shLast: "最後修改：{who} · {t}", shSaving: "儲存中…", shSaved: "✓ 已儲存", shErr: "存不進去，正在重試…", shNoKey: "共用需要幹部的 GitHub 金鑰（在公告分頁設定）。", shView: "👁️ 只能看 — 可以看和下載，不能修改。", shGone: "這個計畫被別人刪掉了，已經留一份在這台裝置。", localSh: "共用計畫：有 🚚 搬家分頁的幹部都看得到。", zoom: "縮放" },
   pt: { title: "📐 Plano automático do Mapper", intro: "Carregue o CSV do Kingshot Mapper (Export → CSV) da nova colmeia: cidades, Armadilhas de Urso, QG, os estandartes que você desenhou, recursos e obstáculos. O site acrescenta o caminho da nossa terra até o QG novo, divide seus estandartes em etapa 1 (lado BT2) / etapa 2 (lado BT1), confere montanhas, lagos, zonas proibidas, recursos e outras alianças, conta o limite de 285 e desenha como no jogo. Depois mude o que quiser tocando no mapa.",
     load: "📥 Carregar CSV do Mapper", paste: "…ou cole o CSV aqui", go: "Fazer o plano", bad: "Não achei nossas cidades (linhas city) nesse arquivo.", noHq: "O layout não tem QG — coloque um no Mapper.",
     pens: "Caneta:", mNone: "✋ Ver", mR: "⚫ Caminho", mS1: "🟡 Etapa 1", mS2: "🟠 Etapa 2", mDel: "🧽 Remover", mHq: "🏯 Mover QG",
@@ -62,7 +62,7 @@ const T = {
     wC: "Cidade", wT: "Armadilha", wH: "QG", wB: "Estandarte",
     lgR: "Estandarte do caminho", lgS1: "Etapa 1", lgS2: "Etapa 2", lgC0: "Cidade dentro logo após o QG", lgC1: "… após etapa 1", lgC2: "… após etapa 2", lgC3: "Cidade fora da terra",
     lgOurs: "Nossos estandartes", lgOth: "Outras alianças", lgObs: "Montanha / lago", lgZone: "Zona proibida", lgRes: "Recurso", lgKill: "✖ no caminho", lgFert: "Terra Fértil", lgWarn: "⚠ problema",
-    tipBad: "Não dá para pôr estandarte aí ({w}).", hqSet: "QG → {xy}", local: "Fica só neste celular / navegador até usar como plano da mudança.", rRoadH: "Caminho a partir do nosso QG atual", rRoadA: "Caminho mais curto (de qualquer estandarte nosso)", inUse: " ✓ em uso", swap: "🔀 Usar o outro caminho", lgAlt: "O outro caminho (tracejado)", roadN2: "Do nosso QG: {h} estandartes · mais curto: {a} estandartes.", nf: "não achado", zoom: "Zoom" },
+    tipBad: "Não dá para pôr estandarte aí ({w}).", hqSet: "QG → {xy}", local: "Fica só neste celular / navegador até usar como plano da mudança.", rRoadH: "Caminho a partir do nosso QG atual", rRoadA: "Caminho mais curto (de qualquer estandarte nosso)", inUse: " ✓ em uso", swap: "🔀 Usar o outro caminho", lgAlt: "O outro caminho (tracejado)", roadN2: "Do nosso QG: {h} estandartes · mais curto: {a} estandartes.", nf: "não achado", shPick: "Plano:", shLocal: "🔒 Só neste aparelho", shNew: "➕ Compartilhar como plano", shName: "Nome do plano (ex.: A – boca torta)", shOk: "Compartilhar", shCancel: "Cancelar", shRen: "✏️ Renomear", shDel: "🗑️ Excluir", shDelQ: "Excluir o plano compartilhado “{n}” para todos?", shShared: "🔄 Compartilhado — todos com a aba 🚚 Mudança veem este plano; as mudanças se salvam sozinhas.", shLast: "Última mudança: {who} · {t}", shSaving: "Salvando…", shSaved: "✓ Salvo", shErr: "Não salvou — tentando de novo…", shNoKey: "Compartilhar precisa da chave do GitHub dos oficiais (aba Postar).", shView: "👁️ Só leitura — dá para ver e baixar, não mudar.", shGone: "Este plano foi excluído por outra pessoa — ficou neste aparelho.", localSh: "Planos compartilhados: todo oficial com a aba 🚚 Mudança vê.", zoom: "Zoom" },
   ar: { title: "📐 خطة تلقائية من Mapper", intro: "حمّل ملف CSV من Kingshot Mapper (Export → CSV) للخلية الجديدة: المدن، مصائد الدب، المقر، الرايات التي رسمتها، الموارد والعوائق. يضيف الموقع طريق الرايات من أرضنا إلى المقر الجديد، ويقسم راياتك إلى المرحلة 1 (جهة BT2) / المرحلة 2 (جهة BT1)، ويفحص الجبال والبحيرات ومناطق منع البناء والموارد والتحالفات الأخرى، ويحسب حد 285، ويرسمها كما في اللعبة. ثم غيّر ما تشاء بالضغط على الخريطة.",
     load: "📥 تحميل CSV من Mapper", paste: "…أو الصق CSV هنا", go: "اصنع الخطة", bad: "لم أجد مدننا (أسطر city) في هذا الملف.", noHq: "لا يوجد مقر في التخطيط — أضفه في Mapper.",
     pens: "القلم:", mNone: "✋ عرض", mR: "⚫ طريق", mS1: "🟡 المرحلة 1", mS2: "🟠 المرحلة 2", mDel: "🧽 إزالة", mHq: "🏯 نقل المقر",
@@ -80,7 +80,7 @@ const T = {
     wC: "مدينة", wT: "مصيدة", wH: "المقر", wB: "راية",
     lgR: "راية الطريق", lgS1: "المرحلة 1", lgS2: "المرحلة 2", lgC0: "مدينة داخل الأرض بعد نقل المقر", lgC1: "… بعد المرحلة 1", lgC2: "… بعد المرحلة 2", lgC3: "مدينة خارج الأرض",
     lgOurs: "راياتنا الآن", lgOth: "تحالفات أخرى", lgObs: "جبل / بحيرة", lgZone: "منطقة منع البناء", lgRes: "مورد", lgKill: "✖ في الطريق", lgFert: "الأرض الخصبة", lgWarn: "⚠ مشكلة",
-    tipBad: "لا يمكن وضع راية هناك ({w}).", hqSet: "المقر ← {xy}", local: "تُحفظ على هذا الهاتف / المتصفح فقط حتى تستخدمها كخطة الانتقال.", rRoadH: "الطريق من مقرنا الحالي", rRoadA: "أقصر طريق (من أي راية لنا)", inUse: " ✓ مستخدم", swap: "🔀 استخدم الطريق الآخر", lgAlt: "الطريق الآخر (متقطع)", roadN2: "من مقرنا: {h} رايات · الأقصر: {a} رايات.", nf: "غير موجود", zoom: "تكبير" },
+    tipBad: "لا يمكن وضع راية هناك ({w}).", hqSet: "المقر ← {xy}", local: "تُحفظ على هذا الهاتف / المتصفح فقط حتى تستخدمها كخطة الانتقال.", rRoadH: "الطريق من مقرنا الحالي", rRoadA: "أقصر طريق (من أي راية لنا)", inUse: " ✓ مستخدم", swap: "🔀 استخدم الطريق الآخر", lgAlt: "الطريق الآخر (متقطع)", roadN2: "من مقرنا: {h} رايات · الأقصر: {a} رايات.", nf: "غير موجود", shPick: "الخطة:", shLocal: "🔒 على هذا الجهاز فقط", shNew: "➕ مشاركة كخطة", shName: "اسم الخطة (مثل A)", shOk: "مشاركة", shCancel: "إلغاء", shRen: "✏️ إعادة تسمية", shDel: "🗑️ حذف", shDelQ: "حذف الخطة المشتركة «{n}» للجميع؟", shShared: "🔄 مشتركة — يراها كل من لديه صفحة 🚚 الانتقال؛ التغييرات تُحفظ تلقائيًا.", shLast: "آخر تغيير: {who} · {t}", shSaving: "جارٍ الحفظ…", shSaved: "✓ تم الحفظ", shErr: "تعذّر الحفظ — نعيد المحاولة…", shNoKey: "المشاركة تحتاج مفتاح GitHub للضباط (صفحة النشر).", shView: "👁️ عرض فقط — يمكنك المشاهدة والتنزيل دون التعديل.", shGone: "حذف شخص آخر هذه الخطة — بقيت نسخة على هذا الجهاز.", localSh: "الخطط المشتركة: يراها كل ضابط لديه صفحة 🚚 الانتقال.", zoom: "تكبير" },
   ko: { title: "📐 Mapper 레이아웃 자동 계획", intro: "새 벌집의 Kingshot Mapper CSV(Export → CSV)를 불러오세요: 성, 곰 함정, 본부, 직접 그린 깃발, 자원, 장애물. 사이트가 지금 우리 땅에서 새 본부까지 길 깃발을 더하고, 그린 깃발을 1단계(BT2 쪽) / 2단계(BT1 쪽)로 나누고, 산·호수·건설 금지 구역·자원·다른 연맹을 확인하고, 285 한도를 세서 게임처럼 그려요. 그다음 지도를 눌러 무엇이든 바꿀 수 있어요.",
     load: "📥 Mapper CSV 불러오기", paste: "…또는 CSV를 여기에 붙여넣기", go: "계획 만들기", bad: "그 파일에서 우리 성(city 줄)을 찾지 못했어요.", noHq: "레이아웃에 본부가 없어요 — Mapper에서 추가하세요.",
     pens: "펜:", mNone: "✋ 보기", mR: "⚫ 길", mS1: "🟡 1단계", mS2: "🟠 2단계", mDel: "🧽 지우기", mHq: "🏯 본부 이동",
@@ -98,7 +98,7 @@ const T = {
     wC: "성", wT: "곰 함정", wH: "본부", wB: "깃발",
     lgR: "길 깃발", lgS1: "1단계 깃발", lgS2: "2단계 깃발", lgC0: "본부 이동 직후 땅 안의 성", lgC1: "… 1단계 후", lgC2: "… 2단계 후", lgC3: "땅 밖의 성",
     lgOurs: "지금 우리 깃발", lgOth: "다른 연맹", lgObs: "산 / 호수", lgZone: "건설 금지 구역", lgRes: "자원", lgKill: "✖ 길을 막음", lgFert: "비옥한 땅", lgWarn: "⚠ 문제",
-    tipBad: "거기엔 깃발을 둘 수 없어요 ({w}).", hqSet: "본부 → {xy}", local: "이사 계획으로 쓰기 전까지 이 폰 / 브라우저에만 저장돼요.", rRoadH: "지금 본부에서 시작하는 길", rRoadA: "가장 짧은 길 (우리 깃발 아무 데서나)", inUse: " ✓ 사용 중", swap: "🔀 다른 길 쓰기", lgAlt: "다른 길 (점선)", roadN2: "본부에서: 깃발 {h}개 · 가장 짧은 길: {a}개.", nf: "없음", zoom: "확대" },
+    tipBad: "거기엔 깃발을 둘 수 없어요 ({w}).", hqSet: "본부 → {xy}", local: "이사 계획으로 쓰기 전까지 이 폰 / 브라우저에만 저장돼요.", rRoadH: "지금 본부에서 시작하는 길", rRoadA: "가장 짧은 길 (우리 깃발 아무 데서나)", inUse: " ✓ 사용 중", swap: "🔀 다른 길 쓰기", lgAlt: "다른 길 (점선)", roadN2: "본부에서: 깃발 {h}개 · 가장 짧은 길: {a}개.", nf: "없음", shPick: "계획:", shLocal: "🔒 이 기기에서만", shNew: "➕ 공유 계획으로 저장", shName: "계획 이름 (예: A 비뚤어진 입)", shOk: "공유", shCancel: "취소", shRen: "✏️ 이름 변경", shDel: "🗑️ 삭제", shDelQ: "공유 계획 “{n}”을 모두에게서 삭제할까요?", shShared: "🔄 공유 중 — 🚚 이사 탭이 있는 모두가 이 계획을 봐요. 변경은 자동 저장돼요.", shLast: "마지막 변경: {who} · {t}", shSaving: "저장 중…", shSaved: "✓ 저장됨", shErr: "저장 실패 — 다시 시도 중…", shNoKey: "공유하려면 간부 GitHub 키가 필요해요 (공지 탭).", shView: "👁️ 보기 전용 — 보고 내려받을 수 있지만 바꿀 수는 없어요.", shGone: "다른 사람이 이 계획을 지웠어요 — 이 기기에 한 부 남겨 뒀어요.", localSh: "공유 계획: 🚚 이사 탭이 있는 간부 모두가 봐요.", zoom: "확대" },
 };
 let lang = OFFICER.lang || "en";
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
@@ -107,7 +107,83 @@ const FR = 3, LIMIT = 285;
 const fert = (x, y) => x >= 450 && x <= 749 && y >= 450 && y <= 749;
 /* the working plan: { hq:[x,y], c:[[name,x,y,seq?]], bt:[[x,y],[x,y]] (BT1, BT2), res:[[x,y]], obs:[[x,y]], b:[[x,y,kind]] kind R|S1|S2, rows: original CSV rows } */
 let PL = null, PEN = "", UNDO = [], msg = "", ZM = 1;
-const save = () => { try { localStorage.setItem(LS, JSON.stringify(PL)); } catch (e) {} };
+/* 🔄 shared plans (like the Ranking tab's): named plans every officer with the 🚚 Move tab sees, saved encrypted in
+   data/hive-plans-x7k2p9.json as { plans: { id: { name, pl, by, at } } }; "🔒 Only on this device" = the browser copy as before.
+   A shared plan saves itself a moment after each change (officers with the move edit right) and is re-read every 15 s. */
+const SH_PATH = "data/hive-plans-x7k2p9.json", LSID = "nxs-hive-planner-id";
+let SH = {}, CUR = (() => { try { return localStorage.getItem(LSID) || ""; } catch (e) { return ""; } })(), shDirty = false, shBusy = false, shMsg = "", shTimer = null, NAMING = "", LOCAL = null;
+const canEd = () => !!(OFFICER.can && OFFICER.can("move", "edit"));
+const ro = () => !!CUR && !canEd();
+const b64d = (b) => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\s/g, "")), (c) => c.charCodeAt(0)));
+const b64e = (str) => { const u = new TextEncoder().encode(str); let x = ""; for (let i = 0; i < u.length; i += 0x8000) x += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(x); };
+async function shFetch() {
+  let d = null, sha = null;
+  if (OFFICER.token) { const f = await OFFICER.gh("GET", SH_PATH, null, OFFICER.token); if (f) { sha = f.sha; d = await OfficerData.open(JSON.parse(b64d(f.content))); } }
+  else { try { d = await OfficerData.fetchJson(SH_PATH); } catch (e) {} }
+  SH = (d && d.plans) || {}; return sha;
+}
+const who = () => (OFFICER.user && OFFICER.user.name) || (() => { try { return localStorage.getItem("nxs-plan-by") || ""; } catch (e) { return ""; } })() || "?";
+/* write: start from the server copy so other plans (and other officers' changes) stay; change only ours */
+async function shWrite(change, msgTxt, tries = 0) {
+  if (!OFFICER.token) { shMsg = t("shNoKey"); shBar(); return false; }
+  shBusy = true; shMsg = t("shSaving"); shBar();
+  try {
+    for (let a = 0; ; a++) {
+      const sha = await shFetch(), next = JSON.parse(JSON.stringify(SH)); change(next);   // the list only changes once it is really saved
+      try { await OFFICER.gh("PUT", SH_PATH, { message: msgTxt.slice(0, 100), content: b64e(JSON.stringify(await OfficerData.seal({ plans: next })) + "\n"), sha: sha || undefined, branch: "main" }, OFFICER.token); SH = next; break; }
+      catch (e) { if (e.message !== "busy" || a > 1) throw e; }
+    }
+    shBusy = false; shMsg = t("shSaved"); shBar(); return true;
+  } catch (e) { shBusy = false; shMsg = e.message === "auth" ? t("shNoKey") : t("shErr"); shBar();
+    if (e.message !== "auth" && tries < 3) setTimeout(() => shWrite(change, msgTxt, tries + 1), 1500 * (tries + 1)); return false; }
+}
+async function shPush() {
+  if (!CUR || !shDirty || shBusy || !canEd()) return;
+  shDirty = false; const mine = JSON.parse(JSON.stringify(PL)), id = CUR;
+  await shWrite((P) => { P[id] = { ...(P[id] || { name: (SH[id] && SH[id].name) || "?" }), pl: mine, by: who(), at: Date.now() }; }, `Hive plan: ${(SH[id] && SH[id].name) || id}`);
+  if (shDirty) { clearTimeout(shTimer); shTimer = setTimeout(shPush, 800); }
+}
+const save = () => {
+  if (CUR) { if (!canEd()) return; shDirty = true; clearTimeout(shTimer); shTimer = setTimeout(shPush, 1200); return; }
+  try { localStorage.setItem(LS, JSON.stringify(PL)); } catch (e) {}
+};
+function shSwitch(id) {
+  if (!CUR) LOCAL = PL;   // leaving "only this device": keep it to come back to
+  CUR = id; try { localStorage.setItem(LSID, id); } catch (e) {}
+  shDirty = false; UNDO = []; PEN = ""; msg = ""; NAMING = "";
+  PL = id ? (SH[id] && SH[id].pl ? JSON.parse(JSON.stringify(SH[id].pl)) : null) : (LOCAL || (() => { try { return JSON.parse(localStorage.getItem(LS) || "null"); } catch (e) { return null; } })());
+  shMsg = ""; render();
+}
+const when = (ms) => { const d = new Date(ms), p = (n) => String(n).padStart(2, "0"); return `${p(d.getUTCMonth() + 1)}-${p(d.getUTCDate())} ${p(d.getUTCHours())}:${p(d.getUTCMinutes())} UTC (${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())})`; };
+function shBarHtml() {
+  const ids = Object.keys(SH).sort((a, b) => String(SH[a].name || "").localeCompare(String(SH[b].name || ""))), p = CUR && SH[CUR], ed = canEd();
+  return `<div class="hp-sh" style="margin-top:10px"><div class="row" style="gap:6px;flex-wrap:wrap;align-items:center"><b>${esc(t("shPick"))}</b>
+    <select class="inp" id="hp_sel" style="width:auto;max-width:100%"><option value="">${esc(t("shLocal"))}</option>${ids.map((id) => `<option value="${esc(id)}"${id === CUR ? " selected" : ""}>🔄 ${esc(SH[id].name || "?")}</option>`).join("")}</select>
+    ${ed && PL && !CUR && !NAMING ? `<button type="button" class="btn small" id="hp_shnew">${esc(t("shNew"))}</button>` : ""}
+    ${ed && p && !NAMING ? `<button type="button" class="btn small" id="hp_shren">${esc(t("shRen"))}</button><button type="button" class="btn small" id="hp_shdel">${esc(t("shDel"))}</button>` : ""}</div>
+    ${NAMING ? `<div class="row" style="gap:6px;flex-wrap:wrap;align-items:center;margin-top:6px"><input class="inp" id="hp_shname" maxlength="40" placeholder="${esc(t("shName"))}" value="${NAMING === "ren" && p ? esc(p.name || "") : ""}" style="width:220px"><button type="button" class="btn small primary" id="hp_shok">${esc(t("shOk"))}</button><button type="button" class="btn small" id="hp_shno">${esc(t("shCancel"))}</button></div>` : ""}
+    <div class="muted" style="font-size:12.5px;margin-top:4px">${esc([p ? t("shShared") : t("local") + " " + t("localSh"), ro() ? t("shView") : "", p && p.by ? t("shLast").replace("{who}", p.by).replace("{t}", when(p.at)) : "", shMsg].filter(Boolean).join(" · "))}</div></div>`;
+}
+function shBar() { const b = document.querySelector("#hp_root .hp-sh"); if (b) { b.outerHTML = shBarHtml(); shBind(); } }
+function shBind() {
+  const sel = $("hp_sel"); if (sel) sel.onchange = () => shSwitch(sel.value);
+  if ($("hp_shnew")) $("hp_shnew").onclick = () => { NAMING = "new"; shBar(); const i = $("hp_shname"); if (i) i.focus(); };
+  if ($("hp_shren")) $("hp_shren").onclick = () => { NAMING = "ren"; shBar(); const i = $("hp_shname"); if (i) i.focus(); };
+  if ($("hp_shno")) $("hp_shno").onclick = () => { NAMING = ""; shBar(); };
+  if ($("hp_shok")) $("hp_shok").onclick = async () => { const n = ($("hp_shname").value || "").trim().slice(0, 40); if (!n) return;
+    if (NAMING === "new") { const id = "h" + Date.now().toString(36), mine = JSON.parse(JSON.stringify(PL)); NAMING = "";
+      if (await shWrite((P) => { P[id] = { name: n, pl: mine, by: who(), at: Date.now() }; }, `Hive plan: ${n}`)) { LOCAL = PL; CUR = id; try { localStorage.setItem(LSID, id); } catch (e) {} render(); } }
+    else { const id = CUR; NAMING = ""; await shWrite((P) => { if (P[id]) P[id].name = n; }, `Hive plan renamed: ${n}`); render(); } };
+  if ($("hp_shdel")) $("hp_shdel").onclick = async () => { const id = CUR, n = (SH[id] && SH[id].name) || ""; if (!window.confirm(t("shDelQ").replace("{n}", n))) return;
+    if (await shWrite((P) => { delete P[id]; }, `Hive plan deleted: ${n}`)) { LOCAL = PL; shSwitch(""); } };
+}
+async function shPoll() {
+  if (!CUR || shBusy || shDirty || document.visibilityState !== "visible" || !location.hash.startsWith("#move") || NAMING) return;
+  try { const before = JSON.stringify(SH[CUR] || null); await shFetch();
+    if (!SH[CUR]) { LOCAL = PL; CUR = ""; try { localStorage.setItem(LSID, ""); } catch (e) {} shMsg = t("shGone"); render(); return; }
+    if (JSON.stringify(SH[CUR]) !== before) { PL = JSON.parse(JSON.stringify(SH[CUR].pl)); UNDO = []; render(); } } catch (e) {}
+}
+
 const push = () => { UNDO.push(JSON.stringify(PL)); if (UNDO.length > 40) UNDO.shift(); };
 
 /* ---------- the world: our land today, other alliances, obstacles ---------- */
@@ -373,25 +449,25 @@ function render() {
   const el = $("hp_root"); if (!el) return;
   const pens = [["", "mNone"], ["R", "mR"], ["S1", "mS1"], ["S2", "mS2"], ["del", "mDel"], ["hq", "mHq"]];
   const head = `<h3 style="margin:0 0 4px">${esc(t("title"))}</h3><div class="muted" style="font-size:13px;margin-bottom:8px">${esc(t("intro"))}</div>
-    <div class="row" style="gap:8px;flex-wrap:wrap;align-items:center"><label class="btn${PL ? "" : " primary"}" for="hp_file">${esc(t("load"))}</label><input type="file" id="hp_file" accept=".csv,.txt,text/csv,text/plain" hidden>
-    ${PL ? `<button type="button" class="btn small" id="hp_close">${esc(t("clear"))}</button>` : ""}</div>
-    ${PL ? "" : `<textarea class="inp" id="hp_paste" rows="3" placeholder="${esc(t("paste"))}" style="width:100%;margin-top:8px;box-sizing:border-box;font-family:monospace;font-size:12px"></textarea><button type="button" class="btn small" id="hp_go" style="margin-top:6px">${esc(t("go"))}</button>`}
-    ${msg ? `<div class="muted" style="font-size:12.5px;margin-top:6px">${esc(msg)}</div>` : ""}`;
+    <div class="row" style="gap:8px;flex-wrap:wrap;align-items:center">${ro() ? "" : `<label class="btn${PL ? "" : " primary"}" for="hp_file">`}${ro() ? "" : `${esc(t("load"))}</label><input type="file" id="hp_file" accept=".csv,.txt,text/csv,text/plain" hidden>`}
+    ${PL && !CUR ? `<button type="button" class="btn small" id="hp_close">${esc(t("clear"))}</button>` : ""}</div>
+    ${PL || ro() ? "" : `<textarea class="inp" id="hp_paste" rows="3" placeholder="${esc(t("paste"))}" style="width:100%;margin-top:8px;box-sizing:border-box;font-family:monospace;font-size:12px"></textarea><button type="button" class="btn small" id="hp_go" style="margin-top:6px">${esc(t("go"))}</button>`}
+    ${msg ? `<div class="muted" style="font-size:12.5px;margin-top:6px">${esc(msg)}</div>` : ""}
+    ${shBarHtml()}`;
   if (!PL) { el.innerHTML = head; bind(); return; }
   A = analyse();
   el.innerHTML = head + `
-    <div class="row hp-pens" style="gap:6px;flex-wrap:wrap;align-items:center;margin:10px 0 4px"><b>${esc(t("pens"))}</b>${pens.map(([k, l]) => `<button type="button" class="btn small${PEN === k ? " primary" : ""}" data-pen="${k}">${esc(t(l))}</button>`).join("")}
+    <div class="row hp-pens" style="gap:6px;flex-wrap:wrap;align-items:center;margin:10px 0 4px">${ro() ? "" : `<b>${esc(t("pens"))}</b>`}${(ro() ? [] : pens).map(([k, l]) => `<button type="button" class="btn small${PEN === k ? " primary" : ""}" data-pen="${k}">${esc(t(l))}</button>`).join("")}
       <span style="margin-inline-start:auto" class="row"><button type="button" class="btn small" id="hp_zo">−</button><button type="button" class="btn small" id="hp_zi">+</button></span></div>
-    <div class="muted" style="font-size:12px;margin-bottom:6px">${esc(t("tapNote"))}</div>
+    ${ro() ? "" : `<div class="muted" style="font-size:12px;margin-bottom:6px">${esc(t("tapNote"))}</div>`}
     <div class="hp-box" id="hp_box">${svg(A)}</div>
     ${legend()}
     ${table(A)}
-    <div class="row" style="gap:6px;flex-wrap:wrap;margin-top:10px">
+    <div class="row" style="gap:6px;flex-wrap:wrap;margin-top:10px">${ro() ? "" : `
       <button type="button" class="btn small" id="hp_road">${esc(t("reroad"))}</button><button type="button" class="btn small" id="hp_swap"${PL.alt ? "" : " disabled"}>${esc(t("swap"))}</button><button type="button" class="btn small" id="hp_split">${esc(t("resplit"))}</button>
-      <button type="button" class="btn small" id="hp_undo"${UNDO.length ? "" : " disabled"}>${esc(t("undo"))}</button>
+      <button type="button" class="btn small" id="hp_undo"${UNDO.length ? "" : " disabled"}>${esc(t("undo"))}</button>`}
       <button type="button" class="btn small" id="hp_png">${esc(t("png"))}</button><button type="button" class="btn small" id="hp_csv">${esc(t("csv"))}</button>
-      <button type="button" class="btn small primary" id="hp_use">${esc(t("use"))}</button></div>
-    <div class="muted" style="font-size:12px;margin-top:6px">${esc(t("local"))}</div>`;
+      ${canEd() ? `<button type="button" class="btn small primary" id="hp_use">${esc(t("use"))}</button>` : ""}</div>`;
   bind();
 }
 /* both roads: from our HQ today, and the shortest from any banner — one is used (R banners), the other is shown dashed */
@@ -426,19 +502,22 @@ function tap(ev) {
 function bind() {
   const f = $("hp_file"); if (f) f.onchange = async (e) => { const x = e.target.files[0]; e.target.value = ""; if (x) start(await x.text()); };
   if ($("hp_go")) $("hp_go").onclick = () => start($("hp_paste").value);
-  if ($("hp_close")) $("hp_close").onclick = () => { PL = null; UNDO = []; msg = ""; try { localStorage.removeItem(LS); } catch (e) {} render(); };
+  if ($("hp_close")) $("hp_close").onclick = () => { PL = null; LOCAL = null; UNDO = []; msg = ""; try { localStorage.removeItem(LS); } catch (e) {} render(); };
+  shBind();
   if (!PL) return;
   document.querySelectorAll("#hp_root [data-pen]").forEach((b) => b.onclick = () => { PEN = b.dataset.pen; render(); });
-  $("hp_svg").addEventListener("click", tap);
+  if (!ro()) $("hp_svg").addEventListener("click", tap);
   $("hp_zi").onclick = () => { ZM = Math.min(4, ZM * 1.5); render(); }; $("hp_zo").onclick = () => { ZM = Math.max(1, ZM / 1.5); render(); };
+  if (!ro()) {
   $("hp_road").onclick = () => { push(); roads(); save(); render(); };
   $("hp_swap").onclick = () => { push(); const cur = PL.b.filter((b) => b[2] === "R").map(([x, y]) => [x, y]), alt = PL.alt || { from: "any", p: null };
     PL.b = PL.b.filter((b) => b[2] !== "R").concat((alt.p || []).map(([x, y]) => [x, y, "R"])); PL.alt = { from: PL.from || "hq", p: cur }; PL.from = alt.from; msg = ""; save(); render(); };
   $("hp_split").onclick = () => { push(); split(); msg = ""; save(); render(); };
   $("hp_undo").onclick = () => { if (!UNDO.length) return; PL = JSON.parse(UNDO.pop()); save(); render(); };
+  }
   $("hp_png").onclick = png;
   $("hp_csv").onclick = () => dl(new Blob([blueprint()], { type: "text/csv" }), `NXS-blueprint-${PL.hq[0]}-${PL.hq[1]}.csv`);
-  $("hp_use").onclick = () => { if (!(OFFICER.can && OFFICER.can("move", "edit"))) { msg = t("noUse"); return render(); }
+  if ($("hp_use")) $("hp_use").onclick = () => { if (!(OFFICER.can && OFFICER.can("move", "edit"))) { msg = t("noUse"); return render(); }
     if (window.MemberMap && MemberMap.importPlan) { MemberMap.importPlan(blueprint(), `auto-plan ${PL.hq[0]},${PL.hq[1]}`); msg = t("useOk"); render(); const s = $("mv_root"); if (s) s.scrollIntoView({ behavior: "smooth", block: "start" }); } };
 }
 /* blueprint CSV in the Mapper format the 🧭 Move steps read: R1… road, S1-1… / S2-1… stages (in build order), KILL banners of others */
@@ -479,10 +558,16 @@ async function png() {
     g.fillStyle = "#222"; g.font = `bold 17px ${F}`; a.forEach((l, j) => g.fillText(l, PAD + 10, y + 24 + j * lh)); g.font = `17px ${F}`; b.forEach((l, j) => g.fillText(l, PAD + LW + 10, y + 24 + j * lh)); y += h; });
   c.toBlob((bl) => bl && dl(bl, `NXS-plan-${PL.hq[0]}-${PL.hq[1]}.png`), "image/png");
 }
-function init() {
+let polling = false;
+async function init() {
   lang = OFFICER.lang || "en";
-  try { const s = JSON.parse(localStorage.getItem(LS) || "null"); if (s && s.hq && Array.isArray(s.c)) PL = s; } catch (e) {}
+  try { const s = JSON.parse(localStorage.getItem(LS) || "null"); if (s && s.hq && Array.isArray(s.c)) PL = LOCAL = s; } catch (e) {}
+  if (CUR) PL = null;
   render();
+  try { await shFetch(); } catch (e) {}
+  if (CUR && SH[CUR] && SH[CUR].pl) PL = JSON.parse(JSON.stringify(SH[CUR].pl)); else if (CUR) { CUR = ""; PL = LOCAL; }
+  render();
+  if (!polling) { polling = true; setInterval(shPoll, 15000); document.addEventListener("visibilitychange", shPoll); }
 }
 function setLang(l) { lang = l; render(); }
 window.HivePlanner = { init, setLang, refresh: () => { if (PL) render(); } };
