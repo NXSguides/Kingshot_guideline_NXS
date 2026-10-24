@@ -31,7 +31,8 @@ async function get(path) {
   if (MODE === "auto" && !w.on) { console.log(`All Out is not running (next window ${new Date(w.start).toISOString()} – ${new Date(w.end).toISOString()}) — nothing to do.`); return; }
   if (!KEY) { console.log("❌ MIGHTPULSE_API_KEY missing"); process.exit(1); }
   let L; try { L = readData(LIST); } catch (e) { console.log("No watch list yet."); return; }
-  const list = (L && L.list) || []; if (!list.length) { console.log("The watch list is empty."); return; }
+  const seen = new Set(), list = ((L && L.list) || []).filter((it) => { const id = String(it.id).replace(/\D/g, ""); if (!id || seen.has(id)) return false; seen.add(id); return true; });   // the same account once
+  if (!list.length) { console.log("The watch list is empty."); return; }
   const rows = [];
   for (const it of list.slice(0, 60)) {
     const id = String(it.id).replace(/\D/g, ""); if (!id) continue;

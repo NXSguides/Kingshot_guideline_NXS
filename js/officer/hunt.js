@@ -142,28 +142,40 @@ function render() {
     const r = ((LV && LV.rows) || []).find((x) => String(x.id) === id); msg = FOLLOW.has(id) ? (r && toMs(r.shield) > Date.now() ? t("foOn") : t("foWait")) : t("foOff"); render(); });
   el.querySelectorAll(".hn-cp").forEach((b) => b.onclick = async () => { try { await navigator.clipboard.writeText(b.dataset.c); b.textContent = t("copied"); } catch (e) {} });
   if (!ed) return;
-  el.querySelectorAll("[data-del]").forEach((b) => b.onclick = () => { L.list.splice(+b.dataset.del, 1); msg = t("unsaved"); render(); });
+  el.querySelectorAll("[data-del]").forEach((b) => b.onclick = () => { REMOVED.add(String(L.list[+b.dataset.del].id)); L.list.splice(+b.dataset.del, 1); msg = t("unsaved"); render(); });
   /* one ID, or several pasted at once (one per line / spaces / commas) */
   $("hn_add").onclick = () => { const ids = ($("hn_id").value.match(/\d{5,}/g) || []), note = $("hn_note").value.trim().slice(0, 60);
     if (!ids.length) { msg = t("badId"); return render(); }
     L.list = L.list || []; let n = 0, d = 0;
-    for (const id of ids) { if (L.list.some((x) => String(x.id) === id)) { d++; continue; } L.list.push({ id, note: ids.length === 1 ? note : "" }); n++; }
+    for (const id of ids) { if (L.list.some((x) => String(x.id) === id)) { d++; continue; } L.list.push({ id, note: ids.length === 1 ? note : "" }); REMOVED.delete(id); n++; }
     msg = (n ? t("added").replace("{n}", n) + " " : "") + (d ? t("dup") + " " : "") + (n ? t("unsaved") : ""); render(); };
   if ($("hn_save")) $("hn_save").onclick = save;
 }
+/* one row per player ID: the same account entered twice (or by two officers) becomes one row, notes kept together */
+function dedupe(list) {
+  const by = new Map();
+  for (const it of list || []) { const id = String(it.id || "").replace(/\D/g, ""); if (!id) continue;
+    const o = by.get(id); if (!o) { by.set(id, { id, note: (it.note || "").trim() }); continue; }
+    const n = (it.note || "").trim(); if (n && !o.note.split(" / ").includes(n)) o.note = (o.note ? o.note + " / " + n : n).slice(0, 120); }
+  return [...by.values()];
+}
+const REMOVED = new Set();   // removed on this page since it was opened: stays removed when merging with the server copy
 async function save() {
   if (!ED()) return;
   if (!OFFICER.token) { msg = t("noKey"); render(); return; }
   const by = ($("hn_by").value || "").trim() || "?"; try { localStorage.setItem("nxs-plan-by", by); } catch (e) {}
   msg = t("saving"); render();
-  const next = { list: L.list || [], by, at: new Date().toISOString() };
+  let next;
   try {
     for (let attempt = 0; ; attempt++) {
       const f = await OFFICER.gh("GET", LIST, null, OFFICER.token);
+      /* another officer may have saved meanwhile: start from the server copy, add ours, drop what was removed here */
+      let srv = []; try { const d = f ? await OfficerData.open(JSON.parse(b64u8(f.content))) : null; srv = (d && d.list) || []; } catch (e) {}
+      next = { list: dedupe(srv.concat(L.list || [])).filter((x) => !REMOVED.has(x.id)), by, at: new Date().toISOString() };
       try { await OFFICER.gh("PUT", LIST, { message: `All Out blacklist (${by})`, content: u8b64(JSON.stringify(await OfficerData.seal(next)) + "\n"), sha: f ? f.sha : undefined, branch: "main" }, OFFICER.token); break; }
       catch (e) { if (e.message !== "busy" || attempt) throw e; }
     }
-    L = next; SAVED = JSON.stringify(L.list); msg = t("saved");
+    L = next; SAVED = JSON.stringify(L.list); REMOVED.clear(); msg = t("saved");
   } catch (e) { msg = t(e.message === "auth" ? "errAuth" : e.message === "busy" ? "errBusy" : "errNet"); }
   render();
 }
@@ -173,7 +185,7 @@ async function init() {
   const el = $("hn_root"); if (!el) return;
   if (!(window.OfficerData && OfficerData.ready && OfficerData.ready())) { el.innerHTML = `<div class="muted">${esc(t("locked"))}</div>`; return; }
   try { sched = (await fetch("data/events-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }).then((r) => r.json())).sched || null; } catch (e) {}
-  const r = await read(LIST); L = r.d && Array.isArray(r.d.list) ? r.d : { list: [] }; SAVED = JSON.stringify(L.list);
+  const r = await read(LIST); L = r.d && Array.isArray(r.d.list) ? r.d : { list: [] }; SAVED = JSON.stringify(L.list); L.list = dedupe(L.list);
   await loadLive();
   clearInterval(timer); timer = setInterval(() => { if (!document.hidden && location.hash.startsWith("#hunt") && JSON.stringify(L.list || []) === SAVED) loadLive(); }, 60000);   // the job writes every 15 min; look every minute
 }
