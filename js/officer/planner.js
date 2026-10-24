@@ -187,22 +187,27 @@ function srcLand(W, from) {
   for (let grew = true; grew;) { grew = false; for (let i = left.length - 1; i >= 0; i--) { const r = bLand(left[i][0], left[i][1]); if (land.some((q) => touch(q, r))) { land.push(r); left.splice(i, 1); grew = true; } } }
   return land;
 }
+/* the 15×15 steps a banner can take (centres ≤ 7 apart), biggest steps towards the goal first — one list per direction */
+const OFFS = [-1, 0, 1].flatMap((a) => [-1, 0, 1].map((b) => { const o = []; for (let dx = -7; dx <= 7; dx++) for (let dy = -7; dy <= 7; dy++) if (dx || dy) o.push([dx, dy]); return o.sort((p, q) => (q[0] * a + q[1] * b) - (p[0] * a + p[1] * b)); }));
 function autoRoad(C, from) {
   const goal = hqLand(PL.hq), ours = srcLand(C.W, from);
   const extra = PL.b.filter((b) => b[2] === "R").map(([x, y]) => bLand(x, y));   // road banners already drawn count as our land
   const src = ours.concat(extra);
   if (src.some((r) => touch(r, goal))) return [];
   let best = Infinity; for (const r of src) { const d = Math.max(goal[0] - r[2], r[0] - goal[2], goal[1] - r[3], r[1] - goal[3]); if (d < best) best = d; }
-  const M = Math.min(140, best + 30), bx0 = Math.max(0, goal[0] - M), bx1 = Math.min(1199, goal[2] + M), by0 = Math.max(0, goal[1] - M), by1 = Math.min(1199, goal[3] + M);
+  const M = Math.min(320, best + 30), bx0 = Math.max(0, goal[0] - M), bx1 = Math.min(1199, goal[2] + M), by0 = Math.max(0, goal[1] - M), by1 = Math.min(1199, goal[3] + M);
   const W = bx1 - bx0 + 1, H = by1 - by0 + 1, N = W * H, idx = (x, y) => (x - bx0) * H + (y - by0);
-  const ok = new Uint8Array(N), start = new Uint8Array(N), end = new Uint8Array(N);
-  const nearSrc = src.filter((r) => r[2] >= bx0 - 4 && r[0] <= bx1 + 4 && r[3] >= by0 - 4 && r[1] <= by1 + 4);
-  for (let x = bx0; x <= bx1; x++) for (let y = by0; y <= by1; y++) {
-    if (C.occ.has(key(x, y)) || C.ownB.has(key(x, y)) || C.why(x, y)) continue;
-    const i = idx(x, y); ok[i] = 1; const me = bLand(x, y);
-    if (touch(me, goal)) end[i] = 1;
-    for (const r of nearSrc) if (touch(me, r)) { start[i] = 1; break; }
-  }
+  const ok = new Uint8Array(N), start = new Uint8Array(N), end = new Uint8Array(N), bad = new Uint8Array(N);
+  /* masks over the search box, filled rectangle by rectangle (fast even when the box is the size of a whole region) */
+  const fill = (arr, x0, y0, x1, y1) => { for (let x = Math.max(bx0, x0); x <= Math.min(bx1, x1); x++) for (let y = Math.max(by0, y0); y <= Math.min(by1, y1); y++) arr[idx(x, y)] = 1; };
+  for (const o of C.othLand) fill(bad, ...o.r);
+  for (const k of C.occ) fill(bad, Math.floor(k / 2000), k % 2000, Math.floor(k / 2000), k % 2000);
+  for (const [x, y] of C.W.ours) fill(bad, x, y, x, y);
+  for (const [x, y] of PL.res || []) fill(bad, x, y, x + 1, y + 1);
+  for (const [x, y] of PL.obs || []) fill(bad, x, y, x, y);
+  for (const r of src) fill(start, r[0] - 4, r[1] - 4, r[2] + 4, r[3] + 4);   // a banner here touches that land
+  fill(end, goal[0] - 4, goal[1] - 4, goal[2] + 4, goal[3] + 4);
+  for (let x = bx0; x <= bx1; x++) for (let y = by0; y <= by1; y++) { const i = idx(x, y); if (!bad[i] && !C.W.obst(x, y) && !C.W.zone(x, y)) ok[i] = 1; }
   const prev = new Int32Array(N).fill(-1), seen = new Uint8Array(N); let q = [];
   for (let i = 0; i < N; i++) if (ok[i] && start[i]) { seen[i] = 1; q.push(i); }
   // biggest steps first, pointing at the goal → the road comes out straight
@@ -212,9 +217,7 @@ function autoRoad(C, from) {
     if (hit.length) { let i = hit[0]; const path = []; while (i >= 0) { path.push([bx0 + Math.floor(i / H), by0 + (i % H)]); i = prev[i]; } return path.reverse(); }
     const nq = [];
     for (const i of q) { const x = bx0 + Math.floor(i / H), y = by0 + (i % H);
-      const dir = [Math.sign(gx - x), Math.sign(gy - y)], cand = [];
-      for (let dx = -7; dx <= 7; dx++) for (let dy = -7; dy <= 7; dy++) { const nx = x + dx, ny = y + dy; if (nx < bx0 || nx > bx1 || ny < by0 || ny > by1) continue; const j = idx(nx, ny); if (!ok[j] || seen[j]) continue; cand.push([j, dx * dir[0] + dy * dir[1]]); }
-      cand.sort((a, b) => b[1] - a[1]); for (const [j] of cand) { seen[j] = 1; prev[j] = i; nq.push(j); } }
+      for (const [dx, dy] of OFFS[(Math.sign(gx - x) + 1) * 3 + Math.sign(gy - y) + 1]) { const nx = x + dx, ny = y + dy; if (nx < bx0 || nx > bx1 || ny < by0 || ny > by1) continue; const j = idx(nx, ny); if (!ok[j] || seen[j]) continue; seen[j] = 1; prev[j] = i; nq.push(j); } }
     q = nq;
   }
   return null;
