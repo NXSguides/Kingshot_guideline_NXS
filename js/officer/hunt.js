@@ -1,4 +1,4 @@
-/* NXS officer page — 🎯 All Out watch list (registers OFFICER_PAGES.hunt; own tab, nobody by default, admins always).
+/* NXS officer page — 🎯 All Out blacklist (registers OFFICER_PAGES.hunt; own tab, nobody by default, admins always).
    Officers keep a list of player IDs (data/blacklist-x7k2p9.json, encrypted: { list: [{ id, note }], by, at }).
    A GitHub job (.github/workflows/blacklist-track.yml → scripts/blacklist-track.js) reads each player's map location and shield
    from MightPulse every 15 minutes while All Out runs (Events tab schedule) and right after the list is saved, into
@@ -8,7 +8,7 @@ const $ = (id) => document.getElementById(id);
 const esc = OFFICER.util.esc;
 const LIST = "data/blacklist-x7k2p9.json", LIVE = "data/blacklist-live-x7k2p9.json";
 const T = {
-  en: { title: "🎯 All Out watch list", intro: "Officers only. Add players by their ID (the number on their profile). While All Out runs, everyone on the list is looked up every 15 minutes (MightPulse refreshes about every 15 minutes): where their castle is and whether their shield is up.",
+  en: { title: "🎯 All Out blacklist", intro: "Officers only. Add players by their ID (the number on their profile). While All Out runs, everyone on the list is looked up every 15 minutes (MightPulse refreshes about every 15 minutes): where their castle is and whether their shield is up.",
     win: "All Out {s} – {e}", on: "tracking every 15 minutes now", off: "not running — the list is looked up only when it is saved", next: "next All Out {s} – {e}",
     fetched: "Data fetched {t}", never: "Not fetched yet — save the list and the first look-up arrives in about 2 minutes.", reload: "↻ Reload",
     cNo: "#", cName: "Player", cAll: "Alliance", cKid: "Kingdom", cPos: "Castle X:Y", cShield: "Shield", cOn: "Online", cAsOf: "Data from",
@@ -16,7 +16,7 @@ const T = {
     copy: "📋", copied: "✅", addT: "➕ Add a player", id: "Player ID (paste several at once)", added: "{n} added.", note: "Note (name, why…)", add: "Add", del: "✕", dup: "Already on the list.", badId: "Type the player ID (numbers only).",
     save: "💾 Save list", by: "Your name", saving: "Saving…", saved: "Saved ✅ The look-up runs in about 2 minutes.", unsaved: "Not saved yet.",
     errAuth: "The saved GitHub key doesn't work any more — ask Sherry.", errBusy: "Someone else saved at the same time — refresh and try again.", errNet: "Couldn't reach GitHub — try again.",
-    noKey: "Saving needs the officers' GitHub key (set up on the Post tab).", locked: "Unlock the officer data to see the watch list.", empty: "The list is empty.", local: "local", count: "{n} players" },
+    noKey: "Saving needs the officers' GitHub key (set up on the Post tab).", locked: "Unlock the officer data to see the blacklist.", empty: "The list is empty.", local: "local", count: "{n} players" },
   zh: { title: "🎯 全軍出擊黑名單", intro: "只有幹部看得到。用玩家 ID（個人資料上的那串數字）加人。全軍出擊期間每 15 分鐘查一次名單上每個人的城在哪裡、有沒有開護盾（MightPulse 大約 15 分鐘更新一次）。",
     win: "全軍出擊 {s} – {e}", on: "現在每 15 分鐘更新", off: "現在沒有活動——只有儲存名單時會查一次", next: "下次全軍出擊 {s} – {e}",
     fetched: "資料抓取時間 {t}", never: "還沒抓過——儲存名單後大約 2 分鐘會有第一次結果。", reload: "↻ 重新整理",
@@ -26,7 +26,7 @@ const T = {
     save: "💾 儲存名單", by: "你的名字", saving: "儲存中…", saved: "已儲存 ✅ 大約 2 分鐘後會查一次。", unsaved: "還沒儲存。",
     errAuth: "存著的 GitHub 金鑰不能用了——請找 Sherry。", errBusy: "有人同時儲存——重新整理後再試一次。", errNet: "連不到 GitHub——請再試一次。",
     noKey: "儲存需要幹部的 GitHub 金鑰（在公告分頁設定）。", locked: "要先解鎖幹部資料才看得到黑名單。", empty: "名單是空的。", local: "當地", count: "{n} 人" },
-  pt: { title: "🎯 Lista de alvos do All Out", intro: "Só oficiais. Adicione jogadores pelo ID (o número no perfil). Durante o All Out, todos da lista são consultados a cada 15 minutos (a MightPulse atualiza mais ou menos a cada 15 minutos): onde está o castelo e se o escudo está ativo.",
+  pt: { title: "🎯 Lista negra do All Out", intro: "Só oficiais. Adicione jogadores pelo ID (o número no perfil). Durante o All Out, todos da lista são consultados a cada 15 minutos (a MightPulse atualiza mais ou menos a cada 15 minutos): onde está o castelo e se o escudo está ativo.",
     win: "All Out {s} – {e}", on: "atualizando a cada 15 minutos", off: "fora do evento — a lista só é consultada quando é salva", next: "próximo All Out {s} – {e}",
     fetched: "Dados buscados {t}", never: "Ainda não buscado — salve a lista e a primeira consulta chega em uns 2 minutos.", reload: "↻ Recarregar",
     cNo: "#", cName: "Jogador", cAll: "Aliança", cKid: "Reino", cPos: "Castelo X:Y", cShield: "Escudo", cOn: "Online", cAsOf: "Dados de",
@@ -35,7 +35,7 @@ const T = {
     save: "💾 Salvar lista", by: "Seu nome", saving: "Salvando…", saved: "Salvo ✅ A consulta roda em uns 2 minutos.", unsaved: "Ainda não salvo.",
     errAuth: "A chave do GitHub salva não funciona mais — fale com a Sherry.", errBusy: "Outra pessoa salvou ao mesmo tempo — recarregue e tente de novo.", errNet: "Não deu para acessar o GitHub — tente de novo.",
     noKey: "Salvar precisa da chave do GitHub dos oficiais (configurada na aba Anúncios).", locked: "Desbloqueie os dados dos oficiais para ver a lista.", empty: "A lista está vazia.", local: "local", count: "{n} jogadores" },
-  ar: { title: "🎯 قائمة المراقبة في All Out", intro: "للضباط فقط. أضف اللاعبين بالمعرّف (الرقم في ملفهم الشخصي). أثناء All Out يُبحث عن كل من في القائمة كل 15 دقيقة (تتحدث MightPulse كل 15 دقيقة تقريبًا): مكان القلعة وهل الدرع مفعّل.",
+  ar: { title: "🎯 القائمة السوداء في All Out", intro: "للضباط فقط. أضف اللاعبين بالمعرّف (الرقم في ملفهم الشخصي). أثناء All Out يُبحث عن كل من في القائمة كل 15 دقيقة (تتحدث MightPulse كل 15 دقيقة تقريبًا): مكان القلعة وهل الدرع مفعّل.",
     win: "All Out {s} – {e}", on: "التحديث كل 15 دقيقة الآن", off: "الحدث غير جارٍ — يُبحث في القائمة فقط عند حفظها", next: "All Out القادم {s} – {e}",
     fetched: "وقت جلب البيانات {t}", never: "لم تُجلب بعد — احفظ القائمة وستصل أول نتيجة بعد نحو دقيقتين.", reload: "↻ تحديث",
     cNo: "#", cName: "اللاعب", cAll: "التحالف", cKid: "المملكة", cPos: "القلعة X:Y", cShield: "الدرع", cOn: "متصل", cAsOf: "وقت البيانات",
@@ -44,7 +44,7 @@ const T = {
     save: "💾 حفظ القائمة", by: "اسمك", saving: "جارٍ الحفظ…", saved: "تم الحفظ ✅ يجري البحث بعد نحو دقيقتين.", unsaved: "لم يُحفظ بعد.",
     errAuth: "مفتاح GitHub المحفوظ لم يعد يعمل — اسأل Sherry.", errBusy: "حفظ شخص آخر في الوقت نفسه — حدّث الصفحة وحاول مجددًا.", errNet: "تعذّر الوصول إلى GitHub — حاول مجددًا.",
     noKey: "الحفظ يحتاج مفتاح GitHub الخاص بالضباط (يُضبط في صفحة النشر).", locked: "افتح بيانات الضباط لرؤية القائمة.", empty: "القائمة فارغة.", local: "محلي", count: "{n} لاعبين" },
-  ko: { title: "🎯 전군 출격 감시 명단", intro: "간부 전용. 플레이어 ID(프로필에 있는 숫자)로 추가하세요. 전군 출격 동안 명단의 모두를 15분마다 조회해요 (MightPulse는 약 15분마다 갱신): 성 위치와 보호막 여부.",
+  ko: { title: "🎯 전군 출격 블랙리스트", intro: "간부 전용. 플레이어 ID(프로필에 있는 숫자)로 추가하세요. 전군 출격 동안 명단의 모두를 15분마다 조회해요 (MightPulse는 약 15분마다 갱신): 성 위치와 보호막 여부.",
     win: "전군 출격 {s} – {e}", on: "지금 15분마다 갱신 중", off: "이벤트 기간 아님 — 명단을 저장할 때만 조회해요", next: "다음 전군 출격 {s} – {e}",
     fetched: "데이터 가져온 시각 {t}", never: "아직 조회 전 — 명단을 저장하면 약 2분 뒤 첫 결과가 나와요.", reload: "↻ 새로고침",
     cNo: "#", cName: "플레이어", cAll: "연맹", cKid: "왕국", cPos: "성 X:Y", cShield: "보호막", cOn: "접속", cAsOf: "데이터 시각",
@@ -130,7 +130,7 @@ async function save() {
   try {
     for (let attempt = 0; ; attempt++) {
       const f = await OFFICER.gh("GET", LIST, null, OFFICER.token);
-      try { await OFFICER.gh("PUT", LIST, { message: `All Out watch list (${by})`, content: u8b64(JSON.stringify(await OfficerData.seal(next)) + "\n"), sha: f ? f.sha : undefined, branch: "main" }, OFFICER.token); break; }
+      try { await OFFICER.gh("PUT", LIST, { message: `All Out blacklist (${by})`, content: u8b64(JSON.stringify(await OfficerData.seal(next)) + "\n"), sha: f ? f.sha : undefined, branch: "main" }, OFFICER.token); break; }
       catch (e) { if (e.message !== "busy" || attempt) throw e; }
     }
     L = next; SAVED = JSON.stringify(L.list); msg = t("saved");
