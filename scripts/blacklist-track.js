@@ -39,7 +39,7 @@ async function get(path) {
     const r = await get(`/players/${id}?include=base`), p = (r.body && r.body.player) || {};
     rows.push({ id, note: it.note || "", ok: r.status === 200, status: r.status,
       name: p.nick_name ?? null, kid: p.kid ?? null, alliance: p.alliance?.abbr ?? null, power: p.power ?? null,
-      x: p.x ?? null, y: p.y ?? null, shield: p.shield_endtime ?? null, online: p.online ?? null, lastLogin: p.last_login ?? null,
+      x: p.x ?? null, y: p.y ?? null, shield: p.shield_endtime ?? null, burn: p.burn_endtime ?? null,
       asOf: r.body && r.body.cached_at ? r.body.cached_at : null, age: r.body && r.body.age_seconds != null ? r.body.age_seconds : null });
     await sleep(1100);
   }
