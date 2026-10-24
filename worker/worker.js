@@ -46,8 +46,8 @@ const isLimitErr = (e) => /exceeded allowed|free tier/i.test(String(e && e.messa
 const json = (obj, status = 200) => Response.json(obj, { status, headers: cors });
 
 export default {
-  /* ⏱️ Cloudflare cron (wrangler.jsonc "triggers"): every 15 minutes — the 🎯 blacklist look-up while All Out runs */
-  async scheduled(event, env, ctx) { ctx.waitUntil(blacklistTick(env, false).catch(() => {})); },
+  /* ⏱️ no cron any more (it used to look the 🎯 blacklist up every 15 min while All Out ran) */
+  async scheduled() {},   // no timed jobs: the 🎯 blacklist is looked up only when an officer presses ↻ Reload (MightPulse only changes after "Update Map")
   async fetch(req, env, ctx) {
     try { return await handle(req, env, ctx); }
     catch (e) {
@@ -414,13 +414,13 @@ AI ASSISTANT
 @hunt
 🎯 BLACKLIST (officer-x7k2p9.html#hunt, 黑名單) — All Out: where listed players' castles are and whether their shield is up
 - Its own tab: hidden from everyone except admins until the 👥 table gives it. Officers with edit add players by their player ID (the number on the in-game profile) plus an optional note, remove them with ✕, then 💾 Save list (encrypted, data/blacklist-x7k2p9.json).
-- The Cloudflare Worker looks every listed player up on MightPulse every 15 minutes while All Out runs (the Events tab's All Out schedule, ±1 hour; needs the MIGHTPULSE_API_KEY Worker secret), and right after the list is saved a GitHub job looks up only the players that have no data yet (about 2 minutes) — adding someone does not re-fetch the whole list. ↻ Reload asks for a fresh look-up at once (at most every 5 minutes). To save MightPulse calls (5,000 a day, shared with the other tabs) the blacklist uses at most 2,000 a day; past that it waits for the next UTC day. MightPulse keeps its own copy of each player and refreshes it only when it is older than 60 minutes, so positions can be up to about an hour old — always read the data time.
-- The table shows the in-game name (note and ID under it), alliance, kingdom, castle X:Y with a copy button, shield ("🛡️ until …" or "— none") and the time of the data. No online / last login: MightPulse says those fields are stale and should not be used. MightPulse data can be up to 60 minutes old (its own docs); the job asks every 15 minutes. Every time is written "MM-DD HH:MM UTC (MM-DD HH:MM local)" — never "x minutes ago". "Data fetched …" at the top is when the job last ran; the page reloads the data by itself every minute (↻ Reload does it at once).
+- Every listed player is looked up on MightPulse only when an officer presses ↻ Reload (the Cloudflare Worker; needs the MIGHTPULSE_API_KEY Worker secret) — there is no timed polling, because MightPulse's positions and shields only change after someone presses "Update Map" on its map. Right after the list is saved a GitHub job looks up only the players that have no data yet (about 2 minutes) — adding someone does not re-fetch the whole list. ↻ Reload asks for a fresh look-up at once (at most every 2 minutes). To save MightPulse calls (5,000 a day, shared with the other tabs) the blacklist uses at most 2,000 a day; past that it waits for the next UTC day. MightPulse keeps its own copy of each player and refreshes it only when it is older than 60 minutes, so positions can be up to about an hour old — always read the data time.
+- The table shows the in-game name (note and ID under it), alliance, kingdom, castle X:Y with a copy button, shield ("🛡️ until …" or "— none") and the time of the data. No online / last login: MightPulse says those fields are stale and should not be used. Positions and shields only change on MightPulse after someone presses "Update Map" on its map. Every time is written "MM-DD HH:MM UTC (MM-DD HH:MM local)" — never "x minutes ago". "Data fetched …" at the top is when the job last ran; the page reloads the data by itself every minute (↻ Reload does it at once).
 - Under each name: the ID and a "MightPulse ↗" link that opens that player's MightPulse page (their site can be newer than the API copy the table shows).
 - ✏️ next to X:Y (officers with edit) = type a newer position by hand when MightPulse is slow (seen in game or on the MightPulse page). It is saved with the list for every officer, shows "✏️ set by … · time", and is used on the table, the mini map and the kingdom map until MightPulse has data newer than it; then the API position comes back by itself. Other officers' pages pick it up within about a minute (the tab re-reads the list every minute).
 - How officers should use it (🧭 shown at the top of the table): if the player hasn't moved, go by the position on the table / map. If they moved (not there any more), open their MightPulse ↗ page for the newest spot and ✏️ update it on the site, so everyone finds the rough area faster.
 - 🛡️✏️ next to the shield (officers with edit) = fix the shield by hand when MightPulse is slow: type the time left on it (hours + minutes, number keypad) or "🚫 No shield". Saved with the list for every officer, shown as "✏️ who · time", used by the table, mini map and ⏰ timers until MightPulse has data newer than it. A ⚠️ next to the data time (and a note above the table) = MightPulse has not refreshed that player for over 2 hours — open their MightPulse ↗ page or check in game and fix position / shield by hand.
-- IMPORTANT (MightPulse's own answer): positions, shields and burn on MightPulse only change when someone presses "Update Map" on the MightPulse map (https://mightpulse.com/map, kingdom #2189); the API and the player page's refresh only re-read that copy. So before hunting: open the map with the "🗺️ MightPulse map ↗" button at the top of the tab, press Update Map, wait a moment, then ↻ Reload. Our 15-minute look-ups pick it up after that.
+- IMPORTANT (MightPulse's own answer): positions, shields and burn on MightPulse only change when someone presses "Update Map" on the MightPulse map (https://mightpulse.com/map, kingdom #2189); the API and the player page's refresh only re-read that copy. So before hunting: open the map with the "🗺️ MightPulse map ↗" button at the top of the tab, press Update Map, wait a moment, then ↻ Reload. Nothing polls by itself, so press ↻ Reload after Update Map.
 - ⭐ next to the number = special mark (特別標記), shared by all officers and saved with the list: the whole row lights up gold and moves to the top. Officers with edit tap ⭐ / ☆ to mark or unmark, then 💾 Save list.
 - The same player ID is only kept once: entered twice, or added by two officers at the same time, it becomes one row (their notes joined with " / "). Saving merges with what another officer saved meanwhile, so nobody's additions are lost; rows removed with ✕ stay removed.
 - ⏰ on a row = follow that player: their shield end becomes one of your ⏰ timers (shield timer, with a push notification like the other timers), on this phone / browser only; it is updated with the newest data while the tab is open. No shield right now = the timer appears once they put one up.
@@ -563,10 +563,10 @@ function officerDataFor(text, tabs) {
   return keep.length > 1 ? keep.join("\n") : "";
 }
 
-/* 🎯 All Out blacklist (officer page #hunt). The list is data/blacklist-x7k2p9.json (encrypted, saved by officers). Every 15 minutes
+/* 🎯 All Out blacklist (officer page #hunt). The list is data/blacklist-x7k2p9.json (encrypted, saved by officers). On ↻ Reload (no timed polling)
    while All Out runs (the Events tab's schedule, ±1 hour) the Worker asks MightPulse (secret MIGHTPULSE_API_KEY) for each player's
    castle X:Y and shield end and keeps the result in the Durable Object ("bl-live"). Officers with the 🎯 tab read it through
-   POST { blacklist: 1, token[, refresh] }; refresh = look up now (at most every 5 minutes; daily cap BL_DAY). MightPulse's own copy can be up to 60 minutes old. */
+   POST { blacklist: 1, token[, refresh] }; refresh = look up now (at most every 2 minutes; daily cap BL_DAY). MightPulse's own copy can be up to 60 minutes old. */
 const BL_RAW = "https://raw.githubusercontent.com/NXSguides/Kingshot_guideline_NXS/main/data/blacklist-x7k2p9.json";
 async function allOutWindow() {
   let s = { anchor: "2026-09-25", periodDays: 28, activeDays: 2 };
@@ -601,7 +601,7 @@ async function blacklistRoute(req, env, body) {
   if (!acc || !acc.tabs.has("hunt")) return json({ error: "forbidden" }, 403);
   const stub = env.TIMERS.get(env.TIMERS.idFromName("all"));
   let live = await stub.kvGet("bl-live");
-  if (body.refresh && env.MIGHTPULSE_API_KEY && (!live || Date.now() - Date.parse(live.fetched) > 300000)) live = (await blacklistTick(env, true)) || live;
+  if (body.refresh && env.MIGHTPULSE_API_KEY && (!live || Date.now() - Date.parse(live.fetched) > 120000)) live = (await blacklistTick(env, true)) || live;
   return json({ ok: true, live: live || null, setup: !!env.MIGHTPULSE_API_KEY, token: acc.token });
 }
 
