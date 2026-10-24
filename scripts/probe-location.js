@@ -13,14 +13,12 @@ function paths(o, pre = "", out = []) {
 }
 (async () => {
   if (!KEY) { console.log("::error::MIGHTPULSE_API_KEY missing"); process.exit(1); }
-  const tries = ["base", "base,location", "base,status", "base,map", "base,shield", "base,buffs", "base,city", "base,ranks,stats"].map((i) => `/players/${ID}?include=${i}`)
-    .concat([`/players/${ID}/location`, `/players/${ID}/status`, `/kingdoms/2189/map`, `/kingdoms/2189/players?limit=1`]);
-  for (const t of tries) {
-    try {
-      const r = await fetch(BASE + t, { headers: { Authorization: `Bearer ${KEY}` } }); const b = await r.json().catch(() => null);
-      const top = b && typeof b === "object" ? Object.keys(b).slice(0, 25).join(",") : "-";
-      console.log(`::notice title=${r.status} ${t.replace(ID, "{id}")}::top: ${top} | match: ${paths(b).slice(0, 40).join(" ") || "-"} | include: ${b && b.include ? JSON.stringify(b.include) : "-"}`);
-    } catch (e) { console.log(`::notice title=ERR ${t.replace(ID, "{id}")}::${String(e.message).slice(0, 80)}`); }
-    await new Promise((r) => setTimeout(r, 1200));
-  }
+  /* round 2: for a few NXS members (and the top of the kingdom), is x / y / shield_endtime filled? (filled or empty only, no values) */
+  const get = async (p) => { const r = await fetch(BASE + p, { headers: { Authorization: `Bearer ${KEY}` } }); return { s: r.status, b: await r.json().catch(() => null) }; };
+  const a = await get(`/alliances/2189/NXS?include=info,roster`);
+  const ids = ((a.b && a.b.members) || []).slice(0, 8).map((m) => m.governor_id);
+  let n = 0;
+  for (const id of ids) { const r = await get(`/players/${id}?include=base`); const p = (r.b && r.b.player) || {};
+    console.log(`::notice title=member ${++n} (${r.s})::x ${p.x == null ? "empty" : "FILLED"} · y ${p.y == null ? "empty" : "FILLED"} · shield_endtime ${p.shield_endtime == null ? "empty" : "FILLED (" + typeof p.shield_endtime + ")"} · online ${p.online} · fresh ${r.b && r.b.fresh} · age ${r.b && r.b.age_seconds}s`);
+    await new Promise((res) => setTimeout(res, 1200)); }
 })();
