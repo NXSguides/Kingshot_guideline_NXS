@@ -16,7 +16,7 @@ const T = {
     copy: "📋", copied: "✅", addT: "➕ Add a player", id: "Player ID (paste several at once)", added: "{n} added.", note: "Note (name, why…)", add: "Add", del: "✕", dup: "Already on the list.", badId: "Type the player ID (numbers only).",
     save: "💾 Save list", by: "Your name", saving: "Saving…", saved: "Saved ✅ The look-up runs in about 2 minutes.", unsaved: "Not saved yet.",
     errAuth: "The saved GitHub key doesn't work any more — ask Sherry.", errBusy: "Someone else saved at the same time — refresh and try again.", errNet: "Couldn't reach GitHub — try again.",
-    noKey: "Saving needs the officers' GitHub key (set up on the Post tab).", locked: "Unlock the officer data to see the blacklist.", empty: "The list is empty.", local: "local", mmNote: "🔴 no shield · 🔵 shield up · ■ NXS HQ.", mmOpen: "🗺️ Show on the kingdom map", count: "{n} players" },
+    noKey: "Saving needs the officers' GitHub key (set up on the Post tab).", locked: "Unlock the officer data to see the blacklist.", empty: "The list is empty.", local: "local", mmNote: "🔴 no shield · 🔵 shield up · ⭐ gold ring = marked · ■ NXS HQ.", mmOpen: "🗺️ Show on the kingdom map", count: "{n} players" },
   zh: { starTip: "⭐ 特別標記：整列亮起來並排到最上面，所有幹部都看得到（跟名單一起儲存）", tmName: "🛡️ {n} 護盾結束 {xy}", foTip: "追蹤：這個人的護盾結束時跳 ⏰ 計時提醒（只在這支手機／這個瀏覽器）", foOn: "⏰ 已設定護盾結束的計時器，護盾時間變了會自己跟著改。", foWait: "⏰ 已追蹤——他現在沒開護盾，開盾後計時器就會出現。", foOff: "⏰ 已取消追蹤。", title: "🎯 全軍出擊黑名單", intro: "只有幹部看得到。用玩家 ID（個人資料上的那串數字）加人。全軍出擊期間每 15 分鐘查一次名單上每個人的城在哪裡、有沒有開護盾（MightPulse 大約 15 分鐘更新一次）。",
     win: "全軍出擊 {s} – {e}", on: "現在每 15 分鐘更新", off: "現在沒有活動——只有儲存名單時會查一次", next: "下次全軍出擊 {s} – {e}",
     fetched: "資料抓取時間 {t}", never: "還沒抓過——儲存名單後大約 2 分鐘會有第一次結果。", reload: "↻ 重新整理",
@@ -25,7 +25,7 @@ const T = {
     copy: "📋", copied: "✅", addT: "➕ 加入玩家", id: "玩家 ID（可以一次貼好幾個）", added: "加入 {n} 人。", note: "備註（名字、原因…）", add: "加入", del: "✕", dup: "已經在名單上了。", badId: "請輸入玩家 ID（只要數字）。",
     save: "💾 儲存名單", by: "你的名字", saving: "儲存中…", saved: "已儲存 ✅ 大約 2 分鐘後會查一次。", unsaved: "還沒儲存。",
     errAuth: "存著的 GitHub 金鑰不能用了——請找 Sherry。", errBusy: "有人同時儲存——重新整理後再試一次。", errNet: "連不到 GitHub——請再試一次。",
-    noKey: "儲存需要幹部的 GitHub 金鑰（在公告分頁設定）。", locked: "要先解鎖幹部資料才看得到黑名單。", empty: "名單是空的。", local: "當地", mmNote: "🔴 沒開護盾 · 🔵 開著護盾 · ■ NXS 總部。", mmOpen: "🗺️ 在王國地圖上看", count: "{n} 人" },
+    noKey: "儲存需要幹部的 GitHub 金鑰（在公告分頁設定）。", locked: "要先解鎖幹部資料才看得到黑名單。", empty: "名單是空的。", local: "當地", mmNote: "🔴 沒開護盾 · 🔵 開著護盾 · ⭐ 金圈 = 特別標記 · ■ NXS 總部。", mmOpen: "🗺️ 在王國地圖上看", count: "{n} 人" },
   pt: { starTip: "⭐ Marcar: a linha inteira acende e vai para o topo, para todos os oficiais (salvo com a lista)", tmName: "🛡️ escudo de {n} acaba {xy}", foTip: "Seguir: um ⏰ timer (com notificação) quando o escudo deste jogador acabar — só neste celular / navegador", foOn: "⏰ Timer criado para o fim do escudo. Ele se ajusta sozinho se o escudo mudar.", foWait: "⏰ Seguindo — sem escudo agora; o timer aparece quando ele ativar um.", foOff: "⏰ Não está mais seguindo.", title: "🎯 Lista negra do All Out", intro: "Só oficiais. Adicione jogadores pelo ID (o número no perfil). Durante o All Out, todos da lista são consultados a cada 15 minutos (a MightPulse atualiza mais ou menos a cada 15 minutos): onde está o castelo e se o escudo está ativo.",
     win: "All Out {s} – {e}", on: "atualizando a cada 15 minutos", off: "fora do evento — a lista só é consultada quando é salva", next: "próximo All Out {s} – {e}",
     fetched: "Dados buscados {t}", never: "Ainda não buscado — salve a lista e a primeira consulta chega em uns 2 minutos.", reload: "↻ Recarregar",
@@ -34,7 +34,7 @@ const T = {
     copy: "📋", copied: "✅", addT: "➕ Adicionar jogador", id: "ID do jogador (pode colar vários)", added: "{n} adicionados.", note: "Nota (nome, motivo…)", add: "Adicionar", del: "✕", dup: "Já está na lista.", badId: "Digite o ID do jogador (só números).",
     save: "💾 Salvar lista", by: "Seu nome", saving: "Salvando…", saved: "Salvo ✅ A consulta roda em uns 2 minutos.", unsaved: "Ainda não salvo.",
     errAuth: "A chave do GitHub salva não funciona mais — fale com a Sherry.", errBusy: "Outra pessoa salvou ao mesmo tempo — recarregue e tente de novo.", errNet: "Não deu para acessar o GitHub — tente de novo.",
-    noKey: "Salvar precisa da chave do GitHub dos oficiais (configurada na aba Anúncios).", locked: "Desbloqueie os dados dos oficiais para ver a lista.", empty: "A lista está vazia.", local: "local", mmNote: "🔴 sem escudo · 🔵 com escudo · ■ QG da NXS.", mmOpen: "🗺️ Ver no mapa do reino", count: "{n} jogadores" },
+    noKey: "Salvar precisa da chave do GitHub dos oficiais (configurada na aba Anúncios).", locked: "Desbloqueie os dados dos oficiais para ver a lista.", empty: "A lista está vazia.", local: "local", mmNote: "🔴 sem escudo · 🔵 com escudo · ⭐ anel dourado = marcado · ■ QG da NXS.", mmOpen: "🗺️ Ver no mapa do reino", count: "{n} jogadores" },
   ar: { starTip: "⭐ تمييز: يضيء الصف كله وينتقل إلى الأعلى لكل الضباط (يُحفظ مع القائمة)", tmName: "🛡️ ينتهي درع {n} {xy}", foTip: "متابعة: مؤقت ⏰ (مع إشعار) عند انتهاء درع هذا اللاعب — على هذا الهاتف / المتصفح فقط", foOn: "⏰ تم ضبط مؤقت لنهاية الدرع، ويتعدل تلقائيًا إذا تغيّر الدرع.", foWait: "⏰ تتم المتابعة — لا درع الآن؛ يظهر المؤقت عندما يفعّل درعًا.", foOff: "⏰ أُلغيت المتابعة.", title: "🎯 القائمة السوداء في All Out", intro: "للضباط فقط. أضف اللاعبين بالمعرّف (الرقم في ملفهم الشخصي). أثناء All Out يُبحث عن كل من في القائمة كل 15 دقيقة (تتحدث MightPulse كل 15 دقيقة تقريبًا): مكان القلعة وهل الدرع مفعّل.",
     win: "All Out {s} – {e}", on: "التحديث كل 15 دقيقة الآن", off: "الحدث غير جارٍ — يُبحث في القائمة فقط عند حفظها", next: "All Out القادم {s} – {e}",
     fetched: "وقت جلب البيانات {t}", never: "لم تُجلب بعد — احفظ القائمة وستصل أول نتيجة بعد نحو دقيقتين.", reload: "↻ تحديث",
@@ -43,7 +43,7 @@ const T = {
     copy: "📋", copied: "✅", addT: "➕ إضافة لاعب", id: "معرّف اللاعب (يمكن لصق عدة معرّفات)", added: "أُضيف {n}.", note: "ملاحظة (الاسم، السبب…)", add: "إضافة", del: "✕", dup: "موجود في القائمة بالفعل.", badId: "اكتب معرّف اللاعب (أرقام فقط).",
     save: "💾 حفظ القائمة", by: "اسمك", saving: "جارٍ الحفظ…", saved: "تم الحفظ ✅ يجري البحث بعد نحو دقيقتين.", unsaved: "لم يُحفظ بعد.",
     errAuth: "مفتاح GitHub المحفوظ لم يعد يعمل — اسأل Sherry.", errBusy: "حفظ شخص آخر في الوقت نفسه — حدّث الصفحة وحاول مجددًا.", errNet: "تعذّر الوصول إلى GitHub — حاول مجددًا.",
-    noKey: "الحفظ يحتاج مفتاح GitHub الخاص بالضباط (يُضبط في صفحة النشر).", locked: "افتح بيانات الضباط لرؤية القائمة.", empty: "القائمة فارغة.", local: "محلي", mmNote: "🔴 بلا درع · 🔵 الدرع مفعّل · ■ مقر NXS.", mmOpen: "🗺️ عرض على خريطة المملكة", count: "{n} لاعبين" },
+    noKey: "الحفظ يحتاج مفتاح GitHub الخاص بالضباط (يُضبط في صفحة النشر).", locked: "افتح بيانات الضباط لرؤية القائمة.", empty: "القائمة فارغة.", local: "محلي", mmNote: "🔴 بلا درع · 🔵 الدرع مفعّل · ⭐ حلقة ذهبية = مميَّز · ■ مقر NXS.", mmOpen: "🗺️ عرض على خريطة المملكة", count: "{n} لاعبين" },
   ko: { starTip: "⭐ 특별 표시: 줄 전체가 강조되고 맨 위로 올라가요, 모든 간부에게 (명단과 함께 저장)", tmName: "🛡️ {n} 보호막 종료 {xy}", foTip: "추적: 이 플레이어의 보호막이 끝날 때 ⏰ 타이머 알림 (이 폰 / 브라우저만)", foOn: "⏰ 보호막 종료 타이머를 설정했어요. 보호막 시간이 바뀌면 저절로 따라가요.", foWait: "⏰ 추적 중 — 지금은 보호막이 없어요; 보호막을 켜면 타이머가 생겨요.", foOff: "⏰ 추적을 그만뒀어요.", title: "🎯 전군 출격 블랙리스트", intro: "간부 전용. 플레이어 ID(프로필에 있는 숫자)로 추가하세요. 전군 출격 동안 명단의 모두를 15분마다 조회해요 (MightPulse는 약 15분마다 갱신): 성 위치와 보호막 여부.",
     win: "전군 출격 {s} – {e}", on: "지금 15분마다 갱신 중", off: "이벤트 기간 아님 — 명단을 저장할 때만 조회해요", next: "다음 전군 출격 {s} – {e}",
     fetched: "데이터 가져온 시각 {t}", never: "아직 조회 전 — 명단을 저장하면 약 2분 뒤 첫 결과가 나와요.", reload: "↻ 새로고침",
@@ -52,7 +52,7 @@ const T = {
     copy: "📋", copied: "✅", addT: "➕ 플레이어 추가", id: "플레이어 ID (여러 개 한 번에 붙여넣기 가능)", added: "{n}명 추가.", note: "메모 (이름, 이유…)", add: "추가", del: "✕", dup: "이미 명단에 있어요.", badId: "플레이어 ID를 입력하세요 (숫자만).",
     save: "💾 명단 저장", by: "이름", saving: "저장 중…", saved: "저장됨 ✅ 약 2분 뒤 조회해요.", unsaved: "아직 저장 안 됨.",
     errAuth: "저장된 GitHub 키가 더 이상 작동하지 않아요 — Sherry에게 물어보세요.", errBusy: "다른 사람이 동시에 저장했어요 — 새로고침 후 다시 시도하세요.", errNet: "GitHub에 연결할 수 없어요 — 다시 시도하세요.",
-    noKey: "저장하려면 간부 GitHub 키가 필요해요 (공지 탭에서 설정).", locked: "간부 데이터를 잠금 해제해야 명단이 보여요.", empty: "명단이 비어 있어요.", local: "현지", mmNote: "🔴 보호막 없음 · 🔵 보호막 켜짐 · ■ NXS 본부.", mmOpen: "🗺️ 왕국 지도에서 보기", count: "{n}명" },
+    noKey: "저장하려면 간부 GitHub 키가 필요해요 (공지 탭에서 설정).", locked: "간부 데이터를 잠금 해제해야 명단이 보여요.", empty: "명단이 비어 있어요.", local: "현지", mmNote: "🔴 보호막 없음 · 🔵 보호막 켜짐 · ⭐ 금색 원 = 특별 표시 · ■ NXS 본부.", mmOpen: "🗺️ 왕국 지도에서 보기", count: "{n}명" },
 };
 let lang = OFFICER.lang || "en", L = { list: [] }, SAVED = "[]", LV = null, msg = "", sched = null, timer = null;
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
@@ -121,9 +121,12 @@ function miniMap() {
   const W = 2400 * S * 0.7071, now = Date.now();
   let s = ring(0, 1199, "#c9b98f") + ring(300, 899, "#a9c27f") + ring(450, 749, "#7fb069") + ring(552, 647, "#a08060") + ring(586, 613, "#6b3b3b");
   const [hx, hy] = P(410, 669); s += `<rect x="${hx - 5}" y="${hy - 5}" width="10" height="10" fill="#2b6cc4" stroke="#fff" stroke-width="1.5"/><text x="${hx}" y="${hy + 16}" class="hn-ml" text-anchor="middle">NXS</text>`;
-  rows.forEach((r) => { const [x, y] = P(r.x, r.y), sh = shieldEnd(r) > now;
-    s += `<g><circle cx="${x}" cy="${y}" r="6" fill="${sh ? "#3b82f6" : "#ff3b30"}" stroke="#fff" stroke-width="1.5"/><text x="${x + 8}" y="${y - 6}" class="hn-ml">${esc(String(r.name || r.id).slice(0, 14))}</text><title>${esc(r.name || r.id)} X:${r.x} Y:${r.y}${sh ? " 🛡️" : ""}</title></g>`; });
-  const look = rows.map((r) => `${r.x}-${r.y}~${encodeURIComponent(String(r.name || r.id).replace(/[~,]/g, " ").slice(0, 20))}~${shieldEnd(r) > now ? "b" : "r"}`).join(",");
+  const starred = new Set((L.list || []).filter((it) => it.star).map((it) => String(it.id)));
+  rows.sort((a, b) => starred.has(String(a.id)) - starred.has(String(b.id)));   // ⭐ drawn last = on top
+  rows.forEach((r) => { const [x, y] = P(r.x, r.y), sh = shieldEnd(r) > now, st = starred.has(String(r.id));
+    s += `<g>${st ? `<circle cx="${x}" cy="${y}" r="13" fill="#ffd34d" fill-opacity=".45" stroke="#e0a800" stroke-width="2.5"/>` : ""}<circle cx="${x}" cy="${y}" r="${st ? 7 : 6}" fill="${sh ? "#3b82f6" : "#ff3b30"}" stroke="#fff" stroke-width="1.5"/>`
+      + `<text x="${x + (st ? 14 : 8)}" y="${y - 6}" class="hn-ml${st ? " hn-mls" : ""}">${st ? "⭐ " : ""}${esc(String(r.name || r.id).slice(0, 14))}</text><title>${st ? "⭐ " : ""}${esc(r.name || r.id)} X:${r.x} Y:${r.y}${sh ? " 🛡️" : ""}</title></g>`; });
+  const look = rows.map((r) => `${r.x}-${r.y}~${encodeURIComponent(String(r.name || r.id).replace(/[~,]/g, " ").slice(0, 20))}~${starred.has(String(r.id)) ? "y" : shieldEnd(r) > now ? "b" : "r"}`).join(",");
   return `<div class="hn-mm"><svg viewBox="0 0 ${W.toFixed(0)} ${W.toFixed(0)}" width="100%" style="max-width:520px;display:block;margin:auto">${s}</svg>
     <div class="muted" style="font-size:12px;text-align:center">${esc(t("mmNote"))} <a class="btn small" href="#map?look=${look}">${esc(t("mmOpen"))}</a></div></div>`;
 }

@@ -414,7 +414,7 @@ AI ASSISTANT
 - ⭐ next to the number = special mark (特別標記), shared by all officers and saved with the list: the whole row lights up gold and moves to the top. Officers with edit tap ⭐ / ☆ to mark or unmark, then 💾 Save list.
 - The same player ID is only kept once: entered twice, or added by two officers at the same time, it becomes one row (their notes joined with " / "). Saving merges with what another officer saved meanwhile, so nobody's additions are lost; rows removed with ✕ stay removed.
 - ⏰ on a row = follow that player: their shield end becomes one of your ⏰ timers (shield timer, with a push notification like the other timers), on this phone / browser only; it is updated with the newest data while the tab is open. No shield right now = the timer appears once they put one up.
-- Under the table a small kingdom map (turned like the game) shows everyone on the list with their name (🔴 no shield, 🔵 shield up) and our HQ; "🗺️ Show on the kingdom map" opens the 🗺️ Map tab with them marked.
+- Under the table a small kingdom map (turned like the game) shows everyone on the list with their name (🔴 no shield, 🔵 shield up, ⭐ marked players with a gold ring, drawn on top) and our HQ; "🗺️ Show on the kingdom map" opens the 🗺️ Map tab with them marked (⭐ marked players in yellow).
 - The live positions are not part of the AI's officer data — open the tab for them.
 
 KVK CHECKLIST (main site, for everyone)
