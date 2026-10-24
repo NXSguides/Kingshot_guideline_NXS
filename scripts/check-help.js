@@ -42,6 +42,7 @@ const FEATURES = [
   ["Site: top buttons", /↻ refresh/, /si03:/],
   ["Site: install the app", /install-app/, /inst1:/],
   ["Map: download banner coordinates", /Download banner coordinates/, /mp33:/],
+  ["Watch list (All Out): location + shield every 15 min", /WATCH LIST \(officer-x7k2p9\.html#hunt/, /hn01:/],
   ["Move: hive rules card", /Hive rules & tips/, /mv00:/],
   ["Sparrow: quick tour of this page / the officer page", /quick tour of this page[\s\S]*quick tour of the officer page|quick tour of the officer page[\s\S]*quick tour of this page/, /tourQ:[\s\S]*tourQo:[\s\S]*ob07:/],
 ];

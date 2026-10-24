@@ -1,0 +1,44 @@
+name: All Out watch list
+# 🎯 Blacklist tab: every 15 minutes while All Out runs (the script checks the Events schedule and stops at once otherwise),
+# and right away when an officer saves the list.
+on:
+  push:
+    paths: ["data/blacklist-x7k2p9.json"]
+    branches: [main]
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: blacklist-track
+  cancel-in-progress: false
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/blacklist-track.js
+        env:
+          MIGHTPULSE_API_KEY: ${{ secrets.MIGHTPULSE_API_KEY }}
+          DATA_KEY: ${{ secrets.DATA_KEY }}
+          BL_MODE: ${{ github.event_name == 'schedule' && 'auto' || 'requested' }}
+      - run: |
+          git config user.name "watchlist-bot"
+          git config user.email "actions@github.com"
+          [ -f data/blacklist-live-x7k2p9.json ] || exit 0
+          git add data/blacklist-live-x7k2p9.json
+          git diff --cached --quiet && exit 0
+          git commit -m "All Out watch list update [skip ci]"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            git rebase --abort 2>/dev/null
+            sleep 5
+          done
+          exit 1

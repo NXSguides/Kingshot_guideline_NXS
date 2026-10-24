@@ -654,6 +654,10 @@
   .km-members .mv-now { font-size: 11px; font-weight: 700; color: #8a6400; background: #f6e3a1; border-radius: 8px; padding: 0 6px; }
   .km-members .mv-warn { color: #b06a00; font-weight: 700; }
   .km-members .mv-cnt { font-size: 13.5px; }
+  .km-members .hn-st { font-size: 14px; padding: 8px 10px; border-radius: 10px; background: var(--panel-2); border: 1px solid var(--rule); }
+  .km-members .hn-st.on { border-color: #6fb980; background: #8fd19e22; }
+  .km-members .hn-sh { color: #2f6cb3; font-weight: 700; }
+  .km-members .hn-t td { vertical-align: top; }
   .km-members .mm-chip.warn { background: #f3b46b33; border-color: #f3b46b; cursor: pointer; }
 </style>
 </head>
@@ -665,6 +669,7 @@
     <a href="#board" data-tab="board" id="boardTab" hidden>💬 Board</a>
     <a href="#map" data-tab="map">🗺️ Map</a>
     <a href="#move" data-tab="move" hidden>🚚 Move</a>
+    <a href="#hunt" data-tab="hunt" hidden>🎯 Watch list</a>
     <a href="#ranking" data-tab="ranking">📊 Ranking</a>
     <a href="#attend" data-tab="attend" id="attendTab" hidden>📋 Attendance</a>
     <a href="#post" data-tab="post">📢 Post</a>
@@ -1170,6 +1175,10 @@
   <div class="card km-members" id="km_members"></div>
   <div class="card km-members" id="mv_root" style="margin-top:14px"></div>
 </section>
+<section class="pg" id="pg-hunt" hidden>
+  <div class="top"><div><h1 id="hn_title">🎯</h1><div class="muted" id="hn_intro"></div></div></div>
+  <div class="card km-members" id="hn_root"></div>
+</section>
 <section class="pg" id="pg-perms" hidden>
   <div class="top"><div><h1 id="pm_title"></h1><div class="muted" id="pm_sub"></div></div></div>
   <div class="card msg warn" id="pm_trial" style="font-size:13px"></div>
@@ -1242,6 +1251,7 @@
 <script src="js/officer/views.js"></script>
 <script src="js/officer/map.js"></script>
 <script src="js/officer/members.js"></script>
+<script src="js/officer/hunt.js"></script>
 <script src="js/officer/bt.js"></script>
 <script src="js/officer/board.js"></script>
 <script src="js/officer/perms.js"></script>

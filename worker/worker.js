@@ -406,6 +406,13 @@ AI ASSISTANT
 - Our own kingdom #2189 is scouted too, for comparison. Data is the SCOUT section of the OFFICER DATA (answer "who is the strongest in kingdom X" from there).
 - Not in this data: last login (unreliable) and anything MightPulse does not publish.
 
+@hunt
+🎯 WATCH LIST (officer-x7k2p9.html#hunt, 黑名單) — All Out: where listed players' castles are and whether their shield is up
+- Its own tab: hidden from everyone except admins until the 👥 table gives it. Officers with edit add players by their player ID (the number on the in-game profile) plus an optional note, remove them with ✕, then 💾 Save list (encrypted, data/blacklist-x7k2p9.json).
+- A GitHub job looks every listed player up on MightPulse every 15 minutes while All Out runs (the Events tab's All Out schedule, ±1 hour), and once right after the list is saved (about 2 minutes). MightPulse itself refreshes a player about every 15 minutes, so the data can be up to ~15 minutes old.
+- The table shows the in-game name (note and ID under it), alliance, kingdom, castle X:Y with a copy button, shield ("🛡️ until …" or "— none"), online / last login, and the time of the data. Every time is written "MM-DD HH:MM UTC (MM-DD HH:MM local)" — never "x minutes ago". "Data fetched …" at the top is when the job last ran; the page reloads the data by itself every minute (↻ Reload does it at once).
+- The live positions are not part of the AI's officer data — open the tab for them.
+
 KVK CHECKLIST (main site, for everyone)
 - From the day before KvK until the last day, a 📋 button at the bottom right of the main site shows that day's KvK checklist (KvK Prep Day 1–5, then Battle Day). Members tick items; ticks are saved on their own device.
 `;
@@ -498,11 +505,11 @@ async function isOfficer(body, env) {
 
 /* 🔒 Officer AI = logged in with Discord AND on the 👥 table. Returns which tabs they may open (admins: all),
    so the AI only gets the handbook parts and data of those tabs. The old officer password / data-key proof no longer counts. */
-const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🚚 Move", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
+const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🚚 Move", hunt: "🎯 Watch list", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
 const AI_TAB_LINKS = {
   events: "[Events](officer-x7k2p9.html#events) (week calendar, officer to-dos, in-game guides to copy, add/edit events)",
   board: "[Board](officer-x7k2p9.html#board)", map: "[Map](officer-x7k2p9.html#map) (kingdom map, Outpost plan)",
-  move: "[Move](officer-x7k2p9.html#move) (alliance move, member positions)", ranking: "[Ranking](officer-x7k2p9.html#ranking) (member ranking, power, TC, Mystic Trial, battle tables)",
+  move: "[Move](officer-x7k2p9.html#move) (alliance move, member positions)", hunt: "[Watch list](officer-x7k2p9.html#hunt) (All Out watch list: location and shield of listed players)", ranking: "[Ranking](officer-x7k2p9.html#ranking) (member ranking, power, TC, Mystic Trial, battle tables)",
   attend: "[Attendance](officer-x7k2p9.html#attend)", post: "[Post](officer-x7k2p9.html#post) (post / edit announcements)",
   watch: "[Watch](officer-x7k2p9.html#watch) (name changes, power history, who left/joined, notes)", scout: "[Scout](officer-x7k2p9.html#scout) (top players of other kingdoms)",
   views: "[Views](officer-x7k2p9.html#views)", perms: "[Officers](officer-x7k2p9.html#perms)",
@@ -1232,7 +1239,7 @@ const ADMIN_IDS = ["1547403844374368327", "1240788094672834623", "76282790434124
 /* view-only officers added by Sparrow (2026-10-16): put into the 👥 table with Events / Board / Map "view" if they aren't in it yet.
    After that the table is the truth — change or remove them on the 👥 tab. */
 const SEED_VIEWERS = {"741447079804797041": "firebaugh", "734803550672257104": "ASHISH", "961642100150124555": "BOO", "1526789098210197638": "ELR", "216564539041251329": "flip", "1534039396461056172": "JORDAN", "1525666601456767171": "PAPA", "706153853460021341": "Tiger", "1003385592983322664": "Δйʊвιŝ"};
-const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", scout: "none", views: "none" };
+const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", scout: "none", views: "none", move: "none", hunt: "none" };
 /* 🛠️ which events' officer to-dos each person gets as a reminder (from Sparrow's role list, 2026-10-16) — only a starting point:
    once an admin changes someone's 🔔 on the 👥 tab, the saved list wins. Admins with no list get every event. */
 const MOB = "alliance-mobilization";
