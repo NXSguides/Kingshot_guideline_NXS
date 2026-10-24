@@ -63,7 +63,7 @@ const saveFollow = () => { try { localStorage.setItem(FLS, JSON.stringify([...FO
 function syncTimers() {
   if (!(window.NXSTimers && NXSTimers.setExt)) return;
   const now = Date.now(), items = [];
-  for (const r of (LV && LV.rows) || []) { if (!FOLLOW.has(String(r.id))) continue; const end = toMs(r.shield);
+  for (const r of (LV && LV.rows) || []) { if (!FOLLOW.has(String(r.id))) continue; const end = shieldEnd(r);
     if (end && end > now) items.push({ id: "hunt-" + r.id, name: t("tmName").replace("{n}", r.name || r.id).replace("{xy}", r.x != null ? `X:${r.x} Y:${r.y}` : ""), at: end }); }
   NXSTimers.setExt("hunt", items);
 }
@@ -78,6 +78,11 @@ function when(v) {
   return `${u} (${l} ${t("local")})`;
 }
 const toMs = (v) => v == null ? null : typeof v === "number" ? (v < 1e12 ? v * 1000 : v) : Date.parse(v);
+/* shield end as a clock time. MightPulse's shield_endtime is a moment in time (epoch seconds / ms / ISO); if it ever comes as
+   "seconds left" (a small number) it is counted from the moment the data was read (asOf / cached_at), not from now */
+const shieldEnd = (r) => { if (!r || r.shield == null || r.shield === 0) return null; const v = r.shield;
+  if (typeof v === "number" && v > 0 && v < 1e9) { const base = toMs(r.asOf); return base ? base + v * 1000 : null; }
+  return toMs(v); };
 function windowNow() {
   const s = (sched && sched["all-out"]) || { anchor: "2026-09-25", periodDays: 28, activeDays: 2 };
   const a = Date.parse(s.anchor + "T00:00:00Z"), P = s.periodDays * 864e5, now = Date.now();
@@ -100,7 +105,7 @@ function table() {
   return `<div class="mm-tw"><table class="mm-t hn-t"><thead><tr><th>${esc(t("cNo"))}</th><th>${esc(t("cName"))}</th><th>${esc(t("cAll"))}</th><th>${esc(t("cKid"))}</th><th>${esc(t("cPos"))}</th><th>${esc(t("cShield"))}</th><th>${esc(t("cOn"))}</th><th>${esc(t("cAsOf"))}</th>${ed ? "<th></th>" : ""}</tr></thead><tbody>`
     + list.map((it, i) => { const r = byId[String(it.id)];
       const pos = r && r.x != null && r.y != null ? `<button type="button" class="btn small hn-cp" data-c="X:${r.x} Y:${r.y}">X:${r.x} Y:${r.y} ${esc(t("copy"))}</button>` : r && !r.ok ? `<span class="muted">${esc(t("notFound"))}</span>` : esc(t("unknown"));
-      const sh = r ? toMs(r.shield) : null, shield = !r ? "" : sh && sh > now ? `<span class="hn-sh">${esc(t("shieldUntil").replace("{t}", when(sh)))}</span>` : esc(t("noShield"));
+      const sh = r ? shieldEnd(r) : null, shield = !r ? "" : sh && sh > now ? `<span class="hn-sh">${esc(t("shieldUntil").replace("{t}", when(sh)))}</span>` : esc(t("noShield"));
       const on = !r ? "" : r.online ? esc(t("online")) : r.lastLogin ? esc(t("lastLogin").replace("{t}", when(r.lastLogin))) : "";
       return `<tr><td>${i + 1}</td><td><b dir="auto">${esc((r && r.name) || it.note || it.id)}</b>${it.note && r && r.name ? `<div class="muted" style="font-size:12px" dir="auto">${esc(it.note)}</div>` : ""}<div class="muted" style="font-size:11.5px">ID ${esc(it.id)}</div></td>`
         + `<td>${esc((r && r.alliance) || "")}</td><td>${r && r.kid ? "#" + esc(r.kid) : ""}</td><td>${pos}</td><td>${shield} <button type="button" class="btn small hn-fo${FOLLOW.has(String(it.id)) ? " primary" : ""}" data-fo="${esc(it.id)}" title="${esc(t("foTip"))}">${FOLLOW.has(String(it.id)) ? "⏰ ✓" : "⏰"}</button></td><td style="font-size:12.5px">${on}</td><td style="font-size:12px">${r ? esc(when(r.asOf)) : ""}</td>`
@@ -116,9 +121,9 @@ function miniMap() {
   const W = 2400 * S * 0.7071, now = Date.now();
   let s = ring(0, 1199, "#c9b98f") + ring(300, 899, "#a9c27f") + ring(450, 749, "#7fb069") + ring(552, 647, "#a08060") + ring(586, 613, "#6b3b3b");
   const [hx, hy] = P(410, 669); s += `<rect x="${hx - 5}" y="${hy - 5}" width="10" height="10" fill="#2b6cc4" stroke="#fff" stroke-width="1.5"/><text x="${hx}" y="${hy + 16}" class="hn-ml" text-anchor="middle">NXS</text>`;
-  rows.forEach((r) => { const [x, y] = P(r.x, r.y), sh = toMs(r.shield) > now;
+  rows.forEach((r) => { const [x, y] = P(r.x, r.y), sh = shieldEnd(r) > now;
     s += `<g><circle cx="${x}" cy="${y}" r="6" fill="${sh ? "#3b82f6" : "#ff3b30"}" stroke="#fff" stroke-width="1.5"/><text x="${x + 8}" y="${y - 6}" class="hn-ml">${esc(String(r.name || r.id).slice(0, 14))}</text><title>${esc(r.name || r.id)} X:${r.x} Y:${r.y}${sh ? " 🛡️" : ""}</title></g>`; });
-  const look = rows.map((r) => `${r.x}-${r.y}~${encodeURIComponent(String(r.name || r.id).replace(/[~,]/g, " ").slice(0, 20))}~${toMs(r.shield) > now ? "b" : "r"}`).join(",");
+  const look = rows.map((r) => `${r.x}-${r.y}~${encodeURIComponent(String(r.name || r.id).replace(/[~,]/g, " ").slice(0, 20))}~${shieldEnd(r) > now ? "b" : "r"}`).join(",");
   return `<div class="hn-mm"><svg viewBox="0 0 ${W.toFixed(0)} ${W.toFixed(0)}" width="100%" style="max-width:520px;display:block;margin:auto">${s}</svg>
     <div class="muted" style="font-size:12px;text-align:center">${esc(t("mmNote"))} <a class="btn small" href="#map?look=${look}">${esc(t("mmOpen"))}</a></div></div>`;
 }
@@ -139,7 +144,7 @@ function render() {
       <span class="muted" style="font-size:12.5px">${esc(msg)}</span></div></div>` : ""}`;
   $("hn_reload").onclick = () => { msg = ""; loadLive(); };
   el.querySelectorAll(".hn-fo").forEach((b) => b.onclick = () => { const id = b.dataset.fo; if (FOLLOW.has(id)) FOLLOW.delete(id); else FOLLOW.add(id); saveFollow(); syncTimers();
-    const r = ((LV && LV.rows) || []).find((x) => String(x.id) === id); msg = FOLLOW.has(id) ? (r && toMs(r.shield) > Date.now() ? t("foOn") : t("foWait")) : t("foOff"); render(); });
+    const r = ((LV && LV.rows) || []).find((x) => String(x.id) === id); msg = FOLLOW.has(id) ? (r && shieldEnd(r) > Date.now() ? t("foOn") : t("foWait")) : t("foOff"); render(); });
   el.querySelectorAll(".hn-cp").forEach((b) => b.onclick = async () => { try { await navigator.clipboard.writeText(b.dataset.c); b.textContent = t("copied"); } catch (e) {} });
   if (!ed) return;
   el.querySelectorAll("[data-del]").forEach((b) => b.onclick = () => { REMOVED.add(String(L.list[+b.dataset.del].id)); L.list.splice(+b.dataset.del, 1); msg = t("unsaved"); render(); });
