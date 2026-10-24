@@ -26,7 +26,7 @@ const T = {
     wC: "City", wT: "Bear Trap", wH: "HQ", wB: "Banner",
     lgR: "Road banner", lgS1: "Stage 1 banner", lgS2: "Stage 2 banner", lgC0: "City inside right after the HQ moves", lgC1: "… after stage 1", lgC2: "… after stage 2", lgC3: "City outside our land",
     lgOurs: "Our banners now", lgOth: "Other alliances", lgObs: "Mountain / lake", lgZone: "No-build zone", lgRes: "Resource", lgKill: "✖ in the way", lgFert: "Fertile Land", lgWarn: "⚠ problem",
-    tipBad: "Can't put a banner there ({w}).", hqSet: "HQ → {xy}", local: "Kept on this phone / browser only until you use it as the moving plan.", zoom: "Zoom" },
+    tipBad: "Can't put a banner there ({w}).", hqSet: "HQ → {xy}", local: "Kept on this phone / browser only until you use it as the moving plan.", rRoadH: "Road from our HQ now", rRoadA: "Shortest road (from any of our banners)", inUse: " ✓ in use", swap: "🔀 Use the other road", lgAlt: "The other road (dashed)", roadN2: "Road from our HQ: {h} banners · shortest road: {a} banners.", nf: "not found", zoom: "Zoom" },
   zh: { title: "📐 從 Mapper 自動規劃", intro: "載入新蜂巢的 Kingshot Mapper CSV（Export → CSV）：城、熊陷阱、總部、你畫的旗子、資源點和障礙物。網站會自動算出從我們現在的領地連到新總部的路、把你的旗子分成第 1 階段（BT2 那側）／第 2 階段（BT1 那側）、檢查山、湖、禁建區、資源點和別的聯盟、算 285 上限，並照遊戲的方向畫出來。之後點地圖就能隨意修改。",
     load: "📥 載入 Mapper CSV", paste: "…或把 CSV 貼在這裡", go: "產生規劃", bad: "這個檔案裡找不到我們的城（city 那幾行）。", noHq: "這個布局沒有總部，請在 Mapper 加上。",
     pens: "筆：", mNone: "✋ 只看", mR: "⚫ 路", mS1: "🟡 第 1 階段", mS2: "🟠 第 2 階段", mDel: "🧽 移除", mHq: "🏯 移動總部",
@@ -44,7 +44,7 @@ const T = {
     wC: "城", wT: "熊陷阱", wH: "總部", wB: "旗子",
     lgR: "路的旗子", lgS1: "第 1 階段旗子", lgS2: "第 2 階段旗子", lgC0: "總部搬完就在領地裡的城", lgC1: "…第 1 階段後", lgC2: "…第 2 階段後", lgC3: "不在領地裡的城",
     lgOurs: "我們現在的旗子", lgOth: "別的聯盟", lgObs: "山／湖", lgZone: "禁建區", lgRes: "資源點", lgKill: "✖ 擋路", lgFert: "沃土", lgWarn: "⚠ 有問題",
-    tipBad: "那裡不能插旗（{w}）。", hqSet: "總部 → {xy}", local: "設成搬家計畫之前，只存在這支手機／這個瀏覽器。", zoom: "縮放" },
+    tipBad: "那裡不能插旗（{w}）。", hqSet: "總部 → {xy}", local: "設成搬家計畫之前，只存在這支手機／這個瀏覽器。", rRoadH: "從現在總部出發的路", rRoadA: "最短的路（從任何一面我們的旗子）", inUse: " ✓ 使用中", swap: "🔀 換另一條路", lgAlt: "另一條路（虛線）", roadN2: "從總部出發：{h} 面旗子 · 最短：{a} 面旗子。", nf: "找不到", zoom: "縮放" },
   pt: { title: "📐 Plano automático do Mapper", intro: "Carregue o CSV do Kingshot Mapper (Export → CSV) da nova colmeia: cidades, Armadilhas de Urso, QG, os estandartes que você desenhou, recursos e obstáculos. O site acrescenta o caminho da nossa terra até o QG novo, divide seus estandartes em etapa 1 (lado BT2) / etapa 2 (lado BT1), confere montanhas, lagos, zonas proibidas, recursos e outras alianças, conta o limite de 285 e desenha como no jogo. Depois mude o que quiser tocando no mapa.",
     load: "📥 Carregar CSV do Mapper", paste: "…ou cole o CSV aqui", go: "Fazer o plano", bad: "Não achei nossas cidades (linhas city) nesse arquivo.", noHq: "O layout não tem QG — coloque um no Mapper.",
     pens: "Caneta:", mNone: "✋ Ver", mR: "⚫ Caminho", mS1: "🟡 Etapa 1", mS2: "🟠 Etapa 2", mDel: "🧽 Remover", mHq: "🏯 Mover QG",
@@ -62,7 +62,7 @@ const T = {
     wC: "Cidade", wT: "Armadilha", wH: "QG", wB: "Estandarte",
     lgR: "Estandarte do caminho", lgS1: "Etapa 1", lgS2: "Etapa 2", lgC0: "Cidade dentro logo após o QG", lgC1: "… após etapa 1", lgC2: "… após etapa 2", lgC3: "Cidade fora da terra",
     lgOurs: "Nossos estandartes", lgOth: "Outras alianças", lgObs: "Montanha / lago", lgZone: "Zona proibida", lgRes: "Recurso", lgKill: "✖ no caminho", lgFert: "Terra Fértil", lgWarn: "⚠ problema",
-    tipBad: "Não dá para pôr estandarte aí ({w}).", hqSet: "QG → {xy}", local: "Fica só neste celular / navegador até usar como plano da mudança.", zoom: "Zoom" },
+    tipBad: "Não dá para pôr estandarte aí ({w}).", hqSet: "QG → {xy}", local: "Fica só neste celular / navegador até usar como plano da mudança.", rRoadH: "Caminho a partir do nosso QG atual", rRoadA: "Caminho mais curto (de qualquer estandarte nosso)", inUse: " ✓ em uso", swap: "🔀 Usar o outro caminho", lgAlt: "O outro caminho (tracejado)", roadN2: "Do nosso QG: {h} estandartes · mais curto: {a} estandartes.", nf: "não achado", zoom: "Zoom" },
   ar: { title: "📐 خطة تلقائية من Mapper", intro: "حمّل ملف CSV من Kingshot Mapper (Export → CSV) للخلية الجديدة: المدن، مصائد الدب، المقر، الرايات التي رسمتها، الموارد والعوائق. يضيف الموقع طريق الرايات من أرضنا إلى المقر الجديد، ويقسم راياتك إلى المرحلة 1 (جهة BT2) / المرحلة 2 (جهة BT1)، ويفحص الجبال والبحيرات ومناطق منع البناء والموارد والتحالفات الأخرى، ويحسب حد 285، ويرسمها كما في اللعبة. ثم غيّر ما تشاء بالضغط على الخريطة.",
     load: "📥 تحميل CSV من Mapper", paste: "…أو الصق CSV هنا", go: "اصنع الخطة", bad: "لم أجد مدننا (أسطر city) في هذا الملف.", noHq: "لا يوجد مقر في التخطيط — أضفه في Mapper.",
     pens: "القلم:", mNone: "✋ عرض", mR: "⚫ طريق", mS1: "🟡 المرحلة 1", mS2: "🟠 المرحلة 2", mDel: "🧽 إزالة", mHq: "🏯 نقل المقر",
@@ -80,7 +80,7 @@ const T = {
     wC: "مدينة", wT: "مصيدة", wH: "المقر", wB: "راية",
     lgR: "راية الطريق", lgS1: "المرحلة 1", lgS2: "المرحلة 2", lgC0: "مدينة داخل الأرض بعد نقل المقر", lgC1: "… بعد المرحلة 1", lgC2: "… بعد المرحلة 2", lgC3: "مدينة خارج الأرض",
     lgOurs: "راياتنا الآن", lgOth: "تحالفات أخرى", lgObs: "جبل / بحيرة", lgZone: "منطقة منع البناء", lgRes: "مورد", lgKill: "✖ في الطريق", lgFert: "الأرض الخصبة", lgWarn: "⚠ مشكلة",
-    tipBad: "لا يمكن وضع راية هناك ({w}).", hqSet: "المقر ← {xy}", local: "تُحفظ على هذا الهاتف / المتصفح فقط حتى تستخدمها كخطة الانتقال.", zoom: "تكبير" },
+    tipBad: "لا يمكن وضع راية هناك ({w}).", hqSet: "المقر ← {xy}", local: "تُحفظ على هذا الهاتف / المتصفح فقط حتى تستخدمها كخطة الانتقال.", rRoadH: "الطريق من مقرنا الحالي", rRoadA: "أقصر طريق (من أي راية لنا)", inUse: " ✓ مستخدم", swap: "🔀 استخدم الطريق الآخر", lgAlt: "الطريق الآخر (متقطع)", roadN2: "من مقرنا: {h} رايات · الأقصر: {a} رايات.", nf: "غير موجود", zoom: "تكبير" },
   ko: { title: "📐 Mapper 레이아웃 자동 계획", intro: "새 벌집의 Kingshot Mapper CSV(Export → CSV)를 불러오세요: 성, 곰 함정, 본부, 직접 그린 깃발, 자원, 장애물. 사이트가 지금 우리 땅에서 새 본부까지 길 깃발을 더하고, 그린 깃발을 1단계(BT2 쪽) / 2단계(BT1 쪽)로 나누고, 산·호수·건설 금지 구역·자원·다른 연맹을 확인하고, 285 한도를 세서 게임처럼 그려요. 그다음 지도를 눌러 무엇이든 바꿀 수 있어요.",
     load: "📥 Mapper CSV 불러오기", paste: "…또는 CSV를 여기에 붙여넣기", go: "계획 만들기", bad: "그 파일에서 우리 성(city 줄)을 찾지 못했어요.", noHq: "레이아웃에 본부가 없어요 — Mapper에서 추가하세요.",
     pens: "펜:", mNone: "✋ 보기", mR: "⚫ 길", mS1: "🟡 1단계", mS2: "🟠 2단계", mDel: "🧽 지우기", mHq: "🏯 본부 이동",
@@ -98,7 +98,7 @@ const T = {
     wC: "성", wT: "곰 함정", wH: "본부", wB: "깃발",
     lgR: "길 깃발", lgS1: "1단계 깃발", lgS2: "2단계 깃발", lgC0: "본부 이동 직후 땅 안의 성", lgC1: "… 1단계 후", lgC2: "… 2단계 후", lgC3: "땅 밖의 성",
     lgOurs: "지금 우리 깃발", lgOth: "다른 연맹", lgObs: "산 / 호수", lgZone: "건설 금지 구역", lgRes: "자원", lgKill: "✖ 길을 막음", lgFert: "비옥한 땅", lgWarn: "⚠ 문제",
-    tipBad: "거기엔 깃발을 둘 수 없어요 ({w}).", hqSet: "본부 → {xy}", local: "이사 계획으로 쓰기 전까지 이 폰 / 브라우저에만 저장돼요.", zoom: "확대" },
+    tipBad: "거기엔 깃발을 둘 수 없어요 ({w}).", hqSet: "본부 → {xy}", local: "이사 계획으로 쓰기 전까지 이 폰 / 브라우저에만 저장돼요.", rRoadH: "지금 본부에서 시작하는 길", rRoadA: "가장 짧은 길 (우리 깃발 아무 데서나)", inUse: " ✓ 사용 중", swap: "🔀 다른 길 쓰기", lgAlt: "다른 길 (점선)", roadN2: "본부에서: 깃발 {h}개 · 가장 짧은 길: {a}개.", nf: "없음", zoom: "확대" },
 };
 let lang = OFFICER.lang || "en";
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
@@ -117,7 +117,7 @@ function world() {
   const ours = ks ? ks.banners().map(([x, y]) => [x, y]) : [];
   const oth = ks ? ks.others().map(([n, x, y, c]) => ({ n, x, y, c })) : [];
   const othHq = ks && ks.othersHq ? ks.othersHq().map(([n, x, y, c]) => ({ n, x, y, c })) : [];
-  return { ours, oth, othHq, obst: ks ? ks.obst : () => 0, zone: ks ? ks.zone : () => "", forts: (K.fortress || []).map(([x, y], i) => ({ n: "F" + (i + 1), x, y })), K };
+  return { ours, hq0: (K.hq || [])[0] || null, oth, othHq, obst: ks ? ks.obst : () => 0, zone: ks ? ks.zone : () => "", forts: (K.fortress || []).map(([x, y], i) => ({ n: "F" + (i + 1), x, y })), K };
 }
 /* no-build zone rectangles (same rule as the 🗺️ Map tab): Fortress / Sanctuary 60×60, Outpost 15×15, the castle ring */
 function zoneRects(K) {
@@ -178,8 +178,17 @@ function ctx() {
 }
 /* road: the fewest banners from our land today to the new HQ's 15×15 (each banner joins the one before it: centres ≤ 7 apart).
    Banners may not stand on mountains, lakes, no-build zones, resources, buildings or inside another alliance's land. */
-function autoRoad(C) {
-  const goal = hqLand(PL.hq), ours = C.W.ours.map(([x, y]) => bLand(x, y));
+/* where a road may start: "any" = any of our banners; "hq" = our Plains HQ today and the banners of its block
+   (joined to it, within 45 tiles) — the road then grows out of the HQ's side instead of a far-off banner line */
+function srcLand(W, from) {
+  const all = W.ours.map(([x, y]) => bLand(x, y));
+  if (from !== "hq" || !W.hq0) return all;
+  const h = W.hq0, land = [hqLand(h)], left = W.ours.filter((b) => cheb(b, h) <= 45);
+  for (let grew = true; grew;) { grew = false; for (let i = left.length - 1; i >= 0; i--) { const r = bLand(left[i][0], left[i][1]); if (land.some((q) => touch(q, r))) { land.push(r); left.splice(i, 1); grew = true; } } }
+  return land;
+}
+function autoRoad(C, from) {
+  const goal = hqLand(PL.hq), ours = srcLand(C.W, from);
   const extra = PL.b.filter((b) => b[2] === "R").map(([x, y]) => bLand(x, y));   // road banners already drawn count as our land
   const src = ours.concat(extra);
   if (src.some((r) => touch(r, goal))) return [];
@@ -233,7 +242,7 @@ function order(kind, base) {
 function analyse() {
   const C = ctx(), W = C.W;
   const hqR = hqLand(PL.hq);
-  const roadO = order("R", W.ours.map(([x, y]) => bLand(x, y)));
+  const src = srcLand(W, PL.from || "hq"), roadO = order("R", src);
   const s1O = order("S1", [hqR]), s2O = order("S2", [hqR].concat(s1O.map(({ b }) => bLand(b[0], b[1]))));
   const L0 = sqTiles(...hqR, new Set()), L1 = new Set(L0), L2 = new Set();
   s1O.forEach(({ b }) => sqTiles(...bLand(b[0], b[1]), L1)); L1.forEach((k) => L2.add(k)); s2O.forEach(({ b }) => sqTiles(...bLand(b[0], b[1]), L2));
@@ -255,7 +264,7 @@ function analyse() {
   if ([0, 1, 2].some((i) => [0, 1, 2].some((j) => fert(PL.hq[0] + i, PL.hq[1] + j)))) probs.push({ x: PL.hq[0], y: PL.hq[1], s: t("pHqF") });
   else if (fert(hqR[0], hqR[1]) || fert(hqR[2], hqR[1]) || fert(hqR[0], hqR[3]) || fert(hqR[2], hqR[3]) || (hqR[0] <= 749 && hqR[2] >= 450 && hqR[1] <= 749 && hqR[3] >= 450)) probs.push({ x: PL.hq[0], y: PL.hq[1], s: t("pHqT") });
   // road: joined to our land today and reaching the HQ
-  const roadLand = W.ours.map(([x, y]) => bLand(x, y)).concat(roadO.map(({ b }) => bLand(b[0], b[1])));
+  const roadLand = src.concat(roadO.map(({ b }) => bLand(b[0], b[1])));
   const roadOk = roadLand.some((r) => touch(r, hqR));
   roadO.concat(s1O, s2O).forEach(({ b, loose }) => { if (loose) probs.push({ x: b[0], y: b[1], s: t("pLoose").replace("{w}", t("wB")).replace("{xy}", xy(b[0], b[1])) }); });
   if (!roadOk) probs.push({ x: PL.hq[0], y: PL.hq[1], s: t("pLoose").replace("{w}", t("wH")).replace("{xy}", xy(...PL.hq)) });
@@ -279,8 +288,9 @@ const COL = { R: "#222222", S1: "#d4a017", S2: "#e07b39", c: ["#2f7d6b", "#4fa88
 let VB = null;
 function svg(A) {
   const pts = [[...PL.hq]].concat(PL.c.map(([, x, y]) => [x, y]), PL.b.map(([x, y]) => [x, y]), PL.bt);
+  if (PL.alt && PL.alt.p) PL.alt.p.forEach((p) => pts.push(p));
   // show where the road leaves our land: the banner of ours the first road banner joins
-  if (A.roadO.length) { const f = A.roadO[0].b, near = A.C.W.ours.filter(([x, y]) => cheb([x, y], f) <= 7).sort((p, q) => cheb(p, f) - cheb(q, f))[0]; if (near) pts.push([near[0] - 3, near[1] - 3], [near[0] + 3, near[1] + 3]); }
+  for (const f of [A.roadO.length ? A.roadO[0].b : null, PL.alt && PL.alt.p && PL.alt.p[0]].filter(Boolean)) { const near = A.C.W.ours.filter(([x, y]) => cheb([x, y], f) <= 7).sort((p, q) => cheb(p, f) - cheb(q, f))[0]; if (near) pts.push([near[0] - 3, near[1] - 3], [near[0] + 3, near[1] + 3]); }
   const us = pts.map(([x, y]) => x - y), vs = pts.map(([x, y]) => x + y);
   O = { dx: Math.min(...us) - 9, sy: Math.max(...vs) + 10 };
   const Wd = (Math.max(...us) + 9 - O.dx) * K_, Ht = (O.sy - (Math.min(...vs) - 12)) * K_ * RR;
@@ -305,6 +315,7 @@ function svg(A) {
   { const [x, y] = PL.hq, [X, Y] = P(x + 1.5, y + 1.5); s += sq(x, y, x + 2, y + 2, `fill="#8e6bbf" stroke="#fff" stroke-width="1"`) + `<text x="${X}" y="${Y + 4}" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">HQ</text>`; }
   const dot = (x, y, fill, txt, tc) => { const [X, Y] = P(x + 0.5, y + 0.5); return `<circle cx="${X}" cy="${Y}" r="8.5" fill="${fill}" stroke="#fff" stroke-width="1.4"/><text x="${X}" y="${Y + 3.6}" text-anchor="middle" font-size="10" font-weight="800" fill="${tc}">${txt}</text>`; };
   A.roadO.forEach(({ b, loose }, i) => { s += dot(b[0], b[1], COL.R, i + 1, "#fff"); const [X, Y] = P(b[0] + 0.5, b[1] + 0.5); s += `<text x="${X + 11}" y="${Y + 4}" font-size="10" font-weight="700" fill="#111" class="hp-o">${b[0]},${b[1]}</text>`; });
+  if (PL.alt && PL.alt.p) PL.alt.p.forEach(([x, y], i) => { const [X, Y] = P(x + 0.5, y + 0.5); s += sq(...bLand(x, y), `fill="none" stroke="#555" stroke-width="1" stroke-dasharray="4 4"`) + `<circle cx="${X}" cy="${Y}" r="8" fill="#fff" stroke="#333" stroke-width="1.6" stroke-dasharray="3 2"/><text x="${X}" y="${Y + 3.6}" text-anchor="middle" font-size="9.5" font-weight="800" fill="#333">${i + 1}</text>`; });
   A.s1O.forEach(({ b }, i) => s += dot(b[0], b[1], COL.S1, i + 1, "#2a1d00"));
   A.s2O.forEach(({ b }, i) => s += dot(b[0], b[1], COL.S2, A.s1O.length + i + 1, "#2a1200"));
   for (const o of A.kill) { const [X, Y] = P(o.x + 0.5, o.y + 0.5); s += `<text x="${X}" y="${Y + 8}" text-anchor="middle" font-size="24" font-weight="900" fill="${COL.warn}">✖</text>`; }
@@ -318,7 +329,7 @@ function svg(A) {
     <style>.hp-o{paint-order:stroke;stroke:#f4f1ea;stroke-width:3px}</style></defs>${s}</svg>`;
 }
 function legend() {
-  const it = [[COL.R, "lgR", 1], [COL.S1, "lgS1", 1], [COL.S2, "lgS2", 1], [COL.c[0], "lgC0"], [COL.c[1], "lgC1"], [COL.c[2], "lgC2"], [COL.c[3], "lgC3"], [COL.ours, "lgOurs"], ["#ff2fbe", "lgOth"], ["#8a8a96", "lgObs"], ["#9b59b6", "lgZone"], ["#b07d2b", "lgRes"], ["#d7ebcd", "lgFert"]];
+  const it = [[COL.R, "lgR", 1], ["#fff", "lgAlt", 1], [COL.S1, "lgS1", 1], [COL.S2, "lgS2", 1], [COL.c[0], "lgC0"], [COL.c[1], "lgC1"], [COL.c[2], "lgC2"], [COL.c[3], "lgC3"], [COL.ours, "lgOurs"], ["#ff2fbe", "lgOth"], ["#8a8a96", "lgObs"], ["#9b59b6", "lgZone"], ["#b07d2b", "lgRes"], ["#d7ebcd", "lgFert"]];
   return `<div class="mm-legend">${it.map(([c, k, r]) => `<span><i style="display:inline-block;width:12px;height:12px;border-radius:${r ? "50%" : "2px"};background:${c};border:1px solid #0002;vertical-align:-2px"></i> ${esc(t(k))}</span>`).join("")}<span>${esc(t("lgKill"))}</span><span>${esc(t("lgWarn"))}</span></div>`;
 }
 function rows(A) {
@@ -338,7 +349,10 @@ function rows(A) {
     [t("rBt"), PL.bt.length > 1 ? `${A.side[1]} / ${A.side[0]}` : String(A.side[0])],
     [t("rAvg"), t("tiles").replace("{n}", A.avg.toFixed(1))],
     [t("rFar"), t("tiles").replace("{n}", Math.round(A.far))],
-    [t("rRoad"), A.roadO.length ? `${A.roadO.length}: ${L(A.roadO)}` : (A.roadOk ? t("roadOk") : t("noRoad")), A.roadOk ? "" : "warn"],
+    ...(() => { const fromH = (PL.from || "hq") === "hq", cur = A.roadO.length ? `${A.roadO.length}: ${L(A.roadO)}` : (A.roadOk ? t("roadOk") : t("noRoad")) + "",
+        alt = PL.alt ? (PL.alt.p === null ? t("noRoad") : PL.alt.p.length ? `${PL.alt.p.length}: ${PL.alt.p.map(([x, y]) => `${x},${y}`).join(" → ")}` : t("roadOk")) : "—",
+        rH = [t("rRoadH") + (fromH ? t("inUse") : ""), fromH ? cur : alt, fromH ? (A.roadOk ? "good" : "warn") : ""], rA = [t("rRoadA") + (!fromH ? t("inUse") : ""), !fromH ? cur : alt, !fromH ? (A.roadOk ? "good" : "warn") : ""];
+        return [rH, rA]; })(),
     [t("rS"), `${A.s1O.length} / ${A.s2O.length}`],
     [t("rBud"), t("bud").replace("{a}", A.now).replace("{b}", A.newB).replace("{c}", bud) + (bud > LIMIT ? t("budOver").replace("{n}", bud - LIMIT) : t("budOk")), bud > LIMIT ? "warn" : "good"],
     [t("rKill"), A.kill.length ? A.kill.map((o) => `${o.n} ${o.x},${o.y}`).join(" · ") : t("none"), A.kill.length ? "warn" : "good"],
@@ -370,18 +384,25 @@ function render() {
     ${legend()}
     ${table(A)}
     <div class="row" style="gap:6px;flex-wrap:wrap;margin-top:10px">
-      <button type="button" class="btn small" id="hp_road">${esc(t("reroad"))}</button><button type="button" class="btn small" id="hp_split">${esc(t("resplit"))}</button>
+      <button type="button" class="btn small" id="hp_road">${esc(t("reroad"))}</button><button type="button" class="btn small" id="hp_swap"${PL.alt ? "" : " disabled"}>${esc(t("swap"))}</button><button type="button" class="btn small" id="hp_split">${esc(t("resplit"))}</button>
       <button type="button" class="btn small" id="hp_undo"${UNDO.length ? "" : " disabled"}>${esc(t("undo"))}</button>
       <button type="button" class="btn small" id="hp_png">${esc(t("png"))}</button><button type="button" class="btn small" id="hp_csv">${esc(t("csv"))}</button>
       <button type="button" class="btn small primary" id="hp_use">${esc(t("use"))}</button></div>
     <div class="muted" style="font-size:12px;margin-top:6px">${esc(t("local"))}</div>`;
   bind();
 }
+/* both roads: from our HQ today, and the shortest from any banner — one is used (R banners), the other is shown dashed */
+function roads() {
+  PL.b = PL.b.filter((b) => b[2] !== "R"); PL.from = PL.from || "hq";
+  const C = ctx(), rH = autoRoad(C, "hq"), rA = autoRoad(C, "any"), use = PL.from === "hq" ? rH : rA, other = PL.from === "hq" ? rA : rH;
+  if (use) PL.b = PL.b.concat(use.map(([x, y]) => [x, y, "R"]));
+  PL.alt = { from: PL.from === "hq" ? "any" : "hq", p: other };
+  msg = rH && rA && !rH.length && !rA.length ? t("roadOk") : t("roadN2").replace("{h}", rH ? rH.length : t("nf")).replace("{a}", rA ? rA.length : t("nf"));
+}
 function start(text) {
   const p = parse(text); if (p.err) { msg = t(p.err); PL = null; return render(); }
   PL = p; UNDO = []; split(); msg = "";
-  const r = autoRoad(ctx()); if (r === null) msg = t("noRoad"); else if (!r.length) msg = t("roadOk"); else { PL.b = PL.b.concat(r.map(([x, y]) => [x, y, "R"])); msg = t("roadN").replace("{n}", r.length); }
-  save(); render();
+  roads(); save(); render();
 }
 function tileAt(ev) {
   const sv = $("hp_svg"); if (!sv) return null; const r = sv.getBoundingClientRect(), sx = VB.w / r.width;
@@ -407,7 +428,9 @@ function bind() {
   document.querySelectorAll("#hp_root [data-pen]").forEach((b) => b.onclick = () => { PEN = b.dataset.pen; render(); });
   $("hp_svg").addEventListener("click", tap);
   $("hp_zi").onclick = () => { ZM = Math.min(4, ZM * 1.5); render(); }; $("hp_zo").onclick = () => { ZM = Math.max(1, ZM / 1.5); render(); };
-  $("hp_road").onclick = () => { push(); PL.b = PL.b.filter((b) => b[2] !== "R"); const r = autoRoad(ctx()); if (r === null) msg = t("noRoad"); else if (!r.length) msg = t("roadOk"); else { PL.b = PL.b.concat(r.map(([x, y]) => [x, y, "R"])); msg = t("roadN").replace("{n}", r.length); } save(); render(); };
+  $("hp_road").onclick = () => { push(); roads(); save(); render(); };
+  $("hp_swap").onclick = () => { push(); const cur = PL.b.filter((b) => b[2] === "R").map(([x, y]) => [x, y]), alt = PL.alt || { from: "any", p: null };
+    PL.b = PL.b.filter((b) => b[2] !== "R").concat((alt.p || []).map(([x, y]) => [x, y, "R"])); PL.alt = { from: PL.from || "hq", p: cur }; PL.from = alt.from; msg = ""; save(); render(); };
   $("hp_split").onclick = () => { push(); split(); msg = ""; save(); render(); };
   $("hp_undo").onclick = () => { if (!UNDO.length) return; PL = JSON.parse(UNDO.pop()); save(); render(); };
   $("hp_png").onclick = png;
@@ -444,7 +467,7 @@ async function png() {
   g.fillStyle = "#222"; g.font = `bold 28px ${F}`; g.fillText(`${t("title").replace(/^📐\s*/, "")} — HQ ${PL.hq[0]},${PL.hq[1]}`, PAD, 40);
   g.drawImage(img, 0, 60, W, mapH);
   let y = 60 + mapH + 14, x = PAD; g.font = `15px ${F}`;
-  const lg = [[COL.R, "lgR"], [COL.S1, "lgS1"], [COL.S2, "lgS2"], [COL.c[0], "lgC0"], [COL.c[1], "lgC1"], [COL.c[2], "lgC2"], [COL.c[3], "lgC3"], [COL.ours, "lgOurs"], ["#ff2fbe", "lgOth"], ["#8a8a96", "lgObs"], ["#9b59b6", "lgZone"], ["#b07d2b", "lgRes"], ["#d7ebcd", "lgFert"]];
+  const lg = [[COL.R, "lgR"], ["#ffffff", "lgAlt"], [COL.S1, "lgS1"], [COL.S2, "lgS2"], [COL.c[0], "lgC0"], [COL.c[1], "lgC1"], [COL.c[2], "lgC2"], [COL.c[3], "lgC3"], [COL.ours, "lgOurs"], ["#ff2fbe", "lgOth"], ["#8a8a96", "lgObs"], ["#9b59b6", "lgZone"], ["#b07d2b", "lgRes"], ["#d7ebcd", "lgFert"]];
   for (const [col, k] of lg) { const w = g.measureText(t(k)).width + 34; if (x + w > W - PAD) { x = PAD; y += 24; } g.fillStyle = col; g.fillRect(x, y, 14, 14); g.strokeStyle = "#0003"; g.strokeRect(x, y, 14, 14); g.fillStyle = "#333"; g.fillText(t(k), x + 20, y + 13); x += w; }
   y = 60 + mapH + legendH;
   R2.forEach(([, , cls], i) => { const [a, b] = lines[i], h = Math.max(a.length, b.length) * lh + 14;
