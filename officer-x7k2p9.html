@@ -16,6 +16,9 @@
   .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
   .btn { padding: 7px 12px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 14px; }
   a.btn { text-decoration: none; display: inline-block; }
+  /* 🌙 links in dark mode: the browser's default dark blue is hard to read on the dark panels (and in sunlight) → light gold */
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) a:not(.btn):not(.tabs a), :root:not([data-theme="light"]) a:not(.btn):not(.tabs a):visited { color: #f0c35a; } }
+  :root[data-theme="dark"] a:not(.btn):not(.tabs a), :root[data-theme="dark"] a:not(.btn):not(.tabs a):visited { color: #f0c35a; }
   .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
   .btn.small { padding: 4px 9px; font-size: 13px; }
   /* one height for controls that sit side by side: a button is as tall as the text box / select next to it */
