@@ -31,6 +31,7 @@ const FEATURES = [
   ["Ranking: shared plans", /New shared plan/, /shared plan/i],
   ["Move: member positions + blueprint on one map", /\[move\] - 🚚 Move → "👥 Member positions"[^\n]*blueprint/, /{ s: "#mm_map", k: "mv01" }, { s: "#km_members > h3", k: "mp40" }/],
   ["Move: move steps checklist", /Move steps/, /{ s: "#mv_steps", k: "mv02" }/],
+  ["Move: tap a planned spot to put a member there", /putting members on the plan by tapping/, /{ s: "#mm_map .mm-ps.ed", k: "mv08", e: 1 }/],
   ["Move: 📐 auto plan from a Mapper layout (road, stages, checks, edit, PNG)", /Auto plan from a Mapper layout/, /{ s: "#hp_root > h3", k: "hp01" }/],
   ["Move: 📐 shared auto plans (Plan list)", /Share as a plan/, /{ s: "#hp_root .hp-sh", k: "hp03" }/],
   ["Move tab", /🚚 Move/, /mv01:/],
