@@ -106,7 +106,7 @@ function render() {
     ${table()}
     ${ed ? `<div style="margin-top:12px"><b>${esc(t("addT"))}</b><div class="row" style="gap:6px;flex-wrap:wrap;margin-top:6px;align-items:center">
       <input class="inp" id="hn_id" inputmode="numeric" placeholder="${esc(t("id"))}" style="width:150px"><input class="inp" id="hn_note" placeholder="${esc(t("note"))}" style="width:220px">
-      <button type="button" class="btn small primary" id="hn_add">${esc(t("add"))}</button></div>
+      <button type="button" class="btn primary" id="hn_add">${esc(t("add"))}</button></div>
       <div class="row" style="gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center">${dirty ? `<input class="inp" id="hn_by" value="${esc(by)}" placeholder="${esc(t("by"))}" style="width:130px"><button type="button" class="btn primary" id="hn_save">${esc(t("save"))}</button>` : ""}
       <span class="muted" style="font-size:12.5px">${esc(msg)}</span></div></div>` : ""}`;
   $("hn_reload").onclick = () => { msg = ""; loadLive(); };
