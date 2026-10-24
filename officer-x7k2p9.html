@@ -641,6 +641,13 @@
   .km-members .mm-pn { font: 600 9px Arial, sans-serif; fill: #eaf6ea; pointer-events: none; }
   .km-members .mm-tg { font: 800 10px Arial, sans-serif; pointer-events: none; paint-order: stroke; stroke: #0008; stroke-width: 2.5px; }
   .km-members .mm-kill { font: 900 20px Arial, sans-serif; paint-order: stroke; stroke: #0009; stroke-width: 3px; }
+  .km-members .hp-box { overflow: auto; max-height: 78vh; border: 1px solid var(--rule); border-radius: 10px; -webkit-overflow-scrolling: touch; }
+  .km-members .hp-tab { margin-top: 8px; width: 100%; font-size: 13.5px; border-collapse: collapse; table-layout: fixed; }
+  .km-members .hp-tab th, .km-members .hp-tab td { border: 1px solid var(--rule); padding: 6px 8px; vertical-align: top; overflow-wrap: anywhere; white-space: normal; }
+  .km-members .hp-tab th { text-align: start; width: 38%; font-weight: 700; background: var(--panel-2); }
+  @media (max-width: 560px) { .km-members .hp-tab, .km-members .hp-tab tbody, .km-members .hp-tab tr, .km-members .hp-tab th, .km-members .hp-tab td { display: block; width: auto; } .km-members .hp-tab th { border-bottom: 0; } .km-members .hp-tab tr { margin-bottom: 6px; } }
+  .km-members .hp-tab tr.hp-warn td { background: #f6d6a6; color: #3a2400; }
+  .km-members .hp-tab tr.hp-good td { background: #cfe8cf; color: #12361a; }
   .km-members .mm-legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; margin: 6px 0; }
   .km-members .mm-lg i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-inline-end: 4px; box-sizing: border-box; }
   .km-members .mv-ph { border: 1px solid var(--rule); border-radius: 10px; padding: 8px 10px; margin: 6px 0; }
@@ -1182,6 +1189,7 @@
   <details class="card" id="mv_rules" style="margin-bottom:12px"><summary style="cursor:pointer;font-weight:700"></summary><ol style="margin:8px 0 0;padding-inline-start:1.3em;line-height:1.6;font-size:14px"></ol></details>
   <div class="card km-members" id="km_members"></div>
   <div class="card km-members" id="mv_root" style="margin-top:14px"></div>
+  <div class="card km-members hp" id="hp_root" style="margin-top:14px"></div>
 </section>
 <section class="pg" id="pg-hunt" hidden>
   <div class="top"><div><h1 id="hn_title">🎯</h1><div class="muted" id="hn_intro"></div></div></div>
@@ -1259,6 +1267,7 @@
 <script src="js/officer/views.js"></script>
 <script src="js/officer/map.js"></script>
 <script src="js/officer/members.js"></script>
+<script src="js/officer/planner.js"></script>
 <script src="js/officer/hunt.js"></script>
 <script src="js/officer/bt.js"></script>
 <script src="js/officer/board.js"></script>

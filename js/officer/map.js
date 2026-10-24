@@ -919,6 +919,7 @@ window.KM_SHARED = {
   banners: () => exList(),                      // [x, y, 1 = checked in game / 0 = estimated]
   planned: () => (PLAN && PLAN.fl) || [],      // 🚩 planned banners [x, y]
   others: () => otList().map(([n, x, y]) => [n, x, y, otCol(n)]),
+  othersHq: () => otHq().map(([n, x, y]) => [n, x, y, otCol(n)]),   // other alliances' HQs (15×15)
   obst: (x, y) => obstAt(x, y),                // 1 mountain · 2 lake · 0 free
   zone: (x, y) => ZNAME[zoneAt(x, y)] || "",
 };

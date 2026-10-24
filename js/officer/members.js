@@ -458,12 +458,13 @@ async function initMove() {
   if (OFFICER.ensure) await OFFICER.ensure("map");
   for (let i = 0; i < 50 && !D; i++) await new Promise((r) => setTimeout(r, 100));
   await loadMove(); render(); renderMove();
+  if (window.HivePlanner) HivePlanner.init();   // 📐 auto plan from a Mapper layout
 }
 /* 📘 hive rules (from public guides + what officers checked in game), shown above the move table */
 function rulesCard() { const c = $("mv_rules"); if (!c) return; c.querySelector("summary").textContent = t("rulesT"); c.querySelector("ol").innerHTML = (T[lang] || T.en).rules.map((x) => `<li>${esc(x)}</li>`).join(""); }
-function setLang(l) { lang = l; if (D) render(); if ($("mv_title")) { $("mv_title").textContent = t("mvPage"); $("mv_intro").textContent = t("mvIntro"); rulesCard(); } if (D && $("mv_root") && $("mv_root").innerHTML) renderMove(); }
+function setLang(l) { lang = l; if (window.HivePlanner && $("hp_root") && $("hp_root").innerHTML) HivePlanner.setLang(l); if (D) render(); if ($("mv_title")) { $("mv_title").textContent = t("mvPage"); $("mv_intro").textContent = t("mvIntro"); rulesCard(); } if (D && $("mv_root") && $("mv_root").innerHTML) renderMove(); }
 let rT = 0;
 function refresh() { clearTimeout(rT); rT = setTimeout(() => { if (D) { draw(); const st = $("mv_steps"); if (st && MV.plan) { st.innerHTML = steps(); bindSteps(st); } } }, 150); }   // the map tab's banners / obstacles changed
-window.MemberMap = { init, setLang, refresh };
+window.MemberMap = { init, setLang, refresh, importPlan };   // importPlan: 📐 the auto planner (js/officer/planner.js) hands its blueprint over
 OFFICER_PAGES.move = { init: initMove, onShow: () => { if (D && MV) renderMove(); }, applyTexts: () => {}, setLang };
 })();
