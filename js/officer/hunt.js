@@ -8,7 +8,7 @@ const $ = (id) => document.getElementById(id);
 const esc = OFFICER.util.esc;
 const LIST = "data/blacklist-x7k2p9.json", LIVE = "data/blacklist-live-x7k2p9.json";
 const T = {
-  en: { starTip: "⭐ Mark: the whole row lights up and moves to the top, for every officer (saved with the list)", tmName: "🛡️ {n} shield ends {xy}", foTip: "Follow: a ⏰ timer (with a notification) when this player's shield ends — this phone / browser only", foOn: "⏰ Timer set for the end of the shield. It moves by itself if the shield changes.", foWait: "⏰ Following — no shield right now; the timer appears when they put one up.", foOff: "⏰ Not following any more.", title: "🎯 All Out blacklist", intro: "Officers only. Add players by their ID (the number on their profile). While All Out runs, everyone on the list is looked up every 15 minutes: where their castle is and whether their shield is up. MightPulse's data can be up to 60 minutes old — always check the data time.",
+  en: { seTip: "🛡️ Fix the shield by hand (MightPulse can be hours behind): time left on their shield, or no shield", seH: "h", seM: "min", seNone: "🚫 No shield", seMan: "✏️ {b} · {t}", stale: "⚠️ MightPulse hasn't refreshed {n} player(s) for over 2 hours (⚠️ next to the time). Open their MightPulse ↗ page or check in game, then ✏️ fix the position / 🛡️ shield by hand.", seBad: "Type the time left (hours and minutes).", starTip: "⭐ Mark: the whole row lights up and moves to the top, for every officer (saved with the list)", tmName: "🛡️ {n} shield ends {xy}", foTip: "Follow: a ⏰ timer (with a notification) when this player's shield ends — this phone / browser only", foOn: "⏰ Timer set for the end of the shield. It moves by itself if the shield changes.", foWait: "⏰ Following — no shield right now; the timer appears when they put one up.", foOff: "⏰ Not following any more.", title: "🎯 All Out blacklist", intro: "Officers only. Add players by their ID (the number on their profile). While All Out runs, everyone on the list is looked up every 15 minutes: where their castle is and whether their shield is up. MightPulse's data can be up to 60 minutes old — always check the data time.",
     win: "All Out {s} – {e}", on: "tracking every 15 minutes now", off: "not running — the list is looked up only when it is saved", next: "next All Out {s} – {e}",
     fetched: "Data fetched {t}", never: "Not fetched yet — save the list and the first look-up arrives in about 2 minutes.", reload: "↻ Reload",
     cNo: "#", cName: "Player", cAll: "Alliance", cKid: "Kingdom", cPos: "Castle X:Y", cShield: "Shield", cOn: "Online", cAsOf: "Data from",
@@ -17,7 +17,7 @@ const T = {
     save: "💾 Save list", by: "Your name", saving: "Saving…", saved: "Saved ✅ The look-up runs in about 2 minutes.", unsaved: "Not saved yet.",
     errAuth: "The saved GitHub key doesn't work any more — ask Sherry.", errBusy: "Someone else saved at the same time — refresh and try again.", errNet: "Couldn't reach GitHub — try again.",
     noKey: "Saving needs the officers' GitHub key (set up on the Post tab).", locked: "Unlock the officer data to see the blacklist.", empty: "The list is empty.", local: "local", mmNote: "🔴 no shield · 🔵 shield up · ⭐ gold ring = marked · ■ NXS HQ.", mmOpen: "🗺️ Show on the kingdom map", edTip: "✏️ Saw a newer spot (in game or on MightPulse)? Type it here — everyone sees it until MightPulse has something newer", edPh: "X Y", manual: "✏️ set by {b} · {t}", badXY: "Type X and Y (0–1199).", how: "🧭 How to use it: still at the same spot → go by the position here. Moved (not there any more) → open their MightPulse ↗ page for the newest spot, then ✏️ update it here so everyone finds them faster.", count: "{n} players" },
-  zh: { starTip: "⭐ 特別標記：整列亮起來並排到最上面，所有幹部都看得到（跟名單一起儲存）", tmName: "🛡️ {n} 護盾結束 {xy}", foTip: "追蹤：這個人的護盾結束時跳 ⏰ 計時提醒（只在這支手機／這個瀏覽器）", foOn: "⏰ 已設定護盾結束的計時器，護盾時間變了會自己跟著改。", foWait: "⏰ 已追蹤——他現在沒開護盾，開盾後計時器就會出現。", foOff: "⏰ 已取消追蹤。", title: "🎯 全軍出擊黑名單", intro: "只有幹部看得到。用玩家 ID（個人資料上的那串數字）加人。全軍出擊期間每 15 分鐘查一次名單上每個人的城在哪裡、有沒有開護盾。MightPulse 的資料最多可能舊到 60 分鐘，請看資料時間。",
+  zh: { seTip: "🛡️ 手動修正護盾（MightPulse 可能落後好幾個小時）：輸入護盾還剩多久，或沒有護盾", seH: "時", seM: "分", seNone: "🚫 沒有護盾", seMan: "✏️ {b} · {t}", stale: "⚠️ MightPulse 已經超過 2 小時沒更新 {n} 個人的資料（時間旁邊有 ⚠️）。請打開他的 MightPulse ↗ 或在遊戲裡確認，再用 ✏️ 手動修正位置／🛡️ 護盾。", seBad: "請輸入護盾剩下的時間（小時和分鐘）。", starTip: "⭐ 特別標記：整列亮起來並排到最上面，所有幹部都看得到（跟名單一起儲存）", tmName: "🛡️ {n} 護盾結束 {xy}", foTip: "追蹤：這個人的護盾結束時跳 ⏰ 計時提醒（只在這支手機／這個瀏覽器）", foOn: "⏰ 已設定護盾結束的計時器，護盾時間變了會自己跟著改。", foWait: "⏰ 已追蹤——他現在沒開護盾，開盾後計時器就會出現。", foOff: "⏰ 已取消追蹤。", title: "🎯 全軍出擊黑名單", intro: "只有幹部看得到。用玩家 ID（個人資料上的那串數字）加人。全軍出擊期間每 15 分鐘查一次名單上每個人的城在哪裡、有沒有開護盾。MightPulse 的資料最多可能舊到 60 分鐘，請看資料時間。",
     win: "全軍出擊 {s} – {e}", on: "現在每 15 分鐘更新", off: "現在沒有活動——只有儲存名單時會查一次", next: "下次全軍出擊 {s} – {e}",
     fetched: "資料抓取時間 {t}", never: "還沒抓過——儲存名單後大約 2 分鐘會有第一次結果。", reload: "↻ 重新整理",
     cNo: "#", cName: "玩家", cAll: "聯盟", cKid: "王國", cPos: "城堡 X:Y", cShield: "護盾", cOn: "上線", cAsOf: "資料時間",
@@ -26,7 +26,7 @@ const T = {
     save: "💾 儲存名單", by: "你的名字", saving: "儲存中…", saved: "已儲存 ✅ 大約 2 分鐘後會查一次。", unsaved: "還沒儲存。",
     errAuth: "存著的 GitHub 金鑰不能用了——請找 Sherry。", errBusy: "有人同時儲存——重新整理後再試一次。", errNet: "連不到 GitHub——請再試一次。",
     noKey: "儲存需要幹部的 GitHub 金鑰（在公告分頁設定）。", locked: "要先解鎖幹部資料才看得到黑名單。", empty: "名單是空的。", local: "當地", mmNote: "🔴 沒開護盾 · 🔵 開著護盾 · ⭐ 金圈 = 特別標記 · ■ NXS 總部。", mmOpen: "🗺️ 在王國地圖上看", edTip: "✏️ 看到更新的位置（遊戲裡或 MightPulse 上）？在這裡輸入——大家都會看到，直到 MightPulse 有更新的資料", edPh: "X Y", manual: "✏️ {b} 手動更新 · {t}", badXY: "請輸入 X 和 Y（0–1199）。", how: "🧭 使用原則：位置沒變 → 照這裡的位置去找。位置變了（到那裡找不到）→ 點 MightPulse ↗ 看他最新的位置，再用 ✏️ 更新到這裡，大家就能更快找到大概的位置。", count: "{n} 人" },
-  pt: { starTip: "⭐ Marcar: a linha inteira acende e vai para o topo, para todos os oficiais (salvo com a lista)", tmName: "🛡️ escudo de {n} acaba {xy}", foTip: "Seguir: um ⏰ timer (com notificação) quando o escudo deste jogador acabar — só neste celular / navegador", foOn: "⏰ Timer criado para o fim do escudo. Ele se ajusta sozinho se o escudo mudar.", foWait: "⏰ Seguindo — sem escudo agora; o timer aparece quando ele ativar um.", foOff: "⏰ Não está mais seguindo.", title: "🎯 Lista negra do All Out", intro: "Só oficiais. Adicione jogadores pelo ID (o número no perfil). Durante o All Out, todos da lista são consultados a cada 15 minutos: onde está o castelo e se o escudo está ativo. Os dados da MightPulse podem ter até 60 minutos — veja sempre o horário dos dados.",
+  pt: { seTip: "🛡️ Corrigir o escudo à mão (a MightPulse pode estar horas atrasada): tempo restante do escudo, ou sem escudo", seH: "h", seM: "min", seNone: "🚫 Sem escudo", seMan: "✏️ {b} · {t}", stale: "⚠️ A MightPulse não atualiza {n} jogador(es) há mais de 2 horas (⚠️ ao lado do horário). Abra a página MightPulse ↗ ou veja no jogo e ✏️ corrija posição / 🛡️ escudo à mão.", seBad: "Digite o tempo restante (horas e minutos).", starTip: "⭐ Marcar: a linha inteira acende e vai para o topo, para todos os oficiais (salvo com a lista)", tmName: "🛡️ escudo de {n} acaba {xy}", foTip: "Seguir: um ⏰ timer (com notificação) quando o escudo deste jogador acabar — só neste celular / navegador", foOn: "⏰ Timer criado para o fim do escudo. Ele se ajusta sozinho se o escudo mudar.", foWait: "⏰ Seguindo — sem escudo agora; o timer aparece quando ele ativar um.", foOff: "⏰ Não está mais seguindo.", title: "🎯 Lista negra do All Out", intro: "Só oficiais. Adicione jogadores pelo ID (o número no perfil). Durante o All Out, todos da lista são consultados a cada 15 minutos: onde está o castelo e se o escudo está ativo. Os dados da MightPulse podem ter até 60 minutos — veja sempre o horário dos dados.",
     win: "All Out {s} – {e}", on: "atualizando a cada 15 minutos", off: "fora do evento — a lista só é consultada quando é salva", next: "próximo All Out {s} – {e}",
     fetched: "Dados buscados {t}", never: "Ainda não buscado — salve a lista e a primeira consulta chega em uns 2 minutos.", reload: "↻ Recarregar",
     cNo: "#", cName: "Jogador", cAll: "Aliança", cKid: "Reino", cPos: "Castelo X:Y", cShield: "Escudo", cOn: "Online", cAsOf: "Dados de",
@@ -35,7 +35,7 @@ const T = {
     save: "💾 Salvar lista", by: "Seu nome", saving: "Salvando…", saved: "Salvo ✅ A consulta roda em uns 2 minutos.", unsaved: "Ainda não salvo.",
     errAuth: "A chave do GitHub salva não funciona mais — fale com a Sherry.", errBusy: "Outra pessoa salvou ao mesmo tempo — recarregue e tente de novo.", errNet: "Não deu para acessar o GitHub — tente de novo.",
     noKey: "Salvar precisa da chave do GitHub dos oficiais (configurada na aba Anúncios).", locked: "Desbloqueie os dados dos oficiais para ver a lista.", empty: "A lista está vazia.", local: "local", mmNote: "🔴 sem escudo · 🔵 com escudo · ⭐ anel dourado = marcado · ■ QG da NXS.", mmOpen: "🗺️ Ver no mapa do reino", edTip: "✏️ Viu um local mais novo (no jogo ou na MightPulse)? Digite aqui — todos veem até a MightPulse ter algo mais novo", edPh: "X Y", manual: "✏️ por {b} · {t}", badXY: "Digite X e Y (0–1199).", how: "🧭 Como usar: no mesmo lugar → vá pela posição daqui. Mudou (não está mais lá) → abra a página MightPulse ↗ dele para ver o local mais novo e ✏️ atualize aqui, assim todos acham mais rápido.", count: "{n} jogadores" },
-  ar: { starTip: "⭐ تمييز: يضيء الصف كله وينتقل إلى الأعلى لكل الضباط (يُحفظ مع القائمة)", tmName: "🛡️ ينتهي درع {n} {xy}", foTip: "متابعة: مؤقت ⏰ (مع إشعار) عند انتهاء درع هذا اللاعب — على هذا الهاتف / المتصفح فقط", foOn: "⏰ تم ضبط مؤقت لنهاية الدرع، ويتعدل تلقائيًا إذا تغيّر الدرع.", foWait: "⏰ تتم المتابعة — لا درع الآن؛ يظهر المؤقت عندما يفعّل درعًا.", foOff: "⏰ أُلغيت المتابعة.", title: "🎯 القائمة السوداء في All Out", intro: "للضباط فقط. أضف اللاعبين بالمعرّف (الرقم في ملفهم الشخصي). أثناء All Out يُبحث عن كل من في القائمة كل 15 دقيقة: مكان القلعة وهل الدرع مفعّل. قد تكون بيانات MightPulse أقدم حتى 60 دقيقة — انظر دائمًا إلى وقت البيانات.",
+  ar: { seTip: "🛡️ تصحيح الدرع يدويًا (قد تتأخر MightPulse ساعات): الوقت المتبقي للدرع أو بلا درع", seH: "س", seM: "د", seNone: "🚫 بلا درع", seMan: "✏️ {b} · {t}", stale: "⚠️ لم تحدّث MightPulse بيانات {n} لاعب منذ أكثر من ساعتين (⚠️ بجانب الوقت). افتح صفحة MightPulse ↗ أو تحقق في اللعبة ثم صحّح ✏️ الموقع / 🛡️ الدرع يدويًا.", seBad: "اكتب الوقت المتبقي (ساعات ودقائق).", starTip: "⭐ تمييز: يضيء الصف كله وينتقل إلى الأعلى لكل الضباط (يُحفظ مع القائمة)", tmName: "🛡️ ينتهي درع {n} {xy}", foTip: "متابعة: مؤقت ⏰ (مع إشعار) عند انتهاء درع هذا اللاعب — على هذا الهاتف / المتصفح فقط", foOn: "⏰ تم ضبط مؤقت لنهاية الدرع، ويتعدل تلقائيًا إذا تغيّر الدرع.", foWait: "⏰ تتم المتابعة — لا درع الآن؛ يظهر المؤقت عندما يفعّل درعًا.", foOff: "⏰ أُلغيت المتابعة.", title: "🎯 القائمة السوداء في All Out", intro: "للضباط فقط. أضف اللاعبين بالمعرّف (الرقم في ملفهم الشخصي). أثناء All Out يُبحث عن كل من في القائمة كل 15 دقيقة: مكان القلعة وهل الدرع مفعّل. قد تكون بيانات MightPulse أقدم حتى 60 دقيقة — انظر دائمًا إلى وقت البيانات.",
     win: "All Out {s} – {e}", on: "التحديث كل 15 دقيقة الآن", off: "الحدث غير جارٍ — يُبحث في القائمة فقط عند حفظها", next: "All Out القادم {s} – {e}",
     fetched: "وقت جلب البيانات {t}", never: "لم تُجلب بعد — احفظ القائمة وستصل أول نتيجة بعد نحو دقيقتين.", reload: "↻ تحديث",
     cNo: "#", cName: "اللاعب", cAll: "التحالف", cKid: "المملكة", cPos: "القلعة X:Y", cShield: "الدرع", cOn: "متصل", cAsOf: "وقت البيانات",
@@ -44,7 +44,7 @@ const T = {
     save: "💾 حفظ القائمة", by: "اسمك", saving: "جارٍ الحفظ…", saved: "تم الحفظ ✅ يجري البحث بعد نحو دقيقتين.", unsaved: "لم يُحفظ بعد.",
     errAuth: "مفتاح GitHub المحفوظ لم يعد يعمل — اسأل Sherry.", errBusy: "حفظ شخص آخر في الوقت نفسه — حدّث الصفحة وحاول مجددًا.", errNet: "تعذّر الوصول إلى GitHub — حاول مجددًا.",
     noKey: "الحفظ يحتاج مفتاح GitHub الخاص بالضباط (يُضبط في صفحة النشر).", locked: "افتح بيانات الضباط لرؤية القائمة.", empty: "القائمة فارغة.", local: "محلي", mmNote: "🔴 بلا درع · 🔵 الدرع مفعّل · ⭐ حلقة ذهبية = مميَّز · ■ مقر NXS.", mmOpen: "🗺️ عرض على خريطة المملكة", edTip: "✏️ رأيت موقعًا أحدث (في اللعبة أو على MightPulse)؟ اكتبه هنا — يراه الجميع حتى تصبح بيانات MightPulse أحدث", edPh: "X Y", manual: "✏️ بواسطة {b} · {t}", badXY: "اكتب X و Y (0–1199).", how: "🧭 طريقة الاستخدام: لم يتغير المكان → اذهب حسب الموقع هنا. تغيّر (لم يعد هناك) → افتح صفحته على MightPulse ↗ لمعرفة أحدث موقع، ثم حدّثه هنا بـ ✏️ ليجده الجميع أسرع.", count: "{n} لاعبين" },
-  ko: { starTip: "⭐ 특별 표시: 줄 전체가 강조되고 맨 위로 올라가요, 모든 간부에게 (명단과 함께 저장)", tmName: "🛡️ {n} 보호막 종료 {xy}", foTip: "추적: 이 플레이어의 보호막이 끝날 때 ⏰ 타이머 알림 (이 폰 / 브라우저만)", foOn: "⏰ 보호막 종료 타이머를 설정했어요. 보호막 시간이 바뀌면 저절로 따라가요.", foWait: "⏰ 추적 중 — 지금은 보호막이 없어요; 보호막을 켜면 타이머가 생겨요.", foOff: "⏰ 추적을 그만뒀어요.", title: "🎯 전군 출격 블랙리스트", intro: "간부 전용. 플레이어 ID(프로필에 있는 숫자)로 추가하세요. 전군 출격 동안 명단의 모두를 15분마다 조회해요: 성 위치와 보호막 여부. MightPulse 데이터는 최대 60분 늦을 수 있으니 데이터 시각을 꼭 확인하세요.",
+  ko: { seTip: "🛡️ 보호막 직접 수정 (MightPulse가 몇 시간 늦을 수 있어요): 남은 보호막 시간, 또는 보호막 없음", seH: "시간", seM: "분", seNone: "🚫 보호막 없음", seMan: "✏️ {b} · {t}", stale: "⚠️ MightPulse가 {n}명의 데이터를 2시간 넘게 갱신하지 않았어요 (시각 옆 ⚠️). MightPulse ↗ 페이지나 게임에서 확인하고 ✏️ 위치 / 🛡️ 보호막을 직접 고치세요.", seBad: "남은 시간을 입력하세요 (시간, 분).", starTip: "⭐ 특별 표시: 줄 전체가 강조되고 맨 위로 올라가요, 모든 간부에게 (명단과 함께 저장)", tmName: "🛡️ {n} 보호막 종료 {xy}", foTip: "추적: 이 플레이어의 보호막이 끝날 때 ⏰ 타이머 알림 (이 폰 / 브라우저만)", foOn: "⏰ 보호막 종료 타이머를 설정했어요. 보호막 시간이 바뀌면 저절로 따라가요.", foWait: "⏰ 추적 중 — 지금은 보호막이 없어요; 보호막을 켜면 타이머가 생겨요.", foOff: "⏰ 추적을 그만뒀어요.", title: "🎯 전군 출격 블랙리스트", intro: "간부 전용. 플레이어 ID(프로필에 있는 숫자)로 추가하세요. 전군 출격 동안 명단의 모두를 15분마다 조회해요: 성 위치와 보호막 여부. MightPulse 데이터는 최대 60분 늦을 수 있으니 데이터 시각을 꼭 확인하세요.",
     win: "전군 출격 {s} – {e}", on: "지금 15분마다 갱신 중", off: "이벤트 기간 아님 — 명단을 저장할 때만 조회해요", next: "다음 전군 출격 {s} – {e}",
     fetched: "데이터 가져온 시각 {t}", never: "아직 조회 전 — 명단을 저장하면 약 2분 뒤 첫 결과가 나와요.", reload: "↻ 새로고침",
     cNo: "#", cName: "플레이어", cAll: "연맹", cKid: "왕국", cPos: "성 X:Y", cShield: "보호막", cOn: "접속", cAsOf: "데이터 시각",
@@ -118,10 +118,15 @@ async function loadLive(refresh) {
 }
 /* ✏️ a position typed by an officer (saved with the list) wins until MightPulse has data newer than it */
 function eff(it, r) {
-  const m = it && it.pos; if (!m) return r;
-  if (r && r.x != null && (toMs(r.asOf) || 0) >= (toMs(m.at) || 0)) return r;
-  return { ...(r || { id: it.id, ok: true }), x: m.x, y: m.y, man: m };
+  const m = it && it.pos;
+  if (m && !(r && r.x != null && (toMs(r.asOf) || 0) >= (toMs(m.at) || 0))) r = { ...(r || { id: it.id, ok: true }), x: m.x, y: m.y, man: m };
+  /* 🛡️ a shield typed by an officer: end time (ms) or 0 = no shield; wins until MightPulse has data newer than it */
+  const s = it && it.shm;
+  if (s && !(r && (toMs(r.asOf) || 0) >= (toMs(s.at) || 0))) r = { ...(r || { id: it.id, ok: true }), shield: s.end || 0, shman: s };
+  return r;
 }
+const STALE = 2 * 36e5;   // MightPulse data older than this gets a ⚠️
+let SEDIT = null;          // the row whose 🛡️ box is open
 let EDIT = null;   // the row whose ✏️ box is open
 function table() {
   const rows = (LV && LV.rows) || [], byId = {}; rows.forEach((r) => byId[r.id] = r);
@@ -132,10 +137,15 @@ function table() {
       const pos0 = r && r.x != null && r.y != null ? `<button type="button" class="btn small hn-cp" data-c="X:${r.x} Y:${r.y}">X:${r.x} Y:${r.y} ${esc(t("copy"))}</button>` : r && !r.ok ? `<span class="muted">${esc(t("notFound"))}</span>` : esc(t("unknown"));
       const pos = EDIT === String(it.id) ? `<span class="row" style="gap:4px;flex-wrap:nowrap">X <input class="inp" id="hn_x" value="${r && r.x != null ? r.x : ""}" style="width:58px" inputmode="numeric" pattern="[0-9]*" maxlength="4"> Y <input class="inp" id="hn_y" value="${r && r.y != null ? r.y : ""}" style="width:58px" inputmode="numeric" pattern="[0-9]*" maxlength="4"><button type="button" class="btn small primary" id="hn_xyok">✓</button><button type="button" class="btn small" id="hn_xyno">✕</button></span>`
         : pos0 + (ed ? ` <button type="button" class="btn small hn-ed" data-ed="${esc(it.id)}" title="${esc(t("edTip"))}">✏️</button>` : "") + (r && r.man ? `<div class="muted hn-man" style="font-size:11.5px">${esc(t("manual").replace("{b}", r.man.by || "?").replace("{t}", when(r.man.at)))}</div>` : "");
-      const sh = r ? shieldEnd(r) : null, shield = !r ? "" : sh && sh > now ? `<span class="hn-sh">${esc(t("shieldUntil").replace("{t}", when(sh)))}</span>` : esc(t("noShield"));
+      const sh = r ? shieldEnd(r) : null, shield = SEDIT === String(it.id)
+        ? `<span class="row" style="gap:4px;flex-wrap:wrap;align-items:center"><input class="inp" id="hn_sh" style="width:50px" inputmode="numeric" pattern="[0-9]*" maxlength="3"> ${esc(t("seH"))} <input class="inp" id="hn_sm" style="width:50px" inputmode="numeric" pattern="[0-9]*" maxlength="2"> ${esc(t("seM"))} <button type="button" class="btn small primary" id="hn_shok">✓</button><button type="button" class="btn small" id="hn_shnone">${esc(t("seNone"))}</button><button type="button" class="btn small" id="hn_shno">✕</button></span>`
+        : (!r ? "" : sh && sh > now ? `<span class="hn-sh">${esc(t("shieldUntil").replace("{t}", when(sh)))}</span>` : esc(t("noShield")))
+          + (ed ? ` <button type="button" class="btn small" data-se="${esc(it.id)}" title="${esc(t("seTip"))}">🛡️✏️</button>` : "")
+          + (r && r.shman ? `<div class="muted" style="font-size:11.5px">${esc(t("seMan").replace("{b}", r.shman.by || "?").replace("{t}", when(r.shman.at)))}</div>` : "");
+      const old = r && r.asOf && now - (toMs(r.asOf) || now) > STALE;
       const star = `<button type="button" class="btn small hn-star${it.star ? " on" : ""}" data-star="${i}" title="${esc(t("starTip"))}"${ed ? "" : " disabled"}>${it.star ? "⭐" : "☆"}</button>`;
       return `<tr class="${it.star ? "hn-hot" : ""}"><td>${n + 1} ${star}</td><td><b dir="auto">${esc((r && r.name) || it.note || it.id)}</b>${it.note && r && r.name ? `<div class="muted" style="font-size:12px" dir="auto">${esc(it.note)}</div>` : ""}<div class="muted" style="font-size:11.5px">ID ${esc(it.id)}${r && r.uid ? ` · <a href="https://mightpulse.com/player/${encodeURIComponent(r.uid)}" target="_blank" rel="noopener">MightPulse ↗</a>` : ""}</div></td>`
-        + `<td>${esc((r && r.alliance) || "")}</td><td>${r && r.kid ? "#" + esc(r.kid) : ""}</td><td>${pos}</td><td>${shield} <button type="button" class="btn small hn-fo${FOLLOW.has(String(it.id)) ? " primary" : ""}" data-fo="${esc(it.id)}" title="${esc(t("foTip"))}">${FOLLOW.has(String(it.id)) ? "⏰ ✓" : "⏰"}</button></td><td style="font-size:12px">${r ? esc(when(r.asOf)) : ""}</td>`
+        + `<td>${esc((r && r.alliance) || "")}</td><td>${r && r.kid ? "#" + esc(r.kid) : ""}</td><td>${pos}</td><td>${shield} <button type="button" class="btn small hn-fo${FOLLOW.has(String(it.id)) ? " primary" : ""}" data-fo="${esc(it.id)}" title="${esc(t("foTip"))}">${FOLLOW.has(String(it.id)) ? "⏰ ✓" : "⏰"}</button></td><td style="font-size:12px"${old ? ' class="hn-old"' : ""}>${old ? "⚠️ " : ""}${r ? esc(when(r.asOf)) : ""}</td>`
 
         + (ed ? `<td><button type="button" class="btn small" data-del="${i}" title="${esc(t("del"))}">${esc(t("del"))}</button></td>` : "") + `</tr>`; }).join("")
     + `</tbody></table></div>`;
@@ -166,6 +176,7 @@ function render() {
     <div class="row" style="gap:8px;align-items:center;margin:8px 0"><b>${esc(LV && LV.fetched ? t("fetched").replace("{t}", when(LV.fetched)) : t("never"))}</b> <span class="muted" style="font-size:12.5px">${esc(t("count").replace("{n}", (L.list || []).length))}</span>
       <button type="button" class="btn small" id="hn_reload">${esc(t("reload"))}</button></div>
     <div class="hn-how">${esc(t("how"))}</div>
+    ${(() => { const n = ((LV && LV.rows) || []).filter((r) => r.asOf && Date.now() - (toMs(r.asOf) || Date.now()) > STALE).length; return n ? `<div class="hn-how hn-stale">${esc(t("stale").replace("{n}", n))}</div>` : ""; })()}
     ${table()}
     ${!ed && msg ? `<div class="muted" style="font-size:12.5px;margin-top:6px">${esc(msg)}</div>` : ""}
     ${miniMap()}
@@ -176,11 +187,22 @@ function render() {
       <span class="muted" style="font-size:12.5px">${esc(msg)}</span></div></div>` : ""}`;
   $("hn_reload").onclick = () => { msg = ""; loadLive(true); };
   el.querySelectorAll(".hn-fo").forEach((b) => b.onclick = () => { const id = b.dataset.fo; if (FOLLOW.has(id)) FOLLOW.delete(id); else FOLLOW.add(id); saveFollow(); syncTimers();
-    const r = ((LV && LV.rows) || []).find((x) => String(x.id) === id); msg = FOLLOW.has(id) ? (r && shieldEnd(r) > Date.now() ? t("foOn") : t("foWait")) : t("foOff"); render(); });
+    const r = eff((L.list || []).find((x) => String(x.id) === id), ((LV && LV.rows) || []).find((x) => String(x.id) === id)); msg = FOLLOW.has(id) ? (r && shieldEnd(r) > Date.now() ? t("foOn") : t("foWait")) : t("foOff"); render(); });
   el.querySelectorAll(".hn-cp").forEach((b) => b.onclick = async () => { try { await navigator.clipboard.writeText(b.dataset.c); b.textContent = t("copied"); } catch (e) {} });
   if (!ed) return;
   el.querySelectorAll("[data-star]").forEach((b) => b.onclick = () => { const it = L.list[+b.dataset.star]; if (it.star) { delete it.star; it._s = 1; } else { it.star = 1; delete it._s; } msg = t("unsaved"); render(); });
-  el.querySelectorAll("[data-ed]").forEach((b) => b.onclick = () => { EDIT = b.dataset.ed; render(); const i = $("hn_x"); if (i) { i.focus(); i.select(); } });
+  el.querySelectorAll("[data-se]").forEach((b) => b.onclick = () => { SEDIT = b.dataset.se; EDIT = null; render(); const i = $("hn_sh"); if (i) i.focus(); });
+  if ($("hn_shno")) $("hn_shno").onclick = () => { SEDIT = null; render(); };
+  const setSh = (end) => { let by = ""; try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {}
+    const it = L.list.find((x) => String(x.id) === SEDIT); SEDIT = null;
+    if (it) { it.shm = { end, at: new Date().toISOString(), by: by || "?" }; msg = t("unsaved"); render(); syncTimers(); if ($("hn_save") && OFFICER.token) save(); } else render(); };
+  if ($("hn_shok")) { const ok = () => { const h = +($("hn_sh").value || 0), m = +($("hn_sm").value || 0);
+      if (!Number.isFinite(h) || !Number.isFinite(m) || h < 0 || m < 0 || (h === 0 && m === 0)) { msg = t("seBad"); return render(); }
+      setSh(Date.now() + (h * 3600 + m * 60) * 1000); };
+    $("hn_shok").onclick = ok; $("hn_shnone").onclick = () => setSh(0);
+    $("hn_sh").onkeydown = (e) => { if (e.key === "Enter") { e.preventDefault(); $("hn_sm").focus(); } else if (e.key === "Escape") { SEDIT = null; render(); } };
+    $("hn_sm").onkeydown = (e) => { if (e.key === "Enter") ok(); else if (e.key === "Escape") { SEDIT = null; render(); } }; }
+  el.querySelectorAll("[data-ed]").forEach((b) => b.onclick = () => { EDIT = b.dataset.ed; SEDIT = null; render(); const i = $("hn_x"); if (i) { i.focus(); i.select(); } });
   if ($("hn_xyno")) $("hn_xyno").onclick = () => { EDIT = null; render(); };
   if ($("hn_xyok")) { const ok = () => { const n = [$("hn_x").value, $("hn_y").value].map((v) => /^\s*\d{1,4}\s*$/.test(v) ? Number(v) : NaN);
       if (n.some(isNaN) || n[0] > 1199 || n[1] > 1199) { msg = t("badXY"); return render(); }
@@ -203,7 +225,8 @@ function render() {
 function dedupe(list) {
   const by = new Map();
   for (const it of list || []) { const id = String(it.id || "").replace(/\D/g, ""); if (!id) continue;
-    const o = by.get(id); if (!o) { by.set(id, { id, note: (it.note || "").trim(), ...(it.star ? { star: 1 } : {}), ...(it.pos ? { pos: it.pos } : {}) }); continue; }
+    const o = by.get(id); if (!o) { by.set(id, { id, note: (it.note || "").trim(), ...(it.star ? { star: 1 } : {}), ...(it.pos ? { pos: it.pos } : {}), ...(it.shm ? { shm: it.shm } : {}) }); continue; }
+    if (it.shm && (!o.shm || (toMs(it.shm.at) || 0) > (toMs(o.shm.at) || 0))) o.shm = it.shm;
     if (it.pos && (!o.pos || (toMs(it.pos.at) || 0) > (toMs(o.pos.at) || 0))) o.pos = it.pos;
     if ("star" in it || it._s) { if (it.star) o.star = 1; else delete o.star; }
     const n = (it.note || "").trim(); if (n && !o.note.split(" / ").includes(n)) o.note = (o.note ? o.note + " / " + n : n).slice(0, 120); }
@@ -237,9 +260,9 @@ async function init() {
   try { sched = (await fetch("data/events-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }).then((r) => r.json())).sched || null; } catch (e) {}
   const r = await read(LIST); L = r.d && Array.isArray(r.d.list) ? r.d : { list: [] }; SAVED = JSON.stringify(L.list); L.list = dedupe(L.list);
   await loadLive();
-  clearInterval(timer); timer = setInterval(async () => { if (document.hidden || !location.hash.startsWith("#hunt") || JSON.stringify(L.list || []) !== SAVED || EDIT) return;
+  clearInterval(timer); timer = setInterval(async () => { if (document.hidden || !location.hash.startsWith("#hunt") || JSON.stringify(L.list || []) !== SAVED || EDIT || SEDIT) return;
     /* also re-read the list: other officers' ⭐ marks, ✏️ positions and new players show up without reopening the tab */
-    const r2 = await read(LIST); if (r2.d && Array.isArray(r2.d.list) && JSON.stringify(L.list || []) === SAVED && !EDIT) { L = r2.d; SAVED = JSON.stringify(L.list); L.list = dedupe(L.list); }
+    const r2 = await read(LIST); if (r2.d && Array.isArray(r2.d.list) && JSON.stringify(L.list || []) === SAVED && !EDIT && !SEDIT) { L = r2.d; SAVED = JSON.stringify(L.list); L.list = dedupe(L.list); }
     loadLive(); }, 60000);   // the job writes every 15 min; look every minute
 }
 function setLang(l) { lang = l; applyTexts(); render(); }

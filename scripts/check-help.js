@@ -48,6 +48,7 @@ const FEATURES = [
   ["Blacklist (All Out): location + shield every 15 min", /BLACKLIST \(officer-x7k2p9\.html#hunt/, /hn01:/],
   ["Blacklist: shield timer (follow ⏰)", /shield timer/, /hn05:/],
   ["Blacklist: ✏️ manual position", /type a newer position by hand/, /✏️ next to X:Y/],
+  ["Blacklist: 🛡️ manual shield + stale warning", /fix the shield by hand/, /k: "hn06"/],
   ["Blacklist: ⭐ special mark (row lights up, on top)", /special mark/, /⭐ marks a player for everyone/],
   ["Move: hive rules card", /Hive rules & tips/, /mv00:/],
   ["Sparrow: quick tour of this page / the officer page", /quick tour of this page[\s\S]*quick tour of the officer page|quick tour of the officer page[\s\S]*quick tour of this page/, /tourQ:[\s\S]*tourQo:[\s\S]*ob07:/],
