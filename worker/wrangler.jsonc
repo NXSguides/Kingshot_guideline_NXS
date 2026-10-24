@@ -17,6 +17,9 @@
   "durable_objects": { "bindings": [{ "name": "TIMERS", "class_name": "PushTimers" }] },
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["PushTimers"] }],
 
-  // Keep the secrets (GEMINI_API_KEY, DATA_KEY) that were added in the dashboard.
+  // ⏱️ every 15 minutes: the 🎯 blacklist look-up (only does something while All Out runs and MIGHTPULSE_API_KEY is set)
+  "triggers": { "crons": ["*/15 * * * *"] },
+
+  // Keep the secrets (GEMINI_API_KEY, DATA_KEY, MIGHTPULSE_API_KEY) that were added in the dashboard.
   "keep_vars": true
 }

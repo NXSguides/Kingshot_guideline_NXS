@@ -97,7 +97,20 @@ async function read(path) {
   if (OFFICER.token) { try { const f = await OFFICER.gh("GET", path, null, OFFICER.token); if (f) return { d: await OfficerData.open(JSON.parse(b64u8(f.content))), sha: f.sha }; } catch (e) {} }
   try { return { d: await OfficerData.fetchJson(path) }; } catch (e) { return { d: null }; }
 }
-async function loadLive() { const r = await read(LIVE); LV = r.d; render(); syncTimers(); }
+/* live data comes from two places: the Cloudflare Worker (every 15 min while All Out runs, and "refresh" = look up now)
+   and the GitHub job's file (right after the list is saved). The newer one wins. */
+const AI_URL = "https://nxs-ai.tapegirljoke.workers.dev";
+async function fromWorker(refresh) {
+  let tk = ""; try { tk = localStorage.getItem("nxs-discord-v1") || ""; } catch (e) {} if (!tk) return null;
+  try { const r = await fetch(AI_URL, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ blacklist: 1, token: tk, refresh: refresh ? 1 : 0 }) });
+    const j = await r.json(); if (j && j.token) { try { localStorage.setItem("nxs-discord-v1", j.token); } catch (e) {} }
+    return j && j.live && Array.isArray(j.live.rows) ? j.live : null; } catch (e) { return null; }
+}
+async function loadLive(refresh) {
+  const [g, w] = await Promise.all([read(LIVE), fromWorker(refresh)]);
+  const a = g && g.d, ta = a ? Date.parse(a.fetched) || 0 : -1, tb = w ? Date.parse(w.fetched) || 0 : -1;
+  LV = tb > ta ? w : a; render(); syncTimers();
+}
 function table() {
   const rows = (LV && LV.rows) || [], byId = {}; rows.forEach((r) => byId[r.id] = r);
   const list = L.list || []; if (!list.length) return `<div class="muted">${esc(t("empty"))}</div>`;
@@ -145,7 +158,7 @@ function render() {
       <button type="button" class="btn primary" id="hn_add">${esc(t("add"))}</button></div>
       <div class="row" style="gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center">${dirty ? `<input class="inp" id="hn_by" value="${esc(by)}" placeholder="${esc(t("by"))}" style="width:130px"><button type="button" class="btn primary" id="hn_save">${esc(t("save"))}</button>` : ""}
       <span class="muted" style="font-size:12.5px">${esc(msg)}</span></div></div>` : ""}`;
-  $("hn_reload").onclick = () => { msg = ""; loadLive(); };
+  $("hn_reload").onclick = () => { msg = ""; loadLive(true); };
   el.querySelectorAll(".hn-fo").forEach((b) => b.onclick = () => { const id = b.dataset.fo; if (FOLLOW.has(id)) FOLLOW.delete(id); else FOLLOW.add(id); saveFollow(); syncTimers();
     const r = ((LV && LV.rows) || []).find((x) => String(x.id) === id); msg = FOLLOW.has(id) ? (r && shieldEnd(r) > Date.now() ? t("foOn") : t("foWait")) : t("foOff"); render(); });
   el.querySelectorAll(".hn-cp").forEach((b) => b.onclick = async () => { try { await navigator.clipboard.writeText(b.dataset.c); b.textContent = t("copied"); } catch (e) {} });
@@ -185,7 +198,7 @@ async function save() {
       try { await OFFICER.gh("PUT", LIST, { message: `All Out blacklist (${by})`, content: u8b64(JSON.stringify(await OfficerData.seal(next)) + "\n"), sha: f ? f.sha : undefined, branch: "main" }, OFFICER.token); break; }
       catch (e) { if (e.message !== "busy" || attempt) throw e; }
     }
-    L = next; SAVED = JSON.stringify(L.list); REMOVED.clear(); msg = t("saved");
+    L = next; SAVED = JSON.stringify(L.list); REMOVED.clear(); msg = t("saved"); setTimeout(() => loadLive(true), 8000);
   } catch (e) { msg = t(e.message === "auth" ? "errAuth" : e.message === "busy" ? "errBusy" : "errNet"); }
   render();
 }

@@ -46,6 +46,8 @@ const isLimitErr = (e) => /exceeded allowed|free tier/i.test(String(e && e.messa
 const json = (obj, status = 200) => Response.json(obj, { status, headers: cors });
 
 export default {
+  /* ⏱️ Cloudflare cron (wrangler.jsonc "triggers"): every 15 minutes — the 🎯 blacklist look-up while All Out runs */
+  async scheduled(event, env, ctx) { ctx.waitUntil(blacklistTick(env, false).catch(() => {})); },
   async fetch(req, env, ctx) {
     try { return await handle(req, env, ctx); }
     catch (e) {
@@ -79,6 +81,7 @@ async function handle(req, env, ctx) {
     let body;
     try { body = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
     if (body.stats) return stats(body, env);                 // officer page → Views tab
+    if (body.blacklist) return blacklistRoute(req, env, body);   // officer page → 🎯 Blacklist tab
     const question = String(body.question || "").trim().slice(0, 600);
     if (!question) return json({ error: "empty" }, 400);
     const siteLang = LANG_NAMES[body.lang] ? body.lang : "en";
@@ -274,7 +277,7 @@ async function geminiStream(env, model, system, contents) {
 /* Open https://<your-worker>.workers.dev/check in a browser to test the setup (no secrets are shown). */
 async function check(req, env) {
   const out = { worker: "ok", version: VERSION, colo: req.cf?.colo || "?", country: req.cf?.country || "?",
-    GEMINI_API_KEY: env.GEMINI_API_KEY ? "set" : "MISSING", DATA_KEY: env.DATA_KEY ? "set" : "not set",
+    GEMINI_API_KEY: env.GEMINI_API_KEY ? "set" : "MISSING", DATA_KEY: env.DATA_KEY ? "set" : "not set", MIGHTPULSE_API_KEY: env.MIGHTPULSE_API_KEY ? "set" : "not set (🎯 blacklist every 15 min off)",
     VAPID_PRIVATE: env.VAPID_PRIVATE ? "set" : "MISSING (timer notifications off)", TIMERS: env.TIMERS ? "ok" : "MISSING" };
   // where the Worker actually runs (with placement this should be a US data center, not HKG)
   try { const tr = await (await fetch("https://www.cloudflare.com/cdn-cgi/trace")).text(); out.runs_in = (tr.match(/colo=(\w+)/) || [])[1] || "?"; }
@@ -409,7 +412,7 @@ AI ASSISTANT
 @hunt
 🎯 BLACKLIST (officer-x7k2p9.html#hunt, 黑名單) — All Out: where listed players' castles are and whether their shield is up
 - Its own tab: hidden from everyone except admins until the 👥 table gives it. Officers with edit add players by their player ID (the number on the in-game profile) plus an optional note, remove them with ✕, then 💾 Save list (encrypted, data/blacklist-x7k2p9.json).
-- A GitHub job looks every listed player up on MightPulse every 15 minutes while All Out runs (the Events tab's All Out schedule, ±1 hour), and once right after the list is saved (about 2 minutes). MightPulse keeps a copy of each player and says it can be up to 60 minutes old, so always read the data time.
+- The Cloudflare Worker looks every listed player up on MightPulse every 15 minutes while All Out runs (the Events tab's All Out schedule, ±1 hour; needs the MIGHTPULSE_API_KEY Worker secret), and a GitHub job does it once right after the list is saved (about 2 minutes). ↻ Reload asks for a fresh look-up at once (at most every 2 minutes). MightPulse keeps its own copy of each player and refreshes it only when it is older than 60 minutes, so positions can be up to about an hour old — always read the data time.
 - The table shows the in-game name (note and ID under it), alliance, kingdom, castle X:Y with a copy button, shield ("🛡️ until …" or "— none") and the time of the data. No online / last login: MightPulse says those fields are stale and should not be used. MightPulse data can be up to 60 minutes old (its own docs); the job asks every 15 minutes. Every time is written "MM-DD HH:MM UTC (MM-DD HH:MM local)" — never "x minutes ago". "Data fetched …" at the top is when the job last ran; the page reloads the data by itself every minute (↻ Reload does it at once).
 - ⭐ next to the number = special mark (特別標記), shared by all officers and saved with the list: the whole row lights up gold and moves to the top. Officers with edit tap ⭐ / ☆ to mark or unmark, then 💾 Save list.
 - The same player ID is only kept once: entered twice, or added by two officers at the same time, it becomes one row (their notes joined with " / "). Saving merges with what another officer saved meanwhile, so nobody's additions are lost; rows removed with ✕ stay removed.
@@ -551,6 +554,42 @@ function officerDataFor(text, tabs) {
     return hit ? hit[1].some((t) => tabs.has(t)) : tabs.has("perms");
   });
   return keep.length > 1 ? keep.join("\n") : "";
+}
+
+/* 🎯 All Out blacklist (officer page #hunt). The list is data/blacklist-x7k2p9.json (encrypted, saved by officers). Every 15 minutes
+   while All Out runs (the Events tab's schedule, ±1 hour) the Worker asks MightPulse (secret MIGHTPULSE_API_KEY) for each player's
+   castle X:Y and shield end and keeps the result in the Durable Object ("bl-live"). Officers with the 🎯 tab read it through
+   POST { blacklist: 1, token[, refresh] }; refresh = look up now (at most every 2 minutes). MightPulse's own copy can be up to 60 minutes old. */
+const BL_RAW = "https://raw.githubusercontent.com/NXSguides/Kingshot_guideline_NXS/main/data/blacklist-x7k2p9.json";
+async function allOutWindow() {
+  let s = { anchor: "2026-09-25", periodDays: 28, activeDays: 2 };
+  try { const e = JSON.parse(await getText("data/events-x7k2p9.json")); if (e.sched && e.sched["all-out"]) s = e.sched["all-out"]; } catch (e) {}
+  const a = Date.parse(s.anchor + "T00:00:00Z"), P = s.periodDays * 864e5, now = Date.now(), start = a + Math.floor((now - a) / P) * P, end = start + s.activeDays * 864e5;
+  return { start, end, on: now >= start - 36e5 && now < end + 36e5 };
+}
+async function blacklistTick(env, force) {
+  if (!env.MIGHTPULSE_API_KEY || !env.TIMERS) return null;
+  const w = await allOutWindow(); if (!force && !w.on) return null;
+  const r = await fetch(BL_RAW + "?t=" + Date.now(), { cf: { cacheTtl: 0 } }); if (!r.ok) return null;
+  const L = await openData(await r.json(), env), seen = new Set();
+  const list = ((L && L.list) || []).map((it) => ({ id: String(it.id || "").replace(/\D/g, ""), note: it.note || "" })).filter((it) => it.id && !seen.has(it.id) && seen.add(it.id)).slice(0, 40);
+  const rows = await Promise.all(list.map(async (it) => {
+    try { const res = await fetch(`https://api.mightpulse.com/v1/players/${it.id}?include=base`, { headers: { Authorization: `Bearer ${env.MIGHTPULSE_API_KEY}` } });
+      const b = await res.json().catch(() => null), p = (b && b.player) || {};
+      return { id: it.id, note: it.note, ok: res.status === 200, status: res.status, name: p.nick_name ?? null, kid: p.kid ?? null, alliance: (p.alliance && p.alliance.abbr) ?? null, power: p.power ?? null,
+        x: p.x ?? null, y: p.y ?? null, shield: p.shield_endtime ?? null, burn: p.burn_endtime ?? null, asOf: b && b.cached_at ? b.cached_at : null, age: b && b.age_seconds != null ? b.age_seconds : null };
+    } catch (e) { return { id: it.id, note: it.note, ok: false, status: 0 }; } }));
+  const live = { fetched: new Date().toISOString(), window: { start: new Date(w.start).toISOString(), end: new Date(w.end).toISOString() }, rows, src: "worker" };
+  await env.TIMERS.get(env.TIMERS.idFromName("all")).kvSet("bl-live", live);
+  return live;
+}
+async function blacklistRoute(req, env, body) {
+  const acc = await officerAccess(req, env, body);
+  if (!acc || !acc.tabs.has("hunt")) return json({ error: "forbidden" }, 403);
+  const stub = env.TIMERS.get(env.TIMERS.idFromName("all"));
+  let live = await stub.kvGet("bl-live");
+  if (body.refresh && env.MIGHTPULSE_API_KEY && (!live || Date.now() - Date.parse(live.fetched) > 120000)) live = (await blacklistTick(env, true)) || live;
+  return json({ ok: true, live: live || null, setup: !!env.MIGHTPULSE_API_KEY, token: acc.token });
 }
 
 /* officer files may be encrypted: { enc: 1, iv, data } with AES-GCM and DATA_KEY */
