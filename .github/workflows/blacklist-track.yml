@@ -1,12 +1,10 @@
 name: All Out watch list
-# 🎯 Blacklist tab: every 15 minutes while All Out runs (the script checks the Events schedule and stops at once otherwise),
-# and right away when an officer saves the list.
+# 🎯 Blacklist tab: runs right away when an officer saves the list (or by hand).
+# The 15-minute updates during All Out come from the Cloudflare Worker cron, so this has no schedule (saves MightPulse calls).
 on:
   push:
     paths: ["data/blacklist-x7k2p9.json"]
     branches: [main]
-  schedule:
-    - cron: "*/15 * * * *"
   workflow_dispatch:
 
 concurrency:
