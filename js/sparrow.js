@@ -2507,7 +2507,7 @@
       const tx = Math.min(innerWidth - fw * 0.6, Math.max(fw * 0.6, br.left + br.width / 2)), ty = br.top - 8, x0 = innerWidth + fw, y0 = ty - 90;
       fit("fly"); img.src = url(fly); at(x0, y0); actor.style.visibility = "visible";
       const D = 1400, HIT = hurt && META.hurt ? D - 600 : D, t0 = performance.now(); let hitDone = false;
-      const hitNow = () => { hitDone = true; if (hurt && META.hurt) { fit("hurt"); img.src = url(hurt); timers.push(setTimeout(() => { if (!gone) img.src = IMG + "hurt_end.png"; }, dur("hurt") - 40)); } };
+      const hitNow = () => { hitDone = true; if (hurt && META.hurt) { fit("hurt"); img.src = url(hurt); } /* the clip rests on its own last frame (held for hours, plays once): no late swap that lets the rock come again */ };
       await new Promise((res) => { const f = (now) => { if (gone) return res(); const k = Math.min(1, (now - t0) / D), e = 1 - Math.pow(1 - k, 1.5);
         at(x0 + (tx - x0) * e, y0 + 90 * e - Math.sin(Math.PI * k) * 40); if (!hitDone && now - t0 >= HIT) hitNow(); if (k < 1) raf = requestAnimationFrame(f); else res(); }; raf = requestAnimationFrame(f); });
       if (gone) return; if (!hitDone) hitNow();
@@ -2528,7 +2528,7 @@
     if (NAP_PREVIEW) { try { window.isEventActive = () => true; } catch (e) {} }   // the pop-up shows even outside All Out
     setTimeout(() => { preload("fly"); preload("hurt"); }, 1200);   // fetched early, so the gag never has to wait for its clip
     const seePopup = () => {
-      const ov = document.querySelector(".popup-overlay"); if (!ov || ov.spSeen) return; ov.spSeen = true;
+      const ov = document.querySelector(".popup-overlay"); if (!ov || ov.spSeen || ov.querySelector(".sp-gag")) return; ov.spSeen = true;
       // the regular sparrow just waits at its perch, behind the pop-up's dimmed backdrop, until it's called after the jump
       try { gagIn(ov); } catch (e) {}
       if (popupCut) popupCut();   // the regular sparrow drops whatever it was saying; it starts over after the jump
