@@ -231,7 +231,10 @@ async function init() {
   try { sched = (await fetch("data/events-x7k2p9.json?t=" + Date.now(), { cache: "no-store" }).then((r) => r.json())).sched || null; } catch (e) {}
   const r = await read(LIST); L = r.d && Array.isArray(r.d.list) ? r.d : { list: [] }; SAVED = JSON.stringify(L.list); L.list = dedupe(L.list);
   await loadLive();
-  clearInterval(timer); timer = setInterval(() => { if (!document.hidden && location.hash.startsWith("#hunt") && JSON.stringify(L.list || []) === SAVED) loadLive(); }, 60000);   // the job writes every 15 min; look every minute
+  clearInterval(timer); timer = setInterval(async () => { if (document.hidden || !location.hash.startsWith("#hunt") || JSON.stringify(L.list || []) !== SAVED || EDIT) return;
+    /* also re-read the list: other officers' ⭐ marks, ✏️ positions and new players show up without reopening the tab */
+    const r2 = await read(LIST); if (r2.d && Array.isArray(r2.d.list) && JSON.stringify(L.list || []) === SAVED && !EDIT) { L = r2.d; SAVED = JSON.stringify(L.list); L.list = dedupe(L.list); }
+    loadLive(); }, 60000);   // the job writes every 15 min; look every minute
 }
 function setLang(l) { lang = l; applyTexts(); render(); }
 OFFICER_PAGES.hunt = { init, applyTexts, setLang, onShow: () => render() };
