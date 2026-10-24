@@ -109,7 +109,12 @@ async function fromWorker(refresh) {
 async function loadLive(refresh) {
   const [g, w] = await Promise.all([read(LIVE), fromWorker(refresh)]);
   const a = g && g.d, ta = a ? Date.parse(a.fetched) || 0 : -1, tb = w ? Date.parse(w.fetched) || 0 : -1;
-  LV = tb > ta ? w : a; render(); syncTimers();
+  /* per player, the newer data wins (the GitHub file may carry older rows for players it didn't look up again) */
+  const A = tb > ta ? w : a, B = tb > ta ? a : w;
+  if (A && B && Array.isArray(B.rows)) { const m = new Map(); for (const r of B.rows) m.set(String(r.id), r);
+    LV = { ...A, rows: (A.rows || []).map((r) => { const o = m.get(String(r.id)); m.delete(String(r.id)); return o && o.ok && (!r.ok || (toMs(o.asOf) || 0) > (toMs(r.asOf) || 0)) ? o : r; }).concat([...m.values()]) };
+  } else LV = A;
+  render(); syncTimers();
 }
 /* ✏️ a position typed by an officer (saved with the list) wins until MightPulse has data newer than it */
 function eff(it, r) {
@@ -220,7 +225,7 @@ async function save() {
       try { await OFFICER.gh("PUT", LIST, { message: `All Out blacklist (${by})`, content: u8b64(JSON.stringify(await OfficerData.seal(next)) + "\n"), sha: f ? f.sha : undefined, branch: "main" }, OFFICER.token); break; }
       catch (e) { if (e.message !== "busy" || attempt) throw e; }
     }
-    L = next; SAVED = JSON.stringify(L.list); REMOVED.clear(); msg = t("saved"); setTimeout(() => loadLive(true), 8000);
+    L = next; SAVED = JSON.stringify(L.list); REMOVED.clear(); msg = t("saved"); [90000, 150000].forEach((ms) => setTimeout(() => loadLive(), ms));   // the GitHub job looks up only the new players (~2 min); no full re-fetch
   } catch (e) { msg = t(e.message === "auth" ? "errAuth" : e.message === "busy" ? "errBusy" : "errNet"); }
   render();
 }

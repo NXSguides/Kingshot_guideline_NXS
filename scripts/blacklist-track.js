@@ -33,9 +33,14 @@ async function get(path) {
   let L; try { L = readData(LIST); } catch (e) { console.log("No watch list yet."); return; }
   const seen = new Set(), list = ((L && L.list) || []).filter((it) => { const id = String(it.id).replace(/\D/g, ""); if (!id || seen.has(id)) return false; seen.add(id); return true; });   // the same account once
   if (!list.length) { console.log("The watch list is empty."); return; }
-  const rows = [];
+  /* saved list (BL_MODE=requested): only players without data yet are looked up; everyone else keeps the row from the last run
+     (the Worker refreshes the whole list every 15 minutes anyway) — saves MightPulse calls */
+  const old = new Map(); if (MODE !== "auto") { try { for (const r of (readData(LIVE).rows || [])) if (r && r.ok) old.set(String(r.id), r); } catch (e) {} }
+  const rows = []; let asked = 0;
   for (const it of list.slice(0, 60)) {
     const id = String(it.id).replace(/\D/g, ""); if (!id) continue;
+    if (old.has(id)) { rows.push({ ...old.get(id), note: it.note || "" }); continue; }
+    asked++;
     const r = await get(`/players/${id}?include=base`), p = (r.body && r.body.player) || {};
     rows.push({ id, uid: (r.body && r.body.uid) || null, note: it.note || "", ok: r.status === 200, status: r.status,
       name: p.nick_name ?? null, kid: p.kid ?? null, alliance: p.alliance?.abbr ?? null, power: p.power ?? null,
@@ -44,5 +49,5 @@ async function get(path) {
     await sleep(1100);
   }
   writeData(LIVE, { fetched: new Date().toISOString(), window: { start: new Date(w.start).toISOString(), end: new Date(w.end).toISOString() }, rows });
-  console.log(`✅ ${rows.filter((r) => r.ok).length}/${rows.length} players read`);   // no names or positions in the public log
+  console.log(`✅ ${asked} looked up, ${rows.filter((r) => r.ok).length}/${rows.length} players with data`);   // no names or positions in the public log
 })();
