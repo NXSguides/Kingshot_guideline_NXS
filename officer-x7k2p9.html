@@ -638,6 +638,22 @@
   .km-members .mm-t { border-collapse: collapse; width: 100%; font-size: 13px; }
   .km-members .mm-t th, .km-members .mm-t td { padding: 4px 6px; border-bottom: 1px solid var(--rule); text-align: start; white-space: nowrap; }
   .km-members .mm-t tr.ok td { opacity: .6; }
+  .km-members .mm-pn { font: 600 9px Arial, sans-serif; fill: #eaf6ea; pointer-events: none; }
+  .km-members .mm-tg { font: 800 10px Arial, sans-serif; pointer-events: none; paint-order: stroke; stroke: #0008; stroke-width: 2.5px; }
+  .km-members .mm-kill { font: 900 20px Arial, sans-serif; paint-order: stroke; stroke: #0009; stroke-width: 3px; }
+  .km-members .mm-legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; margin: 6px 0; }
+  .km-members .mm-lg i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-inline-end: 4px; box-sizing: border-box; }
+  .km-members .mv-ph { border: 1px solid var(--rule); border-radius: 10px; padding: 8px 10px; margin: 6px 0; }
+  .km-members .mv-ph.ok { opacity: .65; }
+  .km-members .mv-ph.cur { border-color: #d4a017; box-shadow: 0 0 0 2px #d4a01733; }
+  .km-members .mv-ph-h { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .km-members .mv-ph-b { display: flex; flex-wrap: wrap; gap: 4px; }
+  .km-members .mv-chip { font-variant-numeric: tabular-nums; }
+  .km-members .mv-chip.ok { background: #8fd19e33; border-color: #6fb980; }
+  .km-members .mv-chip[disabled] { opacity: 1; cursor: default; }
+  .km-members .mv-now { font-size: 11px; font-weight: 700; color: #8a6400; background: #f6e3a1; border-radius: 8px; padding: 0 6px; }
+  .km-members .mv-warn { color: #b06a00; font-weight: 700; }
+  .km-members .mv-cnt { font-size: 13.5px; }
   .km-members .mm-chip.warn { background: #f3b46b33; border-color: #f3b46b; cursor: pointer; }
 </style>
 </head>
@@ -1151,8 +1167,8 @@
 <section class="pg" id="pg-move" hidden>
   <div class="top"><div><h1 id="mv_title">🚚</h1><div class="muted" id="mv_intro"></div></div></div>
   <details class="card" id="mv_rules" style="margin-bottom:12px"><summary style="cursor:pointer;font-weight:700"></summary><ol style="margin:8px 0 0;padding-inline-start:1.3em;line-height:1.6;font-size:14px"></ol></details>
-  <div class="card km-members" id="mv_root"></div>
-  <div class="card km-members" id="km_members" style="margin-top:14px"></div>
+  <div class="card km-members" id="km_members"></div>
+  <div class="card km-members" id="mv_root" style="margin-top:14px"></div>
 </section>
 <section class="pg" id="pg-perms" hidden>
   <div class="top"><div><h1 id="pm_title"></h1><div class="muted" id="pm_sub"></div></div></div>
