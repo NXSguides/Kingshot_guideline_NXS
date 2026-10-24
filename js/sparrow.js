@@ -1781,10 +1781,22 @@
   let lostSince = 0, lastPerch = null;
   const shown = (el) => { if (!el || !el.isConnected) return false; const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && !el.closest("[hidden]"); };   // scrolled out of view still counts as there
   // hold still while the page is pinch-zoomed (every measurement is off until it's back to 1×) or while someone is typing (the keyboard squeezes the viewport)
-  const typing = () => { const a = document.activeElement; return !!a && (a.tagName === "INPUT" || a.tagName === "TEXTAREA" || a.tagName === "SELECT" || a.isContentEditable); };
+  const typing = () => { const a = document.activeElement; if (!a || !a.isConnected || !(a.tagName === "INPUT" || a.tagName === "TEXTAREA" || a.tagName === "SELECT" || a.isContentEditable)) return false;
+    const r = a.getBoundingClientRect(); return r.width > 0 && r.height > 0; };   // a box that was just re-drawn away (✓ pressed, table refreshed) no longer counts as typing
   const pinched = () => (!!window.visualViewport && Math.abs(visualViewport.scale - 1) > 0.02) || typing();
+  let stuckSince = 0;
   setInterval(async () => {
-    if (root.hidden || flying || state === "sleep" || state === "off" || pinched()) return;
+    if (root.hidden || flying || state === "off" || pinched()) return;
+    // asleep, or nothing going on but still "busy" for a while (a clip that never finished) → it belongs on the Ask AI button: snap back
+    if (!tour && !targetEl && bubble.hidden && (state === "sleep" || busy)) {
+      const h = perchPoint(), d = Math.hypot(h.x - pos.x, h.y - pos.y);
+      if (d <= 1) { stuckSince = 0; return; }
+      stuckSince = stuckSince || Date.now(); if (Date.now() - stuckSince < (state === "sleep" ? 600 : 4000)) return; stuckSince = 0;
+      if (state !== "sleep") busy = false;
+      pos = h; place(); faceIn(); return;
+    }
+    stuckSince = 0;
+    if (state === "sleep") return;
     if (targetEl && (stepResolve || !busy)) {
       if (shown(targetEl)) { lostSince = 0; return; }
       lostSince = lostSince || Date.now(); if (Date.now() - lostSince < 500) return; lostSince = 0;
