@@ -1783,10 +1783,13 @@
   // hold still while the page is pinch-zoomed (every measurement is off until it's back to 1×) or while someone is typing (the keyboard squeezes the viewport)
   const typing = () => { const a = document.activeElement; if (!a || !a.isConnected || !(a.tagName === "INPUT" || a.tagName === "TEXTAREA" || a.tagName === "SELECT" || a.isContentEditable)) return false;
     const r = a.getBoundingClientRect(); return r.width > 0 && r.height > 0; };   // a box that was just re-drawn away (✓ pressed, table refreshed) no longer counts as typing
-  const pinched = () => (!!window.visualViewport && Math.abs(visualViewport.scale - 1) > 0.02) || typing();
+  const zoomed = () => !!window.visualViewport && Math.abs(visualViewport.scale - 1) > 0.02;
+  const pinched = () => zoomed() || typing();
   let stuckSince = 0;
   setInterval(async () => {
-    if (root.hidden || flying || state === "off" || pinched()) return;
+    if (root.hidden || flying || state === "off" || zoomed()) return;
+    // the keyboard opening / closing moves the Ask AI button: when idle, the bird simply stays glued to it (snap, no flight), typing or not
+    if (typing()) { if (!tour && !targetEl && !busy) { const h = perchPoint(); if (Math.hypot(h.x - pos.x, h.y - pos.y) > 1) { pos = h; place(); faceIn(); } } return; }
     // asleep, or nothing going on but still "busy" for a while (a clip that never finished) → it belongs on the Ask AI button: snap back
     if (!tour && !targetEl && bubble.hidden && (state === "sleep" || busy)) {
       const h = perchPoint(), d = Math.hypot(h.x - pos.x, h.y - pos.y);
@@ -2801,9 +2804,11 @@
     const first = (typeof langChosen !== "undefined" && !langChosen) ? "sleep" : "idle";   // a small still shows at once; the clip replaces it when it has loaded
     layout(first, front); front.src = IMG + first + "_end.webp"; cur = first;
     // re-perch a moment after the viewport settles (not during an iOS rubber-band bounce or a toolbar animation, or the bird would hop around)
-    let rpT = null; const rePerch = () => { placeBubble(); clearTimeout(rpT); rpT = setTimeout(() => { if (!busy && !flying && !pinched() && state !== "off" && root.hidden === false && !targetEl) { pos = perchPoint(); place(); faceIn(); } placeBubble(); }, 350); };
+    let rpT = null; const rePerch = () => { placeBubble(); clearTimeout(rpT); rpT = setTimeout(() => { if (!busy && !flying && !zoomed() && state !== "off" && root.hidden === false && !targetEl) { pos = perchPoint(); place(); faceIn(); } placeBubble(); }, 350); };
+    if (window.visualViewport) visualViewport.addEventListener("scroll", rePerch);   // iOS keyboard: the page slides up under it
     window.addEventListener("resize", rePerch);
-    document.addEventListener("focusout", () => setTimeout(rePerch, 250));   // keyboard closed → settle back on the button
+    document.addEventListener("focusout", () => { setTimeout(rePerch, 250); setTimeout(rePerch, 900); });   // once the keyboard has finished sliding away, too
+    document.addEventListener("focusin", () => { setTimeout(rePerch, 300); setTimeout(rePerch, 900); });   // keyboard opening   // keyboard closed → settle back on the button
     if (window.visualViewport) visualViewport.addEventListener("resize", rePerch);   // iOS: the browser bar folding away moves the Ask AI button → the bird follows
     const f = fab(); if (f) new MutationObserver(() => { if (!busy && !flying && !targetEl) { pos = perchPoint(); place(); faceIn(); } }).observe(f, { attributes: true, attributeFilter: ["style", "class"] });
     // navigating to another guide mid-tour: drop the tour (the thing being pointed at may be gone) instead of carrying on somewhere odd
