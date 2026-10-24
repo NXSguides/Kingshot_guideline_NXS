@@ -8,7 +8,7 @@ const $ = (id) => document.getElementById(id);
 const esc = OFFICER.util.esc;
 const LIST = "data/blacklist-x7k2p9.json", LIVE = "data/blacklist-live-x7k2p9.json";
 const T = {
-  en: { title: "🎯 All Out blacklist", intro: "Officers only. Add players by their ID (the number on their profile). While All Out runs, everyone on the list is looked up every 15 minutes (MightPulse refreshes about every 15 minutes): where their castle is and whether their shield is up.",
+  en: { tmName: "🛡️ {n} shield ends {xy}", foTip: "Follow: a ⏰ timer (with a notification) when this player's shield ends — this phone / browser only", foOn: "⏰ Timer set for the end of the shield. It moves by itself if the shield changes.", foWait: "⏰ Following — no shield right now; the timer appears when they put one up.", foOff: "⏰ Not following any more.", title: "🎯 All Out blacklist", intro: "Officers only. Add players by their ID (the number on their profile). While All Out runs, everyone on the list is looked up every 15 minutes (MightPulse refreshes about every 15 minutes): where their castle is and whether their shield is up.",
     win: "All Out {s} – {e}", on: "tracking every 15 minutes now", off: "not running — the list is looked up only when it is saved", next: "next All Out {s} – {e}",
     fetched: "Data fetched {t}", never: "Not fetched yet — save the list and the first look-up arrives in about 2 minutes.", reload: "↻ Reload",
     cNo: "#", cName: "Player", cAll: "Alliance", cKid: "Kingdom", cPos: "Castle X:Y", cShield: "Shield", cOn: "Online", cAsOf: "Data from",
@@ -17,7 +17,7 @@ const T = {
     save: "💾 Save list", by: "Your name", saving: "Saving…", saved: "Saved ✅ The look-up runs in about 2 minutes.", unsaved: "Not saved yet.",
     errAuth: "The saved GitHub key doesn't work any more — ask Sherry.", errBusy: "Someone else saved at the same time — refresh and try again.", errNet: "Couldn't reach GitHub — try again.",
     noKey: "Saving needs the officers' GitHub key (set up on the Post tab).", locked: "Unlock the officer data to see the blacklist.", empty: "The list is empty.", local: "local", mmNote: "🔴 no shield · 🔵 shield up · ■ NXS HQ.", mmOpen: "🗺️ Show on the kingdom map", count: "{n} players" },
-  zh: { title: "🎯 全軍出擊黑名單", intro: "只有幹部看得到。用玩家 ID（個人資料上的那串數字）加人。全軍出擊期間每 15 分鐘查一次名單上每個人的城在哪裡、有沒有開護盾（MightPulse 大約 15 分鐘更新一次）。",
+  zh: { tmName: "🛡️ {n} 護盾結束 {xy}", foTip: "追蹤：這個人的護盾結束時跳 ⏰ 計時提醒（只在這支手機／這個瀏覽器）", foOn: "⏰ 已設定護盾結束的計時器，護盾時間變了會自己跟著改。", foWait: "⏰ 已追蹤——他現在沒開護盾，開盾後計時器就會出現。", foOff: "⏰ 已取消追蹤。", title: "🎯 全軍出擊黑名單", intro: "只有幹部看得到。用玩家 ID（個人資料上的那串數字）加人。全軍出擊期間每 15 分鐘查一次名單上每個人的城在哪裡、有沒有開護盾（MightPulse 大約 15 分鐘更新一次）。",
     win: "全軍出擊 {s} – {e}", on: "現在每 15 分鐘更新", off: "現在沒有活動——只有儲存名單時會查一次", next: "下次全軍出擊 {s} – {e}",
     fetched: "資料抓取時間 {t}", never: "還沒抓過——儲存名單後大約 2 分鐘會有第一次結果。", reload: "↻ 重新整理",
     cNo: "#", cName: "玩家", cAll: "聯盟", cKid: "王國", cPos: "城堡 X:Y", cShield: "護盾", cOn: "上線", cAsOf: "資料時間",
@@ -26,7 +26,7 @@ const T = {
     save: "💾 儲存名單", by: "你的名字", saving: "儲存中…", saved: "已儲存 ✅ 大約 2 分鐘後會查一次。", unsaved: "還沒儲存。",
     errAuth: "存著的 GitHub 金鑰不能用了——請找 Sherry。", errBusy: "有人同時儲存——重新整理後再試一次。", errNet: "連不到 GitHub——請再試一次。",
     noKey: "儲存需要幹部的 GitHub 金鑰（在公告分頁設定）。", locked: "要先解鎖幹部資料才看得到黑名單。", empty: "名單是空的。", local: "當地", mmNote: "🔴 沒開護盾 · 🔵 開著護盾 · ■ NXS 總部。", mmOpen: "🗺️ 在王國地圖上看", count: "{n} 人" },
-  pt: { title: "🎯 Lista negra do All Out", intro: "Só oficiais. Adicione jogadores pelo ID (o número no perfil). Durante o All Out, todos da lista são consultados a cada 15 minutos (a MightPulse atualiza mais ou menos a cada 15 minutos): onde está o castelo e se o escudo está ativo.",
+  pt: { tmName: "🛡️ escudo de {n} acaba {xy}", foTip: "Seguir: um ⏰ timer (com notificação) quando o escudo deste jogador acabar — só neste celular / navegador", foOn: "⏰ Timer criado para o fim do escudo. Ele se ajusta sozinho se o escudo mudar.", foWait: "⏰ Seguindo — sem escudo agora; o timer aparece quando ele ativar um.", foOff: "⏰ Não está mais seguindo.", title: "🎯 Lista negra do All Out", intro: "Só oficiais. Adicione jogadores pelo ID (o número no perfil). Durante o All Out, todos da lista são consultados a cada 15 minutos (a MightPulse atualiza mais ou menos a cada 15 minutos): onde está o castelo e se o escudo está ativo.",
     win: "All Out {s} – {e}", on: "atualizando a cada 15 minutos", off: "fora do evento — a lista só é consultada quando é salva", next: "próximo All Out {s} – {e}",
     fetched: "Dados buscados {t}", never: "Ainda não buscado — salve a lista e a primeira consulta chega em uns 2 minutos.", reload: "↻ Recarregar",
     cNo: "#", cName: "Jogador", cAll: "Aliança", cKid: "Reino", cPos: "Castelo X:Y", cShield: "Escudo", cOn: "Online", cAsOf: "Dados de",
@@ -35,7 +35,7 @@ const T = {
     save: "💾 Salvar lista", by: "Seu nome", saving: "Salvando…", saved: "Salvo ✅ A consulta roda em uns 2 minutos.", unsaved: "Ainda não salvo.",
     errAuth: "A chave do GitHub salva não funciona mais — fale com a Sherry.", errBusy: "Outra pessoa salvou ao mesmo tempo — recarregue e tente de novo.", errNet: "Não deu para acessar o GitHub — tente de novo.",
     noKey: "Salvar precisa da chave do GitHub dos oficiais (configurada na aba Anúncios).", locked: "Desbloqueie os dados dos oficiais para ver a lista.", empty: "A lista está vazia.", local: "local", mmNote: "🔴 sem escudo · 🔵 com escudo · ■ QG da NXS.", mmOpen: "🗺️ Ver no mapa do reino", count: "{n} jogadores" },
-  ar: { title: "🎯 القائمة السوداء في All Out", intro: "للضباط فقط. أضف اللاعبين بالمعرّف (الرقم في ملفهم الشخصي). أثناء All Out يُبحث عن كل من في القائمة كل 15 دقيقة (تتحدث MightPulse كل 15 دقيقة تقريبًا): مكان القلعة وهل الدرع مفعّل.",
+  ar: { tmName: "🛡️ ينتهي درع {n} {xy}", foTip: "متابعة: مؤقت ⏰ (مع إشعار) عند انتهاء درع هذا اللاعب — على هذا الهاتف / المتصفح فقط", foOn: "⏰ تم ضبط مؤقت لنهاية الدرع، ويتعدل تلقائيًا إذا تغيّر الدرع.", foWait: "⏰ تتم المتابعة — لا درع الآن؛ يظهر المؤقت عندما يفعّل درعًا.", foOff: "⏰ أُلغيت المتابعة.", title: "🎯 القائمة السوداء في All Out", intro: "للضباط فقط. أضف اللاعبين بالمعرّف (الرقم في ملفهم الشخصي). أثناء All Out يُبحث عن كل من في القائمة كل 15 دقيقة (تتحدث MightPulse كل 15 دقيقة تقريبًا): مكان القلعة وهل الدرع مفعّل.",
     win: "All Out {s} – {e}", on: "التحديث كل 15 دقيقة الآن", off: "الحدث غير جارٍ — يُبحث في القائمة فقط عند حفظها", next: "All Out القادم {s} – {e}",
     fetched: "وقت جلب البيانات {t}", never: "لم تُجلب بعد — احفظ القائمة وستصل أول نتيجة بعد نحو دقيقتين.", reload: "↻ تحديث",
     cNo: "#", cName: "اللاعب", cAll: "التحالف", cKid: "المملكة", cPos: "القلعة X:Y", cShield: "الدرع", cOn: "متصل", cAsOf: "وقت البيانات",
@@ -44,7 +44,7 @@ const T = {
     save: "💾 حفظ القائمة", by: "اسمك", saving: "جارٍ الحفظ…", saved: "تم الحفظ ✅ يجري البحث بعد نحو دقيقتين.", unsaved: "لم يُحفظ بعد.",
     errAuth: "مفتاح GitHub المحفوظ لم يعد يعمل — اسأل Sherry.", errBusy: "حفظ شخص آخر في الوقت نفسه — حدّث الصفحة وحاول مجددًا.", errNet: "تعذّر الوصول إلى GitHub — حاول مجددًا.",
     noKey: "الحفظ يحتاج مفتاح GitHub الخاص بالضباط (يُضبط في صفحة النشر).", locked: "افتح بيانات الضباط لرؤية القائمة.", empty: "القائمة فارغة.", local: "محلي", mmNote: "🔴 بلا درع · 🔵 الدرع مفعّل · ■ مقر NXS.", mmOpen: "🗺️ عرض على خريطة المملكة", count: "{n} لاعبين" },
-  ko: { title: "🎯 전군 출격 블랙리스트", intro: "간부 전용. 플레이어 ID(프로필에 있는 숫자)로 추가하세요. 전군 출격 동안 명단의 모두를 15분마다 조회해요 (MightPulse는 약 15분마다 갱신): 성 위치와 보호막 여부.",
+  ko: { tmName: "🛡️ {n} 보호막 종료 {xy}", foTip: "추적: 이 플레이어의 보호막이 끝날 때 ⏰ 타이머 알림 (이 폰 / 브라우저만)", foOn: "⏰ 보호막 종료 타이머를 설정했어요. 보호막 시간이 바뀌면 저절로 따라가요.", foWait: "⏰ 추적 중 — 지금은 보호막이 없어요; 보호막을 켜면 타이머가 생겨요.", foOff: "⏰ 추적을 그만뒀어요.", title: "🎯 전군 출격 블랙리스트", intro: "간부 전용. 플레이어 ID(프로필에 있는 숫자)로 추가하세요. 전군 출격 동안 명단의 모두를 15분마다 조회해요 (MightPulse는 약 15분마다 갱신): 성 위치와 보호막 여부.",
     win: "전군 출격 {s} – {e}", on: "지금 15분마다 갱신 중", off: "이벤트 기간 아님 — 명단을 저장할 때만 조회해요", next: "다음 전군 출격 {s} – {e}",
     fetched: "데이터 가져온 시각 {t}", never: "아직 조회 전 — 명단을 저장하면 약 2분 뒤 첫 결과가 나와요.", reload: "↻ 새로고침",
     cNo: "#", cName: "플레이어", cAll: "연맹", cKid: "왕국", cPos: "성 X:Y", cShield: "보호막", cOn: "접속", cAsOf: "데이터 시각",
@@ -56,6 +56,17 @@ const T = {
 };
 let lang = OFFICER.lang || "en", L = { list: [] }, SAVED = "[]", LV = null, msg = "", sched = null, timer = null;
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
+/* ⏰ shield timers: each viewer picks whom to follow (this browser only); their shield end becomes a ⏰ timer (push notification) */
+const FLS = "nxs-hunt-follow";
+let FOLLOW = new Set(); try { FOLLOW = new Set(JSON.parse(localStorage.getItem(FLS) || "[]")); } catch (e) {}
+const saveFollow = () => { try { localStorage.setItem(FLS, JSON.stringify([...FOLLOW])); } catch (e) {} };
+function syncTimers() {
+  if (!(window.NXSTimers && NXSTimers.setExt)) return;
+  const now = Date.now(), items = [];
+  for (const r of (LV && LV.rows) || []) { if (!FOLLOW.has(String(r.id))) continue; const end = toMs(r.shield);
+    if (end && end > now) items.push({ id: "hunt-" + r.id, name: t("tmName").replace("{n}", r.name || r.id).replace("{xy}", r.x != null ? `X:${r.x} Y:${r.y}` : ""), at: end }); }
+  NXSTimers.setExt("hunt", items);
+}
 const ED = () => OFFICER.can("hunt", "edit");
 const pad = (n) => String(n).padStart(2, "0");
 /* "10-24 03:15 UTC (10-24 11:15 local)" — never "x minutes ago" */
@@ -81,7 +92,7 @@ async function read(path) {
   if (OFFICER.token) { try { const f = await OFFICER.gh("GET", path, null, OFFICER.token); if (f) return { d: await OfficerData.open(JSON.parse(b64u8(f.content))), sha: f.sha }; } catch (e) {} }
   try { return { d: await OfficerData.fetchJson(path) }; } catch (e) { return { d: null }; }
 }
-async function loadLive() { const r = await read(LIVE); LV = r.d; render(); }
+async function loadLive() { const r = await read(LIVE); LV = r.d; render(); syncTimers(); }
 function table() {
   const rows = (LV && LV.rows) || [], byId = {}; rows.forEach((r) => byId[r.id] = r);
   const list = L.list || []; if (!list.length) return `<div class="muted">${esc(t("empty"))}</div>`;
@@ -92,7 +103,8 @@ function table() {
       const sh = r ? toMs(r.shield) : null, shield = !r ? "" : sh && sh > now ? `<span class="hn-sh">${esc(t("shieldUntil").replace("{t}", when(sh)))}</span>` : esc(t("noShield"));
       const on = !r ? "" : r.online ? esc(t("online")) : r.lastLogin ? esc(t("lastLogin").replace("{t}", when(r.lastLogin))) : "";
       return `<tr><td>${i + 1}</td><td><b dir="auto">${esc((r && r.name) || it.note || it.id)}</b>${it.note && r && r.name ? `<div class="muted" style="font-size:12px" dir="auto">${esc(it.note)}</div>` : ""}<div class="muted" style="font-size:11.5px">ID ${esc(it.id)}</div></td>`
-        + `<td>${esc((r && r.alliance) || "")}</td><td>${r && r.kid ? "#" + esc(r.kid) : ""}</td><td>${pos}</td><td>${shield}</td><td style="font-size:12.5px">${on}</td><td style="font-size:12px">${r ? esc(when(r.asOf)) : ""}</td>`
+        + `<td>${esc((r && r.alliance) || "")}</td><td>${r && r.kid ? "#" + esc(r.kid) : ""}</td><td>${pos}</td><td>${shield} <button type="button" class="btn small hn-fo${FOLLOW.has(String(it.id)) ? " primary" : ""}" data-fo="${esc(it.id)}" title="${esc(t("foTip"))}">${FOLLOW.has(String(it.id)) ? "⏰ ✓" : "⏰"}</button></td><td style="font-size:12.5px">${on}</td><td style="font-size:12px">${r ? esc(when(r.asOf)) : ""}</td>`
+
         + (ed ? `<td><button type="button" class="btn small" data-del="${i}" title="${esc(t("del"))}">${esc(t("del"))}</button></td>` : "") + `</tr>`; }).join("")
     + `</tbody></table></div>`;
 }
@@ -118,6 +130,7 @@ function render() {
     <div class="row" style="gap:8px;align-items:center;margin:8px 0"><b>${esc(LV && LV.fetched ? t("fetched").replace("{t}", when(LV.fetched)) : t("never"))}</b> <span class="muted" style="font-size:12.5px">${esc(t("count").replace("{n}", (L.list || []).length))}</span>
       <button type="button" class="btn small" id="hn_reload">${esc(t("reload"))}</button></div>
     ${table()}
+    ${!ed && msg ? `<div class="muted" style="font-size:12.5px;margin-top:6px">${esc(msg)}</div>` : ""}
     ${miniMap()}
     ${ed ? `<div style="margin-top:12px"><b>${esc(t("addT"))}</b><div class="row" style="gap:6px;flex-wrap:wrap;margin-top:6px;align-items:center">
       <textarea class="inp" id="hn_id" rows="1" placeholder="${esc(t("id"))}" style="width:190px;resize:vertical;min-height:36px;box-sizing:border-box"></textarea><input class="inp" id="hn_note" placeholder="${esc(t("note"))}" style="width:220px">
@@ -125,6 +138,8 @@ function render() {
       <div class="row" style="gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center">${dirty ? `<input class="inp" id="hn_by" value="${esc(by)}" placeholder="${esc(t("by"))}" style="width:130px"><button type="button" class="btn primary" id="hn_save">${esc(t("save"))}</button>` : ""}
       <span class="muted" style="font-size:12.5px">${esc(msg)}</span></div></div>` : ""}`;
   $("hn_reload").onclick = () => { msg = ""; loadLive(); };
+  el.querySelectorAll(".hn-fo").forEach((b) => b.onclick = () => { const id = b.dataset.fo; if (FOLLOW.has(id)) FOLLOW.delete(id); else FOLLOW.add(id); saveFollow(); syncTimers();
+    const r = ((LV && LV.rows) || []).find((x) => String(x.id) === id); msg = FOLLOW.has(id) ? (r && toMs(r.shield) > Date.now() ? t("foOn") : t("foWait")) : t("foOff"); render(); });
   el.querySelectorAll(".hn-cp").forEach((b) => b.onclick = async () => { try { await navigator.clipboard.writeText(b.dataset.c); b.textContent = t("copied"); } catch (e) {} });
   if (!ed) return;
   el.querySelectorAll("[data-del]").forEach((b) => b.onclick = () => { L.list.splice(+b.dataset.del, 1); msg = t("unsaved"); render(); });
