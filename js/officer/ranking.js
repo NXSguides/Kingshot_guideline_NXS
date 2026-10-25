@@ -51,6 +51,13 @@ const PRESETS = [
       { name: { en: "Defenders", zh: "防守者" }, count: 6 },
       { name: { en: "Joiners", zh: "參與者" }, count: null },
     ] },
+  /* 🔱 Tri-Alliance Clash (三盟爭霸): its own groups, the Swordland battle table is hidden while it is open; "Copy result" adds each power */
+  { id: "tri", emoji: "🔱", power: true, name: { en: "Tri-Alliance Clash", zh: "三盟爭霸", pt: "Confronto Tri-Aliança", ar: "صراع التحالف الثلاثي", ko: "삼대 연맹전" },
+    groups: [
+      { name: { en: "Team 1 – Deep Attack / Enemy Territory", zh: "第 1 隊 – 深入進攻／敵方領地", pt: "Time 1 – Ataque profundo / Território inimigo", ar: "الفريق 1 – هجوم عميق / أرض العدو", ko: "1팀 – 깊은 공격 / 적 영토" }, count: 5 },
+      { name: { en: "Team 2 – Boundary Control / Enemy Captures", zh: "第 2 隊 – 邊界控制／搶敵方據點", pt: "Time 2 – Controle da fronteira / Capturas inimigas", ar: "الفريق 2 – السيطرة على الحدود / الاستيلاء على مواقع العدو", ko: "2팀 – 경계 장악 / 적 거점 점령" }, count: 5 },
+      { name: { en: "Team 3 – Internal Territory / Support", zh: "第 3 隊 – 我方領地／支援", pt: "Time 3 – Território interno / Apoio", ar: "الفريق 3 – الأرض الداخلية / الدعم", ko: "3팀 – 내부 영토 / 지원" }, count: null },
+    ] },
 ];
 const LS = "nxs-roster-v2";
 const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
@@ -200,6 +207,7 @@ function renderPresets() {
     `<button class="btn${activePreset === pr.id ? " on" : ""}" data-p="${pr.id}">${pr.emoji} ${esc(pr.name[lang] || ptOf(pr.name.en))}</button>`).join("");
   const pr = PRESETS.find((x) => x.id === activePreset);
   $("presetCopy").hidden = !pr;
+  if ($("tbCard")) $("tbCard").hidden = !!(pr && pr.id !== "swordland");   // the battle table is Swordland's: hidden while another event is open
   if (!document.activeElement || !document.activeElement.closest("#presetCounts")) renderCounts();
   if (!pr) { $("presetOut").innerHTML = ""; return; }
   const pic = pr.img ? `<a class="grp-img" href="${pr.img}" target="_blank" rel="noopener"><img src="${pr.img}" alt="${esc(pr.name[lang] || pr.name.en)}" loading="lazy"></a>` : "";
@@ -309,7 +317,7 @@ $("presetCounts").oninput = (e) => {
 $("presetCopy").onclick = async () => {
   const pr = PRESETS.find((x) => x.id === activePreset); if (!pr) return;
   const text = `**${pr.emoji} ${pr.name[lang] || ptOf(pr.name.en)}**\n` + presetGroups(pr).map(({ g, list }) =>
-    `\n**${g.name[lang] || ptOf(g.name.en)} (${list.length})**\n` + (list.map((m, i) => `${i + 1}. ${m.name}`).join("\n") || "—")).join("\n");
+    `\n**${g.name[lang] || ptOf(g.name.en)} (${list.length})**\n` + (list.map((m, i) => `${i + 1}. ${m.name}${pr.power && +m.power ? ": " + Number(m.power).toLocaleString("en-US") : ""}`).join("\n") || "—")).join("\n");
   try { await navigator.clipboard.writeText(text); } catch (e) {
     const ta = document.createElement("textarea"); ta.value = text; ROOT.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
   }

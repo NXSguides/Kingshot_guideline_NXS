@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Ranking: 🔱 Tri-Alliance Clash groups", /Tri-Alliance Clash \/ 三盟爭霸: Team 1/, /🔱 Tri-Alliance Clash for its 3 teams/],
   // [name, AI (worker OFFICER_HELP or scripts/build-ai-context.js), Little Sparrow (js/sparrow.js)]
   ["Post: formatting toolbar", /Word-like toolbar/, /po02b:/],
   ["Post: looks / scroll themes", /"Look" \(樣式\)/, /po05:/],
