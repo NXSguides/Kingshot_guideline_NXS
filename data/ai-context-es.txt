@@ -225,6 +225,9 @@ Formación de tropas: 10-10-80%. Igual que la alternativa de mejores héroes —
 Los demás puestos de líder aún no se han publicado.
 Participantes — primeros héroes aprobados
 ❌ No envíes a Petra como participante. Usa un héroe aprobado en el primer puesto o envía sin héroe.
+Líderes de concentración: importan las estadísticas y el equipo de los 3 héroes.
+Participantes: solo cuenta la habilidad de expedición de tu primer héroe, cuanto más nivel, mejor. Su equipo no importa, ni tus propias estadísticas. Lo que importa es tipo de tropa, nivel y proporción.
+Con el límite de 90,000 puedes enviar solo el primer héroe y dejar vacíos los demás puestos. Los otros héroes solo suben la capacidad de marcha.
 2. Tropas de los participantes
 Todos los participantes envían exactamente 90,000 tropas por concentración. La proporción ideal es 10:10:80 cuando se pueda, con énfasis en arqueros.
 Infantería 9.000 (10%) · Caballería 9.000 (10%) · Arqueros 72.000 (80%)
@@ -254,6 +257,8 @@ Líderes asignados: tropas máximas en tu propia concentración, pero el límite
 Nada de concentraciones propias en la fase principal: únete a las concentraciones NXS asignadas en vez de lanzar la tuya.
 ⏰ Quedan 6:30 — fase final: todos los participantes pueden lanzar su propia concentración con sus 3 héroes más fuertes. Es la única excepción a la regla de no lanzar otras concentraciones.
 Guarda tu formación de líder
+🧮 Usa Frakinator (https://frakinator.streamlit.app/) para encontrar tu proporción ideal como líder. También tiene en cuenta tu Instinto de Cazador (Valora).
+💡 Por qué guardar por proporción y no por cantidad: Valora sube tu capacidad a medida que sube su afinidad (Ventaja Salvaje: tu despliegue +3.000 a +30.000; Danza de la Caza: capacidad de concentración contra el oso +30.000 a +300.000). Una formación guardada por proporción siempre llena tu máximo actual; una guardada por cantidad se queda con los números viejos.
 Prepara tu formación de líder (por ejemplo BT1): héroe principal, 2.º y 3.er héroe y tus tropas.
 Al guardarla, marca Save by Troop Ratio (guardar por proporción de tropas).
 Guarda tus formaciones de participante
@@ -266,7 +271,6 @@ POR QUÉ IMPORTA
 Fuente principal de materiales de equipo de héroe (Martillos de Forja) y XP de mejora.
 PREPARACIÓN
 Actualiza tus formaciones antes de cada Cacería del Oso.
-Opcional: usa https://frakinator.streamlit.app/ para probar proporciones de tropas y encontrar tu formación más fuerte.
 Recupera las tropas de recolección antes de que comience el evento.
 Recuerda: en los últimos 5–7 minutos, todos deben lanzar un Ataque Conjunto. Esto crea más espacios para los jugadores cuyas tropas están regresando, permitiendo un empuje final de daño.
 Formación de tropas: 20-40-40%. En la Gen 3, los F2P consiguen su primer héroe con Complemento de Ataque Conjunto (Petra). Prueba números equilibrados de arqueros/caballería porque Petra mejora mucho a las tropas de arqueros. Las estadísticas de arqueros siguen siendo las más bajas sin un héroe arquero SSR. Si desbloqueas caballería T10, su habilidad combina bien con las estadísticas de Petra. Si desbloqueas la Caballería T3, Petra se vuelve aún más fuerte, porque su 3.ª habilidad encaja muy bien con sus atributos.

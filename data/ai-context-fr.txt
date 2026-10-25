@@ -225,6 +225,9 @@ Formation de troupe : 10-10-80 %. Comme pour les héros alternatifs — les bonu
 Les autres emplacements de leader ne sont pas encore disponibles.
 Participants — premiers héros approuvés
 ❌ N'envoie pas Petra en participant. Mets un héros approuvé en premier, ou envoie sans héros.
+Chefs de ralliement : les stats et l'équipement des 3 héros comptent.
+Participants : seule la compétence d'expédition de ton premier héros compte, plus son niveau est haut, mieux c'est. Son équipement ne compte pas, tes propres stats non plus. Ce qui compte : type de troupe, niveau et ratio.
+Avec la limite de 90,000, tu peux envoyer seulement le premier héros et laisser les autres places vides. Les autres héros ne font qu'augmenter la capacité de marche.
 2. Troupes des participants
 Tous les participants envoient exactement 90,000 troupes par ralliement. Le ratio idéal est 10:10:80 si possible, surtout des archers.
 Infanterie 9 000 (10 %) · Cavalerie 9 000 (10 %) · Archers 72 000 (80 %)
@@ -254,6 +257,8 @@ Chefs de ralliement désignés : troupes maximales dans ton ralliement, mais la 
 Pas de ralliement perso pendant la phase principale : rejoins les ralliements NXS désignés au lieu de lancer le tien.
 ⏰ 6:30 restantes — phase finale : tous les participants peuvent lancer leur propre ralliement avec leurs 3 meilleurs héros. C'est la seule exception à la règle « pas d'autres ralliements ».
 Enregistrer ta formation de chef de ralliement
+🧮 Utilise Frakinator (https://frakinator.streamlit.app/) pour trouver ton ratio idéal en tant que chef. Il prend aussi en compte ton Instinct de chasseur (Valora).
+💡 Pourquoi enregistrer par ratio et non par quantité : Valora augmente ta capacité quand son affinité monte (Avantage sauvage : ton déploiement +3 000 à +30 000 ; Danse de la chasse : capacité de ralliement contre l'ours +30 000 à +300 000). Une formation enregistrée par ratio remplit toujours ton maximum actuel, une enregistrée par quantité reste bloquée aux anciens chiffres.
 Prépare ta formation de chef (par exemple BT1) : héros principal, 2e et 3e héros, et tes troupes.
 En enregistrant, coche Save by Troop Ratio (enregistrer par ratio de troupes).
 Enregistrer tes formations de participant
@@ -266,7 +271,6 @@ POURQUOI C'EST IMPORTANT
 Source principale de matériaux d'Équipement de héros (Marteaux de Forge) et d'EXP d'Amélioration.
 PRÉPARATION
 Mettez à jour vos formations de troupe avant chaque Chasse à l'Ours.
-Optionnel : utilisez https://frakinator.streamlit.app/ pour tester les ratios de troupes et trouver votre meilleure formation.
 Rappelez les troupes en collecte avant le début de l'événement.
 N'oubliez pas : pendant les 5 à 7 dernières minutes, tout le monde devrait lancer un ralliement. Cela libère davantage de places pour les joueurs dont les troupes reviennent et permet un dernier coup de collier de dégâts.
 Formation de troupe : 20-40-40 %. En Gen 3, les F2P obtiennent leur premier héros avec un équipement exclusif de ralliement (Petra). Essayez des nombres équilibrés d'Archers et de Cavalerie, car Petra améliore beaucoup les Archers. Les stats d'Archer restent les plus basses sans Archer SSR. Si vous débloquez la Cavalerie T10, la compétence T10 s'accorde bien avec les stats de Petra. Si vous débloquez la Cavalerie T3, Petra devient encore plus forte, car sa 3e compétence fonctionne très bien avec leurs stats.

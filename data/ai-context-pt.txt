@@ -225,6 +225,9 @@ Formação de tropas: 10-10-80%. Igual aos melhores heróis alternativos — os 
 Os demais espaços de líder ainda não foram divulgados.
 Participantes — primeiros heróis aprovados
 ❌ Não mande Petra como participante. Use um herói aprovado no primeiro espaço ou mande sem herói.
+Líderes de reunião: os atributos e equipamentos dos 3 heróis importam.
+Participantes: só conta a habilidade de expedição do seu primeiro herói, quanto maior o nível, melhor. O equipamento dele não importa, nem seus próprios atributos. O que importa é tipo de tropa, nível e proporção.
+Com o limite de 90,000, você pode mandar só o primeiro herói e deixar os outros espaços vazios. Os outros heróis só aumentam a capacidade de marcha.
 2. Tropas dos participantes
 Todos os participantes mandam exatamente 90,000 tropas por reunião. A proporção ideal é 10:10:80 quando possível, com foco em arqueiros.
 Infantaria 9.000 (10%) · Cavalaria 9.000 (10%) · Arqueiros 72.000 (80%)
@@ -254,6 +257,8 @@ Líderes escolhidos: máximo de tropas na sua reunião, mas o limite de 90,000 a
 Nada de reuniões próprias na fase principal: entre nas reuniões NXS escolhidas em vez de abrir a sua.
 ⏰ Faltando 6:30 — fase final: todos os participantes podem abrir a própria reunião com os 3 heróis mais fortes. É a única exceção à regra de não abrir outras reuniões.
 Salve sua formação de líder
+🧮 Use o Frakinator (https://frakinator.streamlit.app/) para achar sua proporção ideal como líder. Ele também considera seu Instinto de Caçador (Valora).
+💡 Por que salvar por proporção e não por quantidade: a Valora aumenta sua capacidade conforme a afinidade sobe (Vantagem Selvagem: sua tropa enviada +3.000 a +30.000; Dança da Caça: capacidade de reunião contra o urso +30.000 a +300.000). Uma formação salva por proporção sempre preenche seu máximo atual; uma salva por quantidade fica presa nos números antigos.
 Monte sua formação de líder de reunião (por exemplo BT1): herói principal, 2º e 3º herói e suas tropas.
 Ao salvar, marque Save by Troop Ratio (salvar por proporção de tropas).
 Salve suas formações de participante
@@ -266,7 +271,6 @@ POR QUE IMPORTA
 Principal fonte de materiais de Equipamento do Herói (Martelos de Forja) e XP de Aprimoramento.
 PREPARAÇÃO
 Atualize suas Formações das Tropas antes de cada Caça ao Urso.
-Opcional: use https://frakinator.streamlit.app/ para testar proporções de tropas e encontrar sua formação mais forte.
 Revogue as tropas que estão coletando antes do início do evento.
 Lembre-se: nos últimos 5–7 minutos, todos devem iniciar um rally. Isso cria mais vagas para jogadores cujas tropas estão retornando, permitindo um último impulso de dano.
 Formação de tropas: 20-40-40%. Na Gen 3, os F2P recebem o primeiro herói com equipamento exclusivo de rally (Petra). Tente números equilibrados de Arquearia e Cavalaria, porque a Petra melhora muito os Arquearia. Os atributos dos Arquearia continuam os mais baixos sem uma Arquearia SSR. Se você desbloquear a Cavalaria T10, a habilidade T10 combina bem com os atributos da Petra. Se você desbloquear a Cavalaria T3, Petra fica ainda mais forte, porque a 3ª habilidade dela combina muito bem com os atributos deles.

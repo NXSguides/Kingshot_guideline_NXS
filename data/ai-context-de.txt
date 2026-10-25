@@ -225,6 +225,9 @@ Gleiche Idee wie die Alternative — Rosas 3. Skill glänzt am stärksten in bog
 Die übrigen Anführer-Plätze sind noch nicht veröffentlicht.
 Teilnehmer — freigegebene erste Helden
 ❌ Schick Petra nicht als Teilnehmer. Setz einen freigegebenen Helden in den ersten Platz oder schick keinen Helden.
+Rallyleiter: Werte und Ausrüstung aller 3 Helden zählen.
+Teilnehmer: Nur der Expeditionsskill deines ersten Helden zählt, je höher die Stufe, desto besser. Seine Ausrüstung zählt nicht, deine eigenen Werte auch nicht. Wichtig sind Truppentyp, Stufe und Verhältnis.
+Mit dem Limit von 90,000 kannst du nur den ersten Helden schicken und die anderen Plätze leer lassen. Die anderen Helden erhöhen nur die Marschkapazität.
 2. Truppen für Teilnehmer
 Alle Teilnehmer schicken pro Rally genau 90,000 Truppen. Ideal ist 10:10:80, wenn möglich, mit Schwerpunkt auf Bogenschützen.
 Infanterie 9.000 (10 %) · Kavallerie 9.000 (10 %) · Bogenschützen 72.000 (80 %)
@@ -254,6 +257,8 @@ Eingeteilte Rallyleiter: maximale Truppen in der eigenen Rally, aber 90,000 beim
 Keine eigenen Rallys in der Hauptphase: tritt den eingeteilten NXS-Rallys bei, statt selbst zu starten.
 ⏰ 6:30 übrig — letzte Rally-Phase: Alle Teilnehmer dürfen jetzt eigene Rallys mit ihren 3 stärksten Helden starten. Das ist die einzige Ausnahme von der Keine-eigenen-Rallys-Regel.
 Rallyleiter-Aufstellung speichern
+🧮 Nutze Frakinator (https://frakinator.streamlit.app/), um dein ideales Verhältnis als Leiter zu finden. Er berücksichtigt auch deinen Jagdinstinkt (Valora).
+💡 Warum nach Verhältnis statt nach Menge speichern: Valora erhöht deine Kapazität mit steigender Zuneigung (Wilder Vorteil: eigene Entsendung +3.000 bis +30.000; Tanz der Jagd: Rallykapazität gegen den Bären +30.000 bis +300.000). Nach Verhältnis gespeichert füllt die Aufstellung immer dein aktuelles Maximum, nach Menge bleibt sie bei den alten Zahlen.
 Stell deine Rallyleiter-Aufstellung ein (z. B. BT1): Anführer, 2. und 3. Held und deine Truppen.
 Hak beim Speichern Save by Troop Ratio (nach Truppenverhältnis speichern) an.
 Teilnehmer-Aufstellungen speichern
@@ -266,7 +271,6 @@ WARUM ES ZÄHLT
 Hauptquelle für Heldenausrüstungs-Material (Forgehammer) und Verbesserungs-XP.
 VORBEREITUNG
 Aktualisiert eure Trupp Formationen vor jeder Bärenjagd.
-Optional: Mit https://frakinator.streamlit.app Truppenverhältnisse testen und die stärkste Formation finden.
 Ruft sammelnde Truppen vor Eventbeginn zurück.
 In den letzten 5–7 Minuten sollte jeder einen Rally starten. So entstehen mehr Plätze für Spieler, deren Truppen zurückkehren — für den finalen Schadensschub.
 Erster F2P-Held mit Rally-Ausrüstung (Petra); Bogenschützen bleiben am schwächsten, maxed Kavallerie passt aber gut zu Petra. Wenn du T3-Kavallerie freischaltest, wird Petra noch stärker, weil ihre 3. Fertigkeit sehr gut zu deren Werten passt.
