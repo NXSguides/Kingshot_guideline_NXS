@@ -225,7 +225,7 @@ Gestionar tu concentración
 Revisa los héroes y la cantidad de tropas de todos los que se unen:
 Primer héroe equivocado: expulsa al jugador y pídele que vuelva a unirse correctamente.
 Cantidad de tropas equivocada: expulsa al jugador y pídele que vuelva con exactamente 90,000 tropas.
-Solo cuentan los 4 primeros participantes: el juego usa la habilidad del primer héroe de los 4 participantes con el primer héroe de nivel más alto. Si muchos son Nv 80, sube a tus dos mejores Chenko y dos mejores Amane.
+Solo cuentan los 4 primeros participantes: el juego usa la habilidad del primer héroe de los 4 participantes de arriba de tu lista, sin importar su nivel ni sus tropas. Sube a tus dos mejores Chenko y dos mejores Amane.
 Cómo subir participantes
 Abre tu concentración del Oso en curso.
 Busca a los participantes Chenko y Amane más fuertes — compara estrellas de héroes y niveles de widget.
@@ -262,6 +262,9 @@ Guarda tus marchas antes de que empiece la Cacería del Oso.
 Líderes asignados: tropas máximas en tu propia concentración, pero el límite de 90,000 al unirte a la de otro.
 Nada de concentraciones propias en la fase principal: únete a las concentraciones NXS asignadas en vez de lanzar la tuya.
 ⏰ Quedan 6:30 — fase final: todos los participantes pueden lanzar su propia concentración con sus 3 héroes más fuertes. Es la única excepción a la regla de no lanzar otras concentraciones.
+Guarda tus formaciones de participante
+Prepara tus formaciones para unirte (BT2–BT5): primer héroe de la lista aprobada y exactamente 9.000 infantería, 9.000 caballería y 72.000 arqueros.
+Al guardarlas, marca Save by Troop Quantity (por cantidad, no por proporción) para que cada marcha tenga exactamente 90,000.
 (see guide #formations-rally-tips)
 Prioridad – envía estos primero: estos héroes dan una bonificación fija de Letalidad, la más valiosa para la Cacería del Oso.
 ÚSALOS CON CUIDADO

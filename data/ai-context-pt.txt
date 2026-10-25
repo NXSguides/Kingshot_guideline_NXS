@@ -225,7 +225,7 @@ Gerenciando sua reunião
 Confira os heróis e o número de tropas de todos que entrarem:
 Primeiro herói errado: expulse o jogador e peça para entrar de novo do jeito certo.
 Número de tropas errado: expulse o jogador e peça para entrar de novo com exatamente 90,000 tropas.
-Só os 4 primeiros participantes contam: o jogo usa a habilidade do primeiro herói dos 4 participantes com o primeiro herói de nível mais alto. Quando muitos são Nv 80, suba seus dois melhores Chenko e dois melhores Amane.
+Só os 4 primeiros participantes contam: o jogo usa a habilidade do primeiro herói dos 4 participantes no topo da lista, seja qual for o nível do herói ou as tropas. Suba seus dois melhores Chenko e dois melhores Amane.
 Como subir participantes
 Abra sua reunião do Urso em andamento.
 Ache os participantes Chenko e Amane mais fortes — compare as estrelas dos heróis e o nível dos widgets.
@@ -262,6 +262,9 @@ Salve suas marchas antes de a Caça ao Urso começar.
 Líderes escolhidos: máximo de tropas na sua reunião, mas o limite de 90,000 ao entrar na de outra pessoa.
 Nada de reuniões próprias na fase principal: entre nas reuniões NXS escolhidas em vez de abrir a sua.
 ⏰ Faltando 6:30 — fase final: todos os participantes podem abrir a própria reunião com os 3 heróis mais fortes. É a única exceção à regra de não abrir outras reuniões.
+Salve suas formações de participante
+Monte suas formações de participação (BT2–BT5): primeiro herói da lista aprovada, depois exatamente 9.000 infantaria, 9.000 cavalaria e 72.000 arqueiros.
+Ao salvar, marque Save by Troop Quantity (por quantidade, não por proporção), para cada marcha ter exatamente 90,000.
 (see guide #formations-rally-tips)
 Prioridade – envie estes primeiro: esses heróis dão um bônus fixo de Letalidade, o bônus mais valioso na Caça ao Urso.
 USE COM CUIDADO

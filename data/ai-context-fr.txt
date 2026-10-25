@@ -225,7 +225,7 @@ Gérer ton ralliement
 Vérifie les héros et le nombre de troupes de chaque participant :
 Mauvais premier héros : expulse le joueur et demande-lui de revenir correctement.
 Mauvais nombre de troupes : expulse le joueur et demande-lui de revenir avec exactement 90,000 troupes.
-Seuls les 4 premiers participants comptent : le jeu prend la compétence du premier héros des 4 participants dont le premier héros a le plus haut niveau. Quand beaucoup sont niv. 80, remonte tes deux meilleurs Chenko et deux meilleurs Amane.
+Seuls les 4 premiers participants comptent : le jeu prend la compétence du premier héros des 4 participants en haut de ta liste, quels que soient leur niveau ou leurs troupes. Remonte tes deux meilleurs Chenko et deux meilleurs Amane.
 Remonter les participants
 Ouvre ton ralliement Ours en cours.
 Repère les participants Chenko et Amane les plus forts — compare étoiles des héros et niveaux de widget.
@@ -262,6 +262,9 @@ Pré-enregistre tes marches avant le début de la Chasse à l'Ours.
 Chefs de ralliement désignés : troupes maximales dans ton ralliement, mais la limite de 90,000 quand tu rejoins celui d'un autre.
 Pas de ralliement perso pendant la phase principale : rejoins les ralliements NXS désignés au lieu de lancer le tien.
 ⏰ 6:30 restantes — phase finale : tous les participants peuvent lancer leur propre ralliement avec leurs 3 meilleurs héros. C'est la seule exception à la règle « pas d'autres ralliements ».
+Enregistrer tes formations de participant
+Prépare tes formations de participation (BT2–BT5) : premier héros de la liste approuvée, puis exactement 9 000 infanterie, 9 000 cavalerie et 72 000 archers.
+En les enregistrant, coche Save by Troop Quantity (par nombre, pas par ratio) pour que chaque marche fasse exactement 90,000.
 (see guide #formations-rally-tips)
 Priorité – à envoyer en premier : ces héros donnent un bonus de Létalité fixe, le bonus le plus précieux pour la Chasse à l'Ours.
 À UTILISER AVEC PRUDENCE

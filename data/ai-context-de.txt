@@ -225,7 +225,7 @@ Deine Rally verwalten
 Prüfe Helden und Truppenzahl aller Teilnehmer:
 Falscher erster Held: Spieler kicken und bitten, richtig neu beizutreten.
 Falsche Truppenzahl: Spieler kicken und bitten, mit genau 90,000 Truppen neu beizutreten.
-Nur die Top 4 Teilnehmer zählen: Das Spiel nimmt die Skills der ersten Helden der 4 Teilnehmer mit dem höchsten Level des ersten Helden. Wenn viele Lv 80 haben, schieb deine besten zwei Chenkos und zwei Amanes nach oben.
+Nur die Top 4 Teilnehmer zählen: Das Spiel nimmt die Skills der ersten Helden der 4 obersten Teilnehmer in deiner Liste, egal welches Heldenlevel oder wie viele Truppen. Schieb deine besten zwei Chenkos und zwei Amanes nach oben.
 Teilnehmer nach oben schieben
 Öffne deine laufende Bären-Rally.
 Finde die stärksten Chenko- und Amane-Teilnehmer — vergleiche Heldensterne und Widget-Level.
@@ -262,6 +262,9 @@ Märsche vorher speichern, bevor die Bärenjagd beginnt.
 Eingeteilte Rallyleiter: maximale Truppen in der eigenen Rally, aber 90,000 beim Mitmachen bei anderen.
 Keine eigenen Rallys in der Hauptphase: tritt den eingeteilten NXS-Rallys bei, statt selbst zu starten.
 ⏰ 6:30 übrig — letzte Rally-Phase: Alle Teilnehmer dürfen jetzt eigene Rallys mit ihren 3 stärksten Helden starten. Das ist die einzige Ausnahme von der Keine-eigenen-Rallys-Regel.
+Teilnehmer-Aufstellungen speichern
+Stell deine Teilnahme-Aufstellungen ein (BT2–BT5): erster Held aus der freigegebenen Liste, dann genau 9.000 Infanterie, 9.000 Kavallerie und 72.000 Bogenschützen.
+Hak beim Speichern Save by Troop Quantity an (nach Truppenzahl, nicht nach Verhältnis), damit jeder Marsch genau 90,000 hat.
 (see guide #formations-rally-tips)
 Priorität – diese zuerst schicken: Diese Helden geben einen festen Tödlichkeit-Bonus, den wertvollsten Bonus für die Bärenjagd.
 MIT VORSICHT VERWENDEN

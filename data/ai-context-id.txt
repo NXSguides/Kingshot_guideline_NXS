@@ -225,7 +225,7 @@ Mengelola rally kamu
 Periksa hero dan jumlah pasukan semua yang bergabung:
 Hero pertama salah: keluarkan pemain dan minta bergabung lagi dengan benar.
 Jumlah pasukan salah: keluarkan pemain dan minta bergabung lagi dengan tepat 90,000 pasukan.
-Hanya 4 peserta teratas yang dihitung: game memakai skill hero pertama dari 4 peserta dengan level hero pertama tertinggi. Kalau banyak yang Lv 80, naikkan dua Chenko dan dua Amane terbaikmu ke atas.
+Hanya 4 peserta teratas yang dihitung: game memakai skill hero pertama dari 4 peserta paling atas di daftar, berapa pun level hero atau pasukannya. Naikkan dua Chenko dan dua Amane terbaikmu ke atas.
 Cara menaikkan peserta
 Buka rally Beruang kamu yang sedang berjalan.
 Cari peserta Chenko dan Amane terkuat — bandingkan bintang hero dan level widget.
@@ -262,6 +262,9 @@ Simpan barisanmu lebih dulu sebelum Bear Hunt dimulai.
 Pemimpin rally yang ditunjuk: pasukan maksimal di rally sendiri, tapi batas 90,000 saat ikut rally orang lain.
 Tidak ada rally sendiri di fase utama: ikut rally NXS yang ditunjuk, jangan membuka rally sendiri.
 ⏰ Sisa 6:30 — fase rally terakhir: semua peserta boleh membuka rally sendiri dengan 3 hero terkuat. Ini satu-satunya pengecualian dari aturan tidak membuka rally lain.
+Simpan formasi peserta
+Atur formasi untuk bergabung (BT2–BT5): hero pertama dari daftar yang disetujui, lalu tepat 9.000 infanteri, 9.000 kavaleri, dan 72.000 pemanah.
+Saat menyimpan, centang Save by Troop Quantity (berdasarkan jumlah, bukan rasio) supaya setiap barisan tepat 90,000.
 (see guide #formations-rally-tips)
 Prioritas – kirim ini dulu: pahlawan ini memberi bonus Lethality tetap, bonus paling berharga untuk Bear Hunt.
 GUNAKAN DENGAN HATI-HATI

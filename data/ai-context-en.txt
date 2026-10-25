@@ -225,7 +225,7 @@ Managing your rally
 Check the heroes and troop numbers of everyone who joins:
 Wrong first-slot hero: kick the player and ask them to rejoin correctly.
 Wrong troop number: kick the player and ask them to rejoin with exactly 90,000 troops.
-Only the top 4 joiners count: the game uses the first-slot skill of the 4 joiners with the highest first-hero level. When many are Lv 80, bump your best two Chenkos and two Amanes to the top.
+Only your top 4 joiners count: the game uses the first-slot skill of the 4 joiners at the top of your list, whatever their hero level or troop count. Bump your best two Chenkos and two Amanes to the top.
 How to bump joiners
 Open your active Bear rally.
 Find the strongest Chenko and Amane joiners — compare their hero stars and widget levels.
@@ -262,6 +262,9 @@ Pre-save your marches before Bear Hunt starts.
 Assigned rally leaders: maximum troops in your own rally, but the 90,000 limit when joining someone else's.
 No independent rallies in the main phase: join the assigned NXS rallies instead of launching your own.
 ⏰ 6:30 remaining — final rally phase: all joiners may now start their own rallies with their 3 strongest heroes. This is the only exception to the no-other-rallies rule.
+Save your joiner formations
+Set your joining formations (BT2–BT5): first-slot hero from the approved list, then exactly 9,000 infantry, 9,000 cavalry and 72,000 archers.
+When you save them, tick Save by Troop Quantity (not by ratio), so every march is exactly 90,000.
 (see guide #formations-rally-tips)
 Priority — send these first: these heroes give a flat Lethality bonus, the most valuable bonus for Bear Hunt.
 USE WITH CAUTION

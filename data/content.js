@@ -2999,7 +2999,7 @@ const GUIDES = {
         { type: "p", text: "Start your rally at your assigned time with an approved formation (below) and your **maximum** troops. When you join someone else's rally, follow the **{=bear}** limit like everyone else." },
         { type: "sub", text: "Managing your rally" },
         { type: "p", text: "Check the heroes and troop numbers of everyone who joins:" },
-        { type: "list", items: [ "**Wrong first-slot hero:** kick the player and ask them to rejoin correctly.", "**Wrong troop number:** kick the player and ask them to rejoin with exactly {=bear} troops.", "**Only the top 4 joiners count:** the game uses the first-slot skill of the 4 joiners with the highest first-hero level. When many are Lv 80, bump your best two {chenko}s and two {amane}s to the top." ]},
+        { type: "list", items: [ "**Wrong first-slot hero:** kick the player and ask them to rejoin correctly.", "**Wrong troop number:** kick the player and ask them to rejoin with exactly {=bear} troops.", "**Only your top 4 joiners count:** the game uses the first-slot skill of the 4 joiners at the top of your list, whatever their hero level or troop count. Bump your best two {chenko}s and two {amane}s to the top." ]},
         { type: "sub", text: "How to bump joiners" },
         { type: "steps", items: [
           { text: "Open your active Bear rally." }, { text: "Find the strongest {chenko} and {amane} joiners — compare their hero stars and widget levels." }, { text: "Tap a player's row to open their details." },
@@ -3045,6 +3045,8 @@ const GUIDES = {
           "**No independent rallies in the main phase:** join the assigned NXS rallies instead of launching your own."
         ]},
         { type: "callout", text: "⏰ **6:30 remaining — final rally phase:** all joiners may now start their own rallies with their **3 strongest heroes**. This is the only exception to the no-other-rallies rule." },
+        { type: "sub", text: "Save your joiner formations" },
+        { type: "steps", items: [ { text: "Set your joining formations (**BT2–BT5**): first-slot hero from the approved list, then exactly **9,000 infantry, 9,000 cavalry and 72,000 archers**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "When you save them, tick **Save by Troop Quantity** (not by ratio), so every march is exactly {=bear}.", img: "figures/bear-save-qty.jpg" } ]},
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Priority — send these first:** these heroes give a **flat {lethality} bonus**, the most valuable bonus for Bear Hunt." },
         { type: "joiners" },
@@ -3077,7 +3079,7 @@ const GUIDES = {
         { type: "p", text: "在指派的時間，用下方認可的陣容和**最大**兵力發起集結。加入別人的集結時，跟大家一樣遵守 **{=bear}** 人的限制。" },
         { type: "sub", text: "管理你的集結" },
         { type: "p", text: "檢查每位加入者的英雄和兵力：" },
-        { type: "list", items: [ "**第一位英雄錯誤：**踢出並請對方用正確的英雄重新加入。", "**兵力不對：**踢出並請對方用剛好 {=bear} 人重新加入。", "**只有前 4 名加入者算數：**遊戲只取第一位英雄等級最高的 4 位加入者的第一技能。很多人都是 Lv80 時，把最強的兩個{chenko}和兩個{amane}往上推。" ]},
+        { type: "list", items: [ "**第一位英雄錯誤：**踢出並請對方用正確的英雄重新加入。", "**兵力不對：**踢出並請對方用剛好 {=bear} 人重新加入。", "**只有前 4 名加入者算數：**遊戲取名單最上面 4 位加入者的第一技能，不看英雄等級，也不看兵力。把最強的兩個{chenko}和兩個{amane}推到最上面。" ]},
         { type: "sub", text: "如何把加入者往上推" },
         { type: "steps", items: [
           { text: "打開你正在進行的熊集結。" }, { text: "找出最強的{chenko}和{amane}加入者，比較英雄星級和專屬裝備等級。" }, { text: "點玩家那一列展開詳細資料。" },
@@ -3123,6 +3125,8 @@ const GUIDES = {
           "**主要階段不要自己開集結：**加入 NXS 指派的集結，不要自己發起。"
         ]},
         { type: "callout", text: "⏰ **剩下 6:30 — 最後集結階段：**所有參與者可以用自己**最強的 3 位英雄**發起自己的集結。這是「不要自己開集結」的唯一例外。" },
+        { type: "sub", text: "儲存加入集結的陣容" },
+        { type: "steps", items: [ { text: "設定加入集結用的陣容（**BT2–BT5**）：第一位英雄用認可名單裡的，兵力剛好**步兵 9,000、騎兵 9,000、弓兵 72,000**。", img: "figures/bear-joiner-bt2.jpg" }, { text: "儲存時勾選「**Save by Troop Quantity**」（依兵力數量儲存，不是依比例），這樣每次出兵都剛好 {=bear} 人。", img: "figures/bear-save-qty.jpg" } ]},
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**優先派出：**這些英雄提供**固定{lethality}加成**，是狩獵巨熊最有價值的加成。" },
         { type: "joiners" },
@@ -3155,7 +3159,7 @@ const GUIDES = {
         { type: "p", text: "배정된 시간에 아래 승인된 편성과 **최대** 병력으로 집결을 시작하세요. 다른 사람의 집결에 참여할 때는 모두와 같이 **{=bear}**명 제한을 지키세요." },
         { type: "sub", text: "집결 관리" },
         { type: "p", text: "참여한 모든 사람의 영웅과 병력 수를 확인하세요:" },
-        { type: "list", items: [ "**첫 번째 영웅이 틀림:** 강퇴하고 올바르게 다시 참여하라고 요청하세요.", "**병력 수가 틀림:** 강퇴하고 정확히 {=bear}명으로 다시 참여하라고 요청하세요.", "**상위 4명의 참여자만 적용:** 게임은 첫 번째 영웅 레벨이 가장 높은 참여자 4명의 첫 번째 스킬만 사용합니다. Lv80이 많을 때는 가장 강한 {chenko} 2명과 {amane} 2명을 맨 위로 올리세요." ]},
+        { type: "list", items: [ "**첫 번째 영웅이 틀림:** 강퇴하고 올바르게 다시 참여하라고 요청하세요.", "**병력 수가 틀림:** 강퇴하고 정확히 {=bear}명으로 다시 참여하라고 요청하세요.", "**상위 4명의 참여자만 적용:** 게임은 영웅 레벨이나 병력과 상관없이 목록 맨 위 참여자 4명의 첫 번째 스킬을 사용합니다. 가장 강한 {chenko} 2명과 {amane} 2명을 맨 위로 올리세요." ]},
         { type: "sub", text: "참여자를 위로 올리는 방법" },
         { type: "steps", items: [
           { text: "진행 중인 곰 집결을 여세요." }, { text: "가장 강한 {chenko}와 {amane} 참여자를 찾으세요 — 영웅 별과 전용 장비 레벨을 비교하세요." }, { text: "플레이어 줄을 눌러 상세 정보를 여세요." },
@@ -3201,6 +3205,8 @@ const GUIDES = {
           "**메인 단계에서 개인 집결 금지:** 직접 집결을 열지 말고 배정된 NXS 집결에 참여하세요."
         ]},
         { type: "callout", text: "⏰ **6:30 남음 — 마지막 집결 단계:** 모든 참여자가 **가장 강한 영웅 3명**으로 본인 집결을 시작해도 됩니다. 개인 집결 금지 규칙의 유일한 예외입니다." },
+        { type: "sub", text: "참여 편성 저장" },
+        { type: "steps", items: [ { text: "참여용 편성(**BT2–BT5**)을 설정하세요: 첫 번째 영웅은 승인 목록에서, 병력은 정확히 **보병 9,000, 기병 9,000, 궁병 72,000**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "저장할 때 **Save by Troop Quantity**(병력 수로 저장, 비율 아님)를 체크하면 매번 정확히 {=bear}명이 됩니다.", img: "figures/bear-save-qty.jpg" } ]},
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**우선 파견:** 이 영웅들은 **고정 {lethality} 보너스**를 주며, 베어 사냥에서 가장 가치 있는 보너스입니다." },
         { type: "joiners" },
@@ -3233,7 +3239,7 @@ const GUIDES = {
         { type: "p", text: "Starte deine Rally zu deiner zugeteilten Zeit mit einer freigegebenen Aufstellung (unten) und deinen **maximalen** Truppen. Wenn du bei anderen mitmachst, gilt wie für alle das Limit von **{=bear}**." },
         { type: "sub", text: "Deine Rally verwalten" },
         { type: "p", text: "Prüfe Helden und Truppenzahl aller Teilnehmer:" },
-        { type: "list", items: [ "**Falscher erster Held:** Spieler kicken und bitten, richtig neu beizutreten.", "**Falsche Truppenzahl:** Spieler kicken und bitten, mit genau {=bear} Truppen neu beizutreten.", "**Nur die Top 4 Teilnehmer zählen:** Das Spiel nimmt die Skills der ersten Helden der 4 Teilnehmer mit dem höchsten Level des ersten Helden. Wenn viele Lv 80 haben, schieb deine besten zwei {chenko}s und zwei {amane}s nach oben." ]},
+        { type: "list", items: [ "**Falscher erster Held:** Spieler kicken und bitten, richtig neu beizutreten.", "**Falsche Truppenzahl:** Spieler kicken und bitten, mit genau {=bear} Truppen neu beizutreten.", "**Nur die Top 4 Teilnehmer zählen:** Das Spiel nimmt die Skills der ersten Helden der 4 obersten Teilnehmer in deiner Liste, egal welches Heldenlevel oder wie viele Truppen. Schieb deine besten zwei {chenko}s und zwei {amane}s nach oben." ]},
         { type: "sub", text: "Teilnehmer nach oben schieben" },
         { type: "steps", items: [
           { text: "Öffne deine laufende Bären-Rally." }, { text: "Finde die stärksten {chenko}- und {amane}-Teilnehmer — vergleiche Heldensterne und Widget-Level." }, { text: "Tippe auf die Zeile eines Spielers, um Details zu öffnen." },
@@ -3279,6 +3285,8 @@ const GUIDES = {
           "**Keine eigenen Rallys in der Hauptphase:** tritt den eingeteilten NXS-Rallys bei, statt selbst zu starten."
         ]},
         { type: "callout", text: "⏰ **6:30 übrig — letzte Rally-Phase:** Alle Teilnehmer dürfen jetzt eigene Rallys mit ihren **3 stärksten Helden** starten. Das ist die einzige Ausnahme von der Keine-eigenen-Rallys-Regel." },
+        { type: "sub", text: "Teilnehmer-Aufstellungen speichern" },
+        { type: "steps", items: [ { text: "Stell deine Teilnahme-Aufstellungen ein (**BT2–BT5**): erster Held aus der freigegebenen Liste, dann genau **9.000 Infanterie, 9.000 Kavallerie und 72.000 Bogenschützen**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "Hak beim Speichern **Save by Troop Quantity** an (nach Truppenzahl, nicht nach Verhältnis), damit jeder Marsch genau {=bear} hat.", img: "figures/bear-save-qty.jpg" } ]},
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Priorität – diese zuerst schicken:** Diese Helden geben einen **festen {lethality}-Bonus**, den wertvollsten Bonus für die Bärenjagd." },
         { type: "joiners" },
@@ -3311,7 +3319,7 @@ const GUIDES = {
         { type: "p", text: "Lance ton ralliement à l'heure prévue avec une formation approuvée (ci-dessous) et tes troupes **maximales**. Quand tu rejoins le ralliement d'un autre, respecte la limite de **{=bear}** comme tout le monde." },
         { type: "sub", text: "Gérer ton ralliement" },
         { type: "p", text: "Vérifie les héros et le nombre de troupes de chaque participant :" },
-        { type: "list", items: [ "**Mauvais premier héros :** expulse le joueur et demande-lui de revenir correctement.", "**Mauvais nombre de troupes :** expulse le joueur et demande-lui de revenir avec exactement {=bear} troupes.", "**Seuls les 4 premiers participants comptent :** le jeu prend la compétence du premier héros des 4 participants dont le premier héros a le plus haut niveau. Quand beaucoup sont niv. 80, remonte tes deux meilleurs {chenko} et deux meilleurs {amane}." ]},
+        { type: "list", items: [ "**Mauvais premier héros :** expulse le joueur et demande-lui de revenir correctement.", "**Mauvais nombre de troupes :** expulse le joueur et demande-lui de revenir avec exactement {=bear} troupes.", "**Seuls les 4 premiers participants comptent :** le jeu prend la compétence du premier héros des 4 participants en haut de ta liste, quels que soient leur niveau ou leurs troupes. Remonte tes deux meilleurs {chenko} et deux meilleurs {amane}." ]},
         { type: "sub", text: "Remonter les participants" },
         { type: "steps", items: [
           { text: "Ouvre ton ralliement Ours en cours." }, { text: "Repère les participants {chenko} et {amane} les plus forts — compare étoiles des héros et niveaux de widget." }, { text: "Touche la ligne d'un joueur pour voir ses détails." },
@@ -3357,6 +3365,8 @@ const GUIDES = {
           "**Pas de ralliement perso pendant la phase principale :** rejoins les ralliements NXS désignés au lieu de lancer le tien."
         ]},
         { type: "callout", text: "⏰ **6:30 restantes — phase finale :** tous les participants peuvent lancer leur propre ralliement avec leurs **3 meilleurs héros**. C'est la seule exception à la règle « pas d'autres ralliements »." },
+        { type: "sub", text: "Enregistrer tes formations de participant" },
+        { type: "steps", items: [ { text: "Prépare tes formations de participation (**BT2–BT5**) : premier héros de la liste approuvée, puis exactement **9 000 infanterie, 9 000 cavalerie et 72 000 archers**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "En les enregistrant, coche **Save by Troop Quantity** (par nombre, pas par ratio) pour que chaque marche fasse exactement {=bear}.", img: "figures/bear-save-qty.jpg" } ]},
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Priorité – à envoyer en premier :** ces héros donnent un **bonus de {lethality} fixe**, le bonus le plus précieux pour la Chasse à l'Ours." },
         { type: "joiners" },
@@ -3389,7 +3399,7 @@ const GUIDES = {
         { type: "p", text: "Comece sua reunião no horário marcado com uma formação aprovada (abaixo) e o **máximo** de tropas. Ao entrar na reunião de outra pessoa, siga o limite de **{=bear}** como todo mundo." },
         { type: "sub", text: "Gerenciando sua reunião" },
         { type: "p", text: "Confira os heróis e o número de tropas de todos que entrarem:" },
-        { type: "list", items: [ "**Primeiro herói errado:** expulse o jogador e peça para entrar de novo do jeito certo.", "**Número de tropas errado:** expulse o jogador e peça para entrar de novo com exatamente {=bear} tropas.", "**Só os 4 primeiros participantes contam:** o jogo usa a habilidade do primeiro herói dos 4 participantes com o primeiro herói de nível mais alto. Quando muitos são Nv 80, suba seus dois melhores {chenko} e dois melhores {amane}." ]},
+        { type: "list", items: [ "**Primeiro herói errado:** expulse o jogador e peça para entrar de novo do jeito certo.", "**Número de tropas errado:** expulse o jogador e peça para entrar de novo com exatamente {=bear} tropas.", "**Só os 4 primeiros participantes contam:** o jogo usa a habilidade do primeiro herói dos 4 participantes no topo da lista, seja qual for o nível do herói ou as tropas. Suba seus dois melhores {chenko} e dois melhores {amane}." ]},
         { type: "sub", text: "Como subir participantes" },
         { type: "steps", items: [
           { text: "Abra sua reunião do Urso em andamento." }, { text: "Ache os participantes {chenko} e {amane} mais fortes — compare as estrelas dos heróis e o nível dos widgets." }, { text: "Toque na linha do jogador para ver os detalhes." },
@@ -3435,6 +3445,8 @@ const GUIDES = {
           "**Nada de reuniões próprias na fase principal:** entre nas reuniões NXS escolhidas em vez de abrir a sua."
         ]},
         { type: "callout", text: "⏰ **Faltando 6:30 — fase final:** todos os participantes podem abrir a própria reunião com os **3 heróis mais fortes**. É a única exceção à regra de não abrir outras reuniões." },
+        { type: "sub", text: "Salve suas formações de participante" },
+        { type: "steps", items: [ { text: "Monte suas formações de participação (**BT2–BT5**): primeiro herói da lista aprovada, depois exatamente **9.000 infantaria, 9.000 cavalaria e 72.000 arqueiros**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "Ao salvar, marque **Save by Troop Quantity** (por quantidade, não por proporção), para cada marcha ter exatamente {=bear}.", img: "figures/bear-save-qty.jpg" } ]},
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Prioridade – envie estes primeiro:** esses heróis dão um **bônus fixo de {lethality}**, o bônus mais valioso na Caça ao Urso." },
         { type: "joiners" },
@@ -3467,7 +3479,7 @@ const GUIDES = {
         { type: "p", text: "Inicia tu concentración a la hora asignada con una formación aprobada (abajo) y tus tropas **máximas**. Cuando te unas a la de otro, respeta el límite de **{=bear}** como todos." },
         { type: "sub", text: "Gestionar tu concentración" },
         { type: "p", text: "Revisa los héroes y la cantidad de tropas de todos los que se unen:" },
-        { type: "list", items: [ "**Primer héroe equivocado:** expulsa al jugador y pídele que vuelva a unirse correctamente.", "**Cantidad de tropas equivocada:** expulsa al jugador y pídele que vuelva con exactamente {=bear} tropas.", "**Solo cuentan los 4 primeros participantes:** el juego usa la habilidad del primer héroe de los 4 participantes con el primer héroe de nivel más alto. Si muchos son Nv 80, sube a tus dos mejores {chenko} y dos mejores {amane}." ]},
+        { type: "list", items: [ "**Primer héroe equivocado:** expulsa al jugador y pídele que vuelva a unirse correctamente.", "**Cantidad de tropas equivocada:** expulsa al jugador y pídele que vuelva con exactamente {=bear} tropas.", "**Solo cuentan los 4 primeros participantes:** el juego usa la habilidad del primer héroe de los 4 participantes de arriba de tu lista, sin importar su nivel ni sus tropas. Sube a tus dos mejores {chenko} y dos mejores {amane}." ]},
         { type: "sub", text: "Cómo subir participantes" },
         { type: "steps", items: [
           { text: "Abre tu concentración del Oso en curso." }, { text: "Busca a los participantes {chenko} y {amane} más fuertes — compara estrellas de héroes y niveles de widget." }, { text: "Toca la fila del jugador para ver sus detalles." },
@@ -3513,6 +3525,8 @@ const GUIDES = {
           "**Nada de concentraciones propias en la fase principal:** únete a las concentraciones NXS asignadas en vez de lanzar la tuya."
         ]},
         { type: "callout", text: "⏰ **Quedan 6:30 — fase final:** todos los participantes pueden lanzar su propia concentración con sus **3 héroes más fuertes**. Es la única excepción a la regla de no lanzar otras concentraciones." },
+        { type: "sub", text: "Guarda tus formaciones de participante" },
+        { type: "steps", items: [ { text: "Prepara tus formaciones para unirte (**BT2–BT5**): primer héroe de la lista aprobada y exactamente **9.000 infantería, 9.000 caballería y 72.000 arqueros**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "Al guardarlas, marca **Save by Troop Quantity** (por cantidad, no por proporción) para que cada marcha tenga exactamente {=bear}.", img: "figures/bear-save-qty.jpg" } ]},
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Prioridad – envía estos primero:** estos héroes dan una **bonificación fija de {lethality}**, la más valiosa para la Cacería del Oso." },
         { type: "joiners" },
@@ -3545,7 +3559,7 @@ const GUIDES = {
         { type: "p", text: "Rallini sana atanan zamanda, onaylı bir dizilişle (aşağıda) ve **maksimum** askerle başlat. Başkasının rallisine katılırken herkes gibi **{=bear}** sınırına uy." },
         { type: "sub", text: "Rallini yönetmek" },
         { type: "p", text: "Katılan herkesin kahramanlarını ve asker sayısını kontrol et:" },
-        { type: "list", items: [ "**Yanlış ilk kahraman:** oyuncuyu at ve doğru şekilde tekrar katılmasını iste.", "**Yanlış asker sayısı:** oyuncuyu at ve tam {=bear} askerle tekrar katılmasını iste.", "**Sadece ilk 4 katılımcı sayılır:** oyun, ilk kahramanının seviyesi en yüksek 4 katılımcının ilk kahraman becerisini kullanır. Çoğu Sv 80 ise en iyi iki {chenko} ve iki {amane}'yi en üste taşı." ]},
+        { type: "list", items: [ "**Yanlış ilk kahraman:** oyuncuyu at ve doğru şekilde tekrar katılmasını iste.", "**Yanlış asker sayısı:** oyuncuyu at ve tam {=bear} askerle tekrar katılmasını iste.", "**Sadece ilk 4 katılımcı sayılır:** oyun, kahraman seviyesi veya asker sayısından bağımsız olarak listenin en üstündeki 4 katılımcının ilk kahraman becerisini kullanır. En iyi iki {chenko} ve iki {amane}'yi en üste taşı." ]},
         { type: "sub", text: "Katılımcıları yukarı taşımak" },
         { type: "steps", items: [
           { text: "Devam eden Ayı rallini aç." }, { text: "En güçlü {chenko} ve {amane} katılımcılarını bul — kahraman yıldızlarını ve widget seviyelerini karşılaştır." }, { text: "Ayrıntılar için oyuncunun satırına dokun." },
@@ -3591,6 +3605,8 @@ const GUIDES = {
           "**Ana aşamada kendi rallini açma:** kendi rallini başlatmak yerine atanan NXS rallilerine katıl."
         ]},
         { type: "callout", text: "⏰ **6:30 kala — son ralli aşaması:** tüm katılımcılar artık **en güçlü 3 kahramanıyla** kendi rallisini başlatabilir. Bu, kendi ralliyi açmama kuralının tek istisnasıdır." },
+        { type: "sub", text: "Katılımcı dizilişlerini kaydet" },
+        { type: "steps", items: [ { text: "Katılım dizilişlerini ayarla (**BT2–BT5**): onaylı listeden ilk kahraman, sonra tam **9.000 piyade, 9.000 süvari ve 72.000 okçu**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "Kaydederken **Save by Troop Quantity** (orana göre değil, sayıya göre) seçeneğini işaretle; böylece her yürüyüş tam {=bear} olur.", img: "figures/bear-save-qty.jpg" } ]},
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Öncelik – önce bunları gönderin:** Bu kahramanlar **sabit {lethality} bonusu** verir; Ayı Avı için en değerli bonus budur." },
         { type: "joiners" },
@@ -3623,7 +3639,7 @@ const GUIDES = {
         { type: "p", text: "Mulai rally di waktu yang ditentukan dengan formasi yang disetujui (di bawah) dan pasukan **maksimal**. Saat ikut rally orang lain, ikuti batas **{=bear}** seperti semua orang." },
         { type: "sub", text: "Mengelola rally kamu" },
         { type: "p", text: "Periksa hero dan jumlah pasukan semua yang bergabung:" },
-        { type: "list", items: [ "**Hero pertama salah:** keluarkan pemain dan minta bergabung lagi dengan benar.", "**Jumlah pasukan salah:** keluarkan pemain dan minta bergabung lagi dengan tepat {=bear} pasukan.", "**Hanya 4 peserta teratas yang dihitung:** game memakai skill hero pertama dari 4 peserta dengan level hero pertama tertinggi. Kalau banyak yang Lv 80, naikkan dua {chenko} dan dua {amane} terbaikmu ke atas." ]},
+        { type: "list", items: [ "**Hero pertama salah:** keluarkan pemain dan minta bergabung lagi dengan benar.", "**Jumlah pasukan salah:** keluarkan pemain dan minta bergabung lagi dengan tepat {=bear} pasukan.", "**Hanya 4 peserta teratas yang dihitung:** game memakai skill hero pertama dari 4 peserta paling atas di daftar, berapa pun level hero atau pasukannya. Naikkan dua {chenko} dan dua {amane} terbaikmu ke atas." ]},
         { type: "sub", text: "Cara menaikkan peserta" },
         { type: "steps", items: [
           { text: "Buka rally Beruang kamu yang sedang berjalan." }, { text: "Cari peserta {chenko} dan {amane} terkuat — bandingkan bintang hero dan level widget." }, { text: "Ketuk baris pemain untuk membuka detailnya." },
@@ -3669,6 +3685,8 @@ const GUIDES = {
           "**Tidak ada rally sendiri di fase utama:** ikut rally NXS yang ditunjuk, jangan membuka rally sendiri."
         ]},
         { type: "callout", text: "⏰ **Sisa 6:30 — fase rally terakhir:** semua peserta boleh membuka rally sendiri dengan **3 hero terkuat**. Ini satu-satunya pengecualian dari aturan tidak membuka rally lain." },
+        { type: "sub", text: "Simpan formasi peserta" },
+        { type: "steps", items: [ { text: "Atur formasi untuk bergabung (**BT2–BT5**): hero pertama dari daftar yang disetujui, lalu tepat **9.000 infanteri, 9.000 kavaleri, dan 72.000 pemanah**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "Saat menyimpan, centang **Save by Troop Quantity** (berdasarkan jumlah, bukan rasio) supaya setiap barisan tepat {=bear}.", img: "figures/bear-save-qty.jpg" } ]},
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Prioritas – kirim ini dulu:** pahlawan ini memberi **bonus {lethality} tetap**, bonus paling berharga untuk Bear Hunt." },
         { type: "joiners" },
@@ -3701,7 +3719,7 @@ const GUIDES = {
         { type: "p", text: "Запускайте сбор в назначенное время с одобренным составом (ниже) и **максимумом** войск. Присоединяясь к чужому сбору, соблюдайте лимит **{=bear}**, как все." },
         { type: "sub", text: "Управление сбором" },
         { type: "p", text: "Проверяйте героев и количество войск у всех участников:" },
-        { type: "list", items: [ "**Неверный первый герой:** исключите игрока и попросите присоединиться правильно.", "**Неверное количество войск:** исключите игрока и попросите присоединиться ровно с {=bear} войск.", "**Считаются только 4 первых участника:** игра берёт навык первого героя у 4 участников с самым высоким уровнем первого героя. Если у многих Ур. 80, поднимите наверх двух лучших {chenko} и двух лучших {amane}." ]},
+        { type: "list", items: [ "**Неверный первый герой:** исключите игрока и попросите присоединиться правильно.", "**Неверное количество войск:** исключите игрока и попросите присоединиться ровно с {=bear} войск.", "**Считаются только 4 верхних участника:** игра берёт навык первого героя у 4 участников вверху списка, независимо от уровня героя и количества войск. Поднимите наверх двух лучших {chenko} и двух лучших {amane}." ]},
         { type: "sub", text: "Как поднять участников" },
         { type: "steps", items: [
           { text: "Откройте текущий сбор на Медведя." }, { text: "Найдите самых сильных участников с {chenko} и {amane} — сравните звёзды героев и уровни снаряжения." }, { text: "Нажмите на строку игрока, чтобы открыть детали." },
@@ -3747,6 +3765,8 @@ const GUIDES = {
           "**Никаких своих сборов в основной фазе:** присоединяйтесь к назначенным сборам NXS вместо своих."
         ]},
         { type: "callout", text: "⏰ **Осталось 6:30 — финальная фаза:** все участники могут запустить свой сбор с **3 самыми сильными героями**. Это единственное исключение из правила «не запускать свои сборы»." },
+        { type: "sub", text: "Сохраните составы участника" },
+        { type: "steps", items: [ { text: "Настройте составы для участия (**BT2–BT5**): первый герой из одобренного списка, затем ровно **9 000 пехоты, 9 000 кавалерии и 72 000 лучников**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "При сохранении отметьте **Save by Troop Quantity** (по количеству, а не по соотношению), чтобы каждый марш был ровно {=bear}.", img: "figures/bear-save-qty.jpg" } ]},
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**Приоритет – отправляйте первыми:** эти герои дают **фиксированный бонус к {lethality}** — самый ценный бонус в охоте на медведя." },
         { type: "joiners" },
@@ -3779,7 +3799,7 @@ const GUIDES = {
         { type: "p", text: "เริ่มรวมพลตามเวลาที่ได้รับมอบหมาย ด้วยทีมที่อนุมัติ (ด้านล่าง) และทหาร**สูงสุด** เมื่อเข้าร่วมรวมพลของคนอื่น ให้ทำตามขีดจำกัด **{=bear}** เหมือนทุกคน" },
         { type: "sub", text: "การจัดการรวมพลของคุณ" },
         { type: "p", text: "ตรวจฮีโร่และจำนวนทหารของทุกคนที่เข้าร่วม:" },
-        { type: "list", items: [ "**ฮีโร่ช่องแรกผิด:** เตะผู้เล่นออกและขอให้เข้าร่วมใหม่ให้ถูกต้อง", "**จำนวนทหารผิด:** เตะผู้เล่นออกและขอให้เข้าร่วมใหม่ด้วยทหารพอดี {=bear}", "**นับเฉพาะผู้เข้าร่วม 4 อันดับแรก:** เกมใช้สกิลฮีโร่ช่องแรกของผู้เข้าร่วม 4 คนที่ฮีโร่ช่องแรกเลเวลสูงสุด ถ้าหลายคนเป็น Lv 80 ให้ดัน {chenko} ที่ดีที่สุดสองคนและ {amane} สองคนขึ้นไปบนสุด" ]},
+        { type: "list", items: [ "**ฮีโร่ช่องแรกผิด:** เตะผู้เล่นออกและขอให้เข้าร่วมใหม่ให้ถูกต้อง", "**จำนวนทหารผิด:** เตะผู้เล่นออกและขอให้เข้าร่วมใหม่ด้วยทหารพอดี {=bear}", "**นับเฉพาะผู้เข้าร่วม 4 คนบนสุด:** เกมใช้สกิลฮีโร่ช่องแรกของผู้เข้าร่วม 4 คนบนสุดของรายชื่อ ไม่ว่าเลเวลฮีโร่หรือจำนวนทหารเท่าไร ดัน {chenko} ที่ดีที่สุดสองคนและ {amane} สองคนขึ้นไปบนสุด" ]},
         { type: "sub", text: "วิธีดันผู้เข้าร่วมขึ้นบน" },
         { type: "steps", items: [
           { text: "เปิดการรวมพลหมีที่กำลังดำเนินอยู่" }, { text: "หาผู้เข้าร่วม {chenko} และ {amane} ที่แข็งแกร่งที่สุด — เทียบดาวฮีโร่และเลเวลอุปกรณ์เฉพาะ" }, { text: "แตะแถวของผู้เล่นเพื่อเปิดรายละเอียด" },
@@ -3825,6 +3845,8 @@ const GUIDES = {
           "**ห้ามเปิดรวมพลเองในช่วงหลัก:** เข้าร่วมรวมพล NXS ที่ได้รับมอบหมายแทนการเปิดเอง"
         ]},
         { type: "callout", text: "⏰ **เหลือ 6:30 — ช่วงรวมพลสุดท้าย:** ผู้เข้าร่วมทุกคนเปิดรวมพลเองได้ด้วย**ฮีโร่ที่แข็งแกร่งที่สุด 3 ตัว** นี่คือข้อยกเว้นเดียวของกฎห้ามเปิดรวมพลเอง" },
+        { type: "sub", text: "บันทึกทีมสำหรับเข้าร่วม" },
+        { type: "steps", items: [ { text: "ตั้งทีมสำหรับเข้าร่วมรวมพล (**BT2–BT5**): ฮีโร่ช่องแรกจากรายชื่อที่อนุมัติ แล้วใส่ทหารพอดี **ทหารราบ 9,000 ทหารม้า 9,000 พลธนู 72,000**", img: "figures/bear-joiner-bt2.jpg" }, { text: "ตอนบันทึก ให้ติ๊ก **Save by Troop Quantity** (ตามจำนวน ไม่ใช่สัดส่วน) เพื่อให้ทุกการเดินทัพพอดี {=bear}", img: "figures/bear-save-qty.jpg" } ]},
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**ลำดับแรก – ส่งฮีโร่เหล่านี้ก่อน:** ให้**โบนัส{lethality}แบบคงที่** ซึ่งเป็นโบนัสที่มีค่าที่สุดสำหรับล่าหมี" },
         { type: "joiners" },
@@ -3857,7 +3879,7 @@ const GUIDES = {
         { type: "p", text: "ابدأ تجمعك في وقتك المحدد بتشكيلة معتمدة (في الأسفل) و**أقصى** عدد من الجنود. عند الانضمام لتجمع شخص آخر، التزم بحد **{=bear}** مثل الجميع." },
         { type: "sub", text: "إدارة تجمعك" },
         { type: "p", text: "تحقق من أبطال وعدد جنود كل من ينضم:" },
-        { type: "list", items: [ "**بطل أول خاطئ:** اطرد اللاعب واطلب منه الانضمام مجددًا بشكل صحيح.", "**عدد جنود خاطئ:** اطرد اللاعب واطلب منه الانضمام مجددًا بـ {=bear} جندي بالضبط.", "**أعلى 4 منضمين فقط يُحتسبون:** تستخدم اللعبة مهارة البطل الأول لأعلى 4 منضمين في مستوى البطل الأول. إذا كان كثيرون بمستوى 80، ارفع أفضل اثنين من {chenko} واثنين من {amane} إلى الأعلى." ]},
+        { type: "list", items: [ "**بطل أول خاطئ:** اطرد اللاعب واطلب منه الانضمام مجددًا بشكل صحيح.", "**عدد جنود خاطئ:** اطرد اللاعب واطلب منه الانضمام مجددًا بـ {=bear} جندي بالضبط.", "**أعلى 4 منضمين فقط يُحتسبون:** تستخدم اللعبة مهارة البطل الأول لأول 4 منضمين في أعلى القائمة، بغض النظر عن مستوى البطل أو عدد الجنود. ارفع أفضل اثنين من {chenko} واثنين من {amane} إلى الأعلى." ]},
         { type: "sub", text: "كيف ترفع المنضمين" },
         { type: "steps", items: [
           { text: "افتح تجمع الدب الجاري." }, { text: "ابحث عن أقوى المنضمين من {chenko} و{amane} — قارن نجوم الأبطال ومستوى العتاد الخاص." }, { text: "اضغط على صف اللاعب لفتح التفاصيل." },
@@ -3903,6 +3925,8 @@ const GUIDES = {
           "**لا تجمعات خاصة في المرحلة الرئيسية:** انضم لتجمعات NXS المعيّنة بدل إطلاق تجمعك."
         ]},
         { type: "callout", text: "⏰ **متبقٍ 6:30 — مرحلة التجمع الأخيرة:** يمكن لكل المنضمين الآن إطلاق تجمعاتهم بـ**أقوى 3 أبطال**. هذا هو الاستثناء الوحيد من قاعدة عدم إطلاق تجمعات أخرى." },
+        { type: "sub", text: "احفظ تشكيلات الانضمام" },
+        { type: "steps", items: [ { text: "جهّز تشكيلات الانضمام (**BT2–BT5**): البطل الأول من القائمة المعتمدة، ثم بالضبط **9,000 مشاة و9,000 فرسان و72,000 رماة**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "عند الحفظ، فعّل **Save by Troop Quantity** (حسب العدد وليس النسبة) لتكون كل مسيرة {=bear} بالضبط.", img: "figures/bear-save-qty.jpg" } ]},
         { type: "p", text: "[[squad:guide]]" },
         { type: "p", text: "**الأولوية – أرسلوا هؤلاء أولًا:** يمنح هؤلاء الأبطال **مكافأة {lethality} ثابتة**، وهي أثمن مكافأة في صيد الدببة." },
         { type: "joiners" },

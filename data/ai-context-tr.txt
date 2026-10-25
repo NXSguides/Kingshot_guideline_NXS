@@ -225,7 +225,7 @@ Rallini yönetmek
 Katılan herkesin kahramanlarını ve asker sayısını kontrol et:
 Yanlış ilk kahraman: oyuncuyu at ve doğru şekilde tekrar katılmasını iste.
 Yanlış asker sayısı: oyuncuyu at ve tam 90,000 askerle tekrar katılmasını iste.
-Sadece ilk 4 katılımcı sayılır: oyun, ilk kahramanının seviyesi en yüksek 4 katılımcının ilk kahraman becerisini kullanır. Çoğu Sv 80 ise en iyi iki Chenko ve iki Amane'yi en üste taşı.
+Sadece ilk 4 katılımcı sayılır: oyun, kahraman seviyesi veya asker sayısından bağımsız olarak listenin en üstündeki 4 katılımcının ilk kahraman becerisini kullanır. En iyi iki Chenko ve iki Amane'yi en üste taşı.
 Katılımcıları yukarı taşımak
 Devam eden Ayı rallini aç.
 En güçlü Chenko ve Amane katılımcılarını bul — kahraman yıldızlarını ve widget seviyelerini karşılaştır.
@@ -262,6 +262,9 @@ Ayı Avı başlamadan yürüyüşlerini önceden kaydet.
 Atanan ralli liderleri: kendi rallinde maksimum asker, başkasının rallisine katılırken 90,000 sınırı.
 Ana aşamada kendi rallini açma: kendi rallini başlatmak yerine atanan NXS rallilerine katıl.
 ⏰ 6:30 kala — son ralli aşaması: tüm katılımcılar artık en güçlü 3 kahramanıyla kendi rallisini başlatabilir. Bu, kendi ralliyi açmama kuralının tek istisnasıdır.
+Katılımcı dizilişlerini kaydet
+Katılım dizilişlerini ayarla (BT2–BT5): onaylı listeden ilk kahraman, sonra tam 9.000 piyade, 9.000 süvari ve 72.000 okçu.
+Kaydederken Save by Troop Quantity (orana göre değil, sayıya göre) seçeneğini işaretle; böylece her yürüyüş tam 90,000 olur.
 (see guide #formations-rally-tips)
 Öncelik – önce bunları gönderin: Bu kahramanlar sabit Öldürücülük bonusu verir; Ayı Avı için en değerli bonus budur.
 DİKKATLİ KULLANIN
