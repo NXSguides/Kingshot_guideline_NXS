@@ -784,6 +784,12 @@ KGb
 Wenn euer Schloss von einem NAP-Mitglied angegriffen wird, nicht zurückschlagen — meldet es R4/R5.
 Vermeidet das Sammeln in der Wildnis, nutzt stattdessen Allianzknoten.
 Regelverstöße werden gemäß den Allianz-/NAP-Vereinbarungen geahndet.
+⚔️ Bevor du eine Stadt angreifst
+Ein Angriff auf eine Stadt kostet immer Truppen, auch bei einem klaren Sieg. Gefallene Truppen werden immer gleich aufgeteilt:
+Normale Kämpfe (Feld, Rally, Verteidigung): 35 % schwer verwundet (Krankenstation), 65 % leicht verwundet. Niemand stirbt.
+Angriff auf eine fremde Stadt: 35 % sterben endgültig, 10 % schwer verwundet, 55 % leicht verwundet.
+Die Truppen des Verteidigers kommen alle in die Krankenstation – er spürt es kaum.
+Echter Bericht: Ein Gegner griff die Stadt eines Mitglieds mit 135k Truppen an und wurde vernichtet. 47.310 seiner Truppen starben endgültig – unser Mitglied verlor keine, alles kam in die Krankenstation. Halte deine Stadt stark in unserem Gebiet und lass Angreifer zahlen; greif selbst nur an, wenn es sich lohnt.
 🏭 Gesicherte Sammelpunkte
 Während des Events Aufs Ganze wechseln wir alle 12 Stunden für 48 Stunden unsere gesicherten Sammelpunkte.
 So hat jeder während des Events einen geschützten Ort zum Sammeln von Ressourcen.

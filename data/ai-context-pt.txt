@@ -782,6 +782,12 @@ KGb
 Se seu castelo for atacado por um membro do NAP, não revide — avise o R4/R5.
 Evite coletar recursos no mapa aberto, use o Nó de Aliança Protegido.
 Quem infringir as regras será tratado conforme os acordos da aliança/NAP.
+⚔️ Antes de atacar uma cidade
+Atacar uma cidade sempre custa tropas, mesmo com uma grande vitória. As tropas que caem na batalha são sempre divididas do mesmo jeito:
+Batalhas normais (campo, Rally, defesa): 35% gravemente feridas (Enfermaria), 65% levemente feridas. Ninguém morre.
+Atacar a cidade de alguém: 35% morrem de vez, 10% gravemente feridas, 55% levemente feridas.
+As tropas do defensor vão todas para a Enfermaria dele, então ele quase não sente.
+Relatório real: um inimigo atacou a cidade de um membro com 135 mil tropas e foi aniquilado. 47.310 tropas dele morreram de vez — nosso membro não perdeu nenhuma, tudo foi para a Enfermaria. Mantenha sua cidade forte no nosso território e faça os atacantes pagarem; só ataque cidades quando valer a pena.
 🏭 Nós de coleta protegidos
 Durante o evento Vai com Tudo, vamos revezar nossos nós de coleta protegidos a cada 12 horas, por 48 horas.
 Isso dá a todos um local protegido para coletar recursos enquanto o evento estiver ativo.

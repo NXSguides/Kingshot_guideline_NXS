@@ -8945,6 +8945,14 @@ const GUIDES = {
           "Avoid gathering resources in the wild, use the {securedAllianceNode} instead.",
           "Rule breakers will be dealt with according to alliance/NAP agreements."
         ]},
+        { type: "h", text: "⚔️ Before You Hit a City" },
+        { type: "p", text: "Attacking a city always costs you troops, even when you win big. The troops that fall in a fight are always split the same way:" },
+        { type: "list", items: [
+          "**Normal fights** (field, {rally}, defending): 35% badly wounded ({infirmary}), 65% lightly wounded. Nobody dies.",
+          "**Attacking someone's city**: **35% die for good**, 10% badly wounded, 55% lightly wounded.",
+          "The defender's troops all go to their {infirmary}, so they barely feel it."
+        ]},
+        { type: "callout", text: "Real report: an enemy hit our member's city with 135k troops and was wiped out. **47,310 of his troops died for good** — our member lost none, everything went to the {infirmary}. Keep your city strong in our territory and let attackers pay; only hit cities yourself when it's worth it." },
         { type: "h", text: "🏭 Secured Gathering Nodes" },
         { type: "p", text: "During the **{allOut}** event, we will be rotating our secured gathering nodes every 12 hours for 48 hours." },
         { type: "p", text: "This gives everyone a protected spot to collect resources while the event is active." },
@@ -8970,6 +8978,14 @@ const GUIDES = {
           "請避免在野外採集資源，改用{securedAllianceNode}。",
           "違規者將依聯盟／NAP 協議處理。"
         ]},
+        { type: "h", text: "⚔️ 攻擊城市之前" },
+        { type: "p", text: "攻擊城市一定會折損兵力，就算大勝也一樣。戰鬥中倒下的兵，分配比例是固定的：" },
+        { type: "list", items: [
+          "**一般戰鬥**（野外、{rally}、防守）：35% 重傷（進{infirmary}）、65% 輕傷，不會死。",
+          "**攻擊別人的城市**：**35% 直接死亡**、10% 重傷、55% 輕傷。",
+          "防守方的兵全部進{infirmary}，對他們幾乎沒影響。"
+        ]},
+        { type: "callout", text: "真實戰報：敵人帶 13.5 萬兵打我們成員的城，被全滅，**永久死亡 47,310 兵**；我們成員 0 死亡，全部進{infirmary}。把城留在領地內、兵力顧好，讓來打的人付代價；自己打城則要值得才打。" },
         { type: "h", text: "🏭 安全採集點" },
         { type: "p", text: "**{allOut}**活動期間，我們會每 12 小時輪替一次安全採集點，持續 48 小時。" },
         { type: "p", text: "這讓每個人在活動期間都有一個受保護的地點可以採集資源。" },
@@ -8995,6 +9011,14 @@ const GUIDES = {
           "야생에서 자원을 채집하지 말고 {securedAllianceNode}를 이용하세요.",
           "규칙 위반자는 연맹/NAP 협약에 따라 처리됩니다."
         ]},
+        { type: "h", text: "⚔️ 도시를 공격하기 전에" },
+        { type: "p", text: "도시를 공격하면 크게 이겨도 항상 병력을 잃습니다. 전투에서 쓰러진 병력은 항상 같은 비율로 나뉩니다:" },
+        { type: "list", items: [
+          "**일반 전투** (필드, {rally}, 방어): 35% 중상({infirmary}), 65% 경상. 사망 없음.",
+          "**다른 사람의 도시 공격**: **35% 영구 사망**, 10% 중상, 55% 경상.",
+          "방어자의 병력은 모두 {infirmary}으로 가서 거의 피해가 없습니다."
+        ]},
+        { type: "callout", text: "실제 보고서: 적이 13.5만 병력으로 우리 멤버의 도시를 공격했다가 전멸했습니다. **47,310명이 영구 사망** — 우리 멤버는 사망 0, 전부 {infirmary}으로 갔습니다. 도시를 연맹 영지 안에 두고 튼튼히 지켜 공격자가 대가를 치르게 하세요. 직접 도시를 칠 때는 가치가 있을 때만." },
         { type: "h", text: "🏭 안전 채집 포인트" },
         { type: "p", text: "**{allOut}** 이벤트 기간 동안, 안전 채집 포인트를 12시간마다 48시간 동안 교대로 운영합니다." },
         { type: "p", text: "이벤트가 진행되는 동안 모두에게 보호된 채집 장소를 제공합니다." },
@@ -9020,6 +9044,14 @@ const GUIDES = {
           "Vermeidet das Sammeln in der Wildnis, nutzt stattdessen {securedAllianceNode}.",
           "Regelverstöße werden gemäß den Allianz-/NAP-Vereinbarungen geahndet."
         ]},
+        { type: "h", text: "⚔️ Bevor du eine Stadt angreifst" },
+        { type: "p", text: "Ein Angriff auf eine Stadt kostet immer Truppen, auch bei einem klaren Sieg. Gefallene Truppen werden immer gleich aufgeteilt:" },
+        { type: "list", items: [
+          "**Normale Kämpfe** (Feld, {rally}, Verteidigung): 35 % schwer verwundet ({infirmary}), 65 % leicht verwundet. Niemand stirbt.",
+          "**Angriff auf eine fremde Stadt**: **35 % sterben endgültig**, 10 % schwer verwundet, 55 % leicht verwundet.",
+          "Die Truppen des Verteidigers kommen alle in die {infirmary} – er spürt es kaum."
+        ]},
+        { type: "callout", text: "Echter Bericht: Ein Gegner griff die Stadt eines Mitglieds mit 135k Truppen an und wurde vernichtet. **47.310 seiner Truppen starben endgültig** – unser Mitglied verlor keine, alles kam in die {infirmary}. Halte deine Stadt stark in unserem Gebiet und lass Angreifer zahlen; greif selbst nur an, wenn es sich lohnt." },
         { type: "h", text: "🏭 Gesicherte Sammelpunkte" },
         { type: "p", text: "Während des Events **{allOut}** wechseln wir alle 12 Stunden für 48 Stunden unsere gesicherten Sammelpunkte." },
         { type: "p", text: "So hat jeder während des Events einen geschützten Ort zum Sammeln von Ressourcen." },
@@ -9045,6 +9077,14 @@ const GUIDES = {
           "Évitez de récolter des ressources en pleine nature, utilisez plutôt le {securedAllianceNode}.",
           "Les contrevenants seront traités conformément aux accords d'alliance/NAP."
         ]},
+        { type: "h", text: "⚔️ Avant d'attaquer une ville" },
+        { type: "p", text: "Attaquer une ville coûte toujours des troupes, même avec une large victoire. Les troupes tombées au combat sont toujours réparties de la même façon :" },
+        { type: "list", items: [
+          "**Combats normaux** (terrain, {rally}, défense) : 35 % gravement blessées ({infirmary}), 65 % légèrement blessées. Aucun mort.",
+          "**Attaquer la ville d'un joueur** : **35 % meurent définitivement**, 10 % gravement blessées, 55 % légèrement blessées.",
+          "Les troupes du défenseur vont toutes à son {infirmary}, il ne le sent presque pas."
+        ]},
+        { type: "callout", text: "Rapport réel : un ennemi a attaqué la ville d'un membre avec 135k troupes et a été anéanti. **47 310 de ses troupes sont mortes définitivement** — notre membre n'a perdu personne, tout est allé à l'{infirmary}. Garde ta ville forte dans notre territoire et fais payer les attaquants ; n'attaque une ville que si ça vaut le coup." },
         { type: "h", text: "🏭 Points de collecte sécurisés" },
         { type: "p", text: "Pendant l'événement **{allOut}**, nous ferons tourner nos points de collecte sécurisés toutes les 12 heures pendant 48 heures." },
         { type: "p", text: "Cela donne à chacun un endroit protégé pour récolter des ressources pendant que l'événement est actif." },
@@ -9070,6 +9110,14 @@ const GUIDES = {
           "Evite coletar recursos no mapa aberto, use o {securedAllianceNode}.",
           "Quem infringir as regras será tratado conforme os acordos da aliança/NAP."
         ]},
+        { type: "h", text: "⚔️ Antes de atacar uma cidade" },
+        { type: "p", text: "Atacar uma cidade sempre custa tropas, mesmo com uma grande vitória. As tropas que caem na batalha são sempre divididas do mesmo jeito:" },
+        { type: "list", items: [
+          "**Batalhas normais** (campo, {rally}, defesa): 35% gravemente feridas ({infirmary}), 65% levemente feridas. Ninguém morre.",
+          "**Atacar a cidade de alguém**: **35% morrem de vez**, 10% gravemente feridas, 55% levemente feridas.",
+          "As tropas do defensor vão todas para a {infirmary} dele, então ele quase não sente."
+        ]},
+        { type: "callout", text: "Relatório real: um inimigo atacou a cidade de um membro com 135 mil tropas e foi aniquilado. **47.310 tropas dele morreram de vez** — nosso membro não perdeu nenhuma, tudo foi para a {infirmary}. Mantenha sua cidade forte no nosso território e faça os atacantes pagarem; só ataque cidades quando valer a pena." },
         { type: "h", text: "🏭 Nós de coleta protegidos" },
         { type: "p", text: "Durante o evento **{allOut}**, vamos revezar nossos nós de coleta protegidos a cada 12 horas, por 48 horas." },
         { type: "p", text: "Isso dá a todos um local protegido para coletar recursos enquanto o evento estiver ativo." },
@@ -9095,6 +9143,14 @@ const GUIDES = {
           "Evita recolectar recursos en zona salvaje, usa en su lugar el {securedAllianceNode}.",
           "Quien infrinja las reglas será tratado según los acuerdos de alianza/NAP."
         ]},
+        { type: "h", text: "⚔️ Antes de atacar una ciudad" },
+        { type: "p", text: "Atacar una ciudad siempre cuesta tropas, aunque ganes por mucho. Las tropas que caen en combate siempre se reparten igual:" },
+        { type: "list", items: [
+          "**Combates normales** (campo, {rally}, defensa): 35 % heridas graves ({infirmary}), 65 % heridas leves. Nadie muere.",
+          "**Atacar la ciudad de otro**: **35 % mueren para siempre**, 10 % heridas graves, 55 % heridas leves.",
+          "Las tropas del defensor van todas a su {infirmary}, así que casi no lo nota."
+        ]},
+        { type: "callout", text: "Informe real: un enemigo atacó la ciudad de un miembro con 135k tropas y fue aniquilado. **47.310 de sus tropas murieron para siempre** — nuestro miembro no perdió ninguna, todo fue a la {infirmary}. Mantén tu ciudad fuerte en nuestro territorio y haz pagar a los atacantes; ataca ciudades solo cuando valga la pena." },
         { type: "h", text: "🏭 Puntos de Recolección Seguros" },
         { type: "p", text: "Durante el evento **{allOut}**, rotaremos nuestros puntos de recolección seguros cada 12 horas durante 48 horas." },
         { type: "p", text: "Esto le da a todos un lugar protegido para recolectar recursos mientras el evento está activo." },
@@ -9120,6 +9176,14 @@ const GUIDES = {
           "Yabanda kaynak toplamaktan kaçının, bunun yerine {securedAllianceNode} kullanın.",
           "Kural ihlal edenler ittifak/NAP anlaşmalarına göre işlem görecektir."
         ]},
+        { type: "h", text: "⚔️ Bir şehre saldırmadan önce" },
+        { type: "p", text: "Şehre saldırmak, büyük bir zafer kazansan bile her zaman asker kaybettirir. Savaşta düşen askerler her zaman aynı şekilde bölünür:" },
+        { type: "list", items: [
+          "**Normal savaşlar** (arazi, {rally}, savunma): %35 ağır yaralı ({infirmary}), %65 hafif yaralı. Kimse ölmez.",
+          "**Birinin şehrine saldırmak**: **%35 kalıcı olarak ölür**, %10 ağır yaralı, %55 hafif yaralı.",
+          "Savunanın askerlerinin hepsi {infirmary}e gider, neredeyse hiç etkilenmez."
+        ]},
+        { type: "callout", text: "Gerçek rapor: bir düşman 135 bin askerle üyemizin şehrine saldırdı ve yok edildi. **47.310 askeri kalıcı olarak öldü** — üyemiz hiç kayıp vermedi, hepsi {infirmary}e gitti. Şehrini bölgemizde güçlü tut, saldıranlar bedel ödesin; sen de sadece değdiğinde şehre saldır." },
         { type: "h", text: "🏭 Güvenli Toplama Noktaları" },
         { type: "p", text: "**{allOut}** etkinliği boyunca, güvenli toplama noktalarımızı 48 saat boyunca her 12 saatte bir değiştireceğiz." },
         { type: "p", text: "Bu, etkinlik aktifken herkese kaynak toplamak için korumalı bir alan sağlar." },
@@ -9145,6 +9209,14 @@ const GUIDES = {
           "Hindari mengumpulkan sumber daya di area liar, gunakan {securedAllianceNode} sebagai gantinya.",
           "Pelanggar aturan akan ditindak sesuai kesepakatan aliansi/NAP."
         ]},
+        { type: "h", text: "⚔️ Sebelum menyerang kota" },
+        { type: "p", text: "Menyerang kota selalu membuatmu kehilangan pasukan, bahkan saat menang besar. Pasukan yang tumbang dalam pertempuran selalu dibagi dengan cara yang sama:" },
+        { type: "list", items: [
+          "**Pertempuran biasa** (lapangan, {rally}, bertahan): 35% luka berat ({infirmary}), 65% luka ringan. Tidak ada yang mati.",
+          "**Menyerang kota orang lain**: **35% mati permanen**, 10% luka berat, 55% luka ringan.",
+          "Pasukan pihak bertahan semuanya masuk {infirmary}, jadi mereka hampir tidak merasakannya."
+        ]},
+        { type: "callout", text: "Laporan nyata: musuh menyerang kota anggota kami dengan 135 ribu pasukan dan hancur total. **47.310 pasukannya mati permanen** — anggota kami tidak kehilangan satu pun, semua masuk {infirmary}. Jaga kotamu tetap kuat di wilayah kita dan biarkan penyerang yang rugi; serang kota hanya jika sepadan." },
         { type: "h", text: "🏭 Titik Pengumpulan Aman" },
         { type: "p", text: "Selama event **{allOut}**, kami akan merotasi titik pengumpulan aman setiap 12 jam selama 48 jam." },
         { type: "p", text: "Ini memberi semua orang tempat terlindungi untuk mengumpulkan sumber daya selama event berlangsung." },
@@ -9170,6 +9242,14 @@ const GUIDES = {
           "Избегайте сбора ресурсов в дикой местности, используйте вместо этого {securedAllianceNode}.",
           "Нарушители правил будут обработаны согласно соглашениям альянса/NAP."
         ]},
+        { type: "h", text: "⚔️ Прежде чем атаковать город" },
+        { type: "p", text: "Атака на город всегда стоит войск, даже при крупной победе. Павшие в бою войска всегда делятся одинаково:" },
+        { type: "list", items: [
+          "**Обычные бои** (поле, {rally}, оборона): 35% тяжелораненые ({infirmary}), 65% легкораненые. Никто не погибает.",
+          "**Атака чужого города**: **35% погибают навсегда**, 10% тяжелораненые, 55% легкораненые.",
+          "Войска защитника все уходят в его {infirmary}, так что он почти ничего не теряет."
+        ]},
+        { type: "callout", text: "Реальный отчёт: враг атаковал город нашего участника 135 тыс. войск и был уничтожен. **47 310 его воинов погибли навсегда** — наш участник не потерял никого, все ушли в {infirmary}. Держите город сильным на нашей территории — пусть платят нападающие; сами атакуйте города, только когда это того стоит." },
         { type: "h", text: "🏭 Защищённые точки сбора" },
         { type: "p", text: "Во время события **{allOut}** мы будем менять защищённые точки сбора каждые 12 часов в течение 48 часов." },
         { type: "p", text: "Это даёт каждому защищённое место для сбора ресурсов, пока событие активно." },
@@ -9195,6 +9275,14 @@ const GUIDES = {
           "หลีกเลี่ยงการเก็บทรัพยากรในป่า ให้ใช้{securedAllianceNode}แทน",
           "ผู้ฝ่าฝืนกฎจะถูกดำเนินการตามข้อตกลงพันธมิตร/NAP"
         ]},
+        { type: "h", text: "⚔️ ก่อนโจมตีเมือง" },
+        { type: "p", text: "การโจมตีเมืองจะทำให้เสียทหารเสมอ แม้จะชนะขาด ทหารที่ล้มในการต่อสู้จะถูกแบ่งในสัดส่วนเดิมเสมอ:" },
+        { type: "list", items: [
+          "**การต่อสู้ทั่วไป** (สนาม, {rally}, ป้องกัน): บาดเจ็บสาหัส 35% ({infirmary}), บาดเจ็บเล็กน้อย 65% ไม่มีใครตาย",
+          "**โจมตีเมืองของผู้อื่น**: **ตายถาวร 35%**, บาดเจ็บสาหัส 10%, บาดเจ็บเล็กน้อย 55%",
+          "ทหารของฝ่ายป้องกันเข้า{infirmary}ทั้งหมด จึงแทบไม่เสียอะไร"
+        ]},
+        { type: "callout", text: "รายงานจริง: ศัตรูบุกเมืองสมาชิกเราด้วยทหาร 135k แล้วถูกกวาดเรียบ **ทหารเขาตายถาวร 47,310 นาย** — สมาชิกเราไม่เสียใครเลย ทั้งหมดเข้า{infirmary} รักษาเมืองให้แข็งแกร่งในอาณาเขตของเรา ให้ผู้บุกเป็นฝ่ายเสีย และโจมตีเมืองเองเฉพาะเมื่อคุ้มค่า" },
         { type: "h", text: "🏭 จุดเก็บทรัพยากรที่ปลอดภัย" },
         { type: "p", text: "ในช่วงกิจกรรม**{allOut}** เราจะสลับจุดเก็บทรัพยากรที่ปลอดภัยทุก 12 ชั่วโมง เป็นเวลา 48 ชั่วโมง" },
         { type: "p", text: "สิ่งนี้ทำให้ทุกคนมีจุดที่ได้รับการป้องกันสำหรับเก็บทรัพยากรในช่วงที่กิจกรรมเปิดใช้งาน" },
@@ -9220,6 +9308,14 @@ const GUIDES = {
           "تجنب جمع الموارد في البرية، واستخدم {securedAllianceNode} بدلاً من ذلك.",
           "سيتم التعامل مع مخالفي القواعد وفقاً لاتفاقيات التحالف/NAP."
         ]},
+        { type: "h", text: "⚔️ قبل أن تهاجم مدينة" },
+        { type: "p", text: "مهاجمة مدينة تكلّفك جنودًا دائمًا، حتى لو فزت بفارق كبير. الجنود الذين يسقطون في المعركة يُقسَّمون دائمًا بالطريقة نفسها:" },
+        { type: "list", items: [
+          "**المعارك العادية** (الميدان، {rally}، الدفاع): 35% إصابات بالغة ({infirmary})، 65% إصابات خفيفة. لا أحد يموت.",
+          "**مهاجمة مدينة لاعب آخر**: **35% يموتون نهائيًا**، 10% إصابات بالغة، 55% إصابات خفيفة.",
+          "جنود المدافع يذهبون كلهم إلى {infirmary}، فلا يكاد يشعر بشيء."
+        ]},
+        { type: "callout", text: "تقرير حقيقي: هاجم عدو مدينة أحد أعضائنا بـ 135 ألف جندي فأُبيد. **مات 47,310 من جنوده نهائيًا** — ولم يخسر عضونا أحدًا، ذهب الجميع إلى {infirmary}. أبقِ مدينتك قوية داخل أراضينا ودع المهاجمين يدفعون الثمن؛ ولا تهاجم المدن إلا إذا كان الأمر يستحق." },
         { type: "h", text: "🏭 نقاط الجمع الآمنة" },
         { type: "p", text: "خلال فعالية **{allOut}**، سنقوم بتبديل نقاط الجمع الآمنة كل 12 ساعة لمدة 48 ساعة." },
         { type: "p", text: "هذا يمنح الجميع مكاناً محمياً لجمع الموارد أثناء نشاط الفعالية." },

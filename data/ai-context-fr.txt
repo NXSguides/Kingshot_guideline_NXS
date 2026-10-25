@@ -782,6 +782,12 @@ KGb
 Si votre château est attaqué par un membre du NAP, ne ripostez pas — informez le R4/R5.
 Évitez de récolter des ressources en pleine nature, utilisez plutôt le Point d'Alliance Sécurisé.
 Les contrevenants seront traités conformément aux accords d'alliance/NAP.
+⚔️ Avant d'attaquer une ville
+Attaquer une ville coûte toujours des troupes, même avec une large victoire. Les troupes tombées au combat sont toujours réparties de la même façon :
+Combats normaux (terrain, Ralliement, défense) : 35 % gravement blessées (Infirmerie), 65 % légèrement blessées. Aucun mort.
+Attaquer la ville d'un joueur : 35 % meurent définitivement, 10 % gravement blessées, 55 % légèrement blessées.
+Les troupes du défenseur vont toutes à son Infirmerie, il ne le sent presque pas.
+Rapport réel : un ennemi a attaqué la ville d'un membre avec 135k troupes et a été anéanti. 47 310 de ses troupes sont mortes définitivement — notre membre n'a perdu personne, tout est allé à l'Infirmerie. Garde ta ville forte dans notre territoire et fais payer les attaquants ; n'attaque une ville que si ça vaut le coup.
 🏭 Points de collecte sécurisés
 Pendant l'événement Tous dehors, nous ferons tourner nos points de collecte sécurisés toutes les 12 heures pendant 48 heures.
 Cela donne à chacun un endroit protégé pour récolter des ressources pendant que l'événement est actif.

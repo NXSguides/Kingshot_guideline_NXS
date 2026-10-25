@@ -782,6 +782,12 @@ KGb
 Si tu castillo es atacado por un miembro del NAP, no tomes represalias — informa a R4/R5.
 Evita recolectar recursos en zona salvaje, usa en su lugar el Nodo de Recolección Segura de la Alianza.
 Quien infrinja las reglas será tratado según los acuerdos de alianza/NAP.
+⚔️ Antes de atacar una ciudad
+Atacar una ciudad siempre cuesta tropas, aunque ganes por mucho. Las tropas que caen en combate siempre se reparten igual:
+Combates normales (campo, Ataque Conjunto, defensa): 35 % heridas graves (Enfermería), 65 % heridas leves. Nadie muere.
+Atacar la ciudad de otro: 35 % mueren para siempre, 10 % heridas graves, 55 % heridas leves.
+Las tropas del defensor van todas a su Enfermería, así que casi no lo nota.
+Informe real: un enemigo atacó la ciudad de un miembro con 135k tropas y fue aniquilado. 47.310 de sus tropas murieron para siempre — nuestro miembro no perdió ninguna, todo fue a la Enfermería. Mantén tu ciudad fuerte en nuestro territorio y haz pagar a los atacantes; ataca ciudades solo cuando valga la pena.
 🏭 Puntos de Recolección Seguros
 Durante el evento A la batalla, rotaremos nuestros puntos de recolección seguros cada 12 horas durante 48 horas.
 Esto le da a todos un lugar protegido para recolectar recursos mientras el evento está activo.
