@@ -204,21 +204,35 @@ Güncellemeler otomatiktir — yeniden yüklemeye gerek yok.
 Düğme adları telefona ve sistem sürümüne göre biraz farklı olabilir.
 
 ### GUIDE #bear-hunt — Ayı Avı
-🆕 3. NESİL GÜNCELLEMESİ
-Ralli liderleri (sırayla): 1) Amadeus + Petra + Marlin · 2) Zoe + Petra + Quinn · 3) Helga + Petra + Marlin, sadece Helga ve widget'ı ikisi de maks ise.
-Katılımcılar — ilk kahraman: Chenko, Amane, Yeonwoo, Amadeus veya kahramansız. ❌ Petra'yı katılımcı olarak gönderme.
-Katılımcılar tam 90,000 asker gönderir — ideal oran 10:10:80 (ideal, zorunlu değil).
-Ayrıntılar aşağıda ↓
-NE ZAMAN
-2 günde bir, İttifakınızın belirlediği saatte.
-NEDEN ÖNEMLİ
-Kahraman Donanımı malzemelerinin (Demirci Çekiçleri) ve Geliştirme TP'sinin ana kaynağı.
-HAZIRLIK
-Her Ayı Avı'ndan önce birlik dizilişlerinizi güncelleyin.
-İsteğe bağlı: birlik oranlarını test edip en güçlü dizilişinizi bulmak için https://frakinator.streamlit.app/ adresini kullanın.
-Etkinlik başlamadan önce kaynak toplayan birlikleri geri çağırın.
-Unutmayın: son 5–7 dakikada herkes bir seferberlik başlatmalı. Bu, birlikleri geri dönen oyuncular için daha fazla yer açar ve son bir hasar atağına olanak tanır.
-SEFERBERLİK LİDERLERİ
+🐻 NXS Ayı Avı — NXS'in Ayı Avı yöntemi: güçlü kahramanlar, koordineli ralliler, doğru zamanlama ve en yüksek ittifak hasarı.
+1. Ayı Tuzağı Kahramanları — 3. Nesil
+Ralli liderleri — onaylı dizilişler
+GEN 1
+GEN 2
+GEN 3
+GEN 4
+GEN 5
+Birlik dizilişi: %30-30-40. Çoğu durumda Amadeus'un ham nitelikleri sayesinde en iyi niteliklere Piyade'de sahip olacaksınız; bu yüzden biraz daha fazla Okçu içeren, neredeyse eşit bir dizilim en iyi sonucu verir.
+Birlik dizilişi: %20-40-40. Amadeus'u henüz tercih etmemiş oyuncular için; ayrıca Amadeus'u seferberliklere katılmak için kullanma imkânı bırakır.
+Birlik dizilişi: %30-30-40. F2P için seferberlik başlatırken her zaman elinizdeki 3 kahramanı kullanmanız önerilir.
+Birlik dizilişi: %20-30-50. Marlin, seferberliğe özel donanımı sayesinde hasarı çok artırır. 2. Nesil'den itibaren Piyade her zaman Amadeus veya Helga olacaktır — seferberliğe özel donanımı (Öldürücülük bonusu) olan tek Piyade kahramanları onlardır. Daha az Piyade gönderirsiniz; bu yüzden Piyade kahramanı, Piyade niteliklerine denk gelmek yerine bu donanım sayesinde Okçu hasarını karşılar.
+Birlik dizilişi: %20-30-50. Diğer alternatif, Marlin henüz daha iyi değilse Quinn yerine onu koymaktır. Helga'yı 2. Nesil ve sonrasında yalnızca Amadeus 5 yıldızlı + özel donanım azami seviyede değilse kullanın; ayrıca Amadeus'u seferberliklere katılmak için kullanma fırsatıdır.
+Birlik dizilişi: %30-30-40. Seferberliğe özel donanımı olan bir F2P kahraman hâlâ yok; bu yüzden yine biraz daha fazla Okçu içeren dengeli bir dizilim kullanın, çünkü SSR Okçu kahramanı olmadığı için Okçu nitelikleri en düşük olacaktır.
+Asker dizilişi: %10-20-70. Sadece Helga ve widget'ı ikisi de maks ise.
+Birlik dizilişi: %10-10-80. Özellikle T10 iseler, olabildiğince fazla Okçu koyun. Biraz şansla Rosa'nın 3. becerisi işi sizin yerinize halleder (Okçuların toplam Saldırısını %30 artırır).
+Birlik dizilişi: %10-10-80. Helga'nın yıldızı ve özel donanım seviyesi Amadeus'tan iyiyse alternatif olarak kullanın. Rosa'nın 3. becerisi için yine olabildiğince fazla Okçu, özellikle T10 koyun (Okçuların toplam Saldırısını %30 artırır).
+Birlik dizilişi: %10-10-80. Alternatif en iyi kahramanlarla aynı — Rosa'nın 3. becerisi, ağırlıklı Okçu dizilişlerine odaklanırsanız en iyi bonusu verir (Okçuların toplam Saldırısını %30 artırır).
+Kalan lider slotları henüz açıklanmadı.
+Katılımcılar — onaylı ilk kahramanlar
+❌ Petra'yı katılımcı olarak gönderme. İlk sıraya onaylı bir kahraman koy ya da kahramansız gönder.
+2. Katılımcı asker şartları
+Tüm katılımcılar her ralliye tam 90,000 asker gönderir. Mümkünse ideal oran 10:10:80, okçu ağırlıklı.
+Piyade 9.000 (%10) · Süvari 9.000 (%10) · Okçu 72.000 (%80)
+90,000 asker zorunlu. 10:10:80 oranı ideal, zorunlu değil.
+Katılımcı dizilişlerini kaydet
+Katılım dizilişlerini ayarla (BT2–BT5): onaylı listeden ilk kahraman, sonra tam 9.000 piyade, 9.000 süvari ve 72.000 okçu.
+Kaydederken Save by Troop Quantity (orana göre değil, sayıya göre) seçeneğini işaretle; böylece her yürüyüş tam 90,000 olur.
+3. Atanan ralli liderleri için kurallar
 ⏱️ NXS her Ayı Tuzağı için ralli liderleri atar. Atanan liderler tuzağın etrafındaki iç çemberde durur ve iki dalgada çıkar: 1. dalga 0:00 (başlangıçta) ve 2. dalga 0:45 (45 saniye sonra).
 Rallini sana atanan zamanda, onaylı bir dizilişle (aşağıda) ve maksimum askerle başlat. Başkasının rallisine katılırken herkes gibi 90,000 sınırına uy.
 Rallini yönetmek
@@ -236,25 +250,7 @@ Son ilk 4'ü kontrol et: hedef iki güçlü Chenko ve iki güçlü Amane.
 Ralli lideri dizilişini kaydet
 Ralli lideri dizilişini ayarla (örneğin BT1): ana, 2. ve 3. kahraman ve askerlerin.
 Kaydederken Save by Troop Ratio (asker oranına göre kaydet) seçeneğini işaretle.
-GEN 1
-GEN 2
-GEN 3
-GEN 4
-GEN 5
-Birlik dizilişi: %30-30-40. Çoğu durumda Amadeus'un ham nitelikleri sayesinde en iyi niteliklere Piyade'de sahip olacaksınız; bu yüzden biraz daha fazla Okçu içeren, neredeyse eşit bir dizilim en iyi sonucu verir.
-Birlik dizilişi: %20-40-40. Amadeus'u henüz tercih etmemiş oyuncular için; ayrıca Amadeus'u seferberliklere katılmak için kullanma imkânı bırakır.
-Birlik dizilişi: %30-30-40. F2P için seferberlik başlatırken her zaman elinizdeki 3 kahramanı kullanmanız önerilir.
-Birlik dizilişi: %20-30-50. Marlin, seferberliğe özel donanımı sayesinde hasarı çok artırır. 2. Nesil'den itibaren Piyade her zaman Amadeus veya Helga olacaktır — seferberliğe özel donanımı (Öldürücülük bonusu) olan tek Piyade kahramanları onlardır. Daha az Piyade gönderirsiniz; bu yüzden Piyade kahramanı, Piyade niteliklerine denk gelmek yerine bu donanım sayesinde Okçu hasarını karşılar.
-Birlik dizilişi: %20-30-50. Diğer alternatif, Marlin henüz daha iyi değilse Quinn yerine onu koymaktır. Helga'yı 2. Nesil ve sonrasında yalnızca Amadeus 5 yıldızlı + özel donanım azami seviyede değilse kullanın; ayrıca Amadeus'u seferberliklere katılmak için kullanma fırsatıdır.
-Birlik dizilişi: %30-30-40. Seferberliğe özel donanımı olan bir F2P kahraman hâlâ yok; bu yüzden yine biraz daha fazla Okçu içeren dengeli bir dizilim kullanın, çünkü SSR Okçu kahramanı olmadığı için Okçu nitelikleri en düşük olacaktır.
-Asker dizilişi: %20-30-50. NXS'in 3. Nesil'deki ilk tercihi.
-Birlik dizilişi: %20-40-40. 3. Nesil'de F2P oyuncular seferberliğe özel donanımı olan ilk kahramanlarını (Petra) alır. Okçu ve Süvari sayılarını dengeli tutmayı deneyin; çünkü Petra Okçuları çok güçlendirir. SSR Okçu olmadan Okçu nitelikleri hâlâ en düşüktür. T10 Süvari açarsanız, T10 becerisi Petra'nın nitelikleriyle iyi uyum sağlar. T3 Süvari'nin kilidini açarsan Petra daha da güçlenir, çünkü 3. yeteneği onların nitelikleriyle çok iyi çalışır.
-Asker dizilişi: %10-20-70. Sadece Helga ve widget'ı ikisi de maks ise.
-Birlik dizilişi: %10-10-80. Özellikle T10 iseler, olabildiğince fazla Okçu koyun. Biraz şansla Rosa'nın 3. becerisi işi sizin yerinize halleder (Okçuların toplam Saldırısını %30 artırır).
-Birlik dizilişi: %10-10-80. Helga'nın yıldızı ve özel donanım seviyesi Amadeus'tan iyiyse alternatif olarak kullanın. Rosa'nın 3. becerisi için yine olabildiğince fazla Okçu, özellikle T10 koyun (Okçuların toplam Saldırısını %30 artırır).
-Birlik dizilişi: %10-10-80. Alternatif en iyi kahramanlarla aynı — Rosa'nın 3. becerisi, ağırlıklı Okçu dizilişlerine odaklanırsanız en iyi bonusu verir (Okçuların toplam Saldırısını %30 artırır).
-Kalan lider slotları henüz açıklanmadı.
-SEFERBERLİĞE KATILANLAR
+4. Tüm katılımcılar için kurallar
 Her katılım yürüyüşünde tam 90,000 asker.
 Mümkünse ideal oran 10:10:80: 9.000 piyade, 9.000 süvari, 72.000 okçu (ideal, zorunlu değil).
 İlk kahraman: Chenko, Amane, Yeonwoo, Amadeus veya kahramansız. Petra'yı katılımcı olarak gönderme.
@@ -262,14 +258,22 @@ Ayı Avı başlamadan yürüyüşlerini önceden kaydet.
 Atanan ralli liderleri: kendi rallinde maksimum asker, başkasının rallisine katılırken 90,000 sınırı.
 Ana aşamada kendi rallini açma: kendi rallini başlatmak yerine atanan NXS rallilerine katıl.
 ⏰ 6:30 kala — son ralli aşaması: tüm katılımcılar artık en güçlü 3 kahramanıyla kendi rallisini başlatabilir. Bu, kendi ralliyi açmama kuralının tek istisnasıdır.
-Katılımcı dizilişlerini kaydet
-Katılım dizilişlerini ayarla (BT2–BT5): onaylı listeden ilk kahraman, sonra tam 9.000 piyade, 9.000 süvari ve 72.000 okçu.
-Kaydederken Save by Troop Quantity (orana göre değil, sayıya göre) seçeneğini işaretle; böylece her yürüyüş tam 90,000 olur.
+📚 Daha fazla bilgi
+NE ZAMAN
+2 günde bir, İttifakınızın belirlediği saatte.
+NEDEN ÖNEMLİ
+Kahraman Donanımı malzemelerinin (Demirci Çekiçleri) ve Geliştirme TP'sinin ana kaynağı.
+HAZIRLIK
+Her Ayı Avı'ndan önce birlik dizilişlerinizi güncelleyin.
+İsteğe bağlı: birlik oranlarını test edip en güçlü dizilişinizi bulmak için https://frakinator.streamlit.app/ adresini kullanın.
+Etkinlik başlamadan önce kaynak toplayan birlikleri geri çağırın.
+Unutmayın: son 5–7 dakikada herkes bir seferberlik başlatmalı. Bu, birlikleri geri dönen oyuncular için daha fazla yer açar ve son bir hasar atağına olanak tanır.
+Birlik dizilişi: %20-40-40. 3. Nesil'de F2P oyuncular seferberliğe özel donanımı olan ilk kahramanlarını (Petra) alır. Okçu ve Süvari sayılarını dengeli tutmayı deneyin; çünkü Petra Okçuları çok güçlendirir. SSR Okçu olmadan Okçu nitelikleri hâlâ en düşüktür. T10 Süvari açarsanız, T10 becerisi Petra'nın nitelikleriyle iyi uyum sağlar. T3 Süvari'nin kilidini açarsan Petra daha da güçlenir, çünkü 3. yeteneği onların nitelikleriyle çok iyi çalışır.
 (see guide #formations-rally-tips)
 DİKKATLİ KULLANIN
 ⚠️ Şansa bağlı hasar veren kahramanlar: güçlü etkiler, ama birikmezler. Aynı seferberlikte bunlardan yalnızca BİRİNİ kullanın: Marlin, Zoe, Jaeger, Petra. ❌ Petra'yı katılımcı olarak gönderme.
 🔗 Daha fazlası: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes
-[joiners] Chenko | lethality | Yeonwoo | lethality | Amane | attack | Amadeus | lethality
+[joiners] Chenko | lethality | Amane | attack | Yeonwoo | lethality | Amadeus | lethality
 [leaders] best | Amadeus | Jabel | Quinn | 30-30-40 | alt | Helga | Jabel | Quinn | 20-40-40 | f2p | Howard | Jabel | Quinn | 30-30-40 | best | Amadeus | Hilde | Marlin | 20-30-50 | alt | Helga | Jabel | Marlin | 20-30-50 | f2p | Zoe | Jabel | Quinn | 30-30-40 | n1 | Amadeus | Petra | Marlin | 20-30-50 | n2 | Zoe | Petra | Quinn | 20-40-40 | n3 | Helga | Petra | Marlin | 10-20-70 | best | Amadeus | Petra | Rosa | 10-10-80 | alt | Helga | Petra | Rosa | 10-10-80 | f2p | Zoe | Petra | Rosa | 10-10-80 | best | Amadeus
 
 ### GUIDE #swordland-showdown — Kılıçdiyarı Hesaplaşması

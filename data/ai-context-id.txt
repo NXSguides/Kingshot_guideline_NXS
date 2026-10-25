@@ -204,21 +204,35 @@ Pembaruan otomatis — tidak perlu memasang ulang.
 Nama tombol bisa sedikit berbeda tergantung ponsel dan versi sistem.
 
 ### GUIDE #bear-hunt — Bear Hunt
-🆕 UPDATE GEN 3
-Pemimpin rally (berurutan): 1) Amadeus + Petra + Marlin · 2) Zoe + Petra + Quinn · 3) Helga + Petra + Marlin, hanya jika Helga dan widget-nya sama-sama maks.
-Peserta — hero pertama: Chenko, Amane, Yeonwoo, Amadeus, atau tanpa hero. ❌ Jangan kirim Petra sebagai peserta.
-Peserta mengirim tepat 90,000 pasukan — rasio ideal 10:10:80 (ideal, tidak wajib).
-Detail di bawah ↓
-KAPAN
-Setiap 2 hari pada waktu yang dijadwalkan Aliansimu.
-MENGAPA PENTING
-Sumber utama material Gear Hero (Forgehammer) dan Enhancement XP.
-PERSIAPAN
-Perbarui Formasi Pasukanmu sebelum setiap Bear Hunt.
-Opsional: gunakan https://frakinator.streamlit.app/ untuk menguji rasio pasukan dan menemukan formasi terkuatmu.
-Panggil Kembali pasukan yang sedang mengumpulkan sebelum event dimulai.
-Ingat: di 5–7 menit terakhir, semua orang sebaiknya memulai reli. Ini membuka lebih banyak slot bagi pemain yang pasukannya sedang kembali, sehingga bisa melakukan dorongan damage terakhir.
-PEMIMPIN RELI
+🐻 Bear Hunt NXS — cara NXS melakukan Bear Hunt: hero kuat, rally terkoordinasi, waktu yang tepat, dan damage aliansi maksimal.
+1. Hero Perangkap Beruang — Gen 3
+Pemimpin rally — formasi yang disetujui
+GEN 1
+GEN 2
+GEN 3
+GEN 4
+GEN 5
+Formasi pasukan: 30-30-40%. Pada kebanyakan kasus, Infanteri akan punya stat terbaik berkat stat dasar Amadeus, jadi formasi yang hampir seimbang dengan Pemanah sedikit lebih banyak bekerja paling baik.
+Formasi pasukan: 20-40-40%. Terutama untuk yang belum memilih Amadeus, dan tetap membuka peluang memakai Amadeus untuk bergabung ke reli.
+Formasi pasukan: 30-30-40%. Untuk F2P, disarankan selalu memakai 3 hero yang dimiliki untuk memimpin reli.
+Formasi pasukan: 20-30-50%. Marlin akan menambah damage besar berkat perlengkapan khusus reli miliknya. Mulai Gen 2, Infanteri akan selalu Amadeus atau Helga — mereka satu-satunya hero Infanteri dengan perlengkapan khusus reli (bonus Lethality). Kamu mengirim lebih sedikit Infanteri, jadi hero Infanteri menutup damage Pemanah lewat perlengkapan itu, bukan dengan menyamai stat Infanteri.
+Formasi pasukan: 20-30-50%. Alternatif lain adalah mengganti Quinn dengan Marlin jika ia belum lebih baik. Pakai Helga di Gen 2+ hanya jika Amadeus belum bintang 5 + perlengkapan khusus level maks; ini juga kesempatan memakai Amadeus untuk bergabung ke reli.
+Formasi pasukan: 30-30-40%. Masih belum ada hero F2P dengan perlengkapan khusus reli, jadi sekali lagi formasi seimbang dengan Pemanah sedikit lebih banyak, karena stat Pemanah akan paling rendah tanpa hero Pemanah SSR.
+Formasi pasukan: 10-20-70%. Hanya jika Helga dan widget-nya sama-sama maks.
+Formasi pasukan: 10-10-80%. Paksakan sebanyak mungkin Pemanah, terutama jika T10. Dengan sedikit keberuntungan, skill ke-3 Rosa akan bekerja untukmu (meningkatkan total Attack Pemanah sebesar 30%).
+Formasi pasukan: 10-10-80%. Pakai Helga sebagai alternatif jika bintang dan level perlengkapan khususnya lebih baik dari Amadeus. Tetap paksakan sebanyak mungkin Pemanah, terutama T10, untuk skill ke-3 Rosa (meningkatkan total Attack Pemanah sebesar 30%).
+Formasi pasukan: 10-10-80%. Sama seperti hero alternatif terbaik — bonus skill ke-3 Rosa paling maksimal jika kamu fokus pada formasi yang berat di Pemanah (meningkatkan total Attack Pemanah sebesar 30%).
+Slot pemimpin lainnya belum dirilis.
+Peserta — hero pertama yang disetujui
+❌ Jangan kirim Petra sebagai peserta. Pakai hero yang disetujui di slot pertama, atau kirim tanpa hero.
+2. Syarat pasukan peserta
+Semua peserta mengirim tepat 90,000 pasukan per rally. Rasio ideal 10:10:80 jika memungkinkan, fokus pada pemanah.
+Infanteri 9.000 (10%) · Kavaleri 9.000 (10%) · Pemanah 72.000 (80%)
+90,000 pasukan wajib. Rasio 10:10:80 ideal, tidak wajib.
+Simpan formasi peserta
+Atur formasi untuk bergabung (BT2–BT5): hero pertama dari daftar yang disetujui, lalu tepat 9.000 infanteri, 9.000 kavaleri, dan 72.000 pemanah.
+Saat menyimpan, centang Save by Troop Quantity (berdasarkan jumlah, bukan rasio) supaya setiap barisan tepat 90,000.
+3. Aturan untuk pemimpin rally yang ditunjuk
 ⏱️ NXS menunjuk pemimpin rally untuk setiap Perangkap Beruang. Mereka ada di lingkaran dalam di sekitar perangkap dan berangkat dalam dua gelombang: Gelombang 1 di 0:00 (awal) dan Gelombang 2 di 0:45 (45 detik kemudian).
 Mulai rally di waktu yang ditentukan dengan formasi yang disetujui (di bawah) dan pasukan maksimal. Saat ikut rally orang lain, ikuti batas 90,000 seperti semua orang.
 Mengelola rally kamu
@@ -236,25 +250,7 @@ Periksa 4 teratas akhir: targetkan dua Chenko kuat dan dua Amane kuat.
 Simpan formasi pemimpin rally
 Atur formasi pemimpin rally (misalnya BT1): hero utama, ke-2 dan ke-3, dan pasukanmu.
 Saat menyimpan, centang Save by Troop Ratio (simpan berdasarkan rasio pasukan).
-GEN 1
-GEN 2
-GEN 3
-GEN 4
-GEN 5
-Formasi pasukan: 30-30-40%. Pada kebanyakan kasus, Infanteri akan punya stat terbaik berkat stat dasar Amadeus, jadi formasi yang hampir seimbang dengan Pemanah sedikit lebih banyak bekerja paling baik.
-Formasi pasukan: 20-40-40%. Terutama untuk yang belum memilih Amadeus, dan tetap membuka peluang memakai Amadeus untuk bergabung ke reli.
-Formasi pasukan: 30-30-40%. Untuk F2P, disarankan selalu memakai 3 hero yang dimiliki untuk memimpin reli.
-Formasi pasukan: 20-30-50%. Marlin akan menambah damage besar berkat perlengkapan khusus reli miliknya. Mulai Gen 2, Infanteri akan selalu Amadeus atau Helga — mereka satu-satunya hero Infanteri dengan perlengkapan khusus reli (bonus Lethality). Kamu mengirim lebih sedikit Infanteri, jadi hero Infanteri menutup damage Pemanah lewat perlengkapan itu, bukan dengan menyamai stat Infanteri.
-Formasi pasukan: 20-30-50%. Alternatif lain adalah mengganti Quinn dengan Marlin jika ia belum lebih baik. Pakai Helga di Gen 2+ hanya jika Amadeus belum bintang 5 + perlengkapan khusus level maks; ini juga kesempatan memakai Amadeus untuk bergabung ke reli.
-Formasi pasukan: 30-30-40%. Masih belum ada hero F2P dengan perlengkapan khusus reli, jadi sekali lagi formasi seimbang dengan Pemanah sedikit lebih banyak, karena stat Pemanah akan paling rendah tanpa hero Pemanah SSR.
-Formasi pasukan: 20-30-50%. Pilihan pertama NXS di Gen 3.
-Formasi pasukan: 20-40-40%. Di Gen 3, F2P mendapat hero pertama dengan perlengkapan khusus reli (Petra). Coba jumlah Pemanah dan Kavaleri yang seimbang karena Petra sangat meningkatkan Pemanah. Stat Pemanah tetap paling rendah tanpa Pemanah SSR. Jika kamu membuka Kavaleri T10, skill T10 cocok dengan stat Petra. Jika kamu membuka Kavaleri T3, Petra jadi lebih kuat karena skill ke-3 miliknya sangat cocok dengan stat mereka.
-Formasi pasukan: 10-20-70%. Hanya jika Helga dan widget-nya sama-sama maks.
-Formasi pasukan: 10-10-80%. Paksakan sebanyak mungkin Pemanah, terutama jika T10. Dengan sedikit keberuntungan, skill ke-3 Rosa akan bekerja untukmu (meningkatkan total Attack Pemanah sebesar 30%).
-Formasi pasukan: 10-10-80%. Pakai Helga sebagai alternatif jika bintang dan level perlengkapan khususnya lebih baik dari Amadeus. Tetap paksakan sebanyak mungkin Pemanah, terutama T10, untuk skill ke-3 Rosa (meningkatkan total Attack Pemanah sebesar 30%).
-Formasi pasukan: 10-10-80%. Sama seperti hero alternatif terbaik — bonus skill ke-3 Rosa paling maksimal jika kamu fokus pada formasi yang berat di Pemanah (meningkatkan total Attack Pemanah sebesar 30%).
-Slot pemimpin lainnya belum dirilis.
-PESERTA RELI
+4. Aturan untuk semua peserta
 Tepat 90,000 pasukan di setiap barisan yang bergabung.
 Rasio ideal 10:10:80 jika bisa: 9.000 infanteri, 9.000 kavaleri, 72.000 pemanah (ideal, tidak wajib).
 Hero pertama: Chenko, Amane, Yeonwoo, Amadeus, atau tanpa hero. Jangan kirim Petra sebagai peserta.
@@ -262,14 +258,22 @@ Simpan barisanmu lebih dulu sebelum Bear Hunt dimulai.
 Pemimpin rally yang ditunjuk: pasukan maksimal di rally sendiri, tapi batas 90,000 saat ikut rally orang lain.
 Tidak ada rally sendiri di fase utama: ikut rally NXS yang ditunjuk, jangan membuka rally sendiri.
 ⏰ Sisa 6:30 — fase rally terakhir: semua peserta boleh membuka rally sendiri dengan 3 hero terkuat. Ini satu-satunya pengecualian dari aturan tidak membuka rally lain.
-Simpan formasi peserta
-Atur formasi untuk bergabung (BT2–BT5): hero pertama dari daftar yang disetujui, lalu tepat 9.000 infanteri, 9.000 kavaleri, dan 72.000 pemanah.
-Saat menyimpan, centang Save by Troop Quantity (berdasarkan jumlah, bukan rasio) supaya setiap barisan tepat 90,000.
+📚 Info lainnya
+KAPAN
+Setiap 2 hari pada waktu yang dijadwalkan Aliansimu.
+MENGAPA PENTING
+Sumber utama material Gear Hero (Forgehammer) dan Enhancement XP.
+PERSIAPAN
+Perbarui Formasi Pasukanmu sebelum setiap Bear Hunt.
+Opsional: gunakan https://frakinator.streamlit.app/ untuk menguji rasio pasukan dan menemukan formasi terkuatmu.
+Panggil Kembali pasukan yang sedang mengumpulkan sebelum event dimulai.
+Ingat: di 5–7 menit terakhir, semua orang sebaiknya memulai reli. Ini membuka lebih banyak slot bagi pemain yang pasukannya sedang kembali, sehingga bisa melakukan dorongan damage terakhir.
+Formasi pasukan: 20-40-40%. Di Gen 3, F2P mendapat hero pertama dengan perlengkapan khusus reli (Petra). Coba jumlah Pemanah dan Kavaleri yang seimbang karena Petra sangat meningkatkan Pemanah. Stat Pemanah tetap paling rendah tanpa Pemanah SSR. Jika kamu membuka Kavaleri T10, skill T10 cocok dengan stat Petra. Jika kamu membuka Kavaleri T3, Petra jadi lebih kuat karena skill ke-3 miliknya sangat cocok dengan stat mereka.
 (see guide #formations-rally-tips)
 GUNAKAN DENGAN HATI-HATI
 ⚠️ Pahlawan damage berbasis peluang: efeknya kuat, tapi TIDAK menumpuk. Gunakan hanya SATU dari pahlawan ini dalam reli yang sama: Marlin, Zoe, Jaeger, Petra. ❌ Jangan kirim Petra sebagai peserta.
 🔗 Selengkapnya: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes
-[joiners] Chenko | lethality | Yeonwoo | lethality | Amane | attack | Amadeus | lethality
+[joiners] Chenko | lethality | Amane | attack | Yeonwoo | lethality | Amadeus | lethality
 [leaders] best | Amadeus | Jabel | Quinn | 30-30-40 | alt | Helga | Jabel | Quinn | 20-40-40 | f2p | Howard | Jabel | Quinn | 30-30-40 | best | Amadeus | Hilde | Marlin | 20-30-50 | alt | Helga | Jabel | Marlin | 20-30-50 | f2p | Zoe | Jabel | Quinn | 30-30-40 | n1 | Amadeus | Petra | Marlin | 20-30-50 | n2 | Zoe | Petra | Quinn | 20-40-40 | n3 | Helga | Petra | Marlin | 10-20-70 | best | Amadeus | Petra | Rosa | 10-10-80 | alt | Helga | Petra | Rosa | 10-10-80 | f2p | Zoe | Petra | Rosa | 10-10-80 | best | Amadeus
 
 ### GUIDE #swordland-showdown — Swordland Showdown

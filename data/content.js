@@ -2944,8 +2944,8 @@ const GUIDES = {
     name: { en: "Bear Hunt", zh: "狩獵巨熊", ko: "자이언트 베어 사냥", de: "Bärenjagd", fr: "Chasse à l'Ours", pt: "Caça ao Urso", es: "Cacería del Oso", tr: "Ayı Avı", id: "Bear Hunt", ru: "Охота на медведя", th: "ล่าหมี", ar: "صيد الدببة" },
     joiners: [
       { hero: "Chenko", role: "lethality", img: "figures/chenko.png" },
-      { hero: "Yeonwoo", role: "lethality", img: "figures/yeonwoo.png" },
       { hero: "Amane", role: "attack", img: "figures/amene.png" },
+      { hero: "Yeonwoo", role: "lethality", img: "figures/yeonwoo.png" },
       { hero: "Amadeus", role: "lethality", img: "figures/amadeus.png" }
     ],
     /* 主將陣容（各語言共用）；說明文字在各語言 blocks 的 leaders 區塊 */
@@ -2976,953 +2976,497 @@ const GUIDES = {
     ],
     sections: {
       en: { title: "Bear Hunt", blocks: [
-        { type: "box", title: "🆕 GEN 3 UPDATE", items: [
-          "**Rally leaders (in order):** 1) {amadeus} + {petra} + {marlin} · 2) {zoe} + {petra} + {quinn} · 3) {helga} + {petra} + {marlin}, only if {helga} and her widget are both maxed.",
-          "**Joiners — first-slot hero:** {chenko}, {amane}, {yeonwoo}, {amadeus}, or no hero. ❌ Do not send {petra} as a joiner.",
-          "**Joiners send exactly {=bear} troops** — ideal ratio 10:10:80 (ideal, not compulsory).",
-          "Details below ↓"
-        ] },
-        { type: "h", text: "WHEN" },
-        { type: "p", text: "Every 2 days at your Alliance's scheduled time." },
-        { type: "h", text: "WHY IT MATTERS" },
-        { type: "p", text: "Major source of Hero Gear materials (Forge Hammers), Enhancement XP." },
-        { type: "h", text: "PREP" },
-        { type: "list", items: [
-          "Update your formations before every Bear Hunt."
-        ]},
-        { type: "callout", text: "Optional: use https://frakinator.streamlit.app/ to test troop ratios and find your strongest formation." },
-        { type: "list", items: [
-          "Recall gathering troops before the event starts.",
-          "Remember: In the final 5–7 minutes, everyone should launch a rally. This creates more spots for players whose troops are returning, allowing for a final damage push."
-        ]},
-        { type: "h", text: "RALLY LEADERS" },
-        { type: "callout", text: "⏱️ NXS assigns rally leaders for each Bear Trap. Assigned leaders sit in the **inner circle** around the trap, split into two launch waves: **Wave 1 at 0:00** (the start) and **Wave 2 at 0:45** (45 seconds later)." },
-        { type: "p", text: "Start your rally at your assigned time with an approved formation (below) and your **maximum** troops. When you join someone else's rally, follow the **{=bear}** limit like everyone else." },
-        { type: "sub", text: "Managing your rally" },
-        { type: "p", text: "Check the heroes and troop numbers of everyone who joins:" },
-        { type: "list", items: [ "**Wrong first-slot hero:** kick the player and ask them to rejoin correctly.", "**Wrong troop number:** kick the player and ask them to rejoin with exactly {=bear} troops.", "**Only your top 4 joiners count:** the game uses the first-slot skill of the 4 joiners at the top of your list, whatever their hero level or troop count. Bump your best two {chenko}s and two {amane}s to the top." ]},
-        { type: "sub", text: "How to bump joiners" },
-        { type: "steps", items: [
-          { text: "Open your active Bear rally." }, { text: "Find the strongest {chenko} and {amane} joiners — compare their hero stars and widget levels." }, { text: "Tap a player's row to open their details." },
-          { text: "Press the **turquoise up-arrow** to bump that player to the top.", img: "figures/bear-bump.jpg" },
-          { text: "Keep bumping your other priority joiners. The last one bumped goes above the others." }, { text: "Check the final top four: aim for **two strong {chenko}s and two strong {amane}s**." }
-        ]},
-        { type: "sub", text: "Save your rally leader formation" },
-        { type: "steps", items: [ { text: "Set your rally leader formation (for example **BT1**): lead, 2nd and 3rd hero, and your troops.", img: "figures/bear-bt1.jpg" }, { text: "When you save it, tick **Save by Troop Ratio**.", img: "figures/bear-save-ratio.jpg" } ]},
-        { type: "leaders",
-          gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
-          notes: [
-            [
-              "Troop formation: 30-30-40%. In most cases you will have best stats on infantry due to Amadeus's raw stats, so an ultra-equal formation with slightly more archer troops works best.",
-              "Troop formation: 20-40-40%. Mainly for people that didn't go for Amadeus yet, and keeps the opportunity to use Amadeus for joining rallies.",
-              "Troop formation: 30-30-40%. For F2P it is recommended to always use the 3 heroes you have for hosting a rally."
-            ],
-            [
-              "Troop formation: 20-30-50%. Marlin will boost damage a lot due to his widget. From Gen 2 up, infantry will always be Amadeus or Helga — they are the only infantry heroes with rally widgets (lethality bonus). You send fewer infantry, so the infantry hero covers archer damage via the widget rather than matching infantry stats.",
-              "Troop formation: 20-30-50%. Other alternative is swapping Quinn for Marlin if he isn't better yet. Use Helga in Gen 2+ only if Amadeus isn't 5-star + max widget level; also an opportunity to use Amadeus for joining rallies.",
-              "Troop formation: 30-30-40%. Still no F2P hero with a rally widget, so again an even formation with slightly more archers, as archer stats will be lowest due to not having an SSR archer hero."
-            ],
-            [
-              "Troop formation: 20-30-50%. NXS's first choice for Gen 3.",
-                            "Troop formation: 20-40-40%. In Gen 3, F2P get their first hero with a rally widget (Petra). Try even archer/cav numbers because Petra improves archer troops a lot. Archer stats are still lowest without an SSR archer. If you unlock T10 cavalry, the T10 skill pairs well with Petra's stats." + " If you unlock **T3 Cavalry**, {petra} becomes even stronger, because her 3rd skill works very well with their stats.",
-              "Troop formation: 10-20-70%. Only if {helga} and her widget are both maxed."
-            ],
-            [
-              "Troop formation: 10-10-80%. Force as many archer troops as you can, especially if they are T10. With a bit of luck Rosa's 3rd skill will do the work for you (Increasing Archers' total Attack by 30%).",
-              "Troop formation: 10-10-80%. Use Helga as alternative if she has better stars and widget level than Amadeus. Still force as many archers as you can, especially T10, for Rosa's 3rd skill (Increasing Archers' total Attack by 30%).",
-              "Troop formation: 10-10-80%. Same as alternative best heroes — Rosa's 3rd skill bonuses best if you focus on heavy archer formations (Increasing Archers' total Attack by 30%)."
-            ],
-            [
-              "Remaining host slots not released yet."
-            ]
-          ]},
-        { type: "h", text: "RALLY JOINERS" },
-        { type: "list", items: [
-          "**Exactly {=bear} troops** in every joining march.",
-          "**Ideal ratio 10:10:80** where possible: 9,000 infantry, 9,000 cavalry, 72,000 archers (ideal, not compulsory).",
-          "**First-slot hero:** {chenko}, {amane}, {yeonwoo}, {amadeus}, or no hero. Do not send {petra} as a joiner.",
-          "**Pre-save your marches** before Bear Hunt starts.",
-          "**Assigned rally leaders:** maximum troops in your own rally, but the {=bear} limit when joining someone else's.",
-          "**No independent rallies in the main phase:** join the assigned NXS rallies instead of launching your own."
-        ]},
-        { type: "callout", text: "⏰ **6:30 remaining — final rally phase:** all joiners may now start their own rallies with their **3 strongest heroes**. This is the only exception to the no-other-rallies rule." },
-        { type: "sub", text: "Save your joiner formations" },
-        { type: "steps", items: [ { text: "Set your joining formations (**BT2–BT5**): first-slot hero from the approved list, then exactly **9,000 infantry, 9,000 cavalry and 72,000 archers**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "When you save them, tick **Save by Troop Quantity** (not by ratio), so every march is exactly {=bear}.", img: "figures/bear-save-qty.jpg" } ]},
-        { type: "p", text: "[[squad:guide]]" },
-        { type: "joiners" },
-        { type: "sub", text: "USE WITH CAUTION" },
-        { type: "callout", text: "⚠️ **Chance-based damage heroes:** strong effects, but they do **NOT stack**. Only use **ONE** of these heroes in the same rally: {marlin}, {zoe}, {jaeger}, {petra}. ❌ Do not send {petra} as a joiner." },
-        { type: "p", text: "🔗 More: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
+        {"type":"callout","text":"🐻 NXS Bear Hunt — how NXS does Bear Hunt: strong heroes, coordinated rallies, precise timing and maximum alliance damage."},
+        {"type":"h","text":"1. Bear Trap Heroes — Gen 3"},
+        {"type":"sub","text":"Rally Leaders — Approved Formations"},
+        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Troop formation: 30-30-40%. In most cases you will have best stats on infantry due to Amadeus's raw stats, so an ultra-equal formation with slightly more archer troops works best.","Troop formation: 20-40-40%. Mainly for people that didn't go for Amadeus yet, and keeps the opportunity to use Amadeus for joining rallies.","Troop formation: 30-30-40%. For F2P it is recommended to always use the 3 heroes you have for hosting a rally."],["Troop formation: 20-30-50%. Marlin will boost damage a lot due to his widget. From Gen 2 up, infantry will always be Amadeus or Helga — they are the only infantry heroes with rally widgets (lethality bonus). You send fewer infantry, so the infantry hero covers archer damage via the widget rather than matching infantry stats.","Troop formation: 20-30-50%. Other alternative is swapping Quinn for Marlin if he isn't better yet. Use Helga in Gen 2+ only if Amadeus isn't 5-star + max widget level; also an opportunity to use Amadeus for joining rallies.","Troop formation: 30-30-40%. Still no F2P hero with a rally widget, so again an even formation with slightly more archers, as archer stats will be lowest due to not having an SSR archer hero."],["","","Troop formation: 10-20-70%. Only if {helga} and her widget are both maxed."],["Troop formation: 10-10-80%. Force as many archer troops as you can, especially if they are T10. With a bit of luck Rosa's 3rd skill will do the work for you (Increasing Archers' total Attack by 30%).","Troop formation: 10-10-80%. Use Helga as alternative if she has better stars and widget level than Amadeus. Still force as many archers as you can, especially T10, for Rosa's 3rd skill (Increasing Archers' total Attack by 30%).","Troop formation: 10-10-80%. Same as alternative best heroes — Rosa's 3rd skill bonuses best if you focus on heavy archer formations (Increasing Archers' total Attack by 30%)."],["Remaining host slots not released yet."]]},
+        {"type":"sub","text":"Joiners — Approved First-Slot Heroes"},
+        {"type":"joiners"},
+        {"type":"callout","text":"❌ **Do not send {petra} as a joiner.** Use an approved hero in the first slot, or send **no hero**."},
+        {"type":"h","text":"2. Joiner Troop Requirements"},
+        {"type":"p","text":"All joiners must send **exactly {=bear} troops** per rally. The ideal ratio is **10:10:80** wherever possible, with an emphasis on archers."},
+        {"type":"box","title":"**Infantry 9,000 (10%) · Cavalry 9,000 (10%) · Archers 72,000 (80%)**","items":["{=bear} troops is mandatory. The 10:10:80 ratio is ideal, not compulsory."]},
+        {"type":"sub","text":"Save your joiner formations"},
+        {"type":"steps","items":[{"text":"Set your joining formations (**BT2–BT5**): first-slot hero from the approved list, then exactly **9,000 infantry, 9,000 cavalry and 72,000 archers**.","img":"figures/bear-joiner-bt2.jpg"},{"text":"When you save them, tick **Save by Troop Quantity** (not by ratio), so every march is exactly {=bear}.","img":"figures/bear-save-qty.jpg"}]},
+        {"type":"h","text":"3. Rules for Assigned Rally Leaders"},
+        {"type":"callout","text":"⏱️ NXS assigns rally leaders for each Bear Trap. Assigned leaders sit in the **inner circle** around the trap, split into two launch waves: **Wave 1 at 0:00** (the start) and **Wave 2 at 0:45** (45 seconds later)."},
+        {"type":"p","text":"Start your rally at your assigned time with an approved formation (below) and your **maximum** troops. When you join someone else's rally, follow the **{=bear}** limit like everyone else."},
+        {"type":"sub","text":"Managing your rally"},
+        {"type":"p","text":"Check the heroes and troop numbers of everyone who joins:"},
+        {"type":"list","items":["**Wrong first-slot hero:** kick the player and ask them to rejoin correctly.","**Wrong troop number:** kick the player and ask them to rejoin with exactly {=bear} troops.","**Only your top 4 joiners count:** the game uses the first-slot skill of the 4 joiners at the top of your list, whatever their hero level or troop count. Bump your best two {chenko}s and two {amane}s to the top."]},
+        {"type":"sub","text":"How to bump joiners"},
+        {"type":"steps","items":[{"text":"Open your active Bear rally."},{"text":"Find the strongest {chenko} and {amane} joiners — compare their hero stars and widget levels."},{"text":"Tap a player's row to open their details."},{"text":"Press the **turquoise up-arrow** to bump that player to the top.","img":"figures/bear-bump.jpg"},{"text":"Keep bumping your other priority joiners. The last one bumped goes above the others."},{"text":"Check the final top four: aim for **two strong {chenko}s and two strong {amane}s**."}]},
+        {"type":"sub","text":"Save your rally leader formation"},
+        {"type":"steps","items":[{"text":"Set your rally leader formation (for example **BT1**): lead, 2nd and 3rd hero, and your troops.","img":"figures/bear-bt1.jpg"},{"text":"When you save it, tick **Save by Troop Ratio**.","img":"figures/bear-save-ratio.jpg"}]},
+        {"type":"h","text":"4. Rules for All Joiners"},
+        {"type":"list","items":["**Exactly {=bear} troops** in every joining march.","**Ideal ratio 10:10:80** where possible: 9,000 infantry, 9,000 cavalry, 72,000 archers (ideal, not compulsory).","**First-slot hero:** {chenko}, {amane}, {yeonwoo}, {amadeus}, or no hero. Do not send {petra} as a joiner.","**Pre-save your marches** before Bear Hunt starts.","**Assigned rally leaders:** maximum troops in your own rally, but the {=bear} limit when joining someone else's.","**No independent rallies in the main phase:** join the assigned NXS rallies instead of launching your own."]},
+        {"type":"callout","text":"⏰ **6:30 remaining — final rally phase:** all joiners may now start their own rallies with their **3 strongest heroes**. This is the only exception to the no-other-rallies rule."},
+        {"type":"h","text":"📚 More info"},
+        {"type":"sub","text":"WHEN"},
+        {"type":"p","text":"Every 2 days at your Alliance's scheduled time."},
+        {"type":"sub","text":"WHY IT MATTERS"},
+        {"type":"p","text":"Major source of Hero Gear materials (Forge Hammers), Enhancement XP."},
+        {"type":"sub","text":"PREP"},
+        {"type":"list","items":["Update your formations before every Bear Hunt."]},
+        {"type":"callout","text":"Optional: use https://frakinator.streamlit.app/ to test troop ratios and find your strongest formation."},
+        {"type":"list","items":["Recall gathering troops before the event starts.","Remember: In the final 5–7 minutes, everyone should launch a rally. This creates more spots for players whose troops are returning, allowing for a final damage push."]},
+        {"type":"p","text":"Troop formation: 20-40-40%. In Gen 3, F2P get their first hero with a rally widget (Petra). Try even archer/cav numbers because Petra improves archer troops a lot. Archer stats are still lowest without an SSR archer. If you unlock T10 cavalry, the T10 skill pairs well with Petra's stats. If you unlock **T3 Cavalry**, {petra} becomes even stronger, because her 3rd skill works very well with their stats."},
+        {"type":"p","text":"[[squad:guide]]"},
+        {"type":"sub","text":"USE WITH CAUTION"},
+        {"type":"callout","text":"⚠️ **Chance-based damage heroes:** strong effects, but they do **NOT stack**. Only use **ONE** of these heroes in the same rally: {marlin}, {zoe}, {jaeger}, {petra}. ❌ Do not send {petra} as a joiner."},
+        {"type":"p","text":"🔗 More: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes"}
       ]},
       zh: { title: "狩獵巨熊", blocks: [
-        { type: "box", title: "🆕 第 3 代更新", items: [
-          "**集結隊長（依順序）：**1) {amadeus} + {petra} + {marlin} · 2) {zoe} + {petra} + {quinn} · 3) {helga} + {petra} + {marlin}，只限{helga}和她的專屬裝備都滿級。",
-          "**參與者第一位英雄：**{chenko}、{amane}、{yeonwoo}、{amadeus}，或不放英雄。❌ 參與者不要派{petra}。",
-          "**參與者剛好派 {=bear} 人**，理想比例 10:10:80（理想、非強制）。",
-          "詳細內容請往下看 ↓"
-        ] },
-        { type: "h", text: "時間" },
-        { type: "p", text: "每 2 天，依聯盟排定的時間進行。" },
-        { type: "h", text: "重要性" },
-        { type: "p", text: "英雄裝備材料（鍛造錘）與強化經驗值的主要來源。" },
-        { type: "h", text: "準備事項" },
-        { type: "list", items: [
-          "每次狩獵巨熊前更新部隊編組。"
-        ]},
-        { type: "callout", text: "可選擇：使用 https://frakinator.streamlit.app 測試士兵比例，找出最強部隊編組。" },
-        { type: "list", items: [
-          "活動開始前記得召回採集中的部隊。",
-          "切記：在最後 5–7 分鐘，所有人都應發起集結。這樣能讓部隊返回的玩家有更多集結位可加入，進行最後的傷害衝刺。"
-        ]},
-        { type: "h", text: "集結指揮" },
-        { type: "callout", text: "⏱️ NXS 每個狩獵陷阱都會指派集結隊長。指派的隊長在陷阱周圍的**內圈**，分兩波出發：**第 1 波 0:00**（一開始）、**第 2 波 0:45**（45 秒後）。" },
-        { type: "p", text: "在指派的時間，用下方認可的陣容和**最大**兵力發起集結。加入別人的集結時，跟大家一樣遵守 **{=bear}** 人的限制。" },
-        { type: "sub", text: "管理你的集結" },
-        { type: "p", text: "檢查每位加入者的英雄和兵力：" },
-        { type: "list", items: [ "**第一位英雄錯誤：**踢出並請對方用正確的英雄重新加入。", "**兵力不對：**踢出並請對方用剛好 {=bear} 人重新加入。", "**只有前 4 名加入者算數：**遊戲取名單最上面 4 位加入者的第一技能，不看英雄等級，也不看兵力。把最強的兩個{chenko}和兩個{amane}推到最上面。" ]},
-        { type: "sub", text: "如何把加入者往上推" },
-        { type: "steps", items: [
-          { text: "打開你正在進行的熊集結。" }, { text: "找出最強的{chenko}和{amane}加入者，比較英雄星級和專屬裝備等級。" }, { text: "點玩家那一列展開詳細資料。" },
-          { text: "按**青色向上箭頭**，把那位玩家推到最上面。", img: "figures/bear-bump.jpg" },
-          { text: "繼續推其他優先的加入者。最後推的會排在最上面。" }, { text: "確認最後的前四名：目標是**兩個強的{chenko}和兩個強的{amane}**。" }
-        ]},
-        { type: "sub", text: "儲存你的集結隊長陣容" },
-        { type: "steps", items: [ { text: "設定集結隊長陣容（例如 **BT1**）：主將、第二、第三位英雄和兵力。", img: "figures/bear-bt1.jpg" }, { text: "儲存時勾選「**Save by Troop Ratio**」（依兵種比例儲存）。", img: "figures/bear-save-ratio.jpg" } ]},
-        { type: "leaders",
-          gens: ["第 1 代","第 2 代","第 3 代","第 4 代","第 5 代"],
-          notes: [
-            [
-              "多數情況步兵最強，因阿瑪迪斯數值高；弓兵稍多的平均編組效果最好。",
-              "適合尚未抽到阿瑪迪斯的玩家，同時讓阿瑪迪斯保留給集結。",
-              "免費玩家建議永遠用手上最強的三位英雄擔任指揮。"
-            ],
-            [
-              "馬林能大幅提升傷害，因為擁有集結專屬裝備（殺傷力加成）；步兵固定用阿瑪迪斯或赫爾加。",
-              "若馬林不夠強可換成奎恩；赫爾加只在阿瑪迪斯未滿裝時使用。",
-              "目前免費玩家仍無擁有集結裝備的弓兵，弓兵屬性最弱。"
-            ],
-            [
-              "兵種比例：20-30-50%。NXS 第 3 代的首選。",
-                            "終於拿到第一位集結裝備英雄（{petra}），弓兵屬性仍最低；滿級騎兵能發揮很好。" + "如果解鎖了 **T3 騎兵**，{petra}會更強，因為她的第 3 個技能和 T3 騎兵的屬性非常搭。",
-              "兵種比例：10-20-70%。只限{helga}和她的專屬裝備都滿級。"
-            ],
-            [
-              "盡量拉高弓兵數量，滿級弓兵尤佳；Rosa 三技能可能提升弓兵總攻擊 30%。",
-              "若赫爾加星級裝備高於阿瑪迪斯可替代使用。",
-              "與替代組合相同，Rosa 三技能在重弓兵編組下效果最佳。"
-            ],
-            [
-              "其餘指揮欄位尚未公布。"
-            ]
-          ]},
-        { type: "h", text: "集結參與者" },
-        { type: "list", items: [
-          "每次加入集結都要**剛好 {=bear} 人**。",
-          "盡量用**理想比例 10:10:80**：步兵 9,000、騎兵 9,000、弓兵 72,000（理想、非強制）。",
-          "**第一位英雄：**{chenko}、{amane}、{yeonwoo}、{amadeus}，或不放英雄。參與者不要派{petra}。",
-          "狩獵巨熊開始前**先存好出征編組**。",
-          "**指派的集結隊長：**自己的集結用最大兵力，加入別人的集結時遵守 {=bear} 人限制。",
-          "**主要階段不要自己開集結：**加入 NXS 指派的集結，不要自己發起。"
-        ]},
-        { type: "callout", text: "⏰ **剩下 6:30 — 最後集結階段：**所有參與者可以用自己**最強的 3 位英雄**發起自己的集結。這是「不要自己開集結」的唯一例外。" },
-        { type: "sub", text: "儲存加入集結的陣容" },
-        { type: "steps", items: [ { text: "設定加入集結用的陣容（**BT2–BT5**）：第一位英雄用認可名單裡的，兵力剛好**步兵 9,000、騎兵 9,000、弓兵 72,000**。", img: "figures/bear-joiner-bt2.jpg" }, { text: "儲存時勾選「**Save by Troop Quantity**」（依兵力數量儲存，不是依比例），這樣每次出兵都剛好 {=bear} 人。", img: "figures/bear-save-qty.jpg" } ]},
-        { type: "p", text: "[[squad:guide]]" },
-        { type: "joiners" },
-        { type: "sub", text: "謹慎使用" },
-        { type: "callout", text: "⚠️ **機率觸發傷害的英雄：**效果很強，但**不會疊加**。同一個集結中只能派其中**一位**：{marlin}、{zoe}、{jaeger}、{petra}。 ❌ 參與者不要派{petra}。" },
-        { type: "p", text: "🔗 更多資訊： https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
+        {"type":"callout","text":"🐻 NXS 狩獵巨熊 — NXS 怎麼打熊：強力英雄、協調集結、精準時機，打出最高聯盟傷害。"},
+        {"type":"h","text":"1. 狩獵陷阱英雄 — 第 3 代"},
+        {"type":"sub","text":"集結隊長 — 認可陣容"},
+        {"type":"leaders","gens":["第 1 代","第 2 代","第 3 代","第 4 代","第 5 代"],"notes":[["多數情況步兵最強，因阿瑪迪斯數值高；弓兵稍多的平均編組效果最好。","適合尚未抽到阿瑪迪斯的玩家，同時讓阿瑪迪斯保留給集結。","免費玩家建議永遠用手上最強的三位英雄擔任指揮。"],["馬林能大幅提升傷害，因為擁有集結專屬裝備（殺傷力加成）；步兵固定用阿瑪迪斯或赫爾加。","若馬林不夠強可換成奎恩；赫爾加只在阿瑪迪斯未滿裝時使用。","目前免費玩家仍無擁有集結裝備的弓兵，弓兵屬性最弱。"],["","","兵種比例：10-20-70%。只限{helga}和她的專屬裝備都滿級。"],["盡量拉高弓兵數量，滿級弓兵尤佳；Rosa 三技能可能提升弓兵總攻擊 30%。","若赫爾加星級裝備高於阿瑪迪斯可替代使用。","與替代組合相同，Rosa 三技能在重弓兵編組下效果最佳。"],["其餘指揮欄位尚未公布。"]]},
+        {"type":"sub","text":"加入者 — 認可的第一位英雄"},
+        {"type":"joiners"},
+        {"type":"callout","text":"❌ **加入者不要派{petra}。**第一位英雄用認可名單裡的，或**不放英雄**。"},
+        {"type":"h","text":"2. 加入者兵力要求"},
+        {"type":"p","text":"所有加入者每次集結都要派**剛好 {=bear} 人**。盡量用理想比例 **10:10:80**，以弓兵為主。"},
+        {"type":"box","title":"**步兵 9,000（10%）· 騎兵 9,000（10%）· 弓兵 72,000（80%）**","items":["{=bear} 人是強制的；10:10:80 是理想比例，不強制。"]},
+        {"type":"sub","text":"儲存加入集結的陣容"},
+        {"type":"steps","items":[{"text":"設定加入集結用的陣容（**BT2–BT5**）：第一位英雄用認可名單裡的，兵力剛好**步兵 9,000、騎兵 9,000、弓兵 72,000**。","img":"figures/bear-joiner-bt2.jpg"},{"text":"儲存時勾選「**Save by Troop Quantity**」（依兵力數量儲存，不是依比例），這樣每次出兵都剛好 {=bear} 人。","img":"figures/bear-save-qty.jpg"}]},
+        {"type":"h","text":"3. 指派集結隊長的規則"},
+        {"type":"callout","text":"⏱️ NXS 每個狩獵陷阱都會指派集結隊長。指派的隊長在陷阱周圍的**內圈**，分兩波出發：**第 1 波 0:00**（一開始）、**第 2 波 0:45**（45 秒後）。"},
+        {"type":"p","text":"在指派的時間，用下方認可的陣容和**最大**兵力發起集結。加入別人的集結時，跟大家一樣遵守 **{=bear}** 人的限制。"},
+        {"type":"sub","text":"管理你的集結"},
+        {"type":"p","text":"檢查每位加入者的英雄和兵力："},
+        {"type":"list","items":["**第一位英雄錯誤：**踢出並請對方用正確的英雄重新加入。","**兵力不對：**踢出並請對方用剛好 {=bear} 人重新加入。","**只有前 4 名加入者算數：**遊戲取名單最上面 4 位加入者的第一技能，不看英雄等級，也不看兵力。把最強的兩個{chenko}和兩個{amane}推到最上面。"]},
+        {"type":"sub","text":"如何把加入者往上推"},
+        {"type":"steps","items":[{"text":"打開你正在進行的熊集結。"},{"text":"找出最強的{chenko}和{amane}加入者，比較英雄星級和專屬裝備等級。"},{"text":"點玩家那一列展開詳細資料。"},{"text":"按**青色向上箭頭**，把那位玩家推到最上面。","img":"figures/bear-bump.jpg"},{"text":"繼續推其他優先的加入者。最後推的會排在最上面。"},{"text":"確認最後的前四名：目標是**兩個強的{chenko}和兩個強的{amane}**。"}]},
+        {"type":"sub","text":"儲存你的集結隊長陣容"},
+        {"type":"steps","items":[{"text":"設定集結隊長陣容（例如 **BT1**）：主將、第二、第三位英雄和兵力。","img":"figures/bear-bt1.jpg"},{"text":"儲存時勾選「**Save by Troop Ratio**」（依兵種比例儲存）。","img":"figures/bear-save-ratio.jpg"}]},
+        {"type":"h","text":"4. 所有加入者的規則"},
+        {"type":"list","items":["每次加入集結都要**剛好 {=bear} 人**。","盡量用**理想比例 10:10:80**：步兵 9,000、騎兵 9,000、弓兵 72,000（理想、非強制）。","**第一位英雄：**{chenko}、{amane}、{yeonwoo}、{amadeus}，或不放英雄。參與者不要派{petra}。","狩獵巨熊開始前**先存好出征編組**。","**指派的集結隊長：**自己的集結用最大兵力，加入別人的集結時遵守 {=bear} 人限制。","**主要階段不要自己開集結：**加入 NXS 指派的集結，不要自己發起。"]},
+        {"type":"callout","text":"⏰ **剩下 6:30 — 最後集結階段：**所有參與者可以用自己**最強的 3 位英雄**發起自己的集結。這是「不要自己開集結」的唯一例外。"},
+        {"type":"h","text":"📚 更多資訊"},
+        {"type":"sub","text":"時間"},
+        {"type":"p","text":"每 2 天，依聯盟排定的時間進行。"},
+        {"type":"sub","text":"重要性"},
+        {"type":"p","text":"英雄裝備材料（鍛造錘）與強化經驗值的主要來源。"},
+        {"type":"sub","text":"準備事項"},
+        {"type":"list","items":["每次狩獵巨熊前更新部隊編組。"]},
+        {"type":"callout","text":"可選擇：使用 https://frakinator.streamlit.app 測試士兵比例，找出最強部隊編組。"},
+        {"type":"list","items":["活動開始前記得召回採集中的部隊。","切記：在最後 5–7 分鐘，所有人都應發起集結。這樣能讓部隊返回的玩家有更多集結位可加入，進行最後的傷害衝刺。"]},
+        {"type":"p","text":"終於拿到第一位集結裝備英雄（{petra}），弓兵屬性仍最低；滿級騎兵能發揮很好。如果解鎖了 **T3 騎兵**，{petra}會更強，因為她的第 3 個技能和 T3 騎兵的屬性非常搭。"},
+        {"type":"p","text":"[[squad:guide]]"},
+        {"type":"sub","text":"謹慎使用"},
+        {"type":"callout","text":"⚠️ **機率觸發傷害的英雄：**效果很強，但**不會疊加**。同一個集結中只能派其中**一位**：{marlin}、{zoe}、{jaeger}、{petra}。 ❌ 參與者不要派{petra}。"},
+        {"type":"p","text":"🔗 更多資訊： https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes"}
       ]},
       ko: { title: "자이언트 베어 사냥", blocks: [
-        { type: "box", title: "🆕 3세대 업데이트", items: [
-          "**집결장 (순서대로):** 1) {amadeus} + {petra} + {marlin} · 2) {zoe} + {petra} + {quinn} · 3) {helga} + {petra} + {marlin}, {helga}와 전용 장비가 모두 만렙일 때만.",
-          "**참여자 첫 번째 영웅:** {chenko}, {amane}, {yeonwoo}, {amadeus}, 또는 영웅 없음. ❌ 참여자로 {petra}를 보내지 마세요.",
-          "**참여자는 정확히 {=bear}명** — 이상적인 비율 10:10:80 (권장, 필수 아님).",
-          "자세한 내용은 아래 ↓"
-        ] },
-        { type: "h", text: "일시" },
-        { type: "p", text: "연맹에 지정된 시간에 2일마다 진행됩니다." },
-        { type: "h", text: "중요성" },
-        { type: "p", text: "영웅 장비 재료(제작 망치) 및 강화 경험치의 주요 획득처입니다." },
-        { type: "h", text: "준비 사항" },
-        { type: "list", items: [
-          "매번 자이언트 베어 사냥 시작 전에 부대 편성을 업데이트하세요."
-        ]},
-        { type: "callout", text: "선택 사항: https://frakinator.streamlit.app/를 사용하여 병사 비율을 테스트하고 가장 강력한 부대 편성을 찾아보세요." },
-        { type: "list", items: [
-          "이벤트가 시작되기 전에 채집 중인 부대를 소환하세요.",
-          "기억하세요: 마지막 5~7분 동안에는 모든 플레이어가 집결을 열어야 합니다. 이렇게 하면 병력이 복귀하는 플레이어들을 위한 자리가 더 많이 생겨 마지막 데미지 몰아치기가 가능해집니다."
-        ]},
-        { type: "h", text: "집결 영웅 세대별 조합" },
-        { type: "callout", text: "⏱️ NXS는 사냥 함정마다 집결장을 배정합니다. 배정된 집결장은 함정 주변 **안쪽 원**에 있으며 두 번에 나눠 출발합니다: **1차 0:00**(시작), **2차 0:45**(45초 후)." },
-        { type: "p", text: "배정된 시간에 아래 승인된 편성과 **최대** 병력으로 집결을 시작하세요. 다른 사람의 집결에 참여할 때는 모두와 같이 **{=bear}**명 제한을 지키세요." },
-        { type: "sub", text: "집결 관리" },
-        { type: "p", text: "참여한 모든 사람의 영웅과 병력 수를 확인하세요:" },
-        { type: "list", items: [ "**첫 번째 영웅이 틀림:** 강퇴하고 올바르게 다시 참여하라고 요청하세요.", "**병력 수가 틀림:** 강퇴하고 정확히 {=bear}명으로 다시 참여하라고 요청하세요.", "**상위 4명의 참여자만 적용:** 게임은 영웅 레벨이나 병력과 상관없이 목록 맨 위 참여자 4명의 첫 번째 스킬을 사용합니다. 가장 강한 {chenko} 2명과 {amane} 2명을 맨 위로 올리세요." ]},
-        { type: "sub", text: "참여자를 위로 올리는 방법" },
-        { type: "steps", items: [
-          { text: "진행 중인 곰 집결을 여세요." }, { text: "가장 강한 {chenko}와 {amane} 참여자를 찾으세요 — 영웅 별과 전용 장비 레벨을 비교하세요." }, { text: "플레이어 줄을 눌러 상세 정보를 여세요." },
-          { text: "**청록색 위쪽 화살표**를 눌러 그 플레이어를 맨 위로 올리세요.", img: "figures/bear-bump.jpg" },
-          { text: "다른 우선 참여자도 계속 올리세요. 마지막에 올린 사람이 가장 위로 갑니다." }, { text: "최종 상위 4명을 확인하세요: **강한 {chenko} 2명과 강한 {amane} 2명**이 목표입니다." }
-        ]},
-        { type: "sub", text: "집결장 편성 저장" },
-        { type: "steps", items: [ { text: "집결장 편성을 설정하세요 (예: **BT1**): 주장, 2번째, 3번째 영웅과 병력.", img: "figures/bear-bt1.jpg" }, { text: "저장할 때 **Save by Troop Ratio**(병종 비율로 저장)를 체크하세요.", img: "figures/bear-save-ratio.jpg" } ]},
-        { type: "leaders",
-          gens: ["1세대","2세대","3세대","4세대","5세대"],
-          notes: [
-            [
-              "아마데우스는 기본적으로 훌륭한 보병 및 기병 능력치를 갖추고 있어, 궁병 중심의 부대 편성에서 가장 뛰어난 효율을 발휘합니다.",
-              "과금 유저에게도 훌륭한 선택이지만, 헬가의 궁병 관련 능력치는 다소 부족합니다. 레벨이 낮은 아마데우스는 집결 참여 영웅으로 활용하세요.",
-              "무과금 유저에게 권장되는 집결장 영웅 조합입니다. 집결 공격 시, 항상 가장 강력한 세 영웅 조합을 사용하는 것이 좋습니다."
-            ],
-            [
-              "마린은 집결 전용 파괴력 장비로 피해를 크게 올립니다. 보병은 아마데우스 또는 헬가.",
-              "말린이 약하면 퀸으로 바꾸세요. 헬가는 아마데우스 장비가 덜 갖춰졌을 때만.",
-              "아직 집결 장비가 있는 무과금 궁병이 없어 궁병 스탯이 가장 약합니다."
-            ],
-            [
-              "병력 편성: 20-30-50%. NXS의 3세대 첫 번째 선택.",
-                            "첫 무과금 집결 장비 영웅(페트라)이 나옵니다. 궁병은 여전히 약하지만, 만렙 기병이 페트라와 잘 맞습니다." + " **T3 기병**을 해제하면 {petra}가 더 강해집니다. 3번째 스킬이 T3 기병의 속성과 잘 맞기 때문입니다.",
-              "병력 편성: 10-20-70%. {helga}와 전용 장비가 모두 만렙일 때만."
-            ],
-            [
-              "이제부터는 궁병 중심의 부대 편성을 운영합니다. 티어 TG5 기병과 함께 로사의 3번째 스킬이 부여하는 궁병 전체 공격력 30% 증가는 매우 강력한 효과입니다.",
-              "헬가의 성급이나 전용 무기 레벨이 아마데우스보다 높다면 헬가를 대체 영웅으로 기용하세요. 티어 TG5 기병과 함께 로사의 3번째 스킬이 부여하는 궁병 전체 공격력 30% 증가는 매우 강력한 효과입니다.",
-              "위의 대체 영웅 조합과 같은 병력 비율을 사용합니다. 로사의 3번째 스킬과 높은 궁병 비율의 조합은 궁병 전체 공격력을 30% 증가시킵니다."
-            ],
-            [
-              "나머지 지휘 자리는 아직 미공개입니다."
-            ]
-          ]},
-        { type: "h", text: "집결 참여 영웅" },
-        { type: "list", items: [
-          "모든 참여 행군은 **정확히 {=bear}명**.",
-          "가능하면 **이상적인 비율 10:10:80**: 보병 9,000, 기병 9,000, 궁병 72,000 (권장, 필수 아님).",
-          "**첫 번째 영웅:** {chenko}, {amane}, {yeonwoo}, {amadeus}, 또는 영웅 없음. 참여자로 {petra}를 보내지 마세요.",
-          "곰 사냥 시작 전에 **행군을 미리 저장**하세요.",
-          "**배정된 집결장:** 본인 집결은 최대 병력, 다른 사람 집결에 참여할 때는 {=bear}명 제한.",
-          "**메인 단계에서 개인 집결 금지:** 직접 집결을 열지 말고 배정된 NXS 집결에 참여하세요."
-        ]},
-        { type: "callout", text: "⏰ **6:30 남음 — 마지막 집결 단계:** 모든 참여자가 **가장 강한 영웅 3명**으로 본인 집결을 시작해도 됩니다. 개인 집결 금지 규칙의 유일한 예외입니다." },
-        { type: "sub", text: "참여 편성 저장" },
-        { type: "steps", items: [ { text: "참여용 편성(**BT2–BT5**)을 설정하세요: 첫 번째 영웅은 승인 목록에서, 병력은 정확히 **보병 9,000, 기병 9,000, 궁병 72,000**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "저장할 때 **Save by Troop Quantity**(병력 수로 저장, 비율 아님)를 체크하면 매번 정확히 {=bear}명이 됩니다.", img: "figures/bear-save-qty.jpg" } ]},
-        { type: "p", text: "[[squad:guide]]" },
-        { type: "joiners" },
-        { type: "sub", text: "주의해서 사용" },
-        { type: "callout", text: "⚠️ **확률 발동 피해 영웅:** 효과는 강하지만 **중첩되지 않습니다**. 같은 집결에는 이 중 **한 명만** 보내세요: {marlin}, {zoe}, {jaeger}, {petra}. ❌ 참여자로 {petra}를 보내지 마세요." },
-        { type: "p", text: "🔗 더 보기: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
+        {"type":"callout","text":"🐻 NXS 곰 사냥 — NXS의 곰 사냥 방식: 강한 영웅, 협동 집결, 정확한 타이밍, 최대 연맹 피해."},
+        {"type":"h","text":"1. 사냥 함정 영웅 — 3세대"},
+        {"type":"sub","text":"집결장 — 승인된 편성"},
+        {"type":"leaders","gens":["1세대","2세대","3세대","4세대","5세대"],"notes":[["아마데우스는 기본적으로 훌륭한 보병 및 기병 능력치를 갖추고 있어, 궁병 중심의 부대 편성에서 가장 뛰어난 효율을 발휘합니다.","과금 유저에게도 훌륭한 선택이지만, 헬가의 궁병 관련 능력치는 다소 부족합니다. 레벨이 낮은 아마데우스는 집결 참여 영웅으로 활용하세요.","무과금 유저에게 권장되는 집결장 영웅 조합입니다. 집결 공격 시, 항상 가장 강력한 세 영웅 조합을 사용하는 것이 좋습니다."],["마린은 집결 전용 파괴력 장비로 피해를 크게 올립니다. 보병은 아마데우스 또는 헬가.","말린이 약하면 퀸으로 바꾸세요. 헬가는 아마데우스 장비가 덜 갖춰졌을 때만.","아직 집결 장비가 있는 무과금 궁병이 없어 궁병 스탯이 가장 약합니다."],["","","병력 편성: 10-20-70%. {helga}와 전용 장비가 모두 만렙일 때만."],["이제부터는 궁병 중심의 부대 편성을 운영합니다. 티어 TG5 기병과 함께 로사의 3번째 스킬이 부여하는 궁병 전체 공격력 30% 증가는 매우 강력한 효과입니다.","헬가의 성급이나 전용 무기 레벨이 아마데우스보다 높다면 헬가를 대체 영웅으로 기용하세요. 티어 TG5 기병과 함께 로사의 3번째 스킬이 부여하는 궁병 전체 공격력 30% 증가는 매우 강력한 효과입니다.","위의 대체 영웅 조합과 같은 병력 비율을 사용합니다. 로사의 3번째 스킬과 높은 궁병 비율의 조합은 궁병 전체 공격력을 30% 증가시킵니다."],["나머지 지휘 자리는 아직 미공개입니다."]]},
+        {"type":"sub","text":"참여자 — 승인된 첫 번째 영웅"},
+        {"type":"joiners"},
+        {"type":"callout","text":"❌ **참여자로 {petra}를 보내지 마세요.** 첫 번째 칸에 승인된 영웅을 넣거나 **영웅 없이** 보내세요."},
+        {"type":"h","text":"2. 참여자 병력 요건"},
+        {"type":"p","text":"모든 참여자는 집결마다 **정확히 {=bear}명**을 보내야 합니다. 가능하면 궁병 위주의 **10:10:80** 비율로 맞추세요."},
+        {"type":"box","title":"**보병 9,000 (10%) · 기병 9,000 (10%) · 궁병 72,000 (80%)**","items":["{=bear}명은 필수, 10:10:80 비율은 권장(필수 아님)입니다."]},
+        {"type":"sub","text":"참여 편성 저장"},
+        {"type":"steps","items":[{"text":"참여용 편성(**BT2–BT5**)을 설정하세요: 첫 번째 영웅은 승인 목록에서, 병력은 정확히 **보병 9,000, 기병 9,000, 궁병 72,000**.","img":"figures/bear-joiner-bt2.jpg"},{"text":"저장할 때 **Save by Troop Quantity**(병력 수로 저장, 비율 아님)를 체크하면 매번 정확히 {=bear}명이 됩니다.","img":"figures/bear-save-qty.jpg"}]},
+        {"type":"h","text":"3. 배정된 집결장 규칙"},
+        {"type":"callout","text":"⏱️ NXS는 사냥 함정마다 집결장을 배정합니다. 배정된 집결장은 함정 주변 **안쪽 원**에 있으며 두 번에 나눠 출발합니다: **1차 0:00**(시작), **2차 0:45**(45초 후)."},
+        {"type":"p","text":"배정된 시간에 아래 승인된 편성과 **최대** 병력으로 집결을 시작하세요. 다른 사람의 집결에 참여할 때는 모두와 같이 **{=bear}**명 제한을 지키세요."},
+        {"type":"sub","text":"집결 관리"},
+        {"type":"p","text":"참여한 모든 사람의 영웅과 병력 수를 확인하세요:"},
+        {"type":"list","items":["**첫 번째 영웅이 틀림:** 강퇴하고 올바르게 다시 참여하라고 요청하세요.","**병력 수가 틀림:** 강퇴하고 정확히 {=bear}명으로 다시 참여하라고 요청하세요.","**상위 4명의 참여자만 적용:** 게임은 영웅 레벨이나 병력과 상관없이 목록 맨 위 참여자 4명의 첫 번째 스킬을 사용합니다. 가장 강한 {chenko} 2명과 {amane} 2명을 맨 위로 올리세요."]},
+        {"type":"sub","text":"참여자를 위로 올리는 방법"},
+        {"type":"steps","items":[{"text":"진행 중인 곰 집결을 여세요."},{"text":"가장 강한 {chenko}와 {amane} 참여자를 찾으세요 — 영웅 별과 전용 장비 레벨을 비교하세요."},{"text":"플레이어 줄을 눌러 상세 정보를 여세요."},{"text":"**청록색 위쪽 화살표**를 눌러 그 플레이어를 맨 위로 올리세요.","img":"figures/bear-bump.jpg"},{"text":"다른 우선 참여자도 계속 올리세요. 마지막에 올린 사람이 가장 위로 갑니다."},{"text":"최종 상위 4명을 확인하세요: **강한 {chenko} 2명과 강한 {amane} 2명**이 목표입니다."}]},
+        {"type":"sub","text":"집결장 편성 저장"},
+        {"type":"steps","items":[{"text":"집결장 편성을 설정하세요 (예: **BT1**): 주장, 2번째, 3번째 영웅과 병력.","img":"figures/bear-bt1.jpg"},{"text":"저장할 때 **Save by Troop Ratio**(병종 비율로 저장)를 체크하세요.","img":"figures/bear-save-ratio.jpg"}]},
+        {"type":"h","text":"4. 모든 참여자 규칙"},
+        {"type":"list","items":["모든 참여 행군은 **정확히 {=bear}명**.","가능하면 **이상적인 비율 10:10:80**: 보병 9,000, 기병 9,000, 궁병 72,000 (권장, 필수 아님).","**첫 번째 영웅:** {chenko}, {amane}, {yeonwoo}, {amadeus}, 또는 영웅 없음. 참여자로 {petra}를 보내지 마세요.","곰 사냥 시작 전에 **행군을 미리 저장**하세요.","**배정된 집결장:** 본인 집결은 최대 병력, 다른 사람 집결에 참여할 때는 {=bear}명 제한.","**메인 단계에서 개인 집결 금지:** 직접 집결을 열지 말고 배정된 NXS 집결에 참여하세요."]},
+        {"type":"callout","text":"⏰ **6:30 남음 — 마지막 집결 단계:** 모든 참여자가 **가장 강한 영웅 3명**으로 본인 집결을 시작해도 됩니다. 개인 집결 금지 규칙의 유일한 예외입니다."},
+        {"type":"h","text":"📚 추가 정보"},
+        {"type":"sub","text":"일시"},
+        {"type":"p","text":"연맹에 지정된 시간에 2일마다 진행됩니다."},
+        {"type":"sub","text":"중요성"},
+        {"type":"p","text":"영웅 장비 재료(제작 망치) 및 강화 경험치의 주요 획득처입니다."},
+        {"type":"sub","text":"준비 사항"},
+        {"type":"list","items":["매번 자이언트 베어 사냥 시작 전에 부대 편성을 업데이트하세요."]},
+        {"type":"callout","text":"선택 사항: https://frakinator.streamlit.app/를 사용하여 병사 비율을 테스트하고 가장 강력한 부대 편성을 찾아보세요."},
+        {"type":"list","items":["이벤트가 시작되기 전에 채집 중인 부대를 소환하세요.","기억하세요: 마지막 5~7분 동안에는 모든 플레이어가 집결을 열어야 합니다. 이렇게 하면 병력이 복귀하는 플레이어들을 위한 자리가 더 많이 생겨 마지막 데미지 몰아치기가 가능해집니다."]},
+        {"type":"p","text":"첫 무과금 집결 장비 영웅(페트라)이 나옵니다. 궁병은 여전히 약하지만, 만렙 기병이 페트라와 잘 맞습니다. **T3 기병**을 해제하면 {petra}가 더 강해집니다. 3번째 스킬이 T3 기병의 속성과 잘 맞기 때문입니다."},
+        {"type":"p","text":"[[squad:guide]]"},
+        {"type":"sub","text":"주의해서 사용"},
+        {"type":"callout","text":"⚠️ **확률 발동 피해 영웅:** 효과는 강하지만 **중첩되지 않습니다**. 같은 집결에는 이 중 **한 명만** 보내세요: {marlin}, {zoe}, {jaeger}, {petra}. ❌ 참여자로 {petra}를 보내지 마세요."},
+        {"type":"p","text":"🔗 더 보기: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes"}
       ]},
       de: { title: "Bärenjagd", blocks: [
-        { type: "box", title: "🆕 GEN-3-UPDATE", items: [
-          "**Rallyleiter (in dieser Reihenfolge):** 1) {amadeus} + {petra} + {marlin} · 2) {zoe} + {petra} + {quinn} · 3) {helga} + {petra} + {marlin}, nur wenn {helga} und ihr Widget beide maximiert sind.",
-          "**Teilnehmer — erster Held:** {chenko}, {amane}, {yeonwoo}, {amadeus} oder kein Held. ❌ Schick {petra} nicht als Teilnehmer.",
-          "**Teilnehmer schicken genau {=bear} Truppen** — ideales Verhältnis 10:10:80 (ideal, keine Pflicht).",
-          "Details weiter unten ↓"
-        ] },
-        { type: "h", text: "WANN" },
-        { type: "p", text: "Alle 2 Tage zur geplanten Zeit eurer Allianz." },
-        { type: "h", text: "WARUM ES ZÄHLT" },
-        { type: "p", text: "Hauptquelle für Heldenausrüstungs-Material (Forgehammer) und Verbesserungs-XP." },
-        { type: "h", text: "VORBEREITUNG" },
-        { type: "list", items: [
-          "Aktualisiert eure Trupp Formationen vor jeder Bärenjagd."
-        ]},
-        { type: "callout", text: "Optional: Mit https://frakinator.streamlit.app Truppenverhältnisse testen und die stärkste Formation finden." },
-        { type: "list", items: [
-          "Ruft sammelnde Truppen vor Eventbeginn zurück.",
-          "In den letzten 5–7 Minuten sollte jeder einen Rally starten. So entstehen mehr Plätze für Spieler, deren Truppen zurückkehren — für den finalen Schadensschub."
-        ]},
-        { type: "h", text: "RALLY-ANFÜHRER" },
-        { type: "callout", text: "⏱️ NXS teilt für jede Bärenfalle Rallyleiter ein. Sie stehen im **inneren Kreis** um die Falle und starten in zwei Wellen: **Welle 1 bei 0:00** (zum Start) und **Welle 2 bei 0:45** (45 Sekunden später)." },
-        { type: "p", text: "Starte deine Rally zu deiner zugeteilten Zeit mit einer freigegebenen Aufstellung (unten) und deinen **maximalen** Truppen. Wenn du bei anderen mitmachst, gilt wie für alle das Limit von **{=bear}**." },
-        { type: "sub", text: "Deine Rally verwalten" },
-        { type: "p", text: "Prüfe Helden und Truppenzahl aller Teilnehmer:" },
-        { type: "list", items: [ "**Falscher erster Held:** Spieler kicken und bitten, richtig neu beizutreten.", "**Falsche Truppenzahl:** Spieler kicken und bitten, mit genau {=bear} Truppen neu beizutreten.", "**Nur die Top 4 Teilnehmer zählen:** Das Spiel nimmt die Skills der ersten Helden der 4 obersten Teilnehmer in deiner Liste, egal welches Heldenlevel oder wie viele Truppen. Schieb deine besten zwei {chenko}s und zwei {amane}s nach oben." ]},
-        { type: "sub", text: "Teilnehmer nach oben schieben" },
-        { type: "steps", items: [
-          { text: "Öffne deine laufende Bären-Rally." }, { text: "Finde die stärksten {chenko}- und {amane}-Teilnehmer — vergleiche Heldensterne und Widget-Level." }, { text: "Tippe auf die Zeile eines Spielers, um Details zu öffnen." },
-          { text: "Drück den **türkisen Pfeil nach oben**, um den Spieler ganz nach oben zu schieben.", img: "figures/bear-bump.jpg" },
-          { text: "Schieb weitere wichtige Teilnehmer nach oben. Der zuletzt geschobene steht ganz oben." }, { text: "Prüfe die finalen Top 4: Ziel sind **zwei starke {chenko}s und zwei starke {amane}s**." }
-        ]},
-        { type: "sub", text: "Rallyleiter-Aufstellung speichern" },
-        { type: "steps", items: [ { text: "Stell deine Rallyleiter-Aufstellung ein (z. B. **BT1**): Anführer, 2. und 3. Held und deine Truppen.", img: "figures/bear-bt1.jpg" }, { text: "Hak beim Speichern **Save by Troop Ratio** (nach Truppenverhältnis speichern) an.", img: "figures/bear-save-ratio.jpg" } ]},
-        { type: "leaders",
-          gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
-          notes: [
-            [
-              "Infanterie ist hier oft am stärksten, weil Amadeus stark ist; eine etwa gleiche Aufteilung mit etwas mehr Bogenschützen funktioniert am besten.",
-              "Für Spieler ohne Amadeus — so bleibt Amadeus frei, um fremde Rallys zu joinen.",
-              "F2P-Spieler sollten immer ihre drei stärksten verfügbaren Helden als Anführer nehmen."
-            ],
-            [
-              "Marlin steigert den Schaden durch seine Rally-exklusive Tödlichkeitsausrüstung; Infanterie bleibt Amadeus oder Helga.",
-              "Quinn statt Marlin, wenn Marlin noch nicht stark genug ist; Helga nur, wenn Amadeus noch nicht voll ausgerüstet ist.",
-              "Noch kein F2P-Bogenschützenheld mit Rally-Ausrüstung, daher bleiben Bogenschützen der schwächste Stat."
-            ],
-            [
-              "Truppenaufstellung: 20-30-50%. Die erste Wahl von NXS in Gen 3.",
-                            "Erster F2P-Held mit Rally-Ausrüstung ({petra}); Bogenschützen bleiben am schwächsten, maxed Kavallerie passt aber gut zu {petra}." + " Wenn du **T3-Kavallerie** freischaltest, wird {petra} noch stärker, weil ihre 3. Fertigkeit sehr gut zu deren Werten passt.",
-              "Truppenaufstellung: 10-20-70%. Nur wenn {helga} und ihr Widget beide maximiert sind."
-            ],
-            [
-              "So viele (idealerweise maxed) Bogenschützen wie möglich; Rosas 3. Skill kann den Bogenschützen-Gesamtschaden um 30% steigern.",
-              "Helga nehmen, wenn ihr Stern-/Ausrüstungsgrad über Amadeus liegt.",
-              "Gleiche Idee wie die Alternative — Rosas 3. Skill glänzt am stärksten in bogenschützenlastigen Formationen."
-            ],
-            [
-              "Die übrigen Anführer-Plätze sind noch nicht veröffentlicht."
-            ]
-          ]},
-        { type: "h", text: "RALLY-TEILNEHMER" },
-        { type: "list", items: [
-          "**Genau {=bear} Truppen** in jedem Teilnahme-Marsch.",
-          "**Ideales Verhältnis 10:10:80**, wenn möglich: 9.000 Infanterie, 9.000 Kavallerie, 72.000 Bogenschützen (ideal, keine Pflicht).",
-          "**Erster Held:** {chenko}, {amane}, {yeonwoo}, {amadeus} oder kein Held. Schick {petra} nicht als Teilnehmer.",
-          "**Märsche vorher speichern**, bevor die Bärenjagd beginnt.",
-          "**Eingeteilte Rallyleiter:** maximale Truppen in der eigenen Rally, aber {=bear} beim Mitmachen bei anderen.",
-          "**Keine eigenen Rallys in der Hauptphase:** tritt den eingeteilten NXS-Rallys bei, statt selbst zu starten."
-        ]},
-        { type: "callout", text: "⏰ **6:30 übrig — letzte Rally-Phase:** Alle Teilnehmer dürfen jetzt eigene Rallys mit ihren **3 stärksten Helden** starten. Das ist die einzige Ausnahme von der Keine-eigenen-Rallys-Regel." },
-        { type: "sub", text: "Teilnehmer-Aufstellungen speichern" },
-        { type: "steps", items: [ { text: "Stell deine Teilnahme-Aufstellungen ein (**BT2–BT5**): erster Held aus der freigegebenen Liste, dann genau **9.000 Infanterie, 9.000 Kavallerie und 72.000 Bogenschützen**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "Hak beim Speichern **Save by Troop Quantity** an (nach Truppenzahl, nicht nach Verhältnis), damit jeder Marsch genau {=bear} hat.", img: "figures/bear-save-qty.jpg" } ]},
-        { type: "p", text: "[[squad:guide]]" },
-        { type: "joiners" },
-        { type: "sub", text: "MIT VORSICHT VERWENDEN" },
-        { type: "callout", text: "⚠️ **Helden mit zufallsbasiertem Schaden:** starke Effekte, aber sie **stapeln sich NICHT**. Setze nur **EINEN** dieser Helden in derselben Rally ein: {marlin}, {zoe}, {jaeger}, {petra}. ❌ Schick {petra} nicht als Teilnehmer." },
-        { type: "p", text: "🔗 Mehr dazu: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
+        {"type":"callout","text":"🐻 NXS-Bärenjagd — so macht NXS die Bärenjagd: starke Helden, koordinierte Rallys, genaues Timing und maximaler Allianzschaden."},
+        {"type":"h","text":"1. Helden für die Bärenfalle — Gen 3"},
+        {"type":"sub","text":"Rallyleiter — freigegebene Aufstellungen"},
+        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Infanterie ist hier oft am stärksten, weil Amadeus stark ist; eine etwa gleiche Aufteilung mit etwas mehr Bogenschützen funktioniert am besten.","Für Spieler ohne Amadeus — so bleibt Amadeus frei, um fremde Rallys zu joinen.","F2P-Spieler sollten immer ihre drei stärksten verfügbaren Helden als Anführer nehmen."],["Marlin steigert den Schaden durch seine Rally-exklusive Tödlichkeitsausrüstung; Infanterie bleibt Amadeus oder Helga.","Quinn statt Marlin, wenn Marlin noch nicht stark genug ist; Helga nur, wenn Amadeus noch nicht voll ausgerüstet ist.","Noch kein F2P-Bogenschützenheld mit Rally-Ausrüstung, daher bleiben Bogenschützen der schwächste Stat."],["","","Truppenaufstellung: 10-20-70%. Nur wenn {helga} und ihr Widget beide maximiert sind."],["So viele (idealerweise maxed) Bogenschützen wie möglich; Rosas 3. Skill kann den Bogenschützen-Gesamtschaden um 30% steigern.","Helga nehmen, wenn ihr Stern-/Ausrüstungsgrad über Amadeus liegt.","Gleiche Idee wie die Alternative — Rosas 3. Skill glänzt am stärksten in bogenschützenlastigen Formationen."],["Die übrigen Anführer-Plätze sind noch nicht veröffentlicht."]]},
+        {"type":"sub","text":"Teilnehmer — freigegebene erste Helden"},
+        {"type":"joiners"},
+        {"type":"callout","text":"❌ **Schick {petra} nicht als Teilnehmer.** Setz einen freigegebenen Helden in den ersten Platz oder schick **keinen Helden**."},
+        {"type":"h","text":"2. Truppen für Teilnehmer"},
+        {"type":"p","text":"Alle Teilnehmer schicken pro Rally **genau {=bear} Truppen**. Ideal ist **10:10:80**, wenn möglich, mit Schwerpunkt auf Bogenschützen."},
+        {"type":"box","title":"**Infanterie 9.000 (10 %) · Kavallerie 9.000 (10 %) · Bogenschützen 72.000 (80 %)**","items":["{=bear} Truppen sind Pflicht. 10:10:80 ist ideal, aber keine Pflicht."]},
+        {"type":"sub","text":"Teilnehmer-Aufstellungen speichern"},
+        {"type":"steps","items":[{"text":"Stell deine Teilnahme-Aufstellungen ein (**BT2–BT5**): erster Held aus der freigegebenen Liste, dann genau **9.000 Infanterie, 9.000 Kavallerie und 72.000 Bogenschützen**.","img":"figures/bear-joiner-bt2.jpg"},{"text":"Hak beim Speichern **Save by Troop Quantity** an (nach Truppenzahl, nicht nach Verhältnis), damit jeder Marsch genau {=bear} hat.","img":"figures/bear-save-qty.jpg"}]},
+        {"type":"h","text":"3. Regeln für eingeteilte Rallyleiter"},
+        {"type":"callout","text":"⏱️ NXS teilt für jede Bärenfalle Rallyleiter ein. Sie stehen im **inneren Kreis** um die Falle und starten in zwei Wellen: **Welle 1 bei 0:00** (zum Start) und **Welle 2 bei 0:45** (45 Sekunden später)."},
+        {"type":"p","text":"Starte deine Rally zu deiner zugeteilten Zeit mit einer freigegebenen Aufstellung (unten) und deinen **maximalen** Truppen. Wenn du bei anderen mitmachst, gilt wie für alle das Limit von **{=bear}**."},
+        {"type":"sub","text":"Deine Rally verwalten"},
+        {"type":"p","text":"Prüfe Helden und Truppenzahl aller Teilnehmer:"},
+        {"type":"list","items":["**Falscher erster Held:** Spieler kicken und bitten, richtig neu beizutreten.","**Falsche Truppenzahl:** Spieler kicken und bitten, mit genau {=bear} Truppen neu beizutreten.","**Nur die Top 4 Teilnehmer zählen:** Das Spiel nimmt die Skills der ersten Helden der 4 obersten Teilnehmer in deiner Liste, egal welches Heldenlevel oder wie viele Truppen. Schieb deine besten zwei {chenko}s und zwei {amane}s nach oben."]},
+        {"type":"sub","text":"Teilnehmer nach oben schieben"},
+        {"type":"steps","items":[{"text":"Öffne deine laufende Bären-Rally."},{"text":"Finde die stärksten {chenko}- und {amane}-Teilnehmer — vergleiche Heldensterne und Widget-Level."},{"text":"Tippe auf die Zeile eines Spielers, um Details zu öffnen."},{"text":"Drück den **türkisen Pfeil nach oben**, um den Spieler ganz nach oben zu schieben.","img":"figures/bear-bump.jpg"},{"text":"Schieb weitere wichtige Teilnehmer nach oben. Der zuletzt geschobene steht ganz oben."},{"text":"Prüfe die finalen Top 4: Ziel sind **zwei starke {chenko}s und zwei starke {amane}s**."}]},
+        {"type":"sub","text":"Rallyleiter-Aufstellung speichern"},
+        {"type":"steps","items":[{"text":"Stell deine Rallyleiter-Aufstellung ein (z. B. **BT1**): Anführer, 2. und 3. Held und deine Truppen.","img":"figures/bear-bt1.jpg"},{"text":"Hak beim Speichern **Save by Troop Ratio** (nach Truppenverhältnis speichern) an.","img":"figures/bear-save-ratio.jpg"}]},
+        {"type":"h","text":"4. Regeln für alle Teilnehmer"},
+        {"type":"list","items":["**Genau {=bear} Truppen** in jedem Teilnahme-Marsch.","**Ideales Verhältnis 10:10:80**, wenn möglich: 9.000 Infanterie, 9.000 Kavallerie, 72.000 Bogenschützen (ideal, keine Pflicht).","**Erster Held:** {chenko}, {amane}, {yeonwoo}, {amadeus} oder kein Held. Schick {petra} nicht als Teilnehmer.","**Märsche vorher speichern**, bevor die Bärenjagd beginnt.","**Eingeteilte Rallyleiter:** maximale Truppen in der eigenen Rally, aber {=bear} beim Mitmachen bei anderen.","**Keine eigenen Rallys in der Hauptphase:** tritt den eingeteilten NXS-Rallys bei, statt selbst zu starten."]},
+        {"type":"callout","text":"⏰ **6:30 übrig — letzte Rally-Phase:** Alle Teilnehmer dürfen jetzt eigene Rallys mit ihren **3 stärksten Helden** starten. Das ist die einzige Ausnahme von der Keine-eigenen-Rallys-Regel."},
+        {"type":"h","text":"📚 Mehr Infos"},
+        {"type":"sub","text":"WANN"},
+        {"type":"p","text":"Alle 2 Tage zur geplanten Zeit eurer Allianz."},
+        {"type":"sub","text":"WARUM ES ZÄHLT"},
+        {"type":"p","text":"Hauptquelle für Heldenausrüstungs-Material (Forgehammer) und Verbesserungs-XP."},
+        {"type":"sub","text":"VORBEREITUNG"},
+        {"type":"list","items":["Aktualisiert eure Trupp Formationen vor jeder Bärenjagd."]},
+        {"type":"callout","text":"Optional: Mit https://frakinator.streamlit.app Truppenverhältnisse testen und die stärkste Formation finden."},
+        {"type":"list","items":["Ruft sammelnde Truppen vor Eventbeginn zurück.","In den letzten 5–7 Minuten sollte jeder einen Rally starten. So entstehen mehr Plätze für Spieler, deren Truppen zurückkehren — für den finalen Schadensschub."]},
+        {"type":"p","text":"Erster F2P-Held mit Rally-Ausrüstung ({petra}); Bogenschützen bleiben am schwächsten, maxed Kavallerie passt aber gut zu {petra}. Wenn du **T3-Kavallerie** freischaltest, wird {petra} noch stärker, weil ihre 3. Fertigkeit sehr gut zu deren Werten passt."},
+        {"type":"p","text":"[[squad:guide]]"},
+        {"type":"sub","text":"MIT VORSICHT VERWENDEN"},
+        {"type":"callout","text":"⚠️ **Helden mit zufallsbasiertem Schaden:** starke Effekte, aber sie **stapeln sich NICHT**. Setze nur **EINEN** dieser Helden in derselben Rally ein: {marlin}, {zoe}, {jaeger}, {petra}. ❌ Schick {petra} nicht als Teilnehmer."},
+        {"type":"p","text":"🔗 Mehr dazu: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes"}
       ]},
       fr: { title: "Chasse à l'Ours", blocks: [
-        { type: "box", title: "🆕 MISE À JOUR GEN 3", items: [
-          "**Chefs de ralliement (dans l'ordre) :** 1) {amadeus} + {petra} + {marlin} · 2) {zoe} + {petra} + {quinn} · 3) {helga} + {petra} + {marlin}, seulement si {helga} et son widget sont tous deux au max.",
-          "**Participants — premier héros :** {chenko}, {amane}, {yeonwoo}, {amadeus}, ou aucun héros. ❌ N'envoie pas {petra} en participant.",
-          "**Les participants envoient exactement {=bear} troupes** — ratio idéal 10:10:80 (idéal, pas obligatoire).",
-          "Détails ci-dessous ↓"
-        ] },
-        { type: "h", text: "QUAND" },
-        { type: "p", text: "Tous les 2 jours, à l'heure prévue par votre Alliance." },
-        { type: "h", text: "POURQUOI C'EST IMPORTANT" },
-        { type: "p", text: "Source principale de matériaux d'Équipement de héros (Marteaux de Forge) et d'EXP d'Amélioration." },
-        { type: "h", text: "PRÉPARATION" },
-        { type: "list", items: [
-          "Mettez à jour vos formations de troupe avant chaque Chasse à l'Ours."
-        ]},
-        { type: "callout", text: "Optionnel : utilisez https://frakinator.streamlit.app/ pour tester les ratios de troupes et trouver votre meilleure formation." },
-        { type: "list", items: [
-          "Rappelez les troupes en collecte avant le début de l'événement.",
-          "N'oubliez pas : pendant les 5 à 7 dernières minutes, tout le monde devrait lancer un ralliement. Cela libère davantage de places pour les joueurs dont les troupes reviennent et permet un dernier coup de collier de dégâts."
-        ]},
-        { type: "h", text: "LEADERS DE RALLIEMENT" },
-        { type: "callout", text: "⏱️ NXS désigne des chefs de ralliement pour chaque Piège. Ils sont dans le **cercle intérieur** autour du piège et partent en deux vagues : **Vague 1 à 0:00** (au début) et **Vague 2 à 0:45** (45 secondes plus tard)." },
-        { type: "p", text: "Lance ton ralliement à l'heure prévue avec une formation approuvée (ci-dessous) et tes troupes **maximales**. Quand tu rejoins le ralliement d'un autre, respecte la limite de **{=bear}** comme tout le monde." },
-        { type: "sub", text: "Gérer ton ralliement" },
-        { type: "p", text: "Vérifie les héros et le nombre de troupes de chaque participant :" },
-        { type: "list", items: [ "**Mauvais premier héros :** expulse le joueur et demande-lui de revenir correctement.", "**Mauvais nombre de troupes :** expulse le joueur et demande-lui de revenir avec exactement {=bear} troupes.", "**Seuls les 4 premiers participants comptent :** le jeu prend la compétence du premier héros des 4 participants en haut de ta liste, quels que soient leur niveau ou leurs troupes. Remonte tes deux meilleurs {chenko} et deux meilleurs {amane}." ]},
-        { type: "sub", text: "Remonter les participants" },
-        { type: "steps", items: [
-          { text: "Ouvre ton ralliement Ours en cours." }, { text: "Repère les participants {chenko} et {amane} les plus forts — compare étoiles des héros et niveaux de widget." }, { text: "Touche la ligne d'un joueur pour voir ses détails." },
-          { text: "Appuie sur la **flèche turquoise vers le haut** pour le remonter en tête.", img: "figures/bear-bump.jpg" },
-          { text: "Continue avec tes autres participants prioritaires. Le dernier remonté passe au-dessus des autres." }, { text: "Vérifie le top 4 final : vise **deux {chenko} forts et deux {amane} forts**." }
-        ]},
-        { type: "sub", text: "Enregistrer ta formation de chef de ralliement" },
-        { type: "steps", items: [ { text: "Prépare ta formation de chef (par exemple **BT1**) : héros principal, 2e et 3e héros, et tes troupes.", img: "figures/bear-bt1.jpg" }, { text: "En enregistrant, coche **Save by Troop Ratio** (enregistrer par ratio de troupes).", img: "figures/bear-save-ratio.jpg" } ]},
-        { type: "leaders",
-          gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
-          notes: [
-            [
-              "Formation de troupe : 30-30-40 %. Dans la plupart des cas, l'Infanterie aura les meilleures stats grâce aux stats brutes d'Amadeus, donc une formation ultra-équilibrée avec un peu plus d'Archers fonctionne le mieux.",
-              "Formation de troupe : 20-40-40 %. Principalement pour ceux qui n'ont pas encore misé sur Amadeus, et cela permet d'utiliser Amadeus pour rejoindre des ralliements.",
-              "Formation de troupe : 30-30-40 %. Pour les F2P, il est recommandé d'utiliser toujours les 3 héros dont vous disposez pour lancer un ralliement."
-            ],
-            [
-              "Formation de troupe : 20-30-50 %. Marlin augmentera fortement les dégâts grâce à son équipement exclusif de ralliement. À partir de la Gen 2, l'Infanterie sera toujours Amadeus ou Helga : ce sont les seuls héros d'Infanterie avec un équipement exclusif de ralliement (bonus de Létalité). Vous envoyez moins d'Infanterie, donc le héros d'Infanterie compense les dégâts des Archers grâce à cet équipement plutôt qu'en égalant les stats d'Infanterie.",
-              "Formation de troupe : 20-30-50 %. Autre option : remplacer Quinn par Marlin s'il n'est pas encore meilleur. N'utilisez Helga à partir de la Gen 2 que si Amadeus n'est pas à 5 étoiles avec l'équipement exclusif au niveau maximum ; c'est aussi l'occasion d'utiliser Amadeus pour rejoindre des ralliements.",
-              "Formation de troupe : 30-30-40 %. Toujours aucun héros F2P avec un équipement exclusif de ralliement, donc encore une formation équilibrée avec un peu plus d'Archers, car les stats d'Archer seront les plus basses faute de héros Archer SSR."
-            ],
-            [
-              "Formation des troupes : 20-30-50 %. Premier choix de NXS en Gen 3.",
-                            "Formation de troupe : 20-40-40 %. En Gen 3, les F2P obtiennent leur premier héros avec un équipement exclusif de ralliement ({petra}). Essayez des nombres équilibrés d'Archers et de Cavalerie, car {petra} améliore beaucoup les Archers. Les stats d'Archer restent les plus basses sans Archer SSR. Si vous débloquez la Cavalerie T10, la compétence T10 s'accorde bien avec les stats de {petra}." + " Si vous débloquez la **Cavalerie T3**, {petra} devient encore plus forte, car sa 3e compétence fonctionne très bien avec leurs stats.",
-              "Formation des troupes : 10-20-70 %. Seulement si {helga} et son widget sont tous deux au max."
-            ],
-            [
-              "Formation de troupe : 10-10-80 %. Alignez autant d'Archers que possible, surtout s'ils sont T10. Avec un peu de chance, la 3e compétence de Rosa fera le travail pour vous (augmente l'Attaque totale des Archers de 30 %).",
-              "Formation de troupe : 10-10-80 %. Utilisez Helga en alternative si elle a plus d'étoiles et un meilleur niveau d'équipement exclusif qu'Amadeus. Alignez toujours autant d'Archers que possible, surtout T10, pour la 3e compétence de Rosa (augmente l'Attaque totale des Archers de 30 %).",
-              "Formation de troupe : 10-10-80 %. Comme pour les héros alternatifs — les bonus de la 3e compétence de Rosa sont meilleurs si vous misez sur des formations très orientées Archers (augmente l'Attaque totale des Archers de 30 %)."
-            ],
-            [
-              "Les autres emplacements de leader ne sont pas encore disponibles."
-            ]
-          ]},
-        { type: "h", text: "PARTICIPANTS AU RALLIEMENT" },
-        { type: "list", items: [
-          "**Exactement {=bear} troupes** dans chaque marche de participation.",
-          "**Ratio idéal 10:10:80** si possible : 9 000 infanterie, 9 000 cavalerie, 72 000 archers (idéal, pas obligatoire).",
-          "**Premier héros :** {chenko}, {amane}, {yeonwoo}, {amadeus}, ou aucun héros. N'envoie pas {petra} en participant.",
-          "**Pré-enregistre tes marches** avant le début de la Chasse à l'Ours.",
-          "**Chefs de ralliement désignés :** troupes maximales dans ton ralliement, mais la limite de {=bear} quand tu rejoins celui d'un autre.",
-          "**Pas de ralliement perso pendant la phase principale :** rejoins les ralliements NXS désignés au lieu de lancer le tien."
-        ]},
-        { type: "callout", text: "⏰ **6:30 restantes — phase finale :** tous les participants peuvent lancer leur propre ralliement avec leurs **3 meilleurs héros**. C'est la seule exception à la règle « pas d'autres ralliements »." },
-        { type: "sub", text: "Enregistrer tes formations de participant" },
-        { type: "steps", items: [ { text: "Prépare tes formations de participation (**BT2–BT5**) : premier héros de la liste approuvée, puis exactement **9 000 infanterie, 9 000 cavalerie et 72 000 archers**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "En les enregistrant, coche **Save by Troop Quantity** (par nombre, pas par ratio) pour que chaque marche fasse exactement {=bear}.", img: "figures/bear-save-qty.jpg" } ]},
-        { type: "p", text: "[[squad:guide]]" },
-        { type: "joiners" },
-        { type: "sub", text: "À UTILISER AVEC PRUDENCE" },
-        { type: "callout", text: "⚠️ **Héros à dégâts basés sur une probabilité :** effets puissants, mais ils **ne se cumulent PAS**. N'utilisez qu'**UN SEUL** de ces héros dans un même ralliement : {marlin}, {zoe}, {jaeger}, {petra}. ❌ N'envoie pas {petra} en participant." },
-        { type: "p", text: "🔗 En savoir plus : https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
+        {"type":"callout","text":"🐻 Chasse à l'Ours NXS — comment NXS fait la Chasse à l'Ours : héros forts, ralliements coordonnés, timing précis et dégâts d'alliance maximum."},
+        {"type":"h","text":"1. Héros du Piège à Ours — Gén 3"},
+        {"type":"sub","text":"Chefs de ralliement — formations approuvées"},
+        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Formation de troupe : 30-30-40 %. Dans la plupart des cas, l'Infanterie aura les meilleures stats grâce aux stats brutes d'Amadeus, donc une formation ultra-équilibrée avec un peu plus d'Archers fonctionne le mieux.","Formation de troupe : 20-40-40 %. Principalement pour ceux qui n'ont pas encore misé sur Amadeus, et cela permet d'utiliser Amadeus pour rejoindre des ralliements.","Formation de troupe : 30-30-40 %. Pour les F2P, il est recommandé d'utiliser toujours les 3 héros dont vous disposez pour lancer un ralliement."],["Formation de troupe : 20-30-50 %. Marlin augmentera fortement les dégâts grâce à son équipement exclusif de ralliement. À partir de la Gen 2, l'Infanterie sera toujours Amadeus ou Helga : ce sont les seuls héros d'Infanterie avec un équipement exclusif de ralliement (bonus de Létalité). Vous envoyez moins d'Infanterie, donc le héros d'Infanterie compense les dégâts des Archers grâce à cet équipement plutôt qu'en égalant les stats d'Infanterie.","Formation de troupe : 20-30-50 %. Autre option : remplacer Quinn par Marlin s'il n'est pas encore meilleur. N'utilisez Helga à partir de la Gen 2 que si Amadeus n'est pas à 5 étoiles avec l'équipement exclusif au niveau maximum ; c'est aussi l'occasion d'utiliser Amadeus pour rejoindre des ralliements.","Formation de troupe : 30-30-40 %. Toujours aucun héros F2P avec un équipement exclusif de ralliement, donc encore une formation équilibrée avec un peu plus d'Archers, car les stats d'Archer seront les plus basses faute de héros Archer SSR."],["","","Formation des troupes : 10-20-70 %. Seulement si {helga} et son widget sont tous deux au max."],["Formation de troupe : 10-10-80 %. Alignez autant d'Archers que possible, surtout s'ils sont T10. Avec un peu de chance, la 3e compétence de Rosa fera le travail pour vous (augmente l'Attaque totale des Archers de 30 %).","Formation de troupe : 10-10-80 %. Utilisez Helga en alternative si elle a plus d'étoiles et un meilleur niveau d'équipement exclusif qu'Amadeus. Alignez toujours autant d'Archers que possible, surtout T10, pour la 3e compétence de Rosa (augmente l'Attaque totale des Archers de 30 %).","Formation de troupe : 10-10-80 %. Comme pour les héros alternatifs — les bonus de la 3e compétence de Rosa sont meilleurs si vous misez sur des formations très orientées Archers (augmente l'Attaque totale des Archers de 30 %)."],["Les autres emplacements de leader ne sont pas encore disponibles."]]},
+        {"type":"sub","text":"Participants — premiers héros approuvés"},
+        {"type":"joiners"},
+        {"type":"callout","text":"❌ **N'envoie pas {petra} en participant.** Mets un héros approuvé en premier, ou envoie **sans héros**."},
+        {"type":"h","text":"2. Troupes des participants"},
+        {"type":"p","text":"Tous les participants envoient **exactement {=bear} troupes** par ralliement. Le ratio idéal est **10:10:80** si possible, surtout des archers."},
+        {"type":"box","title":"**Infanterie 9 000 (10 %) · Cavalerie 9 000 (10 %) · Archers 72 000 (80 %)**","items":["{=bear} troupes est obligatoire. Le ratio 10:10:80 est idéal, pas obligatoire."]},
+        {"type":"sub","text":"Enregistrer tes formations de participant"},
+        {"type":"steps","items":[{"text":"Prépare tes formations de participation (**BT2–BT5**) : premier héros de la liste approuvée, puis exactement **9 000 infanterie, 9 000 cavalerie et 72 000 archers**.","img":"figures/bear-joiner-bt2.jpg"},{"text":"En les enregistrant, coche **Save by Troop Quantity** (par nombre, pas par ratio) pour que chaque marche fasse exactement {=bear}.","img":"figures/bear-save-qty.jpg"}]},
+        {"type":"h","text":"3. Règles pour les chefs de ralliement désignés"},
+        {"type":"callout","text":"⏱️ NXS désigne des chefs de ralliement pour chaque Piège. Ils sont dans le **cercle intérieur** autour du piège et partent en deux vagues : **Vague 1 à 0:00** (au début) et **Vague 2 à 0:45** (45 secondes plus tard)."},
+        {"type":"p","text":"Lance ton ralliement à l'heure prévue avec une formation approuvée (ci-dessous) et tes troupes **maximales**. Quand tu rejoins le ralliement d'un autre, respecte la limite de **{=bear}** comme tout le monde."},
+        {"type":"sub","text":"Gérer ton ralliement"},
+        {"type":"p","text":"Vérifie les héros et le nombre de troupes de chaque participant :"},
+        {"type":"list","items":["**Mauvais premier héros :** expulse le joueur et demande-lui de revenir correctement.","**Mauvais nombre de troupes :** expulse le joueur et demande-lui de revenir avec exactement {=bear} troupes.","**Seuls les 4 premiers participants comptent :** le jeu prend la compétence du premier héros des 4 participants en haut de ta liste, quels que soient leur niveau ou leurs troupes. Remonte tes deux meilleurs {chenko} et deux meilleurs {amane}."]},
+        {"type":"sub","text":"Remonter les participants"},
+        {"type":"steps","items":[{"text":"Ouvre ton ralliement Ours en cours."},{"text":"Repère les participants {chenko} et {amane} les plus forts — compare étoiles des héros et niveaux de widget."},{"text":"Touche la ligne d'un joueur pour voir ses détails."},{"text":"Appuie sur la **flèche turquoise vers le haut** pour le remonter en tête.","img":"figures/bear-bump.jpg"},{"text":"Continue avec tes autres participants prioritaires. Le dernier remonté passe au-dessus des autres."},{"text":"Vérifie le top 4 final : vise **deux {chenko} forts et deux {amane} forts**."}]},
+        {"type":"sub","text":"Enregistrer ta formation de chef de ralliement"},
+        {"type":"steps","items":[{"text":"Prépare ta formation de chef (par exemple **BT1**) : héros principal, 2e et 3e héros, et tes troupes.","img":"figures/bear-bt1.jpg"},{"text":"En enregistrant, coche **Save by Troop Ratio** (enregistrer par ratio de troupes).","img":"figures/bear-save-ratio.jpg"}]},
+        {"type":"h","text":"4. Règles pour tous les participants"},
+        {"type":"list","items":["**Exactement {=bear} troupes** dans chaque marche de participation.","**Ratio idéal 10:10:80** si possible : 9 000 infanterie, 9 000 cavalerie, 72 000 archers (idéal, pas obligatoire).","**Premier héros :** {chenko}, {amane}, {yeonwoo}, {amadeus}, ou aucun héros. N'envoie pas {petra} en participant.","**Pré-enregistre tes marches** avant le début de la Chasse à l'Ours.","**Chefs de ralliement désignés :** troupes maximales dans ton ralliement, mais la limite de {=bear} quand tu rejoins celui d'un autre.","**Pas de ralliement perso pendant la phase principale :** rejoins les ralliements NXS désignés au lieu de lancer le tien."]},
+        {"type":"callout","text":"⏰ **6:30 restantes — phase finale :** tous les participants peuvent lancer leur propre ralliement avec leurs **3 meilleurs héros**. C'est la seule exception à la règle « pas d'autres ralliements »."},
+        {"type":"h","text":"📚 Plus d'infos"},
+        {"type":"sub","text":"QUAND"},
+        {"type":"p","text":"Tous les 2 jours, à l'heure prévue par votre Alliance."},
+        {"type":"sub","text":"POURQUOI C'EST IMPORTANT"},
+        {"type":"p","text":"Source principale de matériaux d'Équipement de héros (Marteaux de Forge) et d'EXP d'Amélioration."},
+        {"type":"sub","text":"PRÉPARATION"},
+        {"type":"list","items":["Mettez à jour vos formations de troupe avant chaque Chasse à l'Ours."]},
+        {"type":"callout","text":"Optionnel : utilisez https://frakinator.streamlit.app/ pour tester les ratios de troupes et trouver votre meilleure formation."},
+        {"type":"list","items":["Rappelez les troupes en collecte avant le début de l'événement.","N'oubliez pas : pendant les 5 à 7 dernières minutes, tout le monde devrait lancer un ralliement. Cela libère davantage de places pour les joueurs dont les troupes reviennent et permet un dernier coup de collier de dégâts."]},
+        {"type":"p","text":"Formation de troupe : 20-40-40 %. En Gen 3, les F2P obtiennent leur premier héros avec un équipement exclusif de ralliement ({petra}). Essayez des nombres équilibrés d'Archers et de Cavalerie, car {petra} améliore beaucoup les Archers. Les stats d'Archer restent les plus basses sans Archer SSR. Si vous débloquez la Cavalerie T10, la compétence T10 s'accorde bien avec les stats de {petra}. Si vous débloquez la **Cavalerie T3**, {petra} devient encore plus forte, car sa 3e compétence fonctionne très bien avec leurs stats."},
+        {"type":"p","text":"[[squad:guide]]"},
+        {"type":"sub","text":"À UTILISER AVEC PRUDENCE"},
+        {"type":"callout","text":"⚠️ **Héros à dégâts basés sur une probabilité :** effets puissants, mais ils **ne se cumulent PAS**. N'utilisez qu'**UN SEUL** de ces héros dans un même ralliement : {marlin}, {zoe}, {jaeger}, {petra}. ❌ N'envoie pas {petra} en participant."},
+        {"type":"p","text":"🔗 En savoir plus : https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes"}
       ]},
       pt: { title: "Caça ao Urso", blocks: [
-        { type: "box", title: "🆕 ATUALIZAÇÃO GEN 3", items: [
-          "**Líderes de reunião (em ordem):** 1) {amadeus} + {petra} + {marlin} · 2) {zoe} + {petra} + {quinn} · 3) {helga} + {petra} + {marlin}, só se {helga} e o widget dela estiverem no máximo.",
-          "**Participantes — primeiro herói:** {chenko}, {amane}, {yeonwoo}, {amadeus} ou nenhum herói. ❌ Não mande {petra} como participante.",
-          "**Participantes mandam exatamente {=bear} tropas** — proporção ideal 10:10:80 (ideal, não obrigatória).",
-          "Detalhes abaixo ↓"
-        ] },
-        { type: "h", text: "QUANDO" },
-        { type: "p", text: "A cada 2 dias, no horário marcado pela sua Aliança." },
-        { type: "h", text: "POR QUE IMPORTA" },
-        { type: "p", text: "Principal fonte de materiais de Equipamento do Herói (Martelos de Forja) e XP de Aprimoramento." },
-        { type: "h", text: "PREPARAÇÃO" },
-        { type: "list", items: [
-          "Atualize suas Formações das Tropas antes de cada Caça ao Urso."
-        ]},
-        { type: "callout", text: "Opcional: use https://frakinator.streamlit.app/ para testar proporções de tropas e encontrar sua formação mais forte." },
-        { type: "list", items: [
-          "Revogue as tropas que estão coletando antes do início do evento.",
-          "Lembre-se: nos últimos 5–7 minutos, todos devem iniciar um rally. Isso cria mais vagas para jogadores cujas tropas estão retornando, permitindo um último impulso de dano."
-        ]},
-        { type: "h", text: "LÍDERES DE RALLY" },
-        { type: "callout", text: "⏱️ A NXS escolhe líderes de reunião para cada Armadilha. Eles ficam no **círculo interno** em volta da armadilha, em duas ondas: **Onda 1 em 0:00** (no início) e **Onda 2 em 0:45** (45 segundos depois)." },
-        { type: "p", text: "Comece sua reunião no horário marcado com uma formação aprovada (abaixo) e o **máximo** de tropas. Ao entrar na reunião de outra pessoa, siga o limite de **{=bear}** como todo mundo." },
-        { type: "sub", text: "Gerenciando sua reunião" },
-        { type: "p", text: "Confira os heróis e o número de tropas de todos que entrarem:" },
-        { type: "list", items: [ "**Primeiro herói errado:** expulse o jogador e peça para entrar de novo do jeito certo.", "**Número de tropas errado:** expulse o jogador e peça para entrar de novo com exatamente {=bear} tropas.", "**Só os 4 primeiros participantes contam:** o jogo usa a habilidade do primeiro herói dos 4 participantes no topo da lista, seja qual for o nível do herói ou as tropas. Suba seus dois melhores {chenko} e dois melhores {amane}." ]},
-        { type: "sub", text: "Como subir participantes" },
-        { type: "steps", items: [
-          { text: "Abra sua reunião do Urso em andamento." }, { text: "Ache os participantes {chenko} e {amane} mais fortes — compare as estrelas dos heróis e o nível dos widgets." }, { text: "Toque na linha do jogador para ver os detalhes." },
-          { text: "Aperte a **seta turquesa para cima** para subir esse jogador para o topo.", img: "figures/bear-bump.jpg" },
-          { text: "Continue subindo os outros prioritários. O último a subir fica acima dos outros." }, { text: "Confira os 4 primeiros: o objetivo é **dois {chenko} fortes e dois {amane} fortes**." }
-        ]},
-        { type: "sub", text: "Salve sua formação de líder" },
-        { type: "steps", items: [ { text: "Monte sua formação de líder de reunião (por exemplo **BT1**): herói principal, 2º e 3º herói e suas tropas.", img: "figures/bear-bt1.jpg" }, { text: "Ao salvar, marque **Save by Troop Ratio** (salvar por proporção de tropas).", img: "figures/bear-save-ratio.jpg" } ]},
-        { type: "leaders",
-          gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
-          notes: [
-            [
-              "Formação de tropas: 30-30-40%. Na maioria dos casos, você terá os melhores atributos na Infantaria por causa dos atributos base do Amadeus, então uma formação super equilibrada com um pouco mais de Arquearia funciona melhor.",
-              "Formação de tropas: 20-40-40%. Principalmente para quem ainda não investiu no Amadeus, e mantém a possibilidade de usar o Amadeus para entrar em rallies.",
-              "Formação de tropas: 30-30-40%. Para F2P, recomenda-se usar sempre os 3 heróis que você tiver para liderar um rally."
-            ],
-            [
-              "Formação de tropas: 20-30-50%. O Peixe Marlin aumenta muito o dano por causa do equipamento exclusivo de rally dele. A partir da Gen 2, a Infantaria será sempre o Amadeus ou a Helga — são os únicos heróis de Infantaria com equipamento exclusivo de rally (bônus de Letalidade). Você envia menos Infantaria, então o herói de Infantaria cobre o dano dos Arquearia por meio desse equipamento, e não igualando os atributos de Infantaria.",
-              "Formação de tropas: 20-30-50%. Outra alternativa é trocar o Quinn pelo Peixe Marlin, se ele ainda não for melhor. Use a Helga na Gen 2+ apenas se o Amadeus não estiver com 5 estrelas + equipamento exclusivo no nível máximo; também é uma chance de usar o Amadeus para entrar em rallies.",
-              "Formação de tropas: 30-30-40%. Ainda não há herói F2P com equipamento exclusivo de rally, então novamente uma formação equilibrada com um pouco mais de Arquearia, já que os atributos dos Arquearia serão os mais baixos sem um herói de Arquearia SSR."
-            ],
-            [
-              "Formação de tropas: 20-30-50%. Primeira escolha da NXS na Gen 3.",
-                            "Formação de tropas: 20-40-40%. Na Gen 3, os F2P recebem o primeiro herói com equipamento exclusivo de rally ({petra}). Tente números equilibrados de Arquearia e Cavalaria, porque a {petra} melhora muito os Arquearia. Os atributos dos Arquearia continuam os mais baixos sem uma Arquearia SSR. Se você desbloquear a Cavalaria T10, a habilidade T10 combina bem com os atributos da {petra}." + " Se você desbloquear a **Cavalaria T3**, {petra} fica ainda mais forte, porque a 3ª habilidade dela combina muito bem com os atributos deles.",
-              "Formação de tropas: 10-20-70%. Só se {helga} e o widget dela estiverem no máximo."
-            ],
-            [
-              "Formação de tropas: 10-10-80%. Force o máximo de Arquearia possível, principalmente se forem T10. Com um pouco de sorte, a 3ª habilidade da Rosa fará o trabalho por você (aumenta o Ataque total dos Arquearia em 30%).",
-              "Formação de tropas: 10-10-80%. Use a Helga como alternativa se ela tiver mais estrelas e um nível de equipamento exclusivo melhor que o do Amadeus. Continue forçando o máximo de Arquearia possível, principalmente T10, para a 3ª habilidade da Rosa (aumenta o Ataque total dos Arquearia em 30%).",
-              "Formação de tropas: 10-10-80%. Igual aos melhores heróis alternativos — os bônus da 3ª habilidade da Rosa rendem mais se você focar em formações pesadas de Arquearia (aumenta o Ataque total dos Arquearia em 30%)."
-            ],
-            [
-              "Os demais espaços de líder ainda não foram divulgados."
-            ]
-          ]},
-        { type: "h", text: "PARTICIPANTES DE RALLY" },
-        { type: "list", items: [
-          "**Exatamente {=bear} tropas** em cada marcha de participação.",
-          "**Proporção ideal 10:10:80** quando possível: 9.000 infantaria, 9.000 cavalaria, 72.000 arqueiros (ideal, não obrigatória).",
-          "**Primeiro herói:** {chenko}, {amane}, {yeonwoo}, {amadeus} ou nenhum herói. Não mande {petra} como participante.",
-          "**Salve suas marchas antes** de a Caça ao Urso começar.",
-          "**Líderes escolhidos:** máximo de tropas na sua reunião, mas o limite de {=bear} ao entrar na de outra pessoa.",
-          "**Nada de reuniões próprias na fase principal:** entre nas reuniões NXS escolhidas em vez de abrir a sua."
-        ]},
-        { type: "callout", text: "⏰ **Faltando 6:30 — fase final:** todos os participantes podem abrir a própria reunião com os **3 heróis mais fortes**. É a única exceção à regra de não abrir outras reuniões." },
-        { type: "sub", text: "Salve suas formações de participante" },
-        { type: "steps", items: [ { text: "Monte suas formações de participação (**BT2–BT5**): primeiro herói da lista aprovada, depois exatamente **9.000 infantaria, 9.000 cavalaria e 72.000 arqueiros**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "Ao salvar, marque **Save by Troop Quantity** (por quantidade, não por proporção), para cada marcha ter exatamente {=bear}.", img: "figures/bear-save-qty.jpg" } ]},
-        { type: "p", text: "[[squad:guide]]" },
-        { type: "joiners" },
-        { type: "sub", text: "USE COM CUIDADO" },
-        { type: "callout", text: "⚠️ **Heróis de dano baseado em chance:** efeitos fortes, mas **NÃO acumulam**. Use apenas **UM** desses heróis no mesmo rally: {marlin}, {zoe}, {jaeger}, {petra}. ❌ Não mande {petra} como participante." },
-        { type: "p", text: "🔗 Saiba mais: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
+        {"type":"callout","text":"🐻 Caça ao Urso NXS — como a NXS faz a Caça ao Urso: heróis fortes, reuniões coordenadas, tempo preciso e dano máximo da aliança."},
+        {"type":"h","text":"1. Heróis da Armadilha do Urso — Gen 3"},
+        {"type":"sub","text":"Líderes de reunião — formações aprovadas"},
+        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Formação de tropas: 30-30-40%. Na maioria dos casos, você terá os melhores atributos na Infantaria por causa dos atributos base do Amadeus, então uma formação super equilibrada com um pouco mais de Arquearia funciona melhor.","Formação de tropas: 20-40-40%. Principalmente para quem ainda não investiu no Amadeus, e mantém a possibilidade de usar o Amadeus para entrar em rallies.","Formação de tropas: 30-30-40%. Para F2P, recomenda-se usar sempre os 3 heróis que você tiver para liderar um rally."],["Formação de tropas: 20-30-50%. O Peixe Marlin aumenta muito o dano por causa do equipamento exclusivo de rally dele. A partir da Gen 2, a Infantaria será sempre o Amadeus ou a Helga — são os únicos heróis de Infantaria com equipamento exclusivo de rally (bônus de Letalidade). Você envia menos Infantaria, então o herói de Infantaria cobre o dano dos Arquearia por meio desse equipamento, e não igualando os atributos de Infantaria.","Formação de tropas: 20-30-50%. Outra alternativa é trocar o Quinn pelo Peixe Marlin, se ele ainda não for melhor. Use a Helga na Gen 2+ apenas se o Amadeus não estiver com 5 estrelas + equipamento exclusivo no nível máximo; também é uma chance de usar o Amadeus para entrar em rallies.","Formação de tropas: 30-30-40%. Ainda não há herói F2P com equipamento exclusivo de rally, então novamente uma formação equilibrada com um pouco mais de Arquearia, já que os atributos dos Arquearia serão os mais baixos sem um herói de Arquearia SSR."],["","","Formação de tropas: 10-20-70%. Só se {helga} e o widget dela estiverem no máximo."],["Formação de tropas: 10-10-80%. Force o máximo de Arquearia possível, principalmente se forem T10. Com um pouco de sorte, a 3ª habilidade da Rosa fará o trabalho por você (aumenta o Ataque total dos Arquearia em 30%).","Formação de tropas: 10-10-80%. Use a Helga como alternativa se ela tiver mais estrelas e um nível de equipamento exclusivo melhor que o do Amadeus. Continue forçando o máximo de Arquearia possível, principalmente T10, para a 3ª habilidade da Rosa (aumenta o Ataque total dos Arquearia em 30%).","Formação de tropas: 10-10-80%. Igual aos melhores heróis alternativos — os bônus da 3ª habilidade da Rosa rendem mais se você focar em formações pesadas de Arquearia (aumenta o Ataque total dos Arquearia em 30%)."],["Os demais espaços de líder ainda não foram divulgados."]]},
+        {"type":"sub","text":"Participantes — primeiros heróis aprovados"},
+        {"type":"joiners"},
+        {"type":"callout","text":"❌ **Não mande {petra} como participante.** Use um herói aprovado no primeiro espaço ou mande **sem herói**."},
+        {"type":"h","text":"2. Tropas dos participantes"},
+        {"type":"p","text":"Todos os participantes mandam **exatamente {=bear} tropas** por reunião. A proporção ideal é **10:10:80** quando possível, com foco em arqueiros."},
+        {"type":"box","title":"**Infantaria 9.000 (10%) · Cavalaria 9.000 (10%) · Arqueiros 72.000 (80%)**","items":["{=bear} tropas é obrigatório. A proporção 10:10:80 é ideal, não obrigatória."]},
+        {"type":"sub","text":"Salve suas formações de participante"},
+        {"type":"steps","items":[{"text":"Monte suas formações de participação (**BT2–BT5**): primeiro herói da lista aprovada, depois exatamente **9.000 infantaria, 9.000 cavalaria e 72.000 arqueiros**.","img":"figures/bear-joiner-bt2.jpg"},{"text":"Ao salvar, marque **Save by Troop Quantity** (por quantidade, não por proporção), para cada marcha ter exatamente {=bear}.","img":"figures/bear-save-qty.jpg"}]},
+        {"type":"h","text":"3. Regras para líderes de reunião escolhidos"},
+        {"type":"callout","text":"⏱️ A NXS escolhe líderes de reunião para cada Armadilha. Eles ficam no **círculo interno** em volta da armadilha, em duas ondas: **Onda 1 em 0:00** (no início) e **Onda 2 em 0:45** (45 segundos depois)."},
+        {"type":"p","text":"Comece sua reunião no horário marcado com uma formação aprovada (abaixo) e o **máximo** de tropas. Ao entrar na reunião de outra pessoa, siga o limite de **{=bear}** como todo mundo."},
+        {"type":"sub","text":"Gerenciando sua reunião"},
+        {"type":"p","text":"Confira os heróis e o número de tropas de todos que entrarem:"},
+        {"type":"list","items":["**Primeiro herói errado:** expulse o jogador e peça para entrar de novo do jeito certo.","**Número de tropas errado:** expulse o jogador e peça para entrar de novo com exatamente {=bear} tropas.","**Só os 4 primeiros participantes contam:** o jogo usa a habilidade do primeiro herói dos 4 participantes no topo da lista, seja qual for o nível do herói ou as tropas. Suba seus dois melhores {chenko} e dois melhores {amane}."]},
+        {"type":"sub","text":"Como subir participantes"},
+        {"type":"steps","items":[{"text":"Abra sua reunião do Urso em andamento."},{"text":"Ache os participantes {chenko} e {amane} mais fortes — compare as estrelas dos heróis e o nível dos widgets."},{"text":"Toque na linha do jogador para ver os detalhes."},{"text":"Aperte a **seta turquesa para cima** para subir esse jogador para o topo.","img":"figures/bear-bump.jpg"},{"text":"Continue subindo os outros prioritários. O último a subir fica acima dos outros."},{"text":"Confira os 4 primeiros: o objetivo é **dois {chenko} fortes e dois {amane} fortes**."}]},
+        {"type":"sub","text":"Salve sua formação de líder"},
+        {"type":"steps","items":[{"text":"Monte sua formação de líder de reunião (por exemplo **BT1**): herói principal, 2º e 3º herói e suas tropas.","img":"figures/bear-bt1.jpg"},{"text":"Ao salvar, marque **Save by Troop Ratio** (salvar por proporção de tropas).","img":"figures/bear-save-ratio.jpg"}]},
+        {"type":"h","text":"4. Regras para todos os participantes"},
+        {"type":"list","items":["**Exatamente {=bear} tropas** em cada marcha de participação.","**Proporção ideal 10:10:80** quando possível: 9.000 infantaria, 9.000 cavalaria, 72.000 arqueiros (ideal, não obrigatória).","**Primeiro herói:** {chenko}, {amane}, {yeonwoo}, {amadeus} ou nenhum herói. Não mande {petra} como participante.","**Salve suas marchas antes** de a Caça ao Urso começar.","**Líderes escolhidos:** máximo de tropas na sua reunião, mas o limite de {=bear} ao entrar na de outra pessoa.","**Nada de reuniões próprias na fase principal:** entre nas reuniões NXS escolhidas em vez de abrir a sua."]},
+        {"type":"callout","text":"⏰ **Faltando 6:30 — fase final:** todos os participantes podem abrir a própria reunião com os **3 heróis mais fortes**. É a única exceção à regra de não abrir outras reuniões."},
+        {"type":"h","text":"📚 Mais informações"},
+        {"type":"sub","text":"QUANDO"},
+        {"type":"p","text":"A cada 2 dias, no horário marcado pela sua Aliança."},
+        {"type":"sub","text":"POR QUE IMPORTA"},
+        {"type":"p","text":"Principal fonte de materiais de Equipamento do Herói (Martelos de Forja) e XP de Aprimoramento."},
+        {"type":"sub","text":"PREPARAÇÃO"},
+        {"type":"list","items":["Atualize suas Formações das Tropas antes de cada Caça ao Urso."]},
+        {"type":"callout","text":"Opcional: use https://frakinator.streamlit.app/ para testar proporções de tropas e encontrar sua formação mais forte."},
+        {"type":"list","items":["Revogue as tropas que estão coletando antes do início do evento.","Lembre-se: nos últimos 5–7 minutos, todos devem iniciar um rally. Isso cria mais vagas para jogadores cujas tropas estão retornando, permitindo um último impulso de dano."]},
+        {"type":"p","text":"Formação de tropas: 20-40-40%. Na Gen 3, os F2P recebem o primeiro herói com equipamento exclusivo de rally ({petra}). Tente números equilibrados de Arquearia e Cavalaria, porque a {petra} melhora muito os Arquearia. Os atributos dos Arquearia continuam os mais baixos sem uma Arquearia SSR. Se você desbloquear a Cavalaria T10, a habilidade T10 combina bem com os atributos da {petra}. Se você desbloquear a **Cavalaria T3**, {petra} fica ainda mais forte, porque a 3ª habilidade dela combina muito bem com os atributos deles."},
+        {"type":"p","text":"[[squad:guide]]"},
+        {"type":"sub","text":"USE COM CUIDADO"},
+        {"type":"callout","text":"⚠️ **Heróis de dano baseado em chance:** efeitos fortes, mas **NÃO acumulam**. Use apenas **UM** desses heróis no mesmo rally: {marlin}, {zoe}, {jaeger}, {petra}. ❌ Não mande {petra} como participante."},
+        {"type":"p","text":"🔗 Saiba mais: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes"}
       ]},
       es: { title: "Cacería del Oso", blocks: [
-        { type: "box", title: "🆕 ACTUALIZACIÓN GEN 3", items: [
-          "**Líderes de concentración (en orden):** 1) {amadeus} + {petra} + {marlin} · 2) {zoe} + {petra} + {quinn} · 3) {helga} + {petra} + {marlin}, solo si {helga} y su widget están ambos al máximo.",
-          "**Participantes — primer héroe:** {chenko}, {amane}, {yeonwoo}, {amadeus} o ningún héroe. ❌ No envíes a {petra} como participante.",
-          "**Los participantes envían exactamente {=bear} tropas** — proporción ideal 10:10:80 (ideal, no obligatoria).",
-          "Detalles abajo ↓"
-        ] },
-        { type: "h", text: "CUÁNDO" },
-        { type: "p", text: "Cada 2 días, según el horario programado por tu alianza." },
-        { type: "h", text: "POR QUÉ IMPORTA" },
-        { type: "p", text: "Fuente principal de materiales de equipo de héroe (Martillos de Forja) y XP de mejora." },
-        { type: "h", text: "PREPARACIÓN" },
-        { type: "list", items: [
-          "Actualiza tus formaciones antes de cada Cacería del Oso."
-        ]},
-        { type: "callout", text: "Opcional: usa https://frakinator.streamlit.app/ para probar proporciones de tropas y encontrar tu formación más fuerte." },
-        { type: "list", items: [
-          "Recupera las tropas de recolección antes de que comience el evento.",
-          "Recuerda: en los últimos 5–7 minutos, todos deben lanzar un Ataque Conjunto. Esto crea más espacios para los jugadores cuyas tropas están regresando, permitiendo un empuje final de daño."
-        ]},
-        { type: "h", text: "LÍDERES DE ATAQUE CONJUNTO" },
-        { type: "callout", text: "⏱️ NXS asigna líderes de concentración para cada Trampa. Están en el **círculo interior** alrededor de la trampa y salen en dos oleadas: **Oleada 1 en 0:00** (al inicio) y **Oleada 2 en 0:45** (45 segundos después)." },
-        { type: "p", text: "Inicia tu concentración a la hora asignada con una formación aprobada (abajo) y tus tropas **máximas**. Cuando te unas a la de otro, respeta el límite de **{=bear}** como todos." },
-        { type: "sub", text: "Gestionar tu concentración" },
-        { type: "p", text: "Revisa los héroes y la cantidad de tropas de todos los que se unen:" },
-        { type: "list", items: [ "**Primer héroe equivocado:** expulsa al jugador y pídele que vuelva a unirse correctamente.", "**Cantidad de tropas equivocada:** expulsa al jugador y pídele que vuelva con exactamente {=bear} tropas.", "**Solo cuentan los 4 primeros participantes:** el juego usa la habilidad del primer héroe de los 4 participantes de arriba de tu lista, sin importar su nivel ni sus tropas. Sube a tus dos mejores {chenko} y dos mejores {amane}." ]},
-        { type: "sub", text: "Cómo subir participantes" },
-        { type: "steps", items: [
-          { text: "Abre tu concentración del Oso en curso." }, { text: "Busca a los participantes {chenko} y {amane} más fuertes — compara estrellas de héroes y niveles de widget." }, { text: "Toca la fila del jugador para ver sus detalles." },
-          { text: "Pulsa la **flecha turquesa hacia arriba** para subir a ese jugador al primer puesto.", img: "figures/bear-bump.jpg" },
-          { text: "Sigue subiendo a tus otros participantes prioritarios. El último que subes queda encima de los demás." }, { text: "Revisa el top 4 final: busca **dos {chenko} fuertes y dos {amane} fuertes**." }
-        ]},
-        { type: "sub", text: "Guarda tu formación de líder" },
-        { type: "steps", items: [ { text: "Prepara tu formación de líder (por ejemplo **BT1**): héroe principal, 2.º y 3.er héroe y tus tropas.", img: "figures/bear-bt1.jpg" }, { text: "Al guardarla, marca **Save by Troop Ratio** (guardar por proporción de tropas).", img: "figures/bear-save-ratio.jpg" } ]},
-        { type: "leaders",
-          gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
-          notes: [
-            [
-              "Formación de tropas: 30-30-40%. En la mayoría de los casos tendrás las mejores estadísticas en infantería gracias a las estadísticas base de Amadeus, así que una formación casi equilibrada con un poco más de arqueros funciona mejor.",
-              "Formación de tropas: 20-40-40%. Principalmente para quienes aún no han conseguido a Amadeus, y mantiene la posibilidad de usar a Amadeus para unirse a Ataques Conjuntos.",
-              "Formación de tropas: 30-30-40%. Para F2P se recomienda usar siempre los 3 héroes que tengas para liderar un Ataque Conjunto."
-            ],
-            [
-              "Formación de tropas: 20-30-50%. Marlin aumentará mucho el daño gracias a su {widget}. Desde la Gen 2 en adelante, la infantería siempre será Amadeus o Helga — son los únicos héroes de infantería con {widget} de Ataque Conjunto (bono de letalidad). Envías menos infantería, así que el héroe de infantería cubre el daño de los arqueros mediante el {widget} en lugar de igualar las estadísticas de infantería.",
-              "Formación de tropas: 20-30-50%. Otra alternativa es cambiar Quinn por Marlin si aún no es mejor. Usa a Helga en Gen 2+ solo si Amadeus no tiene 5 estrellas + {widget} al máximo; también es una oportunidad para usar a Amadeus uniéndose a Ataques Conjuntos.",
-              "Formación de tropas: 30-30-40%. Todavía no hay ningún héroe F2P con {widget} de Ataque Conjunto, así que de nuevo una formación equilibrada con un poco más de arqueros, ya que las estadísticas de arqueros serán las más bajas al no tener un héroe arquero SSR."
-            ],
-            [
-              "Formación de tropas: 20-30-50%. Primera opción de NXS en Gen 3.",
-                            "Formación de tropas: 20-40-40%. En la Gen 3, los F2P consiguen su primer héroe con {widget} de Ataque Conjunto ({petra}). Prueba números equilibrados de arqueros/caballería porque {petra} mejora mucho a las tropas de arqueros. Las estadísticas de arqueros siguen siendo las más bajas sin un héroe arquero SSR. Si desbloqueas caballería T10, su habilidad combina bien con las estadísticas de {petra}." + " Si desbloqueas la **Caballería T3**, {petra} se vuelve aún más fuerte, porque su 3.ª habilidad encaja muy bien con sus atributos.",
-              "Formación de tropas: 10-20-70%. Solo si {helga} y su widget están ambos al máximo."
-            ],
-            [
-              "Formación de tropas: 10-10-80%. Fuerza tantas tropas de arqueros como puedas, especialmente si son T10. Con algo de suerte, la 3ª habilidad de Rosa hará el resto del trabajo (aumenta el ataque total de los arqueros en un 30%).",
-              "Formación de tropas: 10-10-80%. Usa a Helga como alternativa si tiene más estrellas y nivel de widget que Amadeus. Sigue forzando tantos arqueros como puedas, especialmente T10, para la 3ª habilidad de Rosa (aumenta el ataque total de los arqueros en un 30%).",
-              "Formación de tropas: 10-10-80%. Igual que la alternativa de mejores héroes — la 3ª habilidad de Rosa rinde mejor si te enfocas en formaciones pesadas de arqueros (aumenta el ataque total de los arqueros en un 30%)."
-            ],
-            [
-              "Los demás puestos de líder aún no se han publicado."
-            ]
-          ]},
-        { type: "h", text: "PARTICIPANTES DE ATAQUE CONJUNTO" },
-        { type: "list", items: [
-          "**Exactamente {=bear} tropas** en cada marcha de participación.",
-          "**Proporción ideal 10:10:80** cuando se pueda: 9.000 infantería, 9.000 caballería, 72.000 arqueros (ideal, no obligatoria).",
-          "**Primer héroe:** {chenko}, {amane}, {yeonwoo}, {amadeus} o ningún héroe. No envíes a {petra} como participante.",
-          "**Guarda tus marchas antes** de que empiece la Cacería del Oso.",
-          "**Líderes asignados:** tropas máximas en tu propia concentración, pero el límite de {=bear} al unirte a la de otro.",
-          "**Nada de concentraciones propias en la fase principal:** únete a las concentraciones NXS asignadas en vez de lanzar la tuya."
-        ]},
-        { type: "callout", text: "⏰ **Quedan 6:30 — fase final:** todos los participantes pueden lanzar su propia concentración con sus **3 héroes más fuertes**. Es la única excepción a la regla de no lanzar otras concentraciones." },
-        { type: "sub", text: "Guarda tus formaciones de participante" },
-        { type: "steps", items: [ { text: "Prepara tus formaciones para unirte (**BT2–BT5**): primer héroe de la lista aprobada y exactamente **9.000 infantería, 9.000 caballería y 72.000 arqueros**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "Al guardarlas, marca **Save by Troop Quantity** (por cantidad, no por proporción) para que cada marcha tenga exactamente {=bear}.", img: "figures/bear-save-qty.jpg" } ]},
-        { type: "p", text: "[[squad:guide]]" },
-        { type: "joiners" },
-        { type: "sub", text: "ÚSALOS CON CUIDADO" },
-        { type: "callout", text: "⚠️ **Héroes de daño por probabilidad:** efectos fuertes, pero **NO se acumulan**. Usa solo **UNO** de estos héroes en el mismo ataque conjunto: {marlin}, {zoe}, {jaeger}, {petra}. ❌ No envíes a {petra} como participante." },
-        { type: "p", text: "🔗 Más información: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
+        {"type":"callout","text":"🐻 Cacería del Oso NXS — cómo hace NXS la Cacería del Oso: héroes fuertes, concentraciones coordinadas, tiempo preciso y máximo daño de alianza."},
+        {"type":"h","text":"1. Héroes de la Trampa del Oso — Gen 3"},
+        {"type":"sub","text":"Líderes de concentración — formaciones aprobadas"},
+        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Formación de tropas: 30-30-40%. En la mayoría de los casos tendrás las mejores estadísticas en infantería gracias a las estadísticas base de Amadeus, así que una formación casi equilibrada con un poco más de arqueros funciona mejor.","Formación de tropas: 20-40-40%. Principalmente para quienes aún no han conseguido a Amadeus, y mantiene la posibilidad de usar a Amadeus para unirse a Ataques Conjuntos.","Formación de tropas: 30-30-40%. Para F2P se recomienda usar siempre los 3 héroes que tengas para liderar un Ataque Conjunto."],["Formación de tropas: 20-30-50%. Marlin aumentará mucho el daño gracias a su {widget}. Desde la Gen 2 en adelante, la infantería siempre será Amadeus o Helga — son los únicos héroes de infantería con {widget} de Ataque Conjunto (bono de letalidad). Envías menos infantería, así que el héroe de infantería cubre el daño de los arqueros mediante el {widget} en lugar de igualar las estadísticas de infantería.","Formación de tropas: 20-30-50%. Otra alternativa es cambiar Quinn por Marlin si aún no es mejor. Usa a Helga en Gen 2+ solo si Amadeus no tiene 5 estrellas + {widget} al máximo; también es una oportunidad para usar a Amadeus uniéndose a Ataques Conjuntos.","Formación de tropas: 30-30-40%. Todavía no hay ningún héroe F2P con {widget} de Ataque Conjunto, así que de nuevo una formación equilibrada con un poco más de arqueros, ya que las estadísticas de arqueros serán las más bajas al no tener un héroe arquero SSR."],["","","Formación de tropas: 10-20-70%. Solo si {helga} y su widget están ambos al máximo."],["Formación de tropas: 10-10-80%. Fuerza tantas tropas de arqueros como puedas, especialmente si son T10. Con algo de suerte, la 3ª habilidad de Rosa hará el resto del trabajo (aumenta el ataque total de los arqueros en un 30%).","Formación de tropas: 10-10-80%. Usa a Helga como alternativa si tiene más estrellas y nivel de widget que Amadeus. Sigue forzando tantos arqueros como puedas, especialmente T10, para la 3ª habilidad de Rosa (aumenta el ataque total de los arqueros en un 30%).","Formación de tropas: 10-10-80%. Igual que la alternativa de mejores héroes — la 3ª habilidad de Rosa rinde mejor si te enfocas en formaciones pesadas de arqueros (aumenta el ataque total de los arqueros en un 30%)."],["Los demás puestos de líder aún no se han publicado."]]},
+        {"type":"sub","text":"Participantes — primeros héroes aprobados"},
+        {"type":"joiners"},
+        {"type":"callout","text":"❌ **No envíes a {petra} como participante.** Usa un héroe aprobado en el primer puesto o envía **sin héroe**."},
+        {"type":"h","text":"2. Tropas de los participantes"},
+        {"type":"p","text":"Todos los participantes envían **exactamente {=bear} tropas** por concentración. La proporción ideal es **10:10:80** cuando se pueda, con énfasis en arqueros."},
+        {"type":"box","title":"**Infantería 9.000 (10%) · Caballería 9.000 (10%) · Arqueros 72.000 (80%)**","items":["{=bear} tropas es obligatorio. La proporción 10:10:80 es ideal, no obligatoria."]},
+        {"type":"sub","text":"Guarda tus formaciones de participante"},
+        {"type":"steps","items":[{"text":"Prepara tus formaciones para unirte (**BT2–BT5**): primer héroe de la lista aprobada y exactamente **9.000 infantería, 9.000 caballería y 72.000 arqueros**.","img":"figures/bear-joiner-bt2.jpg"},{"text":"Al guardarlas, marca **Save by Troop Quantity** (por cantidad, no por proporción) para que cada marcha tenga exactamente {=bear}.","img":"figures/bear-save-qty.jpg"}]},
+        {"type":"h","text":"3. Reglas para líderes de concentración asignados"},
+        {"type":"callout","text":"⏱️ NXS asigna líderes de concentración para cada Trampa. Están en el **círculo interior** alrededor de la trampa y salen en dos oleadas: **Oleada 1 en 0:00** (al inicio) y **Oleada 2 en 0:45** (45 segundos después)."},
+        {"type":"p","text":"Inicia tu concentración a la hora asignada con una formación aprobada (abajo) y tus tropas **máximas**. Cuando te unas a la de otro, respeta el límite de **{=bear}** como todos."},
+        {"type":"sub","text":"Gestionar tu concentración"},
+        {"type":"p","text":"Revisa los héroes y la cantidad de tropas de todos los que se unen:"},
+        {"type":"list","items":["**Primer héroe equivocado:** expulsa al jugador y pídele que vuelva a unirse correctamente.","**Cantidad de tropas equivocada:** expulsa al jugador y pídele que vuelva con exactamente {=bear} tropas.","**Solo cuentan los 4 primeros participantes:** el juego usa la habilidad del primer héroe de los 4 participantes de arriba de tu lista, sin importar su nivel ni sus tropas. Sube a tus dos mejores {chenko} y dos mejores {amane}."]},
+        {"type":"sub","text":"Cómo subir participantes"},
+        {"type":"steps","items":[{"text":"Abre tu concentración del Oso en curso."},{"text":"Busca a los participantes {chenko} y {amane} más fuertes — compara estrellas de héroes y niveles de widget."},{"text":"Toca la fila del jugador para ver sus detalles."},{"text":"Pulsa la **flecha turquesa hacia arriba** para subir a ese jugador al primer puesto.","img":"figures/bear-bump.jpg"},{"text":"Sigue subiendo a tus otros participantes prioritarios. El último que subes queda encima de los demás."},{"text":"Revisa el top 4 final: busca **dos {chenko} fuertes y dos {amane} fuertes**."}]},
+        {"type":"sub","text":"Guarda tu formación de líder"},
+        {"type":"steps","items":[{"text":"Prepara tu formación de líder (por ejemplo **BT1**): héroe principal, 2.º y 3.er héroe y tus tropas.","img":"figures/bear-bt1.jpg"},{"text":"Al guardarla, marca **Save by Troop Ratio** (guardar por proporción de tropas).","img":"figures/bear-save-ratio.jpg"}]},
+        {"type":"h","text":"4. Reglas para todos los participantes"},
+        {"type":"list","items":["**Exactamente {=bear} tropas** en cada marcha de participación.","**Proporción ideal 10:10:80** cuando se pueda: 9.000 infantería, 9.000 caballería, 72.000 arqueros (ideal, no obligatoria).","**Primer héroe:** {chenko}, {amane}, {yeonwoo}, {amadeus} o ningún héroe. No envíes a {petra} como participante.","**Guarda tus marchas antes** de que empiece la Cacería del Oso.","**Líderes asignados:** tropas máximas en tu propia concentración, pero el límite de {=bear} al unirte a la de otro.","**Nada de concentraciones propias en la fase principal:** únete a las concentraciones NXS asignadas en vez de lanzar la tuya."]},
+        {"type":"callout","text":"⏰ **Quedan 6:30 — fase final:** todos los participantes pueden lanzar su propia concentración con sus **3 héroes más fuertes**. Es la única excepción a la regla de no lanzar otras concentraciones."},
+        {"type":"h","text":"📚 Más información"},
+        {"type":"sub","text":"CUÁNDO"},
+        {"type":"p","text":"Cada 2 días, según el horario programado por tu alianza."},
+        {"type":"sub","text":"POR QUÉ IMPORTA"},
+        {"type":"p","text":"Fuente principal de materiales de equipo de héroe (Martillos de Forja) y XP de mejora."},
+        {"type":"sub","text":"PREPARACIÓN"},
+        {"type":"list","items":["Actualiza tus formaciones antes de cada Cacería del Oso."]},
+        {"type":"callout","text":"Opcional: usa https://frakinator.streamlit.app/ para probar proporciones de tropas y encontrar tu formación más fuerte."},
+        {"type":"list","items":["Recupera las tropas de recolección antes de que comience el evento.","Recuerda: en los últimos 5–7 minutos, todos deben lanzar un Ataque Conjunto. Esto crea más espacios para los jugadores cuyas tropas están regresando, permitiendo un empuje final de daño."]},
+        {"type":"p","text":"Formación de tropas: 20-40-40%. En la Gen 3, los F2P consiguen su primer héroe con {widget} de Ataque Conjunto ({petra}). Prueba números equilibrados de arqueros/caballería porque {petra} mejora mucho a las tropas de arqueros. Las estadísticas de arqueros siguen siendo las más bajas sin un héroe arquero SSR. Si desbloqueas caballería T10, su habilidad combina bien con las estadísticas de {petra}. Si desbloqueas la **Caballería T3**, {petra} se vuelve aún más fuerte, porque su 3.ª habilidad encaja muy bien con sus atributos."},
+        {"type":"p","text":"[[squad:guide]]"},
+        {"type":"sub","text":"ÚSALOS CON CUIDADO"},
+        {"type":"callout","text":"⚠️ **Héroes de daño por probabilidad:** efectos fuertes, pero **NO se acumulan**. Usa solo **UNO** de estos héroes en el mismo ataque conjunto: {marlin}, {zoe}, {jaeger}, {petra}. ❌ No envíes a {petra} como participante."},
+        {"type":"p","text":"🔗 Más información: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes"}
       ]},
       tr: { title: "Ayı Avı", blocks: [
-        { type: "box", title: "🆕 3. NESİL GÜNCELLEMESİ", items: [
-          "**Ralli liderleri (sırayla):** 1) {amadeus} + {petra} + {marlin} · 2) {zoe} + {petra} + {quinn} · 3) {helga} + {petra} + {marlin}, sadece {helga} ve widget'ı ikisi de maks ise.",
-          "**Katılımcılar — ilk kahraman:** {chenko}, {amane}, {yeonwoo}, {amadeus} veya kahramansız. ❌ {petra}'yı katılımcı olarak gönderme.",
-          "**Katılımcılar tam {=bear} asker gönderir** — ideal oran 10:10:80 (ideal, zorunlu değil).",
-          "Ayrıntılar aşağıda ↓"
-        ] },
-        { type: "h", text: "NE ZAMAN" },
-        { type: "p", text: "2 günde bir, İttifakınızın belirlediği saatte." },
-        { type: "h", text: "NEDEN ÖNEMLİ" },
-        { type: "p", text: "Kahraman Donanımı malzemelerinin (Demirci Çekiçleri) ve Geliştirme TP'sinin ana kaynağı." },
-        { type: "h", text: "HAZIRLIK" },
-        { type: "list", items: [
-          "Her Ayı Avı'ndan önce birlik dizilişlerinizi güncelleyin."
-        ]},
-        { type: "callout", text: "İsteğe bağlı: birlik oranlarını test edip en güçlü dizilişinizi bulmak için https://frakinator.streamlit.app/ adresini kullanın." },
-        { type: "list", items: [
-          "Etkinlik başlamadan önce kaynak toplayan birlikleri geri çağırın.",
-          "Unutmayın: son 5–7 dakikada herkes bir seferberlik başlatmalı. Bu, birlikleri geri dönen oyuncular için daha fazla yer açar ve son bir hasar atağına olanak tanır."
-        ]},
-        { type: "h", text: "SEFERBERLİK LİDERLERİ" },
-        { type: "callout", text: "⏱️ NXS her Ayı Tuzağı için ralli liderleri atar. Atanan liderler tuzağın etrafındaki **iç çemberde** durur ve iki dalgada çıkar: **1. dalga 0:00** (başlangıçta) ve **2. dalga 0:45** (45 saniye sonra)." },
-        { type: "p", text: "Rallini sana atanan zamanda, onaylı bir dizilişle (aşağıda) ve **maksimum** askerle başlat. Başkasının rallisine katılırken herkes gibi **{=bear}** sınırına uy." },
-        { type: "sub", text: "Rallini yönetmek" },
-        { type: "p", text: "Katılan herkesin kahramanlarını ve asker sayısını kontrol et:" },
-        { type: "list", items: [ "**Yanlış ilk kahraman:** oyuncuyu at ve doğru şekilde tekrar katılmasını iste.", "**Yanlış asker sayısı:** oyuncuyu at ve tam {=bear} askerle tekrar katılmasını iste.", "**Sadece ilk 4 katılımcı sayılır:** oyun, kahraman seviyesi veya asker sayısından bağımsız olarak listenin en üstündeki 4 katılımcının ilk kahraman becerisini kullanır. En iyi iki {chenko} ve iki {amane}'yi en üste taşı." ]},
-        { type: "sub", text: "Katılımcıları yukarı taşımak" },
-        { type: "steps", items: [
-          { text: "Devam eden Ayı rallini aç." }, { text: "En güçlü {chenko} ve {amane} katılımcılarını bul — kahraman yıldızlarını ve widget seviyelerini karşılaştır." }, { text: "Ayrıntılar için oyuncunun satırına dokun." },
-          { text: "Oyuncuyu en üste taşımak için **turkuaz yukarı oka** bas.", img: "figures/bear-bump.jpg" },
-          { text: "Diğer öncelikli katılımcıları da taşımaya devam et. En son taşınan diğerlerinin üstüne geçer." }, { text: "Son ilk 4'ü kontrol et: hedef **iki güçlü {chenko} ve iki güçlü {amane}**." }
-        ]},
-        { type: "sub", text: "Ralli lideri dizilişini kaydet" },
-        { type: "steps", items: [ { text: "Ralli lideri dizilişini ayarla (örneğin **BT1**): ana, 2. ve 3. kahraman ve askerlerin.", img: "figures/bear-bt1.jpg" }, { text: "Kaydederken **Save by Troop Ratio** (asker oranına göre kaydet) seçeneğini işaretle.", img: "figures/bear-save-ratio.jpg" } ]},
-        { type: "leaders",
-          gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
-          notes: [
-            [
-              "Birlik dizilişi: %30-30-40. Çoğu durumda Amadeus'un ham nitelikleri sayesinde en iyi niteliklere Piyade'de sahip olacaksınız; bu yüzden biraz daha fazla Okçu içeren, neredeyse eşit bir dizilim en iyi sonucu verir.",
-              "Birlik dizilişi: %20-40-40. Amadeus'u henüz tercih etmemiş oyuncular için; ayrıca Amadeus'u seferberliklere katılmak için kullanma imkânı bırakır.",
-              "Birlik dizilişi: %30-30-40. F2P için seferberlik başlatırken her zaman elinizdeki 3 kahramanı kullanmanız önerilir."
-            ],
-            [
-              "Birlik dizilişi: %20-30-50. Marlin, seferberliğe özel donanımı sayesinde hasarı çok artırır. 2. Nesil'den itibaren Piyade her zaman Amadeus veya Helga olacaktır — seferberliğe özel donanımı (Öldürücülük bonusu) olan tek Piyade kahramanları onlardır. Daha az Piyade gönderirsiniz; bu yüzden Piyade kahramanı, Piyade niteliklerine denk gelmek yerine bu donanım sayesinde Okçu hasarını karşılar.",
-              "Birlik dizilişi: %20-30-50. Diğer alternatif, Marlin henüz daha iyi değilse Quinn yerine onu koymaktır. Helga'yı 2. Nesil ve sonrasında yalnızca Amadeus 5 yıldızlı + özel donanım azami seviyede değilse kullanın; ayrıca Amadeus'u seferberliklere katılmak için kullanma fırsatıdır.",
-              "Birlik dizilişi: %30-30-40. Seferberliğe özel donanımı olan bir F2P kahraman hâlâ yok; bu yüzden yine biraz daha fazla Okçu içeren dengeli bir dizilim kullanın, çünkü SSR Okçu kahramanı olmadığı için Okçu nitelikleri en düşük olacaktır."
-            ],
-            [
-              "Asker dizilişi: %20-30-50. NXS'in 3. Nesil'deki ilk tercihi.",
-                            "Birlik dizilişi: %20-40-40. 3. Nesil'de F2P oyuncular seferberliğe özel donanımı olan ilk kahramanlarını ({petra}) alır. Okçu ve Süvari sayılarını dengeli tutmayı deneyin; çünkü {petra} Okçuları çok güçlendirir. SSR Okçu olmadan Okçu nitelikleri hâlâ en düşüktür. T10 Süvari açarsanız, T10 becerisi {petra}'nın nitelikleriyle iyi uyum sağlar." + " **T3 Süvari**'nin kilidini açarsan {petra} daha da güçlenir, çünkü 3. yeteneği onların nitelikleriyle çok iyi çalışır.",
-              "Asker dizilişi: %10-20-70. Sadece {helga} ve widget'ı ikisi de maks ise."
-            ],
-            [
-              "Birlik dizilişi: %10-10-80. Özellikle T10 iseler, olabildiğince fazla Okçu koyun. Biraz şansla Rosa'nın 3. becerisi işi sizin yerinize halleder (Okçuların toplam Saldırısını %30 artırır).",
-              "Birlik dizilişi: %10-10-80. Helga'nın yıldızı ve özel donanım seviyesi Amadeus'tan iyiyse alternatif olarak kullanın. Rosa'nın 3. becerisi için yine olabildiğince fazla Okçu, özellikle T10 koyun (Okçuların toplam Saldırısını %30 artırır).",
-              "Birlik dizilişi: %10-10-80. Alternatif en iyi kahramanlarla aynı — Rosa'nın 3. becerisi, ağırlıklı Okçu dizilişlerine odaklanırsanız en iyi bonusu verir (Okçuların toplam Saldırısını %30 artırır)."
-            ],
-            [
-              "Kalan lider slotları henüz açıklanmadı."
-            ]
-          ]},
-        { type: "h", text: "SEFERBERLİĞE KATILANLAR" },
-        { type: "list", items: [
-          "Her katılım yürüyüşünde **tam {=bear} asker**.",
-          "Mümkünse **ideal oran 10:10:80**: 9.000 piyade, 9.000 süvari, 72.000 okçu (ideal, zorunlu değil).",
-          "**İlk kahraman:** {chenko}, {amane}, {yeonwoo}, {amadeus} veya kahramansız. {petra}'yı katılımcı olarak gönderme.",
-          "Ayı Avı başlamadan **yürüyüşlerini önceden kaydet**.",
-          "**Atanan ralli liderleri:** kendi rallinde maksimum asker, başkasının rallisine katılırken {=bear} sınırı.",
-          "**Ana aşamada kendi rallini açma:** kendi rallini başlatmak yerine atanan NXS rallilerine katıl."
-        ]},
-        { type: "callout", text: "⏰ **6:30 kala — son ralli aşaması:** tüm katılımcılar artık **en güçlü 3 kahramanıyla** kendi rallisini başlatabilir. Bu, kendi ralliyi açmama kuralının tek istisnasıdır." },
-        { type: "sub", text: "Katılımcı dizilişlerini kaydet" },
-        { type: "steps", items: [ { text: "Katılım dizilişlerini ayarla (**BT2–BT5**): onaylı listeden ilk kahraman, sonra tam **9.000 piyade, 9.000 süvari ve 72.000 okçu**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "Kaydederken **Save by Troop Quantity** (orana göre değil, sayıya göre) seçeneğini işaretle; böylece her yürüyüş tam {=bear} olur.", img: "figures/bear-save-qty.jpg" } ]},
-        { type: "p", text: "[[squad:guide]]" },
-        { type: "joiners" },
-        { type: "sub", text: "DİKKATLİ KULLANIN" },
-        { type: "callout", text: "⚠️ **Şansa bağlı hasar veren kahramanlar:** güçlü etkiler, ama **birikmezler**. Aynı seferberlikte bunlardan yalnızca **BİRİNİ** kullanın: {marlin}, {zoe}, {jaeger}, {petra}. ❌ {petra}'yı katılımcı olarak gönderme." },
-        { type: "p", text: "🔗 Daha fazlası: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
+        {"type":"callout","text":"🐻 NXS Ayı Avı — NXS'in Ayı Avı yöntemi: güçlü kahramanlar, koordineli ralliler, doğru zamanlama ve en yüksek ittifak hasarı."},
+        {"type":"h","text":"1. Ayı Tuzağı Kahramanları — 3. Nesil"},
+        {"type":"sub","text":"Ralli liderleri — onaylı dizilişler"},
+        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Birlik dizilişi: %30-30-40. Çoğu durumda Amadeus'un ham nitelikleri sayesinde en iyi niteliklere Piyade'de sahip olacaksınız; bu yüzden biraz daha fazla Okçu içeren, neredeyse eşit bir dizilim en iyi sonucu verir.","Birlik dizilişi: %20-40-40. Amadeus'u henüz tercih etmemiş oyuncular için; ayrıca Amadeus'u seferberliklere katılmak için kullanma imkânı bırakır.","Birlik dizilişi: %30-30-40. F2P için seferberlik başlatırken her zaman elinizdeki 3 kahramanı kullanmanız önerilir."],["Birlik dizilişi: %20-30-50. Marlin, seferberliğe özel donanımı sayesinde hasarı çok artırır. 2. Nesil'den itibaren Piyade her zaman Amadeus veya Helga olacaktır — seferberliğe özel donanımı (Öldürücülük bonusu) olan tek Piyade kahramanları onlardır. Daha az Piyade gönderirsiniz; bu yüzden Piyade kahramanı, Piyade niteliklerine denk gelmek yerine bu donanım sayesinde Okçu hasarını karşılar.","Birlik dizilişi: %20-30-50. Diğer alternatif, Marlin henüz daha iyi değilse Quinn yerine onu koymaktır. Helga'yı 2. Nesil ve sonrasında yalnızca Amadeus 5 yıldızlı + özel donanım azami seviyede değilse kullanın; ayrıca Amadeus'u seferberliklere katılmak için kullanma fırsatıdır.","Birlik dizilişi: %30-30-40. Seferberliğe özel donanımı olan bir F2P kahraman hâlâ yok; bu yüzden yine biraz daha fazla Okçu içeren dengeli bir dizilim kullanın, çünkü SSR Okçu kahramanı olmadığı için Okçu nitelikleri en düşük olacaktır."],["","","Asker dizilişi: %10-20-70. Sadece {helga} ve widget'ı ikisi de maks ise."],["Birlik dizilişi: %10-10-80. Özellikle T10 iseler, olabildiğince fazla Okçu koyun. Biraz şansla Rosa'nın 3. becerisi işi sizin yerinize halleder (Okçuların toplam Saldırısını %30 artırır).","Birlik dizilişi: %10-10-80. Helga'nın yıldızı ve özel donanım seviyesi Amadeus'tan iyiyse alternatif olarak kullanın. Rosa'nın 3. becerisi için yine olabildiğince fazla Okçu, özellikle T10 koyun (Okçuların toplam Saldırısını %30 artırır).","Birlik dizilişi: %10-10-80. Alternatif en iyi kahramanlarla aynı — Rosa'nın 3. becerisi, ağırlıklı Okçu dizilişlerine odaklanırsanız en iyi bonusu verir (Okçuların toplam Saldırısını %30 artırır)."],["Kalan lider slotları henüz açıklanmadı."]]},
+        {"type":"sub","text":"Katılımcılar — onaylı ilk kahramanlar"},
+        {"type":"joiners"},
+        {"type":"callout","text":"❌ **{petra}'yı katılımcı olarak gönderme.** İlk sıraya onaylı bir kahraman koy ya da **kahramansız** gönder."},
+        {"type":"h","text":"2. Katılımcı asker şartları"},
+        {"type":"p","text":"Tüm katılımcılar her ralliye **tam {=bear} asker** gönderir. Mümkünse ideal oran **10:10:80**, okçu ağırlıklı."},
+        {"type":"box","title":"**Piyade 9.000 (%10) · Süvari 9.000 (%10) · Okçu 72.000 (%80)**","items":["{=bear} asker zorunlu. 10:10:80 oranı ideal, zorunlu değil."]},
+        {"type":"sub","text":"Katılımcı dizilişlerini kaydet"},
+        {"type":"steps","items":[{"text":"Katılım dizilişlerini ayarla (**BT2–BT5**): onaylı listeden ilk kahraman, sonra tam **9.000 piyade, 9.000 süvari ve 72.000 okçu**.","img":"figures/bear-joiner-bt2.jpg"},{"text":"Kaydederken **Save by Troop Quantity** (orana göre değil, sayıya göre) seçeneğini işaretle; böylece her yürüyüş tam {=bear} olur.","img":"figures/bear-save-qty.jpg"}]},
+        {"type":"h","text":"3. Atanan ralli liderleri için kurallar"},
+        {"type":"callout","text":"⏱️ NXS her Ayı Tuzağı için ralli liderleri atar. Atanan liderler tuzağın etrafındaki **iç çemberde** durur ve iki dalgada çıkar: **1. dalga 0:00** (başlangıçta) ve **2. dalga 0:45** (45 saniye sonra)."},
+        {"type":"p","text":"Rallini sana atanan zamanda, onaylı bir dizilişle (aşağıda) ve **maksimum** askerle başlat. Başkasının rallisine katılırken herkes gibi **{=bear}** sınırına uy."},
+        {"type":"sub","text":"Rallini yönetmek"},
+        {"type":"p","text":"Katılan herkesin kahramanlarını ve asker sayısını kontrol et:"},
+        {"type":"list","items":["**Yanlış ilk kahraman:** oyuncuyu at ve doğru şekilde tekrar katılmasını iste.","**Yanlış asker sayısı:** oyuncuyu at ve tam {=bear} askerle tekrar katılmasını iste.","**Sadece ilk 4 katılımcı sayılır:** oyun, kahraman seviyesi veya asker sayısından bağımsız olarak listenin en üstündeki 4 katılımcının ilk kahraman becerisini kullanır. En iyi iki {chenko} ve iki {amane}'yi en üste taşı."]},
+        {"type":"sub","text":"Katılımcıları yukarı taşımak"},
+        {"type":"steps","items":[{"text":"Devam eden Ayı rallini aç."},{"text":"En güçlü {chenko} ve {amane} katılımcılarını bul — kahraman yıldızlarını ve widget seviyelerini karşılaştır."},{"text":"Ayrıntılar için oyuncunun satırına dokun."},{"text":"Oyuncuyu en üste taşımak için **turkuaz yukarı oka** bas.","img":"figures/bear-bump.jpg"},{"text":"Diğer öncelikli katılımcıları da taşımaya devam et. En son taşınan diğerlerinin üstüne geçer."},{"text":"Son ilk 4'ü kontrol et: hedef **iki güçlü {chenko} ve iki güçlü {amane}**."}]},
+        {"type":"sub","text":"Ralli lideri dizilişini kaydet"},
+        {"type":"steps","items":[{"text":"Ralli lideri dizilişini ayarla (örneğin **BT1**): ana, 2. ve 3. kahraman ve askerlerin.","img":"figures/bear-bt1.jpg"},{"text":"Kaydederken **Save by Troop Ratio** (asker oranına göre kaydet) seçeneğini işaretle.","img":"figures/bear-save-ratio.jpg"}]},
+        {"type":"h","text":"4. Tüm katılımcılar için kurallar"},
+        {"type":"list","items":["Her katılım yürüyüşünde **tam {=bear} asker**.","Mümkünse **ideal oran 10:10:80**: 9.000 piyade, 9.000 süvari, 72.000 okçu (ideal, zorunlu değil).","**İlk kahraman:** {chenko}, {amane}, {yeonwoo}, {amadeus} veya kahramansız. {petra}'yı katılımcı olarak gönderme.","Ayı Avı başlamadan **yürüyüşlerini önceden kaydet**.","**Atanan ralli liderleri:** kendi rallinde maksimum asker, başkasının rallisine katılırken {=bear} sınırı.","**Ana aşamada kendi rallini açma:** kendi rallini başlatmak yerine atanan NXS rallilerine katıl."]},
+        {"type":"callout","text":"⏰ **6:30 kala — son ralli aşaması:** tüm katılımcılar artık **en güçlü 3 kahramanıyla** kendi rallisini başlatabilir. Bu, kendi ralliyi açmama kuralının tek istisnasıdır."},
+        {"type":"h","text":"📚 Daha fazla bilgi"},
+        {"type":"sub","text":"NE ZAMAN"},
+        {"type":"p","text":"2 günde bir, İttifakınızın belirlediği saatte."},
+        {"type":"sub","text":"NEDEN ÖNEMLİ"},
+        {"type":"p","text":"Kahraman Donanımı malzemelerinin (Demirci Çekiçleri) ve Geliştirme TP'sinin ana kaynağı."},
+        {"type":"sub","text":"HAZIRLIK"},
+        {"type":"list","items":["Her Ayı Avı'ndan önce birlik dizilişlerinizi güncelleyin."]},
+        {"type":"callout","text":"İsteğe bağlı: birlik oranlarını test edip en güçlü dizilişinizi bulmak için https://frakinator.streamlit.app/ adresini kullanın."},
+        {"type":"list","items":["Etkinlik başlamadan önce kaynak toplayan birlikleri geri çağırın.","Unutmayın: son 5–7 dakikada herkes bir seferberlik başlatmalı. Bu, birlikleri geri dönen oyuncular için daha fazla yer açar ve son bir hasar atağına olanak tanır."]},
+        {"type":"p","text":"Birlik dizilişi: %20-40-40. 3. Nesil'de F2P oyuncular seferberliğe özel donanımı olan ilk kahramanlarını ({petra}) alır. Okçu ve Süvari sayılarını dengeli tutmayı deneyin; çünkü {petra} Okçuları çok güçlendirir. SSR Okçu olmadan Okçu nitelikleri hâlâ en düşüktür. T10 Süvari açarsanız, T10 becerisi {petra}'nın nitelikleriyle iyi uyum sağlar. **T3 Süvari**'nin kilidini açarsan {petra} daha da güçlenir, çünkü 3. yeteneği onların nitelikleriyle çok iyi çalışır."},
+        {"type":"p","text":"[[squad:guide]]"},
+        {"type":"sub","text":"DİKKATLİ KULLANIN"},
+        {"type":"callout","text":"⚠️ **Şansa bağlı hasar veren kahramanlar:** güçlü etkiler, ama **birikmezler**. Aynı seferberlikte bunlardan yalnızca **BİRİNİ** kullanın: {marlin}, {zoe}, {jaeger}, {petra}. ❌ {petra}'yı katılımcı olarak gönderme."},
+        {"type":"p","text":"🔗 Daha fazlası: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes"}
       ]},
       id: { title: "Bear Hunt", blocks: [
-        { type: "box", title: "🆕 UPDATE GEN 3", items: [
-          "**Pemimpin rally (berurutan):** 1) {amadeus} + {petra} + {marlin} · 2) {zoe} + {petra} + {quinn} · 3) {helga} + {petra} + {marlin}, hanya jika {helga} dan widget-nya sama-sama maks.",
-          "**Peserta — hero pertama:** {chenko}, {amane}, {yeonwoo}, {amadeus}, atau tanpa hero. ❌ Jangan kirim {petra} sebagai peserta.",
-          "**Peserta mengirim tepat {=bear} pasukan** — rasio ideal 10:10:80 (ideal, tidak wajib).",
-          "Detail di bawah ↓"
-        ] },
-        { type: "h", text: "KAPAN" },
-        { type: "p", text: "Setiap 2 hari pada waktu yang dijadwalkan Aliansimu." },
-        { type: "h", text: "MENGAPA PENTING" },
-        { type: "p", text: "Sumber utama material Gear Hero (Forgehammer) dan Enhancement XP." },
-        { type: "h", text: "PERSIAPAN" },
-        { type: "list", items: [
-          "Perbarui Formasi Pasukanmu sebelum setiap Bear Hunt."
-        ]},
-        { type: "callout", text: "Opsional: gunakan https://frakinator.streamlit.app/ untuk menguji rasio pasukan dan menemukan formasi terkuatmu." },
-        { type: "list", items: [
-          "Panggil Kembali pasukan yang sedang mengumpulkan sebelum event dimulai.",
-          "Ingat: di 5–7 menit terakhir, semua orang sebaiknya memulai reli. Ini membuka lebih banyak slot bagi pemain yang pasukannya sedang kembali, sehingga bisa melakukan dorongan damage terakhir."
-        ]},
-        { type: "h", text: "PEMIMPIN RELI" },
-        { type: "callout", text: "⏱️ NXS menunjuk pemimpin rally untuk setiap Perangkap Beruang. Mereka ada di **lingkaran dalam** di sekitar perangkap dan berangkat dalam dua gelombang: **Gelombang 1 di 0:00** (awal) dan **Gelombang 2 di 0:45** (45 detik kemudian)." },
-        { type: "p", text: "Mulai rally di waktu yang ditentukan dengan formasi yang disetujui (di bawah) dan pasukan **maksimal**. Saat ikut rally orang lain, ikuti batas **{=bear}** seperti semua orang." },
-        { type: "sub", text: "Mengelola rally kamu" },
-        { type: "p", text: "Periksa hero dan jumlah pasukan semua yang bergabung:" },
-        { type: "list", items: [ "**Hero pertama salah:** keluarkan pemain dan minta bergabung lagi dengan benar.", "**Jumlah pasukan salah:** keluarkan pemain dan minta bergabung lagi dengan tepat {=bear} pasukan.", "**Hanya 4 peserta teratas yang dihitung:** game memakai skill hero pertama dari 4 peserta paling atas di daftar, berapa pun level hero atau pasukannya. Naikkan dua {chenko} dan dua {amane} terbaikmu ke atas." ]},
-        { type: "sub", text: "Cara menaikkan peserta" },
-        { type: "steps", items: [
-          { text: "Buka rally Beruang kamu yang sedang berjalan." }, { text: "Cari peserta {chenko} dan {amane} terkuat — bandingkan bintang hero dan level widget." }, { text: "Ketuk baris pemain untuk membuka detailnya." },
-          { text: "Tekan **panah atas berwarna toska** untuk menaikkan pemain itu ke paling atas.", img: "figures/bear-bump.jpg" },
-          { text: "Terus naikkan peserta prioritas lainnya. Yang terakhir dinaikkan berada di atas yang lain." }, { text: "Periksa 4 teratas akhir: targetkan **dua {chenko} kuat dan dua {amane} kuat**." }
-        ]},
-        { type: "sub", text: "Simpan formasi pemimpin rally" },
-        { type: "steps", items: [ { text: "Atur formasi pemimpin rally (misalnya **BT1**): hero utama, ke-2 dan ke-3, dan pasukanmu.", img: "figures/bear-bt1.jpg" }, { text: "Saat menyimpan, centang **Save by Troop Ratio** (simpan berdasarkan rasio pasukan).", img: "figures/bear-save-ratio.jpg" } ]},
-        { type: "leaders",
-          gens: ["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],
-          notes: [
-            [
-              "Formasi pasukan: 30-30-40%. Pada kebanyakan kasus, Infanteri akan punya stat terbaik berkat stat dasar Amadeus, jadi formasi yang hampir seimbang dengan Pemanah sedikit lebih banyak bekerja paling baik.",
-              "Formasi pasukan: 20-40-40%. Terutama untuk yang belum memilih Amadeus, dan tetap membuka peluang memakai Amadeus untuk bergabung ke reli.",
-              "Formasi pasukan: 30-30-40%. Untuk F2P, disarankan selalu memakai 3 hero yang dimiliki untuk memimpin reli."
-            ],
-            [
-              "Formasi pasukan: 20-30-50%. Marlin akan menambah damage besar berkat perlengkapan khusus reli miliknya. Mulai Gen 2, Infanteri akan selalu Amadeus atau Helga — mereka satu-satunya hero Infanteri dengan perlengkapan khusus reli (bonus Lethality). Kamu mengirim lebih sedikit Infanteri, jadi hero Infanteri menutup damage Pemanah lewat perlengkapan itu, bukan dengan menyamai stat Infanteri.",
-              "Formasi pasukan: 20-30-50%. Alternatif lain adalah mengganti Quinn dengan Marlin jika ia belum lebih baik. Pakai Helga di Gen 2+ hanya jika Amadeus belum bintang 5 + perlengkapan khusus level maks; ini juga kesempatan memakai Amadeus untuk bergabung ke reli.",
-              "Formasi pasukan: 30-30-40%. Masih belum ada hero F2P dengan perlengkapan khusus reli, jadi sekali lagi formasi seimbang dengan Pemanah sedikit lebih banyak, karena stat Pemanah akan paling rendah tanpa hero Pemanah SSR."
-            ],
-            [
-              "Formasi pasukan: 20-30-50%. Pilihan pertama NXS di Gen 3.",
-                            "Formasi pasukan: 20-40-40%. Di Gen 3, F2P mendapat hero pertama dengan perlengkapan khusus reli ({petra}). Coba jumlah Pemanah dan Kavaleri yang seimbang karena {petra} sangat meningkatkan Pemanah. Stat Pemanah tetap paling rendah tanpa Pemanah SSR. Jika kamu membuka Kavaleri T10, skill T10 cocok dengan stat {petra}." + " Jika kamu membuka **Kavaleri T3**, {petra} jadi lebih kuat karena skill ke-3 miliknya sangat cocok dengan stat mereka.",
-              "Formasi pasukan: 10-20-70%. Hanya jika {helga} dan widget-nya sama-sama maks."
-            ],
-            [
-              "Formasi pasukan: 10-10-80%. Paksakan sebanyak mungkin Pemanah, terutama jika T10. Dengan sedikit keberuntungan, skill ke-3 Rosa akan bekerja untukmu (meningkatkan total Attack Pemanah sebesar 30%).",
-              "Formasi pasukan: 10-10-80%. Pakai Helga sebagai alternatif jika bintang dan level perlengkapan khususnya lebih baik dari Amadeus. Tetap paksakan sebanyak mungkin Pemanah, terutama T10, untuk skill ke-3 Rosa (meningkatkan total Attack Pemanah sebesar 30%).",
-              "Formasi pasukan: 10-10-80%. Sama seperti hero alternatif terbaik — bonus skill ke-3 Rosa paling maksimal jika kamu fokus pada formasi yang berat di Pemanah (meningkatkan total Attack Pemanah sebesar 30%)."
-            ],
-            [
-              "Slot pemimpin lainnya belum dirilis."
-            ]
-          ]},
-        { type: "h", text: "PESERTA RELI" },
-        { type: "list", items: [
-          "**Tepat {=bear} pasukan** di setiap barisan yang bergabung.",
-          "**Rasio ideal 10:10:80** jika bisa: 9.000 infanteri, 9.000 kavaleri, 72.000 pemanah (ideal, tidak wajib).",
-          "**Hero pertama:** {chenko}, {amane}, {yeonwoo}, {amadeus}, atau tanpa hero. Jangan kirim {petra} sebagai peserta.",
-          "**Simpan barisanmu lebih dulu** sebelum Bear Hunt dimulai.",
-          "**Pemimpin rally yang ditunjuk:** pasukan maksimal di rally sendiri, tapi batas {=bear} saat ikut rally orang lain.",
-          "**Tidak ada rally sendiri di fase utama:** ikut rally NXS yang ditunjuk, jangan membuka rally sendiri."
-        ]},
-        { type: "callout", text: "⏰ **Sisa 6:30 — fase rally terakhir:** semua peserta boleh membuka rally sendiri dengan **3 hero terkuat**. Ini satu-satunya pengecualian dari aturan tidak membuka rally lain." },
-        { type: "sub", text: "Simpan formasi peserta" },
-        { type: "steps", items: [ { text: "Atur formasi untuk bergabung (**BT2–BT5**): hero pertama dari daftar yang disetujui, lalu tepat **9.000 infanteri, 9.000 kavaleri, dan 72.000 pemanah**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "Saat menyimpan, centang **Save by Troop Quantity** (berdasarkan jumlah, bukan rasio) supaya setiap barisan tepat {=bear}.", img: "figures/bear-save-qty.jpg" } ]},
-        { type: "p", text: "[[squad:guide]]" },
-        { type: "joiners" },
-        { type: "sub", text: "GUNAKAN DENGAN HATI-HATI" },
-        { type: "callout", text: "⚠️ **Pahlawan damage berbasis peluang:** efeknya kuat, tapi **TIDAK menumpuk**. Gunakan hanya **SATU** dari pahlawan ini dalam reli yang sama: {marlin}, {zoe}, {jaeger}, {petra}. ❌ Jangan kirim {petra} sebagai peserta." },
-        { type: "p", text: "🔗 Selengkapnya: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
+        {"type":"callout","text":"🐻 Bear Hunt NXS — cara NXS melakukan Bear Hunt: hero kuat, rally terkoordinasi, waktu yang tepat, dan damage aliansi maksimal."},
+        {"type":"h","text":"1. Hero Perangkap Beruang — Gen 3"},
+        {"type":"sub","text":"Pemimpin rally — formasi yang disetujui"},
+        {"type":"leaders","gens":["GEN 1","GEN 2","GEN 3","GEN 4","GEN 5"],"notes":[["Formasi pasukan: 30-30-40%. Pada kebanyakan kasus, Infanteri akan punya stat terbaik berkat stat dasar Amadeus, jadi formasi yang hampir seimbang dengan Pemanah sedikit lebih banyak bekerja paling baik.","Formasi pasukan: 20-40-40%. Terutama untuk yang belum memilih Amadeus, dan tetap membuka peluang memakai Amadeus untuk bergabung ke reli.","Formasi pasukan: 30-30-40%. Untuk F2P, disarankan selalu memakai 3 hero yang dimiliki untuk memimpin reli."],["Formasi pasukan: 20-30-50%. Marlin akan menambah damage besar berkat perlengkapan khusus reli miliknya. Mulai Gen 2, Infanteri akan selalu Amadeus atau Helga — mereka satu-satunya hero Infanteri dengan perlengkapan khusus reli (bonus Lethality). Kamu mengirim lebih sedikit Infanteri, jadi hero Infanteri menutup damage Pemanah lewat perlengkapan itu, bukan dengan menyamai stat Infanteri.","Formasi pasukan: 20-30-50%. Alternatif lain adalah mengganti Quinn dengan Marlin jika ia belum lebih baik. Pakai Helga di Gen 2+ hanya jika Amadeus belum bintang 5 + perlengkapan khusus level maks; ini juga kesempatan memakai Amadeus untuk bergabung ke reli.","Formasi pasukan: 30-30-40%. Masih belum ada hero F2P dengan perlengkapan khusus reli, jadi sekali lagi formasi seimbang dengan Pemanah sedikit lebih banyak, karena stat Pemanah akan paling rendah tanpa hero Pemanah SSR."],["","","Formasi pasukan: 10-20-70%. Hanya jika {helga} dan widget-nya sama-sama maks."],["Formasi pasukan: 10-10-80%. Paksakan sebanyak mungkin Pemanah, terutama jika T10. Dengan sedikit keberuntungan, skill ke-3 Rosa akan bekerja untukmu (meningkatkan total Attack Pemanah sebesar 30%).","Formasi pasukan: 10-10-80%. Pakai Helga sebagai alternatif jika bintang dan level perlengkapan khususnya lebih baik dari Amadeus. Tetap paksakan sebanyak mungkin Pemanah, terutama T10, untuk skill ke-3 Rosa (meningkatkan total Attack Pemanah sebesar 30%).","Formasi pasukan: 10-10-80%. Sama seperti hero alternatif terbaik — bonus skill ke-3 Rosa paling maksimal jika kamu fokus pada formasi yang berat di Pemanah (meningkatkan total Attack Pemanah sebesar 30%)."],["Slot pemimpin lainnya belum dirilis."]]},
+        {"type":"sub","text":"Peserta — hero pertama yang disetujui"},
+        {"type":"joiners"},
+        {"type":"callout","text":"❌ **Jangan kirim {petra} sebagai peserta.** Pakai hero yang disetujui di slot pertama, atau kirim **tanpa hero**."},
+        {"type":"h","text":"2. Syarat pasukan peserta"},
+        {"type":"p","text":"Semua peserta mengirim **tepat {=bear} pasukan** per rally. Rasio ideal **10:10:80** jika memungkinkan, fokus pada pemanah."},
+        {"type":"box","title":"**Infanteri 9.000 (10%) · Kavaleri 9.000 (10%) · Pemanah 72.000 (80%)**","items":["{=bear} pasukan wajib. Rasio 10:10:80 ideal, tidak wajib."]},
+        {"type":"sub","text":"Simpan formasi peserta"},
+        {"type":"steps","items":[{"text":"Atur formasi untuk bergabung (**BT2–BT5**): hero pertama dari daftar yang disetujui, lalu tepat **9.000 infanteri, 9.000 kavaleri, dan 72.000 pemanah**.","img":"figures/bear-joiner-bt2.jpg"},{"text":"Saat menyimpan, centang **Save by Troop Quantity** (berdasarkan jumlah, bukan rasio) supaya setiap barisan tepat {=bear}.","img":"figures/bear-save-qty.jpg"}]},
+        {"type":"h","text":"3. Aturan untuk pemimpin rally yang ditunjuk"},
+        {"type":"callout","text":"⏱️ NXS menunjuk pemimpin rally untuk setiap Perangkap Beruang. Mereka ada di **lingkaran dalam** di sekitar perangkap dan berangkat dalam dua gelombang: **Gelombang 1 di 0:00** (awal) dan **Gelombang 2 di 0:45** (45 detik kemudian)."},
+        {"type":"p","text":"Mulai rally di waktu yang ditentukan dengan formasi yang disetujui (di bawah) dan pasukan **maksimal**. Saat ikut rally orang lain, ikuti batas **{=bear}** seperti semua orang."},
+        {"type":"sub","text":"Mengelola rally kamu"},
+        {"type":"p","text":"Periksa hero dan jumlah pasukan semua yang bergabung:"},
+        {"type":"list","items":["**Hero pertama salah:** keluarkan pemain dan minta bergabung lagi dengan benar.","**Jumlah pasukan salah:** keluarkan pemain dan minta bergabung lagi dengan tepat {=bear} pasukan.","**Hanya 4 peserta teratas yang dihitung:** game memakai skill hero pertama dari 4 peserta paling atas di daftar, berapa pun level hero atau pasukannya. Naikkan dua {chenko} dan dua {amane} terbaikmu ke atas."]},
+        {"type":"sub","text":"Cara menaikkan peserta"},
+        {"type":"steps","items":[{"text":"Buka rally Beruang kamu yang sedang berjalan."},{"text":"Cari peserta {chenko} dan {amane} terkuat — bandingkan bintang hero dan level widget."},{"text":"Ketuk baris pemain untuk membuka detailnya."},{"text":"Tekan **panah atas berwarna toska** untuk menaikkan pemain itu ke paling atas.","img":"figures/bear-bump.jpg"},{"text":"Terus naikkan peserta prioritas lainnya. Yang terakhir dinaikkan berada di atas yang lain."},{"text":"Periksa 4 teratas akhir: targetkan **dua {chenko} kuat dan dua {amane} kuat**."}]},
+        {"type":"sub","text":"Simpan formasi pemimpin rally"},
+        {"type":"steps","items":[{"text":"Atur formasi pemimpin rally (misalnya **BT1**): hero utama, ke-2 dan ke-3, dan pasukanmu.","img":"figures/bear-bt1.jpg"},{"text":"Saat menyimpan, centang **Save by Troop Ratio** (simpan berdasarkan rasio pasukan).","img":"figures/bear-save-ratio.jpg"}]},
+        {"type":"h","text":"4. Aturan untuk semua peserta"},
+        {"type":"list","items":["**Tepat {=bear} pasukan** di setiap barisan yang bergabung.","**Rasio ideal 10:10:80** jika bisa: 9.000 infanteri, 9.000 kavaleri, 72.000 pemanah (ideal, tidak wajib).","**Hero pertama:** {chenko}, {amane}, {yeonwoo}, {amadeus}, atau tanpa hero. Jangan kirim {petra} sebagai peserta.","**Simpan barisanmu lebih dulu** sebelum Bear Hunt dimulai.","**Pemimpin rally yang ditunjuk:** pasukan maksimal di rally sendiri, tapi batas {=bear} saat ikut rally orang lain.","**Tidak ada rally sendiri di fase utama:** ikut rally NXS yang ditunjuk, jangan membuka rally sendiri."]},
+        {"type":"callout","text":"⏰ **Sisa 6:30 — fase rally terakhir:** semua peserta boleh membuka rally sendiri dengan **3 hero terkuat**. Ini satu-satunya pengecualian dari aturan tidak membuka rally lain."},
+        {"type":"h","text":"📚 Info lainnya"},
+        {"type":"sub","text":"KAPAN"},
+        {"type":"p","text":"Setiap 2 hari pada waktu yang dijadwalkan Aliansimu."},
+        {"type":"sub","text":"MENGAPA PENTING"},
+        {"type":"p","text":"Sumber utama material Gear Hero (Forgehammer) dan Enhancement XP."},
+        {"type":"sub","text":"PERSIAPAN"},
+        {"type":"list","items":["Perbarui Formasi Pasukanmu sebelum setiap Bear Hunt."]},
+        {"type":"callout","text":"Opsional: gunakan https://frakinator.streamlit.app/ untuk menguji rasio pasukan dan menemukan formasi terkuatmu."},
+        {"type":"list","items":["Panggil Kembali pasukan yang sedang mengumpulkan sebelum event dimulai.","Ingat: di 5–7 menit terakhir, semua orang sebaiknya memulai reli. Ini membuka lebih banyak slot bagi pemain yang pasukannya sedang kembali, sehingga bisa melakukan dorongan damage terakhir."]},
+        {"type":"p","text":"Formasi pasukan: 20-40-40%. Di Gen 3, F2P mendapat hero pertama dengan perlengkapan khusus reli ({petra}). Coba jumlah Pemanah dan Kavaleri yang seimbang karena {petra} sangat meningkatkan Pemanah. Stat Pemanah tetap paling rendah tanpa Pemanah SSR. Jika kamu membuka Kavaleri T10, skill T10 cocok dengan stat {petra}. Jika kamu membuka **Kavaleri T3**, {petra} jadi lebih kuat karena skill ke-3 miliknya sangat cocok dengan stat mereka."},
+        {"type":"p","text":"[[squad:guide]]"},
+        {"type":"sub","text":"GUNAKAN DENGAN HATI-HATI"},
+        {"type":"callout","text":"⚠️ **Pahlawan damage berbasis peluang:** efeknya kuat, tapi **TIDAK menumpuk**. Gunakan hanya **SATU** dari pahlawan ini dalam reli yang sama: {marlin}, {zoe}, {jaeger}, {petra}. ❌ Jangan kirim {petra} sebagai peserta."},
+        {"type":"p","text":"🔗 Selengkapnya: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes"}
       ]},
       ru: { title: "Охота на медведя", blocks: [
-        { type: "box", title: "🆕 ОБНОВЛЕНИЕ 3-ГО ПОКОЛЕНИЯ", items: [
-          "**Лидеры сборов (по порядку):** 1) {amadeus} + {petra} + {marlin} · 2) {zoe} + {petra} + {quinn} · 3) {helga} + {petra} + {marlin}, только если {helga} и её снаряжение оба на максимуме.",
-          "**Участники — первый герой:** {chenko}, {amane}, {yeonwoo}, {amadeus} или без героя. ❌ Не отправляйте {petra} как участника.",
-          "**Участники отправляют ровно {=bear} войск** — идеальное соотношение 10:10:80 (желательно, не обязательно).",
-          "Подробности ниже ↓"
-        ] },
-        { type: "h", text: "КОГДА" },
-        { type: "p", text: "Каждые 2 дня в назначенное вашим альянсом время." },
-        { type: "h", text: "ПОЧЕМУ ЭТО ВАЖНО" },
-        { type: "p", text: "Основной источник материалов для снаряжения героя (Кузнечные молоты) и опыта усиления." },
-        { type: "h", text: "ПОДГОТОВКА" },
-        { type: "list", items: [
-          "Обновляйте свои составы войск перед каждой Охотой на медведя."
-        ]},
-        { type: "callout", text: "Необязательно: используйте https://frakinator.streamlit.app/, чтобы проверить соотношения войск и найти свой сильнейший состав." },
-        { type: "list", items: [
-          "Отзовите войска, находящиеся на сборе, до начала события.",
-          "Помните: в последние 5–7 минут каждый должен запустить рейд. Это освобождает больше мест для игроков, чьи войска возвращаются, и позволяет сделать финальный рывок по урону."
-        ]},
-        { type: "h", text: "ЛИДЕРЫ РЕЙДА" },
-        { type: "callout", text: "⏱️ NXS назначает лидеров сборов для каждой Ловушки. Назначенные лидеры стоят во **внутреннем круге** вокруг ловушки и запускают сборы двумя волнами: **Волна 1 в 0:00** (в начале) и **Волна 2 в 0:45** (через 45 секунд)." },
-        { type: "p", text: "Запускайте сбор в назначенное время с одобренным составом (ниже) и **максимумом** войск. Присоединяясь к чужому сбору, соблюдайте лимит **{=bear}**, как все." },
-        { type: "sub", text: "Управление сбором" },
-        { type: "p", text: "Проверяйте героев и количество войск у всех участников:" },
-        { type: "list", items: [ "**Неверный первый герой:** исключите игрока и попросите присоединиться правильно.", "**Неверное количество войск:** исключите игрока и попросите присоединиться ровно с {=bear} войск.", "**Считаются только 4 верхних участника:** игра берёт навык первого героя у 4 участников вверху списка, независимо от уровня героя и количества войск. Поднимите наверх двух лучших {chenko} и двух лучших {amane}." ]},
-        { type: "sub", text: "Как поднять участников" },
-        { type: "steps", items: [
-          { text: "Откройте текущий сбор на Медведя." }, { text: "Найдите самых сильных участников с {chenko} и {amane} — сравните звёзды героев и уровни снаряжения." }, { text: "Нажмите на строку игрока, чтобы открыть детали." },
-          { text: "Нажмите **бирюзовую стрелку вверх**, чтобы поднять игрока наверх.", img: "figures/bear-bump.jpg" },
-          { text: "Поднимайте других приоритетных участников. Последний поднятый встаёт выше остальных." }, { text: "Проверьте итоговую четвёрку: цель — **два сильных {chenko} и два сильных {amane}**." }
-        ]},
-        { type: "sub", text: "Сохраните состав лидера сбора" },
-        { type: "steps", items: [ { text: "Настройте состав лидера сбора (например **BT1**): главный, 2-й и 3-й герой и ваши войска.", img: "figures/bear-bt1.jpg" }, { text: "При сохранении отметьте **Save by Troop Ratio** (сохранить по соотношению войск).", img: "figures/bear-save-ratio.jpg" } ]},
-        { type: "leaders",
-          gens: ["ПОКОЛЕНИЕ 1","ПОКОЛЕНИЕ 2","ПОКОЛЕНИЕ 3","ПОКОЛЕНИЕ 4","ПОКОЛЕНИЕ 5"],
-          notes: [
-            [
-              "Состав войск: 30-30-40%. В большинстве случаев лучшие показатели будут у пехотинцев благодаря базовым показателям героя Амадей, поэтому лучше всего работает почти равный состав с чуть большим числом стрелков.",
-              "Состав войск: 20-40-40%. В основном для тех, кто ещё не выбрал героя Амадей; также сохраняет возможность использовать героя Амадей для присоединения к рейдам.",
-              "Состав войск: 30-30-40%. Для F2P рекомендуется всегда использовать 3 имеющихся героя для проведения рейда."
-            ],
-            [
-              "Состав войск: 20-30-50%. Герой Марлин сильно повышает урон благодаря своему эксклюзивному для рейдов снаряжению. Начиная со 2-го поколения пехотинцами всегда командует герой Амадей или Хельга — только у них среди героев-пехотинцев есть эксклюзивное для рейдов снаряжение (бонус Смертоносности). Вы отправляете меньше пехотинцев, поэтому герой-пехотинец компенсирует урон стрелков за счёт этого снаряжения, а не за счёт равных показателей пехотинцев.",
-              "Состав войск: 20-30-50%. Другой вариант — поменять Куинн на Марлин, если он пока не лучше. Используйте героя Хельга со 2-го поколения и выше, только если у героя Амадей нет 5 звёзд и максимального уровня эксклюзивного снаряжения; это также возможность использовать героя Амадей для присоединения к рейдам.",
-              "Состав войск: 30-30-40%. У героев F2P по-прежнему нет эксклюзивного для рейдов снаряжения, поэтому снова подходит равномерный состав с чуть большим числом стрелков, так как показатели стрелков будут самыми низкими из-за отсутствия SSR-героя-стрелка."
-            ],
-            [
-              "Состав войск: 20-30-50%. Первый выбор NXS в 3-м поколении.",
-                            "Состав войск: 20-40-40%. В 3-м поколении F2P получают первого героя с эксклюзивным для рейдов снаряжением ({petra}). Старайтесь держать баланс между числом стрелков и кавалеристов, так как {petra} сильно усиливает стрелков. Показатели стрелков всё равно самые низкие без SSR-стрелка. Если вы откроете кавалеристов T10, навык T10 хорошо сочетается с показателями {petra}." + " Если откроете **кавалерию T3**, {petra} станет ещё сильнее: её 3-й навык отлично сочетается с их показателями.",
-              "Состав войск: 10-20-70%. Только если {helga} и её снаряжение оба на максимуме."
-            ],
-            [
-              "Состав войск: 10-10-80%. Отправляйте как можно больше стрелков, особенно если они T10. При некоторой удаче 3-й навык героя Rosa сделает всё за вас (увеличивает общую Атаку стрелков на 30%).",
-              "Состав войск: 10-10-80%. Используйте героя Хельга как альтернативу, если у неё больше звёзд и выше уровень эксклюзивного снаряжения, чем у героя Амадей. По-прежнему отправляйте как можно больше стрелков, особенно T10, ради 3-го навыка героя Rosa (увеличивает общую Атаку стрелков на 30%).",
-              "Состав войск: 10-10-80%. То же, что и у альтернативных лучших героев: бонусы 3-го навыка героя Rosa максимальны, если делать упор на составы с большим числом стрелков (увеличивает общую Атаку стрелков на 30%)."
-            ],
-            [
-              "Остальные места лидеров пока не опубликованы."
-            ]
-          ]},
-        { type: "h", text: "УЧАСТНИКИ РЕЙДА" },
-        { type: "list", items: [
-          "**Ровно {=bear} войск** в каждом марше участника.",
-          "**Идеальное соотношение 10:10:80**, если возможно: 9 000 пехоты, 9 000 кавалерии, 72 000 лучников (желательно, не обязательно).",
-          "**Первый герой:** {chenko}, {amane}, {yeonwoo}, {amadeus} или без героя. Не отправляйте {petra} как участника.",
-          "**Сохраните марши заранее**, до начала Охоты.",
-          "**Назначенные лидеры:** максимум войск в своём сборе, но лимит {=bear} при участии в чужом.",
-          "**Никаких своих сборов в основной фазе:** присоединяйтесь к назначенным сборам NXS вместо своих."
-        ]},
-        { type: "callout", text: "⏰ **Осталось 6:30 — финальная фаза:** все участники могут запустить свой сбор с **3 самыми сильными героями**. Это единственное исключение из правила «не запускать свои сборы»." },
-        { type: "sub", text: "Сохраните составы участника" },
-        { type: "steps", items: [ { text: "Настройте составы для участия (**BT2–BT5**): первый герой из одобренного списка, затем ровно **9 000 пехоты, 9 000 кавалерии и 72 000 лучников**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "При сохранении отметьте **Save by Troop Quantity** (по количеству, а не по соотношению), чтобы каждый марш был ровно {=bear}.", img: "figures/bear-save-qty.jpg" } ]},
-        { type: "p", text: "[[squad:guide]]" },
-        { type: "joiners" },
-        { type: "sub", text: "ИСПОЛЬЗУЙТЕ С ОСТОРОЖНОСТЬЮ" },
-        { type: "callout", text: "⚠️ **Герои с уроном по шансу:** сильные эффекты, но они **НЕ суммируются**. В одном рейде используйте только **ОДНОГО** из них: {marlin}, {zoe}, {jaeger}, {petra}. ❌ Не отправляйте {petra} как участника." },
-        { type: "p", text: "🔗 Подробнее: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
+        {"type":"callout","text":"🐻 Охота на медведя NXS — как NXS проводит охоту: сильные герои, слаженные сборы, точное время и максимальный урон альянса."},
+        {"type":"h","text":"1. Герои для ловушки — 3-е поколение"},
+        {"type":"sub","text":"Лидеры сборов — одобренные составы"},
+        {"type":"leaders","gens":["ПОКОЛЕНИЕ 1","ПОКОЛЕНИЕ 2","ПОКОЛЕНИЕ 3","ПОКОЛЕНИЕ 4","ПОКОЛЕНИЕ 5"],"notes":[["Состав войск: 30-30-40%. В большинстве случаев лучшие показатели будут у пехотинцев благодаря базовым показателям героя Амадей, поэтому лучше всего работает почти равный состав с чуть большим числом стрелков.","Состав войск: 20-40-40%. В основном для тех, кто ещё не выбрал героя Амадей; также сохраняет возможность использовать героя Амадей для присоединения к рейдам.","Состав войск: 30-30-40%. Для F2P рекомендуется всегда использовать 3 имеющихся героя для проведения рейда."],["Состав войск: 20-30-50%. Герой Марлин сильно повышает урон благодаря своему эксклюзивному для рейдов снаряжению. Начиная со 2-го поколения пехотинцами всегда командует герой Амадей или Хельга — только у них среди героев-пехотинцев есть эксклюзивное для рейдов снаряжение (бонус Смертоносности). Вы отправляете меньше пехотинцев, поэтому герой-пехотинец компенсирует урон стрелков за счёт этого снаряжения, а не за счёт равных показателей пехотинцев.","Состав войск: 20-30-50%. Другой вариант — поменять Куинн на Марлин, если он пока не лучше. Используйте героя Хельга со 2-го поколения и выше, только если у героя Амадей нет 5 звёзд и максимального уровня эксклюзивного снаряжения; это также возможность использовать героя Амадей для присоединения к рейдам.","Состав войск: 30-30-40%. У героев F2P по-прежнему нет эксклюзивного для рейдов снаряжения, поэтому снова подходит равномерный состав с чуть большим числом стрелков, так как показатели стрелков будут самыми низкими из-за отсутствия SSR-героя-стрелка."],["","","Состав войск: 10-20-70%. Только если {helga} и её снаряжение оба на максимуме."],["Состав войск: 10-10-80%. Отправляйте как можно больше стрелков, особенно если они T10. При некоторой удаче 3-й навык героя Rosa сделает всё за вас (увеличивает общую Атаку стрелков на 30%).","Состав войск: 10-10-80%. Используйте героя Хельга как альтернативу, если у неё больше звёзд и выше уровень эксклюзивного снаряжения, чем у героя Амадей. По-прежнему отправляйте как можно больше стрелков, особенно T10, ради 3-го навыка героя Rosa (увеличивает общую Атаку стрелков на 30%).","Состав войск: 10-10-80%. То же, что и у альтернативных лучших героев: бонусы 3-го навыка героя Rosa максимальны, если делать упор на составы с большим числом стрелков (увеличивает общую Атаку стрелков на 30%)."],["Остальные места лидеров пока не опубликованы."]]},
+        {"type":"sub","text":"Участники — одобренные первые герои"},
+        {"type":"joiners"},
+        {"type":"callout","text":"❌ **Не отправляйте {petra} как участника.** Ставьте одобренного героя первым или отправляйте **без героя**."},
+        {"type":"h","text":"2. Требования к войскам участников"},
+        {"type":"p","text":"Все участники отправляют **ровно {=bear} войск** в каждый сбор. Идеальное соотношение **10:10:80**, если возможно, с упором на лучников."},
+        {"type":"box","title":"**Пехота 9 000 (10%) · Кавалерия 9 000 (10%) · Лучники 72 000 (80%)**","items":["{=bear} войск обязательно. Соотношение 10:10:80 желательно, но не обязательно."]},
+        {"type":"sub","text":"Сохраните составы участника"},
+        {"type":"steps","items":[{"text":"Настройте составы для участия (**BT2–BT5**): первый герой из одобренного списка, затем ровно **9 000 пехоты, 9 000 кавалерии и 72 000 лучников**.","img":"figures/bear-joiner-bt2.jpg"},{"text":"При сохранении отметьте **Save by Troop Quantity** (по количеству, а не по соотношению), чтобы каждый марш был ровно {=bear}.","img":"figures/bear-save-qty.jpg"}]},
+        {"type":"h","text":"3. Правила для назначенных лидеров сборов"},
+        {"type":"callout","text":"⏱️ NXS назначает лидеров сборов для каждой Ловушки. Назначенные лидеры стоят во **внутреннем круге** вокруг ловушки и запускают сборы двумя волнами: **Волна 1 в 0:00** (в начале) и **Волна 2 в 0:45** (через 45 секунд)."},
+        {"type":"p","text":"Запускайте сбор в назначенное время с одобренным составом (ниже) и **максимумом** войск. Присоединяясь к чужому сбору, соблюдайте лимит **{=bear}**, как все."},
+        {"type":"sub","text":"Управление сбором"},
+        {"type":"p","text":"Проверяйте героев и количество войск у всех участников:"},
+        {"type":"list","items":["**Неверный первый герой:** исключите игрока и попросите присоединиться правильно.","**Неверное количество войск:** исключите игрока и попросите присоединиться ровно с {=bear} войск.","**Считаются только 4 верхних участника:** игра берёт навык первого героя у 4 участников вверху списка, независимо от уровня героя и количества войск. Поднимите наверх двух лучших {chenko} и двух лучших {amane}."]},
+        {"type":"sub","text":"Как поднять участников"},
+        {"type":"steps","items":[{"text":"Откройте текущий сбор на Медведя."},{"text":"Найдите самых сильных участников с {chenko} и {amane} — сравните звёзды героев и уровни снаряжения."},{"text":"Нажмите на строку игрока, чтобы открыть детали."},{"text":"Нажмите **бирюзовую стрелку вверх**, чтобы поднять игрока наверх.","img":"figures/bear-bump.jpg"},{"text":"Поднимайте других приоритетных участников. Последний поднятый встаёт выше остальных."},{"text":"Проверьте итоговую четвёрку: цель — **два сильных {chenko} и два сильных {amane}**."}]},
+        {"type":"sub","text":"Сохраните состав лидера сбора"},
+        {"type":"steps","items":[{"text":"Настройте состав лидера сбора (например **BT1**): главный, 2-й и 3-й герой и ваши войска.","img":"figures/bear-bt1.jpg"},{"text":"При сохранении отметьте **Save by Troop Ratio** (сохранить по соотношению войск).","img":"figures/bear-save-ratio.jpg"}]},
+        {"type":"h","text":"4. Правила для всех участников"},
+        {"type":"list","items":["**Ровно {=bear} войск** в каждом марше участника.","**Идеальное соотношение 10:10:80**, если возможно: 9 000 пехоты, 9 000 кавалерии, 72 000 лучников (желательно, не обязательно).","**Первый герой:** {chenko}, {amane}, {yeonwoo}, {amadeus} или без героя. Не отправляйте {petra} как участника.","**Сохраните марши заранее**, до начала Охоты.","**Назначенные лидеры:** максимум войск в своём сборе, но лимит {=bear} при участии в чужом.","**Никаких своих сборов в основной фазе:** присоединяйтесь к назначенным сборам NXS вместо своих."]},
+        {"type":"callout","text":"⏰ **Осталось 6:30 — финальная фаза:** все участники могут запустить свой сбор с **3 самыми сильными героями**. Это единственное исключение из правила «не запускать свои сборы»."},
+        {"type":"h","text":"📚 Дополнительно"},
+        {"type":"sub","text":"КОГДА"},
+        {"type":"p","text":"Каждые 2 дня в назначенное вашим альянсом время."},
+        {"type":"sub","text":"ПОЧЕМУ ЭТО ВАЖНО"},
+        {"type":"p","text":"Основной источник материалов для снаряжения героя (Кузнечные молоты) и опыта усиления."},
+        {"type":"sub","text":"ПОДГОТОВКА"},
+        {"type":"list","items":["Обновляйте свои составы войск перед каждой Охотой на медведя."]},
+        {"type":"callout","text":"Необязательно: используйте https://frakinator.streamlit.app/, чтобы проверить соотношения войск и найти свой сильнейший состав."},
+        {"type":"list","items":["Отзовите войска, находящиеся на сборе, до начала события.","Помните: в последние 5–7 минут каждый должен запустить рейд. Это освобождает больше мест для игроков, чьи войска возвращаются, и позволяет сделать финальный рывок по урону."]},
+        {"type":"p","text":"Состав войск: 20-40-40%. В 3-м поколении F2P получают первого героя с эксклюзивным для рейдов снаряжением ({petra}). Старайтесь держать баланс между числом стрелков и кавалеристов, так как {petra} сильно усиливает стрелков. Показатели стрелков всё равно самые низкие без SSR-стрелка. Если вы откроете кавалеристов T10, навык T10 хорошо сочетается с показателями {petra}. Если откроете **кавалерию T3**, {petra} станет ещё сильнее: её 3-й навык отлично сочетается с их показателями."},
+        {"type":"p","text":"[[squad:guide]]"},
+        {"type":"sub","text":"ИСПОЛЬЗУЙТЕ С ОСТОРОЖНОСТЬЮ"},
+        {"type":"callout","text":"⚠️ **Герои с уроном по шансу:** сильные эффекты, но они **НЕ суммируются**. В одном рейде используйте только **ОДНОГО** из них: {marlin}, {zoe}, {jaeger}, {petra}. ❌ Не отправляйте {petra} как участника."},
+        {"type":"p","text":"🔗 Подробнее: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes"}
       ]},
       th: { title: "ล่าหมี", blocks: [
-        { type: "box", title: "🆕 อัปเดตรุ่นที่ 3", items: [
-          "**ผู้นำรวมพล (ตามลำดับ):** 1) {amadeus} + {petra} + {marlin} · 2) {zoe} + {petra} + {quinn} · 3) {helga} + {petra} + {marlin} เฉพาะเมื่อ {helga} และอุปกรณ์เฉพาะของเธอเต็มทั้งคู่",
-          "**ผู้เข้าร่วม — ฮีโร่ช่องแรก:** {chenko}, {amane}, {yeonwoo}, {amadeus} หรือไม่ใส่ฮีโร่ ❌ อย่าส่ง {petra} เป็นผู้เข้าร่วม",
-          "**ผู้เข้าร่วมส่งทหารพอดี {=bear}** — สัดส่วนที่ดีที่สุด 10:10:80 (แนะนำ ไม่บังคับ)",
-          "รายละเอียดด้านล่าง ↓"
-        ] },
-        { type: "h", text: "เมื่อไหร่" },
-        { type: "p", text: "ทุก 2 วัน ตามเวลาที่พันธมิตรของคุณกำหนด" },
-        { type: "h", text: "ทำไมถึงสำคัญ" },
-        { type: "p", text: "แหล่งวัสดุอุปกรณ์ฮีโร่หลัก (ค้อนตีเหล็ก) และ XP การพัฒนา" },
-        { type: "h", text: "การเตรียมตัว" },
-        { type: "list", items: [
-          "อัปเดตรูปแบบการจัดวางทหารของคุณก่อนล่าหมีทุกครั้ง"
-        ]},
-        { type: "callout", text: "ตัวเลือกเสริม: ใช้ https://frakinator.streamlit.app/ เพื่อทดสอบอัตราส่วนทหารและหารูปแบบที่แข็งแกร่งที่สุดของคุณ" },
-        { type: "list", items: [
-          "เรียกกลับทหารที่กำลังเก็บทรัพยากรก่อนอีเวนต์เริ่ม",
-          "โปรดจำไว้: ใน 5–7 นาทีสุดท้าย ทุกคนควรเปิดทีมระดมพล ซึ่งจะเพิ่มที่ว่างให้ผู้เล่นที่ทหารกำลังเดินทางกลับ ทำให้ปิดท้ายด้วยความเสียหายอีกระลอกได้"
-        ]},
-        { type: "h", text: "ผู้นำทีมระดมพล" },
-        { type: "callout", text: "⏱️ NXS กำหนดผู้นำรวมพลสำหรับกับดักหมีแต่ละอัน ผู้นำที่ได้รับมอบหมายอยู่ใน**วงใน**รอบกับดัก และออกเป็นสองระลอก: **ระลอก 1 ที่ 0:00** (ตอนเริ่ม) และ **ระลอก 2 ที่ 0:45** (45 วินาทีต่อมา)" },
-        { type: "p", text: "เริ่มรวมพลตามเวลาที่ได้รับมอบหมาย ด้วยทีมที่อนุมัติ (ด้านล่าง) และทหาร**สูงสุด** เมื่อเข้าร่วมรวมพลของคนอื่น ให้ทำตามขีดจำกัด **{=bear}** เหมือนทุกคน" },
-        { type: "sub", text: "การจัดการรวมพลของคุณ" },
-        { type: "p", text: "ตรวจฮีโร่และจำนวนทหารของทุกคนที่เข้าร่วม:" },
-        { type: "list", items: [ "**ฮีโร่ช่องแรกผิด:** เตะผู้เล่นออกและขอให้เข้าร่วมใหม่ให้ถูกต้อง", "**จำนวนทหารผิด:** เตะผู้เล่นออกและขอให้เข้าร่วมใหม่ด้วยทหารพอดี {=bear}", "**นับเฉพาะผู้เข้าร่วม 4 คนบนสุด:** เกมใช้สกิลฮีโร่ช่องแรกของผู้เข้าร่วม 4 คนบนสุดของรายชื่อ ไม่ว่าเลเวลฮีโร่หรือจำนวนทหารเท่าไร ดัน {chenko} ที่ดีที่สุดสองคนและ {amane} สองคนขึ้นไปบนสุด" ]},
-        { type: "sub", text: "วิธีดันผู้เข้าร่วมขึ้นบน" },
-        { type: "steps", items: [
-          { text: "เปิดการรวมพลหมีที่กำลังดำเนินอยู่" }, { text: "หาผู้เข้าร่วม {chenko} และ {amane} ที่แข็งแกร่งที่สุด — เทียบดาวฮีโร่และเลเวลอุปกรณ์เฉพาะ" }, { text: "แตะแถวของผู้เล่นเพื่อเปิดรายละเอียด" },
-          { text: "กด**ลูกศรขึ้นสีฟ้าอมเขียว**เพื่อดันผู้เล่นคนนั้นขึ้นบนสุด", img: "figures/bear-bump.jpg" },
-          { text: "ดันผู้เข้าร่วมสำคัญคนอื่นต่อไป คนที่ดันล่าสุดจะอยู่เหนือคนอื่น" }, { text: "ตรวจ 4 อันดับแรกสุดท้าย: เป้าหมายคือ **{chenko} แข็งแกร่งสองคนและ {amane} แข็งแกร่งสองคน**" }
-        ]},
-        { type: "sub", text: "บันทึกทีมผู้นำรวมพล" },
-        { type: "steps", items: [ { text: "ตั้งทีมผู้นำรวมพล (เช่น **BT1**): ฮีโร่หลัก ฮีโร่ที่ 2 และที่ 3 และทหารของคุณ", img: "figures/bear-bt1.jpg" }, { text: "ตอนบันทึก ให้ติ๊ก **Save by Troop Ratio** (บันทึกตามสัดส่วนทหาร)", img: "figures/bear-save-ratio.jpg" } ]},
-        { type: "leaders",
-          gens: ["เจน 1","เจน 2","เจน 3","เจน 4","เจน 5"],
-          notes: [
-            [
-              "รูปแบบทหาร: 30-30-40% ในกรณีส่วนใหญ่ ทหารราบจะมีค่าสถานะดีที่สุดเพราะค่าสถานะพื้นฐานของอมาดีอุส ดังนั้นรูปแบบที่เกือบเท่ากันโดยมีพลธนูมากกว่าเล็กน้อยให้ผลดีที่สุด",
-              "รูปแบบทหาร: 20-40-40% เหมาะสำหรับคนที่ยังไม่ได้เลือกอมาดีอุส และยังเปิดโอกาสให้ใช้อมาดีอุสเข้าร่วมทีมระดมพลได้",
-              "รูปแบบทหาร: 30-30-40% สำหรับ F2P แนะนำให้ใช้ฮีโร่ทั้ง 3 ตัวที่มีอยู่เสมอเมื่อเปิดทีมระดมพล"
-            ],
-            [
-              "รูปแบบทหาร: 20-30-50% มาร์ลินช่วยเพิ่มความเสียหายได้มากเพราะอุปกรณ์เฉพาะทีมระดมพลของเขา ตั้งแต่เจน 2 ขึ้นไป ทหารราบจะเป็นอมาดีอุสหรือเฮลก้าเสมอ — สองคนนี้เป็นฮีโร่ทหารราบเพียงกลุ่มเดียวที่มีอุปกรณ์เฉพาะทีมระดมพล (โบนัสความแรงพลัง) คุณส่งทหารราบน้อยลง ฮีโร่ทหารราบจึงชดเชยความเสียหายของพลธนูด้วยอุปกรณ์นี้ แทนที่จะเทียบค่าสถานะทหารราบ",
-              "รูปแบบทหาร: 20-30-50% อีกทางเลือกคือสลับควินน์เป็นมาร์ลิน หากเขายังไม่ดีกว่า ใช้เฮลก้าในเจน 2 ขึ้นไปเฉพาะเมื่ออมาดีอุสยังไม่ได้ 5 ดาว + อุปกรณ์เฉพาะระดับสูงสุด และยังเป็นโอกาสใช้อมาดีอุสเข้าร่วมทีมระดมพลด้วย",
-              "รูปแบบทหาร: 30-30-40% ยังไม่มีฮีโร่ F2P ที่มีอุปกรณ์เฉพาะทีมระดมพล จึงใช้รูปแบบที่สมดุลโดยมีพลธนูมากกว่าเล็กน้อยอีกครั้ง เพราะค่าสถานะพลธนูจะต่ำที่สุดเนื่องจากไม่มีฮีโร่พลธนู SSR"
-            ],
-            [
-              "การจัดทหาร: 20-30-50% ตัวเลือกแรกของ NXS ในรุ่นที่ 3",
-                            "รูปแบบทหาร: 20-40-40% ในเจน 3 ผู้เล่น F2P จะได้ฮีโร่ตัวแรกที่มีอุปกรณ์เฉพาะทีมระดมพล ({petra}) ลองใช้จำนวนพลธนูและทหารม้าให้สมดุล เพราะ {petra} เสริมพลธนูได้มาก ค่าสถานะพลธนูยังต่ำที่สุดหากไม่มีพลธนู SSR หากคุณปลดล็อกทหารม้า T10 ทักษะ T10 เข้ากับค่าสถานะของ {petra} ได้ดี" + " ถ้าปลดล็อก **ทหารม้า T3** {petra}จะแข็งแกร่งขึ้นอีก เพราะทักษะที่ 3 ของเธอเข้ากับค่าสถานะของพวกเขาได้ดีมาก",
-              "การจัดทหาร: 10-20-70% เฉพาะเมื่อ {helga} และอุปกรณ์เฉพาะของเธอเต็มทั้งคู่"
-            ],
-            [
-              "รูปแบบทหาร: 10-10-80% ใส่พลธนูให้มากที่สุดเท่าที่ทำได้ โดยเฉพาะถ้าเป็น T10 หากโชคดี ทักษะที่ 3 ของ Rosa จะช่วยได้เอง (เพิ่มพลังโจมตีรวมของพลธนู 30%)",
-              "รูปแบบทหาร: 10-10-80% ใช้เฮลก้าเป็นทางเลือกหากเธอมีดาวและระดับอุปกรณ์เฉพาะดีกว่าอมาดีอุส ยังคงใส่พลธนูให้มากที่สุดเท่าที่ทำได้ โดยเฉพาะ T10 เพื่อทักษะที่ 3 ของ Rosa (เพิ่มพลังโจมตีรวมของพลธนู 30%)",
-              "รูปแบบทหาร: 10-10-80% เหมือนกับฮีโร่ทางเลือกที่ดีที่สุด — โบนัสทักษะที่ 3 ของ Rosa ได้ผลดีที่สุดหากคุณเน้นรูปแบบที่มีพลธนูจำนวนมาก (เพิ่มพลังโจมตีรวมของพลธนู 30%)"
-            ],
-            [
-              "ช่องผู้นำที่เหลือยังไม่เปิดเผย"
-            ]
-          ]},
-        { type: "h", text: "ผู้เข้าร่วมทีมระดมพล" },
-        { type: "list", items: [
-          "**ทหารพอดี {=bear}** ในทุกการเดินทัพที่เข้าร่วม",
-          "**สัดส่วนที่ดีที่สุด 10:10:80** ถ้าทำได้: ทหารราบ 9,000 ทหารม้า 9,000 พลธนู 72,000 (แนะนำ ไม่บังคับ)",
-          "**ฮีโร่ช่องแรก:** {chenko}, {amane}, {yeonwoo}, {amadeus} หรือไม่ใส่ฮีโร่ อย่าส่ง {petra} เป็นผู้เข้าร่วม",
-          "**บันทึกการเดินทัพไว้ล่วงหน้า** ก่อนล่าหมีเริ่ม",
-          "**ผู้นำรวมพลที่ได้รับมอบหมาย:** ทหารสูงสุดในรวมพลของตัวเอง แต่ใช้ขีดจำกัด {=bear} เมื่อเข้าร่วมของคนอื่น",
-          "**ห้ามเปิดรวมพลเองในช่วงหลัก:** เข้าร่วมรวมพล NXS ที่ได้รับมอบหมายแทนการเปิดเอง"
-        ]},
-        { type: "callout", text: "⏰ **เหลือ 6:30 — ช่วงรวมพลสุดท้าย:** ผู้เข้าร่วมทุกคนเปิดรวมพลเองได้ด้วย**ฮีโร่ที่แข็งแกร่งที่สุด 3 ตัว** นี่คือข้อยกเว้นเดียวของกฎห้ามเปิดรวมพลเอง" },
-        { type: "sub", text: "บันทึกทีมสำหรับเข้าร่วม" },
-        { type: "steps", items: [ { text: "ตั้งทีมสำหรับเข้าร่วมรวมพล (**BT2–BT5**): ฮีโร่ช่องแรกจากรายชื่อที่อนุมัติ แล้วใส่ทหารพอดี **ทหารราบ 9,000 ทหารม้า 9,000 พลธนู 72,000**", img: "figures/bear-joiner-bt2.jpg" }, { text: "ตอนบันทึก ให้ติ๊ก **Save by Troop Quantity** (ตามจำนวน ไม่ใช่สัดส่วน) เพื่อให้ทุกการเดินทัพพอดี {=bear}", img: "figures/bear-save-qty.jpg" } ]},
-        { type: "p", text: "[[squad:guide]]" },
-        { type: "joiners" },
-        { type: "sub", text: "ใช้อย่างระมัดระวัง" },
-        { type: "callout", text: "⚠️ **ฮีโร่ที่สร้างความเสียหายแบบสุ่มโอกาส:** ผลแรง แต่**ไม่ซ้อนกัน** ในทีมระดมพลเดียวกันใช้ได้แค่**ตัวเดียว**: {marlin}, {zoe}, {jaeger}, {petra} ❌ อย่าส่ง {petra} เป็นผู้เข้าร่วม" },
-        { type: "p", text: "🔗 ข้อมูลเพิ่มเติม: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
+        {"type":"callout","text":"🐻 ล่าหมี NXS — วิธีที่ NXS ล่าหมี: ฮีโร่แข็งแกร่ง รวมพลอย่างประสานกัน จังหวะแม่นยำ และดาเมจพันธมิตรสูงสุด"},
+        {"type":"h","text":"1. ฮีโร่สำหรับกับดักหมี — รุ่นที่ 3"},
+        {"type":"sub","text":"ผู้นำรวมพล — ทีมที่อนุมัติ"},
+        {"type":"leaders","gens":["เจน 1","เจน 2","เจน 3","เจน 4","เจน 5"],"notes":[["รูปแบบทหาร: 30-30-40% ในกรณีส่วนใหญ่ ทหารราบจะมีค่าสถานะดีที่สุดเพราะค่าสถานะพื้นฐานของอมาดีอุส ดังนั้นรูปแบบที่เกือบเท่ากันโดยมีพลธนูมากกว่าเล็กน้อยให้ผลดีที่สุด","รูปแบบทหาร: 20-40-40% เหมาะสำหรับคนที่ยังไม่ได้เลือกอมาดีอุส และยังเปิดโอกาสให้ใช้อมาดีอุสเข้าร่วมทีมระดมพลได้","รูปแบบทหาร: 30-30-40% สำหรับ F2P แนะนำให้ใช้ฮีโร่ทั้ง 3 ตัวที่มีอยู่เสมอเมื่อเปิดทีมระดมพล"],["รูปแบบทหาร: 20-30-50% มาร์ลินช่วยเพิ่มความเสียหายได้มากเพราะอุปกรณ์เฉพาะทีมระดมพลของเขา ตั้งแต่เจน 2 ขึ้นไป ทหารราบจะเป็นอมาดีอุสหรือเฮลก้าเสมอ — สองคนนี้เป็นฮีโร่ทหารราบเพียงกลุ่มเดียวที่มีอุปกรณ์เฉพาะทีมระดมพล (โบนัสความแรงพลัง) คุณส่งทหารราบน้อยลง ฮีโร่ทหารราบจึงชดเชยความเสียหายของพลธนูด้วยอุปกรณ์นี้ แทนที่จะเทียบค่าสถานะทหารราบ","รูปแบบทหาร: 20-30-50% อีกทางเลือกคือสลับควินน์เป็นมาร์ลิน หากเขายังไม่ดีกว่า ใช้เฮลก้าในเจน 2 ขึ้นไปเฉพาะเมื่ออมาดีอุสยังไม่ได้ 5 ดาว + อุปกรณ์เฉพาะระดับสูงสุด และยังเป็นโอกาสใช้อมาดีอุสเข้าร่วมทีมระดมพลด้วย","รูปแบบทหาร: 30-30-40% ยังไม่มีฮีโร่ F2P ที่มีอุปกรณ์เฉพาะทีมระดมพล จึงใช้รูปแบบที่สมดุลโดยมีพลธนูมากกว่าเล็กน้อยอีกครั้ง เพราะค่าสถานะพลธนูจะต่ำที่สุดเนื่องจากไม่มีฮีโร่พลธนู SSR"],["","","การจัดทหาร: 10-20-70% เฉพาะเมื่อ {helga} และอุปกรณ์เฉพาะของเธอเต็มทั้งคู่"],["รูปแบบทหาร: 10-10-80% ใส่พลธนูให้มากที่สุดเท่าที่ทำได้ โดยเฉพาะถ้าเป็น T10 หากโชคดี ทักษะที่ 3 ของ Rosa จะช่วยได้เอง (เพิ่มพลังโจมตีรวมของพลธนู 30%)","รูปแบบทหาร: 10-10-80% ใช้เฮลก้าเป็นทางเลือกหากเธอมีดาวและระดับอุปกรณ์เฉพาะดีกว่าอมาดีอุส ยังคงใส่พลธนูให้มากที่สุดเท่าที่ทำได้ โดยเฉพาะ T10 เพื่อทักษะที่ 3 ของ Rosa (เพิ่มพลังโจมตีรวมของพลธนู 30%)","รูปแบบทหาร: 10-10-80% เหมือนกับฮีโร่ทางเลือกที่ดีที่สุด — โบนัสทักษะที่ 3 ของ Rosa ได้ผลดีที่สุดหากคุณเน้นรูปแบบที่มีพลธนูจำนวนมาก (เพิ่มพลังโจมตีรวมของพลธนู 30%)"],["ช่องผู้นำที่เหลือยังไม่เปิดเผย"]]},
+        {"type":"sub","text":"ผู้เข้าร่วม — ฮีโร่ช่องแรกที่อนุมัติ"},
+        {"type":"joiners"},
+        {"type":"callout","text":"❌ **อย่าส่ง {petra} เป็นผู้เข้าร่วม** ใส่ฮีโร่ที่อนุมัติในช่องแรก หรือส่ง**แบบไม่มีฮีโร่**"},
+        {"type":"h","text":"2. ข้อกำหนดทหารของผู้เข้าร่วม"},
+        {"type":"p","text":"ผู้เข้าร่วมทุกคนส่ง**ทหารพอดี {=bear}** ต่อการรวมพล สัดส่วนที่ดีที่สุดคือ **10:10:80** ถ้าทำได้ เน้นพลธนู"},
+        {"type":"box","title":"**ทหารราบ 9,000 (10%) · ทหารม้า 9,000 (10%) · พลธนู 72,000 (80%)**","items":["{=bear} นายเป็นข้อบังคับ สัดส่วน 10:10:80 แนะนำแต่ไม่บังคับ"]},
+        {"type":"sub","text":"บันทึกทีมสำหรับเข้าร่วม"},
+        {"type":"steps","items":[{"text":"ตั้งทีมสำหรับเข้าร่วมรวมพล (**BT2–BT5**): ฮีโร่ช่องแรกจากรายชื่อที่อนุมัติ แล้วใส่ทหารพอดี **ทหารราบ 9,000 ทหารม้า 9,000 พลธนู 72,000**","img":"figures/bear-joiner-bt2.jpg"},{"text":"ตอนบันทึก ให้ติ๊ก **Save by Troop Quantity** (ตามจำนวน ไม่ใช่สัดส่วน) เพื่อให้ทุกการเดินทัพพอดี {=bear}","img":"figures/bear-save-qty.jpg"}]},
+        {"type":"h","text":"3. กฎสำหรับผู้นำรวมพลที่ได้รับมอบหมาย"},
+        {"type":"callout","text":"⏱️ NXS กำหนดผู้นำรวมพลสำหรับกับดักหมีแต่ละอัน ผู้นำที่ได้รับมอบหมายอยู่ใน**วงใน**รอบกับดัก และออกเป็นสองระลอก: **ระลอก 1 ที่ 0:00** (ตอนเริ่ม) และ **ระลอก 2 ที่ 0:45** (45 วินาทีต่อมา)"},
+        {"type":"p","text":"เริ่มรวมพลตามเวลาที่ได้รับมอบหมาย ด้วยทีมที่อนุมัติ (ด้านล่าง) และทหาร**สูงสุด** เมื่อเข้าร่วมรวมพลของคนอื่น ให้ทำตามขีดจำกัด **{=bear}** เหมือนทุกคน"},
+        {"type":"sub","text":"การจัดการรวมพลของคุณ"},
+        {"type":"p","text":"ตรวจฮีโร่และจำนวนทหารของทุกคนที่เข้าร่วม:"},
+        {"type":"list","items":["**ฮีโร่ช่องแรกผิด:** เตะผู้เล่นออกและขอให้เข้าร่วมใหม่ให้ถูกต้อง","**จำนวนทหารผิด:** เตะผู้เล่นออกและขอให้เข้าร่วมใหม่ด้วยทหารพอดี {=bear}","**นับเฉพาะผู้เข้าร่วม 4 คนบนสุด:** เกมใช้สกิลฮีโร่ช่องแรกของผู้เข้าร่วม 4 คนบนสุดของรายชื่อ ไม่ว่าเลเวลฮีโร่หรือจำนวนทหารเท่าไร ดัน {chenko} ที่ดีที่สุดสองคนและ {amane} สองคนขึ้นไปบนสุด"]},
+        {"type":"sub","text":"วิธีดันผู้เข้าร่วมขึ้นบน"},
+        {"type":"steps","items":[{"text":"เปิดการรวมพลหมีที่กำลังดำเนินอยู่"},{"text":"หาผู้เข้าร่วม {chenko} และ {amane} ที่แข็งแกร่งที่สุด — เทียบดาวฮีโร่และเลเวลอุปกรณ์เฉพาะ"},{"text":"แตะแถวของผู้เล่นเพื่อเปิดรายละเอียด"},{"text":"กด**ลูกศรขึ้นสีฟ้าอมเขียว**เพื่อดันผู้เล่นคนนั้นขึ้นบนสุด","img":"figures/bear-bump.jpg"},{"text":"ดันผู้เข้าร่วมสำคัญคนอื่นต่อไป คนที่ดันล่าสุดจะอยู่เหนือคนอื่น"},{"text":"ตรวจ 4 อันดับแรกสุดท้าย: เป้าหมายคือ **{chenko} แข็งแกร่งสองคนและ {amane} แข็งแกร่งสองคน**"}]},
+        {"type":"sub","text":"บันทึกทีมผู้นำรวมพล"},
+        {"type":"steps","items":[{"text":"ตั้งทีมผู้นำรวมพล (เช่น **BT1**): ฮีโร่หลัก ฮีโร่ที่ 2 และที่ 3 และทหารของคุณ","img":"figures/bear-bt1.jpg"},{"text":"ตอนบันทึก ให้ติ๊ก **Save by Troop Ratio** (บันทึกตามสัดส่วนทหาร)","img":"figures/bear-save-ratio.jpg"}]},
+        {"type":"h","text":"4. กฎสำหรับผู้เข้าร่วมทุกคน"},
+        {"type":"list","items":["**ทหารพอดี {=bear}** ในทุกการเดินทัพที่เข้าร่วม","**สัดส่วนที่ดีที่สุด 10:10:80** ถ้าทำได้: ทหารราบ 9,000 ทหารม้า 9,000 พลธนู 72,000 (แนะนำ ไม่บังคับ)","**ฮีโร่ช่องแรก:** {chenko}, {amane}, {yeonwoo}, {amadeus} หรือไม่ใส่ฮีโร่ อย่าส่ง {petra} เป็นผู้เข้าร่วม","**บันทึกการเดินทัพไว้ล่วงหน้า** ก่อนล่าหมีเริ่ม","**ผู้นำรวมพลที่ได้รับมอบหมาย:** ทหารสูงสุดในรวมพลของตัวเอง แต่ใช้ขีดจำกัด {=bear} เมื่อเข้าร่วมของคนอื่น","**ห้ามเปิดรวมพลเองในช่วงหลัก:** เข้าร่วมรวมพล NXS ที่ได้รับมอบหมายแทนการเปิดเอง"]},
+        {"type":"callout","text":"⏰ **เหลือ 6:30 — ช่วงรวมพลสุดท้าย:** ผู้เข้าร่วมทุกคนเปิดรวมพลเองได้ด้วย**ฮีโร่ที่แข็งแกร่งที่สุด 3 ตัว** นี่คือข้อยกเว้นเดียวของกฎห้ามเปิดรวมพลเอง"},
+        {"type":"h","text":"📚 ข้อมูลเพิ่มเติม"},
+        {"type":"sub","text":"เมื่อไหร่"},
+        {"type":"p","text":"ทุก 2 วัน ตามเวลาที่พันธมิตรของคุณกำหนด"},
+        {"type":"sub","text":"ทำไมถึงสำคัญ"},
+        {"type":"p","text":"แหล่งวัสดุอุปกรณ์ฮีโร่หลัก (ค้อนตีเหล็ก) และ XP การพัฒนา"},
+        {"type":"sub","text":"การเตรียมตัว"},
+        {"type":"list","items":["อัปเดตรูปแบบการจัดวางทหารของคุณก่อนล่าหมีทุกครั้ง"]},
+        {"type":"callout","text":"ตัวเลือกเสริม: ใช้ https://frakinator.streamlit.app/ เพื่อทดสอบอัตราส่วนทหารและหารูปแบบที่แข็งแกร่งที่สุดของคุณ"},
+        {"type":"list","items":["เรียกกลับทหารที่กำลังเก็บทรัพยากรก่อนอีเวนต์เริ่ม","โปรดจำไว้: ใน 5–7 นาทีสุดท้าย ทุกคนควรเปิดทีมระดมพล ซึ่งจะเพิ่มที่ว่างให้ผู้เล่นที่ทหารกำลังเดินทางกลับ ทำให้ปิดท้ายด้วยความเสียหายอีกระลอกได้"]},
+        {"type":"p","text":"รูปแบบทหาร: 20-40-40% ในเจน 3 ผู้เล่น F2P จะได้ฮีโร่ตัวแรกที่มีอุปกรณ์เฉพาะทีมระดมพล ({petra}) ลองใช้จำนวนพลธนูและทหารม้าให้สมดุล เพราะ {petra} เสริมพลธนูได้มาก ค่าสถานะพลธนูยังต่ำที่สุดหากไม่มีพลธนู SSR หากคุณปลดล็อกทหารม้า T10 ทักษะ T10 เข้ากับค่าสถานะของ {petra} ได้ดี ถ้าปลดล็อก **ทหารม้า T3** {petra}จะแข็งแกร่งขึ้นอีก เพราะทักษะที่ 3 ของเธอเข้ากับค่าสถานะของพวกเขาได้ดีมาก"},
+        {"type":"p","text":"[[squad:guide]]"},
+        {"type":"sub","text":"ใช้อย่างระมัดระวัง"},
+        {"type":"callout","text":"⚠️ **ฮีโร่ที่สร้างความเสียหายแบบสุ่มโอกาส:** ผลแรง แต่**ไม่ซ้อนกัน** ในทีมระดมพลเดียวกันใช้ได้แค่**ตัวเดียว**: {marlin}, {zoe}, {jaeger}, {petra} ❌ อย่าส่ง {petra} เป็นผู้เข้าร่วม"},
+        {"type":"p","text":"🔗 ข้อมูลเพิ่มเติม: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes"}
       ]},
       ar: { title: "صيد الدببة", blocks: [
-        { type: "box", title: "🆕 تحديث الجيل الثالث", items: [
-          "**قادة التجمع (بالترتيب):** 1) {amadeus} + {petra} + {marlin} · 2) {zoe} + {petra} + {quinn} · 3) {helga} + {petra} + {marlin}، فقط إذا كانت {helga} وعتادها الخاص كلاهما بالحد الأقصى.",
-          "**المنضمون — البطل الأول:** {chenko} أو {amane} أو {yeonwoo} أو {amadeus} أو بدون بطل. ❌ لا ترسل {petra} كمنضم.",
-          "**يرسل المنضمون {=bear} جندي بالضبط** — النسبة المثالية 10:10:80 (مثالية وليست إلزامية).",
-          "التفاصيل بالأسفل ↓"
-        ] },
-        { type: "h", text: "متى" },
-        { type: "p", text: "كل يومين في الوقت الذي يحدده تحالفك." },
-        { type: "h", text: "لماذا هو مهم" },
-        { type: "p", text: "مصدر رئيسي لمواد عتاد البطل (مطرقة الحدادة) وخبرة تحسين." },
-        { type: "h", text: "التحضير" },
-        { type: "list", items: [
-          "حدّث تشكيلات القوات قبل كل صيد للدببة."
-        ]},
-        { type: "callout", text: "اختياري: استخدم https://frakinator.streamlit.app/ لاختبار نسب القوات وإيجاد أقوى تشكيلة لديك." },
-        { type: "list", items: [
-          "قم باستدعاء القوات التي تقوم بالجمع قبل بدء الفعالية.",
-          "تذكّر: في آخر 5–7 دقائق، على الجميع إطلاق حشد. يوفّر هذا أماكن أكثر للاعبين الذين تعود قواتهم، مما يتيح دفعة ضرر أخيرة."
-        ]},
-        { type: "h", text: "قادة الحشد" },
-        { type: "callout", text: "⏱️ تعيّن NXS قادة تجمع لكل فخ دب. يقف القادة المعيّنون في **الدائرة الداخلية** حول الفخ وينطلقون على موجتين: **الموجة 1 عند 0:00** (البداية) و**الموجة 2 عند 0:45** (بعد 45 ثانية)." },
-        { type: "p", text: "ابدأ تجمعك في وقتك المحدد بتشكيلة معتمدة (في الأسفل) و**أقصى** عدد من الجنود. عند الانضمام لتجمع شخص آخر، التزم بحد **{=bear}** مثل الجميع." },
-        { type: "sub", text: "إدارة تجمعك" },
-        { type: "p", text: "تحقق من أبطال وعدد جنود كل من ينضم:" },
-        { type: "list", items: [ "**بطل أول خاطئ:** اطرد اللاعب واطلب منه الانضمام مجددًا بشكل صحيح.", "**عدد جنود خاطئ:** اطرد اللاعب واطلب منه الانضمام مجددًا بـ {=bear} جندي بالضبط.", "**أعلى 4 منضمين فقط يُحتسبون:** تستخدم اللعبة مهارة البطل الأول لأول 4 منضمين في أعلى القائمة، بغض النظر عن مستوى البطل أو عدد الجنود. ارفع أفضل اثنين من {chenko} واثنين من {amane} إلى الأعلى." ]},
-        { type: "sub", text: "كيف ترفع المنضمين" },
-        { type: "steps", items: [
-          { text: "افتح تجمع الدب الجاري." }, { text: "ابحث عن أقوى المنضمين من {chenko} و{amane} — قارن نجوم الأبطال ومستوى العتاد الخاص." }, { text: "اضغط على صف اللاعب لفتح التفاصيل." },
-          { text: "اضغط **السهم الفيروزي للأعلى** لرفع هذا اللاعب إلى القمة.", img: "figures/bear-bump.jpg" },
-          { text: "استمر في رفع المنضمين ذوي الأولوية. آخر من ترفعه يصبح فوق الآخرين." }, { text: "تحقق من أعلى أربعة في النهاية: الهدف **اثنان قويان من {chenko} واثنان قويان من {amane}**." }
-        ]},
-        { type: "sub", text: "احفظ تشكيلة قائد التجمع" },
-        { type: "steps", items: [ { text: "جهّز تشكيلة قائد التجمع (مثلًا **BT1**): البطل الرئيسي والثاني والثالث وجنودك.", img: "figures/bear-bt1.jpg" }, { text: "عند الحفظ، فعّل **Save by Troop Ratio** (الحفظ حسب نسبة الجنود).", img: "figures/bear-save-ratio.jpg" } ]},
-        { type: "leaders",
-          gens: ["الجيل 1","الجيل 2","الجيل 3","الجيل 4","الجيل 5"],
-          notes: [
-            [
-              "تشكيلة القوات: 30-30-40%. في معظم الحالات ستكون أفضل سمات لديك في المشاة بسبب سمات أماديوس الأساسية، لذا تعمل التشكيلة المتقاربة جدًا مع زيادة طفيفة في الرماة بأفضل شكل.",
-              "تشكيلة القوات: 20-40-40%. مخصصة أساسًا لمن لم يستثمروا في أماديوس بعد، وتُبقي إمكانية استخدام أماديوس للانضمام إلى الحشود.",
-              "تشكيلة القوات: 30-30-40%. للاعبين F2P يُنصح دائمًا باستخدام الأبطال الثلاثة المتاحين لديك لإطلاق الحشد."
-            ],
-            [
-              "تشكيلة القوات: 20-30-50%. سيزيد مارلين الضرر كثيرًا بفضل عتاده الخاص بالحشد. ابتداءً من الجيل 2، سيكون قائد المشاة دائمًا أماديوس أو هيلجا — فهما البطلان الوحيدان من المشاة اللذان يملكان عتادًا خاصًا بالحشد (مكافأة قوة فتك). ترسل عددًا أقل من المشاة، لذا يغطي بطل المشاة ضرر الرماة عبر هذا العتاد بدلًا من مجاراة سمات المشاة.",
-              "تشكيلة القوات: 20-30-50%. بديل آخر هو استبدال كوين بمارلين إذا لم يكن أفضل بعد. استخدم هيلجا في الجيل 2 وما بعده فقط إذا لم يكن أماديوس بـ 5 نجوم مع عتاد خاص بأعلى مستوى؛ وهي أيضًا فرصة لاستخدام أماديوس للانضمام إلى الحشود.",
-              "تشكيلة القوات: 30-30-40%. لا يزال لا يوجد بطل F2P بعتاد خاص بالحشد، لذا مرة أخرى تشكيلة متوازنة مع زيادة طفيفة في الرماة، لأن سمات الرماة ستكون الأدنى لعدم وجود بطل رماة SSR."
-            ],
-            [
-              "تشكيلة الجنود: 20-30-50%. الخيار الأول لـ NXS في الجيل 3.",
-                            "تشكيلة القوات: 20-40-40%. في الجيل 3، يحصل لاعبو F2P على أول بطل بعتاد خاص بالحشد ({petra}). جرّب أعدادًا متوازنة من الرماة والفرسان لأن {petra} تحسّن الرماة كثيرًا. تبقى سمات الرماة الأدنى بدون رماة SSR. إذا فتحت فرسان T10، فإن مهارة T10 تتناسب جيدًا مع سمات {petra}." + " إذا فتحت **فرسان T3**، تصبح {petra} أقوى، لأن مهارتها الثالثة تتناسب جيدًا مع سماتهم.",
-              "تشكيلة الجنود: 10-20-70%. فقط إذا كانت {helga} وعتادها الخاص كلاهما بالحد الأقصى."
-            ],
-            [
-              "تشكيلة القوات: 10-10-80%. ادفع بأكبر عدد ممكن من الرماة، خاصة إذا كانوا T10. مع قليل من الحظ ستقوم المهارة الثالثة لـ Rosa بالمهمة عنك (تزيد إجمالي هجوم الرماة بنسبة 30%).",
-              "تشكيلة القوات: 10-10-80%. استخدم هيلجا كبديل إذا كانت نجومها ومستوى عتادها الخاص أفضل من أماديوس. واصل الدفع بأكبر عدد ممكن من الرماة، خاصة T10، من أجل المهارة الثالثة لـ Rosa (تزيد إجمالي هجوم الرماة بنسبة 30%).",
-              "تشكيلة القوات: 10-10-80%. مثل الأبطال البدلاء الأفضل — تحقق المهارة الثالثة لـ Rosa أفضل مكافأة إذا ركّزت على تشكيلات ثقيلة بالرماة (تزيد إجمالي هجوم الرماة بنسبة 30%)."
-            ],
-            [
-              "خانات القادة المتبقية لم تُعلن بعد."
-            ]
-          ]},
-        { type: "h", text: "المنضمون إلى الحشد" },
-        { type: "list", items: [
-          "**{=bear} جندي بالضبط** في كل مسيرة انضمام.",
-          "**النسبة المثالية 10:10:80** قدر الإمكان: 9,000 مشاة، 9,000 فرسان، 72,000 رماة (مثالية وليست إلزامية).",
-          "**البطل الأول:** {chenko} أو {amane} أو {yeonwoo} أو {amadeus} أو بدون بطل. لا ترسل {petra} كمنضم.",
-          "**احفظ مسيراتك مسبقًا** قبل بدء صيد الدب.",
-          "**قادة التجمع المعيّنون:** أقصى عدد جنود في تجمعك، لكن حد {=bear} عند الانضمام لتجمع غيرك.",
-          "**لا تجمعات خاصة في المرحلة الرئيسية:** انضم لتجمعات NXS المعيّنة بدل إطلاق تجمعك."
-        ]},
-        { type: "callout", text: "⏰ **متبقٍ 6:30 — مرحلة التجمع الأخيرة:** يمكن لكل المنضمين الآن إطلاق تجمعاتهم بـ**أقوى 3 أبطال**. هذا هو الاستثناء الوحيد من قاعدة عدم إطلاق تجمعات أخرى." },
-        { type: "sub", text: "احفظ تشكيلات الانضمام" },
-        { type: "steps", items: [ { text: "جهّز تشكيلات الانضمام (**BT2–BT5**): البطل الأول من القائمة المعتمدة، ثم بالضبط **9,000 مشاة و9,000 فرسان و72,000 رماة**.", img: "figures/bear-joiner-bt2.jpg" }, { text: "عند الحفظ، فعّل **Save by Troop Quantity** (حسب العدد وليس النسبة) لتكون كل مسيرة {=bear} بالضبط.", img: "figures/bear-save-qty.jpg" } ]},
-        { type: "p", text: "[[squad:guide]]" },
-        { type: "joiners" },
-        { type: "sub", text: "استخدم بحذر" },
-        { type: "callout", text: "⚠️ **أبطال الضرر القائم على الفرصة:** تأثيرات قوية، لكنها **لا تتراكم**. استخدم **واحدًا فقط** من هؤلاء الأبطال في الحشد نفسه: {marlin}، {zoe}، {jaeger}، {petra}. ❌ لا ترسل {petra} كمنضم." },
-        { type: "p", text: "🔗 المزيد: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes" }
-      ]}
+        {"type":"callout","text":"🐻 صيد الدب في NXS — هكذا تصطاد NXS الدب: أبطال أقوياء، تجمعات منسقة، توقيت دقيق، وأقصى ضرر للتحالف."},
+        {"type":"h","text":"1. أبطال فخ الدب — الجيل 3"},
+        {"type":"sub","text":"قادة التجمع — تشكيلات معتمدة"},
+        {"type":"leaders","gens":["الجيل 1","الجيل 2","الجيل 3","الجيل 4","الجيل 5"],"notes":[["تشكيلة القوات: 30-30-40%. في معظم الحالات ستكون أفضل سمات لديك في المشاة بسبب سمات أماديوس الأساسية، لذا تعمل التشكيلة المتقاربة جدًا مع زيادة طفيفة في الرماة بأفضل شكل.","تشكيلة القوات: 20-40-40%. مخصصة أساسًا لمن لم يستثمروا في أماديوس بعد، وتُبقي إمكانية استخدام أماديوس للانضمام إلى الحشود.","تشكيلة القوات: 30-30-40%. للاعبين F2P يُنصح دائمًا باستخدام الأبطال الثلاثة المتاحين لديك لإطلاق الحشد."],["تشكيلة القوات: 20-30-50%. سيزيد مارلين الضرر كثيرًا بفضل عتاده الخاص بالحشد. ابتداءً من الجيل 2، سيكون قائد المشاة دائمًا أماديوس أو هيلجا — فهما البطلان الوحيدان من المشاة اللذان يملكان عتادًا خاصًا بالحشد (مكافأة قوة فتك). ترسل عددًا أقل من المشاة، لذا يغطي بطل المشاة ضرر الرماة عبر هذا العتاد بدلًا من مجاراة سمات المشاة.","تشكيلة القوات: 20-30-50%. بديل آخر هو استبدال كوين بمارلين إذا لم يكن أفضل بعد. استخدم هيلجا في الجيل 2 وما بعده فقط إذا لم يكن أماديوس بـ 5 نجوم مع عتاد خاص بأعلى مستوى؛ وهي أيضًا فرصة لاستخدام أماديوس للانضمام إلى الحشود.","تشكيلة القوات: 30-30-40%. لا يزال لا يوجد بطل F2P بعتاد خاص بالحشد، لذا مرة أخرى تشكيلة متوازنة مع زيادة طفيفة في الرماة، لأن سمات الرماة ستكون الأدنى لعدم وجود بطل رماة SSR."],["","","تشكيلة الجنود: 10-20-70%. فقط إذا كانت {helga} وعتادها الخاص كلاهما بالحد الأقصى."],["تشكيلة القوات: 10-10-80%. ادفع بأكبر عدد ممكن من الرماة، خاصة إذا كانوا T10. مع قليل من الحظ ستقوم المهارة الثالثة لـ Rosa بالمهمة عنك (تزيد إجمالي هجوم الرماة بنسبة 30%).","تشكيلة القوات: 10-10-80%. استخدم هيلجا كبديل إذا كانت نجومها ومستوى عتادها الخاص أفضل من أماديوس. واصل الدفع بأكبر عدد ممكن من الرماة، خاصة T10، من أجل المهارة الثالثة لـ Rosa (تزيد إجمالي هجوم الرماة بنسبة 30%).","تشكيلة القوات: 10-10-80%. مثل الأبطال البدلاء الأفضل — تحقق المهارة الثالثة لـ Rosa أفضل مكافأة إذا ركّزت على تشكيلات ثقيلة بالرماة (تزيد إجمالي هجوم الرماة بنسبة 30%)."],["خانات القادة المتبقية لم تُعلن بعد."]]},
+        {"type":"sub","text":"المنضمون — الأبطال الأوائل المعتمدون"},
+        {"type":"joiners"},
+        {"type":"callout","text":"❌ **لا ترسل {petra} كمنضم.** ضع بطلًا معتمدًا في الخانة الأولى، أو أرسل **بدون بطل**."},
+        {"type":"h","text":"2. متطلبات جنود المنضمين"},
+        {"type":"p","text":"يرسل كل المنضمين **{=bear} جندي بالضبط** في كل تجمع. النسبة المثالية **10:10:80** قدر الإمكان، مع التركيز على الرماة."},
+        {"type":"box","title":"**مشاة 9,000 (10%) · فرسان 9,000 (10%) · رماة 72,000 (80%)**","items":["{=bear} جندي إلزامي. نسبة 10:10:80 مثالية وليست إلزامية."]},
+        {"type":"sub","text":"احفظ تشكيلات الانضمام"},
+        {"type":"steps","items":[{"text":"جهّز تشكيلات الانضمام (**BT2–BT5**): البطل الأول من القائمة المعتمدة، ثم بالضبط **9,000 مشاة و9,000 فرسان و72,000 رماة**.","img":"figures/bear-joiner-bt2.jpg"},{"text":"عند الحفظ، فعّل **Save by Troop Quantity** (حسب العدد وليس النسبة) لتكون كل مسيرة {=bear} بالضبط.","img":"figures/bear-save-qty.jpg"}]},
+        {"type":"h","text":"3. قواعد قادة التجمع المعيّنين"},
+        {"type":"callout","text":"⏱️ تعيّن NXS قادة تجمع لكل فخ دب. يقف القادة المعيّنون في **الدائرة الداخلية** حول الفخ وينطلقون على موجتين: **الموجة 1 عند 0:00** (البداية) و**الموجة 2 عند 0:45** (بعد 45 ثانية)."},
+        {"type":"p","text":"ابدأ تجمعك في وقتك المحدد بتشكيلة معتمدة (في الأسفل) و**أقصى** عدد من الجنود. عند الانضمام لتجمع شخص آخر، التزم بحد **{=bear}** مثل الجميع."},
+        {"type":"sub","text":"إدارة تجمعك"},
+        {"type":"p","text":"تحقق من أبطال وعدد جنود كل من ينضم:"},
+        {"type":"list","items":["**بطل أول خاطئ:** اطرد اللاعب واطلب منه الانضمام مجددًا بشكل صحيح.","**عدد جنود خاطئ:** اطرد اللاعب واطلب منه الانضمام مجددًا بـ {=bear} جندي بالضبط.","**أعلى 4 منضمين فقط يُحتسبون:** تستخدم اللعبة مهارة البطل الأول لأول 4 منضمين في أعلى القائمة، بغض النظر عن مستوى البطل أو عدد الجنود. ارفع أفضل اثنين من {chenko} واثنين من {amane} إلى الأعلى."]},
+        {"type":"sub","text":"كيف ترفع المنضمين"},
+        {"type":"steps","items":[{"text":"افتح تجمع الدب الجاري."},{"text":"ابحث عن أقوى المنضمين من {chenko} و{amane} — قارن نجوم الأبطال ومستوى العتاد الخاص."},{"text":"اضغط على صف اللاعب لفتح التفاصيل."},{"text":"اضغط **السهم الفيروزي للأعلى** لرفع هذا اللاعب إلى القمة.","img":"figures/bear-bump.jpg"},{"text":"استمر في رفع المنضمين ذوي الأولوية. آخر من ترفعه يصبح فوق الآخرين."},{"text":"تحقق من أعلى أربعة في النهاية: الهدف **اثنان قويان من {chenko} واثنان قويان من {amane}**."}]},
+        {"type":"sub","text":"احفظ تشكيلة قائد التجمع"},
+        {"type":"steps","items":[{"text":"جهّز تشكيلة قائد التجمع (مثلًا **BT1**): البطل الرئيسي والثاني والثالث وجنودك.","img":"figures/bear-bt1.jpg"},{"text":"عند الحفظ، فعّل **Save by Troop Ratio** (الحفظ حسب نسبة الجنود).","img":"figures/bear-save-ratio.jpg"}]},
+        {"type":"h","text":"4. قواعد كل المنضمين"},
+        {"type":"list","items":["**{=bear} جندي بالضبط** في كل مسيرة انضمام.","**النسبة المثالية 10:10:80** قدر الإمكان: 9,000 مشاة، 9,000 فرسان، 72,000 رماة (مثالية وليست إلزامية).","**البطل الأول:** {chenko} أو {amane} أو {yeonwoo} أو {amadeus} أو بدون بطل. لا ترسل {petra} كمنضم.","**احفظ مسيراتك مسبقًا** قبل بدء صيد الدب.","**قادة التجمع المعيّنون:** أقصى عدد جنود في تجمعك، لكن حد {=bear} عند الانضمام لتجمع غيرك.","**لا تجمعات خاصة في المرحلة الرئيسية:** انضم لتجمعات NXS المعيّنة بدل إطلاق تجمعك."]},
+        {"type":"callout","text":"⏰ **متبقٍ 6:30 — مرحلة التجمع الأخيرة:** يمكن لكل المنضمين الآن إطلاق تجمعاتهم بـ**أقوى 3 أبطال**. هذا هو الاستثناء الوحيد من قاعدة عدم إطلاق تجمعات أخرى."},
+        {"type":"h","text":"📚 معلومات إضافية"},
+        {"type":"sub","text":"متى"},
+        {"type":"p","text":"كل يومين في الوقت الذي يحدده تحالفك."},
+        {"type":"sub","text":"لماذا هو مهم"},
+        {"type":"p","text":"مصدر رئيسي لمواد عتاد البطل (مطرقة الحدادة) وخبرة تحسين."},
+        {"type":"sub","text":"التحضير"},
+        {"type":"list","items":["حدّث تشكيلات القوات قبل كل صيد للدببة."]},
+        {"type":"callout","text":"اختياري: استخدم https://frakinator.streamlit.app/ لاختبار نسب القوات وإيجاد أقوى تشكيلة لديك."},
+        {"type":"list","items":["قم باستدعاء القوات التي تقوم بالجمع قبل بدء الفعالية.","تذكّر: في آخر 5–7 دقائق، على الجميع إطلاق حشد. يوفّر هذا أماكن أكثر للاعبين الذين تعود قواتهم، مما يتيح دفعة ضرر أخيرة."]},
+        {"type":"p","text":"تشكيلة القوات: 20-40-40%. في الجيل 3، يحصل لاعبو F2P على أول بطل بعتاد خاص بالحشد ({petra}). جرّب أعدادًا متوازنة من الرماة والفرسان لأن {petra} تحسّن الرماة كثيرًا. تبقى سمات الرماة الأدنى بدون رماة SSR. إذا فتحت فرسان T10، فإن مهارة T10 تتناسب جيدًا مع سمات {petra}. إذا فتحت **فرسان T3**، تصبح {petra} أقوى، لأن مهارتها الثالثة تتناسب جيدًا مع سماتهم."},
+        {"type":"p","text":"[[squad:guide]]"},
+        {"type":"sub","text":"استخدم بحذر"},
+        {"type":"callout","text":"⚠️ **أبطال الضرر القائم على الفرصة:** تأثيرات قوية، لكنها **لا تتراكم**. استخدم **واحدًا فقط** من هؤلاء الأبطال في الحشد نفسه: {marlin}، {zoe}، {jaeger}، {petra}. ❌ لا ترسل {petra} كمنضم."},
+        {"type":"p","text":"🔗 المزيد: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes"}
+      ]},
     }
   },
 
