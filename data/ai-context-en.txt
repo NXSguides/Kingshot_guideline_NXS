@@ -205,9 +205,9 @@ Button names may differ slightly depending on your phone and system version.
 
 ### GUIDE #bear-hunt — Bear Hunt
 🆕 GEN 3 UPDATE
-Rally leaders: Best — Helga + Petra + Marlin (10:20:70), only if Helga is 5★ + max Widget. Alternative — Amadeus + Petra + Marlin (20:30:50). F2P — Zoe + Petra + Quinn (20:40:40).
-Joiners — send first: Chenko, Yeonwoo, Amadeus, Amane (flat Lethality bonus).
-⚠️ Only ONE per rally: Marlin, Zoe, Jaeger, Petra — their chance-based damage does NOT stack.
+Rally leaders (in order): 1) Amadeus + Petra + Marlin · 2) Zoe + Petra + Quinn · 3) Helga + Petra + Marlin, only if Helga and her widget are both maxed.
+Joiners — first-slot hero: Chenko, Amane, Yeonwoo, Amadeus, or no hero. ❌ Do not send Petra as a joiner.
+Joiners send exactly 90,000 troops — ideal ratio 10:10:80 (ideal, not compulsory).
 Details below ↓
 WHEN
 Every 2 days at your Alliance's scheduled time.
@@ -219,7 +219,23 @@ Optional: use https://frakinator.streamlit.app/ to test troop ratios and find yo
 Recall gathering troops before the event starts.
 Remember: In the final 5–7 minutes, everyone should launch a rally. This creates more spots for players whose troops are returning, allowing for a final damage push.
 RALLY LEADERS
-⚠️ Rule: start your own rally with maximum troops, but when you join other rallies you must also follow the limit of exactly 90,000 troops. At the start, main rally leaders send their first rally at their assigned staggered time.
+⏱️ NXS assigns rally leaders for each Bear Trap. Assigned leaders sit in the inner circle around the trap, split into two launch waves: Wave 1 at 0:00 (the start) and Wave 2 at 0:45 (45 seconds later).
+Start your rally at your assigned time with an approved formation (below) and your maximum troops. When you join someone else's rally, follow the 90,000 limit like everyone else.
+Managing your rally
+Check the heroes and troop numbers of everyone who joins:
+Wrong first-slot hero: kick the player and ask them to rejoin correctly.
+Wrong troop number: kick the player and ask them to rejoin with exactly 90,000 troops.
+Only the top 4 joiners count: the game uses the first-slot skill of the 4 joiners with the highest first-hero level. When many are Lv 80, bump your best two Chenkos and two Amanes to the top.
+How to bump joiners
+Open your active Bear rally.
+Find the strongest Chenko and Amane joiners — compare their hero stars and widget levels.
+Tap a player's row to open their details.
+Press the turquoise up-arrow to bump that player to the top.
+Keep bumping your other priority joiners. The last one bumped goes above the others.
+Check the final top four: aim for two strong Chenkos and two strong Amanes.
+Save your rally leader formation
+Set your rally leader formation (for example BT1): lead, 2nd and 3rd hero, and your troops.
+When you save it, tick Save by Troop Ratio.
 GEN 1
 GEN 2
 GEN 3
@@ -231,23 +247,28 @@ Troop formation: 30-30-40%. For F2P it is recommended to always use the 3 heroes
 Troop formation: 20-30-50%. Marlin will boost damage a lot due to his widget. From Gen 2 up, infantry will always be Amadeus or Helga — they are the only infantry heroes with rally widgets (lethality bonus). You send fewer infantry, so the infantry hero covers archer damage via the widget rather than matching infantry stats.
 Troop formation: 20-30-50%. Other alternative is swapping Quinn for Marlin if he isn't better yet. Use Helga in Gen 2+ only if Amadeus isn't 5-star + max widget level; also an opportunity to use Amadeus for joining rallies.
 Troop formation: 30-30-40%. Still no F2P hero with a rally widget, so again an even formation with slightly more archers, as archer stats will be lowest due to not having an SSR archer hero.
-Troop formation: 10-20-70%. Maxed-out Helga performs better than Amadeus in Gen 3, due to having 2 lethality widgets and 1 attack widget compared to 1 lethality widget and 2 attack widgets in this setup.
-Troop formation: 20-30-50%. If you don't have maxed-out Helga (5-star + widget) it is better to use Amadeus.
+Troop formation: 20-30-50%. NXS's first choice for Gen 3.
 Troop formation: 20-40-40%. In Gen 3, F2P get their first hero with a rally widget (Petra). Try even archer/cav numbers because Petra improves archer troops a lot. Archer stats are still lowest without an SSR archer. If you unlock T10 cavalry, the T10 skill pairs well with Petra's stats. If you unlock T3 Cavalry, Petra becomes even stronger, because her 3rd skill works very well with their stats.
+Troop formation: 10-20-70%. Only if Helga and her widget are both maxed.
 Troop formation: 10-10-80%. Force as many archer troops as you can, especially if they are T10. With a bit of luck Rosa's 3rd skill will do the work for you (Increasing Archers' total Attack by 30%).
 Troop formation: 10-10-80%. Use Helga as alternative if she has better stars and widget level than Amadeus. Still force as many archers as you can, especially T10, for Rosa's 3rd skill (Increasing Archers' total Attack by 30%).
 Troop formation: 10-10-80%. Same as alternative best heroes — Rosa's 3rd skill bonuses best if you focus on heavy archer formations (Increasing Archers' total Attack by 30%).
 Remaining host slots not released yet.
 RALLY JOINERS
-⚠️ Rule: all joiners must send exactly 90,000 troops to rallies — pre-save your marches. At 6:30 remaining, all joiners start their own rally using their 3 strongest heroes. 🔪 Wrong heroes or wrong troop numbers will be kicked and asked to rejoin.
-Standard / Safe Ratio: 10% Infantry, 10% Cavalry, and 80% Archers (or a variation like 20-30-50)
+Exactly 90,000 troops in every joining march.
+Ideal ratio 10:10:80 where possible: 9,000 infantry, 9,000 cavalry, 72,000 archers (ideal, not compulsory).
+First-slot hero: Chenko, Amane, Yeonwoo, Amadeus, or no hero. Do not send Petra as a joiner.
+Pre-save your marches before Bear Hunt starts.
+Assigned rally leaders: maximum troops in your own rally, but the 90,000 limit when joining someone else's.
+No independent rallies in the main phase: join the assigned NXS rallies instead of launching your own.
+⏰ 6:30 remaining — final rally phase: all joiners may now start their own rallies with their 3 strongest heroes. This is the only exception to the no-other-rallies rule.
 (see guide #formations-rally-tips)
 Priority — send these first: these heroes give a flat Lethality bonus, the most valuable bonus for Bear Hunt.
 USE WITH CAUTION
-⚠️ Chance-based damage heroes: strong effects, but they do NOT stack. Only use ONE of these heroes in the same rally: Marlin, Zoe, Jaeger, Petra.
+⚠️ Chance-based damage heroes: strong effects, but they do NOT stack. Only use ONE of these heroes in the same rally: Marlin, Zoe, Jaeger, Petra. ❌ Do not send Petra as a joiner.
 🔗 More: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes
 [joiners] Chenko | lethality | Yeonwoo | lethality | Amane | attack | Amadeus | lethality
-[leaders] best | Amadeus | Jabel | Quinn | 30-30-40 | alt | Helga | Jabel | Quinn | 20-40-40 | f2p | Howard | Jabel | Quinn | 30-30-40 | best | Amadeus | Hilde | Marlin | 20-30-50 | alt | Helga | Jabel | Marlin | 20-30-50 | f2p | Zoe | Jabel | Quinn | 30-30-40 | best | Helga | Petra | Marlin | 10-20-70 | alt | Amadeus | Petra | Marlin | 20-30-50 | f2p | Zoe | Petra | Quinn | 20-40-40 | best | Amadeus | Petra | Rosa | 10-10-80 | alt | Helga | Petra | Rosa | 10-10-80 | f2p | Zoe | Petra | Rosa | 10-10-80 | best | Amadeus
+[leaders] best | Amadeus | Jabel | Quinn | 30-30-40 | alt | Helga | Jabel | Quinn | 20-40-40 | f2p | Howard | Jabel | Quinn | 30-30-40 | best | Amadeus | Hilde | Marlin | 20-30-50 | alt | Helga | Jabel | Marlin | 20-30-50 | f2p | Zoe | Jabel | Quinn | 30-30-40 | best | Amadeus | Petra | Marlin | 20-30-50 | f2p | Zoe | Petra | Quinn | 20-40-40 | alt | Helga | Petra | Marlin | 10-20-70 | best | Amadeus | Petra | Rosa | 10-10-80 | alt | Helga | Petra | Rosa | 10-10-80 | f2p | Zoe | Petra | Rosa | 10-10-80 | best | Amadeus
 
 ### GUIDE #swordland-showdown — Swordland Showdown
 WHEN

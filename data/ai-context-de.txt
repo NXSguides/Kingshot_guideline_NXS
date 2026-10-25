@@ -205,9 +205,9 @@ Je nach Handy und Systemversion können die Tasten etwas anders heißen.
 
 ### GUIDE #bear-hunt — Bärenjagd
 🆕 GEN-3-UPDATE
-Rally-Anführer: Beste — Helga + Petra + Marlin (10:20:70), nur wenn Helga 5★ + max. Element hat. Alternative — Amadeus + Petra + Marlin (20:30:50). F2P — Zoe + Petra + Quinn (20:40:40).
-Teilnehmer – zuerst schicken: Chenko, Yeonwoo, Amadeus, Amane (fester Tödlichkeit-Bonus).
-⚠️ Nur EINER pro Rally: Marlin, Zoe, Jaeger, Petra – ihr zufallsbasierter Schaden stapelt sich NICHT.
+Rallyleiter (in dieser Reihenfolge): 1) Amadeus + Petra + Marlin · 2) Zoe + Petra + Quinn · 3) Helga + Petra + Marlin, nur wenn Helga und ihr Widget beide maximiert sind.
+Teilnehmer — erster Held: Chenko, Amane, Yeonwoo, Amadeus oder kein Held. ❌ Schick Petra nicht als Teilnehmer.
+Teilnehmer schicken genau 90,000 Truppen — ideales Verhältnis 10:10:80 (ideal, keine Pflicht).
 Details weiter unten ↓
 WANN
 Alle 2 Tage zur geplanten Zeit eurer Allianz.
@@ -219,7 +219,23 @@ Optional: Mit https://frakinator.streamlit.app Truppenverhältnisse testen und d
 Ruft sammelnde Truppen vor Eventbeginn zurück.
 In den letzten 5–7 Minuten sollte jeder einen Rally starten. So entstehen mehr Plätze für Spieler, deren Truppen zurückkehren — für den finalen Schadensschub.
 RALLY-ANFÜHRER
-⚠️ Regel: Starte deine eigene Rally mit maximalen Truppen, aber wenn du anderen Rallys beitrittst, gilt auch für dich das Limit von genau 90,000 Truppen. Zu Beginn schicken die Haupt-Rallyleiter ihre erste Rally zu ihrer zugewiesenen, versetzten Zeit.
+⏱️ NXS teilt für jede Bärenfalle Rallyleiter ein. Sie stehen im inneren Kreis um die Falle und starten in zwei Wellen: Welle 1 bei 0:00 (zum Start) und Welle 2 bei 0:45 (45 Sekunden später).
+Starte deine Rally zu deiner zugeteilten Zeit mit einer freigegebenen Aufstellung (unten) und deinen maximalen Truppen. Wenn du bei anderen mitmachst, gilt wie für alle das Limit von 90,000.
+Deine Rally verwalten
+Prüfe Helden und Truppenzahl aller Teilnehmer:
+Falscher erster Held: Spieler kicken und bitten, richtig neu beizutreten.
+Falsche Truppenzahl: Spieler kicken und bitten, mit genau 90,000 Truppen neu beizutreten.
+Nur die Top 4 Teilnehmer zählen: Das Spiel nimmt die Skills der ersten Helden der 4 Teilnehmer mit dem höchsten Level des ersten Helden. Wenn viele Lv 80 haben, schieb deine besten zwei Chenkos und zwei Amanes nach oben.
+Teilnehmer nach oben schieben
+Öffne deine laufende Bären-Rally.
+Finde die stärksten Chenko- und Amane-Teilnehmer — vergleiche Heldensterne und Widget-Level.
+Tippe auf die Zeile eines Spielers, um Details zu öffnen.
+Drück den türkisen Pfeil nach oben, um den Spieler ganz nach oben zu schieben.
+Schieb weitere wichtige Teilnehmer nach oben. Der zuletzt geschobene steht ganz oben.
+Prüfe die finalen Top 4: Ziel sind zwei starke Chenkos und zwei starke Amanes.
+Rallyleiter-Aufstellung speichern
+Stell deine Rallyleiter-Aufstellung ein (z. B. BT1): Anführer, 2. und 3. Held und deine Truppen.
+Hak beim Speichern Save by Troop Ratio (nach Truppenverhältnis speichern) an.
 GEN 1
 GEN 2
 GEN 3
@@ -231,23 +247,28 @@ F2P-Spieler sollten immer ihre drei stärksten verfügbaren Helden als Anführer
 Marlin steigert den Schaden durch seine Rally-exklusive Tödlichkeitsausrüstung; Infanterie bleibt Amadeus oder Helga.
 Quinn statt Marlin, wenn Marlin noch nicht stark genug ist; Helga nur, wenn Amadeus noch nicht voll ausgerüstet ist.
 Noch kein F2P-Bogenschützenheld mit Rally-Ausrüstung, daher bleiben Bogenschützen der schwächste Stat.
-Voll ausgerüstete Helga (2 Tödlichkeit + 1 Angriff) übertrifft hier Amadeus (1 Tödlichkeit + 2 Angriff).
-Amadeus nehmen, wenn Helga noch nicht voll ausgerüstet ist.
+Truppenaufstellung: 20-30-50%. Die erste Wahl von NXS in Gen 3.
 Erster F2P-Held mit Rally-Ausrüstung (Petra); Bogenschützen bleiben am schwächsten, maxed Kavallerie passt aber gut zu Petra. Wenn du T3-Kavallerie freischaltest, wird Petra noch stärker, weil ihre 3. Fertigkeit sehr gut zu deren Werten passt.
+Truppenaufstellung: 10-20-70%. Nur wenn Helga und ihr Widget beide maximiert sind.
 So viele (idealerweise maxed) Bogenschützen wie möglich; Rosas 3. Skill kann den Bogenschützen-Gesamtschaden um 30% steigern.
 Helga nehmen, wenn ihr Stern-/Ausrüstungsgrad über Amadeus liegt.
 Gleiche Idee wie die Alternative — Rosas 3. Skill glänzt am stärksten in bogenschützenlastigen Formationen.
 Die übrigen Anführer-Plätze sind noch nicht veröffentlicht.
 RALLY-TEILNEHMER
-⚠️ Regel: Alle Beitretenden schicken genau 90,000 Truppen in Rallys – speichert eure Märsche vorher. Bei 6:30 verbleibend starten alle Beitretenden ihre eigene Rally mit ihren 3 stärksten Helden. 🔪 Falsche Helden oder falsche Truppenzahl: Kick und Bitte um erneuten Beitritt.
-Standard / sicheres Verhältnis: 10% Infanterie, 10% Kavallerie, und 80% Bogenschützen (oder Varianten wie 20-30-50)
+Genau 90,000 Truppen in jedem Teilnahme-Marsch.
+Ideales Verhältnis 10:10:80, wenn möglich: 9.000 Infanterie, 9.000 Kavallerie, 72.000 Bogenschützen (ideal, keine Pflicht).
+Erster Held: Chenko, Amane, Yeonwoo, Amadeus oder kein Held. Schick Petra nicht als Teilnehmer.
+Märsche vorher speichern, bevor die Bärenjagd beginnt.
+Eingeteilte Rallyleiter: maximale Truppen in der eigenen Rally, aber 90,000 beim Mitmachen bei anderen.
+Keine eigenen Rallys in der Hauptphase: tritt den eingeteilten NXS-Rallys bei, statt selbst zu starten.
+⏰ 6:30 übrig — letzte Rally-Phase: Alle Teilnehmer dürfen jetzt eigene Rallys mit ihren 3 stärksten Helden starten. Das ist die einzige Ausnahme von der Keine-eigenen-Rallys-Regel.
 (see guide #formations-rally-tips)
 Priorität – diese zuerst schicken: Diese Helden geben einen festen Tödlichkeit-Bonus, den wertvollsten Bonus für die Bärenjagd.
 MIT VORSICHT VERWENDEN
-⚠️ Helden mit zufallsbasiertem Schaden: starke Effekte, aber sie stapeln sich NICHT. Setze nur EINEN dieser Helden in derselben Rally ein: Marlin, Zoe, Jaeger, Petra.
+⚠️ Helden mit zufallsbasiertem Schaden: starke Effekte, aber sie stapeln sich NICHT. Setze nur EINEN dieser Helden in derselben Rally ein: Marlin, Zoe, Jaeger, Petra. ❌ Schick Petra nicht als Teilnehmer.
 🔗 Mehr dazu: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes
 [joiners] Chenko | lethality | Yeonwoo | lethality | Amane | attack | Amadeus | lethality
-[leaders] best | Amadeus | Jabel | Quinn | 30-30-40 | alt | Helga | Jabel | Quinn | 20-40-40 | f2p | Howard | Jabel | Quinn | 30-30-40 | best | Amadeus | Hilde | Marlin | 20-30-50 | alt | Helga | Jabel | Marlin | 20-30-50 | f2p | Zoe | Jabel | Quinn | 30-30-40 | best | Helga | Petra | Marlin | 10-20-70 | alt | Amadeus | Petra | Marlin | 20-30-50 | f2p | Zoe | Petra | Quinn | 20-40-40 | best | Amadeus | Petra | Rosa | 10-10-80 | alt | Helga | Petra | Rosa | 10-10-80 | f2p | Zoe | Petra | Rosa | 10-10-80 | best | Amadeus
+[leaders] best | Amadeus | Jabel | Quinn | 30-30-40 | alt | Helga | Jabel | Quinn | 20-40-40 | f2p | Howard | Jabel | Quinn | 30-30-40 | best | Amadeus | Hilde | Marlin | 20-30-50 | alt | Helga | Jabel | Marlin | 20-30-50 | f2p | Zoe | Jabel | Quinn | 30-30-40 | best | Amadeus | Petra | Marlin | 20-30-50 | f2p | Zoe | Petra | Quinn | 20-40-40 | alt | Helga | Petra | Marlin | 10-20-70 | best | Amadeus | Petra | Rosa | 10-10-80 | alt | Helga | Petra | Rosa | 10-10-80 | f2p | Zoe | Petra | Rosa | 10-10-80 | best | Amadeus
 
 ### GUIDE #swordland-showdown — Schwertland-Showdown
 📅 WANN

@@ -205,9 +205,9 @@ Os nomes dos botões podem variar um pouco conforme o celular e a versão do sis
 
 ### GUIDE #bear-hunt — Caça ao Urso
 🆕 ATUALIZAÇÃO GEN 3
-Líderes de rally: Melhor — Helga + Petra + Peixe Marlin (10:20:70), só se Helga estiver 5★ + Ferramenta no máximo. Alternativa — Amadeus + Petra + Peixe Marlin (20:30:50). F2P — Zoe + Petra + Quinn (20:40:40).
-Participantes – envie primeiro: Chenko, Yeonwoo, Amadeus, Amane (bônus fixo de Letalidade).
-⚠️ Só UM por rally: Peixe Marlin, Zoe, Jaeger, Petra — o dano baseado em chance NÃO acumula.
+Líderes de reunião (em ordem): 1) Amadeus + Petra + Peixe Marlin · 2) Zoe + Petra + Quinn · 3) Helga + Petra + Peixe Marlin, só se Helga e o widget dela estiverem no máximo.
+Participantes — primeiro herói: Chenko, Amane, Yeonwoo, Amadeus ou nenhum herói. ❌ Não mande Petra como participante.
+Participantes mandam exatamente 90,000 tropas — proporção ideal 10:10:80 (ideal, não obrigatória).
 Detalhes abaixo ↓
 QUANDO
 A cada 2 dias, no horário marcado pela sua Aliança.
@@ -219,7 +219,23 @@ Opcional: use https://frakinator.streamlit.app/ para testar proporções de trop
 Revogue as tropas que estão coletando antes do início do evento.
 Lembre-se: nos últimos 5–7 minutos, todos devem iniciar um rally. Isso cria mais vagas para jogadores cujas tropas estão retornando, permitindo um último impulso de dano.
 LÍDERES DE RALLY
-⚠️ Regra: inicie seu próprio rally com o máximo de tropas, mas ao entrar em outros rallies você também deve seguir o limite de exatamente 90,000 tropas. No início, os líderes principais enviam o primeiro rally no horário escalonado atribuído.
+⏱️ A NXS escolhe líderes de reunião para cada Armadilha. Eles ficam no círculo interno em volta da armadilha, em duas ondas: Onda 1 em 0:00 (no início) e Onda 2 em 0:45 (45 segundos depois).
+Comece sua reunião no horário marcado com uma formação aprovada (abaixo) e o máximo de tropas. Ao entrar na reunião de outra pessoa, siga o limite de 90,000 como todo mundo.
+Gerenciando sua reunião
+Confira os heróis e o número de tropas de todos que entrarem:
+Primeiro herói errado: expulse o jogador e peça para entrar de novo do jeito certo.
+Número de tropas errado: expulse o jogador e peça para entrar de novo com exatamente 90,000 tropas.
+Só os 4 primeiros participantes contam: o jogo usa a habilidade do primeiro herói dos 4 participantes com o primeiro herói de nível mais alto. Quando muitos são Nv 80, suba seus dois melhores Chenko e dois melhores Amane.
+Como subir participantes
+Abra sua reunião do Urso em andamento.
+Ache os participantes Chenko e Amane mais fortes — compare as estrelas dos heróis e o nível dos widgets.
+Toque na linha do jogador para ver os detalhes.
+Aperte a seta turquesa para cima para subir esse jogador para o topo.
+Continue subindo os outros prioritários. O último a subir fica acima dos outros.
+Confira os 4 primeiros: o objetivo é dois Chenko fortes e dois Amane fortes.
+Salve sua formação de líder
+Monte sua formação de líder de reunião (por exemplo BT1): herói principal, 2º e 3º herói e suas tropas.
+Ao salvar, marque Save by Troop Ratio (salvar por proporção de tropas).
 GEN 1
 GEN 2
 GEN 3
@@ -231,23 +247,28 @@ Formação de tropas: 30-30-40%. Para F2P, recomenda-se usar sempre os 3 heróis
 Formação de tropas: 20-30-50%. O Peixe Marlin aumenta muito o dano por causa do equipamento exclusivo de rally dele. A partir da Gen 2, a Infantaria será sempre o Amadeus ou a Helga — são os únicos heróis de Infantaria com equipamento exclusivo de rally (bônus de Letalidade). Você envia menos Infantaria, então o herói de Infantaria cobre o dano dos Arquearia por meio desse equipamento, e não igualando os atributos de Infantaria.
 Formação de tropas: 20-30-50%. Outra alternativa é trocar o Quinn pelo Peixe Marlin, se ele ainda não for melhor. Use a Helga na Gen 2+ apenas se o Amadeus não estiver com 5 estrelas + equipamento exclusivo no nível máximo; também é uma chance de usar o Amadeus para entrar em rallies.
 Formação de tropas: 30-30-40%. Ainda não há herói F2P com equipamento exclusivo de rally, então novamente uma formação equilibrada com um pouco mais de Arquearia, já que os atributos dos Arquearia serão os mais baixos sem um herói de Arquearia SSR.
-Formação de tropas: 10-20-70%. A Helga no máximo rende mais que o Amadeus na Gen 3, por ter 2 equipamentos de Letalidade e 1 de Ataque, contra 1 de Letalidade e 2 de Ataque do Amadeus nesta configuração.
-Formação de tropas: 20-30-50%. Se você não tem a Helga no máximo (5 estrelas + equipamento exclusivo), é melhor usar o Amadeus.
+Formação de tropas: 20-30-50%. Primeira escolha da NXS na Gen 3.
 Formação de tropas: 20-40-40%. Na Gen 3, os F2P recebem o primeiro herói com equipamento exclusivo de rally (Petra). Tente números equilibrados de Arquearia e Cavalaria, porque a Petra melhora muito os Arquearia. Os atributos dos Arquearia continuam os mais baixos sem uma Arquearia SSR. Se você desbloquear a Cavalaria T10, a habilidade T10 combina bem com os atributos da Petra. Se você desbloquear a Cavalaria T3, Petra fica ainda mais forte, porque a 3ª habilidade dela combina muito bem com os atributos deles.
+Formação de tropas: 10-20-70%. Só se Helga e o widget dela estiverem no máximo.
 Formação de tropas: 10-10-80%. Force o máximo de Arquearia possível, principalmente se forem T10. Com um pouco de sorte, a 3ª habilidade da Rosa fará o trabalho por você (aumenta o Ataque total dos Arquearia em 30%).
 Formação de tropas: 10-10-80%. Use a Helga como alternativa se ela tiver mais estrelas e um nível de equipamento exclusivo melhor que o do Amadeus. Continue forçando o máximo de Arquearia possível, principalmente T10, para a 3ª habilidade da Rosa (aumenta o Ataque total dos Arquearia em 30%).
 Formação de tropas: 10-10-80%. Igual aos melhores heróis alternativos — os bônus da 3ª habilidade da Rosa rendem mais se você focar em formações pesadas de Arquearia (aumenta o Ataque total dos Arquearia em 30%).
 Os demais espaços de líder ainda não foram divulgados.
 PARTICIPANTES DE RALLY
-⚠️ Regra: todos que entram em rallies devem enviar exatamente 90,000 tropas — salve suas marchas antes. Com 6:30 restantes, todos iniciam o próprio rally usando seus 3 heróis mais fortes. 🔪 Heróis errados ou número de tropas errado: expulsão e pedido para entrar de novo.
-Proporção padrão / segura: 10% Infantaria, 10% Cavalaria e 80% Arquearia (ou uma variação como 20-30-50)
+Exatamente 90,000 tropas em cada marcha de participação.
+Proporção ideal 10:10:80 quando possível: 9.000 infantaria, 9.000 cavalaria, 72.000 arqueiros (ideal, não obrigatória).
+Primeiro herói: Chenko, Amane, Yeonwoo, Amadeus ou nenhum herói. Não mande Petra como participante.
+Salve suas marchas antes de a Caça ao Urso começar.
+Líderes escolhidos: máximo de tropas na sua reunião, mas o limite de 90,000 ao entrar na de outra pessoa.
+Nada de reuniões próprias na fase principal: entre nas reuniões NXS escolhidas em vez de abrir a sua.
+⏰ Faltando 6:30 — fase final: todos os participantes podem abrir a própria reunião com os 3 heróis mais fortes. É a única exceção à regra de não abrir outras reuniões.
 (see guide #formations-rally-tips)
 Prioridade – envie estes primeiro: esses heróis dão um bônus fixo de Letalidade, o bônus mais valioso na Caça ao Urso.
 USE COM CUIDADO
-⚠️ Heróis de dano baseado em chance: efeitos fortes, mas NÃO acumulam. Use apenas UM desses heróis no mesmo rally: Peixe Marlin, Zoe, Jaeger, Petra.
+⚠️ Heróis de dano baseado em chance: efeitos fortes, mas NÃO acumulam. Use apenas UM desses heróis no mesmo rally: Peixe Marlin, Zoe, Jaeger, Petra. ❌ Não mande Petra como participante.
 🔗 Saiba mais: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes
 [joiners] Chenko | lethality | Yeonwoo | lethality | Amane | attack | Amadeus | lethality
-[leaders] best | Amadeus | Jabel | Quinn | 30-30-40 | alt | Helga | Jabel | Quinn | 20-40-40 | f2p | Howard | Jabel | Quinn | 30-30-40 | best | Amadeus | Hilde | Peixe Marlin | 20-30-50 | alt | Helga | Jabel | Peixe Marlin | 20-30-50 | f2p | Zoe | Jabel | Quinn | 30-30-40 | best | Helga | Petra | Peixe Marlin | 10-20-70 | alt | Amadeus | Petra | Peixe Marlin | 20-30-50 | f2p | Zoe | Petra | Quinn | 20-40-40 | best | Amadeus | Petra | Rosa | 10-10-80 | alt | Helga | Petra | Rosa | 10-10-80 | f2p | Zoe | Petra | Rosa | 10-10-80 | best | Amadeus
+[leaders] best | Amadeus | Jabel | Quinn | 30-30-40 | alt | Helga | Jabel | Quinn | 20-40-40 | f2p | Howard | Jabel | Quinn | 30-30-40 | best | Amadeus | Hilde | Peixe Marlin | 20-30-50 | alt | Helga | Jabel | Peixe Marlin | 20-30-50 | f2p | Zoe | Jabel | Quinn | 30-30-40 | best | Amadeus | Petra | Peixe Marlin | 20-30-50 | f2p | Zoe | Petra | Quinn | 20-40-40 | alt | Helga | Petra | Peixe Marlin | 10-20-70 | best | Amadeus | Petra | Rosa | 10-10-80 | alt | Helga | Petra | Rosa | 10-10-80 | f2p | Zoe | Petra | Rosa | 10-10-80 | best | Amadeus
 
 ### GUIDE #swordland-showdown — Confronto entre Espadas
 QUANDO
