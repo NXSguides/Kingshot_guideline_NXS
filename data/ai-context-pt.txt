@@ -266,7 +266,6 @@ Salve suas formações de participante
 Monte suas formações de participação (BT2–BT5): primeiro herói da lista aprovada, depois exatamente 9.000 infantaria, 9.000 cavalaria e 72.000 arqueiros.
 Ao salvar, marque Save by Troop Quantity (por quantidade, não por proporção), para cada marcha ter exatamente 90,000.
 (see guide #formations-rally-tips)
-Prioridade – envie estes primeiro: esses heróis dão um bônus fixo de Letalidade, o bônus mais valioso na Caça ao Urso.
 USE COM CUIDADO
 ⚠️ Heróis de dano baseado em chance: efeitos fortes, mas NÃO acumulam. Use apenas UM desses heróis no mesmo rally: Peixe Marlin, Zoe, Jaeger, Petra. ❌ Não mande Petra como participante.
 🔗 Saiba mais: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes

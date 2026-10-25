@@ -268,7 +268,6 @@ Android
 참여용 편성(BT2–BT5)을 설정하세요: 첫 번째 영웅은 승인 목록에서, 병력은 정확히 보병 9,000, 기병 9,000, 궁병 72,000.
 저장할 때 Save by Troop Quantity(병력 수로 저장, 비율 아님)를 체크하면 매번 정확히 90,000명이 됩니다.
 (see guide #formations-rally-tips)
-우선 파견: 이 영웅들은 고정 파괴력 보너스를 주며, 베어 사냥에서 가장 가치 있는 보너스입니다.
 주의해서 사용
 ⚠️ 확률 발동 피해 영웅: 효과는 강하지만 중첩되지 않습니다. 같은 집결에는 이 중 한 명만 보내세요: 마린, 조이, 예거, 리틀 페라. ❌ 참여자로 리틀 페라를 보내지 마세요.
 🔗 더 보기: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes

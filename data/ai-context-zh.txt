@@ -266,7 +266,6 @@ Android
 設定加入集結用的陣容（BT2–BT5）：第一位英雄用認可名單裡的，兵力剛好步兵 9,000、騎兵 9,000、弓兵 72,000。
 儲存時勾選「Save by Troop Quantity」（依兵力數量儲存，不是依比例），這樣每次出兵都剛好 90,000 人。
 (see guide #formations-rally-tips)
-優先派出：這些英雄提供固定殺傷力加成，是狩獵巨熊最有價值的加成。
 謹慎使用
 ⚠️ 機率觸發傷害的英雄：效果很強，但不會疊加。同一個集結中只能派其中一位：馬林、佐伊、耶格爾、小佩拉。 ❌ 參與者不要派小佩拉。
 🔗 更多資訊： https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes

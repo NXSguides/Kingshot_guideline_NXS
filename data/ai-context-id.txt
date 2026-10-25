@@ -266,7 +266,6 @@ Simpan formasi peserta
 Atur formasi untuk bergabung (BT2–BT5): hero pertama dari daftar yang disetujui, lalu tepat 9.000 infanteri, 9.000 kavaleri, dan 72.000 pemanah.
 Saat menyimpan, centang Save by Troop Quantity (berdasarkan jumlah, bukan rasio) supaya setiap barisan tepat 90,000.
 (see guide #formations-rally-tips)
-Prioritas – kirim ini dulu: pahlawan ini memberi bonus Lethality tetap, bonus paling berharga untuk Bear Hunt.
 GUNAKAN DENGAN HATI-HATI
 ⚠️ Pahlawan damage berbasis peluang: efeknya kuat, tapi TIDAK menumpuk. Gunakan hanya SATU dari pahlawan ini dalam reli yang sama: Marlin, Zoe, Jaeger, Petra. ❌ Jangan kirim Petra sebagai peserta.
 🔗 Selengkapnya: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes

@@ -266,7 +266,6 @@ Teilnehmer-Aufstellungen speichern
 Stell deine Teilnahme-Aufstellungen ein (BT2–BT5): erster Held aus der freigegebenen Liste, dann genau 9.000 Infanterie, 9.000 Kavallerie und 72.000 Bogenschützen.
 Hak beim Speichern Save by Troop Quantity an (nach Truppenzahl, nicht nach Verhältnis), damit jeder Marsch genau 90,000 hat.
 (see guide #formations-rally-tips)
-Priorität – diese zuerst schicken: Diese Helden geben einen festen Tödlichkeit-Bonus, den wertvollsten Bonus für die Bärenjagd.
 MIT VORSICHT VERWENDEN
 ⚠️ Helden mit zufallsbasiertem Schaden: starke Effekte, aber sie stapeln sich NICHT. Setze nur EINEN dieser Helden in derselben Rally ein: Marlin, Zoe, Jaeger, Petra. ❌ Schick Petra nicht als Teilnehmer.
 🔗 Mehr dazu: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes

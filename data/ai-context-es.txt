@@ -266,7 +266,6 @@ Guarda tus formaciones de participante
 Prepara tus formaciones para unirte (BT2–BT5): primer héroe de la lista aprobada y exactamente 9.000 infantería, 9.000 caballería y 72.000 arqueros.
 Al guardarlas, marca Save by Troop Quantity (por cantidad, no por proporción) para que cada marcha tenga exactamente 90,000.
 (see guide #formations-rally-tips)
-Prioridad – envía estos primero: estos héroes dan una bonificación fija de Letalidad, la más valiosa para la Cacería del Oso.
 ÚSALOS CON CUIDADO
 ⚠️ Héroes de daño por probabilidad: efectos fuertes, pero NO se acumulan. Usa solo UNO de estos héroes en el mismo ataque conjunto: Marlin, Zoe, Jaeger, Petra. ❌ No envíes a Petra como participante.
 🔗 Más información: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes

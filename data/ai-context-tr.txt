@@ -266,7 +266,6 @@ Katılımcı dizilişlerini kaydet
 Katılım dizilişlerini ayarla (BT2–BT5): onaylı listeden ilk kahraman, sonra tam 9.000 piyade, 9.000 süvari ve 72.000 okçu.
 Kaydederken Save by Troop Quantity (orana göre değil, sayıya göre) seçeneğini işaretle; böylece her yürüyüş tam 90,000 olur.
 (see guide #formations-rally-tips)
-Öncelik – önce bunları gönderin: Bu kahramanlar sabit Öldürücülük bonusu verir; Ayı Avı için en değerli bonus budur.
 DİKKATLİ KULLANIN
 ⚠️ Şansa bağlı hasar veren kahramanlar: güçlü etkiler, ama birikmezler. Aynı seferberlikte bunlardan yalnızca BİRİNİ kullanın: Marlin, Zoe, Jaeger, Petra. ❌ Petra'yı katılımcı olarak gönderme.
 🔗 Daha fazlası: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes

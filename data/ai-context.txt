@@ -266,7 +266,6 @@ Save your joiner formations
 Set your joining formations (BT2–BT5): first-slot hero from the approved list, then exactly 9,000 infantry, 9,000 cavalry and 72,000 archers.
 When you save them, tick Save by Troop Quantity (not by ratio), so every march is exactly 90,000.
 (see guide #formations-rally-tips)
-Priority — send these first: these heroes give a flat Lethality bonus, the most valuable bonus for Bear Hunt.
 USE WITH CAUTION
 ⚠️ Chance-based damage heroes: strong effects, but they do NOT stack. Only use ONE of these heroes in the same rally: Marlin, Zoe, Jaeger, Petra. ❌ Do not send Petra as a joiner.
 🔗 More: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes
