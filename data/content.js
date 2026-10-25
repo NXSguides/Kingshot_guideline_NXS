@@ -47,7 +47,8 @@ const UI = {
   tags: {
     best: { zh: "最佳", en: "BEST", ko: "주요", de: "BESTE" },
     alt: { zh: "替代", en: "ALT", ko: "대체", de: "ALT" },
-    f2p: { zh: "免費", en: "F2P", ko: "무과금", de: "F2P" }
+    f2p: { zh: "免費", en: "F2P", ko: "무과금", de: "F2P" },
+    n1: { en: "#1" }, n2: { en: "#2" }, n3: { en: "#3" }
   },
   roles: {
     lethality: { zh: "殺傷力主將", en: "Lead for Lethality", ko: "파괴력 리드", de: "Lead für Tödlichkeit" },
@@ -2960,9 +2961,9 @@ const GUIDES = {
         { tag: "f2p", heroes: ["Zoe", "Jabel", "Quinn"], ratio: "30-30-40", img: "figures/Gen2_F2P.png" }
       ]},
       { rows: [
-        { tag: "best", heroes: ["Amadeus", "Petra", "Marlin"], ratio: "20-30-50", img: "figures/Gen3_alternative.png" },
-        { tag: "f2p", heroes: ["Zoe", "Petra", "Quinn"], ratio: "20-40-40", img: "figures/Gen3_F2P.png" },
-        { tag: "alt", heroes: ["Helga", "Petra", "Marlin"], ratio: "10-20-70", img: "figures/Gen3_best.png" }
+        { tag: "n1", heroes: ["Amadeus", "Petra", "Marlin"], ratio: "20-30-50", img: "figures/Gen3_alternative.png" },
+        { tag: "n2", heroes: ["Zoe", "Petra", "Quinn"], ratio: "20-40-40", img: "figures/Gen3_F2P.png" },
+        { tag: "n3", heroes: ["Helga", "Petra", "Marlin"], ratio: "10-20-70", img: "figures/Gen3_best.png" }
       ]},
       { rows: [
         { tag: "best", heroes: ["Amadeus", "Petra", "Rosa"], ratio: "10-10-80", img: "figures/Gen4_best.png" },
