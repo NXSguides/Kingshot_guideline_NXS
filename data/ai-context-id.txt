@@ -750,6 +750,12 @@ KGb
 Jika kastil Anda diserang oleh anggota NAP, jangan membalas — laporkan ke R4/R5.
 Hindari mengumpulkan sumber daya di area liar, gunakan Node Aliansi Aman sebagai gantinya.
 Pelanggar aturan akan ditindak sesuai kesepakatan aliansi/NAP.
+⚔️ Sebelum menyerang kota
+Menyerang kota selalu membuatmu kehilangan pasukan, bahkan saat menang besar. Pasukan yang tumbang dalam pertempuran selalu dibagi dengan cara yang sama:
+Pertempuran biasa (lapangan, rally, bertahan): 35% luka berat (rumah sakit), 65% luka ringan. Tidak ada yang mati.
+Menyerang kota orang lain: 35% mati permanen, 10% luka berat, 55% luka ringan.
+Pasukan pihak bertahan semuanya masuk rumah sakit, jadi mereka hampir tidak merasakannya.
+Laporan nyata: musuh menyerang kota anggota kami dengan 135 ribu pasukan dan hancur total. 47.310 pasukannya mati permanen — anggota kami tidak kehilangan satu pun, semua masuk rumah sakit. Jaga kotamu tetap kuat di wilayah kita dan biarkan penyerang yang rugi; serang kota hanya jika sepadan.
 🏭 Titik Pengumpulan Aman
 Selama event Serangan Penuh, kami akan merotasi titik pengumpulan aman setiap 12 jam selama 48 jam.
 Ini memberi semua orang tempat terlindungi untuk mengumpulkan sumber daya selama event berlangsung.
