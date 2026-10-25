@@ -204,9 +204,9 @@ Pembaruan otomatis — tidak perlu memasang ulang.
 Nama tombol bisa sedikit berbeda tergantung ponsel dan versi sistem.
 
 ### GUIDE #bear-hunt — Bear Hunt
-🐻 Bear Hunt NXS — cara NXS melakukan Bear Hunt: hero kuat, rally terkoordinasi, waktu yang tepat, dan damage aliansi maksimal.
-1. Hero Perangkap Beruang — Gen 3
-Pemimpin rally — formasi yang disetujui
+🐻 Bear Hunt NXS — cara NXS melakukan Bear Hunt: hero kuat, reli terkoordinasi, waktu yang tepat, dan damage aliansi maksimal.
+1. Hero Perangkap Berburu — Gen 3
+Pemimpin reli — formasi pasukan yang disetujui
 GEN 1
 GEN 2
 GEN 3
@@ -218,32 +218,32 @@ Formasi pasukan: 30-30-40%. Untuk F2P, disarankan selalu memakai 3 hero yang dim
 Formasi pasukan: 20-30-50%. Marlin akan menambah damage besar berkat perlengkapan khusus reli miliknya. Mulai Gen 2, Infanteri akan selalu Amadeus atau Helga — mereka satu-satunya hero Infanteri dengan perlengkapan khusus reli (bonus Lethality). Kamu mengirim lebih sedikit Infanteri, jadi hero Infanteri menutup damage Pemanah lewat perlengkapan itu, bukan dengan menyamai stat Infanteri.
 Formasi pasukan: 20-30-50%. Alternatif lain adalah mengganti Quinn dengan Marlin jika ia belum lebih baik. Pakai Helga di Gen 2+ hanya jika Amadeus belum bintang 5 + perlengkapan khusus level maks; ini juga kesempatan memakai Amadeus untuk bergabung ke reli.
 Formasi pasukan: 30-30-40%. Masih belum ada hero F2P dengan perlengkapan khusus reli, jadi sekali lagi formasi seimbang dengan Pemanah sedikit lebih banyak, karena stat Pemanah akan paling rendah tanpa hero Pemanah SSR.
-Formasi pasukan: 10-20-70%. Hanya jika Helga dan widget-nya sama-sama maks.
+Formasi pasukan: 10-20-70%. Hanya jika Helga dan Widget-nya sama-sama maks.
 Formasi pasukan: 10-10-80%. Paksakan sebanyak mungkin Pemanah, terutama jika T10. Dengan sedikit keberuntungan, skill ke-3 Rosa akan bekerja untukmu (meningkatkan total Attack Pemanah sebesar 30%).
 Formasi pasukan: 10-10-80%. Pakai Helga sebagai alternatif jika bintang dan level perlengkapan khususnya lebih baik dari Amadeus. Tetap paksakan sebanyak mungkin Pemanah, terutama T10, untuk skill ke-3 Rosa (meningkatkan total Attack Pemanah sebesar 30%).
 Formasi pasukan: 10-10-80%. Sama seperti hero alternatif terbaik — bonus skill ke-3 Rosa paling maksimal jika kamu fokus pada formasi yang berat di Pemanah (meningkatkan total Attack Pemanah sebesar 30%).
 Slot pemimpin lainnya belum dirilis.
 Peserta — hero pertama yang disetujui
 ❌ Jangan kirim Petra sebagai peserta. Pakai hero yang disetujui di slot pertama, atau kirim tanpa hero.
-Pemimpin rally: stat dan gear ketiga hero berpengaruh.
+Pemimpin reli: stat dan gear ketiga hero berpengaruh.
 Peserta: hanya skill ekspedisi hero pertamamu yang dihitung, makin tinggi levelnya makin bagus. Gear-nya tidak berpengaruh, stat-mu sendiri juga tidak. Yang berpengaruh adalah jenis pasukan, tier, dan rasio.
-Dengan batas 90,000, kamu bisa kirim hero pertama saja dan biarkan slot lain kosong. Hero lain hanya menambah kapasitas barisan.
+Dengan batas 90,000, kamu bisa kirim hero pertama saja dan biarkan slot lain kosong. Hero lain hanya menambah kapasitas pengerahan.
 2. Syarat pasukan peserta
-Semua peserta mengirim tepat 90,000 pasukan per rally. Rasio ideal 10:10:80 jika memungkinkan, fokus pada pemanah.
+Semua peserta mengirim tepat 90,000 pasukan per reli. Rasio ideal 10:10:80 jika memungkinkan, fokus pada pemanah.
 Infanteri 9.000 (10%) · Kavaleri 9.000 (10%) · Pemanah 72.000 (80%)
 90,000 pasukan wajib. Rasio 10:10:80 ideal, tidak wajib.
-Simpan barisan untuk bergabung sebelum Bear Hunt agar bisa ikut rally dengan cepat dan efisien.
-3. Aturan untuk pemimpin rally yang ditunjuk
-⏱️ NXS menunjuk pemimpin rally untuk setiap Perangkap Beruang. Mereka ada di lingkaran dalam di sekitar perangkap dan berangkat dalam dua gelombang: Gelombang 1 di 0:00 (awal) dan Gelombang 2 di 0:45 (45 detik kemudian).
-Mulai rally di waktu yang ditentukan dengan formasi yang disetujui (di bawah) dan pasukan maksimal. Saat ikut rally orang lain, ikuti batas 90,000 seperti semua orang.
-Mengelola rally kamu
+Simpan formasi untuk bergabung sebelum Bear Hunt agar bisa ikut reli dengan cepat dan efisien.
+3. Aturan untuk pemimpin reli yang ditunjuk
+⏱️ NXS menunjuk pemimpin reli untuk setiap Perangkap Berburu. Mereka ada di lingkaran dalam di sekitar perangkap dan berangkat dalam dua gelombang: Gelombang 1 di 0:00 (awal) dan Gelombang 2 di 0:45 (45 detik kemudian).
+Mulai reli di waktu yang ditentukan dengan formasi yang disetujui dan pasukan maksimal. Saat ikut reli orang lain, ikuti batas 90,000 seperti semua orang.
+Mengelola reli kamu
 Periksa hero dan jumlah pasukan semua yang bergabung:
 Hero pertama salah: keluarkan pemain dan minta bergabung lagi dengan benar.
 Jumlah pasukan salah: keluarkan pemain dan minta bergabung lagi dengan tepat 90,000 pasukan.
 Hanya 4 peserta teratas yang dihitung: game memakai skill hero pertama dari 4 peserta paling atas di daftar, berapa pun level hero atau pasukannya. Naikkan dua Chenko dan dua Amane terbaikmu ke atas.
-Cara menaikkan peserta
-Buka rally Beruang kamu yang sedang berjalan.
-Cari peserta Chenko dan Amane terkuat — bandingkan bintang hero dan level widget.
+Langkah demi langkah
+Buka reli Bear Hunt kamu yang sedang berjalan.
+Cari peserta Chenko dan Amane terkuat — bandingkan bintang hero dan level Widget.
 Ketuk baris pemain untuk membuka detailnya.
 Tekan panah atas berwarna toska untuk menaikkan pemain itu ke paling atas.
 Terus naikkan peserta prioritas lainnya. Yang terakhir dinaikkan berada di atas yang lain.
@@ -252,14 +252,14 @@ Periksa 4 teratas akhir: targetkan dua Chenko kuat dan dua Amane kuat.
 Tepat 90,000 pasukan di setiap barisan yang bergabung.
 Rasio ideal 10:10:80 jika bisa: 9.000 infanteri, 9.000 kavaleri, 72.000 pemanah (ideal, tidak wajib).
 Hero pertama: Chenko, Amane, Yeonwoo, Amadeus, atau tanpa hero. Jangan kirim Petra sebagai peserta.
-Simpan barisanmu lebih dulu sebelum Bear Hunt dimulai.
-Pemimpin rally yang ditunjuk: pasukan maksimal di rally sendiri, tapi batas 90,000 saat ikut rally orang lain.
-Tidak ada rally sendiri di fase utama: ikut rally NXS yang ditunjuk, jangan membuka rally sendiri.
-⏰ Sisa 6:30 — fase rally terakhir: semua peserta boleh membuka rally sendiri dengan 3 hero terkuat. Ini satu-satunya pengecualian dari aturan tidak membuka rally lain.
-Simpan formasi pemimpin rally
-🧮 Pakai Frakinator (https://frakinator.streamlit.app/) untuk mencari rasio idealmu sebagai pemimpin. Ini juga menghitung Hunter Instinct-mu (Valora).
-💡 Kenapa simpan berdasarkan rasio, bukan jumlah: Valora menaikkan kapasitasmu seiring afinitasnya naik (Savage Advantage: kapasitas kirimmu +3.000 sampai +30.000; Dance of the Hunt: kapasitas rally melawan beruang +30.000 sampai +300.000). Formasi yang disimpan berdasarkan rasio selalu mengisi maksimum saat ini; yang disimpan berdasarkan jumlah tetap di angka lama.
-Atur formasi pemimpin rally (misalnya BT1): hero utama, ke-2 dan ke-3, dan pasukanmu.
+Simpan formasimu lebih dulu sebelum Bear Hunt dimulai.
+Pemimpin reli yang ditunjuk: pasukan maksimal di reli sendiri, tapi batas 90,000 saat ikut reli orang lain.
+Tidak ada reli sendiri di fase utama: ikut reli NXS yang ditunjuk, jangan membuka reli sendiri.
+⏰ Sisa 6:30 — fase reli terakhir: semua peserta boleh membuka reli sendiri dengan 3 hero terkuat. Ini satu-satunya pengecualian dari aturan tidak membuka reli lain.
+Simpan formasi pemimpin reli
+🧮 Pakai Frakinator (https://frakinator.streamlit.app/) untuk mencari rasio idealmu sebagai pemimpin. Ini juga menghitung Hunter Instinct Valora.
+💡 Kenapa simpan berdasarkan rasio, bukan jumlah: Valora menaikkan kapasitasmu seiring Kedekatan naik (Savage Advantage: kapasitas pengerahan +3.000 sampai +30.000; Dance of the Hunt: kapasitas reli melawan beruang +30.000 sampai +300.000). Formasi yang disimpan berdasarkan rasio selalu mengisi maksimum saat ini; yang disimpan berdasarkan jumlah tetap di angka lama.
+Atur formasi pemimpin reli (misalnya BT1): hero utama, ke-2 dan ke-3, dan pasukanmu.
 Saat menyimpan, centang Save by Troop Ratio (simpan berdasarkan rasio pasukan).
 Simpan formasi peserta
 Atur formasi untuk bergabung (BT2–BT5): hero pertama dari daftar yang disetujui, lalu tepat 9.000 infanteri, 9.000 kavaleri, dan 72.000 pemanah.

@@ -204,9 +204,9 @@ As atualizações são automáticas — não é preciso reinstalar.
 Os nomes dos botões podem variar um pouco conforme o celular e a versão do sistema.
 
 ### GUIDE #bear-hunt — Caça ao Urso
-🐻 Caça ao Urso NXS — como a NXS faz a Caça ao Urso: heróis fortes, reuniões coordenadas, tempo preciso e dano máximo da aliança.
-1. Heróis da Armadilha do Urso — Gen 3
-Líderes de reunião — formações aprovadas
+🐻 Caça ao Urso NXS — como a NXS faz a Caça ao Urso: heróis fortes, rallies coordenados, tempo preciso e dano máximo da aliança.
+1. Heróis da Armadilha de Caça — Gen 3
+Líderes de rally — formações das tropas aprovadas
 GEN 1
 GEN 2
 GEN 3
@@ -218,51 +218,51 @@ Formação de tropas: 30-30-40%. Para F2P, recomenda-se usar sempre os 3 heróis
 Formação de tropas: 20-30-50%. O Peixe Marlin aumenta muito o dano por causa do equipamento exclusivo de rally dele. A partir da Gen 2, a Infantaria será sempre o Amadeus ou a Helga — são os únicos heróis de Infantaria com equipamento exclusivo de rally (bônus de Letalidade). Você envia menos Infantaria, então o herói de Infantaria cobre o dano dos Arquearia por meio desse equipamento, e não igualando os atributos de Infantaria.
 Formação de tropas: 20-30-50%. Outra alternativa é trocar o Quinn pelo Peixe Marlin, se ele ainda não for melhor. Use a Helga na Gen 2+ apenas se o Amadeus não estiver com 5 estrelas + equipamento exclusivo no nível máximo; também é uma chance de usar o Amadeus para entrar em rallies.
 Formação de tropas: 30-30-40%. Ainda não há herói F2P com equipamento exclusivo de rally, então novamente uma formação equilibrada com um pouco mais de Arquearia, já que os atributos dos Arquearia serão os mais baixos sem um herói de Arquearia SSR.
-Formação de tropas: 10-20-70%. Só se Helga e o widget dela estiverem no máximo.
+Formação de tropas: 10-20-70%. Só se Helga e o Ferramenta dela estiverem no máximo.
 Formação de tropas: 10-10-80%. Force o máximo de Arquearia possível, principalmente se forem T10. Com um pouco de sorte, a 3ª habilidade da Rosa fará o trabalho por você (aumenta o Ataque total dos Arquearia em 30%).
 Formação de tropas: 10-10-80%. Use a Helga como alternativa se ela tiver mais estrelas e um nível de equipamento exclusivo melhor que o do Amadeus. Continue forçando o máximo de Arquearia possível, principalmente T10, para a 3ª habilidade da Rosa (aumenta o Ataque total dos Arquearia em 30%).
 Formação de tropas: 10-10-80%. Igual aos melhores heróis alternativos — os bônus da 3ª habilidade da Rosa rendem mais se você focar em formações pesadas de Arquearia (aumenta o Ataque total dos Arquearia em 30%).
 Os demais espaços de líder ainda não foram divulgados.
 Participantes — primeiros heróis aprovados
 ❌ Não mande Petra como participante. Use um herói aprovado no primeiro espaço ou mande sem herói.
-Líderes de reunião: os atributos e equipamentos dos 3 heróis importam.
-Participantes: só conta a habilidade de expedição do seu primeiro herói, quanto maior o nível, melhor. O equipamento dele não importa, nem seus próprios atributos. O que importa é tipo de tropa, nível e proporção.
-Com o limite de 90,000, você pode mandar só o primeiro herói e deixar os outros espaços vazios. Os outros heróis só aumentam a capacidade de marcha.
+Líderes de rally: os atributos e equipamentos dos 3 heróis importam.
+Participantes: só conta a habilidade de expedição do seu primeiro herói, quanto maior o nível, melhor. O equipamento dela não importa, nem seus próprios atributos. O que importa é tipo de tropa, nível e proporção.
+Com o limite de 90,000, você pode mandar só o primeiro herói e deixar os outros espaços vazios. Os outros heróis só aumentam a capacidade de implantação.
 2. Tropas dos participantes
-Todos os participantes mandam exatamente 90,000 tropas por reunião. A proporção ideal é 10:10:80 quando possível, com foco em arqueiros.
-Infantaria 9.000 (10%) · Cavalaria 9.000 (10%) · Arqueiros 72.000 (80%)
+Todos os participantes mandam exatamente 90,000 tropas por rally. A proporção ideal é 10:10:80 quando possível, com foco na arquearia.
+Infantaria 9.000 (10%) · Cavalaria 9.000 (10%) · Arquearia 72.000 (80%)
 90,000 tropas é obrigatório. A proporção 10:10:80 é ideal, não obrigatória.
-Salve suas marchas de participação antes da Caça ao Urso para entrar nas reuniões de forma rápida e eficiente.
-3. Regras para líderes de reunião escolhidos
-⏱️ A NXS escolhe líderes de reunião para cada Armadilha. Eles ficam no círculo interno em volta da armadilha, em duas ondas: Onda 1 em 0:00 (no início) e Onda 2 em 0:45 (45 segundos depois).
-Comece sua reunião no horário marcado com uma formação aprovada (abaixo) e o máximo de tropas. Ao entrar na reunião de outra pessoa, siga o limite de 90,000 como todo mundo.
-Gerenciando sua reunião
+Salve suas formações de participação antes da Caça ao Urso para entrar nos rallies de forma rápida e eficiente.
+3. Regras para líderes de rally escolhidos
+⏱️ A NXS escolhe líderes de rally para cada Armadilha de Caça. Eles ficam no círculo interno em volta da armadilha, em duas ondas: Onda 1 em 0:00 (no início) e Onda 2 em 0:45 (45 segundos depois).
+Comece seu rally no horário marcado com uma formação aprovada e o máximo de tropas. Ao entrar no rally de outra pessoa, siga o limite de 90,000 como todo mundo.
+Gerenciando seu rally
 Confira os heróis e o número de tropas de todos que entrarem:
 Primeiro herói errado: expulse o jogador e peça para entrar de novo do jeito certo.
 Número de tropas errado: expulse o jogador e peça para entrar de novo com exatamente 90,000 tropas.
 Só os 4 primeiros participantes contam: o jogo usa a habilidade do primeiro herói dos 4 participantes no topo da lista, seja qual for o nível do herói ou as tropas. Suba seus dois melhores Chenko e dois melhores Amane.
-Como subir participantes
-Abra sua reunião do Urso em andamento.
-Ache os participantes Chenko e Amane mais fortes — compare as estrelas dos heróis e o nível dos widgets.
+Passo a passo
+Abra seu rally de Caça ao Urso em andamento.
+Ache os participantes Chenko e Amane mais fortes — compare as estrelas dos heróis e o nível do Ferramenta.
 Toque na linha do jogador para ver os detalhes.
 Aperte a seta turquesa para cima para subir esse jogador para o topo.
 Continue subindo os outros prioritários. O último a subir fica acima dos outros.
 Confira os 4 primeiros: o objetivo é dois Chenko fortes e dois Amane fortes.
 4. Regras para todos os participantes
 Exatamente 90,000 tropas em cada marcha de participação.
-Proporção ideal 10:10:80 quando possível: 9.000 infantaria, 9.000 cavalaria, 72.000 arqueiros (ideal, não obrigatória).
+Proporção ideal 10:10:80 quando possível: 9.000 infantaria, 9.000 cavalaria, 72.000 arquearia (ideal, não obrigatória).
 Primeiro herói: Chenko, Amane, Yeonwoo, Amadeus ou nenhum herói. Não mande Petra como participante.
-Salve suas marchas antes de a Caça ao Urso começar.
-Líderes escolhidos: máximo de tropas na sua reunião, mas o limite de 90,000 ao entrar na de outra pessoa.
-Nada de reuniões próprias na fase principal: entre nas reuniões NXS escolhidas em vez de abrir a sua.
-⏰ Faltando 6:30 — fase final: todos os participantes podem abrir a própria reunião com os 3 heróis mais fortes. É a única exceção à regra de não abrir outras reuniões.
+Salve suas formações antes de a Caça ao Urso começar.
+Líderes escolhidos: máximo de tropas no seu rally, mas o limite de 90,000 ao entrar no de outra pessoa.
+Nada de rallies próprios na fase principal: entre nos rallies NXS escolhidos em vez de abrir o seu.
+⏰ Faltando 6:30 — fase final: todos os participantes podem abrir o próprio rally com os 3 heróis mais fortes. É a única exceção à regra de não abrir outros rallies.
 Salve sua formação de líder
-🧮 Use o Frakinator (https://frakinator.streamlit.app/) para achar sua proporção ideal como líder. Ele também considera seu Instinto de Caçador (Valora).
-💡 Por que salvar por proporção e não por quantidade: a Valora aumenta sua capacidade conforme a afinidade sobe (Vantagem Selvagem: sua tropa enviada +3.000 a +30.000; Dança da Caça: capacidade de reunião contra o urso +30.000 a +300.000). Uma formação salva por proporção sempre preenche seu máximo atual; uma salva por quantidade fica presa nos números antigos.
-Monte sua formação de líder de reunião (por exemplo BT1): herói principal, 2º e 3º herói e suas tropas.
+🧮 Use o Frakinator (https://frakinator.streamlit.app/) para achar sua proporção ideal como líder. Ele também considera o Hunter Instinct da Valora.
+💡 Por que salvar por proporção e não por quantidade: a Valora aumenta sua capacidade conforme a Afinidade sobe (Vantagem Selvagem: capacidade de implantação +3.000 a +30.000; Dança da Caçada: capacidade de rally contra o urso +30.000 a +300.000). Uma formação salva por proporção sempre preenche seu máximo atual; uma salva por quantidade fica presa nos números antigos.
+Monte sua formação de líder de rally (por exemplo BT1): herói principal, 2º e 3º herói e suas tropas.
 Ao salvar, marque Save by Troop Ratio (salvar por proporção de tropas).
 Salve suas formações de participante
-Monte suas formações de participação (BT2–BT5): primeiro herói da lista aprovada, depois exatamente 9.000 infantaria, 9.000 cavalaria e 72.000 arqueiros.
+Monte suas formações de participação (BT2–BT5): primeiro herói da lista aprovada, depois exatamente 9.000 infantaria, 9.000 cavalaria e 72.000 arquearia.
 Ao salvar, marque Save by Troop Quantity (por quantidade, não por proporção), para cada marcha ter exatamente 90,000.
 📚 Mais informações
 QUANDO

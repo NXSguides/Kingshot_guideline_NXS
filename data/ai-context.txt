@@ -205,7 +205,7 @@ Button names may differ slightly depending on your phone and system version.
 
 ### GUIDE #bear-hunt — Bear Hunt
 🐻 NXS Bear Hunt — how NXS does Bear Hunt: strong heroes, coordinated rallies, precise timing and maximum alliance damage.
-1. Bear Trap Heroes — Gen 3
+1. Hunting Trap Heroes — Gen 3
 Rally Leaders — Approved Formations
 GEN 1
 GEN 2
@@ -218,7 +218,7 @@ Troop formation: 30-30-40%. For F2P it is recommended to always use the 3 heroes
 Troop formation: 20-30-50%. Marlin will boost damage a lot due to his widget. From Gen 2 up, infantry will always be Amadeus or Helga — they are the only infantry heroes with rally widgets (lethality bonus). You send fewer infantry, so the infantry hero covers archer damage via the widget rather than matching infantry stats.
 Troop formation: 20-30-50%. Other alternative is swapping Quinn for Marlin if he isn't better yet. Use Helga in Gen 2+ only if Amadeus isn't 5-star + max widget level; also an opportunity to use Amadeus for joining rallies.
 Troop formation: 30-30-40%. Still no F2P hero with a rally widget, so again an even formation with slightly more archers, as archer stats will be lowest due to not having an SSR archer hero.
-Troop formation: 10-20-70%. Only if Helga and her widget are both maxed.
+Troop formation: 10-20-70%. Only if Helga and her Widget are both maxed.
 Troop formation: 10-10-80%. Force as many archer troops as you can, especially if they are T10. With a bit of luck Rosa's 3rd skill will do the work for you (Increasing Archers' total Attack by 30%).
 Troop formation: 10-10-80%. Use Helga as alternative if she has better stars and widget level than Amadeus. Still force as many archers as you can, especially T10, for Rosa's 3rd skill (Increasing Archers' total Attack by 30%).
 Troop formation: 10-10-80%. Same as alternative best heroes — Rosa's 3rd skill bonuses best if you focus on heavy archer formations (Increasing Archers' total Attack by 30%).
@@ -227,23 +227,23 @@ Joiners — Approved First-Slot Heroes
 ❌ Do not send Petra as a joiner. Use an approved hero in the first slot, or send no hero.
 Rally leaders: the stats and gear of all 3 heroes matter.
 Joiners: only your first hero's expedition skill counts, and the higher its level the better. Her gear doesn't matter, and neither do your own stats. What matters is your troop type, tier and ratio.
-With the 90,000 limit you can send just the first hero and leave the other slots empty. The other heroes only add march capacity.
+With the 90,000 limit you can send just the first hero and leave the other slots empty. The other heroes only add deployment capacity.
 2. Joiner Troop Requirements
 All joiners must send exactly 90,000 troops per rally. The ideal ratio is 10:10:80 wherever possible, with an emphasis on archers.
-Infantry 9,000 (10%) · Cavalry 9,000 (10%) · Archers 72,000 (80%)
+Infantry 9,000 (10%) · Cavalry 9,000 (10%) · Archer 72,000 (80%)
 90,000 troops is mandatory. The 10:10:80 ratio is ideal, not compulsory.
-Pre-save your joining marches before Bear Hunt so you can join rallies quickly and efficiently.
+Pre-save your joining formations before Bear Hunt so you can join rallies quickly and efficiently.
 3. Rules for Assigned Rally Leaders
-⏱️ NXS assigns rally leaders for each Bear Trap. Assigned leaders sit in the inner circle around the trap, split into two launch waves: Wave 1 at 0:00 (the start) and Wave 2 at 0:45 (45 seconds later).
-Start your rally at your assigned time with an approved formation (below) and your maximum troops. When you join someone else's rally, follow the 90,000 limit like everyone else.
+⏱️ NXS assigns rally leaders for each Hunting Trap. Assigned leaders sit in the inner circle around the trap, split into two launch waves: Wave 1 at 0:00 (the start) and Wave 2 at 0:45 (45 seconds later).
+Start your rally at your assigned time with an approved formation and your maximum troops. When you join someone else's rally, follow the 90,000 limit like everyone else.
 Managing your rally
 Check the heroes and troop numbers of everyone who joins:
 Wrong first-slot hero: kick the player and ask them to rejoin correctly.
 Wrong troop number: kick the player and ask them to rejoin with exactly 90,000 troops.
 Only your top 4 joiners count: the game uses the first-slot skill of the 4 joiners at the top of your list, whatever their hero level or troop count. Bump your best two Chenkos and two Amanes to the top.
-How to bump joiners
-Open your active Bear rally.
-Find the strongest Chenko and Amane joiners — compare their hero stars and widget levels.
+Step-by-step instructions
+Open your active Bear Hunt rally.
+Find the strongest Chenko and Amane joiners — compare their hero stars and Widget levels.
 Tap a player's row to open their details.
 Press the turquoise up-arrow to bump that player to the top.
 Keep bumping your other priority joiners. The last one bumped goes above the others.
@@ -252,13 +252,13 @@ Check the final top four: aim for two strong Chenkos and two strong Amanes.
 Exactly 90,000 troops in every joining march.
 Ideal ratio 10:10:80 where possible: 9,000 infantry, 9,000 cavalry, 72,000 archers (ideal, not compulsory).
 First-slot hero: Chenko, Amane, Yeonwoo, Amadeus, or no hero. Do not send Petra as a joiner.
-Pre-save your marches before Bear Hunt starts.
+Pre-save your formations before Bear Hunt starts.
 Assigned rally leaders: maximum troops in your own rally, but the 90,000 limit when joining someone else's.
 No independent rallies in the main phase: join the assigned NXS rallies instead of launching your own.
 ⏰ 6:30 remaining — final rally phase: all joiners may now start their own rallies with their 3 strongest heroes. This is the only exception to the no-other-rallies rule.
 Save your rally leader formation
-🧮 Use Frakinator (https://frakinator.streamlit.app/) to find your ideal ratio for leading. It also counts your Hunter Instinct (Valora).
-💡 Why save by ratio, not by quantity: Valora raises your capacity as her affinity grows (Savage Advantage: your own deployment +3,000 to +30,000; Dance of the Hunt: rally capacity vs the bear +30,000 to +300,000). A formation saved by ratio always fills your current maximum. One saved by quantity stays stuck at the old numbers.
+🧮 Use Frakinator (https://frakinator.streamlit.app/) to find your ideal ratio for leading. It also counts Valora's Hunter Instinct.
+💡 Why save by ratio, not by quantity: Valora raises your capacity as her Affinity grows (Savage Advantage: deployment capacity +3,000 to +30,000; Dance of the Hunt: rally capacity against the bear +30,000 to +300,000). A formation saved by ratio always fills your current maximum. One saved by quantity stays stuck at the old numbers.
 Set your rally leader formation (for example BT1): lead, 2nd and 3rd hero, and your troops.
 When you save it, tick Save by Troop Ratio.
 Save your joiner formations

@@ -204,9 +204,9 @@ Las actualizaciones son automáticas; no hace falta reinstalar.
 Los nombres de los botones pueden variar un poco según el teléfono y la versión del sistema.
 
 ### GUIDE #bear-hunt — Cacería del Oso
-🐻 Cacería del Oso NXS — cómo hace NXS la Cacería del Oso: héroes fuertes, concentraciones coordinadas, tiempo preciso y máximo daño de alianza.
-1. Héroes de la Trampa del Oso — Gen 3
-Líderes de concentración — formaciones aprobadas
+🐻 Cacería del Oso NXS — cómo hace NXS la Cacería del Oso: héroes fuertes, Ataques Conjuntos coordinados, tiempo preciso y máximo daño de alianza.
+1. Héroes de la Trampa de caza — Gen 3
+Líderes del Ataque Conjunto — formaciones de tropas aprobadas
 GEN 1
 GEN 2
 GEN 3
@@ -218,32 +218,32 @@ Formación de tropas: 30-30-40%. Para F2P se recomienda usar siempre los 3 héro
 Formación de tropas: 20-30-50%. Marlin aumentará mucho el daño gracias a su Complemento. Desde la Gen 2 en adelante, la infantería siempre será Amadeus o Helga — son los únicos héroes de infantería con Complemento de Ataque Conjunto (bono de letalidad). Envías menos infantería, así que el héroe de infantería cubre el daño de los arqueros mediante el Complemento en lugar de igualar las estadísticas de infantería.
 Formación de tropas: 20-30-50%. Otra alternativa es cambiar Quinn por Marlin si aún no es mejor. Usa a Helga en Gen 2+ solo si Amadeus no tiene 5 estrellas + Complemento al máximo; también es una oportunidad para usar a Amadeus uniéndose a Ataques Conjuntos.
 Formación de tropas: 30-30-40%. Todavía no hay ningún héroe F2P con Complemento de Ataque Conjunto, así que de nuevo una formación equilibrada con un poco más de arqueros, ya que las estadísticas de arqueros serán las más bajas al no tener un héroe arquero SSR.
-Formación de tropas: 10-20-70%. Solo si Helga y su widget están ambos al máximo.
+Formación de tropas: 10-20-70%. Solo si Helga y su Complemento están ambos al máximo.
 Formación de tropas: 10-10-80%. Fuerza tantas tropas de arqueros como puedas, especialmente si son T10. Con algo de suerte, la 3ª habilidad de Rosa hará el resto del trabajo (aumenta el ataque total de los arqueros en un 30%).
 Formación de tropas: 10-10-80%. Usa a Helga como alternativa si tiene más estrellas y nivel de widget que Amadeus. Sigue forzando tantos arqueros como puedas, especialmente T10, para la 3ª habilidad de Rosa (aumenta el ataque total de los arqueros en un 30%).
 Formación de tropas: 10-10-80%. Igual que la alternativa de mejores héroes — la 3ª habilidad de Rosa rinde mejor si te enfocas en formaciones pesadas de arqueros (aumenta el ataque total de los arqueros en un 30%).
 Los demás puestos de líder aún no se han publicado.
 Participantes — primeros héroes aprobados
 ❌ No envíes a Petra como participante. Usa un héroe aprobado en el primer puesto o envía sin héroe.
-Líderes de concentración: importan las estadísticas y el equipo de los 3 héroes.
-Participantes: solo cuenta la habilidad de expedición de tu primer héroe, cuanto más nivel, mejor. Su equipo no importa, ni tus propias estadísticas. Lo que importa es tipo de tropa, nivel y proporción.
-Con el límite de 90,000 puedes enviar solo el primer héroe y dejar vacíos los demás puestos. Los otros héroes solo suben la capacidad de marcha.
+Líderes del Ataque Conjunto: importan los atributos y el equipo de los 3 héroes.
+Participantes: solo cuenta la habilidad de expedición de tu primer héroe, cuanto más nivel, mejor. Su equipo no importa, ni tus propios atributos. Lo que importa es tipo de tropa, nivel y proporción.
+Con el límite de 90,000 puedes enviar solo el primer héroe y dejar vacíos los demás puestos. Los otros héroes solo suben la capacidad de despliegue.
 2. Tropas de los participantes
-Todos los participantes envían exactamente 90,000 tropas por concentración. La proporción ideal es 10:10:80 cuando se pueda, con énfasis en arqueros.
-Infantería 9.000 (10%) · Caballería 9.000 (10%) · Arqueros 72.000 (80%)
+Todos los participantes envían exactamente 90,000 tropas por Ataque Conjunto. La proporción ideal es 10:10:80 cuando se pueda, con énfasis en arqueros.
+Infantería 9.000 (10%) · Caballería 9.000 (10%) · Arquero 72.000 (80%)
 90,000 tropas es obligatorio. La proporción 10:10:80 es ideal, no obligatoria.
-Guarda tus marchas para unirte antes de la Cacería del Oso, así te unes a las concentraciones rápido y sin errores.
-3. Reglas para líderes de concentración asignados
-⏱️ NXS asigna líderes de concentración para cada Trampa. Están en el círculo interior alrededor de la trampa y salen en dos oleadas: Oleada 1 en 0:00 (al inicio) y Oleada 2 en 0:45 (45 segundos después).
-Inicia tu concentración a la hora asignada con una formación aprobada (abajo) y tus tropas máximas. Cuando te unas a la de otro, respeta el límite de 90,000 como todos.
-Gestionar tu concentración
+Guarda tus formaciones para unirte antes de la Cacería del Oso, así te unes a los Ataques Conjuntos rápido y sin errores.
+3. Reglas para líderes asignados
+⏱️ NXS asigna líderes para cada Trampa de caza. Están en el círculo interior alrededor de la trampa y salen en dos oleadas: Oleada 1 en 0:00 (al inicio) y Oleada 2 en 0:45 (45 segundos después).
+Inicia tu Ataque Conjunto a la hora asignada con una formación aprobada y tus tropas máximas. Cuando te unas al de otro, respeta el límite de 90,000 como todos.
+Gestionar tu Ataque Conjunto
 Revisa los héroes y la cantidad de tropas de todos los que se unen:
 Primer héroe equivocado: expulsa al jugador y pídele que vuelva a unirse correctamente.
 Cantidad de tropas equivocada: expulsa al jugador y pídele que vuelva con exactamente 90,000 tropas.
 Solo cuentan los 4 primeros participantes: el juego usa la habilidad del primer héroe de los 4 participantes de arriba de tu lista, sin importar su nivel ni sus tropas. Sube a tus dos mejores Chenko y dos mejores Amane.
-Cómo subir participantes
-Abre tu concentración del Oso en curso.
-Busca a los participantes Chenko y Amane más fuertes — compara estrellas de héroes y niveles de widget.
+Paso a paso
+Abre tu Ataque Conjunto de la Cacería del Oso en curso.
+Busca a los participantes Chenko y Amane más fuertes — compara estrellas de héroes y niveles de Complemento.
 Toca la fila del jugador para ver sus detalles.
 Pulsa la flecha turquesa hacia arriba para subir a ese jugador al primer puesto.
 Sigue subiendo a tus otros participantes prioritarios. El último que subes queda encima de los demás.
@@ -252,13 +252,13 @@ Revisa el top 4 final: busca dos Chenko fuertes y dos Amane fuertes.
 Exactamente 90,000 tropas en cada marcha de participación.
 Proporción ideal 10:10:80 cuando se pueda: 9.000 infantería, 9.000 caballería, 72.000 arqueros (ideal, no obligatoria).
 Primer héroe: Chenko, Amane, Yeonwoo, Amadeus o ningún héroe. No envíes a Petra como participante.
-Guarda tus marchas antes de que empiece la Cacería del Oso.
-Líderes asignados: tropas máximas en tu propia concentración, pero el límite de 90,000 al unirte a la de otro.
-Nada de concentraciones propias en la fase principal: únete a las concentraciones NXS asignadas en vez de lanzar la tuya.
-⏰ Quedan 6:30 — fase final: todos los participantes pueden lanzar su propia concentración con sus 3 héroes más fuertes. Es la única excepción a la regla de no lanzar otras concentraciones.
+Guarda tus formaciones antes de que empiece la Cacería del Oso.
+Líderes asignados: tropas máximas en tu propio Ataque Conjunto, pero el límite de 90,000 al unirte al de otro.
+Nada de Ataques Conjuntos propios en la fase principal: únete a los de NXS asignados en vez de lanzar el tuyo.
+⏰ Quedan 6:30 — fase final: todos los participantes pueden lanzar su propio Ataque Conjunto con sus 3 héroes más fuertes. Es la única excepción a la regla de no lanzar otros.
 Guarda tu formación de líder
-🧮 Usa Frakinator (https://frakinator.streamlit.app/) para encontrar tu proporción ideal como líder. También tiene en cuenta tu Instinto de Cazador (Valora).
-💡 Por qué guardar por proporción y no por cantidad: Valora sube tu capacidad a medida que sube su afinidad (Ventaja Salvaje: tu despliegue +3.000 a +30.000; Danza de la Caza: capacidad de concentración contra el oso +30.000 a +300.000). Una formación guardada por proporción siempre llena tu máximo actual; una guardada por cantidad se queda con los números viejos.
+🧮 Usa Frakinator (https://frakinator.streamlit.app/) para encontrar tu proporción ideal como líder. También tiene en cuenta el Hunter Instinct de Valora.
+💡 Por qué guardar por proporción y no por cantidad: Valora sube tu capacidad a medida que sube su Afinidad (Ventaja salvaje: capacidad de despliegue +3.000 a +30.000; Danza de la cacería: capacidad del Ataque Conjunto contra el oso +30.000 a +300.000). Una formación guardada por proporción siempre llena tu máximo actual; una guardada por cantidad se queda con los números viejos.
 Prepara tu formación de líder (por ejemplo BT1): héroe principal, 2.º y 3.er héroe y tus tropas.
 Al guardarla, marca Save by Troop Ratio (guardar por proporción de tropas).
 Guarda tus formaciones de participante
