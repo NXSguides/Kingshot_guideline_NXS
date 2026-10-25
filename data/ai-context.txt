@@ -229,9 +229,7 @@ Joiners — Approved First-Slot Heroes
 All joiners must send exactly 90,000 troops per rally. The ideal ratio is 10:10:80 wherever possible, with an emphasis on archers.
 Infantry 9,000 (10%) · Cavalry 9,000 (10%) · Archers 72,000 (80%)
 90,000 troops is mandatory. The 10:10:80 ratio is ideal, not compulsory.
-Save your joiner formations
-Set your joining formations (BT2–BT5): first-slot hero from the approved list, then exactly 9,000 infantry, 9,000 cavalry and 72,000 archers.
-When you save them, tick Save by Troop Quantity (not by ratio), so every march is exactly 90,000.
+Pre-save your joining marches before Bear Hunt so you can join rallies quickly and efficiently.
 3. Rules for Assigned Rally Leaders
 ⏱️ NXS assigns rally leaders for each Bear Trap. Assigned leaders sit in the inner circle around the trap, split into two launch waves: Wave 1 at 0:00 (the start) and Wave 2 at 0:45 (45 seconds later).
 Start your rally at your assigned time with an approved formation (below) and your maximum troops. When you join someone else's rally, follow the 90,000 limit like everyone else.
@@ -247,9 +245,6 @@ Tap a player's row to open their details.
 Press the turquoise up-arrow to bump that player to the top.
 Keep bumping your other priority joiners. The last one bumped goes above the others.
 Check the final top four: aim for two strong Chenkos and two strong Amanes.
-Save your rally leader formation
-Set your rally leader formation (for example BT1): lead, 2nd and 3rd hero, and your troops.
-When you save it, tick Save by Troop Ratio.
 4. Rules for All Joiners
 Exactly 90,000 troops in every joining march.
 Ideal ratio 10:10:80 where possible: 9,000 infantry, 9,000 cavalry, 72,000 archers (ideal, not compulsory).
@@ -258,6 +253,12 @@ Pre-save your marches before Bear Hunt starts.
 Assigned rally leaders: maximum troops in your own rally, but the 90,000 limit when joining someone else's.
 No independent rallies in the main phase: join the assigned NXS rallies instead of launching your own.
 ⏰ 6:30 remaining — final rally phase: all joiners may now start their own rallies with their 3 strongest heroes. This is the only exception to the no-other-rallies rule.
+Save your rally leader formation
+Set your rally leader formation (for example BT1): lead, 2nd and 3rd hero, and your troops.
+When you save it, tick Save by Troop Ratio.
+Save your joiner formations
+Set your joining formations (BT2–BT5): first-slot hero from the approved list, then exactly 9,000 infantry, 9,000 cavalry and 72,000 archers.
+When you save them, tick Save by Troop Quantity (not by ratio), so every march is exactly 90,000.
 📚 More info
 WHEN
 Every 2 days at your Alliance's scheduled time.

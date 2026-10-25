@@ -229,9 +229,7 @@ Participants — premiers héros approuvés
 Tous les participants envoient exactement 90,000 troupes par ralliement. Le ratio idéal est 10:10:80 si possible, surtout des archers.
 Infanterie 9 000 (10 %) · Cavalerie 9 000 (10 %) · Archers 72 000 (80 %)
 90,000 troupes est obligatoire. Le ratio 10:10:80 est idéal, pas obligatoire.
-Enregistrer tes formations de participant
-Prépare tes formations de participation (BT2–BT5) : premier héros de la liste approuvée, puis exactement 9 000 infanterie, 9 000 cavalerie et 72 000 archers.
-En les enregistrant, coche Save by Troop Quantity (par nombre, pas par ratio) pour que chaque marche fasse exactement 90,000.
+Pré-enregistre tes marches de participation avant la Chasse à l'Ours pour rejoindre les ralliements vite et efficacement.
 3. Règles pour les chefs de ralliement désignés
 ⏱️ NXS désigne des chefs de ralliement pour chaque Piège. Ils sont dans le cercle intérieur autour du piège et partent en deux vagues : Vague 1 à 0:00 (au début) et Vague 2 à 0:45 (45 secondes plus tard).
 Lance ton ralliement à l'heure prévue avec une formation approuvée (ci-dessous) et tes troupes maximales. Quand tu rejoins le ralliement d'un autre, respecte la limite de 90,000 comme tout le monde.
@@ -247,9 +245,6 @@ Touche la ligne d'un joueur pour voir ses détails.
 Appuie sur la flèche turquoise vers le haut pour le remonter en tête.
 Continue avec tes autres participants prioritaires. Le dernier remonté passe au-dessus des autres.
 Vérifie le top 4 final : vise deux Chenko forts et deux Amane forts.
-Enregistrer ta formation de chef de ralliement
-Prépare ta formation de chef (par exemple BT1) : héros principal, 2e et 3e héros, et tes troupes.
-En enregistrant, coche Save by Troop Ratio (enregistrer par ratio de troupes).
 4. Règles pour tous les participants
 Exactement 90,000 troupes dans chaque marche de participation.
 Ratio idéal 10:10:80 si possible : 9 000 infanterie, 9 000 cavalerie, 72 000 archers (idéal, pas obligatoire).
@@ -258,6 +253,12 @@ Pré-enregistre tes marches avant le début de la Chasse à l'Ours.
 Chefs de ralliement désignés : troupes maximales dans ton ralliement, mais la limite de 90,000 quand tu rejoins celui d'un autre.
 Pas de ralliement perso pendant la phase principale : rejoins les ralliements NXS désignés au lieu de lancer le tien.
 ⏰ 6:30 restantes — phase finale : tous les participants peuvent lancer leur propre ralliement avec leurs 3 meilleurs héros. C'est la seule exception à la règle « pas d'autres ralliements ».
+Enregistrer ta formation de chef de ralliement
+Prépare ta formation de chef (par exemple BT1) : héros principal, 2e et 3e héros, et tes troupes.
+En enregistrant, coche Save by Troop Ratio (enregistrer par ratio de troupes).
+Enregistrer tes formations de participant
+Prépare tes formations de participation (BT2–BT5) : premier héros de la liste approuvée, puis exactement 9 000 infanterie, 9 000 cavalerie et 72 000 archers.
+En les enregistrant, coche Save by Troop Quantity (par nombre, pas par ratio) pour que chaque marche fasse exactement 90,000.
 📚 Plus d'infos
 QUAND
 Tous les 2 jours, à l'heure prévue par votre Alliance.

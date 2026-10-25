@@ -229,9 +229,7 @@ Participantes — primeros héroes aprobados
 Todos los participantes envían exactamente 90,000 tropas por concentración. La proporción ideal es 10:10:80 cuando se pueda, con énfasis en arqueros.
 Infantería 9.000 (10%) · Caballería 9.000 (10%) · Arqueros 72.000 (80%)
 90,000 tropas es obligatorio. La proporción 10:10:80 es ideal, no obligatoria.
-Guarda tus formaciones de participante
-Prepara tus formaciones para unirte (BT2–BT5): primer héroe de la lista aprobada y exactamente 9.000 infantería, 9.000 caballería y 72.000 arqueros.
-Al guardarlas, marca Save by Troop Quantity (por cantidad, no por proporción) para que cada marcha tenga exactamente 90,000.
+Guarda tus marchas para unirte antes de la Cacería del Oso, así te unes a las concentraciones rápido y sin errores.
 3. Reglas para líderes de concentración asignados
 ⏱️ NXS asigna líderes de concentración para cada Trampa. Están en el círculo interior alrededor de la trampa y salen en dos oleadas: Oleada 1 en 0:00 (al inicio) y Oleada 2 en 0:45 (45 segundos después).
 Inicia tu concentración a la hora asignada con una formación aprobada (abajo) y tus tropas máximas. Cuando te unas a la de otro, respeta el límite de 90,000 como todos.
@@ -247,9 +245,6 @@ Toca la fila del jugador para ver sus detalles.
 Pulsa la flecha turquesa hacia arriba para subir a ese jugador al primer puesto.
 Sigue subiendo a tus otros participantes prioritarios. El último que subes queda encima de los demás.
 Revisa el top 4 final: busca dos Chenko fuertes y dos Amane fuertes.
-Guarda tu formación de líder
-Prepara tu formación de líder (por ejemplo BT1): héroe principal, 2.º y 3.er héroe y tus tropas.
-Al guardarla, marca Save by Troop Ratio (guardar por proporción de tropas).
 4. Reglas para todos los participantes
 Exactamente 90,000 tropas en cada marcha de participación.
 Proporción ideal 10:10:80 cuando se pueda: 9.000 infantería, 9.000 caballería, 72.000 arqueros (ideal, no obligatoria).
@@ -258,6 +253,12 @@ Guarda tus marchas antes de que empiece la Cacería del Oso.
 Líderes asignados: tropas máximas en tu propia concentración, pero el límite de 90,000 al unirte a la de otro.
 Nada de concentraciones propias en la fase principal: únete a las concentraciones NXS asignadas en vez de lanzar la tuya.
 ⏰ Quedan 6:30 — fase final: todos los participantes pueden lanzar su propia concentración con sus 3 héroes más fuertes. Es la única excepción a la regla de no lanzar otras concentraciones.
+Guarda tu formación de líder
+Prepara tu formación de líder (por ejemplo BT1): héroe principal, 2.º y 3.er héroe y tus tropas.
+Al guardarla, marca Save by Troop Ratio (guardar por proporción de tropas).
+Guarda tus formaciones de participante
+Prepara tus formaciones para unirte (BT2–BT5): primer héroe de la lista aprobada y exactamente 9.000 infantería, 9.000 caballería y 72.000 arqueros.
+Al guardarlas, marca Save by Troop Quantity (por cantidad, no por proporción) para que cada marcha tenga exactamente 90,000.
 📚 Más información
 CUÁNDO
 Cada 2 días, según el horario programado por tu alianza.

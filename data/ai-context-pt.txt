@@ -229,9 +229,7 @@ Participantes — primeiros heróis aprovados
 Todos os participantes mandam exatamente 90,000 tropas por reunião. A proporção ideal é 10:10:80 quando possível, com foco em arqueiros.
 Infantaria 9.000 (10%) · Cavalaria 9.000 (10%) · Arqueiros 72.000 (80%)
 90,000 tropas é obrigatório. A proporção 10:10:80 é ideal, não obrigatória.
-Salve suas formações de participante
-Monte suas formações de participação (BT2–BT5): primeiro herói da lista aprovada, depois exatamente 9.000 infantaria, 9.000 cavalaria e 72.000 arqueiros.
-Ao salvar, marque Save by Troop Quantity (por quantidade, não por proporção), para cada marcha ter exatamente 90,000.
+Salve suas marchas de participação antes da Caça ao Urso para entrar nas reuniões de forma rápida e eficiente.
 3. Regras para líderes de reunião escolhidos
 ⏱️ A NXS escolhe líderes de reunião para cada Armadilha. Eles ficam no círculo interno em volta da armadilha, em duas ondas: Onda 1 em 0:00 (no início) e Onda 2 em 0:45 (45 segundos depois).
 Comece sua reunião no horário marcado com uma formação aprovada (abaixo) e o máximo de tropas. Ao entrar na reunião de outra pessoa, siga o limite de 90,000 como todo mundo.
@@ -247,9 +245,6 @@ Toque na linha do jogador para ver os detalhes.
 Aperte a seta turquesa para cima para subir esse jogador para o topo.
 Continue subindo os outros prioritários. O último a subir fica acima dos outros.
 Confira os 4 primeiros: o objetivo é dois Chenko fortes e dois Amane fortes.
-Salve sua formação de líder
-Monte sua formação de líder de reunião (por exemplo BT1): herói principal, 2º e 3º herói e suas tropas.
-Ao salvar, marque Save by Troop Ratio (salvar por proporção de tropas).
 4. Regras para todos os participantes
 Exatamente 90,000 tropas em cada marcha de participação.
 Proporção ideal 10:10:80 quando possível: 9.000 infantaria, 9.000 cavalaria, 72.000 arqueiros (ideal, não obrigatória).
@@ -258,6 +253,12 @@ Salve suas marchas antes de a Caça ao Urso começar.
 Líderes escolhidos: máximo de tropas na sua reunião, mas o limite de 90,000 ao entrar na de outra pessoa.
 Nada de reuniões próprias na fase principal: entre nas reuniões NXS escolhidas em vez de abrir a sua.
 ⏰ Faltando 6:30 — fase final: todos os participantes podem abrir a própria reunião com os 3 heróis mais fortes. É a única exceção à regra de não abrir outras reuniões.
+Salve sua formação de líder
+Monte sua formação de líder de reunião (por exemplo BT1): herói principal, 2º e 3º herói e suas tropas.
+Ao salvar, marque Save by Troop Ratio (salvar por proporção de tropas).
+Salve suas formações de participante
+Monte suas formações de participação (BT2–BT5): primeiro herói da lista aprovada, depois exatamente 9.000 infantaria, 9.000 cavalaria e 72.000 arqueiros.
+Ao salvar, marque Save by Troop Quantity (por quantidade, não por proporção), para cada marcha ter exatamente 90,000.
 📚 Mais informações
 QUANDO
 A cada 2 dias, no horário marcado pela sua Aliança.
