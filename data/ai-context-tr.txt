@@ -257,7 +257,7 @@ Atanan seferberlik liderleri: kendi seferberliğinde maksimum asker, başkasın�
 Ana aşamada kendi seferberliğini açma: kendi seferberliğini başlatmak yerine atanan NXS seferberliklerine katıl.
 ⏰ 6:30 kala — son seferberlik aşaması: tüm katılımcılar artık en güçlü 3 kahramanıyla kendi seferberliğini başlatabilir. Bu, kendi seferberliğini açmama kuralının tek istisnasıdır.
 Seferberlik lideri dizilişini kaydet
-🧮 Lider olarak ideal oranını bulmak için Frakinator'ı (https://frakinator.streamlit.app/) kullan. Valora'nın Hunter Instinct'ini de hesaba katar.
+🧮 Lider olarak ideal oranını bulmak için Frakinator'ı (https://frakinator.streamlit.app/) kullan. Valora'nın Yeteneğini (Ayı Avı Hasar Puanı, yalnızca kendi için geçerlidir) de hesaba katar.
 💡 Neden sayıya göre değil orana göre kaydetmeli: Valora'nın Yakınlığı arttıkça kapasiten artar (Vahşi Avantaj: konuşlanma kapasitesi +3.000 ile +30.000; Av Dansı: ayıya karşı seferberlik kapasitesi +30.000 ile +300.000). Orana göre kaydedilen diziliş her zaman güncel maksimumunu doldurur; sayıya göre kaydedilen eski rakamlarda kalır.
 Seferberlik lideri dizilişini ayarla (örneğin BT1): ana, 2. ve 3. kahraman ve askerlerin.
 Kaydederken Save by Troop Ratio (asker oranına göre kaydet) seçeneğini işaretle.

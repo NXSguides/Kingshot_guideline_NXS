@@ -257,7 +257,7 @@ Líderes asignados: tropas máximas en tu propio Ataque Conjunto, pero el límit
 Nada de Ataques Conjuntos propios en la fase principal: únete a los de NXS asignados en vez de lanzar el tuyo.
 ⏰ Quedan 6:30 — fase final: todos los participantes pueden lanzar su propio Ataque Conjunto con sus 3 héroes más fuertes. Es la única excepción a la regla de no lanzar otros.
 Guarda tu formación de líder
-🧮 Usa Frakinator (https://frakinator.streamlit.app/) para encontrar tu proporción ideal como líder. También tiene en cuenta el Hunter Instinct de Valora.
+🧮 Usa Frakinator (https://frakinator.streamlit.app/) para encontrar tu proporción ideal como líder. También tiene en cuenta el Talento de Valora (puntos de daño de Cacería del Oso adicionales, efectivo solo para sí misma).
 💡 Por qué guardar por proporción y no por cantidad: Valora sube tu capacidad a medida que sube su Afinidad (Ventaja salvaje: capacidad de despliegue +3.000 a +30.000; Danza de la cacería: capacidad del Ataque Conjunto contra el oso +30.000 a +300.000). Una formación guardada por proporción siempre llena tu máximo actual; una guardada por cantidad se queda con los números viejos.
 Prepara tu formación de líder (por ejemplo BT1): héroe principal, 2.º y 3.er héroe y tus tropas.
 Al guardarla, marca Save by Troop Ratio (guardar por proporción de tropas).

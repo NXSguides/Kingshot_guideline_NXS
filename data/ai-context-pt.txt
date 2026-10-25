@@ -257,7 +257,7 @@ Líderes escolhidos: máximo de tropas no seu rally, mas o limite de 90,000 ao e
 Nada de rallies próprios na fase principal: entre nos rallies NXS escolhidos em vez de abrir o seu.
 ⏰ Faltando 6:30 — fase final: todos os participantes podem abrir o próprio rally com os 3 heróis mais fortes. É a única exceção à regra de não abrir outros rallies.
 Salve sua formação de líder
-🧮 Use o Frakinator (https://frakinator.streamlit.app/) para achar sua proporção ideal como líder. Ele também considera o Hunter Instinct da Valora.
+🧮 Use o Frakinator (https://frakinator.streamlit.app/) para achar sua proporção ideal como líder. Ele também considera o Talento da Valora (pontos de danos adicionais para a caça ao urso, eficaz apenas para si mesmo).
 💡 Por que salvar por proporção e não por quantidade: a Valora aumenta sua capacidade conforme a Afinidade sobe (Vantagem Selvagem: capacidade de implantação +3.000 a +30.000; Dança da Caçada: capacidade de rally contra o urso +30.000 a +300.000). Uma formação salva por proporção sempre preenche seu máximo atual; uma salva por quantidade fica presa nos números antigos.
 Monte sua formação de líder de rally (por exemplo BT1): herói principal, 2º e 3º herói e suas tropas.
 Ao salvar, marque Save by Troop Ratio (salvar por proporção de tropas).

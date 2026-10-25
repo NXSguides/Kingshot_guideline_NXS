@@ -257,7 +257,7 @@ Pemimpin reli yang ditunjuk: pasukan maksimal di reli sendiri, tapi batas 90,000
 Tidak ada reli sendiri di fase utama: ikut reli NXS yang ditunjuk, jangan membuka reli sendiri.
 ⏰ Sisa 6:30 — fase reli terakhir: semua peserta boleh membuka reli sendiri dengan 3 hero terkuat. Ini satu-satunya pengecualian dari aturan tidak membuka reli lain.
 Simpan formasi pemimpin reli
-🧮 Pakai Frakinator (https://frakinator.streamlit.app/) untuk mencari rasio idealmu sebagai pemimpin. Ini juga menghitung Hunter Instinct Valora.
+🧮 Pakai Frakinator (https://frakinator.streamlit.app/) untuk mencari rasio idealmu sebagai pemimpin. Ini juga menghitung Talenta Valora (poin damage Bear Hunt, hanya untuk diri sendiri).
 💡 Kenapa simpan berdasarkan rasio, bukan jumlah: Valora menaikkan kapasitasmu seiring Kedekatan naik (Savage Advantage: kapasitas pengerahan +3.000 sampai +30.000; Dance of the Hunt: kapasitas reli melawan beruang +30.000 sampai +300.000). Formasi yang disimpan berdasarkan rasio selalu mengisi maksimum saat ini; yang disimpan berdasarkan jumlah tetap di angka lama.
 Atur formasi pemimpin reli (misalnya BT1): hero utama, ke-2 dan ke-3, dan pasukanmu.
 Saat menyimpan, centang Save by Troop Ratio (simpan berdasarkan rasio pasukan).

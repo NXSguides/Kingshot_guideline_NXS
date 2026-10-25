@@ -257,7 +257,7 @@ Assigned rally leaders: maximum troops in your own rally, but the 90,000 limit w
 No independent rallies in the main phase: join the assigned NXS rallies instead of launching your own.
 ⏰ 6:30 remaining — final rally phase: all joiners may now start their own rallies with their 3 strongest heroes. This is the only exception to the no-other-rallies rule.
 Save your rally leader formation
-🧮 Use Frakinator (https://frakinator.streamlit.app/) to find your ideal ratio for leading. It also counts Valora's Hunter Instinct.
+🧮 Use Frakinator (https://frakinator.streamlit.app/) to find your ideal ratio for leading. It also counts Valora's Talent (Bear Hunt Damage Points, effective for self only).
 💡 Why save by ratio, not by quantity: Valora raises your capacity as her Affinity grows (Savage Advantage: deployment capacity +3,000 to +30,000; Dance of the Hunt: rally capacity against the bear +30,000 to +300,000). A formation saved by ratio always fills your current maximum. One saved by quantity stays stuck at the old numbers.
 Set your rally leader formation (for example BT1): lead, 2nd and 3rd hero, and your troops.
 When you save it, tick Save by Troop Ratio.

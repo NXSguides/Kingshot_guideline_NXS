@@ -257,7 +257,7 @@ Chefs de ralliement désignés : troupes maximales dans ton ralliement, mais la 
 Pas de ralliement perso pendant la phase principale : rejoins les ralliements NXS désignés au lieu de lancer le tien.
 ⏰ 6:30 restantes — phase finale : tous les participants peuvent lancer leur propre ralliement avec leurs 3 meilleurs héros. C'est la seule exception à la règle « pas d'autres ralliements ».
 Enregistrer ta formation de chef de ralliement
-🧮 Utilise Frakinator (https://frakinator.streamlit.app/) pour trouver ton ratio idéal en tant que chef. Il prend aussi en compte le Hunter Instinct de Valora.
+🧮 Utilise Frakinator (https://frakinator.streamlit.app/) pour trouver ton ratio idéal en tant que chef. Il prend aussi en compte le Talent de Valora (points de dégâts supplémentaires lors de la chasse à l'ours, valable uniquement pour elle-même).
 💡 Pourquoi enregistrer par ratio et non par quantité : Valora augmente ta capacité quand son Affinité monte (Avantage primitif : capacité de déploiement +3 000 à +30 000 ; Danse de la chasse : capacité de ralliement contre l'ours +30 000 à +300 000). Une formation enregistrée par ratio remplit toujours ton maximum actuel, une enregistrée par quantité reste bloquée aux anciens chiffres.
 Prépare ta formation de chef (par exemple BT1) : héros principal, 2e et 3e héros, et tes troupes.
 En enregistrant, coche Save by Troop Ratio (enregistrer par ratio de troupes).

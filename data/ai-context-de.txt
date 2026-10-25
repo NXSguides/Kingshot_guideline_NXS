@@ -257,7 +257,7 @@ Eingeteilte Rally-Leiter: maximale Truppen im eigenen Rally, aber 90,000 beim Mi
 Keine eigenen Rallys in der Hauptphase: tritt den eingeteilten NXS-Rallys bei, statt selbst zu starten.
 ⏰ 6:30 übrig — letzte Rally-Phase: Alle Teilnehmer dürfen jetzt eigene Rallys mit ihren 3 stärksten Helden starten. Das ist die einzige Ausnahme von der Regel, keine eigenen Rallys zu starten.
 Rally-Leiter-Formation speichern
-🧮 Nutze Frakinator (https://frakinator.streamlit.app/), um dein ideales Verhältnis als Leiter zu finden. Er berücksichtigt auch Valoras Hunter Instinct.
+🧮 Nutze Frakinator (https://frakinator.streamlit.app/), um dein ideales Verhältnis als Leiter zu finden. Er berücksichtigt auch Valoras Talent (Bärenjagd-Schadenspunkte, wirkt nur für sich selbst).
 💡 Warum nach Verhältnis statt nach Menge speichern: Valora erhöht deine Kapazität mit steigender Affinität (Vorteil des Wilden: Einsatzkapazität +3.000 bis +30.000; Tanz der Jagd: Rally-Kapazität gegen den Bären +30.000 bis +300.000). Nach Verhältnis gespeichert füllt die Formation immer dein aktuelles Maximum, nach Menge bleibt sie bei den alten Zahlen.
 Stell deine Rally-Leiter-Formation ein (z. B. BT1): Anführer, 2. und 3. Held und deine Truppen.
 Hak beim Speichern Save by Troop Ratio (nach Truppenverhältnis speichern) an.
