@@ -780,10 +780,10 @@ Yabanda kaynak toplamaktan kaçının, bunun yerine Korumalı İttifak Toplama N
 Kural ihlal edenler ittifak/NAP anlaşmalarına göre işlem görecektir.
 ⚔️ Bir şehre saldırmadan önce
 Şehre saldırmak, büyük bir zafer kazansan bile her zaman asker kaybettirir. Savaşta düşen askerler her zaman aynı şekilde bölünür:
-Normal savaşlar (arazi, ralliler, savunma): %35 ağır yaralı (hastane), %65 hafif yaralı. Kimse ölmez.
+Normal savaşlar (arazi, Seferberlik, savunma): %35 ağır yaralı (Revir), %65 hafif yaralı. Kimse ölmez.
 Birinin şehrine saldırmak: %35 kalıcı olarak ölür, %10 ağır yaralı, %55 hafif yaralı.
-Savunanın askerlerinin hepsi hastaneye gider, neredeyse hiç etkilenmez.
-Gerçek rapor: bir düşman 135 bin askerle üyemizin şehrine saldırdı ve yok edildi. 47.310 askeri kalıcı olarak öldü — üyemiz hiç kayıp vermedi, hepsi hastaneye gitti. Şehrini bölgemizde güçlü tut, saldıranlar bedel ödesin; sen de sadece değdiğinde şehre saldır.
+Savunanın askerlerinin hepsi Revire gider, neredeyse hiç etkilenmez.
+Gerçek rapor: bir düşman 135 bin askerle üyemizin şehrine saldırdı ve yok edildi. 47.310 askeri kalıcı olarak öldü — üyemiz hiç kayıp vermedi, hepsi Revire gitti. Şehrini bölgemizde güçlü tut, saldıranlar bedel ödesin; sen de sadece değdiğinde şehre saldır.
 🏭 Güvenli Toplama Noktaları
 Topyekün etkinliği boyunca, güvenli toplama noktalarımızı 48 saat boyunca her 12 saatte bir değiştireceğiz.
 Bu, etkinlik aktifken herkese kaynak toplamak için korumalı bir alan sağlar.

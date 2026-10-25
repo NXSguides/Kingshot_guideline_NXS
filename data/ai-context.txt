@@ -780,10 +780,10 @@ Avoid gathering resources in the wild, use the Secured Alliance Node instead.
 Rule breakers will be dealt with according to alliance/NAP agreements.
 ⚔️ Before You Hit a City
 Attacking a city always costs you troops, even when you win big. The troops that fall in a fight are always split the same way:
-Normal fights (field, rallies, defending): 35% badly wounded (hospital), 65% lightly wounded. Nobody dies.
+Normal fights (field, Rally, defending): 35% badly wounded (Infirmary), 65% lightly wounded. Nobody dies.
 Attacking someone's city: 35% die for good, 10% badly wounded, 55% lightly wounded.
-The defender's troops all go to their hospital, so they barely feel it.
-Real report: an enemy hit our member's city with 135k troops and was wiped out. 47,310 of his troops died for good — our member lost none, everything went to the hospital. Keep your city strong in our territory and let attackers pay; only hit cities yourself when it's worth it.
+The defender's troops all go to their Infirmary, so they barely feel it.
+Real report: an enemy hit our member's city with 135k troops and was wiped out. 47,310 of his troops died for good — our member lost none, everything went to the Infirmary. Keep your city strong in our territory and let attackers pay; only hit cities yourself when it's worth it.
 🏭 Secured Gathering Nodes
 During the All Out event, we will be rotating our secured gathering nodes every 12 hours for 48 hours.
 This gives everyone a protected spot to collect resources while the event is active.
