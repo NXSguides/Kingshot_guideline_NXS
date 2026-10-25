@@ -173,10 +173,10 @@ function render() {
   const w = windowNow(), ed = ED(), dirty = JSON.stringify(L.list || []) !== SAVED;
   let by = ""; try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {}
   el.innerHTML = `<div class="hn-st ${w.on ? "on" : ""}">${w.on ? `🟢 ${esc(t("win").replace("{s}", when(w.start)).replace("{e}", when(w.end)))} · ${esc(t("on"))}` : `⚪ ${esc(t("off"))} · ${esc(t("next").replace("{s}", when(w.start)).replace("{e}", when(w.end)))}`}</div>
-    <div class="row" style="gap:8px;align-items:center;margin:8px 0"><b>${esc(LV && LV.fetched ? t("fetched").replace("{t}", when(LV.fetched)) : t("never"))}</b> <span class="muted" style="font-size:12.5px">${esc(t("count").replace("{n}", (L.list || []).length))}</span>
-      <button type="button" class="btn primary hn-reload" id="hn_reload"><b>${esc(t("reload"))}</b><span>${esc(t("reloadSub"))}</span></button></div>
+    <div class="row" style="gap:8px;align-items:center;margin:8px 0"><b>${esc(LV && LV.fetched ? t("fetched").replace("{t}", when(LV.fetched)) : t("never"))}</b> <span class="muted" style="font-size:12.5px">${esc(t("count").replace("{n}", (L.list || []).length))}</span></div>
     <div class="hn-how">${esc(t("how"))}</div>
-    <div class="hn-how hn-mp">${esc(t("mpHow"))} <a class="btn small" href="https://mightpulse.com/map?kid=2189" target="_blank" rel="noopener">${esc(t("mpMap"))}</a></div>
+    <div class="hn-how hn-mp">${esc(t("mpHow"))} <div class="hn-steps"><span class="hn-n">1</span><a class="btn small" href="https://mightpulse.com/map?kid=2189" target="_blank" rel="noopener">${esc(t("mpMap"))}</a></div>
+      <div class="hn-steps"><span class="hn-n">2</span><button type="button" class="btn primary hn-reload" id="hn_reload"><b>${esc(t("reload"))}</b><span>${esc(t("reloadSub"))}</span></button></div></div>
     ${(() => { const n = ((LV && LV.rows) || []).filter((r) => r.asOf && Date.now() - (toMs(r.asOf) || Date.now()) > STALE).length; return n ? `<div class="hn-how hn-stale">${esc(t("stale").replace("{n}", n))}</div>` : ""; })()}
     ${table()}
     ${!ed && msg ? `<div class="muted" style="font-size:12.5px;margin-top:6px">${esc(msg)}</div>` : ""}
