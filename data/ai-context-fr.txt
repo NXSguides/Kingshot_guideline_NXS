@@ -204,22 +204,9 @@ Les mises à jour sont automatiques — pas besoin de réinstaller.
 Le nom des boutons peut varier légèrement selon le téléphone et la version du système.
 
 ### GUIDE #bear-hunt — Chasse à l'Ours
-🆕 MISE À JOUR GEN 3
-Chefs de ralliement : Meilleur — Helga + Petra + Marlin (10:20:70), seulement si Helga est 5★ + Composant max. Alternative — Amadeus + Petra + Marlin (20:30:50). F2P — Zoé + Petra + Quinn (20:40:40).
-Participants – à envoyer en premier : Chenko, Yeonwoo, Amadeus, Amane (bonus de Létalité fixe).
-⚠️ UN SEUL par ralliement : Marlin, Zoé, Jaeger, Petra — leurs dégâts basés sur une probabilité ne se cumulent PAS.
-Détails ci-dessous ↓
-QUAND
-Tous les 2 jours, à l'heure prévue par votre Alliance.
-POURQUOI C'EST IMPORTANT
-Source principale de matériaux d'Équipement de héros (Marteaux de Forge) et d'EXP d'Amélioration.
-PRÉPARATION
-Mettez à jour vos formations de troupe avant chaque Chasse à l'Ours.
-Optionnel : utilisez https://frakinator.streamlit.app/ pour tester les ratios de troupes et trouver votre meilleure formation.
-Rappelez les troupes en collecte avant le début de l'événement.
-N'oubliez pas : pendant les 5 à 7 dernières minutes, tout le monde devrait lancer un ralliement. Cela libère davantage de places pour les joueurs dont les troupes reviennent et permet un dernier coup de collier de dégâts.
-LEADERS DE RALLIEMENT
-⚠️ Règle : lancez votre propre ralliement avec le maximum de troupes, mais quand vous rejoignez d'autres ralliements, respectez aussi la limite d'exactement 90,000 troupes. Au début, les chefs de ralliement principaux lancent leur premier ralliement à leur horaire décalé attribué.
+🐻 Chasse à l'Ours NXS — comment NXS fait la Chasse à l'Ours : héros forts, ralliements coordonnés, timing précis et dégâts d'alliance maximum.
+1. Héros du Piège à Ours — Gén 3
+Chefs de ralliement — formations approuvées
 GEN 1
 GEN 2
 GEN 3
@@ -231,23 +218,64 @@ Formation de troupe : 30-30-40 %. Pour les F2P, il est recommandé d'utiliser to
 Formation de troupe : 20-30-50 %. Marlin augmentera fortement les dégâts grâce à son équipement exclusif de ralliement. À partir de la Gen 2, l'Infanterie sera toujours Amadeus ou Helga : ce sont les seuls héros d'Infanterie avec un équipement exclusif de ralliement (bonus de Létalité). Vous envoyez moins d'Infanterie, donc le héros d'Infanterie compense les dégâts des Archers grâce à cet équipement plutôt qu'en égalant les stats d'Infanterie.
 Formation de troupe : 20-30-50 %. Autre option : remplacer Quinn par Marlin s'il n'est pas encore meilleur. N'utilisez Helga à partir de la Gen 2 que si Amadeus n'est pas à 5 étoiles avec l'équipement exclusif au niveau maximum ; c'est aussi l'occasion d'utiliser Amadeus pour rejoindre des ralliements.
 Formation de troupe : 30-30-40 %. Toujours aucun héros F2P avec un équipement exclusif de ralliement, donc encore une formation équilibrée avec un peu plus d'Archers, car les stats d'Archer seront les plus basses faute de héros Archer SSR.
-Formation de troupe : 10-20-70 %. Helga au maximum est plus performante qu'Amadeus en Gen 3, avec 2 équipements de Létalité et 1 d'Attaque, contre 1 de Létalité et 2 d'Attaque pour Amadeus dans cette configuration.
-Formation de troupe : 20-30-50 %. Si vous n'avez pas Helga au maximum (5 étoiles + équipement exclusif), il vaut mieux utiliser Amadeus.
-Formation de troupe : 20-40-40 %. En Gen 3, les F2P obtiennent leur premier héros avec un équipement exclusif de ralliement (Petra). Essayez des nombres équilibrés d'Archers et de Cavalerie, car Petra améliore beaucoup les Archers. Les stats d'Archer restent les plus basses sans Archer SSR. Si vous débloquez la Cavalerie T10, la compétence T10 s'accorde bien avec les stats de Petra. Si vous débloquez la Cavalerie T3, Petra devient encore plus forte, car sa 3e compétence fonctionne très bien avec leurs stats.
+Formation des troupes : 10-20-70 %. Seulement si Helga et son widget sont tous deux au max.
 Formation de troupe : 10-10-80 %. Alignez autant d'Archers que possible, surtout s'ils sont T10. Avec un peu de chance, la 3e compétence de Rosa fera le travail pour vous (augmente l'Attaque totale des Archers de 30 %).
 Formation de troupe : 10-10-80 %. Utilisez Helga en alternative si elle a plus d'étoiles et un meilleur niveau d'équipement exclusif qu'Amadeus. Alignez toujours autant d'Archers que possible, surtout T10, pour la 3e compétence de Rosa (augmente l'Attaque totale des Archers de 30 %).
 Formation de troupe : 10-10-80 %. Comme pour les héros alternatifs — les bonus de la 3e compétence de Rosa sont meilleurs si vous misez sur des formations très orientées Archers (augmente l'Attaque totale des Archers de 30 %).
 Les autres emplacements de leader ne sont pas encore disponibles.
-PARTICIPANTS AU RALLIEMENT
-⚠️ Règle : tous les participants doivent envoyer exactement 90,000 troupes aux ralliements — enregistrez vos marches à l'avance. À 6:30 restantes, tous les participants lancent leur propre ralliement avec leurs 3 héros les plus forts. 🔪 Mauvais héros ou mauvais nombre de troupes : exclusion, puis demande de rejoindre à nouveau.
-Ratio standard / sûr : 10 % d'Infanterie, 10 % de Cavalerie et 80 % d'Archers (ou une variante comme 20-30-50)
+Participants — premiers héros approuvés
+❌ N'envoie pas Petra en participant. Mets un héros approuvé en premier, ou envoie sans héros.
+2. Troupes des participants
+Tous les participants envoient exactement 90,000 troupes par ralliement. Le ratio idéal est 10:10:80 si possible, surtout des archers.
+Infanterie 9 000 (10 %) · Cavalerie 9 000 (10 %) · Archers 72 000 (80 %)
+90,000 troupes est obligatoire. Le ratio 10:10:80 est idéal, pas obligatoire.
+Pré-enregistre tes marches de participation avant la Chasse à l'Ours pour rejoindre les ralliements vite et efficacement.
+3. Règles pour les chefs de ralliement désignés
+⏱️ NXS désigne des chefs de ralliement pour chaque Piège. Ils sont dans le cercle intérieur autour du piège et partent en deux vagues : Vague 1 à 0:00 (au début) et Vague 2 à 0:45 (45 secondes plus tard).
+Lance ton ralliement à l'heure prévue avec une formation approuvée (ci-dessous) et tes troupes maximales. Quand tu rejoins le ralliement d'un autre, respecte la limite de 90,000 comme tout le monde.
+Gérer ton ralliement
+Vérifie les héros et le nombre de troupes de chaque participant :
+Mauvais premier héros : expulse le joueur et demande-lui de revenir correctement.
+Mauvais nombre de troupes : expulse le joueur et demande-lui de revenir avec exactement 90,000 troupes.
+Seuls les 4 premiers participants comptent : le jeu prend la compétence du premier héros des 4 participants en haut de ta liste, quels que soient leur niveau ou leurs troupes. Remonte tes deux meilleurs Chenko et deux meilleurs Amane.
+Remonter les participants
+Ouvre ton ralliement Ours en cours.
+Repère les participants Chenko et Amane les plus forts — compare étoiles des héros et niveaux de widget.
+Touche la ligne d'un joueur pour voir ses détails.
+Appuie sur la flèche turquoise vers le haut pour le remonter en tête.
+Continue avec tes autres participants prioritaires. Le dernier remonté passe au-dessus des autres.
+Vérifie le top 4 final : vise deux Chenko forts et deux Amane forts.
+4. Règles pour tous les participants
+Exactement 90,000 troupes dans chaque marche de participation.
+Ratio idéal 10:10:80 si possible : 9 000 infanterie, 9 000 cavalerie, 72 000 archers (idéal, pas obligatoire).
+Premier héros : Chenko, Amane, Yeonwoo, Amadeus, ou aucun héros. N'envoie pas Petra en participant.
+Pré-enregistre tes marches avant le début de la Chasse à l'Ours.
+Chefs de ralliement désignés : troupes maximales dans ton ralliement, mais la limite de 90,000 quand tu rejoins celui d'un autre.
+Pas de ralliement perso pendant la phase principale : rejoins les ralliements NXS désignés au lieu de lancer le tien.
+⏰ 6:30 restantes — phase finale : tous les participants peuvent lancer leur propre ralliement avec leurs 3 meilleurs héros. C'est la seule exception à la règle « pas d'autres ralliements ».
+Enregistrer ta formation de chef de ralliement
+Prépare ta formation de chef (par exemple BT1) : héros principal, 2e et 3e héros, et tes troupes.
+En enregistrant, coche Save by Troop Ratio (enregistrer par ratio de troupes).
+Enregistrer tes formations de participant
+Prépare tes formations de participation (BT2–BT5) : premier héros de la liste approuvée, puis exactement 9 000 infanterie, 9 000 cavalerie et 72 000 archers.
+En les enregistrant, coche Save by Troop Quantity (par nombre, pas par ratio) pour que chaque marche fasse exactement 90,000.
+📚 Plus d'infos
+QUAND
+Tous les 2 jours, à l'heure prévue par votre Alliance.
+POURQUOI C'EST IMPORTANT
+Source principale de matériaux d'Équipement de héros (Marteaux de Forge) et d'EXP d'Amélioration.
+PRÉPARATION
+Mettez à jour vos formations de troupe avant chaque Chasse à l'Ours.
+Optionnel : utilisez https://frakinator.streamlit.app/ pour tester les ratios de troupes et trouver votre meilleure formation.
+Rappelez les troupes en collecte avant le début de l'événement.
+N'oubliez pas : pendant les 5 à 7 dernières minutes, tout le monde devrait lancer un ralliement. Cela libère davantage de places pour les joueurs dont les troupes reviennent et permet un dernier coup de collier de dégâts.
+Formation de troupe : 20-40-40 %. En Gen 3, les F2P obtiennent leur premier héros avec un équipement exclusif de ralliement (Petra). Essayez des nombres équilibrés d'Archers et de Cavalerie, car Petra améliore beaucoup les Archers. Les stats d'Archer restent les plus basses sans Archer SSR. Si vous débloquez la Cavalerie T10, la compétence T10 s'accorde bien avec les stats de Petra. Si vous débloquez la Cavalerie T3, Petra devient encore plus forte, car sa 3e compétence fonctionne très bien avec leurs stats.
 (see guide #formations-rally-tips)
-Priorité – à envoyer en premier : ces héros donnent un bonus de Létalité fixe, le bonus le plus précieux pour la Chasse à l'Ours.
 À UTILISER AVEC PRUDENCE
-⚠️ Héros à dégâts basés sur une probabilité : effets puissants, mais ils ne se cumulent PAS. N'utilisez qu'UN SEUL de ces héros dans un même ralliement : Marlin, Zoé, Jaeger, Petra.
+⚠️ Héros à dégâts basés sur une probabilité : effets puissants, mais ils ne se cumulent PAS. N'utilisez qu'UN SEUL de ces héros dans un même ralliement : Marlin, Zoé, Jaeger, Petra. ❌ N'envoie pas Petra en participant.
 🔗 En savoir plus : https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes
-[joiners] Chenko | lethality | Yeonwoo | lethality | Amane | attack | Amadeus | lethality
-[leaders] best | Amadeus | Jabel | Quinn | 30-30-40 | alt | Helga | Jabel | Quinn | 20-40-40 | f2p | Howard | Jabel | Quinn | 30-30-40 | best | Amadeus | Hilde | Marlin | 20-30-50 | alt | Helga | Jabel | Marlin | 20-30-50 | f2p | Zoé | Jabel | Quinn | 30-30-40 | best | Helga | Petra | Marlin | 10-20-70 | alt | Amadeus | Petra | Marlin | 20-30-50 | f2p | Zoé | Petra | Quinn | 20-40-40 | best | Amadeus | Petra | Rosa | 10-10-80 | alt | Helga | Petra | Rosa | 10-10-80 | f2p | Zoé | Petra | Rosa | 10-10-80 | best | Amadeus
+[joiners] Chenko | lethality | Amane | attack | Yeonwoo | lethality | Amadeus | lethality
+[leaders] best | Amadeus | Jabel | Quinn | 30-30-40 | alt | Helga | Jabel | Quinn | 20-40-40 | f2p | Howard | Jabel | Quinn | 30-30-40 | best | Amadeus | Hilde | Marlin | 20-30-50 | alt | Helga | Jabel | Marlin | 20-30-50 | f2p | Zoé | Jabel | Quinn | 30-30-40 | n1 | Amadeus | Petra | Marlin | 20-30-50 | n2 | Zoé | Petra | Quinn | 20-40-40 | n3 | Helga | Petra | Marlin | 10-20-70 | best | Amadeus | Petra | Rosa | 10-10-80 | alt | Helga | Petra | Rosa | 10-10-80 | f2p | Zoé | Petra | Rosa | 10-10-80 | best | Amadeus
 
 ### GUIDE #swordland-showdown — Choc du Glaive
 QUAND

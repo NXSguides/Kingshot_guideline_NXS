@@ -204,22 +204,9 @@ Las actualizaciones son automáticas; no hace falta reinstalar.
 Los nombres de los botones pueden variar un poco según el teléfono y la versión del sistema.
 
 ### GUIDE #bear-hunt — Cacería del Oso
-🆕 ACTUALIZACIÓN GEN 3
-Líderes: Mejor — Helga + Petra + Marlin (10:20:70), solo si Helga tiene 5★ + Complemento al máximo. Alternativa — Amadeus + Petra + Marlin (20:30:50). F2P — Zoe + Petra + Quinn (20:40:40).
-Participantes – envía primero: Chenko, Yeonwoo, Amadeus, Amane (bonificación fija de Letalidad).
-⚠️ Solo UNO por ataque conjunto: Marlin, Zoe, Jaeger, Petra: su daño por probabilidad NO se acumula.
-Detalles abajo ↓
-CUÁNDO
-Cada 2 días, según el horario programado por tu alianza.
-POR QUÉ IMPORTA
-Fuente principal de materiales de equipo de héroe (Martillos de Forja) y XP de mejora.
-PREPARACIÓN
-Actualiza tus formaciones antes de cada Cacería del Oso.
-Opcional: usa https://frakinator.streamlit.app/ para probar proporciones de tropas y encontrar tu formación más fuerte.
-Recupera las tropas de recolección antes de que comience el evento.
-Recuerda: en los últimos 5–7 minutos, todos deben lanzar un Ataque Conjunto. Esto crea más espacios para los jugadores cuyas tropas están regresando, permitiendo un empuje final de daño.
-LÍDERES DE ATAQUE CONJUNTO
-⚠️ Regla: inicia tu propio ataque conjunto con el máximo de tropas, pero al unirte a otros ataques también debes respetar el límite de exactamente 90,000 tropas. Al inicio, los líderes principales envían su primer ataque en su hora escalonada asignada.
+🐻 Cacería del Oso NXS — cómo hace NXS la Cacería del Oso: héroes fuertes, concentraciones coordinadas, tiempo preciso y máximo daño de alianza.
+1. Héroes de la Trampa del Oso — Gen 3
+Líderes de concentración — formaciones aprobadas
 GEN 1
 GEN 2
 GEN 3
@@ -231,23 +218,64 @@ Formación de tropas: 30-30-40%. Para F2P se recomienda usar siempre los 3 héro
 Formación de tropas: 20-30-50%. Marlin aumentará mucho el daño gracias a su Complemento. Desde la Gen 2 en adelante, la infantería siempre será Amadeus o Helga — son los únicos héroes de infantería con Complemento de Ataque Conjunto (bono de letalidad). Envías menos infantería, así que el héroe de infantería cubre el daño de los arqueros mediante el Complemento en lugar de igualar las estadísticas de infantería.
 Formación de tropas: 20-30-50%. Otra alternativa es cambiar Quinn por Marlin si aún no es mejor. Usa a Helga en Gen 2+ solo si Amadeus no tiene 5 estrellas + Complemento al máximo; también es una oportunidad para usar a Amadeus uniéndose a Ataques Conjuntos.
 Formación de tropas: 30-30-40%. Todavía no hay ningún héroe F2P con Complemento de Ataque Conjunto, así que de nuevo una formación equilibrada con un poco más de arqueros, ya que las estadísticas de arqueros serán las más bajas al no tener un héroe arquero SSR.
-Formación de tropas: 10-20-70%. Una Helga al máximo rinde mejor que Amadeus en la Gen 3, ya que tiene 2 widgets de letalidad y 1 de ataque, comparado con 1 de letalidad y 2 de ataque en esta configuración.
-Formación de tropas: 20-30-50%. Si no tienes a Helga al máximo (5 estrellas + widget) es mejor usar a Amadeus.
-Formación de tropas: 20-40-40%. En la Gen 3, los F2P consiguen su primer héroe con Complemento de Ataque Conjunto (Petra). Prueba números equilibrados de arqueros/caballería porque Petra mejora mucho a las tropas de arqueros. Las estadísticas de arqueros siguen siendo las más bajas sin un héroe arquero SSR. Si desbloqueas caballería T10, su habilidad combina bien con las estadísticas de Petra. Si desbloqueas la Caballería T3, Petra se vuelve aún más fuerte, porque su 3.ª habilidad encaja muy bien con sus atributos.
+Formación de tropas: 10-20-70%. Solo si Helga y su widget están ambos al máximo.
 Formación de tropas: 10-10-80%. Fuerza tantas tropas de arqueros como puedas, especialmente si son T10. Con algo de suerte, la 3ª habilidad de Rosa hará el resto del trabajo (aumenta el ataque total de los arqueros en un 30%).
 Formación de tropas: 10-10-80%. Usa a Helga como alternativa si tiene más estrellas y nivel de widget que Amadeus. Sigue forzando tantos arqueros como puedas, especialmente T10, para la 3ª habilidad de Rosa (aumenta el ataque total de los arqueros en un 30%).
 Formación de tropas: 10-10-80%. Igual que la alternativa de mejores héroes — la 3ª habilidad de Rosa rinde mejor si te enfocas en formaciones pesadas de arqueros (aumenta el ataque total de los arqueros en un 30%).
 Los demás puestos de líder aún no se han publicado.
-PARTICIPANTES DE ATAQUE CONJUNTO
-⚠️ Regla: todos los que se unen deben enviar exactamente 90,000 tropas a los ataques conjuntos; guarda tus marchas antes. Con 6:30 restantes, todos inician su propio ataque conjunto con sus 3 héroes más fuertes. 🔪 Héroes o número de tropas incorrectos: expulsión y petición de volver a unirse.
-Proporción estándar/segura: 10% Infantería, 10% Caballería y 80% Arqueros (o una variación como 20-30-50)
+Participantes — primeros héroes aprobados
+❌ No envíes a Petra como participante. Usa un héroe aprobado en el primer puesto o envía sin héroe.
+2. Tropas de los participantes
+Todos los participantes envían exactamente 90,000 tropas por concentración. La proporción ideal es 10:10:80 cuando se pueda, con énfasis en arqueros.
+Infantería 9.000 (10%) · Caballería 9.000 (10%) · Arqueros 72.000 (80%)
+90,000 tropas es obligatorio. La proporción 10:10:80 es ideal, no obligatoria.
+Guarda tus marchas para unirte antes de la Cacería del Oso, así te unes a las concentraciones rápido y sin errores.
+3. Reglas para líderes de concentración asignados
+⏱️ NXS asigna líderes de concentración para cada Trampa. Están en el círculo interior alrededor de la trampa y salen en dos oleadas: Oleada 1 en 0:00 (al inicio) y Oleada 2 en 0:45 (45 segundos después).
+Inicia tu concentración a la hora asignada con una formación aprobada (abajo) y tus tropas máximas. Cuando te unas a la de otro, respeta el límite de 90,000 como todos.
+Gestionar tu concentración
+Revisa los héroes y la cantidad de tropas de todos los que se unen:
+Primer héroe equivocado: expulsa al jugador y pídele que vuelva a unirse correctamente.
+Cantidad de tropas equivocada: expulsa al jugador y pídele que vuelva con exactamente 90,000 tropas.
+Solo cuentan los 4 primeros participantes: el juego usa la habilidad del primer héroe de los 4 participantes de arriba de tu lista, sin importar su nivel ni sus tropas. Sube a tus dos mejores Chenko y dos mejores Amane.
+Cómo subir participantes
+Abre tu concentración del Oso en curso.
+Busca a los participantes Chenko y Amane más fuertes — compara estrellas de héroes y niveles de widget.
+Toca la fila del jugador para ver sus detalles.
+Pulsa la flecha turquesa hacia arriba para subir a ese jugador al primer puesto.
+Sigue subiendo a tus otros participantes prioritarios. El último que subes queda encima de los demás.
+Revisa el top 4 final: busca dos Chenko fuertes y dos Amane fuertes.
+4. Reglas para todos los participantes
+Exactamente 90,000 tropas en cada marcha de participación.
+Proporción ideal 10:10:80 cuando se pueda: 9.000 infantería, 9.000 caballería, 72.000 arqueros (ideal, no obligatoria).
+Primer héroe: Chenko, Amane, Yeonwoo, Amadeus o ningún héroe. No envíes a Petra como participante.
+Guarda tus marchas antes de que empiece la Cacería del Oso.
+Líderes asignados: tropas máximas en tu propia concentración, pero el límite de 90,000 al unirte a la de otro.
+Nada de concentraciones propias en la fase principal: únete a las concentraciones NXS asignadas en vez de lanzar la tuya.
+⏰ Quedan 6:30 — fase final: todos los participantes pueden lanzar su propia concentración con sus 3 héroes más fuertes. Es la única excepción a la regla de no lanzar otras concentraciones.
+Guarda tu formación de líder
+Prepara tu formación de líder (por ejemplo BT1): héroe principal, 2.º y 3.er héroe y tus tropas.
+Al guardarla, marca Save by Troop Ratio (guardar por proporción de tropas).
+Guarda tus formaciones de participante
+Prepara tus formaciones para unirte (BT2–BT5): primer héroe de la lista aprobada y exactamente 9.000 infantería, 9.000 caballería y 72.000 arqueros.
+Al guardarlas, marca Save by Troop Quantity (por cantidad, no por proporción) para que cada marcha tenga exactamente 90,000.
+📚 Más información
+CUÁNDO
+Cada 2 días, según el horario programado por tu alianza.
+POR QUÉ IMPORTA
+Fuente principal de materiales de equipo de héroe (Martillos de Forja) y XP de mejora.
+PREPARACIÓN
+Actualiza tus formaciones antes de cada Cacería del Oso.
+Opcional: usa https://frakinator.streamlit.app/ para probar proporciones de tropas y encontrar tu formación más fuerte.
+Recupera las tropas de recolección antes de que comience el evento.
+Recuerda: en los últimos 5–7 minutos, todos deben lanzar un Ataque Conjunto. Esto crea más espacios para los jugadores cuyas tropas están regresando, permitiendo un empuje final de daño.
+Formación de tropas: 20-40-40%. En la Gen 3, los F2P consiguen su primer héroe con Complemento de Ataque Conjunto (Petra). Prueba números equilibrados de arqueros/caballería porque Petra mejora mucho a las tropas de arqueros. Las estadísticas de arqueros siguen siendo las más bajas sin un héroe arquero SSR. Si desbloqueas caballería T10, su habilidad combina bien con las estadísticas de Petra. Si desbloqueas la Caballería T3, Petra se vuelve aún más fuerte, porque su 3.ª habilidad encaja muy bien con sus atributos.
 (see guide #formations-rally-tips)
-Prioridad – envía estos primero: estos héroes dan una bonificación fija de Letalidad, la más valiosa para la Cacería del Oso.
 ÚSALOS CON CUIDADO
-⚠️ Héroes de daño por probabilidad: efectos fuertes, pero NO se acumulan. Usa solo UNO de estos héroes en el mismo ataque conjunto: Marlin, Zoe, Jaeger, Petra.
+⚠️ Héroes de daño por probabilidad: efectos fuertes, pero NO se acumulan. Usa solo UNO de estos héroes en el mismo ataque conjunto: Marlin, Zoe, Jaeger, Petra. ❌ No envíes a Petra como participante.
 🔗 Más información: https://www.kingshotguide.org/guide/kingshort-bear-hunt-rally-host-heroes
-[joiners] Chenko | lethality | Yeonwoo | lethality | Amane | attack | Amadeus | lethality
-[leaders] best | Amadeus | Jabel | Quinn | 30-30-40 | alt | Helga | Jabel | Quinn | 20-40-40 | f2p | Howard | Jabel | Quinn | 30-30-40 | best | Amadeus | Hilde | Marlin | 20-30-50 | alt | Helga | Jabel | Marlin | 20-30-50 | f2p | Zoe | Jabel | Quinn | 30-30-40 | best | Helga | Petra | Marlin | 10-20-70 | alt | Amadeus | Petra | Marlin | 20-30-50 | f2p | Zoe | Petra | Quinn | 20-40-40 | best | Amadeus | Petra | Rosa | 10-10-80 | alt | Helga | Petra | Rosa | 10-10-80 | f2p | Zoe | Petra | Rosa | 10-10-80 | best | Amadeus
+[joiners] Chenko | lethality | Amane | attack | Yeonwoo | lethality | Amadeus | lethality
+[leaders] best | Amadeus | Jabel | Quinn | 30-30-40 | alt | Helga | Jabel | Quinn | 20-40-40 | f2p | Howard | Jabel | Quinn | 30-30-40 | best | Amadeus | Hilde | Marlin | 20-30-50 | alt | Helga | Jabel | Marlin | 20-30-50 | f2p | Zoe | Jabel | Quinn | 30-30-40 | n1 | Amadeus | Petra | Marlin | 20-30-50 | n2 | Zoe | Petra | Quinn | 20-40-40 | n3 | Helga | Petra | Marlin | 10-20-70 | best | Amadeus | Petra | Rosa | 10-10-80 | alt | Helga | Petra | Rosa | 10-10-80 | f2p | Zoe | Petra | Rosa | 10-10-80 | best | Amadeus
 
 ### GUIDE #swordland-showdown — Enfrentamiento en Tierra de espadas
 CUÁNDO

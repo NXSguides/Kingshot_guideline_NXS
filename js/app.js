@@ -185,9 +185,12 @@ function localTimes(html, lang) {
 
 /* troop limits the officers can change (officer page → Events → Troop limits); guides write them as {=bear} / {=rally} */
 const LIMITS = { bear: 90000, rally: 70080 };
+/* the hero generation our kingdom is on: Bear Hunt shows only this generation's leader lineups (data/limits.json "gen" can change it) */
+let CURRENT_GEN = 3;
 fetch("data/limits.json?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((d) => {
   if (!d) return; let ch = false;
   for (const k of Object.keys(LIMITS)) if (+d[k] > 0 && +d[k] !== LIMITS[k]) { LIMITS[k] = +d[k]; ch = true; }
+  if (+d.gen > 0 && +d.gen !== CURRENT_GEN) { CURRENT_GEN = +d.gen; ch = true; }
   if (ch && typeof langChosen !== "undefined" && langChosen) renderAll();
 }).catch(() => {});
 function fmtLimit(k) {
@@ -452,6 +455,7 @@ const BLOCKS = {
     </div>`;
   }).join(""),
   leaders: (b, g) => (g.leaders || []).map((gen, i) => {
+    if (i + 1 !== CURRENT_GEN) return "";
     const rows = gen.rows.map((r, j) => {
       const note = (b.notes && b.notes[i] && b.notes[i][j]) || "";
       const tagLabel = (UI.tags[r.tag] && t(UI.tags[r.tag])) || r.tag.toUpperCase();

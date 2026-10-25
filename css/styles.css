@@ -292,6 +292,8 @@ header.top {
 .tag.best { background: var(--tag-best); }
 .tag.alt { background: var(--tag-alt); }
 .tag.f2p { background: var(--tag-f2p); }
+.tag.n1 { background: var(--tag-best); }
+.tag.n2, .tag.n3 { background: var(--tag-alt); }
 
 .heroes { font-weight: 600; font-size: 14.5px; }
 
