@@ -5,15 +5,6 @@
   top list from alliance rosters: 20 players, 8 alliances
   players read: 20/20
 ✅ saved
-2026-10-18T22:28:51.341Z mode=auto kingdoms=2189
-Kingdom 2189
-  board player_power: HTTP 404, 0 rows
-  board power: HTTP 404, 0 rows
-  board governor_power: HTTP 404, 0 rows
-  alliance board: HTTP 200, 8 rows
-  top list from alliance rosters: 20 players, 8 alliances
-  players read: 20/20
-✅ saved
 2026-10-19T23:48:47.453Z mode=auto kingdoms=2189
 Kingdom 2189
   board player_power: HTTP 404, 0 rows
@@ -69,6 +60,15 @@ Kingdom 2189
   players read: 20/20
 ✅ saved
 2026-10-25T22:40:02.888Z mode=auto kingdoms=2189
+Kingdom 2189
+  board player_power: HTTP 404, 0 rows
+  board power: HTTP 404, 0 rows
+  board governor_power: HTTP 404, 0 rows
+  alliance board: HTTP 200, 8 rows
+  top list from alliance rosters: 20 players, 8 alliances
+  players read: 20/20
+✅ saved
+2026-10-26T23:56:49.655Z mode=auto kingdoms=2189
 Kingdom 2189
   board player_power: HTTP 404, 0 rows
   board power: HTTP 404, 0 rows
