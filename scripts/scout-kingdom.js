@@ -2,8 +2,10 @@
 // Which kingdoms: data/scout-config.json { kingdoms: [{ kid, auto }] } — written by the Scout tab of the officer page.
 //   - a push of that file (the "Fetch" button) scouts the kingdoms listed in "requested"
 //   - the daily schedule scouts the ones with auto: true
-// Per kingdom: 1 request for the player ranking (or, if MightPulse has no such board, 1 + top alliances' rosters),
-// then 1 request per player for TC / Mystic Trial / kills / VIP. ~20–35 requests, about 40 s.
+// Per kingdom: the top 20 by Migrant Score AND the top 20 by power (union; usually 20–35 players).
+// Migrant Score ≈ Squad Power × 317, a much better strength measure; power also hints at activity.
+// MightPulse has no player power board, so the pool = the POOL strongest players (by power) of the top alliances'
+// rosters (+ a migrant board if MightPulse has one), then 1 request per player. ~50–60 requests, about 1 min.
 // The run log is public, so no player numbers are printed here.
 const fs = require("fs");
 const { readData, writeData } = require("./officer-data");
@@ -13,7 +15,7 @@ const CONFIG = "data/scout-config.json", OUT = "data/scout-x7k2p9.json", LOG = "
 // short public run log (counts and HTTP codes only, never player data) so problems can be checked without the Actions page
 const logLines = [];
 const log = (m) => { console.log(m); logLines.push(m); };
-const TOP = 20, ALLIANCES = 8, GAP_MS = 1100;
+const TOP = 20, POOL = 40, ALLIANCES = 8, GAP_MS = 1100;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function get(path) {
@@ -48,17 +50,27 @@ const isAlliance = (x) => x.abbr != null;
 
 async function scoutKingdom(kid) {
   log(`Kingdom ${kid}`);
-  // 1) who are the top players? try a player power board first …
-  let top = [], source = "";
+  const toRow = (x, extra) => ({ id: x.governor_id ?? x.id, name: x.nick_name || x.name || "", power: x.power ?? null, alliance: x.alliance_abbr || x.abbr || x.alliance?.abbr || null, ...extra });
+  // 1a) a player power board (MightPulse has none so far, kept in case it appears)
+  let byPower = [], source = "";
   for (const board of ["player_power", "power", "governor_power"]) {
+    const r = await get(`/kingdoms/${kid}/ranks?board=${board}&limit=${POOL}`);
+    const rows = findRows(r.body, isPlayer);
+    log(`  board ${board}: HTTP ${r.status}, ${rows.length} rows`);
+    if (r.status === 200 && rows.length) { byPower = rows.map((x) => toRow(x)); source = "board:" + board; break; }
+    await sleep(GAP_MS);
+  }
+  // 1b) a migrant board, if MightPulse has one
+  let byMigrant = [];
+  for (const board of ["migrant_score", "migrant", "player_migrant"]) {
     const r = await get(`/kingdoms/${kid}/ranks?board=${board}&limit=${TOP}`);
     const rows = findRows(r.body, isPlayer);
     log(`  board ${board}: HTTP ${r.status}, ${rows.length} rows`);
-    if (r.status === 200 && rows.length) { top = rows.map((x) => ({ id: x.governor_id ?? x.id, name: x.nick_name || x.name || "", power: x.power ?? null, alliance: x.alliance_abbr || x.abbr || x.alliance?.abbr || null })); source = "board:" + board; break; }
+    if (r.status === 200 && rows.length) { byMigrant = rows.map((x) => toRow(x)); source += (source ? " + " : "") + "board:" + board; break; }
     await sleep(GAP_MS);
   }
-  // … otherwise take the strongest alliances' rosters and pick the top players from them
-  const alliances = [];
+  // 1c) the strongest alliances (shown on the page) and, without a power board, their rosters as the pool
+  const alliances = [], rosterPool = [];
   const ab = await get(`/kingdoms/${kid}/ranks?board=alliance_power&limit=${ALLIANCES}`);
   const arows = findRows(ab.body, isAlliance);
   log(`  alliance board: HTTP ${ab.status}, ${arows.length} rows`);
@@ -68,19 +80,22 @@ async function scoutKingdom(kid) {
       if (r.status !== 200 || !r.body) return;
       const al = r.body.alliance || {}, members = r.body.members || [];
       alliances.push({ tag: arows[i].abbr, name: al.name || arows[i].name || "", power: al.power ?? arows[i].power ?? null, count: members.length });
-      if (!top.length || source === "") for (const m of members) top.push({ id: m.governor_id, name: m.nick_name, power: m.power ?? null, alliance: arows[i].abbr, _fromRoster: true });
+      for (const m of members) rosterPool.push({ id: m.governor_id, name: m.nick_name, power: m.power ?? null, alliance: arows[i].abbr });
     });
   }
-  if (!source) {
-    top = top.filter((x) => x.id != null).sort((a, b) => (b.power || 0) - (a.power || 0)).slice(0, TOP);
-    source = "alliance rosters";
+  if (!byPower.length) {
+    byPower = rosterPool.filter((x) => x.id != null).sort((a, b) => (b.power || 0) - (a.power || 0)).slice(0, POOL);
+    source = "alliance rosters" + (source ? " + " + source : "");
   }
-  log(`  top list from ${source}: ${top.length} players, ${alliances.length} alliances`);
+  const pool = new Map();
+  for (const x of [...byMigrant, ...byPower]) if (x.id != null && !pool.has(String(x.id))) pool.set(String(x.id), x);
+  const top = [...pool.values()];
+  log(`  pool from ${source}: ${top.length} players, ${alliances.length} alliances`);
   if (!top.length) return null;
-  // 2) each player's own record: TC, Mystic Trial, kills, VIP
+  // 2) each player's own record: TC, Mystic Trial, kills, VIP, Migrant Score
   const pl = await getMany(top.map((t) => `/players/${t.id}?include=base,ranks,heroes`), `Kingdom ${kid} players`);
   let ok = 0;
-  const players = top.map((t, i) => {
+  const all = top.map((t, i) => {
     const r = pl[i], good = r.status === 200 && r.body;
     if (good) ok++;
     const p = (good && r.body.player) || {}, rk = (good && r.body.ranks) || {};
@@ -92,7 +107,15 @@ async function scoutKingdom(kid) {
       migrant: rk.migrant_score ?? null,   // ≈ Squad Power × 317 (see js/officer/core.js)
       raw: good ? { player: r.body.player, ranks: r.body.ranks, heroes: r.body.heroes } : null,   // everything MightPulse has, like the roster
     };
-  }).sort((a, b) => (b.power || 0) - (a.power || 0));
+  });
+  // keep the top 20 by Migrant Score + the top 20 by power; "top" says which list(s) each one is in
+  const ids = (arr) => new Set(arr.slice(0, TOP).map((p) => String(p.id)));
+  const topM = ids([...all].filter((p) => p.migrant).sort((a, b) => b.migrant - a.migrant));
+  const topP = ids([...all].sort((a, b) => (b.power || 0) - (a.power || 0)));
+  const players = all.filter((p) => topM.has(String(p.id)) || topP.has(String(p.id)))
+    .map((p) => ({ ...p, top: [topM.has(String(p.id)) && "migrant", topP.has(String(p.id)) && "power"].filter(Boolean) }))
+    .sort((a, b) => (b.migrant || 0) - (a.migrant || 0));
+  log(`  kept ${players.length} (top ${TOP} by migrant: ${topM.size}, by power: ${topP.size})`);
   log(`  players read: ${ok}/${top.length}`);
   return { asOf: new Date().toISOString(), source, alliances, players };
 }

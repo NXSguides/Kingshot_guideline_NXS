@@ -406,7 +406,7 @@ AI ASSISTANT
 
 @scout
 🔭 SCOUT (officer-x7k2p9.html#scout) — the top players of other kingdoms (for KvK)
-- Type a kingdom number and press "Fetch now": a GitHub job reads that kingdom's top 20 players from MightPulse (power, Town Center, Mystic Trial score and rank, kills, VIP, alliance) and the kingdom's strongest alliances. It takes about 2–3 minutes; the page refreshes by itself.
+- Type a kingdom number and press "Fetch now": a GitHub job reads that kingdom's top 20 players by Migrant Score AND top 20 by power from MightPulse (union, anyone on both lists once; usually 20–35 players): power, Town Center, Mystic Trial score and rank, kills, VIP, alliance, Migrant Score; plus the kingdom's strongest alliances. Migrant Score ≈ Squad Power × 317, so it is the better strength measure; power also hints at activity. Under the ID a grey note "power top 20 only" / "Migrant top 20 only" shows a player who is on just one of the two lists. The table is sorted by Migrant Score by default. It takes about 2–3 minutes; the page refreshes by itself.
 - Each scouted kingdom is a chip at the top: ⟳ fetches it again, ✕ removes it, "update daily" refreshes it every day at 20:25 UTC together with the roster (tick it for the KvK opponent).
 - Our own kingdom #2189 is scouted too, for comparison. Data is the SCOUT section of the OFFICER DATA (answer "who is the strongest in kingdom X" from there).
 - Not in this data: last login (unreliable) and anything MightPulse does not publish.
