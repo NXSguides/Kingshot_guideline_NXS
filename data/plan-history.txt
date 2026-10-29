@@ -1,4 +1,14 @@
 commit | time (UTC) | plan id | name | ticked | building rows | people placed
+a8aefcf | 10-29 20:02 | 9nckhmc | 10/18 Legion 1 | 38 | 0 | 0
+a8aefcf | 10-29 20:02 | 67o2lx6 | 10/18 Legion 2 | 18 | 11 | 31
+a8aefcf | 10-29 20:02 | vk5p8s8 | 10/31 Legion 2 | 32 | 0 | 0
+a8aefcf | 10-29 20:02 | cbfo1yf | 11/01 SS Legion 1 | 32 | 0 | 0
+a8aefcf | 10-29 20:02 | w83k2rg | 10/31 TAC Legion 1 | 0 | 0 | 0
+986ddd8 | 10-29 20:01 | 9nckhmc | 10/18 Legion 1 | 38 | 0 | 0
+986ddd8 | 10-29 20:01 | 67o2lx6 | 10/18 Legion 2 | 18 | 11 | 31
+986ddd8 | 10-29 20:01 | vk5p8s8 | 10/31 Legion 2 | 32 | 0 | 0
+986ddd8 | 10-29 20:01 | cbfo1yf | 10/31 Legion 1 | 32 | 0 | 0
+986ddd8 | 10-29 20:01 | w83k2rg | 10/31 TAC Legion 1 | 0 | 0 | 0
 9cbf85a | 10-29 20:01 | 9nckhmc | 10/18 Legion 1 | 38 | 0 | 0
 9cbf85a | 10-29 20:01 | 67o2lx6 | 10/18 Legion 2 | 18 | 11 | 31
 9cbf85a | 10-29 20:01 | vk5p8s8 | 10/31 Legion 2 | 32 | 0 | 0
@@ -685,3 +695,8 @@ e4e7cc8 | 10-15 00:39 | 67o2lx6 | Legion 2 10/18 | 0 | 0 | 0
 796f3fd | 10-15 00:39 | 67o2lx6 | Legion 2 10/18 | 0 | 0 | 0
 f3a7837 | 10-15 00:39 | 9nckhmc | Legion 1 10/18 | 0 | 0 | 0
 15505f8 | 10-15 00:39 | 9nckhmc | Legion 1 | 0 | 0 | 0
+
+vk5p8s8@de559ba~vk5p8s8@HEAD: A 32, B 32, both 32
+vk5p8s8@de559ba~cbfo1yf@HEAD: A 32, B 32, both 32
+cbfo1yf@HEAD~vk5p8s8@HEAD: A 32, B 32, both 32
+vk5p8s8@de559ba~9nckhmc@af98982: A 32, B 38, both 22
