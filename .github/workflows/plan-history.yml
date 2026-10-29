@@ -1,0 +1,27 @@
+name: Ranking plan history (one-off)
+on:
+  workflow_dispatch:
+    inputs:
+      restore:
+        description: "planId@commit,… to put back (empty = only list)"
+        default: ""
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/plan-history.js
+        env:
+          DATA_KEY: ${{ secrets.DATA_KEY }}
+          RESTORE: ${{ github.event.inputs.restore }}
+      - run: |
+          git config user.name "plan-history-bot"
+          git config user.email "actions@github.com"
+          git add data/plan-history.txt data/ranking-plans-x7k2p9.json
+          git commit -m "Ranking plan history${{ github.event.inputs.restore && ' + restore' || '' }} [skip ci]" && git pull --rebase origin main && git push origin HEAD:main
