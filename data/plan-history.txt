@@ -1,4 +1,29 @@
 commit | time (UTC) | plan id | name | ticked | building rows | people placed
+ca69c16 | 10-29 20:03 | 9nckhmc | 10/18 Legion 1 | 38 | 0 | 0
+ca69c16 | 10-29 20:03 | 67o2lx6 | 10/18 Legion 2 | 18 | 11 | 31
+ca69c16 | 10-29 20:03 | vk5p8s8 | 11/01 SS Legion 2 | 32 | 0 | 0
+ca69c16 | 10-29 20:03 | cbfo1yf | 11/01 SS Legion 1 | 32 | 0 | 0
+ca69c16 | 10-29 20:03 | w83k2rg | 10/31 TAC Legion 1 | 3 | 0 | 0
+623f5bc | 10-29 20:03 | 9nckhmc | 10/18 Legion 1 | 38 | 0 | 0
+623f5bc | 10-29 20:03 | 67o2lx6 | 10/18 Legion 2 | 18 | 11 | 31
+623f5bc | 10-29 20:03 | vk5p8s8 | 11/01 SS Legion 2 | 32 | 0 | 0
+623f5bc | 10-29 20:03 | cbfo1yf | 11/01 SS Legion 1 | 32 | 0 | 0
+623f5bc | 10-29 20:03 | w83k2rg | 10/31 TAC Legion 1 | 3 | 0 | 0
+78806cb | 10-29 20:03 | 9nckhmc | 10/18 Legion 1 | 38 | 0 | 0
+78806cb | 10-29 20:03 | 67o2lx6 | 10/18 Legion 2 | 18 | 11 | 31
+78806cb | 10-29 20:03 | vk5p8s8 | 11/01 SS Legion 2 | 32 | 0 | 0
+78806cb | 10-29 20:03 | cbfo1yf | 11/01 SS Legion 1 | 32 | 0 | 0
+78806cb | 10-29 20:03 | w83k2rg | 10/31 TAC Legion 1 | 2 | 0 | 0
+d54330f | 10-29 20:03 | 9nckhmc | 10/18 Legion 1 | 38 | 0 | 0
+d54330f | 10-29 20:03 | 67o2lx6 | 10/18 Legion 2 | 18 | 11 | 31
+d54330f | 10-29 20:03 | vk5p8s8 | 11/01 SS Legion 2 | 32 | 0 | 0
+d54330f | 10-29 20:03 | cbfo1yf | 11/01 SS Legion 1 | 32 | 0 | 0
+d54330f | 10-29 20:03 | w83k2rg | 10/31 TAC Legion 1 | 1 | 0 | 0
+29358fa | 10-29 20:02 | 9nckhmc | 10/18 Legion 1 | 38 | 0 | 0
+29358fa | 10-29 20:02 | 67o2lx6 | 10/18 Legion 2 | 18 | 11 | 31
+29358fa | 10-29 20:02 | vk5p8s8 | 11/01 SS Legion 2 | 32 | 0 | 0
+29358fa | 10-29 20:02 | cbfo1yf | 11/01 SS Legion 1 | 32 | 0 | 0
+29358fa | 10-29 20:02 | w83k2rg | 10/31 TAC Legion 1 | 0 | 0 | 0
 a8aefcf | 10-29 20:02 | 9nckhmc | 10/18 Legion 1 | 38 | 0 | 0
 a8aefcf | 10-29 20:02 | 67o2lx6 | 10/18 Legion 2 | 18 | 11 | 31
 a8aefcf | 10-29 20:02 | vk5p8s8 | 10/31 Legion 2 | 32 | 0 | 0
@@ -696,7 +721,8 @@ e4e7cc8 | 10-15 00:39 | 67o2lx6 | Legion 2 10/18 | 0 | 0 | 0
 f3a7837 | 10-15 00:39 | 9nckhmc | Legion 1 10/18 | 0 | 0 | 0
 15505f8 | 10-15 00:39 | 9nckhmc | Legion 1 | 0 | 0 | 0
 
-vk5p8s8@de559ba~vk5p8s8@HEAD: A 32, B 32, both 32
-vk5p8s8@de559ba~cbfo1yf@HEAD: A 32, B 32, both 32
-cbfo1yf@HEAD~vk5p8s8@HEAD: A 32, B 32, both 32
-vk5p8s8@de559ba~9nckhmc@af98982: A 32, B 38, both 22
+SHAPE 706c10d
+9nckhmc 10/18 Legion 1: plan keys name,picked,wPower,counts,tb,by,at,subs,wts | tb stages=34, targets=21, short=4, rem=261, tlabels=153, cols=103, show=74, groups=2
+67o2lx6 10/18 Legion 2: plan keys name,picked,wPower,counts,tb,by,at,subs,wts | tb stages=47, targets=21, short=4, rem=261, tlabels=153, cols=103, show=74, groups=2824
+vk5p8s8 10/31 Legion 2: plan keys owner,name,picked,wPower,wts,counts,tb,by,at,subs | tb stages=47, targets=21, short=4, rem=713, tlabels=153, cols=103, show=74, groups=2
+cbfo1yf 10/31 Legion 1: plan keys owner,name,picked,wPower,wts,counts,tb,by,at,subs | tb stages=34, targets=21, short=4, rem=261, tlabels=153, cols=103, show=74, groups=2
