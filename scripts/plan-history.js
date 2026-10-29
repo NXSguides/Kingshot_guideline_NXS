@@ -39,3 +39,9 @@ if (process.env.COMPARE) {
   }
   fs.appendFileSync("data/plan-history.txt", "\n" + out2.join("\n") + "\n");
 }
+// SHAPE="sha": for every plan in that version, the battle-table keys and how big each value is (no contents)
+if (process.env.SHAPE) {
+  const d = at(process.env.SHAPE), o = [];
+  for (const [id, p] of Object.entries(d.plans || {})) o.push(`${id} ${p.name}: plan keys ${Object.keys(p).join(",")} | tb ${Object.entries(p.tb || {}).map(([k, v]) => k + "=" + JSON.stringify(v).length).join(", ")}`);
+  fs.appendFileSync("data/plan-history.txt", "\nSHAPE " + process.env.SHAPE + "\n" + o.join("\n") + "\n");
+}
