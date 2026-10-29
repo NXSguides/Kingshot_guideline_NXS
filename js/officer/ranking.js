@@ -841,7 +841,7 @@ function tbImage() {
   host.addEventListener("pointerdown", (e) => {
     if (e.pointerType === "mouse") return; const c = e.target.closest(".tb-chip"); if (!c || e.target.dataset.del) return;
     tp = { c, x: e.clientX, y: e.clientY, on: false, timer: setTimeout(() => { if (!tp) return; tp.on = true;
-      ghost = c.cloneNode(true); ghost.style.cssText = "position:fixed;z-index:80;pointer-events:none;opacity:.9;box-shadow:0 4px 14px rgba(0,0,0,.3);left:" + (tp.x - 30) + "px;top:" + (tp.y - 40) + "px"; document.body.appendChild(ghost);
+      ghost = c.cloneNode(true); ghost.style.cssText = "position:fixed;z-index:880;pointer-events:none;opacity:.9;box-shadow:0 4px 14px rgba(0,0,0,.3);left:" + (tp.x - 30) + "px;top:" + (tp.y - 40) + "px"; document.body.appendChild(ghost);
       try { navigator.vibrate && navigator.vibrate(15); } catch (err) {} }, 260) };
   });
   host.addEventListener("pointermove", (e) => {

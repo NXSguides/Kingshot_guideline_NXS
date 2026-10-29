@@ -67,7 +67,7 @@
   .ig .head { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 6px; }
   .ig .head .btn { white-space: nowrap; flex: none; }
   .ig pre { white-space: pre-wrap; word-break: break-word; margin: 0; font-family: inherit; font-size: 14px; line-height: 1.45; }
-  .modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 50; overflow-y: auto; padding: 16px; }
+  .modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 870; overflow-y: auto; padding: 16px; }   /* 870: over the Ask AI button (850) and Little Sparrow (860) */
   .modal .card { max-width: 640px; margin: 10px auto 40px; }
   label.f { display: block; font-weight: 600; margin: 12px 0 4px; font-size: 14px; }
   label.f small { font-weight: 400; color: var(--text-muted); }
@@ -224,7 +224,7 @@
   #pg-ranking .tb-cell.over { border: 2px solid var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
   #pg-ranking .tb-lab { font-size: 13.5px; font-weight: 700; margin-right: 2px; white-space: nowrap; }
   #pg-ranking .tb-add { display: inline-block; font-size: 12px; color: var(--text-muted); padding: 3px 6px; cursor: pointer; }
-  #pg-ranking .tb-modal { position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 60; display: grid; place-items: center; padding: 12px; overflow: auto; }
+  #pg-ranking .tb-modal { position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 870; display: grid; place-items: center; padding: 12px; overflow: auto; }
   #pg-ranking .tb-modal .card { max-width: 96vw; }
   #pg-ranking .empty { padding: 20px; text-align: center; color: var(--text-muted); }
 
@@ -328,7 +328,7 @@
   #pg-post .tabs { gap: 0; flex-wrap: nowrap; overflow-x: auto; }
   #pg-post .tabs a { padding: 8px 6px; font-size: 13px; white-space: nowrap; } }
   #pg-post .preview img { max-width: 100%; border-radius: 8px; display: block; margin: 6px 0; }
-  #pg-post .modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: grid; place-items: center; padding: 16px; z-index: 50; }
+  #pg-post .modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: grid; place-items: center; padding: 16px; z-index: 870; }
   #pg-post .modal .card { max-width: 380px; width: 100%; }
   #pg-post .ann .acts { display: flex; gap: 6px; flex-shrink: 0; }
   #pg-post .badge { display: inline-block; font-size: 12px; padding: 1px 7px; border-radius: 6px; background: var(--panel-2); margin-inline-start: 4px; }
@@ -358,7 +358,7 @@
   #pg-watch .tabs a { padding: 8px 6px; font-size: 13px; white-space: nowrap; } }
   #pg-watch .empty { padding: 20px; text-align: center; color: var(--text-muted); }
   #pg-watch ul.notes { margin: 6px 0 0; padding-inline-start: 20px; font-size: 13px; color: var(--text-muted); }
-  #pg-watch .modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: grid; place-items: center; padding: 16px; z-index: 50; }
+  #pg-watch .modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: grid; place-items: center; padding: 16px; z-index: 870; }
   #pg-watch .modal .card { max-width: 440px; width: 100%; box-sizing: border-box; max-height: 90vh; overflow: auto; }
   #pg-watch .modal label.f { display: block; font-weight: 600; margin: 12px 0 4px; }
   #pg-watch .modal label.f small { font-weight: 400; color: var(--text-muted); }
