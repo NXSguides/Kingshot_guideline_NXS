@@ -60,3 +60,6 @@ summary .sp-call { margin-inline-start: 6px; }
 .sp-bubble.sp-think:after { width: 12px; height: 12px; border: 2px solid #3a2e25; border-radius: 50%; background: #fffdf7; transform: none; bottom: -16px; left: calc(var(--sp-tail, 30px) + 2px); }
 .sp-bubble.sp-think:before { content: ""; position: absolute; width: 7px; height: 7px; border: 2px solid #3a2e25; border-radius: 50%; background: #fffdf7; bottom: -28px; left: calc(var(--sp-tail, 30px) - 6px); }
 .sp-bubble.sp-think.sp-up:after { bottom: auto; top: -16px; } .sp-bubble.sp-think.sp-up:before { bottom: auto; top: -28px; }
+
+/* 🪶 empty room at the end of every page under the Ask AI button and the sparrow (height set by sparrow.js), so nothing stays hidden under them */
+body.sp-room::after { content: ""; display: block; height: var(--sp-reserve, 0px); flex: none; }

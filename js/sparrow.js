@@ -1582,6 +1582,16 @@
 
   /* ---------- where things are ---------- */
   const fab = () => document.querySelector(".ai-fab");
+  /* 🪶 room at the end of the page for the Ask AI button + the sparrow sitting on it, so the last buttons of a page can always be
+     scrolled up out from under them (Armada: "find a way to click buttons without lil sparrow blocking") */
+  function reserveRoom() {
+    const f = fab(); let h = 0;
+    if (f && !root.hidden) { const r = f.getBoundingClientRect(); if (r.top > innerHeight / 2) h = Math.round(innerHeight - r.top + 96); }   // button in the lower half: its height + the bird
+    else if (f) { const r = f.getBoundingClientRect(); if (r.top > innerHeight / 2) h = Math.round(innerHeight - r.top + 12); }
+    document.documentElement.style.setProperty("--sp-reserve", Math.min(Math.max(h, 0), 260) + "px");
+  }
+  // officer page only for now (the main site follows once Sparrow says 上線)
+  if (/officer-/.test(location.pathname)) { document.body.classList.add("sp-room"); addEventListener("resize", reserveRoom); setInterval(reserveRoom, 1500); setTimeout(reserveRoom, 300); }
   function perchPoint() {   // feet on the top edge of the Ask AI button
     const f = fab(); if (!f) return { x: 60, y: innerHeight - 70 };
     const r = f.getBoundingClientRect(); return { x: r.left + Math.min(r.width - 24, 34), y: r.top + 3 };
