@@ -1,0 +1,7 @@
+roster match for the player: 1
+HTTP 200
+hero found: true; hero power empty: true; widget level = 2: true
+Helmet: enhancement matches a piece: true; refine_level = Mastery: true; gear_level = Mastery: false
+Gloves: enhancement matches a piece: true; refine_level = Mastery: true; gear_level = Mastery: false
+Armor: enhancement matches a piece: true; refine_level = Mastery: true; gear_level = Mastery: false
+Boots: enhancement matches a piece: true; refine_level = Mastery: true; gear_level = Mastery: false
