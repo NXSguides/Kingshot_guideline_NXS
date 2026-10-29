@@ -297,7 +297,7 @@
   #pg-ranking .rk-rb { border: 1px solid var(--rule); background: var(--panel); border-radius: 6px; padding: 0 4px; margin-inline-end: 4px; font-size: 13px; line-height: 22px; min-height: 24px; cursor: pointer; vertical-align: middle; }
   #pg-ranking .rk-rb.sf { opacity: .3; filter: grayscale(1); margin-inline: 4px 0; }
   #pg-ranking .rk-rb.sf.on { opacity: 1; filter: none; }
-  #pg-ranking tr.member.r-n td.name .nm { text-decoration: line-through; opacity: .6; }
+  #pg-ranking #result tr.r-n td.name .nm { text-decoration: line-through; opacity: .6; }
   #pg-ranking .rk-reg { margin: 0 0 8px; padding: 8px 10px; border-radius: 8px; background: color-mix(in srgb, var(--accent) 10%, var(--panel)); font-size: 13.5px; }
   #pg-ranking .pl-edc.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--panel)); font-weight: 600; }
   #pg-ranking .rk-subtag { background: #f59e0b; color: #000; border-radius: 4px; padding: 0 5px; font: 700 11px/1.6 system-ui, sans-serif; vertical-align: middle; }
@@ -868,7 +868,6 @@
     <!-- 2. pick participants -->
     <div class="card">
       <h2><span data-t="pick"></span> <span class="muted" id="pickCount"></span></h2>
-      <div id="rk_reg" class="rk-reg" hidden></div>
       <div class="row" style="margin-bottom:8px">
         <button class="btn" id="allBtn" data-t="all"></button>
         <button class="btn" id="noneBtn" data-t="none"></button>
@@ -905,6 +904,7 @@
         <h2 data-t="result"></h2>
         <div class="row" style="align-items:center;gap:8px"><label style="white-space:nowrap;font-size:13.5px"><span data-t="topN"></span> <input type="number" id="rk_topN" min="0" style="width:64px"></label><button class="btn primary" id="rk_copyBtn" data-t="copy"></button></div>
       </div>
+      <div id="rk_reg" class="rk-reg" hidden></div>
       <div class="tbl-wrap" style="max-height:none">
         <table>
           <thead><tr id="resultHead"></tr></thead>

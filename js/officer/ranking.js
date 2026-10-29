@@ -131,10 +131,10 @@ function renderList() {
       head = `<tr class="grp" data-r="${lastRank}"><td class="ck main"><input type="checkbox" tabindex="-1" ${on === grp.length ? "checked" : ""}></td><td class="ck"></td><td colspan="7"><b>${esc(rankLabel(m))}</b> <span class="muted">· ${on} / ${grp.length}</span></td></tr>`;
     }
     return head + `
-    <tr class="member${picked.has(m.id) ? " on" : ""}${subs.has(m.id) ? " is-sub" : ""}${picked.has(m.id) && rep[m.id] ? " r-" + rep[m.id] : ""}" data-id="${m.id}">
+    <tr class="member${picked.has(m.id) ? " on" : ""}${subs.has(m.id) ? " is-sub" : ""}" data-id="${m.id}">
       <td class="ck main"><input type="checkbox" ${picked.has(m.id) && !subs.has(m.id) ? "checked" : ""} tabindex="-1" aria-label="${esc(tr("colMain"))}"></td>
       <td class="ck"><input type="checkbox" class="ck-sub" ${subs.has(m.id) ? "checked" : ""} tabindex="-1" aria-label="${esc(tr("sub"))}"></td>
-      <td class="name" dir="auto">${regBtns(m)}<span class="nm">${esc(m.name)}</span>${safeBtn(m)}</td>
+      <td class="name" dir="auto">${esc(m.name)}</td>
       <td>${esc(rankLabel(m))}</td>
       <td class="num">${m.tc ?? "?"}</td>
       <td class="num">${big(m.power)}</td>
@@ -145,7 +145,6 @@ function renderList() {
   }).join("");
   const k = [...picked].filter((id) => subs.has(id)).length;
   $("pickCount").textContent = tr("selected", { n: picked.size, t: data.members.length }) + (k ? " " + tr("subN", { k }) : "");
-  renderReg();
   ROOT.querySelectorAll("th[data-sort]").forEach((th) => {
     th.textContent = tr(th.dataset.t) + (th.dataset.sort === sortKey ? (sortDir < 0 ? " ▼" : " ▲") : "");
   });
@@ -156,7 +155,7 @@ function renderList() {
 
 /* ✅ registration (Nia's SS & TAC Registration Tracker, 2026-10-30): each ticked person's reply — rep[id] = "y" confirmed / "n" can't come / none = no reply yet.
    Saved with the plan (a shared plan shares it). 🟡 SAFE = safe players, registered without waiting for a reply: one list for every plan (and the 📋 Attendance tab), kept on the Worker. */
-const RG = {"en": {"note": "✅ Registration: tap ⏳ next to a ticked name to cycle ✅ confirmed → ❌ can't come → ⏳ no reply. 🟡 = safe player, registered without waiting (remembered for every plan).", "count": "✅ {y} confirmed · 🟡 {s} safe, no reply → {r} can be registered · ⏳ {w} no reply · ❌ {n} can't", "copyWait": "📋 Copy not-replied names", "copyReg": "📋 Copy registration list", "safeOn": "🟡 Safe player (tap to remove)", "safeOff": "Mark as safe player (registered without waiting)", "rep": "Reply: ⏳ no reply → ✅ confirmed → ❌ can't come", "copied": "Copied", "noWait": "Everyone has replied."}, "zh": {"note": "✅ 報名確認：點勾選名字旁的 ⏳ 會循環 ✅ 確認會來 → ❌ 不能來 → ⏳ 還沒回。🟡 = 放心成員，不用等回覆就先報名（每個計畫都會記得）。", "count": "✅ 確認 {y} · 🟡 放心沒回 {s} → 可報名 {r} 人 · ⏳ 沒回 {w} · ❌ 不能來 {n}", "copyWait": "📋 複製沒回覆的人", "copyReg": "📋 複製報名名單", "safeOn": "🟡 放心成員（點一下取消）", "safeOff": "設成放心成員（不用等回覆就報名）", "rep": "回覆：⏳ 還沒回 → ✅ 確認 → ❌ 不能來", "copied": "已複製", "noWait": "大家都回覆了。"}, "pt": {"note": "✅ Inscrição: toque em ⏳ ao lado de um nome marcado para alternar ✅ confirmou → ❌ não pode → ⏳ sem resposta. 🟡 = jogador de confiança, inscrito sem esperar (lembrado em todos os planos).", "count": "✅ {y} confirmados · 🟡 {s} de confiança sem resposta → {r} podem ser inscritos · ⏳ {w} sem resposta · ❌ {n} não podem", "copyWait": "📋 Copiar quem não respondeu", "copyReg": "📋 Copiar lista de inscrição", "safeOn": "🟡 Jogador de confiança (toque para tirar)", "safeOff": "Marcar como de confiança (inscrito sem esperar)", "rep": "Resposta: ⏳ sem resposta → ✅ confirmou → ❌ não pode", "copied": "Copiado", "noWait": "Todos responderam."}, "ar": {"note": "✅ التسجيل: اضغط ⏳ بجانب اسم محدد للتبديل ✅ أكّد → ❌ لا يستطيع → ⏳ لم يرد. 🟡 = لاعب موثوق يُسجَّل دون انتظار (يُتذكَّر في كل الخطط).", "count": "✅ {y} أكّدوا · 🟡 {s} موثوقون لم يردّوا ← يمكن تسجيل {r} · ⏳ {w} لم يردّوا · ❌ {n} لا يستطيعون", "copyWait": "📋 نسخ من لم يرد", "copyReg": "📋 نسخ قائمة التسجيل", "safeOn": "🟡 لاعب موثوق (اضغط للإلغاء)", "safeOff": "تعيين كلاعب موثوق (يُسجَّل دون انتظار)", "rep": "الرد: ⏳ لم يرد ← ✅ أكّد ← ❌ لا يستطيع", "copied": "تم النسخ", "noWait": "ردّ الجميع."}, "ko": {"note": "✅ 등록: 체크한 이름 옆 ⏳를 누르면 ✅ 확정 → ❌ 못 옴 → ⏳ 미응답 순으로 바뀌어요. 🟡 = 믿을 수 있는 멤버, 기다리지 않고 등록 (모든 계획에서 기억돼요).", "count": "✅ 확정 {y} · 🟡 믿을 만한 미응답 {s} → 등록 가능 {r}명 · ⏳ 미응답 {w} · ❌ 못 옴 {n}", "copyWait": "📋 미응답자 복사", "copyReg": "📋 등록 명단 복사", "safeOn": "🟡 믿을 수 있는 멤버 (누르면 해제)", "safeOff": "믿을 수 있는 멤버로 표시 (기다리지 않고 등록)", "rep": "응답: ⏳ 미응답 → ✅ 확정 → ❌ 못 옴", "copied": "복사됨", "noWait": "모두 답했어요."}};
+const RG = {"en": {"note": "✅ Registration: tap ⏳ next to a name in this ranking to cycle ✅ confirmed → ❌ can't come → ⏳ no reply. 🟡 = safe player, registered without waiting (remembered for every plan).", "count": "✅ {y} confirmed · 🟡 {s} safe, no reply → {r} can be registered · ⏳ {w} no reply · ❌ {n} can't", "copyWait": "📋 Copy not-replied names", "copyReg": "📋 Copy registration list", "safeOn": "🟡 Safe player (tap to remove)", "safeOff": "Mark as safe player (registered without waiting)", "rep": "Reply: ⏳ no reply → ✅ confirmed → ❌ can't come", "copied": "Copied", "noWait": "Everyone has replied."}, "zh": {"note": "✅ 報名確認：點排序結果裡名字旁的 ⏳ 會循環 ✅ 確認會來 → ❌ 不能來 → ⏳ 還沒回。🟡 = 放心成員，不用等回覆就先報名（每個計畫都會記得）。", "count": "✅ 確認 {y} · 🟡 放心沒回 {s} → 可報名 {r} 人 · ⏳ 沒回 {w} · ❌ 不能來 {n}", "copyWait": "📋 複製沒回覆的人", "copyReg": "📋 複製報名名單", "safeOn": "🟡 放心成員（點一下取消）", "safeOff": "設成放心成員（不用等回覆就報名）", "rep": "回覆：⏳ 還沒回 → ✅ 確認 → ❌ 不能來", "copied": "已複製", "noWait": "大家都回覆了。"}, "pt": {"note": "✅ Inscrição: toque em ⏳ ao lado de um nome neste ranking para alternar ✅ confirmou → ❌ não pode → ⏳ sem resposta. 🟡 = jogador de confiança, inscrito sem esperar (lembrado em todos os planos).", "count": "✅ {y} confirmados · 🟡 {s} de confiança sem resposta → {r} podem ser inscritos · ⏳ {w} sem resposta · ❌ {n} não podem", "copyWait": "📋 Copiar quem não respondeu", "copyReg": "📋 Copiar lista de inscrição", "safeOn": "🟡 Jogador de confiança (toque para tirar)", "safeOff": "Marcar como de confiança (inscrito sem esperar)", "rep": "Resposta: ⏳ sem resposta → ✅ confirmou → ❌ não pode", "copied": "Copiado", "noWait": "Todos responderam."}, "ar": {"note": "✅ التسجيل: اضغط ⏳ بجانب اسم في هذا الترتيب للتبديل ✅ أكّد → ❌ لا يستطيع → ⏳ لم يرد. 🟡 = لاعب موثوق يُسجَّل دون انتظار (يُتذكَّر في كل الخطط).", "count": "✅ {y} أكّدوا · 🟡 {s} موثوقون لم يردّوا ← يمكن تسجيل {r} · ⏳ {w} لم يردّوا · ❌ {n} لا يستطيعون", "copyWait": "📋 نسخ من لم يرد", "copyReg": "📋 نسخ قائمة التسجيل", "safeOn": "🟡 لاعب موثوق (اضغط للإلغاء)", "safeOff": "تعيين كلاعب موثوق (يُسجَّل دون انتظار)", "rep": "الرد: ⏳ لم يرد ← ✅ أكّد ← ❌ لا يستطيع", "copied": "تم النسخ", "noWait": "ردّ الجميع."}, "ko": {"note": "✅ 등록: 이 순위의 이름 옆 ⏳를 누르면 ✅ 확정 → ❌ 못 옴 → ⏳ 미응답 순으로 바뀌어요. 🟡 = 믿을 수 있는 멤버, 기다리지 않고 등록 (모든 계획에서 기억돼요).", "count": "✅ 확정 {y} · 🟡 믿을 만한 미응답 {s} → 등록 가능 {r}명 · ⏳ 미응답 {w} · ❌ 못 옴 {n}", "copyWait": "📋 미응답자 복사", "copyReg": "📋 등록 명단 복사", "safeOn": "🟡 믿을 수 있는 멤버 (누르면 해제)", "safeOff": "믿을 수 있는 멤버로 표시 (기다리지 않고 등록)", "rep": "응답: ⏳ 미응답 → ✅ 확정 → ❌ 못 옴", "copied": "복사됨", "noWait": "모두 답했어요."}};
 const rg = (k, v = {}) => String((RG[lang] || RG.en)[k] ?? RG.en[k]).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
 const isSafe = (id) => SAFE.has(String(id));
 function regOf() {
@@ -182,7 +181,7 @@ function renderReg() {
 }
 async function setSafe(id, on) {
   if (on) SAFE.add(String(id)); else SAFE.delete(String(id));
-  store.safe = [...SAFE]; save(); renderList();
+  store.safe = [...SAFE]; save(); renderResult();
   if (!loggedIn()) return;
   try { const j = await papi("safe", { id: String(id), on }); if (j.safe) { SAFE = new Set(j.safe.map(String)); store.safe = [...SAFE]; } } catch (e) {}
 }
@@ -212,13 +211,22 @@ function renderResult() {
     cols.map((k) => `<th class="num">${esc(statLabel(k))}${mode === "w" ? ` <span class="muted">${Math.round(wts[k] / (cols.reduce((a, c) => a + wts[c], 0) || 1) * 100)}%</span>` : ""}</th>`).join("");
   let n = 0;
   $("result").innerHTML = r.length ? r.map((m) => `
-    <tr${m.isSub ? ' class="rk-subrow"' : ""}>
+    <tr class="${m.isSub ? "rk-subrow" : ""}${rep[m.id] ? " r-" + rep[m.id] : ""}" data-id="${m.id}">
       <td class="num">${m.isSub ? "" : ++n}</td>
-      <td class="name"><span dir="auto">${esc(m.name)}</span>${m.isSub ? ` <span class="rk-subtag">${esc(tr("subTag"))}</span>` : ""}<div style="font-size:12px;opacity:.65;font-variant-numeric:tabular-nums;user-select:all">ID ${esc(m.id)}</div></td>
+      <td class="name">${regBtns(m)}<span dir="auto" class="nm">${esc(m.name)}</span>${safeBtn(m)}${m.isSub ? ` <span class="rk-subtag">${esc(tr("subTag"))}</span>` : ""}<div style="font-size:12px;opacity:.65;font-variant-numeric:tabular-nums;user-select:all">ID ${esc(m.id)}</div></td>
       <td class="num">${mode !== "w" && spIsFallback(m) ? "~" : ""}${m.score.toFixed(mode === "w" ? 1 : 0)}<span class="bar" style="width:${Math.round(mode === "w" ? m.score * 0.6 : m.score / 20)}px"></span></td>
       ${cols.map((k) => `<td class="num">${fmtStat(m, k)}</td>`).join("")}
     </tr>`).join("") : `<tr><td colspan="${3 + cols.length}" class="empty">${tr("empty")}</td></tr>`;
+  renderReg();
 }
+/* ✅ / 🟡 taps in ③ (the ranking of the ticked people) */
+$("result").addEventListener("click", (e) => {
+  const b = e.target.closest("[data-rep], [data-safe]"), row = b && b.closest("tr[data-id]"); if (!row) return;
+  const id = Number(row.dataset.id) || row.dataset.id;
+  if (b.dataset.safe) return setSafe(id, !isSafe(id));
+  const r = rep[id]; if (!r) rep[id] = "y"; else if (r === "y") rep[id] = "n"; else delete rep[id];   // ⏳ → ✅ → ❌ → ⏳
+  persist(); renderResult();
+});
 
 let activePreset = null;
 // group sizes the user typed, remembered per event (falls back to the preset's default)
@@ -309,8 +317,6 @@ $("rk_list").onclick = (e) => {
   }
   const row = e.target.closest("tr.member"); if (!row) return;
   const id = Number(row.dataset.id) || row.dataset.id;
-  if (e.target.closest("[data-rep]")) { const r = rep[id]; if (!r) rep[id] = "y"; else if (r === "y") rep[id] = "n"; else delete rep[id]; persist(); renderList(); return; }   // ⏳ → ✅ → ❌ → ⏳
-  if (e.target.closest("[data-safe]")) { setSafe(id, !isSafe(id)); return; }
   if (e.target.closest("td.ck:not(.main)")) {   // right box = 替補 substitute: ticked, but on the bench
     if (subs.has(id)) { subs.delete(id); picked.delete(id); } else { subs.add(id); picked.add(id); }
   } else if (picked.has(id) && !subs.has(id)) { picked.delete(id); }   // left box / the row = starter
@@ -1135,7 +1141,7 @@ async function planPoll() {
   try {
     if (!(await planFetch())) return;
     if (planId && plans[planId]) planRebase(plans[planId]);
-    if (data) renderList();   // 🟡 safe list may have changed too
+    if (data) renderResult();   // 🟡 safe list may have changed too
     planRenderBar();
     if (planDirty && !planErr) { clearTimeout(planTimer); planTimer = setTimeout(planSave, 600); }
   } catch (e) {}
