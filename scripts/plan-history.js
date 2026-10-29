@@ -13,7 +13,7 @@ const open = (txt) => { const obj = JSON.parse(txt); if (!obj.enc) return obj; c
   let pt = Buffer.concat([d.update(buf.subarray(0, buf.length - 16)), d.final()]); if (obj.gz) pt = zlib.gunzipSync(pt); return JSON.parse(pt.toString("utf8")); };
 const at = (sha) => JSON.parse(JSON.stringify(open(execSync(`git show ${sha}:${FILE}`, { maxBuffer: 50e6 }).toString())));
 const count = (p) => { let a = 0, rows = 0; for (const g of (p.tb && p.tb.groups) || []) for (const r of g.rows || []) { rows++; a += (r.att || []).length + (r.def || []).length + (r.join || []).length; } return { picked: (p.picked || []).length, rows, placed: a }; };
-const log = execSync(`git log --since=${SINCE} --format=%h|%cI|%s -- ${FILE}`).toString().trim().split("\n").filter(Boolean);
+const log = execSync(`git log --since=${SINCE} "--format=%h|%cI|%s" -- ${FILE}`).toString().trim().split("\n").filter(Boolean);
 const out = ["commit | time (UTC) | plan id | name | ticked | building rows | people placed"];
 for (const l of log) {
   const [sha, t, msg] = l.split("|");
