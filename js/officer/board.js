@@ -1,47 +1,51 @@
 /* NXS officer page — board tab (loaded by officer-x7k2p9.html; registers OFFICER_PAGES.board) */
 /* ============ 💬 Board — topics and replies for planning together (officers logged in with Discord only).
-   Every message is translated into 中文 / English / Português by the Worker (with the game's own terms); the original is
-   always one tap away. 📌 marks the message that is the decision of a topic. Data lives in the Worker, not on GitHub. ============ */
+   🌐 A message is posted at once with only the original. "Translate for everyone" (remembered per device) translates it into
+   all board languages in the background; otherwise a reader taps "Translate to …" and that one language is kept for everyone.
+   Messages from before this change keep all their translations; the original is always one tap away. 📌 marks the message that is the decision of a topic. Data lives in the Worker, not on GitHub. ============ */
 (function () {
 const ROOT = document.getElementById("pg-board");
 const $ = (id) => document.getElementById(id);
-const BD = { ko: {"viewOnly": "👁️ 보기 전용: 게시판을 읽을 수만 있고 글이나 답글은 쓸 수 없어요. 나를 @하거나 나에게 맡긴 글은 노란색으로 표시되고, 내 할 일은 맨 위에 나와요.", "forMeTask": "나에게 맡김", "forMeAt": "나를 언급", "pwOnly": "간부 비밀번호로 들어와서 모든 글을 볼 수 있어요. 글을 쓰려면 먼저 Discord로 로그인해 주세요 — 그래야 누가 쓴 글인지 알 수 있어요.", "oneGo": "💡 메시지를 하나 보낼 때마다 서버 요청이 한 번 쓰여요(5개 언어로 번역도 돼요). 할 말이 많으면 여러 번 나눠 보내지 말고 다 쓴 뒤 한 번에 보내 주세요.", "title": "💬 게시판", "sub": "함께 계획을 세우는 곳입니다. 모든 글은 게임 공식 용어로 中文, English, Português, العربية, 한국어로 번역됩니다. 모든 간부가 볼 수 있고, 글쓰기는 Discord 로그인이 필요해요.", "login": "게시판은 Discord 로그인이 필요합니다 (누가 무엇을 썼는지 알 수 있도록).", "loginBtn": "🔑 Discord로 로그인", "newBtn": "+ 새 주제", "newTitle": "주제 (예: 어느 유적에 신청할지)", "newText": "의견을 적어 주세요…", "post": "게시", "cancel": "취소", "reply": "답글", "replyPh": "답글…", "back": "← 전체 주제", "empty": "아직 주제가 없습니다. “+ 새 주제”를 눌러 시작하세요.", "replies": "메시지 {n}개", "by": "{name} 님이 시작", "last": "최근 업데이트 {t}", "decided": "📌 결정됨", "decision": "📌 결정", "decBy": "{name} 님이 결정 · {t}", "setDec": "📌 결정으로 지정", "clearDec": "결정 해제", "orig": "원문 보기", "hideOrig": "원문 숨기기", "origLang": "원문 ({l})", "edit": "✏️ 수정", "del": "🗑️ 삭제", "save": "저장", "edited": "(수정됨)", "delAsk": "한 번 더 누르면 삭제됩니다", "delTopic": "첫 메시지를 삭제하면 주제 전체가 삭제됩니다 — 한 번 더 누르세요", "sending": "게시하고 번역하는 중…", "saving": "저장 중…", "noTr": "⚠️ 이 글은 번역되지 않아 원문을 표시합니다 (수정 후 저장하면 다시 번역됩니다).", "err": "문제가 발생했습니다: {e}", "dbLimit": "⚠️ 서버의 무료 일일 한도를 다 썼습니다. UTC 00:00에 초기화됩니다.", "dbErr": "⚠️ 지금은 서버를 사용할 수 없습니다. 잠시 후 다시 시도해 주세요.", "gone": "이 주제는 삭제되었습니다.", "needBoth": "주제와 메시지를 모두 작성하세요.", "loading": "불러오는 중…", "assign": "📋 담당자 지정", "taskTo": "📋 담당:", "done": "✅ 완료", "undone": "↩︎ 미완료로", "doneBy": "{name} 님 완료", "myTasks": "📋 내 할 일 ({n})", "noUsers": "아직 게시판을 사용한 다른 간부가 없습니다.", "inTopic": "“{t}”에서"},
- ar: {"viewOnly": "👁️ للعرض فقط: يمكنك قراءة اللوحة دون النشر أو الرد. الرسائل التي تذكرك (@) أو تكلّفك بمهمة مميّزة باللون الأصفر، ومهامك تظهر في الأعلى.", "forMeTask": "مُسندة إليك", "forMeAt": "تذكرك", "pwOnly": "دخلت بكلمة مرور الضباط، لذا يمكنك قراءة كل شيء. للكتابة سجّل الدخول عبر Discord أولًا — حتى يعرف الجميع من قال ماذا.", "oneGo": "💡 كل رسالة ترسلها تستهلك طلبًا واحدًا من الخادم (وتُترجم إلى 5 لغات). إن كان لديك الكثير لتقوله فاكتبه كله وأرسله مرة واحدة بدل عدة أجزاء.", "title": "💬 لوحة النقاش", "sub": "للتخطيط معًا. تُترجم كل رسالة إلى 中文 وEnglish وPortuguês و한국어 والعربية بمصطلحات اللعبة نفسها. يمكن لكل الضباط القراءة؛ والكتابة تحتاج تسجيل الدخول عبر Discord.", "login": "لوحة النقاش تحتاج تسجيل الدخول عبر Discord (ليعرف الجميع من كتب ماذا).", "loginBtn": "🔑 الدخول عبر Discord", "newBtn": "+ موضوع جديد", "newTitle": "الموضوع (مثلًا: أي مأوى نسجل فيه)", "newText": "اكتب أفكارك…", "post": "نشر", "cancel": "إلغاء", "reply": "رد", "replyPh": "اكتب ردًا…", "back": "← كل المواضيع", "empty": "لا توجد مواضيع بعد. اضغط “+ موضوع جديد” للبدء.", "replies": "{n} رسالة", "by": "بدأه {name}", "last": "آخر تحديث {t}", "decided": "📌 تقرر", "decision": "📌 القرار", "decBy": "قرره {name} · {t}", "setDec": "📌 اعتماده كقرار", "clearDec": "إلغاء القرار", "orig": "عرض الأصل", "hideOrig": "إخفاء الأصل", "origLang": "الأصل ({l})", "edit": "✏️ تعديل", "del": "🗑️ حذف", "save": "حفظ", "edited": "(معدّل)", "delAsk": "اضغط مرة أخرى للحذف", "delTopic": "حذف الرسالة الأولى يحذف الموضوع بأكمله — اضغط مرة أخرى", "sending": "جارٍ النشر والترجمة…", "saving": "جارٍ الحفظ…", "noTr": "⚠️ لم تُترجم هذه الرسالة، لذا يظهر الأصل (التعديل والحفظ يعيدان ترجمتها).", "err": "حدث خطأ: {e}", "dbLimit": "⚠️ نفدت الحصة اليومية المجانية للخادم. تُعاد عند 00:00 UTC.", "dbErr": "⚠️ الخادم غير متاح الآن. حاول مرة أخرى لاحقًا.", "gone": "تم حذف هذا الموضوع.", "needBoth": "اكتب موضوعًا ورسالة.", "loading": "جارٍ التحميل…", "assign": "📋 إسناد إلى", "taskTo": "📋 مهمة لـ", "done": "✅ تم", "undone": "↩︎ لم يتم", "doneBy": "أنجزها {name}", "myTasks": "📋 مهام لك ({n})", "noUsers": "لم يستخدم أي ضابط آخر لوحة النقاش بعد.", "inTopic": "في “{t}”"},
+const BD = { ko: {"txAll": "🌐 모두에게 번역", "trBtn": "🌐 {l}(으)로 번역", "trIng": "번역 중…", "pend": "🌐 번역 중이에요. 끝나면 자동으로 바뀌어요.", "trFail": "지금은 번역할 수 없어요. 잠시 후 다시 시도하세요.", "viewOnly": "👁️ 보기 전용: 게시판을 읽을 수만 있고 글이나 답글은 쓸 수 없어요. 나를 @하거나 나에게 맡긴 글은 노란색으로 표시되고, 내 할 일은 맨 위에 나와요.", "forMeTask": "나에게 맡김", "forMeAt": "나를 언급", "pwOnly": "간부 비밀번호로 들어와서 모든 글을 볼 수 있어요. 글을 쓰려면 먼저 Discord로 로그인해 주세요 — 그래야 누가 쓴 글인지 알 수 있어요.", "oneGo": "💡 메시지를 하나 보낼 때마다 서버 요청이 한 번 쓰여요(5개 언어로 번역도 돼요). 할 말이 많으면 여러 번 나눠 보내지 말고 다 쓴 뒤 한 번에 보내 주세요.", "title": "💬 게시판", "sub": "함께 계획을 세우는 곳입니다. 모든 글은 게임 공식 용어로 中文, English, Português, العربية, 한국어로 번역됩니다. 모든 간부가 볼 수 있고, 글쓰기는 Discord 로그인이 필요해요.", "login": "게시판은 Discord 로그인이 필요합니다 (누가 무엇을 썼는지 알 수 있도록).", "loginBtn": "🔑 Discord로 로그인", "newBtn": "+ 새 주제", "newTitle": "주제 (예: 어느 유적에 신청할지)", "newText": "의견을 적어 주세요…", "post": "게시", "cancel": "취소", "reply": "답글", "replyPh": "답글…", "back": "← 전체 주제", "empty": "아직 주제가 없습니다. “+ 새 주제”를 눌러 시작하세요.", "replies": "메시지 {n}개", "by": "{name} 님이 시작", "last": "최근 업데이트 {t}", "decided": "📌 결정됨", "decision": "📌 결정", "decBy": "{name} 님이 결정 · {t}", "setDec": "📌 결정으로 지정", "clearDec": "결정 해제", "orig": "원문 보기", "hideOrig": "원문 숨기기", "origLang": "원문 ({l})", "edit": "✏️ 수정", "del": "🗑️ 삭제", "save": "저장", "edited": "(수정됨)", "delAsk": "한 번 더 누르면 삭제됩니다", "delTopic": "첫 메시지를 삭제하면 주제 전체가 삭제됩니다 — 한 번 더 누르세요", "sending": "보내는 중…", "saving": "저장 중…", "noTr": "⚠️ 이 글은 번역되지 않아 원문을 표시합니다 (수정 후 저장하면 다시 번역됩니다).", "err": "문제가 발생했습니다: {e}", "dbLimit": "⚠️ 서버의 무료 일일 한도를 다 썼습니다. UTC 00:00에 초기화됩니다.", "dbErr": "⚠️ 지금은 서버를 사용할 수 없습니다. 잠시 후 다시 시도해 주세요.", "gone": "이 주제는 삭제되었습니다.", "needBoth": "주제와 메시지를 모두 작성하세요.", "loading": "불러오는 중…", "assign": "📋 담당자 지정", "taskTo": "📋 담당:", "done": "✅ 완료", "undone": "↩︎ 미완료로", "doneBy": "{name} 님 완료", "myTasks": "📋 내 할 일 ({n})", "noUsers": "아직 게시판을 사용한 다른 간부가 없습니다.", "inTopic": "“{t}”에서"},
+ ar: {"txAll": "🌐 ترجمة للجميع", "trBtn": "🌐 ترجمة إلى {l}", "trIng": "جارٍ الترجمة…", "pend": "🌐 قيد الترجمة — سيتغير تلقائيًا عند الانتهاء.", "trFail": "تعذّرت الترجمة الآن — حاول بعد قليل.", "viewOnly": "👁️ للعرض فقط: يمكنك قراءة اللوحة دون النشر أو الرد. الرسائل التي تذكرك (@) أو تكلّفك بمهمة مميّزة باللون الأصفر، ومهامك تظهر في الأعلى.", "forMeTask": "مُسندة إليك", "forMeAt": "تذكرك", "pwOnly": "دخلت بكلمة مرور الضباط، لذا يمكنك قراءة كل شيء. للكتابة سجّل الدخول عبر Discord أولًا — حتى يعرف الجميع من قال ماذا.", "oneGo": "💡 كل رسالة ترسلها تستهلك طلبًا واحدًا من الخادم (وتُترجم إلى 5 لغات). إن كان لديك الكثير لتقوله فاكتبه كله وأرسله مرة واحدة بدل عدة أجزاء.", "title": "💬 لوحة النقاش", "sub": "للتخطيط معًا. تُترجم كل رسالة إلى 中文 وEnglish وPortuguês و한국어 والعربية بمصطلحات اللعبة نفسها. يمكن لكل الضباط القراءة؛ والكتابة تحتاج تسجيل الدخول عبر Discord.", "login": "لوحة النقاش تحتاج تسجيل الدخول عبر Discord (ليعرف الجميع من كتب ماذا).", "loginBtn": "🔑 الدخول عبر Discord", "newBtn": "+ موضوع جديد", "newTitle": "الموضوع (مثلًا: أي مأوى نسجل فيه)", "newText": "اكتب أفكارك…", "post": "نشر", "cancel": "إلغاء", "reply": "رد", "replyPh": "اكتب ردًا…", "back": "← كل المواضيع", "empty": "لا توجد مواضيع بعد. اضغط “+ موضوع جديد” للبدء.", "replies": "{n} رسالة", "by": "بدأه {name}", "last": "آخر تحديث {t}", "decided": "📌 تقرر", "decision": "📌 القرار", "decBy": "قرره {name} · {t}", "setDec": "📌 اعتماده كقرار", "clearDec": "إلغاء القرار", "orig": "عرض الأصل", "hideOrig": "إخفاء الأصل", "origLang": "الأصل ({l})", "edit": "✏️ تعديل", "del": "🗑️ حذف", "save": "حفظ", "edited": "(معدّل)", "delAsk": "اضغط مرة أخرى للحذف", "delTopic": "حذف الرسالة الأولى يحذف الموضوع بأكمله — اضغط مرة أخرى", "sending": "جارٍ النشر…", "saving": "جارٍ الحفظ…", "noTr": "⚠️ لم تُترجم هذه الرسالة، لذا يظهر الأصل (التعديل والحفظ يعيدان ترجمتها).", "err": "حدث خطأ: {e}", "dbLimit": "⚠️ نفدت الحصة اليومية المجانية للخادم. تُعاد عند 00:00 UTC.", "dbErr": "⚠️ الخادم غير متاح الآن. حاول مرة أخرى لاحقًا.", "gone": "تم حذف هذا الموضوع.", "needBoth": "اكتب موضوعًا ورسالة.", "loading": "جارٍ التحميل…", "assign": "📋 إسناد إلى", "taskTo": "📋 مهمة لـ", "done": "✅ تم", "undone": "↩︎ لم يتم", "doneBy": "أنجزها {name}", "myTasks": "📋 مهام لك ({n})", "noUsers": "لم يستخدم أي ضابط آخر لوحة النقاش بعد.", "inTopic": "في “{t}”"},
 
-  zh: { viewOnly: "👁️ 你只能看留言，不能發文或回覆。有人 @ 你或指派任務給你的留言會用黃框標出來，上方也會列出你的任務。", forMeTask: "指派給你", forMeAt: "提到你", pwOnly: "你現在是用幹部密碼進來的，可以看所有留言；要留言請先用 Discord 登入，這樣大家才知道是誰說的。", oneGo: "💡 每送出一則留言就會用掉一次伺服器請求（還要翻成 5 種語言），話比較多的時候請全部打完再一次送出，不要分好幾段傳。", title: "💬 留言板", sub: "幹部一起規劃用。每則留言都會自動翻成中文、English、Português、العربية、한국어，並使用遊戲裡的正式名稱。所有幹部都看得到；留言需要用 Discord 登入。",
+  zh: { txAll: "🌐 翻譯給所有人", trBtn: "🌐 翻成{l}", trIng: "翻譯中…", pend: "🌐 翻譯中，翻好會自動換上。", trFail: "現在翻不了，等一下再試。", viewOnly: "👁️ 你只能看留言，不能發文或回覆。有人 @ 你或指派任務給你的留言會用黃框標出來，上方也會列出你的任務。", forMeTask: "指派給你", forMeAt: "提到你", pwOnly: "你現在是用幹部密碼進來的，可以看所有留言；要留言請先用 Discord 登入，這樣大家才知道是誰說的。", oneGo: "💡 每送出一則留言就會用掉一次伺服器請求（還要翻成 5 種語言），話比較多的時候請全部打完再一次送出，不要分好幾段傳。", title: "💬 留言板", sub: "幹部一起規劃用。每則留言都會自動翻成中文、English、Português、العربية、한국어，並使用遊戲裡的正式名稱。所有幹部都看得到；留言需要用 Discord 登入。",
     login: "留言板要用 Discord 登入才能使用（這樣大家才知道是誰留言）。", loginBtn: "🔑 用 Discord 登入",
     newBtn: "＋ 新主題", newTitle: "主題（例如：這期遺跡要報哪裡）", newText: "寫下你的想法…", post: "送出", cancel: "取消", reply: "回覆", replyPh: "回覆…",
     back: "← 所有主題", empty: "還沒有主題。按「＋ 新主題」開始討論。", replies: "{n} 則留言", by: "{name} 開的", last: "最後更新 {t}",
     decided: "📌 已定案", decision: "📌 定案", decBy: "{name} 在 {t} 定案", setDec: "📌 設為定案", clearDec: "取消定案",
     orig: "看原文", hideOrig: "收起原文", origLang: "原文（{l}）", edit: "✏️ 編輯", del: "🗑️ 刪除", save: "儲存", edited: "（已編輯）",
-    delAsk: "再按一次確定刪除", delTopic: "刪掉第一則會刪掉整個主題，再按一次確定", sending: "送出中，正在翻譯…", saving: "儲存中…",
+    delAsk: "再按一次確定刪除", delTopic: "刪掉第一則會刪掉整個主題，再按一次確定", sending: "送出中…", saving: "儲存中…",
     noTr: "⚠️ 這則沒翻譯成功，先顯示原文（翻譯服務暫時忙碌，有人打開這串時會自動再翻一次，幾分鐘後再看看）。", err: "出了點問題：{e}", dbLimit: "⚠️ 伺服器今天的免費額度用完了，UTC 00:00 重置。", dbErr: "⚠️ 伺服器暫時無法使用，請稍後再試。", gone: "這個主題已經被刪除了。",
     needBoth: "主題和內容都要寫。", loading: "載入中…",
     assign: "📋 指派給", taskTo: "📋 指派給", done: "✅ 完成", undone: "↩︎ 取消完成", doneBy: "{name} 已完成", myTasks: "📋 指派給你的事（{n}）", noUsers: "還沒有其他幹部用過留言板。", inTopic: "在「{t}」" },
-  en: { viewOnly: "👁️ View only: you can read the board but not post or reply. Posts that @ you or assign you a task are marked in yellow, and your tasks are listed at the top.", forMeTask: "Assigned to you", forMeAt: "Mentions you", pwOnly: "You opened this page with the officer password, so you can read everything. To post, log in with Discord first — that way everyone knows who said what.", oneGo: "💡 Every message you send is one server request (and gets translated into 5 languages). If you have a lot to say, write it all and send it once instead of in several pieces.", title: "💬 Board", sub: "For planning together. Every message is translated into 中文, English, Português, العربية and 한국어 with the game's own terms. Every officer can read it; posting needs a Discord login.",
+  en: { txAll: "🌐 Translate for everyone", trBtn: "🌐 Translate to {l}", trIng: "Translating…", pend: "🌐 Being translated — it switches by itself when done.", trFail: "Couldn't translate right now — try again in a minute.", viewOnly: "👁️ View only: you can read the board but not post or reply. Posts that @ you or assign you a task are marked in yellow, and your tasks are listed at the top.", forMeTask: "Assigned to you", forMeAt: "Mentions you", pwOnly: "You opened this page with the officer password, so you can read everything. To post, log in with Discord first — that way everyone knows who said what.", oneGo: "💡 Every message you send is one server request (and gets translated into 5 languages). If you have a lot to say, write it all and send it once instead of in several pieces.", title: "💬 Board", sub: "For planning together. Every message is translated into 中文, English, Português, العربية and 한국어 with the game's own terms. Every officer can read it; posting needs a Discord login.",
     login: "The board needs a Discord login (so everyone knows who wrote what).", loginBtn: "🔑 Log in with Discord",
     newBtn: "+ New topic", newTitle: "Topic (e.g. which Sanctuary to sign up for)", newText: "Write your thoughts…", post: "Post", cancel: "Cancel", reply: "Reply", replyPh: "Reply…",
     back: "← All topics", empty: "No topics yet. Tap “+ New topic” to start.", replies: "{n} messages", by: "started by {name}", last: "last update {t}",
     decided: "📌 Decided", decision: "📌 Decision", decBy: "decided by {name} · {t}", setDec: "📌 Set as decision", clearDec: "Clear decision",
     orig: "Show original", hideOrig: "Hide original", origLang: "Original ({l})", edit: "✏️ Edit", del: "🗑️ Delete", save: "Save", edited: "(edited)",
-    delAsk: "Tap again to delete", delTopic: "Deleting the first message deletes the whole topic — tap again", sending: "Posting and translating…", saving: "Saving…",
+    delAsk: "Tap again to delete", delTopic: "Deleting the first message deletes the whole topic — tap again", sending: "Posting…", saving: "Saving…",
     noTr: "⚠️ This one wasn't translated, so the original is shown (the translator was busy — it tries again by itself when someone opens this thread; check back in a few minutes).", err: "Something went wrong: {e}", dbLimit: "⚠️ The server's free daily allowance is used up. It resets at 00:00 UTC.", dbErr: "⚠️ The server isn't available right now. Please try again later.", gone: "This topic was deleted.",
     needBoth: "Write a topic and a message.", loading: "Loading…",
     assign: "📋 Assign to", taskTo: "📋 Task for", done: "✅ Done", undone: "↩︎ Not done", doneBy: "{name} done", myTasks: "📋 Tasks for you ({n})", noUsers: "No other officer has used the board yet.", inTopic: "in “{t}”" },
-  pt: { viewOnly: "👁️ Só leitura: você pode ler o mural, mas não publicar nem responder. Mensagens que te marcam (@) ou te atribuem uma tarefa ficam destacadas em amarelo, e suas tarefas aparecem no topo.", forMeTask: "Atribuída a você", forMeAt: "Menciona você", pwOnly: "Você entrou com a senha dos oficiais, então pode ler tudo. Para escrever, entre com o Discord primeiro — assim todos sabem quem disse o quê.", oneGo: "💡 Cada mensagem enviada é um pedido ao servidor (e é traduzida para 5 idiomas). Se tiver muito a dizer, escreva tudo e envie de uma vez, não em várias partes.", title: "💬 Mural", sub: "Para planejar juntos. Cada mensagem é traduzida para 中文, English, Português, العربية e 한국어 com os nomes oficiais do jogo. Todos os oficiais podem ler; para escrever é preciso entrar com o Discord.",
+  pt: { txAll: "🌐 Traduzir para todos", trBtn: "🌐 Traduzir para {l}", trIng: "Traduzindo…", pend: "🌐 Sendo traduzido — muda sozinho quando terminar.", trFail: "Não deu para traduzir agora — tente de novo daqui a pouco.", viewOnly: "👁️ Só leitura: você pode ler o mural, mas não publicar nem responder. Mensagens que te marcam (@) ou te atribuem uma tarefa ficam destacadas em amarelo, e suas tarefas aparecem no topo.", forMeTask: "Atribuída a você", forMeAt: "Menciona você", pwOnly: "Você entrou com a senha dos oficiais, então pode ler tudo. Para escrever, entre com o Discord primeiro — assim todos sabem quem disse o quê.", oneGo: "💡 Cada mensagem enviada é um pedido ao servidor (e é traduzida para 5 idiomas). Se tiver muito a dizer, escreva tudo e envie de uma vez, não em várias partes.", title: "💬 Mural", sub: "Para planejar juntos. Cada mensagem é traduzida para 中文, English, Português, العربية e 한국어 com os nomes oficiais do jogo. Todos os oficiais podem ler; para escrever é preciso entrar com o Discord.",
     login: "O mural precisa do login com o Discord (assim todos sabem quem escreveu).", loginBtn: "🔑 Entrar com o Discord",
     newBtn: "+ Novo tópico", newTitle: "Tópico (ex.: em qual Santuário vamos nos inscrever)", newText: "Escreva sua ideia…", post: "Enviar", cancel: "Cancelar", reply: "Responder", replyPh: "Responder…",
     back: "← Todos os tópicos", empty: "Nenhum tópico ainda. Toque em “+ Novo tópico” para começar.", replies: "{n} mensagens", by: "aberto por {name}", last: "atualizado {t}",
     decided: "📌 Decidido", decision: "📌 Decisão", decBy: "decidido por {name} · {t}", setDec: "📌 Marcar como decisão", clearDec: "Tirar decisão",
     orig: "Ver original", hideOrig: "Esconder original", origLang: "Original ({l})", edit: "✏️ Editar", del: "🗑️ Apagar", save: "Salvar", edited: "(editado)",
-    delAsk: "Toque de novo para apagar", delTopic: "Apagar a primeira mensagem apaga o tópico inteiro — toque de novo", sending: "Enviando e traduzindo…", saving: "Salvando…",
+    delAsk: "Toque de novo para apagar", delTopic: "Apagar a primeira mensagem apaga o tópico inteiro — toque de novo", sending: "Enviando…", saving: "Salvando…",
     noTr: "⚠️ Esta não foi traduzida, então aparece o original (o tradutor estava ocupado — ele tenta de novo sozinho quando alguém abre este tópico; volte em alguns minutos).", err: "Algo deu errado: {e}", dbLimit: "⚠️ A cota diária gratuita do servidor acabou. Ela reinicia às 00:00 UTC.", dbErr: "⚠️ O servidor não está disponível agora. Tente de novo mais tarde.", gone: "Este tópico foi apagado.",
     needBoth: "Escreva o tópico e a mensagem.", loading: "Carregando…",
     assign: "📋 Atribuir a", taskTo: "📋 Tarefa para", done: "✅ Feito", undone: "↩︎ Desfazer", doneBy: "{name} concluiu", myTasks: "📋 Tarefas para você ({n})", noUsers: "Nenhum outro oficial usou o mural ainda.", inTopic: "em “{t}”" },
 };
 const LANG_LABEL = { zh: "中文", en: "English", pt: "Português", ko: "한국어", de: "Deutsch", fr: "Français", es: "Español", tr: "Türkçe", id: "Bahasa Indonesia", ru: "Русский", th: "ไทย", ar: "العربية", ja: "日本語" };
 let ments = [];
-let lang = OFFICER.lang, topics = [], cur = null, timer = null, openOrig = new Set(), armed = null, editing = null;
+let lang = OFFICER.lang, topics = [], cur = null, timer = null, openOrig = new Set(), armed = null, editing = null, trBusy = new Set(), pendT = 0;
+/* 🌐 "Translate for everyone" on this device (default off) */
+const TXALL_LS = "nxs-board-txall";
+const txAll = () => { try { return localStorage.getItem(TXALL_LS) === "1"; } catch (e) { return false; } };
 /* 🔴 unread: the last time each topic was opened on this device (localStorage); a topic changed after that gets a dot,
    and the 💬 Board tab gets one when any topic does. Push notifications already add the red badge on the app icon. */
 const SEEN_LS = "nxs-board-seen";
@@ -175,6 +179,7 @@ function applyTexts() {
   if (!viewOnly) $("bd_pwNote").hidden = !pwOnly;
   if (pwOnly) $("bd_pwNote").innerHTML = `<span>${esc(t("pwOnly"))}</span><a class="btn" style="background:#5865F2;border-color:#5865F2;color:#fff;font-weight:700" href="${esc(discordStart())}">${esc(t("loginBtn"))}</a>`;
   $("bd_tip").textContent = t("oneGo");
+  ROOT.querySelectorAll("[data-txall]").forEach((cb) => { cb.checked = txAll(); cb.nextElementSibling.textContent = t("txAll"); });
   chipsRender("new"); chipsRender("reply");
 }
 function renderList() {
@@ -193,6 +198,7 @@ const av = (u) => u.avatar ? `<img src="${esc(u.avatar)}" alt="">` : `<span clas
 function postHtml(p, i) {
   const me = !PV() && OFFICER.me() && p.by.id === OFFICER.me().id, isDec = cur.dec === p.id, src = p.txt.src;
   const translated = !!p.txt[lang] && p.txt[lang] !== p.txt.orig, showOrig = openOrig.has(p.id);
+  const needTr = !translated && !!src && src !== lang, pending = needTr && p.txt.pend && !p.txt.err;   // 🌐 not in my language yet
   const dbg = `src=${src || "?"} · ${OFFICER_LANGS.map((l) => l + (p.txt[l] ? (p.txt[l] === p.txt.orig ? "=orig" : " ✓") : " ✗")).join(" · ")}`;
   const sameLang = src === lang || (!translated && !p.txt.en && !p.txt.zh && !p.txt.pt);
   const body = editing === p.id
@@ -200,7 +206,9 @@ function postHtml(p, i) {
        <div class="bd-tools" data-box="edit"><button type="button" class="btn" data-eimg>🖼️</button><input type="file" accept="image/*" multiple hidden data-efile></div><div class="bd-imgs" data-imgs="edit"></div>
        <div class="bd-acts"><button class="btn primary" data-save="${esc(p.id)}">${esc(t("save"))}</button><button class="btn" data-cancel>${esc(t("cancel"))}</button></div>`
     : `${bodyHtml(p)}${taskHtml(p)}
-       ${!translated && !(src === lang) ? `<div class="bd-warn">${esc(t("noTr"))}<br><span class="muted">${esc(dbg)}${p.txt.err ? " · " + esc(p.txt.err) : ""}</span></div>` : ""}
+       ${needTr && p.txt.err ? `<div class="bd-warn">${esc(t("noTr"))}<br><span class="muted">${esc(dbg)} · ${esc(p.txt.err)}</span></div>` : ""}
+       ${pending ? `<div class="muted" style="font-size:13px;margin-top:6px">${esc(t("pend"))}</div>` : ""}
+       ${needTr && !pending ? `<button class="bd-link" data-tr="${esc(p.id)}"${trBusy.has(p.id) ? " disabled" : ""}>${esc(trBusy.has(p.id) ? t("trIng") : t("trBtn", { l: LANG_LABEL[lang] || lang }))}</button>` : ""}
        ${!sameLang && translated ? `<button class="bd-link" data-orig="${esc(p.id)}">${esc(showOrig ? t("hideOrig") : t("orig"))}</button>` : ""}
        ${showOrig && !sameLang ? `<div class="bd-orig"><div class="muted" style="font-size:12px">${esc(t("origLang", { l: LANG_LABEL[src] || src || "?" }))}</div>${linkify(esc(p.txt.orig))}<pre class="muted" style="white-space:pre-wrap;font-size:11px;margin:8px 0 0">${esc(JSON.stringify(p.txt, null, 1))}</pre></div>` : ""}
        <div class="bd-acts">
@@ -226,6 +234,9 @@ function renderTopic0() {
   $("bd_decision").innerHTML = d ? `<div class="card bd-dec"><h3>${esc(t("decision"))}</h3><div class="bd-text" style="margin-top:4px">${linkify(esc(pick(d.txt)))}</div>
       <div class="muted" style="font-size:12px">${esc(d.by.name)} · ${esc(t("decBy", { name: cur.dby ? cur.dby.name : "?", t: when(cur.dat) }))}</div></div>` : "";
   $("bd_posts").innerHTML = cur.posts.map(postHtml).join("");
+  // 🌐 a background translation is running → look again soon (not only every 45 s)
+  clearTimeout(pendT);
+  if (cur.posts.some((p) => p.txt.pend && !p.txt.err && p.txt.src !== lang && !p.txt[lang])) { const id = cur.id; pendT = setTimeout(() => { if (cur && cur.id === id && !editing) loadTopic(id, true); }, 8000); }
   $("bd_posts").querySelectorAll("img[data-bimg]").forEach(loadPic);
   // 💬 switch (👥 tab): view-only officers may answer where they were @'d or assigned
   const me = VID(), cfg = (OFFICER.perms && OFFICER.perms.cfg) || {};
@@ -310,6 +321,7 @@ const DRAFT_LS = "nxs-board-draft";
 const draftLoad = () => { try { const d = JSON.parse(localStorage.getItem(DRAFT_LS)) || {}; if (d.title) $("bd_newTitle").value = d.title; if (d.text) { $("bd_newText").value = d.text; $("bd_newForm").hidden = false; } if (d.reply && d.replyFor === topicId()) $("bd_replyText").value = d.reply; } catch (e) {} };
 const draftSave = () => { try { localStorage.setItem(DRAFT_LS, JSON.stringify({ title: $("bd_newTitle").value, text: $("bd_newText").value, reply: $("bd_replyText").value, replyFor: topicId() })); } catch (e) {} };
 for (const id of ["bd_newTitle", "bd_newText", "bd_replyText"]) $(id).addEventListener("input", draftSave);
+ROOT.querySelectorAll("[data-txall]").forEach((cb) => cb.onchange = () => { try { localStorage.setItem(TXALL_LS, cb.checked ? "1" : "0"); } catch (e) {} ROOT.querySelectorAll("[data-txall]").forEach((x) => x.checked = cb.checked); });
 $("bd_reload").onclick = () => route();
 $("bd_newBtn").onclick = () => { $("bd_newForm").hidden = false; $("bd_newTitle").focus(); };
 $("bd_newCancel").onclick = () => { $("bd_newForm").hidden = true; $("bd_newMsg").textContent = ""; };
@@ -318,7 +330,7 @@ $("bd_newPost").onclick = async () => {
   if (!title || !text) { m.textContent = t("needBoth"); return; }
   $("bd_newPost").disabled = true; m.textContent = t("sending");
   try {
-    const j = await api("new", { title, text, mentions: mentionsIn("new", text), to: [...compose.new.to], images: compose.new.img }); composeReset("new");
+    const j = await api("new", { title, text, tx: txAll(), mentions: mentionsIn("new", text), to: [...compose.new.to], images: compose.new.img }); composeReset("new");
     $("bd_newTitle").value = ""; $("bd_newText").value = ""; $("bd_newForm").hidden = true; m.textContent = ""; delete m.dataset.err; draftSave();
     if (!j.translated) $("bd_replyMsg").textContent = t("noTr") + " " + (j.topic.posts[0].txt.err || "");
     cur = j.topic; markSeen(cur.id, cur.last); location.hash = "#board?t=" + j.topic.id;
@@ -330,7 +342,7 @@ $("bd_replyPost").onclick = async () => {
   if ((!text && !compose.reply.img.length) || !cur) return;
   $("bd_replyPost").disabled = true; m.textContent = t("sending");
   try {
-    const j = await api("reply", { id: cur.id, text, mentions: mentionsIn("reply", text), to: [...compose.reply.to], images: compose.reply.img }); composeReset("reply"); cur = j.topic; markSeen(cur.id, cur.last); $("bd_replyText").value = ""; draftSave(); renderTopic();
+    const j = await api("reply", { id: cur.id, text, tx: txAll(), mentions: mentionsIn("reply", text), to: [...compose.reply.to], images: compose.reply.img }); composeReset("reply"); cur = j.topic; markSeen(cur.id, cur.last); $("bd_replyText").value = ""; draftSave(); renderTopic();
     delete m.dataset.err; m.textContent = j.translated ? "" : t("noTr") + " " + (cur.posts[cur.posts.length - 1].txt.err || "");
     const last = cur.posts[cur.posts.length - 1]; if (last) $("bdp-" + last.id).scrollIntoView({ behavior: "smooth", block: "center" });
   } catch (e) { m.textContent = errText(e); m.dataset.err = JSON.stringify({ code: e.code, message: e.message }); }
@@ -339,6 +351,11 @@ $("bd_replyPost").onclick = async () => {
 $("bd_posts").addEventListener("click", async (ev) => {
   const b = ev.target.closest("button"); if (!b || !cur) return;
   const d = b.dataset;
+  if (d.tr) {   // 🌐 this post into my language (kept for everyone who reads this language)
+    trBusy.add(d.tr); renderTopic();
+    try { cur = (await api("tr", { post: d.tr, to: lang })).topic; } catch (e) { $("bd_replyMsg").textContent = e.code === "tr_failed" ? t("trFail") : errText(e); }
+    trBusy.delete(d.tr); return renderTopic();
+  }
   if (d.orig) { openOrig.has(d.orig) ? openOrig.delete(d.orig) : openOrig.add(d.orig); return renderTopic(); }
   if (d.edit) { editing = d.edit; armed = null; const ep = cur.posts.find((x) => x.id === d.edit); compose.edit.img = (((ep && ep.meta) || {}).img || []).map((id) => "id:" + id); return renderTopic(); }
   if ("cancel" in d) { editing = null; return renderTopic(); }
@@ -355,7 +372,7 @@ $("bd_posts").addEventListener("click", async (ev) => {
       const card = $("bdp-" + d.save), text = card.querySelector("[data-edtext]").value.trim(), ti = card.querySelector("[data-edtitle]");
       if (!text) return;
       b.disabled = true; b.textContent = t("saving");
-      cur = (await api("edit", { post: d.save, text, imgs: compose.edit.img, ...(ti ? { title: ti.value.trim() || cur.title.orig } : {}) })).topic; editing = null; return renderTopic();
+      cur = (await api("edit", { post: d.save, text, tx: txAll(), imgs: compose.edit.img, ...(ti ? { title: ti.value.trim() || cur.title.orig } : {}) })).topic; editing = null; return renderTopic();
     }
   } catch (e) { b.disabled = false; alertMsg(e); }
 });

@@ -394,7 +394,7 @@ NEWER TOOLS (officers)
 [move] - 🚚 Move → "📐 Auto plan from a Mapper layout" (從 Mapper 自動規劃, at the bottom of the 🚚 Move page): load a Kingshot Mapper CSV of a new hive (Export → CSV; its city, beartrap, hq, banner, resource and obs rows) or paste it. The site works out TWO roads of banners to the new HQ's 15×15 and lists both in the table: one starting from our Plains HQ today (its block of banners) and the shortest one from any of our banners; the road from our HQ is used by default, the other is drawn dashed, and "🔀 Use the other road" swaps them. Works anywhere on the kingdom map (searches up to about 300 tiles around the new HQ; mountains, lakes and no-build zones are known for the whole map, other alliances' banners only where the site has them, resources only from the CSV) (fewest banners; each joins the one before, centres ≤ 7 tiles apart; never on mountains, lakes, no-build zones, resources, buildings or inside another alliance's land), sorts the drawn banners into stage 1 (BT2 side, built right after the HQ moves) and stage 2 (BT1 side) in build order, and checks: cities / Bear Traps / HQ / banners on mountains, lakes, no-build zones, resources or inside another alliance's land (their banners in the way are listed to take down), overlaps, banners not joined to our land, HQ on Fertile Land (not allowed) or its 15×15 reaching Fertile Land (risky). Table: HQ, nearest Fortress and distance, cities on Fertile Land, cities inside our land after the HQ / stage 1 / stage 2, cities per Bear Trap, average distance to the trap, farthest city from the HQ, road banners in order, stage banners, banner budget (now + new vs 285, how many old ones to take down), other alliances' banners in the way, problems, move order. Drawn like the game (turned 45°) with a legend. Editing: pick a pen — ⚫ Road, 🟡 Stage 1, 🟠 Stage 2, 🧽 Remove, 🏯 Move HQ — and tap the map (a new banner, or change / remove the one tapped); ↩️ Undo, 🔄 Auto road again, 🔄 Re-sort stages, − / + zoom. ⬇️ Picture (PNG) = map + legend + table for Discord, ⬇️ Blueprint CSV, ➡️ Use as moving plan = loads it into 🧭 Move steps (then 💾 Save there; needs the move edit right). "Plan:" list (計畫) like the Ranking tab's shared plans: "🔒 Only on this device" is the officer's own draft (kept in that browser); "➕ Share as a plan" saves it under a name (encrypted, data/hive-plans-x7k2p9.json) so every officer with the 🚚 Move tab can pick it from the list and see the same map and table; changes to a shared plan save by themselves and others see them within about 15 seconds; ✏️ Rename / 🗑️ Delete; officers without the move edit right see shared plans view only (look and download). Several plans can be shared side by side (e.g. A and B) to compare.
 [move] - 🚚 Move → "📘 Hive rules & tips" (蜂巢規則與技巧) at the top: HQ only in the Plains or Badlands ring, never on Fertile Land (沃土; in #2189 X and Y 450–749) or the Ruins ring — put it just outside the fertile edge; every banner must connect to the HQ; no banners in Outpost no-build zones; limits 285 banners / 100 member cities / 2 Bear Traps; a city counts only with all 4 tiles inside our territory; about 50 cities per Bear Trap; check the area for other cities, alliance buildings, mountains, lakes; move order HQ → banners outward from BT2 → members → Bear Traps last (members never move traps).
 [move] - 🚚 Move (搬家, its own tab): only admins see it unless the 👥 table gives it. Load the moving plan: Kingshot Mapper (ksmapper.pages.dev) → Export → CSV file, cities labelled with member names (a .json from another planner also works; with several alliances in one file, ours is found by colour), "🧭 Move steps" (搬家步驟) and the moving table: each member's current X:Y → new spot (tap to copy), ✓ Moved, progress bar, "Only not moved yet". A member whose current position in 👥 Member positions already equals the new spot gets ✅ automatically. "➕ Add / change a spot" gives someone a spot or moves them; their old spot becomes free. "🧭 Move steps" lists the plan in order from the banner labels in the CSV: road R1… → early hive banners P1… / take down KILL banners → move the HQ → stage 1 S1-… → BT2-side members move → stage 2 S2-… → BT1-side members move → Bear Traps last; ▶ marks the current step. ✅ comes by itself when the map already shows it (our banner standing at that X Y on 🗺️ Map, the HQ / a Bear Trap / a member already at the new X Y); officers with the move edit right tap an item to tick it by hand, then 💾 Save. Under the steps: banners standing + blueprint banners still to build against the 285 limit, with a warning to take down old banners first when it is over. Blueprint CSV labels on banners: R1… road, P1… early hive banners, S1-1… stage 1, S2-1… stage 2, "KILL TTT" = another alliance's banner to take down; Bear Traps labelled "Bear Trap 1" / "Bear Trap 2".
-[board] - 💬 Board (討論板): topics translated into 中文 / English / Português / العربية / 한국어; @ mentions, 📋 Assign to (makes a task with ✅ Done), 🖼️ pictures, 📌 Set as decision. "Tasks for you" lists what you were assigned or @'d in.
+[board] - 💬 Board (討論板): a message is posted at once with only the original. "🌐 Translate for everyone" (翻譯給所有人, a tick box next to Post / Reply, off by default, remembered on that device) translates it into 中文 / English / Português / العربية / 한국어 in the background — the post appears at once and switches to each reader's language by itself when done. Without it, readers whose language differs see "🌐 Translate to …" (翻成…) under the post: it translates that one post into their language and keeps it, so the next reader of that language sees it at once. Editing a post that had translations translates it again in the background. Messages from before this change keep all their translations; @ mentions, 📋 Assign to (makes a task with ✅ Done), 🖼️ pictures, 📌 Set as decision. "Tasks for you" lists what you were assigned or @'d in.
 [attend] - 📋 Attendance (出席): sheets made from a shared Ranking plan; ① Confirmed (tap = sub), add people by pasting names, 📷 voter screenshots or by hand; ② after the battle tap ✓ showed up → X no-show → 🛌 excused; repeat misses turn orange (2nd) and red (3rd). Save / Copy for Discord.
 [perms] - 👥 Officers (幹部, admins only): one row per officer; per tab ✏️ Edit / 👁️ View / — Hidden (saves by itself); 🔔 which events they get officer to-do reminders for; 👁️ Preview as; + Add officer (name + 18-digit Discord ID).
 
@@ -851,10 +851,21 @@ export class PushTimers extends DurableObject {
     return this.boardThread(tid);
   }
   boardPost(pid) { const r = [...this.sql.exec(`SELECT * FROM bp WHERE id = ?`, pid)][0]; let m = null; try { m = r && r.meta ? JSON.parse(r.meta) : null; } catch (e) {} return r ? { id: r.id, tid: r.tid, by: JSON.parse(r.by), at: r.at, meta: m } : null; }
-  boardRetx(pid, txt, title) {   // 🔁 a translation that failed earlier, done again in the background (not shown as "edited")
+  boardRetx(pid, txt, title) {   // 🔁 a background translation (sent with "Translate for everyone", or one that failed earlier); not shown as "edited"
     const p = this.boardPost(pid); if (!p) return;
-    this.sql.exec(`UPDATE bp SET txt = ? WHERE id = ?`, JSON.stringify(txt), pid);
+    // merged into what is there: translations a reader added meanwhile stay; "pending" ends; an error is kept only if this one failed
+    const r = [...this.sql.exec(`SELECT txt FROM bp WHERE id = ?`, pid)][0], x = { ...JSON.parse(r.txt), ...txt };
+    if (!txt.pend) { delete x.pend; delete x.pt; }
+    if (!txt.err) { delete x.err; delete x.rt; }
+    if (x.orig !== txt.orig) return;   // edited meanwhile — this translation is of the old text
+    this.sql.exec(`UPDATE bp SET txt = ? WHERE id = ?`, JSON.stringify(x), pid);
     if (title) this.sql.exec(`UPDATE bt SET title = ? WHERE id = ?`, JSON.stringify(title), p.tid);
+  }
+  boardTx1(pid, lang, text, title) {   // 🌐 one language added to a post (and its topic title); everything already there is kept
+    const r = [...this.sql.exec(`SELECT tid, txt FROM bp WHERE id = ?`, pid)][0]; if (!r) return null;
+    if (text) { const x = JSON.parse(r.txt); x[lang] = text; this.sql.exec(`UPDATE bp SET txt = ? WHERE id = ?`, JSON.stringify(x), pid); }
+    if (title) { const t = [...this.sql.exec(`SELECT title FROM bt WHERE id = ?`, r.tid)][0]; if (t) { const y = JSON.parse(t.title); y[lang] = title; this.sql.exec(`UPDATE bt SET title = ? WHERE id = ?`, JSON.stringify(y), r.tid); } }
+    return this.boardThread(r.tid);
   }
   boardEdit(pid, txt, title, meta) {
     const p = this.boardPost(pid); if (!p) return null;
@@ -1075,10 +1086,56 @@ async function boardTranslate(env, title, text) {
   if (title) out.title = (await one("title", title)) || { orig: title, src: tx.src };
   return out;
 }
+/* 🌐 one language only (a reader pressed "Translate" on a post that was sent without translations) → { ok, text } or { ok: false, err } */
+async function boardTranslate1(env, label, body, to) {
+  if (!env.GEMINI_API_KEY) return { ok: false, err: "no key" };
+  let terms = ""; try { terms = termTable(await getTermRows(), body); } catch (e) {}
+  const system = [
+    "You are the translator for the officers (R4/R5) of the NXS alliance in the mobile game Kingshot.",
+    "Rules: keep the meaning, tone, line breaks, lists, emojis, numbers, coordinates (X:123 Y:456), times and dates exactly; times are UTC — never convert them.",
+    "Never translate member names, alliance tags like [NXS], @mentions or links. Picture markers like [[img1]] stay exactly as written, in the same place.",
+    "Game terms: when a game term from the TERM TABLE appears, use exactly the name given for the target language; never invent your own translation of a game term; if the table says (none), keep the term as written.",
+    "Chinese = Traditional Chinese as used in Taiwan (繁體中文), never Simplified. Portuguese = Brazilian Portuguese. Arabic = Modern Standard Arabic (keep numbers as 0-9). Korean = natural Korean as used in the game.",
+    terms ? "\n===== TERM TABLE (official in-game names) =====\n" + terms : "",
+  ].join("\n");
+  const ask = `Translate this ${label} into ${LANG_NAMES[to]}. If it is already written in ${LANG_NAMES[to]}, return it unchanged. Reply with JSON only: {"text": "..."}\n\n${label.toUpperCase()}:\n${body}`;
+  const schema = { type: "object", properties: { text: { type: "string" } }, required: ["text"] };
+  const errs = [];
+  for (let round = 0; round < 2; round++) {
+    if (round) { if (!errs.length || !errs.every((e) => /HTTP (429|500|502|503|504)|UNAVAILABLE|overloaded|high demand|timeout/i.test(e))) break; await new Promise((r) => setTimeout(r, 2500)); }
+    for (const m of MODELS) {
+      let r = await gemini(env, m, system, [{ role: "user", parts: [{ text: ask }] }], { responseMimeType: "application/json", responseSchema: schema, temperature: 0.2, maxOutputTokens: 16384 });
+      if (r.error && /HTTP 400/.test(r.error)) r = await gemini(env, m, system, [{ role: "user", parts: [{ text: ask }] }], { temperature: 0.2, maxOutputTokens: 16384 });
+      if (r.error) { errs.push(m + ": " + r.error); continue; }
+      try { const raw = r.answer.replace(/^```(?:json)?\s*|\s*```$/g, ""); const j = JSON.parse(raw.slice(raw.indexOf("{"), raw.lastIndexOf("}") + 1)); if (typeof j.text === "string" && j.text.trim()) return { ok: true, text: j.text.trim() }; errs.push(m + ": empty"); }
+      catch (e) { errs.push(m + ": bad JSON"); }
+    }
+  }
+  return { ok: false, err: errs.map((e) => e.slice(0, 120)).join(" | ").slice(0, 500) };
+}
+/* the language a message is written in, from its letters (a post sent without translation has no AI-detected source);
+   Latin text → the writer's page language if that is en / pt, else en */
+function boardSrc(text, pageLang) {
+  const t = String(text || ""), n = Math.max(1, t.replace(/[\s\d\p{P}\p{S}]/gu, "").length), share = (re) => (t.match(re) || []).length / n;
+  if (share(/[\uac00-\ud7af\u1100-\u11ff]/g) > 0.3) return "ko";
+  if (share(/[\u0600-\u06ff]/g) > 0.3) return "ar";
+  if (share(/[\u3400-\u9fff]/g) > 0.3) return "zh";
+  return pageLang === "pt" ? "pt" : "en";
+}
+/* 🌐 a post sent with "Translate for everyone": saved at once, translated into all languages in the background (the page picks it up on its next look) */
+function boardTxLater(env, ctx, stub, pid, title, text) {
+  const job = (async () => {
+    const tr = await boardTranslate(env, title, text);
+    if (tr.ok) await stub.boardRetx(pid, tr.text, title ? tr.title : null);
+    else await stub.boardRetx(pid, { orig: text, err: tr.text.err, rt: Date.now() }, null);
+    await boardTouch(env);
+  })().catch(() => {});
+  if (ctx && ctx.waitUntil) ctx.waitUntil(job);
+}
 /* 🔁 posts whose translation failed (e.g. the AI was busy): translated again in the background when someone opens the thread;
    the page picks the result up on its next poll. Each post is tried at most every 5 minutes (txt.rt = last try). */
 function retryTx(env, ctx, stub, t) {
-  const now = Date.now(), todo = t.posts.filter((p) => p.txt && p.txt.err && !(now - (p.txt.rt || 0) < 300000)).slice(0, 2);
+  const now = Date.now(), todo = t.posts.filter((p) => p.txt && (p.txt.err || (p.txt.pend && now - (p.txt.pt || 0) > 300000)) && !(now - (p.txt.rt || 0) < 300000)).slice(0, 2);
   if (!todo.length || !ctx || !ctx.waitUntil) return;
   ctx.waitUntil((async () => {
     let any = false;
@@ -1201,7 +1258,7 @@ async function boardRoute(env, ctx, stub, user, body, token, mayPost, perms) {
   const since = +body.since || 0, stamp = await boardStamp(env);
   if ((op === "list" || op === "get") && since && stamp && stamp <= since) return ok({ unchanged: true, stamp });
   if (op === "img") { const d = await stub.boardImg(String(body.id || "")); return d ? ok({ data: d }) : json({ error: "gone", token }, 404); }   // 🖼️ anyone who can read
-  if (!mayPost && op !== "list" && op !== "get") {
+  if (!mayPost && op !== "list" && op !== "get" && op !== "tr") {
     // 💬 (switch on the 👥 tab) a view-only officer may reply in a topic where someone @'d or assigned them
     let okReply = false;
     if (op === "reply" && perms && perms.cfg && perms.cfg.mReply) { const t = await stub.boardThread(String(body.id || "")); okReply = !!(t && t.posts.some((q) => q.meta && ((q.meta.m || []).includes(user.id) || (q.meta.to || []).includes(user.id)))); }
@@ -1209,7 +1266,7 @@ async function boardRoute(env, ctx, stub, user, body, token, mayPost, perms) {
   }   // 👁️ view-only on the 👥 table: read, nothing else
   // name + language (for @ pickers and notifications): on writes and on the first look of a visit. Reading must still work when
   // writing is impossible (daily write allowance used up), so a failure here is ignored
-  if (op !== "list" && op !== "get" || body.first) { try { await stub.boardUser(by, lang); } catch (e) {} }
+  if (op !== "list" && op !== "get" && op !== "tr" || body.first) { try { await stub.boardUser(by, lang); } catch (e) {} }
   const ids = (v) => (Array.isArray(v) ? v : []).map(String).filter((x) => /^\d{17,20}$/.test(x)).slice(0, 60);   // 60: room for @all
   const metaOf = (b, old, img) => { const m = { m: ids(b.mentions), to: ids(b.to) }; if (old && old.done) m.done = old.done; const im = img || (old && old.img); if (im && im.length) m.img = im; return m.m.length || m.to.length || m.done || m.img ? m : null; };
   // 🖼️ up to 4 pictures per message, already shrunk on the phone (≤ ~900 KB each)
@@ -1229,21 +1286,38 @@ async function boardRoute(env, ctx, stub, user, body, token, mayPost, perms) {
   if (op === "new") return write(async () => {
     const title = str(body.title, 120), text = str(body.text, 4000);
     if (!title || !text) return json({ error: "empty" }, 400);
-    const tr = await boardTranslate(env, title, text);
-    const meta = metaOf(body, null, await saveImgs());
-    const t = await stub.boardNew(rid(), tr.title, by, rid(), tr.text, meta);
-    notify(t, tr.text, meta);
-    return ok({ topic: t, translated: tr.ok, stamp: await boardTouch(env) });
+    // 🌐 saved at once with the original only; "Translate for everyone" (body.tx) translates in the background
+    const src = boardSrc(title + "\n" + text, lang), now = Date.now();
+    const txt = { orig: text, src, ...(body.tx ? { pend: 1, pt: now } : {}) }, ttl = { orig: title, src };
+    const meta = metaOf(body, null, await saveImgs()), pid = rid();
+    const t = await stub.boardNew(rid(), ttl, by, pid, txt, meta);
+    notify(t, txt, meta);
+    if (body.tx) boardTxLater(env, ctx, stub, pid, title, text);
+    return ok({ topic: t, translated: true, stamp: await boardTouch(env) });
   });
   if (op === "reply") return write(async () => {
     const text = str(body.text, 4000) || ((body.images || []).length ? "📷" : "");
     if (!text) return json({ error: "empty" }, 400);
-    const tr = await boardTranslate(env, "", text);
-    const meta = metaOf(body, null, await saveImgs());
-    const t = await stub.boardReply(String(body.id || ""), by, rid(), tr.text, meta);
+    const txt = { orig: text, src: boardSrc(text, lang), ...(body.tx ? { pend: 1, pt: Date.now() } : {}) };
+    const meta = metaOf(body, null, await saveImgs()), pid = rid();
+    const t = await stub.boardReply(String(body.id || ""), by, pid, txt, meta);
     if (!t) return json({ error: "gone" }, 404);
-    notify(t, tr.text, meta);
-    return ok({ topic: t, translated: tr.ok, stamp: await boardTouch(env) });
+    notify(t, txt, meta);
+    if (body.tx) boardTxLater(env, ctx, stub, pid, "", text);
+    return ok({ topic: t, translated: true, stamp: await boardTouch(env) });
+  });
+  /* 🌐 tr {post, to}: one post (and the topic title if it is the first post) into one language; kept, so the next reader gets it at once */
+  if (op === "tr") return write(async () => {
+    const to = BOARD_LANGS.includes(body.to) ? body.to : lang, pp = body.post ? await stub.boardPost(String(body.post)) : null;
+    if (!pp || !to) return json({ error: "gone" }, 404);
+    const t = await stub.boardThread(pp.tid), q = t && t.posts.find((x) => x.id === pp.id);
+    if (!q) return json({ error: "gone" }, 404);
+    const first = t.posts[0].id === q.id, needTitle = first && !t.title[to];
+    let tx = q.txt[to] ? null : await boardTranslate1(env, "message", q.txt.orig, to);
+    if (tx && !tx.ok) return json({ error: "tr_failed", detail: [tx.err] }, 503);
+    const ti = needTitle ? await boardTranslate1(env, "title", t.title.orig, to) : null;
+    const nt = await stub.boardTx1(q.id, to, tx ? tx.text : null, ti && ti.ok ? ti.text : null);
+    return ok({ topic: nt, stamp: await boardTouch(env) });
   });
   const p = body.post ? await stub.boardPost(String(body.post)) : null;
   if (op === "done") return write(async () => {   // ✅ tick / untick a task (anyone may; the name of who ticked is kept)
@@ -1256,7 +1330,13 @@ async function boardRoute(env, ctx, stub, user, body, token, mayPost, perms) {
     if (op === "del") return ok({ ...(await stub.boardDelete(p.id)), stamp: await boardTouch(env) });
     const text = str(body.text, 4000), title = body.title != null ? str(body.title, 120) : "";
     if (!text) return json({ error: "empty" }, 400);
-    const tr = await boardTranslate(env, title, text);
+    // 🌐 saved at once; if the post had translations (or "Translate for everyone" is on) they are made again in the background,
+    // so an edit never leaves old translations of the old text and never loses the translations it had
+    const old = await stub.boardThread(p.tid), op0 = old && old.posts.find((x) => x.id === p.id);
+    const hadTx = !!(op0 && BOARD_LANGS.some((l) => l !== op0.txt.src && op0.txt[l] && op0.txt[l] !== op0.txt.orig));
+    const reTx = hadTx || !!body.tx, src = boardSrc((title ? title + "\n" : "") + text, lang);
+    const tr = { ok: true, text: { orig: text, src, ...(reTx ? { pend: 1, pt: Date.now() } : {}) }, title: title ? { orig: title, src } : null };
+    if (reTx) boardTxLater(env, ctx, stub, p.id, title, text);
     let meta = body.mentions || body.to ? metaOf(body, p.meta) : p.meta;
     if (Array.isArray(body.imgs)) {   // 🖼️ edited pictures: "id:<id>" = keep that one, a data URL = a new one; the rest are deleted
       const old = (p.meta && p.meta.img) || [], keep = [];
@@ -1269,7 +1349,7 @@ async function boardRoute(env, ctx, stub, user, body, token, mayPost, perms) {
       meta = { ...(meta || {}) }; if (keep.length) meta.img = keep; else delete meta.img;
       if (!["m", "to", "img"].some((k) => (meta[k] || []).length) && !meta.done) meta = null;
     }
-    return ok({ topic: await stub.boardEdit(p.id, tr.text, title ? tr.title : null, meta), translated: tr.ok, stamp: await boardTouch(env) });
+    return ok({ topic: await stub.boardEdit(p.id, tr.text, title ? tr.title : null, meta), translated: true, stamp: await boardTouch(env) });
   });
   if (op === "decide") return write(async () => {   // 📌 any officer can mark (or clear) the decision of a topic
     const t = await stub.boardDecide(String(body.id || ""), p ? p.id : null, by);

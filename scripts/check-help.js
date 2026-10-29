@@ -28,6 +28,7 @@ const FEATURES = [
   ["Events: one-event game post", /Game post/, /Game post/],
   ["Events: battle-day times (@)", /22:00@1/, /@1/],
   ["Events: exact 🔔 reminder time on an action item", /Remind at exact UTC time/, /exact 🔔 reminder time/],
+  ["Board: 🌐 Translate for everyone / Translate to …", /Translate for everyone/, /bd08t:/],
   ["Ranking: Swordland rules draft", /Swordland rules draft/, /Swordland rules draft/],
   ["Ranking: version history", /Version history/, /🕘/],
   ["Ranking: shared plans", /New shared plan/, /shared plan/i],
