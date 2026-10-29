@@ -6,7 +6,7 @@ const { execSync } = require("child_process");
 const fs = require("fs");
 const { writeData } = require("./officer-data");
 const crypto = require("crypto"), zlib = require("zlib");
-const FILE = "data/ranking-plans-x7k2p9.json", SINCE = process.env.SINCE || "2026-10-27";
+const FILE = "data/ranking-plans-x7k2p9.json", SINCE = process.env.SINCE || "2026-10-14";
 const RAW = Buffer.from(process.env.DATA_KEY.trim(), "base64");
 const open = (txt) => { const obj = JSON.parse(txt); if (!obj.enc) return obj; const buf = Buffer.from(obj.data, "base64");
   const d = crypto.createDecipheriv("aes-256-gcm", RAW, Buffer.from(obj.iv, "base64")); d.setAuthTag(buf.subarray(buf.length - 16));
