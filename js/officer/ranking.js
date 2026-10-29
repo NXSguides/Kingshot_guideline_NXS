@@ -902,6 +902,9 @@ async function pgh(method, body) {
   return res.json();
 }
 let planNewName = "", planCreating = null;
+/* planBaseFull = the plan's settings + battle table as last loaded from / saved to GitHub on this device: a save only writes the parts
+   changed HERE, so a phone or tab with an older copy can't wipe someone else's battle table by just ticking a name */
+let planBaseFull = null;
 let plans = {}, planSha = null, planId = store.planId || "", planBase = null, planDirty = false, planBusy = false, planTimer = null, planErr = "", planApplying = false;
 const planWho = () => (OFFICER.user && OFFICER.user.name) || (() => { try { return JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").author || ""; } catch (e) { return ""; } })() || "?";
 async function planFetch() {
@@ -945,7 +948,7 @@ function planApply(p) {
   else planBase = new Set(p.picked || []);
   picked = ids;
   if (!planDirty) subs = new Set((p.subs || []).filter((id) => ids.has(id)));
-  if (!planDirty) { store.counts = p.counts || {}; TB = tbMuted(Object.assign(tbDefault(), p.tb || {})); setWeights(wtsFrom(p.wts, p.wPower)); }
+  if (!planDirty) { store.counts = p.counts || {}; TB = tbMuted(Object.assign(tbDefault(), p.tb || {})); setWeights(wtsFrom(p.wts, p.wPower)); planBaseFull = JSON.parse(JSON.stringify({ wPower: p.wPower, wts: p.wts, counts: p.counts || {}, tb: p.tb || {} })); }
   renderAll(); tbRender(); renderPresets && renderPresets();
   planApplying = false; histReset();   // ↩️ undo never carries one plan (or someone else's older copy) into another
 }
@@ -1012,10 +1015,19 @@ async function planSave(tries = 0) {
     if (planEdChange) { if (planEdChange.editors) cur.editors = planEdChange.editors; else delete cur.editors; if (planEdChange.owner) cur.owner = planEdChange.owner; }
     if (!planCanEdit(cur) && !planEdChange) { planBusy = false; planDirty = false; planApply(cur); planRenderBar(); $("planStatus").textContent = pl("edNo"); return; }   // restricted meanwhile
     planEdChange = null;
-    plans[planId] = { ...cur, picked: [...ids], subs: mine.subs.filter((id) => ids.has(id)), wPower: mine.wPower, wts: mine.wts, counts: mine.counts, tb: mine.tb, by: planWho(), at: Date.now() };
+    // settings + battle table: take this device's value only where it changed here; everything else stays as the newest copy on GitHub
+    const J = (v) => JSON.stringify(v === undefined ? null : v), bf = planBaseFull, srv = plans[planId] || {};
+    const pickF = (k) => !bf || !(k in srv) || J(mine[k]) !== J(bf[k]) ? mine[k] : srv[k];
+    let tb = mine.tb;
+    if (bf && srv.tb) { tb = { ...srv.tb }; for (const k of new Set([...Object.keys(mine.tb), ...Object.keys(bf.tb || {})])) if (J(mine.tb[k]) !== J((bf.tb || {})[k])) { if (k in mine.tb) tb[k] = mine.tb[k]; else delete tb[k]; } }
+    const wP = pickF("wPower"), wT = pickF("wts"), cN = pickF("counts");
+    plans[planId] = { ...cur, picked: [...ids], subs: mine.subs.filter((id) => ids.has(id)), wPower: wP, wts: wT, counts: cN, tb, by: planWho(), at: Date.now() };
     const res = await pgh("PUT", { message: `Ranking plan: ${cur.name}`.slice(0, 100), content: p64.enc(JSON.stringify(await OfficerData.seal({ plans }), null, 1) + "\n"), sha: planSha || undefined, branch: "main" });
     planSha = res && res.content ? res.content.sha : planSha;
     planBase = new Set(ids); planErr = ""; planNewName = "";
+    planBaseFull = JSON.parse(JSON.stringify({ wPower: wP, wts: wT, counts: cN, tb }));
+    // someone else's battle table / settings came in with this save → show them here too
+    if (J(tb) !== J(mine.tb) || J(cN) !== J(mine.counts) || J(wT) !== J(mine.wts) || J(wP) !== J(mine.wPower)) { planApplying = true; store.counts = cN || {}; TB = tbMuted(Object.assign(tbDefault(), tb || {})); setWeights(wtsFrom(wT, wP)); renderAll(); tbRender(); planApplying = false; }
     planDirty = JSON.stringify(planSnapshot()) !== JSON.stringify(mine);   // more edits came in while saving
     if (JSON.stringify([...picked].sort()) !== JSON.stringify([...ids].sort())) { picked = ids; renderAll(); tbRender(); }
   } catch (e) {
@@ -1035,7 +1047,7 @@ async function planPoll() {
 }
 function planSwitch(id) {
   if (!planId) store.local = planSnapshot();   // leaving "only this device": keep it to come back to
-  planId = id; store.planId = id; planDirty = false; planBase = null;
+  planId = id; store.planId = id; planDirty = false; planBase = null; planBaseFull = null;
   if (id && plans[id]) planApply(plans[id]);
   else if (store.local) { const l = store.local; planApplying = true; picked = new Set(l.picked || []); store.counts = l.counts || {}; TB = Object.assign(tbDefault(), l.tb || {}); setWeights(wtsFrom(l.wts, l.wPower)); renderAll(); tbRender(); planApplying = false; }
   planApplying = true; save(); planApplying = false; histReset(); planRenderBar();
@@ -1104,6 +1116,7 @@ async function planVersions() {
     const p = v.p;
     picked = new Set(p.picked || []); subs = new Set((p.subs || []).filter((x) => picked.has(x))); store.counts = JSON.parse(JSON.stringify(p.counts || {}));
     TB = Object.assign(tbDefault(), JSON.parse(JSON.stringify(p.tb || {}))); tbPick = null;
+    planBaseFull = null;   // a restored version is written as a whole
     setWeights(wtsFrom(p.wts, p.wPower)); persist(); tbSave();
     renderAll(); tbRender(); renderPresets && renderPresets();
     m.remove(); $("planStatus").textContent = pv("done", { t: v.t });
@@ -1133,6 +1146,7 @@ $("planNew").onclick = async () => {
   planId = id; store.planId = id; planDirty = false;
   planApply(plans[id]);
   planBase = new Set();   // base empty → the whole tick list counts as this device's change on the first save
+  planBaseFull = null;
   planApplying = true; save(); planApplying = false; planDirty = true; planCreating = id; await planSave(); planCreating = null;
 };
 $("planRen").onclick = () => {
