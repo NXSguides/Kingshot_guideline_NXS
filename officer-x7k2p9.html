@@ -288,11 +288,17 @@
   #pg-ranking tr.rk-subrow td { opacity: .8; }
   #pg-ranking .pl-edl { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 4px; }
   #pg-ranking .pl-edc { display: inline-flex; align-items: center; gap: 4px; min-height: 30px; box-sizing: border-box; padding: 2px 10px; border: 1px solid var(--rule); border-radius: 999px; font-size: 13px; cursor: pointer; }
-  /* 💾 shared-plan save state: stays in a corner while you scroll down to the battle table */
-  #pg-ranking .pl-save { position: fixed; left: 12px; bottom: 12px; z-index: 860; max-width: min(420px, calc(100vw - 110px)); padding: 6px 12px; border-radius: 10px; font-size: 13px; line-height: 1.35;
+  /* 💾 shared-plan save state: stays at the top of the screen while you scroll down to the battle table (the bottom corners hold Ask AI and the sparrow) */
+  #pg-ranking .pl-save { position: fixed; left: 50%; transform: translateX(-50%); top: 8px; z-index: 860; max-width: min(460px, calc(100vw - 24px)); text-align: center; padding: 6px 12px; border-radius: 10px; font-size: 13px; line-height: 1.35;
     border: 1px solid var(--rule); background: var(--panel); color: var(--text); box-shadow: 0 2px 10px rgba(0,0,0,.18); }
   #pg-ranking .pl-save.ok { border-color: color-mix(in srgb, #2e9d57 60%, var(--rule)); }
   #pg-ranking .pl-save.warn { border-color: #d39b16; background: color-mix(in srgb, #f2b632 22%, var(--panel)); font-weight: 600; }
+  /* ✅ registration replies on ticked names (one tap cycles ⏳ → ✅ → ❌), 🟡 safe player */
+  #pg-ranking .rk-rb { border: 1px solid var(--rule); background: var(--panel); border-radius: 6px; padding: 0 4px; margin-inline-end: 4px; font-size: 13px; line-height: 22px; min-height: 24px; cursor: pointer; vertical-align: middle; }
+  #pg-ranking .rk-rb.sf { opacity: .3; filter: grayscale(1); margin-inline: 4px 0; }
+  #pg-ranking .rk-rb.sf.on { opacity: 1; filter: none; }
+  #pg-ranking tr.member.r-n td.name .nm { text-decoration: line-through; opacity: .6; }
+  #pg-ranking .rk-reg { margin: 0 0 8px; padding: 8px 10px; border-radius: 8px; background: color-mix(in srgb, var(--accent) 10%, var(--panel)); font-size: 13.5px; }
   #pg-ranking .pl-edc.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--panel)); font-weight: 600; }
   #pg-ranking .rk-subtag { background: #f59e0b; color: #000; border-radius: 4px; padding: 0 5px; font: 700 11px/1.6 system-ui, sans-serif; vertical-align: middle; }
   #pg-attend .at-p.issub { border-style: dashed; }
@@ -862,6 +868,7 @@
     <!-- 2. pick participants -->
     <div class="card">
       <h2><span data-t="pick"></span> <span class="muted" id="pickCount"></span></h2>
+      <div id="rk_reg" class="rk-reg" hidden></div>
       <div class="row" style="margin-bottom:8px">
         <button class="btn" id="allBtn" data-t="all"></button>
         <button class="btn" id="noneBtn" data-t="none"></button>

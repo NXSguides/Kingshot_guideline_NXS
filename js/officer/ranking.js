@@ -70,6 +70,8 @@ let lang = OFFICER.lang;
 let data = null, sortKey = store.sortKey || "rank", sortDir = store.sortDir || -1;
 let picked = new Set(store.picked || []);
 let subs = new Set(store.subs || []);   // 備取 substitutes: ticked, but on the bench (not ranked, imported as "sub" by the 📋 Attendance tab)
+let rep = (store.rep && typeof store.rep === "object") ? { ...store.rep } : {};   // ✅ registration replies (see RG below)
+let SAFE = new Set((store.safe || []).map(String));   // 🟡 safe players
 let wPower = store.wPower ?? 40;
 /* ① weights mode: which stats count and how much (old plans only had power / mystic → wPower) */
 const STATS = ["power", "mystic", "tc", "migrant"];
@@ -129,10 +131,10 @@ function renderList() {
       head = `<tr class="grp" data-r="${lastRank}"><td class="ck main"><input type="checkbox" tabindex="-1" ${on === grp.length ? "checked" : ""}></td><td class="ck"></td><td colspan="7"><b>${esc(rankLabel(m))}</b> <span class="muted">· ${on} / ${grp.length}</span></td></tr>`;
     }
     return head + `
-    <tr class="member${picked.has(m.id) ? " on" : ""}${subs.has(m.id) ? " is-sub" : ""}" data-id="${m.id}">
+    <tr class="member${picked.has(m.id) ? " on" : ""}${subs.has(m.id) ? " is-sub" : ""}${picked.has(m.id) && rep[m.id] ? " r-" + rep[m.id] : ""}" data-id="${m.id}">
       <td class="ck main"><input type="checkbox" ${picked.has(m.id) && !subs.has(m.id) ? "checked" : ""} tabindex="-1" aria-label="${esc(tr("colMain"))}"></td>
       <td class="ck"><input type="checkbox" class="ck-sub" ${subs.has(m.id) ? "checked" : ""} tabindex="-1" aria-label="${esc(tr("sub"))}"></td>
-      <td class="name" dir="auto">${esc(m.name)}</td>
+      <td class="name" dir="auto">${regBtns(m)}<span class="nm">${esc(m.name)}</span>${safeBtn(m)}</td>
       <td>${esc(rankLabel(m))}</td>
       <td class="num">${m.tc ?? "?"}</td>
       <td class="num">${big(m.power)}</td>
@@ -143,6 +145,7 @@ function renderList() {
   }).join("");
   const k = [...picked].filter((id) => subs.has(id)).length;
   $("pickCount").textContent = tr("selected", { n: picked.size, t: data.members.length }) + (k ? " " + tr("subN", { k }) : "");
+  renderReg();
   ROOT.querySelectorAll("th[data-sort]").forEach((th) => {
     th.textContent = tr(th.dataset.t) + (th.dataset.sort === sortKey ? (sortDir < 0 ? " ▼" : " ▲") : "");
   });
@@ -150,6 +153,39 @@ function renderList() {
   $("rk_thMain").textContent = tr("colMain"); $("rk_thSub").textContent = tr("sub"); $("rk_thSub").title = tr("subHint");
 }
 
+
+/* ✅ registration (Nia's SS & TAC Registration Tracker, 2026-10-30): each ticked person's reply — rep[id] = "y" confirmed / "n" can't come / none = no reply yet.
+   Saved with the plan (a shared plan shares it). 🟡 SAFE = safe players, registered without waiting for a reply: one list for every plan (and the 📋 Attendance tab), kept on the Worker. */
+const RG = {"en": {"note": "✅ Registration: tap ⏳ next to a ticked name to cycle ✅ confirmed → ❌ can't come → ⏳ no reply. 🟡 = safe player, registered without waiting (remembered for every plan).", "count": "✅ {y} confirmed · 🟡 {s} safe, no reply → {r} can be registered · ⏳ {w} no reply · ❌ {n} can't", "copyWait": "📋 Copy not-replied names", "copyReg": "📋 Copy registration list", "safeOn": "🟡 Safe player (tap to remove)", "safeOff": "Mark as safe player (registered without waiting)", "rep": "Reply: ⏳ no reply → ✅ confirmed → ❌ can't come", "copied": "Copied", "noWait": "Everyone has replied."}, "zh": {"note": "✅ 報名確認：點勾選名字旁的 ⏳ 會循環 ✅ 確認會來 → ❌ 不能來 → ⏳ 還沒回。🟡 = 放心成員，不用等回覆就先報名（每個計畫都會記得）。", "count": "✅ 確認 {y} · 🟡 放心沒回 {s} → 可報名 {r} 人 · ⏳ 沒回 {w} · ❌ 不能來 {n}", "copyWait": "📋 複製沒回覆的人", "copyReg": "📋 複製報名名單", "safeOn": "🟡 放心成員（點一下取消）", "safeOff": "設成放心成員（不用等回覆就報名）", "rep": "回覆：⏳ 還沒回 → ✅ 確認 → ❌ 不能來", "copied": "已複製", "noWait": "大家都回覆了。"}, "pt": {"note": "✅ Inscrição: toque em ⏳ ao lado de um nome marcado para alternar ✅ confirmou → ❌ não pode → ⏳ sem resposta. 🟡 = jogador de confiança, inscrito sem esperar (lembrado em todos os planos).", "count": "✅ {y} confirmados · 🟡 {s} de confiança sem resposta → {r} podem ser inscritos · ⏳ {w} sem resposta · ❌ {n} não podem", "copyWait": "📋 Copiar quem não respondeu", "copyReg": "📋 Copiar lista de inscrição", "safeOn": "🟡 Jogador de confiança (toque para tirar)", "safeOff": "Marcar como de confiança (inscrito sem esperar)", "rep": "Resposta: ⏳ sem resposta → ✅ confirmou → ❌ não pode", "copied": "Copiado", "noWait": "Todos responderam."}, "ar": {"note": "✅ التسجيل: اضغط ⏳ بجانب اسم محدد للتبديل ✅ أكّد → ❌ لا يستطيع → ⏳ لم يرد. 🟡 = لاعب موثوق يُسجَّل دون انتظار (يُتذكَّر في كل الخطط).", "count": "✅ {y} أكّدوا · 🟡 {s} موثوقون لم يردّوا ← يمكن تسجيل {r} · ⏳ {w} لم يردّوا · ❌ {n} لا يستطيعون", "copyWait": "📋 نسخ من لم يرد", "copyReg": "📋 نسخ قائمة التسجيل", "safeOn": "🟡 لاعب موثوق (اضغط للإلغاء)", "safeOff": "تعيين كلاعب موثوق (يُسجَّل دون انتظار)", "rep": "الرد: ⏳ لم يرد ← ✅ أكّد ← ❌ لا يستطيع", "copied": "تم النسخ", "noWait": "ردّ الجميع."}, "ko": {"note": "✅ 등록: 체크한 이름 옆 ⏳를 누르면 ✅ 확정 → ❌ 못 옴 → ⏳ 미응답 순으로 바뀌어요. 🟡 = 믿을 수 있는 멤버, 기다리지 않고 등록 (모든 계획에서 기억돼요).", "count": "✅ 확정 {y} · 🟡 믿을 만한 미응답 {s} → 등록 가능 {r}명 · ⏳ 미응답 {w} · ❌ 못 옴 {n}", "copyWait": "📋 미응답자 복사", "copyReg": "📋 등록 명단 복사", "safeOn": "🟡 믿을 수 있는 멤버 (누르면 해제)", "safeOff": "믿을 수 있는 멤버로 표시 (기다리지 않고 등록)", "rep": "응답: ⏳ 미응답 → ✅ 확정 → ❌ 못 옴", "copied": "복사됨", "noWait": "모두 답했어요."}};
+const rg = (k, v = {}) => String((RG[lang] || RG.en)[k] ?? RG.en[k]).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
+const isSafe = (id) => SAFE.has(String(id));
+function regOf() {
+  let y = 0, n = 0, s = 0, w = 0;
+  for (const id of picked) { const r = rep[id]; if (r === "y") y++; else if (r === "n") n++; else if (isSafe(id)) s++; else w++; }
+  return { y, n, s, w, r: y + s };
+}
+const regBtns = (m) => !picked.has(m.id) ? "" : `<button type="button" class="rk-rb" data-rep="1" title="${esc(rg("rep"))}">${rep[m.id] === "y" ? "✅" : rep[m.id] === "n" ? "❌" : "⏳"}</button>`;
+const safeBtn = (m) => !picked.has(m.id) ? "" : `<button type="button" class="rk-rb sf${isSafe(m.id) ? " on" : ""}" data-safe="1" title="${esc(rg(isSafe(m.id) ? "safeOn" : "safeOff"))}" aria-label="${esc(rg(isSafe(m.id) ? "safeOn" : "safeOff"))}">🟡</button>`;
+function renderReg() {
+  const el = $("rk_reg"); if (!el || !data) return;
+  el.hidden = !picked.size; if (!picked.size) return;
+  el.innerHTML = `<div class="muted" style="font-size:12.5px;margin-bottom:4px">${esc(rg("note"))}</div><b>${esc(rg("count", regOf()))}</b>
+    <div class="row" style="margin-top:6px;gap:6px;align-items:center"><button type="button" class="btn small" id="rk_cpWait">${esc(rg("copyWait"))}</button><button type="button" class="btn small" id="rk_cpReg">${esc(rg("copyReg"))}</button><span class="msg" id="rk_regMsg"></span></div>`;
+  const byId = new Map(data.members.map((m) => [m.id, m])), nm = (id) => (byId.get(id) || {}).name || String(id);
+  const head = () => (planId && plans[planId] ? planLabel(plans[planId]) : "");
+  const out = (txt) => navigator.clipboard.writeText(txt).then(() => { $("rk_regMsg").textContent = rg("copied"); });
+  $("rk_cpWait").onclick = () => { const w = [...picked].filter((id) => !rep[id] && !isSafe(id));
+    if (!w.length) { $("rk_regMsg").textContent = rg("noWait"); return; }
+    out([`${head()} · not replied yet (${w.length}):`.replace(/^ · /, ""), ...w.map((id) => "- " + nm(id))].join("\n")); };
+  $("rk_cpReg").onclick = () => { const r = regOf(), l = [...picked].filter((id) => rep[id] === "y" || (isSafe(id) && rep[id] !== "n"));
+    out([`${head()} · registration: ${r.r} (✅ ${r.y} confirmed + 🟡 ${r.s} safe)`.replace(/^ · /, ""), ...l.map((id) => `- ${nm(id)}${rep[id] === "y" ? "" : " 🟡"}${subs.has(id) ? " (sub)" : ""}`)].join("\n")); };
+}
+async function setSafe(id, on) {
+  if (on) SAFE.add(String(id)); else SAFE.delete(String(id));
+  store.safe = [...SAFE]; save(); renderList();
+  if (!loggedIn()) return;
+  try { const j = await papi("safe", { id: String(id), on }); if (j.safe) { SAFE = new Set(j.safe.map(String)); store.safe = [...SAFE]; } } catch (e) {}
+}
 const SP_FIT = OFFICER.SP_FIT, migrantOf = OFFICER.migrantOf, squadPower = OFFICER.squadPower, spIsFallback = OFFICER.spIsFallback;   // formula: core.js
 const statOf = (m, k) => k === "migrant" ? (migrantOf(m) || null) : k === "sp" ? squadPower(m) : m[k];
 const statLabel = (k) => tr({ power: "power", mystic: "mystic", tc: "colTc", migrant: "colMigrant", sp: "colSp" }[k]);
@@ -222,7 +258,7 @@ function renderPresets() {
     ${list.length ? `<ol>${list.map((m) => `<li dir="auto">${esc(m.name)} <span class="muted">· ${m.score.toFixed(mode === "w" ? 1 : 0)}</span></li>`).join("")}</ol>` : `<div class="muted">—</div>`}`).join("") + `</div>${pic}</div>`;
 }
 function renderAll() { applyTexts(); renderList(); renderResult(); }
-function persist() { store.wts = wts; store.picked = [...picked]; store.subs = [...picked].filter((id) => subs.has(id)); store.wPower = wPower; store.topN = topN; store.mode = mode; store.sortKey = sortKey; store.sortDir = sortDir; store.lang = lang; save(); }
+function persist() { for (const k of Object.keys(rep)) if (!picked.has(Number(k) || k)) delete rep[k]; store.rep = { ...rep }; store.wts = wts; store.picked = [...picked]; store.subs = [...picked].filter((id) => subs.has(id)); store.wPower = wPower; store.topN = topN; store.mode = mode; store.sortKey = sortKey; store.sortDir = sortDir; store.lang = lang; save(); }
 
 function renderWeights() {
   if (!$("rk_wRow") || (document.activeElement && document.activeElement.closest && document.activeElement.closest("#rk_wRow"))) return;
@@ -273,6 +309,8 @@ $("rk_list").onclick = (e) => {
   }
   const row = e.target.closest("tr.member"); if (!row) return;
   const id = Number(row.dataset.id) || row.dataset.id;
+  if (e.target.closest("[data-rep]")) { const r = rep[id]; if (!r) rep[id] = "y"; else if (r === "y") rep[id] = "n"; else delete rep[id]; persist(); renderList(); return; }   // ⏳ → ✅ → ❌ → ⏳
+  if (e.target.closest("[data-safe]")) { setSafe(id, !isSafe(id)); return; }
   if (e.target.closest("td.ck:not(.main)")) {   // right box = 替補 substitute: ticked, but on the bench
     if (subs.has(id)) { subs.delete(id); picked.delete(id); } else { subs.add(id); picked.add(id); }
   } else if (picked.has(id) && !subs.has(id)) { picked.delete(id); }   // left box / the row = starter
@@ -907,16 +945,18 @@ async function planFetch(force) {
   const j = await papi("list", force || !planStamp ? {} : { since: planStamp });
   if (j.unchanged) return false;
   planStamp = j.stamp || Date.now(); plans = j.plans || {};
+  if (Array.isArray(j.safe)) { SAFE = new Set(j.safe.map(String)); store.safe = [...SAFE]; }
   return true;
 }
 const planLabel = (p) => { const n = String((p && p.name) || "").trim(); return n && n !== "?" ? n : `(${pl("noName")}${p && p.by ? " · " + p.by : ""})`; };
-function planSnapshot() { return { picked: [...picked], subs: [...picked].filter((id) => subs.has(id)), wPower, wts: { ...wts }, counts: JSON.parse(JSON.stringify(store.counts || {})), tb: JSON.parse(JSON.stringify(TB)) }; }
+function planSnapshot() { return { picked: [...picked], subs: [...picked].filter((id) => subs.has(id)), rep: Object.fromEntries([...picked].filter((id) => rep[id]).map((id) => [id, rep[id]])), wPower, wts: { ...wts }, counts: JSON.parse(JSON.stringify(store.counts || {})), tb: JSON.parse(JSON.stringify(TB)) }; }
 const PJ = (v) => JSON.stringify(v === undefined ? null : v);
 const psort = (a) => [...new Set(a || [])].sort((x, y) => String(x).localeCompare(String(y)));
 /* a plan in one fixed shape (same as the screen gives), so "did this change here?" compares like with like */
 function planNorm(p) {
   p = p || {}; const ids = psort(p.picked), on = new Set(ids);
-  return { picked: ids, subs: psort(p.subs).filter((x) => on.has(x)), wts: wtsFrom(p.wts, p.wPower), counts: JSON.parse(PJ(p.counts || {})), tb: (() => { const t = tbMuted(Object.assign(tbDefault(), JSON.parse(PJ(p.tb || {})))); if (!Array.isArray(t.groups)) t.groups = []; tbSync(t); return t; })() };
+  const rp = {}; for (const id of ids) { const v = p.rep && p.rep[id]; if (v === "y" || v === "n") rp[id] = v; }
+  return { picked: ids, subs: psort(p.subs).filter((x) => on.has(x)), rep: rp, wts: wtsFrom(p.wts, p.wPower), counts: JSON.parse(PJ(p.counts || {})), tb: (() => { const t = tbMuted(Object.assign(tbDefault(), JSON.parse(PJ(p.tb || {})))); if (!Array.isArray(t.groups)) t.groups = []; tbSync(t); return t; })() };
 }
 const planMine = () => planNorm(planSnapshot());
 const planSame = (a, b) => PJ(a) === PJ(b);
@@ -930,6 +970,8 @@ function planPatch(mine, base) {
   if (PJ(mine.counts) !== PJ(base.counts)) f.counts = mine.counts;
   if (PJ(mine.subs) !== PJ(base.subs)) f.subs = mine.subs;
   if (Object.keys(f).length) pt.f = f;
+  const rp = {}; for (const k of new Set([...Object.keys(mine.rep), ...Object.keys(base.rep)])) if (mine.rep[k] !== base.rep[k]) rp[k] = mine.rep[k] || null;
+  if (Object.keys(rp).length) pt.rep = rp;
   const tb = {};
   for (const k of new Set([...Object.keys(mine.tb), ...Object.keys(base.tb)])) if (PJ(mine.tb[k]) !== PJ(base.tb[k])) tb[k] = k in mine.tb ? mine.tb[k] : null;
   if (Object.keys(tb).length) pt.tb = tb;
@@ -951,7 +993,7 @@ function histUndo() {
   const s = hist.pop(); if (!s) return histShow();
   const o = JSON.parse(s);
   histBusy = true;
-  picked = new Set(o.picked || []); subs = new Set(o.subs || []); store.counts = o.counts || {};
+  picked = new Set(o.picked || []); subs = new Set(o.subs || []); rep = { ...(o.rep || {}) }; store.counts = o.counts || {};
   TB = Object.assign(tbDefault(), o.tb || {}); tbPick = null;
   setWeights(wtsFrom(o.wts, o.wPower)); persist(); tbSave();
   renderAll(); tbRender(); renderPresets && renderPresets();
@@ -960,7 +1002,7 @@ function histUndo() {
 /* put a plan (normalized) on screen */
 function planShow(n) {
   planApplying = true;
-  picked = new Set(n.picked); subs = new Set(n.subs); store.counts = n.counts; TB = n.tb; tbPick = null;
+  picked = new Set(n.picked); subs = new Set(n.subs); rep = { ...(n.rep || {}) }; store.counts = n.counts; TB = n.tb; tbPick = null;
   setWeights(n.wts); persist();
   renderAll(); tbRender(); renderPresets && renderPresets();
   planApplying = false;
@@ -977,8 +1019,11 @@ function planRebase(p) {
     for (const x of base.picked) if (!ms.has(x)) ids.delete(x);
     out.picked = psort([...ids]);
     for (const k of ["wts", "counts", "subs"]) if (PJ(mine[k]) !== PJ(base[k])) out[k] = mine[k];
+    for (const k of new Set([...Object.keys(mine.rep), ...Object.keys(base.rep)])) if (mine.rep[k] !== base.rep[k]) { if (mine.rep[k]) out.rep[k] = mine.rep[k]; else delete out.rep[k]; }
     for (const k of new Set([...Object.keys(mine.tb), ...Object.keys(base.tb)])) if (PJ(mine.tb[k]) !== PJ(base.tb[k])) { if (k in mine.tb) out.tb[k] = mine.tb[k]; else delete out.tb[k]; }
     const on = new Set(out.picked); out.subs = out.subs.filter((x) => on.has(x));
+    for (const k of Object.keys(out.rep)) if (!on.has(Number(k) || k)) delete out.rep[k];
+    out.rep = Object.fromEntries(Object.entries(out.rep).sort((a, b) => a[0].localeCompare(b[0])));
   }
   planBaseSnap = srv; planBaseV = p._v || planBaseV;
   if (!planSame(out, mine)) { planShow(out); histLast = histSnap(); }
@@ -1090,6 +1135,7 @@ async function planPoll() {
   try {
     if (!(await planFetch())) return;
     if (planId && plans[planId]) planRebase(plans[planId]);
+    if (data) renderList();   // 🟡 safe list may have changed too
     planRenderBar();
     if (planDirty && !planErr) { clearTimeout(planTimer); planTimer = setTimeout(planSave, 600); }
   } catch (e) {}
@@ -1098,7 +1144,7 @@ function planSwitch(id) {
   if (!planId) store.local = planSnapshot();   // leaving "only this device": keep it to come back to
   planId = id; store.planId = id; planDirty = false; planBaseSnap = null; planBaseV = 0; planErr = ""; planOkAt = 0; planTries = 0;
   if (id && plans[id]) planApply(plans[id]);
-  else if (store.local) { const l = store.local; planApplying = true; picked = new Set(l.picked || []); subs = new Set((l.subs || []).filter((x) => picked.has(x))); store.counts = l.counts || {}; TB = Object.assign(tbDefault(), l.tb || {}); setWeights(wtsFrom(l.wts, l.wPower)); renderAll(); tbRender(); planApplying = false; }
+  else if (store.local) { const l = store.local; planApplying = true; picked = new Set(l.picked || []); subs = new Set((l.subs || []).filter((x) => picked.has(x))); rep = { ...(l.rep || {}) }; store.counts = l.counts || {}; TB = Object.assign(tbDefault(), l.tb || {}); setWeights(wtsFrom(l.wts, l.wPower)); renderAll(); tbRender(); planApplying = false; }
   planApplying = true; save(); planApplying = false; histReset(); planRenderBar();
 }
 async function plansInit() {
@@ -1186,7 +1232,7 @@ $("planNew").onclick = async () => {
   const start = picked.size && window.confirm(pl("copyQ"));
   let id; do id = "p" + Math.random().toString(36).slice(2, 9); while (plans[id]);
   const snap = planSnapshot();
-  const full = { ...(myId() ? { owner: { id: myId(), name: planWho() } } : {}), name: name.slice(0, 40), picked: start ? snap.picked : [], subs: start ? snap.subs : [], wPower: snap.wPower, wts: snap.wts, counts: snap.counts, tb: start ? snap.tb : tbDefault() };
+  const full = { ...(myId() ? { owner: { id: myId(), name: planWho() } } : {}), name: name.slice(0, 40), picked: start ? snap.picked : [], subs: start ? snap.subs : [], rep: start ? snap.rep : {}, wPower: snap.wPower, wts: snap.wts, counts: snap.counts, tb: start ? snap.tb : tbDefault() };
   $("planNew").disabled = true;
   try { const j = await papi("save", { id, patch: { full } }); plans[id] = j.plan; planSwitch(id); planOkAt = Date.now(); planRenderBar(); }
   catch (e) { planErr = planErrText(e); planRenderBar(); window.alert(planErr); }
