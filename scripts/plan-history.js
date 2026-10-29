@@ -30,3 +30,12 @@ if (process.env.RESTORE) {
   }
   writeData(FILE, cur);
 }
+// COMPARE="id@sha~id@sha;…": how many ticked people two versions share (counts only)
+if (process.env.COMPARE) {
+  const out2 = [];
+  for (const pair of process.env.COMPARE.split(";")) {
+    const [a, b] = pair.split("~").map((x) => { const [id, sha] = x.split("@"); return new Set(((at(sha).plans[id] || {}).picked) || []); });
+    out2.push(`${pair}: A ${a.size}, B ${b.size}, both ${[...a].filter((x) => b.has(x)).length}`);
+  }
+  fs.appendFileSync("data/plan-history.txt", "\n" + out2.join("\n") + "\n");
+}
