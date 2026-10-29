@@ -41,6 +41,7 @@ const FEATURES = [
   ["Board", /💬 Board/, /bd01:/],
   ["Attendance", /📋 Attendance/, /at01:/],
   ["Ranking: ✅ Registration on ticked names (⏳/✅/❌ replies, 🟡 safe players)", /✅ Registration \(報名確認/, /rk05r:/],
+  ["Ranking: ② sort by ranking", /"Sort by ranking" \(依排名排序/, /rk05r: [^\n]*(Sort by ranking|依排名排序)/],
   ["Attendance: ① Registration (replies from the Ranking plan)", /① Registration \(lists made from a plan/, /at06r:/],
   ["Ranking: shared plans saved on the Worker + save box (✅ / ⏳ / ⚠️)", /saved on the Worker \(Discord login/, /rk03s:/],
   ["Ranking: 📱 battle table last edited on this device", /📱 Battle table last edited on this device/, /rk03: [^\n]*📱/],
