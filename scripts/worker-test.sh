@@ -16,6 +16,7 @@ expect() { local got; got=$(post "$1" "$2"); if echo "$got" | grep -q "$3"; then
 expect /board   '{"op":"list"}'   '"logged_out"'
 expect /attend  '{"op":"list"}'   '"logged_out"'
 expect /perms   '{"op":"get"}'    '"logged_out"'
+expect /plans   '{"op":"list"}'   '"logged_out"'
 # the officer password alone no longer opens anything (Discord login only, 2026-10-16)
 expect /attend  '{"op":"list","pw":"test-pw","pwName":"Tester"}' '"logged_out"'
 expect /attend  '{"op":"list","pw":"wrong"}' '"logged_out"'

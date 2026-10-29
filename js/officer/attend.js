@@ -6,37 +6,37 @@
 const ROOT = document.getElementById("pg-attend");
 const $ = (id) => ROOT.querySelector("#" + CSS.escape(id)) || document.getElementById(id);
 const esc = OFFICER.util.esc;
-const ROSTER_URL = "data/roster-x7k2p9.json", PLAN_URL = "data/ranking-plans-x7k2p9.json";
+const ROSTER_URL = "data/roster-x7k2p9.json";
 const T = {
-  zh: { planDeleted: "（計畫已刪除，名單保留）", planGoneKeep: "這份名單的計畫已經刪除了，名單照原樣保留，不會再變動。", planSec: "📋 共用計畫（來自排名分頁）", planNote: "每個活動先在排名分頁建一個共用計畫、勾人（可標替補），這裡就會出現它的出席名單。", makeList: "建立出席名單", noPlans: "還沒有共用計畫。先到排名分頁建立計畫並勾人。", reload: "🔄 依計畫更新名單", reloaded: "名單已依計畫更新（出席勾選保留）。", planGone: "這份名單的計畫已被刪除。", title: "📋 出席", sub: "每種活動一張表（聖劍、三盟…），表裡每個日期一份名單：說會來的人（可標替補），打完後勾誰真的到了。缺席會累計：第 2 次橘、第 3 次紅；⭐ 是戰力前 20。", login: "要先用 Discord 登入才能看出席名單。", loginBtn: "用 Discord 登入",
+  zh: { regSec: "① 報名確認：誰回覆了", regHint: "點 ⏳ 切換：✅ 確認會來 · ❌ 不能來 · ⏳ 還沒回。🟡 = 放心成員：不用等回覆就先報名（下次的名單也會記得）。點名字切換「替補」，× 移除。", regCount: "✅ 確認 {y} · 🟡 放心沒回 {s} → 可報名 {r} 人 · ⏳ 沒回 {w} · ❌ 不能來 {n}", copyWait: "📋 複製沒回覆的人", copyReg: "📋 複製報名名單", safeOn: "🟡 放心成員（點一下取消）", safeOff: "設成放心成員（不用等回覆就報名）", noWait: "大家都回覆了。", planDeleted: "（計畫已刪除，名單保留）", planGoneKeep: "這份名單的計畫已經刪除了，名單照原樣保留，不會再變動。", planSec: "📋 共用計畫（來自排名分頁）", planNote: "每個活動先在排名分頁建一個共用計畫、勾人（可標替補），這裡就會出現它的出席名單。", makeList: "建立出席名單", noPlans: "還沒有共用計畫。先到排名分頁建立計畫並勾人。", reload: "🔄 依計畫更新名單", reloaded: "名單已依計畫更新（出席勾選保留）。", planGone: "這份名單的計畫已被刪除。", title: "📋 出席", sub: "每種活動一張表（聖劍、三盟…），表裡每個日期一份名單：說會來的人（可標替補），打完後勾誰真的到了。缺席會累計：第 2 次橘、第 3 次紅；⭐ 是戰力前 20。", login: "要先用 Discord 登入才能看出席名單。", loginBtn: "用 Discord 登入",
     newBtn: "＋ 新名單", sheet: "活動表", sheetPh: "活動名稱（例如 聖劍爭奪、三盟爭霸）", date: "日期", plan: "從排名分頁的共用計畫匯入", planNone: "（不匯入，手動加人）", planHint: "一份名單只放一個計畫。兩個軍團就分別建兩份。", create: "建立名單",
     confirmed: "① 說會來的人", paste: "貼上名單（一行一個，或用逗號分隔）", shot: "📷 或上傳投票者截圖", match: "比對成員表", ocrWait: "辨識中…", matched: "比對到 {n} 人", miss: "找不到（請手動加）：{list}", addMember: "手動加入成員…", subHint: "點名字切換「替補」，點 × 移除。替補沒到不算缺席。",
     present: "② 打完後：誰有到", presentNote: "點名字切換：✓ 有到 · X 沒到 · 🛌 請假（不算缺席）", allPresent: "全部有到", keysLine: "Keys: X = 沒到 · 橘 = 第 2 次缺席 · 紅 = 第 3 次以上 · 🛌 = 請假 · 替 = 替補 · ⭐ = 戰力前 20（次數自動累計）",
     save: "儲存", saved: "已儲存。", del: "刪除這份名單", delAsk: "確定刪除這份名單？", back: "‹ 全部活動表", empty: "還沒有名單。按「＋ 新名單」開始。",
     rate: "出席率", rateNote: "正選有到 ÷ 正選人數（請假不算、替補不算）。", missN: "缺席", events: "場次", name: "成員", noData: "成員表載不進來，無法比對名字。",
     copy: "複製給 Discord", copied: "已複製", nobody: "還沒有人。", sub2: "替補", err: "出了點問題：{e}", dbLimit: "⚠️ 伺服器今天的免費額度用完了，UTC 00:00 重置。" },
-  en: { planDeleted: "(plan deleted, list kept)", planGoneKeep: "The plan behind this list was deleted; the list is kept exactly as it is.", planSec: "📋 Shared plans (from the Ranking tab)", planNote: "For each event, make a shared plan on the Ranking tab and tick people (subs can be marked); its attendance list appears here.", makeList: "Create attendance list", noPlans: "No shared plans yet. Make one on the Ranking tab and tick people.", reload: "🔄 Update from the plan", reloaded: "List updated from the plan (attendance marks kept).", planGone: "The plan behind this list was deleted.", title: "📋 Attendance", sub: "One sheet per event (Swordland, Tri-Alliance…); each date on a sheet is one list: who confirmed (subs can be marked), and after the battle who showed up. Misses add up: 2nd orange, 3rd red; ⭐ = top 20 by power.", login: "Log in with Discord to see attendance lists.", loginBtn: "Log in with Discord",
+  en: { regSec: "① Registration: who replied", regHint: "Tap ⏳ to cycle: ✅ confirmed · ❌ can't come · ⏳ no reply yet. 🟡 = safe player: registered without waiting for a reply (remembered for the next lists). Tap the name for “sub”, × removes.", regCount: "✅ {y} confirmed · 🟡 {s} safe, no reply → {r} can be registered · ⏳ {w} no reply · ❌ {n} can't", copyWait: "📋 Copy not-replied names", copyReg: "📋 Copy registration list", safeOn: "🟡 Safe player (tap to remove)", safeOff: "Mark as safe player (registered without waiting)", noWait: "Everyone has replied.", planDeleted: "(plan deleted, list kept)", planGoneKeep: "The plan behind this list was deleted; the list is kept exactly as it is.", planSec: "📋 Shared plans (from the Ranking tab)", planNote: "For each event, make a shared plan on the Ranking tab and tick people (subs can be marked); its attendance list appears here.", makeList: "Create attendance list", noPlans: "No shared plans yet. Make one on the Ranking tab and tick people.", reload: "🔄 Update from the plan", reloaded: "List updated from the plan (attendance marks kept).", planGone: "The plan behind this list was deleted.", title: "📋 Attendance", sub: "One sheet per event (Swordland, Tri-Alliance…); each date on a sheet is one list: who confirmed (subs can be marked), and after the battle who showed up. Misses add up: 2nd orange, 3rd red; ⭐ = top 20 by power.", login: "Log in with Discord to see attendance lists.", loginBtn: "Log in with Discord",
     newBtn: "＋ New list", sheet: "Event sheet", sheetPh: "Event (e.g. Swordland Showdown, Tri-Alliance Clash)", date: "Date", plan: "Import from a shared plan on the Ranking tab", planNone: "(no import, add people by hand)", planHint: "One list holds one plan. For two legions make two lists.", create: "Create list",
     confirmed: "① Confirmed (said yes)", paste: "Paste names (one per line or comma-separated)", shot: "📷 or upload voter screenshots", match: "Match roster", ocrWait: "Reading…", matched: "Matched {n}", miss: "Not found (add by hand): {list}", addMember: "Add a member by hand…", subHint: "Tap a name to toggle “sub”, × removes. A sub who doesn't show isn't a miss.",
     present: "② After the battle: who showed up", presentNote: "Tap a name to cycle: ✓ showed up · X no-show · 🛌 excused (not counted)", allPresent: "All showed up", keysLine: "Keys: X = missed · orange = 2nd miss · red = 3rd+ · 🛌 = excused · sub = substitute · ⭐ = top 20 (counted automatically)",
     save: "Save", saved: "Saved.", del: "Delete this list", delAsk: "Delete this list?", back: "‹ All sheets", empty: "No lists yet. Tap “＋ New list” to start.",
     rate: "Attendance", rateNote: "Starters who showed up ÷ starters (excused and subs not counted).", missN: "Missed", events: "Events", name: "Member", noData: "The roster didn't load, so names can't be matched.",
     copy: "Copy for Discord", copied: "Copied", nobody: "Nobody yet.", sub2: "sub", err: "Something went wrong: {e}", dbLimit: "⚠️ The server's free daily allowance is used up; it resets at 00:00 UTC." },
-  pt: { planDeleted: "(plano excluído, lista mantida)", planGoneKeep: "O plano desta lista foi excluído; a lista fica exatamente como está.", planSec: "📋 Planos compartilhados (da aba Ranking)", planNote: "Para cada evento, crie um plano compartilhado na aba Ranking e marque as pessoas (reservas podem ser marcados); a lista de presença aparece aqui.", makeList: "Criar lista de presença", noPlans: "Ainda não há planos compartilhados. Crie um na aba Ranking e marque as pessoas.", reload: "🔄 Atualizar pelo plano", reloaded: "Lista atualizada pelo plano (marcações de presença mantidas).", planGone: "O plano desta lista foi excluído.", title: "📋 Presença", sub: "Uma planilha por evento (Confronto entre Espadas, Tri-Aliança…); cada data é uma lista: quem confirmou (reservas podem ser marcados) e, depois da batalha, quem apareceu. Faltas acumulam: 2ª laranja, 3ª vermelha; ⭐ = top 20 em poder.", login: "Entre com o Discord para ver as listas.", loginBtn: "Entrar com Discord",
+  pt: { regSec: "① Inscrição: quem respondeu", regHint: "Toque em ⏳ para alternar: ✅ confirmou · ❌ não pode · ⏳ ainda sem resposta. 🟡 = jogador de confiança: inscrito sem esperar resposta (lembrado nas próximas listas). Toque no nome para “reserva”, × remove.", regCount: "✅ {y} confirmados · 🟡 {s} de confiança sem resposta → {r} podem ser inscritos · ⏳ {w} sem resposta · ❌ {n} não podem", copyWait: "📋 Copiar quem não respondeu", copyReg: "📋 Copiar lista de inscrição", safeOn: "🟡 Jogador de confiança (toque para tirar)", safeOff: "Marcar como de confiança (inscrito sem esperar)", noWait: "Todos responderam.", planDeleted: "(plano excluído, lista mantida)", planGoneKeep: "O plano desta lista foi excluído; a lista fica exatamente como está.", planSec: "📋 Planos compartilhados (da aba Ranking)", planNote: "Para cada evento, crie um plano compartilhado na aba Ranking e marque as pessoas (reservas podem ser marcados); a lista de presença aparece aqui.", makeList: "Criar lista de presença", noPlans: "Ainda não há planos compartilhados. Crie um na aba Ranking e marque as pessoas.", reload: "🔄 Atualizar pelo plano", reloaded: "Lista atualizada pelo plano (marcações de presença mantidas).", planGone: "O plano desta lista foi excluído.", title: "📋 Presença", sub: "Uma planilha por evento (Confronto entre Espadas, Tri-Aliança…); cada data é uma lista: quem confirmou (reservas podem ser marcados) e, depois da batalha, quem apareceu. Faltas acumulam: 2ª laranja, 3ª vermelha; ⭐ = top 20 em poder.", login: "Entre com o Discord para ver as listas.", loginBtn: "Entrar com Discord",
     newBtn: "＋ Nova lista", sheet: "Planilha do evento", sheetPh: "Evento (ex.: Confronto entre Espadas, Confronto Tri-Aliança)", date: "Data", plan: "Importar de um plano compartilhado da aba Ranking", planNone: "(sem importar, adicionar à mão)", planHint: "Uma lista guarda um plano. Para duas legiões, faça duas listas.", create: "Criar lista",
     confirmed: "① Confirmados", paste: "Cole os nomes (um por linha ou separados por vírgula)", shot: "📷 ou envie capturas dos votantes", match: "Comparar com a lista", ocrWait: "Lendo…", matched: "{n} encontrados", miss: "Não encontrados (adicione à mão): {list}", addMember: "Adicionar membro à mão…", subHint: "Toque no nome para marcar “reserva”, × remove. Reserva que não aparece não conta como falta.",
     present: "② Depois da batalha: quem apareceu", presentNote: "Toque no nome para alternar: ✓ apareceu · X faltou · 🛌 justificado (não conta)", allPresent: "Todos apareceram", keysLine: "Legenda: X = faltou · laranja = 2ª falta · vermelho = 3ª ou mais · 🛌 = justificado · res = reserva · ⭐ = top 20 (contado automaticamente)",
     save: "Salvar", saved: "Salvo.", del: "Excluir esta lista", delAsk: "Excluir esta lista?", back: "‹ Todas as planilhas", empty: "Ainda não há listas. Toque em “＋ Nova lista”.",
     rate: "Presença", rateNote: "Titulares que apareceram ÷ titulares (justificados e reservas não contam).", missN: "Faltas", events: "Eventos", name: "Membro", noData: "A lista de membros não carregou; não dá para comparar nomes.",
     copy: "Copiar para o Discord", copied: "Copiado", nobody: "Ninguém ainda.", sub2: "res", err: "Algo deu errado: {e}", dbLimit: "⚠️ A cota gratuita diária do servidor acabou; volta às 00:00 UTC." },
-  ar: { planDeleted: "(حُذفت الخطة، القائمة محفوظة)", planGoneKeep: "حُذفت الخطة الخاصة بهذه القائمة؛ تبقى القائمة كما هي تمامًا.", planSec: "📋 الخطط المشتركة (من تبويب الترتيب)", planNote: "لكل فعالية أنشئ خطة مشتركة في تبويب الترتيب وحدّد الأشخاص (يمكن تمييز البدلاء)؛ تظهر قائمة الحضور هنا.", makeList: "إنشاء قائمة حضور", noPlans: "لا توجد خطط مشتركة بعد. أنشئ واحدة في تبويب الترتيب وحدّد الأشخاص.", reload: "🔄 تحديث من الخطة", reloaded: "تم تحديث القائمة من الخطة (علامات الحضور محفوظة).", planGone: "حُذفت الخطة الخاصة بهذه القائمة.", title: "📋 الحضور", sub: "جدول لكل فعالية (أرض السيوف، التحالف الثلاثي…)؛ كل تاريخ في الجدول قائمة واحدة: من أكّد (يمكن تمييز البدلاء)، وبعد المعركة من حضر. الغيابات تتراكم: الثاني برتقالي، الثالث أحمر؛ ⭐ = أقوى 20.", login: "سجّل الدخول عبر Discord لرؤية القوائم.", loginBtn: "تسجيل الدخول عبر Discord",
+  ar: { regSec: "① التسجيل: من ردّ", regHint: "اضغط ⏳ للتبديل: ✅ أكّد · ❌ لا يستطيع · ⏳ لم يرد بعد. 🟡 = لاعب موثوق: يُسجَّل دون انتظار الرد (يُتذكَّر في القوائم القادمة). اضغط على الاسم لـ«بديل»، × للحذف.", regCount: "✅ {y} أكّدوا · 🟡 {s} موثوقون لم يردّوا ← يمكن تسجيل {r} · ⏳ {w} لم يردّوا · ❌ {n} لا يستطيعون", copyWait: "📋 نسخ من لم يرد", copyReg: "📋 نسخ قائمة التسجيل", safeOn: "🟡 لاعب موثوق (اضغط للإلغاء)", safeOff: "تعيين كلاعب موثوق (يُسجَّل دون انتظار)", noWait: "ردّ الجميع.", planDeleted: "(حُذفت الخطة، القائمة محفوظة)", planGoneKeep: "حُذفت الخطة الخاصة بهذه القائمة؛ تبقى القائمة كما هي تمامًا.", planSec: "📋 الخطط المشتركة (من تبويب الترتيب)", planNote: "لكل فعالية أنشئ خطة مشتركة في تبويب الترتيب وحدّد الأشخاص (يمكن تمييز البدلاء)؛ تظهر قائمة الحضور هنا.", makeList: "إنشاء قائمة حضور", noPlans: "لا توجد خطط مشتركة بعد. أنشئ واحدة في تبويب الترتيب وحدّد الأشخاص.", reload: "🔄 تحديث من الخطة", reloaded: "تم تحديث القائمة من الخطة (علامات الحضور محفوظة).", planGone: "حُذفت الخطة الخاصة بهذه القائمة.", title: "📋 الحضور", sub: "جدول لكل فعالية (أرض السيوف، التحالف الثلاثي…)؛ كل تاريخ في الجدول قائمة واحدة: من أكّد (يمكن تمييز البدلاء)، وبعد المعركة من حضر. الغيابات تتراكم: الثاني برتقالي، الثالث أحمر؛ ⭐ = أقوى 20.", login: "سجّل الدخول عبر Discord لرؤية القوائم.", loginBtn: "تسجيل الدخول عبر Discord",
     newBtn: "＋ قائمة جديدة", sheet: "جدول الفعالية", sheetPh: "الفعالية (مثل مواجهة أرض السيوف، صراع التحالف الثلاثي)", date: "التاريخ", plan: "استيراد من خطة مشتركة في تبويب الترتيب", planNone: "(بدون استيراد، إضافة يدوية)", planHint: "القائمة الواحدة تحمل خطة واحدة. لكتيبتين أنشئ قائمتين.", create: "إنشاء القائمة",
     confirmed: "① المؤكدون", paste: "الصق الأسماء (اسم في كل سطر أو مفصولة بفواصل)", shot: "📷 أو ارفع لقطات المصوّتين", match: "مطابقة مع القائمة", ocrWait: "جارٍ القراءة…", matched: "تمت مطابقة {n}", miss: "غير موجود (أضفه يدويًا): {list}", addMember: "إضافة عضو يدويًا…", subHint: "اضغط على الاسم لتبديل «بديل»، × للحذف. غياب البديل لا يُحتسب.",
     present: "② بعد المعركة: من حضر", presentNote: "اضغط على الاسم للتبديل: ✓ حضر · X غاب · 🛌 معذور (لا يُحتسب)", allPresent: "حضر الجميع", keysLine: "المفتاح: X = غاب · برتقالي = الغياب الثاني · أحمر = الثالث فأكثر · 🛌 = معذور · بديل · ⭐ = أقوى 20 (يُحسب تلقائيًا)",
     save: "حفظ", saved: "تم الحفظ.", del: "حذف هذه القائمة", delAsk: "حذف هذه القائمة؟", back: "‹ كل الجداول", empty: "لا توجد قوائم بعد. اضغط «＋ قائمة جديدة».",
     rate: "الحضور", rateNote: "الأساسيون الحاضرون ÷ الأساسيون (المعذورون والبدلاء لا يُحسبون).", missN: "غياب", events: "الفعاليات", name: "العضو", noData: "لم تُحمَّل قائمة الأعضاء، فلا يمكن مطابقة الأسماء.",
     copy: "نسخ إلى Discord", copied: "تم النسخ", nobody: "لا أحد بعد.", sub2: "بديل", err: "حدث خطأ: {e}", dbLimit: "⚠️ نفدت حصة الخادم المجانية لليوم، وتتجدد عند 00:00 UTC." },
-  ko: { planDeleted: "(계획 삭제됨, 명단 유지)", planGoneKeep: "이 명단의 계획은 삭제되었어요. 명단은 지금 그대로 유지돼요.", planSec: "📋 공유 계획 (순위 탭)", planNote: "이벤트마다 순위 탭에서 공유 계획을 만들고 사람을 체크하면(후보 표시 가능) 여기에 출석 명단이 생깁니다.", makeList: "출석 명단 만들기", noPlans: "아직 공유 계획이 없어요. 순위 탭에서 계획을 만들고 사람을 체크하세요.", reload: "🔄 계획대로 명단 갱신", reloaded: "계획대로 명단을 갱신했어요 (출석 표시는 유지).", planGone: "이 명단의 계획이 삭제되었어요.", title: "📋 출석", sub: "이벤트마다 시트 하나(성검, 삼대 연맹전…); 시트의 각 날짜가 명단 하나: 온다고 한 사람(후보 표시 가능), 전투 후 실제로 온 사람. 불참은 누적: 2번째 주황, 3번째 빨강; ⭐ = 전투력 상위 20.", login: "출석 명단을 보려면 Discord로 로그인하세요.", loginBtn: "Discord로 로그인",
+  ko: { regSec: "① 등록: 누가 답했나", regHint: "⏳를 눌러 전환: ✅ 확정 · ❌ 못 옴 · ⏳ 아직 답 없음. 🟡 = 믿을 수 있는 멤버: 답을 기다리지 않고 등록 (다음 명단에도 기억돼요). 이름을 누르면 “후보”, ×는 제거.", regCount: "✅ 확정 {y} · 🟡 믿을 만한 미응답 {s} → 등록 가능 {r}명 · ⏳ 미응답 {w} · ❌ 못 옴 {n}", copyWait: "📋 미응답자 복사", copyReg: "📋 등록 명단 복사", safeOn: "🟡 믿을 수 있는 멤버 (누르면 해제)", safeOff: "믿을 수 있는 멤버로 표시 (기다리지 않고 등록)", noWait: "모두 답했어요.", planDeleted: "(계획 삭제됨, 명단 유지)", planGoneKeep: "이 명단의 계획은 삭제되었어요. 명단은 지금 그대로 유지돼요.", planSec: "📋 공유 계획 (순위 탭)", planNote: "이벤트마다 순위 탭에서 공유 계획을 만들고 사람을 체크하면(후보 표시 가능) 여기에 출석 명단이 생깁니다.", makeList: "출석 명단 만들기", noPlans: "아직 공유 계획이 없어요. 순위 탭에서 계획을 만들고 사람을 체크하세요.", reload: "🔄 계획대로 명단 갱신", reloaded: "계획대로 명단을 갱신했어요 (출석 표시는 유지).", planGone: "이 명단의 계획이 삭제되었어요.", title: "📋 출석", sub: "이벤트마다 시트 하나(성검, 삼대 연맹전…); 시트의 각 날짜가 명단 하나: 온다고 한 사람(후보 표시 가능), 전투 후 실제로 온 사람. 불참은 누적: 2번째 주황, 3번째 빨강; ⭐ = 전투력 상위 20.", login: "출석 명단을 보려면 Discord로 로그인하세요.", loginBtn: "Discord로 로그인",
     newBtn: "＋ 새 명단", sheet: "이벤트 시트", sheetPh: "이벤트 (예: 성검 쟁탈, 삼대 연맹전)", date: "날짜", plan: "순위 탭의 공유 계획에서 가져오기", planNone: "(가져오지 않고 직접 추가)", planHint: "명단 하나에 계획 하나. 군단이 둘이면 명단을 둘 만드세요.", create: "명단 만들기",
     confirmed: "① 온다고 한 사람", paste: "명단 붙여넣기 (한 줄에 하나 또는 쉼표로 구분)", shot: "📷 또는 투표자 스크린샷 업로드", match: "명단과 대조", ocrWait: "읽는 중…", matched: "{n}명 일치", miss: "못 찾음 (직접 추가): {list}", addMember: "직접 추가…", subHint: "이름을 누르면 “후보” 전환, ×는 제거. 후보의 불참은 세지 않아요.",
     present: "② 전투 후: 누가 왔나", presentNote: "이름을 눌러 전환: ✓ 옴 · X 불참 · 🛌 양해 (세지 않음)", allPresent: "전원 참석", keysLine: "Keys: X = 불참 · 주황 = 2번째 · 빨강 = 3번째 이상 · 🛌 = 양해 · 후보 · ⭐ = 상위 20 (자동 집계)",
@@ -72,6 +72,14 @@ function matchNames(names) {
   }
   return { hit, miss };
 }
+/* 🟡 safe players: registered without waiting for their reply (Nia's yellow). One list for all events, kept on the Worker. */
+let SAFE = new Set();
+/* registration step (lists made since 2026-10-30 have reg: 1): rep "y" confirmed · "n" can't come · none = no reply yet.
+   Who counts (is registered, and can miss): confirmed, or safe and not "can't". Older lists: everyone on them had confirmed. */
+const isSafe = (m) => m.safe || SAFE.has(S(m.id));
+const inList = (ev, m) => !ev.reg || m.rep === "y" || ((ev === cur ? isSafe(m) : !!m.safe) && m.rep !== "n");   // saved lists keep the 🟡 they were saved with
+const regOf = (ev) => { const c = slot(ev).confirmed, sf = (m) => ev === cur ? isSafe(m) : !!m.safe;
+  const y = c.filter((m) => m.rep === "y").length, n = c.filter((m) => m.rep === "n").length, s = c.filter((m) => !m.rep && sf(m)).length; return { y, n, s, w: c.filter((m) => !m.rep && !sf(m)).length, r: y + s }; };
 const top20 = () => { if (!roster) return new Set(); return new Set([...roster.members].filter((m) => m.power > 0).sort((a, b) => b.power - a.power).slice(0, 20).map((m) => S(m.id))); };
 let TOP = new Set();
 const star = (id) => TOP.has(S(id)) ? "⭐ " : "";
@@ -79,7 +87,7 @@ const star = (id) => TOP.has(S(id)) ? "⭐ " : "";
 const slot = (ev) => ev.slots[0];
 const statusOf = (sl, id) => { id = S(id); return sl.present.map(S).includes(id) ? "ok" : sl.excused.map(S).includes(id) ? "ex" : "no"; };
 /* starters only (subs don't count as misses): id → { name, miss } */
-const missesOf = (ev) => { const out = new Map(); const sl = slot(ev); for (const m of sl.confirmed) { if (m.sub) continue; const st = statusOf(sl, m.id); if (st !== "ex") out.set(S(m.id), { name: m.name, miss: st === "no" }); } return out; };
+const missesOf = (ev) => { const out = new Map(); const sl = slot(ev); for (const m of sl.confirmed) { if (m.sub || !inList(ev, m)) continue; const st = statusOf(sl, m.id); if (st !== "ex") out.set(S(m.id), { name: m.name, miss: st === "no" }); } return out; };
 const rateOf = (ev) => { const m = [...missesOf(ev).values()]; const n = m.length, ok = m.filter((x) => !x.miss).length; return { n, ok, pct: n ? Math.round(ok / n * 100) : null }; };
 /* the Swordland sheet is saved in whatever language the officer used; show it in the viewer's language (and keep one sheet, not one per language) */
 const ssAll = () => { const ss = typeof EVENT_NAMES !== "undefined" && EVENT_NAMES["Swordland Showdown"]; return new Set(["Swordland Showdown", ...(ss ? Object.values(ss) : [])].map((x) => String(x).trim().toLowerCase())); };
@@ -136,7 +144,7 @@ const planList = () => Object.entries(plans).filter(([, p]) => (p.picked || []).
 function plansHtml() {
   const pl = planList();
   const rows = pl.map(([id, p]) => { const n = (p.picked || []).length, k = (p.subs || []).length, ev = events.filter((e) => e.plan === id).sort((a, b) => (b.date || "").localeCompare(a.date || ""))[0];
-    return `<tr><td dir="auto"><b>${esc(p.name || id)}</b> <span class="muted">${n - k}${k ? " +" + k + " " + esc(t("sub2")) : ""}</span></td><td style="text-align:end">${ev ? `<button type="button" class="btn small at-open" data-id="${esc(ev.id)}">${esc(ev.date || "")} ›</button>` : canEdit() ? `<button type="button" class="btn small at-make" data-plan="${esc(id)}">${esc(t("makeList"))}</button>` : ""}</td></tr>`; }).join("");
+    return `<tr><td dir="auto"><b>${esc(p.name || id)}</b> <span class="muted">${n - k}${k ? " +" + k + " " + esc(t("sub2")) : ""}</span></td><td style="text-align:end">${ev ? `<button type="button" class="btn small at-open" data-id="${esc(ev.id)}">${esc(ev.date || "")}${ev.reg ? (() => { const r = regOf(ev); return ` · ✅ ${r.y}${r.s ? " + 🟡 " + r.s : ""}${r.w ? " · ⏳ " + r.w : ""}`; })() : ""} ›</button>` : canEdit() ? `<button type="button" class="btn small at-make" data-plan="${esc(id)}">${esc(t("makeList"))}</button>` : ""}</td></tr>`; }).join("");
   // a plan deleted on the Ranking tab stays here if a list was made from it (that list is kept as it was); otherwise it just disappears
   const gone = new Map(); for (const e of events) if (e.plan && !plans[e.plan]) { const g = gone.get(e.plan); if (!g || (e.date || "") > (g.date || "")) gone.set(e.plan, e); }
   const goneRows = [...gone.values()].map((ev) => `<tr><td dir="auto"><b>${esc(slot(ev).name || sheetOf(ev))}</b> <span class="muted">${esc(t("planDeleted"))}</span></td><td style="text-align:end"><button type="button" class="btn small at-open" data-id="${esc(ev.id)}">${esc(ev.date || "")} ›</button></td></tr>`).join("");
@@ -156,24 +164,31 @@ function createFromPlan(pid) {
   const now = new Date(); let date = now.toISOString().slice(0, 10);
   const m = String(p.name || "").match(/(\d{1,2})[\/.](\d{1,2})/);
   if (m) { const d = new Date(Date.UTC(now.getUTCFullYear(), +m[1] - 1, +m[2])); if (d.getTime() < now.getTime() - 200 * 864e5) d.setUTCFullYear(d.getUTCFullYear() + 1); date = d.toISOString().slice(0, 10); }
-  cur = { id: rid(), plan: pid, title: ssName(), sheet: ssName(), date, slots: [{ name: p.name || "", confirmed: planPeople(p), present: [], excused: [] }] };
+  cur = { id: rid(), plan: pid, reg: 1, title: ssName(), sheet: ssName(), date, slots: [{ name: p.name || "", confirmed: planPeople(p), present: [], excused: [] }] };
   render();
 }
 function reloadFromPlan() {
   const p = plans[cur.plan], sl = slot(cur); const msg = $("at_msg");
   if (!p) { if (msg) msg.textContent = t("planGone"); return; }
   const fresh = planPeople(p), keep = new Set(fresh.map((m) => m.id));
-  sl.confirmed = fresh; if (p.name) sl.name = p.name;   // a renamed plan renames the list too sl.present = sl.present.filter((x) => keep.has(S(x))); sl.excused = sl.excused.filter((x) => keep.has(S(x)));
+  const old = new Map(sl.confirmed.map((m) => [S(m.id), m]));
+  sl.confirmed = fresh.map((m) => { const o = old.get(m.id); return o ? { ...m, ...(o.rep ? { rep: o.rep } : {}), ...(o.safe ? { safe: 1 } : {}) } : m; });   // replies and 🟡 stay
+  if (p.name) sl.name = p.name;   // a renamed plan renames the list too
+  sl.present = sl.present.filter((x) => keep.has(S(x))); sl.excused = sl.excused.filter((x) => keep.has(S(x)));
   renderEdit(); $("at_msg").textContent = t("reloaded");
 }
 function renderEdit() {
   const ro = !canEdit(), sl = slot(cur), cnt = missCounts(cur);
-  const chips = sl.confirmed.length ? sl.confirmed.map((m) => `<span class="chip${m.sub ? " is-sub" : ""}" dir="auto"><button type="button" class="chip-n" data-sub="${esc(m.id)}" ${ro ? "disabled" : ""}>${star(m.id)}${esc(m.name)}${m.sub ? ` <small>${esc(t("sub2"))}</small>` : ""}</button>${ro ? "" : `<button type="button" class="chip-x" data-del="${esc(m.id)}">×</button>`}</span>`).join("") : `<span class="muted">${esc(t("nobody"))}</span>`;
-  const plist = sl.confirmed.map((m) => { const st = statusOf(sl, m.id), n = st === "no" && !m.sub ? (cnt.get(S(m.id)) || 1) : 0;
+  const reg = !!cur.reg, rg = regOf(cur);
+  const repBtn = (m) => reg ? `<button type="button" class="chip-r" data-rep="${esc(m.id)}" ${ro ? "disabled" : ""}>${m.rep === "y" ? "✅" : m.rep === "n" ? "❌" : "⏳"}</button>` : "";
+  const safeBtn = (m) => reg ? `<button type="button" class="chip-s${isSafe(m) ? " on" : ""}" data-safe="${esc(m.id)}" title="${esc(t(isSafe(m) ? "safeOn" : "safeOff"))}" aria-label="${esc(t(isSafe(m) ? "safeOn" : "safeOff"))}" ${ro ? "disabled" : ""}>🟡</button>` : "";
+  const chips = sl.confirmed.length ? sl.confirmed.map((m) => `<span class="chip${m.sub ? " is-sub" : ""}${reg && !inList(cur, m) ? " out" : ""}${reg && m.rep ? " r-" + m.rep : ""}" dir="auto">${repBtn(m)}<button type="button" class="chip-n" data-sub="${esc(m.id)}" ${ro ? "disabled" : ""}>${star(m.id)}${esc(m.name)}${m.sub ? ` <small>${esc(t("sub2"))}</small>` : ""}</button>${safeBtn(m)}${ro ? "" : `<button type="button" class="chip-x" data-del="${esc(m.id)}">×</button>`}</span>`).join("") : `<span class="muted">${esc(t("nobody"))}</span>`;
+  const plist = sl.confirmed.filter((m) => inList(cur, m)).map((m) => { const st = statusOf(sl, m.id), n = st === "no" && !m.sub ? (cnt.get(S(m.id)) || 1) : 0;
     return `<button type="button" class="at-p ${st}${m.sub ? " issub" : ""}${n >= 3 ? " m3" : n === 2 ? " m2" : ""}" data-tog="${esc(m.id)}" ${ro ? "disabled" : ""} dir="auto">${st === "ok" ? "✓" : st === "ex" ? "🛌" : "X"} ${star(m.id)}${esc(m.name)}${m.sub ? ` <small>${esc(t("sub2"))}</small>` : ""}${n >= 2 ? ` <small>(${nth(n)})</small>` : ""}</button>`; }).join("");
   const r = rateOf(cur);
   let h = `<div class="card"><div class="row"><input class="inp" id="at_evSheet" placeholder="${esc(t("sheetPh"))}" value="${esc(sheetOf(cur))}" ${ro ? "disabled" : ""} style="flex:1;min-width:160px"><input class="inp" id="at_evDate" type="date" value="${esc(cur.date || "")}" ${ro ? "disabled" : ""}><input class="inp" id="at_evSlot" placeholder="Legion 1" value="${esc(sl.name || "")}" ${ro ? "disabled" : ""} style="width:110px">${!ro && cur.plan && plans[cur.plan] ? `<button type="button" class="btn" id="at_reload">${esc(t("reload"))}</button>` : ""}</div>${cur.plan && !plans[cur.plan] && Object.keys(plans).length ? `<div class="muted" style="font-size:12.5px;margin-top:6px">${esc(t("planGoneKeep"))}</div>` : ""}</div>
-    <div class="card"><h4>${esc(t("confirmed"))} · ${sl.confirmed.length}</h4><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(t("subHint"))}</div><div class="chips">${chips}</div>
+    <div class="card"><h4>${reg ? esc(t("regSec")) : esc(t("confirmed")) + " · " + sl.confirmed.length}</h4><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(t(reg ? "regHint" : "subHint"))}</div>
+      ${reg ? `<div class="at-reg"><b>${esc(t("regCount", rg))}</b></div><div class="row" style="margin:6px 0;gap:6px"><button type="button" class="btn small" id="at_cpWait">${esc(t("copyWait"))}</button><button type="button" class="btn small" id="at_cpReg">${esc(t("copyReg"))}</button><span class="msg" id="at_rmsg"></span></div>` : ""}<div class="chips">${chips}</div>
       ${ro ? "" : `<textarea class="inp" id="at_paste" rows="2" placeholder="${esc(t("paste"))}" style="width:100%;margin-top:8px"></textarea>
       <div class="row" style="margin-top:6px;align-items:center"><button type="button" class="btn" id="at_match">${esc(t("match"))}</button><label class="btn" style="cursor:pointer">${esc(t("shot"))}<input type="file" accept="image/*" multiple id="at_shot" hidden></label>
       <select class="inp" id="at_add" style="max-width:200px"><option value="">${esc(t("addMember"))}</option>${roster ? roster.members.filter((m) => !sl.confirmed.some((c) => S(c.id) === S(m.id))).sort((a, b) => a.name.localeCompare(b.name)).map((m) => `<option value="${esc(m.id)}">${esc(m.name)}</option>`).join("") : ""}</select></div>
@@ -190,6 +205,10 @@ function renderEdit() {
   $("at_evDate").oninput = (e) => { cur.date = e.target.value; };
   $("at_evSlot").oninput = (e) => { sl.name = e.target.value; };
   box.querySelectorAll("[data-sub]").forEach((el) => el.onclick = () => { const m = sl.confirmed.find((x) => S(x.id) === el.dataset.sub); if (m) { if (m.sub) delete m.sub; else m.sub = 1; } renderEdit(); });
+  box.querySelectorAll("[data-rep]").forEach((el) => el.onclick = () => { const m = sl.confirmed.find((x) => S(x.id) === el.dataset.rep); if (!m) return; m.rep = !m.rep ? "y" : m.rep === "y" ? "n" : undefined; if (!m.rep) delete m.rep; renderEdit(); });   // ⏳ → ✅ → ❌ → ⏳
+  box.querySelectorAll("[data-safe]").forEach((el) => el.onclick = () => { const m = sl.confirmed.find((x) => S(x.id) === el.dataset.safe); if (!m) return; const on = !isSafe(m);
+    if (on) { m.safe = 1; SAFE.add(S(m.id)); } else { delete m.safe; SAFE.delete(S(m.id)); }
+    renderEdit(); api("safe", { id: S(m.id), on }).catch(() => {}); });   // remembered for the next lists right away
   box.querySelectorAll("[data-del]").forEach((el) => el.onclick = () => { const id = el.dataset.del; sl.confirmed = sl.confirmed.filter((m) => S(m.id) !== id); sl.present = sl.present.filter((x) => S(x) !== id); sl.excused = sl.excused.filter((x) => S(x) !== id); renderEdit(); });
   $("at_match").onclick = () => addNames($("at_paste").value.split(/[\n,，]+/).map((s) => s.replace(/^[\s\-•*\d.)]+/, "").trim()).filter(Boolean));
   $("at_shot").onchange = () => ocr([...$("at_shot").files]);
@@ -203,10 +222,20 @@ function renderEdit() {
   if ($("at_reload")) $("at_reload").onclick = reloadFromPlan;
   if ($("at_del")) $("at_del").onclick = async () => { if (!confirm(t("delAsk"))) return; try { await api("del", { id: cur.id }); events = events.filter((e) => e.id !== cur.id); cur = null; render(); } catch (e) { $("at_msg").textContent = errText(e); } };
 }
-function wireCopy() { $("at_copy").onclick = () => {
+const copyOut = (txt, el) => navigator.clipboard.writeText(txt).then(() => { if (el) el.textContent = t("copied"); });
+function wireReg() {
+  if (!cur.reg || !$("at_cpWait")) return;
+  const sl = slot(cur), head = `${sheetOf(cur)} ${cur.date || ""}${sl.name ? " — " + sl.name : ""}`;
+  $("at_cpWait").onclick = () => { const w = sl.confirmed.filter((m) => !m.rep && !isSafe(m));
+    if (!w.length) { $("at_rmsg").textContent = t("noWait"); return; }
+    copyOut([`${head} · not replied yet (${w.length}):`, ...w.map((m) => "- " + m.name)].join("\n"), $("at_rmsg")); };
+  $("at_cpReg").onclick = () => { const r = regOf(cur), l = sl.confirmed.filter((m) => inList(cur, m));
+    copyOut([`${head} · registration: ${r.r} (✅ ${r.y} confirmed + 🟡 ${r.s} safe)`, ...l.map((m) => `- ${m.name}${m.rep === "y" ? "" : " 🟡"}${m.sub ? " (sub)" : ""}`)].join("\n"), $("at_rmsg")); };
+}
+function wireCopy() { wireReg(); $("at_copy").onclick = () => {
   const cnt = missCounts(cur), sl = slot(cur), r = rateOf(cur);
   const lines = [`${sheetOf(cur)} ${cur.date || ""}${sl.name ? " — " + sl.name : ""} · ${r.ok}/${r.n}${r.pct == null ? "" : " (" + r.pct + "%)"}`, "Keys: X = missed · (2nd) / (3rd) = repeat miss · 🛌 = excused · (sub) = substitute · ⭐ = top 20", ""];
-  for (const m of sl.confirmed) { const st = statusOf(sl, m.id), n = m.sub ? 0 : (cnt.get(S(m.id)) || 0);
+  for (const m of sl.confirmed) { if (!inList(cur, m)) continue; const st = statusOf(sl, m.id), n = m.sub ? 0 : (cnt.get(S(m.id)) || 0);
     lines.push(`- ${star(m.id)}${m.name}${m.sub ? " (sub)" : ""}${st === "no" ? ": X" + (n >= 2 ? ` (${nth(n)} miss)` : "") : st === "ex" ? ": 🛌" : ""}`); }
   navigator.clipboard.writeText(lines.join("\n")).then(() => { $("at_msg").textContent = t("copied"); }); }; }
 function addMembers(list) { const sl = slot(cur); for (const m of list) { const id = S(m.id); if (!sl.confirmed.some((c) => S(c.id) === id)) sl.confirmed.push({ id, name: m.name }); } renderEdit(); }
@@ -227,24 +256,30 @@ async function ocr(files) {
 function shrink(file) { return new Promise((res, rej) => { const img = new Image(); img.onload = () => { const k = Math.min(1, 1400 / Math.max(img.width, img.height)); const c = document.createElement("canvas"); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k); c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); res(c.toDataURL("image/jpeg", 0.85)); }; img.onerror = rej; img.src = URL.createObjectURL(file); }); }
 async function save() {
   const msg = $("at_msg"); msg.textContent = "…";
+  for (const m of slot(cur).confirmed) { if (SAFE.has(S(m.id))) m.safe = 1; else delete m.safe; }   // 🟡 as it was for this list (past lists keep their count)
   try { await api("save", { ev: cur }); const i = events.findIndex((e) => e.id === cur.id); const copy = JSON.parse(JSON.stringify(cur)); if (i < 0) events.unshift(copy); else events[i] = copy; msg.textContent = t("saved"); }
   catch (e) { msg.textContent = errText(e); }
 }
 async function load() {
   lastErr = null;
-  try { const r = await api("list"); events = r.events.map((e) => { const sl = (e.slots || [])[0] || {}; return { ...e, plan: e.plan || "", sheet: e.sheet || e.title || "", slots: [{ name: sl.name || "", confirmed: (sl.confirmed || []).map((m) => ({ ...m, id: S(m.id) })), present: (sl.present || []).map(S), excused: (sl.excused || []).map(S) }] }; }); }
+  try { const r = await api("list"); SAFE = new Set((r.safe || []).map(S)); events = r.events.map((e) => { const sl = (e.slots || [])[0] || {}; return { ...e, plan: e.plan || "", reg: e.reg ? 1 : 0, sheet: e.sheet || e.title || "", slots: [{ name: sl.name || "", confirmed: (sl.confirmed || []).map((m) => ({ ...m, id: S(m.id) })), present: (sl.present || []).map(S), excused: (sl.excused || []).map(S) }] }; }); }
   catch (e) { lastErr = e; }
   render();
 }
 function init() {
+  freshPlans();
   $("at_back").onclick = () => { cur = null; render(); };
   OfficerData.fetchJsonFast(ROSTER_URL, (d) => { roster = d; TOP = top20(); render(); }).then((d) => { if (d) roster = d; TOP = top20(); render(); }).catch(() => {});
-  OfficerData.fetchJsonFast(PLAN_URL, (d) => { plans = (d && d.plans) || {}; render(); }).then((d) => { if (d) plans = d.plans || {}; render(); }).catch(() => {});
   applyTexts();
 }
+/* the Ranking tab's shared plans live on the Worker (/plans): read them from there (the old GitHub copy is no longer updated) */
 async function freshPlans() {
   try { const r = OFFICER_PAGES.ranking; const p = r && r.freshPlans ? await r.freshPlans() : null; if (p && Object.keys(p).length) { plans = p; render(); return; } } catch (e) {}
-  try { const d = await OfficerData.fetchJsonFast(PLAN_URL, (d) => { plans = (d && d.plans) || {}; render(); }); if (d) { plans = d.plans || {}; render(); } } catch (e) {}
+  try {
+    const r = await fetch(AUTH_API + "/plans", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), op: "list" }) });
+    const j = await r.json(); if (j.token) { try { localStorage.setItem(DISCORD_LS, j.token); } catch (e) {} }
+    if (j.plans) { plans = j.plans; render(); }
+  } catch (e) {}
 }
 function onShow() {
   if ((OFFICER.user && token()) || OFFICER.pw) load(); else render();

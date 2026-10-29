@@ -269,6 +269,14 @@
   #pg-attend .chip button { border: 0; background: transparent; color: inherit; font: inherit; padding: 3px 8px; cursor: pointer; }
   #pg-attend .chip .chip-x { border-inline-start: 1px solid var(--rule); color: #b3261e; padding: 3px 7px; }
   #pg-attend .chip.is-sub { border-style: dashed; opacity: .8; }
+  /* registration step: ⏳/✅/❌ reply · 🟡 safe player (registered without waiting) · greyed = not registered */
+  #pg-attend .chip .chip-r { border-inline-end: 1px solid var(--rule); padding: 3px 6px; }
+  #pg-attend .chip .chip-s { border-inline-start: 1px solid var(--rule); padding: 3px 6px; opacity: .3; filter: grayscale(1); }
+  #pg-attend .chip .chip-s.on { opacity: 1; filter: none; }
+  #pg-attend .chip.out { opacity: .55; }
+  #pg-attend .chip.r-n .chip-n { text-decoration: line-through; }
+  #pg-attend .chip:has(.chip-s.on):not(.r-y) { background: color-mix(in srgb, #f6d365 30%, var(--panel)); }
+  #pg-attend .at-reg { font-size: 13.5px; padding: 6px 10px; border-radius: 8px; background: color-mix(in srgb, var(--accent) 10%, var(--panel)); }
   #pg-attend .chip { align-items: center; min-height: 32px; box-sizing: border-box; }
   #pg-attend .chip button { line-height: 1.2; min-height: 30px; }
   #pg-attend .row > select.inp { height: 36px; padding-top: 0; padding-bottom: 0; }
@@ -280,6 +288,11 @@
   #pg-ranking tr.rk-subrow td { opacity: .8; }
   #pg-ranking .pl-edl { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 4px; }
   #pg-ranking .pl-edc { display: inline-flex; align-items: center; gap: 4px; min-height: 30px; box-sizing: border-box; padding: 2px 10px; border: 1px solid var(--rule); border-radius: 999px; font-size: 13px; cursor: pointer; }
+  /* 💾 shared-plan save state: stays in a corner while you scroll down to the battle table */
+  #pg-ranking .pl-save { position: fixed; left: 12px; bottom: 12px; z-index: 860; max-width: min(420px, calc(100vw - 110px)); padding: 6px 12px; border-radius: 10px; font-size: 13px; line-height: 1.35;
+    border: 1px solid var(--rule); background: var(--panel); color: var(--text); box-shadow: 0 2px 10px rgba(0,0,0,.18); }
+  #pg-ranking .pl-save.ok { border-color: color-mix(in srgb, #2e9d57 60%, var(--rule)); }
+  #pg-ranking .pl-save.warn { border-color: #d39b16; background: color-mix(in srgb, #f2b632 22%, var(--panel)); font-weight: 600; }
   #pg-ranking .pl-edc.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--panel)); font-weight: 600; }
   #pg-ranking .rk-subtag { background: #f59e0b; color: #000; border-radius: 4px; padding: 0 5px; font: 700 11px/1.6 system-ui, sans-serif; vertical-align: middle; }
   #pg-attend .at-p.issub { border-style: dashed; }
@@ -834,6 +847,7 @@
         <button class="btn danger" id="planDel" hidden></button>
       </div>
       <div class="muted msg" id="planStatus" style="margin-top:6px"></div>
+      <div id="planSave" class="pl-save" role="status" aria-live="polite" hidden></div>
       <div id="planEd"></div>
     </div>
     <!-- 1. weights -->

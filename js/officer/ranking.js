@@ -391,13 +391,15 @@ const newRow = (stage = "") => ({ id: ++tbUid, att: [], stage, target: "", def: 
    A group = one building row: { color, sec, rows: [{ target, tl, att, def, join, note }] } (rows stays an array so older copies still read it). */
 const chipKey = (x) => x.kind === "p" ? "p:" + x.id : "t:" + x.text;
 const stList = () => { const l = listOf(TB.stages); return l.length ? l : ["Phase 1"]; };
-function tbSync() {
-  if (/^\s*(Stage 1\s*,\s*Stage 2|Phase 1\s*,\s*Phase 2\s*,\s*Stay behind)\s*$/.test(TB.stages || "")) TB.stages = tbDefault().stages;   // the old default → the phases
-  if (TB.cols.target === "Target") TB.cols.target = "Building";
-  if (TB.tlabels === "Royal Stables, Bell Tower, Sanctum near enemy, Sanctum near home, Abbey, Mercenary Camp, Hall of Reformation, Centre") TB.tlabels = tbDefault().tlabels;
-  if (TB.cols.att === "Attackers") TB.cols.att = "Attacker";
-  TB.groups.forEach((g) => {
-    if (!g.rows || !g.rows.length) g.rows = [newRow()];
+/* older saved tables → today's shape. Also run on a copy (planNorm), so the shared-plan save can tell "changed here" from "just tidied up" */
+function tbSync(T = TB) {
+  const nSt = (() => { const l = listOf(T.stages); return l.length ? l.length : 1; });
+  if (/^\s*(Stage 1\s*,\s*Stage 2|Phase 1\s*,\s*Phase 2\s*,\s*Stay behind)\s*$/.test(T.stages || "")) T.stages = tbDefault().stages;   // the old default → the phases
+  if (T.cols.target === "Target") T.cols.target = "Building";
+  if (T.tlabels === "Royal Stables, Bell Tower, Sanctum near enemy, Sanctum near home, Abbey, Mercenary Camp, Hall of Reformation, Centre") T.tlabels = tbDefault().tlabels;
+  if (T.cols.att === "Attackers") T.cols.att = "Attacker";
+  T.groups.forEach((g) => {
+    if (!g.rows || !g.rows.length) g.rows = [{ ...newRow(), id: 1 }];
     g.rows.forEach((r) => { if (!r.target && r.tg && r.tg[0]) { r.target = r.tg[0].t || ""; r.tl = r.tl || r.tg[0].tl || ""; }
       const m = !r.tl && String(r.target || "").match(/^(.*?)\s*[(（](.+)[)）]\s*$/); if (m) { r.target = m[1]; r.tl = m[2]; } });   // "1 (Royal Stables)" → 1 + note
     if (g.rows.length > 1) {   // older "stage rows" → the first row's building, everyone in it
@@ -405,7 +407,7 @@ function tbSync() {
         g.rows.forEach((r) => (r[k] || []).forEach((x) => { const key = chipKey(x); if (!seen.has(key)) { seen.add(key); all.push(x); } })); b[k] = all; });
       g.rows = [b]; }
     if (!(g.sec >= 0)) g.sec = 0;
-    if (g.sec >= stList().length) g.sec = stList().length - 1;
+    if (g.sec >= nSt()) g.sec = nSt() - 1;
   });
 }
 const gPut = (gi, k, chip) => TB.groups[gi].rows.forEach((r) => { if (!r[k].some((x) => chipKey(x) === chipKey(chip))) r[k].push({ ...chip }); });
@@ -866,60 +868,75 @@ function tbImage() {
 
 
 /* ===== 🔄 Shared plans: a named plan (e.g. "Legion 1") that every officer sees — ticks, weights, group sizes and the battle table.
-   Saved encrypted on the site (data/ranking-plans-x7k2p9.json); open plans check for others' changes every 10 s.
+   Saved on the Worker (/plans); open plans check for others' changes every 10 s.
    "Only on this device" works as before. ===== */
-const PL = { ko: {"edWho": "편집 가능:", "edAll": "모든 간부가 편집 가능", "edSome": "내가 고른 사람만", "edLimited": "이 사람들만 편집 가능:", "edNote": "👑 만든 사람과 관리자는 항상 편집할 수 있어요.", "edNo": "👁️ 보기만 가능: 만든 사람이 편집할 사람을 제한했어요.", "noName": "이름 없음", "gone": "다른 사람이 이 계획을 삭제했어요. 체크한 사람은 이 기기에 남아 있어요.", "title": "📋 계획", "local": "🔒 이 기기에만", "newP": "+ 새 공유 계획", "ren": "이름 변경", "del": "삭제", "name": "공유 계획 이름 (예: 군단 1)", "copyQ": "지금 체크된 인원으로 시작할까요? (취소 = 빈 상태로 시작)", "delQ": "공유 계획 “{n}”을(를) 모두에게서 삭제할까요?", "localNote": "여기서 변경한 내용은 이 기기에만 남습니다.", "shared": "🔄 공유됨 — 모든 간부가 같은 체크와 표를 봅니다.", "last": "마지막 변경: {who} · {t}", "saving": "저장 중…", "saved": "✓ 저장됨", "err": "저장하지 못했습니다 — 다시 시도하는 중…", "noKey": "공유 계획에는 간부 GitHub 키가 필요합니다(공지 탭).", "loading": "공유 계획 불러오는 중…"},
- ar: {"edWho": "من يمكنه التعديل:", "edAll": "كل الضباط يمكنهم التعديل", "edSome": "فقط من أختارهم", "edLimited": "فقط هؤلاء يمكنهم التعديل:", "edNote": "👑 المُنشئ والمشرفون يمكنهم التعديل دائمًا.", "edNo": "👁️ عرض فقط: حدّد المُنشئ من يمكنه تغيير هذه الخطة.", "noName": "بلا اسم", "gone": "حذف شخص آخر هذه الخطة؛ اختياراتك محفوظة على هذا الجهاز.", "title": "📋 الخطة", "local": "🔒 على هذا الجهاز فقط", "newP": "+ خطة مشتركة جديدة", "ren": "إعادة تسمية", "del": "حذف", "name": "اسم الخطة المشتركة (مثل الكتيبة 1)", "copyQ": "البدء بالأشخاص المحددين الآن؟ (إلغاء = البدء فارغة)", "delQ": "حذف الخطة المشتركة “{n}” للجميع؟", "localNote": "التغييرات هنا تبقى على هذا الجهاز فقط.", "shared": "🔄 مشتركة — يرى كل المسؤولين نفس العلامات والجدول.", "last": "آخر تغيير: {who} · {t}", "saving": "جارٍ الحفظ…", "saved": "✓ تم الحفظ", "err": "تعذّر الحفظ — جارٍ إعادة المحاولة…", "noKey": "الخطط المشتركة تتطلب مفتاح GitHub للمسؤولين (تبويب النشر).", "loading": "جارٍ تحميل الخطط المشتركة…"},
- pt: {"edWho": "Quem pode editar:", "edAll": "Todos os oficiais podem editar", "edSome": "Só quem eu escolher", "edLimited": "Só estes podem editar:", "edNote": "👑 O criador e os admins sempre podem editar.", "edNo": "👁️ Só leitura: o criador limitou quem pode mudar este plano.", "noName": "sem nome", "gone": "Este plano foi excluído por outra pessoa; suas marcações ficaram neste aparelho.", "title": "📋 Plano", "local": "🔒 Só neste aparelho", "newP": "+ Novo plano compartilhado", "ren": "Renomear", "del": "Excluir", "name": "Nome do plano compartilhado (ex.: Legião 1)", "copyQ": "Começar com as pessoas marcadas agora? (Cancelar = começar vazio)", "delQ": "Excluir o plano compartilhado “{n}” para todos?", "localNote": "As mudanças aqui ficam só neste aparelho.", "shared": "🔄 Compartilhado — todos os oficiais veem as mesmas marcações e a mesma tabela.", "last": "Última mudança: {who} · {t}", "saving": "Salvando…", "saved": "✓ Salvo", "err": "Não foi possível salvar — tentando de novo…", "noKey": "Planos compartilhados precisam da chave do GitHub dos oficiais (aba Post).", "loading": "Carregando planos compartilhados…"},
+const PL = { ko: {"edWho": "편집 가능:", "edAll": "모든 간부가 편집 가능", "edSome": "내가 고른 사람만", "edLimited": "이 사람들만 편집 가능:", "edNote": "👑 만든 사람과 관리자는 항상 편집할 수 있어요.", "edNo": "👁️ 보기만 가능: 만든 사람이 편집할 사람을 제한했어요.", "noName": "이름 없음", "gone": "다른 사람이 이 계획을 삭제했어요. 체크한 사람은 이 기기에 남아 있어요.", "title": "📋 계획", "local": "🔒 이 기기에만", "newP": "+ 새 공유 계획", "ren": "이름 변경", "del": "삭제", "name": "공유 계획 이름 (예: 군단 1)", "copyQ": "지금 체크된 인원으로 시작할까요? (취소 = 빈 상태로 시작)", "delQ": "공유 계획 “{n}”을(를) 모두에게서 삭제할까요?", "localNote": "여기서 변경한 내용은 이 기기에만 남습니다.", "shared": "🔄 공유됨 — 모든 간부가 같은 체크와 표를 봅니다.", "last": "마지막 변경: {who} · {t}", "saving": "⏳ 저장 중…", "saved": "✅ 저장됨 · {t}", "err": "⚠️ 아직 저장되지 않았어요 — 이 기기에 보관 중이고 계속 다시 시도해요. 페이지를 닫지 마세요.", "noKey": "공유 계획을 보려면 Discord로 로그인하세요.", "loading": "공유 계획 불러오는 중…"},
+ ar: {"edWho": "من يمكنه التعديل:", "edAll": "كل الضباط يمكنهم التعديل", "edSome": "فقط من أختارهم", "edLimited": "فقط هؤلاء يمكنهم التعديل:", "edNote": "👑 المُنشئ والمشرفون يمكنهم التعديل دائمًا.", "edNo": "👁️ عرض فقط: حدّد المُنشئ من يمكنه تغيير هذه الخطة.", "noName": "بلا اسم", "gone": "حذف شخص آخر هذه الخطة؛ اختياراتك محفوظة على هذا الجهاز.", "title": "📋 الخطة", "local": "🔒 على هذا الجهاز فقط", "newP": "+ خطة مشتركة جديدة", "ren": "إعادة تسمية", "del": "حذف", "name": "اسم الخطة المشتركة (مثل الكتيبة 1)", "copyQ": "البدء بالأشخاص المحددين الآن؟ (إلغاء = البدء فارغة)", "delQ": "حذف الخطة المشتركة “{n}” للجميع؟", "localNote": "التغييرات هنا تبقى على هذا الجهاز فقط.", "shared": "🔄 مشتركة — يرى كل المسؤولين نفس العلامات والجدول.", "last": "آخر تغيير: {who} · {t}", "saving": "⏳ جارٍ الحفظ…", "saved": "✅ تم الحفظ · {t}", "err": "⚠️ لم يُحفظ بعد — محفوظ على هذا الجهاز ونعيد المحاولة. لا تغلق الصفحة.", "noKey": "سجّل الدخول عبر Discord لرؤية الخطط المشتركة.", "loading": "جارٍ تحميل الخطط المشتركة…"},
+ pt: {"edWho": "Quem pode editar:", "edAll": "Todos os oficiais podem editar", "edSome": "Só quem eu escolher", "edLimited": "Só estes podem editar:", "edNote": "👑 O criador e os admins sempre podem editar.", "edNo": "👁️ Só leitura: o criador limitou quem pode mudar este plano.", "noName": "sem nome", "gone": "Este plano foi excluído por outra pessoa; suas marcações ficaram neste aparelho.", "title": "📋 Plano", "local": "🔒 Só neste aparelho", "newP": "+ Novo plano compartilhado", "ren": "Renomear", "del": "Excluir", "name": "Nome do plano compartilhado (ex.: Legião 1)", "copyQ": "Começar com as pessoas marcadas agora? (Cancelar = começar vazio)", "delQ": "Excluir o plano compartilhado “{n}” para todos?", "localNote": "As mudanças aqui ficam só neste aparelho.", "shared": "🔄 Compartilhado — todos os oficiais veem as mesmas marcações e a mesma tabela.", "last": "Última mudança: {who} · {t}", "saving": "⏳ Salvando…", "saved": "✅ Salvo · {t}", "err": "⚠️ Ainda não salvo — guardado neste aparelho, tentando de novo. Não feche a página.", "noKey": "Entre com o Discord para ver os planos compartilhados.", "loading": "Carregando planos compartilhados…"},
 
   en: { edWho: "Who can edit:", edAll: "Every officer can edit", edSome: "Only people I pick", edLimited: "Only these can edit:", edNote: "👑 The creator and admins can always edit.", edNo: "👁️ View only: the creator limited who can change this plan.", noName: "no name", gone: "This plan was deleted by someone else; your ticks are kept on this device.", title: "📋 Plan", local: "🔒 Only on this device", newP: "+ New shared plan", ren: "Rename", del: "Delete",
         name: "Name of the shared plan (e.g. Legion 1)", copyQ: "Start it with the people ticked now? (Cancel = start empty)",
         delQ: "Delete the shared plan “{n}” for everyone?", localNote: "Changes here stay on this device only.",
-        shared: "🔄 Shared — every officer sees the same ticks and table.", last: "Last change: {who} · {t}", saving: "Saving…", saved: "✓ Saved",
-        err: "Couldn't save — trying again…", noKey: "Shared plans need the officer GitHub key (Post tab).", loading: "Loading shared plans…" },
+        shared: "🔄 Shared — every officer sees the same ticks and table.", last: "Last change: {who} · {t}", saving: "⏳ Saving…", saved: "✅ Saved · {t}",
+        err: "⚠️ Not saved yet — kept on this device, trying again. Don't close the page.", noKey: "Log in with Discord to see the shared plans.", loading: "Loading shared plans…" },
   zh: { edWho: "誰可以編輯：", edAll: "所有幹部都可以編輯", edSome: "只有我選的人", edLimited: "只有這些人可以編輯：", edNote: "👑 建立者和管理員一定可以編輯。", edNo: "👁️ 這個計畫你只能看，不能改（建立者限定了編輯的人）。", noName: "沒有名字", gone: "這個計畫已經被別人刪掉了，你勾的人留在這台裝置上。", title: "📋 方案", local: "🔒 只在這台裝置", newP: "+ 新增共用方案", ren: "改名", del: "刪除",
         name: "共用方案的名字（例如 Legion 1）", copyQ: "要用現在勾選的人開始嗎？（取消 = 從空白開始）",
         delQ: "確定要為所有人刪除共用方案「{n}」？", localNote: "這裡的變更只存在這台裝置。",
-        shared: "🔄 共用中 — 所有幹部看到的勾選和表格都一樣。", last: "最後修改：{who} · {t}", saving: "儲存中…", saved: "✓ 已儲存",
-        err: "存不進去，正在重試…", noKey: "共用方案需要幹部的 GitHub 金鑰（在公告分頁設定）。", loading: "正在讀取共用方案…" },
+        shared: "🔄 共用中 — 所有幹部看到的勾選和表格都一樣。", last: "最後修改：{who} · {t}", saving: "⏳ 儲存中…", saved: "✅ 已存 · {t}",
+        err: "⚠️ 還沒存上去 — 已先留在這台裝置，正在自動重試。先不要關掉頁面。", noKey: "用 Discord 登入才看得到共用方案。", loading: "正在讀取共用方案…" },
 };
 const pl = (k, v = {}) => String((PL[lang] || PL.en)[k] ?? PL.en[k]).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
-const PLAN_PATH = "data/ranking-plans-x7k2p9.json";
-const P_OWNER = location.hostname.endsWith("github.io") ? location.hostname.split(".")[0] : "NXSguides";
-const P_REPO = location.hostname.endsWith("github.io") ? (location.pathname.split("/")[1] || "Kingshot_guideline_NXS") : "Kingshot_guideline_NXS";
-const p64 = { enc: (str) => { const u = new TextEncoder().encode(str); let x = ""; for (let i = 0; i < u.length; i += 0x8000) x += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(x); },
-              dec: (b) => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\s/g, "")), (c) => c.charCodeAt(0))) };
-async function pgh(method, body) {
-  let res;
-  try {
-    res = await fetch(`https://api.github.com/repos/${P_OWNER}/${P_REPO}/contents/${PLAN_PATH}${method === "GET" ? "?ref=main&t=" + Date.now() : ""}`, {
-      method, headers: { Authorization: `Bearer ${OFFICER.token}`, Accept: "application/vnd.github+json" }, body: body ? JSON.stringify(body) : undefined, cache: "no-store" });
-  } catch (e) { throw new Error("net"); }
-  if (res.status === 401 || res.status === 403) throw new Error("auth");
-  if (res.status === 409 || res.status === 422) throw new Error("busy");
-  if (method === "GET" && res.status === 404) return null;
-  if (!res.ok) throw new Error("net");
-  return res.json();
+/* storage: the Worker (/plans — one Durable Object), since 2026-10-30. Not a GitHub file any more, so a site update can't collide with a save.
+   A save sends only what changed on THIS device since it last saw the plan (ticks added / removed, the settings and battle-table parts it touched);
+   the Worker applies saves one after the other, so two officers saving at once don't overwrite each other, and an old tab can't wipe what it didn't touch.
+   A save that hasn't reached the Worker yet is kept on this device (PEND_LS) and sent again — also after a reload. */
+const PEND_LS = "nxs-plan-pend-v1";
+const loggedIn = () => { try { return !!localStorage.getItem(DISCORD_LS); } catch (e) { return false; } };
+async function papi(op, extra = {}) {
+  let r;
+  try { r = await fetch(AUTH_API + "/plans", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), op, ...extra }), cache: "no-store" }); }
+  catch (e) { throw new Error("net"); }
+  const j = await r.json().catch(() => ({ error: "net" }));
+  if (j.token) { try { localStorage.setItem(DISCORD_LS, j.token); } catch (e) {} }
+  if (!r.ok || j.error) { const c = j.error || ""; throw new Error(c === "ed_no" || c === "gone" ? c : c === "view_only" ? "view" : (r.status === 401 || r.status === 403) ? "auth" : "net"); }
+  return j;
 }
-let planNewName = "", planCreating = null;
-/* planBaseFull = the plan's settings + battle table as last loaded from / saved to GitHub on this device: a save only writes the parts
-   changed HERE, so a phone or tab with an older copy can't wipe someone else's battle table by just ticking a name */
-let planBaseFull = null;
-let plans = {}, planSha = null, planId = store.planId || "", planBase = null, planDirty = false, planBusy = false, planTimer = null, planErr = "", planApplying = false;
-const planWho = () => (OFFICER.user && OFFICER.user.name) || (() => { try { return JSON.parse(localStorage.getItem("nxs-post-v1") || "{}").author || ""; } catch (e) { return ""; } })() || "?";
-async function planFetch() {
-  const f = await pgh("GET");
-  if (!f) { plans = {}; planSha = null; return; }
-  planSha = f.sha;
-  const d = await OfficerData.open(JSON.parse(p64.dec(f.content)));
-  plans = (d && d.plans) || {};
-  // a plan saved under an empty / odd key can't be picked in the list (its value would clash with "only on this device"): give it a proper key
-  for (const k of Object.keys(plans)) if (!/^[A-Za-z0-9_-]{1,40}$/.test(k)) { let nk; do nk = "p" + Math.random().toString(36).slice(2, 9); while (plans[nk]); plans[nk] = plans[k]; delete plans[k]; }
+let plans = {}, planStamp = 0, planId = store.planId || "", planBaseSnap = null, planBaseV = 0, planDirty = false, planBusy = false, planTimer = null, planErr = "", planOkAt = 0, planApplying = false, planTries = 0;
+const planWho = () => (OFFICER.user && OFFICER.user.name) || "?";
+async function planFetch(force) {
+  const j = await papi("list", force || !planStamp ? {} : { since: planStamp });
+  if (j.unchanged) return false;
+  planStamp = j.stamp || Date.now(); plans = j.plans || {};
+  return true;
 }
 const planLabel = (p) => { const n = String((p && p.name) || "").trim(); return n && n !== "?" ? n : `(${pl("noName")}${p && p.by ? " · " + p.by : ""})`; };
 function planSnapshot() { return { picked: [...picked], subs: [...picked].filter((id) => subs.has(id)), wPower, wts: { ...wts }, counts: JSON.parse(JSON.stringify(store.counts || {})), tb: JSON.parse(JSON.stringify(TB)) }; }
+const PJ = (v) => JSON.stringify(v === undefined ? null : v);
+const psort = (a) => [...new Set(a || [])].sort((x, y) => String(x).localeCompare(String(y)));
+/* a plan in one fixed shape (same as the screen gives), so "did this change here?" compares like with like */
+function planNorm(p) {
+  p = p || {}; const ids = psort(p.picked), on = new Set(ids);
+  return { picked: ids, subs: psort(p.subs).filter((x) => on.has(x)), wts: wtsFrom(p.wts, p.wPower), counts: JSON.parse(PJ(p.counts || {})), tb: (() => { const t = tbMuted(Object.assign(tbDefault(), JSON.parse(PJ(p.tb || {})))); if (!Array.isArray(t.groups)) t.groups = []; tbSync(t); return t; })() };
+}
+const planMine = () => planNorm(planSnapshot());
+const planSame = (a, b) => PJ(a) === PJ(b);
+/* what changed here since `base` (the plan as this device last got it from the Worker) */
+function planPatch(mine, base) {
+  const pt = {}, bs = new Set(base.picked), ms = new Set(mine.picked);
+  const add = mine.picked.filter((x) => !bs.has(x)), del = base.picked.filter((x) => !ms.has(x));
+  if (add.length) pt.add = add; if (del.length) pt.del = del;
+  const f = {};
+  if (PJ(mine.wts) !== PJ(base.wts)) { f.wts = mine.wts; f.wPower = wPower; }
+  if (PJ(mine.counts) !== PJ(base.counts)) f.counts = mine.counts;
+  if (PJ(mine.subs) !== PJ(base.subs)) f.subs = mine.subs;
+  if (Object.keys(f).length) pt.f = f;
+  const tb = {};
+  for (const k of new Set([...Object.keys(mine.tb), ...Object.keys(base.tb)])) if (PJ(mine.tb[k]) !== PJ(base.tb[k])) tb[k] = k in mine.tb ? mine.tb[k] : null;
+  if (Object.keys(tb).length) pt.tb = tb;
+  return pt;
+}
 /* ↩️ undo: every change on this tab (ticks, subs, weights, group sizes, battle table) is remembered — the state just before it, up to 30 steps.
-   Quick changes in a row (typing a number) count as one step. Cleared when another plan, or someone else's newer copy, comes on screen. */
+   Quick changes in a row (typing a number) count as one step. Cleared when another plan comes on screen. */
 const hist = []; let histLast = null, histAt = 0, histBusy = false;
 function histSnap() { try { return JSON.stringify(planSnapshot()); } catch (e) { return null; } }
 function histShow() { const b = $("planUndo"); if (b) { b.disabled = !hist.length; b.textContent = tt("undo"); } ROOT.querySelectorAll('[data-act="undo"]').forEach((x) => { x.disabled = !hist.length; }); }
@@ -940,40 +957,69 @@ function histUndo() {
   renderAll(); tbRender(); renderPresets && renderPresets();
   histBusy = false; histLast = s; histAt = 0; histShow();
 }
-/* put a plan's contents on screen (keeping ticks this device hasn't saved yet) */
-function planApply(p) {
+/* put a plan (normalized) on screen */
+function planShow(n) {
   planApplying = true;
-  let ids = new Set(p.picked || []);
-  if (planDirty && planBase) { for (const id of picked) if (!planBase.has(id)) ids.add(id); for (const id of planBase) if (!picked.has(id)) ids.delete(id); }
-  else planBase = new Set(p.picked || []);
-  picked = ids;
-  if (!planDirty) subs = new Set((p.subs || []).filter((id) => ids.has(id)));
-  if (!planDirty) { store.counts = p.counts || {}; TB = tbMuted(Object.assign(tbDefault(), p.tb || {})); setWeights(wtsFrom(p.wts, p.wPower)); planBaseFull = JSON.parse(JSON.stringify({ wPower: p.wPower, wts: p.wts, counts: p.counts || {}, tb: p.tb || {} })); }
+  picked = new Set(n.picked); subs = new Set(n.subs); store.counts = n.counts; TB = n.tb; tbPick = null;
+  setWeights(n.wts); persist();
   renderAll(); tbRender(); renderPresets && renderPresets();
-  planApplying = false; histReset();   // ↩️ undo never carries one plan (or someone else's older copy) into another
+  planApplying = false;
 }
+/* a newer copy came from the Worker: show it, but keep what this device changed and hasn't saved yet (those parts win) */
+function planRebase(p) {
+  if (!p || (p._v && p._v < planBaseV)) return;   // an older answer arriving late
+  const srv = planNorm(p), base = planBaseSnap, mine = planMine();
+  let out = srv;
+  if (base && !planSame(mine, base)) {
+    out = JSON.parse(PJ(srv));
+    const ids = new Set(srv.picked), bs = new Set(base.picked), ms = new Set(mine.picked);
+    for (const x of mine.picked) if (!bs.has(x)) ids.add(x);
+    for (const x of base.picked) if (!ms.has(x)) ids.delete(x);
+    out.picked = psort([...ids]);
+    for (const k of ["wts", "counts", "subs"]) if (PJ(mine[k]) !== PJ(base[k])) out[k] = mine[k];
+    for (const k of new Set([...Object.keys(mine.tb), ...Object.keys(base.tb)])) if (PJ(mine.tb[k]) !== PJ(base.tb[k])) { if (k in mine.tb) out.tb[k] = mine.tb[k]; else delete out.tb[k]; }
+    const on = new Set(out.picked); out.subs = out.subs.filter((x) => on.has(x));
+  }
+  planBaseSnap = srv; planBaseV = p._v || planBaseV;
+  if (!planSame(out, mine)) { planShow(out); histLast = histSnap(); }
+  planDirty = !planSame(planMine(), srv);
+}
+/* first time a plan comes on screen (or another plan is picked) */
+function planApply(p) {
+  planBaseSnap = null; planBaseV = 0; planDirty = false;
+  const n = planNorm(p); planShow(n); planBaseSnap = n; planBaseV = p._v || 0;
+  histReset();   // ↩️ undo never carries one plan into another
+}
+const fmtT = (t) => new Date(t).toISOString().slice(5, 16).replace("-", "/").replace("T", " ") + " UTC";
 function planRenderBar() {
   $("planTitle").textContent = pl("title");
   $("planNew").textContent = pl("newP"); $("planRen").textContent = pl("ren"); $("planDel").textContent = pl("del");
   const ids = Object.keys(plans).sort((a, b) => (plans[a].name || "").localeCompare(plans[b].name || ""));
   $("planSel").innerHTML = `<option value="">${esc(pl("local"))}</option>` + ids.map((id) => `<option value="${esc(id)}">🔄 ${esc(planLabel(plans[id]))}</option>`).join("");
-  if (planId && !plans[planId]) planId = "";
+  if (planId && !plans[planId] && !planBusy) planId = "";
   $("planSel").value = planId; histShow();
-  $("planRen").hidden = $("planDel").hidden = !planId || !planCanEdit(plans[planId]);
-  $("planVer").hidden = !planId || !OFFICER.token || !planCanEdit(plans[planId]); $("planVer").textContent = pv("btn");
-  if ($("planEd") && !(document.activeElement && document.activeElement.closest && document.activeElement.closest("#planEd"))) $("planEd").innerHTML = OFFICER.token ? planEditorsHtml() : "";
-  const p = planId && plans[planId];
-  $("planStatus").textContent = !OFFICER.token ? pl("noKey") : !p ? pl("localNote")
-    : [pl("shared"), planCanEdit(p) ? "" : pl("edNo"), p.by ? pl("last", { who: p.by, t: new Date(p.at).toISOString().slice(5, 16).replace("-", "/").replace("T", " ") + " UTC" }) : "", planBusy ? pl("saving") : planErr || (planDirty ? "" : "")].filter(Boolean).join(" · ");
+  const p = planId && plans[planId], can = !!p && planCanEdit(p);
+  $("planRen").hidden = $("planDel").hidden = !can;
+  $("planNew").hidden = !loggedIn();
+  $("planVer").hidden = !p; $("planVer").textContent = pv("btn");
+  if ($("planEd") && !(document.activeElement && document.activeElement.closest && document.activeElement.closest("#planEd"))) $("planEd").innerHTML = loggedIn() ? planEditorsHtml() : "";
+  // 💾 save state, always in view: ✅ saved · ⏳ saving · ⚠️ not saved yet (kept on this device, retrying)
+  const st = $("planSave");
+  if (st) {
+    const s = !p ? "" : planErr ? "warn" : planBusy || planDirty ? "busy" : planOkAt ? "ok" : "";
+    st.className = "pl-save" + (s ? " " + s : ""); st.hidden = !s;
+    st.textContent = s === "warn" ? planErr : s === "busy" ? pl("saving") : s === "ok" ? pl("saved", { t: fmtT(planOkAt) }) : "";
+  }
+  $("planStatus").textContent = !loggedIn() ? pl("noKey") : !p ? pl("localNote")
+    : [pl("shared"), can ? "" : pl("edNo"), p.by ? pl("last", { who: p.by, t: fmtT(p.at) }) : ""].filter(Boolean).join(" · ");
 }
-/* local edits while a shared plan is open → save a moment later */
 /* ✏️ who may change a shared plan: "everyone" (default) or the plan's creator + chosen officers (+ admins).
    Kept in the plan itself: owner = { id, name } of whoever made it (or first restricted it), editors = [Discord ids] when restricted.
-   Checked on this page (the plan file is shared by all officers, so it is a working rule, not a lock). */
+   The Worker checks it on every save. */
 const myId = () => (OFFICER.user && OFFICER.user.id) || "";
-const planCanEdit = (p) => { if (!p || !p.editors) return true; if (OFFICER.PERMS_TRIAL && !OFFICER.user && OFFICER.pw) return true;   // trial: the officer password opens everything
+const planCanEdit = (p) => { if (!OFFICER.can("ranking", "edit")) return false; if (!p || !p.editors) return true;
   const me = myId(); return !!me && (OFFICER.isAdmin() || (p.owner && p.owner.id === me) || p.editors.includes(me)); };
-const planCanSetEditors = (p) => !!p && !!myId() && (OFFICER.isAdmin() || !p.owner || p.owner.id === myId());
+const planCanSetEditors = (p) => !!p && !!myId() && OFFICER.can("ranking", "edit") && (OFFICER.isAdmin() || !p.owner || p.owner.id === myId());
 function planEditorsHtml() {
   const p = planId && plans[planId]; if (!p) return "";
   const can = planCanSetEditors(p), users = (OFFICER.perms && OFFICER.perms.users) || {};
@@ -984,142 +1030,142 @@ function planEditorsHtml() {
       <option value="all"${p.editors ? "" : " selected"}>${esc(pl("edAll"))}</option><option value="some"${p.editors ? " selected" : ""}>${esc(pl("edSome"))}</option></select></label>
     ${p.editors ? `<div class="pl-edl">${p.owner ? `<span class="pl-edc on">👑 ${esc(p.owner.name || "?")}</span>` : ""}${ids.map((id) => `<label class="pl-edc${p.editors.includes(id) ? " on" : ""}"><input type="checkbox" data-ed="${esc(id)}"${p.editors.includes(id) ? " checked" : ""}> ${esc(users[id].name || id)}${users[id].admin ? " ⭐" : ""}</label>`).join("")}</div><div class="muted" style="font-size:12px">${esc(pl("edNote"))}</div>` : ""}</div>`;
 }
+/* a one-off change (name, who may edit): sent at once, on its own */
+async function planMeta(patch) {
+  const id = planId; if (!id) return;
+  try { const j = await papi("save", { id, patch }); plans[id] = j.plan; if (planId === id) planRebase(j.plan); planErr = ""; }
+  catch (e) { planErr = planErrText(e); }
+  planRenderBar();
+}
 function planSetEditors(editors) {
   const p = plans[planId]; if (!p || !planCanSetEditors(p)) return;
-  if (!p.owner && myId()) p.owner = { id: myId(), name: planWho() };
-  if (editors) p.editors = editors; else delete p.editors;
-  planEdChange = { editors: editors || null, owner: p.owner || null }; planDirty = true; planSave(); planRenderBar();
+  planMeta({ ed: { editors: editors || null, owner: p.owner || (myId() ? { id: myId(), name: planWho() } : null) } });
 }
-let planEdChange = null;   // the who-can-edit change waiting to be saved
 function planTouched() {
   if (!planId || planApplying) return;
   if (!planCanEdit(plans[planId])) {   // view only: put the plan back as it is and say why
-    planApplying = true; planBase = null; planApply(plans[planId]); planApplying = false;
-    $("planStatus").textContent = pl("edNo"); return;
+    planApply(plans[planId]); $("planStatus").textContent = pl("edNo"); return;
   }
-  planDirty = true; clearTimeout(planTimer); planTimer = setTimeout(planSave, 1200);
+  planDirty = true; planRenderBar(); clearTimeout(planTimer); planTimer = setTimeout(planSave, 1000);
 }
-async function planSave(tries = 0) {
-  if (!planId || !planDirty || planBusy) return;
+const planErrText = (e) => e.message === "auth" ? pl("noKey") : e.message === "view" || e.message === "ed_no" ? pl("edNo") : pl("err");
+/* this device's unsaved change, kept until the Worker has it */
+const pend = { all() { try { return JSON.parse(localStorage.getItem(PEND_LS)) || {}; } catch (e) { return {}; } },
+  set(id, v) { const a = pend.all(); if (v) a[id] = v; else delete a[id]; try { localStorage.setItem(PEND_LS, JSON.stringify(a)); } catch (e) {} } };
+async function planSave() {
+  clearTimeout(planTimer);
+  if (!planId || planBusy) return;
+  const id = planId, base = planBaseSnap, mine = planMine();
+  if (!base || planSame(mine, base)) { planDirty = false; pend.set(id, null); planRenderBar(); return; }
+  const patch = planPatch(mine, base);
+  pend.set(id, { patch, at: Date.now() });
   planBusy = true; planRenderBar();
-  const mine = planSnapshot(), base = planBase || new Set(), localMeta = plans[planId] || { name: "" };
   try {
-    await planFetch();
-    // someone deleted this plan while it was open here: don't bring it back as a nameless copy — keep the ticks on this device instead
-    if (!plans[planId] && planCreating !== planId) { planBusy = false; planDirty = false; planErr = pl("gone"); store.local = mine; planId = ""; planSwitch(""); planErr = pl("gone"); planRenderBar(); $("planStatus").textContent = pl("gone"); return; }
-    const cur = { ...(plans[planId] || localMeta), ...(planNewName ? { name: planNewName } : {}) };
-    // ticks: apply only what changed here, so two officers ticking at once don't undo each other
-    const ids = new Set(cur.picked || []);
-    for (const id of mine.picked) if (!base.has(id)) ids.add(id);
-    for (const id of base) if (!mine.picked.includes(id)) ids.delete(id);
-    if (planEdChange) { if (planEdChange.editors) cur.editors = planEdChange.editors; else delete cur.editors; if (planEdChange.owner) cur.owner = planEdChange.owner; }
-    if (!planCanEdit(cur) && !planEdChange) { planBusy = false; planDirty = false; planApply(cur); planRenderBar(); $("planStatus").textContent = pl("edNo"); return; }   // restricted meanwhile
-    planEdChange = null;
-    // settings + battle table: take this device's value only where it changed here; everything else stays as the newest copy on GitHub
-    const J = (v) => JSON.stringify(v === undefined ? null : v), bf = planBaseFull, srv = plans[planId] || {};
-    const pickF = (k) => !bf || !(k in srv) || J(mine[k]) !== J(bf[k]) ? mine[k] : srv[k];
-    let tb = mine.tb;
-    if (bf && srv.tb) { tb = { ...srv.tb }; for (const k of new Set([...Object.keys(mine.tb), ...Object.keys(bf.tb || {})])) if (J(mine.tb[k]) !== J((bf.tb || {})[k])) { if (k in mine.tb) tb[k] = mine.tb[k]; else delete tb[k]; } }
-    const wP = pickF("wPower"), wT = pickF("wts"), cN = pickF("counts");
-    plans[planId] = { ...cur, picked: [...ids], subs: mine.subs.filter((id) => ids.has(id)), wPower: wP, wts: wT, counts: cN, tb, by: planWho(), at: Date.now() };
-    const res = await pgh("PUT", { message: `Ranking plan: ${cur.name}`.slice(0, 100), content: p64.enc(JSON.stringify(await OfficerData.seal({ plans }), null, 1) + "\n"), sha: planSha || undefined, branch: "main" });
-    planSha = res && res.content ? res.content.sha : planSha;
-    planBase = new Set(ids); planErr = ""; planNewName = "";
-    planBaseFull = JSON.parse(JSON.stringify({ wPower: wP, wts: wT, counts: cN, tb }));
-    // someone else's battle table / settings came in with this save → show them here too
-    if (J(tb) !== J(mine.tb) || J(cN) !== J(mine.counts) || J(wT) !== J(mine.wts) || J(wP) !== J(mine.wPower)) { planApplying = true; store.counts = cN || {}; TB = tbMuted(Object.assign(tbDefault(), tb || {})); setWeights(wtsFrom(wT, wP)); renderAll(); tbRender(); planApplying = false; }
-    planDirty = JSON.stringify(planSnapshot()) !== JSON.stringify(mine);   // more edits came in while saving
-    if (JSON.stringify([...picked].sort()) !== JSON.stringify([...ids].sort())) { picked = ids; renderAll(); tbRender(); }
+    const j = await papi("save", { id, patch });
+    planTries = 0; planErr = ""; planOkAt = Date.now(); plans[id] = j.plan;
+    if (planId === id) planRebase(j.plan);
+    if (!planDirty || planId !== id) pend.set(id, null);
   } catch (e) {
-    planErr = e.message === "auth" ? pl("noKey") : pl("err");
-    if (e.message !== "auth" && tries < 3) setTimeout(() => planSave(tries + 1), 1500 * (tries + 1));
+    const m = e.message;
+    if (m === "gone") {   // deleted by someone else: keep the ticks on this device instead
+      pend.set(id, null); delete plans[id]; planBusy = false; store.local = planSnapshot(); planId = ""; planSwitch(""); planErr = ""; $("planStatus").textContent = pl("gone"); return;
+    }
+    if (m === "ed_no" || m === "view") { pend.set(id, null); planBusy = false; planErr = ""; try { await planFetch(true); } catch (x) {} if (plans[id] && planId === id) planApply(plans[id]); planRenderBar(); $("planStatus").textContent = pl("edNo"); return; }
+    planErr = planErrText(e);
+    if (m !== "auth") { planTries++; planTimer = setTimeout(planSave, Math.min(30000, 2000 * planTries)); }
   }
   planBusy = false; planRenderBar();
-  if (planDirty) { clearTimeout(planTimer); planTimer = setTimeout(planSave, 800); }
+  if (planDirty && !planErr) planTimer = setTimeout(planSave, 600);
+}
+/* changes saved on this device that never reached the Worker (closed tab, no signal): send them now */
+async function planFlushPending() {
+  for (const [id, v] of Object.entries(pend.all())) {
+    if (!v || !v.patch) { pend.set(id, null); continue; }
+    try { const j = await papi("save", { id, patch: v.patch }); plans[id] = j.plan; pend.set(id, null); }
+    catch (e) { if (["gone", "ed_no", "view"].includes(e.message)) pend.set(id, null); }
+  }
 }
 async function planPoll() {
-  if (!planId || planBusy || planDirty || document.visibilityState !== "visible" || ROOT.hidden) return;
+  if (!loggedIn() || document.visibilityState !== "visible" || ROOT.hidden || planBusy) return;
   try {
-    const before = planSha; await planFetch();
-    if (planSha !== before && plans[planId]) planApply(plans[planId]);
+    if (!(await planFetch())) return;
+    if (planId && plans[planId]) planRebase(plans[planId]);
     planRenderBar();
+    if (planDirty && !planErr) { clearTimeout(planTimer); planTimer = setTimeout(planSave, 600); }
   } catch (e) {}
 }
 function planSwitch(id) {
   if (!planId) store.local = planSnapshot();   // leaving "only this device": keep it to come back to
-  planId = id; store.planId = id; planDirty = false; planBase = null; planBaseFull = null;
+  planId = id; store.planId = id; planDirty = false; planBaseSnap = null; planBaseV = 0; planErr = ""; planOkAt = 0; planTries = 0;
   if (id && plans[id]) planApply(plans[id]);
-  else if (store.local) { const l = store.local; planApplying = true; picked = new Set(l.picked || []); store.counts = l.counts || {}; TB = Object.assign(tbDefault(), l.tb || {}); setWeights(wtsFrom(l.wts, l.wPower)); renderAll(); tbRender(); planApplying = false; }
+  else if (store.local) { const l = store.local; planApplying = true; picked = new Set(l.picked || []); subs = new Set((l.subs || []).filter((x) => picked.has(x))); store.counts = l.counts || {}; TB = Object.assign(tbDefault(), l.tb || {}); setWeights(wtsFrom(l.wts, l.wPower)); renderAll(); tbRender(); planApplying = false; }
   planApplying = true; save(); planApplying = false; histReset(); planRenderBar();
 }
 async function plansInit() {
-  if (!OFFICER.token) { planId = ""; planRenderBar(); return; }
+  if (!loggedIn()) { planId = ""; planRenderBar(); return; }
   $("planStatus").textContent = pl("loading");
-  try { await planFetch(); } catch (e) {}
+  try { await planFlushPending(); await planFetch(true); } catch (e) {}
   if (planId && plans[planId]) planApply(plans[planId]); else planId = "";
   planRenderBar();
   setInterval(planPoll, 10000);
   document.addEventListener("visibilitychange", planPoll);
+  window.addEventListener("beforeunload", (e) => { if (planId && (planDirty || planBusy || planErr)) { planSave(); e.preventDefault(); e.returnValue = ""; } });
 }
-/* switching plans right after an edit: save the edit to the plan it was made in first (the save waits 1.2 s otherwise, and was lost) */
-/* 🕘 version history: every save of the shared plans file is kept on GitHub. Pick a time to load this plan as it was then
-   (it comes in as a normal change: saved for everyone, and ↩️ undo takes it back). */
+/* 🕘 version history: the Worker keeps the last 150 saves of each plan. Pick one to put this plan back the way it was then
+   (it comes in as a normal change: saved for everyone, and ↩️ undo takes it back).
+   📱 also offers the battle table last edited on THIS device (kept in this browser), in case a table never reached the shared plan. */
 const PV = {
-  zh: { btn: "🕘 版本紀錄", title: "🕘 {n} 的版本紀錄", note: "每次存檔都會留下來。選一個時間點，把這個計畫換回那時的樣子（之後可以按 ↩️ 復原）。時間為 UTC。", loading: "讀取中…", none: "找不到這個計畫的舊版本。", err: "讀不到版本紀錄。", use: "換回這版", now: "目前", ppl: "{n} 人", sub: "替補 {n}", bld: "建築 {n}", diff: "和現在比：+{a} −{r}", same: "和現在一樣", ask: "把這個計畫換回 {t} UTC 的版本？", done: "✓ 已換回 {t} UTC 的版本（按 ↩️ 復原可取消）", more: "顯示更早的", close: "關閉" },
-  en: { btn: "🕘 Versions", title: "🕘 Versions of {n}", note: "Every save is kept. Pick a time to put this plan back the way it was then (↩️ Undo takes it back). Times in UTC.", loading: "Loading…", none: "No older versions of this plan found.", err: "Couldn't load the history.", use: "Use this one", now: "now", ppl: "{n} people", sub: "{n} subs", bld: "{n} buildings", diff: "vs now: +{a} −{r}", same: "same as now", ask: "Put this plan back to the {t} UTC version?", done: "✓ Back to the {t} UTC version (↩️ Undo to cancel)", more: "Show older", close: "Close" },
-  ko: { btn: "🕘 버전 기록", title: "🕘 {n} 버전 기록", note: "저장할 때마다 기록이 남아요. 시점을 고르면 이 계획을 그때 상태로 되돌려요 (↩️ 되돌리기로 취소 가능). 시간은 UTC.", loading: "불러오는 중…", none: "이 계획의 이전 버전이 없어요.", err: "기록을 불러오지 못했어요.", use: "이 버전으로", now: "현재", ppl: "{n}명", sub: "후보 {n}", bld: "건물 {n}", diff: "현재와 비교: +{a} −{r}", same: "현재와 같음", ask: "이 계획을 {t} UTC 버전으로 되돌릴까요?", done: "✓ {t} UTC 버전으로 되돌렸어요 (↩️ 되돌리기로 취소)", more: "더 이전 보기", close: "닫기" },
-  pt: { btn: "🕘 Versões", title: "🕘 Versões de {n}", note: "Cada salvamento fica guardado. Escolha um horário para voltar este plano àquela versão (↩️ Desfazer volta atrás). Horários em UTC.", loading: "Carregando…", none: "Nenhuma versão anterior deste plano.", err: "Não foi possível carregar o histórico.", use: "Usar esta", now: "agora", ppl: "{n} pessoas", sub: "{n} reservas", bld: "{n} construções", diff: "vs agora: +{a} −{r}", same: "igual a agora", ask: "Voltar este plano para a versão de {t} UTC?", done: "✓ Voltou para a versão de {t} UTC (↩️ Desfazer para cancelar)", more: "Mostrar mais antigas", close: "Fechar" },
-  ar: { btn: "🕘 الإصدارات", title: "🕘 إصدارات {n}", note: "يُحفظ كل حفظ. اختر وقتًا لإرجاع هذه الخطة كما كانت حينها (↩️ تراجع يلغي ذلك). الأوقات بتوقيت UTC.", loading: "جارٍ التحميل…", none: "لا توجد إصدارات أقدم لهذه الخطة.", err: "تعذّر تحميل السجل.", use: "استخدم هذا", now: "الآن", ppl: "{n} أشخاص", sub: "{n} بدلاء", bld: "{n} مبانٍ", diff: "مقارنة بالآن: +{a} −{r}", same: "مثل الآن", ask: "إرجاع هذه الخطة إلى إصدار {t} UTC؟", done: "✓ تم الإرجاع إلى إصدار {t} UTC (↩️ تراجع للإلغاء)", more: "عرض الأقدم", close: "إغلاق" },
+  zh: { btn: "🕘 版本紀錄", title: "🕘 {n} 的版本紀錄", note: "每次存檔都會留下來。選一個時間點，把這個計畫換回那時的樣子（之後可以按 ↩️ 復原）。時間為 UTC。", loading: "讀取中…", none: "找不到這個計畫的舊版本。", err: "讀不到版本紀錄。", use: "換回這版", now: "目前", ppl: "{n} 人", sub: "替補 {n}", bld: "建築 {n}", diff: "和現在比：+{a} −{r}", same: "和現在一樣", ask: "把這個計畫換回 {t} 的版本？", done: "✓ 已換回 {t} 的版本（按 ↩️ 復原可取消）", more: "顯示更早的", close: "關閉", dev: "📱 這台裝置最後編輯的作戰表", devNote: "存在這台裝置的瀏覽器裡，只有作戰表（勾選的人不變）。", devAsk: "把這台裝置最後編輯的作戰表放進這個計畫？" },
+  en: { btn: "🕘 Versions", title: "🕘 Versions of {n}", note: "Every save is kept. Pick a time to put this plan back the way it was then (↩️ Undo takes it back). Times in UTC.", loading: "Loading…", none: "No older versions of this plan found.", err: "Couldn't load the history.", use: "Use this one", now: "now", ppl: "{n} people", sub: "{n} subs", bld: "{n} buildings", diff: "vs now: +{a} −{r}", same: "same as now", ask: "Put this plan back to the {t} version?", done: "✓ Back to the {t} version (↩️ Undo to cancel)", more: "Show older", close: "Close", dev: "📱 Battle table last edited on this device", devNote: "Kept in this device's browser. Battle table only (the ticked people stay as they are).", devAsk: "Put the battle table last edited on this device into this plan?" },
+  ko: { btn: "🕘 버전 기록", title: "🕘 {n} 버전 기록", note: "저장할 때마다 기록이 남아요. 시점을 고르면 이 계획을 그때 상태로 되돌려요 (↩️ 되돌리기로 취소 가능). 시간은 UTC.", loading: "불러오는 중…", none: "이 계획의 이전 버전이 없어요.", err: "기록을 불러오지 못했어요.", use: "이 버전으로", now: "현재", ppl: "{n}명", sub: "후보 {n}", bld: "건물 {n}", diff: "현재와 비교: +{a} −{r}", same: "현재와 같음", ask: "이 계획을 {t} 버전으로 되돌릴까요?", done: "✓ {t} 버전으로 되돌렸어요 (↩️ 되돌리기로 취소)", more: "더 이전 보기", close: "닫기", dev: "📱 이 기기에서 마지막으로 편집한 전투 배치표", devNote: "이 기기의 브라우저에 저장돼 있어요. 배치표만 바뀌어요 (체크한 사람은 그대로).", devAsk: "이 기기에서 마지막으로 편집한 배치표를 이 계획에 넣을까요?" },
+  pt: { btn: "🕘 Versões", title: "🕘 Versões de {n}", note: "Cada salvamento fica guardado. Escolha um horário para voltar este plano àquela versão (↩️ Desfazer volta atrás). Horários em UTC.", loading: "Carregando…", none: "Nenhuma versão anterior deste plano.", err: "Não foi possível carregar o histórico.", use: "Usar esta", now: "agora", ppl: "{n} pessoas", sub: "{n} reservas", bld: "{n} construções", diff: "vs agora: +{a} −{r}", same: "igual a agora", ask: "Voltar este plano para a versão de {t}?", done: "✓ Voltou para a versão de {t} (↩️ Desfazer para cancelar)", more: "Mostrar mais antigas", close: "Fechar", dev: "📱 Tabela de batalha editada por último neste aparelho", devNote: "Guardada no navegador deste aparelho. Só a tabela de batalha (as pessoas marcadas continuam iguais).", devAsk: "Colocar neste plano a tabela de batalha editada por último neste aparelho?" },
+  ar: { btn: "🕘 الإصدارات", title: "🕘 إصدارات {n}", note: "يُحفظ كل حفظ. اختر وقتًا لإرجاع هذه الخطة كما كانت حينها (↩️ تراجع يلغي ذلك). الأوقات بتوقيت UTC.", loading: "جارٍ التحميل…", none: "لا توجد إصدارات أقدم لهذه الخطة.", err: "تعذّر تحميل السجل.", use: "استخدم هذا", now: "الآن", ppl: "{n} أشخاص", sub: "{n} بدلاء", bld: "{n} مبانٍ", diff: "مقارنة بالآن: +{a} −{r}", same: "مثل الآن", ask: "إرجاع هذه الخطة إلى إصدار {t}؟", done: "✓ تم الإرجاع إلى إصدار {t} (↩️ تراجع للإلغاء)", more: "عرض الأقدم", close: "إغلاق", dev: "📱 جدول المعركة الذي عُدّل أخيرًا على هذا الجهاز", devNote: "محفوظ في متصفح هذا الجهاز. جدول المعركة فقط (الأشخاص المحددون يبقون كما هم).", devAsk: "وضع جدول المعركة الذي عُدّل أخيرًا على هذا الجهاز في هذه الخطة؟" },
 };
 const pv = (k, v = {}) => String((PV[lang] || PV.en)[k] ?? PV.en[k]).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
-const ghGet = async (url) => { const r = await fetch(url, { headers: { Authorization: `Bearer ${OFFICER.token}`, Accept: "application/vnd.github+json" }, cache: "no-store" }); if (!r.ok) throw new Error("net"); return r.json(); };
-const pvKey = (p) => JSON.stringify([[...(p.picked || [])].sort(), [...(p.subs || [])].sort(), p.tb || null, p.counts || null, p.wts || null]);
+const pvKey = (p) => PJ(planNorm(p));
+const tbRows = (t) => ((t && t.groups) || []).reduce((n, g) => n + (g.rows || []).length, 0);
 async function planVersions() {
   const id = planId, cur = plans[id]; if (!id || !cur) return;
+  const can = planCanEdit(cur);
   const m = document.createElement("div"); m.className = "tb-modal";
   m.innerHTML = `<div class="card" style="width:min(640px,96vw);max-height:90vh;overflow:auto"><b>${esc(pv("title", { n: planLabel(cur) }))}</b>
-    <div class="muted" style="margin:6px 0;font-size:12.5px">${esc(pv("note"))}</div><div data-pvlist="1" class="muted">${esc(pv("loading"))}</div>
+    <div class="muted" style="margin:6px 0;font-size:12.5px">${esc(pv("note"))}</div><div data-pvdev="1"></div><div data-pvlist="1" class="muted">${esc(pv("loading"))}</div>
     <div class="row" style="margin-top:8px"><button class="btn" data-pvmore="1" hidden>${esc(pv("more"))}</button><button class="btn" data-close="1">${esc(pv("close"))}</button></div></div>`;
   ROOT.appendChild(m);
   const list = m.querySelector("[data-pvlist]"), moreBtn = m.querySelector("[data-pvmore]");
-  const seen = new Set([pvKey(planSnapshot()), pvKey(cur)]), vers = []; let page = 1, done = false;
+  // 📱 the battle table this device last edited (any plan), if it isn't the one on screen
+  let dev = null; try { dev = JSON.parse(localStorage.getItem(TB_LS)); } catch (e) {}
+  if (can && dev && tbRows(dev) && PJ(tbMuted(Object.assign(tbDefault(), dev)).groups) !== PJ(TB.groups))
+    m.querySelector("[data-pvdev]").innerHTML = `<div class="row" style="justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--rule)"><div><b>${esc(pv("dev"))}</b><div class="muted" style="font-size:12.5px">${esc(pv("bld", { n: tbRows(dev) }))} · ${esc(pv("devNote"))}</div></div><button class="btn small" data-pvdevuse="1">${esc(pv("use"))}</button></div>`;
+  const seen = new Set([pvKey(planSnapshot()), pvKey(cur)]), vers = []; let before = 0, done = false;
   const nowSet = new Set(picked);
   const show = () => {
     if (!vers.length) { list.innerHTML = done ? esc(pv("none")) : esc(pv("loading")); return; }
     list.className = ""; list.innerHTML = vers.map((v, i) => { const p = v.p, ids = new Set(p.picked || []);
-      const a = [...ids].filter((x) => !nowSet.has(x)).length, r = [...nowSet].filter((x) => !ids.has(x)).length, nb = ((p.tb && p.tb.groups) || []).reduce((n, g) => n + (g.rows || []).length, 0);
-      return `<div class="row" style="justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--rule)"><div><b>${esc(v.t)} UTC</b>${p.by ? ` · ${esc(p.by)}` : ""}<div class="muted" style="font-size:12.5px">${esc(pv("ppl", { n: ids.size }))}${(p.subs || []).length ? " · " + esc(pv("sub", { n: p.subs.length })) : ""} · ${esc(pv("bld", { n: nb }))} · ${esc(a || r ? pv("diff", { a, r }) : pv("same"))}</div></div><button class="btn small" data-pvuse="${i}">${esc(pv("use"))}</button></div>`; }).join("");
+      const a = [...ids].filter((x) => !nowSet.has(x)).length, r = [...nowSet].filter((x) => !ids.has(x)).length;
+      return `<div class="row" style="justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--rule)"><div><b>${esc(v.t)}</b>${v.by ? ` · ${esc(v.by)}` : ""}<div class="muted" style="font-size:12.5px">${esc(pv("ppl", { n: ids.size }))}${(p.subs || []).length ? " · " + esc(pv("sub", { n: p.subs.length })) : ""} · ${esc(pv("bld", { n: tbRows(p.tb) }))} · ${esc(a || r ? pv("diff", { a, r }) : pv("same"))}</div></div>${can ? `<button class="btn small" data-pvuse="${i}">${esc(pv("use"))}</button>` : ""}</div>`; }).join("");
   };
   const load = async () => {
     moreBtn.hidden = true;
     try {
-      const cs = await ghGet(`https://api.github.com/repos/${P_OWNER}/${P_REPO}/commits?path=${encodeURIComponent(PLAN_PATH)}&sha=main&per_page=30&page=${page}`);
-      page++; if (cs.length < 30) done = true;
-      for (let i = 0; i < cs.length; i += 6) {
-        const got = await Promise.all(cs.slice(i, i + 6).map(async (c) => { try {
-          const f = await ghGet(`https://api.github.com/repos/${P_OWNER}/${P_REPO}/contents/${PLAN_PATH}?ref=${c.sha}`);
-          const d = await OfficerData.open(JSON.parse(p64.dec(f.content))); const p = d && d.plans && d.plans[id];
-          return p ? { p, t: new Date(c.commit.committer.date).toISOString().slice(5, 16).replace("T", " ") } : null; } catch (e) { return null; } }));
-        for (const v of got) { if (!v) continue; const k = pvKey(v.p); if (seen.has(k)) continue; seen.add(k); vers.push(v); }
-        if (!m.isConnected) return; show();
-      }
+      const j = await papi("hist", { id, before });
+      const vs = j.vers || []; if (vs.length < 30) done = true;
+      for (const v of vs) { before = v.v; if (!v.plan) continue; const k = pvKey(v.plan); if (seen.has(k)) continue; seen.add(k); vers.push({ p: v.plan, t: fmtT(v.at), by: v.by === "import" ? "" : v.by }); }
+      if (!m.isConnected) return;
       if (!vers.length && !done) return load();
     } catch (e) { list.textContent = pv("err"); return; }
     show(); moreBtn.hidden = done;
   };
+  // the chosen version goes on screen; the normal save then sends what differs from the plan now (so it's saved for everyone)
+  const use = (n, msg) => { histNote(); histBusy = true; planShow(n); tbSave(); histBusy = false; histLast = histSnap(); m.remove(); planTouched(); $("planStatus").textContent = msg; };
   m.onclick = (e) => {
     if (e.target === m || e.target.dataset.close) { m.remove(); return; }
     if (e.target.dataset.pvmore) return load();
+    if (planId !== id) { m.remove(); return; }
+    if (e.target.dataset.pvdevuse) { if (!window.confirm(pv("devAsk"))) return; const n = planMine(); n.tb = tbMuted(Object.assign(tbDefault(), dev)); return use(n, "✓ " + pv("dev")); }
     const i = e.target.dataset.pvuse; if (i == null) return;
     const v = vers[+i]; if (!v || !window.confirm(pv("ask", { t: v.t }))) return;
-    if (planId !== id) { m.remove(); return; }
-    const p = v.p;
-    picked = new Set(p.picked || []); subs = new Set((p.subs || []).filter((x) => picked.has(x))); store.counts = JSON.parse(JSON.stringify(p.counts || {}));
-    TB = Object.assign(tbDefault(), JSON.parse(JSON.stringify(p.tb || {}))); tbPick = null;
-    planBaseFull = null;   // a restored version is written as a whole
-    setWeights(wtsFrom(p.wts, p.wPower)); persist(); tbSave();
-    renderAll(); tbRender(); renderPresets && renderPresets();
-    m.remove(); $("planStatus").textContent = pv("done", { t: v.t });
+    use(planNorm(v.p), pv("done", { t: v.t }));
   };
   load();
 }
@@ -1138,35 +1184,28 @@ $("planEd").addEventListener("change", (e) => {
 $("planNew").onclick = async () => {
   const name = (window.prompt(pl("name")) || "").trim(); if (!name) return;
   const start = picked.size && window.confirm(pl("copyQ"));
-  const id = Math.random().toString(36).slice(2, 9);
-  try { await planFetch(); } catch (e) {}
+  let id; do id = "p" + Math.random().toString(36).slice(2, 9); while (plans[id]);
   const snap = planSnapshot();
-  plans[id] = { ...(myId() ? { owner: { id: myId(), name: planWho() } } : {}), name: name.slice(0, 40), picked: start ? snap.picked : [], wPower: snap.wPower, wts: snap.wts, counts: snap.counts, tb: start ? snap.tb : tbDefault(), by: planWho(), at: Date.now() };
-  if (!planId) store.local = snap;
-  planId = id; store.planId = id; planDirty = false;
-  planApply(plans[id]);
-  planBase = new Set();   // base empty → the whole tick list counts as this device's change on the first save
-  planBaseFull = null;
-  planApplying = true; save(); planApplying = false; planDirty = true; planCreating = id; await planSave(); planCreating = null;
+  const full = { ...(myId() ? { owner: { id: myId(), name: planWho() } } : {}), name: name.slice(0, 40), picked: start ? snap.picked : [], subs: start ? snap.subs : [], wPower: snap.wPower, wts: snap.wts, counts: snap.counts, tb: start ? snap.tb : tbDefault() };
+  $("planNew").disabled = true;
+  try { const j = await papi("save", { id, patch: { full } }); plans[id] = j.plan; planSwitch(id); planOkAt = Date.now(); planRenderBar(); }
+  catch (e) { planErr = planErrText(e); planRenderBar(); window.alert(planErr); }
+  $("planNew").disabled = false;
 };
 $("planRen").onclick = () => {
   const p = plans[planId]; if (!p) return;
   const name = (window.prompt(pl("name"), p.name) || "").trim(); if (!name) return;
-  p.name = planNewName = name.slice(0, 40); planDirty = true; planSave(); planRenderBar();
+  planMeta({ name: name.slice(0, 40) });
 };
 $("planDel").onclick = async () => {
   const p = plans[planId]; if (!p || !window.confirm(pl("delQ", { n: planLabel(p) }))) return;
   const id = planId;
-  try {
-    await planFetch(); delete plans[id];
-    const res = await pgh("PUT", { message: `Delete ranking plan: ${p.name}`.slice(0, 100), content: p64.enc(JSON.stringify(await OfficerData.seal({ plans }), null, 1) + "\n"), sha: planSha || undefined, branch: "main" });
-    planSha = res && res.content ? res.content.sha : planSha;
-  } catch (e) { planErr = pl("err"); }
-  planSwitch("");
+  try { await papi("del", { id }); delete plans[id]; pend.set(id, null); planSwitch(""); }
+  catch (e) { planErr = planErrText(e); planRenderBar(); }
 };
-/* 📋 Attendance tab: the freshest shared plans (straight from GitHub when the officer key is there, else the published copy) */
+/* 📋 Attendance tab: the newest shared plans, straight from the Worker */
 async function freshPlans() {
-  if (OFFICER.token) { try { await planFetch(); return plans; } catch (e) {} }
+  if (loggedIn()) { try { await planFetch(); } catch (e) {} }
   return plans;
 }
 OFFICER_PAGES.ranking = { init, applyTexts, setLang, freshPlans };

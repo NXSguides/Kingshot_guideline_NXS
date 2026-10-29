@@ -62,7 +62,7 @@ async function handle(req, env, ctx) {
   {
     if (req.method === "OPTIONS") return new Response(null, { headers: cors });
     const path = new URL(req.url).pathname;
-    if (path.startsWith("/auth/") || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/perms") return authRoute(req, env, path, ctx);   // 🔑 officer login with Discord
+    if (path.startsWith("/auth/") || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/perms") return authRoute(req, env, path, ctx);   // 🔑 officer login with Discord
     if (path === "/push/save" || path === "/push/test") {
       if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
       return pushRoute(req, env, path);
@@ -361,7 +361,7 @@ GETTING IN
 - ✏️ next to a message edits just that message (title and text, live character count) → 💾 Save.
 - ✏️ Edit at the bottom of an event changes the whole event: emoji, name (中文 / English), "Repeats on a fixed schedule" (first day in UTC, repeats every … days, lasts … days), note (e.g. times), guide on the site, action items (days before (−) / after the start, text in 中文 and English, show an announcement / Ranking button), and the in-game messages (+ Message, ✕ removes). "Delete event" removes it.
 - + New event adds an event. Events without a fixed schedule only appear in the list, not in the calendar.
-[ranking] - 📊 Ranking tab → "📋 Plan" (中文: 方案) at the top: "🔒 Only on this device" (default, private) or a shared plan made with "+ New shared plan" (e.g. "Legion 1"). In a shared plan every officer sees the same ticked participants, weights, group sizes and battle table; changes show for the others within about 10 seconds. Two officers ticking at the same time don't undo each other. Rename / Delete buttons next to it.
+[ranking] - 📊 Ranking tab → "📋 Plan" (中文: 方案) at the top: "🔒 Only on this device" (default, private) or a shared plan made with "+ New shared plan" (e.g. "Legion 1"). In a shared plan every officer sees the same ticked participants, weights, group sizes and battle table; changes show for the others within about 10 seconds to a minute. Shared plans are saved on the Worker (Discord login, no GitHub key): each save sends only what changed on that device, so two officers editing at once — or an old tab left open — don't undo each other. A box in the bottom-left corner shows the save: ✅ Saved · time / ⏳ Saving / ⚠️ Not saved yet (kept on that device and retried by itself, also after a reload; don't close the page). Rename / Delete buttons next to it. Officers whose 👥 Ranking right is "view" can look but not change a plan.
 [post] - 📢 Post tab → "Auto-delete" (中文: 自動刪除) under the guide button: Never / when today ends (00:00 UTC) / when tomorrow ends / after 1, 2, 3 or 7 days / pick a date & time (UTC). The announcement disappears from the site on time by itself (the files are cleaned up within the hour). The list shows "🗑️ auto-delete …". To change or remove the time: Edit → Edit the whole announcement → change Auto-delete → Save (it is not translated again).
 - Changes are saved on the site for all officers (other officers see them after refreshing, about 1 minute). Saving uses the same GitHub key as the Post tab; "Someone else changed the events meanwhile" → refresh and try again. The event texts are encrypted like the other officer data.
 - Changing the dates of KvK, Viking Vengeance, Swordland Showdown, Tri-Alliance Clash, Eternity's Reach, All Out, Fishing Tournament, Hero Roulette or Cesares Fury also changes when the main site shows those guide buttons on Recent Events.
@@ -387,7 +387,7 @@ NEWER TOOLS (officers)
 [post] - 📢 Post → "Look" (樣式): Plain, 📜 Scroll, or a theme (⚔️ Swordland Showdown, ⛵ Viking Vengeance) that adds the event picture on top; the banner colour can be picked next to it (never red). The scroll grows with the text. Changing the look later with Edit doesn't translate again.
 [events] - 📅 Events → "📣 Announcement draft" (公告草稿): "UPCOMING KEY EVENTS" with our times for the next 3/5/7 days, ready to paste in game (300-character limit, counter shown; tick which events go in). Each to-do card also has "📣 Game post" (遊戲公告) for a one-event reminder.
 [events] - 📅 Events → "⏰ Our event times": a time can be tied to a battle day with @, e.g. "22:00@1, 13:00@3" (Viking: Day 1 22:00, Day 3 13:00).
-[ranking] - 📊 Ranking → ⑤ Battle table: "⚔️ Swordland rules draft" fills Phase 1, Phase 2 and Stay behind from the ranking (subs left out); ↩️ Undo next to the plan picker; 🕘 Version history to bring back an earlier saved table.
+[ranking] - 📊 Ranking → ⑤ Battle table: "⚔️ Swordland rules draft" fills Phase 1, Phase 2 and Stay behind from the ranking (subs left out); ↩️ Undo next to the plan picker; 🕘 Version history (版本紀錄): the last 150 saves of each plan — pick one to put the plan back (↩️ Undo cancels); "📱 Battle table last edited on this device" brings back a table that was made on that phone/computer but never reached the shared plan.
 [map] - 🗺️ Map → 🚩 banner plan → "⬇️ Download banner coordinates (CSV)": every banner the map shows now (the banner file plus officers' saved edits: built / demolished / moved) and the 🚩 planned ones, as a Kingshot Mapper CSV (type,X,Y,label,#color,seq) that can be imported there. Label NXS = checked in game, NXS? = estimated from the territory picture, plan = planned, not built yet. Use it to count banners or check for missing ones. "⬇️ Download other alliances' banners (CSV)" does the same for the 🏴 other-alliance layer (label = their tag, their HQs included).
 [move] - 🚚 Move → "👥 Member positions" (成員位置, at the top of the 🚚 Move page; it used to be on 🗺️ Map): ONE map for the whole move — our block drawn like the in-game map (every member's city, Bear Traps, HQ, banners, mountains/lakes from the map). Search a name or tap a city for X:Y and a copy button. Editors: tap a city to change name / X / Y, or "📋 Paste positions" (one per line: name X Y; the box opens with the current list — fix it and press "Replace all"), then 💾 Save. Names are kept exactly as typed; blue = found on the roster, orange = not found. With a moving plan loaded, the plan is drawn on the same map as a blueprint: dashed squares = planned city spots (name shown; green once that member is there), numbered banners = road (R1…), early hive banners (P1…), stage 1 (S1-…, BT2 side) and stage 2 (S2-…, BT1 side) — solid with a green rim once our banner stands there; dashed HQ + its 15×15 and dashed Bear Traps = their new place; other alliances' territory shaded; ✖ = another alliance's banner we must take down (green ✓ once ticked). A legend sits under the map.
 [move] - 🚚 Move → putting members on the plan by tapping (成員分配): with a moving plan loaded, officers with the move edit right tap a dashed planned spot on the 👥 map; a box under the map shows the spot X:Y, a name field and the list of members not placed yet — tap a name (or type it, ✓ Put here) and the next empty spot nearby is picked so a row fills quickly; "Empty this spot" takes the name out; a member put on a new spot leaves their old spot empty. Then 💾 Save. (Members can also be named in Mapper before exporting, or one by one with "➕ Add / change a spot".)
@@ -395,6 +395,7 @@ NEWER TOOLS (officers)
 [move] - 🚚 Move → "📘 Hive rules & tips" (蜂巢規則與技巧) at the top: HQ only in the Plains or Badlands ring, never on Fertile Land (沃土; in #2189 X and Y 450–749) or the Ruins ring — put it just outside the fertile edge; every banner must connect to the HQ; no banners in Outpost no-build zones; limits 285 banners / 100 member cities / 2 Bear Traps; a city counts only with all 4 tiles inside our territory; about 50 cities per Bear Trap; check the area for other cities, alliance buildings, mountains, lakes; move order HQ → banners outward from BT2 → members → Bear Traps last (members never move traps).
 [move] - 🚚 Move (搬家, its own tab): only admins see it unless the 👥 table gives it. Load the moving plan: Kingshot Mapper (ksmapper.pages.dev) → Export → CSV file, cities labelled with member names (a .json from another planner also works; with several alliances in one file, ours is found by colour), "🧭 Move steps" (搬家步驟) and the moving table: each member's current X:Y → new spot (tap to copy), ✓ Moved, progress bar, "Only not moved yet". A member whose current position in 👥 Member positions already equals the new spot gets ✅ automatically. "➕ Add / change a spot" gives someone a spot or moves them; their old spot becomes free. "🧭 Move steps" lists the plan in order from the banner labels in the CSV: road R1… → early hive banners P1… / take down KILL banners → move the HQ → stage 1 S1-… → BT2-side members move → stage 2 S2-… → BT1-side members move → Bear Traps last; ▶ marks the current step. ✅ comes by itself when the map already shows it (our banner standing at that X Y on 🗺️ Map, the HQ / a Bear Trap / a member already at the new X Y); officers with the move edit right tap an item to tick it by hand, then 💾 Save. Under the steps: banners standing + blueprint banners still to build against the 285 limit, with a warning to take down old banners first when it is over. Blueprint CSV labels on banners: R1… road, P1… early hive banners, S1-1… stage 1, S2-1… stage 2, "KILL TTT" = another alliance's banner to take down; Bear Traps labelled "Bear Trap 1" / "Bear Trap 2".
 [board] - 💬 Board (討論板): a message is posted at once with only the original. "🌐 Translate for everyone" (翻譯給所有人, a tick box next to Post / Reply, off by default, remembered on that device) translates it into 中文 / English / Português / العربية / 한국어 in the background — the post appears at once and switches to each reader's language by itself when done. Without it, readers whose language differs see "🌐 Translate to …" (翻成…) under the post: it translates that one post into their language and keeps it, so the next reader of that language sees it at once. Editing a post that had translations translates it again in the background. Messages from before this change keep all their translations; @ mentions, 📋 Assign to (makes a task with ✅ Done), 🖼️ pictures, 📌 Set as decision. "Tasks for you" lists what you were assigned or @'d in.
+[attend] - 📋 Attendance → ① Registration (報名確認, lists made from a plan since 2026-10-30): each person's reply — tap ⏳ to cycle ✅ confirmed → ❌ can't come → ⏳ no reply. 🟡 = safe player: registered without waiting for a reply (Nia's yellow; remembered for every next list). The count line: ✅ confirmed + 🟡 safe with no reply = can be registered. "📋 Copy not-replied names" (to ping them) and "📋 Copy registration list". Only registered people (✅, or 🟡 not ❌) appear in ② and can count as a miss. "🔄 Update from the plan" keeps the replies.
 [attend] - 📋 Attendance (出席): sheets made from a shared Ranking plan; ① Confirmed (tap = sub), add people by pasting names, 📷 voter screenshots or by hand; ② after the battle tap ✓ showed up → X no-show → 🛌 excused; repeat misses turn orange (2nd) and red (3rd). Save / Copy for Discord.
 [perms] - 👥 Officers (幹部, admins only): one row per officer; per tab ✏️ Edit / 👁️ View / — Hidden (saves by itself); 🔔 which events they get officer to-do reminders for; 👁️ Preview as; + Add officer (name + 18-digit Discord ID).
 
@@ -785,10 +786,13 @@ export class PushTimers extends DurableObject {
     this.sql.exec(`CREATE TABLE IF NOT EXISTS kv (k TEXT PRIMARY KEY, v TEXT, at INTEGER)`);   // small shared settings (👥 officer table)   // 📋 attendance: one row per event (JSON)
     try { this.sql.exec(`ALTER TABLE bp ADD COLUMN meta TEXT`); } catch (e) {}
     this.sql.exec(`CREATE TABLE IF NOT EXISTS bimg (id TEXT PRIMARY KEY, data TEXT, at INTEGER)`);   // 🖼️ board pictures (data URLs, made small on the phone first)
+    // 📊 shared Ranking plans (moved off GitHub 2026-10-30): one row per plan + every saved version (newest 150 per plan)
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS rp (id TEXT PRIMARY KEY, data TEXT, v INTEGER, at INTEGER)`);
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS rph (id TEXT, v INTEGER, at INTEGER, by TEXT, data TEXT, PRIMARY KEY (id, v))`);
   }
   counts() {
     const o = {};
-    for (const t of ["t", "usub", "sync", "bt", "bp", "bl", "bu", "att", "kv"]) o[t] = [...this.sql.exec(`SELECT COUNT(*) AS n FROM ${t}`)][0].n;
+    for (const t of ["t", "usub", "sync", "bt", "bp", "bl", "bu", "att", "kv", "rp", "rph"]) o[t] = [...this.sql.exec(`SELECT COUNT(*) AS n FROM ${t}`)][0].n;
     o.phones = [...this.sql.exec(`SELECT COUNT(DISTINCT ep) AS n FROM t`)][0].n;
     const nx = [...this.sql.exec(`SELECT MIN(at) AS at FROM t`)][0].at;
     o.next_alarm = nx ? new Date(nx).toISOString() : null;
@@ -927,6 +931,59 @@ export class PushTimers extends DurableObject {
     this.sql.exec(`INSERT OR REPLACE INTO att VALUES (?, ?, ?)`, id, data, at); return true;
   }
   attDel(id) { this.sql.exec(`DELETE FROM att WHERE id = ?`, id); }
+  /* ---- 📊 shared Ranking plans ---- */
+  rpAll() { const o = {}; for (const r of this.sql.exec(`SELECT id, data, v FROM rp`)) { try { o[r.id] = { ...JSON.parse(r.data), _v: r.v }; } catch (e) {} } return o; }
+  rpWrite(id, plan, by, v) {
+    const now = Date.now(), data = JSON.stringify(plan);
+    this.sql.exec(`INSERT OR REPLACE INTO rp VALUES (?, ?, ?, ?)`, id, data, v, now);
+    this.sql.exec(`INSERT OR REPLACE INTO rph VALUES (?, ?, ?, ?, ?)`, id, v, now, String(by || "").slice(0, 60), data);
+    this.sql.exec(`DELETE FROM rph WHERE id = ? AND v <= ?`, id, v - 150);
+  }
+  /* one save = only what that device changed: ticks added / removed, the settings and battle-table fields it touched.
+     Done here, inside the Durable Object, so two saves at the same moment are applied one after the other — nothing is overwritten. */
+  rpPatch(id, patch, user, admin) {
+    const r = [...this.sql.exec(`SELECT data, v FROM rp WHERE id = ?`, id)][0];
+    const cur = r ? JSON.parse(r.data) : null, v = r ? r.v + 1 : 1;
+    if (cur && cur.editors && !admin && !(cur.owner && cur.owner.id === user.id) && !cur.editors.includes(user.id)) return { error: "ed_no" };
+    if (!cur && !patch.full) return { error: "gone" };   // deleted meanwhile: a tick or a rename must not bring it back as an empty plan
+    const idv = (x) => typeof x === "number" ? x : String(x);   // member ids are numbers: keep them numbers
+    let p;
+    if (patch.full) {
+      const f = patch.full || {};
+      p = { name: "", picked: [], subs: [], wPower: null, wts: null, counts: {}, tb: {}, ...(cur || {}), ...f };
+      if (cur && cur.owner && !admin && cur.owner.id !== user.id) { p.owner = cur.owner; if (cur.editors) p.editors = cur.editors; else delete p.editors; }   // only the creator / admins change who may edit
+    } else {
+      p = JSON.parse(JSON.stringify(cur));
+      const ids = new Set(p.picked || []);
+      for (const x of patch.add || []) ids.add(idv(x));
+      for (const x of patch.del || []) ids.delete(idv(x));
+      p.picked = [...ids];
+      for (const [k, val] of Object.entries(patch.f || {})) if (["wPower", "wts", "counts", "subs"].includes(k)) p[k] = val;
+      if (patch.tb && typeof patch.tb === "object") { p.tb = { ...(p.tb || {}) }; for (const [k, val] of Object.entries(patch.tb)) { if (val === null) delete p.tb[k]; else p.tb[k] = val; } }
+      if (patch.name) p.name = String(patch.name).slice(0, 40);
+    }
+    if (patch.ed && (admin || !p.owner || p.owner.id === user.id)) {
+      if (patch.ed.owner) p.owner = patch.ed.owner; else if (!p.owner) p.owner = { id: user.id, name: user.name };
+      if (patch.ed.editors) p.editors = patch.ed.editors.map(String).slice(0, 60); else delete p.editors;
+    }
+    const ids = new Set(p.picked || []); p.subs = (p.subs || []).filter((x) => ids.has(x));
+    p.by = user.name; p.at = Date.now();
+    this.rpWrite(id, p, user.name, v);
+    return { plan: { ...p, _v: v } };
+  }
+  rpSeed(id, plan) {   // the one-time copy from the old GitHub file: never over a plan already saved here
+    if ([...this.sql.exec(`SELECT 1 FROM rp WHERE id = ?`, id)].length || [...this.sql.exec(`SELECT 1 FROM rph WHERE id = ?`, id)].length) return false;
+    this.rpWrite(id, plan, "import", 1); return true;
+  }
+  rpDel(id, user) {
+    const r = [...this.sql.exec(`SELECT v FROM rp WHERE id = ?`, id)][0]; if (!r) return;
+    this.sql.exec(`DELETE FROM rp WHERE id = ?`, id);
+    this.sql.exec(`INSERT OR REPLACE INTO rph VALUES (?, ?, ?, ?, ?)`, id, r.v + 1, Date.now(), String(user.name || "").slice(0, 60), "null");   // a deleted plan keeps its history
+  }
+  rpHist(id, before, n) {
+    return [...this.sql.exec(`SELECT v, at, by, data FROM rph WHERE id = ? AND v < ? ORDER BY v DESC LIMIT ?`, id, before || 1e12, n || 30)]
+      .map((r) => ({ v: r.v, at: r.at, by: r.by, plan: JSON.parse(r.data) }));
+  }
   async saveFor(uid, sub, timers, retext) {
     const cur = [...this.sql.exec(`SELECT uid, sub FROM usub WHERE ep = ?`, sub.endpoint)][0];
     if (!cur || cur.uid !== uid || cur.sub !== JSON.stringify(sub)) this.sql.exec(`INSERT OR REPLACE INTO usub VALUES (?, ?, ?)`, sub.endpoint, uid, JSON.stringify(sub));
@@ -1213,19 +1270,69 @@ async function permsRoute(stub, user, body, token, role) {
   catch (e) { return json({ error: /exceeded allowed|free tier|limit/i.test(String(e && e.message)) ? "db_limit" : "db", detail: [String(e && e.message || e)] }, 503); }
   return json({ ok: true, token, perms });
 }
+/* 📊 /plans — the Ranking tab's shared plans (were a GitHub file until 2026-10-30; GitHub saves collided with each other and with site updates).
+   ops: list {since} · save {id, patch} · del {id} · hist {id, before}. Reading: anyone the 👥 table lets see the Ranking tab; writing: Ranking ✏️ edit.
+   The first request copies the plans once from the old GitHub file (data/ranking-plans-x7k2p9.json), which is not written any more. */
+const PLANS_FILE_API = "https://api.github.com/repos/NXSguides/Kingshot_guideline_NXS/contents/data/ranking-plans-x7k2p9.json?ref=main";
+const PLANS_FILE_RAW = "https://raw.githubusercontent.com/NXSguides/Kingshot_guideline_NXS/main/data/ranking-plans-x7k2p9.json";
+let plansStampMem = 0;
+async function plansStamp(env) { if (env.LIMITS) { try { const v = Number(await env.LIMITS.get("plans:stamp")); if (v) return v; } catch (e) {} } return plansStampMem; }
+async function plansTouch(env) { plansStampMem = Date.now(); if (env.LIMITS) { try { await env.LIMITS.put("plans:stamp", String(plansStampMem)); } catch (e) {} } return plansStampMem; }
+async function plansImport(env, stub) {
+  if (await stub.kvGet("rp:imp")) return;
+  let r = await fetch(PLANS_FILE_API, { headers: { "User-Agent": "nxs-worker", Accept: "application/vnd.github.raw+json" } });
+  if (!r.ok) r = await fetch(PLANS_FILE_RAW + "?t=" + Date.now(), { headers: { "User-Agent": "nxs-worker" } });   // the API allows 60 calls an hour without a key
+  if (!r.ok) throw new Error("import " + r.status);
+  const d = await openData(JSON.parse(await r.text()), env), plans = (d && d.plans) || {};
+  for (const [id, p] of Object.entries(plans)) if (/^[\w-]{1,40}$/.test(id) && p) await stub.rpSeed(id, p);
+  await stub.kvSet("rp:imp", { at: Date.now(), n: Object.keys(plans).length });
+  await plansTouch(env);
+}
+async function plansRoute(env, stub, user, body, token, perms) {
+  const op = String(body.op || "list"), role = roleOf(perms, user.id), admin = role === "admin";
+  const u = perms && perms.users && perms.users[user.id];
+  const seeTab = (t) => !!(u && u.perms && u.perms[t] && u.perms[t] !== "none");
+  const mayView = admin || seeTab("ranking") || seeTab("attend"), mayEdit = canEdit(perms, user.id, "ranking");
+  if (!mayView) return json({ error: "no_access" }, 403);
+  const since = +body.since || 0, stamp = await plansStamp(env);
+  if (op === "list" && since && stamp && stamp <= since) return json({ ok: true, token, unchanged: true, stamp });
+  const write = async (fn) => { try { return await fn(); } catch (e) { return json({ error: /limit|exceed|quota|allow/i.test(String(e && e.message)) ? "db_limit" : "db", detail: [String(e && e.message || e)] }, 503); } };
+  try { await plansImport(env, stub); } catch (e) { if (op === "list") return json({ error: "import", detail: [String(e.message || e)] }, 503); }
+  if (op === "list") return json({ ok: true, token, plans: await stub.rpAll(), stamp: stamp || await plansTouch(env) });
+  const id = String(body.id || "");
+  if (!/^[\w-]{1,40}$/.test(id)) return json({ error: "bad request" }, 400);
+  if (op === "hist") return json({ ok: true, token, vers: await stub.rpHist(id, +body.before || 0, 30) });
+  if (!mayEdit) return json({ error: "view_only" }, 403);
+  if (op === "save") return write(async () => {
+    const patch = body.patch && typeof body.patch === "object" ? body.patch : null;
+    if (!patch || JSON.stringify(patch).length > 200000) return json({ error: "bad request" }, 400);
+    const r = await stub.rpPatch(id, patch, { id: user.id, name: user.name }, admin);
+    if (r.error) return json({ error: r.error }, r.error === "gone" ? 404 : 403);
+    return json({ ok: true, token, plan: r.plan, stamp: await plansTouch(env) });
+  });
+  if (op === "del") return write(async () => { await stub.rpDel(id, { name: user.name }); return json({ ok: true, token, stamp: await plansTouch(env) }); });
+  return json({ error: "bad request" }, 400);
+}
 async function attendRoute(env, stub, user, body, token, mayEdit) {
   const op = String(body.op || "list");
   if (op !== "list" && !mayEdit) return json({ error: "view_only" }, 403);
   const write = async (fn) => { try { return await fn(); } catch (e) { return json({ error: /limit|exceed|quota|allow/i.test(String(e && e.message)) ? "db_limit" : "db", detail: [String(e && e.message || e)] }, 503); } };
-  if (op === "list") return json({ ok: true, token, events: await stub.attList() });
+  if (op === "list") return json({ ok: true, token, events: await stub.attList(), safe: (await stub.kvGet("att:safe")) || [] });
+  // 🟡 safe players (registered without waiting for a reply): one list for every event, remembered for the next lists
+  if (op === "safe") return write(async () => {
+    const id = String(body.id || "").slice(0, 40); if (!id) return json({ error: "bad request" }, 400);
+    const cur = new Set((await stub.kvGet("att:safe")) || []); if (body.on) cur.add(id); else cur.delete(id);
+    await stub.kvSet("att:safe", [...cur].slice(0, 300)); return json({ ok: true, token, safe: [...cur] });
+  });
   if (op === "save") return write(async () => {
     const ev = body.ev && typeof body.ev === "object" ? body.ev : null;
     if (!ev || !/^[\w-]{1,40}$/.test(String(ev.id || ""))) return json({ error: "bad request" }, 400);
     // sheet = the event type this list belongs to (Swordland, Tri-Alliance…); one list = one plan / one slot. sub = substitute
-    const clean = { title: String(ev.title || "").slice(0, 80), sheet: String(ev.sheet || "").slice(0, 40), plan: String(ev.plan || "").slice(0, 40), date: String(ev.date || "").slice(0, 10), by: { id: user.id, name: user.name },
+    // reg = list with the registration step: per person rep "y" (confirmed) / "n" (can't come) / none (no reply yet); safe = 🟡 when saved
+    const clean = { title: String(ev.title || "").slice(0, 80), sheet: String(ev.sheet || "").slice(0, 40), plan: String(ev.plan || "").slice(0, 40), date: String(ev.date || "").slice(0, 10), by: { id: user.id, name: user.name }, ...(ev.reg ? { reg: 1 } : {}),
       slots: (Array.isArray(ev.slots) ? ev.slots : []).slice(0, 8).map((sl) => ({
         name: String(sl.name || "").slice(0, 40),
-        confirmed: (Array.isArray(sl.confirmed) ? sl.confirmed : []).slice(0, 200).map((m) => ({ id: String(m.id || "").slice(0, 40), name: String(m.name || "").slice(0, 60), ...(m.sub ? { sub: 1 } : {}) })),
+        confirmed: (Array.isArray(sl.confirmed) ? sl.confirmed : []).slice(0, 200).map((m) => ({ id: String(m.id || "").slice(0, 40), name: String(m.name || "").slice(0, 60), ...(m.sub ? { sub: 1 } : {}), ...(m.rep === "y" || m.rep === "n" ? { rep: m.rep } : {}), ...(m.safe ? { safe: 1 } : {}) })),
         present: (Array.isArray(sl.present) ? sl.present : []).slice(0, 200).map((x) => String(x).slice(0, 40)),
         excused: (Array.isArray(sl.excused) ? sl.excused : []).slice(0, 200).map((x) => String(x).slice(0, 40)) })) };
     const data = JSON.stringify(clean);
@@ -1517,7 +1624,7 @@ async function authRoute(req, env, path, ctx) {
       return back("login=" + session);
     } catch (e) { return back("login_error=discord"); }
   }
-  if (path === "/auth/me" || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/perms") {
+  if (path === "/auth/me" || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/perms") {
     if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
     let body; try { body = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
     const c = await sessionCheck(req, env, body.token);   // Discord login only (the officer password alone no longer opens anything)
@@ -1542,6 +1649,7 @@ async function authRoute(req, env, path, ctx) {
     if (!stub) return json({ error: "push_not_set_up" }, 503);
     if (path === "/board") return boardRoute(env, ctx, stub, u, body, token, canEdit(perms, s.u.id, "board"), perms);
     if (path === "/attend") return attendRoute(env, stub, u, body, token, canEdit(perms, s.u.id, "attend"));
+    if (path === "/plans") return plansRoute(env, stub, u, body, token, perms);
     if (path === "/perms") return permsRoute(stub, u, body, token, role);
     if (path === "/sync/forget") { if (body.sub && body.sub.endpoint) await stub.forget(String(body.sub.endpoint)); return json({ ok: true }); }
     const st = body.state && typeof body.state === "object" ? body.state : {};
