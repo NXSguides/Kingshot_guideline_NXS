@@ -241,6 +241,19 @@
   #pg-attack .ak-n { width: 74px; }
   #pg-attack .ak-hit { padding: 6px 0; border-bottom: 1px solid var(--rule); font-size: 13.5px; }
   #pg-attack select.inp { height: 36px; padding-top: 0; padding-bottom: 0; }
+  #pg-attack .ak-f { display: flex; align-items: center; gap: 8px; margin-top: 6px; flex-wrap: wrap; font-size: 13.5px; }
+  #pg-attack .ak-f > span { min-width: 8em; }
+  #pg-attack .ak-f select, #pg-attack .ak-r select { flex: 1; min-width: 0; max-width: 100%; }
+  #pg-attack .ak-r { display: grid; grid-template-columns: auto 1fr; gap: 6px; align-items: center; margin: 6px 0; padding-top: 6px; border-top: 1px dashed var(--rule); }
+  #pg-attack .ak-r input { width: 120px; }
+  #pg-attack .ak-r > :nth-child(n+3) { grid-column: 2; }
+  #pg-attack .ak-r .ak-rr { display: flex; gap: 6px; }
+  #pg-attack .ak-f input { width: 130px; }
+  #pg-attack .ak-more { margin-top: 8px; font-size: 13.5px; }
+  #pg-attack .ak-more summary { cursor: pointer; color: var(--text-muted); }
+  #pg-attack .ak-cols { display: grid; gap: 10px; margin-top: 8px; }
+  @media (min-width: 720px) { #pg-attack .ak-cols { grid-template-columns: 1fr 1fr; } }
+  #pg-attack .ak-cols h4 { margin: 0 0 4px; }
   /* 📋 attendance */
   #pg-attend button.at-ev { display: flex; flex-direction: column; gap: 2px; width: 100%; text-align: start; padding: 10px 12px; margin: 0 0 8px; border: 1px solid var(--rule); border-radius: 10px; background: var(--panel); color: inherit; font: inherit; cursor: pointer; }
   #pg-attend .at-ev .bad { color: #b3261e; font-weight: 700; }
