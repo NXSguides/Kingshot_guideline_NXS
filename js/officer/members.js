@@ -36,6 +36,7 @@ const T = {
 };
 /* 📍 texts for the MightPulse positions card */
 for (const [l, o] of Object.entries({"en": {"mpT": "📍 Positions from MightPulse", "mpHow": "MightPulse only changes positions after someone presses “Update Map” on its map. After members move: ① open the MightPulse map and press Update Map ② wait a moment ③ ↻ Get positions here ④ check the changes and press ✅ Use these positions (it saves 👥 Member positions).", "mpMap": "🗺️ MightPulse map ↗", "mpGet": "↻ Get positions", "mpBusy": "Getting positions… {d} / {n}", "mpAt": "Fetched {t}", "mpNever": "Not fetched yet.", "mpWait": "Someone fetched less than 2 minutes ago — showing that.", "mpQuota": "Today's MightPulse limit is used up — try again tomorrow.", "mpErr": "Couldn't reach the site's server — try again.", "mpNone": "No changes: 👥 Member positions already match MightPulse.", "mpChg": "{n} changes:", "mpArr": "at the new spot", "mpNew": "new", "mpOld": "⚠️ MightPulse data over 2 hours old (press Update Map on MightPulse): {names}", "mpUse": "✅ Use these positions", "mpUsed": "{n} positions updated and saved.", "mpNoEd": "Only officers who can edit 🗺️ Map can save positions.", "mpStep": "When they have moved: press Update Map on MightPulse, then ↻ Get positions (📍 card above).", "mpLast": "📍 Positions fetched {t}"}, "zh": {"mpT": "📍 從 MightPulse 更新座標", "mpHow": "MightPulse 要有人在它的地圖按「Update Map」座標才會更新。成員搬完之後：① 打開 MightPulse 地圖按 Update Map ② 等一下 ③ 在這裡按 ↻ 取得座標 ④ 確認變動，按 ✅ 套用這些座標（會存進 👥 成員位置）。", "mpMap": "🗺️ MightPulse 地圖 ↗", "mpGet": "↻ 取得座標", "mpBusy": "取得座標中… {d} / {n}", "mpAt": "取得時間 {t}", "mpNever": "還沒取得過。", "mpWait": "2 分鐘內有人取得過，先顯示那一次的。", "mpQuota": "今天的 MightPulse 次數用完了，明天再試。", "mpErr": "連不到網站的伺服器，再試一次。", "mpNone": "沒有變動：👥 成員位置已經跟 MightPulse 一樣。", "mpChg": "{n} 個變動：", "mpArr": "已到新位置", "mpNew": "新的", "mpOld": "⚠️ 這些人的 MightPulse 資料超過 2 小時（去 MightPulse 按 Update Map）：{names}", "mpUse": "✅ 套用這些座標", "mpUsed": "已更新並儲存 {n} 個座標。", "mpNoEd": "有 🗺️ 地圖編輯權限的幹部才能儲存座標。", "mpStep": "搬完之後：去 MightPulse 按 Update Map，再按 ↻ 取得座標（上面的 📍 卡片）。", "mpLast": "📍 座標取得時間 {t}"}, "pt": {"mpT": "📍 Posições do MightPulse", "mpHow": "O MightPulse só muda as posições depois que alguém aperta “Update Map” no mapa dele. Depois que os membros mudarem: ① abra o mapa do MightPulse e aperte Update Map ② espere um pouco ③ ↻ Buscar posições aqui ④ confira as mudanças e aperte ✅ Usar estas posições (salva 👥 Posições dos membros).", "mpMap": "🗺️ Mapa do MightPulse ↗", "mpGet": "↻ Buscar posições", "mpBusy": "Buscando posições… {d} / {n}", "mpAt": "Buscado {t}", "mpNever": "Ainda não buscado.", "mpWait": "Alguém buscou há menos de 2 minutos — mostrando isso.", "mpQuota": "O limite do MightPulse de hoje acabou — tente amanhã.", "mpErr": "Não deu para falar com o servidor do site — tente de novo.", "mpNone": "Sem mudanças: 👥 Posições dos membros já batem com o MightPulse.", "mpChg": "{n} mudanças:", "mpArr": "no lugar novo", "mpNew": "novo", "mpOld": "⚠️ Dados do MightPulse com mais de 2 horas (aperte Update Map no MightPulse): {names}", "mpUse": "✅ Usar estas posições", "mpUsed": "{n} posições atualizadas e salvas.", "mpNoEd": "Só oficiais que podem editar 🗺️ Mapa salvam posições.", "mpStep": "Depois que mudarem: aperte Update Map no MightPulse e depois ↻ Buscar posições (cartão 📍 acima).", "mpLast": "📍 Posições buscadas {t}"}, "ar": {"mpT": "📍 المواقع من MightPulse", "mpHow": "لا يغيّر MightPulse المواقع إلا بعد أن يضغط أحد “Update Map” على خريطته. بعد انتقال الأعضاء: ① افتح خريطة MightPulse واضغط Update Map ② انتظر قليلًا ③ ↻ جلب المواقع هنا ④ راجع التغييرات واضغط ✅ استخدم هذه المواقع (تُحفظ في 👥 مواقع الأعضاء).", "mpMap": "🗺️ خريطة MightPulse ↗", "mpGet": "↻ جلب المواقع", "mpBusy": "جارٍ جلب المواقع… {d} / {n}", "mpAt": "جُلبت {t}", "mpNever": "لم تُجلب بعد.", "mpWait": "جلبها أحدهم قبل أقل من دقيقتين — نعرض تلك.", "mpQuota": "انتهى حد MightPulse لليوم — حاول غدًا.", "mpErr": "تعذّر الوصول إلى خادم الموقع — حاول مرة أخرى.", "mpNone": "لا تغييرات: 👥 مواقع الأعضاء تطابق MightPulse.", "mpChg": "{n} تغييرات:", "mpArr": "في المكان الجديد", "mpNew": "جديد", "mpOld": "⚠️ بيانات MightPulse أقدم من ساعتين (اضغط Update Map في MightPulse): {names}", "mpUse": "✅ استخدم هذه المواقع", "mpUsed": "حُدّث {n} موقعًا وحُفظ.", "mpNoEd": "يحفظ المواقع فقط الضباط الذين يمكنهم تعديل 🗺️ الخريطة.", "mpStep": "بعد انتقالهم: اضغط Update Map في MightPulse ثم ↻ جلب المواقع (بطاقة 📍 أعلاه).", "mpLast": "📍 جُلبت المواقع {t}"}, "ko": {"mpT": "📍 MightPulse에서 위치 가져오기", "mpHow": "MightPulse는 누군가 지도에서 “Update Map”을 눌러야 위치가 바뀌어요. 연맹원이 이사한 뒤: ① MightPulse 지도를 열고 Update Map 누르기 ② 잠시 기다리기 ③ 여기서 ↻ 위치 가져오기 ④ 변경을 확인하고 ✅ 이 위치 사용 누르기 (👥 연맹원 위치에 저장돼요).", "mpMap": "🗺️ MightPulse 지도 ↗", "mpGet": "↻ 위치 가져오기", "mpBusy": "위치 가져오는 중… {d} / {n}", "mpAt": "가져온 시각 {t}", "mpNever": "아직 가져오지 않았어요.", "mpWait": "2분 안에 누가 가져왔어요 — 그 결과를 보여요.", "mpQuota": "오늘 MightPulse 한도를 다 썼어요 — 내일 다시 해 보세요.", "mpErr": "사이트 서버에 연결할 수 없어요 — 다시 해 보세요.", "mpNone": "변경 없음: 👥 연맹원 위치가 MightPulse와 같아요.", "mpChg": "변경 {n}개:", "mpArr": "새 자리 도착", "mpNew": "새로", "mpOld": "⚠️ MightPulse 데이터가 2시간 넘음 (MightPulse에서 Update Map 누르기): {names}", "mpUse": "✅ 이 위치 사용", "mpUsed": "위치 {n}개를 바꾸고 저장했어요.", "mpNoEd": "🗺️ 지도 편집 권한이 있는 간부만 위치를 저장할 수 있어요.", "mpStep": "이사한 뒤: MightPulse에서 Update Map을 누르고 ↻ 위치 가져오기 (위의 📍 카드).", "mpLast": "📍 위치 가져온 시각 {t}"}})) Object.assign(T[l], o);
+for (const [l, o] of Object.entries({"en": {"goNow": "📍 Our HQ now", "goNew": "🧭 New HQ", "far": "Far from our HQ (not drawn on the map):"}, "zh": {"goNow": "📍 我們的總部", "goNew": "🧭 新總部", "far": "離我們總部很遠（地圖上沒畫）："}, "pt": {"goNow": "📍 Nosso QG agora", "goNew": "🧭 QG novo", "far": "Longe do nosso QG (fora do mapa):"}, "ar": {"goNow": "📍 مقرنا الآن", "goNew": "🧭 المقر الجديد", "far": "بعيد عن مقرنا (غير مرسوم على الخريطة):"}, "ko": {"goNow": "📍 지금 우리 본부", "goNew": "🧭 새 본부", "far": "우리 본부에서 멀리 있음 (지도에 안 그림):"}})) Object.assign(T[l], o);
 let SPOT = null;   // 🧭 the planned spot tapped on the map (index in MV.plan.c), to put a member there
 let lang = "en", G = null, D = null, SAVED = "", SEL = null, msg = "", roster = null, banners = [], pasteOpen = false, onlyLeft = false;
 /* 🚚 moving plan — its own officer tab (#move), admins only unless the 👥 table gives it; saved apart from the positions */
@@ -155,12 +156,22 @@ const fmtPw = (n) => n >= 1e9 ? (n / 1e9).toFixed(2) + "B" : n >= 1e6 ? (n / 1e6
 const TAGC = { R: "#222222", P: "#6a3d9a", S1: "#d4a017", S2: "#e07b39" };
 const tagKind = (tag) => !tag ? "" : /^S1-/i.test(tag) ? "S1" : /^S2-/i.test(tag) ? "S2" : tag[0].toUpperCase();
 function ownSet() { const KS = window.KM_SHARED; return new Set((KS ? KS.banners() : banners.map(([x, y]) => [x, y, 1])).map(([x, y]) => x + "," + y)); }
+/* where we are now = our Alliance HQ (from 🗺️ Map); without it, the median X and Y of the members' cities */
+let JUMP = {};
+function blockMid() { const h = G && G.hq && G.hq[0]; if (h) return [h[0] + 1, h[1] + 1];
+  const c = (D && D.m) || [], med = (a) => { const b = a.slice().sort((p, q) => p - q); return b.length ? b[b.length >> 1] : 0; };
+  if (c.length) return [med(c.map((r) => r[1])), med(c.map((r) => r[2]))];
+  const t0 = (D && D.bt && D.bt[0]) || [400, 660]; return [t0[0], t0[1]]; }
+const far = ([, x, y], mx, my) => Math.abs(x - mx) > 60 || Math.abs(y - my) > 60;
 function draw(boxId = "mm_map") {
   const box = $(boxId); if (!box) return;
   const PL = MV && MV.plan ? MV.plan : null, cities = D.m, traps = D.bt;
   const pc = PL ? PL.c || [] : [], pb = PL ? PL.b || [] : [], ph = PL ? PL.hq || [] : [], pt = PL ? PL.bt || [] : [], pk = PL ? PL.k || [] : [];
   if (!cities.length && !pc.length) { box.innerHTML = ""; return; }
-  const all = cities.map(([, x, y]) => [x, y]).concat(traps, pc.map(([, x, y]) => [x, y]), pb, ph, pt, pk);
+  const [mx, my] = blockMid(), anchors = [[mx, my]].concat(traps, ph, pc.map(([, x, y]) => [x, y]));   // near our block now or near the plan = drawn
+  const farI = new Set(cities.map((c, i) => anchors.every(([ax, ay]) => far(c, ax, ay)) ? i : -1).filter((i) => i >= 0));
+  const all = cities.filter((c, i) => !farI.has(i)).map(([, x, y]) => [x, y]).concat(traps, pc.map(([, x, y]) => [x, y]), pb, ph, pt, pk);
+  if (!all.length) all.push([mx, my]);
   let x1 = Math.min(...all.map((a) => a[0])) - 6, x2 = Math.max(...all.map((a) => a[0])) + 8, y1 = Math.min(...all.map((a) => a[1])) - 6, y2 = Math.max(...all.map((a) => a[1])) + 8;   // a few tiles around for context
   O = { dx: x1 - y2, sy: x2 + y2 };
   const W = ((x2 - y1) - (x1 - y2)) * K, H = ((x2 + y2) - (x1 + y1)) * K * R;
@@ -210,17 +221,20 @@ function draw(boxId = "mm_map") {
   // far cities first so the near ones (and their names) sit on top, like in game
   const tgt = {}; pc.forEach(([n, x, y]) => { if (n) tgt[norm(n)] = [x, y]; });
   const order = cities.map((m, i) => [m, i]).sort((a, b) => (b[0][1] + b[0][2]) - (a[0][1] + a[0][2]));
-  for (const [[n, x, y], i] of order) {
+  for (const [[n, x, y], i] of order) { if (farI.has(i)) continue;
     const [cx, cy] = P(x + 1, y + 1), on = !!idx[norm(n)], sel = SEL === i, g = tgt[norm(n)], arrived = g && g[0] === x && g[1] === y;
     s.push(`<g class="mm-c${sel ? " sel" : ""}" data-i="${i}" tabindex="0" role="button" aria-label="${esc(n)} X${x} Y${y}"><polygon points="${poly(x, y, 2)}" fill="${arrived ? "#8fd19e" : on ? "#9ec3f0" : "#f3b46b"}" stroke="${sel ? "#ffde4a" : "#ffffffcc"}" stroke-width="${sel ? 3 : 1.2}"/>`
       + `<text x="${cx}" y="${cy + 3}" text-anchor="middle" class="mm-n">${esc(n.length > 10 ? n.slice(0, 9) + "…" : n)}</text></g>`);
   }
   box.innerHTML = `<svg viewBox="-6 -6 ${W + 12} ${H + 12}" width="${Math.max(W + 12, 300)}" style="display:block;max-width:none">${s.join("")}</svg>`;
   const v = (PL ? "p" : "n") + cities.length + "," + pc.length;
-  if (SEL == null && box.dataset.v !== v) { box.dataset.v = v;   // open on the new HQ when there is a plan, else in the middle
-    const sc = box.scrollWidth / (W + 12), f = ph[0] ? P(ph[0][0] + 6, ph[0][1] + 6) : null;
-    box.scrollLeft = f ? (f[0] + 6) * sc - box.clientWidth / 2 : (box.scrollWidth - box.clientWidth) / 2;
-    box.scrollTop = f ? (f[1] + 6) * sc - box.clientHeight / 2 : (box.scrollHeight - box.clientHeight) / 2; }
+  /* opens on our HQ now (not the new HQ); 📍 / 🧭 buttons jump between the two */
+  const goTo = (x, y) => { const sc = box.scrollWidth / (W + 12), f = P(x, y); box.scrollLeft = (f[0] + 6) * sc - box.clientWidth / 2; box.scrollTop = (f[1] + 6) * sc - box.clientHeight / 2; };
+  JUMP = { now: () => goTo(mx + .5, my + .5), hq: ph[0] ? () => goTo(ph[0][0] + 1.5, ph[0][1] + 1.5) : null };
+  if (SEL == null && box.dataset.v !== v) { box.dataset.v = v; JUMP.now(); }
+  const jb = $("mm_jump"); if (jb) jb.innerHTML = `<button type="button" class="btn small" data-j="now">${esc(t("goNow"))}</button>${JUMP.hq ? ` <button type="button" class="btn small" data-j="hq">${esc(t("goNew"))}</button>` : ""}`
+    + (farI.size ? `<div class="muted" style="font-size:12.5px;margin-top:4px">${esc(t("far"))} ${[...farI].map((i) => `${esc(cities[i][0])} X:${cities[i][1]} Y:${cities[i][2]}`).join(" · ")}</div>` : "");
+  if (jb) jb.querySelectorAll("[data-j]").forEach((b) => b.onclick = () => JUMP[b.dataset.j] && JUMP[b.dataset.j]());
   box.querySelectorAll(".mm-c").forEach((g) => { g.onclick = () => select(+g.dataset.i, false); g.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(+g.dataset.i, false); } }; });
   box.querySelectorAll(".mm-b").forEach((g) => g.onclick = () => { const k = g.dataset.k; SEL = null; info(k); draw(); });
   if (MED()) box.querySelectorAll(".mm-ps").forEach((g) => g.onclick = () => { SPOT = +g.dataset.p; SEL = null; draw(); info(); const i = $("mm_asn"); if (i) i.focus({ preventScroll: true }); });
@@ -398,6 +412,7 @@ function render() {
     <div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(t("note"))}${D.at ? " · " + esc(t("last").replace("{d}", String(D.at).slice(0, 10)).replace("{b}", D.by || "?")) : ""}</div>
     ${D.m.length ? `<input class="inp" id="mm_find" list="mm_names" placeholder="${esc(t("find"))}" style="max-width:260px;margin-bottom:6px"><datalist id="mm_names">${D.m.map(([n]) => `<option value="${esc(n)}">`).join("")}</datalist>` : `<div class="muted">${esc(t(ed ? "noneEd" : "none"))}</div>`}
     <div class="mm-info" id="mm_info"></div>
+    <div id="mm_jump" style="margin-bottom:6px"></div>
     <div class="mm-map" id="mm_map"></div>
     ${legend()}
     ${lists()}
