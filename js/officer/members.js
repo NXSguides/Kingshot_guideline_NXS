@@ -34,6 +34,8 @@ const T = {
     apply: "적용", replace: "전부 바꾸기", cancel: "취소", save: "💾 저장", saving: "저장 중…", saved: "저장됨 ✅ 다른 간부는 새로고침하면 보여요.", unsaved: "아직 저장 안 됨.", by: "이름",
     edit: "변경", del: "삭제", name: "이름", bad: "읽을 수 없음: {l}", added: "{a}명 추가, {m}명 이동.", errAuth: "저장된 GitHub 키가 더 이상 안 돼요 — Sherry에게 물어보세요.", errBusy: "다른 사람이 동시에 저장했어요 — 새로고침 후 다시 해 주세요.", errNet: "GitHub에 연결할 수 없어요 — 다시 해 주세요.", noKey: "저장하려면 간부 GitHub 키가 필요해요 (게시 탭에서 설정).", locked: "간부 데이터를 잠금 해제해야 위치가 보여요.", bt: "곰 함정", hq: "본부", banner: "깃발", last: "{b}님이 {d}에 저장" },
 };
+/* 📍 texts for the MightPulse positions card */
+for (const [l, o] of Object.entries({"en": {"mpT": "📍 Positions from MightPulse", "mpHow": "MightPulse only changes positions after someone presses “Update Map” on its map. After members move: ① open the MightPulse map and press Update Map ② wait a moment ③ ↻ Get positions here ④ check the changes and press ✅ Use these positions (it saves 👥 Member positions).", "mpMap": "🗺️ MightPulse map ↗", "mpGet": "↻ Get positions", "mpBusy": "Getting positions… {d} / {n}", "mpAt": "Fetched {t}", "mpNever": "Not fetched yet.", "mpWait": "Someone fetched less than 2 minutes ago — showing that.", "mpQuota": "Today's MightPulse limit is used up — try again tomorrow.", "mpErr": "Couldn't reach the site's server — try again.", "mpNone": "No changes: 👥 Member positions already match MightPulse.", "mpChg": "{n} changes:", "mpArr": "at the new spot", "mpNew": "new", "mpOld": "⚠️ MightPulse data over 2 hours old (press Update Map on MightPulse): {names}", "mpUse": "✅ Use these positions", "mpUsed": "{n} positions updated and saved.", "mpNoEd": "Only officers who can edit 🗺️ Map can save positions.", "mpStep": "When they have moved: press Update Map on MightPulse, then ↻ Get positions (📍 card above).", "mpLast": "📍 Positions fetched {t}"}, "zh": {"mpT": "📍 從 MightPulse 更新座標", "mpHow": "MightPulse 要有人在它的地圖按「Update Map」座標才會更新。成員搬完之後：① 打開 MightPulse 地圖按 Update Map ② 等一下 ③ 在這裡按 ↻ 取得座標 ④ 確認變動，按 ✅ 套用這些座標（會存進 👥 成員位置）。", "mpMap": "🗺️ MightPulse 地圖 ↗", "mpGet": "↻ 取得座標", "mpBusy": "取得座標中… {d} / {n}", "mpAt": "取得時間 {t}", "mpNever": "還沒取得過。", "mpWait": "2 分鐘內有人取得過，先顯示那一次的。", "mpQuota": "今天的 MightPulse 次數用完了，明天再試。", "mpErr": "連不到網站的伺服器，再試一次。", "mpNone": "沒有變動：👥 成員位置已經跟 MightPulse 一樣。", "mpChg": "{n} 個變動：", "mpArr": "已到新位置", "mpNew": "新的", "mpOld": "⚠️ 這些人的 MightPulse 資料超過 2 小時（去 MightPulse 按 Update Map）：{names}", "mpUse": "✅ 套用這些座標", "mpUsed": "已更新並儲存 {n} 個座標。", "mpNoEd": "有 🗺️ 地圖編輯權限的幹部才能儲存座標。", "mpStep": "搬完之後：去 MightPulse 按 Update Map，再按 ↻ 取得座標（上面的 📍 卡片）。", "mpLast": "📍 座標取得時間 {t}"}, "pt": {"mpT": "📍 Posições do MightPulse", "mpHow": "O MightPulse só muda as posições depois que alguém aperta “Update Map” no mapa dele. Depois que os membros mudarem: ① abra o mapa do MightPulse e aperte Update Map ② espere um pouco ③ ↻ Buscar posições aqui ④ confira as mudanças e aperte ✅ Usar estas posições (salva 👥 Posições dos membros).", "mpMap": "🗺️ Mapa do MightPulse ↗", "mpGet": "↻ Buscar posições", "mpBusy": "Buscando posições… {d} / {n}", "mpAt": "Buscado {t}", "mpNever": "Ainda não buscado.", "mpWait": "Alguém buscou há menos de 2 minutos — mostrando isso.", "mpQuota": "O limite do MightPulse de hoje acabou — tente amanhã.", "mpErr": "Não deu para falar com o servidor do site — tente de novo.", "mpNone": "Sem mudanças: 👥 Posições dos membros já batem com o MightPulse.", "mpChg": "{n} mudanças:", "mpArr": "no lugar novo", "mpNew": "novo", "mpOld": "⚠️ Dados do MightPulse com mais de 2 horas (aperte Update Map no MightPulse): {names}", "mpUse": "✅ Usar estas posições", "mpUsed": "{n} posições atualizadas e salvas.", "mpNoEd": "Só oficiais que podem editar 🗺️ Mapa salvam posições.", "mpStep": "Depois que mudarem: aperte Update Map no MightPulse e depois ↻ Buscar posições (cartão 📍 acima).", "mpLast": "📍 Posições buscadas {t}"}, "ar": {"mpT": "📍 المواقع من MightPulse", "mpHow": "لا يغيّر MightPulse المواقع إلا بعد أن يضغط أحد “Update Map” على خريطته. بعد انتقال الأعضاء: ① افتح خريطة MightPulse واضغط Update Map ② انتظر قليلًا ③ ↻ جلب المواقع هنا ④ راجع التغييرات واضغط ✅ استخدم هذه المواقع (تُحفظ في 👥 مواقع الأعضاء).", "mpMap": "🗺️ خريطة MightPulse ↗", "mpGet": "↻ جلب المواقع", "mpBusy": "جارٍ جلب المواقع… {d} / {n}", "mpAt": "جُلبت {t}", "mpNever": "لم تُجلب بعد.", "mpWait": "جلبها أحدهم قبل أقل من دقيقتين — نعرض تلك.", "mpQuota": "انتهى حد MightPulse لليوم — حاول غدًا.", "mpErr": "تعذّر الوصول إلى خادم الموقع — حاول مرة أخرى.", "mpNone": "لا تغييرات: 👥 مواقع الأعضاء تطابق MightPulse.", "mpChg": "{n} تغييرات:", "mpArr": "في المكان الجديد", "mpNew": "جديد", "mpOld": "⚠️ بيانات MightPulse أقدم من ساعتين (اضغط Update Map في MightPulse): {names}", "mpUse": "✅ استخدم هذه المواقع", "mpUsed": "حُدّث {n} موقعًا وحُفظ.", "mpNoEd": "يحفظ المواقع فقط الضباط الذين يمكنهم تعديل 🗺️ الخريطة.", "mpStep": "بعد انتقالهم: اضغط Update Map في MightPulse ثم ↻ جلب المواقع (بطاقة 📍 أعلاه).", "mpLast": "📍 جُلبت المواقع {t}"}, "ko": {"mpT": "📍 MightPulse에서 위치 가져오기", "mpHow": "MightPulse는 누군가 지도에서 “Update Map”을 눌러야 위치가 바뀌어요. 연맹원이 이사한 뒤: ① MightPulse 지도를 열고 Update Map 누르기 ② 잠시 기다리기 ③ 여기서 ↻ 위치 가져오기 ④ 변경을 확인하고 ✅ 이 위치 사용 누르기 (👥 연맹원 위치에 저장돼요).", "mpMap": "🗺️ MightPulse 지도 ↗", "mpGet": "↻ 위치 가져오기", "mpBusy": "위치 가져오는 중… {d} / {n}", "mpAt": "가져온 시각 {t}", "mpNever": "아직 가져오지 않았어요.", "mpWait": "2분 안에 누가 가져왔어요 — 그 결과를 보여요.", "mpQuota": "오늘 MightPulse 한도를 다 썼어요 — 내일 다시 해 보세요.", "mpErr": "사이트 서버에 연결할 수 없어요 — 다시 해 보세요.", "mpNone": "변경 없음: 👥 연맹원 위치가 MightPulse와 같아요.", "mpChg": "변경 {n}개:", "mpArr": "새 자리 도착", "mpNew": "새로", "mpOld": "⚠️ MightPulse 데이터가 2시간 넘음 (MightPulse에서 Update Map 누르기): {names}", "mpUse": "✅ 이 위치 사용", "mpUsed": "위치 {n}개를 바꾸고 저장했어요.", "mpNoEd": "🗺️ 지도 편집 권한이 있는 간부만 위치를 저장할 수 있어요.", "mpStep": "이사한 뒤: MightPulse에서 Update Map을 누르고 ↻ 위치 가져오기 (위의 📍 카드).", "mpLast": "📍 위치 가져온 시각 {t}"}})) Object.assign(T[l], o);
 let SPOT = null;   // 🧭 the planned spot tapped on the map (index in MV.plan.c), to put a member there
 let lang = "en", G = null, D = null, SAVED = "", SEL = null, msg = "", roster = null, banners = [], pasteOpen = false, onlyLeft = false;
 /* 🚚 moving plan — its own officer tab (#move), admins only unless the 👥 table gives it; saved apart from the positions */
@@ -41,6 +43,79 @@ const MV_PATH = "data/move-plan-x7k2p9.json";
 let MV = { plan: null, done: [], st: {} }, MV_SAVED = "", mvMsg = "";
 const MED = () => OFFICER.can("move", "edit");
 const mvSnap = () => JSON.stringify({ plan: MV.plan, done: MV.done, st: MV.st || {} });
+
+/* 📍 positions from MightPulse (🚚 Move tab): the roster's players looked up on MightPulse through the Worker (only when ↻ is pressed,
+   because MightPulse changes positions only after someone presses "Update Map" on its map). The page compares them with
+   👥 Member positions; ✅ Use these positions writes the changes there (Map edit right), so the moving table and the steps tick themselves. */
+const AI_URL = "https://nxs-ai.tapegirljoke.workers.dev";
+let MP = null, mpMsg = "", mpBusy = false;
+const fmtT = (iso) => { const d = new Date(iso); if (isNaN(d)) return ""; const p = (n) => String(n).padStart(2, "0");
+  const loc = d.toLocaleString(undefined, { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false });
+  return `${p(d.getUTCMonth() + 1)}-${p(d.getUTCDate())} ${p(d.getUTCHours())}:${p(d.getUTCMinutes())} UTC (${loc})`; };
+async function mpCall(extra) {
+  let tk = ""; try { tk = localStorage.getItem("nxs-discord-v1") || ""; } catch (e) {} if (!tk) return null;
+  const r = await fetch(AI_URL, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(Object.assign({ memberpos: 1, token: tk }, extra)) });
+  const j = await r.json(); if (j && j.token) { try { localStorage.setItem("nxs-discord-v1", j.token); } catch (e) {} }
+  return j;
+}
+async function mpLoad(refresh) {
+  if (mpBusy) return; mpBusy = refresh; mpMsg = "";
+  try {
+    if (!refresh) { const j = await mpCall({}); if (j && j.pos) MP = j.pos; }
+    else for (let part = 0; part < 10; part++) {
+      const j = await mpCall({ refresh: 1, part }); if (!j || !j.ok) { mpMsg = t("mpErr"); break; }
+      if (j.pos) MP = j.pos;
+      if (j.wait) { mpMsg = t("mpWait"); break; } if (j.quota) { mpMsg = t("mpQuota"); break; }
+      if (!j.more) break;
+      mpMsg = t("mpBusy").replace("{d}", (part + 1) * 40).replace("{n}", (MP && MP.total) || "?"); renderMove();
+    }
+  } catch (e) { mpMsg = t("mpErr"); }
+  mpBusy = false; if (mpMsg === "" || /…/.test(mpMsg)) mpMsg = ""; renderMove();
+}
+/* what MightPulse says vs 👥 Member positions: the member is found by roster ID first (names typed differently still match), then by name */
+function mpDiff() {
+  if (!MP || !MP.rows) return null;
+  const idx = rosterIndex(), byId = {}, byName = {};
+  D.m.forEach(([n], i) => { const r = idx[norm(n)]; if (r && r.id != null && byId[r.id] == null) byId[r.id] = i; byName[norm(n)] = i; });
+  const tgt = {}; ((MV.plan && MV.plan.c) || []).forEach(([n, x, y]) => { if (n) tgt[norm(n)] = [x, y]; });
+  const chg = [], old = [], now = Date.now();
+  for (const r of Object.values(MP.rows)) {
+    if (!r.ok || r.x == null || r.y == null) continue;
+    if (r.alliance && !/^nxs$/i.test(r.alliance)) continue;   // left the alliance
+    if (r.asOf && now - Date.parse(r.asOf) > 2 * 3600e3) old.push(r.name);
+    const i = byId[r.id] != null ? byId[r.id] : byName[norm(r.name)];
+    const name = i != null ? D.m[i][0] : r.name, from = i != null ? [D.m[i][1], D.m[i][2]] : null;
+    if (from && from[0] === r.x && from[1] === r.y) continue;
+    const g = tgt[norm(name)];
+    chg.push({ i, name, from, to: [r.x, r.y], arr: !!(g && g[0] === r.x && g[1] === r.y) });
+  }
+  chg.sort((a, b) => (b.arr - a.arr) || a.name.localeCompare(b.name));
+  return { chg, old };
+}
+function mpCard() {
+  const df = mpDiff(), canSave = ED();
+  const list = df && df.chg.length ? `<div style="margin-top:6px"><b>${esc(t("mpChg").replace("{n}", df.chg.length))}</b><div class="mm-tw" style="max-height:220px;overflow:auto"><table class="mm-t"><tbody>
+    ${df.chg.map((c) => `<tr class="${c.arr ? "ok" : ""}"><td dir="auto">${esc(c.name)}</td><td>${c.from ? `X:${c.from[0]} Y:${c.from[1]}` : `<span class="muted">${esc(t("mpNew"))}</span>`}</td><td>→ X:${c.to[0]} Y:${c.to[1]}</td><td>${c.arr ? "✅ " + esc(t("mpArr")) : ""}</td></tr>`).join("")}
+    </tbody></table></div>${canSave ? `<button type="button" class="btn small primary" id="mp_use" style="margin-top:6px">${esc(t("mpUse"))}</button>` : `<div class="muted" style="font-size:12.5px">${esc(t("mpNoEd"))}</div>`}</div>`
+    : df ? `<div class="muted" style="font-size:13px;margin-top:6px">${esc(t("mpNone"))}</div>` : "";
+  const old = df && df.old.length ? `<div class="mv-warn" style="font-size:12.5px;margin-top:6px">${esc(t("mpOld").replace("{names}", df.old.slice(0, 15).join(", ") + (df.old.length > 15 ? " …" : "")))}</div>` : "";
+  return `<div class="mm-add" id="mp_card" style="margin-bottom:12px"><b>${esc(t("mpT"))}</b>
+    <div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("mpHow"))}</div>
+    <div class="row" style="gap:6px;flex-wrap:wrap;align-items:center"><a class="btn small" href="https://mightpulse.com/map?kid=2189" target="_blank" rel="noopener">${esc(t("mpMap"))}</a>
+    <button type="button" class="btn small" id="mp_get"${mpBusy ? " disabled" : ""}>${esc(t("mpGet"))}</button>
+    <span class="muted" style="font-size:12.5px">${esc(mpMsg || (MP && MP.fetched ? t("mpAt").replace("{t}", fmtT(MP.fetched)) : t("mpNever")))}</span></div>${old}${list}</div>`;
+}
+function bindMp(el) {
+  const g = el.querySelector("#mp_get"); if (g) g.onclick = () => mpLoad(true);
+  const u = el.querySelector("#mp_use"); if (u) u.onclick = async () => {
+    const df = mpDiff(); if (!df || !df.chg.length || !ED()) return;
+    for (const c of df.chg) { if (c.i != null) { D.m[c.i][1] = c.to[0]; D.m[c.i][2] = c.to[1]; } else D.m.push([c.name, c.to[0], c.to[1]]); }
+    let by = ""; try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {}
+    await save((by || "MightPulse") + " · 📍"); mpMsg = msg === t("saved") ? t("mpUsed").replace("{n}", df.chg.length) : msg; renderMove(); };
+}
+/* 🚩 banners ticked by hand in 🧭 Move steps count as standing on 🗺️ Map too (and Map's own ✅ Built shows here by itself) */
+function ticked() { const set = new Set(((MV && MV.st) || {}).b || []); return ((MV && MV.plan && MV.plan.b) || []).filter(([x, y]) => set.has(x + "," + y)).map(([x, y]) => [x, y]); }
+const mapSync = () => { try { if (window.KM_SHARED && KM_SHARED.moveChanged) KM_SHARED.moveChanged(); } catch (e) {} };
 const t = (k) => (T[lang] || T.en)[k] || T.en[k];
 const ED = () => OFFICER.can("map", "edit");
 const norm = (s) => String(s || "").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
@@ -219,10 +294,10 @@ function applyPaste(replace) {
   if (!bad.length) { pasteOpen = false; }
   SEL = null; render();
 }
-async function save() {
+async function save(byArg) {
   if (!ED()) return;
   if (!OFFICER.token) { msg = t("noKey"); render(); return; }
-  const by = ($("mm_byn").value || "").trim() || "?"; try { localStorage.setItem("nxs-plan-by", by); } catch (e) {}
+  const by = (typeof byArg === "string" ? byArg : ($("mm_byn") ? $("mm_byn").value : "") || "").trim() || "?"; try { localStorage.setItem("nxs-plan-by", by); } catch (e) {}
   msg = t("saving"); render();
   const next = { m: D.m, bt: D.bt, by, at: new Date().toISOString() };
   const u8b64 = (str) => { const u = new TextEncoder().encode(str); let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
@@ -344,7 +419,7 @@ function render() {
   $("mm_apply").onclick = () => applyPaste(false);
   if ($("mm_repl")) $("mm_repl").onclick = () => applyPaste(true);
   $("mm_pcan").onclick = () => { pasteOpen = false; $("mm_pbox").hidden = true; };
-  if ($("mm_save")) $("mm_save").onclick = save;
+  if ($("mm_save")) $("mm_save").onclick = () => save();
 }
 async function load() {
   let d = null;
@@ -361,6 +436,7 @@ async function init(map) {
   if (!(window.OfficerData && OfficerData.ready && OfficerData.ready())) { el.innerHTML = `<h3 style="margin:0 0 4px">${esc(t("t"))}</h3><div class="muted">${esc(t("locked"))}</div>`; return; }
   if (!window.KM_SHARED) { try { banners = ((await fetch("data/banners-2189.json?v=20").then((r) => r.json())).b || []).map(([x, y]) => [x, y]); } catch (e) {} }
   await load(); render();
+  if (OFFICER.can("move", "view") && !MV.plan) { try { await loadMove(); mapSync(); } catch (e) {} }
   try { roster = await OfficerData.fetchJsonFast("data/roster-x7k2p9.json", (r) => { roster = r; render(); }); } catch (e) {}
   render();
 }
@@ -391,12 +467,13 @@ function steps() {
   if (hq) phases.push({ h: t("stHq").replace("{xy}", `${hq[0]},${hq[1]}`), body: `<button type="button" class="btn small mv-chip${hqD ? " ok" : ""}" data-hq="1"${hqD === 2 || !ed ? " disabled" : ""}>${ico(hqD)} HQ ${hq[0]},${hq[1]}</button>`, ok: !!hqD });
   const two = pt.length >= 2, mline = (i) => `<span class="mv-cnt">${esc(t(two ? (i ? "stM2" : "stM1") : "stM").replace("{d}", side[i].d).replace("{n}", side[i].n))}</span>`;
   if (S1.length) phases.push({ h: t("stS1"), body: S1.map(chip).join(" "), ok: all(S1) });
-  phases.push({ h: two ? t("stMove2") : t("stMove"), body: mline(two ? 1 : 0), ok: side[two ? 1 : 0].n > 0 && side[two ? 1 : 0].d === side[two ? 1 : 0].n });
+  phases.push({ mv: 1, h: two ? t("stMove2") : t("stMove"), body: mline(two ? 1 : 0), ok: side[two ? 1 : 0].n > 0 && side[two ? 1 : 0].d === side[two ? 1 : 0].n });
   if (S2.length) phases.push({ h: t("stS2"), body: S2.map(chip).join(" "), ok: all(S2) });
-  if (two) phases.push({ h: t("stMove1"), body: mline(0), ok: side[0].n > 0 && side[0].d === side[0].n });
+  if (two) phases.push({ mv: 1, h: t("stMove1"), body: mline(0), ok: side[0].n > 0 && side[0].d === side[0].n });
   if (pt.length) phases.push({ h: t("stBt"), body: pt.map(([x, y], i) => `<button type="button" class="btn small mv-chip${btD[i] ? " ok" : ""}" data-bt="${i}"${btD[i] === 2 || !ed ? " disabled" : ""}>${ico(btD[i])} BT${i + 1} ${x},${y}</button>`).join(" "), ok: btD.every(Boolean) });
   if (rest.length) phases.push({ h: t("stOther"), body: rest.map(chip).join(" "), ok: all(rest) });
   const cur = phases.findIndex((p) => !p.ok);
+  if (cur >= 0 && phases[cur].mv) phases[cur].body += `<div class="muted" style="font-size:12.5px;margin-top:4px">📍 ${esc(t("mpStep"))}${MP && MP.fetched ? " · " + esc(t("mpLast").replace("{t}", fmtT(MP.fetched))) : ""}</div>`;
   /* banner budget: what stands now + blueprint banners not built yet, against the alliance limit */
   const left = pb.filter((b) => !bState(b)).length, now = own.size, tot = now + left;
   return `<h4 style="margin:4px 0 2px">${esc(t("stT"))}</h4><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(t("tapTick"))}</div>`
@@ -404,7 +481,7 @@ function steps() {
     + `<div class="${tot > 285 ? "mv-warn" : "muted"}" style="font-size:13px;margin-top:8px">${esc(t("budget").replace("{a}", now).replace("{b}", left).replace("{c}", tot))}${tot > 285 ? " — " + esc(t("budgetBad").replace("{n}", tot - 285)) : ""}</div>`;
 }
 function bindSteps(el) {
-  const tog = (key, v) => { const st = MV.st = MV.st || {}, set = new Set(st[key] || []); if (set.has(v)) set.delete(v); else set.add(v); st[key] = [...set]; mvMsg = t("unsaved"); render(); renderMove(); };
+  const tog = (key, v) => { const st = MV.st = MV.st || {}, set = new Set(st[key] || []); if (set.has(v)) set.delete(v); else set.add(v); st[key] = [...set]; mvMsg = t("unsaved"); render(); renderMove(); if (key === "b") mapSync(); };
   el.querySelectorAll(".mv-chip[data-b]").forEach((b) => b.onclick = () => MED() && tog("b", b.dataset.b));
   el.querySelectorAll(".mv-chip[data-k]").forEach((b) => b.onclick = () => MED() && tog("k", b.dataset.k));
   el.querySelectorAll(".mv-chip[data-hq]").forEach((b) => b.onclick = () => { if (!MED()) return; MV.st = MV.st || {}; MV.st.hq = !MV.st.hq; mvMsg = t("unsaved"); renderMove(); });
@@ -414,7 +491,7 @@ function renderMove() {
   const el = $("mv_root"); if (!el || !D) return;
   const ed = MED(), dirty = mvSnap() !== MV_SAVED;
   let by = ""; try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {}
-  el.innerHTML = `${MV.plan ? `<div id="mv_steps">${steps()}</div>` : `<div class="muted" style="margin-bottom:8px">${esc(t("noPlan"))}</div>`}
+  el.innerHTML = `${mpCard()}${MV.plan ? `<div id="mv_steps">${steps()}</div>` : `<div class="muted" style="margin-bottom:8px">${esc(t("noPlan"))}</div>`}
     ${moveTable()}
     ${ed && MV.plan ? `<div class="mm-add" style="margin-top:12px"><b>${esc(t("addT"))}</b> <span class="muted" style="font-size:12.5px">${esc(t("addNote"))}</span>
       <div class="row" style="gap:6px;flex-wrap:wrap;margin-top:6px;align-items:center"><input class="inp" id="mv_an" list="mv_names" placeholder="${esc(t("name"))}" style="width:150px">
@@ -428,14 +505,14 @@ function renderMove() {
       ${dirty ? `<input class="inp" id="mv_byn" value="${esc(by)}" placeholder="${esc(t("by"))}" style="width:130px"><button class="btn primary" id="mv_save">${esc(t("save"))}</button>` : ""}
       <span class="muted" style="font-size:12.5px">${esc(mvMsg)}</span></div>
       <div class="muted" style="font-size:12px;margin-top:4px">${esc(t("impNote"))}</div>` : ""}`;
-  bindSteps(el);
+  bindSteps(el); bindMp(el);
   if ($("mm_left")) $("mm_left").onchange = (e) => { onlyLeft = e.target.checked; renderMove(); };
   el.querySelectorAll(".mm-cp").forEach((b) => b.onclick = async () => { try { await navigator.clipboard.writeText(b.dataset.c); b.textContent = t("copied"); } catch (e) {} });
   el.querySelectorAll("[data-done]").forEach((c) => c.onchange = () => { if (!MED()) return; const k = c.dataset.done, set = new Set((MV.done || []).map(norm));
     if (c.checked) set.add(k); else set.delete(k); MV.done = [...set]; mvMsg = t("unsaved"); render(); renderMove(); });
   if (!ed) return;
   $("mv_file").onchange = async (e) => { const f = e.target.files[0]; e.target.value = ""; if (f) importPlan(await f.text(), f.name); };
-  if ($("mv_pdel")) $("mv_pdel").onclick = () => { if (!window.confirm(t("impDel") + "?")) return; MV = { plan: null, done: [], st: {} }; mvMsg = t("unsaved"); render(); renderMove(); };
+  if ($("mv_pdel")) $("mv_pdel").onclick = () => { if (!window.confirm(t("impDel") + "?")) return; MV = { plan: null, done: [], st: {} }; mvMsg = t("unsaved"); render(); renderMove(); mapSync(); };
   if ($("mv_save")) $("mv_save").onclick = saveMove;
   /* ➕ give someone a spot (or change it): the name takes an empty planned spot at that X Y, else a new spot is added */
   el.querySelectorAll(".mv-slot").forEach((b) => b.onclick = () => { $("mv_ax").value = b.dataset.x; $("mv_ay").value = b.dataset.y; $("mv_an").focus(); });
@@ -480,7 +557,7 @@ async function initMove() {
   if (!(window.OfficerData && OfficerData.ready && OfficerData.ready())) { el.innerHTML = `<div class="muted">${esc(t("locked"))}</div>`; return; }
   if (OFFICER.ensure) await OFFICER.ensure("map");
   for (let i = 0; i < 50 && !D; i++) await new Promise((r) => setTimeout(r, 100));
-  await loadMove(); render(); renderMove();
+  await loadMove(); render(); renderMove(); mapSync(); mpLoad(false);
   if (window.HivePlanner) HivePlanner.init();   // 📐 auto plan from a Mapper layout
 }
 /* 📘 hive rules (from public guides + what officers checked in game), shown above the move table */
@@ -488,6 +565,6 @@ function rulesCard() { const c = $("mv_rules"); if (!c) return; c.querySelector(
 function setLang(l) { lang = l; if (window.HivePlanner && $("hp_root") && $("hp_root").innerHTML) HivePlanner.setLang(l); if (D) render(); if ($("mv_title")) { $("mv_title").textContent = t("mvPage"); $("mv_intro").textContent = t("mvIntro"); rulesCard(); } if (D && $("mv_root") && $("mv_root").innerHTML) renderMove(); }
 let rT = 0;
 function refresh() { clearTimeout(rT); rT = setTimeout(() => { if (D) { draw(); const st = $("mv_steps"); if (st && MV.plan) { st.innerHTML = steps(); bindSteps(st); } } }, 150); }   // the map tab's banners / obstacles changed
-window.MemberMap = { init, setLang, refresh, importPlan };   // importPlan: 📐 the auto planner (js/officer/planner.js) hands its blueprint over
+window.MemberMap = { init, setLang, refresh, importPlan, ticked };   // importPlan: 📐 the auto planner (js/officer/planner.js) hands its blueprint over
 OFFICER_PAGES.move = { init: initMove, onShow: () => { if (D && MV) renderMove(); }, applyTexts: () => {}, setLang };
 })();

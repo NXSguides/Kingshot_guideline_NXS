@@ -26,6 +26,7 @@ expect /sync    '{}'              '"logged_out"'
 expect /auth/me '{}'              '"logged_out"'
 expect /push/save '{"sub":{"endpoint":"https://x.example/a","keys":{"p256dh":"a","auth":"b"}},"timers":[]}' '"ok":true\|push_key_missing'
 expect /push/save '{}'            '"bad subscription"\|push_key_missing'
+expect /        '{"memberpos":1}' '"forbidden"'
 expect /        '{"question":""}' '"empty"'
 curl -s "http://127.0.0.1:$PORT/check" | grep -q '"worker":"ok"' && echo "✅ /check" || { echo "❌ /check"; fail=1; }
 exit $fail

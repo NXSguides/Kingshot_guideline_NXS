@@ -716,8 +716,12 @@ const ft = (k) => (FT[lang] || FT.en)[k];
 const FN = 1200, FR = 3;   // kingdom size · banner reach (7×7 = 3 tiles each side)
 let EXB = null, exOn = (() => { try { return localStorage.getItem("km-exb") !== "0"; } catch (e) { return true; } })();   // 🏳️ our banners already standing (data/banners-2189.json)
 /* edits officers make to the standing banners (saved with the plan): PLAN.ex = { off: ["x,y" demolished / moved away], add: [[x, y] built / corrected] } */
-const exList = () => { const e = PLAN.ex || {}, off = new Set(e.off || []);
-  return (EXB ? EXB.b.filter(([x, y]) => !off.has(x + "," + y)) : []).concat((e.add || []).map(([x, y]) => [x, y, 1])); };
+/* noMove: leave out the banners ticked as built in 🚚 Move steps (that tab tells its own ticks from Map's) */
+const exList = (noMove) => { const e = PLAN.ex || {}, off = new Set(e.off || []);
+  const out = (EXB ? EXB.b.filter(([x, y]) => !off.has(x + "," + y)) : []).concat((e.add || []).map(([x, y]) => [x, y, 1]));
+  if (noMove || !window.MemberMap || !MemberMap.ticked) return out;
+  const have = new Set(out.map(([x, y]) => x + "," + y));
+  return out.concat(MemberMap.ticked().filter(([x, y]) => !have.has(x + "," + y) && !off.has(x + "," + y)).map(([x, y]) => [x, y, 1])); };
 let OV = null;   // GRID with the officers' banner edits applied
 function rebuildOwn() {
   if (!GRID) { OV = null; return; }
@@ -1014,7 +1018,8 @@ async function init() {
 }
 /* 👥 the member map (js/officer/members.js) draws the same banners and obstacles as this map, with the officers' edits */
 window.KM_SHARED = {
-  banners: () => exList(),                      // [x, y, 1 = checked in game / 0 = estimated]
+  banners: () => exList(true),                  // [x, y, 1 = checked in game / 0 = estimated] (without 🚚 Move ticks)
+  moveChanged: () => { rebuildOwn(); drawEx(); drawFlags(); renderFlags(); },   // 🚚 Move steps ticked / unticked a banner
   planned: () => (PLAN && PLAN.fl) || [],      // 🚩 planned banners [x, y]
   others: () => otList().map(([n, x, y]) => [n, x, y, otCol(n)]),
   othersHq: () => otHq().map(([n, x, y]) => [n, x, y, otCol(n)]),   // other alliances' HQs (15×15)
