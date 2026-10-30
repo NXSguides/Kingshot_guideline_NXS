@@ -239,6 +239,17 @@ function fmt(n) {
   return n.toLocaleString(loc);
 }
 
+function kvkTab(btn, i) { const t = btn.closest(".kt"); t.querySelectorAll(".kt-btn").forEach((b, j) => b.classList.toggle("on", j === i)); t.querySelectorAll(".kt-pane").forEach((p, j) => { p.hidden = j !== i; }); }
+/* ⛶ opens the open sheet full screen (wide enough for Nia's layout on a computer; turn the phone sideways) */
+function kvkZoom(btn) {
+  const pane = [...btn.closest(".kt").querySelectorAll(".kt-pane")].find((p) => !p.hidden);
+  const o = document.createElement("div"); o.className = "kt-zoom";
+  o.innerHTML = `<button type="button" class="kt-zoom-x" aria-label="✕">✕</button><div class="kt-zoom-in">${pane.querySelector(".kvk-sheet").outerHTML}</div>`;
+  const close = () => { o.remove(); document.removeEventListener("keydown", esc); };
+  const esc = (e) => { if (e.key === "Escape") close(); };
+  o.querySelector(".kt-zoom-x").onclick = close; document.addEventListener("keydown", esc);
+  document.body.appendChild(o);
+}
 function kvkWeekday(n) { try { return new Intl.DateTimeFormat(HTML_LANG[currentLang] || "en", { weekday: "short", timeZone: "UTC" }).format(new Date(Date.UTC(2026, 0, 4 + n))); } catch (e) { return ""; } }   // n = 1 Monday … 6 Saturday
 const ul = (items) =>
   `<ul class="prep-list">${items.map((i) => `<li>${rich(i)}</li>`).join("")}</ul>`;
@@ -448,6 +459,12 @@ const BLOCKS = {
 
   /* 🗓️ KvK cheat-sheets (Nia's three pictures, rebuilt as page blocks): the phase timeline, what to use on which prep day,
      and the biggest point items per day. Day colours: Day 1 orange · 2 green · 3 teal · 4 yellow · 5 coral. */
+  /* the three cheat-sheets as tabs: one shows at a time; each keeps Nia's wide layout and scrolls sideways on a phone */
+  kvktabs: (b, g) => {
+    const r = (x) => BLOCKS[x.type](x, g);
+    const tabs = b.tabs.map((x, i) => `<button type="button" class="kt-btn${i ? "" : " on"}" onclick="kvkTab(this,${i})">${rich(x.tab)}</button>`).join("");
+    return `<div class="kt"><div class="kt-bar" role="tablist">${tabs}<button type="button" class="kt-zoom-btn" onclick="kvkZoom(this)" aria-label="⛶">⛶</button></div>${b.tabs.map((x, i) => `<div class="kt-pane"${i ? " hidden" : ""}><div class="ks-scroll">${r(x)}</div></div>`).join("")}</div>`;
+  },
   kvkflow: (b) => {
     const wd = kvkWeekday;
     const phases = b.phases.map((ph, i) => `<div class="kf-ph kc-${["o", "g", "y", "t"][i]}"><div class="kf-hd"><span class="kf-n">${i + 1}</span><div><b>${rich(ph.title)}</b><small>${rich(ph.tag)}</small></div></div>${ul(ph.lines)}</div>`).join('<span class="kf-arrow" aria-hidden="true"></span>');

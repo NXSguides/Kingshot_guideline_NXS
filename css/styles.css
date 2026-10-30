@@ -409,6 +409,26 @@ h4.sub-h { font-size: 15px; margin: 16px 0 6px; }
 .tl-card .prep-list { margin-top: 6px; }
 
 /* 🗓️ KvK cheat-sheets (from Nia's pictures) */
+/* KvK sheets as tabs: one sheet at a time; the sheet keeps its wide layout and scrolls sideways on narrow screens */
+.kt { margin: 4px 0 22px; }
+.kt-bar { display: flex; flex-wrap: wrap; gap: 6px; padding-bottom: 6px; scrollbar-width: thin; }
+.kt-btn { flex: 0 0 auto; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); border-radius: 999px; padding: 7px 14px; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+.kt-btn.on { background: #f3d9a4; border-color: #d9a65a; color: #3a2414; }
+.ks-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 6px; }
+.ks-scroll > .kvk-sheet { min-width: 760px; margin-bottom: 4px; }
+.ks-scroll .kq { grid-template-columns: repeat(5, 1fr); }
+.ks-scroll .ks-t { display: none; }
+.ks-scroll .kf-days { grid-template-columns: repeat(5, 1fr); }
+/* soft shadows at the edges show there is more to scroll sideways */
+.ks-scroll { background: linear-gradient(to right, var(--panel) 30%, transparent) left / 24px 100% no-repeat local, linear-gradient(to left, var(--panel) 30%, transparent) right / 24px 100% no-repeat local, radial-gradient(farthest-side at 0 50%, rgba(60,40,20,.28), transparent) left / 12px 100% no-repeat scroll, radial-gradient(farthest-side at 100% 50%, rgba(60,40,20,.28), transparent) right / 12px 100% no-repeat scroll; }
+.kt-bar { align-items: center; }
+.kt-zoom-btn { margin-inline-start: auto; flex: 0 0 auto; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-size: 18px; cursor: pointer; }
+.kt-zoom { position: fixed; inset: 0; z-index: 9000; background: var(--panel); overflow: auto; padding: 16px; }
+.kt-zoom-in { max-width: 1200px; margin: 0 auto; }
+.kt-zoom-in > .kvk-sheet { min-width: 760px; }
+.kt-zoom-in .kq { grid-template-columns: repeat(5, 1fr); }
+.kt-zoom-in .kf-days { grid-template-columns: repeat(5, 1fr); }
+.kt-zoom-x { position: fixed; top: 10px; inset-inline-end: 12px; z-index: 1; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); font-size: 18px; cursor: pointer; }
 .kvk-sheet { --ks-card: #fdf6e4; --ks-ink: #4a3220; margin: 4px 0 22px; container-type: inline-size; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .kvk-sheet { --ks-card: #2f261b; --ks-ink: #f0e2c8; } }
 :root[data-theme="dark"] .kvk-sheet { --ks-card: #2f261b; --ks-ink: #f0e2c8; }
