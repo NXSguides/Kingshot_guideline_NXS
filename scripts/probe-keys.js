@@ -15,6 +15,7 @@ function shape(v, d = 0) {
     try { const res = await fetch(BASE + p, { headers: { Authorization: `Bearer ${KEY}` } }); const body = await res.json().catch(() => null);
       console.log(`${res.status}  ${p}`); if (body) console.log("   " + shape(body).slice(0, 3400));
       if (body && (body.error || body.message)) console.log(`   message: ${String(body.error || body.message).slice(0, 200)}`);
+      if (body && body.board) console.log(`   board ${body.board.key}: limit ${body.board.limit}, count ${body.board.count}, rows ${(body.board.rows || []).length}, captured ${new Date(body.board.captured_at * (body.board.captured_at < 1e12 ? 1000 : 1)).toISOString()}, NXS rows ${(body.board.rows || []).filter((r) => r.alliance_abbr === "NXS").length}`);
       if (body && body.kingdom && Array.isArray(body.kingdom.board_totals)) console.log("   boards: " + body.kingdom.board_totals.map((b) => `${b.type}/${b.key}=${b.label}`).join(" · "));
       if (body && Array.isArray(body.detail)) body.detail.forEach((d) => console.log(`   detail: ${JSON.stringify(d.loc)} ${d.msg}`));
     } catch (e) { console.log(`ERR ${p}`); }
