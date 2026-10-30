@@ -62,7 +62,7 @@ async function handle(req, env, ctx) {
   {
     if (req.method === "OPTIONS") return new Response(null, { headers: cors });
     const path = new URL(req.url).pathname;
-    if (path.startsWith("/auth/") || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/perms") return authRoute(req, env, path, ctx);   // 🔑 officer login with Discord
+    if (path.startsWith("/auth/") || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/rewards" || path === "/perms") return authRoute(req, env, path, ctx);   // 🔑 officer login with Discord
     if (path === "/push/save" || path === "/push/test") {
       if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
       return pushRoute(req, env, path);
@@ -388,6 +388,7 @@ NEWER TOOLS (officers)
 [events] - 📅 Events → "📣 Announcement draft" (公告草稿): "UPCOMING KEY EVENTS" with our times for the next 3/5/7 days, ready to paste in game (300-character limit, counter shown; tick which events go in). Each to-do card also has "📣 Game post" (遊戲公告) for a one-event reminder.
 [events] - 📅 Events → "⏰ Our event times": a time can be tied to a battle day with @, e.g. "22:00@1, 13:00@3" (Viking: Day 1 22:00, Day 3 13:00).
 [ranking] - 📊 Ranking → ④ Battle table: "⚔️ Swordland rules draft" fills Phase 1, Phase 2 and Stay behind from the ranking (subs left out); ↩️ Undo next to the plan picker; 🕘 Version history (版本紀錄): the last 150 saves of each plan — pick one to put the plan back (↩️ Undo cancels); "📱 Battle table last edited on this device" brings back a table that was made on that phone/computer but never reached the shared plan.
+[map] - 🗺️ Map → 🎁 Fortress & Sanctuary rewards → "✏️ Update rewards" (更新獎勵, officers with ✏️ Map rights): the special reward of each Fortress / Sanctuary can rotate every round, so pick each one's reward and amount from the in-game Battle Rewards screen ("✍️ Other" adds a reward by name). Saved on the Worker for every officer; the card shows "Last update: who · date" (or "Built into the site" until someone updates it). The rotation of 2026-10-30: Sanctuaries 1/5/9 Custom Epic Hero Shard Chest ×300, 2/6/10 10,000 Hero XP ×300, 3/7/11 1h General Speedup ×400, 4/8/12 Advanced Teleporter ×90; Fortresses 1 Saul Shard ×420, 2 and 3 Mythic skill books ×600, 4 Enhancement XP ×500.
 [map] - 🗺️ Map → 🚩 banner plan → "⬇️ Download banner coordinates (CSV)": every banner the map shows now (the banner file plus officers' saved edits: built / demolished / moved) and the 🚩 planned ones, as a Kingshot Mapper CSV (type,X,Y,label,#color,seq) that can be imported there. Label NXS = checked in game, NXS? = estimated from the territory picture, plan = planned, not built yet. Use it to count banners or check for missing ones. "⬇️ Download other alliances' banners (CSV)" does the same for the 🏴 other-alliance layer (label = their tag, their HQs included).
 [move] - 🚚 Move → "👥 Member positions" (成員位置, at the top of the 🚚 Move page; it used to be on 🗺️ Map): ONE map for the whole move — our block drawn like the in-game map (every member's city, Bear Traps, HQ, banners, mountains/lakes from the map). Search a name or tap a city for X:Y and a copy button. Editors: tap a city to change name / X / Y, or "📋 Paste positions" (one per line: name X Y; the box opens with the current list — fix it and press "Replace all"), then 💾 Save. Names are kept exactly as typed; blue = found on the roster, orange = not found. With a moving plan loaded, the plan is drawn on the same map as a blueprint: dashed squares = planned city spots (name shown; green once that member is there), numbered banners = road (R1…), early hive banners (P1…), stage 1 (S1-…, BT2 side) and stage 2 (S2-…, BT1 side) — solid with a green rim once our banner stands there; dashed HQ + its 15×15 and dashed Bear Traps = their new place; other alliances' territory shaded; ✖ = another alliance's banner we must take down (green ✓ once ticked). A legend sits under the map.
 [move] - 🚚 Move → putting members on the plan by tapping (成員分配): with a moving plan loaded, officers with the move edit right tap a dashed planned spot on the 👥 map; a box under the map shows the spot X:Y, a name field and the list of members not placed yet — tap a name (or type it, ✓ Put here) and the next empty spot nearby is picked so a row fills quickly; "Empty this spot" takes the name out; a member put on a new spot leaves their old spot empty. Then 💾 Save. (Members can also be named in Mapper before exporting, or one by one with "➕ Add / change a spot".)
@@ -1323,6 +1324,34 @@ async function plansRoute(env, stub, user, body, token, perms) {
   if (op === "del") return write(async () => { await stub.rpDel(id, { name: user.name }); return json({ ok: true, token, stamp: await plansTouch(env) }); });
   return json({ error: "bad request" }, 400);
 }
+/* 🎁 /rewards — the Sanctuary Battle special rewards (they rotate between seasons): officers with ✏️ Map rights update them on the
+   Map tab; everyone who may open the Map tab reads them. Stored in the DO (kv "rewards"), the last 20 versions in "rewards:hist".
+   rewards = { special: { fortress: { "1": [itemId, qty] … }, sanctuary: { … } }, items: { customId: { en, zh, … } }, by, at } */
+async function rewardsRoute(stub, user, body, token, perms) {
+  const op = String(body.op || "get"), role = roleOf(perms, user.id);
+  const u = perms && perms.users && perms.users[user.id];
+  const mayView = role === "admin" || !!(u && u.perms && u.perms.map && u.perms.map !== "none");
+  if (!mayView) return json({ error: "no_access" }, 403);
+  if (op === "get") return json({ ok: true, token, rewards: (await stub.kvGet("rewards")) || null });
+  if (op !== "save") return json({ error: "bad request" }, 400);
+  if (!canEdit(perms, user.id, "map")) return json({ error: "view_only" }, 403);
+  const r = body.rewards && typeof body.rewards === "object" ? body.rewards : null; if (!r || !r.special) return json({ error: "bad request" }, 400);
+  const id = (x) => /^[\w-]{1,40}$/.test(String(x)) ? String(x) : null, qty = (x) => Math.max(0, Math.min(1e7, Math.round(+x || 0)));
+  const special = {};
+  for (const k of ["fortress", "sanctuary"]) { special[k] = {};
+    for (const [n, v] of Object.entries((r.special && r.special[k]) || {})) { if (!/^\d{1,2}$/.test(n) || !Array.isArray(v) || !id(v[0])) continue; special[k][n] = [id(v[0]), qty(v[1])]; } }
+  const items = {};
+  for (const [k, v] of Object.entries(r.items || {}).slice(0, 40)) { if (!id(k) || !v || typeof v !== "object") continue; items[k] = {};
+    for (const [l, t] of Object.entries(v)) if (/^[a-z]{2}$/.test(l)) items[k][l] = String(t).slice(0, 80); }
+  const clean = { special, items, by: user.name, at: Date.now() };
+  if (JSON.stringify(clean).length > 30000) return json({ error: "too_big" }, 413);
+  try {
+    const old = await stub.kvGet("rewards");
+    if (old) { const h = (await stub.kvGet("rewards:hist")) || []; h.unshift(old); await stub.kvSet("rewards:hist", h.slice(0, 20)); }
+    await stub.kvSet("rewards", clean);
+  } catch (e) { return json({ error: "db", detail: [String(e && e.message || e)] }, 503); }
+  return json({ ok: true, token, rewards: clean });
+}
 async function attendRoute(env, stub, user, body, token, mayEdit) {
   const op = String(body.op || "list");
   if (op !== "list" && !mayEdit) return json({ error: "view_only" }, 403);
@@ -1634,7 +1663,7 @@ async function authRoute(req, env, path, ctx) {
       return back("login=" + session);
     } catch (e) { return back("login_error=discord"); }
   }
-  if (path === "/auth/me" || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/perms") {
+  if (path === "/auth/me" || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/rewards" || path === "/perms") {
     if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
     let body; try { body = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
     const c = await sessionCheck(req, env, body.token);   // Discord login only (the officer password alone no longer opens anything)
@@ -1660,6 +1689,7 @@ async function authRoute(req, env, path, ctx) {
     if (path === "/board") return boardRoute(env, ctx, stub, u, body, token, canEdit(perms, s.u.id, "board"), perms);
     if (path === "/attend") return attendRoute(env, stub, u, body, token, canEdit(perms, s.u.id, "attend"));
     if (path === "/plans") return plansRoute(env, stub, u, body, token, perms);
+    if (path === "/rewards") return rewardsRoute(stub, u, body, token, perms);
     if (path === "/perms") return permsRoute(stub, u, body, token, role);
     if (path === "/sync/forget") { if (body.sub && body.sub.endpoint) await stub.forget(String(body.sub.endpoint)); return json({ ok: true }); }
     const st = body.state && typeof body.state === "object" ? body.state : {};

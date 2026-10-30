@@ -207,6 +207,56 @@ const RT = {
 };
 const rt = (k) => (RT[lang] || RT.en)[k] ?? RT.en[k];
 const iName = (id) => { const it = G.rewards.items[id]; return it ? it[lang] || it.en : id; };
+
+/* ✏️ the rewards rotate between rounds: officers with ✏️ Map rights update them here (saved on the Worker, /rewards).
+   The saved copy replaces the built-in one (data/kingdom-map.js); "Other" adds a reward by name. */
+const RWE = {"zh": {"edit": "✏️ 更新獎勵", "title": "✏️ 更新這一輪的要塞與遺跡獎勵", "note": "獎勵每一輪都可能輪換。照遊戲裡「爭奪獎勵」的畫面，替每座要塞 / 遺跡選獎品、填數量。清單裡沒有的選「✍️ 其他」直接打名字。存了以後所有幹部都看得到。", "other": "✍️ 其他…", "otherPh": "獎品名稱（照遊戲裡的寫法）", "qty": "數量", "save": "儲存", "cancel": "取消", "saving": "儲存中…", "saved": "✅ 已存", "err": "存不進去：{e}", "last": "最後更新：{who} · {t}", "builtIn": "網站內建資料（{d}）"}, "en": {"edit": "✏️ Update rewards", "title": "✏️ Update this round's Fortress & Sanctuary rewards", "note": "The rewards can rotate every round. Following the in-game Battle Rewards screen, pick each Fortress / Sanctuary's reward and amount. Not in the list? Pick “✍️ Other” and type the name. Once saved, every officer sees it.", "other": "✍️ Other…", "otherPh": "Reward name (as written in the game)", "qty": "Amount", "save": "Save", "cancel": "Cancel", "saving": "Saving…", "saved": "✅ Saved", "err": "Couldn't save: {e}", "last": "Last update: {who} · {t}", "builtIn": "Built into the site ({d})"}, "pt": {"edit": "✏️ Atualizar recompensas", "title": "✏️ Atualizar as recompensas das Fortalezas e Santuários desta rodada", "note": "As recompensas podem mudar a cada rodada. Seguindo a tela Recompensas da Batalha do jogo, escolha a recompensa e a quantidade de cada Fortaleza / Santuário. Não está na lista? Escolha “✍️ Outro” e digite o nome. Depois de salvar, todos os oficiais veem.", "other": "✍️ Outro…", "otherPh": "Nome da recompensa (como está no jogo)", "qty": "Quantidade", "save": "Salvar", "cancel": "Cancelar", "saving": "Salvando…", "saved": "✅ Salvo", "err": "Não foi possível salvar: {e}", "last": "Última atualização: {who} · {t}", "builtIn": "Dados do site ({d})"}, "ar": {"edit": "✏️ تحديث المكافآت", "title": "✏️ تحديث مكافآت الحصون والمآوي لهذه الجولة", "note": "قد تتغير المكافآت في كل جولة. حسب شاشة مكافآت المعركة في اللعبة، اختر مكافأة كل حصن / مأوى وكميتها. إن لم تكن في القائمة فاختر «✍️ أخرى» واكتب الاسم. بعد الحفظ يراها كل الضباط.", "other": "✍️ أخرى…", "otherPh": "اسم المكافأة (كما في اللعبة)", "qty": "الكمية", "save": "حفظ", "cancel": "إلغاء", "saving": "جارٍ الحفظ…", "saved": "✅ تم الحفظ", "err": "تعذّر الحفظ: {e}", "last": "آخر تحديث: {who} · {t}", "builtIn": "بيانات الموقع ({d})"}, "ko": {"edit": "✏️ 보상 업데이트", "title": "✏️ 이번 회차 성채·유적 보상 업데이트", "note": "보상은 회차마다 바뀔 수 있어요. 게임의 「쟁탈 보상」 화면을 보고 성채 / 유적마다 보상과 수량을 고르세요. 목록에 없으면 「✍️ 기타」를 골라 이름을 입력하세요. 저장하면 모든 간부가 봐요.", "other": "✍️ 기타…", "otherPh": "보상 이름 (게임 표기대로)", "qty": "수량", "save": "저장", "cancel": "취소", "saving": "저장 중…", "saved": "✅ 저장됨", "err": "저장하지 못했어요: {e}", "last": "마지막 업데이트: {who} · {t}", "builtIn": "사이트 기본 데이터 ({d})"}};
+const rwe = (k, v = {}) => String((RWE[lang] || RWE.en)[k] ?? RWE.en[k]).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
+let RW_META = null;   // { by, at } of the officers' saved copy
+const RW_BUILTIN = "2026-10-30";
+async function rwApi(op, extra = {}) {
+  const r = await fetch(AUTH_API + "/rewards", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), op, ...extra }) });
+  const j = await r.json().catch(() => ({ error: "network" }));
+  if (j.token) { try { localStorage.setItem(DISCORD_LS, j.token); } catch (e) {} }
+  if (!r.ok || j.error) throw new Error(j.error || "HTTP " + r.status);
+  return j;
+}
+function rwApply(r) {
+  if (!r || !r.special || !G.rewards) return;
+  Object.assign(G.rewards.items, r.items || {});
+  for (const k of ["fortress", "sanctuary"]) if (r.special[k] && Object.keys(r.special[k]).length) G.rewards[k].special = r.special[k];
+  RW_META = { by: r.by, at: r.at };
+}
+async function loadRewards() { try { const j = await rwApi("get"); if (j.rewards) { rwApply(j.rewards); renderList(); renderInfo(); } } catch (e) {} }
+function rwEdit() {
+  const kinds = [["fortress", "◆", (ZH() ? ZH().fortressS : "Fortress")], ["sanctuary", "●", (ZH() ? ZH().sanctuaryS : "Sanctuary")]];
+  const ids = Object.keys(G.rewards.items).sort((a, b) => iName(a).localeCompare(iName(b)));
+  const opts = (sel) => ids.map((i) => `<option value="${esc(i)}"${i === sel ? " selected" : ""}>${esc(iName(i))}</option>`).join("") + `<option value="__other">${esc(rwe("other"))}</option>`;
+  const rows = kinds.map(([k, sym, name]) => B.filter((b) => b.kind === k).sort((a, b) => a.n - b.n).map((b) => { const sp = G.rewards[k].special[b.n] || ["", ""];
+    return `<div class="km-rwe" data-k="${k}" data-n="${b.n}"><b>${sym} ${esc(name)} ${b.n}</b><select class="inp">${opts(sp[0])}</select><input class="inp" type="number" min="0" value="${esc(sp[1])}" aria-label="${esc(rwe("qty"))}"><input class="inp km-rwo" type="text" placeholder="${esc(rwe("otherPh"))}" maxlength="80" hidden></div>`; }).join("")).join("");
+  const m = document.createElement("div"); m.className = "km-modal";
+  m.innerHTML = `<div class="card"><b>${esc(rwe("title"))}</b><div class="muted" style="font-size:12.5px;margin:6px 0 10px">${esc(rwe("note"))}</div>${rows}
+    <div class="row" style="margin-top:10px;align-items:center;gap:8px"><button class="btn primary" data-save="1">${esc(rwe("save"))}</button><button class="btn" data-close="1">${esc(rwe("cancel"))}</button><span class="msg" data-msg="1"></span></div></div>`;
+  $("pg-map").appendChild(m);
+  m.addEventListener("change", (e) => { const row = e.target.closest(".km-rwe"); if (row && e.target.tagName === "SELECT") { const o = row.querySelector(".km-rwo"); o.hidden = e.target.value !== "__other"; if (!o.hidden) o.focus(); } });
+  m.onclick = async (e) => {
+    if (e.target === m || e.target.dataset.close) return m.remove();
+    if (!e.target.dataset.save) return;
+    const special = { fortress: {}, sanctuary: {} }, items = {};
+    for (const row of m.querySelectorAll(".km-rwe")) {
+      let id = row.querySelector("select").value; const q = Math.max(0, Math.round(+row.querySelector("input[type=number]").value || 0));
+      if (id === "__other") { const name = row.querySelector(".km-rwo").value.trim(); if (!name) continue;
+        id = Object.keys(G.rewards.items).find((i) => Object.values(G.rewards.items[i]).includes(name)) || "c_" + name.toLowerCase().replace(/[^a-z0-9]+/g, "").slice(0, 20) + Math.random().toString(36).slice(2, 6);
+        if (!G.rewards.items[id]) items[id] = { en: name, [lang]: name }; }
+      special[row.dataset.k][row.dataset.n] = [id, q];
+    }
+    // the custom names saved before stay with the copy
+    const prev = {}; for (const i of Object.keys(G.rewards.items)) if (i.startsWith("c_")) prev[i] = G.rewards.items[i];
+    const msg = m.querySelector("[data-msg]"); msg.textContent = rwe("saving"); e.target.disabled = true;
+    try { const j = await rwApi("save", { rewards: { special, items: { ...prev, ...items } } }); rwApply(j.rewards); renderList(); renderInfo(); msg.textContent = rwe("saved"); setTimeout(() => m.remove(), 700); }
+    catch (x) { msg.textContent = rwe("err", { e: x.message }); e.target.disabled = false; }
+  };
+}
 const RCOL = { gen1h: "#2b6cc4", jabel: "#c0640a", saul: "#c0640a", teleport: "#2e7d32", dmg2: "#b3261e", hp2: "#b3261e", deploy2: "#b3261e", expbook: "#7b4bb7", conqbook: "#7b4bb7", enhxp: "#5d6876", epicchest: "#6a3fa0", heroxp10k: "#2b7f9e" };
 const specialOf = (b) => G.rewards && G.rewards[b.kind] && G.rewards[b.kind].special[b.n];
 function rewardsHtml() {
@@ -223,7 +273,8 @@ function rewardsHtml() {
       <div class="muted km-rws">③ ${esc(rt("special"))}</div>${rows}
       <details class="km-rwd"><summary>①② ${esc(rt("same").replace("{k}", kindName(k)))}</summary>${chests}</details></div>`;
   };
-  return `<div class="km-c km-rw" style="grid-column:1/-1"><div class="hd"><b>${esc(rt("title"))}</b></div><div class="km-rw3">${["k1", "k2", "k3"].map((k) => `<div>${esc(rt(k))}</div>`).join("")}</div>${block("fortress", "◆", "#7a4a24")}${block("sanctuary", "●", "#5d6876")}</div>`;
+  const when = RW_META ? rwe("last", { who: RW_META.by || "?", t: new Date(RW_META.at).toISOString().slice(0, 10) }) : rwe("builtIn", { d: RW_BUILTIN });
+  return `<div class="km-c km-rw" style="grid-column:1/-1"><div class="hd"><b>${esc(rt("title"))}</b>${ME() ? `<button type="button" class="btn small" data-rwedit="1">${esc(rwe("edit"))}</button>` : ""}</div><div class="muted" style="font-size:12px">${esc(when)}</div><div class="km-rw3">${["k1", "k2", "k3"].map((k) => `<div>${esc(rt(k))}</div>`).join("")}</div>${block("fortress", "◆", "#7a4a24")}${block("sanctuary", "●", "#5d6876")}</div>`;
 }
 function renderList() {
   const pr = B.filter((b) => PRIOABLE(b) && SP(b).p).sort((a, b) => SP(a).p - SP(b).p);
@@ -242,6 +293,7 @@ function renderList() {
   }
   $("km_cards").innerHTML = h;
   $("km_cards").querySelectorAll(".chip, .km-pri").forEach((c) => c.onclick = () => select(c.dataset.id, true));
+  const rwb = $("km_cards").querySelector("[data-rwedit]"); if (rwb) rwb.onclick = rwEdit;
 }
 function renderLayers() {
   const items = [["ruins", T("ruins"), "#7a4a24"], ...G.types.map(([k, , , c]) => [k, typeName(k), c])];
@@ -909,7 +961,7 @@ function onShow() {
 }
 async function init() {
   await loadScripts(["data/kingdom-map.js"]);
-  G = KINGDOM_MAP; build(); await loadPlan(); exportOutposts(PLAN); importFromLink(); drawMap(); $("km_svg").classList.toggle("terr", terrOn); drawPlan(); drawFlags(); flagEvents(); applyTexts(); ready = true; loadGrid(); loadEx(); loadOt();
+  G = KINGDOM_MAP; build(); await loadPlan(); exportOutposts(PLAN); importFromLink(); drawMap(); $("km_svg").classList.toggle("terr", terrOn); drawPlan(); drawFlags(); flagEvents(); applyTexts(); ready = true; loadGrid(); loadEx(); loadOt(); loadRewards();
   if (window.MemberMap) MemberMap.init(G);   // 👥 member positions (js/officer/members.js)
   $("km_in").onclick = () => setZoom(Z * 1.5); $("km_out").onclick = () => setZoom(Z / 1.5);
   mouseControls();
