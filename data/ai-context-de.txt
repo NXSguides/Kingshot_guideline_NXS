@@ -657,25 +657,106 @@ Jaeger — Gen 3, Bogenschütze, SSR, Kampf
 
 ### GUIDE #kvk — KvK-Vorbereitungs- & Kampfguide
 🗓️ KvK-Zeitplan
-2 Tage
+Läuft in einem weltweiten 28-Tage-Zyklus, in der letzten Woche. Dein Königreich muss mindestens 70 Tage alt sein.
+Vorbereitungstage
 Matchmaking-Phase
-Königreiche werden nach der Macht ihrer 100 aktivsten Spieler zugeteilt, nur mit Königreichen derselben Heldengeneration.
-Kein Gegner = Freilos-Belohnungen.
-KvK gibt es alle 28 Tage (letzte Woche des Zyklus); das Königreich muss mindestens 70 Tage offen sein.
-5 Tage
+2 Tage
+Paart Königreiche nach der Macht ihrer 100 aktivsten Spieler
+Nur gleiche Heldengeneration
+Kein Gegner = Freilos-Belohnung
 Vorbereitungsphase
-Jeden Tag Punkte sammeln. Persönliche Truhen bei 30.000 / 100.000 / 200.000 Punkten.
-Tag 1 Bau · Tag 2 Forschung · Tag 3 Begleittier-Training · Tag 4 Truppen · Tag 5 Alles geben, bis Samstag 10:00 UTC. Was an welchem Tag: die Tabelle unten.
-Das Königreich mit mehr Punkten erhält den Königreichsbonus und greift an.
-Samstag
+5 Tage
+Jeden Tag Punkte, Truhen bei 30k / 100k / 200k
+Der Gewinner wird Angreifer
+Tag 5 dauert bis Samstag 10:00 UTC
 Kampfphase
-10:00–22:00 UTC. Um 10:00 UTC öffnet die Umsiedlung; die Verteidiger halten bis 12:00 UTC.
-Kampf ums Königliches Schloss 12:00–17:00 UTC: Wer das Königliches Schloss 2,5 Stunden hält, gewinnt.
-Heilungsbeschleuniger für diesen Tag aufheben: erst in Etappen heilen, Beschleuniger nur, wenn die Krankenstation fast voll ist.
-Nach dem Kampf
+Sa 10:00–22:00 UTC
+Umsiedlung ab 10:00 UTC, verteidigen bis 12:00 UTC
+Kampf ums Königliches Schloss 12:00–17:00 UTC
+Das Königliches Schloss 2,5 Stunden halten = Sieg
 Feldtriage-Phase
-30 % der verlorenen Truppen kommen zurück; mit Medizinkoffer und Rettungswälzer bis zu 90 %.
-Verluste am Königliches Schloss gehen ins Musterungsamt.
+Nach dem Kampf
+Grundrettung 30 %, bis zu 90 %
+Rettungswälzer und Medizinkoffer
+Verluste am Königliches Schloss gehen ins Musterungsamt
+Tag 1
+Bau
+Tag 2
+Forschung
+Tag 3
+Begleittier-Training
+Tag 4
+Truppen
+Tag 5
+Alles geben
+Fr – Sa 10:00 UTC
+🎒 KvK-Gegenstände: Spickzettel
+Nicht früh ausgeben. Jeden Gegenstand am richtigen Tag nutzen.
+Bau-Beschleuniger
+Echtgold und gehärtetes Echtgold
+Talismanpläne und Talismanleitfaden
+Forschung-Beschleuniger
+Helden Roulette-Drehungen (Edelsteine)
+Mythisches Helden-Fragment, Episches Helden-Fragment und Seltenes Helden-Fragment
+Meister-Embleme
+Fortgeschrittene Zähmungszeichen und Gewöhnliche Zähmungszeichen
+Nährender Trank
+Aufzuchthandbuch
+Training-Beschleuniger und Truppen ausbilden
+Mithril
+Helden Exklusive Ausrüstung: Element
+Schmiedehammer
+Fortgeschrittene Zähmungszeichen
+Gouverneur-Ausrüstung: Die Vision des Handwerkers, Satin, Vergoldete Fäden
+Alles, was übrig ist
+Bevor du etwas ausgibst
+Begleittier Grauer Wolf aktivieren
+Dekret Doppeltes Tempo nutzen
+Um Höchster Minister (Tag 1, 2) oder Nobler Berater (Tag 4) bewerben
+Jederzeit nutzbar
+Helden-EP
+Begleittier-Futter
+Für den Kampf aufheben
+Heilung-Beschleuniger
+Erst in Etappen heilen, nur beschleunigen, wenn die Krankenstation fast überläuft
+⭐ KvK-Vorbereitung: Punkte pro Tag
+Die größten Punktebringer jedes Tages. Gegenstände sparen und am passenden Tag ausgeben.
+30,000
+Gehärtetes Echtgold aufwerten (ab TG8)
+6,000
+Geheimdienstmissionen
+2,000
+Echtgold-Gebäude aufwerten
+70
+Gouverneur Talisman Höchstwertung +1
+30
+pro Minute Beschleunigung
+Forschung (Grundfähigkeiten)
+8,000
+Helden Roulette, 1 Drehung
+3,040
+Mythisches Helden-Fragment
+1,220
+Episches Helden-Fragment
+350
+Seltenes Helden-Fragment
+15,000
+1,150
+Gewöhnliche Zähmungszeichen
+50
+Begleittier-Förderungswert +1
+Truppen (Heldenentwicklung)
+40,000
+Helden Exklusive Ausrüstung Element
+4,000
+3 – 75
+pro ausgebildeter Einheit, je nach Stufe
+Alles geben (Machtschub)
+36
+Gouverneur-Ausrüstung Höchstwertung +1
+Tägliche persönliche Truhen
+30.000 / 100.000 / 200.000 Punkte. Die 200.000-Truhe gibt zusätzlich eine State Medal.
+Sammeln bringt nur 2 Punkte pro Bündel, Bestienjagd gar nichts. Mithril braucht voll aufgewertete mythische Ausrüstung.
 kvk-push
 📢 9. November: TG3 ➡️ TG5 Push-Plan (nur für das nächste KvK) — hierher springen
 Echtgold
@@ -689,14 +770,9 @@ Helden-Fragment
 Helden Roulette
 Sammeln
 👍
-Geheimdienstmissionen
 Begleittier-Förderungswert
 Gouverneur Talisman
 Gouverneur-Ausrüstung
-Helden Exklusive Ausrüstung Element
-Mithril
-Schmiedehammer
-Meister-Embleme
 Meister-Manuskript
 ⏩️ Lernen
 nutzen

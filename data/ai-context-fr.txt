@@ -655,25 +655,107 @@ Jaeger — Gén 3, Archer, SSR, Combat
 
 ### GUIDE #kvk — Guide de Préparation et Combat KvK
 🗓️ Calendrier du KvK
-2 jours
+Cycle mondial de 28 jours, la dernière semaine. Votre royaume doit avoir 70 jours ou plus.
+Jours de préparation
 Phase de Matchmaking
-Les royaumes sont associés selon la puissance de leurs 100 joueurs actifs les plus forts, uniquement avec des royaumes de la même génération de héros.
-Pas d'adversaire = récompenses d'exemption.
-Le KvK a lieu tous les 28 jours (dernière semaine du cycle) ; le royaume doit être ouvert depuis 70 jours ou plus.
-5 jours
+2 jours
+Associe les royaumes selon la puissance de leurs 100 joueurs actifs
+Même génération de héros uniquement
+Pas d'adversaire = récompense d'exemption
 Phase de Préparation
-Gagnez des points chaque jour. Coffres personnels à 30 000 / 100 000 / 200 000 points.
-Jour 1 Construction · Jour 2 Recherche · Jour 3 Dressage des familiers · Jour 4 Troupes · Jour 5 Tout donner, jusqu'au samedi 10:00 UTC. Quoi utiliser quel jour : le tableau ci-dessous.
-Le royaume avec le plus de points obtient le Bonus de Royaume et devient l'attaquant.
-Samedi
+5 jours
+Des points chaque jour, coffres à 30k / 100k / 200k
+Le gagnant devient l'attaquant
+Le jour 5 dure jusqu'au samedi 10:00 UTC
 Phase de Combat
-10:00–22:00 UTC. La téléportation ouvre à 10:00 UTC ; les défenseurs tiennent jusqu'à 12:00 UTC.
-Bataille du Château Royal 12:00–17:00 UTC : tenez le Château Royal 2 h 30 pour gagner.
-Gardez les accélérations de soins pour ce jour : soignez d'abord par lots, n'utilisez les accélérations que quand l'Infirmerie est presque pleine.
-Après la bataille
+Sam 10:00–22:00 UTC
+Téléportation à 10:00 UTC, défendre jusqu'à 12:00 UTC
+Bataille du Château Royal 12:00–17:00 UTC
+Tenir le Château Royal 2 h 30 pour gagner
 Phase de Triage du Terrain
-30 % des troupes perdues reviennent ; jusqu'à 90 % avec Kit Médical et Ordres de Sauvetage.
-Les pertes au Château Royal vont au Bureau d'Enrôlement.
+Après la bataille
+Récupération de base 30 %, jusqu'à 90 %
+Ordres de Sauvetage et Kit Médical
+Les pertes au Château Royal vont au Bureau d'Enrôlement
+Jour 1
+Construction
+Jour 2
+Recherche
+Jour 3
+Dressage
+Jour 4
+Troupes
+Jour 5
+Tout donner
+Ven – Sam 10:00 UTC
+🎒 Aide-mémoire des objets KvK
+Ne les dépensez pas trop tôt. Chaque objet a son jour.
+accélérateurs de Construction
+Or Véritable et Or Véritable trempé
+Plans de Talisman et Guide de Talisman
+accélérateurs de Recherche
+Tours de Roulette des Héros (Gemmes)
+Fragment de Héros Mythique, Fragment de Héros Épique et Fragment de Héros Rare
+emblèmes d'expert
+Marque de Dressage Avancée et Marque de Dressage Commune
+Potion Nutritive
+Manuel de Croissance
+accélérateurs de Entraînement et entraînement de troupes
+Mithril
+Équipement Exclusif de Héros : Composant
+Marteau de Forge
+Marque de Dressage Avancée
+Équipement Chef : Vision de l'Artisan, Satin, Fils Dorés
+Tout ce qui reste
+Avant de dépenser quoi que ce soit
+Activer le familier Loup Gris
+Utiliser le décret Bouchées Doubles
+Postuler Premier Ministre (jours 1, 2) ou Noble Conseiller (jour 4)
+À tout moment
+XP de héros
+aliments pour animaux
+À garder pour la bataille
+accélérateurs de Soins
+Soigner d'abord par lots, accélérer seulement si l'Infirmerie va déborder
+⭐ Préparation KvK : points par jour
+Les plus gros points de chaque jour. Gardez les objets pour le bon jour.
+30,000
+Amélioration Or Véritable trempé (TG8 requis)
+6,000
+Missions de Renseignement
+2,000
+Amélioration de bâtiment Or Véritable
+70
+Talisman du Gouverneur score max +1
+30
+par minute d'accélération
+Recherche (compétences de base)
+8,000
+Roulette des Héros, 1 tour
+3,040
+Fragment de Héros Mythique
+1,220
+Fragment de Héros Épique
+350
+Fragment de Héros Rare
+Dressage des familiers
+15,000
+1,150
+Marque de Dressage Commune
+50
+avancement des animaux +1
+Troupes (développement des héros)
+40,000
+Équipement Exclusif de Héros Composant
+4,000
+3 – 75
+par unité entraînée, selon le palier
+Tout donner (gain de puissance)
+36
+Équipement Chef score max +1
+Coffres personnels quotidiens
+30 000 / 100 000 / 200 000 points. Le coffre de 200 000 donne aussi une State Medal.
+La récolte ne rapporte que 2 points par lot et la chasse aux bêtes rien. Le Mithril exige l'équipement mythique au maximum.
 kvk-push
 📢 9 novembre : plan de push TG3 ➡️ TG5 (uniquement pour le prochain KvK) — y aller
 Or Véritable
@@ -687,14 +769,9 @@ Fragment de Héros
 Roulette des Héros
 Collecte
 👍
-Missions de Renseignement
 avancement des animaux
 Talisman du Gouverneur
 Équipement Chef
-Équipement Exclusif de Héros Composant
-Mithril
-Marteau de Forge
-emblèmes d'expert
 Manuscrit d'expert
 ⏩️ Apprentissage
 utiliser

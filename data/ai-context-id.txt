@@ -655,25 +655,106 @@ Jaeger — Gen 3, Pemanah, SSR, Tempur
 
 ### GUIDE #kvk — Panduan Persiapan & Pertempuran KvK
 🗓️ Linimasa KvK
-2 hari
+Siklus global 28 hari, di minggu terakhir. Kerajaanmu harus berumur 70 hari atau lebih.
+Hari persiapan
 Fase Pencocokan
-Kerajaan dipasangkan menurut kekuatan 100 pemain aktif teratasnya, dan hanya dengan kerajaan generasi hero yang sama.
-Tidak dapat lawan = hadiah bye.
-KvK datang setiap 28 hari (minggu terakhir siklus); kerajaan harus sudah buka 70 hari atau lebih.
-5 hari
+2 hari
+Memasangkan kerajaan menurut kekuatan 100 pemain aktif teratas
+Hanya generasi hero yang sama
+Tidak ada lawan = hadiah bye
 Fase Persiapan
-Kumpulkan poin setiap hari. Peti pribadi di 30.000 / 100.000 / 200.000 poin.
-Hari 1 Konstruksi · Hari 2 Riset · Hari 3 Latihan Peliharaan · Hari 4 Pasukan · Hari 5 Habis-habisan, sampai Sabtu 10:00 UTC. Apa yang dipakai di hari apa: tabel di bawah.
-Kerajaan dengan poin lebih banyak mendapat Bonus Kerajaan dan menjadi penyerang.
-Sabtu
+5 hari
+Poin setiap hari, peti di 30k / 100k / 200k
+Pemenang menjadi penyerang
+Hari 5 sampai Sabtu 10:00 UTC
 Fase Pertempuran
-10:00–22:00 UTC. Teleportasi dibuka 10:00 UTC; bertahan sampai 12:00 UTC.
-Pertempuran Kastil Raja 12:00–17:00 UTC: tahan Kastil Raja selama 2,5 jam untuk menang.
-Simpan percepatan penyembuhan untuk hari ini: sembuhkan bertahap dulu, pakai percepatan hanya saat Rumah Sakit hampir penuh.
-Setelah pertempuran
+Sab 10:00–22:00 UTC
+Teleportasi buka 10:00 UTC, bertahan sampai 12:00 UTC
+Pertempuran Kastil Raja 12:00–17:00 UTC
+Tahan Kastil Raja 2,5 jam untuk menang
 Fase Triase Lapangan
-30% pasukan yang hilang kembali; sampai 90% dengan Tas Medis dan Perintah Penyelamatan.
-Kerugian di Kastil Raja masuk ke Kantor Pendaftaran.
+Setelah pertempuran
+Pemulihan dasar 30%, sampai 90%
+Perintah Penyelamatan dan Tas Medis
+Kerugian di Kastil Raja masuk ke Kantor Pendaftaran
+Hari 1
+Konstruksi
+Hari 2
+Riset
+Hari 3
+Latihan Peliharaan
+Hari 4
+Pasukan
+Hari 5
+Habis-habisan
+Jum – Sab 10:00 UTC
+🎒 Contekan item KvK
+Jangan dipakai lebih awal. Setiap item punya harinya.
+percepatan Konstruksi
+Truegold dan Truegold Tempa
+Desain Charm dan Panduan Charm
+percepatan Penelitian
+Putaran Rolet Hero (Permata)
+Fragmen Hero Mythic, Fragmen Hero Epic dan Fragmen Hero Rare
+Emblem Master
+Tanda Penjinakan Advanced dan Tanda Penjinakan Common
+Ramuan Nutrisi
+Manual Pertumbuhan
+percepatan Pelatihan dan latih pasukan
+Mithril
+Gear Ekslusif Hero: Widget
+Forgehammer
+Tanda Penjinakan Advanced
+Gear Gubernur: Artisan's Vision, Satin, Gilded Threads
+Semua yang tersisa
+Sebelum memakai apa pun
+Aktifkan peliharaan Gray Wolf
+Pakai dekret Double Time
+Ajukan Perdana Menteri (hari 1, 2) atau Penasihat Kerajaan (hari 4)
+Kapan saja
+XP Hero
+Makanan Peliharaan
+Simpan untuk pertempuran
+percepatan Penyembuhan
+Sembuhkan bertahap dulu, percepat hanya jika Rumah Sakit hampir penuh
+⭐ Persiapan KvK: poin per hari
+Penyumbang poin terbesar tiap hari. Simpan item dan pakai di hari yang cocok.
+30,000
+Peningkatan Truegold Tempa (perlu TG8)
+6,000
+Misi Intel
+2,000
+Peningkatan bangunan Truegold
+70
+Charm Gubernur skor maks +1
+30
+per menit percepatan
+Riset (kemampuan dasar)
+8,000
+Rolet Hero, 1 putaran
+3,040
+Fragmen Hero Mythic
+1,220
+Fragmen Hero Epic
+350
+Fragmen Hero Rare
+15,000
+1,150
+Tanda Penjinakan Common
+50
+kemajuan hewan peliharaan +1
+Pasukan (pengembangan hero)
+40,000
+Gear Ekslusif Hero Widget
+4,000
+3 – 75
+per pasukan dilatih, tergantung tier
+Habis-habisan (dorongan kekuatan)
+36
+Gear Gubernur skor maks +1
+Peti pribadi harian
+30.000 / 100.000 / 200.000 poin. Peti 200.000 juga memberi State Medal.
+Mengumpulkan hanya 2 per paket dan berburu binatang tidak memberi poin. Mithril butuh perlengkapan Mitos maksimal.
 kvk-push
 📢 9 Nov: Rencana dorong TG3 ➡️ TG5 (hanya untuk KvK berikutnya) — lompat ke sini
 Truegold
@@ -687,14 +768,9 @@ Fragmen Hero
 Rolet Hero
 Mengumpulkan
 👍
-Misi Intel
 kemajuan hewan peliharaan
 Charm Gubernur
 Gear Gubernur
-Gear Ekslusif Hero Widget
-Mithril
-Forgehammer
-Emblem Master
 Manuskrip Master
 ⏩️ Pembelajaran
 gunakan

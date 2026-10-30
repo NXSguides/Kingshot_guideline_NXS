@@ -239,6 +239,7 @@ function fmt(n) {
   return n.toLocaleString(loc);
 }
 
+function kvkWeekday(n) { try { return new Intl.DateTimeFormat(HTML_LANG[currentLang] || "en", { weekday: "short", timeZone: "UTC" }).format(new Date(Date.UTC(2026, 0, 4 + n))); } catch (e) { return ""; } }   // n = 1 Monday … 6 Saturday
 const ul = (items) =>
   `<ul class="prep-list">${items.map((i) => `<li>${rich(i)}</li>`).join("")}</ul>`;
 
@@ -445,6 +446,23 @@ const BLOCKS = {
     return `<div class="zone-card zone-${z.color}"><div class="zone-title">${rich(b.labels[z.color])}</div><ul>${items}</ul></div>`;
   }).join(""),
 
+  /* 🗓️ KvK cheat-sheets (Nia's three pictures, rebuilt as page blocks): the phase timeline, what to use on which prep day,
+     and the biggest point items per day. Day colours: Day 1 orange · 2 green · 3 teal · 4 yellow · 5 coral. */
+  kvkflow: (b) => {
+    const wd = kvkWeekday;
+    const phases = b.phases.map((ph, i) => `<div class="kf-ph kc-${["o", "g", "y", "t"][i]}"><div class="kf-hd"><span class="kf-n">${i + 1}</span><div><b>${rich(ph.title)}</b><small>${rich(ph.tag)}</small></div></div>${ul(ph.lines)}</div>`).join('<span class="kf-arrow" aria-hidden="true"></span>');
+    const days = b.days.map((d, i) => `<div class="kf-day kc-d${i + 1}"><b>${rich(d.label)}</b> <span>${rich(d.theme)}</span><small>${d.when ? rich(d.when) : escapeHtml(wd(i + 1))}</small></div>`).join("");
+    return `<div class="kvk-sheet"><h3 class="ks-t">${rich(b.title)}</h3><p class="ks-sub">${rich(b.sub)}</p><div class="kf">${phases}</div><div class="ks-lab">${rich(b.daysTitle)}</div><div class="kf-days">${days}</div></div>`;
+  },
+  kvkitems: (b) => {
+    const days = b.days.map((d, i) => `<div class="ki-row kc-d${i + 1}"><div class="ki-day"><b>${rich(d.label)}</b><span>${rich(d.theme)}</span></div><ul class="ki-list">${d.items.map((x) => `<li>${rich(x)}</li>`).join("")}</ul></div>`).join("");
+    const notes = b.notes.map((n) => `<div class="ki-note kc-${n.color}"><b>${rich(n.title)}</b><ul class="ki-list">${n.lines.map((x) => `<li>${rich(x)}</li>`).join("")}</ul></div>`).join("");
+    return `<div class="kvk-sheet"><h3 class="ks-t">${rich(b.title)}</h3><p class="ks-sub">${rich(b.sub)}</p><div class="ki"><div class="ki-days">${days}</div><div class="ki-notes">${notes}</div></div></div>`;
+  },
+  kvkpoints: (b) => {
+    const cols = b.days.map((d, i) => `<div class="kq-col kc-d${i + 1}"><div class="kq-hd"><b>${rich(d.label)}</b><span>${rich(d.theme)}</span></div><div class="kq-rows">${d.rows.map(([v, n]) => `<div><b>${escapeHtml(v)}</b><span>${rich(n)}</span></div>`).join("")}</div></div>`).join("");
+    return `<div class="kvk-sheet"><h3 class="ks-t">${rich(b.title)}</h3><p class="ks-sub">${rich(b.sub)}</p><div class="kq">${cols}</div><div class="kq-foot"><b>${rich(b.foot.title)}</b>${b.foot.lines.map((x) => `<div>${rich(x)}</div>`).join("")}</div></div>`;
+  },
   timeline: (b) => b.items.map((it) => {
     const groups = (it.groups || []).map((gp) =>
       `${gp.title ? `<div class="tl-sub">${rich(gp.title)}</div>` : ""}${ul(gp.lines)}`).join("");

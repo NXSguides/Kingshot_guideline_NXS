@@ -655,25 +655,105 @@ Jaeger — Gen 3, Archer, SSR, Combat
 
 ### GUIDE #kvk — KvK Prep & Battle Guide
 🗓️ KvK timeline
-2 days
+Runs on a 28-day global cycle, in the last week. Your kingdom must be 70+ days old.
+Preparation days
 Matchmaking Phase
-Kingdoms are matched by the power of their top 100 active players, and only with kingdoms on the same hero generation.
-No opponent = bye rewards.
-KvK comes once every 28 days (the last week of the cycle); the kingdom must be open 70 days or more.
-5 days
+2 days
+Pairs kingdoms by the power of their top 100 active players
+Same hero generation only
+No match = bye reward
 Preparation Phase
-Earn points every day. Personal chests at 30,000 / 100,000 / 200,000 points.
-Day 1 Construction · Day 2 Research · Day 3 Pet Training · Day 4 Troops · Day 5 All-out push, until Saturday 10:00 UTC. What to use on which day: the table below.
-The kingdom with more points gets the Kingdom Bonus and becomes the attacker.
-Saturday
+5 days
+Score points every day, chests at 30k / 100k / 200k
+Winner becomes the attacker
+Day 5 lasts until Saturday 10:00 UTC
 Battle Phase
-10:00–22:00 UTC. Teleporting opens at 10:00 UTC; the defenders hold until 12:00 UTC.
-King's Castle battle 12:00–17:00 UTC: hold the King's Castle for 2.5 hours to win.
-Keep Healing Speedups for this day: heal in batches first, and use speedups only when the Infirmary is almost full.
-After the battle
+Sat 10:00–22:00 UTC
+Teleport opens 10:00 UTC, defend until 12:00 UTC
+King's Castle battle 12:00–17:00 UTC
+Hold the King's Castle 2.5 hours to win
 Field Triage Phase
-30% of the lost troops come back; up to 90% with Medical Satchels and Rescue Orders.
-Losses at the King's Castle go to the Enlistment Office.
+After the battle
+Base recovery 30%, up to 90%
+Rescue Orders and Medical Satchels
+King's Castle losses go to the Enlistment Office
+Day 1
+Construction
+Day 2
+Research
+Day 3
+Pet Training
+Day 4
+Troops
+Day 5
+Give it all
+Fri – Sat 10:00 UTC
+🎒 KvK item cheat-sheet
+Do not spend these early. Match each item to its day.
+Construction speedups
+Truegold and Tempered Truegold
+Charm Design and Charm Guide
+Research speedups
+Hero Roulette spins (Gems)
+Mythic Hero Shard, Epic Hero Shard and Rare Hero Shard
+Master Emblems
+Advanced Taming Marks and Common Taming Marks
+Nutrient Potion
+Growth Manual
+Training speedups and troop training
+Mithril
+Hero Exclusive Gear Widget
+Forgehammer
+Advanced Taming Marks
+Governor Gear: Artisan's Vision, Satin, Gilded Threads
+Everything that is left over
+Before spending anything
+Activate the Gray Wolf pet
+Use the Double Time Decree
+Apply for Chief Minister (Day 1, 2) or Noble Advisor (Day 4)
+Use any time
+Hero XP
+Pet Food
+Keep for the battle
+Healing speedups
+Batch heal first, speed up only if the Infirmary is about to overflow
+⭐ KvK prep: points per day
+The main scorers of each day. Save items and spend them on the matching day.
+30,000
+Tempered Truegold upgrade (needs TG8)
+6,000
+Intel Missions
+2,000
+Truegold building upgrade
+70
+Governor Charm max score +1
+30
+per minute of speedups
+Research (Basic Skills Up)
+8,000
+Hero Roulette spin
+3,040
+Mythic Hero Shard
+1,220
+Epic Hero Shard
+350
+Rare Hero Shard
+15,000
+1,150
+Common Taming Marks
+50
+Pet advancement +1
+Troops (Hero Development)
+40,000
+4,000
+3 – 75
+per unit of troop training, by tier
+Give it all (Power Boost)
+36
+Governor Gear max score +1
+Daily personal chests
+30,000 / 100,000 / 200,000 points. The 200,000 chest also gives a State Medal.
+Gathering scores only 2 per bundle and beast hunting scores nothing. Mithril needs maxed Mythic gear.
 kvk-push
 📢 Nov 9: TG3 ➡️ TG5 push plan (for the next KvK only) — jump to it
 Truegold
@@ -687,14 +767,9 @@ Hero Shard
 Hero Roulette
 Gathering
 👍
-Intel Missions
 Pet advancement
 Governor Charm
 Governor Gear
-Hero Exclusive Gear Widget
-Mithril
-Forgehammer
-Master Emblems
 Master's Manuscript
 ⏩️ Learning
 use

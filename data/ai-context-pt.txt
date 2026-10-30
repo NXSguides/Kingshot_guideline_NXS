@@ -655,25 +655,106 @@ Jaeger — Gen 3, Arquearia, SSR, Combate
 
 ### GUIDE #kvk — Guia de Preparação e Batalha KvK
 🗓️ Linha do tempo do KvK
-2 dias
+Ciclo global de 28 dias, na última semana. Seu reino precisa ter 70 dias ou mais.
+Dias de preparação
 Fase de Pareamento
-Os reinos são pareados pelo poder dos 100 jogadores ativos mais fortes, e só com reinos da mesma geração de heróis.
-Sem adversário = recompensas de folga.
-O KvK acontece a cada 28 dias (última semana do ciclo); o reino precisa ter 70 dias ou mais.
-5 dias
+2 dias
+Pareia reinos pelo poder dos 100 jogadores ativos mais fortes
+Só a mesma geração de heróis
+Sem adversário = recompensa de folga
 Fase de Preparação
-Ganhe pontos todo dia. Baús pessoais com 30.000 / 100.000 / 200.000 pontos.
-Dia 1 Construção · Dia 2 Pesquisa · Dia 3 Treino de Pet · Dia 4 Tropas · Dia 5 Tudo ou nada, até sábado 10:00 UTC. O que usar em cada dia: a tabela abaixo.
-O reino com mais pontos ganha o Bônus de Reino e vira o atacante.
-Sábado
+5 dias
+Pontos todo dia, baús em 30k / 100k / 200k
+O vencedor vira o atacante
+O dia 5 vai até sábado 10:00 UTC
 Fase de Batalha
-10:00–22:00 UTC. O teletransporte abre às 10:00 UTC; os defensores seguram até 12:00 UTC.
-Batalha do Castelo da Realeza 12:00–17:00 UTC: segure o Castelo da Realeza por 2,5 horas para vencer.
-Guarde as acelerações de cura para este dia: cure em lotes primeiro e só use acelerações quando a Enfermaria estiver quase cheia.
-Depois da batalha
+Sáb 10:00–22:00 UTC
+Teletransporte às 10:00 UTC, defender até 12:00 UTC
+Batalha do Castelo da Realeza 12:00–17:00 UTC
+Segure o Castelo da Realeza por 2,5 horas para vencer
 Fase de Triagem de Campo
-30% das tropas perdidas voltam; até 90% com Bolsa Médica e Ordem de Resgate.
-As perdas no Castelo da Realeza vão para o Escritório de Alistamento.
+Depois da batalha
+Recuperação base 30%, até 90%
+Ordem de Resgate e Bolsa Médica
+Perdas no Castelo da Realeza vão para o Escritório de Alistamento
+Dia 1
+Construção
+Dia 2
+Pesquisa
+Dia 3
+Treino de Pet
+Dia 4
+Tropas
+Dia 5
+Tudo ou nada
+Sex – Sáb 10:00 UTC
+🎒 Cola de itens do KvK
+Não gaste antes. Cada item tem o seu dia.
+acelerações de Construção
+Adamante e Adamante temperado
+Design do Talismã e Guia de Acessórios
+acelerações de Pesquisa
+Giros da Roleta do Herói (Gemas)
+Fragmento de Herói Mítico, Fragmento de Herói Épico e Fragmento de Herói Raro
+Emblemas Mestres
+Marca de Domesticação Avançada e Marca de Domesticação Comum
+Poção Nutritiva
+Crescimento Manual
+acelerações de Treinamento e treino de tropas
+Mithril
+Equipamento Exclusivo do Herói: Ferramenta
+Martelo de forja
+Marca de Domesticação Avançada
+Equipamento do Chefe: Visão do Artesão, Cetim, Fios Dourados
+Tudo o que sobrar
+Antes de gastar qualquer coisa
+Ativar o pet Lobo Cinza
+Usar o decreto Horário Dobrado
+Pedir Primeiro-ministro (dias 1, 2) ou Conselheiro Nobre (dia 4)
+Use quando quiser
+XP do Herói
+Alimento para Pets
+Guarde para a batalha
+acelerações de Cura
+Cure em lotes primeiro, acelere só se a Enfermaria for transbordar
+⭐ Preparação do KvK: pontos por dia
+O que mais pontua em cada dia. Guarde os itens e use no dia certo.
+30,000
+Melhoria de Adamante temperado (precisa TG8)
+6,000
+Missões de Inteligência
+2,000
+Melhoria de prédio de Adamante
+70
+Talismã do Governador pontuação máx. +1
+30
+por minuto de aceleração
+Pesquisa (habilidades básicas)
+8,000
+Roleta do Herói, 1 giro
+3,040
+Fragmento de Herói Mítico
+1,220
+Fragmento de Herói Épico
+350
+Fragmento de Herói Raro
+15,000
+1,150
+Marca de Domesticação Comum
+50
+pontuação de avanço do animal de estimação +1
+Tropas (desenvolvimento de heróis)
+40,000
+Equipamento Exclusivo do Herói Ferramenta
+4,000
+3 – 75
+por tropa treinada, conforme o nível
+Tudo ou nada (aumento de poder)
+36
+Equipamento do Chefe pontuação máx. +1
+Baús pessoais diários
+30.000 / 100.000 / 200.000 pontos. O baú de 200.000 também dá uma State Medal.
+Coleta dá só 2 por pacote e caçar feras não dá nada. Mithril exige equipamento Mítico no máximo.
 kvk-push
 📢 9 de novembro: plano de push TG3 ➡️ TG5 (só para o próximo KvK) — ir para lá
 Adamante
@@ -687,14 +768,9 @@ Fragmento de Herói
 Roleta do Herói
 Coletando
 👍
-Missões de Inteligência
 pontuação de avanço do animal de estimação
 Talismã do Governador
 Equipamento do Chefe
-Equipamento Exclusivo do Herói Ferramenta
-Mithril
-Martelo de forja
-Emblemas Mestres
 Manuscrito de Mestre
 ⏩️ Aprendizado
 usar

@@ -655,25 +655,106 @@ Jaeger — Gen 3, Arquero, SSR, Combate
 
 ### GUIDE #kvk — Guía de Preparación y Batalla KvK
 🗓️ Cronología del KvK
-2 días
+Ciclo mundial de 28 días, en la última semana. Tu reino debe tener 70 días o más.
+Días de preparación
 Fase de búsqueda de rivales
-Los reinos se emparejan según el poder de sus 100 jugadores activos más fuertes, y solo con reinos de la misma generación de héroes.
-Sin rival = recompensas de descanso.
-El KvK llega cada 28 días (la última semana del ciclo); el reino debe llevar 70 días o más abierto.
-5 días
+2 días
+Empareja reinos por el poder de sus 100 jugadores activos
+Solo la misma generación de héroes
+Sin rival = recompensa de descanso
 Fase de Preparación
-Gana puntos cada día. Cofres personales con 30.000 / 100.000 / 200.000 puntos.
-Día 1 Construcción · Día 2 Investigación · Día 3 Entrenamiento de mascotas · Día 4 Tropas · Día 5 A por todas, hasta el sábado 10:00 UTC. Qué usar cada día: la tabla de abajo.
-El reino con más puntos obtiene la Bonificación de Reino y pasa a atacar.
-Sábado
+5 días
+Puntos cada día, cofres a 30k / 100k / 200k
+El ganador pasa a atacar
+El día 5 dura hasta el sábado 10:00 UTC
 Fase de batalla
-10:00–22:00 UTC. El teletransporte abre a las 10:00 UTC; los defensores aguantan hasta las 12:00 UTC.
-Batalla por el Castillo del Rey 12:00–17:00 UTC: mantén el Castillo del Rey 2,5 horas para ganar.
-Guarda las aceleraciones de curación para este día: cura primero por tandas y usa aceleraciones solo cuando la Enfermería esté casi llena.
-Después de la batalla
+Sáb 10:00–22:00 UTC
+Teletransporte a las 10:00 UTC, defender hasta las 12:00 UTC
+Batalla por el Castillo del Rey 12:00–17:00 UTC
+Mantén el Castillo del Rey 2,5 horas para ganar
 Fase de Triaje de Campo
-Vuelve el 30% de las tropas perdidas; hasta el 90% con Bolso médico y Órdenes de rescate.
-Las pérdidas en el Castillo del Rey van a la Oficina de Reclutamiento.
+Después de la batalla
+Recuperación base 30%, hasta 90%
+Órdenes de rescate y Bolso médico
+Las pérdidas en el Castillo del Rey van a la Oficina de Reclutamiento
+Día 1
+Construcción
+Día 2
+Investigación
+Día 3
+Entrenamiento de mascotas
+Día 4
+Tropas
+Día 5
+A por todas
+Vie – Sáb 10:00 UTC
+🎒 Chuleta de objetos del KvK
+No los gastes antes. Cada objeto tiene su día.
+aceleradores de Construcción
+Adamantina y Adamantina templado
+Planos de talismán y Guía de talismanes
+aceleradores de Investigación
+Tiradas de Ruleta de Héroes (Gemas)
+Fragmento de Héroe Mítico, Fragmento de Héroe Épico y Fragmento de Héroe Raro
+emblemas de maestro
+Marcas de Domesticación Avanzadas y Marcas de Domesticación Comunes
+Poción de nutrientes
+Manual de cría
+aceleradores de Entrenamiento y entrenar tropas
+Mitrilo
+Equipo Exclusivo de Héroe: Complemento
+Martillo de Forja
+Marcas de Domesticación Avanzadas
+Equipo de gobernador: Visión del Artesano, Satén, Hilos dorados
+Todo lo que sobre
+Antes de gastar nada
+Activar la mascota Lobo gris
+Usar el decreto Doble tiempo
+Pedir Ministro principal (días 1, 2) o Noble asesor (día 4)
+Cuando quieras
+XP de héroe
+Comidas para Mascotas
+Guárdalo para la batalla
+aceleradores de Curación
+Cura por tandas primero; acelera solo si la Enfermería va a desbordarse
+⭐ Preparación del KvK: puntos por día
+Lo que más puntúa cada día. Guarda los objetos y gástalos en su día.
+30,000
+Mejora de Adamantina templado (requiere TG8)
+6,000
+Misiones de Inteligencia
+2,000
+Mejora de edificio de Adamantina
+70
+Talismán del Gobernador puntuación máx. +1
+30
+por minuto de aceleración
+Investigación (habilidades básicas)
+8,000
+Ruleta de Héroes, 1 tirada
+3,040
+Fragmento de Héroe Mítico
+1,220
+Fragmento de Héroe Épico
+350
+Fragmento de Héroe Raro
+15,000
+1,150
+Marcas de Domesticación Comunes
+50
+avance de mascota +1
+Tropas (desarrollo de héroes)
+40,000
+Equipo Exclusivo de Héroe Complemento
+4,000
+3 – 75
+por tropa entrenada, según el nivel
+A por todas (aumento de poder)
+36
+Equipo de gobernador puntuación máx. +1
+Cofres personales diarios
+30.000 / 100.000 / 200.000 puntos. El cofre de 200.000 también da una State Medal.
+Recolectar da solo 2 por paquete y cazar bestias no da nada. El Mitrilo requiere equipo Mítico al máximo.
 kvk-push
 📢 9 nov.: plan de empuje TG3 ➡️ TG5 (solo para el próximo KvK) — ir a la sección
 Adamantina
@@ -687,14 +768,9 @@ Fragmento de Héroe
 Ruleta de Héroes
 Recolectando
 👍
-Misiones de Inteligencia
 avance de mascota
 Talismán del Gobernador
 Equipo de gobernador
-Equipo Exclusivo de Héroe Complemento
-Mitrilo
-Martillo de Forja
-emblemas de maestro
 Manuscrito del maestro
 ⏩️ Aprendizaje
 usar

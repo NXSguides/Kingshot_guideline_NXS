@@ -655,25 +655,106 @@ Jaeger — 3. Nesil, Okçu, SSR, Savaş
 
 ### GUIDE #kvk — KvK Hazırlık ve Savaş Rehberi
 🗓️ KvK takvimi
-2 gün
+28 günlük küresel döngünün son haftasında. Krallığın en az 70 günlük olmalı.
+Hazırlık günleri
 Eşleştirme Evresi
-Krallıklar en aktif 100 oyuncusunun gücüne göre ve yalnızca aynı kahraman neslindeki krallıklarla eşleşir.
-Rakip yoksa = bay ödülleri.
-KvK 28 günde bir yapılır (döngünün son haftası); krallığın en az 70 gündür açık olması gerekir.
-5 gün
+2 gün
+En aktif 100 oyuncunun gücüne göre eşleştirir
+Yalnızca aynı kahraman nesli
+Rakip yok = bay ödülü
 Hazırlık Evresi
-Her gün puan topla. Kişisel sandıklar: 30.000 / 100.000 / 200.000 puan.
-1. gün İnşaat · 2. gün Araştırma · 3. gün Evcil Hayvan Eğitimi · 4. gün Birlikler · 5. gün Son hamle, cumartesi 10:00 UTC'ye kadar. Hangi gün ne kullanılır: aşağıdaki tablo.
-Daha çok puan alan krallık Krallık Bonusunu alır ve saldıran taraf olur.
-Cumartesi
+5 gün
+Her gün puan, sandıklar 30k / 100k / 200k
+Kazanan saldıran olur
+5. gün cumartesi 10:00 UTC'ye kadar
 Savaş Evresi
-10:00–22:00 UTC. Işınlanma 10:00 UTC'de açılır; savunanlar 12:00 UTC'ye kadar dayanır.
-Kralın Şatosu savaşı 12:00–17:00 UTC: Kralın Şatosunu 2,5 saat tutan kazanır.
-İyileştirme hızlandırmalarını bu güne sakla: önce parça parça iyileştir, hızlandırmayı yalnızca Revir neredeyse dolunca kullan.
-Savaştan sonra
+Cmt 10:00–22:00 UTC
+Işınlanma 10:00 UTC'de açılır, 12:00 UTC'ye kadar savun
+Kralın Şatosu savaşı 12:00–17:00 UTC
+Kralın Şatosunu 2,5 saat tut, kazan
 Yaralı Sınıflandırma Evresi
-Kaybedilen birliklerin %30'u geri gelir; Tıbbi Çanta ve Kurtarma Emri ile %90'a kadar.
-Kralın Şatosunda verilen kayıplar Görevlendirme Ofisine gider.
+Savaştan sonra
+Temel kurtarma %30, en fazla %90
+Kurtarma Emri ve Tıbbi Çanta
+Kralın Şatosu kayıpları Görevlendirme Ofisine gider
+1. gün
+İnşaat
+2. gün
+Araştırma
+3. gün
+Evcil Hayvan Eğitimi
+4. gün
+Birlikler
+5. gün
+Son hamle
+Cum – Cmt 10:00 UTC
+🎒 KvK eşya kopya kağıdı
+Erken harcama. Her eşyayı kendi gününde kullan.
+İnşaat hızlandırmaları
+Hasaltın ve Tavlanmış Hasaltın
+Tılsım Tasarımı ve Tılsım Kılavuzu
+Araştırma hızlandırmaları
+Kahraman Ruleti çevirmeleri (Elmas)
+Mitik Kahraman Parçası, Epik Kahraman Parçası ve Ender Kahraman Parçası
+Usta Amblemleri
+Gelişmiş Evcilleştirme İşareti ve Sıradan Evcilleştirme İşareti
+Besleyici İksir
+Büyüme Kılavuzu
+Eğitim hızlandırmaları ve birlik eğitimi
+Mithril
+Kahraman Özel Donanımı: Alet
+Demirci Çekici
+Gelişmiş Evcilleştirme İşareti
+Şef Donanımı: Zanaatkâr Vizyonu, Saten, Yaldızlı İplikler
+Kalan her şey
+Bir şey harcamadan önce
+Gri Kurt evcil hayvanını etkinleştir
+Çifte Mesai fermanını kullan
+Başbakan (1, 2. gün) veya Asil Danışman (4. gün) için başvur
+Her zaman kullanılabilir
+Kahraman TP
+Evcil Hayvan Maması
+Savaş için sakla
+Tedavi hızlandırmaları
+Önce parça parça iyileştir, yalnızca Revir taşmak üzereyken hızlandır
+⭐ KvK hazırlık: günlük puanlar
+Her günün en çok puan getirenleri. Eşyaları sakla, doğru günde harca.
+30,000
+Tavlanmış Hasaltın yükseltmesi (TG8 gerekir)
+6,000
+İstihbarat Görevleri
+2,000
+Hasaltın bina yükseltmesi
+70
+Vali Tılsımı en yüksek puan +1
+30
+dakika başına hızlandırma
+Araştırma (temel beceriler)
+8,000
+Kahraman Ruleti, 1 çevirme
+3,040
+Mitik Kahraman Parçası
+1,220
+Epik Kahraman Parçası
+350
+Ender Kahraman Parçası
+15,000
+1,150
+Sıradan Evcilleştirme İşareti
+50
+Pet ilerletme puanı +1
+Birlikler (kahraman gelişimi)
+40,000
+Kahraman Özel Donanımı Alet
+4,000
+3 – 75
+eğitilen asker başına, kademeye göre
+Son hamle (güç artışı)
+36
+Şef Donanımı en yüksek puan +1
+Günlük kişisel sandıklar
+30.000 / 100.000 / 200.000 puan. 200.000 sandığı ayrıca bir State Medal verir.
+Toplama paket başına yalnızca 2 puan, canavar avı hiç puan vermez. Mithril için Mitik ekipman tam seviye olmalı.
 kvk-push
 📢 9 Kasım: TG3 ➡️ TG5 yükseltme planı (sadece bir sonraki KvK için) — oraya git
 Hasaltın
@@ -687,14 +768,9 @@ Kahraman Parçası
 Kahraman Ruleti
 Toplanıyor
 👍
-İstihbarat Görevleri
 Pet ilerletme puanı
 Vali Tılsımı
 Şef Donanımı
-Kahraman Özel Donanımı Alet
-Mithril
-Demirci Çekici
-Usta Amblemleri
 Uzmanın El Yazması
 ⏩️ Öğrenme
 kullan
