@@ -43,6 +43,8 @@ const FEATURES = [
   ["Move tab", /🚚 Move/, /mv01:/],
   ["Attack planner tab (rallies needed from today's board strength)", /BATTLE tab \(officer-x7k2p9\.html#attack[^\n]*ATTACK PLANNER/, /{ s: "#ak_plan", k: "ak01" }/],
   ["Battle: 🏰 In our kingdom / ⚔️ KvK switch", /"🏰 In our kingdom"/, /🏰 In our kingdom \(us = NXS/],
+  ["Battle: ⚔️ We attack / 🛡️ They attack us, tier Mix, troop ratio", /DIRECTION switch in the plan card[^\n]*\n- TIER "Mix…"[^\n]*\n- TROOP RATIO/, /{ s: "#ak_plan \.ak-dir", k: "ak03" }/],
+  ["Battle: 🗡️ Swordland (our plan list, opponent fetched on the spot, take / hold / watch)", /🗡️ SWORDLAND mode/, /{ s: "#ak_ss", k: "ak04" }/],
   ["Attack: 📊 today's strength list", /Today's strength/, /{ s: "#ak_board", k: "ak02" }/],
   ["Board", /💬 Board/, /bd01:/],
   ["Attendance", /📋 Attendance/, /at01:/],

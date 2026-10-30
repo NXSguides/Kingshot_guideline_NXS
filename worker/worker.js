@@ -82,6 +82,7 @@ async function handle(req, env, ctx) {
     try { body = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
     if (body.stats) return stats(body, env);                 // officer page → Views tab
     if (body.blacklist) return blacklistRoute(req, env, body);   // officer page → 🎯 Blacklist tab
+    if (body.sspull) return ssPullRoute(req, env, body);   // officer page → ⚔️ Battle → 🗡️ Swordland: the opposing alliance, fetched on the spot
     const question = String(body.question || "").trim().slice(0, 600);
     if (!question) return json({ error: "empty" }, 400);
     const siteLang = LANG_NAMES[body.lang] ? body.lang : "en";
@@ -426,6 +427,14 @@ AI ASSISTANT
 - Card "⚔️ Plan the attack" (規劃進攻): their garrison leader (dropdown of other alliances' players with their strength), garrison troops, their tier, "in their own territory (+10%)"; our rallies in order (NXS leader with strength, troops, tier; ➕ Rally). "More settings": their debuff on us / our debuff on them (attack & defense −%), p (default 1.75), reinforcements between rallies. Kept on this device.
 - Math: r = (S_us / S_them)^1.06 × (tier_us / tier_them)² × debuff factors (1−x)² ÷ 1.06 when in their territory. 1.06 = how real troop stats grow with this strength (7 NXS rally leaders, 10/28–29, R² 0.95). Tiers T9 1.0, T10 1.18, TG1 1.228, TG2 1.289, TG3 1.353. Per rally: if r·R^p > G^p we take it and (R^p − G^p/r)^(1/p) of ours stay; else their garrison drops to (G^p − r·R^p)^(1/p) (+ reinforcements). Rallies needed ≈ G^p / (r·R^p).
 - Result: table per rally (r, win / what is left), "about N rallies needed", tip "expendable rallies first, strongest leader last", uncertainty table for garrison 1.0 / 1.3 / 1.6M × p 1.5 / 1.75 / 2. Caveats: under-rates attackers (B24: model ≈ 300k left, real 587k); hero skill kills and troop counters not modeled; a garrison may use its strongest member's stats.
+- DIRECTION switch in the plan card: "⚔️ We attack" (我們進攻) or "🛡️ They attack us" (對方打我們). In 🛡️ the garrison leader is one of ours and the rallies are theirs; results read "✅ We hold / ❌ They take it", plus "To hold against all these rallies at once: at least G troops", G^p = Σ r_i R_i^p (rallies one after another, no reinforcement). Debuff fields are now "on the attackers" / "on the garrison"; the territory box = garrison in its own territory.
+- TIER "Mix…" (混合): instead of one tier, type how many joiners are TG3 / TG2 / TG1 / TG0 (TG0 = T10); the model uses the head-count average of tier² and shows "≈ TGx on average". Works for rallies, the garrison and both sides in Swordland.
+- TROOP RATIO (兵種比例, Infantry : Cavalry : Archers) for ours and theirs (guess): only checked, not used in the numbers (the model assumes 50:20:30). Warnings: not 100%, or Infantry under 40% (our simulation: 35:35:30 kept 14% fewer troops in an even fight, 30:40:30 under half).
+- 🗡️ SWORDLAND mode (third button next to 🏰 / ⚔️ KvK; 聖劍) — for Swordland Showdown against another kingdom's alliance; the Swordshrine (聖劍祭壇, the middle) opens 15 minutes in:
+  ① Our list: pick a shared 📊 Ranking plan; its ticked players are the list, its substitutes are substitutes; tap a name to switch Confirmed ↔ Substitute (this page only). Each shows Strength (≈ = estimated from Power when not in the top 100 of all three boards: Power × the median Strength per million Power) and Power.
+  ② Opponent alliance: kingdom number + alliance tag → 🔄 Fetch (the Worker asks MightPulse right then for the alliance roster and that kingdom's three strength boards; cached 10 minutes, fetching the same one again forces fresh data).
+  ③ Settings: rallies at the same time per side (K, default 3), our / their rally size, their garrison in the Swordshrine, troops each member sends to hold, joiner tiers (or Mix) for each side, p.
+  ④ Result in two columns, "Confirmed only" and "With substitutes": "Can we take it?" (our top K leaders' rallies, weaker first and the strongest last, against their garrison led by their strongest), "How many must hold it?" (smallest garrison led by our strongest that survives their top K rallies, in troops and ≈ people at the per-member amount), and "Who to watch" (their top 10 by Strength; ⚠️ = at least 95% of our best confirmed leader). Same rough model: hero skills, troop counters and building buffs (e.g. Hall of Reformation) are not counted.
 - Card "📊 Today's strength" (今天的強度): board date, top 15 of NXS and of other alliances (strength, gear, hero equip, master), and a search (tells which board a player is missing from).
 
 @hunt
@@ -621,6 +630,29 @@ async function blacklistRoute(req, env, body) {
   let live = await stub.kvGet("bl-live");
   if (body.refresh && env.MIGHTPULSE_API_KEY && (!live || Date.now() - Date.parse(live.fetched) > 120000)) live = (await blacklistTick(env, true)) || live;
   return json({ ok: true, live: live || null, setup: !!env.MIGHTPULSE_API_KEY, token: acc.token });
+}
+
+/* 🗡️ Swordland Showdown opponent (⚔️ Battle tab): an alliance of another kingdom, fetched when an officer asks (the matchup is known
+   ~15 minutes before the fight). 4 MightPulse calls: the alliance roster + the kingdom's Governor gear / Hero equip / Master power boards
+   (top 100). Kept 10 minutes in the DO so several officers asking at once cost nothing extra. */
+async function ssPullRoute(req, env, body) {
+  const acc = await officerAccess(req, env, body);
+  if (!acc || !acc.tabs.has("attack")) return json({ error: "forbidden" }, 403);
+  const kid = Math.floor(+body.kid || 0), tag = String(body.tag || "").trim().slice(0, 8);
+  if (!kid || kid > 99999 || !/^[\w\p{L}\p{N}]{1,8}$/u.test(tag)) return json({ error: "bad request" }, 400);
+  if (!env.MIGHTPULSE_API_KEY) return json({ error: "no_key" }, 503);
+  const stub = env.TIMERS.get(env.TIMERS.idFromName("all")), key = `ss:${kid}:${tag.toLowerCase()}`;
+  const old = await stub.kvGet(key);
+  if (old && !body.force && Date.now() - Date.parse(old.fetched) < 600000) return json({ ok: true, ss: old, token: acc.token });
+  const get = async (path) => { const r = await fetch("https://api.mightpulse.com/v1" + path, { headers: { Authorization: `Bearer ${env.MIGHTPULSE_API_KEY}` } }); return { status: r.status, body: await r.json().catch(() => null) }; };
+  const [al, ...bd] = await Promise.all([get(`/alliances/${kid}/${encodeURIComponent(tag)}?include=info,roster`), ...["gov_gear", "hero_equip", "master_power"].map((b) => get(`/kingdoms/${kid}/ranks?board=${b}&limit=100`))]);
+  if (al.status !== 200 || !al.body || !al.body.alliance) return json({ ok: false, error: al.status === 404 ? "not_found" : "mp_" + al.status, token: acc.token });
+  const score = {}; ["gov_gear", "hero_equip", "master_power"].forEach((b, i) => { for (const r of ((bd[i].body && bd[i].body.board && bd[i].body.board.rows) || [])) (score[String(r.governor_id)] = score[String(r.governor_id)] || {})[b] = r.score; });
+  const a = al.body.alliance;
+  const ss = { fetched: new Date().toISOString(), kid, tag: a.abbr || tag, name: a.name || "", power: a.power ?? null, count: a.count ?? null,
+    members: (al.body.members || []).map((m) => ({ id: String(m.governor_id), name: m.nick_name, power: m.power ?? null, tc: m.town_center_level ?? null, rank: m.alliance_rank_label || "", b: score[String(m.governor_id)] || {} })) };
+  await stub.kvSet(key, ss);
+  return json({ ok: true, ss, token: acc.token });
 }
 
 /* officer files may be encrypted: { enc: 1, iv, data } with AES-GCM and DATA_KEY */
@@ -1332,7 +1364,7 @@ async function plansRoute(env, stub, user, body, token, perms) {
   const op = String(body.op || "list"), role = roleOf(perms, user.id), admin = role === "admin";
   const u = perms && perms.users && perms.users[user.id];
   const seeTab = (t) => !!(u && u.perms && u.perms[t] && u.perms[t] !== "none");
-  const mayView = admin || seeTab("ranking") || seeTab("attend"), mayEdit = canEdit(perms, user.id, "ranking");
+  const mayView = admin || seeTab("ranking") || seeTab("attend") || seeTab("attack"), mayEdit = canEdit(perms, user.id, "ranking");
   if (!mayView) return json({ error: "no_access" }, 403);
   const since = +body.since || 0, stamp = await plansStamp(env);
   if (op === "list" && since && stamp && stamp <= since) return json({ ok: true, token, unchanged: true, stamp });
