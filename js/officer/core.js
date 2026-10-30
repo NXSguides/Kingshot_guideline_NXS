@@ -130,6 +130,8 @@ OFFICER.rosterNow = (() => {
   }
   return { html, bind };
 })();
+// clean names that picked up " · 📍" from 📍 position saves (2026-10-30 bug)
+try { const v = localStorage.getItem("nxs-plan-by"); if (v && / · 📍/.test(v)) localStorage.setItem("nxs-plan-by", v.replace(/( · 📍)+/g, "")); } catch (e) {}
 OFFICER.OWNER = "1547403844374368327";   // Sparrow: always admin, can't be demoted or removed (so nobody can lock everyone out)
 OFFICER.ADMINS = [];                       // filled from the table (admin: true) by loadPerms
 OFFICER.PERMS_TRIAL = false;   // 2026-10-16: the login system is live — the 👥 table decides   // the 👥 table is kept and editable, but not enforced yet (set false when the login system goes live)

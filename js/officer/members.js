@@ -121,7 +121,7 @@ async function mpApply() {
     for (const c of df.chg) { if (c.i != null) { D.m[c.i][1] = c.to[0]; D.m[c.i][2] = c.to[1]; D.m[c.i][3] = c.id; } else D.m.push([c.name, c.to[0], c.to[1], c.id]); }
     const n = df.chg.length + gi.size; D.m = D.m.filter((r, i) => !gi.has(i)); SEL = null;
     let by = ""; try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {}
-    await save((by || "MightPulse") + " · 📍"); mpMsg = msg === t("saved") ? t("mpUsed").replace("{n}", n) : msg; renderMove();
+    await save((by || "MightPulse").replace(/( · 📍)+$/, "") + " · 📍"); mpMsg = msg === t("saved") ? t("mpUsed").replace("{n}", n) : msg; renderMove();
 }
 /* 🚩 banners ticked by hand in 🧭 Move steps count as standing on 🗺️ Map too (and Map's own ✅ Built shows here by itself) */
 function ticked() { const set = new Set(((MV && MV.st) || {}).b || []); return ((MV && MV.plan && MV.plan.b) || []).filter(([x, y]) => set.has(x + "," + y)).map(([x, y]) => [x, y]); }
@@ -323,7 +323,7 @@ function applyPaste(replace) {
 async function save(byArg) {
   if (!ED()) return;
   if (!OFFICER.token) { msg = t("noKey"); render(); return; }
-  const by = (typeof byArg === "string" ? byArg : ($("mm_byn") ? $("mm_byn").value : "") || "").trim() || "?"; try { localStorage.setItem("nxs-plan-by", by); } catch (e) {}
+  const by = (typeof byArg === "string" ? byArg : ($("mm_byn") ? $("mm_byn").value : "") || "").trim() || "?"; if (typeof byArg !== "string") try { localStorage.setItem("nxs-plan-by", by); } catch (e) {}   // a 📍 save doesn't rename you
   msg = t("saving"); render();
   const next = { m: D.m, bt: D.bt, by, at: new Date().toISOString() };
   const u8b64 = (str) => { const u = new TextEncoder().encode(str); let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
