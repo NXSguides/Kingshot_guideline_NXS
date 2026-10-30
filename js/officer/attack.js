@@ -8,7 +8,7 @@
    - 🗡️ Swordland mode (2026-10-30): our list from a shared 📊 Ranking plan (substitutes from the plan, switchable here), the opposing
      alliance fetched on the spot through the Worker ({sspull}), and three answers for "confirmed only" and "with substitutes":
      can we take the Swordshrine, the smallest garrison that holds against their top K rallies (G^p = Σ r_i R^p), and who to watch.
-   - ⚔️ / 🛡️ direction, joiner tier "mix" (mean of tier²), troop ratio (checked only; the model assumes 50:20:30).
+   - ⚔️ / 🛡️ direction, joiner tier "mix" (mean of tier²), troop ratio per role (attackers 50:20:30, garrison 60:20:20 by default; checked only, not in the numbers).
    - Per rally R vs garrison G (p ≈ 1.75): G^p − r R^p stays constant; r R^p > G^p → we take it and (R^p − G^p / r)^(1/p) of ours
      stay as the new garrison; else their garrison drops to (G^p − r R^p)^(1/p) (+ reinforcements). Spec: claude/attack-planner-spec.md. */
 (function () {
@@ -52,9 +52,9 @@ const NT = {
     winD: "❌ They take it — {s} of theirs stay", loseD: "✅ We hold — {g} of ours left", needD: "Rallies like their #1 needed to take it: about {n}.",
     holdD: "To hold against all these rallies at once: at least {g} troops in the building.", lastD: "Keep reinforcing between their rallies — every troop that arrives in time counts in full.",
     mix: "Mix…", mixNote: "Joiners by tier (head count)", mixEq: "≈ {t} on average",
-    tr: "Troop ratio (Infantry : Cavalry : Archers)", trUs: "Ours", trThem: "Theirs (guess)", trSum: "{s}: adds up to {n}%, not 100%.",
+    tr: "Troop ratio (Infantry : Cavalry : Archers)", trUs: "Attackers", trThem: "Garrison", trSum: "{s}: adds up to {n}%, not 100%.",
     trLow: "{s}: Infantry under 40%. In our simulation an even fight then lost far more troops (35:35:30 kept 14% fewer, 30:40:30 under half). The numbers here assume 50:20:30, so they are too kind.",
-    trNote: "The estimate assumes 50:20:30 for both sides; the ratio is only checked.",
+    trNote: "Defaults: attackers 50:20:30, garrison 60:20:20. The numbers don't change with it; the ratio is only checked.",
     ssT: "🗡️ Swordland — the Swordshrine", ssIntro: "The Swordshrine opens 15 minutes into the battle. Fetch the opponent at the start, then check: can we take it, how many must hold it, and who to watch.",
     ssOur: "① Our list", ssPlan: "Ranking plan", ssNoPlan: "No shared plans found (or no access to 📊 Ranking).", ssSubHint: "Tap a name to switch Confirmed ↔ Substitute. Substitutes come from the plan; switching here changes only this page.",
     conf: "Confirmed", subL: "Substitute", ssCnt: "{c} confirmed · {s} substitutes", nm: "Name", pw: "Power",
@@ -75,9 +75,9 @@ const NT = {
     winD: "❌ 被打下——對方剩 {s}", loseD: "✅ 守住——我方剩 {g}", needD: "要打下需要像對方 #1 這樣的集結：約 {n} 團。",
     holdD: "同時擋下這些集結：建築裡至少要有 {g} 兵。", lastD: "對方集結之間要一直增援——及時到的兵全部都算。",
     mix: "混合…", mixNote: "加入集結的人（依兵等算人數）", mixEq: "平均約 {t}",
-    tr: "兵種比例（步兵：騎兵：弓兵）", trUs: "我方", trThem: "對方（猜）", trSum: "{s}：加起來是 {n}%，不是 100%。",
+    tr: "兵種比例（步兵：騎兵：弓兵）", trUs: "攻方", trThem: "守方", trSum: "{s}：加起來是 {n}%，不是 100%。",
     trLow: "{s}：步兵低於 40%。我們的模擬裡，勢均力敵時會多死很多兵（35:35:30 少剩 14%，30:40:30 剩不到一半）。這裡的數字是用 50:20:30 算的，所以會太樂觀。",
-    trNote: "估算本身雙方都當 50:20:30，比例只用來檢查。",
+    trNote: "預設：攻方 50:20:30，守方 60:20:20。比例不會改變計算結果，只用來檢查。",
     ssT: "🗡️ 聖劍爭奪——聖劍祭壇", ssIntro: "聖劍祭壇開戰 15 分鐘後開放。一開場先抓對手，再看：打不打得下、要放多少人守、誰要注意。",
     ssOur: "① 我們的名單", ssPlan: "排名計畫", ssNoPlan: "找不到共用計畫（或沒有 📊 排名的權限）。", ssSubHint: "點名字可以切換 確定 ↔ 替補。替補來自計畫；在這裡切換只影響這一頁。",
     conf: "確定", subL: "替補", ssCnt: "確定 {c} 人 · 替補 {s} 人", nm: "名字", pw: "戰力",
@@ -98,9 +98,9 @@ const NT = {
     winD: "❌ Eles tomam — ficam {s} deles", loseD: "✅ Seguramos — ficam {g} nossos", needD: "Comícios como o #1 deles para tomar: cerca de {n}.",
     holdD: "Para segurar todos esses comícios de uma vez: pelo menos {g} tropas no prédio.", lastD: "Continue reforçando entre os comícios — toda tropa que chega a tempo conta inteira.",
     mix: "Mistura…", mixNote: "Quem entra no comício, por nível (nº de pessoas)", mixEq: "≈ {t} em média",
-    tr: "Proporção (Infantaria : Cavalaria : Arquearia)", trUs: "Nossa", trThem: "Deles (palpite)", trSum: "{s}: soma {n}%, não 100%.",
+    tr: "Proporção (Infantaria : Cavalaria : Arquearia)", trUs: "Atacantes", trThem: "Guarnição", trSum: "{s}: soma {n}%, não 100%.",
     trLow: "{s}: Infantaria abaixo de 40%. Na nossa simulação, uma luta equilibrada perdeu muito mais tropas (35:35:30 ficou com 14% menos, 30:40:30 com menos da metade). Os números aqui supõem 50:20:30, então ficam otimistas demais.",
-    trNote: "A estimativa supõe 50:20:30 para os dois lados; a proporção só é verificada.",
+    trNote: "Padrão: atacantes 50:20:30, guarnição 60:20:20. Os números não mudam com isso; a proporção só é verificada.",
     ssT: "🗡️ Terra das Espadas — o Templo da Espada", ssIntro: "O Templo da Espada abre 15 minutos após o início. Busque o adversário no começo e veja: dá para tomar, quantos precisam segurar e quem vigiar.",
     ssOur: "① Nossa lista", ssPlan: "Plano do ranking", ssNoPlan: "Nenhum plano compartilhado (ou sem acesso ao 📊 Ranking).", ssSubHint: "Toque num nome para trocar Confirmado ↔ Reserva. Reservas vêm do plano; trocar aqui só muda esta página.",
     conf: "Confirmado", subL: "Reserva", ssCnt: "{c} confirmados · {s} reservas", nm: "Nome", pw: "Poder",
@@ -121,9 +121,9 @@ const NT = {
     winD: "❌ يأخذونه — يبقى {s} من قواتهم", loseD: "✅ نصمد — يبقى {g} من قواتنا", needD: "عدد الحشود مثل حشدهم ‎#1 للسيطرة: نحو {n}.",
     holdD: "للصمود أمام كل هذه الحشود معًا: على الأقل {g} جندي في المبنى.", lastD: "واصلوا التعزيز بين حشودهم — كل جندي يصل في الوقت يُحسب كاملًا.",
     mix: "خليط…", mixNote: "المنضمون حسب المستوى (عدد الأشخاص)", mixEq: "≈ {t} في المتوسط",
-    tr: "نسبة القوات (المشاة : الفرسان : الرماة)", trUs: "نحن", trThem: "هم (تخمين)", trSum: "{s}: المجموع {n}% وليس 100%.",
+    tr: "نسبة القوات (المشاة : الفرسان : الرماة)", trUs: "المهاجمون", trThem: "الحامية", trSum: "{s}: المجموع {n}% وليس 100%.",
     trLow: "{s}: المشاة أقل من 40%. في محاكاتنا خسرت المعركة المتكافئة قوات أكثر بكثير (35:35:30 أبقى 14% أقل، و30:40:30 أقل من النصف). الأرقام هنا تفترض 50:20:30 فهي متفائلة أكثر من اللازم.",
-    trNote: "التقدير يفترض 50:20:30 للطرفين؛ النسبة للتحقق فقط.",
+    trNote: "الافتراضي: المهاجمون 50:20:30، الحامية 60:20:20. الأرقام لا تتغير بها؛ النسبة للتحقق فقط.",
     ssT: "🗡️ أرض السيوف — ضريح السيوف", ssIntro: "يُفتح ضريح السيوف بعد 15 دقيقة من بدء المعركة. اجلب الخصم في البداية ثم تحقّق: هل نأخذه، كم شخصًا يلزم للصمود، ومن يجب مراقبته.",
     ssOur: "① قائمتنا", ssPlan: "خطة الترتيب", ssNoPlan: "لا توجد خطط مشتركة (أو لا صلاحية لـ 📊 الترتيب).", ssSubHint: "اضغط على اسم للتبديل مؤكَّد ↔ بديل. البدلاء من الخطة؛ التبديل هنا يغيّر هذه الصفحة فقط.",
     conf: "مؤكَّد", subL: "بديل", ssCnt: "{c} مؤكَّد · {s} بديل", nm: "الاسم", pw: "القوة",
@@ -144,9 +144,9 @@ const NT = {
     winD: "❌ 빼앗김 — 상대 {s} 남음", loseD: "✅ 지켜냄 — 우리 {g} 남음", needD: "빼앗으려면 상대 #1 같은 집결이 약 {n}번 필요.",
     holdD: "이 집결을 한꺼번에 막으려면: 건물 안에 최소 {g} 병력.", lastD: "상대 집결 사이사이 계속 지원하세요 — 제때 도착한 병력은 전부 계산됩니다.",
     mix: "혼합…", mixNote: "집결 참가자 (병종 등급별 인원)", mixEq: "평균 약 {t}",
-    tr: "병종 비율 (보병 : 기병 : 궁병)", trUs: "우리", trThem: "상대 (추정)", trSum: "{s}: 합이 {n}%예요, 100%가 아니에요.",
+    tr: "병종 비율 (보병 : 기병 : 궁병)", trUs: "공격 측", trThem: "수비 측", trSum: "{s}: 합이 {n}%예요, 100%가 아니에요.",
     trLow: "{s}: 보병 40% 미만. 우리 시뮬레이션에서는 비슷한 싸움에서 병력을 훨씬 많이 잃었어요 (35:35:30은 14% 적게 남고, 30:40:30은 절반도 안 남음). 여기 숫자는 50:20:30 기준이라 너무 낙관적이에요.",
-    trNote: "추정은 양쪽 모두 50:20:30 기준이고, 비율은 확인용이에요.",
+    trNote: "기본값: 공격 측 50:20:30, 수비 측 60:20:20. 계산 결과는 바뀌지 않고, 비율은 확인용이에요.",
     ssT: "🗡️ 성검 쟁탈 — 성검 제단", ssIntro: "성검 제단은 전투 시작 15분 뒤에 열려요. 시작하자마자 상대를 가져오고: 빼앗을 수 있는지, 몇 명이 지켜야 하는지, 누구를 조심할지 확인하세요.",
     ssOur: "① 우리 명단", ssPlan: "순위 계획", ssNoPlan: "공유 계획이 없어요 (또는 📊 순위 권한 없음).", ssSubHint: "이름을 누르면 확정 ↔ 후보 전환. 후보는 계획에서 오고, 여기서 바꾸면 이 페이지에만 적용돼요.",
     conf: "확정", subL: "후보", ssCnt: "확정 {c}명 · 후보 {s}명", nm: "이름", pw: "전투력",
@@ -174,7 +174,7 @@ const AI_URL = "https://nxs-ai.tapegirljoke.workers.dev", DISCORD_LS = "nxs-disc
 
 let SNAP = null, snapDay = null, findQ = "";
 const SSDEF = { plan: "", ov: {}, kid: "", tag: "", K: 3, R: 1200000, Rt: 1200000, G: 1500000, per: 150000, tUs: "TG2", mUs: null, tThem: "TG2", mThem: null };
-const PDEF = { mode: "home", dir: "atk", tgt: "", G: 1000000, gt: "TG2", gmix: null, terr: true, dUs: 0, dThem: 0, p: 1.75, re: 0, trUs: [50, 20, 30], trThem: [50, 20, 30],
+const PDEF = { mode: "home", dir: "atk", tgt: "", G: 1000000, gt: "TG2", gmix: null, terr: true, dUs: 0, dThem: 0, p: 1.75, re: 0, trA: [50, 20, 30], trD: [60, 20, 20],
   rallies: [{ lead: "", R: 1200000, tier: "TG2" }], ss: SSDEF };
 const clone = (x) => JSON.parse(JSON.stringify(x));
 let PLAN = (() => { try { const p = JSON.parse(localStorage.getItem("nxs-attack-v2")); return p && Array.isArray(p.rallies) ? p : null; } catch (e) { return null; } })();
@@ -244,9 +244,9 @@ function mixBox(key, tier, mix) {
 const mixRef = (key) => key === "g" ? ["gmix", PLAN] : key === "su" ? ["mUs", PLAN.ss] : key === "st" ? ["mThem", PLAN.ss] : ["mix", PLAN.rallies[+key.slice(1)]];
 function trBox() {
   const row = (side, arr) => `<div class="ak-f"><span>${esc(t(side === "us" ? "trUs" : "trThem"))}</span><span class="ak-tr">${arr.map((v, i) => `<input class="inp" type="number" min="0" max="100" step="5" data-tr="${side}|${i}" value="${v}">`).join(" : ")}</span></div>`;
-  const warn = []; for (const [side, arr] of [["us", PLAN.trUs], ["them", PLAN.trThem]]) { const s = t(side === "us" ? "trUs" : "trThem"), n = arr.reduce((a, b) => a + (+b || 0), 0);
+  const warn = []; for (const [side, arr] of [["us", PLAN.trA], ["them", PLAN.trD]]) { const s = t(side === "us" ? "trUs" : "trThem"), n = arr.reduce((a, b) => a + (+b || 0), 0);
     if (n !== 100) warn.push(fill(t("trSum"), { s, n })); else if (+arr[0] < 40) warn.push(fill(t("trLow"), { s })); }
-  return `<div class="ak-box"><b>${esc(t("tr"))}</b>${row("us", PLAN.trUs)}${row("them", PLAN.trThem)}
+  return `<div class="ak-box"><b>${esc(t("tr"))}</b>${row("us", PLAN.trA)}${row("them", PLAN.trD)}
     ${warn.map((w) => `<div class="mv-warn" style="font-size:12.5px;margin-top:6px">⚠️ ${esc(w)}</div>`).join("")}<div class="muted" style="font-size:12px;margin-top:4px">${esc(t("trNote"))}</div></div>`;
 }
 const modeBar = () => `<div class="ak-mode" role="tablist">${[["home", t("mHome")], ["kvk", t("mKvk")], ["ss", t("mSs")]].map(([k, l]) => `<button type="button" class="btn${(PLAN.mode || "home") === k ? " on" : ""}" data-mode="${k}">${esc(l)}</button>`).join("")}</div>`;
@@ -428,7 +428,7 @@ function bind() {
   document.querySelectorAll("[data-rx]").forEach((b) => b.onclick = () => { PLAN.rallies.splice(+b.dataset.rx, 1); re(); });
   document.querySelectorAll("[data-mx]").forEach((s) => s.onchange = () => { const [key, k] = s.dataset.mx.split("|"), [f, o] = mixRef(key); if (!o) return;
     o[f] = Object.assign({}, MIXDEF, o[f] || {}, { [k]: num(s.value, 0, 200, 0) }); re(); });
-  document.querySelectorAll("[data-tr]").forEach((s) => s.onchange = () => { const [side, i] = s.dataset.tr.split("|"), a = side === "us" ? PLAN.trUs : PLAN.trThem; a[+i] = num(s.value, 0, 100, 0); re(); });
+  document.querySelectorAll("[data-tr]").forEach((s) => s.onchange = () => { const [side, i] = s.dataset.tr.split("|"), a = side === "us" ? PLAN.trA : PLAN.trD; a[+i] = num(s.value, 0, 100, 0); re(); });
   if ($("ak_addR")) $("ak_addR").onclick = () => { const l = PLAN.rallies[PLAN.rallies.length - 1] || {}; PLAN.rallies.push({ lead: "", R: l.R || 1200000, tier: l.tier || "TG2", mix: l.mix ? { ...l.mix } : undefined }); re(); };
   const f = $("ak_find"); if (f) f.oninput = () => { findQ = f.value; const pos = f.selectionStart; $("ak_board").innerHTML = boardsCard(); bind(); const g = $("ak_find"); g.focus(); try { g.setSelectionRange(pos, pos); } catch (e) {} };
   document.querySelectorAll("details[id]").forEach((d) => d.ontoggle = () => { OPEN.delete(d.id); OPEN.delete("-" + d.id); OPEN.add(d.open ? d.id : "-" + d.id); });
