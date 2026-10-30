@@ -271,6 +271,11 @@
   #pg-attack .ak-good { color: #2e7d32; font-weight: 700; margin: 4px 0; } #pg-attack .ak-bad { color: #9a5b00; font-weight: 700; margin: 4px 0; }
   #pg-attack .ak-big { font-size: 17px; font-weight: 800; margin: 4px 0; }
   #pg-attack #ak_ss .ak-f input { width: 130px; }
+  .tac-plan { margin-top: 14px; border-top: 1px solid var(--rule); padding-top: 10px; }
+  .tac-plan h3 { margin: 0 0 4px; } .tac-st { border: 1px solid var(--rule); border-radius: 10px; padding: 8px 10px; margin: 8px 0; }
+  .tac-st h4 { margin: 0 0 6px; } .tac-row { display: grid; grid-template-columns: minmax(7em, 30%) 1fr; gap: 8px; padding: 5px 0 5px 8px; border-top: 1px dashed var(--rule); font-size: 13.5px; }
+  .tac-row:first-of-type { border-top: 0; } .tac-a { box-shadow: inset 3px 0 0 #8e6bbf; } .tac-b { box-shadow: inset 3px 0 0 #d9a65a; } .tac-c { box-shadow: inset 3px 0 0 #4f7fbf; } .tac-d { box-shadow: inset 3px 0 0 #5a9a5a; }
+  @media (max-width: 520px) { .tac-row { grid-template-columns: 1fr; gap: 2px; } }
   #pg-attack .ak-mixed td:first-child { color: var(--text-muted); width: 2.2em; }
   #pg-attack .ak-mixed tr.ak-us td:first-child { box-shadow: inset 3px 0 0 #d9a65a; }
   #pg-attack .ak-mixed tr.ak-them td:first-child { box-shadow: inset 3px 0 0 #6b7fa8; }
