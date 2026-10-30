@@ -388,7 +388,7 @@ NEWER TOOLS (officers)
 [events] - 📅 Events → "📣 Announcement draft" (公告草稿): "UPCOMING KEY EVENTS" with our times for the next 3/5/7 days, ready to paste in game (300-character limit, counter shown; tick which events go in). Each to-do card also has "📣 Game post" (遊戲公告) for a one-event reminder.
 [events] - 📅 Events → "⏰ Our event times": a time can be tied to a battle day with @, e.g. "22:00@1, 13:00@3" (Viking: Day 1 22:00, Day 3 13:00).
 [ranking] - 📊 Ranking → ④ Battle table: "⚔️ Swordland rules draft" fills Phase 1, Phase 2 and Stay behind from the ranking (subs left out); ↩️ Undo next to the plan picker; 🕘 Version history (版本紀錄): the last 150 saves of each plan — pick one to put the plan back (↩️ Undo cancels); "📱 Battle table last edited on this device" brings back a table that was made on that phone/computer but never reached the shared plan.
-[map] - 🗺️ Map → 🎁 Fortress & Sanctuary rewards → "✏️ Update rewards" (更新獎勵, officers with ✏️ Map rights): the special reward of each Fortress / Sanctuary can rotate every round, so pick each one's reward and amount from the in-game Battle Rewards screen ("✍️ Other" adds a reward by name). Each update also records the season and phase (e.g. Season 3 Phase 5/8 — every phase of a season has its own rewards; the Kingshot Wiki table for phases 1–8 matched the in-game screens of phases 3 and 5). Saved on the Worker for every officer; the card shows "Season 3 Phase 5/8 · Last update: who · date" (or "Built into the site" until someone updates it). The rotation of 2026-10-30: Sanctuaries 1/5/9 Custom Epic Hero Shard Chest ×300, 2/6/10 10,000 Hero XP ×300, 3/7/11 1h General Speedup ×400, 4/8/12 Advanced Teleporter ×90; Fortresses 1 Saul Shard ×420, 2 and 3 Mythic skill books ×600, 4 Enhancement XP ×500.
+[map] - 🗺️ Map → 🎁 Fortress & Sanctuary rewards → "✏️ Update rewards" (更新獎勵, officers with ✏️ Map rights): the special reward of each Fortress / Sanctuary can rotate every round, so pick each one's reward and amount from the in-game Battle Rewards screen ("✍️ Other" adds a reward by name). Every phase (1–8) of a season has its own rewards: a "Phase" picker on the card shows any phase (this week's by default, worked out from the date: one phase a week, changing Saturday 00:00 UTC; Season 3 Phase 5 = 2026-10-24 to 10-31). A phase nobody has saved shows the Kingshot Wiki table as the default (it matched the game for phases 3 and 5); ✏️ Update rewards saves the in-game list for that phase, which then wins. The card says where the list comes from: ✅ checked against the game (who · date) or 📖 Wiki default, not checked yet.
 [map] - 🗺️ Map → 🚩 banner plan → "⬇️ Download banner coordinates (CSV)": every banner the map shows now (the banner file plus officers' saved edits: built / demolished / moved) and the 🚩 planned ones, as a Kingshot Mapper CSV (type,X,Y,label,#color,seq) that can be imported there. Label NXS = checked in game, NXS? = estimated from the territory picture, plan = planned, not built yet. Use it to count banners or check for missing ones. "⬇️ Download other alliances' banners (CSV)" does the same for the 🏴 other-alliance layer (label = their tag, their HQs included).
 [move] - 🚚 Move → "👥 Member positions" (成員位置, at the top of the 🚚 Move page; it used to be on 🗺️ Map): ONE map for the whole move — our block drawn like the in-game map (every member's city, Bear Traps, HQ, banners, mountains/lakes from the map). Search a name or tap a city for X:Y and a copy button. Editors: tap a city to change name / X / Y, or "📋 Paste positions" (one per line: name X Y; the box opens with the current list — fix it and press "Replace all"), then 💾 Save. Names are kept exactly as typed; blue = found on the roster, orange = not found. With a moving plan loaded, the plan is drawn on the same map as a blueprint: dashed squares = planned city spots (name shown; green once that member is there), numbered banners = road (R1…), early hive banners (P1…), stage 1 (S1-…, BT2 side) and stage 2 (S2-…, BT1 side) — solid with a green rim once our banner stands there; dashed HQ + its 15×15 and dashed Bear Traps = their new place; other alliances' territory shaded; ✖ = another alliance's banner we must take down (green ✓ once ticked). A legend sits under the map.
 [move] - 🚚 Move → putting members on the plan by tapping (成員分配): with a moving plan loaded, officers with the move edit right tap a dashed planned spot on the 👥 map; a box under the map shows the spot X:Y, a name field and the list of members not placed yet — tap a name (or type it, ✓ Put here) and the next empty spot nearby is picked so a row fills quickly; "Empty this spot" takes the name out; a member put on a new spot leaves their old spot empty. Then 💾 Save. (Members can also be named in Mapper before exporting, or one by one with "➕ Add / change a spot".)
@@ -1326,7 +1326,7 @@ async function plansRoute(env, stub, user, body, token, perms) {
 }
 /* 🎁 /rewards — the Sanctuary Battle special rewards (they rotate between seasons): officers with ✏️ Map rights update them on the
    Map tab; everyone who may open the Map tab reads them. Stored in the DO (kv "rewards"), the last 20 versions in "rewards:hist".
-   rewards = { special: { fortress: { "1": [itemId, qty] … }, sanctuary: { … } }, items: { customId: { en, zh, … } }, season, phase, by, at } */
+   rewards = { phases: { "5": { special: { fortress: { "1": [itemId, qty] … }, sanctuary: { … } }, season, by, at } … }, items: { customId: { en, zh, … } } } */
 async function rewardsRoute(stub, user, body, token, perms) {
   const op = String(body.op || "get"), role = roleOf(perms, user.id);
   const u = perms && perms.users && perms.users[user.id];
@@ -1343,15 +1343,20 @@ async function rewardsRoute(stub, user, body, token, perms) {
   const items = {};
   for (const [k, v] of Object.entries(r.items || {}).slice(0, 40)) { if (!id(k) || !v || typeof v !== "object") continue; items[k] = {};
     for (const [l, t] of Object.entries(v)) if (/^[a-z]{2}$/.test(l)) items[k][l] = String(t).slice(0, 80); }
-  // season / phase this list is for (每期的獎品都不同: one phase of 8 in a season); the history keeps a record of every phase
-  const clean = { special, items, season: Math.max(0, Math.min(99, Math.round(+r.season || 0))), phase: Math.max(0, Math.min(20, Math.round(+r.phase || 0))), by: user.name, at: Date.now() };
-  if (JSON.stringify(clean).length > 30000) return json({ error: "too_big" }, 413);
+  const phase = Math.round(+r.phase || 0); if (!(phase >= 1 && phase <= 8)) return json({ error: "bad phase" }, 400);
+  // one list per phase (1–8): every phase of a season has its own rewards; a phase not saved here uses the Wiki table on the page
+  let all;
   try {
     const old = await stub.kvGet("rewards");
+    all = old && old.phases ? old : { phases: {}, items: {} };
+    if (old && old.special && !old.phases) all.phases[String(old.phase || 5)] = { special: old.special, season: old.season || 0, by: old.by, at: old.at };   // first format (one list)
+    all.phases[String(phase)] = { special, season: Math.max(0, Math.min(99, Math.round(+r.season || 0))), by: user.name, at: Date.now() };
+    all.items = { ...(all.items || {}), ...items };
+    if (JSON.stringify(all).length > 60000) return json({ error: "too_big" }, 413);
     if (old) { const h = (await stub.kvGet("rewards:hist")) || []; h.unshift(old); await stub.kvSet("rewards:hist", h.slice(0, 20)); }
-    await stub.kvSet("rewards", clean);
+    await stub.kvSet("rewards", all);
   } catch (e) { return json({ error: "db", detail: [String(e && e.message || e)] }, 503); }
-  return json({ ok: true, token, rewards: clean });
+  return json({ ok: true, token, rewards: all });
 }
 async function attendRoute(env, stub, user, body, token, mayEdit) {
   const op = String(body.op || "list");

@@ -188,7 +188,7 @@ function renderInfo() {
     save("sp_r", "r"); save("sp_n", "n");
   }
   const spR = specialOf(b);
-  if (spR) $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm" style="flex-basis:100%">🎁 ${esc(rt("special"))}: <b>${esc(iName(spR[0]))} ×${spR[1]}</b></div>`);
+  if (spR) $("km_info").insertAdjacentHTML("beforeend", `<div class="km-tm" style="flex-basis:100%">🎁 ${esc(rt("special"))}: <b>${esc(iName(spR[0]))} ×${spR[1] ?? "?"}</b></div>`);
   $("km_info").querySelectorAll(".km-st button").forEach((x) => x.onclick = () => setStatus(b.id, x.dataset.v));
   $("km_cp").onclick = () => {
     const done = () => { const c = $("km_cp"); if (c) { c.textContent = T("copied"); setTimeout(() => { if ($("km_cp")) $("km_cp").textContent = T("copy"); }, 1500); } };
@@ -210,10 +210,21 @@ const iName = (id) => { const it = G.rewards.items[id]; return it ? it[lang] || 
 
 /* ✏️ the rewards rotate between rounds: officers with ✏️ Map rights update them here (saved on the Worker, /rewards).
    The saved copy replaces the built-in one (data/kingdom-map.js); "Other" adds a reward by name. */
-const RWE = {"zh": {"phaseL": "第{s}賽季 {p}/8期", "seasonF": "賽季", "phaseF": "期", "phaseNote": "先填這是第幾賽季、第幾期（遊戲畫面最上面寫的，例如「第3賽季 5/8期」）。每一期的獎品都不同。", "edit": "✏️ 更新獎勵", "title": "✏️ 更新這一輪的要塞與遺跡獎勵", "note": "獎勵每一輪都可能輪換。照遊戲裡「爭奪獎勵」的畫面，替每座要塞 / 遺跡選獎品、填數量。清單裡沒有的選「✍️ 其他」直接打名字。存了以後所有幹部都看得到。", "other": "✍️ 其他…", "otherPh": "獎品名稱（照遊戲裡的寫法）", "qty": "數量", "save": "儲存", "cancel": "取消", "saving": "儲存中…", "saved": "✅ 已存", "err": "存不進去：{e}", "last": "最後更新：{who} · {t}", "builtIn": "網站內建資料（{d}）"}, "en": {"phaseL": "Season {s} Phase {p}/8", "seasonF": "Season", "phaseF": "Phase", "phaseNote": "First fill in the season and phase (shown at the top of the game screen, e.g. “Season 3 Phase 5/8”). Every phase has different rewards.", "edit": "✏️ Update rewards", "title": "✏️ Update this round's Fortress & Sanctuary rewards", "note": "The rewards can rotate every round. Following the in-game Battle Rewards screen, pick each Fortress / Sanctuary's reward and amount. Not in the list? Pick “✍️ Other” and type the name. Once saved, every officer sees it.", "other": "✍️ Other…", "otherPh": "Reward name (as written in the game)", "qty": "Amount", "save": "Save", "cancel": "Cancel", "saving": "Saving…", "saved": "✅ Saved", "err": "Couldn't save: {e}", "last": "Last update: {who} · {t}", "builtIn": "Built into the site ({d})"}, "pt": {"phaseL": "Temporada {s} Fase {p}/8", "seasonF": "Temporada", "phaseF": "Fase", "phaseNote": "Primeiro preencha a temporada e a fase (no topo da tela do jogo, ex.: “Temporada 3 Fase 5/8”). Cada fase tem recompensas diferentes.", "edit": "✏️ Atualizar recompensas", "title": "✏️ Atualizar as recompensas das Fortalezas e Santuários desta rodada", "note": "As recompensas podem mudar a cada rodada. Seguindo a tela Recompensas da Batalha do jogo, escolha a recompensa e a quantidade de cada Fortaleza / Santuário. Não está na lista? Escolha “✍️ Outro” e digite o nome. Depois de salvar, todos os oficiais veem.", "other": "✍️ Outro…", "otherPh": "Nome da recompensa (como está no jogo)", "qty": "Quantidade", "save": "Salvar", "cancel": "Cancelar", "saving": "Salvando…", "saved": "✅ Salvo", "err": "Não foi possível salvar: {e}", "last": "Última atualização: {who} · {t}", "builtIn": "Dados do site ({d})"}, "ar": {"phaseL": "الموسم {s} المرحلة {p}/8", "seasonF": "الموسم", "phaseF": "المرحلة", "phaseNote": "املأ أولًا الموسم والمرحلة (أعلى شاشة اللعبة، مثل «الموسم 3 المرحلة 5/8»). لكل مرحلة مكافآت مختلفة.", "edit": "✏️ تحديث المكافآت", "title": "✏️ تحديث مكافآت الحصون والمآوي لهذه الجولة", "note": "قد تتغير المكافآت في كل جولة. حسب شاشة مكافآت المعركة في اللعبة، اختر مكافأة كل حصن / مأوى وكميتها. إن لم تكن في القائمة فاختر «✍️ أخرى» واكتب الاسم. بعد الحفظ يراها كل الضباط.", "other": "✍️ أخرى…", "otherPh": "اسم المكافأة (كما في اللعبة)", "qty": "الكمية", "save": "حفظ", "cancel": "إلغاء", "saving": "جارٍ الحفظ…", "saved": "✅ تم الحفظ", "err": "تعذّر الحفظ: {e}", "last": "آخر تحديث: {who} · {t}", "builtIn": "بيانات الموقع ({d})"}, "ko": {"phaseL": "제{s}시즌 {p}/8회", "seasonF": "시즌", "phaseF": "회", "phaseNote": "먼저 시즌과 회차를 적어 주세요 (게임 화면 맨 위, 예: 「제3시즌 5/8회」). 회차마다 보상이 달라요.", "edit": "✏️ 보상 업데이트", "title": "✏️ 이번 회차 성채·유적 보상 업데이트", "note": "보상은 회차마다 바뀔 수 있어요. 게임의 「쟁탈 보상」 화면을 보고 성채 / 유적마다 보상과 수량을 고르세요. 목록에 없으면 「✍️ 기타」를 골라 이름을 입력하세요. 저장하면 모든 간부가 봐요.", "other": "✍️ 기타…", "otherPh": "보상 이름 (게임 표기대로)", "qty": "수량", "save": "저장", "cancel": "취소", "saving": "저장 중…", "saved": "✅ 저장됨", "err": "저장하지 못했어요: {e}", "last": "마지막 업데이트: {who} · {t}", "builtIn": "사이트 기본 데이터 ({d})"}};
+const RWE = {"zh": {"phaseSel": "看第幾期：", "now": "這期", "next": "下期", "srcGame": "✅ 對過遊戲畫面：{who} · {d}", "srcBuilt": "✅ 對過遊戲畫面（{d}）", "srcWiki": "📖 依 Kingshot Wiki 的表預設，還沒對過遊戲畫面。開打前請照遊戲確認，不一樣就按「✏️ 更新獎勵」。", "estNote": "期數是用日期推算的（一週一期，每週六 00:00 UTC 換期）。", "phaseL": "第{s}賽季 {p}/8期", "seasonF": "賽季", "phaseF": "期", "phaseNote": "先填這是第幾賽季、第幾期（遊戲畫面最上面寫的，例如「第3賽季 5/8期」）。每一期的獎品都不同。", "edit": "✏️ 更新獎勵", "title": "✏️ 更新這一輪的要塞與遺跡獎勵", "note": "獎勵每一輪都可能輪換。照遊戲裡「爭奪獎勵」的畫面，替每座要塞 / 遺跡選獎品、填數量。清單裡沒有的選「✍️ 其他」直接打名字。存了以後所有幹部都看得到。", "other": "✍️ 其他…", "otherPh": "獎品名稱（照遊戲裡的寫法）", "qty": "數量", "save": "儲存", "cancel": "取消", "saving": "儲存中…", "saved": "✅ 已存", "err": "存不進去：{e}", "last": "最後更新：{who} · {t}", "builtIn": "網站內建資料（{d}）"}, "en": {"phaseSel": "Phase:", "now": "this week", "next": "next week", "srcGame": "✅ Checked against the game: {who} · {d}", "srcBuilt": "✅ Checked against the game ({d})", "srcWiki": "📖 Default from the Kingshot Wiki table, not checked against the game yet. Check in game before the battle; if it differs, tap “✏️ Update rewards”.", "estNote": "The phase is worked out from the date (one phase a week, changing Saturday 00:00 UTC).", "phaseL": "Season {s} Phase {p}/8", "seasonF": "Season", "phaseF": "Phase", "phaseNote": "First fill in the season and phase (shown at the top of the game screen, e.g. “Season 3 Phase 5/8”). Every phase has different rewards.", "edit": "✏️ Update rewards", "title": "✏️ Update this round's Fortress & Sanctuary rewards", "note": "The rewards can rotate every round. Following the in-game Battle Rewards screen, pick each Fortress / Sanctuary's reward and amount. Not in the list? Pick “✍️ Other” and type the name. Once saved, every officer sees it.", "other": "✍️ Other…", "otherPh": "Reward name (as written in the game)", "qty": "Amount", "save": "Save", "cancel": "Cancel", "saving": "Saving…", "saved": "✅ Saved", "err": "Couldn't save: {e}", "last": "Last update: {who} · {t}", "builtIn": "Built into the site ({d})"}, "pt": {"phaseSel": "Fase:", "now": "esta semana", "next": "próxima semana", "srcGame": "✅ Conferido no jogo: {who} · {d}", "srcBuilt": "✅ Conferido no jogo ({d})", "srcWiki": "📖 Padrão da tabela da Kingshot Wiki, ainda não conferido no jogo. Confira no jogo antes da batalha; se for diferente, toque em “✏️ Atualizar recompensas”.", "estNote": "A fase é calculada pela data (uma fase por semana, muda sábado 00:00 UTC).", "phaseL": "Temporada {s} Fase {p}/8", "seasonF": "Temporada", "phaseF": "Fase", "phaseNote": "Primeiro preencha a temporada e a fase (no topo da tela do jogo, ex.: “Temporada 3 Fase 5/8”). Cada fase tem recompensas diferentes.", "edit": "✏️ Atualizar recompensas", "title": "✏️ Atualizar as recompensas das Fortalezas e Santuários desta rodada", "note": "As recompensas podem mudar a cada rodada. Seguindo a tela Recompensas da Batalha do jogo, escolha a recompensa e a quantidade de cada Fortaleza / Santuário. Não está na lista? Escolha “✍️ Outro” e digite o nome. Depois de salvar, todos os oficiais veem.", "other": "✍️ Outro…", "otherPh": "Nome da recompensa (como está no jogo)", "qty": "Quantidade", "save": "Salvar", "cancel": "Cancelar", "saving": "Salvando…", "saved": "✅ Salvo", "err": "Não foi possível salvar: {e}", "last": "Última atualização: {who} · {t}", "builtIn": "Dados do site ({d})"}, "ar": {"phaseSel": "المرحلة:", "now": "هذا الأسبوع", "next": "الأسبوع القادم", "srcGame": "✅ تمت المطابقة مع اللعبة: {who} · {d}", "srcBuilt": "✅ تمت المطابقة مع اللعبة ({d})", "srcWiki": "📖 افتراضي من جدول Kingshot Wiki، لم تتم مطابقته مع اللعبة بعد. تحقّق في اللعبة قبل المعركة؛ إن اختلف فاضغط «✏️ تحديث المكافآت».", "estNote": "تُحسب المرحلة من التاريخ (مرحلة كل أسبوع، تتغير السبت 00:00 UTC).", "phaseL": "الموسم {s} المرحلة {p}/8", "seasonF": "الموسم", "phaseF": "المرحلة", "phaseNote": "املأ أولًا الموسم والمرحلة (أعلى شاشة اللعبة، مثل «الموسم 3 المرحلة 5/8»). لكل مرحلة مكافآت مختلفة.", "edit": "✏️ تحديث المكافآت", "title": "✏️ تحديث مكافآت الحصون والمآوي لهذه الجولة", "note": "قد تتغير المكافآت في كل جولة. حسب شاشة مكافآت المعركة في اللعبة، اختر مكافأة كل حصن / مأوى وكميتها. إن لم تكن في القائمة فاختر «✍️ أخرى» واكتب الاسم. بعد الحفظ يراها كل الضباط.", "other": "✍️ أخرى…", "otherPh": "اسم المكافأة (كما في اللعبة)", "qty": "الكمية", "save": "حفظ", "cancel": "إلغاء", "saving": "جارٍ الحفظ…", "saved": "✅ تم الحفظ", "err": "تعذّر الحفظ: {e}", "last": "آخر تحديث: {who} · {t}", "builtIn": "بيانات الموقع ({d})"}, "ko": {"phaseSel": "회차:", "now": "이번 주", "next": "다음 주", "srcGame": "✅ 게임 화면 확인: {who} · {d}", "srcBuilt": "✅ 게임 화면 확인 ({d})", "srcWiki": "📖 Kingshot Wiki 표의 기본값이고 아직 게임 화면과 대조하지 않았어요. 전투 전에 게임에서 확인하고, 다르면 「✏️ 보상 업데이트」를 누르세요.", "estNote": "회차는 날짜로 계산해요 (주 1회, 매주 토요일 00:00 UTC에 바뀜).", "phaseL": "제{s}시즌 {p}/8회", "seasonF": "시즌", "phaseF": "회", "phaseNote": "먼저 시즌과 회차를 적어 주세요 (게임 화면 맨 위, 예: 「제3시즌 5/8회」). 회차마다 보상이 달라요.", "edit": "✏️ 보상 업데이트", "title": "✏️ 이번 회차 성채·유적 보상 업데이트", "note": "보상은 회차마다 바뀔 수 있어요. 게임의 「쟁탈 보상」 화면을 보고 성채 / 유적마다 보상과 수량을 고르세요. 목록에 없으면 「✍️ 기타」를 골라 이름을 입력하세요. 저장하면 모든 간부가 봐요.", "other": "✍️ 기타…", "otherPh": "보상 이름 (게임 표기대로)", "qty": "수량", "save": "저장", "cancel": "취소", "saving": "저장 중…", "saved": "✅ 저장됨", "err": "저장하지 못했어요: {e}", "last": "마지막 업데이트: {who} · {t}", "builtIn": "사이트 기본 데이터 ({d})"}};
 const rwe = (k, v = {}) => String((RWE[lang] || RWE.en)[k] ?? RWE.en[k]).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
-let RW_META = null;   // { by, at, season, phase } of the officers' saved copy
-const RW_BUILTIN = "2026-10-30", RW_BUILTIN_PH = { season: 3, phase: 5 };   // the built-in list = Season 3 Phase 5/8 (each phase has its own rewards)
+/* 📖 every phase (1–8) of a season has its own special rewards. Default = the Kingshot Wiki table (checked against the game for phases 3 and 5,
+   2026-10-15 / 10-30); officers fix a phase with ✏️ Update rewards (saved on the Worker per phase, that copy wins). */
+const RW_WIKI = {   // [phase 1 … 8] per building number
+  sanctuary: { 1: "JS HB SU TP ES HB SU XP", 2: "TP JS HB XP XP ES HB SU", 3: "SU TP JS HB SU XP ES HB", 4: "HB SU TP CB TP SU XP ES", 5: "JS DB SU EM ES DB SU XP", 6: "TP JS DB SU XP ES DB SU",
+    7: "SU TP JS TP SU XP ES DB", 8: "DB SU TP XP TP SU XP ES", 9: "JS DP SU DB ES DP SU XP", 10: "TP JS DP CB XP ES DP SU", 11: "SU TP JS EM SU XP ES DP", 12: "DP SU TP SU TP SU XP ES" },
+  fortress: { 1: "SS EX EM JS SS EX EM JS", 2: "CB SS EX CB CB SS EX CB", 3: "EM CB SS EX EM CB CB EX", 4: "EX EM CB SS EX EM SS SS" },
+};
+const RW_CODE = { JS: "jabel", SS: "saul", EX: "enhxp", EM: "expbook", CB: "conqbook", HB: "hp2", SU: "gen1h", TP: "teleport", ES: "epicchest", XP: "heroxp10k", DB: "dmg2", DP: "deploy2" };
+const RW_QTY = { sanctuary: { gen1h: 400, hp2: 60, dmg2: 60, deploy2: 60, jabel: 200, teleport: 90, epicchest: 300, heroxp10k: 300 }, fortress: { expbook: 600, conqbook: 600, saul: 420, enhxp: 500 } };
+const RW_CHECKED = { 3: "2026-10-15", 5: "2026-10-30" };   // phases whose built-in list was read off the game screen
+const RW_P1 = Date.UTC(2026, 8, 26), RW_WK = 7 * 864e5;   // Season 3 Phase 1 began Sat 2026-09-26 00:00 UTC (Phase 5 ended 10-31 00:00 UTC)
+const rwNow = () => { const w = Math.floor((Date.now() - RW_P1) / RW_WK); return { season: 3 + Math.floor(w / 8), phase: ((w % 8) + 8) % 8 + 1 }; };
+let RW_SAVED = {}, RW_PHASE = rwNow().phase;   // RW_SAVED[phase] = { special, season, by, at } from the Worker
 async function rwApi(op, extra = {}) {
   const r = await fetch(AUTH_API + "/rewards", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), op, ...extra }) });
   const j = await r.json().catch(() => ({ error: "network" }));
@@ -221,11 +232,27 @@ async function rwApi(op, extra = {}) {
   if (!r.ok || j.error) throw new Error(j.error || "HTTP " + r.status);
   return j;
 }
-function rwApply(r) {
-  if (!r || !r.special || !G.rewards) return;
+const RW_BUILT = {};   // the lists read off the game screens (data/kingdom-map.js holds Phase 5; Phase 3 = the Wiki table, which matched it)
+function rwWiki(k, phase) { const o = {}; for (const [n, row] of Object.entries(RW_WIKI[k])) { const id = RW_CODE[row.split(" ")[phase - 1]]; o[n] = [id, RW_QTY[k][id] ?? null]; } return o; }
+/* the list for one phase: saved by officers > read off the game > Wiki table */
+function rwFor(phase) {
+  const sv = RW_SAVED[phase];
+  if (sv && sv.special) return { special: sv.special, src: "game", by: sv.by, at: sv.at, season: sv.season };
+  if (RW_BUILT[phase]) return { special: RW_BUILT[phase], src: "built", d: RW_CHECKED[phase] };
+  return { special: { fortress: rwWiki("fortress", phase), sanctuary: rwWiki("sanctuary", phase) }, src: "wiki" };
+}
+function rwShow(phase) { RW_PHASE = phase; const r = rwFor(phase); for (const k of ["fortress", "sanctuary"]) G.rewards[k].special = { ...rwWiki(k, phase), ...(r.special[k] || {}) }; }
+function rwApply(r) {   // the Worker's copy: { phases: { "5": { special, season, by, at } }, items }
+  if (!r || !G.rewards) return;
   Object.assign(G.rewards.items, r.items || {});
-  for (const k of ["fortress", "sanctuary"]) if (r.special[k] && Object.keys(r.special[k]).length) G.rewards[k].special = r.special[k];
-  RW_META = { by: r.by, at: r.at, season: r.season || 0, phase: r.phase || 0 };
+  RW_SAVED = r.phases || (r.special ? { [r.phase || 5]: r } : {});   // (the first saves kept one list)
+  rwShow(RW_PHASE);
+}
+function rwInit() {
+  if (!G.rewards || RW_BUILT[5]) return;
+  RW_BUILT[5] = { fortress: { ...G.rewards.fortress.special }, sanctuary: { ...G.rewards.sanctuary.special } };
+  RW_BUILT[3] = { fortress: rwWiki("fortress", 3), sanctuary: rwWiki("sanctuary", 3) };
+  rwShow(RW_PHASE);
 }
 async function loadRewards() { try { const j = await rwApi("get"); if (j.rewards) { rwApply(j.rewards); renderList(); renderInfo(); } } catch (e) {} }
 function rwEdit() {
@@ -233,8 +260,8 @@ function rwEdit() {
   const ids = Object.keys(G.rewards.items).sort((a, b) => iName(a).localeCompare(iName(b)));
   const opts = (sel) => ids.map((i) => `<option value="${esc(i)}"${i === sel ? " selected" : ""}>${esc(iName(i))}</option>`).join("") + `<option value="__other">${esc(rwe("other"))}</option>`;
   const rows = kinds.map(([k, sym, name]) => B.filter((b) => b.kind === k).sort((a, b) => a.n - b.n).map((b) => { const sp = G.rewards[k].special[b.n] || ["", ""];
-    return `<div class="km-rwe" data-k="${k}" data-n="${b.n}"><b>${sym} ${esc(name)} ${b.n}</b><select class="inp">${opts(sp[0])}</select><input class="inp" type="number" min="0" value="${esc(sp[1])}" aria-label="${esc(rwe("qty"))}"><input class="inp km-rwo" type="text" placeholder="${esc(rwe("otherPh"))}" maxlength="80" hidden></div>`; }).join("")).join("");
-  const ph = RW_META && RW_META.phase ? RW_META : RW_BUILTIN_PH;
+    return `<div class="km-rwe" data-k="${k}" data-n="${b.n}"><b>${sym} ${esc(name)} ${b.n}</b><select class="inp">${opts(sp[0])}</select><input class="inp" type="number" min="0" value="${esc(sp[1] ?? "")}" aria-label="${esc(rwe("qty"))}"><input class="inp km-rwo" type="text" placeholder="${esc(rwe("otherPh"))}" maxlength="80" hidden></div>`; }).join("")).join("");
+  const ph = { season: (RW_SAVED[RW_PHASE] && RW_SAVED[RW_PHASE].season) || rwNow().season, phase: RW_PHASE };
   const m = document.createElement("div"); m.className = "km-modal";
   m.innerHTML = `<div class="card"><b>${esc(rwe("title"))}</b><div class="muted" style="font-size:12.5px;margin:6px 0 10px">${esc(rwe("note"))}</div>
     <div class="muted" style="font-size:12.5px">${esc(rwe("phaseNote"))}</div><div class="row km-rwph"><label>${esc(rwe("seasonF"))} <input class="inp" type="number" min="1" max="99" data-season="1" value="${esc(ph.season || "")}"></label><label>${esc(rwe("phaseF"))} <input class="inp" type="number" min="1" max="8" data-phase="1" value="${esc(ph.phase || "")}"> / 8</label></div>${rows}
@@ -256,7 +283,8 @@ function rwEdit() {
     const prev = {}; for (const i of Object.keys(G.rewards.items)) if (i.startsWith("c_")) prev[i] = G.rewards.items[i];
     const msg = m.querySelector("[data-msg]"); msg.textContent = rwe("saving"); e.target.disabled = true;
     const season = Math.round(+m.querySelector("[data-season]").value || 0), phase = Math.round(+m.querySelector("[data-phase]").value || 0);
-    try { const j = await rwApi("save", { rewards: { special, items: { ...prev, ...items }, season, phase } }); rwApply(j.rewards); renderList(); renderInfo(); msg.textContent = rwe("saved"); setTimeout(() => m.remove(), 700); }
+    if (!(phase >= 1 && phase <= 8)) { msg.textContent = rwe("err", { e: rwe("phaseF") + " 1–8" }); e.target.disabled = false; return; }
+    try { const j = await rwApi("save", { rewards: { special, items: { ...prev, ...items }, season, phase } }); RW_PHASE = phase; rwApply(j.rewards); renderList(); renderInfo(); msg.textContent = rwe("saved"); setTimeout(() => m.remove(), 700); }
     catch (x) { msg.textContent = rwe("err", { e: x.message }); e.target.disabled = false; }
   };
 }
@@ -269,16 +297,18 @@ function rewardsHtml() {
     const R = G.rewards[k], groups = new Map();
     for (const b of B.filter((x) => x.kind === k)) { const sp = R.special[b.n]; if (!sp) continue; const key = sp.join("|"); if (!groups.has(key)) groups.set(key, { sp, bs: [] }); groups.get(key).bs.push(b); }
     const rows = [...groups.values()].sort((a, b) => b.bs.length - a.bs.length || a.bs[0].n - b.bs[0].n).map(({ sp, bs }) =>
-      `<div class="km-lv"><span class="pill km-rwp" style="background:${RCOL[sp[0]] || "#5d6876"}">${esc(iName(sp[0]))} ×${sp[1]}</span><div class="chips">${bs.map(chip).join("")}</div></div>`).join("");
+      `<div class="km-lv"><span class="pill km-rwp" style="background:${RCOL[sp[0]] || "#5d6876"}">${esc(iName(sp[0]))} ×${sp[1] ?? "?"}</span><div class="chips">${bs.map(chip).join("")}</div></div>`).join("");
     const chests = R.chests.map(([c, n]) => { const C = G.rewards.chests[c];
       return `<div class="km-rwc"><b>${esc(rt(C.slot))}</b> <span class="muted">📦 ${esc(C.name[lang] || C.name.en)} ×${n}</span><div>${C.items.map(([i, q]) => `${esc(iName(i))} ×${q}`).join(" · ")}</div></div>`; }).join("");
     return `<div class="km-rwk"><div class="hd"><span class="pill" style="background:${col}">${sym} ${esc(kindName(k))}</span><span class="bf">${esc(rt("power"))} ${R.power.toLocaleString("en-US")} · ${esc(rt("gar"))} ${esc(R.garrison)}</span></div>
       <div class="muted km-rws">③ ${esc(rt("special"))}</div>${rows}
       <details class="km-rwd"><summary>①② ${esc(rt("same").replace("{k}", kindName(k)))}</summary>${chests}</details></div>`;
   };
-  const ph = RW_META ? RW_META : RW_BUILTIN_PH, phTxt = ph.season && ph.phase ? rwe("phaseL", { s: ph.season, p: ph.phase }) + " · " : "";
-  const when = phTxt + (RW_META ? rwe("last", { who: RW_META.by || "?", t: new Date(RW_META.at).toISOString().slice(0, 10) }) : rwe("builtIn", { d: RW_BUILTIN }));
-  return `<div class="km-c km-rw" style="grid-column:1/-1"><div class="hd"><b>${esc(rt("title"))}</b>${ME() ? `<button type="button" class="btn small" data-rwedit="1">${esc(rwe("edit"))}</button>` : ""}</div><div class="muted" style="font-size:12px">${esc(when)}</div><div class="km-rw3">${["k1", "k2", "k3"].map((k) => `<div>${esc(rt(k))}</div>`).join("")}</div>${block("fortress", "◆", "#7a4a24")}${block("sanctuary", "●", "#5d6876")}</div>`;
+  const nw = rwNow(), r = rwFor(RW_PHASE), seasonOf = (p) => p >= nw.phase ? nw.season : nw.season + 1;   // phases before this one = next season's
+  const opt = (p) => `<option value="${p}"${p === RW_PHASE ? " selected" : ""}>${esc(rwe("phaseL", { s: seasonOf(p), p }))}${p === nw.phase ? " · " + esc(rwe("now")) : p === nw.phase % 8 + 1 ? " · " + esc(rwe("next")) : ""}</option>`;
+  const src = r.src === "game" ? rwe("srcGame", { who: r.by || "?", d: new Date(r.at).toISOString().slice(0, 10) }) : r.src === "built" ? rwe("srcBuilt", { d: r.d }) : rwe("srcWiki");
+  const when = `<label style="font-size:13px">${esc(rwe("phaseSel"))} <select class="inp km-rwsel" data-rwphase="1">${[1, 2, 3, 4, 5, 6, 7, 8].map(opt).join("")}</select></label><div class="muted" style="font-size:12px;margin-top:4px">${esc(src)} ${esc(rwe("estNote"))}</div>`;
+  return `<div class="km-c km-rw" style="grid-column:1/-1"><div class="hd"><b>${esc(rt("title"))}</b>${ME() ? `<button type="button" class="btn small" data-rwedit="1">${esc(rwe("edit"))}</button>` : ""}</div><div style="margin:4px 0">${when}</div><div class="km-rw3">${["k1", "k2", "k3"].map((k) => `<div>${esc(rt(k))}</div>`).join("")}</div>${block("fortress", "◆", "#7a4a24")}${block("sanctuary", "●", "#5d6876")}</div>`;
 }
 function renderList() {
   const pr = B.filter((b) => PRIOABLE(b) && SP(b).p).sort((a, b) => SP(a).p - SP(b).p);
@@ -298,6 +328,7 @@ function renderList() {
   $("km_cards").innerHTML = h;
   $("km_cards").querySelectorAll(".chip, .km-pri").forEach((c) => c.onclick = () => select(c.dataset.id, true));
   const rwb = $("km_cards").querySelector("[data-rwedit]"); if (rwb) rwb.onclick = rwEdit;
+  const rws = $("km_cards").querySelector("[data-rwphase]"); if (rws) rws.onchange = () => { rwShow(+rws.value); renderList(); renderInfo(); };
 }
 function renderLayers() {
   const items = [["ruins", T("ruins"), "#7a4a24"], ...G.types.map(([k, , , c]) => [k, typeName(k), c])];
@@ -965,7 +996,7 @@ function onShow() {
 }
 async function init() {
   await loadScripts(["data/kingdom-map.js"]);
-  G = KINGDOM_MAP; build(); await loadPlan(); exportOutposts(PLAN); importFromLink(); drawMap(); $("km_svg").classList.toggle("terr", terrOn); drawPlan(); drawFlags(); flagEvents(); applyTexts(); ready = true; loadGrid(); loadEx(); loadOt(); loadRewards();
+  G = KINGDOM_MAP; build(); await loadPlan(); exportOutposts(PLAN); importFromLink(); drawMap(); $("km_svg").classList.toggle("terr", terrOn); drawPlan(); drawFlags(); flagEvents(); applyTexts(); rwInit(); renderList(); ready = true; loadGrid(); loadEx(); loadOt(); loadRewards();
   if (window.MemberMap) MemberMap.init(G);   // 👥 member positions (js/officer/members.js)
   $("km_in").onclick = () => setZoom(Z * 1.5); $("km_out").onclick = () => setZoom(Z / 1.5);
   mouseControls();
