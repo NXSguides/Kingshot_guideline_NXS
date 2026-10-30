@@ -1,7 +1,8 @@
 // 📦 MightPulse history for the battle analysis (spec: Project doc claude/mightpulse-db-spec.md).
 // Once a day (after the roster and Scout jobs) it saves ONE encrypted file per UTC day:
 //   data/mp-history/YYYY-MM-DD-x7k2p9.json = { date, made, kingdoms: {kid: {...}}, boards: {"kid:board": {captured_at, rows}}, players: {governor_id: {...}} }
-// - kingdoms: /kingdoms/{kid} for #2189 and every Scout kingdom marked "update daily" (e.g. the KvK opponent)
+// - kingdoms: /kingdoms/{kid} for #2189 and every Scout kingdom marked "update daily" (e.g. the KvK opponent);
+//   when started by a Scout fetch (🔭 立即抓取 → data/scout-config.json changes) every Scout kingdom, so a new one shows in ⚔️ at once
 // - boards: all 18 kingdom boards, top 100 each (the API's maximum)
 // - players: every NXS member (copied from the roster file — no extra calls), the players in EXTRA_IDS / EXTRA below,
 //   and for other kingdoms the players in the top 100 of the combat boards (base, ranks, heroes)
@@ -33,7 +34,9 @@ const player = (b, src) => ({ src, captured_at: iso(b.cached_at) || new Date().t
   if (!KEY) { console.log("❌ MIGHTPULSE_API_KEY not found"); process.exit(1); }
   const date = new Date().toISOString().slice(0, 10), file = `data/mp-history/${date}-x7k2p9.json`;
   let cfg = {}; try { cfg = JSON.parse(fs.readFileSync("data/scout-config.json", "utf8")); } catch (e) {}
-  const kids = [...new Set([OUR, ...((cfg.kingdoms || []).filter((k) => k && k.auto).map((k) => +k.kid))])].filter(Boolean);
+  // daily run: #2189 + Scout kingdoms marked "update daily"; run right after a Scout fetch (ALL_SCOUT=1): every Scout kingdom
+  const all = process.env.ALL_SCOUT === "1";
+  const kids = [...new Set([OUR, ...((cfg.kingdoms || []).filter((k) => k && (k.auto || all)).map((k) => +k.kid))])].filter(Boolean);
   const snap = { date, made: new Date().toISOString(), kingdoms: {}, boards: {}, players: {} };
   let calls = 0;
   for (const kid of kids) {

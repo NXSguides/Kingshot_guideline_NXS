@@ -3,6 +3,9 @@ name: MightPulse history (daily)
 on:
   schedule:
     - cron: "45 20 * * *"   # 20:45 UTC, after the roster (20:13) and Scout (20:25) jobs
+  push:   # 🔭 Scout fetch (立即抓取 / update daily) → save the boards of every Scout kingdom right away, so ⚔️ KvK can use them
+    paths: ["data/scout-config.json"]
+    branches: [main]
   workflow_dispatch:
     inputs:
       extra_ids: { description: 'Extra player IDs (space-separated)', required: false, default: '' }
@@ -24,6 +27,7 @@ jobs:
           MIGHTPULSE_API_KEY: ${{ secrets.MIGHTPULSE_API_KEY }}
           DATA_KEY: ${{ secrets.DATA_KEY }}
           EXTRA_IDS: ${{ inputs.extra_ids }}
+          ALL_SCOUT: ${{ github.event_name != 'schedule' && '1' || '0' }}
       - run: |
           git config user.name "history-bot"
           git config user.email "actions@github.com"
