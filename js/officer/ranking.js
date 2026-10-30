@@ -63,55 +63,6 @@ const PRESETS = [
       { name: { en: "Team D – Support", zh: "D 隊 – 支援", pt: "Time D – Apoio", ar: "الفريق D – الدعم", ko: "D팀 – 지원" }, count: null },
     ] },
 ];
-/* 🔱 Tri-Alliance Clash auto plan (Sherry, 2026-10-31: the alliance's TAC plan — Teams A–D, Stages 0–3).
-   Teams come from ③ (ranking order, sizes editable). Team D is split between Path I and Path II by strength (1-2-2-1 …);
-   in the Temple of Tides Team A enters last, weakest first, so its strongest player is the very last. */
-const TAC = {
-  en: { title: "🗺️ Stage plan (auto, from the alliance's TAC plan)", note: "Teams follow the ranking above; change a team's size with its number. Team D is split between Path I and Path II by strength.",
-    s: ["Stage 0 · Preparations 0:00–3:00", "Stage 1 · Seize & Conquer 3:00–20:00", "Stage 2 · Garrisons open", "Stage 3 · Temple of Tides"],
-    t: [["Find which alliance is stronger and learn the route. R4s: set map labels before the battle starts.", "Find which alliance is stronger. Everyone in Team B follows Team A.", "Find which alliance is stronger and which side of our territory our strongest should defend.", "Path I (19, 28, 30): {p1}\nPath II (18, 27, 31): {p2}"],
-      ["Route 19 → 21. Usually push toward the alliance on the right (their Garrison is closer). Keep advancing into enemy territory, but be back at 21 before the Garrisons open. Team B takes over the buildings behind you.", "Follow Team A and secure the buildings it captured. Use extra marches on weaker enemy buildings. Stop recaptures.", "Secure our Transit Hubs 18, 19, 27, 28, 30, 31. Block the river crossings and hold the frontline.", "Clear the paths to the hubs ASAP so stronger teams can pass: Path I 19 → 28 → 30, Path II 18 → 27 → 31. Secure our inner buildings, support Team C."],
-      ["Capture the enemy Garrison (24) and hand it to Team B. If safe, push toward 29 to block the central transfer.", "Take over the enemy Garrison. Hold captured buildings and key hubs so Team A can advance.", "Capture and defend our Garrison (24). Keep protecting the boundary hubs.", "Reinforce our Garrison. Protect our territory. Support Team C."],
-      ["ENTER LAST, in this order: {order} (the strongest enters last).", "ENTER SECOND.", "ENTER FIRST with your second-strongest march; the strongest march stays to defend our Garrison. If our Garrison or territory is under attack, stay and defend.", "ENTER FIRST with your strongest march; other marches stay home. If our Garrison or territory is under attack, stay and defend."]] },
-  zh: { title: "🗺️ 各階段規劃（依聯盟的三盟計畫自動排）", note: "隊伍照上面的排名分；改數字就能調整每隊人數。D 隊依強度分到路線 I 和路線 II。",
-    s: ["階段 0 · 準備階段 0:00–3:00", "階段 1 · 攻城掠地 3:00–20:00", "階段 2 · 戍衛兵營開放", "階段 3 · 潮汐神殿"],
-    t: [["判斷哪一邊的聯盟比較強，熟悉要走的路線。R4：開戰前先設好地圖標記。", "判斷哪個聯盟比較強。B 隊全員跟著 A 隊走。", "判斷哪個聯盟比較強，以及我方領地哪一邊需要最強的人守。", "路線 I（19、28、30）：{p1}\n路線 II（18、27、31）：{p2}"],
-      ["路線 19 → 21。通常往右邊的聯盟推（他們的戍衛兵營比較近）。持續深入敵方領地，但兵營開放前要回到 21。後面的建築交給 B 隊接手。", "跟著 A 隊，守住 A 隊打下的建築。多的部隊去搶比較弱的敵方建築。不要被搶回去。", "守住我方中轉樞紐 18、19、27、28、30、31。擋住過河點，守住前線。", "盡快清出通往樞紐的路，讓強的隊伍通過：路線 I 19 → 28 → 30，路線 II 18 → 27 → 31。守住內部建築，支援 C 隊。"],
-      ["打下敵方戍衛兵營（24），交給 B 隊。安全的話往 29 推，擋住中央轉運。", "接手敵方戍衛兵營。守住打下的建築和重要樞紐，讓 A 隊可以繼續前進。", "拿下並守住我方戍衛兵營（24）。繼續保護邊界的樞紐。", "增援我方戍衛兵營。保護我方領地。支援 C 隊。"],
-      ["最後進，順序：{order}（最強的最後進）。", "第二批進。", "第一批進，派第二強的部隊；最強的部隊留下守我方兵營。我方兵營或領地被打時，留下來防守。", "第一批進，派最強的部隊；其他部隊留在家裡。我方兵營或領地被打時，留下來防守。"]] },
-  pt: { title: "🗺️ Plano por fase (automático, pelo plano TAC da aliança)", note: "Os times seguem o ranking acima; mude o tamanho de um time pelo número. O Time D é dividido entre o Caminho I e o Caminho II pela força.",
-    s: ["Fase 0 · Preparação 0:00–3:00", "Fase 1 · Capturar e conquistar 3:00–20:00", "Fase 2 · Guarnições abertas", "Fase 3 · Templo das Marés"],
-    t: [["Veja qual aliança é mais forte e aprenda a rota. R4s: marquem o mapa antes de começar.", "Veja qual aliança é mais forte. Todo o Time B segue o Time A.", "Veja qual aliança é mais forte e qual lado do nosso território os mais fortes devem defender.", "Caminho I (19, 28, 30): {p1}\nCaminho II (18, 27, 31): {p2}"],
-      ["Rota 19 → 21. Normalmente avance contra a aliança da direita (a Guarnição deles está mais perto). Continue no território inimigo, mas volte ao 21 antes de as Guarnições abrirem. O Time B assume os prédios atrás de você.", "Siga o Time A e segure os prédios que ele tomou. Use marchas extras em prédios inimigos mais fracos. Evite recapturas.", "Segure nossos Centros de Trânsito 18, 19, 27, 28, 30, 31. Bloqueie as travessias do rio e segure a linha de frente.", "Abra os caminhos até os centros o quanto antes para os times fortes passarem: Caminho I 19 → 28 → 30, Caminho II 18 → 27 → 31. Segure os prédios internos, apoie o Time C."],
-      ["Tome a Guarnição inimiga (24) e passe para o Time B. Se for seguro, avance para o 29 e bloqueie a passagem central.", "Assuma a Guarnição inimiga. Segure os prédios tomados e os centros importantes para o Time A avançar.", "Tome e defenda a nossa Guarnição (24). Continue protegendo os centros da fronteira.", "Reforce a nossa Guarnição. Proteja nosso território. Apoie o Time C."],
-      ["ENTRA POR ÚLTIMO, nesta ordem: {order} (o mais forte entra por último).", "ENTRA EM SEGUNDO.", "ENTRA PRIMEIRO com a segunda marcha mais forte; a mais forte fica defendendo nossa Guarnição. Se nossa Guarnição ou território for atacado, fique e defenda.", "ENTRA PRIMEIRO com a marcha mais forte; as outras ficam em casa. Se nossa Guarnição ou território for atacado, fique e defenda."]] },
-  ar: { title: "🗺️ خطة المراحل (تلقائية، من خطة التحالف لصراع التحالف الثلاثي)", note: "الفرق تتبع الترتيب أعلاه؛ غيّر حجم الفريق برقمه. يُقسَّم الفريق D بين المسار I والمسار II حسب القوة.",
-    s: ["المرحلة 0 · الاستعدادات 0:00–3:00", "المرحلة 1 · الاستيلاء والسيطرة 3:00–20:00", "المرحلة 2 · فتح الحاميات", "المرحلة 3 · معبد المد"],
-    t: [["حدّدوا أي تحالف أقوى وتعلّموا الطريق. R4: ضعوا علامات الخريطة قبل بدء المعركة.", "حدّدوا أي تحالف أقوى. كل الفريق B يتبع الفريق A.", "حدّدوا أي تحالف أقوى وأي جهة من أرضنا يجب أن يدافع عنها الأقوى.", "المسار I (19، 28، 30): {p1}\nالمسار II (18، 27، 31): {p2}"],
-      ["الطريق 19 ← 21. غالبًا تقدّموا نحو التحالف على اليمين (حاميتهم أقرب). واصلوا التقدّم في أرض العدو، لكن عودوا إلى 21 قبل فتح الحاميات. الفريق B يستلم المباني خلفكم.", "اتبعوا الفريق A واحموا المباني التي استولى عليها. استخدموا المسيرات الإضافية على مباني العدو الأضعف. امنعوا استعادتها.", "احموا مراكز النقل 18، 19، 27، 28، 30، 31. اقطعوا معابر النهر واثبتوا على خط المواجهة.", "افتحوا الطرق إلى المراكز بسرعة لتمر الفرق القوية: المسار I ‏19 ← 28 ← 30، المسار II ‏18 ← 27 ← 31. احموا المباني الداخلية وادعموا الفريق C."],
-      ["استولوا على حامية العدو (24) وسلّموها للفريق B. إن كان آمنًا تقدّموا نحو 29 لقطع النقل المركزي.", "استلموا حامية العدو. احموا المباني والمراكز المهمة ليتقدّم الفريق A.", "استولوا على حاميتنا (24) ودافعوا عنها. واصلوا حماية مراكز الحدود.", "عزّزوا حاميتنا. احموا أرضنا. ادعموا الفريق C."],
-      ["تدخلون أخيرًا، بهذا الترتيب: {order} (الأقوى يدخل أخيرًا).", "تدخلون ثانيًا.", "تدخلون أولًا بثاني أقوى مسيرة؛ الأقوى تبقى لحماية حاميتنا. إذا هوجمت حاميتنا أو أرضنا فابقوا للدفاع.", "تدخلون أولًا بأقوى مسيرة؛ والباقي يبقى في الأرض. إذا هوجمت حاميتنا أو أرضنا فابقوا للدفاع."]] },
-  ko: { title: "🗺️ 단계별 계획 (연맹의 삼대 연맹전 계획으로 자동 작성)", note: "팀은 위 순위를 따르고, 숫자로 팀 인원을 바꿀 수 있어요. D팀은 강도에 따라 경로 I과 경로 II로 나뉘어요.",
-    s: ["0단계 · 준비 단계 0:00–3:00", "1단계 · 공성 약탈 3:00–20:00", "2단계 · 수비대 병영 개방", "3단계 · 파도 신전"],
-    t: [["어느 연맹이 더 강한지 파악하고 경로를 익히세요. R4: 시작 전에 지도 표시를 해두세요.", "어느 연맹이 더 강한지 파악하세요. B팀 전원은 A팀을 따라가요.", "어느 연맹이 더 강한지, 우리 영토 어느 쪽을 가장 강한 사람이 지켜야 하는지 파악하세요.", "경로 I (19, 28, 30): {p1}\n경로 II (18, 27, 31): {p2}"],
-      ["경로 19 → 21. 보통 오른쪽 연맹 쪽으로 밀어요 (그쪽 병영이 더 가까움). 적 영토로 계속 들어가되, 병영이 열리기 전에 21로 돌아오세요. 뒤의 건물은 B팀이 이어받아요.", "A팀을 따라가며 A팀이 점령한 건물을 지키세요. 남는 부대로 약한 적 건물을 점령하세요. 다시 빼앗기지 마세요.", "우리 중계 거점 18, 19, 27, 28, 30, 31을 지키세요. 강 건너는 길을 막고 최전선을 지키세요.", "강한 팀이 지나가도록 거점으로 가는 길을 최대한 빨리 뚫으세요: 경로 I 19 → 28 → 30, 경로 II 18 → 27 → 31. 내부 건물을 지키고 C팀을 지원하세요."],
-      ["적 병영(24)을 점령해 B팀에 넘기세요. 안전하면 29 쪽으로 밀어 중앙 이동을 막으세요.", "적 병영을 넘겨받으세요. 점령한 건물과 주요 거점을 지켜 A팀이 전진할 수 있게 하세요.", "우리 병영(24)을 점령하고 지키세요. 경계 거점도 계속 지키세요.", "우리 병영을 지원하세요. 우리 영토를 지키고 C팀을 지원하세요."],
-      ["마지막에 입장, 순서: {order} (가장 강한 사람이 마지막).", "두 번째로 입장.", "첫 번째로 입장, 두 번째로 강한 부대로; 가장 강한 부대는 우리 병영을 지키세요. 우리 병영이나 영토가 공격받으면 남아서 방어하세요.", "첫 번째로 입장, 가장 강한 부대로; 나머지 부대는 집에 두세요. 우리 병영이나 영토가 공격받으면 남아서 방어하세요."]] },
-};
-const tacT = () => TAC[lang] || TAC.en;
-/* groups = presetGroups(tri): [A, B, C, D] */
-function tacPlan(groups) {
-  const L = tacT(), [A, B, C, D] = groups.map((x) => x.list), nm = (l) => l.map((m) => m.name).join(", ") || "—";
-  const p1 = [], p2 = []; (D || []).forEach((m, i) => (i % 4 === 0 || i % 4 === 3 ? p1 : p2).push(m));   // 1-2-2-1: both paths get strong and weak
-  const order = [...(A || [])].reverse().map((m) => m.name).join(" → ") || "—";
-  const team = (gi) => groups[gi].g.name[lang] || ptOf(groups[gi].g.name.en);
-  const cell = (si, gi) => fill2(L.t[si][gi], { p1: nm(p1), p2: nm(p2), order });
-  const html = `<div class="tac-plan"><h3>${esc(L.title)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(L.note)}</div>`
-    + L.s.map((st, si) => `<div class="tac-st"><h4>${esc(st)}</h4>${[0, 1, 2, 3].map((gi) => `<div class="tac-row tac-${"abcd"[gi]}"><b>${esc(team(gi))}</b><div dir="auto">${esc(cell(si, gi)).replace(/\n/g, "<br>")}</div></div>`).join("")}</div>`).join("") + `</div>`;
-  const text = `\n\n**${L.title.replace(/^\S+\s/, "")}**` + L.s.map((st, si) => `\n\n**${st}**\n` + [0, 1, 2, 3].map((gi) => `• ${team(gi)}: ${cell(si, gi).replace(/\n/g, " · ")}`).join("\n")).join("");
-  return { html, text };
-}
-const fill2 = (s, v) => String(s).replace(/\{(\w+)\}/g, (m, k) => v[k] ?? m);
 const LS = "nxs-roster-v2";
 const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
 const saveLocal = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };   // this device's view settings only (not part of a shared plan)
@@ -290,15 +241,14 @@ function renderPresets() {
     `<button class="btn${activePreset === pr.id ? " on" : ""}" data-p="${pr.id}">${pr.emoji} ${esc(pr.name[lang] || ptOf(pr.name.en))}</button>`).join("");
   const pr = PRESETS.find((x) => x.id === activePreset);
   $("presetCopy").hidden = !pr;
-  if ($("tbCard")) $("tbCard").hidden = !!(pr && pr.id !== "swordland");   // the battle table is Swordland's: hidden while another event is open
+  if (typeof tbFollow === "function") tbFollow(pr);   // ④ follows the event picked here (an empty table switches by itself)
   if (!document.activeElement || !document.activeElement.closest("#presetCounts")) renderCounts();
   if (!pr) { $("presetOut").innerHTML = ""; return; }
   const pic = pr.img ? `<a class="grp-img" href="${pr.img}" target="_blank" rel="noopener"><img src="${pr.img}" alt="${esc(pr.name[lang] || pr.name.en)}" loading="lazy"></a>` : "";
   if (!picked.size) { $("presetOut").innerHTML = `<p class="empty">${tr("empty")}</p>` + pic; return; }
   $("presetOut").innerHTML = `<div class="grp-wrap"><div class="grp-out">` + presetGroups(pr).map(({ g, list }) => `
     <h3>${esc(g.name[lang] || ptOf(g.name.en))} <span class="muted">(${tr("n", { n: list.length })})</span></h3>
-    ${list.length ? `<ol>${list.map((m) => `<li dir="auto">${esc(m.name)} <span class="muted">· ${m.score.toFixed(mode === "w" ? 1 : 0)}</span></li>`).join("")}</ol>` : `<div class="muted">—</div>`}`).join("") + `</div>${pic}</div>`
-    + (pr.id === "tri" ? tacPlan(presetGroups(pr)).html : "");
+    ${list.length ? `<ol>${list.map((m) => `<li dir="auto">${esc(m.name)} <span class="muted">· ${m.score.toFixed(mode === "w" ? 1 : 0)}</span></li>`).join("")}</ol>` : `<div class="muted">—</div>`}`).join("") + `</div>${pic}</div>`;
 }
 function renderAll() { applyTexts(); renderResult(); }
 function persist() { for (const k of Object.keys(rep)) if (!picked.has(Number(k) || k)) delete rep[k]; store.rep = { ...rep }; store.wts = wts; store.picked = [...picked]; store.subs = [...picked].filter((id) => subs.has(id)); store.wPower = wPower; store.topN = topN; store.mode = mode; store.sortKey = sortKey; store.sortDir = sortDir; store.lang = lang; save(); }
@@ -467,7 +417,7 @@ $("presetCounts").oninput = (e) => {
 $("presetCopy").onclick = async () => {
   const pr = PRESETS.find((x) => x.id === activePreset); if (!pr) return;
   const text = `**${pr.emoji} ${pr.name[lang] || ptOf(pr.name.en)}**\n` + presetGroups(pr).map(({ g, list }) =>
-    `\n**${g.name[lang] || ptOf(g.name.en)} (${list.length})**\n` + (list.map((m, i) => `${i + 1}. ${m.name}${pr.power && +m.power ? ": " + Number(m.power).toLocaleString("en-US") : ""}`).join("\n") || "—")).join("\n") + (pr.id === "tri" ? tacPlan(presetGroups(pr)).text : "");
+    `\n**${g.name[lang] || ptOf(g.name.en)} (${list.length})**\n` + (list.map((m, i) => `${i + 1}. ${m.name}${pr.power && +m.power ? ": " + Number(m.power).toLocaleString("en-US") : ""}`).join("\n") || "—")).join("\n");
   try { await navigator.clipboard.writeText(text); } catch (e) {
     const ta = document.createElement("textarea"); ta.value = text; ROOT.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
   }
@@ -482,11 +432,12 @@ const TB_COLORS = ["#dcc3d6", "#b9cfdc", "#ead2c0", "#cfdcc4", "#e9e0bf", "#cdc8
 /* tables saved with the old bright colours switch to the matching muted one */
 const TB_OLD = { "#b59592": 0, "#8b9db0": 1, "#c09c80": 2, "#94a893": 3, "#b8a68c": 4, "#a093a8": 5, "#7f9c99": 6, "#a8a196": 7, "#f5ebe0": 0, "#d5bdaf": 1, "#edede9": 2, "#c9b7a6": 3, "#e3d5ca": 4, "#b9a394": 5, "#ece4db": 6, "#d6ccc2": 7, "#e6a3d9": 0, "#8fd0ec": 1, "#f6c3a2": 2, "#d6ecc4": 3, "#f6e58d": 4, "#c9c3f0": 5, "#d9d9d9": 6, "#b8e0d2": 7 };
 const tbMuted = (t) => { for (const g of (t && t.groups) || []) { const i = TB_OLD[String(g.color || "").toLowerCase()]; if (i != null) g.color = TB_COLORS[i]; } return t; };
-const TT = { ko: {"ssDraft": "⚔️ 성검 규칙 초안 (3단계 모두)", "title": "④ 전투 배치표", "note": "목록에서 사람을 고른 뒤 칸을 눌러 배치하세요(컴퓨터에서는 드래그도 가능). ×를 누르면 제거됩니다.", "setup": "표 설정", "stages": "단계", "targets": "목표", "tlabels": "목표 뒤 괄호 설명", "cols": "열 이름", "sep": "(쉼표로 구분)", "shortNames": "짧은 이름 (亗, Nexus 같은 장식 제거)", "draft": "순위로 초안 자동 작성", "draftNote": "③의 Attackers / Defenders 인원수를 사용합니다.", "clear": "표 비우기", "addGroup": "+ 조", "addRow": "+ 행", "delGroup": "조 삭제", "dupRow": "행 복사", "delRow": "행 삭제", "pool": "인원 — 점수 기준 추천 역할 (이름을 누른 뒤 칸을 누르세요)", "poolEmpty": "먼저 ②에서 참가자를 체크하세요.", "addText": "+ 텍스트", "sync": "📋 단계(Phase 1, Phase 2, Stay behind…)마다 건물 표가 하나씩, 한 줄 = 건물 하나. 같은 사람이 여러 단계에 나올 수 있어요. 단계 이름은 「표 설정」에서 바꿔요.", "imp": "📥 텍스트 붙여넣기 → 표", "impNote": "Discord에 쓴 배치 글을 그대로 붙여넣으세요 (① ROYAL STABLES / * ⚔️ Attacker: Papa …). 이름은 명단과 자동으로 맞춰지고, 못 찾은 이름은 글자로 들어가요.", "impGo": "표로 바꾸기", "impBad": "알아볼 수 있는 건물이 없어요.", "impDraft": "📝 초안 넣기 (점수 순으로 사람 배치)", "rem": "📌 알림 (그림과 글 맨 아래에 붙어요)", "game": "🎮 게임 채팅용", "undo": "↩️ 되돌리기", "xlsx": "📊 Excel 다운로드", "gameNote": "게임 채팅은 한 번에 한 메시지씩 — 순서대로 하나씩 복사해서 붙여넣으세요.", "addB": "+ 건물", "moveTo": "단계:", "stay": "남음", "textPrompt": "추가할 텍스트 (예: Stays behind)", "image": "🖼️ 이미지 만들기", "text": "📋 텍스트 복사", "toPost": "📢 새 공지에 사용", "saveHint": "휴대폰: 이미지를 길게 눌러 저장하세요.", "download": "다운로드", "close": "닫기", "confirmClear": "표 전체를 비울까요?", "confirmDraft": "현재 표를 새 초안으로 바꿀까요?", "copied": "복사했어요!", "group": "조", "picked": "선택됨:"},
- ar: {"ssDraft": "⚔️ مسودة قواعد أرض السيوف (المراحل الثلاث)", "title": "④ جدول المعركة", "note": "اختر أشخاصًا من القائمة، ثم انقر على خانة لوضعهم فيها (على الكمبيوتر يمكنك السحب أيضًا). انقر × للإزالة.", "setup": "إعداد الجدول", "stages": "المراحل", "targets": "الأهداف", "tlabels": "ملاحظة الهدف (بين قوسين)", "cols": "الأعمدة", "sep": "(افصل بفواصل)", "shortNames": "أسماء مختصرة (بدون زخارف مثل 亗 وNexus)", "draft": "املأ مسودة أولى من الترتيب", "draftNote": "يستخدم أعداد المهاجمين / المدافعين من ③.", "clear": "مسح الجدول", "addGroup": "+ مجموعة", "addRow": "+ صف", "delGroup": "حذف المجموعة", "dupRow": "نسخ الصف", "delRow": "حذف الصف", "pool": "الأشخاص — أدوار مقترحة حسب النقاط (انقر على واحد، ثم على خانة)", "poolEmpty": "حدّد المشاركين في ② أولًا.", "addText": "+ نص", "sync": "📋 لكل مرحلة (Phase 1، Phase 2، Stay behind…) جدول مبانٍ خاص، وكل صف = مبنى. يمكن أن يظهر الشخص نفسه في عدة مراحل. تُغيَّر أسماء المراحل في «إعداد الجدول».", "imp": "📥 لصق نص ← جدول", "impNote": "الصق نص التوزيع كما كتبته في Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). تُطابق الأسماء مع القائمة تلقائيًا، وما لا يُعثر عليه يُضاف كنص.", "impGo": "حوّل إلى جدول", "impBad": "لم يُعثر على أي مبنى.", "impDraft": "📝 أدخل مسودة (الأشخاص حسب الترتيب)", "rem": "📌 تذكيرات (تُضاف أسفل الصورة والنص)", "game": "🎮 لدردشة اللعبة", "undo": "↩️ تراجع", "xlsx": "📊 تنزيل Excel", "gameNote": "دردشة اللعبة ترسل رسالة واحدة في كل مرة — انسخ كل مربع والصقه بالترتيب.", "addB": "+ مبنى", "moveTo": "المرحلة:", "stay": "يبقى", "textPrompt": "النص المراد إضافته (مثلًا: يبقى في الخلف)", "image": "🖼️ إنشاء صورة", "text": "📋 نسخ النص", "toPost": "📢 استخدام في إعلان جديد", "saveHint": "الهاتف: اضغط مطولًا على الصورة لحفظها.", "download": "تنزيل", "close": "إغلاق", "confirmClear": "مسح الجدول بالكامل؟", "confirmDraft": "استبدال الجدول بمسودة جديدة؟", "copied": "تم النسخ!", "group": "مجموعة", "picked": "المحدد:"},
- pt: {"ssDraft": "⚔️ Rascunho pelas regras do Confronto entre Espadas (3 fases)", "title": "④ Tabela de batalha", "note": "Escolha pessoas na lista e toque numa caixa para colocá-las lá (no computador também dá para arrastar). Toque em × para remover.", "setup": "Configurar tabela", "stages": "Etapas", "targets": "Alvos", "tlabels": "Notas do alvo (entre parênteses)", "cols": "Colunas", "sep": "(separe com vírgulas)", "shortNames": "Nomes curtos (sem enfeites como 亗 e Nexus)", "draft": "Montar um rascunho pelo ranking", "draftNote": "Usa os números de Attackers / Defenders do ③.", "clear": "Limpar tabela", "addGroup": "+ Grupo", "addRow": "+ Linha", "delGroup": "Excluir grupo", "dupRow": "Copiar linha", "delRow": "Excluir linha", "pool": "Pessoas — funções sugeridas pela pontuação (toque numa, depois numa caixa)", "poolEmpty": "Marque os participantes no ② primeiro.", "addText": "+ texto", "sync": "📋 Cada fase (Phase 1, Phase 2, Stay behind…) tem sua própria tabela de prédios, uma linha = um prédio. A mesma pessoa pode aparecer em fases diferentes. Os nomes das fases mudam em «Configurar tabela».", "imp": "📥 Colar texto → tabela", "impNote": "Cole o texto das funções como escreveu no Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). Os nomes são ligados à lista sozinhos; os não encontrados entram como texto.", "impGo": "Transformar em tabela", "impBad": "Nenhum prédio encontrado.", "impDraft": "📝 Inserir rascunho (pessoas pela classificação)", "rem": "📌 Lembretes (vão no fim da imagem e do texto)", "game": "🎮 Para o chat do jogo", "undo": "↩️ Desfazer", "xlsx": "📊 Baixar Excel", "gameNote": "O chat do jogo envia uma mensagem por vez — copie cada caixa e cole na ordem.", "addB": "+ Prédio", "moveTo": "Fase:", "stay": "fica", "textPrompt": "Texto para adicionar (ex.: Stays behind)", "image": "🖼️ Gerar imagem", "text": "📋 Copiar texto", "toPost": "📢 Usar num novo anúncio", "saveHint": "No celular: toque e segure a imagem para salvar.", "download": "Baixar", "close": "Fechar", "confirmClear": "Limpar a tabela inteira?", "confirmDraft": "Trocar a tabela por um novo rascunho?", "copied": "Copiado!", "group": "Grupo", "picked": "Selecionado:"},
+const TT = { ko: {"evFor": "이 표는:","evNone": "이 표가 어느 이벤트용인지 고르세요 (또는 ③에서 선택) — 그 이벤트의 단계, 건물, 알림, 초안으로 바뀌어요.","evOther": "이 표는 {ev}용인데 ③에서는 {cur}을(를) 골랐어요.","evSwitch": "{cur}(으)로 바꾸기 (새 빈 표)","confirmEv": "새 빈 {ev} 표를 만들까요? 지금 표는 바뀌어요 (↩️ 되돌리기로 복구 가능).","triDraft": "🔱 삼대 연맹전 계획 초안 (4단계 모두)","triNote": "③의 A–D팀을 사용해요 (인원은 거기서). 리더 = 각 팀 최강; D팀은 경로 I과 II로 나뉘어요.","syncTri": "📋 각 단계(0–3)마다 줄이 있고, 한 줄 = 한 팀이나 경로: 리더, 팀, 임무. 모두 바꿀 수 있고, 단계 이름은 표 설정에서 바꿔요.", "ssDraft": "⚔️ 성검 규칙 초안 (3단계 모두)", "title": "④ 전투 배치표", "note": "목록에서 사람을 고른 뒤 칸을 눌러 배치하세요(컴퓨터에서는 드래그도 가능). ×를 누르면 제거됩니다.", "setup": "표 설정", "stages": "단계", "targets": "목표", "tlabels": "목표 뒤 괄호 설명", "cols": "열 이름", "sep": "(쉼표로 구분)", "shortNames": "짧은 이름 (亗, Nexus 같은 장식 제거)", "draft": "순위로 초안 자동 작성", "draftNote": "③의 Attackers / Defenders 인원수를 사용합니다.", "clear": "표 비우기", "addGroup": "+ 조", "addRow": "+ 행", "delGroup": "조 삭제", "dupRow": "행 복사", "delRow": "행 삭제", "pool": "인원 — 점수 기준 추천 역할 (이름을 누른 뒤 칸을 누르세요)", "poolEmpty": "먼저 ②에서 참가자를 체크하세요.", "addText": "+ 텍스트", "sync": "📋 단계(Phase 1, Phase 2, Stay behind…)마다 건물 표가 하나씩, 한 줄 = 건물 하나. 같은 사람이 여러 단계에 나올 수 있어요. 단계 이름은 「표 설정」에서 바꿔요.", "imp": "📥 텍스트 붙여넣기 → 표", "impNote": "Discord에 쓴 배치 글을 그대로 붙여넣으세요 (① ROYAL STABLES / * ⚔️ Attacker: Papa …). 이름은 명단과 자동으로 맞춰지고, 못 찾은 이름은 글자로 들어가요.", "impGo": "표로 바꾸기", "impBad": "알아볼 수 있는 건물이 없어요.", "impDraft": "📝 초안 넣기 (점수 순으로 사람 배치)", "rem": "📌 알림 (그림과 글 맨 아래에 붙어요)", "game": "🎮 게임 채팅용", "undo": "↩️ 되돌리기", "xlsx": "📊 Excel 다운로드", "gameNote": "게임 채팅은 한 번에 한 메시지씩 — 순서대로 하나씩 복사해서 붙여넣으세요.", "addB": "+ 건물", "moveTo": "단계:", "stay": "남음", "textPrompt": "추가할 텍스트 (예: Stays behind)", "image": "🖼️ 이미지 만들기", "text": "📋 텍스트 복사", "toPost": "📢 새 공지에 사용", "saveHint": "휴대폰: 이미지를 길게 눌러 저장하세요.", "download": "다운로드", "close": "닫기", "confirmClear": "표 전체를 비울까요?", "confirmDraft": "현재 표를 새 초안으로 바꿀까요?", "copied": "복사했어요!", "group": "조", "picked": "선택됨:"},
+ ar: {"evFor": "الجدول لـ:","evNone": "اختر الحدث الذي يخصّه هذا الجدول (أو اختره في ③) — فيأخذ مراحل ذلك الحدث ومبانيه وتذكيراته ومسودته.","evOther": "هذا الجدول معدّ لـ {ev}، لكن ③ يعرض {cur}.","evSwitch": "التبديل إلى {cur} (جدول جديد فارغ)","confirmEv": "بدء جدول {ev} جديد فارغ؟ يُستبدل الحالي (↩️ تراجع يعيده).","triDraft": "🔱 مسودة خطة صراع التحالف الثلاثي (4 مراحل)","triNote": "يستخدم الفرق A–D من ③ (الأحجام هناك). القائد = الأقوى في كل فريق؛ الفريق D مقسوم بين المسار I والمسار II.","syncTri": "📋 لكل مرحلة (0–3) صفوفها؛ صف = فريق أو مسار: القائد، الفريق، المهمة. كل شيء قابل للتعديل؛ غيّر أسماء المراحل في إعداد الجدول.", "ssDraft": "⚔️ مسودة قواعد أرض السيوف (المراحل الثلاث)", "title": "④ جدول المعركة", "note": "اختر أشخاصًا من القائمة، ثم انقر على خانة لوضعهم فيها (على الكمبيوتر يمكنك السحب أيضًا). انقر × للإزالة.", "setup": "إعداد الجدول", "stages": "المراحل", "targets": "الأهداف", "tlabels": "ملاحظة الهدف (بين قوسين)", "cols": "الأعمدة", "sep": "(افصل بفواصل)", "shortNames": "أسماء مختصرة (بدون زخارف مثل 亗 وNexus)", "draft": "املأ مسودة أولى من الترتيب", "draftNote": "يستخدم أعداد المهاجمين / المدافعين من ③.", "clear": "مسح الجدول", "addGroup": "+ مجموعة", "addRow": "+ صف", "delGroup": "حذف المجموعة", "dupRow": "نسخ الصف", "delRow": "حذف الصف", "pool": "الأشخاص — أدوار مقترحة حسب النقاط (انقر على واحد، ثم على خانة)", "poolEmpty": "حدّد المشاركين في ② أولًا.", "addText": "+ نص", "sync": "📋 لكل مرحلة (Phase 1، Phase 2، Stay behind…) جدول مبانٍ خاص، وكل صف = مبنى. يمكن أن يظهر الشخص نفسه في عدة مراحل. تُغيَّر أسماء المراحل في «إعداد الجدول».", "imp": "📥 لصق نص ← جدول", "impNote": "الصق نص التوزيع كما كتبته في Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). تُطابق الأسماء مع القائمة تلقائيًا، وما لا يُعثر عليه يُضاف كنص.", "impGo": "حوّل إلى جدول", "impBad": "لم يُعثر على أي مبنى.", "impDraft": "📝 أدخل مسودة (الأشخاص حسب الترتيب)", "rem": "📌 تذكيرات (تُضاف أسفل الصورة والنص)", "game": "🎮 لدردشة اللعبة", "undo": "↩️ تراجع", "xlsx": "📊 تنزيل Excel", "gameNote": "دردشة اللعبة ترسل رسالة واحدة في كل مرة — انسخ كل مربع والصقه بالترتيب.", "addB": "+ مبنى", "moveTo": "المرحلة:", "stay": "يبقى", "textPrompt": "النص المراد إضافته (مثلًا: يبقى في الخلف)", "image": "🖼️ إنشاء صورة", "text": "📋 نسخ النص", "toPost": "📢 استخدام في إعلان جديد", "saveHint": "الهاتف: اضغط مطولًا على الصورة لحفظها.", "download": "تنزيل", "close": "إغلاق", "confirmClear": "مسح الجدول بالكامل؟", "confirmDraft": "استبدال الجدول بمسودة جديدة؟", "copied": "تم النسخ!", "group": "مجموعة", "picked": "المحدد:"},
+ pt: {"evFor": "Tabela para:","evNone": "Escolha o evento desta tabela (ou escolha em ③) — ela passa a ter as fases, prédios, lembretes e rascunho desse evento.","evOther": "Esta tabela é de {ev}, mas ③ mostra {cur}.","evSwitch": "Trocar para {cur} (tabela nova vazia)","confirmEv": "Começar uma tabela vazia de {ev}? A atual é substituída (↩️ Desfazer traz de volta).","triDraft": "🔱 Rascunho do plano TAC (4 fases)","triNote": "Usa os Times A–D de ③ (tamanhos lá). Líder = o mais forte de cada time; o Time D é dividido entre Caminho I e II.","syncTri": "📋 Cada fase (0–3) tem suas linhas; uma linha = um time ou caminho: Líder, Time, Tarefa. Tudo pode ser mudado; renomeie as fases em Configurar tabela.", "ssDraft": "⚔️ Rascunho pelas regras do Confronto entre Espadas (3 fases)", "title": "④ Tabela de batalha", "note": "Escolha pessoas na lista e toque numa caixa para colocá-las lá (no computador também dá para arrastar). Toque em × para remover.", "setup": "Configurar tabela", "stages": "Etapas", "targets": "Alvos", "tlabels": "Notas do alvo (entre parênteses)", "cols": "Colunas", "sep": "(separe com vírgulas)", "shortNames": "Nomes curtos (sem enfeites como 亗 e Nexus)", "draft": "Montar um rascunho pelo ranking", "draftNote": "Usa os números de Attackers / Defenders do ③.", "clear": "Limpar tabela", "addGroup": "+ Grupo", "addRow": "+ Linha", "delGroup": "Excluir grupo", "dupRow": "Copiar linha", "delRow": "Excluir linha", "pool": "Pessoas — funções sugeridas pela pontuação (toque numa, depois numa caixa)", "poolEmpty": "Marque os participantes no ② primeiro.", "addText": "+ texto", "sync": "📋 Cada fase (Phase 1, Phase 2, Stay behind…) tem sua própria tabela de prédios, uma linha = um prédio. A mesma pessoa pode aparecer em fases diferentes. Os nomes das fases mudam em «Configurar tabela».", "imp": "📥 Colar texto → tabela", "impNote": "Cole o texto das funções como escreveu no Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). Os nomes são ligados à lista sozinhos; os não encontrados entram como texto.", "impGo": "Transformar em tabela", "impBad": "Nenhum prédio encontrado.", "impDraft": "📝 Inserir rascunho (pessoas pela classificação)", "rem": "📌 Lembretes (vão no fim da imagem e do texto)", "game": "🎮 Para o chat do jogo", "undo": "↩️ Desfazer", "xlsx": "📊 Baixar Excel", "gameNote": "O chat do jogo envia uma mensagem por vez — copie cada caixa e cole na ordem.", "addB": "+ Prédio", "moveTo": "Fase:", "stay": "fica", "textPrompt": "Texto para adicionar (ex.: Stays behind)", "image": "🖼️ Gerar imagem", "text": "📋 Copiar texto", "toPost": "📢 Usar num novo anúncio", "saveHint": "No celular: toque e segure a imagem para salvar.", "download": "Baixar", "close": "Fechar", "confirmClear": "Limpar a tabela inteira?", "confirmDraft": "Trocar a tabela por um novo rascunho?", "copied": "Copiado!", "group": "Grupo", "picked": "Selecionado:"},
 
   en: {
+    evFor: "Table for:", evNone: "Pick the event this table is for (or pick it in ③) — it sets up that event's stages, buildings, reminders and draft.", evOther: "This table is set up for {ev}, but ③ shows {cur}.", evSwitch: "Switch to {cur} (new empty table)", confirmEv: "Start a new empty {ev} table? The current one is replaced (↩️ Undo brings it back).", triDraft: "🔱 TAC plan draft (all 4 stages)", triNote: "Uses Teams A–D from ③ (sizes there). Lead = each team's strongest; Team D is split into Path I and Path II.", syncTri: "📋 Each stage (Stage 0–3) has its own rows; one row = one team or path: Lead, Team, Task. Everything can be changed; rename stages in Table setup.",
     title: "④ Battle table", note: "Pick people from the list, then tap a box to put them there (on a computer you can also drag). Tap × to remove.",
     ssDraft: "⚔️ Swordland rules draft (all 3 phases)", setup: "Table setup", stages: "Stages", targets: "Targets", tlabels: "Target notes (shown in brackets)", cols: "Columns", sep: "(separate with commas)",
     shortNames: "Short names (drop decorations like 亗 and Nexus)",
@@ -500,6 +451,7 @@ const TT = { ko: {"ssDraft": "⚔️ 성검 규칙 초안 (3단계 모두)", "ti
     group: "Group", picked: "Selected:",
   },
   zh: {
+    evFor: "這張表是：", evNone: "先選這張表是哪個活動的（或在 ③ 點活動）——會換成那個活動的階段、建築、提醒和草稿。", evOther: "這張表是 {ev} 的，但 ③ 選的是 {cur}。", evSwitch: "換成 {cur}（新的空白表）", confirmEv: "要開一張新的空白 {ev} 表嗎？目前的表會被取代（可以按 ↩️ 復原）。", triDraft: "🔱 三盟計畫草稿（4 個階段一次排好）", triNote: "使用 ③ 的 A–D 隊（人數在那裡改）。隊長 = 每隊最強的人；D 隊分成路線 I 和路線 II。", syncTri: "📋 每個階段（階段 0–3）各自一組列，一列 = 一隊或一條路線：隊長、隊員、任務。全部都可以改；階段名稱在「表格設定」裡改。",
     title: "④ 戰鬥分工表", note: "先點上方的名字，再點要放的格子（電腦上也可以直接拖曳）。點 × 移除。",
     ssDraft: "⚔️ 聖劍規則草稿（3 個階段一次排好）", setup: "表格設定", stages: "階段", targets: "目標", tlabels: "目標後面的括號說明", cols: "欄位名稱", sep: "（用逗號分隔）",
     shortNames: "簡短名字（去掉亗、Nexus 這些裝飾）",
@@ -516,6 +468,25 @@ const TT = { ko: {"ssDraft": "⚔️ 성검 규칙 초안 (3단계 모두)", "ti
 const tt = (k) => (TT[lang] && TT[lang][k]) || TT.en[k];
 const COL_KEYS = ["att", "stage", "target", "def", "join", "note"];
 const PEOPLE_COLS = ["att", "def", "join"];
+/* ④ is set up per event (Sherry, 2026-10-31: "the battle table should follow the plan, not start as Swordland"):
+   TB.ev = "swordland" | "tri" | "" (not chosen yet). Each event has its own stages, buildings, columns, reminders and draft. */
+const TB_EV = {
+  swordland: () => tbDefault(),
+  tri: () => ({ stages: "Stage 0 — Preparations 0:00–3:00, Stage 1 — Seize & Conquer 3:00–20:00, Stage 2 — Garrisons open, Stage 3 — Temple of Tides",
+    targets: "18, 19, 21, 24, 27, 28, 29, 30, 31, Temple", short: true,
+    tlabels: "Team A – Attack, Team B – Enemy Territory Hold, Team C – Frontline, Team D – Support, Team D – Path I, Team D – Path II, Our Garrison, Enemy Garrison, Temple of Tides",
+    rem: "Rules\n• R4s: set map labels before the battle starts.\n• Team A: be back at 21 before the Garrisons open.\n• Team B follows Team A and holds what it captured — no recaptures.\n• Team C holds the Transit Hubs and the river crossings; Team D clears Path I / Path II first.\n• Temple of Tides: C and D enter first, B second, A last — the strongest player enters last.\n• If our Garrison or territory is under attack, C and D stay home and defend.",
+    cols: { att: "Lead", stage: "Stage", target: "Building", def: "Team", join: "Back-up", note: "Task" },
+    show: { att: true, stage: true, target: true, def: true, join: false, note: true }, groups: [] }),
+};
+const EVN = (ev) => { const pr = PRESETS.find((x) => x.id === ev); return pr ? `${pr.emoji} ${pr.name[lang] || ptOf(pr.name.en)}` : ev; };
+function tbSetEv(ev) { const d = TB_EV[ev](); for (const k of ["stages", "targets", "tlabels", "rem", "cols", "show", "short"]) TB[k] = d[k]; TB.groups = []; TB.ev = ev; }
+/* ③ picked an event: an empty table becomes that event's table; a filled one of another event only shows a note (switching asks first) */
+function tbFollow(pr) {
+  if (!pr || !TB_EV[pr.id] || TB.ev === pr.id) { tbRender(); return; }
+  if (!TB.groups.length) { tbSetEv(pr.id); tbSave(); }
+  tbRender();
+}
 function tbDefault() {
   return {
     stages: "Phase 1, Phase 2 — after 15 mins, Stay behind", targets: "1, 2, 3, 4, 5, 6, 7", short: true,
@@ -539,8 +510,9 @@ const stList = () => { const l = listOf(TB.stages); return l.length ? l : ["Phas
 /* older saved tables → today's shape. Also run on a copy (planNorm), so the shared-plan save can tell "changed here" from "just tidied up" */
 function tbSync(T = TB) {
   const nSt = (() => { const l = listOf(T.stages); return l.length ? l.length : 1; });
-  if (/^\s*(Stage 1\s*,\s*Stage 2|Phase 1\s*,\s*Phase 2\s*,\s*Stay behind)\s*$/.test(T.stages || "")) T.stages = tbDefault().stages;   // the old default → the phases
-  if (T.cols.target === "Target") T.cols.target = "Building";
+  if (T.ev == null) T.ev = (T.groups && T.groups.length) ? "swordland" : "";   // tables from before were all Swordland's; an empty one waits for an event
+  if (T.ev === "swordland" && /^\s*(Stage 1\s*,\s*Stage 2|Phase 1\s*,\s*Phase 2\s*,\s*Stay behind)\s*$/.test(T.stages || "")) T.stages = tbDefault().stages;   // the old default → the phases
+  if (T.ev === "swordland" && T.cols.target === "Target") T.cols.target = "Building";
   if (T.tlabels === "Royal Stables, Bell Tower, Sanctum near enemy, Sanctum near home, Abbey, Mercenary Camp, Hall of Reformation, Centre") T.tlabels = tbDefault().tlabels;
   if (T.cols.att === "Attackers") T.cols.att = "Attacker";
   T.groups.forEach((g) => {
@@ -582,16 +554,21 @@ function tbRender() {
   tbSync();
   const counts = tbCounts();
   const pool = ranking(), subPool = [];   // 🔁 subs never show up to be placed (ticking "sub" keeps someone out of every assignment)
-  const swPreset = PRESETS.find((x) => x.id === "swordland");
+  const swPreset = PRESETS.find((x) => x.id === (TB.ev === "tri" ? "tri" : "swordland"));   // suggested roles: the table's own event (🔱 Teams A–D)
   const roleGroups = presetGroups(swPreset);   // suggested Attackers / Defenders / Joiners by score
   const stageOpts = listOf(TB.stages), targetOpts = listOf(TB.targets);
   const cell = (g, gi, r, ri, k) => {
     const chips = r[k].map((x, xi) => `<span class="tb-chip${x.kind === "t" ? " txt" : ""}${x.kind === "p" && subs.has(x.id) ? " is-sub" : ""}"${x.kind === "p" && subs.has(x.id) ? ` title="${esc(tr("sub"))}"` : ""} draggable="true" data-g="${gi}" data-r="${ri}" data-k="${k}" data-x="${xi}">${esc(chipLabel(x))}${x.kind === "p" && subs.has(x.id) ? ` <b class="tb-subtag">${esc(tr("sub"))}</b>` : ""}<b class="tb-x" data-del="1">×</b></span>`).join("");
     return `<div class="tb-cell" data-g="${gi}" data-r="${ri}" data-k="${k}"><span class="tb-lab">${{ att: "⚔️", def: "🛡️", join: "👥" }[k] || ""} ${esc(TB.cols[k])}:</span>${chips}<span class="tb-add" data-g="${gi}" data-r="${ri}" data-k="${k}" data-addtext="1">${esc(tt("addText"))}</span></div>`;
   };
+  const cur = PRESETS.find((x) => x.id === activePreset);
+  const evBar = `<div class="row tb-ev" style="margin:0 0 8px;gap:6px;align-items:center"><span class="muted">${esc(tt("evFor"))}</span>${Object.keys(TB_EV).map((k) => `<button class="btn small${TB.ev === k ? " on" : ""}" data-act="ev" data-ev="${k}">${esc(EVN(k))}</button>`).join("")}</div>`;
+  if (!TB.ev) { host.innerHTML = `<h2>${esc(tt("title"))}</h2>${evBar}<div class="muted msg">${esc(tt("evNone"))}</div>`; return; }
+  const other = cur && TB_EV[cur.id] && cur.id !== TB.ev ? `<div class="mv-warn tb-evwarn" style="margin:0 0 10px">${esc(tt("evOther").replace("{ev}", EVN(TB.ev)).replace("{cur}", EVN(cur.id)))} <button class="btn small" data-act="ev" data-ev="${cur.id}">${esc(tt("evSwitch").replace("{cur}", EVN(cur.id)))}</button></div>` : "";
+  const tri = TB.ev === "tri";
   host.innerHTML = `
-    <h2>${esc(tt("title"))}</h2>
-    <div class="muted msg" style="margin:0 0 4px">${esc(tt("note"))}</div><div class="muted msg" style="margin:0 0 10px">${esc(tt("sync"))}</div>
+    <h2>${esc(tt("title"))} · ${esc(EVN(TB.ev))}</h2>${evBar}${other}
+    <div class="muted msg" style="margin:0 0 4px">${esc(tt("note"))}</div><div class="muted msg" style="margin:0 0 10px">${esc(tt(tri ? "syncTri" : "sync"))}</div>
     <details class="tb-setup"><summary>${esc(tt("setup"))}</summary>
       <label class="f">${esc(tt("stages"))} <span class="muted">${esc(tt("sep"))}</span><input type="text" data-set="stages" value="${esc(TB.stages)}"></label>
       <label class="f">${esc(tt("targets"))} <span class="muted">${esc(tt("sep"))}</span><input type="text" data-set="targets" value="${esc(TB.targets)}"></label>
@@ -601,13 +578,13 @@ function tbRender() {
       <label class="row" style="margin-top:8px"><input type="checkbox" data-set="short" ${TB.short ? "checked" : ""}> ${esc(tt("shortNames"))}</label>
     </details>
     <div class="row" style="margin:10px 0">
-      <button class="btn" data-act="draft">✨ ${esc(tt("draft"))}</button>
+      ${tri ? `<button class="btn" data-act="triDraft">${esc(tt("triDraft"))}</button>` : `<button class="btn" data-act="draft">✨ ${esc(tt("draft"))}</button>
       <button class="btn" data-act="ssDraft">${esc(tt("ssDraft"))}</button>
-      <button class="btn" data-act="import">${esc(tt("imp"))}</button>
+      <button class="btn" data-act="import">${esc(tt("imp"))}</button>`}
       <button class="btn" data-act="clear">${esc(tt("clear"))}</button>
       <button class="btn" data-act="undo" ${hist.length ? "" : "disabled"}>${esc(tt("undo"))}</button>
     </div>
-    <div class="muted" style="font-size:12px;margin:-4px 0 8px">${esc(tt("draftNote"))}</div>
+    <div class="muted" style="font-size:12px;margin:-4px 0 8px">${esc(tt(tri ? "triNote" : "draftNote"))}</div>
     <div class="tb-sticky"><div class="tb-pool-h">${esc(tt("pool"))}${tbPick ? ` · <b>${esc(tt("picked"))} ${esc(chipLabel(tbPick))}</b>` : ""}</div>
     <div class="tb-counts">${swPreset.groups.map((g, gi) => g.count == null ? "" : `<label>${esc(g.name[lang] || ptOf(g.name.en))} <input type="number" min="0" max="99" data-rolecount="${gi}" value="${groupCount(swPreset, gi)}"></label>`).join("")}</div>
     <div class="tb-pool">${pool.length ? roleGroups.map(({ g, list }, ri) => list.length ? `<div class="tb-role r${ri}"><div class="tb-role-h">${esc(g.name[lang] || ptOf(g.name.en))} <span>(${list.length})</span></div>${list.map((m) => `<span class="tb-chip pool r${ri}${tbPick && tbPick.kind === "p" && String(tbPick.id) === String(m.id) ? " on" : ""}" draggable="true" data-pid="${m.id}">${esc(TB.short ? shortName(m.name) : m.name)}${counts[m.id] ? `<i>${counts[m.id]}</i>` : ""}</span>`).join("")}</div>` : "").join("") : `<span class="muted">${esc(tt("poolEmpty"))}</span>`}${subPool.length ? `<div class="tb-role rsub"><div class="tb-role-h">🔁 ${esc(tr("sub"))} <span>(${subPool.length})</span></div>${subPool.map((m) => `<span class="tb-chip pool rsub${tbPick && tbPick.kind === "p" && String(tbPick.id) === String(m.id) ? " on" : ""}" draggable="true" data-pid="${m.id}">${esc(TB.short ? shortName(m.name) : m.name)} <b class="tb-subtag">${esc(tr("sub"))}</b>${counts[m.id] ? `<i>${counts[m.id]}</i>` : ""}</span>`).join("")}</div>` : ""}</div></div>
@@ -677,6 +654,36 @@ function tbRulesDraft() {
   TB.groups = [s1, s2, s3, s4, ab, sw, mc, hr, b1, b2, b3, b4, b5];
 }
 
+/* 🔱 TAC plan draft (the alliance's plan, 2026-10-31): Teams A–D from ③ (ranking order, sizes there), one row per team and stage:
+   Lead = the team's strongest, Team = the rest. Team D is split into Path I / Path II by strength (1-2-2-1).
+   Stage 3 lists the Temple order: C and D first, B second, A last — A's members weakest first, its strongest (the Lead) last. */
+function tbTriDraft() {
+  const [A, B, C, D] = presetGroups(PRESETS.find((x) => x.id === "tri")).map((x) => x.list); if (!A) return;
+  const ch = (l) => l.map((m) => ({ kind: "p", id: m.id }));
+  const p1 = [], p2 = []; D.forEach((m, i) => (i % 4 === 0 || i % 4 === 3 ? p1 : p2).push(m));
+  const G = (sec, c, l, target, tl, note, rev) => { const row = newRow(""); const rest = l.slice(1); Object.assign(row, { target, tl, att: ch(l.slice(0, 1)), def: ch(rev ? rest.reverse() : rest), note }); return { color: TB_COLORS[c], sec, rows: [row] }; };
+  const tA = "Team A – Attack", tB = "Team B – Enemy Territory Hold", tC = "Team C – Frontline", tP1 = "Team D – Path I", tP2 = "Team D – Path II";
+  TB.groups = [
+    G(0, 0, A, "19 → 21", tA, "Find which alliance is stronger and learn the route. R4s: set map labels before the battle starts."),
+    G(0, 1, B, "", tB, "Find which alliance is stronger. Everyone follows Team A."),
+    G(0, 2, C, "", tC, "Find which alliance is stronger and which side of our territory our strongest should defend."),
+    G(0, 3, p1, "19, 28, 30", tP1, "You take Path I."), G(0, 4, p2, "18, 27, 31", tP2, "You take Path II."),
+    G(1, 0, A, "19 → 21", tA, "Usually push toward the alliance on the right (their Garrison is closer). Keep advancing, but be back at 21 before the Garrisons open. Team B takes over the buildings behind you."),
+    G(1, 1, B, "", tB, "Follow Team A and secure what it captured. Extra marches on weaker enemy buildings. Stop recaptures."),
+    G(1, 2, C, "18, 19, 27, 28, 30, 31", tC, "Secure our Transit Hubs. Block the river crossings and hold the frontline."),
+    G(1, 3, p1, "19 → 28 → 30", tP1, "Clear the path ASAP so stronger teams can pass. Secure inner buildings, support Team C."),
+    G(1, 4, p2, "18 → 27 → 31", tP2, "Clear the path ASAP so stronger teams can pass. Secure inner buildings, support Team C."),
+    G(2, 0, A, "24 → 29", "Enemy Garrison", "Team A: capture the enemy Garrison (24), hand it to Team B. If safe, push toward 29 to block the central transfer."),
+    G(2, 1, B, "24", "Enemy Garrison", "Team B: take over the enemy Garrison. Hold captured buildings and key hubs so Team A can advance."),
+    G(2, 2, C, "24", "Our Garrison", "Team C: capture and defend our Garrison. Keep protecting the boundary hubs."),
+    G(2, 3, D, "24", "Our Garrison", "Team D: reinforce our Garrison. Protect our territory, support Team C."),
+    G(3, 2, C, "Temple", tC, "① ENTER FIRST with your second-strongest march; the strongest march stays to defend our Garrison. If our Garrison or territory is attacked, stay and defend."),
+    G(3, 3, D, "Temple", "Team D – Support", "① ENTER FIRST with your strongest march; other marches stay home. If our Garrison or territory is attacked, stay and defend."),
+    G(3, 1, B, "Temple", tB, "② ENTER SECOND."),
+    G(3, 0, A, "Temple", tA, "③ ENTER LAST, in the Team order shown (weakest first); the Lead — our strongest — enters last of all.", true),
+  ];
+}
+
 function tbClick(e) {
   const t = e.target;
   // remove chip
@@ -707,6 +714,8 @@ function tbClick(e) {
   if (act === "clear") { if (!window.confirm(tt("confirmClear"))) return; tbKeep(); TB.groups = []; }
   if (act === "draft") { if (TB.groups.length && !window.confirm(tt("confirmDraft"))) return; tbKeep(); tbDraft(); }
   if (act === "ssDraft") { if (TB.groups.length && !window.confirm(tt("confirmDraft"))) return; tbKeep(); tbRulesDraft(); }
+  if (act === "triDraft") { if (TB.groups.length && !window.confirm(tt("confirmDraft"))) return; tbTriDraft(); }
+  if (act === "ev") { const ev = a.dataset.ev; if (ev === TB.ev) return; if (TB.groups.length && !window.confirm(tt("confirmEv").replace("{ev}", EVN(ev)))) return; tbSetEv(ev); }
   if (act === "image") return tbImage();
   if (act === "import") return tbImportBox();
   if (act === "game") return tbGameBox();
@@ -718,8 +727,9 @@ function tbInput(e) {
   const t = e.target;
   if (t.dataset.rolecount !== undefined) {
     const v = Math.max(0, Math.min(99, Math.round(Number(t.value) || 0)));
-    store.counts = store.counts || {}; store.counts.swordland = store.counts.swordland || {};
-    store.counts.swordland[t.dataset.rolecount] = v; save(); renderPresets(); return;
+    const ev = TB.ev === "tri" ? "tri" : "swordland";
+    store.counts = store.counts || {}; store.counts[ev] = store.counts[ev] || {};
+    store.counts[ev][t.dataset.rolecount] = v; save(); renderPresets(); return;
   }
   if (t.dataset.gsec !== undefined) { TB.groups[t.dataset.gsec].sec = +t.value; tbSave(); tbRender(); return; }
   if (t.dataset.tg !== undefined) { const r = TB.groups[t.dataset.g].rows[t.dataset.r], ro = t.dataset.role || "tg"; r[ro] = r[ro] || []; const i = +t.dataset.tg; r[ro][i] = r[ro][i] || { t: "", tl: "" }; r[ro][i][t.dataset.tk] = t.value;

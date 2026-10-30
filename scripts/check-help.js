@@ -20,7 +20,8 @@ const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).conc
 
 const FEATURES = [
   ["Ranking: 🔱 Tri-Alliance Clash groups (Teams A–D)", /Tri-Alliance Clash \/ 三盟爭霸: the alliance's TAC plan[^\n]*Team A – Attack/, /🔱 Tri-Alliance Clash for its 4 teams/],
-  ["Ranking: 🔱 Tri-Alliance Clash 🗺️ Stage plan (auto)", /"🗺️ Stage plan" fills the plan with our names/, /{ s: "\.tac-plan h3", k: "rk14t" }/],
+  ["Ranking: ④ battle table per event (Table for: Swordland / Tri-Alliance)", /④ Battle table follows the event/, /{ s: "#tbCard \.tb-ev", k: "rk17e" }/],
+  ["Ranking: ④ 🔱 TAC plan draft (Teams A–D, 4 stages)", /"🔱 TAC plan draft \(all 4 stages\)" fills it/, /{ s: "#tbCard \[data-act=triDraft\]", k: "rk14t", e: 1 }/],
   // [name, AI (worker OFFICER_HELP or scripts/build-ai-context.js), Little Sparrow (js/sparrow.js)]
   ["Post: formatting toolbar", /Word-like toolbar/, /po02b:/],
   ["Post: looks / scroll themes", /"Look" \(樣式\)/, /po05:/],
