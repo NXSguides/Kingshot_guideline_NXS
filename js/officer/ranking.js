@@ -2,24 +2,24 @@
 (function () {
 const ROOT = document.getElementById('pg-ranking');
 const DATA_URL = "data/roster-x7k2p9.json";
-const T = { ko: {"autoN": "↺ 자동 (인원수에 맞춰)", "autoNote": "3팀 인원은 체크한 인원수에 맞춰 바뀌어요: 1팀 = 2팀 = 3분의 1, 3팀 = 나머지. 숫자를 바꾸면 고정되고, ↺ 자동으로 되돌려요.", "colSp": "부대 전투력 (추정)", "colMigrant": "이주 점수", "spSrc": "근거: 이주 점수", "fbNote": "~ = 이주 점수 없음, 전투력/신비한 시련/도시 센터로 추정", "subTag": "후보", "title": "NXS 멤버 순위", "home": "홈", "weights": "① 순위 방식", "power": "총 전투력", "mystic": "신비한 시련", "weightNote": "성검 쟁탈 군단 화면의 부대 전투력. 연맹원 98명 전원을 MightPulse와 대조한 결과 게임의 「이전 점수(Migrant Score)」가 거의 정확히 부대 전투력 × 317이라서, 여기서는 부대 전투력 ≈ 이전 점수 ÷ 323을 씁니다 (평균 오차 1.7%, 상위 20명 전원, 상위 40명 중 39명 일치). 이전 점수가 없는 사람(~ 표시)은 2.70 × 전투력(M) + 0.5 × 신비한 시련 + 8.7 × 도시 레벨 − 296 (오차 약 6.5%). 정확한 값은 게임의 군단 화면이 기준.", "pick": "② 이번 이벤트 참가자 체크", "all": "전체 선택", "none": "선택 해제", "paste": "신청 명단을 붙여넣어 한 번에 체크", "pasteNote": "한 줄에 이름 하나(또는 쉼표로 구분). ♛ 같은 장식과 Nexus 태그는 생략해도 되고, 대소문자는 상관없습니다. (?)는 여러 명이 일치한다는 뜻이니 직접 체크하세요.", "pasteGo": "이 플레이어들 체크", "pasteOk": "{n}명을 체크했습니다.", "pasteMiss": "찾을 수 없음: {list}", "search": "이름 검색…", "colName": "이름", "colRank": "등급", "colTc": "TC", "colActive": "마지막 접속", "rest": "나머지 전원", "events": "④ 이벤트 조 편성", "eventsNote": "위 순위(가중 점수가 높은 순)에 따라 조를 나눕니다.", "n": "{n}명", "result": "③ 순위", "copy": "결과 복사", "copied": "복사했어요!", "colScore": "부대 전투력(추정)", "scoreNote": "추정 부대 전투력, 공식은 ① 참고. ~ = 이주 점수 없음, 보조 공식이라 덜 정확. 후보도 함께 순위에 나오고 표시되지만 ④ 조 편성과 ⑤ 전투 배치표에는 들어가지 않아요.", "empty": "아직 체크한 사람이 없습니다.", "selected": "{n} / {t}명 선택", "subN": "(후보 {k}명 포함)", "sub": "후보", "colMain": "주전", "subHint": "왼쪽 체크＝주전, 오른쪽 체크＝후보: 후보는 순위에서 빠지고 출석 탭에 후보로 들어갑니다.", "updated": "데이터 업데이트: {t} ({ago})", "members": "멤버 {n}명", "noData": "아직 데이터가 없습니다. GitHub → Actions → “Update Roster (MightPulse)” → Run workflow를 실행한 뒤 이 페이지를 새로고침하세요.", "ago": {"now": "방금", "m": "{n}분 전", "h": "{n}시간 전", "d": "{n}일 전"}, "onlyTicked": "체크한 사람만", "topN": "③ 상위만 표시", "topNAll": "전체", "modeSp": "부대 전투력 추정 (Squad Power fit)", "modeW": "비중 (항목 직접 선택)", "wNote": "계산에 넣을 항목을 체크하고 비중을 적으세요. 합이 100%가 아니어도 자동으로 비율 환산됩니다.", "colScoreW": "점수", "scoreNoteW": "점수: 체크한 항목마다 체크된 인원 중 최고값 = 100으로 환산한 뒤 비중대로 합산. 값이 없으면 0 (? 표시). 후보도 함께 순위에 나오고 표시되지만 ④ 조 편성과 ⑤ 전투 배치표에는 들어가지 않아요."},
- ar: {"autoN": "↺ تلقائي (حسب العدد)", "autoNote": "تتغير أعداد الفرق الثلاث مع عدد المحددين: الفريق 1 = الفريق 2 = الثلث، الفريق 3 = الباقون. تغيير الرقم يثبّته، و↺ تلقائي يعيده.", "colSp": "قوة الفرقة (تقديري)", "colMigrant": "نقاط الهجرة", "spSrc": "الأساس: نقاط الهجرة", "fbNote": "~ = لا توجد نقاط هجرة، تقدير من القوة / الاختبارات الغامضة / مركز المدينة", "subTag": "بديل", "title": "ترتيب أعضاء NXS", "home": "الرئيسية", "weights": "① طريقة الترتيب", "power": "إجمالي القوة", "mystic": "الاختبارات الغامضة", "weightNote": "قوة الفرقة في شاشة الكتيبة في مواجهة أرض السيوف. بمقارنة كل الأعضاء الـ98 مع MightPulse تبيّن أن «نقاط الهجرة» في اللعبة تساوي تقريبًا قوة الفرقة × 317، لذا نستخدم: قوة الفرقة ≈ نقاط الهجرة ÷ 323 (متوسط الخطأ 1.7%، أقوى 20 كلهم صحيحون، 39 من أقوى 40). من لا نقاط هجرة له (علامة ~) يُستخدم له 2.70 × القوة(M) + 0.5 × الاختبارات الغامضة + 8.7 × مستوى المدينة − 296 (خطأ نحو 6.5%). الرقم الحقيقي في شاشة الكتيبة داخل اللعبة.", "pick": "② حدّد المشاركين في هذه الفعالية", "all": "تحديد الكل", "none": "مسح", "paste": "الصق قائمة تسجيل لتحديدهم دفعة واحدة", "pasteNote": "اسم واحد في كل سطر (أو مفصولة بفواصل). يمكن حذف الزخارف مثل ♛ ووسم Nexus؛ حالة الأحرف لا تهم. (?) تعني أن عدة لاعبين مطابقون — حدّد الصحيح يدويًا.", "pasteGo": "حدّد هؤلاء اللاعبين", "pasteOk": "تم تحديد {n} لاعبين.", "pasteMiss": "غير موجود: {list}", "search": "ابحث عن اسم…", "colName": "الاسم", "colRank": "الرتبة", "colTc": "مركز البلدة", "colActive": "آخر ظهور", "rest": "كل الباقين", "events": "④ مجموعات الفعالية", "eventsNote": "تتبع المجموعات الترتيب أعلاه (الأعلى نقاطًا موزونة أولًا).", "n": "{n}", "result": "③ الترتيب", "copy": "نسخ النتيجة", "copied": "تم النسخ!", "colScore": "قوة الفرقة (تقدير)", "scoreNote": "قوة الفرقة التقديرية، المعادلة في ①. ~ = لا توجد نقاط هجرة، معادلة احتياطية أقل دقة. البدلاء يظهرون في الترتيب مع علامة، لكن لا يدخلون مجموعات ④ ولا جدول المعركة ⑤.", "empty": "لم يُحدَّد أحد بعد.", "selected": "تم تحديد {n} / {t}", "subN": "(منهم {k} بدلاء)", "sub": "بديل", "colMain": "أساسي", "subHint": "المربع الأيسر = أساسي، الأيمن = بديل: البدلاء لا يدخلون الترتيب ويُستوردون كبدلاء في تبويب الحضور.", "updated": "تحديث البيانات: {t} ({ago})", "members": "{n} عضو", "noData": "لا توجد بيانات بعد. اذهب إلى GitHub ← Actions ← “Update Roster (MightPulse)” ← Run workflow، ثم أعد تحميل هذه الصفحة.", "ago": {"now": "الآن", "m": "قبل {n} دقيقة", "h": "قبل {n} ساعة", "d": "قبل {n} يوم"}, "onlyTicked": "المحددون فقط", "topN": "③ عرض الأوائل فقط", "topNAll": "الكل", "modeSp": "تقدير قوة الفرقة (Squad Power fit)", "modeW": "الأوزان (اختر القيم)", "wNote": "حدّد القيم التي تُحتسب وأعطِ كلًّا منها وزنًا؛ لا يلزم أن يكون المجموع 100%، تُحوَّل تلقائيًا.", "colScoreW": "النقاط", "scoreNoteW": "النقاط: كل قيمة محددة تُقاس بحيث الأعلى بين المحددين = 100، ثم تُجمع حسب الأوزان. القيمة المفقودة = 0 (علامة ?). البدلاء يظهرون في الترتيب مع علامة، لكن لا يدخلون مجموعات ④ ولا جدول المعركة ⑤."},
- pt: {"autoN": "↺ Automático (pelo número de pessoas)", "autoNote": "Os 3 times mudam com o número de marcados: Time 1 = Time 2 = um terço, Time 3 = o resto. Mudar um número fixa; ↺ Automático volta.", "colSp": "Poder do esquadrão (est.)", "colMigrant": "Pontuação de migração", "spSrc": "Base: pontuação de migração", "fbNote": "~ = sem pontuação de migração, estimado por Poder / Prova Mística / CC", "subTag": "res", "title": "Ranking da lista NXS", "home": "Início", "weights": "① Método de ranking", "power": "Poder total", "mystic": "Prova Mística", "weightNote": "O Poder do Esquadrão da tela da Legião do Confronto entre Espadas. Comparando os 98 membros com o MightPulse, a Pontuação de Migração do jogo é quase exatamente Poder do Esquadrão × 317, então usamos SP ≈ Pontuação de Migração ÷ 323 (erro médio 1,7%, 20/20 do top 20, 39/40 do top 40). Quem não tem Pontuação de Migração (marcado ~) usa 2,70 × Poder(M) + 0,5 × Prova Mística + 8,7 × CC − 296, erro de ~6,5%. O número real está na tela da Legião no jogo.", "pick": "② Marque os participantes deste evento", "all": "Marcar todos", "none": "Limpar", "paste": "Colar uma lista de inscritos para marcar de uma vez", "pasteNote": "Um nome por linha (ou separados por vírgula). Enfeites como ♛ e a tag Nexus podem ficar de fora; maiúsculas não importam. (?) significa que vários jogadores combinam — marque esse à mão.", "pasteGo": "Marcar esses jogadores", "pasteOk": "{n} jogadores marcados.", "pasteMiss": "Não encontrado: {list}", "search": "Buscar um nome…", "colName": "Nome", "colRank": "Cargo", "colTc": "CC", "colActive": "Último acesso", "rest": "todos os restantes", "events": "④ Grupos do evento", "eventsNote": "Os grupos seguem o ranking acima (maior pontuação ponderada primeiro).", "n": "{n}", "result": "③ Ranking", "copy": "Copiar resultado", "copied": "Copiado!", "colScore": "Poder do Esquadrão (est.)", "scoreNote": "Poder do esquadrão estimado, fórmula em ①. ~ = sem pontuação de migração, fórmula reserva, menos precisa. Reservas entram no ranking marcados, mas ficam fora dos grupos ④ e da tabela de batalha ⑤.", "empty": "Ninguém marcado ainda.", "selected": "{n} / {t} marcados", "subN": "(incl. {k} reservas)", "sub": "res", "colMain": "titular", "subHint": "Caixa da esquerda = titular, da direita = reserva: reservas ficam fora do ranking e entram como reserva na aba Presença.", "updated": "Dados atualizados: {t} ({ago})", "members": "{n} membros", "noData": "Ainda não há dados. Vá ao GitHub → Actions → “Update Roster (MightPulse)” → Run workflow e depois recarregue esta página.", "ago": {"now": "agora mesmo", "m": "há {n} min", "h": "há {n} h", "d": "há {n} d"}, "onlyTicked": "Só os marcados", "topN": "③ Mostrar só os primeiros", "topNAll": "todos", "modeSp": "Estimativa de Poder do Esquadrão (Squad Power fit)", "modeW": "Pesos (escolha os valores)", "wNote": "Marque os valores que contam e dê um peso a cada; não precisam somar 100%, são ajustados automaticamente.", "colScoreW": "Pontuação", "scoreNoteW": "Pontuação: cada valor marcado é escalado para que o maior entre os marcados = 100, depois combinado pelos pesos. Valor ausente = 0 (marcado ?). Reservas entram no ranking marcados, mas ficam fora dos grupos ④ e da tabela de batalha ⑤."},
+const T = { ko: {"autoN": "↺ 자동 (인원수에 맞춰)", "autoNote": "3팀 인원은 체크한 인원수에 맞춰 바뀌어요: 1팀 = 2팀 = 3분의 1, 3팀 = 나머지. 숫자를 바꾸면 고정되고, ↺ 자동으로 되돌려요.", "colSp": "부대 전투력 (추정)", "colMigrant": "이주 점수", "spSrc": "근거: 이주 점수", "fbNote": "~ = 이주 점수 없음, 전투력/신비한 시련/도시 센터로 추정", "subTag": "후보", "title": "NXS 멤버 순위", "home": "홈", "weights": "① 순위 방식", "power": "총 전투력", "mystic": "신비한 시련", "weightNote": "성검 쟁탈 군단 화면의 부대 전투력. 연맹원 98명 전원을 MightPulse와 대조한 결과 게임의 「이전 점수(Migrant Score)」가 거의 정확히 부대 전투력 × 317이라서, 여기서는 부대 전투력 ≈ 이전 점수 ÷ 323을 씁니다 (평균 오차 1.7%, 상위 20명 전원, 상위 40명 중 39명 일치). 이전 점수가 없는 사람(~ 표시)은 2.70 × 전투력(M) + 0.5 × 신비한 시련 + 8.7 × 도시 레벨 − 296 (오차 약 6.5%). 정확한 값은 게임의 군단 화면이 기준.", "pick": "② 참가자와 순위", "all": "전체 선택", "none": "선택 해제", "paste": "신청 명단을 붙여넣어 한 번에 체크", "pasteNote": "한 줄에 이름 하나(또는 쉼표로 구분). ♛ 같은 장식과 Nexus 태그는 생략해도 되고, 대소문자는 상관없습니다. (?)는 여러 명이 일치한다는 뜻이니 직접 체크하세요.", "pasteGo": "이 플레이어들 체크", "pasteOk": "{n}명을 체크했습니다.", "pasteMiss": "찾을 수 없음: {list}", "search": "이름 검색…", "colName": "이름", "colRank": "등급", "colTc": "TC", "colActive": "마지막 접속", "rest": "나머지 전원", "events": "③ 이벤트 조 편성", "eventsNote": "위 순위(가중 점수가 높은 순)에 따라 조를 나눕니다.", "n": "{n}명", "result": "③ 순위", "copy": "📋 명단 복사…", "copied": "복사했어요!", "colScore": "부대 전투력(추정)", "scoreNote": "추정 부대 전투력, 공식은 ① 참고. ~ = 이주 점수 없음, 보조 공식이라 덜 정확. 후보도 함께 순위에 나오고 표시되지만 ③ 조 편성과 ④ 전투 배치표에는 들어가지 않아요.", "empty": "아직 체크한 사람이 없습니다.", "selected": "{n} / {t}명 선택", "subN": "(후보 {k}명 포함)", "sub": "후보", "colMain": "주전", "subHint": "왼쪽 체크＝주전, 오른쪽 체크＝후보: 후보는 순위에서 빠지고 출석 탭에 후보로 들어갑니다.", "updated": "데이터 업데이트: {t} ({ago})", "members": "멤버 {n}명", "noData": "아직 데이터가 없습니다. GitHub → Actions → “Update Roster (MightPulse)” → Run workflow를 실행한 뒤 이 페이지를 새로고침하세요.", "ago": {"now": "방금", "m": "{n}분 전", "h": "{n}시간 전", "d": "{n}일 전"}, "onlyTicked": "체크한 사람만", "topN": "상위만 사용 (조 편성·전투표)", "topNAll": "전체", "modeSp": "부대 전투력 추정 (Squad Power fit)", "modeW": "비중 (항목 직접 선택)", "wNote": "계산에 넣을 항목을 체크하고 비중을 적으세요. 합이 100%가 아니어도 자동으로 비율 환산됩니다.", "colScoreW": "점수", "scoreNoteW": "점수: 체크한 항목마다 체크된 인원 중 최고값 = 100으로 환산한 뒤 비중대로 합산. 값이 없으면 0 (? 표시). 후보도 함께 순위에 나오고 표시되지만 ③ 조 편성과 ④ 전투 배치표에는 들어가지 않아요."},
+ ar: {"autoN": "↺ تلقائي (حسب العدد)", "autoNote": "تتغير أعداد الفرق الثلاث مع عدد المحددين: الفريق 1 = الفريق 2 = الثلث، الفريق 3 = الباقون. تغيير الرقم يثبّته، و↺ تلقائي يعيده.", "colSp": "قوة الفرقة (تقديري)", "colMigrant": "نقاط الهجرة", "spSrc": "الأساس: نقاط الهجرة", "fbNote": "~ = لا توجد نقاط هجرة، تقدير من القوة / الاختبارات الغامضة / مركز المدينة", "subTag": "بديل", "title": "ترتيب أعضاء NXS", "home": "الرئيسية", "weights": "① طريقة الترتيب", "power": "إجمالي القوة", "mystic": "الاختبارات الغامضة", "weightNote": "قوة الفرقة في شاشة الكتيبة في مواجهة أرض السيوف. بمقارنة كل الأعضاء الـ98 مع MightPulse تبيّن أن «نقاط الهجرة» في اللعبة تساوي تقريبًا قوة الفرقة × 317، لذا نستخدم: قوة الفرقة ≈ نقاط الهجرة ÷ 323 (متوسط الخطأ 1.7%، أقوى 20 كلهم صحيحون، 39 من أقوى 40). من لا نقاط هجرة له (علامة ~) يُستخدم له 2.70 × القوة(M) + 0.5 × الاختبارات الغامضة + 8.7 × مستوى المدينة − 296 (خطأ نحو 6.5%). الرقم الحقيقي في شاشة الكتيبة داخل اللعبة.", "pick": "② المشاركون والترتيب", "all": "تحديد الكل", "none": "مسح", "paste": "الصق قائمة تسجيل لتحديدهم دفعة واحدة", "pasteNote": "اسم واحد في كل سطر (أو مفصولة بفواصل). يمكن حذف الزخارف مثل ♛ ووسم Nexus؛ حالة الأحرف لا تهم. (?) تعني أن عدة لاعبين مطابقون — حدّد الصحيح يدويًا.", "pasteGo": "حدّد هؤلاء اللاعبين", "pasteOk": "تم تحديد {n} لاعبين.", "pasteMiss": "غير موجود: {list}", "search": "ابحث عن اسم…", "colName": "الاسم", "colRank": "الرتبة", "colTc": "مركز البلدة", "colActive": "آخر ظهور", "rest": "كل الباقين", "events": "③ مجموعات الفعالية", "eventsNote": "تتبع المجموعات الترتيب أعلاه (الأعلى نقاطًا موزونة أولًا).", "n": "{n}", "result": "③ الترتيب", "copy": "📋 نسخ القائمة…", "copied": "تم النسخ!", "colScore": "قوة الفرقة (تقدير)", "scoreNote": "قوة الفرقة التقديرية، المعادلة في ①. ~ = لا توجد نقاط هجرة، معادلة احتياطية أقل دقة. البدلاء يظهرون في الترتيب مع علامة، لكن لا يدخلون مجموعات ③ ولا جدول المعركة ④.", "empty": "لم يُحدَّد أحد بعد.", "selected": "تم تحديد {n} / {t}", "subN": "(منهم {k} بدلاء)", "sub": "بديل", "colMain": "أساسي", "subHint": "المربع الأيسر = أساسي، الأيمن = بديل: البدلاء لا يدخلون الترتيب ويُستوردون كبدلاء في تبويب الحضور.", "updated": "تحديث البيانات: {t} ({ago})", "members": "{n} عضو", "noData": "لا توجد بيانات بعد. اذهب إلى GitHub ← Actions ← “Update Roster (MightPulse)” ← Run workflow، ثم أعد تحميل هذه الصفحة.", "ago": {"now": "الآن", "m": "قبل {n} دقيقة", "h": "قبل {n} ساعة", "d": "قبل {n} يوم"}, "onlyTicked": "المحددون فقط", "topN": "استخدم الأوائل فقط (المجموعات والجدول)", "topNAll": "الكل", "modeSp": "تقدير قوة الفرقة (Squad Power fit)", "modeW": "الأوزان (اختر القيم)", "wNote": "حدّد القيم التي تُحتسب وأعطِ كلًّا منها وزنًا؛ لا يلزم أن يكون المجموع 100%، تُحوَّل تلقائيًا.", "colScoreW": "النقاط", "scoreNoteW": "النقاط: كل قيمة محددة تُقاس بحيث الأعلى بين المحددين = 100، ثم تُجمع حسب الأوزان. القيمة المفقودة = 0 (علامة ?). البدلاء يظهرون في الترتيب مع علامة، لكن لا يدخلون مجموعات ③ ولا جدول المعركة ④."},
+ pt: {"autoN": "↺ Automático (pelo número de pessoas)", "autoNote": "Os 3 times mudam com o número de marcados: Time 1 = Time 2 = um terço, Time 3 = o resto. Mudar um número fixa; ↺ Automático volta.", "colSp": "Poder do esquadrão (est.)", "colMigrant": "Pontuação de migração", "spSrc": "Base: pontuação de migração", "fbNote": "~ = sem pontuação de migração, estimado por Poder / Prova Mística / CC", "subTag": "res", "title": "Ranking da lista NXS", "home": "Início", "weights": "① Método de ranking", "power": "Poder total", "mystic": "Prova Mística", "weightNote": "O Poder do Esquadrão da tela da Legião do Confronto entre Espadas. Comparando os 98 membros com o MightPulse, a Pontuação de Migração do jogo é quase exatamente Poder do Esquadrão × 317, então usamos SP ≈ Pontuação de Migração ÷ 323 (erro médio 1,7%, 20/20 do top 20, 39/40 do top 40). Quem não tem Pontuação de Migração (marcado ~) usa 2,70 × Poder(M) + 0,5 × Prova Mística + 8,7 × CC − 296, erro de ~6,5%. O número real está na tela da Legião no jogo.", "pick": "② Participantes e ranking", "all": "Marcar todos", "none": "Limpar", "paste": "Colar uma lista de inscritos para marcar de uma vez", "pasteNote": "Um nome por linha (ou separados por vírgula). Enfeites como ♛ e a tag Nexus podem ficar de fora; maiúsculas não importam. (?) significa que vários jogadores combinam — marque esse à mão.", "pasteGo": "Marcar esses jogadores", "pasteOk": "{n} jogadores marcados.", "pasteMiss": "Não encontrado: {list}", "search": "Buscar um nome…", "colName": "Nome", "colRank": "Cargo", "colTc": "CC", "colActive": "Último acesso", "rest": "todos os restantes", "events": "③ Grupos do evento", "eventsNote": "Os grupos seguem o ranking acima (maior pontuação ponderada primeiro).", "n": "{n}", "result": "③ Ranking", "copy": "📋 Copiar lista…", "copied": "Copiado!", "colScore": "Poder do Esquadrão (est.)", "scoreNote": "Poder do esquadrão estimado, fórmula em ①. ~ = sem pontuação de migração, fórmula reserva, menos precisa. Reservas entram no ranking marcados, mas ficam fora dos grupos ③ e da tabela de batalha ④.", "empty": "Ninguém marcado ainda.", "selected": "{n} / {t} marcados", "subN": "(incl. {k} reservas)", "sub": "res", "colMain": "titular", "subHint": "Caixa da esquerda = titular, da direita = reserva: reservas ficam fora do ranking e entram como reserva na aba Presença.", "updated": "Dados atualizados: {t} ({ago})", "members": "{n} membros", "noData": "Ainda não há dados. Vá ao GitHub → Actions → “Update Roster (MightPulse)” → Run workflow e depois recarregue esta página.", "ago": {"now": "agora mesmo", "m": "há {n} min", "h": "há {n} h", "d": "há {n} d"}, "onlyTicked": "Só os marcados", "topN": "Usar só os primeiros (grupos e tabela)", "topNAll": "todos", "modeSp": "Estimativa de Poder do Esquadrão (Squad Power fit)", "modeW": "Pesos (escolha os valores)", "wNote": "Marque os valores que contam e dê um peso a cada; não precisam somar 100%, são ajustados automaticamente.", "colScoreW": "Pontuação", "scoreNoteW": "Pontuação: cada valor marcado é escalado para que o maior entre os marcados = 100, depois combinado pelos pesos. Valor ausente = 0 (marcado ?). Reservas entram no ranking marcados, mas ficam fora dos grupos ③ e da tabela de batalha ④."},
 
   zh: {
     autoN: "↺ 自動（依人數）", autoNote: "三隊人數會跟著勾選人數變：第 1 隊 = 第 2 隊 = 三分之一，第 3 隊 = 其他人。自己改數字就會固定，按 ↺ 自動 回到依人數分。",
     colSp: "部隊戰力（估）", colMigrant: "遷城分數", spSrc: "依據：遷城分數", fbNote: "~ = 沒有遷城分數，改用戰力／秘境／主城估", subTag: "替補",
     title: "NXS 成員排序", home: "回主頁", weights: "① 排序方式", power: "總戰力", mystic: "秘境試煉",
-    modeSp: "部隊戰力估算（Squad Power fit）", modeW: "占比（自己選要看哪幾項）", wNote: "勾選要算進去的項目並填占比，加起來不用剛好 100%，會自動按比例換算。", colScoreW: "分數", scoreNoteW: "分數算法：勾選的每一項各自以「這次勾選的人裡面最高的那個 = 100」換算，再依占比加總。沒有數字的人那一項以 0 計，標 ?。替補一起排序並標出來，但不放進 ④ 分組和 ⑤ 戰鬥表。",
+    modeSp: "部隊戰力估算（Squad Power fit）", modeW: "占比（自己選要看哪幾項）", wNote: "勾選要算進去的項目並填占比，加起來不用剛好 100%，會自動按比例換算。", colScoreW: "分數", scoreNoteW: "分數算法：勾選的每一項各自以「這次勾選的人裡面最高的那個 = 100」換算，再依占比加總。沒有數字的人那一項以 0 計，標 ?。替補一起排序並標出來，但不放進 ③ 分組和 ④ 戰鬥表。",
     weightNote: "聖劍爭奪 Legion 畫面上的部隊戰力。用全聯盟 98 人的實際數字對過 MightPulse 的資料後發現：遊戲的「遷城分數」幾乎就是部隊戰力 × 317，所以這裡用 部隊戰力 ≈ 遷城分數 ÷ 323（平均誤差 1.7%，前 20 名全中、前 40 名中 39 個）。沒有遷城分數的人（標 ~）改用 2.70 × 總戰力(M) + 0.5 × 秘境分數 + 8.7 × 主城等級 − 296，誤差約 6.5%。正確數字以遊戲裡的 Legion 畫面為準。",
-    onlyTicked: "只顯示勾選的人", topN: "③ 只列前幾名", topNAll: "全部",
-    pick: "② 勾選這次參戰的人", all: "全選", none: "全部取消",
+    onlyTicked: "只顯示勾選的人", topN: "只取前幾名（分組和戰鬥表用）", topNAll: "全部",
+    pick: "② 勾選參戰的人和排名", all: "全選", none: "全部取消",
     paste: "貼上報名名單一次勾選", pasteNote: "一行一個名字（或用逗號分隔）。名字前後的符號和 Nexus 標記可以省略，大小寫沒關係。標 (?) 的表示有好幾個人符合，請手動勾選。",
     pasteGo: "勾選這些人", pasteOk: "已勾選 {n} 人。", pasteMiss: "找不到：{list}",
     search: "搜尋名字…", colName: "名字", colRank: "階級", colTc: "主城", colActive: "上次上線",
-    rest: "剩下的人", events: "④ 活動分組", eventsNote: "依上面的排序結果（加權分數高到低）分組。", n: "{n} 人",
-    result: "③ 排序結果", copy: "複製結果", copied: "已複製！", colScore: "部隊戰力（估）",
-    scoreNote: "估計部隊戰力，公式見 ①。~ = 沒有遷城分數，用備用公式，比較不準。替補一起排序並標出來，但不放進 ④ 分組和 ⑤ 戰鬥表。",
+    rest: "剩下的人", events: "③ 活動分組", eventsNote: "依上面的排序結果（加權分數高到低）分組。", n: "{n} 人",
+    result: "③ 排序結果", copy: "📋 複製名單…", copied: "已複製！", colScore: "部隊戰力（估）",
+    scoreNote: "估計部隊戰力，公式見 ①。~ = 沒有遷城分數，用備用公式，比較不準。替補一起排序並標出來，但不放進 ③ 分組和 ④ 戰鬥表。",
     empty: "還沒勾選任何人。", selected: "已選 {n} / {t} 人", subN: "（含替補 {k}）", sub: "替補", colMain: "正式", subHint: "左邊勾＝正式，右邊勾＝替補：替補不進排序，出席分頁會標成替補。",
     updated: "資料更新：{t}（{ago}）", members: "{n} 名成員",
     noData: "還沒有資料。請到 GitHub → Actions → 「Update Roster (MightPulse)」→ Run workflow，跑完後重新整理這頁。",
@@ -29,16 +29,16 @@ const T = { ko: {"autoN": "↺ 자동 (인원수에 맞춰)", "autoNote": "3팀 
     autoN: "↺ Auto (by headcount)", autoNote: "The 3 teams follow the headcount: Team 1 = Team 2 = a third, Team 3 = everyone else. Typing a number fixes it; ↺ Auto goes back.",
     colSp: "Squad Power (est.)", colMigrant: "Migrant Score", spSrc: "Based on: Migrant Score", fbNote: "~ = no Migrant Score, estimated from Power / Mystic / TC", subTag: "sub",
     title: "NXS Roster Ranking", home: "Home", weights: "① Ranking method", power: "Total Power", mystic: "Mystic Trial",
-    modeSp: "Squad Power fit", modeW: "Weights (pick the stats)", wNote: "Tick the stats to count and give each a weight; they don't have to add up to 100%, they're scaled to it.", colScoreW: "Score", scoreNoteW: "Score: each ticked stat is scaled so the highest among the ticked players = 100, then combined by the weights. A missing value counts as 0 (marked ?). Subs are ranked and marked, but left out of ④ groups and the ⑤ battle table.",
+    modeSp: "Squad Power fit", modeW: "Weights (pick the stats)", wNote: "Tick the stats to count and give each a weight; they don't have to add up to 100%, they're scaled to it.", colScoreW: "Score", scoreNoteW: "Score: each ticked stat is scaled so the highest among the ticked players = 100, then combined by the weights. A missing value counts as 0 (marked ?). Subs are ranked and marked, but left out of ③ groups and the ④ battle table.",
     weightNote: "The Squad Power shown on the Swordland Legion screens. Checking all 98 members against MightPulse showed the game's Migrant Score is almost exactly Squad Power × 317, so this uses SP ≈ Migrant Score ÷ 323 (mean error 1.7%, 20/20 of the top 20, 39/40 of the top 40). Members with no Migrant Score (marked ~) fall back to 2.70 × Power(M) + 0.5 × Mystic Trial + 8.7 × TC − 296, about 6.5% error. The in-game Legion screen is the real number.",
-    onlyTicked: "Only ticked", topN: "③ Show top", topNAll: "all",
-    pick: "② Tick this event's participants", all: "Select all", none: "Clear",
+    onlyTicked: "Only ticked", topN: "Use only the top (groups & battle table)", topNAll: "all",
+    pick: "② Participants & ranking", all: "Select all", none: "Clear",
     paste: "Paste a sign-up list to tick at once", pasteNote: "One name per line (or comma-separated). Decorations like ♛ and the Nexus tag can be left out; case doesn't matter. (?) means several players match — tick that one by hand.",
     pasteGo: "Tick these players", pasteOk: "Ticked {n} players.", pasteMiss: "Not found: {list}",
     search: "Search a name…", colName: "Name", colRank: "Rank", colTc: "TC", colActive: "Last online",
-    rest: "everyone left", events: "④ Event groups", eventsNote: "Groups follow the ranking above (highest weighted score first).", n: "{n}",
-    result: "③ Ranking", copy: "Copy result", copied: "Copied!", colScore: "Squad Power (est.)",
-    scoreNote: "Estimated Squad Power, formula in ①. ~ = no Migrant Score, fallback formula, less accurate. Subs are ranked and marked, but left out of ④ groups and the ⑤ battle table.",
+    rest: "everyone left", events: "③ Event groups", eventsNote: "Groups follow the ranking above (highest weighted score first).", n: "{n}",
+    result: "③ Ranking", copy: "📋 Copy list…", copied: "Copied!", colScore: "Squad Power (est.)",
+    scoreNote: "Estimated Squad Power, formula in ①. ~ = no Migrant Score, fallback formula, less accurate. Subs are ranked and marked, but left out of ③ groups and the ④ battle table.",
     empty: "Nobody ticked yet.", selected: "{n} / {t} selected", subN: "(incl. {k} subs)", sub: "sub", colMain: "main", subHint: "Left box = starter, right box = substitute: subs are not ranked and are imported as subs by the Attendance tab.",
     updated: "Data updated: {t} ({ago})", members: "{n} members",
     noData: "No data yet. Go to GitHub → Actions → “Update Roster (MightPulse)” → Run workflow, then reload this page.",
@@ -63,6 +63,7 @@ const PRESETS = [
 ];
 const LS = "nxs-roster-v2";
 const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
+const saveLocal = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };   // this device's view settings only (not part of a shared plan)
 const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} histNote(); planTouched(); };
 
 /* one language for all officer tabs (set from the main site when you enter, and by the language button on any tab) */
@@ -111,8 +112,9 @@ function applyTexts() {
 
 function renderList() {
   const q = norm($("rk_q").value), only = $("rk_onlyTicked").checked, byRank = $("rk_byRank").checked;
-  // 🏆 sort by ranking: the ticked people in ③'s order (same score), numbered; everyone else after them by power
-  const rk = byRank ? ranking(true, true) : [], pos = new Map(rk.map((m, i) => [m.id, i])), num = new Map(); { let n = 0; for (const m of rk) if (!m.isSub) num.set(m.id, ++n); }
+  // 🏆 the ranking (was its own card ③ until 2026-10-30): ticked starters numbered by score; "Sort by ranking" puts them in that order, everyone else after them
+  const rk = ranking(true, true), pos = new Map(rk.map((m, i) => [m.id, i])), num = new Map(), scoreOf = new Map(rk.map((m) => [m.id, m.score])); { let n = 0; for (const m of rk) if (!m.isSub) num.set(m.id, ++n); }
+  $("rk_thScore").hidden = mode !== "w";
   const rows = data.members
     .filter((m) => !only || picked.has(m.id))
     .filter((m) => !q || norm(m.name).includes(q) || core(m.name).includes(core(q)))
@@ -131,13 +133,14 @@ function renderList() {
       lastRank = rankNum(m);
       const grp = rows.filter((x) => rankNum(x) === lastRank);
       const on = grp.filter((x) => picked.has(x.id)).length;
-      head = `<tr class="grp" data-r="${lastRank}"><td class="ck main"><input type="checkbox" tabindex="-1" ${on === grp.length ? "checked" : ""}></td><td class="ck"></td><td colspan="7"><b>${esc(rankLabel(m))}</b> <span class="muted">· ${on} / ${grp.length}</span></td></tr>`;
+      head = `<tr class="grp" data-r="${lastRank}"><td class="ck main"><input type="checkbox" tabindex="-1" ${on === grp.length ? "checked" : ""}></td><td class="ck"></td><td colspan="20"><b>${esc(rankLabel(m))}</b> <span class="muted">· ${on} / ${grp.length}</span></td></tr>`;
     }
     return head + `
-    <tr class="member${picked.has(m.id) ? " on" : ""}${subs.has(m.id) ? " is-sub" : ""}${picked.has(m.id) && rep[m.id] ? " r-" + rep[m.id] : ""}" data-id="${m.id}">
+    <tr class="member${picked.has(m.id) ? " on" : ""}${subs.has(m.id) ? " is-sub" : ""}${topN > 0 && num.get(m.id) > topN ? " rk-cut" : ""}${picked.has(m.id) && rep[m.id] ? " r-" + rep[m.id] : ""}" data-id="${m.id}">
       <td class="ck main"><input type="checkbox" ${picked.has(m.id) && !subs.has(m.id) ? "checked" : ""} tabindex="-1" aria-label="${esc(tr("colMain"))}"></td>
       <td class="ck"><input type="checkbox" class="ck-sub" ${subs.has(m.id) ? "checked" : ""} tabindex="-1" aria-label="${esc(tr("sub"))}"></td>
-      <td class="name" dir="auto">${num.has(m.id) ? `<b class="rk-no">${num.get(m.id)}</b>` : ""}${regBtns(m)}<span class="nm">${esc(m.name)}</span>${safeBtn(m)}</td>
+      <td class="num rk-no">${num.has(m.id) ? num.get(m.id) : ""}</td>
+      <td class="name" dir="auto">${regBtns(m)}<span class="nm">${esc(m.name)}</span>${safeBtn(m)}</td>${mode === "w" ? `<td class="num">${scoreOf.has(m.id) ? scoreOf.get(m.id).toFixed(1) : ""}</td>` : ""}
       <td>${esc(rankLabel(m))}</td>
       <td class="num">${m.tc ?? "?"}</td>
       <td class="num">${big(m.power)}</td>
@@ -172,16 +175,7 @@ const safeBtn = (m) => !picked.has(m.id) ? "" : `<button type="button" class="rk
 function renderReg() {
   const el = $("rk_reg"); if (!el || !data) return;
   el.hidden = !picked.size; if (!picked.size) return;
-  el.innerHTML = `<div class="muted" style="font-size:12.5px;margin-bottom:4px">${esc(rg("note"))}</div><b>${esc(rg("count", regOf()))}</b>
-    <div class="row" style="margin-top:6px;gap:6px;align-items:center"><button type="button" class="btn small" id="rk_cpWait">${esc(rg("copyWait"))}</button><button type="button" class="btn small" id="rk_cpReg">${esc(rg("copyReg"))}</button><span class="msg" id="rk_regMsg"></span></div>`;
-  const byId = new Map(data.members.map((m) => [m.id, m])), nm = (id) => (byId.get(id) || {}).name || String(id);
-  const head = () => (planId && plans[planId] ? planLabel(plans[planId]) : "");
-  const out = (txt) => navigator.clipboard.writeText(txt).then(() => { $("rk_regMsg").textContent = rg("copied"); });
-  $("rk_cpWait").onclick = () => { const w = [...picked].filter((id) => !rep[id] && !isSafe(id));
-    if (!w.length) { $("rk_regMsg").textContent = rg("noWait"); return; }
-    out([`${head()} · not replied yet (${w.length}):`.replace(/^ · /, ""), ...w.map((id) => "- " + nm(id))].join("\n")); };
-  $("rk_cpReg").onclick = () => { const r = regOf(), l = [...picked].filter((id) => rep[id] === "y" || (isSafe(id) && rep[id] !== "n"));
-    out([`${head()} · registration: ${r.r} (✅ ${r.y} confirmed + 🟡 ${r.s} safe)`.replace(/^ · /, ""), ...l.map((id) => `- ${nm(id)}${rep[id] === "y" ? "" : " 🟡"}${subs.has(id) ? " (sub)" : ""}`)].join("\n")); };
+  el.innerHTML = `<div class="muted" style="font-size:12.5px;margin-bottom:4px">${esc(rg("note"))}</div><b>${esc(rg("count", regOf()))}</b>`;
 }
 async function setSafe(id, on) {
   if (on) SAFE.add(String(id)); else SAFE.delete(String(id));
@@ -195,33 +189,21 @@ const statLabel = (k) => tr({ power: "power", mystic: "mystic", tc: "colTc", mig
 const fmtStat = (m, k) => { const v = statOf(m, k); if (v == null || v === 0 && k !== "tc") return '<span class="warn">?</span>'; return k === "tc" ? String(v) : k === "sp" ? (spIsFallback(m) ? "~" : "") + Math.round(v) : big(v); };
 let topN = store.topN || 0;   // ③ show only the first N of the ranking (0 = all)
 let mode = store.mode || "sp";   // "sp" = Squad Power fit · "w" = the old power/mystic weights (still there to compare)
-/* all = ignore "show top N"; withSubs = also the substitutes (shown in ③, marked) — ④ groups and ⑤ table use starters only */
+/* all = ignore "show top N"; withSubs = also the substitutes (shown in ③, marked) — ③ groups and ④ table use starters only */
 function ranking(all, withSubs) {
   const everyone = data.members.filter((m) => picked.has(m.id)), sel = everyone.filter((m) => withSubs || !subs.has(m.id));
   const ks = Object.keys(wts).filter((k) => wts[k] > 0), tot = ks.reduce((a, k) => a + wts[k], 0) || 1;
-  // the top of each stat = 100, counted over starters AND subs, so the scores in ③ and ④ are the same numbers
+  // the top of each stat = 100, counted over starters AND subs, so the scores in ③ and ③ are the same numbers
   const max = Object.fromEntries(ks.map((k) => [k, Math.max(1, ...everyone.map((m) => +statOf(m, k) || 0))]));
   const score = (m) => mode === "w" ? 100 * ks.reduce((a, k) => a + wts[k] / tot * (+statOf(m, k) || 0) / max[k], 0) : squadPower(m);
   const r = sel.map((m) => ({ ...m, score: score(m), isSub: subs.has(m.id) })).sort((a, b) => b.score - a.score);
   return !all && topN > 0 ? r.slice(0, topN) : r;
 }
-const resultCols = () => mode === "w" ? Object.keys(wts).filter((k) => wts[k] > 0) : ["migrant"];
 
-function renderResult() {
-  if (data && $("rk_byRank") && $("rk_byRank").checked) renderList();   // ② sorted by ranking follows weight / mode changes
+function renderResult() {   // ③ groups and ④ table follow the ranking; the ranking itself is the ② list now
   setTimeout(renderPresets, 0);
   setTimeout(() => { if (typeof tbRender === "function") tbRender(); }, 0);
-  const r = ranking(false, true), cols = resultCols();
-  $("resultHead").innerHTML = `<th class="num">#</th><th>${esc(tr("colName"))}</th><th class="num">${esc(tr(mode === "w" ? "colScoreW" : "colScore"))}</th>` +
-    cols.map((k) => `<th class="num">${esc(statLabel(k))}${mode === "w" ? ` <span class="muted">${Math.round(wts[k] / (cols.reduce((a, c) => a + wts[c], 0) || 1) * 100)}%</span>` : ""}</th>`).join("");
-  let n = 0;
-  $("result").innerHTML = r.length ? r.map((m) => `
-    <tr${m.isSub ? ' class="rk-subrow"' : ""}>
-      <td class="num">${m.isSub ? "" : ++n}</td>
-      <td class="name"><span dir="auto">${esc(m.name)}</span>${m.isSub ? ` <span class="rk-subtag">${esc(tr("subTag"))}</span>` : ""}<div style="font-size:12px;opacity:.65;font-variant-numeric:tabular-nums;user-select:all">ID ${esc(m.id)}</div></td>
-      <td class="num">${mode !== "w" && spIsFallback(m) ? "~" : ""}${m.score.toFixed(mode === "w" ? 1 : 0)}<span class="bar" style="width:${Math.round(mode === "w" ? m.score * 0.6 : m.score / 20)}px"></span></td>
-      ${cols.map((k) => `<td class="num">${fmtStat(m, k)}</td>`).join("")}
-    </tr>`).join("") : `<tr><td colspan="${3 + cols.length}" class="empty">${tr("empty")}</td></tr>`;
+  if (data) renderList();
 }
 
 let activePreset = null;
@@ -261,7 +243,7 @@ function renderPresets() {
     <h3>${esc(g.name[lang] || ptOf(g.name.en))} <span class="muted">(${tr("n", { n: list.length })})</span></h3>
     ${list.length ? `<ol>${list.map((m) => `<li dir="auto">${esc(m.name)} <span class="muted">· ${m.score.toFixed(mode === "w" ? 1 : 0)}</span></li>`).join("")}</ol>` : `<div class="muted">—</div>`}`).join("") + `</div>${pic}</div>`;
 }
-function renderAll() { applyTexts(); renderList(); renderResult(); }
+function renderAll() { applyTexts(); renderResult(); }
 function persist() { for (const k of Object.keys(rep)) if (!picked.has(Number(k) || k)) delete rep[k]; store.rep = { ...rep }; store.wts = wts; store.picked = [...picked]; store.subs = [...picked].filter((id) => subs.has(id)); store.wPower = wPower; store.topN = topN; store.mode = mode; store.sortKey = sortKey; store.sortDir = sortDir; store.lang = lang; save(); }
 
 function renderWeights() {
@@ -293,8 +275,8 @@ async function init() {
 function setLang(l) { lang = l; persist(); if (data) renderAll(); else applyTexts(); };
 $("rk_q").oninput = renderList;
 $("rk_onlyTicked").onchange = renderList;
-$("rk_byRank").checked = !!store.byRank;
-$("rk_byRank").onchange = (e) => { store.byRank = e.target.checked; save(); renderList(); };
+$("rk_byRank").checked = store.byRank !== false;   // the ranking is the default view (it replaced the ③ card)
+$("rk_byRank").onchange = (e) => { store.byRank = e.target.checked; saveLocal(); renderList(); };
 $("rk_wRow").addEventListener("change", (e) => {
   const k = e.target.dataset.wk; if (!k) return;
   const w = { ...wts }; if (e.target.checked) w[k] = w[k] || 20; else delete w[k];
@@ -311,7 +293,7 @@ $("rk_list").onclick = (e) => {
     const grp = data.members.filter((m) => rankNum(m) === r && (!q || norm(m.name).includes(q)));
     const all = grp.every((m) => picked.has(m.id));
     grp.forEach((m) => all ? picked.delete(m.id) : picked.add(m.id));
-    persist(); renderList(); renderResult(); return;
+    persist(); renderResult(); return;
   }
   const row = e.target.closest("tr.member"); if (!row) return;
   const id = Number(row.dataset.id) || row.dataset.id;
@@ -321,13 +303,14 @@ $("rk_list").onclick = (e) => {
     if (subs.has(id)) { subs.delete(id); picked.delete(id); } else { subs.add(id); picked.add(id); }
   } else if (picked.has(id) && !subs.has(id)) { picked.delete(id); }   // left box / the row = starter
   else { picked.add(id); subs.delete(id); }
-  persist(); renderList(); renderResult();
+  persist(); renderResult();
 };
-$("allBtn").onclick = () => { data.members.forEach((m) => picked.add(m.id)); persist(); renderList(); renderResult(); };
-$("noneBtn").onclick = () => { picked.clear(); subs.clear(); persist(); renderList(); renderResult(); };
+$("allBtn").onclick = () => { data.members.forEach((m) => picked.add(m.id)); persist(); renderResult(); };
+$("noneBtn").onclick = () => { picked.clear(); subs.clear(); persist(); renderResult(); };
 ROOT.querySelectorAll("th[data-sort]").forEach((th) => th.onclick = () => {
   const k = th.dataset.sort;
   if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = k === "name" ? 1 : -1; }
+  $("rk_byRank").checked = false; store.byRank = false; saveLocal();
   persist(); renderList();
 });
 $("pasteBtn").onclick = () => {
@@ -340,15 +323,76 @@ $("pasteBtn").onclick = () => {
     if (hit.length === 1) { picked.add(hit[0].id); n++; } else miss.push(nm + (hit.length > 1 ? " (?)" : ""));
   });
   $("pasteMsg").innerHTML = esc(tr("pasteOk", { n })) + (miss.length ? `<br><span class="warn">${esc(tr("pasteMiss", { list: miss.join(", ") }))}</span>` : "");
-  persist(); renderList(); renderResult();
+  persist(); renderResult();
 };
-$("rk_copyBtn").onclick = async () => {
-  const r = ranking(false, true); let n = 0;
-  const text = r.map((m) => `${m.isSub ? "(" + tr("subTag") + ")" : ++n + "."} ${m.name} (ID ${m.id}) — ${m.score.toFixed(mode === "w" ? 1 : 0)}`).join("\n");
-  try { await navigator.clipboard.writeText(text); } catch (e) {
-    const ta = document.createElement("textarea"); ta.value = text; ROOT.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
+/* 📋 Copy list: pick who, which columns and the format (text / table for Sheets / aligned Discord table). Choices remembered on this device. */
+const CP = {"zh": {"title": "📋 複製名單", "who": "要複製誰", "whoAll": "勾選的人（照排名）", "whoTop": "只有前 {n} 名", "whoReg": "可報名的人（✅ + 🟡）", "whoWait": "還沒回覆的人", "withSubs": "包含替補", "fields": "要複製的資訊", "fNo": "名次", "fRep": "回覆", "fmt": "格式", "fmtText": "文字（一行一人）", "fmtTsv": "表格（貼到 Google 試算表 / Excel）", "fmtDiscord": "Discord 表格（對齊）", "preview": "預覽", "copy": "複製", "copied": "已複製！", "close": "關閉", "none": "沒有符合的人。"}, "en": {"title": "📋 Copy list", "who": "Who", "whoAll": "Ticked people (in ranking order)", "whoTop": "Only the top {n}", "whoReg": "Can be registered (✅ + 🟡)", "whoWait": "Not replied yet", "withSubs": "Include subs", "fields": "What to copy", "fNo": "Place", "fRep": "Reply", "fmt": "Format", "fmtText": "Text (one person per line)", "fmtTsv": "Table (paste into Google Sheets / Excel)", "fmtDiscord": "Discord table (aligned)", "preview": "Preview", "copy": "Copy", "copied": "Copied!", "close": "Close", "none": "Nobody matches."}, "pt": {"title": "📋 Copiar lista", "who": "Quem", "whoAll": "Marcados (na ordem do ranking)", "whoTop": "Só os {n} primeiros", "whoReg": "Podem ser inscritos (✅ + 🟡)", "whoWait": "Ainda sem resposta", "withSubs": "Incluir reservas", "fields": "O que copiar", "fNo": "Posição", "fRep": "Resposta", "fmt": "Formato", "fmtText": "Texto (uma pessoa por linha)", "fmtTsv": "Tabela (colar no Google Planilhas / Excel)", "fmtDiscord": "Tabela para Discord (alinhada)", "preview": "Prévia", "copy": "Copiar", "copied": "Copiado!", "close": "Fechar", "none": "Ninguém corresponde."}, "ar": {"title": "📋 نسخ القائمة", "who": "من", "whoAll": "المحددون (بترتيب الترتيب)", "whoTop": "أول {n} فقط", "whoReg": "يمكن تسجيلهم (✅ + 🟡)", "whoWait": "لم يردّوا بعد", "withSubs": "تضمين البدلاء", "fields": "ما الذي يُنسخ", "fNo": "المركز", "fRep": "الرد", "fmt": "التنسيق", "fmtText": "نص (شخص في كل سطر)", "fmtTsv": "جدول (للصق في Google Sheets / Excel)", "fmtDiscord": "جدول Discord (محاذى)", "preview": "معاينة", "copy": "نسخ", "copied": "تم النسخ!", "close": "إغلاق", "none": "لا أحد يطابق."}, "ko": {"title": "📋 명단 복사", "who": "누구", "whoAll": "체크한 사람 (순위대로)", "whoTop": "상위 {n}명만", "whoReg": "등록 가능 (✅ + 🟡)", "whoWait": "아직 미응답", "withSubs": "후보 포함", "fields": "복사할 정보", "fNo": "순위", "fRep": "응답", "fmt": "형식", "fmtText": "텍스트 (한 줄에 한 명)", "fmtTsv": "표 (Google 스프레드시트 / Excel에 붙여넣기)", "fmtDiscord": "Discord 표 (정렬)", "preview": "미리보기", "copy": "복사", "copied": "복사됨!", "close": "닫기", "none": "해당하는 사람이 없어요."}};
+const cp = (k, v = {}) => String((CP[lang] || CP.en)[k] ?? CP.en[k]).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
+const CP_FIELDS = ["no", "name", "id", "rep", "rank", "tc", "power", "mystic", "sp", "migrant", "score", "sub"];
+function cpLabel(f) { return { no: cp("fNo"), name: tr("colName"), id: "ID", rep: cp("fRep"), rank: tr("colRank"), tc: tr("colTc"), power: tr("power"), mystic: tr("mystic"), sp: tr("colSp"), migrant: tr("colMigrant"), score: tr(mode === "w" ? "colScoreW" : "colScore"), sub: tr("sub") }[f]; }
+const cpFields = () => CP_FIELDS.filter((f) => mode === "w" || f !== "sp");   // Squad Power mode: the score IS the Squad Power
+function cpRows(o) {
+  const r = ranking(true, true); let n = 0;
+  const rows = r.map((m) => ({ m, no: m.isSub ? "" : ++n }));
+  return rows.filter(({ m, no }) => (o.subs || !m.isSub) && (o.who !== "top" || !topN || (no && no <= topN))
+    && (o.who !== "reg" || rep[m.id] === "y" || (isSafe(m.id) && rep[m.id] !== "n")) && (o.who !== "wait" || (!rep[m.id] && !isSafe(m.id))));
+}
+function cpCell(f, m, no) {
+  if (f === "no") return no ? String(no) : "";
+  if (f === "name") return m.name;
+  if (f === "id") return String(m.id);
+  if (f === "rep") return (rep[m.id] === "y" ? "✅" : rep[m.id] === "n" ? "❌" : "⏳") + (isSafe(m.id) ? "🟡" : "");
+  if (f === "rank") return rankLabel(m);
+  if (f === "tc") return String(m.tc ?? "");
+  if (f === "power" || f === "mystic") return m[f] ? big(m[f]) : "";
+  if (f === "sp") { const v = squadPower(m); return v ? (spIsFallback(m) ? "~" : "") + Math.round(v) : ""; }
+  if (f === "migrant") return migrantOf(m) ? big(migrantOf(m)) : "";
+  if (f === "score") return m.score != null ? m.score.toFixed(mode === "w" ? 1 : 0) : "";
+  if (f === "sub") return m.isSub ? tr("subTag") : "";
+  return "";
+}
+function cpText(o) {
+  const rows = cpRows(o), fs = cpFields().filter((f) => o.f.includes(f));
+  if (o.fmt === "discord" && fs.includes("rep")) fs.push(fs.splice(fs.indexOf("rep"), 1)[0]);   // emoji widths differ between fonts: keep them in the last column so the rest stays lined up
+  if (!rows.length || !fs.length) return "";
+  const cells = rows.map(({ m, no }) => fs.map((f) => cpCell(f, m, no)));
+  if (o.fmt === "tsv") return [fs.map(cpLabel), ...cells].map((r) => r.map((c) => String(c).replace(/[\t\n]/g, " ")).join("\t")).join("\n");
+  if (o.fmt === "discord") {   // a code block keeps the columns lined up in Discord (CJK / emoji count as 2)
+    const wd = (x) => [...String(x)].reduce((a, ch) => a + (/[\u1100-\u115F\u2E80-\uA4CF\uAC00-\uD7A3\uF900-\uFAFF\uFE30-\uFE4F\uFF00-\uFF60\uFFE0-\uFFE6]|\p{Extended_Pictographic}/u.test(ch) ? 2 : 1), 0);
+    const all = [fs.map(cpLabel), ...cells], w = fs.map((_, i) => Math.max(...all.map((r) => wd(r[i]))));
+    const line = (r) => r.map((c, i) => String(c) + " ".repeat(Math.max(0, w[i] - wd(c)))).join("  ").trimEnd();
+    return "```\n" + [line(all[0]), ...cells.map(line)].join("\n") + "\n```";
   }
-  const b = $("rk_copyBtn"); b.textContent = tr("copied"); setTimeout(() => (b.textContent = tr("copy")), 1500);
+  return cells.map((r) => { const v = fs.map((f, i) => [f, r[i]]).filter(([, c]) => c !== "");
+    const no = v.find(([f]) => f === "no"), rest = v.filter(([f]) => f !== "no").map(([f, c]) => f === "id" ? "ID " + c : f === "sub" ? "(" + c + ")" : c);
+    return (no ? no[1] + ". " : "- ") + rest.join(" · "); }).join("\n");
+}
+$("rk_copyBtn").onclick = () => {
+  const o = Object.assign({ who: "all", subs: true, f: ["no", "name", "id", "score", "sub"], fmt: "text" }, store.copyOpt || {});
+  const m = document.createElement("div"); m.className = "tb-modal";
+  const rad = (name, v, label) => `<label><input type="radio" name="${name}" value="${v}"${o[name] === v ? " checked" : ""}> ${esc(label)}</label>`;
+  m.innerHTML = `<div class="card" style="width:min(640px,96vw);max-height:90vh;overflow:auto"><b>${esc(cp("title"))}</b>
+    <div class="muted" style="margin-top:8px">${esc(cp("who"))}</div><div class="rk-cpo">${rad("who", "all", cp("whoAll"))}${topN > 0 ? rad("who", "top", cp("whoTop", { n: topN })) : ""}${rad("who", "reg", cp("whoReg"))}${rad("who", "wait", cp("whoWait"))}<label><input type="checkbox" data-subs="1"${o.subs ? " checked" : ""}> ${esc(cp("withSubs"))}</label></div>
+    <div class="muted">${esc(cp("fields"))}</div><div class="rk-cpo">${cpFields().map((f) => `<label><input type="checkbox" data-f="${f}"${o.f.includes(f) ? " checked" : ""}> ${esc(cpLabel(f))}</label>`).join("")}</div>
+    <div class="muted">${esc(cp("fmt"))}</div><div class="rk-cpo">${rad("fmt", "text", cp("fmtText"))}${rad("fmt", "tsv", cp("fmtTsv"))}${rad("fmt", "discord", cp("fmtDiscord"))}</div>
+    <div class="muted">${esc(cp("preview"))}</div><textarea readonly data-prev="1" style="width:100%;min-height:180px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;white-space:pre;overflow:auto"></textarea>
+    <div class="row" style="margin-top:8px;align-items:center"><button class="btn primary" data-go="1">${esc(cp("copy"))}</button><button class="btn" data-close="1">${esc(cp("close"))}</button><span class="msg" data-msg="1"></span></div></div>`;
+  ROOT.appendChild(m);
+  const prev = m.querySelector("[data-prev]");
+  const upd = () => { const t = cpText(o); prev.value = t || cp("none"); store.copyOpt = o; saveLocal(); };
+  m.addEventListener("change", (e) => { const t = e.target;
+    if (t.name === "who" || t.name === "fmt") o[t.name] = t.value;
+    else if (t.dataset.subs) o.subs = t.checked;
+    else if (t.dataset.f) { const s = new Set(o.f); if (t.checked) s.add(t.dataset.f); else s.delete(t.dataset.f); o.f = CP_FIELDS.filter((f) => s.has(f)); }
+    upd(); });
+  m.onclick = async (e) => {
+    if (e.target === m || e.target.dataset.close) return m.remove();
+    if (!e.target.dataset.go) return;
+    const t = cpText(o); if (!t) return;
+    try { await navigator.clipboard.writeText(t); } catch (x) { prev.select(); document.execCommand("copy"); }
+    m.querySelector("[data-msg]").textContent = cp("copied");
+  };
+  upd();
 };
 
 $("presetBtns").onclick = (e) => {
@@ -375,21 +419,21 @@ $("presetCopy").onclick = async () => {
 
 
 
-/* ===== ⑤ Battle table builder (saved only in this browser) ===== */
+/* ===== ④ Battle table builder (saved only in this browser) ===== */
 const TB_LS = "nxs-table-v1";
 const TB_COLORS = ["#dcc3d6", "#b9cfdc", "#ead2c0", "#cfdcc4", "#e9e0bf", "#cdc8e0", "#d6d3cf", "#bfd8cf"];   // soft pastels — readable on the light and the dark page   // muted pastels (Nia: "pastels / muted colours")
 /* tables saved with the old bright colours switch to the matching muted one */
 const TB_OLD = { "#b59592": 0, "#8b9db0": 1, "#c09c80": 2, "#94a893": 3, "#b8a68c": 4, "#a093a8": 5, "#7f9c99": 6, "#a8a196": 7, "#f5ebe0": 0, "#d5bdaf": 1, "#edede9": 2, "#c9b7a6": 3, "#e3d5ca": 4, "#b9a394": 5, "#ece4db": 6, "#d6ccc2": 7, "#e6a3d9": 0, "#8fd0ec": 1, "#f6c3a2": 2, "#d6ecc4": 3, "#f6e58d": 4, "#c9c3f0": 5, "#d9d9d9": 6, "#b8e0d2": 7 };
 const tbMuted = (t) => { for (const g of (t && t.groups) || []) { const i = TB_OLD[String(g.color || "").toLowerCase()]; if (i != null) g.color = TB_COLORS[i]; } return t; };
-const TT = { ko: {"ssDraft": "⚔️ 성검 규칙 초안 (3단계 모두)", "title": "⑤ 전투 배치표", "note": "목록에서 사람을 고른 뒤 칸을 눌러 배치하세요(컴퓨터에서는 드래그도 가능). ×를 누르면 제거됩니다.", "setup": "표 설정", "stages": "단계", "targets": "목표", "tlabels": "목표 뒤 괄호 설명", "cols": "열 이름", "sep": "(쉼표로 구분)", "shortNames": "짧은 이름 (亗, Nexus 같은 장식 제거)", "draft": "순위로 초안 자동 작성", "draftNote": "④의 Attackers / Defenders 인원수를 사용합니다.", "clear": "표 비우기", "addGroup": "+ 조", "addRow": "+ 행", "delGroup": "조 삭제", "dupRow": "행 복사", "delRow": "행 삭제", "pool": "인원 — 점수 기준 추천 역할 (이름을 누른 뒤 칸을 누르세요)", "poolEmpty": "먼저 ②에서 참가자를 체크하세요.", "addText": "+ 텍스트", "sync": "📋 단계(Phase 1, Phase 2, Stay behind…)마다 건물 표가 하나씩, 한 줄 = 건물 하나. 같은 사람이 여러 단계에 나올 수 있어요. 단계 이름은 「표 설정」에서 바꿔요.", "imp": "📥 텍스트 붙여넣기 → 표", "impNote": "Discord에 쓴 배치 글을 그대로 붙여넣으세요 (① ROYAL STABLES / * ⚔️ Attacker: Papa …). 이름은 명단과 자동으로 맞춰지고, 못 찾은 이름은 글자로 들어가요.", "impGo": "표로 바꾸기", "impBad": "알아볼 수 있는 건물이 없어요.", "impDraft": "📝 초안 넣기 (점수 순으로 사람 배치)", "rem": "📌 알림 (그림과 글 맨 아래에 붙어요)", "game": "🎮 게임 채팅용", "undo": "↩️ 되돌리기", "xlsx": "📊 Excel 다운로드", "gameNote": "게임 채팅은 한 번에 한 메시지씩 — 순서대로 하나씩 복사해서 붙여넣으세요.", "addB": "+ 건물", "moveTo": "단계:", "stay": "남음", "textPrompt": "추가할 텍스트 (예: Stays behind)", "image": "🖼️ 이미지 만들기", "text": "📋 텍스트 복사", "toPost": "📢 새 공지에 사용", "saveHint": "휴대폰: 이미지를 길게 눌러 저장하세요.", "download": "다운로드", "close": "닫기", "confirmClear": "표 전체를 비울까요?", "confirmDraft": "현재 표를 새 초안으로 바꿀까요?", "copied": "복사했어요!", "group": "조", "picked": "선택됨:"},
- ar: {"ssDraft": "⚔️ مسودة قواعد أرض السيوف (المراحل الثلاث)", "title": "⑤ جدول المعركة", "note": "اختر أشخاصًا من القائمة، ثم انقر على خانة لوضعهم فيها (على الكمبيوتر يمكنك السحب أيضًا). انقر × للإزالة.", "setup": "إعداد الجدول", "stages": "المراحل", "targets": "الأهداف", "tlabels": "ملاحظة الهدف (بين قوسين)", "cols": "الأعمدة", "sep": "(افصل بفواصل)", "shortNames": "أسماء مختصرة (بدون زخارف مثل 亗 وNexus)", "draft": "املأ مسودة أولى من الترتيب", "draftNote": "يستخدم أعداد المهاجمين / المدافعين من ④.", "clear": "مسح الجدول", "addGroup": "+ مجموعة", "addRow": "+ صف", "delGroup": "حذف المجموعة", "dupRow": "نسخ الصف", "delRow": "حذف الصف", "pool": "الأشخاص — أدوار مقترحة حسب النقاط (انقر على واحد، ثم على خانة)", "poolEmpty": "حدّد المشاركين في ② أولًا.", "addText": "+ نص", "sync": "📋 لكل مرحلة (Phase 1، Phase 2، Stay behind…) جدول مبانٍ خاص، وكل صف = مبنى. يمكن أن يظهر الشخص نفسه في عدة مراحل. تُغيَّر أسماء المراحل في «إعداد الجدول».", "imp": "📥 لصق نص ← جدول", "impNote": "الصق نص التوزيع كما كتبته في Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). تُطابق الأسماء مع القائمة تلقائيًا، وما لا يُعثر عليه يُضاف كنص.", "impGo": "حوّل إلى جدول", "impBad": "لم يُعثر على أي مبنى.", "impDraft": "📝 أدخل مسودة (الأشخاص حسب الترتيب)", "rem": "📌 تذكيرات (تُضاف أسفل الصورة والنص)", "game": "🎮 لدردشة اللعبة", "undo": "↩️ تراجع", "xlsx": "📊 تنزيل Excel", "gameNote": "دردشة اللعبة ترسل رسالة واحدة في كل مرة — انسخ كل مربع والصقه بالترتيب.", "addB": "+ مبنى", "moveTo": "المرحلة:", "stay": "يبقى", "textPrompt": "النص المراد إضافته (مثلًا: يبقى في الخلف)", "image": "🖼️ إنشاء صورة", "text": "📋 نسخ النص", "toPost": "📢 استخدام في إعلان جديد", "saveHint": "الهاتف: اضغط مطولًا على الصورة لحفظها.", "download": "تنزيل", "close": "إغلاق", "confirmClear": "مسح الجدول بالكامل؟", "confirmDraft": "استبدال الجدول بمسودة جديدة؟", "copied": "تم النسخ!", "group": "مجموعة", "picked": "المحدد:"},
- pt: {"ssDraft": "⚔️ Rascunho pelas regras do Confronto entre Espadas (3 fases)", "title": "⑤ Tabela de batalha", "note": "Escolha pessoas na lista e toque numa caixa para colocá-las lá (no computador também dá para arrastar). Toque em × para remover.", "setup": "Configurar tabela", "stages": "Etapas", "targets": "Alvos", "tlabels": "Notas do alvo (entre parênteses)", "cols": "Colunas", "sep": "(separe com vírgulas)", "shortNames": "Nomes curtos (sem enfeites como 亗 e Nexus)", "draft": "Montar um rascunho pelo ranking", "draftNote": "Usa os números de Attackers / Defenders do ④.", "clear": "Limpar tabela", "addGroup": "+ Grupo", "addRow": "+ Linha", "delGroup": "Excluir grupo", "dupRow": "Copiar linha", "delRow": "Excluir linha", "pool": "Pessoas — funções sugeridas pela pontuação (toque numa, depois numa caixa)", "poolEmpty": "Marque os participantes no ② primeiro.", "addText": "+ texto", "sync": "📋 Cada fase (Phase 1, Phase 2, Stay behind…) tem sua própria tabela de prédios, uma linha = um prédio. A mesma pessoa pode aparecer em fases diferentes. Os nomes das fases mudam em «Configurar tabela».", "imp": "📥 Colar texto → tabela", "impNote": "Cole o texto das funções como escreveu no Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). Os nomes são ligados à lista sozinhos; os não encontrados entram como texto.", "impGo": "Transformar em tabela", "impBad": "Nenhum prédio encontrado.", "impDraft": "📝 Inserir rascunho (pessoas pela classificação)", "rem": "📌 Lembretes (vão no fim da imagem e do texto)", "game": "🎮 Para o chat do jogo", "undo": "↩️ Desfazer", "xlsx": "📊 Baixar Excel", "gameNote": "O chat do jogo envia uma mensagem por vez — copie cada caixa e cole na ordem.", "addB": "+ Prédio", "moveTo": "Fase:", "stay": "fica", "textPrompt": "Texto para adicionar (ex.: Stays behind)", "image": "🖼️ Gerar imagem", "text": "📋 Copiar texto", "toPost": "📢 Usar num novo anúncio", "saveHint": "No celular: toque e segure a imagem para salvar.", "download": "Baixar", "close": "Fechar", "confirmClear": "Limpar a tabela inteira?", "confirmDraft": "Trocar a tabela por um novo rascunho?", "copied": "Copiado!", "group": "Grupo", "picked": "Selecionado:"},
+const TT = { ko: {"ssDraft": "⚔️ 성검 규칙 초안 (3단계 모두)", "title": "④ 전투 배치표", "note": "목록에서 사람을 고른 뒤 칸을 눌러 배치하세요(컴퓨터에서는 드래그도 가능). ×를 누르면 제거됩니다.", "setup": "표 설정", "stages": "단계", "targets": "목표", "tlabels": "목표 뒤 괄호 설명", "cols": "열 이름", "sep": "(쉼표로 구분)", "shortNames": "짧은 이름 (亗, Nexus 같은 장식 제거)", "draft": "순위로 초안 자동 작성", "draftNote": "③의 Attackers / Defenders 인원수를 사용합니다.", "clear": "표 비우기", "addGroup": "+ 조", "addRow": "+ 행", "delGroup": "조 삭제", "dupRow": "행 복사", "delRow": "행 삭제", "pool": "인원 — 점수 기준 추천 역할 (이름을 누른 뒤 칸을 누르세요)", "poolEmpty": "먼저 ②에서 참가자를 체크하세요.", "addText": "+ 텍스트", "sync": "📋 단계(Phase 1, Phase 2, Stay behind…)마다 건물 표가 하나씩, 한 줄 = 건물 하나. 같은 사람이 여러 단계에 나올 수 있어요. 단계 이름은 「표 설정」에서 바꿔요.", "imp": "📥 텍스트 붙여넣기 → 표", "impNote": "Discord에 쓴 배치 글을 그대로 붙여넣으세요 (① ROYAL STABLES / * ⚔️ Attacker: Papa …). 이름은 명단과 자동으로 맞춰지고, 못 찾은 이름은 글자로 들어가요.", "impGo": "표로 바꾸기", "impBad": "알아볼 수 있는 건물이 없어요.", "impDraft": "📝 초안 넣기 (점수 순으로 사람 배치)", "rem": "📌 알림 (그림과 글 맨 아래에 붙어요)", "game": "🎮 게임 채팅용", "undo": "↩️ 되돌리기", "xlsx": "📊 Excel 다운로드", "gameNote": "게임 채팅은 한 번에 한 메시지씩 — 순서대로 하나씩 복사해서 붙여넣으세요.", "addB": "+ 건물", "moveTo": "단계:", "stay": "남음", "textPrompt": "추가할 텍스트 (예: Stays behind)", "image": "🖼️ 이미지 만들기", "text": "📋 텍스트 복사", "toPost": "📢 새 공지에 사용", "saveHint": "휴대폰: 이미지를 길게 눌러 저장하세요.", "download": "다운로드", "close": "닫기", "confirmClear": "표 전체를 비울까요?", "confirmDraft": "현재 표를 새 초안으로 바꿀까요?", "copied": "복사했어요!", "group": "조", "picked": "선택됨:"},
+ ar: {"ssDraft": "⚔️ مسودة قواعد أرض السيوف (المراحل الثلاث)", "title": "④ جدول المعركة", "note": "اختر أشخاصًا من القائمة، ثم انقر على خانة لوضعهم فيها (على الكمبيوتر يمكنك السحب أيضًا). انقر × للإزالة.", "setup": "إعداد الجدول", "stages": "المراحل", "targets": "الأهداف", "tlabels": "ملاحظة الهدف (بين قوسين)", "cols": "الأعمدة", "sep": "(افصل بفواصل)", "shortNames": "أسماء مختصرة (بدون زخارف مثل 亗 وNexus)", "draft": "املأ مسودة أولى من الترتيب", "draftNote": "يستخدم أعداد المهاجمين / المدافعين من ③.", "clear": "مسح الجدول", "addGroup": "+ مجموعة", "addRow": "+ صف", "delGroup": "حذف المجموعة", "dupRow": "نسخ الصف", "delRow": "حذف الصف", "pool": "الأشخاص — أدوار مقترحة حسب النقاط (انقر على واحد، ثم على خانة)", "poolEmpty": "حدّد المشاركين في ② أولًا.", "addText": "+ نص", "sync": "📋 لكل مرحلة (Phase 1، Phase 2، Stay behind…) جدول مبانٍ خاص، وكل صف = مبنى. يمكن أن يظهر الشخص نفسه في عدة مراحل. تُغيَّر أسماء المراحل في «إعداد الجدول».", "imp": "📥 لصق نص ← جدول", "impNote": "الصق نص التوزيع كما كتبته في Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). تُطابق الأسماء مع القائمة تلقائيًا، وما لا يُعثر عليه يُضاف كنص.", "impGo": "حوّل إلى جدول", "impBad": "لم يُعثر على أي مبنى.", "impDraft": "📝 أدخل مسودة (الأشخاص حسب الترتيب)", "rem": "📌 تذكيرات (تُضاف أسفل الصورة والنص)", "game": "🎮 لدردشة اللعبة", "undo": "↩️ تراجع", "xlsx": "📊 تنزيل Excel", "gameNote": "دردشة اللعبة ترسل رسالة واحدة في كل مرة — انسخ كل مربع والصقه بالترتيب.", "addB": "+ مبنى", "moveTo": "المرحلة:", "stay": "يبقى", "textPrompt": "النص المراد إضافته (مثلًا: يبقى في الخلف)", "image": "🖼️ إنشاء صورة", "text": "📋 نسخ النص", "toPost": "📢 استخدام في إعلان جديد", "saveHint": "الهاتف: اضغط مطولًا على الصورة لحفظها.", "download": "تنزيل", "close": "إغلاق", "confirmClear": "مسح الجدول بالكامل؟", "confirmDraft": "استبدال الجدول بمسودة جديدة؟", "copied": "تم النسخ!", "group": "مجموعة", "picked": "المحدد:"},
+ pt: {"ssDraft": "⚔️ Rascunho pelas regras do Confronto entre Espadas (3 fases)", "title": "④ Tabela de batalha", "note": "Escolha pessoas na lista e toque numa caixa para colocá-las lá (no computador também dá para arrastar). Toque em × para remover.", "setup": "Configurar tabela", "stages": "Etapas", "targets": "Alvos", "tlabels": "Notas do alvo (entre parênteses)", "cols": "Colunas", "sep": "(separe com vírgulas)", "shortNames": "Nomes curtos (sem enfeites como 亗 e Nexus)", "draft": "Montar um rascunho pelo ranking", "draftNote": "Usa os números de Attackers / Defenders do ③.", "clear": "Limpar tabela", "addGroup": "+ Grupo", "addRow": "+ Linha", "delGroup": "Excluir grupo", "dupRow": "Copiar linha", "delRow": "Excluir linha", "pool": "Pessoas — funções sugeridas pela pontuação (toque numa, depois numa caixa)", "poolEmpty": "Marque os participantes no ② primeiro.", "addText": "+ texto", "sync": "📋 Cada fase (Phase 1, Phase 2, Stay behind…) tem sua própria tabela de prédios, uma linha = um prédio. A mesma pessoa pode aparecer em fases diferentes. Os nomes das fases mudam em «Configurar tabela».", "imp": "📥 Colar texto → tabela", "impNote": "Cole o texto das funções como escreveu no Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). Os nomes são ligados à lista sozinhos; os não encontrados entram como texto.", "impGo": "Transformar em tabela", "impBad": "Nenhum prédio encontrado.", "impDraft": "📝 Inserir rascunho (pessoas pela classificação)", "rem": "📌 Lembretes (vão no fim da imagem e do texto)", "game": "🎮 Para o chat do jogo", "undo": "↩️ Desfazer", "xlsx": "📊 Baixar Excel", "gameNote": "O chat do jogo envia uma mensagem por vez — copie cada caixa e cole na ordem.", "addB": "+ Prédio", "moveTo": "Fase:", "stay": "fica", "textPrompt": "Texto para adicionar (ex.: Stays behind)", "image": "🖼️ Gerar imagem", "text": "📋 Copiar texto", "toPost": "📢 Usar num novo anúncio", "saveHint": "No celular: toque e segure a imagem para salvar.", "download": "Baixar", "close": "Fechar", "confirmClear": "Limpar a tabela inteira?", "confirmDraft": "Trocar a tabela por um novo rascunho?", "copied": "Copiado!", "group": "Grupo", "picked": "Selecionado:"},
 
   en: {
-    title: "⑤ Battle table", note: "Pick people from the list, then tap a box to put them there (on a computer you can also drag). Tap × to remove.",
+    title: "④ Battle table", note: "Pick people from the list, then tap a box to put them there (on a computer you can also drag). Tap × to remove.",
     ssDraft: "⚔️ Swordland rules draft (all 3 phases)", setup: "Table setup", stages: "Stages", targets: "Targets", tlabels: "Target notes (shown in brackets)", cols: "Columns", sep: "(separate with commas)",
     shortNames: "Short names (drop decorations like 亗 and Nexus)",
-    draft: "Fill a first draft from the ranking", draftNote: "Uses the Attackers / Defenders numbers from ④.",
+    draft: "Fill a first draft from the ranking", draftNote: "Uses the Attackers / Defenders numbers from ③.",
     clear: "Clear table", addGroup: "+ Group", addRow: "+ Row", delGroup: "Delete group", dupRow: "Copy row", delRow: "Delete row",
     pool: "People — suggested roles by score (tap one, then tap a box)", poolEmpty: "Tick participants in ② first.",
     addText: "+ text", sync: "📋 Each phase (Phase 1, Phase 2, Stay behind…) has its own table of buildings, one row = one building. The same person can be in several phases. Rename the phases in Table setup.", imp: "📥 Paste text → table", impNote: "Paste the assignment post as you wrote it for Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). Names are matched to the roster automatically; any not found go in as text.", impGo: "Turn into table", impBad: "No buildings found in that text.", impDraft: "📝 Insert a draft (people by ranking)", rem: "📌 Reminders (added at the bottom of the picture and the text)", game: "🎮 For in-game chat", undo: "↩️ Undo", xlsx: "📊 Download Excel", gameNote: "Game chat sends one message at a time — copy each box and paste them in order.", addB: "+ Building", moveTo: "Phase:", stay: "stay", textPrompt: "Text to add (e.g. Stays behind)",
@@ -399,10 +443,10 @@ const TT = { ko: {"ssDraft": "⚔️ 성검 규칙 초안 (3단계 모두)", "ti
     group: "Group", picked: "Selected:",
   },
   zh: {
-    title: "⑤ 戰鬥分工表", note: "先點上方的名字，再點要放的格子（電腦上也可以直接拖曳）。點 × 移除。",
+    title: "④ 戰鬥分工表", note: "先點上方的名字，再點要放的格子（電腦上也可以直接拖曳）。點 × 移除。",
     ssDraft: "⚔️ 聖劍規則草稿（3 個階段一次排好）", setup: "表格設定", stages: "階段", targets: "目標", tlabels: "目標後面的括號說明", cols: "欄位名稱", sep: "（用逗號分隔）",
     shortNames: "簡短名字（去掉亗、Nexus 這些裝飾）",
-    draft: "依排序自動排一份草稿", draftNote: "使用 ④ 裡 Attackers／Defenders 的人數。",
+    draft: "依排序自動排一份草稿", draftNote: "使用 ③ 裡 Attackers／Defenders 的人數。",
     clear: "清空表格", addGroup: "+ 新增組", addRow: "+ 新增列", delGroup: "刪除這組", dupRow: "複製這列", delRow: "刪除這列",
     pool: "人員 — 依分數建議的角色（先點名字，再點格子）", poolEmpty: "請先在 ② 勾選參戰的人。",
     addText: "+ 文字", sync: "📋 每個階段（Phase 1、Phase 2、Stay behind…）各一張建築表，一列＝一個建築。同一個人可以出現在不同階段。階段名稱在「表格設定」裡改。", imp: "📥 貼上文字轉成表格", impNote: "把寫給 Discord 的分配文字整段貼進來（① ROYAL STABLES／* ⚔️ Attacker: Papa …）。名字會自動對到名單，對不到的會變成文字格。", impGo: "轉成表格", impBad: "這段文字裡找不到建築。", impDraft: "📝 放入草稿（依排序自動填人）", rem: "📌 提醒事項（會加在圖片和文字的最下面）", game: "🎮 複製到遊戲聊天", undo: "↩️ 復原", xlsx: "📊 下載 Excel", gameNote: "遊戲聊天一次只能貼一則：照順序一則一則複製、貼上。", addB: "+ 新增建築", moveTo: "階段：", stay: "留守", textPrompt: "要加入的文字（例如 Stays behind）",

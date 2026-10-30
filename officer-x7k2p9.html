@@ -298,7 +298,10 @@
   #pg-ranking .rk-rb.sf { opacity: .3; filter: grayscale(1); margin-inline: 4px 0; }
   #pg-ranking .rk-rb.sf.on { opacity: 1; filter: none; }
   #pg-ranking tr.member.r-n td.name .nm { text-decoration: line-through; opacity: .6; }
-  #pg-ranking .rk-no { display: inline-block; min-width: 22px; margin-inline-end: 4px; font-variant-numeric: tabular-nums; color: var(--text-muted); }
+  #pg-ranking td.rk-no { font-variant-numeric: tabular-nums; color: var(--text-muted); font-weight: 700; }
+  #pg-ranking tr.member.rk-cut td { opacity: .5; }   /* past "use only the top N" */
+  #pg-ranking .rk-cpo { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 4px 0 10px; font-size: 13.5px; }
+  #pg-ranking .rk-cpo label { white-space: nowrap; }
   #pg-ranking .rk-reg { margin: 0 0 8px; padding: 8px 10px; border-radius: 8px; background: color-mix(in srgb, var(--accent) 10%, var(--panel)); font-size: 13.5px; }
   #pg-ranking .pl-edc.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--panel)); font-weight: 600; }
   #pg-ranking .rk-subtag { background: #f59e0b; color: #000; border-radius: 4px; padding: 0 5px; font: 700 11px/1.6 system-ui, sans-serif; vertical-align: middle; }
@@ -882,12 +885,15 @@
         <div class="msg" id="pasteMsg"></div>
       </details>
       <div class="row" style="align-items:center;gap:6px 10px;flex-wrap:wrap"><input type="search" id="rk_q" style="flex:1 1 100%;min-width:160px"><label style="white-space:nowrap;font-size:13.5px"><input type="checkbox" id="rk_onlyTicked"> <span data-t="onlyTicked"></span></label><label style="white-space:nowrap;font-size:13.5px"><input type="checkbox" id="rk_byRank"> <span id="rk_byRankL"></span></label></div>
+      <div class="row" style="align-items:center;gap:6px 10px;flex-wrap:wrap;margin-top:6px"><label style="white-space:nowrap;font-size:13.5px"><span data-t="topN"></span> <input type="number" id="rk_topN" min="0" style="width:64px"></label><button class="btn primary" id="rk_copyBtn" data-t="copy"></button></div>
       <div class="tbl-wrap">
         <table>
           <thead><tr>
             <th id="rk_thMain" class="ck"></th>
             <th id="rk_thSub" class="ck"></th>
+            <th id="rk_thNo" class="num">#</th>
             <th data-sort="name" data-t="colName"></th>
+            <th id="rk_thScore" class="num" data-t="colScoreW" hidden></th>
             <th data-sort="rank" data-t="colRank"></th>
             <th data-sort="tc" class="num" data-t="colTc"></th>
             <th data-sort="power" class="num" data-t="power"></th>
@@ -896,20 +902,6 @@
             <th data-sort="migrant" class="num" data-t="colMigrant"></th>
           </tr></thead>
           <tbody id="rk_list"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- 3. result -->
-    <div class="card">
-      <div class="top">
-        <h2 data-t="result"></h2>
-        <div class="row" style="align-items:center;gap:8px"><label style="white-space:nowrap;font-size:13.5px"><span data-t="topN"></span> <input type="number" id="rk_topN" min="0" style="width:64px"></label><button class="btn primary" id="rk_copyBtn" data-t="copy"></button></div>
-      </div>
-      <div class="tbl-wrap" style="max-height:none">
-        <table>
-          <thead><tr id="resultHead"></tr></thead>
-          <tbody id="result"></tbody>
         </table>
       </div>
       <div class="muted msg" data-t="scoreNote"></div>
