@@ -31,6 +31,7 @@ const FEATURES = [
   ["Board: 🌐 Translate for everyone / Translate to …", /Translate for everyone/, /bd08t:/],
   ["Ranking: Swordland rules draft", /Swordland rules draft/, /Swordland rules draft/],
   ["Ranking: version history", /Version history/, /🕘/],
+  ["Ranking: 🗂️ Recover plans (admins; deleted plans too)", /Recover plans/, /{ s: "#planRec", k: "rk02r", e: 1 }/],
   ["Ranking: shared plans", /New shared plan/, /shared plan/i],
   ["Move: member positions + blueprint on one map", /\[move\] - 🚚 Move → "👥 Member positions"[^\n]*blueprint/, /{ s: "#mm_map", k: "mv01" }, { s: "#km_members > h3", k: "mp40" }/],
   ["Move: move steps checklist", /Move steps/, /{ s: "#mv_steps", k: "mv02" }/],

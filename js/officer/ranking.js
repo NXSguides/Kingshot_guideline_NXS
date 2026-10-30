@@ -1097,6 +1097,7 @@ function planRenderBar() {
   $("planRen").hidden = $("planDel").hidden = !can;
   $("planNew").hidden = !loggedIn();
   $("planVer").hidden = !p; $("planVer").textContent = pv("btn");
+  if ($("planRec")) { $("planRec").hidden = !(OFFICER.isAdmin && OFFICER.isAdmin()); $("planRec").textContent = rc("btn"); }
   if ($("planEd") && !(document.activeElement && document.activeElement.closest && document.activeElement.closest("#planEd"))) $("planEd").innerHTML = loggedIn() ? planEditorsHtml() : "";
   // 💾 save state, always in view: ✅ saved · ⏳ saving · ⚠️ not saved yet (kept on this device, retrying)
   const st = $("planSave");
@@ -1207,7 +1208,7 @@ async function plansInit() {
   document.addEventListener("visibilitychange", planPoll);
   window.addEventListener("beforeunload", (e) => { if (planId && (planDirty || planBusy || planErr)) { planSave(); e.preventDefault(); e.returnValue = ""; } });
 }
-/* 🕘 version history: the Worker keeps the last 150 saves of each plan. Pick one to put this plan back the way it was then
+/* 🕘 version history: the Worker keeps the last 1000 saves of each plan. Pick one to put this plan back the way it was then
    (it comes in as a normal change: saved for everyone, and ↩️ undo takes it back).
    📱 also offers the battle table last edited on THIS device (kept in this browser), in case a table never reached the shared plan. */
 const PV = {
@@ -1265,6 +1266,37 @@ async function planVersions() {
   };
   load();
 }
+/* 🗂️ recover plans (admins): every plan the Worker has history for — deleted ones too — and every saved version of it.
+   Restore writes the chosen version back as the newest one (for everyone); nothing is thrown away, so another version can be restored later. */
+const REC = {"zh": {"btn": "🗂️ 找回計畫", "title": "🗂️ 找回計畫（只有管理員）", "note": "伺服器上每個計畫（包括已刪除的）每一次存檔都在這裡。點一個計畫看它的每一版，選一版按「還原」，那一版就會變成現在的樣子，所有幹部都會看到（之後還能再還原別版）。時間為 UTC。", "dl": "🗑️ 已刪除", "vers": "{n} 版", "ppl": "名單 {n} 人", "rep": "回覆 {n}", "tb": "對戰表 {n} 行", "gone": "（刪除）", "use": "還原", "ask": "把「{n}」還原成 {t} 那一版？", "done": "✅ 已還原成 {t} 那一版", "back": "← 所有計畫", "close": "關閉", "loading": "讀取中…", "err": "讀取失敗，再試一次。"}, "en": {"btn": "🗂️ Recover plans", "title": "🗂️ Recover plans (admins only)", "note": "Every save of every plan on the server, deleted plans too. Tap a plan to see each version; Restore puts that version back as the current one for all officers (you can restore another one later). Times in UTC.", "dl": "🗑️ deleted", "vers": "{n} versions", "ppl": "{n} ticked", "rep": "{n} replies", "tb": "table {n} rows", "gone": "(deleted)", "use": "Restore", "ask": "Put “{n}” back to the version of {t}?", "done": "✅ Restored the version of {t}", "back": "← All plans", "close": "Close", "loading": "Loading…", "err": "Couldn't load — try again."}, "pt": {"btn": "🗂️ Recuperar planos", "title": "🗂️ Recuperar planos (só admins)", "note": "Cada salvamento de cada plano no servidor, até os apagados. Toque num plano para ver cada versão; Restaurar põe aquela versão de volta como a atual para todos (dá para restaurar outra depois). Horários em UTC.", "dl": "🗑️ apagado", "vers": "{n} versões", "ppl": "{n} marcados", "rep": "{n} respostas", "tb": "tabela {n} linhas", "gone": "(apagado)", "use": "Restaurar", "ask": "Voltar “{n}” para a versão de {t}?", "done": "✅ Versão de {t} restaurada", "back": "← Todos os planos", "close": "Fechar", "loading": "Carregando…", "err": "Não carregou — tente de novo."}, "ar": {"btn": "🗂️ استعادة الخطط", "title": "🗂️ استعادة الخطط (للمشرفين فقط)", "note": "كل حفظ لكل خطة على الخادم، حتى المحذوفة. اضغط خطة لترى كل نسخة؛ «استعادة» تجعل تلك النسخة هي الحالية لكل الضباط (يمكن استعادة غيرها لاحقًا). الأوقات بتوقيت UTC.", "dl": "🗑️ محذوفة", "vers": "{n} نسخ", "ppl": "{n} محددون", "rep": "{n} ردود", "tb": "الجدول {n} صفوف", "gone": "(محذوفة)", "use": "استعادة", "ask": "إرجاع «{n}» إلى نسخة {t}؟", "done": "✅ استُعيدت نسخة {t}", "back": "← كل الخطط", "close": "إغلاق", "loading": "جارٍ التحميل…", "err": "تعذّر التحميل — حاول مجددًا."}, "ko": {"btn": "🗂️ 계획 복구", "title": "🗂️ 계획 복구 (관리자만)", "note": "서버에 있는 모든 계획의 모든 저장 기록이에요. 삭제된 계획도 있어요. 계획을 누르면 버전마다 보여요. 복원을 누르면 그 버전이 모든 간부에게 현재 상태가 돼요 (나중에 다른 버전으로 다시 복원 가능). 시간은 UTC.", "dl": "🗑️ 삭제됨", "vers": "{n}개 버전", "ppl": "{n}명 체크", "rep": "응답 {n}", "tb": "표 {n}줄", "gone": "(삭제)", "use": "복원", "ask": "“{n}”을 {t} 버전으로 되돌릴까요?", "done": "✅ {t} 버전으로 복원했어요", "back": "← 모든 계획", "close": "닫기", "loading": "불러오는 중…", "err": "불러오지 못했어요 — 다시 해 보세요."}};
+const rc = (k, v = {}) => String((REC[lang] || REC.en)[k] ?? REC.en[k]).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
+async function planRecover() {
+  const m = document.createElement("div"); m.className = "tb-modal";
+  m.innerHTML = `<div class="card" style="width:min(680px,96vw);max-height:90vh;overflow:auto"><b>${esc(rc("title"))}</b>
+    <div class="muted" style="margin:6px 0;font-size:12.5px">${esc(rc("note"))}</div><div data-rlist="1" class="muted">${esc(rc("loading"))}</div>
+    <div class="row" style="margin-top:8px"><button class="btn" data-close="1">${esc(rc("close"))}</button></div></div>`;
+  ROOT.appendChild(m);
+  const list = m.querySelector("[data-rlist]"); let ids = [], cur = null, vers = [];
+  const showIds = () => { cur = null; list.className = "";
+    list.innerHTML = ids.sort((a, b) => b.at - a.at).map((x) => `<button type="button" class="btn" data-rid="${esc(x.id)}" style="display:flex;width:100%;justify-content:space-between;gap:8px;margin:4px 0;text-align:start">
+      <span><b dir="auto">${esc(x.name || x.id)}</b>${x.deleted ? ` <span class="muted">${esc(rc("dl"))}</span>` : ""}</span><span class="muted" style="font-size:12.5px">${esc(rc("vers", { n: x.n }))} · ${esc(fmtT(x.at))}</span></button>`).join(""); };
+  const showVers = () => { list.innerHTML = `<button type="button" class="btn small" data-rback="1">${esc(rc("back"))}</button> <b dir="auto">${esc(cur.name || cur.id)}</b>` + vers.map((v, i) =>
+    `<div class="row" style="justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--rule)"><div><b>${esc(fmtT(v.at))}</b> · v${v.v}${v.by ? ` · ${esc(v.by)}` : ""}
+      <div class="muted" style="font-size:12.5px">${v.gone ? esc(rc("gone")) : `${esc(rc("ppl", { n: v.picked }))} · ${esc(rc("rep", { n: v.rep }))} · ${esc(rc("tb", { n: v.tb }))}`}</div></div>
+      ${v.gone ? "" : `<button type="button" class="btn small" data-ruse="${i}">${esc(rc("use"))}</button>`}</div>`).join(""); };
+  try { ids = (await papi("all")).ids || []; showIds(); } catch (e) { list.textContent = rc("err"); }
+  m.onclick = async (e) => {
+    const el = e.target.closest("[data-rid],[data-rback],[data-ruse],[data-close]") || e.target;
+    if (e.target === m || el.dataset.close) { m.remove(); return; }
+    if (el.dataset.rback) return showIds();
+    if (el.dataset.rid) { cur = ids.find((x) => x.id === el.dataset.rid); list.innerHTML = esc(rc("loading"));
+      try { vers = (await papi("vers", { id: cur.id })).vers || []; showVers(); } catch (err) { list.textContent = rc("err"); } return; }
+    if (el.dataset.ruse != null) { const v = vers[+el.dataset.ruse]; if (!v || !window.confirm(rc("ask", { n: cur.name || cur.id, t: fmtT(v.at) }))) return;
+      try { const j = await papi("restore", { id: cur.id, v: v.v }); plans[cur.id] = j.plan; m.remove(); planSwitch(cur.id); $("planStatus").textContent = rc("done", { t: fmtT(v.at) }); }
+      catch (err) { window.alert(rc("err")); } }
+  };
+}
+$("planRec").onclick = () => planRecover();
 $("planVer").onclick = () => planVersions();
 $("planUndo").onclick = () => histUndo();
 $("planSel").onchange = async (e) => { const to = e.target.value;

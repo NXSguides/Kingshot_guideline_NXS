@@ -387,7 +387,8 @@ NEWER TOOLS (officers)
 [post] - 📢 Post → "Look" (樣式): Plain, 📜 Scroll, or a theme (⚔️ Swordland Showdown, ⛵ Viking Vengeance) that adds the event picture on top; the banner colour can be picked next to it (never red). The scroll grows with the text. Changing the look later with Edit doesn't translate again.
 [events] - 📅 Events → "📣 Announcement draft" (公告草稿): "UPCOMING KEY EVENTS" with our times for the next 3/5/7 days, ready to paste in game (300-character limit, counter shown; tick which events go in). Each to-do card also has "📣 Game post" (遊戲公告) for a one-event reminder.
 [events] - 📅 Events → "⏰ Our event times": a time can be tied to a battle day with @, e.g. "22:00@1, 13:00@3" (Viking: Day 1 22:00, Day 3 13:00).
-[ranking] - 📊 Ranking → ④ Battle table: "⚔️ Swordland rules draft" fills Phase 1, Phase 2 and Stay behind from the ranking (subs left out); ↩️ Undo next to the plan picker; 🕘 Version history (版本紀錄): the last 150 saves of each plan — pick one to put the plan back (↩️ Undo cancels); "📱 Battle table last edited on this device" brings back a table that was made on that phone/computer but never reached the shared plan.
+[ranking] - 📊 Ranking → "🗂️ Recover plans" (找回計畫, admins only, next to 🕘): every shared plan the server has saves for — deleted plans too — with every saved version (time UTC, who saved, how many ticked, replies, battle-table rows); Restore puts that version back as the current plan for everyone (nothing is lost; another version can be restored later). Up to 1000 saves per plan are kept. If a plan's ticked list or table vanished, an admin restores it here.
+[ranking] - 📊 Ranking → ④ Battle table: "⚔️ Swordland rules draft" fills Phase 1, Phase 2 and Stay behind from the ranking (subs left out); ↩️ Undo next to the plan picker; 🕘 Version history (版本紀錄): the last 1000 saves of each plan — pick one to put the plan back (↩️ Undo cancels); "📱 Battle table last edited on this device" brings back a table that was made on that phone/computer but never reached the shared plan.
 [map] - 🗺️ Map → 📋 Outpost plan → Sanctuary Battle part: "🎁 What we'd get" (拿到的話可以得到) lists which reward each target gives — for the phase picked on the 🎁 Fortress & Sanctuary rewards card (this week's by default). The ⭐ Priority list also shows each one's reward when no reward was typed.
 [map] - 🗺️ Map → 🎁 Fortress & Sanctuary rewards → "✏️ Update rewards" (更新獎勵, officers with ✏️ Map rights): the special reward of each Fortress / Sanctuary can rotate every round, so pick each one's reward and amount from the in-game Battle Rewards screen ("✍️ Other" adds a reward by name). Every phase (1–8) of a season has its own rewards: a "Phase" picker on the card shows any phase (this week's by default, worked out from the date: one phase a week, changing Saturday 00:00 UTC; Season 3 Phase 5 = 2026-10-24 to 10-31). A phase nobody has saved shows the Kingshot Wiki table as the default (it matched the game for phases 3 and 5); ✏️ Update rewards saves the in-game list for that phase, which then wins. The card says where the list comes from: ✅ checked against the game (who · date) or 📖 Wiki default, not checked yet.
 [map] - 🗺️ Map → 🚩 banner plan → "⬇️ Download banner coordinates (CSV)": every banner the map shows now (the banner file plus officers' saved edits: built / demolished / moved) and the 🚩 planned ones, as a Kingshot Mapper CSV (type,X,Y,label,#color,seq) that can be imported there. Label NXS = checked in game, NXS? = estimated from the territory picture, plan = planned, not built yet. Use it to count banners or check for missing ones. "⬇️ Download other alliances' banners (CSV)" does the same for the 🏴 other-alliance layer (label = their tag, their HQs included).
@@ -943,7 +944,7 @@ export class PushTimers extends DurableObject {
     const now = Date.now(), data = JSON.stringify(plan);
     this.sql.exec(`INSERT OR REPLACE INTO rp VALUES (?, ?, ?, ?)`, id, data, v, now);
     this.sql.exec(`INSERT OR REPLACE INTO rph VALUES (?, ?, ?, ?, ?)`, id, v, now, String(by || "").slice(0, 60), data);
-    this.sql.exec(`DELETE FROM rph WHERE id = ? AND v <= ?`, id, v - 150);
+    this.sql.exec(`DELETE FROM rph WHERE id = ? AND v <= ?`, id, v - 1000);   // keep the last 1000 saves of each plan (was 150 — reply ticks used it up fast)
   }
   /* one save = only what that device changed: ticks added / removed, the settings and battle-table fields it touched.
      Done here, inside the Durable Object, so two saves at the same moment are applied one after the other — nothing is overwritten. */
@@ -987,6 +988,27 @@ export class PushTimers extends DurableObject {
     const r = [...this.sql.exec(`SELECT v FROM rp WHERE id = ?`, id)][0]; if (!r) return;
     this.sql.exec(`DELETE FROM rp WHERE id = ?`, id);
     this.sql.exec(`INSERT OR REPLACE INTO rph VALUES (?, ?, ?, ?, ?)`, id, r.v + 1, Date.now(), String(user.name || "").slice(0, 60), "null");   // a deleted plan keeps its history
+  }
+  /* 🗂️ recovery (admins): every plan that ever had a save, deleted ones too, and each version in short */
+  rpIds() {
+    const live = new Set([...this.sql.exec(`SELECT id FROM rp`)].map((r) => r.id));
+    return [...this.sql.exec(`SELECT id, MAX(v) AS v, MAX(at) AS at, COUNT(*) AS n FROM rph GROUP BY id`)].map((r) => {
+      const last = [...this.sql.exec(`SELECT data FROM rph WHERE id = ? AND data != 'null' ORDER BY v DESC LIMIT 1`, r.id)][0];
+      let name = ""; try { name = (JSON.parse(last.data) || {}).name || ""; } catch (e) {}
+      return { id: r.id, name, v: r.v, at: r.at, n: r.n, deleted: !live.has(r.id) }; });
+  }
+  rpVers(id) {
+    return [...this.sql.exec(`SELECT v, at, by, data FROM rph WHERE id = ? ORDER BY v DESC LIMIT 1000`, id)].map((r) => {
+      let p = null; try { p = JSON.parse(r.data); } catch (e) {}
+      const tbRows = p && p.tb && Array.isArray(p.tb.groups) ? p.tb.groups.reduce((s, g) => s + ((g && g.rows) || []).length, 0) : 0;
+      return { v: r.v, at: r.at, by: r.by, gone: !p, name: p ? p.name || "" : "", picked: p ? (p.picked || []).length : 0, rep: p && p.rep ? Object.keys(p.rep).length : 0, tb: tbRows }; });
+  }
+  rpRestore(id, v, by) {
+    const r = [...this.sql.exec(`SELECT data FROM rph WHERE id = ? AND v = ?`, id, v)][0]; if (!r || r.data === "null") return null;
+    const top = [...this.sql.exec(`SELECT MAX(v) AS v FROM rph WHERE id = ?`, id)][0], nv = ((top && top.v) || 0) + 1;
+    const p = JSON.parse(r.data); p.by = by; p.at = Date.now();
+    this.rpWrite(id, p, `${by} ↩ v${v}`, nv);
+    return { ...p, _v: nv };
   }
   rpHist(id, before, n) {
     return [...this.sql.exec(`SELECT v, at, by, data FROM rph WHERE id = ? AND v < ? ORDER BY v DESC LIMIT ?`, id, before || 1e12, n || 30)]
@@ -1314,8 +1336,13 @@ async function plansRoute(env, stub, user, body, token, perms) {
       const cur = new Set((await stub.kvGet("att:safe")) || []); if (body.on) cur.add(sid); else cur.delete(sid);
       await stub.kvSet("att:safe", [...cur].slice(0, 300)); return json({ ok: true, token, safe: [...cur], stamp: await plansTouch(env) }); });
   }
+  // 🗂️ recovery (admins only): all plans incl. deleted ones, their versions, and putting one version back
+  if (op === "all") { if (!admin) return json({ error: "no_access" }, 403); return json({ ok: true, token, ids: await stub.rpIds() }); }
   const id = String(body.id || "");
   if (!/^[\w-]{1,40}$/.test(id)) return json({ error: "bad request" }, 400);
+  if (op === "vers") { if (!admin) return json({ error: "no_access" }, 403); return json({ ok: true, token, vers: await stub.rpVers(id) }); }
+  if (op === "restore") { if (!admin) return json({ error: "no_access" }, 403);
+    return write(async () => { const p = await stub.rpRestore(id, +body.v || 0, user.name); if (!p) return json({ error: "gone" }, 404); return json({ ok: true, token, plan: p, stamp: await plansTouch(env) }); }); }
   if (op === "hist") return json({ ok: true, token, vers: await stub.rpHist(id, +body.before || 0, 30) });
   if (!mayEdit) return json({ error: "view_only" }, 403);
   if (op === "save") return write(async () => {
