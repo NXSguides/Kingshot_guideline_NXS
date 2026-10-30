@@ -60,6 +60,7 @@ const T = {
     res: "결과", colR: "집결", colRatio: "r", colOut: "결과", win: "✅ 점령 — 우리 {s} 명이 새 주둔군으로 남아요", lose: "❌ 패배 — 그들 주둔군 {g} 남음", need: "1번 같은 집결로: 이 주둔군에 약 {n}번 필요해요.", last: "희생해도 되는 집결을 먼저, 가장 강한 대장을 마지막에 — 마지막 집결의 생존자가 그 대장의 능력치로 건물을 지켜요.", one: "그들 병사 1명 ≈ 우리 {x}명 (r = {r}).",
     unc: "얼마나 정확할까? 다른 주둔 병력과 p에서 1번 같은 집결이 몇 번 필요한지:", caveat: "계산에 없는 것: 영웅 스킬 처치 (처치의 27–46%), 병종 상성, 주둔군이 가장 강한 멤버의 능력치를 쓸 수도 있음. 능력치는 매일 바뀌어요 — 최신 보고서를 쓰세요.", noR: "목표의 주둔 대장과 집결 대장을 하나 이상 고르세요." },
 };
+const HT = {"en": {"hT": "📦 MightPulse history (for the battle analysis)", "hNote": "This tab already reads the newest day by itself (🔮 above) — nothing to import. One encrypted snapshot a day (20:45 UTC): kingdom totals, all 18 boards (top 100), every NXS member and the Scout kingdoms' top players (base, ranks, heroes with gear). Pick dates and download — the file is for the analysis chat; don't post it anywhere public.", "hFrom": "From", "hTo": "To", "hDl": "⬇️ Download JSON", "hBusy": "Reading {d}…", "hNone": "No snapshots in these dates.", "hDone": "{n} days downloaded."}, "zh": {"hT": "📦 MightPulse 歷史資料（戰鬥分析用）", "hNote": "這個分頁會自己讀最新一天的資料（上面的 🔮）——不用匯入。每天存一份加密快照（20:45 UTC）：王國總數、全部 18 個排行榜（前 100 名）、所有 NXS 成員，以及偵查王國的主力（基本資料、排名、英雄和裝備）。選日期下載——這個檔案是給分析用的聊天，不要貼到公開的地方。", "hFrom": "從", "hTo": "到", "hDl": "⬇️ 下載 JSON", "hBusy": "讀取 {d}…", "hNone": "這段日期沒有資料。", "hDone": "已下載 {n} 天。"}, "pt": {"hT": "📦 Histórico do MightPulse (para a análise de batalha)", "hNote": "Esta aba já lê o dia mais novo sozinha (🔮 acima) — nada para importar. Um retrato criptografado por dia (20:45 UTC): totais do reino, os 18 rankings (top 100), todos os membros da NXS e os principais jogadores dos reinos do Scout (base, rankings, heróis com equipamento). Escolha as datas e baixe — o arquivo é para o chat de análise; não publique em lugar público.", "hFrom": "De", "hTo": "Até", "hDl": "⬇️ Baixar JSON", "hBusy": "Lendo {d}…", "hNone": "Sem dados nessas datas.", "hDone": "{n} dias baixados."}, "ar": {"hT": "📦 سجل MightPulse (لتحليل المعارك)", "hNote": "هذا القسم يقرأ أحدث يوم وحده (🔮 أعلاه) — لا حاجة للاستيراد. لقطة مشفّرة كل يوم (20:45 UTC): إجماليات المملكة، كل اللوحات الـ18 (أفضل 100)، كل أعضاء NXS وأقوى لاعبي ممالك الاستطلاع (الأساس، الترتيب، الأبطال مع العتاد). اختر التواريخ ونزّل — الملف لمحادثة التحليل؛ لا تنشره في مكان عام.", "hFrom": "من", "hTo": "إلى", "hDl": "⬇️ تنزيل JSON", "hBusy": "قراءة {d}…", "hNone": "لا بيانات في هذه التواريخ.", "hDone": "نُزّلت {n} أيام."}, "ko": {"hT": "📦 MightPulse 기록 (전투 분석용)", "hNote": "이 탭은 최신 날짜를 알아서 읽어요 (위의 🔮) — 가져올 필요 없어요. 매일 암호화된 스냅샷 하나 (20:45 UTC): 왕국 합계, 랭킹 18개 전부 (상위 100), NXS 연맹원 전원, 정찰 왕국의 주력 (기본, 랭킹, 영웅과 장비). 날짜를 골라 내려받으세요 — 분석 채팅용 파일이니 공개된 곳에 올리지 마세요.", "hFrom": "부터", "hTo": "까지", "hDl": "⬇️ JSON 내려받기", "hBusy": "{d} 읽는 중…", "hNone": "이 기간에는 데이터가 없어요.", "hDone": "{n}일치 내려받음."}};
 let lang = OFFICER.lang || "en";
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
 const fill = (s, v) => Object.entries(v || {}).reduce((x, [a, b]) => x.split("{" + a + "}").join(b), s);
@@ -240,8 +241,8 @@ function planCard() {
 function render() {
   const root = $("ak_root"); if (!root) return;
   fit();
-  root.innerHTML = `<div class="card" id="ak_plan">${planCard()}</div><div class="card" id="ak_pred">${predCard()}</div><div class="card" id="ak_sets">${setsCard()}</div>`;
-  bind();
+  root.innerHTML = `<div class="card" id="ak_plan">${planCard()}</div><div class="card" id="ak_pred">${predCard()}</div><div class="card" id="ak_sets">${setsCard()}</div><div class="card" id="ak_hist"></div>`;
+  bind(); histCard();
 }
 function bind() {
   const re = () => { keep(); render(); };
@@ -278,6 +279,24 @@ function bind() {
       const j = SETS.findIndex((s) => norm(s.name) + "|" + norm(s.src) === k); if (j >= 0) { y.id = SETS[j].id; SETS[j] = y; } else SETS.push(y); }
     impOpen = false; msg = fill(t("impOk"), { n: ok.length }) + " · " + t("unsaved"); render(); };
   if ($("ak_save")) $("ak_save").onclick = saveSets;
+}
+/* 📦 MightPulse history: one encrypted file per day (data/mp-history/YYYY-MM-DD-x7k2p9.json, written by scripts/mp-history.js);
+   the card decrypts the chosen days in the browser and downloads them as one JSON for the analysis chat */
+function histCard() {
+  const el = $("ak_hist"); if (!el) return;
+  const h = (k) => (HT[lang] || HT.en)[k] || HT.en[k], day = (d) => d.toISOString().slice(0, 10), today = new Date();
+  el.innerHTML = `<h3 style="margin:0 0 4px">${h("hT")}</h3><div class="muted" style="font-size:12.5px;margin-bottom:8px">${h("hNote")}</div>
+    <div class="row" style="gap:8px;flex-wrap:wrap;align-items:center">${h("hFrom")} <input type="date" class="inp" style="height:36px;box-sizing:border-box" id="ak_hf" value="${day(new Date(today - 6 * 864e5))}">
+    ${h("hTo")} <input type="date" class="inp" style="height:36px;box-sizing:border-box" id="ak_ht" value="${day(today)}"> <button type="button" class="btn" id="ak_hdl">${h("hDl")}</button> <span class="muted" id="ak_hmsg" style="font-size:12.5px"></span></div>`;
+  $("ak_hdl").onclick = async () => {
+    const a = new Date($("ak_hf").value + "T00:00:00Z"), b = new Date($("ak_ht").value + "T00:00:00Z"), out = {}, m = $("ak_hmsg");
+    if (isNaN(a) || isNaN(b) || b < a || b - a > 120 * 864e5) return;
+    for (let t = +a; t <= +b; t += 864e5) { const d = day(new Date(t)); m.textContent = h("hBusy").replace("{d}", d);
+      try { const x = await OfficerData.fetchJson(`data/mp-history/${d}-x7k2p9.json`); if (x) out[d] = x; } catch (e) {} }
+    const n = Object.keys(out).length; if (!n) { m.textContent = h("hNone"); return; }
+    const url = URL.createObjectURL(new Blob([JSON.stringify(out)], { type: "application/json" })), l = document.createElement("a");
+    l.href = url; l.download = `mightpulse-history-${$("ak_hf").value}_${$("ak_ht").value}.json`; document.body.appendChild(l); l.click(); l.remove(); setTimeout(() => URL.revokeObjectURL(url), 5000);
+    m.textContent = h("hDone").replace("{n}", n); };
 }
 function applyTexts() { if ($("ak_title")) { $("ak_title").textContent = t("title"); $("ak_intro").textContent = t("intro"); } }
 async function init() {
