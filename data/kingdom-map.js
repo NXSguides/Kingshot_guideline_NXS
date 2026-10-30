@@ -1,4 +1,4 @@
-/* Data + text for kingdom-map.html. rewards = Sanctuary Battle rewards per Fortress / Sanctuary, from in-game screens (2026-10-15).
+/* Data + text for kingdom-map.html. rewards = Sanctuary Battle rewards per Fortress / Sanctuary, from in-game screens (updated 2026-10-30: the special rewards rotate between seasons).
    (Kingdom #2189 buildings). Coordinates and Outpost levels/buffs were checked against
    in-game screenshots (Outpost Occupied/Occupiable tabs, Ruins tab). buff = % per level. outposts: [type, level, x, y] */
 const KINGDOM_MAP = {
@@ -900,6 +900,17 @@ const KINGDOM_MAP = {
  },
  "rewards": {
   "items": {
+   "epicchest": {
+    "en": "Custom Epic Hero Shard Chest",
+    "zh": "史詩英雄碎片客製化箱子"
+   },
+   "heroxp10k": {
+    "en": "10,000 Hero XP",
+    "zh": "10,000點英雄經驗值",
+    "ko": "영웅 경험치 10,000점",
+    "pt": "10.000 XP do Herói",
+    "ar": "10,000 من خبرة البطل"
+   },
    "gems100": {
     "en": "100 Gems",
     "zh": "100鑽石",
@@ -1215,20 +1226,20 @@ const KINGDOM_MAP = {
    ],
    "special": {
     "1": [
-     "expbook",
-     600
-    ],
-    "2": [
-     "enhxp",
-     500
-    ],
-    "3": [
      "saul",
      420
     ],
-    "4": [
+    "2": [
      "conqbook",
      600
+    ],
+    "3": [
+     "expbook",
+     600
+    ],
+    "4": [
+     "enhxp",
+     500
     ]
    }
   },
@@ -1255,48 +1266,48 @@ const KINGDOM_MAP = {
    ],
    "special": {
     "1": [
-     "gen1h",
-     400
+     "epicchest",
+     300
     ],
     "2": [
-     "hp2",
-     60
+     "heroxp10k",
+     300
     ],
     "3": [
-     "jabel",
-     200
+     "gen1h",
+     400
     ],
     "4": [
      "teleport",
      90
     ],
     "5": [
-     "gen1h",
-     400
+     "epicchest",
+     300
     ],
     "6": [
-     "dmg2",
-     60
+     "heroxp10k",
+     300
     ],
     "7": [
-     "jabel",
-     200
+     "gen1h",
+     400
     ],
     "8": [
      "teleport",
      90
     ],
     "9": [
-     "gen1h",
-     400
+     "epicchest",
+     300
     ],
     "10": [
-     "deploy2",
-     60
+     "heroxp10k",
+     300
     ],
     "11": [
-     "jabel",
-     200
+     "gen1h",
+     400
     ],
     "12": [
      "teleport",

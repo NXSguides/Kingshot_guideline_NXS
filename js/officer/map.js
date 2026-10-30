@@ -207,7 +207,7 @@ const RT = {
 };
 const rt = (k) => (RT[lang] || RT.en)[k] ?? RT.en[k];
 const iName = (id) => { const it = G.rewards.items[id]; return it ? it[lang] || it.en : id; };
-const RCOL = { gen1h: "#2b6cc4", jabel: "#c0640a", saul: "#c0640a", teleport: "#2e7d32", dmg2: "#b3261e", hp2: "#b3261e", deploy2: "#b3261e", expbook: "#7b4bb7", conqbook: "#7b4bb7", enhxp: "#5d6876" };
+const RCOL = { gen1h: "#2b6cc4", jabel: "#c0640a", saul: "#c0640a", teleport: "#2e7d32", dmg2: "#b3261e", hp2: "#b3261e", deploy2: "#b3261e", expbook: "#7b4bb7", conqbook: "#7b4bb7", enhxp: "#5d6876", epicchest: "#6a3fa0", heroxp10k: "#2b7f9e" };
 const specialOf = (b) => G.rewards && G.rewards[b.kind] && G.rewards[b.kind].special[b.n];
 function rewardsHtml() {
   if (!G.rewards) return "";
