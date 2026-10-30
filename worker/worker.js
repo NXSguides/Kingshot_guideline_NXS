@@ -431,7 +431,7 @@ AI ASSISTANT
 - TIER "Mix…" (混合): instead of one tier, type how many joiners are TG3 / TG2 / TG1 / TG0 (TG0 = T10); the model uses the head-count average of tier² and shows "≈ TGx on average". Works for rallies, the garrison and both sides in Swordland.
 - TROOP RATIO (兵種比例, Infantry : Cavalry : Archers) for the attackers (攻方, default 50:20:30, our rally rule) and the garrison (守方, default 60:20:20): only checked, not used in the numbers. Warnings: not 100%, or Infantry under 40% (our simulation: 35:35:30 kept 14% fewer troops in an even fight, 30:40:30 under half).
 - 🗡️ SWORDLAND mode (third button next to 🏰 / ⚔️ KvK; 聖劍) — for Swordland Showdown against another kingdom's alliance; the Swordshrine (聖劍祭壇, the middle) opens 15 minutes in:
-  ① Our list: pick a shared 📊 Ranking plan; its ticked players are the list, its substitutes are substitutes; tap a name to switch Confirmed ↔ Substitute (this page only). Each shows Strength (≈ = estimated from Power when not in the top 100 of all three boards: Power × the median Strength per million Power) and Power.
+  ① Our list (officers with ⚔️ Battle but not 📊 Ranking get only each plan's name, ticked players and substitutes — read-only): pick a shared 📊 Ranking plan; its ticked players are the list, its substitutes are substitutes; tap a name to switch Confirmed ↔ Substitute (this page only). Each shows Strength (≈ = estimated from Power when not in the top 100 of all three boards: Power × the median Strength per million Power) and Power.
   ② Opponent alliance: kingdom number + alliance tag → 🔄 Fetch (the Worker asks MightPulse right then for the alliance roster and that kingdom's three strength boards; cached 10 minutes, fetching the same one again forces fresh data).
   ③ Settings: rallies at the same time per side (K, default 3), our / their rally size, their garrison in the Swordshrine, troops each member sends to hold, joiner tiers (or Mix) for each side, p.
   ④ Result in two columns, "Confirmed only" and "With substitutes": "Can we take it?" (our top K leaders' rallies, weaker first and the strongest last, against their garrison led by their strongest), "How many must hold it?" (smallest garrison led by our strongest that survives their top K rallies, in troops and ≈ people at the per-member amount), and "Who to watch" (their top 10 by Strength; ⚠️ = at least 95% of our best confirmed leader). Same rough model: hero skills, troop counters and building buffs (e.g. Hall of Reformation) are not counted.
@@ -1364,12 +1364,18 @@ async function plansRoute(env, stub, user, body, token, perms) {
   const op = String(body.op || "list"), role = roleOf(perms, user.id), admin = role === "admin";
   const u = perms && perms.users && perms.users[user.id];
   const seeTab = (t) => !!(u && u.perms && u.perms[t] && u.perms[t] !== "none");
-  const mayView = admin || seeTab("ranking") || seeTab("attend") || seeTab("attack"), mayEdit = canEdit(perms, user.id, "ranking");
-  if (!mayView) return json({ error: "no_access" }, 403);
+  const mayView = admin || seeTab("ranking") || seeTab("attend"), mayEdit = canEdit(perms, user.id, "ranking");
+  /* ⚔️ Battle → 🗡️ Swordland reads only the lists (plan name, ticked players, substitutes) — nothing else of a plan, and nothing else here */
+  const listOnly = !mayView && seeTab("attack");
+  if (!mayView && !listOnly) return json({ error: "no_access" }, 403);
+  if (listOnly && op !== "list") return json({ error: "no_access" }, 403);
   const since = +body.since || 0, stamp = await plansStamp(env);
   if (op === "list" && since && stamp && stamp <= since) return json({ ok: true, token, unchanged: true, stamp });
   const write = async (fn) => { try { return await fn(); } catch (e) { return json({ error: /limit|exceed|quota|allow/i.test(String(e && e.message)) ? "db_limit" : "db", detail: [String(e && e.message || e)] }, 503); } };
   try { await plansImport(env, stub); } catch (e) { if (op === "list") return json({ error: "import", detail: [String(e.message || e)] }, 503); }
+  if (op === "list" && listOnly) { const all = await stub.rpAll(), o = {};
+    for (const [id, x] of Object.entries(all)) o[id] = { name: x.name || "", picked: x.picked || [], subs: x.subs || [] };
+    return json({ ok: true, token, plans: o, stamp: stamp || await plansTouch(env) }); }
   if (op === "list") return json({ ok: true, token, plans: await stub.rpAll(), safe: (await stub.kvGet("att:safe")) || [], stamp: stamp || await plansTouch(env) });
   // 🟡 safe players (registered without waiting for a reply): one list, shared with the 📋 Attendance tab
   if (op === "safe") {
