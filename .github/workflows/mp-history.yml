@@ -1,0 +1,38 @@
+name: MightPulse history (daily)
+# 📦 one encrypted snapshot per day for the battle analysis — see scripts/mp-history.js
+on:
+  schedule:
+    - cron: "45 20 * * *"   # 20:45 UTC, after the roster (20:13) and Scout (20:25) jobs
+  workflow_dispatch:
+    inputs:
+      extra_ids: { description: 'Extra player IDs (space-separated)', required: false, default: '' }
+concurrency:
+  group: update-roster   # shares the MightPulse rate limit with the roster / Scout jobs
+  cancel-in-progress: false
+jobs:
+  save:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/mp-history.js
+        env:
+          MIGHTPULSE_API_KEY: ${{ secrets.MIGHTPULSE_API_KEY }}
+          DATA_KEY: ${{ secrets.DATA_KEY }}
+          EXTRA_IDS: ${{ inputs.extra_ids }}
+      - run: |
+          git config user.name "history-bot"
+          git config user.email "actions@github.com"
+          git add data/mp-history
+          git diff --cached --quiet && exit 0
+          git commit -m "MightPulse history"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            git rebase --abort 2>/dev/null
+            sleep 5
+          done
+          exit 1

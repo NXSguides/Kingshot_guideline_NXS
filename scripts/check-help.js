@@ -35,6 +35,7 @@ const FEATURES = [
   ["Move: member positions + blueprint on one map", /\[move\] - 🚚 Move → "👥 Member positions"[^\n]*blueprint/, /{ s: "#mm_map", k: "mv01" }, { s: "#km_members > h3", k: "mp40" }/],
   ["Move: move steps checklist", /Move steps/, /{ s: "#mv_steps", k: "mv02" }/],
   ["Move: 📍 positions from the roster (Update Map → 🔄 Update roster now → ✅ Use)", /Positions from the roster/, /{ s: "#mp_card", k: "mv09" }/],
+  ["Scout: 📦 MightPulse history (daily snapshot, download JSON)", /MightPulse history/, /{ s: "#sc_hist", k: "sc05" }/],
   ["Watch / Move: 🔄 Update roster now (one shared request)", /\[watch\] - 🕵️ Watch → "🔄 Update roster now"/, /{ s: "#wa_rnb", k: "wa07" }/],
   ["Move: tap a planned spot to put a member there", /putting members on the plan by tapping/, /{ s: "#mm_map .mm-ps.ed", k: "mv08", e: 1 }/],
   ["Move: 📐 auto plan from a Mapper layout (road, stages, checks, edit, PNG)", /Auto plan from a Mapper layout/, /{ s: "#hp_root > h3", k: "hp01" }/],

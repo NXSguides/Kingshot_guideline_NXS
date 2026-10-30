@@ -35,6 +35,8 @@ const T = { ko: {"colSp": "부대 전투력 (추정)", "colMigrant": "이주 점
     colRank: "#", colName: "名字", colAlliance: "聯盟", colPower: "戰力", colTc: "主城", colMystic: "秘境試煉", colKills: "擊殺", colVip: "VIP", colSp: "部隊戰力（估）", colMigrant: "遷城分數", openRec: "MightPulse",
     asOf: "資料時間 {t}", source: "名單來源：{s}", onlyPower: "只在戰力前 20", onlyMigrant: "只在遷城分數前 20" },
 };
+/* 📦 history card texts */
+const HT = {"en": {"hT": "📦 MightPulse history (for the battle analysis)", "hNote": "One encrypted snapshot a day (20:45 UTC): kingdom totals, all 18 boards (top 100), every NXS member and the Scout kingdoms' top players (base, ranks, heroes with gear). Pick dates and download — the file is for the analysis chat; don't post it anywhere public.", "hFrom": "From", "hTo": "To", "hDl": "⬇️ Download JSON", "hBusy": "Reading {d}…", "hNone": "No snapshots in these dates.", "hDone": "{n} days downloaded."}, "zh": {"hT": "📦 MightPulse 歷史資料（戰鬥分析用）", "hNote": "每天存一份加密快照（20:45 UTC）：王國總數、全部 18 個排行榜（前 100 名）、所有 NXS 成員，以及偵查王國的主力（基本資料、排名、英雄和裝備）。選日期下載——這個檔案是給分析用的聊天，不要貼到公開的地方。", "hFrom": "從", "hTo": "到", "hDl": "⬇️ 下載 JSON", "hBusy": "讀取 {d}…", "hNone": "這段日期沒有資料。", "hDone": "已下載 {n} 天。"}, "pt": {"hT": "📦 Histórico do MightPulse (para a análise de batalha)", "hNote": "Um retrato criptografado por dia (20:45 UTC): totais do reino, os 18 rankings (top 100), todos os membros da NXS e os principais jogadores dos reinos do Scout (base, rankings, heróis com equipamento). Escolha as datas e baixe — o arquivo é para o chat de análise; não publique em lugar público.", "hFrom": "De", "hTo": "Até", "hDl": "⬇️ Baixar JSON", "hBusy": "Lendo {d}…", "hNone": "Sem dados nessas datas.", "hDone": "{n} dias baixados."}, "ar": {"hT": "📦 سجل MightPulse (لتحليل المعارك)", "hNote": "لقطة مشفّرة كل يوم (20:45 UTC): إجماليات المملكة، كل اللوحات الـ18 (أفضل 100)، كل أعضاء NXS وأقوى لاعبي ممالك الاستطلاع (الأساس، الترتيب، الأبطال مع العتاد). اختر التواريخ ونزّل — الملف لمحادثة التحليل؛ لا تنشره في مكان عام.", "hFrom": "من", "hTo": "إلى", "hDl": "⬇️ تنزيل JSON", "hBusy": "قراءة {d}…", "hNone": "لا بيانات في هذه التواريخ.", "hDone": "نُزّلت {n} أيام."}, "ko": {"hT": "📦 MightPulse 기록 (전투 분석용)", "hNote": "매일 암호화된 스냅샷 하나 (20:45 UTC): 왕국 합계, 랭킹 18개 전부 (상위 100), NXS 연맹원 전원, 정찰 왕국의 주력 (기본, 랭킹, 영웅과 장비). 날짜를 골라 내려받으세요 — 분석 채팅용 파일이니 공개된 곳에 올리지 마세요.", "hFrom": "부터", "hTo": "까지", "hDl": "⬇️ JSON 내려받기", "hBusy": "{d} 읽는 중…", "hNone": "이 기간에는 데이터가 없어요.", "hDone": "{n}일치 내려받음."}};
 const tr = (k, v) => { let s = (T[lang] || T.en)[k] ?? T.en[k] ?? k; for (const x in v || {}) s = s.replace("{" + x + "}", v[x]); return s; };
 const fmtT = (iso) => iso ? new Date(iso).toLocaleString(LOCALE(lang), { dateStyle: "short", timeStyle: "short" }) : "";
 
@@ -179,8 +181,26 @@ async function init() {
   TOKEN = OFFICER.token;
   applyTexts();
   await Promise.all([loadConfig(), loadData()]);
-  render();
+  render(); histCard();
 }
-function setLang(l) { lang = l; render(); }
+/* 📦 MightPulse history: one encrypted file per day (data/mp-history/YYYY-MM-DD-x7k2p9.json, written by scripts/mp-history.js);
+   the card decrypts the chosen days in the browser and downloads them as one JSON for the analysis chat */
+function histCard() {
+  const el = $("sc_hist"); if (!el) return;
+  const h = (k) => (HT[lang] || HT.en)[k] || HT.en[k], day = (d) => d.toISOString().slice(0, 10), today = new Date();
+  el.innerHTML = `<h3 style="margin:0 0 4px">${h("hT")}</h3><div class="muted" style="font-size:12.5px;margin-bottom:8px">${h("hNote")}</div>
+    <div class="row" style="gap:8px;flex-wrap:wrap;align-items:center">${h("hFrom")} <input type="date" class="inp" style="height:36px;box-sizing:border-box" id="sc_hf" value="${day(new Date(today - 6 * 864e5))}">
+    ${h("hTo")} <input type="date" class="inp" style="height:36px;box-sizing:border-box" id="sc_ht" value="${day(today)}"> <button type="button" class="btn" id="sc_hdl">${h("hDl")}</button> <span class="muted" id="sc_hmsg" style="font-size:12.5px"></span></div>`;
+  $("sc_hdl").onclick = async () => {
+    const a = new Date($("sc_hf").value + "T00:00:00Z"), b = new Date($("sc_ht").value + "T00:00:00Z"), out = {}, m = $("sc_hmsg");
+    if (isNaN(a) || isNaN(b) || b < a || b - a > 120 * 864e5) return;
+    for (let t = +a; t <= +b; t += 864e5) { const d = day(new Date(t)); m.textContent = h("hBusy").replace("{d}", d);
+      try { const x = await OfficerData.fetchJson(`data/mp-history/${d}-x7k2p9.json`); if (x) out[d] = x; } catch (e) {} }
+    const n = Object.keys(out).length; if (!n) { m.textContent = h("hNone"); return; }
+    const url = URL.createObjectURL(new Blob([JSON.stringify(out)], { type: "application/json" })), l = document.createElement("a");
+    l.href = url; l.download = `mightpulse-history-${$("sc_hf").value}_${$("sc_ht").value}.json`; document.body.appendChild(l); l.click(); l.remove(); setTimeout(() => URL.revokeObjectURL(url), 5000);
+    m.textContent = h("hDone").replace("{n}", n); };
+}
+function setLang(l) { lang = l; render(); histCard(); }
 OFFICER_PAGES.scout = { init, applyTexts, setLang };
 })();
