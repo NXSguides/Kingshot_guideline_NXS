@@ -419,6 +419,15 @@ AI ASSISTANT
 - Our own kingdom #2189 is scouted too, for comparison. Data is the SCOUT section of the OFFICER DATA (answer "who is the strongest in kingdom X" from there).
 - Not in this data: last login (unreliable) and anything MightPulse does not publish.
 
+@attack
+⚔️ ATTACK PLANNER (officer-x7k2p9.html#attack, 攻擊規劃) — how many rallies in a row a target garrison needs, and who goes last
+- Its own tab: hidden from everyone except admins until the 👥 table gives it. A rough planning tool (spec: the analysis chat's attack-planner-spec), not a simulator. Our side always uses Chenko joiners and 50:20:30 (a simple troop-ratio simulation found 50:20:30 robust; keep infantry ≥ ~40%).
+- Card "⚔️ Plan the attack" (規劃進攻): target garrison leader (a known-stats row, or a player 🔮 predicted from the boards), garrison troops, garrison tier, "in their own territory (+10%)"; our rallies in order (leader, troops, tier; ➕ Rally); their debuff on us / our debuff on them (attack & defense −%, multiplies); p (default 1.75, 1.5–2); reinforcements between rallies. Settings are kept on this device.
+- Math: quality Q = Σ w_k (1+atk)(1+leth)(1+def)(1+hp) over inf/cav/arc with w = 0.5/0.2/0.3, × tier² (T9 1.0, T10 1.18, TG1 1.228, TG2 1.289, TG3 1.353), × 1.06 for a garrison in its own territory, × (1−debuff)². r = Q_us / Q_them ("one of their troops ≈ 1/r of ours"). Per rally: if r·R^p > G^p we take it and (R^p − G^p/r)^(1/p) of ours stay as the new garrison (with that leader's stats); else their garrison drops to (G^p − r·R^p)^(1/p) (+ reinforcements). Rallies needed ≈ G^p / (r·R^p).
+- Result: table per rally (r, win / what is left), "about N rallies needed", tip "expendable rallies first, strongest leader last", and an uncertainty table for garrison 1.0 / 1.3 / 1.6M × p 1.5 / 1.75 / 2. Caveats shown: under-rates attackers (B24: model ≈ 300k left, real 587k); hero skill kills (27–46%) and troop counters not modeled; a garrison may use its strongest member's stats.
+- Card "🔮 Prediction from MightPulse boards" (用 MightPulse 排行榜預測): S = Governor gear + Hero equip + Master power (millions; only players in the kingdom top 100 of all three; newest daily MightPulse history). Fit ln Q = a + b·ln S on the known stats that have S (needs ≥ 3; shows n, R², typical error). Search any player on the boards → their three scores, S, predicted quality and the nearest known player.
+- Card "📚 Known stats" (已知屬性): rows of battle-report stats (步/騎/弓 × attack, defense, lethality, health %) with source, date, role; ✓ fit = used for the prediction; editors ➕ Add / Edit / Delete, 📥 Import (JSON, same name + source replaces), then 💾 Save for all officers (encrypted, data/statsets-x7k2p9.json).
+
 @hunt
 🎯 BLACKLIST (officer-x7k2p9.html#hunt, 黑名單) — All Out: where listed players' castles are and whether their shield is up
 - Its own tab: hidden from everyone except admins until the 👥 table gives it. Officers with edit add players by their player ID (the number on the in-game profile) plus an optional note, remove them with ✕, then 💾 Save list (encrypted, data/blacklist-x7k2p9.json).
@@ -527,13 +536,14 @@ async function isOfficer(body, env) {
 
 /* 🔒 Officer AI = logged in with Discord AND on the 👥 table. Returns which tabs they may open (admins: all),
    so the AI only gets the handbook parts and data of those tabs. The old officer password / data-key proof no longer counts. */
-const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🚚 Move", hunt: "🎯 Blacklist", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
+const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🚚 Move", hunt: "🎯 Blacklist", attack: "⚔️ Attack", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
 const AI_TAB_LINKS = {
   events: "[Events](officer-x7k2p9.html#events) (week calendar, officer to-dos, in-game guides to copy, add/edit events)",
   board: "[Board](officer-x7k2p9.html#board)", map: "[Map](officer-x7k2p9.html#map) (kingdom map, Outpost plan)",
   move: "[Move](officer-x7k2p9.html#move) (alliance move, member positions)", hunt: "[Blacklist](officer-x7k2p9.html#hunt) (All Out blacklist: location and shield of listed players)", ranking: "[Ranking](officer-x7k2p9.html#ranking) (member ranking, power, TC, Mystic Trial, battle tables)",
   attend: "[Attendance](officer-x7k2p9.html#attend)", post: "[Post](officer-x7k2p9.html#post) (post / edit announcements)",
   watch: "[Watch](officer-x7k2p9.html#watch) (name changes, power history, who left/joined, notes)", scout: "[Scout](officer-x7k2p9.html#scout) (top players of other kingdoms)",
+  attack: "[Attack](officer-x7k2p9.html#attack) (how many rallies a target needs, predicted from MightPulse boards)",
   views: "[Views](officer-x7k2p9.html#views)", perms: "[Officers](officer-x7k2p9.html#perms)",
 };
 async function officerAccess(req, env, body) {
@@ -1558,7 +1568,7 @@ const ADMIN_IDS = ["1547403844374368327", "1240788094672834623", "76282790434124
 /* view-only officers added by Sparrow (2026-10-16): put into the 👥 table with Events / Board / Map "view" if they aren't in it yet.
    After that the table is the truth — change or remove them on the 👥 tab. */
 const SEED_VIEWERS = {"741447079804797041": "firebaugh", "734803550672257104": "ASHISH", "961642100150124555": "BOO", "1526789098210197638": "ELR", "216564539041251329": "flip", "1534039396461056172": "JORDAN", "1525666601456767171": "PAPA", "706153853460021341": "Tiger", "1003385592983322664": "Δйʊвιŝ"};
-const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", scout: "none", views: "none", move: "none", hunt: "none" };
+const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", scout: "none", views: "none", move: "none", hunt: "none", attack: "none" };
 /* 🛠️ which events' officer to-dos each person gets as a reminder (from Sparrow's role list, 2026-10-16) — only a starting point:
    once an admin changes someone's 🔔 on the 👥 tab, the saved list wins. Admins with no list get every event. */
 const MOB = "alliance-mobilization";

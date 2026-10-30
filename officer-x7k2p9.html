@@ -231,6 +231,16 @@
   #pg-post .wrap { max-width: 760px; margin: 0 auto; }
   #pg-post .btn { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 15px; text-decoration: none; display: inline-block; }
   #pg-post .btn.big { width: 100%; padding: 14px; font-size: 17px; }
+  /* ⚔️ attack planner */
+  #pg-attack .ak-tw { overflow-x: auto; }
+  #pg-attack .ak-t { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  #pg-attack .ak-t th, #pg-attack .ak-t td { padding: 4px 8px; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
+  #pg-attack .ak-t tr.ok td { color: #2e7d32; font-weight: 700; }
+  #pg-attack .ak-box { border: 1px solid var(--rule); border-radius: 10px; padding: 8px 10px; margin: 6px 0; }
+  #pg-attack .ak-form { border: 1px dashed var(--rule); border-radius: 10px; padding: 8px 10px; margin-top: 8px; }
+  #pg-attack .ak-n { width: 74px; }
+  #pg-attack .ak-hit { padding: 6px 0; border-bottom: 1px solid var(--rule); font-size: 13.5px; }
+  #pg-attack select.inp { height: 36px; padding-top: 0; padding-bottom: 0; }
   /* 📋 attendance */
   #pg-attend button.at-ev { display: flex; flex-direction: column; gap: 2px; width: 100%; text-align: start; padding: 10px 12px; margin: 0 0 8px; border: 1px solid var(--rule); border-radius: 10px; background: var(--panel); color: inherit; font: inherit; cursor: pointer; }
   #pg-attend .at-ev .bad { color: #b3261e; font-weight: 700; }
@@ -453,7 +463,7 @@
   .pg.readonly [data-edit], .pg.readonly [data-edtodo], .pg.readonly [data-igedit], .pg.readonly a[href^="#post"],
   .pg.readonly [data-v], .pg.readonly [data-p], .pg.readonly [data-tmset] { display: none !important; }
   /* no way into a tab they can't open: every link to it inside the pages is hidden (the nav entry is hidden by applyPerms) */
-  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
+  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-attack .pg a[href^="#attack"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
   .pg.readonly::before { display: none !important; }   /* no "view only" banner on top: the missing buttons say enough */
   .pg-unused-ro-banner { content: attr(data-ro); display: block; margin: 0 0 10px; padding: 8px 12px; border-radius: 10px; font-size: 13px; background: color-mix(in srgb, var(--accent) 12%, var(--panel)); border: 1px solid var(--accent); }
   /* 👁️ view only: buttons they can't use are not there at all, and fields look written in stone (plain text, nothing to tap) */
@@ -729,6 +739,7 @@
     <a href="#map" data-tab="map">🗺️ Map</a>
     <a href="#move" data-tab="move" hidden>🚚 Move</a>
     <a href="#hunt" data-tab="hunt" hidden>🎯 Blacklist</a>
+    <a href="#attack" data-tab="attack" hidden>⚔️ Attack</a>
     <a href="#ranking" data-tab="ranking">📊 Ranking</a>
     <a href="#attend" data-tab="attend" id="attendTab" hidden>📋 Attendance</a>
     <a href="#post" data-tab="post">📢 Post</a>
@@ -1233,6 +1244,10 @@
   <div class="top"><div><h1 id="hn_title">🎯</h1><div class="muted" id="hn_intro"></div></div></div>
   <div class="card km-members" id="hn_root"></div>
 </section>
+<section class="pg" id="pg-attack" hidden>
+  <div class="top"><div><h1 id="ak_title">⚔️</h1><div class="muted" id="ak_intro"></div></div></div>
+  <div id="ak_root"></div>
+</section>
 <section class="pg" id="pg-perms" hidden>
   <div class="top"><div><h1 id="pm_title"></h1><div class="muted" id="pm_sub"></div></div></div>
   <div class="card msg warn" id="pm_trial" style="font-size:13px"></div>
@@ -1311,6 +1326,7 @@
 <script src="js/officer/board.js"></script>
 <script src="js/officer/perms.js"></script>
 <script src="js/officer/attend.js"></script>
+<script src="js/officer/attack.js"></script>
 <script>officerGate();</script>
 <script src="js/assistant.js"></script>
 <script src="js/sparrow.js"></script>
