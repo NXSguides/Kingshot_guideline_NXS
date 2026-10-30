@@ -281,6 +281,8 @@ const TERMS = [
    ["5m Construction Speedup", "5分鐘建造加速", "5분 건설 가속", "—", "—", "5m de Aceleração da Construção", "—", "—", "—", "—", "تسريع البناء لمدة 5 دقائق", "—", ""],
    ["5m Research Speedup", "5分鐘研究加速", "연구 가속 5분", "—", "—", "5m de Aceleração de Pesquisa", "—", "—", "—", "—", "تسريع البحث لمدة 5 دقائق", "—", "KO puts the minutes last here."],
    ["5m General Speedup", "5分鐘通用加速", "5분 공용 가속", "—", "—", "5m de Aceleração Geral", "—", "—", "—", "—", "تسريع عام لمدة 5 دقائق", "—", ""],
+   ["10,000 Hero XP", "10,000點英雄經驗值", "영웅 경험치 10,000점", "—", "—", "10.000 XP do Herói", "—", "—", "—", "—", "10,000 من خبرة البطل", "—", "Sanctuary Battle reward (2026-10-30 screens)."],
+   ["Custom Epic Hero Shard Chest", "史詩英雄碎片客製化箱子", "에픽 영웅 파편 선택 상자", "—", "—", "Baú de Fragmento de Herói Épico Personalizado", "—", "—", "—", "—", "صندوق شظايا البطل الملحمي المخصص", "—", "Pick one shard: Howard, Gordon, Quinn, Chenko or Diana. Sanctuary Battle reward (2026-10-30 screens)."],
    ["5,000 Hero XP", "5,000點英雄經驗值", "영웅 경험치 5,000점", "—", "—", "5.000 XP do Herói", "—", "—", "—", "—", "5,000 من خبرة البطل", "—", ""],
    ["100 Gems (item)", "100鑽石", "다이아x100", "—", "—", "100 Gemas", "—", "—", "—", "—", "100 من الجواهر", "—", ""],
    ["1K Bread / Wood / Stone (item)", "1K麵包 / 1K木材 / 1K石材", "빵 1K / 목재 1K / 석재 1K / 철광 1K", "—", "—", "1K de Pão / 1K Madeira / 1K de Pedra / 1K Ferro", "—", "—", "—", "—", "1 ألف من الخبز / 1 ألفًا من الخشب / 1 ألف من الحجر / 1 ألفا من الحديد", "—", ""],

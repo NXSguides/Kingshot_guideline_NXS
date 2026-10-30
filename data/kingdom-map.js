@@ -902,7 +902,10 @@ const KINGDOM_MAP = {
   "items": {
    "epicchest": {
     "en": "Custom Epic Hero Shard Chest",
-    "zh": "史詩英雄碎片客製化箱子"
+    "zh": "史詩英雄碎片客製化箱子",
+    "ko": "에픽 영웅 파편 선택 상자",
+    "pt": "Baú de Fragmento de Herói Épico Personalizado",
+    "ar": "صندوق شظايا البطل الملحمي المخصص"
    },
    "heroxp10k": {
     "en": "10,000 Hero XP",
