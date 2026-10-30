@@ -1388,8 +1388,8 @@
       { s: "#km_mp", k: "mp17" }, { s: "#km_cards .km-rw", k: "mp18" }, { s: "#km_cards .km-c:not(.km-prc):not(.km-rw)", k: "mp19" }, { s: "#km_cards .km-c:not(.km-prc):not(.km-rw) ~ .km-c", k: "mp22" },
     ],
     ranking: [
-      { s: "#planSel", k: "rk01" }, { s: "#planUndo", k: "rk02" }, { s: "#planNew", k: "rk03", e: 1 }, { s: "#planSave", k: "rk03s" }, { s: "#rk_reg:not([hidden])", k: "rk05r" }, { s: "#planEd", k: "rk04", e: 1 },
-      { s: "#rk_mode", k: "rk05" }, { s: "#rk_wRow", k: "rk06" }, { s: "#allBtn", k: "rk07" }, { s: "#pasteBox", k: "rk08" }, { s: "#rk_q", k: "rk09" }, { s: "#rk_list", k: "rk10" },
+      { s: "#planSel", k: "rk01" }, { s: "#planUndo", k: "rk02" }, { s: "#planNew", k: "rk03", e: 1 }, { s: "#planSave", k: "rk03s" }, { s: "#planEd", k: "rk04", e: 1 },
+      { s: "#rk_mode", k: "rk05" }, { s: "#rk_wRow", k: "rk06" }, { s: "#allBtn", k: "rk07" }, { s: "#rk_reg", k: "rk05r" }, { s: "#pasteBox", k: "rk08" }, { s: "#rk_q", k: "rk09" }, { s: "#rk_list", k: "rk10" },
       { s: "#rk_topN", k: "rk11" }, { s: "#rk_copyBtn", k: "rk12" },
       { s: "#presetBtns [data-p]", k: "rk14", e: 1 }, { s: "#presetCounts", k: "rk15", e: 1, pre: () => { const b = Q("#presetBtns [data-p]"); if (b && !b.classList.contains("on")) b.click(); } }, { s: "#presetCopy", k: "rk16", e: 1 },
       { s: "#tbCard h2", k: "rk17" }, { s: "#tbCard details.tb-setup > summary", k: "rk18", e: 1 }, { s: "#tbCard [data-act=draft]", k: "rk19", e: 1 }, { s: "#tbCard [data-act=ssDraft]", k: "rk20", e: 1 }, { s: "#tbCard [data-act=import]", k: "rk21", e: 1 }, { s: "#tbCard [data-act=clear]", k: "rk22", e: 1 },

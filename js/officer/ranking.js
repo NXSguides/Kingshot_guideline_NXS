@@ -174,8 +174,8 @@ const regBtns = (m) => !picked.has(m.id) ? "" : `<button type="button" class="rk
 const safeBtn = (m) => !picked.has(m.id) ? "" : `<button type="button" class="rk-rb sf${isSafe(m.id) ? " on" : ""}" data-safe="1" title="${esc(rg(isSafe(m.id) ? "safeOn" : "safeOff"))}" aria-label="${esc(rg(isSafe(m.id) ? "safeOn" : "safeOff"))}">🟡</button>`;
 function renderReg() {
   const el = $("rk_reg"); if (!el || !data) return;
-  el.hidden = !picked.size; if (!picked.size) return;
-  el.innerHTML = `<div class="muted" style="font-size:12.5px;margin-bottom:4px">${esc(rg("note"))}</div><b>${esc(rg("count", regOf()))}</b>`;
+  el.hidden = false;   // always there (also before anyone is ticked), so Little Sparrow can point at it
+  el.innerHTML = `<div class="muted" style="font-size:12.5px${picked.size ? ";margin-bottom:4px" : ""}">${esc(rg("note"))}</div>${picked.size ? `<b>${esc(rg("count", regOf()))}</b>` : ""}`;
 }
 async function setSafe(id, on) {
   if (on) SAFE.add(String(id)); else SAFE.delete(String(id));
