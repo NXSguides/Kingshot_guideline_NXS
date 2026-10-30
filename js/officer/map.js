@@ -522,13 +522,10 @@ async function exportOutposts(P) {
   } catch (e) { return false; }
 }
 (function bootOp(n) { setTimeout(async () => { if (!(await exportOutposts()) && n < 30) bootOp(n + 1); }, 4000); })(0);   // on opening the officer page, once logged in
-/* 🎁 what the targeted Fortresses / Sanctuaries would give (the phase picked on the rewards card), with a total per reward */
+/* 🎁 what each targeted Fortress / Sanctuary would give (the phase picked on the rewards card) */
 function gainHtml(L) {
-  const sum = new Map();
-  for (const b of L) { const sp = specialOf(b); if (!sp) continue; const c = sum.get(sp[0]) || { q: 0, unk: false }; if (sp[1] == null) c.unk = true; else c.q += sp[1]; sum.set(sp[0], c); }
   return `<div class="km-gain"><b>${esc(rwe("gainT", { ph: rwPhaseLabel() }))}</b>
-    ${L.length ? `<ul>${L.map((b) => `<li>${b.kind === "fortress" ? "◆" : "●"} ${esc(nm(b))} → <b>${esc(rwText(b) || "—")}</b></li>`).join("")}</ul>
-      <div>${esc(rwe("gainSum"))} ${[...sum].map(([i, c]) => `<b>${esc(iName(i))} ×${c.q}${c.unk ? "+?" : ""}</b>`).join(" · ")}</div>` : `<div class="muted">${esc(rwe("gainNone"))}</div>`}
+    ${L.length ? `<ul>${L.map((b) => `<li>${b.kind === "fortress" ? "◆" : "●"} ${esc(nm(b))} → <b>${esc(rwText(b) || "—")}</b></li>`).join("")}</ul>` : `<div class="muted">${esc(rwe("gainNone"))}</div>`}
     <div class="muted" style="font-size:12px;margin-top:4px">${esc(rwe("gainNote"))}</div></div>`;
 }
 function renderPlan() {
@@ -544,7 +541,7 @@ function renderPlan() {
   const ptsOf = (L) => L.reduce((n, b) => n + (b.kind === "fortress" ? 2 : 1), 0);
   const rHeld = R("held"), rTgt = R("target");
   const tooMany = rTgt.filter((b) => b.kind === "sanctuary").length > 1 || rTgt.filter((b) => b.kind === "fortress").length > 1;
-  const rchips = (L) => L.length ? `<div class="chips">${L.map((b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}">${b.kind === "fortress" ? "◆" : "●"} ${esc(nm(b))} · X${b.x} Y${b.y}${rwText(b) ? ` · 🎁 ${esc(rwText(b))}` : ""}</button>`).join("")}</div>` : `<div class="muted" style="font-size:13px">${esc(pt("none"))}</div>`;
+  const rchips = (L) => L.length ? `<div class="chips">${L.map((b) => `<button type="button" class="chip${b.id === SEL ? " on" : ""}" data-id="${b.id}">${b.kind === "fortress" ? "◆" : "●"} ${esc(nm(b))} · X${b.x} Y${b.y}</button>`).join("")}</div>` : `<div class="muted" style="font-size:13px">${esc(pt("none"))}</div>`;
   const ruinsHtml = `<div class="pl-sub" style="margin-top:16px">${esc(pt("ruinsT"))}</div>
     <div class="muted" style="font-size:12px">${esc(pt("ruinsNote"))}</div>
     <table class="pl-tbl"><tr><th></th><th style="text-align:right">${esc(pt("ptsNow"))}</th><th style="text-align:right">${esc(pt("ptsAfter"))}</th></tr>
