@@ -43,6 +43,7 @@ const FEATURES = [
   ["Move: 📐 shared auto plans (Plan list)", /Share as a plan/, /{ s: "#hp_root .hp-sh", k: "hp03" }/],
   ["Move tab", /🚚 Move/, /mv01:/],
   ["Attack planner tab (rallies needed from today's board strength)", /BATTLE tab \(officer-x7k2p9\.html#attack[^\n]*ATTACK PLANNER/, /{ s: "#ak_plan", k: "ak01" }/],
+  ["Battle: 🏰 In our kingdom / ⚔️ KvK switch", /"🏰 In our kingdom"/, /🏰 In our kingdom \(us = NXS/],
   ["Attack: 📊 today's strength list", /Today's strength/, /{ s: "#ak_board", k: "ak02" }/],
   ["Board", /💬 Board/, /bd01:/],
   ["Attendance", /📋 Attendance/, /at01:/],

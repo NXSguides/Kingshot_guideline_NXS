@@ -40,6 +40,9 @@ const T = {
     bT: "📊 오늘의 강도", bNote: "강도 = 영주 장비 + 영웅 장비 + 마스터 전투력 (백만). 세 랭킹 모두 왕국 상위 100 안인 사람만 강도가 있어요. 나머지는 고를 수 없어요.", bData: "랭킹 날짜 {d} · 왕국 {k}", bNoData: "아직 MightPulse 랭킹이 없어요 (매일 20:45 UTC 저장).", bOurs: "NXS", bThem: "다른 연맹", bFind: "플레이어 찾기…", bMiss: "{b} 상위 100 밖", gear: "영주 장비", heq: "영웅 장비", mst: "마스터" },
 };
 const HT = {"en": {"hT": "📦 MightPulse history (for the battle analysis)", "hNote": "This tab already reads the newest day by itself (📊 above) — nothing to import. One encrypted snapshot a day (20:45 UTC): kingdom totals, all 18 boards (top 100), every NXS member and the Scout kingdoms' top players (base, ranks, heroes with gear). Pick dates and download — the file is for the analysis chat; don't post it anywhere public.", "hFrom": "From", "hTo": "To", "hDl": "⬇️ Download JSON", "hBusy": "Reading {d}…", "hNone": "No snapshots in these dates.", "hDone": "{n} days downloaded."}, "zh": {"hT": "📦 MightPulse 歷史資料（戰鬥分析用）", "hNote": "這個分頁會自己讀最新一天的資料（上面的 📊）——不用匯入。每天存一份加密快照（20:45 UTC）：王國總數、全部 18 個排行榜（前 100 名）、所有 NXS 成員，以及偵查王國的主力（基本資料、排名、英雄和裝備）。選日期下載——這個檔案是給分析用的聊天，不要貼到公開的地方。", "hFrom": "從", "hTo": "到", "hDl": "⬇️ 下載 JSON", "hBusy": "讀取 {d}…", "hNone": "這段日期沒有資料。", "hDone": "已下載 {n} 天。"}, "pt": {"hT": "📦 Histórico do MightPulse (para a análise de batalha)", "hNote": "Esta aba já lê o dia mais novo sozinha (📊 acima) — nada para importar. Um retrato criptografado por dia (20:45 UTC): totais do reino, os 18 rankings (top 100), todos os membros da NXS e os principais jogadores dos reinos do Scout (base, rankings, heróis com equipamento). Escolha as datas e baixe — o arquivo é para o chat de análise; não publique em lugar público.", "hFrom": "De", "hTo": "Até", "hDl": "⬇️ Baixar JSON", "hBusy": "Lendo {d}…", "hNone": "Sem dados nessas datas.", "hDone": "{n} dias baixados."}, "ar": {"hT": "📦 سجل MightPulse (لتحليل المعارك)", "hNote": "هذا القسم يقرأ أحدث يوم وحده (📊 أعلاه) — لا حاجة للاستيراد. لقطة مشفّرة كل يوم (20:45 UTC): إجماليات المملكة، كل اللوحات الـ18 (أفضل 100)، كل أعضاء NXS وأقوى لاعبي ممالك الاستطلاع (الأساس، الترتيب، الأبطال مع العتاد). اختر التواريخ ونزّل — الملف لمحادثة التحليل؛ لا تنشره في مكان عام.", "hFrom": "من", "hTo": "إلى", "hDl": "⬇️ تنزيل JSON", "hBusy": "قراءة {d}…", "hNone": "لا بيانات في هذه التواريخ.", "hDone": "نُزّلت {n} أيام."}, "ko": {"hT": "📦 MightPulse 기록 (전투 분석용)", "hNote": "이 탭은 최신 날짜를 알아서 읽어요 (위의 📊) — 가져올 필요 없어요. 매일 암호화된 스냅샷 하나 (20:45 UTC): 왕국 합계, 랭킹 18개 전부 (상위 100), NXS 연맹원 전원, 정찰 왕국의 주력 (기본, 랭킹, 영웅과 장비). 날짜를 골라 내려받으세요 — 분석 채팅용 파일이니 공개된 곳에 올리지 마세요.", "hFrom": "부터", "hTo": "까지", "hDl": "⬇️ JSON 내려받기", "hBusy": "{d} 읽는 중…", "hNone": "이 기간에는 데이터가 없어요.", "hDone": "{n}일치 내려받음."}};
+/* 🏰 in our kingdom vs ⚔️ KvK: who counts as "us" and "them" */
+const MT = {"en": {"mHome": "🏰 In our kingdom", "mKvk": "⚔️ KvK", "usHome": "NXS", "themHome": "Other alliances in #2189", "usKvk": "Our kingdom #2189", "themKvk": "KvK opponent", "noKvk": "No other kingdom yet. In 🔭 Scout below, add the KvK opponent and tick “update daily” — its players show here from the next daily save (20:45 UTC)."}, "zh": {"mHome": "🏰 王國內", "mKvk": "⚔️ KvK", "usHome": "NXS", "themHome": "#2189 其他聯盟", "usKvk": "我們王國 #2189", "themKvk": "KvK 對手", "noKvk": "還沒有其他王國的資料。在下面的 🔭 偵查加上 KvK 對手並勾「每天更新」，下一次每日存檔（20:45 UTC）之後就會出現。"}, "pt": {"mHome": "🏰 No nosso reino", "mKvk": "⚔️ KvK", "usHome": "NXS", "themHome": "Outras alianças em #2189", "usKvk": "Nosso reino #2189", "themKvk": "Adversário do KvK", "noKvk": "Ainda sem outro reino. No 🔭 Espiar abaixo, adicione o adversário do KvK e marque “atualizar todo dia” — os jogadores aparecem aqui após o próximo salvamento diário (20:45 UTC)."}, "ar": {"mHome": "🏰 داخل مملكتنا", "mKvk": "⚔️ KvK", "usHome": "NXS", "themHome": "تحالفات أخرى في ‎#2189", "usKvk": "مملكتنا ‎#2189", "themKvk": "خصم KvK", "noKvk": "لا توجد مملكة أخرى بعد. في 🔭 الاستطلاع بالأسفل أضف خصم KvK وفعّل «تحديث يومي» — يظهر لاعبوه هنا بعد الحفظ اليومي التالي (20:45 UTC)."}, "ko": {"mHome": "🏰 우리 왕국 안", "mKvk": "⚔️ KvK", "usHome": "NXS", "themHome": "#2189 다른 연맹", "usKvk": "우리 왕국 #2189", "themKvk": "KvK 상대", "noKvk": "아직 다른 왕국이 없어요. 아래 🔭 정찰에서 KvK 상대를 추가하고 “매일 업데이트”를 체크하면 다음 일일 저장 (20:45 UTC) 후 여기 나와요."}};
+for (const [l, o] of Object.entries(MT)) Object.assign(T[l], o);
 let lang = OFFICER.lang || "en";
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
 const fill = (s, v) => Object.entries(v || {}).reduce((x, [a, b]) => x.split("{" + a + "}").join(b), s);
@@ -47,7 +50,7 @@ const norm = (s) => String(s || "").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "")
 const fmtN = (n) => n >= 1e6 ? (n / 1e6).toFixed(2) + "M" : n >= 1e3 ? Math.round(n / 1e3) + "k" : String(Math.round(n));
 
 let SNAP = null, snapDay = null, findQ = "";
-const PDEF = { tgt: "", G: 1000000, gt: "TG2", terr: true, dUs: 0, dThem: 0, p: 1.75, re: 0, rallies: [{ lead: "", R: 1200000, tier: "TG2" }] };
+const PDEF = { mode: "home", tgt: "", G: 1000000, gt: "TG2", terr: true, dUs: 0, dThem: 0, p: 1.75, re: 0, rallies: [{ lead: "", R: 1200000, tier: "TG2" }] };
 let PLAN = (() => { try { const p = JSON.parse(localStorage.getItem("nxs-attack-v2")); return p && Array.isArray(p.rallies) ? p : null; } catch (e) { return null; } })() || JSON.parse(JSON.stringify(PDEF));
 const keep = () => { try { localStorage.setItem("nxs-attack-v2", JSON.stringify(PLAN)); } catch (e) {} };
 
@@ -62,7 +65,11 @@ function buildPlayers() {
 const sOf = (p) => p && B3.every((b) => p.b[b] != null) ? B3.reduce((s, b) => s + p.b[b] / 1e6, 0) : null;
 const ours = (p) => /^nxs$/i.test(p.al || "");
 const nameOf = (id) => { const p = PL[id]; return p ? p.name : ""; };
-const strong = (side) => Object.values(PL).filter((p) => sOf(p) && (side ? ours(p) : !ours(p))).sort((a, b) => sOf(b) - sOf(a));
+/* 🏰 home: us = NXS, them = other alliances of #2189 · ⚔️ KvK: us = everyone in #2189, them = the other kingdom(s) */
+const kvk = () => PLAN.mode === "kvk";
+const isUs = (p) => kvk() ? p.kid === 2189 : ours(p) && p.kid === 2189;
+const isThem = (p) => kvk() ? p.kid !== 2189 : !ours(p) && p.kid === 2189;
+const strong = (side) => Object.values(PL).filter((p) => sOf(p) && (side ? isUs(p) : isThem(p))).sort((a, b) => sOf(b) - sOf(a));
 
 /* ---------- math ---------- */
 function ratio(lead, tier) {
@@ -83,6 +90,7 @@ function needN(G, P) { const r0 = PLAN.rallies[0], k = r0 && ratio(r0.lead, r0.t
 /* ---------- render ---------- */
 const sel = (attr, v, list) => `<select class="inp" ${attr}><option value="">${esc(t("pick"))}</option>${list.map((p) => `<option value="${esc(p.id)}"${v === p.id ? " selected" : ""}>${esc(p.name)}${p.al && !ours(p) ? ` [${esc(p.al)}]` : ""} · ${sOf(p).toFixed(1)}</option>`).join("")}</select>`;
 const tierSel = (attr, v) => `<select class="inp" ${attr}>${Object.keys(TIER).map((k) => `<option${k === v ? " selected" : ""}>${k}</option>`).join("")}</select>`;
+const modeBar = () => `<div class="ak-mode" role="tablist">${[["home", t("mHome")], ["kvk", t("mKvk")]].map(([k, l]) => `<button type="button" class="btn${(PLAN.mode || "home") === k ? " on" : ""}" data-mode="${k}">${esc(l)}</button>`).join("")}</div>`;
 function planCard() {
   const them = strong(false), us = strong(true), c = chain();
   const rallies = PLAN.rallies.map((r, i) => `<div class="ak-r"><b>#${i + 1}</b> ${sel(`data-rl="${i}"`, r.lead, us)}
@@ -125,17 +133,19 @@ function boardsCard() {
     <input class="inp" id="ak_find" placeholder="${esc(t("bFind"))}" value="${esc(findQ)}" style="max-width:260px">
     <div id="ak_hits">${hits.map((p) => sOf(p) ? `<div class="ak-hit">${esc(p.name)} <span class="muted">[${esc(p.al)}]</span> · ${esc(t("colS"))} <b>${sOf(p).toFixed(1)}</b></div>`
       : `<div class="ak-hit">${esc(p.name)} <span class="muted">[${esc(p.al)}] · ${esc(fill(t("bMiss"), { b: B3.filter((b) => p.b[b] == null).map((b) => lbl[b]).join(", ") }))}</span></div>`).join("")}</div>
-    <div class="ak-cols"><div><h4>${esc(t("bOurs"))}</h4><div class="ak-tw"><table class="ak-t">${head}<tbody>${strong(true).slice(0, 15).map(row).join("")}</tbody></table></div></div>
-      <div><h4>${esc(t("bThem"))}</h4><div class="ak-tw"><table class="ak-t">${head}<tbody>${strong(false).slice(0, 15).map(row).join("")}</tbody></table></div></div></div>`;
+    ${kvk() && !strong(false).length ? `<div class="mv-warn" style="font-size:12.5px;margin-top:8px">${esc(t("noKvk"))}</div>` : ""}
+    <div class="ak-cols"><div><h4>${esc(t(kvk() ? "usKvk" : "usHome"))}</h4><div class="ak-tw"><table class="ak-t">${head}<tbody>${strong(true).slice(0, 15).map(row).join("")}</tbody></table></div></div>
+      <div><h4>${esc(t(kvk() ? "themKvk" : "themHome"))}</h4><div class="ak-tw"><table class="ak-t">${head}<tbody>${strong(false).slice(0, 15).map(row).join("")}</tbody></table></div></div></div>`;
 }
 function render() {
   const root = $("ak_root"); if (!root) return;
-  root.innerHTML = `<div class="card" id="ak_plan">${planCard()}</div><div class="card" id="ak_board">${boardsCard()}</div>`;
+  root.innerHTML = `${modeBar()}<div class="card" id="ak_plan">${planCard()}</div><div class="card" id="ak_board">${boardsCard()}</div>`;
   bind(); histCard();
 }
 function bind() {
   const re = () => { keep(); render(); };
   const on = (id, f) => { const e = $(id); if (e) e.onchange = f; };
+  document.querySelectorAll("[data-mode]").forEach((b) => b.onclick = () => { if (PLAN.mode === b.dataset.mode) return; PLAN.mode = b.dataset.mode; PLAN.tgt = ""; PLAN.rallies.forEach((x) => { if (x.lead && !isUs(PL[x.lead] || {})) x.lead = ""; }); re(); });
   on("ak_tgt", (e) => { PLAN.tgt = e.target.value; re(); }); on("ak_G", (e) => { PLAN.G = Math.max(0, +e.target.value || 0); re(); });
   on("ak_gt", (e) => { PLAN.gt = e.target.value; re(); }); on("ak_terr", (e) => { PLAN.terr = e.target.checked; re(); });
   on("ak_dUs", (e) => { PLAN.dUs = Math.min(90, Math.max(0, +e.target.value || 0)); re(); }); on("ak_dThem", (e) => { PLAN.dThem = Math.min(90, Math.max(0, +e.target.value || 0)); re(); });
