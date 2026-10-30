@@ -47,7 +47,7 @@ const T = {
 const MT = {"en": {"mHome": "🏰 In our kingdom", "mKvk": "⚔️ KvK", "usHome": "NXS", "themHome": "Other alliances in #2189", "usKvk": "Our kingdom #2189", "themKvk": "KvK opponent", "noKvk": "No other kingdom yet. In 🔭 Scout below, add the KvK opponent and tick “update daily” — press “Fetch now” — its players show here a few minutes later (refresh the page)."}, "zh": {"mHome": "🏰 王國內", "mKvk": "⚔️ KvK", "usHome": "NXS", "themHome": "#2189 其他聯盟", "usKvk": "我們王國 #2189", "themKvk": "KvK 對手", "noKvk": "還沒有其他王國的資料。在下面的 🔭 偵查加上 KvK 對手並勾「每天更新」，按「立即抓取」——幾分鐘後重新整理就會出現。"}, "pt": {"mHome": "🏰 No nosso reino", "mKvk": "⚔️ KvK", "usHome": "NXS", "themHome": "Outras alianças em #2189", "usKvk": "Nosso reino #2189", "themKvk": "Adversário do KvK", "noKvk": "Ainda sem outro reino. No 🔭 Espiar abaixo, adicione o adversário do KvK e marque “atualizar todo dia” — aperte “Buscar agora” — os jogadores aparecem aqui alguns minutos depois (atualize a página)."}, "ar": {"mHome": "🏰 داخل مملكتنا", "mKvk": "⚔️ KvK", "usHome": "NXS", "themHome": "تحالفات أخرى في ‎#2189", "usKvk": "مملكتنا ‎#2189", "themKvk": "خصم KvK", "noKvk": "لا توجد مملكة أخرى بعد. في 🔭 الاستطلاع بالأسفل أضف خصم KvK وفعّل «تحديث يومي» — اضغط «جلب الآن» — يظهر لاعبوه هنا بعد دقائق (حدّث الصفحة)."}, "ko": {"mHome": "🏰 우리 왕국 안", "mKvk": "⚔️ KvK", "usHome": "NXS", "themHome": "#2189 다른 연맹", "usKvk": "우리 왕국 #2189", "themKvk": "KvK 상대", "noKvk": "아직 다른 왕국이 없어요. 아래 🔭 정찰에서 KvK 상대를 추가하고 “매일 업데이트”를 체크하면 “지금 가져오기”를 누르세요 — 몇 분 뒤 새로고침하면 여기 나와요."}};
 /* 🗡️ Swordland, ⚔️/🛡️ direction, tier mix, troop ratio (2026-10-30) — added on top of T / MT; same keys override the old wording */
 const NT = {
-  en: { tTierD: "Our tier", mSs: "🗡️ Swordland", dirA: "⚔️ We attack", dirD: "🛡️ They attack us", tgtD: "Our garrison", tLeadD: "Our garrison leader", usD: "Their rallies (in order)",
+  en: { rkT:"📊 Both sides, by Strength", rkNote:"Our list and their alliance in one ranking. Tap one of ours: Confirmed ↔ Substitute. Tap one of theirs: ⚠️ watch (⚠️? = suggested: about as strong as our best leader, or stronger).", q3None:"Nobody marked yet — tap their players in the ranking above.", q3Sugg:"Suggested: {names}.", tTierD: "Our tier", mSs: "🗡️ Swordland", dirA: "⚔️ We attack", dirD: "🛡️ They attack us", tgtD: "Our garrison", tLeadD: "Our garrison leader", usD: "Their rallies (in order)",
     debUs: "Debuff on the attackers (attack/defense −%)", debThem: "Debuff on the garrison (−%)", terr: "Garrison in its own territory (+10% all)",
     winD: "❌ They take it — {s} of theirs stay", loseD: "✅ We hold — {g} of ours left", needD: "Rallies like their #1 needed to take it: about {n}.",
     holdD: "To hold against all these rallies at once: at least {g} troops in the building.", lastD: "Keep reinforcing between their rallies — every troop that arrives in time counts in full.",
@@ -70,7 +70,7 @@ const NT = {
     q3: "Who to watch", q3Note: "⚠️ = as strong as our best leader, or stronger.",
     ssNeed: "Pick a plan and fetch the opponent to see the result.", ssEst: "≈ estimated from Power",
     ssCav: "Rough estimate, same model as the planner: hero skills, troop counters and building buffs (e.g. the Hall of Reformation) are not counted." },
-  zh: { tTierD: "我方兵等", mSs: "🗡️ 聖劍", dirA: "⚔️ 我們進攻", dirD: "🛡️ 對方打我們", tgtD: "我方駐軍", tLeadD: "我方駐軍隊長", usD: "對方集結（依順序）",
+  zh: { rkT:"📊 雙方排名（依強度）", rkNote:"我們的名單和對方聯盟排在一起。點我們的人：確定 ↔ 替補。點對方的人：勾 ⚠️ 要注意（⚠️? = 建議注意：跟我們最強的隊長差不多強或更強）。", q3None:"還沒勾——在上面的排名點對方的人。", q3Sugg:"建議：{names}。", tTierD: "我方兵等", mSs: "🗡️ 聖劍", dirA: "⚔️ 我們進攻", dirD: "🛡️ 對方打我們", tgtD: "我方駐軍", tLeadD: "我方駐軍隊長", usD: "對方集結（依順序）",
     debUs: "攻方被減益（攻擊／防禦 −%）", debThem: "守方被減益（−%）", terr: "守方在自己領土（全屬性 +10%）",
     winD: "❌ 被打下——對方剩 {s}", loseD: "✅ 守住——我方剩 {g}", needD: "要打下需要像對方 #1 這樣的集結：約 {n} 團。",
     holdD: "同時擋下這些集結：建築裡至少要有 {g} 兵。", lastD: "對方集結之間要一直增援——及時到的兵全部都算。",
@@ -93,7 +93,7 @@ const NT = {
     q3: "值得警惕的人", q3Note: "⚠️ = 跟我們最強的隊長一樣強或更強。",
     ssNeed: "選一個計畫並抓取對手，就會出現結果。", ssEst: "≈ 用戰力估算",
     ssCav: "粗估，跟上面規劃同一個模型：英雄技能、兵種相剋、建築增益（例如教化大廳）都沒算。" },
-  pt: { tTierD: "Nosso nível", mSs: "🗡️ Terra das Espadas", dirA: "⚔️ Nós atacamos", dirD: "🛡️ Eles nos atacam", tgtD: "Nossa guarnição", tLeadD: "Líder da nossa guarnição", usD: "Os comícios deles (em ordem)",
+  pt: { rkT:"📊 Os dois lados, por Força", rkNote:"Nossa lista e a aliança deles num só ranking. Toque num dos nossos: Confirmado ↔ Reserva. Toque num deles: ⚠️ vigiar (⚠️? = sugerido: tão forte quanto nosso melhor líder, ou mais).", q3None:"Ninguém marcado ainda — toque nos jogadores deles no ranking acima.", q3Sugg:"Sugeridos: {names}.", tTierD: "Nosso nível", mSs: "🗡️ Terra das Espadas", dirA: "⚔️ Nós atacamos", dirD: "🛡️ Eles nos atacam", tgtD: "Nossa guarnição", tLeadD: "Líder da nossa guarnição", usD: "Os comícios deles (em ordem)",
     debUs: "Debuff nos atacantes (ataque/defesa −%)", debThem: "Debuff na guarnição (−%)", terr: "Guarnição no próprio território (+10% em tudo)",
     winD: "❌ Eles tomam — ficam {s} deles", loseD: "✅ Seguramos — ficam {g} nossos", needD: "Comícios como o #1 deles para tomar: cerca de {n}.",
     holdD: "Para segurar todos esses comícios de uma vez: pelo menos {g} tropas no prédio.", lastD: "Continue reforçando entre os comícios — toda tropa que chega a tempo conta inteira.",
@@ -116,7 +116,7 @@ const NT = {
     q3: "Quem vigiar", q3Note: "⚠️ = tão forte quanto o nosso melhor líder, ou mais.",
     ssNeed: "Escolha um plano e busque o adversário para ver o resultado.", ssEst: "≈ estimado pelo Poder",
     ssCav: "Estimativa grosseira, mesmo modelo do planejador: habilidades de herói, vantagem de tropa e bônus de prédios (ex.: Salão da Reforma) não contam." },
-  ar: { tTierD: "مستوانا", mSs: "🗡️ أرض السيوف", dirA: "⚔️ نحن نهاجم", dirD: "🛡️ هم يهاجموننا", tgtD: "حاميتنا", tLeadD: "قائد حاميتنا", usD: "حشودهم (بالترتيب)",
+  ar: { rkT:"📊 الطرفان حسب القوة", rkNote:"قائمتنا وتحالفهم في ترتيب واحد. اضغط على أحدنا: مؤكَّد ↔ بديل. اضغط على أحدهم: ⚠️ مراقبة (⚠️? = مقترح: بقوة أفضل قائد لدينا أو أقوى).", q3None:"لم يُحدَّد أحد بعد — اضغط على لاعبيهم في الترتيب أعلاه.", q3Sugg:"مقترحون: {names}.", tTierD: "مستوانا", mSs: "🗡️ أرض السيوف", dirA: "⚔️ نحن نهاجم", dirD: "🛡️ هم يهاجموننا", tgtD: "حاميتنا", tLeadD: "قائد حاميتنا", usD: "حشودهم (بالترتيب)",
     debUs: "إضعاف على المهاجمين (هجوم/دفاع −%)", debThem: "إضعاف على الحامية (−%)", terr: "الحامية في أرضها (+10% لكل شيء)",
     winD: "❌ يأخذونه — يبقى {s} من قواتهم", loseD: "✅ نصمد — يبقى {g} من قواتنا", needD: "عدد الحشود مثل حشدهم ‎#1 للسيطرة: نحو {n}.",
     holdD: "للصمود أمام كل هذه الحشود معًا: على الأقل {g} جندي في المبنى.", lastD: "واصلوا التعزيز بين حشودهم — كل جندي يصل في الوقت يُحسب كاملًا.",
@@ -139,7 +139,7 @@ const NT = {
     q3: "من يجب مراقبته", q3Note: "⚠️ = بقوة أفضل قائد لدينا أو أقوى.",
     ssNeed: "اختر خطة واجلب الخصم لترى النتيجة.", ssEst: "≈ مقدَّر من القوة",
     ssCav: "تقدير تقريبي بنفس نموذج المخطط: مهارات الأبطال وأفضلية القوات ومكافآت المباني (مثل قاعة الإصلاح) غير محسوبة." },
-  ko: { tTierD: "우리 등급", mSs: "🗡️ 성검", dirA: "⚔️ 우리가 공격", dirD: "🛡️ 상대가 공격", tgtD: "우리 주둔군", tLeadD: "우리 주둔군 대장", usD: "상대 집결 (순서대로)",
+  ko: { rkT:"📊 양쪽 순위 (강도순)", rkNote:"우리 명단과 상대 연맹을 한 순위로. 우리 쪽을 누르면 확정 ↔ 후보, 상대 쪽을 누르면 ⚠️ 주의 표시 (⚠️? = 추천: 우리 최강 대장만큼 또는 더 강함).", q3None:"아직 표시한 사람이 없어요 — 위 순위에서 상대 플레이어를 누르세요.", q3Sugg:"추천: {names}.", tTierD: "우리 등급", mSs: "🗡️ 성검", dirA: "⚔️ 우리가 공격", dirD: "🛡️ 상대가 공격", tgtD: "우리 주둔군", tLeadD: "우리 주둔군 대장", usD: "상대 집결 (순서대로)",
     debUs: "공격 측 디버프 (공격/방어 −%)", debThem: "수비 측 디버프 (−%)", terr: "수비 측이 자기 영토 안 (전 능력 +10%)",
     winD: "❌ 빼앗김 — 상대 {s} 남음", loseD: "✅ 지켜냄 — 우리 {g} 남음", needD: "빼앗으려면 상대 #1 같은 집결이 약 {n}번 필요.",
     holdD: "이 집결을 한꺼번에 막으려면: 건물 안에 최소 {g} 병력.", lastD: "상대 집결 사이사이 계속 지원하세요 — 제때 도착한 병력은 전부 계산됩니다.",
@@ -173,7 +173,7 @@ const fmtN = (n) => n >= 1e6 ? (n / 1e6).toFixed(2) + "M" : n >= 1e3 ? Math.roun
 const AI_URL = "https://nxs-ai.tapegirljoke.workers.dev", DISCORD_LS = "nxs-discord-v1";
 
 let SNAP = null, snapDay = null, findQ = "";
-const SSDEF = { plan: "", ov: {}, kid: "", tag: "", K: 3, R: 1200000, Rt: 1200000, G: 1500000, per: 150000, tUs: "TG2", mUs: null, tThem: "TG2", mThem: null };
+const SSDEF = { watch: {}, plan: "", ov: {}, kid: "", tag: "", K: 3, R: 1200000, Rt: 1200000, G: 1500000, per: 150000, tUs: "TG2", mUs: null, tThem: "TG2", mThem: null };
 const PDEF = { mode: "home", dir: "atk", tgt: "", G: 1000000, gt: "TG2", gmix: null, terr: true, dUs: 0, dThem: 0, p: 1.75, re: 0, trA: [50, 20, 30], trD: [60, 20, 20],
   rallies: [{ lead: "", R: 1200000, tier: "TG2" }], ss: SSDEF };
 const clone = (x) => JSON.parse(JSON.stringify(x));
@@ -313,6 +313,7 @@ const ssSave = () => { try { sessionStorage.setItem("nxs-ss-opp", JSON.stringify
 /* S of one person: from today's boards (3 boards), else ≈ Power × the median S per million Power */
 const sFrom = (b, power) => { if (b && B3.every((k) => b[k] != null)) return { S: B3.reduce((s, k) => s + b[k] / 1e6, 0), est: false };
   return power && CPOW ? { S: power / 1e6 * CPOW, est: true } : { S: null, est: true }; };
+const wKey = () => SSD ? `${SSD.kid}:${String(SSD.tag || "").toLowerCase()}` : "";   // ⚠️ marks are kept per opposing alliance
 async function ssLoad() {
   if (!ROSTER) { try { ROSTER = await OfficerData.fetchJson("data/roster-x7k2p9.json"); } catch (e) { ROSTER = { members: [] }; } }
   if (!PLANS) {
@@ -372,11 +373,16 @@ function ssCard() {
   const ids = Object.entries(PLANS || {}).sort((a, b) => String(a[1].name || "").localeCompare(String(b[1].name || "")));
   const sTxt = (x) => x.S ? `${x.est ? "≈" : ""}${x.S.toFixed(1)}` : "—";
   const conf = us.filter((x) => !x.sub), subs = us.filter((x) => x.sub);
-  const ourTbl = !us.length ? "" : `<div class="muted" style="font-size:12.5px;margin:6px 0">${esc(t("ssSubHint"))} · <b>${esc(fill(t("ssCnt"), { c: conf.length, s: subs.length }))}</b></div>
-    <div class="ak-tw ak-list"><table class="ak-t"><thead><tr><th>${esc(t("nm"))}</th><th>${esc(t("colS"))}</th><th>${esc(t("pw"))}</th><th></th></tr></thead><tbody>
-    ${us.map((x) => `<tr data-sub="${esc(x.id)}" class="ak-tap${x.sub ? " ak-sub" : ""}"><td dir="auto">${esc(x.name)}</td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td><td>${esc(t(x.sub ? "subL" : "conf"))}</td></tr>`).join("")}</tbody></table></div>`;
+  const ourTbl = !us.length ? "" : `<div class="muted" style="font-size:12.5px;margin:6px 0"><b>${esc(fill(t("ssCnt"), { c: conf.length, s: subs.length }))}</b></div>`;
   const best = conf.find((x) => x.S) || us.find((x) => x.S);
-  const watch = them.filter((x) => x.S || x.power).slice(0, 10);
+  const wk = wKey(), W = new Set(wk ? S.watch[wk] || [] : []), hot = (x) => best && x.S && x.S >= best.S * 0.95;
+  const marked = them.filter((x) => W.has(x.id)), sugg = them.filter(hot).slice(0, 10);
+  /* 📊 one ranking: our list + their alliance, strongest first. Ours: tap = Confirmed ↔ Substitute. Theirs: tap = ⚠️ watch */
+  const mixed = [...us.map((x) => ({ ...x, us: 1 })), ...them].sort((a, b) => (b.S || 0) - (a.S || 0) || (b.power || 0) - (a.power || 0));
+  const mixTbl = !mixed.length ? "" : `<div class="ak-box"><b>${esc(t("rkT"))}</b><div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("rkNote"))}</div>
+    <div class="ak-tw ak-list"><table class="ak-t ak-mixed"><thead><tr><th>#</th><th>${esc(t("nm"))}</th><th>${esc(t("colS"))}</th><th>${esc(t("pw"))}</th><th></th></tr></thead><tbody>
+    ${mixed.map((x, i) => x.us ? `<tr data-sub="${esc(x.id)}" class="ak-tap ak-us${x.sub ? " ak-sub" : ""}"><td>${i + 1}</td><td dir="auto">${esc(x.name)} <span class="muted">NXS</span></td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td><td>${esc(t(x.sub ? "subL" : "conf"))}</td></tr>`
+      : `<tr data-w="${esc(x.id)}" class="ak-tap ak-them${W.has(x.id) ? " ak-w" : ""}"><td>${i + 1}</td><td dir="auto">${esc(x.name)} <span class="muted">[${esc(SSD.tag)}]${x.rank ? " " + esc(x.rank) : ""}</span></td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td><td>${W.has(x.id) ? "⚠️" : hot(x) ? `<span class="muted">⚠️?</span>` : "☐"}</td></tr>`).join("")}</tbody></table></div></div>`;
   const nEst = them.filter((x) => x.S && !x.est).length;
   const oppTbl = !SSD ? "" : `<div class="muted" style="font-size:12.5px;margin:6px 0">${esc(fill(t("ssGot"), { tag: SSD.tag, name: SSD.name, kid: SSD.kid, n: SSD.members.length, t: new Date(SSD.fetched).toLocaleTimeString() }))}
       · ${esc(fill(t("ssEstN"), { n: nEst }))}</div>`;
@@ -389,6 +395,7 @@ function ssCard() {
       <div class="ak-f"><span>${esc(t("ssKid"))}</span><input class="inp" type="number" id="ss_kid" value="${esc(S.kid)}" placeholder="2186"></div>
       <div class="ak-f"><span>${esc(t("ssTag"))}</span><input class="inp" id="ss_tag" value="${esc(S.tag)}" maxlength="8" placeholder="ABC"> <button class="btn small" id="ss_go"${ssBusy ? " disabled" : ""}>${esc(t(ssBusy ? "ssBusy" : "ssGo"))}</button></div>
       ${ssMsg ? `<div class="mv-warn" style="font-size:12.5px;margin-top:6px">${esc(ssMsg)}</div>` : ""}${oppTbl}</div>
+    ${mixTbl}
     <details class="ak-box ak-more" id="ss_set"${OPEN.has("ss_set") || (!SSD && !OPEN.has("-ss_set")) ? " open" : ""}><summary><b>${esc(t("ssSet"))}</b></summary>
       ${set("ss_K", "ssK", 1)}${set("ss_R", "ssR", 50000)}${set("ss_Rt", "ssRt", 50000)}${set("ss_G", "ssG", 100000)}${set("ss_per", "ssPer", 10000)}
       <div class="ak-f"><span>${esc(t("ssTu"))}</span>${tierSel('id="ss_tUs"', S.tUs)}</div>${mixBox("su", S.tUs, S.mUs)}
@@ -398,9 +405,9 @@ function ssCard() {
     <h4 style="margin:12px 0 4px">${esc(t("ssRes"))}</h4>
     <div class="ak-cols"><div><h4>${esc(t("cOnly"))}</h4>${ssResult(ssAnalyze(conf, them))}</div>
       <div><h4>${esc(t("cSubs"))}</h4>${subs.length ? ssResult(ssAnalyze(us, them)) : `<div class="muted">—</div>`}</div></div>
-    ${watch.length ? `<h4 style="margin:12px 0 4px">${esc(t("q3"))}</h4><div class="muted" style="font-size:12px">${esc(t("q3Note"))} ${esc(t("ssEst"))}</div>
-      <div class="ak-tw"><table class="ak-t"><thead><tr><th></th><th>${esc(t("nm"))}</th><th>${esc(t("colS"))}</th><th>${esc(t("pw"))}</th></tr></thead><tbody>
-      ${watch.map((x) => `<tr><td>${best && x.S && x.S >= best.S * 0.95 ? "⚠️" : ""}</td><td dir="auto">${esc(x.name)}${x.rank ? ` <span class="muted">${esc(x.rank)}</span>` : ""}</td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td></tr>`).join("")}</tbody></table></div>` : ""}
+    ${SSD ? `<h4 style="margin:12px 0 4px">${esc(t("q3"))}</h4>
+      ${marked.length ? `<div class="ak-tw"><table class="ak-t"><tbody>${marked.map((x) => `<tr><td>⚠️</td><td dir="auto">${esc(x.name)}${x.rank ? ` <span class="muted">${esc(x.rank)}</span>` : ""}</td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td></tr>`).join("")}</tbody></table></div>`
+        : `<div class="muted" style="font-size:12.5px">${esc(t("q3None"))}${sugg.length ? " " + esc(fill(t("q3Sugg"), { names: sugg.map((x) => x.name).join(", ") })) : ""}</div>`}` : ""}
     <div class="muted" style="font-size:12px;margin-top:10px">⚠️ ${esc(t("ssCav"))}</div>`;
 }
 
@@ -408,6 +415,7 @@ function render() {
   const root = $("ak_root"); if (!root) return;
   root.innerHTML = PLAN.mode === "ss" ? `${modeBar()}<div class="card" id="ak_ss">${ssCard()}</div>`
     : `${modeBar()}<div class="card" id="ak_plan">${planCard()}</div><div class="card" id="ak_board">${boardsCard()}</div>`;
+  const sc = $("pg-scout"); if (sc) sc.hidden = PLAN.mode !== "kvk";   // 🔭 Scout (other kingdoms) belongs to ⚔️ KvK only
   bind();
 }
 function bind() {
@@ -442,6 +450,8 @@ function bind() {
   [["ss_K", "K", 1, 10, 3], ["ss_R", "R", 0, 5e6, 1200000], ["ss_Rt", "Rt", 0, 5e6, 1200000], ["ss_G", "G", 0, 2e7, 1500000], ["ss_per", "per", 1000, 2e6, 150000]]
     .forEach(([id, k, lo, hi, d]) => on(id, (e) => { S[k] = num(e.target.value, lo, hi, d); re(); }));
   on("ss_tUs", (e) => { S.tUs = e.target.value; re(); }); on("ss_tThem", (e) => { S.tThem = e.target.value; re(); });
+  document.querySelectorAll("[data-w]").forEach((tr) => tr.onclick = () => { const k = wKey(); if (!k) return; const w = new Set(S.watch[k] || []), id = tr.dataset.w;
+    if (w.has(id)) w.delete(id); else w.add(id); S.watch[k] = [...w]; re(); });
   document.querySelectorAll("[data-sub]").forEach((tr) => tr.onclick = () => { const id = tr.dataset.sub, x = ourList().find((m) => m.id === id); if (!x) return; S.ov[id] = x.sub ? "c" : "s"; re(); });
 }
 async function loadSnap() {
