@@ -75,26 +75,34 @@ async function mpLoad(refresh) {
   mpBusy = false; if (mpMsg === "" || /…/.test(mpMsg)) mpMsg = ""; renderMove();
 }
 /* what MightPulse says vs 👥 Member positions: the member is found by roster ID first (names typed differently still match), then by name */
-/* members on 👥 positions whose name matches nobody on the roster (left the alliance) — only when the roster is loaded */
-function goneList() { if (!roster || !(roster.members || []).length) return []; const idx = rosterIndex(); return D.m.map((r, i) => idx[norm(r[0])] ? -1 : i).filter((i) => i >= 0); }
+/* who is on 👥 positions but not in the alliance any more: an entry with a player ID not on the roster; after a full 📍 look-up,
+   also any entry no MightPulse player matched (by ID, else by the exact name) */
+function goneList() {
+  if (!roster || !(roster.members || []).length) return [];
+  const ids = new Set(roster.members.map((m) => String(m.id))), df = mpDiff(), full = MP && MP.rows && MP.total && Object.keys(MP.rows).length >= MP.total;
+  return D.m.map((r, i) => (r[3] ? !ids.has(String(r[3])) : full && df && !df.hit.has(i)) ? i : -1).filter((i) => i >= 0);
+}
+/* what MightPulse says vs 👥 Member positions: matched by player ID first, then by the exact name (no guessing, so look-alike names
+   stay apart); the ID is then saved on the entry */
 function mpDiff() {
   if (!MP || !MP.rows) return null;
-  const idx = rosterIndex(), byId = {}, byName = {};
-  D.m.forEach(([n], i) => { const r = idx[norm(n)]; if (r && r.id != null && byId[r.id] == null) byId[r.id] = i; byName[norm(n)] = i; });
+  const byId = {}, byName = {};
+  D.m.forEach((r, i) => { if (r[3]) byId[String(r[3])] = i; else if (byName[norm(r[0])] == null) byName[norm(r[0])] = i; });
   const tgt = {}; ((MV.plan && MV.plan.c) || []).forEach(([n, x, y]) => { if (n) tgt[norm(n)] = [x, y]; });
-  const chg = [], old = [], now = Date.now();
+  const chg = [], old = [], stamp = [], hit = new Set(), now = Date.now();
   for (const r of Object.values(MP.rows)) {
     if (!r.ok || r.x == null || r.y == null) continue;
     if (r.alliance && !/^nxs$/i.test(r.alliance)) continue;   // left the alliance
     if (r.asOf && now - Date.parse(r.asOf) > 2 * 3600e3) old.push(r.name);
-    const i = byId[r.id] != null ? byId[r.id] : byName[norm(r.name)];
+    let i = byId[String(r.id)]; if (i == null) { i = byName[norm(r.name)]; if (i != null && !D.m[i][3]) stamp.push([i, String(r.id)]); else i = undefined; }
+    if (i != null) hit.add(i);
     const name = i != null ? D.m[i][0] : r.name, from = i != null ? [D.m[i][1], D.m[i][2]] : null;
     if (from && from[0] === r.x && from[1] === r.y) continue;
     const g = tgt[norm(name)];
-    chg.push({ i, name, from, to: [r.x, r.y], arr: !!(g && g[0] === r.x && g[1] === r.y) });
+    chg.push({ i, id: String(r.id), name, from, to: [r.x, r.y], arr: !!(g && g[0] === r.x && g[1] === r.y) });
   }
   chg.sort((a, b) => (b.arr - a.arr) || a.name.localeCompare(b.name));
-  return { chg, old };
+  return { chg, old, stamp, hit };
 }
 function mpCard() {
   const df = mpDiff(), canSave = ED();
@@ -117,8 +125,9 @@ function bindMp(el) {
   const gb = el.querySelector("#mp_gone"); if (gb) gb.onclick = () => mpApply();
 }
 async function mpApply() {
-    const df = mpDiff() || { chg: [] }, gi = new Set(goneList()); if ((!df.chg.length && !gi.size) || !ED()) return;
-    for (const c of df.chg) { if (c.i != null) { D.m[c.i][1] = c.to[0]; D.m[c.i][2] = c.to[1]; } else D.m.push([c.name, c.to[0], c.to[1]]); }
+    const df = mpDiff() || { chg: [] }, gi = new Set(goneList()); if ((!df.chg.length && !gi.size && !(df.stamp || []).length) || !ED()) return;
+    for (const [i, id] of df.stamp || []) D.m[i][3] = id;
+    for (const c of df.chg) { if (c.i != null) { D.m[c.i][1] = c.to[0]; D.m[c.i][2] = c.to[1]; D.m[c.i][3] = c.id; } else D.m.push([c.name, c.to[0], c.to[1], c.id]); }
     const n = df.chg.length + gi.size; D.m = D.m.filter((r, i) => !gi.has(i)); SEL = null;
     let by = ""; try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {}
     await save((by || "MightPulse") + " · 📍"); mpMsg = msg === t("saved") ? t("mpUsed").replace("{n}", n) : msg; renderMove();
@@ -138,9 +147,12 @@ let O = { dx: 0, sy: 0 };
 const P = (x, y) => [((x - y) - O.dx) * K, (O.sy - (x + y)) * K * R];
 const poly = (x, y, n) => [[x, y], [x + n, y], [x + n, y + n], [x, y + n]].map(([a, b]) => P(a, b).map((v) => v.toFixed(1)).join(",")).join(" ");
 
+/* 👥 entries are [name, x, y, player ID?]: once an entry has the ID (set by 📍 MightPulse), it belongs to that player, whatever the
+   name looks like — two members with almost the same name stay two people. Entries without an ID are matched by name. */
 function rosterIndex() {
-  const idx = {}; for (const m of (roster && roster.members) || []) idx[norm(m.name)] = m;
-  for (const [n] of (D && D.m) || []) if (!idx[norm(n)]) { const r = closest(n); if (r) idx[norm(n)] = r; }   // "Andre" → Andree
+  const idx = {}, byId = {}; for (const m of (roster && roster.members) || []) { idx[norm(m.name)] = m; byId[String(m.id)] = m; }
+  for (const r of (D && D.m) || []) if (r[3] && byId[String(r[3])]) idx[norm(r[0])] = byId[String(r[3])];
+  for (const [n, , , id] of (D && D.m) || []) if (!id && !idx[norm(n)]) { const r = closest(n); if (r) idx[norm(n)] = r; }   // "Andre" → Andree
   return idx;
 }
 /* the roster member a typed / pasted name most likely means: same letters ignoring case & symbols, one name inside
@@ -290,7 +302,7 @@ function info(k) {
   el.innerHTML = `<b dir="auto">${esc(n)}</b>${m && norm(m.name) !== norm(n) ? ` <span class="muted">(≈ ${esc(m.name)})</span>` : ""} · X:${x} Y:${y}${m && m.power ? ` · ${esc(t("pw"))} ${fmtPw(+m.power)}` : ""} <button class="btn small" id="mm_copy">${esc(t("copy"))}</button>`
     + (ED() ? `<div class="mm-ed" style="margin-top:6px"><input class="inp" id="mm_en" value="${esc(n)}" style="width:150px"> X <input class="inp" id="mm_ex" type="number" value="${x}"> Y <input class="inp" id="mm_ey" type="number" value="${y}"> <button class="btn small" id="mm_eok">${esc(t("edit"))}</button> <button class="btn small" id="mm_edel">${esc(t("del"))}</button></div>` : "");
   $("mm_copy").onclick = async () => { try { await navigator.clipboard.writeText(`X:${x} Y:${y}`); $("mm_copy").textContent = t("copied"); } catch (e) {} };
-  if ($("mm_eok")) $("mm_eok").onclick = () => { D.m[SEL] = [$("mm_en").value.trim() || n, +$("mm_ex").value, +$("mm_ey").value]; msg = t("unsaved"); render(); };
+  if ($("mm_eok")) $("mm_eok").onclick = () => { D.m[SEL] = [$("mm_en").value.trim() || n, +$("mm_ex").value, +$("mm_ey").value].concat(D.m[SEL][3] ? [D.m[SEL][3]] : []); msg = t("unsaved"); render(); };
   if ($("mm_edel")) $("mm_edel").onclick = () => { D.m.splice(SEL, 1); SEL = null; msg = t("unsaved"); render(); };
 }
 /* "Name X Y", "Name X:401 Y:662", "Name 401,662" … the last two numbers are the coordinates */
@@ -311,7 +323,7 @@ function applyPaste(replace) {
   for (const [n, x, y] of out) {
     const bt = n.match(/^BT\s*([12])$/i); if (bt) { D.bt[+bt[1] - 1] = [x, y]; continue; }
     const j = D.m.findIndex(([m]) => norm(m) === norm(n));   // names are kept exactly as typed (members missing from the roster too)
-    if (j >= 0) { D.m[j] = [n, x, y]; mv++; } else { D.m.push([n, x, y]); a++; }
+    if (j >= 0) { D.m[j] = [n, x, y].concat(D.m[j][3] ? [D.m[j][3]] : []); mv++; } else { D.m.push([n, x, y]); a++; }
   }
   msg = (bad.length ? t("bad").replace("{l}", bad.slice(0, 3).join(" / ")) + " " : "") + t("added").replace("{a}", a).replace("{m}", mv) + " " + t("unsaved");
   if (!bad.length) { pasteOpen = false; }
