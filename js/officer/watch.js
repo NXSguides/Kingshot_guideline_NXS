@@ -351,7 +351,7 @@ $("csvBtn").onclick = () => {
   const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
   a.download = `nxs-watch-${new Date().toISOString().slice(0, 10)}.csv`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 };
-function setLang(l) { lang = l; store.lang = lang; save(); applyTexts(); if (watch) { build(); render(); } };
+function setLang(l) { lang = l; store.lang = lang; save(); applyTexts(); if (watch) { build(); render(); rosterNowBox(); } };
 $("wa_q").oninput = () => render();
 $("onlyFlag").onchange = () => render();
 $("newDays").value = newDays;
@@ -382,7 +382,13 @@ async function init() {
   } catch (e) {}
   if (!roster || !watch) { $("wa_noData").hidden = false; $("wa_noData").textContent = tr("noData"); return; }
   $("wa_app").hidden = false;
-  applyTexts(); build(); render();
+  applyTexts(); build(); render(); rosterNowBox();
+}
+/* 🔄 Update roster now (shared with 🚚 Move — js/officer/core.js): the new roster and watch history come in by themselves */
+function rosterNowBox() {
+  const box = $("wa_rn"); if (!box) return;
+  box.innerHTML = OFFICER.rosterNow.html("wa_rnb");
+  OFFICER.rosterNow.bind($("wa_rnb"), () => roster && roster.updated, async (r) => { roster = r; try { watch = (await OfficerData.fetchJson("data/watch-x7k2p9.json")) || watch; } catch (e) {} build(); render(); });
 }
 
 OFFICER_PAGES.watch = { init, applyTexts, setLang };

@@ -1,6 +1,9 @@
 name: Update Roster (MightPulse)
 on:
   workflow_dispatch:
+  push:   # 🔄 Update roster now (officer page: 🕵️ Watch / 🚚 Move) writes this file
+    paths: ["data/roster-request.json"]
+    branches: [main]
   schedule:
     - cron: "13 20 * * *"   # every day 20:13 UTC = 04:13 Taiwan time
 

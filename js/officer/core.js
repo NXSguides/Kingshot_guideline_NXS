@@ -88,6 +88,48 @@ OFFICER.util = {
    loadPerms/savePerms talk to the Worker and nothing else here changes.
    Rights per tab: "edit" | "view" | "none". Admins (ADMINS) always have everything and are the only ones who see 👥.
    Someone who unlocked with the password only (no Discord) is not in the table → everything, as before. */
+/* 🔄 Update roster now — ONE request shared by 🕵️ Watch and 🚚 Move (both read data/roster-x7k2p9.json): the button writes
+   data/roster-request.json, which starts the same GitHub job as the daily roster update (.github/workflows/update-roster.yml).
+   Every open page with the button waits for the new roster file and hands it to the page (onNew). */
+const RN_T = {"en": {"btn": "🔄 Update roster now", "tip": "Fetches every member from MightPulse again (power, Mystic Trial, castle X:Y…) — the same job as the daily update at 20:13 UTC. Takes about 5 minutes; the page updates by itself.", "req": "⏳ Requested {t} — about 5 minutes; the page updates by itself.", "done": "✅ Roster updated {t}", "recent": "The roster was updated {m} min ago — wait a little before asking again.", "at": "Roster: {t}", "noKey": "Needs the officers' GitHub key (ask Sherry).", "err": "Couldn't send the request — try again."}, "zh": {"btn": "🔄 立即更新名單", "tip": "重新從 MightPulse 抓全部成員（戰力、神秘試煉、城堡座標⋯）——跟每天 20:13 UTC 的自動更新是同一個工作。大約 5 分鐘，頁面會自己更新。", "req": "⏳ 已在 {t} 送出更新，大約 5 分鐘，頁面會自己更新。", "done": "✅ 名單已更新 {t}", "recent": "名單 {m} 分鐘前才更新過，等一下再按。", "at": "名單：{t}", "noKey": "需要幹部的 GitHub 金鑰（問 Sherry）。", "err": "送不出去，再試一次。"}, "pt": {"btn": "🔄 Atualizar o roster agora", "tip": "Busca todos os membros de novo no MightPulse (poder, Mystic Trial, X:Y do castelo…) — o mesmo trabalho da atualização diária às 20:13 UTC. Leva uns 5 minutos; a página se atualiza sozinha.", "req": "⏳ Pedido em {t} — uns 5 minutos; a página se atualiza sozinha.", "done": "✅ Roster atualizado {t}", "recent": "O roster foi atualizado há {m} min — espere um pouco antes de pedir de novo.", "at": "Roster: {t}", "noKey": "Precisa da chave do GitHub dos oficiais (fale com a Sherry).", "err": "Não deu para enviar o pedido — tente de novo."}, "ar": {"btn": "🔄 حدّث القائمة الآن", "tip": "يجلب كل الأعضاء من MightPulse من جديد (القوة، Mystic Trial، إحداثيات القلعة…) — نفس عمل التحديث اليومي 20:13 UTC. يستغرق نحو 5 دقائق وتتحدث الصفحة وحدها.", "req": "⏳ طُلب في {t} — نحو 5 دقائق، وتتحدث الصفحة وحدها.", "done": "✅ حُدّثت القائمة {t}", "recent": "حُدّثت القائمة قبل {m} دقيقة — انتظر قليلًا قبل الطلب مرة أخرى.", "at": "القائمة: {t}", "noKey": "يحتاج مفتاح GitHub الخاص بالضباط (اسأل Sherry).", "err": "تعذّر إرسال الطلب — حاول مرة أخرى."}, "ko": {"btn": "🔄 명단 지금 업데이트", "tip": "MightPulse에서 연맹원 전체를 다시 가져와요 (전투력, 신비한 시련, 성 X:Y…) — 매일 20:13 UTC 자동 업데이트와 같은 작업이에요. 약 5분 걸리고 페이지가 저절로 바뀌어요.", "req": "⏳ {t}에 요청함 — 약 5분, 페이지가 저절로 바뀌어요.", "done": "✅ 명단 업데이트됨 {t}", "recent": "명단이 {m}분 전에 업데이트됐어요 — 조금 기다렸다가 다시 요청하세요.", "at": "명단: {t}", "noKey": "간부 GitHub 키가 필요해요 (Sherry에게 물어보세요).", "err": "요청을 보내지 못했어요 — 다시 해 보세요."}};
+OFFICER.rosterNow = (() => {
+  const REQ = "data/roster-request.json", tr = (k, v = {}) => Object.entries(v).reduce((s, [a, b]) => s.replace("{" + a + "}", b), (RN_T[OFFICER.lang] || RN_T.en)[k] || RN_T.en[k]);
+  const fmt = (iso) => { const d = new Date(iso); return isNaN(d) ? "" : d.toLocaleString(undefined, { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false }); };
+  let pending = 0, waiters = [], polling = false, last = "";
+  async function poll() {
+    if (polling) return; polling = true;
+    for (let i = 0; i < 24 && pending; i++) {   // up to 12 minutes
+      await new Promise((r) => setTimeout(r, 30000));
+      let r = null; try { r = await OfficerData.fetchJson("data/roster-x7k2p9.json"); } catch (e) {}
+      if (r && Date.parse(r.updated) > pending) { pending = 0; last = r.updated; waiters.forEach((w) => w.done(r)); }
+    }
+    pending = 0; polling = false; waiters.forEach((w) => w.paint());
+  }
+  async function ask(updated) {
+    if (!OFFICER.token) return tr("noKey");
+    const m = (Date.now() - Date.parse(updated || 0)) / 60000; if (m < 10) return tr("recent", { m: Math.max(0, Math.round(m)) });
+    try {
+      const f = await OFFICER.gh("GET", REQ);
+      let prev = null; try { prev = f ? JSON.parse(decodeURIComponent(escape(atob(f.content.replace(/\s/g, ""))))) : null; } catch (e) {}
+      if (prev && Date.now() - Date.parse(prev.at) < 10 * 60000) { pending = Date.parse(prev.at); poll(); return ""; }
+      const at = new Date().toISOString();
+      await OFFICER.gh("PUT", REQ, { message: "Roster update requested", content: btoa(JSON.stringify({ at }) + "\n"), sha: f ? f.sha : undefined, branch: OFFICER.repo.branch });
+      pending = Date.parse(at); poll(); return "";
+    } catch (e) { return tr("err"); }
+  }
+  /* html(): the button + status line; bind(root, () => roster.updated, onNew(newRoster)) */
+  const html = (id) => `<span class="rn" id="${id}"><button type="button" class="btn small rn-btn" title="${tr("tip").replace(/"/g, "&quot;")}">${tr("btn")}</button> <span class="muted rn-msg" style="font-size:12.5px"></span></span>`;
+  function bind(root, getUpdated, onNew) {
+    if (!root) return;
+    const b = root.querySelector(".rn-btn"), msg = root.querySelector(".rn-msg");
+    const w = { root, paint: (txt) => { if (!root.isConnected) return; b.disabled = !!pending; msg.textContent = txt != null && txt !== "" ? txt : pending ? tr("req", { t: fmt(pending) }) : last ? tr("done", { t: fmt(last) }) : getUpdated() ? tr("at", { t: fmt(getUpdated()) }) : ""; },
+      done: (r) => { try { onNew(r); } catch (e) {} w.paint(); } };
+    waiters = waiters.filter((x) => x.root.isConnected && x.root !== root); waiters.push(w);
+    b.onclick = async () => { b.disabled = true; const t = await ask(getUpdated()); w.paint(t); waiters.forEach((x) => x !== w && x.paint()); };
+    w.paint();
+  }
+  return { html, bind };
+})();
 OFFICER.OWNER = "1547403844374368327";   // Sparrow: always admin, can't be demoted or removed (so nobody can lock everyone out)
 OFFICER.ADMINS = [];                       // filled from the table (admin: true) by loadPerms
 OFFICER.PERMS_TRIAL = false;   // 2026-10-16: the login system is live — the 👥 table decides   // the 👥 table is kept and editable, but not enforced yet (set false when the login system goes live)

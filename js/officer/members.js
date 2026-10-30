@@ -39,6 +39,7 @@ for (const [l, o] of Object.entries({"en": {"mpT": "📍 Positions from MightPul
 for (const [l, o] of Object.entries({"en": {"goNow": "📍 Our HQ now", "goNew": "🧭 New HQ", "far": "Far from our HQ (not drawn on the map):"}, "zh": {"goNow": "📍 我們的總部", "goNew": "🧭 新總部", "far": "離我們總部很遠（地圖上沒畫）："}, "pt": {"goNow": "📍 Nosso QG agora", "goNew": "🧭 QG novo", "far": "Longe do nosso QG (fora do mapa):"}, "ar": {"goNow": "📍 مقرنا الآن", "goNew": "🧭 المقر الجديد", "far": "بعيد عن مقرنا (غير مرسوم على الخريطة):"}, "ko": {"goNow": "📍 지금 우리 본부", "goNew": "🧭 새 본부", "far": "우리 본부에서 멀리 있음 (지도에 안 그림):"}})) Object.assign(T[l], o);
 for (const [l, o] of Object.entries({"en": {"mpGone": "Not in the alliance any more (not on the roster) — removed from 👥 Member positions when you press ✅:", "mpGoneBtn": "✅ Remove them"}, "zh": {"mpGone": "已經不在聯盟（名單上沒有）——按 ✅ 會從 👥 成員位置移除：", "mpGoneBtn": "✅ 移除他們"}, "pt": {"mpGone": "Não está mais na aliança (fora do roster) — sai de 👥 Posições dos membros ao apertar ✅:", "mpGoneBtn": "✅ Remover"}, "ar": {"mpGone": "لم يعد في التحالف (ليس في القائمة) — يُزال من 👥 مواقع الأعضاء عند الضغط على ✅:", "mpGoneBtn": "✅ إزالتهم"}, "ko": {"mpGone": "이제 연맹에 없음 (명단에 없음) — ✅를 누르면 👥 연맹원 위치에서 빠져요:", "mpGoneBtn": "✅ 빼기"}})) Object.assign(T[l], o);
 for (const [l, o] of Object.entries({"en": {"mpFail": "⚠️ {n} players couldn't be looked up this time (MightPulse busy) — they are left as they are. Press ↻ Get positions again in a few minutes."}, "zh": {"mpFail": "⚠️ 這次有 {n} 個人沒查到（MightPulse 忙不過來），他們的座標先不動。過幾分鐘再按一次 ↻ 取得座標。"}, "pt": {"mpFail": "⚠️ {n} jogadores não puderam ser consultados agora (MightPulse ocupado) — ficam como estão. Aperte ↻ Buscar posições de novo em alguns minutos."}, "ar": {"mpFail": "⚠️ تعذّر البحث عن {n} لاعبًا هذه المرة (MightPulse مشغول) — تبقى مواقعهم كما هي. اضغط ↻ جلب المواقع مرة أخرى بعد دقائق."}, "ko": {"mpFail": "⚠️ 이번에 {n}명은 조회하지 못했어요 (MightPulse가 바쁨) — 그대로 둬요. 몇 분 뒤 ↻ 위치 가져오기를 다시 누르세요."}})) Object.assign(T[l], o);
+for (const [l, o] of Object.entries({"en": {"mpT": "📍 Positions from the roster", "mpHow": "Every member's castle X:Y comes with the roster (MightPulse, every day at 20:13 UTC). MightPulse only knows new positions after someone presses “Update Map” on its map. After members move: ① open the MightPulse map and press Update Map ② 🔄 Update roster now (about 5 minutes — the same button as on 🕵️ Watch) ③ check the changes ④ ✅ Use these positions (it saves 👥 Member positions).", "mpFail": "⚠️ {n} members have no position on MightPulse — they are left as they are.", "mpStep": "When they have moved: press Update Map on MightPulse, then 🔄 Update roster now (📍 card above).", "mpLast": "📍 Roster {t}"}, "zh": {"mpT": "📍 從名單更新座標", "mpHow": "每個人的城堡座標都在名單裡（MightPulse，每天 20:13 UTC 自動更新）。MightPulse 要有人在它的地圖按「Update Map」才會知道新座標。成員搬完之後：① 打開 MightPulse 地圖按 Update Map ② 按 🔄 立即更新名單（大約 5 分鐘，跟 🕵️ 觀察頁是同一個按鈕）③ 確認變動 ④ 按 ✅ 套用這些座標（會存進 👥 成員位置）。", "mpFail": "⚠️ 有 {n} 個人在 MightPulse 上沒有座標，先不動。", "mpStep": "搬完之後：去 MightPulse 按 Update Map，再按 🔄 立即更新名單（上面的 📍 卡片）。", "mpLast": "📍 名單 {t}"}, "pt": {"mpT": "📍 Posições do roster", "mpHow": "O X:Y do castelo de cada membro vem com o roster (MightPulse, todo dia às 20:13 UTC). O MightPulse só sabe as posições novas depois que alguém aperta “Update Map” no mapa dele. Depois que os membros mudarem: ① abra o mapa do MightPulse e aperte Update Map ② 🔄 Atualizar o roster agora (uns 5 minutos — o mesmo botão do 🕵️ Vigilância) ③ confira as mudanças ④ ✅ Usar estas posições (salva 👥 Posições dos membros).", "mpFail": "⚠️ {n} membros não têm posição no MightPulse — ficam como estão.", "mpStep": "Depois que mudarem: aperte Update Map no MightPulse e depois 🔄 Atualizar o roster agora (cartão 📍 acima).", "mpLast": "📍 Roster {t}"}, "ar": {"mpT": "📍 المواقع من القائمة", "mpHow": "إحداثيات قلعة كل عضو تأتي مع القائمة (MightPulse، كل يوم 20:13 UTC). لا يعرف MightPulse المواقع الجديدة إلا بعد أن يضغط أحد “Update Map” على خريطته. بعد انتقال الأعضاء: ① افتح خريطة MightPulse واضغط Update Map ② 🔄 حدّث القائمة الآن (نحو 5 دقائق — نفس زر 🕵️ المراقبة) ③ راجع التغييرات ④ ✅ استخدم هذه المواقع (تُحفظ في 👥 مواقع الأعضاء).", "mpFail": "⚠️ {n} أعضاء بلا موقع في MightPulse — تبقى كما هي.", "mpStep": "بعد انتقالهم: اضغط Update Map في MightPulse ثم 🔄 حدّث القائمة الآن (بطاقة 📍 أعلاه).", "mpLast": "📍 القائمة {t}"}, "ko": {"mpT": "📍 명단에서 위치 가져오기", "mpHow": "연맹원마다 성 X:Y가 명단에 들어 있어요 (MightPulse, 매일 20:13 UTC). MightPulse는 누군가 지도에서 “Update Map”을 눌러야 새 위치를 알아요. 연맹원이 이사한 뒤: ① MightPulse 지도를 열고 Update Map 누르기 ② 🔄 명단 지금 업데이트 (약 5분 — 🕵️ 관찰 탭과 같은 버튼) ③ 변경 확인 ④ ✅ 이 위치 사용 (👥 연맹원 위치에 저장돼요).", "mpFail": "⚠️ {n}명은 MightPulse에 위치가 없어요 — 그대로 둬요.", "mpStep": "이사한 뒤: MightPulse에서 Update Map을 누르고 🔄 명단 지금 업데이트 (위의 📍 카드).", "mpLast": "📍 명단 {t}"}})) Object.assign(T[l], o);
 let SPOT = null;   // 🧭 the planned spot tapped on the map (index in MV.plan.c), to put a member there
 let lang = "en", G = null, D = null, SAVED = "", SEL = null, msg = "", roster = null, banners = [], pasteOpen = false, onlyLeft = false;
 /* 🚚 moving plan — its own officer tab (#move), admins only unless the 👥 table gives it; saved apart from the positions */
@@ -50,32 +51,14 @@ const mvSnap = () => JSON.stringify({ plan: MV.plan, done: MV.done, st: MV.st ||
 /* 📍 positions from MightPulse (🚚 Move tab): the roster's players looked up on MightPulse through the Worker (only when ↻ is pressed,
    because MightPulse changes positions only after someone presses "Update Map" on its map). The page compares them with
    👥 Member positions; ✅ Use these positions writes the changes there (Map edit right), so the moving table and the steps tick themselves. */
-const AI_URL = "https://nxs-ai.tapegirljoke.workers.dev";
-let MP = null, mpMsg = "", mpBusy = false;
+let mpMsg = "";
 const fmtT = (iso) => { const d = new Date(iso); if (isNaN(d)) return ""; const p = (n) => String(n).padStart(2, "0");
   const loc = d.toLocaleString(undefined, { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false });
   return `${p(d.getUTCMonth() + 1)}-${p(d.getUTCDate())} ${p(d.getUTCHours())}:${p(d.getUTCMinutes())} UTC (${loc})`; };
-async function mpCall(extra) {
-  let tk = ""; try { tk = localStorage.getItem("nxs-discord-v1") || ""; } catch (e) {} if (!tk) return null;
-  const r = await fetch(AI_URL, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(Object.assign({ memberpos: 1, token: tk }, extra)) });
-  const j = await r.json(); if (j && j.token) { try { localStorage.setItem("nxs-discord-v1", j.token); } catch (e) {} }
-  return j;
-}
-async function mpLoad(refresh) {
-  if (mpBusy) return; mpBusy = refresh; mpMsg = "";
-  try {
-    if (!refresh) { const j = await mpCall({}); if (j && j.pos) MP = j.pos; }
-    else for (let part = 0; part < 10; part++) {
-      const j = await mpCall({ refresh: 1, part }); if (!j || !j.ok) { mpMsg = t("mpErr"); break; }
-      if (j.pos) MP = j.pos;
-      if (j.wait) { mpMsg = t("mpWait"); break; } if (j.quota) { mpMsg = t("mpQuota"); break; }
-      if (!j.more) break;
-      mpMsg = t("mpBusy").replace("{d}", (part + 1) * 20).replace("{n}", (MP && MP.total) || "?"); renderMove();
-    }
-  } catch (e) { mpMsg = t("mpErr"); }
-  mpBusy = false; if (mpMsg === "" || /…/.test(mpMsg)) mpMsg = ""; renderMove();
-}
-/* what MightPulse says vs 👥 Member positions: the member is found by roster ID first (names typed differently still match), then by name */
+/* the castle X:Y of every member comes from the roster (data/roster-x7k2p9.json — MightPulse, every day at 20:13 UTC, or right away
+   with 🔄 Update roster now, the same button as on 🕵️ Watch) */
+const MPv = () => roster && roster.members ? { fetched: roster.updated, total: roster.members.length,
+  rows: Object.fromEntries(roster.members.map((m) => [String(m.id), { id: String(m.id), name: m.name, x: m.x, y: m.y, ok: m.x != null && m.y != null, alliance: m.allianceNow, asOf: m.asOf }])) } : null;
 /* who is on 👥 positions but not in the alliance any more — decided by the roster only (the full member list, refreshed daily),
    never by a MightPulse look-up that failed: an entry with a player ID not on the roster, or without an ID and no roster name fits */
 function goneList() {
@@ -94,7 +77,7 @@ function entryIds() {
 }
 /* what MightPulse says vs 👥 Member positions, matched by player ID (see entryIds); the ID is saved on the entry with ✅ */
 function mpDiff() {
-  if (!MP || !MP.rows) return null;
+  const MP = MPv(); if (!MP) return null;
   const eid = entryIds(), byId = {}; eid.forEach((id, i) => { if (id) byId[id] = i; });
   const tgt = {}; ((MV.plan && MV.plan.c) || []).forEach(([n, x, y]) => { if (n) tgt[norm(n)] = [x, y]; });
   const chg = [], old = [], fail = [], now = Date.now();
@@ -102,7 +85,6 @@ function mpDiff() {
   for (const r of Object.values(MP.rows)) {
     if (!r.ok || r.x == null || r.y == null) { fail.push(r.name); continue; }
     if (r.alliance && !/^nxs$/i.test(r.alliance)) continue;   // left the alliance
-    if (r.asOf && now - Date.parse(r.asOf) > 2 * 3600e3) old.push(r.name);
     const i = byId[String(r.id)];
     const name = i != null ? D.m[i][0] : r.name, from = i != null ? [D.m[i][1], D.m[i][2]] : null;
     if (from && from[0] === r.x && from[1] === r.y) continue;
@@ -124,11 +106,10 @@ function mpCard() {
   return `<div class="mm-add" id="mp_card" style="margin-bottom:12px"><b>${esc(t("mpT"))}</b>
     <div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("mpHow"))}</div>
     <div class="row" style="gap:6px;flex-wrap:wrap;align-items:center"><a class="btn small" href="https://mightpulse.com/map?kid=2189" target="_blank" rel="noopener">${esc(t("mpMap"))}</a>
-    <button type="button" class="btn small" id="mp_get"${mpBusy ? " disabled" : ""}>${esc(t("mpGet"))}</button>
-    <span class="muted" style="font-size:12.5px">${esc(mpMsg || (MP && MP.fetched ? t("mpAt").replace("{t}", fmtT(MP.fetched)) : t("mpNever")))}</span></div>${fl}${old}${list}${gone}</div>`;
+    ${OFFICER.rosterNow.html("mp_rn")}${mpMsg ? ` <span class="muted" style="font-size:12.5px">${esc(mpMsg)}</span>` : ""}</div>${fl}${old}${list}${gone}</div>`;
 }
 function bindMp(el) {
-  const g = el.querySelector("#mp_get"); if (g) g.onclick = () => mpLoad(true);
+  OFFICER.rosterNow.bind(el.querySelector("#mp_rn"), () => roster && roster.updated, (r) => { roster = r; mpMsg = ""; render(); renderMove(); });
   const u = el.querySelector("#mp_use"); if (u) u.onclick = async () => {
     await mpApply(); };
   const gb = el.querySelector("#mp_gone"); if (gb) gb.onclick = () => mpApply();
@@ -482,7 +463,7 @@ async function init(map) {
   if (!window.KM_SHARED) { try { banners = ((await fetch("data/banners-2189.json?v=20").then((r) => r.json())).b || []).map(([x, y]) => [x, y]); } catch (e) {} }
   await load(); render();
   if (OFFICER.can("move", "view") && !MV.plan) { try { await loadMove(); mapSync(); } catch (e) {} }
-  try { roster = await OfficerData.fetchJsonFast("data/roster-x7k2p9.json", (r) => { roster = r; render(); }); } catch (e) {}
+  try { roster = await OfficerData.fetchJsonFast("data/roster-x7k2p9.json", (r) => { roster = r; render(); if ($("mv_root") && $("mv_root").innerHTML) renderMove(); }); } catch (e) {}
   render();
 }
 /* 🧭 the move step by step, read from the blueprint labels: ✅ comes by itself when the map already shows it
@@ -518,7 +499,7 @@ function steps() {
   if (pt.length) phases.push({ h: t("stBt"), body: pt.map(([x, y], i) => `<button type="button" class="btn small mv-chip${btD[i] ? " ok" : ""}" data-bt="${i}"${btD[i] === 2 || !ed ? " disabled" : ""}>${ico(btD[i])} BT${i + 1} ${x},${y}</button>`).join(" "), ok: btD.every(Boolean) });
   if (rest.length) phases.push({ h: t("stOther"), body: rest.map(chip).join(" "), ok: all(rest) });
   const cur = phases.findIndex((p) => !p.ok);
-  if (cur >= 0 && phases[cur].mv) phases[cur].body += `<div class="muted" style="font-size:12.5px;margin-top:4px">📍 ${esc(t("mpStep"))}${MP && MP.fetched ? " · " + esc(t("mpLast").replace("{t}", fmtT(MP.fetched))) : ""}</div>`;
+  if (cur >= 0 && phases[cur].mv) phases[cur].body += `<div class="muted" style="font-size:12.5px;margin-top:4px">📍 ${esc(t("mpStep"))}${roster && roster.updated ? " · " + esc(t("mpLast").replace("{t}", fmtT(roster.updated))) : ""}</div>`;
   /* banner budget: what stands now + blueprint banners not built yet, against the alliance limit */
   const left = pb.filter((b) => !bState(b)).length, now = own.size, tot = now + left;
   return `<h4 style="margin:4px 0 2px">${esc(t("stT"))}</h4><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(t("tapTick"))}</div>`
@@ -602,7 +583,7 @@ async function initMove() {
   if (!(window.OfficerData && OfficerData.ready && OfficerData.ready())) { el.innerHTML = `<div class="muted">${esc(t("locked"))}</div>`; return; }
   if (OFFICER.ensure) await OFFICER.ensure("map");
   for (let i = 0; i < 50 && !D; i++) await new Promise((r) => setTimeout(r, 100));
-  await loadMove(); render(); renderMove(); mapSync(); mpLoad(false);
+  await loadMove(); render(); renderMove(); mapSync();
   if (window.HivePlanner) HivePlanner.init();   // 📐 auto plan from a Mapper layout
 }
 /* 📘 hive rules (from public guides + what officers checked in game), shown above the move table */
