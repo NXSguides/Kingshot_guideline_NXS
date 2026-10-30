@@ -29,7 +29,7 @@ async function get(path) {
 const iso = (t) => t == null ? null : new Date(t < 1e12 ? t * 1000 : t).toISOString();
 const player = (b, src) => ({ src, captured_at: iso(b.cached_at) || new Date().toISOString(), player: b.player || null, ranks: b.ranks || null, heroes: b.heroes || null });
 
-(async () => {
+(async () => { try {
   if (!KEY) { console.log("❌ MIGHTPULSE_API_KEY not found"); process.exit(1); }
   const date = new Date().toISOString().slice(0, 10), file = `data/mp-history/${date}-x7k2p9.json`;
   let cfg = {}; try { cfg = JSON.parse(fs.readFileSync("data/scout-config.json", "utf8")); } catch (e) {}
@@ -62,5 +62,6 @@ const player = (b, src) => ({ src, captured_at: iso(b.cached_at) || new Date().t
   }
   fs.mkdirSync("data/mp-history", { recursive: true });
   writeData(file, snap);
-  console.log(`✅ ${file}: ${Object.keys(snap.kingdoms).length} kingdoms, ${Object.keys(snap.boards).length} boards, ${Object.keys(snap.players).length} players (${ok} fetched now), ${calls} calls`);
+  console.log(`::notice title=mp-history::✅ ${file}: ${Object.keys(snap.kingdoms).length} kingdoms, ${Object.keys(snap.boards).length} boards, ${Object.keys(snap.players).length} players (${ok} fetched now), ${calls} calls`);
+  } catch (e) { console.log(`::error title=mp-history::${String(e && e.stack || e).split("\n").slice(0, 3).join(" | ")}`); process.exit(1); }
 })();
