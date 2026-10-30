@@ -1311,7 +1311,7 @@ async function planRecover() {
   const showPlans = () => { olist.innerHTML = `<button type="button" class="btn small" data-oback="1">${esc(rc("back"))}</button> <b>${esc(fmtT(ocommit.at))}</b>` + Object.entries(oplans).map(([id, p]) => {
     const tbRows = p && p.tb && Array.isArray(p.tb.groups) ? p.tb.groups.reduce((n, g) => n + ((g && g.rows) || []).length, 0) : 0;
     return `<div class="row" style="justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--rule)"><div><b dir="auto">${esc((p && p.name) || id)}</b>
-      <div class="muted" style="font-size:12.5px">${esc(rc("ppl", { n: ((p && p.picked) || []).length }))} · ${esc(rc("rep", { n: Object.keys((p && p.rep) || {}).length }))} · ${esc(rc("tb", { n: tbRows }))}</div></div>
+      <div class="muted" style="font-size:12.5px">${esc(rc("ppl", { n: ((p && p.picked) || []).length }))} · ${esc(rc("rep", { n: Object.keys((p && p.rep) || {}).length }))} · ${esc(rc("tb", { n: tbRows }))}${p && (p.by || p.at) ? ` · ✍️ ${esc(p.by || "?")}${p.at ? " " + esc(fmtT(p.at)) : ""}` : ""}</div></div>
       <button type="button" class="btn small" data-oimp="${esc(id)}">${esc(rc("imp"))}</button></div>`; }).join(""); };
   oldBox.onclick = async (e) => {
     const el = e.target.closest("[data-oold],[data-omore],[data-oc],[data-oback],[data-oimp]"); if (!el) return; e.stopPropagation();
