@@ -26,7 +26,7 @@ async function get(path) {
   }
   return { status: 0, body: null };
 }
-const iso = (t) => t == null ? null : new Date(t < 1e12 ? t * 1000 : t).toISOString();
+const iso = (t) => { if (t == null || t === "") return null; const n = typeof t === "number" ? (t < 1e12 ? t * 1000 : t) : Date.parse(t); return isNaN(n) ? null : new Date(n).toISOString(); };
 const player = (b, src) => ({ src, captured_at: iso(b.cached_at) || new Date().toISOString(), player: b.player || null, ranks: b.ranks || null, heroes: b.heroes || null });
 
 (async () => { try {
@@ -47,7 +47,7 @@ const player = (b, src) => ({ src, captured_at: iso(b.cached_at) || new Date().t
   }
   // NXS members: the roster job already fetched base, ranks and heroes today — copy them
   let roster = null; try { roster = readData("data/roster-x7k2p9.json"); } catch (e) { console.log("roster not readable: " + e.message); }
-  for (const m of (roster && roster.members) || []) if (m.raw) snap.players[String(m.id)] = { src: "roster", captured_at: m.asOf ? iso(Date.parse(m.asOf)) : roster.updated, player: m.raw.player || null, ranks: m.raw.ranks || null, heroes: m.raw.heroes || null };
+  for (const m of (roster && roster.members) || []) if (m.raw) snap.players[String(m.id)] = { src: "roster", captured_at: iso(m.asOf) || roster.updated, player: m.raw.player || null, ranks: m.raw.ranks || null, heroes: m.raw.heroes || null };
   // extra players + the other kingdoms' top players on the combat boards
   const want = new Set([...EXTRA, ...String(process.env.EXTRA_IDS || "").split(/[\s,]+/).filter((x) => /^\d+$/.test(x))]);
   for (const kid of kids) if (kid !== OUR) {
