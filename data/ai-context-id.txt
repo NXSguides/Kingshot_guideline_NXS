@@ -654,6 +654,26 @@ Jaeger — Gen 3, Pemanah, SSR, Tempur
   Lewati kecuali kamu fokus ke PvP / pertahanan garnisun.
 
 ### GUIDE #kvk — Panduan Persiapan & Pertempuran KvK
+🗓️ Linimasa KvK
+2 hari
+Fase Pencocokan
+Kerajaan dipasangkan menurut kekuatan 100 pemain aktif teratasnya, dan hanya dengan kerajaan generasi hero yang sama.
+Tidak dapat lawan = hadiah bye.
+KvK datang setiap 28 hari (minggu terakhir siklus); kerajaan harus sudah buka 70 hari atau lebih.
+5 hari
+Fase Persiapan
+Kumpulkan poin setiap hari. Peti pribadi di 30.000 / 100.000 / 200.000 poin.
+Hari 1 Konstruksi · Hari 2 Riset · Hari 3 Latihan Peliharaan · Hari 4 Pasukan · Hari 5 Habis-habisan, sampai Sabtu 10:00 UTC. Apa yang dipakai di hari apa: tabel di bawah.
+Kerajaan dengan poin lebih banyak mendapat Bonus Kerajaan dan menjadi penyerang.
+Sabtu
+Fase Pertempuran
+10:00–22:00 UTC. Teleportasi dibuka 10:00 UTC; bertahan sampai 12:00 UTC.
+Pertempuran Kastil Raja 12:00–17:00 UTC: tahan Kastil Raja selama 2,5 jam untuk menang.
+Simpan percepatan penyembuhan untuk hari ini: sembuhkan bertahap dulu, pakai percepatan hanya saat Rumah Sakit hampir penuh.
+Setelah pertempuran
+Fase Triase Lapangan
+30% pasukan yang hilang kembali; sampai 90% dengan Tas Medis dan Perintah Penyelamatan.
+Kerugian di Kastil Raja masuk ke Kantor Pendaftaran.
 kvk-push
 📢 9 Nov: Rencana dorong TG3 ➡️ TG5 (hanya untuk KvK berikutnya) — lompat ke sini
 Truegold

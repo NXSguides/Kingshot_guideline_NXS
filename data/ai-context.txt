@@ -654,6 +654,26 @@ Jaeger — Gen 3, Archer, SSR, Combat
   Skip unless you focus on PvP / garrison defense.
 
 ### GUIDE #kvk — KvK Prep & Battle Guide
+🗓️ KvK timeline
+2 days
+Matchmaking Phase
+Kingdoms are matched by the power of their top 100 active players, and only with kingdoms on the same hero generation.
+No opponent = bye rewards.
+KvK comes once every 28 days (the last week of the cycle); the kingdom must be open 70 days or more.
+5 days
+Preparation Phase
+Earn points every day. Personal chests at 30,000 / 100,000 / 200,000 points.
+Day 1 Construction · Day 2 Research · Day 3 Pet Training · Day 4 Troops · Day 5 All-out push, until Saturday 10:00 UTC. What to use on which day: the table below.
+The kingdom with more points gets the Kingdom Bonus and becomes the attacker.
+Saturday
+Battle Phase
+10:00–22:00 UTC. Teleporting opens at 10:00 UTC; the defenders hold until 12:00 UTC.
+King's Castle battle 12:00–17:00 UTC: hold the King's Castle for 2.5 hours to win.
+Keep Healing Speedups for this day: heal in batches first, and use speedups only when the Infirmary is almost full.
+After the battle
+Field Triage Phase
+30% of the lost troops come back; up to 90% with Medical Satchels and Rescue Orders.
+Losses at the King's Castle go to the Enlistment Office.
 kvk-push
 📢 Nov 9: TG3 ➡️ TG5 push plan (for the next KvK only) — jump to it
 Truegold

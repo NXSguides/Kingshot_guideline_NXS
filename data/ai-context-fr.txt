@@ -654,6 +654,26 @@ Jaeger — Gén 3, Archer, SSR, Combat
   À ignorer, sauf si vous misez sur le PvP / la défense de garnison.
 
 ### GUIDE #kvk — Guide de Préparation et Combat KvK
+🗓️ Calendrier du KvK
+2 jours
+Phase de Matchmaking
+Les royaumes sont associés selon la puissance de leurs 100 joueurs actifs les plus forts, uniquement avec des royaumes de la même génération de héros.
+Pas d'adversaire = récompenses d'exemption.
+Le KvK a lieu tous les 28 jours (dernière semaine du cycle) ; le royaume doit être ouvert depuis 70 jours ou plus.
+5 jours
+Phase de Préparation
+Gagnez des points chaque jour. Coffres personnels à 30 000 / 100 000 / 200 000 points.
+Jour 1 Construction · Jour 2 Recherche · Jour 3 Dressage des familiers · Jour 4 Troupes · Jour 5 Tout donner, jusqu'au samedi 10:00 UTC. Quoi utiliser quel jour : le tableau ci-dessous.
+Le royaume avec le plus de points obtient le Bonus de Royaume et devient l'attaquant.
+Samedi
+Phase de Combat
+10:00–22:00 UTC. La téléportation ouvre à 10:00 UTC ; les défenseurs tiennent jusqu'à 12:00 UTC.
+Bataille du Château Royal 12:00–17:00 UTC : tenez le Château Royal 2 h 30 pour gagner.
+Gardez les accélérations de soins pour ce jour : soignez d'abord par lots, n'utilisez les accélérations que quand l'Infirmerie est presque pleine.
+Après la bataille
+Phase de Triage du Terrain
+30 % des troupes perdues reviennent ; jusqu'à 90 % avec Kit Médical et Ordres de Sauvetage.
+Les pertes au Château Royal vont au Bureau d'Enrôlement.
 kvk-push
 📢 9 novembre : plan de push TG3 ➡️ TG5 (uniquement pour le prochain KvK) — y aller
 Or Véritable

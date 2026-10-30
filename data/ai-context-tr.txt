@@ -654,6 +654,26 @@ Jaeger — 3. Nesil, Okçu, SSR, Savaş
   PvP / garnizon savunmasına odaklanmıyorsan atla.
 
 ### GUIDE #kvk — KvK Hazırlık ve Savaş Rehberi
+🗓️ KvK takvimi
+2 gün
+Eşleştirme Evresi
+Krallıklar en aktif 100 oyuncusunun gücüne göre ve yalnızca aynı kahraman neslindeki krallıklarla eşleşir.
+Rakip yoksa = bay ödülleri.
+KvK 28 günde bir yapılır (döngünün son haftası); krallığın en az 70 gündür açık olması gerekir.
+5 gün
+Hazırlık Evresi
+Her gün puan topla. Kişisel sandıklar: 30.000 / 100.000 / 200.000 puan.
+1. gün İnşaat · 2. gün Araştırma · 3. gün Evcil Hayvan Eğitimi · 4. gün Birlikler · 5. gün Son hamle, cumartesi 10:00 UTC'ye kadar. Hangi gün ne kullanılır: aşağıdaki tablo.
+Daha çok puan alan krallık Krallık Bonusunu alır ve saldıran taraf olur.
+Cumartesi
+Savaş Evresi
+10:00–22:00 UTC. Işınlanma 10:00 UTC'de açılır; savunanlar 12:00 UTC'ye kadar dayanır.
+Kralın Şatosu savaşı 12:00–17:00 UTC: Kralın Şatosunu 2,5 saat tutan kazanır.
+İyileştirme hızlandırmalarını bu güne sakla: önce parça parça iyileştir, hızlandırmayı yalnızca Revir neredeyse dolunca kullan.
+Savaştan sonra
+Yaralı Sınıflandırma Evresi
+Kaybedilen birliklerin %30'u geri gelir; Tıbbi Çanta ve Kurtarma Emri ile %90'a kadar.
+Kralın Şatosunda verilen kayıplar Görevlendirme Ofisine gider.
 kvk-push
 📢 9 Kasım: TG3 ➡️ TG5 yükseltme planı (sadece bir sonraki KvK için) — oraya git
 Hasaltın

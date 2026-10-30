@@ -654,6 +654,26 @@ Jaeger — Gen 3, Arquearia, SSR, Combate
   Pule, a menos que seu foco seja PvP / defesa de guarnição.
 
 ### GUIDE #kvk — Guia de Preparação e Batalha KvK
+🗓️ Linha do tempo do KvK
+2 dias
+Fase de Pareamento
+Os reinos são pareados pelo poder dos 100 jogadores ativos mais fortes, e só com reinos da mesma geração de heróis.
+Sem adversário = recompensas de folga.
+O KvK acontece a cada 28 dias (última semana do ciclo); o reino precisa ter 70 dias ou mais.
+5 dias
+Fase de Preparação
+Ganhe pontos todo dia. Baús pessoais com 30.000 / 100.000 / 200.000 pontos.
+Dia 1 Construção · Dia 2 Pesquisa · Dia 3 Treino de Pet · Dia 4 Tropas · Dia 5 Tudo ou nada, até sábado 10:00 UTC. O que usar em cada dia: a tabela abaixo.
+O reino com mais pontos ganha o Bônus de Reino e vira o atacante.
+Sábado
+Fase de Batalha
+10:00–22:00 UTC. O teletransporte abre às 10:00 UTC; os defensores seguram até 12:00 UTC.
+Batalha do Castelo da Realeza 12:00–17:00 UTC: segure o Castelo da Realeza por 2,5 horas para vencer.
+Guarde as acelerações de cura para este dia: cure em lotes primeiro e só use acelerações quando a Enfermaria estiver quase cheia.
+Depois da batalha
+Fase de Triagem de Campo
+30% das tropas perdidas voltam; até 90% com Bolsa Médica e Ordem de Resgate.
+As perdas no Castelo da Realeza vão para o Escritório de Alistamento.
 kvk-push
 📢 9 de novembro: plano de push TG3 ➡️ TG5 (só para o próximo KvK) — ir para lá
 Adamante

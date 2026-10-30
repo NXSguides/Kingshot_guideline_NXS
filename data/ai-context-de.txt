@@ -656,6 +656,26 @@ Jaeger — Gen 3, Bogenschütze, SSR, Kampf
   Überspringen, außer du setzt auf PvP / Garnisonsverteidigung.
 
 ### GUIDE #kvk — KvK-Vorbereitungs- & Kampfguide
+🗓️ KvK-Zeitplan
+2 Tage
+Matchmaking-Phase
+Königreiche werden nach der Macht ihrer 100 aktivsten Spieler zugeteilt, nur mit Königreichen derselben Heldengeneration.
+Kein Gegner = Freilos-Belohnungen.
+KvK gibt es alle 28 Tage (letzte Woche des Zyklus); das Königreich muss mindestens 70 Tage offen sein.
+5 Tage
+Vorbereitungsphase
+Jeden Tag Punkte sammeln. Persönliche Truhen bei 30.000 / 100.000 / 200.000 Punkten.
+Tag 1 Bau · Tag 2 Forschung · Tag 3 Begleittier-Training · Tag 4 Truppen · Tag 5 Alles geben, bis Samstag 10:00 UTC. Was an welchem Tag: die Tabelle unten.
+Das Königreich mit mehr Punkten erhält den Königreichsbonus und greift an.
+Samstag
+Kampfphase
+10:00–22:00 UTC. Um 10:00 UTC öffnet die Umsiedlung; die Verteidiger halten bis 12:00 UTC.
+Kampf ums Königliches Schloss 12:00–17:00 UTC: Wer das Königliches Schloss 2,5 Stunden hält, gewinnt.
+Heilungsbeschleuniger für diesen Tag aufheben: erst in Etappen heilen, Beschleuniger nur, wenn die Krankenstation fast voll ist.
+Nach dem Kampf
+Feldtriage-Phase
+30 % der verlorenen Truppen kommen zurück; mit Medizinkoffer und Rettungswälzer bis zu 90 %.
+Verluste am Königliches Schloss gehen ins Musterungsamt.
 kvk-push
 📢 9. November: TG3 ➡️ TG5 Push-Plan (nur für das nächste KvK) — hierher springen
 Echtgold

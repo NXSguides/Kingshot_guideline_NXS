@@ -654,6 +654,26 @@ Jaeger — Gen 3, Arquero, SSR, Combate
   Sáltalo salvo que te centres en PvP / defensa de guarnición.
 
 ### GUIDE #kvk — Guía de Preparación y Batalla KvK
+🗓️ Cronología del KvK
+2 días
+Fase de búsqueda de rivales
+Los reinos se emparejan según el poder de sus 100 jugadores activos más fuertes, y solo con reinos de la misma generación de héroes.
+Sin rival = recompensas de descanso.
+El KvK llega cada 28 días (la última semana del ciclo); el reino debe llevar 70 días o más abierto.
+5 días
+Fase de Preparación
+Gana puntos cada día. Cofres personales con 30.000 / 100.000 / 200.000 puntos.
+Día 1 Construcción · Día 2 Investigación · Día 3 Entrenamiento de mascotas · Día 4 Tropas · Día 5 A por todas, hasta el sábado 10:00 UTC. Qué usar cada día: la tabla de abajo.
+El reino con más puntos obtiene la Bonificación de Reino y pasa a atacar.
+Sábado
+Fase de batalla
+10:00–22:00 UTC. El teletransporte abre a las 10:00 UTC; los defensores aguantan hasta las 12:00 UTC.
+Batalla por el Castillo del Rey 12:00–17:00 UTC: mantén el Castillo del Rey 2,5 horas para ganar.
+Guarda las aceleraciones de curación para este día: cura primero por tandas y usa aceleraciones solo cuando la Enfermería esté casi llena.
+Después de la batalla
+Fase de Triaje de Campo
+Vuelve el 30% de las tropas perdidas; hasta el 90% con Bolso médico y Órdenes de rescate.
+Las pérdidas en el Castillo del Rey van a la Oficina de Reclutamiento.
 kvk-push
 📢 9 nov.: plan de empuje TG3 ➡️ TG5 (solo para el próximo KvK) — ir a la sección
 Adamantina
