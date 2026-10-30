@@ -64,7 +64,12 @@ const PRESETS = [
 const LS = "nxs-roster-v2";
 const store = (() => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } })();
 const saveLocal = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} };   // this device's view settings only (not part of a shared plan)
-const save = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} histNote(); planTouched(); };
+/* "🔒 Only on this device" keeps its OWN copy (store.local), updated on every change while it is on screen. It is never taken
+   from what another plan left on screen (that mixed a shared plan's list into the device list — 2026-10-30). localShown = the screen
+   really shows the device list right now. */
+let localShown = !store.planId;
+const save = () => { try { if (!planId && localShown && !planApplying) store.local = planSnapshot(); } catch (e) {}   // (before the plan code has loaded: nothing to do)
+  try { localStorage.setItem(LS, JSON.stringify(store)); } catch (e) {} histNote(); planTouched(); };
 
 /* one language for all officer tabs (set from the main site when you enter, and by the language button on any tab) */
 let lang = OFFICER.lang;
@@ -1164,7 +1169,7 @@ async function planSave() {
   } catch (e) {
     const m = e.message;
     if (m === "gone") {   // deleted by someone else: keep the ticks on this device instead
-      pend.set(id, null); delete plans[id]; planBusy = false; store.local = planSnapshot(); planId = ""; planSwitch(""); planErr = ""; $("planStatus").textContent = pl("gone"); return;
+      pend.set(id, null); delete plans[id]; planBusy = false; planId = ""; localShown = false; planSwitch(""); planErr = ""; $("planStatus").textContent = pl("gone"); return;   // its versions stay on the server (🗂️ Recover plans)
     }
     if (m === "ed_no" || m === "view") { pend.set(id, null); planBusy = false; planErr = ""; try { await planFetch(true); } catch (x) {} if (plans[id] && planId === id) planApply(plans[id]); planRenderBar(); $("planStatus").textContent = pl("edNo"); return; }
     planErr = planErrText(e);
@@ -1191,18 +1196,25 @@ async function planPoll() {
     if (planDirty && !planErr) { clearTimeout(planTimer); planTimer = setTimeout(planSave, 600); }
   } catch (e) {}
 }
+/* put the device list on screen (an empty list if this device has none yet) */
+function localApply() {
+  const l = store.local || { picked: [], subs: [], rep: {}, counts: {}, tb: null, wts: wts, wPower };
+  planApplying = true; picked = new Set(l.picked || []); subs = new Set((l.subs || []).filter((x) => picked.has(x))); rep = { ...(l.rep || {}) }; store.counts = l.counts || {}; TB = Object.assign(tbDefault(), l.tb || {}); setWeights(wtsFrom(l.wts, l.wPower)); renderAll(); tbRender(); planApplying = false;
+  localShown = true;
+}
 function planSwitch(id) {
-  if (!planId) store.local = planSnapshot();   // leaving "only this device": keep it to come back to
+  if (!planId && localShown) store.local = planSnapshot();   // leaving "only this device": keep it to come back to
   planId = id; store.planId = id; planDirty = false; planBaseSnap = null; planBaseV = 0; planErr = ""; planOkAt = 0; planTries = 0;
-  if (id && plans[id]) planApply(plans[id]);
-  else if (store.local) { const l = store.local; planApplying = true; picked = new Set(l.picked || []); subs = new Set((l.subs || []).filter((x) => picked.has(x))); rep = { ...(l.rep || {}) }; store.counts = l.counts || {}; TB = Object.assign(tbDefault(), l.tb || {}); setWeights(wtsFrom(l.wts, l.wPower)); renderAll(); tbRender(); planApplying = false; }
+  if (id && plans[id]) { localShown = false; planApply(plans[id]); }
+  else localApply();
   planApplying = true; save(); planApplying = false; histReset(); planRenderBar();
 }
 async function plansInit() {
-  if (!loggedIn()) { planId = ""; planRenderBar(); return; }
+  if (!loggedIn()) { if (planId || !localShown) { planId = ""; localApply(); } planRenderBar(); return; }
   $("planStatus").textContent = pl("loading");
   try { await planFlushPending(); await planFetch(true); } catch (e) {}
-  if (planId && plans[planId]) planApply(plans[planId]); else planId = "";
+  if (planId && plans[planId]) { localShown = false; planApply(plans[planId]); }
+  else if (planId || !localShown) { planId = ""; localApply(); }   // the shared plan isn't there: show the device list, never the plan's leftovers
   planRenderBar();
   setInterval(planPoll, 10000);
   document.addEventListener("visibilitychange", planPoll);
