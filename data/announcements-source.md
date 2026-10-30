@@ -72,3 +72,15 @@ content: |
   [[img:figures/ann/20261019-200632-3.jpg]]
 
   [[link:swordland-showdown]]
+---
+author: "Nia"
+lang: en
+title: "TAC - Legion 2"
+images: []
+expires: "2026-10-31T03:00:00.000Z"
+content: |
+  [[img:figures/ann/20261030-232150-1.jpg]]
+  [[img:figures/ann/20261030-232157-2.jpg]]
+  [[img:figures/ann/20261030-232203-3.jpg]]
+
+  [[link:tri-alliance-clash]]
