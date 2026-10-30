@@ -38,6 +38,7 @@ const T = {
 for (const [l, o] of Object.entries({"en": {"mpT": "📍 Positions from MightPulse", "mpHow": "MightPulse only changes positions after someone presses “Update Map” on its map. After members move: ① open the MightPulse map and press Update Map ② wait a moment ③ ↻ Get positions here ④ check the changes and press ✅ Use these positions (it saves 👥 Member positions).", "mpMap": "🗺️ MightPulse map ↗", "mpGet": "↻ Get positions", "mpBusy": "Getting positions… {d} / {n}", "mpAt": "Fetched {t}", "mpNever": "Not fetched yet.", "mpWait": "Someone fetched less than 2 minutes ago — showing that.", "mpQuota": "Today's MightPulse limit is used up — try again tomorrow.", "mpErr": "Couldn't reach the site's server — try again.", "mpNone": "No changes: 👥 Member positions already match MightPulse.", "mpChg": "{n} changes:", "mpArr": "at the new spot", "mpNew": "new", "mpOld": "⚠️ MightPulse data over 2 hours old (press Update Map on MightPulse): {names}", "mpUse": "✅ Use these positions", "mpUsed": "{n} positions updated and saved.", "mpNoEd": "Only officers who can edit 🗺️ Map can save positions.", "mpStep": "When they have moved: press Update Map on MightPulse, then ↻ Get positions (📍 card above).", "mpLast": "📍 Positions fetched {t}"}, "zh": {"mpT": "📍 從 MightPulse 更新座標", "mpHow": "MightPulse 要有人在它的地圖按「Update Map」座標才會更新。成員搬完之後：① 打開 MightPulse 地圖按 Update Map ② 等一下 ③ 在這裡按 ↻ 取得座標 ④ 確認變動，按 ✅ 套用這些座標（會存進 👥 成員位置）。", "mpMap": "🗺️ MightPulse 地圖 ↗", "mpGet": "↻ 取得座標", "mpBusy": "取得座標中… {d} / {n}", "mpAt": "取得時間 {t}", "mpNever": "還沒取得過。", "mpWait": "2 分鐘內有人取得過，先顯示那一次的。", "mpQuota": "今天的 MightPulse 次數用完了，明天再試。", "mpErr": "連不到網站的伺服器，再試一次。", "mpNone": "沒有變動：👥 成員位置已經跟 MightPulse 一樣。", "mpChg": "{n} 個變動：", "mpArr": "已到新位置", "mpNew": "新的", "mpOld": "⚠️ 這些人的 MightPulse 資料超過 2 小時（去 MightPulse 按 Update Map）：{names}", "mpUse": "✅ 套用這些座標", "mpUsed": "已更新並儲存 {n} 個座標。", "mpNoEd": "有 🗺️ 地圖編輯權限的幹部才能儲存座標。", "mpStep": "搬完之後：去 MightPulse 按 Update Map，再按 ↻ 取得座標（上面的 📍 卡片）。", "mpLast": "📍 座標取得時間 {t}"}, "pt": {"mpT": "📍 Posições do MightPulse", "mpHow": "O MightPulse só muda as posições depois que alguém aperta “Update Map” no mapa dele. Depois que os membros mudarem: ① abra o mapa do MightPulse e aperte Update Map ② espere um pouco ③ ↻ Buscar posições aqui ④ confira as mudanças e aperte ✅ Usar estas posições (salva 👥 Posições dos membros).", "mpMap": "🗺️ Mapa do MightPulse ↗", "mpGet": "↻ Buscar posições", "mpBusy": "Buscando posições… {d} / {n}", "mpAt": "Buscado {t}", "mpNever": "Ainda não buscado.", "mpWait": "Alguém buscou há menos de 2 minutos — mostrando isso.", "mpQuota": "O limite do MightPulse de hoje acabou — tente amanhã.", "mpErr": "Não deu para falar com o servidor do site — tente de novo.", "mpNone": "Sem mudanças: 👥 Posições dos membros já batem com o MightPulse.", "mpChg": "{n} mudanças:", "mpArr": "no lugar novo", "mpNew": "novo", "mpOld": "⚠️ Dados do MightPulse com mais de 2 horas (aperte Update Map no MightPulse): {names}", "mpUse": "✅ Usar estas posições", "mpUsed": "{n} posições atualizadas e salvas.", "mpNoEd": "Só oficiais que podem editar 🗺️ Mapa salvam posições.", "mpStep": "Depois que mudarem: aperte Update Map no MightPulse e depois ↻ Buscar posições (cartão 📍 acima).", "mpLast": "📍 Posições buscadas {t}"}, "ar": {"mpT": "📍 المواقع من MightPulse", "mpHow": "لا يغيّر MightPulse المواقع إلا بعد أن يضغط أحد “Update Map” على خريطته. بعد انتقال الأعضاء: ① افتح خريطة MightPulse واضغط Update Map ② انتظر قليلًا ③ ↻ جلب المواقع هنا ④ راجع التغييرات واضغط ✅ استخدم هذه المواقع (تُحفظ في 👥 مواقع الأعضاء).", "mpMap": "🗺️ خريطة MightPulse ↗", "mpGet": "↻ جلب المواقع", "mpBusy": "جارٍ جلب المواقع… {d} / {n}", "mpAt": "جُلبت {t}", "mpNever": "لم تُجلب بعد.", "mpWait": "جلبها أحدهم قبل أقل من دقيقتين — نعرض تلك.", "mpQuota": "انتهى حد MightPulse لليوم — حاول غدًا.", "mpErr": "تعذّر الوصول إلى خادم الموقع — حاول مرة أخرى.", "mpNone": "لا تغييرات: 👥 مواقع الأعضاء تطابق MightPulse.", "mpChg": "{n} تغييرات:", "mpArr": "في المكان الجديد", "mpNew": "جديد", "mpOld": "⚠️ بيانات MightPulse أقدم من ساعتين (اضغط Update Map في MightPulse): {names}", "mpUse": "✅ استخدم هذه المواقع", "mpUsed": "حُدّث {n} موقعًا وحُفظ.", "mpNoEd": "يحفظ المواقع فقط الضباط الذين يمكنهم تعديل 🗺️ الخريطة.", "mpStep": "بعد انتقالهم: اضغط Update Map في MightPulse ثم ↻ جلب المواقع (بطاقة 📍 أعلاه).", "mpLast": "📍 جُلبت المواقع {t}"}, "ko": {"mpT": "📍 MightPulse에서 위치 가져오기", "mpHow": "MightPulse는 누군가 지도에서 “Update Map”을 눌러야 위치가 바뀌어요. 연맹원이 이사한 뒤: ① MightPulse 지도를 열고 Update Map 누르기 ② 잠시 기다리기 ③ 여기서 ↻ 위치 가져오기 ④ 변경을 확인하고 ✅ 이 위치 사용 누르기 (👥 연맹원 위치에 저장돼요).", "mpMap": "🗺️ MightPulse 지도 ↗", "mpGet": "↻ 위치 가져오기", "mpBusy": "위치 가져오는 중… {d} / {n}", "mpAt": "가져온 시각 {t}", "mpNever": "아직 가져오지 않았어요.", "mpWait": "2분 안에 누가 가져왔어요 — 그 결과를 보여요.", "mpQuota": "오늘 MightPulse 한도를 다 썼어요 — 내일 다시 해 보세요.", "mpErr": "사이트 서버에 연결할 수 없어요 — 다시 해 보세요.", "mpNone": "변경 없음: 👥 연맹원 위치가 MightPulse와 같아요.", "mpChg": "변경 {n}개:", "mpArr": "새 자리 도착", "mpNew": "새로", "mpOld": "⚠️ MightPulse 데이터가 2시간 넘음 (MightPulse에서 Update Map 누르기): {names}", "mpUse": "✅ 이 위치 사용", "mpUsed": "위치 {n}개를 바꾸고 저장했어요.", "mpNoEd": "🗺️ 지도 편집 권한이 있는 간부만 위치를 저장할 수 있어요.", "mpStep": "이사한 뒤: MightPulse에서 Update Map을 누르고 ↻ 위치 가져오기 (위의 📍 카드).", "mpLast": "📍 위치 가져온 시각 {t}"}})) Object.assign(T[l], o);
 for (const [l, o] of Object.entries({"en": {"goNow": "📍 Our HQ now", "goNew": "🧭 New HQ", "far": "Far from our HQ (not drawn on the map):"}, "zh": {"goNow": "📍 我們的總部", "goNew": "🧭 新總部", "far": "離我們總部很遠（地圖上沒畫）："}, "pt": {"goNow": "📍 Nosso QG agora", "goNew": "🧭 QG novo", "far": "Longe do nosso QG (fora do mapa):"}, "ar": {"goNow": "📍 مقرنا الآن", "goNew": "🧭 المقر الجديد", "far": "بعيد عن مقرنا (غير مرسوم على الخريطة):"}, "ko": {"goNow": "📍 지금 우리 본부", "goNew": "🧭 새 본부", "far": "우리 본부에서 멀리 있음 (지도에 안 그림):"}})) Object.assign(T[l], o);
 for (const [l, o] of Object.entries({"en": {"mpGone": "Not in the alliance any more (not on the roster) — removed from 👥 Member positions when you press ✅:", "mpGoneBtn": "✅ Remove them"}, "zh": {"mpGone": "已經不在聯盟（名單上沒有）——按 ✅ 會從 👥 成員位置移除：", "mpGoneBtn": "✅ 移除他們"}, "pt": {"mpGone": "Não está mais na aliança (fora do roster) — sai de 👥 Posições dos membros ao apertar ✅:", "mpGoneBtn": "✅ Remover"}, "ar": {"mpGone": "لم يعد في التحالف (ليس في القائمة) — يُزال من 👥 مواقع الأعضاء عند الضغط على ✅:", "mpGoneBtn": "✅ إزالتهم"}, "ko": {"mpGone": "이제 연맹에 없음 (명단에 없음) — ✅를 누르면 👥 연맹원 위치에서 빠져요:", "mpGoneBtn": "✅ 빼기"}})) Object.assign(T[l], o);
+for (const [l, o] of Object.entries({"en": {"mpFail": "⚠️ {n} players couldn't be looked up this time (MightPulse busy) — they are left as they are. Press ↻ Get positions again in a few minutes."}, "zh": {"mpFail": "⚠️ 這次有 {n} 個人沒查到（MightPulse 忙不過來），他們的座標先不動。過幾分鐘再按一次 ↻ 取得座標。"}, "pt": {"mpFail": "⚠️ {n} jogadores não puderam ser consultados agora (MightPulse ocupado) — ficam como estão. Aperte ↻ Buscar posições de novo em alguns minutos."}, "ar": {"mpFail": "⚠️ تعذّر البحث عن {n} لاعبًا هذه المرة (MightPulse مشغول) — تبقى مواقعهم كما هي. اضغط ↻ جلب المواقع مرة أخرى بعد دقائق."}, "ko": {"mpFail": "⚠️ 이번에 {n}명은 조회하지 못했어요 (MightPulse가 바쁨) — 그대로 둬요. 몇 분 뒤 ↻ 위치 가져오기를 다시 누르세요."}})) Object.assign(T[l], o);
 let SPOT = null;   // 🧭 the planned spot tapped on the map (index in MV.plan.c), to put a member there
 let lang = "en", G = null, D = null, SAVED = "", SEL = null, msg = "", roster = null, banners = [], pasteOpen = false, onlyLeft = false;
 /* 🚚 moving plan — its own officer tab (#move), admins only unless the 👥 table gives it; saved apart from the positions */
@@ -69,40 +70,47 @@ async function mpLoad(refresh) {
       if (j.pos) MP = j.pos;
       if (j.wait) { mpMsg = t("mpWait"); break; } if (j.quota) { mpMsg = t("mpQuota"); break; }
       if (!j.more) break;
-      mpMsg = t("mpBusy").replace("{d}", (part + 1) * 40).replace("{n}", (MP && MP.total) || "?"); renderMove();
+      mpMsg = t("mpBusy").replace("{d}", (part + 1) * 20).replace("{n}", (MP && MP.total) || "?"); renderMove();
     }
   } catch (e) { mpMsg = t("mpErr"); }
   mpBusy = false; if (mpMsg === "" || /…/.test(mpMsg)) mpMsg = ""; renderMove();
 }
 /* what MightPulse says vs 👥 Member positions: the member is found by roster ID first (names typed differently still match), then by name */
-/* who is on 👥 positions but not in the alliance any more: an entry with a player ID not on the roster; after a full 📍 look-up,
-   also any entry no MightPulse player matched (by ID, else by the exact name) */
+/* who is on 👥 positions but not in the alliance any more — decided by the roster only (the full member list, refreshed daily),
+   never by a MightPulse look-up that failed: an entry with a player ID not on the roster, or without an ID and no roster name fits */
 function goneList() {
   if (!roster || !(roster.members || []).length) return [];
-  const ids = new Set(roster.members.map((m) => String(m.id))), df = mpDiff(), full = MP && MP.rows && MP.total && Object.keys(MP.rows).length >= MP.total;
-  return D.m.map((r, i) => (r[3] ? !ids.has(String(r[3])) : full && df && !df.hit.has(i)) ? i : -1).filter((i) => i >= 0);
+  const ids = new Set(roster.members.map((m) => String(m.id))), idx = rosterIndex();
+  return D.m.map((r, i) => (r[3] ? !ids.has(String(r[3])) : !idx[norm(r[0])]) ? i : -1).filter((i) => i >= 0);
 }
-/* what MightPulse says vs 👥 Member positions: matched by player ID first, then by the exact name (no guessing, so look-alike names
-   stay apart); the ID is then saved on the entry */
+/* the player ID each 👥 entry belongs to: its saved ID; else the roster member with exactly that name; else one clear
+   look-alike (Andre → Andree) that no other entry already has. Two members with almost the same name never share one. */
+function entryIds() {
+  const ms = (roster && roster.members) || [], exact = {}, out = D.m.map((r) => r[3] ? String(r[3]) : null), taken = new Set(out.filter(Boolean));
+  for (const m of ms) exact[norm(m.name)] = String(m.id);
+  D.m.forEach((r, i) => { if (!out[i] && exact[norm(r[0])] && !taken.has(exact[norm(r[0])])) { out[i] = exact[norm(r[0])]; taken.add(out[i]); } });
+  D.m.forEach((r, i) => { if (!out[i]) { const c = closest(r[0]); if (c && !taken.has(String(c.id))) { out[i] = String(c.id); taken.add(out[i]); } } });
+  return out;
+}
+/* what MightPulse says vs 👥 Member positions, matched by player ID (see entryIds); the ID is saved on the entry with ✅ */
 function mpDiff() {
   if (!MP || !MP.rows) return null;
-  const byId = {}, byName = {};
-  D.m.forEach((r, i) => { if (r[3]) byId[String(r[3])] = i; else if (byName[norm(r[0])] == null) byName[norm(r[0])] = i; });
+  const eid = entryIds(), byId = {}; eid.forEach((id, i) => { if (id) byId[id] = i; });
   const tgt = {}; ((MV.plan && MV.plan.c) || []).forEach(([n, x, y]) => { if (n) tgt[norm(n)] = [x, y]; });
-  const chg = [], old = [], stamp = [], hit = new Set(), now = Date.now();
+  const chg = [], old = [], fail = [], now = Date.now();
+  const stamp = eid.map((id, i) => id && !D.m[i][3] ? [i, id] : null).filter(Boolean);
   for (const r of Object.values(MP.rows)) {
-    if (!r.ok || r.x == null || r.y == null) continue;
+    if (!r.ok || r.x == null || r.y == null) { fail.push(r.name); continue; }
     if (r.alliance && !/^nxs$/i.test(r.alliance)) continue;   // left the alliance
     if (r.asOf && now - Date.parse(r.asOf) > 2 * 3600e3) old.push(r.name);
-    let i = byId[String(r.id)]; if (i == null) { i = byName[norm(r.name)]; if (i != null && !D.m[i][3]) stamp.push([i, String(r.id)]); else i = undefined; }
-    if (i != null) hit.add(i);
+    const i = byId[String(r.id)];
     const name = i != null ? D.m[i][0] : r.name, from = i != null ? [D.m[i][1], D.m[i][2]] : null;
     if (from && from[0] === r.x && from[1] === r.y) continue;
     const g = tgt[norm(name)];
     chg.push({ i, id: String(r.id), name, from, to: [r.x, r.y], arr: !!(g && g[0] === r.x && g[1] === r.y) });
   }
   chg.sort((a, b) => (b.arr - a.arr) || a.name.localeCompare(b.name));
-  return { chg, old, stamp, hit };
+  return { chg, old, stamp, fail };
 }
 function mpCard() {
   const df = mpDiff(), canSave = ED();
@@ -111,12 +119,13 @@ function mpCard() {
     </tbody></table></div>${canSave ? `<button type="button" class="btn small primary" id="mp_use" style="margin-top:6px">${esc(t("mpUse"))}</button>` : `<div class="muted" style="font-size:12.5px">${esc(t("mpNoEd"))}</div>`}</div>`
     : df && !goneList().length ? `<div class="muted" style="font-size:13px;margin-top:6px">${esc(t("mpNone"))}</div>` : "";
   const gi = goneList(), gone = gi.length ? `<div style="margin-top:6px"><b>${esc(t("mpGone"))}</b> ${gi.map((i) => `<span class="mm-chip warn">${esc(D.m[i][0])}</span>`).join(" ")}${canSave && !(df && df.chg.length) ? ` <button type="button" class="btn small primary" id="mp_gone">${esc(t("mpGoneBtn"))}</button>` : ""}</div>` : "";
+  const fl = df && df.fail.length ? `<div class="mv-warn" style="font-size:12.5px;margin-top:6px">${esc(t("mpFail").replace("{n}", df.fail.length))}</div>` : "";
   const old = df && df.old.length ? `<div class="mv-warn" style="font-size:12.5px;margin-top:6px">${esc(t("mpOld").replace("{names}", df.old.slice(0, 15).join(", ") + (df.old.length > 15 ? " …" : "")))}</div>` : "";
   return `<div class="mm-add" id="mp_card" style="margin-bottom:12px"><b>${esc(t("mpT"))}</b>
     <div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("mpHow"))}</div>
     <div class="row" style="gap:6px;flex-wrap:wrap;align-items:center"><a class="btn small" href="https://mightpulse.com/map?kid=2189" target="_blank" rel="noopener">${esc(t("mpMap"))}</a>
     <button type="button" class="btn small" id="mp_get"${mpBusy ? " disabled" : ""}>${esc(t("mpGet"))}</button>
-    <span class="muted" style="font-size:12.5px">${esc(mpMsg || (MP && MP.fetched ? t("mpAt").replace("{t}", fmtT(MP.fetched)) : t("mpNever")))}</span></div>${old}${list}${gone}</div>`;
+    <span class="muted" style="font-size:12.5px">${esc(mpMsg || (MP && MP.fetched ? t("mpAt").replace("{t}", fmtT(MP.fetched)) : t("mpNever")))}</span></div>${fl}${old}${list}${gone}</div>`;
 }
 function bindMp(el) {
   const g = el.querySelector("#mp_get"); if (g) g.onclick = () => mpLoad(true);
