@@ -6,14 +6,14 @@ const flush = () => { const t = OUT.join("\n"); for (let i = 0, n = 0; i < t.len
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 function shape(v, d = 0) {
   if (Array.isArray(v)) return `[${v.length}]` + (v.length && d < 3 ? " of " + shape(v[0], d + 1) : "");
-  if (v && typeof v === "object") { const k = Object.keys(v); return d >= 3 ? `{${k.slice(0, 25).join(",")}}` : "{" + k.slice(0, 25).map((x) => `${x}:${shape(v[x], d + 1)}`).join(", ") + "}"; }
+  if (v && typeof v === "object") { const k = Object.keys(v); return d >= 3 ? `{${k.slice(0, 70).join(",")}}` : "{" + k.slice(0, 70).map((x) => `${x}:${shape(v[x], d + 1)}`).join(", ") + "}"; }
   return v === null ? "null" : typeof v;
 }
 (async () => {
   if (!KEY) { console.log("❌ MIGHTPULSE_API_KEY not found"); process.exit(1); }
   for (const p of (process.env.PATHS || "").trim().split(/\s+/).filter(Boolean)) {
     try { const res = await fetch(BASE + p, { headers: { Authorization: `Bearer ${KEY}` } }); const body = await res.json().catch(() => null);
-      console.log(`${res.status}  ${p}`); if (body) console.log("   " + shape(body).slice(0, 1800));
+      console.log(`${res.status}  ${p}`); if (body) console.log("   " + shape(body).slice(0, 3400));
       if (body && (body.error || body.message)) console.log(`   message: ${String(body.error || body.message).slice(0, 200)}`);
       if (body && Array.isArray(body.detail)) body.detail.forEach((d) => console.log(`   detail: ${JSON.stringify(d.loc)} ${d.msg}`));
     } catch (e) { console.log(`ERR ${p}`); }
