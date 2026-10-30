@@ -591,7 +591,7 @@
       pm04: "👁️ Preview as shows the whole page with that officer's rights — Exit preview at the top brings you back. Make admin / Remove admin and Remove are here too.",
       pm05: "+ Add officer: a name and the 18-digit Discord ID. A new officer starts with Events, Board and Map 👁️ only. Reset to defaults goes back to the built-in admins.",
       pm06: "More (site owner): forget the password on this device, redo the setup, 🔐 the officer data encryption key.", msgs: "💌 Message from THAT Sparrow", pick: "Which tab do you want me to show you?", onlyView: "(you can look, not edit)", ro: "You can look here but not change anything.",
-      events: "📅 Events", board: "💬 Board", map: "🗺️ Map", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", move: "🚚 Move", hunt: "🎯 Blacklist", attack: "⚔️ Attack", views: "📈 Views", perms: "👥 Officers",
+      events: "📅 Events", board: "💬 Board", map: "🗺️ Map", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", move: "🚚 Move", hunt: "🎯 Blacklist", attack: "⚔️ Battle", views: "📈 Views", perms: "👥 Officers",
       },
     zh: {
       ev04v: "📣 公告草稿：接下來活動和我們時間的遊戲聊天公告——由有編輯權限的人在這裡產生並複製。",
@@ -781,7 +781,7 @@
       pm04: "👁️ 以某人身分預覽會用那位幹部的權限顯示整個頁面——最上面的離開預覽會帶你回來。設為管理員／移除管理員和移除也在這裡。",
       pm05: "+ 新增幹部：一個名字和 18 位數的 Discord ID。新幹部一開始只有活動、討論板和地圖的 👁️。重設為預設值會回到內建的管理員。",
       pm06: "更多（網站擁有者）：忘記這台裝置上的密碼、重做設定、🔐 幹部資料的加密金鑰。", msgs: "💌 那個麻雀的留言", pick: "想看哪個分頁？", onlyView: "（你只能看，不能改）", ro: "這裡你只能看，不能改。",
-      events: "📅 活動", board: "💬 留言板", map: "🗺️ 地圖", ranking: "📊 排名", attend: "📋 出席", post: "📢 公告", watch: "🕵️ 觀察", scout: "🔭 偵查", move: "🚚 搬家", hunt: "🎯 黑名單", attack: "⚔️ 攻擊規劃", views: "📈 瀏覽", perms: "👥 幹部",
+      events: "📅 活動", board: "💬 留言板", map: "🗺️ 地圖", ranking: "📊 排名", attend: "📋 出席", post: "📢 公告", watch: "🕵️ 觀察", scout: "🔭 偵查", move: "🚚 搬家", hunt: "🎯 黑名單", attack: "⚔️ 作戰", views: "📈 瀏覽", perms: "👥 幹部",
       },
     pt: {
       ev04v: "📣 Rascunho de anúncio: o post de chat do jogo com os próximos eventos e nossos horários — os editores montam e copiam aqui.",
@@ -971,7 +971,7 @@
       pm04: "👁️ Pré-visualizar como mostra a página inteira com os direitos daquele oficial — Sair da pré-visualização no topo traz você de volta. Tornar admin / Remover admin e Remover também ficam aqui.",
       pm05: "+ Adicionar oficial: um nome e o ID do Discord de 18 dígitos. Um oficial novo começa só com Eventos, Quadro e Mapa em 👁️. Restaurar padrões volta para os admins embutidos.",
       pm06: "Mais (dono do site): esquecer a senha neste dispositivo, refazer a configuração, 🔐 a chave de criptografia dos dados dos oficiais.", msgs: "💌 Mensagem dAQUELA Sparrow", pick: "Qual aba você quer que eu mostre?", onlyView: "(você pode ver, não editar)", ro: "Aqui você pode ver, mas não mudar nada.",
-      events: "📅 Eventos", board: "💬 Quadro", map: "🗺️ Mapa", ranking: "📊 Ranking", attend: "📋 Presença", post: "📢 Postar", watch: "🕵️ Vigiar", scout: "🔭 Espiar", move: "🚚 Mudança", hunt: "🎯 Lista negra", attack: "⚔️ Ataque", views: "📈 Visitas", perms: "👥 Oficiais",
+      events: "📅 Eventos", board: "💬 Quadro", map: "🗺️ Mapa", ranking: "📊 Ranking", attend: "📋 Presença", post: "📢 Postar", watch: "🕵️ Vigiar", scout: "🔭 Espiar", move: "🚚 Mudança", hunt: "🎯 Lista negra", attack: "⚔️ Batalha", views: "📈 Visitas", perms: "👥 Oficiais",
       },
     ar: {
       ev04v: "📣 مسودة الإعلان: منشور دردشة اللعبة بالأحداث القادمة وأوقاتنا — المحررون ينشئونه وينسخونه من هنا.",
@@ -1161,7 +1161,7 @@
       pm04: "👁️ معاينة كـ يعرض الصفحة كلها بحقوق ذلك الضابط — إنهاء المعاينة في الأعلى يعيدك. تعيين كمشرف / إزالة المشرف وإزالة موجودة هنا أيضاً.",
       pm05: "+ إضافة ضابط: اسم ومعرّف Discord المكوّن من 18 رقماً. الضابط الجديد يبدأ بالأحداث واللوحة والخريطة 👁️ فقط. إعادة التعيين إلى الافتراضي يعود إلى المشرفين المدمجين.",
       pm06: "المزيد (مالك الموقع): نسيان كلمة المرور على هذا الجهاز، إعادة الإعداد، 🔐 مفتاح تشفير بيانات الضباط.", msgs: "💌 رسالة من Sparrow تلك", pick: "أي تبويب تريد أن أريك إياه؟", onlyView: "(يمكنك المشاهدة فقط، لا التعديل)", ro: "هنا يمكنك المشاهدة فقط دون تغيير أي شيء.",
-      events: "📅 الأحداث", board: "💬 اللوحة", map: "🗺️ الخريطة", ranking: "📊 الترتيب", attend: "📋 الحضور", post: "📢 نشر", watch: "🕵️ مراقبة", scout: "🔭 استطلاع", move: "🚚 الانتقال", hunt: "🎯 القائمة السوداء", attack: "⚔️ الهجوم", views: "📈 الزيارات", perms: "👥 الضباط",
+      events: "📅 الأحداث", board: "💬 اللوحة", map: "🗺️ الخريطة", ranking: "📊 الترتيب", attend: "📋 الحضور", post: "📢 نشر", watch: "🕵️ مراقبة", scout: "🔭 استطلاع", move: "🚚 الانتقال", hunt: "🎯 القائمة السوداء", attack: "⚔️ المعركة", views: "📈 الزيارات", perms: "👥 الضباط",
       },
     ko: {
       ev04v: "📣 공지 초안: 다가오는 이벤트와 우리 시간이 담긴 게임 채팅 공지야 — 편집자가 여기서 만들고 복사해.",
@@ -1351,7 +1351,7 @@
       pm04: "👁️ 이 간부로 미리보기는 그 간부의 권한으로 페이지 전체를 보여줘. 맨 위의 미리보기 종료로 돌아와. 관리자 지정 / 관리자 해제와 제거도 여기 있어.",
       pm05: "+ 간부 추가야. 이름과 18자리 Discord ID. 새 간부는 이벤트, 게시판, 지도 👁️만으로 시작해. 기본값으로 재설정은 내장 관리자로 되돌려.",
       pm06: "더 보기(사이트 소유자)야. 이 기기의 비밀번호 잊기, 설정 다시 하기, 🔐 간부 데이터 암호화 키.", msgs: "💌 그 Sparrow의 메시지", pick: "어느 탭을 보여줄까요?", onlyView: "(보기만 가능, 수정 불가)", ro: "여기는 보기만 할 수 있고 바꿀 수는 없어요.",
-      events: "📅 이벤트", board: "💬 게시판", map: "🗺️ 지도", ranking: "📊 랭킹", attend: "📋 출석", post: "📢 공지", watch: "🕵️ 감시", scout: "🔭 정찰", move: "🚚 이사", hunt: "🎯 블랙리스트", attack: "⚔️ 공격 계획", views: "📈 조회", perms: "👥 간부",
+      events: "📅 이벤트", board: "💬 게시판", map: "🗺️ 지도", ranking: "📊 랭킹", attend: "📋 출석", post: "📢 공지", watch: "🕵️ 감시", scout: "🔭 정찰", move: "🚚 이사", hunt: "🎯 블랙리스트", attack: "⚔️ 작전", views: "📈 조회", perms: "👥 간부",
       },
   };
   const ot = (k) => (OT[lang()] || OT.en)[k] || OT.en[k];
@@ -1415,8 +1415,7 @@
       { s: "#pg-post #reloadBtn", k: "po09", e: 1 }, { s: "#po_list [data-edit]", k: "po10", e: 1 }, { s: "#editLang", k: "po11", e: 1, pre: () => clickQ("#po_list [data-edit]") },
     ],
     watch: [{ s: "#wa_rnb", k: "wa07" }, { s: "#wa_copyBtn", k: "wa01", e: 1 }, { s: "#wa_q", k: "wa02" }, { s: "#rivals", k: "wa03" }, { s: "#pg-watch #head", k: "wa04" }, { s: "#pg-watch #rows [data-edit], #pg-watch #rows tr", k: "wa05", e: 1 }, { s: "#pg-watch #left", k: "wa06" }],
-    scout: [{ s: "#sc_kid", k: "sc01", e: 1 }, { s: "#sc_list", k: "sc02" }, { s: "#sc_sortKey", k: "sc03" }, { s: "#sc_kingdoms table", k: "sc04" }],
-    attack: [{ s: "#ak_plan", k: "ak01" }, { s: "#ak_board", k: "ak02" }, { s: "#ak_hist", k: "ak04" }],
+    attack: [{ s: "#ak_plan", k: "ak01" }, { s: "#ak_board", k: "ak02" }, { s: "#sc_kid", k: "sc01", e: 1 }, { s: "#sc_list", k: "sc02" }, { s: "#sc_sortKey", k: "sc03" }, { s: "#sc_kingdoms table", k: "sc04" }, { s: "#ak_hist", k: "ak04" }],
     hunt: [{ s: "#hn_root .hn-st", k: "hn01" }, { s: "#hn_root .hn-t tbody tr", k: "hn02" }, { s: "#hn_id", k: "hn03", e: 1 }, { s: "#hn_reload", k: "hn04" }, { s: "#hn_root .hn-fo", k: "hn05" }, { s: "#hn_root [data-se]", k: "hn06", e: 1 }],
     views: [{ s: "#vw_days", k: "vw01" }, { s: "#vw_daily", k: "vw02" }, { s: "#pg-views .vw-grid", k: "vw03" }],
     perms: [{ s: "#pm_mReply", k: "pm01" }, { s: "#pm_tbl table", k: "pm02" }, { s: "#pm_tbl .pm-nt", k: "pm03" }, { s: "#pm_tbl [data-pv]", k: "pm04" }, { s: "#pm_addBtn", k: "pm05" }, { s: "#po_owner > summary", k: "pm06", pre: () => { const d = Q("#po_owner"); if (d) d.open = true; } }],

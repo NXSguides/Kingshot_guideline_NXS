@@ -420,6 +420,7 @@
   #pg-watch .modal hr { border: 0; border-top: 1px solid var(--rule); margin: 14px 0 0; }
 
   .pg[hidden] { display: none !important; }
+  #pg-scout > h2::before { content: "🔭 "; }
   #pg-scout .sc-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
   #pg-scout .sc-chip { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; border: 1px solid var(--rule); border-radius: 999px; padding: 4px 6px 4px 12px; font-size: 14px; background: var(--panel-2); }
   #pg-scout .sc-chip label { font-size: 13px; display: flex; align-items: center; gap: 4px; white-space: nowrap; }
@@ -758,12 +759,11 @@
     <a href="#map" data-tab="map">🗺️ Map</a>
     <a href="#move" data-tab="move" hidden>🚚 Move</a>
     <a href="#hunt" data-tab="hunt" hidden>🎯 Blacklist</a>
-    <a href="#attack" data-tab="attack" hidden>⚔️ Attack</a>
+    <a href="#attack" data-tab="attack" hidden>⚔️ Battle</a>
     <a href="#ranking" data-tab="ranking">📊 Ranking</a>
     <a href="#attend" data-tab="attend" id="attendTab" hidden>📋 Attendance</a>
     <a href="#post" data-tab="post">📢 Post</a>
     <a href="#watch" data-tab="watch">🕵️ Watch</a>
-    <a href="#scout" data-tab="scout">🔭 Scout</a>
     <a href="#views" data-tab="views">📈 Views</a>
     <a href="#perms" data-tab="perms" id="permsTab" hidden>👥 Officers</a>
   </nav>
@@ -1141,28 +1141,6 @@
     </div>
   </div>
 </section>
-<section class="pg" id="pg-scout" hidden>
-  <div class="top">
-    <div>
-      <h1 data-t="title"></h1>
-      <div class="muted" id="sc_meta"></div>
-    </div>
-  </div>
-  <div id="sc_noData" class="card" hidden></div>
-  <div id="sc_app">
-    <div class="card">
-      <h2 data-t="addTitle"></h2>
-      <div class="muted msg" data-t="addNote"></div>
-      <div class="row" style="margin-top:8px">
-        <input class="inp" id="sc_kid" type="number" inputmode="numeric" min="1" placeholder="2186" style="width:120px">
-        <button class="btn primary" id="sc_fetch" data-t="fetch"></button>
-      </div>
-      <div class="msg" id="sc_msg"></div>
-      <div id="sc_list" class="sc-list"></div>
-    </div>
-    <div id="sc_kingdoms"></div>
-  </div>
-</section>
 <section class="pg" id="pg-bt" hidden>
   <div class="top"><div><h1 id="bt_title"></h1><div class="muted" id="bt_sub"></div></div></div>
   <div class="card">
@@ -1265,6 +1243,25 @@
 <section class="pg" id="pg-attack" hidden>
   <div class="top"><div><h1 id="ak_title">⚔️</h1><div class="muted" id="ak_intro"></div></div></div>
   <div id="ak_root"></div>
+<div id="pg-scout">
+  <h2 data-t="title" style="margin:18px 0 2px"></h2>
+  <div class="muted" id="sc_meta" style="margin-bottom:8px"></div>
+  <div id="sc_noData" class="card" hidden></div>
+  <div id="sc_app">
+    <div class="card">
+      <h2 data-t="addTitle"></h2>
+      <div class="muted msg" data-t="addNote"></div>
+      <div class="row" style="margin-top:8px">
+        <input class="inp" id="sc_kid" type="number" inputmode="numeric" min="1" placeholder="2186" style="width:120px">
+        <button class="btn primary" id="sc_fetch" data-t="fetch"></button>
+      </div>
+      <div class="msg" id="sc_msg"></div>
+      <div id="sc_list" class="sc-list"></div>
+    </div>
+    <div id="sc_kingdoms"></div>
+  </div>
+</div>
+  <div class="card" id="ak_hist"></div>
 </section>
 <section class="pg" id="pg-perms" hidden>
   <div class="top"><div><h1 id="pm_title"></h1><div class="muted" id="pm_sub"></div></div></div>
