@@ -54,7 +54,7 @@ const PRESETS = [
       { name: { en: "Joiners", zh: "參與者" }, count: null },
     ] },
   /* 🔱 Tri-Alliance Clash (三盟爭霸): its own groups, the Swordland battle table is hidden while it is open; "Copy result" adds each power */
-  { id: "tri", emoji: "🔱", power: true, name: { en: "Tri-Alliance Clash", zh: "三盟爭霸", pt: "Confronto Tri-Aliança", ar: "صراع التحالف الثلاثي", ko: "삼대 연맹전" },
+  { id: "tri", emoji: "🔱", power: true, img: "figures/tri.webp", name: { en: "Tri-Alliance Clash", zh: "三盟爭霸", pt: "Confronto Tri-Aliança", ar: "صراع التحالف الثلاثي", ko: "삼대 연맹전" },
     /* the alliance's TAC plan (2026-10-31): 4 teams; A, B, C a quarter of the ticked starters each, D = the rest */
     groups: [
       { name: { en: "Team A – Attack", zh: "A 隊 – 進攻", pt: "Time A – Ataque", ar: "الفريق A – الهجوم", ko: "A팀 – 공격" }, count: (n) => Math.floor(n / 4) },
