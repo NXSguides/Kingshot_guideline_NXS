@@ -12,9 +12,10 @@ const T = {
       ["Whose stats count", "The rally leader's", "The strongest person inside"],
       ["Widget type", "Offensive (rally)", "Defensive (garrison)"],
       ["Troop ratio", "50:20:30 · Infantry ≥ 40%", "High infantry (infantry is the wall)"],
-      ["Joiner skills", "First 4 people with a hero: 2 Attack + 2 Lethality", "Probably also the first 4 (not confirmed): best 2 Gordon + 2 Howard"],
+      ["Joiner skills", "First 4 people with a hero: 2 Attack + 2 Lethality", "Up to 4: different kinds best; 2 Gordon + 2 Howard also good → 🛡️ Garrison joiners"],
       ["Tactics / losses", "Strong target: expendable rallies first, the strongest leader last", "The lead takes ~32% more losses — Infirmary ready"],
       ["Bonus", "—", "Defensive Widgets also work when your own city is attacked"]],
+    gjT: "🛡️ Garrison joiners", gjNote: "From guides online + our calculation — not checked with our battle reports yet.", gjRules: ["Up to 4 count — each one's first hero, top-right skill only", "Who counts: higher skill level first; same level → whoever joined first. The garrison lead and R4/R5 can change the order", "Same kind of bonus adds up (each extra one gives less); different kinds multiply → 4 different kinds is best", "Chance skills (Jabel, Helga): the same one only counts once"], gjH: ["Joiners", "vs the best"], gjBest: "best", gjCmb: "2 Gordon + 2 Howard",
     heroT: "Heroes for each side", heroNote: "Grouped by troop. The tag = what the Widget adds in rallies or garrisons; → = upgrade path.",
     st: { atk: "Attack", leth: "Lethality", def: "Defense", hp: "Health" }, tag: { paid: "paid", roulette: "Hero Roulette", heavy: "heavy spend", free: "free" },
     trp: { inf: "🛡️ Infantry", cav: "🐎 Cavalry", arc: "🏹 Archer" },
@@ -33,9 +34,10 @@ const T = {
       ["用誰的屬性", "集結隊長的", "守軍裡最強的人"],
       ["零件派別", "集結派", "守城派"],
       ["兵種比例", "50:20:30・步兵 ≥ 40%", "步兵多（步兵是牆）"],
-      ["加入者技能", "前 4 個帶英雄的人：2 攻擊＋2 殺傷", "可能也是前 4 個（還沒確認）：最好 2 戈登＋2 霍華德"],
+      ["加入者技能", "前 4 個帶英雄的人：2 攻擊＋2 殺傷", "最多 4 個：不同種類最好；2 戈登＋2 霍華德也很好 → 🛡️ 駐防加入者"],
       ["戰術／傷亡", "打強目標：可犧牲的團先上，最強的隊長最後", "帶頭者多扛約 32% 傷亡——醫院先準備"],
       ["額外好處", "—", "守城派零件在自己的城被打時也有用"]],
+    gjT: "🛡️ 駐防加入者", gjNote: "來自網路攻略＋我們的計算——還沒用戰報確認。", gjRules: ["最多算 4 個——每人只看第一位英雄的右上技能", "算誰：技能等級高的先；同等級先到的先。駐防帶頭和 R4/R5 可以調整順序", "同一種加成相加（越疊越少），不同種類相乘 → 4 個不同種類最好", "機率型技能（潔貝爾、赫爾加）同一種只算一個"], gjH: ["加入者", "跟最好的比"], gjBest: "最好", gjCmb: "2 戈登＋2 霍華德",
     heroT: "兩邊各用哪些英雄", heroNote: "依兵種分。標籤＝零件在集結或駐防時加什麼；→＝升級路線。",
     st: { atk: "攻擊", leth: "殺傷", def: "防禦", hp: "生命" }, tag: { paid: "付費", roulette: "英雄轉盤", heavy: "重課", free: "免費" },
     trp: { inf: "🛡️ 步兵", cav: "🐎 騎兵", arc: "🏹 弓兵" },
@@ -54,9 +56,10 @@ const T = {
       ["Atributos de quem", "Do líder do rally", "Da pessoa mais forte lá dentro"],
       ["Tipo de Ferramenta", "Ofensiva (rally)", "Defensiva (guarnição)"],
       ["Proporção", "50:20:30 · Infantaria ≥ 40%", "Muita infantaria (infantaria é o muro)"],
-      ["Habilidades de participante", "4 primeiras pessoas com herói: 2 Ataque + 2 Letalidade", "Provavelmente também os 4 primeiros (não confirmado): melhor 2 Gordon + 2 Howard"],
+      ["Habilidades de participante", "4 primeiras pessoas com herói: 2 Ataque + 2 Letalidade", "Até 4: tipos diferentes é melhor; 2 Gordon + 2 Howard também é bom → 🛡️ Participantes da guarnição"],
       ["Tática / perdas", "Alvo forte: descartáveis primeiro, o líder mais forte por último", "O líder tem ~32% mais perdas — Enfermaria pronta"],
       ["Extra", "—", "Ferramentas defensivas também ajudam quando sua cidade é atacada"]],
+    gjT: "🛡️ Participantes da guarnição", gjNote: "De guias online + nosso cálculo — ainda não conferido com relatórios de batalha.", gjRules: ["Contam até 4 — só a habilidade de cima à direita do primeiro herói de cada um", "Quem conta: nível de habilidade maior primeiro; mesmo nível → quem entrou antes. O líder da guarnição e R4/R5 podem mudar a ordem", "O mesmo tipo de bônus soma (cada um a mais rende menos); tipos diferentes multiplicam → 4 tipos diferentes é o melhor", "Habilidades de chance (Jabel, Helga): a mesma só conta uma vez"], gjH: ["Participantes", "vs o melhor"], gjBest: "melhor", gjCmb: "2 Gordon + 2 Howard",
     heroT: "Heróis de cada lado", heroNote: "Por tropa. A etiqueta = o que a Ferramenta soma em rally ou guarnição; → = caminho de evolução.",
     st: { atk: "Ataque", leth: "Letalidade", def: "Defesa", hp: "Vida" }, tag: { paid: "pago", roulette: "Roleta de Heróis", heavy: "muito gasto", free: "grátis" },
     trp: { inf: "🛡️ Infantaria", cav: "🐎 Cavalaria", arc: "🏹 Arquearia" },
@@ -75,9 +78,10 @@ const T = {
       ["إحصاءات من", "قائد الحشد", "أقوى شخص في الحامية"],
       ["نوع الأجزاء", "هجومية (حشد)", "دفاعية (حامية)"],
       ["نسبة القوات", "50:20:30 · المشاة ≥ 40%", "مشاة كثيرون (المشاة جدار)"],
-      ["مهارات المنضمين", "أول 4 أشخاص لديهم بطل: 2 هجوم + 2 فتك", "على الأرجح أول 4 أيضًا (غير مؤكد): الأفضل 2 Gordon + 2 Howard"],
+      ["مهارات المنضمين", "أول 4 أشخاص لديهم بطل: 2 هجوم + 2 فتك", "حتى 4: الأنواع المختلفة أفضل؛ 2 جوردن + 2 هاورد جيد أيضًا ← 🛡️ المنضمون إلى الحامية"],
       ["التكتيك / الخسائر", "هدف قوي: الحشود القابلة للتضحية أولًا والأقوى أخيرًا", "القائد يتحمل ~32% خسائر أكثر — جهّز المستشفى"],
       ["ميزة", "—", "الأجزاء الدفاعية تفيد أيضًا عند مهاجمة مدينتك"]],
+    gjT: "🛡️ المنضمون إلى الحامية", gjNote: "من أدلة على الإنترنت + حسابنا — لم يُتحقق منه بتقارير معاركنا بعد.", gjRules: ["يُحسب حتى 4 — فقط المهارة العلوية اليمنى للبطل الأول لكل واحد", "من يُحسب: مستوى المهارة الأعلى أولًا؛ نفس المستوى ← من انضم أولًا. قائد الحامية وR4/R5 يمكنهم تغيير الترتيب", "نفس نوع المكافأة يُجمع (كل إضافة تعطي أقل)؛ الأنواع المختلفة تتضاعف ← 4 أنواع مختلفة هو الأفضل", "مهارات الاحتمال (Jabel، Helga): المهارة نفسها تُحسب مرة واحدة"], gjH: ["المنضمون", "مقارنة بالأفضل"], gjBest: "الأفضل", gjCmb: "2 جوردن + 2 هاورد",
     heroT: "أبطال كل جهة", heroNote: "حسب القوات. الوسم = ما تضيفه الأجزاء في الحشد أو الحامية؛ → = مسار الترقية.",
     st: { atk: "هجوم", leth: "فتك", def: "دفاع", hp: "صحة" }, tag: { paid: "مدفوع", roulette: "عجلة الأبطال", heavy: "إنفاق كبير", free: "مجاني" },
     trp: { inf: "🛡️ المشاة", cav: "🐎 الفرسان", arc: "🏹 الرماة" },
@@ -96,9 +100,10 @@ const T = {
       ["누구 능력치", "집결 대장의 것", "안에 있는 가장 강한 사람"],
       ["부속품 종류", "공격형 (집결)", "방어형 (방어)"],
       ["병종 비율", "50:20:30 · 보병 ≥ 40%", "보병 많이 (보병이 벽)"],
-      ["집결원 스킬", "영웅을 데려간 앞 4명: 공격 2 + 파괴력 2", "아마 똑같이 앞 4명 (미확인): 고든 2 + 하워드 2가 최고"],
+      ["집결원 스킬", "영웅을 데려간 앞 4명: 공격 2 + 파괴력 2", "최대 4명: 다른 종류가 최고; 고든 2 + 하워드 2도 좋음 → 🛡️ 방어 합류자"],
       ["전술 / 손실", "강한 목표: 버려도 되는 집결 먼저, 가장 강한 대장 마지막", "대장이 손실을 약 32% 더 떠안음 — 병원 준비"],
       ["추가 이점", "—", "방어형 부속품은 내 도시가 공격받을 때도 적용"]],
+    gjT: "🛡️ 방어 합류자", gjNote: "온라인 공략 + 우리 계산 — 아직 전투 보고서로 확인 안 됨.", gjRules: ["최대 4명까지 — 각자 첫 영웅의 오른쪽 위 스킬만", "누가 들어가나: 스킬 레벨 높은 순; 같은 레벨이면 먼저 온 순. 방어 대장과 R4/R5가 순서를 바꿀 수 있음", "같은 종류 보너스는 더해짐 (많을수록 효율↓); 다른 종류는 곱해짐 → 서로 다른 4종류가 최고", "확률 스킬 (제이벨, 헬가): 같은 스킬은 하나만 적용"], gjH: ["합류자", "최고 대비"], gjBest: "최고", gjCmb: "고든 2 + 하워드 2",
     heroT: "각 쪽에 쓰는 영웅", heroNote: "병종별. 태그 = 집결이나 방어에서 부속품이 더해 주는 것; → = 육성 순서.",
     st: { atk: "공격", leth: "파괴력", def: "방어", hp: "HP" }, tag: { paid: "유료", roulette: "영웅 룰렛", heavy: "고과금", free: "무료" },
     trp: { inf: "🛡️ 보병", cav: "🐎 기병", arc: "🏹 궁병" },
@@ -120,7 +125,8 @@ const HN = { amadeus: { zh: "阿瑪迪斯", ko: "아마데우스", ar: "أماد
   eric: { zh: "艾瑞克", ko: "에릭", ar: "إيريك" }, alcar: { zh: "艾爾卡" }, longfei: { en: "Long Fei", zh: "龍飛" }, jabel: { zh: "潔貝爾", ko: "제이벨", ar: "جبل" },
   hilde: { zh: "希爾德", ko: "힐데", ar: "هيلدي" }, petra: { zh: "小佩拉", ko: "리틀 페라", ar: "بيترا" }, margot: { zh: "瑪歌" }, thrud: { zh: "索德" },
   saul: { zh: "薩洛", ko: "살로", ar: "شاول" }, marlin: { zh: "馬林", ko: "마린", ar: "مارلين", pt: "Peixe Marlin" }, jaeger: { zh: "耶格爾", ko: "예거", ar: "ييجر" },
-  rosa: { zh: "蘿莎" }, vivian: { zh: "薇薇安" } };
+  rosa: { zh: "蘿莎" }, vivian: { zh: "薇薇安" },
+  gordon: { zh: "戈登", ko: "고든", ar: "جوردن" }, howard: { zh: "霍華德", ko: "하워드", ar: "هاورد" }, chenko: { zh: "琴科", ko: "첸코", ar: "تشينكو" }, amane: { zh: "雨音", ko: "아마네", ar: "أماني" } };
 const hname = (id) => (HN[id] && (HN[id][lang] || HN[id].en)) || id.charAt(0).toUpperCase() + id.slice(1);
 const RANK = {
   pvp: { inf: [["alcar", 0], ["longfei", 28], ["amadeus", 47], ["eric", 48], ["helga", 51], ["zoe", 54]], cav: [["thrud", 0], ["petra", 7], ["margot", 8], ["hilde", 22], ["jabel", 26]], arc: [["vivian", 0], ["rosa", 7], ["jaeger", 26], ["marlin", 28], ["saul", 44]] },
@@ -175,19 +181,23 @@ const ul = (a) => `<ul class="gr-ul">${a.map((x) => `<li>${esc(x)}</li>`).join("
 /* heroes for each side: [id, Widget stat in rallies / garrisons, how to get] — claude/kingshot-attack-vs-defense.md */
 const SIDE = {
   atk: { inf: [["amadeus", "atk", "paid"], ["helga", "leth", "paid"]], cav: [["petra", "atk", "roulette"], ["thrud", "leth", "heavy"]], arc: [["marlin", "leth"], ["rosa", "leth", "roulette"], ["vivian", ""]], seq: { arc: 1 } },
-  def: { inf: [["eric", "def"], ["alcar", "hp"], ["longfei", "atk", "roulette"], ["zoe", "atk", "roulette"]], cav: [["jabel", "leth", "free"], ["margot", ""], ["hilde", "hp"]], arc: [["jaeger", "hp"], ["saul", "atk"]] },
+  def: { inf: [["eric", "def"], ["alcar", "hp"], ["longfei", "atk", "roulette"], ["zoe", "atk", "roulette"]], cav: [["jabel", "leth", "free"], ["margot", ""], ["hilde", "hp"]], arc: [["jaeger", "hp"], ["saul", "atk", "roulette"]] },
 };
 const GENS = { amadeus: 1, helga: 1, jabel: 1, saul: 1, zoe: 2, hilde: 2, marlin: 2, eric: 3, petra: 3, jaeger: 3, alcar: 4, margot: 4, rosa: 4, longfei: 5, thrud: 5, vivian: 5 };
+const GJ = [[[["howard", 1], ["saul", 1], ["hilde", 1], ["chenko", 1]], 0], [[["gordon", 2], ["howard", 2]], 5], [[["chenko", 2], ["amane", 2]], 9], [[["gordon", 4]], 19]];
 function render() {
   const L = t(), root = $("gr_root"); if (!root) return;
   const site = { zh: "zh", en: "en", pt: "pt", ar: "ar", ko: "ko" }[lang] || "en";
-  const chip = ([id, st, tg]) => `<span class="gr-chip"><span class="gr-pic"><img src="figures/heroes/hero_${id}.webp" alt="" loading="lazy" onerror="this.style.visibility='hidden'"><b class="gr-gen"><i>S</i>${GENS[id]}</b></span>
+  const chip = ([id, st, tg]) => `<span class="gr-chip"><span class="gr-pic"><img src="figures/heroes/hero_${id}.webp" alt="" loading="lazy" onerror="this.style.visibility='hidden'">${GENS[id] ? `<b class="gr-gen"><i>S</i>${GENS[id]}</b>` : ""}</span>
     <b dir="auto">${esc(hname(id))}</b>${st ? `<em class="gr-st ${st}">${esc(L.st[st])}</em>` : ""}${tg ? `<small>${esc(L.tag[tg])}</small>` : ""}</span>`;
   const side = (k, tr) => `<div class="gr-chips">${SIDE[k][tr].map(chip).join(SIDE[k].seq && SIDE[k].seq[tr] ? '<span class="gr-arr">→</span>' : "")}</div>`;
   const ol = (a) => `<ol class="gr-ord">${a.map((x) => `<li>${esc(x)}</li>`).join("")}</ol>`;
   root.innerHTML = `
     <div class="card"><h3>${esc(L.cmpT)}</h3><div class="gr-tw"><table class="gr-cmp"><thead><tr>${L.cmpH.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
       <tbody>${L.cmp.map(([k, a, d]) => `<tr><th>${esc(k)}</th><td>${esc(a)}</td><td>${esc(d)}</td></tr>`).join("")}</tbody></table></div></div>
+    <div class="card"><h3>${esc(L.gjT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(L.gjNote)}</div>${ul(L.gjRules)}
+      <div class="gr-tw"><table class="gr-cmp gr-gj"><thead><tr>${L.gjH.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
+      <tbody>${GJ.map(([c, d]) => `<tr><td><div class="gr-chips">${c.map(([id, n]) => chip([id, "", ""]).replace('<span class="gr-pic">', `<span class="gr-pic">${n > 1 ? `<b class="gr-n">×${n}</b>` : ""}`)).join("")}</div></td><td class="gr-gjv">${d ? `−${d}%` : `✅ ${esc(L.gjBest)}`}</td></tr>`).join("")}</tbody></table></div></div>
     <div class="card"><h3>${esc(L.heroT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(L.heroNote)}</div>
       <div class="gr-tw"><table class="gr-cmp gr-heroes-t"><thead><tr><th></th><th>${esc(L.cmpH[1])}</th><th>${esc(L.cmpH[2])}</th></tr></thead>
       <tbody>${["inf", "cav", "arc"].map((tr) => `<tr><th>${esc(L.trp[tr])}</th><td>${side("atk", tr)}</td><td>${side("def", tr)}</td></tr>`).join("")}</tbody></table></div></div>
