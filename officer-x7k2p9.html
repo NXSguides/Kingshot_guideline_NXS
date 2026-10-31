@@ -257,6 +257,19 @@
   #pg-growth .gr-dl dt { font-weight: 700; color: var(--text-muted); } #pg-growth .gr-dl dd { margin: 0; }
   #pg-growth .gr-h4 { margin: 12px 0 6px; } @media (max-width: 480px) { #pg-growth .gr-dl { grid-template-columns: 1fr; gap: 2px; } #pg-growth .gr-dl dd { margin-bottom: 6px; } }
   #pg-growth .gr-ask { border: 2px solid #d9a65a; }
+  #pg-growth .gr-slot { display: grid; grid-template-columns: 4.2em 1fr; gap: 8px; align-items: start; padding: 6px 0; border-top: 1px dashed var(--rule); }
+  #pg-growth .gr-slab { font-weight: 700; font-size: 13px; padding-top: 18px; }
+  #pg-growth .gr-heroes { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; }
+  #pg-growth .gr-hero { flex: 0 0 62px; text-align: center; font-size: 11.5px; line-height: 1.25; border: 1px solid var(--rule); border-radius: 10px; padding: 4px 2px 5px; background: var(--panel); }
+  #pg-growth .gr-hero.top { border: 2px solid #d9a65a; background: color-mix(in srgb, #f3d9a4 40%, var(--panel)); }
+  #pg-growth .gr-hero img, #pg-growth .gr-vsp img { width: 52px; height: 52px; object-fit: cover; object-position: top; border-radius: 8px; display: block; margin: 0 auto 3px; background: #b9cfdc; }
+  #pg-growth .gr-hero b { display: block; font-size: 11.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #pg-growth .gr-gap { display: block; font-weight: 700; color: var(--text-muted); } #pg-growth .gr-hero.top .gr-gap { color: #8a5a12; }
+  #pg-growth .gr-vs { border-top: 1px dashed var(--rule); padding: 8px 0; }
+  #pg-growth .gr-vsp { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; } #pg-growth .gr-vsp span { text-align: center; font-size: 11.5px; width: 64px; }
+  #pg-growth .gr-vsp i { font-style: normal; display: block; } #pg-growth .gr-vsp em { font-style: normal; font-weight: 800; color: var(--text-muted); }
+  #pg-growth .gr-vs p { margin: 6px 0 0; font-size: 13.5px; line-height: 1.5; }
+  #pg-growth .gr-warn { margin-top: 8px; font-size: 12.5px; color: var(--text-muted); display: grid; gap: 4px; }
   /* ⚔️ attack planner */
   #pg-attack .ak-tw { overflow-x: auto; }
   #pg-attack .ak-t { width: 100%; border-collapse: collapse; font-size: 13.5px; }

@@ -149,6 +149,73 @@ const T = {
 };
 let lang = OFFICER.lang || "en";
 const t = () => T[lang] || T.en;
+/* 🦸 hero comparison — Project doc claude/kingshot-hero-numbers.md (2026-10-31): Gen 1–5 SSR, max level / stars / Widget,
+   each troop slot compared on its own. Number = how far behind the best hero of that slot. Pictures: figures/heroes/hero_<id>.webp */
+const HN = { amadeus: { zh: "阿瑪迪斯", ko: "아마데우스", ar: "أماديوس" }, helga: { zh: "赫爾加", ko: "헬가", ar: "هيلجا" }, zoe: { zh: "佐伊", ko: "조이", ar: "زوي" },
+  eric: { zh: "艾瑞克", ko: "에릭", ar: "إيريك" }, alcar: { zh: "艾爾卡" }, longfei: { en: "Long Fei", zh: "龍飛" }, jabel: { zh: "潔貝爾", ko: "제이벨", ar: "جبل" },
+  hilde: { zh: "希爾德", ko: "힐데", ar: "هيلدي" }, petra: { zh: "小佩拉", ko: "리틀 페라", ar: "بيترا" }, margot: { zh: "瑪歌" }, thrud: { zh: "索德" },
+  saul: { zh: "薩洛", ko: "살로", ar: "شاول" }, marlin: { zh: "馬林", ko: "마린", ar: "مارلين", pt: "Peixe Marlin" }, jaeger: { zh: "耶格爾", ko: "예거", ar: "ييجر" },
+  rosa: { zh: "蘿莎" }, vivian: { zh: "薇薇安" } };
+const hname = (id) => (HN[id] && (HN[id][lang] || HN[id].en)) || id.charAt(0).toUpperCase() + id.slice(1);
+const RANK = {
+  pvp: { inf: [["alcar", 0], ["longfei", 28], ["amadeus", 47], ["eric", 48], ["helga", 51], ["zoe", 54]], cav: [["thrud", 0], ["petra", 7], ["margot", 8], ["hilde", 22], ["jabel", 26]], arc: [["vivian", 0], ["rosa", 7], ["jaeger", 26], ["marlin", 28], ["saul", 44]] },
+  gar: { inf: [["alcar", 0], ["longfei", 28], ["eric", 48], ["zoe", 54], ["amadeus", 60], ["helga", 63]], cav: [["margot", 0], ["hilde", 15], ["thrud", 18], ["jabel", 20], ["petra", 23]], arc: [["vivian", 0], ["jaeger", 2], ["rosa", 7], ["saul", 26], ["marlin", 28]] },
+  bear: { inf: [["amadeus", 0], ["zoe", 10], ["helga", 17], ["alcar", 31], ["longfei", 41], ["eric", 54]], cav: [["petra", 0], ["thrud", 6], ["margot", 12], ["jabel", 18], ["hilde", 23]], arc: [["vivian", 0], ["rosa", 23], ["marlin", 37], ["jaeger", 53], ["saul", 57]] },
+};
+const H2H = [["petra", "margot"], ["eric", "longfei", "alcar"], ["saul", "jaeger"], ["marlin", "rosa", "vivian"]];
+const HC = {
+  en: { hcT: "🦸 Hero comparison (Gen 1–5)", hcNote: "Every hero at max level, max stars and max Widget; each troop slot compared on its own. The number = how far behind the best hero of that slot.",
+    hcR: { pvp: "⚔️ PvP rally lead", gar: "🛡️ Garrison lead", bear: "🐻 Bear lead" }, hcS: { inf: "🛡️ Infantry", cav: "🐎 Cavalry", arc: "🏹 Archer" }, best: "Best",
+    h2hT: "Head to head",
+    h2h: ["Bear: Petra is 12% stronger (her rally Widget). PvP rally: about the same. Garrison: Margot is 30% stronger. → Already have Petra? Keep her for rallies and the Bear; switch to Margot only for a garrison cavalry.",
+      "Garrison & PvP: from Eric, Long Fei is +39% and Alcar +92%; from Long Fei, Alcar is +38%. Long Fei's lead comes from his higher troop bonus (newer generation). Alcar's extra comes from infantry damage +100% and +60% stacking — not confirmed yet.",
+      "Garrison: Jaeger is +32% over Saul (Bear +10%). → For an archer garrison, Jaeger is clearly better.",
+      "Bear: Marlin → Rosa +22%, → Vivian +58%; Rosa → Vivian +29%. PvP rally: Marlin → Rosa +28%, → Vivian +38%; Rosa → Vivian only +8%. → Vivian pays off most for the Bear."],
+    hcWarn: ["Stars matter most: these use max stars — a 5★ older hero can beat a 1★ newer one.", "Assumes skill buffs multiply each other. If they add, the fixed-buff heroes (Amadeus, Helga, Hilde, Margot) drop the most.", "Infantry slot: the gap is mostly troop bonus (generation), not skills."] },
+  zh: { hcT: "🦸 英雄比較（第 1–5 代）", hcNote: "每位英雄都當滿級、滿星、零件滿級；每個兵種位置分開比。數字＝跟同位置第一名差多少。",
+    hcR: { pvp: "⚔️ PvP 集結隊長", gar: "🛡️ 駐防帶頭", bear: "🐻 熊獵隊長" }, hcS: { inf: "🛡️ 步兵", cav: "🐎 騎兵", arc: "🏹 弓兵" }, best: "最強",
+    h2hT: "一對一比較",
+    h2h: ["熊獵：小佩拉強 12%（差在她的集結派零件）。PvP 集結：差不多。駐防：瑪歌強 30%。→ 已經有小佩拉，集結和熊獵不用換；要練駐防騎兵才換瑪歌。",
+      "駐防和 PvP：從艾瑞克換龍飛 +39%、換艾爾卡 +92%；從龍飛換艾爾卡 +38%。龍飛的領先來自兵種加成比較高（代數新）；艾爾卡多出來的來自步兵傷害 +100% 和 +60% 相乘——還沒確認。",
+      "駐防：耶格爾比薩洛強 32%（熊獵 +10%）。→ 弓兵駐防，耶格爾明顯比較好。",
+      "熊獵：馬林 → 蘿莎 +22%、→ 薇薇安 +58%；蘿莎 → 薇薇安 +29%。PvP 集結：馬林 → 蘿莎 +28%、→ 薇薇安 +38%；蘿莎 → 薇薇安只多 8%。→ 薇薇安在熊獵最值得。"],
+    hcWarn: ["星級影響最大：這裡用滿星——五星的舊英雄可能贏過一星的新英雄。", "假設技能加成彼此相乘；如果是相加，固定加成型的英雄（阿瑪迪斯、赫爾加、希爾德、瑪歌）掉最多。", "步兵位：差距主要來自兵種加成（代數），不是技能。"] },
+  pt: { hcT: "🦸 Comparação de heróis (Gen 1–5)", hcNote: "Todos os heróis no nível, estrelas e Ferramenta máximos; cada posição de tropa comparada separadamente. O número = quanto fica atrás do melhor da mesma posição.",
+    hcR: { pvp: "⚔️ Líder de rally PvP", gar: "🛡️ Líder de guarnição", bear: "🐻 Líder do Urso" }, hcS: { inf: "🛡️ Infantaria", cav: "🐎 Cavalaria", arc: "🏹 Arquearia" }, best: "Melhor",
+    h2hT: "Frente a frente",
+    h2h: ["Urso: Petra é 12% mais forte (a Ferramenta de rally dela). Rally PvP: quase igual. Guarnição: Margot é 30% mais forte. → Já tem Petra? Fique com ela para rally e Urso; troque por Margot só para cavalaria de guarnição.",
+      "Guarnição e PvP: saindo de Eric, Long Fei dá +39% e Alcar +92%; saindo de Long Fei, Alcar dá +38%. A vantagem de Long Fei vem do bônus de tropa maior (geração mais nova). O extra de Alcar vem de dano de infantaria +100% e +60% somados — ainda não confirmado.",
+      "Guarnição: Jaeger é 32% melhor que Saul (Urso +10%). → Para guarnição de arquearia, Jaeger é claramente melhor.",
+      "Urso: Marlin → Rosa +22%, → Vivian +58%; Rosa → Vivian +29%. Rally PvP: Marlin → Rosa +28%, → Vivian +38%; Rosa → Vivian só +8%. → Vivian vale mais no Urso."],
+    hcWarn: ["Estrelas pesam mais: aqui são estrelas máximas — um herói antigo 5★ pode vencer um novo 1★.", "Supõe que os bônus de habilidade se multiplicam. Se somarem, os heróis de bônus fixo (Amadeus, Helga, Hilde, Margot) caem mais.", "Posição de infantaria: a diferença vem quase toda do bônus de tropa (geração), não das habilidades."] },
+  ar: { hcT: "🦸 مقارنة الأبطال (الأجيال 1–5)", hcNote: "كل بطل بأعلى مستوى ونجوم وأجزاء؛ كل موقع قوات يُقارن وحده. الرقم = كم يتأخر عن الأفضل في نفس الموقع.",
+    hcR: { pvp: "⚔️ قائد حشد PvP", gar: "🛡️ قائد الحامية", bear: "🐻 قائد الدب" }, hcS: { inf: "🛡️ المشاة", cav: "🐎 الفرسان", arc: "🏹 الرماة" }, best: "الأفضل",
+    h2hT: "وجهًا لوجه",
+    h2h: ["الدب: Petra أقوى بـ 12% (أجزاء الحشد). حشد PvP: متقاربان. الحامية: Margot أقوى بـ 30%. ← لديك Petra؟ أبقها للحشد والدب؛ وانتقل إلى Margot فقط لفرسان الحامية.",
+      "الحامية وPvP: من Eric إلى Long Fei ‏+39% وإلى Alcar ‏+92%؛ من Long Fei إلى Alcar ‏+38%. تقدّم Long Fei من مكافأة القوات الأعلى (جيل أحدث). زيادة Alcar من ضرر المشاة +100% و+60% معًا — غير مؤكد بعد.",
+      "الحامية: Jaeger أفضل من Saul بـ 32% (الدب +10%). ← لحامية الرماة Jaeger أفضل بوضوح.",
+      "الدب: Marlin ← Rosa ‏+22%، ← Vivian ‏+58%؛ Rosa ← Vivian ‏+29%. حشد PvP: Marlin ← Rosa ‏+28%، ← Vivian ‏+38%؛ Rosa ← Vivian ‏+8% فقط. ← Vivian تستحق أكثر في الدب."],
+    hcWarn: ["النجوم هي الأهم: هنا بأعلى النجوم — بطل قديم 5★ قد يتفوق على بطل جديد 1★.", "نفترض أن مكافآت المهارات تتضاعف معًا؛ إن كانت تُجمع فالأبطال ذوو المكافآت الثابتة (Amadeus وHelga وHilde وMargot) يتراجعون أكثر.", "موقع المشاة: الفرق يأتي غالبًا من مكافأة القوات (الجيل) لا من المهارات."] },
+  ko: { hcT: "🦸 영웅 비교 (1–5세대)", hcNote: "모든 영웅을 만렙·만성·부속품 최대로 계산; 병종 자리별로 따로 비교. 숫자 = 같은 자리 1위보다 얼마나 약한지.",
+    hcR: { pvp: "⚔️ PvP 집결 대장", gar: "🛡️ 방어 대장", bear: "🐻 곰 사냥 대장" }, hcS: { inf: "🛡️ 보병", cav: "🐎 기병", arc: "🏹 궁병" }, best: "최고",
+    h2hT: "1:1 비교",
+    h2h: ["곰 사냥: 리틀 페라가 12% 강함 (집결형 부속품 차이). PvP 집결: 비슷. 방어: Margot가 30% 강함. → 리틀 페라가 있으면 집결·곰은 그대로, 방어 기병을 키울 때만 Margot로.",
+      "방어·PvP: 에릭에서 Long Fei로 +39%, Alcar로 +92%; Long Fei에서 Alcar로 +38%. Long Fei의 우위는 더 높은 병종 보너스 (신세대) 덕분. Alcar의 추가분은 보병 피해 +100%와 +60%가 곱해진 것 — 아직 미확인.",
+      "방어: 예거가 살로보다 32% 강함 (곰 +10%). → 궁병 방어는 예거가 확실히 나아요.",
+      "곰: 마린 → Rosa +22%, → Vivian +58%; Rosa → Vivian +29%. PvP 집결: 마린 → Rosa +28%, → Vivian +38%; Rosa → Vivian은 +8%뿐. → Vivian은 곰 사냥에서 가장 값어치가 커요."],
+    hcWarn: ["성급이 가장 중요: 여기선 만성 기준 — 5★ 구세대 영웅이 1★ 신세대를 이길 수 있어요.", "스킬 버프가 서로 곱해진다고 가정. 더해진다면 고정 버프형 (아마데우스, 헬가, 힐데, Margot)이 가장 많이 떨어져요.", "보병 자리: 차이는 대부분 스킬이 아니라 병종 보너스 (세대) 때문."] },
+};
+for (const [l, o] of Object.entries(HC)) Object.assign(T[l], o);
+function hcHtml(L) {
+  const pic = (id) => `<img src="figures/heroes/hero_${id}.webp" alt="" loading="lazy" onerror="this.style.visibility='hidden'">`;
+  const slot = (role, s) => `<div class="gr-slot"><div class="gr-slab">${esc(L.hcS[s])}</div><div class="gr-heroes">${RANK[role][s].map(([id, d]) =>
+    `<div class="gr-hero${d ? "" : " top"}">${pic(id)}<b dir="auto">${esc(hname(id))}</b><span class="gr-gap">${d ? "−" + d + "%" : "👑 " + esc(L.best)}</span></div>`).join("")}</div></div>`;
+  return `<div class="card gr-hc"><h3>${esc(L.hcT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(L.hcNote)}</div>
+    ${["pvp", "gar", "bear"].map((r) => `<h4 class="gr-h4">${esc(L.hcR[r])}</h4>${["inf", "cav", "arc"].map((s) => slot(r, s)).join("")}`).join("")}
+    <h4 class="gr-h4">${esc(L.h2hT)}</h4>
+    ${H2H.map((ids, i) => `<div class="gr-vs"><div class="gr-vsp">${ids.map((id) => `<span>${pic(id)}<i dir="auto">${esc(hname(id))}</i></span>`).join('<em>vs</em>')}</div><p>${esc(L.h2h[i])}</p></div>`).join("")}
+    <div class="gr-warn">${L.hcWarn.map((w) => `<div>⚠️ ${esc(w)}</div>`).join("")}</div></div>`;
+}
 const ul = (a) => `<ul class="gr-ul">${a.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>`;
 function render() {
   const L = t(), root = $("gr_root"); if (!root) return;
@@ -156,6 +223,7 @@ function render() {
   const dl = (rows) => `<dl class="gr-dl">${rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>`;
   root.innerHTML = `
     <div class="gr-roles">${L.roles.map((r) => `<div class="card gr-role"><h4>${r.i} ${esc(r.n)}</h4>${dl(r.r)}</div>`).join("")}</div>
+    ${hcHtml(L)}
     <div class="card"><h3>${esc(L.gearT)}</h3>${dl(L.gear)}</div>
     <div class="card"><h3>${esc(L.whoT)}</h3>${ul(L.who)}</div>
     <p><a class="btn" href="./#/${site}/hero-cards" target="_blank" rel="noopener">${esc(L.cards)}</a></p>
