@@ -419,6 +419,17 @@ AI ASSISTANT
 - Our own kingdom #2189 is scouted too, for comparison. Data is the SCOUT section of the OFFICER DATA (answer "who is the strongest in kingdom X" from there).
 - Not in this data: last login (unreliable) and anything MightPulse does not publish.
 
+@growth
+🧭 GROWTH tab (officer-x7k2p9.html#growth, 發展方向) — a PROPOSAL to agree on first (Sherry, 2026-10-31, for Armada and Nia): how NXS grows its rally and garrison leaders. Nothing decided, no names yet. Read-only text.
+- Why split roles: rallies and garrisons only use the LEADER's stats, heroes, Exclusive Gear (Widgets) and Governor Gear; joiners only add their first hero's top-right Expedition skill. Building both attack and defense pays twice for half — one role per person.
+- ⚔️ Attack (PvP rally lead): heroes Amadeus / Helga, Petra / Thrud, Vivian / Rosa / Marlin; offensive (rally) Widgets; Governor Gear + gems: Infantry (gear = Defense, gems = Health) > Archer gems (Lethality) > Archer gear > Cavalry; hero gear: infantry heroes gloves + chest (Health), cavalry / archer heroes helmet + boots (Lethality); rally capacity.
+- 🛡️ Defense (garrison lead): heroes Eric / Alcar / Long Fei / Zoe, Jabel / Hilde / Margot, Jaeger / Saul; defensive (garrison) Widgets; same gear order; the highest garrison capacity (a garrison uses the stats of whoever gives the most capacity).
+- 🐻 Bear lead: archer heroes matter most (Vivian / Rosa / Marlin; Petra; Amadeus); offensive Widgets; Governor Gear archer >> cavalry > infantry; archer heroes' helmet + boots; defensive skills are wasted (the Bear doesn't hit back).
+- 👥 Joiners: only the first hero's top-right skill (Chenko, Amane, Yeonwoo; PvP also Gordon etc.); no Widgets needed; Governor Gear no rush; troop tier, count, march capacity. Only the first 4 people with a hero count; 2 Attack + 2 Lethality skills is best.
+- Free players: Jabel's Widget to max → Chenko / Amane / Yeonwoo top-right skill to Lv5 → one offensive-Widget hero (Petra, Hero Roulette) → keep Widget parts on 2–3 heroes (275 for one max).
+- To decide together: how many Attack and Defense leads; who takes which role (names after agreement); garrison ratio — is "60/40" Infantry 60 + the rest 40?
+- Button "🃏 Hero Cards" opens the main site's Hero Cards (Gen 1–8, rated per role).
+
 @attack
 ⚔️ BATTLE tab (officer-x7k2p9.html#attack, 作戰; it also holds 🔭 Scout) — ATTACK PLANNER (攻擊規劃) — how many rallies in a row a target garrison needs, and who goes last, from TODAY's MightPulse boards
 - Its own tab: hidden from everyone except admins until the 👥 table gives it. A rough planning tool, not a simulator. Our side always uses Chenko joiners and 50:20:30 (a simple troop-ratio simulation found 50:20:30 robust; keep infantry ≥ ~40%).
@@ -546,13 +557,14 @@ async function isOfficer(body, env) {
 
 /* 🔒 Officer AI = logged in with Discord AND on the 👥 table. Returns which tabs they may open (admins: all),
    so the AI only gets the handbook parts and data of those tabs. The old officer password / data-key proof no longer counts. */
-const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🚚 Move", hunt: "🎯 Blacklist", attack: "⚔️ Battle", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
+const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🚚 Move", hunt: "🎯 Blacklist", attack: "⚔️ Battle", growth: "🧭 Growth", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
 const AI_TAB_LINKS = {
   events: "[Events](officer-x7k2p9.html#events) (week calendar, officer to-dos, in-game guides to copy, add/edit events)",
   board: "[Board](officer-x7k2p9.html#board)", map: "[Map](officer-x7k2p9.html#map) (kingdom map, Outpost plan)",
   move: "[Move](officer-x7k2p9.html#move) (alliance move, member positions)", hunt: "[Blacklist](officer-x7k2p9.html#hunt) (All Out blacklist: location and shield of listed players)", ranking: "[Ranking](officer-x7k2p9.html#ranking) (member ranking, power, TC, Mystic Trial, battle tables)",
   attend: "[Attendance](officer-x7k2p9.html#attend)", post: "[Post](officer-x7k2p9.html#post) (post / edit announcements)",
   watch: "[Watch](officer-x7k2p9.html#watch) (name changes, power history, who left/joined, notes)",
+  growth: "[Growth](officer-x7k2p9.html#growth) (proposal: how we grow attack / defense / Bear leaders)",
   attack: "[Battle](officer-x7k2p9.html#attack) (attack planner from MightPulse board strength, scouting other kingdoms)",
   views: "[Views](officer-x7k2p9.html#views)", perms: "[Officers](officer-x7k2p9.html#perms)",
 };
@@ -1607,7 +1619,7 @@ const ADMIN_IDS = ["1547403844374368327", "1240788094672834623", "76282790434124
 /* view-only officers added by Sparrow (2026-10-16): put into the 👥 table with Events / Board / Map "view" if they aren't in it yet.
    After that the table is the truth — change or remove them on the 👥 tab. */
 const SEED_VIEWERS = {"741447079804797041": "firebaugh", "734803550672257104": "ASHISH", "961642100150124555": "BOO", "1526789098210197638": "ELR", "216564539041251329": "flip", "1534039396461056172": "JORDAN", "1525666601456767171": "PAPA", "706153853460021341": "Tiger", "1003385592983322664": "Δйʊвιŝ"};
-const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", views: "none", move: "none", hunt: "none", attack: "none" };
+const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", views: "none", move: "none", hunt: "none", attack: "none", growth: "none" };
 /* 🛠️ which events' officer to-dos each person gets as a reminder (from Sparrow's role list, 2026-10-16) — only a starting point:
    once an admin changes someone's 🔔 on the 👥 tab, the saved list wins. Admins with no list get every event. */
 const MOB = "alliance-mobilization";

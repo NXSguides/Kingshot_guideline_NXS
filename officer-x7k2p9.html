@@ -248,6 +248,14 @@
   #pg-post .wrap { max-width: 760px; margin: 0 auto; }
   #pg-post .btn { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 15px; text-decoration: none; display: inline-block; }
   #pg-post .btn.big { width: 100%; padding: 14px; font-size: 17px; }
+  /* 🧭 growth plan */
+  #pg-growth .gr-ul { margin: 4px 0 0; padding-inline-start: 1.3em; line-height: 1.55; } #pg-growth .gr-ul li { margin: 3px 0; }
+  #pg-growth .card h3, #pg-growth .gr-h { margin: 0 0 6px; } #pg-growth .gr-h { margin: 18px 0 0; }
+  #pg-growth .gr-roles { display: grid; gap: 0 12px; } @media (min-width: 760px) { #pg-growth .gr-roles { grid-template-columns: 1fr 1fr; } }
+  #pg-growth .gr-role h4 { margin: 0 0 6px; font-size: 16px; }
+  #pg-growth .gr-role dl { margin: 0; display: grid; grid-template-columns: minmax(6.5em, 34%) 1fr; gap: 6px 10px; font-size: 14px; }
+  #pg-growth .gr-role dt { font-weight: 700; color: var(--text-muted); } #pg-growth .gr-role dd { margin: 0; }
+  #pg-growth .gr-ask { border: 2px solid #d9a65a; }
   /* ⚔️ attack planner */
   #pg-attack .ak-tw { overflow-x: auto; }
   #pg-attack .ak-t { width: 100%; border-collapse: collapse; font-size: 13.5px; }
@@ -522,7 +530,7 @@
   .pg.readonly [data-edit], .pg.readonly [data-edtodo], .pg.readonly [data-igedit], .pg.readonly a[href^="#post"],
   .pg.readonly [data-v], .pg.readonly [data-p], .pg.readonly [data-tmset] { display: none !important; }
   /* no way into a tab they can't open: every link to it inside the pages is hidden (the nav entry is hidden by applyPerms) */
-  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-attack .pg a[href^="#attack"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
+  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-attack .pg a[href^="#attack"], body.no-growth .pg a[href^="#growth"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
   .pg.readonly::before { display: none !important; }   /* no "view only" banner on top: the missing buttons say enough */
   .pg-unused-ro-banner { content: attr(data-ro); display: block; margin: 0 0 10px; padding: 8px 12px; border-radius: 10px; font-size: 13px; background: color-mix(in srgb, var(--accent) 12%, var(--panel)); border: 1px solid var(--accent); }
   /* 👁️ view only: buttons they can't use are not there at all, and fields look written in stone (plain text, nothing to tap) */
@@ -799,6 +807,7 @@
     <a href="#move" data-tab="move" hidden>🚚 Move</a>
     <a href="#hunt" data-tab="hunt" hidden>🎯 Blacklist</a>
     <a href="#attack" data-tab="attack" hidden>⚔️ Battle</a>
+    <a href="#growth" data-tab="growth" hidden>🧭 Growth</a>
     <a href="#ranking" data-tab="ranking">📊 Ranking</a>
     <a href="#attend" data-tab="attend" id="attendTab" hidden>📋 Attendance</a>
     <a href="#post" data-tab="post">📢 Post</a>
@@ -1280,6 +1289,10 @@
   <div class="top"><div><h1 id="hn_title">🎯</h1><div class="muted" id="hn_intro"></div></div></div>
   <div class="card km-members" id="hn_root"></div>
 </section>
+<section class="pg" id="pg-growth" hidden>
+  <div class="top"><div><h1 id="gr_title">🧭</h1><div class="muted" id="gr_intro"></div></div></div>
+  <div id="gr_root"></div>
+</section>
 <section class="pg" id="pg-attack" hidden>
   <div class="top"><div><h1 id="ak_title">⚔️</h1><div class="muted" id="ak_intro"></div></div></div>
   <div id="ak_root"></div>
@@ -1381,6 +1394,7 @@
 <script src="js/officer/perms.js"></script>
 <script src="js/officer/attend.js"></script>
 <script src="js/officer/attack.js"></script>
+<script src="js/officer/growth.js"></script>
 <script>officerGate();</script>
 <script src="js/assistant.js"></script>
 <script src="js/sparrow.js"></script>
