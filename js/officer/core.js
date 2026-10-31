@@ -373,7 +373,7 @@ document.getElementById("langBtn").onchange = (ev) => {
   OFFICER.lang = ev.target.value;
   setOfficerLang(OFFICER.lang); try { localStorage.setItem("ks-lang", OFFICER.lang); } catch (e) {}   // the site follows (it has all five)
   applyShared();
-  for (const k of TABS) {
+  for (const k of new Set([...TABS, ...Object.keys(OFFICER_PAGES)])) {   // + parts that live inside another tab (🔭 scout in ⚔️ Battle)
     const p = OFFICER_PAGES[k];
     if (!p || !p.setLang) continue;
     try { p.setLang(OFFICER.lang); }                          // one tab failing must not stop the others

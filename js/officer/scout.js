@@ -181,6 +181,6 @@ async function init() {
   await Promise.all([loadConfig(), loadData()]);
   render();
 }
-function setLang(l) { lang = l; render(); }
+function setLang(l) { lang = l; applyTexts(); render(); }
 OFFICER_PAGES.scout = { init, applyTexts, setLang };
 })();
