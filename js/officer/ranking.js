@@ -755,7 +755,7 @@ function tbTriDraft() {
     G(0, 1, B, "", tB, "Find which alliance is stronger. Everyone follows Team A."),
     G(0, 2, C, "", tC, "Find which alliance is stronger and which side of our territory our strongest should defend."),
     G(0, 3, p1, "19, 28, 30", tP1, "You take Path I."), G(0, 4, p2, "18, 27, 31", tP2, "You take Path II."),
-    G(1, 0, A, "19 → 21", tA, "Usually push toward the alliance on the right (their Garrison is closer). Keep advancing, but be back at 21 before the Garrisons open. Team B takes over the buildings behind you."),
+    G(1, 0, A, "19 → 21", tA, "Usually push toward the alliance clockwise from us (their Garrison is closer). Keep advancing, but be back at 21 before the Garrisons open. Team B takes over the buildings behind you."),
     G(1, 1, B, "", tB, "Follow Team A and secure what it captured. Extra marches on weaker enemy buildings. Stop recaptures."),
     G(1, 2, C, "18, 19, 27, 28, 30, 31", tC, "Secure our Transit Hubs. Block the river crossings and hold the frontline."),
     G(1, 3, p1, "19 → 28 → 30", tP1, "Clear the path ASAP so stronger teams can pass. Secure inner buildings, support Team C."),
