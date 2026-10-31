@@ -567,8 +567,8 @@ ZUSAMMENFASSUNG
 F2P-Spieler: Konzentriere dich im Helden-Roulette auf Zoe (Infanterie-Tank), Jabel (Kavallerie) und Petra (offensive Kavallerie)
 P2W-Spieler: Priorisiere Amadeus (VIP 7+) und Hilde für maximale Wirkung
 
-### GUIDE #hero-cards — Heldenkarten (Gen 1–3)
-Eine Karte pro Held: wofür jeder gut ist. Die Bewertungen stammen aus dem Spiel-Chat „Heroes Guide“, den die Seitenbetreiberin kurz vor seinem Verschwinden gerettet hat. Mit den Filtern findest du zum Beispiel die besten Teilnehmer für Bärenjagd.
+### GUIDE #hero-cards — Heldenkarten (Gen 1–8)
+Eine Karte pro Held: wofür jeder gut ist. Die Bewertungen stammen aus dem Spiel-Chat „Heroes Guide“, den die Seitenbetreiberin kurz vor seinem Verschwinden gerettet hat. Mit den Filtern findest du zum Beispiel die besten Teilnehmer für Bärenjagd. Gen 4–8 bewerten wir selbst anhand der Expeditionsskills und der Art des Elements (offensiv oder defensiv); Einzelmarsch und Arena sind noch nicht bewertet.
 [parent] f2p-heroes
 Olive — Gen 1, Bogenschütze, R, Wachstum
   Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ❌; Garnisonsführer ❌; PvP: Teilnehmer ❌; Einzelmarsch ❌; Arena / Eroberung ✅
@@ -654,6 +654,51 @@ Eric — Gen 3, Infanterie, SSR, Kampf
 Jaeger — Gen 3, Bogenschütze, SSR, Kampf
   Detaillierte Bewertungen für diese Generation folgen bald.
   Überspringen, außer du setzt auf PvP / Garnisonsverteidigung.
+Margot — Gen 4, Kavallerie, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ⚠️; Bärenjagd: Teilnehmer ✅; PvP: Rally-Kapitän ⚠️; Garnisonsführer ✅; PvP: Teilnehmer ✅; Einzelmarsch —; Arena / Eroberung —
+  Teilnehmer-Skill: die ganze Rally bekommt +25% Angriff — einer der besten Teilnehmer für Bärenjagd und PvP. Ihre anderen Skills machen Schaden, aber ihr Element ist defensiv – als Anführerin passt sie besser in Garnisonen als in Rallys.
+Alcar — Gen 4, Infanterie, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ⚠️; Garnisonsführer ✅; PvP: Teilnehmer ⚠️; Einzelmarsch —; Arena / Eroberung —
+  Macht Infanterie zu Schadensausteilern (Infanterie-Schaden bis +100%) und senkt den Schaden, den Infanterie und Schützen nehmen. Defensives Element: starker Garnisonsführer. Sein Teilnehmer-Skill senkt nur ab und zu Schaden – nutzlos bei Bärenjagd.
+Rosa — Gen 4, Bogenschütze, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ✅; Bärenjagd: Teilnehmer ⚠️; PvP: Rally-Kapitän ✅; Garnisonsführer ⚠️; PvP: Teilnehmer ⚠️; Einzelmarsch —; Arena / Eroberung —
+  Schützen-Angriff +30% (immer aktiv) plus 40% Chance auf +50% Schaden – gute Schützen-Anführerin bei Bärenjagd. Offensives Element: für Rally-Kapitäne. Ihr Teilnehmer-Skill ist zufallsbasiert.
+Long Fei — Gen 5, Infanterie, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ⚠️; Garnisonsführer ✅; PvP: Teilnehmer ⚠️; Einzelmarsch —; Arena / Eroberung —
+  Verteidigung +25% für alle und eine Chance auf doppelten Schaden: Frontlinien-Infanterie. Defensives Element: Garnisonsführer. Sein Teilnehmer-Skill senkt Schaden nur per Zufall – nutzlos bei Bärenjagd.
+Thrud — Gen 5, Kavallerie, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ✅; Bärenjagd: Teilnehmer ⚠️; PvP: Rally-Kapitän ✅; Garnisonsführer ⚠️; PvP: Teilnehmer ✅; Einzelmarsch —; Arena / Eroberung —
+  Ihre Kavallerie trifft härter, die ganze Armee macht mehr Schaden und nimmt weniger. Offensives Element: Rally-Kapitänin. Schwer zu bekommen (nur Ranglisten-Events).
+Vivian — Gen 5, Bogenschütze, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ✅; Bärenjagd: Teilnehmer ✅; PvP: Rally-Kapitän ✅; Garnisonsführer ⚠️; PvP: Teilnehmer ✅; Einzelmarsch —; Arena / Eroberung —
+  Alle drei Expeditionsskills machen Schaden. Teilnehmer-Skill: Gegner nehmen +25% Schaden, immer aktiv (kein Zufall). Offensives Element: die beste Schützin für Bärenjagd und PvP-Rallys bis Gen 5.
+Triton — Gen 6, Infanterie, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ⚠️; Garnisonsführer ✅; PvP: Teilnehmer ✅; Einzelmarsch —; Arena / Eroberung —
+  Verteidigung +25%, Heldenskill-Schaden +30% und mehr Gesundheit: defensive Infanterie. Defensives Element: Garnisonsführer. Sein Teilnehmer-Skill (Verteidigung) hilft im PvP, nicht bei Bärenjagd.
+Sophia — Gen 6, Kavallerie, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ⚠️; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ✅; Garnisonsführer ⚠️; PvP: Teilnehmer ⚠️; Einzelmarsch —; Arena / Eroberung —
+  Furcht-Kombo: alle 2 Runden wird das Ziel verängstigt und nimmt bis +200% Kavallerie-Schaden und +75% von der ganzen Armee. Starke PvP-Rally-Kapitänin. Noch unklar, ob der Bär verängstigt werden kann. Ihr Teilnehmer-Skill senkt Schaden nur per Zufall.
+Yang — Gen 6, Bogenschütze, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ✅; Bärenjagd: Teilnehmer ✅; PvP: Rally-Kapitän ✅; Garnisonsführer ⚠️; PvP: Teilnehmer ✅; Einzelmarsch —; Arena / Eroberung —
+  Alle drei Expeditionsskills machen Schaden. Teilnehmer-Skill: alle 4 Runden ein Extra-Treffer für die ganze Rally. Offensives Element: Schützen-Rally-Kapitänin für Bärenjagd und PvP.
+Charles — Gen 7, Infanterie, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ❌; Garnisonsführer ✅; PvP: Teilnehmer ✅; Einzelmarsch —; Arena / Eroberung —
+  Alle drei Expeditionsskills sind defensiv, dazu der höchste Infanterie-Bonus bis Gen 7. Defensives Element: bester Infanterie-Garnisonsführer seiner Generation. Sein Teilnehmer-Skill hilft nur im PvP.
+Ava — Gen 7, Kavallerie, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ✅; Bärenjagd: Teilnehmer ⚠️; PvP: Rally-Kapitän ✅; Garnisonsführer ⚠️; PvP: Teilnehmer ✅; Einzelmarsch —; Arena / Eroberung —
+  Senkt die gegnerische Verteidigung um 25%, lässt Gegner ab und zu +50% Schaden nehmen und gibt Tödlichkeit +25%. Offensives Element: Kavallerie-Rally-Kapitänin. Ob weniger Verteidigung beim Bären wirkt, wird noch geprüft.
+Wee & Woo — Gen 7, Bogenschütze, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ✅; Bärenjagd: Teilnehmer ✅; PvP: Rally-Kapitän ⚠️; Garnisonsführer ✅; PvP: Teilnehmer ✅; Einzelmarsch —; Arena / Eroberung —
+  Teilnehmer-Skill: Angriff +15% und Tödlichkeit +10%. +25% Schaden gegen Infanterie – und die Truppen des Bären sind alle Infanterie. Top-Schützen bei Bärenjagd. Ihr Element ist defensiv, als PvP-Rally-Kapitäne fehlt ihnen ein Teil.
+Diego — Gen 8, Infanterie, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ⚠️; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ⚠️; Garnisonsführer ✅; PvP: Teilnehmer ✅; Einzelmarsch —; Arena / Eroberung —
+  Mischt Verteidigung (Verteidigung + Gesundheit) mit Schaden (Chance auf +50%, Tödlichkeit +25%). Defensives Element: starker Garnisonsführer. Sein Teilnehmer-Skill (Verteidigung + Gesundheit) hilft nur im PvP.
+Liz — Gen 8, Kavallerie, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ⚠️; Bärenjagd: Teilnehmer ⚠️; PvP: Rally-Kapitän ⚠️; Garnisonsführer ✅; PvP: Teilnehmer ⚠️; Einzelmarsch —; Arena / Eroberung —
+  Chance auf +50% Tödlichkeit für die ganze Armee, Gesundheit +25% und große Zufallstreffer der Kavallerie. Defensives Element: passt am besten als Garnisonsführerin. Ihr Teilnehmer-Skill ist zufallsbasiert.
+Luna — Gen 8, Bogenschütze, SSR, Kampf
+  Bärenjagd: Rally-Kapitän ✅; Bärenjagd: Teilnehmer ✅; PvP: Rally-Kapitän ✅; Garnisonsführer ⚠️; PvP: Teilnehmer ✅; Einzelmarsch —; Arena / Eroberung —
+  Teilnehmer-Skill: die ganze Rally bekommt +25% Angriff. Ihre Schützen machen bei jedem Treffer +50%, immer aktiv. Offensives Element: die beste Schützen-Anführerin bei Bärenjagd.
 
 ### GUIDE #kvk — KvK-Vorbereitungs- & Kampfguide
 🗓️ KvK-Zeitplan
@@ -1220,9 +1265,6 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-30 by Nia] TAC - Legion 2
-(see guide #tri-alliance-clash)
-
 [2026-10-19 by ΔRMΔDΔ] Schwertland-Showdown Nicht-Erscheinen
 ⚠️ Wichtiges Regel-Update: Nicht-Erscheinen beim Schwertland-Showdown
 

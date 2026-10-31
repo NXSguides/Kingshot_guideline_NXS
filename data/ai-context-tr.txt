@@ -565,8 +565,8 @@ Rulet kahramanları genellikle en güvenli F2P yatırımlarındır. Kaynakların
 F2P Oyuncuları: Kahraman ruletinde Zoe (piyade tankı), Jabel (süvari) ve Petra'ya (saldırı süvarisi) odaklan
 P2W Oyuncuları: Maksimum etki için Amadeus (VIP 7+) ve Hilde'ya öncelik ver
 
-### GUIDE #hero-cards — Kahraman Kartları (1–3. Nesil)
-Her kahraman için bir kart: hangi işe yaradığı. Puanlar, oyun içindeki "Heroes Guide" sohbetinden geliyor; site sahibi onları sohbet kaybolmadan hemen önce kurtardı. Filtrelerle örneğin en iyi Ayı Avı katılımcılarını bulabilirsin.
+### GUIDE #hero-cards — Kahraman Kartları (1–8. Nesil)
+Her kahraman için bir kart: hangi işe yaradığı. Puanlar, oyun içindeki "Heroes Guide" sohbetinden geliyor; site sahibi onları sohbet kaybolmadan hemen önce kurtardı. Filtrelerle örneğin en iyi Ayı Avı katılımcılarını bulabilirsin. 4–8. Nesil kahramanları Sefer becerilerine ve Alet türüne (saldırı veya savunma) göre biz puanladık; tek sefer ve Arena henüz puanlanmadı.
 [parent] f2p-heroes
 Olive — 1. Nesil, Okçu, R, Gelişim
   Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ❌; Garnizon lideri ❌; PvP katılımcısı ❌; Tek sefer ❌; Arena / Fetih ✅
@@ -652,6 +652,51 @@ Eric — 3. Nesil, Piyade, SSR, Savaş
 Jaeger — 3. Nesil, Okçu, SSR, Savaş
   Bu neslin ayrıntılı puanları yakında geliyor.
   PvP / garnizon savunmasına odaklanmıyorsan atla.
+Margot — 4. Nesil, Süvari, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ⚠️; Ayı Avı katılımcısı ✅; PvP Seferberlik Önderi ⚠️; Garnizon lideri ✅; PvP katılımcısı ✅; Tek sefer —; Arena / Fetih —
+  Katılımcı becerisi: tüm seferberliğe +%25 Saldırı — Ayı Avı ve PvP için en iyi katılımcılardan biri. Diğer becerileri hasar verir ama Alet savunma türü; lider olarak seferberlikten çok garnizona uyar.
+Alcar — 4. Nesil, Piyade, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ⚠️; Garnizon lideri ✅; PvP katılımcısı ⚠️; Tek sefer —; Arena / Fetih —
+  Piyadeyi hasar vericiye çevirir (piyade hasarı +%100'e kadar) ve piyade ile okçuların aldığı hasarı azaltır. Savunma Alet: güçlü garnizon lideri. Katılımcı becerisi ara sıra hasar azaltır — Ayı Avı için işe yaramaz.
+Rosa — 4. Nesil, Okçu, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ✅; Ayı Avı katılımcısı ⚠️; PvP Seferberlik Önderi ✅; Garnizon lideri ⚠️; PvP katılımcısı ⚠️; Tek sefer —; Arena / Fetih —
+  Okçu Saldırı +%30 (her zaman) ve %40 şansla +%50 hasar — Ayı Avı için iyi okçu lideri. Saldırı Alet: seferberlik önderi için. Katılımcı becerisi şansa bağlı.
+Long Fei — 5. Nesil, Piyade, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ⚠️; Garnizon lideri ✅; PvP katılımcısı ⚠️; Tek sefer —; Arena / Fetih —
+  Herkese Savunma +%25 ve çift hasar şansı: ön saf piyadesi. Savunma Alet: garnizon lideri. Katılımcı becerisi şansa bağlı hasar azaltır — Ayı Avı için işe yaramaz.
+Thrud — 5. Nesil, Süvari, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ✅; Ayı Avı katılımcısı ⚠️; PvP Seferberlik Önderi ✅; Garnizon lideri ⚠️; PvP katılımcısı ✅; Tek sefer —; Arena / Fetih —
+  Süvarisi daha sert vurur; tüm ordu daha çok hasar verir, daha az alır. Saldırı Alet: seferberlik önderi. Bulması zor (sadece sıralama etkinlikleri).
+Vivian — 5. Nesil, Okçu, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ✅; Ayı Avı katılımcısı ✅; PvP Seferberlik Önderi ✅; Garnizon lideri ⚠️; PvP katılımcısı ✅; Tek sefer —; Arena / Fetih —
+  Üç Sefer becerisi de hasar verir. Katılımcı becerisi: düşmanlar +%25 hasar alır, her zaman (şans yok). Saldırı Alet: 5. Nesle kadar Ayı Avı ve PvP seferberliğinin en iyi okçusu.
+Triton — 6. Nesil, Piyade, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ⚠️; Garnizon lideri ✅; PvP katılımcısı ✅; Tek sefer —; Arena / Fetih —
+  Savunma +%25, kahraman beceri hasarı +%30 ve daha fazla Sağlık: savunmacı piyade. Savunma Alet: garnizon lideri. Katılımcı becerisi (Savunma) PvP'de işe yarar, Ayı Avı'ta yaramaz.
+Sophia — 6. Nesil, Süvari, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ⚠️; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ✅; Garnizon lideri ⚠️; PvP katılımcısı ⚠️; Tek sefer —; Arena / Fetih —
+  Korku kombosu: her 2 turda hedef korkar ve süvariden +%200'e kadar, tüm ordudan +%75 hasar alır. Güçlü PvP seferberlik önderi. Ayının korkutulabildiği henüz bilinmiyor. Katılımcı becerisi sadece şansla hasar azaltır.
+Yang — 6. Nesil, Okçu, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ✅; Ayı Avı katılımcısı ✅; PvP Seferberlik Önderi ✅; Garnizon lideri ⚠️; PvP katılımcısı ✅; Tek sefer —; Arena / Fetih —
+  Üç Sefer becerisi de hasar verir. Katılımcı becerisi: tüm seferberlik her 4 turda bir ekstra vuruş yapar. Saldırı Alet: Ayı Avı ve PvP için okçu seferberlik önderi.
+Charles — 7. Nesil, Piyade, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ❌; Garnizon lideri ✅; PvP katılımcısı ✅; Tek sefer —; Arena / Fetih —
+  Üç Sefer becerisi de savunma; 7. Nesle kadar en yüksek piyade bonusu. Savunma Alet: neslinin en iyi piyade garnizon lideri. Katılımcı becerisi sadece PvP'de işe yarar.
+Ava — 7. Nesil, Süvari, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ✅; Ayı Avı katılımcısı ⚠️; PvP Seferberlik Önderi ✅; Garnizon lideri ⚠️; PvP katılımcısı ✅; Tek sefer —; Arena / Fetih —
+  Düşman Savunma'sını %25 düşürür, ara sıra düşmana +%50 hasar aldırır ve Öldürücülük +%25 verir. Saldırı Alet: süvari seferberlik önderi. Düşük Savunma'nın ayıya etkisi hâlâ kontrol ediliyor.
+Wee & Woo — 7. Nesil, Okçu, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ✅; Ayı Avı katılımcısı ✅; PvP Seferberlik Önderi ⚠️; Garnizon lideri ✅; PvP katılımcısı ✅; Tek sefer —; Arena / Fetih —
+  Katılımcı becerisi: Saldırı +%15 ve Öldürücülük +%10. Piyadeye karşı +%25 hasar — ayının askerleri hep piyade. Ayı Avı için harika okçular. Alet savunma türü, PvP seferberlik önderi olarak bir parça eksik.
+Diego — 8. Nesil, Piyade, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ⚠️; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ⚠️; Garnizon lideri ✅; PvP katılımcısı ✅; Tek sefer —; Arena / Fetih —
+  Savunmayı (Savunma + Sağlık) hasarla (+%50 şansı, Öldürücülük +%25) birleştirir. Savunma Alet: güçlü garnizon lideri. Katılımcı becerisi (Savunma + Sağlık) sadece PvP'de işe yarar.
+Liz — 8. Nesil, Süvari, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ⚠️; Ayı Avı katılımcısı ⚠️; PvP Seferberlik Önderi ⚠️; Garnizon lideri ✅; PvP katılımcısı ⚠️; Tek sefer —; Arena / Fetih —
+  Tüm orduya şansla +%50 Öldürücülük, Sağlık +%25 ve şansa bağlı büyük süvari vuruşları. Savunma Alet: en çok garnizon liderine uyar. Katılımcı becerisi şansa bağlı.
+Luna — 8. Nesil, Okçu, SSR, Savaş
+  Ayı Avı Seferberlik Önderi ✅; Ayı Avı katılımcısı ✅; PvP Seferberlik Önderi ✅; Garnizon lideri ⚠️; PvP katılımcısı ✅; Tek sefer —; Arena / Fetih —
+  Katılımcı becerisi: tüm seferberliğe +%25 Saldırı. Okçuları her vuruşta +%50 hasar verir, her zaman. Saldırı Alet: Ayı Avı için en iyi okçu lideri.
 
 ### GUIDE #kvk — KvK Hazırlık ve Savaş Rehberi
 🗓️ KvK takvimi
@@ -1218,9 +1263,6 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-30 by Nia] TAC - 2. Lejyon
-(see guide #tri-alliance-clash)
-
 [2026-10-19 by ΔRMΔDΔ] Kılıçdiyarı Hesaplaşması Katılımsızlıkları
 ⚠️ Önemli Kural Güncellemesi: Kılıçdiyarı Hesaplaşması Katılımsızlıkları
 

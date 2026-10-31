@@ -565,8 +565,8 @@ RINGKASAN
 Pemain F2P: Fokus pada Zoe (tank infanteri), Jabel (kavaleri), dan Petra (kavaleri ofensif) dari hero roulette
 Pemain P2W: Prioritaskan Amadeus (VIP 7+) dan Hilde untuk dampak maksimal
 
-### GUIDE #hero-cards — Kartu Hero (Gen 1–3)
-Satu kartu per hero: apa kegunaan masing-masing. Peringkatnya berasal dari obrolan "Heroes Guide" di dalam game, yang diselamatkan pemilik situs sesaat sebelum obrolan itu hilang. Gunakan filter untuk mencari, misalnya, peserta Bear Hunt terbaik.
+### GUIDE #hero-cards — Kartu Hero (Gen 1–8)
+Satu kartu per hero: apa kegunaan masing-masing. Peringkatnya berasal dari obrolan "Heroes Guide" di dalam game, yang diselamatkan pemilik situs sesaat sebelum obrolan itu hilang. Gunakan filter untuk mencari, misalnya, peserta Bear Hunt terbaik. Gen 4–8 kami nilai sendiri dari skill Ekspedisi dan jenis Widget (menyerang atau bertahan); barisan solo dan Arena belum dinilai.
 [parent] f2p-heroes
 Olive — Gen 1, Pemanah, R, Pertumbuhan
   Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ❌; Kapten Reli PvP ❌; Pemimpin garnisun ❌; Peserta PvP ❌; Barisan solo ❌; Arena / Penaklukan ✅
@@ -652,6 +652,51 @@ Eric — Gen 3, Infanteri, SSR, Tempur
 Jaeger — Gen 3, Pemanah, SSR, Tempur
   Peringkat lengkap untuk generasi ini segera hadir.
   Lewati kecuali kamu fokus ke PvP / pertahanan garnisun.
+Margot — Gen 4, Kavaleri, SSR, Tempur
+  Kapten Reli Bear Hunt ⚠️; Peserta Bear Hunt ✅; Kapten Reli PvP ⚠️; Pemimpin garnisun ✅; Peserta PvP ✅; Barisan solo —; Arena / Penaklukan —
+  Skill peserta: seluruh reli dapat +25% Attack — salah satu peserta terbaik untuk Bear Hunt dan PvP. Skill lainnya untuk damage, tapi Widget-nya tipe bertahan, jadi sebagai pemimpin lebih cocok untuk garnisun daripada reli.
+Alcar — Gen 4, Infanteri, SSR, Tempur
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ❌; Kapten Reli PvP ⚠️; Pemimpin garnisun ✅; Peserta PvP ⚠️; Barisan solo —; Arena / Penaklukan —
+  Mengubah infanteri jadi penyerang (damage infanteri sampai +100%) dan mengurangi damage yang diterima infanteri dan pemanah. Widget bertahan: pemimpin garnisun yang kuat. Skill pesertanya hanya kadang mengurangi damage — tidak berguna di Bear Hunt.
+Rosa — Gen 4, Pemanah, SSR, Tempur
+  Kapten Reli Bear Hunt ✅; Peserta Bear Hunt ⚠️; Kapten Reli PvP ✅; Pemimpin garnisun ⚠️; Peserta PvP ⚠️; Barisan solo —; Arena / Penaklukan —
+  Attack pemanah +30% (selalu aktif) plus 40% peluang +50% damage — kapten pemanah yang bagus untuk Bear Hunt. Widget menyerang: cocok jadi kapten reli. Skill pesertanya berbasis peluang.
+Long Fei — Gen 5, Infanteri, SSR, Tempur
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ❌; Kapten Reli PvP ⚠️; Pemimpin garnisun ✅; Peserta PvP ⚠️; Barisan solo —; Arena / Penaklukan —
+  Defense +25% untuk semua dan peluang damage ganda: infanteri garis depan. Widget bertahan: pemimpin garnisun. Skill pesertanya peluang mengurangi damage — tidak berguna di Bear Hunt.
+Thrud — Gen 5, Kavaleri, SSR, Tempur
+  Kapten Reli Bear Hunt ✅; Peserta Bear Hunt ⚠️; Kapten Reli PvP ✅; Pemimpin garnisun ⚠️; Peserta PvP ✅; Barisan solo —; Arena / Penaklukan —
+  Kavalerinya memukul lebih keras; seluruh pasukan memberi damage lebih besar dan menerima lebih kecil. Widget menyerang: kapten reli. Sulit didapat (hanya event peringkat).
+Vivian — Gen 5, Pemanah, SSR, Tempur
+  Kapten Reli Bear Hunt ✅; Peserta Bear Hunt ✅; Kapten Reli PvP ✅; Pemimpin garnisun ⚠️; Peserta PvP ✅; Barisan solo —; Arena / Penaklukan —
+  Ketiga skill Ekspedisi untuk damage. Skill peserta: musuh menerima +25% damage, selalu aktif (tanpa peluang). Widget menyerang: pemanah terbaik untuk Bear Hunt dan reli PvP sampai Gen 5.
+Triton — Gen 6, Infanteri, SSR, Tempur
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ❌; Kapten Reli PvP ⚠️; Pemimpin garnisun ✅; Peserta PvP ✅; Barisan solo —; Arena / Penaklukan —
+  Defense +25%, damage skill hero +30% dan Health lebih banyak: infanteri bertahan. Widget bertahan: pemimpin garnisun. Skill pesertanya (Defense) berguna di PvP, tidak di Bear Hunt.
+Sophia — Gen 6, Kavaleri, SSR, Tempur
+  Kapten Reli Bear Hunt ⚠️; Peserta Bear Hunt ❌; Kapten Reli PvP ✅; Pemimpin garnisun ⚠️; Peserta PvP ⚠️; Barisan solo —; Arena / Penaklukan —
+  Kombo takut: tiap 2 giliran target ketakutan dan menerima sampai +200% damage kavaleri dan +75% dari seluruh pasukan. Kapten reli PvP yang kuat. Belum diketahui apakah Beruang bisa ditakuti. Skill pesertanya hanya mengurangi damage dengan peluang.
+Yang — Gen 6, Pemanah, SSR, Tempur
+  Kapten Reli Bear Hunt ✅; Peserta Bear Hunt ✅; Kapten Reli PvP ✅; Pemimpin garnisun ⚠️; Peserta PvP ✅; Barisan solo —; Arena / Penaklukan —
+  Ketiga skill Ekspedisi untuk damage. Skill peserta: seluruh reli dapat satu serangan tambahan tiap 4 giliran. Widget menyerang: kapten reli pemanah untuk Bear Hunt dan PvP.
+Charles — Gen 7, Infanteri, SSR, Tempur
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ❌; Kapten Reli PvP ❌; Pemimpin garnisun ✅; Peserta PvP ✅; Barisan solo —; Arena / Penaklukan —
+  Ketiga skill Ekspedisi bertahan, dengan bonus infanteri tertinggi sampai Gen 7. Widget bertahan: pemimpin garnisun infanteri terbaik di generasinya. Skill pesertanya hanya berguna di PvP.
+Ava — Gen 7, Kavaleri, SSR, Tempur
+  Kapten Reli Bear Hunt ✅; Peserta Bear Hunt ⚠️; Kapten Reli PvP ✅; Pemimpin garnisun ⚠️; Peserta PvP ✅; Barisan solo —; Arena / Penaklukan —
+  Menurunkan Defense musuh 25%, kadang membuat musuh menerima +50% damage, dan Lethality +25%. Widget menyerang: kapten reli kavaleri. Apakah penurunan Defense berefek ke Beruang masih dicek.
+Wee & Woo — Gen 7, Pemanah, SSR, Tempur
+  Kapten Reli Bear Hunt ✅; Peserta Bear Hunt ✅; Kapten Reli PvP ⚠️; Pemimpin garnisun ✅; Peserta PvP ✅; Barisan solo —; Arena / Penaklukan —
+  Skill peserta: Attack +15% dan Lethality +10%. +25% damage melawan infanteri — dan pasukan Beruang semuanya infanteri. Pemanah hebat untuk Bear Hunt. Widget-nya bertahan, jadi sebagai kapten reli PvP kurang satu bagian.
+Diego — Gen 8, Infanteri, SSR, Tempur
+  Kapten Reli Bear Hunt ⚠️; Peserta Bear Hunt ❌; Kapten Reli PvP ⚠️; Pemimpin garnisun ✅; Peserta PvP ✅; Barisan solo —; Arena / Penaklukan —
+  Gabungan bertahan (Defense + Health) dan damage (peluang +50%, Lethality +25%). Widget bertahan: pemimpin garnisun yang kuat. Skill pesertanya (Defense + Health) hanya berguna di PvP.
+Liz — Gen 8, Kavaleri, SSR, Tempur
+  Kapten Reli Bear Hunt ⚠️; Peserta Bear Hunt ⚠️; Kapten Reli PvP ⚠️; Pemimpin garnisun ✅; Peserta PvP ⚠️; Barisan solo —; Arena / Penaklukan —
+  Peluang +50% Lethality untuk seluruh pasukan, Health +25%, dan pukulan kavaleri besar berbasis peluang. Widget bertahan: paling cocok sebagai pemimpin garnisun. Skill pesertanya berbasis peluang.
+Luna — Gen 8, Pemanah, SSR, Tempur
+  Kapten Reli Bear Hunt ✅; Peserta Bear Hunt ✅; Kapten Reli PvP ✅; Pemimpin garnisun ⚠️; Peserta PvP ✅; Barisan solo —; Arena / Penaklukan —
+  Skill peserta: seluruh reli dapat +25% Attack. Pemanahnya memberi +50% tiap serangan, selalu aktif. Widget menyerang: kapten pemanah terbaik untuk Bear Hunt.
 
 ### GUIDE #kvk — Panduan Persiapan & Pertempuran KvK
 🗓️ Linimasa KvK
@@ -1218,9 +1263,6 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-30 by Nia] TAC - Legiun 2
-(see guide #tri-alliance-clash)
-
 [2026-10-19 by ΔRMΔDΔ] Ketidakhadiran di Swordland Showdown
 ⚠️ Pembaruan Aturan Penting: Ketidakhadiran di Swordland Showdown
 

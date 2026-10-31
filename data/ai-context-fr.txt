@@ -565,8 +565,8 @@ RÉSUMÉ
 Joueurs F2P : Concentrez-vous sur Zoé (tank d'infanterie), Jabel (cavalerie) et Petra (cavalerie offensive) via la roulette de héros
 Joueurs P2W : Priorisez Amadeus (VIP 7+) et Hilde pour un impact maximal
 
-### GUIDE #hero-cards — Fiches des héros (Gén 1–3)
-Une fiche par héros : à quoi sert chacun. Les notes viennent du chat en jeu « Heroes Guide », sauvé par la propriétaire du site juste avant sa disparition. Utilisez les filtres pour trouver, par exemple, les meilleurs participants pour Chasse à l'Ours.
+### GUIDE #hero-cards — Fiches des héros (Gén 1–8)
+Une fiche par héros : à quoi sert chacun. Les notes viennent du chat en jeu « Heroes Guide », sauvé par la propriétaire du site juste avant sa disparition. Utilisez les filtres pour trouver, par exemple, les meilleurs participants pour Chasse à l'Ours. Les Gén 4–8 sont notées par nous selon les compétences d'expédition et le type de Composant (offensif ou défensif) ; marche solo et Arène ne sont pas encore notées.
 [parent] f2p-heroes
 Olive — Gén 1, Archer, R, Croissance
   Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ❌; Chef de garnison ❌; PvP : participant ❌; Marche solo ❌; Arène / Conquête ✅
@@ -652,6 +652,51 @@ Petra — Gén 3, Cavalerie, SSR, Combat
 Jaeger — Gén 3, Archer, SSR, Combat
   Les notes détaillées pour cette génération arrivent bientôt.
   À ignorer, sauf si vous misez sur le PvP / la défense de garnison.
+Margot — Gén 4, Cavalerie, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ⚠️; Chasse à l'Ours : participant ✅; PvP : Capitaine de Ralliement ⚠️; Chef de garnison ✅; PvP : participant ✅; Marche solo —; Arène / Conquête —
+  Compétence de participant : tout le ralliement gagne +25% d'Attaque — l'une des meilleures pour Chasse à l'Ours et le PvP. Ses autres compétences font des dégâts, mais son Composant est défensif : comme cheffe, elle convient mieux aux garnisons qu'aux ralliements.
+Alcar — Gén 4, Infanterie, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ⚠️; Chef de garnison ✅; PvP : participant ⚠️; Marche solo —; Arène / Conquête —
+  Transforme l'infanterie en attaquants (dégâts d'infanterie jusqu'à +100%) et réduit les dégâts subis par l'infanterie et les archers. Composant défensif : un très bon chef de garnison. Sa compétence de participant ne réduit les dégâts que de temps en temps — inutile pour Chasse à l'Ours.
+Rosa — Gén 4, Archer, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ✅; Chasse à l'Ours : participant ⚠️; PvP : Capitaine de Ralliement ✅; Chef de garnison ⚠️; PvP : participant ⚠️; Marche solo —; Arène / Conquête —
+  Attaque des archers +30% (permanent) et 40% de chance de +50% de dégâts — une bonne cheffe archère pour Chasse à l'Ours. Composant offensif : faite pour mener les ralliements. Sa compétence de participant dépend du hasard.
+Long Fei — Gén 5, Infanterie, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ⚠️; Chef de garnison ✅; PvP : participant ⚠️; Marche solo —; Arène / Conquête —
+  Défense +25% pour tous et une chance de dégâts doublés : une infanterie de première ligne. Composant défensif : chef de garnison. Sa compétence de participant réduit les dégâts au hasard — inutile pour Chasse à l'Ours.
+Thrud — Gén 5, Cavalerie, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ✅; Chasse à l'Ours : participant ⚠️; PvP : Capitaine de Ralliement ✅; Chef de garnison ⚠️; PvP : participant ✅; Marche solo —; Arène / Conquête —
+  Sa cavalerie frappe plus fort, et toute l'armée inflige plus de dégâts et en subit moins. Composant offensif : cheffe de ralliement. Difficile à obtenir (événements de classement seulement).
+Vivian — Gén 5, Archer, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ✅; Chasse à l'Ours : participant ✅; PvP : Capitaine de Ralliement ✅; Chef de garnison ⚠️; PvP : participant ✅; Marche solo —; Arène / Conquête —
+  Ses trois compétences d'expédition font des dégâts. Compétence de participant : les ennemis subissent +25% de dégâts, toujours (sans hasard). Composant offensif : la meilleure archère pour Chasse à l'Ours et les ralliements PvP jusqu'à la Gén 5.
+Triton — Gén 6, Infanterie, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ⚠️; Chef de garnison ✅; PvP : participant ✅; Marche solo —; Arène / Conquête —
+  Défense +25%, dégâts des compétences de héros +30% et plus de Santé : une infanterie défensive. Composant défensif : chef de garnison. Sa compétence de participant (Défense) aide en PvP, pas pour Chasse à l'Ours.
+Sophia — Gén 6, Cavalerie, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ⚠️; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ✅; Chef de garnison ⚠️; PvP : participant ⚠️; Marche solo —; Arène / Conquête —
+  Combo peur : tous les 2 tours la cible est apeurée et subit jusqu'à +200% de dégâts de cavalerie et +75% de toute l'armée. Très bonne cheffe de ralliement PvP. On ne sait pas encore si l'Ours peut être apeuré. Sa compétence de participant réduit les dégâts au hasard.
+Yang — Gén 6, Archer, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ✅; Chasse à l'Ours : participant ✅; PvP : Capitaine de Ralliement ✅; Chef de garnison ⚠️; PvP : participant ✅; Marche solo —; Arène / Conquête —
+  Ses trois compétences d'expédition font des dégâts. Compétence de participant : un coup de plus pour tout le ralliement tous les 4 tours. Composant offensif : cheffe archère de ralliement pour Chasse à l'Ours et le PvP.
+Charles — Gén 7, Infanterie, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ❌; Chef de garnison ✅; PvP : participant ✅; Marche solo —; Arène / Conquête —
+  Ses trois compétences d'expédition sont défensives, avec le plus gros bonus d'infanterie jusqu'à la Gén 7. Composant défensif : le meilleur chef de garnison d'infanterie de sa génération. Sa compétence de participant n'aide qu'en PvP.
+Ava — Gén 7, Cavalerie, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ✅; Chasse à l'Ours : participant ⚠️; PvP : Capitaine de Ralliement ✅; Chef de garnison ⚠️; PvP : participant ✅; Marche solo —; Arène / Conquête —
+  Baisse la Défense ennemie de 25%, fait subir +50% de dégâts de temps en temps et donne Létalité +25%. Composant offensif : cheffe de ralliement de cavalerie. On vérifie encore si la baisse de Défense marche sur l'Ours.
+Wee & Woo — Gén 7, Archer, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ✅; Chasse à l'Ours : participant ✅; PvP : Capitaine de Ralliement ⚠️; Chef de garnison ✅; PvP : participant ✅; Marche solo —; Arène / Conquête —
+  Compétence de participant : Attaque +15% et Létalité +10%. +25% de dégâts contre l'infanterie — et les troupes de l'Ours sont toutes de l'infanterie. Excellents archers pour Chasse à l'Ours. Leur Composant est défensif : comme chefs de ralliement PvP, il leur manque une pièce.
+Diego — Gén 8, Infanterie, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ⚠️; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ⚠️; Chef de garnison ✅; PvP : participant ✅; Marche solo —; Arène / Conquête —
+  Mélange défense (Défense + Santé) et dégâts (chance de +50%, Létalité +25%). Composant défensif : un très bon chef de garnison. Sa compétence de participant (Défense + Santé) n'aide qu'en PvP.
+Liz — Gén 8, Cavalerie, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ⚠️; Chasse à l'Ours : participant ⚠️; PvP : Capitaine de Ralliement ⚠️; Chef de garnison ✅; PvP : participant ⚠️; Marche solo —; Arène / Conquête —
+  Chance de +50% de Létalité pour toute l'armée, Santé +25% et gros coups de cavalerie au hasard. Composant défensif : idéale comme cheffe de garnison. Sa compétence de participant dépend du hasard.
+Luna — Gén 8, Archer, SSR, Combat
+  Chasse à l'Ours : Capitaine de Ralliement ✅; Chasse à l'Ours : participant ✅; PvP : Capitaine de Ralliement ✅; Chef de garnison ⚠️; PvP : participant ✅; Marche solo —; Arène / Conquête —
+  Compétence de participant : tout le ralliement gagne +25% d'Attaque. Ses archers font +50% à chaque coup, toujours. Composant offensif : la meilleure cheffe archère pour Chasse à l'Ours.
 
 ### GUIDE #kvk — Guide de Préparation et Combat KvK
 🗓️ Calendrier du KvK
@@ -1219,9 +1264,6 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-30 by Nia] TAC - Légion 2
-(see guide #tri-alliance-clash)
-
 [2026-10-19 by ΔRMΔDΔ] Absences au Choc du Glaive
 ⚠️ Mise à jour importante des règles : Absences au Choc du Glaive
 

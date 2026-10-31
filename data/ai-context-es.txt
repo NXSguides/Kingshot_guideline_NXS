@@ -565,8 +565,8 @@ RESUMEN
 Jugadores F2P: Prioriza a Zoe (tanque de infantería), Jabel (caballería) y Petra (caballería ofensiva) de la ruleta de héroes
 Jugadores P2W: Prioriza a Amadeus (VIP 7+) y Hilde para el máximo impacto
 
-### GUIDE #hero-cards — Fichas de héroes (Gen 1–3)
-Una ficha por héroe: para qué sirve cada uno. Las valoraciones vienen del chat "Heroes Guide" del juego, rescatado por la dueña del sitio justo antes de que desapareciera. Usa los filtros para encontrar, por ejemplo, los mejores participantes de Cacería del Oso.
+### GUIDE #hero-cards — Fichas de héroes (Gen 1–8)
+Una ficha por héroe: para qué sirve cada uno. Las valoraciones vienen del chat "Heroes Guide" del juego, rescatado por la dueña del sitio justo antes de que desapareciera. Usa los filtros para encontrar, por ejemplo, los mejores participantes de Cacería del Oso. Las Gen 4–8 las valoramos nosotros por sus habilidades de Expedición y el tipo de Complemento (ofensivo o defensivo); marcha individual y Arena aún sin valorar.
 [parent] f2p-heroes
 Olive — Gen 1, Arquero, R, Crecimiento
   Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ❌; PvP: líder del rally ❌; Líder de guarnición ❌; PvP: participante ❌; Marcha individual ❌; Arena / Conquista ✅
@@ -652,6 +652,51 @@ Eric — Gen 3, Infantería, SSR, Combate
 Jaeger — Gen 3, Arquero, SSR, Combate
   Las valoraciones detalladas de esta generación llegarán pronto.
   Sáltalo salvo que te centres en PvP / defensa de guarnición.
+Margot — Gen 4, Caballería, SSR, Combate
+  Cacería del Oso: líder del rally ⚠️; Cacería del Oso: participante ✅; PvP: líder del rally ⚠️; Líder de guarnición ✅; PvP: participante ✅; Marcha individual —; Arena / Conquista —
+  Habilidad de participante: todo el rally gana +25% de Ataque — de las mejores participantes para Cacería del Oso y PvP. Sus otras habilidades hacen daño, pero su Complemento es defensivo: como líder encaja mejor en guarniciones que en rallies.
+Alcar — Gen 4, Infantería, SSR, Combate
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ❌; PvP: líder del rally ⚠️; Líder de guarnición ✅; PvP: participante ⚠️; Marcha individual —; Arena / Conquista —
+  Convierte a la infantería en atacante (daño de infantería hasta +100%) y reduce el daño que reciben infantería y arqueros. Complemento defensivo: muy buen líder de guarnición. Su habilidad de participante solo reduce daño a veces — inútil en Cacería del Oso.
+Rosa — Gen 4, Arquero, SSR, Combate
+  Cacería del Oso: líder del rally ✅; Cacería del Oso: participante ⚠️; PvP: líder del rally ✅; Líder de guarnición ⚠️; PvP: participante ⚠️; Marcha individual —; Arena / Conquista —
+  Ataque de arqueros +30% (siempre) y 40% de probabilidad de +50% de daño — buena líder arquera en Cacería del Oso. Complemento ofensivo: hecha para liderar rallies. Su habilidad de participante depende del azar.
+Long Fei — Gen 5, Infantería, SSR, Combate
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ❌; PvP: líder del rally ⚠️; Líder de guarnición ✅; PvP: participante ⚠️; Marcha individual —; Arena / Conquista —
+  Defensa +25% para todos y probabilidad de daño doble: infantería de primera línea. Complemento defensivo: líder de guarnición. Su habilidad de participante reduce daño al azar — inútil en Cacería del Oso.
+Thrud — Gen 5, Caballería, SSR, Combate
+  Cacería del Oso: líder del rally ✅; Cacería del Oso: participante ⚠️; PvP: líder del rally ✅; Líder de guarnición ⚠️; PvP: participante ✅; Marcha individual —; Arena / Conquista —
+  Su caballería golpea más fuerte, y todo el ejército hace más daño y recibe menos. Complemento ofensivo: líder de rally. Difícil de conseguir (solo eventos de ranking).
+Vivian — Gen 5, Arquero, SSR, Combate
+  Cacería del Oso: líder del rally ✅; Cacería del Oso: participante ✅; PvP: líder del rally ✅; Líder de guarnición ⚠️; PvP: participante ✅; Marcha individual —; Arena / Conquista —
+  Sus tres habilidades de Expedición hacen daño. Participante: los enemigos reciben +25% de daño, siempre (sin azar). Complemento ofensivo: la mejor arquera para Cacería del Oso y rallies PvP hasta la Gen 5.
+Triton — Gen 6, Infantería, SSR, Combate
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ❌; PvP: líder del rally ⚠️; Líder de guarnición ✅; PvP: participante ✅; Marcha individual —; Arena / Conquista —
+  Defensa +25%, daño de habilidades del héroe +30% y más Salud: infantería defensiva. Complemento defensivo: líder de guarnición. Su habilidad de participante (Defensa) sirve en PvP, no en Cacería del Oso.
+Sophia — Gen 6, Caballería, SSR, Combate
+  Cacería del Oso: líder del rally ⚠️; Cacería del Oso: participante ❌; PvP: líder del rally ✅; Líder de guarnición ⚠️; PvP: participante ⚠️; Marcha individual —; Arena / Conquista —
+  Combo de miedo: cada 2 turnos el objetivo queda asustado y recibe hasta +200% de daño de caballería y +75% de todo el ejército. Gran líder de rally PvP. Aún no se sabe si al Oso se le puede asustar. Su habilidad de participante solo reduce daño al azar.
+Yang — Gen 6, Arquero, SSR, Combate
+  Cacería del Oso: líder del rally ✅; Cacería del Oso: participante ✅; PvP: líder del rally ✅; Líder de guarnición ⚠️; PvP: participante ✅; Marcha individual —; Arena / Conquista —
+  Sus tres habilidades de Expedición hacen daño. Participante: todo el rally da un golpe extra cada 4 turnos. Complemento ofensivo: líder arquera de rally para Cacería del Oso y PvP.
+Charles — Gen 7, Infantería, SSR, Combate
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ❌; PvP: líder del rally ❌; Líder de guarnición ✅; PvP: participante ✅; Marcha individual —; Arena / Conquista —
+  Sus tres habilidades de Expedición son defensivas, con el mayor bono de infantería hasta la Gen 7. Complemento defensivo: el mejor líder de guarnición de infantería de su generación. Su habilidad de participante solo sirve en PvP.
+Ava — Gen 7, Caballería, SSR, Combate
+  Cacería del Oso: líder del rally ✅; Cacería del Oso: participante ⚠️; PvP: líder del rally ✅; Líder de guarnición ⚠️; PvP: participante ✅; Marcha individual —; Arena / Conquista —
+  Baja la Defensa enemiga un 25%, a veces hace que el enemigo reciba +50% de daño y da Letalidad +25%. Complemento ofensivo: líder de rally de caballería. Aún se comprueba si bajar la Defensa funciona con el Oso.
+Wee & Woo — Gen 7, Arquero, SSR, Combate
+  Cacería del Oso: líder del rally ✅; Cacería del Oso: participante ✅; PvP: líder del rally ⚠️; Líder de guarnición ✅; PvP: participante ✅; Marcha individual —; Arena / Conquista —
+  Participante: Ataque +15% y Letalidad +10%. +25% de daño contra infantería — y las tropas del Oso son todas infantería. Arqueros excelentes en Cacería del Oso. Su Complemento es defensivo, así que como líderes de rally PvP les falta una pieza.
+Diego — Gen 8, Infantería, SSR, Combate
+  Cacería del Oso: líder del rally ⚠️; Cacería del Oso: participante ❌; PvP: líder del rally ⚠️; Líder de guarnición ✅; PvP: participante ✅; Marcha individual —; Arena / Conquista —
+  Mezcla defensa (Defensa + Salud) con daño (probabilidad de +50%, Letalidad +25%). Complemento defensivo: muy buen líder de guarnición. Su habilidad de participante (Defensa + Salud) solo sirve en PvP.
+Liz — Gen 8, Caballería, SSR, Combate
+  Cacería del Oso: líder del rally ⚠️; Cacería del Oso: participante ⚠️; PvP: líder del rally ⚠️; Líder de guarnición ✅; PvP: participante ⚠️; Marcha individual —; Arena / Conquista —
+  Probabilidad de +50% de Letalidad para todo el ejército, Salud +25% y grandes golpes de caballería al azar. Complemento defensivo: encaja mejor como líder de guarnición. Su habilidad de participante depende del azar.
+Luna — Gen 8, Arquero, SSR, Combate
+  Cacería del Oso: líder del rally ✅; Cacería del Oso: participante ✅; PvP: líder del rally ✅; Líder de guarnición ⚠️; PvP: participante ✅; Marcha individual —; Arena / Conquista —
+  Participante: todo el rally gana +25% de Ataque. Sus arqueros hacen +50% en cada golpe, siempre. Complemento ofensivo: la mejor líder arquera en Cacería del Oso.
 
 ### GUIDE #kvk — Guía de Preparación y Batalla KvK
 🗓️ Cronología del KvK
@@ -1218,9 +1263,6 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-30 by Nia] TAC - Legión 2
-(see guide #tri-alliance-clash)
-
 [2026-10-19 by ΔRMΔDΔ] Ausencias en Enfrentamiento en Tierra de espadas
 ⚠️ Actualización importante de reglas: Ausencias en Enfrentamiento en Tierra de espadas
 

@@ -565,8 +565,8 @@ RESUMO
 Jogadores F2P: Foque em Zoe (tanque de infantaria), Jabel (cavalaria) e Petra (cavalaria ofensiva) na roleta de heróis
 Jogadores P2W: Priorize Amadeus (VIP 7+) e Hilde para o máximo impacto
 
-### GUIDE #hero-cards — Cartas de Heróis (Gen 1–3)
-Uma carta por herói: para que cada um serve. As notas vêm do chat "Heroes Guide" do jogo, resgatado pela dona do site momentos antes de sumir. Use os filtros para achar, por exemplo, os melhores participantes de Caça ao Urso.
+### GUIDE #hero-cards — Cartas de Heróis (Gen 1–8)
+Uma carta por herói: para que cada um serve. As notas vêm do chat "Heroes Guide" do jogo, resgatado pela dona do site momentos antes de sumir. Use os filtros para achar, por exemplo, os melhores participantes de Caça ao Urso. As Gen 4–8 foram avaliadas por nós pelas habilidades de Expedição e pelo tipo de Ferramenta (ofensiva ou defensiva); marcha solo e Arena ainda sem nota.
 [parent] f2p-heroes
 Olive — Gen 1, Arquearia, R, Crescimento
   Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ❌; Líder de guarnição ❌; PvP: participante ❌; Marcha solo ❌; Arena / Conquista ✅
@@ -652,6 +652,51 @@ Eric — Gen 3, Infantaria, SSR, Combate
 Jaeger — Gen 3, Arquearia, SSR, Combate
   As notas detalhadas desta geração estão a caminho.
   Pule, a menos que seu foco seja PvP / defesa de guarnição.
+Margot — Gen 4, Cavalaria, SSR, Combate
+  Caça ao Urso: Capitão do Rally ⚠️; Caça ao Urso: participante ✅; PvP: Capitão do Rally ⚠️; Líder de guarnição ✅; PvP: participante ✅; Marcha solo —; Arena / Conquista —
+  Habilidade de participante: o rally inteiro ganha +25% de Ataque — uma das melhores participantes em Caça ao Urso e no PvP. As outras habilidades causam dano, mas a Ferramenta dela é defensiva: como líder, combina mais com guarnição do que com rally.
+Alcar — Gen 4, Infantaria, SSR, Combate
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ⚠️; Líder de guarnição ✅; PvP: participante ⚠️; Marcha solo —; Arena / Conquista —
+  Transforma a infantaria em atacante (dano da infantaria até +100%) e reduz o dano que infantaria e arquearia recebem. Ferramenta defensiva: ótimo líder de guarnição. A habilidade de participante só reduz dano às vezes — inútil em Caça ao Urso.
+Rosa — Gen 4, Arquearia, SSR, Combate
+  Caça ao Urso: Capitão do Rally ✅; Caça ao Urso: participante ⚠️; PvP: Capitão do Rally ✅; Líder de guarnição ⚠️; PvP: participante ⚠️; Marcha solo —; Arena / Conquista —
+  Ataque da arquearia +30% (sempre) e 40% de chance de +50% de dano — boa capitã de arquearia em Caça ao Urso. Ferramenta ofensiva: feita para liderar rally. A habilidade de participante depende de sorte.
+Long Fei — Gen 5, Infantaria, SSR, Combate
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ⚠️; Líder de guarnição ✅; PvP: participante ⚠️; Marcha solo —; Arena / Conquista —
+  Defesa +25% para todos e chance de dano dobrado: infantaria de linha de frente. Ferramenta defensiva: líder de guarnição. A habilidade de participante reduz dano por sorte — inútil em Caça ao Urso.
+Thrud — Gen 5, Cavalaria, SSR, Combate
+  Caça ao Urso: Capitão do Rally ✅; Caça ao Urso: participante ⚠️; PvP: Capitão do Rally ✅; Líder de guarnição ⚠️; PvP: participante ✅; Marcha solo —; Arena / Conquista —
+  A cavalaria dela bate mais forte, e o exército inteiro causa mais dano e recebe menos. Ferramenta ofensiva: capitã de rally. Difícil de conseguir (só eventos de ranking).
+Vivian — Gen 5, Arquearia, SSR, Combate
+  Caça ao Urso: Capitão do Rally ✅; Caça ao Urso: participante ✅; PvP: Capitão do Rally ✅; Líder de guarnição ⚠️; PvP: participante ✅; Marcha solo —; Arena / Conquista —
+  As três habilidades de Expedição causam dano. Participante: inimigos recebem +25% de dano, sempre (sem sorte). Ferramenta ofensiva: a melhor arqueira para Caça ao Urso e rally PvP até a Gen 5.
+Triton — Gen 6, Infantaria, SSR, Combate
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ⚠️; Líder de guarnição ✅; PvP: participante ✅; Marcha solo —; Arena / Conquista —
+  Defesa +25%, dano de habilidade do herói +30% e mais Vida: infantaria defensiva. Ferramenta defensiva: líder de guarnição. A habilidade de participante (Defesa) ajuda no PvP, não em Caça ao Urso.
+Sophia — Gen 6, Cavalaria, SSR, Combate
+  Caça ao Urso: Capitão do Rally ⚠️; Caça ao Urso: participante ❌; PvP: Capitão do Rally ✅; Líder de guarnição ⚠️; PvP: participante ⚠️; Marcha solo —; Arena / Conquista —
+  Combo de medo: a cada 2 turnos o alvo fica com medo e recebe até +200% de dano da cavalaria e +75% do exército todo. Ótima capitã de rally PvP. Ainda não se sabe se o Urso pode ficar com medo. A habilidade de participante só reduz dano por sorte.
+Yang — Gen 6, Arquearia, SSR, Combate
+  Caça ao Urso: Capitão do Rally ✅; Caça ao Urso: participante ✅; PvP: Capitão do Rally ✅; Líder de guarnição ⚠️; PvP: participante ✅; Marcha solo —; Arena / Conquista —
+  As três habilidades de Expedição causam dano. Participante: o rally inteiro dá um golpe extra a cada 4 turnos. Ferramenta ofensiva: capitã de rally de arquearia para Caça ao Urso e PvP.
+Charles — Gen 7, Infantaria, SSR, Combate
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ❌; Líder de guarnição ✅; PvP: participante ✅; Marcha solo —; Arena / Conquista —
+  As três habilidades de Expedição são defensivas, com o maior bônus de infantaria até a Gen 7. Ferramenta defensiva: o melhor líder de guarnição de infantaria da geração. A habilidade de participante só ajuda no PvP.
+Ava — Gen 7, Cavalaria, SSR, Combate
+  Caça ao Urso: Capitão do Rally ✅; Caça ao Urso: participante ⚠️; PvP: Capitão do Rally ✅; Líder de guarnição ⚠️; PvP: participante ✅; Marcha solo —; Arena / Conquista —
+  Reduz a Defesa inimiga em 25%, às vezes faz o inimigo receber +50% de dano e dá Letalidade +25%. Ferramenta ofensiva: capitã de rally de cavalaria. Ainda estamos vendo se reduzir Defesa funciona no Urso.
+Wee & Woo — Gen 7, Arquearia, SSR, Combate
+  Caça ao Urso: Capitão do Rally ✅; Caça ao Urso: participante ✅; PvP: Capitão do Rally ⚠️; Líder de guarnição ✅; PvP: participante ✅; Marcha solo —; Arena / Conquista —
+  Participante: Ataque +15% e Letalidade +10%. +25% de dano contra infantaria — e as tropas do Urso são todas infantaria. Ótimos na arquearia em Caça ao Urso. A Ferramenta é defensiva, então como capitães de rally PvP falta uma peça.
+Diego — Gen 8, Infantaria, SSR, Combate
+  Caça ao Urso: Capitão do Rally ⚠️; Caça ao Urso: participante ❌; PvP: Capitão do Rally ⚠️; Líder de guarnição ✅; PvP: participante ✅; Marcha solo —; Arena / Conquista —
+  Mistura defesa (Defesa + Vida) com dano (chance de +50%, Letalidade +25%). Ferramenta defensiva: ótimo líder de guarnição. A habilidade de participante (Defesa + Vida) só ajuda no PvP.
+Liz — Gen 8, Cavalaria, SSR, Combate
+  Caça ao Urso: Capitão do Rally ⚠️; Caça ao Urso: participante ⚠️; PvP: Capitão do Rally ⚠️; Líder de guarnição ✅; PvP: participante ⚠️; Marcha solo —; Arena / Conquista —
+  Chance de +50% de Letalidade para o exército todo, Vida +25% e grandes golpes de cavalaria por sorte. Ferramenta defensiva: combina mais com líder de guarnição. A habilidade de participante depende de sorte.
+Luna — Gen 8, Arquearia, SSR, Combate
+  Caça ao Urso: Capitão do Rally ✅; Caça ao Urso: participante ✅; PvP: Capitão do Rally ✅; Líder de guarnição ⚠️; PvP: participante ✅; Marcha solo —; Arena / Conquista —
+  Participante: o rally inteiro ganha +25% de Ataque. A arquearia dela causa +50% em todo golpe, sempre. Ferramenta ofensiva: a melhor capitã de arquearia em Caça ao Urso.
 
 ### GUIDE #kvk — Guia de Preparação e Batalha KvK
 🗓️ Linha do tempo do KvK
@@ -1218,9 +1263,6 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-30 by Nia] TAC - Legião 2
-(see guide #tri-alliance-clash)
-
 [2026-10-19 by ΔRMΔDΔ] Ausências no Confronto entre Espadas
 ⚠️ Atualização Importante de Regra: Ausências no Confronto entre Espadas
 

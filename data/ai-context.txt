@@ -565,8 +565,8 @@ SUMMARY
 F2P Players: Focus on Zoe (infantry tank), Jabel (cavalry), and Petra (offensive cavalry) from hero roulette
 P2W Players: Prioritize Amadeus (VIP 7+) and Hilde for maximum impact
 
-### GUIDE #hero-cards — Hero Cards (Gen 1–3)
-One card per hero: what each one is good for. The ratings come from the in-game "Heroes Guide" chat, rescued by the site owner moments before it disappeared. Use the filters to find, for example, the best Bear Hunt joiners.
+### GUIDE #hero-cards — Hero Cards (Gen 1–8)
+One card per hero: what each one is good for. The ratings come from the in-game "Heroes Guide" chat, rescued by the site owner moments before it disappeared. Use the filters to find, for example, the best Bear Hunt joiners. Gen 4–8 are rated by us from each hero's Expedition skills and the kind of Widget (offensive or defensive); Solo march and Arena are not rated for them yet.
 [parent] f2p-heroes
 Olive — Gen 1, Archer, R, Growth
   Bear Hunt rally lead ❌; Bear Hunt joiner ❌; PvP rally lead ❌; Garrison lead ❌; PvP joiner ❌; Solo march ❌; Arena / Conquest ✅
@@ -652,6 +652,51 @@ Eric — Gen 3, Infantry, SSR, Combat
 Jaeger — Gen 3, Archer, SSR, Combat
   Detailed ratings for this generation are coming.
   Skip unless you focus on PvP / garrison defense.
+Margot — Gen 4, Cavalry, SSR, Combat
+  Bear Hunt rally lead ⚠️; Bear Hunt joiner ✅; PvP rally lead ⚠️; Garrison lead ✅; PvP joiner ✅; Solo march —; Arena / Conquest —
+  Joiner skill: the whole rally gets +25% Attack — one of the best joiners for Bear Hunt and PvP. Her other skills deal damage, but her Widget is the defensive kind, so as a leader she fits garrisons better than rallies.
+Alcar — Gen 4, Infantry, SSR, Combat
+  Bear Hunt rally lead ❌; Bear Hunt joiner ❌; PvP rally lead ⚠️; Garrison lead ✅; PvP joiner ⚠️; Solo march —; Arena / Conquest —
+  Turns infantry into damage dealers (infantry damage up to +100%) and cuts the damage infantry and archers take. Defensive Widget: a strong Garrison lead. The joiner skill only cuts damage now and then — no use in Bear Hunt.
+Rosa — Gen 4, Archer, SSR, Combat
+  Bear Hunt rally lead ✅; Bear Hunt joiner ⚠️; PvP rally lead ✅; Garrison lead ⚠️; PvP joiner ⚠️; Solo march —; Arena / Conquest —
+  Archer Attack +30% (always on) plus a 40% chance of +50% damage — a good Bear Hunt archer leader. Offensive Widget: made for rally lead. Her joiner skill is chance-based.
+Long Fei — Gen 5, Infantry, SSR, Combat
+  Bear Hunt rally lead ❌; Bear Hunt joiner ❌; PvP rally lead ⚠️; Garrison lead ✅; PvP joiner ⚠️; Solo march —; Arena / Conquest —
+  Defense +25% for everyone and a chance of double damage: a front-line infantry. Defensive Widget: a Garrison lead. His joiner skill is a chance to cut damage — no use in Bear Hunt.
+Thrud — Gen 5, Cavalry, SSR, Combat
+  Bear Hunt rally lead ✅; Bear Hunt joiner ⚠️; PvP rally lead ✅; Garrison lead ⚠️; PvP joiner ✅; Solo march —; Arena / Conquest —
+  Her cavalry hits harder, and the whole army deals more damage and takes less. Offensive Widget: a rally leader. Hard to get (ranking events only).
+Vivian — Gen 5, Archer, SSR, Combat
+  Bear Hunt rally lead ✅; Bear Hunt joiner ✅; PvP rally lead ✅; Garrison lead ⚠️; PvP joiner ✅; Solo march —; Arena / Conquest —
+  All three Expedition skills deal damage. Joiner skill: enemies take +25% damage, always on (no chance). Offensive Widget: the top archer for Bear Hunt and PvP rally lead up to Gen 5.
+Triton — Gen 6, Infantry, SSR, Combat
+  Bear Hunt rally lead ❌; Bear Hunt joiner ❌; PvP rally lead ⚠️; Garrison lead ✅; PvP joiner ✅; Solo march —; Arena / Conquest —
+  Defense +25%, hero skill damage +30% and more Health: a defensive infantry. Defensive Widget: a Garrison lead. His joiner skill (Defense) helps in PvP, not in Bear Hunt.
+Sophia — Gen 6, Cavalry, SSR, Combat
+  Bear Hunt rally lead ⚠️; Bear Hunt joiner ❌; PvP rally lead ✅; Garrison lead ⚠️; PvP joiner ⚠️; Solo march —; Arena / Conquest —
+  Fear combo: every 2 turns the target is feared and takes up to +200% cavalry damage and +75% from the whole army. A strong PvP rally lead. Not known yet if the Bear can be feared. Her joiner skill only cuts damage by chance.
+Yang — Gen 6, Archer, SSR, Combat
+  Bear Hunt rally lead ✅; Bear Hunt joiner ✅; PvP rally lead ✅; Garrison lead ⚠️; PvP joiner ✅; Solo march —; Arena / Conquest —
+  All three Expedition skills deal damage. Joiner skill: the whole rally gets an extra hit every 4 turns. Offensive Widget: an archer rally lead for Bear Hunt and PvP.
+Charles — Gen 7, Infantry, SSR, Combat
+  Bear Hunt rally lead ❌; Bear Hunt joiner ❌; PvP rally lead ❌; Garrison lead ✅; PvP joiner ✅; Solo march —; Arena / Conquest —
+  All three Expedition skills are defensive, with the highest infantry bonus up to Gen 7. Defensive Widget: the best infantry Garrison lead of his generation. His joiner skill helps only in PvP.
+Ava — Gen 7, Cavalry, SSR, Combat
+  Bear Hunt rally lead ✅; Bear Hunt joiner ⚠️; PvP rally lead ✅; Garrison lead ⚠️; PvP joiner ✅; Solo march —; Arena / Conquest —
+  Lowers enemy Defense by 25%, makes enemies take +50% damage now and then, and Lethality +25%. Offensive Widget: a cavalry rally lead. Whether lower Defense works on the Bear is still being checked.
+Wee & Woo — Gen 7, Archer, SSR, Combat
+  Bear Hunt rally lead ✅; Bear Hunt joiner ✅; PvP rally lead ⚠️; Garrison lead ✅; PvP joiner ✅; Solo march —; Arena / Conquest —
+  Joiner skill: Attack +15% and Lethality +10%. +25% damage against infantry — and the Bear's troops are all infantry. A great Bear Hunt archer. Their Widget is defensive, so as a PvP rally leader they miss one piece.
+Diego — Gen 8, Infantry, SSR, Combat
+  Bear Hunt rally lead ⚠️; Bear Hunt joiner ❌; PvP rally lead ⚠️; Garrison lead ✅; PvP joiner ✅; Solo march —; Arena / Conquest —
+  Mixes defense (Defense + Health) with damage (a chance of +50%, Lethality +25%). Defensive Widget: a strong Garrison lead. His joiner skill (Defense + Health) helps only in PvP.
+Liz — Gen 8, Cavalry, SSR, Combat
+  Bear Hunt rally lead ⚠️; Bear Hunt joiner ⚠️; PvP rally lead ⚠️; Garrison lead ✅; PvP joiner ⚠️; Solo march —; Arena / Conquest —
+  A chance of +50% Lethality for the whole army, Health +25% and big chance-based cavalry hits. Defensive Widget: fits Garrison lead best. Her joiner skill is chance-based.
+Luna — Gen 8, Archer, SSR, Combat
+  Bear Hunt rally lead ✅; Bear Hunt joiner ✅; PvP rally lead ✅; Garrison lead ⚠️; PvP joiner ✅; Solo march —; Arena / Conquest —
+  Joiner skill: the whole rally gets +25% Attack. Her archers deal +50% on every hit, always on. Offensive Widget: the top Bear Hunt archer leader.
 
 ### GUIDE #kvk — KvK Prep & Battle Guide
 🗓️ KvK timeline
@@ -1217,9 +1262,6 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-30 by Nia] TAC - Legion 2
-(see guide #tri-alliance-clash)
-
 [2026-10-19 by ΔRMΔDΔ] SS No-Shows
 ⚠️ Important Rule Update: SS No-Shows
 
