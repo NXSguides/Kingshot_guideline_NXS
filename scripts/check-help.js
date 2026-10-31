@@ -23,6 +23,7 @@ const FEATURES = [
   ["Ranking: 🎯 the plan's event (picked once, ③ and ④ follow)", /🎯 Event \(活動\) in the plan card/, /{ s: "#planEv", k: "rk01e" }/],
   ["Ranking: ④ battle table per event (Table for: Swordland / Tri-Alliance)", /④ Battle table follows the event/, /{ s: "#tbCard \.tb-ev", k: "rk17e" }/],
   ["Ranking: ④ 🔱 TAC plan draft (Teams A–D, 4 stages)", /"🔱 TAC plan draft \(all 4 stages\)" fills it/, /{ s: "#tbCard \[data-act=triDraft\]", k: "rk14t", e: 1 }/],
+  ["Ranking: 💾 Save now (plan)", /💾 Save now \(立即儲存/, /{ s: "#planSaveNow", k: "rk01s" }/],
   ["Ranking: ④ 🔗 Keep together (same building / team in drafts)", /🔗 Keep together \(排在一起/, /{ s: "#tbCard \.tb-tog", k: "rk19g" }/],
   // [name, AI (worker OFFICER_HELP or scripts/build-ai-context.js), Little Sparrow (js/sparrow.js)]
   ["Post: formatting toolbar", /Word-like toolbar/, /po02b:/],

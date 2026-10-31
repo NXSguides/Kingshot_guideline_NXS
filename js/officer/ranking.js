@@ -1176,19 +1176,19 @@ function tbShowImg(url) {
 /* ===== 🔄 Shared plans: a named plan (e.g. "Legion 1") that every officer sees — ticks, weights, group sizes and the battle table.
    Saved on the Worker (/plans); open plans check for others' changes every 10 s.
    "Only on this device" works as before. ===== */
-const PL = { ko: {"edWho": "편집 가능:", "edAll": "모든 간부가 편집 가능", "edSome": "내가 고른 사람만", "edLimited": "이 사람들만 편집 가능:", "edNote": "👑 만든 사람과 관리자는 항상 편집할 수 있어요.", "edNo": "👁️ 보기만 가능: 만든 사람이 편집할 사람을 제한했어요.", "noName": "이름 없음", "gone": "다른 사람이 이 계획을 삭제했어요. 체크한 사람은 이 기기에 남아 있어요.", "title": "📋 계획", "local": "🔒 이 기기에만", "newP": "+ 새 공유 계획", "ren": "이름 변경", "del": "삭제", "name": "공유 계획 이름 (예: 군단 1)", "copyQ": "지금 체크된 인원으로 시작할까요? (취소 = 빈 상태로 시작)", "delQ": "공유 계획 “{n}”을(를) 모두에게서 삭제할까요?", "localNote": "여기서 변경한 내용은 이 기기에만 남습니다.", "shared": "🔄 공유됨 — 모든 간부가 같은 체크와 표를 봅니다.", "last": "마지막 변경: {who} · {t}", "saving": "⏳ 저장 중…", "saved": "✅ 저장됨 · {t}", "err": "⚠️ 아직 저장되지 않았어요 — 이 기기에 보관 중이고 계속 다시 시도해요. 페이지를 닫지 마세요.", "noKey": "공유 계획을 보려면 Discord로 로그인하세요.", "loading": "공유 계획 불러오는 중…"},
- ar: {"edWho": "من يمكنه التعديل:", "edAll": "كل الضباط يمكنهم التعديل", "edSome": "فقط من أختارهم", "edLimited": "فقط هؤلاء يمكنهم التعديل:", "edNote": "👑 المُنشئ والمشرفون يمكنهم التعديل دائمًا.", "edNo": "👁️ عرض فقط: حدّد المُنشئ من يمكنه تغيير هذه الخطة.", "noName": "بلا اسم", "gone": "حذف شخص آخر هذه الخطة؛ اختياراتك محفوظة على هذا الجهاز.", "title": "📋 الخطة", "local": "🔒 على هذا الجهاز فقط", "newP": "+ خطة مشتركة جديدة", "ren": "إعادة تسمية", "del": "حذف", "name": "اسم الخطة المشتركة (مثل الكتيبة 1)", "copyQ": "البدء بالأشخاص المحددين الآن؟ (إلغاء = البدء فارغة)", "delQ": "حذف الخطة المشتركة “{n}” للجميع؟", "localNote": "التغييرات هنا تبقى على هذا الجهاز فقط.", "shared": "🔄 مشتركة — يرى كل المسؤولين نفس العلامات والجدول.", "last": "آخر تغيير: {who} · {t}", "saving": "⏳ جارٍ الحفظ…", "saved": "✅ تم الحفظ · {t}", "err": "⚠️ لم يُحفظ بعد — محفوظ على هذا الجهاز ونعيد المحاولة. لا تغلق الصفحة.", "noKey": "سجّل الدخول عبر Discord لرؤية الخطط المشتركة.", "loading": "جارٍ تحميل الخطط المشتركة…"},
- pt: {"edWho": "Quem pode editar:", "edAll": "Todos os oficiais podem editar", "edSome": "Só quem eu escolher", "edLimited": "Só estes podem editar:", "edNote": "👑 O criador e os admins sempre podem editar.", "edNo": "👁️ Só leitura: o criador limitou quem pode mudar este plano.", "noName": "sem nome", "gone": "Este plano foi excluído por outra pessoa; suas marcações ficaram neste aparelho.", "title": "📋 Plano", "local": "🔒 Só neste aparelho", "newP": "+ Novo plano compartilhado", "ren": "Renomear", "del": "Excluir", "name": "Nome do plano compartilhado (ex.: Legião 1)", "copyQ": "Começar com as pessoas marcadas agora? (Cancelar = começar vazio)", "delQ": "Excluir o plano compartilhado “{n}” para todos?", "localNote": "As mudanças aqui ficam só neste aparelho.", "shared": "🔄 Compartilhado — todos os oficiais veem as mesmas marcações e a mesma tabela.", "last": "Última mudança: {who} · {t}", "saving": "⏳ Salvando…", "saved": "✅ Salvo · {t}", "err": "⚠️ Ainda não salvo — guardado neste aparelho, tentando de novo. Não feche a página.", "noKey": "Entre com o Discord para ver os planos compartilhados.", "loading": "Carregando planos compartilhados…"},
+const PL = { ko: {"saveNow": "💾 지금 저장", "edWho": "편집 가능:", "edAll": "모든 간부가 편집 가능", "edSome": "내가 고른 사람만", "edLimited": "이 사람들만 편집 가능:", "edNote": "👑 만든 사람과 관리자는 항상 편집할 수 있어요.", "edNo": "👁️ 보기만 가능: 만든 사람이 편집할 사람을 제한했어요.", "noName": "이름 없음", "gone": "다른 사람이 이 계획을 삭제했어요. 체크한 사람은 이 기기에 남아 있어요.", "title": "📋 계획", "local": "🔒 이 기기에만", "newP": "+ 새 공유 계획", "ren": "이름 변경", "del": "삭제", "name": "공유 계획 이름 (예: 군단 1)", "copyQ": "지금 체크된 인원으로 시작할까요? (취소 = 빈 상태로 시작)", "delQ": "공유 계획 “{n}”을(를) 모두에게서 삭제할까요?", "localNote": "여기서 변경한 내용은 이 기기에만 남습니다.", "shared": "🔄 공유됨 — 모든 간부가 같은 체크와 표를 봅니다.", "last": "마지막 변경: {who} · {t}", "saving": "⏳ 저장 중…", "saved": "✅ 저장됨 · {t}", "err": "⚠️ 아직 저장되지 않았어요 — 이 기기에 보관 중이고 계속 다시 시도해요. 페이지를 닫지 마세요.", "noKey": "공유 계획을 보려면 Discord로 로그인하세요.", "loading": "공유 계획 불러오는 중…"},
+ ar: {"saveNow": "💾 احفظ الآن", "edWho": "من يمكنه التعديل:", "edAll": "كل الضباط يمكنهم التعديل", "edSome": "فقط من أختارهم", "edLimited": "فقط هؤلاء يمكنهم التعديل:", "edNote": "👑 المُنشئ والمشرفون يمكنهم التعديل دائمًا.", "edNo": "👁️ عرض فقط: حدّد المُنشئ من يمكنه تغيير هذه الخطة.", "noName": "بلا اسم", "gone": "حذف شخص آخر هذه الخطة؛ اختياراتك محفوظة على هذا الجهاز.", "title": "📋 الخطة", "local": "🔒 على هذا الجهاز فقط", "newP": "+ خطة مشتركة جديدة", "ren": "إعادة تسمية", "del": "حذف", "name": "اسم الخطة المشتركة (مثل الكتيبة 1)", "copyQ": "البدء بالأشخاص المحددين الآن؟ (إلغاء = البدء فارغة)", "delQ": "حذف الخطة المشتركة “{n}” للجميع؟", "localNote": "التغييرات هنا تبقى على هذا الجهاز فقط.", "shared": "🔄 مشتركة — يرى كل المسؤولين نفس العلامات والجدول.", "last": "آخر تغيير: {who} · {t}", "saving": "⏳ جارٍ الحفظ…", "saved": "✅ تم الحفظ · {t}", "err": "⚠️ لم يُحفظ بعد — محفوظ على هذا الجهاز ونعيد المحاولة. لا تغلق الصفحة.", "noKey": "سجّل الدخول عبر Discord لرؤية الخطط المشتركة.", "loading": "جارٍ تحميل الخطط المشتركة…"},
+ pt: {"saveNow": "💾 Salvar agora", "edWho": "Quem pode editar:", "edAll": "Todos os oficiais podem editar", "edSome": "Só quem eu escolher", "edLimited": "Só estes podem editar:", "edNote": "👑 O criador e os admins sempre podem editar.", "edNo": "👁️ Só leitura: o criador limitou quem pode mudar este plano.", "noName": "sem nome", "gone": "Este plano foi excluído por outra pessoa; suas marcações ficaram neste aparelho.", "title": "📋 Plano", "local": "🔒 Só neste aparelho", "newP": "+ Novo plano compartilhado", "ren": "Renomear", "del": "Excluir", "name": "Nome do plano compartilhado (ex.: Legião 1)", "copyQ": "Começar com as pessoas marcadas agora? (Cancelar = começar vazio)", "delQ": "Excluir o plano compartilhado “{n}” para todos?", "localNote": "As mudanças aqui ficam só neste aparelho.", "shared": "🔄 Compartilhado — todos os oficiais veem as mesmas marcações e a mesma tabela.", "last": "Última mudança: {who} · {t}", "saving": "⏳ Salvando…", "saved": "✅ Salvo · {t}", "err": "⚠️ Ainda não salvo — guardado neste aparelho, tentando de novo. Não feche a página.", "noKey": "Entre com o Discord para ver os planos compartilhados.", "loading": "Carregando planos compartilhados…"},
 
   en: { edWho: "Who can edit:", edAll: "Every officer can edit", edSome: "Only people I pick", edLimited: "Only these can edit:", edNote: "👑 The creator and admins can always edit.", edNo: "👁️ View only: the creator limited who can change this plan.", noName: "no name", gone: "This plan was deleted by someone else; your ticks are kept on this device.", title: "📋 Plan", local: "🔒 Only on this device", newP: "+ New shared plan", ren: "Rename", del: "Delete",
         name: "Name of the shared plan (e.g. Legion 1)", copyQ: "Start it with the people ticked now? (Cancel = start empty)",
         delQ: "Delete the shared plan “{n}” for everyone?", localNote: "Changes here stay on this device only.",
-        shared: "🔄 Shared — every officer sees the same ticks and table.", last: "Last change: {who} · {t}", saving: "⏳ Saving…", saved: "✅ Saved · {t}",
+        saveNow: "💾 Save now", shared: "🔄 Shared — every officer sees the same ticks and table.", last: "Last change: {who} · {t}", saving: "⏳ Saving…", saved: "✅ Saved · {t}",
         err: "⚠️ Not saved yet — kept on this device, trying again. Don't close the page.", noKey: "Log in with Discord to see the shared plans.", loading: "Loading shared plans…" },
   zh: { edWho: "誰可以編輯：", edAll: "所有幹部都可以編輯", edSome: "只有我選的人", edLimited: "只有這些人可以編輯：", edNote: "👑 建立者和管理員一定可以編輯。", edNo: "👁️ 這個計畫你只能看，不能改（建立者限定了編輯的人）。", noName: "沒有名字", gone: "這個計畫已經被別人刪掉了，你勾的人留在這台裝置上。", title: "📋 方案", local: "🔒 只在這台裝置", newP: "+ 新增共用方案", ren: "改名", del: "刪除",
         name: "共用方案的名字（例如 Legion 1）", copyQ: "要用現在勾選的人開始嗎？（取消 = 從空白開始）",
         delQ: "確定要為所有人刪除共用方案「{n}」？", localNote: "這裡的變更只存在這台裝置。",
-        shared: "🔄 共用中 — 所有幹部看到的勾選和表格都一樣。", last: "最後修改：{who} · {t}", saving: "⏳ 儲存中…", saved: "✅ 已存 · {t}",
+        saveNow: "💾 立即儲存", shared: "🔄 共用中 — 所有幹部看到的勾選和表格都一樣。", last: "最後修改：{who} · {t}", saving: "⏳ 儲存中…", saved: "✅ 已存 · {t}",
         err: "⚠️ 還沒存上去 — 已先留在這台裝置，正在自動重試。先不要關掉頁面。", noKey: "用 Discord 登入才看得到共用方案。", loading: "正在讀取共用方案…" },
 };
 const pl = (k, v = {}) => String((PL[lang] || PL.en)[k] ?? PL.en[k]).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
@@ -1270,7 +1270,7 @@ function histUndo() {
 /* put a plan (normalized) on screen */
 function planShow(n) {
   planApplying = true;
-  picked = new Set(n.picked); subs = new Set(n.subs); rep = { ...(n.rep || {}) }; store.counts = n.counts; TB = n.tb; tbPick = null;
+  picked = new Set(n.picked); subs = new Set(n.subs); rep = { ...(n.rep || {}) }; store.counts = JSON.parse(PJ(n.counts || {})); TB = JSON.parse(PJ(n.tb)); tbPick = null;   // copies: the screen must never share objects with planBaseSnap (else edits look unchanged and are never saved — 2026-11-01)
   setWeights(n.wts); persist();
   renderAll(); tbRender(); renderPresets && renderPresets();
   planApplying = false;
@@ -1315,6 +1315,7 @@ function planRenderBar() {
   $("planRen").hidden = $("planDel").hidden = !can;
   $("planNew").hidden = !loggedIn();
   $("planVer").hidden = !p; $("planVer").textContent = pv("btn");
+  if ($("planSaveNow")) { $("planSaveNow").hidden = !can; $("planSaveNow").textContent = pl("saveNow"); $("planSaveNow").disabled = planBusy; }
   if ($("planRec")) { $("planRec").hidden = !(OFFICER.isAdmin && OFFICER.isAdmin()); $("planRec").textContent = rc("btn"); }
   if ($("planEd") && !(document.activeElement && document.activeElement.closest && document.activeElement.closest("#planEd"))) $("planEd").innerHTML = loggedIn() ? planEditorsHtml() : "";
   // 💾 save state, always in view: ✅ saved · ⏳ saving · ⚠️ not saved yet (kept on this device, retrying)
@@ -1556,6 +1557,20 @@ async function planRecover() {
 $("planRec").onclick = () => planRecover();
 $("planVer").onclick = () => planVersions();
 $("planUndo").onclick = () => histUndo();
+/* 💾 Save now (Sherry, 2026-11-01): writes exactly what is on this screen to the shared plan — ticks, settings and the whole battle table — over whatever is there */
+async function planSaveNow() {
+  const id = planId, p = id && plans[id]; if (!p || !planCanEdit(p)) return;
+  clearTimeout(planTimer);
+  for (let i = 0; planBusy && i < 50; i++) await new Promise((r) => setTimeout(r, 100));
+  planBusy = true; planRenderBar();
+  try {
+    const j = await papi("save", { id, patch: { full: planSnapshot() } });
+    plans[id] = j.plan; planBaseSnap = planNorm(j.plan); planBaseV = j.plan._v || planBaseV; pend.set(id, null);
+    planDirty = !planSame(planMine(), planBaseSnap); planErr = ""; planOkAt = Date.now(); planTries = 0;
+  } catch (e) { planErr = planErrText(e); }
+  planBusy = false; planRenderBar();
+}
+if ($("planSaveNow")) $("planSaveNow").onclick = () => planSaveNow();
 $("planSel").onchange = async (e) => { const to = e.target.value;
   if (planDirty && planId) { clearTimeout(planTimer); e.target.disabled = true; try { for (let i = 0; i < 40 && planBusy; i++) await new Promise((r) => setTimeout(r, 250)); if (planDirty) await planSave(); } catch (err) {} e.target.disabled = false; }
   planSwitch(to); };
