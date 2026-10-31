@@ -432,12 +432,12 @@ const TB_COLORS = ["#dcc3d6", "#b9cfdc", "#ead2c0", "#cfdcc4", "#e9e0bf", "#cdc8
 /* tables saved with the old bright colours switch to the matching muted one */
 const TB_OLD = { "#b59592": 0, "#8b9db0": 1, "#c09c80": 2, "#94a893": 3, "#b8a68c": 4, "#a093a8": 5, "#7f9c99": 6, "#a8a196": 7, "#f5ebe0": 0, "#d5bdaf": 1, "#edede9": 2, "#c9b7a6": 3, "#e3d5ca": 4, "#b9a394": 5, "#ece4db": 6, "#d6ccc2": 7, "#e6a3d9": 0, "#8fd0ec": 1, "#f6c3a2": 2, "#d6ecc4": 3, "#f6e58d": 4, "#c9c3f0": 5, "#d9d9d9": 6, "#b8e0d2": 7 };
 const tbMuted = (t) => { for (const g of (t && t.groups) || []) { const i = TB_OLD[String(g.color || "").toLowerCase()]; if (i != null) g.color = TB_COLORS[i]; } return t; };
-const TT = { ko: {"evFor": "이 표는:","evNone": "이 표가 어느 이벤트용인지 고르세요 (또는 ③에서 선택) — 그 이벤트의 단계, 건물, 알림, 초안으로 바뀌어요.","evOther": "이 표는 {ev}용인데 ③에서는 {cur}을(를) 골랐어요.","evSwitch": "{cur}(으)로 바꾸기 (새 빈 표)","confirmEv": "새 빈 {ev} 표를 만들까요? 지금 표는 바뀌어요 (↩️ 되돌리기로 복구 가능).","triDraft": "🔱 삼대 연맹전 계획 초안 (4단계 모두)","triNote": "③의 A–D팀을 사용해요 (인원은 거기서). 리더 = 각 팀 최강; D팀은 경로 I과 II로 나뉘어요.","syncTri": "📋 각 단계(0–3)마다 줄이 있고, 한 줄 = 한 팀이나 경로: 리더, 팀, 임무. 모두 바꿀 수 있고, 단계 이름은 표 설정에서 바꿔요.", "ssDraft": "⚔️ 성검 규칙 초안 (3단계 모두)", "title": "④ 전투 배치표", "note": "목록에서 사람을 고른 뒤 칸을 눌러 배치하세요(컴퓨터에서는 드래그도 가능). ×를 누르면 제거됩니다.", "setup": "표 설정", "stages": "단계", "targets": "목표", "tlabels": "목표 뒤 괄호 설명", "cols": "열 이름", "sep": "(쉼표로 구분)", "shortNames": "짧은 이름 (亗, Nexus 같은 장식 제거)", "draft": "순위로 초안 자동 작성", "draftNote": "③의 Attackers / Defenders 인원수를 사용합니다.", "clear": "표 비우기", "addGroup": "+ 조", "addRow": "+ 행", "delGroup": "조 삭제", "dupRow": "행 복사", "delRow": "행 삭제", "pool": "인원 — 점수 기준 추천 역할 (이름을 누른 뒤 칸을 누르세요)", "poolEmpty": "먼저 ②에서 참가자를 체크하세요.", "addText": "+ 텍스트", "sync": "📋 단계(Phase 1, Phase 2, Stay behind…)마다 건물 표가 하나씩, 한 줄 = 건물 하나. 같은 사람이 여러 단계에 나올 수 있어요. 단계 이름은 「표 설정」에서 바꿔요.", "imp": "📥 텍스트 붙여넣기 → 표", "impNote": "Discord에 쓴 배치 글을 그대로 붙여넣으세요 (① ROYAL STABLES / * ⚔️ Attacker: Papa …). 이름은 명단과 자동으로 맞춰지고, 못 찾은 이름은 글자로 들어가요.", "impGo": "표로 바꾸기", "impBad": "알아볼 수 있는 건물이 없어요.", "impDraft": "📝 초안 넣기 (점수 순으로 사람 배치)", "rem": "📌 알림 (그림과 글 맨 아래에 붙어요)", "game": "🎮 게임 채팅용", "undo": "↩️ 되돌리기", "xlsx": "📊 Excel 다운로드", "gameNote": "게임 채팅은 한 번에 한 메시지씩 — 순서대로 하나씩 복사해서 붙여넣으세요.", "addB": "+ 건물", "moveTo": "단계:", "stay": "남음", "textPrompt": "추가할 텍스트 (예: Stays behind)", "image": "🖼️ 이미지 만들기", "text": "📋 텍스트 복사", "toPost": "📢 새 공지에 사용", "saveHint": "휴대폰: 이미지를 길게 눌러 저장하세요.", "download": "다운로드", "close": "닫기", "confirmClear": "표 전체를 비울까요?", "confirmDraft": "현재 표를 새 초안으로 바꿀까요?", "copied": "복사했어요!", "group": "조", "picked": "선택됨:"},
- ar: {"evFor": "الجدول لـ:","evNone": "اختر الحدث الذي يخصّه هذا الجدول (أو اختره في ③) — فيأخذ مراحل ذلك الحدث ومبانيه وتذكيراته ومسودته.","evOther": "هذا الجدول معدّ لـ {ev}، لكن ③ يعرض {cur}.","evSwitch": "التبديل إلى {cur} (جدول جديد فارغ)","confirmEv": "بدء جدول {ev} جديد فارغ؟ يُستبدل الحالي (↩️ تراجع يعيده).","triDraft": "🔱 مسودة خطة صراع التحالف الثلاثي (4 مراحل)","triNote": "يستخدم الفرق A–D من ③ (الأحجام هناك). القائد = الأقوى في كل فريق؛ الفريق D مقسوم بين المسار I والمسار II.","syncTri": "📋 لكل مرحلة (0–3) صفوفها؛ صف = فريق أو مسار: القائد، الفريق، المهمة. كل شيء قابل للتعديل؛ غيّر أسماء المراحل في إعداد الجدول.", "ssDraft": "⚔️ مسودة قواعد أرض السيوف (المراحل الثلاث)", "title": "④ جدول المعركة", "note": "اختر أشخاصًا من القائمة، ثم انقر على خانة لوضعهم فيها (على الكمبيوتر يمكنك السحب أيضًا). انقر × للإزالة.", "setup": "إعداد الجدول", "stages": "المراحل", "targets": "الأهداف", "tlabels": "ملاحظة الهدف (بين قوسين)", "cols": "الأعمدة", "sep": "(افصل بفواصل)", "shortNames": "أسماء مختصرة (بدون زخارف مثل 亗 وNexus)", "draft": "املأ مسودة أولى من الترتيب", "draftNote": "يستخدم أعداد المهاجمين / المدافعين من ③.", "clear": "مسح الجدول", "addGroup": "+ مجموعة", "addRow": "+ صف", "delGroup": "حذف المجموعة", "dupRow": "نسخ الصف", "delRow": "حذف الصف", "pool": "الأشخاص — أدوار مقترحة حسب النقاط (انقر على واحد، ثم على خانة)", "poolEmpty": "حدّد المشاركين في ② أولًا.", "addText": "+ نص", "sync": "📋 لكل مرحلة (Phase 1، Phase 2، Stay behind…) جدول مبانٍ خاص، وكل صف = مبنى. يمكن أن يظهر الشخص نفسه في عدة مراحل. تُغيَّر أسماء المراحل في «إعداد الجدول».", "imp": "📥 لصق نص ← جدول", "impNote": "الصق نص التوزيع كما كتبته في Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). تُطابق الأسماء مع القائمة تلقائيًا، وما لا يُعثر عليه يُضاف كنص.", "impGo": "حوّل إلى جدول", "impBad": "لم يُعثر على أي مبنى.", "impDraft": "📝 أدخل مسودة (الأشخاص حسب الترتيب)", "rem": "📌 تذكيرات (تُضاف أسفل الصورة والنص)", "game": "🎮 لدردشة اللعبة", "undo": "↩️ تراجع", "xlsx": "📊 تنزيل Excel", "gameNote": "دردشة اللعبة ترسل رسالة واحدة في كل مرة — انسخ كل مربع والصقه بالترتيب.", "addB": "+ مبنى", "moveTo": "المرحلة:", "stay": "يبقى", "textPrompt": "النص المراد إضافته (مثلًا: يبقى في الخلف)", "image": "🖼️ إنشاء صورة", "text": "📋 نسخ النص", "toPost": "📢 استخدام في إعلان جديد", "saveHint": "الهاتف: اضغط مطولًا على الصورة لحفظها.", "download": "تنزيل", "close": "إغلاق", "confirmClear": "مسح الجدول بالكامل؟", "confirmDraft": "استبدال الجدول بمسودة جديدة؟", "copied": "تم النسخ!", "group": "مجموعة", "picked": "المحدد:"},
- pt: {"evFor": "Tabela para:","evNone": "Escolha o evento desta tabela (ou escolha em ③) — ela passa a ter as fases, prédios, lembretes e rascunho desse evento.","evOther": "Esta tabela é de {ev}, mas ③ mostra {cur}.","evSwitch": "Trocar para {cur} (tabela nova vazia)","confirmEv": "Começar uma tabela vazia de {ev}? A atual é substituída (↩️ Desfazer traz de volta).","triDraft": "🔱 Rascunho do plano TAC (4 fases)","triNote": "Usa os Times A–D de ③ (tamanhos lá). Líder = o mais forte de cada time; o Time D é dividido entre Caminho I e II.","syncTri": "📋 Cada fase (0–3) tem suas linhas; uma linha = um time ou caminho: Líder, Time, Tarefa. Tudo pode ser mudado; renomeie as fases em Configurar tabela.", "ssDraft": "⚔️ Rascunho pelas regras do Confronto entre Espadas (3 fases)", "title": "④ Tabela de batalha", "note": "Escolha pessoas na lista e toque numa caixa para colocá-las lá (no computador também dá para arrastar). Toque em × para remover.", "setup": "Configurar tabela", "stages": "Etapas", "targets": "Alvos", "tlabels": "Notas do alvo (entre parênteses)", "cols": "Colunas", "sep": "(separe com vírgulas)", "shortNames": "Nomes curtos (sem enfeites como 亗 e Nexus)", "draft": "Montar um rascunho pelo ranking", "draftNote": "Usa os números de Attackers / Defenders do ③.", "clear": "Limpar tabela", "addGroup": "+ Grupo", "addRow": "+ Linha", "delGroup": "Excluir grupo", "dupRow": "Copiar linha", "delRow": "Excluir linha", "pool": "Pessoas — funções sugeridas pela pontuação (toque numa, depois numa caixa)", "poolEmpty": "Marque os participantes no ② primeiro.", "addText": "+ texto", "sync": "📋 Cada fase (Phase 1, Phase 2, Stay behind…) tem sua própria tabela de prédios, uma linha = um prédio. A mesma pessoa pode aparecer em fases diferentes. Os nomes das fases mudam em «Configurar tabela».", "imp": "📥 Colar texto → tabela", "impNote": "Cole o texto das funções como escreveu no Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). Os nomes são ligados à lista sozinhos; os não encontrados entram como texto.", "impGo": "Transformar em tabela", "impBad": "Nenhum prédio encontrado.", "impDraft": "📝 Inserir rascunho (pessoas pela classificação)", "rem": "📌 Lembretes (vão no fim da imagem e do texto)", "game": "🎮 Para o chat do jogo", "undo": "↩️ Desfazer", "xlsx": "📊 Baixar Excel", "gameNote": "O chat do jogo envia uma mensagem por vez — copie cada caixa e cole na ordem.", "addB": "+ Prédio", "moveTo": "Fase:", "stay": "fica", "textPrompt": "Texto para adicionar (ex.: Stays behind)", "image": "🖼️ Gerar imagem", "text": "📋 Copiar texto", "toPost": "📢 Usar num novo anúncio", "saveHint": "No celular: toque e segure a imagem para salvar.", "download": "Baixar", "close": "Fechar", "confirmClear": "Limpar a tabela inteira?", "confirmDraft": "Trocar a tabela por um novo rascunho?", "copied": "Copiado!", "group": "Grupo", "picked": "Selecionado:"},
+const TT = { ko: {"teamsL": "팀 (열)", "evFor": "이 표는:","evNone": "이 표가 어느 이벤트용인지 고르세요 (또는 ③에서 선택) — 그 이벤트의 단계, 건물, 알림, 초안으로 바뀌어요.","evOther": "이 표는 {ev}용인데 ③에서는 {cur}을(를) 골랐어요.","evSwitch": "{cur}(으)로 바꾸기 (새 빈 표)","confirmEv": "새 빈 {ev} 표를 만들까요? 지금 표는 바뀌어요 (↩️ 되돌리기로 복구 가능).","triDraft": "🔱 삼대 연맹전 계획 초안 (4단계 모두)","triNote": "③의 A–D팀을 사용해요 (인원은 거기서). 리더 = 각 팀 최강; D팀은 경로 I과 II로 나뉘어요.","syncTri": "📋 연맹 계획표처럼 단계마다 한 줄, 팀마다 한 열이에요. 각 칸 = 한 팀이나 경로: 건물, 리더, 팀, 임무; +로 칸 추가. 모두 바꿀 수 있고, 단계와 팀 이름은 표 설정에서 바꿔요.", "ssDraft": "⚔️ 성검 규칙 초안 (3단계 모두)", "title": "④ 전투 배치표", "note": "목록에서 사람을 고른 뒤 칸을 눌러 배치하세요(컴퓨터에서는 드래그도 가능). ×를 누르면 제거됩니다.", "setup": "표 설정", "stages": "단계", "targets": "목표", "tlabels": "목표 뒤 괄호 설명", "cols": "열 이름", "sep": "(쉼표로 구분)", "shortNames": "짧은 이름 (亗, Nexus 같은 장식 제거)", "draft": "순위로 초안 자동 작성", "draftNote": "③의 Attackers / Defenders 인원수를 사용합니다.", "clear": "표 비우기", "addGroup": "+ 조", "addRow": "+ 행", "delGroup": "조 삭제", "dupRow": "행 복사", "delRow": "행 삭제", "pool": "인원 — 점수 기준 추천 역할 (이름을 누른 뒤 칸을 누르세요)", "poolEmpty": "먼저 ②에서 참가자를 체크하세요.", "addText": "+ 텍스트", "sync": "📋 단계(Phase 1, Phase 2, Stay behind…)마다 건물 표가 하나씩, 한 줄 = 건물 하나. 같은 사람이 여러 단계에 나올 수 있어요. 단계 이름은 「표 설정」에서 바꿔요.", "imp": "📥 텍스트 붙여넣기 → 표", "impNote": "Discord에 쓴 배치 글을 그대로 붙여넣으세요 (① ROYAL STABLES / * ⚔️ Attacker: Papa …). 이름은 명단과 자동으로 맞춰지고, 못 찾은 이름은 글자로 들어가요.", "impGo": "표로 바꾸기", "impBad": "알아볼 수 있는 건물이 없어요.", "impDraft": "📝 초안 넣기 (점수 순으로 사람 배치)", "rem": "📌 알림 (그림과 글 맨 아래에 붙어요)", "game": "🎮 게임 채팅용", "undo": "↩️ 되돌리기", "xlsx": "📊 Excel 다운로드", "gameNote": "게임 채팅은 한 번에 한 메시지씩 — 순서대로 하나씩 복사해서 붙여넣으세요.", "addB": "+ 건물", "moveTo": "단계:", "stay": "남음", "textPrompt": "추가할 텍스트 (예: Stays behind)", "image": "🖼️ 이미지 만들기", "text": "📋 텍스트 복사", "toPost": "📢 새 공지에 사용", "saveHint": "휴대폰: 이미지를 길게 눌러 저장하세요.", "download": "다운로드", "close": "닫기", "confirmClear": "표 전체를 비울까요?", "confirmDraft": "현재 표를 새 초안으로 바꿀까요?", "copied": "복사했어요!", "group": "조", "picked": "선택됨:"},
+ ar: {"teamsL": "الفرق (الأعمدة)", "evFor": "الجدول لـ:","evNone": "اختر الحدث الذي يخصّه هذا الجدول (أو اختره في ③) — فيأخذ مراحل ذلك الحدث ومبانيه وتذكيراته ومسودته.","evOther": "هذا الجدول معدّ لـ {ev}، لكن ③ يعرض {cur}.","evSwitch": "التبديل إلى {cur} (جدول جديد فارغ)","confirmEv": "بدء جدول {ev} جديد فارغ؟ يُستبدل الحالي (↩️ تراجع يعيده).","triDraft": "🔱 مسودة خطة صراع التحالف الثلاثي (4 مراحل)","triNote": "يستخدم الفرق A–D من ③ (الأحجام هناك). القائد = الأقوى في كل فريق؛ الفريق D مقسوم بين المسار I والمسار II.","syncTri": "📋 بنفس شكل جدول خطة التحالف: صف لكل مرحلة وعمود لكل فريق. كل خانة = فريق أو مسار: المبنى، القائد، الفريق، المهمة؛ + يضيف خانة. كل شيء قابل للتعديل؛ غيّر أسماء المراحل والفرق في إعداد الجدول.", "ssDraft": "⚔️ مسودة قواعد أرض السيوف (المراحل الثلاث)", "title": "④ جدول المعركة", "note": "اختر أشخاصًا من القائمة، ثم انقر على خانة لوضعهم فيها (على الكمبيوتر يمكنك السحب أيضًا). انقر × للإزالة.", "setup": "إعداد الجدول", "stages": "المراحل", "targets": "الأهداف", "tlabels": "ملاحظة الهدف (بين قوسين)", "cols": "الأعمدة", "sep": "(افصل بفواصل)", "shortNames": "أسماء مختصرة (بدون زخارف مثل 亗 وNexus)", "draft": "املأ مسودة أولى من الترتيب", "draftNote": "يستخدم أعداد المهاجمين / المدافعين من ③.", "clear": "مسح الجدول", "addGroup": "+ مجموعة", "addRow": "+ صف", "delGroup": "حذف المجموعة", "dupRow": "نسخ الصف", "delRow": "حذف الصف", "pool": "الأشخاص — أدوار مقترحة حسب النقاط (انقر على واحد، ثم على خانة)", "poolEmpty": "حدّد المشاركين في ② أولًا.", "addText": "+ نص", "sync": "📋 لكل مرحلة (Phase 1، Phase 2، Stay behind…) جدول مبانٍ خاص، وكل صف = مبنى. يمكن أن يظهر الشخص نفسه في عدة مراحل. تُغيَّر أسماء المراحل في «إعداد الجدول».", "imp": "📥 لصق نص ← جدول", "impNote": "الصق نص التوزيع كما كتبته في Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). تُطابق الأسماء مع القائمة تلقائيًا، وما لا يُعثر عليه يُضاف كنص.", "impGo": "حوّل إلى جدول", "impBad": "لم يُعثر على أي مبنى.", "impDraft": "📝 أدخل مسودة (الأشخاص حسب الترتيب)", "rem": "📌 تذكيرات (تُضاف أسفل الصورة والنص)", "game": "🎮 لدردشة اللعبة", "undo": "↩️ تراجع", "xlsx": "📊 تنزيل Excel", "gameNote": "دردشة اللعبة ترسل رسالة واحدة في كل مرة — انسخ كل مربع والصقه بالترتيب.", "addB": "+ مبنى", "moveTo": "المرحلة:", "stay": "يبقى", "textPrompt": "النص المراد إضافته (مثلًا: يبقى في الخلف)", "image": "🖼️ إنشاء صورة", "text": "📋 نسخ النص", "toPost": "📢 استخدام في إعلان جديد", "saveHint": "الهاتف: اضغط مطولًا على الصورة لحفظها.", "download": "تنزيل", "close": "إغلاق", "confirmClear": "مسح الجدول بالكامل؟", "confirmDraft": "استبدال الجدول بمسودة جديدة؟", "copied": "تم النسخ!", "group": "مجموعة", "picked": "المحدد:"},
+ pt: {"teamsL": "Times (colunas)", "evFor": "Tabela para:","evNone": "Escolha o evento desta tabela (ou escolha em ③) — ela passa a ter as fases, prédios, lembretes e rascunho desse evento.","evOther": "Esta tabela é de {ev}, mas ③ mostra {cur}.","evSwitch": "Trocar para {cur} (tabela nova vazia)","confirmEv": "Começar uma tabela vazia de {ev}? A atual é substituída (↩️ Desfazer traz de volta).","triDraft": "🔱 Rascunho do plano TAC (4 fases)","triNote": "Usa os Times A–D de ③ (tamanhos lá). Líder = o mais forte de cada time; o Time D é dividido entre Caminho I e II.","syncTri": "📋 No formato da planilha da aliança: uma linha por fase, uma coluna por time. Cada caixa = um time ou caminho: prédio, Líder, Time, Tarefa; + adiciona outra. Tudo pode ser mudado; renomeie fases e times em Configurar tabela.", "ssDraft": "⚔️ Rascunho pelas regras do Confronto entre Espadas (3 fases)", "title": "④ Tabela de batalha", "note": "Escolha pessoas na lista e toque numa caixa para colocá-las lá (no computador também dá para arrastar). Toque em × para remover.", "setup": "Configurar tabela", "stages": "Etapas", "targets": "Alvos", "tlabels": "Notas do alvo (entre parênteses)", "cols": "Colunas", "sep": "(separe com vírgulas)", "shortNames": "Nomes curtos (sem enfeites como 亗 e Nexus)", "draft": "Montar um rascunho pelo ranking", "draftNote": "Usa os números de Attackers / Defenders do ③.", "clear": "Limpar tabela", "addGroup": "+ Grupo", "addRow": "+ Linha", "delGroup": "Excluir grupo", "dupRow": "Copiar linha", "delRow": "Excluir linha", "pool": "Pessoas — funções sugeridas pela pontuação (toque numa, depois numa caixa)", "poolEmpty": "Marque os participantes no ② primeiro.", "addText": "+ texto", "sync": "📋 Cada fase (Phase 1, Phase 2, Stay behind…) tem sua própria tabela de prédios, uma linha = um prédio. A mesma pessoa pode aparecer em fases diferentes. Os nomes das fases mudam em «Configurar tabela».", "imp": "📥 Colar texto → tabela", "impNote": "Cole o texto das funções como escreveu no Discord (① ROYAL STABLES / * ⚔️ Attacker: Papa …). Os nomes são ligados à lista sozinhos; os não encontrados entram como texto.", "impGo": "Transformar em tabela", "impBad": "Nenhum prédio encontrado.", "impDraft": "📝 Inserir rascunho (pessoas pela classificação)", "rem": "📌 Lembretes (vão no fim da imagem e do texto)", "game": "🎮 Para o chat do jogo", "undo": "↩️ Desfazer", "xlsx": "📊 Baixar Excel", "gameNote": "O chat do jogo envia uma mensagem por vez — copie cada caixa e cole na ordem.", "addB": "+ Prédio", "moveTo": "Fase:", "stay": "fica", "textPrompt": "Texto para adicionar (ex.: Stays behind)", "image": "🖼️ Gerar imagem", "text": "📋 Copiar texto", "toPost": "📢 Usar num novo anúncio", "saveHint": "No celular: toque e segure a imagem para salvar.", "download": "Baixar", "close": "Fechar", "confirmClear": "Limpar a tabela inteira?", "confirmDraft": "Trocar a tabela por um novo rascunho?", "copied": "Copiado!", "group": "Grupo", "picked": "Selecionado:"},
 
   en: {
-    evFor: "Table for:", evNone: "Pick the event this table is for (or pick it in ③) — it sets up that event's stages, buildings, reminders and draft.", evOther: "This table is set up for {ev}, but ③ shows {cur}.", evSwitch: "Switch to {cur} (new empty table)", confirmEv: "Start a new empty {ev} table? The current one is replaced (↩️ Undo brings it back).", triDraft: "🔱 TAC plan draft (all 4 stages)", triNote: "Uses Teams A–D from ③ (sizes there). Lead = each team's strongest; Team D is split into Path I and Path II.", syncTri: "📋 Each stage (Stage 0–3) has its own rows; one row = one team or path: Lead, Team, Task. Everything can be changed; rename stages in Table setup.",
+    teamsL: "Teams (columns)", evFor: "Table for:", evNone: "Pick the event this table is for (or pick it in ③) — it sets up that event's stages, buildings, reminders and draft.", evOther: "This table is set up for {ev}, but ③ shows {cur}.", evSwitch: "Switch to {cur} (new empty table)", confirmEv: "Start a new empty {ev} table? The current one is replaced (↩️ Undo brings it back).", triDraft: "🔱 TAC plan draft (all 4 stages)", triNote: "Uses Teams A–D from ③ (sizes there). Lead = each team's strongest; Team D is split into Path I and Path II.", syncTri: "📋 Laid out like the alliance's plan sheet: one row per stage, one column per team. Each box = one team or path: building, Lead, Team, Task; + adds another. Everything can be changed; rename stages and teams in Table setup.",
     title: "④ Battle table", note: "Pick people from the list, then tap a box to put them there (on a computer you can also drag). Tap × to remove.",
     ssDraft: "⚔️ Swordland rules draft (all 3 phases)", setup: "Table setup", stages: "Stages", targets: "Targets", tlabels: "Target notes (shown in brackets)", cols: "Columns", sep: "(separate with commas)",
     shortNames: "Short names (drop decorations like 亗 and Nexus)",
@@ -451,7 +451,7 @@ const TT = { ko: {"evFor": "이 표는:","evNone": "이 표가 어느 이벤트�
     group: "Group", picked: "Selected:",
   },
   zh: {
-    evFor: "這張表是：", evNone: "先選這張表是哪個活動的（或在 ③ 點活動）——會換成那個活動的階段、建築、提醒和草稿。", evOther: "這張表是 {ev} 的，但 ③ 選的是 {cur}。", evSwitch: "換成 {cur}（新的空白表）", confirmEv: "要開一張新的空白 {ev} 表嗎？目前的表會被取代（可以按 ↩️ 復原）。", triDraft: "🔱 三盟計畫草稿（4 個階段一次排好）", triNote: "使用 ③ 的 A–D 隊（人數在那裡改）。隊長 = 每隊最強的人；D 隊分成路線 I 和路線 II。", syncTri: "📋 每個階段（階段 0–3）各自一組列，一列 = 一隊或一條路線：隊長、隊員、任務。全部都可以改；階段名稱在「表格設定」裡改。",
+    teamsL: "隊伍（欄位）", evFor: "這張表是：", evNone: "先選這張表是哪個活動的（或在 ③ 點活動）——會換成那個活動的階段、建築、提醒和草稿。", evOther: "這張表是 {ev} 的，但 ③ 選的是 {cur}。", evSwitch: "換成 {cur}（新的空白表）", confirmEv: "要開一張新的空白 {ev} 表嗎？目前的表會被取代（可以按 ↩️ 復原）。", triDraft: "🔱 三盟計畫草稿（4 個階段一次排好）", triNote: "使用 ③ 的 A–D 隊（人數在那裡改）。隊長 = 每隊最強的人；D 隊分成路線 I 和路線 II。", syncTri: "📋 排版跟聯盟的計畫表一樣：每個階段一橫列，每隊一直欄。每一格 = 一隊或一條路線：建築、隊長、隊員、任務；按 + 可以再加一格。全部都可以改；階段和隊伍名稱在「表格設定」裡改。",
     title: "④ 戰鬥分工表", note: "先點上方的名字，再點要放的格子（電腦上也可以直接拖曳）。點 × 移除。",
     ssDraft: "⚔️ 聖劍規則草稿（3 個階段一次排好）", setup: "表格設定", stages: "階段", targets: "目標", tlabels: "目標後面的括號說明", cols: "欄位名稱", sep: "（用逗號分隔）",
     shortNames: "簡短名字（去掉亗、Nexus 這些裝飾）",
@@ -476,11 +476,12 @@ const TB_EV = {
     targets: "18, 19, 21, 24, 27, 28, 29, 30, 31, Temple", short: true,
     tlabels: "Team A – Attack, Team B – Enemy Territory Hold, Team C – Frontline, Team D – Support, Team D – Path I, Team D – Path II, Our Garrison, Enemy Garrison, Temple of Tides",
     rem: "Rules\n• R4s: set map labels before the battle starts.\n• Team A: be back at 21 before the Garrisons open.\n• Team B follows Team A and holds what it captured — no recaptures.\n• Team C holds the Transit Hubs and the river crossings; Team D clears Path I / Path II first.\n• Temple of Tides: C and D enter first, B second, A last — the strongest player enters last.\n• If our Garrison or territory is under attack, C and D stay home and defend.",
+    teams: "Team A — Attack, Team B — Enemy Territory Hold, Team C — Frontline, Team D — Support",
     cols: { att: "Lead", stage: "Stage", target: "Building", def: "Team", join: "Back-up", note: "Task" },
     show: { att: true, stage: true, target: true, def: true, join: false, note: true }, groups: [] }),
 };
 const EVN = (ev) => { const pr = PRESETS.find((x) => x.id === ev); return pr ? `${pr.emoji} ${pr.name[lang] || ptOf(pr.name.en)}` : ev; };
-function tbSetEv(ev) { const d = TB_EV[ev](); for (const k of ["stages", "targets", "tlabels", "rem", "cols", "show", "short"]) TB[k] = d[k]; TB.groups = []; TB.ev = ev; }
+function tbSetEv(ev) { const d = TB_EV[ev](); for (const k of ["stages", "targets", "tlabels", "rem", "cols", "show", "short", "teams"]) if (d[k] !== undefined) TB[k] = d[k]; TB.groups = []; TB.ev = ev; }
 /* ③ picked an event: an empty table becomes that event's table; a filled one of another event only shows a note (switching asks first) */
 function tbFollow(pr) {
   if (!pr || !TB_EV[pr.id] || TB.ev === pr.id) { tbRender(); return; }
@@ -510,7 +511,8 @@ const stList = () => { const l = listOf(TB.stages); return l.length ? l : ["Phas
 /* older saved tables → today's shape. Also run on a copy (planNorm), so the shared-plan save can tell "changed here" from "just tidied up" */
 function tbSync(T = TB) {
   const nSt = (() => { const l = listOf(T.stages); return l.length ? l.length : 1; });
-  if (T.ev == null) T.ev = (T.groups && T.groups.length) ? "swordland" : "";   // tables from before were all Swordland's; an empty one waits for an event
+  if (T.ev == null) T.ev = (T.groups && T.groups.length) ? "swordland" : "";
+  if (T.ev === "tri" && !T.teams) T.teams = TB_EV.tri().teams;   // tables from before were all Swordland's; an empty one waits for an event
   if (T.ev === "swordland" && /^\s*(Stage 1\s*,\s*Stage 2|Phase 1\s*,\s*Phase 2\s*,\s*Stay behind)\s*$/.test(T.stages || "")) T.stages = tbDefault().stages;   // the old default → the phases
   if (T.ev === "swordland" && T.cols.target === "Target") T.cols.target = "Building";
   if (T.tlabels === "Royal Stables, Bell Tower, Sanctum near enemy, Sanctum near home, Abbey, Mercenary Camp, Hall of Reformation, Centre") T.tlabels = tbDefault().tlabels;
@@ -524,6 +526,7 @@ function tbSync(T = TB) {
         g.rows.forEach((r) => (r[k] || []).forEach((x) => { const key = chipKey(x); if (!seen.has(key)) { seen.add(key); all.push(x); } })); b[k] = all; });
       g.rows = [b]; }
     if (!(g.sec >= 0)) g.sec = 0;
+    if (T.ev === "tri" && !(g.team >= 0)) { const m = String((g.rows[0] && g.rows[0].tl) || "").match(/team\s*([a-d])/i); g.team = m ? "abcd".indexOf(m[1].toLowerCase()) : 0; }   // 🔱 which team column
     if (g.sec >= nSt()) g.sec = nSt() - 1;
   });
 }
@@ -573,6 +576,7 @@ function tbRender() {
       <label class="f">${esc(tt("stages"))} <span class="muted">${esc(tt("sep"))}</span><input type="text" data-set="stages" value="${esc(TB.stages)}"></label>
       <label class="f">${esc(tt("targets"))} <span class="muted">${esc(tt("sep"))}</span><input type="text" data-set="targets" value="${esc(TB.targets)}"></label>
       <label class="f">${esc(tt("tlabels"))} <span class="muted">${esc(tt("sep"))}</span><input type="text" data-set="tlabels" value="${esc(TB.tlabels || "")}"></label>
+      ${TB.ev === "tri" ? `<label class="f">${esc(tt("teamsL"))} <span class="muted">${esc(tt("sep"))}</span><input type="text" data-set="teams" value="${esc(TB.teams || "")}"></label>` : ""}
       <div class="f">${esc(tt("cols"))}</div>
       <div class="tb-cols">${COL_KEYS.filter((k) => k !== "stage").map((k) => `<label><input type="checkbox" data-show="${k}" ${TB.show[k] ? "checked" : ""}><input type="text" data-col="${k}" value="${esc(TB.cols[k])}"></label>`).join("")}</div>
       <label class="row" style="margin-top:8px"><input type="checkbox" data-set="short" ${TB.short ? "checked" : ""}> ${esc(tt("shortNames"))}</label>
@@ -588,7 +592,7 @@ function tbRender() {
     <div class="tb-sticky"><div class="tb-pool-h">${esc(tt("pool"))}${tbPick ? ` · <b>${esc(tt("picked"))} ${esc(chipLabel(tbPick))}</b>` : ""}</div>
     <div class="tb-counts">${swPreset.groups.map((g, gi) => g.count == null ? "" : `<label>${esc(g.name[lang] || ptOf(g.name.en))} <input type="number" min="0" max="99" data-rolecount="${gi}" value="${groupCount(swPreset, gi)}"></label>`).join("")}</div>
     <div class="tb-pool">${pool.length ? roleGroups.map(({ g, list }, ri) => list.length ? `<div class="tb-role r${ri}"><div class="tb-role-h">${esc(g.name[lang] || ptOf(g.name.en))} <span>(${list.length})</span></div>${list.map((m) => `<span class="tb-chip pool r${ri}${tbPick && tbPick.kind === "p" && String(tbPick.id) === String(m.id) ? " on" : ""}" draggable="true" data-pid="${m.id}">${esc(TB.short ? shortName(m.name) : m.name)}${counts[m.id] ? `<i>${counts[m.id]}</i>` : ""}</span>`).join("")}</div>` : "").join("") : `<span class="muted">${esc(tt("poolEmpty"))}</span>`}${subPool.length ? `<div class="tb-role rsub"><div class="tb-role-h">🔁 ${esc(tr("sub"))} <span>(${subPool.length})</span></div>${subPool.map((m) => `<span class="tb-chip pool rsub${tbPick && tbPick.kind === "p" && String(tbPick.id) === String(m.id) ? " on" : ""}" draggable="true" data-pid="${m.id}">${esc(TB.short ? shortName(m.name) : m.name)} <b class="tb-subtag">${esc(tr("sub"))}</b>${counts[m.id] ? `<i>${counts[m.id]}</i>` : ""}</span>`).join("")}</div>` : ""}</div></div>
-    ${stList().map((sn, si) => `<h3 class="tb-sec">${esc(sn)}</h3>${TB.groups.map((g, gi) => g.sec !== si ? "" : `
+    ${tri ? tbTriGrid(cell) : `${stList().map((sn, si) => `<h3 class="tb-sec">${esc(sn)}</h3>${TB.groups.map((g, gi) => g.sec !== si ? "" : `
       <div class="tb-group" style="border-color:${g.color};background:color-mix(in srgb, ${g.color} 22%, var(--panel))">
         ${g.rows.slice(0, 1).map((r, ri) => `
         <div class="tb-ghead">
@@ -600,7 +604,7 @@ function tbRender() {
         <div class="tb-swatches">${TB_COLORS.map((c) => `<span class="tb-sw${c === g.color ? " on" : ""}" style="background:${c}" data-color="${c}" data-g="${gi}"></span>`).join("")}
           ${stList().length > 1 ? `<label class="muted" style="margin-left:auto;font-size:12px">${esc(tt("moveTo"))} <select class="tb-secsel" data-gsec="${gi}">${stList().map((n, i) => `<option value="${i}"${i === g.sec ? " selected" : ""}>${esc(n)}</option>`).join("")}</select></label>` : ""}</div>`).join("")}
       </div>`).join("")}
-    <div class="row" style="margin:6px 0 4px"><button class="btn small" data-act="addGroup" data-sec="${si}">${esc(tt("addB"))}</button></div>`).join("")}
+    <div class="row" style="margin:6px 0 4px"><button class="btn small" data-act="addGroup" data-sec="${si}">${esc(tt("addB"))}</button></div>`).join("")}`}
     <label class="f" style="display:block;margin-top:14px"><b>${esc(tt("rem"))}</b><textarea data-set="rem" style="display:block;width:100%;box-sizing:border-box;min-height:150px;margin-top:4px;font:inherit;font-size:13px">${esc(TB.rem || "")}</textarea></label>
     <div class="row" style="margin-top:14px">
       <button class="btn primary" data-act="image">${esc(tt("image"))}</button>
@@ -611,6 +615,75 @@ function tbRender() {
     <datalist id="tbStages">${stageOpts.map((s) => `<option value="${esc(s)}">`).join("")}</datalist>
     <datalist id="tbTLabels">${listOf(TB.tlabels).map((s) => `<option value="${esc(s)}">`).join("")}</datalist>
     <datalist id="tbTargets">${targetOpts.map((s) => `<option value="${esc(s)}">`).join("")}</datalist>`;
+}
+
+/* 🔱 the Tri-Alliance table looks like the alliance's plan sheet: one row per stage, one column per team (TB.teams).
+   A cell holds that team's rows for that stage (a team can have more than one, e.g. Team D – Path I and Path II). */
+const teamList = () => { const l = listOf(TB.teams); return l.length ? l : listOf(TB_EV.tri().teams); };
+const sameTeam = (a, b) => String(a || "").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "") === String(b || "").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
+function tbTriGrid(cell) {
+  const teams = teamList();
+  const one = (g, gi) => { const r = g.rows[0], ri = 0;
+    return `<div class="tb-group tg-g" style="border-color:${g.color};background:color-mix(in srgb, ${g.color} 22%, var(--panel))">
+      <div class="tb-ghead">${TB.show.target ? `<input class="tb-name" list="tbTargets" data-g="${gi}" data-r="${ri}" data-field="target" value="${esc(r.target || "")}" placeholder="${esc(TB.cols.target)}" title="${esc(TB.cols.target)}">` : ""}<button class="btn small" data-act="delGroup" data-g="${gi}" title="${esc(tt("delGroup"))}">🗑</button></div>
+      <input class="tb-name tg-tl" list="tbTLabels" data-g="${gi}" data-r="${ri}" data-field="tl" value="${esc(r.tl || "")}" placeholder="${esc(teams[g.team] || "")}">
+      ${PEOPLE_COLS.filter((k) => TB.show[k]).map((k) => cell(g, gi, r, ri, k)).join("")}
+      ${TB.show.note ? `<textarea class="tb-note tg-task" rows="4" data-g="${gi}" data-r="${ri}" data-field="note" placeholder="📝 ${esc(TB.cols.note)}">${esc(r.note || "")}</textarea>` : ""}
+      ${stList().length > 1 ? `<label class="muted tg-mv">${esc(tt("moveTo"))} <select class="tb-secsel" data-gsec="${gi}">${stList().map((n, i) => `<option value="${i}"${i === g.sec ? " selected" : ""}>${esc(n)}</option>`).join("")}</select></label>` : ""}</div>`; };
+  return `<div class="tg-wrap"><table class="tg"><thead><tr><th class="tg-st">${esc(TB.cols.stage)}</th>${teams.map((t) => `<th>${esc(t)}</th>`).join("")}</tr></thead><tbody>
+    ${stList().map((sn, si) => `<tr><th class="tg-st">${esc(sn)}</th>${teams.map((t, ti) => `<td>${TB.groups.map((g, gi) => g.sec === si && (g.team || 0) === ti ? one(g, gi) : "").join("")}
+      <button class="btn small tg-add" data-act="addGroup" data-sec="${si}" data-team="${ti}" title="${esc(tt("addB"))}">+</button></td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+}
+/* 🖼️ the picture of the 🔱 table: the same sheet (dark title bar, blue header, light-blue stage column) */
+function tbTriCanvas() {
+  tbSync();
+  const teams = teamList(), st = stList(), S = 2, pad = 10, lineH = 21;
+  const F = (w, px = 15) => `${w ? "bold " : ""}${px}px "Noto Sans TC","Noto Sans KR","Noto Sans",Arial,sans-serif`;
+  const stW = 210, tW = 360, W = stW + tW * teams.length + 1;
+  const cv = document.createElement("canvas"), g = cv.getContext("2d");
+  const wrap = (text, w, f) => { g.font = f; const out = [];
+    for (const para of String(text).split(/\n/)) { let line = "";
+      for (const word of para.split(/(\s+)/).filter((x) => x.trim())) {
+        const tryL = line ? line + " " + word : word;
+        if (g.measureText(tryL).width <= w) { line = tryL; continue; }
+        if (line) out.push(line);
+        if (g.measureText(word).width <= w) { line = word; continue; }
+        line = ""; for (const ch of word) { if (g.measureText(line + ch).width > w && line) { out.push(line); line = ch; } else line += ch; } }
+      out.push(line); }
+    return out; };
+  /* a cell = its rows, each: heading (building + label if it isn't just the team name), Lead, Team, Back-up, Task */
+  const cellLines = (si, ti) => { const L = [];
+    TB.groups.filter((x) => x.sec === si && (x.team || 0) === ti).forEach((x, k) => { const r = x.rows[0]; if (k) L.push({ t: "", b: 0 });
+      const lab = sameTeam(r.tl, teams[ti]) ? "" : r.tl || "", head = [String(r.target || "").trim(), lab].filter(Boolean).join(" · ");
+      if (TB.show.target && head) wrap(head, tW - pad * 2, F(1)).forEach((t) => L.push({ t, b: 1 }));
+      PEOPLE_COLS.filter((c) => TB.show[c] && r[c].length).forEach((c) => wrap(`${TB.cols[c]}: ${r[c].map(chipLabel).join(", ")}`, tW - pad * 2, F(0)).forEach((t) => L.push({ t, b: 0 })));
+      if (TB.show.note && (r.note || "").trim()) wrap(r.note.trim(), tW - pad * 2, F(0)).forEach((t) => L.push({ t, b: 0 })); });
+    return L; };
+  const rows = st.map((sn, si) => { const stL = wrap(sn.replace(/\s+—\s+/g, "\n"), stW - pad * 2, F(1)), cells = teams.map((t, ti) => cellLines(si, ti));
+    return { stL, cells, h: Math.max(stL.length, ...cells.map((c) => c.length), 2) * lineH + pad * 2 }; });
+  const headL = teams.map((t) => wrap(t.toUpperCase(), tW - pad * 2, F(1))), headH = Math.max(...headL.map((l) => l.length), 1) * lineH + pad * 2;
+  const titleH = 56, gap = 14, remL = String(TB.rem || "").split(/\r?\n/).map((x) => x.trim()).filter(Boolean).flatMap((x) => { const sub = !/^[•*\-]/.test(x);
+    return wrap(sub ? x : "• " + x.replace(/^[•*\-]\s*/, ""), W - pad * 4, F(sub)).map((l) => ({ l, sub })); });
+  const remH = remL.length ? gap + 40 + remL.length * lineH + pad * 2 : 0;
+  const H = titleH + gap + headH + rows.reduce((a, r) => a + r.h, 0) + remH + 2;
+  cv.width = W * S; cv.height = H * S; g.scale(S, S); g.textBaseline = "top";
+  g.fillStyle = "#fff"; g.fillRect(0, 0, W, H);
+  g.fillStyle = "#1b2a41"; g.fillRect(0, 0, W, titleH); g.fillStyle = "#fff"; g.font = F(1, 19);
+  const pn = typeof tbPlanName === "function" ? tbPlanName() : ""; g.fillText("TRI ALLIANCE CLASH" + (pn ? "  ·  " + pn : ""), pad + 2, 18);
+  let y = titleH + gap, x = 0;
+  g.fillStyle = "#2c5175"; g.fillRect(0, y, W, headH); g.fillStyle = "#fff"; g.font = F(1);
+  g.fillText(String(TB.cols.stage || "Stage").toUpperCase(), pad, y + pad + 2); x = stW;
+  headL.forEach((l) => { l.forEach((t, i) => g.fillText(t, x + pad, y + pad + 2 + i * lineH)); x += tW; });
+  y += headH;
+  rows.forEach((r, ri) => {
+    g.fillStyle = "#dce6f1"; g.fillRect(0, y, stW, r.h); g.fillStyle = ri % 2 ? "#ffffff" : "#eef2f8"; g.fillRect(stW, y, W - stW, r.h);
+    g.fillStyle = "#111"; g.font = F(1); r.stL.forEach((t, i) => g.fillText(t, pad, y + pad + 2 + i * lineH));
+    x = stW; r.cells.forEach((c) => { c.forEach((ln, i) => { g.font = F(ln.b); g.fillStyle = "#111"; g.fillText(ln.t, x + pad, y + pad + 2 + i * lineH); }); x += tW; });
+    y += r.h; });
+  if (remL.length) { y += gap; g.fillStyle = "#1b2a41"; g.fillRect(0, y, W, 40); g.fillStyle = "#fff"; g.font = F(1, 17); g.fillText("📌 IMPORTANT REMINDERS", pad + 2, y + 10); y += 40;
+    g.fillStyle = "#f6f8fb"; g.fillRect(0, y, W, remL.length * lineH + pad * 2);
+    remL.forEach(({ l, sub }, i) => { g.font = F(sub); g.fillStyle = "#111"; g.fillText(l, pad * 2, y + pad + 2 + i * lineH); }); }
+  return cv.toDataURL("image/png");
 }
 
 /* ----- editing ----- */
@@ -661,7 +734,7 @@ function tbTriDraft() {
   const [A, B, C, D] = presetGroups(PRESETS.find((x) => x.id === "tri")).map((x) => x.list); if (!A) return;
   const ch = (l) => l.map((m) => ({ kind: "p", id: m.id }));
   const p1 = [], p2 = []; D.forEach((m, i) => (i % 4 === 0 || i % 4 === 3 ? p1 : p2).push(m));
-  const G = (sec, c, l, target, tl, note, rev) => { const row = newRow(""); const rest = l.slice(1); Object.assign(row, { target, tl, att: ch(l.slice(0, 1)), def: ch(rev ? rest.reverse() : rest), note }); return { color: TB_COLORS[c], sec, rows: [row] }; };
+  const G = (sec, c, l, target, tl, note, rev) => { const row = newRow(""); const rest = l.slice(1); Object.assign(row, { target, tl, att: ch(l.slice(0, 1)), def: ch(rev ? rest.reverse() : rest), note }); return { color: TB_COLORS[Math.min(c, 3)], sec, team: Math.min(c, 3), rows: [row] }; };
   const tA = "Team A – Attack", tB = "Team B – Enemy Territory Hold", tC = "Team C – Frontline", tP1 = "Team D – Path I", tP2 = "Team D – Path II";
   TB.groups = [
     G(0, 0, A, "19 → 21", tA, "Find which alliance is stronger and learn the route. R4s: set map labels before the battle starts."),
@@ -704,7 +777,7 @@ function tbClick(e) {
   if (t.dataset.color) { TB.groups[t.dataset.g].color = t.dataset.color; tbSave(); tbRender(); return; }
   const a = t.closest("[data-act]"); if (!a) return;
   const gi = a.dataset.g, ri = a.dataset.r, act = a.dataset.act;
-  if (act === "addGroup") TB.groups.push({ color: TB_COLORS[TB.groups.length % TB_COLORS.length], sec: +a.dataset.sec || 0, rows: [newRow()] });
+  if (act === "addGroup") TB.groups.push({ color: TB_COLORS[(a.dataset.team != null ? +a.dataset.team : TB.groups.length) % TB_COLORS.length], sec: +a.dataset.sec || 0, ...(a.dataset.team != null ? { team: +a.dataset.team } : {}), rows: [newRow()] });
   if (act === "undo") return histUndo();
   if (act === "delGroup") { tbKeep(); TB.groups.splice(gi, 1); }
   if (act === "addRow") { const rows = TB.groups[gi].rows, last = rows[rows.length - 1], st = listOf(TB.stages), nx = last ? st[st.indexOf(last.stage) + 1] : st[0];
@@ -926,6 +999,7 @@ async function tbExcel(btn) {
   setTimeout(() => (btn.textContent = old), 1500);
 }
 function tbImage() {
+  if (TB.ev === "tri") return tbShowImg(tbTriCanvas());
   const { head, secs, maxW } = tbSections();
   const all = secs.flatMap((x) => x.rows);
   const S = 2, pad = 8, lineH = 20, font = '15px "Noto Sans TC","Noto Sans KR","Noto Sans",Arial,sans-serif', bold = 'bold ' + font, big = 'bold 17px "Noto Sans TC","Noto Sans",Arial,sans-serif';
@@ -969,7 +1043,9 @@ function tbImage() {
     g.fillStyle = "#fafafa"; g.fillRect(0.5, y, W - 1, remL.length * lineH + pad * 2); g.strokeRect(0.5, y, W - 1, remL.length * lineH + pad * 2);
     remL.forEach(({ l, sub }, i) => { g.font = sub ? bold : font; g.fillStyle = "#111"; g.fillText(l, pad * 2, y + pad + 2 + i * lineH); });
   }
-  const url = cv.toDataURL("image/png");
+  tbShowImg(cv.toDataURL("image/png"));
+}
+function tbShowImg(url) {
   const m = document.createElement("div");
   m.className = "tb-modal";
   m.innerHTML = `<div class="card"><img src="${url}" style="max-width:100%;display:block;border-radius:6px">
