@@ -1290,9 +1290,6 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-31 by Nia] 삼대 연맹전 군단 2
-(see guide #tri-alliance-clash)
-
 [2026-10-19 by ΔRMΔDΔ] 성검 쟁탈 미참석 관련 안내
 ⚠️ 중요 규칙 업데이트: 성검 쟁탈 미참석 관련
 

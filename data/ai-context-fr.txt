@@ -1264,9 +1264,6 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-10-31 by Nia] Conflit Tri-Alliance Légion 2
-(see guide #tri-alliance-clash)
-
 [2026-10-19 by ΔRMΔDΔ] Absences au Choc du Glaive
 ⚠️ Mise à jour importante des règles : Absences au Choc du Glaive
 
