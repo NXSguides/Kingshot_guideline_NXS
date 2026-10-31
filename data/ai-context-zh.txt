@@ -1262,6 +1262,9 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-10-31 by Nia] 三盟爭霸 軍團2
+(see guide #tri-alliance-clash)
+
 [2026-10-19 by ΔRMΔDΔ] 聖劍爭奪未出席處理公告
 ⚠️ 重要規則更新：聖劍爭奪缺席問題
 
