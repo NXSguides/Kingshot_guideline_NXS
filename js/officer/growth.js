@@ -6,7 +6,7 @@
 const $ = (id) => document.getElementById(id);
 const esc = OFFICER.util.esc;
 const T = {
-  en: { title: "🧭 Attack vs Defense", intro: "A proposal to agree on first — who builds rally attack and who builds garrison defense, and what each needs. Gen 1–5, from our battle reports and simulations. Nothing decided yet; no names.",
+  en: { title: "🧭 Attack vs Defense", intro: "For reference: what an attack (rally) leader and a defense (garrison) leader need, Gen 1–5, from our battle reports and simulations.",
     whyT: "Why we split",
     why: ["A rally only uses its LEADER's stats, heroes and Exclusive Gear; a garrison only uses its lead's. Joiners' own stats and gear don't count at all.", "So only a few people really need to choose attack or defense."],
     diffT: "What is different / what is the same",
@@ -34,7 +34,7 @@ const T = {
     openT: "Not sure yet",
     open: ["In a garrison, whose hero skills are used? In B29 they came from BOO, not the lead HADES — maybe the strongest hero of each troop type in the whole garrison. To be checked.", "Do garrisons use joiner skills (the first hero of the first 4 people)?", "Which two troop types does Armada's 60/40 mean?"],
     cards: "🃏 Every hero, rated for each role → Hero Cards", src: "From our battle reports, Bear analysis, simulations and hero skills (2026-10-31). B16, B20, B29 = our battle-report numbers." },
-  zh: { title: "🧭 進攻 vs 防守", intro: "先求共識的提案——誰練集結進攻、誰練駐防防守，各自需要什麼。第 1–5 代，根據我們的戰報和模擬。還沒有決定，也沒有名單。",
+  zh: { title: "🧭 進攻 vs 防守", intro: "參考用：進攻（集結隊長）和防守（駐防帶頭）各自需要什麼，第 1–5 代，根據我們的戰報和模擬。",
     whyT: "為什麼要分工",
     why: ["集結只用隊長的屬性、英雄、專屬裝備；駐防只用帶頭者的。加入者的這些東西在集結裡完全不算。", "所以真正需要「分攻守投資」的只有少數幾個人。"],
     diffT: "哪裡不一樣／哪裡一樣",
@@ -62,7 +62,7 @@ const T = {
     openT: "還不確定",
     open: ["駐防時英雄技能取自誰：B29 的技能來自 BOO，不是帶頭的 HADES。可能是「每個兵種位置取全守軍最強的英雄」，待驗證。", "駐防有沒有「加入者技能」（前 4 位的第一英雄）。", "Armada 的 60/40 指的是哪兩個兵種。"],
     cards: "🃏 每位英雄在各角色的評分 → 英雄卡", src: "來自我們的戰報、熊獵分析、模擬和英雄技能（2026-10-31）。B16、B20、B29＝我們的戰報編號。" },
-  pt: { title: "🧭 Ataque vs Defesa", intro: "Uma proposta para combinar primeiro — quem constrói ataque de rally e quem constrói defesa de guarnição, e do que cada um precisa. Gen 1–5, pelos nossos relatórios e simulações. Nada decidido; sem nomes.",
+  pt: { title: "🧭 Ataque vs Defesa", intro: "Para consulta: do que um líder de ataque (rally) e um de defesa (guarnição) precisam, Gen 1–5, pelos nossos relatórios e simulações.",
     whyT: "Por que dividir",
     why: ["O rally só usa os atributos, heróis e Equipamento Exclusivo do LÍDER; a guarnição só usa os de quem lidera. Os dos participantes não contam nada.", "Então só algumas pessoas precisam mesmo escolher ataque ou defesa."],
     diffT: "O que muda / o que é igual",
@@ -90,7 +90,7 @@ const T = {
     openT: "Ainda não sabemos",
     open: ["Na guarnição, de quem são as habilidades de herói? No B29 vieram de BOO, não do líder HADES — talvez o herói mais forte de cada tipo de tropa da guarnição toda. A verificar.", "A guarnição usa habilidades de participante (o primeiro herói das 4 primeiras pessoas)?", "Quais dois tipos de tropa o 60/40 do Armada quer dizer?"],
     cards: "🃏 Cada herói avaliado por função → Cartas de Heróis", src: "Dos nossos relatórios de batalha, análise do Urso, simulações e habilidades (31/10/2026). B16, B20, B29 = números dos nossos relatórios." },
-  ar: { title: "🧭 الهجوم مقابل الدفاع", intro: "اقتراح نتفق عليه أولًا — من يبني هجوم الحشد ومن يبني دفاع الحامية، وما يحتاجه كل منهما. الأجيال 1–5، من تقارير معاركنا ومحاكاتنا. لم يُحسم شيء؛ لا أسماء.",
+  ar: { title: "🧭 الهجوم مقابل الدفاع", intro: "للرجوع إليه: ما يحتاجه قائد الهجوم (الحشد) وقائد الدفاع (الحامية)، الأجيال 1–5، من تقارير معاركنا ومحاكاتنا.",
     whyT: "لماذا نوزّع",
     why: ["الحشد يستخدم فقط إحصاءات قائده وأبطاله ومعداته الحصرية؛ والحامية تستخدم إحصاءات قائدها فقط. إحصاءات المنضمين ومعداتهم لا تُحتسب إطلاقًا.", "لذلك قلة فقط يحتاجون فعلًا للاختيار بين الهجوم والدفاع."],
     diffT: "ما المختلف / ما المتشابه",
@@ -118,7 +118,7 @@ const T = {
     openT: "غير مؤكد بعد",
     open: ["في الحامية، مهارات من تُستخدم؟ في B29 جاءت من BOO لا من القائد HADES — ربما أقوى بطل لكل نوع قوات في الحامية كلها. قيد التحقق.", "هل تستخدم الحامية مهارات المنضمين (البطل الأول لأول 4 أشخاص)؟", "أي نوعين من القوات تعنيهما 60/40 الخاصة بـ Armada؟"],
     cards: "🃏 تقييم كل بطل لكل دور ← بطاقات الأبطال", src: "من تقارير معاركنا وتحليل الدب والمحاكاة ومهارات الأبطال (31/10/2026). B16، B20، B29 = أرقام تقارير معاركنا." },
-  ko: { title: "🧭 공격 vs 방어", intro: "먼저 합의할 제안 — 누가 집결 공격을, 누가 방어를 키우고 각각 무엇이 필요한지. 1–5세대, 우리 전투 보고서와 시뮬레이션 기준. 아직 정한 건 없고 명단도 없어요.",
+  ko: { title: "🧭 공격 vs 방어", intro: "참고용: 공격 (집결 대장)과 방어 (방어 대장)에 각각 필요한 것, 1–5세대, 우리 전투 보고서와 시뮬레이션 기준.",
     whyT: "왜 나누나",
     why: ["집결은 대장의 능력치·영웅·전용 장비만, 방어는 방어 대장의 것만 써요. 집결원의 것은 전혀 계산되지 않아요.", "그래서 공격과 방어를 정말 골라야 하는 사람은 몇 명뿐이에요."],
     diffT: "다른 점 / 같은 점",
@@ -155,9 +155,8 @@ function render() {
   const site = { zh: "zh", en: "en", pt: "pt", ar: "ar", ko: "ko" }[lang] || "en";
   const dl = (rows) => `<dl class="gr-dl">${rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>`;
   root.innerHTML = `
-    <div class="card"><h3>${esc(L.whyT)}</h3>${ul(L.why)}<h4 class="gr-h4">${esc(L.diffT)}</h4>${dl(L.diff)}</div>
     <div class="gr-roles">${L.roles.map((r) => `<div class="card gr-role"><h4>${r.i} ${esc(r.n)}</h4>${dl(r.r)}</div>`).join("")}</div>
-    <div class="card gr-ask"><h3>${esc(L.whoT)}</h3>${ul(L.who)}</div>
+    <div class="card"><h3>${esc(L.whoT)}</h3>${ul(L.who)}</div>
     <div class="card"><h3>${esc(L.openT)}</h3>${ul(L.open)}</div>
     <p><a class="btn" href="./#/${site}/hero-cards" target="_blank" rel="noopener">${esc(L.cards)}</a></p>
     <p class="muted" style="font-size:12.5px">${esc(L.src)}</p>`;
