@@ -198,7 +198,7 @@
   #pg-ranking .tb-chip.pool.r1 { border-color: #7aa7d7; background: color-mix(in srgb, #64b5f6 18%, var(--panel)); }
   #pg-ranking .tb-role.r2 .tb-role-h { color: var(--text-muted); }
   #pg-ranking .tb-role.r3 .tb-role-h { color: #3f7d3f; } #pg-ranking .tb-chip.pool.r3 { border-color: #8fbf8f; background: color-mix(in srgb, #81c784 16%, var(--panel)); }
-  #pg-ranking .tb-ev .btn.on { background: #f3d9a4; border-color: #d9a65a; color: #3a2414; font-weight: 700; }
+  #pg-ranking .tb-ev .btn.on, #pg-ranking #planEv .btn.on { background: #f3d9a4; border-color: #d9a65a; color: #3a2414; font-weight: 700; }
   #pg-ranking .tb-chip.pool.on { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
   #pg-ranking .tb-chip i { font-style: normal; font-size: 11px; background: var(--text-muted); color: var(--panel); border-radius: 999px; padding: 0 5px; }
   #pg-ranking .tb-chip.txt { font-style: italic; }
@@ -935,6 +935,7 @@
         <button class="btn" id="planRen" hidden></button>
         <button class="btn danger" id="planDel" hidden></button>
       </div>
+      <div class="row tb-ev" id="planEv" style="gap:6px;align-items:center;margin-top:8px"></div>
       <div class="muted msg" id="planStatus" style="margin-top:6px"></div>
       <div id="planSave" class="pl-save" role="status" aria-live="polite" hidden></div>
       <div id="planEd"></div>
