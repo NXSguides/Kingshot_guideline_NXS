@@ -759,6 +759,9 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 .hc-card{border:1px solid var(--rule);border-radius:14px;overflow:hidden;background:var(--panel);box-shadow:0 3px 10px var(--shadow);display:flex;flex-direction:column;}
 .hc-art{position:relative;aspect-ratio:480/476;background:linear-gradient(#7fa6bd,#4f7488);}
 .hc-art img{display:block;width:100%;height:100%;object-fit:cover;}
+/* generation badge like the game's hero screen ("S4") */
+.hc-gen{position:absolute;top:8px;right:8px;display:inline-flex;align-items:center;gap:1px;padding:1px 7px 1px 5px;border-radius:7px;background:#3a2a1a;border:2px solid #f2c14e;color:#fff;font:800 15px/20px system-ui,sans-serif;box-shadow:0 1px 4px rgba(0,0,0,.35);}
+.hc-gen i{font-style:italic;color:#f2c14e;font-size:17px;}
 .hc-head{position:absolute;inset:auto 0 0 0;padding:28px 10px 8px;background:linear-gradient(transparent,rgba(0,0,0,.72));color:#fff;}
 .hc-name{font-weight:800;font-size:1.3em;text-shadow:0 1px 3px rgba(0,0,0,.6);}
 .hc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;}

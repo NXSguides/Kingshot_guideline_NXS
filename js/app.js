@@ -367,7 +367,7 @@ function heroCardsHtml() {
       ? `<ul class="hc-roles">${HC_ROLES.map((r) => `<li class="${f.role === r ? "hl" : ""}"><span>${rich(t(U.roles[r]))}</span><span class="hc-v">${hcVal(h.r[r])}</span></li>`).join("")}</ul>`
       : `<p class="hc-note">${escapeHtml(t(U.noRatings))}</p>`;
     return `<div class="hc-card">
-      <div class="hc-art"><img src="figures/heroes/hero_${h.id}.webp" alt="${escapeHtml(term(h.id))}" loading="lazy" onerror="this.remove()">
+      <div class="hc-art"><img src="figures/heroes/hero_${h.id}.webp" alt="${escapeHtml(term(h.id))}" loading="lazy" onerror="this.remove()">${h.rarity === "SSR" ? `<b class="hc-gen"><i>S</i>${h.gen}</b>` : ""}
         <div class="hc-head"><div class="hc-name">${escapeHtml(term(h.id))}</div>
           <div class="hc-tags"><span class="hc-tag r-${h.rarity}">${h.rarity}</span><span class="hc-tag">${escapeHtml(t(U.gen).replace("{n}", h.gen))}</span>
           <span class="hc-tag">${HC_TROOP_ICON[h.troop]} ${escapeHtml(term(h.troop))}</span><span class="hc-tag">${h.kind === "growth" ? "🔨" : "⚔️"} ${escapeHtml(t(U[h.kind]))}</span></div></div></div>
