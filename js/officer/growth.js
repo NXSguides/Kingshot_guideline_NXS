@@ -174,8 +174,8 @@ function hcHtml(L) {
 const ul = (a) => `<ul class="gr-ul">${a.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>`;
 /* heroes for each side: [id, Widget stat in rallies / garrisons, how to get] — claude/kingshot-attack-vs-defense.md */
 const SIDE = {
-  atk: { inf: [["amadeus", "atk", "paid"], ["helga", "leth", "paid"]], cav: [["petra", "atk", "roulette"], ["thrud", "leth", "heavy"]], arc: [["marlin", "leth"], ["rosa", "leth"], ["vivian", ""]], seq: { arc: 1 } },
-  def: { inf: [["eric", "def"], ["alcar", "hp"], ["longfei", "atk"], ["zoe", "atk", "free"]], cav: [["jabel", "leth", "free"], ["margot", ""], ["hilde", "hp"]], arc: [["jaeger", "hp"], ["saul", "atk"]] },
+  atk: { inf: [["amadeus", "atk", "paid"], ["helga", "leth", "paid"]], cav: [["petra", "atk", "roulette"], ["thrud", "leth", "heavy"]], arc: [["marlin", "leth"], ["rosa", "leth", "roulette"], ["vivian", ""]], seq: { arc: 1 } },
+  def: { inf: [["eric", "def"], ["alcar", "hp"], ["longfei", "atk", "roulette"], ["zoe", "atk", "roulette"]], cav: [["jabel", "leth", "free"], ["margot", ""], ["hilde", "hp"]], arc: [["jaeger", "hp"], ["saul", "atk"]] },
 };
 const GENS = { amadeus: 1, helga: 1, jabel: 1, saul: 1, zoe: 2, hilde: 2, marlin: 2, eric: 3, petra: 3, jaeger: 3, alcar: 4, margot: 4, rosa: 4, longfei: 5, thrud: 5, vivian: 5 };
 function render() {
