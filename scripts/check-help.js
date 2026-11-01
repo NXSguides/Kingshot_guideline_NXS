@@ -21,6 +21,7 @@ const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).conc
 const FEATURES = [
   ["Battle: 🔎 find a name + opponent alliance in the planner", /🔎 Find a name: every player picker/, /🔎 Every name picker has a find box/],
   ["Battle: 🗡️ Swordland ⚔️ Rallies planner", /⚔️ Rallies \(集結安排\) under the 🗡️ ranking/, /Below it, ⚔️ Rallies: the same planner/],
+  ["Site: ⏸ Stay here on announcements", /⏸ Stay here \(next to the date\) stops that/, /⏸ Stay here \(next to the date\) stops it switching/],
   ["Battle: 🗡️ Swordland ☑ Playing ticks", /☑ Playing \(參戰\) tick/, /☑ The Playing tick in front of each name/],
   ["Ranking: ④ battle table in every language in announcements", /④ Battle table in every language/, /shows in each reader's language \(all 12/],
   ["Site: 🙋 Who are you? in a battle table", /🙋 Who are you\?/, /🙋 pick your name and only your part stays/],

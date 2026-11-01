@@ -878,7 +878,7 @@ function annBodyHtml(a) {
   return `
           <div class="ann-meta">
             <span>${escapeHtml(a.author)}</span>
-            <span>${new Date(a.createdAt).toLocaleDateString(HTML_LANG[currentLang] || "en")}</span>
+            <span>${new Date(a.createdAt).toLocaleDateString(HTML_LANG[currentLang] || "en")}${announcements.length > 1 ? ` <button type="button" class="ann-pin${annPinned ? " on" : ""}" onclick="annPinToggle()">${escapeHtml(t(annPinned ? ANN_AUTO : ANN_STAY))}</button>` : ""}</span>
           </div>
           ${a.style && typeof annThemeHtml === "function"   /* 📜 scroll / theme look (js/ann-themes.js): the paper grows with the text */
             ? annThemeHtml(a.style, a.title ? escapeHtml(annLabel(a)) : "", `<div class="ann-text" dir="auto">${body.replace(/\n[ \t]*\n\s*/g, "<span class=\"sc2-gap\"></span>")}</div>${imgs}`)
@@ -917,6 +917,15 @@ window.selectAnnouncement = selectAnnouncement;
 /* more than one announcement: after 8 s on screen with nothing done to it, the next one shows.
    Only the time it is actually on screen counts (at least half of it visible); any tap, swipe, wheel or mouse move on it starts the 8 s again. */
 const ANN_IDLE = 7000;
+/* ⏸ Stay here (Sherry 2026-11-01: "it jumps away while I'm reading"): no auto-switch until ▶ is pressed; remembered on this device. Swipes and tabs still work. */
+const ANN_STAY = { en: "⏸ Stay here", zh: "⏸ 停在這則", ko: "⏸ 여기 고정", de: "⏸ Hier bleiben", fr: "⏸ Rester ici", pt: "⏸ Ficar aqui", tr: "⏸ Burada kal", id: "⏸ Tetap di sini", ru: "⏸ Остаться здесь", th: "⏸ อยู่ที่นี่", ar: "⏸ ابقَ هنا", es: "⏸ Quedarse aquí" };
+const ANN_AUTO = { en: "▶ Auto-switch", zh: "▶ 自動切換", ko: "▶ 자동 넘김", de: "▶ Automatisch wechseln", fr: "▶ Défilement auto", pt: "▶ Troca automática", tr: "▶ Otomatik geçiş", id: "▶ Ganti otomatis", ru: "▶ Автопрокрутка", th: "▶ เลื่อนอัตโนมัติ", ar: "▶ تبديل تلقائي", es: "▶ Cambio automático" };
+let annPinned = safeGet("nxs-ann-pin") === "1";
+function annPinToggle() {
+  annPinned = !annPinned; safeSet("nxs-ann-pin", annPinned ? "1" : "0"); annShown = 0;
+  document.querySelectorAll(".ann-pin").forEach((b) => { b.classList.toggle("on", annPinned); b.textContent = t(annPinned ? ANN_AUTO : ANN_STAY); });
+}
+window.annPinToggle = annPinToggle;
 let annShown = 0, annLast = Date.now(), annIdx = -1;
 const annReset = (e) => { if (e.target.closest && e.target.closest(".ann-board")) annShown = 0; };
 document.addEventListener("pointerdown", annReset, true);
@@ -985,7 +994,7 @@ setInterval(() => {
   if (!board || announcements.length < 2) return;
   if (annIdx !== currentAnnIndex) { annIdx = currentAnnIndex; annShown = 0; }
   const r = board.getBoundingClientRect(), seen = Math.min(r.bottom, innerHeight) - Math.max(r.top, 0);
-  if (annHold) return;
+  if (annHold || annPinned) return;
   if (document.visibilityState !== "visible" || seen < Math.min(r.height, innerHeight) / 2) { annShown = 0; return; }   // off screen: start over when it comes back
   annShown += dt;
   if (annShown < ANN_IDLE) return;
