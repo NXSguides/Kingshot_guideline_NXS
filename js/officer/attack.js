@@ -311,7 +311,7 @@ function boardsCard() {
 
 /* ---------- 🗡️ Swordland ---------- */
 const OPEN = new Set();   // which ▸ sections stay open across re-renders
-let ROSTER = null, PLANS = null, plansErr = "", SSD = null, ssMsg = "", ssBusy = false;
+let SAFE_IDS = new Set(), ROSTER = null, PLANS = null, plansErr = "", SSD = null, ssMsg = "", ssBusy = false;
 try { SSD = JSON.parse(sessionStorage.getItem("nxs-ss-opp")); } catch (e) {}
 const ssSave = () => { try { sessionStorage.setItem("nxs-ss-opp", JSON.stringify(SSD)); } catch (e) {} };
 /* S of one person: from today's boards (3 boards), else ≈ Power × the median S per million Power */
@@ -323,13 +323,15 @@ async function ssLoad() {
   if (!PLANS) {
     try { const r = await fetch(AI_URL + "/plans", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), op: "list" }), cache: "no-store" });
       const j = await r.json(); if (j.token) { try { localStorage.setItem(DISCORD_LS, j.token); } catch (e) {} }
-      PLANS = j.plans || {}; plansErr = j.error || ""; } catch (e) { PLANS = {}; plansErr = "net"; }
+      PLANS = j.plans || {}; plansErr = j.error || ""; SAFE_IDS = new Set((j.safe || []).map(String)); } catch (e) { PLANS = {}; plansErr = "net"; }
   }
 }
 function ourList() {
   const p = PLANS && PLANS[PLAN.ss.plan]; if (!p) return [];
   const byId = new Map(((ROSTER && ROSTER.members) || []).map((m) => [String(m.id), m])), subs = new Set((p.subs || []).map(String));
-  return (p.picked || []).map(String).map((id) => { const m = byId.get(id) || {}, pl = PL[id], s = sFrom(pl && pl.b, m.power || (pl && pl.b.personal_power));
+  /* only confirmed people (✅, or 🟡 safe and not ❌) — like 📊 Ranking. A battle-only officer gets the list already filtered by the Worker (filtered: true). */
+  const rep = p.rep || {}, ok = (id) => p.filtered || rep[id] === "y" || (SAFE_IDS.has(id) && rep[id] !== "n");
+  return (p.picked || []).map(String).filter(ok).map((id) => { const m = byId.get(id) || {}, pl = PL[id], s = sFrom(pl && pl.b, m.power || (pl && pl.b.personal_power));
     const ov = PLAN.ss.ov[id]; return { id, name: m.name || (pl && pl.name) || id, power: m.power || (pl && pl.b.personal_power) || 0, S: s.S, est: s.est, sub: ov ? ov === "s" : subs.has(id) }; })
     .sort((a, b) => (b.S || 0) - (a.S || 0) || b.power - a.power);
 }
