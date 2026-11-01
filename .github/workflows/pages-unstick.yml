@@ -1,0 +1,22 @@
+# Manual fix: cancel a GitHub Pages deployment that is stuck "in progress"
+# (blocks every later deploy with "Please cancel <sha> first").
+name: pages-unstick
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: "Stuck deployment commit SHA"
+        required: true
+permissions:
+  pages: write
+  contents: read
+jobs:
+  cancel:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ inputs.sha }}
+        run: |
+          gh api "repos/${{ github.repository }}/pages/deployments/$SHA" || true
+          gh api -X POST "repos/${{ github.repository }}/pages/deployments/$SHA/cancel" && echo cancelled
