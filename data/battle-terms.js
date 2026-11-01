@@ -7,6 +7,8 @@ const BT_ROWS = [
   /* ===== labels ===== */
   ["Swordland Showdown", "聖劍爭奪", "성검 쟁탈", "Schwertland-Showdown", "Choc du Glaive", "Confronto entre Espadas", "Kılıçdiyarı Hesaplaşması", "Swordland Showdown", "Битва за Страну мечей", "ศึกดวลดินแดนดาบ", "مواجهة أرض السيوف", "Enfrentamiento en Tierra de espadas"],
   ["Tri-Alliance Clash", "三盟爭霸", "삼대 연맹전", "Drei-Allianz-Wettkampf", "Conflit Tri-Alliance", "Confronto Tri-Aliança", "Üçlü İttifak Çarpışması", "Clash Tiga Aliansi", "Битва трех альянсов", "สงครามสามพันธมิตร", "صراع التحالف الثلاثي", "Choque de Tres Alianzas"],
+  ["Who are you?", "你是誰？", "누구세요?", "Wer bist du?", "Qui es-tu ?", "Quem é você?", "Sen kimsin?", "Kamu siapa?", "Кто ты?", "คุณคือใคร?", "من أنت؟", "¿Quién eres?"],
+  ["Show everyone", "顯示全部", "전체 보기", "Alle zeigen", "Tout le monde", "Mostrar todos", "Herkesi göster", "Tampilkan semua", "Показать всех", "แสดงทุกคน", "عرض الجميع", "Mostrar a todos"],
   ["Important reminders", "重要提醒", "중요 알림", "Wichtige Hinweise", "Rappels importants", "Lembretes importantes", "Önemli hatırlatmalar", "Pengingat penting", "Важные напоминания", "ข้อควรจำสำคัญ", "تذكيرات مهمة", "Recordatorios importantes"],
   ["Building", "建築", "건물", "Gebäude", "Bâtiment", "Construção", "Bina", "Bangunan", "Здание", "สิ่งปลูกสร้าง", "المبنى", "Edificio"],
   ["Attacker", "攻擊手", "공격조", "Angreifer", "Attaquant", "Atacante", "Saldırgan", "Penyerang", "Атакующий", "ผู้โจมตี", "المهاجم", "Atacante"],

@@ -56,49 +56,66 @@
     return String(text || "").split(/\r?\n/).map((l) => { const x = trLine(l, lang); return x == null ? l : x; }).join("\n");
   }
   const CIRC = "⓪①②③④⑤⑥⑦⑧⑨";
-  const cellTxt = (s, lang) => esc(tr(s, lang)).replace(/\n/g, "<br>");
-  const people = (l, lang) => (l || []).map((x) => x && typeof x === "object" ? tr(x.t, lang) : String(x)).join(", ");
   const listOf = (s) => (Array.isArray(s) ? s : String(s || "").split(/[,，]/)).map((x) => String(x).trim()).filter(Boolean);
   const sameTeam = (a, b) => String(a || "").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "") === String(b || "").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
+  /* names in a note are bold, so each player finds their own line fast */
+  const boldNames = (h, names) => { if (!names.length) return h;
+    const re = new RegExp(`(?<![\\p{L}\\p{N}])(${names.map((n) => RE_ESC(esc(n))).join("|")})(?![\\p{L}\\p{N}])`, "gu");
+    return h.replace(re, "<b>$1</b>"); };
+  const noteHtml = (s, lang, names) => boldNames(esc(tr(s, lang)), names).replace(/\n\s*\n/g, "<span class=\"bt-gap\"></span>").replace(/\n/g, "<br>");
+  const pills = (l, lang) => (l || []).map((x) => x && typeof x === "object" ? `<span class="bt-p bt-pt">${esc(tr(x.t, lang))}</span>` : `<span class="bt-p">${esc(x)}</span>`).join("");
+  const ROLE = { att: "⚔️", def: "🛡️", join: "👥" };
+  const allNames = (G) => [...new Set(G.flatMap((g) => [g.att, g.def, g.join].flat().filter((x) => typeof x === "string" && x.length > 1)))].sort((a, b) => b.length - a.length);
+  const who = (g) => "|" + [g.att, g.def, g.join].flat().filter((x) => typeof x === "string").join("|") + "|";
+  /* 🙋 "Who are you?" (Sherry 2026-11-01): pick your name → only the buildings (🔱: your team) you are in stay, your name lit up */
+  function pickHtml(G, lang) {
+    const ns = [...new Set(G.flatMap((g) => [g.att, g.def, g.join].flat().filter((x) => typeof x === "string")))].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
+    if (!ns.length) return "";
+    return `<label class="bt-who">🙋 ${esc(tr("Who are you?", lang))} <select><option value="">${esc(tr("Show everyone", lang))}</option>${ns.map((n) => `<option value="${esc(n)}">${esc(n)}</option>`).join("")}</select></label>`;
+  }
   function remHtml(rem, lang, title) {
     const L = String(rem || "").split(/\r?\n/).map((x) => x.trim()).filter(Boolean);
     if (!L.length) return "";
-    return `<div class="bt-band">📌 ${esc(title)}</div><div class="bt-rem">${L.map((x) => { const sub = !/^[•*\-]/.test(x);
-      return sub ? `<div class="bt-remh">${esc(tr(x, lang))}</div>` : `<div class="bt-reml">• ${esc(tr(x.replace(/^[•*\-]\s*/, ""), lang))}</div>`; }).join("")}</div>`;
+    return `<div class="bt-rem"><div class="bt-remt">📌 ${esc(title)}</div>${L.map((x) => { const sub = !/^[•*\-]/.test(x);
+      return sub ? `<div class="bt-remh">${esc(tr(x, lang))}</div>` : `<div class="bt-reml">${esc(tr(x.replace(/^[•*\-]\s*/, ""), lang))}</div>`; }).join("")}</div>`;
   }
-  /* ⚔️ Swordland (and any non-🔱 table): one table per phase, one row per building — like the picture */
+  /* ⚔️ Swordland: per phase a grid of building cards — number + name, then ⚔️ / 🛡️ / 👥 with the names as tags, then the note.
+     A note shared by buildings next to each other is written once, under them (like the merged cell in the picture). */
   function ssHtml(T, lang) {
-    const show = T.show || {}, cols = T.cols || {}, G = T.groups || [];
-    const pc = ["att", "def", "join"].filter((k) => show[k]), note = show.note && G.some((g) => String(g.note || "").trim());
-    const keys = [...(show.target ? ["b"] : []), ...pc, ...(note ? ["note"] : [])];
-    const head = keys.map((k) => tr(k === "b" ? cols.target || "Building" : cols[k] || k, lang));
+    const show = T.show || {}, cols = T.cols || {}, G = T.groups || [], names = allNames(G);
+    const roles = ["att", "def", "join"].filter((k) => show[k]);
     return listOf(T.stages).map((sn, si) => {
       const rows = G.filter((g) => (g.sec || 0) === si); if (!rows.length) return "";
-      const notes = rows.map((g) => NORM(g.note)), span = notes.map(() => 1), skip = notes.map(() => false);
-      if (note) for (let i = 0; i < rows.length;) { let j = i + 1; while (notes[i] && j < rows.length && notes[j] === notes[i]) { skip[j] = true; j++; } span[i] = j - i; i = j; }
-      // 📱 data-l = the column name, shown in front of the cell when the phone turns each row into a card; a merged note is repeated there (bt-dup)
-      const body = rows.map((g, ri) => `<tr style="background:${esc(g.color || "#fff")}">${keys.map((k, ki) => {
-        if (k === "b") { const t = String(g.target || "").trim(), n = /^[0-9]$/.test(t) ? CIRC[+t] : t ? "#" + t : ""; return `<td class="bt-b">${esc([n, tr(g.tl, lang)].filter(Boolean).join(" "))}</td>`; }
-        if (k === "note") return skip[ri] ? `<td class="bt-note bt-dup">${cellTxt(g.note, lang)}</td>` : `<td class="bt-note"${span[ri] > 1 ? ` rowspan="${span[ri]}"` : ""}>${cellTxt(g.note, lang)}</td>`;
-        const v = people(g[k], lang); return `<td data-l="${esc(head[ki])}">${esc(v)}</td>`; }).join("")}</tr>`).join("");
-      return `<div class="bt-band">${esc(tr(sn, lang).toUpperCase())}</div><div class="bt-scroll"><table class="bt-t"><thead><tr>${head.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${body}</tbody></table></div>`;
+      const runs = []; rows.forEach((g) => { const n = show.note ? NORM(g.note) : "", last = runs[runs.length - 1];
+        if (last && n && last.note === n) last.gs.push(g); else runs.push({ note: n, gs: [g] }); });
+      const card = (g, withNote) => { const t = String(g.target || "").trim(), no = /^[0-9]$/.test(t) ? CIRC[+t] : t ? "#" + t : "";
+        const rl = roles.filter((k) => (g[k] || []).length).map((k) => `<div class="bt-r"><span class="bt-rl">${ROLE[k]} ${esc(tr(cols[k] || k, lang))}</span><span class="bt-ps">${pills(g[k], lang)}</span></div>`).join("");
+        return `<div class="bt-card" data-n="${esc(who(g))}" style="--c:${esc(g.color || "#ccc")}"><div class="bt-ch">${no ? `<span class="bt-no">${esc(no)}</span>` : ""}<span>${esc(tr(g.tl, lang))}</span></div>${rl}${withNote && String(g.note || "").trim() ? `<div class="bt-n">${noteHtml(g.note, lang, names)}</div>` : ""}</div>`; };
+      const body = runs.map((r) => r.gs.length > 1
+        ? `${r.gs.map((g) => card(g, false)).join("")}<div class="bt-shared" data-n="${esc(r.gs.map(who).join(""))}"><div class="bt-sh">📝 ${esc(r.gs.map((g) => { const t = String(g.target || "").trim(); return /^[0-9]$/.test(t) ? CIRC[+t] : t ? "#" + t : ""; }).filter((x, i, a) => a.indexOf(x) === i).join(" "))}</div>${noteHtml(r.gs[0].note, lang, names)}</div>`
+        : card(r.gs[0], true)).join("");
+      return `<div class="bt-phase"><div class="bt-pht">${esc(tr(sn, lang))}</div><div class="bt-grid">${body}</div></div>`;
     }).join("");
   }
-  /* 🔱 TAC: a row per stage, a column per team; each box = building · label, the team, the task */
+  /* 🔱 TAC: per stage a card for each team (its members only where they are listed — the top stage), the place and the task */
+  const TEAMC = ["#c9d8ec", "#d8e6c9", "#ecdcc4", "#dcd2ec"];
   function triHtml(T, lang) {
-    const show = T.show || {}, cols = T.cols || {}, G = T.groups || [], teams = listOf(T.teams);
-    const box = (si, ti) => G.filter((g) => (g.sec || 0) === si && (g.team || 0) === ti).map((g) => {
-      const lab = sameTeam(g.tl, teams[ti]) ? "" : tr(g.tl, lang), head = [tr(String(g.target || "").trim(), lang), lab].filter(Boolean).join(" · ");
-      const ppl = ["att", "def", "join"].filter((k) => show[k] && (g[k] || []).length).map((k) => `<div><b>${esc(tr(cols[k] || k, lang))}:</b> ${esc(people(g[k], lang))}</div>`).join("");
-      return `<div class="bt-box">${show.target !== false && head ? `<div class="bt-b">${esc(head)}</div>` : ""}${ppl}${show.note !== false && String(g.note || "").trim() ? `<div>${cellTxt(g.note, lang)}</div>` : ""}</div>`;
+    const show = T.show || {}, cols = T.cols || {}, G = T.groups || [], teams = listOf(T.teams), names = allNames(G);
+    return listOf(T.stages).map((sn, si) => {
+      const cards = teams.map((tn, ti) => G.filter((g) => (g.sec || 0) === si && (g.team || 0) === ti).map((g) => {
+        const lab = sameTeam(g.tl, tn) ? "" : tr(g.tl, lang), place = [tr(String(g.target || "").trim(), lang), lab].filter(Boolean).join(" · ");
+        const rl = ["att", "def", "join"].filter((k) => show[k] && (g[k] || []).length).map((k) => `<div class="bt-r"><span class="bt-rl">${esc(tr(cols[k] || k, lang))}</span><span class="bt-ps">${pills(g[k], lang)}</span></div>`).join("");
+        return `<div class="bt-card" data-team="${ti}" data-n="${esc(who(g))}" style="--c:${TEAMC[ti % 4]}"><div class="bt-ch"><span>${esc(tr(tn, lang))}</span></div>${place ? `<div class="bt-place">📍 ${esc(place)}</div>` : ""}${rl}${show.note !== false && String(g.note || "").trim() ? `<div class="bt-n">${noteHtml(g.note, lang, names)}</div>` : ""}</div>`;
+      }).join("")).join("");
+      if (!cards) return "";
+      const [a, b] = tr(sn, lang).split(" — ");
+      return `<div class="bt-phase"><div class="bt-pht">${esc(a)}${b ? ` <span class="bt-phs">${esc(b)}</span>` : ""}</div><div class="bt-grid">${cards}</div></div>`;
     }).join("");
-    const rows = listOf(T.stages).map((sn, si) => `<tr><th class="bt-st">${esc(tr(sn, lang)).replace(/ — /, "<br>")}</th>${teams.map((t, ti) => { const b = box(si, ti); return `<td data-l="${esc(tr(t, lang))}"${b ? "" : ' class="bt-empty"'}>${b}</td>`; }).join("")}</tr>`).join("");
-    return `<div class="bt-scroll"><table class="bt-t bt-tri"><thead><tr><th>${esc(tr(cols.stage || "Stage", lang))}</th>${teams.map((t) => `<th>${esc(tr(t, lang))}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></div>`;
   }
   function html(T, lang) {
     if (!T || !Array.isArray(T.groups)) return "";
     const ev = tr(T.ev === "tri" ? "Tri-Alliance Clash" : "Swordland Showdown", lang);
-    return `<div class="bt-title">${T.ev === "tri" ? "🔱" : "⚔️"} ${esc(ev)}${T.name ? ` · ${esc(T.name)}` : ""}</div>`
+    return `<div class="bt-title">${T.ev === "tri" ? "🔱" : "⚔️"} ${esc(ev)}${T.name ? ` <span class="bt-plan">${esc(T.name)}</span>` : ""}</div>` + pickHtml(T.groups, lang)
       + (T.ev === "tri" ? triHtml(T, lang) : ssHtml(T, lang)) + remHtml(T.rem, lang, tr("Important reminders", lang));
   }
 
@@ -114,6 +131,13 @@
     if (typeof currentLang !== "undefined" && currentLang) return currentLang;   // main site (js/app.js)
     const h = (document.documentElement.lang || "en").toLowerCase(); return h.startsWith("zh") ? "zh" : h.slice(0, 2);
   };
+  function only(el, me) {
+    const key = "|" + me + "|", cards = [...el.querySelectorAll(".bt-card, .bt-shared")];
+    const teams = new Set(cards.filter((c) => c.dataset.team != null && (c.dataset.n || "").includes(key)).map((c) => c.dataset.team));   // 🔱 your team, every stage
+    cards.forEach((c) => { c.hidden = !!me && !(c.dataset.team != null ? teams.has(c.dataset.team) : (c.dataset.n || "").includes(key)); });
+    el.querySelectorAll(".bt-phase").forEach((p) => { p.hidden = !!me && !p.querySelector(".bt-card:not([hidden])"); });
+    el.querySelectorAll(".bt-p").forEach((p) => p.classList.toggle("bt-me", !!me && p.textContent === me));
+  }
   function fill(el) {
     if (el.dataset.done) return; el.dataset.done = "1";
     const lang = pageLang(el);
@@ -121,43 +145,47 @@
     Promise.all([loadTerms(), getData(el.dataset.src)]).then(([, T]) => {
       el.innerHTML = T ? html(T, lang) : "";
       el.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
+      const sel = el.querySelector(".bt-who select"); if (!sel) return;
+      let me = ""; try { me = localStorage.getItem("nxs-bt-me") || ""; } catch (e) {}
+      if (me && [...sel.options].some((o) => o.value === me)) { sel.value = me; only(el, me); }
+      sel.onchange = () => { try { sel.value ? localStorage.setItem("nxs-bt-me", sel.value) : localStorage.removeItem("nxs-bt-me"); } catch (e) {} only(el, sel.value); };
     });
   }
   const scan = (root) => (root.querySelectorAll ? root.querySelectorAll(".ann-bt[data-src]:not([data-done])") : []).forEach(fill);
   if (!document.getElementById("bt-css")) {
     const st = document.createElement("style"); st.id = "bt-css";
-    st.textContent = `.ann-bt{margin:10px 0;font-size:14px;line-height:1.45}
-.ann-bt .bt-title{font-weight:700;font-size:16px;margin:2px 0 8px;color:inherit}
-.ann-bt .bt-band{background:#2b2b2b;color:#fff;font-weight:700;padding:6px 10px;border-radius:6px 6px 0 0;margin-top:10px}
-.ann-bt .bt-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.ann-bt table.bt-t{border-collapse:collapse;width:100%;min-width:520px;background:#fff;color:#111}
-.ann-bt .bt-t th,.ann-bt .bt-t td{border:1px solid #9a9a9a;padding:6px 8px;vertical-align:top;text-align:start}
-.ann-bt .bt-t thead th{background:#f2f2f2;color:#000}
-.ann-bt .bt-b{font-weight:700}
-.ann-bt .bt-note{min-width:220px}
-.ann-bt .bt-tri thead th{background:#2c5175;color:#fff}
-.ann-bt .bt-tri th.bt-st{background:#dce6f1;color:#111;min-width:120px}
-.ann-bt .bt-tri tbody tr:nth-child(odd) td{background:#eef2f8}
-.ann-bt .bt-box+.bt-box{margin-top:8px;padding-top:8px;border-top:1px dashed #b8c4d4}
-.ann-bt .bt-rem{background:#fafafa;color:#111;border:1px solid #9a9a9a;border-top:0;padding:8px 12px}
-.ann-bt .bt-remh{font-weight:700;margin-top:4px}
+    st.textContent = `.ann-bt{--bt-bg:var(--panel,#f6f1e4);--bt-card:var(--panel-2,#fffaf0);--bt-ink:var(--text,#2a2118);--bt-mute:var(--text-muted,#6d5c3f);--bt-rule:var(--rule,#c9b892);margin:12px 0;font-size:14px;line-height:1.5;color:var(--bt-ink)}
+.ann-bt .bt-title{font-weight:800;font-size:17px;margin:2px 0 10px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline}
+.ann-bt .bt-plan{font-size:13px;font-weight:700;padding:1px 9px;border-radius:999px;border:1px solid var(--bt-rule);color:var(--bt-mute)}
+.ann-bt .bt-phase{margin:14px 0}
+.ann-bt .bt-pht{font-weight:800;font-size:15px;letter-spacing:.02em;padding:0 0 6px;margin-bottom:8px;border-bottom:2px solid var(--bt-rule)}
+.ann-bt .bt-phs{font-weight:600;font-size:13px;color:var(--bt-mute)}
+.ann-bt .bt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.ann-bt .bt-card{background:var(--bt-card);border:1px solid var(--bt-rule);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.ann-bt .bt-ch{background:var(--c);color:#1d1710;font-weight:800;padding:7px 10px;display:flex;gap:6px;align-items:center}
+.ann-bt .bt-no{font-size:18px;line-height:1}
+.ann-bt .bt-place{padding:6px 10px 0;font-weight:700}
+.ann-bt .bt-r{display:flex;flex-wrap:wrap;gap:4px;align-items:center;padding:6px 10px 0}
+.ann-bt .bt-rl{font-size:12px;font-weight:700;color:var(--bt-mute);margin-inline-end:4px}
+.ann-bt .bt-ps{display:contents}
+.ann-bt .bt-p{display:inline-block;padding:1px 8px;border-radius:999px;background:var(--bt-bg);border:1px solid var(--bt-rule);font-weight:600;font-size:13px}
+.ann-bt .bt-pt{font-style:italic;font-weight:500}
+.ann-bt .bt-n{margin:8px 10px 10px;padding:7px 9px;border-inline-start:3px solid var(--c);background:var(--bt-bg);border-radius:6px;font-size:13px}
+.ann-bt .bt-card>.bt-r:last-child,.ann-bt .bt-card>.bt-place:last-child{padding-bottom:10px}
+.ann-bt .bt-shared{grid-column:1/-1;background:var(--bt-bg);border:1px dashed var(--bt-rule);border-radius:10px;padding:9px 12px;font-size:13px}
+.ann-bt .bt-sh{font-weight:800;margin-bottom:4px}
+.ann-bt .bt-gap{display:block;height:6px}
+.ann-bt .bt-rem{margin-top:14px;background:var(--bt-card);border:1px solid var(--bt-rule);border-radius:10px;padding:10px 14px}
+.ann-bt .bt-remt{font-weight:800;margin-bottom:4px}
+.ann-bt .bt-remh{font-weight:800;margin-top:8px}
+.ann-bt .bt-reml{position:relative;padding-inline-start:16px;margin:3px 0}
+.ann-bt .bt-reml::before{content:"•";position:absolute;inset-inline-start:2px;color:var(--bt-mute)}
 .ann-bt .bt-load{opacity:.6}
-.ann-bt .bt-dup{display:none}
-@media (max-width:640px){
-.ann-bt table.bt-t{min-width:0}
-.ann-bt .bt-t thead{display:none}
-.ann-bt .bt-t,.ann-bt .bt-t tbody,.ann-bt .bt-t tr,.ann-bt .bt-t td,.ann-bt .bt-t th{display:block;width:auto}
-.ann-bt .bt-t tr{border:1px solid #9a9a9a;border-top:0}
-.ann-bt .bt-t td,.ann-bt .bt-t th{border:0;padding:3px 10px}
-.ann-bt .bt-t td:empty,.ann-bt .bt-t td.bt-empty{display:none}
-.ann-bt .bt-t td.bt-b{padding-top:8px}
-.ann-bt .bt-t td:last-child{padding-bottom:8px}
-.ann-bt .bt-t td[data-l]::before{content:attr(data-l) ": ";font-weight:700}
-.ann-bt .bt-t td.bt-dup{display:block}
-.ann-bt .bt-tri th.bt-st{padding:8px 10px}
-.ann-bt .bt-tri td{border-top:1px dashed #b8c4d4 !important}
-.ann-bt .bt-tri td[data-l]::before{display:block;content:attr(data-l)}
-}`;
+.ann-bt .bt-who{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:0 0 6px;font-weight:700}
+.ann-bt .bt-who select{font:inherit;font-weight:600;padding:5px 8px;border-radius:8px;border:1px solid var(--bt-rule);background:var(--bt-card);color:var(--bt-ink);max-width:100%}
+.ann-bt .bt-p.bt-me{background:var(--accent,#a84c1a);color:var(--accent-ink,#fff);border-color:transparent}
+.ann-bt [hidden]{display:none !important}
+@media (max-width:520px){.ann-bt .bt-grid{grid-template-columns:1fr}}`;
     document.head.appendChild(st);
   }
   scan(document);
