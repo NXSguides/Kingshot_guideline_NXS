@@ -1299,9 +1299,6 @@ The language buttons at the top switch the whole site (12 languages).
 
 (see guide #swordland-showdown)
 
-[2026-11-01 by Nia] SS 군단 1
-
-
 [2026-10-19 by ΔRMΔDΔ] 성검 쟁탈 미참석 관련 안내
 ⚠️ 중요 규칙 업데이트: 성검 쟁탈 미참석 관련
 

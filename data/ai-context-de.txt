@@ -1274,9 +1274,6 @@ The language buttons at the top switch the whole site (12 languages).
 
 (see guide #swordland-showdown)
 
-[2026-11-01 by Nia] SS Legion 1
-
-
 [2026-10-19 by ΔRMΔDΔ] Schwertland-Showdown Nicht-Erscheinen
 ⚠️ Wichtiges Regel-Update: Nicht-Erscheinen beim Schwertland-Showdown
 
