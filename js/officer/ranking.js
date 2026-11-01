@@ -1097,37 +1097,52 @@ function tbCopyText(btn) {
    SWORDLAND <plan> ROLES  🔪=Attacker D=defender / PHASE 1 / ① Stables: 🔪PAPA. D: Meow, PERCIVAL | adan, Gianna … / PHASE 2 (15m) / ⑤ Shrine: … / ❗All P1 defenders stay! 2nd march abbey */
 const CIRC2 = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳";
 const SHORTB = [[/stable/i, "Stables"], [/bell/i, "Bell"], [/sanctum.*enemy/i, "Enemy Sanctum"], [/sanctum.*home/i, "Home Sanctum"], [/shrine/i, "Shrine"], [/merc|camp/i, "Merc"], [/hall|reform/i, "Hall"], [/abbe?y/i, "Abbey"]];
-function tbRolesMsg() {
-  const { secs } = tbSections(); if (!secs.length) return "";
+/* game chat (Milk 2026-11-01): no emoji (the game doesn't show them) — A = attacker, D = defenders; one message per phase,
+   and a phase that is still too long is split over several messages (the game limits message length) */
+const GAME_MAX = 230;
+function tbRolesMsgs() {
+  const { secs } = tbSections(); if (!secs.length) return [];
   const nm = (r, k) => (TB.show[k] ? r[k] : []).map(chipLabel);
   const bShort = (r) => { const s = String(r.tl || "").trim(); const hit = SHORTB.find(([re]) => re.test(s)); return hit ? hit[1] : s.replace(/\s*—.*$/, "") || (r.target ? "#" + r.target : "?"); };
-  const plan = (typeof planId !== "undefined" && planId && plans[planId] && plans[planId].name) ? String(plans[planId].name).toUpperCase() + " " : "";
-  const L = [`SWORDLAND ${plan}ROLES        🔪=Attacker D=defender`];
+  const plan = (typeof planId !== "undefined" && planId && plans[planId] && plans[planId].name) ? String(plans[planId].name).toUpperCase() : "";
+  const title = `${/\bSS\b|SWORD/i.test(plan) ? plan : ("SWORDLAND " + plan).trim()} ROLES (A = Attacker, D = Defenders)`;
+  const blocks = [];   // [header, lines]
   let n = 0; const p1def = new Set(), stayDef = new Set(), stayJoin = [];
   let abbey = false;
   secs.forEach((sec, si) => {
     if (/stay/i.test(sec.name)) { sec.rows.forEach(({ r }) => { nm(r, "def").forEach((x) => stayDef.add(x)); if (nm(r, "join").length) stayJoin.push(bShort(r)); }); return; }
-    L.push("", (si ? " " : "") + sec.name.toUpperCase().replace(/\s*[—-]\s*AFTER\s*(\d+)\s*MIN(UTE)?S?/, " ($1m)"));
+    const head = sec.name.toUpperCase().replace(/\s*[—-]\s*AFTER\s*(\d+)\s*MIN(UTE)?S?/, " ($1m)"), lines = [];
     sec.rows.forEach(({ r }) => {
       const att = nm(r, "att"), def = nm(r, "def"), join = nm(r, "join");
       if (/abbe?y/i.test(r.tl || "")) { abbey = true; return; }
       if (!att.length && !def.length && !join.length) return;
       if (si === 0) def.forEach((x) => p1def.add(x));
       const bn = /^\d+$/.test(String(r.target || "").trim()) ? +r.target : 0; n++;   // the building's own number (⑦ Shrine, ⑤ Merc, ⑥ Hall — Milk 2026-11-01), not 1-2-3 in order
-      L.push(`${bn ? CIRC2[bn - 1] || bn + "." : CIRC2[n - 1] || n + "."} ${bShort(r)}: ${att.length ? "🔪" + att.join(", ") + ". " : ""}${def.length ? "D: " + def.join(", ") : ""}${join.length ? " | " + join.join(", ") : ""}`.replace(/\.\s*$/, ""));
+      lines.push(`${bn ? CIRC2[bn - 1] || bn + "." : CIRC2[n - 1] || n + "."} ${bShort(r)}: ${att.length ? "A " + att.join(", ") + ". " : ""}${def.length ? "D " + def.join(", ") : ""}${join.length ? " | " + join.join(", ") : ""}`.replace(/\.\s*$/, ""));
     });
+    if (lines.length) blocks.push([head, lines]);
   });
   const stay = [];
   if (p1def.size && [...p1def].every((x) => stayDef.has(x))) stay.push("All P1 defenders stay!");
   else if (stayDef.size) stay.push("Stay: " + [...stayDef].join(", ") + ".");
   if (stayJoin.length) stay.push(`${stayJoin.join(" & ")} joiners stay too.`);
-  if (abbey) stay.push("2nd march abbey");
-  if (stay.length) L.push("❗" + stay.join(" "));
-  return L.join("\n");
+  if (abbey) stay.push("2nd march abbey.");
+  const out = [];
+  blocks.forEach(([head, lines], bi) => {
+    let cur = [...(bi === 0 ? [title] : []), head];
+    for (const l of lines) {
+      if (cur.join("\n").length + 1 + l.length > GAME_MAX && cur.length > 1) { out.push(cur.join("\n")); cur = [head + " (cont.)"]; }
+      cur.push(l);
+    }
+    out.push(cur.join("\n"));
+  });
+  if (stay.length) { const l = "STAY BEHIND: " + stay.join(" ");   // on the last message if it fits, else its own
+    if (out.length && out[out.length - 1].length + 1 + l.length <= GAME_MAX) out[out.length - 1] += "\n" + l; else out.push(l); }
+  return out;
 }
 function tbGameMsgs() {
   const { secs } = tbSections(), out = [];
-  if (TB.ev !== "tri") { const rm = tbRolesMsg(); if (rm) out.push(rm); }
+  if (TB.ev !== "tri") out.push(...tbRolesMsgs());
   const map = ((OFFICER_PAGES.events && OFFICER_PAGES.events.ingame && OFFICER_PAGES.events.ingame("swordland-showdown")) || []).find((x) => /map/i.test(x.title || "")) ;
   if (map && map.text) out.push(map.text);
   const head = (r) => { const t = String(r.target || "").trim(); return ((t ? "#" + t + " " : "") + String(r.tl || "").replace(/\s*—\s*(.+)$/, " ($1)")).toUpperCase().trim(); };
