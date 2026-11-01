@@ -1096,7 +1096,7 @@ function tbCopyText(btn) {
 /* ⚔️ one short "roles" message for the game chat (Armada's format, Sherry 2026-11-01):
    SWORDLAND <plan> ROLES  🔪=Attacker D=defender / PHASE 1 / ① Stables: 🔪PAPA. D: Meow, PERCIVAL | adan, Gianna … / PHASE 2 (15m) / ⑤ Shrine: … / ❗All P1 defenders stay! 2nd march abbey */
 const CIRC2 = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳";
-const SHORTB = [[/stable/i, "Stables"], [/bell/i, "Bell"], [/sanctum.*enemy/i, "Enemy Sanctum"], [/sanctum.*home/i, "Home Sanctum"], [/shrine/i, "Shrine"], [/merc|camp/i, "Camp"], [/hall|reform/i, "Hall"], [/abbe?y/i, "Abbey"]];
+const SHORTB = [[/stable/i, "Stables"], [/bell/i, "Bell"], [/sanctum.*enemy/i, "Enemy Sanctum"], [/sanctum.*home/i, "Home Sanctum"], [/shrine/i, "Shrine"], [/merc|camp/i, "Merc"], [/hall|reform/i, "Hall"], [/abbe?y/i, "Abbey"]];
 function tbRolesMsg() {
   const { secs } = tbSections(); if (!secs.length) return "";
   const nm = (r, k) => (TB.show[k] ? r[k] : []).map(chipLabel);
@@ -1113,7 +1113,8 @@ function tbRolesMsg() {
       if (/abbe?y/i.test(r.tl || "")) { abbey = true; return; }
       if (!att.length && !def.length && !join.length) return;
       if (si === 0) def.forEach((x) => p1def.add(x));
-      L.push(`${CIRC2[n++] || n + "."} ${bShort(r)}: ${att.length ? "🔪" + att.join(", ") + ". " : ""}${def.length ? "D: " + def.join(", ") : ""}${join.length ? " | " + join.join(", ") : ""}`.replace(/\.\s*$/, ""));
+      const bn = /^\d+$/.test(String(r.target || "").trim()) ? +r.target : 0; n++;   // the building's own number (⑦ Shrine, ⑤ Merc, ⑥ Hall — Milk 2026-11-01), not 1-2-3 in order
+      L.push(`${bn ? CIRC2[bn - 1] || bn + "." : CIRC2[n - 1] || n + "."} ${bShort(r)}: ${att.length ? "🔪" + att.join(", ") + ". " : ""}${def.length ? "D: " + def.join(", ") : ""}${join.length ? " | " + join.join(", ") : ""}`.replace(/\.\s*$/, ""));
     });
   });
   const stay = [];
