@@ -72,3 +72,12 @@ content: |
   [[img:figures/ann/20261019-200632-3.jpg]]
 
   [[link:swordland-showdown]]
+---
+author: "Nia"
+lang: en
+title: "SS Legion 1"
+images: []
+expires: "2026-11-01T15:00:00.000Z"
+content: |
+  [[img:figures/ann/20261101-075049-1.jpg]]
+  [[img:figures/SS_map.webp]]
