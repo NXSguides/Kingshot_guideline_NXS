@@ -100,5 +100,39 @@
       "es": "[[img:figures/ann/20261101-075049-1.jpg]]\n[[img:figures/SS_map.webp]]\n",
       "en": "[[img:figures/ann/20261101-075049-1.jpg]]\n[[img:figures/SS_map.webp]]\n"
     }
+  },
+  "c150683c31": {
+    "author": "Nia",
+    "createdAt": "2026-11-01T07:53:46.621Z",
+    "images": [],
+    "links": [],
+    "title": {
+      "zh": "SS軍團1",
+      "ko": "SS 군단 1",
+      "de": "SS Legion 1",
+      "fr": "SS Légion 1",
+      "pt": "SS Legião 1",
+      "tr": "SS 1. Lejyon",
+      "id": "SS Legiun 1",
+      "ru": "SS Легион 1",
+      "th": "SS กองทัพ 1",
+      "ar": "SS الكتيبة 1",
+      "es": "SS Legión 1",
+      "en": "SS Legion 1"
+    },
+    "content": {
+      "zh": "[[img:figures/ann/20261101-095642-2.jpg]]\n\n[[table:data/ann/20261101-095642-1.json]]\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "ko": "[[img:figures/ann/20261101-095642-2.jpg]]\n\n[[table:data/ann/20261101-095642-1.json]]\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "de": "[[img:figures/ann/20261101-095642-2.jpg]]\n\n[[table:data/ann/20261101-095642-1.json]]\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "fr": "[[img:figures/ann/20261101-095642-2.jpg]]\n\n[[table:data/ann/20261101-095642-1.json]]\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "pt": "[[img:figures/ann/20261101-095642-2.jpg]]\n\n[[table:data/ann/20261101-095642-1.json]]\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "tr": "[[img:figures/ann/20261101-095642-2.jpg]]\n\n[[table:data/ann/20261101-095642-1.json]]\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "id": "[[img:figures/ann/20261101-095642-2.jpg]]\n\n[[table:data/ann/20261101-095642-1.json]]\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "ru": "[[img:figures/ann/20261101-095642-2.jpg]]\n\n[[table:data/ann/20261101-095642-1.json]]\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "th": "[[img:figures/ann/20261101-095642-2.jpg]]\n\n[[table:data/ann/20261101-095642-1.json]]\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "ar": "[[img:figures/ann/20261101-095642-2.jpg]]\n\n[[table:data/ann/20261101-095642-1.json]]\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "es": "[[img:figures/ann/20261101-095642-2.jpg]]\n\n[[table:data/ann/20261101-095642-1.json]]\n\n\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]",
+      "en": "[[img:figures/ann/20261101-095642-2.jpg]]\n[[table:data/ann/20261101-095642-1.json]]\n[[img:figures/SS_map.webp]]\n\n[[link:swordland-showdown]]\n"
+    }
   }
 }
