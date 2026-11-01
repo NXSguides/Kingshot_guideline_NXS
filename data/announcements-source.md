@@ -72,14 +72,3 @@ content: |
   [[img:figures/ann/20261019-200632-3.jpg]]
 
   [[link:swordland-showdown]]
----
-author: "Nia"
-lang: en
-title: "SS Legion 1"
-images: []
-content: |
-  [[img:figures/ann/20261101-095642-2.jpg]]
-  [[table:data/ann/20261101-095642-1.json]]
-  [[img:figures/SS_map.webp]]
-
-  [[link:swordland-showdown]]
