@@ -285,6 +285,7 @@ function markup(title, body, lang) {
     .replace(/\{(\w+)\}/g, (m, id) => (term(id, lang) ? esc(term(id, lang)) : m))
     .replace(/\[\[link:([\w-]+)\]\]/g, (m, id) => GUIDES[id] ? `<span class="chip">${GUIDES[id].emoji} ${esc(GUIDES[id].name[lang] || GUIDES[id].name.en)} ›</span>` : "")
     .replace(/\[\[img:([\w./-]+)\]\]/g, (m, src) => `<img src="${pendingImgs[src] ? pendingImgs[src].url : picImgs[src] ? picImgs[src].url : esc(src)}" alt="">`)
+    .replace(/\[\[table:([\w./-]+\.json)\]\]/g, (m, src) => `<div class="ann-bt" data-btlang="${esc(lang || "en")}" data-src="${pendingImgs[src] ? pendingImgs[src].url : esc(src)}"></div>`)   // ⚔️🔱 battle table (js/battle-table.js), in the language being previewed
     .replace(/\[\[video:([\w./-]+\.mp4)\]\]/g, (m, src) => `<video src="${esc(src)}" controls playsinline preload="metadata" style="display:block;max-width:100%;max-height:50vh"></video>`)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
   const fmt = typeof annFormat === "function" ? annFormat(html) : html;   // ✍️ the same formatting the site shows
@@ -475,13 +476,17 @@ async function takeCarriedImage() {
   if (!url) return;
   // the event map goes right under the table (it's already on the site, so no upload)
   const mapTag = map && /^figures\/[\w./-]+$/.test(map) ? `\n[[img:${map}]]` : "";
+  // ⚔️🔱 the same table as data, so the site shows it in every reader's language (js/battle-table.js); the picture stays English for Discord
+  let tabTag = ""; try { const tj = sessionStorage.getItem("nxs-carry-table"); sessionStorage.removeItem("nxs-carry-table");
+    if (tj && JSON.parse(tj)) { const tpath = `data/ann/${new Date().toISOString().slice(0, 19).replace(/[-:]/g, "").replace("T", "-")}-${++imgCounter}.json`;
+      const tb = new Blob([tj], { type: "application/json" }); pendingImgs[tpath] = { blob: tb, url: URL.createObjectURL(tb) }; tabTag = `\n[[table:${tpath}]]`; } } catch (e) {}
   const blob = await (await fetch(url)).blob();
   const f = new File([blob], "table.png", { type: blob.type });
   const shrunk = await shrink(f, 2000);
   const stamp = new Date().toISOString().slice(0, 19).replace(/[-:]/g, "").replace("T", "-");
   const path = `figures/ann/${stamp}-${++imgCounter}.jpg`;
   pendingImgs[path] = { blob: shrunk, url: URL.createObjectURL(shrunk) };
-  insertAtCursor(`[[img:${path}]]` + mapTag); renderPreview();
+  insertAtCursor(`[[img:${path}]]` + tabTag + mapTag); renderPreview();
 }
 
 /* ===== list ===== */
@@ -793,7 +798,7 @@ $("publishBtn").onclick = async () => {
   const btn = $("publishBtn"); btn.disabled = true; showMsg("pubMsg", "info", tr("publishing"));
   try {
     // 1) upload the pictures that are still in the message
-    const used = Object.keys(pendingImgs).filter((path) => fullBody().includes(`[[img:${path}]]`));
+    const used = Object.keys(pendingImgs).filter((path) => fullBody().includes(`[[img:${path}]]`) || fullBody().includes(`[[table:${path}]]`));   // pictures + ⚔️🔱 battle tables
     if (used.length) {
       showMsg("pubMsg", "info", tr("uploadingImg"));
       for (const path of used) {

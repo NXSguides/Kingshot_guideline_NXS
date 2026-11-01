@@ -1292,6 +1292,15 @@ function tbImage() {
   }
   tbShowImg(cv.toDataURL("image/png"));
 }
+/* ⚔️🔱 the table as data for an announcement (Sherry 2026-11-01): the site shows it in each reader's language (js/battle-table.js + data/battle-terms.js).
+   Only what the picture shows: short names, buildings, notes, reminders. */
+function tbExport() {
+  tbSync();
+  const ch = (l) => (l || []).map((c) => c.kind === "t" ? { t: c.text } : chipLabel(c));
+  return { v: 1, ev: TB.ev === "tri" ? "tri" : "swordland", name: (typeof tbPlanName === "function" && tbPlanName()) || "", cols: { ...TB.cols }, show: { ...TB.show },
+    stages: stList(), teams: TB.ev === "tri" ? teamList() : [], rem: TB.rem || "",
+    groups: TB.groups.map((g) => { const r = g.rows[0] || {}; return { sec: g.sec || 0, team: g.team || 0, color: g.color, target: String(r.target || "").trim(), tl: r.tl || "", att: ch(r.att), def: ch(r.def), join: ch(r.join), note: r.note || "" }; }) };
+}
 function tbShowImg(url) {
   const m = document.createElement("div");
   m.className = "tb-modal";
@@ -1302,7 +1311,7 @@ function tbShowImg(url) {
     <button class="btn" data-close="1">${esc(tt("close"))}</button></div></div>`;
   m.onclick = (e) => {
     if (e.target === m || e.target.dataset.close) m.remove();
-    if (e.target.dataset.topost) { const pr = PRESETS.find((x) => x.id === activePreset) || PRESETS.find((x) => x.id === "swordland"); try { sessionStorage.setItem("nxs-carry-img", url); if (pr && pr.img) sessionStorage.setItem("nxs-carry-map", pr.img); } catch (err) {} location.hash = "#post"; }
+    if (e.target.dataset.topost) { const pr = PRESETS.find((x) => x.id === activePreset) || PRESETS.find((x) => x.id === "swordland"); try { sessionStorage.setItem("nxs-carry-img", url); sessionStorage.setItem("nxs-carry-table", JSON.stringify(tbExport())); if (pr && pr.img) sessionStorage.setItem("nxs-carry-map", pr.img); } catch (err) {} location.hash = "#post"; }
   };
   ROOT.appendChild(m);
 }

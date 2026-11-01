@@ -97,7 +97,7 @@ async function translateOne(entry, glossaryText) {
 2. 遇到對照表列出的遊戲用語，一律使用官方譯名；沒列出的詞照字面翻譯
 3. 公告裡出現的英雄名稱、活動代號（例如 KvK、Gen 3 等）如果不在下方對照表中，代表官方譯名尚未確認，一律保留英文原文，不要翻譯或音譯
 4. 輸入是一個 JSON 物件 {"title": "...", "content": "..."}
-5. 內文裡的標記一律原封不動照抄、位置不變：[[img:路徑]]、[[video:路徑]]、[[link:代號]]、{代號}（大括號內的英文代號）
+5. 內文裡的標記一律原封不動照抄、位置不變：[[img:路徑]]、[[video:路徑]]、[[table:路徑]]、[[link:代號]]、{代號}（大括號內的英文代號）
 5b. 排版標記保留原樣，只翻譯標記裡面的文字：**粗體**、*斜體*、__底線__、~~刪除線~~、==螢光==、[[c:顏色]]文字[[/c]]、[[f:字體]]文字[[/f]]；行首的 # 、## 、- 、1. 、a. 、> 、單獨一行的 --- 以及列點符號（• ◦ ▪ ◆ ★ ✔ ➤ 等）和它前面的空格（代表縮排層級）都照抄
 6. 只回傳一個 JSON 物件，key 是語言代碼，value 是 {"title": "翻譯後標題", "content": "翻譯後內文"} 的物件，不要其他文字，不要 markdown 標記
 
@@ -114,7 +114,7 @@ ${glossaryText}`;
   const translations = JSON.parse(json.candidates[0].content.parts[0].text);
 
   // 保險：如果翻譯把圖片／指南按鈕標記弄丟了，就補回內文最後面
-  const markers = (entry.content.match(/\[\[(?:img|link):[^\]]+\]\]/g) || []);
+  const markers = (entry.content.match(/\[\[(?:img|table|link):[^\]]+\]\]/g) || []);
   for (const v of Object.values(translations)) {
     if (!v || typeof v.content !== "string") continue;
     for (const m of markers) if (!v.content.includes(m)) v.content = v.content.trimEnd() + "\n\n" + m;
@@ -137,7 +137,7 @@ async function main() {
 
   // 只翻譯快取裡還沒有的（也就是真正新增的）公告
 // only a picture / video / guide-button marker added, removed or moved → keep the old translations, just move the markers
-const MK = /\[\[(?:img|video|link):[^\]]+\]\]/g;
+const MK = /\[\[(?:img|video|table|link):[^\]]+\]\]/g;
 const bare = (t) => String(t || "").replace(MK, "").replace(/\s+/g, " ").trim();
 function reuseFor(entry) {
   for (const [oid, c] of Object.entries(cache)) {
