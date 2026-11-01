@@ -777,7 +777,7 @@ function tbDraft() {
 /* ⚔️ Swordland rules draft (Armada's rules table): ranks from ② (subs left out).
    Phase 1: attackers #1–4 on ①②③③, defenders #5–12 in pairs, joiners #13+ alternate over the 4 buildings.
    Phase 2: Sword Shrine #1 + #2/#3/#4; Mercenary Camp #2 + #4 and Hall of Reformation #1 + #3 with their secondary marches.
-   Stay behind: the Phase 1 defenders; joiners #13+ alternate over Mercenary Camp, Hall of Reformation and both Sanctums. */
+   Stay behind: the Phase 1 defenders and the Sanctum joiners. Phase 2 joiners: the Royal Stables team goes to the Hall (with #1), the Bell Tower team to the Camp (with #2). */
 function tbRulesDraft() {
   const r = ranking(); if (!r.length) return;
   const st = listOf(TB.stages); if (st.length < 3) TB.stages = tbDefault().stages;
@@ -787,14 +787,14 @@ function tbRulesDraft() {
     s3 = G(0, 2, "3", "Sanctum — near enemy", P(3), Ps(9, 11)), s4 = G(0, 3, "3", "Sanctum — near home", P(4), Ps(10, 12)),
     ab = G(0, 4, "4", "Abbeys (4 total)", [], [], "Attackers & defenders: send your secondary march to the closest Abbey (no teleport). Joiners: teleport as needed to gather loot from building flips.");
   const sw = G(1, 5, "7", "Sword Shrine — heavy guard", P(1), Ps(2, 3, 4)),
-    mc = G(1, 7, "5", "Mercenary Camp", P(2), P(4), "Attacker & defender: secondary march."),
-    hr = G(1, 6, "6", "Hall of Reformation", P(1), P(3), "Attacker & defender: secondary march.");
+    mc = G(1, 7, "5", "Mercenary Camp", P(2), P(4), "Attacker & defender: secondary march. Bell Tower team, help out with your secondary march!"),
+    hr = G(1, 6, "6", "Hall of Reformation", P(1), P(3), "Attacker & defender: secondary march. Royal Stables team, help out with your secondary march!");
   const b1 = G(2, 0, "1", "Royal Stables", [], Ps(5, 7)), b2 = G(2, 1, "2", "Bell Tower", [], Ps(6, 8)),
     b3 = G(2, 2, "3", "Sanctum — near enemy", [], Ps(9, 11)), b4 = G(2, 3, "3", "Sanctum — near home", [], Ps(10, 12)),
     b5 = G(2, 4, "4", "Abbeys", [], [], "Defenders keep their secondary march at the closest Abbey (no teleport).");
   // joiners: everyone after #12, alternating by power (1-2-3-4-4-3-2-1 …) so each building gets a fair mix
   const snake = (groups) => r.slice(12).forEach((m, i) => { const k = i % (2 * groups.length), gi = k < groups.length ? k : 2 * groups.length - 1 - k; groups[gi].rows[0].join.push({ kind: "p", id: m.id }); });
-  snake([s1, s2, s3, s4]); snake([mc, hr, b3, b4]);
+  snake([s1, s2, s3, s4]); snake([hr, mc, b3, b4]);   // Phase 2: each team follows its own attacker — Stables (#1) → Hall (#1), Bell Tower (#2) → Camp (#2); the Sanctum teams stay
   TB.groups = [s1, s2, s3, s4, ab, sw, mc, hr, b1, b2, b3, b4, b5];
   tbTog();
 }
@@ -1005,8 +1005,40 @@ function tbCopyText(btn) {
   const old = btn.textContent; btn.textContent = tt("copied"); setTimeout(() => (btn.textContent = old), 1500);
 }
 /* 🎮 the in-game chat version: one message per building (#1 ROYAL STABLES / Attacker: … ), the chat map first, Stay behind in one message */
+/* ⚔️ one short "roles" message for the game chat (Armada's format, Sherry 2026-11-01):
+   SWORDLAND <plan> ROLES  🔪=Attacker D=defender / PHASE 1 / ① Stables: 🔪PAPA. D: Meow, PERCIVAL | adan, Gianna … / PHASE 2 (15m) / ⑤ Shrine: … / ❗All P1 defenders stay! 2nd march abbey */
+const CIRC2 = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳";
+const SHORTB = [[/stable/i, "Stables"], [/bell/i, "Bell"], [/sanctum.*enemy/i, "Enemy Sanctum"], [/sanctum.*home/i, "Home Sanctum"], [/shrine/i, "Shrine"], [/merc|camp/i, "Camp"], [/hall|reform/i, "Hall"], [/abbe?y/i, "Abbey"]];
+function tbRolesMsg() {
+  const { secs } = tbSections(); if (!secs.length) return "";
+  const nm = (r, k) => (TB.show[k] ? r[k] : []).map(chipLabel);
+  const bShort = (r) => { const s = String(r.tl || "").trim(); const hit = SHORTB.find(([re]) => re.test(s)); return hit ? hit[1] : s.replace(/\s*—.*$/, "") || (r.target ? "#" + r.target : "?"); };
+  const plan = (typeof planId !== "undefined" && planId && plans[planId] && plans[planId].name) ? String(plans[planId].name).toUpperCase() + " " : "";
+  const L = [`SWORDLAND ${plan}ROLES        🔪=Attacker D=defender`];
+  let n = 0; const p1def = new Set(), stayDef = new Set(), stayJoin = [];
+  let abbey = false;
+  secs.forEach((sec, si) => {
+    if (/stay/i.test(sec.name)) { sec.rows.forEach(({ r }) => { nm(r, "def").forEach((x) => stayDef.add(x)); if (nm(r, "join").length) stayJoin.push(bShort(r)); }); return; }
+    L.push("", (si ? " " : "") + sec.name.toUpperCase().replace(/\s*[—-]\s*AFTER\s*(\d+)\s*MIN(UTE)?S?/, " ($1m)"));
+    sec.rows.forEach(({ r }) => {
+      const att = nm(r, "att"), def = nm(r, "def"), join = nm(r, "join");
+      if (/abbe?y/i.test(r.tl || "")) abbey = true;
+      if (!att.length && !def.length && !join.length) return;
+      if (si === 0) def.forEach((x) => p1def.add(x));
+      L.push(`${CIRC2[n++] || n + "."} ${bShort(r)}: ${att.length ? "🔪" + att.join(", ") + ". " : ""}${def.length ? "D: " + def.join(", ") : ""}${join.length ? " | " + join.join(", ") : ""}`.replace(/\.\s*$/, ""));
+    });
+  });
+  const stay = [];
+  if (p1def.size && [...p1def].every((x) => stayDef.has(x))) stay.push("All P1 defenders stay!");
+  else if (stayDef.size) stay.push("Stay: " + [...stayDef].join(", ") + ".");
+  if (stayJoin.length) stay.push(`${stayJoin.join(" & ")} joiners stay too.`);
+  if (abbey) stay.push("2nd march abbey");
+  if (stay.length) L.push("❗" + stay.join(" "));
+  return L.join("\n");
+}
 function tbGameMsgs() {
   const { secs } = tbSections(), out = [];
+  if (TB.ev !== "tri") { const rm = tbRolesMsg(); if (rm) out.push(rm); }
   const map = ((OFFICER_PAGES.events && OFFICER_PAGES.events.ingame && OFFICER_PAGES.events.ingame("swordland-showdown")) || []).find((x) => /map/i.test(x.title || "")) ;
   if (map && map.text) out.push(map.text);
   const head = (r) => { const t = String(r.target || "").trim(); return ((t ? "#" + t + " " : "") + String(r.tl || "").replace(/\s*—\s*(.+)$/, " ($1)")).toUpperCase().trim(); };
