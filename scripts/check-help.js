@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Battle: 🗡️ Swordland ☑ Playing ticks", /☑ Playing \(參戰\) tick/, /☑ The Playing tick in front of each name/],
   ["Ranking: ④ battle table in every language in announcements", /④ Battle table in every language/, /shows in each reader's language \(all 12/],
   ["Site: 🙋 Who are you? in a battle table", /🙋 Who are you\?/, /🙋 pick your name and only your part stays/],
   ["Site: battle table in an announcement in your language", /battle table inside an announcement shows in the reader's language/, /A battle table in one shows in your language/],
