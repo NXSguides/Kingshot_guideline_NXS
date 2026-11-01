@@ -31,6 +31,11 @@ const T = {
     un: ["{est} had no mails this wave, so their K is estimated. With pessimistic values the gain is at the low end of {gain}; with the middle values, at the high end.",
       "The model assumes each player can reach any rally they are not leading (5–6 join marches each, 6–8 rallies). The leaders need to watch the list and open the next rally once the current last one is nearly full.",
       "Hero skills that roll per fight add ±10–15% noise to any single wave, so one test wave won't prove it. Two or three waves would."],
+    b1eye: "Bear Trap 1 · for comparison", b1h: "BT1: enough people, different problem",
+    b1p: "BT1 fills about 11 rallies every wave and its strong rallies fill in 20–45 seconds. Cutting rallies would not help there. What it loses is inside the rallies.",
+    sc1: ["People on the leaderboard", "Total damage", "Average per person", "One wave"],
+    b1lh: "BT1 leaders by archer strength", b1lp: "Archer (1 + attack)(1 + lethality) from each rally's bonus page. ★ = on the BT1 leader list. Dashed lines: BT2's two strongest, for scale. BT1 had no rally mails, so these are stats, not measured K.",
+    b1xh: "Where BT1 loses damage", b1dh: "What could help BT1",
     foot: "Data: {src}", none: "No data yet. An admin adds it once with 📥 Update data below.", locked: "🔒 Log in first.",
     impT: "📥 Update data (admins)", impNote: "Paste the plan JSON (from the analysis chat). It is encrypted in this browser and saved for officers only.", impSave: "Encrypt & save",
     impOk: "✅ Saved — everyone with this tab sees it in a minute.", impBad: "⚠️ That isn't the plan JSON (needs now, order and rows).", impErr: "⚠️ Not saved: ", noTok: "⚠️ Saving needs the officer GitHub key (admin login)." },
@@ -55,6 +60,11 @@ const T = {
     un: ["{est} 這波沒有信件，K 是估的。用保守值算是 {gain} 的低標，用中間值是高標。",
       "模型假設每個人都進得了自己沒帶的團（每人 5–6 條加入隊列、6–8 團）。隊長要看列表，最後一團快滿了，下一位才開。",
       "英雄機率技能讓單一波的分數有 ±10–15% 的運氣，所以試一波證明不了，要試 2–3 波。"],
+    b1eye: "陷阱 1 · 對照", b1h: "BT1：人夠多，問題不一樣",
+    b1p: "BT1 每波都撐得起約 11 團，強團 20–45 秒就滿，減團幫不上忙。它的損失在團裡面。",
+    sc1: ["上榜人數", "總分", "平均每人", "一波"],
+    b1lh: "BT1 隊長弓兵強度", b1lp: "弓兵 (1+攻擊)(1+殺傷)，取自各團集結加成頁。★ = BT1 隊長名單上的人。虛線是 BT2 最強的兩位，當作比例尺。BT1 沒有集結信件，所以這是屬性，不是實測的 K。",
+    b1xh: "BT1 的損失在哪裡", b1dh: "BT1 可以改善的方向",
     foot: "資料：{src}", none: "還沒有資料。管理員在下面的 📥 更新資料 加一次就好。", locked: "🔒 請先登入。",
     impT: "📥 更新資料（管理員）", impNote: "貼上規劃的 JSON（分析聊天給的）。會在這個瀏覽器加密，只有幹部看得到。", impSave: "加密並儲存",
     impOk: "✅ 已儲存——有這個分頁的人大約一分鐘後就看得到。", impBad: "⚠️ 這不是規劃的 JSON（需要 now、order、rows）。", impErr: "⚠️ 沒有存到：", noTok: "⚠️ 儲存需要幹部的 GitHub 金鑰（管理員登入）。" },
@@ -80,6 +90,30 @@ function svg() {
   const TO = D.turnout || [75, 94, 110], si = TO.indexOf(N);
   block(D.now, y1, fill(t("rNow"), { d: D.date || "" })); block(NEW, y2, `${t("rNew")} · ${fill(t("sc")[si < 0 ? 1 : si], { n: N })}`);
   return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="timeline" style="display:block;min-width:600px;width:100%;height:auto;font-family:inherit">${o}</svg>`;
+}
+function bars(B, ref) {   // 🐻 BT1: leaders by archer strength, BT2's strongest as dashed lines
+  const W = 820, left = 110, right = 40, rh = 18, g = 6, max = Math.max(40, ...B.map((b) => b[2]));
+  const x = (v) => left + (W - left - right) * v / max, H = B.length * (rh + g) + 30;
+  const c = { fg: css("--text") || "#333", mu: css("--text-muted") || "#777", ln: css("--rule") || "#ccc", main: css("--bp-main"), second: css("--bp-second"), weak: css("--bp-weak") };
+  let o = "";
+  for (let v = 0; v <= max; v += 10) o += `<line x1="${x(v)}" x2="${x(v)}" y1="0" y2="${H - 22}" stroke="${c.ln}"/><text x="${x(v)}" y="${H - 6}" fill="${c.mu}" font-size="11" text-anchor="middle">${v}</text>`;
+  (ref || []).forEach(([n, v]) => { o += `<line x1="${x(v)}" x2="${x(v)}" y1="0" y2="${H - 22}" stroke="${c.fg}" stroke-dasharray="3 3" opacity=".5"><title>${esc(n)}</title></line>`; });
+  B.forEach(([n, ty, v, on], i) => { const y = i * (rh + g);
+    o += `<text x="${left - 8}" y="${y + rh / 2 + 4}" fill="${c.fg}" font-size="12" text-anchor="end">${on ? "★ " : ""}${esc(n)}</text><rect x="${left}" y="${y}" width="${x(v) - left}" height="${rh}" rx="3" fill="${c[ty] || c.weak}"/>
+      <text x="${x(v) + 6}" y="${y + rh / 2 + 4}" fill="${c.mu}" font-size="11">${(+v).toFixed(1)}</text>`; });
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="BT1" style="display:block;min-width:600px;width:100%;height:auto;font-family:inherit">${o}</svg>`;
+}
+function bt1Html() {
+  const b = D.bt1; if (!b) return "";
+  const L = (o) => o ? (o[lang] || o.en || []) : [];
+  const li = (arr) => arr.map((s) => `<li>${esc(s)}</li>`).join("");
+  return `<div class="card bp-bt1"><div class="muted" style="font-size:12px;letter-spacing:.06em">${esc(t("b1eye"))}</div><h3>${esc(t("b1h"))}</h3><p class="bp-p">${esc(t("b1p"))}</p>
+      <div class="bp-tw"><table class="bp-t" style="min-width:0"><thead><tr><th></th><th class="n">BT1</th><th class="n">BT2</th></tr></thead>
+      <tbody>${t("sc1").map((k, i) => { const v = (L(b.scale)[i]) || ["–", "–"]; return `<tr><td style="white-space:nowrap">${esc(k)}</td><td class="n">${esc(v[0])}</td><td class="n">${esc(v[1])}</td></tr>`; }).join("")}</tbody></table></div></div>
+    ${b.leaders ? `<div class="card"><h3>${esc(t("b1lh"))}</h3><p class="muted bp-p" style="font-size:12.5px">${esc(t("b1lp"))}</p>
+      <div class="bp-legend">${["main", "second", "weak"].map((k) => `<span><i class="bp-sw" style="background:var(--bp-${k})"></i>${esc(tier(k))}</span>`).join("")}</div><div class="bp-chart">${bars(b.leaders, b.ref)}</div></div>` : ""}
+    ${L(b.loss).length ? `<div class="card"><h3>${esc(t("b1xh"))}</h3><ul class="bp-ul">${li(L(b.loss))}</ul></div>` : ""}
+    ${L(b.dir).length ? `<div class="card"><h3>${esc(t("b1dh"))}</h3><ul class="bp-ul">${li(L(b.dir))}</ul></div>` : ""}`;
 }
 function importBox() {
   if (!(OFFICER.isAdmin && OFFICER.isAdmin())) return "";
@@ -111,6 +145,7 @@ function render() {
       <p class="muted bp-p" style="font-size:12.5px">${esc(t("whyfoot"))}</p></div>
     <div class="card"><h3>${esc(t("chh"))}</h3><ul class="bp-ul">${items(t("ch"), v)}</ul></div>
     <div class="card"><h3>${esc(t("unh"))}</h3><ul class="bp-ul">${items(t("un"), v)}</ul></div>
+    ${bt1Html()}
     <div class="muted" style="font-size:12px">${esc(fill(t("foot"), v))}</div>${importBox()}`;
   bind();
 }
