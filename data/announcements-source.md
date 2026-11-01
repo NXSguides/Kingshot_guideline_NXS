@@ -72,11 +72,3 @@ content: |
   [[img:figures/ann/20261019-200632-3.jpg]]
 
   [[link:swordland-showdown]]
----
-author: "ΔRMΔDΔ"
-lang: en
-title: "SS Legion 2"
-images: []
-content: |
-  [[img:figures/ann/20261031-231758-1.jpg]]
-  [[img:figures/SS_map.webp]]
