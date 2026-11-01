@@ -1263,14 +1263,6 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-01 by Nia] SS軍團1
-(battle table: shown in the reader's language)
-
-
-
-
-(see guide #swordland-showdown)
-
 [2026-10-19 by ΔRMΔDΔ] 聖劍爭奪未出席處理公告
 ⚠️ 重要規則更新：聖劍爭奪缺席問題
 
