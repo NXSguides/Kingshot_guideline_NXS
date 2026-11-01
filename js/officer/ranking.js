@@ -1099,7 +1099,7 @@ const CIRC2 = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳";
 const SHORTB = [[/stable/i, "Stables"], [/bell/i, "Bell"], [/sanctum.*enemy/i, "Enemy Sanctum"], [/sanctum.*home/i, "Home Sanctum"], [/shrine/i, "Shrine"], [/merc|camp/i, "Merc"], [/hall|reform/i, "Hall"], [/abbe?y/i, "Abbey"]];
 /* game chat (Milk 2026-11-01): no emoji (the game doesn't show them) — A = attacker, D = defenders; one message per phase,
    and a phase that is still too long is split over several messages (the game limits message length) */
-const GAME_MAX = 230;
+const GAME_MAX = 500;   // the game refuses a message over 512 characters (Sherry, 2026-11-01)
 function tbRolesMsgs() {
   const { secs } = tbSections(); if (!secs.length) return [];
   const nm = (r, k) => (TB.show[k] ? r[k] : []).map(chipLabel);
@@ -1127,17 +1127,19 @@ function tbRolesMsgs() {
   else if (stayDef.size) stay.push("Stay: " + [...stayDef].join(", ") + ".");
   if (stayJoin.length) stay.push(`${stayJoin.join(" & ")} joiners stay too.`);
   if (abbey) stay.push("2nd march abbey.");
-  const out = [];
-  blocks.forEach(([head, lines], bi) => {
-    let cur = [...(bi === 0 ? [title] : []), head];
-    for (const l of lines) {
-      if (cur.join("\n").length + 1 + l.length > GAME_MAX && cur.length > 1) { out.push(cur.join("\n")); cur = [head + " (cont.)"]; }
-      cur.push(l);
-    }
-    out.push(cur.join("\n"));
-  });
-  if (stay.length) { const l = "STAY BEHIND: " + stay.join(" ");   // on the last message if it fits, else its own
-    if (out.length && out[out.length - 1].length + 1 + l.length <= GAME_MAX) out[out.length - 1] += "\n" + l; else out.push(l); }
+  // as few messages as fit (≤ GAME_MAX); a phase moves to the next message whole if it fits there, and only a phase too long for
+  // one message is split (its header repeated with "(cont.)")
+  const out = []; let cur = [title];
+  const len = (a) => a.join("\n").length, flush = () => { if (cur.length) out.push(cur.join("\n").trim()); cur = []; };
+  const add = (lines, head) => {
+    const block = cur.length ? ["", ...lines] : lines;
+    if (len([...cur, ...block]) <= GAME_MAX) { cur.push(...block); return; }
+    if (cur.length && len(lines) <= GAME_MAX) { flush(); cur.push(...lines); return; }
+    for (const l of lines) { if (cur.length && len([...cur, l]) > GAME_MAX) { flush(); if (head && l !== head) cur.push(head + " (cont.)"); } cur.push(l); }
+  };
+  blocks.forEach(([head, lines]) => add([head, ...lines], head));
+  if (stay.length) add(["STAY BEHIND: " + stay.join(" ")], null);
+  flush();
   return out;
 }
 function tbGameMsgs() {
