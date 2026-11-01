@@ -421,6 +421,9 @@ AI ASSISTANT
 - Our own kingdom #2189 is scouted too, for comparison. Data is the SCOUT section of the OFFICER DATA (answer "who is the strongest in kingdom X" from there).
 - Not in this data: last login (unreliable) and anything MightPulse does not publish.
 
+@bearplan
+🐻 BEAR PLAN tab (officer-x7k2p9.html#bearplan, 熊獵規劃) — a DISCUSSION DRAFT for Armada (Sherry, 2026-11-01; nothing decided): one Bear wave as it was vs. fewer, stronger rallies. Idea: a march scores about leader strength K × √troops, so the leader matters far more than how full the rally is; the strongest rallies are always full, leaders open in a fixed order (strong → weak, ~15 s apart, by the bear countdown), each rally ~14 marches, only the LAST rally takes the turnout swings (about 6 / 7 / 8 rallies for ~75 / ~94 / ~110 marches); everyone else joins (incl. good archers who are weak leaders); full-cap marches to main rallies, leftovers to open slots; Amane / Yeonwoo / Chenko first-hero joiners to the later rallies; the 6:30 rule stays. Page: 3 numbers, a timeline now vs. proposed (switch turnout), the leaders' table (type, K, marches now vs. proposed), what would change, what we don't know. Don't name or rank individual leaders in answers — point to the page. The data is encrypted (data/bearplan-x7k2p9.json); admins add / replace it with 📥 Update data (paste JSON). Nobody has this tab by default; admins give it in the 👥 table.
+
 @growth
 🧭 GROWTH tab (officer-x7k2p9.html#growth, 發展方向, page title "Attack vs Defense / 進攻 vs 防守") — reference material (Sherry, 2026-10-31, for Armada and Nia): what an attack (rally) leader and a defense (garrison) leader need, Gen 1–5, from our battle reports and simulations. No names, nothing decided. Read-only text. (Governor Gear, gems and hero gear stat order is the same for both sides.)
 - ⚔️ Attack (rally leader): heroes with offensive Widgets — infantry Amadeus (paid, the only infantry rally Widget) / Helga (paid), cavalry Petra (Hero Roulette) / Thrud (heavy spend), archer Marlin → Rosa (Hero Roulette) → Vivian. Widgets: Amadeus, Petra = rally Attack; Helga, Marlin, Rosa, Thrud = rally Lethality. Stats: infantry Defense + Health > archer Lethality > archer Attack > cavalry. Big rally capacity (one big rally beats two small). Ratio 50:20:30, infantry ≥ 40%. Strong target: rallies in a row, expendable first, strongest leader last. Joiners: first 4 with a hero, 2 Attack (Amane, Margot) + 2 Lethality (Chenko, Yeonwoo, Amadeus).
@@ -566,7 +569,7 @@ async function isOfficer(body, env) {
 
 /* 🔒 Officer AI = logged in with Discord AND on the 👥 table. Returns which tabs they may open (admins: all),
    so the AI only gets the handbook parts and data of those tabs. The old officer password / data-key proof no longer counts. */
-const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🚚 Move", hunt: "🎯 Blacklist", attack: "⚔️ Battle", growth: "🧭 Growth", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
+const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🚚 Move", hunt: "🎯 Blacklist", attack: "⚔️ Battle", growth: "🧭 Growth", bearplan: "🐻 Bear plan", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
 const AI_TAB_LINKS = {
   events: "[Events](officer-x7k2p9.html#events) (week calendar, officer to-dos, in-game guides to copy, add/edit events)",
   board: "[Board](officer-x7k2p9.html#board)", map: "[Map](officer-x7k2p9.html#map) (kingdom map, Outpost plan)",
@@ -574,6 +577,7 @@ const AI_TAB_LINKS = {
   attend: "[Attendance](officer-x7k2p9.html#attend)", post: "[Post](officer-x7k2p9.html#post) (post / edit announcements)",
   watch: "[Watch](officer-x7k2p9.html#watch) (name changes, power history, who left/joined, notes)",
   growth: "[Growth](officer-x7k2p9.html#growth) (proposal: how we grow attack / defense / Bear leaders)",
+  bearplan: "[Bear plan](officer-x7k2p9.html#bearplan) (discussion draft: fewer, stronger Bear rallies)",
   attack: "[Battle](officer-x7k2p9.html#attack) (attack planner from MightPulse board strength, scouting other kingdoms)",
   views: "[Views](officer-x7k2p9.html#views)", perms: "[Officers](officer-x7k2p9.html#perms)",
 };
@@ -1628,7 +1632,7 @@ const ADMIN_IDS = ["1547403844374368327", "1240788094672834623", "76282790434124
 /* view-only officers added by Sparrow (2026-10-16): put into the 👥 table with Events / Board / Map "view" if they aren't in it yet.
    After that the table is the truth — change or remove them on the 👥 tab. */
 const SEED_VIEWERS = {"741447079804797041": "firebaugh", "734803550672257104": "ASHISH", "961642100150124555": "BOO", "1526789098210197638": "ELR", "216564539041251329": "flip", "1534039396461056172": "JORDAN", "1525666601456767171": "PAPA", "706153853460021341": "Tiger", "1003385592983322664": "Δйʊвιŝ"};
-const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", views: "none", move: "none", hunt: "none", attack: "none", growth: "none" };
+const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", views: "none", move: "none", hunt: "none", attack: "none", growth: "none", bearplan: "none" };
 /* 🛠️ which events' officer to-dos each person gets as a reminder (from Sparrow's role list, 2026-10-16) — only a starting point:
    once an admin changes someone's 🔔 on the 👥 tab, the saved list wins. Admins with no list get every event. */
 const MOB = "alliance-mobilization";

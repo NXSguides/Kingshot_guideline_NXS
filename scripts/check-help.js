@@ -23,6 +23,7 @@ const FEATURES = [
   ["Ranking: 🎯 the plan's event (picked once, ③ and ④ follow)", /🎯 Event \(活動\) in the plan card/, /{ s: "#planEv", k: "rk01e" }/],
   ["Ranking: ④ battle table per event (Table for: Swordland / Tri-Alliance)", /④ Battle table follows the event/, /{ s: "#tbCard \.tb-ev", k: "rk17e" }/],
   ["Ranking: ④ 🔱 TAC plan draft (Teams A–D, 4 stages)", /"🔱 TAC plan draft \(all 4 stages\)" fills it/, /{ s: "#tbCard \[data-act=triDraft\]", k: "rk14t", e: 1 }/],
+  ["Bear plan tab (🐻 discussion draft)", /🐻 BEAR PLAN tab/, /bearplan: \[\{ s: "#bp_title", k: "bp01" \}\]/],
   ["Battle: 🎯 KvK opponent intel", /🎯 KvK opponent intel \(KvK 對手情報/, /{ s: "#ak_intel", k: "ak05" }/],
   ["Ranking: 💾 Save now (plan)", /💾 Save now \(立即儲存/, /{ s: "#planSaveNow", k: "rk01s" }/],
   ["Ranking: ④ 🔗 Keep together (same building / team in drafts)", /🔗 Keep together \(排在一起/, /{ s: "#tbCard \.tb-tog", k: "rk19g" }/],
