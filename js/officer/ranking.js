@@ -797,6 +797,21 @@ function tbRulesDraft() {
   snake([s1, s2, s3, s4]); snake([hr, mc, b3, b4]);   // Phase 2: each team follows its own attacker — Stables (#1) → Hall (#1), Bell Tower (#2) → Camp (#2); the Sanctum teams stay
   TB.groups = [s1, s2, s3, s4, ab, sw, mc, hr, b1, b2, b3, b4, b5];
   tbTog();
+  /* 📝 notes with the names (Sherry, 2026-11-01 — like Armada's sheet), written from the final cells (after 🔗 Keep together) */
+  const who = (g, k, i = 0) => { const c = g.rows[0][k][i]; return c ? chipLabel(c) : ""; };
+  const n = (g) => g.rows[0].att.length + g.rows[0].def.length + g.rows[0].join.length;
+  const take = (g) => { const a = who(g, "att"), d = who(g, "def"); if (!a) return "";
+    return `${a}, run for it with attack formation (speed it up); if you get inside, your whole team follows you with defense.` + (d ? ` ${d}, defend it with your best defensive heroes and gear.` : "") + ` ${a}, if you fail to take it, call a 1-min rally.`; };
+  const help = (g, to) => { const a = who(g, "att"), d = who(g, "def"), b = who(to, "att"); if (!a || !b) return "";
+    return ` ${a}, after you hand the garrison to ${d || "your defender"}, teleport and help ${b} at ${to.rows[0].tl}, and send one defensive march back to ${g.rows[0].tl} (speed it up)!`; };
+  const burn = (g, helper) => { const a = who(g, "att"), d = who(g, "def"), h = who(helper, "att"); if (!a) return "";
+    return ` All ${n(g)} of you there: reinforce yourselves with a full defensive march before you start attacking the Abbeys. ${a}, after you hand the garrison to ${d || "your defender"}, start burning enemy towns around you with your strongest march` + (h ? ` — ${h} helps you: attack the same target at the same time.` : "."); };
+  s1.rows[0].note = take(s1) + help(s1, s3); s2.rows[0].note = take(s2) + help(s2, s4);
+  s3.rows[0].note = take(s3) + burn(s3, s1); s4.rows[0].note = take(s4) + burn(s4, s2);
+  const top = [who(sw, "att"), ...sw.rows[0].def.map(chipLabel)].filter(Boolean);
+  if (top.length) sw.rows[0].note = `${top.join(", ")}: teleport at 14:40 to the Sword Shrine and run for it as soon as it opens. If you get in, swap to defense, reinforce yourselves and send a defensive march back to the Sanctum you came from. If you fail to get in, call a 1-min rally.`;
+  const sec2 = (g, team) => { const a = who(g, "att"), d = who(g, "def"); return `${[a, d].filter(Boolean).join(" & ") || "Attacker & defender"}: secondary march. ${team} team, help out with your secondary march!`; };
+  mc.rows[0].note = sec2(mc, "Bell Tower"); hr.rows[0].note = sec2(hr, "Royal Stables");
 }
 
 /* 🔱 TAC plan draft (the alliance's plan v2, Armada 2026-10-31): Teams A–D from ③ (A/B/C take turns by rank, D = the weakest), one row per team and stage:
