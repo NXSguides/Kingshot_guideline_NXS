@@ -1265,6 +1265,14 @@ The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-11-01 by Nia] SS 1. Lejyon
+(battle table: shown in the reader's language)
+
+
+
+
+(see guide #swordland-showdown)
+
+[2026-11-01 by Nia] SS 1. Lejyon
 
 
 [2026-10-19 by ΔRMΔDΔ] Kılıçdiyarı Hesaplaşması Katılımsızlıkları
