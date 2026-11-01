@@ -47,7 +47,7 @@ const T = {
 const MT = {"en": {"mHome": "🏰 In our kingdom", "mKvk": "⚔️ KvK", "usHome": "NXS", "themHome": "Other alliances in #2189", "usKvk": "Our kingdom #2189", "themKvk": "KvK opponent", "noKvk": "No other kingdom yet. In 🔭 Scout below, add the KvK opponent and tick “update daily” — press “Fetch now” — its players show here a few minutes later (refresh the page)."}, "zh": {"mHome": "🏰 王國內", "mKvk": "⚔️ KvK", "usHome": "NXS", "themHome": "#2189 其他聯盟", "usKvk": "我們王國 #2189", "themKvk": "KvK 對手", "noKvk": "還沒有其他王國的資料。在下面的 🔭 偵查加上 KvK 對手並勾「每天更新」，按「立即抓取」——幾分鐘後重新整理就會出現。"}, "pt": {"mHome": "🏰 No nosso reino", "mKvk": "⚔️ KvK", "usHome": "NXS", "themHome": "Outras alianças em #2189", "usKvk": "Nosso reino #2189", "themKvk": "Adversário do KvK", "noKvk": "Ainda sem outro reino. No 🔭 Espiar abaixo, adicione o adversário do KvK e marque “atualizar todo dia” — aperte “Buscar agora” — os jogadores aparecem aqui alguns minutos depois (atualize a página)."}, "ar": {"mHome": "🏰 داخل مملكتنا", "mKvk": "⚔️ KvK", "usHome": "NXS", "themHome": "تحالفات أخرى في ‎#2189", "usKvk": "مملكتنا ‎#2189", "themKvk": "خصم KvK", "noKvk": "لا توجد مملكة أخرى بعد. في 🔭 الاستطلاع بالأسفل أضف خصم KvK وفعّل «تحديث يومي» — اضغط «جلب الآن» — يظهر لاعبوه هنا بعد دقائق (حدّث الصفحة)."}, "ko": {"mHome": "🏰 우리 왕국 안", "mKvk": "⚔️ KvK", "usHome": "NXS", "themHome": "#2189 다른 연맹", "usKvk": "우리 왕국 #2189", "themKvk": "KvK 상대", "noKvk": "아직 다른 왕국이 없어요. 아래 🔭 정찰에서 KvK 상대를 추가하고 “매일 업데이트”를 체크하면 “지금 가져오기”를 누르세요 — 몇 분 뒤 새로고침하면 여기 나와요."}};
 /* 🗡️ Swordland, ⚔️/🛡️ direction, tier mix, troop ratio (2026-10-30) — added on top of T / MT; same keys override the old wording */
 const NT = {
-  en: { svT:"Saved opponents (on this device — kept until you delete them)", svOpen:"Open", svDel:"🗑 Delete", svAsk:"Delete the saved data of [{tag}] #{kid}?", auto:"⚡ Auto-arrange", autoNote:"Their strongest → garrison leader; our top {k} → rallies (weaker first, the strongest last), troops and tier from ③ Settings.", tgTitle:"Set as their garrison leader", raTitle:"Add to / remove from our rallies", tgTitleD:"Set as our garrison leader", raTitleD:"Add to / remove from their rallies", ssSet2:"③ Basic settings (used by ⚡ Auto-arrange)", find:"🔎 find a name", oppT:"Opponent alliance (optional): fetch it and only its players are listed", onlyOpp:"Only [{tag}]'s players", ssPlanT:"⚔️ Rallies: pick their garrison leader and our rally leaders (only people ticked as playing)", ssNeedOpp:"Fetch the opponent above first.", inL:"Playing", inNote:"Untick who isn't playing — they leave the ranking and every answer below.", inThem:"Them:", inUs:"Us:", inAll:"✓ All", inNone:"✗ None", inTop:"Only the top", offT:"Not ticked ({n}) — tick to add back", rkT:"📊 Both sides, by Strength", rkNote:"Our list and their alliance in one ranking. Tap one of ours: Confirmed ↔ Substitute. Tap one of theirs: ⚠️ watch (⚠️? = suggested: about as strong as our best leader, or stronger).", q3None:"Nobody marked yet — tap their players in the ranking above.", q3Sugg:"Suggested: {names}.", tTierD: "Our tier", mSs: "🗡️ Swordland", dirA: "⚔️ We attack", dirD: "🛡️ They attack us", tgtD: "Our garrison", tLeadD: "Our garrison leader", usD: "Their rallies (in order)",
+  en: { ssNeed2:"Pick our plan and at least one of their players to see the estimate.", holdT:"🛡️ Hold the Swordshrine", holdRes:"Keep at least {g} troops in it ≈ {n} people", holdNote:"Against one rally of {lead} with {r} troops. Our garrison leader: {us}.", takeT:"⚔️ Take theirs", takeRes:"One rally of at least {r} troops ≈ {n} people (leader + joiners)", takeCap:"⚠️ More than our rally can hold ({cap}) — needs a stronger leader or a bigger rally.", takeNote:"Their garrison ≈ {g} troops, led by {lead}. Our rally leader: {us}.", haveT:"We have {n} people ≈ {t} troops ({per} each).", bothT:"Holding and taking at the same time needs {n} people.", rsT:"🔍 Who of [{tag}] is playing", rsNote:"Search their members (name or rank) and tick who is in this battle. Only ticked players go into the ranking and the estimate.", rsFind:"🔎 Search a name or R4…", rsSel:"{n} / {t} picked", rsNone:"Nobody picked yet — search above and tick their players.", rkNote2:"Our ticked list + their picked players, strongest first. 🎯 = the leader used in the estimate (tap again = back to the strongest). Tap one of ours: Confirmed ↔ Substitute. Tap one of theirs: ⚠️ watch.", ldUs:"Our leader for the estimate", ldThem:"Their leader for the estimate", estT:"📐 Estimate — one rally each way", ssSet3:"③ Settings", ssG0:"Their garrison troops (0 = their picked × troops each)", svT:"Saved opponents (on this device — kept until you delete them)", svOpen:"Open", svDel:"🗑 Delete", svAsk:"Delete the saved data of [{tag}] #{kid}?", auto:"⚡ Auto-arrange", autoNote:"Their strongest → garrison leader; our top {k} → rallies (weaker first, the strongest last), troops and tier from ③ Settings.", tgTitle:"Set as their garrison leader", raTitle:"Add to / remove from our rallies", tgTitleD:"Set as our garrison leader", raTitleD:"Add to / remove from their rallies", ssSet2:"③ Basic settings (used by ⚡ Auto-arrange)", find:"🔎 find a name", oppT:"Opponent alliance (optional): fetch it and only its players are listed", onlyOpp:"Only [{tag}]'s players", ssPlanT:"⚔️ Rallies: pick their garrison leader and our rally leaders (only people ticked as playing)", ssNeedOpp:"Fetch the opponent above first.", inL:"Playing", inNote:"Untick who isn't playing — they leave the ranking and every answer below.", inThem:"Them:", inUs:"Us:", inAll:"✓ All", inNone:"✗ None", inTop:"Only the top", offT:"Not ticked ({n}) — tick to add back", rkT:"📊 Both sides, by Strength", rkNote:"Our list and their alliance in one ranking. Tap one of ours: Confirmed ↔ Substitute. Tap one of theirs: ⚠️ watch (⚠️? = suggested: about as strong as our best leader, or stronger).", q3None:"Nobody marked yet — tap their players in the ranking above.", q3Sugg:"Suggested: {names}.", tTierD: "Our tier", mSs: "🗡️ Swordland", dirA: "⚔️ We attack", dirD: "🛡️ They attack us", tgtD: "Our garrison", tLeadD: "Our garrison leader", usD: "Their rallies (in order)",
     debUs: "Debuff on the attackers (attack/defense −%)", debThem: "Debuff on the garrison (−%)", terr: "Garrison in its own territory (+10% all)",
     winD: "❌ They take it — {s} of theirs stay", loseD: "✅ We hold — {g} of ours left", needD: "Rallies like their #1 needed to take it: about {n}.",
     holdD: "To hold against all these rallies at once: at least {g} troops in the building.", lastD: "Keep reinforcing between their rallies — every troop that arrives in time counts in full.",
@@ -70,7 +70,7 @@ const NT = {
     q3: "Who to watch", q3Note: "⚠️ = as strong as our best leader, or stronger.",
     ssNeed: "Pick a plan and fetch the opponent to see the result.", ssEst: "≈ estimated from Power",
     ssCav: "Rough estimate, same model as the planner: hero skills, troop counters and building buffs (e.g. the Hall of Reformation) are not counted." },
-  zh: { svT:"已存的對手（存在這台裝置，刪掉之前都會留著）", svOpen:"打開", svDel:"🗑 刪除", svAsk:"刪除 [{tag}] #{kid} 存的資料？", auto:"⚡ 自動排", autoNote:"對方最強 → 駐守隊長；我方前 {k} 強 → 集結（弱的先上、最強最後），兵數和兵等用 ③ 基礎設定。", tgTitle:"設為對方駐守隊長", raTitle:"加入／移出我們的集結", tgTitleD:"設為我方駐守隊長", raTitleD:"加入／移出對方的集結", ssSet2:"③ 基礎設定（⚡ 自動排會用）", find:"🔎 找名字", oppT:"對方聯盟（選填）：抓下來之後只列他們的人", onlyOpp:"只列 [{tag}] 的人", ssPlanT:"⚔️ 集結安排：選對方駐守隊長和我們的集結隊長（只列勾了參戰的人）", ssNeedOpp:"先在上面抓對手聯盟。", inL:"參戰", inNote:"沒參戰的取消勾選——他們就不會出現在排名和下面所有分析。", inThem:"對方：", inUs:"我方：", inAll:"✓ 全勾", inNone:"✗ 全不勾", inTop:"只勾前", offT:"沒勾的（{n} 人）——勾回來就會加回去", rkT:"📊 雙方排名（依強度）", rkNote:"我們的名單和對方聯盟排在一起。點我們的人：確定 ↔ 替補。點對方的人：勾 ⚠️ 要注意（⚠️? = 建議注意：跟我們最強的隊長差不多強或更強）。", q3None:"還沒勾——在上面的排名點對方的人。", q3Sugg:"建議：{names}。", tTierD: "我方兵等", mSs: "🗡️ 聖劍", dirA: "⚔️ 我們進攻", dirD: "🛡️ 對方打我們", tgtD: "我方駐軍", tLeadD: "我方駐軍隊長", usD: "對方集結（依順序）",
+  zh: { ssNeed2:"選好我們的計畫、至少勾一個對方的人，才算得出來。", holdT:"🛡️ 守住聖劍祭壇", holdRes:"駐防至少 {g} 兵 ≈ {n} 人", holdNote:"對手 {lead} 帶 {r} 兵打一團。我方駐守隊長：{us}。", takeT:"⚔️ 打下對方", takeRes:"一團至少 {r} 兵 ≈ {n} 人（隊長 + 跟集結）", takeCap:"⚠️ 超過我們一團裝得下的兵數（{cap}）——要更強的隊長或更大的集結。", takeNote:"對方駐防 ≈ {g} 兵，隊長 {lead}。我方集結隊長：{us}。", haveT:"我們有 {n} 人 ≈ {t} 兵（每人 {per}）。", bothT:"同時要守又要打，總共需要 {n} 人。", rsT:"🔍 [{tag}] 這次誰會參戰", rsNote:"搜尋他們的成員（名字或階級），勾選這次會參戰的人。只有勾選的人會進排名和估算。", rsFind:"🔎 搜尋名字或 R4…", rsSel:"已選 {n} / {t} 人", rsNone:"還沒選——在上面搜尋，勾選他們的人。", rkNote2:"我們勾選的名單 + 對方選好的人，依強度排。🎯 = 估算用的隊長（再點一次＝回到最強的）。點我們的人：確定 ↔ 替補。點對方的人：⚠️ 要注意。", ldUs:"估算用的我方隊長", ldThem:"估算用的對方隊長", estT:"📐 估算——各打一團", ssSet3:"③ 設定", ssG0:"對方駐防兵數（0 = 選好的人數 × 每人兵數）", svT:"已存的對手（存在這台裝置，刪掉之前都會留著）", svOpen:"打開", svDel:"🗑 刪除", svAsk:"刪除 [{tag}] #{kid} 存的資料？", auto:"⚡ 自動排", autoNote:"對方最強 → 駐守隊長；我方前 {k} 強 → 集結（弱的先上、最強最後），兵數和兵等用 ③ 基礎設定。", tgTitle:"設為對方駐守隊長", raTitle:"加入／移出我們的集結", tgTitleD:"設為我方駐守隊長", raTitleD:"加入／移出對方的集結", ssSet2:"③ 基礎設定（⚡ 自動排會用）", find:"🔎 找名字", oppT:"對方聯盟（選填）：抓下來之後只列他們的人", onlyOpp:"只列 [{tag}] 的人", ssPlanT:"⚔️ 集結安排：選對方駐守隊長和我們的集結隊長（只列勾了參戰的人）", ssNeedOpp:"先在上面抓對手聯盟。", inL:"參戰", inNote:"沒參戰的取消勾選——他們就不會出現在排名和下面所有分析。", inThem:"對方：", inUs:"我方：", inAll:"✓ 全勾", inNone:"✗ 全不勾", inTop:"只勾前", offT:"沒勾的（{n} 人）——勾回來就會加回去", rkT:"📊 雙方排名（依強度）", rkNote:"我們的名單和對方聯盟排在一起。點我們的人：確定 ↔ 替補。點對方的人：勾 ⚠️ 要注意（⚠️? = 建議注意：跟我們最強的隊長差不多強或更強）。", q3None:"還沒勾——在上面的排名點對方的人。", q3Sugg:"建議：{names}。", tTierD: "我方兵等", mSs: "🗡️ 聖劍", dirA: "⚔️ 我們進攻", dirD: "🛡️ 對方打我們", tgtD: "我方駐軍", tLeadD: "我方駐軍隊長", usD: "對方集結（依順序）",
     debUs: "攻方被減益（攻擊／防禦 −%）", debThem: "守方被減益（−%）", terr: "守方在自己領土（全屬性 +10%）",
     winD: "❌ 被打下——對方剩 {s}", loseD: "✅ 守住——我方剩 {g}", needD: "要打下需要像對方 #1 這樣的集結：約 {n} 團。",
     holdD: "同時擋下這些集結：建築裡至少要有 {g} 兵。", lastD: "對方集結之間要一直增援——及時到的兵全部都算。",
@@ -93,7 +93,7 @@ const NT = {
     q3: "值得警惕的人", q3Note: "⚠️ = 跟我們最強的隊長一樣強或更強。",
     ssNeed: "選一個計畫並抓取對手，就會出現結果。", ssEst: "≈ 用戰力估算",
     ssCav: "粗估，跟上面規劃同一個模型：英雄技能、兵種相剋、建築增益（例如教化大廳）都沒算。" },
-  pt: { svT:"Adversários salvos (neste aparelho — ficam até você apagar)", svOpen:"Abrir", svDel:"🗑 Apagar", svAsk:"Apagar os dados salvos de [{tag}] #{kid}?", auto:"⚡ Organizar", autoNote:"O mais forte deles → líder da guarnição; nossos {k} mais fortes → rallies (mais fracos primeiro, o mais forte por último), tropas e nível das ③ Configurações.", tgTitle:"Definir como líder da guarnição deles", raTitle:"Pôr / tirar dos nossos rallies", tgTitleD:"Definir como líder da nossa guarnição", raTitleD:"Pôr / tirar dos rallies deles", ssSet2:"③ Configurações básicas (usadas pelo ⚡ Organizar)", find:"🔎 achar nome", oppT:"Aliança adversária (opcional): busque e só os jogadores dela aparecem", onlyOpp:"Só jogadores de [{tag}]", ssPlanT:"⚔️ Rallies: escolha o líder da guarnição deles e nossos líderes de rally (só quem está marcado como jogando)", ssNeedOpp:"Busque o adversário acima primeiro.", inL:"Joga", inNote:"Desmarque quem não joga — sai do ranking e de todas as respostas abaixo.", inThem:"Eles:", inUs:"Nós:", inAll:"✓ Todos", inNone:"✗ Nenhum", inTop:"Só os primeiros", offT:"Não marcados ({n}) — marque para voltar", rkT:"📊 Os dois lados, por Força", rkNote:"Nossa lista e a aliança deles num só ranking. Toque num dos nossos: Confirmado ↔ Reserva. Toque num deles: ⚠️ vigiar (⚠️? = sugerido: tão forte quanto nosso melhor líder, ou mais).", q3None:"Ninguém marcado ainda — toque nos jogadores deles no ranking acima.", q3Sugg:"Sugeridos: {names}.", tTierD: "Nosso nível", mSs: "🗡️ Terra das Espadas", dirA: "⚔️ Nós atacamos", dirD: "🛡️ Eles nos atacam", tgtD: "Nossa guarnição", tLeadD: "Líder da nossa guarnição", usD: "Os comícios deles (em ordem)",
+  pt: { ssNeed2:"Escolha nosso plano e ao menos um jogador deles para ver a estimativa.", holdT:"🛡️ Segurar o Templo da Espada", holdRes:"Mantenha pelo menos {g} tropas ≈ {n} pessoas", holdNote:"Contra um rally de {lead} com {r} tropas. Nosso líder da guarnição: {us}.", takeT:"⚔️ Tomar o deles", takeRes:"Um rally de pelo menos {r} tropas ≈ {n} pessoas (líder + participantes)", takeCap:"⚠️ Mais do que nosso rally comporta ({cap}) — precisa de líder mais forte ou rally maior.", takeNote:"Guarnição deles ≈ {g} tropas, líder {lead}. Nosso líder de rally: {us}.", haveT:"Temos {n} pessoas ≈ {t} tropas ({per} cada).", bothT:"Segurar e tomar ao mesmo tempo precisa de {n} pessoas.", rsT:"🔍 Quem de [{tag}] vai jogar", rsNote:"Busque os membros deles (nome ou cargo) e marque quem está nesta batalha. Só os marcados entram no ranking e na estimativa.", rsFind:"🔎 Buscar nome ou R4…", rsSel:"{n} / {t} escolhidos", rsNone:"Ninguém escolhido — busque acima e marque os jogadores deles.", rkNote2:"Nossa lista marcada + os escolhidos deles, do mais forte. 🎯 = líder usado na estimativa (toque de novo = volta ao mais forte). Toque num nosso: Confirmado ↔ Reserva. Num deles: ⚠️ vigiar.", ldUs:"Nosso líder para a estimativa", ldThem:"Líder deles para a estimativa", estT:"📐 Estimativa — um rally de cada lado", ssSet3:"③ Configurações", ssG0:"Tropas da guarnição deles (0 = escolhidos × tropas de cada)", svT:"Adversários salvos (neste aparelho — ficam até você apagar)", svOpen:"Abrir", svDel:"🗑 Apagar", svAsk:"Apagar os dados salvos de [{tag}] #{kid}?", auto:"⚡ Organizar", autoNote:"O mais forte deles → líder da guarnição; nossos {k} mais fortes → rallies (mais fracos primeiro, o mais forte por último), tropas e nível das ③ Configurações.", tgTitle:"Definir como líder da guarnição deles", raTitle:"Pôr / tirar dos nossos rallies", tgTitleD:"Definir como líder da nossa guarnição", raTitleD:"Pôr / tirar dos rallies deles", ssSet2:"③ Configurações básicas (usadas pelo ⚡ Organizar)", find:"🔎 achar nome", oppT:"Aliança adversária (opcional): busque e só os jogadores dela aparecem", onlyOpp:"Só jogadores de [{tag}]", ssPlanT:"⚔️ Rallies: escolha o líder da guarnição deles e nossos líderes de rally (só quem está marcado como jogando)", ssNeedOpp:"Busque o adversário acima primeiro.", inL:"Joga", inNote:"Desmarque quem não joga — sai do ranking e de todas as respostas abaixo.", inThem:"Eles:", inUs:"Nós:", inAll:"✓ Todos", inNone:"✗ Nenhum", inTop:"Só os primeiros", offT:"Não marcados ({n}) — marque para voltar", rkT:"📊 Os dois lados, por Força", rkNote:"Nossa lista e a aliança deles num só ranking. Toque num dos nossos: Confirmado ↔ Reserva. Toque num deles: ⚠️ vigiar (⚠️? = sugerido: tão forte quanto nosso melhor líder, ou mais).", q3None:"Ninguém marcado ainda — toque nos jogadores deles no ranking acima.", q3Sugg:"Sugeridos: {names}.", tTierD: "Nosso nível", mSs: "🗡️ Terra das Espadas", dirA: "⚔️ Nós atacamos", dirD: "🛡️ Eles nos atacam", tgtD: "Nossa guarnição", tLeadD: "Líder da nossa guarnição", usD: "Os comícios deles (em ordem)",
     debUs: "Debuff nos atacantes (ataque/defesa −%)", debThem: "Debuff na guarnição (−%)", terr: "Guarnição no próprio território (+10% em tudo)",
     winD: "❌ Eles tomam — ficam {s} deles", loseD: "✅ Seguramos — ficam {g} nossos", needD: "Comícios como o #1 deles para tomar: cerca de {n}.",
     holdD: "Para segurar todos esses comícios de uma vez: pelo menos {g} tropas no prédio.", lastD: "Continue reforçando entre os comícios — toda tropa que chega a tempo conta inteira.",
@@ -116,7 +116,7 @@ const NT = {
     q3: "Quem vigiar", q3Note: "⚠️ = tão forte quanto o nosso melhor líder, ou mais.",
     ssNeed: "Escolha um plano e busque o adversário para ver o resultado.", ssEst: "≈ estimado pelo Poder",
     ssCav: "Estimativa grosseira, mesmo modelo do planejador: habilidades de herói, vantagem de tropa e bônus de prédios (ex.: Salão da Reforma) não contam." },
-  ar: { svT:"الخصوم المحفوظون (على هذا الجهاز — يبقون حتى تحذفهم)", svOpen:"فتح", svDel:"🗑 حذف", svAsk:"حذف البيانات المحفوظة لـ [{tag}] ‎#{kid}؟", auto:"⚡ ترتيب تلقائي", autoNote:"الأقوى لديهم ← قائد الحامية؛ أقوى {k} لدينا ← الحشود (الأضعف أولًا والأقوى أخيرًا)، والجنود والمستوى من ③ الإعدادات.", tgTitle:"اجعله قائد حاميتهم", raTitle:"أضِف إلى / أزِل من حشودنا", tgTitleD:"اجعله قائد حاميتنا", raTitleD:"أضِف إلى / أزِل من حشودهم", ssSet2:"③ الإعدادات الأساسية (يستخدمها ⚡ الترتيب التلقائي)", find:"🔎 ابحث عن اسم", oppT:"تحالف الخصم (اختياري): اجلبه فيظهر لاعبوه فقط", onlyOpp:"لاعبو [{tag}] فقط", ssPlanT:"⚔️ الحشود: اختر قائد حاميتهم وقادة حشودنا (فقط من حُدِّد أنه يشارك)", ssNeedOpp:"اجلب الخصم في الأعلى أولًا.", inL:"يشارك", inNote:"ألغِ تحديد من لا يشارك — يخرج من الترتيب ومن كل الإجابات أدناه.", inThem:"هم:", inUs:"نحن:", inAll:"✓ الكل", inNone:"✗ لا أحد", inTop:"فقط أول", offT:"غير المحدَّدين ({n}) — حدّد لإعادتهم", rkT:"📊 الطرفان حسب القوة", rkNote:"قائمتنا وتحالفهم في ترتيب واحد. اضغط على أحدنا: مؤكَّد ↔ بديل. اضغط على أحدهم: ⚠️ مراقبة (⚠️? = مقترح: بقوة أفضل قائد لدينا أو أقوى).", q3None:"لم يُحدَّد أحد بعد — اضغط على لاعبيهم في الترتيب أعلاه.", q3Sugg:"مقترحون: {names}.", tTierD: "مستوانا", mSs: "🗡️ أرض السيوف", dirA: "⚔️ نحن نهاجم", dirD: "🛡️ هم يهاجموننا", tgtD: "حاميتنا", tLeadD: "قائد حاميتنا", usD: "حشودهم (بالترتيب)",
+  ar: { ssNeed2:"اختر خطتنا ولاعبًا واحدًا على الأقل منهم لرؤية التقدير.", holdT:"🛡️ الصمود في ضريح السيوف", holdRes:"أبقِ ما لا يقل عن {g} جندي ≈ {n} شخص", holdNote:"أمام حشد واحد لـ {lead} بـ {r} جندي. قائد حاميتنا: {us}.", takeT:"⚔️ أخذ ما لديهم", takeRes:"حشد واحد لا يقل عن {r} جندي ≈ {n} شخص (القائد + المنضمّون)", takeCap:"⚠️ أكثر مما يتسع له حشدنا ({cap}) — نحتاج قائدًا أقوى أو حشدًا أكبر.", takeNote:"حاميتهم ≈ {g} جندي بقيادة {lead}. قائد حشدنا: {us}.", haveT:"لدينا {n} شخص ≈ {t} جندي ({per} لكل واحد).", bothT:"الصمود والهجوم معًا يحتاجان {n} شخصًا.", rsT:"🔍 من سيشارك من [{tag}]", rsNote:"ابحث في أعضائهم (الاسم أو الرتبة) وحدّد من سيشارك في هذه المعركة. المحدَّدون فقط يدخلون الترتيب والتقدير.", rsFind:"🔎 ابحث عن اسم أو R4…", rsSel:"تم اختيار {n} / {t}", rsNone:"لم يُختر أحد بعد — ابحث في الأعلى وحدّد لاعبيهم.", rkNote2:"قائمتنا المحدَّدة + المختارون منهم، الأقوى أولًا. 🎯 = القائد المستخدم في التقدير (اضغط مجددًا = الأقوى). اضغط أحدنا: مؤكَّد ↔ بديل. أحدهم: ⚠️ مراقبة.", ldUs:"قائدنا للتقدير", ldThem:"قائدهم للتقدير", estT:"📐 التقدير — حشد واحد لكل جهة", ssSet3:"③ الإعدادات", ssG0:"جنود حاميتهم (0 = المختارون × جنود كل واحد)", svT:"الخصوم المحفوظون (على هذا الجهاز — يبقون حتى تحذفهم)", svOpen:"فتح", svDel:"🗑 حذف", svAsk:"حذف البيانات المحفوظة لـ [{tag}] ‎#{kid}؟", auto:"⚡ ترتيب تلقائي", autoNote:"الأقوى لديهم ← قائد الحامية؛ أقوى {k} لدينا ← الحشود (الأضعف أولًا والأقوى أخيرًا)، والجنود والمستوى من ③ الإعدادات.", tgTitle:"اجعله قائد حاميتهم", raTitle:"أضِف إلى / أزِل من حشودنا", tgTitleD:"اجعله قائد حاميتنا", raTitleD:"أضِف إلى / أزِل من حشودهم", ssSet2:"③ الإعدادات الأساسية (يستخدمها ⚡ الترتيب التلقائي)", find:"🔎 ابحث عن اسم", oppT:"تحالف الخصم (اختياري): اجلبه فيظهر لاعبوه فقط", onlyOpp:"لاعبو [{tag}] فقط", ssPlanT:"⚔️ الحشود: اختر قائد حاميتهم وقادة حشودنا (فقط من حُدِّد أنه يشارك)", ssNeedOpp:"اجلب الخصم في الأعلى أولًا.", inL:"يشارك", inNote:"ألغِ تحديد من لا يشارك — يخرج من الترتيب ومن كل الإجابات أدناه.", inThem:"هم:", inUs:"نحن:", inAll:"✓ الكل", inNone:"✗ لا أحد", inTop:"فقط أول", offT:"غير المحدَّدين ({n}) — حدّد لإعادتهم", rkT:"📊 الطرفان حسب القوة", rkNote:"قائمتنا وتحالفهم في ترتيب واحد. اضغط على أحدنا: مؤكَّد ↔ بديل. اضغط على أحدهم: ⚠️ مراقبة (⚠️? = مقترح: بقوة أفضل قائد لدينا أو أقوى).", q3None:"لم يُحدَّد أحد بعد — اضغط على لاعبيهم في الترتيب أعلاه.", q3Sugg:"مقترحون: {names}.", tTierD: "مستوانا", mSs: "🗡️ أرض السيوف", dirA: "⚔️ نحن نهاجم", dirD: "🛡️ هم يهاجموننا", tgtD: "حاميتنا", tLeadD: "قائد حاميتنا", usD: "حشودهم (بالترتيب)",
     debUs: "إضعاف على المهاجمين (هجوم/دفاع −%)", debThem: "إضعاف على الحامية (−%)", terr: "الحامية في أرضها (+10% لكل شيء)",
     winD: "❌ يأخذونه — يبقى {s} من قواتهم", loseD: "✅ نصمد — يبقى {g} من قواتنا", needD: "عدد الحشود مثل حشدهم ‎#1 للسيطرة: نحو {n}.",
     holdD: "للصمود أمام كل هذه الحشود معًا: على الأقل {g} جندي في المبنى.", lastD: "واصلوا التعزيز بين حشودهم — كل جندي يصل في الوقت يُحسب كاملًا.",
@@ -139,7 +139,7 @@ const NT = {
     q3: "من يجب مراقبته", q3Note: "⚠️ = بقوة أفضل قائد لدينا أو أقوى.",
     ssNeed: "اختر خطة واجلب الخصم لترى النتيجة.", ssEst: "≈ مقدَّر من القوة",
     ssCav: "تقدير تقريبي بنفس نموذج المخطط: مهارات الأبطال وأفضلية القوات ومكافآت المباني (مثل قاعة الإصلاح) غير محسوبة." },
-  ko: { svT:"저장된 상대 (이 기기 — 지울 때까지 남아요)", svOpen:"열기", svDel:"🗑 삭제", svAsk:"[{tag}] #{kid} 저장 데이터를 지울까요?", auto:"⚡ 자동 배치", autoNote:"상대 최강 → 주둔 대장, 우리 상위 {k}명 → 집결 (약한 사람부터, 최강은 마지막), 병력과 등급은 ③ 기본 설정에서.", tgTitle:"상대 주둔 대장으로", raTitle:"우리 집결에 넣기 / 빼기", tgTitleD:"우리 주둔 대장으로", raTitleD:"상대 집결에 넣기 / 빼기", ssSet2:"③ 기본 설정 (⚡ 자동 배치에 사용)", find:"🔎 이름 찾기", oppT:"상대 연맹 (선택): 가져오면 그 연맹 사람만 나와요", onlyOpp:"[{tag}] 사람만", ssPlanT:"⚔️ 집결 배치: 상대 주둔 대장과 우리 집결 대장을 고르세요 (참전 체크한 사람만)", ssNeedOpp:"먼저 위에서 상대 연맹을 가져오세요.", inL:"참전", inNote:"참전하지 않는 사람은 체크 해제 — 순위와 아래 모든 분석에서 빠져요.", inThem:"상대:", inUs:"우리:", inAll:"✓ 전체", inNone:"✗ 해제", inTop:"상위만", offT:"체크 안 된 사람 ({n}명) — 체크하면 다시 들어가요", rkT:"📊 양쪽 순위 (강도순)", rkNote:"우리 명단과 상대 연맹을 한 순위로. 우리 쪽을 누르면 확정 ↔ 후보, 상대 쪽을 누르면 ⚠️ 주의 표시 (⚠️? = 추천: 우리 최강 대장만큼 또는 더 강함).", q3None:"아직 표시한 사람이 없어요 — 위 순위에서 상대 플레이어를 누르세요.", q3Sugg:"추천: {names}.", tTierD: "우리 등급", mSs: "🗡️ 성검", dirA: "⚔️ 우리가 공격", dirD: "🛡️ 상대가 공격", tgtD: "우리 주둔군", tLeadD: "우리 주둔군 대장", usD: "상대 집결 (순서대로)",
+  ko: { ssNeed2:"우리 계획을 고르고 상대를 한 명 이상 체크해야 계산돼요.", holdT:"🛡️ 성검 제단 지키기", holdRes:"최소 {g} 병력 주둔 ≈ {n}명", holdNote:"{lead}의 {r} 병력 집결 한 번에 대해. 우리 주둔 대장: {us}.", takeT:"⚔️ 상대 것 빼앗기", takeRes:"집결 한 번에 최소 {r} 병력 ≈ {n}명 (대장 + 참여자)", takeCap:"⚠️ 우리 집결이 담을 수 있는 병력({cap})보다 많아요 — 더 강한 대장이나 더 큰 집결이 필요해요.", takeNote:"상대 주둔 ≈ {g} 병력, 대장 {lead}. 우리 집결 대장: {us}.", haveT:"우리는 {n}명 ≈ {t} 병력 (1인당 {per}).", bothT:"지키면서 빼앗으려면 총 {n}명이 필요해요.", rsT:"🔍 [{tag}]에서 이번에 누가 참전하나", rsNote:"상대 멤버를 검색해서 (이름이나 등급) 이번 전투에 나오는 사람을 체크하세요. 체크한 사람만 순위와 계산에 들어가요.", rsFind:"🔎 이름이나 R4 검색…", rsSel:"{n} / {t}명 선택", rsNone:"아직 아무도 안 골랐어요 — 위에서 검색해서 체크하세요.", rkNote2:"우리 체크 명단 + 상대 선택 인원, 강한 순. 🎯 = 계산에 쓰는 대장 (다시 누르면 최강으로). 우리 쪽을 누르면 확정 ↔ 후보, 상대 쪽은 ⚠️ 주의.", ldUs:"계산용 우리 대장", ldThem:"계산용 상대 대장", estT:"📐 계산 — 양쪽 집결 한 번씩", ssSet3:"③ 설정", ssG0:"상대 주둔 병력 (0 = 선택 인원 × 1인당 병력)", svT:"저장된 상대 (이 기기 — 지울 때까지 남아요)", svOpen:"열기", svDel:"🗑 삭제", svAsk:"[{tag}] #{kid} 저장 데이터를 지울까요?", auto:"⚡ 자동 배치", autoNote:"상대 최강 → 주둔 대장, 우리 상위 {k}명 → 집결 (약한 사람부터, 최강은 마지막), 병력과 등급은 ③ 기본 설정에서.", tgTitle:"상대 주둔 대장으로", raTitle:"우리 집결에 넣기 / 빼기", tgTitleD:"우리 주둔 대장으로", raTitleD:"상대 집결에 넣기 / 빼기", ssSet2:"③ 기본 설정 (⚡ 자동 배치에 사용)", find:"🔎 이름 찾기", oppT:"상대 연맹 (선택): 가져오면 그 연맹 사람만 나와요", onlyOpp:"[{tag}] 사람만", ssPlanT:"⚔️ 집결 배치: 상대 주둔 대장과 우리 집결 대장을 고르세요 (참전 체크한 사람만)", ssNeedOpp:"먼저 위에서 상대 연맹을 가져오세요.", inL:"참전", inNote:"참전하지 않는 사람은 체크 해제 — 순위와 아래 모든 분석에서 빠져요.", inThem:"상대:", inUs:"우리:", inAll:"✓ 전체", inNone:"✗ 해제", inTop:"상위만", offT:"체크 안 된 사람 ({n}명) — 체크하면 다시 들어가요", rkT:"📊 양쪽 순위 (강도순)", rkNote:"우리 명단과 상대 연맹을 한 순위로. 우리 쪽을 누르면 확정 ↔ 후보, 상대 쪽을 누르면 ⚠️ 주의 표시 (⚠️? = 추천: 우리 최강 대장만큼 또는 더 강함).", q3None:"아직 표시한 사람이 없어요 — 위 순위에서 상대 플레이어를 누르세요.", q3Sugg:"추천: {names}.", tTierD: "우리 등급", mSs: "🗡️ 성검", dirA: "⚔️ 우리가 공격", dirD: "🛡️ 상대가 공격", tgtD: "우리 주둔군", tLeadD: "우리 주둔군 대장", usD: "상대 집결 (순서대로)",
     debUs: "공격 측 디버프 (공격/방어 −%)", debThem: "수비 측 디버프 (−%)", terr: "수비 측이 자기 영토 안 (전 능력 +10%)",
     winD: "❌ 빼앗김 — 상대 {s} 남음", loseD: "✅ 지켜냄 — 우리 {g} 남음", needD: "빼앗으려면 상대 #1 같은 집결이 약 {n}번 필요.",
     holdD: "이 집결을 한꺼번에 막으려면: 건물 안에 최소 {g} 병력.", lastD: "상대 집결 사이사이 계속 지원하세요 — 제때 도착한 병력은 전부 계산됩니다.",
@@ -265,7 +265,7 @@ const dirBar = () => `<div class="ak-mode ak-dir">${[["atk", t("dirA")], ["def",
 function plOf(x, al, kid) { const id = String(x.id); if (!PL[id]) PL[id] = { id, name: x.name, al: al || "", kid: kid || 0, b: x.b ? { ...x.b } : {} };
   if (!sOf(PL[id]) && x.S) PL[id].sEst = x.S; return PL[id]; }
 const oppOn = () => SSD && PLAN.onlyOpp !== false && +SSD.kid === +PLAN.ss.kid && String(SSD.tag).toLowerCase() === String(PLAN.ss.tag || "").toLowerCase();
-const oppList = () => theirList().filter((x) => !new Set(PLAN.ss.off[wKey()] || []).has(x.id) && x.S).map((x) => plOf(x, SSD.tag, SSD.kid));
+const oppList = () => { const pk = new Set(((PLAN.ss.pick || {})[wKey()]) || []); return theirList().filter((x) => (!pk.size || pk.has(x.id)) && x.S).map((x) => plOf(x, SSD.tag, SSD.kid)); };   // 🔍 their picked players (all when nobody is picked)
 const usPlanList = () => { const off = new Set(PLAN.ss.off["u:" + PLAN.ss.plan] || []); return ourList().filter((x) => !off.has(x.id) && x.S).map((x) => plOf(x, "NXS", 2189)); };
 /* 🗡️ Swordland: their side = the fetched alliance (ticked), ours = the 📊 plan (ticked). 🏰 / ⚔️ KvK: a fetched alliance replaces "everyone else" on their side */
 function planLists() { const D = isDef(), ss = PLAN.mode === "ss", them = ss || oppOn() ? oppList() : null, us = ss ? usPlanList() : null;
@@ -338,6 +338,7 @@ function boardsCard() {
 
 /* ---------- 🗡️ Swordland ---------- */
 const OPEN = new Set();   // which ▸ sections stay open across re-renders
+let rosterQ = "";   // 🔍 search text in their roster (kept across re-renders)
 let SAFE_IDS = new Set(), ROSTER = null, PLANS = null, plansErr = "", SSD = null, ssMsg = "", ssBusy = false;
 /* 💾 fetched opponents stay on this device until deleted (Sherry 2026-11-02: "the data I fetched is gone" — it used to live only in this tab) */
 const SV_LS = "nxs-ss-saved", svKey = (d) => `${+d.kid}:${String(d.tag || "").toLowerCase()}`;
@@ -385,27 +386,28 @@ async function ssFetch(force) {
   ssBusy = false; render();
 }
 /* the three answers for one version of our list */
-function ssAnalyze(us, them) {
-  const S = PLAN.ss, P = PLAN.p, K = Math.max(1, Math.min(10, +S.K || 3));
-  const tu = t2(S.tUs, S.mUs), tt = t2(S.tThem, S.mThem);
-  const uTop = us.filter((x) => x.S).slice(0, K), hTop = them.filter((x) => x.S).slice(0, K);
-  if (!uTop.length || !hTop.length) return null;
-  /* ① take it: their garrison led by their strongest; our K rallies, weaker leaders first, the strongest last */
-  const order = [...uTop].reverse(), hLead = hTop[0];
-  const c = chainOf(+S.G || 0, order.map((u) => ({ k: rr(u.S, hLead.S, tu, tt, false), R: +S.R })), P, 0);
-  const last = c[c.length - 1], best = uTop[0], kb = rr(best.S, hLead.S, tu, tt, false);
-  /* ② hold it: our garrison led by our strongest; their K strongest rallies at once */
-  const uLead = uTop[0], gm = gMin(hTop.map((h) => ({ k: rr(h.S, uLead.S, tt, tu, false), R: +S.Rt })), P);
-  return { order, hLead, win: last && last.win, left: last ? last.left : +S.G, n: c.length, best, need: (+S.G) ** P / (kb * (+S.R) ** P), K: uTop.length,
-    uLead, hTop, gm, people: Math.ceil(gm / Math.max(1, +S.per || 150000)) };
+/* 📐 Swordland estimate (Sherry 2026-11-02: "few people — basically one rally; no waves"): one rally each way.
+   🛡️ hold: their strongest picked leader rallies once with min(their picked × per person, their rally cap) → the garrison we need.
+   ⚔️ take: their garrison ≈ their picked × per person (or the number in ③), led by their strongest → the one rally we need. */
+function ssEstimate(us, them) {
+  const S = PLAN.ss, P = PLAN.p, per = Math.max(1, +S.per || 150000), tu = t2(S.tUs, S.mUs), tt = t2(S.tThem, S.mThem), wk = wKey();
+  const uS = us.filter((x) => x.S), hS = them.filter((x) => x.S); if (!uS.length || !hS.length) return null;
+  const uLead = uS.find((x) => x.id === S.lu) || uS[0], hLead = hS.find((x) => x.id === (S.lt || {})[wk]) || hS[0];
+  const hR = Math.min(+S.Rt || 1e12, them.length * per), kH = rr(hLead.S, uLead.S, tt, tu, false);
+  const gNeed = hR * Math.pow(kH, 1 / P);                                    // G^p = k R^p
+  const hG = +S.G > 0 ? +S.G : them.length * per, kT = rr(uLead.S, hLead.S, tu, tt, false);
+  const rNeed = hG / Math.pow(kT, 1 / P);                                     // R^p = G^p / k
+  return { uLead, hLead, hR, gNeed, gPeople: Math.ceil(gNeed / per), hG, rNeed, rPeople: Math.ceil(rNeed / per), cap: +S.R || 0, have: us.length, haveT: us.length * per, per };
 }
-function ssResult(a) {
-  if (!a) return `<div class="muted">${esc(t("ssNeed"))}</div>`;
-  const nm = (l) => l.map((x) => x.name).join(" → ");
-  return `<div class="ak-q"><b>${esc(t("q1"))}</b><div class="${a.win ? "ak-good" : "ak-bad"}">${esc(a.win ? fill(t("q1win"), { n: a.n, s: fmtN(a.left) }) : fill(t("q1lose"), { k: a.K, g: fmtN(a.left), best: a.best.name, n: a.need <= 1 ? "1" : a.need.toFixed(1) }))}</div>
-      <div class="muted" style="font-size:12px" dir="auto">${esc(fill(t("q1Note"), { lead: a.hLead.name, names: nm(a.order) }))}</div></div>
-    <div class="ak-q"><b>${esc(t("q2"))}</b><div class="ak-big">${esc(fill(t("q2res"), { g: fmtN(a.gm), n: a.people }))}</div>
-      <div class="muted" style="font-size:12px" dir="auto">${esc(fill(t("q2Note"), { k: a.hTop.length, names: a.hTop.map((x) => x.name).join(", "), lead: a.uLead.name }))}</div></div>`;
+function ssEstHtml(e) {
+  if (!e) return `<div class="muted">${esc(t("ssNeed2"))}</div>`;
+  const ok = (n) => n <= e.have ? "ak-good" : "ak-bad";
+  return `<div class="ak-est"><div class="ak-q"><b>${esc(t("holdT"))}</b><div class="ak-big ${ok(e.gPeople)}">${esc(fill(t("holdRes"), { g: fmtN(e.gNeed), n: e.gPeople }))}</div>
+      <div class="muted" style="font-size:12px" dir="auto">${esc(fill(t("holdNote"), { lead: e.hLead.name, r: fmtN(e.hR), us: e.uLead.name }))}</div></div>
+    <div class="ak-q"><b>${esc(t("takeT"))}</b><div class="ak-big ${e.cap && e.rNeed > e.cap ? "ak-bad" : ok(e.rPeople)}">${esc(fill(t("takeRes"), { r: fmtN(e.rNeed), n: e.rPeople }))}</div>
+      ${e.cap && e.rNeed > e.cap ? `<div class="mv-warn" style="font-size:12.5px">${esc(fill(t("takeCap"), { cap: fmtN(e.cap) }))}</div>` : ""}
+      <div class="muted" style="font-size:12px" dir="auto">${esc(fill(t("takeNote"), { g: fmtN(e.hG), lead: e.hLead.name, us: e.uLead.name }))}</div></div>
+    <div class="muted" style="font-size:12.5px">${esc(fill(t("haveT"), { n: e.have, t: fmtN(e.haveT), per: fmtN(e.per) }))}${e.gPeople + e.rPeople > e.have ? " " + esc(fill(t("bothT"), { n: e.gPeople + e.rPeople })) : ""}</div></div>`;
 }
 function savedBox() {
   const L = Object.entries(SAVED).sort((a, b) => (b[1].fetched || 0) - (a[1].fetched || 0)); if (!L.length) return "";
@@ -415,36 +417,42 @@ function savedBox() {
     ${k === cur ? "" : `<button class="btn small" data-svo="${esc(k)}">${esc(t("svOpen"))}</button>`}<button class="btn small" data-svd="${esc(k)}">${esc(t("svDel"))}</button></div>`).join("")}</div>`;
 }
 function ssCard() {
-  const S = PLAN.ss, usAll = ourList(), themAll = theirList();
-  /* ☑ who plays (Sherry 2026-11-01: too many people) — unticked people leave the ranking and every answer; kept per plan / per opposing alliance */
-  const offU = new Set(S.off["u:" + S.plan] || []), offT = new Set(wKey() ? S.off[wKey()] || [] : []);
-  const us = usAll.filter((x) => !offU.has(x.id)), them = themAll.filter((x) => !offT.has(x.id));
-  const outRows = [...usAll.filter((x) => offU.has(x.id)).map((x) => ({ ...x, us: 1 })), ...themAll.filter((x) => offT.has(x.id))].sort((a, b) => (b.S || 0) - (a.S || 0));
+  const S = PLAN.ss, usAll = ourList(), themAll = theirList(), wk = wKey();
+  /* ☑ ours: everyone from the plan, untick who isn't playing. 🔍 theirs: nobody until picked from their full member list (Sherry 2026-11-02) */
+  const offU = new Set(S.off["u:" + S.plan] || []), pickT = new Set(wk ? (S.pick || {})[wk] || [] : []);
+  const us = usAll.filter((x) => !offU.has(x.id)), them = themAll.filter((x) => pickT.has(x.id));
+  const outRows = usAll.filter((x) => offU.has(x.id)).map((x) => ({ ...x, us: 1 }));
   const ids = Object.entries(PLANS || {}).sort((a, b) => String(a[1].name || "").localeCompare(String(b[1].name || "")));
   const sTxt = (x) => x.S ? `${x.est ? "≈" : ""}${x.S.toFixed(1)}` : "—";
   const conf = us.filter((x) => !x.sub), subs = us.filter((x) => x.sub);
   const ourTbl = !us.length ? "" : `<div class="muted" style="font-size:12.5px;margin:6px 0"><b>${esc(fill(t("ssCnt"), { c: conf.length, s: subs.length }))}</b></div>`;
   const best = conf.find((x) => x.S) || us.find((x) => x.S);
-  const wk = wKey(), W = new Set(wk ? S.watch[wk] || [] : []), hot = (x) => best && x.S && x.S >= best.S * 0.95;
+  const W = new Set(wk ? S.watch[wk] || [] : []), hot = (x) => best && x.S && x.S >= best.S * 0.95;
   const marked = them.filter((x) => W.has(x.id)), sugg = them.filter(hot).slice(0, 10);
-  /* 📊 one ranking: our list + their alliance, strongest first. Ours: tap = Confirmed ↔ Substitute. Theirs: tap = ⚠️ watch */
+  /* 🔍 their whole alliance: search, tick who plays */
+  const q = norm(rosterQ), shown = themAll.filter((x) => !q || norm(x.name).includes(q) || norm(x.rank).includes(q));
+  const roster = !SSD ? "" : `<div class="ak-box" id="ss_roster"><b>${esc(fill(t("rsT"), { tag: SSD.tag }))}</b><div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("rsNote"))}</div>
+    <div class="ak-inbar"><input class="inp ak-rq" type="search" id="ss_rq" value="${esc(rosterQ)}" placeholder="${esc(t("rsFind"))}" autocomplete="off">
+      <b class="ak-cnt">${esc(fill(t("rsSel"), { n: pickT.size, t: themAll.length }))}</b>
+      <button class="btn small" data-pall="1">${esc(t("inAll"))}</button><button class="btn small" data-pnone="1">${esc(t("inNone"))}</button>
+      <span class="ak-top"><button class="btn small" data-ptop="1">${esc(t("inTop"))}</button><input class="inp" type="number" id="ss_topN" value="${+S.topN || 20}" min="1" max="200"></span></div>
+    ${pickT.size ? `<div class="ak-chips">${themAll.filter((x) => pickT.has(x.id)).map((x) => `<span class="ak-chip" dir="auto">${esc(x.name)}<b data-pk="${esc(x.id)}">×</b></span>`).join("")}</div>` : `<div class="muted" style="font-size:12.5px">${esc(t("rsNone"))}</div>`}
+    <div class="ak-tw ak-list ak-rlist"><table class="ak-t"><tbody>${shown.map((x) => `<tr class="ak-tap${pickT.has(x.id) ? " ak-pk" : ""}" data-pr="${esc(x.id)}"><td class="ak-in"><input type="checkbox" data-pk="${esc(x.id)}"${pickT.has(x.id) ? " checked" : ""}></td>
+      <td dir="auto">${esc(x.name)}${x.rank ? ` <span class="muted">${esc(x.rank)}</span>` : ""}</td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td></tr>`).join("") || `<tr><td class="muted">—</td></tr>`}</tbody></table></div></div>`;
+  /* 📊 one ranking: our ticked list + their picked players, strongest first */
   const mixed = [...us.map((x) => ({ ...x, us: 1 })), ...them].sort((a, b) => (b.S || 0) - (a.S || 0) || (b.power || 0) - (a.power || 0));
-  /* 🎯 / ➕ right in the ranking: set the garrison leader or add a rally leader without the drop-downs */
-  const Dd = isDef(), rIds = PLAN.rallies.map((r) => r.lead);
-  const act = (x) => { const gSide = Dd ? !!x.us : !x.us, n = rIds.indexOf(x.id) + 1;
-    return gSide ? `<button class="btn small ak-act${PLAN.tgt === x.id ? " on" : ""}" data-tg="${esc(x.id)}" title="${esc(t(Dd ? "tgTitleD" : "tgTitle"))}">🎯</button>`
-      : `<button class="btn small ak-act${n ? " on" : ""}" data-ra="${esc(x.id)}" title="${esc(t(Dd ? "raTitleD" : "raTitle"))}">${n ? "#" + n : "➕"}</button>`; };
-  const cb = (x) => `<td class="ak-in"><input type="checkbox" data-in="${x.us ? "u" : "t"}|${esc(x.id)}"${(x.us ? offU : offT).has(x.id) ? "" : " checked"} aria-label="${esc(t("inL"))}"></td>`;
-  const pickBar = !(usAll.length || themAll.length) ? "" : `<div class="muted" style="font-size:12.5px;margin:4px 0">☑ ${esc(t("inNote"))}</div>
-    <div class="ak-inbar">${themAll.length ? `<span>${esc(t("inThem"))}</span><button class="btn small" data-inall="t">${esc(t("inAll"))}</button><button class="btn small" data-innone="t">${esc(t("inNone"))}</button><span class="ak-top"><button class="btn small" data-intop="1">${esc(t("inTop"))}</button><input class="inp" type="number" id="ss_topN" value="${+S.topN || 20}" min="1" max="200"></span>` : ""}
-      ${usAll.length ? `<span>${esc(t("inUs"))}</span><button class="btn small" data-inall="u">${esc(t("inAll"))}</button>` : ""}</div>`;
+  const e = ssEstimate(conf.length ? conf : us, them);
+  const lead = (x) => { const on = e && (x.us ? e.uLead.id === x.id : e.hLead.id === x.id);
+    return `<button class="btn small ak-act${on ? " on" : ""}" data-ld="${x.us ? "u" : "t"}|${esc(x.id)}" title="${esc(t(x.us ? "ldUs" : "ldThem"))}">🎯</button>`; };
+  const cb = (x) => `<td class="ak-in"><input type="checkbox" data-in="${x.us ? "u" : "t"}|${esc(x.id)}" checked aria-label="${esc(t("inL"))}"></td>`;
   const outTbl = !outRows.length ? "" : `<details class="ak-out" id="ss_out"${OPEN.has("ss_out") ? " open" : ""}><summary class="muted">${esc(fill(t("offT"), { n: outRows.length }))}</summary>
-    <div class="ak-tw ak-list"><table class="ak-t ak-mixed ak-offt"><tbody>${outRows.map((x) => `<tr class="${x.us ? "ak-us" : "ak-them"}">${cb(x)}<td dir="auto">${esc(x.name)} <span class="muted">${x.us ? "NXS" : "[" + esc(SSD ? SSD.tag : "") + "]"}</span></td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td></tr>`).join("")}</tbody></table></div></details>`;
-  const mixTbl = !(mixed.length || outRows.length) ? "" : `<div class="ak-box"><b>${esc(t("rkT"))}</b><div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("rkNote"))}</div>${pickBar}
+    <div class="ak-tw ak-list"><table class="ak-t ak-mixed ak-offt"><tbody>${outRows.map((x) => `<tr class="ak-us"><td class="ak-in"><input type="checkbox" data-in="u|${esc(x.id)}"></td><td dir="auto">${esc(x.name)} <span class="muted">NXS</span></td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td></tr>`).join("")}</tbody></table></div></details>`;
+  const mixTbl = !(mixed.length || outRows.length) ? "" : `<div class="ak-box"><b>${esc(t("rkT"))}</b><div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("rkNote2"))}</div>
+    ${usAll.length ? `<div class="ak-inbar"><span>${esc(t("inUs"))}</span><button class="btn small" data-inall="u">${esc(t("inAll"))}</button></div>` : ""}
     <div class="ak-tw ak-list"><table class="ak-t ak-mixed"><thead><tr><th>${esc(t("inL"))}</th><th></th><th>#</th><th>${esc(t("nm"))}</th><th>${esc(t("colS"))}</th><th>${esc(t("pw"))}</th><th></th></tr></thead><tbody>
-    ${mixed.map((x, i) => x.us ? `<tr data-sub="${esc(x.id)}" class="ak-tap ak-us${x.sub ? " ak-sub" : ""}">${cb(x)}<td class="ak-ac">${act(x)}</td><td>${i + 1}</td><td dir="auto">${esc(x.name)} <span class="muted">NXS</span></td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td><td>${esc(t(x.sub ? "subL" : "conf"))}</td></tr>`
-      : `<tr data-w="${esc(x.id)}" class="ak-tap ak-them${W.has(x.id) ? " ak-w" : ""}">${cb(x)}<td class="ak-ac">${act(x)}</td><td>${i + 1}</td><td dir="auto">${esc(x.name)} <span class="muted">[${esc(SSD.tag)}]${x.rank ? " " + esc(x.rank) : ""}</span></td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td><td>${W.has(x.id) ? "⚠️" : hot(x) ? `<span class="muted">⚠️?</span>` : "☐"}</td></tr>`).join("")}</tbody></table></div>${outTbl}</div>`;
-  const nEst = them.filter((x) => x.S && !x.est).length;
+    ${mixed.map((x, i) => x.us ? `<tr data-sub="${esc(x.id)}" class="ak-tap ak-us${x.sub ? " ak-sub" : ""}">${cb(x)}<td class="ak-ac">${lead(x)}</td><td>${i + 1}</td><td dir="auto">${esc(x.name)} <span class="muted">NXS</span></td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td><td>${esc(t(x.sub ? "subL" : "conf"))}</td></tr>`
+      : `<tr data-w="${esc(x.id)}" class="ak-tap ak-them${W.has(x.id) ? " ak-w" : ""}">${cb(x)}<td class="ak-ac">${lead(x)}</td><td>${i + 1}</td><td dir="auto">${esc(x.name)} <span class="muted">[${esc(SSD.tag)}]${x.rank ? " " + esc(x.rank) : ""}</span></td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td><td>${W.has(x.id) ? "⚠️" : hot(x) ? `<span class="muted">⚠️?</span>` : "☐"}</td></tr>`).join("")}</tbody></table></div>${outTbl}</div>`;
+  const nEst = themAll.filter((x) => x.S && !x.est).length;
   const oppTbl = !SSD ? "" : `<div class="muted" style="font-size:12.5px;margin:6px 0">${esc(fill(t("ssGot"), { tag: SSD.tag, name: SSD.name, kid: SSD.kid, n: SSD.members.length, t: new Date(SSD.fetched).toLocaleString([], { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" }) }))}
       · ${esc(fill(t("ssEstN"), { n: nEst }))}</div>`;
   const set = (id, k, step) => `<div class="ak-f"><span>${esc(t(k))}</span><input class="inp" type="number" id="${id}" value="${S[id.slice(3)]}" step="${step}"></div>`;
@@ -456,15 +464,14 @@ function ssCard() {
       <div class="ak-f"><span>${esc(t("ssKid"))}</span><input class="inp" type="number" id="ss_kid" value="${esc(S.kid)}" placeholder="2186"></div>
       <div class="ak-f"><span>${esc(t("ssTag"))}</span><input class="inp" id="ss_tag" value="${esc(S.tag)}" maxlength="8" placeholder="ABC"> <button class="btn small" id="ss_go"${ssBusy ? " disabled" : ""}>${esc(t(ssBusy ? "ssBusy" : "ssGo"))}</button></div>
       ${ssMsg ? `<div class="mv-warn" style="font-size:12.5px;margin-top:6px">${esc(ssMsg)}</div>` : ""}${oppTbl}${savedBox()}</div>
+    ${roster}
     ${mixTbl}
-    <details class="ak-box ak-more" id="ss_set"${OPEN.has("ss_set") || (!SSD && !OPEN.has("-ss_set")) ? " open" : ""}><summary><b>${esc(t("ssSet2"))}</b></summary>
-      ${set("ss_K", "ssK", 1)}${set("ss_R", "ssR", 50000)}${set("ss_Rt", "ssRt", 50000)}${set("ss_G", "ssG", 100000)}${set("ss_per", "ssPer", 10000)}
+    <div class="ak-box"><b>${esc(t("estT"))}</b>${ssEstHtml(e)}</div>
+    <details class="ak-box ak-more" id="ss_set"${OPEN.has("ss_set") ? " open" : ""}><summary><b>${esc(t("ssSet3"))}</b></summary>
+      ${set("ss_per", "ssPer", 10000)}${set("ss_R", "ssR", 50000)}${set("ss_Rt", "ssRt", 50000)}${set("ss_G", "ssG0", 100000)}
       <div class="ak-f"><span>${esc(t("ssTu"))}</span>${tierSel('id="ss_tUs"', S.tUs)}</div>${mixBox("su", S.tUs, S.mUs)}
       <div class="ak-f"><span>${esc(t("ssTt"))}</span>${tierSel('id="ss_tThem"', S.tThem)}</div>${mixBox("st", S.tThem, S.mThem)}
       <div class="ak-f"><span>${esc(t("p"))}</span><input class="inp" type="number" id="ak_p" value="${PLAN.p}" step="0.05" min="1.2" max="2.5"></div></details>
-    <h4 style="margin:12px 0 4px">${esc(t("ssRes"))}</h4>
-    <div class="ak-cols"><div><h4>${esc(t("cOnly"))}</h4>${ssResult(ssAnalyze(conf, them))}</div>
-      <div><h4>${esc(t("cSubs"))}</h4>${subs.length ? ssResult(ssAnalyze(us, them)) : `<div class="muted">—</div>`}</div></div>
     ${SSD ? `<h4 style="margin:12px 0 4px">${esc(t("q3"))}</h4>
       ${marked.length ? `<div class="ak-tw"><table class="ak-t"><tbody>${marked.map((x) => `<tr><td>⚠️</td><td dir="auto">${esc(x.name)}${x.rank ? ` <span class="muted">${esc(x.rank)}</span>` : ""}</td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td></tr>`).join("")}</tbody></table></div>`
         : `<div class="muted" style="font-size:12.5px">${esc(t("q3None"))}${sugg.length ? " " + esc(fill(t("q3Sugg"), { names: sugg.map((x) => x.name).join(", ") })) : ""}</div>`}` : ""}
@@ -473,8 +480,7 @@ function ssCard() {
 
 function render() {
   const root = $("ak_root"); if (!root) return;
-  if (PLAN.mode === "ss" && !PLAN.tgt && PLAN.rallies.every((r) => !r.lead) && SSD && PLANS) { if (autoPlan()) keep(); }
-  root.innerHTML = PLAN.mode === "ss" ? `${modeBar()}<div class="card" id="ak_ss">${ssCard()}</div><div class="card" id="ak_plan">${planCard()}</div>`
+  root.innerHTML = PLAN.mode === "ss" ? `${modeBar()}<div class="card" id="ak_ss">${ssCard()}</div>`
     : `${modeBar()}${kvk() && window.KvkIntel ? `<div class="card" id="ak_intel">${KvkIntel.html(SNAP)}</div>` : ""}<div class="card" id="ak_plan">${planCard()}</div><div class="card" id="ak_board">${boardsCard()}</div>`;   // 🎯 opponent intel on top of ⚔️ KvK (js/officer/intel.js)
   const sc = $("pg-scout"); if (sc) sc.hidden = PLAN.mode !== "kvk";   // 🔭 Scout (other kingdoms) belongs to ⚔️ KvK only
   bind();
@@ -531,18 +537,32 @@ function bind() {
   on("ss_tag", (e) => { S.tag = e.target.value.trim().slice(0, 8); keep(); });
   if ($("ss_go")) $("ss_go").onclick = () => { const k = $("ss_kid"), g = $("ss_tag"); S.kid = String(Math.floor(+k.value || 0) || ""); S.tag = g.value.trim().slice(0, 8); keep();
     ssFetch(SSD && +SSD.kid === +S.kid && String(SSD.tag).toLowerCase() === S.tag.toLowerCase()); };
-  [["ss_K", "K", 1, 10, 3], ["ss_R", "R", 0, 5e6, 1200000], ["ss_Rt", "Rt", 0, 5e6, 1200000], ["ss_G", "G", 0, 2e7, 1500000], ["ss_per", "per", 1000, 2e6, 150000]]
+  [["ss_R", "R", 0, 5e6, 1200000], ["ss_Rt", "Rt", 0, 5e6, 1200000], ["ss_G", "G", 0, 2e7, 1500000], ["ss_per", "per", 1000, 2e6, 150000]]
     .forEach(([id, k, lo, hi, d]) => on(id, (e) => { S[k] = num(e.target.value, lo, hi, d); re(); }));
   on("ss_tUs", (e) => { S.tUs = e.target.value; re(); }); on("ss_tThem", (e) => { S.tThem = e.target.value; re(); });
   document.querySelectorAll("[data-w]").forEach((tr) => tr.onclick = () => { const k = wKey(); if (!k) return; const w = new Set(S.watch[k] || []), id = tr.dataset.w;
     if (w.has(id)) w.delete(id); else w.add(id); S.watch[k] = [...w]; re(); });
-  const offSet = (side) => { const k = side === "u" ? "u:" + S.plan : wKey(); return k ? [k, new Set(S.off[k] || [])] : [null, null]; };
+  /* ☑ ours: untick = out (kept per plan). Theirs in the ranking: untick = no longer picked */
+  const pk = () => { const k = wKey(); S.pick = S.pick || {}; return k ? [k, new Set(S.pick[k] || [])] : [null, null]; };
+  const setPick = (fn) => { const [k, o] = pk(); if (!k) return; fn(o); S.pick[k] = [...o]; re(); };
   document.querySelectorAll("[data-in]").forEach((c) => { c.onclick = (e) => e.stopPropagation();
-    c.onchange = () => { const [side, id] = c.dataset.in.split("|"), [k, o] = offSet(side); if (!k) return; if (c.checked) o.delete(id); else o.add(id); S.off[k] = [...o]; re(); }; });
-  document.querySelectorAll("[data-inall]").forEach((b) => b.onclick = () => { const [k] = offSet(b.dataset.inall); if (k) { S.off[k] = []; re(); } });
-  document.querySelectorAll("[data-innone]").forEach((b) => b.onclick = () => { const [k] = offSet("t"); if (k) { S.off[k] = theirList().map((x) => x.id); re(); } });
+    c.onchange = () => { const [side, id] = c.dataset.in.split("|");
+      if (side === "t") return setPick((o) => { if (c.checked) o.add(id); else o.delete(id); });
+      const k = "u:" + S.plan, o = new Set(S.off[k] || []); if (c.checked) o.delete(id); else o.add(id); S.off[k] = [...o]; re(); }; });
+  document.querySelectorAll("[data-inall]").forEach((b) => b.onclick = () => { S.off["u:" + S.plan] = []; re(); });
+  /* 🔍 their roster: search keeps the page as it is (only rows hide); a tick / × / buttons update the pick */
+  const rq = $("ss_rq"); if (rq) rq.oninput = () => { rosterQ = rq.value; const n = norm(rq.value);
+    document.querySelectorAll("#ss_roster [data-pr]").forEach((tr) => { const x = theirList().find((m) => m.id === tr.dataset.pr); tr.hidden = !!n && !(x && (norm(x.name).includes(n) || norm(x.rank).includes(n))); }); };
+  document.querySelectorAll("#ss_roster input[data-pk]").forEach((c) => { c.onclick = (e) => e.stopPropagation(); c.onchange = () => setPick((o) => { if (c.checked) o.add(c.dataset.pk); else o.delete(c.dataset.pk); }); });
+  document.querySelectorAll("#ss_roster tr[data-pr]").forEach((tr) => tr.onclick = () => setPick((o) => { const id = tr.dataset.pr; if (o.has(id)) o.delete(id); else o.add(id); }));
+  document.querySelectorAll("#ss_roster b[data-pk]").forEach((b) => b.onclick = () => setPick((o) => o.delete(b.dataset.pk)));
+  document.querySelectorAll("[data-pall]").forEach((b) => b.onclick = () => setPick((o) => theirList().forEach((x) => o.add(x.id))));
+  document.querySelectorAll("[data-pnone]").forEach((b) => b.onclick = () => setPick((o) => o.clear()));
   on("ss_topN", (e) => { S.topN = num(e.target.value, 1, 200, 20); keep(); });
-  document.querySelectorAll("[data-intop]").forEach((b) => b.onclick = () => { const [k] = offSet("t"); if (!k) return; const n = num(($("ss_topN") || {}).value, 1, 200, 20); S.topN = n; S.off[k] = theirList().slice(n).map((x) => x.id); re(); });
+  document.querySelectorAll("[data-ptop]").forEach((b) => b.onclick = () => { const n = num(($("ss_topN") || {}).value, 1, 200, 20); S.topN = n; setPick((o) => { o.clear(); theirList().slice(0, n).forEach((x) => o.add(x.id)); }); });
+  /* 🎯 leaders for the estimate (tap again = back to the strongest) */
+  document.querySelectorAll("[data-ld]").forEach((b) => b.onclick = (e) => { e.stopPropagation(); const [side, id] = b.dataset.ld.split("|");
+    if (side === "u") S.lu = S.lu === id ? "" : id; else { const k = wKey(); S.lt = S.lt || {}; S.lt[k] = S.lt[k] === id ? "" : id; } re(); });
   document.querySelectorAll("[data-sub]").forEach((tr) => tr.onclick = () => { const id = tr.dataset.sub, x = ourList().find((m) => m.id === id); if (!x) return; S.ov[id] = x.sub ? "c" : "s"; re(); });
 }
 async function loadSnap() {

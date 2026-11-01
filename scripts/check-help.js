@@ -19,15 +19,15 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Battle: 🗡️ 🔍 their roster search + picks", /🔍 Who of \[TAG\] is playing/, /their whole alliance is listed with a search box/],
+  ["Battle: 🗡️ 📐 one-rally estimate", /📐 Estimate — one rally each way/, /one rally each way — how many troops/],
+  ["Battle: ⚡ Auto-arrange in the planner", /⚡ Auto-arrange \(自動排\) is in the/, /⚡ Auto-arrange fills the planner in one tap/],
   ["Battle: 🔎 find a name + opponent alliance in the planner", /🔎 Find a name: every player picker/, /🔎 Every name picker has a find box/],
-  ["Battle: 🗡️ Swordland ⚔️ Rallies planner", /⚔️ Rallies \(集結安排\) under the 🗡️ ranking/, /Below it, ⚔️ Rallies: the same planner/],
   ["Site: ⏸ Stay here on announcements", /⏸ Stay here \(next to the date\) stops that/, /⏸ Stay here \(next to the date\) stops it switching/],
-  ["Battle: 🗡️ Swordland ☑ Playing ticks", /☑ Playing \(參戰\) tick/, /☑ The Playing tick in front of each name/],
   ["Ranking: ④ battle table in every language in announcements", /④ Battle table in every language/, /shows in each reader's language \(all 12/],
   ["Site: 🙋 Who are you? in a battle table", /🙋 Who are you\?/, /🙋 pick your name and only your part stays/],
   ["Site: battle table in an announcement in your language", /battle table inside an announcement shows in the reader's language/, /A battle table in one shows in your language/],
-  ["Battle: ⚡ Auto-arrange + 🎯 / ➕ in the ranking", /⚡ Auto-arrange \(自動排/, /⚡ Auto-arrange fills it in one tap/],
-  ["Battle: 💾 saved opponents", /💾 Saved opponents \(已存的對手/, /💾 Every fetched opponent is saved on this device/],
+  ["Battle: 💾 saved opponents", /💾 Saved opponents \(已存的對手/, /💾 Fetched opponents stay saved on this device/],
   ["Ranking: 🔱 Tri-Alliance Clash groups (Teams A–D)", /Tri-Alliance Clash \/ 三盟爭霸: the alliance's TAC plan[^\n]*Team A – Attack/, /🔱 Tri-Alliance Clash for its 4 teams/],
   ["Ranking: 🎯 the plan's event (picked once, ③ and ④ follow)", /🎯 Event \(活動\) in the plan card/, /{ s: "#planEv", k: "rk01e" }/],
   ["Ranking: ④ battle table per event (Table for: Swordland / Tri-Alliance)", /④ Battle table follows the event/, /{ s: "#tbCard \.tb-ev", k: "rk17e" }/],
