@@ -1052,7 +1052,7 @@ async function saveEventTimes() {
   m.className = "msg"; m.textContent = tr("limSaving");
   try {
     for (let attempt = 0; ; attempt++) {
-      try { const res = await gh("PUT", ET_PATH, { message: "Event times: " + Object.entries(next).filter(([k]) => k !== "days").map(([k, v]) => k + " " + v.join("/") + (next.days[k] ? " (day " + next.days[k] + ")" : next.days[k] === 0 ? " (every day)" : "")).join(", "), content: utf8ToB64(JSON.stringify(next) + "\n"), sha: etSha || undefined, branch: BRANCH });
+      try { const res = await gh("PUT", ET_PATH, { message: "Event times: " + Object.entries(next).filter(([k, v]) => Array.isArray(v)).map(([k, v]) => k + " " + v.join("/") + (next.days[k] ? " (day " + next.days[k] + ")" : next.days[k] === 0 ? " (every day)" : "")).join(", "), content: utf8ToB64(JSON.stringify(next) + "\n"), sha: etSha || undefined, branch: BRANCH });
         etSha = res && res.content ? res.content.sha : etSha; break; }
       catch (e) { if (e.message !== "busy" || attempt) throw e; const f = await gh("GET", ET_PATH); etSha = f ? f.sha : null; }
     }
