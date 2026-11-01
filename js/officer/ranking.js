@@ -827,15 +827,17 @@ function tbRulesDraft() {
   const v1 = TB.ssVer === "1";   // 🔀 Version 1 = Milk's "11/01 SS Legion 1" sheet; Version 2 = Armada's (notes with names)
   if (v1) {
     const T = (text) => [{ kind: "t", text }];
-    const N1 = "1. Teleport and launch a solo attack.\n2. Start a rally if needed.\n3. Defenders stay behind and hold positions. Do NOT move.\n4. Joiners must join every rally, collect loot, and gather at the Undercellars (when they open).\n\n- IMPORTANT: If your TC is below 30, do NOT teleport near the enemy. Stay in the safe zone and speed up your march to join rallies.\n- Keep all marches busy.\n- If being attacked: teleport before the attack lands, send all troops to camp outside.";
+    const N1 = "1. Teleport and launch a solo attack.\n2. Start a rally if needed.\n3. Defenders stay behind and hold positions. Do NOT move.\n4. Joiners must join every rally, collect loot, and gather at under cellars (when they open).\n\n- IMPORTANT: If your TC is below 30, do NOT teleport near the enemy. Stay in the safe zone and speed up your march to join rallies.\n- Keep all marches busy\n- If being attacked: teleport before attack lands, send all troops to camp outside";
     const N2 = "Do not teleport. Attackers & defenders: send your second march. Joiners free to teleport.";
     // Phase 1: #3 holds the Sanctum near home, #4 the one near the enemy (her sheet); Phase 2: Shrine #1 + #2 attack, #3 + #4 defend
     s3.rows[0].att = P(4); s4.rows[0].att = P(3);
+    // her defender pairs: Bell Tower #10 + #8, Sanctum near home #6 + #12 (the stronger #6 at home); the same in Stay behind
+    s2.rows[0].def = Ps(10, 8); b2.rows[0].def = Ps(10, 8); s4.rows[0].def = Ps(6, 12); b4.rows[0].def = Ps(6, 12);
     [s1, s2, s3, s4].forEach((g) => { g.rows[0].note = N1; });
     Object.assign(ab.rows[0], { att: Ps(1, 2, 4, 3), def: T("Same as above"), join: T("Same as above"), note: "Do not teleport. Attackers & defenders: send your second march to the closest Abbey. Joiners: teleport as needed to gather loot from building flips." });
     Object.assign(sw.rows[0], { att: Ps(1, 2), def: Ps(3, 4), join: T("All"), note: "Double rally as needed." });
     mc.rows[0].note = N2; hr.rows[0].note = N2;
-    b5.rows[0].note = "Defenders continue keeping your second march at the closest Abbey (no teleport).";
+    b5.rows[0].note = "Defender continue keeping your second march at the closest Abbey (no teleport).";
   }
   snake([s1, s2, s3, s4]); snake([hr, mc, b3, b4]);   // Phase 2: each team follows its own attacker — Stables (#1) → Hall (#1), Bell Tower (#2) → Camp (#2); the Sanctum teams stay
   TB.groups = [s1, s2, s3, s4, ab, sw, mc, hr, b1, b2, b3, b4, b5];
@@ -1241,13 +1243,15 @@ function tbImage() {
     }
   });
   const titleH = 34, headH = lineH + pad * 2, gap = 12, W = widths.reduce((a, b) => a + b, 0) + 1, W0 = () => W;
+  const pname = typeof tbPlanName === "function" ? tbPlanName() : "", topH = pname ? 44 : 0;   // the plan's name on top, like the R4s' sheets
   const remL = String(TB.rem || "").split(/\r?\n/).map((x) => x.trim()).filter(Boolean).flatMap((x) => { const sub = !/^[•*\-]/.test(x);
     return wrap(sub ? x : "• " + x.replace(/^[•*\-]\s*/, ""), W0() - pad * 4, sub ? bold : font).map((l, i) => ({ l: i && !sub ? "   " + l : l, sub })); });
   const remH = remL.length ? gap + titleH + pad * 2 + remL.length * lineH : 0;
-  const H = secs.reduce((a, sec) => a + titleH + headH + sec.rows.reduce((b, r) => b + r.h, 0), 0) + gap * (secs.length - 1) + remH + 1;
+  const H = topH + secs.reduce((a, sec) => a + titleH + headH + sec.rows.reduce((b, r) => b + r.h, 0), 0) + gap * (secs.length - 1) + remH + 1;
   cv.width = W * S; cv.height = H * S; g.scale(S, S);
   g.fillStyle = "#fff"; g.fillRect(0, 0, W, H); g.strokeStyle = "#9a9a9a"; g.lineWidth = 1; g.textBaseline = "top";
   let y = 0.5;
+  if (pname) { g.font = 'bold 22px "Noto Sans TC","Noto Sans",Arial,sans-serif'; g.fillStyle = "#111"; g.fillText(pname, pad, 10); y += topH; }
   secs.forEach((sec, si) => {
     if (si) y += gap;
     g.fillStyle = "#2b2b2b"; g.fillRect(0.5, y, W - 1, titleH); g.font = big; g.fillStyle = "#fff"; g.fillText(sec.name.toUpperCase(), pad + 2, y + 8); y += titleH;
