@@ -283,6 +283,17 @@
   #pg-growth .gr-pic img { margin: 0 !important; }
   #pg-growth .gr-gen { position: absolute; right: -4px; bottom: -3px; display: inline-flex; align-items: center; gap: 1px; padding: 0 4px 0 3px; border-radius: 5px; background: #3a2a1a; border: 1.5px solid #f2c14e; color: #fff; font: 800 10.5px/14px system-ui, sans-serif; }
   #pg-growth .gr-gen i { font-style: italic; color: #f2c14e; font-size: 12px; }
+  #ak_intel .in-sec { border-top: 1px solid var(--rule); padding: 8px 0 4px; } #ak_intel .in-sec > summary { cursor: pointer; font-size: 15px; }
+  #ak_intel .in-t th, #ak_intel .in-t td { white-space: nowrap; } #ak_intel .in-t tbody th { text-align: start; font-weight: 600; }
+  #ak_intel .in-good { color: #2f7d4a; font-weight: 700; } #ak_intel .in-bad { color: #b0602a; font-weight: 700; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #ak_intel .in-good { color: #7fd69a; } :root:not([data-theme="light"]) #ak_intel .in-bad { color: #f0b06a; } }
+  :root[data-theme="dark"] #ak_intel .in-good { color: #7fd69a; } :root[data-theme="dark"] #ak_intel .in-bad { color: #f0b06a; }
+  #ak_intel .in-common { margin: 0 0 8px; display: flex; flex-wrap: wrap; gap: 5px; align-items: center; } #ak_intel .in-tag { border: 1px solid var(--rule); border-radius: 999px; padding: 2px 9px; font-size: 12.5px; background: var(--panel); }
+  #ak_intel .in-hrow { border: 1px solid var(--rule); border-radius: 10px; padding: 6px 8px; margin: 6px 0; } #ak_intel .in-hname { font-size: 13.5px; margin-bottom: 4px; }
+  #ak_intel .in-hs { display: flex; gap: 4px; overflow-x: auto; } #ak_intel .in-h { flex: 0 0 54px; text-align: center; font-size: 11px; line-height: 1.2; }
+  #ak_intel .in-h img, #ak_intel .in-noimg { width: 44px; height: 44px; object-fit: cover; object-position: top; border-radius: 8px; display: block; margin: 0 auto 2px; background: #b9cfdc; }
+  #ak_intel .in-h b { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } #ak_intel .in-h small { color: var(--text-muted); }
+  #ak_intel .in-lead { font-size: 12.5px; margin-top: 6px; }
   #pg-growth .gr-tw { overflow-x: auto; }
   #pg-growth table.gr-cmp { width: 100%; border-collapse: collapse; font-size: 13.5px; line-height: 1.45; }
   #pg-growth .gr-cmp th, #pg-growth .gr-cmp td { padding: 7px 8px; border-bottom: 1px solid var(--rule); text-align: start; vertical-align: top; }
@@ -1443,6 +1454,7 @@
 <script src="js/officer/board.js"></script>
 <script src="js/officer/perms.js"></script>
 <script src="js/officer/attend.js"></script>
+<script src="js/officer/intel.js"></script>
 <script src="js/officer/attack.js"></script>
 <script src="js/officer/growth.js"></script>
 <script>officerGate();</script>

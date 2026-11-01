@@ -16,6 +16,8 @@ const CONFIG = "data/scout-config.json", OUT = "data/scout-x7k2p9.json", LOG = "
 const logLines = [];
 const log = (m) => { console.log(m); logLines.push(m); };
 const TOP = 20, POOL = 40, ALLIANCES = 8, GAP_MS = 1100;
+const HOME = 2189;   // our kingdom: its overview is saved too, for the 🏰 side-by-side
+const INTEL_BOARDS = ["hero_equip", "gov_gear", "gov_charm", "master_power", "single_hero", "troop_power", "hero_total", "pet_power", "kills", "personal_power"];
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function get(path) {
@@ -79,7 +81,14 @@ async function scoutKingdom(kid) {
     res.forEach((r, i) => {
       if (r.status !== 200 || !r.body) return;
       const al = r.body.alliance || {}, members = r.body.members || [];
-      alliances.push({ tag: arows[i].abbr, name: al.name || arows[i].name || "", power: al.power ?? arows[i].power ?? null, count: members.length });
+      // 🎯 KvK intel: who is active, the R4/R5s, and a short member list (id, name, power, TC, rank, last active, online)
+      const nowS = Date.now() / 1000, sec = (v) => v == null ? null : v > 1e12 ? v / 1000 : v;
+      const act = (m, h) => { const v = sec(m.last_active_at); return v != null && nowS - v < h * 3600; };
+      const tcs = members.map((m) => m.town_center_level).filter((x) => x != null);
+      alliances.push({ tag: arows[i].abbr, name: al.name || arows[i].name || "", power: al.power ?? arows[i].power ?? null, count: members.length,
+        active24: members.filter((m) => act(m, 24)).length, active72: members.filter((m) => act(m, 72)).length, online: members.filter((m) => m.online).length,
+        tcMax: tcs.length ? Math.max(...tcs) : null, tcAvg: tcs.length ? +(tcs.reduce((a, b) => a + b, 0) / tcs.length).toFixed(1) : null,
+        members: members.map((m) => [m.governor_id, m.nick_name, m.power ?? null, m.town_center_level ?? null, m.alliance_rank ?? null, sec(m.last_active_at), m.online ? 1 : 0]) });
       for (const m of members) rosterPool.push({ id: m.governor_id, name: m.nick_name, power: m.power ?? null, alliance: arows[i].abbr });
     });
   }
@@ -91,6 +100,15 @@ async function scoutKingdom(kid) {
   for (const x of [...byMigrant, ...byPower]) if (x.id != null && !pool.has(String(x.id))) pool.set(String(x.id), x);
   const top = [...pool.values()];
   log(`  pool from ${source}: ${top.length} players, ${alliances.length} alliances`);
+  // 🎯 KvK intel: the kingdom overview and the gear / strength boards (top 100 each — the API's maximum)
+  const kv = await get(`/kingdoms/${kid}`); await sleep(GAP_MS);
+  const kingdom = kv.status === 200 && kv.body ? (kv.body.kingdom || kv.body) : null;
+  log(`  kingdom overview: HTTP ${kv.status}`);
+  const boards = {};
+  const bres = await getMany(INTEL_BOARDS.map((b) => `/kingdoms/${kid}/ranks?board=${b}&limit=100`), `Kingdom ${kid} boards`);
+  bres.forEach((r, i) => { const rows = r.status === 200 ? findRows(r.body, isPlayer) : [];
+    if (rows.length) boards[INTEL_BOARDS[i]] = rows.map((x) => [x.rank ?? null, x.governor_id ?? null, x.nick_name || "", x.alliance_abbr || "", x.score ?? null]); });
+  log(`  intel boards: ${Object.keys(boards).length}/${INTEL_BOARDS.length}`);
   if (!top.length) return null;
   // 2) each player's own record: TC, Mystic Trial, kills, VIP, Migrant Score
   const pl = await getMany(top.map((t) => `/players/${t.id}?include=base,ranks,heroes`), `Kingdom ${kid} players`);
@@ -117,7 +135,7 @@ async function scoutKingdom(kid) {
     .sort((a, b) => (b.migrant || 0) - (a.migrant || 0));
   log(`  kept ${players.length} (top ${TOP} by migrant: ${topM.size}, by power: ${topP.size})`);
   log(`  players read: ${ok}/${top.length}`);
-  return { asOf: new Date().toISOString(), source, alliances, players };
+  return { asOf: new Date().toISOString(), source, alliances, players, kingdom, boards };
 }
 
 (async () => {
@@ -140,6 +158,10 @@ async function scoutKingdom(kid) {
   for (const kid of kids) {
     const r = await scoutKingdom(kid);
     if (r) out.kingdoms[kid] = r;
+  }
+  if (kids.some((k) => k !== HOME)) {   // our own kingdom's overview, for the comparison
+    const h = await get(`/kingdoms/${HOME}`); log(`home overview: HTTP ${h.status}`);
+    if (h.status === 200 && h.body) out.home = { kid: HOME, asOf: new Date().toISOString(), kingdom: h.body.kingdom || h.body };
   }
   out.updated = new Date().toISOString();
   writeData(OUT, out);

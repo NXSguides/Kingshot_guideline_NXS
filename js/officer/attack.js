@@ -414,9 +414,10 @@ function ssCard() {
 function render() {
   const root = $("ak_root"); if (!root) return;
   root.innerHTML = PLAN.mode === "ss" ? `${modeBar()}<div class="card" id="ak_ss">${ssCard()}</div>`
-    : `${modeBar()}<div class="card" id="ak_plan">${planCard()}</div><div class="card" id="ak_board">${boardsCard()}</div>`;
+    : `${modeBar()}${kvk() && window.KvkIntel ? `<div class="card" id="ak_intel">${KvkIntel.html(SNAP)}</div>` : ""}<div class="card" id="ak_plan">${planCard()}</div><div class="card" id="ak_board">${boardsCard()}</div>`;   // 🎯 opponent intel on top of ⚔️ KvK (js/officer/intel.js)
   const sc = $("pg-scout"); if (sc) sc.hidden = PLAN.mode !== "kvk";   // 🔭 Scout (other kingdoms) belongs to ⚔️ KvK only
   bind();
+  if (kvk() && window.KvkIntel) KvkIntel.bind(render);
 }
 function bind() {
   const re = () => { keep(); render(); };
