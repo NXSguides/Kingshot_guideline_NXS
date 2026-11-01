@@ -172,7 +172,7 @@ const norm = (s) => String(s || "").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "")
 const fmtN = (n) => n >= 1e6 ? (n / 1e6).toFixed(2) + "M" : n >= 1e3 ? Math.round(n / 1e3) + "k" : String(Math.round(n));
 const AI_URL = "https://nxs-ai.tapegirljoke.workers.dev", DISCORD_LS = "nxs-discord-v1";
 
-let SNAP = null, snapDay = null, findQ = "";
+let SNAP = null, snapDay = null, findQ = "", SCB = null;   // SCB = the 🔭 Scout file (data/scout-x7k2p9.json)
 const SSDEF = { watch: {}, plan: "", ov: {}, kid: "", tag: "", K: 3, R: 1200000, Rt: 1200000, G: 1500000, per: 150000, tUs: "TG2", mUs: null, tThem: "TG2", mThem: null };
 const PDEF = { mode: "home", dir: "atk", tgt: "", G: 1000000, gt: "TG2", gmix: null, terr: true, dUs: 0, dThem: 0, p: 1.75, re: 0, trA: [50, 20, 30], trD: [60, 20, 20],
   rallies: [{ lead: "", R: 1200000, tier: "TG2" }], ss: SSDEF };
@@ -185,9 +185,13 @@ const keep = () => { try { localStorage.setItem("nxs-attack-v2", JSON.stringify(
 const B3 = ["gov_gear", "hero_equip", "master_power"];
 let PL = {}, CPOW = null;
 function buildPlayers() {
-  PL = {}; if (!SNAP || !SNAP.boards) return;
-  for (const [key, bd] of Object.entries(SNAP.boards)) { const [kid, board] = key.split(":");
+  PL = {}; if ((!SNAP || !SNAP.boards) && !SCB) return;
+  for (const [key, bd] of Object.entries((SNAP && SNAP.boards) || {})) { const [kid, board] = key.split(":");
     for (const r of bd.rows || []) { const id = String(r.governor_id); const p = PL[id] = PL[id] || { id, name: r.nick_name, al: r.alliance_abbr || "", kid: +kid, b: {} }; p.b[board] = r.score; } }
+  /* + the 🔭 Scout file's boards (fetched on the spot for the KvK opponent; the daily snapshot only has them from the next day) */
+  for (const [kid, k] of Object.entries((SCB && SCB.kingdoms) || {})) for (const [board, rows] of Object.entries(k.boards || {})) {
+    if (SNAP && SNAP.boards && SNAP.boards[`${kid}:${board}`] && !(Date.parse(k.asOf) > Date.parse(SNAP.made || snapDay || 0))) continue;   // the snapshot is newer
+    for (const [, gid, name, al, score] of rows) { if (gid == null) continue; const id = String(gid); const p = PL[id] = PL[id] || { id, name, al: al || "", kid: +kid, b: {} }; p.b[board] = score; } }
   /* Strength per million Power (median of everyone who has both) — to estimate S for players below the top 100 */
   const q = Object.values(PL).filter((p) => sOf(p) && p.b.personal_power).map((p) => sOf(p) / (p.b.personal_power / 1e6)).sort((a, b) => a - b);
   CPOW = q.length ? q[q.length >> 1] : null;
@@ -289,8 +293,8 @@ function planCard() {
     <div class="muted" style="font-size:12px;margin-top:10px">⚠️ ${esc(t("caveat"))}</div>`;
 }
 function boardsCard() {
-  if (!SNAP) return `<h3 style="margin:0 0 4px">${esc(t("bT"))}</h3><div class="muted">${esc(t("bNoData"))}</div>`;
-  const kids = [...new Set(Object.keys(SNAP.boards).map((k) => k.split(":")[0]))].join(", ");
+  if (!SNAP && !Object.keys(PL).length) return `<h3 style="margin:0 0 4px">${esc(t("bT"))}</h3><div class="muted">${esc(t("bNoData"))}</div>`;
+  const kids = [...new Set(Object.values(PL).map((p) => p.kid))].sort().join(", ");
   const row = (p) => `<tr><td dir="auto">${esc(p.name)}${!ours(p) && p.al ? ` <span class="muted">[${esc(p.al)}]</span>` : ""}${p.kid !== 2189 ? ` <span class="muted">#${p.kid}</span>` : ""}</td><td><b>${sOf(p).toFixed(1)}</b></td><td>${(p.b.gov_gear / 1e6).toFixed(1)}</td><td>${(p.b.hero_equip / 1e6).toFixed(1)}</td><td>${(p.b.master_power / 1e6).toFixed(1)}</td></tr>`;
   const head = `<thead><tr><th></th><th>${esc(t("colS"))}</th><th>${esc(t("gear"))}</th><th>${esc(t("heq"))}</th><th>${esc(t("mst"))}</th></tr></thead>`;
   const q = norm(findQ), hits = q.length >= 2 ? Object.values(PL).filter((p) => norm(p.name).includes(q)).slice(0, 8) : [];
@@ -458,6 +462,10 @@ function bind() {
 async function loadSnap() {
   for (let i = 0; i < 8; i++) { const d = new Date(Date.now() - i * 864e5).toISOString().slice(0, 10);
     try { const x = await OfficerData.fetchJson(`data/mp-history/${d}-x7k2p9.json`); if (x && x.boards) { SNAP = x; snapDay = d; break; } } catch (e) {} }
+  await loadScout();
+}
+async function loadScout() {
+  try { SCB = await OfficerData.fetchJson("data/scout-x7k2p9.json"); } catch (e) { SCB = null; }
   buildPlayers();
 }
 function applyTexts() { if ($("ak_title")) { $("ak_title").textContent = t("title"); $("ak_intro").textContent = t("intro"); } }
@@ -469,5 +477,6 @@ async function init() {
   if (OFFICER.ensure) OFFICER.ensure("scout");   // 🔭 Scout lives in this tab now (its own module, js/officer/scout.js)
 }
 function setLang(l) { lang = l; applyTexts(); if ($("ak_root") && $("ak_root").innerHTML) render(); }
+window.addEventListener("nxs-scout", async () => { await loadScout(); if ($("ak_root") && $("ak_root").innerHTML) render(); });   // 🔭 a fetch finished
 OFFICER_PAGES.attack = { init, applyTexts, setLang, onShow: () => { if (SNAP) render(); } };
 })();

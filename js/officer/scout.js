@@ -150,7 +150,7 @@ async function requestFetch(kid) {
   waiting = setInterval(async () => {
     let d = null; try { d = await OfficerData.fetchJson(DATA); } catch (e) {}
     const k = d && d.kingdoms && d.kingdoms[kid];
-    if (k && Date.parse(k.asOf) > since - 60000) { clearInterval(waiting); data = d; render(); if (window.KvkIntel) { KvkIntel.reset(); if (KvkIntel.rerender) KvkIntel.rerender(); } m.className = "msg okmsg"; m.textContent = tr("done"); OfficerData.cacheSet && OfficerData.cacheSet(DATA.replace(/^/, ""), d); return; }
+    if (k && Date.parse(k.asOf) > since - 60000) { clearInterval(waiting); data = d; render(); if (window.KvkIntel) KvkIntel.reset(); window.dispatchEvent(new Event("nxs-scout")); m.className = "msg okmsg"; m.textContent = tr("done"); OfficerData.cacheSet && OfficerData.cacheSet(DATA.replace(/^/, ""), d); return; }
     if (Date.now() - since > 5 * 60000) { m.className = "msg"; m.textContent = tr("stillWaiting"); }
   }, 30000);
 }
