@@ -71,7 +71,7 @@
   function pickHtml(G, lang) {
     const ns = [...new Set(G.flatMap((g) => [g.att, g.def, g.join].flat().filter((x) => typeof x === "string")))].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
     if (!ns.length) return "";
-    return `<label class="bt-who">🙋 ${esc(tr("Who are you?", lang))} <select><option value="">${esc(tr("Show everyone", lang))}</option>${ns.map((n) => `<option value="${esc(n)}">${esc(n)}</option>`).join("")}</select></label>`;
+    return `<label class="bt-who">🙋 ${esc(tr("Who are you?", lang))} <select><option value="">${esc(tr("Show everyone", lang))}</option>${ns.map((n) => `<option value="${esc(n)}">${esc(n)}</option>`).join("")}</select><button type="button" class="bt-all" hidden>👀 ${esc(tr("Show everyone", lang))}</button></label>`;
   }
   function remHtml(rem, lang, title) {
     const L = String(rem || "").split(/\r?\n/).map((x) => x.trim()).filter(Boolean);
@@ -137,6 +137,7 @@
     cards.forEach((c) => { c.hidden = !!me && !(c.dataset.team != null ? teams.has(c.dataset.team) : (c.dataset.n || "").includes(key)); });
     el.querySelectorAll(".bt-phase").forEach((p) => { p.hidden = !!me && !p.querySelector(".bt-card:not([hidden])"); });
     el.querySelectorAll(".bt-p").forEach((p) => p.classList.toggle("bt-me", !!me && p.textContent === me));
+    const all = el.querySelector(".bt-all"); if (all) all.hidden = !me;
   }
   function fill(el) {
     if (el.dataset.done) return; el.dataset.done = "1";
@@ -149,6 +150,7 @@
       let me = ""; try { me = localStorage.getItem("nxs-bt-me") || ""; } catch (e) {}
       if (me && [...sel.options].some((o) => o.value === me)) { sel.value = me; only(el, me); }
       sel.onchange = () => { try { sel.value ? localStorage.setItem("nxs-bt-me", sel.value) : localStorage.removeItem("nxs-bt-me"); } catch (e) {} only(el, sel.value); };
+      const all = el.querySelector(".bt-all"); if (all) all.onclick = (e) => { e.preventDefault(); sel.value = ""; sel.onchange(); };   // 👀 back to the whole table in one tap
     });
   }
   const scan = (root) => (root.querySelectorAll ? root.querySelectorAll(".ann-bt[data-src]:not([data-done])") : []).forEach(fill);
@@ -183,6 +185,7 @@
 .ann-bt .bt-load{opacity:.6}
 .ann-bt .bt-who{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:0 0 6px;font-weight:700}
 .ann-bt .bt-who select{font:inherit;font-weight:600;padding:5px 8px;border-radius:8px;border:1px solid var(--bt-rule);background:var(--bt-card);color:var(--bt-ink);max-width:100%}
+.ann-bt .bt-all{font:inherit;font-weight:700;padding:5px 12px;border-radius:999px;border:1px solid var(--accent,#a84c1a);background:transparent;color:var(--accent,#a84c1a);cursor:pointer}
 .ann-bt .bt-p.bt-me{background:var(--accent,#a84c1a);color:var(--accent-ink,#fff);border-color:transparent}
 .ann-bt [hidden]{display:none !important}
 @media (max-width:520px){.ann-bt .bt-grid{grid-template-columns:1fr}}`;
