@@ -547,7 +547,7 @@ function tbFollow(pr) {
 function tbDefault() {
   return {
     stages: "Phase 1, Phase 2 — after 15 mins, Stay behind", targets: "1, 2, 3, 4, 5, 6, 7", short: true,
-    rem: "Rules\n• Defenders stay in place unless relieved. Attackers shift first, joiners follow.\n• Keep at least 2 players on 1, 2 and 4.\n• If 3 or 7 is hit, everyone rotates back. Never trade a core building for kills.\n• Mercenary Camp: every 7 minutes on the enemy core.\n• Rally leaders: use the 2K gem buffs if possible.\n• Reinforce immediately when called. Join your assigned pair — don't wander.\n• Garrison leaders: learn how to transfer leadership before the battle.\nJoiners\n• Keep scanning the map: when a building flips sides, grab the scattered loot before the enemy does.\n• Send any unused weak march to gather at the Undercellars when they open.\n• Don't leave troops at home. Keep all marches busy.",   // 📌 reminders at the bottom (from the old Legion 1 post)
+    rem: "• Rally leaders: use the 2K gem buffs if possible (attack, lethality, defence, health, deployment).\n• Keep at least 2 players on buildings 1, 2 and 4.\n• If 3 or 7 is hit, everyone rotates back. Never trade a core building for kills.\n• Reinforce immediately when called. Join your assigned pair — don't wander.\n• Garrison leaders: do not abandon buildings, appoint a strong garrison captain before leaving.\nJoiners\n• Keep scanning the entire map: when a building flips sides, grab the scattered loot before the enemy does.\n• Send any unused weak march to gather at the Undercellars when they open.\n• Don't leave troops at home. Keep all marches busy.",   // 📌 reminders at the bottom (from the old Legion 1 post)
     tlabels: "Royal Stables, Bell Tower, Sanctum — near enemy, Sanctum — near home, Abbeys (4 total), Mercenary Camp, Hall of Reformation, Sword Shrine — heavy guard",
     cols: { att: "Attacker", stage: "Stage", target: "Building", def: "Defenders", join: "Joiners", note: "Note" },
     show: { att: true, stage: true, target: true, def: true, join: true, note: true },
@@ -823,6 +823,7 @@ function tbRulesDraft() {
     b5 = G(2, 4, "4", "Abbeys", [], [], "Defenders keep their secondary march at the closest Abbey (no teleport).");
   // joiners: everyone after #12, alternating by power (1-2-3-4-4-3-2-1 …) so each building gets a fair mix
   const snake = (groups) => r.slice(12).forEach((m, i) => { const k = i % (2 * groups.length), gi = k < groups.length ? k : 2 * groups.length - 1 - k; groups[gi].rows[0].join.push({ kind: "p", id: m.id }); });
+  if (!TB.rem || /^Rules\n• Defenders stay in place unless relieved/.test(TB.rem)) TB.rem = tbDefault().rem;   // 📌 Milk's reminders (2026-11-01, both versions) replace the old default
   const v1 = TB.ssVer === "1";   // 🔀 Version 1 = Milk's "11/01 SS Legion 1" sheet; Version 2 = Armada's (notes with names)
   if (v1) {
     const T = (text) => [{ kind: "t", text }];
