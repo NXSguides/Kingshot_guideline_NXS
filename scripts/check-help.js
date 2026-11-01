@@ -25,6 +25,7 @@ const FEATURES = [
   ["Ranking: ④ battle table in every language in announcements", /④ Battle table in every language/, /shows in each reader's language \(all 12/],
   ["Site: 🙋 Who are you? in a battle table", /🙋 Who are you\?/, /🙋 pick your name and only your part stays/],
   ["Site: battle table in an announcement in your language", /battle table inside an announcement shows in the reader's language/, /A battle table in one shows in your language/],
+  ["Battle: ⚡ Auto-arrange + 🎯 / ➕ in the ranking", /⚡ Auto-arrange \(自動排/, /⚡ Auto-arrange fills it in one tap/],
   ["Ranking: 🔱 Tri-Alliance Clash groups (Teams A–D)", /Tri-Alliance Clash \/ 三盟爭霸: the alliance's TAC plan[^\n]*Team A – Attack/, /🔱 Tri-Alliance Clash for its 4 teams/],
   ["Ranking: 🎯 the plan's event (picked once, ③ and ④ follow)", /🎯 Event \(活動\) in the plan card/, /{ s: "#planEv", k: "rk01e" }/],
   ["Ranking: ④ battle table per event (Table for: Swordland / Tri-Alliance)", /④ Battle table follows the event/, /{ s: "#tbCard \.tb-ev", k: "rk17e" }/],
