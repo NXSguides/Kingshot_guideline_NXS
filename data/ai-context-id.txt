@@ -75,7 +75,7 @@ ESA/EsA/UNI
 IDN
 KGb
 🌾 Cek titik sumber daya sebelum mengumpulkan. Jika sudah ditempati atau ada ikon ⚔️ pedang, jangan kirim pasukan. Jika bertabrakan, pemain kedua harus menarik pasukan.
-🪖 Selama Serangan Penuh (pengecualian): boleh menyerang titik pengumpulan sumber daya (Lumbung, Penggergajian Kayu, Tambang Batu, Tambang Besi).
+🪖 Selama Serangan Penuh (pengecualian): boleh menyerang titik pengumpulan sumber daya (Mill, Lumberyard, Quarry, Iron Mine).
 🏳️ Pos Terdepan boleh diperebutkan — tapi tidak boleh membakar kota, menyerang titik sumber daya, atau menghalangi akses ke zona Pos Terdepan.
 🏛️ Sanctuary dan Benteng dibagi atau digilir di antara NAP 6.
 ⚠️ PELANGGARAN
@@ -940,7 +940,7 @@ IDN
 KGb
 Baca aturan NAP ›
 ❌ Dilarang menyerang kastil atau bangunan aliansi (markas, pos terdepan, spanduk)
-✅ Anda boleh menyerang ubin pengumpulan sumber daya (Lumbung, Tambang Batu, Tambang Besi)
+✅ Anda boleh menyerang ubin pengumpulan sumber daya (Mill, Quarry, Iron Mine)
 ✅ Anda boleh menyerang pemain di luar NAP.
 Jika kastil Anda diserang oleh anggota NAP, jangan membalas — laporkan ke R4/R5.
 Hindari mengumpulkan sumber daya di area liar, gunakan Node Aliansi Aman sebagai gantinya.
@@ -1572,10 +1572,6 @@ Great Mill = Lumbung Besar
 Great Sawmill = Penggergajian Kayu Besar
 Great Quarry = Tambang Batu Besar
 Great Iron Mine = Tambang Besi Besar
-Mill = Lumbung
-Sawmill = Penggergajian Kayu
-Iron Mine = Tambang Besi
-Quarry = Tambang Batu
 Secured Alliance Node = Node Aliansi Aman
 Explore the Eternity's Reach for strategic resource—Copper Ores! = Jelajahi Eternity's Reach untuk mendapatkan sumber daya strategis - Bijih Tembaga!
 Copper Ore = Bijih Tembaga

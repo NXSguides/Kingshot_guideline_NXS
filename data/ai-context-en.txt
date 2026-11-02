@@ -75,7 +75,7 @@ ESA/EsA/UNI
 IDN
 KGb
 🌾 Check nodes before gathering. If a node is occupied or shows a ⚔️ sword icon, don't send troops. If two players collide, the second one recalls.
-🪖 During All Out (exception): you may attack resource gathering nodes (Mill, Sawmill, Quarry, Iron Mine).
+🪖 During All Out (exception): you may attack resource gathering nodes (Mill, Lumberyard, Quarry, Iron Mine).
 🏳️ Outposts can be fought over — but no city burning, no hitting resource nodes, and no blocking access to an outpost zone.
 🏛️ Sanctuarys and Fortresses are shared or rotated among NAP 6.
 ⚠️ VIOLATIONS
