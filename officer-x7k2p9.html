@@ -135,6 +135,18 @@
   #pg-events .ms-row { padding: 6px 4px; border-bottom: 1px solid var(--rule); border-radius: 6px; }
   #pg-events .task { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; border-top: 1px solid var(--rule); }
   #pg-events .task.done { opacity: .55; text-decoration: line-through; }
+  /* ⭐ a task due today stands out (accent, never red); its card gets an accent edge and moves to the top */
+  #pg-events .task.today { background: color-mix(in srgb, var(--accent) 13%, transparent); border-radius: 8px; padding: 8px; border-top-color: transparent; }
+  #pg-events .task.today.done { background: none; }
+  #pg-events .today-tag { color: var(--accent); white-space: nowrap; }
+  #pg-events .todo.has-today { box-shadow: inset 4px 0 0 var(--accent); }
+  #pg-events .ig-inline { margin-top: 6px; text-decoration: none; }
+  #ev_ai textarea { font-family: inherit; }
+  #ev_ai .imp-prev { margin-top: 8px; font-size: 13px; }
+  #ev_ai .imp-prev .ev { margin: 8px 0 4px; font-weight: 700; }
+  #ev_ai .imp-prev .add { color: var(--ok, #2f8a4e); }
+  #ev_ai .imp-prev .del { opacity: .7; text-decoration: line-through; }
+  #ev_ai .imp-prev pre { white-space: pre-wrap; font-size: 12px; margin: 4px 0 8px; padding: 6px 8px; background: var(--panel-2); border-radius: 8px; }
   #pg-events .task input { width: 20px; height: 20px; margin-top: 2px; flex: none; }
   #pg-events .ev { cursor: pointer; }
   @keyframes flash { 0%, 40% { background: color-mix(in srgb, var(--accent) 25%, transparent); } 100% { background: transparent; } }

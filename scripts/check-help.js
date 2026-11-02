@@ -19,6 +19,8 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Events: ⭐ today + linked in-game guide on the task", /⭐ today \(Sherry 2026-11-02\)/, /⭐ A task due today lights up/],
+  ["Events: 📥 paste back from Claude", /"📥 Paste back from Claude" \(inside/, /📥 Paste back from Claude \(only Sparrow/],
   ["Events: 📋 copy in-game messages from the to-do card", /one "📋 <title>" button per in-game message/, /Each 📋 button copies one of this event/],
   ["Events: 📤 For Claude export", /📤 For Claude" \(給 Claude/, /📤 For Claude \(only Sparrow sees this\): copies the next 4 weeks/],
   ["Site: 🤝 NAP rules page + home card", /🤝 NAP rules: their own page/, /🤝 NAP 6: the alliances we never attack/],

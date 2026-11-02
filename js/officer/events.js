@@ -472,6 +472,10 @@ const NOTE_KEY = () => ({ zh: "noteZh", en: "note", pt: "notePt", ar: "noteAr", 
 const nm = (o) => (o && (o[lang] || (BY_EN[lang] && BY_EN[lang][o.en]) || o.en || o.zh || o.pt || o.ar)) || "";
 const evName = (k) => { const e = byId(k); return e ? `${e.emoji || ""} ${nm(e) || k}`.trim() : k; };
 const txt = nm;
+/* a to-do can point at one of its event's in-game guides by title (td.ig): its 📋 copy button then sits on that task line */
+const igIndex = (e, title) => { if (!title || !e || !e.ingame) return -1; const t = String(title).trim().toLowerCase(); return e.ingame.findIndex((g) => String(g.title || "").trim().toLowerCase() === t); };
+const DAY_T = { en: { today: "⭐ TODAY", igLink: "📋 In-game guide for this task", igNone: "— none —" }, zh: { today: "⭐ 今天", igLink: "📋 這件事要貼的遊戲內小攻略", igNone: "— 無 —" }, ko: { today: "⭐ 오늘", igLink: "📋 이 일에 쓰는 게임 내 공지", igNone: "— 없음 —" }, pt: { today: "⭐ HOJE", igLink: "📋 Guia do jogo desta tarefa", igNone: "— nenhum —" }, ar: { today: "⭐ اليوم", igLink: "📋 دليل اللعبة لهذه المهمة", igNone: "— لا شيء —" } };
+const dayT = (k) => (DAY_T[lang] || DAY_T.en)[k];
 function mondayOf(t) { const d = utcDay(t); const wd = (new Date(d).getUTCDay() + 6) % 7; return d - wd * DAY; }
 
 /* starting list, built from what the site already had (used until the first save) */
@@ -528,14 +532,17 @@ function render() {
   // one card per event (this week's run); its tasks are listed inside, each with its own checkbox
   const groups = [];
   for (const it of items) { let g = groups.find((x) => x.r.k === it.r.k); if (!g) groups.push(g = { r: it.r, runs: [], list: [] }); if (!g.runs.includes(it.r)) g.runs.push(it.r); g.list.push(it); }
-  groups.sort((a, b) => (a.r.k === "bear-hunt") - (b.r.k === "bear-hunt"));   // Bear Hunt is set-and-forget → last
+  groups.sort((a, b) => (a.r.k === "bear-hunt") - (b.r.k === "bear-hunt"));
+  const todayOpen = (g) => g.list.some((it) => it.due === today && !(store.done || {})[it.id]);
+  groups.sort((a, b) => todayOpen(b) - todayOpen(a));   // ⭐ something to do today → on top (stable sort keeps the rest in order)   // Bear Hunt is set-and-forget → last
   $("todos").innerHTML = groups.length ? groups.map(({ r, runs: rr, list }) => { const e = byId(r.k) || {};
     const allDone = list.every((it) => store.done[it.id]);
     const when = rr.length === 1 ? tr("runs", { a: fmt(r.st), b: fmt(r.en - DAY), n: r.days }) : rr.map((x) => fmt(x.st)).join(" · ");   // short events (Bear Hunt) → one card, each day listed
-    return `<div class="todo${allDone ? " done" : ""}" data-ev="${esc(r.k)}" data-st="${rr.map((x) => x.st).join(" ")}">
+    const hasToday = list.some((it) => it.due === today && !store.done[it.id]);
+    return `<div class="todo${allDone ? " done" : ""}${hasToday ? " has-today" : ""}" data-ev="${esc(r.k)}" data-st="${rr.map((x) => x.st).join(" ")}">
       <div style="flex:1;min-width:0">
         <div class="txt"><b>${esc(evName(r.k))}</b> <span class="when">· ${esc(when)}</span></div>
-        ${list.map(({ r: ir, td, due, id }) => `<label class="task${store.done[id] ? " done" : ""}"><input type="checkbox" data-id="${esc(id)}" ${store.done[id] ? "checked" : ""}><div><div>${rr.length > 1 ? `<b>${esc(fmt(ir.st))}</b> · ` : ""}${localTimes(esc(txt(td)), lang)}</div><div class="when">⏰ ${esc(fmt(due))}${td.until != null && td.until !== "" ? ` · ${esc(tr("untilShow", { h: String(+td.until).padStart(2, "0") + ":00" }))}` : ""}${td.at ? ` · ${esc(tr("atShow", { t: td.at }))}` : ""}${due < today && !store.done[id] ? ` <b class="warn">${esc(tr("late"))}</b>` : ""}</div></div></label>`).join("")}
+        ${list.map(({ r: ir, td, due, id }) => { const gi = igIndex(e, td.ig); return `<label class="task${store.done[id] ? " done" : ""}${due === today ? " today" : ""}"><input type="checkbox" data-id="${esc(id)}" ${store.done[id] ? "checked" : ""}><div><div>${due === today ? `<b class="today-tag">${esc(dayT("today"))}</b> ` : ""}${rr.length > 1 ? `<b>${esc(fmt(ir.st))}</b> · ` : ""}${localTimes(esc(txt(td)), lang)}</div>${gi >= 0 ? `<button type="button" class="btn small ig-copy ig-inline" data-copy="${esc(r.k)}:${gi}" title="${esc(e.ingame[gi].text.slice(0, 200))}">📋 ${esc([...(e.ingame[gi].title || tr("fIngame"))].slice(0, 32).join(""))}</button>` : ""}<div class="when">⏰ ${esc(fmt(due))}${td.until != null && td.until !== "" ? ` · ${esc(tr("untilShow", { h: String(+td.until).padStart(2, "0") + ":00" }))}` : ""}${td.at ? ` · ${esc(tr("atShow", { t: td.at }))}` : ""}${due < today && !store.done[id] ? ` <b class="warn">${esc(tr("late"))}</b>` : ""}</div></div></label>`; }).join("")}
         <div class="acts"><button type="button" class="btn small" data-edtodo="${esc(r.k)}">✏️ ${esc(tr("editTodo"))}</button>${["bear-hunt", "mystic-trial", "alliance-rules"].includes(r.k) ? "" : `<button type="button" class="btn small" data-anone="${esc(r.k)}" data-anst="${r.st}">${esc(tr("anOne"))}</button>`}${list.some((x) => x.td.post) ? `<a class="btn small" href="#post">${esc(tr("toPost"))}</a>` : ""}${list.some((x) => x.td.ranking) ? `<a class="btn small" href="#ranking">${esc(tr("toRanking"))}</a>` : ""}${e.guide ? `<a class="btn small" href="./#/${lang}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}${(e.ingame || []).map((g, gi) => `<button type="button" class="btn small ig-copy" data-copy="${esc(r.k)}:${gi}" title="${esc(g.text.slice(0, 200))}">📋 ${esc([...(g.title || tr("fIngame"))].slice(0, 28).join(""))}</button>`).join("")}</div>
       </div>
     </div>`; }).join("") : `<div class="none">${esc(tr("noTodo"))}</div>`;
@@ -639,11 +646,11 @@ function exportAdmin() {
 /* 📤 For Claude (Sherry, 2026-11-02): the next 4 weeks of event runs, our times, to-dos (with ✅ / ⬜) and timed reminders as plain text,
    decrypted here in the browser, to paste into a Claude chat that plans the to-dos. No member data — only what this tab shows. */
 const AI_T = {
-  en: { h: "📤 For Claude", sub: "The next 4 weeks of events, our times, to-dos and their in-game messages as plain text, to paste into a Claude chat that helps plan them. No member data.", make: "📋 Copy for Claude", copied: "Copied ✅ Paste it into the chat.", sel: "Select the text below and copy it." },
-  zh: { h: "📤 給 Claude", sub: "把接下來 4 週的活動、我們的時間、待辦事項和遊戲內公告變成純文字，貼給處理待辦的 Claude 聊天。不含任何成員資料。", make: "📋 複製給 Claude", copied: "已複製 ✅ 貼到聊天裡就好。", sel: "請選取下面的文字自己複製。" },
-  ko: { h: "📤 Claude용", sub: "앞으로 4주의 이벤트, 우리 시간, 할 일을 텍스트로 만들어 Claude 채팅에 붙여 넣어요. 멤버 정보는 없어요.", make: "📋 Claude용 복사", copied: "복사됨 ✅ 채팅에 붙여 넣으세요.", sel: "아래 글을 선택해서 복사하세요." },
-  pt: { h: "📤 Para o Claude", sub: "Os eventos, nossos horários e tarefas das próximas 4 semanas em texto, para colar num chat do Claude. Sem dados de membros.", make: "📋 Copiar para o Claude", copied: "Copiado ✅ Cole no chat.", sel: "Selecione o texto abaixo e copie." },
-  ar: { h: "📤 لـ Claude", sub: "فعاليات الأسابيع الأربعة القادمة وأوقاتنا والمهام كنص، لتلصقه في محادثة Claude. بلا بيانات أعضاء.", make: "📋 نسخ لـ Claude", copied: "تم النسخ ✅ الصقه في المحادثة.", sel: "حدّد النص بالأسفل وانسخه." } };
+  en: { h: "📤 For Claude", sub: "The next 4 weeks of events, our times, to-dos and their in-game messages as plain text, to paste into a Claude chat that helps plan them. No member data.", make: "📋 Copy for Claude", copied: "Copied ✅ Paste it into the chat.", sel: "Select the text below and copy it.", impH: "📥 Paste back from Claude", impSub: "Paste the NXS-PATCH the Claude chat wrote. You see every change first; nothing is saved until you press ✅.", impCheck: "🔍 Check", impSave: "✅ Save these changes", impLook: "Check the changes below, then save.", impNoEdit: "You can look, but saving needs Events edit rights.", impSaved: "Saved ✅", impNothing: "Nothing would change.", impBad: "This isn't an NXS-PATCH (no readable { … } block)", impNoEv: "No event with the id \"{id}\"", impNoIg: "\"{id}\" has no in-game guide called \"{t}\"", impBadIg: "An in-game guide for \"{id}\" has no title or no text", impBadTodo: "A to-do for \"{id}\" has no text", impIgMissing: "A to-do points at the in-game guide \"{t}\", which doesn't exist" },
+  zh: { h: "📤 給 Claude", sub: "把接下來 4 週的活動、我們的時間、待辦事項和遊戲內公告變成純文字，貼給處理待辦的 Claude 聊天。不含任何成員資料。", make: "📋 複製給 Claude", copied: "已複製 ✅ 貼到聊天裡就好。", sel: "請選取下面的文字自己複製。", impH: "📥 從 Claude 貼回來", impSub: "把 Claude 聊天寫的 NXS-PATCH 貼進來。會先列出每一處改動，按 ✅ 才會儲存。", impCheck: "🔍 檢查", impSave: "✅ 儲存這些修改", impLook: "看一下下面的修改，沒問題再儲存。", impNoEdit: "可以看，但儲存需要活動分頁的編輯權限。", impSaved: "已儲存 ✅", impNothing: "沒有任何東西會改變。", impBad: "這不是 NXS-PATCH（找不到可讀的 { … }）", impNoEv: "沒有 id 是「{id}」的活動", impNoIg: "「{id}」沒有叫「{t}」的遊戲內小攻略", impBadIg: "「{id}」有一則遊戲內小攻略沒有標題或內容", impBadTodo: "「{id}」有一個待辦沒有文字", impIgMissing: "有待辦指向遊戲內小攻略「{t}」，但這則不存在" },
+  ko: { h: "📤 Claude용", sub: "앞으로 4주의 이벤트, 우리 시간, 할 일을 텍스트로 만들어 Claude 채팅에 붙여 넣어요. 멤버 정보는 없어요.", make: "📋 Claude용 복사", copied: "복사됨 ✅ 채팅에 붙여 넣으세요.", sel: "아래 글을 선택해서 복사하세요.", impH: "📥 Claude에서 붙여 넣기", impSub: "Claude 채팅이 쓴 NXS-PATCH를 붙여 넣어요. 바뀌는 곳을 먼저 보여 주고, ✅를 눌러야 저장돼요.", impCheck: "🔍 확인", impSave: "✅ 이 변경 저장", impLook: "아래 변경을 확인하고 저장하세요.", impNoEdit: "볼 수는 있지만 저장하려면 이벤트 편집 권한이 필요해요.", impSaved: "저장됨 ✅", impNothing: "바뀌는 것이 없어요.", impBad: "NXS-PATCH가 아니에요 ({ … } 없음)", impNoEv: "id가 \"{id}\"인 이벤트가 없어요", impNoIg: "\"{id}\"에 \"{t}\" 게임 내 공지가 없어요", impBadIg: "\"{id}\"의 게임 내 공지에 제목이나 내용이 없어요", impBadTodo: "\"{id}\"의 할 일에 내용이 없어요", impIgMissing: "할 일이 없는 게임 내 공지 \"{t}\"를 가리켜요" },
+  pt: { h: "📤 Para o Claude", sub: "Os eventos, nossos horários e tarefas das próximas 4 semanas em texto, para colar num chat do Claude. Sem dados de membros.", make: "📋 Copiar para o Claude", copied: "Copiado ✅ Cole no chat.", sel: "Selecione o texto abaixo e copie.", impH: "📥 Colar de volta do Claude", impSub: "Cole o NXS-PATCH que o chat do Claude escreveu. Você vê cada mudança antes; nada é salvo até apertar ✅.", impCheck: "🔍 Verificar", impSave: "✅ Salvar estas mudanças", impLook: "Confira as mudanças abaixo e salve.", impNoEdit: "Você pode ver, mas salvar exige permissão de edição em Eventos.", impSaved: "Salvo ✅", impNothing: "Nada mudaria.", impBad: "Isto não é um NXS-PATCH (sem bloco { … })", impNoEv: "Nenhum evento com id \"{id}\"", impNoIg: "\"{id}\" não tem guia do jogo \"{t}\"", impBadIg: "Um guia do jogo de \"{id}\" está sem título ou texto", impBadTodo: "Uma tarefa de \"{id}\" está sem texto", impIgMissing: "Uma tarefa aponta para o guia \"{t}\", que não existe" },
+  ar: { h: "📤 لـ Claude", sub: "فعاليات الأسابيع الأربعة القادمة وأوقاتنا والمهام كنص، لتلصقه في محادثة Claude. بلا بيانات أعضاء.", make: "📋 نسخ لـ Claude", copied: "تم النسخ ✅ الصقه في المحادثة.", sel: "حدّد النص بالأسفل وانسخه.", impH: "📥 لصق من Claude", impSub: "الصق NXS-PATCH الذي كتبته محادثة Claude. ترى كل تغيير أولًا، ولا يُحفظ شيء حتى تضغط ✅.", impCheck: "🔍 فحص", impSave: "✅ حفظ هذه التغييرات", impLook: "راجع التغييرات بالأسفل ثم احفظ.", impNoEdit: "يمكنك المشاهدة، لكن الحفظ يتطلب صلاحية تعديل الفعاليات.", impSaved: "تم الحفظ ✅", impNothing: "لن يتغير شيء.", impBad: "هذا ليس NXS-PATCH (لا توجد كتلة { … })", impNoEv: "لا توجد فعالية بالمعرّف \"{id}\"", impNoIg: "لا يوجد في \"{id}\" دليل باسم \"{t}\"", impBadIg: "دليل في \"{id}\" بلا عنوان أو نص", impBadTodo: "مهمة في \"{id}\" بلا نص", impIgMissing: "مهمة تشير إلى الدليل \"{t}\" وهو غير موجود" } };
 const aiT = (k) => (AI_T[lang] || AI_T.en)[k] || AI_T.en[k];
 function aiText() {
   const now = Date.now(), today = utcDay(now), end = today + 28 * DAY, L = [];
@@ -656,12 +663,12 @@ function aiText() {
     const e = byId(k) || {};
     const t = times[k], td = (times.timeDays || {})[k], bd = (times.days || {})[k];
     const tl = Array.isArray(t) && t.length ? " · our times: " + t.map((x, i) => x + (td && td[i] ? ` (day ${td[i]})` : "")).join(", ") + (bd ? ` · battle on day ${bd}` : "") : "";
-    const name = `${e.en || k}${e.zh ? " / " + e.zh : ""}`;
+    const name = `${e.en || k}${e.zh ? " / " + e.zh : ""} [${k}]`;
     const todoLines = (r) => (e.todo || []).map((x, i) => {
       const due = r.st + (Number(x.due) || 0) * DAY, id = `${k}-${isoDay(r.st)}-${i}`;
       if (due < today) return null;
       const txt = String(x.en || x.zh || "").replace(/\*\*/g, "").trim(), zh = x.en && x.zh && x.zh.trim() !== x.en.trim() ? ` / ${String(x.zh).replace(/\*\*/g, "").trim()}` : "";
-      return `  ${(store.done || {})[id] ? "✅" : "⬜"} ${d(due)}${x.at ? " " + x.at : ""}${x.until != null && x.until !== "" ? ` (until ${x.until}:00)` : ""}: ${txt}${zh}`;
+      return `  ${(store.done || {})[id] ? "✅" : "⬜"} ${d(due)}${x.at ? " " + x.at : ""}${x.until != null && x.until !== "" ? ` (until ${x.until}:00)` : ""}: ${txt}${zh}${x.ig ? ` [📋 ${x.ig}]` : ""}${due === today ? "  ← TODAY" : ""}`;
     }).filter(Boolean);
     if (list.length > 1 && list.every((r) => r.days === 1 && !todoLines(r).length)) { L.push(`\n■ ${name}: ${list.map((r) => d(r.st)).join(", ")}${tl}`); continue; }
     for (const r of list) { L.push(`\n■ ${name}: ${d(r.st)} – ${d(r.en - DAY)} (${r.days} day${r.days > 1 ? "s" : ""})${tl}`); L.push(...todoLines(r)); }
@@ -672,9 +679,64 @@ function aiText() {
     L.push("\n\n===== In-game messages (copy-ready, one per ▸) =====");
     for (const e of igs) { L.push(`\n■ ${e.en || e.id}${e.zh ? " / " + e.zh : ""}`); e.ingame.forEach((g, i) => L.push(`▸ ${g.title || "In-game message " + (i + 1)}\n${String(g.text || "").trim()}`)); }
   }
+  // the same events as data, so an edit can come back as an NXS-PATCH (📥 below): the full to-do list of each event + its guide titles.
+  // "due" = days after the event's first day (0 = first day, -1 = the day before); "at" = exact UTC time; "until" = shown until that UTC hour; "ig" = the in-game guide (by title) posted for that task
+  const cur = {}; for (const { k } of groups) { const e = byId(k) || {}; cur[k] = { start: e.start, every: e.every, days: e.days, todo: e.todo || [], ingame_titles: (e.ingame || []).map((g) => g.title) }; }
+  L.push("\n\n===== Current data (JSON) — for NXS-PATCH edits =====\n" + JSON.stringify(cur));
   const tm = TIMED.filter((t) => t.at > now && t.at < end);
   if (tm.length) { L.push("\n⏱️ Timed reminders:"); for (const t of tm) L.push(`  ${d(t.at)} ${hm(t.at)}: ${(byId(t.ev) || {}).en || t.ev}${t.label ? " — " + t.label : ""}`); }
   return L.join("\n");
+}
+/* 📥 NXS-PATCH from the Claude chat: { "events": { "<id>": { "todo": [full new list], "ingame_set": [{title,text}], "ingame_delete": [titles] } } }.
+   Only the Events tab's own data (to-dos and in-game guides of existing events) can change; nothing is saved until ✅ is pressed. */
+function applyPatch(raw) {
+  const t = String(raw || ""), a = t.indexOf("{"), b = t.lastIndexOf("}");
+  if (a < 0 || b < a) throw new Error(aiT("impBad"));
+  let p; try { p = JSON.parse(t.slice(a, b + 1)); } catch (e) { throw new Error(aiT("impBad") + " (" + e.message + ")"); }
+  const evs = p && p.events; if (!evs || typeof evs !== "object") throw new Error(aiT("impBad"));
+  const LANGS = ["en", "zh", "ko", "pt", "ar"], clean = (v) => String(v == null ? "" : v).replace(/\r/g, "").trim();
+  let next = LIST.map((x) => x), html = "", ids = [];
+  for (const [id, ch] of Object.entries(evs)) {
+    const old = byId(id); if (!old) throw new Error(aiT("impNoEv").replace("{id}", id));
+    const e = JSON.parse(JSON.stringify(old)); e.ingame = e.ingame || []; e.todo = e.todo || [];
+    const parts = [];
+    for (const title of (Array.isArray(ch.ingame_delete) ? ch.ingame_delete : [])) {
+      const i = igIndex(e, title); if (i < 0) throw new Error(aiT("impNoIg").replace("{t}", title).replace("{id}", id));
+      parts.push(`<div class="del">− 📋 ${esc(e.ingame[i].title)}</div>`); e.ingame.splice(i, 1);
+    }
+    for (const g of (Array.isArray(ch.ingame_set) ? ch.ingame_set : [])) {
+      const title = clean(g && g.title), text = String((g && g.text) || "").replace(/\r/g, "").trimEnd();
+      if (!title || !text.trim()) throw new Error(aiT("impBadIg").replace("{id}", id));
+      const i = igIndex(e, title), was = i >= 0 ? e.ingame[i].text : null;
+      if (was === text) continue;
+      if (i >= 0) e.ingame[i] = { title, text }; else e.ingame.push({ title, text });
+      parts.push(`<div class="add">${i >= 0 ? "✏️" : "+"} 📋 ${esc(title)}</div><pre>${esc(text)}</pre>`);
+    }
+    if (Array.isArray(ch.todo)) {
+      const list = ch.todo.map((x) => {
+        const o = { due: Math.round(+x.due || 0) };
+        for (const l of LANGS) if (clean(x[l])) o[l] = clean(x[l]);
+        if (!LANGS.some((l) => o[l])) throw new Error(aiT("impBadTodo").replace("{id}", id));
+        const am = /^(\d{1,2}):(\d{2})$/.exec(clean(x.at).replace(/[：.．]/g, ":").replace(/^(\d{1,2})(\d{2})$/, "$1:$2")); if (am && +am[1] < 24 && +am[2] < 60) o.at = am[1].padStart(2, "0") + ":" + am[2];
+        const u = parseInt(x.until, 10); if (u >= 1 && u <= 24) o.until = u;
+        if (clean(x.ig)) o.ig = clean(x.ig);
+        if (x.post) o.post = 1; if (x.ranking) o.ranking = 1;
+        return o;
+      }).sort((p1, p2) => p1.due - p2.due);
+      if (JSON.stringify(list) !== JSON.stringify(e.todo)) {
+        const key = (o) => JSON.stringify([o.due, o.at || "", o.en || o.zh || ""]), oldK = new Set(e.todo.map(key)), newK = new Set(list.map(key));
+        const line = (o) => `${o.due >= 0 ? "Day " + (o.due + 1) : o.due + "d"}${o.at ? " " + o.at : ""}: ${o.zh || o.en || ""}${o.ig ? " [📋 " + o.ig + "]" : ""}`;
+        for (const o of e.todo) if (!newK.has(key(o))) parts.push(`<div class="del">− ${esc(line(o))}</div>`);
+        for (const o of list) parts.push(`<div class="${oldK.has(key(o)) ? "" : "add"}">${oldK.has(key(o)) ? "· " : "+ "}${esc(line(o))}</div>`);
+        e.todo = list;
+      }
+    }
+    for (const o of e.todo) if (o.ig && igIndex(e, o.ig) < 0) parts.push(`<div class="warn">⚠️ ${esc(aiT("impIgMissing").replace("{t}", o.ig))}</div>`);
+    if (!parts.length) continue;
+    ids.push(id); next = next.map((x) => (x.id === id ? e : x));
+    html += `<div class="ev">${esc(evName(id))}</div>${parts.join("")}`;
+  }
+  return { next, ids, html };
 }
 function renderAi() {
   const el = $("ev_ai"); if (!el) return;
@@ -686,6 +748,22 @@ function renderAi() {
     el.innerHTML = `<h2>${esc(aiT("h"))}</h2><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(aiT("sub"))}</div>
       <div class="row" style="gap:8px;align-items:center"><button type="button" class="btn primary" id="ev_aiCopy">${esc(aiT("make"))}</button><span class="msg" id="ev_aiMsg"></span></div>
       <textarea class="inp" id="ev_aiOut" rows="8" readonly hidden style="width:100%;margin-top:8px;font-size:12px"></textarea>`;
+    el.insertAdjacentHTML("beforeend", `<h3 style="margin:16px 0 4px">${esc(aiT("impH"))}</h3><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(aiT("impSub"))}</div>
+      <textarea class="inp" id="ev_impIn" rows="5" placeholder="NXS-PATCH { … }" style="width:100%;font-size:12px"></textarea>
+      <div class="row" style="gap:8px;align-items:center;margin-top:6px"><button type="button" class="btn" id="ev_impCheck">${esc(aiT("impCheck"))}</button><button type="button" class="btn primary" id="ev_impSave" hidden>${esc(aiT("impSave"))}</button><span class="msg" id="ev_impMsg"></span></div>
+      <div class="imp-prev" id="ev_impPrev"></div>`);
+    let pending = null;
+    $("ev_impIn").oninput = () => { pending = null; $("ev_impSave").hidden = true; $("ev_impPrev").innerHTML = ""; $("ev_impMsg").textContent = ""; };
+    $("ev_impCheck").onclick = () => {
+      pending = null; $("ev_impSave").hidden = true; $("ev_impPrev").innerHTML = "";
+      try { const r = applyPatch($("ev_impIn").value); if (!r.html) throw new Error(aiT("impNothing")); pending = r; $("ev_impPrev").innerHTML = r.html; $("ev_impSave").hidden = !OFFICER.can("events", "edit"); $("ev_impMsg").textContent = OFFICER.can("events", "edit") ? aiT("impLook") : aiT("impNoEdit"); }
+      catch (err) { $("ev_impMsg").className = "msg warn"; $("ev_impMsg").textContent = "⚠️ " + err.message; return; }
+      $("ev_impMsg").className = "msg";
+    };
+    $("ev_impSave").onclick = async () => {
+      if (!pending) return;
+      if (await saveList(pending.next, `Claude edit: ${pending.ids.join(", ")}`)) { $("ev_impMsg").className = "msg okmsg"; $("ev_impMsg").textContent = aiT("impSaved"); $("ev_impIn").value = ""; $("ev_impPrev").innerHTML = ""; $("ev_impSave").hidden = true; pending = null; render(); renderList(); }
+    };
     $("ev_aiCopy").onclick = async () => {
       const t = aiText(), out = $("ev_aiOut"); out.value = t; out.hidden = false;
       try { await navigator.clipboard.writeText(t); $("ev_aiMsg").textContent = aiT("copied"); }
@@ -839,11 +917,14 @@ function igInline(btn) {
 
 /* ===== editor ===== */
 let editing = null;   // id of the event being edited, or null for a new one
+let edIgTitles = [];   // the in-game guide titles of the event being edited (for each to-do's 📋 picker)
 function todoRow(td = {}) {
+  const igSel = `<label class="due" style="margin-top:6px">${esc(dayT("igLink"))} <select class="inp" data-k="ig" style="width:auto;max-width:100%"><option value="">${esc(dayT("igNone"))}</option>${[...new Set([...edIgTitles, ...(td.ig ? [td.ig] : [])])].map((t) => `<option${t === td.ig ? " selected" : ""}>${esc(t)}</option>`).join("")}</select></label>`;
   return `<div class="sub todo-ed">
     <div class="row"><label class="due">${esc(tr("dueLbl"))} <input class="inp" type="number" data-k="due" value="${esc(td.due ?? 0)}"></label><label class="due">${esc(tr("untilLbl"))} <input class="inp" type="number" min="1" max="24" data-k="until" value="${esc(td.until ?? "")}" style="width:60px"></label><label class="due">${esc(tr("atLbl"))} <input class="inp" data-k="at" value="${esc(td.at ?? "")}" placeholder="22:30" autocomplete="off" autocapitalize="off" maxlength="5" style="width:70px"></label><button type="button" class="btn small" data-rm>${esc(tr("remove"))}</button></div>
     <textarea class="inp" data-k="txt" rows="2" placeholder="${esc(tr("tdTxt"))}" data-orig="${esc(txt(td))}" data-keep="${esc(JSON.stringify(Object.fromEntries(OFFICER_LANGS.map((l) => [l, td[l]]))))}" data-had="${td[lang] ? 1 : 0}" style="margin-top:6px;width:100%;min-height:0;resize:vertical">${esc(txt(td) || td[lang === "zh" ? "en" : "zh"] || "")}</textarea>
     <div class="row" style="justify-content:flex-start;font-size:13px;margin-top:6px"><label><input type="checkbox" data-k="post"${td.post ? " checked" : ""}> ${esc(tr("tdPost"))}</label><label><input type="checkbox" data-k="ranking"${td.ranking ? " checked" : ""}> ${esc(tr("tdRank"))}</label></div>
+    ${igSel}
   </div>`;
 }
 function igRow(g = {}) {
@@ -863,6 +944,7 @@ function openEditor(id) {
   $("edNote").value = noteOf(e);
   $("edGuide").innerHTML = `<option value="">${esc(tr("noGuide"))}</option>` + Object.entries(GUIDE_LIST).map(([k, g]) => `<option value="${k}">${g.e} ${esc(nm(g))}</option>`).join("");
   $("edGuide").value = e.guide || "";
+  edIgTitles = (e.ingame || []).map((g) => g.title).filter(Boolean);
   $("edTodos").innerHTML = (e.todo || []).map(todoRow).join("");
   $("edIgs").innerHTML = (e.ingame || []).map(igRow).join("");
   $("edDel").hidden = !id; $("edMsg").textContent = "";
@@ -906,7 +988,7 @@ function readEditor() {
     let o = { due: Math.round(+g("due").value || 0) };
     if (v === (t.dataset.orig || "")) { const k = JSON.parse(t.dataset.keep || "{}"); for (const l of OFFICER_LANGS) if (k[l]) o[l] = k[l]; if (!OFFICER_LANGS.some((l) => o[l])) o[lang] = v; }
     else o[lang] = v;   // edited → the other languages just show this text (no translation needed)
-    if (g("post").checked) o.post = 1; if (g("ranking").checked) o.ranking = 1;
+    if (g("post").checked) o.post = 1; if (g("ranking").checked) o.ranking = 1; if (g("ig") && g("ig").value) o.ig = g("ig").value;
     const u = parseInt(g("until").value, 10); if (u >= 1 && u <= 24) o.until = u;
     const am = String(g("at").value || "").trim().replace(/[：.．\s]/g, ":").replace(/^(\d{1,2})(\d{2})$/, "$1:$2").match(/^(\d{1,2}):(\d{2})$/);   // 22:30, 22.30, 2230 all work (a phone number pad has no ":") if (am && +am[1] < 24 && +am[2] < 60) o.at = am[1].padStart(2, "0") + ":" + am[2];
     return o;
