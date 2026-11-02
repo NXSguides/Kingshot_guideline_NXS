@@ -75,7 +75,7 @@ ESA/EsA/UNI
 IDN
 KGb
 🌾 Prüft Felder vor dem Sammeln. Ist ein Feld besetzt oder zeigt ein ⚔️ Schwert-Symbol, schickt keine Truppen. Bei einer Kollision zieht der Zweite zurück.
-🪖 Während Aufs Ganze (Ausnahme): Ressourcenfelder (Mühle, Sägewerk, Steinbruch, Eisenbergwerk) dürfen angegriffen werden.
+🪖 Während Aufs Ganze (Ausnahme): Ressourcenfelder (Mühle, Holzlager, Steinbruch, Eisenbergwerk) dürfen angegriffen werden.
 🏳️ Außenposten dürfen umkämpft werden — aber keine Städte verbrennen, keine Ressourcenfelder angreifen und den Zugang zu einer Außenpostenzone nicht blockieren.
 🏛️ Heiligtümer und Festungen werden unter den NAP 6 geteilt oder abwechselnd genutzt.
 ⚠️ VERSTÖSSE
@@ -1595,7 +1595,7 @@ Great Sawmill = Großes Sägewerk
 Great Quarry = Großer Steinbruch
 Great Iron Mine = Großes Eisenbergwerk
 Mill = Mühle
-Lumberyard = Sägewerk
+Lumberyard = Holzlager
 Iron Mine = Eisenbergwerk
 Quarry = Steinbruch
 Secured Alliance Node = Allianzknoten

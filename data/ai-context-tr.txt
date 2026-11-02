@@ -75,7 +75,7 @@ ESA/EsA/UNI
 IDN
 KGb
 🌾 Toplamadan önce kaynak noktasını kontrol edin. Doluysa veya ⚔️ kılıç simgesi görünüyorsa asker göndermeyin. Çakışma olursa ikinci gelen geri çeker.
-🪖 Topyekün sırasında (istisna): kaynak toplama noktalarına (Değirmen, Odun Fabrikası, Taş Ocağı, Demir Madeni) saldırabilirsiniz.
+🪖 Topyekün sırasında (istisna): kaynak toplama noktalarına (Değirmen, Kereste Deposu, Taş Ocağı, Demir Madeni) saldırabilirsiniz.
 🏳️ Karakollar için savaşılabilir — ama şehir yakmak, kaynak noktalarına vurmak ve karakol bölgesine geçişi engellemek yok.
 🏛️ Tapınaklar ve Kaleler NAP 6 arasında paylaşılır veya sırayla kullanılır.
 ⚠️ İHLALLER
@@ -1607,7 +1607,7 @@ Great Sawmill = Büyük Odun Fabrikası
 Great Quarry = Büyük Taş Ocağı
 Great Iron Mine = Büyük Demir Madeni
 Mill = Değirmen
-Lumberyard = Odun Fabrikası
+Lumberyard = Kereste Deposu
 Iron Mine = Demir Madeni
 Quarry = Taş Ocağı
 Secured Alliance Node = Korumalı İttifak Toplama Noktası
