@@ -67,7 +67,7 @@ Aşağıdaki liste yukarıdaki siteden derlendi. Bir etkinlik çıktığında re
 
 ### GUIDE #nap-rules — NAP Kuralları
 🤝 NAP KURALLARI (SALDIRMAZLIK PAKTI)
-❌ NAP 6 şehirlerine saldırmak veya keşif yapmak yasak — onaylı etiketli korunan akademi/çiftlik ittifakları da dahil
+❌ NAP 6 şehirlerine saldırmak veya gözetlemek yasak — onaylı etiketli korunan akademi/çiftlik ittifakları da dahil
 NXS/nxs/nXs
 NBD/nBd/Nbd
 RED/ReD

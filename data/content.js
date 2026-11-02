@@ -456,7 +456,7 @@ const GUIDES = {
         { type: "announcements" }
       ]},
       zh: { title: "近期活動", blocks: [
-        { type: "napHome", text: "🤝 NAP 6：不可攻擊或偵查這些聯盟（包含他們的農場／學院聯盟）", more: "看 NAP 規則 ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "napHome", text: "🤝 NAP 6：不可攻擊或偵察這些聯盟（包含他們的農場／學院聯盟）", more: "看 NAP 規則 ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       ko: { title: "최근 이벤트", blocks: [
@@ -480,7 +480,7 @@ const GUIDES = {
         { type: "announcements" }
       ]},
       tr: { title: "Son Etkinlikler", blocks: [
-        { type: "napHome", text: "🤝 NAP 6 — bu ittifaklara (çiftlik/akademi ittifakları dahil) saldırmak veya keşif yapmak yasak", more: "NAP kurallarını oku ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "napHome", text: "🤝 NAP 6 — bu ittifaklara (çiftlik/akademi ittifakları dahil) saldırmak veya gözetlemek yasak", more: "NAP kurallarını oku ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       id: { title: "Acara Terbaru", blocks: [
@@ -496,7 +496,7 @@ const GUIDES = {
         { type: "announcements" }
       ]},
       ar: { title: "أحدث الفعاليات", blocks: [
-        { type: "napHome", text: "🤝 NAP 6 — ممنوع مهاجمة أو استطلاع هذه التحالفات (وتحالفات المزارع/الأكاديمية التابعة لها)", more: "اقرأ قواعد NAP ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "napHome", text: "🤝 NAP 6 — ممنوع مهاجمة هذه التحالفات أو التجسس عليها (وتحالفات المزارع/الأكاديمية التابعة لها)", more: "اقرأ قواعد NAP ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]}
     }
@@ -1113,7 +1113,7 @@ const GUIDES = {
       ]},
       zh: { title: "NAP 規則", blocks: [
         { type: "h", text: "🤝 NAP 規則（互不侵犯條約）" },
-        { type: "nap", text: "❌ 不可攻擊或偵查 NAP 6 的城市，包含他們受保護、使用核准標籤的學院／農場聯盟", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "nap", text: "❌ 不可攻擊或偵察 NAP 6 的城市，包含他們受保護、使用核准標籤的學院／農場聯盟", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "list", items: ["🌾 採集前先看資源點。有人佔領或出現 ⚔️ 劍的圖示就不要派兵。如果兩人撞上，後到的人要撤回。","🪖 {allOut}期間（例外）：可以攻擊資源採集點（{mill}, {sawmill}, {quarry}, {ironMine}）。","🏳️ 據點可以爭奪，但不可以燒城、打資源點，也不可以擋住據點區域的通路。","🏛️ {sanctuary}和要塞由 NAP 6 共享或輪流使用。"] },
         { type: "sub", text: "⚠️ 違規處理" },
         { type: "list", items: ["第 1 次：幹部警告。","第 2 次（警告後再犯）：踢出聯盟。","第 3 次：列入所有受 NAP 保護聯盟的黑名單。"] },
@@ -1148,7 +1148,7 @@ const GUIDES = {
       ]},
       tr: { title: "NAP Kuralları", blocks: [
         { type: "h", text: "🤝 NAP KURALLARI (SALDIRMAZLIK PAKTI)" },
-        { type: "nap", text: "❌ NAP 6 şehirlerine saldırmak veya keşif yapmak yasak — onaylı etiketli korunan akademi/çiftlik ittifakları da dahil", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "nap", text: "❌ NAP 6 şehirlerine saldırmak veya gözetlemek yasak — onaylı etiketli korunan akademi/çiftlik ittifakları da dahil", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "list", items: ["🌾 Toplamadan önce kaynak noktasını kontrol edin. Doluysa veya ⚔️ kılıç simgesi görünüyorsa asker göndermeyin. Çakışma olursa ikinci gelen geri çeker.","🪖 {allOut} sırasında (istisna): kaynak toplama noktalarına ({mill}, {sawmill}, {quarry}, {ironMine}) saldırabilirsiniz.","🏳️ Karakollar için savaşılabilir — ama şehir yakmak, kaynak noktalarına vurmak ve karakol bölgesine geçişi engellemek yok.","🏛️ {sanctuary}lar ve Kaleler NAP 6 arasında paylaşılır veya sırayla kullanılır."] },
         { type: "sub", text: "⚠️ İHLALLER" },
         { type: "list", items: ["1.: yönetimden uyarı.","2. (uyarıdan sonra yeni ihlal): ittifaktan atılma.","3.: NAP korumasındaki tüm ittifaklarda kara liste."] },
@@ -1176,7 +1176,7 @@ const GUIDES = {
       ]},
       ar: { title: "قواعد NAP", blocks: [
         { type: "h", text: "🤝 قواعد NAP (اتفاقية عدم الاعتداء)" },
-        { type: "nap", text: "❌ ممنوع مهاجمة أو استطلاع مدن NAP 6 — ويشمل ذلك تحالفات الأكاديمية/المزارع المحمية بالوسوم المعتمدة", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "nap", text: "❌ ممنوع مهاجمة مدن NAP 6 أو التجسس عليها — ويشمل ذلك تحالفات الأكاديمية/المزارع المحمية بالوسوم المعتمدة", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "list", items: ["🌾 افحص النقطة قبل الجمع. إذا كانت مشغولة أو عليها أيقونة ⚔️ السيف فلا ترسل قوات. وإذا حدث تصادم، يسحب اللاعب الثاني قواته.","🪖 خلال {allOut} (استثناء): يمكنك مهاجمة نقاط جمع الموارد ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ يمكن التنافس على المستوطنات — لكن دون حرق المدن، ودون ضرب نقاط الموارد، ودون سد الطريق إلى منطقة المستوطنة.","🏛️ {sanctuary} والحصون مشتركة أو بالتناوب بين NAP 6."] },
         { type: "sub", text: "⚠️ المخالفات" },
         { type: "list", items: ["الأولى: تحذير من القيادة.","الثانية (مخالفة جديدة بعد التحذير): الطرد من التحالف.","الثالثة: القائمة السوداء في كل التحالفات المحمية بـ NAP."] },
