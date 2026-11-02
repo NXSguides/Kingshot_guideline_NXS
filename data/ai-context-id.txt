@@ -66,6 +66,22 @@ Pan: naikkan di urutan kedua untuk Truegold pasif.
 Daftar di bawah disusun dari situs di atas. Saat peristiwa muncul, cari berdasarkan warna dan isinya: pilih warna atau tokoh / kata kunci, lalu ketuk peristiwanya untuk melihat pilihan terbaik (✅).
 
 ### GUIDE #general-tips — Tips Umum
+🤝 ATURAN NAP (PAKTA NON-AGRESI)
+❌ Dilarang menyerang atau mengintai kota NAP 6 — termasuk aliansi akademi/farm mereka yang dilindungi dengan tag yang disetujui
+NXS/nxs/nXs
+NBD/nBd/Nbd
+RED/ReD
+ESA/EsA/UNI
+IDN
+KGb
+🌾 Cek titik sumber daya sebelum mengumpulkan. Jika sudah ditempati atau ada ikon ⚔️ pedang, jangan kirim pasukan. Jika bertabrakan, pemain kedua harus menarik pasukan.
+🪖 Selama Serangan Penuh (pengecualian): boleh menyerang titik pengumpulan sumber daya (Lumbung, Penggergajian Kayu, Tambang Batu, Tambang Besi).
+🏳️ Pos Terdepan boleh diperebutkan — tapi tidak boleh membakar kota, menyerang titik sumber daya, atau menghalangi akses ke zona Pos Terdepan.
+🏛️ Sanctuary dan Benteng dibagi atau digilir di antara NAP 6.
+⚠️ PELANGGARAN
+Ke-1: peringatan dari pimpinan.
+Ke-2 (melanggar lagi setelah diperingatkan): dikeluarkan dari aliansi.
+Ke-3: masuk daftar hitam semua aliansi yang dilindungi NAP.
 🔗 REFERENSI
 🗓️ LINIMASA KERAJAAN
 Lihat apa yang akan datang agar bisa merencanakan event, upgrade, dan sumber daya lebih awal.

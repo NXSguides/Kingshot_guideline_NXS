@@ -66,6 +66,22 @@ Pan: als Zweites leveln für passives Echtgold.
 Die folgende Liste basiert auf der Seite oben. Wenn ein Ereignis auftaucht, such es anhand von Farbe und Inhalt: Farbe oder Figur / Stichwort wählen, dann auf das Ereignis tippen, um die beste Option (✅) zu sehen.
 
 ### GUIDE #general-tips — Allgemeine Tipps
+🤝 NAP-REGELN (NICHTANGRIFFSPAKT)
+❌ Kein Angriff und kein Ausspähen von Städten der NAP 6 — auch ihre geschützten Akademie-/Farm-Allianzen mit den genehmigten Tags
+NXS/nxs/nXs
+NBD/nBd/Nbd
+RED/ReD
+ESA/EsA/UNI
+IDN
+KGb
+🌾 Prüft Felder vor dem Sammeln. Ist ein Feld besetzt oder zeigt ein ⚔️ Schwert-Symbol, schickt keine Truppen. Bei einer Kollision zieht der Zweite zurück.
+🪖 Während Aufs Ganze (Ausnahme): Ressourcenfelder (Mühle, Sägewerk, Steinbruch, Eisenbergwerk) dürfen angegriffen werden.
+🏳️ Außenposten dürfen umkämpft werden — aber keine Städte verbrennen, keine Ressourcenfelder angreifen und den Zugang zu einer Außenpostenzone nicht blockieren.
+🏛️ Heiligtümer und Festungen werden unter den NAP 6 geteilt oder abwechselnd genutzt.
+⚠️ VERSTÖSSE
+1.: Verwarnung durch die Leitung.
+2. (erneuter Verstoß nach Verwarnung): Rauswurf aus der Allianz.
+3.: Schwarze Liste bei allen NAP-geschützten Allianzen.
 🔗 RESSOURCEN
 🗓️ KÖNIGREICH-ZEITPLAN
 Sieh, was als Nächstes kommt, und plane Events, Upgrades und Ressourcen im Voraus.

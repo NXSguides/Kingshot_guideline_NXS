@@ -66,6 +66,22 @@ Pan: pasif Hasaltın için ikinci sırada yükselt.
 Aşağıdaki liste yukarıdaki siteden derlendi. Bir etkinlik çıktığında rengine ve içeriğine göre bak: bir renk ya da karakter / anahtar kelime seç, sonra en iyi seçeneği (✅) görmek için etkinliğe dokun.
 
 ### GUIDE #general-tips — Genel İpuçları
+🤝 NAP KURALLARI (SALDIRMAZLIK PAKTI)
+❌ NAP 6 şehirlerine saldırmak veya keşif yapmak yasak — onaylı etiketli korunan akademi/çiftlik ittifakları da dahil
+NXS/nxs/nXs
+NBD/nBd/Nbd
+RED/ReD
+ESA/EsA/UNI
+IDN
+KGb
+🌾 Toplamadan önce kaynak noktasını kontrol edin. Doluysa veya ⚔️ kılıç simgesi görünüyorsa asker göndermeyin. Çakışma olursa ikinci gelen geri çeker.
+🪖 Topyekün sırasında (istisna): kaynak toplama noktalarına (Değirmen, Odun Fabrikası, Taş Ocağı, Demir Madeni) saldırabilirsiniz.
+🏳️ Karakollar için savaşılabilir — ama şehir yakmak, kaynak noktalarına vurmak ve karakol bölgesine geçişi engellemek yok.
+🏛️ Tapınaklar ve Kaleler NAP 6 arasında paylaşılır veya sırayla kullanılır.
+⚠️ İHLALLER
+1.: yönetimden uyarı.
+2. (uyarıdan sonra yeni ihlal): ittifaktan atılma.
+3.: NAP korumasındaki tüm ittifaklarda kara liste.
 🔗 KAYNAKLAR
 🗓️ KRALLIK ZAMAN ÇİZELGESİ
 Sırada ne olduğunu gör; etkinlikleri, yükseltmeleri ve kaynakları önceden planla.

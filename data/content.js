@@ -1093,6 +1093,11 @@ const GUIDES = {
     name: { en: "General Tips", zh: "通用小技巧", ko: "일반 팁", de: "Allgemeine Tipps", fr: "Conseils Généraux", pt: "Dicas Gerais", tr: "Genel İpuçları", id: "Tips Umum", ru: "Общие советы", th: "เคล็ดลับทั่วไป", ar: "نصائح عامة", es: "Consejos Generales" },
     sections: {
       en: { title: "General Tips", blocks: [
+        { type: "h", text: "🤝 NAP RULES (NON-AGGRESSION PACT)" },
+        { type: "nap", text: "❌ No attacking or scouting NAP 6 cities — this includes their protected academy/farm alliances with the approved tags", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 Check nodes before gathering. If a node is occupied or shows a ⚔️ sword icon, don't send troops. If two players collide, the second one recalls.","🪖 During {allOut} (exception): you may attack resource gathering nodes ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Outposts can be fought over — but no city burning, no hitting resource nodes, and no blocking access to an outpost zone.","🏛️ {sanctuary}s and Fortresses are shared or rotated among NAP 6."] },
+        { type: "sub", text: "⚠️ VIOLATIONS" },
+        { type: "list", items: ["1st: a warning from leadership.","2nd (another violation after a warning): kicked from the alliance.","3rd: blacklisted from all NAP-protected alliances."] },
         { type: "h", text: "🔗 RESOURCES" },
         { type: "sub", text: "🗓️ KINGDOM TIMELINE" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -1185,6 +1190,11 @@ const GUIDES = {
         ] }
       ]},
       zh: { title: "通用小技巧", blocks: [
+        { type: "h", text: "🤝 NAP 規則（互不侵犯條約）" },
+        { type: "nap", text: "❌ 不可攻擊或偵查 NAP 6 的城市，包含他們受保護、使用核准標籤的學院／農場聯盟", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 採集前先看資源點。有人佔領或出現 ⚔️ 劍的圖示就不要派兵。如果兩人撞上，後到的人要撤回。","🪖 {allOut}期間（例外）：可以攻擊資源採集點（{mill}, {sawmill}, {quarry}, {ironMine}）。","🏳️ 據點可以爭奪，但不可以燒城、打資源點，也不可以擋住據點區域的通路。","🏛️ {sanctuary}和要塞由 NAP 6 共享或輪流使用。"] },
+        { type: "sub", text: "⚠️ 違規處理" },
+        { type: "list", items: ["第 1 次：幹部警告。","第 2 次（警告後再犯）：踢出聯盟。","第 3 次：列入所有受 NAP 保護聯盟的黑名單。"] },
         { type: "h", text: "🔗 實用資源" },
         { type: "sub", text: "🗓️ 王國時間軸" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -1277,6 +1287,11 @@ const GUIDES = {
         ] }
       ]},
       ko: { title: "일반 팁", blocks: [
+        { type: "h", text: "🤝 NAP 규칙 (불가침 조약)" },
+        { type: "nap", text: "❌ NAP 6 도시 공격·정찰 금지 — 승인된 태그를 쓰는 보호 대상 아카데미/농장 연맹도 포함", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 채집 전에 자원지를 확인하세요. 누가 점령 중이거나 ⚔️ 칼 아이콘이 보이면 부대를 보내지 마세요. 두 사람이 겹치면 나중에 온 사람이 철수합니다.","🪖 {allOut} 기간 (예외): 자원 채집지({mill}, {sawmill}, {quarry}, {ironMine})는 공격할 수 있습니다.","🏳️ 거점은 쟁탈할 수 있지만, 도시 불태우기, 자원지 공격, 거점 구역 통로 막기는 금지입니다.","🏛️ {sanctuary}과 요새는 NAP 6이 함께 쓰거나 돌아가며 씁니다."] },
+        { type: "sub", text: "⚠️ 위반 시" },
+        { type: "list", items: ["1회: 운영진 경고.","2회 (경고 후 또 위반): 연맹에서 추방.","3회: NAP 보호 연맹 전체 블랙리스트."] },
         {"type":"h","text":"🔗 리소스"},
         {"type":"sub","text":"🗓️ 킹덤 타임라인"},
         {"type":"p","text":"https://kingshotoptimizer.com/kingdom-timeline/2189"},
@@ -1323,6 +1338,11 @@ const GUIDES = {
         {"type":"list","items":["☐ 🐉 {petAdventure} 보내기","☐ 🌾 {gathering} 부대 보내기","☐ ⚔️ 부대 {training} 계속 유지하기","☐ 🔬 필요에 따라 {research} / {construction} 계속 유지하기"]}
       ]},
       de: { title: "Allgemeine Tipps", blocks: [
+        { type: "h", text: "🤝 NAP-REGELN (NICHTANGRIFFSPAKT)" },
+        { type: "nap", text: "❌ Kein Angriff und kein Ausspähen von Städten der NAP 6 — auch ihre geschützten Akademie-/Farm-Allianzen mit den genehmigten Tags", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 Prüft Felder vor dem Sammeln. Ist ein Feld besetzt oder zeigt ein ⚔️ Schwert-Symbol, schickt keine Truppen. Bei einer Kollision zieht der Zweite zurück.","🪖 Während {allOut} (Ausnahme): Ressourcenfelder ({mill}, {sawmill}, {quarry}, {ironMine}) dürfen angegriffen werden.","🏳️ Außenposten dürfen umkämpft werden — aber keine Städte verbrennen, keine Ressourcenfelder angreifen und den Zugang zu einer Außenpostenzone nicht blockieren.","🏛️ Heiligtümer und Festungen werden unter den NAP 6 geteilt oder abwechselnd genutzt."] },
+        { type: "sub", text: "⚠️ VERSTÖSSE" },
+        { type: "list", items: ["1.: Verwarnung durch die Leitung.","2. (erneuter Verstoß nach Verwarnung): Rauswurf aus der Allianz.","3.: Schwarze Liste bei allen NAP-geschützten Allianzen."] },
         { type: "h", text: "🔗 RESSOURCEN" },
         { type: "sub", text: "🗓️ KÖNIGREICH-ZEITPLAN" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -1415,6 +1435,11 @@ const GUIDES = {
         ] }
       ]},
       fr: { title: "Conseils Généraux", blocks: [
+        { type: "h", text: "🤝 RÈGLES DU NAP (PACTE DE NON-AGRESSION)" },
+        { type: "nap", text: "❌ Interdit d'attaquer ou d'espionner les villes des NAP 6 — y compris leurs alliances académie/ferme protégées avec les tags approuvés", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 Vérifiez les points avant de récolter. Si un point est occupé ou affiche une icône ⚔️ épée, n'envoyez pas de troupes. En cas de collision, le second joueur rappelle ses troupes.","🪖 Pendant {allOut} (exception) : vous pouvez attaquer les points de récolte ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Les avant-postes peuvent être disputés — mais pas de ville brûlée, pas d'attaque sur les points de ressources, et pas de blocage de l'accès à une zone d'avant-poste.","🏛️ Les {sanctuary}s et les Forteresses sont partagés ou attribués à tour de rôle entre les NAP 6."] },
+        { type: "sub", text: "⚠️ SANCTIONS" },
+        { type: "list", items: ["1re : avertissement de la direction.","2e (nouvelle infraction après avertissement) : exclusion de l'alliance.","3e : liste noire de toutes les alliances protégées par le NAP."] },
         { type: "h", text: "🔗 RESSOURCES" },
         { type: "sub", text: "🗓️ CHRONOLOGIE DU ROYAUME" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -1507,6 +1532,11 @@ const GUIDES = {
         ] }
       ]},
       pt: { title: "Dicas Gerais", blocks: [
+        { type: "h", text: "🤝 REGRAS DO NAP (PACTO DE NÃO AGRESSÃO)" },
+        { type: "nap", text: "❌ Proibido atacar ou espionar cidades do NAP 6 — inclui as alianças academia/fazenda protegidas com as tags aprovadas", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 Verifique os pontos antes de coletar. Se estiver ocupado ou mostrar o ícone ⚔️ de espada, não envie tropas. Se houver colisão, o segundo jogador recua.","🪖 Durante o {allOut} (exceção): pode atacar pontos de coleta de recursos ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Postos Avançados podem ser disputados — mas sem queimar cidades, sem atacar pontos de recursos e sem bloquear o acesso a uma zona de Posto Avançado.","🏛️ {sanctuary}s e Fortalezas são compartilhados ou revezados entre o NAP 6."] },
+        { type: "sub", text: "⚠️ PUNIÇÕES" },
+        { type: "list", items: ["1ª: aviso da liderança.","2ª (nova violação após aviso): expulso da aliança.","3ª: lista negra em todas as alianças protegidas pelo NAP."] },
         { type: "h", text: "🔗 RECURSOS" },
         { type: "sub", text: "🗓️ LINHA DO TEMPO DO REINO" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -1599,6 +1629,11 @@ const GUIDES = {
         ] }
       ]},
       tr: { title: "Genel İpuçları", blocks: [
+        { type: "h", text: "🤝 NAP KURALLARI (SALDIRMAZLIK PAKTI)" },
+        { type: "nap", text: "❌ NAP 6 şehirlerine saldırmak veya keşif yapmak yasak — onaylı etiketli korunan akademi/çiftlik ittifakları da dahil", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 Toplamadan önce kaynak noktasını kontrol edin. Doluysa veya ⚔️ kılıç simgesi görünüyorsa asker göndermeyin. Çakışma olursa ikinci gelen geri çeker.","🪖 {allOut} sırasında (istisna): kaynak toplama noktalarına ({mill}, {sawmill}, {quarry}, {ironMine}) saldırabilirsiniz.","🏳️ Karakollar için savaşılabilir — ama şehir yakmak, kaynak noktalarına vurmak ve karakol bölgesine geçişi engellemek yok.","🏛️ {sanctuary}lar ve Kaleler NAP 6 arasında paylaşılır veya sırayla kullanılır."] },
+        { type: "sub", text: "⚠️ İHLALLER" },
+        { type: "list", items: ["1.: yönetimden uyarı.","2. (uyarıdan sonra yeni ihlal): ittifaktan atılma.","3.: NAP korumasındaki tüm ittifaklarda kara liste."] },
         { type: "h", text: "🔗 KAYNAKLAR" },
         { type: "sub", text: "🗓️ KRALLIK ZAMAN ÇİZELGESİ" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -1691,6 +1726,11 @@ const GUIDES = {
         ] }
       ]},
       id: { title: "Tips Umum", blocks: [
+        { type: "h", text: "🤝 ATURAN NAP (PAKTA NON-AGRESI)" },
+        { type: "nap", text: "❌ Dilarang menyerang atau mengintai kota NAP 6 — termasuk aliansi akademi/farm mereka yang dilindungi dengan tag yang disetujui", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 Cek titik sumber daya sebelum mengumpulkan. Jika sudah ditempati atau ada ikon ⚔️ pedang, jangan kirim pasukan. Jika bertabrakan, pemain kedua harus menarik pasukan.","🪖 Selama {allOut} (pengecualian): boleh menyerang titik pengumpulan sumber daya ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Pos Terdepan boleh diperebutkan — tapi tidak boleh membakar kota, menyerang titik sumber daya, atau menghalangi akses ke zona Pos Terdepan.","🏛️ {sanctuary} dan Benteng dibagi atau digilir di antara NAP 6."] },
+        { type: "sub", text: "⚠️ PELANGGARAN" },
+        { type: "list", items: ["Ke-1: peringatan dari pimpinan.","Ke-2 (melanggar lagi setelah diperingatkan): dikeluarkan dari aliansi.","Ke-3: masuk daftar hitam semua aliansi yang dilindungi NAP."] },
         { type: "h", text: "🔗 REFERENSI" },
         { type: "sub", text: "🗓️ LINIMASA KERAJAAN" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -1783,6 +1823,11 @@ const GUIDES = {
         ] }
       ]},
       ru: { title: "Общие советы", blocks: [
+        { type: "h", text: "🤝 ПРАВИЛА NAP (ПАКТ О НЕНАПАДЕНИИ)" },
+        { type: "nap", text: "❌ Нельзя атаковать и разведывать города NAP 6 — включая их защищённые альянсы-академии/фермы с одобренными тегами", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 Перед сбором проверяйте точку. Если она занята или на ней значок ⚔️ меча, не отправляйте войска. При столкновении второй игрок отзывает отряд.","🪖 Во время «{allOut}» (исключение): можно атаковать точки сбора ресурсов ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ За аванпосты можно сражаться — но нельзя сжигать города, бить точки ресурсов и перекрывать доступ к зоне аванпоста.","🏛️ Святилища и крепости делятся или передаются по очереди между NAP 6."] },
+        { type: "sub", text: "⚠️ НАРУШЕНИЯ" },
+        { type: "list", items: ["1-е: предупреждение от руководства.","2-е (повторное нарушение после предупреждения): исключение из альянса.","3-е: чёрный список во всех альянсах под защитой NAP."] },
         { type: "h", text: "🔗 ПОЛЕЗНЫЕ РЕСУРСЫ" },
         { type: "sub", text: "🗓️ ХРОНОЛОГИЯ КОРОЛЕВСТВА" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -1875,6 +1920,11 @@ const GUIDES = {
         ] }
       ]},
       th: { title: "เคล็ดลับทั่วไป", blocks: [
+        { type: "h", text: "🤝 กฎ NAP (สนธิสัญญาไม่รุกราน)" },
+        { type: "nap", text: "❌ ห้ามโจมตีหรือสอดแนมเมืองของ NAP 6 — รวมถึงพันธมิตรอาคาเดมี/ฟาร์มที่ได้รับการคุ้มครองและใช้แท็กที่อนุมัติ", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 ตรวจจุดทรัพยากรก่อนเก็บ ถ้ามีคนอยู่หรือมีไอคอน ⚔️ ดาบ อย่าส่งทหาร ถ้าชนกัน คนที่มาทีหลังต้องถอนกลับ","🪖 ระหว่าง {allOut} (ข้อยกเว้น): โจมตีจุดเก็บทรัพยากร ({mill}, {sawmill}, {quarry}, {ironMine}) ได้","🏳️ ด่านหน้าแย่งชิงกันได้ — แต่ห้ามเผาเมือง ห้ามตีจุดทรัพยากร และห้ามขวางทางเข้าพื้นที่ด่านหน้า","🏛️ {sanctuary}และป้อมปราการใช้ร่วมกันหรือผลัดกันใช้ระหว่าง NAP 6"] },
+        { type: "sub", text: "⚠️ การละเมิด" },
+        { type: "list", items: ["ครั้งที่ 1: ผู้นำตักเตือน","ครั้งที่ 2 (ละเมิดอีกหลังถูกเตือน): ถูกเตะออกจากพันธมิตร","ครั้งที่ 3: ขึ้นบัญชีดำของทุกพันธมิตรที่อยู่ใต้ NAP"] },
         { type: "h", text: "🔗 แหล่งข้อมูล" },
         { type: "sub", text: "🗓️ ไทม์ไลน์อาณาจักร" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -1967,6 +2017,11 @@ const GUIDES = {
         ] }
       ]},
       ar: { title: "نصائح عامة", blocks: [
+        { type: "h", text: "🤝 قواعد NAP (اتفاقية عدم الاعتداء)" },
+        { type: "nap", text: "❌ ممنوع مهاجمة أو استطلاع مدن NAP 6 — ويشمل ذلك تحالفات الأكاديمية/المزارع المحمية بالوسوم المعتمدة", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 افحص النقطة قبل الجمع. إذا كانت مشغولة أو عليها أيقونة ⚔️ السيف فلا ترسل قوات. وإذا حدث تصادم، يسحب اللاعب الثاني قواته.","🪖 خلال {allOut} (استثناء): يمكنك مهاجمة نقاط جمع الموارد ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ يمكن التنافس على المستوطنات — لكن دون حرق المدن، ودون ضرب نقاط الموارد، ودون سد الطريق إلى منطقة المستوطنة.","🏛️ {sanctuary} والحصون مشتركة أو بالتناوب بين NAP 6."] },
+        { type: "sub", text: "⚠️ المخالفات" },
+        { type: "list", items: ["الأولى: تحذير من القيادة.","الثانية (مخالفة جديدة بعد التحذير): الطرد من التحالف.","الثالثة: القائمة السوداء في كل التحالفات المحمية بـ NAP."] },
         { type: "h", text: "🔗 مصادر مفيدة" },
         { type: "sub", text: "🗓️ الجدول الزمني للمملكة" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -2059,6 +2114,11 @@ const GUIDES = {
         ] }
       ]},
       es: { title: "Consejos Generales", blocks: [
+        { type: "h", text: "🤝 REGLAS DEL NAP (PACTO DE NO AGRESIÓN)" },
+        { type: "nap", text: "❌ Prohibido atacar o espiar ciudades del NAP 6 — incluye sus alianzas academia/granja protegidas con las etiquetas aprobadas", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 Revisa los puntos antes de recolectar. Si está ocupado o muestra el icono ⚔️ de espada, no envíes tropas. Si hay un choque, el segundo jugador retira sus tropas.","🪖 Durante {allOut} (excepción): puedes atacar puntos de recolección ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Los puestos avanzados se pueden disputar — pero sin quemar ciudades, sin atacar puntos de recursos y sin bloquear el acceso a una zona de puesto avanzado.","🏛️ Los {sanctuary}s y las Fortalezas se comparten o se rotan entre el NAP 6."] },
+        { type: "sub", text: "⚠️ SANCIONES" },
+        { type: "list", items: ["1.ª: advertencia de los líderes.","2.ª (otra infracción tras la advertencia): expulsión de la alianza.","3.ª: lista negra en todas las alianzas protegidas por el NAP."] },
         { type: "h", text: "🔗 RECURSOS" },
         { type: "sub", text: "🗓️ CRONOLOGÍA DEL REINO" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },

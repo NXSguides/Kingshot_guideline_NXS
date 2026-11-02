@@ -66,6 +66,22 @@ Pan : à monter en second pour l'Or Véritable passif.
 La liste ci-dessous est compilée à partir du site ci-dessus. Quand un événement apparaît, cherchez-le par sa couleur et son contenu : choisissez une couleur ou un personnage / mot-clé, puis touchez l'événement pour voir la meilleure option (✅).
 
 ### GUIDE #general-tips — Conseils Généraux
+🤝 RÈGLES DU NAP (PACTE DE NON-AGRESSION)
+❌ Interdit d'attaquer ou d'espionner les villes des NAP 6 — y compris leurs alliances académie/ferme protégées avec les tags approuvés
+NXS/nxs/nXs
+NBD/nBd/Nbd
+RED/ReD
+ESA/EsA/UNI
+IDN
+KGb
+🌾 Vérifiez les points avant de récolter. Si un point est occupé ou affiche une icône ⚔️ épée, n'envoyez pas de troupes. En cas de collision, le second joueur rappelle ses troupes.
+🪖 Pendant Tous dehors (exception) : vous pouvez attaquer les points de récolte (Moulin, Scierie, Carrière, Mine de Fer).
+🏳️ Les avant-postes peuvent être disputés — mais pas de ville brûlée, pas d'attaque sur les points de ressources, et pas de blocage de l'accès à une zone d'avant-poste.
+🏛️ Les Sanctuaires et les Forteresses sont partagés ou attribués à tour de rôle entre les NAP 6.
+⚠️ SANCTIONS
+1re : avertissement de la direction.
+2e (nouvelle infraction après avertissement) : exclusion de l'alliance.
+3e : liste noire de toutes les alliances protégées par le NAP.
 🔗 RESSOURCES
 🗓️ CHRONOLOGIE DU ROYAUME
 Vois ce qui arrive ensuite pour planifier événements, améliorations et ressources à l'avance.
