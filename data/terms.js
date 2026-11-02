@@ -48,7 +48,7 @@ const TERMS = [
    ["Forsaken Temple", "神廟大冒險", "신전 대모험", "Einsamer Tempel", "Temple Abandonné", "Templo Abandonado", "Issız Tapınak", "Forsaken Temple", "Заброшенный храм", "วิหารร้าง", "المعبد المهجور", "Templo abandonado", "Event icon (treasure map + dice) at the right of the city screen. Partly cut off in some screenshots (EN '…saken Temple', DE 'Einsamer Tem…', FR 'Temple Aband…', RU 'Заброше…')."],
    ["Hero Roulette","英雄轉盤","영웅 룰렛","Helden Roulette","Roulette des Héros","Roleta do Herói","Kahraman Ruleti","Rolet Hero","Геройская рулетка","รูเล็ตฮีโร่","روليت البطل","Ruleta de Héroes","ES: Event Calendar pop-up. Lucky Chip tooltips: FR 'la Roulette des Héros', PT [Roleta do Herói], ID [Rolet Hero], RU [геройскую рулетку] (accusative), KO 「영웅 룰렛」, DE [Helden Roulette]."],
    ["Lucky Chip","幸運幣","행운의 코인","Glückschip","Jeton Chanceux","Ficha da Sorte","Uğurlu Fiş","Chip Keberuntungan","Фишка удачи","ชิปนำโชค","رقاقة الحظ","Ficha de la suerte","Backpack Other tab: used in Hero Roulette to spin for rewards (1 chip = 1 spin)."],
-   ["Officer Project","士官計畫","—","Offiziersprojekt","Projet d'Officier","—","—","—","—","—","مسؤول المشروع","—"],
+   ["Officer Project","士官計畫","—","Offiziersprojekt","Projet d'Officier","—","—","—","—","—","مسؤول المشروع","Proyecto de oficial"],
    ["Swordland Showdown", "聖劍爭奪", "성검 쟁탈", "Schwertland-Showdown", "Choc du Glaive", "Confronto entre Espadas", "Kılıçdiyarı Hesaplaşması", "Swordland Showdown", "Битва за Страну мечей", "ศึกดวลดินแดนดาบ", "مواجهة أرض السيوف", "Enfrentamiento en Tierra de espadas", "ES: calendar pop-up and rules text."],
    ["Swordland", "聖劍戰場", "성검 전장", "Schwertland", "Terres du Glaive", "Terra das Espadas", "Kılıçdiyarı", "Swordland", "Страна мечей", "ดินแดนดาบ", "أرض السيوف", "Tierra de espadas", "Portuguese shows both 'Terra das Espadas' and 'Terra da Espada' in the game. ES capitalisation varies: 'Tierra de Espadas' / 'Tierra de las espadas'."],
    ["Battlefield", "聖劍戰場", "성검 전장", "Schlachtfeld", "champ de bataille", "campo de batalha", "savaş alanı", "medan perang", "поле боя", "สนามรบ", "ساحة المعركة", "campo de batalla", "Seen inside sentences, not as a standalone label. ES: seen inside sentences."],
@@ -174,7 +174,7 @@ const TERMS = [
    ["Building control time", "佔領時長", "점령 시간", "—", "temps nécessaire pour contrôler", "tempo necessário para assumir o controle das construções", "binaları kontrol etme süresi", "waktu yang diperlukan untuk menguasai bangunan", "время захвата зданий", "เวลาที่ใช้ในการยึดครองสิ่งปลูกสร้าง", "الوقت المطلوب للسيطرة على المباني", "—", "Seen inside sentences."],
    ["Defense failure", "防守失敗", "방어에 실패", "—", "défaite", "derrota", "—", "kalah", "поражение", "ตกเป็นฝ่ายแพ้", "الهزيمة", "—", "Seen inside sentences."],
    ["Teleport / free teleports", "遷城 / 免費高級遷城", "—", "Teleports", "téléportations gratuites", "teletransportes gratuitos", "ışınlanma", "teleportasi gratis", "бесплатный телепорт", "การย้ายถิ่นฐานฟรี", "عمليات الانتقال المجانية", "—"],
-   ["Cooldown", "恢復時間", "—", "—", "intervalle (entre les téléportations)", "intervalo (entre teletransportes gratuitos)", "ışınlanmalar arasındaki süre", "interval (antara teleportasi gratis)", "время перезарядки", "คูลดาวน์", "الفاصل الزمني", "—"],
+   ["Cooldown", "恢復時間", "—", "—", "intervalle (entre les téléportations)", "intervalo (entre teletransportes gratuitos)", "ışınlanmalar arasındaki süre", "interval (antara teleportasi gratis)", "время перезарядки", "คูลดาวน์", "الفاصل الزمني", "Tiempo de enfriamiento"],
    ["Total Troops", "總部隊", "총 부대", "Alle Trupps", "Total troupes", "Tropas Totais", "Birlik Sayısı", "Total Skuad", "Общий размер войск", "ทีมทั้งหมด", "إجمالي القوات", "Total tropas"],
    ["March Queue", "行軍隊伍", "행군 대열", "Marschschlange", "File de Marche", "Fila de Marcha", "İntikal Sırası", "Barisan Antrean", "Очередь марша", "คิวการเดินทัพ", "طابور القوات المتقدمة", "Cola de marcha"],
    ["Injured", "傷兵", "부상병", "Verletzt", "Blessé(s)", "Ferido", "Yaralılar", "Terluka", "Ранено", "ได้รับบาดเจ็บ", "مصاب", "Heridos"]
@@ -297,7 +297,7 @@ const TERMS = [
    ["Deployment Capacity Boost II (12hrs)", "出征部隊數量提升II（12小時）", "출정 수용량 증가 II (12시간)", "—", "—", "Impulso da Capacidade de Envio II (12h)", "—", "—", "—", "—", "تعزيز قدرة النشر 2 (لمدة 12 ساعة)", "—", "Item: Deployment Capacity +20% for 12 h."],
    ["Sanctuary / Sanctuaries", "遺跡", "유적", "Heiligtum / Heiligtümer", "Sanctuaire / Sanctuaires", "Santuário / Santuários", "Tapınak / Tapınaklar", "Sanctuary", "святилище / святилища", "วิหาร", "المأوى / المآوي", "santuario", "Chinese uses 遺跡 and Korean uses 유적, NOT 聖所/성소 (Sanctum in Swordland Showdown). Portuguese uses 'Santuário' for both, so pt/fr/de cannot tell them apart. German uses 'Heiligtum' for both this and Sanctum. French uses 'Sanctuaire' for both this and Sanctum. Arabic also distinguishes them: المأوى (Sanctuary) vs مزار (Sanctum). Russian uses 'святилище' for both this and Sanctum. Turkish uses 'Tapınak' for both this and Sanctum. Thai: 'วิหาร' vs Sanctum 'วิหารศักดิ์สิทธิ์' (related but different). Indonesian keeps English 'Sanctuary' vs Sanctum 'Sanctum' (different). ES: lowercase inside the tagline."],
    ["Season / Phase", "賽季 / 期", "시즌 / 회", "Saison / Phase", "Saison / Phase", "Temporada / Fase", "Sezon / Evre", "Season / Fase", "Сезон / Стадия", "ฤดูกาล / ช่วง", "الموسم / المرحلة", "Temporada / Fase", "Title format: 'Season 2 Phase 7/8' = 第2賽季 7/8期 = 제2시즌 7/8회. Arabic: 'الموسم 2 المرحلة 7/8'. Thai: 'ฤดูกาลที่ 2 ช่วงที่ 7/8'. Indonesian: 'Season 2 Fase 7/8'. ES title: 'Temporada 2 Fase 8/8'."],
-   ["Defend Phase", "保護階段", "보호 단계", "Verteidigungsphase", "Phase de Défense", "Fase de Defesa", "Savunma Evresi", "Fase Bertahan", "Стадия обороны", "ช่วงการป้องกัน", "مرحلة الدفاع", "—"],
+   ["Defend Phase", "保護階段", "보호 단계", "Verteidigungsphase", "Phase de Défense", "Fase de Defesa", "Savunma Evresi", "Fase Bertahan", "Стадия обороны", "ช่วงการป้องกัน", "مرحلة الدفاع", "Fase de defensa"],
    ["Pillar of Honor", "功勳碑", "공훈패", "Wand der Ehre", "Pilier de l'Honneur", "Pilar da Honra", "Onur Sütunu", "Pilar Kehormatan", "стела почета", "เสาหลักแห่งเกียรติยศ", "نصب الشرف التذكاري", "Pilar del honor", "Seen inside sentences. German text says 'Wand der Ehre' (Wall of Honor). ES: seen inside the tagline."],
    ["Event season has ended", "本期活動已結束", "이번 이벤트가 종료됐습니다", "Saison beendet", "Saison d'évèn. finie", "A temporada do evento terminou", "Etkinlik sezonu sona erdi", "Event Season telah berakhir", "Сезон событий завершен", "ฤดูกาลอีเวนต์ได้สิ้นสุดลงแล้ว!", "انتهى موسم الفعاليات", "—", "French text is abbreviated: 'Saison d'évèn. finie'."]
   ]
@@ -375,18 +375,18 @@ const TERMS = [
   "cat": "Cesares Fury",
   "rows": [
    ["Cesares Fury", "征討切薩雷", "체사레 정벌", "Cesares Zorn", "Fureur des Césarès", "Fúria dos Césares", "Cesares Öfkesi", "Cesares Fury", "Ярость цесарцев", "โทสะของซีซาเรส", "غضب سيزاريس", "Furia de los Cesares", "Indonesian keeps English 'Cesares Fury'. ES: event title (no accent on Cesares here)."],
-   ["Highlord Cesares", "統帥切薩雷", "체사레 사령관", "Hochlord Cesares", "Haut Seigneur Césarès", "Césares da Alta Nobreza", "Cesares Başkomutanı", "Highlord Cesares", "Полководец цесарцев", "จอมทัพซีซาเรส", "أمير سيزاريس", "—"],
-   ["Cesares Legionnaire", "切薩雷精銳", "체사레 정예군", "Cesares Legionär", "Légionnaire Césarès", "Césares Legionários", "Cesares Lejyoneri", "Legioner Cesares", "Цесарец-легионер", "กองทัพซีซาเรส", "جندي فيلق سيزاريس", "—"],
+   ["Highlord Cesares", "統帥切薩雷", "체사레 사령관", "Hochlord Cesares", "Haut Seigneur Césarès", "Césares da Alta Nobreza", "Cesares Başkomutanı", "Highlord Cesares", "Полководец цесарцев", "จอมทัพซีซาเรส", "أمير سيزاريس", "Señor de los Cesares"],
+   ["Cesares Legionnaire", "切薩雷精銳", "체사레 정예군", "Cesares Legionär", "Légionnaire Césarès", "Césares Legionários", "Cesares Lejyoneri", "Legioner Cesares", "Цесарец-легионер", "กองทัพซีซาเรส", "جندي فيلق سيزاريس", "Legionario de los Cesares"],
    ["Private", "個人", "개인", "Persönlich", "Privé", "Individual", "Kişisel", "Pribadi", "Личн.", "ส่วนตัว", "شخصي", "personal", "ES: from the event rules heading 'Furia de los Cesares (personal)'. Tab. Opposite tab is 'Alliance'. Portuguese 'Individual'. Korean 개인. Russian tab is abbreviated 'Личн.'."],
    ["Alliance", "聯盟", "연맹", "Allianz", "Alliance", "Aliança", "İttifak", "Aliansi", "Альянс", "พันธมิตร", "التحالف", "alianza", "ES: from the event rules heading 'Recompensa de élite (alianza)'. Tab. Opposite tab is 'Private'. Chinese 聯盟, Korean 연맹."],
-   ["Challenged", "已挑戰", "도전 완료", "Herausgefordert", "Défié", "Desafiado", "Mücadele edildi", "Ditantang", "Вызов брошен", "ท้าทายแล้ว", "تم التحدي", "—"],
+   ["Challenged", "已挑戰", "도전 완료", "Herausgefordert", "Défié", "Desafiado", "Mücadele edildi", "Ditantang", "Вызов брошен", "ท้าทายแล้ว", "تم التحدي", "Desafiado"],
    ["Captain", "頭目", "보스", "Kapitän", "Capitaine", "Capitão", "Önder", "Kapten", "капитан", "กัปตัน", "الكابتن", "Capitán de los Cesares", "ES: 'Capitán de los Cesares' in the event rules. Seen inside sentences. Chinese 頭目 ('defeating the Captain'). Korean says 보스 (boss). French: 'le Capitaine vaincu'. Turkish says 'Önder' (Leader) in the event text. Thai: 'กัปตัน'. Indonesian: 'Kapten'."],
    ["—", "菁英懸賞", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Recompensa de élite", "Alliance part of the event rules ('(聯盟)' / '(alianza)'). Only ZH/ES seen."],
    ["—", "征討召集令", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Contrato de Cesares", "Used to ask allies to rally a target; 5 given at the start, unused ones are cleared at the end. Only ZH/ES seen."],
    ["—", "切薩雷軍團", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Orden de los Cesares", "The enemy army in the event text. Only ZH/ES seen."],
    ["Scout", "偵察", "정찰", "Spähen", "Espionner", "Espionar", "Gözetle", "Intai", "Разведать", "สอดแนม", "جاسوس", "—", "Button."],
    ["Recommended Power", "推薦實力", "추천 전투력", "Empfohlene Kraft", "Puissance Recommandée", "Poder Recomendado", "Önerilen Güç", "Kekuatan yang Disarankan", "Рекомендуемая сила", "ค่าพลังแนะนำ", "القوة الموصى بها", "Poder recomendado", "ES: Terror pop-up."],
-   ["Show event shortcut", "顯示活動快捷入口", "이벤트 바로가기 표시", "Event-Verknüpfung anzeigen", "Afficher le raccourci de l'évènement", "Exibir atalho para o evento", "Etkinlik kısayolunu göster", "Tampilkan pintasan acara", "Показать быстрый доступ к событию", "แสดงปุ่มลัดอีเวนต์", "عرض اختصار الفعالية", "—"]
+   ["Show event shortcut", "顯示活動快捷入口", "이벤트 바로가기 표시", "Event-Verknüpfung anzeigen", "Afficher le raccourci de l'évènement", "Exibir atalho para o evento", "Etkinlik kısayolunu göster", "Tampilkan pintasan acara", "Показать быстрый доступ к событию", "แสดงปุ่มลัดอีเวนต์", "عرض اختصار الفعالية", "Mostrar atajo del evento"]
   ]
  },
  {
@@ -493,8 +493,8 @@ const TERMS = [
    ["Terror", "巨獸", "괴수", "Terror", "Terreur", "Terror", "Dehşet", "Terror", "Ужас", "อสูรร้าย", "وحش عملاق", "Terror", "Map hunting tab (the second monster type)."],
    ["Bread", "麵包", "빵", "Brot", "Pain", "Pão", "Ekmek", "Roti", "Хлеб", "ขนมปัง", "الخبز", "Pan", "Map gathering tab."],
    ["Search", "搜索", "검색하기", "Suche", "Rechercher", "Procurar", "Ara", "Cari", "Поиск", "ค้นหา", "بحث", "Buscar", "Button on the map."],
-   ["Auto Hunting", "自動狩獵", "자동 사냥", "Auto-Jagd", "Chasse Auto.", "Caçada Automática", "Otomatik Av", "Berburu Otomatis", "Автоохота", "การล่าอัตโนมัติ", "الصيد التلقائي", "—", "Button on the map."],
-   ["Max opponent: Lv.28 Beasts", "最高可挑戰28級野獸", "최고 Lv.28 야수 도전 가능", "Maximaler Gegner: Lv.28 Bestien", "Adversaire max : Niv. 28 Bêtes", "Oponente máx.: Nv.28 Feras", "Maks rakip: Sv.28 Hayvanlar", "Lawan maksimal: Lv.28 binatang buas", "Макс. противник: Звери ур. 28", "คู่ต่อสู้สูงสุด: สัตว์อสูรเลเวล 28", "الحد الأقصى للخصم: المستوى 28 الوحوش", "—", "Sentence pattern under the level slider."],
+   ["Auto Hunting", "自動狩獵", "자동 사냥", "Auto-Jagd", "Chasse Auto.", "Caçada Automática", "Otomatik Av", "Berburu Otomatis", "Автоохота", "การล่าอัตโนมัติ", "الصيد التلقائي", "Cacería automática", "Button on the map."],
+   ["Max opponent: Lv.28 Beasts", "最高可挑戰28級野獸", "최고 Lv.28 야수 도전 가능", "Maximaler Gegner: Lv.28 Bestien", "Adversaire max : Niv. 28 Bêtes", "Oponente máx.: Nv.28 Feras", "Maks rakip: Sv.28 Hayvanlar", "Lawan maksimal: Lv.28 binatang buas", "Макс. противник: Звери ур. 28", "คู่ต่อสู้สูงสุด: สัตว์อสูรเลเวล 28", "الحد الأقصى للخصم: المستوى 28 الوحوش", "Oponente máx.: Bestias de Nv.28", "Sentence pattern under the level slider."],
    ["Hunting Trap 2", "狩獵陷阱2", "사냥 함정 2", "Jagdfalle 2", "Piège de Chasse 2", "Armadilha de Caça 2", "2. Av Tuzağı", "Perangkap Berburu 2", "2-я охотничья ловушка", "กับดักล่าสัตว์ 2", "فخ الصيد 2", "Trampa de caza 2", "Map label of the Bear Hunt trap."],
    ["On cooldown", "冷卻中", "쿨타임 중", "Cooldown läuft", "Se recharge", "Tempo de recarga", "Beklemede", "Saat cooldown", "Перезаряжается", "อยู่ระหว่างคูลดาวน์", "في هدنة", "En enfriamiento", "Label on the trap. Arabic shows 'في هدنة' (literally 'in a truce'); confirmed on two screenshots."],
    ["My City", "我的城鎮", "나의 도시", "Meine Stadt", "Ma Ville", "Minha Cidade", "Şehrim", "Permukiman saya", "Мой город", "ค่ายอพยพของฉัน", "مدينتي", "Mi Colonia"],
@@ -962,11 +962,11 @@ const TERMS = [
    ["Festivities", "節日狂歡", "카니발 페스티벌", "Festlichkeiten", "Festivités", "Celebrações", "Şenlikler", "Festivities", "Праздники", "งานรื่นเริง", "الاحتفالات", "Celebraciones", "Governor Order. ID keeps English."],
    ["On cooldown", "冷卻中", "쿨타임 중", "Abklingzeit läuft", "Se recharge", "Em recarga", "Beklemede", "Sedang cooldown", "Перезаряжается", "อยู่ระหว่างคูลดาวน์", "في فترة التهدئة", "En enfriamiento", "Governor Order status label."],
    ["Active", "生效中", "활성화 중", "Aktiv", "Actif", "Ativo(a)", "Aktif", "Aktif", "Активно", "เปิดใช้งาน", "نشيط", "Activo", "Governor Order status label while the order runs (green). EN/ZH/KO confirmed 2026-10-16."],
-   ["Order Effect", "法令效果", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Governor Order detail page label."],
-   ["Cooldown (Governor Order)", "冷卻時間", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Governor Order detail page. Cooldowns: Urgent Mobilization 8 h · Rush Job 1 day · Comprehensive Care 4 h · Double Time 1 day · Productivity Day 12 h · Festivities 1 day."],
-   ["Enact", "頒布", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Governor Order button (costs ★: Comprehensive Care 150,000 · Double Time 800,000)."],
-   ["Resident time", "居民時間", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Governor Order effects run on resident time, not real time."],
-   ["No sick residents in town", "城鎮內沒有生病的居民", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Shown instead of the Enact button on Comprehensive Care."]
+   ["Order Effect", "法令效果", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Efecto del decreto", "Governor Order detail page label."],
+   ["Cooldown (Governor Order)", "冷卻時間", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Tiempo de enfriamiento", "Governor Order detail page. Cooldowns: Urgent Mobilization 8 h · Rush Job 1 day · Comprehensive Care 4 h · Double Time 1 day · Productivity Day 12 h · Festivities 1 day."],
+   ["Enact", "頒布", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Aventura", "Governor Order button (costs ★: Comprehensive Care 150,000 · Double Time 800,000)."],
+   ["Resident time", "居民時間", "—", "—", "—", "—", "—", "—", "—", "—", "—", "tiempo de residente", "Governor Order effects run on resident time, not real time."],
+   ["No sick residents in town", "城鎮內沒有生病的居民", "—", "—", "—", "—", "—", "—", "—", "—", "—", "No hay residentes enfermos en el Pueblo.", "Shown instead of the Enact button on Comprehensive Care."]
   ]
  },
  {
@@ -978,7 +978,7 @@ const TERMS = [
    ["Residents continue working", "居民持續工作", "주민 작업 지속", "Einwohner arbeiten weiter", "Les habitants continuent de travailler", "Residentes continuam trabalhando", "Yurttaşlar çalışmaya devam eder", "Warga melanjutkan bekerja", "Жители продолжают работать", "ชาวเมืองยังคงทำงานต่อไป", "يواصل المقيمون العمل", "Los residentes siguen trabajando", "Urgent Mobilization effect."],
    ["Construction Speed", "建造速度", "건설 속도", "Baugeschwindigkeit", "Vitesse de Construction", "Velocidade de Construção", "İnşaat Hızı", "Kecepatan Konstruksi", "Скорость строительства", "สปีดการสร้าง", "سرعة البناء", "Velocidad de Construcción", "Buff stat."],
    ["Research Speed", "研究速度", "연구 속도", "Forschungstempo", "Vitesse de Recherche", "Velocidade de Pesquisa", "Araştırma Hızı", "Kecepatan Penelitian", "Скорость исследований", "สปีดการวิจัย", "سرعة البحث", "Velocidad de Investigación", "Buff stat."],
-   ["Training Speed", "訓練速度", "훈련 속도", "—", "—", "—", "—", "—", "—", "สปีดการฝึก", "سرعة التدريب", "—", "Buff stat. Only ZH/KO/TH/AR visible in the screenshots."]
+   ["Training Speed", "訓練速度", "훈련 속도", "—", "—", "—", "—", "—", "—", "สปีดการฝึก", "سرعة التدريب", "Velocidad de Entrenamiento", "Buff stat. Only ZH/KO/TH/AR visible in the screenshots."]
   ]
  },
  {
