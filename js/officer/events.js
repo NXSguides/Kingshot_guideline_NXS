@@ -678,6 +678,9 @@ function aiText() {
 }
 function renderAi() {
   const el = $("ev_ai"); if (!el) return;
+  // only Sparrow (the first built-in admin, OFFICER.ADMIN_IDS[0]) sees this card — Sherry 2026-11-02; hidden while previewing someone else
+  const mine = !!OFFICER.user && OFFICER.user.id === OFFICER.ADMIN_IDS[0] && !OFFICER.previewAs;
+  el.hidden = !mine; if (!mine) return;
   if (!el.dataset.ok) {
     el.dataset.ok = 1;
     el.innerHTML = `<h2>${esc(aiT("h"))}</h2><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(aiT("sub"))}</div>
@@ -690,6 +693,8 @@ function renderAi() {
     };
   }
 }
+
+window.addEventListener("nxs-perms", () => { try { renderAi(); } catch (e) {} });
 
 /* ===== calendar: one continuous strip of days (2 weeks back, 10 ahead), scrolls sideways; one bar per event run ===== */
 const CAL_BACK = 14, CAL_AHEAD = 70, COLW = 44;
