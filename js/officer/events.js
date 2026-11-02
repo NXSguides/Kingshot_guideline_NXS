@@ -697,7 +697,8 @@ function aiText() {
   }
   // the same events as data, so an edit can come back as an NXS-PATCH (📥 below): the full to-do list of each event + its guide titles.
   // "due" = days after the event's first day (0 = first day, -1 = the day before); "at" = exact UTC time; "until" = shown until that UTC hour; "ig" = the in-game guide (by title) posted for that task
-  const cur = {}; for (const { k } of groups) { const e = byId(k) || {}; cur[k] = { start: e.start, every: e.every, days: e.days, todo: e.todo || [], ingame_titles: (e.ingame || []).map((g) => g.title) }; const codes = (e.ingame || []).filter((g) => /\{date:/i.test(g.text || "")); if (codes.length) cur[k].ingame_with_date_codes = codes.map((g) => ({ title: g.title, text: g.text }));   // raw text with {date:+N}, so an edit keeps the codes }
+  // ingame_with_date_codes = raw text of guides that use {date:+N}, so an edit keeps the codes
+  const cur = {}; for (const { k } of groups) { const e = byId(k) || {}; cur[k] = { start: e.start, every: e.every, days: e.days, todo: e.todo || [], ingame_titles: (e.ingame || []).map((g) => g.title) }; const codes = (e.ingame || []).filter((g) => /\{date:/i.test(g.text || "")); if (codes.length) cur[k].ingame_with_date_codes = codes.map((g) => ({ title: g.title, text: g.text })); }
   L.push("\n\n===== Current data (JSON) — for NXS-PATCH edits =====\n" + JSON.stringify(cur));
   const tm = TIMED.filter((t) => t.at > now && t.at < end);
   if (tm.length) { L.push("\n⏱️ Timed reminders:"); for (const t of tm) L.push(`  ${d(t.at)} ${hm(t.at)}: ${(byId(t.ev) || {}).en || t.ev}${t.label ? " — " + t.label : ""}`); }
