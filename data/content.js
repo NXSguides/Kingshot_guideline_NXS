@@ -452,39 +452,51 @@ const GUIDES = {
     },
     sections: {
       en: { title: "Recent Events", blocks: [
+        { type: "napHome", text: "🤝 NAP 6 — no attacking or scouting these alliances (and their farm/academy alliances)", more: "Read the NAP rules ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       zh: { title: "近期活動", blocks: [
+        { type: "napHome", text: "🤝 NAP 6：不可攻擊或偵查這些聯盟（包含他們的農場／學院聯盟）", more: "看 NAP 規則 ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       ko: { title: "최근 이벤트", blocks: [
+        { type: "napHome", text: "🤝 NAP 6 — 이 연맹들(농장/아카데미 연맹 포함)은 공격·정찰 금지", more: "NAP 규칙 보기 ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       de: { title: "Aktuelle Events", blocks: [
+        { type: "napHome", text: "🤝 NAP 6 — diese Allianzen (auch ihre Farm-/Akademie-Allianzen) nicht angreifen oder ausspähen", more: "NAP-Regeln lesen ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       fr: { title: "Événements récents", blocks: [
+        { type: "napHome", text: "🤝 NAP 6 — interdit d'attaquer ou d'espionner ces alliances (et leurs alliances ferme/académie)", more: "Lire les règles du NAP ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       pt: { title: "Eventos Recentes", blocks: [
+        { type: "napHome", text: "🤝 NAP 6 — proibido atacar ou espionar estas alianças (e suas alianças fazenda/academia)", more: "Ler as regras do NAP ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       es: { title: "Eventos Recientes", blocks: [
+        { type: "napHome", text: "🤝 NAP 6 — prohibido atacar o espiar estas alianzas (y sus alianzas granja/academia)", more: "Leer las reglas del NAP ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       tr: { title: "Son Etkinlikler", blocks: [
+        { type: "napHome", text: "🤝 NAP 6 — bu ittifaklara (çiftlik/akademi ittifakları dahil) saldırmak veya keşif yapmak yasak", more: "NAP kurallarını oku ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       id: { title: "Acara Terbaru", blocks: [
+        { type: "napHome", text: "🤝 NAP 6 — dilarang menyerang atau mengintai aliansi ini (termasuk aliansi farm/akademi mereka)", more: "Baca aturan NAP ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       ru: { title: "Последние события", blocks: [
+        { type: "napHome", text: "🤝 NAP 6 — нельзя атаковать и разведывать эти альянсы (и их альянсы-фермы/академии)", more: "Правила NAP ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       th: { title: "กิจกรรมล่าสุด", blocks: [
+        { type: "napHome", text: "🤝 NAP 6 — ห้ามโจมตีหรือสอดแนมพันธมิตรเหล่านี้ (รวมพันธมิตรฟาร์ม/อาคาเดมีของพวกเขา)", more: "อ่านกฎ NAP ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       ar: { title: "أحدث الفعاليات", blocks: [
+        { type: "napHome", text: "🤝 NAP 6 — ممنوع مهاجمة أو استطلاع هذه التحالفات (وتحالفات المزارع/الأكاديمية التابعة لها)", more: "اقرأ قواعد NAP ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]}
     }
@@ -1088,16 +1100,101 @@ const GUIDES = {
       ]}
     }
   },
-  "general-tips": {
-    emoji: "🔍",
-    name: { en: "General Tips", zh: "通用小技巧", ko: "일반 팁", de: "Allgemeine Tipps", fr: "Conseils Généraux", pt: "Dicas Gerais", tr: "Genel İpuçları", id: "Tips Umum", ru: "Общие советы", th: "เคล็ดลับทั่วไป", ar: "نصائح عامة", es: "Consejos Generales" },
+  "nap-rules": {
+    emoji: "🤝",
+    name: { en: "NAP Rules", zh: "NAP 規則", ko: "NAP 규칙", de: "NAP-Regeln", fr: "Règles du NAP", pt: "Regras do NAP", tr: "NAP Kuralları", id: "Aturan NAP", ru: "Правила NAP", th: "กฎ NAP", ar: "قواعد NAP", es: "Reglas del NAP" },
     sections: {
-      en: { title: "General Tips", blocks: [
+      en: { title: "NAP Rules", blocks: [
         { type: "h", text: "🤝 NAP RULES (NON-AGGRESSION PACT)" },
         { type: "nap", text: "❌ No attacking or scouting NAP 6 cities — this includes their protected academy/farm alliances with the approved tags", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "list", items: ["🌾 Check nodes before gathering. If a node is occupied or shows a ⚔️ sword icon, don't send troops. If two players collide, the second one recalls.","🪖 During {allOut} (exception): you may attack resource gathering nodes ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Outposts can be fought over — but no city burning, no hitting resource nodes, and no blocking access to an outpost zone.","🏛️ {sanctuary}s and Fortresses are shared or rotated among NAP 6."] },
         { type: "sub", text: "⚠️ VIOLATIONS" },
         { type: "list", items: ["1st: a warning from leadership.","2nd (another violation after a warning): kicked from the alliance.","3rd: blacklisted from all NAP-protected alliances."] },
+      ]},
+      zh: { title: "NAP 規則", blocks: [
+        { type: "h", text: "🤝 NAP 規則（互不侵犯條約）" },
+        { type: "nap", text: "❌ 不可攻擊或偵查 NAP 6 的城市，包含他們受保護、使用核准標籤的學院／農場聯盟", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 採集前先看資源點。有人佔領或出現 ⚔️ 劍的圖示就不要派兵。如果兩人撞上，後到的人要撤回。","🪖 {allOut}期間（例外）：可以攻擊資源採集點（{mill}, {sawmill}, {quarry}, {ironMine}）。","🏳️ 據點可以爭奪，但不可以燒城、打資源點，也不可以擋住據點區域的通路。","🏛️ {sanctuary}和要塞由 NAP 6 共享或輪流使用。"] },
+        { type: "sub", text: "⚠️ 違規處理" },
+        { type: "list", items: ["第 1 次：幹部警告。","第 2 次（警告後再犯）：踢出聯盟。","第 3 次：列入所有受 NAP 保護聯盟的黑名單。"] },
+      ]},
+      ko: { title: "NAP 규칙", blocks: [
+        { type: "h", text: "🤝 NAP 규칙 (불가침 조약)" },
+        { type: "nap", text: "❌ NAP 6 도시 공격·정찰 금지 — 승인된 태그를 쓰는 보호 대상 아카데미/농장 연맹도 포함", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 채집 전에 자원지를 확인하세요. 누가 점령 중이거나 ⚔️ 칼 아이콘이 보이면 부대를 보내지 마세요. 두 사람이 겹치면 나중에 온 사람이 철수합니다.","🪖 {allOut} 기간 (예외): 자원 채집지({mill}, {sawmill}, {quarry}, {ironMine})는 공격할 수 있습니다.","🏳️ 거점은 쟁탈할 수 있지만, 도시 불태우기, 자원지 공격, 거점 구역 통로 막기는 금지입니다.","🏛️ {sanctuary}과 요새는 NAP 6이 함께 쓰거나 돌아가며 씁니다."] },
+        { type: "sub", text: "⚠️ 위반 시" },
+        { type: "list", items: ["1회: 운영진 경고.","2회 (경고 후 또 위반): 연맹에서 추방.","3회: NAP 보호 연맹 전체 블랙리스트."] },
+      ]},
+      de: { title: "NAP-Regeln", blocks: [
+        { type: "h", text: "🤝 NAP-REGELN (NICHTANGRIFFSPAKT)" },
+        { type: "nap", text: "❌ Kein Angriff und kein Ausspähen von Städten der NAP 6 — auch ihre geschützten Akademie-/Farm-Allianzen mit den genehmigten Tags", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 Prüft Felder vor dem Sammeln. Ist ein Feld besetzt oder zeigt ein ⚔️ Schwert-Symbol, schickt keine Truppen. Bei einer Kollision zieht der Zweite zurück.","🪖 Während {allOut} (Ausnahme): Ressourcenfelder ({mill}, {sawmill}, {quarry}, {ironMine}) dürfen angegriffen werden.","🏳️ Außenposten dürfen umkämpft werden — aber keine Städte verbrennen, keine Ressourcenfelder angreifen und den Zugang zu einer Außenpostenzone nicht blockieren.","🏛️ Heiligtümer und Festungen werden unter den NAP 6 geteilt oder abwechselnd genutzt."] },
+        { type: "sub", text: "⚠️ VERSTÖSSE" },
+        { type: "list", items: ["1.: Verwarnung durch die Leitung.","2. (erneuter Verstoß nach Verwarnung): Rauswurf aus der Allianz.","3.: Schwarze Liste bei allen NAP-geschützten Allianzen."] },
+      ]},
+      fr: { title: "Règles du NAP", blocks: [
+        { type: "h", text: "🤝 RÈGLES DU NAP (PACTE DE NON-AGRESSION)" },
+        { type: "nap", text: "❌ Interdit d'attaquer ou d'espionner les villes des NAP 6 — y compris leurs alliances académie/ferme protégées avec les tags approuvés", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 Vérifiez les points avant de récolter. Si un point est occupé ou affiche une icône ⚔️ épée, n'envoyez pas de troupes. En cas de collision, le second joueur rappelle ses troupes.","🪖 Pendant {allOut} (exception) : vous pouvez attaquer les points de récolte ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Les avant-postes peuvent être disputés — mais pas de ville brûlée, pas d'attaque sur les points de ressources, et pas de blocage de l'accès à une zone d'avant-poste.","🏛️ Les {sanctuary}s et les Forteresses sont partagés ou attribués à tour de rôle entre les NAP 6."] },
+        { type: "sub", text: "⚠️ SANCTIONS" },
+        { type: "list", items: ["1re : avertissement de la direction.","2e (nouvelle infraction après avertissement) : exclusion de l'alliance.","3e : liste noire de toutes les alliances protégées par le NAP."] },
+      ]},
+      pt: { title: "Regras do NAP", blocks: [
+        { type: "h", text: "🤝 REGRAS DO NAP (PACTO DE NÃO AGRESSÃO)" },
+        { type: "nap", text: "❌ Proibido atacar ou espionar cidades do NAP 6 — inclui as alianças academia/fazenda protegidas com as tags aprovadas", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 Verifique os pontos antes de coletar. Se estiver ocupado ou mostrar o ícone ⚔️ de espada, não envie tropas. Se houver colisão, o segundo jogador recua.","🪖 Durante o {allOut} (exceção): pode atacar pontos de coleta de recursos ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Postos Avançados podem ser disputados — mas sem queimar cidades, sem atacar pontos de recursos e sem bloquear o acesso a uma zona de Posto Avançado.","🏛️ {sanctuary}s e Fortalezas são compartilhados ou revezados entre o NAP 6."] },
+        { type: "sub", text: "⚠️ PUNIÇÕES" },
+        { type: "list", items: ["1ª: aviso da liderança.","2ª (nova violação após aviso): expulso da aliança.","3ª: lista negra em todas as alianças protegidas pelo NAP."] },
+      ]},
+      tr: { title: "NAP Kuralları", blocks: [
+        { type: "h", text: "🤝 NAP KURALLARI (SALDIRMAZLIK PAKTI)" },
+        { type: "nap", text: "❌ NAP 6 şehirlerine saldırmak veya keşif yapmak yasak — onaylı etiketli korunan akademi/çiftlik ittifakları da dahil", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 Toplamadan önce kaynak noktasını kontrol edin. Doluysa veya ⚔️ kılıç simgesi görünüyorsa asker göndermeyin. Çakışma olursa ikinci gelen geri çeker.","🪖 {allOut} sırasında (istisna): kaynak toplama noktalarına ({mill}, {sawmill}, {quarry}, {ironMine}) saldırabilirsiniz.","🏳️ Karakollar için savaşılabilir — ama şehir yakmak, kaynak noktalarına vurmak ve karakol bölgesine geçişi engellemek yok.","🏛️ {sanctuary}lar ve Kaleler NAP 6 arasında paylaşılır veya sırayla kullanılır."] },
+        { type: "sub", text: "⚠️ İHLALLER" },
+        { type: "list", items: ["1.: yönetimden uyarı.","2. (uyarıdan sonra yeni ihlal): ittifaktan atılma.","3.: NAP korumasındaki tüm ittifaklarda kara liste."] },
+      ]},
+      id: { title: "Aturan NAP", blocks: [
+        { type: "h", text: "🤝 ATURAN NAP (PAKTA NON-AGRESI)" },
+        { type: "nap", text: "❌ Dilarang menyerang atau mengintai kota NAP 6 — termasuk aliansi akademi/farm mereka yang dilindungi dengan tag yang disetujui", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 Cek titik sumber daya sebelum mengumpulkan. Jika sudah ditempati atau ada ikon ⚔️ pedang, jangan kirim pasukan. Jika bertabrakan, pemain kedua harus menarik pasukan.","🪖 Selama {allOut} (pengecualian): boleh menyerang titik pengumpulan sumber daya ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Pos Terdepan boleh diperebutkan — tapi tidak boleh membakar kota, menyerang titik sumber daya, atau menghalangi akses ke zona Pos Terdepan.","🏛️ {sanctuary} dan Benteng dibagi atau digilir di antara NAP 6."] },
+        { type: "sub", text: "⚠️ PELANGGARAN" },
+        { type: "list", items: ["Ke-1: peringatan dari pimpinan.","Ke-2 (melanggar lagi setelah diperingatkan): dikeluarkan dari aliansi.","Ke-3: masuk daftar hitam semua aliansi yang dilindungi NAP."] },
+      ]},
+      ru: { title: "Правила NAP", blocks: [
+        { type: "h", text: "🤝 ПРАВИЛА NAP (ПАКТ О НЕНАПАДЕНИИ)" },
+        { type: "nap", text: "❌ Нельзя атаковать и разведывать города NAP 6 — включая их защищённые альянсы-академии/фермы с одобренными тегами", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 Перед сбором проверяйте точку. Если она занята или на ней значок ⚔️ меча, не отправляйте войска. При столкновении второй игрок отзывает отряд.","🪖 Во время «{allOut}» (исключение): можно атаковать точки сбора ресурсов ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ За аванпосты можно сражаться — но нельзя сжигать города, бить точки ресурсов и перекрывать доступ к зоне аванпоста.","🏛️ Святилища и крепости делятся или передаются по очереди между NAP 6."] },
+        { type: "sub", text: "⚠️ НАРУШЕНИЯ" },
+        { type: "list", items: ["1-е: предупреждение от руководства.","2-е (повторное нарушение после предупреждения): исключение из альянса.","3-е: чёрный список во всех альянсах под защитой NAP."] },
+      ]},
+      th: { title: "กฎ NAP", blocks: [
+        { type: "h", text: "🤝 กฎ NAP (สนธิสัญญาไม่รุกราน)" },
+        { type: "nap", text: "❌ ห้ามโจมตีหรือสอดแนมเมืองของ NAP 6 — รวมถึงพันธมิตรอาคาเดมี/ฟาร์มที่ได้รับการคุ้มครองและใช้แท็กที่อนุมัติ", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 ตรวจจุดทรัพยากรก่อนเก็บ ถ้ามีคนอยู่หรือมีไอคอน ⚔️ ดาบ อย่าส่งทหาร ถ้าชนกัน คนที่มาทีหลังต้องถอนกลับ","🪖 ระหว่าง {allOut} (ข้อยกเว้น): โจมตีจุดเก็บทรัพยากร ({mill}, {sawmill}, {quarry}, {ironMine}) ได้","🏳️ ด่านหน้าแย่งชิงกันได้ — แต่ห้ามเผาเมือง ห้ามตีจุดทรัพยากร และห้ามขวางทางเข้าพื้นที่ด่านหน้า","🏛️ {sanctuary}และป้อมปราการใช้ร่วมกันหรือผลัดกันใช้ระหว่าง NAP 6"] },
+        { type: "sub", text: "⚠️ การละเมิด" },
+        { type: "list", items: ["ครั้งที่ 1: ผู้นำตักเตือน","ครั้งที่ 2 (ละเมิดอีกหลังถูกเตือน): ถูกเตะออกจากพันธมิตร","ครั้งที่ 3: ขึ้นบัญชีดำของทุกพันธมิตรที่อยู่ใต้ NAP"] },
+      ]},
+      ar: { title: "قواعد NAP", blocks: [
+        { type: "h", text: "🤝 قواعد NAP (اتفاقية عدم الاعتداء)" },
+        { type: "nap", text: "❌ ممنوع مهاجمة أو استطلاع مدن NAP 6 — ويشمل ذلك تحالفات الأكاديمية/المزارع المحمية بالوسوم المعتمدة", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 افحص النقطة قبل الجمع. إذا كانت مشغولة أو عليها أيقونة ⚔️ السيف فلا ترسل قوات. وإذا حدث تصادم، يسحب اللاعب الثاني قواته.","🪖 خلال {allOut} (استثناء): يمكنك مهاجمة نقاط جمع الموارد ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ يمكن التنافس على المستوطنات — لكن دون حرق المدن، ودون ضرب نقاط الموارد، ودون سد الطريق إلى منطقة المستوطنة.","🏛️ {sanctuary} والحصون مشتركة أو بالتناوب بين NAP 6."] },
+        { type: "sub", text: "⚠️ المخالفات" },
+        { type: "list", items: ["الأولى: تحذير من القيادة.","الثانية (مخالفة جديدة بعد التحذير): الطرد من التحالف.","الثالثة: القائمة السوداء في كل التحالفات المحمية بـ NAP."] },
+      ]},
+      es: { title: "Reglas del NAP", blocks: [
+        { type: "h", text: "🤝 REGLAS DEL NAP (PACTO DE NO AGRESIÓN)" },
+        { type: "nap", text: "❌ Prohibido atacar o espiar ciudades del NAP 6 — incluye sus alianzas academia/granja protegidas con las etiquetas aprobadas", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
+        { type: "list", items: ["🌾 Revisa los puntos antes de recolectar. Si está ocupado o muestra el icono ⚔️ de espada, no envíes tropas. Si hay un choque, el segundo jugador retira sus tropas.","🪖 Durante {allOut} (excepción): puedes atacar puntos de recolección ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Los puestos avanzados se pueden disputar — pero sin quemar ciudades, sin atacar puntos de recursos y sin bloquear el acceso a una zona de puesto avanzado.","🏛️ Los {sanctuary}s y las Fortalezas se comparten o se rotan entre el NAP 6."] },
+        { type: "sub", text: "⚠️ SANCIONES" },
+        { type: "list", items: ["1.ª: advertencia de los líderes.","2.ª (otra infracción tras la advertencia): expulsión de la alianza.","3.ª: lista negra en todas las alianzas protegidas por el NAP."] },
+      ]},
+    }
+  },
+  "general-tips": {
+    emoji: "🔍",
+    name: { en: "General Tips", zh: "通用小技巧", ko: "일반 팁", de: "Allgemeine Tipps", fr: "Conseils Généraux", pt: "Dicas Gerais", tr: "Genel İpuçları", id: "Tips Umum", ru: "Общие советы", th: "เคล็ดลับทั่วไป", ar: "نصائح عامة", es: "Consejos Generales" },
+    sections: {
+      en: { title: "General Tips", blocks: [
         { type: "h", text: "🔗 RESOURCES" },
         { type: "sub", text: "🗓️ KINGDOM TIMELINE" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -1190,11 +1287,6 @@ const GUIDES = {
         ] }
       ]},
       zh: { title: "通用小技巧", blocks: [
-        { type: "h", text: "🤝 NAP 規則（互不侵犯條約）" },
-        { type: "nap", text: "❌ 不可攻擊或偵查 NAP 6 的城市，包含他們受保護、使用核准標籤的學院／農場聯盟", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
-        { type: "list", items: ["🌾 採集前先看資源點。有人佔領或出現 ⚔️ 劍的圖示就不要派兵。如果兩人撞上，後到的人要撤回。","🪖 {allOut}期間（例外）：可以攻擊資源採集點（{mill}, {sawmill}, {quarry}, {ironMine}）。","🏳️ 據點可以爭奪，但不可以燒城、打資源點，也不可以擋住據點區域的通路。","🏛️ {sanctuary}和要塞由 NAP 6 共享或輪流使用。"] },
-        { type: "sub", text: "⚠️ 違規處理" },
-        { type: "list", items: ["第 1 次：幹部警告。","第 2 次（警告後再犯）：踢出聯盟。","第 3 次：列入所有受 NAP 保護聯盟的黑名單。"] },
         { type: "h", text: "🔗 實用資源" },
         { type: "sub", text: "🗓️ 王國時間軸" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -1287,11 +1379,6 @@ const GUIDES = {
         ] }
       ]},
       ko: { title: "일반 팁", blocks: [
-        { type: "h", text: "🤝 NAP 규칙 (불가침 조약)" },
-        { type: "nap", text: "❌ NAP 6 도시 공격·정찰 금지 — 승인된 태그를 쓰는 보호 대상 아카데미/농장 연맹도 포함", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
-        { type: "list", items: ["🌾 채집 전에 자원지를 확인하세요. 누가 점령 중이거나 ⚔️ 칼 아이콘이 보이면 부대를 보내지 마세요. 두 사람이 겹치면 나중에 온 사람이 철수합니다.","🪖 {allOut} 기간 (예외): 자원 채집지({mill}, {sawmill}, {quarry}, {ironMine})는 공격할 수 있습니다.","🏳️ 거점은 쟁탈할 수 있지만, 도시 불태우기, 자원지 공격, 거점 구역 통로 막기는 금지입니다.","🏛️ {sanctuary}과 요새는 NAP 6이 함께 쓰거나 돌아가며 씁니다."] },
-        { type: "sub", text: "⚠️ 위반 시" },
-        { type: "list", items: ["1회: 운영진 경고.","2회 (경고 후 또 위반): 연맹에서 추방.","3회: NAP 보호 연맹 전체 블랙리스트."] },
         {"type":"h","text":"🔗 리소스"},
         {"type":"sub","text":"🗓️ 킹덤 타임라인"},
         {"type":"p","text":"https://kingshotoptimizer.com/kingdom-timeline/2189"},
@@ -1338,11 +1425,6 @@ const GUIDES = {
         {"type":"list","items":["☐ 🐉 {petAdventure} 보내기","☐ 🌾 {gathering} 부대 보내기","☐ ⚔️ 부대 {training} 계속 유지하기","☐ 🔬 필요에 따라 {research} / {construction} 계속 유지하기"]}
       ]},
       de: { title: "Allgemeine Tipps", blocks: [
-        { type: "h", text: "🤝 NAP-REGELN (NICHTANGRIFFSPAKT)" },
-        { type: "nap", text: "❌ Kein Angriff und kein Ausspähen von Städten der NAP 6 — auch ihre geschützten Akademie-/Farm-Allianzen mit den genehmigten Tags", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
-        { type: "list", items: ["🌾 Prüft Felder vor dem Sammeln. Ist ein Feld besetzt oder zeigt ein ⚔️ Schwert-Symbol, schickt keine Truppen. Bei einer Kollision zieht der Zweite zurück.","🪖 Während {allOut} (Ausnahme): Ressourcenfelder ({mill}, {sawmill}, {quarry}, {ironMine}) dürfen angegriffen werden.","🏳️ Außenposten dürfen umkämpft werden — aber keine Städte verbrennen, keine Ressourcenfelder angreifen und den Zugang zu einer Außenpostenzone nicht blockieren.","🏛️ Heiligtümer und Festungen werden unter den NAP 6 geteilt oder abwechselnd genutzt."] },
-        { type: "sub", text: "⚠️ VERSTÖSSE" },
-        { type: "list", items: ["1.: Verwarnung durch die Leitung.","2. (erneuter Verstoß nach Verwarnung): Rauswurf aus der Allianz.","3.: Schwarze Liste bei allen NAP-geschützten Allianzen."] },
         { type: "h", text: "🔗 RESSOURCEN" },
         { type: "sub", text: "🗓️ KÖNIGREICH-ZEITPLAN" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -1435,11 +1517,6 @@ const GUIDES = {
         ] }
       ]},
       fr: { title: "Conseils Généraux", blocks: [
-        { type: "h", text: "🤝 RÈGLES DU NAP (PACTE DE NON-AGRESSION)" },
-        { type: "nap", text: "❌ Interdit d'attaquer ou d'espionner les villes des NAP 6 — y compris leurs alliances académie/ferme protégées avec les tags approuvés", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
-        { type: "list", items: ["🌾 Vérifiez les points avant de récolter. Si un point est occupé ou affiche une icône ⚔️ épée, n'envoyez pas de troupes. En cas de collision, le second joueur rappelle ses troupes.","🪖 Pendant {allOut} (exception) : vous pouvez attaquer les points de récolte ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Les avant-postes peuvent être disputés — mais pas de ville brûlée, pas d'attaque sur les points de ressources, et pas de blocage de l'accès à une zone d'avant-poste.","🏛️ Les {sanctuary}s et les Forteresses sont partagés ou attribués à tour de rôle entre les NAP 6."] },
-        { type: "sub", text: "⚠️ SANCTIONS" },
-        { type: "list", items: ["1re : avertissement de la direction.","2e (nouvelle infraction après avertissement) : exclusion de l'alliance.","3e : liste noire de toutes les alliances protégées par le NAP."] },
         { type: "h", text: "🔗 RESSOURCES" },
         { type: "sub", text: "🗓️ CHRONOLOGIE DU ROYAUME" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -1532,11 +1609,6 @@ const GUIDES = {
         ] }
       ]},
       pt: { title: "Dicas Gerais", blocks: [
-        { type: "h", text: "🤝 REGRAS DO NAP (PACTO DE NÃO AGRESSÃO)" },
-        { type: "nap", text: "❌ Proibido atacar ou espionar cidades do NAP 6 — inclui as alianças academia/fazenda protegidas com as tags aprovadas", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
-        { type: "list", items: ["🌾 Verifique os pontos antes de coletar. Se estiver ocupado ou mostrar o ícone ⚔️ de espada, não envie tropas. Se houver colisão, o segundo jogador recua.","🪖 Durante o {allOut} (exceção): pode atacar pontos de coleta de recursos ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Postos Avançados podem ser disputados — mas sem queimar cidades, sem atacar pontos de recursos e sem bloquear o acesso a uma zona de Posto Avançado.","🏛️ {sanctuary}s e Fortalezas são compartilhados ou revezados entre o NAP 6."] },
-        { type: "sub", text: "⚠️ PUNIÇÕES" },
-        { type: "list", items: ["1ª: aviso da liderança.","2ª (nova violação após aviso): expulso da aliança.","3ª: lista negra em todas as alianças protegidas pelo NAP."] },
         { type: "h", text: "🔗 RECURSOS" },
         { type: "sub", text: "🗓️ LINHA DO TEMPO DO REINO" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -1629,11 +1701,6 @@ const GUIDES = {
         ] }
       ]},
       tr: { title: "Genel İpuçları", blocks: [
-        { type: "h", text: "🤝 NAP KURALLARI (SALDIRMAZLIK PAKTI)" },
-        { type: "nap", text: "❌ NAP 6 şehirlerine saldırmak veya keşif yapmak yasak — onaylı etiketli korunan akademi/çiftlik ittifakları da dahil", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
-        { type: "list", items: ["🌾 Toplamadan önce kaynak noktasını kontrol edin. Doluysa veya ⚔️ kılıç simgesi görünüyorsa asker göndermeyin. Çakışma olursa ikinci gelen geri çeker.","🪖 {allOut} sırasında (istisna): kaynak toplama noktalarına ({mill}, {sawmill}, {quarry}, {ironMine}) saldırabilirsiniz.","🏳️ Karakollar için savaşılabilir — ama şehir yakmak, kaynak noktalarına vurmak ve karakol bölgesine geçişi engellemek yok.","🏛️ {sanctuary}lar ve Kaleler NAP 6 arasında paylaşılır veya sırayla kullanılır."] },
-        { type: "sub", text: "⚠️ İHLALLER" },
-        { type: "list", items: ["1.: yönetimden uyarı.","2. (uyarıdan sonra yeni ihlal): ittifaktan atılma.","3.: NAP korumasındaki tüm ittifaklarda kara liste."] },
         { type: "h", text: "🔗 KAYNAKLAR" },
         { type: "sub", text: "🗓️ KRALLIK ZAMAN ÇİZELGESİ" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -1726,11 +1793,6 @@ const GUIDES = {
         ] }
       ]},
       id: { title: "Tips Umum", blocks: [
-        { type: "h", text: "🤝 ATURAN NAP (PAKTA NON-AGRESI)" },
-        { type: "nap", text: "❌ Dilarang menyerang atau mengintai kota NAP 6 — termasuk aliansi akademi/farm mereka yang dilindungi dengan tag yang disetujui", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
-        { type: "list", items: ["🌾 Cek titik sumber daya sebelum mengumpulkan. Jika sudah ditempati atau ada ikon ⚔️ pedang, jangan kirim pasukan. Jika bertabrakan, pemain kedua harus menarik pasukan.","🪖 Selama {allOut} (pengecualian): boleh menyerang titik pengumpulan sumber daya ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Pos Terdepan boleh diperebutkan — tapi tidak boleh membakar kota, menyerang titik sumber daya, atau menghalangi akses ke zona Pos Terdepan.","🏛️ {sanctuary} dan Benteng dibagi atau digilir di antara NAP 6."] },
-        { type: "sub", text: "⚠️ PELANGGARAN" },
-        { type: "list", items: ["Ke-1: peringatan dari pimpinan.","Ke-2 (melanggar lagi setelah diperingatkan): dikeluarkan dari aliansi.","Ke-3: masuk daftar hitam semua aliansi yang dilindungi NAP."] },
         { type: "h", text: "🔗 REFERENSI" },
         { type: "sub", text: "🗓️ LINIMASA KERAJAAN" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -1823,11 +1885,6 @@ const GUIDES = {
         ] }
       ]},
       ru: { title: "Общие советы", blocks: [
-        { type: "h", text: "🤝 ПРАВИЛА NAP (ПАКТ О НЕНАПАДЕНИИ)" },
-        { type: "nap", text: "❌ Нельзя атаковать и разведывать города NAP 6 — включая их защищённые альянсы-академии/фермы с одобренными тегами", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
-        { type: "list", items: ["🌾 Перед сбором проверяйте точку. Если она занята или на ней значок ⚔️ меча, не отправляйте войска. При столкновении второй игрок отзывает отряд.","🪖 Во время «{allOut}» (исключение): можно атаковать точки сбора ресурсов ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ За аванпосты можно сражаться — но нельзя сжигать города, бить точки ресурсов и перекрывать доступ к зоне аванпоста.","🏛️ Святилища и крепости делятся или передаются по очереди между NAP 6."] },
-        { type: "sub", text: "⚠️ НАРУШЕНИЯ" },
-        { type: "list", items: ["1-е: предупреждение от руководства.","2-е (повторное нарушение после предупреждения): исключение из альянса.","3-е: чёрный список во всех альянсах под защитой NAP."] },
         { type: "h", text: "🔗 ПОЛЕЗНЫЕ РЕСУРСЫ" },
         { type: "sub", text: "🗓️ ХРОНОЛОГИЯ КОРОЛЕВСТВА" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -1920,11 +1977,6 @@ const GUIDES = {
         ] }
       ]},
       th: { title: "เคล็ดลับทั่วไป", blocks: [
-        { type: "h", text: "🤝 กฎ NAP (สนธิสัญญาไม่รุกราน)" },
-        { type: "nap", text: "❌ ห้ามโจมตีหรือสอดแนมเมืองของ NAP 6 — รวมถึงพันธมิตรอาคาเดมี/ฟาร์มที่ได้รับการคุ้มครองและใช้แท็กที่อนุมัติ", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
-        { type: "list", items: ["🌾 ตรวจจุดทรัพยากรก่อนเก็บ ถ้ามีคนอยู่หรือมีไอคอน ⚔️ ดาบ อย่าส่งทหาร ถ้าชนกัน คนที่มาทีหลังต้องถอนกลับ","🪖 ระหว่าง {allOut} (ข้อยกเว้น): โจมตีจุดเก็บทรัพยากร ({mill}, {sawmill}, {quarry}, {ironMine}) ได้","🏳️ ด่านหน้าแย่งชิงกันได้ — แต่ห้ามเผาเมือง ห้ามตีจุดทรัพยากร และห้ามขวางทางเข้าพื้นที่ด่านหน้า","🏛️ {sanctuary}และป้อมปราการใช้ร่วมกันหรือผลัดกันใช้ระหว่าง NAP 6"] },
-        { type: "sub", text: "⚠️ การละเมิด" },
-        { type: "list", items: ["ครั้งที่ 1: ผู้นำตักเตือน","ครั้งที่ 2 (ละเมิดอีกหลังถูกเตือน): ถูกเตะออกจากพันธมิตร","ครั้งที่ 3: ขึ้นบัญชีดำของทุกพันธมิตรที่อยู่ใต้ NAP"] },
         { type: "h", text: "🔗 แหล่งข้อมูล" },
         { type: "sub", text: "🗓️ ไทม์ไลน์อาณาจักร" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -2017,11 +2069,6 @@ const GUIDES = {
         ] }
       ]},
       ar: { title: "نصائح عامة", blocks: [
-        { type: "h", text: "🤝 قواعد NAP (اتفاقية عدم الاعتداء)" },
-        { type: "nap", text: "❌ ممنوع مهاجمة أو استطلاع مدن NAP 6 — ويشمل ذلك تحالفات الأكاديمية/المزارع المحمية بالوسوم المعتمدة", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
-        { type: "list", items: ["🌾 افحص النقطة قبل الجمع. إذا كانت مشغولة أو عليها أيقونة ⚔️ السيف فلا ترسل قوات. وإذا حدث تصادم، يسحب اللاعب الثاني قواته.","🪖 خلال {allOut} (استثناء): يمكنك مهاجمة نقاط جمع الموارد ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ يمكن التنافس على المستوطنات — لكن دون حرق المدن، ودون ضرب نقاط الموارد، ودون سد الطريق إلى منطقة المستوطنة.","🏛️ {sanctuary} والحصون مشتركة أو بالتناوب بين NAP 6."] },
-        { type: "sub", text: "⚠️ المخالفات" },
-        { type: "list", items: ["الأولى: تحذير من القيادة.","الثانية (مخالفة جديدة بعد التحذير): الطرد من التحالف.","الثالثة: القائمة السوداء في كل التحالفات المحمية بـ NAP."] },
         { type: "h", text: "🔗 مصادر مفيدة" },
         { type: "sub", text: "🗓️ الجدول الزمني للمملكة" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -2114,11 +2161,6 @@ const GUIDES = {
         ] }
       ]},
       es: { title: "Consejos Generales", blocks: [
-        { type: "h", text: "🤝 REGLAS DEL NAP (PACTO DE NO AGRESIÓN)" },
-        { type: "nap", text: "❌ Prohibido atacar o espiar ciudades del NAP 6 — incluye sus alianzas academia/granja protegidas con las etiquetas aprobadas", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
-        { type: "list", items: ["🌾 Revisa los puntos antes de recolectar. Si está ocupado o muestra el icono ⚔️ de espada, no envíes tropas. Si hay un choque, el segundo jugador retira sus tropas.","🪖 Durante {allOut} (excepción): puedes atacar puntos de recolección ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Los puestos avanzados se pueden disputar — pero sin quemar ciudades, sin atacar puntos de recursos y sin bloquear el acceso a una zona de puesto avanzado.","🏛️ Los {sanctuary}s y las Fortalezas se comparten o se rotan entre el NAP 6."] },
-        { type: "sub", text: "⚠️ SANCIONES" },
-        { type: "list", items: ["1.ª: advertencia de los líderes.","2.ª (otra infracción tras la advertencia): expulsión de la alianza.","3.ª: lista negra en todas las alianzas protegidas por el NAP."] },
         { type: "h", text: "🔗 RECURSOS" },
         { type: "sub", text: "🗓️ CRONOLOGÍA DEL REINO" },
         { type: "p", text: "https://kingshotoptimizer.com/kingdom-timeline/2189" },
@@ -7875,17 +7917,18 @@ const GUIDES = {
       {"type":"sub","text":"🛑 現在就要開始"},
       {"type":"list","items":["1️⃣ 囤資源：大量存{wood}、{bread}、{stone}、{iron}和{truegold}。一直採集，開採集增益，並使用{productivityDay}和{rushJob}法令。","2️⃣ 存加速：所有加速都留著。","3️⃣ 先等著：建築維持在 TG3，等 KvK 準備期開始。"]},
       {"type":"p","text":"現在就開始採集、存資源，下一場 KvK 一起拿下！🚀🛡️"},
-      {"type":"sub","text":"📊 KvK 準備期用：TG3 ➡️ TG5 的積分和花費"},
-      {"type":"sub","text":"🔹 方案 1：核心 3 棟（{townCenter}、{embassy}、{stable}）"},
-      {"type":"list","items":["KvK 積分：每人 10,625,047","資源：約 8.92 億{wood}／{bread}、1.73 億{stone}、4,400 萬{iron}、4,055 {truegold}","時間：調整後 58 天"]},
-      {"type":"sub","text":"🔹 方案 2：5 棟（{townCenter}、{embassy}、{stable}、{barracks}、{range}）"},
-      {"type":"list","items":["KvK 積分：每人 19,545,005","資源：約 15.7 億{wood}／{bread}、3.11 億{stone}、7,800 萬{iron}、7,980 {truegold}","時間：調整後 82 天"]},
-      {"type":"sub","text":"🔹 方案 3：全部 7 棟（{townCenter}、{embassy}、{stable}、{barracks}、{range}、{infirmary}、{commandCenter}）"},
-      {"type":"list","items":["KvK 積分：每人 22,247,410","資源：約 19.5 億{wood}／{bread}、3.88 億{stone}、9,600 萬{iron}、9,210 {truegold}","時間：調整後 88 天"]},
-      {"type":"sub","text":"⚙️ 這些數字的前提"},
-      {"type":"p","text":"以接近滿配的帳號計算：基礎建造速度 80.2%、Lv.5 {pan}「{masterArchitect}」、Lv.5 {saul}「{resourceful}」、{chiefMinister}任期、Lv.5 {grayWolf}「{constructionAide}」、{groundWorks}、{kopBonus}和{doubleTime}。加成比較少的話，時間會更長。"},
-      {"type":"sub","text":"⚠️ 關鍵的 5 分鐘"},
-      {"type":"p","text":"{grayWolf}的「{constructionAide}」（+15%）和{doubleTime}（+20%）都只持續 5 分鐘。KvK 計分一開始，就要在這 5 分鐘內把加速全部用完。先把背包的加速頁打開準備好，一開始就連點。"},
+      {"type":"fold","id":"tg5-numbers","title":"📊 KvK 準備期用：TG3 ➡️ TG5 的積分和花費","blocks":[
+        {"type":"sub","text":"🔹 方案 1：核心 3 棟（{townCenter}、{embassy}、{stable}）"},
+        {"type":"list","items":["KvK 積分：每人 10,625,047","資源：約 8.92 億{wood}／{bread}、1.73 億{stone}、4,400 萬{iron}、4,055 {truegold}","時間：調整後 58 天"]},
+        {"type":"sub","text":"🔹 方案 2：5 棟（{townCenter}、{embassy}、{stable}、{barracks}、{range}）"},
+        {"type":"list","items":["KvK 積分：每人 19,545,005","資源：約 15.7 億{wood}／{bread}、3.11 億{stone}、7,800 萬{iron}、7,980 {truegold}","時間：調整後 82 天"]},
+        {"type":"sub","text":"🔹 方案 3：全部 7 棟（{townCenter}、{embassy}、{stable}、{barracks}、{range}、{infirmary}、{commandCenter}）"},
+        {"type":"list","items":["KvK 積分：每人 22,247,410","資源：約 19.5 億{wood}／{bread}、3.88 億{stone}、9,600 萬{iron}、9,210 {truegold}","時間：調整後 88 天"]},
+        {"type":"sub","text":"⚙️ 這些數字的前提"},
+        {"type":"p","text":"以接近滿配的帳號計算：基礎建造速度 80.2%、Lv.5 {pan}「{masterArchitect}」、Lv.5 {saul}「{resourceful}」、{chiefMinister}任期、Lv.5 {grayWolf}「{constructionAide}」、{groundWorks}、{kopBonus}和{doubleTime}。加成比較少的話，時間會更長。"},
+        {"type":"sub","text":"⚠️ 關鍵的 5 分鐘"},
+        {"type":"p","text":"{grayWolf}的「{constructionAide}」（+15%）和{doubleTime}（+20%）都只持續 5 分鐘。KvK 計分一開始，就要在這 5 分鐘內把加速全部用完。先把背包的加速頁打開準備好，一開始就連點。"}
+      ]},
     ]},
     en: { title: "KvK Prep & Battle Guide (Gen 3 Era)", blocks: [
       {"type": "kvktabs", "tabs": [{"type": "kvkflow", "title": "🗓️ KvK timeline", "sub": "Runs on a 28-day global cycle, in the last week. Your kingdom must be 70+ days old.", "daysTitle": "Preparation days", "phases": [{"title": "Matchmaking Phase", "tag": "2 days", "lines": ["Pairs kingdoms by the power of their top 100 active players", "Same hero generation only", "No match = bye reward"]}, {"title": "Preparation Phase", "tag": "5 days", "lines": ["Score points every day, chests at 30k / 100k / 200k", "Winner becomes the attacker", "Day 5 lasts until Saturday 10:00 UTC"]}, {"title": "Battle Phase", "tag": "Sat 10:00–22:00 UTC", "lines": ["Teleport opens 10:00 UTC, defend until 12:00 UTC", "{kingsCastle} battle 12:00–17:00 UTC", "Hold the {kingsCastle} 2.5 hours to win"]}, {"title": "Field Triage Phase", "tag": "After the battle", "lines": ["Base recovery 30%, up to 90%", "{rescueOrders} and {medicalSatchels}", "{kingsCastle} losses go to the Enlistment Office"]}], "days": [{"label": "Day 1", "theme": "Construction"}, {"label": "Day 2", "theme": "Research"}, {"label": "Day 3", "theme": "Pet Training"}, {"label": "Day 4", "theme": "Troops"}, {"label": "Day 5", "theme": "Give it all", "when": "Fri – Sat 10:00 UTC"}], "tab": "🗓️ KvK timeline"}, {"type": "kvkitems", "title": "🎒 KvK item cheat-sheet", "sub": "Do not spend these early. Match each item to its day.", "days": [{"label": "Day 1", "theme": "Construction", "items": ["{construction} speedups", "{truegold} and Tempered {truegold}", "{charmDesign} and {charmGuide}"]}, {"label": "Day 2", "theme": "Research", "items": ["{research} speedups", "{heroRoulette} spins ({gems})", "{mythicHeroShard}, Epic Hero Shard and Rare Hero Shard", "{masterEmblem}"]}, {"label": "Day 3", "theme": "Pet Training", "items": ["{advancedTamingMarks} and {commonTamingMarks}", "Nutrient Potion", "Growth Manual"]}, {"label": "Day 4", "theme": "Troops", "items": ["{training} speedups and troop training", "{mithril}", "{heroExclusiveGear} {widget}", "{forgehammer}"]}, {"label": "Day 5", "theme": "Give it all", "items": ["{mithril}", "{advancedTamingMarks}", "{governorGear}: {artisansVision}, {satin}, {gildedThreads}", "Everything that is left over"]}], "notes": [{"title": "Before spending anything", "color": "o", "lines": ["Activate the {grayWolf} pet", "Use the {doubleTime} Decree", "Apply for {chiefMinister} (Day 1, 2) or Noble Advisor (Day 4)"]}, {"title": "Use any time", "color": "gr", "lines": ["Hero XP", "{petFood}"]}, {"title": "Keep for the battle", "color": "r", "lines": ["{healing} speedups", "Batch heal first, speed up only if the {infirmary} is about to overflow"]}], "tab": "🎒 KvK item cheat-sheet"}, {"type": "kvkpoints", "title": "⭐ KvK prep: points per day", "sub": "The main scorers of each day. Save items and spend them on the matching day.", "days": [{"label": "Day 1", "theme": "Construction", "rows": [["30,000", "Tempered {truegold} upgrade (needs TG8)"], ["6,000", "{intel}"], ["2,000", "{truegold} building upgrade"], ["70", "{governorCharm} max score +1"], ["30", "per minute of speedups"]]}, {"label": "Day 2", "theme": "Research (Basic Skills Up)", "rows": [["8,000", "{heroRoulette} spin"], ["6,000", "{masterEmblem}"], ["3,040", "{mythicHeroShard}"], ["1,220", "Epic Hero Shard"], ["350", "Rare Hero Shard"], ["2,000", "{truegold} building upgrade"]]}, {"label": "Day 3", "theme": "Pet Training", "rows": [["15,000", "{advancedTamingMarks}"], ["8,000", "{heroRoulette} spin"], ["6,000", "{intel}"], ["1,150", "{commonTamingMarks}"], ["70", "{governorCharm} max score +1"], ["50", "{petAdvancement} +1"]]}, {"label": "Day 4", "theme": "Troops (Hero Development)", "rows": [["40,000", "{mithril}"], ["8,000", "{heroExclusiveGear} {widget}"], ["4,000", "{forgehammer}"], ["3 – 75", "per unit of troop training, by tier"], ["70", "{governorCharm} max score +1"]]}, {"label": "Day 5", "theme": "Give it all (Power Boost)", "rows": [["40,000", "{mithril}"], ["15,000", "{advancedTamingMarks}"], ["8,000", "{heroExclusiveGear} {widget}"], ["6,000", "{intel}"], ["4,000", "{forgehammer}"], ["2,000", "{truegold} building upgrade"], ["36", "{governorGear} max score +1"]]}], "foot": {"title": "Daily personal chests", "lines": ["30,000 / 100,000 / 200,000 points. The 200,000 chest also gives a State Medal.", "Gathering scores only 2 per bundle and beast hunting scores nothing. {mithril} needs maxed Mythic gear."]}, "tab": "⭐ KvK prep: points per day"}]},
@@ -7980,17 +8023,18 @@ const GUIDES = {
       {"type":"sub","text":"🛑 Action required — start now"},
       {"type":"list","items":["1️⃣ Save resources: lots of {wood}, {bread}, {stone}, {iron} and {truegold}. Gather all the time, use gathering boosts, and use the {productivityDay} + {rushJob} decrees.","2️⃣ Save speedups: keep every speedup you have.","3️⃣ Wait: keep buildings at TG3 until KvK Prep starts."]},
       {"type":"p","text":"Start gathering and saving now so we're ready to dominate the next KvK! 🚀🛡️"},
-      {"type":"sub","text":"📊 For KvK Prep: points and cost of TG3 ➡️ TG5"},
-      {"type":"sub","text":"🔹 Option 1: Core 3 buildings ({townCenter}, {embassy}, {stable})"},
-      {"type":"list","items":["KvK points: 10,625,047 per player","Resources: ~892M {wood} / {bread}, 173M {stone}, 44M {iron}, 4,055 {truegold}","Time: 58 days (adjusted)"]},
-      {"type":"sub","text":"🔹 Option 2: 5 buildings ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
-      {"type":"list","items":["KvK points: 19,545,005 per player","Resources: ~1.57B {wood} / {bread}, 311M {stone}, 78M {iron}, 7,980 {truegold}","Time: 82 days (adjusted)"]},
-      {"type":"sub","text":"🔹 Option 3: All 7 buildings ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
-      {"type":"list","items":["KvK points: 22,247,410 per player","Resources: ~1.95B {wood} / {bread}, 388M {stone}, 96M {iron}, 9,210 {truegold}","Time: 88 days (adjusted)"]},
-      {"type":"sub","text":"⚙️ What the numbers assume"},
-      {"type":"p","text":"A near-maxed account: 80.2% base Construction Speed, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), the {chiefMinister} appointment, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} and {doubleTime}. With fewer bonuses your times are longer."},
-      {"type":"sub","text":"⚠️ The 5-minute window"},
-      {"type":"p","text":"{constructionAide} ({grayWolf}, +15%) and {doubleTime} (+20%) last only 5 minutes. When KvK scoring starts, use all your speedups inside those 5 minutes. Have the speedup page of your backpack open and tap fast."},
+      {"type":"fold","id":"tg5-numbers","title":"📊 For KvK Prep: points and cost of TG3 ➡️ TG5","blocks":[
+        {"type":"sub","text":"🔹 Option 1: Core 3 buildings ({townCenter}, {embassy}, {stable})"},
+        {"type":"list","items":["KvK points: 10,625,047 per player","Resources: ~892M {wood} / {bread}, 173M {stone}, 44M {iron}, 4,055 {truegold}","Time: 58 days (adjusted)"]},
+        {"type":"sub","text":"🔹 Option 2: 5 buildings ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+        {"type":"list","items":["KvK points: 19,545,005 per player","Resources: ~1.57B {wood} / {bread}, 311M {stone}, 78M {iron}, 7,980 {truegold}","Time: 82 days (adjusted)"]},
+        {"type":"sub","text":"🔹 Option 3: All 7 buildings ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+        {"type":"list","items":["KvK points: 22,247,410 per player","Resources: ~1.95B {wood} / {bread}, 388M {stone}, 96M {iron}, 9,210 {truegold}","Time: 88 days (adjusted)"]},
+        {"type":"sub","text":"⚙️ What the numbers assume"},
+        {"type":"p","text":"A near-maxed account: 80.2% base Construction Speed, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), the {chiefMinister} appointment, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} and {doubleTime}. With fewer bonuses your times are longer."},
+        {"type":"sub","text":"⚠️ The 5-minute window"},
+        {"type":"p","text":"{constructionAide} ({grayWolf}, +15%) and {doubleTime} (+20%) last only 5 minutes. When KvK scoring starts, use all your speedups inside those 5 minutes. Have the speedup page of your backpack open and tap fast."}
+      ]},
     ]},
     ko: { title: "킹샷 KvK (서버전) 가이드 — 3세대 시즌", blocks: [
       {"type": "kvktabs", "tabs": [{"type": "kvkflow", "title": "🗓️ KvK 일정", "sub": "전 세계 28일 주기의 마지막 주에 열려요. 왕국이 열린 지 70일 이상이어야 해요.", "daysTitle": "준비 기간 날짜별", "phases": [{"title": "매칭 단계", "tag": "2일", "lines": ["상위 활동 유저 100명의 전투력으로 매칭", "같은 영웅 세대끼리만", "상대 없음 = 부전승 보상"]}, {"title": "준비 단계", "tag": "5일", "lines": ["매일 포인트 획득, 상자 30k / 100k / 200k", "이긴 쪽이 공격 측", "5일차는 토요일 10:00 UTC까지"]}, {"title": "전쟁 단계", "tag": "토 10:00–22:00 UTC", "lines": ["10:00 UTC 이전 오픈, 12:00 UTC까지 수비", "{kingsCastle} 전투 12:00–17:00 UTC", "{kingsCastle}을 2.5시간 지키면 승리"]}, {"title": "전쟁터 구급 단계", "tag": "전투 후", "lines": ["기본 30% 회복, 최대 90%", "{rescueOrders}와 {medicalSatchels}", "{kingsCastle}에서 잃은 부대는 징병소로"]}], "days": [{"label": "1일차", "theme": "건설"}, {"label": "2일차", "theme": "연구"}, {"label": "3일차", "theme": "펫 훈련"}, {"label": "4일차", "theme": "부대"}, {"label": "5일차", "theme": "총력전", "when": "금 – 토 10:00 UTC"}], "tab": "🗓️ KvK 일정"}, {"type": "kvkitems", "title": "🎒 KvK 아이템 요약표", "sub": "미리 쓰지 마세요. 아이템마다 맞는 날에 쓰세요.", "days": [{"label": "1일차", "theme": "건설", "items": ["{construction} 가속", "{truegold}와 템퍼드 {truegold}", "{charmDesign}와 {charmGuide}"]}, {"label": "2일차", "theme": "연구", "items": ["{research} 가속", "{heroRoulette} ({gems})", "{mythicHeroShard}, 에픽 영웅 파편, 레어 영웅 파편", "{masterEmblem}"]}, {"label": "3일차", "theme": "펫 훈련", "items": ["{advancedTamingMarks}와 {commonTamingMarks}", "영양제", "육성 수첩"]}, {"label": "4일차", "theme": "부대", "items": ["{training} 가속과 병사 훈련", "{mithril}", "{heroExclusiveGear} {widget}", "{forgehammer}"]}, {"label": "5일차", "theme": "총력전", "items": ["{mithril}", "{advancedTamingMarks}", "{governorGear}: {artisansVision}, {satin}, {gildedThreads}", "남은 것 전부"]}], "notes": [{"title": "무엇이든 쓰기 전에", "color": "o", "lines": ["{grayWolf} 펫 스킬 켜기", "{doubleTime} 법령 사용", "{chiefMinister}(1, 2일차) 또는 참모장(4일차) 신청"]}, {"title": "언제든 사용", "color": "gr", "lines": ["영웅 경험치", "{petFood}"]}, {"title": "전투용으로 아껴 두기", "color": "r", "lines": ["{healing} 가속", "먼저 나눠서 치료하고, {infirmary}이 넘치기 직전에만 가속"]}], "tab": "🎒 KvK 아이템 요약표"}, {"type": "kvkpoints", "title": "⭐ KvK 준비: 날짜별 포인트", "sub": "날마다 점수가 큰 항목이에요. 아이템을 모아 두었다가 맞는 날에 쓰세요.", "days": [{"label": "1일차", "theme": "건설", "rows": [["30,000", "템퍼드 {truegold} 업그레이드 (TG8 필요)"], ["6,000", "{intel}"], ["2,000", "{truegold} 건물 업그레이드"], ["70", "{governorCharm} 최고 평점 +1"], ["30", "가속 1분당"]]}, {"label": "2일차", "theme": "연구 (기초 능력 향상)", "rows": [["8,000", "{heroRoulette} 1회"], ["6,000", "{masterEmblem}"], ["3,040", "{mythicHeroShard}"], ["1,220", "에픽 영웅 파편"], ["350", "레어 영웅 파편"], ["2,000", "{truegold} 건물 업그레이드"]]}, {"label": "3일차", "theme": "펫 훈련", "rows": [["15,000", "{advancedTamingMarks}"], ["8,000", "{heroRoulette} 1회"], ["6,000", "{intel}"], ["1,150", "{commonTamingMarks}"], ["70", "{governorCharm} 최고 평점 +1"], ["50", "{petAdvancement} +1"]]}, {"label": "4일차", "theme": "부대 (영웅 육성)", "rows": [["40,000", "{mithril}"], ["8,000", "{heroExclusiveGear} {widget}"], ["4,000", "{forgehammer}"], ["3 – 75", "병사 1명 훈련당 (등급별)"], ["70", "{governorCharm} 최고 평점 +1"]]}, {"label": "5일차", "theme": "총력전 (전투력 향상)", "rows": [["40,000", "{mithril}"], ["15,000", "{advancedTamingMarks}"], ["8,000", "{heroExclusiveGear} {widget}"], ["6,000", "{intel}"], ["4,000", "{forgehammer}"], ["2,000", "{truegold} 건물 업그레이드"], ["36", "{governorGear} 최고 평점 +1"]]}], "foot": {"title": "매일 개인 상자", "lines": ["30,000 / 100,000 / 200,000 포인트. 200,000 상자는 State Medal도 줘요.", "채집은 1묶음에 2점뿐이고 야수 사냥은 0점. {mithril}은 신화 장비 만렙이 필요해요."]}, "tab": "⭐ KvK 준비: 날짜별 포인트"}]},
@@ -8059,17 +8103,18 @@ const GUIDES = {
       {"type":"sub","text":"🛑 지금 바로 해야 할 일"},
       {"type":"list","items":["1️⃣ 자원 모으기: {wood}, {bread}, {stone}, {iron}, {truegold}을 많이 모으세요. 계속 채집하고 채집 버프와 {productivityDay} + {rushJob} 법령을 쓰세요.","2️⃣ 가속 아끼기: 모든 가속을 모아 두세요.","3️⃣ 대기: KvK 준비 단계가 시작될 때까지 건물을 TG3로 유지하세요."]},
       {"type":"p","text":"지금부터 채집하고 모아서 다음 KvK를 휩쓸어 봅시다! 🚀🛡️"},
-      {"type":"sub","text":"📊 KvK 준비용: TG3 ➡️ TG5 포인트와 비용"},
-      {"type":"sub","text":"🔹 방안 1: 핵심 건물 3개 ({townCenter}, {embassy}, {stable})"},
-      {"type":"list","items":["KvK 점수: 1인당 10,625,047","자원: 약 8.92억 {wood} / {bread}, 1.73억 {stone}, 4,400만 {iron}, 4,055 {truegold}","시간: 58일 (보정 후)"]},
-      {"type":"sub","text":"🔹 방안 2: 건물 5개 ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
-      {"type":"list","items":["KvK 점수: 1인당 19,545,005","자원: 약 15.7억 {wood} / {bread}, 3.11억 {stone}, 7,800만 {iron}, 7,980 {truegold}","시간: 82일 (보정 후)"]},
-      {"type":"sub","text":"🔹 방안 3: 건물 7개 전부 ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
-      {"type":"list","items":["KvK 점수: 1인당 22,247,410","자원: 약 19.5억 {wood} / {bread}, 3.88억 {stone}, 9,600만 {iron}, 9,210 {truegold}","시간: 88일 (보정 후)"]},
-      {"type":"sub","text":"⚙️ 수치의 전제 조건"},
-      {"type":"p","text":"거의 최대치 계정 기준: 기본 건설 속도 80.2%, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), {chiefMinister} 관직 임명, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus}, {doubleTime}. 보너스가 적으면 시간이 더 걸립니다."},
-      {"type":"sub","text":"⚠️ 5분의 기회"},
-      {"type":"p","text":"{constructionAide} ({grayWolf}, +15%)와 {doubleTime} (+20%)은 5분만 유지됩니다. KvK 점수 집계가 시작되면 이 5분 안에 가속을 모두 쓰세요. 가방의 가속 페이지를 미리 열어 두고 빠르게 누르세요."},
+      {"type":"fold","id":"tg5-numbers","title":"📊 KvK 준비용: TG3 ➡️ TG5 포인트와 비용","blocks":[
+        {"type":"sub","text":"🔹 방안 1: 핵심 건물 3개 ({townCenter}, {embassy}, {stable})"},
+        {"type":"list","items":["KvK 점수: 1인당 10,625,047","자원: 약 8.92억 {wood} / {bread}, 1.73억 {stone}, 4,400만 {iron}, 4,055 {truegold}","시간: 58일 (보정 후)"]},
+        {"type":"sub","text":"🔹 방안 2: 건물 5개 ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+        {"type":"list","items":["KvK 점수: 1인당 19,545,005","자원: 약 15.7억 {wood} / {bread}, 3.11억 {stone}, 7,800만 {iron}, 7,980 {truegold}","시간: 82일 (보정 후)"]},
+        {"type":"sub","text":"🔹 방안 3: 건물 7개 전부 ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+        {"type":"list","items":["KvK 점수: 1인당 22,247,410","자원: 약 19.5억 {wood} / {bread}, 3.88억 {stone}, 9,600만 {iron}, 9,210 {truegold}","시간: 88일 (보정 후)"]},
+        {"type":"sub","text":"⚙️ 수치의 전제 조건"},
+        {"type":"p","text":"거의 최대치 계정 기준: 기본 건설 속도 80.2%, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), {chiefMinister} 관직 임명, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus}, {doubleTime}. 보너스가 적으면 시간이 더 걸립니다."},
+        {"type":"sub","text":"⚠️ 5분의 기회"},
+        {"type":"p","text":"{constructionAide} ({grayWolf}, +15%)와 {doubleTime} (+20%)은 5분만 유지됩니다. KvK 점수 집계가 시작되면 이 5분 안에 가속을 모두 쓰세요. 가방의 가속 페이지를 미리 열어 두고 빠르게 누르세요."}
+      ]},
     ]},
     de: { title: "KvK-Vorbereitungs- & Kampfguide (Gen-3-Ära)", blocks: [
       {"type": "kvktabs", "tabs": [{"type": "kvkflow", "title": "🗓️ KvK-Zeitplan", "sub": "Läuft in einem weltweiten 28-Tage-Zyklus, in der letzten Woche. Dein Königreich muss mindestens 70 Tage alt sein.", "daysTitle": "Vorbereitungstage", "phases": [{"title": "Matchmaking-Phase", "tag": "2 Tage", "lines": ["Paart Königreiche nach der Macht ihrer 100 aktivsten Spieler", "Nur gleiche Heldengeneration", "Kein Gegner = Freilos-Belohnung"]}, {"title": "Vorbereitungsphase", "tag": "5 Tage", "lines": ["Jeden Tag Punkte, Truhen bei 30k / 100k / 200k", "Der Gewinner wird Angreifer", "Tag 5 dauert bis Samstag 10:00 UTC"]}, {"title": "Kampfphase", "tag": "Sa 10:00–22:00 UTC", "lines": ["Umsiedlung ab 10:00 UTC, verteidigen bis 12:00 UTC", "Kampf ums {kingsCastle} 12:00–17:00 UTC", "Das {kingsCastle} 2,5 Stunden halten = Sieg"]}, {"title": "Feldtriage-Phase", "tag": "Nach dem Kampf", "lines": ["Grundrettung 30 %, bis zu 90 %", "{rescueOrders} und {medicalSatchels}", "Verluste am {kingsCastle} gehen ins Musterungsamt"]}], "days": [{"label": "Tag 1", "theme": "Bau"}, {"label": "Tag 2", "theme": "Forschung"}, {"label": "Tag 3", "theme": "Begleittier-Training"}, {"label": "Tag 4", "theme": "Truppen"}, {"label": "Tag 5", "theme": "Alles geben", "when": "Fr – Sa 10:00 UTC"}], "tab": "🗓️ KvK-Zeitplan"}, {"type": "kvkitems", "title": "🎒 KvK-Gegenstände: Spickzettel", "sub": "Nicht früh ausgeben. Jeden Gegenstand am richtigen Tag nutzen.", "days": [{"label": "Tag 1", "theme": "Bau", "items": ["{construction}-Beschleuniger", "{truegold} und gehärtetes {truegold}", "{charmDesign} und {charmGuide}"]}, {"label": "Tag 2", "theme": "Forschung", "items": ["{research}-Beschleuniger", "{heroRoulette}-Drehungen ({gems})", "{mythicHeroShard}, Episches Helden-Fragment und Seltenes Helden-Fragment", "{masterEmblem}"]}, {"label": "Tag 3", "theme": "Begleittier-Training", "items": ["{advancedTamingMarks} und {commonTamingMarks}", "Nährender Trank", "Aufzuchthandbuch"]}, {"label": "Tag 4", "theme": "Truppen", "items": ["{training}-Beschleuniger und Truppen ausbilden", "{mithril}", "{heroExclusiveGear}: {widget}", "{forgehammer}"]}, {"label": "Tag 5", "theme": "Alles geben", "items": ["{mithril}", "{advancedTamingMarks}", "{governorGear}: {artisansVision}, {satin}, {gildedThreads}", "Alles, was übrig ist"]}], "notes": [{"title": "Bevor du etwas ausgibst", "color": "o", "lines": ["Begleittier {grayWolf} aktivieren", "Dekret {doubleTime} nutzen", "Um {chiefMinister} (Tag 1, 2) oder Nobler Berater (Tag 4) bewerben"]}, {"title": "Jederzeit nutzbar", "color": "gr", "lines": ["Helden-EP", "{petFood}"]}, {"title": "Für den Kampf aufheben", "color": "r", "lines": ["{healing}-Beschleuniger", "Erst in Etappen heilen, nur beschleunigen, wenn die {infirmary} fast überläuft"]}], "tab": "🎒 KvK-Gegenstände: Spickzettel"}, {"type": "kvkpoints", "title": "⭐ KvK-Vorbereitung: Punkte pro Tag", "sub": "Die größten Punktebringer jedes Tages. Gegenstände sparen und am passenden Tag ausgeben.", "days": [{"label": "Tag 1", "theme": "Bau", "rows": [["30,000", "Gehärtetes {truegold} aufwerten (ab TG8)"], ["6,000", "{intel}"], ["2,000", "{truegold}-Gebäude aufwerten"], ["70", "{governorCharm} Höchstwertung +1"], ["30", "pro Minute Beschleunigung"]]}, {"label": "Tag 2", "theme": "Forschung (Grundfähigkeiten)", "rows": [["8,000", "{heroRoulette}, 1 Drehung"], ["6,000", "{masterEmblem}"], ["3,040", "{mythicHeroShard}"], ["1,220", "Episches Helden-Fragment"], ["350", "Seltenes Helden-Fragment"], ["2,000", "{truegold}-Gebäude aufwerten"]]}, {"label": "Tag 3", "theme": "Begleittier-Training", "rows": [["15,000", "{advancedTamingMarks}"], ["8,000", "{heroRoulette}, 1 Drehung"], ["6,000", "{intel}"], ["1,150", "{commonTamingMarks}"], ["70", "{governorCharm} Höchstwertung +1"], ["50", "{petAdvancement} +1"]]}, {"label": "Tag 4", "theme": "Truppen (Heldenentwicklung)", "rows": [["40,000", "{mithril}"], ["8,000", "{heroExclusiveGear} {widget}"], ["4,000", "{forgehammer}"], ["3 – 75", "pro ausgebildeter Einheit, je nach Stufe"], ["70", "{governorCharm} Höchstwertung +1"]]}, {"label": "Tag 5", "theme": "Alles geben (Machtschub)", "rows": [["40,000", "{mithril}"], ["15,000", "{advancedTamingMarks}"], ["8,000", "{heroExclusiveGear} {widget}"], ["6,000", "{intel}"], ["4,000", "{forgehammer}"], ["2,000", "{truegold}-Gebäude aufwerten"], ["36", "{governorGear} Höchstwertung +1"]]}], "foot": {"title": "Tägliche persönliche Truhen", "lines": ["30.000 / 100.000 / 200.000 Punkte. Die 200.000-Truhe gibt zusätzlich eine State Medal.", "Sammeln bringt nur 2 Punkte pro Bündel, Bestienjagd gar nichts. {mithril} braucht voll aufgewertete mythische Ausrüstung."]}, "tab": "⭐ KvK-Vorbereitung: Punkte pro Tag"}]},
@@ -8164,17 +8209,18 @@ const GUIDES = {
       {"type":"sub","text":"🛑 Jetzt handeln"},
       {"type":"list","items":["1️⃣ Ressourcen sparen: viel {wood}, {bread}, {stone}, {iron} und {truegold}. Ständig sammeln, Sammel-Boosts und die Erlasse {productivityDay} + {rushJob} nutzen.","2️⃣ Beschleuniger sparen: jeden Beschleuniger aufheben.","3️⃣ Abwarten: Gebäude auf TG3 lassen, bis die KvK-Vorbereitung beginnt."]},
       {"type":"p","text":"Fangt jetzt an zu sammeln und zu sparen, damit wir das nächste KvK dominieren! 🚀🛡️"},
-      {"type":"sub","text":"📊 Für die KvK-Vorbereitung: Punkte und Kosten von TG3 ➡️ TG5"},
-      {"type":"sub","text":"🔹 Option 1: Die 3 Kerngebäude ({townCenter}, {embassy}, {stable})"},
-      {"type":"list","items":["KvK-Punkte: 10.625.047 pro Spieler","Ressourcen: ~892 Mio. {wood} / {bread}, 173 Mio. {stone}, 44 Mio. {iron}, 4.055 {truegold}","Zeit: 58 Tage (angepasst)"]},
-      {"type":"sub","text":"🔹 Option 2: 5 Gebäude ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
-      {"type":"list","items":["KvK-Punkte: 19.545.005 pro Spieler","Ressourcen: ~1,57 Mrd. {wood} / {bread}, 311 Mio. {stone}, 78 Mio. {iron}, 7.980 {truegold}","Zeit: 82 Tage (angepasst)"]},
-      {"type":"sub","text":"🔹 Option 3: Alle 7 Gebäude ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
-      {"type":"list","items":["KvK-Punkte: 22.247.410 pro Spieler","Ressourcen: ~1,95 Mrd. {wood} / {bread}, 388 Mio. {stone}, 96 Mio. {iron}, 9.210 {truegold}","Zeit: 88 Tage (angepasst)"]},
-      {"type":"sub","text":"⚙️ Annahmen hinter den Zahlen"},
-      {"type":"p","text":"Ein fast maximierter Account: 80,2 % Basis-Baugeschwindigkeit, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), die Ernennung {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} und {doubleTime}. Mit weniger Boni dauert es länger."},
-      {"type":"sub","text":"⚠️ Das 5-Minuten-Fenster"},
-      {"type":"p","text":"{constructionAide} ({grayWolf}, +15 %) und {doubleTime} (+20 %) halten nur 5 Minuten. Wenn die KvK-Wertung startet, nutz alle Beschleunigungen innerhalb dieser 5 Minuten. Öffne vorher die Beschleunigungen-Seite im Rucksack und tipp schnell."},
+      {"type":"fold","id":"tg5-numbers","title":"📊 Für die KvK-Vorbereitung: Punkte und Kosten von TG3 ➡️ TG5","blocks":[
+        {"type":"sub","text":"🔹 Option 1: Die 3 Kerngebäude ({townCenter}, {embassy}, {stable})"},
+        {"type":"list","items":["KvK-Punkte: 10.625.047 pro Spieler","Ressourcen: ~892 Mio. {wood} / {bread}, 173 Mio. {stone}, 44 Mio. {iron}, 4.055 {truegold}","Zeit: 58 Tage (angepasst)"]},
+        {"type":"sub","text":"🔹 Option 2: 5 Gebäude ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+        {"type":"list","items":["KvK-Punkte: 19.545.005 pro Spieler","Ressourcen: ~1,57 Mrd. {wood} / {bread}, 311 Mio. {stone}, 78 Mio. {iron}, 7.980 {truegold}","Zeit: 82 Tage (angepasst)"]},
+        {"type":"sub","text":"🔹 Option 3: Alle 7 Gebäude ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+        {"type":"list","items":["KvK-Punkte: 22.247.410 pro Spieler","Ressourcen: ~1,95 Mrd. {wood} / {bread}, 388 Mio. {stone}, 96 Mio. {iron}, 9.210 {truegold}","Zeit: 88 Tage (angepasst)"]},
+        {"type":"sub","text":"⚙️ Annahmen hinter den Zahlen"},
+        {"type":"p","text":"Ein fast maximierter Account: 80,2 % Basis-Baugeschwindigkeit, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), die Ernennung {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} und {doubleTime}. Mit weniger Boni dauert es länger."},
+        {"type":"sub","text":"⚠️ Das 5-Minuten-Fenster"},
+        {"type":"p","text":"{constructionAide} ({grayWolf}, +15 %) und {doubleTime} (+20 %) halten nur 5 Minuten. Wenn die KvK-Wertung startet, nutz alle Beschleunigungen innerhalb dieser 5 Minuten. Öffne vorher die Beschleunigungen-Seite im Rucksack und tipp schnell."}
+      ]},
     ]},
     fr: { title: "Guide de Préparation et Combat KvK (Ère Gen 3)", blocks: [
       {"type": "kvktabs", "tabs": [{"type": "kvkflow", "title": "🗓️ Calendrier du KvK", "sub": "Cycle mondial de 28 jours, la dernière semaine. Votre royaume doit avoir 70 jours ou plus.", "daysTitle": "Jours de préparation", "phases": [{"title": "Phase de Matchmaking", "tag": "2 jours", "lines": ["Associe les royaumes selon la puissance de leurs 100 joueurs actifs", "Même génération de héros uniquement", "Pas d'adversaire = récompense d'exemption"]}, {"title": "Phase de Préparation", "tag": "5 jours", "lines": ["Des points chaque jour, coffres à 30k / 100k / 200k", "Le gagnant devient l'attaquant", "Le jour 5 dure jusqu'au samedi 10:00 UTC"]}, {"title": "Phase de Combat", "tag": "Sam 10:00–22:00 UTC", "lines": ["Téléportation à 10:00 UTC, défendre jusqu'à 12:00 UTC", "Bataille du {kingsCastle} 12:00–17:00 UTC", "Tenir le {kingsCastle} 2 h 30 pour gagner"]}, {"title": "Phase de Triage du Terrain", "tag": "Après la bataille", "lines": ["Récupération de base 30 %, jusqu'à 90 %", "{rescueOrders} et {medicalSatchels}", "Les pertes au {kingsCastle} vont au Bureau d'Enrôlement"]}], "days": [{"label": "Jour 1", "theme": "Construction"}, {"label": "Jour 2", "theme": "Recherche"}, {"label": "Jour 3", "theme": "Dressage"}, {"label": "Jour 4", "theme": "Troupes"}, {"label": "Jour 5", "theme": "Tout donner", "when": "Ven – Sam 10:00 UTC"}], "tab": "🗓️ Calendrier du KvK"}, {"type": "kvkitems", "title": "🎒 Aide-mémoire des objets KvK", "sub": "Ne les dépensez pas trop tôt. Chaque objet a son jour.", "days": [{"label": "Jour 1", "theme": "Construction", "items": ["accélérateurs de {construction}", "{truegold} et {truegold} trempé", "{charmDesign} et {charmGuide}"]}, {"label": "Jour 2", "theme": "Recherche", "items": ["accélérateurs de {research}", "Tours de {heroRoulette} ({gems})", "{mythicHeroShard}, Fragment de Héros Épique et Fragment de Héros Rare", "{masterEmblem}"]}, {"label": "Jour 3", "theme": "Dressage", "items": ["{advancedTamingMarks} et {commonTamingMarks}", "Potion Nutritive", "Manuel de Croissance"]}, {"label": "Jour 4", "theme": "Troupes", "items": ["accélérateurs de {training} et entraînement de troupes", "{mithril}", "{heroExclusiveGear} : {widget}", "{forgehammer}"]}, {"label": "Jour 5", "theme": "Tout donner", "items": ["{mithril}", "{advancedTamingMarks}", "{governorGear} : {artisansVision}, {satin}, {gildedThreads}", "Tout ce qui reste"]}], "notes": [{"title": "Avant de dépenser quoi que ce soit", "color": "o", "lines": ["Activer le familier {grayWolf}", "Utiliser le décret {doubleTime}", "Postuler {chiefMinister} (jours 1, 2) ou Noble Conseiller (jour 4)"]}, {"title": "À tout moment", "color": "gr", "lines": ["XP de héros", "{petFood}"]}, {"title": "À garder pour la bataille", "color": "r", "lines": ["accélérateurs de {healing}", "Soigner d'abord par lots, accélérer seulement si l'{infirmary} va déborder"]}], "tab": "🎒 Aide-mémoire des objets KvK"}, {"type": "kvkpoints", "title": "⭐ Préparation KvK : points par jour", "sub": "Les plus gros points de chaque jour. Gardez les objets pour le bon jour.", "days": [{"label": "Jour 1", "theme": "Construction", "rows": [["30,000", "Amélioration {truegold} trempé (TG8 requis)"], ["6,000", "{intel}"], ["2,000", "Amélioration de bâtiment {truegold}"], ["70", "{governorCharm} score max +1"], ["30", "par minute d'accélération"]]}, {"label": "Jour 2", "theme": "Recherche (compétences de base)", "rows": [["8,000", "{heroRoulette}, 1 tour"], ["6,000", "{masterEmblem}"], ["3,040", "{mythicHeroShard}"], ["1,220", "Fragment de Héros Épique"], ["350", "Fragment de Héros Rare"], ["2,000", "Amélioration de bâtiment {truegold}"]]}, {"label": "Jour 3", "theme": "Dressage des familiers", "rows": [["15,000", "{advancedTamingMarks}"], ["8,000", "{heroRoulette}, 1 tour"], ["6,000", "{intel}"], ["1,150", "{commonTamingMarks}"], ["70", "{governorCharm} score max +1"], ["50", "{petAdvancement} +1"]]}, {"label": "Jour 4", "theme": "Troupes (développement des héros)", "rows": [["40,000", "{mithril}"], ["8,000", "{heroExclusiveGear} {widget}"], ["4,000", "{forgehammer}"], ["3 – 75", "par unité entraînée, selon le palier"], ["70", "{governorCharm} score max +1"]]}, {"label": "Jour 5", "theme": "Tout donner (gain de puissance)", "rows": [["40,000", "{mithril}"], ["15,000", "{advancedTamingMarks}"], ["8,000", "{heroExclusiveGear} {widget}"], ["6,000", "{intel}"], ["4,000", "{forgehammer}"], ["2,000", "Amélioration de bâtiment {truegold}"], ["36", "{governorGear} score max +1"]]}], "foot": {"title": "Coffres personnels quotidiens", "lines": ["30 000 / 100 000 / 200 000 points. Le coffre de 200 000 donne aussi une State Medal.", "La récolte ne rapporte que 2 points par lot et la chasse aux bêtes rien. Le {mithril} exige l'équipement mythique au maximum."]}, "tab": "⭐ Préparation KvK : points par jour"}]},
@@ -8269,17 +8315,18 @@ const GUIDES = {
       {"type":"sub","text":"🛑 À faire dès maintenant"},
       {"type":"list","items":["1️⃣ Économisez les ressources : beaucoup de {wood}, {bread}, {stone}, {iron} et {truegold}. Récoltez sans arrêt, utilisez les boosts de récolte et les décrets {productivityDay} + {rushJob}.","2️⃣ Gardez les accélérateurs : n'en utilisez aucun.","3️⃣ Patientez : laissez les bâtiments en TG3 jusqu'au début de la préparation du KvK."]},
       {"type":"p","text":"Commencez à récolter et à économiser maintenant pour dominer le prochain KvK ! 🚀🛡️"},
-      {"type":"sub","text":"📊 Pour la préparation du KvK : points et coût de TG3 ➡️ TG5"},
-      {"type":"sub","text":"🔹 Option 1 : les 3 bâtiments principaux ({townCenter}, {embassy}, {stable})"},
-      {"type":"list","items":["Points KvK : 10 625 047 par joueur","Ressources : ~892 M {wood} / {bread}, 173 M {stone}, 44 M {iron}, 4 055 {truegold}","Durée : 58 jours (ajustée)"]},
-      {"type":"sub","text":"🔹 Option 2 : 5 bâtiments ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
-      {"type":"list","items":["Points KvK : 19 545 005 par joueur","Ressources : ~1,57 Md {wood} / {bread}, 311 M {stone}, 78 M {iron}, 7 980 {truegold}","Durée : 82 jours (ajustée)"]},
-      {"type":"sub","text":"🔹 Option 3 : les 7 bâtiments ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
-      {"type":"list","items":["Points KvK : 22 247 410 par joueur","Ressources : ~1,95 Md {wood} / {bread}, 388 M {stone}, 96 M {iron}, 9 210 {truegold}","Durée : 88 jours (ajustée)"]},
-      {"type":"sub","text":"⚙️ Hypothèses derrière les chiffres"},
-      {"type":"p","text":"Un compte presque au max : 80,2 % de Vitesse de Construction de base, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), la nomination {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} et {doubleTime}. Avec moins de bonus, tes durées seront plus longues."},
-      {"type":"sub","text":"⚠️ La fenêtre de 5 minutes"},
-      {"type":"p","text":"{constructionAide} ({grayWolf}, +15 %) et {doubleTime} (+20 %) ne durent que 5 minutes. Quand le décompte des points KvK commence, utilise toutes tes accélérations dans ces 5 minutes. Ouvre à l'avance la page des accélérations de ton sac et tape vite."},
+      {"type":"fold","id":"tg5-numbers","title":"📊 Pour la préparation du KvK : points et coût de TG3 ➡️ TG5","blocks":[
+        {"type":"sub","text":"🔹 Option 1 : les 3 bâtiments principaux ({townCenter}, {embassy}, {stable})"},
+        {"type":"list","items":["Points KvK : 10 625 047 par joueur","Ressources : ~892 M {wood} / {bread}, 173 M {stone}, 44 M {iron}, 4 055 {truegold}","Durée : 58 jours (ajustée)"]},
+        {"type":"sub","text":"🔹 Option 2 : 5 bâtiments ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+        {"type":"list","items":["Points KvK : 19 545 005 par joueur","Ressources : ~1,57 Md {wood} / {bread}, 311 M {stone}, 78 M {iron}, 7 980 {truegold}","Durée : 82 jours (ajustée)"]},
+        {"type":"sub","text":"🔹 Option 3 : les 7 bâtiments ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+        {"type":"list","items":["Points KvK : 22 247 410 par joueur","Ressources : ~1,95 Md {wood} / {bread}, 388 M {stone}, 96 M {iron}, 9 210 {truegold}","Durée : 88 jours (ajustée)"]},
+        {"type":"sub","text":"⚙️ Hypothèses derrière les chiffres"},
+        {"type":"p","text":"Un compte presque au max : 80,2 % de Vitesse de Construction de base, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), la nomination {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} et {doubleTime}. Avec moins de bonus, tes durées seront plus longues."},
+        {"type":"sub","text":"⚠️ La fenêtre de 5 minutes"},
+        {"type":"p","text":"{constructionAide} ({grayWolf}, +15 %) et {doubleTime} (+20 %) ne durent que 5 minutes. Quand le décompte des points KvK commence, utilise toutes tes accélérations dans ces 5 minutes. Ouvre à l'avance la page des accélérations de ton sac et tape vite."}
+      ]},
     ]},
     pt: { title: "Guia de Preparação e Batalha KvK (Era Gen 3)", blocks: [
       {"type": "kvktabs", "tabs": [{"type": "kvkflow", "title": "🗓️ Linha do tempo do KvK", "sub": "Ciclo global de 28 dias, na última semana. Seu reino precisa ter 70 dias ou mais.", "daysTitle": "Dias de preparação", "phases": [{"title": "Fase de Pareamento", "tag": "2 dias", "lines": ["Pareia reinos pelo poder dos 100 jogadores ativos mais fortes", "Só a mesma geração de heróis", "Sem adversário = recompensa de folga"]}, {"title": "Fase de Preparação", "tag": "5 dias", "lines": ["Pontos todo dia, baús em 30k / 100k / 200k", "O vencedor vira o atacante", "O dia 5 vai até sábado 10:00 UTC"]}, {"title": "Fase de Batalha", "tag": "Sáb 10:00–22:00 UTC", "lines": ["Teletransporte às 10:00 UTC, defender até 12:00 UTC", "Batalha do {kingsCastle} 12:00–17:00 UTC", "Segure o {kingsCastle} por 2,5 horas para vencer"]}, {"title": "Fase de Triagem de Campo", "tag": "Depois da batalha", "lines": ["Recuperação base 30%, até 90%", "{rescueOrders} e {medicalSatchels}", "Perdas no {kingsCastle} vão para o Escritório de Alistamento"]}], "days": [{"label": "Dia 1", "theme": "Construção"}, {"label": "Dia 2", "theme": "Pesquisa"}, {"label": "Dia 3", "theme": "Treino de Pet"}, {"label": "Dia 4", "theme": "Tropas"}, {"label": "Dia 5", "theme": "Tudo ou nada", "when": "Sex – Sáb 10:00 UTC"}], "tab": "🗓️ Linha do tempo do KvK"}, {"type": "kvkitems", "title": "🎒 Cola de itens do KvK", "sub": "Não gaste antes. Cada item tem o seu dia.", "days": [{"label": "Dia 1", "theme": "Construção", "items": ["acelerações de {construction}", "{truegold} e {truegold} temperado", "{charmDesign} e {charmGuide}"]}, {"label": "Dia 2", "theme": "Pesquisa", "items": ["acelerações de {research}", "Giros da {heroRoulette} ({gems})", "{mythicHeroShard}, Fragmento de Herói Épico e Fragmento de Herói Raro", "{masterEmblem}"]}, {"label": "Dia 3", "theme": "Treino de Pet", "items": ["{advancedTamingMarks} e {commonTamingMarks}", "Poção Nutritiva", "Crescimento Manual"]}, {"label": "Dia 4", "theme": "Tropas", "items": ["acelerações de {training} e treino de tropas", "{mithril}", "{heroExclusiveGear}: {widget}", "{forgehammer}"]}, {"label": "Dia 5", "theme": "Tudo ou nada", "items": ["{mithril}", "{advancedTamingMarks}", "{governorGear}: {artisansVision}, {satin}, {gildedThreads}", "Tudo o que sobrar"]}], "notes": [{"title": "Antes de gastar qualquer coisa", "color": "o", "lines": ["Ativar o pet {grayWolf}", "Usar o decreto {doubleTime}", "Pedir {chiefMinister} (dias 1, 2) ou Conselheiro Nobre (dia 4)"]}, {"title": "Use quando quiser", "color": "gr", "lines": ["XP do Herói", "{petFood}"]}, {"title": "Guarde para a batalha", "color": "r", "lines": ["acelerações de {healing}", "Cure em lotes primeiro, acelere só se a {infirmary} for transbordar"]}], "tab": "🎒 Cola de itens do KvK"}, {"type": "kvkpoints", "title": "⭐ Preparação do KvK: pontos por dia", "sub": "O que mais pontua em cada dia. Guarde os itens e use no dia certo.", "days": [{"label": "Dia 1", "theme": "Construção", "rows": [["30,000", "Melhoria de {truegold} temperado (precisa TG8)"], ["6,000", "{intel}"], ["2,000", "Melhoria de prédio de {truegold}"], ["70", "{governorCharm} pontuação máx. +1"], ["30", "por minuto de aceleração"]]}, {"label": "Dia 2", "theme": "Pesquisa (habilidades básicas)", "rows": [["8,000", "{heroRoulette}, 1 giro"], ["6,000", "{masterEmblem}"], ["3,040", "{mythicHeroShard}"], ["1,220", "Fragmento de Herói Épico"], ["350", "Fragmento de Herói Raro"], ["2,000", "Melhoria de prédio de {truegold}"]]}, {"label": "Dia 3", "theme": "Treino de Pet", "rows": [["15,000", "{advancedTamingMarks}"], ["8,000", "{heroRoulette}, 1 giro"], ["6,000", "{intel}"], ["1,150", "{commonTamingMarks}"], ["70", "{governorCharm} pontuação máx. +1"], ["50", "{petAdvancement} +1"]]}, {"label": "Dia 4", "theme": "Tropas (desenvolvimento de heróis)", "rows": [["40,000", "{mithril}"], ["8,000", "{heroExclusiveGear} {widget}"], ["4,000", "{forgehammer}"], ["3 – 75", "por tropa treinada, conforme o nível"], ["70", "{governorCharm} pontuação máx. +1"]]}, {"label": "Dia 5", "theme": "Tudo ou nada (aumento de poder)", "rows": [["40,000", "{mithril}"], ["15,000", "{advancedTamingMarks}"], ["8,000", "{heroExclusiveGear} {widget}"], ["6,000", "{intel}"], ["4,000", "{forgehammer}"], ["2,000", "Melhoria de prédio de {truegold}"], ["36", "{governorGear} pontuação máx. +1"]]}], "foot": {"title": "Baús pessoais diários", "lines": ["30.000 / 100.000 / 200.000 pontos. O baú de 200.000 também dá uma State Medal.", "Coleta dá só 2 por pacote e caçar feras não dá nada. {mithril} exige equipamento Mítico no máximo."]}, "tab": "⭐ Preparação do KvK: pontos por dia"}]},
@@ -8374,17 +8421,18 @@ const GUIDES = {
       {"type":"sub","text":"🛑 Ação necessária — comece agora"},
       {"type":"list","items":["1️⃣ Guarde recursos: muita {wood}, {bread}, {stone}, {iron} e {truegold}. Colete o tempo todo, use bônus de coleta e os decretos {productivityDay} + {rushJob}.","2️⃣ Guarde aceleradores: guarde todos.","3️⃣ Espere: mantenha as construções em TG3 até a preparação do KvK começar."]},
       {"type":"p","text":"Comece a coletar e guardar agora para dominarmos o próximo KvK! 🚀🛡️"},
-      {"type":"sub","text":"📊 Para a preparação do KvK: pontos e custo de TG3 ➡️ TG5"},
-      {"type":"sub","text":"🔹 Opção 1: As 3 construções principais ({townCenter}, {embassy}, {stable})"},
-      {"type":"list","items":["Pontos de KvK: 10.625.047 por jogador","Recursos: ~892 mi {wood} / {bread}, 173 mi {stone}, 44 mi {iron}, 4.055 {truegold}","Tempo: 58 dias (ajustado)"]},
-      {"type":"sub","text":"🔹 Opção 2: 5 construções ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
-      {"type":"list","items":["Pontos de KvK: 19.545.005 por jogador","Recursos: ~1,57 bi {wood} / {bread}, 311 mi {stone}, 78 mi {iron}, 7.980 {truegold}","Tempo: 82 dias (ajustado)"]},
-      {"type":"sub","text":"🔹 Opção 3: Todas as 7 construções ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
-      {"type":"list","items":["Pontos de KvK: 22.247.410 por jogador","Recursos: ~1,95 bi {wood} / {bread}, 388 mi {stone}, 96 mi {iron}, 9.210 {truegold}","Tempo: 88 dias (ajustado)"]},
-      {"type":"sub","text":"⚙️ O que os números consideram"},
-      {"type":"p","text":"Uma conta quase no máximo: 80,2% de Velocidade de Construção base, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), a nomeação de {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} e {doubleTime}. Com menos bônus, seus tempos serão maiores."},
-      {"type":"sub","text":"⚠️ A janela de 5 minutos"},
-      {"type":"p","text":"{constructionAide} ({grayWolf}, +15%) e {doubleTime} (+20%) duram só 5 minutos. Quando a pontuação do KvK começar, use todas as suas acelerações dentro desses 5 minutos. Deixe a página de acelerações da mochila aberta e toque rápido."},
+      {"type":"fold","id":"tg5-numbers","title":"📊 Para a preparação do KvK: pontos e custo de TG3 ➡️ TG5","blocks":[
+        {"type":"sub","text":"🔹 Opção 1: As 3 construções principais ({townCenter}, {embassy}, {stable})"},
+        {"type":"list","items":["Pontos de KvK: 10.625.047 por jogador","Recursos: ~892 mi {wood} / {bread}, 173 mi {stone}, 44 mi {iron}, 4.055 {truegold}","Tempo: 58 dias (ajustado)"]},
+        {"type":"sub","text":"🔹 Opção 2: 5 construções ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+        {"type":"list","items":["Pontos de KvK: 19.545.005 por jogador","Recursos: ~1,57 bi {wood} / {bread}, 311 mi {stone}, 78 mi {iron}, 7.980 {truegold}","Tempo: 82 dias (ajustado)"]},
+        {"type":"sub","text":"🔹 Opção 3: Todas as 7 construções ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+        {"type":"list","items":["Pontos de KvK: 22.247.410 por jogador","Recursos: ~1,95 bi {wood} / {bread}, 388 mi {stone}, 96 mi {iron}, 9.210 {truegold}","Tempo: 88 dias (ajustado)"]},
+        {"type":"sub","text":"⚙️ O que os números consideram"},
+        {"type":"p","text":"Uma conta quase no máximo: 80,2% de Velocidade de Construção base, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), a nomeação de {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} e {doubleTime}. Com menos bônus, seus tempos serão maiores."},
+        {"type":"sub","text":"⚠️ A janela de 5 minutos"},
+        {"type":"p","text":"{constructionAide} ({grayWolf}, +15%) e {doubleTime} (+20%) duram só 5 minutos. Quando a pontuação do KvK começar, use todas as suas acelerações dentro desses 5 minutos. Deixe a página de acelerações da mochila aberta e toque rápido."}
+      ]},
     ]},
     es: { title: "Guía de Preparación y Batalla KvK (Era Gen 3)", blocks: [
       {"type": "kvktabs", "tabs": [{"type": "kvkflow", "title": "🗓️ Cronología del KvK", "sub": "Ciclo mundial de 28 días, en la última semana. Tu reino debe tener 70 días o más.", "daysTitle": "Días de preparación", "phases": [{"title": "Fase de búsqueda de rivales", "tag": "2 días", "lines": ["Empareja reinos por el poder de sus 100 jugadores activos", "Solo la misma generación de héroes", "Sin rival = recompensa de descanso"]}, {"title": "Fase de Preparación", "tag": "5 días", "lines": ["Puntos cada día, cofres a 30k / 100k / 200k", "El ganador pasa a atacar", "El día 5 dura hasta el sábado 10:00 UTC"]}, {"title": "Fase de batalla", "tag": "Sáb 10:00–22:00 UTC", "lines": ["Teletransporte a las 10:00 UTC, defender hasta las 12:00 UTC", "Batalla por el {kingsCastle} 12:00–17:00 UTC", "Mantén el {kingsCastle} 2,5 horas para ganar"]}, {"title": "Fase de Triaje de Campo", "tag": "Después de la batalla", "lines": ["Recuperación base 30%, hasta 90%", "{rescueOrders} y {medicalSatchels}", "Las pérdidas en el {kingsCastle} van a la Oficina de Reclutamiento"]}], "days": [{"label": "Día 1", "theme": "Construcción"}, {"label": "Día 2", "theme": "Investigación"}, {"label": "Día 3", "theme": "Entrenamiento de mascotas"}, {"label": "Día 4", "theme": "Tropas"}, {"label": "Día 5", "theme": "A por todas", "when": "Vie – Sáb 10:00 UTC"}], "tab": "🗓️ Cronología del KvK"}, {"type": "kvkitems", "title": "🎒 Chuleta de objetos del KvK", "sub": "No los gastes antes. Cada objeto tiene su día.", "days": [{"label": "Día 1", "theme": "Construcción", "items": ["aceleradores de {construction}", "{truegold} y {truegold} templado", "{charmDesign} y {charmGuide}"]}, {"label": "Día 2", "theme": "Investigación", "items": ["aceleradores de {research}", "Tiradas de {heroRoulette} ({gems})", "{mythicHeroShard}, Fragmento de Héroe Épico y Fragmento de Héroe Raro", "{masterEmblem}"]}, {"label": "Día 3", "theme": "Entrenamiento de mascotas", "items": ["{advancedTamingMarks} y {commonTamingMarks}", "Poción de nutrientes", "Manual de cría"]}, {"label": "Día 4", "theme": "Tropas", "items": ["aceleradores de {training} y entrenar tropas", "{mithril}", "{heroExclusiveGear}: {widget}", "{forgehammer}"]}, {"label": "Día 5", "theme": "A por todas", "items": ["{mithril}", "{advancedTamingMarks}", "{governorGear}: {artisansVision}, {satin}, {gildedThreads}", "Todo lo que sobre"]}], "notes": [{"title": "Antes de gastar nada", "color": "o", "lines": ["Activar la mascota {grayWolf}", "Usar el decreto {doubleTime}", "Pedir {chiefMinister} (días 1, 2) o Noble asesor (día 4)"]}, {"title": "Cuando quieras", "color": "gr", "lines": ["XP de héroe", "{petFood}"]}, {"title": "Guárdalo para la batalla", "color": "r", "lines": ["aceleradores de {healing}", "Cura por tandas primero; acelera solo si la {infirmary} va a desbordarse"]}], "tab": "🎒 Chuleta de objetos del KvK"}, {"type": "kvkpoints", "title": "⭐ Preparación del KvK: puntos por día", "sub": "Lo que más puntúa cada día. Guarda los objetos y gástalos en su día.", "days": [{"label": "Día 1", "theme": "Construcción", "rows": [["30,000", "Mejora de {truegold} templado (requiere TG8)"], ["6,000", "{intel}"], ["2,000", "Mejora de edificio de {truegold}"], ["70", "{governorCharm} puntuación máx. +1"], ["30", "por minuto de aceleración"]]}, {"label": "Día 2", "theme": "Investigación (habilidades básicas)", "rows": [["8,000", "{heroRoulette}, 1 tirada"], ["6,000", "{masterEmblem}"], ["3,040", "{mythicHeroShard}"], ["1,220", "Fragmento de Héroe Épico"], ["350", "Fragmento de Héroe Raro"], ["2,000", "Mejora de edificio de {truegold}"]]}, {"label": "Día 3", "theme": "Entrenamiento de mascotas", "rows": [["15,000", "{advancedTamingMarks}"], ["8,000", "{heroRoulette}, 1 tirada"], ["6,000", "{intel}"], ["1,150", "{commonTamingMarks}"], ["70", "{governorCharm} puntuación máx. +1"], ["50", "{petAdvancement} +1"]]}, {"label": "Día 4", "theme": "Tropas (desarrollo de héroes)", "rows": [["40,000", "{mithril}"], ["8,000", "{heroExclusiveGear} {widget}"], ["4,000", "{forgehammer}"], ["3 – 75", "por tropa entrenada, según el nivel"], ["70", "{governorCharm} puntuación máx. +1"]]}, {"label": "Día 5", "theme": "A por todas (aumento de poder)", "rows": [["40,000", "{mithril}"], ["15,000", "{advancedTamingMarks}"], ["8,000", "{heroExclusiveGear} {widget}"], ["6,000", "{intel}"], ["4,000", "{forgehammer}"], ["2,000", "Mejora de edificio de {truegold}"], ["36", "{governorGear} puntuación máx. +1"]]}], "foot": {"title": "Cofres personales diarios", "lines": ["30.000 / 100.000 / 200.000 puntos. El cofre de 200.000 también da una State Medal.", "Recolectar da solo 2 por paquete y cazar bestias no da nada. El {mithril} requiere equipo Mítico al máximo."]}, "tab": "⭐ Preparación del KvK: puntos por día"}]},
@@ -8479,17 +8527,18 @@ const GUIDES = {
       {"type":"sub","text":"🛑 Acción necesaria — empieza ya"},
       {"type":"list","items":["1️⃣ Guarda recursos: mucha {wood}, {bread}, {stone}, {iron} y {truegold}. Recolecta todo el tiempo, usa potenciadores de recolección y los decretos {productivityDay} + {rushJob}.","2️⃣ Guarda aceleraciones: todas.","3️⃣ Espera: deja los edificios en TG3 hasta que empiece la preparación del KvK."]},
       {"type":"p","text":"¡Empieza a recolectar y guardar ya para dominar el próximo KvK! 🚀🛡️"},
-      {"type":"sub","text":"📊 Para la preparación del KvK: puntos y coste de TG3 ➡️ TG5"},
-      {"type":"sub","text":"🔹 Opción 1: los 3 edificios principales ({townCenter}, {embassy}, {stable})"},
-      {"type":"list","items":["Puntos de KvK: 10.625.047 por jugador","Recursos: ~892 millones de {wood} / {bread}, 173 millones de {stone}, 44 millones de {iron}, 4.055 de {truegold}","Tiempo: 58 días (ajustado)"]},
-      {"type":"sub","text":"🔹 Opción 2: 5 edificios ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
-      {"type":"list","items":["Puntos de KvK: 19.545.005 por jugador","Recursos: ~1.570 millones de {wood} / {bread}, 311 millones de {stone}, 78 millones de {iron}, 7.980 de {truegold}","Tiempo: 82 días (ajustado)"]},
-      {"type":"sub","text":"🔹 Opción 3: los 7 edificios ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
-      {"type":"list","items":["Puntos de KvK: 22.247.410 por jugador","Recursos: ~1.950 millones de {wood} / {bread}, 388 millones de {stone}, 96 millones de {iron}, 9.210 de {truegold}","Tiempo: 88 días (ajustado)"]},
-      {"type":"sub","text":"⚙️ Qué suponen los números"},
-      {"type":"p","text":"Una cuenta casi al máximo: 80,2 % de Velocidad de Construcción base, {pan} Lv.5 ({masterArchitect}), {saul} Lv.5 ({resourceful}), la designación de {chiefMinister}, {grayWolf} Lv.5 ({constructionAide}), {groundWorks}, {kopBonus} y {doubleTime}. Con menos bonificaciones, tus tiempos serán más largos."},
-      {"type":"sub","text":"⚠️ La ventana de 5 minutos"},
-      {"type":"p","text":"{constructionAide} ({grayWolf}, +15 %) y {doubleTime} (+20 %) duran solo 5 minutos. Cuando empiece la puntuación del KvK, usa todos tus aceleradores dentro de esos 5 minutos. Ten abierta la pestaña Acelerar de la Mochila y toca rápido."},
+      {"type":"fold","id":"tg5-numbers","title":"📊 Para la preparación del KvK: puntos y coste de TG3 ➡️ TG5","blocks":[
+        {"type":"sub","text":"🔹 Opción 1: los 3 edificios principales ({townCenter}, {embassy}, {stable})"},
+        {"type":"list","items":["Puntos de KvK: 10.625.047 por jugador","Recursos: ~892 millones de {wood} / {bread}, 173 millones de {stone}, 44 millones de {iron}, 4.055 de {truegold}","Tiempo: 58 días (ajustado)"]},
+        {"type":"sub","text":"🔹 Opción 2: 5 edificios ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+        {"type":"list","items":["Puntos de KvK: 19.545.005 por jugador","Recursos: ~1.570 millones de {wood} / {bread}, 311 millones de {stone}, 78 millones de {iron}, 7.980 de {truegold}","Tiempo: 82 días (ajustado)"]},
+        {"type":"sub","text":"🔹 Opción 3: los 7 edificios ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+        {"type":"list","items":["Puntos de KvK: 22.247.410 por jugador","Recursos: ~1.950 millones de {wood} / {bread}, 388 millones de {stone}, 96 millones de {iron}, 9.210 de {truegold}","Tiempo: 88 días (ajustado)"]},
+        {"type":"sub","text":"⚙️ Qué suponen los números"},
+        {"type":"p","text":"Una cuenta casi al máximo: 80,2 % de Velocidad de Construcción base, {pan} Lv.5 ({masterArchitect}), {saul} Lv.5 ({resourceful}), la designación de {chiefMinister}, {grayWolf} Lv.5 ({constructionAide}), {groundWorks}, {kopBonus} y {doubleTime}. Con menos bonificaciones, tus tiempos serán más largos."},
+        {"type":"sub","text":"⚠️ La ventana de 5 minutos"},
+        {"type":"p","text":"{constructionAide} ({grayWolf}, +15 %) y {doubleTime} (+20 %) duran solo 5 minutos. Cuando empiece la puntuación del KvK, usa todos tus aceleradores dentro de esos 5 minutos. Ten abierta la pestaña Acelerar de la Mochila y toca rápido."}
+      ]},
     ]},
     tr: { title: "KvK Hazırlık ve Savaş Rehberi (Gen 3 Dönemi)", blocks: [
       {"type": "kvktabs", "tabs": [{"type": "kvkflow", "title": "🗓️ KvK takvimi", "sub": "28 günlük küresel döngünün son haftasında. Krallığın en az 70 günlük olmalı.", "daysTitle": "Hazırlık günleri", "phases": [{"title": "Eşleştirme Evresi", "tag": "2 gün", "lines": ["En aktif 100 oyuncunun gücüne göre eşleştirir", "Yalnızca aynı kahraman nesli", "Rakip yok = bay ödülü"]}, {"title": "Hazırlık Evresi", "tag": "5 gün", "lines": ["Her gün puan, sandıklar 30k / 100k / 200k", "Kazanan saldıran olur", "5. gün cumartesi 10:00 UTC'ye kadar"]}, {"title": "Savaş Evresi", "tag": "Cmt 10:00–22:00 UTC", "lines": ["Işınlanma 10:00 UTC'de açılır, 12:00 UTC'ye kadar savun", "{kingsCastle} savaşı 12:00–17:00 UTC", "{kingsCastle}nu 2,5 saat tut, kazan"]}, {"title": "Yaralı Sınıflandırma Evresi", "tag": "Savaştan sonra", "lines": ["Temel kurtarma %30, en fazla %90", "{rescueOrders} ve {medicalSatchels}", "{kingsCastle} kayıpları Görevlendirme Ofisine gider"]}], "days": [{"label": "1. gün", "theme": "İnşaat"}, {"label": "2. gün", "theme": "Araştırma"}, {"label": "3. gün", "theme": "Evcil Hayvan Eğitimi"}, {"label": "4. gün", "theme": "Birlikler"}, {"label": "5. gün", "theme": "Son hamle", "when": "Cum – Cmt 10:00 UTC"}], "tab": "🗓️ KvK takvimi"}, {"type": "kvkitems", "title": "🎒 KvK eşya kopya kağıdı", "sub": "Erken harcama. Her eşyayı kendi gününde kullan.", "days": [{"label": "1. gün", "theme": "İnşaat", "items": ["{construction} hızlandırmaları", "{truegold} ve Tavlanmış {truegold}", "{charmDesign} ve {charmGuide}"]}, {"label": "2. gün", "theme": "Araştırma", "items": ["{research} hızlandırmaları", "{heroRoulette} çevirmeleri ({gems})", "{mythicHeroShard}, Epik Kahraman Parçası ve Ender Kahraman Parçası", "{masterEmblem}"]}, {"label": "3. gün", "theme": "Evcil Hayvan Eğitimi", "items": ["{advancedTamingMarks} ve {commonTamingMarks}", "Besleyici İksir", "Büyüme Kılavuzu"]}, {"label": "4. gün", "theme": "Birlikler", "items": ["{training} hızlandırmaları ve birlik eğitimi", "{mithril}", "{heroExclusiveGear}: {widget}", "{forgehammer}"]}, {"label": "5. gün", "theme": "Son hamle", "items": ["{mithril}", "{advancedTamingMarks}", "{governorGear}: {artisansVision}, {satin}, {gildedThreads}", "Kalan her şey"]}], "notes": [{"title": "Bir şey harcamadan önce", "color": "o", "lines": ["{grayWolf} evcil hayvanını etkinleştir", "{doubleTime} fermanını kullan", "{chiefMinister} (1, 2. gün) veya Asil Danışman (4. gün) için başvur"]}, {"title": "Her zaman kullanılabilir", "color": "gr", "lines": ["Kahraman TP", "{petFood}"]}, {"title": "Savaş için sakla", "color": "r", "lines": ["{healing} hızlandırmaları", "Önce parça parça iyileştir, yalnızca {infirmary} taşmak üzereyken hızlandır"]}], "tab": "🎒 KvK eşya kopya kağıdı"}, {"type": "kvkpoints", "title": "⭐ KvK hazırlık: günlük puanlar", "sub": "Her günün en çok puan getirenleri. Eşyaları sakla, doğru günde harca.", "days": [{"label": "1. gün", "theme": "İnşaat", "rows": [["30,000", "Tavlanmış {truegold} yükseltmesi (TG8 gerekir)"], ["6,000", "{intel}"], ["2,000", "{truegold} bina yükseltmesi"], ["70", "{governorCharm} en yüksek puan +1"], ["30", "dakika başına hızlandırma"]]}, {"label": "2. gün", "theme": "Araştırma (temel beceriler)", "rows": [["8,000", "{heroRoulette}, 1 çevirme"], ["6,000", "{masterEmblem}"], ["3,040", "{mythicHeroShard}"], ["1,220", "Epik Kahraman Parçası"], ["350", "Ender Kahraman Parçası"], ["2,000", "{truegold} bina yükseltmesi"]]}, {"label": "3. gün", "theme": "Evcil Hayvan Eğitimi", "rows": [["15,000", "{advancedTamingMarks}"], ["8,000", "{heroRoulette}, 1 çevirme"], ["6,000", "{intel}"], ["1,150", "{commonTamingMarks}"], ["70", "{governorCharm} en yüksek puan +1"], ["50", "{petAdvancement} +1"]]}, {"label": "4. gün", "theme": "Birlikler (kahraman gelişimi)", "rows": [["40,000", "{mithril}"], ["8,000", "{heroExclusiveGear} {widget}"], ["4,000", "{forgehammer}"], ["3 – 75", "eğitilen asker başına, kademeye göre"], ["70", "{governorCharm} en yüksek puan +1"]]}, {"label": "5. gün", "theme": "Son hamle (güç artışı)", "rows": [["40,000", "{mithril}"], ["15,000", "{advancedTamingMarks}"], ["8,000", "{heroExclusiveGear} {widget}"], ["6,000", "{intel}"], ["4,000", "{forgehammer}"], ["2,000", "{truegold} bina yükseltmesi"], ["36", "{governorGear} en yüksek puan +1"]]}], "foot": {"title": "Günlük kişisel sandıklar", "lines": ["30.000 / 100.000 / 200.000 puan. 200.000 sandığı ayrıca bir State Medal verir.", "Toplama paket başına yalnızca 2 puan, canavar avı hiç puan vermez. {mithril} için Mitik ekipman tam seviye olmalı."]}, "tab": "⭐ KvK hazırlık: günlük puanlar"}]},
@@ -8584,17 +8633,18 @@ const GUIDES = {
       {"type":"sub","text":"🛑 Hemen yapılacaklar"},
       {"type":"list","items":["1️⃣ Kaynak biriktir: bol {wood}, {bread}, {stone}, {iron} ve {truegold}. Sürekli topla, toplama güçlendirmelerini ve {productivityDay} + {rushJob} kararlarını kullan.","2️⃣ Hızlandırıcıları sakla: hepsini tut.","3️⃣ Bekle: KvK hazırlığı başlayana kadar binaları TG3'te tut."]},
       {"type":"p","text":"Bir sonraki KvK'yı domine etmek için şimdi toplamaya ve biriktirmeye başla! 🚀🛡️"},
-      {"type":"sub","text":"📊 KvK hazırlığı için: TG3 ➡️ TG5 puanları ve maliyeti"},
-      {"type":"sub","text":"🔹 Seçenek 1: Ana 3 bina ({townCenter}, {embassy}, {stable})"},
-      {"type":"list","items":["KvK puanı: oyuncu başına 10.625.047","Kaynaklar: ~892 Mn {wood} / {bread}, 173 Mn {stone}, 44 Mn {iron}, 4.055 {truegold}","Süre: 58 gün (düzeltilmiş)"]},
-      {"type":"sub","text":"🔹 Seçenek 2: 5 bina ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
-      {"type":"list","items":["KvK puanı: oyuncu başına 19.545.005","Kaynaklar: ~1,57 Mr {wood} / {bread}, 311 Mn {stone}, 78 Mn {iron}, 7.980 {truegold}","Süre: 82 gün (düzeltilmiş)"]},
-      {"type":"sub","text":"🔹 Seçenek 3: 7 binanın hepsi ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
-      {"type":"list","items":["KvK puanı: oyuncu başına 22.247.410","Kaynaklar: ~1,95 Mr {wood} / {bread}, 388 Mn {stone}, 96 Mn {iron}, 9.210 {truegold}","Süre: 88 gün (düzeltilmiş)"]},
-      {"type":"sub","text":"⚙️ Rakamların varsayımları"},
-      {"type":"p","text":"Neredeyse maksimum bir hesap: %80,2 temel İnşaat Hızı, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), {chiefMinister} ataması, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} ve {doubleTime}. Bonusların daha azsa süren daha uzun olur."},
-      {"type":"sub","text":"⚠️ 5 dakikalık pencere"},
-      {"type":"p","text":"{constructionAide} ({grayWolf}, +%15) ve {doubleTime} (+%20) sadece 5 dakika sürer. KvK puanlaması başlayınca tüm hızlandırmalarını bu 5 dakika içinde kullan. Çantadaki hızlandırma sayfasını önceden aç ve hızlı dokun."},
+      {"type":"fold","id":"tg5-numbers","title":"📊 KvK hazırlığı için: TG3 ➡️ TG5 puanları ve maliyeti","blocks":[
+        {"type":"sub","text":"🔹 Seçenek 1: Ana 3 bina ({townCenter}, {embassy}, {stable})"},
+        {"type":"list","items":["KvK puanı: oyuncu başına 10.625.047","Kaynaklar: ~892 Mn {wood} / {bread}, 173 Mn {stone}, 44 Mn {iron}, 4.055 {truegold}","Süre: 58 gün (düzeltilmiş)"]},
+        {"type":"sub","text":"🔹 Seçenek 2: 5 bina ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+        {"type":"list","items":["KvK puanı: oyuncu başına 19.545.005","Kaynaklar: ~1,57 Mr {wood} / {bread}, 311 Mn {stone}, 78 Mn {iron}, 7.980 {truegold}","Süre: 82 gün (düzeltilmiş)"]},
+        {"type":"sub","text":"🔹 Seçenek 3: 7 binanın hepsi ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+        {"type":"list","items":["KvK puanı: oyuncu başına 22.247.410","Kaynaklar: ~1,95 Mr {wood} / {bread}, 388 Mn {stone}, 96 Mn {iron}, 9.210 {truegold}","Süre: 88 gün (düzeltilmiş)"]},
+        {"type":"sub","text":"⚙️ Rakamların varsayımları"},
+        {"type":"p","text":"Neredeyse maksimum bir hesap: %80,2 temel İnşaat Hızı, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), {chiefMinister} ataması, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} ve {doubleTime}. Bonusların daha azsa süren daha uzun olur."},
+        {"type":"sub","text":"⚠️ 5 dakikalık pencere"},
+        {"type":"p","text":"{constructionAide} ({grayWolf}, +%15) ve {doubleTime} (+%20) sadece 5 dakika sürer. KvK puanlaması başlayınca tüm hızlandırmalarını bu 5 dakika içinde kullan. Çantadaki hızlandırma sayfasını önceden aç ve hızlı dokun."}
+      ]},
     ]},
     id: { title: "Panduan Persiapan & Pertempuran KvK (Era Gen 3)", blocks: [
       {"type": "kvktabs", "tabs": [{"type": "kvkflow", "title": "🗓️ Linimasa KvK", "sub": "Siklus global 28 hari, di minggu terakhir. Kerajaanmu harus berumur 70 hari atau lebih.", "daysTitle": "Hari persiapan", "phases": [{"title": "Fase Pencocokan", "tag": "2 hari", "lines": ["Memasangkan kerajaan menurut kekuatan 100 pemain aktif teratas", "Hanya generasi hero yang sama", "Tidak ada lawan = hadiah bye"]}, {"title": "Fase Persiapan", "tag": "5 hari", "lines": ["Poin setiap hari, peti di 30k / 100k / 200k", "Pemenang menjadi penyerang", "Hari 5 sampai Sabtu 10:00 UTC"]}, {"title": "Fase Pertempuran", "tag": "Sab 10:00–22:00 UTC", "lines": ["Teleportasi buka 10:00 UTC, bertahan sampai 12:00 UTC", "Pertempuran {kingsCastle} 12:00–17:00 UTC", "Tahan {kingsCastle} 2,5 jam untuk menang"]}, {"title": "Fase Triase Lapangan", "tag": "Setelah pertempuran", "lines": ["Pemulihan dasar 30%, sampai 90%", "{rescueOrders} dan {medicalSatchels}", "Kerugian di {kingsCastle} masuk ke Kantor Pendaftaran"]}], "days": [{"label": "Hari 1", "theme": "Konstruksi"}, {"label": "Hari 2", "theme": "Riset"}, {"label": "Hari 3", "theme": "Latihan Peliharaan"}, {"label": "Hari 4", "theme": "Pasukan"}, {"label": "Hari 5", "theme": "Habis-habisan", "when": "Jum – Sab 10:00 UTC"}], "tab": "🗓️ Linimasa KvK"}, {"type": "kvkitems", "title": "🎒 Contekan item KvK", "sub": "Jangan dipakai lebih awal. Setiap item punya harinya.", "days": [{"label": "Hari 1", "theme": "Konstruksi", "items": ["percepatan {construction}", "{truegold} dan {truegold} Tempa", "{charmDesign} dan {charmGuide}"]}, {"label": "Hari 2", "theme": "Riset", "items": ["percepatan {research}", "Putaran {heroRoulette} ({gems})", "{mythicHeroShard}, Fragmen Hero Epic dan Fragmen Hero Rare", "{masterEmblem}"]}, {"label": "Hari 3", "theme": "Latihan Peliharaan", "items": ["{advancedTamingMarks} dan {commonTamingMarks}", "Ramuan Nutrisi", "Manual Pertumbuhan"]}, {"label": "Hari 4", "theme": "Pasukan", "items": ["percepatan {training} dan latih pasukan", "{mithril}", "{heroExclusiveGear}: {widget}", "{forgehammer}"]}, {"label": "Hari 5", "theme": "Habis-habisan", "items": ["{mithril}", "{advancedTamingMarks}", "{governorGear}: {artisansVision}, {satin}, {gildedThreads}", "Semua yang tersisa"]}], "notes": [{"title": "Sebelum memakai apa pun", "color": "o", "lines": ["Aktifkan peliharaan {grayWolf}", "Pakai dekret {doubleTime}", "Ajukan {chiefMinister} (hari 1, 2) atau Penasihat Kerajaan (hari 4)"]}, {"title": "Kapan saja", "color": "gr", "lines": ["XP Hero", "{petFood}"]}, {"title": "Simpan untuk pertempuran", "color": "r", "lines": ["percepatan {healing}", "Sembuhkan bertahap dulu, percepat hanya jika {infirmary} hampir penuh"]}], "tab": "🎒 Contekan item KvK"}, {"type": "kvkpoints", "title": "⭐ Persiapan KvK: poin per hari", "sub": "Penyumbang poin terbesar tiap hari. Simpan item dan pakai di hari yang cocok.", "days": [{"label": "Hari 1", "theme": "Konstruksi", "rows": [["30,000", "Peningkatan {truegold} Tempa (perlu TG8)"], ["6,000", "{intel}"], ["2,000", "Peningkatan bangunan {truegold}"], ["70", "{governorCharm} skor maks +1"], ["30", "per menit percepatan"]]}, {"label": "Hari 2", "theme": "Riset (kemampuan dasar)", "rows": [["8,000", "{heroRoulette}, 1 putaran"], ["6,000", "{masterEmblem}"], ["3,040", "{mythicHeroShard}"], ["1,220", "Fragmen Hero Epic"], ["350", "Fragmen Hero Rare"], ["2,000", "Peningkatan bangunan {truegold}"]]}, {"label": "Hari 3", "theme": "Latihan Peliharaan", "rows": [["15,000", "{advancedTamingMarks}"], ["8,000", "{heroRoulette}, 1 putaran"], ["6,000", "{intel}"], ["1,150", "{commonTamingMarks}"], ["70", "{governorCharm} skor maks +1"], ["50", "{petAdvancement} +1"]]}, {"label": "Hari 4", "theme": "Pasukan (pengembangan hero)", "rows": [["40,000", "{mithril}"], ["8,000", "{heroExclusiveGear} {widget}"], ["4,000", "{forgehammer}"], ["3 – 75", "per pasukan dilatih, tergantung tier"], ["70", "{governorCharm} skor maks +1"]]}, {"label": "Hari 5", "theme": "Habis-habisan (dorongan kekuatan)", "rows": [["40,000", "{mithril}"], ["15,000", "{advancedTamingMarks}"], ["8,000", "{heroExclusiveGear} {widget}"], ["6,000", "{intel}"], ["4,000", "{forgehammer}"], ["2,000", "Peningkatan bangunan {truegold}"], ["36", "{governorGear} skor maks +1"]]}], "foot": {"title": "Peti pribadi harian", "lines": ["30.000 / 100.000 / 200.000 poin. Peti 200.000 juga memberi State Medal.", "Mengumpulkan hanya 2 per paket dan berburu binatang tidak memberi poin. {mithril} butuh perlengkapan Mitos maksimal."]}, "tab": "⭐ Persiapan KvK: poin per hari"}]},
@@ -8689,17 +8739,18 @@ const GUIDES = {
       {"type":"sub","text":"🛑 Wajib mulai sekarang"},
       {"type":"list","items":["1️⃣ Simpan sumber daya: banyak {wood}, {bread}, {stone}, {iron} dan {truegold}. Terus kumpulkan, pakai boost pengumpulan, dan pakai dekret {productivityDay} + {rushJob}.","2️⃣ Simpan percepatan: simpan semuanya.","3️⃣ Tunggu: biarkan bangunan di TG3 sampai Persiapan KvK dimulai."]},
       {"type":"p","text":"Mulai kumpulkan dan simpan sekarang supaya kita siap mendominasi KvK berikutnya! 🚀🛡️"},
-      {"type":"sub","text":"📊 Untuk Persiapan KvK: poin dan biaya TG3 ➡️ TG5"},
-      {"type":"sub","text":"🔹 Opsi 1: 3 bangunan inti ({townCenter}, {embassy}, {stable})"},
-      {"type":"list","items":["Poin KvK: 10.625.047 per pemain","Sumber Daya: ~892 jt {wood} / {bread}, 173 jt {stone}, 44 jt {iron}, 4.055 {truegold}","Waktu: 58 hari (setelah penyesuaian)"]},
-      {"type":"sub","text":"🔹 Opsi 2: 5 bangunan ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
-      {"type":"list","items":["Poin KvK: 19.545.005 per pemain","Sumber Daya: ~1,57 M {wood} / {bread}, 311 jt {stone}, 78 jt {iron}, 7.980 {truegold}","Waktu: 82 hari (setelah penyesuaian)"]},
-      {"type":"sub","text":"🔹 Opsi 3: Semua 7 bangunan ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
-      {"type":"list","items":["Poin KvK: 22.247.410 per pemain","Sumber Daya: ~1,95 M {wood} / {bread}, 388 jt {stone}, 96 jt {iron}, 9.210 {truegold}","Waktu: 88 hari (setelah penyesuaian)"]},
-      {"type":"sub","text":"⚙️ Asumsi angka-angka ini"},
-      {"type":"p","text":"Akun yang hampir maksimal: Kecepatan Konstruksi dasar 80,2%, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), jabatan {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} dan {doubleTime}. Kalau bonusmu lebih sedikit, waktunya lebih lama."},
-      {"type":"sub","text":"⚠️ Jendela 5 menit"},
-      {"type":"p","text":"{constructionAide} ({grayWolf}, +15%) dan {doubleTime} (+20%) hanya bertahan 5 menit. Saat penghitungan poin KvK dimulai, pakai semua Speedup dalam 5 menit itu. Buka tab Speedup di Ransel lebih dulu dan tekan secepatnya."},
+      {"type":"fold","id":"tg5-numbers","title":"📊 Untuk Persiapan KvK: poin dan biaya TG3 ➡️ TG5","blocks":[
+        {"type":"sub","text":"🔹 Opsi 1: 3 bangunan inti ({townCenter}, {embassy}, {stable})"},
+        {"type":"list","items":["Poin KvK: 10.625.047 per pemain","Sumber Daya: ~892 jt {wood} / {bread}, 173 jt {stone}, 44 jt {iron}, 4.055 {truegold}","Waktu: 58 hari (setelah penyesuaian)"]},
+        {"type":"sub","text":"🔹 Opsi 2: 5 bangunan ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+        {"type":"list","items":["Poin KvK: 19.545.005 per pemain","Sumber Daya: ~1,57 M {wood} / {bread}, 311 jt {stone}, 78 jt {iron}, 7.980 {truegold}","Waktu: 82 hari (setelah penyesuaian)"]},
+        {"type":"sub","text":"🔹 Opsi 3: Semua 7 bangunan ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+        {"type":"list","items":["Poin KvK: 22.247.410 per pemain","Sumber Daya: ~1,95 M {wood} / {bread}, 388 jt {stone}, 96 jt {iron}, 9.210 {truegold}","Waktu: 88 hari (setelah penyesuaian)"]},
+        {"type":"sub","text":"⚙️ Asumsi angka-angka ini"},
+        {"type":"p","text":"Akun yang hampir maksimal: Kecepatan Konstruksi dasar 80,2%, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), jabatan {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} dan {doubleTime}. Kalau bonusmu lebih sedikit, waktunya lebih lama."},
+        {"type":"sub","text":"⚠️ Jendela 5 menit"},
+        {"type":"p","text":"{constructionAide} ({grayWolf}, +15%) dan {doubleTime} (+20%) hanya bertahan 5 menit. Saat penghitungan poin KvK dimulai, pakai semua Speedup dalam 5 menit itu. Buka tab Speedup di Ransel lebih dulu dan tekan secepatnya."}
+      ]},
     ]},
     ru: { title: "Гайд по подготовке и битве KvK (Эпоха Gen 3)", blocks: [
       {"type": "kvktabs", "tabs": [{"type": "kvkflow", "title": "🗓️ Расписание KvK", "sub": "Глобальный цикл 28 дней, последняя неделя. Королевству должно быть 70 дней или больше.", "daysTitle": "Дни подготовки", "phases": [{"title": "Стадия подбора", "tag": "2 дня", "lines": ["Подбирает королевства по мощи 100 самых активных игроков", "Только то же поколение героев", "Нет соперника = награда за пропуск"]}, {"title": "Стадия подготовки", "tag": "5 дней", "lines": ["Очки каждый день, сундуки на 30k / 100k / 200k", "Победитель становится атакующим", "5-й день длится до субботы 10:00 UTC"]}, {"title": "Стадия битвы", "tag": "Сб 10:00–22:00 UTC", "lines": ["Телепорт открывается в 10:00 UTC, защита до 12:00 UTC", "Битва за {kingsCastle} 12:00–17:00 UTC", "Удержите {kingsCastle} 2,5 часа, чтобы победить"]}, {"title": "Стадия полевого осмотра", "tag": "После битвы", "lines": ["Базовое спасение 30%, до 90%", "{rescueOrders} и {medicalSatchels}", "Потери в {kingsCastle} уходят в Призывной пункт"]}], "days": [{"label": "День 1", "theme": "Стройка"}, {"label": "День 2", "theme": "Исследования"}, {"label": "День 3", "theme": "Тренировка питомцев"}, {"label": "День 4", "theme": "Войска"}, {"label": "День 5", "theme": "Последний рывок", "when": "Пт – Сб 10:00 UTC"}], "tab": "🗓️ Расписание KvK"}, {"type": "kvkitems", "title": "🎒 Шпаргалка по предметам KvK", "sub": "Не тратьте заранее. У каждого предмета свой день.", "days": [{"label": "День 1", "theme": "Стройка", "items": ["ускорения: {construction}", "{truegold} и закалённый {truegold}", "{charmDesign} и {charmGuide}"]}, {"label": "День 2", "theme": "Исследования", "items": ["ускорения: {research}", "Вращения {heroRoulette} ({gems})", "{mythicHeroShard}, великий фрагмент героя и редкий фрагмент героя", "{masterEmblem}"]}, {"label": "День 3", "theme": "Тренировка питомцев", "items": ["{advancedTamingMarks} и {commonTamingMarks}", "Питательное зелье", "Рук-во по приручению"]}, {"label": "День 4", "theme": "Войска", "items": ["ускорения: {training} и тренировка войск", "{mithril}", "{heroExclusiveGear}: {widget}", "{forgehammer}"]}, {"label": "День 5", "theme": "Последний рывок", "items": ["{mithril}", "{advancedTamingMarks}", "{governorGear}: {artisansVision}, {satin}, {gildedThreads}", "Всё, что осталось"]}], "notes": [{"title": "Прежде чем что-то тратить", "color": "o", "lines": ["Включите питомца {grayWolf}", "Используйте указ {doubleTime}", "Подайте на {chiefMinister} (дни 1, 2) или Советник (день 4)"]}, {"title": "Можно в любой день", "color": "gr", "lines": ["Опыт героев", "{petFood}"]}, {"title": "Оставьте для битвы", "color": "r", "lines": ["ускорения: {healing}", "Сначала лечите партиями, ускоряйте только если {infirmary} вот-вот переполнится"]}], "tab": "🎒 Шпаргалка по предметам KvK"}, {"type": "kvkpoints", "title": "⭐ Подготовка к KvK: очки по дням", "sub": "Главные источники очков каждого дня. Копите предметы и тратьте в свой день.", "days": [{"label": "День 1", "theme": "Стройка", "rows": [["30,000", "Улучшение закалённого {truegold} (нужен TG8)"], ["6,000", "{intel}"], ["2,000", "Улучшение здания {truegold}"], ["70", "{governorCharm} макс. оценка +1"], ["30", "за минуту ускорения"]]}, {"label": "День 2", "theme": "Исследования (базовые навыки)", "rows": [["8,000", "{heroRoulette}, 1 вращение"], ["6,000", "{masterEmblem}"], ["3,040", "{mythicHeroShard}"], ["1,220", "великий фрагмент героя"], ["350", "редкий фрагмент героя"], ["2,000", "Улучшение здания {truegold}"]]}, {"label": "День 3", "theme": "Тренировка питомцев", "rows": [["15,000", "{advancedTamingMarks}"], ["8,000", "{heroRoulette}, 1 вращение"], ["6,000", "{intel}"], ["1,150", "{commonTamingMarks}"], ["70", "{governorCharm} макс. оценка +1"], ["50", "{petAdvancement} +1"]]}, {"label": "День 4", "theme": "Войска (развитие героев)", "rows": [["40,000", "{mithril}"], ["8,000", "{heroExclusiveGear} {widget}"], ["4,000", "{forgehammer}"], ["3 – 75", "за обученного солдата, по уровню"], ["70", "{governorCharm} макс. оценка +1"]]}, {"label": "День 5", "theme": "Последний рывок (рост мощи)", "rows": [["40,000", "{mithril}"], ["15,000", "{advancedTamingMarks}"], ["8,000", "{heroExclusiveGear} {widget}"], ["6,000", "{intel}"], ["4,000", "{forgehammer}"], ["2,000", "Улучшение здания {truegold}"], ["36", "{governorGear} макс. оценка +1"]]}], "foot": {"title": "Ежедневные личные сундуки", "lines": ["30 000 / 100 000 / 200 000 очков. Сундук за 200 000 даёт ещё State Medal.", "Сбор приносит лишь 2 очка за связку, охота на зверей — ничего. Для {mithril} нужно мифическое снаряжение на максимуме."]}, "tab": "⭐ Подготовка к KvK: очки по дням"}]},
@@ -8794,17 +8845,18 @@ const GUIDES = {
       {"type":"sub","text":"🛑 Что делать уже сейчас"},
       {"type":"list","items":["1️⃣ Копите ресурсы: много ресурсов ({wood}, {bread}, {stone}, {iron}) и {truegold}. Собирайте постоянно, используйте усиления сбора и указы «{productivityDay}» + «{rushJob}».","2️⃣ Копите ускорения: не тратьте ни одного.","3️⃣ Ждите: держите здания на TG3 до начала подготовки к KvK."]},
       {"type":"p","text":"Начинайте собирать и копить уже сейчас — и мы разгромим следующий KvK! 🚀🛡️"},
-      {"type":"sub","text":"📊 Для подготовки к KvK: очки и стоимость TG3 ➡️ TG5"},
-      {"type":"sub","text":"🔹 Вариант 1: 3 основных здания ({townCenter}, {embassy}, {stable})"},
-      {"type":"list","items":["Очки KvK: 10 625 047 на игрока","Ресурсы: ~892 млн {wood} / {bread}, 173 млн {stone}, 44 млн {iron}, 4 055 {truegold}","Время: 58 дней (с учётом бонусов)"]},
-      {"type":"sub","text":"🔹 Вариант 2: 5 зданий ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
-      {"type":"list","items":["Очки KvK: 19 545 005 на игрока","Ресурсы: ~1,57 млрд {wood} / {bread}, 311 млн {stone}, 78 млн {iron}, 7 980 {truegold}","Время: 82 дня (с учётом бонусов)"]},
-      {"type":"sub","text":"🔹 Вариант 3: все 7 зданий ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
-      {"type":"list","items":["Очки KvK: 22 247 410 на игрока","Ресурсы: ~1,95 млрд {wood} / {bread}, 388 млн {stone}, 96 млн {iron}, 9 210 {truegold}","Время: 88 дней (с учётом бонусов)"]},
-      {"type":"sub","text":"⚙️ Из чего исходят расчёты"},
-      {"type":"p","text":"Почти максимальный аккаунт: базовая скорость строительства 80,2%, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), назначение {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} и {doubleTime}. Если бонусов меньше, времени уйдёт больше."},
-      {"type":"sub","text":"⚠️ Окно в 5 минут"},
-      {"type":"p","text":"{constructionAide} ({grayWolf}, +15%) и {doubleTime} (+20%) действуют всего 5 минут. Когда начнётся подсчёт очков KvK, потратьте все ускорения в эти 5 минут. Заранее откройте вкладку ускорений в рюкзаке и жмите быстро."},
+      {"type":"fold","id":"tg5-numbers","title":"📊 Для подготовки к KvK: очки и стоимость TG3 ➡️ TG5","blocks":[
+        {"type":"sub","text":"🔹 Вариант 1: 3 основных здания ({townCenter}, {embassy}, {stable})"},
+        {"type":"list","items":["Очки KvK: 10 625 047 на игрока","Ресурсы: ~892 млн {wood} / {bread}, 173 млн {stone}, 44 млн {iron}, 4 055 {truegold}","Время: 58 дней (с учётом бонусов)"]},
+        {"type":"sub","text":"🔹 Вариант 2: 5 зданий ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+        {"type":"list","items":["Очки KvK: 19 545 005 на игрока","Ресурсы: ~1,57 млрд {wood} / {bread}, 311 млн {stone}, 78 млн {iron}, 7 980 {truegold}","Время: 82 дня (с учётом бонусов)"]},
+        {"type":"sub","text":"🔹 Вариант 3: все 7 зданий ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+        {"type":"list","items":["Очки KvK: 22 247 410 на игрока","Ресурсы: ~1,95 млрд {wood} / {bread}, 388 млн {stone}, 96 млн {iron}, 9 210 {truegold}","Время: 88 дней (с учётом бонусов)"]},
+        {"type":"sub","text":"⚙️ Из чего исходят расчёты"},
+        {"type":"p","text":"Почти максимальный аккаунт: базовая скорость строительства 80,2%, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), назначение {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} и {doubleTime}. Если бонусов меньше, времени уйдёт больше."},
+        {"type":"sub","text":"⚠️ Окно в 5 минут"},
+        {"type":"p","text":"{constructionAide} ({grayWolf}, +15%) и {doubleTime} (+20%) действуют всего 5 минут. Когда начнётся подсчёт очков KvK, потратьте все ускорения в эти 5 минут. Заранее откройте вкладку ускорений в рюкзаке и жмите быстро."}
+      ]},
     ]},
     th: { title: "คู่มือเตรียมตัวและการต่อสู้ KvK (ยุค Gen 3)", blocks: [
       {"type": "kvktabs", "tabs": [{"type": "kvkflow", "title": "🗓️ ไทม์ไลน์ KvK", "sub": "รอบโลก 28 วัน ในสัปดาห์สุดท้าย อาณาจักรต้องมีอายุ 70 วันขึ้นไป", "daysTitle": "วันเตรียมตัว", "phases": [{"title": "ช่วงการจับคู่", "tag": "2 วัน", "lines": ["จับคู่ตามพลังของผู้เล่นแอคทีฟ 100 อันดับแรก", "เฉพาะรุ่นฮีโร่เดียวกัน", "ไม่มีคู่ = รางวัลบาย"]}, {"title": "ช่วงการเตรียมตัว", "tag": "5 วัน", "lines": ["ได้แต้มทุกวัน หีบที่ 30k / 100k / 200k", "ฝ่ายชนะเป็นฝ่ายบุก", "วันที่ 5 ถึงวันเสาร์ 10:00 UTC"]}, {"title": "ช่วงการต่อสู้", "tag": "ส. 10:00–22:00 UTC", "lines": ["เปิดการย้าย 10:00 UTC ป้องกันถึง 12:00 UTC", "ศึกชิง{kingsCastle} 12:00–17:00 UTC", "ยึด{kingsCastle}ไว้ 2.5 ชั่วโมงเพื่อชนะ"]}, {"title": "ช่วงการรักษาภาคสนาม", "tag": "หลังการต่อสู้", "lines": ["กู้คืนพื้นฐาน 30% สูงสุด 90%", "{rescueOrders}และ{medicalSatchels}", "ความสูญเสียที่{kingsCastle}ไปที่ศูนย์เกณฑ์ทหาร"]}], "days": [{"label": "วันที่ 1", "theme": "ก่อสร้าง"}, {"label": "วันที่ 2", "theme": "วิจัย"}, {"label": "วันที่ 3", "theme": "ฝึกสัตว์เลี้ยง"}, {"label": "วันที่ 4", "theme": "ทหาร"}, {"label": "วันที่ 5", "theme": "ทุ่มสุดตัว", "when": "ศ. – ส. 10:00 UTC"}], "tab": "🗓️ ไทม์ไลน์ KvK"}, {"type": "kvkitems", "title": "🎒 สรุปไอเทม KvK", "sub": "อย่าใช้ก่อน ใช้แต่ละไอเทมให้ตรงวัน", "days": [{"label": "วันที่ 1", "theme": "ก่อสร้าง", "items": ["ตัวเร่ง{construction}", "{truegold}และ{truegold}ชุบแข็ง", "{charmDesign}และ{charmGuide}"]}, {"label": "วันที่ 2", "theme": "วิจัย", "items": ["ตัวเร่ง{research}", "หมุน{heroRoulette} ({gems})", "{mythicHeroShard} ชิ้นส่วนฮีโร่มหากาพย์ และชิ้นส่วนฮีโร่หายาก", "{masterEmblem}"]}, {"label": "วันที่ 3", "theme": "ฝึกสัตว์เลี้ยง", "items": ["{advancedTamingMarks}และ{commonTamingMarks}", "น้ำยาบำรุง", "คู่มือการเติบโต"]}, {"label": "วันที่ 4", "theme": "ทหาร", "items": ["ตัวเร่ง{training}และฝึกทหาร", "{mithril}", "{heroExclusiveGear}: {widget}", "{forgehammer}"]}, {"label": "วันที่ 5", "theme": "ทุ่มสุดตัว", "items": ["{mithril}", "{advancedTamingMarks}", "{governorGear}: {artisansVision} {satin} {gildedThreads}", "ทุกอย่างที่เหลือ"]}], "notes": [{"title": "ก่อนใช้อะไร", "color": "o", "lines": ["เปิดสัตว์เลี้ยง{grayWolf}", "ใช้กฤษฎีกา{doubleTime}", "สมัคร{chiefMinister} (วันที่ 1, 2) หรือขุนนางที่ปรึกษา (วันที่ 4)"]}, {"title": "ใช้ได้ทุกเมื่อ", "color": "gr", "lines": ["EXP ฮีโร่", "{petFood}"]}, {"title": "เก็บไว้สำหรับการต่อสู้", "color": "r", "lines": ["ตัวเร่ง{healing}", "รักษาเป็นชุดก่อน เร่งเฉพาะเมื่อ{infirmary}ใกล้เต็ม"]}], "tab": "🎒 สรุปไอเทม KvK"}, {"type": "kvkpoints", "title": "⭐ เตรียม KvK: แต้มต่อวัน", "sub": "รายการที่ได้แต้มมากที่สุดของแต่ละวัน เก็บไอเทมไว้ใช้ให้ตรงวัน", "days": [{"label": "วันที่ 1", "theme": "ก่อสร้าง", "rows": [["30,000", "อัปเกรด{truegold}ชุบแข็ง (ต้อง TG8)"], ["6,000", "{intel}"], ["2,000", "อัปเกรดอาคาร{truegold}"], ["70", "{governorCharm} คะแนนสูงสุด +1"], ["30", "ต่อนาทีของตัวเร่ง"]]}, {"label": "วันที่ 2", "theme": "วิจัย (ทักษะพื้นฐาน)", "rows": [["8,000", "{heroRoulette} 1 ครั้ง"], ["6,000", "{masterEmblem}"], ["3,040", "{mythicHeroShard}"], ["1,220", "ชิ้นส่วนฮีโร่มหากาพย์"], ["350", "ชิ้นส่วนฮีโร่หายาก"], ["2,000", "อัปเกรดอาคาร{truegold}"]]}, {"label": "วันที่ 3", "theme": "ฝึกสัตว์เลี้ยง", "rows": [["15,000", "{advancedTamingMarks}"], ["8,000", "{heroRoulette} 1 ครั้ง"], ["6,000", "{intel}"], ["1,150", "{commonTamingMarks}"], ["70", "{governorCharm} คะแนนสูงสุด +1"], ["50", "{petAdvancement} +1"]]}, {"label": "วันที่ 4", "theme": "ทหาร (พัฒนาฮีโร่)", "rows": [["40,000", "{mithril}"], ["8,000", "{heroExclusiveGear} {widget}"], ["4,000", "{forgehammer}"], ["3 – 75", "ต่อทหาร 1 นายที่ฝึก ตามระดับ"], ["70", "{governorCharm} คะแนนสูงสุด +1"]]}, {"label": "วันที่ 5", "theme": "ทุ่มสุดตัว (เพิ่มพลัง)", "rows": [["40,000", "{mithril}"], ["15,000", "{advancedTamingMarks}"], ["8,000", "{heroExclusiveGear} {widget}"], ["6,000", "{intel}"], ["4,000", "{forgehammer}"], ["2,000", "อัปเกรดอาคาร{truegold}"], ["36", "{governorGear} คะแนนสูงสุด +1"]]}], "foot": {"title": "หีบส่วนตัวรายวัน", "lines": ["30,000 / 100,000 / 200,000 แต้ม หีบ 200,000 ให้ State Medal เพิ่มด้วย", "เก็บทรัพยากรได้แค่ 2 แต้มต่อมัด ล่าสัตว์ร้ายไม่ได้แต้ม {mithril} ต้องใช้อุปกรณ์ระดับตำนานเต็มขั้น"]}, "tab": "⭐ เตรียม KvK: แต้มต่อวัน"}]},
@@ -8899,17 +8951,18 @@ const GUIDES = {
       {"type":"sub","text":"🛑 ต้องเริ่มตอนนี้"},
       {"type":"list","items":["1️⃣ เก็บทรัพยากร: เก็บ{wood} {bread} {stone} {iron} และ{truegold} ให้มาก เก็บตลอดเวลา ใช้บัฟเก็บทรัพยากร และใช้คำสั่ง{productivityDay} + {rushJob}","2️⃣ เก็บเร่งความเร็ว: เก็บไว้ทั้งหมด","3️⃣ รอ: ให้อาคารอยู่ที่ TG3 จนกว่าช่วงเตรียมการ KvK จะเริ่ม"]},
       {"type":"p","text":"เริ่มเก็บทรัพยากรตั้งแต่ตอนนี้ เพื่อให้เราพร้อมครอง KvK ครั้งหน้า! 🚀🛡️"},
-      {"type":"sub","text":"📊 สำหรับช่วงเตรียมการ KvK: คะแนนและค่าใช้จ่ายของ TG3 ➡️ TG5"},
-      {"type":"sub","text":"🔹 แผน 1: สิ่งปลูกสร้างหลัก 3 หลัง ({townCenter}, {embassy}, {stable})"},
-      {"type":"list","items":["คะแนน KvK: 10,625,047 ต่อคน","ทรัพยากร: ~892 ล้าน {wood} / {bread}, 173 ล้าน {stone}, 44 ล้าน {iron}, 4,055 {truegold}","เวลา: 58 วัน (หลังปรับแล้ว)"]},
-      {"type":"sub","text":"🔹 แผน 2: 5 หลัง ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
-      {"type":"list","items":["คะแนน KvK: 19,545,005 ต่อคน","ทรัพยากร: ~1,570 ล้าน {wood} / {bread}, 311 ล้าน {stone}, 78 ล้าน {iron}, 7,980 {truegold}","เวลา: 82 วัน (หลังปรับแล้ว)"]},
-      {"type":"sub","text":"🔹 แผน 3: ครบทั้ง 7 หลัง ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
-      {"type":"list","items":["คะแนน KvK: 22,247,410 ต่อคน","ทรัพยากร: ~1,950 ล้าน {wood} / {bread}, 388 ล้าน {stone}, 96 ล้าน {iron}, 9,210 {truegold}","เวลา: 88 วัน (หลังปรับแล้ว)"]},
-      {"type":"sub","text":"⚙️ ตัวเลขเหล่านี้คิดจากอะไร"},
-      {"type":"p","text":"บัญชีที่เกือบเต็มทุกอย่าง: สปีดการสร้างพื้นฐาน 80.2%, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), การแต่งตั้ง {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} และ {doubleTime} ถ้าโบนัสน้อยกว่านี้ เวลาจะนานขึ้น"},
-      {"type":"sub","text":"⚠️ ช่วง 5 นาที"},
-      {"type":"p","text":"{constructionAide} ({grayWolf}, +15%) และ {doubleTime} (+20%) อยู่ได้แค่ 5 นาที เมื่อเริ่มนับคะแนน KvK ให้ใช้ไอเทมเร่งสปีดทั้งหมดภายใน 5 นาทีนั้น เปิดแท็บเร่งสปีดในกระเป๋ารอไว้แล้วกดให้เร็ว"},
+      {"type":"fold","id":"tg5-numbers","title":"📊 สำหรับช่วงเตรียมการ KvK: คะแนนและค่าใช้จ่ายของ TG3 ➡️ TG5","blocks":[
+        {"type":"sub","text":"🔹 แผน 1: สิ่งปลูกสร้างหลัก 3 หลัง ({townCenter}, {embassy}, {stable})"},
+        {"type":"list","items":["คะแนน KvK: 10,625,047 ต่อคน","ทรัพยากร: ~892 ล้าน {wood} / {bread}, 173 ล้าน {stone}, 44 ล้าน {iron}, 4,055 {truegold}","เวลา: 58 วัน (หลังปรับแล้ว)"]},
+        {"type":"sub","text":"🔹 แผน 2: 5 หลัง ({townCenter}, {embassy}, {stable}, {barracks}, {range})"},
+        {"type":"list","items":["คะแนน KvK: 19,545,005 ต่อคน","ทรัพยากร: ~1,570 ล้าน {wood} / {bread}, 311 ล้าน {stone}, 78 ล้าน {iron}, 7,980 {truegold}","เวลา: 82 วัน (หลังปรับแล้ว)"]},
+        {"type":"sub","text":"🔹 แผน 3: ครบทั้ง 7 หลัง ({townCenter}, {embassy}, {stable}, {barracks}, {range}, {infirmary}, {commandCenter})"},
+        {"type":"list","items":["คะแนน KvK: 22,247,410 ต่อคน","ทรัพยากร: ~1,950 ล้าน {wood} / {bread}, 388 ล้าน {stone}, 96 ล้าน {iron}, 9,210 {truegold}","เวลา: 88 วัน (หลังปรับแล้ว)"]},
+        {"type":"sub","text":"⚙️ ตัวเลขเหล่านี้คิดจากอะไร"},
+        {"type":"p","text":"บัญชีที่เกือบเต็มทุกอย่าง: สปีดการสร้างพื้นฐาน 80.2%, Lv.5 {pan} ({masterArchitect}), Lv.5 {saul} ({resourceful}), การแต่งตั้ง {chiefMinister}, Lv.5 {grayWolf} ({constructionAide}), {groundWorks}, {kopBonus} และ {doubleTime} ถ้าโบนัสน้อยกว่านี้ เวลาจะนานขึ้น"},
+        {"type":"sub","text":"⚠️ ช่วง 5 นาที"},
+        {"type":"p","text":"{constructionAide} ({grayWolf}, +15%) และ {doubleTime} (+20%) อยู่ได้แค่ 5 นาที เมื่อเริ่มนับคะแนน KvK ให้ใช้ไอเทมเร่งสปีดทั้งหมดภายใน 5 นาทีนั้น เปิดแท็บเร่งสปีดในกระเป๋ารอไว้แล้วกดให้เร็ว"}
+      ]},
     ]},
     ar: { title: "دليل استعداد وقتال KvK (حقبة Gen 3)", blocks: [
       {"type": "kvktabs", "tabs": [{"type": "kvkflow", "title": "🗓️ الجدول الزمني لـ KvK", "sub": "دورة عالمية من 28 يومًا، في الأسبوع الأخير. يجب أن تكون مملكتك عمرها 70 يومًا أو أكثر.", "daysTitle": "أيام التحضير", "phases": [{"title": "مرحلة البحث عن الخصم", "tag": "يومان", "lines": ["تطابق الممالك حسب قوة أنشط 100 لاعب", "نفس جيل الأبطال فقط", "بلا خصم = مكافأة استراحة"]}, {"title": "مرحلة التحضير", "tag": "5 أيام", "lines": ["نقاط كل يوم، صناديق عند 30k / 100k / 200k", "الفائز يصبح المهاجم", "اليوم 5 يستمر حتى السبت 10:00 UTC"]}, {"title": "مرحلة المعركة", "tag": "السبت 10:00–22:00 UTC", "lines": ["يُفتح النقل 10:00 UTC، الدفاع حتى 12:00 UTC", "معركة {kingsCastle} 12:00–17:00 UTC", "احتفظ بـ{kingsCastle} 2.5 ساعة لتفوز"]}, {"title": "مرحلة فرز الميدان", "tag": "بعد المعركة", "lines": ["إنقاذ أساسي 30%، حتى 90%", "{rescueOrders} و{medicalSatchels}", "خسائر {kingsCastle} تذهب إلى مكتب التجنيد"]}], "days": [{"label": "اليوم 1", "theme": "البناء"}, {"label": "اليوم 2", "theme": "البحث"}, {"label": "اليوم 3", "theme": "تدريب الحيوانات الأليفة"}, {"label": "اليوم 4", "theme": "القوات"}, {"label": "اليوم 5", "theme": "الدفعة الأخيرة", "when": "الجمعة – السبت 10:00 UTC"}], "tab": "🗓️ الجدول الزمني لـ KvK"}, {"type": "kvkitems", "title": "🎒 ملخص عناصر KvK", "sub": "لا تنفقها مبكرًا. لكل عنصر يومه.", "days": [{"label": "اليوم 1", "theme": "البناء", "items": ["تسريعات {construction}", "{truegold} و{truegold} المُقسّى", "{charmDesign} و{charmGuide}"]}, {"label": "اليوم 2", "theme": "البحث", "items": ["تسريعات {research}", "دورات {heroRoulette} ({gems})", "{mythicHeroShard} وشظية بطل ملحمي وشظية بطل نادر", "{masterEmblem}"]}, {"label": "اليوم 3", "theme": "تدريب الحيوانات الأليفة", "items": ["{advancedTamingMarks} و{commonTamingMarks}", "جرعة نمو", "دليل النمو"]}, {"label": "اليوم 4", "theme": "القوات", "items": ["تسريعات {training} وتدريب القوات", "{mithril}", "{heroExclusiveGear}: {widget}", "{forgehammer}"]}, {"label": "اليوم 5", "theme": "الدفعة الأخيرة", "items": ["{mithril}", "{advancedTamingMarks}", "{governorGear}: {artisansVision} و{satin} و{gildedThreads}", "كل ما تبقى"]}], "notes": [{"title": "قبل إنفاق أي شيء", "color": "o", "lines": ["فعّل الحيوان الأليف {grayWolf}", "استخدم مرسوم {doubleTime}", "تقدّم لمنصب {chiefMinister} (اليوم 1، 2) أو مستشار نبيل (اليوم 4)"]}, {"title": "في أي وقت", "color": "gr", "lines": ["خبرة البطل", "{petFood}"]}, {"title": "احتفظ بها للمعركة", "color": "r", "lines": ["تسريعات {healing}", "عالج على دفعات أولًا، وسرّع فقط عندما يوشك {infirmary} على الامتلاء"]}], "tab": "🎒 ملخص عناصر KvK"}, {"type": "kvkpoints", "title": "⭐ تحضير KvK: النقاط لكل يوم", "sub": "أكبر مصادر النقاط في كل يوم. ادّخر العناصر وأنفقها في يومها.", "days": [{"label": "اليوم 1", "theme": "البناء", "rows": [["30,000", "ترقية {truegold} المُقسّى (يتطلب TG8)"], ["6,000", "{intel}"], ["2,000", "ترقية مبنى {truegold}"], ["70", "{governorCharm} أقصى تقييم +1"], ["30", "لكل دقيقة تسريع"]]}, {"label": "اليوم 2", "theme": "البحث (المهارات الأساسية)", "rows": [["8,000", "{heroRoulette}، دورة واحدة"], ["6,000", "{masterEmblem}"], ["3,040", "{mythicHeroShard}"], ["1,220", "شظية بطل ملحمي"], ["350", "شظية بطل نادر"], ["2,000", "ترقية مبنى {truegold}"]]}, {"label": "اليوم 3", "theme": "تدريب الحيوانات الأليفة", "rows": [["15,000", "{advancedTamingMarks}"], ["8,000", "{heroRoulette}، دورة واحدة"], ["6,000", "{intel}"], ["1,150", "{commonTamingMarks}"], ["70", "{governorCharm} أقصى تقييم +1"], ["50", "{petAdvancement} +1"]]}, {"label": "اليوم 4", "theme": "القوات (تطوير الأبطال)", "rows": [["40,000", "{mithril}"], ["8,000", "{heroExclusiveGear} {widget}"], ["4,000", "{forgehammer}"], ["3 – 75", "لكل جندي مُدرَّب، حسب المستوى"], ["70", "{governorCharm} أقصى تقييم +1"]]}, {"label": "اليوم 5", "theme": "الدفعة الأخيرة (زيادة القوة)", "rows": [["40,000", "{mithril}"], ["15,000", "{advancedTamingMarks}"], ["8,000", "{heroExclusiveGear} {widget}"], ["6,000", "{intel}"], ["4,000", "{forgehammer}"], ["2,000", "ترقية مبنى {truegold}"], ["36", "{governorGear} أقصى تقييم +1"]]}], "foot": {"title": "صناديق شخصية يومية", "lines": ["30,000 / 100,000 / 200,000 نقطة. صندوق 200,000 يعطي أيضًا State Medal.", "الجمع يعطي نقطتين فقط لكل حزمة وصيد الوحوش لا يعطي شيئًا. يتطلب {mithril} عتادًا أسطوريًا كاملًا."]}, "tab": "⭐ تحضير KvK: النقاط لكل يوم"}]},
@@ -9004,17 +9057,18 @@ const GUIDES = {
       {"type":"sub","text":"🛑 مطلوب الآن"},
       {"type":"list","items":["1️⃣ ادّخر الموارد: كميات كبيرة من {wood} و{bread} و{stone} و{iron} و{truegold}. اجمع باستمرار، واستخدم معززات الجمع ومرسومَي {productivityDay} + {rushJob}.","2️⃣ ادّخر عناصر التسريع: احتفظ بها كلها.","3️⃣ انتظر: أبقِ المباني على TG3 حتى يبدأ تحضير KvK."]},
       {"type":"p","text":"ابدأ الجمع والادخار الآن لنكون مستعدين للسيطرة على KvK القادم! 🚀🛡️"},
-      {"type":"sub","text":"📊 لتحضير KvK: نقاط وتكلفة TG3 ➡️ TG5"},
-      {"type":"sub","text":"🔹 الخيار 1: المباني الأساسية الثلاثة ({townCenter}، {embassy}، {stable})"},
-      {"type":"list","items":["نقاط KvK: ‏10,625,047 لكل لاعب","الموارد: ~892 مليون {wood} / {bread}، و173 مليون {stone}، و44 مليون {iron}، و4,055 {truegold}","الوقت: 58 يومًا (بعد التعديل)"]},
-      {"type":"sub","text":"🔹 الخيار 2: خمسة مبانٍ ({townCenter}، {embassy}، {stable}، {barracks}، {range})"},
-      {"type":"list","items":["نقاط KvK: ‏19,545,005 لكل لاعب","الموارد: ~1.57 مليار {wood} / {bread}، و311 مليون {stone}، و78 مليون {iron}، و7,980 {truegold}","الوقت: 82 يومًا (بعد التعديل)"]},
-      {"type":"sub","text":"🔹 الخيار 3: جميع المباني السبعة ({townCenter}، {embassy}، {stable}، {barracks}، {range}، {infirmary}، {commandCenter})"},
-      {"type":"list","items":["نقاط KvK: ‏22,247,410 لكل لاعب","الموارد: ~1.95 مليار {wood} / {bread}، و388 مليون {stone}، و96 مليون {iron}، و9,210 {truegold}","الوقت: 88 يومًا (بعد التعديل)"]},
-      {"type":"sub","text":"⚙️ ما تفترضه هذه الأرقام"},
-      {"type":"p","text":"حساب شبه مكتمل: سرعة البناء الأساسية 80.2%، و{pan} Lv.5 ({masterArchitect})، و{saul} Lv.5 ({resourceful})، وتعيين {chiefMinister}، و{grayWolf} Lv.5 ({constructionAide})، و{groundWorks}، و{kopBonus}، و{doubleTime}. إذا كانت مكافآتك أقل، فستكون أوقاتك أطول."},
-      {"type":"sub","text":"⚠️ نافذة الدقائق الخمس"},
-      {"type":"p","text":"يدوم {constructionAide} ({grayWolf}، +15%) و{doubleTime} (+20%) خمس دقائق فقط. عندما يبدأ احتساب نقاط KvK، استخدم كل عناصر التسريع خلال هذه الدقائق الخمس. افتح صفحة عناصر التسريع في حقيبة الظهر مسبقًا واضغط بسرعة."},
+      {"type":"fold","id":"tg5-numbers","title":"📊 لتحضير KvK: نقاط وتكلفة TG3 ➡️ TG5","blocks":[
+        {"type":"sub","text":"🔹 الخيار 1: المباني الأساسية الثلاثة ({townCenter}، {embassy}، {stable})"},
+        {"type":"list","items":["نقاط KvK: ‏10,625,047 لكل لاعب","الموارد: ~892 مليون {wood} / {bread}، و173 مليون {stone}، و44 مليون {iron}، و4,055 {truegold}","الوقت: 58 يومًا (بعد التعديل)"]},
+        {"type":"sub","text":"🔹 الخيار 2: خمسة مبانٍ ({townCenter}، {embassy}، {stable}، {barracks}، {range})"},
+        {"type":"list","items":["نقاط KvK: ‏19,545,005 لكل لاعب","الموارد: ~1.57 مليار {wood} / {bread}، و311 مليون {stone}، و78 مليون {iron}، و7,980 {truegold}","الوقت: 82 يومًا (بعد التعديل)"]},
+        {"type":"sub","text":"🔹 الخيار 3: جميع المباني السبعة ({townCenter}، {embassy}، {stable}، {barracks}، {range}، {infirmary}، {commandCenter})"},
+        {"type":"list","items":["نقاط KvK: ‏22,247,410 لكل لاعب","الموارد: ~1.95 مليار {wood} / {bread}، و388 مليون {stone}، و96 مليون {iron}، و9,210 {truegold}","الوقت: 88 يومًا (بعد التعديل)"]},
+        {"type":"sub","text":"⚙️ ما تفترضه هذه الأرقام"},
+        {"type":"p","text":"حساب شبه مكتمل: سرعة البناء الأساسية 80.2%، و{pan} Lv.5 ({masterArchitect})، و{saul} Lv.5 ({resourceful})، وتعيين {chiefMinister}، و{grayWolf} Lv.5 ({constructionAide})، و{groundWorks}، و{kopBonus}، و{doubleTime}. إذا كانت مكافآتك أقل، فستكون أوقاتك أطول."},
+        {"type":"sub","text":"⚠️ نافذة الدقائق الخمس"},
+        {"type":"p","text":"يدوم {constructionAide} ({grayWolf}، +15%) و{doubleTime} (+20%) خمس دقائق فقط. عندما يبدأ احتساب نقاط KvK، استخدم كل عناصر التسريع خلال هذه الدقائق الخمس. افتح صفحة عناصر التسريع في حقيبة الظهر مسبقًا واضغط بسرعة."}
+      ]},
     ]}
   }
 },
@@ -9031,6 +9085,7 @@ const GUIDES = {
       en: { title: "All Out", blocks: [
         { type: "h", text: "🪖 All-Out Rules" },
         { type: "nap", text: "❌ No attacks on NAP 6 including their farms/academies", tags: ["NXS/nxs/nXs", "NBD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "goto", to: "nap-rules", text: "Read the NAP rules ›" },
         { type: "list", items: [
                     "❌ No attacks on castles or alliance buildings (HQs, outposts, banners)",
           "✅ You can attack resource gathering tiles ({mill}, {quarry}, {ironMine})",
@@ -9064,6 +9119,7 @@ const GUIDES = {
       zh: { title: "全軍出擊", blocks: [
         { type: "h", text: "🪖 全軍出擊規則" },
         { type: "nap", text: "❌ 禁止攻擊 NAP 6 成員，包含他們的農場／學院", tags: ["NXS/nxs/nXs", "NBD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "goto", to: "nap-rules", text: "看 NAP 規則 ›" },
         { type: "list", items: [
                     "❌ 禁止攻擊城堡或聯盟建築（總部、前哨站、旗幟）",
           "✅ 可以攻擊資源採集點（{mill}、{quarry}、{ironMine}）",
@@ -9097,6 +9153,7 @@ const GUIDES = {
       ko: { title: "전군 출격", blocks: [
         { type: "h", text: "🪖 전군 출격 규칙" },
         { type: "nap", text: "❌ NAP 6 멤버 공격 금지, 농장/아카데미 포함", tags: ["NXS/nxs/nXs", "NBD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "goto", to: "nap-rules", text: "NAP 규칙 보기 ›" },
         { type: "list", items: [
                     "❌ 성이나 연맹 건물(본부, 전초기지, 깃발) 공격 금지",
           "✅ 자원 채집 타일({mill}, {quarry}, {ironMine})은 공격 가능합니다",
@@ -9130,6 +9187,7 @@ const GUIDES = {
       de: { title: "Aufs Ganze", blocks: [
         { type: "h", text: "🪖 All-Out-Regeln" },
         { type: "nap", text: "❌ Keine Angriffe auf NAP 6, einschließlich ihrer Farmen/Akademien", tags: ["NXS/nxs/nXs", "NBD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "goto", to: "nap-rules", text: "NAP-Regeln lesen ›" },
         { type: "list", items: [
                     "❌ Keine Angriffe auf Schlösser oder Allianzgebäude (Hauptquartiere, Außenposten, Banner)",
           "✅ Ihr könnt Ressourcen-Sammelfelder angreifen ({mill}, {quarry}, {ironMine})",
@@ -9163,6 +9221,7 @@ const GUIDES = {
       fr: { title: "Tous dehors", blocks: [
         { type: "h", text: "🪖 Règles de Tous dehors" },
         { type: "nap", text: "❌ Aucune attaque contre le NAP 6, y compris leurs fermes/académies", tags: ["NXS/nxs/nXs", "NBD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "goto", to: "nap-rules", text: "Lire les règles du NAP ›" },
         { type: "list", items: [
                     "❌ Aucune attaque contre les châteaux ou les bâtiments d'alliance (QG, avant-postes, bannières)",
           "✅ Vous pouvez attaquer les cases de collecte de ressources ({mill}, {quarry}, {ironMine})",
@@ -9196,6 +9255,7 @@ const GUIDES = {
       pt: { title: "Vai com Tudo", blocks: [
         { type: "h", text: "🪖 Regras do Vai com Tudo" },
         { type: "nap", text: "❌ Nenhum ataque ao NAP 6, incluindo suas fazendas/academias", tags: ["NXS/nxs/nXs", "NBD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "goto", to: "nap-rules", text: "Ler as regras do NAP ›" },
         { type: "list", items: [
                     "❌ Nenhum ataque a castelos ou construções da aliança (QGs, postos avançados, bandeiras)",
           "✅ Você pode atacar blocos de coleta de recursos ({mill}, {quarry}, {ironMine})",
@@ -9229,6 +9289,7 @@ const GUIDES = {
       es: { title: "Ataque Total", blocks: [
         { type: "h", text: "🪖 Reglas de Ataque Total" },
         { type: "nap", text: "❌ No atacar a miembros del NAP 6, incluidas sus granjas/academias", tags: ["NXS/nxs/nXs", "NBD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "goto", to: "nap-rules", text: "Leer las reglas del NAP ›" },
         { type: "list", items: [
                     "❌ No atacar castillos ni edificios de alianza (cuarteles generales, puestos avanzados, estandartes)",
           "✅ Puedes atacar casillas de recolección de recursos ({mill}, {quarry}, {ironMine})",
@@ -9262,6 +9323,7 @@ const GUIDES = {
       tr: { title: "Topyekün", blocks: [
         { type: "h", text: "🪖 Topyekün Kuralları" },
         { type: "nap", text: "❌ NAP 6 üyelerine, çiftlikleri/akademileri dahil saldırı yok", tags: ["NXS/nxs/nXs", "NBD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "goto", to: "nap-rules", text: "NAP kurallarını oku ›" },
         { type: "list", items: [
                     "❌ Şatolara veya ittifak binalarına (karargahlar, ileri karakollar, flamalar) saldırı yok",
           "✅ Kaynak toplama alanlarına saldırabilirsiniz ({mill}, {quarry}, {ironMine})",
@@ -9295,6 +9357,7 @@ const GUIDES = {
       id: { title: "Serangan Penuh", blocks: [
         { type: "h", text: "🪖 Aturan Serangan Penuh" },
         { type: "nap", text: "❌ Dilarang menyerang anggota NAP 6, termasuk farm/akademi mereka", tags: ["NXS/nxs/nXs", "NBD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "goto", to: "nap-rules", text: "Baca aturan NAP ›" },
         { type: "list", items: [
                     "❌ Dilarang menyerang kastil atau bangunan aliansi (markas, pos terdepan, spanduk)",
           "✅ Anda boleh menyerang ubin pengumpulan sumber daya ({mill}, {quarry}, {ironMine})",
@@ -9328,6 +9391,7 @@ const GUIDES = {
       ru: { title: "Полный вперед", blocks: [
         { type: "h", text: "🪖 Правила события «Полный вперед»" },
         { type: "nap", text: "❌ Не атаковать членов NAP 6, включая их фермы/академии", tags: ["NXS/nxs/nXs", "NBD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "goto", to: "nap-rules", text: "Правила NAP ›" },
         { type: "list", items: [
                     "❌ Не атаковать замки или здания альянса (штабы, форпосты, знамёна)",
           "✅ Можно атаковать участки сбора ресурсов ({mill}, {quarry}, {ironMine})",
@@ -9361,6 +9425,7 @@ const GUIDES = {
       th: { title: "ลุยเลย", blocks: [
         { type: "h", text: "🪖 กฎกิจกรรมลุยเลย" },
         { type: "nap", text: "❌ ห้ามโจมตีสมาชิก NAP 6 รวมถึงฟาร์ม/อาคาเดมีของพวกเขา", tags: ["NXS/nxs/nXs", "NBD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "goto", to: "nap-rules", text: "อ่านกฎ NAP ›" },
         { type: "list", items: [
                     "❌ ห้ามโจมตีปราสาทหรืออาคารพันธมิตร (กองบัญชาการ ด่านหน้า ธง)",
           "✅ สามารถโจมตีจุดเก็บทรัพยากรได้ ({mill}, {quarry}, {ironMine})",
@@ -9394,6 +9459,7 @@ const GUIDES = {
       ar: { title: "جميع القوات تهاجم", blocks: [
         { type: "h", text: "🪖 قواعد فعالية جميع القوات تهاجم" },
         { type: "nap", text: "❌ ممنوع مهاجمة أعضاء NAP 6، بما في ذلك مزارعهم/أكاديمياتهم", tags: ["NXS/nxs/nXs", "NBD/nBd/Nbd", "RED/ReD", "ESA/EsA/UNI", "IDN", "KGb"] },
+        { type: "goto", to: "nap-rules", text: "اقرأ قواعد NAP ›" },
         { type: "list", items: [
                     "❌ ممنوع مهاجمة القلاع أو مباني التحالف (المقرات، المخافر الأمامية، الرايات)",
           "✅ يمكنك مهاجمة نقاط جمع الموارد ({mill}، {quarry}، {ironMine})",

@@ -393,6 +393,12 @@ const BLOCKS = {
   callout: (b) => `<div class="callout flat">${rich(b.text)}</div>`,
   /* the NAP rule: its own card so it stands out (Armada asked), alliance tags as chips */
   nap: (b) => `<div class="nap-card"><div class="nap-t">${rich(b.text)}</div><div class="nap-tags">${(b.tags || []).map((t) => `<span class="nap-tag" dir="ltr">${escapeHtml(t)}</span>`).join("")}</div></div>`,
+  /* home page: the short NAP 6 card — tapping it opens the 🤝 NAP Rules guide */
+  napHome: (b) => `<button type="button" class="nap-card nap-home" onclick="switchGuide('nap-rules')"><div class="nap-t">${rich(b.text)}</div><div class="nap-tags">${(b.tags || []).map((t) => `<span class="nap-tag" dir="ltr">${escapeHtml(t)}</span>`).join("")}</div><div class="nap-more">${escapeHtml(b.more || "")}</div></button>`,
+  /* a button that opens another guide */
+  goto: (b) => `<button type="button" class="guide-link-btn" onclick="switchGuide('${escapeHtml(b.to)}')"><span>${rich(b.text)}</span></button>`,
+  /* a closed box: the title shows, the blocks inside open on tap (details that most readers don't need yet) */
+  fold: (b, g) => `<details class="fold"${b.id ? ` id="sec-${escapeHtml(b.id)}"` : ""}><summary>${rich(b.title)}</summary><div class="fold-body">${(b.blocks || []).map((x) => (BLOCKS[x.type] || (() => ""))(x, g)).join("")}</div></details>`,
   img: (b) => `<img class="fig" src="${escapeHtml(b.src)}" alt="${escapeHtml(b.alt || "")}" loading="lazy">`,
   video: (b) => {
     const cap = b.caption ? `<p class="legend">${rich(b.caption)}</p>` : "";
@@ -758,6 +764,7 @@ function renderPicker() {
 /* ---- 上方指南按鈕：「近期活動」＋兩個可展開的分類 ------------------- */
 /* Guides listed in GUIDE_GROUPS.growth go under 養成; everything else (except the home guide) goes under 活動. */
 const HOME_GUIDE = "recent-events";
+const TOP_GUIDES = ["nap-rules"];   // guides with their own button next to 📢 Home (not inside a group)
 const GUIDE_GROUPS = {
   events: { emoji: "🏆", name: { en:"Event Guides", zh:"活動指南", ko:"이벤트 가이드", de:"Event-Guides", fr:"Guides d'événements", pt:"Guias de eventos", tr:"Etkinlik Rehberleri", id:"Panduan Event", ru:"Гайды по событиям", th:"คู่มือกิจกรรม", ar:"أدلة الفعاليات", es:"Guías de eventos" } },
   growth: { emoji: "🌱", name: { en:"Growth Guides", zh:"養成指南", ko:"육성 가이드", de:"Aufbau-Guides", fr:"Guides de progression", pt:"Guias de evolução", tr:"Gelişim Rehberleri", id:"Panduan Pengembangan", ru:"Гайды по развитию", th:"คู่มือพัฒนา", ar:"أدلة التطوير", es:"Guías de progreso" },
@@ -766,7 +773,7 @@ const GUIDE_GROUPS = {
 let openGuideGroup = null;
 
 function guideGroupOf(key) {
-  if (key === HOME_GUIDE) return null;
+  if (key === HOME_GUIDE || TOP_GUIDES.includes(key)) return null;
   return GUIDE_GROUPS.growth.guides.includes(key) ? "growth" : "events";
 }
 
@@ -784,6 +791,7 @@ function renderGuideRow() {
 
   let html = `<div class="guide-groups">`;
   if (keys.includes(HOME_GUIDE)) html += guideChipHtml(HOME_GUIDE).replace('class="guide-chip', 'class="guide-chip guide-home');
+  TOP_GUIDES.forEach((k) => { if (keys.includes(k)) html += guideChipHtml(k); });
   for (const id of ["events", "growth"]) {
     if (!members[id].length) continue;
     const grp = GUIDE_GROUPS[id];
@@ -833,7 +841,7 @@ window.toggleGuideGroup = toggleGuideGroup;
 window.pickGuideChip = pickGuideChip;
 
 /* Order of the guide buttons at the top. Guides not listed here are added at the end. */
-const GUIDE_ORDER = ["recent-events", "formations-rally-tips", "f2p-heroes", "hero-cards", "hero-roulette", "master-academy", "general-tips", "mystic-trial", "pet", "bear-hunt", "swordland-showdown", "kvk"];
+const GUIDE_ORDER = ["recent-events", "nap-rules", "formations-rally-tips", "f2p-heroes", "hero-cards", "hero-roulette", "master-academy", "general-tips", "mystic-trial", "pet", "bear-hunt", "swordland-showdown", "kvk"];
 
 function guideKeys() {
   const all = Object.keys(GUIDES).filter((k) => !GUIDES[k].hidden);

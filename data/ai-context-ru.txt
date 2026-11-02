@@ -65,7 +65,7 @@ P2W: Амадей или Хельга / Явель / Соул
 💬 «Тропа приключений»: награды за вопросы и ответы
 Список ниже составлен по сайту выше. Когда появится событие, ищите его по цвету и содержанию: выберите цвет или персонажа / ключевое слово, затем нажмите на событие, чтобы увидеть лучший вариант (✅).
 
-### GUIDE #general-tips — Общие советы
+### GUIDE #nap-rules — Правила NAP
 🤝 ПРАВИЛА NAP (ПАКТ О НЕНАПАДЕНИИ)
 ❌ Нельзя атаковать и разведывать города NAP 6 — включая их защищённые альянсы-академии/фермы с одобренными тегами
 NXS/nxs/nXs
@@ -82,6 +82,8 @@ KGb
 1-е: предупреждение от руководства.
 2-е (повторное нарушение после предупреждения): исключение из альянса.
 3-е: чёрный список во всех альянсах под защитой NAP.
+
+### GUIDE #general-tips — Общие советы
 🔗 ПОЛЕЗНЫЕ РЕСУРСЫ
 🗓️ ХРОНОЛОГИЯ КОРОЛЕВСТВА
 Смотрите, что будет дальше, чтобы заранее планировать события, улучшения и ресурсы.
@@ -816,7 +818,6 @@ Luna — 8-е поколение, Стрелок, SSR, Боевой
 Ежедневные личные сундуки
 30 000 / 100 000 / 200 000 очков. Сундук за 200 000 даёт ещё State Medal.
 Сбор приносит лишь 2 очка за связку, охота на зверей — ничего. Для Мифрил нужно мифическое снаряжение на максимуме.
-kvk-push
 🚨 TG5: НЕ улучшать 9 ноября — читать здесь
 Аурум
 ✅
@@ -937,6 +938,7 @@ RED/ReD
 ESA/EsA/UNI
 IDN
 KGb
+Правила NAP ›
 ❌ Не атаковать замки или здания альянса (штабы, форпосты, знамёна)
 ✅ Можно атаковать участки сбора ресурсов (Мельница, Каменоломня, Железный рудник)
 ✅ Можно атаковать игроков вне NAP.
@@ -1281,6 +1283,7 @@ If notifications don't come: open "🔧 Notifications not coming?" under the not
 Top-right buttons (installed app): 🔗 copy the link of this page (briefly shows ✓ when copied), ↻ refresh to the newest version, ☾ / ☀ dark / light mode. 🐦 brings Little Sparrow back if it was turned off.
 📢 Announcements switch to the next one by themselves after a few seconds; ⏸ Stay here (next to the date) stops that on this device, ▶ Auto-switch turns it back on (swipe and tabs still work). A battle table inside an announcement shows in the reader's language (all 12 — buildings, phases, tasks and reminders; player names stay as written); the picture with it stays in English. "🙋 Who are you?" above the table: pick your name and only the buildings (Tri-Alliance: your team) you are in stay; "Show everyone" (or the 👀 Show everyone button next to the menu) shows all again.
 🐦 Little Sparrow (the bird by the Ask AI button): tap it and it first asks "Want a quick tour of this page?" — 👀 Yes walks top to bottom through the page you are on: first the top buttons (🔗, ↻, 📋 officers only, light/dark, the announcement ticker, languages, guide menus), then the page (home page: this week, daily checklist, calendar, announcements, guide menus, language, Ask AI; a guide: its headings, hero cards, rule boxes, switching guides). After the tour, or after "No thanks", it shows its help menu: 🔎 Find a page, or 🎓 "How do I use…" → pick a tour: 🧭 What the buttons on the site do (language, 🔗, ↻, light/dark, Ask AI), ⏰ timers, 🔔 game reminders, or installing the app. The same tours are listed at the top of the Ask AI panel.
+🤝 NAP rules: their own page — the 🤝 NAP Rules button right after 📢 Home at the top (guide #nap-rules): the NAP 6 tags, checking nodes before gathering, the All Out exception, outposts, Sanctuaries / Fortresses, and the 3 steps for violations. The home page shows a short NAP 6 card with the tags; tapping it opens that page.
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
