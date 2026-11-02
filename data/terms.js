@@ -44,7 +44,7 @@ const TERMS = [
  {
   "cat": "Events",
   "rows": [
-   ["Calendar","日曆","일정","—","—","Calendário","Takvim","Kalender","Календарь","ปฏิทิน","—","—"],
+   ["Calendar","日曆","일정","—","—","Calendário","Takvim","Kalender","Календарь","ปฏิทิน","—","Calendario"],
    ["Forsaken Temple", "神廟大冒險", "신전 대모험", "Einsamer Tempel", "Temple Abandonné", "Templo Abandonado", "Issız Tapınak", "Forsaken Temple", "Заброшенный храм", "วิหารร้าง", "المعبد المهجور", "Templo abandonado", "Event icon (treasure map + dice) at the right of the city screen. Partly cut off in some screenshots (EN '…saken Temple', DE 'Einsamer Tem…', FR 'Temple Aband…', RU 'Заброше…')."],
    ["Hero Roulette","英雄轉盤","영웅 룰렛","Helden Roulette","Roulette des Héros","Roleta do Herói","Kahraman Ruleti","Rolet Hero","Геройская рулетка","รูเล็ตฮีโร่","روليت البطل","Ruleta de Héroes","ES: Event Calendar pop-up. Lucky Chip tooltips: FR 'la Roulette des Héros', PT [Roleta do Herói], ID [Rolet Hero], RU [геройскую рулетку] (accusative), KO 「영웅 룰렛」, DE [Helden Roulette]."],
    ["Lucky Chip","幸運幣","행운의 코인","Glückschip","Jeton Chanceux","Ficha da Sorte","Uğurlu Fiş","Chip Keberuntungan","Фишка удачи","ชิปนำโชค","رقاقة الحظ","Ficha de la suerte","Backpack Other tab: used in Hero Roulette to spin for rewards (1 chip = 1 spin)."],
@@ -56,7 +56,7 @@ const TERMS = [
    ["Gold", "黃金", "골드", "Gold", "Or", "Ouro", "Altın", "Gold", "Золото", "ทอง", "الذهبي", "—"],
    ["Legion 1 / 2", "軍團1 / 軍團2", "군단 1 / 2", "Legion 1 / 2", "Légion 1 / Légion 2", "Legião 1 / Legião 2", "1. Lejyon / 2. Lejyon", "Legiun 1 / Legiun 2", "Легион 1 / Легион 2", "กองทัพ 1 / กองทัพ 2", "الكتيبة 1 / الكتيبة 2", "Legión 1 / Legión 2", "ES: '[Legión 1]' in the rules."],
    ["Battle Starts In", "戰鬥開始倒數計時", "전투 시작까지", "Schlacht beginnt in", "Début du Combat dans", "A batalha inicia em", "Savaş Başlangıcı", "Pertempuran Dimulai", "Битва начнётся через", "การต่อสู้จะเริ่มในอีก", "ستبدأ المعركة بعد", "—"],
-   ["VS", "VS", "VS", "VS", "VS", "VS", "VS", "VS", "VS", "VS", "VS", "—"],
+   ["VS", "VS", "VS", "VS", "VS", "VS", "VS", "VS", "VS", "VS", "VS", "VS"],
    ["Combatants", "參戰人員", "참전 인원", "Kämpfer", "Combattants", "Combatentes", "Savaşçılar", "Petarung", "Участники битвы", "ผู้ต่อสู้", "المقاتلين", "combatientes", "ES: seen inside sentences ('30 combatientes y 20 sustitutos')."],
    ["Substitutes", "替補名單", "후보", "Ersatzspieler", "remplaçants", "substitutos", "yedekler", "pengganti", "запасные", "ตัวสำรอง", "البدلاء", "sustitutos", "Seen inside sentences, not as a standalone label. ES: seen inside sentences; also 'suplente' once."],
    ["Alliance Brawl", "聯盟對決", "연맹 결투", "Allianz-Gemenge", "Rif d'Alliances", "Briga da Aliança", "İttifak Kavgası", "Brawl Aliansi", "Потасовка альянсов", "ศึกพันธมิตร", "عراك التحالفات", "—", "Event tab name."],
@@ -153,8 +153,8 @@ const TERMS = [
  {
   "cat": "Battle roles",
   "rows": [
-   ["Attacker", "攻擊方", "공격 측", "Angreifer", "attaquant", "atacante", "saldırgan", "penyerang", "нападающий", "ผู้โจมตี", "المهاجم", "—", "Battlefield side. Not the same as the alliance role 'Attackers' in the guides."],
-   ["Defender", "防守方", "방어 측", "Verteidiger", "défenseur", "defensor", "savunmacı", "—", "—", "ผู้ป้องกัน", "المدافع", "—", "Battlefield side. Not the same as the alliance role 'Defenders' in the guides."],
+   ["Attacker", "攻擊方", "공격 측", "Angreifer", "attaquant", "atacante", "saldırgan", "penyerang", "нападающий", "ผู้โจมตี", "المهاجم", "Atacante", "Battlefield side. Not the same as the alliance role 'Attackers' in the guides."],
+   ["Defender", "防守方", "방어 측", "Verteidiger", "défenseur", "defensor", "savunmacı", "—", "—", "ผู้ป้องกัน", "المدافع", "Defensor", "Battlefield side. Not the same as the alliance role 'Defenders' in the guides."],
    ["Occupier", "佔領方", "점령 측", "—", "—", "—", "—", "—", "—", "—", "—", "—"],
    ["Mercenaries", "傭兵", "용병", "Söldner", "mercenaires", "—", "—", "tentara bayaran", "наемники", "ทหารรับจ้าง", "المرتزقة", "—"],
    ["First King", "—", "—", "Erster König", "premier roi", "Primeiro Rei", "İlk Kral", "Raja Pertama", "первый король", "พระราชาองค์แรก", "الملك الأول", "—"]
@@ -350,7 +350,7 @@ const TERMS = [
  {
   "cat": "Strongest Governor",
   "rows": [
-   ["Hero of the Season","本期英雄","이번 영웅","Held der Saison","Héros de la Saison","Herói da Temporada","Sezonun Kahramanı","Hero of the Season","Герой сезона","ฮีโร่แห่งฤดูกาล","بطل الموسم","—","Indonesian keeps the English wording in the game."],
+   ["Hero of the Season","本期英雄","이번 영웅","Held der Saison","Héros de la Saison","Herói da Temporada","Sezonun Kahramanı","Hero of the Season","Герой сезона","ฮีโร่แห่งฤดูกาล","بطل الموسم","Héroe de la Temporada","Indonesian keeps the English wording in the game."],
    ["Honor Ranking","榮耀榜","명예 랭킹","Ehrenrang","Classement d'honneur","Classificação de Honra","Onur Sıralaması","Peringkat","Рейтинг чести","อันดับเกียรติยศ","تصنيف الشرف","Clasificación Honor","Indonesian label shows only 'Peringkat' (may be shortened). ES: All Out banner."],
    ["Stage 1: City Construction","第1階段：城鎮建設","1 단계: 도시 건설","Stufe 1: Stadtsbau","Étape 1 : Construction de Ville","Estágio 1: Construção da Cidade","Aşama 1: Şehir İnşaatı","Babak 1: Konstruksi Pemukiman","Этап 1: Строительство города","ด่าน 1: การก่อสร้างค่ายอพยพ","المرحلة 1: بناء المدينة","—","German 'Stadtsbau' and Thai 'ค่ายอพยพ' (refugee camp) are the game's own wording. Indonesian uses 'Babak' here but 'Stage' in the reward title."],
    ["My Ranking","我的排名","나의 랭킹","Mein Rang","Mon Classement","Meu Rank","Sıralamam","Peringkatku","Мой рейтинг","อันดับของฉัน","تصنيفي","Mi clasificación"],
