@@ -206,8 +206,8 @@ const fmtStat = (m, k) => { const v = statOf(m, k); if (v == null || v === 0 && 
 let topN = store.topN || 0;   // ③ show only the first N of the ranking (0 = all)
 let mode = store.mode || "sp";   // "sp" = Squad Power fit · "w" = the old power/mystic weights (still there to compare)
 /* all = ignore "show top N"; withSubs = also the substitutes (shown in ③, marked) — ③ groups and ④ table use starters only */
-function ranking(all, withSubs) {
-  const everyone = data.members.filter((m) => picked.has(m.id)), sel = everyone.filter((m) => (withSubs || !subs.has(m.id)) && confirmed(m.id));   // only ✅ / 🟡 are ranked and placed (Sherry, 2026-11-01)
+function ranking(all, withSubs, anyReply) {   // anyReply: also ⏳ / ❌ (only 📋 Copy list uses it — "not replied yet" must list them)
+  const everyone = data.members.filter((m) => picked.has(m.id)), sel = everyone.filter((m) => (withSubs || !subs.has(m.id)) && (anyReply || confirmed(m.id)));   // only ✅ / 🟡 are ranked and placed (Sherry, 2026-11-01)
   const ks = Object.keys(wts).filter((k) => wts[k] > 0), tot = ks.reduce((a, k) => a + wts[k], 0) || 1;
   // the top of each stat = 100, counted over starters AND subs, so the scores in ③ and ③ are the same numbers
   const max = Object.fromEntries(ks.map((k) => [k, Math.max(1, ...everyone.map((m) => +statOf(m, k) || 0))]));
@@ -373,8 +373,9 @@ const CP_FIELDS = ["no", "name", "id", "rep", "rank", "tc", "power", "mystic", "
 function cpLabel(f) { return { no: cp("fNo"), name: tr("colName"), id: "ID", rep: cp("fRep"), rank: tr("colRank"), tc: tr("colTc"), power: tr("power"), mystic: tr("mystic"), sp: tr("colSp"), migrant: tr("colMigrant"), score: tr(mode === "w" ? "colScoreW" : "colScore"), sub: tr("sub") }[f]; }
 const cpFields = () => CP_FIELDS.filter((f) => mode === "w" || f !== "sp");   // Squad Power mode: the score IS the Squad Power
 function cpRows(o) {
-  const r = ranking(true, true); let n = 0;
-  const rows = r.map((m) => ({ m, no: m.isSub ? "" : ++n }));
+  /* everyone ticked: the confirmed in ranking order with their place, then ⏳ / ❌ (no place) — before, an all-⏳ list copied nothing (Sherry 2026-11-02) */
+  const r = ranking(true, true, true), ok = (m) => confirmed(m.id); let n = 0;
+  const rows = [...r.filter(ok), ...r.filter((m) => !ok(m))].map((m) => ({ m, no: m.isSub || !ok(m) ? "" : ++n }));
   return rows.filter(({ m, no }) => (o.subs || !m.isSub) && (o.who !== "top" || !topN || (no && no <= topN))
     && (o.who !== "reg" || rep[m.id] === "y" || (isSafe(m.id) && rep[m.id] !== "n")) && (o.who !== "wait" || (!rep[m.id] && !isSafe(m.id))));
 }
@@ -429,7 +430,7 @@ $("rk_copyBtn").onclick = () => {
   m.onclick = async (e) => {
     if (e.target === m || e.target.dataset.close) return m.remove();
     if (!e.target.dataset.go) return;
-    const t = cpText(o); if (!t) return;
+    const t = cpText(o); if (!t) { m.querySelector("[data-msg]").textContent = cp("none"); return; }
     try { await navigator.clipboard.writeText(t); } catch (x) { prev.select(); document.execCommand("copy"); }
     m.querySelector("[data-msg]").textContent = cp("copied");
   };
