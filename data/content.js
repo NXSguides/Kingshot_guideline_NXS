@@ -1184,7 +1184,7 @@ const GUIDES = {
       es: { title: "Reglas del NAP", blocks: [
         { type: "h", text: "🤝 REGLAS DEL NAP (PACTO DE NO AGRESIÓN)" },
         { type: "nap", text: "❌ Prohibido atacar o espiar ciudades del NAP 6 — incluye sus alianzas academia/granja protegidas con las etiquetas aprobadas", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
-        { type: "list", items: ["🌾 Revisa los puntos antes de recolectar. Si está ocupado o muestra el icono ⚔️ de espada, no envíes tropas. Si hay un choque, el segundo jugador retira sus tropas.","🪖 Durante {allOut} (excepción): puedes atacar puntos de recolección ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Los puestos avanzados se pueden disputar — pero sin quemar ciudades, sin atacar puntos de recursos y sin bloquear el acceso a una zona de puesto avanzado.","🏛️ Los {sanctuary}s y las Fortalezas se comparten o se rotan entre el NAP 6."] },
+        { type: "list", items: ["🌾 Revisa los puntos antes de recolectar. Si está ocupado o muestra el icono ⚔️ de espada, no envíes tropas. Si hay un choque, el segundo jugador retira sus tropas.","🪖 Durante {allOut} (excepción): puedes atacar puntos de recolección ({mill}, {sawmill}, {quarry}, {ironMine}).","🏳️ Los Puestos de Avanzada se pueden disputar — pero sin quemar ciudades, sin atacar puntos de recursos y sin bloquear el acceso a una zona de Puesto de Avanzada.","🏛️ Los {sanctuary}s y los Fuertes se comparten o se rotan entre el NAP 6."] },
         { type: "sub", text: "⚠️ SANCIONES" },
         { type: "list", items: ["1.ª: advertencia de los líderes.","2.ª (otra infracción tras la advertencia): expulsión de la alianza.","3.ª: lista negra en todas las alianzas protegidas por el NAP."] },
       ]},
