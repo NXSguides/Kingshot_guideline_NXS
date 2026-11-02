@@ -185,7 +185,7 @@ Nas outras cinco zonas, os Exploradores de Prova fornecem soldados de nível 10:
 🔧 Habilidade de Animal (fora de batalha)
 🔹 Lobo Cinza – Auxiliar de construção: velocidade de Construção & Aprimoramento ↑ por 5 min
 🔹 Lince – Abraço reconfortante: restaura Vigor do Chefe instantaneamente
-🔹 Bisão – Agarrão do Titã: conclui instantaneamente a coleta no próximo campo de recursos selvagem (exceto Nó de Aliança Protegido)
+🔹 Bisão – Agarrão do Titã: conclui instantaneamente a coleta no próximo campo de recursos selvagem (exceto Nó de Coleta de Aliança Protegido)
 🔹 Chita – Domínio do Aroma: encontra Alimento para Pets instantaneamente
 🔹 Leão – Presente do Rei: desenterra um item perdido (ex.: Martelo de forja, Adamante, materiais de talismã & equipamento)
 ⚔️ Habilidade de Animal (batalha)
@@ -943,7 +943,7 @@ Ler as regras do NAP ›
 ✅ Você pode atacar blocos de coleta de recursos (Moinho, Pedreira, Mina de Ferro)
 ✅ Você pode atacar jogadores fora do NAP.
 Se seu castelo for atacado por um membro do NAP, não revide — avise o R4/R5.
-Evite coletar recursos no mapa aberto, use o Nó de Aliança Protegido.
+Evite coletar recursos no mapa aberto, use o Nó de Coleta de Aliança Protegido.
 Quem infringir as regras será tratado conforme os acordos da aliança/NAP.
 ⚔️ Antes de atacar uma cidade
 Atacar uma cidade sempre custa tropas, mesmo com uma grande vitória. As tropas que caem na batalha são sempre divididas do mesmo jeito:
@@ -1676,7 +1676,7 @@ Mill = Moinho
 Lumberyard = Depósito de Madeira
 Iron Mine = Mina de Ferro
 Quarry = Pedreira
-Secured Alliance Node = Nó de Aliança Protegido
+Secured Alliance Node = Nó de Coleta de Aliança Protegido
 Eternity's Reach = Alcance da Eternidade
 Explore the Eternity's Reach for strategic resource—Copper Ores! = Explore o Alcance da Eternidade em busca de um recurso estratégico: Minérios de Cobre!
 Copper Ore = Minério de Cobre
