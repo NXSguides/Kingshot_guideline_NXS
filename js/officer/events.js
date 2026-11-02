@@ -548,7 +548,7 @@ function render() {
   });
   renderList();
   renderCal();
-  renderTimed();
+  renderTimed(); renderAi();
   exportAdmin();
   jumpToEvent();
 }
@@ -634,6 +634,55 @@ function exportAdmin() {
     localStorage.setItem("nxs-admin-todos", JSON.stringify({ updated: now, items }));
     window.dispatchEvent(new Event("nxs-admin-todos"));   // the ⏰ panel on this page re-sends the reminders
   } catch (err) {}
+}
+
+/* 📤 For Claude (Sherry, 2026-11-02): the next 4 weeks of event runs, our times, to-dos (with ✅ / ⬜) and timed reminders as plain text,
+   decrypted here in the browser, to paste into a Claude chat that plans the to-dos. No member data — only what this tab shows. */
+const AI_T = {
+  en: { h: "📤 For Claude", sub: "The next 4 weeks of events, our times and to-dos as plain text, to paste into a Claude chat that helps plan them. No member data.", make: "📋 Copy for Claude", copied: "Copied ✅ Paste it into the chat.", sel: "Select the text below and copy it." },
+  zh: { h: "📤 給 Claude", sub: "把接下來 4 週的活動、我們的時間和待辦事項變成純文字，貼給處理待辦的 Claude 聊天。不含任何成員資料。", make: "📋 複製給 Claude", copied: "已複製 ✅ 貼到聊天裡就好。", sel: "請選取下面的文字自己複製。" },
+  ko: { h: "📤 Claude용", sub: "앞으로 4주의 이벤트, 우리 시간, 할 일을 텍스트로 만들어 Claude 채팅에 붙여 넣어요. 멤버 정보는 없어요.", make: "📋 Claude용 복사", copied: "복사됨 ✅ 채팅에 붙여 넣으세요.", sel: "아래 글을 선택해서 복사하세요." },
+  pt: { h: "📤 Para o Claude", sub: "Os eventos, nossos horários e tarefas das próximas 4 semanas em texto, para colar num chat do Claude. Sem dados de membros.", make: "📋 Copiar para o Claude", copied: "Copiado ✅ Cole no chat.", sel: "Selecione o texto abaixo e copie." },
+  ar: { h: "📤 لـ Claude", sub: "فعاليات الأسابيع الأربعة القادمة وأوقاتنا والمهام كنص، لتلصقه في محادثة Claude. بلا بيانات أعضاء.", make: "📋 نسخ لـ Claude", copied: "تم النسخ ✅ الصقه في المحادثة.", sel: "حدّد النص بالأسفل وانسخه." } };
+const aiT = (k) => (AI_T[lang] || AI_T.en)[k] || AI_T.en[k];
+function aiText() {
+  const now = Date.now(), today = utcDay(now), end = today + 28 * DAY, L = [];
+  const d = (t) => isoDay(t), hm = (t) => new Date(t).toISOString().slice(11, 16);
+  L.push(`NXS (Kingshot #2189) — events, our times and officer to-dos, ${d(today)} to ${d(end - DAY)}. All times UTC (Taiwan = UTC+8). Made ${d(now)} ${hm(now)} UTC.`);
+  let times = {}; try { times = ET || {}; } catch (e) {}
+  const groups = [];   // one block per event; a short repeating event with no to-dos (Bear Hunt) becomes one line with all its dates
+  for (const r of runs(today, end)) { let g = groups.find((x) => x.k === r.k); if (!g) groups.push(g = { k: r.k, list: [] }); g.list.push(r); }
+  for (const { k, list } of groups) {
+    const e = byId(k) || {};
+    const t = times[k], td = (times.timeDays || {})[k], bd = (times.days || {})[k];
+    const tl = Array.isArray(t) && t.length ? " · our times: " + t.map((x, i) => x + (td && td[i] ? ` (day ${td[i]})` : "")).join(", ") + (bd ? ` · battle on day ${bd}` : "") : "";
+    const name = `${e.en || k}${e.zh ? " / " + e.zh : ""}`;
+    const todoLines = (r) => (e.todo || []).map((x, i) => {
+      const due = r.st + (Number(x.due) || 0) * DAY, id = `${k}-${isoDay(r.st)}-${i}`;
+      if (due < today) return null;
+      const txt = String(x.en || x.zh || "").replace(/\*\*/g, "").trim(), zh = x.zh && x.zh !== x.en ? ` / ${String(x.zh).replace(/\*\*/g, "").trim()}` : "";
+      return `  ${(store.done || {})[id] ? "✅" : "⬜"} ${d(due)}${x.at ? " " + x.at : ""}${x.until != null && x.until !== "" ? ` (until ${x.until}:00)` : ""}: ${txt}${zh}`;
+    }).filter(Boolean);
+    if (list.length > 1 && list.every((r) => r.days === 1 && !todoLines(r).length)) { L.push(`\n■ ${name}: ${list.map((r) => d(r.st)).join(", ")}${tl}`); continue; }
+    for (const r of list) { L.push(`\n■ ${name}: ${d(r.st)} – ${d(r.en - DAY)} (${r.days} day${r.days > 1 ? "s" : ""})${tl}`); L.push(...todoLines(r)); }
+  }
+  const tm = TIMED.filter((t) => t.at > now && t.at < end);
+  if (tm.length) { L.push("\n⏱️ Timed reminders:"); for (const t of tm) L.push(`  ${d(t.at)} ${hm(t.at)}: ${(byId(t.ev) || {}).en || t.ev}${t.label ? " — " + t.label : ""}`); }
+  return L.join("\n");
+}
+function renderAi() {
+  const el = $("ev_ai"); if (!el) return;
+  if (!el.dataset.ok) {
+    el.dataset.ok = 1;
+    el.innerHTML = `<h2>${esc(aiT("h"))}</h2><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(aiT("sub"))}</div>
+      <div class="row" style="gap:8px;align-items:center"><button type="button" class="btn primary" id="ev_aiCopy">${esc(aiT("make"))}</button><span class="msg" id="ev_aiMsg"></span></div>
+      <textarea class="inp" id="ev_aiOut" rows="8" readonly hidden style="width:100%;margin-top:8px;font-size:12px"></textarea>`;
+    $("ev_aiCopy").onclick = async () => {
+      const t = aiText(), out = $("ev_aiOut"); out.value = t; out.hidden = false;
+      try { await navigator.clipboard.writeText(t); $("ev_aiMsg").textContent = aiT("copied"); }
+      catch (e) { out.focus(); out.select(); $("ev_aiMsg").textContent = aiT("sel"); }
+    };
+  }
 }
 
 /* ===== calendar: one continuous strip of days (2 weeks back, 10 ahead), scrolls sideways; one bar per event run ===== */

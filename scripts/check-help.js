@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Events: 📤 For Claude export", /📤 For Claude" \(給 Claude/, /📤 For Claude: copies the next 4 weeks/],
   ["Site: 🤝 NAP rules page + home card", /🤝 NAP rules: their own page/, /🤝 NAP 6: the alliances we never attack/],
   ["Battle: 🗡️ 🔍 their roster search + picks", /🔍 Who of \[TAG\] is playing/, /their whole alliance is listed with a search box/],
   ["Battle: 🗡️ 📐 one-rally estimate", /📐 Estimate — one rally each way/, /one rally each way — how many troops/],
