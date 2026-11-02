@@ -790,7 +790,7 @@ const TERMS = [
    ["Contribute", "捐獻", "기부", "Beitragen", "Contribuer", "Contribuição", "Katkı Yap", "Kontribusi", "Сделать взнос", "อนุเคราะห์", "مساهمة", "Contribución", "Button."],
    ["Attempts", "次數", "횟수", "Versuche", "Tentatives", "Tentativas", "Deneme", "Upaya", "Количество", "จำนวนครั้ง", "المحاولات", "Intentos"],
    ["Unlimited (∞)", "不限", "무제한", "∞", "∞", "—", "—", "∞", "∞", "ไม่จำกัด", "∞", "—", "Most languages just show the ∞ sign."],
-   ["Alliance Token", "聯盟幣", "연맹 코인", "Allianz-Token", "—", "Token da Aliança", "İttifak Jetonu", "Token Aliansi", "Жетон альянса", "เหรียญพันธมิตร", "رمز التحالف", "Ficha de la alianza", "Get More popup. DE description has the typo 'Beitrage'."]
+   ["Alliance Token", "聯盟幣", "연맹 코인", "Allianz-Token", "Jeton d’Alliance", "Token da Aliança", "İttifak Jetonu", "Token Aliansi", "Жетон альянса", "เหรียญพันธมิตร", "رمز التحالف", "Ficha de la alianza", "Get More popup. DE description has the typo 'Beitrage'."]
   ]
  },
  {

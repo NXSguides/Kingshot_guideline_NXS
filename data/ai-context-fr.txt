@@ -121,7 +121,7 @@ Après : Truegold Dust → Mithril → EXP d'Amélioration → Plans de Talisman
 Ne dépense tes Gemmes que pour des paliers de progression importants ou des matériaux rares.
 Dans le doute : GARDE TES GEMMES. Voir le guide des gemmes ci-dessous.
 🤝 Alliance – Magasin
-Passe de Transfert • EXP VIP • Nourriture / matériaux pour animaux • Relocalisation Avancée • Réductions utiles de 70 % • Accélérateurs seulement avec un surplus de Alliance Token
+Passe de Transfert • EXP VIP • Nourriture / matériaux pour animaux • Relocalisation Avancée • Réductions utiles de 70 % • Accélérateurs seulement avec un surplus de Jeton d’Alliance
 💎 GUIDE DES GEMMES
 Garde tes Gemmes pour :
 1) 🎡 Roulette des Héros → ~162 000 Gemmes pour 120 tours
@@ -1829,6 +1829,7 @@ Contribution Rewards = Récompenses de Contribution
 Contribute = Contribuer
 Attempts = Tentatives
 Unlimited (∞) = ∞
+Alliance Token = Jeton d’Alliance
 Arena of Glory = Arène de la Gloire
 Season ends in = La saison se termine dans
 Ranking = Classement
