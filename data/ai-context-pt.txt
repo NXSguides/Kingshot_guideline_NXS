@@ -75,7 +75,7 @@ ESA/EsA/UNI
 IDN
 KGb
 🌾 Verifique os pontos antes de coletar. Se estiver ocupado ou mostrar o ícone ⚔️ de espada, não envie tropas. Se houver colisão, o segundo jogador recua.
-🪖 Durante o Vai com Tudo (exceção): pode atacar pontos de coleta de recursos (Moinho, Serraria, Pedreira, Mina de Ferro).
+🪖 Durante o Vai com Tudo (exceção): pode atacar pontos de coleta de recursos (Moinho, Depósito de Madeira, Pedreira, Mina de Ferro).
 🏳️ Postos Avançados podem ser disputados — mas sem queimar cidades, sem atacar pontos de recursos e sem bloquear o acesso a uma zona de Posto Avançado.
 🏛️ Santuários e Fortalezas são compartilhados ou revezados entre o NAP 6.
 ⚠️ PUNIÇÕES
@@ -1673,7 +1673,7 @@ Great Sawmill = Grande Serraria
 Great Quarry = Grande Pedreira
 Great Iron Mine = Grande Mina de Ferro
 Mill = Moinho
-Lumberyard = Serraria
+Lumberyard = Depósito de Madeira
 Iron Mine = Mina de Ferro
 Quarry = Pedreira
 Secured Alliance Node = Nó de Aliança Protegido

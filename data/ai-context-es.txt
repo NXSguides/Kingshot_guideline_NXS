@@ -185,7 +185,7 @@ En las otras cinco zonas, los Exploradores de la Prueba proporcionan Soldados Nv
 🔧 Habilidad de mascota (fuera de combate)
 🔹 Lobo gris – Ayudante de construcción: velocidad de Construcción y Mejora ↑ durante 5 min
 🔹 Lince – Abrazo reconfortante: restaura Vigor de Líder al instante
-🔹 Búfalo – Agarre del titán: completa al instante la recolección en la siguiente casilla de recursos salvaje (no en Nodo de Recolección Segura de la Alianza)
+🔹 Búfalo – Agarre del titán: completa al instante la recolección en la siguiente casilla de recursos salvaje (no en Nodo de recolección de alianza asegurado)
 🔹 Guepardo – Maestría Olfativa: encuentra Comidas para Mascotas al instante
 🔹 León – Regalo del rey: desentierra un objeto perdido (p. ej. Martillo de Forja, Adamantina, materiales de talismán y equipo)
 ⚔️ Habilidad de mascota (combate)
@@ -943,7 +943,7 @@ Leer las reglas del NAP ›
 ✅ Puedes atacar casillas de recolección de recursos (Molino, Cantera, Mina de hierro)
 ✅ Puedes atacar a jugadores fuera del NAP.
 Si tu castillo es atacado por un miembro del NAP, no tomes represalias — informa a R4/R5.
-Evita recolectar recursos en zona salvaje, usa en su lugar el Nodo de Recolección Segura de la Alianza.
+Evita recolectar recursos en zona salvaje, usa en su lugar el Nodo de recolección de alianza asegurado.
 Quien infrinja las reglas será tratado según los acuerdos de alianza/NAP.
 ⚔️ Antes de atacar una ciudad
 Atacar una ciudad siempre cuesta tropas, aunque ganes por mucho. Las tropas que caen en combate siempre se reparten igual:
@@ -1641,7 +1641,7 @@ Mill = Molino
 Lumberyard = Aserradero
 Iron Mine = Mina de hierro
 Quarry = Cantera
-Secured Alliance Node = Nodo de Recolección Segura de la Alianza
+Secured Alliance Node = Nodo de recolección de alianza asegurado
 Eternity's Reach = Alcance de la Eternidad
 Copper Ore = Minerales de Cobre
 Overview (dialog tab) = Resumen
