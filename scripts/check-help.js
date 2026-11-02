@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Events: a to-do links several in-game guides (ig list)", /ig can also be a LIST of guide titles/, /A task can link several guides \(ig as a list\)/],
   ["Events: 📅 {date:+N} codes in in-game guides", /📅 date codes \(Sherry 2026-11-03\)/, /📅 Date codes: write \{date:\+N\}/],
   ["Events: ⭐ today + linked in-game guide on the task", /⭐ today \(Sherry 2026-11-02\)/, /⭐ A task due today lights up/],
   ["Events: 📥 paste back from Claude", /"📥 Paste back from Claude" \(inside/, /📥 Paste back from Claude \(only Sparrow/],

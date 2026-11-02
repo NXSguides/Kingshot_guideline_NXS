@@ -140,7 +140,9 @@
   #pg-events .task.today.done { background: none; }
   #pg-events .today-tag { color: var(--accent); white-space: nowrap; }
   #pg-events .todo.has-today { box-shadow: inset 4px 0 0 var(--accent); }
-  #pg-events .ig-inline { margin-top: 6px; text-decoration: none; }
+  #pg-events .ig-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  #pg-events .ig-inline { text-decoration: none; }
+  #pg-events .todo-ed select[data-k="ig"] + select[data-k="ig"] { margin-inline-start: 4px; }
   #ev_ai textarea { font-family: inherit; }
   #ev_ai .imp-prev { margin-top: 8px; font-size: 13px; }
   #ev_ai .imp-prev .ev { margin: 8px 0 4px; font-weight: 700; }
