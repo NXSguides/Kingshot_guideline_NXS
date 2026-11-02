@@ -660,7 +660,7 @@ function aiText() {
     const todoLines = (r) => (e.todo || []).map((x, i) => {
       const due = r.st + (Number(x.due) || 0) * DAY, id = `${k}-${isoDay(r.st)}-${i}`;
       if (due < today) return null;
-      const txt = String(x.en || x.zh || "").replace(/\*\*/g, "").trim(), zh = x.zh && x.zh !== x.en ? ` / ${String(x.zh).replace(/\*\*/g, "").trim()}` : "";
+      const txt = String(x.en || x.zh || "").replace(/\*\*/g, "").trim(), zh = x.en && x.zh && x.zh.trim() !== x.en.trim() ? ` / ${String(x.zh).replace(/\*\*/g, "").trim()}` : "";
       return `  ${(store.done || {})[id] ? "✅" : "⬜"} ${d(due)}${x.at ? " " + x.at : ""}${x.until != null && x.until !== "" ? ` (until ${x.until}:00)` : ""}: ${txt}${zh}`;
     }).filter(Boolean);
     if (list.length > 1 && list.every((r) => r.days === 1 && !todoLines(r).length)) { L.push(`\n■ ${name}: ${list.map((r) => d(r.st)).join(", ")}${tl}`); continue; }
