@@ -816,7 +816,7 @@ Daily personal chests
 30,000 / 100,000 / 200,000 points. The 200,000 chest also gives a State Medal.
 Gathering scores only 2 per bundle and beast hunting scores nothing. Mithril needs maxed Mythic gear.
 kvk-push
-📢 Nov 9: TG3 ➡️ TG5 push plan (for the next KvK only) — jump to it
+🚨 TG5: do NOT upgrade on November 9 — read this
 Truegold
 ✅
 <span class="chk-ok">OK</span>
@@ -899,9 +899,17 @@ How to increase it:
 Medical Satchels: +10% Rescue Rate
 Rescue Orders: +1% each, up to +50%
 ⚠️ IMPORTANT: Everyone must exchange Rescue Orders in alliance chat before the timer expires!
-📢 KvK push plan: TG3 ➡️ TG5 (November 9)
-When this applies: only the first KvK after November 9, 2026, when buildings can go from TG3 to TG5. Taking part is optional: pick a tier that fits the resources and speedups you have saved. The times and points below assume a near-maxed account.
-From November 9 you can push buildings from TG3 to TG5. The next KvK prep phase starts some time after that, so hold these upgrades until KvK starts — only then do they score points for the alliance.
+🚨 TG5: NO UPGRADES on November 9!
+TG5 opens on November 9 — do NOT upgrade to TG5. Upgrading before our next KvK hurts our matchmaking and can match us against a much stronger kingdom.
+❌ No TG5 upgrades on November 9.
+⏳ Save your upgrades for the next KvK: Prep starts November 30 (00:00 UTC), Battle Day December 5.
+✅ We want the best possible matchmaking, not an unnecessarily hard opponent.
+🛑 Action required — start now
+1️⃣ Save resources: lots of Wood, Bread, Stone, Iron and Truegold. Gather all the time, use gathering boosts, and use the Productivity Day + Rush Job decrees.
+2️⃣ Save speedups: keep every speedup you have.
+3️⃣ Wait: keep buildings at TG3 until KvK Prep starts.
+Start gathering and saving now so we're ready to dominate the next KvK! 🚀🛡️
+📊 For KvK Prep: points and cost of TG3 ➡️ TG5
 🔹 Option 1: Core 3 buildings (Town Center, Embassy, Stable)
 KvK points: 10,625,047 per player
 Resources: ~892M Wood / Bread, 173M Stone, 44M Iron, 4,055 Truegold
@@ -918,10 +926,6 @@ Time: 88 days (adjusted)
 A near-maxed account: 80.2% base Construction Speed, Lv.5 Pan (Master Architect), Lv.5 Saul (Resourceful), the Chief Minister appointment, Lv.5 Gray Wolf (Construction Aide), Ground Works, Kingdom of Power Bonus and Double Time. With fewer bonuses your times are longer.
 ⚠️ The 5-minute window
 Construction Aide (Gray Wolf, +15%) and Double Time (+20%) last only 5 minutes. When KvK scoring starts, use all your speedups inside those 5 minutes. Have the speedup page of your backpack open and tap fast.
-🛑 Start now
-1️⃣ Save resources: Wood, Bread, Stone, Iron and Truegold. Keep gathering and use gathering boosts.
-2️⃣ Save speedups: keep every speedup for these timers.
-3️⃣ Wait: keep these buildings at TG3 until KvK scoring officially starts, then push together to flood the leaderboard.
 
 ### GUIDE #all-out — All Out
 🪖 All-Out Rules

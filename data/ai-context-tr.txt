@@ -817,7 +817,7 @@ Günlük kişisel sandıklar
 30.000 / 100.000 / 200.000 puan. 200.000 sandığı ayrıca bir State Medal verir.
 Toplama paket başına yalnızca 2 puan, canavar avı hiç puan vermez. Mithril için Mitik ekipman tam seviye olmalı.
 kvk-push
-📢 9 Kasım: TG3 ➡️ TG5 yükseltme planı (sadece bir sonraki KvK için) — oraya git
+🚨 TG5: 9 Kasım'da YÜKSELTME — buraya bak
 Hasaltın
 ✅
 <span class="chk-ok">OK</span>
@@ -900,9 +900,17 @@ Nasıl artırılır:
 Tıbbi Çanta: +%10 Kurtarma Oranı
 Kurtarma Emri: her biri +%1, %50'ye kadar
 ⚠️ ÖNEMLİ: Süre dolmadan önce herkes ittifak sohbetinde Kurtarma Emri takas etmelidir!
-📢 KvK yükseltme planı: TG3 ➡️ TG5 (9 Kasım)
-Ne zaman geçerli: sadece 9 Kasım 2026'dan sonraki ilk KvK, binalar TG3'ten TG5'e çıkabildiğinde. Katılmak isteğe bağlı: biriktirdiğin kaynaklara ve hızlandırmalara uyan seçeneği seç. Aşağıdaki süreler ve puanlar neredeyse maksimum bir hesaba göre.
-9 Kasım'dan itibaren binaları TG3'ten TG5'e çıkarabilirsin. Bir sonraki KvK'nın Hazırlık Evresi bundan bir süre sonra başlar, bu yüzden bu yükseltmeleri KvK başlayana kadar beklet — ittifaka puan ancak o zaman gelir.
+🚨 TG5: 9 Kasım'da YÜKSELTME YOK!
+TG5 9 Kasım'da açılıyor — TG5'e YÜKSELTMEYİN. Bir sonraki KvK'dan önce yükseltmek eşleşmemizi bozar ve bizi çok daha güçlü bir krallıkla eşleştirebilir.
+❌ 9 Kasım'da TG5 yükseltmesi yok.
+⏳ Yükseltmeleri bir sonraki KvK'ya saklayın: Hazırlık 30 Kasım (00:00 UTC)'da başlıyor, Savaş Günü 5 Aralık.
+✅ Gereksiz güçlü bir rakip değil, en iyi eşleşmeyi istiyoruz.
+🛑 Hemen yapılacaklar
+1️⃣ Kaynak biriktir: bol Odun, Ekmek, Taş, Demir ve Hasaltın. Sürekli topla, toplama güçlendirmelerini ve Üretkenlik Günü + Acil İş kararlarını kullan.
+2️⃣ Hızlandırıcıları sakla: hepsini tut.
+3️⃣ Bekle: KvK hazırlığı başlayana kadar binaları TG3'te tut.
+Bir sonraki KvK'yı domine etmek için şimdi toplamaya ve biriktirmeye başla! 🚀🛡️
+📊 KvK hazırlığı için: TG3 ➡️ TG5 puanları ve maliyeti
 🔹 Seçenek 1: Ana 3 bina (Şehir Merkezi, Elçilik, Ahır)
 KvK puanı: oyuncu başına 10.625.047
 Kaynaklar: ~892 Mn Odun / Ekmek, 173 Mn Taş, 44 Mn Demir, 4.055 Hasaltın
@@ -919,10 +927,6 @@ Süre: 88 gün (düzeltilmiş)
 Neredeyse maksimum bir hesap: %80,2 temel İnşaat Hızı, Lv.5 Pan (Usta Mimar), Lv.5 Saul (Geri Dönüşüm), Başbakan ataması, Lv.5 Gri Kurt (İnşaat Yardımcısı), Zemin Çalışmaları, En Güçlü Krallık Bonusu ve Çifte Mesai. Bonusların daha azsa süren daha uzun olur.
 ⚠️ 5 dakikalık pencere
 İnşaat Yardımcısı (Gri Kurt, +%15) ve Çifte Mesai (+%20) sadece 5 dakika sürer. KvK puanlaması başlayınca tüm hızlandırmalarını bu 5 dakika içinde kullan. Çantadaki hızlandırma sayfasını önceden aç ve hızlı dokun.
-🛑 Şimdi başla
-1️⃣ Kaynak biriktir: Odun, Ekmek, Taş, Demir ve Hasaltın. Toplamaya devam et ve toplama güçlendirmeleri kullan.
-2️⃣ Hızlandırma biriktir: tüm hızlandırmaları bu sayaçlar için sakla.
-3️⃣ Bekle: KvK puanlaması resmen başlayana kadar bu binaları TG3'te tut, sonra hep birlikte yükseltip liderlik tablosunu doldur.
 
 ### GUIDE #all-out — Topyekün
 🪖 Topyekün Kuralları

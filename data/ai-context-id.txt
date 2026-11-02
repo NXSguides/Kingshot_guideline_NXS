@@ -817,7 +817,7 @@ Peti pribadi harian
 30.000 / 100.000 / 200.000 poin. Peti 200.000 juga memberi State Medal.
 Mengumpulkan hanya 2 per paket dan berburu binatang tidak memberi poin. Mithril butuh perlengkapan Mitos maksimal.
 kvk-push
-📢 9 Nov: Rencana dorong TG3 ➡️ TG5 (hanya untuk KvK berikutnya) — lompat ke sini
+🚨 TG5: JANGAN upgrade 9 November — baca ini
 Truegold
 ✅
 <span class="chk-ok">OK</span>
@@ -900,9 +900,17 @@ Cara meningkatkannya:
 Tas Medis: +10% Tingkat Penyelamatan
 Perintah Penyelamatan: masing-masing +1%, hingga +50%
 ⚠️ PENTING: Semua orang harus menukar Perintah Penyelamatan di chat aliansi sebelum timer habis!
-📢 Rencana dorong KvK: TG3 ➡️ TG5 (9 November)
-Kapan berlaku: hanya KvK pertama setelah 9 November 2026, saat bangunan bisa naik dari TG3 ke TG5. Ikut atau tidak, bebas: pilih opsi yang sesuai dengan sumber daya dan Speedup yang sudah kamu simpan. Waktu dan poin di bawah dihitung untuk akun yang hampir maksimal.
-Mulai 9 November kamu bisa menaikkan bangunan dari TG3 ke TG5. Fase Persiapan KvK berikutnya dimulai beberapa waktu setelah itu, jadi tahan upgrade ini sampai KvK dimulai — baru saat itu upgrade-nya memberi poin untuk aliansi.
+🚨 TG5: JANGAN upgrade pada 9 November!
+TG5 dibuka 9 November — JANGAN naik ke TG5. Upgrade sebelum KvK berikutnya merusak matchmaking dan bisa membuat kita bertemu kerajaan yang jauh lebih kuat.
+❌ Tidak ada upgrade TG5 pada 9 November.
+⏳ Simpan upgrade untuk KvK berikutnya: Persiapan mulai 30 November (00:00 UTC), Hari Pertempuran 5 Desember.
+✅ Kita mau matchmaking terbaik, bukan lawan yang terlalu kuat tanpa perlu.
+🛑 Wajib mulai sekarang
+1️⃣ Simpan sumber daya: banyak Kayu, Roti, Batu, Besi dan Truegold. Terus kumpulkan, pakai boost pengumpulan, dan pakai dekret Productivity Day + Rush Job.
+2️⃣ Simpan percepatan: simpan semuanya.
+3️⃣ Tunggu: biarkan bangunan di TG3 sampai Persiapan KvK dimulai.
+Mulai kumpulkan dan simpan sekarang supaya kita siap mendominasi KvK berikutnya! 🚀🛡️
+📊 Untuk Persiapan KvK: poin dan biaya TG3 ➡️ TG5
 🔹 Opsi 1: 3 bangunan inti (Pusat Kota, Kedutaan, Istal)
 Poin KvK: 10.625.047 per pemain
 Sumber Daya: ~892 jt Kayu / Roti, 173 jt Batu, 44 jt Besi, 4.055 Truegold
@@ -919,10 +927,6 @@ Waktu: 88 hari (setelah penyesuaian)
 Akun yang hampir maksimal: Kecepatan Konstruksi dasar 80,2%, Lv.5 Pan (Master Architect), Lv.5 Saul (Resourceful), jabatan Perdana Menteri, Lv.5 Gray Wolf (Construction Aide), Pekerjaan Dasar, Bonus Kerajaan Kekuatan dan Double Time. Kalau bonusmu lebih sedikit, waktunya lebih lama.
 ⚠️ Jendela 5 menit
 Construction Aide (Gray Wolf, +15%) dan Double Time (+20%) hanya bertahan 5 menit. Saat penghitungan poin KvK dimulai, pakai semua Speedup dalam 5 menit itu. Buka tab Speedup di Ransel lebih dulu dan tekan secepatnya.
-🛑 Mulai sekarang
-1️⃣ Simpan sumber daya: Kayu, Roti, Batu, Besi dan Truegold. Terus Mengumpulkan dan pakai boost pengumpulan.
-2️⃣ Simpan Speedup: simpan semua Speedup untuk waktu-waktu ini.
-3️⃣ Tunggu: biarkan bangunan ini di TG3 sampai penghitungan poin KvK resmi dimulai, lalu dorong bersama untuk membanjiri Leaderboard.
 
 ### GUIDE #all-out — Serangan Penuh
 🪖 Aturan Serangan Penuh

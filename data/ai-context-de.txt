@@ -819,7 +819,7 @@ Tägliche persönliche Truhen
 30.000 / 100.000 / 200.000 Punkte. Die 200.000-Truhe gibt zusätzlich eine State Medal.
 Sammeln bringt nur 2 Punkte pro Bündel, Bestienjagd gar nichts. Mithril braucht voll aufgewertete mythische Ausrüstung.
 kvk-push
-📢 9. November: TG3 ➡️ TG5 Push-Plan (nur für das nächste KvK) — hierher springen
+🚨 TG5: am 9. November NICHT upgraden — hier lesen
 Echtgold
 ✅
 <span class="chk-ok">OK</span>
@@ -902,9 +902,17 @@ So erhöhst du sie:
 Medizinkoffer: +10 % Rettungsrate
 Rettungswälzer: je +1 %, bis zu +50 %
 ⚠️ WICHTIG: Alle müssen Rettungswälzer im Allianz-Chat austauschen, bevor der Timer abläuft!
-📢 KvK-Push-Plan: TG3 ➡️ TG5 (9. November)
-Wann das gilt: nur für das erste KvK nach dem 9. November 2026, wenn Gebäude von TG3 auf TG5 gehen können. Mitmachen ist freiwillig: Wähl eine Stufe, die zu deinen gesparten Ressourcen und Beschleunigungen passt. Zeiten und Punkte unten gelten für einen fast maximierten Account.
-Ab dem 9. November kannst du Gebäude von TG3 auf TG5 bringen. Die Vorbereitungsphase des nächsten KvK beginnt erst einige Zeit danach. Halte diese Upgrades also zurück, bis das KvK startet — nur dann bringen sie der Allianz Punkte.
+🚨 TG5: KEINE Upgrades am 9. November!
+TG5 öffnet am 9. November — NICHT auf TG5 upgraden. Ein Upgrade vor unserem nächsten KvK schadet dem Matchmaking und kann uns gegen ein viel stärkeres Königreich bringen.
+❌ Keine TG5-Upgrades am 9. November.
+⏳ Spart eure Upgrades für das nächste KvK: Vorbereitung ab 30. November (00:00 UTC), Kampftag 5. Dezember.
+✅ Wir wollen das bestmögliche Matchmaking, keinen unnötig starken Gegner.
+🛑 Jetzt handeln
+1️⃣ Ressourcen sparen: viel Holz, Brot, Stein, Eisen und Echtgold. Ständig sammeln, Sammel-Boosts und die Erlasse Tag der Produktivität + Eilauftrag nutzen.
+2️⃣ Beschleuniger sparen: jeden Beschleuniger aufheben.
+3️⃣ Abwarten: Gebäude auf TG3 lassen, bis die KvK-Vorbereitung beginnt.
+Fangt jetzt an zu sammeln und zu sparen, damit wir das nächste KvK dominieren! 🚀🛡️
+📊 Für die KvK-Vorbereitung: Punkte und Kosten von TG3 ➡️ TG5
 🔹 Option 1: Die 3 Kerngebäude (Stadtzentrum, Botschaft, Stall)
 KvK-Punkte: 10.625.047 pro Spieler
 Ressourcen: ~892 Mio. Holz / Brot, 173 Mio. Stein, 44 Mio. Eisen, 4.055 Echtgold
@@ -921,10 +929,6 @@ Zeit: 88 Tage (angepasst)
 Ein fast maximierter Account: 80,2 % Basis-Baugeschwindigkeit, Lv.5 Pan (Meisterarchitekt), Lv.5 Saul (Einfallsreich), die Ernennung Höchster Minister, Lv.5 Grauer Wolf (Bauhilfe), Grundarbeit, Königreich der Macht Bonus und Doppeltes Tempo. Mit weniger Boni dauert es länger.
 ⚠️ Das 5-Minuten-Fenster
 Bauhilfe (Grauer Wolf, +15 %) und Doppeltes Tempo (+20 %) halten nur 5 Minuten. Wenn die KvK-Wertung startet, nutz alle Beschleunigungen innerhalb dieser 5 Minuten. Öffne vorher die Beschleunigungen-Seite im Rucksack und tipp schnell.
-🛑 Jetzt anfangen
-1️⃣ Ressourcen sparen: Holz, Brot, Stein, Eisen und Echtgold. Weiter sammeln und Sammel-Boosts nutzen.
-2️⃣ Beschleunigungen sparen: Heb jede Beschleunigung für diese Timer auf.
-3️⃣ Warten: Lass diese Gebäude auf TG3, bis die KvK-Wertung offiziell startet. Dann alle gemeinsam pushen und die Bestenliste fluten.
 
 ### GUIDE #all-out — Aufs Ganze
 🪖 All-Out-Regeln

@@ -817,7 +817,7 @@ Baús pessoais diários
 30.000 / 100.000 / 200.000 pontos. O baú de 200.000 também dá uma State Medal.
 Coleta dá só 2 por pacote e caçar feras não dá nada. Mithril exige equipamento Mítico no máximo.
 kvk-push
-📢 9 de novembro: plano de push TG3 ➡️ TG5 (só para o próximo KvK) — ir para lá
+🚨 TG5: NÃO suba em 9 de novembro — leia aqui
 Adamante
 ✅
 <span class="chk-ok">OK</span>
@@ -900,9 +900,17 @@ Como aumentar:
 Bolsa Médica: +10% de Taxa de Resgate
 Ordem de Resgate: +1% cada, até +50%
 ⚠️ IMPORTANTE: Todos devem trocar Ordem de Resgate no chat da aliança antes que o cronômetro expire!
-📢 Plano de push do KvK: TG3 ➡️ TG5 (9 de novembro)
-Quando vale: só no primeiro KvK depois de 9 de novembro de 2026, quando as construções podem ir de TG3 para TG5. Participar é opcional: escolha a opção que combina com os recursos e acelerações que você guardou. Os tempos e pontos abaixo consideram uma conta quase no máximo.
-A partir de 9 de novembro, dá para subir as construções de TG3 para TG5. A Fase de Preparação do próximo KvK começa um tempo depois, então segure essas melhorias até o KvK começar — só assim elas valem pontos para a aliança.
+🚨 TG5: NADA de upgrade em 9 de novembro!
+O TG5 abre em 9 de novembro — NÃO suba para TG5. Subir antes do nosso próximo KvK prejudica o pareamento e pode nos colocar contra um reino muito mais forte.
+❌ Nada de upgrade para TG5 em 9 de novembro.
+⏳ Guarde os upgrades para o próximo KvK: a preparação começa em 30 de novembro (00:00 UTC), Dia da Batalha 5 de dezembro.
+✅ Queremos o melhor pareamento possível, não um adversário forte sem necessidade.
+🛑 Ação necessária — comece agora
+1️⃣ Guarde recursos: muita Madeira, Pão, Pedra, Ferro e Adamante. Colete o tempo todo, use bônus de coleta e os decretos Dia de Produtividade + Acelerar Trabalho.
+2️⃣ Guarde aceleradores: guarde todos.
+3️⃣ Espere: mantenha as construções em TG3 até a preparação do KvK começar.
+Comece a coletar e guardar agora para dominarmos o próximo KvK! 🚀🛡️
+📊 Para a preparação do KvK: pontos e custo de TG3 ➡️ TG5
 🔹 Opção 1: As 3 construções principais (Centro da Cidade, Embaixada, Estábulo)
 Pontos de KvK: 10.625.047 por jogador
 Recursos: ~892 mi Madeira / Pão, 173 mi Pedra, 44 mi Ferro, 4.055 Adamante
@@ -919,10 +927,6 @@ Tempo: 88 dias (ajustado)
 Uma conta quase no máximo: 80,2% de Velocidade de Construção base, Lv.5 Pan (Mestre da Arquitetura), Lv.5 Saul (Talentoso), a nomeação de Primeiro-ministro, Lv.5 Lobo Cinza (Auxiliar de construção), Obras de preparação, Bônus do Reino de Poder e Horário Dobrado. Com menos bônus, seus tempos serão maiores.
 ⚠️ A janela de 5 minutos
 Auxiliar de construção (Lobo Cinza, +15%) e Horário Dobrado (+20%) duram só 5 minutos. Quando a pontuação do KvK começar, use todas as suas acelerações dentro desses 5 minutos. Deixe a página de acelerações da mochila aberta e toque rápido.
-🛑 Comece agora
-1️⃣ Guarde recursos: Madeira, Pão, Pedra, Ferro e Adamante. Continue coletando e use bônus de coleta.
-2️⃣ Guarde acelerações: guarde todas para esses cronômetros.
-3️⃣ Espere: deixe essas construções em TG3 até a pontuação do KvK começar oficialmente e aí todos sobem juntos para lotar o placar.
 
 ### GUIDE #all-out — Vai com Tudo
 🪖 Regras do Vai com Tudo

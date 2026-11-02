@@ -817,7 +817,7 @@ Cofres personales diarios
 30.000 / 100.000 / 200.000 puntos. El cofre de 200.000 también da una State Medal.
 Recolectar da solo 2 por paquete y cazar bestias no da nada. El Mitrilo requiere equipo Mítico al máximo.
 kvk-push
-📢 9 nov.: plan de empuje TG3 ➡️ TG5 (solo para el próximo KvK) — ir a la sección
+🚨 TG5: NO mejores el 9 de noviembre — lee esto
 Adamantina
 ✅
 <span class="chk-ok">OK</span>
@@ -900,9 +900,17 @@ Cómo aumentarla:
 Bolso médico: +10% Tasa de Rescate
 Órdenes de rescate: +1% cada uno, hasta +50%
 ⚠️ IMPORTANTE: ¡Todos deben intercambiar Órdenes de rescate en el chat de alianza antes de que expire el temporizador!
-📢 Plan de empuje para KvK: TG3 ➡️ TG5 (9 de noviembre)
-Cuándo aplica: solo en el primer KvK después del 9 de noviembre de 2026, cuando los edificios pueden pasar de TG3 a TG5. Participar es opcional: elige la opción que se ajuste a los recursos y aceleradores que tengas guardados. Los tiempos y puntos de abajo suponen una cuenta casi al máximo.
-Desde el 9 de noviembre puedes subir edificios de TG3 a TG5. La Fase de Preparación del próximo KvK empieza algo después, así que guarda estas mejoras hasta que empiece el KvK: solo entonces dan puntos a la alianza.
+🚨 TG5: ¡NADA de mejoras el 9 de noviembre!
+El TG5 se abre el 9 de noviembre — NO subas a TG5. Mejorar antes de nuestro próximo KvK perjudica el emparejamiento y puede ponernos contra un reino mucho más fuerte.
+❌ Nada de mejoras a TG5 el 9 de noviembre.
+⏳ Guarda tus mejoras para el próximo KvK: la preparación empieza el 30 de noviembre (00:00 UTC), Día de Batalla el 5 de diciembre.
+✅ Queremos el mejor emparejamiento posible, no un rival innecesariamente fuerte.
+🛑 Acción necesaria — empieza ya
+1️⃣ Guarda recursos: mucha Madera, Pan, Piedra, Hierro y Adamantina. Recolecta todo el tiempo, usa potenciadores de recolección y los decretos Día de la Productividad + Trabajo urgente.
+2️⃣ Guarda aceleraciones: todas.
+3️⃣ Espera: deja los edificios en TG3 hasta que empiece la preparación del KvK.
+¡Empieza a recolectar y guardar ya para dominar el próximo KvK! 🚀🛡️
+📊 Para la preparación del KvK: puntos y coste de TG3 ➡️ TG5
 🔹 Opción 1: los 3 edificios principales (Centro de pueblo, Embajada, Establo)
 Puntos de KvK: 10.625.047 por jugador
 Recursos: ~892 millones de Madera / Pan, 173 millones de Piedra, 44 millones de Hierro, 4.055 de Adamantina
@@ -919,10 +927,6 @@ Tiempo: 88 días (ajustado)
 Una cuenta casi al máximo: 80,2 % de Velocidad de Construcción base, Pan Lv.5 (Maestro arquitecto), Saul Lv.5 (Ingenioso), la designación de Ministro principal, Lobo gris Lv.5 (Ayudante de construcción), Trabajos de cimentación, Bonificación de Reino del Poder y Doble tiempo. Con menos bonificaciones, tus tiempos serán más largos.
 ⚠️ La ventana de 5 minutos
 Ayudante de construcción (Lobo gris, +15 %) y Doble tiempo (+20 %) duran solo 5 minutos. Cuando empiece la puntuación del KvK, usa todos tus aceleradores dentro de esos 5 minutos. Ten abierta la pestaña Acelerar de la Mochila y toca rápido.
-🛑 Empieza ya
-1️⃣ Guarda recursos: Madera, Pan, Piedra, Hierro y Adamantina. Sigue recolectando y usa potenciadores de recolección.
-2️⃣ Guarda aceleradores: reserva todos los aceleradores para estos tiempos.
-3️⃣ Espera: deja estos edificios en TG3 hasta que empiece oficialmente la puntuación del KvK y luego suban todos a la vez para llenar la Clasificación.
 
 ### GUIDE #all-out — Ataque Total
 🪖 Reglas de Ataque Total

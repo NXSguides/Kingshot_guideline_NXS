@@ -818,7 +818,7 @@ Coffres personnels quotidiens
 30 000 / 100 000 / 200 000 points. Le coffre de 200 000 donne aussi une State Medal.
 La récolte ne rapporte que 2 points par lot et la chasse aux bêtes rien. Le Mithril exige l'équipement mythique au maximum.
 kvk-push
-📢 9 novembre : plan de push TG3 ➡️ TG5 (uniquement pour le prochain KvK) — y aller
+🚨 TG5 : NE PAS améliorer le 9 novembre — à lire
 Or Véritable
 ✅
 <span class="chk-ok">OK</span>
@@ -901,9 +901,17 @@ Comment l'augmenter :
 Kit Médical : +10 % de Taux de Secours
 Ordres de Sauvetage : +1 % chacun, jusqu'à +50 %
 ⚠️ IMPORTANT : Tout le monde doit échanger des Ordres de Sauvetage dans le chat d'alliance avant l'expiration du minuteur !
-📢 Plan de push KvK : TG3 ➡️ TG5 (9 novembre)
-Quand ça s'applique : uniquement le premier KvK après le 9 novembre 2026, quand les bâtiments peuvent passer de TG3 à TG5. La participation est facultative : choisis l'option qui correspond aux ressources et accélérations que tu as mises de côté. Les durées et points ci-dessous supposent un compte presque au max.
-À partir du 9 novembre, tu peux monter les bâtiments de TG3 à TG5. La Phase de Préparation du prochain KvK commence un peu plus tard, donc garde ces améliorations jusqu'au début du KvK — c'est seulement là qu'elles rapportent des points à l'alliance.
+🚨 TG5 : AUCUNE amélioration le 9 novembre !
+Le TG5 ouvre le 9 novembre — ne passez PAS en TG5. Améliorer avant notre prochain KvK nuit au matchmaking et peut nous opposer à un royaume bien plus fort.
+❌ Aucune amélioration TG5 le 9 novembre.
+⏳ Gardez vos améliorations pour le prochain KvK : la préparation commence le 30 novembre (00:00 UTC), jour de bataille le 5 décembre.
+✅ On veut le meilleur matchmaking possible, pas un adversaire inutilement fort.
+🛑 À faire dès maintenant
+1️⃣ Économisez les ressources : beaucoup de Bois, Pain, Pierre, Fer et Or Véritable. Récoltez sans arrêt, utilisez les boosts de récolte et les décrets Journée de la Productivité + Travail Urgent.
+2️⃣ Gardez les accélérateurs : n'en utilisez aucun.
+3️⃣ Patientez : laissez les bâtiments en TG3 jusqu'au début de la préparation du KvK.
+Commencez à récolter et à économiser maintenant pour dominer le prochain KvK ! 🚀🛡️
+📊 Pour la préparation du KvK : points et coût de TG3 ➡️ TG5
 🔹 Option 1 : les 3 bâtiments principaux (Centre, L'Ambassade, Écurie)
 Points KvK : 10 625 047 par joueur
 Ressources : ~892 M Bois / Pain, 173 M Pierre, 44 M Fer, 4 055 Or Véritable
@@ -920,10 +928,6 @@ Durée : 88 jours (ajustée)
 Un compte presque au max : 80,2 % de Vitesse de Construction de base, Lv.5 Pan (Maître-architecte), Lv.5 Saul (Débrouillard), la nomination Premier Ministre, Lv.5 Loup Gris (Aide à la Construction), Travaux Terrestres, Bonus de Royaume au Pouvoir et Bouchées Doubles. Avec moins de bonus, tes durées seront plus longues.
 ⚠️ La fenêtre de 5 minutes
 Aide à la Construction (Loup Gris, +15 %) et Bouchées Doubles (+20 %) ne durent que 5 minutes. Quand le décompte des points KvK commence, utilise toutes tes accélérations dans ces 5 minutes. Ouvre à l'avance la page des accélérations de ton sac et tape vite.
-🛑 Commence dès maintenant
-1️⃣ Économise les ressources : Bois, Pain, Pierre, Fer et Or Véritable. Continue la collecte et utilise des bonus de collecte.
-2️⃣ Économise les accélérations : garde-les toutes pour ces minuteurs.
-3️⃣ Attends : laisse ces bâtiments en TG3 jusqu'au début officiel du décompte KvK, puis on pousse tous ensemble pour inonder le classement.
 
 ### GUIDE #all-out — Tous dehors
 🪖 Règles de Tous dehors
