@@ -781,7 +781,7 @@ function igInline(btn) {
 let editing = null;   // id of the event being edited, or null for a new one
 function todoRow(td = {}) {
   return `<div class="sub todo-ed">
-    <div class="row"><label class="due">${esc(tr("dueLbl"))} <input class="inp" type="number" data-k="due" value="${esc(td.due ?? 0)}"></label><label class="due">${esc(tr("untilLbl"))} <input class="inp" type="number" min="1" max="24" data-k="until" value="${esc(td.until ?? "")}" style="width:60px"></label><label class="due">${esc(tr("atLbl"))} <input class="inp" data-k="at" value="${esc(td.at ?? "")}" placeholder="22:30" inputmode="numeric" maxlength="5" style="width:70px"></label><button type="button" class="btn small" data-rm>${esc(tr("remove"))}</button></div>
+    <div class="row"><label class="due">${esc(tr("dueLbl"))} <input class="inp" type="number" data-k="due" value="${esc(td.due ?? 0)}"></label><label class="due">${esc(tr("untilLbl"))} <input class="inp" type="number" min="1" max="24" data-k="until" value="${esc(td.until ?? "")}" style="width:60px"></label><label class="due">${esc(tr("atLbl"))} <input class="inp" data-k="at" value="${esc(td.at ?? "")}" placeholder="22:30" autocomplete="off" autocapitalize="off" maxlength="5" style="width:70px"></label><button type="button" class="btn small" data-rm>${esc(tr("remove"))}</button></div>
     <textarea class="inp" data-k="txt" rows="2" placeholder="${esc(tr("tdTxt"))}" data-orig="${esc(txt(td))}" data-keep="${esc(JSON.stringify(Object.fromEntries(OFFICER_LANGS.map((l) => [l, td[l]]))))}" data-had="${td[lang] ? 1 : 0}" style="margin-top:6px;width:100%;min-height:0;resize:vertical">${esc(txt(td) || td[lang === "zh" ? "en" : "zh"] || "")}</textarea>
     <div class="row" style="justify-content:flex-start;font-size:13px;margin-top:6px"><label><input type="checkbox" data-k="post"${td.post ? " checked" : ""}> ${esc(tr("tdPost"))}</label><label><input type="checkbox" data-k="ranking"${td.ranking ? " checked" : ""}> ${esc(tr("tdRank"))}</label></div>
   </div>`;
@@ -848,7 +848,7 @@ function readEditor() {
     else o[lang] = v;   // edited → the other languages just show this text (no translation needed)
     if (g("post").checked) o.post = 1; if (g("ranking").checked) o.ranking = 1;
     const u = parseInt(g("until").value, 10); if (u >= 1 && u <= 24) o.until = u;
-    const am = String(g("at").value || "").trim().replace("：", ":").match(/^(\d{1,2}):(\d{2})$/); if (am && +am[1] < 24 && +am[2] < 60) o.at = am[1].padStart(2, "0") + ":" + am[2];
+    const am = String(g("at").value || "").trim().replace(/[：.．\s]/g, ":").replace(/^(\d{1,2})(\d{2})$/, "$1:$2").match(/^(\d{1,2}):(\d{2})$/);   // 22:30, 22.30, 2230 all work (a phone number pad has no ":") if (am && +am[1] < 24 && +am[2] < 60) o.at = am[1].padStart(2, "0") + ":" + am[2];
     return o;
   }).filter((o) => OFFICER_LANGS.some((l) => o[l]));
   e.ingame = [...ROOT.querySelectorAll("#edIgs .ig-ed")].map((r) => ({ title: r.querySelector('[data-k="title"]').value.trim(), text: r.querySelector('[data-k="text"]').value.replace(/\r/g, "").trimEnd() })).filter((g) => g.text);
@@ -1015,7 +1015,7 @@ async function loadEventTimes() {
     const td = (ET.timeDays || {})[k];   // each time on its own day: shown as 22:00@1, 13:00@3
     const val = td ? (ET[k] || []).map((t, i) => [t, td[i]]).sort((a, b) => a[1] - b[1]).map(([t, d]) => t + "@" + d).join(", ") : (ET[k] || []).join(", ");
     const day = td ? `<span class="et-sub">${esc(tr("etPerDay"))}</span>` : k === "bear-hunt" ? `<span class="et-sub">${esc(tr("etBearNext"))}</span><input class="inp" type="date" data-etbear>` : `<span class="et-sub">${esc(tr("etDayLbl"))}</span><select class="inp" data-etday="${k}">${Array.from({ length: len }, (_, i) => `<option value="${i + 1}"${cur === i + 1 ? " selected" : ""}>${esc(tr("etDay").replace("{n}", i + 1).replace("{t}", len))}</option>`).join("")}<option value="0"${cur === 0 ? " selected" : ""}>${esc(tr("etDayAll"))}</option></select>`;
-    return `<label><span>${e} ${esc((EVENTS[k] && nm(EVENTS[k])) || (k === "bear-hunt" ? (lang === "zh" ? "狩獵巨熊" : ptOf("Bear Hunt")) : k))}</span><input class="inp" data-et="${k}" value="${esc(val)}" inputmode="numeric" placeholder="13:00, 22:00">${day}</label>`; }).join("");
+    return `<label><span>${e} ${esc((EVENTS[k] && nm(EVENTS[k])) || (k === "bear-hunt" ? (lang === "zh" ? "狩獵巨熊" : ptOf("Bear Hunt")) : k))}</span><input class="inp" data-et="${k}" value="${esc(val)}" autocomplete="off" autocapitalize="off" placeholder="13:00, 22:00">${day}</label>`; }).join("");
   etBearFill();
   if (LIST && $("evList")) renderList();
 }
@@ -1038,7 +1038,7 @@ async function saveEventTimes() {
   const m = $("etMsg"), next = {};
   for (const inp of $("etGrid").querySelectorAll("[data-et]")) {
     const parts = inp.value.replace(/\s*@\s*/g, "@").split(/[,，\s]+/).filter(Boolean), out = [];
-    for (const p of parts) { const x = p.match(/^(\d{1,2})(?::(\d{2}))?(?:@(\d{1,2}))?$/); if (!x || +x[1] > 23 || +(x[2] || 0) > 59 || (x[3] != null && +x[3] < 1)) { m.className = "msg warn"; m.textContent = tr("etBad"); return; }
+    for (const p0 of parts) { const p = p0.replace(/[：.．]/g, ":").replace(/^(\d{1,2})(\d{2})(?=@|$)/, "$1:$2"), x = p.match(/^(\d{1,2})(?::(\d{2}))?(?:@(\d{1,2}))?$/); if (!x || +x[1] > 23 || +(x[2] || 0) > 59 || (x[3] != null && +x[3] < 1)) { m.className = "msg warn"; m.textContent = tr("etBad"); return; }
       out.push([String(+x[1]).padStart(2, "0") + ":" + (x[2] || "00"), x[3] != null ? +x[3] : null]); }
     if (!out.length) { m.className = "msg warn"; m.textContent = tr("etBad"); return; }
     out.sort((a, b) => a[0].localeCompare(b[0]));
