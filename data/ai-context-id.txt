@@ -31,7 +31,7 @@ Koordinasikan dengan R4/R5 agar semua kebagian giliran dan markas terisi secara 
 
 ### GUIDE #master-academy — Panduan Akademi Master Gen 3
 KAPAN
-Gen 3 hadir 28 Sep dan membuka Master Academy di Pusat Kota 25. Master memberi buff pasif permanen untuk akun, sumber daya tambahan, dan hadiah event. Master terpisah dari Hero.
+Gen 3 hadir 28 Sep dan membuka Akademi Master di Pusat Kota 25. Master memberi buff pasif permanen untuk akun, sumber daya tambahan, dan hadiah event. Master terpisah dari Hero.
 CARA MEMBUKA
 Valora SELALU menjadi Master pertamamu, ditemukan lewat Perjalanan Alam biasa.
 Perbekalan Perjalanan gratis: 20 terisi otomatis pukul 00:00 UTC, ditambah 10 pukul 08:00 dan 10 pukul 16:00 yang harus diklaim manual — total 40 per hari. Kamu bisa membeli hingga 20 lagi per hari dengan Permata (1.000 Permata per 5). Jika penyimpanan penuh, tidak akan terisi lagi, jadi gunakan secara rutin.
@@ -106,7 +106,7 @@ Peti Perlengkapan Pahlawan Mitos Khusus setiap minggu → Mithril setelah fondas
 👑 VIP
 Pakai Permata hanya untuk diskon: Teleporter Lanjutan • 100 Enhancement XP • Forgehammer
 🏆 Tingkat Kejuaraan Aliansi
-Sebelum membuka Master Academy: Artisan's Vision • Gilded Threads / Satin sesuai kebutuhan
+Sebelum membuka Akademi Master: Artisan's Vision • Gilded Threads / Satin sesuai kebutuhan
 Setelah terbuka: Emblem Master prioritas utama — di late game, simpan token untuk ini
 ⚔️ Swordland
 Artisan's Vision → lalu apa pun yang jadi hambatan: material Charm Gubernur / Gear Gubernur • Forgehammer
@@ -857,7 +857,7 @@ Habiskan shard Mythic/Epic universal yang disimpan untuk hero inti.
 Kumpulkan sumber daya lebih awal (kirim pengumpul sebelum reset agar segera kembali di awal Hari 2).
 Habiskan semua Emblem Master dan Manuskrip Master yang disimpan.
 Naikkan hero Gen 3 (Eric & Petra) langsung ke bintang 5.
-Hari 3: Pelatihan Pet & Progres Master Academy
+Hari 3: Pelatihan Pet & Progres Akademi Master
 Aktivitas Bernilai: kemajuan hewan peliharaan, Tanda Penjinakan Common & Tanda Penjinakan Advanced (Penyempurnaan), Rolet Hero, Shard Hero, Emblem Master/Manuskrip Master, Misi Intel.
 Naikkan level dan sempurnakan beberapa pet tingkat menengah secara merata, jangan tumpukan semua ke satu pet.
 Gunakan sisa putaran Rolet Hero dan Misi Intel harian.
@@ -866,7 +866,7 @@ Maksimalkan ambang batas kemajuan hewan peliharaan untuk pengganda poin tinggi.
 Hari 4: Pengembangan Hero & Pelatihan Pasukan
 Aktivitas Bernilai: Pelatihan/Promosi Pasukan (T1–T11), Forgehammer, Widget, Mithril, Pengumpulan Sumber Daya.
 Promosikan pasukan tingkat rendah ke tingkat tertinggi Anda (misal T9 ke T10). Meningkatkan pasukan jauh lebih hemat sumber daya dibanding melatih baru dari awal.
-Simpan speedup umum untuk riset/Master Academy—di sini hanya gunakan speedup khusus Pelatihan Pasukan.
+Simpan speedup umum untuk riset/Akademi Master—di sini hanya gunakan speedup khusus Pelatihan Pasukan.
 Habiskan Forgehammer yang disimpan (masing-masing 4.000 poin) dan Widget dari Gear Ekslusif Hero (masing-masing 8.000 poin).
 Terapkan upgrade Mithril (masing-masing 40.000 poin) untuk membuka lonjakan poin besar.
 Hari 5: Peningkatan Kekuatan & Upgrade Terakhir
@@ -1900,10 +1900,20 @@ Not Appointed = Tidak ada yang ditunjuk
 Reserved = Direservasi
 Appointed in = Ditunjuk dalam
 Expedition = Ekspedisi
+Master Academy = Akademi Master
 Master List = Daftar Master
 Max Affinity Stats = Stat Kedekatan Maks
 Talent = Talenta
 Reach 1000 Affinity and the Master will settle in the Town. = Capai 1000 Kedekatan dan Master akan menetap di Kota.
+Relationship Advancement = Peningkatan Hubungan
+Relationship Advancement Preview = Pratinjau Peningkatan Hubungan
+Expertise Level Up = Keahlian Naik Level
+Raise Master Affinity to upgrade Status = Tingkatkan Kedekatan Master untuk meningkatkan Status
+Stranger = Asing
+Acquaintance = Kenalan
+Casual = Akrab
+Close = Dekat
+Kindred Soul = Belahan Jiwa
 Reserve Chests = Peti Cadangan
 Palace Administrator = Administrator Istana
 Bear Hunter = Pemburu Beruang
