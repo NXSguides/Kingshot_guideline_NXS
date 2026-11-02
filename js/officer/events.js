@@ -474,6 +474,20 @@ const evName = (k) => { const e = byId(k); return e ? `${e.emoji || ""} ${nm(e) 
 const txt = nm;
 /* a to-do can point at one of its event's in-game guides by title (td.ig): its 📋 copy button then sits on that task line */
 const igIndex = (e, title) => { if (!title || !e || !e.ingame) return -1; const t = String(title).trim().toLowerCase(); return e.ingame.findIndex((g) => String(g.title || "").trim().toLowerCase() === t); };
+/* 📅 date codes in in-game guides (Sherry 2026-11-03): "{date:+N}" = the start of this event's nearest run + N days, as "Nov 5" (UTC; N may be
+   negative). Nearest run = the one running now, else the next one. Shown / copied filled in; the saved text (editor, NXS-PATCH data) keeps the code.
+   An event without a fixed schedule, or a code that can't be read, is left as it is. */
+const MON3 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+function nearestRunStart(id) {
+  const e = byId(id); if (!e || !e.start || !(e.every > 0) || !(e.days > 0)) return null;
+  const today = utcDay(Date.now()), rs = runs(today - e.every * DAY, today + 2 * e.every * DAY).filter((r) => r.k === id && r.en > today).sort((a, b) => a.st - b.st);
+  return rs.length ? rs[0].st : null;   // runs() ends after today → the first one is the current run if it is on, else the next one
+}
+function fillDates(id, text) {
+  const t = String(text == null ? "" : text); if (!/\{date:/i.test(t)) return t;
+  const st = nearestRunStart(id); if (st == null) return t;
+  return t.replace(/\{date:\s*([+-]?\d{1,3})\s*\}/gi, (m, n) => { const d = new Date(st + parseInt(n, 10) * DAY); return `${MON3[d.getUTCMonth()]} ${d.getUTCDate()}`; });
+}
 const DAY_T = { en: { today: "⭐ TODAY", igLink: "📋 In-game guide for this task", igNone: "— none —" }, zh: { today: "⭐ 今天", igLink: "📋 這件事要貼的遊戲內小攻略", igNone: "— 無 —" }, ko: { today: "⭐ 오늘", igLink: "📋 이 일에 쓰는 게임 내 공지", igNone: "— 없음 —" }, pt: { today: "⭐ HOJE", igLink: "📋 Guia do jogo desta tarefa", igNone: "— nenhum —" }, ar: { today: "⭐ اليوم", igLink: "📋 دليل اللعبة لهذه المهمة", igNone: "— لا شيء —" } };
 const dayT = (k) => (DAY_T[lang] || DAY_T.en)[k];
 function mondayOf(t) { const d = utcDay(t); const wd = (new Date(d).getUTCDay() + 6) % 7; return d - wd * DAY; }
@@ -543,8 +557,8 @@ function render() {
     return `<div class="todo${allDone ? " done" : ""}${hasToday ? " has-today" : ""}" data-ev="${esc(r.k)}" data-st="${rr.map((x) => x.st).join(" ")}">
       <div style="flex:1;min-width:0">
         <div class="txt"><b>${esc(evName(r.k))}</b> <span class="when">· ${esc(when)}</span></div>
-        ${list.map(({ r: ir, td, due, id }) => { const gi = igIndex(e, td.ig); return `<label class="task${store.done[id] ? " done" : ""}${due === today ? " today" : ""}"><input type="checkbox" data-id="${esc(id)}" ${store.done[id] ? "checked" : ""}><div><div>${due === today ? `<b class="today-tag">${esc(dayT("today"))}</b> ` : ""}${rr.length > 1 ? `<b>${esc(fmt(ir.st))}</b> · ` : ""}${localTimes(esc(txt(td)), lang)}</div>${gi >= 0 ? `<button type="button" class="btn small ig-copy ig-inline" data-copy="${esc(r.k)}:${gi}" title="${esc(e.ingame[gi].text.slice(0, 200))}">📋 ${esc([...(e.ingame[gi].title || tr("fIngame"))].slice(0, 32).join(""))}</button>` : ""}<div class="when">⏰ ${esc(fmt(due))}${td.until != null && td.until !== "" ? ` · ${esc(tr("untilShow", { h: String(+td.until).padStart(2, "0") + ":00" }))}` : ""}${td.at ? ` · ${esc(tr("atShow", { t: td.at }))}` : ""}${due < today && !store.done[id] ? ` <b class="warn">${esc(tr("late"))}</b>` : ""}</div></div></label>`; }).join("")}
-        <div class="acts"><button type="button" class="btn small" data-edtodo="${esc(r.k)}">✏️ ${esc(tr("editTodo"))}</button>${["bear-hunt", "mystic-trial", "alliance-rules"].includes(r.k) ? "" : `<button type="button" class="btn small" data-anone="${esc(r.k)}" data-anst="${r.st}">${esc(tr("anOne"))}</button>`}${list.some((x) => x.td.post) ? `<a class="btn small" href="#post">${esc(tr("toPost"))}</a>` : ""}${list.some((x) => x.td.ranking) ? `<a class="btn small" href="#ranking">${esc(tr("toRanking"))}</a>` : ""}${e.guide ? `<a class="btn small" href="./#/${lang}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}${(e.ingame || []).map((g, gi) => `<button type="button" class="btn small ig-copy" data-copy="${esc(r.k)}:${gi}" title="${esc(g.text.slice(0, 200))}">📋 ${esc([...(g.title || tr("fIngame"))].slice(0, 28).join(""))}</button>`).join("")}</div>
+        ${list.map(({ r: ir, td, due, id }) => { const gi = igIndex(e, td.ig); return `<label class="task${store.done[id] ? " done" : ""}${due === today ? " today" : ""}"><input type="checkbox" data-id="${esc(id)}" ${store.done[id] ? "checked" : ""}><div><div>${due === today ? `<b class="today-tag">${esc(dayT("today"))}</b> ` : ""}${rr.length > 1 ? `<b>${esc(fmt(ir.st))}</b> · ` : ""}${localTimes(esc(txt(td)), lang)}</div>${gi >= 0 ? `<button type="button" class="btn small ig-copy ig-inline" data-copy="${esc(r.k)}:${gi}" title="${esc(fillDates(r.k, e.ingame[gi].text).slice(0, 200))}">📋 ${esc([...(e.ingame[gi].title || tr("fIngame"))].slice(0, 32).join(""))}</button>` : ""}<div class="when">⏰ ${esc(fmt(due))}${td.until != null && td.until !== "" ? ` · ${esc(tr("untilShow", { h: String(+td.until).padStart(2, "0") + ":00" }))}` : ""}${td.at ? ` · ${esc(tr("atShow", { t: td.at }))}` : ""}${due < today && !store.done[id] ? ` <b class="warn">${esc(tr("late"))}</b>` : ""}</div></div></label>`; }).join("")}
+        <div class="acts"><button type="button" class="btn small" data-edtodo="${esc(r.k)}">✏️ ${esc(tr("editTodo"))}</button>${["bear-hunt", "mystic-trial", "alliance-rules"].includes(r.k) ? "" : `<button type="button" class="btn small" data-anone="${esc(r.k)}" data-anst="${r.st}">${esc(tr("anOne"))}</button>`}${list.some((x) => x.td.post) ? `<a class="btn small" href="#post">${esc(tr("toPost"))}</a>` : ""}${list.some((x) => x.td.ranking) ? `<a class="btn small" href="#ranking">${esc(tr("toRanking"))}</a>` : ""}${e.guide ? `<a class="btn small" href="./#/${lang}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}${(e.ingame || []).map((g, gi) => `<button type="button" class="btn small ig-copy" data-copy="${esc(r.k)}:${gi}" title="${esc(fillDates(r.k, g.text).slice(0, 200))}">📋 ${esc([...(g.title || tr("fIngame"))].slice(0, 28).join(""))}</button>`).join("")}</div>
       </div>
     </div>`; }).join("") : `<div class="none">${esc(tr("noTodo"))}</div>`;
   $("todos").querySelectorAll("input[type=checkbox]").forEach((cb) => cb.onchange = () => {
@@ -679,11 +693,11 @@ function aiText() {
   const igs = groups.map(({ k }) => byId(k) || {}).filter((e) => (e.ingame || []).length);
   if (igs.length) {
     L.push("\n\n===== In-game messages (copy-ready, one per ▸) =====");
-    for (const e of igs) { L.push(`\n■ ${e.en || e.id}${e.zh ? " / " + e.zh : ""}`); e.ingame.forEach((g, i) => L.push(`▸ ${g.title || "In-game message " + (i + 1)}\n${String(g.text || "").trim()}`)); }
+    for (const e of igs) { L.push(`\n■ ${e.en || e.id}${e.zh ? " / " + e.zh : ""}`); e.ingame.forEach((g, i) => L.push(`▸ ${g.title || "In-game message " + (i + 1)}\n${fillDates(e.id, g.text).trim()}`)); }
   }
   // the same events as data, so an edit can come back as an NXS-PATCH (📥 below): the full to-do list of each event + its guide titles.
   // "due" = days after the event's first day (0 = first day, -1 = the day before); "at" = exact UTC time; "until" = shown until that UTC hour; "ig" = the in-game guide (by title) posted for that task
-  const cur = {}; for (const { k } of groups) { const e = byId(k) || {}; cur[k] = { start: e.start, every: e.every, days: e.days, todo: e.todo || [], ingame_titles: (e.ingame || []).map((g) => g.title) }; }
+  const cur = {}; for (const { k } of groups) { const e = byId(k) || {}; cur[k] = { start: e.start, every: e.every, days: e.days, todo: e.todo || [], ingame_titles: (e.ingame || []).map((g) => g.title) }; const codes = (e.ingame || []).filter((g) => /\{date:/i.test(g.text || "")); if (codes.length) cur[k].ingame_with_date_codes = codes.map((g) => ({ title: g.title, text: g.text }));   // raw text with {date:+N}, so an edit keeps the codes }
   L.push("\n\n===== Current data (JSON) — for NXS-PATCH edits =====\n" + JSON.stringify(cur));
   const tm = TIMED.filter((t) => t.at > now && t.at < end);
   if (tm.length) { L.push("\n⏱️ Timed reminders:"); for (const t of tm) L.push(`  ${d(t.at)} ${hm(t.at)}: ${(byId(t.ev) || {}).en || t.ev}${t.label ? " — " + t.label : ""}`); }
@@ -879,8 +893,8 @@ function renderList() {
       <summary><span><b>${esc(evName(e.id))}</b><br><span class="sched">${esc(schedText(e))}${noteOf(e) ? " · " + localTimes(esc(noteOf(e)), lang) : ""}</span></span>
         <span class="muted">${(e.ingame || []).length ? "📋 " + (e.ingame || []).length : ""}</span></summary>
       ${(e.ingame || []).length ? e.ingame.map((g, i) => `
-        <div class="ig"><div class="head"><span>${esc(g.title || tr("fIngame"))} <span class="sched">· ${[...g.text].length} ${esc(tr("chars"))}</span></span><span class="row" style="flex:none"><button type="button" class="btn small" data-igedit="${esc(e.id)}:${i}">✏️</button><button type="button" class="btn small" data-copy="${esc(e.id)}:${i}">${esc(tr("copy"))}</button></span></div>
-        <pre>${esc(g.text)}</pre></div>`).join("") : `<div class="none" style="margin:8px 0">${esc(tr("noIg"))}</div>`}
+        <div class="ig"><div class="head"><span>${esc(g.title || tr("fIngame"))} <span class="sched">· ${[...fillDates(e.id, g.text)].length} ${esc(tr("chars"))}</span></span><span class="row" style="flex:none"><button type="button" class="btn small" data-igedit="${esc(e.id)}:${i}">✏️</button><button type="button" class="btn small" data-copy="${esc(e.id)}:${i}">${esc(tr("copy"))}</button></span></div>
+        <pre>${esc(fillDates(e.id, g.text))}</pre></div>`).join("") : `<div class="none" style="margin:8px 0">${esc(tr("noIg"))}</div>`}
       <div class="row">${e.guide ? `<a class="btn small" href="./#/${lang}/${esc(e.guide)}">${esc(tr("toGuide"))}</a>` : ""}<button type="button" class="btn small" data-edit="${esc(e.id)}">${esc(tr("edit"))}</button></div>
     </details>`).join("");
 }
@@ -898,7 +912,7 @@ async function copyText(t, btn) {
 ROOT.addEventListener("click", (ev) => {
   const o = ev.target.closest("[data-open]"); if (o) { ev.preventDefault(); return openEvent(o.dataset.open); }
   const a1 = ev.target.closest("[data-anone]"); if (a1) { ev.preventDefault(); return anOne(a1.dataset.anone, +a1.dataset.anst); }
-  const c = ev.target.closest("[data-copy]"); if (c) { ev.preventDefault(); const [id, i] = c.dataset.copy.split(":"); return copyText(byId(id).ingame[+i].text, c); }
+  const c = ev.target.closest("[data-copy]"); if (c) { ev.preventDefault(); const [id, i] = c.dataset.copy.split(":"); return copyText(fillDates(id, byId(id).ingame[+i].text), c); }
   if (!OFFICER.can("events", "edit") && ev.target.closest("[data-edit],[data-igedit],[data-edtodo]")) { ev.preventDefault(); return; }   // 👁️ read-only
   const ed = ev.target.closest("[data-edit]"); if (ed) { ev.preventDefault(); return openEditor(ed.dataset.edit); }
   const ie = ev.target.closest("[data-igedit]"); if (ie) { ev.preventDefault(); return igInline(ie); }
@@ -1102,13 +1116,13 @@ function anGuides(rs) {
   if (!evs.length) { box.innerHTML = ""; return; }
   if (anIgOpen && !evs.some((e) => e.id === anIgOpen)) anIgOpen = null;
   box.innerHTML = `<div class="muted" style="font-size:12.5px;margin-bottom:4px">${esc(tr("anGuides"))}</div><div class="row" style="gap:6px;flex-wrap:wrap">${evs.map((e) => `<button type="button" class="btn small${anIgOpen === e.id ? " primary" : ""}" data-anig="${esc(e.id)}">📋 ${esc((e.emoji || "") + " " + nm(e))}</button>`).join("")}</div>`
-    + (anIgOpen ? `<div class="an-ig" style="margin-top:6px;padding:8px 10px;border:1px solid var(--rule);border-radius:10px">${byId(anIgOpen).ingame.map((g, i) => `<label style="display:block;margin:4px 0;font-size:13px"><input type="checkbox" data-anigm="${i}"> <b>${esc(g.title || tr("anMsg", { n: i + 1 }))}</b> <span class="muted">· ${[...(g.text || "")].length}</span><pre style="white-space:pre-wrap;margin:2px 0 0 22px;font:inherit;font-size:12.5px;color:var(--text-muted)">${esc(g.text || "")}</pre></label>`).join("")}<button type="button" class="btn small primary" data-anigadd="1" style="margin-top:4px">${esc(tr("anAdd"))}</button></div>` : "");
+    + (anIgOpen ? `<div class="an-ig" style="margin-top:6px;padding:8px 10px;border:1px solid var(--rule);border-radius:10px">${byId(anIgOpen).ingame.map((g, i) => `<label style="display:block;margin:4px 0;font-size:13px"><input type="checkbox" data-anigm="${i}"> <b>${esc(g.title || tr("anMsg", { n: i + 1 }))}</b> <span class="muted">· ${[...fillDates(anIgOpen, g.text || "")].length}</span><pre style="white-space:pre-wrap;margin:2px 0 0 22px;font:inherit;font-size:12.5px;color:var(--text-muted)">${esc(fillDates(anIgOpen, g.text || ""))}</pre></label>`).join("")}<button type="button" class="btn small primary" data-anigadd="1" style="margin-top:4px">${esc(tr("anAdd"))}</button></div>` : "");
 }
 document.addEventListener("click", (e) => {
   const b = e.target.closest("#anGuides [data-anig], #anGuides [data-anigadd]"); if (!b) return;
   e.preventDefault();
   if (b.dataset.anig) { anIgOpen = anIgOpen === b.dataset.anig ? null : b.dataset.anig; anGuides(anRuns(+$("anDays").value || 3)); return; }
-  const picked = [...document.querySelectorAll("#anGuides [data-anigm]:checked")].map((c) => (byId(anIgOpen).ingame[+c.dataset.anigm] || {}).text || "").filter(Boolean);
+  const picked = [...document.querySelectorAll("#anGuides [data-anigm]:checked")].map((c) => fillDates(anIgOpen, (byId(anIgOpen).ingame[+c.dataset.anigm] || {}).text || "")).filter(Boolean);
   if (!picked.length) return;
   const t = $("anText"); t.value = t.value.replace(/\s+$/, "") + "\n\n" + picked.join("\n\n"); anCount(); t.focus();
 });
@@ -1277,7 +1291,7 @@ function seedTodos(list) {
 }
 
 OFFICER_PAGES.events = { init, applyTexts, setLang,
-  ingame: (id) => { try { const e = byId(id); if (e && e.ingame) return e.ingame; } catch (x) {} return INGAME_DEFAULTS[id] || []; } };   // ⑤ battle table reads the Swordland chat map from here
+  ingame: (id) => { try { const e = byId(id); if (e && e.ingame) return e.ingame.map((g) => ({ ...g, text: fillDates(id, g.text) })); } catch (x) {} return INGAME_DEFAULTS[id] || []; } };   // ⑤ battle table reads the Swordland chat map from here
 
 
 })();
