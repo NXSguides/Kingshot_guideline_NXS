@@ -639,8 +639,8 @@ function exportAdmin() {
 /* 📤 For Claude (Sherry, 2026-11-02): the next 4 weeks of event runs, our times, to-dos (with ✅ / ⬜) and timed reminders as plain text,
    decrypted here in the browser, to paste into a Claude chat that plans the to-dos. No member data — only what this tab shows. */
 const AI_T = {
-  en: { h: "📤 For Claude", sub: "The next 4 weeks of events, our times and to-dos as plain text, to paste into a Claude chat that helps plan them. No member data.", make: "📋 Copy for Claude", copied: "Copied ✅ Paste it into the chat.", sel: "Select the text below and copy it." },
-  zh: { h: "📤 給 Claude", sub: "把接下來 4 週的活動、我們的時間和待辦事項變成純文字，貼給處理待辦的 Claude 聊天。不含任何成員資料。", make: "📋 複製給 Claude", copied: "已複製 ✅ 貼到聊天裡就好。", sel: "請選取下面的文字自己複製。" },
+  en: { h: "📤 For Claude", sub: "The next 4 weeks of events, our times, to-dos and their in-game messages as plain text, to paste into a Claude chat that helps plan them. No member data.", make: "📋 Copy for Claude", copied: "Copied ✅ Paste it into the chat.", sel: "Select the text below and copy it." },
+  zh: { h: "📤 給 Claude", sub: "把接下來 4 週的活動、我們的時間、待辦事項和遊戲內公告變成純文字，貼給處理待辦的 Claude 聊天。不含任何成員資料。", make: "📋 複製給 Claude", copied: "已複製 ✅ 貼到聊天裡就好。", sel: "請選取下面的文字自己複製。" },
   ko: { h: "📤 Claude용", sub: "앞으로 4주의 이벤트, 우리 시간, 할 일을 텍스트로 만들어 Claude 채팅에 붙여 넣어요. 멤버 정보는 없어요.", make: "📋 Claude용 복사", copied: "복사됨 ✅ 채팅에 붙여 넣으세요.", sel: "아래 글을 선택해서 복사하세요." },
   pt: { h: "📤 Para o Claude", sub: "Os eventos, nossos horários e tarefas das próximas 4 semanas em texto, para colar num chat do Claude. Sem dados de membros.", make: "📋 Copiar para o Claude", copied: "Copiado ✅ Cole no chat.", sel: "Selecione o texto abaixo e copie." },
   ar: { h: "📤 لـ Claude", sub: "فعاليات الأسابيع الأربعة القادمة وأوقاتنا والمهام كنص، لتلصقه في محادثة Claude. بلا بيانات أعضاء.", make: "📋 نسخ لـ Claude", copied: "تم النسخ ✅ الصقه في المحادثة.", sel: "حدّد النص بالأسفل وانسخه." } };
@@ -665,6 +665,12 @@ function aiText() {
     }).filter(Boolean);
     if (list.length > 1 && list.every((r) => r.days === 1 && !todoLines(r).length)) { L.push(`\n■ ${name}: ${list.map((r) => d(r.st)).join(", ")}${tl}`); continue; }
     for (const r of list) { L.push(`\n■ ${name}: ${d(r.st)} – ${d(r.en - DAY)} (${r.days} day${r.days > 1 ? "s" : ""})${tl}`); L.push(...todoLines(r)); }
+  }
+  // 📋 in-game messages of the events above (once per event, full text), so the planning chat can say which one to post when
+  const igs = groups.map(({ k }) => byId(k) || {}).filter((e) => (e.ingame || []).length);
+  if (igs.length) {
+    L.push("\n\n===== In-game messages (copy-ready, one per ▸) =====");
+    for (const e of igs) { L.push(`\n■ ${e.en || e.id}${e.zh ? " / " + e.zh : ""}`); e.ingame.forEach((g, i) => L.push(`▸ ${g.title || "In-game message " + (i + 1)}\n${String(g.text || "").trim()}`)); }
   }
   const tm = TIMED.filter((t) => t.at > now && t.at < end);
   if (tm.length) { L.push("\n⏱️ Timed reminders:"); for (const t of tm) L.push(`  ${d(t.at)} ${hm(t.at)}: ${(byId(t.ev) || {}).en || t.ev}${t.label ? " — " + t.label : ""}`); }
