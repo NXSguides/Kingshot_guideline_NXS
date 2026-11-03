@@ -181,13 +181,16 @@ const HC_H = {
   jaeger: { t: "arc", g: 3, b: 290, dmg: [1.2], dr: [.18], hp: .25, w: ["gar", "hp"] }, rosa: { t: "arc", g: 4, b: 370, dmg: [1.2], dr: [.2], atkT: { arc: .30 }, w: ["rally", "leth"] },
   vivian: { t: "arc", g: 5, b: 444, dmg: [1.25, 1.25], dmgT: { arc: 1.15 }, w: ["rally", "atk"] } };
 const HC_T = ["inf", "cav", "arc"], HC_BEAR = { inf: .02, cav: .23, arc: .75 }, HC_OFF = { inf: .2, cav: .4, arc: .4 }, HC_DEF = { inf: .85, cav: 0, arc: .15 };
-function hcScore(id, role, wl) {   // wl = Widget level 0–10
-  const h = HC_H[id], f = Math.max(0, Math.min(10, +wl || 0)) / 10, out = {}, mult = {};
+/* Widget level wl 0–10 (claude/kingshot-upgrade-efficiency.md): its troop Lethality + Health grow by max ÷ 10 every level (checked on Jabel, Zoe, Petra);
+   its skill unlocks at +2 and levels up at +4, +6, +8, +10 (kingshotmastery.com widget guide, 2026-11-03); Lv1 = ⅓ of Lv5 (our screenshots), even steps between (assumed). */
+const hcSkillF = (wl) => { const L = Math.floor(wl / 2); return L ? (1 + 0.5 * (L - 1)) / 3 : 0; };
+function hcScore(id, role, wl) {
+  const h = HC_H[id], w = Math.max(0, Math.min(10, parseInt(wl, 10) || 0)), f = w / 10, fs = hcSkillF(w), out = {}, mult = {};
   for (const k of HC_T) { out[k] = { ...HC_BASE[k] }; mult[k] = { atk: 1, leth: 1, def_: 1, hp: 1 };
     if (k === h.t) { out[k].atk += h.b; out[k].def_ += h.b; out[k].leth += HC_PASSIVE[h.g] * f; out[k].hp += HC_PASSIVE[h.g] * f; } }
   for (const st of ["atk", "leth", "def_", "hp"]) if (h[st]) for (const k of HC_T) mult[k][st] *= 1 + h[st];
   for (const [k, v] of Object.entries(h.atkT || {})) mult[k].atk *= 1 + v;
-  const [fac, wst] = h.w; if ((fac === "rally" && role !== "gar") || (fac === "gar" && role === "gar")) for (const k of HC_T) mult[k][wst] *= 1 + 0.15 * f;
+  const [fac, wst] = h.w; if ((fac === "rally" && role !== "gar") || (fac === "gar" && role === "gar")) for (const k of HC_T) mult[k][wst] *= 1 + 0.15 * fs;
   const A = {}, D = {}, A0 = {}, D0 = {};
   for (const k of HC_T) { const o = out[k], m = mult[k], b = HC_BASE[k];
     A[k] = (1 + o.atk / 100) * m.atk * (1 + o.leth / 100) * m.leth; D[k] = (1 + o.def_ / 100) * m.def_ * (1 + o.hp / 100) * m.hp;
@@ -199,23 +202,23 @@ function hcScore(id, role, wl) {   // wl = Widget level 0–10
   return off * HC_T.reduce((s, k) => s + HC_DEF[k] * D[k] / D0[k] / (taken * (1 - (drT[k] || 0))), 0);
 }
 const CMP = {
-  en: { hvT: "⚖️ Compare two heroes", hvNote: "Pick a troop slot and two heroes. Same model as the hero comparison above: max level and stars; the Widget level scales the Widget's bonuses in proportion (an estimate).", hvWl: "Widget Lv", hvEq: "about equal", hvBetter: "{h} +{n}%", hvWhy: "Rally Widgets only work when you open a rally (Bear, PvP); garrison Widgets only in garrisons.", hvWarn: "Stars are assumed max — a hero with fewer stars does less. Rough guide, not a promise." },
-  zh: { hvT: "⚖️ 兩位英雄比一比", hvNote: "選兵種位置和兩位英雄。跟上面「英雄比較」同一個模型：滿級、滿星；零件等級按比例算零件的加成（估計值）。", hvWl: "零件 Lv", hvEq: "差不多", hvBetter: "{h} +{n}%", hvWhy: "集結派零件只在自己開集結時有用（熊獵、PvP）；守城派只在駐防時有用。", hvWarn: "星級當作滿星，星級少的英雄會比較弱。只是大概的參考，不是保證。" },
-  pt: { hvT: "⚖️ Compare dois heróis", hvNote: "Escolha uma posição de tropa e dois heróis. Mesmo modelo da comparação acima: nível e estrelas máximos; o nível da Ferramenta escala os bônus dela em proporção (estimativa).", hvWl: "Ferramenta Nv", hvEq: "quase igual", hvBetter: "{h} +{n}%", hvWhy: "Ferramentas de rally só valem quando você abre o rally (Urso, PvP); as de guarnição só em guarnições.", hvWarn: "Estrelas supostas no máximo — um herói com menos estrelas rende menos. Guia aproximado, não garantia." },
-  ar: { hvT: "⚖️ قارن بين بطلين", hvNote: "اختر موقع القوات وبطلين. نفس نموذج المقارنة أعلاه: أعلى مستوى ونجوم؛ مستوى الأجزاء يضبط مكافآتها بالتناسب (تقدير).", hvWl: "الأجزاء Lv", hvEq: "متقاربان", hvBetter: "{h} +{n}%", hvWhy: "أجزاء الحشد تعمل فقط عندما تفتح حشدًا (الدب، PvP)؛ وأجزاء الحامية في الحاميات فقط.", hvWarn: "النجوم مفترضة بالحد الأقصى — البطل الأقل نجومًا أضعف. دليل تقريبي، لا وعد." },
-  ko: { hvT: "⚖️ 영웅 둘 비교", hvNote: "병종 자리와 영웅 둘을 골라. 위 영웅 비교와 같은 모델: 만렙·만성; 부속품 레벨은 부속품 보너스를 비례로 계산 (추정치).", hvWl: "부속품 Lv", hvEq: "비슷", hvBetter: "{h} +{n}%", hvWhy: "집결형 부속품은 직접 집결을 열 때만 (곰, PvP), 방어형은 방어할 때만 적용돼.", hvWarn: "성급은 만성으로 가정 — 성급이 낮으면 더 약해. 대략적인 참고일 뿐." } };
+  en: { hvT: "⚖️ Compare two heroes", hvNote: "Pick a troop slot and two heroes. Same model as the hero comparison above: max level and stars; Widget troop Lethality + Health grow by the same step every level (checked); its skill unlocks at +2 and levels up at +4, +6, +8, +10 (between those, even steps are assumed). Pick the same hero twice to compare two Widget levels.", hvWl: "Widget Lv", hvEq: "about equal", hvBetter: "{h} +{n}%", hvWhy: "Rally Widgets only work when you open a rally (Bear, PvP); garrison Widgets only in garrisons.", hvWarn: "Stars are assumed max — a hero with fewer stars does less. Rough guide, not a promise." },
+  zh: { hvT: "⚖️ 兩位英雄比一比", hvNote: "選兵種位置和兩位英雄。跟上面「英雄比較」同一個模型：滿級、滿星；零件的兵種殺傷＋生命每級加一樣多（已驗證）；零件技能 +2 解鎖，+4、+6、+8、+10 各升一級（中間每級加多少是假設平均）。兩邊選同一位英雄，就能比不同的零件等級。", hvWl: "零件 Lv", hvEq: "差不多", hvBetter: "{h} +{n}%", hvWhy: "集結派零件只在自己開集結時有用（熊獵、PvP）；守城派只在駐防時有用。", hvWarn: "星級當作滿星，星級少的英雄會比較弱。只是大概的參考，不是保證。" },
+  pt: { hvT: "⚖️ Compare dois heróis", hvNote: "Escolha uma posição de tropa e dois heróis. Mesmo modelo da comparação acima: nível e estrelas máximos; Letalidade + Vida da Ferramenta sobem igual a cada nível (conferido); a habilidade abre no +2 e sobe no +4, +6, +8, +10 (os passos entre eles são supostos iguais). Escolha o mesmo herói nos dois lados para comparar níveis da Ferramenta.", hvWl: "Ferramenta Nv", hvEq: "quase igual", hvBetter: "{h} +{n}%", hvWhy: "Ferramentas de rally só valem quando você abre o rally (Urso, PvP); as de guarnição só em guarnições.", hvWarn: "Estrelas supostas no máximo — um herói com menos estrelas rende menos. Guia aproximado, não garantia." },
+  ar: { hvT: "⚖️ قارن بين بطلين", hvNote: "اختر موقع القوات وبطلين. نفس نموذج المقارنة أعلاه: أعلى مستوى ونجوم؛ فتك وصحة الأجزاء يزيدان بالقدر نفسه كل مستوى (مؤكد)؛ مهارتها تُفتح عند +2 وترتفع عند +4 و+6 و+8 و+10 (الخطوات بينها مفترضة متساوية). اختر البطل نفسه في الجهتين لمقارنة مستويين للأجزاء.", hvWl: "الأجزاء Lv", hvEq: "متقاربان", hvBetter: "{h} +{n}%", hvWhy: "أجزاء الحشد تعمل فقط عندما تفتح حشدًا (الدب، PvP)؛ وأجزاء الحامية في الحاميات فقط.", hvWarn: "النجوم مفترضة بالحد الأقصى — البطل الأقل نجومًا أضعف. دليل تقريبي، لا وعد." },
+  ko: { hvT: "⚖️ 영웅 둘 비교", hvNote: "병종 자리와 영웅 둘을 골라. 위 영웅 비교와 같은 모델: 만렙·만성; 부속품의 병종 파괴·생명은 레벨마다 같은 만큼 올라 (확인됨); 부속품 스킬은 +2에 열리고 +4, +6, +8, +10에 올라 (그 사이 증가량은 균등하다고 가정). 양쪽에 같은 영웅을 고르면 부속품 레벨끼리 비교할 수 있어.", hvWl: "부속품 Lv", hvEq: "비슷", hvBetter: "{h} +{n}%", hvWhy: "집결형 부속품은 직접 집결을 열 때만 (곰, PvP), 방어형은 방어할 때만 적용돼.", hvWarn: "성급은 만성으로 가정 — 성급이 낮으면 더 약해. 대략적인 참고일 뿐." } };
 for (const [l, o] of Object.entries(CMP)) Object.assign(T[l], o);
 let cmpS = (() => { try { return JSON.parse(localStorage.getItem("nxs-gr-cmp")) || null; } catch (e) { return null; } })() || { t: "cav", a: "petra", b: "hilde", wa: 10, wb: 10 };
 function cmpHtml(L) {
   const ids = Object.keys(HC_H).filter((id) => HC_H[id].t === cmpS.t);
-  if (!ids.includes(cmpS.a)) cmpS.a = ids[0]; if (!ids.includes(cmpS.b) || cmpS.b === cmpS.a) cmpS.b = ids.find((x) => x !== cmpS.a);
+  if (!ids.includes(cmpS.a)) cmpS.a = ids[0]; if (!ids.includes(cmpS.b)) cmpS.b = ids.find((x) => x !== cmpS.a);   // the same hero twice is allowed: compares two Widget levels
   const sel = (k) => `<select class="inp" id="gr_c${k}">${ids.map((id) => `<option value="${id}"${id === cmpS[k] ? " selected" : ""}>${esc(hname(id))} (S${HC_H[id].g})</option>`).join("")}</select>`;
   const wl = (k) => `<label class="gr-cwl">${esc(L.hvWl)} <input class="inp" type="number" min="0" max="10" id="gr_cw${k}" value="${cmpS["w" + k]}"></label>`;
   const side = (k) => `<div class="gr-cside">${`<span class="gr-pic"><img src="figures/heroes/hero_${cmpS[k]}.webp" alt="" loading="lazy" onerror="this.style.visibility='hidden'"></span>`}${sel(k)}${wl(k)}</div>`;
   const rows = ["bear", "pvp", "gar"].map((r) => {
     const sa = hcScore(cmpS.a, r, cmpS.wa), sb = hcScore(cmpS.b, r, cmpS.wb), d = Math.round((Math.max(sa, sb) / Math.min(sa, sb) - 1) * 100);
     const win = sa >= sb ? "a" : "b", pa = Math.round(100 * sa / (sa + sb));
-    return `<div class="gr-crow"><b>${esc(L.hcR[r])}</b><div class="gr-cbar"><span style="width:${pa}%"></span></div><span class="gr-cres">${d < 3 ? esc(L.hvEq) : esc(L.hvBetter.replace("{h}", hname(cmpS[win])).replace("{n}", d))}</span></div>`; }).join("");
+    return `<div class="gr-crow"><b>${esc(L.hcR[r])}</b><div class="gr-cbar"><span style="width:${pa}%"></span></div><span class="gr-cres">${d < 3 ? esc(L.hvEq) : esc(L.hvBetter.replace("{h}", hname(cmpS[win]) + (cmpS.a === cmpS.b ? ` Lv${cmpS["w" + win]}` : "")).replace("{n}", d))}</span></div>`; }).join("");
   return `<div class="card" id="gr_cmp"><h3>${esc(L.hvT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(L.hvNote)}</div>
     <div class="row gr-ctr">${HC_T.map((t) => `<button type="button" class="btn small${t === cmpS.t ? " primary" : ""}" data-ct="${t}">${esc(L.hcS[t])}</button>`).join("")}</div>
     <div class="gr-cvs">${side("a")}<em>vs</em>${side("b")}</div>${rows}
@@ -225,7 +228,7 @@ function cmpWire() {
   const root = $("gr_cmp"); if (!root) return;
   const redo = () => { try { localStorage.setItem("nxs-gr-cmp", JSON.stringify(cmpS)); } catch (e) {} const cur = $("gr_cmp"); if (!cur || !cur.isConnected) return; cur.outerHTML = cmpHtml(t()); cmpWire(); };
   root.querySelectorAll("[data-ct]").forEach((b) => b.onclick = () => { cmpS.t = b.dataset.ct; cmpS.a = cmpS.b = null; redo(); });
-  for (const k of ["a", "b"]) { $("gr_c" + k).onchange = (e) => { cmpS[k] = e.target.value; if (cmpS.a === cmpS.b) cmpS[k === "a" ? "b" : "a"] = null; redo(); };
+  for (const k of ["a", "b"]) { $("gr_c" + k).onchange = (e) => { cmpS[k] = e.target.value; redo(); };
     $("gr_cw" + k).onchange = (e) => { cmpS["w" + k] = Math.max(0, Math.min(10, parseInt(e.target.value, 10) || 0)); redo(); }; }
 }
 function hcHtml(L) {
