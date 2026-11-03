@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Growth: 🎯 second uses (joiners & side jobs)", /🎯 Second uses \(card after/, /🎯 Second uses: a joiner only uses/],
   ["Events: a to-do links several in-game guides (ig list)", /ig can also be a LIST of guide titles/, /A task can link several guides \(ig as a list\)/],
   ["Events: 📅 {date:+N} codes in in-game guides", /📅 date codes \(Sherry 2026-11-03\)/, /📅 Date codes: write \{date:\+N\}/],
   ["Events: ⭐ today + linked in-game guide on the task", /⭐ today \(Sherry 2026-11-02\)/, /⭐ A task due today lights up/],
@@ -64,7 +65,7 @@ const FEATURES = [
   ["Move: 📐 auto plan from a Mapper layout (road, stages, checks, edit, PNG)", /Auto plan from a Mapper layout/, /{ s: "#hp_root > h3", k: "hp01" }/],
   ["Move: 📐 shared auto plans (Plan list)", /Share as a plan/, /{ s: "#hp_root .hp-sh", k: "hp03" }/],
   ["Move tab", /🚚 Move/, /mv01:/],
-  ["Growth plan tab (proposal: how we grow attack / defense / Bear leaders)", /🧭 GROWTH tab \(officer-x7k2p9\.html#growth/, /growth: \[{ s: "#gr_title", k: "gr01" }\]/],
+  ["Growth plan tab (proposal: how we grow attack / defense / Bear leaders)", /🧭 GROWTH tab \(officer-x7k2p9\.html#growth/, /growth: \[{ s: "#gr_title", k: "gr01" }/],
   ["Attack planner tab (rallies needed from today's board strength)", /BATTLE tab \(officer-x7k2p9\.html#attack[^\n]*ATTACK PLANNER/, /{ s: "#ak_plan", k: "ak01" }/],
   ["Battle: 🏰 In our kingdom / ⚔️ KvK switch", /"🏰 In our kingdom"/, /🏰 In our kingdom \(us = NXS/],
   ["Battle: ⚔️ We attack / 🛡️ They attack us, tier Mix, troop ratio", /DIRECTION switch in the plan card[^\n]*\n- TIER "Mix…"[^\n]*\n- TROOP RATIO/, /{ s: "#ak_plan \.ak-dir", k: "ak03" }/],

@@ -126,7 +126,9 @@ const HN = { amadeus: { zh: "阿瑪迪斯", ko: "아마데우스", ar: "أماد
   hilde: { zh: "希爾德", ko: "힐데", ar: "هيلدي" }, petra: { zh: "小佩拉", ko: "리틀 페라", ar: "بيترا" }, margot: { zh: "瑪歌" }, thrud: { zh: "索德" },
   saul: { zh: "薩洛", ko: "살로", ar: "شاول" }, marlin: { zh: "馬林", ko: "마린", ar: "مارلين", pt: "Peixe Marlin" }, jaeger: { zh: "耶格爾", ko: "예거", ar: "ييجر" },
   rosa: { zh: "蘿莎" }, vivian: { zh: "薇薇安" },
-  gordon: { zh: "戈登", ko: "고든", ar: "جوردن" }, howard: { zh: "霍華德", ko: "하워드", ar: "هاورد" }, chenko: { zh: "琴科", ko: "첸코", ar: "تشينكو" }, amane: { zh: "雨音", ko: "아마네", ar: "أماني" } };
+  gordon: { zh: "戈登", ko: "고든", ar: "جوردن" }, howard: { zh: "霍華德", ko: "하워드", ar: "هاورد" }, chenko: { zh: "琴科", ko: "첸코", ar: "تشينكو" }, amane: { zh: "雨音", ko: "아마네", ar: "أماني" },
+  quinn: { zh: "奎恩" }, fahd: { zh: "法赫德" }, triton: { zh: "崔頓" }, charles: { zh: "查爾斯" }, diego: { zh: "迪亞哥" }, sophia: { zh: "蘇菲亞" }, luna: { zh: "露娜" }, yeonwoo: { zh: "妍雨" },
+  ava: { zh: "艾娃" }, weewoo: { en: "Wee & Woo" }, yang: { zh: "楊" }, liz: { zh: "莉茲" }, diana: { zh: "黛安娜" } };
 const hname = (id) => (HN[id] && (HN[id][lang] || HN[id].en)) || id.charAt(0).toUpperCase() + id.slice(1);
 const RANK = {
   pvp: { inf: [["alcar", 0], ["longfei", 28], ["amadeus", 47], ["eric", 48], ["helga", 51], ["zoe", 54]], cav: [["thrud", 0], ["petra", 7], ["margot", 8], ["hilde", 22], ["jabel", 26]], arc: [["vivian", 0], ["rosa", 7], ["jaeger", 26], ["marlin", 28], ["saul", 44]] },
@@ -178,6 +180,147 @@ function hcHtml(L) {
     <div class="gr-warn">${L.hcWarn.map((w) => `<div>⚠️ ${esc(w)}</div>`).join("")}</div></div>`;
 }
 const ul = (a) => `<ul class="gr-ul">${a.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>`;
+/* 🎯 Second uses (Sherry, 2026-11-03 — "weaker heroes can do other jobs, e.g. Saul"; Project doc claude/kingshot-hero-guide-gen1-5.md,
+   section "個別技能的第二用途"). A joiner only uses the FIRST hero's top-right skill — troop type, generation, stars and gear don't matter.
+   Tags are codes so every language reads the same numbers: [stat, %]. ⚠️ = not checked with our battle reports yet. */
+const SU_ROWS = [
+  ["out", [["amane", [["atk", 25]]], ["margot", [["atk", 25]]], ["luna", [["atk", 25]]], ["yeonwoo", [["leth", 25]]], ["chenko", [["leth", 25]]], ["amadeus", [["leth", 25]]],
+    ["vivian", [["etk", 25]]], ["weewoo", [["atk", 15], ["leth", 10]]], ["ava", [["edef", -25]], 1], ["yang", [["extra", 100]]]],
+    ["marlin", "rosa", "zoe", "petra", "liz", "jaeger"]],
+  ["gar", [["saul", [["def", 10], ["hp", 15]]], ["gordon", [["hp", 25]]], ["diego", [["def", 15], ["hp", 10]]], ["triton", [["def", 25]]], ["hilde", [["atk", 15], ["def", 10]]],
+    ["howard", [["hurt", -20]]], ["quinn", [["hurt", -20]]], ["fahd", [["edmg", -20]]], ["eric", [["eatk", -20]]], ["charles", [["eleth", -20]]]],
+    ["jabel", "helga", "longfei", "sophia", "alcar"]],
+  ["none", [["diana", []], ["forrest", []], ["seth", []], ["edwin", []], ["olive", []]], []],
+];
+const SU_SPECIAL = ["saul", "gordon", "hilde", "triton", "diego", "fahd", "zoe", "jabel", "ava", "weewoo", "amane", "yeonwoo", "diana", "forrest"];
+const SU = {
+  en: { suT: "🎯 Second uses — joiners & side jobs", suNote: "A joiner only uses the first hero's top-right skill — troop type, generation, stars and hero gear don't matter. So a hero that is weak as a leader can still be a great joiner. ⚠️ = not checked with our battle reports yet.",
+    suH: ["What for", "Fixed bonus (first choice)", "Chance-based (second choice)"],
+    suR: { out: "⚔️🐻 Damage joiner (Bear, PvP rallies)", gar: "🛡️ Garrison joiner", none: "❌ No use as a joiner" },
+    suS: { atk: "Atk", leth: "Leth", def: "Def", hp: "HP", etk: "Enemy dmg taken", edef: "Enemy Def", hurt: "Dmg taken", edmg: "Enemy dmg", eatk: "Enemy Atk", eleth: "Enemy Leth", extra: "Extra hit every 4 rounds" },
+    suRules: ["Garrison: pick 4 different kinds (same kind adds up with less each time, different kinds multiply). E.g. 1 damage cut (Howard) + Saul + Hilde + 1 Lethality (Chenko).",
+      "Two-in-one top-right skills (Saul, Diego, Hilde, Wee & Woo) are extra good: one slot, two stats — multiplied, better than one +25%.",
+      "When WE rally a garrison, defensive joiners help too: the garrison hits back, and Enemy Atk −20% (Eric), Enemy Leth −20% (Charles), Dmg taken −20% (Howard, Quinn) cut our losses."],
+    spT: "Hero by hero",
+    sp: { saul: "Weak as an archer lead, but one of the best garrison joiners (Def + HP). Green skill: construction speed +15%, cost −15%. Bottom-right Lethality +25% when he leads.",
+      gordon: "Top-right HP +25% → garrison joiner. As a lead his middle skill Attack +25% works too.",
+      hilde: "Top-right Attack + Defense → garrison and PvP joiner (only the Attack half helps against the Bear).",
+      triton: "Top-right Defense +25% → garrison joiner. Middle: skill damage +30% (hero skills are 27–46% of kills).",
+      diego: "Top-right Def + HP → garrison joiner, the Gen 8 Saul.",
+      fahd: "Cheap damage-cut garrison joiners: Howard, Quinn (Dmg taken −20%), Fahd (Enemy dmg −20%). Fahd green skill: solo beast-march speed +100%.",
+      zoe: "Middle Attack +25% (fixed) → useful as a lead, even the Bear infantry slot. As a joiner only a chance skill.",
+      jabel: "Free, garrison-type Widget → helps everyone when their own city is hit. Bottom-right Lethality +25%.",
+      ava: "Top-right Enemy Def −25% → great joiner against high-Defense targets (garrisons; the Bear ⚠️ not checked).",
+      weewoo: "Middle: damage vs infantry +25%, vs archers +30% → very good against the Bear (all infantry) and infantry walls.",
+      amane: "Green skill: Infirmary healing speed +50%.",
+      yeonwoo: "Green skill: research speed +15% (may help on KvK research day).",
+      diana: "No fight use: stamina −20%, beast-march speed +100% → beast hunting only.",
+      forrest: "R heroes (Forrest, Seth, Edwin, Olive): gathering speed +25% → gathering marches only." },
+    greenNote: "Green (development) skills work by themselves once unlocked — no need to put the hero anywhere (Sparrow 11/03). Gathering and beast-march speed may need the hero in that march ⚠️ not confirmed." },
+  zh: { suT: "🎯 英雄的第二用途：加入者和其他工作", suNote: "加入者只看第一位英雄的右上技能，跟兵種、代數、星級、英雄裝備都無關。所以當隊長不強的英雄，右上好就是好加入者。⚠️ = 還沒用我們的戰報驗證。",
+    suH: ["用途", "固定加成（優先）", "機率型（次選）"],
+    suR: { out: "⚔️🐻 輸出加入（熊獵、PvP 集結）", gar: "🛡️ 駐防加入", none: "❌ 當加入者沒用" },
+    suS: { atk: "攻", leth: "殺傷", def: "防", hp: "生命", etk: "敵受傷", edef: "敵防", hurt: "我方受傷", edmg: "敵傷害", eatk: "敵攻", eleth: "敵殺傷", extra: "每 4 回合額外一擊" },
+    suRules: ["駐防：4 個選 4 種不同類型（同一種疊在一起會遞減，不同種相乘）。例：1 減傷（霍華德）＋ 薩洛 ＋ 希爾德 ＋ 1 殺傷（琴科）。",
+      "「兩項合一」的右上（薩洛、迪亞哥、希爾德、Wee & Woo）特別划算：一格給兩種屬性，相乘之後比單項 +25% 好。",
+      "我們集結打駐防時，防守類加入者也有用：駐防方會反擊，敵攻 −20%（艾瑞克）、敵殺傷 −20%（查爾斯）、我方受傷 −20%（霍華德、奎恩）都能減少我們的損失。"],
+    spT: "個別英雄",
+    sp: { saul: "當弓兵隊長偏弱，但是駐防加入首選之一（防＋生命）。綠色技能：建造速度 +15%、建造成本 −15%。右下殺傷 +25%，當隊長也有輸出。",
+      gordon: "右上生命 +25% → 駐防加入；當隊長時右中攻擊 +25% 也有用。",
+      hilde: "右上攻擊＋防禦 → 駐防加入、PvP 加入都能用（熊獵只有攻擊那一半有用）。",
+      triton: "右上防禦 +25% → 駐防加入；右中技能傷害 +30%（英雄技能擊殺占戰鬥 27–46%）。",
+      diego: "右上防＋生命 → 駐防加入，第 8 代版的薩洛。",
+      fahd: "便宜的減傷駐防加入：霍華德、奎恩（我方受傷 −20%）、法赫德（敵傷害 −20%）。法赫德綠色技能：單人打野行軍速度 +100%。",
+      zoe: "右中攻擊 +25%（固定）→ 當隊長有用，包括熊獵步兵位；當加入者只有機率技能。",
+      jabel: "免費、守城派專屬 → 自己城被打時每個人都有用；右下殺傷 +25%。",
+      ava: "右上敵防 −25% → 打高防禦目標（駐防方；熊 ⚠️ 未驗證）特別好的加入者。",
+      weewoo: "右中對步兵傷害 +25%、對弓兵 +30% → 打熊（全是步兵）和打步兵牆特別好。",
+      amane: "綠色技能：醫院治療速度 +50%。",
+      yeonwoo: "綠色技能：研究速度 +15%（KvK 研究日可能有用）。",
+      diana: "戰鬥沒用：體力消耗 −20%、打野行軍速度 +100% → 專門打野。",
+      forrest: "R 級英雄（Forrest、Seth、Edwin、Olive）：採集速度 +25% → 採集隊專用。" },
+    greenNote: "綠色（發展）技能解鎖就自動生效，不用放在任何位置（Sparrow 11/03）。野外採集、打野行軍速度這類跟出征有關的，可能要英雄在那支隊伍裡 ⚠️ 未確認。" },
+  pt: { suT: "🎯 Segundo uso — participantes e outras funções", suNote: "Um participante só usa a habilidade superior direita do primeiro herói — tipo de tropa, geração, estrelas e equipamento não importam. Um herói fraco como líder ainda pode ser ótimo participante. ⚠️ = ainda não conferido com nossos relatórios.",
+    suH: ["Para quê", "Bônus fixo (primeira escolha)", "Por chance (segunda escolha)"],
+    suR: { out: "⚔️🐻 Participante de dano (Urso, rallies PvP)", gar: "🛡️ Participante de guarnição", none: "❌ Inútil como participante" },
+    suS: { atk: "Atq", leth: "Let", def: "Def", hp: "Vida", etk: "Dano sofrido inimigo", edef: "Def inimiga", hurt: "Dano sofrido", edmg: "Dano inimigo", eatk: "Atq inimigo", eleth: "Let inimiga", extra: "Golpe extra a cada 4 turnos" },
+    suRules: ["Guarnição: escolha 4 tipos diferentes (o mesmo tipo soma com menos a cada vez; tipos diferentes se multiplicam). Ex.: 1 redução de dano (Howard) + Saul + Hilde + 1 Letalidade (Chenko).",
+      "Habilidades \"dois em um\" (Saul, Diego, Hilde, Wee & Woo) valem muito: um espaço, dois atributos — multiplicados, melhor que um +25%.",
+      "Quando NÓS atacamos uma guarnição, participantes defensivos também ajudam: a guarnição revida, e Atq inimigo −20% (Eric), Let inimiga −20% (Charles), Dano sofrido −20% (Howard, Quinn) reduzem nossas perdas."],
+    spT: "Herói por herói",
+    sp: { saul: "Fraco como líder arqueiro, mas um dos melhores participantes de guarnição (Def + Vida). Habilidade verde: construção +15%, custo −15%. Inferior direita Letalidade +25% quando lidera.",
+      gordon: "Superior direita Vida +25% → participante de guarnição. Como líder, a do meio Ataque +25% também vale.",
+      hilde: "Superior direita Ataque + Defesa → participante de guarnição e PvP (contra o Urso só metade ajuda).",
+      triton: "Superior direita Defesa +25% → participante de guarnição. Meio: dano de habilidade +30% (habilidades fazem 27–46% das baixas).",
+      diego: "Superior direita Def + Vida → participante de guarnição, o Saul da Gen 8.",
+      fahd: "Participantes baratos de redução de dano: Howard, Quinn (Dano sofrido −20%), Fahd (Dano inimigo −20%). Verde do Fahd: velocidade de marcha contra feras +100%.",
+      zoe: "Meio Ataque +25% (fixo) → útil como líder, até na infantaria do Urso. Como participante só tem chance.",
+      jabel: "Grátis, Ferramenta de guarnição → ajuda todos quando a própria cidade é atacada. Inferior direita Letalidade +25%.",
+      ava: "Superior direita Def inimiga −25% → ótima participante contra alvos de muita Defesa (guarnições; Urso ⚠️ não conferido).",
+      weewoo: "Meio: dano contra infantaria +25%, contra arqueiros +30% → muito bom contra o Urso (só infantaria) e paredes de infantaria.",
+      amane: "Habilidade verde: cura na Enfermaria +50%.",
+      yeonwoo: "Habilidade verde: pesquisa +15% (pode ajudar no dia de pesquisa do KvK).",
+      diana: "Sem uso em combate: vigor −20%, marcha contra feras +100% → só caçar feras.",
+      forrest: "Heróis R (Forrest, Seth, Edwin, Olive): coleta +25% → só marchas de coleta." },
+    greenNote: "Habilidades verdes (desenvolvimento) funcionam sozinhas depois de desbloqueadas — não precisa colocar o herói em lugar nenhum (Sparrow 03/11). Coleta e marcha contra feras talvez precisem do herói naquela marcha ⚠️ não confirmado." },
+  ar: { suT: "🎯 الاستخدام الثاني — المنضمون ومهام أخرى", suNote: "المنضم يستخدم فقط المهارة العليا اليمنى للبطل الأول — نوع القوات والجيل والنجوم والمعدات لا تهم. لذلك قد يكون البطل الضعيف كقائد منضمًا ممتازًا. ⚠️ = لم يُتحقق منه بتقارير معاركنا بعد.",
+    suH: ["الغرض", "مكافأة ثابتة (الخيار الأول)", "بالاحتمال (الخيار الثاني)"],
+    suR: { out: "⚔️🐻 منضم للضرر (الدب، حشود PvP)", gar: "🛡️ منضم للحامية", none: "❌ لا فائدة كمنضم" },
+    suS: { atk: "هجوم", leth: "فتك", def: "دفاع", hp: "صحة", etk: "ضرر يتلقاه العدو", edef: "دفاع العدو", hurt: "الضرر المتلقى", edmg: "ضرر العدو", eatk: "هجوم العدو", eleth: "فتك العدو", extra: "ضربة إضافية كل 4 جولات" },
+    suRules: ["الحامية: اختر 4 أنواع مختلفة (النوع نفسه يُجمع ويقل في كل مرة، والأنواع المختلفة تتضاعف). مثال: 1 تقليل ضرر (Howard) + Saul + Hilde + 1 فتك (Chenko).",
+      "المهارات \"اثنان في واحد\" (Saul وDiego وHilde وWee & Woo) مفيدة جدًا: خانة واحدة وصفتان — تتضاعفان فتتفوقان على +25% واحدة.",
+      "عندما نحشد نحن على حامية، يفيد المنضمون الدفاعيون أيضًا: الحامية ترد، وهجوم العدو −20% (Eric) وفتك العدو −20% (Charles) والضرر المتلقى −20% (Howard وQuinn) تقلل خسائرنا."],
+    spT: "بطلًا بطلًا",
+    sp: { saul: "ضعيف كقائد رماة لكنه من أفضل المنضمين للحامية (دفاع + صحة). مهارة خضراء: سرعة البناء +15% والتكلفة −15%. السفلى اليمنى فتك +25% عندما يقود.",
+      gordon: "العليا اليمنى صحة +25% → منضم للحامية. كقائد تعمل الوسطى هجوم +25% أيضًا.",
+      hilde: "العليا اليمنى هجوم + دفاع → منضم للحامية وPvP (ضد الدب يفيد نصف الهجوم فقط).",
+      triton: "العليا اليمنى دفاع +25% → منضم للحامية. الوسطى: ضرر المهارات +30% (المهارات 27–46% من القتلى).",
+      diego: "العليا اليمنى دفاع + صحة → منضم للحامية، Saul الجيل الثامن.",
+      fahd: "منضمون رخيصون لتقليل الضرر: Howard وQuinn (الضرر المتلقى −20%) وFahd (ضرر العدو −20%). مهارة Fahd الخضراء: سرعة الزحف إلى الوحوش +100%.",
+      zoe: "الوسطى هجوم +25% (ثابت) → مفيدة كقائدة، حتى في خانة مشاة الدب. كمنضمة مهارة احتمالية فقط.",
+      jabel: "مجانية، أجزاء حامية → تفيد الجميع عندما تُهاجم مدينتهم. السفلى اليمنى فتك +25%.",
+      ava: "العليا اليمنى دفاع العدو −25% → منضمة ممتازة ضد الأهداف عالية الدفاع (الحاميات؛ الدب ⚠️ لم يُتحقق).",
+      weewoo: "الوسطى: ضرر ضد المشاة +25% وضد الرماة +30% → ممتاز ضد الدب (كله مشاة) وجدران المشاة.",
+      amane: "مهارة خضراء: سرعة العلاج في المستشفى +50%.",
+      yeonwoo: "مهارة خضراء: سرعة البحث +15% (قد تفيد في يوم البحث في KvK).",
+      diana: "لا فائدة قتالية: التحمل −20% وسرعة الزحف إلى الوحوش +100% → لصيد الوحوش فقط.",
+      forrest: "أبطال R (Forrest وSeth وEdwin وOlive): سرعة الجمع +25% → لزحف الجمع فقط." },
+    greenNote: "المهارات الخضراء (التطوير) تعمل وحدها بعد فتحها — لا حاجة لوضع البطل في أي مكان (Sparrow 11/03). الجمع وسرعة الزحف إلى الوحوش قد تحتاج البطل في ذلك الزحف ⚠️ غير مؤكد." },
+  ko: { suT: "🎯 영웅의 두 번째 쓰임 — 집결원과 다른 일", suNote: "집결원은 첫 번째 영웅의 오른쪽 위 스킬만 써 — 병종, 세대, 성급, 영웅 장비는 상관없어. 대장으로 약한 영웅도 오른쪽 위가 좋으면 좋은 집결원이야. ⚠️ = 아직 우리 전투 보고서로 확인 안 됨.",
+    suH: ["용도", "고정 버프 (우선)", "확률형 (차선)"],
+    suR: { out: "⚔️🐻 딜 집결원 (곰, PvP 집결)", gar: "🛡️ 방어 집결원", none: "❌ 집결원으로 쓸모없음" },
+    suS: { atk: "공격", leth: "파괴", def: "방어", hp: "생명", etk: "적 받는 피해", edef: "적 방어", hurt: "받는 피해", edmg: "적 피해", eatk: "적 공격", eleth: "적 파괴", extra: "4턴마다 추가 1타" },
+    suRules: ["방어: 4명은 서로 다른 종류로 (같은 종류는 겹칠수록 덜 오르고, 다른 종류는 곱해져). 예: 피해 감소 1 (하워드) + 살로 + 힐데 + 파괴 1 (첸코).",
+      "\"두 가지 한 번에\"인 오른쪽 위 (살로, 디에고, 힐데, Wee & Woo)가 특히 좋아: 한 칸에 두 능력치 — 곱해져서 +25% 하나보다 좋아.",
+      "우리가 방어 건물을 집결할 때도 방어형 집결원이 도움이 돼: 상대가 반격하니까 적 공격 −20% (에릭), 적 파괴 −20% (찰스), 받는 피해 −20% (하워드, 퀸)가 우리 손실을 줄여."],
+    spT: "영웅별",
+    sp: { saul: "궁병 대장으로는 약하지만 방어 집결원 최고 중 하나 (방어 + 생명). 녹색 스킬: 건설 속도 +15%, 건설 비용 −15%. 오른쪽 아래 파괴 +25%는 대장일 때 딜.",
+      gordon: "오른쪽 위 생명 +25% → 방어 집결원. 대장일 때 가운데 공격 +25%도 적용.",
+      hilde: "오른쪽 위 공격 + 방어 → 방어·PvP 집결원 (곰에는 공격 절반만 도움).",
+      triton: "오른쪽 위 방어 +25% → 방어 집결원. 가운데: 스킬 피해 +30% (영웅 스킬 처치가 전투의 27–46%).",
+      diego: "오른쪽 위 방어 + 생명 → 방어 집결원, 8세대판 살로.",
+      fahd: "싼 피해 감소 방어 집결원: 하워드, 퀸 (받는 피해 −20%), 파드 (적 피해 −20%). 파드 녹색 스킬: 혼자 야수 사냥 행군 속도 +100%.",
+      zoe: "가운데 공격 +25% (고정) → 대장으로 유용, 곰 보병 자리도. 집결원으로는 확률 스킬뿐.",
+      jabel: "무료, 방어형 부속품 → 자기 도시가 공격받을 때 모두에게 도움. 오른쪽 아래 파괴 +25%.",
+      ava: "오른쪽 위 적 방어 −25% → 방어가 높은 목표 (방어 건물; 곰 ⚠️ 미확인)에 아주 좋은 집결원.",
+      weewoo: "가운데: 보병 상대 피해 +25%, 궁병 상대 +30% → 곰 (전부 보병)과 보병 벽에 아주 좋아.",
+      amane: "녹색 스킬: 의무실 치료 속도 +50%.",
+      yeonwoo: "녹색 스킬: 연구 속도 +15% (KvK 연구 날에 도움될 수도).",
+      diana: "전투에 쓸모없음: 체력 소모 −20%, 야수 사냥 행군 속도 +100% → 야수 사냥 전용.",
+      forrest: "R 영웅 (포레스트, 세스, 에드윈, 올리브): 채집 속도 +25% → 채집 부대 전용." },
+    greenNote: "녹색 (발전) 스킬은 해금하면 자동 적용 — 어디에도 배치할 필요 없어 (Sparrow 11/03). 채집, 야수 사냥 행군 속도는 그 부대에 영웅이 있어야 할 수도 ⚠️ 미확인." },
+};
+for (const [l, o] of Object.entries(SU)) Object.assign(T[l], o);
+function suHtml(L) {
+  const tag = (parts) => parts.map(([k, v]) => k === "extra" ? L.suS.extra : `${L.suS[k]} ${v > 0 ? "+" : "−"}${Math.abs(v)}%`).join(" · ");
+  const c = (id, parts, warn) => `<span class="gr-chip gr-su"><span class="gr-pic"><img src="figures/heroes/hero_${id}.webp" alt="" loading="lazy" onerror="this.style.visibility='hidden'"></span><b dir="auto">${esc(hname(id))}</b>${parts && parts.length ? `<small dir="auto">${esc(tag(parts))}${warn ? " ⚠️" : ""}</small>` : ""}</span>`;
+  return `<div class="card" id="gr_su"><h3>${esc(L.suT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(L.suNote)}</div>
+    ${SU_ROWS.map(([k, fixed, chance]) => `<div class="gr-sub"><h4 class="gr-h4">${esc(L.suR[k])}</h4>${chance.length ? `<div class="gr-sul">${esc(L.suH[1])}</div>` : ""}<div class="gr-chips">${fixed.map(([id, p, w]) => c(id, p, w)).join("")}</div>${chance.length ? `<div class="gr-sul">${esc(L.suH[2])}</div><div class="gr-chips">${chance.map((id) => c(id)).join("")}</div>` : ""}</div>`).join("")}
+    ${ul(L.suRules)}
+    <h4 class="gr-h4">${esc(L.spT)}</h4>
+    <div class="gr-sp">${SU_SPECIAL.map((id) => `<div class="gr-spr"><span class="gr-pic"><img src="figures/heroes/hero_${id}.webp" alt="" loading="lazy" onerror="this.style.visibility='hidden'"></span><div><b dir="auto">${esc(hname(id))}</b><div dir="auto">${esc(L.sp[id])}</div></div></div>`).join("")}</div>
+    <div class="muted" style="font-size:12.5px;margin-top:8px">💡 ${esc(L.greenNote)}</div></div>`;
+}
 /* heroes for each side: [id, Widget stat in rallies / garrisons, how to get] — claude/kingshot-attack-vs-defense.md */
 const SIDE = {
   atk: { inf: [["amadeus", "atk", "paid"], ["helga", "leth", "paid"]], cav: [["petra", "atk", "roulette"], ["thrud", "leth", "heavy"]], arc: [["marlin", "leth"], ["rosa", "leth", "roulette"], ["vivian", ""]], seq: { arc: 1 } },
@@ -198,6 +341,7 @@ function render() {
     <div class="card"><h3>${esc(L.gjT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(L.gjNote)}</div>${ul(L.gjRules)}
       <div class="gr-tw"><table class="gr-cmp gr-gj"><thead><tr>${L.gjH.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
       <tbody>${GJ.map(([c, d]) => `<tr><td><div class="gr-chips">${c.map(([id, n]) => chip([id, "", ""]).replace('<span class="gr-pic">', `<span class="gr-pic">${n > 1 ? `<b class="gr-n">×${n}</b>` : ""}`)).join("")}</div></td><td class="gr-gjv">${d ? `−${d}%` : `✅ ${esc(L.gjBest)}`}</td></tr>`).join("")}</tbody></table></div></div>
+    ${suHtml(L)}
     <div class="card"><h3>${esc(L.heroT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(L.heroNote)}</div>
       <div class="gr-tw"><table class="gr-cmp gr-heroes-t"><thead><tr><th></th><th>${esc(L.cmpH[1])}</th><th>${esc(L.cmpH[2])}</th></tr></thead>
       <tbody>${["inf", "cav", "arc"].map((tr) => `<tr><th>${esc(L.trp[tr])}</th><td>${side("atk", tr)}</td><td>${side("def", tr)}</td></tr>`).join("")}</tbody></table></div></div>
