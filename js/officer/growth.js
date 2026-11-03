@@ -199,27 +199,27 @@ function hcScore(id, role, wl) {   // wl = Widget level 0–10
   return off * HC_T.reduce((s, k) => s + HC_DEF[k] * D[k] / D0[k] / (taken * (1 - (drT[k] || 0))), 0);
 }
 const CMP = {
-  en: { cmpT: "⚖️ Compare two heroes", cmpNote: "Pick a troop slot and two heroes. Same model as the hero comparison above: max level and stars; the Widget level scales the Widget's bonuses in proportion (an estimate).", cmpWl: "Widget Lv", cmpEq: "about equal", cmpBetter: "{h} +{n}%", cmpWhy: "Rally Widgets only work when you open a rally (Bear, PvP); garrison Widgets only in garrisons.", cmpWarn: "Stars are assumed max — a hero with fewer stars does less. Rough guide, not a promise." },
-  zh: { cmpT: "⚖️ 兩位英雄比一比", cmpNote: "選兵種位置和兩位英雄。跟上面「英雄比較」同一個模型：滿級、滿星；零件等級按比例算零件的加成（估計值）。", cmpWl: "零件 Lv", cmpEq: "差不多", cmpBetter: "{h} +{n}%", cmpWhy: "集結派零件只在自己開集結時有用（熊獵、PvP）；守城派只在駐防時有用。", cmpWarn: "星級當作滿星，星級少的英雄會比較弱。只是大概的參考，不是保證。" },
-  pt: { cmpT: "⚖️ Compare dois heróis", cmpNote: "Escolha uma posição de tropa e dois heróis. Mesmo modelo da comparação acima: nível e estrelas máximos; o nível da Ferramenta escala os bônus dela em proporção (estimativa).", cmpWl: "Ferramenta Nv", cmpEq: "quase igual", cmpBetter: "{h} +{n}%", cmpWhy: "Ferramentas de rally só valem quando você abre o rally (Urso, PvP); as de guarnição só em guarnições.", cmpWarn: "Estrelas supostas no máximo — um herói com menos estrelas rende menos. Guia aproximado, não garantia." },
-  ar: { cmpT: "⚖️ قارن بين بطلين", cmpNote: "اختر موقع القوات وبطلين. نفس نموذج المقارنة أعلاه: أعلى مستوى ونجوم؛ مستوى الأجزاء يضبط مكافآتها بالتناسب (تقدير).", cmpWl: "الأجزاء Lv", cmpEq: "متقاربان", cmpBetter: "{h} +{n}%", cmpWhy: "أجزاء الحشد تعمل فقط عندما تفتح حشدًا (الدب، PvP)؛ وأجزاء الحامية في الحاميات فقط.", cmpWarn: "النجوم مفترضة بالحد الأقصى — البطل الأقل نجومًا أضعف. دليل تقريبي، لا وعد." },
-  ko: { cmpT: "⚖️ 영웅 둘 비교", cmpNote: "병종 자리와 영웅 둘을 골라. 위 영웅 비교와 같은 모델: 만렙·만성; 부속품 레벨은 부속품 보너스를 비례로 계산 (추정치).", cmpWl: "부속품 Lv", cmpEq: "비슷", cmpBetter: "{h} +{n}%", cmpWhy: "집결형 부속품은 직접 집결을 열 때만 (곰, PvP), 방어형은 방어할 때만 적용돼.", cmpWarn: "성급은 만성으로 가정 — 성급이 낮으면 더 약해. 대략적인 참고일 뿐." } };
+  en: { hvT: "⚖️ Compare two heroes", hvNote: "Pick a troop slot and two heroes. Same model as the hero comparison above: max level and stars; the Widget level scales the Widget's bonuses in proportion (an estimate).", hvWl: "Widget Lv", hvEq: "about equal", hvBetter: "{h} +{n}%", hvWhy: "Rally Widgets only work when you open a rally (Bear, PvP); garrison Widgets only in garrisons.", hvWarn: "Stars are assumed max — a hero with fewer stars does less. Rough guide, not a promise." },
+  zh: { hvT: "⚖️ 兩位英雄比一比", hvNote: "選兵種位置和兩位英雄。跟上面「英雄比較」同一個模型：滿級、滿星；零件等級按比例算零件的加成（估計值）。", hvWl: "零件 Lv", hvEq: "差不多", hvBetter: "{h} +{n}%", hvWhy: "集結派零件只在自己開集結時有用（熊獵、PvP）；守城派只在駐防時有用。", hvWarn: "星級當作滿星，星級少的英雄會比較弱。只是大概的參考，不是保證。" },
+  pt: { hvT: "⚖️ Compare dois heróis", hvNote: "Escolha uma posição de tropa e dois heróis. Mesmo modelo da comparação acima: nível e estrelas máximos; o nível da Ferramenta escala os bônus dela em proporção (estimativa).", hvWl: "Ferramenta Nv", hvEq: "quase igual", hvBetter: "{h} +{n}%", hvWhy: "Ferramentas de rally só valem quando você abre o rally (Urso, PvP); as de guarnição só em guarnições.", hvWarn: "Estrelas supostas no máximo — um herói com menos estrelas rende menos. Guia aproximado, não garantia." },
+  ar: { hvT: "⚖️ قارن بين بطلين", hvNote: "اختر موقع القوات وبطلين. نفس نموذج المقارنة أعلاه: أعلى مستوى ونجوم؛ مستوى الأجزاء يضبط مكافآتها بالتناسب (تقدير).", hvWl: "الأجزاء Lv", hvEq: "متقاربان", hvBetter: "{h} +{n}%", hvWhy: "أجزاء الحشد تعمل فقط عندما تفتح حشدًا (الدب، PvP)؛ وأجزاء الحامية في الحاميات فقط.", hvWarn: "النجوم مفترضة بالحد الأقصى — البطل الأقل نجومًا أضعف. دليل تقريبي، لا وعد." },
+  ko: { hvT: "⚖️ 영웅 둘 비교", hvNote: "병종 자리와 영웅 둘을 골라. 위 영웅 비교와 같은 모델: 만렙·만성; 부속품 레벨은 부속품 보너스를 비례로 계산 (추정치).", hvWl: "부속품 Lv", hvEq: "비슷", hvBetter: "{h} +{n}%", hvWhy: "집결형 부속품은 직접 집결을 열 때만 (곰, PvP), 방어형은 방어할 때만 적용돼.", hvWarn: "성급은 만성으로 가정 — 성급이 낮으면 더 약해. 대략적인 참고일 뿐." } };
 for (const [l, o] of Object.entries(CMP)) Object.assign(T[l], o);
 let cmpS = (() => { try { return JSON.parse(localStorage.getItem("nxs-gr-cmp")) || null; } catch (e) { return null; } })() || { t: "cav", a: "petra", b: "hilde", wa: 10, wb: 10 };
 function cmpHtml(L) {
   const ids = Object.keys(HC_H).filter((id) => HC_H[id].t === cmpS.t);
   if (!ids.includes(cmpS.a)) cmpS.a = ids[0]; if (!ids.includes(cmpS.b) || cmpS.b === cmpS.a) cmpS.b = ids.find((x) => x !== cmpS.a);
   const sel = (k) => `<select class="inp" id="gr_c${k}">${ids.map((id) => `<option value="${id}"${id === cmpS[k] ? " selected" : ""}>${esc(hname(id))} (S${HC_H[id].g})</option>`).join("")}</select>`;
-  const wl = (k) => `<label class="gr-cwl">${esc(L.cmpWl)} <input class="inp" type="number" min="0" max="10" id="gr_cw${k}" value="${cmpS["w" + k]}"></label>`;
+  const wl = (k) => `<label class="gr-cwl">${esc(L.hvWl)} <input class="inp" type="number" min="0" max="10" id="gr_cw${k}" value="${cmpS["w" + k]}"></label>`;
   const side = (k) => `<div class="gr-cside">${`<span class="gr-pic"><img src="figures/heroes/hero_${cmpS[k]}.webp" alt="" loading="lazy" onerror="this.style.visibility='hidden'"></span>`}${sel(k)}${wl(k)}</div>`;
   const rows = ["bear", "pvp", "gar"].map((r) => {
     const sa = hcScore(cmpS.a, r, cmpS.wa), sb = hcScore(cmpS.b, r, cmpS.wb), d = Math.round((Math.max(sa, sb) / Math.min(sa, sb) - 1) * 100);
     const win = sa >= sb ? "a" : "b", pa = Math.round(100 * sa / (sa + sb));
-    return `<div class="gr-crow"><b>${esc(L.hcR[r])}</b><div class="gr-cbar"><span style="width:${pa}%"></span></div><span class="gr-cres">${d < 3 ? esc(L.cmpEq) : esc(L.cmpBetter.replace("{h}", hname(cmpS[win])).replace("{n}", d))}</span></div>`; }).join("");
-  return `<div class="card" id="gr_cmp"><h3>${esc(L.cmpT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(L.cmpNote)}</div>
+    return `<div class="gr-crow"><b>${esc(L.hcR[r])}</b><div class="gr-cbar"><span style="width:${pa}%"></span></div><span class="gr-cres">${d < 3 ? esc(L.hvEq) : esc(L.hvBetter.replace("{h}", hname(cmpS[win])).replace("{n}", d))}</span></div>`; }).join("");
+  return `<div class="card" id="gr_cmp"><h3>${esc(L.hvT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(L.hvNote)}</div>
     <div class="row gr-ctr">${HC_T.map((t) => `<button type="button" class="btn small${t === cmpS.t ? " primary" : ""}" data-ct="${t}">${esc(L.hcS[t])}</button>`).join("")}</div>
     <div class="gr-cvs">${side("a")}<em>vs</em>${side("b")}</div>${rows}
-    <div class="muted" style="font-size:12.5px;margin-top:8px">💡 ${esc(L.cmpWhy)}</div><div class="gr-warn"><div>⚠️ ${esc(L.cmpWarn)}</div></div></div>`;
+    <div class="muted" style="font-size:12.5px;margin-top:8px">💡 ${esc(L.hvWhy)}</div><div class="gr-warn"><div>⚠️ ${esc(L.hvWarn)}</div></div></div>`;
 }
 function cmpWire() {
   const root = $("gr_cmp"); if (!root) return;
