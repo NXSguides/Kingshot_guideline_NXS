@@ -662,14 +662,14 @@ Marlin — Gen 2, Pemanah, SSR, Tempur
   Pemanah reli serangan sejati pertama. Beralih ke dia akan menaikkan skor Bear Hunt-mu secara nyata. Penghasil damage AoE dan pengendali massa luar biasa di Arena dan Penaklukan.
   "Untuk orang yang membawa rum sebanyak itu, bidikan Marlin jitu luar biasa."
 Petra — Gen 3, Kavaleri, SSR, Tempur
-  Peringkat lengkap untuk generasi ini segera hadir.
+  Kapten Reli Bear Hunt ✅; Peserta Bear Hunt ⚠️; Kapten Reli PvP ✅; Pemimpin garnisun ⚠️; Peserta PvP ⚠️; Barisan solo —; Arena / Penaklukan —
   WAJIB DIBANGUN (Rolet Hero). Hero Bear Hunt yang sangat baik, tetap berguna sampai Gen 7. F2P: kavaleri serangan yang dibangun dari Rolet Hero.
 Eric — Gen 3, Infanteri, SSR, Tempur
-  Peringkat lengkap untuk generasi ini segera hadir.
-  Lewati kecuali kamu fokus ke PvP / pertahanan garnisun.
+  Kapten Reli Bear Hunt ❌; Peserta Bear Hunt ❌; Kapten Reli PvP ❌; Pemimpin garnisun ✅; Peserta PvP ✅; Barisan solo —; Arena / Penaklukan —
+  Ketiga skill ekspedisi bertahan (Health +25%, damage diterima −20% dua kali); Widget tipe bertahan: pemimpin garnisun murni. Skill peserta: Attack musuh −20% — berguna di garnisun dan reli PvP, tidak berguna untuk Bear Hunt.
 Jaeger — Gen 3, Pemanah, SSR, Tempur
-  Peringkat lengkap untuk generasi ini segera hadir.
-  Lewati kecuali kamu fokus ke PvP / pertahanan garnisun.
+  Kapten Reli Bear Hunt ⚠️; Peserta Bear Hunt ⚠️; Kapten Reli PvP ⚠️; Pemimpin garnisun ✅; Peserta PvP ⚠️; Barisan solo —; Arena / Penaklukan —
+  Pemanah bertahan: Lethality musuh −20% (peluang), Health lebih tinggi, peluang damage lebih besar. Widget tipe bertahan: pemimpin garnisun pemanah, lebih baik dari Saul. Skill peserta berbasis peluang.
 Margot — Gen 4, Kavaleri, SSR, Tempur
   Kapten Reli Bear Hunt ⚠️; Peserta Bear Hunt ✅; Kapten Reli PvP ⚠️; Pemimpin garnisun ✅; Peserta PvP ✅; Barisan solo —; Arena / Penaklukan —
   Skill peserta: seluruh reli dapat +25% Attack — salah satu peserta terbaik untuk Bear Hunt dan PvP. Skill lainnya untuk damage, tapi Widget-nya tipe bertahan, jadi sebagai pemimpin lebih cocok untuk garnisun daripada reli.

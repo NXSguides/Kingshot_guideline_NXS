@@ -664,14 +664,14 @@ Marlin — Gen 2, Bogenschütze, SSR, Kampf
   Der erste echte offensive Rally-Bogenschütze. Mit ihm steigt deine Punktzahl bei Bärenjagd spürbar. Starker Flächenschaden und Massenkontrolle in Arena und Eroberung.
   "Für die Menge Rum, die er dabeihatte, zielte Marlin erstaunlich gut."
 Petra — Gen 3, Kavallerie, SSR, Kampf
-  Detaillierte Bewertungen für diese Generation folgen bald.
+  Bärenjagd: Rally-Kapitän ✅; Bärenjagd: Teilnehmer ⚠️; PvP: Rally-Kapitän ✅; Garnisonsführer ⚠️; PvP: Teilnehmer ⚠️; Einzelmarsch —; Arena / Eroberung —
   PFLICHT-AUSBAU (Helden Roulette). Hervorragende Heldin für Bärenjagd, wertvoll bis Gen 7. F2P: die offensive Kavallerie, die man über Helden Roulette ausbaut.
 Eric — Gen 3, Infanterie, SSR, Kampf
-  Detaillierte Bewertungen für diese Generation folgen bald.
-  Überspringen, außer du setzt auf PvP / Garnisonsverteidigung.
+  Bärenjagd: Rally-Kapitän ❌; Bärenjagd: Teilnehmer ❌; PvP: Rally-Kapitän ❌; Garnisonsführer ✅; PvP: Teilnehmer ✅; Einzelmarsch —; Arena / Eroberung —
+  Alle drei Expeditions-Skills verteidigen (Gesundheit +25%, erlittener Schaden zweimal −20%); defensives Element: reiner Garnisonsführer. Teilnehmer-Skill: gegnerischer Angriff −20% — nützlich in Garnisonen und PvP-Rallys, nutzlos gegen den Bärenjagd.
 Jaeger — Gen 3, Bogenschütze, SSR, Kampf
-  Detaillierte Bewertungen für diese Generation folgen bald.
-  Überspringen, außer du setzt auf PvP / Garnisonsverteidigung.
+  Bärenjagd: Rally-Kapitän ⚠️; Bärenjagd: Teilnehmer ⚠️; PvP: Rally-Kapitän ⚠️; Garnisonsführer ✅; PvP: Teilnehmer ⚠️; Einzelmarsch —; Arena / Eroberung —
+  Defensiver Bogenschütze: gegnerische Tödlichkeit −20% (Chance), mehr Gesundheit, Chance auf mehr Schaden. Defensives Element: der Garnisonsführer für Bogenschützen, besser als Saul. Teilnehmer-Skill ist zufallsbasiert.
 Margot — Gen 4, Kavallerie, SSR, Kampf
   Bärenjagd: Rally-Kapitän ⚠️; Bärenjagd: Teilnehmer ✅; PvP: Rally-Kapitän ⚠️; Garnisonsführer ✅; PvP: Teilnehmer ✅; Einzelmarsch —; Arena / Eroberung —
   Teilnehmer-Skill: die ganze Rally bekommt +25% Angriff — einer der besten Teilnehmer für Bärenjagd und PvP. Ihre anderen Skills machen Schaden, aber ihr Element ist defensiv – als Anführerin passt sie besser in Garnisonen als in Rallys.

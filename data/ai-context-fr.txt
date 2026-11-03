@@ -662,14 +662,14 @@ Marlin — Gén 2, Archer, SSR, Combat
   Le premier vrai archer de ralliement offensif. Passer à lui augmentera nettement votre score à Chasse à l'Ours. Superbe en dégâts de zone et en contrôle de foule en Arène et en Conquête.
   "Marlin visait étonnamment bien, vu la quantité de rhum qu'il transportait."
 Petra — Gén 3, Cavalerie, SSR, Combat
-  Les notes détaillées pour cette génération arrivent bientôt.
+  Chasse à l'Ours : Capitaine de Ralliement ✅; Chasse à l'Ours : participant ⚠️; PvP : Capitaine de Ralliement ✅; Chef de garnison ⚠️; PvP : participant ⚠️; Marche solo —; Arène / Conquête —
   À MONTER ABSOLUMENT (Roulette des Héros). Excellente héroïne pour Chasse à l'Ours, utile jusqu'en Gén 7. F2P : la cavalerie offensive à monter via Roulette des Héros.
 Éric — Gén 3, Infanterie, SSR, Combat
-  Les notes détaillées pour cette génération arrivent bientôt.
-  À ignorer, sauf si vous misez sur le PvP / la défense de garnison.
+  Chasse à l'Ours : Capitaine de Ralliement ❌; Chasse à l'Ours : participant ❌; PvP : Capitaine de Ralliement ❌; Chef de garnison ✅; PvP : participant ✅; Marche solo —; Arène / Conquête —
+  Ses trois compétences d'expédition sont défensives (Santé +25%, dégâts subis −20% deux fois) ; Composant défensif : un pur chef de garnison. Compétence de participant : Attaque ennemie −20% — utile en garnison et en ralliement PvP, inutile contre Chasse à l'Ours.
 Jaeger — Gén 3, Archer, SSR, Combat
-  Les notes détaillées pour cette génération arrivent bientôt.
-  À ignorer, sauf si vous misez sur le PvP / la défense de garnison.
+  Chasse à l'Ours : Capitaine de Ralliement ⚠️; Chasse à l'Ours : participant ⚠️; PvP : Capitaine de Ralliement ⚠️; Chef de garnison ✅; PvP : participant ⚠️; Marche solo —; Arène / Conquête —
+  Archer défensif : Létalité ennemie −20% (chance), plus de Santé, chance d'infliger plus de dégâts. Composant défensif : le chef de garnison archer, meilleur que Saul. Compétence de participant aléatoire.
 Margot — Gén 4, Cavalerie, SSR, Combat
   Chasse à l'Ours : Capitaine de Ralliement ⚠️; Chasse à l'Ours : participant ✅; PvP : Capitaine de Ralliement ⚠️; Chef de garnison ✅; PvP : participant ✅; Marche solo —; Arène / Conquête —
   Compétence de participant : tout le ralliement gagne +25% d'Attaque — l'une des meilleures pour Chasse à l'Ours et le PvP. Ses autres compétences font des dégâts, mais son Composant est défensif : comme cheffe, elle convient mieux aux garnisons qu'aux ralliements.

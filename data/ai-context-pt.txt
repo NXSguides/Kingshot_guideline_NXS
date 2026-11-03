@@ -662,14 +662,14 @@ Peixe Marlin — Gen 2, Arquearia, SSR, Combate
   O primeiro arqueiro de rally realmente ofensivo. Trocar para ele aumenta visivelmente sua pontuação em Caça ao Urso. Dano em área e controle de grupo incríveis na Arena e na Conquista.
   "Marlin tinha uma mira surpreendentemente boa para a quantidade de rum que carregava."
 Petra — Gen 3, Cavalaria, SSR, Combate
-  As notas detalhadas desta geração estão a caminho.
+  Caça ao Urso: Capitão do Rally ✅; Caça ao Urso: participante ⚠️; PvP: Capitão do Rally ✅; Líder de guarnição ⚠️; PvP: participante ⚠️; Marcha solo —; Arena / Conquista —
   OBRIGATÓRIO EVOLUIR (Roleta do Herói). Excelente heroína de Caça ao Urso, com valor até a Gen 7. F2P: a cavalaria ofensiva para evoluir via Roleta do Herói.
 Eric — Gen 3, Infantaria, SSR, Combate
-  As notas detalhadas desta geração estão a caminho.
-  Pule, a menos que seu foco seja PvP / defesa de guarnição.
+  Caça ao Urso: Capitão do Rally ❌; Caça ao Urso: participante ❌; PvP: Capitão do Rally ❌; Líder de guarnição ✅; PvP: participante ✅; Marcha solo —; Arena / Conquista —
+  As três habilidades de expedição são defensivas (Vida +25%, dano sofrido −20% duas vezes); Ferramenta defensiva: líder de guarnição puro. Habilidade de participante: Ataque inimigo −20% — útil em guarnições e rallies PvP, inútil contra o Caça ao Urso.
 Jaeger — Gen 3, Arquearia, SSR, Combate
-  As notas detalhadas desta geração estão a caminho.
-  Pule, a menos que seu foco seja PvP / defesa de guarnição.
+  Caça ao Urso: Capitão do Rally ⚠️; Caça ao Urso: participante ⚠️; PvP: Capitão do Rally ⚠️; Líder de guarnição ✅; PvP: participante ⚠️; Marcha solo —; Arena / Conquista —
+  Arqueiro defensivo: Letalidade inimiga −20% (chance), mais Vida, chance de causar mais dano. Ferramenta defensiva: o líder de guarnição arqueiro, melhor que Saul. Habilidade de participante por chance.
 Margot — Gen 4, Cavalaria, SSR, Combate
   Caça ao Urso: Capitão do Rally ⚠️; Caça ao Urso: participante ✅; PvP: Capitão do Rally ⚠️; Líder de guarnição ✅; PvP: participante ✅; Marcha solo —; Arena / Conquista —
   Habilidade de participante: o rally inteiro ganha +25% de Ataque — uma das melhores participantes em Caça ao Urso e no PvP. As outras habilidades causam dano, mas a Ferramenta dela é defensiva: como líder, combina mais com guarnição do que com rally.

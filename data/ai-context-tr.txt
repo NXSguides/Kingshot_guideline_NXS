@@ -662,14 +662,14 @@ Marlin — 2. Nesil, Okçu, SSR, Savaş
   İlk gerçek saldırı seferberliği okçusu. Ona geçmek Ayı Avı puanını belirgin şekilde yükseltir. Arena ve Fetih'te harika alan hasarı verici ve kitle kontrolcüsü.
   "Taşıdığı rom miktarına bakılırsa Marlin şaşırtıcı derecede iyi nişan alıyordu."
 Petra — 3. Nesil, Süvari, SSR, Savaş
-  Bu neslin ayrıntılı puanları yakında geliyor.
+  Ayı Avı Seferberlik Önderi ✅; Ayı Avı katılımcısı ⚠️; PvP Seferberlik Önderi ✅; Garnizon lideri ⚠️; PvP katılımcısı ⚠️; Tek sefer —; Arena / Fetih —
   MUTLAKA GELİŞTİR (Kahraman Ruleti). Mükemmel bir Ayı Avı kahramanı; 7. Nesil'e kadar değerli. F2P: Kahraman Ruleti ile geliştirilecek saldırı süvarisi.
 Eric — 3. Nesil, Piyade, SSR, Savaş
-  Bu neslin ayrıntılı puanları yakında geliyor.
-  PvP / garnizon savunmasına odaklanmıyorsan atla.
+  Ayı Avı Seferberlik Önderi ❌; Ayı Avı katılımcısı ❌; PvP Seferberlik Önderi ❌; Garnizon lideri ✅; PvP katılımcısı ✅; Tek sefer —; Arena / Fetih —
+  Üç sefer becerisi de savunma (Sağlık +%25, alınan hasar iki kez −%20); savunma türü Alet: saf garnizon lideri. Katılımcı becerisi: düşman Saldırı −%20 — garnizonda ve PvP seferberliğinde işe yarar, Ayı Avı için işe yaramaz.
 Jaeger — 3. Nesil, Okçu, SSR, Savaş
-  Bu neslin ayrıntılı puanları yakında geliyor.
-  PvP / garnizon savunmasına odaklanmıyorsan atla.
+  Ayı Avı Seferberlik Önderi ⚠️; Ayı Avı katılımcısı ⚠️; PvP Seferberlik Önderi ⚠️; Garnizon lideri ✅; PvP katılımcısı ⚠️; Tek sefer —; Arena / Fetih —
+  Savunmacı okçu: düşman Öldürücülük −%20 (şans), daha fazla Sağlık, şansla daha fazla hasar. Savunma türü Alet: okçu garnizon lideri, Saul'dan iyi. Katılımcı becerisi şansa bağlı.
 Margot — 4. Nesil, Süvari, SSR, Savaş
   Ayı Avı Seferberlik Önderi ⚠️; Ayı Avı katılımcısı ✅; PvP Seferberlik Önderi ⚠️; Garnizon lideri ✅; PvP katılımcısı ✅; Tek sefer —; Arena / Fetih —
   Katılımcı becerisi: tüm seferberliğe +%25 Saldırı — Ayı Avı ve PvP için en iyi katılımcılardan biri. Diğer becerileri hasar verir ama Alet savunma türü; lider olarak seferberlikten çok garnizona uyar.

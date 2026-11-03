@@ -662,14 +662,14 @@ Marlin — Gen 2, Arquero, SSR, Combate
   El primer arquero de rally realmente ofensivo. Cambiar a él subirá notablemente tu puntuación en Cacería del Oso. Daño en área y control de masas increíbles en Arena y Conquista.
   "Marlin tenía una puntería sorprendente para todo el ron que cargaba."
 Petra — Gen 3, Caballería, SSR, Combate
-  Las valoraciones detalladas de esta generación llegarán pronto.
+  Cacería del Oso: líder del rally ✅; Cacería del Oso: participante ⚠️; PvP: líder del rally ✅; Líder de guarnición ⚠️; PvP: participante ⚠️; Marcha individual —; Arena / Conquista —
   IMPRESCINDIBLE DESARROLLAR (Ruleta de Héroes). Excelente heroína de Cacería del Oso, con valor hasta la Gen 7. F2P: la caballería ofensiva que conviene desarrollar con Ruleta de Héroes.
 Eric — Gen 3, Infantería, SSR, Combate
-  Las valoraciones detalladas de esta generación llegarán pronto.
-  Sáltalo salvo que te centres en PvP / defensa de guarnición.
+  Cacería del Oso: líder del rally ❌; Cacería del Oso: participante ❌; PvP: líder del rally ❌; Líder de guarnición ✅; PvP: participante ✅; Marcha individual —; Arena / Conquista —
+  Sus tres habilidades de expedición son defensivas (Salud +25%, daño recibido −20% dos veces); Complemento defensivo: líder de guarnición puro. Habilidad de participante: Ataque enemigo −20% — útil en guarniciones y rallies PvP, inútil contra Cacería del Oso.
 Jaeger — Gen 3, Arquero, SSR, Combate
-  Las valoraciones detalladas de esta generación llegarán pronto.
-  Sáltalo salvo que te centres en PvP / defensa de guarnición.
+  Cacería del Oso: líder del rally ⚠️; Cacería del Oso: participante ⚠️; PvP: líder del rally ⚠️; Líder de guarnición ✅; PvP: participante ⚠️; Marcha individual —; Arena / Conquista —
+  Arquero defensivo: Letalidad enemiga −20% (probabilidad), más Salud, probabilidad de hacer más daño. Complemento defensivo: el líder de guarnición arquero, mejor que Saul. Habilidad de participante por probabilidad.
 Margot — Gen 4, Caballería, SSR, Combate
   Cacería del Oso: líder del rally ⚠️; Cacería del Oso: participante ✅; PvP: líder del rally ⚠️; Líder de guarnición ✅; PvP: participante ✅; Marcha individual —; Arena / Conquista —
   Habilidad de participante: todo el rally gana +25% de Ataque — de las mejores participantes para Cacería del Oso y PvP. Sus otras habilidades hacen daño, pero su Complemento es defensivo: como líder encaja mejor en guarniciones que en rallies.

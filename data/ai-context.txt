@@ -662,14 +662,14 @@ Marlin — Gen 2, Archer, SSR, Combat
   The first true offensive rally archer. Switching to him will noticeably raise your Bear Hunt score. Amazing AoE damage dealer and crowd controller in Arena and Conquest.
   "Marlin showed surprisingly good aim given the amount of rum he carried."
 Petra — Gen 3, Cavalry, SSR, Combat
-  Detailed ratings for this generation are coming.
+  Bear Hunt rally lead ✅; Bear Hunt joiner ⚠️; PvP rally lead ✅; Garrison lead ⚠️; PvP joiner ⚠️; Solo march —; Arena / Conquest —
   MUST BUILD (Hero Roulette). Excellent Bear Hunt hero, with value through Gen 7. F2P: the offensive cavalry to build from Hero Roulette.
 Eric — Gen 3, Infantry, SSR, Combat
-  Detailed ratings for this generation are coming.
-  Skip unless you focus on PvP / garrison defense.
+  Bear Hunt rally lead ❌; Bear Hunt joiner ❌; PvP rally lead ❌; Garrison lead ✅; PvP joiner ✅; Solo march —; Arena / Conquest —
+  All three expedition skills defend (Health +25%, damage taken −20% twice); defensive Widget: a pure garrison lead. Joiner skill: enemy Attack −20% — useful in garrisons and PvP rallies, no use against the Bear Hunt.
 Jaeger — Gen 3, Archer, SSR, Combat
-  Detailed ratings for this generation are coming.
-  Skip unless you focus on PvP / garrison defense.
+  Bear Hunt rally lead ⚠️; Bear Hunt joiner ⚠️; PvP rally lead ⚠️; Garrison lead ✅; PvP joiner ⚠️; Solo march —; Arena / Conquest —
+  Defensive archer: enemy Lethality −20% (chance), more Health, chance to deal more damage. Defensive Widget: the archer garrison lead, better than Saul. Joiner skill is chance-based.
 Margot — Gen 4, Cavalry, SSR, Combat
   Bear Hunt rally lead ⚠️; Bear Hunt joiner ✅; PvP rally lead ⚠️; Garrison lead ✅; PvP joiner ✅; Solo march —; Arena / Conquest —
   Joiner skill: the whole rally gets +25% Attack — one of the best joiners for Bear Hunt and PvP. Her other skills deal damage, but her Widget is the defensive kind, so as a leader she fits garrisons better than rallies.
