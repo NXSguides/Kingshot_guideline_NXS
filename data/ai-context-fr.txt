@@ -820,26 +820,27 @@ Coffres personnels quotidiens
 30 000 / 100 000 / 200 000 points. Le coffre de 200 000 donne aussi une State Medal.
 La récolte ne rapporte que 2 points par lot et la chasse aux bêtes rien. Le Mithril exige l'équipement mythique au maximum.
 🚨 TG5 : NE PAS améliorer le 9 novembre — à lire
-Or Véritable
 ✅
-<span class="chk-ok">OK</span>
-🚫
-Fragment de Héros
-⏩️ Construction
-⏩️ Entraînement
-⏩️ Recherche
-Roulette des Héros
-Collecte
-👍
-avancement des animaux
+⚠️
 Talisman du Gouverneur
+🚫
+Or Véritable
+<span class="chk-ok">OK</span>
+⏩️ Construction
+Collecte
+✨ Truegold Dust
+⏩️ Recherche
+Académie des Experts
+Roulette des Héros
+Fragment de Héros
+⚔️ Entraînement
+🐾 Animaux
 Équipement Chef
-Manuscrit d'expert
 ⏩️ Apprentissage
-utiliser
-acceptable si besoin
+meilleur jour
+facultatif
+préparation
 ne pas utiliser
-à faire chaque jour
 PHASE 1 : PHASE DE PRÉPARATION (Jours 1 à 5)
 Pour gagner le KVK, votre Royaume doit obtenir plus de points au total durant la Phase de Préparation que votre adversaire. Gagner cette phase confère l'Avantage Attaquant (votre Château est totalement en sécurité durant la Phase de Combat).
 Jour 1 : Construction, Or Véritable et Talisman du Gouverneurs
@@ -2048,6 +2049,9 @@ Sanctuary = Sanctuaire
 Intel Missions = Missions de Renseignement
 Medical Satchels = Kit Médical
 Rescue Orders = Ordres de Sauvetage
+best day = meilleur jour
+optional = facultatif
+set-up = préparation
 use = utiliser
 okay if needed = acceptable si besoin
 don't use = ne pas utiliser

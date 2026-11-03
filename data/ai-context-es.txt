@@ -819,26 +819,27 @@ Cofres personales diarios
 30.000 / 100.000 / 200.000 puntos. El cofre de 200.000 también da una State Medal.
 Recolectar da solo 2 por paquete y cazar bestias no da nada. El Mitrilo requiere equipo Mítico al máximo.
 🚨 TG5: NO mejores el 9 de noviembre — lee esto
-Adamantina
 ✅
-<span class="chk-ok">OK</span>
-🚫
-Fragmento de Héroe
-⏩️ Construcción
-⏩️ Entrenamiento
-⏩️ Investigación
-Ruleta de Héroes
-Recolectando
-👍
-avance de mascota
+⚠️
 Talismán del Gobernador
+🚫
+Adamantina
+<span class="chk-ok">OK</span>
+⏩️ Construcción
+Recolectando
+✨ Truegold Dust
+⏩️ Investigación
+Academia de Maestros
+Ruleta de Héroes
+Fragmento de Héroe
+⚔️ Entrenamiento
+🐾 Mascotas
 Equipo de gobernador
-Manuscrito del maestro
 ⏩️ Aprendizaje
-usar
-aceptable si es necesario
+mejor día
+opcional
+preparación
 no usar
-hacer a diario
 FASE 1: FASE DE PREPARACIÓN (Días 1–5)
 Para ganar el KvK, tu Reino debe obtener más puntos totales durante la Fase de Preparación que el oponente. Ganar esta fase otorga Ventaja de Atacante (tu Castillo está completamente a salvo durante la Fase de Batalla).
 Día 1: Construcción, Adamantina y Talismán del Gobernador
@@ -2078,6 +2079,9 @@ Sanctuary = santuario
 Intel Missions = Misiones de Inteligencia
 Medical Satchels = Bolso médico
 Rescue Orders = Órdenes de rescate
+best day = mejor día
+optional = opcional
+set-up = preparación
 use = usar
 okay if needed = aceptable si es necesario
 don't use = no usar

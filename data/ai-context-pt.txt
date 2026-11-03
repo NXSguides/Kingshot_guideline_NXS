@@ -819,26 +819,27 @@ Baús pessoais diários
 30.000 / 100.000 / 200.000 pontos. O baú de 200.000 também dá uma State Medal.
 Coleta dá só 2 por pacote e caçar feras não dá nada. Mithril exige equipamento Mítico no máximo.
 🚨 TG5: NÃO suba em 9 de novembro — leia aqui
-Adamante
 ✅
-<span class="chk-ok">OK</span>
-🚫
-Fragmento de Herói
-⏩️ Construção
-⏩️ Treinamento
-⏩️ Pesquisa
-Roleta do Herói
-Coletando
-👍
-pontuação de avanço do animal de estimação
+⚠️
 Talismã do Governador
+🚫
+Adamante
+<span class="chk-ok">OK</span>
+⏩️ Construção
+Coletando
+✨ Truegold Dust
+⏩️ Pesquisa
+Academia dos Mestres
+Roleta do Herói
+Fragmento de Herói
+⚔️ Treinamento
+🐾 Mascotes
 Equipamento do Chefe
-Manuscrito de Mestre
 ⏩️ Aprendizado
-usar
-ok se necessário
+melhor dia
+opcional
+preparação
 não usar
-fazer diariamente
 FASE 1: FASE DE PREPARAÇÃO (Dias 1–5)
 Para vencer o KVK, seu Reino deve conquistar mais pontos totais durante a Fase de Preparação do que o oponente. Vencer essa fase concede a Vantagem de Atacante (seu Castelo fica totalmente seguro durante a Fase de Batalha).
 Dia 1: Construção, Adamante e Talismã do Governador
@@ -2118,6 +2119,9 @@ Forgehammer = Martelo de forja
 Intel Missions = Missões de Inteligência
 Medical Satchels = Bolsa Médica
 Rescue Orders = Ordem de Resgate
+best day = melhor dia
+optional = opcional
+set-up = preparação
 use = usar
 okay if needed = ok se necessário
 don't use = não usar

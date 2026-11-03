@@ -819,26 +819,27 @@ Peti pribadi harian
 30.000 / 100.000 / 200.000 poin. Peti 200.000 juga memberi State Medal.
 Mengumpulkan hanya 2 per paket dan berburu binatang tidak memberi poin. Mithril butuh perlengkapan Mitos maksimal.
 🚨 TG5: JANGAN upgrade 9 November — baca ini
-Truegold
 ✅
-<span class="chk-ok">OK</span>
-🚫
-Fragmen Hero
-⏩️ Konstruksi
-⏩️ Pelatihan
-⏩️ Penelitian
-Rolet Hero
-Mengumpulkan
-👍
-kemajuan hewan peliharaan
+⚠️
 Charm Gubernur
+🚫
+Truegold
+<span class="chk-ok">OK</span>
+⏩️ Konstruksi
+Mengumpulkan
+✨ Truegold Dust
+⏩️ Penelitian
+Akademi Master
+Rolet Hero
+Fragmen Hero
+⚔️ Pelatihan
+🐾 Peliharaan
 Gear Gubernur
-Manuskrip Master
 ⏩️ Pembelajaran
-gunakan
-boleh jika perlu
+hari terbaik
+opsional
+persiapan
 jangan digunakan
-perlu dilakukan setiap hari
 FASE 1: FASE PERSIAPAN (Hari 1–5)
 Untuk memenangkan KVK, Kerajaan Anda harus mendapatkan lebih banyak poin total selama Fase Persiapan dibanding lawan. Memenangkan fase ini memberikan Keuntungan Penyerang (Kastil Anda sepenuhnya aman selama Fase Pertempuran).
 Hari 1: Konstruksi, Truegold & Charm Gubernur
@@ -1948,6 +1949,9 @@ Abbey = Biara
 Intel Missions = Misi Intel
 Medical Satchels = Tas Medis
 Rescue Orders = Perintah Penyelamatan
+best day = hari terbaik
+optional = opsional
+set-up = persiapan
 use = gunakan
 okay if needed = boleh jika perlu
 don't use = jangan digunakan

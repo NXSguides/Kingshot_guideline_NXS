@@ -818,26 +818,27 @@ Daily personal chests
 30,000 / 100,000 / 200,000 points. The 200,000 chest also gives a State Medal.
 Gathering scores only 2 per bundle and beast hunting scores nothing. Mithril needs maxed Mythic gear.
 🚨 TG5: do NOT upgrade on November 9 — read this
-Truegold
 ✅
-<span class="chk-ok">OK</span>
-🚫
-Hero Shard
-⏩️ Construction
-⏩️ Training
-⏩️ Research
-Hero Roulette
-Gathering
-👍
-Pet advancement
+⚠️
 Governor Charm
+🚫
+Truegold
+<span class="chk-ok">OK</span>
+⏩️ Construction
+Gathering
+✨ Truegold Dust
+⏩️ Research
+Master Academy
+Hero Roulette
+Hero Shard
+⚔️ Training
+🐾 Pets
 Governor Gear
-Master's Manuscript
 ⏩️ Learning
-use
-okay if needed
+best day
+optional
+set-up
 don't use
-need to do daily
 PHASE 1: PREPARATION PHASE (Days 1–5)
 To win KVK, your Kingdom must earn more total points during Prep Phase than your opponent. Winning this phase grants Attacker Advantage (your Castle is completely safe during the Battle Phase).
 Day 1: Construction, Truegold & Governor Charms

@@ -821,26 +821,27 @@ Tägliche persönliche Truhen
 30.000 / 100.000 / 200.000 Punkte. Die 200.000-Truhe gibt zusätzlich eine State Medal.
 Sammeln bringt nur 2 Punkte pro Bündel, Bestienjagd gar nichts. Mithril braucht voll aufgewertete mythische Ausrüstung.
 🚨 TG5: am 9. November NICHT upgraden — hier lesen
-Echtgold
 ✅
-<span class="chk-ok">OK</span>
-🚫
-Helden-Fragment
-⏩️ Bau
-⏩️ Training
-⏩️ Forschung
-Helden Roulette
-Sammeln
-👍
-Begleittier-Förderungswert
+⚠️
 Gouverneur Talisman
+🚫
+Echtgold
+<span class="chk-ok">OK</span>
+⏩️ Bau
+Sammeln
+✨ Truegold Dust
+⏩️ Forschung
+Meisterakademie
+Helden Roulette
+Helden-Fragment
+⚔️ Training
+🐾 Begleittiere
 Gouverneur-Ausrüstung
-Meister-Manuskript
 ⏩️ Lernen
-nutzen
-bei Bedarf okay
+bester Tag
+optional
+Vorbereitung
 nicht nutzen
-täglich nötig
 PHASE 1: VORBEREITUNGSPHASE (Tag 1–5)
 Um KVK zu gewinnen, muss dein Königreich während der Vorbereitungsphase mehr Gesamtpunkte erzielen als der Gegner. Der Sieg in dieser Phase gewährt den Angreifer-Vorteil (dein Schloss ist während der Schlachtphase absolut sicher).
 Tag 1: Bau, Echtgold & Gouverneur Talismane
@@ -2037,6 +2038,8 @@ Forgehammer = Schmiedehammer
 Intel Missions = Geheimdienstmissionen
 Medical Satchels = Medizinkoffer
 Rescue Orders = Rettungswälzer
+best day = bester Tag
+set-up = Vorbereitung
 use = nutzen
 okay if needed = bei Bedarf okay
 don't use = nicht nutzen

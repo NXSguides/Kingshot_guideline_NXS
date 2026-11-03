@@ -1624,7 +1624,7 @@ const KVK_CHECK = {
     const col = tbl.days.indexOf(dayNo);
     const plain = (x) => rich(x).replace(/<[^>]+>/g, "").replace(/&quot;/g, "\"").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&").trim();
     const out = [];
-    for (const [icon, key] of [["✅", "useIcon"], ["👍", "needDaily"]]) {
+    for (const [icon, key] of [["✅", "bestDay"], ["⚠️", "setUp"]]) {
       tbl.rows.filter((r) => r.icons[col] === icon).forEach((r) => out.push({ txt: `${icon} ${term(key)}: ${plain(r.label)}` }));
     }
     return out;

@@ -819,26 +819,27 @@ Günlük kişisel sandıklar
 30.000 / 100.000 / 200.000 puan. 200.000 sandığı ayrıca bir State Medal verir.
 Toplama paket başına yalnızca 2 puan, canavar avı hiç puan vermez. Mithril için Mitik ekipman tam seviye olmalı.
 🚨 TG5: 9 Kasım'da YÜKSELTME — buraya bak
-Hasaltın
 ✅
-<span class="chk-ok">OK</span>
-🚫
-Kahraman Parçası
-⏩️ İnşaat
-⏩️ Eğitim
-⏩️ Araştırma
-Kahraman Ruleti
-Toplanıyor
-👍
-Pet ilerletme puanı
+⚠️
 Vali Tılsımı
+🚫
+Hasaltın
+<span class="chk-ok">OK</span>
+⏩️ İnşaat
+Toplanıyor
+✨ Truegold Dust
+⏩️ Araştırma
+Usta Akademisi
+Kahraman Ruleti
+Kahraman Parçası
+⚔️ Eğitim
+🐾 Pet
 Şef Donanımı
-Uzmanın El Yazması
 ⏩️ Öğrenme
-kullan
-gerekirse uygun
+en iyi gün
+isteğe bağlı
+hazırlık
 kullanma
-her gün gerekli
 1. AŞAMA: HAZIRLIK AŞAMASI (1–5. Gün)
 KVK'yı kazanmak için Krallığınızın Hazırlık Aşaması'nda rakibinizden daha fazla toplam puan kazanması gerekir. Bu aşamayı kazanmak Saldırgan Avantajı sağlar (Savaş Aşaması boyunca Şatonuz tamamen güvende olur).
 1. Gün: İnşaat, Hasaltın ve Vali Tılsımı
@@ -2052,6 +2053,9 @@ Sanctuary = Tapınak
 Intel Missions = İstihbarat Görevleri
 Medical Satchels = Tıbbi Çanta
 Rescue Orders = Kurtarma Emri
+best day = en iyi gün
+optional = isteğe bağlı
+set-up = hazırlık
 use = kullan
 okay if needed = gerekirse uygun
 don't use = kullanma
