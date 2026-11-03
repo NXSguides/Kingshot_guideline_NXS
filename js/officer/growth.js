@@ -164,6 +164,70 @@ const HC = {
     hcWarn: ["성급이 가장 중요: 여기선 만성 기준 — 5★ 구세대 영웅이 1★ 신세대를 이길 수 있어요.", "스킬 버프가 서로 곱해진다고 가정. 더해진다면 고정 버프형 (아마데우스, 헬가, 힐데, Margot)이 가장 많이 떨어져요.", "보병 자리: 차이는 대부분 스킬이 아니라 병종 보너스 (세대) 때문."] },
 };
 for (const [l, o] of Object.entries(HC)) Object.assign(T[l], o);
+/* ⚖️ Compare two heroes (Sherry, 2026-11-03 — "pick two heroes of the same troop and compare"). The same model as 🦸 Hero comparison
+   (Project doc claude/kingshot-hero-numbers.md, calc.py), ported here: max level and stars; Widget level 0–10 scales the Widget's
+   troop Lethality + Health and its +15% skill in proportion (an estimate — the real per-level steps aren't known). */
+const HC_BASE = { inf: { atk: 376, leth: 567, def_: 273, hp: 512 }, cav: { atk: 327, leth: 356, def_: 264, hp: 302 }, arc: { atk: 364, leth: 417, def_: 283, hp: 351 } };
+const HC_PASSIVE = { 1: 50, 2: 60, 3: 70, 4: 92.5, 5: 111 };
+const HC_H = {
+  amadeus: { t: "inf", g: 1, b: 260, atk: .25, leth: .25, dmg: [1.2], w: ["rally", "atk"] }, helga: { t: "inf", g: 1, b: 200, atk: .25, leth: .25, dr: [.2], w: ["rally", "leth"] },
+  zoe: { t: "inf", g: 2, b: 240, atk: .25, dmg: [1.24, 1.25], w: ["gar", "atk"] }, eric: { t: "inf", g: 3, b: 290, hp: .25, dr: [.2, .2], w: ["gar", "def_"] },
+  alcar: { t: "inf", g: 4, b: 370, dmg: [1.25], dmgT: { inf: 3.2, cav: 1.1, arc: 1.1 }, drT: { inf: .28, arc: .28 }, w: ["gar", "hp"] },
+  longfei: { t: "inf", g: 5, b: 444, def_: .25, dmg: [1.25], dr: [.2], w: ["gar", "atk"] },
+  jabel: { t: "cav", g: 1, b: 200, leth: .25, dmg: [1.25], dr: [.2], w: ["gar", "leth"] }, hilde: { t: "cav", g: 2, b: 240, atk: .15, def_: .10, dmg: [1.25], dr: [.2], w: ["gar", "hp"] },
+  petra: { t: "cav", g: 3, b: 290, dmg: [1.25, 1.25], dr: [.2], w: ["rally", "atk"] }, margot: { t: "cav", g: 4, b: 370, atk: .25, dmgT: { cav: 1.5 }, dr: [.2], w: ["gar", "atk"] },
+  thrud: { t: "cav", g: 5, b: 444, dmg: [1.125], dmgT: { inf: 1.15, arc: 1.15, cav: 1.2 }, dr: [.125], drT: { inf: .15, arc: .15 }, w: ["rally", "leth"] },
+  saul: { t: "arc", g: 1, b: 200, def_: .10, hp: .15, leth: .25, w: ["gar", "atk"] }, marlin: { t: "arc", g: 2, b: 240, dmg: [1.2, 1.25], dr: [.1], w: ["rally", "leth"] },
+  jaeger: { t: "arc", g: 3, b: 290, dmg: [1.2], dr: [.18], hp: .25, w: ["gar", "hp"] }, rosa: { t: "arc", g: 4, b: 370, dmg: [1.2], dr: [.2], atkT: { arc: .30 }, w: ["rally", "leth"] },
+  vivian: { t: "arc", g: 5, b: 444, dmg: [1.25, 1.25], dmgT: { arc: 1.15 }, w: ["rally", "atk"] } };
+const HC_T = ["inf", "cav", "arc"], HC_BEAR = { inf: .02, cav: .23, arc: .75 }, HC_OFF = { inf: .2, cav: .4, arc: .4 }, HC_DEF = { inf: .85, cav: 0, arc: .15 };
+function hcScore(id, role, wl) {   // wl = Widget level 0–10
+  const h = HC_H[id], f = Math.max(0, Math.min(10, +wl || 0)) / 10, out = {}, mult = {};
+  for (const k of HC_T) { out[k] = { ...HC_BASE[k] }; mult[k] = { atk: 1, leth: 1, def_: 1, hp: 1 };
+    if (k === h.t) { out[k].atk += h.b; out[k].def_ += h.b; out[k].leth += HC_PASSIVE[h.g] * f; out[k].hp += HC_PASSIVE[h.g] * f; } }
+  for (const st of ["atk", "leth", "def_", "hp"]) if (h[st]) for (const k of HC_T) mult[k][st] *= 1 + h[st];
+  for (const [k, v] of Object.entries(h.atkT || {})) mult[k].atk *= 1 + v;
+  const [fac, wst] = h.w; if ((fac === "rally" && role !== "gar") || (fac === "gar" && role === "gar")) for (const k of HC_T) mult[k][wst] *= 1 + 0.15 * f;
+  const A = {}, D = {}, A0 = {}, D0 = {};
+  for (const k of HC_T) { const o = out[k], m = mult[k], b = HC_BASE[k];
+    A[k] = (1 + o.atk / 100) * m.atk * (1 + o.leth / 100) * m.leth; D[k] = (1 + o.def_ / 100) * m.def_ * (1 + o.hp / 100) * m.hp;
+    A0[k] = (1 + b.atk / 100) * (1 + b.leth / 100); D0[k] = (1 + b.def_ / 100) * (1 + b.hp / 100); }
+  const g = (h.dmg || []).reduce((a, x) => a * x, 1), dT = h.dmgT || {};
+  if (role === "bear") return g * HC_T.reduce((s, k) => s + HC_BEAR[k] * A[k] / A0[k] * (dT[k] || 1), 0);
+  const off = g * HC_T.reduce((s, k) => s + HC_OFF[k] * A[k] / A0[k] * (dT[k] || 1), 0);
+  const taken = (h.dr || []).reduce((a, r) => a * (1 - r), 1), drT = h.drT || {};
+  return off * HC_T.reduce((s, k) => s + HC_DEF[k] * D[k] / D0[k] / (taken * (1 - (drT[k] || 0))), 0);
+}
+const CMP = {
+  en: { cmpT: "⚖️ Compare two heroes", cmpNote: "Pick a troop slot and two heroes. Same model as the hero comparison above: max level and stars; the Widget level scales the Widget's bonuses in proportion (an estimate).", cmpWl: "Widget Lv", cmpEq: "about equal", cmpBetter: "{h} +{n}%", cmpWhy: "Rally Widgets only work when you open a rally (Bear, PvP); garrison Widgets only in garrisons.", cmpWarn: "Stars are assumed max — a hero with fewer stars does less. Rough guide, not a promise." },
+  zh: { cmpT: "⚖️ 兩位英雄比一比", cmpNote: "選兵種位置和兩位英雄。跟上面「英雄比較」同一個模型：滿級、滿星；零件等級按比例算零件的加成（估計值）。", cmpWl: "零件 Lv", cmpEq: "差不多", cmpBetter: "{h} +{n}%", cmpWhy: "集結派零件只在自己開集結時有用（熊獵、PvP）；守城派只在駐防時有用。", cmpWarn: "星級當作滿星，星級少的英雄會比較弱。只是大概的參考，不是保證。" },
+  pt: { cmpT: "⚖️ Compare dois heróis", cmpNote: "Escolha uma posição de tropa e dois heróis. Mesmo modelo da comparação acima: nível e estrelas máximos; o nível da Ferramenta escala os bônus dela em proporção (estimativa).", cmpWl: "Ferramenta Nv", cmpEq: "quase igual", cmpBetter: "{h} +{n}%", cmpWhy: "Ferramentas de rally só valem quando você abre o rally (Urso, PvP); as de guarnição só em guarnições.", cmpWarn: "Estrelas supostas no máximo — um herói com menos estrelas rende menos. Guia aproximado, não garantia." },
+  ar: { cmpT: "⚖️ قارن بين بطلين", cmpNote: "اختر موقع القوات وبطلين. نفس نموذج المقارنة أعلاه: أعلى مستوى ونجوم؛ مستوى الأجزاء يضبط مكافآتها بالتناسب (تقدير).", cmpWl: "الأجزاء Lv", cmpEq: "متقاربان", cmpBetter: "{h} +{n}%", cmpWhy: "أجزاء الحشد تعمل فقط عندما تفتح حشدًا (الدب، PvP)؛ وأجزاء الحامية في الحاميات فقط.", cmpWarn: "النجوم مفترضة بالحد الأقصى — البطل الأقل نجومًا أضعف. دليل تقريبي، لا وعد." },
+  ko: { cmpT: "⚖️ 영웅 둘 비교", cmpNote: "병종 자리와 영웅 둘을 골라. 위 영웅 비교와 같은 모델: 만렙·만성; 부속품 레벨은 부속품 보너스를 비례로 계산 (추정치).", cmpWl: "부속품 Lv", cmpEq: "비슷", cmpBetter: "{h} +{n}%", cmpWhy: "집결형 부속품은 직접 집결을 열 때만 (곰, PvP), 방어형은 방어할 때만 적용돼.", cmpWarn: "성급은 만성으로 가정 — 성급이 낮으면 더 약해. 대략적인 참고일 뿐." } };
+for (const [l, o] of Object.entries(CMP)) Object.assign(T[l], o);
+let cmpS = (() => { try { return JSON.parse(localStorage.getItem("nxs-gr-cmp")) || null; } catch (e) { return null; } })() || { t: "cav", a: "petra", b: "hilde", wa: 10, wb: 10 };
+function cmpHtml(L) {
+  const ids = Object.keys(HC_H).filter((id) => HC_H[id].t === cmpS.t);
+  if (!ids.includes(cmpS.a)) cmpS.a = ids[0]; if (!ids.includes(cmpS.b) || cmpS.b === cmpS.a) cmpS.b = ids.find((x) => x !== cmpS.a);
+  const sel = (k) => `<select class="inp" id="gr_c${k}">${ids.map((id) => `<option value="${id}"${id === cmpS[k] ? " selected" : ""}>${esc(hname(id))} (S${HC_H[id].g})</option>`).join("")}</select>`;
+  const wl = (k) => `<label class="gr-cwl">${esc(L.cmpWl)} <input class="inp" type="number" min="0" max="10" id="gr_cw${k}" value="${cmpS["w" + k]}"></label>`;
+  const side = (k) => `<div class="gr-cside">${`<span class="gr-pic"><img src="figures/heroes/hero_${cmpS[k]}.webp" alt="" loading="lazy" onerror="this.style.visibility='hidden'"></span>`}${sel(k)}${wl(k)}</div>`;
+  const rows = ["bear", "pvp", "gar"].map((r) => {
+    const sa = hcScore(cmpS.a, r, cmpS.wa), sb = hcScore(cmpS.b, r, cmpS.wb), d = Math.round((Math.max(sa, sb) / Math.min(sa, sb) - 1) * 100);
+    const win = sa >= sb ? "a" : "b", pa = Math.round(100 * sa / (sa + sb));
+    return `<div class="gr-crow"><b>${esc(L.hcR[r])}</b><div class="gr-cbar"><span style="width:${pa}%"></span></div><span class="gr-cres">${d < 3 ? esc(L.cmpEq) : esc(L.cmpBetter.replace("{h}", hname(cmpS[win])).replace("{n}", d))}</span></div>`; }).join("");
+  return `<div class="card" id="gr_cmp"><h3>${esc(L.cmpT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(L.cmpNote)}</div>
+    <div class="row gr-ctr">${HC_T.map((t) => `<button type="button" class="btn small${t === cmpS.t ? " primary" : ""}" data-ct="${t}">${esc(L.hcS[t])}</button>`).join("")}</div>
+    <div class="gr-cvs">${side("a")}<em>vs</em>${side("b")}</div>${rows}
+    <div class="muted" style="font-size:12.5px;margin-top:8px">💡 ${esc(L.cmpWhy)}</div><div class="gr-warn"><div>⚠️ ${esc(L.cmpWarn)}</div></div></div>`;
+}
+function cmpWire() {
+  const root = $("gr_cmp"); if (!root) return;
+  const redo = () => { try { localStorage.setItem("nxs-gr-cmp", JSON.stringify(cmpS)); } catch (e) {} const cur = $("gr_cmp"); if (!cur || !cur.isConnected) return; cur.outerHTML = cmpHtml(t()); cmpWire(); };
+  root.querySelectorAll("[data-ct]").forEach((b) => b.onclick = () => { cmpS.t = b.dataset.ct; cmpS.a = cmpS.b = null; redo(); });
+  for (const k of ["a", "b"]) { $("gr_c" + k).onchange = (e) => { cmpS[k] = e.target.value; if (cmpS.a === cmpS.b) cmpS[k === "a" ? "b" : "a"] = null; redo(); };
+    $("gr_cw" + k).onchange = (e) => { cmpS["w" + k] = Math.max(0, Math.min(10, parseInt(e.target.value, 10) || 0)); redo(); }; }
+}
 function hcHtml(L) {
   const GEN = { amadeus: 1, helga: 1, jabel: 1, saul: 1, zoe: 2, hilde: 2, marlin: 2, eric: 3, petra: 3, jaeger: 3, alcar: 4, margot: 4, rosa: 4, longfei: 5, thrud: 5, vivian: 5 };
   /* the generation badge like the game's hero screen ("S4") */
@@ -326,6 +390,7 @@ function render() {
       <div class="gr-tw"><table class="gr-cmp gr-heroes-t"><thead><tr><th></th><th>${esc(L.cmpH[1])}</th><th>${esc(L.cmpH[2])}</th></tr></thead>
       <tbody>${["inf", "cav", "arc"].map((tr) => `<tr><th>${esc(L.trp[tr])}</th><td>${side("atk", tr)}</td><td>${side("def", tr)}</td></tr>`).join("")}</tbody></table></div></div>
     ${hcHtml(L)}
+    ${cmpHtml(L)}
     <div class="card"><h3>${esc(L.gearT)}</h3><p class="gr-rule">${esc(L.rule)}</p>
       <h4 class="gr-h4">${esc(L.ordT)}</h4><div class="gr-two"><div><b>${esc(L.ordADl)}</b>${ol(L.ordAD)}</div><div><b>${esc(L.ordBearl)}</b>${ol(L.ordBear)}</div></div>
       <h4 class="gr-h4">${esc(L.srcT)}</h4><div class="gr-tw"><table class="gr-cmp"><thead><tr>${L.srcH.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
@@ -336,6 +401,7 @@ function render() {
       <div class="gr-vsv" style="margin-top:8px">✅ ${esc(L.whoB)}</div></div>
     <p><a class="btn" href="./#/${site}/hero-cards" target="_blank" rel="noopener">${esc(L.cards)}</a></p>
     <p class="muted" style="font-size:12.5px">${esc(L.src0)}</p>`;
+  cmpWire();
 }
 function applyTexts() { if ($("gr_title")) { $("gr_title").textContent = t().title; $("gr_intro").textContent = t().intro; } }
 function init() { applyTexts(); render(); }

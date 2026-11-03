@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Growth: ⚖️ compare two heroes", /⚖️ Compare two heroes \(card after/, /⚖️ Compare two heroes: pick a troop slot/],
   ["Growth: 🎯 second uses (joiners & side jobs)", /🎯 Second uses \(card after/, /🎯 Second uses: a joiner only uses/],
   ["Events: a to-do links several in-game guides (ig list)", /ig can also be a LIST of guide titles/, /A task can link several guides \(ig as a list\)/],
   ["Events: 📅 {date:+N} codes in in-game guides", /📅 date codes \(Sherry 2026-11-03\)/, /📅 Date codes: write \{date:\+N\}/],
