@@ -30,8 +30,7 @@ const T = { ko: {"rename": "이름을 눌러 바꿀 수 있어요 (사이트에 
 let lang = OFFICER.lang;
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
 const PP = () => OFFICER.perms;   // { users: { id: { name, perms: { tab: "edit"|"view"|"none" } } } } — shared with core.js (replaced when the server copy arrives)
-const RG = ["growth", "bh", "bearplan", "vv", "ms", "iv"];   // 🔬 Research: one main tab on the page, but each report keeps its own permission (Sherry 2026-11-04)
-const TABS_P = ["events", "board", "map", "move", "hunt", "attack", "growth", "bh", "bearplan", "vv", "ms", "iv", "ranking", "attend", "post", "watch", "views"];   // same order as the tab bar   // 🐻 bear calculator is a public page now
+const TABS_P = ["events", "board", "map", "move", "hunt", "attack", "research", "ranking", "attend", "post", "watch", "views"];   // same order as the tab bar   // 🐻 bear calculator is a public page now
 /* 🔔 which events' officer to-dos each person is reminded of (users[id].notify; admins with no list get all of them).
    The ⏰ panel on the main site turns those to-dos into notifications at the hour the person picks. */
 const NT_EV = [["alliance-mobilization", "🔥", "Alliance Mobilization", "聯盟總動員"], ["bear-hunt", "🐻", "Bear Hunt", "狩獵巨熊"],
@@ -87,10 +86,10 @@ function render() {
   const rows = Object.entries(PP().users);
   const MR = { zh: "💬 被 @ 或被指派的唯讀幹部，可以在那一串留言回覆", en: "💬 View-only officers can reply in a topic where they were @'d or assigned", pt: "💬 Oficiais só-leitura podem responder num tópico onde foram marcados (@) ou receberam tarefa", ko: "💬 보기 전용 간부도 자신이 @되거나 맡은 글타래에는 답글 가능", ar: "💬 يمكن للضباط (عرض فقط) الرد في الموضوع الذي ذُكروا فيه (@) أو كُلّفوا بمهمة" };
   const cfg = PP().cfg || {};
-  $("pm_tbl").innerHTML = `${missingHtml()}<label class="pm-cfg" style="display:flex;gap:8px;align-items:center;margin:0 0 10px;font-size:14px;cursor:pointer"><input type="checkbox" id="pm_mReply"${cfg.mReply ? " checked" : ""}> ${esc(MR[lang] || MR.en)}</label><table class="pm-tbl"><thead><tr class="pm-grow"><th></th>${TABS_P.map((k) => k === RG[0] ? `<th colspan="${RG.length}" class="pm-grp">${esc(tt.research || "🔬 Research")}</th>` : RG.includes(k) ? "" : "<th></th>").join("")}<th></th><th></th></tr><tr><th></th>${TABS_P.map((k) => `<th>${esc(tt[k])}</th>`).join("")}<th>${esc(nt("h"))}</th><th></th></tr></thead><tbody>${rows.map(([id, u]) => {
+  $("pm_tbl").innerHTML = `${missingHtml()}<label class="pm-cfg" style="display:flex;gap:8px;align-items:center;margin:0 0 10px;font-size:14px;cursor:pointer"><input type="checkbox" id="pm_mReply"${cfg.mReply ? " checked" : ""}> ${esc(MR[lang] || MR.en)}</label><table class="pm-tbl"><thead><tr><th></th>${TABS_P.map((k) => `<th>${esc(tt[k])}</th>`).join("")}<th>${esc(nt("h"))}</th><th></th></tr></thead><tbody>${rows.map(([id, u]) => {
     const admin = !!u.admin, owner = id === OFFICER.OWNER;
     return `<tr${OFFICER.previewAs === id ? ' class="pv"' : ""}><th><div>${avHtml(id)}<input class="pm-name" data-nm="${esc(id)}" value="${esc(u.name)}" maxlength="40" dir="auto" title="${esc(t("rename"))}"> ${id === me ? `<span class="muted">${esc(t("you"))}</span>` : ""}</div>${seenHtml(id)}${admin ? `<span class="pm-adm">${esc(t("admin"))}</span> ` : ""}<span class="muted" style="font-weight:400;font-size:11px">${esc(id)}</span></th>
-      ${TABS_P.map((k) => admin ? `<td class="muted">✏️</td>` : `<td><select class="btn pm-sel" data-u="${esc(id)}" data-t="${k}">${["edit", "view", "none"].map((l) => `<option value="${l}"${(u.perms[k] || "none") === l ? " selected" : ""}>${esc(lv[l])}</option>`).join("")}</select></td>`).join("")}
+      ${TABS_P.map((k) => admin ? `<td class="muted">✏️</td>` : `<td><select class="btn pm-sel" data-u="${esc(id)}" data-t="${k}">${["edit", "view", "none"].map((l) => `<option value="${l}"${(k === "research" ? OFFICER.researchLevel(u.perms) : (u.perms[k] || "none")) === l ? " selected" : ""}>${esc(lv[l])}</option>`).join("")}</select></td>`).join("")}
       ${ntCell(id, u)}<td class="pm-acts">${id !== me ? `<button class="btn small" data-pv="${esc(id)}">${esc(OFFICER.previewAs === id ? t("previewOff") : t("preview"))}</button>` : ""}${owner || id === me ? "" : `<button class="btn small" data-adm="${esc(id)}">${esc(admin ? t("unAdmin") : t("mkAdmin"))}</button><button class="btn small" data-rm="${esc(id)}">${esc(t("remove"))}</button>`}</td></tr>${ntRow(id, u, TABS_P.length + 3)}`; }).join("")}</tbody></table>`;
   const pv = OFFICER.previewAs && PP().users[OFFICER.previewAs];
   $("pm_preview").hidden = !pv; if (pv) $("pm_preview").textContent = t("previewing").replace("{name}", pv.name);
@@ -110,7 +109,7 @@ function init() {
     const nm = e.target.closest(".pm-name");   // ✏️ the name is only a label on this site (the Discord ID is what counts), so admins can change it
     if (nm) { const v = nm.value.trim().slice(0, 40), u = PP().users[nm.dataset.nm]; if (!u) return; if (!v) { nm.value = u.name; return; } if (v !== u.name) { u.name = v; changed(); } return; }
     if (e.target.id === "pm_mReply") { PP().cfg = { ...(PP().cfg || {}), mReply: e.target.checked }; changed(); return; }
-    const s = e.target.closest(".pm-sel"); if (!s) return; PP().users[s.dataset.u].perms[s.dataset.t] = s.value; changed(); });
+    const s = e.target.closest(".pm-sel"); if (!s) return; const up = PP().users[s.dataset.u].perms; up[s.dataset.t] = s.value; if (s.dataset.t === "research") for (const k of OFFICER.RESEARCH) delete up[k]; changed(); });   // 🔬 old one-per-report keys go away once research is set
   ROOT.addEventListener("keydown", (e) => { if (e.key === "Enter" && e.target.closest(".pm-name")) e.target.blur(); });
   ROOT.addEventListener("click", (e) => {
     const b = e.target.closest("button"); if (!b) return;

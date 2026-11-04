@@ -315,7 +315,7 @@ const OFFICER_HELP = `
 GETTING IN
 - Officers log in with Discord. Only people added on the 👥 Officers tab (by an admin, with their Discord ID) can get in. On the main site, tap the title "NXS Guidelines" 5 times quickly (within 2 seconds), or tap the 📋 button at the top right (shown once this browser has logged in) → log in with Discord. The old officer password alone no longer opens the officer pages.
 - Each tab can be ✏️ Edit, 👁️ View or hidden per officer (👥 Officers tab, admins only). A new officer starts with 📅 Events, 💬 Board and 🗺️ Map as view-only. If a tab is missing, ask an admin (Sherry) to give it.
-- All officer tabs are one page now (officer-x7k2p9.html); switching tabs is instant and you log in once. The tabs, in order: 📅 Events (中文: 活動排程), 💬 Board (討論板), 🗺️ Map (王國地圖), 🚚 Move (搬家, admins unless given), 📊 Ranking (成員排序), 📋 Attendance (出席), 📢 Post (發布公告), 🕵️ Watch (觀察名單), 🔭 Scout (偵察), 📈 Views (網站瀏覽), 👥 Officers (幹部, admins only). Each officer only sees the tabs the 👥 table gives them. 🔬 Research (研究報告, since 2026-11-04) is one main tab holding our reports as small sub-tabs: 🧭 Growth / Attack vs Defense, 🐻 Bear Hunt report, 🐻 Bear plan, 🪓 Viking report, 🧳 Migrant Score, 💎 Investment — each still has its own 👥 permission and its own link (#growth, #bh, #bearplan, #vv, #ms, #iv).
+- All officer tabs are one page now (officer-x7k2p9.html); switching tabs is instant and you log in once. The tabs, in order: 📅 Events (中文: 活動排程), 💬 Board (討論板), 🗺️ Map (王國地圖), 🚚 Move (搬家, admins unless given), 📊 Ranking (成員排序), 📋 Attendance (出席), 📢 Post (發布公告), 🕵️ Watch (觀察名單), 🔭 Scout (偵察), 📈 Views (網站瀏覽), 👥 Officers (幹部, admins only). Each officer only sees the tabs the 👥 table gives them. 🔬 Research (研究報告, since 2026-11-04) is one main tab holding our reports as small sub-tabs: 🧭 Growth / Attack vs Defense, 🐻 Bear Hunt report, 🐻 Bear plan, 🪓 Viking report, 🧳 Migrant Score, 💎 Investment — ONE 👥 permission "🔬 Research" opens all of them (since 2026-11-04, Sherry); each keeps its own link (#growth, #bh, #bearplan, #vv, #ms, #iv).
 [views] - 📈 Views (中文: 網站瀏覽): site statistics — visitors per day, which guides and languages people open, countries, where they came from, devices; 7 / 30 / 90 days. Counting is GoatCounter, anonymous (no cookies, names or IPs). NOT counted: any browser where an officer has logged in to the officer page (officers test the site all day), and the officer page itself. So "this browser: not counted" on the Views tab is normal for every officer. If it says the token is not set: Cloudflare Worker → Settings → Variables and Secrets → add GOATCOUNTER_TOKEN (GoatCounter → Settings → API → new token with "Read statistics").
 [map] - 🗺️ Map (中文: 王國地圖): kingdom map, Outpost buffs and the shared Outpost plan — see the 🗺️ MAP section below.
 - Language: officer pages are in English, 中文, Português, العربية and 한국어 (the language button on any tab switches all tabs together).
@@ -427,6 +427,9 @@ AI ASSISTANT
 - Each scouted kingdom is a chip at the top: ⟳ fetches it again, ✕ removes it, "update daily" refreshes it every day at 20:25 UTC together with the roster (tick it for the KvK opponent).
 - Our own kingdom #2189 is scouted too, for comparison. Data is the SCOUT section of the OFFICER DATA (answer "who is the strongest in kingdom X" from there).
 - Not in this data: last login (unreliable) and anything MightPulse does not publish.
+
+@research
+🔬 RESEARCH (研究報告) — one main tab on the officer page holding our research reports as small sub-tabs; ONE 👥 permission "🔬 Research" opens all of them (Sherry 2026-11-04). All of it is Sherry's own testing, not official rules, and it keeps changing.
 
 @iv
 💎 INVESTMENT report (🔬 Research sub-tab, officer-x7k2p9.html#iv, 投資效率) — Sherry's OWN RESEARCH, STILL BEING TESTED (2026-11-04), not from the game; from her main account (power ↔ %, shop prices, research times). Say so when you answer from it.
@@ -621,7 +624,8 @@ async function isOfficer(body, env) {
 
 /* 🔒 Officer AI = logged in with Discord AND on the 👥 table. Returns which tabs they may open (admins: all),
    so the AI only gets the handbook parts and data of those tabs. The old officer password / data-key proof no longer counts. */
-const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🚚 Move", hunt: "🎯 Blacklist", attack: "⚔️ Battle", growth: "🧭 Growth", bearplan: "🐻 Bear plan", vv: "🪓 Viking report", ms: "🧳 Migrant Score", bh: "🐻 Bear Hunt report", iv: "💎 Investment", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
+const RESEARCH_TABS = ["growth", "bh", "bearplan", "vv", "ms", "iv"];   // 🔬 all opened by the one "research" permission
+const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🚚 Move", hunt: "🎯 Blacklist", attack: "⚔️ Battle", growth: "🧭 Growth", bearplan: "🐻 Bear plan", vv: "🪓 Viking report", ms: "🧳 Migrant Score", bh: "🐻 Bear Hunt report", iv: "💎 Investment", research: "🔬 Research", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
 const AI_TAB_LINKS = {
   events: "[Events](officer-x7k2p9.html#events) (week calendar, officer to-dos, in-game guides to copy, add/edit events)",
   board: "[Board](officer-x7k2p9.html#board)", map: "[Map](officer-x7k2p9.html#map) (kingdom map, Outpost plan)",
@@ -646,6 +650,10 @@ async function officerAccess(req, env, body) {
   if (!role) return null;
   const u = (perms.users && perms.users[c.s.u.id]) || {};
   const tabs = new Set(role === "admin" ? Object.keys(AI_TAB_NAMES) : Object.entries(u.perms || {}).filter(([, v]) => v === "view" || v === "edit").map(([k]) => k).filter((k) => k !== "perms"));
+  // 🔬 one "research" permission opens every research report (Sherry 2026-11-04); once it is set, the old one-per-report keys no longer count
+  if (role !== "admin") { const p = u.perms || {}; for (const k of RESEARCH_TABS) tabs.delete(k);
+    const on = "research" in p ? (p.research === "view" || p.research === "edit") : RESEARCH_TABS.some((k) => p[k] === "view" || p[k] === "edit");
+    tabs.delete("research"); if (on) for (const k of ["research", ...RESEARCH_TABS]) tabs.add(k); }
   return { role, tabs, token: await seal(env, c.s) };
 }
 /* handbook parts for these tabs only (see the @tab / [tab] marks in OFFICER_HELP) */
@@ -1690,7 +1698,7 @@ const ADMIN_IDS = ["1547403844374368327", "1240788094672834623", "76282790434124
 /* view-only officers added by Sparrow (2026-10-16): put into the 👥 table with Events / Board / Map "view" if they aren't in it yet.
    After that the table is the truth — change or remove them on the 👥 tab. */
 const SEED_VIEWERS = {"741447079804797041": "firebaugh", "734803550672257104": "ASHISH", "961642100150124555": "BOO", "1526789098210197638": "ELR", "216564539041251329": "flip", "1534039396461056172": "JORDAN", "1525666601456767171": "PAPA", "706153853460021341": "Tiger", "1003385592983322664": "Δйʊвιŝ"};
-const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", views: "none", move: "none", hunt: "none", attack: "none", growth: "none", bearplan: "none", vv: "none", ms: "none", bh: "none", iv: "none" };
+const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", views: "none", move: "none", hunt: "none", attack: "none", research: "none" };
 /* 🛠️ which events' officer to-dos each person gets as a reminder (from Sparrow's role list, 2026-10-16) — only a starting point:
    once an admin changes someone's 🔔 on the 👥 tab, the saved list wins. Admins with no list get every event. */
 const MOB = "alliance-mobilization";

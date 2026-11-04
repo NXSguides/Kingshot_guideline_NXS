@@ -135,7 +135,11 @@ try { const v = localStorage.getItem("nxs-plan-by"); if (v && / · 📍/.test(v)
 OFFICER.OWNER = "1547403844374368327";   // Sparrow: always admin, can't be demoted or removed (so nobody can lock everyone out)
 OFFICER.ADMINS = [];                       // filled from the table (admin: true) by loadPerms
 OFFICER.PERMS_TRIAL = false;   // 2026-10-16: the login system is live — the 👥 table decides   // the 👥 table is kept and editable, but not enforced yet (set false when the login system goes live)
-OFFICER.PERM_TABS = ["events", "board", "map", "ranking", "attend", "post", "watch", "views", "move", "hunt", "attack", "growth", "bearplan", "vv", "ms", "bh", "iv"];   // 🚚 move: nobody by default (admins always)
+OFFICER.PERM_TABS = ["events", "board", "map", "ranking", "attend", "post", "watch", "views", "move", "hunt", "attack", "research"];
+/* 🔬 one permission for all research reports (Sherry 2026-11-04). Older tables still have one key per report: until "research" is set, the best of those counts. */
+OFFICER.RESEARCH = ["growth", "bh", "bearplan", "vv", "ms", "iv"];
+const LVR = { none: 0, view: 1, edit: 2 };
+OFFICER.researchLevel = (p) => { if (!p) return "none"; if (p.research) return p.research; let b = "none"; for (const k of OFFICER.RESEARCH) if ((LVR[p[k]] || 0) > LVR[b]) b = p[k]; return b; };   // 🚚 move: nobody by default (admins always)
 OFFICER.VIEW_TABS = ["events", "board", "map"];
 OFFICER.defaultPerms = () => Object.fromEntries(OFFICER.PERM_TABS.map((k) => [k, OFFICER.VIEW_TABS.includes(k) ? "view" : "none"]));   // new officer: Events, Board, Map — view only
 OFFICER.ADMIN_IDS = ["1547403844374368327", "1240788094672834623", "762827904341246013"];   // Sparrow, R5, Nia: always admins (same list in the Worker)
@@ -192,7 +196,8 @@ OFFICER.can = (tab, what = "view") => {
   if (OFFICER.PERMS_TRIAL) return true;                               // 🔓 until the login system is rolled out: every tab open to every officer (👥 stays admin-only)
   if (!uid) return false;                                             // only Discord logins get in now
   if (OFFICER.ADMINS.includes(uid) || OFFICER.ADMIN_IDS.includes(uid)) return true;
-  const u = OFFICER.perms.users[uid], lv = (u && u.perms && u.perms[tab]) || "none";
+  const u = OFFICER.perms.users[uid], p = u && u.perms;
+  const lv = (tab === "research" || OFFICER.RESEARCH.includes(tab)) ? OFFICER.researchLevel(p) : (p && p[tab]) || "none";
   return what === "edit" ? lv === "edit" : lv !== "none";
 };
 /* tab list + read-only look follow the rights (called after login, after a change on the 👥 tab, and when previewing) */
@@ -229,7 +234,7 @@ OFFICER.applyPerms = () => {
   if (OFFICER.user && !OFFICER.can(currentTab(), "view")) location.hash = "#" + (TABS.find((k) => OFFICER.can(k, "view")) || "events");
 };
 const OFFICER_PAGES = {};
-const GROUPS = { research: ["growth", "bh", "bearplan", "vv", "ms", "iv"] };   // 🔬 one main tab, sub-tabs inside (Sherry 2026-11-04: too many tabs)
+const GROUPS = { research: OFFICER.RESEARCH };   // 🔬 one main tab, sub-tabs inside (Sherry 2026-11-04: too many tabs)
 const TABS = ["events", "ranking", "post", "watch", "views", "map", "move", "hunt", "attack", "growth", "bearplan", "vv", "ms", "bh", "iv", "bt", "board", "attend", "perms"];
 const inited = {};
 /* start another tab's module without showing it (the 👥 tab uses the Post tab's owner tools) */

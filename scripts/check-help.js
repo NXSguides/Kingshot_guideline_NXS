@@ -46,6 +46,7 @@ const FEATURES = [
   ["Migrant Score report (🧳 research)", /🧳 MIGRANT SCORE report/, /ms: \[\{ s: "#ms_title", k: "ms01" \}\]/],
   ["Bear Hunt report (🐻 research)", /🐻 BEAR HUNT report/, /bh: \[\{ s: "#bh_title", k: "bh01" \}\]/],
   ["Investment report (💎 research)", /💎 INVESTMENT report/, /iv: \[\{ s: "#iv_title", k: "iv01" \}\]/],
+  ["🔬 Research permission (one for all reports)", /🔬 RESEARCH \(研究報告\)/, /research: \[\{ s: "#researchTab", k: "rs01" \}\]/],
   ["🔬 Research main tab (reports as sub-tabs)", /🔬 Research \(研究報告/, /🔬 Research holds our reports/],
   ["Battle: 🎯 KvK opponent intel", /🎯 KvK opponent intel \(KvK 對手情報/, /{ s: "#ak_intel", k: "ak05" }/],
   ["Ranking: 💾 Save now (plan)", /💾 Save now \(立即儲存/, /{ s: "#planSaveNow", k: "rk01s" }/],
