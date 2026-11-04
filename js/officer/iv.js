@@ -46,10 +46,13 @@ const T = {
     ggG: "Green · Blue", ggP2: "Purple", ggO: "Gold (T1–T3)", ggR: "Red (T1–T4)",
     ggTier: { g: "Green", b: "Blue", p: "Purple", p1: "Purple T1", o: "Gold", o1: "Gold T1", o2: "Gold T2", o3: "Gold T3", r: "Red", r1: "Red T1", r2: "Red T2", r3: "Red T3", r4: "Red T4" },
     ggCols: ["Step", "Satin / Gilded Threads / Artisan's Vision", "Relic Coins", "% gained", "Gems per 1%"],
+    ru1: "Every system is cheapest at its first levels.", ru2: "Keep upgrading whatever is cheapest right now — don't push one system to the top.", ru3: "Joiners: don't spend on combat stats — only the rally leader's count.",
+    ruH: "📏 Price ruler", ruP: "Each dot is one level, placed by how many gems +1% costs (left = cheap, right = dear; ×10 per mark). Numbered dots are your next steps from the tool below. Tap a dot for its price.",
+    rdTap: "Tap a dot to see what it is and what it costs.", moreH: "📖 More: why, by role, pets, what we don't know", petH: "Pets",
     nxH: "🎯 My next step", nxP: "Pick where you are now, per troop type. The list shows your 8 cheapest next upgrades (gems per +1%), all systems and troop types mixed.",
     nxCharm: "My Governor Charms (most pieces of each troop type)", troops: ["Infantry", "Cavalry", "Archers"], nxGear: "My Governor Gear (most pieces of each troop type)", nxPet: "My next pet advancement", nxMast: "Main heroes' Mastery Forging", nxEnh: "Enhancement of those main pieces", nxPetTip: "Pet level-ups: pet food is easy to get (Cheetah skill 200–500 a day, events, Alliance Shop), so level up whenever you can. Rarer pets give more troop Attack / Defense per level but also eat more food, so the food per +1% is about the same for every pet (Lynx / Bison are the thriftiest, ~0.8× a Lion). The real limit is the advancement every 10 levels (in the list) — and an N, R or SR pet at the same advancement is about equally good value. Pet Refinement is the biggest room left on a pet and it is all Lethality / Health: the pet's level caps the quality you can roll (Lv10 grey, Lv20 green, Lv30 blue, Lv40 purple, Lv50 mythic). Use Common Taming Marks up to blue, Advanced Taming Marks from blue → purple.",
     nxNone: "none yet", nxLv: "Lv{n}", nxPetDone: "already past Lv60", nxMax: "maxed", nxGo: "Do these first:", nxNote: "Same gems, most %. Lethality / Health (Governor Charms) are worth a bit more than they look, Attack / Defense (pets) a bit less.",
-    sys: { c: "💠 Governor Charm", g: "🛡️ Governor Gear", pu: "🐾 Pet level-up", pa: "🐾 Pet advancement", pr: "🐾 Pet Refinement", r: "🔬 Research", m: "🔨 Mastery Forging" },
+    sys: { pet: "🐾 Pets", c: "💠 Governor Charm", g: "🛡️ Governor Gear", pu: "🐾 Pet level-up", pa: "🐾 Pet advancement", pr: "🐾 Pet Refinement", r: "🔬 Research", m: "🔨 Mastery Forging" },
     refN: "with Common Taming Marks", refA: "Advanced (Advanced Taming Marks)", resFirst: "first levels of a tier", resLast: "last level of a tier", petUp: "weekly food", from: "→",
     bdH: "🗂️ Price bands", bdP: "Every upgrade, sorted by how many gems +1% costs. Same row = about the same value for your gems.",
     bands: ["Very cheap (under 5,000)", "Cheap (5,000–15,000)", "Middle (15,000–30,000)", "Dear (30,000–60,000)", "Very dear (60,000+)"],
@@ -74,7 +77,7 @@ const T = {
     foot: "Source: Sparrow's main account (power ↔ %, shop prices, research times). Not from the game. Numbers will be corrected as we test more." },
   zh: { title: "💎 投資效率", intro: "我們自己的研究：同樣的鑽石，換到的屬性 % 差非常多。哪裡最划算？什麼角色該花在哪？還在測試中。",
     badge: "🧪 測試中 · 來自我們自己的帳號和商店價格 · 更新 {d}",
-    heroH: "同樣的鑽石，效果差很多。", heroP: "最便宜的 +1%（第一件綠色領主裝備、領主寶石 Lv1）不到 1,000 鑽；英雄裝備專精鍛造 Lv5 大約 56,000 鑽；紅色領主裝備、寶石最後幾級，同樣 1% 要 70–80 萬鑽。",
+    heroH: "同樣的鑽石，花在哪裡差很多。", heroP: "最便宜的 +1%（第一件綠色領主裝備、領主寶石 Lv1）不到 1,000 鑽；英雄裝備專精鍛造 Lv5 大約 56,000 鑽；紅色領主裝備、寶石最後幾級，同樣 1% 要 70–80 萬鑽。",
     barH: "💰 +1% 要多少鑽石", barP: "長條越短越划算。每一條都是「一個兵種、一種屬性 +1%」。",
     rows: { c1: "領主寶石 0 → Lv1", pet: "寵物升級（聯盟商店口糧，每週限量）", res: "研究——每階的前幾級", hg1: "英雄裝備專精鍛造 0 → 1", c25: "領主寶石 Lv2–3",
       adv: "寵物突破", ref: "寵物洗練", gg1: "領主裝備——綠色、藍色", gg2: "領主裝備——紫色（史詩，含 T1）", gg3: "領主裝備——金色、紅色", resl: "研究——每階最後一級", hg2: "英雄裝備專精鍛造 1 → 5", c6: "領主寶石 Lv4–22" },
@@ -89,10 +92,13 @@ const T = {
     ggG: "綠・藍", ggP2: "紫", ggO: "金（T1–T3）", ggR: "紅（T1–T4）",
     ggTier: { g: "綠", b: "藍", p: "紫", p1: "紫 T1", o: "金", o1: "金 T1", o2: "金 T2", o3: "金 T3", r: "紅", r1: "紅 T1", r2: "紅 T2", r3: "紅 T3", r4: "紅 T4" },
     ggCols: ["階", "綢緞／金絲線／匠心願景", "聖契幣", "加多少 %", "每 1%（鑽）"],
+    ru1: "每個系統都是前幾級最便宜。", ru2: "輪流升「現在最便宜的那一級」，不要一個系統衝到底。", ru3: "加入者不要把錢花在戰鬥屬性——集結只看隊長的。",
+    ruH: "📏 價格尺", ruP: "每個點是一個等級，照「+1% 要幾鑽」排（左邊便宜、右邊貴，每格 ×10）。有數字的點是下面工具算出的你的下一步。點一下看價格。",
+    rdTap: "點任何一個點，看它是什麼、要多少鑽。", moreH: "📖 更多：原因、依角色、寵物、還不知道的", petH: "寵物",
     nxH: "🎯 我的下一步", nxP: "照兵種選你現在的進度，下面列出你最划算的 8 個下一步（每 +1% 幾鑽），所有系統、兵種混在一起比。",
     nxCharm: "我的領主寶石（每個兵種大多在幾級）", troops: ["步兵", "騎兵", "弓兵"], nxGear: "我的領主裝備（每個兵種大多在哪一階）", nxPet: "我下一次寵物突破", nxMast: "主力英雄的專精鍛造", nxEnh: "那些主力裝備的強化等級", nxPetTip: "寵物升級：寵物口糧不難拿（獵豹技能每天 200–500、活動、聯盟商店），能升就升。稀有度越高，每級加的部隊攻防越多，但吃的口糧也越多，所以每 +1% 用的口糧每隻寵物都差不多（猞猁／野牛最省，約獅子的 0.8 倍）。真正卡住的是每 10 級一次的突破（有在上面排名）——同一級突破，N、R、SR 寵物的划算程度幾乎一樣。寵物洗練是寵物剩下最大的空間，而且全是殺傷力／生命值：寵物等級決定能洗到的最高品質（Lv10 灰、Lv20 綠、Lv30 藍、Lv40 紫、Lv50 神話）。藍色以前用普通馴化印記，藍升紫以上用高級馴化印記。",
     nxNone: "還沒有", nxLv: "Lv{n}", nxPetDone: "已經超過 Lv60", nxMax: "已滿", nxGo: "先做這些：", nxNote: "同樣的鑽石換到最多 %。殺傷力、生命值（領主寶石）實際上比看起來更值錢一點，攻擊力、防禦力（寵物）稍微少一點。",
-    sys: { c: "💠 領主寶石", g: "🛡️ 領主裝備", pu: "🐾 寵物升級", pa: "🐾 寵物突破", pr: "🐾 寵物洗練", r: "🔬 研究", m: "🔨 專精鍛造" },
+    sys: { pet: "🐾 寵物", c: "💠 領主寶石", g: "🛡️ 領主裝備", pu: "🐾 寵物升級", pa: "🐾 寵物突破", pr: "🐾 寵物洗練", r: "🔬 研究", m: "🔨 專精鍛造" },
     refN: "普通洗練（普通馴化印記）", refA: "高級洗練（高級馴化印記）", resFirst: "每階前幾級", resLast: "每階最後一級", petUp: "每週口糧", from: "→",
     bdH: "🗂️ 價格帶", bdP: "所有升級照「+1% 要幾鑽」分成五層。同一層＝同樣的鑽石，效果差不多。",
     bands: ["很便宜（5,000 以下）", "便宜（5,000–15,000）", "中等（15,000–30,000）", "貴（30,000–60,000）", "很貴（60,000 以上）"],
@@ -139,19 +145,23 @@ const mastGems = (L) => 10 * (L + 1) * 4000 / ((15 + 0.35 * (NX.e || 60)) * 0.1)
 try { Object.assign(NX, JSON.parse(localStorage.getItem("nxs-iv") || "{}")); } catch (e) {}
 if (!Array.isArray(NX.c)) NX.c = [NX.c, NX.c, NX.c].map((x) => +x || 0); if (!Array.isArray(NX.g)) NX.g = [NX.g, NX.g, NX.g].map((x) => (x == null ? -1 : +x));   // old one-number setting
 const keepNx = () => { try { localStorage.setItem("nxs-iv", JSON.stringify(NX)); } catch (e) {} };
-function nextHtml() {
-  const S = t("sys"), cand = [];
+function nextCand() {
+  const cand = [];
   const TR = t("troops");
   for (let tr = 0; tr < 3; tr++) {
     const c = NX.c[tr], g = NX.g[tr];
-    for (let k = 0; k < 2; k++) if (c + k < CHARM.length) cand.push({ sys: "c", tr: TR[tr], label: `Lv${c + k} ${t("from")} Lv${c + k + 1}`, gems: charmGems(c + k) });
-    for (let k = 1; k <= 2; k++) if (g + k < GEAR.length) cand.push({ sys: "g", tr: TR[tr], label: (g + k ? gearName(g + k - 1) + ` ${t("from")} ` : "") + gearName(g + k), gems: gearGems(g + k) });
+    for (let k = 0; k < 2; k++) if (c + k < CHARM.length) cand.push({ sys: "c", key: "c" + (c + k), tr: TR[tr], label: `Lv${c + k} ${t("from")} Lv${c + k + 1}`, gems: charmGems(c + k) });
+    for (let k = 1; k <= 2; k++) if (g + k < GEAR.length) cand.push({ sys: "g", key: "g" + (g + k), tr: TR[tr], label: (g + k ? gearName(g + k - 1) + ` ${t("from")} ` : "") + gearName(g + k), gems: gearGems(g + k) });
   }
-  for (let k = 0; k < 2; k++) { const a = PETADV[NX.pa + k]; if (a) cand.push({ sys: "pa", label: "Lv" + a[0], gems: a[1], hi: a[2] }); }
-  cand.push({ sys: "pr", label: t("refN"), gems: 7400 }, { sys: "pr", label: t("refA"), gems: 20000 });
-  cand.push({ sys: "r", label: t("resFirst"), gems: 3800, hi: 14600 });
-  for (let k = 0; k < 2; k++) if (NX.m + k < 5) cand.push({ sys: "m", label: `${NX.m + k} ${t("from")} ${NX.m + k + 1}`, gems: mastGems(NX.m + k) });
+  for (let k = 0; k < 2; k++) { const a = PETADV[NX.pa + k]; if (a) cand.push({ sys: "pa", key: "pa" + a[0], label: "Lv" + a[0], gems: a[1], hi: a[2] }); }
+  cand.push({ sys: "pr", key: "pr1", label: t("refN"), gems: 7400 }, { sys: "pr", key: "pr2", label: t("refA"), gems: 20000 });
+  cand.push({ sys: "r", key: "r1", label: t("resFirst"), gems: 3800, hi: 14600 });
+  for (let k = 0; k < 2; k++) if (NX.m + k < 5) cand.push({ sys: "m", key: "m" + (NX.m + k), label: `${NX.m + k} ${t("from")} ${NX.m + k + 1}`, gems: mastGems(NX.m + k) });
   cand.sort((a, b) => a.gems - b.gems);
+  return cand.slice(0, 8);
+}
+function nextHtml() {
+  const S = t("sys"), TR = t("troops"), cand = nextCand();
   const opt = (n, v, lab) => `<option value="${v}"${n === v ? " selected" : ""}>${esc(lab)}</option>`;
   return `<div class="iv-nxin">
       <div class="iv-trg"><b>${esc(t("nxCharm"))}</b>${[0, 1, 2].map((tr) => `<label>${esc(TR[tr])}<select class="inp" data-c="${tr}">${Array.from({ length: 23 }, (_, n) => opt(NX.c[tr], n, n ? t("nxLv").replace("{n}", n) : t("nxNone"))).join("")}</select></label>`).join("")}</div>
@@ -159,8 +169,7 @@ function nextHtml() {
       <label>${esc(t("nxPet"))}<select class="inp" id="iv_pa">${PETADV.map((a, i) => opt(NX.pa, i, "Lv" + a[0])).join("")}${opt(NX.pa, PETADV.length, t("nxPetDone"))}</select></label>
       <label>${esc(t("nxMast"))}<select class="inp" id="iv_m">${Array.from({ length: 6 }, (_, n) => opt(NX.m, n, n === 5 ? `Lv5+ (${t("nxMax")})` : "Lv" + n)).join("")}</select></label>
       <label>${esc(t("nxEnh"))}<select class="inp" id="iv_e">${[40, 60, 80, 100].map((n) => opt(NX.e, n, "+" + n)).join("")}</select></label></div>
-    <div class="iv-nxl"><b>${esc(t("nxGo"))}</b><ol>${cand.slice(0, 8).map((c) => `<li class="b${band(c.gems)}"><span class="iv-sys">${esc(S[c.sys])}${c.tr ? " · " + esc(c.tr) : ""}</span><span class="iv-lab">${esc(c.label)}</span><span class="iv-gem">${c.hi ? range(c.gems, c.hi) : fmt(c.gems)}</span></li>`).join("")}</ol></div>
-    <p class="iv-pet">🐾 ${esc(t("nxPetTip"))}</p>
+    <div class="iv-nxl"><b>${esc(t("nxGo"))}</b><ol>${cand.map((c) => `<li class="b${band(c.gems)}"><span class="iv-sys">${esc(S[c.sys])}${c.tr ? " · " + esc(c.tr) : ""}</span><span class="iv-lab">${esc(c.label)}</span><span class="iv-gem">${c.hi ? range(c.gems, c.hi) : fmt(c.gems)}</span></li>`).join("")}</ol></div>
     <div class="muted iv-small">${esc(t("nxNote"))}</div>`;
 }
 function bandsHtml() {
@@ -177,6 +186,20 @@ function bandsHtml() {
   rows[4] = merged.concat(v.filter((x) => !["c", "g", "m"].includes(x.sys)));
   return `<div class="iv-bands">${rows.map((row, b) => `<div class="iv-band b${b}"><div class="iv-bl">${esc(t("bands")[b])}</div><div class="iv-chips">${row.map((x) => `<span class="iv-chip s-${x.sys}">${esc(S[x.sys])} <b>${esc(x.label)}${x.to && x.to !== x.label ? "–" + esc(x.to) : ""}</b></span>`).join("")}</div></div>`).join("")}</div>`;
 }
+/* 📏 one price ruler: every level of every system as a dot on a log scale (500 → 1,000,000 gems per +1%) */
+const LO = Math.log10(500), HI = Math.log10(1e6);
+const xp = (g) => Math.max(0, Math.min(100, (Math.log10(g) - LO) / (HI - LO) * 100));
+function rulerHtml() {
+  const S = t("sys"), st = allSteps(), rank = {};
+  nextCand().forEach((c, i) => { if (!(c.key in rank)) rank[c.key] = i + 1; });
+  const lanes = [["c", ["c"]], ["g", ["g"]], ["pa", ["pa", "pr"]], ["r", ["r"]], ["m", ["m"]]];
+  const zones = BANDS.map((b, i) => { const a = i ? BANDS[i - 1] : 500, z = Math.min(b, 1e6); return `<i class="z b${i}" style="left:${xp(a)}%;width:${xp(z) - xp(a)}%"></i>`; }).join("");
+  const dot = (x) => { const r = rank[x.key], tip = `${S[x.sys]} ${x.label}: ${x.hi ? range(x.gems, x.hi) : fmt(x.gems)}`;
+    return (x.hi ? `<i class="rg" style="left:${xp(x.gems)}%;width:${xp(x.hi) - xp(x.gems)}%"></i>` : "") + `<button type="button" class="dt s-${x.sys}${r ? " hl" : ""}${x.sys === "pr" ? " dm" : ""}" style="left:${xp(x.gems)}%" data-tip="${esc(tip)}" aria-label="${esc(tip)}">${r ? `<span>${r}</span>` : ""}</button>`; };
+  return `<div class="iv-ru">${lanes.map(([k, syss]) => `<div class="iv-ln"><div class="iv-lnk">${esc(S[k === "pa" ? "pet" : k])}</div><div class="iv-tr">${zones}${st.filter((x) => syss.includes(x.sys)).map(dot).join("")}</div></div>`).join("")}
+    <div class="iv-ln ax"><div class="iv-lnk"></div><div class="iv-tr">${[1e3, 1e4, 1e5, 1e6].map((v) => `<span style="left:${xp(v)}%">${v >= 1e6 ? "1M" : v / 1000 + "k"}</span>`).join("")}</div></div></div>
+    <div class="iv-rd" id="iv_rd">${esc(t("rdTap"))}</div>`;
+}
 function nextKey(k) { const m = k.match(/^([cgm])(\d+)$/); return m ? m[1] + (+m[2] + 1) : null; }
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
 const fmt = (n) => Math.round(n).toLocaleString("en-US");
@@ -187,24 +210,11 @@ function render() {
   const gain = (s) => (1 / (100 + s) * 100);   // how much +1% adds at a given stat, in % of total
   root.innerHTML = `
   <div class="iv-hero"><span class="iv-badge">${esc(t("badge").replace("{d}", UPDATED))}</span><h2>${esc(t("heroH"))}</h2><p>${esc(t("heroP"))}</p></div>
+  <div class="iv-rules">${["ru1", "ru2", "ru3"].map((k, i) => `<div class="iv-rule"><span>${["🪜", "🔄", "🤝"][i]}</span><p>${esc(t(k))}</p></div>`).join("")}</div>
+  <div class="card"><h3>${esc(t("ruH"))}</h3><p class="iv-p">${esc(t("ruP"))}</p><div id="iv_ruler">${rulerHtml()}</div>
+    <div class="iv-key">${t("bands").map((b, i) => `<span><i class="zk b${i}"></i>${esc(b)}</span>`).join("")}</div></div>
   <div class="card"><h3>${esc(t("nxH"))}</h3><p class="iv-p">${esc(t("nxP"))}</p><div id="iv_nx">${nextHtml()}</div></div>
-  <div class="card"><h3>${esc(t("bdH"))}</h3><p class="iv-p">${esc(t("bdP"))}</p><div id="iv_bd">${bandsHtml()}</div><p class="iv-rot">🔄 ${esc(t("rot"))}</p></div>
-  <details class="card iv-det"><summary><b>${esc(t("detH"))}</b></summary>
-  <div class="card"><h3>${esc(t("barH"))}</h3><p class="iv-p">${esc(t("barP"))}</p>
-    <div class="iv-bars">${ROWS.map(([k, lo, hi, kind]) => `<div class="iv-row"><div class="iv-k">${esc(R[k])}${G[k] ? `<small>${esc(G[k])}</small>` : ""}</div>
-      <div class="iv-b${hi > MAX ? " over" : ""}"><i class="${kind}" style="left:0;width:${(Math.min(lo, MAX) / MAX * 100).toFixed(1)}%"></i>${hi > lo ? `<i class="${kind} rng" style="left:${(Math.min(lo, MAX) / MAX * 100).toFixed(1)}%;width:${((Math.min(hi, MAX) - Math.min(lo, MAX)) / MAX * 100).toFixed(1)}%"></i>` : ""}</div>
-      <div class="iv-v">${range(lo, hi)}</div></div>`).join("")}</div>
-    <div class="iv-key"><span><i class="cheap"></i>${esc(t("cheap"))}</span><span><i class="mid"></i>${esc(t("mid"))}</span><span><i class="dear"></i>${esc(t("dear"))}</span></div>
-</div>
-  <div class="card"><h3>${esc(t("chH"))}</h3><p class="iv-p">${esc(t("chP"))}</p>
-    <div class="iv-ch">${CHARM.map((c, i) => { const g = charmGems(i), h = (Math.log10(g) - 2.5) / (6 - 2.5) * 100, k = g < 10000 ? "cheap" : g < 60000 ? "mid" : "dear";
-      return `<div title="Lv${i + 1}: ${fmt(g)}"><b>${i === 0 || i === 4 || i === 10 || i === 21 ? (g >= 1e5 ? Math.round(g / 1000) + "k" : g >= 1e4 ? Math.round(g / 1000) + "k" : fmt(g)) : ""}</b><i class="${k}" style="height:${h.toFixed(0)}%"></i><small>${i + 1}</small></div>`; }).join("")}</div>
-    <p class="iv-p" style="margin-top:10px">💡 ${esc(t("chTip"))}</p></div>
-  <div class="card"><h3>${esc(t("ggH"))}</h3><p class="iv-p">${esc(t("ggP"))}</p>
-    <div class="iv-ch gg">${GEAR.map((g, i) => { const v = gearGems(i), h = (Math.log10(v) - 2.5) / (6 - 2.5) * 100, k = "t-" + g[0][0], first = !i || GEAR[i - 1][0] !== g[0], TT = t("ggTier");
-      return `<div title="${esc(TT[g[0]])} ★${i - GEAR.findIndex((x) => x[0] === g[0])}: ${fmt(v)}"${first ? ' class="t0"' : ""}><b>${first && ["g", "p", "o", "r"].includes(g[0]) ? (v >= 1e4 ? Math.round(v / 1000) + "k" : fmt(v)) : ""}</b><i class="${k}" style="height:${h.toFixed(0)}%"></i></div>`; }).join("")}</div>
-    <div class="iv-ggk">${[["g", 6, "ggG"], ["p", 8, "ggP2"], ["o", 16, "ggO"], ["r", 20, "ggR"]].map(([k, n, lab]) => `<span style="flex:${n}">${esc(t(lab))}</span>`).join("")}</div>
-    <p class="iv-p" style="margin-top:10px">💡 ${esc(t("ggTip"))}</p><div class="muted iv-small">${esc(t("ggNote"))}</div></div></details>
+  <details class="card iv-det"><summary><b>${esc(t("moreH"))}</b></summary>
   <div class="card"><h3>${esc(t("lowH"))}</h3><p class="iv-p">${esc(t("lowP"))}</p>
     <div class="iv-low">${[[50, "lowA"], [300, "lowB"]].map(([s, k]) => `<div class="iv-lc"><b>${esc(t(k))}</b><div class="iv-lb"><i style="width:${(gain(s) / gain(50) * 100).toFixed(0)}%"></i></div><span>${esc(t("lowS"))} ${gain(s).toFixed(2)}%</span></div>`).join("")}</div>
     <div class="muted iv-small">${esc(t("lowFoot"))}</div></div>
@@ -217,16 +227,22 @@ function render() {
     <div class="iv-jo"><div class="iv-yes"><b>✅ ${esc(t("joYes"))}</b><ul>${t("joYesL").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
       <div class="iv-no"><b>🚫 ${esc(t("joNo"))}</b><ul>${t("joNoL").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div></div>
     <p class="iv-p" style="margin-top:10px">💡 ${esc(t("joIf"))}</p></div>
-  <div class="card"><h3>${esc(t("unkH"))}</h3><ul class="iv-ul">${t("unks").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
+  <div class="card"><h3>🐾 ${esc(t("petH"))}</h3><p class="iv-p">${esc(t("nxPetTip"))}</p></div>
+  <div class="card"><h3>${esc(t("unkH"))}</h3><ul class="iv-ul">${t("unks").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div></details>
   <details class="card"><summary><b>${esc(t("numH"))}</b></summary><p class="iv-p" style="margin-top:8px">${esc(t("numP"))}</p>
     <div class="iv-tw"><table class="iv-t"><tr>${t("numCols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${ROWS.map(([k, lo, hi]) => `<tr><td>${esc(R[k])}</td><td class="n">${range(lo, hi)}</td><td>${esc(G[k])}</td></tr>`).join("")}</table>
     <table class="iv-t"><tr>${t("chCols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${CHARM.map((c, i) => `<tr><td>Lv${i + 1}</td><td class="n">${fmt(c[0])}</td><td class="n">+${c[1]}%</td><td class="n">${CHARM.slice(0, i + 1).reduce((a, x) => a + x[1], 0)}%</td><td class="n">${fmt(charmGems(i))}</td></tr>`).join("")}</table>
-    <table class="iv-t"><tr>${t("ggCols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${GEAR.map((g, i) => `<tr><td>${esc(t("ggTier")[g[0]])} ★${i - GEAR.findIndex((x) => x[0] === g[0])}</td><td class="n">${fmt(g[1])} / ${fmt(g[2])} / ${fmt(g[3])}</td><td class="n">${fmt(gearCoins(i))}</td><td class="n">+${gearPct(i).toFixed(2)}%</td><td class="n">${fmt(gearGems(i))}</td></tr>`).join("")}</table></div></details>
+    <table class="iv-t"><tr>${t("ggCols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${GEAR.map((g, i) => `<tr><td>${esc(gearName(i))}</td><td class="n">${fmt(g[1])} / ${fmt(g[2])} / ${fmt(g[3])}</td><td class="n">${fmt(gearCoins(i))}</td><td class="n">+${gearPct(i).toFixed(2)}%</td><td class="n">${fmt(gearGems(i))}</td></tr>`).join("")}</table>
+    <div class="muted iv-small">${esc(t("ggNote"))}</div></div></details>
   <div class="muted iv-small">${esc(t("foot"))}</div>`;
   bind();
 }
+function bindRuler() {
+  document.querySelectorAll("#iv_ruler .dt").forEach((b) => b.onclick = () => { const d = $("iv_rd"); if (d) d.textContent = b.dataset.tip; document.querySelectorAll("#iv_ruler .dt.on").forEach((x) => x.classList.remove("on")); b.classList.add("on"); });
+}
 function bind() {
-  const redo = () => { keepNx(); const n = $("iv_nx"); if (n) { n.innerHTML = nextHtml(); bind(); } const bd = $("iv_bd"); if (bd) bd.innerHTML = bandsHtml(); };
+  bindRuler();
+  const redo = () => { keepNx(); const n = $("iv_nx"); if (n) { n.innerHTML = nextHtml(); bind(); } const ru = $("iv_ruler"); if (ru) { ru.innerHTML = rulerHtml(); bindRuler(); } };
   document.querySelectorAll("#iv_nx [data-c]").forEach((el) => el.onchange = () => { NX.c[+el.dataset.c] = +el.value; redo(); });
   document.querySelectorAll("#iv_nx [data-g]").forEach((el) => el.onchange = () => { NX.g[+el.dataset.g] = +el.value; redo(); });
   for (const [id, k] of [["iv_pa", "pa"], ["iv_m", "m"], ["iv_e", "e"]]) { const el = $(id); if (el) el.onchange = () => { NX[k] = +el.value; redo(); }; }
