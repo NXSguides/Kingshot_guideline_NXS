@@ -50,7 +50,7 @@ const T = {
     ruH: "📏 Price ruler", ruP: "Each dot is one level, placed by how many gems +1% costs (left = cheap, right = dear; ×10 per mark). Numbered dots are your next steps from the tool below; faded dots are red gear, not open on our server yet. Tap a dot for its price.",
     rdTap: "Tap a dot to see what it is and what it costs.", moreH: "📖 More: why, by role, pets, what we don't know", petH: "Pets",
     nxRes: "Research tier I'm on", nxMr: "Roman advancements done", nxMv: "Valora advancements done", roman: "Roman", valora: "Valora", nth: "#{n}",
-    nxH: "🎯 My next step", nxP: "Pick where you are now, per troop type. The list shows your 8 cheapest next upgrades (gems per +1%), all systems and troop types mixed.",
+    dirTip: "Done with the cheap levels everywhere (Charms Lv3, research tier V, Governor Gear Epic 3★, pets Lv50)? Then it's time to pick a direction.", dirLink: "🧭 When to pick a direction →", nxH: "🎯 My next step", nxP: "Pick where you are now, per troop type. The list shows your 8 cheapest next upgrades (gems per +1%), all systems and troop types mixed.",
     nxCharm: "My Governor Charms (most pieces of each troop type)", troops: ["Infantry", "Cavalry", "Archers"], nxGear: "My Governor Gear (most pieces of each troop type)", nxPet: "My next pet advancement", nxMast: "Main heroes' Mastery Forging", nxEnh: "Enhancement of those main pieces", nxPetTip: "Pet level-ups: pet food is easy to get (Cheetah skill 200–500 a day, events, Alliance Shop), so level up whenever you can. Rarer pets give more troop Attack / Defense per level but also eat more food, so the food per +1% is about the same for every pet (Lynx / Bison are the thriftiest, ~0.8× a Lion). The real limit is the advancement every 10 levels (in the list) — and an N, R or SR pet at the same advancement is about equally good value. Pet Refinement is the biggest room left on a pet and it is all Lethality / Health: the pet's level caps the quality you can roll (Lv10 grey, Lv20 green, Lv30 blue, Lv40 purple, Lv50 mythic). Use Common Taming Marks up to blue, Advanced Taming Marks from blue → purple.",
     nxNone: "none yet", nxLv: "Lv{n}", nxPetDone: "already past Lv60", nxMax: "maxed", nxGo: "Do these first:", nxNote: "Same gems, most %. Lethality / Health (Governor Charms) are worth a bit more than they look, Attack / Defense (pets) a bit less.",
     sys: { pet: "🐾 Pets", ma: "🎓 Master advancement", en: "⚒️ Hero Gear enhancement", c: "💠 Governor Charm", g: "🛡️ Governor Gear", pu: "🐾 Pet level-up", pa: "🐾 Pet advancement", pr: "🐾 Pet Refinement", r: "🔬 Research", m: "🔨 Mastery Forging" },
@@ -97,7 +97,7 @@ const T = {
     ruH: "📏 價格尺", ruP: "每個點是一個等級，照「+1% 要幾鑽」排（左邊便宜、右邊貴，每格 ×10）。有數字的點是下面工具算出的你的下一步；淡色的是我們伺服器還沒開放的紅色裝備。點一下看價格。",
     rdTap: "點任何一個點，看它是什麼、要多少鑽。", moreH: "📖 更多：原因、依角色、寵物、還不知道的", petH: "寵物",
     nxRes: "我的研究在哪一階", nxMr: "羅曼已進階幾次", nxMv: "維拉已進階幾次", roman: "羅曼", valora: "維拉", nth: "第 {n} 次",
-    nxH: "🎯 我的下一步", nxP: "照兵種選你現在的進度，下面列出你最划算的 8 個下一步（每 +1% 幾鑽），所有系統、兵種混在一起比。",
+    dirTip: "便宜的都升完了嗎（寶石 Lv3、研究 V 階、領主裝備史詩 3★、寵物 Lv50）？那就該開始選方向了。", dirLink: "🧭 什麼時候該選方向 →", nxH: "🎯 我的下一步", nxP: "照兵種選你現在的進度，下面列出你最划算的 8 個下一步（每 +1% 幾鑽），所有系統、兵種混在一起比。",
     nxCharm: "我的領主寶石（每個兵種大多在幾級）", troops: ["步兵", "騎兵", "弓兵"], nxGear: "我的領主裝備（每個兵種大多在哪一階）", nxPet: "我下一次寵物突破", nxMast: "主力英雄的專精鍛造", nxEnh: "那些主力裝備的強化等級", nxPetTip: "寵物升級：寵物口糧不難拿（獵豹技能每天 200–500、活動、聯盟商店），能升就升。稀有度越高，每級加的部隊攻防越多，但吃的口糧也越多，所以每 +1% 用的口糧每隻寵物都差不多（猞猁／野牛最省，約獅子的 0.8 倍）。真正卡住的是每 10 級一次的突破（有在上面排名）——同一級突破，N、R、SR 寵物的划算程度幾乎一樣。寵物洗練是寵物剩下最大的空間，而且全是殺傷力／生命值：寵物等級決定能洗到的最高品質（Lv10 灰、Lv20 綠、Lv30 藍、Lv40 紫、Lv50 神話）。藍色以前用普通馴化印記，藍升紫以上用高級馴化印記。",
     nxNone: "還沒有", nxLv: "Lv{n}", nxPetDone: "已經超過 Lv60", nxMax: "已滿", nxGo: "先做這些：", nxNote: "同樣的鑽石換到最多 %。殺傷力、生命值（領主寶石）實際上比看起來更值錢一點，攻擊力、防禦力（寵物）稍微少一點。",
     sys: { pet: "🐾 寵物", ma: "🎓 大師進階", en: "⚒️ 英雄裝備強化", c: "💠 領主寶石", g: "🛡️ 領主裝備", pu: "🐾 寵物升級", pa: "🐾 寵物突破", pr: "🐾 寵物洗練", r: "🔬 研究", m: "🔨 專精鍛造" },
@@ -230,7 +230,7 @@ function render() {
   <div class="iv-rules">${["ru1", "ru2", "ru3"].map((k, i) => `<div class="iv-rule"><span>${["🪜", "🔄", "🤝"][i]}</span><p>${esc(t(k))}</p></div>`).join("")}</div>
   <div class="card"><h3>${esc(t("ruH"))}</h3><p class="iv-p">${esc(t("ruP"))}</p><div id="iv_ruler">${rulerHtml()}</div>
     <div class="iv-key">${t("bands").map((b, i) => `<span><i class="zk b${i}"></i>${esc(b)}</span>`).join("")}</div></div>
-  <div class="card"><h3>${esc(t("nxH"))}</h3><p class="iv-p">${esc(t("nxP"))}</p><div id="iv_nx">${nextHtml()}</div></div>
+  <div class="card"><h3>${esc(t("nxH"))}</h3><p class="iv-p">${esc(t("nxP"))}</p><div id="iv_nx">${nextHtml()}</div><p class="iv-p" style="margin:10px 0 0">🌳 ${esc(t("dirTip"))} <a href="#growth">${esc(t("dirLink"))}</a></p></div>
   <details class="card iv-det"><summary><b>${esc(t("moreH"))}</b></summary>
   <div class="card"><h3>${esc(t("lowH"))}</h3><p class="iv-p">${esc(t("lowP"))}</p>
     <div class="iv-low">${[[50, "lowA"], [300, "lowB"]].map(([s, k]) => `<div class="iv-lc"><b>${esc(t(k))}</b><div class="iv-lb"><i style="width:${(gain(s) / gain(50) * 100).toFixed(0)}%"></i></div><span>${esc(t("lowS"))} ${gain(s).toFixed(2)}%</span></div>`).join("")}</div>

@@ -375,6 +375,65 @@ const SIDE = {
 };
 const GENS = { amadeus: 1, helga: 1, jabel: 1, saul: 1, zoe: 2, hilde: 2, marlin: 2, eric: 3, petra: 3, jaeger: 3, alcar: 4, margot: 4, rosa: 4, longfei: 5, thrud: 5, vivian: 5 };
 const GJ = [[[["howard", 1], ["saul", 1], ["hilde", 1], ["chenko", 1]], 0], [[["gordon", 2], ["howard", 2]], 5], [[["chenko", 2], ["amane", 2]], 9], [[["gordon", 4]], 19]];
+/* 🌳 When to pick a direction (Sherry 2026-11-04): milestones from the Investment price ruler (≈ 20,000 gems per +1% line),
+   master and pet skills from the main-site guides (#master-academy, #pet). Rows: [icon, system, milestone, why]. */
+const RD = {
+  en: { t: "🌳 When to pick a direction", p: "Before these milestones, everything helps attack, defense and Bear alike — raising a bit of everything is the best deal. Once all are done, each further +1% costs about 20,000 gems or more anywhere, so it pays to focus on one direction.",
+    trunk: [["💎", "Governor Charms", "all Lv3", "from Lv4 every +1% costs 2× or more"], ["🔬", "Research", "first levels of each tier, up to tier V", "tier VI is far dearer"], ["👑", "Governor Gear", "Epic 3★", "Epic T1 and up are far dearer"], ["🐾", "Pets", "breakthrough to Lv50", "stats help everyone"], ["🎓", "Pan", "Lv60", "economy: Reserve Chests, Intel Missions, +4 Mystery Shop refreshes (Widgets)"], ["🎓", "Valora", "Lv30", "Leader By Example, Weapon Obsession: +5 × 100 Enhancement XP and +5 Forgehammers every Bear Hunt"], ["🦸", "Your 3 main heroes", "Hero Gear +60, Mastery Forging Lv1", "cheap — the heroes you march with anyway"]],
+    fork: "All done → pick one", br: [["⚔️", "PvP rally leader", ["Offensive-Widget heroes and their Widgets", "Rally capacity", "Stats: infantry Health > cavalry / archer Lethality", "🎓 Roman next (the guide's order for big spenders and rally leaders: Valora → Roman → Pan)"]],
+      ["🛡️", "Garrison lead", ["Defensive-Widget heroes and their Widgets", "Garrison capacity", "Stats: same order as attack", "Defensive Widgets also work when your own city is hit"]],
+      ["🐻", "Bear leader — a side branch of the rally leader", ["Shares rally Widgets, rally capacity and City Bonus with PvP", "Stats: only archer Attack × Lethality — Charms and Hero Gear for archers first (PvP wants infantry Health first: this is where the two clash)", "🎓 Valora's Dance of the Hunt to max: the whole rally +30,000 capacity per level (Lv10 +300,000)", "🐾 Battle pet skills don't work on the bear — only pet stats"]],
+      ["🤝", "Everyone else (joiners)", ["No direction needed — keep raising a bit of everything", "🎓 Pan → Valora → Roman. Valora's Savage Advantage adds to your own Bear Hunt march", "🐾 Non-battle pet skills are the useful ones: Lion (Gift of the King), Cheetah (Pet Food)", "Migrant Score: Charms, pets, research and Hero Gear all count fully"]]],
+    pet: "🐾 Battle pet skills (Moose: enemy Health ↓, Grizzly Bear: enemy Lethality ↓): the guide only lists Beasts, Rebels, Terror rallies and Dreadwolf; in a rally only the leader's count. Whether they work in PvP rallies or garrisons — not known.",
+    unk: "🟡 Not known yet: whether rally leaders should still raise Pan first before the split; whether pet battle skills work in garrisons.",
+    note: "Milestones are worked out from the gems per +1% on the 💎 Investment page — our estimate, not from the game.", iv: "💎 Gems per level → Investment" },
+  zh: { t: "🌳 什麼時候該選方向", p: "在這些里程碑之前，升什麼對進攻、防守、熊獵都有用——全部輪流升最划算。全部過了以後，不管升哪個，每 +1% 都要約 2 萬鑽以上，這時才值得集中在一個方向。",
+    trunk: [["💎", "領主寶石", "全部 Lv3", "Lv4 起每 +1% 貴 2 倍以上"], ["🔬", "研究", "每階的前幾級，到 V 階", "VI 階貴很多"], ["👑", "領主裝備", "史詩 3★", "史詩 T1 起貴很多"], ["🐾", "寵物", "突破到 Lv50", "屬性人人有用"], ["🎓", "潘", "Lv60", "經濟：儲備寶箱、情報事件、神秘商店多更新 4 次（零件）"], ["🎓", "維拉", "Lv30", "經驗傳承、武器專精：每次狩獵巨熊多 5 個 100 點強化經驗、5 個鍛造錘"], ["🦸", "自己的 3 位主力英雄", "英雄裝備 +60、專精鍛造 Lv1", "便宜，反正都會帶他們出征"]],
+    fork: "全部過了 → 選一條", br: [["⚔️", "PvP 集結隊長", ["集結派英雄和他們的專屬裝備", "集結容量", "屬性：步兵生命值 > 騎弓殺傷力", "🎓 接著升羅曼（攻略「大課與集結指揮」的順序：維拉 → 羅曼 → 潘）"]],
+      ["🛡️", "駐防帶頭", ["守城派英雄和他們的專屬裝備", "駐防容量", "屬性：順序跟進攻一樣", "守城派專屬在自己城被打時也有用"]],
+      ["🐻", "熊獵隊長——集結隊長的另一支", ["集結派專屬、集結容量、城鎮增益跟 PvP 共用", "屬性只看弓兵攻擊力 × 殺傷力——寶石、英雄裝備先升弓兵（PvP 先升步兵生命值，兩邊在這裡衝突）", "🎓 維拉的狩獵之舞練滿：整個集結容量每級 +30,000（Lv10 +300,000）", "🐾 戰鬥寵物技能在熊獵沒用，只算寵物屬性"]],
+      ["🤝", "其他人（加入者）", ["不用選方向，繼續全部輪流升", "🎓 潘 → 維拉 → 羅曼；維拉的人數優勢會加自己在熊獵的出征容量", "🐾 實用的是非戰鬥寵物技能：獅子（獅王贈禮）、獵豹（寵物口糧）", "遷城分數：寶石、寵物、研究、英雄裝備全算"]]],
+    pet: "🐾 戰鬥寵物技能（駝鹿：敵方生命值 ↓；棕熊：敵方殺傷力 ↓）：攻略只寫野獸、叛軍、巨獸集結、恐狼有效；集結只算發起人的。PvP 集結、駐防有沒有效——還不知道。",
+    unk: "🟡 還不知道：集結隊長在分岔前要不要也先練潘；駐防時寵物戰鬥技能有沒有效。",
+    note: "里程碑是用 💎 投資效率的「每 +1% 幾鑽」換算的——我們的推算，不是遊戲說明。", iv: "💎 每一級多少鑽 → 投資效率" },
+  pt: { t: "🌳 Quando escolher uma direção", p: "Antes destes marcos, tudo ajuda ataque, defesa e Urso igualmente — subir um pouco de tudo é o melhor negócio. Depois de todos, cada +1% custa cerca de 20.000 gemas ou mais em qualquer lugar, então vale focar em uma direção.",
+    trunk: [["💎", "Amuleto do Governador", "todos Nv3", "a partir do Nv4 cada +1% custa 2× ou mais"], ["🔬", "Pesquisa", "primeiros níveis de cada fase, até a fase V", "a fase VI é bem mais cara"], ["👑", "Equipamento do Chefe", "Épico 3★", "Épico T1 em diante é bem mais caro"], ["🐾", "Mascotes", "avanço até Nv50", "os atributos ajudam todos"], ["🎓", "Pan", "Nv60", "economia: baús de reserva, Missão de Informação, +4 atualizações na loja Mistério (Ferramentas)"], ["🎓", "Valora", "Nv30", "Líder por Exemplo, Obsessão por Armas: +5 × 100 XP de Aprimoramento e +5 Martelo de forjas por Caça ao Urso"], ["🦸", "Seus 3 heróis principais", "Equipamento do Herói +60, M. em Forja Nv1", "barato — são os heróis que você já usa"]],
+    fork: "Tudo feito → escolha um", br: [["⚔️", "Líder de rally PvP", ["Heróis com Ferramenta de rally e suas Ferramentas", "Capacidade de rally", "Atributos: Vida da infantaria > Letalidade de cavalaria / arqueiros", "🎓 Depois Roman (ordem do guia para quem gasta muito e líderes de rally: Valora → Roman → Pan)"]],
+      ["🛡️", "Líder de guarnição", ["Heróis com Ferramenta de guarnição e suas Ferramentas", "Capacidade de guarnição", "Atributos: mesma ordem do ataque", "Ferramentas de guarnição também valem quando sua cidade é atacada"]],
+      ["🐻", "Líder do Urso — um ramo do líder de rally", ["Divide com o PvP: Ferramentas de rally, capacidade de rally e Bônus da Cidade", "Atributos: só Ataque × Letalidade dos arqueiros — Amuleto e Equipamento do Herói para arqueiros primeiro (o PvP quer Vida da infantaria primeiro: aqui os dois se chocam)", "🎓 Dança da Caça da Valora no máximo: o rally todo +30.000 de capacidade por nível (Nv10 +300.000)", "🐾 Habilidades de batalha dos mascotes não valem no urso — só os atributos"]],
+      ["🤝", "Todos os outros (participantes)", ["Não precisa escolher — continue subindo um pouco de tudo", "🎓 Pan → Valora → Roman. A Vantagem Selvagem da Valora aumenta sua própria marcha na Caça ao Urso", "🐾 As úteis são as habilidades fora de batalha: Leão (Presente do Rei), Chita (Alimento para Pets)", "Pontuação de Migração: Amuleto, mascotes, pesquisa e Equipamento do Herói contam inteiros"]]],
+    pet: "🐾 Habilidades de batalha (Alce: Vida inimiga ↓, Urso Pardo: Letalidade inimiga ↓): o guia só lista Feras, Rebeldes, Rally de Terror e Lobo Medonho; num rally só contam as do líder. Se valem em rallies PvP ou guarnições — não sabemos.",
+    unk: "🟡 Ainda não sabemos: se líderes de rally também devem subir o Pan antes da divisão; se as habilidades de batalha dos mascotes valem em guarnições.",
+    note: "Marcos calculados pelas gemas por +1% da página 💎 Investimento — nossa estimativa, não do jogo.", iv: "💎 Gemas por nível → Investimento" },
+  ar: { t: "🌳 متى تختار اتجاهًا", p: "قبل هذه المراحل، كل شيء يفيد الهجوم والدفاع والدب معًا — رفع القليل من كل شيء هو الأفضل. بعد إنهائها كلها، كل +1% إضافي يكلف نحو 20,000 جوهرة أو أكثر في أي مكان، فيصبح التركيز على اتجاه واحد أجدى.",
+    trunk: [["💎", "تميمة الحاكم", "الكل Lv3", "من Lv4 كل +1% يكلف الضعف أو أكثر"], ["🔬", "البحث", "أول مستويات كل مرحلة حتى المرحلة V", "المرحلة VI أغلى بكثير"], ["👑", "عتاد الحاكم", "الملحمي 3★", "الملحمي T1 وما فوقه أغلى بكثير"], ["🐾", "الحيوانات الأليفة", "التطوير حتى Lv50", "الخصائص تفيد الجميع"], ["🎓", "بان", "Lv60", "الاقتصاد: صناديق الاحتياط، مهمة المعلومات، +4 تحديثات في متجر الغموض (الأجزاء)"], ["🎓", "فالورا", "Lv30", "القائد القدوة، هوس السلاح: +5 × 100 خبرة تحسين و+5 مطرقة الحدادة في كل صيد الدببة"], ["🦸", "أبطالك الثلاثة الرئيسيون", "عتاد البطل +60، صقل التخصص Lv1", "رخيص — هم من تخرج بهم أصلًا"]],
+    fork: "انتهى كل شيء ← اختر واحدًا", br: [["⚔️", "قائد حشد PvP", ["أبطال أجزاء الحشد وأجزاؤهم", "سعة الحشد", "الخصائص: صحة المشاة > فتك الفرسان / الرماة", "🎓 ثم رومان (ترتيب الدليل لكبار المنفقين وقادة الحشد: فالورا ← رومان ← بان)"]],
+      ["🛡️", "قائد الحامية", ["أبطال أجزاء الحامية وأجزاؤهم", "سعة الحامية", "الخصائص: نفس ترتيب الهجوم", "أجزاء الحامية تعمل أيضًا عندما تُهاجَم مدينتك"]],
+      ["🐻", "قائد الدب — فرع من قائد الحشد", ["يشارك PvP في أجزاء الحشد وسعة الحشد ومكافأة المدينة", "الخصائص: هجوم × فتك الرماة فقط — التميمة وعتاد البطل للرماة أولًا (PvP يريد صحة المشاة أولًا: هنا يتعارضان)", "🎓 رقصة الصيد لفالورا للحد الأقصى: الحشد كله +30,000 سعة لكل مستوى (Lv10 +300,000)", "🐾 مهارات المعركة للحيوانات لا تعمل على الدب — الخصائص فقط"]],
+      ["🤝", "الباقون (المنضمون)", ["لا حاجة لاختيار اتجاه — استمر برفع القليل من كل شيء", "🎓 بان ← فالورا ← رومان. الأفضلية الوحشية لفالورا تزيد مسيرك في صيد الدببة", "🐾 المفيد هو مهارات خارج المعركة: الأسد (هدية الملك)، النمر الصيّاد (طعام حيوان أليف)", "نقاط الهجرة: التميمة والحيوانات والبحث وعتاد البطل تُحسب كاملة"]]],
+    pet: "🐾 مهارات المعركة (الأيل: صحة العدو ↓، الدب الأشيب: فتك العدو ↓): الدليل يذكر فقط الوحوش والمتمردين وحشد الوحش العملاق والذئب المخيف؛ في الحشد تُحتسب مهارات القائد فقط. هل تعمل في حشود PvP أو الحاميات — غير معروف.",
+    unk: "🟡 غير معروف بعد: هل يرفع قادة الحشد بان أولًا قبل الانقسام؛ هل تعمل مهارات المعركة للحيوانات في الحاميات.",
+    note: "المراحل محسوبة من الجواهر لكل +1% في صفحة 💎 الاستثمار — تقديرنا، وليست من اللعبة.", iv: "💎 الجواهر لكل مستوى ← الاستثمار" },
+  ko: { t: "🌳 언제 방향을 정할까", p: "이 단계 전까지는 뭘 올려도 공격·방어·곰 사냥 모두에 도움이 돼 — 골고루 올리는 게 제일 이득이야. 전부 넘기면 어디를 올려도 +1%당 약 2만 다이아 이상이 들어서, 그때부터 한 방향에 집중하는 게 좋아.",
+    trunk: [["💎", "영주 보석", "전부 Lv3", "Lv4부터 +1%당 2배 이상 비쌈"], ["🔬", "연구", "단계별 첫 몇 레벨, V단계까지", "VI단계는 훨씬 비쌈"], ["👑", "영주 장비", "에픽 3★", "에픽 T1부터 훨씬 비쌈"], ["🐾", "펫", "돌파 Lv50까지", "스탯은 누구에게나 도움"], ["🎓", "판", "Lv60", "경제: 비축 상자, 정보 이벤트, 신비한 상점 새로고침 +4 (부속품)"], ["🎓", "베라", "Lv30", "경험 전승, 무기 마스터리: 곰 사냥마다 100 강화 경험치 +5, 제작 망치 +5"], ["🦸", "주력 영웅 3명", "영웅 장비 +60, 마스터리 제작 Lv1", "싸고, 어차피 데리고 나가는 영웅"]],
+    fork: "전부 끝 → 하나 고르기", br: [["⚔️", "PvP 집결 대장", ["집결형 부속품 영웅과 그 부속품", "집결 수용량", "스탯: 보병 생명 > 기병·궁병 파괴", "🎓 다음은 로만 (가이드의 핵과금·집결 지휘 순서: 베라 → 로만 → 판)"]],
+      ["🛡️", "방어 대장", ["방어형 부속품 영웅과 그 부속품", "방어 수용량", "스탯: 공격과 같은 순서", "방어형 부속품은 내 도시가 맞을 때도 적용"]],
+      ["🐻", "곰 사냥 대장 — 집결 대장의 갈래", ["집결형 부속품, 집결 수용량, 도시 버프는 PvP와 공유", "스탯: 궁병 공격 × 파괴만 — 보석·영웅 장비는 궁병 먼저 (PvP는 보병 생명 먼저: 여기서 둘이 부딪쳐)", "🎓 베라 사냥의 춤 맥스: 집결 전체 수용량 레벨당 +30,000 (Lv10 +300,000)", "🐾 전투 펫 스킬은 곰에게 안 통해 — 펫 스탯만"]],
+      ["🤝", "나머지 (집결원)", ["방향 안 정해도 돼 — 계속 골고루", "🎓 판 → 베라 → 로만. 베라의 수적 우위는 내 곰 사냥 출정 수용량을 늘려", "🐾 쓸모 있는 건 비전투 펫 스킬: 사자 (라이언 킹의 선물), 치타 (펫 먹이)", "이주 점수: 보석·펫·연구·영웅 장비 모두 100% 계산"]]],
+    pet: "🐾 전투 펫 스킬 (엘크: 적 HP ↓, 불곰: 적 파괴력 ↓): 가이드엔 야수, 반군, 괴수 집결, 스케어 울프만 나와 있고, 집결에선 발동자 것만 적용돼. PvP 집결이나 방어에서 통하는지는 — 아직 몰라.",
+    unk: "🟡 아직 모름: 집결 대장도 갈라지기 전에 판부터 올려야 하는지; 방어할 때 펫 전투 스킬이 통하는지.",
+    note: "단계는 💎 투자 효율 페이지의 +1%당 다이아로 계산한 거야 — 우리 추정이고, 게임 공식 아님.", iv: "💎 레벨별 다이아 → 투자 효율" },
+};
+function rdHtml() {
+  const R = RD[lang] || RD.en;
+  return `<div class="card gr-rd" id="gr_road"><h3>${esc(R.t)}</h3><p class="gr-rule">${esc(R.p)}</p>
+    <div class="gr-trunk">${R.trunk.map(([i, s, m, w]) => `<div class="gr-ms"><span class="gr-msi">${i}</span><div><b>${esc(s)}</b> <em>${esc(m)}</em><small>${esc(w)}</small></div></div>`).join("")}</div>
+    <div class="gr-fork" aria-hidden="true"><svg viewBox="0 0 400 46" preserveAspectRatio="none"><path d="M200 0 V18 M200 18 C200 30 50 26 50 46 M200 18 C200 30 150 30 150 46 M200 18 C200 30 250 30 250 46 M200 18 C200 30 350 26 350 46" fill="none" stroke="currentColor" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span>${esc(R.fork)}</span></div>
+    <div class="gr-brs">${R.br.map(([i, h, l], k) => `<div class="gr-br b${k}"><h4>${i} ${esc(h)}</h4>${ul(l)}</div>`).join("")}</div>
+    <div class="gr-vsv" style="margin-top:10px">${esc(R.pet)}</div>
+    <p class="muted" style="font-size:12.5px;margin:8px 0 4px">${esc(R.unk)}</p>
+    <p class="muted" style="font-size:12.5px;margin:0">${esc(R.note)} <a href="#iv">${esc(R.iv)}</a></p></div>`;
+}
 function render() {
   const L = t(), root = $("gr_root"); if (!root) return;
   const site = { zh: "zh", en: "en", pt: "pt", ar: "ar", ko: "ko" }[lang] || "en";
@@ -383,6 +442,7 @@ function render() {
   const side = (k, tr) => `<div class="gr-chips">${SIDE[k][tr].map(chip).join(SIDE[k].seq && SIDE[k].seq[tr] ? '<span class="gr-arr">→</span>' : "")}</div>`;
   const ol = (a) => `<ol class="gr-ord">${a.map((x) => `<li>${esc(x)}</li>`).join("")}</ol>`;
   root.innerHTML = `
+    ${rdHtml()}
     <div class="card"><h3>${esc(L.cmpT)}</h3><div class="gr-tw"><table class="gr-cmp"><thead><tr>${L.cmpH.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
       <tbody>${L.cmp.map(([k, a, d]) => `<tr><th>${esc(k)}</th><td>${esc(a)}</td><td>${esc(d)}</td></tr>`).join("")}</tbody></table></div></div>
     <div class="card"><h3>${esc(L.gjT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(L.gjNote)}</div>${ul(L.gjRules)}

@@ -73,6 +73,7 @@ const FEATURES = [
   ["Move: 📐 shared auto plans (Plan list)", /Share as a plan/, /{ s: "#hp_root .hp-sh", k: "hp03" }/],
   ["Move tab", /🚚 Move/, /mv01:/],
   ["Growth plan tab (proposal: how we grow attack / defense / Bear leaders)", /🧭 GROWTH tab \(officer-x7k2p9\.html#growth/, /growth: \[{ s: "#gr_title", k: "gr01" }/],
+  ["Growth: 🌳 when to pick a direction (milestones, 4 branches, master & pet skills)", /🌳 WHEN TO PICK A DIRECTION/, /{ s: "#gr_road", k: "gr04" }/],
   ["Attack planner tab (rallies needed from today's board strength)", /BATTLE tab \(officer-x7k2p9\.html#attack[^\n]*ATTACK PLANNER/, /{ s: "#ak_plan", k: "ak01" }/],
   ["Battle: 🏰 In our kingdom / ⚔️ KvK switch", /"🏰 In our kingdom"/, /🏰 In our kingdom \(us = NXS/],
   ["Battle: ⚔️ We attack / 🛡️ They attack us, tier Mix, troop ratio", /DIRECTION switch in the plan card[^\n]*\n- TIER "Mix…"[^\n]*\n- TROOP RATIO/, /{ s: "#ak_plan \.ak-dir", k: "ak03" }/],
