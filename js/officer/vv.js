@@ -9,6 +9,7 @@ const esc = OFFICER.util.esc;
 const UPDATED = "2026-11-04";
 const P = { T8: 38, T9: 50, T10: 66, TG1: 71, TG2: 76, TG3: 83 };          // one troop's strength, X series (kills split by this)
 const ELITE = [7, 14, 17];
+const CITY_WAVES = Array.from({ length: 19 }, (_, i) => i + 1).filter((w) => w !== 10);   // waves 10 and 20 only hit the HQ, not the cities (Sherry 2026-11-04)
 const hostPts = (w) => (ELITE.includes(w) ? 2 : 1) * (2700 + 1800 * w);
 const T = {
   en: { title: "🪓 Viking report", intro: "Our research on how Viking Vengeance splits kills and points. Not official rules — it changes as we test more.",
@@ -39,7 +40,7 @@ const T = {
     nos: ["Attack / Lethality buffs: the Vikings die anyway, everyone gets stronger together, the split stays the same.",
       "The hero you send as a reinforcer: on HQ wave 20 every TG3 infantry got exactly 1.1842 kills, whatever the hero.",
       "Gambling on cavalry: a big score when Ambusher hits, 0 when it doesn't."],
-    hqH: "🏯 Headquarters", hqP: "Same idea: kills are split by infantry × tier. Points = kills × a fixed rate (wave 20: 0.5253 per kill).",
+    hqH: "🏯 Headquarters", hqP: "Waves 10 and 20 only attack the Headquarters, not the cities. Same idea: kills are split by infantry × tier. Points = kills × a fixed rate (wave 20: 0.5253 per kill).",
     unkH: "🟡 Not known yet",
     unks: ["How points are split when a city falls.", "Which skill hero is best for the garrison.", "Whether reinforcers' joiner skills work in a garrison."],
     numH: "🔢 Numbers for those who want them", numCols: ["Wave", "City owner", "Reinforcers' pile"],
@@ -72,7 +73,7 @@ const T = {
     nos: ["攻擊力／殺傷力增益：維京本來就會全滅，大家一起變強，比例不變。",
       "增援時自己帶什麼英雄：總部第 20 波，每隻 TG3 步兵的擊殺都剛好 1.1842，跟英雄無關。",
       "帶騎兵賭奇襲：中了分很多，沒中就 0，不穩定。"],
-    hqH: "🏯 總部", hqP: "一樣照「步兵數 × 兵等」分擊殺。分數 = 擊殺 × 固定係數（第 20 波每個擊殺 0.5253 分）。",
+    hqH: "🏯 總部", hqP: "第 10、20 波只打總部，不打城。一樣照「步兵數 × 兵等」分擊殺。分數 = 擊殺 × 固定係數（第 20 波每個擊殺 0.5253 分）。",
     unkH: "🟡 還不知道的",
     unks: ["城守不住時分數怎麼算。", "駐防的技能英雄要怎麼選。", "增援者的加入者技能在駐防有沒有效。"],
     numH: "🔢 給想看數字的人", numCols: ["波", "城主", "增援者那一份"],
@@ -81,8 +82,9 @@ const T = {
 let lang = OFFICER.lang || "en";
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
 const fmt = (n) => Math.round(n).toLocaleString("en-US");
-const S = { wave: 10, my: 60000, myT: "TG3", oth: 180000, othT: "TG1" };
+const S = { wave: 9, my: 60000, myT: "TG3", oth: 180000, othT: "TG1" };
 try { Object.assign(S, JSON.parse(localStorage.getItem("nxs-vv") || "{}")); } catch (e) {}
+if (!CITY_WAVES.includes(S.wave)) S.wave = 9;
 const keep = () => { try { localStorage.setItem("nxs-vv", JSON.stringify(S)); } catch (e) {} };
 
 function troop(img, name, line, cls) {
@@ -92,7 +94,8 @@ const tierSel = (id, v) => `<select class="inp" id="${id}">${Object.keys(P).map(
 function cakeHtml() {
   const w = S.wave, h = hostPts(w), pool = h / 2;
   const me = S.my * P[S.myT], ot = S.oth * P[S.othT], share = me + ot > 0 ? me / (me + ot) : 0;
-  return `<div class="vv-wave"><label for="vv_w">${esc(t("wave"))}</label><input type="range" id="vv_w" min="1" max="19" value="${w}"><b>${w}</b>${ELITE.includes(w) ? `<span class="vv-elite">${esc(t("elite"))}</span>` : ""}</div>
+  return `<div class="vv-wave"><span>${esc(t("wave"))}</span>${ELITE.includes(w) ? `<span class="vv-elite">${esc(t("elite"))}</span>` : ""}</div>
+    <div class="vv-waves" role="group" aria-label="${esc(t("wave"))}">${CITY_WAVES.map((n) => `<button type="button" class="vv-wb${n === w ? " on" : ""}${ELITE.includes(n) ? " el" : ""}" data-w="${n}">${n}</button>`).join("")}</div>
     <div class="vv-piles">
       <div class="vv-pile"><div class="vv-pk">${esc(t("host"))}</div><div class="vv-bar"><i class="host" style="width:100%"></i></div><div class="vv-pv">${fmt(h)}</div><div class="vv-ps">${esc(t("hostS"))}</div></div>
       <div class="vv-pile"><div class="vv-pk">${esc(t("pool"))}</div><div class="vv-bar half"><i class="me" style="width:${(share * 100).toFixed(1)}%"></i><i class="oth" style="width:${((1 - share) * 100).toFixed(1)}%"></i></div><div class="vv-pv">${fmt(pool)}</div><div class="vv-ps">${esc(t("poolS"))}</div>
@@ -126,13 +129,13 @@ function render() {
   </div>
   <div class="card"><h3>${esc(t("hqH"))}</h3><p class="vv-p">${esc(t("hqP"))}</p></div>
   <details class="card vv-num"><summary>${esc(t("numH"))}</summary>
-    <table class="vv-t"><tr>${t("numCols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${Array.from({ length: 19 }, (_, i) => i + 1).map((w) => `<tr${ELITE.includes(w) ? ' class="el"' : ""}><td>${w}${ELITE.includes(w) ? " ×2" : ""}</td><td class="n">${fmt(hostPts(w))}</td><td class="n">${fmt(hostPts(w) / 2)}</td></tr>`).join("")}</table></details>
+    <table class="vv-t"><tr>${t("numCols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${CITY_WAVES.map((w) => `<tr${ELITE.includes(w) ? ' class="el"' : ""}><td>${w}${ELITE.includes(w) ? " ×2" : ""}</td><td class="n">${fmt(hostPts(w))}</td><td class="n">${fmt(hostPts(w) / 2)}</td></tr>`).join("")}</table></details>
   <div class="muted vv-small">${esc(t("foot"))}</div>`;
   bind();
 }
 function bind() {
   const redo = () => { keep(); const c = $("vv_cake"); if (!c) return; const f = document.activeElement && document.activeElement.id; c.innerHTML = cakeHtml(); bind(); if (f && $(f)) $(f).focus(); };
-  const w = $("vv_w"); if (w) w.oninput = () => { S.wave = +w.value || 1; redo(); };
+  document.querySelectorAll("#vv_cake [data-w]").forEach((b) => b.onclick = () => { S.wave = +b.dataset.w; redo(); });
   for (const [id, k, num] of [["vv_my", "my", 1], ["vv_oth", "oth", 1], ["vv_myT", "myT", 0], ["vv_othT", "othT", 0]]) {
     const el = $(id); if (!el) continue;
     el.onchange = () => { S[k] = num ? Math.max(0, +el.value || 0) : el.value; redo(); };
