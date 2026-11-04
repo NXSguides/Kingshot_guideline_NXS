@@ -47,7 +47,7 @@ const T = {
     ggTier: { g: "Green", b: "Blue", p: "Purple", p1: "Purple T1", o: "Gold", o1: "Gold T1", o2: "Gold T2", o3: "Gold T3", r: "Red", r1: "Red T1", r2: "Red T2", r3: "Red T3", r4: "Red T4" },
     ggCols: ["Step", "Satin / Gilded Threads / Artisan's Vision", "Relic Coins", "% gained", "Gems per 1%"],
     nxH: "🎯 My next step", nxP: "Pick where you are now. The list shows your cheapest next upgrades (gems per +1%), all systems mixed.",
-    nxCharm: "Most of my Governor Charms are at", nxGear: "Most of my Governor Gear pieces are at", nxPet: "My next pet advancement", nxMast: "Main heroes' Mastery Forging", nxFood: "I already bought this week's pet food",
+    nxCharm: "Most of my Governor Charms are at", nxGear: "Most of my Governor Gear pieces are at", nxPet: "My next pet advancement", nxMast: "Main heroes' Mastery Forging", nxEnh: "Enhancement of those main pieces", nxPetTip: "Pet level-ups: pet food is easy to get, so level up whenever you can — rarer pets first (at Lv50 an SR Lion gives ~12.9% troop Attack / Defense, an N Wolf ~4.4%). The real limit is the advancement every 10 levels, which is in the list.",
     nxNone: "none yet", nxLv: "Lv{n}", nxPetOpt: ["Lv40", "Lv50", "already past Lv50"], nxMax: "maxed", nxGo: "Do these first:", nxNote: "Same gems, most %. Lethality / Health (Governor Charms) are worth a bit more than they look, Attack / Defense (pets) a bit less.",
     sys: { c: "💠 Governor Charm", g: "🛡️ Governor Gear", pu: "🐾 Pet level-up", pa: "🐾 Pet advancement", r: "🔬 Research", m: "🔨 Mastery Forging" },
     resFirst: "first levels of a tier", resLast: "last level of a tier", petUp: "weekly food", from: "→",
@@ -59,7 +59,7 @@ const T = {
     lowH: "📉 Lethality and Health are worth more", lowP: "Most players have far less Lethality and Health than Attack and Defense. The lower a stat is, the more +1% changes it — so Governor Charms are even better than the bars show, and pets a little worse.",
     lowA: "Stat at 50%", lowB: "Stat at 300%", lowS: "+1% adds", lowFoot: "Value of +1% ≈ 1 ÷ (100 + current %)",
     rlH: "👑 Rally leaders", rlP: "Only the leader's own stats count in a rally. Spend in this order:",
-    rl: ["Every Governor Charm to Lv1 and every Governor Gear piece to blue ★3 first — both very cheap.", "Pet level-ups — buy the food every week.", "Research — keep going; the first levels of each tier are the best deal. Main heroes' Hero Gear Mastery Forging to Lv1.",
+    rl: ["Every Governor Charm to Lv1 and every Governor Gear piece to blue ★3 first — both very cheap.", "Pet level-ups whenever you have food — rarer pets first.", "Research — keep going; the first levels of each tier are the best deal. Main heroes' Hero Gear Mastery Forging to Lv1.",
       "Then Governor Charm Lv2–3, pet advancement, purple (Epic) Governor Gear and Mastery Forging Lv2 — about the same value; pick the stat and troop type you lack.", "Mastery Forging Lv3+, Governor Charm Lv4+ and gold / red Governor Gear cost the most — last."],
     rlTroop: "Which troop type: PvP — infantry Defense / Health, cavalry and archer Attack / Lethality. Bear Hunt — archers.",
     rlHero: "Owning these heroes at full stars gives a bonus all the time — possibly a great deal for paying leaders (cost not worked out yet):",
@@ -90,7 +90,7 @@ const T = {
     ggTier: { g: "綠", b: "藍", p: "紫", p1: "紫 T1", o: "金", o1: "金 T1", o2: "金 T2", o3: "金 T3", r: "紅", r1: "紅 T1", r2: "紅 T2", r3: "紅 T3", r4: "紅 T4" },
     ggCols: ["階", "綢緞／金絲線／匠心願景", "聖契幣", "加多少 %", "每 1%（鑽）"],
     nxH: "🎯 我的下一步", nxP: "選你現在的進度，下面就列出你最划算的下一個升級（每 +1% 幾鑽），所有系統混在一起比。",
-    nxCharm: "我的領主寶石大多在", nxGear: "我的領主裝備大多在", nxPet: "我下一次寵物突破", nxMast: "主力英雄的專精鍛造", nxFood: "這週的寵物口糧已經買了",
+    nxCharm: "我的領主寶石大多在", nxGear: "我的領主裝備大多在", nxPet: "我下一次寵物突破", nxMast: "主力英雄的專精鍛造", nxEnh: "那些主力裝備的強化等級", nxPetTip: "寵物升級：寵物口糧不難拿，能升就升——先升稀有度高的（Lv50 時 SR 獅子部隊攻防約 12.9%、N 灰狼約 4.4%）。真正卡住的是每 10 級一次的突破，那個有在上面排名。",
     nxNone: "還沒有", nxLv: "Lv{n}", nxPetOpt: ["Lv40", "Lv50", "已經超過 Lv50"], nxMax: "已滿", nxGo: "先做這些：", nxNote: "同樣的鑽石換到最多 %。殺傷力、生命值（領主寶石）實際上比看起來更值錢一點，攻擊力、防禦力（寵物）稍微少一點。",
     sys: { c: "💠 領主寶石", g: "🛡️ 領主裝備", pu: "🐾 寵物升級", pa: "🐾 寵物突破", r: "🔬 研究", m: "🔨 專精鍛造" },
     resFirst: "每階前幾級", resLast: "每階最後一級", petUp: "每週口糧", from: "→",
@@ -102,7 +102,7 @@ const T = {
     lowH: "📉 殺傷力、生命值比較值錢", lowP: "大多數人的殺傷力、生命值都比攻擊力、防禦力低很多。屬性越低，多 1% 的感覺越明顯——所以領主寶石實際上比長條看起來更划算，寵物稍微差一點。",
     lowA: "屬性 50% 時", lowB: "屬性 300% 時", lowS: "+1% 等於變強", lowFoot: "+1% 的價值 ≈ 1 ÷（100 + 目前 %）",
     rlH: "👑 集結隊長", rlP: "集結只看隊長自己的屬性。照這個順序花：",
-    rl: ["領主寶石全部先開到 Lv1、領主裝備每件先升到藍 3★——兩個都非常便宜。", "寵物升級——口糧每週買滿。", "研究——持續點；每階前幾級最划算。主力英雄的英雄裝備專精鍛造先升到 Lv1。",
+    rl: ["領主寶石全部先開到 Lv1、領主裝備每件先升到藍 3★——兩個都非常便宜。", "寵物升級——有口糧就升，先升稀有度高的。", "研究——持續點；每階前幾級最划算。主力英雄的英雄裝備專精鍛造先升到 Lv1。",
       "接著是領主寶石 Lv2–3、寵物突破、紫色（史詩）領主裝備、專精鍛造 Lv2——效率差不多，挑自己缺的屬性和兵種。", "專精鍛造 Lv3 以上、領主寶石 Lv4 以上、金色／紅色領主裝備最貴——放最後。"],
     rlTroop: "兵種優先：PvP——步兵防禦力／生命值、騎兵和弓兵攻擊力／殺傷力。狩獵巨熊——弓兵。",
     rlHero: "擁有這兩位滿星英雄就一直有加成——對課金隊長可能非常划算（成本還沒算）：",
@@ -125,23 +125,23 @@ function allSteps() {
   const out = [];
   CHARM.forEach((c, i) => out.push({ sys: "c", key: "c" + i, label: "Lv" + (i + 1), gems: charmGems(i), grp: "c" }));
   GEAR.forEach((g, i) => out.push({ sys: "g", key: "g" + i, label: gearName(i), gems: gearGems(i), grp: g[0] }));
-  out.push({ sys: "pu", key: "pu", label: t("petUp"), gems: 3200, grp: "pu" });
   out.push({ sys: "pa", key: "pa40", label: "Lv40", gems: 14200, grp: "pa" }, { sys: "pa", key: "pa50", label: "Lv50", gems: 23200, grp: "pa" });
   out.push({ sys: "r", key: "r1", label: t("resFirst"), gems: 3800, hi: 14600, grp: "r1" }, { sys: "r", key: "r2", label: t("resLast"), gems: 20500, grp: "r2" });
-  for (let L = 0; L < 5; L++) out.push({ sys: "m", key: "m" + L, label: "Lv" + (L + 1), gems: 11100 * (L + 1), grp: "m" });
+  for (let L = 0; L < 5; L++) out.push({ sys: "m", key: "m" + L, label: "Lv" + (L + 1), gems: mastGems(L), grp: "m" });
   return out;
 }
-const NX = { c: 0, g: -1, pa: 0, m: 0, food: false };
+const NX = { c: 0, g: -1, pa: 0, m: 0, e: 60 };
+// Mastery Forging L → L+1: 10(L+1) Forgehammers (1 = 1,250 Relic Coins ≈ 4,000 gems); each level adds 10% of the piece's base stat (15% + 0.35% × enhancement)
+const mastGems = (L) => 10 * (L + 1) * 4000 / ((15 + 0.35 * (NX.e || 60)) * 0.1);
 try { Object.assign(NX, JSON.parse(localStorage.getItem("nxs-iv") || "{}")); } catch (e) {}
 const keepNx = () => { try { localStorage.setItem("nxs-iv", JSON.stringify(NX)); } catch (e) {} };
 function nextHtml() {
   const S = t("sys"), cand = [];
   for (let k = 0; k < 2; k++) if (NX.c + k < CHARM.length) cand.push({ sys: "c", label: `Lv${NX.c + k} ${t("from")} Lv${NX.c + k + 1}`, gems: charmGems(NX.c + k) });
   for (let k = 1; k <= 2; k++) if (NX.g + k < GEAR.length) cand.push({ sys: "g", label: (NX.g + k ? gearName(NX.g + k - 1) + ` ${t("from")} ` : "") + gearName(NX.g + k), gems: gearGems(NX.g + k) });
-  if (!NX.food) cand.push({ sys: "pu", label: t("petUp"), gems: 3200 });
   if (NX.pa < 2) cand.push({ sys: "pa", label: ["Lv40", "Lv50"][NX.pa], gems: [14200, 23200][NX.pa] });
   cand.push({ sys: "r", label: t("resFirst"), gems: 3800, hi: 14600 });
-  for (let k = 0; k < 2; k++) if (NX.m + k < 5) cand.push({ sys: "m", label: `${NX.m + k} ${t("from")} ${NX.m + k + 1}`, gems: 11100 * (NX.m + k + 1) });
+  for (let k = 0; k < 2; k++) if (NX.m + k < 5) cand.push({ sys: "m", label: `${NX.m + k} ${t("from")} ${NX.m + k + 1}`, gems: mastGems(NX.m + k) });
   cand.sort((a, b) => a.gems - b.gems);
   const opt = (n, v, lab) => `<option value="${v}"${n === v ? " selected" : ""}>${esc(lab)}</option>`;
   return `<div class="iv-nxin">
@@ -149,8 +149,9 @@ function nextHtml() {
       <label>${esc(t("nxGear"))}<select class="inp" id="iv_g">${opt(NX.g, -1, t("nxNone"))}${GEAR.map((g, i) => opt(NX.g, i, gearName(i))).join("")}</select></label>
       <label>${esc(t("nxPet"))}<select class="inp" id="iv_pa">${t("nxPetOpt").map((x, i) => opt(NX.pa, i, x)).join("")}</select></label>
       <label>${esc(t("nxMast"))}<select class="inp" id="iv_m">${Array.from({ length: 6 }, (_, n) => opt(NX.m, n, n === 5 ? `Lv5+ (${t("nxMax")})` : "Lv" + n)).join("")}</select></label>
-      <label class="iv-cb"><input type="checkbox" id="iv_food"${NX.food ? " checked" : ""}> ${esc(t("nxFood"))}</label></div>
+      <label>${esc(t("nxEnh"))}<select class="inp" id="iv_e">${[40, 60, 80, 100].map((n) => opt(NX.e, n, "+" + n)).join("")}</select></label></div>
     <div class="iv-nxl"><b>${esc(t("nxGo"))}</b><ol>${cand.slice(0, 6).map((c) => `<li class="b${band(c.gems)}"><span class="iv-sys">${esc(S[c.sys])}</span><span class="iv-lab">${esc(c.label)}</span><span class="iv-gem">${c.hi ? range(c.gems, c.hi) : fmt(c.gems)}</span></li>`).join("")}</ol></div>
+    <p class="iv-pet">🐾 ${esc(t("nxPetTip"))}</p>
     <div class="muted iv-small">${esc(t("nxNote"))}</div>`;
 }
 function bandsHtml() {
@@ -178,7 +179,7 @@ function render() {
   root.innerHTML = `
   <div class="iv-hero"><span class="iv-badge">${esc(t("badge").replace("{d}", UPDATED))}</span><h2>${esc(t("heroH"))}</h2><p>${esc(t("heroP"))}</p></div>
   <div class="card"><h3>${esc(t("nxH"))}</h3><p class="iv-p">${esc(t("nxP"))}</p><div id="iv_nx">${nextHtml()}</div></div>
-  <div class="card"><h3>${esc(t("bdH"))}</h3><p class="iv-p">${esc(t("bdP"))}</p>${bandsHtml()}<p class="iv-rot">🔄 ${esc(t("rot"))}</p></div>
+  <div class="card"><h3>${esc(t("bdH"))}</h3><p class="iv-p">${esc(t("bdP"))}</p><div id="iv_bd">${bandsHtml()}</div><p class="iv-rot">🔄 ${esc(t("rot"))}</p></div>
   <details class="card iv-det"><summary><b>${esc(t("detH"))}</b></summary>
   <div class="card"><h3>${esc(t("barH"))}</h3><p class="iv-p">${esc(t("barP"))}</p>
     <div class="iv-bars">${ROWS.map(([k, lo, hi, kind]) => `<div class="iv-row"><div class="iv-k">${esc(R[k])}${G[k] ? `<small>${esc(G[k])}</small>` : ""}</div>
@@ -216,9 +217,8 @@ function render() {
   bind();
 }
 function bind() {
-  const redo = () => { keepNx(); const n = $("iv_nx"); if (n) { n.innerHTML = nextHtml(); bind(); } };
-  for (const [id, k] of [["iv_c", "c"], ["iv_g", "g"], ["iv_pa", "pa"], ["iv_m", "m"]]) { const el = $(id); if (el) el.onchange = () => { NX[k] = +el.value; redo(); }; }
-  const f = $("iv_food"); if (f) f.onchange = () => { NX.food = f.checked; redo(); };
+  const redo = () => { keepNx(); const n = $("iv_nx"); if (n) { n.innerHTML = nextHtml(); bind(); } const bd = $("iv_bd"); if (bd) bd.innerHTML = bandsHtml(); };
+  for (const [id, k] of [["iv_c", "c"], ["iv_g", "g"], ["iv_pa", "pa"], ["iv_m", "m"], ["iv_e", "e"]]) { const el = $(id); if (el) el.onchange = () => { NX[k] = +el.value; redo(); }; }
 }
 function init() { applyTexts(); render(); }
 function applyTexts() { if ($("iv_title")) { $("iv_title").textContent = t("title"); $("iv_intro").textContent = t("intro"); } }
