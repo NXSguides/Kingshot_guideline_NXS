@@ -44,6 +44,7 @@ const TERMS = [
  {
   "cat": "Events",
   "rows": [
+   ["Swordland Summit League", "聖劍巔峰聯賽", "성검 최정상 리그", "Schwertland-Gipfel-Liga", "Ligue suprême du glaive", "Liga do Topo da Terra das Espadas", "Kılıçdiyarı Zirve Ligi", "Liga Puncak Swordland", "Верховная лига Страны мечей", "ลีกยอดฝีมือแห่งดินแดนดาบ", "دوري قمة أرض السيوف", "Liga de la Cima de la Tierra de Espadas", "Swordland Shop 'Get More' screen, 11 langs + zh screenshots 2026-11-04"],
    ["Calendar","日曆","일정","—","—","Calendário","Takvim","Kalender","Календарь","ปฏิทิน","—","Calendario"],
    ["Forsaken Temple", "神廟大冒險", "신전 대모험", "Einsamer Tempel", "Temple Abandonné", "Templo Abandonado", "Issız Tapınak", "Forsaken Temple", "Заброшенный храм", "วิหารร้าง", "المعبد المهجور", "Templo abandonado", "Event icon (treasure map + dice) at the right of the city screen. Partly cut off in some screenshots (EN '…saken Temple', DE 'Einsamer Tem…', FR 'Temple Aband…', RU 'Заброше…')."],
    ["Hero Roulette","英雄轉盤","영웅 룰렛","Helden Roulette","Roulette des Héros","Roleta do Herói","Kahraman Ruleti","Rolet Hero","Геройская рулетка","รูเล็ตฮีโร่","روليت البطل","Ruleta de Héroes","ES: Event Calendar pop-up. Lucky Chip tooltips: FR 'la Roulette des Héros', PT [Roleta do Herói], ID [Rolet Hero], RU [геройскую рулетку] (accusative), KO 「영웅 룰렛」, DE [Helden Roulette]."],
@@ -400,6 +401,7 @@ const TERMS = [
  {
   "cat": "Backpack items",
   "rows": [
+   ["Relic Coins", "聖契幣", "성스러운 계약 코인", "Reliktmünzen", "Pièces de Relique", "Moedas de Relíquia", "Yadigâr Jetonları", "Koin Relik", "Монеты реликвий", "เหรียญวัตถุโบราณ", "عملات الآثار", "Monedas de Reliquia", "Swordland Shop 'Get More' screen, 11 langs + zh screenshots 2026-11-04"],
    ["Clawshard", "斷爪", "부러진 발톱", "Klauenfragment", "Griffe Brisée", "Garra de fragmento", "Kırık Pençe", "Clawshard", "Обломок когтя", "ชิ้นส่วนกรงเล็บ", "المخالب المكسورة", "Fragmento de Garra", "Dropped by beasts in the Desert Trial event; used to track the Dreadwolf. ES tooltip: '…durante el evento de la [Prueba del Desierto]. Úsalo para rastrear al [Lobo Aterrador].'"],
    ["Satin", "進貢綢緞", "비단", "Satin", "Satin", "Cetim", "Saten", "Satin", "Атлас", "ผ้าซาติน", "نسيج أطلس", "Satén", "A Governor Gear upgrade material. Chinese: the character 緞 was confirmed by the user; the '進貢' prefix is from the first screenshot reading."],
    ["Gilded Threads", "金絲線", "금사", "Vergoldete Fäden", "Fils Dorés", "Fios Dourados", "Yaldızlı İplikler", "Gilded Threads", "Золоченые нити", "ด้ายทองคำ", "خيوط مذهبة", "Hilos dorados", "A Governor Gear upgrade material."],
