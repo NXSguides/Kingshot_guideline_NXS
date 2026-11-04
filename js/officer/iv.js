@@ -26,7 +26,7 @@ const gearGems = (i) => gearCoins(i) * 3.2 / (2 * gearPct(i));
 const charmGems = (i) => CHARM[i][0] * 500 * 3.2 / (2 * CHARM[i][1]);   // gems per +1% to one stat of one troop type
 // [key, low, high, kind] — gems per +1% (one troop type, one stat); kind colours the bar; past MAX the bar runs off the end (▶)
 const ROWS = [["c1", 889, 889, "cheap"], ["gg1", 513, 10165, "cheap"], ["res1", 15, 850, "cheap"], ["res4", 1700, 4100, "cheap"], ["en1", 2400, 6200, "cheap"],
-  ["mr", 4000, 40000, "mid"], ["ref", 7400, 20000, "mid"], ["mv", 8333, 83333, "mid"], ["res5", 6300, 15000, "mid"], ["hg1", 11100, 11100, "mid"], ["gg2", 12424, 44844, "mid"],
+  ["mr", 4000, 40000, "mid"], ["ref", 5600, 20000, "mid"], ["mv", 8333, 83333, "mid"], ["res5", 6300, 15000, "mid"], ["hg1", 11100, 11100, "mid"], ["gg2", 12424, 44844, "mid"],
   ["c25", 14700, 20000, "mid"], ["adv", 4700, 67000, "mid"], ["en2", 15500, 55000, "mid"], ["hg2", 22200, 55600, "dear"], ["res6", 26000, 62000, "dear"], ["c6", 40000, 701000, "dear"], ["gg3", 40157, 840727, "dear"]];
 const T = {
   en: { title: "💎 Investment", intro: "Our research: the same gems buy very different amounts of stat %. Where is it cheapest, and who should spend where? Still being tested.",
@@ -36,7 +36,7 @@ const T = {
     rows: { res1: "Research I–III", res4: "Research IV", res5: "Research V", res6: "Research VI", en1: "Hero Gear enhancement (XP) to +40", en2: "Hero Gear enhancement +60 → +100", mr: "Roman advancement 1st → 10th", mv: "Valora advancement 1st → 10th", c1: "Governor Charm 0 → Lv1", pet: "Pet level-up (Alliance Shop food, weekly limit)", res: "Research — first levels of each tier", hg1: "Hero Gear Mastery Forging 0 → 1", c25: "Governor Charm Lv2–3",
       adv: "Pet advancement", ref: "Pet Refinement", gg1: "Governor Gear — green and blue", gg2: "Governor Gear — purple (Epic, incl. T1)", gg3: "Governor Gear — gold and red", resl: "Research — last level of each tier", hg2: "Hero Gear Mastery Forging 1 → 5", c6: "Governor Charm Lv4–22" },
     gives: { res1: "all cheap", res4: "", res5: "", res6: "", en1: "only while that hero marches", en2: "only while that hero marches", mr: "Master Emblems; Attack + Defense, all troops", mv: "Master Emblems; Attack only, all troops", c1: "Lethality + Health, one troop type", pet: "Attack + Defense, all troops", res: "depends on the node (infantry Attack / Lethality cheapest)", hg1: "only while that hero is in the march", c25: "Lethality + Health, one troop type",
-      adv: "Attack + Defense, all troops (Lv20 ≈ 4,700 · Lv30 9,600 · Lv40 14,200–18,100 · Lv50 23,200 · Lv60 41,600)", ref: "Common Taming Marks ≈ 7,400, Advanced ≈ 20,000 (tested on one pet only)", gg1: "Attack + Defense, one troop type", gg2: "Attack + Defense, one troop type", gg3: "every step dearer — see every step below", resl: "", hg2: "each level costs more (10 Forgehammers per level)", c6: "much more than everything else — see every level below" },
+      adv: "Attack + Defense, all troops (Lv20 ≈ 4,700 · Lv30 9,600 · Lv40 14,200–18,100 · Lv50 23,200 · Lv60 41,600)", ref: "Common Taming Marks ≈ 5,600, Advanced ≈ 20,000 (tested on one pet only)", gg1: "Attack + Defense, one troop type", gg2: "Attack + Defense, one troop type", gg3: "every step dearer — see every step below", resl: "", hg2: "each level costs more (10 Forgehammers per level)", c6: "much more than everything else — see every level below" },
     chH: "💠 Governor Charms, every level", chP: "Gems for +1% at each level (taller = dearer; the scale grows ×10 per step). Lv1 is the cheapest thing in the game; from Lv2 a charm level costs about as much as pet advancement or Governor Gear; from Lv6 it is dearer than anything else on this page.",
     chTip: "So: every charm to Lv1 right away. Lv2–3 when you lack Lethality / Health on that troop type. Lv4 and up only after the cheaper upgrades are done — remember Lethality and Health are worth more per 1% (next card).",
     chCols: ["Level", "Guides + Designs", "% gained", "Total %", "Gems per 1%"],
@@ -83,7 +83,7 @@ const T = {
     rows: { res1: "研究 I–III 階", res4: "研究 IV 階", res5: "研究 V 階", res6: "研究 VI 階", en1: "英雄裝備強化（經驗）到 +40", en2: "英雄裝備強化 +60 → +100", mr: "羅曼進階 第 1 → 10 次", mv: "維拉進階 第 1 → 10 次", c1: "領主寶石 0 → Lv1", pet: "寵物升級（聯盟商店口糧，每週限量）", res: "研究——每階的前幾級", hg1: "英雄裝備專精鍛造 0 → 1", c25: "領主寶石 Lv2–3",
       adv: "寵物突破", ref: "寵物洗練", gg1: "領主裝備——綠色、藍色", gg2: "領主裝備——紫色（史詩，含 T1）", gg3: "領主裝備——金色、紅色", resl: "研究——每階最後一級", hg2: "英雄裝備專精鍛造 1 → 5", c6: "領主寶石 Lv4–22" },
     gives: { res1: "都很便宜", res4: "", res5: "", res6: "", en1: "只有那位英雄出戰時有效", en2: "只有那位英雄出戰時有效", mr: "大師徽記；全部隊 攻擊力＋防禦力", mv: "大師徽記；全部隊 只有攻擊力", c1: "單一兵種 殺傷力＋生命值", pet: "全部隊 攻擊力＋防禦力", res: "看節點（步兵攻擊力／殺傷力最便宜）", hg1: "只有那位英雄出戰時有效", c25: "單一兵種 殺傷力＋生命值",
-      adv: "全部隊 攻擊力＋防禦力（Lv20 約 4,700・Lv30 9,600・Lv40 14,200–18,100・Lv50 23,200・Lv60 41,600）", ref: "普通馴化印記約 7,400、高級約 20,000（只測了一隻寵物）", gg1: "單一兵種 攻擊力＋防禦力", gg2: "單一兵種 攻擊力＋防禦力", gg3: "每一階越來越貴——每一階見下面", resl: "", hg2: "每級越來越貴（每級多 10 個鍛造錘）", c6: "比其他所有項目都貴很多——每一級見下面" },
+      adv: "全部隊 攻擊力＋防禦力（Lv20 約 4,700・Lv30 9,600・Lv40 14,200–18,100・Lv50 23,200・Lv60 41,600）", ref: "普通馴化印記約 5,600、高級約 20,000（只測了一隻寵物）", gg1: "單一兵種 攻擊力＋防禦力", gg2: "單一兵種 攻擊力＋防禦力", gg3: "每一階越來越貴——每一階見下面", resl: "", hg2: "每級越來越貴（每級多 10 個鍛造錘）", c6: "比其他所有項目都貴很多——每一級見下面" },
     chH: "💠 領主寶石：每一級", chP: "每一級 +1% 要多少鑽（越高越貴；刻度每格 ×10）。Lv1 是全遊戲最划算的；Lv2 起每級大約跟寵物突破、領主裝備同級；Lv6 以上比這頁所有東西都貴。",
     chTip: "所以：寶石全部馬上開到 Lv1。那個兵種缺殺傷力／生命值時再升 Lv2–3。Lv4 以上等比較便宜的都升完再說——別忘了殺傷力、生命值每 1% 比較值錢（下一張卡）。",
     chCols: ["等級", "手冊＋圖紙", "加多少 %", "累計 %", "每 1%（鑽）"],
@@ -134,7 +134,7 @@ function allSteps() {
   CHARM.forEach((c, i) => out.push({ sys: "c", key: "c" + i, label: "Lv" + (i + 1), gems: charmGems(i), grp: "c" }));
   GEAR.forEach((g, i) => out.push({ sys: "g", key: "g" + i, label: gearName(i), gems: gearGems(i), grp: g[0] }));
   PETADV.forEach(([lv, g, hi]) => out.push({ sys: "pa", key: "pa" + lv, label: "Lv" + lv, gems: g, hi, grp: "pa" }));
-  out.push({ sys: "pr", key: "pr1", label: t("refN"), gems: 7400, grp: "pr1" }, { sys: "pr", key: "pr2", label: t("refA"), gems: 20000, grp: "pr2" });
+  out.push({ sys: "pr", key: "pr1", label: t("refN"), gems: 5600, grp: "pr1" }, { sys: "pr", key: "pr2", label: t("refA"), gems: 20000, grp: "pr2" });
   RES.forEach(([n, lo, hi], i) => out.push({ sys: "r", key: "r" + i, label: n, gems: lo, hi, grp: "r" + i }));
   for (let k = 1; k <= 10; k++) out.push({ sys: "ma", key: "mr" + k, label: `${t("roman")} ${t("nth").replace("{n}", k)}`, gems: MAS.r(k), grp: "mr" }, { sys: "ma", key: "mv" + k, label: `${t("valora")} ${t("nth").replace("{n}", k)}`, gems: MAS.v(k), grp: "mv", dm: 1 });
   ENH.forEach(([lv, g]) => out.push({ sys: "en", key: "en" + lv, label: "+" + lv, gems: g, grp: "en" }));
@@ -165,7 +165,7 @@ function nextCand() {
     for (let k = 1; k <= 2; k++) if (g + k < GEAR.length) cand.push({ sys: "g", key: "g" + (g + k), tr: TR[tr], label: (g + k ? gearName(g + k - 1) + ` ${t("from")} ` : "") + gearName(g + k), gems: gearGems(g + k) });
   }
   for (let k = 0; k < 2; k++) { const a = PETADV[NX.pa + k]; if (a) cand.push({ sys: "pa", key: "pa" + a[0], label: "Lv" + a[0], gems: a[1], hi: a[2] }); }
-  cand.push({ sys: "pr", key: "pr1", label: t("refN"), gems: 7400 }, { sys: "pr", key: "pr2", label: t("refA"), gems: 20000 });
+  cand.push({ sys: "pr", key: "pr1", label: t("refN"), gems: 5600 }, { sys: "pr", key: "pr2", label: t("refA"), gems: 20000 });
   { const r = RES[NX.rt] || RES[2]; cand.push({ sys: "r", key: "r" + NX.rt, label: r[0], gems: r[1], hi: r[2] }); }
   if (NX.mr < 10) cand.push({ sys: "ma", key: "mr" + (NX.mr + 1), label: `${t("roman")} ${t("nth").replace("{n}", NX.mr + 1)}`, gems: MAS.r(NX.mr + 1) });
   if (NX.mv < 10) cand.push({ sys: "ma", key: "mv" + (NX.mv + 1), label: `${t("valora")} ${t("nth").replace("{n}", NX.mv + 1)}`, gems: MAS.v(NX.mv + 1) });
