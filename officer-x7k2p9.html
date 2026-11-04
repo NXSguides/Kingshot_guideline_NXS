@@ -267,6 +267,41 @@
   #pg-post .btn { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 15px; text-decoration: none; display: inline-block; }
   #pg-post .btn.big { width: 100%; padding: 14px; font-size: 17px; }
   /* 🐻 bear plan */
+  #pg-vv { --vv-inf: #2f6db3; --vv-oth: #9cbbe0; --vv-host: #c9962b; --vv-tb: #3d7fc4; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #pg-vv { --vv-inf: #5d9be0; --vv-oth: #35506f; --vv-host: #e0b04a; --vv-tb: #5d9be0; } }
+  :root[data-theme="dark"] #pg-vv { --vv-inf: #5d9be0; --vv-oth: #35506f; --vv-host: #e0b04a; --vv-tb: #5d9be0; }
+  #pg-vv .card h3 { margin: 0 0 8px; } #pg-vv .vv-p { margin: 0 0 10px; font-size: 14px; line-height: 1.55; } #pg-vv .vv-small { font-size: 12px; line-height: 1.5; }
+  #pg-vv .vv-hero { position: relative; border-radius: 14px; overflow: hidden; background-size: cover; background-position: center 35%; min-height: 230px; display: flex; align-items: flex-end; margin: 14px 0; box-shadow: 0 4px 14px var(--shadow); }
+  #pg-vv .vv-hero-in { width: 100%; padding: 18px 16px 16px; background: linear-gradient(to top, rgba(12,16,28,.92) 15%, rgba(12,16,28,.55) 65%, rgba(12,16,28,0)); color: #f3f1ea; }
+  #pg-vv .vv-hero h2 { margin: 8px 0 4px; font-size: 22px; line-height: 1.25; text-wrap: balance; } #pg-vv .vv-hero p { margin: 0; font-size: 14.5px; line-height: 1.5; max-width: 60ch; }
+  #pg-vv .vv-badge { display: inline-block; font-size: 12px; padding: 3px 10px; border-radius: 99px; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3); }
+  #pg-vv .vv-trs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  #pg-vv .vv-tr { margin: 0; display: flex; flex-direction: column; gap: 8px; padding: 10px; border-radius: 12px; border: 1px solid var(--rule); background: var(--panel-2); }
+  #pg-vv .vv-tr img { width: 100%; aspect-ratio: 1 / 1; height: auto; object-fit: cover; object-position: center 20%; border-radius: 10px; flex: none; }
+  #pg-vv .vv-tr figcaption { display: grid; gap: 3px; font-size: 13.5px; line-height: 1.45; } #pg-vv .vv-tr b { font-size: 15px; }
+  #pg-vv .vv-tr.on { border: 2px solid var(--vv-inf); } #pg-vv .vv-tr.off img { filter: grayscale(.75) brightness(.95); opacity: .75; }
+  @media (max-width: 560px) { #pg-vv .vv-trs { grid-template-columns: 1fr; } #pg-vv .vv-tr { flex-direction: row; align-items: center; } #pg-vv .vv-tr img { width: 92px; } #pg-vv .vv-hero { min-height: 260px; } }
+  #pg-vv .vv-note { margin: 10px 0 0; font-size: 13.5px; }
+  #pg-vv .vv-wave { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; font-size: 14px; } #pg-vv .vv-wave input { flex: 1 1 160px; accent-color: var(--vv-inf); } #pg-vv .vv-wave b { font-size: 18px; min-width: 2ch; font-variant-numeric: tabular-nums; }
+  #pg-vv .vv-elite { font-size: 12px; padding: 2px 8px; border-radius: 99px; background: color-mix(in srgb, var(--vv-host) 22%, transparent); }
+  #pg-vv .vv-piles { display: grid; gap: 14px; } #pg-vv .vv-pk { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  #pg-vv .vv-bar { height: 26px; border-radius: 8px; background: var(--panel-2); display: flex; overflow: hidden; } #pg-vv .vv-bar.half { width: 50%; min-width: 150px; }
+  #pg-vv .vv-bar i { display: block; height: 100%; transition: width .25s; } #pg-vv i.host { background: var(--vv-host); } #pg-vv i.me { background: var(--vv-inf); } #pg-vv i.oth { background: var(--vv-oth); }
+  #pg-vv .vv-pv { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; margin-top: 4px; } #pg-vv .vv-ps { font-size: 12.5px; color: var(--text-muted); }
+  #pg-vv .vv-key { display: flex; gap: 14px; font-size: 12.5px; margin-top: 4px; } #pg-vv .vv-key i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-inline-end: 5px; vertical-align: -1px; }
+  #pg-vv .vv-calc { margin-top: 14px; padding: 12px; border-radius: 12px; background: var(--panel-2); } #pg-vv .vv-calc h4 { margin: 0 0 8px; }
+  #pg-vv .vv-in { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; } #pg-vv .vv-in label { display: grid; gap: 3px; font-size: 12.5px; color: var(--text-muted); } #pg-vv .vv-in input { width: 150px; }
+  #pg-vv .vv-res { font-size: 17px; font-weight: 800; margin: 4px 0; color: var(--vv-inf); }
+  #pg-vv .vv-warn { margin: 12px 0 0; padding: 0; list-style: none; font-size: 13.5px; line-height: 1.6; }
+  #pg-vv .vv-tiers { display: grid; gap: 6px; max-width: 520px; } #pg-vv .vv-tier { display: grid; grid-template-columns: 3.2em 1fr 2.5em; align-items: center; gap: 8px; font-size: 13px; font-variant-numeric: tabular-nums; }
+  #pg-vv .vv-tb { height: 14px; border-radius: 4px; background: var(--panel-2); overflow: hidden; } #pg-vv .vv-tb i { display: block; height: 100%; background: var(--vv-tb); } #pg-vv .vv-tier b { text-align: end; }
+  #pg-vv .vv-ex { margin: 10px 0 4px; font-weight: 700; font-size: 14.5px; }
+  #pg-vv .vv-dos { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; } #pg-vv .vv-dos li { display: flex; gap: 12px; align-items: center; font-size: 14px; line-height: 1.5; padding: 6px; border-radius: 10px; background: var(--panel-2); }
+  #pg-vv .vv-ic { flex: 0 0 52px; height: 52px; border-radius: 10px; overflow: hidden; display: grid; place-items: center; font-size: 28px; background: var(--panel); } #pg-vv .vv-ic img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+  #pg-vv .vv-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 14px; } @media (max-width: 620px) { #pg-vv .vv-two { grid-template-columns: 1fr; } }
+  #pg-vv .vv-ul { margin: 0; padding-inline-start: 1.2em; font-size: 13.5px; line-height: 1.55; } #pg-vv .vv-ul li { margin: 4px 0; }
+  #pg-vv .vv-num summary { cursor: pointer; font-weight: 700; } #pg-vv .vv-t { border-collapse: collapse; margin-top: 10px; font-size: 13px; min-width: 280px; }
+  #pg-vv .vv-t th, #pg-vv .vv-t td { padding: 5px 12px; border-bottom: 1px solid var(--rule); text-align: start; } #pg-vv .vv-t .n { text-align: end; font-variant-numeric: tabular-nums; } #pg-vv .vv-t tr.el td { font-weight: 700; }
   #pg-bearplan { --bp-main: #d98a1c; --bp-second: #2f8f8a; --bp-weak: #9a8fa6; --bp-idle: #e6e9ee; }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #pg-bearplan { --bp-main: #f0a63a; --bp-second: #4fb3ad; --bp-weak: #a99bb8; --bp-idle: #252e38; } }
   :root[data-theme="dark"] #pg-bearplan { --bp-main: #f0a63a; --bp-second: #4fb3ad; --bp-weak: #a99bb8; --bp-idle: #252e38; }
@@ -647,7 +682,7 @@
   .pg.readonly [data-edit], .pg.readonly [data-edtodo], .pg.readonly [data-igedit], .pg.readonly a[href^="#post"],
   .pg.readonly [data-v], .pg.readonly [data-p], .pg.readonly [data-tmset] { display: none !important; }
   /* no way into a tab they can't open: every link to it inside the pages is hidden (the nav entry is hidden by applyPerms) */
-  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-attack .pg a[href^="#attack"], body.no-growth .pg a[href^="#growth"], body.no-bearplan .pg a[href^="#bearplan"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
+  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-attack .pg a[href^="#attack"], body.no-growth .pg a[href^="#growth"], body.no-bearplan .pg a[href^="#bearplan"], body.no-vv .pg a[href^="#vv"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
   .pg.readonly::before { display: none !important; }   /* no "view only" banner on top: the missing buttons say enough */
   .pg-unused-ro-banner { content: attr(data-ro); display: block; margin: 0 0 10px; padding: 8px 12px; border-radius: 10px; font-size: 13px; background: color-mix(in srgb, var(--accent) 12%, var(--panel)); border: 1px solid var(--accent); }
   /* 👁️ view only: buttons they can't use are not there at all, and fields look written in stone (plain text, nothing to tap) */
@@ -926,6 +961,7 @@
     <a href="#attack" data-tab="attack" hidden>⚔️ Battle</a>
     <a href="#growth" data-tab="growth" hidden>🧭 Growth</a>
     <a href="#bearplan" data-tab="bearplan" hidden>🐻 Bear plan</a>
+    <a href="#vv" data-tab="vv" hidden>🪓 Viking report</a>
     <a href="#ranking" data-tab="ranking">📊 Ranking</a>
     <a href="#attend" data-tab="attend" id="attendTab" hidden>📋 Attendance</a>
     <a href="#post" data-tab="post">📢 Post</a>
@@ -1417,6 +1453,10 @@
   <div class="top"><div><h1 id="bp_title">🐻</h1><div class="muted" id="bp_intro"></div></div></div>
   <div id="bp_root"></div>
 </section>
+<section class="pg" id="pg-vv" hidden>
+  <div class="top"><div><h1 id="vv_title">🪓</h1><div class="muted" id="vv_intro"></div></div></div>
+  <div id="vv_root"></div>
+</section>
 <section class="pg" id="pg-attack" hidden>
   <div class="top"><div><h1 id="ak_title">⚔️</h1><div class="muted" id="ak_intro"></div></div></div>
   <div id="ak_root"></div>
@@ -1522,6 +1562,7 @@
 <script src="js/officer/attack.js"></script>
 <script src="js/officer/growth.js"></script>
 <script src="js/officer/bearplan.js"></script>
+<script src="js/officer/vv.js"></script>
 <script>officerGate();</script>
 <script src="js/assistant.js"></script>
 <script src="js/sparrow.js"></script>

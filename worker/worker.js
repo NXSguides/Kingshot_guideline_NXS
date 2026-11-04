@@ -428,6 +428,16 @@ AI ASSISTANT
 - Our own kingdom #2189 is scouted too, for comparison. Data is the SCOUT section of the OFFICER DATA (answer "who is the strongest in kingdom X" from there).
 - Not in this data: last login (unreliable) and anything MightPulse does not publish.
 
+@vv
+🪓 VIKING REPORT tab (officer-x7k2p9.html#vv, 維京研究) — Sherry's OWN RESEARCH on Viking Vengeance (2026-11-04), NOT official game rules; worked back from her screenshots and battle-report sums at difficulty 11 and it will keep changing as she tests more. Say so when you answer from it.
+- Each wave has a fixed number of Vikings; if the city holds, they all die. Kills are split by each person's infantry count × troop tier (one troop's strength, X series: T8 38, T9 50, T10 66, TG1 71, TG2 76, TG3 83; IX series T9 50, TG1 54, TG2 58, TG3 62 — 1 TG3 ≈ 1.17 TG1 ≈ 1.66 T9).
+- Who fights: infantry first, usually clears the wave. Cavalry only when Ambusher triggers (20%), else 0 kills. Archers only if infantry and cavalry can't clear it; in a well-reinforced city always 0. Hero skills also kill some (bigger share the less infantry).
+- Points (normal city): the owner gets a fixed 2,700 + 1,800 × wave whatever their own kills; the reinforcers share half of that, split by kills. Elite waves 7, 14, 17: both ×2. Kills by the owner's own troops → that part of the pile goes to nobody; a city with no reinforcer → nobody gets that pile. The page has a wave slider and a calculator (my infantry + tier vs. others' infantry + tier → my estimated points; assumes the owner's troops kill nothing).
+- HQ: kills split the same way; points = kills × a fixed rate (wave 20: 0.5253).
+- Do: reinforce with highest-tier infantry; city owners keep only archers at home; every city needs a reinforcer; spread infantry over several cities (except one that might fall); if you can't send everything, send infantry first and keep cavalry home.
+- Doesn't change your points: Attack/Lethality buffs; the hero a reinforcer brings (HQ wave 20: every TG3 infantry exactly 1.1842 kills); gambling on cavalry.
+- Not known yet: points when a city falls; best garrison skill hero; whether reinforcers' joiner skills work in a garrison.
+
 @bearplan
 🐻 BEAR PLAN tab (officer-x7k2p9.html#bearplan, 熊獵規劃) — a DISCUSSION DRAFT for Armada (Sherry, 2026-11-01; nothing decided): one Bear wave as it was vs. fewer, stronger rallies. Idea: a march scores about leader strength K × √troops, so the leader matters far more than how full the rally is; the strongest rallies are always full, leaders open in a fixed order (strong → weak, ~15 s apart, by the bear countdown), each rally ~14 marches, only the LAST rally takes the turnout swings (about 6 / 7 / 8 rallies for ~75 / ~94 / ~110 marches); turnout is counted in MARCHES: each player has 4–6 join marches (4 normally, 5 from VIP 6, some 6), 18 people ≈ 75–105 marches; someone with only 4 can't be in every rally, so all 4 go to the strongest rallies first; everyone else joins (incl. good archers who are weak leaders); full-cap marches to main rallies, leftovers to open slots; Amane / Yeonwoo / Chenko first-hero joiners to the later rallies; the 6:30 rule stays. Page: 3 numbers, a timeline now vs. proposed (switch turnout), the leaders' table (type, K, marches now vs. proposed), what would change, what we don't know. Below it, Bear Trap 1 for comparison: BT1 has enough people (about 11 rallies, strong ones full in 20–45 s), so cutting rallies doesn't help there; its losses are inside the rallies — small leftover marches taking slots in strong rallies, later rallies missing joiner skills (4 of 4 ≈ ×1.56 vs 1 of 4 ≈ ×1.25), the 90k join cap not set everywhere; what could help: full-cap marches to strong rallies, Amane / Yeonwoo / Chenko first-hero joiners spread to later rallies, the same join cap for every leader. Don't name or rank individual leaders in answers — point to the page. The data is encrypted (data/bearplan-x7k2p9.json); admins add / replace it with 📥 Update data (paste JSON). Nobody has this tab by default; admins give it in the 👥 table.
 
@@ -582,7 +592,7 @@ async function isOfficer(body, env) {
 
 /* 🔒 Officer AI = logged in with Discord AND on the 👥 table. Returns which tabs they may open (admins: all),
    so the AI only gets the handbook parts and data of those tabs. The old officer password / data-key proof no longer counts. */
-const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🚚 Move", hunt: "🎯 Blacklist", attack: "⚔️ Battle", growth: "🧭 Growth", bearplan: "🐻 Bear plan", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
+const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🚚 Move", hunt: "🎯 Blacklist", attack: "⚔️ Battle", growth: "🧭 Growth", bearplan: "🐻 Bear plan", vv: "🪓 Viking report", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
 const AI_TAB_LINKS = {
   events: "[Events](officer-x7k2p9.html#events) (week calendar, officer to-dos, in-game guides to copy, add/edit events)",
   board: "[Board](officer-x7k2p9.html#board)", map: "[Map](officer-x7k2p9.html#map) (kingdom map, Outpost plan)",
@@ -591,6 +601,7 @@ const AI_TAB_LINKS = {
   watch: "[Watch](officer-x7k2p9.html#watch) (name changes, power history, who left/joined, notes)",
   growth: "[Growth](officer-x7k2p9.html#growth) (proposal: how we grow attack / defense / Bear leaders)",
   bearplan: "[Bear plan](officer-x7k2p9.html#bearplan) (discussion draft: fewer, stronger Bear rallies)",
+  vv: "[Viking report](officer-x7k2p9.html#vv) (our research: how Viking Vengeance splits kills and points, what to send)",
   attack: "[Battle](officer-x7k2p9.html#attack) (attack planner from MightPulse board strength, scouting other kingdoms)",
   views: "[Views](officer-x7k2p9.html#views)", perms: "[Officers](officer-x7k2p9.html#perms)",
 };
@@ -1647,7 +1658,7 @@ const ADMIN_IDS = ["1547403844374368327", "1240788094672834623", "76282790434124
 /* view-only officers added by Sparrow (2026-10-16): put into the 👥 table with Events / Board / Map "view" if they aren't in it yet.
    After that the table is the truth — change or remove them on the 👥 tab. */
 const SEED_VIEWERS = {"741447079804797041": "firebaugh", "734803550672257104": "ASHISH", "961642100150124555": "BOO", "1526789098210197638": "ELR", "216564539041251329": "flip", "1534039396461056172": "JORDAN", "1525666601456767171": "PAPA", "706153853460021341": "Tiger", "1003385592983322664": "Δйʊвιŝ"};
-const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", views: "none", move: "none", hunt: "none", attack: "none", growth: "none", bearplan: "none" };
+const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", views: "none", move: "none", hunt: "none", attack: "none", growth: "none", bearplan: "none", vv: "none" };
 /* 🛠️ which events' officer to-dos each person gets as a reminder (from Sparrow's role list, 2026-10-16) — only a starting point:
    once an admin changes someone's 🔔 on the 👥 tab, the saved list wins. Admins with no list get every event. */
 const MOB = "alliance-mobilization";
