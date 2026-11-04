@@ -18,10 +18,14 @@ const BOARDS = ["alliance_power", "alliance_kills", "personal_power", "kills", "
 const COMBAT = ["gov_gear", "gov_charm", "research_power", "hero_equip", "pet_power", "master_power", "troop_power", "single_hero", "hero_total"];
 const OPP_MAX = 150, GAP_MS = 1100;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+/* 2026-11-05: runs since 11/01 hung until the 30-min job timeout (nothing saved) → every call has a 20 s timeout, and after
+   BUDGET_MS the run stops fetching more players and saves what it has (boards first, so ⚖️ Compare always gets today's strength). */
+const T0 = Date.now(), BUDGET_MS = 18 * 60000, late = () => Date.now() - T0 > BUDGET_MS;
 async function get(path) {
   for (let i = 1; i <= 4; i++) {
-    try { const res = await fetch(BASE + path, { headers: { Authorization: `Bearer ${KEY}` } });
-      if (res.status === 429) { await sleep(60000); continue; }
+    if (late()) return { status: 0, body: null };
+    try { const res = await fetch(BASE + path, { headers: { Authorization: `Bearer ${KEY}` }, signal: AbortSignal.timeout(20000) });
+      if (res.status === 429) { console.log(`429 on ${path.split("?")[0]} — waiting`); await sleep(i < 3 ? 30000 : 60000); continue; }
       return { status: res.status, body: await res.json().catch(() => null) };
     } catch (e) { await sleep(5000); }
   }
@@ -39,6 +43,7 @@ const player = (b, src) => ({ src, captured_at: iso(b.cached_at) || new Date().t
   const kids = [...new Set([OUR, ...((cfg.kingdoms || []).filter((k) => k && (k.auto || all)).map((k) => +k.kid))])].filter(Boolean);
   const snap = { date, made: new Date().toISOString(), kingdoms: {}, boards: {}, players: {} };
   let calls = 0;
+  console.log(`kingdoms: ${kids.join(", ")}`);
   for (const kid of kids) {
     const k = await get(`/kingdoms/${kid}`); calls++; await sleep(GAP_MS);
     if (k.status === 200 && k.body && k.body.kingdom) snap.kingdoms[kid] = { captured_at: new Date().toISOString(), ...k.body.kingdom };
@@ -57,14 +62,16 @@ const player = (b, src) => ({ src, captured_at: iso(b.cached_at) || new Date().t
     const ids = new Set(); for (const b of COMBAT) for (const x of ((snap.boards[`${kid}:${b}`] || {}).rows || [])) if (ids.size < OPP_MAX) ids.add(String(x.governor_id));
     ids.forEach((id) => want.add(id));
   }
-  let ok = 0;
+  console.log(`boards done in ${Math.round((Date.now() - T0) / 1000)} s (${calls} calls); players to fetch: ${[...want].filter((id) => !snap.players[id]).length}`);
+  let ok = 0, skipped = 0;
   for (const id of want) {
     if (snap.players[id]) continue;
+    if (late()) { skipped++; continue; }
     const r = await get(`/players/${id}?include=base,ranks,heroes`); calls++; await sleep(GAP_MS);
     if (r.status === 200 && r.body) { snap.players[id] = player(r.body, "fetch"); ok++; }
   }
   fs.mkdirSync("data/mp-history", { recursive: true });
   writeData(file, snap);
-  console.log(`::notice title=mp-history::✅ ${file}: ${Object.keys(snap.kingdoms).length} kingdoms, ${Object.keys(snap.boards).length} boards, ${Object.keys(snap.players).length} players (${ok} fetched now), ${calls} calls`);
+  console.log(`::notice title=mp-history::✅ ${file}: ${Object.keys(snap.kingdoms).length} kingdoms, ${Object.keys(snap.boards).length} boards, ${Object.keys(snap.players).length} players (${ok} fetched now${skipped ? `, ${skipped} skipped — out of time` : ""}), ${calls} calls`);
   } catch (e) { console.log(`::error title=mp-history::${String(e && e.stack || e).split("\n").slice(0, 3).join(" | ")}`); process.exit(1); }
 })();
