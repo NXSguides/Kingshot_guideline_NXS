@@ -525,12 +525,12 @@ const vsS = (x) => x ? (x.S || x.Se || null) : null;
 function vsHtml() {
   const P = vsPeople(), all = Object.values(P).filter((x) => vsS(x)).sort((a, b) => vsS(b) - vsS(a));
   if (!all.length) return `<h3 style="margin:0 0 4px">${esc(vt("t"))}</h3><div class="muted">${esc(vt("none"))}</div>`;
-  if (!P[VS.a]) VS.a = (all.find(ours) || all[0]).id;
-  if (!P[VS.b]) VS.b = (all.find((x) => !ours(x)) || all[1] || all[0]).id;
+  if (!vsS(P[VS.a])) VS.a = (all.find(ours) || all[0]).id;   // a saved pick that has no strength today → pick again (2026-11-05: it crashed the card)
+  if (!vsS(P[VS.b])) VS.b = (all.find((x) => !ours(x)) || all[1] || all[0]).id;
   const A = P[VS.a], Bp = P[VS.b];
   const pick = (k) => { const q = norm(VQ[k]), list = q.length >= 1 ? all.filter((x) => norm(x.name).includes(q) || norm(x.al) === q) : all;
-    const cur = P[VS[k]], opts = (list.includes(cur) ? list : [cur, ...list]).slice(0, 300);
-    return `<div class="ak-vsp"><input class="inp" data-vq="${k}" placeholder="${esc(vt("find"))}" value="${esc(VQ[k])}"><select class="inp" data-vs="${k}">${opts.map((x) => `<option value="${esc(x.id)}"${x.id === VS[k] ? " selected" : ""}>${esc(x.name)}${x.al ? ` [${esc(x.al)}]` : ""}${x.kid && x.kid !== 2189 ? ` #${x.kid}` : ""} · ${vsS(x).toFixed(1)}${x.S ? "" : "≈"}</option>`).join("")}</select></div>`; };
+    const cur = P[VS[k]], opts = (list.includes(cur) || !vsS(cur) ? list : [cur, ...list]).slice(0, 300);
+    return `<div class="ak-vsp"><input class="inp" data-vq="${k}" placeholder="${esc(vt("find"))}" value="${esc(VQ[k])}"><select class="inp" data-vs="${k}">${opts.map((x) => `<option value="${esc(x.id)}"${x.id === VS[k] ? " selected" : ""}>${esc(x.name)}${x.al ? ` [${esc(x.al)}]` : ""}${x.kid && x.kid !== 2189 ? ` #${x.kid}` : ""} · ${(vsS(x) || 0).toFixed(1)}${x.S ? "" : "≈"}</option>`).join("")}</select></div>`; };
   const tags = (x) => { const o = []; if (x.tc) o.push(fill(vt("tc"), { n: x.tc })); if (x.vip != null) o.push(fill(vt("vip"), { n: x.vip }));
     for (const h of x.heroes || []) { const k = String(h.name || "").toLowerCase().replace(/[^a-z]/g, ""); if (k !== "amadeus" && k !== "helga") continue; const st = h.stars ?? h.star;
       o.push(`<span class="ak-st${st >= 5 ? " full" : ""}">${esc(fill(vt("star"), { h: lang === "zh" ? (k === "amadeus" ? "阿瑪迪斯" : "赫爾加") : (k === "amadeus" ? "Amadeus" : "Helga"), n: st ?? "?" }))}${st >= 5 ? " · " + esc(vt("full")) : ""}</span>`); }
