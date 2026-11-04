@@ -391,6 +391,8 @@ function loadScripts(list) {
 }
 /* tabs: #events / #ranking / #post / #watch (the part after "?" is kept for the page) */
 function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|views|map|move|hunt|attack|growth|bearplan|vv|ms|bt|board|attend|perms)/); return m ? m[1] : "events"; }
+let lastTab = null, keepY = 0;
+addEventListener("click", (e) => { if (e.target.closest && e.target.closest(".tabs a")) keepY = window.scrollY; }, true);   // where we were before the hash changes
 async function showTab() {
   if (location.hash === "#scout") { location.replace("#attack"); return; }   // ↓ #research → its first report this person may open
   if (location.hash === "#research") { location.replace("#" + (GROUPS.research.find((k) => OFFICER.can(k, "view")) || "events")); return; }   // 🔭 Scout is inside ⚔️ Battle now (2026-10-30)
@@ -405,7 +407,10 @@ async function showTab() {
   if (!inited[k]) { inited[k] = p.init() || true; }   // a page whose init returns nothing must still count as started (else its click handlers pile up on every visit)
   try { await inited[k]; } catch (e) { inited[k] = null; console.error(e); }
   if (p.onShow) p.onShow();
-  window.scrollTo(0, 0);
+  // 🔬 switching between reports of the same group keeps the scroll position (Sherry 2026-11-04); other tabs start at the top
+  const same = Object.values(GROUPS).some((g) => g.includes(k) && g.includes(lastTab));
+  if (same) window.scrollTo(0, keepY); else window.scrollTo(0, 0);
+  lastTab = k;
 }
 window.addEventListener("hashchange", showTab);
 /* password: one check for all tabs; the GitHub key (for saving) and the data key (for reading) are opened here */
