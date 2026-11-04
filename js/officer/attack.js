@@ -562,10 +562,12 @@ function render() {
   const root = $("ak_root"); if (!root) return;
   if (PLAN.mode === "ss") PLAN.mode = "home";   // 🗡️ Swordland mode and the ⚔️ planner were taken out (Sherry 2026-11-04) — code kept below, not shown
   PLAN.mode = "home";   // the 🏰 / ⚔️ KvK switch was taken out too (2026-11-04): one list, 🎯 intel and 🔭 Scout always shown
-  root.innerHTML = `<div class="card" id="ak_vs">${vsHtml()}</div><div class="card" id="ak_board">${boardsCard()}</div>${window.KvkIntel ? `<div class="card" id="ak_intel">${KvkIntel.html(SNAP)}</div>` : ""}`;   // 🎯 opponent intel (js/officer/intel.js)
+  /* each card on its own: one card failing on odd data must not blank the whole tab (2026-11-05) */
+  const safe = (f) => { try { return f(); } catch (e) { console.warn("[compare]", e); return `<div class="muted">⚠️ ${esc(String((e && e.message) || e)).slice(0, 160)}</div>`; } };
+  root.innerHTML = `<div class="card" id="ak_vs">${safe(vsHtml)}</div><div class="card" id="ak_board">${safe(boardsCard)}</div>${window.KvkIntel ? `<div class="card" id="ak_intel">${safe(() => KvkIntel.html(SNAP))}</div>` : ""}`;   // 🎯 opponent intel (js/officer/intel.js)
   const sc = $("pg-scout"); if (sc) sc.hidden = false;   // 🔭 Scout (other kingdoms), always under the cards
-  bind(); vsBind();
-  if (window.KvkIntel) KvkIntel.bind(render);
+  safe(bind); safe(vsBind);
+  if (window.KvkIntel) safe(() => KvkIntel.bind(render));
 }
 function bind() {
   const re = () => { keep(); render(); };
@@ -654,13 +656,15 @@ async function loadSnap() {
 }
 async function loadScout() {
   try { SCB = await OfficerData.fetchJson("data/scout-x7k2p9.json"); } catch (e) { SCB = null; }
-  buildPlayers();
+  try { buildPlayers(); } catch (e) { console.warn("[compare] players", e); }
 }
 function applyTexts() { if ($("ak_title")) { $("ak_title").textContent = t("title"); $("ak_intro").textContent = t("intro"); } }
 async function init() {
   applyTexts();
   if (!(window.OfficerData && OfficerData.ready && OfficerData.ready())) { $("ak_root").innerHTML = `<div class="card muted">🔒</div>`; return; }
-  await loadSnap(); render();
+  $("ak_root").innerHTML = `<div class="card muted">⏳</div>`;
+  try { await loadSnap(); } catch (e) { console.warn("[compare] load", e); }
+  try { render(); } catch (e) { console.warn("[compare]", e); $("ak_root").innerHTML = `<div class="card muted">⚠️ ${esc(String((e && e.message) || e)).slice(0, 160)}</div>`; }
   if (OFFICER.ensure) OFFICER.ensure("scout");   // 🔭 Scout lives in this tab now (its own module, js/officer/scout.js)
 }
 function setLang(l) { lang = l; applyTexts(); if ($("ak_root") && $("ak_root").innerHTML) render(); }
