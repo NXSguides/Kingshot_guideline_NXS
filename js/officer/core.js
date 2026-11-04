@@ -137,7 +137,7 @@ OFFICER.ADMINS = [];                       // filled from the table (admin: true
 OFFICER.PERMS_TRIAL = false;   // 2026-10-16: the login system is live — the 👥 table decides   // the 👥 table is kept and editable, but not enforced yet (set false when the login system goes live)
 OFFICER.PERM_TABS = ["events", "board", "map", "ranking", "attend", "post", "watch", "views", "move", "hunt", "attack", "research"];
 /* 🔬 one permission for all research reports (Sherry 2026-11-04). Older tables still have one key per report: until "research" is set, the best of those counts. */
-OFFICER.RESEARCH = ["growth", "bh", "bearplan", "vv", "ms", "iv"];
+OFFICER.RESEARCH = ["iv", "growth", "ms", "bh", "bearplan", "vv"];
 const LVR = { none: 0, view: 1, edit: 2 };
 OFFICER.researchLevel = (p) => { if (!p) return "none"; if (p.research) return p.research; let b = "none"; for (const k of OFFICER.RESEARCH) if ((LVR[p[k]] || 0) > LVR[b]) b = p[k]; return b; };   // 🚚 move: nobody by default (admins always)
 OFFICER.VIEW_TABS = ["events", "board", "map"];
