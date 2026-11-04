@@ -69,7 +69,6 @@ const FEATURES = [
   ["Move tab", /🚚 Move/, /mv01:/],
   ["Growth plan tab (proposal: how we grow attack / defense / Bear leaders)", /🧭 GROWTH tab \(officer-x7k2p9\.html#growth/, /growth: \[{ s: "#gr_title", k: "gr01" }/],
   ["Growth: 🌳 when to pick a direction (milestones, 4 branches, master & pet skills)", /🌳 WHEN TO PICK A DIRECTION/, /{ s: "#gr_road", k: "gr04" }/],
-  ["Battle: 🏰 In our kingdom / ⚔️ KvK switch", /Switch "🏰 In our kingdom" \/ "⚔️ KvK"/, /🏰 In our kingdom/],
   ["Battle tab: ⚖️ Super compare (two players, rough % stronger)", /⚖️ SUPER COMPARE \(card at the top\)/, /{ s: "#ak_vs", k: "ak06" }/],
   ["Attack: 📊 today's strength list", /Today's strength/, /{ s: "#ak_board", k: "ak02" }/],
   ["Board", /💬 Board/, /bd01:/],
