@@ -280,6 +280,9 @@
   #pg-iv .iv-k small { display: block; font-size: 11.5px; color: var(--text-muted); line-height: 1.35; margin-top: 1px; }
   #pg-iv .iv-b { position: relative; height: 18px; border-radius: 5px; background: var(--panel-2); overflow: hidden; } #pg-iv .iv-b i { position: absolute; top: 0; bottom: 0; display: block; }
   #pg-iv i.cheap { background: var(--iv-cheap); } #pg-iv i.mid { background: var(--iv-mid); } #pg-iv i.dear { background: var(--iv-dear); } #pg-iv .iv-b i.rng { opacity: .45; }
+  #pg-iv .iv-b.over::after { content: "▶"; position: absolute; right: 3px; top: 50%; transform: translateY(-50%); font-size: 10px; color: #fff; }
+  #pg-iv .iv-ch { display: flex; align-items: flex-end; gap: 3px; height: 150px; padding-top: 4px; } #pg-iv .iv-ch > div { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 2px; min-width: 0; }
+  #pg-iv .iv-ch i { display: block; width: 100%; border-radius: 3px 3px 0 0; min-height: 3px; } #pg-iv .iv-ch small { font-size: 10px; color: var(--text-muted); font-variant-numeric: tabular-nums; } #pg-iv .iv-ch b { font-size: 10px; white-space: nowrap; font-variant-numeric: tabular-nums; }
   #pg-iv .iv-v { text-align: end; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
   @media (max-width: 600px) { #pg-iv .iv-row { grid-template-columns: 1fr auto; } #pg-iv .iv-b { grid-column: 1 / -1; grid-row: 2; } }
   #pg-iv .iv-key { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12.5px; margin-top: 10px; } #pg-iv .iv-key i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-inline-end: 5px; vertical-align: -1px; }
