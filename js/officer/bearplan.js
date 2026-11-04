@@ -9,6 +9,38 @@
 const $ = (id) => document.getElementById(id);
 const esc = OFFICER.util.esc;
 const PATH = "data/bearplan-x7k2p9.json";
+const RPATH = "data/bearreview-x7k2p9.json";   // 🐻 latest hunt review (Sherry 2026-11-05): leader strength K side by side + where a march scores most; names → encrypted file only
+/* review file: { review: 1, date, stats: [{ v, k: {en, zh}, s: {en, zh} }], rows: [[name, tier, "atk / leth", buffKey, K, KwithBuffs, label?]],
+   kfoot: {en, zh}, place: {en: [[where, value, note]], zh: [...]}, notes: {en: [], zh: []}, unknowns: {en: [], zh: []}, foot: {en, zh} } */
+const RT = { en: { h: "📋 Latest hunt review · {d}", kh: "Leader strength, side by side", kp: "K = (1 + archer attack)(1 + archer lethality) × City Bonus, from that hunt's rally bonus pages, scaled so the strongest regular leader = 1.00. Bear damage is mostly archers, so K tracks how much the same march scores in that leader's rally. The faint part of a bar = with both City Bonuses on.",
+    tBuff: "with both City Bonuses", cols: ["Leader", "Type", "Archer atk / leth %", "City Bonus", "K", "With bonus"], buff: { both: "atk + leth", leth: "leth only", atk: "atk only", none: "none", both2: "atk + leth + title" },
+    xh: "Where a march scores the most, as things run now", xp: "Your score from one march ≈ leader K × (your own archer and cavalry troops). Other people's troops in the rally don't change yours — so for each march the only question is which leader it lands with.", xcols: ["The same 100k march goes into…", "Score", ""],
+    unh: "What we don't know yet", planH: "📐 Rally plan draft (earlier)" },
+  zh: { h: "📋 最近一次熊獵復盤 · {d}", kh: "隊長強度對照", kp: "K = (1 + 弓兵攻擊力)(1 + 弓兵殺傷力) × 城鎮增益，取自那次的集結加成頁，以最強的常駐隊長 = 1.00。熊獵傷害幾乎都是弓兵，所以 K 就代表同一支部隊在這位隊長的團裡能拿幾分。長條淡色的部分＝兩個城鎮增益都開時的值。",
+    tBuff: "兩個城鎮增益都開", cols: ["隊長", "類型", "弓兵 攻／殺 %", "城鎮增益", "K", "開增益後"], buff: { both: "攻＋殺", leth: "只有殺", atk: "只有攻", none: "沒有", both2: "攻＋殺＋官職" },
+    xh: "照現在的方式，部隊放哪裡分數最高", xp: "一支部隊的分數 ≈ 隊長 K ×（你自己的弓兵、騎兵）。團裡其他人帶了什麼不影響你的分數——所以每一支部隊要看的只有：它進了誰的團。", xcols: ["同一支 10 萬的部隊放進…", "分數", ""],
+    unh: "還不知道的", planH: "📐 排團草稿（之前的）" } };
+const rt = (k) => (RT[lang] || RT.en)[k] ?? RT.en[k];
+const LL = (o) => o ? (o[lang] ?? o.en ?? o.zh ?? "") : "";
+let RV = null;
+function reviewHtml() {
+  const r = RV; if (!r) return "";
+  const max = Math.max(1.2, ...r.rows.map((x) => +x[5] || +x[4] || 0)), pc = (v) => (v / max * 100).toFixed(1) + "%";
+  return `<div class="card bp-rv"><h3>${esc(fill(rt("h"), { d: r.date || "" }))}</h3>
+    ${r.stats ? `<div class="bp-stats" style="margin:6px 0 4px">${r.stats.map((x) => `<div class="bp-stat"><span class="k">${esc(LL(x.k))}</span><span class="v">${esc(x.v)}</span><span class="s">${esc(LL(x.s))}</span></div>`).join("")}</div>` : ""}</div>
+  <div class="card"><h3>${esc(rt("kh"))}</h3><p class="bp-p">${esc(rt("kp"))}</p>
+    <div class="bp-legend">${["main", "second", "weak"].map((k) => `<span><i class="bp-sw" style="background:var(--bp-${k})"></i>${esc(tier(k))}</span>`).join("")}<span><i class="bp-sw" style="background:var(--bp-idle);border:1px solid var(--rule)"></i>${esc(rt("tBuff"))}</span></div>
+    <div class="bp-kb">${r.rows.map((x) => `<div class="bp-kr"><span class="bp-kn" dir="auto">${esc(x[0])}</span><span class="bp-kt">${+x[5] > +x[4] ? `<i class="bp-kg" style="width:${pc(+x[5])}"></i>` : ""}<i class="bp-kf" style="width:${pc(+x[4])};background:var(--bp-${esc(x[1])})"></i></span><b>${esc(x[6] || (+x[4]).toFixed(2))}${+x[5] > +x[4] ? ` → ${(+x[5]).toFixed(2)}` : ""}</b></div>`).join("")}</div>
+    <div class="bp-tw" style="margin-top:10px"><table class="bp-t"><thead><tr>${rt("cols").map((c, i) => `<th${i > 3 || i === 2 ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
+      <tbody>${r.rows.map((x) => `<tr><td dir="auto">${esc(x[0])}</td><td><span class="bp-pill ${esc(x[1])}">${esc(tier(x[1]))}</span></td><td class="n">${esc(x[2])}</td><td${x[3] === "none" ? ' class="bp-no"' : ""}>${esc(rt("buff")[x[3]] || x[3])}</td><td class="n">${esc(x[6] || (+x[4]).toFixed(2))}</td><td class="n${+x[5] > +x[4] ? " bp-up" : ""}">${(+x[5]).toFixed(2)}</td></tr>`).join("")}</tbody></table></div>
+    ${LL(r.kfoot) ? `<p class="muted bp-p" style="font-size:12.5px;margin-top:8px">${esc(LL(r.kfoot))}</p>` : ""}</div>
+  ${LL(r.place) ? `<div class="card"><h3>${esc(rt("xh"))}</h3><p class="bp-p">${esc(rt("xp"))}</p>
+    <div class="bp-tw"><table class="bp-t" style="min-width:0"><thead><tr>${rt("xcols").map((c, i) => `<th${i === 1 ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
+      <tbody>${LL(r.place).map((x) => `<tr><td dir="auto">${esc(x[0])}</td><td class="n"><b>${esc(x[1])}</b></td><td class="muted">${esc(x[2] || "")}</td></tr>`).join("")}</tbody></table></div>
+    ${(LL(r.notes) || []).length ? `<ul class="bp-ul" style="margin-top:10px">${LL(r.notes).map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}</div>` : ""}
+  ${(LL(r.unknowns) || []).length ? `<div class="card"><h3>${esc(rt("unh"))}</h3><ul class="bp-ul">${LL(r.unknowns).map((x) => `<li>${esc(x)}</li>`).join("")}</ul>${LL(r.foot) ? `<div class="muted" style="font-size:12px;margin-top:8px">${esc(LL(r.foot))}</div>` : ""}</div>` : ""}
+  ${D ? `<h3 class="bp-sec">${esc(rt("planH"))}</h3>` : ""}`;
+}
 const T = {
   en: { title: "🐻 Bear plan", intro: "Discussion draft: one Bear wave now vs. fewer, stronger rallies. Nothing here is decided.",
     s1k: "Rallies open at once", s1s: "follows turnout: about {cap} marches per rally", s2k: "Strongest rallies filled", s2s: "always; only the last rally changes with turnout",
@@ -38,7 +70,7 @@ const T = {
     b1lh: "BT1 leaders by archer strength", b1lp: "Archer (1 + attack)(1 + lethality) from each rally's bonus page. ★ = on the BT1 leader list. Dashed lines: BT2's two strongest, for scale. BT1 had no rally mails, so these are stats, not measured K.",
     b1xh: "Where BT1 loses damage", b1dh: "What could help BT1",
     foot: "Data: {src}", none: "No data yet. An admin adds it once with 📥 Update data below.", locked: "🔒 Log in first.",
-    impT: "📥 Update data (admins)", impNote: "Paste the plan JSON (from the analysis chat). It is encrypted in this browser and saved for officers only.", impSave: "Encrypt & save",
+    impT: "📥 Update data (admins)", impNote: "Paste a plan JSON or a hunt review JSON (from the analysis chat) — the page tells them apart. It is encrypted in this browser and saved for officers only.", impSave: "Encrypt & save",
     impOk: "✅ Saved — everyone with this tab sees it in a minute.", impBad: "⚠️ That isn't the plan JSON (needs now, order and rows).", impErr: "⚠️ Not saved: ", noTok: "⚠️ Saving needs the officer GitHub key (admin login)." },
   zh: { title: "🐻 熊獵規劃", intro: "討論草稿：現在的一波 vs. 少一點、強一點的團。這裡什麼都還沒決定。",
     s1k: "同時開的團數", s1s: "跟著人數走：大約每 {cap} 支部隊一團", s2k: "最強的團填滿率", s2s: "一定滿；只有最後一團隨人數變",
@@ -68,7 +100,7 @@ const T = {
     b1lh: "BT1 隊長弓兵強度", b1lp: "弓兵 (1+攻擊)(1+殺傷)，取自各團集結加成頁。★ = BT1 隊長名單上的人。虛線是 BT2 最強的兩位，當作比例尺。BT1 沒有集結信件，所以這是屬性，不是實測的 K。",
     b1xh: "BT1 的損失在哪裡", b1dh: "BT1 可以改善的方向",
     foot: "資料：{src}", none: "還沒有資料。管理員在下面的 📥 更新資料 加一次就好。", locked: "🔒 請先登入。",
-    impT: "📥 更新資料（管理員）", impNote: "貼上規劃的 JSON（分析聊天給的）。會在這個瀏覽器加密，只有幹部看得到。", impSave: "加密並儲存",
+    impT: "📥 更新資料（管理員）", impNote: "貼上排團草稿或熊獵復盤的 JSON（分析聊天給的）——頁面會自己分辨。會在這個瀏覽器加密，只有幹部看得到。", impSave: "加密並儲存",
     impOk: "✅ 已儲存——有這個分頁的人大約一分鐘後就看得到。", impBad: "⚠️ 這不是規劃的 JSON（需要 now、order、rows）。", impErr: "⚠️ 沒有存到：", noTok: "⚠️ 儲存需要幹部的 GitHub 金鑰（管理員登入）。" },
 };
 let lang = OFFICER.lang || "en", D = null, N = null, msg = "";
@@ -126,13 +158,13 @@ function importBox() {
 function render() {
   const root = $("bp_root"); if (!root) return;
   $("bp_title").textContent = t("title"); $("bp_intro").textContent = t("intro");
-  if (!D) { root.innerHTML = `<div class="card muted">${esc(t("none"))}</div>${importBox()}`; bind(); return; }
+  if (!D) { root.innerHTML = RV ? `${reviewHtml()}${importBox()}` : `<div class="card muted">${esc(t("none"))}</div>${importBox()}`; bind(); return; }
   const TO = D.turnout || [75, 94, 110]; if (N == null) N = TO[1];
   const counts = TO.map((n) => plan(n).length), P = {}; plan(N).forEach((p) => { P[p[0]] = p[4]; });
   const est = D.rows.filter((r) => /\*/.test(String(r[2]))).map((r) => r[0]);
   const items = (arr, v) => arr.map((s) => `<li>${esc(fill(s, v))}</li>`).join("");
   const v = { order: D.order.map((o) => o[0]).join(", "), a: counts[0], b: counts[1], c: counts[2], gap: D.gap || 15, est: est.join(", ") || "—", gain: D.gain || "", cap: D.cap || 14, n: TO[1], src: D.src || "" };
-  root.innerHTML = `
+  root.innerHTML = `${reviewHtml()}
     <div class="bp-stats">
       <div class="card bp-stat"><span class="k">${esc(t("s1k"))}</span><span class="v">${D.now.length} → ${Math.min(...counts)}–${Math.max(...counts)}</span><span class="s">${esc(fill(t("s1s"), v))}</span></div>
       <div class="card bp-stat"><span class="k">${esc(t("s2k"))}</span><span class="v">100%</span><span class="s">${esc(t("s2s"))}</span></div>
@@ -158,14 +190,16 @@ function bind() {
   sv.onclick = async () => {
     const m = $("bp_msg"); let d = null;
     try { d = JSON.parse($("bp_json").value); } catch (e) {}
-    if (!d || !Array.isArray(d.now) || !Array.isArray(d.order) || !Array.isArray(d.rows)) { m.textContent = t("impBad"); return; }
+    const isRv = !!(d && d.review && Array.isArray(d.rows));
+    if (!d || (!isRv && (!Array.isArray(d.now) || !Array.isArray(d.order) || !Array.isArray(d.rows)))) { m.textContent = t("impBad"); return; }
     if (!OFFICER.token) { m.textContent = t("noTok"); return; }
     sv.disabled = true; m.textContent = "⏳";
     try {
       d.v = 1; d.by = (OFFICER.user && OFFICER.user.name) || ""; d.at = new Date().toISOString();
-      let sha; try { const f = await OFFICER.gh("GET", PATH, null, OFFICER.token); sha = f ? f.sha : undefined; } catch (e) {}
-      await OFFICER.gh("PUT", PATH, { message: "🐻 Bear plan data (encrypted)", content: u8b64(JSON.stringify(await OfficerData.seal(d), null, 1) + "\n"), sha, branch: "main" }, OFFICER.token);
-      D = d; N = null; msg = t("impOk"); render();
+      const P = isRv ? RPATH : PATH;
+      let sha; try { const f = await OFFICER.gh("GET", P, null, OFFICER.token); sha = f ? f.sha : undefined; } catch (e) {}
+      await OFFICER.gh("PUT", P, { message: isRv ? "🐻 Bear hunt review (encrypted)" : "🐻 Bear plan data (encrypted)", content: u8b64(JSON.stringify(await OfficerData.seal(d), null, 1) + "\n"), sha, branch: "main" }, OFFICER.token);
+      if (isRv) RV = d; else { D = d; N = null; } msg = t("impOk"); render();
     } catch (e) { m.textContent = t("impErr") + (e && e.message || e); sv.disabled = false; }
   };
 }
@@ -173,9 +207,10 @@ async function init() {
   render();
   if (!(window.OfficerData && OfficerData.ready && OfficerData.ready())) { $("bp_root").innerHTML = `<div class="card muted">${esc(t("locked"))}</div>`; return; }
   try { const d = await OfficerData.fetchJson(PATH); if (d && Array.isArray(d.now)) D = d; } catch (e) {}
+  try { const r = await OfficerData.fetchJson(RPATH); if (r && r.review && Array.isArray(r.rows)) RV = r; } catch (e) {}
   render();
 }
 function applyTexts() { if ($("bp_title")) { $("bp_title").textContent = t("title"); $("bp_intro").textContent = t("intro"); } }
-function setLang(l) { lang = l; applyTexts(); if (D) render(); }
-OFFICER_PAGES.bearplan = { init, applyTexts, setLang, onShow: () => { if (D) render(); } };
+function setLang(l) { lang = l; applyTexts(); if (D || RV) render(); }
+OFFICER_PAGES.bearplan = { init, applyTexts, setLang, onShow: () => { if (D || RV) render(); } };
 })();

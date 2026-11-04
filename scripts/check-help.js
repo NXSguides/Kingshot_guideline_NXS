@@ -19,6 +19,7 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
+  ["Bear plan: 📋 latest hunt review (leader K side by side, where a march scores most)", /📋 LATEST HUNT REVIEW/, /📋 the latest hunt review/],
   ["Events: 👤 Only remind (to-do sent by the server to chosen officers only)", /"👤 Only remind" \(只提醒/, /👤 Only remind: tick officers/],
   ["Growth: ⚖️ compare two heroes", /⚖️ Compare two heroes \(card after/, /⚖️ Compare two heroes: pick a troop slot/],
   ["Growth: 🎯 second uses (joiners & side jobs)", /🎯 Second uses \(card after/, /🎯 Second uses: a joiner only uses/],
