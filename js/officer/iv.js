@@ -26,7 +26,7 @@ const gearGems = (i) => gearCoins(i) * 3.2 / (2 * gearPct(i));
 const charmGems = (i) => CHARM[i][0] * 500 * 3.2 / (2 * CHARM[i][1]);   // gems per +1% to one stat of one troop type
 // [key, low, high, kind] — gems per +1% (one troop type, one stat); kind colours the bar; past MAX the bar runs off the end (▶)
 const ROWS = [["c1", 889, 889, "cheap"], ["pet", 3200, 3200, "cheap"], ["res", 3800, 14600, "mid"], ["hg1", 11100, 11100, "mid"], ["c25", 14700, 20000, "mid"],
-  ["adv", 14200, 23200, "mid"], ["resl", 20500, 20500, "mid"], ["hg2", 22200, 55600, "dear"], ["c6", 40000, 701000, "dear"]];
+  ["adv", 4700, 41600, "mid"], ["ref", 7400, 20000, "mid"], ["resl", 20500, 20500, "mid"], ["hg2", 22200, 55600, "dear"], ["c6", 40000, 701000, "dear"]];
 ROWS.splice(1, 0, ["gg1", 513, 10165, "cheap"]); ROWS.splice(7, 0, ["gg2", 12424, 44844, "mid"]); ROWS.push(["gg3", 40157, 840727, "dear"]);
 const T = {
   en: { title: "💎 Investment", intro: "Our research: the same gems buy very different amounts of stat %. Where is it cheapest, and who should spend where? Still being tested.",
@@ -34,9 +34,9 @@ const T = {
     heroH: "Same gems, very different results.", heroP: "The cheapest +1% (the first green Governor Gear step, Governor Charm Lv1) costs under 1,000 gems. Hero Gear Mastery Forging Lv5 costs about 56,000; red Governor Gear and the last charm levels cost 700,000–800,000 for the same 1%.",
     barH: "💰 Gems for +1%", barP: "Shorter bar = cheaper. Each bar is +1% to one stat of one troop type.",
     rows: { c1: "Governor Charm 0 → Lv1", pet: "Pet level-up (Alliance Shop food, weekly limit)", res: "Research — first levels of each tier", hg1: "Hero Gear Mastery Forging 0 → 1", c25: "Governor Charm Lv2–3",
-      adv: "Pet advancement", gg1: "Governor Gear — green and blue", gg2: "Governor Gear — purple (Epic, incl. T1)", gg3: "Governor Gear — gold and red", resl: "Research — last level of each tier", hg2: "Hero Gear Mastery Forging 1 → 5", c6: "Governor Charm Lv4–22" },
+      adv: "Pet advancement", ref: "Pet Refinement", gg1: "Governor Gear — green and blue", gg2: "Governor Gear — purple (Epic, incl. T1)", gg3: "Governor Gear — gold and red", resl: "Research — last level of each tier", hg2: "Hero Gear Mastery Forging 1 → 5", c6: "Governor Charm Lv4–22" },
     gives: { c1: "Lethality + Health, one troop type", pet: "Attack + Defense, all troops", res: "depends on the node (infantry Attack / Lethality cheapest)", hg1: "only while that hero is in the march", c25: "Lethality + Health, one troop type",
-      adv: "Attack + Defense, all troops (Lv40 ≈ 14,200, Lv50 ≈ 23,200)", gg1: "Attack + Defense, one troop type", gg2: "Attack + Defense, one troop type", gg3: "every step dearer — see every step below", resl: "", hg2: "each level costs more (10 Forgehammers per level)", c6: "much more than everything else — see every level below" },
+      adv: "Attack + Defense, all troops (Lv20 ≈ 4,700 · Lv30 9,600 · Lv40 14,200–18,100 · Lv50 23,200 · Lv60 41,600)", ref: "Common Taming Marks ≈ 7,400, Advanced ≈ 20,000 (tested on one pet only)", gg1: "Attack + Defense, one troop type", gg2: "Attack + Defense, one troop type", gg3: "every step dearer — see every step below", resl: "", hg2: "each level costs more (10 Forgehammers per level)", c6: "much more than everything else — see every level below" },
     chH: "💠 Governor Charms, every level", chP: "Gems for +1% at each level (taller = dearer; the scale grows ×10 per step). Lv1 is the cheapest thing in the game; from Lv2 a charm level costs about as much as pet advancement or Governor Gear; from Lv6 it is dearer than anything else on this page.",
     chTip: "So: every charm to Lv1 right away. Lv2–3 when you lack Lethality / Health on that troop type. Lv4 and up only after the cheaper upgrades are done — remember Lethality and Health are worth more per 1% (next card).",
     chCols: ["Level", "Guides + Designs", "% gained", "Total %", "Gems per 1%"],
@@ -47,10 +47,10 @@ const T = {
     ggTier: { g: "Green", b: "Blue", p: "Purple", p1: "Purple T1", o: "Gold", o1: "Gold T1", o2: "Gold T2", o3: "Gold T3", r: "Red", r1: "Red T1", r2: "Red T2", r3: "Red T3", r4: "Red T4" },
     ggCols: ["Step", "Satin / Gilded Threads / Artisan's Vision", "Relic Coins", "% gained", "Gems per 1%"],
     nxH: "🎯 My next step", nxP: "Pick where you are now, per troop type. The list shows your 8 cheapest next upgrades (gems per +1%), all systems and troop types mixed.",
-    nxCharm: "My Governor Charms (most pieces of each troop type)", troops: ["Infantry", "Cavalry", "Archers"], nxGear: "My Governor Gear (most pieces of each troop type)", nxPet: "My next pet advancement", nxMast: "Main heroes' Mastery Forging", nxEnh: "Enhancement of those main pieces", nxPetTip: "Pet level-ups: pet food is easy to get, so level up whenever you can — rarer pets first (at Lv50 an SR Lion gives ~12.9% troop Attack / Defense, an N Wolf ~4.4%). The real limit is the advancement every 10 levels, which is in the list.",
-    nxNone: "none yet", nxLv: "Lv{n}", nxPetOpt: ["Lv40", "Lv50", "already past Lv50"], nxMax: "maxed", nxGo: "Do these first:", nxNote: "Same gems, most %. Lethality / Health (Governor Charms) are worth a bit more than they look, Attack / Defense (pets) a bit less.",
-    sys: { c: "💠 Governor Charm", g: "🛡️ Governor Gear", pu: "🐾 Pet level-up", pa: "🐾 Pet advancement", r: "🔬 Research", m: "🔨 Mastery Forging" },
-    resFirst: "first levels of a tier", resLast: "last level of a tier", petUp: "weekly food", from: "→",
+    nxCharm: "My Governor Charms (most pieces of each troop type)", troops: ["Infantry", "Cavalry", "Archers"], nxGear: "My Governor Gear (most pieces of each troop type)", nxPet: "My next pet advancement", nxMast: "Main heroes' Mastery Forging", nxEnh: "Enhancement of those main pieces", nxPetTip: "Pet level-ups: pet food is easy to get, so level up whenever you can. The real limit is the advancement every 10 levels (in the list) — and an N, R or SR pet at the same advancement is about equally good value.",
+    nxNone: "none yet", nxLv: "Lv{n}", nxPetDone: "already past Lv60", nxMax: "maxed", nxGo: "Do these first:", nxNote: "Same gems, most %. Lethality / Health (Governor Charms) are worth a bit more than they look, Attack / Defense (pets) a bit less.",
+    sys: { c: "💠 Governor Charm", g: "🛡️ Governor Gear", pu: "🐾 Pet level-up", pa: "🐾 Pet advancement", pr: "🐾 Pet Refinement", r: "🔬 Research", m: "🔨 Mastery Forging" },
+    refN: "with Common Taming Marks", refA: "Advanced (Advanced Taming Marks)", resFirst: "first levels of a tier", resLast: "last level of a tier", petUp: "weekly food", from: "→",
     bdH: "🗂️ Price bands", bdP: "Every upgrade, sorted by how many gems +1% costs. Same row = about the same value for your gems.",
     bands: ["Very cheap (under 5,000)", "Cheap (5,000–15,000)", "Middle (15,000–30,000)", "Dear (30,000–60,000)", "Very dear (60,000+)"],
     detH: "📊 Each system, level by level",
@@ -68,7 +68,7 @@ const T = {
     joYes: "Worth it", joYesL: ["Troop tier (Truegold / TG)", "Your first hero's top-right skill"],
     joNo: "Not for rallies", joNoL: ["Combat stats — they only help when you attack alone, defend your own city or get hit while gathering."],
     joIf: "If you still want to spend: Governor Charm Lv1 and pet level-ups give the most power per gem — and so the most Migrant Score (Swordland Showdown, kingdom rating). Charms, pets, research and Hero Gear count the same there.",
-    unkH: "🟡 Not worked out yet", unks: ["Hero Exclusive Gear (Widgets): cost per 1%.", "Masters (Valora, Roman): cost per 1%.", "Hero Gear enhancement (XP) cost.", "Cost of Amadeus / Helga to full stars.", "Real-money packs (this uses Relic Coins and gems only).", "Pet active skills and refining."],
+    unkH: "🟡 Not worked out yet", unks: ["Hero Exclusive Gear (Widgets): cost per 1%.", "Masters (Valora, Roman): cost per 1%.", "Hero Gear enhancement (XP) cost.", "Cost of Amadeus / Helga to full stars.", "Real-money packs (this uses Relic Coins and gems only).", "Pet active skills; Pet Refinement tested on one pet only."],
     numH: "🔢 For those who want the numbers", numP: "Exchange rate: 1 Relic Coin ≈ 3.2 gems (1 h speedup = 800 gems in the Gem Shop or 250 Relic Coins in the Swordland Shop; finishing research instantly is also ≈ 800 gems per hour). Another rate changes the numbers, not the order. \"+1%\" = one stat of one troop type; a stat for all three troop types counts as 3.",
     numCols: ["Upgrade", "Gems per 1%", "Gives"],
     foot: "Source: Sparrow's main account (power ↔ %, shop prices, research times). Not from the game. Numbers will be corrected as we test more." },
@@ -77,9 +77,9 @@ const T = {
     heroH: "同樣的鑽石，效果差很多。", heroP: "最便宜的 +1%（第一件綠色領主裝備、領主寶石 Lv1）不到 1,000 鑽；英雄裝備專精鍛造 Lv5 大約 56,000 鑽；紅色領主裝備、寶石最後幾級，同樣 1% 要 70–80 萬鑽。",
     barH: "💰 +1% 要多少鑽石", barP: "長條越短越划算。每一條都是「一個兵種、一種屬性 +1%」。",
     rows: { c1: "領主寶石 0 → Lv1", pet: "寵物升級（聯盟商店口糧，每週限量）", res: "研究——每階的前幾級", hg1: "英雄裝備專精鍛造 0 → 1", c25: "領主寶石 Lv2–3",
-      adv: "寵物突破", gg1: "領主裝備——綠色、藍色", gg2: "領主裝備——紫色（史詩，含 T1）", gg3: "領主裝備——金色、紅色", resl: "研究——每階最後一級", hg2: "英雄裝備專精鍛造 1 → 5", c6: "領主寶石 Lv4–22" },
+      adv: "寵物突破", ref: "寵物洗練", gg1: "領主裝備——綠色、藍色", gg2: "領主裝備——紫色（史詩，含 T1）", gg3: "領主裝備——金色、紅色", resl: "研究——每階最後一級", hg2: "英雄裝備專精鍛造 1 → 5", c6: "領主寶石 Lv4–22" },
     gives: { c1: "單一兵種 殺傷力＋生命值", pet: "全部隊 攻擊力＋防禦力", res: "看節點（步兵攻擊力／殺傷力最便宜）", hg1: "只有那位英雄出戰時有效", c25: "單一兵種 殺傷力＋生命值",
-      adv: "全部隊 攻擊力＋防禦力（Lv40 約 14,200、Lv50 約 23,200）", gg1: "單一兵種 攻擊力＋防禦力", gg2: "單一兵種 攻擊力＋防禦力", gg3: "每一階越來越貴——每一階見下面", resl: "", hg2: "每級越來越貴（每級多 10 個鍛造錘）", c6: "比其他所有項目都貴很多——每一級見下面" },
+      adv: "全部隊 攻擊力＋防禦力（Lv20 約 4,700・Lv30 9,600・Lv40 14,200–18,100・Lv50 23,200・Lv60 41,600）", ref: "普通馴化印記約 7,400、高級約 20,000（只測了一隻寵物）", gg1: "單一兵種 攻擊力＋防禦力", gg2: "單一兵種 攻擊力＋防禦力", gg3: "每一階越來越貴——每一階見下面", resl: "", hg2: "每級越來越貴（每級多 10 個鍛造錘）", c6: "比其他所有項目都貴很多——每一級見下面" },
     chH: "💠 領主寶石：每一級", chP: "每一級 +1% 要多少鑽（越高越貴；刻度每格 ×10）。Lv1 是全遊戲最划算的；Lv2 起每級大約跟寵物突破、領主裝備同級；Lv6 以上比這頁所有東西都貴。",
     chTip: "所以：寶石全部馬上開到 Lv1。那個兵種缺殺傷力／生命值時再升 Lv2–3。Lv4 以上等比較便宜的都升完再說——別忘了殺傷力、生命值每 1% 比較值錢（下一張卡）。",
     chCols: ["等級", "手冊＋圖紙", "加多少 %", "累計 %", "每 1%（鑽）"],
@@ -90,10 +90,10 @@ const T = {
     ggTier: { g: "綠", b: "藍", p: "紫", p1: "紫 T1", o: "金", o1: "金 T1", o2: "金 T2", o3: "金 T3", r: "紅", r1: "紅 T1", r2: "紅 T2", r3: "紅 T3", r4: "紅 T4" },
     ggCols: ["階", "綢緞／金絲線／匠心願景", "聖契幣", "加多少 %", "每 1%（鑽）"],
     nxH: "🎯 我的下一步", nxP: "照兵種選你現在的進度，下面列出你最划算的 8 個下一步（每 +1% 幾鑽），所有系統、兵種混在一起比。",
-    nxCharm: "我的領主寶石（每個兵種大多在幾級）", troops: ["步兵", "騎兵", "弓兵"], nxGear: "我的領主裝備（每個兵種大多在哪一階）", nxPet: "我下一次寵物突破", nxMast: "主力英雄的專精鍛造", nxEnh: "那些主力裝備的強化等級", nxPetTip: "寵物升級：寵物口糧不難拿，能升就升——先升稀有度高的（Lv50 時 SR 獅子部隊攻防約 12.9%、N 灰狼約 4.4%）。真正卡住的是每 10 級一次的突破，那個有在上面排名。",
-    nxNone: "還沒有", nxLv: "Lv{n}", nxPetOpt: ["Lv40", "Lv50", "已經超過 Lv50"], nxMax: "已滿", nxGo: "先做這些：", nxNote: "同樣的鑽石換到最多 %。殺傷力、生命值（領主寶石）實際上比看起來更值錢一點，攻擊力、防禦力（寵物）稍微少一點。",
-    sys: { c: "💠 領主寶石", g: "🛡️ 領主裝備", pu: "🐾 寵物升級", pa: "🐾 寵物突破", r: "🔬 研究", m: "🔨 專精鍛造" },
-    resFirst: "每階前幾級", resLast: "每階最後一級", petUp: "每週口糧", from: "→",
+    nxCharm: "我的領主寶石（每個兵種大多在幾級）", troops: ["步兵", "騎兵", "弓兵"], nxGear: "我的領主裝備（每個兵種大多在哪一階）", nxPet: "我下一次寵物突破", nxMast: "主力英雄的專精鍛造", nxEnh: "那些主力裝備的強化等級", nxPetTip: "寵物升級：寵物口糧不難拿，能升就升。真正卡住的是每 10 級一次的突破（有在上面排名）——同一級突破，N、R、SR 寵物的划算程度幾乎一樣。",
+    nxNone: "還沒有", nxLv: "Lv{n}", nxPetDone: "已經超過 Lv60", nxMax: "已滿", nxGo: "先做這些：", nxNote: "同樣的鑽石換到最多 %。殺傷力、生命值（領主寶石）實際上比看起來更值錢一點，攻擊力、防禦力（寵物）稍微少一點。",
+    sys: { c: "💠 領主寶石", g: "🛡️ 領主裝備", pu: "🐾 寵物升級", pa: "🐾 寵物突破", pr: "🐾 寵物洗練", r: "🔬 研究", m: "🔨 專精鍛造" },
+    refN: "普通洗練（普通馴化印記）", refA: "高級洗練（高級馴化印記）", resFirst: "每階前幾級", resLast: "每階最後一級", petUp: "每週口糧", from: "→",
     bdH: "🗂️ 價格帶", bdP: "所有升級照「+1% 要幾鑽」分成五層。同一層＝同樣的鑽石，效果差不多。",
     bands: ["很便宜（5,000 以下）", "便宜（5,000–15,000）", "中等（15,000–30,000）", "貴（30,000–60,000）", "很貴（60,000 以上）"],
     detH: "📊 各系統每一級",
@@ -111,7 +111,7 @@ const T = {
     joYes: "值得投資", joYesL: ["兵等（黃金 TG）", "第一位英雄的右上技能"],
     joNo: "集結裡沒用", joNoL: ["戰鬥屬性——只有自己單打、守自己城、採集被打時才有用。"],
     joIf: "如果還是想花：同樣的鑽石，領主寶石 Lv1 和寵物升級換到的實力最多，遷城分數（聖劍爭奪、王國評級）也最多。寶石、寵物、研究、英雄裝備在遷城分數裡的權重一樣。",
-    unkH: "🟡 還沒算的", unks: ["英雄專屬裝備（零件）每 1% 要多少。", "大師（維拉、羅曼）每 1% 要多少。", "英雄裝備強化（經驗）的成本。", "阿瑪迪斯／赫爾加升到滿星的成本。", "真錢禮包（這裡只算聖契幣和鑽石）。", "寵物主動技能、洗煉。"],
+    unkH: "🟡 還沒算的", unks: ["英雄專屬裝備（零件）每 1% 要多少。", "大師（維拉、羅曼）每 1% 要多少。", "英雄裝備強化（經驗）的成本。", "阿瑪迪斯／赫爾加升到滿星的成本。", "真錢禮包（這裡只算聖契幣和鑽石）。", "寵物主動技能；寵物洗練只測了一隻。"],
     numH: "🔢 給想看數字的人", numP: "換算：1 聖契幣 ≈ 3.2 鑽（1 小時加速：鑽石商店 800 鑽、聖劍商店 250 聖契幣；研究立即完成也是約 800 鑽／小時）。換別的換算方式，數字會變，排序不變。「+1%」= 一個兵種、一種屬性；三個兵種一起加的屬性算 3 個。",
     numCols: ["升級項目", "每 1%（鑽）", "給什麼"],
     foot: "來源：Sparrow 主帳實測（實力 ↔ %、商店價格、研究時間）。不是遊戲官方說明，數字會隨更多測試修正。" },
@@ -125,11 +125,14 @@ function allSteps() {
   const out = [];
   CHARM.forEach((c, i) => out.push({ sys: "c", key: "c" + i, label: "Lv" + (i + 1), gems: charmGems(i), grp: "c" }));
   GEAR.forEach((g, i) => out.push({ sys: "g", key: "g" + i, label: gearName(i), gems: gearGems(i), grp: g[0] }));
-  out.push({ sys: "pa", key: "pa40", label: "Lv40", gems: 14200, grp: "pa" }, { sys: "pa", key: "pa50", label: "Lv50", gems: 23200, grp: "pa" });
+  PETADV.forEach(([lv, g, hi]) => out.push({ sys: "pa", key: "pa" + lv, label: "Lv" + lv, gems: g, hi, grp: "pa" }));
+  out.push({ sys: "pr", key: "pr1", label: t("refN"), gems: 7400, grp: "pr1" }, { sys: "pr", key: "pr2", label: t("refA"), gems: 20000, grp: "pr2" });
   out.push({ sys: "r", key: "r1", label: t("resFirst"), gems: 3800, hi: 14600, grp: "r1" }, { sys: "r", key: "r2", label: t("resLast"), gems: 20500, grp: "r2" });
   for (let L = 0; L < 5; L++) out.push({ sys: "m", key: "m" + L, label: "Lv" + (L + 1), gems: mastGems(L), grp: "m" });
   return out;
 }
+// pet advancement at Lv20 / 30 / 40 / 50 / 60: gems per 1% (about the same for N / R / SR — materials and % both scale with rarity)
+const PETADV = [[20, 4700], [30, 9600], [40, 14200, 18100], [50, 23200], [60, 41600]];
 const NX = { c: [0, 0, 0], g: [-1, -1, -1], pa: 0, m: 0, e: 60 };   // c / g: per troop type [infantry, cavalry, archer]
 // Mastery Forging L → L+1: 10(L+1) Forgehammers (1 = 1,250 Relic Coins ≈ 4,000 gems); each level adds 10% of the piece's base stat (15% + 0.35% × enhancement)
 const mastGems = (L) => 10 * (L + 1) * 4000 / ((15 + 0.35 * (NX.e || 60)) * 0.1);
@@ -144,7 +147,8 @@ function nextHtml() {
     for (let k = 0; k < 2; k++) if (c + k < CHARM.length) cand.push({ sys: "c", tr: TR[tr], label: `Lv${c + k} ${t("from")} Lv${c + k + 1}`, gems: charmGems(c + k) });
     for (let k = 1; k <= 2; k++) if (g + k < GEAR.length) cand.push({ sys: "g", tr: TR[tr], label: (g + k ? gearName(g + k - 1) + ` ${t("from")} ` : "") + gearName(g + k), gems: gearGems(g + k) });
   }
-  if (NX.pa < 2) cand.push({ sys: "pa", label: ["Lv40", "Lv50"][NX.pa], gems: [14200, 23200][NX.pa] });
+  for (let k = 0; k < 2; k++) { const a = PETADV[NX.pa + k]; if (a) cand.push({ sys: "pa", label: "Lv" + a[0], gems: a[1], hi: a[2] }); }
+  cand.push({ sys: "pr", label: t("refN"), gems: 7400 }, { sys: "pr", label: t("refA"), gems: 20000 });
   cand.push({ sys: "r", label: t("resFirst"), gems: 3800, hi: 14600 });
   for (let k = 0; k < 2; k++) if (NX.m + k < 5) cand.push({ sys: "m", label: `${NX.m + k} ${t("from")} ${NX.m + k + 1}`, gems: mastGems(NX.m + k) });
   cand.sort((a, b) => a.gems - b.gems);
@@ -152,7 +156,7 @@ function nextHtml() {
   return `<div class="iv-nxin">
       <div class="iv-trg"><b>${esc(t("nxCharm"))}</b>${[0, 1, 2].map((tr) => `<label>${esc(TR[tr])}<select class="inp" data-c="${tr}">${Array.from({ length: 23 }, (_, n) => opt(NX.c[tr], n, n ? t("nxLv").replace("{n}", n) : t("nxNone"))).join("")}</select></label>`).join("")}</div>
       <div class="iv-trg gear"><b>${esc(t("nxGear"))}</b>${[0, 1, 2].map((tr) => `<label>${esc(TR[tr])}<select class="inp" data-g="${tr}">${opt(NX.g[tr], -1, t("nxNone"))}${GEAR.map((g, i) => opt(NX.g[tr], i, gearName(i))).join("")}</select></label>`).join("")}</div>
-      <label>${esc(t("nxPet"))}<select class="inp" id="iv_pa">${t("nxPetOpt").map((x, i) => opt(NX.pa, i, x)).join("")}</select></label>
+      <label>${esc(t("nxPet"))}<select class="inp" id="iv_pa">${PETADV.map((a, i) => opt(NX.pa, i, "Lv" + a[0])).join("")}${opt(NX.pa, PETADV.length, t("nxPetDone"))}</select></label>
       <label>${esc(t("nxMast"))}<select class="inp" id="iv_m">${Array.from({ length: 6 }, (_, n) => opt(NX.m, n, n === 5 ? `Lv5+ (${t("nxMax")})` : "Lv" + n)).join("")}</select></label>
       <label>${esc(t("nxEnh"))}<select class="inp" id="iv_e">${[40, 60, 80, 100].map((n) => opt(NX.e, n, "+" + n)).join("")}</select></label></div>
     <div class="iv-nxl"><b>${esc(t("nxGo"))}</b><ol>${cand.slice(0, 8).map((c) => `<li class="b${band(c.gems)}"><span class="iv-sys">${esc(S[c.sys])}${c.tr ? " · " + esc(c.tr) : ""}</span><span class="iv-lab">${esc(c.label)}</span><span class="iv-gem">${c.hi ? range(c.gems, c.hi) : fmt(c.gems)}</span></li>`).join("")}</ol></div>
