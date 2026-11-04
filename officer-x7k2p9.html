@@ -269,6 +269,35 @@
   #pg-post .btn { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 15px; text-decoration: none; display: inline-block; }
   #pg-post .btn.big { width: 100%; padding: 14px; font-size: 17px; }
   /* 🐻 bear plan */
+  #pg-bh { --bh-inf: #6f8fb8; --bh-cav: #c9962b; --bh-arc: #2f8a6e; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #pg-bh { --bh-inf: #8fb0d8; --bh-cav: #e0b04a; --bh-arc: #4fc49f; } }
+  :root[data-theme="dark"] #pg-bh { --bh-inf: #8fb0d8; --bh-cav: #e0b04a; --bh-arc: #4fc49f; }
+  #pg-bh .card h3 { margin: 0 0 8px; } #pg-bh h4 { margin: 0 0 8px; } #pg-bh .bh-p { margin: 0 0 8px; font-size: 14px; line-height: 1.55; } #pg-bh .bh-small { font-size: 12px; line-height: 1.5; }
+  #pg-bh .bh-hero { margin: 14px 0; border-radius: 14px; overflow: hidden; background: linear-gradient(135deg, #4a3020, #24324a); box-shadow: 0 4px 14px var(--shadow); color: #f5efe6; }
+  #pg-bh .bh-hero-in { padding: 18px 16px; } #pg-bh .bh-hero h2 { margin: 8px 0 4px; font-size: 22px; line-height: 1.25; } #pg-bh .bh-hero p { margin: 0; font-size: 14.5px; line-height: 1.5; max-width: 62ch; }
+  #pg-bh .bh-badge { display: inline-block; font-size: 12px; padding: 3px 10px; border-radius: 99px; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3); }
+  #pg-bh .bh-w { display: flex; align-items: flex-end; justify-content: center; gap: 14px; }
+  #pg-bh .bh-wt { margin: 0; display: grid; justify-items: center; gap: 6px; } #pg-bh .bh-wi { width: calc(150px * var(--s)); aspect-ratio: 1; border-radius: 14px; overflow: hidden; background: var(--panel-2); } #pg-bh .bh-wi img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+  #pg-bh .bh-wt figcaption { display: grid; justify-items: center; font-size: 13.5px; } #pg-bh .bh-wn { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  #pg-bh .bh-sq { display: grid; gap: 6px; max-width: 520px; } #pg-bh .bh-sqr { display: grid; grid-template-columns: 2.5em 1fr 1fr 2.5em; gap: 8px; align-items: center; font-size: 13px; font-variant-numeric: tabular-nums; }
+  #pg-bh .bh-sqb { height: 14px; border-radius: 4px; background: var(--panel-2); overflow: hidden; } #pg-bh .bh-sqb i { display: block; height: 100%; } #pg-bh .bh-sqb i.n { background: var(--bh-inf); } #pg-bh .bh-sqb i.s { background: var(--bh-arc); }
+  #pg-bh .bh-mix { display: flex; height: 30px; border-radius: 8px; overflow: hidden; background: var(--panel-2); } #pg-bh .bh-mix.sm { height: 16px; margin: 8px 0 4px; } #pg-bh .bh-mix i { display: block; height: 100%; transition: width .25s; }
+  #pg-bh i.inf { background: var(--bh-inf); } #pg-bh i.cav { background: var(--bh-cav); } #pg-bh i.arc { background: var(--bh-arc); }
+  #pg-bh .bh-mixk { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; margin-top: 6px; font-variant-numeric: tabular-nums; } #pg-bh .bh-mixk i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-inline-end: 5px; vertical-align: -1px; }
+  #pg-bh .bh-tiers { display: inline-flex; gap: 10px; flex-wrap: wrap; font-size: 13px; font-variant-numeric: tabular-nums; }
+  #pg-bh .bh-calc { margin-top: 12px; padding: 12px; border-radius: 12px; background: var(--panel-2); } #pg-bh .bh-in { display: flex; gap: 10px; flex-wrap: wrap; } #pg-bh .bh-in label { display: grid; gap: 3px; font-size: 12.5px; color: var(--text-muted); } #pg-bh .bh-in input { width: 130px; }
+  #pg-bh .bh-res { font-size: 17px; font-weight: 800; color: var(--bh-arc); margin: 4px 0; }
+  #pg-bh .bh-join { display: grid; gap: 8px; max-width: 560px; margin-bottom: 10px; } #pg-bh .bh-jr { display: grid; grid-template-columns: 6.5em 1fr 2.5em; gap: 10px; align-items: center; font-size: 13.5px; }
+  #pg-bh .bh-jb { height: 22px; border-radius: 6px; background: var(--panel-2); overflow: hidden; } #pg-bh .bh-jb i { display: block; height: 100%; background: var(--bh-inf); } #pg-bh .bh-jb i.s { background: var(--bh-arc); }
+  #pg-bh .bh-ul { margin: 0; padding-inline-start: 1.2em; font-size: 13.5px; line-height: 1.55; } #pg-bh .bh-ul li { margin: 4px 0; }
+  #pg-bh .bh-k { margin: 0 0 12px; padding: 0; list-style: none; display: grid; gap: 6px; } #pg-bh .bh-k li { display: flex; gap: 10px; font-size: 14px; line-height: 1.5; padding: 8px; border-radius: 10px; background: var(--panel-2); } #pg-bh .bh-k li > span:first-child { font-size: 20px; }
+  #pg-bh .bh-js { padding: 12px; border-radius: 12px; border: 1px solid var(--rule); } #pg-bh .bh-jsr { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+  #pg-bh .bh-jst { min-width: 5.5em; font-weight: 700; font-size: 13px; padding: 3px 10px; border-radius: 99px; background: color-mix(in srgb, var(--bh-cav) 22%, transparent); text-align: center; } #pg-bh .bh-jst.let { background: color-mix(in srgb, var(--bh-arc) 22%, transparent); }
+  #pg-bh .bh-h { display: grid; justify-items: center; gap: 2px; font-size: 11.5px; } #pg-bh .bh-h img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; background: var(--panel-2); }
+  #pg-bh .bh-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 14px; } @media (max-width: 620px) { #pg-bh .bh-two { grid-template-columns: 1fr; } }
+  #pg-bh .bh-val { display: flex; align-items: flex-end; gap: 4px; height: 70px; } #pg-bh .bh-val div { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 2px; }
+  #pg-bh .bh-val i { display: block; width: 100%; border-radius: 3px 3px 0 0; background: var(--bh-cav); } #pg-bh .bh-val small { font-size: 10px; color: var(--text-muted); }
+  #pg-bh .bh-more { margin: 4px 0 10px; font-size: 13.5px; }
   #pg-ms { --ms-a: #2f8a6e; --ms-b: #c9962b; }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #pg-ms { --ms-a: #4fc49f; --ms-b: #e0b04a; } }
   :root[data-theme="dark"] #pg-ms { --ms-a: #4fc49f; --ms-b: #e0b04a; }
@@ -705,7 +734,7 @@
   .pg.readonly [data-edit], .pg.readonly [data-edtodo], .pg.readonly [data-igedit], .pg.readonly a[href^="#post"],
   .pg.readonly [data-v], .pg.readonly [data-p], .pg.readonly [data-tmset] { display: none !important; }
   /* no way into a tab they can't open: every link to it inside the pages is hidden (the nav entry is hidden by applyPerms) */
-  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-attack .pg a[href^="#attack"], body.no-growth .pg a[href^="#growth"], body.no-bearplan .pg a[href^="#bearplan"], body.no-vv .pg a[href^="#vv"], body.no-ms .pg a[href^="#ms"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
+  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-attack .pg a[href^="#attack"], body.no-growth .pg a[href^="#growth"], body.no-bearplan .pg a[href^="#bearplan"], body.no-vv .pg a[href^="#vv"], body.no-ms .pg a[href^="#ms"], body.no-bh .pg a[href^="#bh"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
   .pg.readonly::before { display: none !important; }   /* no "view only" banner on top: the missing buttons say enough */
   .pg-unused-ro-banner { content: attr(data-ro); display: block; margin: 0 0 10px; padding: 8px 12px; border-radius: 10px; font-size: 13px; background: color-mix(in srgb, var(--accent) 12%, var(--panel)); border: 1px solid var(--accent); }
   /* 👁️ view only: buttons they can't use are not there at all, and fields look written in stone (plain text, nothing to tap) */
@@ -993,6 +1022,7 @@
   <!-- 🔬 Research: one main tab, its reports as sub-tabs (each keeps its own 👥 permission and #link) -->
   <nav class="tabs subtabs" id="researchSub" hidden>
     <a href="#growth" data-tab="growth" hidden>🧭 Growth</a>
+    <a href="#bh" data-tab="bh" hidden>🐻 Bear Hunt report</a>
     <a href="#bearplan" data-tab="bearplan" hidden>🐻 Bear plan</a>
     <a href="#vv" data-tab="vv" hidden>🪓 Viking report</a>
     <a href="#ms" data-tab="ms" hidden>🧳 Migrant Score</a>
@@ -1481,6 +1511,10 @@
   <div class="top"><div><h1 id="bp_title">🐻</h1><div class="muted" id="bp_intro"></div></div></div>
   <div id="bp_root"></div>
 </section>
+<section class="pg" id="pg-bh" hidden>
+  <div class="top"><div><h1 id="bh_title">🐻</h1><div class="muted" id="bh_intro"></div></div></div>
+  <div id="bh_root"></div>
+</section>
 <section class="pg" id="pg-ms" hidden>
   <div class="top"><div><h1 id="ms_title">🧳</h1><div class="muted" id="ms_intro"></div></div></div>
   <div id="ms_root"></div>
@@ -1596,6 +1630,7 @@
 <script src="js/officer/bearplan.js"></script>
 <script src="js/officer/vv.js"></script>
 <script src="js/officer/ms.js"></script>
+<script src="js/officer/bh.js"></script>
 <script>officerGate();</script>
 <script src="js/assistant.js"></script>
 <script src="js/sparrow.js"></script>
