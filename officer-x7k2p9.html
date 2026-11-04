@@ -269,6 +269,30 @@
   #pg-post .btn { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); cursor: pointer; font-size: 15px; text-decoration: none; display: inline-block; }
   #pg-post .btn.big { width: 100%; padding: 14px; font-size: 17px; }
   /* 🐻 bear plan */
+  #pg-iv { --iv-cheap: #2f8a6e; --iv-mid: #c9962b; --iv-dear: #8a7f9e; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #pg-iv { --iv-cheap: #4fc49f; --iv-mid: #e0b04a; --iv-dear: #a99bb8; } }
+  :root[data-theme="dark"] #pg-iv { --iv-cheap: #4fc49f; --iv-mid: #e0b04a; --iv-dear: #a99bb8; }
+  #pg-iv .card h3 { margin: 0 0 8px; } #pg-iv .iv-p { margin: 0 0 8px; font-size: 14px; line-height: 1.55; } #pg-iv .iv-small { font-size: 12px; line-height: 1.5; }
+  #pg-iv .iv-hero { margin: 14px 0; padding: 18px 16px; border-radius: 14px; color: #f4f1ea; background: linear-gradient(135deg, #2b4a6b, #3d2f58); box-shadow: 0 4px 14px var(--shadow); }
+  #pg-iv .iv-hero h2 { margin: 8px 0 4px; font-size: 22px; line-height: 1.25; } #pg-iv .iv-hero p { margin: 0; font-size: 14.5px; line-height: 1.5; max-width: 62ch; }
+  #pg-iv .iv-badge { display: inline-block; font-size: 12px; padding: 3px 10px; border-radius: 99px; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3); }
+  #pg-iv .iv-bars { display: grid; gap: 10px; } #pg-iv .iv-row { display: grid; grid-template-columns: minmax(150px, 1fr) 2fr 112px; gap: 10px; align-items: center; font-size: 13.5px; }
+  #pg-iv .iv-k small { display: block; font-size: 11.5px; color: var(--text-muted); line-height: 1.35; margin-top: 1px; }
+  #pg-iv .iv-b { position: relative; height: 18px; border-radius: 5px; background: var(--panel-2); overflow: hidden; } #pg-iv .iv-b i { position: absolute; top: 0; bottom: 0; display: block; }
+  #pg-iv i.cheap { background: var(--iv-cheap); } #pg-iv i.mid { background: var(--iv-mid); } #pg-iv i.dear { background: var(--iv-dear); } #pg-iv .iv-b i.rng { opacity: .45; }
+  #pg-iv .iv-v { text-align: end; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  @media (max-width: 600px) { #pg-iv .iv-row { grid-template-columns: 1fr auto; } #pg-iv .iv-b { grid-column: 1 / -1; grid-row: 2; } }
+  #pg-iv .iv-key { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12.5px; margin-top: 10px; } #pg-iv .iv-key i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-inline-end: 5px; vertical-align: -1px; }
+  #pg-iv .iv-low { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 6px; } #pg-iv .iv-lc { padding: 10px; border-radius: 10px; background: var(--panel-2); display: grid; gap: 6px; font-size: 13px; }
+  #pg-iv .iv-lb { height: 14px; border-radius: 4px; background: var(--panel); overflow: hidden; } #pg-iv .iv-lb i { display: block; height: 100%; background: var(--iv-cheap); }
+  #pg-iv .iv-steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; } #pg-iv .iv-steps li { display: flex; gap: 10px; align-items: center; padding: 8px; border-radius: 10px; background: var(--panel-2); font-size: 14px; line-height: 1.5; }
+  #pg-iv .iv-n { flex: 0 0 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; color: #fff; background: var(--iv-cheap); }
+  #pg-iv .s2 .iv-n, #pg-iv .s3 .iv-n { background: var(--iv-mid); } #pg-iv .s4 .iv-n { background: var(--iv-dear); }
+  #pg-iv .iv-heroes { display: flex; gap: 10px; flex-wrap: wrap; } #pg-iv .iv-hc { display: flex; align-items: center; gap: 10px; padding: 8px 12px 8px 8px; border-radius: 12px; border: 1px solid var(--rule); font-size: 13.5px; } #pg-iv .iv-hc img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+  #pg-iv .iv-jo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } @media (max-width: 560px) { #pg-iv .iv-jo, #pg-iv .iv-low { grid-template-columns: 1fr; } }
+  #pg-iv .iv-yes, #pg-iv .iv-no { padding: 10px 12px; border-radius: 12px; font-size: 13.5px; line-height: 1.5; } #pg-iv .iv-yes { background: color-mix(in srgb, var(--iv-cheap) 14%, var(--panel)); border: 1px solid var(--iv-cheap); } #pg-iv .iv-no { background: var(--panel-2); border: 1px dashed var(--rule); }
+  #pg-iv .iv-yes ul, #pg-iv .iv-no ul, #pg-iv .iv-ul { margin: 6px 0 0; padding-inline-start: 1.2em; } #pg-iv .iv-ul { font-size: 13.5px; line-height: 1.55; }
+  #pg-iv .iv-tw { overflow-x: auto; } #pg-iv .iv-t { border-collapse: collapse; margin-top: 8px; font-size: 13px; min-width: 460px; } #pg-iv .iv-t th, #pg-iv .iv-t td { padding: 6px 10px; border-bottom: 1px solid var(--rule); text-align: start; } #pg-iv .iv-t .n { text-align: end; font-variant-numeric: tabular-nums; white-space: nowrap; }
   #pg-bh { --bh-inf: #6f8fb8; --bh-cav: #c9962b; --bh-arc: #2f8a6e; }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #pg-bh { --bh-inf: #8fb0d8; --bh-cav: #e0b04a; --bh-arc: #4fc49f; } }
   :root[data-theme="dark"] #pg-bh { --bh-inf: #8fb0d8; --bh-cav: #e0b04a; --bh-arc: #4fc49f; }
@@ -737,7 +761,7 @@
   .pg.readonly [data-edit], .pg.readonly [data-edtodo], .pg.readonly [data-igedit], .pg.readonly a[href^="#post"],
   .pg.readonly [data-v], .pg.readonly [data-p], .pg.readonly [data-tmset] { display: none !important; }
   /* no way into a tab they can't open: every link to it inside the pages is hidden (the nav entry is hidden by applyPerms) */
-  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-attack .pg a[href^="#attack"], body.no-growth .pg a[href^="#growth"], body.no-bearplan .pg a[href^="#bearplan"], body.no-vv .pg a[href^="#vv"], body.no-ms .pg a[href^="#ms"], body.no-bh .pg a[href^="#bh"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
+  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-attack .pg a[href^="#attack"], body.no-growth .pg a[href^="#growth"], body.no-bearplan .pg a[href^="#bearplan"], body.no-vv .pg a[href^="#vv"], body.no-ms .pg a[href^="#ms"], body.no-bh .pg a[href^="#bh"], body.no-iv .pg a[href^="#iv"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
   .pg.readonly::before { display: none !important; }   /* no "view only" banner on top: the missing buttons say enough */
   .pg-unused-ro-banner { content: attr(data-ro); display: block; margin: 0 0 10px; padding: 8px 12px; border-radius: 10px; font-size: 13px; background: color-mix(in srgb, var(--accent) 12%, var(--panel)); border: 1px solid var(--accent); }
   /* 👁️ view only: buttons they can't use are not there at all, and fields look written in stone (plain text, nothing to tap) */
@@ -1029,6 +1053,7 @@
     <a href="#bearplan" data-tab="bearplan" hidden>🐻 Bear plan</a>
     <a href="#vv" data-tab="vv" hidden>🪓 Viking report</a>
     <a href="#ms" data-tab="ms" hidden>🧳 Migrant Score</a>
+    <a href="#iv" data-tab="iv" hidden>💎 Investment</a>
   </nav>
   <div id="gate" class="card" hidden style="max-width:360px;margin:24px auto">
     <a class="btn" id="gateDiscord" href="#" style="display:block;text-align:center;width:100%;box-sizing:border-box;padding:12px;background:#5865F2;border-color:#5865F2;color:#fff;font-weight:700;text-decoration:none"></a>
@@ -1514,6 +1539,10 @@
   <div class="top"><div><h1 id="bp_title">🐻</h1><div class="muted" id="bp_intro"></div></div></div>
   <div id="bp_root"></div>
 </section>
+<section class="pg" id="pg-iv" hidden>
+  <div class="top"><div><h1 id="iv_title">💎</h1><div class="muted" id="iv_intro"></div></div></div>
+  <div id="iv_root"></div>
+</section>
 <section class="pg" id="pg-bh" hidden>
   <div class="top"><div><h1 id="bh_title">🐻</h1><div class="muted" id="bh_intro"></div></div></div>
   <div id="bh_root"></div>
@@ -1634,6 +1663,7 @@
 <script src="js/officer/vv.js"></script>
 <script src="js/officer/ms.js"></script>
 <script src="js/officer/bh.js"></script>
+<script src="js/officer/iv.js"></script>
 <script>officerGate();</script>
 <script src="js/assistant.js"></script>
 <script src="js/sparrow.js"></script>

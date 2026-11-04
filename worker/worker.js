@@ -315,7 +315,7 @@ const OFFICER_HELP = `
 GETTING IN
 - Officers log in with Discord. Only people added on the 👥 Officers tab (by an admin, with their Discord ID) can get in. On the main site, tap the title "NXS Guidelines" 5 times quickly (within 2 seconds), or tap the 📋 button at the top right (shown once this browser has logged in) → log in with Discord. The old officer password alone no longer opens the officer pages.
 - Each tab can be ✏️ Edit, 👁️ View or hidden per officer (👥 Officers tab, admins only). A new officer starts with 📅 Events, 💬 Board and 🗺️ Map as view-only. If a tab is missing, ask an admin (Sherry) to give it.
-- All officer tabs are one page now (officer-x7k2p9.html); switching tabs is instant and you log in once. The tabs, in order: 📅 Events (中文: 活動排程), 💬 Board (討論板), 🗺️ Map (王國地圖), 🚚 Move (搬家, admins unless given), 📊 Ranking (成員排序), 📋 Attendance (出席), 📢 Post (發布公告), 🕵️ Watch (觀察名單), 🔭 Scout (偵察), 📈 Views (網站瀏覽), 👥 Officers (幹部, admins only). Each officer only sees the tabs the 👥 table gives them. 🔬 Research (研究報告, since 2026-11-04) is one main tab holding our reports as small sub-tabs: 🧭 Growth / Attack vs Defense, 🐻 Bear Hunt report, 🐻 Bear plan, 🪓 Viking report, 🧳 Migrant Score — each still has its own 👥 permission and its own link (#growth, #bh, #bearplan, #vv, #ms).
+- All officer tabs are one page now (officer-x7k2p9.html); switching tabs is instant and you log in once. The tabs, in order: 📅 Events (中文: 活動排程), 💬 Board (討論板), 🗺️ Map (王國地圖), 🚚 Move (搬家, admins unless given), 📊 Ranking (成員排序), 📋 Attendance (出席), 📢 Post (發布公告), 🕵️ Watch (觀察名單), 🔭 Scout (偵察), 📈 Views (網站瀏覽), 👥 Officers (幹部, admins only). Each officer only sees the tabs the 👥 table gives them. 🔬 Research (研究報告, since 2026-11-04) is one main tab holding our reports as small sub-tabs: 🧭 Growth / Attack vs Defense, 🐻 Bear Hunt report, 🐻 Bear plan, 🪓 Viking report, 🧳 Migrant Score, 💎 Investment — each still has its own 👥 permission and its own link (#growth, #bh, #bearplan, #vv, #ms, #iv).
 [views] - 📈 Views (中文: 網站瀏覽): site statistics — visitors per day, which guides and languages people open, countries, where they came from, devices; 7 / 30 / 90 days. Counting is GoatCounter, anonymous (no cookies, names or IPs). NOT counted: any browser where an officer has logged in to the officer page (officers test the site all day), and the officer page itself. So "this browser: not counted" on the Views tab is normal for every officer. If it says the token is not set: Cloudflare Worker → Settings → Variables and Secrets → add GOATCOUNTER_TOKEN (GoatCounter → Settings → API → new token with "Read statistics").
 [map] - 🗺️ Map (中文: 王國地圖): kingdom map, Outpost buffs and the shared Outpost plan — see the 🗺️ MAP section below.
 - Language: officer pages are in English, 中文, Português, العربية and 한국어 (the language button on any tab switches all tabs together).
@@ -427,6 +427,14 @@ AI ASSISTANT
 - Each scouted kingdom is a chip at the top: ⟳ fetches it again, ✕ removes it, "update daily" refreshes it every day at 20:25 UTC together with the roster (tick it for the KvK opponent).
 - Our own kingdom #2189 is scouted too, for comparison. Data is the SCOUT section of the OFFICER DATA (answer "who is the strongest in kingdom X" from there).
 - Not in this data: last login (unreliable) and anything MightPulse does not publish.
+
+@iv
+💎 INVESTMENT report (🔬 Research sub-tab, officer-x7k2p9.html#iv, 投資效率) — Sherry's OWN RESEARCH, STILL BEING TESTED (2026-11-04), not from the game; from her main account (power ↔ %, shop prices, research times). Say so when you answer from it.
+- Gems per +1% (one stat, one troop type; 1 Swordland Shop coin ≈ 3.2 gems): Governor Charm 0→Lv1 ≈ 1,000 (Lethality + Health, one troop type); pet level-up with Alliance Shop food (weekly limit) ≈ 3,200 (all troops Attack + Defense); research first levels of a tier 3,800–14,600 (infantry Attack / Lethality nodes cheapest); Governor Charm Lv2–3 12,800–24,000; pet advancement 14,000–22,400; Epic Governor Gear ≈ 19,000 (higher tiers dearer, Red T6 ≈ 15×); research last level of a tier ≈ 20,500; Hero Gear mastery ≈ 45,000 (only while that hero marches). Other exchange rates change numbers, not the order.
+- Lethality and Health are usually much lower than Attack and Defense; value of +1% ≈ 1 ÷ (100 + current %) → charms even better than the table, pets a little worse.
+- Rally leaders (only the leader's stats count): 1) all charms to Lv1; 2) pet level-ups, buy the food weekly; 3) research, first levels of each tier best; 4) charm Lv2–3, pet advancement, Epic Governor Gear (similar value; pick the stat/troop you lack); 5) Hero Gear mastery and high-tier Governor Gear last. Troops: PvP infantry Defense/Health, cavalry and archer Attack/Lethality; Bear Hunt archers. Amadeus full stars = all troops Lethality + Health +15% (owned = active), Helga full stars = Attack + Defense +10% — maybe great for paying leaders, cost not worked out.
+- Joiners (own combat stats don't count in rallies): invest in troop tier (Truegold/TG) and the first hero's top-right skill; combat stats only help solo attacks, own-city defense, gathering. If spending anyway: charm Lv1 and pet level-ups give the most power per gem → most Migrant Score (charms, pets, research, Hero Gear weigh the same).
+- Not worked out: masters (Valora, Roman) per 1%; Hero Gear enhancement XP; Amadeus/Helga to full stars; real-money packs; pet active skills and refining.
 
 @bh
 🐻 BEAR HUNT report (🔬 Research sub-tab, officer-x7k2p9.html#bh, 狩獵巨熊研究) — Sherry's OWN RESEARCH for members (2026-11-04), not from the game; from our rally mails, bonus pages and leaderboards (10/27–11/02). It names no leaders and ranks nobody (that is only in 🐻 Bear plan). Say it is our research when you answer from it.
@@ -613,7 +621,7 @@ async function isOfficer(body, env) {
 
 /* 🔒 Officer AI = logged in with Discord AND on the 👥 table. Returns which tabs they may open (admins: all),
    so the AI only gets the handbook parts and data of those tabs. The old officer password / data-key proof no longer counts. */
-const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🚚 Move", hunt: "🎯 Blacklist", attack: "⚔️ Battle", growth: "🧭 Growth", bearplan: "🐻 Bear plan", vv: "🪓 Viking report", ms: "🧳 Migrant Score", bh: "🐻 Bear Hunt report", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
+const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🚚 Move", hunt: "🎯 Blacklist", attack: "⚔️ Battle", growth: "🧭 Growth", bearplan: "🐻 Bear plan", vv: "🪓 Viking report", ms: "🧳 Migrant Score", bh: "🐻 Bear Hunt report", iv: "💎 Investment", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
 const AI_TAB_LINKS = {
   events: "[Events](officer-x7k2p9.html#events) (week calendar, officer to-dos, in-game guides to copy, add/edit events)",
   board: "[Board](officer-x7k2p9.html#board)", map: "[Map](officer-x7k2p9.html#map) (kingdom map, Outpost plan)",
@@ -622,6 +630,7 @@ const AI_TAB_LINKS = {
   watch: "[Watch](officer-x7k2p9.html#watch) (name changes, power history, who left/joined, notes)",
   growth: "[Growth](officer-x7k2p9.html#growth) (proposal: how we grow attack / defense / Bear leaders)",
   bearplan: "[Bear plan](officer-x7k2p9.html#bearplan) (discussion draft: fewer, stronger Bear rallies)",
+  iv: "[Investment](officer-x7k2p9.html#iv) (our research, still testing: gems per +1% for each upgrade, what rally leaders and joiners should spend on)",
   bh: "[Bear Hunt report](officer-x7k2p9.html#bh) (our research for members: how Bear Hunt scores work, what to bring, which rally)",
   ms: "[Migrant Score](officer-x7k2p9.html#ms) (our research, still testing: what raises the hidden Migrant Score / Swordland power)",
   vv: "[Viking report](officer-x7k2p9.html#vv) (our research: how Viking Vengeance splits kills and points, what to send)",
@@ -1681,7 +1690,7 @@ const ADMIN_IDS = ["1547403844374368327", "1240788094672834623", "76282790434124
 /* view-only officers added by Sparrow (2026-10-16): put into the 👥 table with Events / Board / Map "view" if they aren't in it yet.
    After that the table is the truth — change or remove them on the 👥 tab. */
 const SEED_VIEWERS = {"741447079804797041": "firebaugh", "734803550672257104": "ASHISH", "961642100150124555": "BOO", "1526789098210197638": "ELR", "216564539041251329": "flip", "1534039396461056172": "JORDAN", "1525666601456767171": "PAPA", "706153853460021341": "Tiger", "1003385592983322664": "Δйʊвιŝ"};
-const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", views: "none", move: "none", hunt: "none", attack: "none", growth: "none", bearplan: "none", vv: "none", ms: "none", bh: "none" };
+const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", views: "none", move: "none", hunt: "none", attack: "none", growth: "none", bearplan: "none", vv: "none", ms: "none", bh: "none", iv: "none" };
 /* 🛠️ which events' officer to-dos each person gets as a reminder (from Sparrow's role list, 2026-10-16) — only a starting point:
    once an admin changes someone's 🔔 on the 👥 tab, the saved list wins. Admins with no list get every event. */
 const MOB = "alliance-mobilization";
