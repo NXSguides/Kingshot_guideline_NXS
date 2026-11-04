@@ -17,6 +17,7 @@ expect /board   '{"op":"list"}'   '"logged_out"'
 expect /attend  '{"op":"list"}'   '"logged_out"'
 expect /perms   '{"op":"get"}'    '"logged_out"'
 expect /plans   '{"op":"list"}'   '"logged_out"'
+expect /plans   '{"op":"bt","id":"1","k":"1","on":true}'   '"logged_out"'
 expect /rewards '{"op":"get"}'    '"logged_out"'
 expect /directed '{"items":[]}'  '"logged_out"'
 # the officer password alone no longer opens anything (Discord login only, 2026-10-16)

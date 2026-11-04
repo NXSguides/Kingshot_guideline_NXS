@@ -76,6 +76,7 @@ const FEATURES = [
   ["Board", /💬 Board/, /bd01:/],
   ["Attendance", /📋 Attendance/, /at01:/],
   ["Ranking: ✅ Registration on ticked names (⏳/✅/❌ replies, 🟡 safe players)", /✅ Registration \(報名確認/, /rk05r:/],
+  ["Roster: 🐻 BT groups (BT1 / BT2 marks, lists to copy)", /"🐻 BT groups" \(BT 分組/, /rk12b:/],
   ["Ranking: ② sort by ranking (③ Ranking merged into ②)", /"Sort by ranking" \(依排名排序/, /rk09: [^\n]*Sort by ranking/],
   ["Ranking: 📋 Copy list (who / columns / text, Sheets table or Discord table)", /"📋 Copy list" \(複製名單\)/, /rk12: [^\n]*Google Sheets/],
   ["Map: 🎁 What we'd get (rewards of the targets)", /"🎁 What we'd get" \(拿到的話可以得到\)/, /mp18g:/],

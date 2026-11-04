@@ -150,13 +150,13 @@ function renderList() {
       head = `<tr class="grp" data-r="${lastRank}"><td class="ck main"><input type="checkbox" tabindex="-1" ${on === grp.length ? "checked" : ""}></td><td class="ck"></td><td colspan="20"><b>${esc(rankLabel(m))}</b> <span class="muted">· ${on} / ${grp.length}</span></td></tr>`;
     }
     return head + `
-    <tr class="member${picked.has(m.id) ? " on" : ""}${subs.has(m.id) ? " is-sub" : ""}${topN > 0 && num.get(m.id) > topN ? " rk-cut" : ""}${picked.has(m.id) && rep[m.id] ? " r-" + rep[m.id] : ""}" data-id="${m.id}">
+    <tr class="member${btCls(m)}${picked.has(m.id) ? " on" : ""}${subs.has(m.id) ? " is-sub" : ""}${topN > 0 && num.get(m.id) > topN ? " rk-cut" : ""}${picked.has(m.id) && rep[m.id] ? " r-" + rep[m.id] : ""}" data-id="${m.id}">
       <td class="ck main"><input type="checkbox" ${picked.has(m.id) && !subs.has(m.id) ? "checked" : ""} tabindex="-1" aria-label="${esc(tr("colMain"))}"></td>
       <td class="ck"><input type="checkbox" class="ck-sub" ${subs.has(m.id) ? "checked" : ""} tabindex="-1" aria-label="${esc(tr("sub"))}"></td>
       <td class="num rk-no">${num.has(m.id) ? num.get(m.id) : ""}</td>
-      <td class="name" dir="auto">${regBtns(m)}<span class="nm">${esc(m.name)}</span>${safeBtn(m)}</td>${mode === "w" ? `<td class="num">${scoreOf.has(m.id) ? scoreOf.get(m.id).toFixed(1) : ""}</td>` : ""}
+      <td class="name" dir="auto">${btBoxes(m)}${regBtns(m)}<span class="nm">${esc(m.name)}</span>${safeBtn(m)}</td>${mode === "w" ? `<td class="num">${scoreOf.has(m.id) ? scoreOf.get(m.id).toFixed(1) : ""}</td>` : ""}
       <td>${esc(rankLabel(m))}</td>
-      <td class="num">${m.tc ?? "?"}</td>
+      <td class="num">${tcText(m.tc)}</td>
       <td class="num">${big(m.power)}</td>
       <td class="num">${big(m.mystic)}</td>
       <td class="num">${fmtStat(m, "sp")}</td>
@@ -165,7 +165,7 @@ function renderList() {
   }).join("");
   const k = [...picked].filter((id) => subs.has(id)).length;
   $("pickCount").textContent = tr("selected", { n: picked.size, t: data.members.length }) + (k ? " " + tr("subN", { k }) : "");
-  renderReg();
+  renderReg(); renderBt();
   ROOT.querySelectorAll("th[data-sort]").forEach((th) => {
     th.textContent = tr(th.dataset.t) + (th.dataset.sort === sortKey ? (sortDir < 0 ? " ▼" : " ▲") : "");
   });
@@ -199,6 +199,39 @@ async function setSafe(id, on) {
   if (!loggedIn()) return;
   try { const j = await papi("safe", { id: String(id), on }); if (j.safe) { SAFE = new Set(j.safe.map(String)); store.safe = [...SAFE]; } } catch (e) {}
 }
+/* 🐻 BT1 / BT2 (Nia, 2026-11-05): which Bear Trap each member is in. One list for everyone (kept on the Worker, not part of a plan).
+   Hidden until "🐻 BT groups" is turned on (per device), so the roster stays as it was for Swordland work. BTM[id] = "1" | "2" | "12" */
+const BTX = {
+  en: { btn: "🐻 BT groups", note: "Tick the left box for Bear Trap 1, the right box for Bear Trap 2. Everyone sees the same marks (not part of a plan).", t1: "🐻 BT1", t2: "🐻 BT2", none: "nobody yet", copy: "📋 Copy", copied: "Copied!", k1: "BT1", k2: "BT2", both: "{n} in both" },
+  zh: { btn: "🐻 BT 分組", note: "左邊的框 = 熊陷阱 1，右邊 = 熊陷阱 2。所有幹部看到的都一樣（不跟著計畫）。", t1: "🐻 BT1", t2: "🐻 BT2", none: "還沒有人", copy: "📋 複製", copied: "已複製！", k1: "BT1", k2: "BT2", both: "{n} 人兩個都勾" },
+  pt: { btn: "🐻 Grupos BT", note: "Caixa da esquerda = Armadilha de Urso 1, da direita = Armadilha de Urso 2. Todos veem as mesmas marcas (não faz parte de um plano).", t1: "🐻 BT1", t2: "🐻 BT2", none: "ninguém ainda", copy: "📋 Copiar", copied: "Copiado!", k1: "BT1", k2: "BT2", both: "{n} nos dois" },
+  ar: { btn: "🐻 مجموعات BT", note: "المربع الأيسر = فخ الدب 1، والأيمن = فخ الدب 2. الجميع يرى نفس العلامات (ليست جزءًا من خطة).", t1: "🐻 BT1", t2: "🐻 BT2", none: "لا أحد بعد", copy: "📋 نسخ", copied: "تم النسخ!", k1: "BT1", k2: "BT2", both: "{n} في الاثنين" },
+  ko: { btn: "🐻 BT 그룹", note: "왼쪽 칸 = 곰 함정 1, 오른쪽 칸 = 곰 함정 2. 모두 같은 표시를 봐요 (계획과 별개).", t1: "🐻 BT1", t2: "🐻 BT2", none: "아직 없음", copy: "📋 복사", copied: "복사됨!", k1: "BT1", k2: "BT2", both: "{n}명은 둘 다" } };
+const bx = (k, v = {}) => String((BTX[lang] || BTX.en)[k] ?? BTX.en[k]).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
+let BTM = (store.bt && typeof store.bt === "object") ? { ...store.bt } : {}, btOn = !!store.btOn;
+const btHas = (id, k) => String(BTM[String(id)] || "").includes(k);
+const btBoxes = (m) => !btOn ? "" : `<span class="rk-btk"><input type="checkbox" class="b1" data-bt="1" aria-label="BT1" title="BT1"${btHas(m.id, "1") ? " checked" : ""}><input type="checkbox" class="b2" data-bt="2" aria-label="BT2" title="BT2"${btHas(m.id, "2") ? " checked" : ""}></span>`;
+const btCls = (m) => !btOn ? "" : btHas(m.id, "1") && btHas(m.id, "2") ? " bt-12" : btHas(m.id, "1") ? " bt-1" : btHas(m.id, "2") ? " bt-2" : "";
+function btNames(k) { return ((data && data.members) || []).filter((m) => btHas(m.id, k)).sort((a, b) => (b.power || 0) - (a.power || 0)).map((m) => m.name); }
+function renderBt() {
+  const b = $("rk_btBtn"); if (b) { b.textContent = bx("btn"); b.classList.toggle("on", btOn); b.setAttribute("aria-pressed", btOn ? "true" : "false"); }
+  const el = $("rk_bt"); if (!el) return; el.hidden = !btOn; if (!btOn) { el.innerHTML = ""; return; }
+  const one = (k) => { const L = btNames(k); return `<div class="rk-btl b${k}"><div class="row" style="align-items:center;gap:6px;justify-content:space-between"><b>${esc(bx("t" + k))} (${L.length})</b><button type="button" class="btn small" data-btcopy="${k}">${esc(bx("copy"))}</button></div><div class="rk-btn" dir="auto">${L.length ? L.map(esc).join(" · ") : `<span class="muted">${esc(bx("none"))}</span>`}</div></div>`; };
+  const both = ((data && data.members) || []).filter((m) => btHas(m.id, "1") && btHas(m.id, "2")).length;
+  el.innerHTML = `<div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(bx("note"))}</div><div class="rk-btg">${one("1")}${one("2")}</div>${both ? `<div class="muted" style="font-size:12.5px;margin-top:4px">⚠️ ${esc(bx("both", { n: both }))}</div>` : ""}`;
+  el.querySelectorAll("[data-btcopy]").forEach((x) => x.onclick = async () => { const k = x.dataset.btcopy, L = btNames(k), text = `${bx("t" + k)} (${L.length})\n` + L.join("\n");
+    try { await navigator.clipboard.writeText(text); } catch (e) { const ta = document.createElement("textarea"); ta.value = text; el.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); }
+    x.textContent = bx("copied"); setTimeout(() => { x.textContent = bx("copy"); }, 1500); });
+}
+async function setBt(id, k, on) {
+  const sid = String(id), has = new Set(String(BTM[sid] || "").split("").filter(Boolean)); if (on) has.add(k); else has.delete(k);
+  const v = [...has].sort().join(""); if (v) BTM[sid] = v; else delete BTM[sid];
+  store.bt = { ...BTM }; saveLocal(); renderList();
+  if (!loggedIn()) return;
+  try { const j = await papi("bt", { id: sid, k, on }); if (j.bt) { BTM = { ...j.bt }; store.bt = { ...BTM }; saveLocal(); renderList(); } } catch (e) {}
+}
+/* TC column: MightPulse gives the Town Center level; 35 = TG1, 40 = TG2 … (5 steps per TG level) */
+const tcText = (lv) => lv == null ? "?" : +lv >= 35 ? "TG" + Math.floor((+lv - 30) / 5) : String(lv);
 const SP_FIT = OFFICER.SP_FIT, migrantOf = OFFICER.migrantOf, squadPower = OFFICER.squadPower, spIsFallback = OFFICER.spIsFallback;   // formula: core.js
 const statOf = (m, k) => k === "migrant" ? (migrantOf(m) || null) : k === "sp" ? squadPower(m) : m[k];
 const statLabel = (k) => tr({ power: "power", mystic: "mystic", tc: "colTc", migrant: "colMigrant", sp: "colSp" }[k]);
@@ -340,12 +373,15 @@ $("rk_list").onclick = (e) => {
   const id = Number(row.dataset.id) || row.dataset.id;
   if (e.target.closest("[data-rep]")) { const r = rep[id]; if (!r) rep[id] = "y"; else if (r === "y") rep[id] = "n"; else delete rep[id]; persist(); renderList(); return; }   // ⏳ → ✅ → ❌ → ⏳
   if (e.target.closest("[data-safe]")) { setSafe(id, !isSafe(id)); return; }
+  { const b = e.target.closest("[data-bt]"); if (b) { setBt(id, b.dataset.bt, !btHas(id, b.dataset.bt)); return; } }
+  if (e.target.closest(".rk-btk")) return;
   if (e.target.closest("td.ck:not(.main)")) {   // right box = 替補 substitute: ticked, but on the bench
     if (subs.has(id)) { subs.delete(id); picked.delete(id); } else { subs.add(id); picked.add(id); }
   } else if (picked.has(id) && !subs.has(id)) { picked.delete(id); }   // left box / the row = starter
   else { picked.add(id); subs.delete(id); }
   persist(); renderResult();
 };
+$("rk_btBtn").onclick = () => { btOn = !btOn; store.btOn = btOn; saveLocal(); renderList(); };
 $("allBtn").onclick = () => { data.members.forEach((m) => picked.add(m.id)); persist(); renderResult(); };
 $("noneBtn").onclick = () => { picked.clear(); subs.clear(); persist(); renderResult(); };
 ROOT.querySelectorAll("th[data-sort]").forEach((th) => th.onclick = () => {
@@ -385,7 +421,7 @@ function cpCell(f, m, no) {
   if (f === "id") return String(m.id);
   if (f === "rep") return (rep[m.id] === "y" ? "✅" : rep[m.id] === "n" ? "❌" : "⏳") + (isSafe(m.id) ? "🟡" : "");
   if (f === "rank") return rankLabel(m);
-  if (f === "tc") return String(m.tc ?? "");
+  if (f === "tc") return m.tc == null ? "" : tcText(m.tc);
   if (f === "power" || f === "mystic") return m[f] ? big(m[f]) : "";
   if (f === "sp") { const v = squadPower(m); return v ? (spIsFallback(m) ? "~" : "") + Math.round(v) : ""; }
   if (f === "migrant") return migrantOf(m) ? big(migrantOf(m)) : "";
@@ -1396,6 +1432,7 @@ async function planFetch(force) {
   if (j.unchanged) return false;
   planStamp = j.stamp || Date.now(); plans = j.plans || {};
   if (Array.isArray(j.safe)) { SAFE = new Set(j.safe.map(String)); store.safe = [...SAFE]; }
+  if (j.bt && typeof j.bt === "object") { BTM = { ...j.bt }; store.bt = { ...BTM }; saveLocal(); if (btOn && data) renderList(); }
   return true;
 }
 const planLabel = (p) => { const n = String((p && p.name) || "").trim(); return n && n !== "?" ? n : `(${pl("noName")}${p && p.by ? " · " + p.by : ""})`; };
