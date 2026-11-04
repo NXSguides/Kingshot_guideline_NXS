@@ -302,9 +302,9 @@
   #pg-iv .iv-lnk { font-size: 12.5px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   #pg-iv .iv-tr { position: relative; height: 26px; border-radius: 6px; overflow: visible; } #pg-iv .iv-tr .z { position: absolute; top: 0; bottom: 0; background: var(--b-c); opacity: .16; } #pg-iv .iv-tr .z.b0 { border-radius: 6px 0 0 6px; } #pg-iv .iv-tr .z.b4 { border-radius: 0 6px 6px 0; }
   #pg-iv .iv-tr .rg { position: absolute; top: 11px; height: 4px; border-radius: 2px; background: var(--text-muted); opacity: .5; }
-  #pg-iv .dt { position: absolute; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px; padding: 0; border-radius: 50%; border: 1.5px solid var(--panel); background: var(--d-c, var(--text-muted)); cursor: pointer; z-index: 1; }
+  #pg-iv .dt { display: block; box-sizing: border-box; position: absolute; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px; padding: 0; border-radius: 50%; border: 1.5px solid var(--panel); background: var(--d-c, var(--text-muted)); cursor: pointer; z-index: 1; }
   #pg-iv .dt.dm { border-radius: 2px; transform: rotate(45deg); } #pg-iv .dt.on { outline: 2px solid var(--text); }
-  #pg-iv .dt.hl { width: 20px; height: 20px; margin: -10px 0 0 -10px; z-index: 2; border: 2px solid #fff; box-shadow: 0 0 0 2px var(--d-c); } #pg-iv .dt.hl span { display: grid; place-items: center; font-size: 11px; font-weight: 800; color: #fff; height: 100%; } #pg-iv .dt.dm.hl span { transform: rotate(-45deg); }
+  #pg-iv .dt.hl { width: 20px; height: 20px; margin: -10px 0 0 -10px; z-index: 2; border: 2px solid #fff; box-shadow: 0 0 0 2px var(--d-c); } #pg-iv .dt.hl b { display: grid; place-items: center; font-size: 11px; font-weight: 800; color: #fff; height: 100%; } #pg-iv .dt.dm.hl b { transform: rotate(-45deg); }
   #pg-iv .s-c { --d-c: #3d7fc4; } #pg-iv .s-g { --d-c: #b8862a; } #pg-iv .s-pa, #pg-iv .s-pr { --d-c: #2f8a6e; } #pg-iv .s-r { --d-c: #8a5bc4; } #pg-iv .s-m { --d-c: #c0603a; }
   #pg-iv .iv-ln.ax .iv-tr { height: 16px; } #pg-iv .iv-ln.ax span { position: absolute; transform: translateX(-50%); font-size: 11px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
   #pg-iv .iv-rd { margin-top: 8px; padding: 8px 10px; border-radius: 10px; background: var(--panel-2); font-size: 13.5px; font-weight: 600; min-height: 1.5em; }

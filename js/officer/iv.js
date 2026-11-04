@@ -195,7 +195,7 @@ function rulerHtml() {
   const lanes = [["c", ["c"]], ["g", ["g"]], ["pa", ["pa", "pr"]], ["r", ["r"]], ["m", ["m"]]];
   const zones = BANDS.map((b, i) => { const a = i ? BANDS[i - 1] : 500, z = Math.min(b, 1e6); return `<i class="z b${i}" style="left:${xp(a)}%;width:${xp(z) - xp(a)}%"></i>`; }).join("");
   const dot = (x) => { const r = rank[x.key], tip = `${S[x.sys]} ${x.label}: ${x.hi ? range(x.gems, x.hi) : fmt(x.gems)}`;
-    return (x.hi ? `<i class="rg" style="left:${xp(x.gems)}%;width:${xp(x.hi) - xp(x.gems)}%"></i>` : "") + `<button type="button" class="dt s-${x.sys}${r ? " hl" : ""}${x.sys === "pr" ? " dm" : ""}" style="left:${xp(x.gems)}%" data-tip="${esc(tip)}" aria-label="${esc(tip)}">${r ? `<span>${r}</span>` : ""}</button>`; };
+    return (x.hi ? `<i class="rg" style="left:${xp(x.gems)}%;width:${xp(x.hi) - xp(x.gems)}%"></i>` : "") + `<span role="button" tabindex="0" class="dt s-${x.sys}${r ? " hl" : ""}${x.sys === "pr" ? " dm" : ""}" style="left:${xp(x.gems)}%" data-tip="${esc(tip)}" aria-label="${esc(tip)}">${r ? `<b>${r}</b>` : ""}</span>`; };
   return `<div class="iv-ru">${lanes.map(([k, syss]) => `<div class="iv-ln"><div class="iv-lnk">${esc(S[k === "pa" ? "pet" : k])}</div><div class="iv-tr">${zones}${st.filter((x) => syss.includes(x.sys)).map(dot).join("")}</div></div>`).join("")}
     <div class="iv-ln ax"><div class="iv-lnk"></div><div class="iv-tr">${[1e3, 1e4, 1e5, 1e6].map((v) => `<span style="left:${xp(v)}%">${v >= 1e6 ? "1M" : v / 1000 + "k"}</span>`).join("")}</div></div></div>
     <div class="iv-rd" id="iv_rd">${esc(t("rdTap"))}</div>`;
@@ -238,6 +238,7 @@ function render() {
   bind();
 }
 function bindRuler() {
+  document.querySelectorAll("#iv_ruler .dt").forEach((b) => b.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); b.click(); } });
   document.querySelectorAll("#iv_ruler .dt").forEach((b) => b.onclick = () => { const d = $("iv_rd"); if (d) d.textContent = b.dataset.tip; document.querySelectorAll("#iv_ruler .dt.on").forEach((x) => x.classList.remove("on")); b.classList.add("on"); });
 }
 function bind() {
