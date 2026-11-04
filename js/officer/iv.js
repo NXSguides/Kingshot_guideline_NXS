@@ -46,6 +46,14 @@ const T = {
     ggG: "Green · Blue", ggP2: "Purple", ggO: "Gold (T1–T3)", ggR: "Red (T1–T4)",
     ggTier: { g: "Green", b: "Blue", p: "Purple", p1: "Purple T1", o: "Gold", o1: "Gold T1", o2: "Gold T2", o3: "Gold T3", r: "Red", r1: "Red T1", r2: "Red T2", r3: "Red T3", r4: "Red T4" },
     ggCols: ["Step", "Satin / Gilded Threads / Artisan's Vision", "Relic Coins", "% gained", "Gems per 1%"],
+    nxH: "🎯 My next step", nxP: "Pick where you are now. The list shows your cheapest next upgrades (gems per +1%), all systems mixed.",
+    nxCharm: "Most of my Governor Charms are at", nxGear: "Most of my Governor Gear pieces are at", nxPet: "My next pet advancement", nxMast: "Main heroes' Mastery Forging", nxFood: "I already bought this week's pet food",
+    nxNone: "none yet", nxLv: "Lv{n}", nxPetOpt: ["Lv40", "Lv50", "already past Lv50"], nxMax: "maxed", nxGo: "Do these first:", nxNote: "Same gems, most %. Lethality / Health (Governor Charms) are worth a bit more than they look, Attack / Defense (pets) a bit less.",
+    sys: { c: "💠 Governor Charm", g: "🛡️ Governor Gear", pu: "🐾 Pet level-up", pa: "🐾 Pet advancement", r: "🔬 Research", m: "🔨 Mastery Forging" },
+    resFirst: "first levels of a tier", resLast: "last level of a tier", petUp: "weekly food", from: "→",
+    bdH: "🗂️ Price bands", bdP: "Every upgrade, sorted by how many gems +1% costs. Same row = about the same value for your gems.",
+    bands: ["Very cheap (under 5,000)", "Cheap (5,000–15,000)", "Middle (15,000–30,000)", "Dear (30,000–60,000)", "Very dear (60,000+)"],
+    detH: "📊 Each system, level by level",
     cheap: "best value", mid: "middle", dear: "most expensive",
     rot: "Every system gets dearer the higher you go — the first levels of each one are the bargains. So don't push one system to the top: keep upgrading whichever system's next step is cheapest right now.",
     lowH: "📉 Lethality and Health are worth more", lowP: "Most players have far less Lethality and Health than Attack and Defense. The lower a stat is, the more +1% changes it — so Governor Charms are even better than the bars show, and pets a little worse.",
@@ -81,6 +89,14 @@ const T = {
     ggG: "綠・藍", ggP2: "紫", ggO: "金（T1–T3）", ggR: "紅（T1–T4）",
     ggTier: { g: "綠", b: "藍", p: "紫", p1: "紫 T1", o: "金", o1: "金 T1", o2: "金 T2", o3: "金 T3", r: "紅", r1: "紅 T1", r2: "紅 T2", r3: "紅 T3", r4: "紅 T4" },
     ggCols: ["階", "綢緞／金絲線／匠心願景", "聖契幣", "加多少 %", "每 1%（鑽）"],
+    nxH: "🎯 我的下一步", nxP: "選你現在的進度，下面就列出你最划算的下一個升級（每 +1% 幾鑽），所有系統混在一起比。",
+    nxCharm: "我的領主寶石大多在", nxGear: "我的領主裝備大多在", nxPet: "我下一次寵物突破", nxMast: "主力英雄的專精鍛造", nxFood: "這週的寵物口糧已經買了",
+    nxNone: "還沒有", nxLv: "Lv{n}", nxPetOpt: ["Lv40", "Lv50", "已經超過 Lv50"], nxMax: "已滿", nxGo: "先做這些：", nxNote: "同樣的鑽石換到最多 %。殺傷力、生命值（領主寶石）實際上比看起來更值錢一點，攻擊力、防禦力（寵物）稍微少一點。",
+    sys: { c: "💠 領主寶石", g: "🛡️ 領主裝備", pu: "🐾 寵物升級", pa: "🐾 寵物突破", r: "🔬 研究", m: "🔨 專精鍛造" },
+    resFirst: "每階前幾級", resLast: "每階最後一級", petUp: "每週口糧", from: "→",
+    bdH: "🗂️ 價格帶", bdP: "所有升級照「+1% 要幾鑽」分成五層。同一層＝同樣的鑽石，效果差不多。",
+    bands: ["很便宜（5,000 以下）", "便宜（5,000–15,000）", "中等（15,000–30,000）", "貴（30,000–60,000）", "很貴（60,000 以上）"],
+    detH: "📊 各系統每一級",
     cheap: "最划算", mid: "中間", dear: "最貴",
     rot: "每個系統都是越升越貴，最划算的是每個系統的前幾級。所以不要一個系統衝到底，而是輪流升「現在各系統裡最便宜的那一級」。",
     lowH: "📉 殺傷力、生命值比較值錢", lowP: "大多數人的殺傷力、生命值都比攻擊力、防禦力低很多。屬性越低，多 1% 的感覺越明顯——所以領主寶石實際上比長條看起來更划算，寵物稍微差一點。",
@@ -101,6 +117,57 @@ const T = {
     foot: "來源：Sparrow 主帳實測（實力 ↔ %、商店價格、研究時間）。不是遊戲官方說明，數字會隨更多測試修正。" },
 };
 let lang = OFFICER.lang || "en";
+const BANDS = [5000, 15000, 30000, 60000, Infinity];
+const band = (g) => BANDS.findIndex((b) => g < b);
+const gearName = (i) => { const k = GEAR[i][0]; return `${t("ggTier")[k]} ${i - GEAR.findIndex((x) => x[0] === k)}★`; };
+/* every upgrade as one list: { sys, label, gems } — research and pet level-up are ongoing, not levels */
+function allSteps() {
+  const out = [];
+  CHARM.forEach((c, i) => out.push({ sys: "c", key: "c" + i, label: "Lv" + (i + 1), gems: charmGems(i), grp: "c" }));
+  GEAR.forEach((g, i) => out.push({ sys: "g", key: "g" + i, label: gearName(i), gems: gearGems(i), grp: g[0] }));
+  out.push({ sys: "pu", key: "pu", label: t("petUp"), gems: 3200, grp: "pu" });
+  out.push({ sys: "pa", key: "pa40", label: "Lv40", gems: 14200, grp: "pa" }, { sys: "pa", key: "pa50", label: "Lv50", gems: 23200, grp: "pa" });
+  out.push({ sys: "r", key: "r1", label: t("resFirst"), gems: 3800, hi: 14600, grp: "r1" }, { sys: "r", key: "r2", label: t("resLast"), gems: 20500, grp: "r2" });
+  for (let L = 0; L < 5; L++) out.push({ sys: "m", key: "m" + L, label: "Lv" + (L + 1), gems: 11100 * (L + 1), grp: "m" });
+  return out;
+}
+const NX = { c: 0, g: -1, pa: 0, m: 0, food: false };
+try { Object.assign(NX, JSON.parse(localStorage.getItem("nxs-iv") || "{}")); } catch (e) {}
+const keepNx = () => { try { localStorage.setItem("nxs-iv", JSON.stringify(NX)); } catch (e) {} };
+function nextHtml() {
+  const S = t("sys"), cand = [];
+  for (let k = 0; k < 2; k++) if (NX.c + k < CHARM.length) cand.push({ sys: "c", label: `Lv${NX.c + k} ${t("from")} Lv${NX.c + k + 1}`, gems: charmGems(NX.c + k) });
+  for (let k = 1; k <= 2; k++) if (NX.g + k < GEAR.length) cand.push({ sys: "g", label: (NX.g + k ? gearName(NX.g + k - 1) + ` ${t("from")} ` : "") + gearName(NX.g + k), gems: gearGems(NX.g + k) });
+  if (!NX.food) cand.push({ sys: "pu", label: t("petUp"), gems: 3200 });
+  if (NX.pa < 2) cand.push({ sys: "pa", label: ["Lv40", "Lv50"][NX.pa], gems: [14200, 23200][NX.pa] });
+  cand.push({ sys: "r", label: t("resFirst"), gems: 3800, hi: 14600 });
+  for (let k = 0; k < 2; k++) if (NX.m + k < 5) cand.push({ sys: "m", label: `${NX.m + k} ${t("from")} ${NX.m + k + 1}`, gems: 11100 * (NX.m + k + 1) });
+  cand.sort((a, b) => a.gems - b.gems);
+  const opt = (n, v, lab) => `<option value="${v}"${n === v ? " selected" : ""}>${esc(lab)}</option>`;
+  return `<div class="iv-nxin">
+      <label>${esc(t("nxCharm"))}<select class="inp" id="iv_c">${Array.from({ length: 23 }, (_, n) => opt(NX.c, n, n ? t("nxLv").replace("{n}", n) : t("nxNone"))).join("")}</select></label>
+      <label>${esc(t("nxGear"))}<select class="inp" id="iv_g">${opt(NX.g, -1, t("nxNone"))}${GEAR.map((g, i) => opt(NX.g, i, gearName(i))).join("")}</select></label>
+      <label>${esc(t("nxPet"))}<select class="inp" id="iv_pa">${t("nxPetOpt").map((x, i) => opt(NX.pa, i, x)).join("")}</select></label>
+      <label>${esc(t("nxMast"))}<select class="inp" id="iv_m">${Array.from({ length: 6 }, (_, n) => opt(NX.m, n, n === 5 ? `Lv5+ (${t("nxMax")})` : "Lv" + n)).join("")}</select></label>
+      <label class="iv-cb"><input type="checkbox" id="iv_food"${NX.food ? " checked" : ""}> ${esc(t("nxFood"))}</label></div>
+    <div class="iv-nxl"><b>${esc(t("nxGo"))}</b><ol>${cand.slice(0, 6).map((c) => `<li class="b${band(c.gems)}"><span class="iv-sys">${esc(S[c.sys])}</span><span class="iv-lab">${esc(c.label)}</span><span class="iv-gem">${c.hi ? range(c.gems, c.hi) : fmt(c.gems)}</span></li>`).join("")}</ol></div>
+    <div class="muted iv-small">${esc(t("nxNote"))}</div>`;
+}
+function bandsHtml() {
+  const S = t("sys"), steps = allSteps(), rows = BANDS.map(() => []);
+  // group neighbours of the same system / tier that fall in the same band: "Blue 0★–3★", "Lv6–22"
+  for (const st of steps) {
+    const b = band(st.gems), row = rows[b], last = row[row.length - 1];
+    if (last && last.grp === st.grp && last.sys === st.sys && (st.sys === "c" || st.sys === "g" || st.sys === "m") && last.next === st.key) { last.to = st.label; last.next = nextKey(st.key); }
+    else row.push({ ...st, next: nextKey(st.key) });
+  }
+  // the very dear row: one chip per system (first … last)
+  const v = rows[4], merged = [];
+  for (const sys of ["c", "g", "m"]) { const xs = v.filter((x) => x.sys === sys); if (xs.length) merged.push({ ...xs[0], to: (xs[xs.length - 1].to || xs[xs.length - 1].label) }); }
+  rows[4] = merged.concat(v.filter((x) => !["c", "g", "m"].includes(x.sys)));
+  return `<div class="iv-bands">${rows.map((row, b) => `<div class="iv-band b${b}"><div class="iv-bl">${esc(t("bands")[b])}</div><div class="iv-chips">${row.map((x) => `<span class="iv-chip s-${x.sys}">${esc(S[x.sys])} <b>${esc(x.label)}${x.to && x.to !== x.label ? "–" + esc(x.to) : ""}</b></span>`).join("")}</div></div>`).join("")}</div>`;
+}
+function nextKey(k) { const m = k.match(/^([cgm])(\d+)$/); return m ? m[1] + (+m[2] + 1) : null; }
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
 const fmt = (n) => Math.round(n).toLocaleString("en-US");
 const range = (a, b) => a === b ? fmt(a) : `${fmt(a)}–${fmt(b)}`;
@@ -110,12 +177,15 @@ function render() {
   const gain = (s) => (1 / (100 + s) * 100);   // how much +1% adds at a given stat, in % of total
   root.innerHTML = `
   <div class="iv-hero"><span class="iv-badge">${esc(t("badge").replace("{d}", UPDATED))}</span><h2>${esc(t("heroH"))}</h2><p>${esc(t("heroP"))}</p></div>
+  <div class="card"><h3>${esc(t("nxH"))}</h3><p class="iv-p">${esc(t("nxP"))}</p><div id="iv_nx">${nextHtml()}</div></div>
+  <div class="card"><h3>${esc(t("bdH"))}</h3><p class="iv-p">${esc(t("bdP"))}</p>${bandsHtml()}<p class="iv-rot">🔄 ${esc(t("rot"))}</p></div>
+  <details class="card iv-det"><summary><b>${esc(t("detH"))}</b></summary>
   <div class="card"><h3>${esc(t("barH"))}</h3><p class="iv-p">${esc(t("barP"))}</p>
     <div class="iv-bars">${ROWS.map(([k, lo, hi, kind]) => `<div class="iv-row"><div class="iv-k">${esc(R[k])}${G[k] ? `<small>${esc(G[k])}</small>` : ""}</div>
       <div class="iv-b${hi > MAX ? " over" : ""}"><i class="${kind}" style="left:0;width:${(Math.min(lo, MAX) / MAX * 100).toFixed(1)}%"></i>${hi > lo ? `<i class="${kind} rng" style="left:${(Math.min(lo, MAX) / MAX * 100).toFixed(1)}%;width:${((Math.min(hi, MAX) - Math.min(lo, MAX)) / MAX * 100).toFixed(1)}%"></i>` : ""}</div>
       <div class="iv-v">${range(lo, hi)}</div></div>`).join("")}</div>
     <div class="iv-key"><span><i class="cheap"></i>${esc(t("cheap"))}</span><span><i class="mid"></i>${esc(t("mid"))}</span><span><i class="dear"></i>${esc(t("dear"))}</span></div>
-    <p class="iv-rot">🔄 ${esc(t("rot"))}</p></div>
+</div>
   <div class="card"><h3>${esc(t("chH"))}</h3><p class="iv-p">${esc(t("chP"))}</p>
     <div class="iv-ch">${CHARM.map((c, i) => { const g = charmGems(i), h = (Math.log10(g) - 2.5) / (6 - 2.5) * 100, k = g < 10000 ? "cheap" : g < 60000 ? "mid" : "dear";
       return `<div title="Lv${i + 1}: ${fmt(g)}"><b>${i === 0 || i === 4 || i === 10 || i === 21 ? (g >= 1e5 ? Math.round(g / 1000) + "k" : g >= 1e4 ? Math.round(g / 1000) + "k" : fmt(g)) : ""}</b><i class="${k}" style="height:${h.toFixed(0)}%"></i><small>${i + 1}</small></div>`; }).join("")}</div>
@@ -124,7 +194,7 @@ function render() {
     <div class="iv-ch gg">${GEAR.map((g, i) => { const v = gearGems(i), h = (Math.log10(v) - 2.5) / (6 - 2.5) * 100, k = "t-" + g[0][0], first = !i || GEAR[i - 1][0] !== g[0], TT = t("ggTier");
       return `<div title="${esc(TT[g[0]])} ★${i - GEAR.findIndex((x) => x[0] === g[0])}: ${fmt(v)}"${first ? ' class="t0"' : ""}><b>${first && ["g", "p", "o", "r"].includes(g[0]) ? (v >= 1e4 ? Math.round(v / 1000) + "k" : fmt(v)) : ""}</b><i class="${k}" style="height:${h.toFixed(0)}%"></i></div>`; }).join("")}</div>
     <div class="iv-ggk">${[["g", 6, "ggG"], ["p", 8, "ggP2"], ["o", 16, "ggO"], ["r", 20, "ggR"]].map(([k, n, lab]) => `<span style="flex:${n}">${esc(t(lab))}</span>`).join("")}</div>
-    <p class="iv-p" style="margin-top:10px">💡 ${esc(t("ggTip"))}</p><div class="muted iv-small">${esc(t("ggNote"))}</div></div>
+    <p class="iv-p" style="margin-top:10px">💡 ${esc(t("ggTip"))}</p><div class="muted iv-small">${esc(t("ggNote"))}</div></div></details>
   <div class="card"><h3>${esc(t("lowH"))}</h3><p class="iv-p">${esc(t("lowP"))}</p>
     <div class="iv-low">${[[50, "lowA"], [300, "lowB"]].map(([s, k]) => `<div class="iv-lc"><b>${esc(t(k))}</b><div class="iv-lb"><i style="width:${(gain(s) / gain(50) * 100).toFixed(0)}%"></i></div><span>${esc(t("lowS"))} ${gain(s).toFixed(2)}%</span></div>`).join("")}</div>
     <div class="muted iv-small">${esc(t("lowFoot"))}</div></div>
@@ -143,6 +213,12 @@ function render() {
     <table class="iv-t"><tr>${t("chCols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${CHARM.map((c, i) => `<tr><td>Lv${i + 1}</td><td class="n">${fmt(c[0])}</td><td class="n">+${c[1]}%</td><td class="n">${CHARM.slice(0, i + 1).reduce((a, x) => a + x[1], 0)}%</td><td class="n">${fmt(charmGems(i))}</td></tr>`).join("")}</table>
     <table class="iv-t"><tr>${t("ggCols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${GEAR.map((g, i) => `<tr><td>${esc(t("ggTier")[g[0]])} ★${i - GEAR.findIndex((x) => x[0] === g[0])}</td><td class="n">${fmt(g[1])} / ${fmt(g[2])} / ${fmt(g[3])}</td><td class="n">${fmt(gearCoins(i))}</td><td class="n">+${gearPct(i).toFixed(2)}%</td><td class="n">${fmt(gearGems(i))}</td></tr>`).join("")}</table></div></details>
   <div class="muted iv-small">${esc(t("foot"))}</div>`;
+  bind();
+}
+function bind() {
+  const redo = () => { keepNx(); const n = $("iv_nx"); if (n) { n.innerHTML = nextHtml(); bind(); } };
+  for (const [id, k] of [["iv_c", "c"], ["iv_g", "g"], ["iv_pa", "pa"], ["iv_m", "m"]]) { const el = $(id); if (el) el.onchange = () => { NX[k] = +el.value; redo(); }; }
+  const f = $("iv_food"); if (f) f.onchange = () => { NX.food = f.checked; redo(); };
 }
 function init() { applyTexts(); render(); }
 function applyTexts() { if ($("iv_title")) { $("iv_title").textContent = t("title"); $("iv_intro").textContent = t("intro"); } }
