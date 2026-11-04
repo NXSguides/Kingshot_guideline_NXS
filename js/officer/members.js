@@ -41,6 +41,15 @@ for (const [l, o] of Object.entries({"en": {"mpGone": "Not in the alliance any m
 for (const [l, o] of Object.entries({"en": {"mpFail": "⚠️ {n} players couldn't be looked up this time (MightPulse busy) — they are left as they are. Press ↻ Get positions again in a few minutes."}, "zh": {"mpFail": "⚠️ 這次有 {n} 個人沒查到（MightPulse 忙不過來），他們的座標先不動。過幾分鐘再按一次 ↻ 取得座標。"}, "pt": {"mpFail": "⚠️ {n} jogadores não puderam ser consultados agora (MightPulse ocupado) — ficam como estão. Aperte ↻ Buscar posições de novo em alguns minutos."}, "ar": {"mpFail": "⚠️ تعذّر البحث عن {n} لاعبًا هذه المرة (MightPulse مشغول) — تبقى مواقعهم كما هي. اضغط ↻ جلب المواقع مرة أخرى بعد دقائق."}, "ko": {"mpFail": "⚠️ 이번에 {n}명은 조회하지 못했어요 (MightPulse가 바쁨) — 그대로 둬요. 몇 분 뒤 ↻ 위치 가져오기를 다시 누르세요."}})) Object.assign(T[l], o);
 for (const [l, o] of Object.entries({"en": {"mpT": "📍 Positions from the roster", "mpHow": "Every member's castle X:Y comes with the roster (MightPulse, every day at 20:13 UTC). MightPulse only knows new positions after someone presses “Update Map” on its map. After members move: ① open the MightPulse map and press Update Map ② 🔄 Update roster now (about 5 minutes — the same button as on 🕵️ Watch) ③ check the changes ④ ✅ Use these positions (it saves 👥 Member positions).", "mpFail": "⚠️ {n} members have no position on MightPulse — they are left as they are.", "mpStep": "When they have moved: press Update Map on MightPulse, then 🔄 Update roster now (📍 card above).", "mpLast": "📍 Roster {t}"}, "zh": {"mpT": "📍 從名單更新座標", "mpHow": "每個人的城堡座標都在名單裡（MightPulse，每天 20:13 UTC 自動更新）。MightPulse 要有人在它的地圖按「Update Map」才會知道新座標。成員搬完之後：① 打開 MightPulse 地圖按 Update Map ② 按 🔄 立即更新名單（大約 5 分鐘，跟 🕵️ 觀察頁是同一個按鈕）③ 確認變動 ④ 按 ✅ 套用這些座標（會存進 👥 成員位置）。", "mpFail": "⚠️ 有 {n} 個人在 MightPulse 上沒有座標，先不動。", "mpStep": "搬完之後：去 MightPulse 按 Update Map，再按 🔄 立即更新名單（上面的 📍 卡片）。", "mpLast": "📍 名單 {t}"}, "pt": {"mpT": "📍 Posições do roster", "mpHow": "O X:Y do castelo de cada membro vem com o roster (MightPulse, todo dia às 20:13 UTC). O MightPulse só sabe as posições novas depois que alguém aperta “Update Map” no mapa dele. Depois que os membros mudarem: ① abra o mapa do MightPulse e aperte Update Map ② 🔄 Atualizar o roster agora (uns 5 minutos — o mesmo botão do 🕵️ Vigilância) ③ confira as mudanças ④ ✅ Usar estas posições (salva 👥 Posições dos membros).", "mpFail": "⚠️ {n} membros não têm posição no MightPulse — ficam como estão.", "mpStep": "Depois que mudarem: aperte Update Map no MightPulse e depois 🔄 Atualizar o roster agora (cartão 📍 acima).", "mpLast": "📍 Roster {t}"}, "ar": {"mpT": "📍 المواقع من القائمة", "mpHow": "إحداثيات قلعة كل عضو تأتي مع القائمة (MightPulse، كل يوم 20:13 UTC). لا يعرف MightPulse المواقع الجديدة إلا بعد أن يضغط أحد “Update Map” على خريطته. بعد انتقال الأعضاء: ① افتح خريطة MightPulse واضغط Update Map ② 🔄 حدّث القائمة الآن (نحو 5 دقائق — نفس زر 🕵️ المراقبة) ③ راجع التغييرات ④ ✅ استخدم هذه المواقع (تُحفظ في 👥 مواقع الأعضاء).", "mpFail": "⚠️ {n} أعضاء بلا موقع في MightPulse — تبقى كما هي.", "mpStep": "بعد انتقالهم: اضغط Update Map في MightPulse ثم 🔄 حدّث القائمة الآن (بطاقة 📍 أعلاه).", "mpLast": "📍 القائمة {t}"}, "ko": {"mpT": "📍 명단에서 위치 가져오기", "mpHow": "연맹원마다 성 X:Y가 명단에 들어 있어요 (MightPulse, 매일 20:13 UTC). MightPulse는 누군가 지도에서 “Update Map”을 눌러야 새 위치를 알아요. 연맹원이 이사한 뒤: ① MightPulse 지도를 열고 Update Map 누르기 ② 🔄 명단 지금 업데이트 (약 5분 — 🕵️ 관찰 탭과 같은 버튼) ③ 변경 확인 ④ ✅ 이 위치 사용 (👥 연맹원 위치에 저장돼요).", "mpFail": "⚠️ {n}명은 MightPulse에 위치가 없어요 — 그대로 둬요.", "mpStep": "이사한 뒤: MightPulse에서 Update Map을 누르고 🔄 명단 지금 업데이트 (위의 📍 카드).", "mpLast": "📍 명단 {t}"}})) Object.assign(T[l], o);
 for (const [l, o] of Object.entries({"en": {"asAuto": "🤖 Placing members automatically isn't set up yet — for now, put them on the spots by hand. Want it automatic? Ask Sparrow."}, "zh": {"asAuto": "🤖 自動分配成員還沒有做——目前請手動把成員放到位置上。想要自動分配的話，請找 Sparrow。"}, "pt": {"asAuto": "🤖 A distribuição automática dos membros ainda não existe — por enquanto, coloque-os nos lugares à mão. Quer automático? Fale com a Sparrow."}, "ar": {"asAuto": "🤖 توزيع الأعضاء تلقائيًا غير متوفر بعد — ضعهم في الأماكن يدويًا الآن. تريده تلقائيًا؟ اسأل Sparrow."}, "ko": {"asAuto": "🤖 연맹원 자동 배치는 아직 없어요 — 지금은 직접 자리에 배치하세요. 자동으로 하고 싶으면 Sparrow에게 물어보세요."}})) Object.assign(T[l], o);
+/* 🐻 BT1 / BT2 + TC / Power in the 🚚 moving table (Sherry & Nia, 2026-11-05) — the marks are OFFICER.BT, the same list as 📊 Roster */
+for (const [l, o] of Object.entries({
+  en: { colTc: "TC", colPw: "Power", colBt: "BT1 · BT2", btNote: "Tick the left box for Bear Trap 1, the right box for Bear Trap 2 — the same marks as 📊 Roster → 🐻 BT groups.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "nobody yet", btCopy: "📋 Copy", btCopied: "Copied!", btBoth: "{n} in both", noSpot: "No new spot yet ({n}):" },
+  zh: { colTc: "主城", colPw: "戰力", colBt: "BT1 · BT2", btNote: "左邊的框 = 熊陷阱 1，右邊 = 熊陷阱 2——跟 📊 名冊 → 🐻 BT 分組是同一份。", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "還沒有人", btCopy: "📋 複製", btCopied: "已複製！", btBoth: "{n} 人兩個都勾", noSpot: "還沒分到新位置（{n}）：" },
+  pt: { colTc: "CC", colPw: "Poder", colBt: "BT1 · BT2", btNote: "Caixa da esquerda = Armadilha de Urso 1, da direita = Armadilha de Urso 2 — as mesmas marcas de 📊 Lista de membros → 🐻 Grupos BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "ninguém ainda", btCopy: "📋 Copiar", btCopied: "Copiado!", btBoth: "{n} nos dois", noSpot: "Ainda sem lugar novo ({n}):" },
+  ar: { colTc: "المركز", colPw: "القوة", colBt: "BT1 · BT2", btNote: "المربع الأيسر = فخ الدب 1، والأيمن = فخ الدب 2 — نفس علامات 📊 قائمة الأعضاء → 🐻 مجموعات BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "لا أحد بعد", btCopy: "📋 نسخ", btCopied: "تم النسخ!", btBoth: "{n} في الاثنين", noSpot: "بلا مكان جديد بعد ({n}):" },
+  ko: { colTc: "도시", colPw: "전투력", colBt: "BT1 · BT2", btNote: "왼쪽 칸 = 곰 함정 1, 오른쪽 칸 = 곰 함정 2 — 📊 명단 → 🐻 BT 그룹과 같은 표시예요.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "아직 없음", btCopy: "📋 복사", btCopied: "복사됨!", btBoth: "{n}명은 둘 다", noSpot: "아직 새 자리 없음 ({n}):" },
+})) Object.assign(T[l], o);
+const BTC = { "1": "#3b82f6", "2": "#f59e0b", "12": "#a855f7" };   // BT1 blue · BT2 orange · both purple (same as 📊 Roster)
 let SPOT = null;   // 🧭 the planned spot tapped on the map (index in MV.plan.c), to put a member there
 let lang = "en", G = null, D = null, SAVED = "", SEL = null, msg = "", roster = null, banners = [], pasteOpen = false, onlyLeft = false;
 /* 🚚 moving plan — its own officer tab (#move), admins only unless the 👥 table gives it; saved apart from the positions */
@@ -204,11 +213,12 @@ function draw(boxId = "mm_map") {
   if (KS) for (const [bx, by] of KS.planned()) if (inB(bx, by))
     s.push(`<polygon points="${poly(bx, by, 1)}" fill="none" stroke="#ffde4a" stroke-width="1.6" stroke-dasharray="3 2"><title>🚩 X:${bx} Y:${by}</title></polygon>`);
   const here = {}; cities.forEach(([n, x, y]) => here[norm(n)] = [x, y]);
+  const bIdx = rosterIndex(), btOf = (n) => { const m = n && bIdx[norm(n)]; return m ? String(OFFICER.BT.map[String(m.id)] || "") : ""; };   // 🐻 planned spots coloured by BT1 / BT2
   const doneSet = new Set((MV.done || []).map(norm));
   if (PL) {
     /* 🧭 planned city spots: dashed outline + the member's name; green once that member is there (or ticked) */
     pc.forEach(([n, x, y], pi) => { const [cx, cy] = P(x + 1, y + 1), h = n && here[norm(n)], ok = n && ((h && h[0] === x && h[1] === y) || doneSet.has(norm(n))), on = SPOT === pi;
-      s.push(`<g class="mm-ps${MED() ? " ed" : ""}" data-p="${pi}"><polygon points="${poly(x, y, 2)}" fill="${ok ? "#8fd19e" : on ? "#ffde4a66" : "#ffffff22"}" stroke="${on ? "#ffde4a" : "#ffffffcc"}" stroke-width="${on ? 3 : 1}" stroke-dasharray="${ok || on ? "" : "3 2"}"/>`
+      s.push(`<g class="mm-ps${MED() ? " ed" : ""}" data-p="${pi}"><polygon points="${poly(x, y, 2)}" fill="${ok ? "#8fd19e" : on ? "#ffde4a66" : btOf(n) ? BTC[btOf(n)] + "88" : "#ffffff22"}" stroke="${on ? "#ffde4a" : btOf(n) ? BTC[btOf(n)] : "#ffffffcc"}" stroke-width="${on ? 3 : 1}" stroke-dasharray="${ok || on ? "" : "3 2"}"/>`
         + (n && !ok ? `<text x="${cx}" y="${cy + 3}" text-anchor="middle" class="mm-pn">${esc(n.length > 10 ? n.slice(0, 9) + "…" : n)}</text>` : "") + `<title>🧭 ${esc(n || "—")} X:${x} Y:${y}</title></g>`); });
     /* new HQ: 3×3 + its 15×15 territory, dashed until it stands there */
     for (const [hx, hy] of ph) { const [cx, cy] = P(hx + 1.5, hy + 1.5);
@@ -393,19 +403,31 @@ function moveTable() {
   if (!MV.plan) return "";
   const now = {}; D.m.forEach(([n, x, y]) => now[norm(n)] = [n, x, y]);
   const tgt = {}; MV.plan.c.forEach(([n, x, y]) => { if (n) tgt[norm(n)] = [n, x, y]; });
-  const keys = [...new Set(Object.keys(tgt).concat(Object.keys(now)))];
+  const idx = rosterIndex(), rName = {}; for (const m of (roster && roster.members) || []) rName[norm(m.name)] = m.name;
+  const keys = [...new Set(Object.keys(tgt).concat(Object.keys(now), Object.keys(rName)))];   // + everyone on the roster, so all can get a BT mark / a spot
   const done = new Set((MV.done || []).map(norm)), ed = MED();
-  const rows = keys.map((k) => { const a = now[k], b = tgt[k], there = a && b && a[1] === b[1] && a[2] === b[2];
-    return { k, name: (b || a)[0], a, b, ok: done.has(k) || there, there }; })
+  const rows = keys.map((k) => { const a = now[k], b = tgt[k], there = a && b && a[1] === b[1] && a[2] === b[2], name = (b || a || [rName[k]])[0];
+    return { k, name, a, b, m: idx[k] || null, ok: done.has(k) || there, there }; })
     .sort((p, q) => (p.ok - q.ok) || (!p.b - !q.b) || p.name.localeCompare(q.name));
   const withT = rows.filter((r) => r.b), nDone = withT.filter((r) => r.ok).length, free = MV.plan.c.filter(([n]) => !n).length;
   const xy = (p) => p ? `X:${p[1]} Y:${p[2]}` : "—";
+  const bed = OFFICER.can("move", "edit") || OFFICER.can("ranking", "edit"), BT = OFFICER.BT;
+  const btv = (r) => r.m ? String(BT.map[String(r.m.id)] || "") : "";
+  const btBox = (r, k) => r.m ? `<input type="checkbox" class="mm-bt b${k}" data-bt="${k}" data-bid="${esc(String(r.m.id))}" aria-label="BT${k}"${BT.has(r.m.id, k) ? " checked" : ""}${bed ? "" : " disabled"}>` : "";
+  const btList = (k) => { const L = rows.filter((r) => r.m && BT.has(r.m.id, k)).sort((p, q) => (+q.m.power || 0) - (+p.m.power || 0));
+    return `<div class="mm-btl b${k}"><div class="row" style="align-items:center;gap:6px;justify-content:space-between"><b>${esc(t("bt" + k))} (${L.length})</b><button type="button" class="btn small" data-btcopy="${k}">${esc(t("btCopy"))}</button></div>
+      <div style="margin-top:4px;line-height:1.5;word-break:break-word" dir="auto">${L.length ? L.map((r) => esc(r.name)).join(" · ") : `<span class="muted">${esc(t("btNone"))}</span>`}</div></div>`; };
+  const nBoth = rows.filter((r) => btv(r) === "12").length, noSpot = rows.filter((r) => !r.b && r.m);
+  const btCard = `<div class="mm-btc"><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(t("btNote"))}</div><div class="mm-btg">${btList("1")}${btList("2")}</div>
+    ${nBoth ? `<div class="muted" style="font-size:12.5px;margin-top:4px">⚠️ ${esc(t("btBoth").replace("{n}", nBoth))}</div>` : ""}
+    ${noSpot.length ? `<div class="muted" style="font-size:12.5px;margin-top:6px"><b>${esc(t("noSpot").replace("{n}", noSpot.length))}</b> ${noSpot.map((r) => esc(r.name)).join(" · ")}</div>` : ""}</div>`;
   return `<div class="mm-mv"><h4 style="margin:14px 0 4px">${esc(t("mvT"))} <span class="muted" style="font-weight:400;font-size:13px">${esc(t("mvProg").replace("{d}", nDone).replace("{n}", withT.length))}${MV.plan.at ? " · " + esc(t("planBy").replace("{d}", String(MV.plan.at).slice(0, 10))) : ""}</span></h4>
     <div class="mm-bar"><span style="width:${withT.length ? Math.round(100 * nDone / withT.length) : 0}%"></span></div>
     ${free ? `<div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("free").replace("{n}", free))}</div>` : ""}
     <label class="row" style="gap:6px;font-size:13px;margin:6px 0"><input type="checkbox" id="mm_left"${onlyLeft ? " checked" : ""}> ${esc(t("mvLeft"))}</label>
-    <div class="mm-tw"><table class="mm-t"><thead><tr><th>${esc(t("colN"))}</th><th>${esc(t("colNow"))}</th><th>${esc(t("colNew"))}</th><th>${esc(t("colDone"))}</th></tr></thead><tbody>
-    ${rows.filter((r) => !onlyLeft || !r.ok).map((r) => `<tr class="${r.ok ? "ok" : ""}"><td dir="auto">${esc(r.name)}</td><td>${xy(r.a)}</td><td>${r.b ? `<button class="btn small mm-cp" data-c="X:${r.b[1]} Y:${r.b[2]}">${xy(r.b)}</button>` : `<span class="muted">${esc(t("noPlace"))}</span>`}</td>
+    ${btCard}
+    <div class="mm-tw"><table class="mm-t"><thead><tr><th>${esc(t("colN"))}</th><th>${esc(t("colTc"))}</th><th>${esc(t("colPw"))}</th><th>${esc(t("colBt"))}</th><th>${esc(t("colNow"))}</th><th>${esc(t("colNew"))}</th><th>${esc(t("colDone"))}</th></tr></thead><tbody>
+    ${rows.filter((r) => !onlyLeft || !r.ok).map((r) => `<tr class="${r.ok ? "ok" : ""}${btv(r) ? " bt-" + btv(r) : ""}"><td dir="auto">${esc(r.name)}</td><td>${r.m ? esc(OFFICER.tcText(r.m.tc)) : "—"}</td><td>${r.m && r.m.power ? fmtPw(+r.m.power) : "—"}</td><td class="mm-btk">${btBox(r, "1")}${btBox(r, "2")}</td><td>${xy(r.a)}</td><td>${r.b ? `<button class="btn small mm-cp" data-c="X:${r.b[1]} Y:${r.b[2]}">${xy(r.b)}</button>` : `<span class="muted">${esc(t("noPlace"))}</span>`}</td>
       <td>${r.there ? `<span title="${esc(t("auto"))}">✅</span>` : r.b ? `<input type="checkbox" data-done="${esc(r.k)}"${r.ok ? " checked" : ""}${ed ? "" : " disabled"}>` : ""}</td></tr>`).join("")}
     </tbody></table></div></div>`;
 }
@@ -457,6 +479,7 @@ async function load() {
   if (!Array.isArray(D.bt) || D.bt.length < 2) D.bt = BT0.map((a) => a.slice());
   SAVED = snap();
 }
+window.addEventListener("nxs-bt", () => { if (!D) return; render(); if ($("mv_root") && $("mv_root").innerHTML) renderMove(); });
 async function init(map) {
   G = map; lang = OFFICER.lang || "en";
   const el = $("km_members"); if (!el) return;
@@ -464,6 +487,7 @@ async function init(map) {
   if (!window.KM_SHARED) { try { banners = ((await fetch("data/banners-2189.json?v=20").then((r) => r.json())).b || []).map(([x, y]) => [x, y]); } catch (e) {} }
   await load(); render();
   if (OFFICER.can("move", "view") && !MV.plan) { try { await loadMove(); mapSync(); } catch (e) {} }
+  if (OFFICER.can("move", "view")) OFFICER.BT.load();
   try { roster = await OfficerData.fetchJsonFast("data/roster-x7k2p9.json", (r) => { roster = r; render(); if ($("mv_root") && $("mv_root").innerHTML) renderMove(); }); } catch (e) {}
   render();
 }
@@ -535,6 +559,11 @@ function renderMove() {
   bindSteps(el); bindMp(el);
   if ($("mm_left")) $("mm_left").onchange = (e) => { onlyLeft = e.target.checked; renderMove(); };
   el.querySelectorAll(".mm-cp").forEach((b) => b.onclick = async () => { try { await navigator.clipboard.writeText(b.dataset.c); b.textContent = t("copied"); } catch (e) {} });
+  el.querySelectorAll("input.mm-bt[data-bt]").forEach((c) => c.onchange = () => { OFFICER.BT.set(c.dataset.bid, c.dataset.bt, c.checked); });
+  el.querySelectorAll("[data-btcopy]").forEach((x) => x.onclick = async () => { const k = x.dataset.btcopy, ms = ((roster && roster.members) || []).filter((m) => OFFICER.BT.has(m.id, k)).sort((p, q) => (+q.power || 0) - (+p.power || 0));
+    const text = `${t("bt" + k)} (${ms.length})\n` + ms.map((m) => m.name).join("\n");
+    try { await navigator.clipboard.writeText(text); } catch (e) { const ta = document.createElement("textarea"); ta.value = text; el.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); }
+    x.textContent = t("btCopied"); setTimeout(() => { x.textContent = t("btCopy"); }, 1500); });
   el.querySelectorAll("[data-done]").forEach((c) => c.onchange = () => { if (!MED()) return; const k = c.dataset.done, set = new Set((MV.done || []).map(norm));
     if (c.checked) set.add(k); else set.delete(k); MV.done = [...set]; mvMsg = t("unsaved"); render(); renderMove(); });
   if (!ed) return;

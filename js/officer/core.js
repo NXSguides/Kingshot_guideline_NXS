@@ -479,3 +479,26 @@ async function officerGate() {
 function forgetOldPw() { try { const s = officerStore(); if (s.pw) { delete s.pw; localStorage.setItem(OFFICER_LS, JSON.stringify(s)); } } catch (e) {} }
 forgetOldPw();
 applyShared();
+/* 🐻 BT1 / BT2 marks (Nia, 2026-11-05): which Bear Trap each member is in — ONE list on the Worker, shown on 📊 Roster and 🐝 Hive.
+   OFFICER.BT.map[id] = "1" | "2" | "12". A change anywhere fires "nxs-bt" so the other tab redraws. */
+OFFICER.tcText = (lv) => lv == null || lv === "" ? "?" : +lv >= 35 ? "TG" + Math.floor((+lv - 30) / 5) : String(lv);   // MightPulse level 35 = TG1, 40 = TG2 …
+OFFICER.BT = (() => {
+  const LSK = "nxs-bt-v1";
+  let map = {}; try { map = JSON.parse(localStorage.getItem(LSK)) || {}; } catch (e) { map = {}; }
+  const keep = () => { try { localStorage.setItem(LSK, JSON.stringify(map)); } catch (e) {} };
+  const fire = () => { try { window.dispatchEvent(new CustomEvent("nxs-bt")); } catch (e) {} };
+  const call = async (op, extra) => { const r = await fetch(AUTH_API + "/plans", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...OFFICER.authBody(), op, ...extra }), cache: "no-store" });
+    const j = await r.json().catch(() => ({})); if (j.token) { try { localStorage.setItem(DISCORD_LS, j.token); } catch (e) {} } return j; };
+  const api = {
+    get map() { return map; },
+    has: (id, k) => String(map[String(id)] || "").includes(k),
+    put(m) { if (m && typeof m === "object") { const s = JSON.stringify(m); if (s !== JSON.stringify(map)) { map = { ...m }; keep(); fire(); } } },
+    async load() { try { const j = await call("btget", {}); if (j.bt) api.put(j.bt); } catch (e) {} return map; },
+    async set(id, k, on) {
+      const sid = String(id), h = new Set(String(map[sid] || "").split("").filter(Boolean)); if (on) h.add(k); else h.delete(k);
+      const v = [...h].sort().join(""); map = { ...map }; if (v) map[sid] = v; else delete map[sid]; keep(); fire();
+      try { const j = await call("bt", { id: sid, k, on }); if (j.bt) api.put(j.bt); return !j.error; } catch (e) { return false; }
+    },
+  };
+  return api;
+})();

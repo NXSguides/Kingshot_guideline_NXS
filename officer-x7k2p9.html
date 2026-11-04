@@ -1067,6 +1067,19 @@
   .km-members .mm-t { border-collapse: collapse; width: 100%; font-size: 13px; }
   .km-members .mm-t th, .km-members .mm-t td { padding: 4px 6px; border-bottom: 1px solid var(--rule); text-align: start; white-space: nowrap; }
   .km-members .mm-t tr.ok td { opacity: .6; }
+  /* 🐻 BT1 / BT2 in the moving table (same colours as 📊 Roster) */
+  .mm-btc { border: 1px solid var(--rule); border-radius: 10px; padding: 8px 10px; margin: 8px 0; }
+  .mm-btg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  @media (max-width: 480px) { .mm-btg { grid-template-columns: 1fr; } }
+  .mm-btl { border-radius: 8px; padding: 6px 8px; font-size: 13.5px; }
+  .mm-btl.b1 { background: color-mix(in srgb, #3b82f6 16%, var(--panel)); }
+  .mm-btl.b2 { background: color-mix(in srgb, #f59e0b 18%, var(--panel)); }
+  .mm-t td.mm-btk { white-space: nowrap; }
+  .mm-t input.mm-bt { width: 18px; height: 18px; margin: 0 2px; cursor: pointer; vertical-align: middle; }
+  .mm-t input.mm-bt.b1 { accent-color: #3b82f6; } .mm-t input.mm-bt.b2 { accent-color: #f59e0b; }
+  .mm-t tr.bt-1 td { background: color-mix(in srgb, #3b82f6 14%, transparent); }
+  .mm-t tr.bt-2 td { background: color-mix(in srgb, #f59e0b 16%, transparent); }
+  .mm-t tr.bt-12 td { background: color-mix(in srgb, #a855f7 16%, transparent); }
   .km-members .mm-pn { font: 600 9px Arial, sans-serif; fill: #eaf6ea; pointer-events: none; }
   .km-members .mm-tg { font: 800 10px Arial, sans-serif; pointer-events: none; paint-order: stroke; stroke: #0008; stroke-width: 2.5px; }
   .km-members .mm-kill { font: 900 20px Arial, sans-serif; paint-order: stroke; stroke: #0009; stroke-width: 3px; }
