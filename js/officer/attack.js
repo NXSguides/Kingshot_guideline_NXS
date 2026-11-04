@@ -17,27 +17,27 @@ const esc = OFFICER.util.esc;
 const B = 1.06;
 const TIER = { T9: 1.0, T10: 1.18, TG1: 1.228, TG2: 1.289, TG3: 1.353 };
 const T = {
-  en: { title: "⚔️ Battle", intro: "Plan an attack from today's MightPulse boards (our side: Chenko joiners, 50 : 20 : 30), see the strongest players, scout other kingdoms (🔭, e.g. the KvK opponent).",
+  en: { title: "⚔️ Battle", intro: "Compare two players (⚖️), see today's strength of the main players, and scout other kingdoms (🔭, e.g. the KvK opponent).",
     aT: "⚔️ Plan the attack", tgt: "Target", tLead: "Their garrison leader", tG: "Garrison troops", tTier: "Their tier", terr: "In their own territory (+10% all)", us: "Our rallies (in order)", lead: "Leader", size: "Troops", tier: "Tier", addR: "➕ Rally", more: "More settings", debUs: "Their debuff on us (attack/defense −%)", debThem: "Our debuff on them (−%)", p: "p (1.5 – 2)", reinf: "Reinforcements between rallies", pick: "— choose —",
     res: "Result", colR: "Rally", colS: "Strength", colOut: "Result", win: "✅ We take it — {s} of ours stay", lose: "❌ Lost — {g} of theirs left", need: "Rallies like #1 needed: about {n}.", last: "Send expendable rallies first and the strongest leader last — the last rally's survivors hold the building.", one: "One of their troops ≈ {x} of ours (r = {r}).",
     unc: "Rallies like #1 needed for other garrison sizes and p:", caveat: "Rough estimate: it under-rates attackers (B24: model ≈ 300k left, real 587k). Not counted: hero skill kills, troop counters; a garrison may use its strongest member's stats.", noR: "Choose their garrison leader and at least one of our leaders.",
     bT: "📊 Today's strength", bNote: "Strength = Governor gear + Hero equip + Master power (millions). Only players in the kingdom top 100 of all three boards have one; others can't be chosen.", bData: "Boards from {d} · kingdom {k}", bNoData: "No MightPulse boards yet (saved every day at 20:45 UTC).", bOurs: "NXS", bThem: "Others", bFind: "Search a player…", bMiss: "below the top 100 on {b}", gear: "Gov gear", heq: "Hero equip", mst: "Master" },
-  zh: { title: "⚔️ 作戰", intro: "用今天的 MightPulse 排行榜規劃進攻（我們這邊：琴科加入者、50 : 20 : 30），看各方主力的強度，偵查其他王國（🔭，例如 KvK 對手）。",
+  zh: { title: "⚔️ 作戰", intro: "比較兩個人（⚖️）、看今天各方主力的強度、偵查其他王國（🔭，例如 KvK 對手）。",
     aT: "⚔️ 規劃進攻", tgt: "目標", tLead: "對方駐守隊長", tG: "守軍兵數", tTier: "對方兵等", terr: "在他們自己的領地（四項 +10%）", us: "我們的集結（照順序）", lead: "隊長", size: "兵數", tier: "兵等", addR: "➕ 集結", more: "更多設定", debUs: "對方給我們的減益（攻擊／防禦 −%）", debThem: "我們給對方的減益（−%）", p: "p（1.5 – 2）", reinf: "每波之間對方補兵", pick: "— 選擇 —",
     res: "結果", colR: "集結", colS: "強度", colOut: "結果", win: "✅ 打下來了——我們剩 {s}", lose: "❌ 輸了——對方剩 {g}", need: "照第 1 波這種集結：大約要 {n} 波。", last: "可以犧牲的集結先上，最強的隊長最後——最後一波的生還者會守建築。", one: "對方一個兵 ≈ 我們 {x} 個兵（r = {r}）。",
     unc: "換成其他守軍兵數和 p，照第 1 波這種集結要幾波：", caveat: "粗估：會低估攻方（B24：模型剩約 30 萬，實際 58.7 萬）。沒算到：英雄技能擊殺、兵種相剋；守軍可能用裡面最強的人的屬性。", noR: "請選對方駐守隊長，和至少一位我們的隊長。",
     bT: "📊 今天的強度", bNote: "強度 = 領主裝備 + 英雄裝備 + 大師戰力（百萬）。三個榜都在王國前 100 名的人才有強度，其他人不能選。", bData: "排行榜日期 {d} · 王國 {k}", bNoData: "還沒有 MightPulse 排行榜資料（每天 20:45 UTC 存一份）。", bOurs: "NXS", bThem: "其他聯盟", bFind: "搜尋玩家…", bMiss: "{b} 不在前 100 名", gear: "領主裝備", heq: "英雄裝備", mst: "大師" },
-  pt: { title: "⚔️ Batalha", intro: "Planeje um ataque pelos rankings de hoje do MightPulse (nosso lado: Chenko, 50 : 20 : 30), veja os jogadores mais fortes, espie outros reinos (🔭, ex.: o adversário do KvK).",
+  pt: { title: "⚔️ Batalha", intro: "Compare dois jogadores (⚖️), veja a força de hoje dos principais jogadores e espie outros reinos (🔭, ex.: o adversário do KvK).",
     aT: "⚔️ Planejar o ataque", tgt: "Alvo", tLead: "Líder da guarnição deles", tG: "Tropas da guarnição", tTier: "Nível deles", terr: "No território deles (+10% em tudo)", us: "Nossos rallies (em ordem)", lead: "Líder", size: "Tropas", tier: "Nível", addR: "➕ Rally", more: "Mais opções", debUs: "Debuff deles em nós (ataque/defesa −%)", debThem: "Nosso debuff neles (−%)", p: "p (1,5 – 2)", reinf: "Reforços entre rallies", pick: "— escolha —",
     res: "Resultado", colR: "Rally", colS: "Força", colOut: "Resultado", win: "✅ Tomamos — ficam {s} nossos", lose: "❌ Perdemos — restam {g} deles", need: "Rallies como o nº 1 necessários: cerca de {n}.", last: "Mande os rallies dispensáveis primeiro e o líder mais forte por último — os sobreviventes do último seguram o prédio.", one: "Uma tropa deles ≈ {x} das nossas (r = {r}).",
     unc: "Rallies como o nº 1 necessários para outros tamanhos e p:", caveat: "Estimativa: subestima o atacante (B24: modelo ≈ 300 mil, real 587 mil). Fora: mortes por habilidades, vantagens de tipo; a guarnição pode usar os atributos do membro mais forte.", noR: "Escolha o líder da guarnição deles e pelo menos um líder nosso.",
     bT: "📊 Força de hoje", bNote: "Força = Equip. do governador + Equip. de heróis + Poder de mestre (milhões). Só quem está no top 100 do reino nos três tem força; os outros não podem ser escolhidos.", bData: "Rankings de {d} · reino {k}", bNoData: "Ainda sem rankings do MightPulse (salvos todo dia às 20:45 UTC).", bOurs: "NXS", bThem: "Outros", bFind: "Procurar jogador…", bMiss: "fora do top 100 em {b}", gear: "Equip. gov.", heq: "Equip. heróis", mst: "Mestre" },
-  ar: { title: "⚔️ المعركة", intro: "خطّط هجومًا من لوحات MightPulse اليوم (جانبنا: Chenko و50 : 20 : 30)، وشاهد أقوى اللاعبين، واستطلع ممالك أخرى (🔭، مثل خصم KvK).",
+  ar: { title: "⚔️ المعركة", intro: "قارن بين لاعبَين (⚖️)، وشاهد قوة اليوم لأقوى اللاعبين، واستطلع ممالك أخرى (🔭، مثل خصم KvK).",
     aT: "⚔️ خطّط الهجوم", tgt: "الهدف", tLead: "قائد حاميتهم", tG: "جنود الحامية", tTier: "مستواهم", terr: "في أرضهم (+10% للكل)", us: "حشودنا (بالترتيب)", lead: "القائد", size: "الجنود", tier: "المستوى", addR: "➕ حشد", more: "إعدادات أخرى", debUs: "إضعافهم علينا (هجوم/دفاع −%)", debThem: "إضعافنا عليهم (−%)", p: "p (1.5 – 2)", reinf: "تعزيزات بين الحشود", pick: "— اختر —",
     res: "النتيجة", colR: "حشد", colS: "القوة", colOut: "النتيجة", win: "✅ نأخذه — يبقى {s} من جنودنا", lose: "❌ خسرنا — يبقى {g} من جنودهم", need: "حشود مثل رقم 1 المطلوبة: نحو {n}.", last: "أرسل الحشود التي يمكن التضحية بها أولًا والقائد الأقوى أخيرًا — الناجون من آخر حشد يحمون المبنى.", one: "جندي واحد منهم ≈ {x} من جنودنا (r = {r}).",
     unc: "عدد الحشود مثل رقم 1 لأحجام وقيم p أخرى:", caveat: "تقدير تقريبي: يقلّل من قوة المهاجم (B24: النموذج ≈ 300 ألف، الفعلي 587 ألفًا). غير محسوب: قتلى المهارات وأفضلية الأنواع؛ قد تستخدم الحامية إحصاءات أقوى عضو.", noR: "اختر قائد حاميتهم وقائدًا واحدًا على الأقل منا.",
     bT: "📊 قوة اليوم", bNote: "القوة = عتاد الحاكم + عتاد الأبطال + قوة المعلّم (بالملايين). فقط من هو ضمن أفضل 100 في المملكة في اللوحات الثلاث له قوة؛ لا يمكن اختيار غيرهم.", bData: "لوحات {d} · المملكة {k}", bNoData: "لا توجد لوحات MightPulse بعد (تُحفظ يوميًا 20:45 UTC).", bOurs: "NXS", bThem: "آخرون", bFind: "ابحث عن لاعب…", bMiss: "خارج أفضل 100 في {b}", gear: "عتاد الحاكم", heq: "عتاد الأبطال", mst: "المعلّم" },
-  ko: { title: "⚔️ 작전", intro: "오늘의 MightPulse 랭킹으로 공격을 계획하고 (우리: Chenko 참가자, 50 : 20 : 30), 가장 강한 플레이어를 보고, 다른 왕국을 정찰하고 (🔭, 예: KvK 상대)해요.",
+  ko: { title: "⚔️ 작전", intro: "두 사람을 비교하고 (⚖️), 오늘 주력들의 강도를 보고, 다른 왕국을 정찰해요 (🔭, 예: KvK 상대).",
     aT: "⚔️ 공격 계획 세우기", tgt: "목표", tLead: "그들 주둔 대장", tG: "주둔 병력", tTier: "그들 등급", terr: "그들 영토 안 (전부 +10%)", us: "우리 집결 (순서대로)", lead: "대장", size: "병력", tier: "등급", addR: "➕ 집결", more: "추가 설정", debUs: "그들이 우리에게 거는 디버프 (공격/방어 −%)", debThem: "우리가 거는 디버프 (−%)", p: "p (1.5 – 2)", reinf: "집결 사이 그들의 증원", pick: "— 선택 —",
     res: "결과", colR: "집결", colS: "강도", colOut: "결과", win: "✅ 점령 — 우리 {s} 남음", lose: "❌ 패배 — 그들 {g} 남음", need: "1번 같은 집결이 약 {n}번 필요해요.", last: "희생해도 되는 집결을 먼저, 가장 강한 대장을 마지막에 — 마지막 집결의 생존자가 건물을 지켜요.", one: "그들 병사 1명 ≈ 우리 {x}명 (r = {r}).",
     unc: "다른 주둔 병력과 p에서 1번 같은 집결이 몇 번 필요한지:", caveat: "대략적인 계산: 공격 쪽을 낮게 봐요 (B24: 모델 약 30만, 실제 58.7만). 계산에 없는 것: 영웅 스킬 처치, 병종 상성; 주둔군이 가장 강한 멤버의 능력치를 쓸 수도 있어요.", noR: "그들 주둔 대장과 우리 대장을 한 명 이상 고르세요.",
@@ -257,7 +257,7 @@ function trBox() {
   return `<div class="ak-box"><b>${esc(t("tr"))}</b>${row("us", PLAN.trA)}${row("them", PLAN.trD)}
     ${warn.map((w) => `<div class="mv-warn" style="font-size:12.5px;margin-top:6px">⚠️ ${esc(w)}</div>`).join("")}<div class="muted" style="font-size:12px;margin-top:4px">${esc(t("trNote"))}</div></div>`;
 }
-const modeBar = () => `<div class="ak-mode" role="tablist">${[["home", t("mHome")], ["kvk", t("mKvk")], ["ss", t("mSs")]].map(([k, l]) => `<button type="button" class="btn${(PLAN.mode || "home") === k ? " on" : ""}" data-mode="${k}">${esc(l)}</button>`).join("")}</div>`;
+const modeBar = () => `<div class="ak-mode" role="tablist">${[["home", t("mHome")], ["kvk", t("mKvk")]].map(([k, l]) => `<button type="button" class="btn${(PLAN.mode || "home") === k ? " on" : ""}" data-mode="${k}">${esc(l)}</button>`).join("")}</div>`;
 const dirBar = () => `<div class="ak-mode ak-dir">${[["atk", t("dirA")], ["def", t("dirD")]].map(([k, l]) => `<button type="button" class="btn small${PLAN.dir === k ? " on" : ""}" data-dir="${k}">${esc(l)}</button>`).join("")}</div>`;
 
 /* ---------- ⚔️ / 🛡️ planner ---------- */
@@ -478,12 +478,89 @@ function ssCard() {
     <div class="muted" style="font-size:12px;margin-top:10px">⚠️ ${esc(t("ssCav"))}</div>`;
 }
 
+/* ---------- ⚖️ Super compare (Sherry 2026-11-04: battle judging was too much to fill in live — just a rough "how much stronger is he") ----------
+   Two players, side by side: strength S (gear + hero equip + master) and each board, Town Center, VIP (Scout), Amadeus / Helga stars (their own record). */
+const VT = {
+  en: { t: "⚖️ Super compare", p: "Pick two players — anyone on today's MightPulse boards or in 🔭 Scout. A rough guide to how much stronger one is.", find: "🔎 Find…", same: "About equal", more: "{b} is about {n}% stronger than {a}", lot: "a lot stronger", bit: "a bit stronger",
+    rows: { S: "💪 Strength", gov_gear: "👑 Governor Gear", hero_equip: "🛡️ Hero Gear", master_power: "🎓 Masters", gov_charm: "💎 Governor Charms", pet_power: "🐾 Pets", research_power: "🔬 Research", troop_power: "⚔️ Troop power", migrant: "🧳 Migrant Score", power: "Power" },
+    tc: "Town Center {n}", vip: "VIP {n}", star: "{h} ★{n}", full: "max stars", est: "≈ estimated from Power (not in the top 100 of all three boards)", none: "No MightPulse data yet.",
+    note: "Strength = Governor Gear + Hero Gear + Masters (millions); it ranked 7 rally leaders' real troop stats almost exactly. It shows investment only — not troops, tiers or which troop type they push. VIP 9+ and max-star Amadeus / Helga add stats the boards can't see." },
+  zh: { t: "⚖️ 超級比一比", p: "選兩個人——今天 MightPulse 排行榜上或 🔭 偵察裡的任何人。粗略看一個人比另一個強多少。", find: "🔎 找名字…", same: "差不多", more: "{b} 比 {a} 強約 {n}%", lot: "強很多", bit: "強一些",
+    rows: { S: "💪 強度", gov_gear: "👑 領主裝備", hero_equip: "🛡️ 英雄裝備", master_power: "🎓 大師", gov_charm: "💎 領主寶石", pet_power: "🐾 寵物", research_power: "🔬 研究", troop_power: "⚔️ 部隊實力", migrant: "🧳 遷城分數", power: "總戰力" },
+    tc: "城鎮中心 {n}", vip: "VIP {n}", star: "{h} ★{n}", full: "滿星", est: "≈ 用總戰力估的（不在三個榜的前 100 名）", none: "還沒有 MightPulse 資料。",
+    note: "強度 = 領主裝備 + 英雄裝備 + 大師（百萬）；拿 7 位集結隊長的實際部隊屬性比過，排名幾乎一樣。只看得出投資量——看不到兵數、兵等、專練哪個兵種。VIP 9 以上、阿瑪迪斯／赫爾加滿星也會加屬性，排行榜看不到。" },
+  pt: { t: "⚖️ Supercomparação", p: "Escolha dois jogadores — qualquer um dos rankings do MightPulse de hoje ou do 🔭 Reconhecimento. Um guia aproximado de quanto um é mais forte.", find: "🔎 Procurar…", same: "Quase igual", more: "{b} é cerca de {n}% mais forte que {a}", lot: "bem mais forte", bit: "um pouco mais forte",
+    rows: { S: "💪 Força", gov_gear: "👑 Equipamento do Chefe", hero_equip: "🛡️ Equipamento do Herói", master_power: "🎓 Mestres", gov_charm: "💎 Amuleto do Governador", pet_power: "🐾 Mascotes", research_power: "🔬 Pesquisa", troop_power: "⚔️ Poder das tropas", migrant: "🧳 Pontuação de Migração", power: "Poder" },
+    tc: "Centro da Cidade {n}", vip: "VIP {n}", star: "{h} ★{n}", full: "estrelas máx.", est: "≈ estimado pelo Poder (fora do top 100 dos três rankings)", none: "Ainda sem dados do MightPulse.",
+    note: "Força = Equip. do Chefe + Equip. do Herói + Mestres (milhões); ordenou os atributos reais de 7 líderes de rally quase exatamente. Mostra só investimento — não tropas, níveis nem o tipo de tropa. VIP 9+ e Amadeus / Helga com estrelas máximas somam atributos que os rankings não mostram." },
+  ar: { t: "⚖️ المقارنة الكبرى", p: "اختر لاعبَين — أي شخص في لوحات MightPulse اليوم أو في 🔭 الاستطلاع. دليل تقريبي لمدى تفوّق أحدهما.", find: "🔎 ابحث…", same: "متقاربان", more: "{b} أقوى من {a} بنحو {n}%", lot: "أقوى بكثير", bit: "أقوى قليلًا",
+    rows: { S: "💪 القوة", gov_gear: "👑 عتاد الحاكم", hero_equip: "🛡️ عتاد البطل", master_power: "🎓 المعلّمون", gov_charm: "💎 تميمة الحاكم", pet_power: "🐾 الحيوانات الأليفة", research_power: "🔬 البحث", troop_power: "⚔️ قوة القوات", migrant: "🧳 نقاط الهجرة", power: "القوة الكلية" },
+    tc: "مركز المدينة {n}", vip: "VIP {n}", star: "{h} ★{n}", full: "نجوم كاملة", est: "≈ مقدّرة من القوة الكلية (خارج أفضل 100 في اللوحات الثلاث)", none: "لا توجد بيانات MightPulse بعد.",
+    note: "القوة = عتاد الحاكم + عتاد البطل + المعلّمون (بالملايين)؛ رتّبت الخصائص الحقيقية لـ7 قادة حشد بدقة تقريبًا. تُظهر الاستثمار فقط — لا الجنود ولا المستويات ولا نوع القوات. VIP 9+ وأماديوس / هيلغا بنجوم كاملة يضيفون خصائص لا تظهر في اللوحات." },
+  ko: { t: "⚖️ 슈퍼 비교", p: "두 사람을 골라 — 오늘 MightPulse 랭킹이나 🔭 정찰에 있는 누구든. 한 명이 얼마나 더 강한지 대략 보는 용도야.", find: "🔎 이름 찾기…", same: "비슷", more: "{b}이(가) {a}보다 약 {n}% 강함", lot: "훨씬 강함", bit: "조금 강함",
+    rows: { S: "💪 강도", gov_gear: "👑 영주 장비", hero_equip: "🛡️ 영웅 장비", master_power: "🎓 마스터", gov_charm: "💎 영주 보석", pet_power: "🐾 펫", research_power: "🔬 연구", troop_power: "⚔️ 부대 전투력", migrant: "🧳 이주 점수", power: "전투력" },
+    tc: "도시 센터 {n}", vip: "VIP {n}", star: "{h} ★{n}", full: "만성", est: "≈ 전투력으로 추정 (세 랭킹 상위 100 밖)", none: "아직 MightPulse 데이터가 없어.",
+    note: "강도 = 영주 장비 + 영웅 장비 + 마스터 (백만); 집결 대장 7명의 실제 부대 스탯 순위와 거의 똑같았어. 투자량만 보여줘 — 병력, 등급, 어떤 병종을 키우는지는 안 보여. VIP 9 이상, 만성 아마데우스 / 헬가도 랭킹에 안 보이는 스탯을 더해." } };
+const vt = (k) => (VT[lang] || VT.en)[k] ?? VT.en[k];
+let VS = (() => { try { return JSON.parse(localStorage.getItem("nxs-vs")) || {}; } catch (e) { return {}; } })();
+const vsKeep = () => { try { localStorage.setItem("nxs-vs", JSON.stringify(VS)); } catch (e) {} };
+const VQ = { a: "", b: "" };
+/* everyone we know: board players (PL) + 🔭 Scout players + snapshot players' own records */
+function vsPeople() {
+  const P = {};
+  for (const p of Object.values(PL)) P[p.id] = { id: p.id, name: p.name, al: p.al, kid: p.kid, b: { ...p.b } };
+  for (const [kid, k] of Object.entries((SCB && SCB.kingdoms) || {})) for (const s of k.players || []) { const id = String(s.id); const x = P[id] = P[id] || { id, name: s.name, al: s.alliance || "", kid: +kid, b: {} };
+    if (s.power) x.power = s.power; if (s.tc) x.tc = s.tc; if (s.vip != null && s.vip !== "") x.vip = s.vip; const mg = OFFICER.migrantOf(s); if (mg) x.migrant = mg; if (s.raw && Array.isArray(s.raw.heroes)) x.heroes = s.raw.heroes; }
+  for (const [id, r] of Object.entries((SNAP && SNAP.players) || {})) { const pl = r && r.player; if (!pl) continue; const x = P[id] = P[id] || { id, name: pl.nick_name, al: (pl.alliance && pl.alliance.abbr) || "", kid: +pl.kid || 2189, b: {} };
+    if (pl.power && !x.power) x.power = pl.power; if (pl.town_center_level && !x.tc) x.tc = pl.town_center_level; if (Array.isArray(r.heroes) && r.heroes.length) x.heroes = r.heroes;
+    const mg = r.ranks && r.ranks.migrant_score; if (mg && !x.migrant) x.migrant = mg; }
+  for (const x of Object.values(P)) { if (!x.power && x.b.personal_power) x.power = x.b.personal_power; if (!x.migrant && x.b.migrant_score) x.migrant = x.b.migrant_score;
+    x.S = B3.every((b) => x.b[b] != null) ? B3.reduce((s, b) => s + x.b[b] / 1e6, 0) : null; x.Se = !x.S && x.power && CPOW ? CPOW * x.power / 1e6 : null; }
+  return P;
+}
+const vsS = (x) => x ? (x.S || x.Se || null) : null;
+function vsHtml() {
+  const P = vsPeople(), all = Object.values(P).filter((x) => vsS(x)).sort((a, b) => vsS(b) - vsS(a));
+  if (!all.length) return `<h3 style="margin:0 0 4px">${esc(vt("t"))}</h3><div class="muted">${esc(vt("none"))}</div>`;
+  if (!P[VS.a]) VS.a = (all.find(ours) || all[0]).id;
+  if (!P[VS.b]) VS.b = (all.find((x) => !ours(x)) || all[1] || all[0]).id;
+  const A = P[VS.a], Bp = P[VS.b];
+  const pick = (k) => { const q = norm(VQ[k]), list = q.length >= 1 ? all.filter((x) => norm(x.name).includes(q) || norm(x.al) === q) : all;
+    const cur = P[VS[k]], opts = (list.includes(cur) ? list : [cur, ...list]).slice(0, 300);
+    return `<div class="ak-vsp"><input class="inp" data-vq="${k}" placeholder="${esc(vt("find"))}" value="${esc(VQ[k])}"><select class="inp" data-vs="${k}">${opts.map((x) => `<option value="${esc(x.id)}"${x.id === VS[k] ? " selected" : ""}>${esc(x.name)}${x.al ? ` [${esc(x.al)}]` : ""}${x.kid && x.kid !== 2189 ? ` #${x.kid}` : ""} · ${vsS(x).toFixed(1)}${x.S ? "" : "≈"}</option>`).join("")}</select></div>`; };
+  const tags = (x) => { const o = []; if (x.tc) o.push(fill(vt("tc"), { n: x.tc })); if (x.vip != null) o.push(fill(vt("vip"), { n: x.vip }));
+    for (const h of x.heroes || []) { const k = String(h.name || "").toLowerCase().replace(/[^a-z]/g, ""); if (k !== "amadeus" && k !== "helga") continue; const st = h.stars ?? h.star;
+      o.push(`<span class="ak-st${st >= 5 ? " full" : ""}">${esc(fill(vt("star"), { h: lang === "zh" ? (k === "amadeus" ? "阿瑪迪斯" : "赫爾加") : (k === "amadeus" ? "Amadeus" : "Helga"), n: st ?? "?" }))}${st >= 5 ? " · " + esc(vt("full")) : ""}</span>`); }
+    return o.map((s) => s.startsWith("<span") ? s : `<span>${esc(s)}</span>`).join(""); };
+  const sa = vsS(A), sb = vsS(Bp), hi = sb >= sa ? [Bp, A] : [A, Bp], pct = Math.round((Math.max(sa, sb) / Math.min(sa, sb) - 1) * 100);
+  const verdict = pct < 10 ? `🤝 ${vt("same")}` : `${pct >= 30 ? "🔺🔺" : "🔺"} ${fill(vt("more"), { a: hi[1].name, b: hi[0].name, n: pct })} <small>(${esc(vt(pct >= 30 ? "lot" : "bit"))})</small>`;
+  const val = (x, k) => k === "S" ? vsS(x) : k === "migrant" ? (x.migrant || null) : k === "power" ? (x.power || null) : (x.b[k] != null ? x.b[k] : null);
+  const show = (k, v) => v == null ? "—" : k === "S" ? v.toFixed(1) : k === "migrant" ? Math.round(v / 1e3) + "k" : (v / 1e6).toFixed(1) + "M";
+  const rows = ["S", "gov_gear", "hero_equip", "master_power", "gov_charm", "pet_power", "research_power", "troop_power", "migrant", "power"].map((k) => {
+    const a = val(A, k), b = val(Bp, k); if (a == null && b == null) return "";
+    const m = Math.max(a || 0, b || 0) || 1, w = (v) => v == null ? 0 : (v / m * 100).toFixed(1);
+    return `<div class="ak-vr${k === "S" ? " main" : ""}"><div class="ak-vv a${a != null && b != null && a > b ? " win" : ""}"><b>${show(k, a)}${k === "S" && A.S == null ? "≈" : ""}</b><span class="tr"><i style="width:${w(a)}%"></i></span></div>
+      <div class="ak-vk">${esc(vt("rows")[k])}</div><div class="ak-vv b${a != null && b != null && b > a ? " win" : ""}"><span class="tr"><i style="width:${w(b)}%"></i></span><b>${show(k, b)}${k === "S" && Bp.S == null ? "≈" : ""}</b></div></div>`; }).join("");
+  return `<h3 style="margin:0 0 4px">${esc(vt("t"))}</h3><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(vt("p"))}</div>
+    <div class="ak-vsh">${pick("a")}<span class="ak-vsx">VS</span>${pick("b")}</div>
+    <div class="ak-vsh ak-tags"><div>${tags(A)}</div><i></i><div>${tags(Bp)}</div></div>
+    <div class="ak-verd">${verdict}</div>
+    <div class="ak-vrs">${rows}</div>
+    ${A.S == null || Bp.S == null ? `<div class="muted" style="font-size:12px;margin-top:6px">${esc(vt("est"))}</div>` : ""}
+    <div class="muted" style="font-size:12px;margin-top:8px">💡 ${esc(vt("note"))}</div>`;
+}
+function vsBind() {
+  document.querySelectorAll("[data-vs]").forEach((s) => s.onchange = () => { VS[s.dataset.vs] = s.value; vsKeep(); const c = $("ak_vs"); if (c) { c.innerHTML = vsHtml(); vsBind(); } });
+  document.querySelectorAll("[data-vq]").forEach((i) => i.oninput = () => { const k = i.dataset.vq; VQ[k] = i.value; const c = $("ak_vs"); if (!c) return; c.innerHTML = vsHtml(); vsBind();
+    const n = c.querySelector(`[data-vq="${k}"]`); if (n) { n.focus(); n.setSelectionRange(n.value.length, n.value.length); }
+    const sel = c.querySelector(`[data-vs="${k}"]`), q = norm(VQ[k]); if (sel && q) { const first = [...sel.options].find((o) => norm(o.textContent).includes(q)); if (first && first.value !== VS[k]) { VS[k] = first.value; vsKeep(); c.innerHTML = vsHtml(); vsBind(); const n2 = c.querySelector(`[data-vq="${k}"]`); if (n2) { n2.focus(); n2.setSelectionRange(n2.value.length, n2.value.length); } } } });
+}
 function render() {
   const root = $("ak_root"); if (!root) return;
-  root.innerHTML = PLAN.mode === "ss" ? `${modeBar()}<div class="card" id="ak_ss">${ssCard()}</div>`
-    : `${modeBar()}${kvk() && window.KvkIntel ? `<div class="card" id="ak_intel">${KvkIntel.html(SNAP)}</div>` : ""}<div class="card" id="ak_plan">${planCard()}</div><div class="card" id="ak_board">${boardsCard()}</div>`;   // 🎯 opponent intel on top of ⚔️ KvK (js/officer/intel.js)
+  if (PLAN.mode === "ss") PLAN.mode = "home";   // 🗡️ Swordland mode and the ⚔️ planner were taken out (Sherry 2026-11-04) — code kept below, not shown
+  root.innerHTML = `<div class="card" id="ak_vs">${vsHtml()}</div>${modeBar()}${kvk() && window.KvkIntel ? `<div class="card" id="ak_intel">${KvkIntel.html(SNAP)}</div>` : ""}<div class="card" id="ak_board">${boardsCard()}</div>`;   // 🎯 opponent intel on top of ⚔️ KvK (js/officer/intel.js)
   const sc = $("pg-scout"); if (sc) sc.hidden = PLAN.mode !== "kvk";   // 🔭 Scout (other kingdoms) belongs to ⚔️ KvK only
-  bind();
+  bind(); vsBind();
   if (kvk() && window.KvkIntel) KvkIntel.bind(render);
 }
 function bind() {
@@ -579,7 +656,6 @@ async function init() {
   applyTexts();
   if (!(window.OfficerData && OfficerData.ready && OfficerData.ready())) { $("ak_root").innerHTML = `<div class="card muted">🔒</div>`; return; }
   await loadSnap(); render();
-  if (PLAN.mode === "ss") { await ssLoad(); render(); }
   if (OFFICER.ensure) OFFICER.ensure("scout");   // 🔭 Scout lives in this tab now (its own module, js/officer/scout.js)
 }
 function setLang(l) { lang = l; applyTexts(); if ($("ak_root") && $("ak_root").innerHTML) render(); }
