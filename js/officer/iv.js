@@ -46,8 +46,8 @@ const T = {
     ggG: "Green · Blue", ggP2: "Purple", ggO: "Gold (T1–T3)", ggR: "Red (T1–T4)",
     ggTier: { g: "Green", b: "Blue", p: "Purple", p1: "Purple T1", o: "Gold", o1: "Gold T1", o2: "Gold T2", o3: "Gold T3", r: "Red", r1: "Red T1", r2: "Red T2", r3: "Red T3", r4: "Red T4" },
     ggCols: ["Step", "Satin / Gilded Threads / Artisan's Vision", "Relic Coins", "% gained", "Gems per 1%"],
-    nxH: "🎯 My next step", nxP: "Pick where you are now. The list shows your cheapest next upgrades (gems per +1%), all systems mixed.",
-    nxCharm: "Most of my Governor Charms are at", nxGear: "Most of my Governor Gear pieces are at", nxPet: "My next pet advancement", nxMast: "Main heroes' Mastery Forging", nxEnh: "Enhancement of those main pieces", nxPetTip: "Pet level-ups: pet food is easy to get, so level up whenever you can — rarer pets first (at Lv50 an SR Lion gives ~12.9% troop Attack / Defense, an N Wolf ~4.4%). The real limit is the advancement every 10 levels, which is in the list.",
+    nxH: "🎯 My next step", nxP: "Pick where you are now, per troop type. The list shows your 8 cheapest next upgrades (gems per +1%), all systems and troop types mixed.",
+    nxCharm: "My Governor Charms (most pieces of each troop type)", troops: ["Infantry", "Cavalry", "Archers"], nxGear: "My Governor Gear (most pieces of each troop type)", nxPet: "My next pet advancement", nxMast: "Main heroes' Mastery Forging", nxEnh: "Enhancement of those main pieces", nxPetTip: "Pet level-ups: pet food is easy to get, so level up whenever you can — rarer pets first (at Lv50 an SR Lion gives ~12.9% troop Attack / Defense, an N Wolf ~4.4%). The real limit is the advancement every 10 levels, which is in the list.",
     nxNone: "none yet", nxLv: "Lv{n}", nxPetOpt: ["Lv40", "Lv50", "already past Lv50"], nxMax: "maxed", nxGo: "Do these first:", nxNote: "Same gems, most %. Lethality / Health (Governor Charms) are worth a bit more than they look, Attack / Defense (pets) a bit less.",
     sys: { c: "💠 Governor Charm", g: "🛡️ Governor Gear", pu: "🐾 Pet level-up", pa: "🐾 Pet advancement", r: "🔬 Research", m: "🔨 Mastery Forging" },
     resFirst: "first levels of a tier", resLast: "last level of a tier", petUp: "weekly food", from: "→",
@@ -89,8 +89,8 @@ const T = {
     ggG: "綠・藍", ggP2: "紫", ggO: "金（T1–T3）", ggR: "紅（T1–T4）",
     ggTier: { g: "綠", b: "藍", p: "紫", p1: "紫 T1", o: "金", o1: "金 T1", o2: "金 T2", o3: "金 T3", r: "紅", r1: "紅 T1", r2: "紅 T2", r3: "紅 T3", r4: "紅 T4" },
     ggCols: ["階", "綢緞／金絲線／匠心願景", "聖契幣", "加多少 %", "每 1%（鑽）"],
-    nxH: "🎯 我的下一步", nxP: "選你現在的進度，下面就列出你最划算的下一個升級（每 +1% 幾鑽），所有系統混在一起比。",
-    nxCharm: "我的領主寶石大多在", nxGear: "我的領主裝備大多在", nxPet: "我下一次寵物突破", nxMast: "主力英雄的專精鍛造", nxEnh: "那些主力裝備的強化等級", nxPetTip: "寵物升級：寵物口糧不難拿，能升就升——先升稀有度高的（Lv50 時 SR 獅子部隊攻防約 12.9%、N 灰狼約 4.4%）。真正卡住的是每 10 級一次的突破，那個有在上面排名。",
+    nxH: "🎯 我的下一步", nxP: "照兵種選你現在的進度，下面列出你最划算的 8 個下一步（每 +1% 幾鑽），所有系統、兵種混在一起比。",
+    nxCharm: "我的領主寶石（每個兵種大多在幾級）", troops: ["步兵", "騎兵", "弓兵"], nxGear: "我的領主裝備（每個兵種大多在哪一階）", nxPet: "我下一次寵物突破", nxMast: "主力英雄的專精鍛造", nxEnh: "那些主力裝備的強化等級", nxPetTip: "寵物升級：寵物口糧不難拿，能升就升——先升稀有度高的（Lv50 時 SR 獅子部隊攻防約 12.9%、N 灰狼約 4.4%）。真正卡住的是每 10 級一次的突破，那個有在上面排名。",
     nxNone: "還沒有", nxLv: "Lv{n}", nxPetOpt: ["Lv40", "Lv50", "已經超過 Lv50"], nxMax: "已滿", nxGo: "先做這些：", nxNote: "同樣的鑽石換到最多 %。殺傷力、生命值（領主寶石）實際上比看起來更值錢一點，攻擊力、防禦力（寵物）稍微少一點。",
     sys: { c: "💠 領主寶石", g: "🛡️ 領主裝備", pu: "🐾 寵物升級", pa: "🐾 寵物突破", r: "🔬 研究", m: "🔨 專精鍛造" },
     resFirst: "每階前幾級", resLast: "每階最後一級", petUp: "每週口糧", from: "→",
@@ -130,27 +130,32 @@ function allSteps() {
   for (let L = 0; L < 5; L++) out.push({ sys: "m", key: "m" + L, label: "Lv" + (L + 1), gems: mastGems(L), grp: "m" });
   return out;
 }
-const NX = { c: 0, g: -1, pa: 0, m: 0, e: 60 };
+const NX = { c: [0, 0, 0], g: [-1, -1, -1], pa: 0, m: 0, e: 60 };   // c / g: per troop type [infantry, cavalry, archer]
 // Mastery Forging L → L+1: 10(L+1) Forgehammers (1 = 1,250 Relic Coins ≈ 4,000 gems); each level adds 10% of the piece's base stat (15% + 0.35% × enhancement)
 const mastGems = (L) => 10 * (L + 1) * 4000 / ((15 + 0.35 * (NX.e || 60)) * 0.1);
 try { Object.assign(NX, JSON.parse(localStorage.getItem("nxs-iv") || "{}")); } catch (e) {}
+if (!Array.isArray(NX.c)) NX.c = [NX.c, NX.c, NX.c].map((x) => +x || 0); if (!Array.isArray(NX.g)) NX.g = [NX.g, NX.g, NX.g].map((x) => (x == null ? -1 : +x));   // old one-number setting
 const keepNx = () => { try { localStorage.setItem("nxs-iv", JSON.stringify(NX)); } catch (e) {} };
 function nextHtml() {
   const S = t("sys"), cand = [];
-  for (let k = 0; k < 2; k++) if (NX.c + k < CHARM.length) cand.push({ sys: "c", label: `Lv${NX.c + k} ${t("from")} Lv${NX.c + k + 1}`, gems: charmGems(NX.c + k) });
-  for (let k = 1; k <= 2; k++) if (NX.g + k < GEAR.length) cand.push({ sys: "g", label: (NX.g + k ? gearName(NX.g + k - 1) + ` ${t("from")} ` : "") + gearName(NX.g + k), gems: gearGems(NX.g + k) });
+  const TR = t("troops");
+  for (let tr = 0; tr < 3; tr++) {
+    const c = NX.c[tr], g = NX.g[tr];
+    for (let k = 0; k < 2; k++) if (c + k < CHARM.length) cand.push({ sys: "c", tr: TR[tr], label: `Lv${c + k} ${t("from")} Lv${c + k + 1}`, gems: charmGems(c + k) });
+    for (let k = 1; k <= 2; k++) if (g + k < GEAR.length) cand.push({ sys: "g", tr: TR[tr], label: (g + k ? gearName(g + k - 1) + ` ${t("from")} ` : "") + gearName(g + k), gems: gearGems(g + k) });
+  }
   if (NX.pa < 2) cand.push({ sys: "pa", label: ["Lv40", "Lv50"][NX.pa], gems: [14200, 23200][NX.pa] });
   cand.push({ sys: "r", label: t("resFirst"), gems: 3800, hi: 14600 });
   for (let k = 0; k < 2; k++) if (NX.m + k < 5) cand.push({ sys: "m", label: `${NX.m + k} ${t("from")} ${NX.m + k + 1}`, gems: mastGems(NX.m + k) });
   cand.sort((a, b) => a.gems - b.gems);
   const opt = (n, v, lab) => `<option value="${v}"${n === v ? " selected" : ""}>${esc(lab)}</option>`;
   return `<div class="iv-nxin">
-      <label>${esc(t("nxCharm"))}<select class="inp" id="iv_c">${Array.from({ length: 23 }, (_, n) => opt(NX.c, n, n ? t("nxLv").replace("{n}", n) : t("nxNone"))).join("")}</select></label>
-      <label>${esc(t("nxGear"))}<select class="inp" id="iv_g">${opt(NX.g, -1, t("nxNone"))}${GEAR.map((g, i) => opt(NX.g, i, gearName(i))).join("")}</select></label>
+      <div class="iv-trg"><b>${esc(t("nxCharm"))}</b>${[0, 1, 2].map((tr) => `<label>${esc(TR[tr])}<select class="inp" data-c="${tr}">${Array.from({ length: 23 }, (_, n) => opt(NX.c[tr], n, n ? t("nxLv").replace("{n}", n) : t("nxNone"))).join("")}</select></label>`).join("")}</div>
+      <div class="iv-trg gear"><b>${esc(t("nxGear"))}</b>${[0, 1, 2].map((tr) => `<label>${esc(TR[tr])}<select class="inp" data-g="${tr}">${opt(NX.g[tr], -1, t("nxNone"))}${GEAR.map((g, i) => opt(NX.g[tr], i, gearName(i))).join("")}</select></label>`).join("")}</div>
       <label>${esc(t("nxPet"))}<select class="inp" id="iv_pa">${t("nxPetOpt").map((x, i) => opt(NX.pa, i, x)).join("")}</select></label>
       <label>${esc(t("nxMast"))}<select class="inp" id="iv_m">${Array.from({ length: 6 }, (_, n) => opt(NX.m, n, n === 5 ? `Lv5+ (${t("nxMax")})` : "Lv" + n)).join("")}</select></label>
       <label>${esc(t("nxEnh"))}<select class="inp" id="iv_e">${[40, 60, 80, 100].map((n) => opt(NX.e, n, "+" + n)).join("")}</select></label></div>
-    <div class="iv-nxl"><b>${esc(t("nxGo"))}</b><ol>${cand.slice(0, 6).map((c) => `<li class="b${band(c.gems)}"><span class="iv-sys">${esc(S[c.sys])}</span><span class="iv-lab">${esc(c.label)}</span><span class="iv-gem">${c.hi ? range(c.gems, c.hi) : fmt(c.gems)}</span></li>`).join("")}</ol></div>
+    <div class="iv-nxl"><b>${esc(t("nxGo"))}</b><ol>${cand.slice(0, 8).map((c) => `<li class="b${band(c.gems)}"><span class="iv-sys">${esc(S[c.sys])}${c.tr ? " · " + esc(c.tr) : ""}</span><span class="iv-lab">${esc(c.label)}</span><span class="iv-gem">${c.hi ? range(c.gems, c.hi) : fmt(c.gems)}</span></li>`).join("")}</ol></div>
     <p class="iv-pet">🐾 ${esc(t("nxPetTip"))}</p>
     <div class="muted iv-small">${esc(t("nxNote"))}</div>`;
 }
@@ -218,7 +223,9 @@ function render() {
 }
 function bind() {
   const redo = () => { keepNx(); const n = $("iv_nx"); if (n) { n.innerHTML = nextHtml(); bind(); } const bd = $("iv_bd"); if (bd) bd.innerHTML = bandsHtml(); };
-  for (const [id, k] of [["iv_c", "c"], ["iv_g", "g"], ["iv_pa", "pa"], ["iv_m", "m"], ["iv_e", "e"]]) { const el = $(id); if (el) el.onchange = () => { NX[k] = +el.value; redo(); }; }
+  document.querySelectorAll("#iv_nx [data-c]").forEach((el) => el.onchange = () => { NX.c[+el.dataset.c] = +el.value; redo(); });
+  document.querySelectorAll("#iv_nx [data-g]").forEach((el) => el.onchange = () => { NX.g[+el.dataset.g] = +el.value; redo(); });
+  for (const [id, k] of [["iv_pa", "pa"], ["iv_m", "m"], ["iv_e", "e"]]) { const el = $(id); if (el) el.onchange = () => { NX[k] = +el.value; redo(); }; }
 }
 function init() { applyTexts(); render(); }
 function applyTexts() { if ($("iv_title")) { $("iv_title").textContent = t("title"); $("iv_intro").textContent = t("intro"); } }
