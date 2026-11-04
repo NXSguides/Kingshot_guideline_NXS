@@ -14,11 +14,6 @@ const T = {
   en: { title: "🐻 Bear Hunt report", intro: "Our research on how Bear Hunt scores work: what you bring and which rally you join. Not official — it changes with more mails.",
     badge: "🔬 Research report · from our rally mails · updated {d}",
     heroH: "The Bear never runs out of HP.", heroP: "So your score is about how hard the whole rally hits — and that is almost all about the rally leader. What you control: bring the right troops, join the right rally.",
-    lsH: "✅ 11/04: four things that help", lsP: "From the 11/04 rally lists and mails. This hunt did 16.9B — 37% more than 11/02 (people who came both times did about 20% more on their own).",
-    ls: [["🦸", "First slot: a good joiner hero — or empty", "Only the first hero's top-right skill counts, and only the first 4 joiners with a first hero get a slot. No Attack / Lethality joiner hero left? Leave slot 1 empty and put heroes in slots 2–3 for march capacity — you keep the troops and don't take a skill slot from someone with a better hero."],
-      ["🏹", "Bring archers", "The two best rallies were about 60% archers; two others only about 40% (marches of only infantry and cavalry). Keep infantry to about 2%."],
-      ["🏙️", "Leaders: turn on City Bonus", "Three leaders had none. Attack +10% and Lethality +10% ≈ ×1.21 for the whole rally."],
-      ["🚩", "Be quick for strong rallies", "The strongest rallies were full 1–3 minutes after opening; later rallies usually filled only in the last minute. Same troops score more in a strong rally, so send your full marches there first."]],
     wH: "🏹 Archers count most", wP: "How much one troop of each type adds, same tier:",
     inf: "Infantry", cav: "Cavalry", arc: "Archers",
     sqH: "√ More of one type = less per troop", sqP: "Each troop type is square-rooted on its own. 4× the archers gives only 2× the archer score. That's why the join cap is 100k: extra troops do more in someone else's march.",
@@ -37,15 +32,10 @@ const T = {
     unkH: "🟡 Not known yet", unks: ["Whether the square root is a battle rule or only how points are counted.", "Whether \"enemy Defense −\" bonuses work on the Bear.", "Whether Vivian's \"enemy damage taken +25%\" is a separate multiplier."],
     numH: "🔢 For those who want the formula", num: "Your score ≈ K × Σ (w × P × √n). K = the rally leader's strength (shared by the whole rally); w = troop weight (archer 1, cavalry ≈ 0.58, infantry ≈ 0.14); P = one troop's strength (T9 50 · T10 66 · TG1 71 · TG2 76 · TG3 83); n = how many of that type you sent. Checked on 40+ mails from two leaders, 3–4 hits each: about 3% error.",
     more: "Officers: leader order and rally plan → 🐻 Bear plan",
-    foot: "Source: our alliance's rally mails, bonus pages and leaderboards (10/27–11/04). Worked back from the numbers, not from the game. Will be corrected as we get more mails." },
+    foot: "Source: our alliance's rally mails, bonus pages and leaderboards (10/27–11/02). Worked back from the numbers, not from the game. Will be corrected as we get more mails." },
   zh: { title: "🐻 狩獵巨熊研究", intro: "我們自己研究的狩獵巨熊分數：該帶什麼兵、該進哪一團。不是官方說明，會隨更多信件修正。",
     badge: "🔬 研究報告 · 來自我們的集結信件 · 更新 {d}",
     heroH: "熊的血永遠打不完。", heroP: "所以你的分數看的是整團打多痛——而整團打多痛，幾乎只看集結隊長。你能做的：帶對兵種、進對的團。",
-    lsH: "✅ 11/04：四件有幫助的事", lsP: "來自 11/04 的集結名單和信件。這次聯盟總傷害 168.6 億，比 11/02 多 37%（兩次都有參加的人，自己就進步約兩成）。",
-    ls: [["🦸", "第一格：放好的加入者英雄，或空著", "加入者技能只看第一位英雄的右上技能，而且只有前 4 個「第一格有英雄」的人佔格。沒有攻擊／殺傷類的加入者英雄了？第一格空著、英雄放第 2、3 格加出征容量——兵帶得滿，又不會佔掉別人更好的技能格。"],
-      ["🏹", "多帶弓兵", "最強的兩團弓兵約 60%，另外兩團只有約 40%（有人整支只帶步兵和騎兵）。步兵帶約 2% 就夠。"],
-      ["🏙️", "隊長記得開城鎮增益", "這次有三位隊長沒開。攻擊 +10%、殺傷 +10% ≈ 整團 ×1.21。"],
-      ["🚩", "想進強團要快", "最強的幾團開團後 1–3 分鐘就滿了，比較晚開的團通常最後一分鐘才補滿。同樣的兵在強團分數比較高，滿兵的部隊先往強團送。"]],
     wH: "🏹 弓兵最重要", wP: "同樣兵等，每種兵一隻能加多少：",
     inf: "步兵", cav: "騎兵", arc: "弓兵",
     sqH: "√ 同一種兵帶越多，每隻越不值", sqP: "每個兵種分開開根號。弓兵帶 4 倍，弓兵那部分只多 2 倍。所以加入上限是 100k：多塞的兵放到別人的部隊裡比較有用。",
@@ -64,7 +54,7 @@ const T = {
     unkH: "🟡 還不知道的", unks: ["開根號是戰鬥機制，還是只是積分算法。", "「敵方防禦 −」的增益對熊有沒有效。", "薇薇安「敵方受到傷害 +25%」是不是另一個乘區。"],
     numH: "🔢 給想看公式的人", num: "你的分數 ≈ K × Σ（w × P × √n）。K = 集結隊長的強度（全團共用）；w = 兵種權重（弓兵 1、騎兵約 0.58、步兵約 0.14）；P = 單兵實力（T9 50 · T10 66 · TG1 71 · TG2 76 · TG3 83）；n = 你那個兵種帶的數量。用兩位隊長各 3–4 場、40 多筆信件驗證，誤差約 3%。",
     more: "幹部：隊長順序和排團 → 🐻 熊獵規劃",
-    foot: "來源：我們聯盟的集結信件、加成頁、排行榜（10/27–11/04）。從數字反推，不是遊戲官方說明。有更多信件會再修正。" },
+    foot: "來源：我們聯盟的集結信件、加成頁、排行榜（10/27–11/02）。從數字反推，不是遊戲官方說明。有更多信件會再修正。" },
 };
 let lang = OFFICER.lang || "en";
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
@@ -90,8 +80,6 @@ function render() {
   const hn = (k) => ({ amane: ["Amane", "雨音"], margot: ["Margot", "瑪歌"], luna: ["Luna", "露娜"], chenko: ["Chenko", "琴科"], yeonwoo: ["Yeonwoo", "妍羽"], amadeus: ["Amadeus", "阿瑪迪斯"] }[k][lang === "zh" ? 1 : 0]);
   root.innerHTML = `
   <div class="bh-hero"><div class="bh-hero-in"><span class="bh-badge">${esc(t("badge").replace("{d}", UPDATED))}</span><h2>${esc(t("heroH"))}</h2><p>${esc(t("heroP"))}</p></div></div>
-  <div class="card bh-ls"><h3>${esc(t("lsH"))}</h3><p class="bh-p">${esc(t("lsP"))}</p>
-    <div class="bh-lsg">${t("ls").map(([i, h, x]) => `<div class="bh-lsi"><span class="bh-lse">${i}</span><div><b>${esc(h)}</b><p>${esc(x)}</p></div></div>`).join("")}</div></div>
   <div class="card"><h3>${esc(t("wH"))}</h3><p class="bh-p">${esc(t("wP"))}</p>
     <div class="bh-w">${[["arc", 1], ["cav", 0.58], ["inf", 0.14]].map(([k, w]) => `<figure class="bh-wt" style="--s:${(0.42 + 0.58 * w).toFixed(2)}"><div class="bh-wi"><img src="figures/vv/${k}.webp" alt=""></div><figcaption><b>${esc(t(k))}</b><span class="bh-wn">×${w}</span></figcaption></figure>`).join("")}</div></div>
   <div class="card"><h3>${esc(t("sqH"))}</h3><p class="bh-p">${esc(t("sqP"))}</p>
