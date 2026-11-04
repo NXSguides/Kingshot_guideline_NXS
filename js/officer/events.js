@@ -639,7 +639,7 @@ window.addEventListener("hashchange", () => setTimeout(jumpToEvent, 200));
    which turns them into notifications (same browser storage, so it works once the Events tab has been opened here). */
 function exportAdmin() {
   try {
-    const now = Date.now(), today = utcDay(now), items = [];
+    const now = Date.now(), today = utcDay(now), items = [], directed = [];
     for (const r of runs(today - 14 * DAY, today + 21 * DAY)) {
       const e = byId(r.k) || {};
       for (const [i, td] of (e.todo || []).entries()) {
@@ -648,6 +648,10 @@ function exportAdmin() {
         const names = {}; for (const l of OFFICER_LANGS) { const v = e[l] || (BY_EN[l] && BY_EN[l][e.en]) || ""; if (v) names[l] = v; }
         const am = /^(\d\d):(\d\d)$/.exec(td.at || ""), at = am ? due + (+am[1] * 60 + +am[2]) * 60000 : 0;
         if (am && at <= now) continue;
+        if (Array.isArray(td.only) && td.only.length) {   // 👤 only these officers, sent by the Worker (not by this phone)
+          const bl = {}; for (const l of OFFICER_LANGS) { const v = td[l] || ""; if (v) bl[l] = String(v).replace(/\*\*/g, "").slice(0, 190); }
+          const tl = {}; for (const l of OFFICER_LANGS) tl[l] = `${e.emoji || "📌"} ${names[l] || names.en || e.en || r.k}`;
+          directed.push({ id, at: am ? at : due + 12 * 3600000, uids: td.only, title: tl, body: bl }); continue; }
         // 🔔 a to-do with an exact time (e.g. Alliance Championship troop update closes 23:00 → remind 22:30): sent at that time, not at the officer's daily hour
         items.push({ id, ev: r.k, due, ...(am ? { at, lead: 0 } : {}), emoji: e.emoji || "📌", names, title: `${e.emoji || "📌"} ${e.en || r.k}`, body: String(td.en || td.zh || "").replace(/\*\*/g, "").slice(0, 190) });
       }
@@ -655,10 +659,26 @@ function exportAdmin() {
     for (const t of TIMED) if (t.at > now) { const e = byId(t.ev) || {}; const names = {}; for (const l of OFFICER_LANGS) { const v = e[l] || (BY_EN[l] && BY_EN[l][e.en]) || ""; if (v) names[l] = v; }
       items.push({ id: "t-" + t.id, ev: t.ev, at: t.at, emoji: e.emoji || "⏱️", names, title: `${e.emoji || "⏱️"} ${e.en || t.ev}`, body: t.label || "" }); }
     localStorage.setItem("nxs-admin-todos", JSON.stringify({ updated: now, items }));
+    sendDirected(directed.filter((x) => x.at > now));
     window.dispatchEvent(new Event("nxs-admin-todos"));   // the ⏰ panel on this page re-sends the reminders
   } catch (err) {}
 }
 
+/* 👤 send the directed to-dos to the Worker (officers who may edit Events only; only when the list changed since the last send from this phone) */
+async function sendDirected(list) {
+  if (!OFFICER.can("events", "edit") || OFFICER.previewAs) return;
+  const ab = OFFICER.authBody(); if (!ab.token) return;
+  const key = JSON.stringify(list); let last = ""; try { last = localStorage.getItem("nxs-directed-sent") || ""; } catch (e) {}
+  const lastAt = +(last.split("|")[0] || 0); if (last.slice(last.indexOf("|") + 1) === key && Date.now() - lastAt < 6 * 3600000) return;
+  try { const r = await fetch(AUTH_API + "/directed", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...ab, items: list }) });
+    const j = await r.json().catch(() => ({}));
+    if (j.token) { try { localStorage.setItem(DISCORD_LS, j.token); } catch (e) {} }
+    if (j.ok) { try { localStorage.setItem("nxs-directed-sent", Date.now() + "|" + key); } catch (e) {}
+      const u = (OFFICER.perms && OFFICER.perms.users) || {}; drMissing = (j.missing || []).map((id) => (u[id] && u[id].name) || id);
+      const w = document.getElementById("drWarn"); if (w) { w.hidden = !drMissing.length; w.textContent = fill2(drT("miss"), { n: drMissing.join(", ") }); } }
+  } catch (e) {}
+}
+const fill2 = (s, v) => s.replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
 /* 📤 For Claude (Sherry, 2026-11-02): the next 4 weeks of event runs, our times, to-dos (with ✅ / ⬜) and timed reminders as plain text,
    decrypted here in the browser, to paste into a Claude chat that plans the to-dos. No member data — only what this tab shows. */
 const AI_T = {
@@ -941,6 +961,16 @@ function igInline(btn) {
 /* ===== editor ===== */
 let editing = null;   // id of the event being edited, or null for a new one
 let edIgTitles = [];   // the in-game guide titles of the event being edited (for each to-do's 📋 picker)
+/* 👤 "Only remind" (Sherry 2026-11-04: the Alliance Championship 22:30 reminder for Armada only): the chosen officers get this to-do
+   from the Worker itself (to every phone where they turned notifications on with their Discord login), nobody else does. */
+const DR = { en: { lbl: "👤 Only remind", all: "everyone (by 🔔)", hint: "Only these people get this reminder — sent by the server to every phone where they turned on notifications (no other set-up). Others don't get it.", miss: "⚠️ No phone with notifications on for: {n} — they won't get 👤 reminders until they turn notifications on (💬 Board or ⏰ on the main site, logged in with Discord)." },
+  zh: { lbl: "👤 只提醒", all: "所有人（照 🔔）", hint: "只有勾的人會收到這個提醒——由伺服器直接推到他們開過通知的每一支手機（不用另外設定），其他人不會收到。", miss: "⚠️ 這些人沒有開通知的手機：{n}——要等他們用 Discord 登入開了通知（💬 留言板或主網站 ⏰）才收得到 👤 提醒。" },
+  pt: { lbl: "👤 Só avisar", all: "todos (pelo 🔔)", hint: "Só essas pessoas recebem este lembrete — enviado pelo servidor a todo celular onde ativaram notificações (sem outra configuração). Os outros não recebem.", miss: "⚠️ Sem celular com notificações para: {n} — só recebem lembretes 👤 depois de ativar notificações (💬 Quadro ou ⏰ no site, com login do Discord)." },
+  ar: { lbl: "👤 التذكير فقط لـ", all: "الجميع (حسب 🔔)", hint: "هؤلاء فقط يتلقون هذا التذكير — يرسله الخادم إلى كل هاتف فعّلوا فيه الإشعارات (بلا إعداد آخر). الآخرون لا يتلقونه.", miss: "⚠️ لا يوجد هاتف بإشعارات مفعّلة لـ: {n} — لن تصلهم تذكيرات 👤 حتى يفعّلوا الإشعارات (💬 اللوحة أو ⏰ في الموقع، بتسجيل Discord)." },
+  ko: { lbl: "👤 이 사람만 알림", all: "모두 (🔔 기준)", hint: "체크한 사람만 이 알림을 받아 — 서버가 알림을 켠 모든 폰으로 바로 보내 (다른 설정 필요 없음). 다른 사람은 안 받아.", miss: "⚠️ 알림 켠 폰이 없는 사람: {n} — Discord로 로그인해서 알림을 켜야 (💬 게시판이나 메인 사이트 ⏰) 👤 알림을 받아." } };
+const drT = (k) => (DR[lang] || DR.en)[k] || DR.en[k];
+const drUsers = () => { const u = (OFFICER.perms && OFFICER.perms.users) || {}; return Object.entries(u).map(([id, x]) => ({ id, name: (x && x.name) || id })).sort((a, b) => a.name.localeCompare(b.name)); };
+let drMissing = [];
 function todoRow(td = {}) {
   const sel = (v) => `<select class="inp" data-k="ig" style="width:auto;max-width:100%"><option value="">${esc(dayT("igNone"))}</option>${[...new Set([...edIgTitles, ...(v ? [v] : [])])].map((t) => `<option${t === v ? " selected" : ""}>${esc(t)}</option>`).join("")}</select>`;
   const igSel = `<label class="due" style="margin-top:6px;flex-wrap:wrap">${esc(dayT("igLink"))} ${[...igList(td.ig), ""].map(sel).join("")}</label>`;   // one picker per guide, in order + an empty one to add the next
@@ -949,6 +979,8 @@ function todoRow(td = {}) {
     <textarea class="inp" data-k="txt" rows="2" placeholder="${esc(tr("tdTxt"))}" data-orig="${esc(txt(td))}" data-keep="${esc(JSON.stringify(Object.fromEntries(OFFICER_LANGS.map((l) => [l, td[l]]))))}" data-had="${td[lang] ? 1 : 0}" style="margin-top:6px;width:100%;min-height:0;resize:vertical">${esc(txt(td) || td[lang === "zh" ? "en" : "zh"] || "")}</textarea>
     <div class="row" style="justify-content:flex-start;font-size:13px;margin-top:6px"><label><input type="checkbox" data-k="post"${td.post ? " checked" : ""}> ${esc(tr("tdPost"))}</label><label><input type="checkbox" data-k="ranking"${td.ranking ? " checked" : ""}> ${esc(tr("tdRank"))}</label></div>
     ${igSel}
+    ${(() => { const on = new Set(td.only || []), us = drUsers(); return us.length ? `<details class="dr-ed"${on.size ? " open" : ""}><summary>${esc(drT("lbl"))}: <b>${on.size ? esc(us.filter((x) => on.has(x.id)).map((x) => x.name).join(", ")) : esc(drT("all"))}</b></summary>
+      <div class="muted" style="font-size:12px;margin:4px 0">${esc(drT("hint"))}</div><div class="dr-list">${us.map((x) => `<label><input type="checkbox" data-only="${esc(x.id)}"${on.has(x.id) ? " checked" : ""}> ${esc(x.name)}</label>`).join("")}</div></details>` : ""; })()}
   </div>`;
 }
 function igRow(g = {}) {
@@ -1020,6 +1052,7 @@ function readEditor() {
     else o[lang] = v;   // edited → the other languages just show this text (no translation needed)
     if (g("post").checked) o.post = 1; if (g("ranking").checked) o.ranking = 1; { const l = [...r.querySelectorAll('[data-k="ig"]')].map((x) => x.value).filter(Boolean); if (l.length === 1) o.ig = l[0]; else if (l.length > 1) o.ig = l; }
     const u = parseInt(g("until").value, 10); if (u >= 1 && u <= 24) o.until = u;
+    { const only = [...r.querySelectorAll("[data-only]:checked")].map((x) => x.dataset.only); if (only.length) o.only = only; }
     const am = String(g("at").value || "").trim().replace(/[：.．\s]/g, ":").replace(/^(\d{1,2})(\d{2})$/, "$1:$2").match(/^(\d{1,2}):(\d{2})$/);   // 22:30, 22.30, 2230 all work (a phone number pad has no ":") if (am && +am[1] < 24 && +am[2] < 60) o.at = am[1].padStart(2, "0") + ":" + am[2];
     return o;
   }).filter((o) => OFFICER_LANGS.some((l) => o[l]));

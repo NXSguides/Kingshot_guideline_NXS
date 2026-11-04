@@ -18,6 +18,7 @@ expect /attend  '{"op":"list"}'   '"logged_out"'
 expect /perms   '{"op":"get"}'    '"logged_out"'
 expect /plans   '{"op":"list"}'   '"logged_out"'
 expect /rewards '{"op":"get"}'    '"logged_out"'
+expect /directed '{"items":[]}'  '"logged_out"'
 # the officer password alone no longer opens anything (Discord login only, 2026-10-16)
 expect /attend  '{"op":"list","pw":"test-pw","pwName":"Tester"}' '"logged_out"'
 expect /attend  '{"op":"list","pw":"wrong"}' '"logged_out"'

@@ -432,6 +432,7 @@
   #pg-bearplan .bp-ul { margin: 0; padding-inline-start: 1.3em; line-height: 1.55; font-size: 14px; } #pg-bearplan .bp-ul li { margin: 4px 0; }
   #researchSub .sub-sep { flex: 0 0 auto; align-self: stretch; width: 2px; margin: 6px 4px; border-radius: 1px; background: var(--rule); }
   @media (max-width: 700px) { #researchSub .sub-sep { flex: 0 0 100%; width: auto; height: 0; margin: 0; background: none; } }
+  .dr-ed { margin-top: 6px; font-size: 13px; } .dr-ed summary { cursor: pointer; } .dr-list { display: flex; flex-wrap: wrap; gap: 4px 12px; }
   /* 🧭 growth plan */
   #pg-growth .gr-ul { margin: 4px 0 0; padding-inline-start: 1.3em; line-height: 1.55; } #pg-growth .gr-ul li { margin: 3px 0; }
   #pg-growth .card h3, #pg-growth .gr-h { margin: 0 0 6px; } #pg-growth .gr-h { margin: 18px 0 0; }
@@ -1173,6 +1174,7 @@
         <button class="btn" id="nextW" data-t="nextWeek"></button>
         <div class="lbl" id="weekLbl"></div>
       </div>
+      <div id="drWarn" class="msg warn" hidden style="margin:6px 0"></div>
       <div id="todos"></div>
       <div class="muted msg" data-t="todoNote"></div>
     </div>

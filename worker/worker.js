@@ -62,7 +62,7 @@ async function handle(req, env, ctx) {
   {
     if (req.method === "OPTIONS") return new Response(null, { headers: cors });
     const path = new URL(req.url).pathname;
-    if (path.startsWith("/auth/") || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/rewards" || path === "/perms") return authRoute(req, env, path, ctx);   // 🔑 officer login with Discord
+    if (path.startsWith("/auth/") || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/rewards" || path === "/perms" || path === "/directed") return authRoute(req, env, path, ctx);   // 🔑 officer login with Discord
     if (path === "/push/save" || path === "/push/test") {
       if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
       return pushRoute(req, env, path);
@@ -413,6 +413,7 @@ NEWER TOOLS (officers)
 [attend] - 📋 Attendance → ① Registration (lists made from a plan since 2026-10-30): shows each person's reply and 🟡 from the Ranking plan (set there; 🔄 Update from the plan brings changes in), with the same counts and copy buttons. Only registered people (✅, or 🟡 not ❌) appear in ② and can count as a miss.
 [attend] - 📋 Attendance (出席): sheets made from a shared Ranking plan; ① Confirmed (tap = sub), add people by pasting names, 📷 voter screenshots or by hand; ② after the battle tap ✓ showed up → X no-show → 🛌 excused; repeat misses turn orange (2nd) and red (3rd). Save / Copy for Discord.
 [attend] - 📋 Attendance: misses are counted over ALL event sheets together (Swordland, Tri-Alliance…; Sherry, 2026-11-01): a 2nd miss anywhere = orange, 3rd = red, even on different lists; a sheet's summary adds "(N across all events)" when the total is higher than that sheet's own count; the Discord copy's (2nd)/(3rd) count all events too.
+[events] - 📅 Events → ✏️ edit an event → each action item has "👤 Only remind" (只提醒, Sherry 2026-11-04 — e.g. the Alliance Championship 22:30 UTC troop-update reminder for Armada only): tick officers and ONLY they get that to-do's reminder, sent by the Worker itself (at the item's exact time, or 12:00 UTC on its day if it has none) to every phone where they turned notifications on while logged in with Discord (💬 Board or the ⏰ panel) — no Events tab visit or 🛠️ switch needed on their phone; nobody else gets it, whatever their 🔔. Untouched = everyone by 🔔 as before. The list is refreshed whenever an officer who may edit Events opens the Events tab; a warning lists chosen people with no phone with notifications on. The notification title starts with 👤.
 [perms] - 👥 Officers (幹部, admins only): one row per officer; per tab ✏️ Edit / 👁️ View / — Hidden (saves by itself); 🔔 which events they get officer to-do reminders for; 👁️ Preview as; + Add officer (name + 18-digit Discord ID).
 
 LITTLE SPARROW (🐦 on the officer page)
@@ -1136,11 +1137,32 @@ export class PushTimers extends DurableObject {
     return [...this.sql.exec(`SELECT v, at, by, data FROM rph WHERE id = ? AND v < ? ORDER BY v DESC LIMIT ?`, id, before || 1e12, n || 30)]
       .map((r) => ({ v: r.v, at: r.at, by: r.by, plan: JSON.parse(r.data) }));
   }
+  /* 👤 directed to-dos: the list the officer page sent (kv "directed") → one timer row per chosen officer per push device of theirs (ids "dr-…",
+     left alone by a phone's own save). Only differences are written. Returns how many rows, and who has no push device. */
+  async directedSave(items) { if (items) this.kvSet("directed", items); return this.directedSync(); }
+  async directedSync() {
+    const items = this.kvGet("directed") || [], now = Date.now();
+    const langs = Object.fromEntries([...this.sql.exec(`SELECT uid, lang FROM bl`)].map((r) => [r.uid, r.lang]));
+    const subsOf = {}; for (const r of [...this.sql.exec(`SELECT ep, uid, sub FROM usub`)]) (subsOf[r.uid] = subsOf[r.uid] || []).push(r);
+    const want = new Map(), missing = new Set();
+    for (const x of items) { if (!(x.at > now)) continue;   // already sent (the alarm deletes sent rows; never re-add them)
+      for (const uid of x.uids) { const ds = subsOf[uid] || []; if (!ds.length) { missing.add(uid); continue; }
+        const l = langs[uid] || "en", pick = (o) => (o && (o[l] || o.en || o.zh || Object.values(o)[0])) || "";
+        for (const d of ds) want.set(d.ep + "|" + x.id, { ep: d.ep, id: x.id, at: x.at, title: "👤 " + pick(x.title), body: pick(x.body), sub: d.sub }); } }
+    const have = new Map([...this.sql.exec(`SELECT ep, id, at, title, body, sub FROM t WHERE id LIKE 'dr-%'`)].map((r) => [r.ep + "|" + r.id, r]));
+    let changed = false;
+    for (const [k, w] of want) { const r = have.get(k); if (r && r.at === w.at && r.title === w.title && r.body === w.body && r.sub === w.sub) continue;
+      this.sql.exec(`INSERT OR REPLACE INTO t VALUES (?, ?, ?, ?, ?, ?)`, w.ep, w.id, w.at, w.title, w.body, w.sub); changed = true; }
+    for (const [k, r] of have) if (!want.has(k)) { this.sql.exec(`DELETE FROM t WHERE ep = ? AND id = ?`, r.ep, r.id); changed = true; }
+    if (changed) await this.schedule();
+    return { n: want.size, missing: [...missing] };
+  }
   async saveFor(uid, sub, timers, retext) {
     const cur = [...this.sql.exec(`SELECT uid, sub FROM usub WHERE ep = ?`, sub.endpoint)][0];
     if (!cur || cur.uid !== uid || cur.sub !== JSON.stringify(sub)) this.sql.exec(`INSERT OR REPLACE INTO usub VALUES (?, ?, ?)`, sub.endpoint, uid, JSON.stringify(sub));
     const subs = [...this.sql.exec(`SELECT sub FROM usub WHERE uid = ?`, uid)].map((r) => JSON.parse(r.sub));
     for (const x of subs) await this.save(x, timers, retext);
+    if (!cur) { try { await this.directedSync(); } catch (e) {} }   // 👤 a new push device: give it this person's directed to-dos too
     return subs.length;
   }
   async forget(ep) { this.sql.exec(`DELETE FROM usub WHERE ep = ?`, ep); }
@@ -1185,7 +1207,7 @@ export class PushTimers extends DurableObject {
       if (r && r.at === x.at && r.sub === s && (!retext || (r.title === x.title && r.body === x.body))) continue;
       this.sql.exec(`INSERT OR REPLACE INTO t VALUES (?, ?, ?, ?, ?, ?)`, ep, x.id, x.at, x.title, x.body, s); changed = true;
     }
-    for (const id of have.keys()) if (!keep.has(id)) { this.sql.exec(`DELETE FROM t WHERE ep = ? AND id = ?`, ep, id); changed = true; }
+    for (const id of have.keys()) if (!keep.has(id) && !id.startsWith("dr-")) { this.sql.exec(`DELETE FROM t WHERE ep = ? AND id = ?`, ep, id); changed = true; }   // 👤 dr- rows belong to directedSync
     if (changed) await this.schedule();
   }
   async schedule() {
@@ -1830,7 +1852,7 @@ async function authRoute(req, env, path, ctx) {
       return back("login=" + session);
     } catch (e) { return back("login_error=discord"); }
   }
-  if (path === "/auth/me" || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/rewards" || path === "/perms") {
+  if (path === "/auth/me" || path === "/sync" || path === "/sync/forget" || path === "/board" || path === "/attend" || path === "/plans" || path === "/rewards" || path === "/perms" || path === "/directed") {
     if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
     let body; try { body = await req.json(); } catch (e) { return json({ error: "bad request" }, 400); }
     const c = await sessionCheck(req, env, body.token);   // Discord login only (the officer password alone no longer opens anything)
@@ -1858,6 +1880,15 @@ async function authRoute(req, env, path, ctx) {
     if (path === "/plans") return plansRoute(env, stub, u, body, token, perms);
     if (path === "/rewards") return rewardsRoute(stub, u, body, token, perms);
     if (path === "/perms") return permsRoute(stub, u, body, token, role);
+    if (path === "/directed") {   // 👤 to-dos sent only to chosen officers (Events editor "Only remind"): the Worker sends them, no phone set-up needed
+      if (!canEdit(perms, s.u.id, "events")) return json({ error: "view_only", token }, 403);
+      const now = Date.now();
+      const items = (Array.isArray(body.items) ? body.items : []).filter((x) => x && Number(x.at) > now - 60000 && Number(x.at) < now + 30 * 86400000 && Array.isArray(x.uids)).slice(0, 120)
+        .map((x) => ({ id: "dr-" + String(x.id).replace(/[^\w-]/g, "").slice(0, 36), at: Math.round(Number(x.at)), uids: x.uids.map(String).filter((v) => /^\d{15,21}$/.test(v)).slice(0, 20),
+          title: Object.fromEntries(Object.entries(x.title || {}).filter(([l]) => /^[a-z]{2}$/.test(l)).map(([l, v]) => [l, String(v).slice(0, 80)])),
+          body: Object.fromEntries(Object.entries(x.body || {}).filter(([l]) => /^[a-z]{2}$/.test(l)).map(([l, v]) => [l, String(v).slice(0, 200)])) })).filter((x) => x.uids.length);
+      return json({ ok: true, token, ...(await stub.directedSave(items)) });
+    }
     if (path === "/sync/forget") { if (body.sub && body.sub.endpoint) await stub.forget(String(body.sub.endpoint)); return json({ ok: true }); }
     const st = body.state && typeof body.state === "object" ? body.state : {};
     try { return json({ ok: true, user: s.u, token, state: await stub.syncMerge(s.u.id, st) }); }
