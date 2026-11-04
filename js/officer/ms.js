@@ -19,7 +19,7 @@ const T = {
     whatH: "🔎 What it is",
     what: ["The game doesn't show it. MightPulse does (the kingdom list only shows the top 100).", "The top 100 of a kingdom added together decide whether the kingdom counts as leading or normal for migration (top 10% of each group = leading)."],
     eqA: "Migrant Score", eqB: "Swordland troop power", eqNote: "Checked on 98 players on 10/14 (average error 1.7%) and again on 11/03 — closer than total power + Mystic Trial.",
-    tblH: "📊 What raises it", tblP: "How much each kind of upgrade counts, for the same power gained (1 = full):",
+    tblH: "📊 What raises it", tblP: "How much each kind of upgrade counts, for the same power gained (1 = full):", fH: "Migrant Score = Σ (power × weight) × your account's rate", fP: "Confirmed on 11/04: 11 single-item tests on two accounts (Charms ×4, pet level-up ×2, breakthrough ×3, refinement ×2) — every prediction within 5 points, even a +2.47M jump.",
     items: { charm: "💎 Governor Charms", pet: "🐾 Pets (level-up, breakthrough, refinement)", tech: "🔬 Research", gear: "🛡️ Hero Gear (enhance)", fav: "🎓 Master affinity", adv: "🎓 Master advancement", star: "⭐ Hero stars (main heroes)", skill: "🎓 Master skills · stars of other heroes", troops: "⚔️ Training / losing troops" },
     conf: { hi: "sure", mid: "so-so" },
     tblFoot: "Same power: Charms, pets, research and Hero Gear = 2× master affinity and 2–5× hero stars. Master advancement: only part of its power counts (the talent / skill part doesn't).",
@@ -47,7 +47,7 @@ const T = {
     whatH: "🔎 它是什麼",
     what: ["遊戲裡看不到，MightPulse 看得到（王國排行只列前 100 名）。", "王國前 100 名加起來，決定遷城時這個王國算「領先」還是「普通」（每個遷城組前 10% = 領先王國）。"],
     eqA: "遷城分數", eqB: "聖劍部隊戰力", eqNote: "10/14 用 98 人驗證（平均誤差 1.7%），11/03 再確認一次——比「總戰力＋秘境」還準。",
-    tblH: "📊 什麼會加分", tblP: "加同樣的實力，各種升級算多少（1 = 全算）：",
+    tblH: "📊 什麼會加分", tblP: "加同樣的實力，各種升級算多少（1 = 全算）：", fH: "遷城分數 = Σ（實力 × 權重）× 帳號倍率", fP: "11/04 確認：兩個帳號 11 次單項測試（寶石 ×4、寵物升級 ×2、突破 ×3、洗練 ×2），每次預測誤差都在 5 分以內，連一次 +247 萬也一樣準。",
     items: { charm: "💎 領主寶石", pet: "🐾 寵物（升級、突破、洗練）", tech: "🔬 科技（研究）", gear: "🛡️ 英雄裝備（強化）", fav: "🎓 大師好感度", adv: "🎓 大師進階", star: "⭐ 英雄升星（主力）", skill: "🎓 大師技能・非主力英雄升星", troops: "⚔️ 收兵、損兵" },
     conf: { hi: "可信", mid: "還不確定" },
     tblFoot: "同樣的實力：寶石、寵物、科技、英雄裝備 = 大師好感度的 2 倍、升星的 2–5 倍。大師進階：只有一部分實力算（天賦、技能那部分不算）。",
@@ -97,7 +97,7 @@ function render() {
     <div class="ms-eq"><div class="ms-eqb"><b>${esc(t("eqA"))}</b></div><span class="ms-op">÷ 317 ≈</span><div class="ms-eqb sw"><b>${esc(t("eqB"))}</b></div></div>
     <p class="muted ms-small" style="margin:6px 0 10px">${esc(t("eqNote"))}</p>
     <ul class="ms-ul">${t("what").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
-  <div class="card"><h3>${esc(t("tblH"))}</h3><p class="ms-p">${esc(t("tblP"))}</p>
+  <div class="card"><h3>${esc(t("tblH"))}</h3><div class="ms-eq"><div class="ms-eqb sw"><b>${esc(t("fH"))}</b></div></div><p class="muted ms-small" style="margin:6px 0 10px">✅ ${esc(t("fP"))}</p><p class="ms-p">${esc(t("tblP"))}</p>
     <div class="ms-bars">${ROWS.map(([k, v, txt, c]) => `<div class="ms-row${v ? "" : " zero"}"><div class="ms-k">${esc(t("items")[k])}</div>
       <div class="ms-b"><i style="width:${(v * 100).toFixed(1)}%"></i></div>
       <div class="ms-v"><b>${esc(txt || String(v))}</b></div>
