@@ -43,6 +43,7 @@ const FEATURES = [
   ["Ranking: ④ 🔱 TAC plan draft (Teams A–D, 4 stages)", /"🔱 TAC plan draft \(all 4 stages\)" fills it/, /{ s: "#tbCard \[data-act=triDraft\]", k: "rk14t", e: 1 }/],
   ["Bear plan tab (🐻 discussion draft)", /🐻 BEAR PLAN tab/, /bearplan: \[\{ s: "#bp_title", k: "bp01" \}\]/],
   ["Viking report tab (🪓 research)", /🪓 VIKING REPORT tab/, /vv: \[\{ s: "#vv_title", k: "vv01" \}\]/],
+  ["Migrant Score report (🧳 research)", /🧳 MIGRANT SCORE report/, /ms: \[\{ s: "#ms_title", k: "ms01" \}\]/],
   ["🔬 Research main tab (reports as sub-tabs)", /🔬 Research \(研究報告/, /🔬 Research holds our reports/],
   ["Battle: 🎯 KvK opponent intel", /🎯 KvK opponent intel \(KvK 對手情報/, /{ s: "#ak_intel", k: "ak05" }/],
   ["Ranking: 💾 Save now (plan)", /💾 Save now \(立即儲存/, /{ s: "#planSaveNow", k: "rk01s" }/],

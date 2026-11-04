@@ -315,7 +315,7 @@ const OFFICER_HELP = `
 GETTING IN
 - Officers log in with Discord. Only people added on the 👥 Officers tab (by an admin, with their Discord ID) can get in. On the main site, tap the title "NXS Guidelines" 5 times quickly (within 2 seconds), or tap the 📋 button at the top right (shown once this browser has logged in) → log in with Discord. The old officer password alone no longer opens the officer pages.
 - Each tab can be ✏️ Edit, 👁️ View or hidden per officer (👥 Officers tab, admins only). A new officer starts with 📅 Events, 💬 Board and 🗺️ Map as view-only. If a tab is missing, ask an admin (Sherry) to give it.
-- All officer tabs are one page now (officer-x7k2p9.html); switching tabs is instant and you log in once. The tabs, in order: 📅 Events (中文: 活動排程), 💬 Board (討論板), 🗺️ Map (王國地圖), 🚚 Move (搬家, admins unless given), 📊 Ranking (成員排序), 📋 Attendance (出席), 📢 Post (發布公告), 🕵️ Watch (觀察名單), 🔭 Scout (偵察), 📈 Views (網站瀏覽), 👥 Officers (幹部, admins only). Each officer only sees the tabs the 👥 table gives them. 🔬 Research (研究報告, since 2026-11-04) is one main tab holding our reports as small sub-tabs: 🧭 Growth / Attack vs Defense, 🐻 Bear plan, 🪓 Viking report — each still has its own 👥 permission and its own link (#growth, #bearplan, #vv).
+- All officer tabs are one page now (officer-x7k2p9.html); switching tabs is instant and you log in once. The tabs, in order: 📅 Events (中文: 活動排程), 💬 Board (討論板), 🗺️ Map (王國地圖), 🚚 Move (搬家, admins unless given), 📊 Ranking (成員排序), 📋 Attendance (出席), 📢 Post (發布公告), 🕵️ Watch (觀察名單), 🔭 Scout (偵察), 📈 Views (網站瀏覽), 👥 Officers (幹部, admins only). Each officer only sees the tabs the 👥 table gives them. 🔬 Research (研究報告, since 2026-11-04) is one main tab holding our reports as small sub-tabs: 🧭 Growth / Attack vs Defense, 🐻 Bear plan, 🪓 Viking report, 🧳 Migrant Score — each still has its own 👥 permission and its own link (#growth, #bearplan, #vv, #ms).
 [views] - 📈 Views (中文: 網站瀏覽): site statistics — visitors per day, which guides and languages people open, countries, where they came from, devices; 7 / 30 / 90 days. Counting is GoatCounter, anonymous (no cookies, names or IPs). NOT counted: any browser where an officer has logged in to the officer page (officers test the site all day), and the officer page itself. So "this browser: not counted" on the Views tab is normal for every officer. If it says the token is not set: Cloudflare Worker → Settings → Variables and Secrets → add GOATCOUNTER_TOKEN (GoatCounter → Settings → API → new token with "Read statistics").
 [map] - 🗺️ Map (中文: 王國地圖): kingdom map, Outpost buffs and the shared Outpost plan — see the 🗺️ MAP section below.
 - Language: officer pages are in English, 中文, Português, العربية and 한국어 (the language button on any tab switches all tabs together).
@@ -427,6 +427,16 @@ AI ASSISTANT
 - Each scouted kingdom is a chip at the top: ⟳ fetches it again, ✕ removes it, "update daily" refreshes it every day at 20:25 UTC together with the roster (tick it for the KvK opponent).
 - Our own kingdom #2189 is scouted too, for comparison. Data is the SCOUT section of the OFFICER DATA (answer "who is the strongest in kingdom X" from there).
 - Not in this data: last login (unreliable) and anything MightPulse does not publish.
+
+@ms
+🧳 MIGRANT SCORE report (🔬 Research sub-tab, officer-x7k2p9.html#ms, 遷城分數) — Sherry's OWN RESEARCH, STILL BEING TESTED (2026-11-04), not from the game; from her two accounts' item-by-item before/after tests (11/02–11/04) and the 10/14 Swordland check of 98 players. Say so when you answer from it.
+- Migrant Score is hidden in game; MightPulse shows it (kingdom list: top 100 only). A kingdom's top 100 summed decide leading vs normal for migration (top 10% of each group = leading). Swordland Showdown troop power ≈ Migrant Score ÷ 317 (98 players, average error 1.7%; closer than total power + Mystic Trial).
+- Per 1M power gained: research ≈ 5,900; Hero Gear (enhance) ≈ 5,900 (both sure); masters (affinity, advance) ≈ 3,000 (two clean tests 2,960 / 2,980, one 4,560); hero stars ≈ 2,000–3,000 (three tests disagree); training or losing troops 0. Same power from research or Hero Gear ≈ 2–3× hero stars.
+- Town Center: main account to TG2 (Barracks, Range also TG2) +10,077 at once (≈ +32 Swordland power); a normal level 24→25 and normal buildings ≈ nothing → guess: the TC gold (TG) level gives the jump (to confirm).
+- Never goes down: losing troops or removing Hero Gear (770k removed, same 2 h later) doesn't lower it. Stat % don't count (only that level's power) → it shows investment, not stats.
+- Updates every ~15–60 min, different time per account, not instant.
+- Do: research and Hero Gear first, then masters, then hero stars; training troops doesn't help; save for the next TC gold level; opponent's Migrant Score ÷ 317 ≈ their Swordland troop power (investment only). The page has a calculator (upgrade + power gained → Migrant Score and Swordland power; someone's score → Swordland power).
+- Not known yet: pets, Governor Gear, Governor Charms untested; value of each TC level; why hero stars vary; whether master skill upgrades count.
 
 @vv
 🪓 VIKING REPORT tab (officer-x7k2p9.html#vv, 維京研究) — Sherry's OWN RESEARCH on Viking Vengeance (2026-11-04), NOT official game rules; worked back from her screenshots and battle-report sums at difficulty 11 and it will keep changing as she tests more. Say so when you answer from it.
@@ -592,7 +602,7 @@ async function isOfficer(body, env) {
 
 /* 🔒 Officer AI = logged in with Discord AND on the 👥 table. Returns which tabs they may open (admins: all),
    so the AI only gets the handbook parts and data of those tabs. The old officer password / data-key proof no longer counts. */
-const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🚚 Move", hunt: "🎯 Blacklist", attack: "⚔️ Battle", growth: "🧭 Growth", bearplan: "🐻 Bear plan", vv: "🪓 Viking report", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
+const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🚚 Move", hunt: "🎯 Blacklist", attack: "⚔️ Battle", growth: "🧭 Growth", bearplan: "🐻 Bear plan", vv: "🪓 Viking report", ms: "🧳 Migrant Score", ranking: "📊 Ranking", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watch", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
 const AI_TAB_LINKS = {
   events: "[Events](officer-x7k2p9.html#events) (week calendar, officer to-dos, in-game guides to copy, add/edit events)",
   board: "[Board](officer-x7k2p9.html#board)", map: "[Map](officer-x7k2p9.html#map) (kingdom map, Outpost plan)",
@@ -601,6 +611,7 @@ const AI_TAB_LINKS = {
   watch: "[Watch](officer-x7k2p9.html#watch) (name changes, power history, who left/joined, notes)",
   growth: "[Growth](officer-x7k2p9.html#growth) (proposal: how we grow attack / defense / Bear leaders)",
   bearplan: "[Bear plan](officer-x7k2p9.html#bearplan) (discussion draft: fewer, stronger Bear rallies)",
+  ms: "[Migrant Score](officer-x7k2p9.html#ms) (our research, still testing: what raises the hidden Migrant Score / Swordland power)",
   vv: "[Viking report](officer-x7k2p9.html#vv) (our research: how Viking Vengeance splits kills and points, what to send)",
   attack: "[Battle](officer-x7k2p9.html#attack) (attack planner from MightPulse board strength, scouting other kingdoms)",
   views: "[Views](officer-x7k2p9.html#views)", perms: "[Officers](officer-x7k2p9.html#perms)",
@@ -1658,7 +1669,7 @@ const ADMIN_IDS = ["1547403844374368327", "1240788094672834623", "76282790434124
 /* view-only officers added by Sparrow (2026-10-16): put into the 👥 table with Events / Board / Map "view" if they aren't in it yet.
    After that the table is the truth — change or remove them on the 👥 tab. */
 const SEED_VIEWERS = {"741447079804797041": "firebaugh", "734803550672257104": "ASHISH", "961642100150124555": "BOO", "1526789098210197638": "ELR", "216564539041251329": "flip", "1534039396461056172": "JORDAN", "1525666601456767171": "PAPA", "706153853460021341": "Tiger", "1003385592983322664": "Δйʊвιŝ"};
-const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", views: "none", move: "none", hunt: "none", attack: "none", growth: "none", bearplan: "none", vv: "none" };
+const VIEW_DEFAULT = { events: "view", board: "view", map: "view", ranking: "none", attend: "none", post: "none", watch: "none", views: "none", move: "none", hunt: "none", attack: "none", growth: "none", bearplan: "none", vv: "none", ms: "none" };
 /* 🛠️ which events' officer to-dos each person gets as a reminder (from Sparrow's role list, 2026-10-16) — only a starting point:
    once an admin changes someone's 🔔 on the 👥 tab, the saved list wins. Admins with no list get every event. */
 const MOB = "alliance-mobilization";
