@@ -35,6 +35,8 @@
   .tabs { display: flex; gap: 6px; margin: 14px 0 0; border-bottom: 2px solid var(--rule); flex-wrap: wrap; }
   .tabs a { padding: 9px 14px; border-radius: 10px 10px 0 0; text-decoration: none; color: var(--text-muted); font-weight: 600; border: 1px solid transparent; border-bottom: 0; }
   .tabs a.on { color: var(--text); background: var(--panel); border-color: var(--rule); margin-bottom: -2px; border-bottom: 2px solid var(--panel); }
+  .tabs.subtabs { border-bottom: 0; margin: 10px 0 0; gap: 6px; } .tabs.subtabs a { border: 1px solid var(--rule); border-radius: 99px; padding: 5px 13px; font-size: 13.5px; }
+  .tabs.subtabs a.on { margin: 0; border: 1px solid var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--panel)); color: var(--text); }
   @media (max-width: 440px) { .tabs { gap: 2px; } .tabs a { padding: 8px 7px; font-size: 13px; white-space: nowrap; } }   /* 5 tabs: wrap to a second row on phones */
   .weeknav { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
   .weeknav .lbl { font-weight: 700; text-align: center; flex: 1; }
@@ -666,6 +668,7 @@
   #pg-perms .pm-tbl { border-collapse: collapse; font-size: 13px; min-width: 100%; }
   #pg-perms .pm-tbl th, #pg-perms .pm-tbl td { padding: 6px 6px; text-align: center; border-bottom: 1px solid var(--rule); white-space: nowrap; }
   #pg-perms .pm-tbl tbody th { text-align: left; font-weight: 700; }
+  #pg-perms .pm-tbl tr.pm-grow th { border-bottom: 0; padding-bottom: 0; } #pg-perms .pm-tbl th.pm-grp { border-bottom: 2px solid var(--accent); font-size: 12px; color: var(--text-muted); }
   #pg-perms .pm-tbl tr.pv th { color: var(--accent); }
   #pg-perms .pm-adm { font-size: 11px; font-weight: 600; color: var(--accent); }
   #pg-perms .pm-name { font: inherit; font-weight: 700; color: inherit; background: transparent; border: 1px dashed transparent; border-radius: 6px; padding: 2px 4px; width: 9em; }
@@ -959,15 +962,19 @@
     <a href="#move" data-tab="move" hidden>🚚 Move</a>
     <a href="#hunt" data-tab="hunt" hidden>🎯 Blacklist</a>
     <a href="#attack" data-tab="attack" hidden>⚔️ Battle</a>
-    <a href="#growth" data-tab="growth" hidden>🧭 Growth</a>
-    <a href="#bearplan" data-tab="bearplan" hidden>🐻 Bear plan</a>
-    <a href="#vv" data-tab="vv" hidden>🪓 Viking report</a>
+    <a href="#research" data-group="research" id="researchTab" hidden>🔬 Research</a>
     <a href="#ranking" data-tab="ranking">📊 Ranking</a>
     <a href="#attend" data-tab="attend" id="attendTab" hidden>📋 Attendance</a>
     <a href="#post" data-tab="post">📢 Post</a>
     <a href="#watch" data-tab="watch">🕵️ Watch</a>
     <a href="#views" data-tab="views">📈 Views</a>
     <a href="#perms" data-tab="perms" id="permsTab" hidden>👥 Officers</a>
+  </nav>
+  <!-- 🔬 Research: one main tab, its reports as sub-tabs (each keeps its own 👥 permission and #link) -->
+  <nav class="tabs subtabs" id="researchSub" hidden>
+    <a href="#growth" data-tab="growth" hidden>🧭 Growth</a>
+    <a href="#bearplan" data-tab="bearplan" hidden>🐻 Bear plan</a>
+    <a href="#vv" data-tab="vv" hidden>🪓 Viking report</a>
   </nav>
   <div id="gate" class="card" hidden style="max-width:360px;margin:24px auto">
     <a class="btn" id="gateDiscord" href="#" style="display:block;text-align:center;width:100%;box-sizing:border-box;padding:12px;background:#5865F2;border-color:#5865F2;color:#fff;font-weight:700;text-decoration:none"></a>

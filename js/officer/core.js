@@ -223,10 +223,13 @@ OFFICER.applyPerms = () => {
   for (const k of TABS) { const pg = document.getElementById("pg-" + k); if (pg) { pg.classList.toggle("readonly", !OFFICER.can(k, "edit")); pg.dataset.ro = ro; } }
   // links into a tab they can't open (📊 Ranking / 📢 Post buttons on the to-do cards…) disappear too: body.no-<tab> + CSS
   for (const k of TABS) document.body.classList.toggle("no-" + k, !OFFICER.can(k, "view"));
+  // 🔬 Research: shown when at least one of its reports may be opened; it leads to the first one
+  for (const [g, ks] of Object.entries(GROUPS)) { const a = document.querySelector(`.tabs a[data-group="${g}"]`); if (!a) continue; const ok = ks.filter((k) => OFFICER.can(k, "view")); a.hidden = !ok.length; if (ok.length) a.href = "#" + ok[0]; }
   // only once someone is logged in: before that nobody can see anything, and a link like #map must survive until the login check is done
   if (OFFICER.user && !OFFICER.can(currentTab(), "view")) location.hash = "#" + (TABS.find((k) => OFFICER.can(k, "view")) || "events");
 };
 const OFFICER_PAGES = {};
+const GROUPS = { research: ["growth", "bearplan", "vv"] };   // 🔬 one main tab, sub-tabs inside (Sherry 2026-11-04: too many tabs)
 const TABS = ["events", "ranking", "post", "watch", "views", "map", "move", "hunt", "attack", "growth", "bearplan", "vv", "bt", "board", "attend", "perms"];
 const inited = {};
 /* start another tab's module without showing it (the 👥 tab uses the Post tab's owner tools) */
@@ -389,11 +392,13 @@ function loadScripts(list) {
 /* tabs: #events / #ranking / #post / #watch (the part after "?" is kept for the page) */
 function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|views|map|move|hunt|attack|growth|bearplan|vv|bt|board|attend|perms)/); return m ? m[1] : "events"; }
 async function showTab() {
-  if (location.hash === "#scout") { location.replace("#attack"); return; }   // 🔭 Scout is inside ⚔️ Battle now (2026-10-30)
+  if (location.hash === "#scout") { location.replace("#attack"); return; }   // ↓ #research → its first report this person may open
+  if (location.hash === "#research") { location.replace("#" + (GROUPS.research.find((k) => OFFICER.can(k, "view")) || "events")); return; }   // 🔭 Scout is inside ⚔️ Battle now (2026-10-30)
   const k = currentTab();
   if (k === "bt") { location.replace("bear-calculator.html"); return; }   // 🐻 the bear calculator moved to its own public page
   OFFICER.applyPerms();
-  document.querySelectorAll(".tabs a").forEach((a) => a.classList.toggle("on", a.dataset.tab === k));
+  document.querySelectorAll(".tabs a").forEach((a) => a.classList.toggle("on", a.dataset.tab === k || (!!a.dataset.group && GROUPS[a.dataset.group].includes(k))));
+  const rs = document.getElementById("researchSub"); if (rs) rs.hidden = !GROUPS.research.includes(k);
   for (const t of TABS) document.getElementById("pg-" + t).hidden = t !== k;
   const p = OFFICER_PAGES[k];
   if (!p) return;
