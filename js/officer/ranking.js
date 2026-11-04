@@ -54,7 +54,7 @@ const PRESETS = [
     groups: [
       { name: { en: "Attackers", zh: "攻擊者" }, count: 4 },
       { name: { en: "Defenders", zh: "防守者" }, count: 6 },
-      { name: { en: "Joiners", zh: "參與者" }, count: null },
+      { name: { en: "Joiners", zh: "加入者" }, count: null },
     ] },
   /* 🔱 Tri-Alliance Clash (三盟爭霸): its own groups, the Swordland battle table is hidden while it is open; "Copy result" adds each power */
   { id: "tri", emoji: "🔱", power: true, img: "figures/tri.webp", name: { en: "Tri-Alliance Clash", zh: "三盟爭霸", pt: "Confronto Tri-Aliança", ar: "صراع التحالف الثلاثي", ko: "삼대 연맹전" },
