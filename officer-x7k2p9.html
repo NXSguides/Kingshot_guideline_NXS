@@ -1054,6 +1054,9 @@
 </style>
 <style>
   .km-members .mm-map { overflow: auto; max-height: min(70vh, 560px); border-radius: 10px; background: #3f5f27; -webkit-overflow-scrolling: touch; }
+  @media (pointer: fine) { .km-members .mm-map { cursor: grab; } }
+  .km-members .mm-map.dragging { cursor: grabbing; user-select: none; }
+  .km-members .mm-map.dragging * { pointer-events: none; }
   .km-members .mm-c, .km-members .mm-b { cursor: pointer; }
   .km-members .mm-n { font: 700 10px Arial, sans-serif; fill: #1c2433; pointer-events: none; }
   .km-members .mm-bl { font: 800 14px Arial, sans-serif; fill: #fff; pointer-events: none; }
