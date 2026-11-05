@@ -1196,7 +1196,7 @@ const GUIDES = {
       ]},
     }
   },
-  /* 🔰 New here? (Nia & Sherry, 2026-11-05): onboarding for new members (TTT) — Nia's 5 core rules + her in-game Onboarding messages + the basics we assume. */
+  /* 🔰 New here? (Nia & Sherry, 2026-11-05): onboarding for new members (TTT) — Nia's 5 core rules + her in-game Onboarding messages + the words and basics we assume. */
   "new-here": {
     emoji: "🔰",
     name: { en: "New here?", zh: "新手入門", ko: "처음 오셨나요?", de: "Neu hier?", fr: "Nouveau ici ?", pt: "Novo aqui?", tr: "Yeni misin?", id: "Baru di sini?", ru: "Ты новенький?", th: "มาใหม่ใช่ไหม?", ar: "جديد هنا؟", es: "¿Eres nuevo?" },
@@ -1228,7 +1228,9 @@ const GUIDES = {
         {"type": "list", "items": ["📢 Alliance Notices: weekly updates and leadership messages.", "✉️ Group Info: messages from R4 with event guides, strategies and tips.", "🎧 Discord: battle voice chat and pictures.", "🌐 This website: guides, rules and how-tos in 12 languages. Check them often!"]},
         {"type": "sub", "text": "🔗 Links"},
         {"type": "list", "items": ["Discord: https://discord.gg/5RakbEK5RS", "🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/"]},
-        {"type": "fold", "title": "🛡️ Basics we expect everyone to know (tap to open)", "blocks": [{"type": "list", "items": ["{rally}: one leader starts it and others join. The leader's stats are the ones that count.", "Reinforce: send troops to help defend a friend's city or a building.", "Garrison: the troops defending a building (a {sanctuary}, a Fortress…).", "Joining a rally: only your FIRST hero's skill helps, and only the first 4 joiners with a hero count. Use the hero the rules ask for.", "Send exactly the troop number asked. Extra troops don't help — they take space other members need.", "{shield}: turn it on when you are offline during fights ({allOut}, KvK).", "{infirmary}: wounded troops go here. When it is full, more troops die — heal often."]}]},
+        {"type": "sub", "text": "⚔️ Troop ratios & limits"},
+        {"type": "p", "text": "How many troops to send and in which ratio (e.g. 50:20:30 = {infantry} : {cavalry} : {archer}) is in this guide — it also works out the exact numbers for you:"},
+        {"type": "p", "text": "[[link:formations-rally-tips]]"},
       ]},
       zh: { title: "新手入門", blocks: [
         {"type": "p", "text": "歡迎加入 NXS！這頁看一次就好，第一天需要知道的都在這裡。還是不確定？問 R4，或點 💬 問 AI。"},
@@ -1257,7 +1259,9 @@ const GUIDES = {
         {"type": "list", "items": ["📢 聯盟公告：每週更新和幹部的訊息。", "✉️ 群組訊息：R4 私訊的活動攻略、策略和小技巧。", "🎧 Discord：戰鬥語音和圖片分享。", "🌐 這個網站：12 種語言的攻略、規則和教學。記得常常來看！"]},
         {"type": "sub", "text": "🔗 連結"},
         {"type": "list", "items": ["Discord: https://discord.gg/5RakbEK5RS", "🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/"]},
-        {"type": "fold", "title": "🛡️ 大家都該懂的基本觀念（點開）", "blocks": [{"type": "list", "items": ["{rally}：一位隊長發起，其他人加入。算的是隊長的屬性。", "增援：派兵去幫盟友的城或建築防守。", "駐防：守在建築裡的部隊（{sanctuary}、要塞…）。", "加入集結：只有你的「第一位英雄」技能有用，而且只算前 4 位帶英雄的加入者。照規則帶指定的英雄。", "照指定的兵數派兵。多派沒有用，還會佔掉其他人的位置。", "{shield}：打仗期間（{allOut}、KvK）離線時要開。", "{infirmary}：傷兵會進這裡。滿了之後兵就會死，記得常治療。"]}]},
+        {"type": "sub", "text": "⚔️ 兵種比例和兵數上限"},
+        {"type": "p", "text": "要派多少兵、用什麼比例（例如 50:20:30＝{infantry}：{cavalry}：{archer}），都在這篇攻略裡，還會直接幫你算好兵數："},
+        {"type": "p", "text": "[[link:formations-rally-tips]]"},
       ]},
       ko: { title: "처음 오셨나요?", blocks: [
         {"type": "p", "text": "NXS에 오신 걸 환영해요! 이 페이지를 한 번 읽어 주세요. 첫날 필요한 건 다 여기 있어요. 그래도 모르겠으면 R4에게 묻거나 💬 AI에게 질문을 누르세요."},
@@ -1286,7 +1290,9 @@ const GUIDES = {
         {"type": "list", "items": ["📢 연맹 공지: 주간 소식과 운영진 메시지.", "✉️ 그룹 메시지: R4가 보내는 이벤트 공략, 전략, 팁.", "🎧 Discord: 전투 음성 채팅과 이미지 공유.", "🌐 이 웹사이트: 12개 언어의 공략, 규칙, 사용법. 자주 확인하세요!"]},
         {"type": "sub", "text": "🔗 링크"},
         {"type": "list", "items": ["Discord: https://discord.gg/5RakbEK5RS", "🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/"]},
-        {"type": "fold", "title": "🛡️ 모두 알아야 할 기본 (눌러서 열기)", "blocks": [{"type": "list", "items": ["{rally}: 리더 한 명이 시작하고 다른 사람이 참여해요. 계산되는 건 리더의 능력치예요.", "지원: 연맹원의 도시나 건물 방어를 도우러 병력을 보내요.", "주둔: 건물({sanctuary}, 성채…)을 지키는 병력.", "집결 참여: 첫 번째 영웅의 스킬만 도움이 되고, 영웅을 데려온 앞의 4명만 계산돼요. 규칙에 맞는 영웅을 쓰세요.", "정해진 병력 수만큼만 보내세요. 더 보내도 소용없고 다른 사람 자리를 차지해요.", "{shield}: 전투 기간({allOut}, KvK)에 접속하지 않을 때 켜세요.", "{infirmary}: 부상병이 가는 곳. 가득 차면 병력이 죽으니 자주 치료하세요."]}]},
+        {"type": "sub", "text": "⚔️ 병력 비율과 상한"},
+        {"type": "p", "text": "병력을 얼마나, 어떤 비율로 보낼지(예: 50:20:30 = {infantry} : {cavalry} : {archer})는 이 가이드에 있어요. 정확한 병력 수도 계산해 줘요:"},
+        {"type": "p", "text": "[[link:formations-rally-tips]]"},
       ]},
       de: { title: "Neu hier?", blocks: [
         {"type": "p", "text": "Willkommen bei NXS! Lies diese Seite einmal — hier steht alles für deinen ersten Tag. Noch unsicher? Frag einen R4 oder tippe auf 💬 KI fragen."},
@@ -1315,7 +1321,9 @@ const GUIDES = {
         {"type": "list", "items": ["📢 Allianz-Mitteilungen: Wochen-Updates und Nachrichten der Leitung.", "✉️ Gruppen-Infos: Nachrichten von R4 mit Event-Guides, Strategien und Tipps.", "🎧 Discord: Sprachchat im Kampf und Bilder.", "🌐 Diese Webseite: Guides, Regeln und Anleitungen in 12 Sprachen. Schau oft rein!"]},
         {"type": "sub", "text": "🔗 Links"},
         {"type": "list", "items": ["Discord: https://discord.gg/5RakbEK5RS", "🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/"]},
-        {"type": "fold", "title": "🛡️ Grundlagen, die jeder kennen sollte (antippen)", "blocks": [{"type": "list", "items": ["{rally}: Ein Anführer startet, andere treten bei. Es zählen die Werte des Anführers.", "Verstärken: Truppen schicken, um die Stadt eines Freundes oder ein Gebäude zu verteidigen.", "Garnison: die Truppen, die ein Gebäude verteidigen ({sanctuary}, Festung…).", "Einer Rally beitreten: Nur die Fähigkeit deines ERSTEN Helden hilft, und nur die ersten 4 Beitretenden mit Held zählen. Nimm den Helden aus den Regeln.", "Schick genau die verlangte Truppenzahl. Mehr hilft nicht — es nimmt anderen den Platz.", "{shield}: einschalten, wenn du während Kämpfen offline bist ({allOut}, KvK).", "{infirmary}: Verwundete kommen hierher. Ist sie voll, sterben Truppen — oft heilen."]}]},
+        {"type": "sub", "text": "⚔️ Truppenverhältnis & Obergrenzen"},
+        {"type": "p", "text": "Wie viele Truppen du schickst und in welchem Verhältnis (z. B. 50:20:30 = {infantry} : {cavalry} : {archer}), steht in diesem Guide — er rechnet dir auch die genauen Zahlen aus:"},
+        {"type": "p", "text": "[[link:formations-rally-tips]]"},
       ]},
       fr: { title: "Nouveau ici ?", blocks: [
         {"type": "p", "text": "Bienvenue chez NXS ! Lis cette page une fois : tout ce qu'il te faut pour ton premier jour est ici. Un doute ? Demande à un R4 ou touche 💬 Demander à l'IA."},
@@ -1344,7 +1352,9 @@ const GUIDES = {
         {"type": "list", "items": ["📢 Annonces d'alliance : nouvelles de la semaine et messages de la direction.", "✉️ Infos de groupe : messages des R4 avec guides, stratégies et conseils.", "🎧 Discord : chat vocal en combat et images.", "🌐 Ce site : guides, règles et tutos en 12 langues. Viens souvent !"]},
         {"type": "sub", "text": "🔗 Liens"},
         {"type": "list", "items": ["Discord: https://discord.gg/5RakbEK5RS", "🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/"]},
-        {"type": "fold", "title": "🛡️ Les bases que tout le monde doit connaître (toucher pour ouvrir)", "blocks": [{"type": "list", "items": ["{rally} : un chef le lance, les autres rejoignent. Ce sont les stats du chef qui comptent.", "Renfort : envoyer des troupes pour défendre la ville d'un allié ou un bâtiment.", "Garnison : les troupes qui défendent un bâtiment ({sanctuary}, Forteresse…).", "Rejoindre un ralliement : seule la compétence de ton PREMIER héros aide, et seuls les 4 premiers à venir avec un héros comptent. Prends le héros demandé.", "Envoie exactement le nombre de troupes demandé. Plus ne sert à rien et prend la place des autres.", "{shield} : active-le quand tu es hors ligne pendant les combats ({allOut}, KvK).", "{infirmary} : les blessés y vont. Quand elle est pleine, des troupes meurent — soigne souvent."]}]},
+        {"type": "sub", "text": "⚔️ Ratios et limites de troupes"},
+        {"type": "p", "text": "Combien de troupes envoyer et avec quel ratio (ex. 50:20:30 = {infantry} : {cavalry} : {archer}) : tout est dans ce guide, qui calcule aussi les nombres exacts :"},
+        {"type": "p", "text": "[[link:formations-rally-tips]]"},
       ]},
       pt: { title: "Novo aqui?", blocks: [
         {"type": "p", "text": "Bem-vindo à NXS! Leia esta página uma vez — tudo o que você precisa no primeiro dia está aqui. Ainda com dúvida? Pergunte a um R4 ou toque em 💬 Perguntar à IA."},
@@ -1373,7 +1383,9 @@ const GUIDES = {
         {"type": "list", "items": ["📢 Avisos da aliança: novidades da semana e mensagens da liderança.", "✉️ Info de grupo: mensagens dos R4 com guias, estratégias e dicas.", "🎧 Discord: chat de voz nas batalhas e imagens.", "🌐 Este site: guias, regras e tutoriais em 12 idiomas. Confira sempre!"]},
         {"type": "sub", "text": "🔗 Links"},
         {"type": "list", "items": ["Discord: https://discord.gg/5RakbEK5RS", "🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/"]},
-        {"type": "fold", "title": "🛡️ O básico que todo mundo precisa saber (toque para abrir)", "blocks": [{"type": "list", "items": ["{rally}: um líder começa e os outros entram. Contam os atributos do líder.", "Reforço: mandar tropas para ajudar a defender a cidade de um amigo ou um prédio.", "Guarnição: as tropas que defendem um prédio ({sanctuary}, Fortaleza…).", "Entrar num rally: só a habilidade do seu PRIMEIRO herói ajuda, e só os 4 primeiros que entram com herói contam. Use o herói que as regras pedem.", "Envie exatamente o número de tropas pedido. Mais não ajuda — ocupa o espaço dos outros.", "{shield}: ative quando estiver offline durante as lutas ({allOut}, KvK).", "{infirmary}: os feridos vão para lá. Quando lota, as tropas morrem — cure sempre."]}]},
+        {"type": "sub", "text": "⚔️ Proporção e limite de tropas"},
+        {"type": "p", "text": "Quantas tropas mandar e em qual proporção (ex.: 50:20:30 = {infantry} : {cavalry} : {archer}) está neste guia — ele também calcula os números exatos para você:"},
+        {"type": "p", "text": "[[link:formations-rally-tips]]"},
       ]},
       tr: { title: "Yeni misin?", blocks: [
         {"type": "p", "text": "NXS'e hoş geldin! Bu sayfayı bir kez oku — ilk günün için gereken her şey burada. Emin değil misin? Bir R4'e sor ya da 💬 Yapay zekâya sor'a dokun."},
@@ -1402,7 +1414,9 @@ const GUIDES = {
         {"type": "list", "items": ["📢 İttifak duyuruları: haftalık haberler ve yönetim mesajları.", "✉️ Grup bilgisi: R4'ten etkinlik rehberleri, stratejiler ve ipuçları.", "🎧 Discord: savaşta sesli sohbet ve resimler.", "🌐 Bu site: 12 dilde rehberler, kurallar ve anlatımlar. Sık sık bak!"]},
         {"type": "sub", "text": "🔗 Bağlantılar"},
         {"type": "list", "items": ["Discord: https://discord.gg/5RakbEK5RS", "🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/"]},
-        {"type": "fold", "title": "🛡️ Herkesin bilmesi gerekenler (açmak için dokun)", "blocks": [{"type": "list", "items": ["{rally}: bir lider başlatır, diğerleri katılır. Liderin özellikleri sayılır.", "Takviye: bir arkadaşın şehrini veya bir binayı savunmak için asker göndermek.", "Garnizon: bir binayı ({sanctuary}, Kale…) savunan askerler.", "Seferberliğe katılmak: sadece İLK kahramanının becerisi işe yarar ve kahramanla katılan ilk 4 kişi sayılır. Kuralların istediği kahramanı kullan.", "İstenen asker sayısını tam gönder. Fazlası işe yaramaz — başkalarının yerini kaplar.", "{shield}: savaşlar sırasında ({allOut}, KvK) çevrimdışıysan aç.", "{infirmary}: yaralılar buraya gider. Dolunca askerler ölür — sık iyileştir."]}]},
+        {"type": "sub", "text": "⚔️ Asker oranı ve sınırı"},
+        {"type": "p", "text": "Kaç asker göndereceğin ve hangi oranla (ör. 50:20:30 = {infantry} : {cavalry} : {archer}) bu rehberde — tam sayıları da senin için hesaplar:"},
+        {"type": "p", "text": "[[link:formations-rally-tips]]"},
       ]},
       id: { title: "Baru di sini?", blocks: [
         {"type": "p", "text": "Selamat datang di NXS! Baca halaman ini sekali — semua yang kamu perlukan di hari pertama ada di sini. Masih ragu? Tanya R4, atau ketuk 💬 Tanya AI."},
@@ -1431,7 +1445,9 @@ const GUIDES = {
         {"type": "list", "items": ["📢 Pengumuman aliansi: kabar mingguan dan pesan pimpinan.", "✉️ Info grup: pesan dari R4 berisi panduan event, strategi, dan tips.", "🎧 Discord: obrolan suara saat perang dan gambar.", "🌐 Situs ini: panduan, aturan, dan cara pakai dalam 12 bahasa. Sering-sering cek!"]},
         {"type": "sub", "text": "🔗 Tautan"},
         {"type": "list", "items": ["Discord: https://discord.gg/5RakbEK5RS", "🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/"]},
-        {"type": "fold", "title": "🛡️ Dasar yang harus diketahui semua orang (ketuk untuk buka)", "blocks": [{"type": "list", "items": ["{rally}: satu pemimpin memulai, yang lain bergabung. Yang dihitung adalah atribut pemimpin.", "Bala bantuan: kirim pasukan untuk membantu bertahan di kota teman atau bangunan.", "Garnisun: pasukan yang menjaga bangunan ({sanctuary}, Benteng…).", "Ikut reli: hanya skill hero PERTAMA kamu yang membantu, dan hanya 4 orang pertama yang ikut dengan hero yang dihitung. Pakai hero yang diminta aturan.", "Kirim tepat jumlah pasukan yang diminta. Lebih banyak tidak membantu — malah memakan tempat orang lain.", "{shield}: nyalakan saat kamu offline selama pertempuran ({allOut}, KvK).", "{infirmary}: pasukan terluka masuk ke sini. Kalau penuh, pasukan mati — sering-sering sembuhkan."]}]},
+        {"type": "sub", "text": "⚔️ Rasio & batas pasukan"},
+        {"type": "p", "text": "Berapa pasukan yang dikirim dan dengan rasio apa (mis. 50:20:30 = {infantry} : {cavalry} : {archer}) ada di panduan ini — angka pastinya juga dihitungkan:"},
+        {"type": "p", "text": "[[link:formations-rally-tips]]"},
       ]},
       ru: { title: "Ты новенький?", blocks: [
         {"type": "p", "text": "Добро пожаловать в NXS! Прочитай эту страницу один раз — здесь всё, что нужно в первый день. Сомневаешься? Спроси R4 или нажми 💬 Спросить ИИ."},
@@ -1460,7 +1476,9 @@ const GUIDES = {
         {"type": "list", "items": ["📢 Объявления альянса: новости недели и сообщения руководства.", "✉️ Групповые сообщения: R4 присылают гайды, стратегии и советы.", "🎧 Discord: голосовой чат в бою и картинки.", "🌐 Этот сайт: гайды, правила и инструкции на 12 языках. Заглядывай почаще!"]},
         {"type": "sub", "text": "🔗 Ссылки"},
         {"type": "list", "items": ["Discord: https://discord.gg/5RakbEK5RS", "🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/"]},
-        {"type": "fold", "title": "🛡️ Основы, которые должен знать каждый (нажми, чтобы открыть)", "blocks": [{"type": "list", "items": ["{rally}: лидер начинает, остальные вступают. Считаются характеристики лидера.", "Подкрепление: отправить войска защищать город друга или здание.", "Гарнизон: войска, которые защищают здание ({sanctuary}, крепость…).", "Вступая в рейд: помогает только навык твоего ПЕРВОГО героя, и считаются только первые 4 вступивших с героем. Бери героя по правилам.", "Отправляй ровно столько войск, сколько просят. Больше не поможет — займёт место других.", "{shield}: включай, когда ты не в сети во время боёв ({allOut}, KvK).", "{infirmary}: сюда попадают раненые. Когда он полон, войска гибнут — лечи почаще."]}]},
+        {"type": "sub", "text": "⚔️ Соотношение и лимит войск"},
+        {"type": "p", "text": "Сколько войск отправлять и в каком соотношении (например, 50:20:30 = {infantry} : {cavalry} : {archer}) — в этом гайде, он же посчитает точные числа:"},
+        {"type": "p", "text": "[[link:formations-rally-tips]]"},
       ]},
       th: { title: "มาใหม่ใช่ไหม?", blocks: [
         {"type": "p", "text": "ยินดีต้อนรับสู่ NXS! อ่านหน้านี้สักครั้ง ทุกอย่างที่ต้องรู้ในวันแรกอยู่ที่นี่ ยังไม่แน่ใจ? ถาม R4 หรือแตะ 💬 ถาม AI"},
@@ -1489,7 +1507,9 @@ const GUIDES = {
         {"type": "list", "items": ["📢 ประกาศพันธมิตร: ข่าวรายสัปดาห์และข้อความจากผู้นำ", "✉️ ข้อความกลุ่ม: R4 ส่งคู่มือกิจกรรม กลยุทธ์ และเคล็ดลับ", "🎧 Discord: แชทเสียงตอนรบและรูปภาพ", "🌐 เว็บนี้: คู่มือ กฎ และวิธีใช้ 12 ภาษา แวะมาบ่อยๆ!"]},
         {"type": "sub", "text": "🔗 ลิงก์"},
         {"type": "list", "items": ["Discord: https://discord.gg/5RakbEK5RS", "🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/"]},
-        {"type": "fold", "title": "🛡️ พื้นฐานที่ทุกคนควรรู้ (แตะเพื่อเปิด)", "blocks": [{"type": "list", "items": ["{rally}: หัวหน้าหนึ่งคนเปิด คนอื่นเข้าร่วม ค่าที่นับคือค่าของหัวหน้า", "เสริมกำลัง: ส่งทหารไปช่วยป้องกันเมืองเพื่อนหรืออาคาร", "ประจำการ: ทหารที่ป้องกันอาคาร ({sanctuary}, ป้อมปราการ…)", "เข้าร่วมทีมระดมพล: มีแค่สกิลของฮีโร่ตัวแรกที่ช่วย และนับแค่ 4 คนแรกที่มีฮีโร่ ใช้ฮีโร่ตามกฎ", "ส่งทหารให้พอดีตามที่บอก ส่งเกินไม่ช่วย แถมกินที่คนอื่น", "{shield}: เปิดเมื่อออฟไลน์ช่วงรบ ({allOut}, KvK)", "{infirmary}: ทหารบาดเจ็บไปที่นี่ ถ้าเต็มทหารจะตาย รักษาบ่อยๆ"]}]},
+        {"type": "sub", "text": "⚔️ สัดส่วนและจำนวนทหารสูงสุด"},
+        {"type": "p", "text": "จะส่งทหารเท่าไรและสัดส่วนแบบไหน (เช่น 50:20:30 = {infantry} : {cavalry} : {archer}) ดูได้ในคู่มือนี้ และยังคำนวณจำนวนที่แน่นอนให้ด้วย:"},
+        {"type": "p", "text": "[[link:formations-rally-tips]]"},
       ]},
       ar: { title: "جديد هنا؟", blocks: [
         {"type": "p", "text": "أهلًا بك في NXS! اقرأ هذه الصفحة مرة واحدة — فيها كل ما تحتاجه في يومك الأول. غير متأكد؟ اسأل أحد R4 أو اضغط 💬 اسأل الذكاء الاصطناعي."},
@@ -1518,7 +1538,9 @@ const GUIDES = {
         {"type": "list", "items": ["📢 إعلانات التحالف: أخبار الأسبوع ورسائل القيادة.", "✉️ رسائل المجموعة: أدلة الفعاليات والاستراتيجيات والنصائح من R4.", "🎧 Discord: دردشة صوتية أثناء المعارك وصور.", "🌐 هذا الموقع: أدلة وقواعد وشروحات بـ12 لغة. زره كثيرًا!"]},
         {"type": "sub", "text": "🔗 روابط"},
         {"type": "list", "items": ["Discord: https://discord.gg/5RakbEK5RS", "🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/"]},
-        {"type": "fold", "title": "🛡️ أساسيات يجب أن يعرفها الجميع (اضغط للفتح)", "blocks": [{"type": "list", "items": ["{rally}: قائد واحد يبدأه والباقون ينضمون. تُحسب إحصائيات القائد.", "التعزيز: إرسال قوات للمساعدة في الدفاع عن مدينة صديق أو مبنى.", "الحامية: القوات التي تدافع عن مبنى ({sanctuary}، قلعة…).", "الانضمام إلى حشد: مهارة بطلك الأول فقط تساعد، ويُحسب أول 4 منضمين مع بطل فقط. استخدم البطل المطلوب في القواعد.", "أرسل عدد القوات المطلوب بالضبط. الزيادة لا تفيد — بل تأخذ مكان الآخرين.", "{shield}: فعّله عندما تكون غير متصل أثناء المعارك ({allOut}، KvK).", "{infirmary}: يذهب الجرحى إليه. عندما يمتلئ تموت القوات — عالج باستمرار."]}]},
+        {"type": "sub", "text": "⚔️ نسب القوات وحدودها"},
+        {"type": "p", "text": "كم ترسل من القوات وبأي نسبة (مثل 50:20:30 = {infantry} : {cavalry} : {archer}) موجود في هذا الدليل — ويحسب لك الأعداد بالضبط:"},
+        {"type": "p", "text": "[[link:formations-rally-tips]]"},
       ]},
       es: { title: "¿Eres nuevo?", blocks: [
         {"type": "p", "text": "¡Bienvenido a NXS! Lee esta página una vez: aquí está todo lo que necesitas el primer día. ¿Dudas? Pregunta a un R4 o toca 💬 Preguntar a la IA."},
@@ -1547,7 +1569,9 @@ const GUIDES = {
         {"type": "list", "items": ["📢 Avisos de la alianza: novedades semanales y mensajes de los líderes.", "✉️ Info de grupo: mensajes de R4 con guías, estrategias y consejos.", "🎧 Discord: chat de voz en batalla e imágenes.", "🌐 Esta web: guías, reglas y tutoriales en 12 idiomas. ¡Revísala a menudo!"]},
         {"type": "sub", "text": "🔗 Enlaces"},
         {"type": "list", "items": ["Discord: https://discord.gg/5RakbEK5RS", "🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/"]},
-        {"type": "fold", "title": "🛡️ Lo básico que todos deben saber (toca para abrir)", "blocks": [{"type": "list", "items": ["{rally}: un líder lo inicia y los demás se unen. Cuentan las estadísticas del líder.", "Refuerzo: enviar tropas para ayudar a defender la ciudad de un amigo o un edificio.", "Guarnición: las tropas que defienden un edificio ({sanctuary}, Fuerte…).", "Unirte a un ataque: solo ayuda la habilidad de tu PRIMER héroe, y solo cuentan los 4 primeros que se unen con héroe. Usa el héroe que piden las reglas.", "Envía exactamente las tropas pedidas. Más no ayuda: ocupa el espacio de otros.", "{shield}: actívalo cuando estés desconectado en combates ({allOut}, KvK).", "{infirmary}: allí van los heridos. Si se llena, mueren tropas — cura a menudo."]}]},
+        {"type": "sub", "text": "⚔️ Proporción y límite de tropas"},
+        {"type": "p", "text": "Cuántas tropas enviar y en qué proporción (p. ej. 50:20:30 = {infantry} : {cavalry} : {archer}) está en esta guía; también te calcula los números exactos:"},
+        {"type": "p", "text": "[[link:formations-rally-tips]]"},
       ]},
     }
   },
