@@ -78,6 +78,7 @@ const FEATURES = [
   ["Growth: 🌳 when to pick a direction (milestones, 4 branches, master & pet skills)", /🌳 WHEN TO PICK A DIRECTION/, /{ s: "#gr_road", k: "gr04" }/],
   ["Battle tab: ⚖️ Super compare (two players, rough % stronger)", /⚖️ SUPER COMPARE \(card at the top\)/, /{ s: "#ak_vs", k: "ak06" }/],
   ["Attack: 📊 today's strength list", /Today's strength/, /{ s: "#ak_board", k: "ak02" }/],
+  ["Attack: ⚡ KvK week live boards (every 2 h)", /⚡ KvK week live boards/, /k: "ak07"/],
   ["Board", /💬 Board/, /bd01:/],
   ["Attendance", /📋 Attendance/, /at01:/],
   ["Ranking: ✅ Registration on ticked names (⏳/✅/❌ replies, 🟡 safe players)", /✅ Registration \(報名確認/, /rk05r:/],

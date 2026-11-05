@@ -1,0 +1,36 @@
+name: KvK live boards (every 2 h in KvK week)
+# ⚡ the 4 boards ⚖️ Compare uses, for #2189 + the KvK opponent — see scripts/kvk-live.js (does nothing outside KvK week)
+on:
+  schedule:
+    - cron: "20 */2 * * *"
+  workflow_dispatch:
+concurrency:
+  group: kvk-live
+  cancel-in-progress: false
+jobs:
+  save:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/kvk-live.js
+        env:
+          MIGHTPULSE_API_KEY: ${{ secrets.MIGHTPULSE_API_KEY }}
+          DATA_KEY: ${{ secrets.DATA_KEY }}
+          FORCE: ${{ github.event_name == 'workflow_dispatch' && '1' || '0' }}
+      - run: |
+          git config user.name "history-bot"
+          git config user.email "actions@github.com"
+          git add data/kvk-live-x7k2p9.json 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "KvK live boards"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            git rebase --abort 2>/dev/null
+            sleep 5
+          done
+          exit 1
