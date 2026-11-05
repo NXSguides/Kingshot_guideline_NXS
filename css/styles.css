@@ -966,3 +966,7 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 .spot-foot { color: var(--text-muted); font-size: 12.5px; margin-top: 6px; }
 .spot-zoom { display: flex; gap: 4px; justify-content: flex-end; margin: 6px 0 4px; }
 .spot-zoom button { min-width: 40px; height: 32px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); font-size: 15px; cursor: pointer; }
+
+/* 🔰 New here? copy line */
+.copy-line { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 0 0 1em; }
+.copy-line code { font-size: 17px; padding: 6px 12px; border-radius: 8px; background: var(--panel); color: var(--text); border: 1px solid var(--rule); }

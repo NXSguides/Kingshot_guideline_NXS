@@ -398,6 +398,8 @@ const BLOCKS = {
   /* 📍 Where's my spot?: the live hive map (filled by spotInit below) */
   spot: () => `<div class="spot-app" id="spotApp"></div>`,
   /* a button that opens another guide */
+  /* one line to copy (e.g. the 亗 ᴺᵉˣᵘˢ亗 name format on 🔰 New here?) */
+  copy: (b) => `<div class="copy-line"><code dir="ltr">${escapeHtml(b.value || "")}</code><button type="button" class="spot-copy" data-v="${escapeHtml(b.value || "")}" onclick="copyText(this.dataset.v).then(() => { const o = this.textContent; this.textContent = '✓'; setTimeout(() => { this.textContent = o; }, 1500); })">📋 ${escapeHtml(b.label || "Copy")}</button></div>`,
   goto: (b) => `<button type="button" class="guide-link-btn" onclick="switchGuide('${escapeHtml(b.to)}')"><span>${rich(b.text)}</span></button>`,
   /* a closed box: the title shows, the blocks inside open on tap (details that most readers don't need yet) */
   fold: (b, g) => `<details class="fold"${b.id ? ` id="sec-${escapeHtml(b.id)}"` : ""}><summary>${rich(b.title)}</summary><div class="fold-body">${(b.blocks || []).map((x) => (BLOCKS[x.type] || (() => ""))(x, g)).join("")}</div></details>`,
