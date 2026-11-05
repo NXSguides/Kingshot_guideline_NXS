@@ -256,9 +256,8 @@ function draw(boxId = "mm_map") {
   /* stay where you were (Sherry, 2026-11-05): a redraw (a tap, a ✅, an auto save) puts the view back where it was; it only
      jumps to our HQ the first time, or when a plan is loaded / removed */
   const vk = boxId + (PL ? ":p" : ":n"), pv = VIEW[vk];
-  if (box.dataset.v !== vk) { box.dataset.v = vk; if (pv) { box.scrollLeft = pv.l; box.scrollTop = pv.t; } else if (SEL == null) JUMP.now(); }
-  box.onscroll = () => { VIEW[vk] = { l: box.scrollLeft, t: box.scrollTop }; };
-  if (!pv) VIEW[vk] = { l: box.scrollLeft, t: box.scrollTop };
+  if (box.dataset.v !== vk) { box.dataset.v = vk; if (pv || SEL == null) firstView(box, vk, pv); }
+  box.onscroll = () => { if (box.clientWidth) VIEW[vk] = { l: box.scrollLeft, t: box.scrollTop }; };
   dragPan(box);
   const jb = $("mm_jump"); if (jb) jb.innerHTML = `<button type="button" class="btn small" data-j="now">${esc(t("goNow"))}</button>${JUMP.hq ? ` <button type="button" class="btn small" data-j="hq">${esc(t("goNew"))}</button>` : ""}`
     + (farI.size ? `<div class="muted" style="font-size:12.5px;margin-top:4px">${esc(t("far"))} ${[...farI].map((i) => `${esc(cities[i][0])} X:${cities[i][1]} Y:${cities[i][2]}`).join(" · ")}</div>` : "");
@@ -269,6 +268,15 @@ function draw(boxId = "mm_map") {
 }
 /* 🖱️ drag the map with the mouse (touch already scrolls by itself); a drag doesn't count as a tap on a city / spot */
 const VIEW = {};
+/* 🧭 opening the page: centre on the NEW HQ when a moving plan has one, else on our HQ now (Sherry, 2026-11-05). The 🐝 tab is drawn
+   while still hidden, so the jump waits until the map can be seen (it used to land at the far edge). */
+function firstView(box, vk, pv) {
+  const go = () => { if (pv) { box.scrollLeft = pv.l; box.scrollTop = pv.t; } else (JUMP.hq || JUMP.now)(); VIEW[vk] = { l: box.scrollLeft, t: box.scrollTop }; };
+  if (box.clientWidth) { go(); return; }
+  if (!window.ResizeObserver) return;
+  const ro = new ResizeObserver(() => { if (!box.isConnected) { ro.disconnect(); return; } if (box.clientWidth) { ro.disconnect(); go(); } });
+  ro.observe(box);
+}
 function dragPan(box) {
   if (box._pan) return; box._pan = 1;
   let d = null, moved = false;
