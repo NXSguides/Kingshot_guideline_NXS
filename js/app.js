@@ -1641,7 +1641,8 @@ const KVK_CHECK = {
     .kvk-fab.todo::after{content:"";position:absolute;top:-3px;right:-3px;width:12px;height:12px;border-radius:50%;background:#e0352b;box-shadow:0 0 0 2px var(--panel);animation:kvkPulse 1.4s infinite}
     @keyframes kvkPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.35)}}
     .kvk-modal{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.55);display:grid;place-items:center;padding:16px}
-    .kvk-box{width:100%;max-width:420px;background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:18px;box-shadow:0 10px 30px var(--shadow)}
+    /* a long day list scrolls inside the box (2026-11-05: on a phone the bottom was cut off and couldn't be reached) */
+    .kvk-box{width:100%;max-width:420px;max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;box-sizing:border-box;background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:18px;box-shadow:0 10px 30px var(--shadow)}
     .kvk-box h3{margin:0 0 4px}
     .kvk-box .kvk-sub{color:var(--text-muted);font-size:13px;margin-bottom:12px}
     .kvk-how{display:inline-block;margin-inline-start:6px;padding:1px 8px;border:1px dashed var(--accent);border-radius:999px;color:var(--accent);font-size:.8em;text-decoration:none;white-space:nowrap}
