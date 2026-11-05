@@ -766,7 +766,7 @@ function renderPicker() {
 /* ---- 上方指南按鈕：「近期活動」＋兩個可展開的分類 ------------------- */
 /* Guides listed in GUIDE_GROUPS.growth go under 養成; everything else (except the home guide) goes under 活動. */
 const HOME_GUIDE = "recent-events";
-const TOP_GUIDES = ["nap-rules", "my-spot"];   // guides with their own button next to 📢 Home (not inside a group)
+const TOP_GUIDES = ["new-here", "nap-rules", "my-spot"];   // guides with their own button next to 📢 Home (not inside a group)
 const GUIDE_GROUPS = {
   events: { emoji: "🏆", name: { en:"Event Guides", zh:"活動指南", ko:"이벤트 가이드", de:"Event-Guides", fr:"Guides d'événements", pt:"Guias de eventos", tr:"Etkinlik Rehberleri", id:"Panduan Event", ru:"Гайды по событиям", th:"คู่มือกิจกรรม", ar:"أدلة الفعاليات", es:"Guías de eventos" } },
   growth: { emoji: "🌱", name: { en:"Growth Guides", zh:"養成指南", ko:"육성 가이드", de:"Aufbau-Guides", fr:"Guides de progression", pt:"Guias de evolução", tr:"Gelişim Rehberleri", id:"Panduan Pengembangan", ru:"Гайды по развитию", th:"คู่มือพัฒนา", ar:"أدلة التطوير", es:"Guías de progreso" },
@@ -843,7 +843,7 @@ window.toggleGuideGroup = toggleGuideGroup;
 window.pickGuideChip = pickGuideChip;
 
 /* Order of the guide buttons at the top. Guides not listed here are added at the end. */
-const GUIDE_ORDER = ["recent-events", "nap-rules", "formations-rally-tips", "f2p-heroes", "hero-cards", "hero-roulette", "master-academy", "general-tips", "mystic-trial", "pet", "bear-hunt", "swordland-showdown", "kvk"];
+const GUIDE_ORDER = ["recent-events", "new-here", "nap-rules", "formations-rally-tips", "f2p-heroes", "hero-cards", "hero-roulette", "master-academy", "general-tips", "mystic-trial", "pet", "bear-hunt", "swordland-showdown", "kvk"];
 
 function guideKeys() {
   const all = Object.keys(GUIDES).filter((k) => !GUIDES[k].hidden);

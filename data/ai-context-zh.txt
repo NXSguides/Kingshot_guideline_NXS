@@ -83,6 +83,81 @@ KGb
 第 2 次（警告後再犯）：踢出聯盟。
 第 3 次：列入所有受 NAP 保護聯盟的黑名單。
 
+### GUIDE #new-here — 新手入門
+歡迎加入 NXS！這頁看一次就好，第一天需要知道的都在這裡。還是不確定？問 R4，或點 💬 問 AI。
+📜 聯盟核心規則
+1. 保持活躍。要離開一陣子先告訴幹部。
+2. 遵守 NAP 6。被 NAP 成員攻擊時回報 R4/R5，不要反擊。
+3. 遵守活動規則。留意聯盟聊天、私訊和 Discord 的更新。
+4. 配合幹部、幫助盟友，大家一起團隊合作。
+5. 世界頻道保持友善，不要製造可能傷害聯盟的紛爭。
+✅ 第一天要知道的事
+🤝 NAP 6
+❌ 不可以攻擊這些聯盟，包含他們的農場和學院。*全軍出擊期間可以攻擊採集點。
+NXS/nxs/nXs
+NBD/nBd/Nbd
+RED/ReD
+ESA/EsA/UNI
+IDN
+KGb
+⚠️ 違規：第 1 次警告 · 第 2 次踢出聯盟 · 第 3 次列入所有 NAP 聯盟的黑名單。
+(see guide #nap-rules)
+🐻 熊陷阱：你的位置
+⚠️ R4 分配位置給你之前不要遷城。這會是你的固定位置，依你選的熊陷阱時段決定。
+⏰ 告訴我們你能參加哪個時段：BT1 22:00 UTC 或 BT2 13:00 UTC。
+📍 記住自己的位置，不要佔別人的位置。
+(see guide #bear-hunt)
+🏰 遺跡與要塞規則
+🔴 不准單打：不要自己對遺跡或要塞發動攻擊，加入 R4/R5 開的集結。
+🔵 照聯盟聊天或標記上指定的兵數和英雄派兵，剛好就好。
+⛔ R4/R5 沒有指示前不要遷城。
+🗺️ 各盟分配
+NXS: 遺跡 1, 6 · 要塞 2
+NBD: 遺跡 10, 11 · 要塞 4
+RED: 遺跡 2, 3 · 要塞 3
+ESA: 遺跡 5, 12 · 要塞 1
+IDN: 遺跡 4
+KGb: 遺跡 8
+7、9 號自由搶，每盟一座。
+✏️ 改名（選擇性）
+可以把名字改成和大家一樣的格式。照遊戲裡 Onboarding 訊息的範例複製就好。
+🌐 翻譯訊息
+點訊息旁邊的雙箭頭 ⇄，就會翻成你的遊戲語言。
+🎁 禮包碼
+🤖 Android：領主頭像 → 設定 → 禮包碼，輸入代碼領取。
+🍎 iPhone / iPad：用下面的網站，輸入玩家 ID 和代碼。
+📬 獎勵會寄到遊戲信箱。
+📚 消息在哪裡看
+📢 聯盟公告：每週更新和幹部的訊息。
+✉️ 群組訊息：R4 私訊的活動攻略、策略和小技巧。
+🎧 Discord：戰鬥語音和圖片分享。
+🌐 這個網站：12 種語言（包含葡文）的攻略、規則和教學。記得常常來看！
+🔗 連結
+Discord: https://discord.gg/5RakbEK5RS
+🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/
+📖 我們常說的詞
+BT1 / BT2：我們兩個狩獵巨熊時段，BT1 22:00 UTC、BT2 13:00 UTC。
+VV：維京人的掠奪。
+KvK：王國對戰，我們的王國打另一個王國。
+SS：聖劍爭奪。TAC：三盟爭霸。
+NAP：互不侵犯條約，我們絕不攻擊的 6 個聯盟。
+R1–R5：聯盟階級。R4 是幹部，R5 是盟主。
+HQ：聯盟總部，我們的城都在它周圍（蜂巢）。
+TC：主城等級。TG1、TG2…：30 級以後的主城等級（黃金）。
+T1–T10：兵等，越高越強。
+F2P：不課金。
+CM：總理大臣，KvK 期間要預約的增益時段。
+UTC：遊戲時間。每天 00:00 UTC 重置。這個網站也會顯示你當地的時間。
+50:20:30：兵種比例＝步兵：騎兵：弓兵。
+🛡️ 大家都該懂的基本觀念（點開）
+集結：一位隊長發起，其他人加入。算的是隊長的屬性。
+增援：派兵去幫盟友的城或建築防守。
+駐防：守在建築裡的部隊（遺跡、要塞…）。
+加入集結：只有你的「第一位英雄」技能有用，而且只算前 4 位帶英雄的加入者。照規則帶指定的英雄。
+照指定的兵數派兵。多派沒有用，還會佔掉其他人的位置。
+防護罩：打仗期間（全軍出擊、KvK）離線時要開。
+野戰醫院：傷兵會進這裡。滿了之後兵就會死，記得常治療。
+
 ### GUIDE #my-spot — 我的新位置在哪？
 搬家傳送前，先在這裡找自己的名字，確認新的 X:Y。這張地圖和幹部用的是同一份，隨時都是最新的。
 
@@ -1287,7 +1362,8 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 📢 Announcements switch to the next one by themselves after a few seconds; ⏸ Stay here (next to the date) stops that on this device, ▶ Auto-switch turns it back on (swipe and tabs still work). A battle table inside an announcement shows in the reader's language (all 12 — buildings, phases, tasks and reminders; player names stay as written); the picture with it stays in English. "🙋 Who are you?" above the table: pick your name and only the buildings (Tri-Alliance: your team) you are in stay; "Show everyone" (or the 👀 Show everyone button next to the menu) shows all again.
 🐦 Little Sparrow (the bird by the Ask AI button): tap it and it first asks "Want a quick tour of this page?" — 👀 Yes walks top to bottom through the page you are on: first the top buttons (🔗, ↻, 📋 officers only, light/dark, the announcement ticker, languages, guide menus), then the page (home page: this week, daily checklist, calendar, announcements, guide menus, language, Ask AI; a guide: its headings, hero cards, rule boxes, switching guides). After the tour, or after "No thanks", it shows its help menu: 🔎 Find a page, or 🎓 "How do I use…" → pick a tour: 🧭 What the buttons on the site do (language, 🔗, ↻, light/dark, Ask AI), ⏰ timers, 🔔 game reminders, or installing the app. The same tours are listed at the top of the Ask AI panel.
 📍 Where's my spot?: its own page — the 📍 button next to 🤝 NAP Rules at the top (guide #my-spot), for hive moves. Members type their in-game name and get their new X:Y (📋 copy) and their Bear Trap group (🐻 BT1 / BT2); a map like Kingshot Mapper shows every planned city with the member's name and each spot's X,Y, the Bear Traps and HQ (tap a city to see who is there, drag / swipe to move around, 🔍 － / ＋ above the map to zoom, or Ctrl + wheel / pinch). It is the officers' live 🐝 Hive plan, so it always shows the newest plan; names follow the daily roster. Not on the plan = no spot yet → ask an officer. The officers open this page only when a new hive is ready; while it is hidden the 📍 button is not shown and the page says it is not open yet.
-🤝 NAP rules: their own page — the 🤝 NAP Rules button right after 📢 Home at the top (guide #nap-rules): the NAP 6 tags, checking nodes before gathering, the All Out exception, outposts, Sanctuaries / Fortresses, and the 3 steps for violations. The home page shows a short NAP 6 card with the tags; tapping it opens that page.
+🔰 New here?: its own page — the 🔰 button right after 📢 Home at the top (guide #new-here), for new members (e.g. people joining from TTT): Nia's 5 core rules (stay active, respect NAP 6 and report instead of hitting back, follow event rules, team play, keep World Chat civil), the first-day list (NAP 6, Bear Trap spot — don't teleport before an R4 gives you one, BT1 22:00 / BT2 13:00 UTC; Sanctuary & Fortress rules and who holds which: NXS 1, 6 + Fortress 2, NBD 10, 11 + Fortress 4, RED 2, 3 + Fortress 3, ESA 5, 12 + Fortress 1, IDN 4, KGb 8, 7 and 9 free for all, one per alliance; optional name change; translating messages with ⇄; gift codes — Android in game, iOS on ks-giftcode.centurygame.com; where we share information; Discord and site links), the words we use (BT1/BT2, VV, KvK, SS, TAC, NAP, R1–R5, HQ, TC/TG, T1–T10, F2P, CM, UTC, 50:20:30) and folded basics (rally, reinforce, garrison, joiners' first hero, exact troop numbers, shield, infirmary).
+🤝 NAP rules: their own page — the 🤝 NAP Rules button at the top, after 🔰 New here? (guide #nap-rules): the NAP 6 tags, checking nodes before gathering, the All Out exception, outposts, Sanctuaries / Fortresses, and the 3 steps for violations. The home page shows a short NAP 6 card with the tags; tapping it opens that page.
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)

@@ -29,6 +29,7 @@ const FEATURES = [
   ["Events: 📥 paste back from Claude", /"📥 Paste back from Claude" \(inside/, /📥 Paste back from Claude \(only Sparrow/],
   ["Events: 📋 copy in-game messages from the to-do card", /one "📋 <title>" button per in-game message/, /Each 📋 button copies one of this event/],
   ["Events: 📤 For Claude export", /📤 For Claude" \(給 Claude/, /📤 For Claude \(only Sparrow sees this\): copies the next 4 weeks/],
+  ["Site: 🔰 New here? (onboarding page)", /🔰 New here\?: its own page/, /🔰 New here\? Read this page once/],
   ["Site: 📍 Where's my spot? (public hive map)", /📍 Where's my spot\?: its own page/, /📍 Where's my spot\?: type your name/],
   ["Site: 🤝 NAP rules page + home card", /🤝 NAP rules: their own page/, /🤝 NAP 6: the alliances we never attack/],
   ["Site: ⏸ Stay here on announcements", /⏸ Stay here \(next to the date\) stops that/, /⏸ Stay here \(next to the date\) stops it switching/],

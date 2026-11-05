@@ -83,6 +83,81 @@ KGb
 2. (uyarıdan sonra yeni ihlal): ittifaktan atılma.
 3.: NAP korumasındaki tüm ittifaklarda kara liste.
 
+### GUIDE #new-here — Yeni misin?
+NXS'e hoş geldin! Bu sayfayı bir kez oku — ilk günün için gereken her şey burada. Emin değil misin? Bir R4'e sor ya da 💬 Yapay zekâya sor'a dokun.
+📜 TEMEL KURALLAR
+1. Aktif ol. Uzak kalacaksan yönetime haber ver.
+2. NAP 6'ya uy. Bir NAP üyesi sana saldırırsa R4/R5'e bildir. Karşılık verme.
+3. Etkinlik kurallarına uy. İttifak sohbetini, özel mesajları ve Discord'u takip et.
+4. Yönetimle iş birliği yap, diğer üyelere yardım et ve takım olarak oyna.
+5. Dünya sohbetinde kibar ol. İttifaka zarar verecek tartışmalardan uzak dur.
+✅ İLK GÜNÜN
+🤝 NAP 6
+❌ Bu ittifaklara ve onların çiftlik ve akademilerine saldırma. *Topyekün sırasında toplama noktalarına saldırılabilir.
+NXS/nxs/nXs
+NBD/nBd/Nbd
+RED/ReD
+ESA/EsA/UNI
+IDN
+KGb
+⚠️ İhlal: 1. uyarı · 2. ittifaktan atılma · 3. tüm NAP ittifaklarında kara liste.
+(see guide #nap-rules)
+🐻 Ayı Tuzağı – yerin
+⚠️ Bir R4 sana yer verene kadar ışınlanma. Bu, Ayı Tuzağı saatine göre belirlenen sabit yerin.
+⏰ Hangi saate katılabileceğini söyle: BT1 22:00 UTC veya BT2 13:00 UTC.
+📍 Yerini unutma. Başkasının yerini asla alma.
+(see guide #bear-hunt)
+🏰 Tapınak ve Kale kuralları
+🔴 Tek başına saldırı yok: bir Tapınak veya Kaleye asla kendin saldırı başlatma. R4/R5'in seferberliklerine katıl.
+🔵 İttifak sohbetinde veya işaretlerde yazan asker sayısını ve kahramanları tam olarak gönder.
+⛔ R4/R5 söyleyene kadar ışınlanma.
+🗺️ Hangisi kimin
+NXS: Tapınak 1, 6 · Kale 2
+NBD: Tapınak 10, 11 · Kale 4
+RED: Tapınak 2, 3 · Kale 3
+ESA: Tapınak 5, 12 · Kale 1
+IDN: Tapınak 4
+KGb: Tapınak 8
+7 ve 9 herkese açık — ittifak başına bir tane.
+✏️ İsim değişikliği (isteğe bağlı)
+İsmini herkesle aynı biçime getirebilirsin. Oyundaki Onboarding mesajındaki örneği kopyala.
+🌐 Mesajları çevirme
+Bir mesajın yanındaki ⇄ simgesine dokun, oyun diline çevrilsin.
+🎁 Hediye kodları
+🤖 Android: Vali resmi → Ayarlar → Hediye Kodu. Kodu gir ve al.
+🍎 iPhone / iPad: aşağıdaki siteyi oyuncu kimliğin ve kodla kullan.
+📬 Ödüller oyun içi postana gelir.
+📚 Bilgileri nerede paylaşıyoruz
+📢 İttifak duyuruları: haftalık haberler ve yönetim mesajları.
+✉️ Grup bilgisi: R4'ten etkinlik rehberleri, stratejiler ve ipuçları.
+🎧 Discord: savaşta sesli sohbet ve resimler.
+🌐 Bu site: 12 dilde rehberler, kurallar ve anlatımlar. Sık sık bak!
+🔗 Bağlantılar
+Discord: https://discord.gg/5RakbEK5RS
+🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/
+📖 KULLANDIĞIMIZ KELİMELER
+BT1 / BT2: iki Ayı Avı saatimiz — BT1 22:00 UTC, BT2 13:00 UTC.
+VV: Viking İntikamı.
+KvK: Krallık Krallığa karşı — krallığımız başka bir krallıkla savaşır.
+SS: Kılıçdiyarı Hesaplaşması. TAC: Üçlü İttifak Çarpışması.
+NAP: saldırmazlık paktı — asla saldırmadığımız 6 ittifak.
+R1–R5: ittifak rütbeleri. R4 = subaylar, R5 = lider.
+HQ: ittifak karargâhı. Şehirlerimiz etrafında durur (“kovan”).
+TC: Şehir Merkezi seviyesi. TG1, TG2…: 30'dan sonraki seviyeler (Hasaltın).
+T1–T10: asker seviyeleri. Yüksek = güçlü.
+F2P: para harcamadan oynamak.
+CM: Başbakan — KvK günleri için ayırttığın güçlendirme zamanı.
+UTC: oyun saati. Günlük sıfırlama 00:00 UTC. Site, saatleri kendi saatinde de gösterir.
+50:20:30: oran = Piyade : Süvari : Okçu.
+🛡️ Herkesin bilmesi gerekenler (açmak için dokun)
+Seferberlik: bir lider başlatır, diğerleri katılır. Liderin özellikleri sayılır.
+Takviye: bir arkadaşın şehrini veya bir binayı savunmak için asker göndermek.
+Garnizon: bir binayı (Tapınak, Kale…) savunan askerler.
+Seferberliğe katılmak: sadece İLK kahramanının becerisi işe yarar ve kahramanla katılan ilk 4 kişi sayılır. Kuralların istediği kahramanı kullan.
+İstenen asker sayısını tam gönder. Fazlası işe yaramaz — başkalarının yerini kaplar.
+Kalkan: savaşlar sırasında (Topyekün, KvK) çevrimdışıysan aç.
+Revir: yaralılar buraya gider. Dolunca askerler ölür — sık iyileştir.
+
 ### GUIDE #my-spot — Yerim nerede?
 Kovan taşınması için ışınlanmadan önce adını burada bul ve yeni X:Y'ni kontrol et. Subayların kullandığı haritanın aynısı, yani hep güncel.
 
@@ -1288,7 +1363,8 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 📢 Announcements switch to the next one by themselves after a few seconds; ⏸ Stay here (next to the date) stops that on this device, ▶ Auto-switch turns it back on (swipe and tabs still work). A battle table inside an announcement shows in the reader's language (all 12 — buildings, phases, tasks and reminders; player names stay as written); the picture with it stays in English. "🙋 Who are you?" above the table: pick your name and only the buildings (Tri-Alliance: your team) you are in stay; "Show everyone" (or the 👀 Show everyone button next to the menu) shows all again.
 🐦 Little Sparrow (the bird by the Ask AI button): tap it and it first asks "Want a quick tour of this page?" — 👀 Yes walks top to bottom through the page you are on: first the top buttons (🔗, ↻, 📋 officers only, light/dark, the announcement ticker, languages, guide menus), then the page (home page: this week, daily checklist, calendar, announcements, guide menus, language, Ask AI; a guide: its headings, hero cards, rule boxes, switching guides). After the tour, or after "No thanks", it shows its help menu: 🔎 Find a page, or 🎓 "How do I use…" → pick a tour: 🧭 What the buttons on the site do (language, 🔗, ↻, light/dark, Ask AI), ⏰ timers, 🔔 game reminders, or installing the app. The same tours are listed at the top of the Ask AI panel.
 📍 Where's my spot?: its own page — the 📍 button next to 🤝 NAP Rules at the top (guide #my-spot), for hive moves. Members type their in-game name and get their new X:Y (📋 copy) and their Bear Trap group (🐻 BT1 / BT2); a map like Kingshot Mapper shows every planned city with the member's name and each spot's X,Y, the Bear Traps and HQ (tap a city to see who is there, drag / swipe to move around, 🔍 － / ＋ above the map to zoom, or Ctrl + wheel / pinch). It is the officers' live 🐝 Hive plan, so it always shows the newest plan; names follow the daily roster. Not on the plan = no spot yet → ask an officer. The officers open this page only when a new hive is ready; while it is hidden the 📍 button is not shown and the page says it is not open yet.
-🤝 NAP rules: their own page — the 🤝 NAP Rules button right after 📢 Home at the top (guide #nap-rules): the NAP 6 tags, checking nodes before gathering, the All Out exception, outposts, Sanctuaries / Fortresses, and the 3 steps for violations. The home page shows a short NAP 6 card with the tags; tapping it opens that page.
+🔰 New here?: its own page — the 🔰 button right after 📢 Home at the top (guide #new-here), for new members (e.g. people joining from TTT): Nia's 5 core rules (stay active, respect NAP 6 and report instead of hitting back, follow event rules, team play, keep World Chat civil), the first-day list (NAP 6, Bear Trap spot — don't teleport before an R4 gives you one, BT1 22:00 / BT2 13:00 UTC; Sanctuary & Fortress rules and who holds which: NXS 1, 6 + Fortress 2, NBD 10, 11 + Fortress 4, RED 2, 3 + Fortress 3, ESA 5, 12 + Fortress 1, IDN 4, KGb 8, 7 and 9 free for all, one per alliance; optional name change; translating messages with ⇄; gift codes — Android in game, iOS on ks-giftcode.centurygame.com; where we share information; Discord and site links), the words we use (BT1/BT2, VV, KvK, SS, TAC, NAP, R1–R5, HQ, TC/TG, T1–T10, F2P, CM, UTC, 50:20:30) and folded basics (rally, reinforce, garrison, joiners' first hero, exact troop numbers, shield, infirmary).
+🤝 NAP rules: their own page — the 🤝 NAP Rules button at the top, after 🔰 New here? (guide #nap-rules): the NAP 6 tags, checking nodes before gathering, the All Out exception, outposts, Sanctuaries / Fortresses, and the 3 steps for violations. The home page shows a short NAP 6 card with the tags; tapping it opens that page.
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)

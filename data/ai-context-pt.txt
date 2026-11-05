@@ -83,6 +83,81 @@ KGb
 2ª (nova violação após aviso): expulso da aliança.
 3ª: lista negra em todas as alianças protegidas pelo NAP.
 
+### GUIDE #new-here — Novo aqui?
+Bem-vindo à NXS! Leia esta página uma vez — tudo o que você precisa no primeiro dia está aqui. Ainda com dúvida? Pergunte a um R4 ou toque em 💬 Perguntar à IA.
+📜 REGRAS PRINCIPAIS
+1. Fique ativo. Avise a liderança se for ficar fora.
+2. Respeite o NAP 6. Se um membro do NAP te atacar, avise R4/R5. Não revide.
+3. Siga as regras dos eventos. Veja o chat da aliança, as mensagens privadas e o Discord.
+4. Coopere com a liderança, ajude os outros membros e jogue em equipe.
+5. Seja educado no chat mundial. Evite tretas que possam prejudicar a aliança.
+✅ SEU PRIMEIRO DIA
+🤝 NAP 6
+❌ NÃO ataque estas alianças nem suas fazendas e academias. *Durante o Vai com Tudo, os pontos de coleta podem ser atacados.
+NXS/nxs/nXs
+NBD/nBd/Nbd
+RED/ReD
+ESA/EsA/UNI
+IDN
+KGb
+⚠️ Punições: 1ª aviso · 2ª expulso da aliança · 3ª lista negra em todas as alianças do NAP.
+(see guide #nap-rules)
+🐻 Armadilha do Urso – seu lugar
+⚠️ NÃO teletransporte antes de um R4 te dar um lugar. Ele é fixo e depende do seu horário de Armadilha do Urso.
+⏰ Diga qual horário você consegue: BT1 22:00 UTC ou BT2 13:00 UTC.
+📍 Lembre do seu lugar. Nunca pegue o lugar de outra pessoa.
+(see guide #bear-hunt)
+🏰 Regras de Santuário e Fortaleza
+🔴 Sem ataque solo: nunca comece um ataque a um Santuário ou Fortaleza. Entre nos rallies dos R4/R5.
+🔵 Envie exatamente as tropas e os heróis pedidos no chat da aliança ou nas marcações.
+⛔ Não teletransporte até R4/R5 mandarem.
+🗺️ Quem fica com qual
+NXS: Santuário 1, 6 · Fortaleza 2
+NBD: Santuário 10, 11 · Fortaleza 4
+RED: Santuário 2, 3 · Fortaleza 3
+ESA: Santuário 5, 12 · Fortaleza 1
+IDN: Santuário 4
+KGb: Santuário 8
+7 e 9 são livres — um por aliança.
+✏️ Troca de nome (opcional)
+Você pode mudar seu nome para o mesmo formato de todos. Copie o exemplo da mensagem de Onboarding no jogo.
+🌐 Traduzir mensagens
+Toque no ícone de duas setas ⇄ ao lado da mensagem para traduzi-la para o idioma do seu jogo.
+🎁 Códigos de presente
+🤖 Android: foto do Governador → Configurações → Código de presente. Digite o código e resgate.
+🍎 iPhone / iPad: use o site abaixo com seu ID de jogador e o código.
+📬 As recompensas chegam no correio do jogo.
+📚 Onde a gente avisa as coisas
+📢 Avisos da aliança: novidades da semana e mensagens da liderança.
+✉️ Info de grupo: mensagens dos R4 com guias, estratégias e dicas.
+🎧 Discord: chat de voz nas batalhas e imagens.
+🌐 Este site: guias, regras e tutoriais em 12 idiomas (também em português). Confira sempre!
+🔗 Links
+Discord: https://discord.gg/5RakbEK5RS
+🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/
+📖 PALAVRAS QUE A GENTE USA
+BT1 / BT2: nossos dois horários de Caça ao Urso — BT1 22:00 UTC, BT2 13:00 UTC.
+VV: Vingança Viking.
+KvK: Reino contra Reino — nosso reino luta contra outro.
+SS: Confronto entre Espadas. TAC: Confronto Tri-Aliança.
+NAP: pacto de não agressão — as 6 alianças que nunca atacamos.
+R1–R5: cargos da aliança. R4 = oficiais, R5 = líder.
+HQ: o QG da aliança. Nossas cidades ficam em volta (a “colmeia”).
+TC: nível do Centro da Cidade. TG1, TG2…: níveis depois do 30 (Adamante).
+T1–T10: níveis das tropas. Mais alto = mais forte.
+F2P: jogar sem gastar.
+CM: Primeiro-ministro — um horário de bônus que você reserva para os dias de KvK.
+UTC: o relógio do jogo. O reset diário é 00:00 UTC. O site também mostra o seu horário local.
+50:20:30: proporção = Infantaria : Cavalaria : Arquearia.
+🛡️ O básico que todo mundo precisa saber (toque para abrir)
+Rally: um líder começa e os outros entram. Contam os atributos do líder.
+Reforço: mandar tropas para ajudar a defender a cidade de um amigo ou um prédio.
+Guarnição: as tropas que defendem um prédio (Santuário, Fortaleza…).
+Entrar num rally: só a habilidade do seu PRIMEIRO herói ajuda, e só os 4 primeiros que entram com herói contam. Use o herói que as regras pedem.
+Envie exatamente o número de tropas pedido. Mais não ajuda — ocupa o espaço dos outros.
+Escudo: ative quando estiver offline durante as lutas (Vai com Tudo, KvK).
+Enfermaria: os feridos vão para lá. Quando lota, as tropas morrem — cure sempre.
+
 ### GUIDE #my-spot — Onde fica meu lugar?
 Antes de teletransportar numa mudança de colmeia, procure seu nome aqui e confira seu novo X:Y. É o mesmo mapa que os oficiais usam, então está sempre atualizado.
 
@@ -1288,7 +1363,8 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 📢 Announcements switch to the next one by themselves after a few seconds; ⏸ Stay here (next to the date) stops that on this device, ▶ Auto-switch turns it back on (swipe and tabs still work). A battle table inside an announcement shows in the reader's language (all 12 — buildings, phases, tasks and reminders; player names stay as written); the picture with it stays in English. "🙋 Who are you?" above the table: pick your name and only the buildings (Tri-Alliance: your team) you are in stay; "Show everyone" (or the 👀 Show everyone button next to the menu) shows all again.
 🐦 Little Sparrow (the bird by the Ask AI button): tap it and it first asks "Want a quick tour of this page?" — 👀 Yes walks top to bottom through the page you are on: first the top buttons (🔗, ↻, 📋 officers only, light/dark, the announcement ticker, languages, guide menus), then the page (home page: this week, daily checklist, calendar, announcements, guide menus, language, Ask AI; a guide: its headings, hero cards, rule boxes, switching guides). After the tour, or after "No thanks", it shows its help menu: 🔎 Find a page, or 🎓 "How do I use…" → pick a tour: 🧭 What the buttons on the site do (language, 🔗, ↻, light/dark, Ask AI), ⏰ timers, 🔔 game reminders, or installing the app. The same tours are listed at the top of the Ask AI panel.
 📍 Where's my spot?: its own page — the 📍 button next to 🤝 NAP Rules at the top (guide #my-spot), for hive moves. Members type their in-game name and get their new X:Y (📋 copy) and their Bear Trap group (🐻 BT1 / BT2); a map like Kingshot Mapper shows every planned city with the member's name and each spot's X,Y, the Bear Traps and HQ (tap a city to see who is there, drag / swipe to move around, 🔍 － / ＋ above the map to zoom, or Ctrl + wheel / pinch). It is the officers' live 🐝 Hive plan, so it always shows the newest plan; names follow the daily roster. Not on the plan = no spot yet → ask an officer. The officers open this page only when a new hive is ready; while it is hidden the 📍 button is not shown and the page says it is not open yet.
-🤝 NAP rules: their own page — the 🤝 NAP Rules button right after 📢 Home at the top (guide #nap-rules): the NAP 6 tags, checking nodes before gathering, the All Out exception, outposts, Sanctuaries / Fortresses, and the 3 steps for violations. The home page shows a short NAP 6 card with the tags; tapping it opens that page.
+🔰 New here?: its own page — the 🔰 button right after 📢 Home at the top (guide #new-here), for new members (e.g. people joining from TTT): Nia's 5 core rules (stay active, respect NAP 6 and report instead of hitting back, follow event rules, team play, keep World Chat civil), the first-day list (NAP 6, Bear Trap spot — don't teleport before an R4 gives you one, BT1 22:00 / BT2 13:00 UTC; Sanctuary & Fortress rules and who holds which: NXS 1, 6 + Fortress 2, NBD 10, 11 + Fortress 4, RED 2, 3 + Fortress 3, ESA 5, 12 + Fortress 1, IDN 4, KGb 8, 7 and 9 free for all, one per alliance; optional name change; translating messages with ⇄; gift codes — Android in game, iOS on ks-giftcode.centurygame.com; where we share information; Discord and site links), the words we use (BT1/BT2, VV, KvK, SS, TAC, NAP, R1–R5, HQ, TC/TG, T1–T10, F2P, CM, UTC, 50:20:30) and folded basics (rally, reinforce, garrison, joiners' first hero, exact troop numbers, shield, infirmary).
+🤝 NAP rules: their own page — the 🤝 NAP Rules button at the top, after 🔰 New here? (guide #nap-rules): the NAP 6 tags, checking nodes before gathering, the All Out exception, outposts, Sanctuaries / Fortresses, and the 3 steps for violations. The home page shows a short NAP 6 card with the tags; tapping it opens that page.
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
