@@ -43,11 +43,11 @@ for (const [l, o] of Object.entries({"en": {"mpT": "📍 Positions from the rost
 for (const [l, o] of Object.entries({"en": {"asAuto": "🤖 Placing members automatically isn't set up yet — for now, put them on the spots by hand. Want it automatic? Ask Sparrow."}, "zh": {"asAuto": "🤖 自動分配成員還沒有做——目前請手動把成員放到位置上。想要自動分配的話，請找 Sparrow。"}, "pt": {"asAuto": "🤖 A distribuição automática dos membros ainda não existe — por enquanto, coloque-os nos lugares à mão. Quer automático? Fale com a Sparrow."}, "ar": {"asAuto": "🤖 توزيع الأعضاء تلقائيًا غير متوفر بعد — ضعهم في الأماكن يدويًا الآن. تريده تلقائيًا؟ اسأل Sparrow."}, "ko": {"asAuto": "🤖 연맹원 자동 배치는 아직 없어요 — 지금은 직접 자리에 배치하세요. 자동으로 하고 싶으면 Sparrow에게 물어보세요."}})) Object.assign(T[l], o);
 /* 🐻 BT1 / BT2 + TC / Power in the 🚚 moving table (Sherry & Nia, 2026-11-05) — the marks are OFFICER.BT, the same list as 📊 Roster */
 for (const [l, o] of Object.entries({
-  en: { btNo: "No BT mark", colTc: "TC", colPw: "Power", colBt: "BT1 · BT2", btNote: "Tick the left box for Bear Trap 1, the right box for Bear Trap 2 — the same marks as 📊 Roster → 🐻 BT groups.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "nobody yet", btCopy: "📋 Copy", btCopied: "Copied!", btBoth: "{n} in both", noSpot: "No new spot yet ({n}):" },
-  zh: { btNo: "還沒分 BT", colTc: "主城", colPw: "戰力", colBt: "BT1 · BT2", btNote: "左邊的框 = 熊陷阱 1，右邊 = 熊陷阱 2——跟 📊 名冊 → 🐻 BT 分組是同一份。", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "還沒有人", btCopy: "📋 複製", btCopied: "已複製！", btBoth: "{n} 人兩個都勾", noSpot: "還沒分到新位置（{n}）：" },
-  pt: { btNo: "Sem marca BT", colTc: "CC", colPw: "Poder", colBt: "BT1 · BT2", btNote: "Caixa da esquerda = Armadilha de Urso 1, da direita = Armadilha de Urso 2 — as mesmas marcas de 📊 Lista de membros → 🐻 Grupos BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "ninguém ainda", btCopy: "📋 Copiar", btCopied: "Copiado!", btBoth: "{n} nos dois", noSpot: "Ainda sem lugar novo ({n}):" },
-  ar: { btNo: "بلا علامة BT", colTc: "المركز", colPw: "القوة", colBt: "BT1 · BT2", btNote: "المربع الأيسر = فخ الدب 1، والأيمن = فخ الدب 2 — نفس علامات 📊 قائمة الأعضاء → 🐻 مجموعات BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "لا أحد بعد", btCopy: "📋 نسخ", btCopied: "تم النسخ!", btBoth: "{n} في الاثنين", noSpot: "بلا مكان جديد بعد ({n}):" },
-  ko: { btNo: "BT 표시 없음", colTc: "도시", colPw: "전투력", colBt: "BT1 · BT2", btNote: "왼쪽 칸 = 곰 함정 1, 오른쪽 칸 = 곰 함정 2 — 📊 명단 → 🐻 BT 그룹과 같은 표시예요.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "아직 없음", btCopy: "📋 복사", btCopied: "복사됨!", btBoth: "{n}명은 둘 다", noSpot: "아직 새 자리 없음 ({n}):" },
+  en: { expB: "📤 Export CSV (Kingshot Mapper)", expN: "The plan with the members on their spots, as a Kingshot Mapper CSV — open it in ksmapper.pages.dev for the next move, or load it here again.", tipFree: "empty spot", tipBt: "Bear Trap", btNo: "No BT mark", colTc: "TC", colPw: "Power", colBt: "BT1 · BT2", btNote: "Tick the left box for Bear Trap 1, the right box for Bear Trap 2 — the same marks as 📊 Roster → 🐻 BT groups.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "nobody yet", btCopy: "📋 Copy", btCopied: "Copied!", btBoth: "{n} in both", noSpot: "No new spot yet ({n}):" },
+  zh: { expB: "📤 匯出 CSV（Kingshot Mapper）", expN: "把計畫連同分配好的成員，匯出成 Kingshot Mapper 的 CSV——下次搬家可以丟回 ksmapper.pages.dev 改，或再匯入這裡。", tipFree: "空位", tipBt: "熊陷阱", btNo: "還沒分 BT", colTc: "主城", colPw: "戰力", colBt: "BT1 · BT2", btNote: "左邊的框 = 熊陷阱 1，右邊 = 熊陷阱 2——跟 📊 名冊 → 🐻 BT 分組是同一份。", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "還沒有人", btCopy: "📋 複製", btCopied: "已複製！", btBoth: "{n} 人兩個都勾", noSpot: "還沒分到新位置（{n}）：" },
+  pt: { expB: "📤 Exportar CSV (Kingshot Mapper)", expN: "O plano com os membros nos lugares, como CSV do Kingshot Mapper — abra no ksmapper.pages.dev na próxima mudança ou carregue aqui de novo.", tipFree: "lugar vazio", tipBt: "Armadilha de Urso", btNo: "Sem marca BT", colTc: "CC", colPw: "Poder", colBt: "BT1 · BT2", btNote: "Caixa da esquerda = Armadilha de Urso 1, da direita = Armadilha de Urso 2 — as mesmas marcas de 📊 Lista de membros → 🐻 Grupos BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "ninguém ainda", btCopy: "📋 Copiar", btCopied: "Copiado!", btBoth: "{n} nos dois", noSpot: "Ainda sem lugar novo ({n}):" },
+  ar: { expB: "📤 تصدير CSV (Kingshot Mapper)", expN: "الخطة مع الأعضاء في أماكنهم، كملف CSV لـ Kingshot Mapper — افتحه في ksmapper.pages.dev للانتقال القادم أو حمّله هنا مجددًا.", tipFree: "مكان فارغ", tipBt: "فخ الدب", btNo: "بلا علامة BT", colTc: "المركز", colPw: "القوة", colBt: "BT1 · BT2", btNote: "المربع الأيسر = فخ الدب 1، والأيمن = فخ الدب 2 — نفس علامات 📊 قائمة الأعضاء → 🐻 مجموعات BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "لا أحد بعد", btCopy: "📋 نسخ", btCopied: "تم النسخ!", btBoth: "{n} في الاثنين", noSpot: "بلا مكان جديد بعد ({n}):" },
+  ko: { expB: "📤 CSV 내보내기 (Kingshot Mapper)", expN: "연맹원이 배치된 계획을 Kingshot Mapper CSV로 — 다음 이사 때 ksmapper.pages.dev에서 열거나 여기서 다시 불러오세요.", tipFree: "빈 자리", tipBt: "곰 함정", btNo: "BT 표시 없음", colTc: "도시", colPw: "전투력", colBt: "BT1 · BT2", btNote: "왼쪽 칸 = 곰 함정 1, 오른쪽 칸 = 곰 함정 2 — 📊 명단 → 🐻 BT 그룹과 같은 표시예요.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "아직 없음", btCopy: "📋 복사", btCopied: "복사됨!", btBoth: "{n}명은 둘 다", noSpot: "아직 새 자리 없음 ({n}):" },
 })) Object.assign(T[l], o);
 /* ↕️ sort the moving table (and the "Not placed yet" names) by TC / TG, Power or name — Nia 2026-11-05: sort by TG high → low while placing people */
 let MSORT = (() => { try { return JSON.parse(localStorage.getItem("nxs-mv-sort")) || { k: "", d: -1 }; } catch (e) { return { k: "", d: -1 }; } })();
@@ -269,7 +269,7 @@ function draw(boxId = "mm_map") {
   const vk = boxId + (PL ? ":p" : ":n"), pv = VIEW[vk];
   if (box.dataset.v !== vk) { box.dataset.v = vk; if (pv || SEL == null) firstView(box, vk, pv); }
   box.onscroll = () => { if (box.clientWidth) VIEW[vk] = { l: box.scrollLeft, t: box.scrollTop }; };
-  dragPan(box);
+  dragPan(box); tipBind(box); placeTip(box);
   const jb = $("mm_jump"); if (jb) jb.innerHTML = `<button type="button" class="btn small" data-j="now">${esc(t("goNow"))}</button>${JUMP.hq ? ` <button type="button" class="btn small" data-j="hq">${esc(t("goNew"))}</button>` : ""}`
     + (farI.size ? `<div class="muted" style="font-size:12.5px;margin-top:4px">${esc(t("far"))} ${[...farI].map((i) => `${esc(cities[i][0])} X:${cities[i][1]} Y:${cities[i][2]}`).join(" · ")}</div>` : "");
   if (jb) jb.querySelectorAll("[data-j]").forEach((b) => b.onclick = () => JUMP[b.dataset.j] && JUMP[b.dataset.j]());
@@ -449,6 +449,47 @@ function importPlan(text, file) {
   MV.st = {}; render(); renderMove();
 }
 /* 🚚 one row per member: where they are, where the plan puts them, moved ✓ (only officers with Map edit can tick) */
+/* 📤 the moving plan as a Kingshot Mapper CSV ("type,X,Y,label,#color,seq") — cities carry the member's name (empty spots: NXS),
+   so it opens in ksmapper.pages.dev and loads back here (Nia & Sherry, 2026-11-05: "export would be nice for future relocation") */
+function exportCsv() {
+  const P = MV.plan; if (!P) return;
+  const lab = (n) => String(n || "").replace(/[,;\t\r\n]+/g, " ").trim();
+  let seq = 0; const out = ["type,X,Y,label,#color,seq"], row = (ty, x, y, l, c) => out.push(`${ty},${x},${y},${lab(l)},${c},${++seq}`);
+  for (const [n, x, y] of P.c || []) row("city", x, y, n || "NXS", "#4a9edd");
+  (P.bt || []).forEach(([x, y], i) => row("beartrap", x, y, `Bear Trap ${i + 1}`, "#c0392b"));
+  for (const [x, y] of P.hq || []) row("hq", x, y, "NXS", "#8e44ad");
+  for (const [x, y, tag] of P.b || []) row("banner", x, y, tag || "NXS", "#aaaaaa");
+  for (const [x, y, n] of P.k || []) row("banner", x, y, `KILL ${n || ""}`, "#aaaaaa");
+  const blob = new Blob([out.join("\n") + "\n"], { type: "text/csv" }), a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = `nxs-hive-${new Date().toISOString().slice(0, 10)}.csv`; document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+}
+/* 📍 tap a city / spot / HQ / Bear Trap → a small box right next to it: name, X:Y, TC / TG (Sherry, 2026-11-05) */
+let TIP = null;   // { sel: CSS selector of the tapped thing, html }
+function tipFor(g) {
+  const idx = rosterIndex(), tg = (n) => { const m = n && idx[norm(n)]; return m && m.tc != null && m.tc !== "" ? " · " + OFFICER.tcText(m.tc) : ""; };
+  const line = (n, x, y) => `<b><bdi>${esc(n)}</bdi></b> · X:${x} Y:${y}${esc(tg(n))}`;
+  if (g.matches(".mm-c")) { const r = D.m[+g.dataset.i]; return r && { sel: `.mm-c[data-i="${g.dataset.i}"]`, html: line(r[0], r[1], r[2]) }; }
+  if (g.matches(".mm-ps")) { const r = MV.plan && MV.plan.c[+g.dataset.p]; return r && { sel: `.mm-ps[data-p="${g.dataset.p}"]`, html: `🧭 ${r[0] ? line(r[0], r[1], r[2]) : `${esc(t("tipFree"))} · X:${r[1]} Y:${r[2]}`}` }; }
+  if (g.matches(".mm-b")) { const k = g.dataset.k, bt = /^bt/.test(k), xy = bt ? D.bt[+k[2]] : G && G.hq && G.hq[0]; return xy && { sel: `.mm-b[data-k="${k}"]`, html: `<b>${bt ? `${esc(t("tipBt"))} ${+k[2] + 1}` : "HQ"}</b> · X:${xy[0]} Y:${xy[1]}` }; }
+  return null;
+}
+function placeTip(box) {
+  let el = box.querySelector(".mm-tip"); if (!TIP) { if (el) el.remove(); return; }
+  const g = box.querySelector(TIP.sel); if (!g) { if (el) el.remove(); return; }
+  const now = tipFor(g); if (!now) { if (el) el.remove(); return; }   // re-read each time, so a just-filled spot shows its new name
+  if (!el) { el = document.createElement("div"); el.className = "mm-tip"; box.appendChild(el); }
+  el.innerHTML = now.html;
+  const r = g.getBoundingClientRect(), b = box.getBoundingClientRect();
+  const x = r.left - b.left + box.scrollLeft + r.width / 2, y = r.top - b.top + box.scrollTop;
+  el.style.left = Math.max(box.scrollLeft + 4, Math.min(x - el.offsetWidth / 2, box.scrollLeft + box.clientWidth - el.offsetWidth - 4)) + "px";
+  el.style.top = (y - el.offsetHeight - 6 < box.scrollTop ? y + r.height + 6 : y - el.offsetHeight - 6) + "px";
+}
+function tipBind(box) {
+  if (box._tip) return; box._tip = 1;
+  box.addEventListener("click", (e) => { const g = e.target.closest && e.target.closest(".mm-c, .mm-ps, .mm-b");
+    TIP = g ? tipFor(g) : null; const nb = $(box.id) || box; placeTip(nb); });
+}
 const sortTh = (k, label) => `<button type="button" class="mm-sort${MSORT.k === k ? " on" : ""}" data-msort="${k}">${esc(label)} ${MSORT.k === k ? (MSORT.d < 0 ? "▼" : "▲") : "↕"}</button>`;
 function moveTable() {
   if (!MV.plan) return "";
@@ -601,6 +642,7 @@ function renderMove() {
       X <input class="inp" id="mv_ax" type="number" style="width:80px"> Y <input class="inp" id="mv_ay" type="number" style="width:80px">
       <button class="btn small primary" id="mv_aok">${esc(t("addOk"))}</button><button class="btn small" id="mv_adel">${esc(t("addDel"))}</button></div>
       ${MV.plan.c.some(([n]) => !n) ? `<details style="margin-top:6px"><summary class="muted" style="font-size:12.5px;cursor:pointer">${esc(t("freeList"))}</summary><div style="margin-top:4px">${MV.plan.c.filter(([n]) => !n).map(([, x, y]) => `<button class="btn small mv-slot" data-x="${x}" data-y="${y}">X:${x} Y:${y}</button>`).join(" ")}</div></details>` : ""}</div>` : ""}
+    ${MV.plan ? `<div class="row" style="gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center"><button type="button" class="btn" id="mv_exp">${esc(t("expB"))}</button><span class="muted" style="font-size:12px">${esc(t("expN"))}</span></div>` : ""}
     ${ed ? `<div class="row" style="gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center">
       <label class="btn" for="mv_file">${esc(t("imp"))}</label><input type="file" id="mv_file" accept=".json,.csv,.txt,application/json,text/csv,text/plain" hidden>
       ${MV.plan ? `<button class="btn" id="mv_pdel">${esc(t("impDel"))}</button>` : ""}
@@ -610,6 +652,7 @@ function renderMove() {
   bindSteps(el); bindMp(el);
   if ($("mm_left")) $("mm_left").onchange = (e) => { onlyLeft = e.target.checked; renderMove(); };
   el.querySelectorAll(".mm-cp").forEach((b) => b.onclick = async () => { try { await navigator.clipboard.writeText(b.dataset.c); b.textContent = t("copied"); } catch (e) {} });
+  if ($("mv_exp")) $("mv_exp").onclick = exportCsv;
   el.querySelectorAll("[data-msort]").forEach((x) => x.onclick = () => { const k = x.dataset.msort;
     if (MSORT.k !== k) MSORT = { k, d: k === "name" ? 1 : -1 }; else if ((k === "name" ? 1 : -1) === MSORT.d) MSORT.d = -MSORT.d; else MSORT = { k: "", d: -1 };   // tap: ▼ → ▲ → off
     msortKeep(); renderMove(); info(); });

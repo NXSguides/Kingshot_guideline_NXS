@@ -66,6 +66,7 @@ const FEATURES = [
   ["Move: 📍 positions from the roster (Update Map → 🔄 Update roster now → ✅ Use)", /Positions from the roster/, /{ s: "#mp_card", k: "mv09" }/],
   ["Watch / Move: 🔄 Update roster now (one shared request)", /\[watch\] - 🕵️ Watch → "🔄 Update roster now"/, /{ s: "#wa_rnb", k: "wa07" }/],
   ["Move: tap a planned spot to put a member there", /putting members on the plan by tapping/, /{ s: "#mm_map .mm-ps.ed", k: "mv08", e: 1 }/],
+  ["Hive: 📤 export the plan as a Kingshot Mapper CSV + tap for coordinates", /📤 Export CSV \(Kingshot Mapper\)/, /{ s: "#mv_exp", k: "mv10", e: 1 }/],
   ["Hive: 🐻 BT1 / BT2 + TC / Power in the moving table", /the moving table \(每人一列的搬家表\)/, /mv03b:/],
   ["Move: 📐 auto plan from a Mapper layout (road, stages, checks, edit, PNG)", /Auto plan from a Mapper layout/, /{ s: "#hp_root > h3", k: "hp01" }/],
   ["Move: 📐 shared auto plans (Plan list)", /Share as a plan/, /{ s: "#hp_root .hp-sh", k: "hp03" }/],

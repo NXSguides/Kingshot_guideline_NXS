@@ -1053,7 +1053,8 @@
   .fmt-demo-note { margin: 0 0 6px; padding: 8px 10px; border-radius: 8px; background: color-mix(in srgb, var(--accent) 14%, var(--panel-2)); font-size: 13px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 </style>
 <style>
-  .km-members .mm-map { overflow: auto; max-height: min(70vh, 560px); border-radius: 10px; background: #3f5f27; -webkit-overflow-scrolling: touch; }
+  .km-members .mm-map { overflow: auto; position: relative; max-height: min(70vh, 560px); border-radius: 10px; background: #3f5f27; -webkit-overflow-scrolling: touch; }
+  .km-members .mm-tip { position: absolute; z-index: 5; pointer-events: none; white-space: nowrap; background: rgba(20,16,12,.92); color: #fff; border: 1px solid #ffde4a; border-radius: 8px; padding: 4px 8px; font-size: 12.5px; box-shadow: 0 4px 12px rgba(0,0,0,.4); }
   @media (pointer: fine) { .km-members .mm-map { cursor: grab; } }
   .km-members .mm-map.dragging { cursor: grabbing; user-select: none; }
   .km-members .mm-map.dragging * { pointer-events: none; }
