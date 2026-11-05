@@ -286,7 +286,7 @@ function draw(boxId = "mm_map") {
 /* 🖱️ drag the map with the mouse (touch already scrolls by itself); a drag doesn't count as a tap on a city / spot */
 /* 🌾 resource nodes (data/resources-2189.json, from Kingshot Mapper's built-in map): 2×2, X,Y = corner like a city. A node is the
    alliance's when ≥ 75% (3 of 4 tiles) lies in its territory — here: the moving plan's HQ (15×15) + its banners (7×7). */
-let RESN = []; (async () => { try { RESN = ((await (await fetch("data/resources-2189.json?v=1")).json()).r) || []; if (D) { render(); if ($("mv_root") && $("mv_root").innerHTML) renderMove(); } } catch (e) {} })();
+let RESN = []; (async () => { try { RESN = ((await (await fetch("data/resources-2189.json?v=2")).json()).r) || []; if (D) { render(); if ($("mv_root") && $("mv_root").innerHTML) renderMove(); } } catch (e) {} })();
 const RS_COL = { b: "#e8c15a", q: "#b7c3c9", i: "#8d6e63", w: "#7aa35a" }, RS_ICON = { b: "🍞", q: "🪨", i: "⛏️", w: "🪵" };
 function planTerr(PL) { const T = new Set(); if (!PL) return T;
   for (const [x, y] of PL.hq || []) for (let i = x - 6; i <= x + 8; i++) for (let j = y - 6; j <= y + 8; j++) T.add(i + "," + j);
