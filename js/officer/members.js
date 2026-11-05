@@ -518,7 +518,7 @@ async function init(map) {
   if (OFFICER.can("move", "view") && !MV.plan) { try { await loadMove(); mapSync(); } catch (e) {} }
   if (OFFICER.can("move", "view")) OFFICER.BT.load();
   try { roster = await OfficerData.fetchJsonFast("data/roster-x7k2p9.json", (r) => { roster = r; render(); if ($("mv_root") && $("mv_root").innerHTML) renderMove(); }); } catch (e) {}
-  render();
+  render(); if ($("mv_root") && $("mv_root").innerHTML) renderMove();   // the moving table needs the roster too (TC, Power, 🐻 BT boxes) — 2026-11-05: it was drawn before the roster came
 }
 /* 🧭 the move step by step, read from the blueprint labels: ✅ comes by itself when the map already shows it
    (our banner standing there, the HQ / a Bear Trap at its new X Y, a member at their new spot); officers with the edit right tick the rest */
