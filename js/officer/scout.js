@@ -105,7 +105,7 @@ function render() {
     const cls = (COLS.find(([c]) => c === k)[2] ? "num" : "") + (k === sortKey ? " sorted" : "") + (k === "name" ? " kc " + kidColor(p.kid) : "");
     let v = "";
     if (k === "rank") v = String(i + 1);
-    else if (k === "name") v = `<div class="name" dir="auto">${esc(p.name)}</div><div class="id">${shown.length > 1 ? `<b class="kidtag">#${esc(p.kid)}</b> · ` : ""}ID ${esc(p.id)}${p.uid ? ` · <a href="https://mightpulse.com/player/${encodeURIComponent(p.uid)}" target="_blank" rel="noopener">${esc(tr("openRec"))}</a>` : ""}${p.top && p.top.length === 1 ? ` · <span class="muted">${esc(tr(p.top[0] === "power" ? "onlyPower" : "onlyMigrant"))}</span>` : ""}</div>`;
+    else if (k === "name") v = `<div class="name"><bdi>${esc(p.name)}</bdi></div><div class="id">${shown.length > 1 ? `<b class="kidtag">#${esc(p.kid)}</b> · ` : ""}ID ${esc(p.id)}${p.uid ? ` · <a href="https://mightpulse.com/player/${encodeURIComponent(p.uid)}" target="_blank" rel="noopener">${esc(tr("openRec"))}</a>` : ""}${p.top && p.top.length === 1 ? ` · <span class="muted">${esc(tr(p.top[0] === "power" ? "onlyPower" : "onlyMigrant"))}</span>` : ""}</div>`;
     else if (k === "alliance") v = esc(p.alliance || "");
     else if (k === "power" || k === "kills" || k === "migrant") v = p[k] ? big(p[k]) : "";
     else if (k === "sp") v = p.sp ? (p.spFb ? "~" : "") + Math.round(p.sp) : "";

@@ -107,7 +107,7 @@ function mpDiff() {
 function mpCard() {
   const df = mpDiff(), canSave = ED();
   const list = df && df.chg.length ? `<div style="margin-top:6px"><b>${esc(t("mpChg").replace("{n}", df.chg.length))}</b><div class="mm-tw" style="max-height:220px;overflow:auto"><table class="mm-t"><tbody>
-    ${df.chg.map((c) => `<tr class="${c.arr ? "ok" : ""}"><td dir="auto">${esc(c.name)}</td><td>${c.from ? `X:${c.from[0]} Y:${c.from[1]}` : `<span class="muted">${esc(t("mpNew"))}</span>`}</td><td>→ X:${c.to[0]} Y:${c.to[1]}</td><td>${c.arr ? "✅ " + esc(t("mpArr")) : ""}</td></tr>`).join("")}
+    ${df.chg.map((c) => `<tr class="${c.arr ? "ok" : ""}"><td><bdi>${esc(c.name)}</bdi></td><td>${c.from ? `X:${c.from[0]} Y:${c.from[1]}` : `<span class="muted">${esc(t("mpNew"))}</span>`}</td><td>→ X:${c.to[0]} Y:${c.to[1]}</td><td>${c.arr ? "✅ " + esc(t("mpArr")) : ""}</td></tr>`).join("")}
     </tbody></table></div>${canSave ? `<button type="button" class="btn small primary" id="mp_use" style="margin-top:6px">${esc(t("mpUse"))}</button>` : `<div class="muted" style="font-size:12.5px">${esc(t("mpNoEd"))}</div>`}</div>`
     : df && !goneList().length ? `<div class="muted" style="font-size:13px;margin-top:6px">${esc(t("mpNone"))}</div>` : "";
   const gi = goneList(), gone = gi.length ? `<div style="margin-top:6px"><b>${esc(t("mpGone"))}</b> ${gi.map((i) => `<span class="mm-chip warn">${esc(D.m[i][0])}</span>`).join(" ")}${canSave && !(df && df.chg.length) ? ` <button type="button" class="btn small primary" id="mp_gone">${esc(t("mpGoneBtn"))}</button>` : ""}</div>` : "";
@@ -312,7 +312,7 @@ function select(i, scroll) {
 function asGroups(left) {
   const idx = rosterIndex(), g = { "1": [], "2": [], "12": [], "": [] };
   for (const q of left) { const m = idx[norm(q)], v = m ? String(OFFICER.BT.map[String(m.id)] || "") : ""; (g[v] || g[""]).push(q); }
-  const chip = (q, v) => `<button type="button" class="btn small${v ? " bt-" + v : ""}" data-as="${esc(q)}" dir="auto">${esc(q)}</button>`;
+  const chip = (q, v) => `<button type="button" class="btn small${v ? " bt-" + v : ""}" data-as="${esc(q)}"><bdi>${esc(q)}</bdi></button>`;
   const sec = (v, title) => g[v].length ? `<div class="mm-asg"><b>${esc(title)} (${g[v].length})</b></div>${g[v].map((q) => chip(q, v)).join("")}` : "";
   if (!g["1"].length && !g["2"].length && !g["12"].length) return left.map((q) => chip(q, "")).join("");   // nobody marked yet: one list as before
   return sec("1", t("bt1")) + sec("2", t("bt2")) + sec("12", t("bt1") + " + " + t("bt2")) + sec("", t("btNo"));
@@ -326,7 +326,7 @@ function info(k) {
   if (SEL == null && SPOT != null && MV.plan && MV.plan.c[SPOT] && MED()) {
     const [n, x, y] = MV.plan.c[SPOT], placed = new Set(MV.plan.c.map(([q]) => norm(q)).filter(Boolean));
     const left = [...new Set(D.m.map(([q]) => q))].filter((q) => !placed.has(norm(q))).sort((a, b) => a.localeCompare(b));
-    el.innerHTML = `<b>${esc(t("asT").replace("{x}", x).replace("{y}", y))}</b>${n ? ` · <span dir="auto">${esc(n)}</span>` : ""}
+    el.innerHTML = `<b>${esc(t("asT").replace("{x}", x).replace("{y}", y))}</b>${n ? ` · <span><bdi>${esc(n)}</bdi></span>` : ""}
       <div class="mm-ed" style="margin-top:6px"><input class="inp" id="mm_asn" list="mm_asl" value="${esc(n || "")}" placeholder="${esc(t("asName"))}" style="width:160px"><datalist id="mm_asl">${left.map((q) => `<option value="${esc(q)}">`).join("")}</datalist>
       <button class="btn small primary" id="mm_asok">${esc(t("asOk"))}</button>${n ? ` <button class="btn small" id="mm_asclr">${esc(t("asClr"))}</button>` : ""}</div>
       ${left.length ? `<div class="muted" style="font-size:12.5px;margin-top:6px">${esc(t("asLeft").replace("{n}", left.length))}</div><div class="mm-asl">${asGroups(left)}</div>` : ""}`;
@@ -337,7 +337,7 @@ function info(k) {
     return; }
   if (SEL == null || !D.m[SEL]) { el.innerHTML = ""; return; }
   const [n, x, y] = D.m[SEL], m = rosterIndex()[norm(n)];
-  el.innerHTML = `<b dir="auto">${esc(n)}</b>${m && norm(m.name) !== norm(n) ? ` <span class="muted">(≈ ${esc(m.name)})</span>` : ""} · X:${x} Y:${y}${m && m.power ? ` · ${esc(t("pw"))} ${fmtPw(+m.power)}` : ""} <button class="btn small" id="mm_copy">${esc(t("copy"))}</button>`
+  el.innerHTML = `<b><bdi>${esc(n)}</bdi></b>${m && norm(m.name) !== norm(n) ? ` <span class="muted">(≈ ${esc(m.name)})</span>` : ""} · X:${x} Y:${y}${m && m.power ? ` · ${esc(t("pw"))} ${fmtPw(+m.power)}` : ""} <button class="btn small" id="mm_copy">${esc(t("copy"))}</button>`
     + (ED() ? `<div class="mm-ed" style="margin-top:6px"><input class="inp" id="mm_en" value="${esc(n)}" style="width:150px"> X <input class="inp" id="mm_ex" type="number" value="${x}"> Y <input class="inp" id="mm_ey" type="number" value="${y}"> <button class="btn small" id="mm_eok">${esc(t("edit"))}</button> <button class="btn small" id="mm_edel">${esc(t("del"))}</button></div>` : "");
   $("mm_copy").onclick = async () => { try { await navigator.clipboard.writeText(`X:${x} Y:${y}`); $("mm_copy").textContent = t("copied"); } catch (e) {} };
   if ($("mm_eok")) $("mm_eok").onclick = () => { D.m[SEL] = [$("mm_en").value.trim() || n, +$("mm_ex").value, +$("mm_ey").value].concat(D.m[SEL][3] ? [D.m[SEL][3]] : []); msg = t("unsaved"); render(); };
@@ -453,18 +453,18 @@ function moveTable() {
   const btBox = (r, k) => r.m ? `<input type="checkbox" class="mm-bt b${k}" data-bt="${k}" data-bid="${esc(String(r.m.id))}" aria-label="BT${k}"${BT.has(r.m.id, k) ? " checked" : ""}${bed ? "" : " disabled"}>` : "";
   const btList = (k) => { const L = rows.filter((r) => r.m && BT.has(r.m.id, k)).sort((p, q) => (+q.m.power || 0) - (+p.m.power || 0));
     return `<div class="mm-btl b${k}"><div class="row" style="align-items:center;gap:6px;justify-content:space-between"><b>${esc(t("bt" + k))} (${L.length})</b><button type="button" class="btn small" data-btcopy="${k}">${esc(t("btCopy"))}</button></div>
-      <div style="margin-top:4px;line-height:1.5;word-break:break-word" dir="auto">${L.length ? L.map((r) => esc(r.name)).join(" · ") : `<span class="muted">${esc(t("btNone"))}</span>`}</div></div>`; };
+      <div style="margin-top:4px;line-height:1.5;word-break:break-word">${L.length ? L.map((r) => `<bdi>${esc(r.name)}</bdi>`).join(" · ") : `<span class="muted"><bdi>${esc(t("btNone"))}</bdi></span>`}</div></div>`; };
   const nBoth = rows.filter((r) => btv(r) === "12").length, noSpot = rows.filter((r) => !r.b && r.m);
   const btCard = `<div class="mm-btc"><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(t("btNote"))}</div><div class="mm-btg">${btList("1")}${btList("2")}</div>
     ${nBoth ? `<div class="muted" style="font-size:12.5px;margin-top:4px">⚠️ ${esc(t("btBoth").replace("{n}", nBoth))}</div>` : ""}
-    ${noSpot.length ? `<div class="muted" style="font-size:12.5px;margin-top:6px"><b>${esc(t("noSpot").replace("{n}", noSpot.length))}</b> ${noSpot.map((r) => esc(r.name)).join(" · ")}</div>` : ""}</div>`;
+    ${noSpot.length ? `<div class="muted" style="font-size:12.5px;margin-top:6px"><b>${esc(t("noSpot").replace("{n}", noSpot.length))}</b> ${noSpot.map((r) => `<bdi>${esc(r.name)}</bdi>`).join(" · ")}</div>` : ""}</div>`;
   return `<div class="mm-mv"><h4 style="margin:14px 0 4px">${esc(t("mvT"))} <span class="muted" style="font-weight:400;font-size:13px">${esc(t("mvProg").replace("{d}", nDone).replace("{n}", withT.length))}${MV.plan.at ? " · " + esc(t("planBy").replace("{d}", String(MV.plan.at).slice(0, 10))) : ""}</span></h4>
     <div class="mm-bar"><span style="width:${withT.length ? Math.round(100 * nDone / withT.length) : 0}%"></span></div>
     ${free ? `<div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("free").replace("{n}", free))}</div>` : ""}
     <label class="row" style="gap:6px;font-size:13px;margin:6px 0"><input type="checkbox" id="mm_left"${onlyLeft ? " checked" : ""}> ${esc(t("mvLeft"))}</label>
     ${btCard}
     <div class="mm-tw"><table class="mm-t"><thead><tr><th>${esc(t("colN"))}</th><th>${esc(t("colTc"))}</th><th>${esc(t("colPw"))}</th><th>${esc(t("colBt"))}</th><th>${esc(t("colNow"))}</th><th>${esc(t("colNew"))}</th><th>${esc(t("colDone"))}</th></tr></thead><tbody>
-    ${rows.filter((r) => !onlyLeft || !r.ok).map((r) => `<tr class="${r.ok ? "ok" : ""}${btv(r) ? " bt-" + btv(r) : ""}"><td dir="auto">${esc(r.name)}</td><td>${r.m ? esc(OFFICER.tcText(r.m.tc)) : "—"}</td><td>${r.m && r.m.power ? fmtPw(+r.m.power) : "—"}</td><td class="mm-btk">${btBox(r, "1")}${btBox(r, "2")}</td><td>${xy(r.a)}</td><td>${r.b ? `<button class="btn small mm-cp" data-c="X:${r.b[1]} Y:${r.b[2]}">${xy(r.b)}</button>` : `<span class="muted">${esc(t("noPlace"))}</span>`}</td>
+    ${rows.filter((r) => !onlyLeft || !r.ok).map((r) => `<tr class="${r.ok ? "ok" : ""}${btv(r) ? " bt-" + btv(r) : ""}"><td><bdi>${esc(r.name)}</bdi></td><td>${r.m ? esc(OFFICER.tcText(r.m.tc)) : "—"}</td><td>${r.m && r.m.power ? fmtPw(+r.m.power) : "—"}</td><td class="mm-btk">${btBox(r, "1")}${btBox(r, "2")}</td><td>${xy(r.a)}</td><td>${r.b ? `<button class="btn small mm-cp" data-c="X:${r.b[1]} Y:${r.b[2]}">${xy(r.b)}</button>` : `<span class="muted">${esc(t("noPlace"))}</span>`}</td>
       <td>${r.there ? `<span title="${esc(t("auto"))}">✅</span>` : r.b ? `<input type="checkbox" data-done="${esc(r.k)}"${r.ok ? " checked" : ""}${ed ? "" : " disabled"}>` : ""}</td></tr>`).join("")}
     </tbody></table></div></div>`;
 }

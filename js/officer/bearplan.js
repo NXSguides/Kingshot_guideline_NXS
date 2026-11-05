@@ -30,13 +30,13 @@ function reviewHtml() {
     ${r.stats ? `<div class="bp-stats" style="margin:6px 0 4px">${r.stats.map((x) => `<div class="bp-stat"><span class="k">${esc(LL(x.k))}</span><span class="v">${esc(x.v)}</span><span class="s">${esc(LL(x.s))}</span></div>`).join("")}</div>` : ""}</div>
   <div class="card"><h3>${esc(rt("kh"))}</h3><p class="bp-p">${esc(rt("kp"))}</p>
     <div class="bp-legend">${["main", "second", "weak"].map((k) => `<span><i class="bp-sw" style="background:var(--bp-${k})"></i>${esc(tier(k))}</span>`).join("")}<span><i class="bp-sw" style="background:var(--bp-idle);border:1px solid var(--rule)"></i>${esc(rt("tBuff"))}</span></div>
-    <div class="bp-kb">${r.rows.map((x) => `<div class="bp-kr"><span class="bp-kn" dir="auto">${esc(x[0])}</span><span class="bp-kt">${+x[5] > +x[4] ? `<i class="bp-kg" style="width:${pc(+x[5])}"></i>` : ""}<i class="bp-kf" style="width:${pc(+x[4])};background:var(--bp-${esc(x[1])})"></i></span><b>${esc(x[6] || (+x[4]).toFixed(2))}${+x[5] > +x[4] ? ` → ${(+x[5]).toFixed(2)}` : ""}</b></div>`).join("")}</div>
+    <div class="bp-kb">${r.rows.map((x) => `<div class="bp-kr"><span class="bp-kn"><bdi>${esc(x[0])}</bdi></span><span class="bp-kt">${+x[5] > +x[4] ? `<i class="bp-kg" style="width:${pc(+x[5])}"></i>` : ""}<i class="bp-kf" style="width:${pc(+x[4])};background:var(--bp-${esc(x[1])})"></i></span><b>${esc(x[6] || (+x[4]).toFixed(2))}${+x[5] > +x[4] ? ` → ${(+x[5]).toFixed(2)}` : ""}</b></div>`).join("")}</div>
     <div class="bp-tw" style="margin-top:10px"><table class="bp-t"><thead><tr>${rt("cols").map((c, i) => `<th${i > 3 || i === 2 ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
-      <tbody>${r.rows.map((x) => `<tr><td dir="auto">${esc(x[0])}</td><td><span class="bp-pill ${esc(x[1])}">${esc(tier(x[1]))}</span></td><td class="n">${esc(x[2])}</td><td${x[3] === "none" ? ' class="bp-no"' : ""}>${esc(rt("buff")[x[3]] || x[3])}</td><td class="n">${esc(x[6] || (+x[4]).toFixed(2))}</td><td class="n${+x[5] > +x[4] ? " bp-up" : ""}">${(+x[5]).toFixed(2)}</td></tr>`).join("")}</tbody></table></div>
+      <tbody>${r.rows.map((x) => `<tr><td><bdi>${esc(x[0])}</bdi></td><td><span class="bp-pill ${esc(x[1])}">${esc(tier(x[1]))}</span></td><td class="n">${esc(x[2])}</td><td${x[3] === "none" ? ' class="bp-no"' : ""}>${esc(rt("buff")[x[3]] || x[3])}</td><td class="n">${esc(x[6] || (+x[4]).toFixed(2))}</td><td class="n${+x[5] > +x[4] ? " bp-up" : ""}">${(+x[5]).toFixed(2)}</td></tr>`).join("")}</tbody></table></div>
     ${LL(r.kfoot) ? `<p class="muted bp-p" style="font-size:12.5px;margin-top:8px">${esc(LL(r.kfoot))}</p>` : ""}</div>
   ${LL(r.place) ? `<div class="card"><h3>${esc(rt("xh"))}</h3><p class="bp-p">${esc(rt("xp"))}</p>
     <div class="bp-tw"><table class="bp-t" style="min-width:0"><thead><tr>${rt("xcols").map((c, i) => `<th${i === 1 ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
-      <tbody>${LL(r.place).map((x) => `<tr><td dir="auto">${esc(x[0])}</td><td class="n"><b>${esc(x[1])}</b></td><td class="muted">${esc(x[2] || "")}</td></tr>`).join("")}</tbody></table></div>
+      <tbody>${LL(r.place).map((x) => `<tr><td><bdi>${esc(x[0])}</bdi></td><td class="n"><b>${esc(x[1])}</b></td><td class="muted">${esc(x[2] || "")}</td></tr>`).join("")}</tbody></table></div>
     ${(LL(r.notes) || []).length ? `<ul class="bp-ul" style="margin-top:10px">${LL(r.notes).map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}</div>` : ""}
   ${(LL(r.unknowns) || []).length ? `<div class="card"><h3>${esc(rt("unh"))}</h3><ul class="bp-ul">${LL(r.unknowns).map((x) => `<li>${esc(x)}</li>`).join("")}</ul>${LL(r.foot) ? `<div class="muted" style="font-size:12px;margin-top:8px">${esc(LL(r.foot))}</div>` : ""}</div>` : ""}
   ${D ? `<h3 class="bp-sec">${esc(rt("planH"))}</h3>` : ""}`;
@@ -175,7 +175,7 @@ function render() {
       <div class="bp-chart">${svg()}</div></div>
     <div class="card"><h3>${esc(t("whyh"))}</h3><p class="bp-p">${esc(t("whyp"))}</p>
       <div class="bp-tw"><table class="bp-t"><thead><tr>${t("cols").map((c, i) => `<th${i > 1 ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
-      <tbody>${D.rows.map((r) => `<tr><td dir="auto">${esc(r[0])}</td><td><span class="bp-pill ${esc(r[1])}">${esc(tier(r[1]))}</span></td><td class="n">${esc(String(r[2]))}</td><td class="n">${r[3]}</td><td class="n">${P[r[0]] || "–"}</td></tr>`).join("")}</tbody></table></div>
+      <tbody>${D.rows.map((r) => `<tr><td><bdi>${esc(r[0])}</bdi></td><td><span class="bp-pill ${esc(r[1])}">${esc(tier(r[1]))}</span></td><td class="n">${esc(String(r[2]))}</td><td class="n">${r[3]}</td><td class="n">${P[r[0]] || "–"}</td></tr>`).join("")}</tbody></table></div>
       <p class="muted bp-p" style="font-size:12.5px">${esc(t("whyfoot"))}</p></div>
     <div class="card"><h3>${esc(t("chh"))}</h3><ul class="bp-ul">${items(t("ch"), v)}</ul></div>
     <div class="card"><h3>${esc(t("unh"))}</h3><ul class="bp-ul">${items(t("un"), v)}</ul></div>

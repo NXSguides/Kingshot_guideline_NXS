@@ -154,7 +154,7 @@ function renderList() {
       <td class="ck main"><input type="checkbox" ${picked.has(m.id) && !subs.has(m.id) ? "checked" : ""} tabindex="-1" aria-label="${esc(tr("colMain"))}"></td>
       <td class="ck"><input type="checkbox" class="ck-sub" ${subs.has(m.id) ? "checked" : ""} tabindex="-1" aria-label="${esc(tr("sub"))}"></td>
       <td class="num rk-no">${num.has(m.id) ? num.get(m.id) : ""}</td>
-      <td class="name" dir="auto">${btBoxes(m)}${regBtns(m)}<span class="nm">${esc(m.name)}</span>${safeBtn(m)}</td>${mode === "w" ? `<td class="num">${scoreOf.has(m.id) ? scoreOf.get(m.id).toFixed(1) : ""}</td>` : ""}
+      <td class="name">${btBoxes(m)}${regBtns(m)}<span class="nm"><bdi>${esc(m.name)}</bdi></span>${safeBtn(m)}</td>${mode === "w" ? `<td class="num">${scoreOf.has(m.id) ? scoreOf.get(m.id).toFixed(1) : ""}</td>` : ""}
       <td>${esc(rankLabel(m))}</td>
       <td class="num">${tcText(m.tc)}</td>
       <td class="num">${big(m.power)}</td>
@@ -216,7 +216,7 @@ function btNames(k) { return ((data && data.members) || []).filter((m) => btHas(
 function renderBt() {
   const b = $("rk_btBtn"); if (b) { b.textContent = bx("btn"); b.classList.toggle("on", btOn); b.setAttribute("aria-pressed", btOn ? "true" : "false"); }
   const el = $("rk_bt"); if (!el) return; el.hidden = !btOn; if (!btOn) { el.innerHTML = ""; return; }
-  const one = (k) => { const L = btNames(k); return `<div class="rk-btl b${k}"><div class="row" style="align-items:center;gap:6px;justify-content:space-between"><b>${esc(bx("t" + k))} (${L.length})</b><button type="button" class="btn small" data-btcopy="${k}">${esc(bx("copy"))}</button></div><div class="rk-btn" dir="auto">${L.length ? L.map(esc).join(" · ") : `<span class="muted">${esc(bx("none"))}</span>`}</div></div>`; };
+  const one = (k) => { const L = btNames(k); return `<div class="rk-btl b${k}"><div class="row" style="align-items:center;gap:6px;justify-content:space-between"><b>${esc(bx("t" + k))} (${L.length})</b><button type="button" class="btn small" data-btcopy="${k}">${esc(bx("copy"))}</button></div><div class="rk-btn">${L.length ? L.map((x) => `<bdi>${esc(x)}</bdi>`).join(" · ") : `<span class="muted"><bdi>${esc(bx("none"))}</bdi></span>`}</div></div>`; };
   const both = ((data && data.members) || []).filter((m) => btHas(m.id, "1") && btHas(m.id, "2")).length;
   el.innerHTML = `<div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(bx("note"))}</div><div class="rk-btg">${one("1")}${one("2")}</div>${both ? `<div class="muted" style="font-size:12.5px;margin-top:4px">⚠️ ${esc(bx("both", { n: both }))}</div>` : ""}`;
   el.querySelectorAll("[data-btcopy]").forEach((x) => x.onclick = async () => { const k = x.dataset.btcopy, L = btNames(k), text = `${bx("t" + k)} (${L.length})\n` + L.join("\n");
@@ -310,7 +310,7 @@ function renderPresets() {
   if (!picked.size) { $("presetOut").innerHTML = `<p class="empty">${tr("empty")}</p>` + pic; return; }
   $("presetOut").innerHTML = `<div class="grp-wrap"><div class="grp-out">` + presetGroups(pr).map(({ g, list }) => `
     <h3>${esc(g.name[lang] || ptOf(g.name.en))} <span class="muted">(${tr("n", { n: list.length })})</span></h3>
-    ${list.length ? `<ol>${list.map((m) => `<li dir="auto">${esc(m.name)} <span class="muted">· ${m.score.toFixed(mode === "w" ? 1 : 0)}</span></li>`).join("")}</ol>` : `<div class="muted">—</div>`}`).join("") + `</div>${pic}</div>`;
+    ${list.length ? `<ol>${list.map((m) => `<li><bdi>${esc(m.name)}</bdi> <span class="muted">· ${m.score.toFixed(mode === "w" ? 1 : 0)}</span></li>`).join("")}</ol>` : `<div class="muted">—</div>`}`).join("") + `</div>${pic}</div>`;
 }
 function renderAll() { applyTexts(); renderResult(); }
 function persist() { for (const k of Object.keys(rep)) if (!picked.has(Number(k) || k)) delete rep[k]; store.rep = { ...rep }; store.wts = wts; store.picked = [...picked]; store.subs = [...picked].filter((id) => subs.has(id)); store.wPower = wPower; store.topN = topN; store.mode = mode; store.sortKey = sortKey; store.sortDir = sortDir; store.lang = lang; save(); }
@@ -1719,8 +1719,8 @@ async function planRecover() {
   const list = m.querySelector("[data-rlist]"); let ids = [], cur = null, vers = [];
   const showIds = () => { cur = null; list.className = "";
     list.innerHTML = ids.sort((a, b) => b.at - a.at).map((x) => `<button type="button" class="btn" data-rid="${esc(x.id)}" style="display:flex;width:100%;justify-content:space-between;gap:8px;margin:4px 0;text-align:start">
-      <span><b dir="auto">${esc(x.name || x.id)}</b>${x.deleted ? ` <span class="muted">${esc(rc("dl"))}</span>` : ""}</span><span class="muted" style="font-size:12.5px">${esc(rc("vers", { n: x.n }))} · ${esc(fmtT(x.at))}</span></button>`).join(""); };
-  const showVers = () => { list.innerHTML = `<button type="button" class="btn small" data-rback="1">${esc(rc("back"))}</button> <b dir="auto">${esc(cur.name || cur.id)}</b>` + vers.map((v, i) =>
+      <span><b><bdi>${esc(x.name || x.id)}</bdi></b>${x.deleted ? ` <span class="muted">${esc(rc("dl"))}</span>` : ""}</span><span class="muted" style="font-size:12.5px">${esc(rc("vers", { n: x.n }))} · ${esc(fmtT(x.at))}</span></button>`).join(""); };
+  const showVers = () => { list.innerHTML = `<button type="button" class="btn small" data-rback="1">${esc(rc("back"))}</button> <b><bdi>${esc(cur.name || cur.id)}</bdi></b>` + vers.map((v, i) =>
     `<div class="row" style="justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--rule)"><div><b>${esc(fmtT(v.at))}</b> · v${v.v}${v.by ? ` · ${esc(v.by)}` : ""}
       <div class="muted" style="font-size:12.5px">${v.gone ? esc(rc("gone")) : `${esc(rc("ppl", { n: v.picked }))} · ${esc(rc("rep", { n: v.rep }))} · ${esc(rc("tb", { n: v.tb }))}`}</div></div>
       ${v.gone ? "" : `<button type="button" class="btn small" data-ruse="${i}">${esc(rc("use"))}</button>`}</div>`).join(""); };
@@ -1732,13 +1732,13 @@ async function planRecover() {
   const olist = oldBox.querySelector("[data-olist]"), R = OFFICER.repo, FILE = "data/ranking-plans-x7k2p9.json";
   let commits = [], page = 0, oplans = null, ocommit = null;
   const gh = (u) => fetch(u, { headers: Object.assign({ Accept: "application/vnd.github+json" }, OFFICER.token ? { Authorization: `Bearer ${OFFICER.token}` } : {}), cache: "no-store" }).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); });
-  const showCommits = () => { oplans = null; olist.innerHTML = commits.map((c, i) => `<button type="button" class="btn small" data-oc="${i}" style="display:flex;width:100%;justify-content:space-between;gap:8px;margin:3px 0;text-align:start"><span dir="auto">${esc(c.msg)}</span><span class="muted">${esc(fmtT(c.at))}</span></button>`).join("")
+  const showCommits = () => { oplans = null; olist.innerHTML = commits.map((c, i) => `<button type="button" class="btn small" data-oc="${i}" style="display:flex;width:100%;justify-content:space-between;gap:8px;margin:3px 0;text-align:start"><span><bdi>${esc(c.msg)}</bdi></span><span class="muted">${esc(fmtT(c.at))}</span></button>`).join("")
     + `<button type="button" class="btn small" data-omore="1">${esc(rc("more"))}</button>`; };
   const loadCommits = async () => { page++; const j = await gh(`https://api.github.com/repos/${R.owner}/${R.name}/commits?path=${FILE}&per_page=100&page=${page}`);
     commits.push(...j.map((c) => ({ sha: c.sha, at: Date.parse(c.commit.author.date), msg: (c.commit.message || "").split("\n")[0].replace(/^Ranking plan:\s*/, "") }))); showCommits(); };
   const showPlans = () => { olist.innerHTML = `<button type="button" class="btn small" data-oback="1">${esc(rc("back"))}</button> <b>${esc(fmtT(ocommit.at))}</b>` + Object.entries(oplans).map(([id, p]) => {
     const tbRows = p && p.tb && Array.isArray(p.tb.groups) ? p.tb.groups.reduce((n, g) => n + ((g && g.rows) || []).length, 0) : 0;
-    return `<div class="row" style="justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--rule)"><div><b dir="auto">${esc((p && p.name) || id)}</b>
+    return `<div class="row" style="justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--rule)"><div><b><bdi>${esc((p && p.name) || id)}</bdi></b>
       <div class="muted" style="font-size:12.5px">${esc(rc("ppl", { n: ((p && p.picked) || []).length }))} · ${esc(rc("rep", { n: Object.keys((p && p.rep) || {}).length }))} · ${esc(rc("tb", { n: tbRows }))}${p && (p.by || p.at) ? ` · ✍️ ${esc(p.by || "?")}${p.at ? " " + esc(fmtT(p.at)) : ""}` : ""}</div></div>
       <button type="button" class="btn small" data-oimp="${esc(id)}">${esc(rc("imp"))}</button></div>`; }).join(""); };
   oldBox.onclick = async (e) => {

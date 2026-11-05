@@ -290,7 +290,7 @@ function planCard() {
     const gm = D ? gMin(PLAN.rallies.map((r) => ({ k: ratio(r), R: r.R })), PLAN.p) : 0;
     res = `<div style="font-size:13.5px;margin:6px 0">${esc(fill(t("one"), { x: (1 / c[0].k).toFixed(2), r: c[0].k.toFixed(2) }))}</div>
       <div class="ak-tw"><table class="ak-t"><thead><tr><th>${esc(t("colR"))}</th><th>${esc(t("lead"))}</th><th>r</th><th>${esc(t("colOut"))}</th></tr></thead><tbody>
-      ${c.map((o) => `<tr class="${good(o) ? "ok" : ""}"><td>#${o.i + 1}</td><td dir="auto">${esc(nameOf(PLAN.rallies[o.i].lead))}</td><td>${o.k.toFixed(2)}</td><td>${esc(out(o))}</td></tr>`).join("")}</tbody></table></div>
+      ${c.map((o) => `<tr class="${good(o) ? "ok" : ""}"><td>#${o.i + 1}</td><td><bdi>${esc(nameOf(PLAN.rallies[o.i].lead))}</bdi></td><td>${o.k.toFixed(2)}</td><td>${esc(out(o))}</td></tr>`).join("")}</tbody></table></div>
       ${D && gm ? `<div style="margin-top:6px"><b>🛡️ ${esc(fill(t("holdD"), { g: fmtN(gm) }))}</b></div>` : ""}
       ${n ? `<div style="margin-top:6px"><b>${esc(fill(t(D ? "needD" : "need"), { n: n <= 1 ? "1" : n.toFixed(1) }))}</b></div>` : ""}
       <div class="muted" style="font-size:12.5px;margin-top:4px">💡 ${esc(t(D ? "lastD" : "last"))}</div>
@@ -331,7 +331,7 @@ function boardsCard() {   // 📊 one list, everyone together (Sherry 2026-11-04
   const N = 30, q = norm(findQ);
   const list = Object.values(PL).filter((p) => sOf(p) && (!PLAN.onlyNxs || ours(p)) && (!q || norm(p.name).includes(q) || norm(p.al) === q)).sort((a, b) => sOf(b) - sOf(a));
   const rank = new Map(Object.values(PL).filter((p) => sOf(p)).sort((a, b) => sOf(b) - sOf(a)).map((p, i) => [p.id, i + 1]));
-  const row = (p) => `<tr${ours(p) ? ' class="ak-us"' : ""}><td dir="auto"><span class="muted">${rank.get(p.id)}.</span> ${esc(p.name)} <span class="muted">[${esc(p.al)}]${p.kid !== 2189 ? ` #${p.kid}` : ""}</span></td><td><b>${sOf(p).toFixed(1)}</b></td><td>${(p.b.gov_gear / 1e6).toFixed(1)}</td><td>${(p.b.hero_equip / 1e6).toFixed(1)}</td><td>${(p.b.master_power / 1e6).toFixed(1)}</td></tr>`;
+  const row = (p) => `<tr${ours(p) ? ' class="ak-us"' : ""}><td><span class="muted">${rank.get(p.id)}.</span> <bdi>${esc(p.name)}</bdi> <span class="muted">[${esc(p.al)}]${p.kid !== 2189 ? ` #${p.kid}` : ""}</span></td><td><b>${sOf(p).toFixed(1)}</b></td><td>${(p.b.gov_gear / 1e6).toFixed(1)}</td><td>${(p.b.hero_equip / 1e6).toFixed(1)}</td><td>${(p.b.master_power / 1e6).toFixed(1)}</td></tr>`;
   const head = `<thead><tr><th></th><th>${esc(t("colS"))}</th><th>${esc(t("gear"))}</th><th>${esc(t("heq"))}</th><th>${esc(t("mst"))}</th></tr></thead>`;
   return `<h3 style="margin:0 0 4px">${esc(t("bT"))}</h3><div class="muted" style="font-size:12.5px">${esc(t("bNote"))}</div>
     <div class="muted" style="font-size:12.5px;margin:4px 0 8px">${esc(fill(t("bData"), { d: snapDay, k: kids }))} · ${esc(fill(bt("top"), { n: N }))}</div>
@@ -416,7 +416,7 @@ function savedBox() {
   const L = Object.entries(SAVED).sort((a, b) => (b[1].fetched || 0) - (a[1].fetched || 0)); if (!L.length) return "";
   const cur = SSD ? svKey(SSD) : "";
   return `<div class="ak-saved"><div class="muted" style="font-size:12.5px;margin:8px 0 4px">💾 ${esc(t("svT"))}</div>${L.map(([k, d]) => `<div class="ak-sv${k === cur ? " on" : ""}">
-    <span dir="auto"><b>[${esc(d.tag)}]</b> ${esc(d.name || "")} · #${esc(d.kid)} · ${(d.members || []).length} · <span class="muted">${esc(new Date(d.fetched).toLocaleString([], { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" }))}</span></span>
+    <span><b>[${esc(d.tag)}]</b> <bdi>${esc(d.name || "")}</bdi> · #${esc(d.kid)} · ${(d.members || []).length} · <span class="muted">${esc(new Date(d.fetched).toLocaleString([], { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" }))}</span></span>
     ${k === cur ? "" : `<button class="btn small" data-svo="${esc(k)}">${esc(t("svOpen"))}</button>`}<button class="btn small" data-svd="${esc(k)}">${esc(t("svDel"))}</button></div>`).join("")}</div>`;
 }
 function ssCard() {
@@ -439,9 +439,9 @@ function ssCard() {
       <b class="ak-cnt">${esc(fill(t("rsSel"), { n: pickT.size, t: themAll.length }))}</b>
       <button class="btn small" data-pall="1">${esc(t("inAll"))}</button><button class="btn small" data-pnone="1">${esc(t("inNone"))}</button>
       <span class="ak-top"><button class="btn small" data-ptop="1">${esc(t("inTop"))}</button><input class="inp" type="number" id="ss_topN" value="${+S.topN || 20}" min="1" max="200"></span></div>
-    ${pickT.size ? `<div class="ak-chips">${themAll.filter((x) => pickT.has(x.id)).map((x) => `<span class="ak-chip" dir="auto">${esc(x.name)}<b data-pk="${esc(x.id)}">×</b></span>`).join("")}</div>` : `<div class="muted" style="font-size:12.5px">${esc(t("rsNone"))}</div>`}
+    ${pickT.size ? `<div class="ak-chips">${themAll.filter((x) => pickT.has(x.id)).map((x) => `<span class="ak-chip"><bdi>${esc(x.name)}</bdi><b data-pk="${esc(x.id)}">×</b></span>`).join("")}</div>` : `<div class="muted" style="font-size:12.5px">${esc(t("rsNone"))}</div>`}
     <div class="ak-tw ak-list ak-rlist"><table class="ak-t"><tbody>${shown.map((x) => `<tr class="ak-tap${pickT.has(x.id) ? " ak-pk" : ""}" data-pr="${esc(x.id)}"><td class="ak-in"><input type="checkbox" data-pk="${esc(x.id)}"${pickT.has(x.id) ? " checked" : ""}></td>
-      <td dir="auto">${esc(x.name)}${x.rank ? ` <span class="muted">${esc(x.rank)}</span>` : ""}</td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td></tr>`).join("") || `<tr><td class="muted">—</td></tr>`}</tbody></table></div></div>`;
+      <td><bdi>${esc(x.name)}</bdi>${x.rank ? ` <span class="muted">${esc(x.rank)}</span>` : ""}</td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td></tr>`).join("") || `<tr><td class="muted">—</td></tr>`}</tbody></table></div></div>`;
   /* 📊 one ranking: our ticked list + their picked players, strongest first */
   const mixed = [...us.map((x) => ({ ...x, us: 1 })), ...them].sort((a, b) => (b.S || 0) - (a.S || 0) || (b.power || 0) - (a.power || 0));
   const e = ssEstimate(conf.length ? conf : us, them);
@@ -449,12 +449,12 @@ function ssCard() {
     return `<button class="btn small ak-act${on ? " on" : ""}" data-ld="${x.us ? "u" : "t"}|${esc(x.id)}" title="${esc(t(x.us ? "ldUs" : "ldThem"))}">🎯</button>`; };
   const cb = (x) => `<td class="ak-in"><input type="checkbox" data-in="${x.us ? "u" : "t"}|${esc(x.id)}" checked aria-label="${esc(t("inL"))}"></td>`;
   const outTbl = !outRows.length ? "" : `<details class="ak-out" id="ss_out"${OPEN.has("ss_out") ? " open" : ""}><summary class="muted">${esc(fill(t("offT"), { n: outRows.length }))}</summary>
-    <div class="ak-tw ak-list"><table class="ak-t ak-mixed ak-offt"><tbody>${outRows.map((x) => `<tr class="ak-us"><td class="ak-in"><input type="checkbox" data-in="u|${esc(x.id)}"></td><td dir="auto">${esc(x.name)} <span class="muted">NXS</span></td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td></tr>`).join("")}</tbody></table></div></details>`;
+    <div class="ak-tw ak-list"><table class="ak-t ak-mixed ak-offt"><tbody>${outRows.map((x) => `<tr class="ak-us"><td class="ak-in"><input type="checkbox" data-in="u|${esc(x.id)}"></td><td><bdi>${esc(x.name)}</bdi> <span class="muted">NXS</span></td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td></tr>`).join("")}</tbody></table></div></details>`;
   const mixTbl = !(mixed.length || outRows.length) ? "" : `<div class="ak-box"><b>${esc(t("rkT"))}</b><div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("rkNote2"))}</div>
     ${usAll.length ? `<div class="ak-inbar"><span>${esc(t("inUs"))}</span><button class="btn small" data-inall="u">${esc(t("inAll"))}</button></div>` : ""}
     <div class="ak-tw ak-list"><table class="ak-t ak-mixed"><thead><tr><th>${esc(t("inL"))}</th><th></th><th>#</th><th>${esc(t("nm"))}</th><th>${esc(t("colS"))}</th><th>${esc(t("pw"))}</th><th></th></tr></thead><tbody>
-    ${mixed.map((x, i) => x.us ? `<tr data-sub="${esc(x.id)}" class="ak-tap ak-us${x.sub ? " ak-sub" : ""}">${cb(x)}<td class="ak-ac">${lead(x)}</td><td>${i + 1}</td><td dir="auto">${esc(x.name)} <span class="muted">NXS</span></td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td><td>${esc(t(x.sub ? "subL" : "conf"))}</td></tr>`
-      : `<tr data-w="${esc(x.id)}" class="ak-tap ak-them${W.has(x.id) ? " ak-w" : ""}">${cb(x)}<td class="ak-ac">${lead(x)}</td><td>${i + 1}</td><td dir="auto">${esc(x.name)} <span class="muted">[${esc(SSD.tag)}]${x.rank ? " " + esc(x.rank) : ""}</span></td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td><td>${W.has(x.id) ? "⚠️" : hot(x) ? `<span class="muted">⚠️?</span>` : "☐"}</td></tr>`).join("")}</tbody></table></div>${outTbl}</div>`;
+    ${mixed.map((x, i) => x.us ? `<tr data-sub="${esc(x.id)}" class="ak-tap ak-us${x.sub ? " ak-sub" : ""}">${cb(x)}<td class="ak-ac">${lead(x)}</td><td>${i + 1}</td><td><bdi>${esc(x.name)}</bdi> <span class="muted">NXS</span></td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td><td>${esc(t(x.sub ? "subL" : "conf"))}</td></tr>`
+      : `<tr data-w="${esc(x.id)}" class="ak-tap ak-them${W.has(x.id) ? " ak-w" : ""}">${cb(x)}<td class="ak-ac">${lead(x)}</td><td>${i + 1}</td><td><bdi>${esc(x.name)}</bdi> <span class="muted">[${esc(SSD.tag)}]${x.rank ? " " + esc(x.rank) : ""}</span></td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td><td>${W.has(x.id) ? "⚠️" : hot(x) ? `<span class="muted">⚠️?</span>` : "☐"}</td></tr>`).join("")}</tbody></table></div>${outTbl}</div>`;
   const nEst = themAll.filter((x) => x.S && !x.est).length;
   const oppTbl = !SSD ? "" : `<div class="muted" style="font-size:12.5px;margin:6px 0">${esc(fill(t("ssGot"), { tag: SSD.tag, name: SSD.name, kid: SSD.kid, n: SSD.members.length, t: new Date(SSD.fetched).toLocaleString([], { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" }) }))}
       · ${esc(fill(t("ssEstN"), { n: nEst }))}</div>`;
@@ -476,7 +476,7 @@ function ssCard() {
       <div class="ak-f"><span>${esc(t("ssTt"))}</span>${tierSel('id="ss_tThem"', S.tThem)}</div>${mixBox("st", S.tThem, S.mThem)}
       <div class="ak-f"><span>${esc(t("p"))}</span><input class="inp" type="number" id="ak_p" value="${PLAN.p}" step="0.05" min="1.2" max="2.5"></div></details>
     ${SSD ? `<h4 style="margin:12px 0 4px">${esc(t("q3"))}</h4>
-      ${marked.length ? `<div class="ak-tw"><table class="ak-t"><tbody>${marked.map((x) => `<tr><td>⚠️</td><td dir="auto">${esc(x.name)}${x.rank ? ` <span class="muted">${esc(x.rank)}</span>` : ""}</td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td></tr>`).join("")}</tbody></table></div>`
+      ${marked.length ? `<div class="ak-tw"><table class="ak-t"><tbody>${marked.map((x) => `<tr><td>⚠️</td><td><bdi>${esc(x.name)}</bdi>${x.rank ? ` <span class="muted">${esc(x.rank)}</span>` : ""}</td><td>${sTxt(x)}</td><td>${x.power ? fmtN(x.power) : "—"}</td></tr>`).join("")}</tbody></table></div>`
         : `<div class="muted" style="font-size:12.5px">${esc(t("q3None"))}${sugg.length ? " " + esc(fill(t("q3Sugg"), { names: sugg.map((x) => x.name).join(", ") })) : ""}</div>`}` : ""}
     <div class="muted" style="font-size:12px;margin-top:10px">⚠️ ${esc(t("ssCav"))}</div>`;
 }

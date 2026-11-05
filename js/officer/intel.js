@@ -156,10 +156,10 @@ function html(snap) {
   if (tl.length) {
     const n = Math.min(20, tl.length);
     const rows = Array.from({ length: n }, (_, i) => { const a = tl[i], b = ul[i], d = b ? sOf(b) - sOf(a) : null;
-      return `<tr><td>${i + 1}</td><td dir="auto">${esc(a.name)} <span class="muted">[${esc(a.al)}]</span> <b>${sOf(a).toFixed(1)}</b></td><td dir="auto">${b ? `${esc(b.name)} <b>${sOf(b).toFixed(1)}</b>` : "—"}</td><td class="${d == null ? "" : d >= 0 ? "in-good" : "in-bad"}">${d == null ? "—" : (d >= 0 ? "+" : "") + d.toFixed(1)}</td></tr>`; }).join("");
+      return `<tr><td>${i + 1}</td><td><bdi>${esc(a.name)}</bdi> <span class="muted">[${esc(a.al)}]</span> <b>${sOf(a).toFixed(1)}</b></td><td>${b ? `<bdi>${esc(b.name)}</bdi> <b>${sOf(b).toFixed(1)}</b>` : "—"}</td><td class="${d == null ? "" : d >= 0 ? "in-good" : "in-bad"}">${d == null ? "—" : (d >= 0 ? "+" : "") + d.toFixed(1)}</td></tr>`; }).join("");
     out += det("in_m", t("mT"), `<div class="muted" style="font-size:12px;margin-bottom:4px">${esc(t("mNote"))}</div><div class="ak-tw"><table class="ak-t in-t"><thead><tr>${t("mH").map((x) => `<th>${esc(x)}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></div>`);
     const cols = ["hero_equip", "gov_gear", "gov_charm", "master_power", "troop_power", "single_hero", "pet_power"];
-    const drow = (p) => `<tr><td dir="auto">${esc(p.name)} <span class="muted">[${esc(p.al)}]</span></td><td><b>${sOf(p).toFixed(1)}</b></td>${cols.map((c) => `<td>${M(p.b[c])}${p.rank[c] ? `<small class="muted"> #${p.rank[c]}</small>` : ""}</td>`).join("")}</tr>`;
+    const drow = (p) => `<tr><td><bdi>${esc(p.name)}</bdi> <span class="muted">[${esc(p.al)}]</span></td><td><b>${sOf(p).toFixed(1)}</b></td>${cols.map((c) => `<td>${M(p.b[c])}${p.rank[c] ? `<small class="muted"> #${p.rank[c]}</small>` : ""}</td>`).join("")}</tr>`;
     out += det("in_d", t("dT"), `<div class="muted" style="font-size:12px;margin-bottom:4px">${esc(t("dNote"))}</div><div class="ak-tw"><table class="ak-t in-t"><thead><tr>${t("dH").map((x) => `<th>${esc(x)}</th>`).join("")}</tr></thead><tbody>${tl.slice(0, 20).map(drow).join("")}</tbody></table></div>`);
   }
 
@@ -174,10 +174,10 @@ function html(snap) {
     const cnt = {}; withH.slice(0, 20).forEach(([, r]) => r.heroes.forEach((h) => { const k = hid(h.name); if (k) cnt[k] = (cnt[k] || 0) + 1; }));
     const common = Object.entries(cnt).sort((a, b) => b[1] - a[1]).slice(0, 8);
     const pic = (h) => { const k = hid(h.name), src = HAVE.has(k) ? `figures/heroes/hero_${k}.webp` : (h.icon || ""); return src ? `<img src="${esc(src)}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">` : `<span class="in-noimg"></span>`; };
-    const chip = (h) => `<span class="in-h">${pic(h)}<b dir="auto">${esc(hname(h.name))}</b><small>Lv${h.level ?? "?"} · ★${h.stars ?? h.star ?? "?"}${h.exclusive_gear_level ? ` · ⚙️${h.exclusive_gear_level}` : ""}</small></span>`;
+    const chip = (h) => `<span class="in-h">${pic(h)}<b><bdi>${esc(hname(h.name))}</bdi></b><small>Lv${h.level ?? "?"} · ★${h.stars ?? h.star ?? "?"}${h.exclusive_gear_level ? ` · ⚙️${h.exclusive_gear_level}` : ""}</small></span>`;
     out += det("in_h", t("hT"), `<div class="muted" style="font-size:12px;margin-bottom:6px">${esc(t("hNote"))}</div>
       <div class="in-common"><b>${esc(t("hCommon"))}</b> ${common.map(([k, n]) => `<span class="in-tag">${esc(lang === "zh" && HZH[k] ? HZH[k] : k)} ×${n}</span>`).join(" ")}</div>
-      ${withH.slice(0, 15).map(([id, r]) => `<div class="in-hrow"><div class="in-hname" dir="auto">${esc(r.name)} <span class="muted">[${esc(r.al)}]</span>${sOf(TP[id]) ? ` · <b>${sOf(TP[id]).toFixed(1)}</b>` : ""}</div>
+      ${withH.slice(0, 15).map(([id, r]) => `<div class="in-hrow"><div class="in-hname"><bdi>${esc(r.name)}</bdi> <span class="muted">[${esc(r.al)}]</span>${sOf(TP[id]) ? ` · <b>${sOf(TP[id]).toFixed(1)}</b>` : ""}</div>
         <div class="in-hs">${[...r.heroes].sort((a, b) => (a.position ?? 9) - (b.position ?? 9)).map(chip).join("")}</div></div>`).join("")}`);
   } else if (fresh) out += det("in_h", t("hT"), `<div class="muted">${esc(t("hNone"))}</div>`);
 
@@ -186,8 +186,8 @@ function html(snap) {
   if (al.length) {
     const r4 = (a) => (a.members || []).filter((m) => m[4] >= 4).sort((x, y) => y[4] - x[4]).map((m) => `${m[1]}${m[4] >= 5 ? " (R5)" : ""}`);
     out += det("in_a", t("aT"), `<div class="ak-tw"><table class="ak-t in-t"><thead><tr>${t("aH").map((x) => `<th>${esc(x)}</th>`).join("")}</tr></thead><tbody>
-      ${al.map((a) => `<tr><td><b>${esc(a.tag)}</b>${a.name ? `<br><small class="muted" dir="auto">${esc(a.name)}</small>` : ""}</td><td>${big(a.power)}</td><td>${a.count ?? "—"}</td><td>${a.active24 ?? "—"}</td><td>${a.active72 ?? "—"}</td><td>${a.online ?? "—"}</td><td>${a.tcMax ?? "—"} / ${a.tcAvg ?? "—"}</td></tr>`).join("")}</tbody></table></div>
-      ${al.filter((a) => r4(a).length).map((a) => `<div class="in-lead"><b>${esc(a.tag)}</b> ${esc(t("aLead"))} <span dir="auto">${esc(r4(a).join(", "))}</span></div>`).join("")}`);
+      ${al.map((a) => `<tr><td><b>${esc(a.tag)}</b>${a.name ? `<br><small class="muted"><bdi>${esc(a.name)}</bdi></small>` : ""}</td><td>${big(a.power)}</td><td>${a.count ?? "—"}</td><td>${a.active24 ?? "—"}</td><td>${a.active72 ?? "—"}</td><td>${a.online ?? "—"}</td><td>${a.tcMax ?? "—"} / ${a.tcAvg ?? "—"}</td></tr>`).join("")}</tbody></table></div>
+      ${al.filter((a) => r4(a).length).map((a) => `<div class="in-lead"><b>${esc(a.tag)}</b> ${esc(t("aLead"))} <span><bdi>${esc(r4(a).join(", "))}</bdi></span></div>`).join("")}`);
   }
 
   /* 📍 castles and shields */
@@ -195,7 +195,7 @@ function html(snap) {
   if (pos.length) {
     const now = Date.now(), sh = (v) => { if (!v) return t("noShield"); const ms = v < 1e12 ? v * 1000 : v; return ms > now ? "🛡️ " + when(ms) : t("noShield"); };
     out += det("in_p", t("pT"), `<div class="muted" style="font-size:12px;margin-bottom:4px">${esc(t("pNote"))}</div><div class="ak-tw"><table class="ak-t in-t"><thead><tr>${t("pH").map((x) => `<th>${esc(x)}</th>`).join("")}</tr></thead><tbody>
-      ${pos.slice(0, 40).map(([, r]) => `<tr><td dir="auto">${esc(r.name)} <span class="muted">[${esc(r.al)}]</span></td><td>${r.player.x}:${r.player.y}</td><td>${sh(r.player.shield_endtime)}</td><td>${when(r.player.last_login || r.player.last_active_at)}</td></tr>`).join("")}</tbody></table></div>`);
+      ${pos.slice(0, 40).map(([, r]) => `<tr><td><bdi>${esc(r.name)}</bdi> <span class="muted">[${esc(r.al)}]</span></td><td>${r.player.x}:${r.player.y}</td><td>${sh(r.player.shield_endtime)}</td><td>${when(r.player.last_login || r.player.last_active_at)}</td></tr>`).join("")}</tbody></table></div>`);
   }
   return out;
 }

@@ -295,16 +295,16 @@ function render() {
     + (TOKEN ? ` <button class="btn mini" data-edit="${esc(r.id)}">✏️</button>` : "");
   const whyCell = (r) => esc(r.why) + (r.note.by || r.note.at ? `<div class="id">${esc([r.note.by, r.note.at].filter(Boolean).join(" · "))}</div>` : "");
   $("rows").innerHTML = list.length ? list.map((r) => `<tr>
-    <td><div class="name" dir="auto">${esc(r.name)}</div><div class="id">ID ${esc(r.id)}${r.m.uid ? ` · <a href="https://mightpulse.com/player/${encodeURIComponent(r.m.uid)}" target="_blank" rel="noopener">Record ↗</a>` : ""}</div></td>
+    <td><div class="name"><bdi>${esc(r.name)}</bdi></div><div class="id">ID ${esc(r.id)}${r.m.uid ? ` · <a href="https://mightpulse.com/player/${encodeURIComponent(r.m.uid)}" target="_blank" rel="noopener">Record ↗</a>` : ""}</div></td>
     <td>${esc(r.rank)}</td>
     <td class="wrapc">${r.flags.map((f) => `<span class="flag${f.hi ? " hi" : ""}">${esc(f.t)}</span>`).join("")}</td>
     <td>${clearCell(r)}</td>
-    <td class="wrapc" dir="auto">${whyCell(r)}</td>
+    <td class="wrapc">${whyCell(r)}</td>
     <td>${esc(r.since)}</td>
     <td class="wrapc">${esc(r.from)}</td>
     <td class="num">${r.hops || ""}</td>
-    <td class="wrapc" dir="auto">${esc(r.names)}</td>
-    <td class="wrapc" dir="auto">${esc(r.similar)}</td>
+    <td class="wrapc"><bdi>${esc(r.names)}</bdi></td>
+    <td class="wrapc"><bdi>${esc(r.similar)}</bdi></td>
     <td class="num">${big(r.power)}</td><td class="num">${ch(r.pD)}</td>
     <td class="num">${big(r.kills)}</td><td class="num">${ch(r.kD)}</td>
     <td class="num">${esc(r.tc)}</td><td class="num">${esc(r.kid)}</td><td>${esc(r.lang)}</td>
@@ -314,7 +314,7 @@ function render() {
   $("left").innerHTML = left.length ? left.map((l) => {
     const seen = (watch.seen || {})[l.id] || {};
     const after = Object.entries(seen).filter(([t, r]) => !t.startsWith(TAG + " (#") && r[1] >= l.leftOn).map(([t]) => t).join(", ");
-    return `<tr><td><div class="name" dir="auto">${esc(l.name)}</div><div class="id">ID ${esc(l.id)}</div></td><td>${esc(l.leftOn)}</td><td>${esc(after)}</td></tr>`;
+    return `<tr><td><div class="name"><bdi>${esc(l.name)}</bdi></div><div class="id">ID ${esc(l.id)}</div></td><td>${esc(l.leftOn)}</td><td>${esc(after)}</td></tr>`;
   }).join("") : `<tr><td colspan="3" class="empty">—</td></tr>`;
 
   $("notes").innerHTML = [tr("n1", { s: watch.started }), tr("n2"), tr("n3", { d: 7 }), tr("n4"), ...(records ? [tr("n5", { d: String(records.pulledAt).slice(0, 10) })] : []), ...(TOKEN ? [tr("n6")] : [])].map((x) => `<li>${esc(x)}</li>`).join("");
