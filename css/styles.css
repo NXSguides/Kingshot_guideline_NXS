@@ -929,3 +929,36 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 @font-face { font-family: "NXS Hand"; src: url(../fonts/caveat-latin-500-normal.woff2) format("woff2"); font-weight: 400 500; font-display: swap; }
 @font-face { font-family: "NXS Hand"; src: url(../fonts/caveat-latin-700-normal.woff2) format("woff2"); font-weight: 600 900; font-display: swap; }
 .af-f[style*="NXS Hand"] { font-size: 1.2em; }
+
+/* 📍 Where's my spot? — the live hive map (js/app.js spotInit) */
+.spot-app { margin: 8px 0 16px; }
+.spot-q { width: 100%; box-sizing: border-box; font-size: 16px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); }
+.spot-res { margin: 8px 0; min-height: 4px; }
+.spot-msg { color: var(--text-muted); font-size: 14px; margin: 6px 0; }
+.spot-card { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; border: 2px solid var(--accent); border-radius: 12px; padding: 10px 14px; background: var(--panel); }
+.spot-who { font-weight: 700; font-size: 17px; flex-basis: 100%; }
+.spot-xy b { font-size: 20px; font-variant-numeric: tabular-nums; }
+.spot-bt { display: inline-block; border-radius: 999px; padding: 2px 10px; font-size: 13px; font-weight: 700; color: #fff; }
+.spot-bt.b1 { background: #3b82f6; } .spot-bt.b2 { background: #f59e0b; }
+.spot-copy { padding: 6px 12px; border-radius: 8px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); font-weight: 700; cursor: pointer; font-size: 14px; }
+.spot-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.spot-chip { padding: 5px 10px; border-radius: 999px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); cursor: pointer; font-size: 14px; }
+.spot-map { overflow: auto; max-height: min(70vh, 620px); border-radius: 12px; background: #7a2457; -webkit-overflow-scrolling: touch; }
+@media (pointer: fine) { .spot-map { cursor: grab; } }
+.spot-map svg { display: block; max-width: none; }
+.spot-map .sp polygon { fill: #5b8bd6; stroke: #9fc3ff; stroke-width: 1; }
+.spot-map .sp.free polygon { fill: #4a6fa8; }
+.spot-map .sp.b1 polygon { fill: #3b6fd6; stroke: #bcd6ff; }
+.spot-map .sp.b2 polygon { fill: #c98a1e; stroke: #ffd98a; }
+.spot-map .sp.b12 polygon { fill: #8b5bd6; }
+.spot-map .sp.on polygon { fill: #ffde4a; stroke: #fff; stroke-width: 3; }
+.spot-map .sp.on text { fill: #222; }
+.spot-map .sp { cursor: pointer; }
+.spot-map text { text-anchor: middle; fill: #fff; pointer-events: none; font-family: inherit; }
+.spot-map .sn { font-size: 11px; font-weight: 700; }
+.spot-map .sc { font-size: 9px; opacity: .8; }
+.spot-map .sl { font-size: 12px; font-weight: 700; }
+.spot-map .st { fill: #c0392b; stroke: #ffb3a8; stroke-width: 1.5; }
+.spot-map .sh { fill: #8e44ad; stroke: #e2b8ff; stroke-width: 1.5; }
+.spot-map .sb { fill: #b9a3b4; stroke: #fff; stroke-width: 1; }
+.spot-foot { color: var(--text-muted); font-size: 12.5px; margin-top: 6px; }

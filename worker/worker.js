@@ -67,6 +67,10 @@ async function handle(req, env, ctx) {
       if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
       return pushRoute(req, env, path);
     }
+    if (path === "/hive") {   // 📍 public "Where's my spot?" page: the moving plan's spots with today's roster names (no login)
+      if (req.method !== "POST" || req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
+      return hiveRoute(env);
+    }
     const isCheck = req.method === "GET" && new URL(req.url).pathname === "/check";
     if (!isCheck && req.method !== "POST") return json({ error: "POST only — open /check to test the setup" }, 405);
     if (!isCheck && req.headers.get("Origin") !== SITE_ORIGIN) return json({ error: "forbidden" }, 403);
@@ -739,6 +743,28 @@ async function ssPullRoute(req, env, body) {
     members: (al.body.members || []).map((m) => ({ id: String(m.governor_id), name: m.nick_name, power: m.power ?? null, tc: m.town_center_level ?? null, rank: m.alliance_rank_label || "", b: score[String(m.governor_id)] || {} })) };
   await stub.kvSet(key, ss);
   return json({ ok: true, ss, token: acc.token });
+}
+
+/* 📍 "Where's my spot?" (public site, Nia & Sherry 2026-11-05): the 🐝 Hive moving plan — every planned city with the member put there,
+   Bear Traps, HQ, banners — so members check their new X:Y before teleporting. Names follow the daily roster (a plan name that
+   clearly means one roster member shows as that member's current name). 🐻 BT1 / BT2 from the shared marks. Nothing else of the
+   plan or the roster (no power, no IDs) leaves the Worker. Cached 2 minutes. */
+let hiveCache = { at: 0, body: null };
+async function hiveRoute(env) {
+  if (hiveCache.body && Date.now() - hiveCache.at < 120000) return json(hiveCache.body);
+  let mv = null, roster = null;
+  try { mv = await openData(JSON.parse(await getText("data/move-plan-x7k2p9.json")), env); } catch (e) { return json({ ok: true, none: true }); }
+  try { roster = await openData(JSON.parse(await getText("data/roster-x7k2p9.json")), env); } catch (e) {}
+  const P = mv && mv.plan; if (!P || !Array.isArray(P.c)) return json({ ok: true, none: true });
+  const norm = (x) => String(x || "").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
+  const ms = ((roster && roster.members) || []).filter((m) => m && m.name), byN = new Map(ms.map((m) => [norm(m.name), m]));
+  const find = (n) => { const q = norm(n); if (!q) return null; if (byN.has(q)) return byN.get(q); if (q.length < 3) return null;
+    const c = ms.filter((m) => { const k = norm(m.name); return k && (k.includes(q) || q.includes(k)); }); return c.length === 1 ? c[0] : null; };
+  let bt = {}; try { const stub = env.TIMERS ? env.TIMERS.get(env.TIMERS.idFromName("all")) : null; if (stub) bt = (await stub.kvGet("rk:bt")) || {}; } catch (e) {}
+  const spots = P.c.map(([n, x, y]) => { const m = n ? find(n) : null; return [m ? m.name : String(n || ""), +x, +y, m ? String(bt[String(m.id)] || "") : ""]; });
+  const body = { ok: true, at: mv.at || P.at || null, spots, traps: (P.bt || []).map(([x, y]) => [+x, +y]), hq: (P.hq || []).map(([x, y]) => [+x, +y]), banners: (P.b || []).map(([x, y]) => [+x, +y]) };
+  hiveCache = { at: Date.now(), body };
+  return json(body);
 }
 
 /* officer files may be encrypted: { enc: 1, iv, data } with AES-GCM and DATA_KEY */

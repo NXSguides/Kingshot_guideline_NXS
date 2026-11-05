@@ -395,6 +395,8 @@ const BLOCKS = {
   nap: (b) => `<div class="nap-card"><div class="nap-t">${rich(b.text)}</div><div class="nap-tags">${(b.tags || []).map((t) => `<span class="nap-tag" dir="ltr">${escapeHtml(t)}</span>`).join("")}</div></div>`,
   /* home page: the short NAP 6 card — tapping it opens the 🤝 NAP Rules guide */
   napHome: (b) => `<button type="button" class="nap-card nap-home" onclick="switchGuide('nap-rules')"><div class="nap-t">${rich(b.text)}</div><div class="nap-tags">${(b.tags || []).map((t) => `<span class="nap-tag" dir="ltr">${escapeHtml(t)}</span>`).join("")}</div><div class="nap-more">${escapeHtml(b.more || "")}</div></button>`,
+  /* 📍 Where's my spot?: the live hive map (filled by spotInit below) */
+  spot: () => `<div class="spot-app" id="spotApp"></div>`,
   /* a button that opens another guide */
   goto: (b) => `<button type="button" class="guide-link-btn" onclick="switchGuide('${escapeHtml(b.to)}')"><span>${rich(b.text)}</span></button>`,
   /* a closed box: the title shows, the blocks inside open on tap (details that most readers don't need yet) */
@@ -764,7 +766,7 @@ function renderPicker() {
 /* ---- 上方指南按鈕：「近期活動」＋兩個可展開的分類 ------------------- */
 /* Guides listed in GUIDE_GROUPS.growth go under 養成; everything else (except the home guide) goes under 活動. */
 const HOME_GUIDE = "recent-events";
-const TOP_GUIDES = ["nap-rules"];   // guides with their own button next to 📢 Home (not inside a group)
+const TOP_GUIDES = ["nap-rules", "my-spot"];   // guides with their own button next to 📢 Home (not inside a group)
 const GUIDE_GROUPS = {
   events: { emoji: "🏆", name: { en:"Event Guides", zh:"活動指南", ko:"이벤트 가이드", de:"Event-Guides", fr:"Guides d'événements", pt:"Guias de eventos", tr:"Etkinlik Rehberleri", id:"Panduan Event", ru:"Гайды по событиям", th:"คู่มือกิจกรรม", ar:"أدلة الفعاليات", es:"Guías de eventos" } },
   growth: { emoji: "🌱", name: { en:"Growth Guides", zh:"養成指南", ko:"육성 가이드", de:"Aufbau-Guides", fr:"Guides de progression", pt:"Guias de evolução", tr:"Gelişim Rehberleri", id:"Panduan Pengembangan", ru:"Гайды по развитию", th:"คู่มือพัฒนา", ar:"أدلة التطوير", es:"Guías de progreso" },
@@ -1244,6 +1246,103 @@ function renderDoc() {
   if (daily) doc.insertAdjacentHTML("beforeend", dailyCardHtml(daily));
   doc.appendChild(renderBlocks(guide, daily ? { ...s, blocks: s.blocks.filter((b, k) => k < daily.from || k >= daily.to) } : s));
   jumpCard(doc);
+  const sp = doc.querySelector(".spot-app"); if (sp) spotInit(sp);
+}
+
+/* ===== 📍 Where's my spot? (Nia & Sherry, 2026-11-05) =====
+   The 🐝 Hive moving plan from the officer page, read live from the Worker (/hive): every planned city with the member put there
+   (names follow the daily roster), Bear Traps, HQ, banners. Find your name → your new X:Y (copy it) and your Bear Trap group.
+   Drawn like the in-game map / Kingshot Mapper: screen right = X−Y, up = X+Y; each tile shows its X,Y. */
+const SPOT_API = "https://nxs-ai.tapegirljoke.workers.dev/hive";
+const SPOT_TXT = {
+  find: { en:"Type your name…", zh:"輸入你的名字…", ko:"이름을 입력하세요…", de:"Deinen Namen eingeben…", fr:"Tape ton nom…", pt:"Digite seu nome…", es:"Escribe tu nombre…", tr:"Adını yaz…", id:"Ketik namamu…", ru:"Введите своё имя…", th:"พิมพ์ชื่อของคุณ…", ar:"اكتب اسمك…" },
+  your: { en:"Your new spot", zh:"你的新位置", ko:"새 자리", de:"Dein neuer Platz", fr:"Ta nouvelle place", pt:"Seu novo lugar", es:"Tu nuevo lugar", tr:"Yeni yerin", id:"Tempat barumu", ru:"Ваше новое место", th:"ตำแหน่งใหม่ของคุณ", ar:"مكانك الجديد" },
+  copy: { en:"📋 Copy X:Y", zh:"📋 複製 X:Y", ko:"📋 X:Y 복사", de:"📋 X:Y kopieren", fr:"📋 Copier X:Y", pt:"📋 Copiar X:Y", es:"📋 Copiar X:Y", tr:"📋 X:Y kopyala", id:"📋 Salin X:Y", ru:"📋 Копировать X:Y", th:"📋 คัดลอก X:Y", ar:"📋 نسخ X:Y" },
+  copied: { en:"Copied ✅", zh:"已複製 ✅", ko:"복사됨 ✅", de:"Kopiert ✅", fr:"Copié ✅", pt:"Copiado ✅", es:"Copiado ✅", tr:"Kopyalandı ✅", id:"Tersalin ✅", ru:"Скопировано ✅", th:"คัดลอกแล้ว ✅", ar:"تم النسخ ✅" },
+  bt: { en:"Bear Trap {n}", zh:"熊陷阱 {n}", ko:"곰 함정 {n}", de:"Bärenfalle {n}", fr:"Piège à ours {n}", pt:"Armadilha de Urso {n}", es:"Trampa de Oso {n}", tr:"Ayı Tuzağı {n}", id:"Perangkap Beruang {n}", ru:"Медвежья ловушка {n}", th:"กับดักหมี {n}", ar:"فخ الدب {n}" },
+  none: { en:"Not found on the plan. Check the spelling, or ask an officer — maybe you don't have a spot yet.", zh:"計畫裡找不到。檢查一下拼法，或問幹部——你可能還沒分到位置。", ko:"계획에서 찾을 수 없어요. 철자를 확인하거나 간부에게 물어보세요 — 아직 자리가 없을 수도 있어요.", de:"Nicht im Plan gefunden. Prüf die Schreibweise oder frag einen Offizier — vielleicht hast du noch keinen Platz.", fr:"Introuvable dans le plan. Vérifie l'orthographe ou demande à un officier — tu n'as peut-être pas encore de place.", pt:"Não encontrado no plano. Confira a grafia ou pergunte a um oficial — talvez você ainda não tenha lugar.", es:"No está en el plan. Revisa cómo lo escribiste o pregunta a un oficial; quizá aún no tienes lugar.", tr:"Planda bulunamadı. Yazımı kontrol et ya da bir subaya sor — belki henüz yerin yok.", id:"Tidak ada di rencana. Cek ejaannya atau tanya officer — mungkin kamu belum dapat tempat.", ru:"Нет в плане. Проверьте написание или спросите офицера — возможно, места пока нет.", th:"ไม่พบในแผน ลองเช็กการสะกด หรือถามเจ้าหน้าที่ — คุณอาจยังไม่ได้ตำแหน่ง", ar:"غير موجود في الخطة. تحقّق من الإملاء أو اسأل ضابطًا — ربما لم يُحدَّد لك مكان بعد." },
+  many: { en:"{n} names match — tap yours:", zh:"有 {n} 個名字符合——點你的：", ko:"{n}개 이름이 맞아요 — 내 이름을 누르세요:", de:"{n} Namen passen — tipp auf deinen:", fr:"{n} noms correspondent — touche le tien :", pt:"{n} nomes combinam — toque no seu:", es:"{n} nombres coinciden — toca el tuyo:", tr:"{n} isim eşleşiyor — seninkine dokun:", id:"{n} nama cocok — ketuk namamu:", ru:"Совпадает {n} имён — нажмите своё:", th:"มี {n} ชื่อที่ตรง — แตะชื่อของคุณ:", ar:"{n} أسماء مطابقة — اضغط اسمك:" },
+  noPlan: { en:"No hive plan right now.", zh:"目前沒有搬家計畫。", ko:"지금은 벌집 계획이 없어요.", de:"Gerade gibt es keinen Hive-Plan.", fr:"Pas de plan de ruche pour l'instant.", pt:"Nenhum plano de colmeia no momento.", es:"Ahora no hay plan de colmena.", tr:"Şu an kovan planı yok.", id:"Belum ada rencana sarang.", ru:"Сейчас плана улья нет.", th:"ตอนนี้ยังไม่มีแผนรัง", ar:"لا توجد خطة خلية الآن." },
+  err: { en:"Couldn't load the map — try ↻ in a moment.", zh:"地圖載入失敗——等一下再按 ↻ 試試。", ko:"지도를 불러오지 못했어요 — 잠시 후 ↻ 를 눌러 보세요.", de:"Karte konnte nicht geladen werden — gleich nochmal ↻.", fr:"Impossible de charger la carte — réessaie ↻ dans un instant.", pt:"Não deu para carregar o mapa — tente ↻ daqui a pouco.", es:"No se pudo cargar el mapa — prueba ↻ en un momento.", tr:"Harita yüklenemedi — birazdan ↻ dene.", id:"Peta gagal dimuat — coba ↻ sebentar lagi.", ru:"Не удалось загрузить карту — попробуйте ↻ чуть позже.", th:"โหลดแผนที่ไม่ได้ — ลองกด ↻ อีกครั้งสักครู่", ar:"تعذّر تحميل الخريطة — جرّب ↻ بعد قليل." },
+  load: { en:"Loading the map…", zh:"地圖載入中…", ko:"지도 불러오는 중…", de:"Karte wird geladen…", fr:"Chargement de la carte…", pt:"Carregando o mapa…", es:"Cargando el mapa…", tr:"Harita yükleniyor…", id:"Memuat peta…", ru:"Загрузка карты…", th:"กำลังโหลดแผนที่…", ar:"جارٍ تحميل الخريطة…" },
+  upd: { en:"Plan updated {d}", zh:"計畫更新於 {d}", ko:"계획 업데이트 {d}", de:"Plan aktualisiert {d}", fr:"Plan mis à jour {d}", pt:"Plano atualizado {d}", es:"Plan actualizado {d}", tr:"Plan güncellendi {d}", id:"Rencana diperbarui {d}", ru:"План обновлён {d}", th:"อัปเดตแผน {d}", ar:"حُدّثت الخطة {d}" },
+  tap: { en:"Tip: tap any city on the map to see who is there.", zh:"小提示：點地圖上的城，就會看到那是誰。", ko:"팁: 지도의 도시를 누르면 누구 자리인지 보여요.", de:"Tipp: Tipp auf eine Stadt, um zu sehen, wer dort ist.", fr:"Astuce : touche une ville sur la carte pour voir qui est là.", pt:"Dica: toque numa cidade do mapa para ver quem está lá.", es:"Consejo: toca una ciudad del mapa para ver quién está ahí.", tr:"İpucu: kimin orada olduğunu görmek için haritadaki bir şehre dokun.", id:"Tips: ketuk kota di peta untuk melihat siapa di sana.", ru:"Совет: нажмите на город на карте, чтобы увидеть, чей он.", th:"เคล็ดลับ: แตะเมืองบนแผนที่เพื่อดูว่าเป็นของใคร", ar:"نصيحة: اضغط مدينة على الخريطة لترى من هناك." },
+  empty: { en:"empty spot", zh:"空位", ko:"빈 자리", de:"freier Platz", fr:"place libre", pt:"lugar vazio", es:"lugar libre", tr:"boş yer", id:"tempat kosong", ru:"свободное место", th:"ที่ว่าง", ar:"مكان فارغ" },
+};
+let SPOT = null, spotSel = -1;
+const spotNorm = (x) => String(x || "").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
+async function spotInit(el) {
+  el.innerHTML = `<div class="spot-msg">${escapeHtml(t(SPOT_TXT.load))}</div>`;
+  try { const r = await fetch(SPOT_API, { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}", cache: "no-store" }); SPOT = await r.json(); if (!r.ok || !SPOT.ok) throw 0; }
+  catch (e) { el.innerHTML = `<div class="spot-msg">${escapeHtml(t(SPOT_TXT.err))}</div>`; return; }
+  if (!el.isConnected) return;
+  if (SPOT.none || !(SPOT.spots || []).length) { el.innerHTML = `<div class="spot-msg">${escapeHtml(t(SPOT_TXT.noPlan))}</div>`; return; }
+  let q = ""; try { q = localStorage.getItem("nxs-spot-name") || ""; } catch (e) {}
+  const named = [...new Set(SPOT.spots.map((r) => r[0]).filter((n) => n && !/^nxs$/i.test(n)))].sort((a, b) => a.localeCompare(b));
+  el.innerHTML = `<input class="spot-q" id="spotQ" list="spotNames" type="search" autocomplete="off" placeholder="${escapeHtml(t(SPOT_TXT.find))}" value="${escapeHtml(q)}">
+    <datalist id="spotNames">${named.map((n) => `<option value="${escapeHtml(n)}">`).join("")}</datalist>
+    <div class="spot-res" id="spotRes"></div>
+    <div class="spot-map" id="spotMap"></div>
+    <div class="spot-foot">${escapeHtml(t(SPOT_TXT.tap))}${SPOT.at ? " · " + escapeHtml(t(SPOT_TXT.upd).replace("{d}", new Date(SPOT.at).toLocaleString(HTML_LANG[currentLang] || "en", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }))) : ""}</div>`;
+  spotDraw();
+  const qi = el.querySelector("#spotQ");
+  qi.oninput = () => { try { localStorage.setItem("nxs-spot-name", qi.value); } catch (e) {} spotFind(qi.value, true); };
+  if (q) spotFind(q, true); else spotCenter(null);
+}
+function spotFind(q, scroll) {
+  const res = document.getElementById("spotRes"); if (!res || !SPOT) return;
+  const k = spotNorm(q); if (!k) { spotSel = -1; res.innerHTML = ""; spotDraw(); return; }
+  const S = SPOT.spots, hit = (f) => S.map((r, i) => [r, i]).filter(([r]) => r[0] && !/^nxs$/i.test(r[0]) && f(spotNorm(r[0])));
+  let L = hit((n) => n === k); if (!L.length) L = hit((n) => n.startsWith(k)); if (!L.length && k.length >= 2) L = hit((n) => n.includes(k));
+  if (L.length === 1) { spotPick(L[0][1], scroll); return; }
+  spotSel = -1; spotDraw();
+  res.innerHTML = !L.length ? `<div class="spot-msg">${escapeHtml(t(SPOT_TXT.none))}</div>`
+    : `<div class="spot-msg">${escapeHtml(t(SPOT_TXT.many).replace("{n}", L.length))}</div><div class="spot-chips">${L.slice(0, 20).map(([r, i]) => `<button type="button" class="spot-chip" data-si="${i}"><bdi>${escapeHtml(r[0])}</bdi></button>`).join("")}</div>`;
+  res.querySelectorAll("[data-si]").forEach((b) => b.onclick = () => spotPick(+b.dataset.si, true));
+}
+function spotPick(i, scroll) {
+  const r = SPOT.spots[i], res = document.getElementById("spotRes"); if (!r || !res) return;
+  spotSel = i; const xy = `X:${r[1]} Y:${r[2]}`;
+  const bts = String(r[3] || "").split("").filter(Boolean).map((n) => `<span class="spot-bt b${n}">🐻 ${escapeHtml(t(SPOT_TXT.bt).replace("{n}", n))}</span>`).join(" ");
+  res.innerHTML = `<div class="spot-card"><div class="spot-who"><bdi>${escapeHtml(r[0])}</bdi></div><div class="spot-xy"><span class="muted">${escapeHtml(t(SPOT_TXT.your))}</span> <b>${xy}</b></div>${bts ? `<div>${bts}</div>` : ""}<button type="button" class="spot-copy" id="spotCopy">${escapeHtml(t(SPOT_TXT.copy))}</button></div>`;
+  const c = document.getElementById("spotCopy");
+  c.onclick = async () => { try { await navigator.clipboard.writeText(xy); } catch (e) { const ta = document.createElement("textarea"); ta.value = xy; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); } c.textContent = t(SPOT_TXT.copied); setTimeout(() => { c.textContent = t(SPOT_TXT.copy); }, 1500); };
+  spotDraw(); if (scroll) spotCenter(r);
+}
+const SPOT_K = 17;   // px per tile step on screen
+function spotGeo() {
+  const S = SPOT, pts = [];
+  for (const [, x, y] of S.spots) pts.push([x, y], [x + 2, y + 2]);
+  for (const [x, y] of S.traps || []) pts.push([x, y], [x + 3, y + 3]);
+  for (const [x, y] of S.hq || []) pts.push([x, y], [x + 3, y + 3]);
+  for (const [x, y] of S.banners || []) pts.push([x, y], [x + 1, y + 1]);
+  const d = pts.map(([x, y]) => x - y), s = pts.map(([x, y]) => x + y), pad = 3;
+  const dMin = Math.min(...d) - pad, dMax = Math.max(...d) + pad, sMin = Math.min(...s) - pad, sMax = Math.max(...s) + pad;
+  return { P: (x, y) => [(x - y - dMin) * SPOT_K, (sMax - (x + y)) * SPOT_K], W: (dMax - dMin) * SPOT_K, H: (sMax - sMin) * SPOT_K };
+}
+function spotDraw() {
+  const box = document.getElementById("spotMap"); if (!box || !SPOT) return;
+  const { P, W, H } = spotGeo(), poly = (x, y, n) => [[x, y], [x + n, y], [x + n, y + n], [x, y + n]].map(([a, b]) => P(a, b).map((v) => v.toFixed(1)).join(",")).join(" ");
+  const c = (x, y, n) => P(x + n / 2, y + n / 2), o = [];
+  for (const [x, y] of SPOT.banners || []) o.push(`<polygon points="${poly(x, y, 1)}" class="sb"/>`);
+  (SPOT.traps || []).forEach(([x, y], i) => { const [cx, cy] = c(x, y, 3); o.push(`<polygon points="${poly(x, y, 3)}" class="st"/><text x="${cx}" y="${cy + 4}" class="sl">${escapeHtml(t(SPOT_TXT.bt).replace("{n}", i + 1))}</text><text x="${cx}" y="${cy + 17}" class="sc">${x},${y}</text>`); });
+  for (const [x, y] of SPOT.hq || []) { const [cx, cy] = c(x, y, 3); o.push(`<polygon points="${poly(x, y, 3)}" class="sh"/><text x="${cx}" y="${cy + 4}" class="sl">HQ</text><text x="${cx}" y="${cy + 17}" class="sc">${x},${y}</text>`); }
+  SPOT.spots.forEach(([n, x, y, bt], i) => { const [cx, cy] = c(x, y, 2), nm = n && !/^nxs$/i.test(n) ? n : "", sel = i === spotSel;
+    o.push(`<g class="sp${sel ? " on" : ""}${bt ? " b" + bt : ""}${nm ? "" : " free"}" data-si="${i}"><polygon points="${poly(x, y, 2)}"/><text x="${cx}" y="${cy}" class="sn">${escapeHtml(nm.length > 11 ? nm.slice(0, 10) + "…" : nm || "·")}</text><text x="${cx}" y="${cy + 12}" class="sc">${x},${y}</text><title>${escapeHtml(nm || t(SPOT_TXT.empty))} X:${x} Y:${y}</title></g>`); });
+  box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${o.join("")}</svg>`;
+  box.querySelectorAll("g[data-si]").forEach((g) => g.onclick = () => { const r = SPOT.spots[+g.dataset.si]; if (r && r[0] && !/^nxs$/i.test(r[0])) spotPick(+g.dataset.si, false); else { spotSel = +g.dataset.si; spotDraw(); const res = document.getElementById("spotRes"); if (res && r) res.innerHTML = `<div class="spot-msg">${escapeHtml(t(SPOT_TXT.empty))} · X:${r[1]} Y:${r[2]}</div>`; } });
+  if (!box._pan) { box._pan = 1; let d = null, moved = false;   // drag with the mouse
+    box.addEventListener("pointerdown", (e) => { if (e.pointerType !== "mouse" || e.button !== 0) return; d = { x: e.clientX, y: e.clientY, l: box.scrollLeft, t: box.scrollTop }; moved = false; });
+    box.addEventListener("pointermove", (e) => { if (!d) return; const dx = e.clientX - d.x, dy = e.clientY - d.y; if (!moved && Math.hypot(dx, dy) < 5) return; moved = true; box.scrollLeft = d.l - dx; box.scrollTop = d.t - dy; });
+    const end = () => { d = null; }; box.addEventListener("pointerup", end); box.addEventListener("pointercancel", end); box.addEventListener("pointerleave", end);
+    box.addEventListener("click", (e) => { if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; } }, true); }
+}
+function spotCenter(r) {
+  const box = document.getElementById("spotMap"); if (!box || !SPOT) return;
+  const { P } = spotGeo(); let x, y;
+  if (r) { [x, y] = P(r[1] + 1, r[2] + 1); } else { const h = (SPOT.hq || [])[0] || (SPOT.traps || [])[0]; if (!h) return; [x, y] = P(h[0] + 1.5, h[1] + 1.5); }
+  const go = () => { box.scrollLeft = x - box.clientWidth / 2; box.scrollTop = y - box.clientHeight / 2; };
+  if (box.clientWidth) go(); else requestAnimationFrame(go);
 }
 
 /* ===== ✅ Daily checklist: the "☐" items of General Tips, ticked per device, cleared every day at 00:00 UTC ===== */

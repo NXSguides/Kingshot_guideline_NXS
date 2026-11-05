@@ -1196,6 +1196,61 @@ const GUIDES = {
       ]},
     }
   },
+  /* 📍 public "Where's my spot?" (Nia & Sherry, 2026-11-05): the 🐝 Hive moving plan, read live from the Worker (/hive) — js/app.js BLOCKS.spot */
+  "my-spot": {
+    emoji: "📍",
+    name: { en: "Where's my spot?", zh: "我的新位置在哪？", ko: "내 자리는 어디?", de: "Wo ist mein Platz?", fr: "Où est ma place ?", pt: "Onde fica meu lugar?", es: "¿Dónde está mi lugar?", tr: "Yerim nerede?", id: "Di mana tempatku?", ru: "Где моё место?", th: "ตำแหน่งของฉันอยู่ไหน?", ar: "أين مكاني؟" },
+    sections: {
+      en: { title: "Where's my spot?", blocks: [
+        { type: "p", text: "Before you teleport for a hive move, find your name here and check your new X:Y. The map is the same one the officers use, so it is always up to date." },
+        { type: "spot" },
+      ]},
+      zh: { title: "我的新位置在哪？", blocks: [
+        { type: "p", text: "搬家傳送前，先在這裡找自己的名字，確認新的 X:Y。這張地圖和幹部用的是同一份，隨時都是最新的。" },
+        { type: "spot" },
+      ]},
+      ko: { title: "내 자리는 어디?", blocks: [
+        { type: "p", text: "벌집 이사로 순간이동하기 전에 여기서 이름을 찾아 새 X:Y를 확인하세요. 간부들이 쓰는 지도와 같아서 항상 최신이에요." },
+        { type: "spot" },
+      ]},
+      de: { title: "Wo ist mein Platz?", blocks: [
+        { type: "p", text: "Bevor du für einen Hive-Umzug teleportierst: Such hier deinen Namen und prüf dein neues X:Y. Es ist dieselbe Karte wie bei den Offizieren, also immer aktuell." },
+        { type: "spot" },
+      ]},
+      fr: { title: "Où est ma place ?", blocks: [
+        { type: "p", text: "Avant de te téléporter pour un déménagement de ruche, cherche ton nom ici et vérifie ton nouveau X:Y. C'est la même carte que celle des officiers, toujours à jour." },
+        { type: "spot" },
+      ]},
+      pt: { title: "Onde fica meu lugar?", blocks: [
+        { type: "p", text: "Antes de teletransportar numa mudança de colmeia, procure seu nome aqui e confira seu novo X:Y. É o mesmo mapa que os oficiais usam, então está sempre atualizado." },
+        { type: "spot" },
+      ]},
+      es: { title: "¿Dónde está mi lugar?", blocks: [
+        { type: "p", text: "Antes de teletransportarte en una mudanza de colmena, busca tu nombre aquí y revisa tu nuevo X:Y. Es el mismo mapa que usan los oficiales, siempre al día." },
+        { type: "spot" },
+      ]},
+      tr: { title: "Yerim nerede?", blocks: [
+        { type: "p", text: "Kovan taşınması için ışınlanmadan önce adını burada bul ve yeni X:Y'ni kontrol et. Subayların kullandığı haritanın aynısı, yani hep güncel." },
+        { type: "spot" },
+      ]},
+      id: { title: "Di mana tempatku?", blocks: [
+        { type: "p", text: "Sebelum teleport untuk pindahan sarang, cari namamu di sini dan cek X:Y barumu. Ini peta yang sama dengan yang dipakai para officer, jadi selalu terbaru." },
+        { type: "spot" },
+      ]},
+      ru: { title: "Где моё место?", blocks: [
+        { type: "p", text: "Перед телепортом при переезде улья найдите здесь своё имя и проверьте новые X:Y. Это та же карта, что у офицеров, поэтому она всегда актуальна." },
+        { type: "spot" },
+      ]},
+      th: { title: "ตำแหน่งของฉันอยู่ไหน?", blocks: [
+        { type: "p", text: "ก่อนเทเลพอร์ตย้ายรัง ให้หาชื่อตัวเองที่นี่และเช็ก X:Y ใหม่ แผนที่นี้เป็นอันเดียวกับที่เจ้าหน้าที่ใช้ จึงอัปเดตอยู่เสมอ" },
+        { type: "spot" },
+      ]},
+      ar: { title: "أين مكاني؟", blocks: [
+        { type: "p", text: "قبل أن تنتقل فوريًا في نقل الخلية، ابحث عن اسمك هنا وتحقّق من X:Y الجديد. إنها نفس الخريطة التي يستخدمها الضباط، لذا هي محدّثة دائمًا." },
+        { type: "spot" },
+      ]},
+    },
+  },
   "general-tips": {
     emoji: "🔍",
     name: { en: "General Tips", zh: "通用小技巧", ko: "일반 팁", de: "Allgemeine Tipps", fr: "Conseils Généraux", pt: "Dicas Gerais", tr: "Genel İpuçları", id: "Tips Umum", ru: "Общие советы", th: "เคล็ดลับทั่วไป", ar: "نصائح عامة", es: "Consejos Generales" },
