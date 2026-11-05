@@ -85,10 +85,12 @@ KGb
 
 ### GUIDE #new-here — New here?
 Welcome to NXS! Read this page once — it has everything you need on your first day. Still unsure? Ask an R4, or tap 💬 Ask AI.
+🌐 Translate messages
+Tap the ⇄ icon next to a message to translate it into your game language.
 📜 CORE RULES
 1. Stay active. Tell leadership if you'll be away.
 2. Respect NAP 6. If a NAP member attacks you, report it to R4/R5. Do not hit back.
-3. Follow event rules. Check alliance chat, private messages and Discord for updates.
+3. Follow event rules. Check alliance chat, private messages, our website and Discord for updates.
 4. Work with leadership, help other members and play as a team.
 5. Keep World Chat friendly. Avoid drama that could hurt the alliance.
 ✅ YOUR FIRST DAY
@@ -102,29 +104,31 @@ IDN
 KGb
 ⚠️ Breaking it: 1st a warning · 2nd kicked from the alliance · 3rd blacklisted by all NAP alliances.
 (see guide #nap-rules)
-🐻 Bear Trap – your spot
-⚠️ Do NOT teleport until an R4 gives you a spot. It is your permanent spot, based on your Bear Trap time.
-⏰ Tell us which time you can join: BT1 22:00 UTC or BT2 13:00 UTC.
-📍 Remember your spot. Never take someone else's spot.
-(see guide #bear-hunt)
-🏰 Sanctuary & Fortress rules
-🔴 No solo attacks: never start an attack on a Sanctuary or Fortress. Join the rallies led by R4/R5.
-🔵 Send exactly the troops and heroes given in alliance chat or labels.
-⛔ Do not teleport until R4/R5 tell you to.
 🗺️ Who holds which
+The Sanctuaries and Fortresses around the kingdom are assigned to the top 6 alliances in NAP. Every Friday there is a battle for them — never fight for one that is assigned to another alliance. That is a big NAP rule break.
 NXS: Sanctuary 1, 6 · Fortress 2
 NBD: Sanctuary 10, 11 · Fortress 4
 RED: Sanctuary 2, 3 · Fortress 3
 ESA: Sanctuary 5, 12 · Fortress 1
 IDN: Sanctuary 4
 KGb: Sanctuary 8
-7 and 9 are free for all — one per alliance.
+7 and 9 are not assigned — they are fought for. Each alliance can hold 7 or 9, not both.
+🏰 Sanctuary & Fortress rules
+🔴 No solo attacks: never start an attack on a Sanctuary or Fortress. Join the rallies led by R4/R5.
+🔵 Send exactly the troops and heroes given in alliance chat or labels.
+⛔ Do not teleport until R4/R5 tell you to.
+🐻 Bear Trap
+For Bear Trap we have strict rules on which heroes to use, how many troops to send and in which ratio. The wrong heroes can lower the total damage, so check the rules here:
+(see guide #bear-hunt)
+⚠️ Do NOT teleport until an R4 gives you a spot. It is your permanent spot, based on your Bear Trap time.
+⏰ Tell us which time you can join: BT1 22:00 UTC or BT2 13:00 UTC.
+📍 Remember your spot. Never take someone else's spot.
+Troop ratios and numbers for other events:
+(see guide #formations-rally-tips)
 ✏️ Name change (optional)
 You can change your name to match everyone else. Copy this, then type your name right after the first 亗 (example: 亗Sparrow ᴺᵉˣᵘˢ亗).
 亗 ᴺᵉˣᵘˢ亗
 Copy
-🌐 Translate messages
-Tap the ⇄ icon next to a message to translate it into your game language.
 🎁 Gift codes
 🤖 Android: Governor picture → Settings → Gift Code. Enter the code and claim.
 🍎 iPhone / iPad: use the website below with your Player ID and the code.
@@ -137,9 +141,6 @@ Tap the ⇄ icon next to a message to translate it into your game language.
 🔗 Links
 Discord: https://discord.gg/5RakbEK5RS
 🌐 https://nxsguides.github.io/Kingshot_guideline_NXS/
-⚔️ Troop ratios & limits
-How many troops to send and in which ratio (e.g. 50:20:30 = Infantry : Cavalry : Archer) is in this guide — it also works out the exact numbers for you:
-(see guide #formations-rally-tips)
 
 ### GUIDE #my-spot — Where's my spot?
 Before you teleport for a hive move, find your name here and check your new X:Y. The map is the same one the officers use, so it is always up to date.
@@ -1345,7 +1346,7 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 📢 Announcements switch to the next one by themselves after a few seconds; ⏸ Stay here (next to the date) stops that on this device, ▶ Auto-switch turns it back on (swipe and tabs still work). A battle table inside an announcement shows in the reader's language (all 12 — buildings, phases, tasks and reminders; player names stay as written); the picture with it stays in English. "🙋 Who are you?" above the table: pick your name and only the buildings (Tri-Alliance: your team) you are in stay; "Show everyone" (or the 👀 Show everyone button next to the menu) shows all again.
 🐦 Little Sparrow (the bird by the Ask AI button): tap it and it first asks "Want a quick tour of this page?" — 👀 Yes walks top to bottom through the page you are on: first the top buttons (🔗, ↻, 📋 officers only, light/dark, the announcement ticker, languages, guide menus), then the page (home page: this week, daily checklist, calendar, announcements, guide menus, language, Ask AI; a guide: its headings, hero cards, rule boxes, switching guides). After the tour, or after "No thanks", it shows its help menu: 🔎 Find a page, or 🎓 "How do I use…" → pick a tour: 🧭 What the buttons on the site do (language, 🔗, ↻, light/dark, Ask AI), ⏰ timers, 🔔 game reminders, or installing the app. The same tours are listed at the top of the Ask AI panel.
 📍 Where's my spot?: its own page — the 📍 button next to 🤝 NAP Rules at the top (guide #my-spot), for hive moves. Members type their in-game name and get their new X:Y (📋 copy) and their Bear Trap group (🐻 BT1 / BT2); a map like Kingshot Mapper shows every planned city with the member's name and each spot's X,Y, the Bear Traps and HQ (tap a city to see who is there, drag / swipe to move around, 🔍 － / ＋ above the map to zoom, or Ctrl + wheel / pinch). It is the officers' live 🐝 Hive plan, so it always shows the newest plan; names follow the daily roster. Not on the plan = no spot yet → ask an officer. The officers open this page only when a new hive is ready; while it is hidden the 📍 button is not shown and the page says it is not open yet.
-🔰 New here?: its own page — the 🔰 button right after 📢 Home at the top (guide #new-here), for new members (e.g. people joining from TTT): Nia's 5 core rules (stay active, respect NAP 6 and report instead of hitting back, follow event rules, team play, keep World Chat civil), the first-day list (NAP 6, Bear Trap spot — don't teleport before an R4 gives you one, BT1 22:00 / BT2 13:00 UTC; Sanctuary & Fortress rules and who holds which: NXS 1, 6 + Fortress 2, NBD 10, 11 + Fortress 4, RED 2, 3 + Fortress 3, ESA 5, 12 + Fortress 1, IDN 4, KGb 8, 7 and 9 free for all, one per alliance; optional name change — the format is 亗 ᴺᵉˣᵘˢ亗 with your name typed right after the first 亗 (e.g. 亗Sparrow ᴺᵉˣᵘˢ亗), with a 📋 Copy button; translating messages with ⇄; gift codes — Android in game, iOS on ks-giftcode.centurygame.com; where we share information; Discord and site links), and a last part pointing to the 🛡️ Formations & Rally Tips guide for troop ratios and how many troops to send.
+🔰 New here?: its own page — the 🔰 button right after 📢 Home at the top (guide #new-here), for new members (e.g. people joining from TTT), in the order of Nia's Onboarding chat: translating messages (tap ⇄ next to a message); Nia's 5 core rules (stay active, respect NAP 6 and report instead of hitting back, follow event rules — check alliance chat, private messages, our website and Discord, team play, keep World Chat civil); NAP 6 and the 3 steps for violations; Sanctuaries & Fortresses — assigned to the top 6 NAP alliances, a battle every Friday, never fight for one assigned to another alliance (a big NAP break): NXS 1, 6 + Fortress 2, NBD 10, 11 + Fortress 4, RED 2, 3 + Fortress 3, ESA 5, 12 + Fortress 1, IDN 4, KGb 8, 7 and 9 are fought for and each alliance can hold only one of them; the Sanctuary & Fortress rules (no solo attacks, exact troops and heroes, wait for R4/R5 before teleporting); Bear Trap — strict rules on heroes, troop numbers and ratio (wrong heroes lower the total damage; link to the 🐻 Bear Hunt guide), don't teleport before an R4 gives you a spot, BT1 22:00 / BT2 13:00 UTC; a link to 🛡️ Formations & Rally Tips for other events' ratios and troop numbers; optional name change — the format is 亗 ᴺᵉˣᵘˢ亗 with your name typed right after the first 亗 (e.g. 亗Sparrow ᴺᵉˣᵘˢ亗), with a 📋 Copy button; gift codes — Android in game (Governor picture → Settings → Gift Code), iOS on ks-giftcode.centurygame.com; where we share information; Discord and site links.
 🤝 NAP rules: their own page — the 🤝 NAP Rules button at the top, after 🔰 New here? (guide #nap-rules): the NAP 6 tags, checking nodes before gathering, the All Out exception, outposts, Sanctuaries / Fortresses, and the 3 steps for violations. The home page shows a short NAP 6 card with the tags; tapping it opens that page.
 The language buttons at the top switch the whole site (12 languages).
 
