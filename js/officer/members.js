@@ -454,7 +454,8 @@ function importPlan(text, file) {
 function exportCsv() {
   const P = MV.plan; if (!P) return;
   const lab = (n) => String(n || "").replace(/[,;\t\r\n]+/g, " ").trim();
-  let seq = 0; const out = ["type,X,Y,label,#color,seq"], row = (ty, x, y, l, c) => out.push(`${ty},${x},${y},${lab(l)},${c},${++seq}`);
+  let seq = 0; const out = [],   // no header line: Kingshot Mapper rejects it ("unknown type \"type\"", 2026-11-05)
+    row = (ty, x, y, l, c) => out.push(`${ty},${x},${y},${lab(l)},${c},${++seq}`);
   for (const [n, x, y] of P.c || []) row("city", x, y, n || "NXS", "#4a9edd");
   (P.bt || []).forEach(([x, y], i) => row("beartrap", x, y, `Bear Trap ${i + 1}`, "#c0392b"));
   for (const [x, y] of P.hq || []) row("hq", x, y, "NXS", "#8e44ad");
