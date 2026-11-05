@@ -962,3 +962,5 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 .spot-map .sh { fill: #8e44ad; stroke: #e2b8ff; stroke-width: 1.5; }
 .spot-map .sb { fill: #b9a3b4; stroke: #fff; stroke-width: 1; }
 .spot-foot { color: var(--text-muted); font-size: 12.5px; margin-top: 6px; }
+.spot-zoom { display: flex; gap: 4px; justify-content: flex-end; margin: 6px 0 4px; }
+.spot-zoom button { min-width: 40px; height: 32px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); font-size: 15px; cursor: pointer; }

@@ -1267,24 +1267,49 @@ const SPOT_TXT = {
   load: { en:"Loading the map…", zh:"地圖載入中…", ko:"지도 불러오는 중…", de:"Karte wird geladen…", fr:"Chargement de la carte…", pt:"Carregando o mapa…", es:"Cargando el mapa…", tr:"Harita yükleniyor…", id:"Memuat peta…", ru:"Загрузка карты…", th:"กำลังโหลดแผนที่…", ar:"جارٍ تحميل الخريطة…" },
   upd: { en:"Plan updated {d}", zh:"計畫更新於 {d}", ko:"계획 업데이트 {d}", de:"Plan aktualisiert {d}", fr:"Plan mis à jour {d}", pt:"Plano atualizado {d}", es:"Plan actualizado {d}", tr:"Plan güncellendi {d}", id:"Rencana diperbarui {d}", ru:"План обновлён {d}", th:"อัปเดตแผน {d}", ar:"حُدّثت الخطة {d}" },
   tap: { en:"Tip: tap any city on the map to see who is there.", zh:"小提示：點地圖上的城，就會看到那是誰。", ko:"팁: 지도의 도시를 누르면 누구 자리인지 보여요.", de:"Tipp: Tipp auf eine Stadt, um zu sehen, wer dort ist.", fr:"Astuce : touche une ville sur la carte pour voir qui est là.", pt:"Dica: toque numa cidade do mapa para ver quem está lá.", es:"Consejo: toca una ciudad del mapa para ver quién está ahí.", tr:"İpucu: kimin orada olduğunu görmek için haritadaki bir şehre dokun.", id:"Tips: ketuk kota di peta untuk melihat siapa di sana.", ru:"Совет: нажмите на город на карте, чтобы увидеть, чей он.", th:"เคล็ดลับ: แตะเมืองบนแผนที่เพื่อดูว่าเป็นของใคร", ar:"نصيحة: اضغط مدينة على الخريطة لترى من هناك." },
+  closed: { en:"This page isn't open yet — the officers will open it when the new spots are ready.", zh:"這一頁還沒開放——新位置排好後，幹部就會打開。", ko:"이 페이지는 아직 열리지 않았어요 — 새 자리가 준비되면 간부들이 열어 줄 거예요.", de:"Diese Seite ist noch nicht offen — die Offiziere öffnen sie, wenn die neuen Plätze fertig sind.", fr:"Cette page n'est pas encore ouverte — les officiers l'ouvriront quand les nouvelles places seront prêtes.", pt:"Esta página ainda não está aberta — os oficiais vão abrir quando os novos lugares estiverem prontos.", es:"Esta página aún no está abierta — los oficiales la abrirán cuando los nuevos lugares estén listos.", tr:"Bu sayfa henüz açık değil — yeni yerler hazır olunca subaylar açacak.", id:"Halaman ini belum dibuka — officer akan membukanya saat tempat baru sudah siap.", ru:"Эта страница ещё не открыта — офицеры откроют её, когда новые места будут готовы.", th:"หน้านี้ยังไม่เปิด — เจ้าหน้าที่จะเปิดเมื่อจัดตำแหน่งใหม่เสร็จ", ar:"هذه الصفحة غير مفتوحة بعد — سيفتحها الضباط عندما تجهز الأماكن الجديدة." },
   empty: { en:"empty spot", zh:"空位", ko:"빈 자리", de:"freier Platz", fr:"place libre", pt:"lugar vazio", es:"lugar libre", tr:"boş yer", id:"tempat kosong", ru:"свободное место", th:"ที่ว่าง", ar:"مكان فارغ" },
 };
 let SPOT = null, spotSel = -1;
+/* 🔍 zoom: － / ＋, Ctrl / ⌘ + wheel, two-finger pinch — stays centred */
+let spotZ = (() => { try { return Math.min(3, Math.max(0.4, +localStorage.getItem("nxs-spot-zoom") || 1)); } catch (e) { return 1; } })();
+function spotZoom(z) {
+  const box = document.getElementById("spotMap"), svg = box && box.querySelector("svg"); z = Math.min(3, Math.max(0.4, z)); if (!svg) { spotZ = z; return; }
+  const fx = (box.scrollLeft + box.clientWidth / 2) / (box.scrollWidth || 1), fy = (box.scrollTop + box.clientHeight / 2) / (box.scrollHeight || 1);
+  spotZ = z; try { localStorage.setItem("nxs-spot-zoom", String(z)); } catch (e) {}
+  svg.setAttribute("width", Math.round(box._w0 * z)); box.scrollLeft = fx * box.scrollWidth - box.clientWidth / 2; box.scrollTop = fy * box.scrollHeight - box.clientHeight / 2;
+  const r = document.querySelector('.spot-zoom [data-sz="0"]'); if (r) r.textContent = Math.round(z * 100) + "%";
+}
+function spotZoomBind(box) {
+  if (box._zb) return; box._zb = 1;
+  box.addEventListener("wheel", (e) => { if (!(e.ctrlKey || e.metaKey)) return; e.preventDefault(); spotZoom(spotZ * (e.deltaY < 0 ? 1.1 : 0.9)); }, { passive: false });
+  let p0 = null; const dist = (e) => Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+  box.addEventListener("touchstart", (e) => { if (e.touches.length === 2) p0 = { d: dist(e), z: spotZ }; }, { passive: true });
+  box.addEventListener("touchmove", (e) => { if (!p0 || e.touches.length !== 2) return; e.preventDefault(); spotZoom(p0.z * dist(e) / p0.d); }, { passive: false });
+  box.addEventListener("touchend", () => { p0 = null; });
+}
+/* hidden until the officers open it (🐝 Hive → 🌐): the 📍 button shows only while data/hive-public.json says { on: true } */
+if (GUIDES["my-spot"]) GUIDES["my-spot"].hidden = true;
+(async () => { try { const r = await fetch("data/hive-public.json?t=" + Math.floor(Date.now() / 60000), { cache: "no-store" }); const j = r.ok ? await r.json() : null;
+  if (j && j.on && GUIDES["my-spot"]) { GUIDES["my-spot"].hidden = false; if (typeof renderGuideRow === "function") renderGuideRow(); } } catch (e) {} })();
 const spotNorm = (x) => String(x || "").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
 async function spotInit(el) {
   el.innerHTML = `<div class="spot-msg">${escapeHtml(t(SPOT_TXT.load))}</div>`;
   try { const r = await fetch(SPOT_API, { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}", cache: "no-store" }); SPOT = await r.json(); if (!r.ok || !SPOT.ok) throw 0; }
   catch (e) { el.innerHTML = `<div class="spot-msg">${escapeHtml(t(SPOT_TXT.err))}</div>`; return; }
   if (!el.isConnected) return;
+  if (SPOT.hidden) { el.innerHTML = `<div class="spot-msg">${escapeHtml(t(SPOT_TXT.closed))}</div>`; return; }
   if (SPOT.none || !(SPOT.spots || []).length) { el.innerHTML = `<div class="spot-msg">${escapeHtml(t(SPOT_TXT.noPlan))}</div>`; return; }
   let q = ""; try { q = localStorage.getItem("nxs-spot-name") || ""; } catch (e) {}
   const named = [...new Set(SPOT.spots.map((r) => r[0]).filter((n) => n && !/^nxs$/i.test(n)))].sort((a, b) => a.localeCompare(b));
   el.innerHTML = `<input class="spot-q" id="spotQ" list="spotNames" type="search" autocomplete="off" placeholder="${escapeHtml(t(SPOT_TXT.find))}" value="${escapeHtml(q)}">
     <datalist id="spotNames">${named.map((n) => `<option value="${escapeHtml(n)}">`).join("")}</datalist>
     <div class="spot-res" id="spotRes"></div>
+    <div class="spot-zoom"><button type="button" data-sz="-1" aria-label="zoom out">－</button><button type="button" data-sz="0" aria-label="reset zoom">${Math.round(spotZ * 100)}%</button><button type="button" data-sz="1" aria-label="zoom in">＋</button></div>
     <div class="spot-map" id="spotMap"></div>
     <div class="spot-foot">${escapeHtml(t(SPOT_TXT.tap))}${SPOT.at ? " · " + escapeHtml(t(SPOT_TXT.upd).replace("{d}", new Date(SPOT.at).toLocaleString(HTML_LANG[currentLang] || "en", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }))) : ""}</div>`;
   spotDraw();
+  el.querySelectorAll("[data-sz]").forEach((x) => x.onclick = () => spotZoom(+x.dataset.sz === 0 ? 1 : spotZ * (+x.dataset.sz > 0 ? 1.25 : 0.8)));
   const qi = el.querySelector("#spotQ");
   qi.oninput = () => { try { localStorage.setItem("nxs-spot-name", qi.value); } catch (e) {} spotFind(qi.value, true); };
   if (q) spotFind(q, true); else spotCenter(null);
@@ -1329,7 +1354,7 @@ function spotDraw() {
   for (const [x, y] of SPOT.hq || []) { const [cx, cy] = c(x, y, 3); o.push(`<polygon points="${poly(x, y, 3)}" class="sh"/><text x="${cx}" y="${cy + 4}" class="sl">HQ</text><text x="${cx}" y="${cy + 17}" class="sc">${x},${y}</text>`); }
   SPOT.spots.forEach(([n, x, y, bt], i) => { const [cx, cy] = c(x, y, 2), nm = n && !/^nxs$/i.test(n) ? n : "", sel = i === spotSel;
     o.push(`<g class="sp${sel ? " on" : ""}${bt ? " b" + bt : ""}${nm ? "" : " free"}" data-si="${i}"><polygon points="${poly(x, y, 2)}"/><text x="${cx}" y="${cy}" class="sn">${escapeHtml(nm.length > 11 ? nm.slice(0, 10) + "…" : nm || "·")}</text><text x="${cx}" y="${cy + 12}" class="sc">${x},${y}</text><title>${escapeHtml(nm || t(SPOT_TXT.empty))} X:${x} Y:${y}</title></g>`); });
-  box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${o.join("")}</svg>`;
+  box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${Math.round(W * spotZ)}">${o.join("")}</svg>`; box._w0 = W; spotZoomBind(box);
   box.querySelectorAll("g[data-si]").forEach((g) => g.onclick = () => { const r = SPOT.spots[+g.dataset.si]; if (r && r[0] && !/^nxs$/i.test(r[0])) spotPick(+g.dataset.si, false); else { spotSel = +g.dataset.si; spotDraw(); const res = document.getElementById("spotRes"); if (res && r) res.innerHTML = `<div class="spot-msg">${escapeHtml(t(SPOT_TXT.empty))} · X:${r[1]} Y:${r[2]}</div>`; } });
   if (!box._pan) { box._pan = 1; let d = null, moved = false;   // drag with the mouse
     box.addEventListener("pointerdown", (e) => { if (e.pointerType !== "mouse" || e.button !== 0) return; d = { x: e.clientX, y: e.clientY, l: box.scrollLeft, t: box.scrollTop }; moved = false; });
@@ -1341,6 +1366,7 @@ function spotCenter(r) {
   const box = document.getElementById("spotMap"); if (!box || !SPOT) return;
   const { P } = spotGeo(); let x, y;
   if (r) { [x, y] = P(r[1] + 1, r[2] + 1); } else { const h = (SPOT.hq || [])[0] || (SPOT.traps || [])[0]; if (!h) return; [x, y] = P(h[0] + 1.5, h[1] + 1.5); }
+  x *= spotZ; y *= spotZ;
   const go = () => { box.scrollLeft = x - box.clientWidth / 2; box.scrollTop = y - box.clientHeight / 2; };
   if (box.clientWidth) go(); else requestAnimationFrame(go);
 }

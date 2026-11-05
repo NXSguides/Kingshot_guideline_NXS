@@ -43,11 +43,11 @@ for (const [l, o] of Object.entries({"en": {"mpT": "📍 Positions from the rost
 for (const [l, o] of Object.entries({"en": {"asAuto": "🤖 Placing members automatically isn't set up yet — for now, put them on the spots by hand. Want it automatic? Ask Sparrow."}, "zh": {"asAuto": "🤖 自動分配成員還沒有做——目前請手動把成員放到位置上。想要自動分配的話，請找 Sparrow。"}, "pt": {"asAuto": "🤖 A distribuição automática dos membros ainda não existe — por enquanto, coloque-os nos lugares à mão. Quer automático? Fale com a Sparrow."}, "ar": {"asAuto": "🤖 توزيع الأعضاء تلقائيًا غير متوفر بعد — ضعهم في الأماكن يدويًا الآن. تريده تلقائيًا؟ اسأل Sparrow."}, "ko": {"asAuto": "🤖 연맹원 자동 배치는 아직 없어요 — 지금은 직접 자리에 배치하세요. 자동으로 하고 싶으면 Sparrow에게 물어보세요."}})) Object.assign(T[l], o);
 /* 🐻 BT1 / BT2 + TC / Power in the 🚚 moving table (Sherry & Nia, 2026-11-05) — the marks are OFFICER.BT, the same list as 📊 Roster */
 for (const [l, o] of Object.entries({
-  en: { swapB: "⇄ Swap BT1 / BT2", swapOk: "Bear Trap 1 and 2 swapped on the plan.", expB: "📤 Export CSV (Kingshot Mapper)", expN: "The plan with the members on their spots, as a Kingshot Mapper CSV — open it in ksmapper.pages.dev for the next move, or load it here again.", tipFree: "empty spot", tipBt: "Bear Trap", btNo: "No BT mark", colTc: "TC", colPw: "Power", colBt: "BT1 · BT2", btNote: "Tick the left box for Bear Trap 1, the right box for Bear Trap 2 — the same marks as 📊 Roster → 🐻 BT groups.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "nobody yet", btCopy: "📋 Copy", btCopied: "Copied!", btBoth: "{n} in both", noSpot: "No new spot yet ({n}):" },
-  zh: { swapB: "⇄ 對調 BT1 / BT2", swapOk: "計畫裡的熊陷阱 1 和 2 已對調。", expB: "📤 匯出 CSV（Kingshot Mapper）", expN: "把計畫連同分配好的成員，匯出成 Kingshot Mapper 的 CSV——下次搬家可以丟回 ksmapper.pages.dev 改，或再匯入這裡。", tipFree: "空位", tipBt: "熊陷阱", btNo: "還沒分 BT", colTc: "主城", colPw: "戰力", colBt: "BT1 · BT2", btNote: "左邊的框 = 熊陷阱 1，右邊 = 熊陷阱 2——跟 📊 名冊 → 🐻 BT 分組是同一份。", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "還沒有人", btCopy: "📋 複製", btCopied: "已複製！", btBoth: "{n} 人兩個都勾", noSpot: "還沒分到新位置（{n}）：" },
-  pt: { swapB: "⇄ Trocar BT1 / BT2", swapOk: "Armadilhas de Urso 1 e 2 trocadas no plano.", expB: "📤 Exportar CSV (Kingshot Mapper)", expN: "O plano com os membros nos lugares, como CSV do Kingshot Mapper — abra no ksmapper.pages.dev na próxima mudança ou carregue aqui de novo.", tipFree: "lugar vazio", tipBt: "Armadilha de Urso", btNo: "Sem marca BT", colTc: "CC", colPw: "Poder", colBt: "BT1 · BT2", btNote: "Caixa da esquerda = Armadilha de Urso 1, da direita = Armadilha de Urso 2 — as mesmas marcas de 📊 Lista de membros → 🐻 Grupos BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "ninguém ainda", btCopy: "📋 Copiar", btCopied: "Copiado!", btBoth: "{n} nos dois", noSpot: "Ainda sem lugar novo ({n}):" },
-  ar: { swapB: "⇄ تبديل BT1 / BT2", swapOk: "تم تبديل فخ الدب 1 و2 في الخطة.", expB: "📤 تصدير CSV (Kingshot Mapper)", expN: "الخطة مع الأعضاء في أماكنهم، كملف CSV لـ Kingshot Mapper — افتحه في ksmapper.pages.dev للانتقال القادم أو حمّله هنا مجددًا.", tipFree: "مكان فارغ", tipBt: "فخ الدب", btNo: "بلا علامة BT", colTc: "المركز", colPw: "القوة", colBt: "BT1 · BT2", btNote: "المربع الأيسر = فخ الدب 1، والأيمن = فخ الدب 2 — نفس علامات 📊 قائمة الأعضاء → 🐻 مجموعات BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "لا أحد بعد", btCopy: "📋 نسخ", btCopied: "تم النسخ!", btBoth: "{n} في الاثنين", noSpot: "بلا مكان جديد بعد ({n}):" },
-  ko: { swapB: "⇄ BT1 / BT2 바꾸기", swapOk: "계획의 곰 함정 1과 2를 바꿨어요.", expB: "📤 CSV 내보내기 (Kingshot Mapper)", expN: "연맹원이 배치된 계획을 Kingshot Mapper CSV로 — 다음 이사 때 ksmapper.pages.dev에서 열거나 여기서 다시 불러오세요.", tipFree: "빈 자리", tipBt: "곰 함정", btNo: "BT 표시 없음", colTc: "도시", colPw: "전투력", colBt: "BT1 · BT2", btNote: "왼쪽 칸 = 곰 함정 1, 오른쪽 칸 = 곰 함정 2 — 📊 명단 → 🐻 BT 그룹과 같은 표시예요.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "아직 없음", btCopy: "📋 복사", btCopied: "복사됨!", btBoth: "{n}명은 둘 다", noSpot: "아직 새 자리 없음 ({n}):" },
+  en: { pngB: "🖼️ Save as image (PNG)", pngWait: "Making the image…", pubOn: "🌐 Show the public page", pubOff: "🙈 Hide the public page", pubT: "📍 Public page “Where's my spot?”: {s}", pubYes: "shown", pubNo: "hidden", pubN: "Members see their new spot there. Opening / hiding takes a few minutes to reach everyone.", pubSaving: "Saving…", swapB: "⇄ Swap BT1 / BT2", swapOk: "Bear Trap 1 and 2 swapped on the plan.", expB: "📤 Export CSV (Kingshot Mapper)", expN: "The plan with the members on their spots, as a Kingshot Mapper CSV — open it in ksmapper.pages.dev for the next move, or load it here again.", tipFree: "empty spot", tipBt: "Bear Trap", btNo: "No BT mark", colTc: "TC", colPw: "Power", colBt: "BT1 · BT2", btNote: "Tick the left box for Bear Trap 1, the right box for Bear Trap 2 — the same marks as 📊 Roster → 🐻 BT groups.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "nobody yet", btCopy: "📋 Copy", btCopied: "Copied!", btBoth: "{n} in both", noSpot: "No new spot yet ({n}):" },
+  zh: { pngB: "🖼️ 存成圖片（PNG）", pngWait: "圖片製作中…", pubOn: "🌐 公開這一頁", pubOff: "🙈 隱藏這一頁", pubT: "📍 公開網站「我的新位置在哪？」：{s}", pubYes: "公開中", pubNo: "隱藏中", pubN: "成員在那裡看自己的新位置。打開或隱藏後，大約幾分鐘所有人才會看到變化。", pubSaving: "儲存中…", swapB: "⇄ 對調 BT1 / BT2", swapOk: "計畫裡的熊陷阱 1 和 2 已對調。", expB: "📤 匯出 CSV（Kingshot Mapper）", expN: "把計畫連同分配好的成員，匯出成 Kingshot Mapper 的 CSV——下次搬家可以丟回 ksmapper.pages.dev 改，或再匯入這裡。", tipFree: "空位", tipBt: "熊陷阱", btNo: "還沒分 BT", colTc: "主城", colPw: "戰力", colBt: "BT1 · BT2", btNote: "左邊的框 = 熊陷阱 1，右邊 = 熊陷阱 2——跟 📊 名冊 → 🐻 BT 分組是同一份。", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "還沒有人", btCopy: "📋 複製", btCopied: "已複製！", btBoth: "{n} 人兩個都勾", noSpot: "還沒分到新位置（{n}）：" },
+  pt: { pngB: "🖼️ Salvar como imagem (PNG)", pngWait: "Gerando a imagem…", pubOn: "🌐 Mostrar a página pública", pubOff: "🙈 Esconder a página pública", pubT: "📍 Página pública “Onde fica meu lugar?”: {s}", pubYes: "visível", pubNo: "escondida", pubN: "Os membros veem o novo lugar lá. Abrir / esconder leva alguns minutos para chegar a todos.", pubSaving: "Salvando…", swapB: "⇄ Trocar BT1 / BT2", swapOk: "Armadilhas de Urso 1 e 2 trocadas no plano.", expB: "📤 Exportar CSV (Kingshot Mapper)", expN: "O plano com os membros nos lugares, como CSV do Kingshot Mapper — abra no ksmapper.pages.dev na próxima mudança ou carregue aqui de novo.", tipFree: "lugar vazio", tipBt: "Armadilha de Urso", btNo: "Sem marca BT", colTc: "CC", colPw: "Poder", colBt: "BT1 · BT2", btNote: "Caixa da esquerda = Armadilha de Urso 1, da direita = Armadilha de Urso 2 — as mesmas marcas de 📊 Lista de membros → 🐻 Grupos BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "ninguém ainda", btCopy: "📋 Copiar", btCopied: "Copiado!", btBoth: "{n} nos dois", noSpot: "Ainda sem lugar novo ({n}):" },
+  ar: { pngB: "🖼️ حفظ كصورة (PNG)", pngWait: "جارٍ إنشاء الصورة…", pubOn: "🌐 إظهار الصفحة العامة", pubOff: "🙈 إخفاء الصفحة العامة", pubT: "📍 الصفحة العامة «أين مكاني؟»: {s}", pubYes: "ظاهرة", pubNo: "مخفية", pubN: "يرى الأعضاء مكانهم الجديد هناك. يحتاج الإظهار / الإخفاء بضع دقائق ليصل للجميع.", pubSaving: "جارٍ الحفظ…", swapB: "⇄ تبديل BT1 / BT2", swapOk: "تم تبديل فخ الدب 1 و2 في الخطة.", expB: "📤 تصدير CSV (Kingshot Mapper)", expN: "الخطة مع الأعضاء في أماكنهم، كملف CSV لـ Kingshot Mapper — افتحه في ksmapper.pages.dev للانتقال القادم أو حمّله هنا مجددًا.", tipFree: "مكان فارغ", tipBt: "فخ الدب", btNo: "بلا علامة BT", colTc: "المركز", colPw: "القوة", colBt: "BT1 · BT2", btNote: "المربع الأيسر = فخ الدب 1، والأيمن = فخ الدب 2 — نفس علامات 📊 قائمة الأعضاء → 🐻 مجموعات BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "لا أحد بعد", btCopy: "📋 نسخ", btCopied: "تم النسخ!", btBoth: "{n} في الاثنين", noSpot: "بلا مكان جديد بعد ({n}):" },
+  ko: { pngB: "🖼️ 이미지로 저장 (PNG)", pngWait: "이미지 만드는 중…", pubOn: "🌐 공개 페이지 보이기", pubOff: "🙈 공개 페이지 숨기기", pubT: "📍 공개 페이지 “내 자리는 어디?”: {s}", pubYes: "공개 중", pubNo: "숨김", pubN: "연맹원이 거기서 새 자리를 확인해요. 열기 / 숨기기는 모두에게 반영되기까지 몇 분 걸려요.", pubSaving: "저장 중…", swapB: "⇄ BT1 / BT2 바꾸기", swapOk: "계획의 곰 함정 1과 2를 바꿨어요.", expB: "📤 CSV 내보내기 (Kingshot Mapper)", expN: "연맹원이 배치된 계획을 Kingshot Mapper CSV로 — 다음 이사 때 ksmapper.pages.dev에서 열거나 여기서 다시 불러오세요.", tipFree: "빈 자리", tipBt: "곰 함정", btNo: "BT 표시 없음", colTc: "도시", colPw: "전투력", colBt: "BT1 · BT2", btNote: "왼쪽 칸 = 곰 함정 1, 오른쪽 칸 = 곰 함정 2 — 📊 명단 → 🐻 BT 그룹과 같은 표시예요.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "아직 없음", btCopy: "📋 복사", btCopied: "복사됨!", btBoth: "{n}명은 둘 다", noSpot: "아직 새 자리 없음 ({n}):" },
 })) Object.assign(T[l], o);
 /* ↕️ sort the moving table (and the "Not placed yet" names) by TC / TG, Power or name — Nia 2026-11-05: sort by TG high → low while placing people */
 let MSORT = (() => { try { return JSON.parse(localStorage.getItem("nxs-mv-sort")) || { k: "", d: -1 }; } catch (e) { return { k: "", d: -1 }; } })();
@@ -259,7 +259,8 @@ function draw(boxId = "mm_map") {
     s.push(`<g class="mm-c${sel ? " sel" : ""}" data-i="${i}" tabindex="0" role="button" aria-label="${esc(n)} X${x} Y${y}"><polygon points="${poly(x, y, 2)}" fill="${arrived ? "#8fd19e" : on ? "#9ec3f0" : "#f3b46b"}" stroke="${sel ? "#ffde4a" : "#ffffffcc"}" stroke-width="${sel ? 3 : 1.2}"/>`
       + `<text x="${cx}" y="${cy + 3}" text-anchor="middle" class="mm-n">${esc(n.length > 10 ? n.slice(0, 9) + "…" : n)}</text></g>`);
   }
-  box.innerHTML = `<svg viewBox="-6 -6 ${W + 12} ${H + 12}" width="${Math.max(W + 12, 300)}" style="display:block;max-width:none">${s.join("")}</svg>`;
+  box.innerHTML = `<svg viewBox="-6 -6 ${W + 12} ${H + 12}" width="${Math.round(Math.max(W + 12, 300) * ZOOM)}" style="display:block;max-width:none">${s.join("")}</svg>`;
+  box._w0 = Math.max(W + 12, 300); zoomBind(box);
   const v = (PL ? "p" : "n") + cities.length + "," + pc.length;
   /* opens on our HQ now (not the new HQ); 📍 / 🧭 buttons jump between the two */
   const goTo = (x, y) => { const sc = box.scrollWidth / (W + 12), f = P(x, y); box.scrollLeft = (f[0] + 6) * sc - box.clientWidth / 2; box.scrollTop = (f[1] + 6) * sc - box.clientHeight / 2; };
@@ -270,8 +271,9 @@ function draw(boxId = "mm_map") {
   if (box.dataset.v !== vk) { box.dataset.v = vk; if (pv || SEL == null) firstView(box, vk, pv); }
   box.onscroll = () => { if (box.clientWidth) VIEW[vk] = { l: box.scrollLeft, t: box.scrollTop }; };
   dragPan(box); tipBind(box); placeTip(box);
-  const jb = $("mm_jump"); if (jb) jb.innerHTML = `<button type="button" class="btn small" data-j="now">${esc(t("goNow"))}</button>${JUMP.hq ? ` <button type="button" class="btn small" data-j="hq">${esc(t("goNew"))}</button>` : ""}`
+  const jb = $("mm_jump"); if (jb) jb.innerHTML = `<span class="mm-zoom"><button type="button" class="btn small" data-z="-1" aria-label="zoom out">－</button><button type="button" class="btn small" data-z="0" aria-label="reset zoom">${Math.round(ZOOM * 100)}%</button><button type="button" class="btn small" data-z="1" aria-label="zoom in">＋</button></span> <button type="button" class="btn small" data-j="now">${esc(t("goNow"))}</button>${JUMP.hq ? ` <button type="button" class="btn small" data-j="hq">${esc(t("goNew"))}</button>` : ""}`
     + (farI.size ? `<div class="muted" style="font-size:12.5px;margin-top:4px">${esc(t("far"))} ${[...farI].map((i) => `${esc(cities[i][0])} X:${cities[i][1]} Y:${cities[i][2]}`).join(" · ")}</div>` : "");
+  if (jb) jb.querySelectorAll("[data-z]").forEach((x) => x.onclick = () => zoomTo(box, +x.dataset.z === 0 ? 1 : ZOOM * (+x.dataset.z > 0 ? 1.25 : 0.8)));
   if (jb) jb.querySelectorAll("[data-j]").forEach((b) => b.onclick = () => JUMP[b.dataset.j] && JUMP[b.dataset.j]());
   box.querySelectorAll(".mm-c").forEach((g) => { g.onclick = () => select(+g.dataset.i, false); g.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(+g.dataset.i, false); } }; });
   box.querySelectorAll(".mm-b").forEach((g) => g.onclick = () => { const k = g.dataset.k; SEL = null; info(k); draw(); });
@@ -279,6 +281,25 @@ function draw(boxId = "mm_map") {
 }
 /* 🖱️ drag the map with the mouse (touch already scrolls by itself); a drag doesn't count as a tap on a city / spot */
 const VIEW = {};
+/* 🔍 zoom the map (Sherry 2026-11-05): － / ＋ buttons, Ctrl / ⌘ + mouse wheel, two-finger pinch on a phone; stays centred where you look */
+let ZOOM = (() => { try { return Math.min(3, Math.max(0.4, +localStorage.getItem("nxs-mm-zoom") || 1)); } catch (e) { return 1; } })();
+function zoomTo(box, z) {
+  z = Math.min(3, Math.max(0.4, z)); const svg = box.querySelector("svg"); if (!svg || !box._w0) { ZOOM = z; return; }
+  const fx = (box.scrollLeft + box.clientWidth / 2) / (box.scrollWidth || 1), fy = (box.scrollTop + box.clientHeight / 2) / (box.scrollHeight || 1);
+  ZOOM = z; try { localStorage.setItem("nxs-mm-zoom", String(z)); } catch (e) {}
+  svg.setAttribute("width", Math.round(box._w0 * z));
+  box.scrollLeft = fx * box.scrollWidth - box.clientWidth / 2; box.scrollTop = fy * box.scrollHeight - box.clientHeight / 2;
+  const r = $("mm_jump") && $("mm_jump").querySelector('[data-z="0"]'); if (r) r.textContent = Math.round(z * 100) + "%";
+  placeTip(box);
+}
+function zoomBind(box) {
+  if (box._zb) return; box._zb = 1;
+  box.addEventListener("wheel", (e) => { if (!(e.ctrlKey || e.metaKey)) return; e.preventDefault(); zoomTo(box, ZOOM * (e.deltaY < 0 ? 1.1 : 0.9)); }, { passive: false });
+  let p0 = null;
+  box.addEventListener("touchstart", (e) => { if (e.touches.length === 2) p0 = { d: Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY), z: ZOOM }; }, { passive: true });
+  box.addEventListener("touchmove", (e) => { if (!p0 || e.touches.length !== 2) return; e.preventDefault(); const d = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY); zoomTo(box, p0.z * d / p0.d); }, { passive: false });
+  box.addEventListener("touchend", () => { p0 = null; });
+}
 /* 🧭 opening the page: centre on the NEW HQ when a moving plan has one, else on our HQ now (Sherry, 2026-11-05). The 🐝 tab is drawn
    while still hidden, so the jump waits until the map can be seen (it used to land at the far edge). */
 function firstView(box, vk, pv) {
@@ -449,6 +470,51 @@ function importPlan(text, file) {
   MV.st = {}; render(); renderMove();
 }
 /* 🚚 one row per member: where they are, where the plan puts them, moved ✓ (only officers with Map edit can tick) */
+/* 🖼️ the moving plan as a sharp PNG (Nia 2026-11-05: "save your map as a HQ image"): drawn like Kingshot Mapper — every planned city
+   with the member's name and its X,Y, Bear Traps, HQ, banners; 🐻 BT1 blue / BT2 orange. 3× pixels so it stays sharp when zoomed. */
+function planSvg() {
+  const P0 = MV.plan, K = 18, pts = [], idx = rosterIndex();
+  for (const [, x, y] of P0.c) pts.push([x, y], [x + 2, y + 2]);
+  for (const [x, y] of (P0.bt || []).concat(P0.hq || [])) pts.push([x, y], [x + 3, y + 3]);
+  for (const [x, y] of P0.b || []) pts.push([x, y], [x + 1, y + 1]);
+  const d = pts.map(([x, y]) => x - y), sm = pts.map(([x, y]) => x + y), pad = 3, top = 40;
+  const dMin = Math.min(...d) - pad, dMax = Math.max(...d) + pad, sMin = Math.min(...sm) - pad, sMax = Math.max(...sm) + pad;
+  const P = (x, y) => [(x - y - dMin) * K, top + (sMax - (x + y)) * K], W = (dMax - dMin) * K, H = top + (sMax - sMin) * K;
+  const poly = (x, y, n) => [[x, y], [x + n, y], [x + n, y + n], [x, y + n]].map(([a, b]) => P(a, b).map((v) => v.toFixed(1)).join(",")).join(" ");
+  const c = (x, y, n) => P(x + n / 2, y + n / 2), o = [];
+  const btOf = (n) => { const m = n && idx[norm(n)]; return m ? String(OFFICER.BT.map[String(m.id)] || "") : ""; };
+  const FILL = { "": "#5b8bd6", "1": "#3b6fd6", "2": "#c98a1e", "12": "#8b5bd6" };
+  for (const [x, y] of P0.b || []) o.push(`<polygon points="${poly(x, y, 1)}" fill="#b9a3b4" stroke="#fff" stroke-width="1"/>`);
+  for (const [n, x, y] of P0.c) { const [cx, cy] = c(x, y, 2), nm = n || "", b = btOf(nm);
+    o.push(`<polygon points="${poly(x, y, 2)}" fill="${nm ? FILL[b] || FILL[""] : "#4a6fa8"}" stroke="#9fc3ff" stroke-width="1"/><text x="${cx}" y="${cy}" class="n">${esc(nm.length > 11 ? nm.slice(0, 10) + "…" : nm || "·")}</text><text x="${cx}" y="${cy + 12}" class="c">${x},${y}</text>`); }
+  (P0.bt || []).forEach(([x, y], i) => { const [cx, cy] = c(x, y, 3); o.push(`<polygon points="${poly(x, y, 3)}" fill="#c0392b" stroke="#ffb3a8" stroke-width="1.5"/><text x="${cx}" y="${cy + 4}" class="l">Bear Trap ${i + 1}</text><text x="${cx}" y="${cy + 17}" class="c">${x},${y}</text>`); });
+  for (const [x, y] of P0.hq || []) { const [cx, cy] = c(x, y, 3); o.push(`<polygon points="${poly(x, y, 3)}" fill="#8e44ad" stroke="#e2b8ff" stroke-width="1.5"/><text x="${cx}" y="${cy + 4}" class="l">HQ</text><text x="${cx}" y="${cy + 17}" class="c">${x},${y}</text>`); }
+  const title = `NXS · Hive plan · ${new Date().toISOString().slice(0, 10)}  ·  BT1 = blue · BT2 = orange`;
+  return { W, H, svg: `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"><style>text{font-family:"Noto Sans TC","Noto Sans KR","Noto Sans",Arial,sans-serif;fill:#fff;text-anchor:middle}.n{font-size:11px;font-weight:700}.c{font-size:9px;opacity:.85}.l{font-size:12px;font-weight:700}.t{font-size:15px;font-weight:700;text-anchor:start}</style><rect width="100%" height="100%" fill="#7a2457"/><text x="12" y="26" class="t">${esc(title)}</text>${o.join("")}</svg>` };
+}
+async function exportPng(btn) {
+  if (!MV.plan) return; const old = btn.textContent; btn.textContent = t("pngWait"); btn.disabled = true;
+  try {
+    const { W, H, svg } = planSvg(), S = Math.min(3, Math.floor(16000 / Math.max(W, H)) || 1), img = new Image();
+    img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg); await img.decode();
+    const cv = document.createElement("canvas"); cv.width = W * S; cv.height = H * S; const g = cv.getContext("2d"); g.scale(S, S); g.drawImage(img, 0, 0);
+    const blob = await new Promise((r) => cv.toBlob(r, "image/png")), a = document.createElement("a");
+    a.href = URL.createObjectURL(blob); a.download = `nxs-hive-${new Date().toISOString().slice(0, 10)}.png`; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+  } catch (e) { mvMsg = String((e && e.message) || e); }
+  btn.textContent = old; btn.disabled = false;
+}
+/* 🌐 the public "📍 Where's my spot?" page is hidden until officers open it here — data/hive-public.json { on } (plain flag, no member data) */
+const PUB_PATH = "data/hive-public.json"; let PUB = null, pubBusy = false;
+async function pubLoad() { try { const f = OFFICER.token ? await OFFICER.gh("GET", PUB_PATH, null, OFFICER.token) : null;
+  PUB = f ? !!JSON.parse(b64u8(f.content)).on : !!((await (await fetch(PUB_PATH + "?t=" + Date.now(), { cache: "no-store" })).json()).on); } catch (e) { PUB = false; } }
+async function pubSet(on) {
+  if (!MED() || !OFFICER.token || pubBusy) return; pubBusy = true; renderMove();
+  try { for (let attempt = 0; ; attempt++) { const f = await OFFICER.gh("GET", PUB_PATH, null, OFFICER.token);
+      try { await OFFICER.gh("PUT", PUB_PATH, { message: `Where's my spot: ${on ? "shown" : "hidden"}`, content: u8b64(JSON.stringify({ on: !!on, at: new Date().toISOString() }) + "\n"), sha: f ? f.sha : undefined, branch: "main" }, OFFICER.token); break; }
+      catch (e) { if (e.message !== "busy" || attempt) throw e; } }
+    PUB = !!on; } catch (e) { mvMsg = t(e.message === "auth" ? "errAuth" : "errNet"); }
+  pubBusy = false; renderMove();
+}
 /* 📤 the moving plan as a Kingshot Mapper CSV ("type,X,Y,label,#color,seq") — cities carry the member's name (empty spots: NXS),
    so it opens in ksmapper.pages.dev and loads back here (Nia & Sherry, 2026-11-05: "export would be nice for future relocation") */
 function exportCsv() {
@@ -643,7 +709,8 @@ function renderMove() {
       X <input class="inp" id="mv_ax" type="number" style="width:80px"> Y <input class="inp" id="mv_ay" type="number" style="width:80px">
       <button class="btn small primary" id="mv_aok">${esc(t("addOk"))}</button><button class="btn small" id="mv_adel">${esc(t("addDel"))}</button></div>
       ${MV.plan.c.some(([n]) => !n) ? `<details style="margin-top:6px"><summary class="muted" style="font-size:12.5px;cursor:pointer">${esc(t("freeList"))}</summary><div style="margin-top:4px">${MV.plan.c.filter(([n]) => !n).map(([, x, y]) => `<button class="btn small mv-slot" data-x="${x}" data-y="${y}">X:${x} Y:${y}</button>`).join(" ")}</div></details>` : ""}</div>` : ""}
-    ${MV.plan ? `<div class="row" style="gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center"><button type="button" class="btn" id="mv_exp">${esc(t("expB"))}</button>${MED() && (MV.plan.bt || []).length === 2 ? `<button type="button" class="btn" id="mv_swap">${esc(t("swapB"))}</button>` : ""}<span class="muted" style="font-size:12px">${esc(t("expN"))}</span></div>` : ""}
+    ${PUB != null ? `<div class="mm-pub${PUB ? " on" : ""}" id="mv_pub"><b>${esc(t("pubT").replace("{s}", t(PUB ? "pubYes" : "pubNo")))}</b>${MED() && OFFICER.token ? ` <button type="button" class="btn small${PUB ? "" : " primary"}" id="mv_pubB"${pubBusy ? " disabled" : ""}>${esc(pubBusy ? t("pubSaving") : t(PUB ? "pubOff" : "pubOn"))}</button>` : ""}<div class="muted" style="font-size:12px;margin-top:2px">${esc(t("pubN"))}</div></div>` : ""}
+    ${MV.plan ? `<div class="row" style="gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center"><button type="button" class="btn" id="mv_exp">${esc(t("expB"))}</button><button type="button" class="btn" id="mv_png">${esc(t("pngB"))}</button>${MED() && (MV.plan.bt || []).length === 2 ? `<button type="button" class="btn" id="mv_swap">${esc(t("swapB"))}</button>` : ""}<span class="muted" style="font-size:12px">${esc(t("expN"))}</span></div>` : ""}
     ${ed ? `<div class="row" style="gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center">
       <label class="btn" for="mv_file">${esc(t("imp"))}</label><input type="file" id="mv_file" accept=".json,.csv,.txt,application/json,text/csv,text/plain" hidden>
       ${MV.plan ? `<button class="btn" id="mv_pdel">${esc(t("impDel"))}</button>` : ""}
@@ -654,6 +721,8 @@ function renderMove() {
   if ($("mm_left")) $("mm_left").onchange = (e) => { onlyLeft = e.target.checked; renderMove(); };
   el.querySelectorAll(".mm-cp").forEach((b) => b.onclick = async () => { try { await navigator.clipboard.writeText(b.dataset.c); b.textContent = t("copied"); } catch (e) {} });
   if ($("mv_exp")) $("mv_exp").onclick = exportCsv;
+  if ($("mv_png")) $("mv_png").onclick = (e) => exportPng(e.currentTarget);
+  if ($("mv_pubB")) $("mv_pubB").onclick = () => pubSet(!PUB);
   /* ⇄ the plan's Bear Trap 1 / 2 the other way round (the Mapper file had them swapped) — only the plan's traps; members' 🐻 BT marks stay */
   if ($("mv_swap")) $("mv_swap").onclick = () => { if (!MED() || !MV.plan || (MV.plan.bt || []).length !== 2) return;
     MV.plan.bt = [MV.plan.bt[1], MV.plan.bt[0]]; const st = MV.st = MV.st || {}; if (Array.isArray(st.bt)) st.bt = [st.bt[1], st.bt[0]];
@@ -716,6 +785,7 @@ async function initMove() {
   if (OFFICER.ensure) await OFFICER.ensure("map");
   for (let i = 0; i < 50 && !D; i++) await new Promise((r) => setTimeout(r, 100));
   await loadMove(); render(); renderMove(); mapSync();
+  pubLoad().then(() => renderMove());
   if (window.HivePlanner) HivePlanner.init();   // 📐 auto plan from a Mapper layout
 }
 /* 📘 hive rules (from public guides + what officers checked in game), shown above the move table */

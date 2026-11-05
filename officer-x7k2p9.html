@@ -1054,6 +1054,7 @@
 </style>
 <style>
   .km-members .mm-map { overflow: auto; position: relative; max-height: min(70vh, 560px); border-radius: 10px; background: #3f5f27; -webkit-overflow-scrolling: touch; }
+  .km-members .mm-zoom { display: inline-flex; gap: 3px; margin-inline-end: 6px; } .km-members .mm-zoom .btn { min-width: 34px; }
   .km-members .mm-tip { position: absolute; z-index: 5; pointer-events: none; white-space: nowrap; background: rgba(20,16,12,.92); color: #fff; border: 1px solid #ffde4a; border-radius: 8px; padding: 4px 8px; font-size: 12.5px; box-shadow: 0 4px 12px rgba(0,0,0,.4); }
   @media (pointer: fine) { .km-members .mm-map { cursor: grab; } }
   .km-members .mm-map.dragging { cursor: grabbing; user-select: none; }
@@ -1072,6 +1073,7 @@
   .km-members .mm-t th, .km-members .mm-t td { padding: 4px 6px; border-bottom: 1px solid var(--rule); text-align: start; white-space: nowrap; }
   .km-members .mm-t tr.ok td { opacity: .6; }
   /* 🐻 BT1 / BT2 in the moving table (same colours as 📊 Roster) */
+  .mm-pub { border: 1px solid var(--rule); border-radius: 10px; padding: 8px 10px; margin: 12px 0 0; } .mm-pub.on { border-color: #2e7d32; background: color-mix(in srgb, #2e7d32 12%, var(--panel)); }
   .mm-btc { border: 1px solid var(--rule); border-radius: 10px; padding: 8px 10px; margin: 8px 0; }
   .mm-btg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   @media (max-width: 480px) { .mm-btg { grid-template-columns: 1fr; } }
