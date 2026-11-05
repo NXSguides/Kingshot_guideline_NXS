@@ -1452,6 +1452,14 @@
       ["walk", "I've seen your footprints all over the site!!"], ["thumbs", "You're seriously awesome. Here's a thumbs up for you"],
       ["teacher", "Here's the button to call me. Tap it when you have a question"], ["pop", "and I'll get summoned right out!"],
       ["point", "If I still can't solve it for you, go find THAT Sparrow, because then it's definitely her problem"] ] },
+    /* 2026-11-05: Anubis (Δйʊвιŝ) now edits the 🗺️ Map — Sparrow's thank-you, in Portuguese (his language) */
+    { id: "1003385592983322664", match: /anubis|Δйʊвιŝ/i, lines: [
+      ["hi", "Oi, Δйʊвιŝ! A Sparrow de verdade me mandou. Meu nome é Pardalzinho."],
+      ["heart", "Muito obrigado por usar o nosso mapa!"],
+      ["teacher", "Tudo no mapa pode ser tocado para conferir e mudar."],
+      ["point", "Por favor, ajude a gente a cuidar do mapa do site junto com a gente."],
+      ["pop", "Se tiver dúvida, toque em mim e eu apareço na hora!"],
+      ["thumbs", "Valeu de verdade, você é demais!"] ] },
   ];
   const me = () => { try { return JSON.parse(ls.get("nxs-discord-user") || "null"); } catch (e) { return null; } };
   const messageFor = (u) => u && MESSAGES.find((m) => (m.id && m.id === String(u.id)) || (!m.id && m.match.test(String(u.name || "")) ) || null);
