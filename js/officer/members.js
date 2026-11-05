@@ -483,14 +483,14 @@ function planSvg() {
   const poly = (x, y, n) => [[x, y], [x + n, y], [x + n, y + n], [x, y + n]].map(([a, b]) => P(a, b).map((v) => v.toFixed(1)).join(",")).join(" ");
   const c = (x, y, n) => P(x + n / 2, y + n / 2), o = [];
   const btOf = (n) => { const m = n && idx[norm(n)]; return m ? String(OFFICER.BT.map[String(m.id)] || "") : ""; };
-  const FILL = { "": "#5b8bd6", "1": "#3b6fd6", "2": "#c98a1e", "12": "#8b5bd6" };
-  for (const [x, y] of P0.b || []) o.push(`<polygon points="${poly(x, y, 1)}" fill="#b9a3b4" stroke="#fff" stroke-width="1"/>`);
+  const FILL = { "": "#d6c49a", "1": "#4f7fb8", "2": "#d08a2e", "12": "#7a5fae" };   // 🎨 parchment (Sherry 2026-11-05), same as the public map
+  for (const [x, y] of P0.b || []) o.push(`<polygon points="${poly(x, y, 1)}" fill="#a68e5f" stroke="#8a6a2a" stroke-width="1"/>`);
   for (const [n, x, y] of P0.c) { const [cx, cy] = c(x, y, 2), nm = n || "", b = btOf(nm);
-    o.push(`<polygon points="${poly(x, y, 2)}" fill="${nm ? FILL[b] || FILL[""] : "#4a6fa8"}" stroke="#9fc3ff" stroke-width="1"/><text x="${cx}" y="${cy}" class="n">${esc(nm.length > 11 ? nm.slice(0, 10) + "…" : nm || "·")}</text><text x="${cx}" y="${cy + 12}" class="c">${x},${y}</text>`); }
-  (P0.bt || []).forEach(([x, y], i) => { const [cx, cy] = c(x, y, 3); o.push(`<polygon points="${poly(x, y, 3)}" fill="#c0392b" stroke="#ffb3a8" stroke-width="1.5"/><text x="${cx}" y="${cy + 4}" class="l">Bear Trap ${i + 1}</text><text x="${cx}" y="${cy + 17}" class="c">${x},${y}</text>`); });
-  for (const [x, y] of P0.hq || []) { const [cx, cy] = c(x, y, 3); o.push(`<polygon points="${poly(x, y, 3)}" fill="#8e44ad" stroke="#e2b8ff" stroke-width="1.5"/><text x="${cx}" y="${cy + 4}" class="l">HQ</text><text x="${cx}" y="${cy + 17}" class="c">${x},${y}</text>`); }
+    o.push(`<polygon points="${poly(x, y, 2)}" fill="${nm ? FILL[b] || FILL[""] : "#e9dfc4"}" stroke="#8a6a2a" stroke-width="1"/><text x="${cx}" y="${cy}" class="n${nm && b ? " w" : ""}">${esc(nm.length > 11 ? nm.slice(0, 10) + "…" : nm || "·")}</text><text x="${cx}" y="${cy + 12}" class="c${nm && b ? " w" : ""}">${x},${y}</text>`); }
+  (P0.bt || []).forEach(([x, y], i) => { const [cx, cy] = c(x, y, 3); o.push(`<polygon points="${poly(x, y, 3)}" fill="#a84c1a" stroke="#fff6e6" stroke-width="1.5"/><text x="${cx}" y="${cy + 4}" class="l">Bear Trap ${i + 1}</text><text x="${cx}" y="${cy + 17}" class="c w">${x},${y}</text>`); });
+  for (const [x, y] of P0.hq || []) { const [cx, cy] = c(x, y, 3); o.push(`<polygon points="${poly(x, y, 3)}" fill="#6b4a8a" stroke="#fff6e6" stroke-width="1.5"/><text x="${cx}" y="${cy + 4}" class="l">HQ</text><text x="${cx}" y="${cy + 17}" class="c w">${x},${y}</text>`); }
   const title = `NXS · Hive plan · ${new Date().toISOString().slice(0, 10)}  ·  BT1 = blue · BT2 = orange`;
-  return { W, H, svg: `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"><style>text{font-family:"Noto Sans TC","Noto Sans KR","Noto Sans",Arial,sans-serif;fill:#fff;text-anchor:middle}.n{font-size:11px;font-weight:700}.c{font-size:9px;opacity:.85}.l{font-size:12px;font-weight:700}.t{font-size:15px;font-weight:700;text-anchor:start}</style><rect width="100%" height="100%" fill="#7a2457"/><text x="12" y="26" class="t">${esc(title)}</text>${o.join("")}</svg>` };
+  return { W, H, svg: `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"><style>text{font-family:"Noto Sans TC","Noto Sans KR","Noto Sans",Arial,sans-serif;fill:#362a1c;text-anchor:middle}.w{fill:#fff}.n{font-size:11px;font-weight:700}.c{font-size:9px;opacity:.85}.l{font-size:12px;font-weight:700;fill:#fff}.t{font-size:15px;font-weight:700;text-anchor:start}</style><rect width="100%" height="100%" fill="#e6dabb"/><text x="12" y="26" class="t">${esc(title)}</text>${o.join("")}</svg>` };
 }
 async function exportPng(btn) {
   if (!MV.plan) return; const old = btn.textContent; btn.textContent = t("pngWait"); btn.disabled = true;

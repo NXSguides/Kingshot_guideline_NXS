@@ -1350,8 +1350,8 @@ function spotDraw() {
   const { P, W, H } = spotGeo(), poly = (x, y, n) => [[x, y], [x + n, y], [x + n, y + n], [x, y + n]].map(([a, b]) => P(a, b).map((v) => v.toFixed(1)).join(",")).join(" ");
   const c = (x, y, n) => P(x + n / 2, y + n / 2), o = [];
   for (const [x, y] of SPOT.banners || []) o.push(`<polygon points="${poly(x, y, 1)}" class="sb"/>`);
-  (SPOT.traps || []).forEach(([x, y], i) => { const [cx, cy] = c(x, y, 3); o.push(`<polygon points="${poly(x, y, 3)}" class="st"/><text x="${cx}" y="${cy + 4}" class="sl">${escapeHtml(t(SPOT_TXT.bt).replace("{n}", i + 1))}</text><text x="${cx}" y="${cy + 17}" class="sc">${x},${y}</text>`); });
-  for (const [x, y] of SPOT.hq || []) { const [cx, cy] = c(x, y, 3); o.push(`<polygon points="${poly(x, y, 3)}" class="sh"/><text x="${cx}" y="${cy + 4}" class="sl">HQ</text><text x="${cx}" y="${cy + 17}" class="sc">${x},${y}</text>`); }
+  (SPOT.traps || []).forEach(([x, y], i) => { const [cx, cy] = c(x, y, 3); o.push(`<polygon points="${poly(x, y, 3)}" class="st"/><text x="${cx}" y="${cy + 4}" class="sl">${escapeHtml(t(SPOT_TXT.bt).replace("{n}", i + 1))}</text><text x="${cx}" y="${cy + 17}" class="sc w">${x},${y}</text>`); });
+  for (const [x, y] of SPOT.hq || []) { const [cx, cy] = c(x, y, 3); o.push(`<polygon points="${poly(x, y, 3)}" class="sh"/><text x="${cx}" y="${cy + 4}" class="sl">HQ</text><text x="${cx}" y="${cy + 17}" class="sc w">${x},${y}</text>`); }
   SPOT.spots.forEach(([n, x, y, bt], i) => { const [cx, cy] = c(x, y, 2), nm = n && !/^nxs$/i.test(n) ? n : "", sel = i === spotSel;
     o.push(`<g class="sp${sel ? " on" : ""}${bt ? " b" + bt : ""}${nm ? "" : " free"}" data-si="${i}"><polygon points="${poly(x, y, 2)}"/><text x="${cx}" y="${cy}" class="sn">${escapeHtml(nm.length > 11 ? nm.slice(0, 10) + "…" : nm || "·")}</text><text x="${cx}" y="${cy + 12}" class="sc">${x},${y}</text><title>${escapeHtml(nm || t(SPOT_TXT.empty))} X:${x} Y:${y}</title></g>`); });
   box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${Math.round(W * spotZ)}">${o.join("")}</svg>`; box._w0 = W; spotZoomBind(box);

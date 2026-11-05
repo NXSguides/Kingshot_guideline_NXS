@@ -943,24 +943,26 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 .spot-copy { padding: 6px 12px; border-radius: 8px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); font-weight: 700; cursor: pointer; font-size: 14px; }
 .spot-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .spot-chip { padding: 5px 10px; border-radius: 999px; border: 1px solid var(--rule); background: var(--panel-2); color: var(--text); cursor: pointer; font-size: 14px; }
-.spot-map { overflow: auto; max-height: min(70vh, 620px); border-radius: 12px; background: #7a2457; -webkit-overflow-scrolling: touch; }
+.spot-map { overflow: auto; max-height: min(70vh, 620px); border-radius: 12px; background: #5f8a3a; -webkit-overflow-scrolling: touch; }
 @media (pointer: fine) { .spot-map { cursor: grab; } }
 .spot-map svg { display: block; max-width: none; }
-.spot-map .sp polygon { fill: #5b8bd6; stroke: #9fc3ff; stroke-width: 1; }
-.spot-map .sp.free polygon { fill: #4a6fa8; }
-.spot-map .sp.b1 polygon { fill: #3b6fd6; stroke: #bcd6ff; }
-.spot-map .sp.b2 polygon { fill: #c98a1e; stroke: #ffd98a; }
-.spot-map .sp.b12 polygon { fill: #8b5bd6; }
-.spot-map .sp.on polygon { fill: #ffde4a; stroke: #fff; stroke-width: 3; }
-.spot-map .sp.on text { fill: #222; }
+/* 🎨 the same look as the officers' 🐝 Hive map (Sherry 2026-11-05); only the 🖼️ PNG uses the parchment colours */
+.spot-map .sp polygon { fill: #9ec3f0; stroke: #ffffffcc; stroke-width: 1.2; }
+.spot-map .sp.free polygon { fill: #ffffff22; stroke-dasharray: 3 2; }
+.spot-map .sp.b1 polygon { fill: #3b82f6; }
+.spot-map .sp.b2 polygon { fill: #f59e0b; }
+.spot-map .sp.b12 polygon { fill: #a855f7; }
+.spot-map .sp.on polygon { fill: #ffde4a; stroke: #fff; stroke-width: 3; stroke-dasharray: none; }
 .spot-map .sp { cursor: pointer; }
-.spot-map text { text-anchor: middle; fill: #fff; pointer-events: none; font-family: inherit; }
-.spot-map .sn { font-size: 11px; font-weight: 700; }
-.spot-map .sc { font-size: 9px; opacity: .8; }
-.spot-map .sl { font-size: 12px; font-weight: 700; }
-.spot-map .st { fill: #c0392b; stroke: #ffb3a8; stroke-width: 1.5; }
-.spot-map .sh { fill: #8e44ad; stroke: #e2b8ff; stroke-width: 1.5; }
-.spot-map .sb { fill: #b9a3b4; stroke: #fff; stroke-width: 1; }
+.spot-map text { text-anchor: middle; fill: #1c2433; pointer-events: none; font-family: Arial, sans-serif; }
+.spot-map .sp.free text, .spot-map .sp.b1 text, .spot-map .sp.b2 text, .spot-map .sp.b12 text, .spot-map .w { fill: #fff; }
+.spot-map .sp.on text { fill: #1c2433; }
+.spot-map .sn { font-size: 10.5px; font-weight: 700; }
+.spot-map .sc { font-size: 9px; opacity: .85; }
+.spot-map .sl { font-size: 13px; font-weight: 800; fill: #fff; }
+.spot-map .st { fill: #7a5233; stroke: #fff; stroke-width: 1.5; }
+.spot-map .sh { fill: #2b6cc4; stroke: #fff; stroke-width: 1.5; }
+.spot-map .sb { fill: #0b3d91; stroke: #cfe4ff; stroke-width: 1; }
 .spot-foot { color: var(--text-muted); font-size: 12.5px; margin-top: 6px; }
 .spot-zoom { display: flex; gap: 4px; justify-content: flex-end; margin: 6px 0 4px; }
 .spot-zoom button { min-width: 40px; height: 32px; border-radius: 8px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); font-size: 15px; cursor: pointer; }
