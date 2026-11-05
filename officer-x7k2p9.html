@@ -283,7 +283,7 @@
   #pg-iv .iv-b.over::after { content: "▶"; position: absolute; right: 3px; top: 50%; transform: translateY(-50%); font-size: 10px; color: #fff; }
   #pg-iv .iv-ch { display: flex; align-items: flex-end; gap: 3px; height: 150px; padding-top: 4px; } #pg-iv .iv-ch > div { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 2px; min-width: 0; }
   #pg-iv .iv-nxin { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px 12px; padding: 12px; border-radius: 12px; background: var(--panel-2); }
-  #pg-iv .iv-nxin label { display: grid; gap: 3px; font-size: 12.5px; color: var(--text-muted); } #pg-iv .iv-nxin label.iv-cb { display: flex; align-items: center; gap: 6px; color: var(--text); font-size: 13px; }
+  #pg-iv .iv-nxin label { display: grid; gap: 3px; font-size: 12.5px; color: var(--text-muted); grid-template-rows: 1fr auto; align-items: end; }   /* a label that wraps to 2 lines must not push its box down: boxes in a row stay level (Sherry 2026-11-05) */ #pg-iv .iv-nxin label.iv-cb { display: flex; align-items: center; gap: 6px; color: var(--text); font-size: 13px; }
   #pg-iv .iv-trg { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px 10px; } #pg-iv .iv-trg > b { grid-column: 1 / -1; font-size: 12.5px; color: var(--text); } #pg-iv .iv-trg select { width: 100%; min-width: 0; } @media (max-width: 480px) { #pg-iv .iv-trg.gear { grid-template-columns: 1fr; } #pg-iv .iv-trg.gear label { grid-template-columns: 4.5em 1fr; align-items: center; } }
   #pg-iv .iv-pet { margin: 4px 0 6px; padding: 8px 10px; border-radius: 10px; font-size: 13.5px; line-height: 1.5; background: var(--panel-2); border: 1px dashed var(--rule); }
   #pg-iv .iv-nxl { margin: 12px 0 6px; } #pg-iv .iv-nxl ol { margin: 6px 0 0; padding: 0; list-style: none; counter-reset: n; display: grid; gap: 6px; }
@@ -1078,6 +1078,7 @@
   .mm-btl.b1 { background: color-mix(in srgb, #3b82f6 16%, var(--panel)); }
   .mm-btl.b2 { background: color-mix(in srgb, #f59e0b 18%, var(--panel)); }
   .mm-t td.mm-btk { white-space: nowrap; }
+  .mm-t th .mm-sort { all: unset; cursor: pointer; font-weight: 700; white-space: nowrap; } .mm-t th .mm-sort.on { color: var(--accent); } .mm-t th .mm-sort:focus-visible { outline: 2px solid var(--accent); }
   .mm-t input.mm-bt { width: 18px; height: 18px; margin: 0 2px; cursor: pointer; vertical-align: middle; }
   .mm-t input.mm-bt.b1 { accent-color: #3b82f6; } .mm-t input.mm-bt.b2 { accent-color: #f59e0b; }
   .mm-t tr.bt-1 td { background: color-mix(in srgb, #3b82f6 14%, transparent); }

@@ -49,6 +49,17 @@ for (const [l, o] of Object.entries({
   ar: { btNo: "بلا علامة BT", colTc: "المركز", colPw: "القوة", colBt: "BT1 · BT2", btNote: "المربع الأيسر = فخ الدب 1، والأيمن = فخ الدب 2 — نفس علامات 📊 قائمة الأعضاء → 🐻 مجموعات BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "لا أحد بعد", btCopy: "📋 نسخ", btCopied: "تم النسخ!", btBoth: "{n} في الاثنين", noSpot: "بلا مكان جديد بعد ({n}):" },
   ko: { btNo: "BT 표시 없음", colTc: "도시", colPw: "전투력", colBt: "BT1 · BT2", btNote: "왼쪽 칸 = 곰 함정 1, 오른쪽 칸 = 곰 함정 2 — 📊 명단 → 🐻 BT 그룹과 같은 표시예요.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "아직 없음", btCopy: "📋 복사", btCopied: "복사됨!", btBoth: "{n}명은 둘 다", noSpot: "아직 새 자리 없음 ({n}):" },
 })) Object.assign(T[l], o);
+/* ↕️ sort the moving table (and the "Not placed yet" names) by TC / TG, Power or name — Nia 2026-11-05: sort by TG high → low while placing people */
+let MSORT = (() => { try { return JSON.parse(localStorage.getItem("nxs-mv-sort")) || { k: "", d: -1 }; } catch (e) { return { k: "", d: -1 }; } })();
+const msortKeep = () => { try { localStorage.setItem("nxs-mv-sort", JSON.stringify(MSORT)); } catch (e) {} };
+const mval = (m, k) => !m ? null : k === "tc" ? (m.tc == null || m.tc === "" ? null : +m.tc) : k === "pw" ? (+m.power || null) : null;
+function mcmp(a, b, ma, mb) {   // a, b = names; ma, mb = roster members (or null)
+  if (!MSORT.k) return 0;
+  if (MSORT.k === "name") return MSORT.d * -1 * String(a).localeCompare(String(b));
+  const x = mval(ma, MSORT.k), y = mval(mb, MSORT.k);
+  if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1;   // unknown always last
+  return MSORT.d < 0 ? y - x || (+(mb && mb.power) || 0) - (+(ma && ma.power) || 0) : x - y || (+(ma && ma.power) || 0) - (+(mb && mb.power) || 0);
+}
 const BTC = { "1": "#3b82f6", "2": "#f59e0b", "12": "#a855f7" };   // BT1 blue · BT2 orange · both purple (same as 📊 Roster)
 let SPOT = null;   // 🧭 the planned spot tapped on the map (index in MV.plan.c), to put a member there
 let lang = "en", G = null, D = null, SAVED = "", SEL = null, msg = "", roster = null, banners = [], pasteOpen = false, onlyLeft = false;
@@ -312,9 +323,11 @@ function select(i, scroll) {
 function asGroups(left) {
   const idx = rosterIndex(), g = { "1": [], "2": [], "12": [], "": [] };
   for (const q of left) { const m = idx[norm(q)], v = m ? String(OFFICER.BT.map[String(m.id)] || "") : ""; (g[v] || g[""]).push(q); }
-  const chip = (q, v) => `<button type="button" class="btn small${v ? " bt-" + v : ""}" data-as="${esc(q)}"><bdi>${esc(q)}</bdi></button>`;
+  for (const k in g) g[k].sort((a, b) => mcmp(a, b, idx[norm(a)], idx[norm(b)]) || a.localeCompare(b));   // same order as the ↕️ moving table
+  const tcOf = (q) => { const m = idx[norm(q)]; return m && m.tc != null && m.tc !== "" ? OFFICER.tcText(m.tc) : ""; };
+  const chip = (q, v) => `<button type="button" class="btn small${v ? " bt-" + v : ""}" data-as="${esc(q)}"><bdi>${esc(q)}</bdi>${tcOf(q) ? ` <small class="muted">${esc(tcOf(q))}</small>` : ""}</button>`;
   const sec = (v, title) => g[v].length ? `<div class="mm-asg"><b>${esc(title)} (${g[v].length})</b></div>${g[v].map((q) => chip(q, v)).join("")}` : "";
-  if (!g["1"].length && !g["2"].length && !g["12"].length) return left.map((q) => chip(q, "")).join("");   // nobody marked yet: one list as before
+  if (!g["1"].length && !g["2"].length && !g["12"].length) return g[""].map((q) => chip(q, "")).join("");   // nobody marked yet: one list as before
   return sec("1", t("bt1")) + sec("2", t("bt2")) + sec("12", t("bt1") + " + " + t("bt2")) + sec("", t("btNo"));
 }
 function info(k) {
@@ -436,6 +449,7 @@ function importPlan(text, file) {
   MV.st = {}; render(); renderMove();
 }
 /* 🚚 one row per member: where they are, where the plan puts them, moved ✓ (only officers with Map edit can tick) */
+const sortTh = (k, label) => `<button type="button" class="mm-sort${MSORT.k === k ? " on" : ""}" data-msort="${k}">${esc(label)} ${MSORT.k === k ? (MSORT.d < 0 ? "▼" : "▲") : "↕"}</button>`;
 function moveTable() {
   if (!MV.plan) return "";
   const now = {}; D.m.forEach(([n, x, y]) => now[norm(n)] = [n, x, y]);
@@ -445,7 +459,7 @@ function moveTable() {
   const done = new Set((MV.done || []).map(norm)), ed = MED();
   const rows = keys.map((k) => { const a = now[k], b = tgt[k], there = a && b && a[1] === b[1] && a[2] === b[2], name = (b || a || [rName[k]])[0];
     return { k, name, a, b, m: idx[k] || null, ok: done.has(k) || there, there }; })
-    .sort((p, q) => (p.ok - q.ok) || (!p.b - !q.b) || p.name.localeCompare(q.name));
+    .sort((p, q) => MSORT.k ? mcmp(p.name, q.name, p.m, q.m) || p.name.localeCompare(q.name) : (p.ok - q.ok) || (!p.b - !q.b) || p.name.localeCompare(q.name));
   const withT = rows.filter((r) => r.b), nDone = withT.filter((r) => r.ok).length, free = MV.plan.c.filter(([n]) => !n).length;
   const xy = (p) => p ? `X:${p[1]} Y:${p[2]}` : "—";
   const bed = OFFICER.can("move", "edit") || OFFICER.can("ranking", "edit"), BT = OFFICER.BT;
@@ -463,7 +477,7 @@ function moveTable() {
     ${free ? `<div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("free").replace("{n}", free))}</div>` : ""}
     <label class="row" style="gap:6px;font-size:13px;margin:6px 0"><input type="checkbox" id="mm_left"${onlyLeft ? " checked" : ""}> ${esc(t("mvLeft"))}</label>
     ${btCard}
-    <div class="mm-tw"><table class="mm-t"><thead><tr><th>${esc(t("colN"))}</th><th>${esc(t("colTc"))}</th><th>${esc(t("colPw"))}</th><th>${esc(t("colBt"))}</th><th>${esc(t("colNow"))}</th><th>${esc(t("colNew"))}</th><th>${esc(t("colDone"))}</th></tr></thead><tbody>
+    <div class="mm-tw"><table class="mm-t"><thead><tr><th>${sortTh("name", t("colN"))}</th><th>${sortTh("tc", t("colTc"))}</th><th>${sortTh("pw", t("colPw"))}</th><th>${esc(t("colBt"))}</th><th>${esc(t("colNow"))}</th><th>${esc(t("colNew"))}</th><th>${esc(t("colDone"))}</th></tr></thead><tbody>
     ${rows.filter((r) => !onlyLeft || !r.ok).map((r) => `<tr class="${r.ok ? "ok" : ""}${btv(r) ? " bt-" + btv(r) : ""}"><td><bdi>${esc(r.name)}</bdi></td><td>${r.m ? esc(OFFICER.tcText(r.m.tc)) : "—"}</td><td>${r.m && r.m.power ? fmtPw(+r.m.power) : "—"}</td><td class="mm-btk">${btBox(r, "1")}${btBox(r, "2")}</td><td>${xy(r.a)}</td><td>${r.b ? `<button class="btn small mm-cp" data-c="X:${r.b[1]} Y:${r.b[2]}">${xy(r.b)}</button>` : `<span class="muted">${esc(t("noPlace"))}</span>`}</td>
       <td>${r.there ? `<span title="${esc(t("auto"))}">✅</span>` : r.b ? `<input type="checkbox" data-done="${esc(r.k)}"${r.ok ? " checked" : ""}${ed ? "" : " disabled"}>` : ""}</td></tr>`).join("")}
     </tbody></table></div></div>`;
@@ -596,6 +610,9 @@ function renderMove() {
   bindSteps(el); bindMp(el);
   if ($("mm_left")) $("mm_left").onchange = (e) => { onlyLeft = e.target.checked; renderMove(); };
   el.querySelectorAll(".mm-cp").forEach((b) => b.onclick = async () => { try { await navigator.clipboard.writeText(b.dataset.c); b.textContent = t("copied"); } catch (e) {} });
+  el.querySelectorAll("[data-msort]").forEach((x) => x.onclick = () => { const k = x.dataset.msort;
+    if (MSORT.k !== k) MSORT = { k, d: k === "name" ? 1 : -1 }; else if ((k === "name" ? 1 : -1) === MSORT.d) MSORT.d = -MSORT.d; else MSORT = { k: "", d: -1 };   // tap: ▼ → ▲ → off
+    msortKeep(); renderMove(); info(); });
   el.querySelectorAll("input.mm-bt[data-bt]").forEach((c) => c.onchange = () => { OFFICER.BT.set(c.dataset.bid, c.dataset.bt, c.checked); });
   el.querySelectorAll("[data-btcopy]").forEach((x) => x.onclick = async () => { const k = x.dataset.btcopy, ms = ((roster && roster.members) || []).filter((m) => OFFICER.BT.has(m.id, k)).sort((p, q) => (+q.power || 0) - (+p.power || 0));
     const text = `${t("bt" + k)} (${ms.length})\n` + ms.map((m) => m.name).join("\n");
