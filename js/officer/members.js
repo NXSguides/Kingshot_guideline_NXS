@@ -43,11 +43,11 @@ for (const [l, o] of Object.entries({"en": {"mpT": "📍 Positions from the rost
 for (const [l, o] of Object.entries({"en": {"asAuto": "🤖 Placing members automatically isn't set up yet — for now, put them on the spots by hand. Want it automatic? Ask Sparrow."}, "zh": {"asAuto": "🤖 自動分配成員還沒有做——目前請手動把成員放到位置上。想要自動分配的話，請找 Sparrow。"}, "pt": {"asAuto": "🤖 A distribuição automática dos membros ainda não existe — por enquanto, coloque-os nos lugares à mão. Quer automático? Fale com a Sparrow."}, "ar": {"asAuto": "🤖 توزيع الأعضاء تلقائيًا غير متوفر بعد — ضعهم في الأماكن يدويًا الآن. تريده تلقائيًا؟ اسأل Sparrow."}, "ko": {"asAuto": "🤖 연맹원 자동 배치는 아직 없어요 — 지금은 직접 자리에 배치하세요. 자동으로 하고 싶으면 Sparrow에게 물어보세요."}})) Object.assign(T[l], o);
 /* 🐻 BT1 / BT2 + TC / Power in the 🚚 moving table (Sherry & Nia, 2026-11-05) — the marks are OFFICER.BT, the same list as 📊 Roster */
 for (const [l, o] of Object.entries({
-  en: { colTc: "TC", colPw: "Power", colBt: "BT1 · BT2", btNote: "Tick the left box for Bear Trap 1, the right box for Bear Trap 2 — the same marks as 📊 Roster → 🐻 BT groups.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "nobody yet", btCopy: "📋 Copy", btCopied: "Copied!", btBoth: "{n} in both", noSpot: "No new spot yet ({n}):" },
-  zh: { colTc: "主城", colPw: "戰力", colBt: "BT1 · BT2", btNote: "左邊的框 = 熊陷阱 1，右邊 = 熊陷阱 2——跟 📊 名冊 → 🐻 BT 分組是同一份。", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "還沒有人", btCopy: "📋 複製", btCopied: "已複製！", btBoth: "{n} 人兩個都勾", noSpot: "還沒分到新位置（{n}）：" },
-  pt: { colTc: "CC", colPw: "Poder", colBt: "BT1 · BT2", btNote: "Caixa da esquerda = Armadilha de Urso 1, da direita = Armadilha de Urso 2 — as mesmas marcas de 📊 Lista de membros → 🐻 Grupos BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "ninguém ainda", btCopy: "📋 Copiar", btCopied: "Copiado!", btBoth: "{n} nos dois", noSpot: "Ainda sem lugar novo ({n}):" },
-  ar: { colTc: "المركز", colPw: "القوة", colBt: "BT1 · BT2", btNote: "المربع الأيسر = فخ الدب 1، والأيمن = فخ الدب 2 — نفس علامات 📊 قائمة الأعضاء → 🐻 مجموعات BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "لا أحد بعد", btCopy: "📋 نسخ", btCopied: "تم النسخ!", btBoth: "{n} في الاثنين", noSpot: "بلا مكان جديد بعد ({n}):" },
-  ko: { colTc: "도시", colPw: "전투력", colBt: "BT1 · BT2", btNote: "왼쪽 칸 = 곰 함정 1, 오른쪽 칸 = 곰 함정 2 — 📊 명단 → 🐻 BT 그룹과 같은 표시예요.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "아직 없음", btCopy: "📋 복사", btCopied: "복사됨!", btBoth: "{n}명은 둘 다", noSpot: "아직 새 자리 없음 ({n}):" },
+  en: { btNo: "No BT mark", colTc: "TC", colPw: "Power", colBt: "BT1 · BT2", btNote: "Tick the left box for Bear Trap 1, the right box for Bear Trap 2 — the same marks as 📊 Roster → 🐻 BT groups.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "nobody yet", btCopy: "📋 Copy", btCopied: "Copied!", btBoth: "{n} in both", noSpot: "No new spot yet ({n}):" },
+  zh: { btNo: "還沒分 BT", colTc: "主城", colPw: "戰力", colBt: "BT1 · BT2", btNote: "左邊的框 = 熊陷阱 1，右邊 = 熊陷阱 2——跟 📊 名冊 → 🐻 BT 分組是同一份。", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "還沒有人", btCopy: "📋 複製", btCopied: "已複製！", btBoth: "{n} 人兩個都勾", noSpot: "還沒分到新位置（{n}）：" },
+  pt: { btNo: "Sem marca BT", colTc: "CC", colPw: "Poder", colBt: "BT1 · BT2", btNote: "Caixa da esquerda = Armadilha de Urso 1, da direita = Armadilha de Urso 2 — as mesmas marcas de 📊 Lista de membros → 🐻 Grupos BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "ninguém ainda", btCopy: "📋 Copiar", btCopied: "Copiado!", btBoth: "{n} nos dois", noSpot: "Ainda sem lugar novo ({n}):" },
+  ar: { btNo: "بلا علامة BT", colTc: "المركز", colPw: "القوة", colBt: "BT1 · BT2", btNote: "المربع الأيسر = فخ الدب 1، والأيمن = فخ الدب 2 — نفس علامات 📊 قائمة الأعضاء → 🐻 مجموعات BT.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "لا أحد بعد", btCopy: "📋 نسخ", btCopied: "تم النسخ!", btBoth: "{n} في الاثنين", noSpot: "بلا مكان جديد بعد ({n}):" },
+  ko: { btNo: "BT 표시 없음", colTc: "도시", colPw: "전투력", colBt: "BT1 · BT2", btNote: "왼쪽 칸 = 곰 함정 1, 오른쪽 칸 = 곰 함정 2 — 📊 명단 → 🐻 BT 그룹과 같은 표시예요.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "아직 없음", btCopy: "📋 복사", btCopied: "복사됨!", btBoth: "{n}명은 둘 다", noSpot: "아직 새 자리 없음 ({n}):" },
 })) Object.assign(T[l], o);
 const BTC = { "1": "#3b82f6", "2": "#f59e0b", "12": "#a855f7" };   // BT1 blue · BT2 orange · both purple (same as 📊 Roster)
 let SPOT = null;   // 🧭 the planned spot tapped on the map (index in MV.plan.c), to put a member there
@@ -280,6 +280,15 @@ function select(i, scroll) {
   SEL = i; SPOT = null; draw(); info();
   if (scroll) { const g = $("mm_map").querySelector(`.mm-c[data-i="${i}"]`), box = $("mm_map"); if (g) { const r = g.getBoundingClientRect(), b = box.getBoundingClientRect(); box.scrollLeft += r.left - b.left - b.width / 2 + r.width / 2; box.scrollTop += r.top - b.top - b.height / 2; } }
 }
+/* 🧭 "Not placed yet" names, grouped by 🐻 BT1 / BT2 (Sherry, 2026-11-05) — the same marks as the moving table and 📊 Roster */
+function asGroups(left) {
+  const idx = rosterIndex(), g = { "1": [], "2": [], "12": [], "": [] };
+  for (const q of left) { const m = idx[norm(q)], v = m ? String(OFFICER.BT.map[String(m.id)] || "") : ""; (g[v] || g[""]).push(q); }
+  const chip = (q, v) => `<button type="button" class="btn small${v ? " bt-" + v : ""}" data-as="${esc(q)}" dir="auto">${esc(q)}</button>`;
+  const sec = (v, title) => g[v].length ? `<div class="mm-asg"><b>${esc(title)} (${g[v].length})</b></div>${g[v].map((q) => chip(q, v)).join("")}` : "";
+  if (!g["1"].length && !g["2"].length && !g["12"].length) return left.map((q) => chip(q, "")).join("");   // nobody marked yet: one list as before
+  return sec("1", t("bt1")) + sec("2", t("bt2")) + sec("12", t("bt1") + " + " + t("bt2")) + sec("", t("btNo"));
+}
 function info(k) {
   const el = $("mm_info"); if (!el) return;
   if (k) { const bt = /^bt/.test(k), [x, y] = bt ? D.bt[+k[2]] : G.hq[0];
@@ -292,7 +301,7 @@ function info(k) {
     el.innerHTML = `<b>${esc(t("asT").replace("{x}", x).replace("{y}", y))}</b>${n ? ` · <span dir="auto">${esc(n)}</span>` : ""}
       <div class="mm-ed" style="margin-top:6px"><input class="inp" id="mm_asn" list="mm_asl" value="${esc(n || "")}" placeholder="${esc(t("asName"))}" style="width:160px"><datalist id="mm_asl">${left.map((q) => `<option value="${esc(q)}">`).join("")}</datalist>
       <button class="btn small primary" id="mm_asok">${esc(t("asOk"))}</button>${n ? ` <button class="btn small" id="mm_asclr">${esc(t("asClr"))}</button>` : ""}</div>
-      ${left.length ? `<div class="muted" style="font-size:12.5px;margin-top:6px">${esc(t("asLeft").replace("{n}", left.length))}</div><div class="mm-asl">${left.map((q) => `<button type="button" class="btn small" data-as="${esc(q)}" dir="auto">${esc(q)}</button>`).join("")}</div>` : ""}`;
+      ${left.length ? `<div class="muted" style="font-size:12.5px;margin-top:6px">${esc(t("asLeft").replace("{n}", left.length))}</div><div class="mm-asl">${asGroups(left)}</div>` : ""}`;
     $("mm_asok").onclick = () => assign(SPOT, $("mm_asn").value.trim());
     $("mm_asn").onkeydown = (e) => { if (e.key === "Enter") assign(SPOT, $("mm_asn").value.trim()); };
     if ($("mm_asclr")) $("mm_asclr").onclick = () => assign(SPOT, "");
