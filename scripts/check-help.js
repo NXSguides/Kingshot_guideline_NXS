@@ -21,8 +21,8 @@ const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).conc
 const FEATURES = [
   ["Bear plan: 📋 latest hunt review (leader K side by side, where a march scores most)", /📋 LATEST HUNT REVIEW/, /📋 the latest hunt review/],
   ["Events: 👤 Only remind (to-do sent by the server to chosen officers only)", /"👤 Only remind" \(只提醒/, /👤 Only remind: tick officers/],
-  ["Growth: ⚖️ compare two heroes", /⚖️ Compare two heroes \(card after/, /⚖️ Compare two heroes: pick a troop slot/],
-  ["Growth: 🎯 second uses (joiners & side jobs)", /🎯 Second uses \(card after/, /🎯 Second uses: a joiner only uses/],
+  ["Heroes: ⚖️ compare two heroes", /⚖️ Compare two heroes \(🦸 Heroes tab, card after/, /⚖️ Compare two heroes: pick a troop slot/],
+  ["Heroes: 🎯 second uses (joiners & side jobs)", /🎯 Second uses \(🦸 Heroes tab, card after/, /🎯 Second uses: a joiner only uses/],
   ["Events: a to-do links several in-game guides (ig list)", /ig can also be a LIST of guide titles/, /A task can link several guides \(ig as a list\)/],
   ["Events: 📅 {date:+N} codes in in-game guides", /📅 date codes \(Sherry 2026-11-03\)/, /📅 Date codes: write \{date:\+N\}/],
   ["Events: ⭐ today + linked in-game guide on the task", /⭐ today \(Sherry 2026-11-02\)/, /⭐ A task due today lights up/],
@@ -72,6 +72,7 @@ const FEATURES = [
   ["Move: 📐 auto plan from a Mapper layout (road, stages, checks, edit, PNG)", /Auto plan from a Mapper layout/, /{ s: "#hp_root > h3", k: "hp01" }/],
   ["Move: 📐 shared auto plans (Plan list)", /Share as a plan/, /{ s: "#hp_root .hp-sh", k: "hp03" }/],
   ["Move tab", /🚚 Move/, /mv01:/],
+  ["Heroes tab (hero comparison, compare two, joiners, second uses — split from Growth)", /🦸 HEROES tab \(officer-x7k2p9\.html#hr/, /hr: \[{ s: "#hr_title", k: "hr01" }/],
   ["Growth plan tab (proposal: how we grow attack / defense / Bear leaders)", /🧭 GROWTH tab \(officer-x7k2p9\.html#growth/, /growth: \[{ s: "#gr_title", k: "gr01" }/],
   ["Growth: 🌳 when to pick a direction (milestones, 4 branches, master & pet skills)", /🌳 WHEN TO PICK A DIRECTION/, /{ s: "#gr_road", k: "gr04" }/],
   ["Battle tab: ⚖️ Super compare (two players, rough % stronger)", /⚖️ SUPER COMPARE \(card at the top\)/, /{ s: "#ak_vs", k: "ak06" }/],

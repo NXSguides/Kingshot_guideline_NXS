@@ -445,15 +445,10 @@ function render() {
     ${rdHtml()}
     <div class="card"><h3>${esc(L.cmpT)}</h3><div class="gr-tw"><table class="gr-cmp"><thead><tr>${L.cmpH.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
       <tbody>${L.cmp.map(([k, a, d]) => `<tr><th>${esc(k)}</th><td>${esc(a)}</td><td>${esc(d)}</td></tr>`).join("")}</tbody></table></div></div>
-    <div class="card"><h3>${esc(L.gjT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(L.gjNote)}</div>${ul(L.gjRules)}
-      <div class="gr-tw"><table class="gr-cmp gr-gj"><thead><tr>${L.gjH.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
-      <tbody>${GJ.map(([c, d]) => `<tr><td><div class="gr-chips">${c.map(([id, n]) => chip([id, "", ""]).replace('<span class="gr-pic">', `<span class="gr-pic">${n > 1 ? `<b class="gr-n">×${n}</b>` : ""}`)).join("")}</div></td><td class="gr-gjv">${d ? `−${d}%` : `✅ ${esc(L.gjBest)}`}</td></tr>`).join("")}</tbody></table></div></div>
-    ${suHtml(L)}
     <div class="card"><h3>${esc(L.heroT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(L.heroNote)}</div>
       <div class="gr-tw"><table class="gr-cmp gr-heroes-t"><thead><tr><th></th><th>${esc(L.cmpH[1])}</th><th>${esc(L.cmpH[2])}</th></tr></thead>
       <tbody>${["inf", "cav", "arc"].map((tr) => `<tr><th>${esc(L.trp[tr])}</th><td>${side("atk", tr)}</td><td>${side("def", tr)}</td></tr>`).join("")}</tbody></table></div></div>
-    ${hcHtml(L)}
-    ${cmpHtml(L)}
+    <p><a class="btn" href="#hr">${esc(HR().link)}</a></p>
     <div class="card"><h3>${esc(L.gearT)}</h3><p class="gr-rule">${esc(L.rule)}</p>
       <h4 class="gr-h4">${esc(L.ordT)}</h4><div class="gr-two"><div><b>${esc(L.ordADl)}</b>${ol(L.ordAD)}</div><div><b>${esc(L.ordBearl)}</b>${ol(L.ordBear)}</div></div>
       <h4 class="gr-h4">${esc(L.srcT)}</h4><div class="gr-tw"><table class="gr-cmp"><thead><tr>${L.srcH.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
@@ -462,12 +457,38 @@ function render() {
       <div class="muted" style="font-size:12.5px;margin-top:8px">💡 ${esc(L.gearNote)}</div></div>
     <div class="card"><h3>${esc(L.whoT)}</h3><div class="gr-two"><div class="gr-who"><b>${esc(L.cmpH[1])}</b>${ul(L.whoA)}</div><div class="gr-who"><b>${esc(L.cmpH[2])}</b>${ul(L.whoD)}</div></div>
       <div class="gr-vsv" style="margin-top:8px">✅ ${esc(L.whoB)}</div></div>
+    <p class="muted" style="font-size:12.5px">${esc(L.src0)}</p>`;
+  renderHr();
+}
+/* 🦸 Heroes — its own research tab since 2026-11-05 (Sherry: "Growth got too long, some of it is off topic"): 🛡️ Garrison joiners,
+   🎯 Second uses, 🦸 Hero comparison, ⚖️ Compare two heroes. 🧭 Growth keeps the direction: milestones, side by side, which heroes per side, stats & gear, who fits. */
+const HRT = {
+  en: { title: "🦸 Heroes", intro: "Which hero is how strong, and what to do with the others: Gen 1–5, from our battle reports and simulations. Choosing a direction: 🧭 Growth.", link: "🦸 Hero comparison, compare two heroes, joiners → Heroes" },
+  zh: { title: "🦸 英雄", intro: "哪位英雄多強、其他英雄可以做什麼：第 1–5 代，根據我們的戰報和模擬。要選發展方向請看 🧭 發展方向。", link: "🦸 英雄比較、兩個英雄比一比、加入者 → 英雄頁" },
+  pt: { title: "🦸 Heróis", intro: "Quão forte é cada herói e o que fazer com os outros: Gen 1–5, pelos nossos relatórios e simulações. Para escolher uma direção: 🧭 Crescimento.", link: "🦸 Comparação de heróis, comparar dois, participantes → Heróis" },
+  ar: { title: "🦸 الأبطال", intro: "ما مدى قوة كل بطل وماذا تفعل بالآخرين: الأجيال 1–5، من تقارير معاركنا والمحاكاة. لاختيار الاتجاه: 🧭 التطوير.", link: "🦸 مقارنة الأبطال، مقارنة بطلين، المنضمون ← الأبطال" },
+  ko: { title: "🦸 영웅", intro: "영웅별 강함과 나머지 영웅의 활용: 1–5세대, 우리 전투 보고서와 시뮬레이션 기준. 육성 방향은 🧭 육성에서.", link: "🦸 영웅 비교, 두 영웅 비교, 참여자 → 영웅" } };
+const HR = () => HRT[lang] || HRT.en;
+function renderHr() {
+  const L = t(), root = $("hr_root"); if (!root) return;
+  const site = { zh: "zh", en: "en", pt: "pt", ar: "ar", ko: "ko" }[lang] || "en";
+  const chip = ([id, st, tg]) => `<span class="gr-chip"><span class="gr-pic"><img src="figures/heroes/hero_${id}.webp" alt="" loading="lazy" onerror="this.style.visibility='hidden'">${GENS[id] ? `<b class="gr-gen"><i>S</i>${GENS[id]}</b>` : ""}</span>
+    <b dir="auto">${esc(hname(id))}</b>${st ? `<em class="gr-st ${st}">${esc(L.st[st])}</em>` : ""}${tg ? `<small>${esc(L.tag[tg])}</small>` : ""}</span>`;
+  root.innerHTML = `
+    ${hcHtml(L)}
+    ${cmpHtml(L)}
+    <div class="card"><h3>${esc(L.gjT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(L.gjNote)}</div>${ul(L.gjRules)}
+      <div class="gr-tw"><table class="gr-cmp gr-gj"><thead><tr>${L.gjH.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
+      <tbody>${GJ.map(([c, d]) => `<tr><td><div class="gr-chips">${c.map(([id, n]) => chip([id, "", ""]).replace('<span class="gr-pic">', `<span class="gr-pic">${n > 1 ? `<b class="gr-n">×${n}</b>` : ""}`)).join("")}</div></td><td class="gr-gjv">${d ? `−${d}%` : `✅ ${esc(L.gjBest)}`}</td></tr>`).join("")}</tbody></table></div></div>
+    ${suHtml(L)}
     <p><a class="btn" href="./#/${site}/hero-cards" target="_blank" rel="noopener">${esc(L.cards)}</a></p>
     <p class="muted" style="font-size:12.5px">${esc(L.src0)}</p>`;
   cmpWire();
 }
-function applyTexts() { if ($("gr_title")) { $("gr_title").textContent = t().title; $("gr_intro").textContent = t().intro; } }
+function applyTexts() { if ($("gr_title")) { $("gr_title").textContent = t().title; $("gr_intro").textContent = t().intro; }
+  if ($("hr_title")) { $("hr_title").textContent = HR().title; $("hr_intro").textContent = HR().intro; } }
 function init() { applyTexts(); render(); }
 function setLang(l) { lang = l; applyTexts(); render(); }
 OFFICER_PAGES.growth = { init, applyTexts, setLang };
+OFFICER_PAGES.hr = { init, applyTexts, setLang };   // 🦸 Heroes: same module, its own section (#pg-hr)
 })();
