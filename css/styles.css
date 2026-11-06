@@ -1000,3 +1000,8 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 .td-sline:last-child { border-bottom: 0; }
 .td-when { flex: 0 0 auto; min-width: 4.5em; font-size: .85em; opacity: .7; }
 .td-chips { flex: 1; line-height: 1.8; }
+
+/* 🏠 Home looks different from the guide tabs (Sherry 2026-11-06) */
+.guide-chip.guide-home { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 700; padding: 9px 12px; }
+.guide-chip.guide-home.active { box-shadow: none; }
+.guide-chip.guide-home:not(.active) { opacity: .85; }
