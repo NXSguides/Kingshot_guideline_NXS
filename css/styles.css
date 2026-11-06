@@ -989,3 +989,14 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 .spot-go { padding: 3px 10px; border-radius: 8px; border: 1px solid var(--accent); background: var(--panel); color: var(--text); font-size: 13px; cursor: pointer; }
 .spot-go-msg { flex-basis: 100%; font-size: 13.5px; color: #b45309; }
 .spot-map .swl { stroke: #ef4444; stroke-width: 2; stroke-dasharray: 5 4; }
+
+/* 📅 This week: short lines (Sherry 2026-11-06: less repetition) */
+.td-also { margin: 6px 2px 2px; font-size: .9em; opacity: .85; line-height: 1.9; }
+.td-chip { display: inline-block; white-space: nowrap; margin: 0 8px 0 0; }
+.td-chip small { opacity: .7; }
+.td-chip.link { cursor: pointer; text-decoration: underline dotted; text-underline-offset: 3px; }
+.td-soon { margin: 2px 2px 6px; }
+.td-sline { display: flex; gap: 10px; align-items: baseline; padding: 5px 0; border-bottom: 1px solid rgba(127,127,127,.18); }
+.td-sline:last-child { border-bottom: 0; }
+.td-when { flex: 0 0 auto; min-width: 4.5em; font-size: .85em; opacity: .7; }
+.td-chips { flex: 1; line-height: 1.8; }
