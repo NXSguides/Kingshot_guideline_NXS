@@ -780,7 +780,7 @@ function renderPicker() {
   });
 }
 
-/* ---- 上方指南按鈕：「📢 公告」＋兩個可展開的分類 ------------------- */
+/* ---- 上方指南按鈕：「🏠 首頁」＋兩個可展開的分類 ------------------- */
 /* Guides listed in GUIDE_GROUPS.growth go under 養成; everything else (except the home guide) goes under 活動. */
 const HOME_GUIDE = "recent-events";
 const TOP_GUIDES = ["new-here", "nap-rules", "my-spot"];   // guides with their own button next to 📢 Home (not inside a group)
@@ -1267,7 +1267,7 @@ function renderDoc() {
     ${back ? `<span class="arrow" style="margin:0">‹</span>` : ""}<span class="emoji">${g.emoji}</span><span dir="auto">${escapeHtml(t(g.name))}</span>${back ? "" : `<span class="arrow">›</span>`}</button>`; };
   const kids = Object.keys(GUIDES).filter((k) => GUIDES[k].parent === currentGuide);
   const back = guide.parent && GUIDES[guide.parent] ? btn(guide.parent, true) : "";
-  doc.innerHTML = (currentGuide === HOME_GUIDE ? todayCardHtml() : "") + back + `<div class="doc-title"><span class="emoji">${guide.emoji}</span><span>${escapeHtml(s.title)}</span></div>` + kids.map((k) => btn(k)).join("") + keyPointsHtml() + (currentGuide === "formations-rally-tips" ? ratioCardHtml() : "");
+  doc.innerHTML = (currentGuide === HOME_GUIDE ? todayCardHtml() : "") + back + `<div class="doc-title"><span class="emoji">${currentGuide === HOME_GUIDE ? "📢" : guide.emoji}</span><span>${escapeHtml(s.title)}</span></div>` + kids.map((k) => btn(k)).join("") + keyPointsHtml() + (currentGuide === "formations-rally-tips" ? ratioCardHtml() : "");
   // General Tips: the daily checklist sits on top as a card you can tick (cleared at 00:00 UTC)
   const daily = currentGuide === DAILY_GUIDE ? dailySection(s) : null;
   if (daily) doc.insertAdjacentHTML("beforeend", dailyCardHtml(daily));

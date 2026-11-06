@@ -448,13 +448,13 @@ const GLOSSARY = {
 
 const GUIDES = {
   "recent-events": {
-    emoji: "📢",
+    emoji: "🏠",
     name: {
-      en: "Announcements", zh: "公告", ko: "공지",
-      de: "Ankündigungen", fr: "Annonces",
-      pt: "Anúncios", tr: "Duyurular",
-      id: "Pengumuman", ru: "Объявления",
-      th: "ประกาศ", ar: "الإعلانات", es: "Anuncios"
+      en: "Home", zh: "首頁", ko: "홈",
+      de: "Start", fr: "Accueil",
+      pt: "Início", tr: "Ana Sayfa",
+      id: "Beranda", ru: "Главная",
+      th: "หน้าแรก", ar: "الرئيسية", es: "Inicio"
     },
     sections: {
       en: { title: "Announcements", blocks: [
