@@ -46,6 +46,8 @@ const FEATURES = [
   ["Viking report tab (🪓 research)", /🪓 VIKING REPORT tab/, /vv: \[\{ s: "#vv_title", k: "vv01" \}\]/],
   ["Migrant Score report (🧳 research)", /🧳 MIGRANT SCORE report/, /ms: \[\{ s: "#ms_title", k: "ms01" \}\]/],
   ["Bear Hunt report (🐻 research)", /🐻 BEAR HUNT report/, /bh: \[\{ s: "#bh_title", k: "bh01" \}\]/],
+  ["Bear Hunt report: research ledger (✅/🟡, corrected list, alliance trend)", /ONE running research ledger/, /our research ledger for members/],
+  ["Bear plan: review fitted from mails (K per wave, troop factor, totals by hunt)", /review can be fitted from the rally mails/, /the review can take K fitted from the rally mails/],
   ["Investment report (💎 research)", /💎 INVESTMENT report/, /iv: \[\{ s: "#iv_title", k: "iv01" \}\]/],
   ["🔬 Research permission (one for all reports)", /🔬 RESEARCH \(研究報告\)/, /research: \[\{ s: "#researchTab", k: "rs01" \}\]/],
   ["🔬 Research main tab (reports as sub-tabs)", /🔬 Research \(研究報告/, /🔬 Research holds our reports/],
