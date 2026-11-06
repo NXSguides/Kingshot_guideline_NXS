@@ -283,13 +283,14 @@ const BEAR_SCHED = { anchor: Date.UTC(2026, 9, 7), periodDays: 2, activeDays: 1 
 const ANN_EVENTS = [
 ];
 /* events with no guide and no announcement, straight from the in-game calendar: shown on the Today card and the month
-   calendar with their official name (data/event-names.js) and times. h = [from, to] UTC hours. */
+   calendar with their official name (data/event-names.js) and times. h = [from, to] UTC hours.
+   fight = true (every day is a battle) or the battle's day number (Sanctuary: day 4 = Friday); no fight = just an event, no ⚔️ (Sherry 2026-11-06) */
 const NOTE_EVENTS = [
   // Castle Battle is every other Saturday, 5 h; on KvK weeks it's the cross-kingdom one (KvK's day 6: 10/10, 11/7 …), so ours comes every 28 days
-  { name: "Castle Battle", emoji: "🏰", start: "2026-10-24", every: 28, days: 1, h: [12, 17] },   // in-game calendar: 10/24 12:00 – 17:00 UTC
+  { name: "Castle Battle", emoji: "🏰", start: "2026-10-24", every: 28, days: 1, h: [12, 17], fight: true },   // in-game calendar: 10/24 12:00 – 17:00 UTC
   { name: "Finder's Fortune", emoji: "🔍", start: "2026-10-11", every: 28, days: 3 },
   // weekly / 28-day events from the officer calendar with no guide page (Sherry 2026-11-06: put them on the home calendar too)
-  { name: "Sanctuary Battle", emoji: "🏯", start: "2026-10-06", every: 7, days: 4 },        // Tue – Fri, contest at the voted slot
+  { name: "Sanctuary Battle", emoji: "🏯", start: "2026-10-06", every: 7, days: 4, fight: 4 },        // Tue – Fri, contest at the voted slot
   { name: "Alliance Championship", emoji: "🏆", start: "2026-09-28", every: 7, days: 7 },
   { name: "Alliance Mobilization", emoji: "🔥", start: "2026-09-28", every: 28, days: 7 },
   { name: "Alliance Brawl", emoji: "🤜", start: "2026-10-12", every: 28, days: 7 },
@@ -313,6 +314,8 @@ const FIGHT_DAY = { "swordland-showdown": -1, "tri-alliance-clash": -1, "viking-
 const REPAIR_DAYS = { "kvk": [7, 8] }, REPAIR_EMOJI = "💊";
 /* events whose prep days matter as much as the battle: prep keeps the guide emoji at full strength, the battle day gets its own */
 const PHASED = { "kvk": { fight: "💥" } };
+/* events with a guide but no battle: the calendar shows them without ⚔️ and without "not the battle day" (Sherry 2026-11-06) */
+const NO_FIGHT = new Set(["fishing-tournament", "hero-roulette", "wavebound-voyage"]);
 const isRepairDay = (k, dayIdx) => (REPAIR_DAYS[k] || []).includes(dayIdx + 1);
 /* times on different days of the run (event-times.json "timeDays": the n-th time → that day of the run, e.g. Viking: 13:00 on day 3, 22:00 on day 1) */
 const TIME_DAY = {};
@@ -1144,7 +1147,7 @@ function calEventsOn(day) {   // [{key|ann, emoji, name, day, days}] active on t
     if (!GUIDES[key] || GUIDES[key].hidden) continue;
     const n = Math.floor((day - sc.anchor) / DAY); if (n < 0) continue;
     const r = n % sc.periodDays; if (r < sc.activeDays) { const rep = isRepairDay(key, r); const fight = !rep && isFightDay(key, r, sc.activeDays), ph = PHASED[key];
-      out.push({ key, emoji: rep ? REPAIR_EMOJI : fight && ph ? ph.fight : GUIDES[key].emoji, name: t(GUIDES[key].name), day: r + 1, days: sc.activeDays, fight, repair: rep, prep: !!ph && !fight && !rep }); }
+      out.push({ key, emoji: rep ? REPAIR_EMOJI : fight && ph ? ph.fight : GUIDES[key].emoji, name: t(GUIDES[key].name), day: r + 1, days: sc.activeDays, fight: fight && !NO_FIGHT.has(key), plain: NO_FIGHT.has(key), repair: rep, prep: !!ph && !fight && !rep }); }
   }
   for (const ev of ANN_EVENTS) {
     const i = announcements.findIndex((a) => ((a.title && (a.title.en || "")) + " " + JSON.stringify(a.title || {})).includes(ev.match)); if (i < 0) continue;
@@ -1153,7 +1156,7 @@ function calEventsOn(day) {   // [{key|ann, emoji, name, day, days}] active on t
   }
   for (const ev of NOTE_EVENTS) {
     let n = Math.floor((day - Date.parse(ev.start + "T00:00:00Z")) / DAY); if (ev.every && n >= 0) n %= ev.every;
-    if (n >= 0 && n < ev.days) out.push({ note: ev, emoji: ev.emoji, name: noteName(ev), day: n + 1, days: ev.days, fight: true });
+    if (n >= 0 && n < ev.days) { const fight = ev.fight === true || ev.fight === n + 1; out.push({ note: ev, emoji: ev.emoji, name: noteName(ev), day: n + 1, days: ev.days, fight, plain: !ev.fight }); }
   }
   return out;
 }
@@ -1173,7 +1176,7 @@ function monthCalHtml() {
   }
   const fill = (str, v) => str.replace(/\{(\w+)\}/g, (m, k) => (v[k] ?? m));
   const list = calEventsOn(pick), dl = new Date(pick).toLocaleDateString(loc, { weekday: "short", month: "short", day: "numeric", timeZone: "UTC" });
-  const rows = list.length ? list.map((it) => `<button type="button" class="td-row" onclick="${it.note ? "" : it.ann !== undefined ? `goToAnnouncements(${it.ann})` : `switchGuide('${it.key}')`}"><span class="emoji">${it.emoji}</span><span class="td-main"><b dir="auto">${escapeHtml(it.name)}${it.fight ? " ⚔️" : ""}</b>${it.days > 1 ? `<span class="td-meta">${escapeHtml(fill(t(TODAY_TXT.day), { n: it.day, d: it.days }))}${it.fight ? "" : " · " + escapeHtml(t(it.repair ? CAL_TXT.repair : it.prep ? CAL_TXT.prepPhase : CAL_TXT.prep))}</span>` : ""}</span><span class="arrow">›</span></button>`).join("")
+  const rows = list.length ? list.map((it) => `<button type="button" class="td-row" onclick="${it.note ? "" : it.ann !== undefined ? `goToAnnouncements(${it.ann})` : `switchGuide('${it.key}')`}"><span class="emoji">${it.emoji}</span><span class="td-main"><b dir="auto">${escapeHtml(it.name)}${it.fight ? " ⚔️" : ""}</b>${it.days > 1 ? `<span class="td-meta">${escapeHtml(fill(t(TODAY_TXT.day), { n: it.day, d: it.days }))}${it.fight || it.plain ? "" : " · " + escapeHtml(t(it.repair ? CAL_TXT.repair : it.prep ? CAL_TXT.prepPhase : CAL_TXT.prep))}</span>` : ""}</span><span class="arrow">›</span></button>`).join("")
     : `<div class="td-none">${escapeHtml(t(CAL_TXT.none))}</div>`;
   return `<div class="td-title cal-head"><span>${escapeHtml(t(CAL_TXT.title))}</span><span class="cal-nav"><button type="button" onclick="calShift--;calPick=null;renderCal()">‹</button><b>${escapeHtml(fd.toLocaleDateString(loc, { month: "long", year: "numeric", timeZone: "UTC" }))}</b><button type="button" onclick="calShift++;calPick=null;renderCal()">›</button>${calShift !== 0 || pick !== today ? `<button type="button" class="cal-todaybtn" onclick="calShift=0;calPick=null;renderCal()">⤺ ${escapeHtml(t(TODAY_TXT.today))}</button>` : ""}</span></div>
     <div class="cal-grid">${wd.map((w) => `<span class="cal-w">${escapeHtml(w)}</span>`).join("")}${cells}</div><div class="td-h">${escapeHtml(dl)}</div>${rows}`;
@@ -1224,7 +1227,7 @@ function todayCardHtml() {
   const row = (it, meta) => {
     if (it.note) { const [a, b] = it.note.h || [], off = new Date().getTimezoneOffset() !== 0;
       const tm = a != null ? `<span class="td-time">⏰ ${hh(a)}–${hh(b)} UTC${off ? ` <span class="td-loc">(${escapeHtml(t(TODAY_TXT.yours))} ${local(a)}–${local(b)})</span>` : ""}</span>` : "";
-      return `<div class="td-row"><span class="emoji">${it.emoji}</span><span class="td-main"><b dir="auto">${escapeHtml(it.name)}</b><span class="td-meta">${meta}</span>${tm}</span></div>`; }
+      return `<div class="td-row"><span class="emoji">${it.emoji}</span><span class="td-main"><b dir="auto">${escapeHtml(it.name)}</b><span class="td-meta">${meta}${typeof it.note.fight === "number" && it.day && it.day !== it.note.fight ? " · " + escapeHtml(t(CAL_TXT.prep)) : ""}</span>${tm}</span></div>`; }
     if (it.ann !== undefined) return `<button type="button" class="td-row" onclick="goToAnnouncements(${it.ann});setTimeout(()=>{const x=document.querySelector('.ann-tab.active');if(x)x.scrollIntoView({behavior:'smooth',block:'start'})},150)"><span class="emoji">${it.emoji}</span>
       <span class="td-main"><b dir="auto">${escapeHtml(it.name)}</b><span class="td-meta">${meta}</span></span><span class="arrow">›</span></button>`;
     const g = GUIDES[it.key];
