@@ -970,3 +970,18 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 /* 🔰 New here? copy line */
 .copy-line { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 0 0 1em; }
 .copy-line code { font-size: 17px; padding: 6px 12px; border-radius: 8px; background: var(--panel); color: var(--text); border: 1px solid var(--rule); }
+
+/* ⚠️ 📍 wrong-spot warnings (2026-11-06) */
+.spot-warn { margin: 8px 0; border: 1px solid #e0a23a; border-radius: 12px; padding: 8px 12px; background: color-mix(in srgb, #f59e0b 10%, var(--panel)); }
+.spot-warn summary { font-weight: 700; cursor: pointer; }
+.spot-warn ul { margin: 8px 0 4px; padding-left: 18px; }
+.spot-warn li { margin: 4px 0; font-size: 14px; }
+.spot-warn li.occ div + div { color: #c2410c; font-weight: 700; }
+.spot-me { border-radius: 10px; padding: 8px 12px; margin-bottom: 8px; font-weight: 700; font-size: 15px; }
+.spot-me.bad { background: color-mix(in srgb, #f59e0b 18%, var(--panel)); border: 1px solid #e0a23a; }
+.spot-me.occ { background: color-mix(in srgb, #ef4444 14%, var(--panel)); border: 1px solid #ef4444; }
+.spot-me.ok { background: color-mix(in srgb, #22c55e 14%, var(--panel)); border: 1px solid #22c55e; }
+.spot-map .swc polygon { fill: #ffffffdd; stroke: #ef4444; stroke-width: 3; }
+.spot-map .swc text { fill: #b91c1c; }
+.spot-map .swl { stroke: #ef4444; stroke-width: 2; stroke-dasharray: 5 4; }
+.spot-map .svo { fill: none; stroke: #ef4444; stroke-width: 3.5; }

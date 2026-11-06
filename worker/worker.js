@@ -773,7 +773,12 @@ async function hiveRoute(env) {
     const c = ms.filter((m) => { const k = norm(m.name); return k && (k.includes(q) || q.includes(k)); }); return c.length === 1 ? c[0] : null; };
   let bt = {}; try { const stub = env.TIMERS ? env.TIMERS.get(env.TIMERS.idFromName("all")) : null; if (stub) bt = (await stub.kvGet("rk:bt")) || {}; } catch (e) {}
   const spots = P.c.map(([n, x, y]) => { const m = n ? find(n) : null; return [m ? m.name : String(n || ""), +x, +y, m ? String(bt[String(m.id)] || "") : ""]; });
-  const body = { ok: true, at: mv.at || P.at || null, spots, traps: (P.bt || []).map(([x, y]) => [+x, +y]), hq: (P.hq || []).map(([x, y]) => [+x, +y]), banners: (P.b || []).map(([x, y]) => [+x, +y]) };
+  /* ⚠️ wrong-spot warnings (Sherry 2026-11-06): castles of roster members inside the plan's area (± 12 tiles), so the page can show who
+     is not on their spot and who sits on someone else's. Positions are what the game already shows on the map; nothing else is sent. */
+  const xs = P.c.map((r) => +r[1]), ys = P.c.map((r) => +r[2]), M = 12;
+  const box = xs.length ? [Math.min(...xs) - M, Math.max(...xs) + M, Math.min(...ys) - M, Math.max(...ys) + M] : null;
+  const cities = box ? ms.filter((m) => m.x != null && m.y != null && +m.x >= box[0] && +m.x <= box[1] && +m.y >= box[2] && +m.y <= box[3]).map((m) => [m.name, +m.x, +m.y]) : [];
+  const body = { ok: true, at: mv.at || P.at || null, posAt: (roster && (roster.at || roster.made)) || null, cities, spots, traps: (P.bt || []).map(([x, y]) => [+x, +y]), hq: (P.hq || []).map(([x, y]) => [+x, +y]), banners: (P.b || []).map(([x, y]) => [+x, +y]) };
   hiveCache = { at: Date.now(), body };
   return json(body);
 }
