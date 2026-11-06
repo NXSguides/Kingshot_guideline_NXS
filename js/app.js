@@ -281,13 +281,13 @@ const BEAR_SCHED = { anchor: Date.UTC(2026, 9, 7), periodDays: 2, activeDays: 1 
 /* one-off events that only have an announcement (no guide): shown on the Today card, tap → that announcement.
    match = text in the announcement's English title; start = first day (UTC); days = how long */
 const ANN_EVENTS = [
-  { match: "Finder", emoji: "🔍", start: "2026-10-11", days: 3 },
 ];
 /* events with no guide and no announcement, straight from the in-game calendar: shown on the Today card and the month
    calendar with their official name (data/event-names.js) and times. h = [from, to] UTC hours. */
 const NOTE_EVENTS = [
   // Castle Battle is every other Saturday, 5 h; on KvK weeks it's the cross-kingdom one (KvK's day 6: 10/10, 11/7 …), so ours comes every 28 days
   { name: "Castle Battle", emoji: "🏰", start: "2026-10-24", every: 28, days: 1, h: [12, 17] },   // in-game calendar: 10/24 12:00 – 17:00 UTC
+  { name: "Finder's Fortune", emoji: "🔍", start: "2026-10-11", every: 28, days: 3 },   // 尋物奇緣: 10/11–10/13, 11/08–11/10 → every 28 days, 3 days (Sherry 2026-11-06)
 ];
 const noteName = (ev) => (typeof EVENT_NAMES !== "undefined" && EVENT_NAMES[ev.name] && (EVENT_NAMES[ev.name][currentLang] || EVENT_NAMES[ev.name].en)) || ev.name;
 /* our alliance's fixed times (UTC hours) — set as close to Bear Hunt as possible */
