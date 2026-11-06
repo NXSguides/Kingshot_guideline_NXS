@@ -33,7 +33,7 @@ const FEATURES = [
   ["Site: 📍 Where's my spot? (public hive map)", /📍 Where's my spot\?: its own page/, /📍 Where's my spot\?: type your name/],
   ["Site: 📅 This week short lines + 📝 to-do days", /📅 This week card on the home page \(short version/, /📝 = something to do today/],
   ["Site: 📍 wrong-spot lists (🤗 / 🙃 / 🫥)", /wrong-spot lists/, /🤗 sitting on someone's spot/],
-  ["Site: 🤝 NAP rules page + home card", /🤝 NAP rules: their own page/, /🤝 NAP 6: the alliances we never attack/],
+  ["Site: 🤝 NAP rules page", /🤝 NAP rules: their own page/, /🤝 NAP Rules has its own button here/],
   ["Site: ⏸ Stay here on announcements", /⏸ Stay here \(next to the date\) stops that/, /⏸ Stay here \(next to the date\) stops it switching/],
   ["Ranking: ④ battle table in every language in announcements", /④ Battle table in every language/, /shows in each reader's language \(all 12/],
   ["Site: 🙋 Who are you? in a battle table", /🙋 Who are you\?/, /🙋 pick your name and only your part stays/],

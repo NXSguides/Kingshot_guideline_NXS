@@ -458,51 +458,39 @@ const GUIDES = {
     },
     sections: {
       en: { title: "Recent Events", blocks: [
-        { type: "napHome", text: "🤝 NAP 6 — no attacking or scouting these alliances (and their farm/academy alliances)", more: "Read the NAP rules ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       zh: { title: "近期活動", blocks: [
-        { type: "napHome", text: "🤝 NAP 6：不可攻擊或偵察這些聯盟（包含他們的農場／學院聯盟）", more: "看 NAP 規則 ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       ko: { title: "최근 이벤트", blocks: [
-        { type: "napHome", text: "🤝 NAP 6 — 이 연맹들(농장/아카데미 연맹 포함)은 공격·정찰 금지", more: "NAP 규칙 보기 ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       de: { title: "Aktuelle Events", blocks: [
-        { type: "napHome", text: "🤝 NAP 6 — diese Allianzen (auch ihre Farm-/Akademie-Allianzen) nicht angreifen oder ausspähen", more: "NAP-Regeln lesen ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       fr: { title: "Événements récents", blocks: [
-        { type: "napHome", text: "🤝 NAP 6 — interdit d'attaquer ou d'espionner ces alliances (et leurs alliances ferme/académie)", more: "Lire les règles du NAP ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       pt: { title: "Eventos Recentes", blocks: [
-        { type: "napHome", text: "🤝 NAP 6 — proibido atacar ou espionar estas alianças (e suas alianças fazenda/academia)", more: "Ler as regras do NAP ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       es: { title: "Eventos Recientes", blocks: [
-        { type: "napHome", text: "🤝 NAP 6 — prohibido atacar o espiar estas alianzas (y sus alianzas granja/academia)", more: "Leer las reglas del NAP ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       tr: { title: "Son Etkinlikler", blocks: [
-        { type: "napHome", text: "🤝 NAP 6 — bu ittifaklara (çiftlik/akademi ittifakları dahil) saldırmak veya gözetlemek yasak", more: "NAP kurallarını oku ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       id: { title: "Acara Terbaru", blocks: [
-        { type: "napHome", text: "🤝 NAP 6 — dilarang menyerang atau mengintai aliansi ini (termasuk aliansi farm/akademi mereka)", more: "Baca aturan NAP ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       ru: { title: "Последние события", blocks: [
-        { type: "napHome", text: "🤝 NAP 6 — нельзя атаковать и разведывать эти альянсы (и их альянсы-фермы/академии)", more: "Правила NAP ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       th: { title: "กิจกรรมล่าสุด", blocks: [
-        { type: "napHome", text: "🤝 NAP 6 — ห้ามโจมตีหรือสอดแนมพันธมิตรเหล่านี้ (รวมพันธมิตรฟาร์ม/อาคาเดมีของพวกเขา)", more: "อ่านกฎ NAP ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]},
       ar: { title: "أحدث الفعاليات", blocks: [
-        { type: "napHome", text: "🤝 NAP 6 — ممنوع مهاجمة هذه التحالفات أو التجسس عليها (وتحالفات المزارع/الأكاديمية التابعة لها)", more: "اقرأ قواعد NAP ›", tags: ["NXS/nxs/nXs","NBD/nBd/Nbd","RED/ReD","ESA/EsA/UNI","IDN","KGb"] },
         { type: "announcements" }
       ]}
     }
