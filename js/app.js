@@ -1273,7 +1273,6 @@ const SPOT_TXT = {
   occTop: { en:"{a}, you're on {b}'s spot — you'll keep them from coming home 😡😡", zh:"{a}，你佔到 {b} 的位置了，你會害人家回不了家😡😡", ko:"{a} 님, {b} 님 자리를 차지했어요 — 그분이 집에 못 와요 😡😡", de:"{a}, du stehst auf dem Platz von {b} — so kommt {b} nicht nach Hause 😡😡", fr:"{a}, tu es sur la place de {b} — {b} ne pourra pas rentrer 😡😡", pt:"{a}, você está no lugar de {b} — assim {b} não consegue voltar pra casa 😡😡", es:"{a}, estás en el lugar de {b} — así {b} no podrá volver a casa 😡😡", tr:"{a}, {b} adlı oyuncunun yerindesin — evine dönemeyecek 😡😡", id:"{a}, kamu menempati tempat {b} — dia jadi nggak bisa pulang 😡😡", ru:"{a}, ты занял место {b} — он не сможет вернуться домой 😡😡", th:"{a} นั่งทับที่ของ {b} — เขาจะกลับบ้านไม่ได้ 😡😡", ar:"{a}، أنت في مكان {b} — لن يستطيع العودة إلى بيته 😡😡" },
   wanderH: { en:"🧭 Still wandering outside ({n})", zh:"🧭 這些人還在外面流浪（{n}）", ko:"🧭 아직 밖에서 떠돌고 있어요 ({n})", de:"🧭 Irren noch draußen herum ({n})", fr:"🧭 Errent encore dehors ({n})", pt:"🧭 Ainda vagando por aí ({n})", es:"🧭 Todavía vagando por fuera ({n})", tr:"🧭 Hâlâ dışarıda dolaşanlar ({n})", id:"🧭 Masih berkeliaran di luar ({n})", ru:"🧭 Ещё бродят снаружи ({n})", th:"🧭 ยังเร่ร่อนอยู่ข้างนอก ({n})", ar:"🧭 ما زالوا يتجولون بالخارج ({n})" },
   wander: { en:"{a} — your spot is X:{sx} Y:{sy}", zh:"{a}——你的位置在 X:{sx} Y:{sy}", ko:"{a} — 자리는 X:{sx} Y:{sy}", de:"{a} — dein Platz ist X:{sx} Y:{sy}", fr:"{a} — ta place est X:{sx} Y:{sy}", pt:"{a} — seu lugar é X:{sx} Y:{sy}", es:"{a} — tu lugar es X:{sx} Y:{sy}", tr:"{a} — yerin X:{sx} Y:{sy}", id:"{a} — tempatmu X:{sx} Y:{sy}", ru:"{a} — твоё место X:{sx} Y:{sy}", th:"{a} — ที่ของคุณคือ X:{sx} Y:{sy}", ar:"{a} — مكانك X:{sx} Y:{sy}" },
-  wanderNo: { en:"{a} — no spot yet, ask an officer", zh:"{a}——還沒分到位置，請問幹部", ko:"{a} — 아직 자리가 없어요, 간부에게 물어보세요", de:"{a} — noch kein Platz, frag einen Offizier", fr:"{a} — pas encore de place, demande à un officier", pt:"{a} — ainda sem lugar, fale com um oficial", es:"{a} — todavía sin lugar, pregunta a un oficial", tr:"{a} — henüz yeri yok, bir subaya sor", id:"{a} — belum punya tempat, tanya pengurus", ru:"{a} — места пока нет, спроси офицера", th:"{a} — ยังไม่มีที่ ถามเจ้าหน้าที่", ar:"{a} — ليس له مكان بعد، اسأل أحد الضباط" },
   meWander: { en:"🧭 You're still wandering outside! Your spot is X:{sx} Y:{sy}.", zh:"🧭 你還在外面流浪！你的位置在 X:{sx} Y:{sy}。", ko:"🧭 아직 밖에서 떠돌고 있어요! 자리는 X:{sx} Y:{sy}예요.", de:"🧭 Du irrst noch draußen herum! Dein Platz ist X:{sx} Y:{sy}.", fr:"🧭 Tu erres encore dehors ! Ta place est X:{sx} Y:{sy}.", pt:"🧭 Você ainda está vagando por aí! Seu lugar é X:{sx} Y:{sy}.", es:"🧭 ¡Todavía andas vagando por fuera! Tu lugar es X:{sx} Y:{sy}.", tr:"🧭 Hâlâ dışarıda dolaşıyorsun! Yerin X:{sx} Y:{sy}.", id:"🧭 Kamu masih berkeliaran di luar! Tempatmu X:{sx} Y:{sy}.", ru:"🧭 Ты ещё бродишь снаружи! Твоё место X:{sx} Y:{sy}.", th:"🧭 คุณยังเร่ร่อนอยู่ข้างนอก! ที่ของคุณคือ X:{sx} Y:{sy}", ar:"🧭 ما زلت تتجول بالخارج! مكانك X:{sx} Y:{sy}." },
   meOcc: { en:"You're on {b}'s spot — you'll keep them from coming home 😡😡 Your spot is X:{sx} Y:{sy}.", zh:"你佔到 {b} 的位置了，你會害人家回不了家😡😡 你的位置在 X:{sx} Y:{sy}。", ko:"{b} 님 자리를 차지했어요 — 그분이 집에 못 와요 😡😡 내 자리는 X:{sx} Y:{sy}예요.", de:"Du stehst auf dem Platz von {b} — so kommt {b} nicht nach Hause 😡😡 Dein Platz ist X:{sx} Y:{sy}.", fr:"Tu es sur la place de {b} — {b} ne pourra pas rentrer 😡😡 Ta place est X:{sx} Y:{sy}.", pt:"Você está no lugar de {b} — assim {b} não consegue voltar pra casa 😡😡 Seu lugar é X:{sx} Y:{sy}.", es:"Estás en el lugar de {b} — así {b} no podrá volver a casa 😡😡 Tu lugar es X:{sx} Y:{sy}.", tr:"{b} adlı oyuncunun yerindesin — evine dönemeyecek 😡😡 Senin yerin X:{sx} Y:{sy}.", id:"Kamu menempati tempat {b} — dia jadi nggak bisa pulang 😡😡 Tempatmu X:{sx} Y:{sy}.", ru:"Ты занял место {b} — он не сможет вернуться домой 😡😡 Твоё место X:{sx} Y:{sy}.", th:"คุณนั่งทับที่ของ {b} — เขาจะกลับบ้านไม่ได้ 😡😡 ที่ของคุณคือ X:{sx} Y:{sy}", ar:"أنت في مكان {b} — لن يستطيع العودة إلى بيته 😡😡 مكانك X:{sx} Y:{sy}." },
   tiltH: { en:"😵 A bit crooked ({n})", zh:"😵 你歪歪喔（{n}）", ko:"😵 살짝 삐뚤어요 ({n})", de:"😵 Ein bisschen schief ({n})", fr:"😵 Un peu de travers ({n})", pt:"😵 Tá meio torto ({n})", es:"😵 Un poco torcido ({n})", tr:"😵 Biraz kaymış ({n})", id:"😵 Agak miring ({n})", ru:"😵 Немного криво ({n})", th:"😵 เบี้ยวนิดนึงนะ ({n})", ar:"😵 مائل قليلًا ({n})" },
@@ -1286,7 +1285,7 @@ const SPOT_TXT = {
 };
 let SPOT = null, spotSel = -1;
 /* ⚠️ who is not on their spot (Sherry 2026-11-06). A castle is 2×2; it "sits on" a spot when the two squares overlap.
-   The Worker sends everyone who has a spot (anywhere) + anyone inside the area: not exactly on your spot = still wandering. */
+   The Worker sends everyone who has a spot (anywhere): not exactly on your spot = still wandering. Members without a spot are left out on purpose. */
 function spotWarn() {
   if (!SPOT || !Array.isArray(SPOT.cities)) return [];
   const real = (n) => n && !/^nxs$/i.test(n), mine = new Map();
@@ -1294,7 +1293,7 @@ function spotWarn() {
   const out = [];
   for (const [n, x, y] of SPOT.cities) {
     const me = mine.get(spotNorm(n));
-    if (me && me.x === x && me.y === y) continue;
+    if (!me || (me.x === x && me.y === y)) continue;   // no spot on the plan = left out on purpose (Sherry 2026-11-06)
     const on = SPOT.spots.find(([m, sx, sy]) => real(m) && spotNorm(m) !== spotNorm(n) && Math.abs(sx - x) < 2 && Math.abs(sy - y) < 2);
     const tilt = !on && me && Math.abs(me.x - x) < 2 && Math.abs(me.y - y) < 2;   // overlaps their own spot a little, nobody else's
     out.push({ n, x, y, sx: me ? me.x : null, sy: me ? me.y : null, si: me ? me.i : -1, victim: on ? on[0] : "", tilt });
@@ -1310,7 +1309,7 @@ function spotWarnHtml() {
     + (tilt.length ? `<details class="spot-warn tilt"><summary>${escapeHtml(t(SPOT_TXT.tiltH).replace("{n}", tilt.length))}</summary>
     <ul>${tilt.map((w) => `<li dir="auto">${escapeHtml(spotFill("tilt", w))}</li>`).join("")}</ul></details>` : "")
     + (wan.length ? `<details class="spot-warn"><summary>${escapeHtml(t(SPOT_TXT.wanderH).replace("{n}", wan.length))}</summary>
-    <ul>${wan.map((w) => `<li dir="auto">${escapeHtml(spotFill(w.si < 0 ? "wanderNo" : "wander", w))}</li>`).join("")}</ul></details>` : "")
+    <ul>${wan.map((w) => `<li dir="auto">${escapeHtml(spotFill("wander", w))}</li>`).join("")}</ul></details>` : "")
     + `<div class="spot-foot">${escapeHtml(t(SPOT_TXT.posNote).replace("{d}", when))}</div>`;
 }
 /* 🔍 zoom: － / ＋, Ctrl / ⌘ + wheel, two-finger pinch — stays centred */
