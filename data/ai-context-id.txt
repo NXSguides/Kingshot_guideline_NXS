@@ -1441,6 +1441,7 @@ Swordland Summit League = Liga Puncak Swordland
 Calendar = Kalender
 Hero Roulette = Rolet Hero
 Lucky Chip = Chip Keberuntungan
+Officer Project = Proyek Petugas
 Battlefield = medan perang
 Tier C = Tingkat: C
 Legion 1 / 2 = Legiun 1 / Legiun 2

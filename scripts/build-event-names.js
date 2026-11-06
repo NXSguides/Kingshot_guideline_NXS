@@ -2,7 +2,7 @@
 const fs = require("fs"), path = require("path");
 const T = fs.readFileSync(path.join(__dirname, "../data/terms.js"), "utf8");
 const L = ["en", "zh", "ko", "de", "fr", "pt", "tr", "id", "ru", "th", "ar", "es"];
-const WANT = ["Bear Hunt", "Alliance Championship", "Alliance Mobilization", "Mystic Trial", "Swordland Showdown", "Tri-Alliance Clash", "All Out", "Fishing Tournament", "Cesares Fury", "Sanctuary Battle", "Alliance Brawl", "Merchant Empire", "Call of the Sovereign", "Strongest Governor", "Castle Battle", "Hall of Heroes", "Hero Rally", "Arena of Glory", "Champagne Fair", "Finder's Fortune", "Golden Glaives", "Kingdom Transfer"];
+const WANT = ["Bear Hunt", "Alliance Championship", "Alliance Mobilization", "Mystic Trial", "Swordland Showdown", "Tri-Alliance Clash", "All Out", "Fishing Tournament", "Cesares Fury", "Sanctuary Battle", "Alliance Brawl", "Merchant Empire", "Call of the Sovereign", "Strongest Governor", "Castle Battle", "Hall of Heroes", "Hero Rally", "Arena of Glory", "Champagne Fair", "Finder's Fortune", "Golden Glaives", "Kingdom Transfer", "Armament Competition"];
 const out = {};
 for (const w of WANT) {
   const m = T.match(new RegExp("\\n   (\\[" + JSON.stringify(w) + ", .*?\\]),?\\n")); if (!m) { console.warn("not in terms.js:", w); continue; }

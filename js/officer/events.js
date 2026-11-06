@@ -371,6 +371,10 @@ const EVENTS = {
   "call-of-sovereign":  { emoji: "📯", en: "Call of the Sovereign", zh: "崛起的號角", noGuide: true, start: "2026-10-13", every: 28, days: 3,
     note: "Max rewards: 90 Gold Keys (30/day) + 30 Platinum Keys (10/day) over the 3 days · resets 00:00 UTC", noteZh: "拿滿獎勵：3 天共 90 把黃金鑰匙（每天 30）＋ 30 把白銀鑰匙（每天 10）· UTC 00:00 重置" },
 };
+// from the in-game calendar 2026-11-06 (Sherry: "put it on every calendar"); one-off until the next date is known → then set "every"
+EVENTS["kingdom-transfer"] = { emoji: "🧳", en: "Kingdom Transfer", zh: "王國移民", noGuide: true, start: "2026-11-08", every: 100000, days: 7,
+  note: "Phase I Pre-Transfer → II Invitational Transfer → III Transfer Opens · Leading Kingdoms take up to 30, Ordinary Kingdoms up to 55", noteZh: "移民前奏 → 移民邀請 → 自由移民 · 強盛王國最多收 30 人、普通王國最多 55 人" };
+EVENTS["armament-competition"] = { emoji: "⚒️", en: "Armament Competition", zh: "軍備競演", noGuide: true, start: "2026-11-09", every: 100000, days: 2 };
 const SWORDLAND_TODO = [
   { due: 0, post: 1, en: "Voting phase: set up an alliance poll to confirm 100% attendance for the fixed time windows.",
             zh: "投票階段：發聯盟投票，確認誰在固定的時段 100% 能參加。" },
