@@ -1,30 +1,30 @@
 /* NXS officer page — 🪓 Viking report (registers OFFICER_PAGES.vv; own tab, nobody by default, admins always).
    Sherry, 2026-11-04: our own research on how Viking Vengeance hands out kills and points — NOT game rules. Worked out from
    Sherry's screenshots and battle-report sums (difficulty 11, waves 1–20 on 2026-11-03; Project docs claude/vv-logic-spec.md
-   and claude/kingshot-battle-rules.md B27–B29). It will keep changing as we test more. Told as pictures first, numbers folded away.
+   and claude/kingshot-battle-rules.md B27–B29; 11/06 update: ~60 more reports, claude/vv-2026-11-06.md). It will keep changing as we test more. Told as pictures first, numbers folded away.
    Read-only text + a small calculator, no member data. */
 (function () {
 const $ = (id) => document.getElementById(id);
 const esc = OFFICER.util.esc;
-const UPDATED = "2026-11-04";
-const P = { T8: 38, T9: 50, T10: 66, TG1: 71, TG2: 76, TG3: 83 };          // one troop's strength, X series (kills split by this)
+const UPDATED = "2026-11-06";
+const P = { VI: 20, VII: 27, T8: 38, T9: 50, "IX TG1": 54, T10: 66, TG1: 71, TG2: 76, TG3: 83 };          // one troop's strength, X series (kills split by this)
 const ELITE = [7, 14, 17];
 const CITY_WAVES = Array.from({ length: 19 }, (_, i) => i + 1).filter((w) => w !== 10);   // waves 10 and 20 only hit the HQ, not the cities (Sherry 2026-11-04)
 const hostPts = (w) => (ELITE.includes(w) ? 2 : 1) * (2700 + 1800 * w);
 const T = {
   en: { title: "🪓 Viking report", intro: "Our research on how Viking Vengeance splits kills and points. Not official rules — it changes as we test more.",
-    badge: "🔬 Research report · from our battle reports · difficulty 11 · updated {d}",
+    badge: "🔬 Research report · from our battle reports (11/03, 11/06) · updated {d}",
     heroH: "Every wave has a fixed number of Vikings.", heroP: "If the city holds, they all die. So the question isn't how hard you hit — it's how much of the city's infantry is yours.",
     whoH: "⚔️ Who does the fighting",
     inf: "Infantry", infS: "Fights first and usually finishes the whole wave.",
-    cav: "Cavalry", cavS: "💤 Only joins when Ambusher triggers (🎲 20%). Otherwise 0 kills.",
-    arc: "Archers", arcS: "☕ Only fight if infantry and cavalry can't clear the wave. In a well-reinforced city: always 0.",
-    heroNote: "🦸 Hero skills also kill some Vikings. The less infantry in the city, the bigger their share.",
+    cav: "Cavalry", cavS: "💤 Only gets kills when Ambusher triggers — then all, part or none of the Viking cavalry. No Ambusher → 0.",
+    arc: "Archers", arcS: "☕ Reinforcing archers: always 0. The owner's own archers sometimes get a little.",
+    heroNote: "🦸 Hero skill kills (Marlin's stone, Petra's cut…) aren't kept by the hero's owner — they go into the total and are shared by troops × tier like everything else. Tip: in the battle report's skill page, the Ambusher line only shows up when it triggered.",
     cakeH: "🍰 How the points are split", cakeP: "Each city gives out two fixed piles of points per wave. Kills only decide how the reinforcers' pile is cut.",
     wave: "Wave", elite: "Elite wave ×2",
-    host: "🏠 City owner", hostS: "Fixed. Same score whether their own troops kill or not.",
+    host: "🏠 City owner", hostS: "Fixed when the wave is cleared — same score whether their own troops kill or not.",
     pool: "🤝 Reinforcers share", poolS: "Half of the owner's points, cut by each reinforcer's infantry × tier.",
-    waste: "Kills by the owner's own troops → that part of the pile goes to nobody.", empty: "No reinforcer in a city → nobody gets that pile.",
+    waste: "Kills by the owner's own troops → that part of the pile goes to nobody.", empty: "No reinforcer in a city → nobody gets that pile.", short: "Not enough infantry → the wave can end with Vikings still alive. It still says Victory, but the points shrink to the share killed (kill 65% → 65% of the points).",
     calcH: "🧮 Try it: your slice", my: "My infantry", myT: "my tier", oth: "Other reinforcers' infantry", othT: "their tier",
     you: "You", others: "Others", res: "≈ {p} points this wave ({s} of the pile)",
     calcNote: "Estimate: assumes infantry clears the wave and the owner's troops kill nothing (the usual case).",
@@ -35,29 +35,35 @@ const T = {
       "City owners: keep only archers at home. Send infantry and cavalry out.",
       "Every city needs at least one reinforcer.",
       "Spread the same infantry over several cities instead of stacking one (except a city that might fall).",
-      "Can't send everything? Send infantry first and leave cavalry at home — infantry left at home eats points every wave."],
+      "Can't send everything? Send infantry first and leave cavalry at home — infantry left at home eats points every wave.",
+      "A city short on infantry (it might not clear the wave): send infantry there first so it clears and gets full points. In such a city the owner's Attack / Lethality buffs do help."],
     noH: "🤷 Doesn't change your points",
-    nos: ["Attack / Lethality buffs: the Vikings die anyway, everyone gets stronger together, the split stays the same.",
-      "The hero you send as a reinforcer: on HQ wave 20 every TG3 infantry got exactly 1.1842 kills, whatever the hero.",
-      "Gambling on cavalry: a big score when Ambusher hits, 0 when it doesn't."],
-    hqH: "🏯 Headquarters", hqP: "Waves 10 and 20 only attack the Headquarters, not the cities. Same idea: kills are split by infantry × tier. Points = kills × a fixed rate (wave 20: 0.5253 per kill).",
+    nos: ["Attack / Lethality / Defense buffs and pet debuffs, in a city that clears the wave: tested on 11/06 — turned on from wave 16, everyone's share stayed exactly the same.",
+      "Which hero you send, how many heroes, or being the garrison captain: your share doesn't change (11/06 waves 13 and 20).",
+      "Gambling on cavalry: on 11/06, for the same power, cavalry earned only about ¼ of what infantry did."],
+    hqH: "🏯 Headquarters", hqP: "Waves 10 and 20 only attack the Headquarters, not the cities. Same idea: kills are split by infantry × tier. Points = kills × a fixed rate (wave 20: 0.5253 per kill). 11/06 wave 20: each X TG3 infantry killed about 0.83; Ambusher triggered, so each TG3 cavalry about 0.96.",
     unkH: "🟡 Not known yet",
-    unks: ["How points are split when a city falls.", "Which skill hero is best for the garrison.", "Whether reinforcers' joiner skills work in a garrison."],
+    unks: ["How points are split when a city falls.", "Why a lone account holding its own city gets only ⅔ of the owner points.", "How much infantry a city needs to be sure to clear the wave.", "Which skill hero is best for the garrison.", "What decides how much cavalry gets after Ambusher triggers.", "When the owner's own archers get kills."],
     numH: "🔢 Numbers for those who want them", numCols: ["Wave", "City owner", "Reinforcers' pile"],
-    foot: "Source: Sparrow's screenshots and battle-report sums, difficulty 11. The formulas are worked back from report numbers, not from the game. Re-check after a game update." },
+    perH: "Kills per 1,000 X TG3 infantry (11/06, average of the cities — one wave can differ 2× between cities; the less infantry in a city, the more each gets):", perCols: ["Wave", "Kills"],
+    formH: "🧩 The three layers (for those who want the details)",
+    forms: ["1 · Very exact: inside one troop type, your kills = that type's total × your (troops × one troop's strength) ÷ the city's. 11/06: ~60 reports, every person within 3 kills.",
+      "2 · Depends on the battle: infantry + cavalry + archer kills = share killed × number of Vikings. Enough infantry → wave cleared, cavalry only via Ambusher, archers 0. Little infantry → cavalry take part; very little → maybe not cleared. Needs a round-by-round simulation to predict.",
+      "3 · Points: owner = base points × share killed; reinforcers share half of the base, split by layer 1."],
+    foot: "Source: Sparrow's screenshots and battle-report sums (11/03 difficulty 11, 11/06 ~60 reports). The formulas are worked back from report numbers, not from the game. Re-check after a game update." },
   zh: { title: "🪓 維京研究", intro: "我們自己研究的維京人的掠奪：擊殺和分數怎麼分。不是官方規則，會隨著測試持續更新。",
-    badge: "🔬 研究報告 · 來自我們的戰報 · 難度 11 · 更新 {d}",
+    badge: "🔬 研究報告 · 來自我們的戰報（11/03、11/06）· 更新 {d}",
     heroH: "每一波的維京人數是固定的。", heroP: "守住了就全部死光。所以重點不是打得多猛，而是城裡的步兵有多少是你的。",
     whoH: "⚔️ 誰在打",
     inf: "步兵", infS: "第一個出手，通常整波就打完了。",
-    cav: "騎兵", cavS: "💤 只有「奇襲」觸發時才出手（🎲 20%），不然 0 擊殺。",
-    arc: "弓兵", arcS: "☕ 步兵和騎兵都清不完才輪到他。增援多的城永遠 0。",
-    heroNote: "🦸 英雄技能也會殺掉一部分。城裡步兵越少，技能佔的比例越大。",
+    cav: "騎兵", cavS: "💤 只有「奇襲」觸發時才有擊殺——觸發後可能拿到維京騎兵的全部、一部分或 0。沒觸發 → 0。",
+    arc: "弓兵", arcS: "☕ 增援的弓兵一律 0。城主自己留家的弓兵偶爾分到一點。",
+    heroNote: "🦸 英雄技能的擊殺（馬林的石頭、小佩拉的切牌…）不會只給帶那位英雄的人，而是併進總數，一樣照「兵數 × 兵等」分給大家。小知識：戰報技能頁裡，「奇襲」那一行只在觸發時才會出現。",
     cakeH: "🍰 分數怎麼分", cakeP: "每座城每一波發兩份固定的分數。擊殺只決定「增援者那一份」怎麼切。",
     wave: "第幾波", elite: "菁英波 ×2",
-    host: "🏠 城主", hostS: "固定。不管自己的兵有沒有擊殺，分數都一樣。",
+    host: "🏠 城主", hostS: "全滅時固定。不管自己的兵有沒有擊殺，分數都一樣。",
     pool: "🤝 增援者一起分", poolS: "城主分數的一半，照每個人的「步兵數 × 兵等」切。",
-    waste: "城主自己的兵殺到的那部分 → 沒人拿，浪費掉。", empty: "沒人增援的城 → 那一份整個沒人拿。",
+    waste: "城主自己的兵殺到的那部分 → 沒人拿，浪費掉。", empty: "沒人增援的城 → 那一份整個沒人拿。", short: "步兵不夠 → 可能打完還有維京活著。畫面一樣寫「勝利」，但分數照殺掉的比例扣（殺 65% → 只拿 65%）。",
     calcH: "🧮 算算看：你那一塊", my: "我的步兵", myT: "我的兵等", oth: "其他增援者的步兵", othT: "他們的兵等",
     you: "你", others: "其他人", res: "這一波約 {p} 分（那一份的 {s}）",
     calcNote: "估算：假設步兵清得完、城主自己的兵 0 擊殺（大多數情況）。",
@@ -68,23 +74,31 @@ const T = {
       "城主家裡只留弓兵，步兵、騎兵都派出去。",
       "每座城都要有人增援。",
       "同樣的步兵，分散到多座城比全部塞一座好（快守不住的城例外）。",
-      "派不完時先派步兵，騎兵留家——步兵留在家裡每一波都會吃掉分數。"],
+      "派不完時先派步兵，騎兵留家——步兵留在家裡每一波都會吃掉分數。",
+      "步兵不夠、可能殺不完的城：優先補步兵進去讓它全滅（城主才拿滿分）。這種城城主開攻擊／殺傷增益有用。"],
     noH: "🤷 不會改變你的分數",
-    nos: ["攻擊力／殺傷力增益：維京本來就會全滅，大家一起變強，比例不變。",
-      "增援時自己帶什麼英雄：總部第 20 波，每隻 TG3 步兵的擊殺都剛好 1.1842，跟英雄無關。",
-      "帶騎兵賭奇襲：中了分很多，沒中就 0，不穩定。"],
-    hqH: "🏯 總部", hqP: "第 10、20 波只打總部，不打城。一樣照「步兵數 × 兵等」分擊殺。分數 = 擊殺 × 固定係數（第 20 波每個擊殺 0.5253 分）。",
+    nos: ["攻擊／殺傷／防禦增益、寵物減益（會全滅的城）：11/06 實測——從第 16 波開始開，每個人的份額跟沒開時完全一樣。",
+      "帶什麼英雄、帶幾位、是不是駐守隊長：都不影響你分到多少（11/06 第 13、20 波）。",
+      "帶騎兵賭奇襲：11/06 這次，同樣的實力，騎兵平均只拿到步兵的約 1/4。"],
+    hqH: "🏯 總部", hqP: "第 10、20 波只打總部，不打城。一樣照「步兵數 × 兵等」分擊殺。分數 = 擊殺 × 固定係數（第 20 波每個擊殺 0.5253 分）。11/06 第 20 波：每隻 X TG3 步兵約殺 0.83 隻；那場奇襲有觸發，每隻 TG3 騎兵約 0.96 隻。",
     unkH: "🟡 還不知道的",
-    unks: ["城守不住時分數怎麼算。", "駐防的技能英雄要怎麼選。", "增援者的加入者技能在駐防有沒有效。"],
+    unks: ["城守不住時分數怎麼算。", "小帳自己守城（沒有增援）為什麼基本分只有城主分的 2/3。", "城裡要多少步兵才保證全滅。", "駐防的技能英雄要怎麼選。", "奇襲觸發後騎兵分到多少由什麼決定。", "城主自己的弓兵什麼時候有分。"],
     numH: "🔢 給想看數字的人", numCols: ["波", "城主", "增援者那一份"],
-    foot: "來源：Sparrow 的截圖和戰報加總，難度 11。公式是從戰報數字反推的，不是遊戲官方說明。遊戲改版後要重新確認。" },
+    perH: "每 1,000 隻 X TG3 步兵大概殺多少（11/06 各城平均；同一波不同城可差 2 倍，城裡步兵越少，每隻分越多）：", perCols: ["波", "擊殺"],
+    formH: "🧩 三層公式（給想看細節的人）",
+    forms: ["1 · 很準：同一兵種裡，你的擊殺 = 該兵種總擊殺 × 你的（兵數 × 單兵實力）÷ 全城的（兵數 × 單兵實力）。11/06 約 60 份戰報，每人誤差 3 隻以內。",
+      "2 · 看戰況：步＋騎＋弓總擊殺 = 殺掉的比例 × 維京人數。步兵夠 → 全滅、騎兵靠奇襲、弓兵 0；步兵偏少 → 騎兵分一部分；步兵很少 → 可能殺不完。要逐回合模擬才算得準。",
+      "3 · 分數：城主 = 基本分 × 殺掉的比例；增援者分基本分的一半，照第 1 層的擊殺比例分。"],
+    foot: "來源：Sparrow 的截圖和戰報加總（11/03 難度 11、11/06 約 60 份戰報）。公式是從戰報數字反推的，不是遊戲官方說明。遊戲改版後要重新確認。" },
 };
 let lang = OFFICER.lang || "en";
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
 const fmt = (n) => Math.round(n).toLocaleString("en-US");
+const PER1K = [[1, 4.5], [3, 11], [4, 19], [5, 29], [7, 52], [8, 56], [9, 71], ["10 🏯", 45]];   // kills per 1,000 X TG3 infantry, 11/06 average of the cities
 const S = { wave: 9, my: 60000, myT: "TG3", oth: 180000, othT: "TG1" };
 try { Object.assign(S, JSON.parse(localStorage.getItem("nxs-vv") || "{}")); } catch (e) {}
 if (!CITY_WAVES.includes(S.wave)) S.wave = 9;
+for (const k of ["myT", "othT"]) if (!(S[k] in P)) S[k] = k === "myT" ? "TG3" : "TG1";
 const keep = () => { try { localStorage.setItem("nxs-vv", JSON.stringify(S)); } catch (e) {} };
 
 function troop(img, name, line, cls) {
@@ -106,7 +120,7 @@ function cakeHtml() {
       <div class="vv-in"><label>${esc(t("oth"))}<input class="inp" id="vv_oth" type="number" min="0" step="1000" value="${S.oth}"></label><label>${esc(t("othT"))}${tierSel("vv_othT", S.othT)}</label></div>
       <div class="vv-res">${esc(t("res").replace("{p}", fmt(pool * share)).replace("{s}", (share * 100).toFixed(1) + "%"))}</div>
       <div class="muted vv-small">${esc(t("calcNote"))}</div></div>
-    <ul class="vv-warn"><li>🗑️ ${esc(t("waste"))}</li><li>🏚️ ${esc(t("empty"))}</li></ul>`;
+    <ul class="vv-warn"><li>🗑️ ${esc(t("waste"))}</li><li>🏚️ ${esc(t("empty"))}</li><li>⚠️ ${esc(t("short"))}</li></ul>`;
 }
 function render() {
   const root = $("vv_root"); if (!root) return;
@@ -122,14 +136,17 @@ function render() {
   <div class="card"><h3>${esc(t("tierH"))}</h3><p class="vv-p">${esc(t("tierP"))}</p>
     <div class="vv-tiers">${Object.entries(P).map(([k, v]) => `<div class="vv-tier"><span>${k}</span><div class="vv-tb"><i style="width:${(v / max * 100).toFixed(1)}%"></i></div><b>${v}</b></div>`).join("")}</div>
     <p class="vv-ex">${esc(t("tierEx"))}</p><div class="muted vv-small">${esc(t("tierIX"))}</div></div>
-  <div class="card"><h3>${esc(t("doH"))}</h3><ol class="vv-dos">${t("dos").map((d, i) => `<li><span class="vv-ic">${["<img src=\"figures/vv/inf.webp\" alt=\"\">", "<img src=\"figures/vv/arc.webp\" alt=\"\">", "🏰", "🗺️", "<img src=\"figures/vv/cav.webp\" alt=\"\">"][i]}</span><span>${esc(d)}</span></li>`).join("")}</ol></div>
+  <div class="card"><h3>${esc(t("doH"))}</h3><ol class="vv-dos">${t("dos").map((d, i) => `<li><span class="vv-ic">${["<img src=\"figures/vv/inf.webp\" alt=\"\">", "<img src=\"figures/vv/arc.webp\" alt=\"\">", "🏰", "🗺️", "<img src=\"figures/vv/cav.webp\" alt=\"\">", "⚠️"][i]}</span><span>${esc(d)}</span></li>`).join("")}</ol></div>
   <div class="vv-two">
     <div class="card"><h3>${esc(t("noH"))}</h3><ul class="vv-ul">${t("nos").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
     <div class="card"><h3>${esc(t("unkH"))}</h3><ul class="vv-ul">${t("unks").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
   </div>
   <div class="card"><h3>${esc(t("hqH"))}</h3><p class="vv-p">${esc(t("hqP"))}</p></div>
   <details class="card vv-num"><summary>${esc(t("numH"))}</summary>
-    <table class="vv-t"><tr>${t("numCols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${CITY_WAVES.map((w) => `<tr${ELITE.includes(w) ? ' class="el"' : ""}><td>${w}${ELITE.includes(w) ? " ×2" : ""}</td><td class="n">${fmt(hostPts(w))}</td><td class="n">${fmt(hostPts(w) / 2)}</td></tr>`).join("")}</table></details>
+    <table class="vv-t"><tr>${t("numCols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${CITY_WAVES.map((w) => `<tr${ELITE.includes(w) ? ' class="el"' : ""}><td>${w}${ELITE.includes(w) ? " ×2" : ""}</td><td class="n">${fmt(hostPts(w))}</td><td class="n">${fmt(hostPts(w) / 2)}</td></tr>`).join("")}</table>
+    <p class="vv-p" style="margin-top:12px">${esc(t("perH"))}</p>
+    <table class="vv-t"><tr>${t("perCols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${PER1K.map(([w, k]) => `<tr><td>${w}</td><td class="n">${k}</td></tr>`).join("")}</table></details>
+  <details class="card vv-num"><summary>${esc(t("formH"))}</summary><ul class="vv-ul">${t("forms").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></details>
   <div class="muted vv-small">${esc(t("foot"))}</div>`;
   bind();
 }
