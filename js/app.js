@@ -1283,7 +1283,7 @@ const SPOT_TXT = {
 };
 let SPOT = null, spotSel = -1;
 /* ⚠️ who is not on their spot (Sherry 2026-11-06). A castle is 2×2; it "sits on" a spot when the two squares overlap.
-   Only castles inside the plan's area come from the Worker, so members who haven't moved yet are left alone. */
+   The Worker sends everyone who has a spot (anywhere) + anyone inside the area: not exactly on your spot = still wandering. */
 function spotWarn() {
   if (!SPOT || !Array.isArray(SPOT.cities)) return [];
   const real = (n) => n && !/^nxs$/i.test(n), mine = new Map();
