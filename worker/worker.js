@@ -777,7 +777,9 @@ async function hiveRoute(env) {
      is not exactly on their spot (still wandering / a bit crooked) and who sits on someone else's. Members without a spot: left out on purpose. Positions are what the game already shows on the map; nothing else is sent. */
   /* everyone who has a spot, wherever they are (not exactly on it = still wandering) */
   const planned = new Set(spots.map((r) => r[0]).filter(Boolean));
-  const cities = ms.filter((m) => m.x != null && m.y != null && planned.has(m.name)).map((m) => [m.name, +m.x, +m.y]);   // members without a spot: left out on purpose
+  const xs = P.c.map((r) => +r[1]), ys = P.c.map((r) => +r[2]), M = 3;   // + members without a spot whose castle is right on the plan (to catch 🤗 someone sitting on a spot)
+  const box = xs.length ? [Math.min(...xs) - M, Math.max(...xs) + M, Math.min(...ys) - M, Math.max(...ys) + M] : null;
+  const cities = ms.filter((m) => m.x != null && m.y != null && (planned.has(m.name) || (box && +m.x >= box[0] && +m.x <= box[1] && +m.y >= box[2] && +m.y <= box[3]))).map((m) => [m.name, +m.x, +m.y]);
   const body = { ok: true, at: mv.at || P.at || null, posAt: (roster && (roster.at || roster.made)) || null, cities, spots, traps: (P.bt || []).map(([x, y]) => [+x, +y]), hq: (P.hq || []).map(([x, y]) => [+x, +y]), banners: (P.b || []).map(([x, y]) => [+x, +y]) };
   hiveCache = { at: Date.now(), body };
   return json(body);

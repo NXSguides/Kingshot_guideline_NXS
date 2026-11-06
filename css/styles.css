@@ -984,5 +984,8 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 .spot-map .swc text { fill: #b91c1c; }
 .spot-map .sp.taken polygon { opacity: .35; }
 .spot-occ { margin: 8px 0; border: 1px solid #ef4444; border-radius: 12px; padding: 8px 12px; background: color-mix(in srgb, #ef4444 12%, var(--panel)); font-weight: 700; font-size: 15px; }
-.spot-occ div + div { margin-top: 6px; }
+.spot-occ-h { margin-bottom: 4px; }
+.spot-occ-r { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin-top: 6px; font-weight: 600; }
+.spot-go { padding: 3px 10px; border-radius: 8px; border: 1px solid var(--accent); background: var(--panel); color: var(--text); font-size: 13px; cursor: pointer; }
+.spot-go-msg { flex-basis: 100%; font-size: 13.5px; color: #b45309; }
 .spot-map .swl { stroke: #ef4444; stroke-width: 2; stroke-dasharray: 5 4; }

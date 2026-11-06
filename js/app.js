@@ -1270,7 +1270,10 @@ const SPOT_TXT = {
   upd: { en:"Plan updated {d}", zh:"計畫更新於 {d}", ko:"계획 업데이트 {d}", de:"Plan aktualisiert {d}", fr:"Plan mis à jour {d}", pt:"Plano atualizado {d}", es:"Plan actualizado {d}", tr:"Plan güncellendi {d}", id:"Rencana diperbarui {d}", ru:"План обновлён {d}", th:"อัปเดตแผน {d}", ar:"حُدّثت الخطة {d}" },
   tap: { en:"Tip: tap any city on the map to see who is there.", zh:"小提示：點地圖上的城，就會看到那是誰。", ko:"팁: 지도의 도시를 누르면 누구 자리인지 보여요.", de:"Tipp: Tipp auf eine Stadt, um zu sehen, wer dort ist.", fr:"Astuce : touche une ville sur la carte pour voir qui est là.", pt:"Dica: toque numa cidade do mapa para ver quem está lá.", es:"Consejo: toca una ciudad del mapa para ver quién está ahí.", tr:"İpucu: kimin orada olduğunu görmek için haritadaki bir şehre dokun.", id:"Tips: ketuk kota di peta untuk melihat siapa di sana.", ru:"Совет: нажмите на город на карте, чтобы увидеть, чей он.", th:"เคล็ดลับ: แตะเมืองบนแผนที่เพื่อดูว่าเป็นของใคร", ar:"نصيحة: اضغط مدينة على الخريطة لترى من هناك." },
   closed: { en:"This page isn't open yet — the officers will open it when the new spots are ready.", zh:"這一頁還沒開放——新位置排好後，幹部就會打開。", ko:"이 페이지는 아직 열리지 않았어요 — 새 자리가 준비되면 간부들이 열어 줄 거예요.", de:"Diese Seite ist noch nicht offen — die Offiziere öffnen sie, wenn die neuen Plätze fertig sind.", fr:"Cette page n'est pas encore ouverte — les officiers l'ouvriront quand les nouvelles places seront prêtes.", pt:"Esta página ainda não está aberta — os oficiais vão abrir quando os novos lugares estiverem prontos.", es:"Esta página aún no está abierta — los oficiales la abrirán cuando los nuevos lugares estén listos.", tr:"Bu sayfa henüz açık değil — yeni yerler hazır olunca subaylar açacak.", id:"Halaman ini belum dibuka — officer akan membukanya saat tempat baru sudah siap.", ru:"Эта страница ещё не открыта — офицеры откроют её, когда новые места будут готовы.", th:"หน้านี้ยังไม่เปิด — เจ้าหน้าที่จะเปิดเมื่อจัดตำแหน่งใหม่เสร็จ", ar:"هذه الصفحة غير مفتوحة بعد — سيفتحها الضباط عندما تجهز الأماكن الجديدة." },
-  occTop: { en:"{a}, you're on {b}'s spot — you'll keep them from coming home 😡😡", zh:"{a}，你佔到 {b} 的位置了，你會害人家回不了家😡😡", ko:"{a} 님, {b} 님 자리를 차지했어요 — 그분이 집에 못 와요 😡😡", de:"{a}, du stehst auf dem Platz von {b} — so kommt {b} nicht nach Hause 😡😡", fr:"{a}, tu es sur la place de {b} — {b} ne pourra pas rentrer 😡😡", pt:"{a}, você está no lugar de {b} — assim {b} não consegue voltar pra casa 😡😡", es:"{a}, estás en el lugar de {b} — así {b} no podrá volver a casa 😡😡", tr:"{a}, {b} adlı oyuncunun yerindesin — evine dönemeyecek 😡😡", id:"{a}, kamu menempati tempat {b} — dia jadi nggak bisa pulang 😡😡", ru:"{a}, ты занял место {b} — он не сможет вернуться домой 😡😡", th:"{a} นั่งทับที่ของ {b} — เขาจะกลับบ้านไม่ได้ 😡😡", ar:"{a}، أنت في مكان {b} — لن يستطيع العودة إلى بيته 😡😡" },
+  naughtyH: { en:"🤗 Naughty ({n})", zh:"🤗 調皮（{n}）", ko:"🤗 장난꾸러기 ({n})", de:"🤗 Frechdachse ({n})", fr:"🤗 Coquins ({n})", pt:"🤗 Travessos ({n})", es:"🤗 Traviesos ({n})", tr:"🤗 Yaramazlar ({n})", id:"🤗 Usil ({n})", ru:"🤗 Шалуны ({n})", th:"🤗 ซนจัง ({n})", ar:"🤗 مشاغبون ({n})" },
+  naughty: { en:"{a}: that's {b}'s spot", zh:"{a}：那是 {b} 的位置", ko:"{a}: 거기는 {b} 님 자리예요", de:"{a}: das ist der Platz von {b}", fr:"{a} : c'est la place de {b}", pt:"{a}: esse é o lugar de {b}", es:"{a}: ese es el lugar de {b}", tr:"{a}: orası {b} adlı oyuncunun yeri", id:"{a}: itu tempat {b}", ru:"{a}: это место {b}", th:"{a}: นั่นที่ของ {b}", ar:"{a}: هذا مكان {b}" },
+  goBtn: { en:"📍 Their spot", zh:"📍 他的位置", ko:"📍 원래 자리", de:"📍 Sein Platz", fr:"📍 Sa place", pt:"📍 Lugar dele", es:"📍 Su lugar", tr:"📍 Kendi yeri", id:"📍 Tempatnya", ru:"📍 Его место", th:"📍 ที่ของเขา", ar:"📍 مكانه" },
+  noSpotMsg: { en:"No spot was assigned to you — please contact an R4.", zh:"你沒被安排到位置，請聯絡 R4。", ko:"배정된 자리가 없어요 — R4에게 연락하세요.", de:"Dir wurde kein Platz zugeteilt — bitte melde dich bei einem R4.", fr:"Aucune place ne t'a été attribuée — contacte un R4.", pt:"Você não recebeu um lugar — fale com um R4.", es:"No se te asignó un lugar — contacta a un R4.", tr:"Sana bir yer verilmedi — lütfen bir R4 ile iletişime geç.", id:"Kamu belum dapat tempat — hubungi R4 ya.", ru:"Тебе не назначено место — свяжись с R4.", th:"คุณยังไม่ได้รับที่ — ติดต่อ R4 นะ", ar:"لم يُخصص لك مكان — تواصل مع أحد R4." },
   wanderH: { en:"🧭 Still wandering outside ({n})", zh:"🧭 這些人還在外面流浪（{n}）", ko:"🧭 아직 밖에서 떠돌고 있어요 ({n})", de:"🧭 Irren noch draußen herum ({n})", fr:"🧭 Errent encore dehors ({n})", pt:"🧭 Ainda vagando por aí ({n})", es:"🧭 Todavía vagando por fuera ({n})", tr:"🧭 Hâlâ dışarıda dolaşanlar ({n})", id:"🧭 Masih berkeliaran di luar ({n})", ru:"🧭 Ещё бродят снаружи ({n})", th:"🧭 ยังเร่ร่อนอยู่ข้างนอก ({n})", ar:"🧭 ما زالوا يتجولون بالخارج ({n})" },
   wander: { en:"{a} — your spot is X:{sx} Y:{sy}", zh:"{a}——你的位置在 X:{sx} Y:{sy}", ko:"{a} — 자리는 X:{sx} Y:{sy}", de:"{a} — dein Platz ist X:{sx} Y:{sy}", fr:"{a} — ta place est X:{sx} Y:{sy}", pt:"{a} — seu lugar é X:{sx} Y:{sy}", es:"{a} — tu lugar es X:{sx} Y:{sy}", tr:"{a} — yerin X:{sx} Y:{sy}", id:"{a} — tempatmu X:{sx} Y:{sy}", ru:"{a} — твоё место X:{sx} Y:{sy}", th:"{a} — ที่ของคุณคือ X:{sx} Y:{sy}", ar:"{a} — مكانك X:{sx} Y:{sy}" },
   meWander: { en:"🧭 You're still wandering outside! Your spot is X:{sx} Y:{sy}.", zh:"🧭 你還在外面流浪！你的位置在 X:{sx} Y:{sy}。", ko:"🧭 아직 밖에서 떠돌고 있어요! 자리는 X:{sx} Y:{sy}예요.", de:"🧭 Du irrst noch draußen herum! Dein Platz ist X:{sx} Y:{sy}.", fr:"🧭 Tu erres encore dehors ! Ta place est X:{sx} Y:{sy}.", pt:"🧭 Você ainda está vagando por aí! Seu lugar é X:{sx} Y:{sy}.", es:"🧭 ¡Todavía andas vagando por fuera! Tu lugar es X:{sx} Y:{sy}.", tr:"🧭 Hâlâ dışarıda dolaşıyorsun! Yerin X:{sx} Y:{sy}.", id:"🧭 Kamu masih berkeliaran di luar! Tempatmu X:{sx} Y:{sy}.", ru:"🧭 Ты ещё бродишь снаружи! Твоё место X:{sx} Y:{sy}.", th:"🧭 คุณยังเร่ร่อนอยู่ข้างนอก! ที่ของคุณคือ X:{sx} Y:{sy}", ar:"🧭 ما زلت تتجول بالخارج! مكانك X:{sx} Y:{sy}." },
@@ -1285,7 +1288,7 @@ const SPOT_TXT = {
 };
 let SPOT = null, spotSel = -1;
 /* ⚠️ who is not on their spot (Sherry 2026-11-06). A castle is 2×2; it "sits on" a spot when the two squares overlap.
-   The Worker sends everyone who has a spot (anywhere): not exactly on your spot = still wandering. Members without a spot are left out on purpose. */
+   The Worker sends everyone who has a spot (anywhere): not exactly on your spot = still wandering. Members without a spot are left out on purpose, unless they sit on someone's spot (🤗). */
 function spotWarn() {
   if (!SPOT || !Array.isArray(SPOT.cities)) return [];
   const real = (n) => n && !/^nxs$/i.test(n), mine = new Map();
@@ -1293,8 +1296,9 @@ function spotWarn() {
   const out = [];
   for (const [n, x, y] of SPOT.cities) {
     const me = mine.get(spotNorm(n));
-    if (!me || (me.x === x && me.y === y)) continue;   // no spot on the plan = left out on purpose (Sherry 2026-11-06)
+    if (me && me.x === x && me.y === y) continue;
     const on = SPOT.spots.find(([m, sx, sy]) => real(m) && spotNorm(m) !== spotNorm(n) && Math.abs(sx - x) < 2 && Math.abs(sy - y) < 2);
+    if (!me && !on) continue;   // no spot on the plan = left out on purpose, unless they sit on someone's spot (Sherry 2026-11-06)
     const tilt = !on && me && Math.abs(me.x - x) < 2 && Math.abs(me.y - y) < 2;   // overlaps their own spot a little, nobody else's
     out.push({ n, x, y, sx: me ? me.x : null, sy: me ? me.y : null, si: me ? me.i : -1, victim: on ? on[0] : "", tilt });
   }
@@ -1305,7 +1309,7 @@ function spotWarnHtml() {
   const W = spotWarn(); if (!W.length) return "";
   const occ = W.filter((w) => w.victim), tilt = W.filter((w) => w.tilt), wan = W.filter((w) => !w.victim && !w.tilt);
   const when = SPOT.posAt ? t(SPOT_TXT.posAt).replace("{d}", new Date(SPOT.posAt).toLocaleString(HTML_LANG[currentLang] || "en", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" })) : "";
-  return (occ.length ? `<div class="spot-occ">${occ.map((w) => `<div dir="auto">${escapeHtml(spotFill("occTop", w))}</div>`).join("")}</div>` : "")
+  return (occ.length ? `<div class="spot-occ"><div class="spot-occ-h">${escapeHtml(t(SPOT_TXT.naughtyH).replace("{n}", occ.length))}</div>${occ.map((w) => `<div class="spot-occ-r"><span dir="auto">${escapeHtml(spotFill("naughty", w))}</span><button type="button" class="spot-go" data-go="${escapeHtml(w.n)}">${escapeHtml(t(SPOT_TXT.goBtn))}</button><div class="spot-go-msg" hidden></div></div>`).join("")}</div>` : "")
     + (tilt.length ? `<details class="spot-warn tilt"><summary>${escapeHtml(t(SPOT_TXT.tiltH).replace("{n}", tilt.length))}</summary>
     <ul>${tilt.map((w) => `<li dir="auto">${escapeHtml(spotFill("tilt", w))}</li>`).join("")}</ul></details>` : "")
     + (wan.length ? `<details class="spot-warn"><summary>${escapeHtml(t(SPOT_TXT.wanderH).replace("{n}", wan.length))}</summary>
@@ -1350,11 +1354,20 @@ async function spotInit(el) {
     <div class="spot-zoom"><button type="button" data-sz="-1" aria-label="zoom out">－</button><button type="button" data-sz="0" aria-label="reset zoom">${Math.round(spotZ * 100)}%</button><button type="button" data-sz="1" aria-label="zoom in">＋</button></div>
     <div class="spot-map" id="spotMap"></div>
     <div class="spot-foot">${escapeHtml(t(SPOT_TXT.tap))}${SPOT.at ? " · " + escapeHtml(t(SPOT_TXT.upd).replace("{d}", new Date(SPOT.at).toLocaleString(HTML_LANG[currentLang] || "en", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }))) : ""}</div>`;
-  spotDraw();
+  spotDraw(); spotGoBind(el);
   el.querySelectorAll("[data-sz]").forEach((x) => x.onclick = () => spotZoom(+x.dataset.sz === 0 ? 1 : spotZ * (+x.dataset.sz > 0 ? 1.25 : 0.8)));
   const qi = el.querySelector("#spotQ");
   qi.oninput = () => { try { localStorage.setItem("nxs-spot-name", qi.value); } catch (e) {} spotFind(qi.value, true); };
   if (q) spotFind(q, true); else spotCenter(null);
+}
+/* 📍 on a 🤗 row: show that member's own spot on the map; no spot → tell them to contact an R4 */
+function spotGoBind(el) {
+  el.querySelectorAll("[data-go]").forEach((b) => b.onclick = () => {
+    const n = spotNorm(b.dataset.go), i = SPOT.spots.findIndex(([m]) => spotNorm(m) === n), msg = b.parentElement.querySelector(".spot-go-msg");
+    if (i < 0) { if (msg) { msg.textContent = t(SPOT_TXT.noSpotMsg); msg.hidden = false; } return; }
+    spotSel = i; spotDraw(); spotCenter(SPOT.spots[i]);
+    const map = document.getElementById("spotMap"); if (map) map.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
 }
 function spotFind(q, scroll) {
   const res = document.getElementById("spotRes"); if (!res || !SPOT) return;
@@ -1403,7 +1416,7 @@ function spotDraw() {
   for (const w of spotWarn().filter((w) => w.victim)) {   /* 😡 castles sitting on someone's spot: red; a dashed line to their own spot */
     const [cx, cy] = c(w.x, w.y, 2);
     if (w.si >= 0) { const [tx, ty] = c(w.sx, w.sy, 2); o.push(`<line x1="${cx}" y1="${cy}" x2="${tx}" y2="${ty}" class="swl"/>`); }
-    o.push(`<g class="swc"><polygon points="${poly(w.x, w.y, 2)}"/><text x="${cx}" y="${cy}" class="sn">${escapeHtml(w.n.length > 11 ? w.n.slice(0, 10) + "…" : w.n)}</text><text x="${cx}" y="${cy + 12}" class="sc">${w.x},${w.y}</text><title>${escapeHtml(spotFill("occTop", w))}</title></g>`);
+    o.push(`<g class="swc"><polygon points="${poly(w.x, w.y, 2)}"/><text x="${cx}" y="${cy}" class="sn">${escapeHtml(w.n.length > 11 ? w.n.slice(0, 10) + "…" : w.n)}</text><text x="${cx}" y="${cy + 12}" class="sc">${w.x},${w.y}</text><title>${escapeHtml(spotFill("naughty", w))}</title></g>`);
   }
   box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${Math.round(W * spotZ)}">${o.join("")}</svg>`; box._w0 = W; spotZoomBind(box);
   box.querySelectorAll("g[data-si]").forEach((g) => g.onclick = () => { const r = SPOT.spots[+g.dataset.si]; if (r && r[0] && !/^nxs$/i.test(r[0])) spotPick(+g.dataset.si, false); else { spotSel = +g.dataset.si; spotDraw(); const res = document.getElementById("spotRes"); if (res && r) res.innerHTML = `<div class="spot-msg">${escapeHtml(t(SPOT_TXT.empty))} · X:${r[1]} Y:${r[2]}</div>`; } });
