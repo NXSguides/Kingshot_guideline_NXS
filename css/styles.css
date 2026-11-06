@@ -1001,7 +1001,8 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 .td-when { flex: 0 0 auto; min-width: 4.5em; font-size: .85em; opacity: .7; }
 .td-chips { flex: 1; line-height: 1.8; }
 
-/* 🏠 Home looks different from the guide tabs (Sherry 2026-11-06) */
-.guide-chip.guide-home { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 700; padding: 9px 12px; }
-.guide-chip.guide-home.active { box-shadow: none; }
-.guide-chip.guide-home:not(.active) { opacity: .85; }
+/* 🏠 Home looks different from the guide tabs (Sherry 2026-11-06): a round pill with a thin line after it;
+   it lights up like the other tabs only when you're on the home page */
+.guide-chip.guide-home { border-radius: 999px; padding: 9px 12px; position: relative; margin-inline-end: 10px; }
+.guide-chip.guide-home::after { content: ""; position: absolute; inset-inline-end: -9px; top: 6px; bottom: 6px; border-inline-end: 1px solid var(--rule); }
+.guide-chip.guide-home .emoji { font-size: 18px; }
