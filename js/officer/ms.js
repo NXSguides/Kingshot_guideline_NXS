@@ -6,27 +6,27 @@
 (function () {
 const $ = (id) => document.getElementById(id);
 const esc = OFFICER.util.esc;
-const UPDATED = "2026-11-04";
-// Relative weight per 1M power, same on every account (11/04 tests). Points = weight × power (M) × the account's own rate.
-const W = { charm: 1, pet: 1, tech: 1, gear: 1, fav: 0.5, adv: 0.3, star: 0.35, skill: 0, troops: 0 };
-const ROWS = [["charm", 1, "", "hi"], ["pet", 1, "", "hi"], ["tech", 1, "", "hi"], ["gear", 1, "", "hi"], ["fav", 0.5, "", "hi"], ["adv", 0.3, "≈ 0.3", "mid"], ["star", 0.35, "0.2–0.5", "mid"], ["skill", 0, "", "mid"], ["troops", 0, "", "hi"]];
+const UPDATED = "2026-11-06";
+// Relative weight per 1M power, same on every account (11/04 tests; 11/06: Governor Gear 1, exclusive gear / hero levels / buildings 0). Points = weight × power (M) × the account's own rate.
+const W = { charm: 1, lgear: 1, pet: 1, tech: 1, gear: 1, fav: 0.5, adv: 0.3, star: 0.35, excl: 0, skill: 0, lvl: 0, bld: 0, troops: 0 };
+const ROWS = [["charm", 1, "", "hi"], ["lgear", 1, "", "hi"], ["pet", 1, "", "hi"], ["tech", 1, "", "hi"], ["gear", 1, "", "hi"], ["fav", 0.5, "", "hi"], ["adv", 0.3, "≈ 0.3", "mid"], ["star", 0.35, "0.2–0.5", "mid"], ["excl", 0, "", "hi"], ["skill", 0, "", "hi"], ["lvl", 0, "", "hi"], ["bld", 0, "", "hi"], ["troops", 0, "", "hi"]];
 const RATES = [["big", 9110], ["small", 5935]];
 const sp = (m) => m / 317;
 const T = {
   en: { title: "🧳 Migrant Score", intro: "Our research on the hidden Migrant Score and what raises it. Still being tested — numbers will change.",
     badge: "🧪 Still testing · from our own before/after tests · updated {d}",
-    heroH: "A hidden score that counts what you've built for good.", heroP: "Governor Charms, pets, research and Hero Gear count fully. Master affinity counts half, hero stars a little. Troops don't count. It is almost exactly your Swordland Showdown troop power × 317.",
+    heroH: "A hidden score that counts what you've built for good.", heroP: "Governor Charms, Governor Gear, pets, research and Hero Gear count fully. Master affinity counts half, hero stars a little. Troops, buildings and exclusive gear don't count. It is almost exactly your Swordland Showdown troop power × 317.",
     whatH: "🔎 What it is",
     what: ["The game doesn't show it. MightPulse does (the kingdom list only shows the top 100).", "The top 100 of a kingdom added together decide whether the kingdom counts as leading or normal for migration (top 10% of each group = leading)."],
     eqA: "Migrant Score", eqB: "Swordland troop power", eqNote: "Checked on 98 players on 10/14 (average error 1.7%) and again on 11/03 — closer than total power + Mystic Trial.",
-    tblH: "📊 What raises it", tblP: "How much each kind of upgrade counts, for the same power gained (1 = full):", fH: "Migrant Score = Σ (power × weight) × your account's rate", fP: "Confirmed on 11/04: 11 single-item tests on two accounts (Charms ×4, pet level-up ×2, breakthrough ×3, refinement ×2) — every prediction within 5 points, even a +2.47M jump.",
-    items: { charm: "💎 Governor Charms", pet: "🐾 Pets (level-up, breakthrough, refinement)", tech: "🔬 Research", gear: "🛡️ Hero Gear (enhance)", fav: "🎓 Master affinity", adv: "🎓 Master advancement", star: "⭐ Hero stars (main heroes)", skill: "🎓 Master skills · stars of other heroes", troops: "⚔️ Training / losing troops" },
+    tblH: "📊 What raises it", tblP: "How much each kind of upgrade counts, for the same power gained (1 = full):", fH: "Migrant Score = Σ (power × weight) × your account's rate", fP: "Confirmed on 11/04: 11 single-item tests on two accounts (Charms ×4, pet level-up ×2, breakthrough ×3, refinement ×2) — every prediction within 5 points, even a +2.47M jump. 11/06: research +164,400 power → +1,498 (exact), Hero Gear mastery +40,800 → +243 (predicted +242), Governor Gear +408,000 → +3,716 (predicted +3,717); exclusive gear and buildings gave 0.",
+    items: { charm: "💎 Governor Charms", pet: "🐾 Pets (level-up, breakthrough, refinement)", tech: "🔬 Research", gear: "🛡️ Hero Gear (enhance, mastery)", lgear: "👑 Governor Gear (enhance)", fav: "🎓 Master affinity", adv: "🎓 Master advancement", star: "⭐ Hero stars (main heroes)", excl: "🔧 Exclusive gear (widgets)", skill: "🎓 Master skills · other heroes (stars, skills)", lvl: "📈 Hero levels (main heroes)", bld: "🏗️ Buildings (not the Town Center TG)", troops: "⚔️ Training / losing troops" },
     conf: { hi: "sure", mid: "so-so" },
-    tblFoot: "Same power: Charms, pets, research and Hero Gear = 2× master affinity and 2–5× hero stars. Master advancement: only part of its power counts (the talent / skill part doesn't).",
+    tblFoot: "Same power: Charms, Governor Gear, pets, research and Hero Gear = 2× master affinity and 2–5× hero stars. Master advancement: only part of its power counts (the talent / skill part doesn't).",
     rateH: "📈 Your account's rate", rateP: "\"1\" turns into a different number of points on each account. The same pet breakthrough (+91,440 power) gave +833 on the main account and +543 on the second one.",
     rates: { big: "Town Center 40, TG2", small: "Town Center 25" }, rateU: "points per 1M power", rateSw: "≈ +{n} Swordland power",
     rateGuess: "The more built-up the account, the more points the same upgrade gives. Maybe the Town Center sets it — not known yet.",
-    tcH: "🏰 Town Center", tcP: "Main account to TG2 (Barracks and Range also TG2 at the same time): +10,077 at once (≈ +32 Swordland power), +5.0%. A normal level (24 → 25) and normal buildings added almost nothing.",
+    tcH: "🏰 Town Center", tcP: "Main account to TG2 (Barracks and Range also TG2 at the same time): +10,077 at once (≈ +32 Swordland power), +5.0%. A normal level (24 → 25) added almost nothing, and other buildings add 0 (11/06: +20,664 and +78,064 building power, no change).",
     tcGuess: "Our guess: building power itself doesn't count. The Town Center's gold (TG) level gives the jump — maybe by raising the account's rate (+5% fits). To be confirmed at the next TG upgrade.",
     downH: "🔒 Never goes down",
     down: ["Losing troops doesn't lower it.", "Taking off Hero Gear doesn't either (770k gear power removed, same score two hours later) → it only goes up, or it counts what you own, not what you wear.", "Stat % don't count: a research level that gives +2% Attack adds only that level's research power. So the score shows how much you invested, not how strong your stats are."],
@@ -35,26 +35,26 @@ const T = {
     calcOpp: "Someone's Migrant Score", calcOppRes: "≈ {s} Swordland troop power",
     calcNote: "Estimate from our tests so far. It shows investment, not stats.",
     doH: "✅ So",
-    dos: ["To climb in Swordland Showdown: Governor Charms, pets, research and Hero Gear first (they count the same — pick the one where power is cheapest), then master affinity, then stars of your main heroes. Training troops doesn't help.",
+    dos: ["To climb in Swordland Showdown: Governor Charms, Governor Gear, pets, research and Hero Gear first (they count the same — pick the one where power is cheapest), then master affinity, then stars of your main heroes. Training troops and exclusive gear (widgets) don't help.",
       "Save for the Town Center's next gold (TG) level — that's the big jump.",
       "Sizing up an opponent: their Migrant Score ÷ 317 ≈ their Swordland troop power. It only shows investment, not stats."],
     unkH: "🟡 Not known yet",
-    unks: ["What sets each account's rate (the Town Center?).", "Governor Gear — not tested yet.", "Why hero stars give different results."],
-    foot: "Source: Sparrow's two accounts, item-by-item before/after tests (11/02–11/04), and the 10/14 Swordland check of 98 players. Not from the game. Numbers will be corrected as we test more." },
+    unks: ["What sets each account's rate (the Town Center?).", "Why hero stars give different results."],
+    foot: "Source: Sparrow's two accounts, item-by-item before/after tests (11/02–11/06), and the 10/14 Swordland check of 98 players. Not from the game. Numbers will be corrected as we test more." },
   zh: { title: "🧳 遷城分數", intro: "我們自己研究的隱藏「遷城分數」：什麼會讓它變高。還在測試中，數字會再修正。",
     badge: "🧪 測試中 · 來自我們自己的前後測試 · 更新 {d}",
-    heroH: "一個隱藏分數，只算你長期投資的東西。", heroP: "領主寶石、寵物、科技、英雄裝備全算；大師好感度算一半；英雄升星只算一點；兵不算。它幾乎剛好等於聖劍爭奪的部隊戰力 × 317。",
+    heroH: "一個隱藏分數，只算你長期投資的東西。", heroP: "領主寶石、領主裝備、寵物、科技、英雄裝備全算；大師好感度算一半；英雄升星只算一點；兵、建築、英雄專屬裝備不算。它幾乎剛好等於聖劍爭奪的部隊戰力 × 317。",
     whatH: "🔎 它是什麼",
     what: ["遊戲裡看不到，MightPulse 看得到（王國排行只列前 100 名）。", "王國前 100 名加起來，決定遷城時這個王國算「領先」還是「普通」（每個遷城組前 10% = 領先王國）。"],
     eqA: "遷城分數", eqB: "聖劍部隊戰力", eqNote: "10/14 用 98 人驗證（平均誤差 1.7%），11/03 再確認一次——比「總戰力＋秘境」還準。",
-    tblH: "📊 什麼會加分", tblP: "加同樣的實力，各種升級算多少（1 = 全算）：", fH: "遷城分數 = Σ（實力 × 權重）× 帳號倍率", fP: "11/04 確認：兩個帳號 11 次單項測試（寶石 ×4、寵物升級 ×2、突破 ×3、洗練 ×2），每次預測誤差都在 5 分以內，連一次 +247 萬也一樣準。",
-    items: { charm: "💎 領主寶石", pet: "🐾 寵物（升級、突破、洗練）", tech: "🔬 科技（研究）", gear: "🛡️ 英雄裝備（強化）", fav: "🎓 大師好感度", adv: "🎓 大師進階", star: "⭐ 英雄升星（主力）", skill: "🎓 大師技能・非主力英雄升星", troops: "⚔️ 收兵、損兵" },
+    tblH: "📊 什麼會加分", tblP: "加同樣的實力，各種升級算多少（1 = 全算）：", fH: "遷城分數 = Σ（實力 × 權重）× 帳號倍率", fP: "11/04 確認：兩個帳號 11 次單項測試（寶石 ×4、寵物升級 ×2、突破 ×3、洗練 ×2），每次預測誤差都在 5 分以內，連一次 +247 萬也一樣準。11/06：研究 +164,400 實力 → +1,498（一分不差）、英雄裝備專精 +40,800 → +243（預測 +242）、領主裝備 +408,000 → +3,716（預測 +3,717）；英雄專屬裝備和建築都是 0。",
+    items: { charm: "💎 領主寶石", pet: "🐾 寵物（升級、突破、洗練）", tech: "🔬 科技（研究）", gear: "🛡️ 英雄裝備（強化、專精）", lgear: "👑 領主裝備（強化）", fav: "🎓 大師好感度", adv: "🎓 大師進階", star: "⭐ 英雄升星（主力）", excl: "🔧 英雄專屬裝備（零件）", skill: "🎓 大師技能・非主力英雄（升星、技能）", lvl: "📈 主力英雄升等級", bld: "🏗️ 建築（不含城鎮中心 TG）", troops: "⚔️ 收兵、損兵" },
     conf: { hi: "可信", mid: "還不確定" },
-    tblFoot: "同樣的實力：寶石、寵物、科技、英雄裝備 = 大師好感度的 2 倍、升星的 2–5 倍。大師進階：只有一部分實力算（天賦、技能那部分不算）。",
+    tblFoot: "同樣的實力：寶石、領主裝備、寵物、科技、英雄裝備 = 大師好感度的 2 倍、升星的 2–5 倍。大師進階：只有一部分實力算（天賦、技能那部分不算）。",
     rateH: "📈 每個帳號的倍率", rateP: "「1」換成幾分，每個帳號不一樣。同一個寵物突破（+91,440 實力）：主帳 +833、小帳 +543。",
     rates: { big: "城鎮中心 40、TG2", small: "城鎮中心 25" }, rateU: "分／1M 實力", rateSw: "≈ 聖劍 +{n}",
     rateGuess: "帳號越發展，同樣的升級換越多分。可能跟城鎮中心有關——還不知道。",
-    tcH: "🏰 城鎮中心", tcP: "主帳升到 TG2（步兵營、弓兵營同時也 TG2）那次一口氣 +10,077（≈ 聖劍 +32），剛好 +5.0%。小帳一般等級（24→25）、一般建築升級幾乎沒加分。",
+    tcH: "🏰 城鎮中心", tcP: "主帳升到 TG2（步兵營、弓兵營同時也 TG2）那次一口氣 +10,077（≈ 聖劍 +32），剛好 +5.0%。小帳一般等級（24→25）幾乎沒加分；其他建築是 0（11/06 小帳 +20,664、主帳 +78,064 建築實力都沒變）。",
     tcGuess: "推測：建築實力本身不算，城鎮中心的黃金等級（TG）才會大跳——可能是讓帳號倍率變大（+5% 對得上）。等下一次 TG 升級再確認。",
     downH: "🔒 不會扣分",
     down: ["損兵不扣。", "卸下英雄裝備也不扣（卸了 77 萬裝備實力，兩小時後一樣）→ 分數只升不降，或算的是「擁有的」不是「穿著的」。", "不含屬性 %：研究攻擊力 +2% 只照那一級的科技實力加分。所以遷城分數看得出投資量，看不出屬性強弱。"],
@@ -63,12 +63,12 @@ const T = {
     calcOpp: "某人的遷城分數", calcOppRes: "≈ 聖劍部隊戰力 {s}",
     calcNote: "用目前測試結果估的。只代表投資量，不代表屬性。",
     doH: "✅ 所以",
-    dos: ["想拉高聖劍爭奪排名：先升領主寶石、寵物、科技、英雄裝備（四個算一樣，挑實力最便宜的），其次大師好感度，最後升主力英雄的星。收兵沒用。",
+    dos: ["想拉高聖劍爭奪排名：先升領主寶石、領主裝備、寵物、科技、英雄裝備（五個算一樣，挑實力最便宜的），其次大師好感度，最後升主力英雄的星。收兵、英雄專屬裝備（零件）沒用。",
       "存資源衝城鎮中心下一個黃金等級（TG）——那是大跳。",
       "看對手：他的遷城分數 ÷ 317 ≈ 他的聖劍部隊戰力。但這只代表投資量，不代表屬性。"],
     unkH: "🟡 還不知道的",
-    unks: ["每個帳號的倍率由什麼決定（城鎮中心？）。", "領主裝備還沒測。", "英雄升星為什麼結果不一致。"],
-    foot: "來源：Sparrow 兩個帳號逐項前後測試（11/02–11/04）、10/14 聖劍 98 人對照。不是遊戲官方說明，數字會隨更多測試修正。" },
+    unks: ["每個帳號的倍率由什麼決定（城鎮中心？）。", "英雄升星為什麼結果不一致。"],
+    foot: "來源：Sparrow 兩個帳號逐項前後測試（11/02–11/06）、10/14 聖劍 98 人對照。不是遊戲官方說明，數字會隨更多測試修正。" },
 };
 let lang = OFFICER.lang || "en";
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
