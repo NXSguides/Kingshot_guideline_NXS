@@ -1448,6 +1448,7 @@ Legion 1 / 2 = Legión 1 / Legión 2
 Combatants = combatientes
 Substitutes = sustitutos
 Alliance Brawl = Combate de Alianzas
+Merchant Empire = Imperio mercante
 Finder's Fortune = Fortuna del buscador
 Buttery Bones = huesos mantecosos
 Focusbells = Campanas de Concentración
