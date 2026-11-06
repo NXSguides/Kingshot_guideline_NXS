@@ -29,7 +29,7 @@ const TERMS = [
  {
   "cat": "Golden Glaives",
   "rows": [
-   ["Golden Glaives","黃金與巨刃","황금과 검","Goldene Klingen","Glaives Dorés","Glaives Douradas","Altın Kılıçlar","Tombak Emas","Золотые копья","จอมโจรดาบทองคำ","الرماح الذهبية","Gujas Doradas"],
+   ["Golden Glaives", "黃金與巨刃", "황금과 검", "Goldene Klingen", "Glaives Dorés", "Glaives Douradas", "Altın Kılıçlar", "Tombak Emas", "Золотые копья", "จอมโจรดาบทองคำ", "الرماح الذهبية", "Gujas Doradas"],
    ["Dim Goldstone","黯淡金石","탁한 금 원석","Matter Goldstein","Pépite Terne","Pedra Dourada Obscura","Mat Altıntaşı","Goldstone Redup","Тусклый авантюрин","หินทองหม่น","حجر الذهب الباهت","Adamantina opaca","German text once says 'matter Diamant' (game inconsistency); main value is Goldstein. ES: named after Adamantina (= Truegold)."],
    ["Watchtower Intel","瞭望塔的情報","전망대 정보","Wachturm-Geheimdienst","renseignement de l'observatoire","informações da Torre de Vigia","Bekçi Kulesi Bilgisi","Intel Menara Pengawas","данные разведки на дозорной вышке","ข่าวกรองหอคอยเฝ้าระวัง","معلومات برج المراقبة","Inteligencia de Torre vigía","Seen inside sentences, not as a standalone label. ES Golden Glaives text only says 'Torres vigía' (Watchtowers)."],
    ["Royal Foundry","皇家工坊","황실 공방","Kaiserliche Gießerei","Fonderie Royale","Forja da Realeza","Kraliyet Dökümhanesi","Pabrik Kerajaan","королевская литейная","โรงหล่อราชวงศ์","المسبك الملكي","—"],

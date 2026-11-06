@@ -287,7 +287,16 @@ const ANN_EVENTS = [
 const NOTE_EVENTS = [
   // Castle Battle is every other Saturday, 5 h; on KvK weeks it's the cross-kingdom one (KvK's day 6: 10/10, 11/7 …), so ours comes every 28 days
   { name: "Castle Battle", emoji: "🏰", start: "2026-10-24", every: 28, days: 1, h: [12, 17] },   // in-game calendar: 10/24 12:00 – 17:00 UTC
-  { name: "Finder's Fortune", emoji: "🔍", start: "2026-10-11", every: 28, days: 3 },   // 尋物奇緣: 10/11–10/13, 11/08–11/10 → every 28 days, 3 days (Sherry 2026-11-06)
+  { name: "Finder's Fortune", emoji: "🔍", start: "2026-10-11", every: 28, days: 3 },
+  // weekly / 28-day events from the officer calendar with no guide page (Sherry 2026-11-06: put them on the home calendar too)
+  { name: "Sanctuary Battle", emoji: "🏯", start: "2026-10-06", every: 7, days: 4 },        // Tue – Fri, contest at the voted slot
+  { name: "Alliance Championship", emoji: "🏆", start: "2026-09-28", every: 7, days: 7 },
+  { name: "Alliance Mobilization", emoji: "🔥", start: "2026-09-28", every: 28, days: 7 },
+  { name: "Alliance Brawl", emoji: "🤜", start: "2026-10-12", every: 28, days: 7 },
+  { name: "Merchant Empire", emoji: "🐫", start: "2026-10-12", every: 28, days: 7 },
+  { name: "Call of the Sovereign", emoji: "📯", start: "2026-10-13", every: 28, days: 3 },
+  { name: "Strongest Governor", emoji: "💪", start: "2026-10-19", every: 28, days: 7 },
+  { name: "Golden Glaives", emoji: "🪙", start: "2026-10-19", every: 14, days: 2 },   // 尋物奇緣: 10/11–10/13, 11/08–11/10 → every 28 days, 3 days (Sherry 2026-11-06)
 ];
 const noteName = (ev) => (typeof EVENT_NAMES !== "undefined" && EVENT_NAMES[ev.name] && (EVENT_NAMES[ev.name][currentLang] || EVENT_NAMES[ev.name].en)) || ev.name;
 /* our alliance's fixed times (UTC hours) — set as close to Bear Hunt as possible */
