@@ -20,5 +20,5 @@ const EVENT_NAMES = {
   "Hero Rally": {"en":"Hero Rally","zh":"英雄集結","ko":"영웅 집결","de":"Helden-Rally","fr":"Ralliement de Héros","pt":"Rally do Herói","tr":"Kahraman Seferberliği","id":"Reli Pahlawan","ru":"Героический рейд","th":"ทีมระดมพลฮีโร่","ar":"حشد البطل"},
   "Arena of Glory": {"en":"Arena of Glory","zh":"萬國競技場","ko":"만국 경기장","de":"Arena des Ruhms","fr":"Arène de la Gloire","pt":"Arena da Glória","tr":"Şan Arenası","id":"Arena Kemuliaan","ru":"Арена славы","th":"อารีน่าแห่งเกียรติยศ","ar":"ساحة المجد","es":"Arena de la gloria"},
   "Champagne Fair": {"en":"Champagne Fair","zh":"香檳市集","ko":"샴페인 시장","de":"Champagner-Messe","fr":"Foire au Champagne","pt":"Feira do Champanhe","tr":"Şampanya Fuarı","id":"Champagne Fair","ru":"Шипучая ярмарка","th":"เทศกาลแชมเปญ","ar":"معرض العصير","es":"Feria del champán"},
-  "Finder's Fortune": {"en":"Finder's Fortune","zh":"尋物奇緣","ko":"기묘한 물건 탐색","de":"Des Finders Glück","fr":"Fortune du Chercheur","pt":"Sorte de Quem Procura","tr":"Arayıcının Şansı","ru":"Удача искателя","ar":"ثروة المكتشف","es":"Fortuna del buscador"}
+  "Finder's Fortune": {"en":"Finder's Fortune","zh":"尋物奇緣","ko":"기묘한 물건 탐색","de":"Des Finders Glück","fr":"Fortune du Chercheur","pt":"Sorte de Quem Procura","tr":"Arayıcının Şansı","id":"Pencari Kekayaan","ru":"Удача искателя","th":"โชคลาภนักค้นหา","ar":"ثروة المكتشف","es":"Fortuna del buscador"}
 };
