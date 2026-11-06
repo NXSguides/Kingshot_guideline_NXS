@@ -31,6 +31,7 @@ const FEATURES = [
   ["Events: 📤 For Claude export", /📤 For Claude" \(給 Claude/, /📤 For Claude \(only Sparrow sees this\): copies the next 4 weeks/],
   ["Site: 🔰 New here? (onboarding page)", /🔰 New here\?: its own page/, /🔰 New here\? Read this page once/],
   ["Site: 📍 Where's my spot? (public hive map)", /📍 Where's my spot\?: its own page/, /📍 Where's my spot\?: type your name/],
+  ["Site: 📅 This week short lines + 📝 to-do days", /📅 This week card on the home page \(short version/, /📝 = something to do today/],
   ["Site: 📍 wrong-spot lists (🤗 / 🙃 / 🫥)", /wrong-spot lists/, /🤗 sitting on someone's spot/],
   ["Site: 🤝 NAP rules page + home card", /🤝 NAP rules: their own page/, /🤝 NAP 6: the alliances we never attack/],
   ["Site: ⏸ Stay here on announcements", /⏸ Stay here \(next to the date\) stops that/, /⏸ Stay here \(next to the date\) stops it switching/],
