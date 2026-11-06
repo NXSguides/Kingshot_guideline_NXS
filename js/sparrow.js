@@ -1808,7 +1808,7 @@
   ];
   /* 🧭 the buttons every page has (some only show in the installed app; missing ones are skipped) — keep in step with the AI's SITE FEATURES block */
   const SITE_STEPS = [{ s: "#langRow", k: "si01" }, { s: "#copyUrlBtn", k: "si02" }, { s: "#reloadBtn", k: "si03" }, { s: "#themeToggle", k: "si04" }, { s: ".ai-fab", k: "si05" }];
-  /* 👀 quick tour of the page you're on: the home page (Recent Events) or a guide. Missing parts are skipped. */
+  /* 👀 quick tour of the page you're on: the home page (📢 Announcements) or a guide. Missing parts are skipped. */
   /* top bar first (🔗 ↻ 📋 light/dark, announcement ticker, languages, guide menus), then the page itself, top to bottom; 💬 Ask AI last */
   const TOP_STEPS = [{ s: "#copyUrlBtn", k: "si02" }, { s: "#reloadBtn", k: "si03" }, { s: "#officerBtn", k: "si06" }, { s: "#themeToggle", k: "si04" }, { s: "#annTicker", k: "si07" }, { s: "#langRow", k: "si01" }, { s: "#guideRow", k: "h05" }];
   const HOME_STEPS = TOP_STEPS.concat([{ s: "#doc .today-card:not(.month-card)", k: "h01" }, { s: "#dailyHint", k: "h02" }, { s: "#monthCal", k: "h03" }, { s: "#doc .ann-board", k: "h04" }, { s: ".ai-fab", k: "h07" }]);

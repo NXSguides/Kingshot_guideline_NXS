@@ -780,7 +780,7 @@ function renderPicker() {
   });
 }
 
-/* ---- 上方指南按鈕：「近期活動」＋兩個可展開的分類 ------------------- */
+/* ---- 上方指南按鈕：「📢 公告」＋兩個可展開的分類 ------------------- */
 /* Guides listed in GUIDE_GROUPS.growth go under 養成; everything else (except the home guide) goes under 活動. */
 const HOME_GUIDE = "recent-events";
 const TOP_GUIDES = ["new-here", "nap-rules", "my-spot"];   // guides with their own button next to 📢 Home (not inside a group)

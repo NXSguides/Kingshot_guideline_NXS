@@ -450,47 +450,47 @@ const GUIDES = {
   "recent-events": {
     emoji: "📢",
     name: {
-      en: "Recent Events", zh: "近期活動", ko: "최근 이벤트",
-      de: "Aktuelle Events", fr: "Événements récents",
-      pt: "Eventos Recentes", tr: "Son Etkinlikler",
-      id: "Acara Terbaru", ru: "Последние события",
-      th: "กิจกรรมล่าสุด", ar: "أحدث الفعاليات", es: "Eventos Recientes"
+      en: "Announcements", zh: "公告", ko: "공지",
+      de: "Ankündigungen", fr: "Annonces",
+      pt: "Anúncios", tr: "Duyurular",
+      id: "Pengumuman", ru: "Объявления",
+      th: "ประกาศ", ar: "الإعلانات", es: "Anuncios"
     },
     sections: {
-      en: { title: "Recent Events", blocks: [
+      en: { title: "Announcements", blocks: [
         { type: "announcements" }
       ]},
-      zh: { title: "近期活動", blocks: [
+      zh: { title: "公告", blocks: [
         { type: "announcements" }
       ]},
-      ko: { title: "최근 이벤트", blocks: [
+      ko: { title: "공지", blocks: [
         { type: "announcements" }
       ]},
-      de: { title: "Aktuelle Events", blocks: [
+      de: { title: "Ankündigungen", blocks: [
         { type: "announcements" }
       ]},
-      fr: { title: "Événements récents", blocks: [
+      fr: { title: "Annonces", blocks: [
         { type: "announcements" }
       ]},
-      pt: { title: "Eventos Recentes", blocks: [
+      pt: { title: "Anúncios", blocks: [
         { type: "announcements" }
       ]},
-      es: { title: "Eventos Recientes", blocks: [
+      es: { title: "Anuncios", blocks: [
         { type: "announcements" }
       ]},
-      tr: { title: "Son Etkinlikler", blocks: [
+      tr: { title: "Duyurular", blocks: [
         { type: "announcements" }
       ]},
-      id: { title: "Acara Terbaru", blocks: [
+      id: { title: "Pengumuman", blocks: [
         { type: "announcements" }
       ]},
-      ru: { title: "Последние события", blocks: [
+      ru: { title: "Объявления", blocks: [
         { type: "announcements" }
       ]},
-      th: { title: "กิจกรรมล่าสุด", blocks: [
+      th: { title: "ประกาศ", blocks: [
         { type: "announcements" }
       ]},
-      ar: { title: "أحدث الفعاليات", blocks: [
+      ar: { title: "الإعلانات", blocks: [
         { type: "announcements" }
       ]}
     }
