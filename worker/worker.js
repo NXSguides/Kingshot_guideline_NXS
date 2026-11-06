@@ -775,7 +775,7 @@ async function hiveRoute(env) {
   const spots = P.c.map(([n, x, y]) => { const m = n ? find(n) : null; return [m ? m.name : String(n || ""), +x, +y, m ? String(bt[String(m.id)] || "") : ""]; });
   /* ⚠️ wrong-spot warnings (Sherry 2026-11-06): castles of everyone who has a spot on the plan, so the page can show who
      is not exactly on their spot (still wandering / a bit crooked) and who sits on someone else's. Members without a spot: left out on purpose. Positions are what the game already shows on the map; nothing else is sent. */
-  /* everyone who has a spot (wherever they are — not exactly on it = still wandering, Sherry 2026-11-06) + anyone else inside the area */
+  /* everyone who has a spot, wherever they are (not exactly on it = still wandering) */
   const planned = new Set(spots.map((r) => r[0]).filter(Boolean));
   const cities = ms.filter((m) => m.x != null && m.y != null && planned.has(m.name)).map((m) => [m.name, +m.x, +m.y]);   // members without a spot: left out on purpose
   const body = { ok: true, at: mv.at || P.at || null, posAt: (roster && (roster.at || roster.made)) || null, cities, spots, traps: (P.bt || []).map(([x, y]) => [+x, +y]), hq: (P.hq || []).map(([x, y]) => [+x, +y]), banners: (P.b || []).map(([x, y]) => [+x, +y]) };
