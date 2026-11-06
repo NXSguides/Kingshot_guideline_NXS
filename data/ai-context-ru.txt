@@ -1443,6 +1443,7 @@ Calendar = Календарь
 Forsaken Temple = Заброшенный храм
 Hero Roulette = Геройская рулетка
 Lucky Chip = Фишка удачи
+Officer Project = обучение офицеров
 Swordland Showdown = Битва за Страну мечей
 Swordland = Страна мечей
 Battlefield = поле боя
