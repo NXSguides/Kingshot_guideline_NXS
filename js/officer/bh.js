@@ -6,7 +6,7 @@
 (function () {
 const $ = (id) => document.getElementById(id);
 const esc = OFFICER.util.esc;
-const UPDATED = "2026-11-07", HUNTS = 7, SPAN = "10/25–11/06";
+const UPDATED = "2026-11-07", HUNTS = 8, SPAN = "10/25–11/06";
 /* 2026-11-07: the analysis chat keeps ONE ledger now (Project docs claude/bear-findings.md + bear-mails.csv, bear-totals.csv,
    bear-rosters.csv — handoff claude/research-ledger-handoff.md). This page follows that ledger: every point carries its status
    (✅ sure / 🟡 likely), corrected points sit in the folded "corrected" list. Members' page: principles only (ledger A + C). */
@@ -15,6 +15,7 @@ const MIX = { inf: 1, cav: 25, arc: 74 };                   // ledger A5
 const P = { T9: 50, T10: 66, TG1: 71, TG2: 76, TG3: 83 };
 const VAL = [2, 4, 6, 9, 12, 15, 18, 21, 24, 27, 30];   // Valora talent, your own score + %, Lv1–11
 const TREND = [["10/31", 18, 11.30], ["11/02", 20, 11.98], ["11/04", 23, 16.86], ["11/06", 23, 19.10]];   // ledger D: alliance total (B), Bear Trap 2
+const TREND1 = [["10/31", 31, 24.47], ["11/06", 31, 29.72]];   // ledger D2: Bear Trap 1
 const T = {
   en: { title: "🐻 Bear Hunt report", intro: "Our research on how Bear Hunt scores work: what you bring and which rally you join. Not official — one running ledger that grows with every hunt.",
     badge: "🔬 Research ledger · {n} hunts ({s}) · updated {d}",
@@ -35,14 +36,14 @@ const T = {
       ["mid", "🦸", "Joiner skills: 4 slots from joiners who bring a hero in the first slot — that hero's top-right skill. How the game picks the 4 isn't known yet (not always the first 4 on the list). They never show on the rally bonus page; they multiply on top during the battle."],
       ["ok", "⚔️", "The leader's own hero skills."]],
     jsH: "Mix Attack and Lethality joiner skills", jsAtk: "Attack", jsLet: "Lethality", jsFoot: "Attack and Lethality are two separate slots that multiply, so a mix beats 4 of the same; 2 + 2 is about 6% over 1 + 3 (worked out, test planned). Chenko's fist icon is Lethality.",
-    luckH: "🎲 Luck", luck: ["One rally swings about ±20% from hit to hit — compare 3–4 hits before saying one leader is stronger.", "Leaders' chance skills and TG3 troops' own troop skill add to the swing."],
-    trendH: "📈 Our alliance total", trendP: "Bear Trap 2, final leaderboard:", trendN: "{n} players",
+    luckH: "🎲 Luck", luck: ["Same troops = same damage: in one rally, two players who sent exactly the same troops get exactly the same damage. What changes from wave to wave is one number for the whole rally (up to about 1.36× for the same leader).", "One rally swings about ±20% from hit to hit — compare 3–4 hits before saying one leader is stronger.", "Leaders' chance skills and TG3 troops' own troop skill add to the swing."],
+    trendH: "📈 Our alliance total", trendP: "Final leaderboard, each Bear Trap:", trap2: "Bear Trap 2", trap1: "Bear Trap 1", trendN: "{n} players",
     valH: "🌟 Valora (Master)", valP: "Her talent Hunter Instinct adds only to YOUR OWN Bear Hunt Damage Points (its levels unlock with Master Affinity; table from the game):", valSkill: "Dance of the Hunt: when you launch the Bear Hunt rally, rally capacity +30,000 per level (Lv4 = +120,000) — useful if you lead. Savage Advantage: your own march capacity in Bear Hunt +3,000 per level.",
     unkH: "🟡 Not known yet", unks: ["How the game picks the 4 joiner skills.", "4 Chenko vs 2 Chenko + 2 Amane — same leader, 3–4 rallies each (test planned).", "Whether \"enemy Defense −\" bonuses work on the Bear.", "Whether Vivian's \"enemy damage taken +25%\" is a separate multiplier."],
     oldH: "🔁 Corrected earlier ({n})", old: ["Square root → n^0.58: very close, a bit more for big marches.", "Weights cavalry 0.58 / infantry 0.14 → 0.63 / 0.12; best mix 2 : 21 : 77 → 1 : 25 : 74.", "❌ \"Infantry and cavalry are worth more per troop\" — that was the slowdown above: small marches score more per troop.", "❌ \"Joiner skills = the first 4 on the list\" — on 11/06 several rallies skipped people higher on the list.", "❌ \"The fist icon = Attack\" — it is Chenko's Lethality.", "❌ \"City Bonus multiplies on its own\" — it adds into the same slot as the rally Exclusive Gear bonus.", "City Bonus Attack +10% / Lethality +20% ≈ ×1.32 → Attack +10% / Lethality +10% ≈ ×1.21."],
     numH: "🔢 For those who want the formula", num: "Your score ≈ K × c × Σ (w × n^0.58). K = the rally leader's strength (the whole rally shares it); c = your own troop strength (mostly troop tier); w = troop weight (archer 1, cavalry 0.63, infantry 0.12); n = how many of that type you sent. Fitted on 107 marches in 8 rallies (11/06, troop counts from the rally troop page): about 8.5% error (20% without c).",
     more: "Officers: leader strength and rally plan → 🐻 Bear plan",
-    foot: "Source: our alliance's rally mails (1,123), final leaderboards (4 hunts), rally troop pages (8 rallies) and bonus pages, 10/25–11/06. Worked back from the numbers, not from the game." },
+    foot: "Source: our alliance's rally mails (1,123 + 5 from Bear Trap 1), final leaderboards (6: Trap 2 ×4, Trap 1 ×2), rally troop pages (8 rallies) and bonus pages, 10/25–11/06. Worked back from the numbers, not from the game." },
   zh: { title: "🐻 狩獵巨熊研究", intro: "我們自己研究的狩獵巨熊分數：該帶什麼兵、該進哪一團。不是官方說明——同一本帳，每次熊獵後累積更新。",
     badge: "🔬 研究帳本 · {n} 場（{s}）· 更新 {d}",
     st: { ok: "✅ 確定", mid: "🟡 推測" },
@@ -62,14 +63,14 @@ const T = {
       ["mid", "🦸", "加入者技能：4 格，給第一格有帶英雄的加入者——那位英雄的右上技能。遊戲怎麼選這 4 個還不知道（不一定是名單前 4 個）。它不會出現在集結加成頁，是戰鬥中另外乘上去的。"],
       ["ok", "⚔️", "隊長自己的英雄技能。"]],
     jsH: "加入者技能：攻擊、殺傷混搭", jsAtk: "攻擊力", jsLet: "殺傷力", jsFoot: "攻擊力和殺傷力是分開的兩格、彼此相乘，所以混搭比 4 個同一種好；2 + 2 比 1 + 3 多約 6%（推算，還要實測）。琴科的拳頭圖示是殺傷。",
-    luckH: "🎲 運氣", luck: ["同一團每一波差約 ±20%——要比 3–4 波才能說哪個隊長比較強。", "隊長的機率技能、TG3 兵自己的兵種技能都會讓分數跳動。"],
-    trendH: "📈 聯盟總傷害", trendP: "陷阱 2，最終排行：", trendN: "{n} 人",
+    luckH: "🎲 運氣", luck: ["同樣的兵＝同樣的傷害：同一團裡帶一模一樣兵數的兩個人，傷害完全一樣。每一波的差別是整團乘同一個數（同一隊長最多差約 1.36 倍）。", "同一團每一波差約 ±20%——要比 3–4 波才能說哪個隊長比較強。", "隊長的機率技能、TG3 兵自己的兵種技能都會讓分數跳動。"],
+    trendH: "📈 聯盟總傷害", trendP: "最終排行，兩個陷阱分開：", trap2: "陷阱 2", trap1: "陷阱 1", trendN: "{n} 人",
     valH: "🌟 維拉（大師）", valP: "她的天賦「狩獵本能」只加「你自己」的傷害積分（等級跟著大師好感度解鎖，數字來自遊戲內表格）：", valSkill: "狩獵之舞：開狩獵巨熊集結時，集結容量每級 +30,000（Lv4 = +120,000）——想當隊長的人有用。人數優勢：參加狩獵巨熊時，自己部隊的容量每級 +3,000。",
     unkH: "🟡 還不知道的", unks: ["遊戲怎麼選那 4 個加入者技能。", "4 琴科 vs 2 琴科 + 2 雨音——同一隊長各 3–4 團（準備實測）。", "「敵方防禦 −」的增益對熊有沒有效。", "薇薇安「敵方受到傷害 +25%」是不是另一個乘區。"],
     oldH: "🔁 之前更正過的（{n}）", old: ["開根號 → n 的 0.58 次方：很接近，大部隊會多一點點。", "兵種權重 騎 0.58／步 0.14 → 0.63／0.12；最佳比例 2：21：77 → 1：25：74。", "❌「步兵、騎兵每隻比較值」——那是上面的遞減：小部隊每隻分數本來就比較高。", "❌「加入者技能 = 名單前 4 個」——11/06 好幾團跳過了排在前面的人。", "❌「拳頭圖示 = 攻擊」——它是琴科的殺傷。", "❌「城鎮增益另外相乘」——它和集結專屬裝備加成加在同一格。", "城鎮增益 攻 +10%／殺 +20% ≈ ×1.32 → 攻 +10%／殺 +10% ≈ ×1.21。"],
     numH: "🔢 給想看公式的人", num: "你的分數 ≈ K × c × Σ（w × n 的 0.58 次方）。K = 集結隊長的強度（全團共用）；c = 你自己部隊的實力（主要是兵等）；w = 兵種權重（弓兵 1、騎兵 0.63、步兵 0.12）；n = 你那個兵種帶的數量。用 11/06 8 團、107 支部隊（兵數取自集結兵種頁）擬合：誤差約 8.5%（不算 c 時 20%）。",
     more: "幹部：隊長強度和排團 → 🐻 熊獵規劃",
-    foot: "來源：我們聯盟的集結信件（1,123 筆）、最終排行（4 場）、集結兵種頁（8 團）、加成頁，10/25–11/06。從數字反推，不是遊戲官方說明。" },
+    foot: "來源：我們聯盟的集結信件（1,123 筆 + 陷阱 1 5 封）、最終排行（6 份：陷阱 2 四場、陷阱 1 兩場）、集結兵種頁（8 團）、加成頁，10/25–11/06。從數字反推，不是遊戲官方說明。" },
 };
 let lang = OFFICER.lang || "en";
 const t = (k) => (T[lang] || T.en)[k] ?? T.en[k];
@@ -96,7 +97,6 @@ function render() {
   const root = $("bh_root"); if (!root) return;
   const hn = (k) => ({ amane: ["Amane", "雨音"], margot: ["Margot", "瑪歌"], luna: ["Luna", "露娜"], chenko: ["Chenko", "琴科"], yeonwoo: ["Yeonwoo", "妍羽"], amadeus: ["Amadeus", "阿瑪迪斯"] }[k][lang === "zh" ? 1 : 0]);
   const h3 = (k, st) => `<h3>${esc(t(k))} ${tag(st)}</h3>`;
-  const tmax = Math.max(...TREND.map((x) => x[2]));
   root.innerHTML = `
   <div class="bh-hero"><div class="bh-hero-in"><span class="bh-badge">${esc(fill(t("badge"), { n: HUNTS, s: SPAN, d: UPDATED }))}</span><h2>${esc(t("heroH"))}</h2><p>${esc(t("heroP"))}</p></div></div>
   <div class="card">${h3("wH", "ok")}<p class="bh-p">${esc(t("wP"))}</p>
@@ -118,7 +118,7 @@ function render() {
       <div class="bh-jsr"><span class="bh-jst let">${esc(t("jsLet"))}</span>${["chenko", "yeonwoo", "amadeus"].map((h) => `<span class="bh-h">${pic(h)}<small>${esc(hn(h))}</small></span>`).join("")}</div>
       <div class="muted bh-small">${esc(t("jsFoot"))}</div></div></div>
   <div class="card">${h3("trendH", "ok")}<p class="bh-p">${esc(t("trendP"))}</p>
-    <div class="bh-join">${TREND.map(([d, n, v], i) => `<div class="bh-jr bh-tr"><span>${d}</span><div class="bh-jb"><i class="s" style="width:${(v / tmax * 100).toFixed(1)}%"></i></div><b>${v.toFixed(2)}B</b><small class="muted">${esc(fill(t("trendN"), { n }))}${i ? ` · ${v >= TREND[i - 1][2] ? "+" : ""}${((v / TREND[i - 1][2] - 1) * 100).toFixed(1)}%` : ""}</small></div>`).join("")}</div></div>
+    ${[["trap2", TREND], ["trap1", TREND1]].map(([k, TR]) => { const tmax = Math.max(...TREND1.map((x) => x[2])); return `<h4 style="margin:10px 0 4px">${esc(t(k))}</h4><div class="bh-join">${TR.map(([d, n, v], i) => `<div class="bh-jr bh-tr"><span>${d}</span><div class="bh-jb"><i class="s" style="width:${(v / tmax * 100).toFixed(1)}%"></i></div><b>${v.toFixed(2)}B</b><small class="muted">${esc(fill(t("trendN"), { n }))}${i ? ` · ${v >= TR[i - 1][2] ? "+" : ""}${((v / TR[i - 1][2] - 1) * 100).toFixed(1)}%` : ""}</small></div>`).join("")}</div>`; }).join("")}</div>
   <div class="bh-two">
     <div class="card">${h3("luckH", "ok")}<ul class="bh-ul">${t("luck").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
     <div class="card"><h3>${esc(t("valH"))}</h3><p class="bh-p">${esc(t("valP"))}</p>

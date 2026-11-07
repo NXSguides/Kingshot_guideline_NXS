@@ -18,14 +18,14 @@ const RT = { en: { h: "📋 Latest hunt review · {d}", kh: "Leader strength, si
     unh: "What we don't know yet", planH: "📐 Rally plan draft (earlier)",
     kpFit: "K from the rally mails: one model fitted on every march of that hunt (damage = rally K × the player's own factor × troops), first rally of the reference leader = 1.00. Two numbers = two waves. More reliable than the bonus-page K, which missed joiner skills and hero skills.", fcols: ["Leader", "Type", "Each wave", "K"],
     coefH: "Each player's troop factor", coefP: "The same march scores more for some players: what's left after taking out the leader's K and the troop mix — mostly troop tier (T10 / TG1–TG3). Reference player = 1.00. Few mails = less sure.", coefN: "{n} mails",
-    grH: "Each player's total, hunt by hunt", grP: "Bear Trap 2, final leaderboard (M). Arrow = change from the hunt before.", data: "Data: {n} hunts · updated {d}" },
+    grH: "Each player's total, hunt by hunt", grP: "Final leaderboard (M). Arrow = change from the hunt before.", data: "Data: {n} hunts · updated {d}" },
   zh: { h: "📋 最近一次熊獵復盤 · {d}", kh: "隊長強度對照", kp: "K = (1 + 弓兵攻擊力)(1 + 弓兵殺傷力) × 城鎮增益，取自那次的集結加成頁，以最強的常駐隊長 = 1.00。熊獵傷害幾乎都是弓兵，所以 K 就代表同一支部隊在這位隊長的團裡能拿幾分。長條淡色的部分＝兩個城鎮增益都開時的值。",
     tBuff: "兩個城鎮增益都開", cols: ["隊長", "類型", "弓兵 攻／殺 %", "城鎮增益", "K", "開增益後"], buff: { both: "攻＋殺", leth: "只有殺", atk: "只有攻", none: "沒有", both2: "攻＋殺＋官職" },
     xh: "照現在的方式，部隊放哪裡分數最高", xp: "一支部隊的分數 ≈ 隊長 K ×（你自己的弓兵、騎兵）。團裡其他人帶了什麼不影響你的分數——所以每一支部隊要看的只有：它進了誰的團。", xcols: ["同一支 10 萬的部隊放進…", "分數", ""],
     unh: "還不知道的", planH: "📐 排團草稿（之前的）",
     kpFit: "K 取自集結信件：用那次熊獵每一支部隊一起擬合（傷害 = 團 K × 個人係數 × 兵種），以參考隊長第一團 = 1.00。兩個數字 = 兩波。比加成頁算的 K 準——加成頁漏了加入者技能和英雄技能。", fcols: ["隊長", "類型", "每一波", "K"],
     coefH: "每人兵等係數", coefP: "同一支部隊，有些人就是打得比較多：扣掉隊長 K 和兵種比例後剩下的差，主要是兵等（T10／TG1–TG3）。參考的人 = 1.00。信件少的比較不準。", coefN: "{n} 封",
-    grH: "每人每場總傷害", grP: "陷阱 2，最終排行（M）。箭頭 = 跟上一場比。", data: "資料：{n} 場 · 更新 {d}" } };
+    grH: "每人每場總傷害", grP: "最終排行（M）。箭頭 = 跟上一場比。", data: "資料：{n} 場 · 更新 {d}" } };
 const rt = (k) => (RT[lang] || RT.en)[k] ?? RT.en[k];
 const LL = (o) => o ? (o[lang] ?? o.en ?? o.zh ?? "") : "";
 let RV = null;
@@ -46,9 +46,9 @@ function reviewHtml() {
   ${(r.coef || []).length ? `<div class="card"><h3>${esc(rt("coefH"))}</h3><p class="bp-p">${esc(rt("coefP"))}</p>
     <div class="bp-kb">${(() => { const m = Math.max(...r.coef.map((x) => +x[1])); return r.coef.map((x) => `<div class="bp-kr"><span class="bp-kn"><bdi>${esc(x[0])}</bdi></span><span class="bp-kt"><i class="bp-kf" style="width:${(+x[1] / m * 100).toFixed(1)}%;background:var(--bp-main)"></i></span><b>${(+x[1]).toFixed(2)}${x[2] ? ` <small class="muted">${esc(fill(rt("coefN"), { n: x[2] }))}</small>` : ""}</b></div>`).join(""); })()}</div>
     ${LL(r.coefNote) ? `<p class="muted bp-p" style="font-size:12.5px;margin-top:8px">${esc(LL(r.coefNote))}</p>` : ""}</div>` : ""}
-  ${r.growth && (r.growth.rows || []).length ? `<div class="card"><h3>${esc(rt("grH"))}</h3><p class="bp-p">${esc(rt("grP"))}</p>
-    <div class="bp-tw"><table class="bp-t" style="min-width:0"><thead><tr><th></th>${r.growth.dates.map((d) => `<th class="n">${esc(d)}</th>`).join("")}</tr></thead>
-      <tbody>${r.growth.rows.map((x) => `<tr><td><bdi>${esc(x[0])}</bdi></td>${x.slice(1).map((v, i) => { const p = i ? x.slice(1, i + 1).reverse().find((y) => y != null) : null; return `<td class="n">${v == null ? "—" : (+v).toFixed(0)}${v != null && p != null ? ` <small class="${+v >= +p ? "bp-up" : "bp-no"}">${+v >= +p ? "▲" : "▼"}</small>` : ""}</td>`; }).join("")}</tr>`).join("")}</tbody></table></div></div>` : ""}
+  ${[].concat(r.growth || []).filter((g) => (g.rows || []).length).map((g) => `<div class="card"><h3>${esc(rt("grH"))}${LL(g.title) ? " · " + esc(LL(g.title)) : ""}</h3><p class="bp-p">${esc(rt("grP"))}</p>
+    <div class="bp-tw"><table class="bp-t" style="min-width:0"><thead><tr><th></th>${g.dates.map((d) => `<th class="n">${esc(d)}</th>`).join("")}</tr></thead>
+      <tbody>${g.rows.map((x) => `<tr><td><bdi>${esc(x[0])}</bdi></td>${x.slice(1).map((v, i) => { const p = i ? x.slice(1, i + 1).reverse().find((y) => y != null) : null; return `<td class="n">${v == null ? "—" : (+v).toFixed(0)}${v != null && p != null ? ` <small class="${+v >= +p ? "bp-up" : "bp-no"}">${+v >= +p ? "▲" : "▼"}</small>` : ""}</td>`; }).join("")}</tr>`).join("")}</tbody></table></div></div>`).join("")}
   ${LL(r.place) ? `<div class="card"><h3>${esc(rt("xh"))}</h3><p class="bp-p">${esc(rt("xp"))}</p>
     <div class="bp-tw"><table class="bp-t" style="min-width:0"><thead><tr>${rt("xcols").map((c, i) => `<th${i === 1 ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
       <tbody>${LL(r.place).map((x) => `<tr><td><bdi>${esc(x[0])}</bdi></td><td class="n"><b>${esc(x[1])}</b></td><td class="muted">${esc(x[2] || "")}</td></tr>`).join("")}</tbody></table></div>
