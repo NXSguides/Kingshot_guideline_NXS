@@ -2,31 +2,6 @@
   players read: 43/43
 home overview: HTTP 200
 ✅ saved
-2026-11-04T00:42:42.141Z mode=auto kingdoms=2189,2217
-Kingdom 2189
-  board player_power: HTTP 404, 0 rows
-  board power: HTTP 404, 0 rows
-  board governor_power: HTTP 404, 0 rows
-  board migrant_score: HTTP 200, 20 rows
-  alliance board: HTTP 200, 8 rows
-  pool from alliance rosters + board:migrant_score: 40 players, 8 alliances
-  kingdom overview: HTTP 200
-  intel boards: 10/10
-  kept 24 (top 20 by migrant: 20, by power: 20)
-  players read: 40/40
-Kingdom 2217
-  board player_power: HTTP 404, 0 rows
-  board power: HTTP 404, 0 rows
-  board governor_power: HTTP 404, 0 rows
-  board migrant_score: HTTP 200, 20 rows
-  alliance board: HTTP 200, 8 rows
-  pool from alliance rosters + board:migrant_score: 43 players, 8 alliances
-  kingdom overview: HTTP 200
-  intel boards: 10/10
-  kept 28 (top 20 by migrant: 20, by power: 20)
-  players read: 43/43
-home overview: HTTP 200
-✅ saved
 2026-11-05T00:56:39.444Z mode=auto kingdoms=2189,2217
 Kingdom 2189
   board player_power: HTTP 404, 0 rows
@@ -63,6 +38,31 @@ Kingdom 2189
   kingdom overview: HTTP 200
   intel boards: 10/10
   kept 24 (top 20 by migrant: 20, by power: 20)
+  players read: 40/40
+Kingdom 2217
+  board player_power: HTTP 404, 0 rows
+  board power: HTTP 404, 0 rows
+  board governor_power: HTTP 404, 0 rows
+  board migrant_score: HTTP 200, 20 rows
+  alliance board: HTTP 200, 8 rows
+  pool from alliance rosters + board:migrant_score: 42 players, 8 alliances
+  kingdom overview: HTTP 200
+  intel boards: 10/10
+  kept 27 (top 20 by migrant: 20, by power: 20)
+  players read: 42/42
+home overview: HTTP 200
+✅ saved
+2026-11-07T00:11:30.707Z mode=auto kingdoms=2189,2217
+Kingdom 2189
+  board player_power: HTTP 404, 0 rows
+  board power: HTTP 404, 0 rows
+  board governor_power: HTTP 404, 0 rows
+  board migrant_score: HTTP 200, 20 rows
+  alliance board: HTTP 200, 8 rows
+  pool from alliance rosters + board:migrant_score: 40 players, 8 alliances
+  kingdom overview: HTTP 200
+  intel boards: 10/10
+  kept 23 (top 20 by migrant: 20, by power: 20)
   players read: 40/40
 Kingdom 2217
   board player_power: HTTP 404, 0 rows
