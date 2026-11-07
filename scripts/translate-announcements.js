@@ -52,9 +52,9 @@ const MODELS = [
   "gemini-2.5-flash-lite",
 ];
 
-async function callGemini(entry, systemPrompt) {
+async function callGemini(entry, systemPrompt, models = MODELS) {
   const errors = [];
-  for (const model of MODELS) {
+  for (const model of models) {
     for (let attempt = 1; attempt <= 3; attempt++) {
       const res = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${process.env.GEMINI_API_KEY}`,
@@ -71,6 +71,7 @@ async function callGemini(entry, systemPrompt) {
       const json = await res.json();
       if (res.ok) {
         console.log(`使用模型：${model}`);
+        json._model = model;
         return json;
       }
       if (res.status === 503 && attempt < 3) {
@@ -105,13 +106,20 @@ async function translateOne(entry, glossaryText) {
 ${glossaryText}`;
 
   const userInput = JSON.stringify({ title: entry.title || "", content: entry.content });
-  const json = await callGemini({ ...entry, content: userInput }, systemPrompt);
-
-  if (!json.candidates || !json.candidates[0]) {
-    throw new Error(`Gemini API 回傳格式異常: ${JSON.stringify(json)}`);
+  // 2026-11-07: a model once answered without the language keys (the announcement stayed English only) →
+  // check every language came back; if not, try again (up to 3 times, the later tries skip the model that failed)
+  let translations = null, models = MODELS;
+  for (let tryNo = 1; tryNo <= 3 && !translations; tryNo++) {
+    const json = await callGemini({ ...entry, content: userInput }, systemPrompt, models);
+    const part = json.candidates && json.candidates[0] && json.candidates[0].content && json.candidates[0].content.parts && json.candidates[0].content.parts[0];
+    let t = null; try { t = JSON.parse(part ? part.text : "null"); } catch (e) {}
+    if (t && typeof t === "object" && !Array.isArray(t) && t.translations && typeof t.translations === "object") t = t.translations;
+    const missing = t && typeof t === "object" ? targetLangs.filter((l) => !(t[l] && typeof t[l].content === "string" && t[l].content.trim())) : targetLangs;
+    if (!missing.length) { translations = t; break; }
+    console.warn(`翻譯少了 ${missing.length} 種語言（${missing.join(", ")}；收到的 key：${t && typeof t === "object" ? Object.keys(t).slice(0, 8).join(", ") : typeof t}），重試第 ${tryNo} 次`);
+    models = MODELS.filter((m) => m !== json._model).concat(json._model ? [json._model] : []);
   }
-
-  const translations = JSON.parse(json.candidates[0].content.parts[0].text);
+  if (!translations) throw new Error("翻譯一直缺語言，這次先不更新（下一個整點會再試）");
 
   // 保險：如果翻譯把圖片／指南按鈕標記弄丟了，就補回內文最後面
   const markers = (entry.content.match(/\[\[(?:img|table|link):[^\]]+\]\]/g) || []);
@@ -166,7 +174,9 @@ for (const entry of rawEntries) {
     try { const fx = JSON.parse(fs.readFileSync(FIXES, "utf8")); if (fx[reuse.oid] && !fx[entry.id]) { fx[entry.id] = fx[reuse.oid]; fs.writeFileSync(FIXES, JSON.stringify(fx, null, 1)); } } catch (e) {}
     continue;
   }
-  const result = await translateOne(entry, glossaryText);
+  let result;
+  try { result = await translateOne(entry, glossaryText); }
+  catch (e) { console.log(`::warning title=translate::${entry.title} — ${e.message}`); if (!cache[entry.id]) cache[entry.id] = { author: entry.author, createdAt: entry.created || new Date().toISOString(), images: entry.images || [], links: entry.links || [], title: { [entry.lang]: entry.title || "" }, content: { [entry.lang]: entry.content } }; continue; }
   const titleMap = {};
   const contentMap = {};
   for (const [lang, v] of Object.entries(result)) {
