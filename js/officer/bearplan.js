@@ -33,7 +33,7 @@ function reviewHtml() {
   const r = RV; if (!r) return "";
   const max = Math.max(1.2, ...r.rows.map((x) => +x[5] || +x[4] || 0)), pc = (v) => (v / max * 100).toFixed(1) + "%";
   const fit = !!r.kfit, tn = (k) => LL((r.tierNames || {})[k]) || tier(k);
-  return `<div class="card bp-rv"><h3>${esc(fill(rt("h"), { d: r.date || "" }))}</h3>${r.data ? `<div class="muted" style="font-size:12.5px">${esc(fill(rt("data"), r.data))}</div>` : ""}
+  return `<div class="card bp-rv"><h3>${esc(fill(rt("h"), { d: r.date || "" }))}</h3>${r.data ? `<div class="muted" style="font-size:12.5px">${esc(LL(r.data.txt) || fill(rt("data"), r.data))}</div>` : ""}
     ${r.stats ? `<div class="bp-stats" style="margin:6px 0 4px">${r.stats.map((x) => `<div class="bp-stat"><span class="k">${esc(LL(x.k))}</span><span class="v">${esc(x.v)}</span><span class="s">${esc(LL(x.s))}</span></div>`).join("")}</div>` : ""}</div>
   <div class="card"><h3>${esc(rt("kh"))}</h3><p class="bp-p">${esc(LL(r.kp) || rt(fit ? "kpFit" : "kp"))}</p>
     <div class="bp-legend">${(r.tierNames ? Object.keys(r.tierNames) : ["main", "second", "weak"]).map((k) => `<span><i class="bp-sw" style="background:var(--bp-${k})"></i>${esc(tn(k))}</span>`).join("")}${fit || r.ktable ? "" : `<span><i class="bp-sw" style="background:var(--bp-idle);border:1px solid var(--rule)"></i>${esc(rt("tBuff"))}</span>`}</div>
