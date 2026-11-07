@@ -1353,98 +1353,98 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-07 by Nia] ⚔️ KvK BATTLE GUIDE
-⏰ 10:00 UTC CITY ATTACKS START — come online before that to take part, OR shield up to protect yourself.
+[2026-11-07 by Nia] ⚔️ KvK 戰鬥指南
+⏰ 10:00 UTC 城鎮攻擊開始 — 請在此之前上線參戰，或開啟防護罩保護自己。
 
-⏰ Aim to be online an hour before Castle Battle starts at 11:00 UTC. 🚨
+⏰ 請目標在 11:00 UTC 決戰王城開始前一小時上線。 🚨
 
-- Top 100 kingdom players / players with all TG troops: join UNI when an R4 tells you.
+- 王國前 100 名玩家 / 全黃金部隊玩家： 當 R4 通知時請加入 UNI。
 
-- 🔊 Join Discord voice chat for coordination: https://discord.gg/5RakbEK5RS
-
----
-
-## 1. BATTLE FORMATIONS
-
-Save your marches NOW!
-
-> ⚔️ ATTACK: 50/20/30
-
-> 🛡️ DEFENSE: 60/20/20
-
-### 👑 Rally leaders — heroes
-
-- Attack: Amadeus / Marlin / Petra (Hilde or Jabel as substitute)
-
-- Defense: Zoe / Hilde / Saul
-
-### 🔥 Required buffs
-
-- 20K Attack
-
-- Lethality
-
-- Defense & Health
-
-- Enemy Debuffs ×2
-
-- Deployment Capacity
-
-- Pet
-
-### ⚔️ Rally joiners — heroes
-
-- Attack: Chenko
-
-- Defense: Howard / Gordon
-
-❕ Save two defense formations: one with Howard and one with Gordon.
-
-TG1–TG3 joiners: turn on your Deployment Capacity buff.
+- 🔊 加入 Discord 語音頻道進行戰術配合：https://discord.gg/5RakbEK5RS
 
 ---
 
-## 2. 🏰 ONCE WE CAPTURE A BUILDING
+## 1. 部隊編組
 
-EVERYONE: switch from ATTACK to DEFENSE right away!
+立即儲存您的行軍隊伍！
 
-1. Send your defense formation.
+> ⚔️ 攻擊： 50/20/30
 
-2. When defense is 5 seconds from arrival, recall your attack march from the garrison.
+> 🛡️ 防守： 60/20/20
 
-3. Your defense troops arrive in time to take over.
+### 👑 集結隊長 — 英雄
 
-4. Keep refilling injured troops with new marches at the 60/20/20 defense ratio.
+- 攻擊： 阿瑪迪斯 / 馬林 / 小佩拉（替補：希爾德或潔貝爾）
 
-### 👑 Garrison captain rotation — leaders
+- 防守： 佐伊 / 希爾德 / 薩洛
 
-1. Rotate joiners into Captain until slots 2–5 have:
+### 🔥 必備增益
 
- - 2 Howard
+- 20K 攻擊力
 
- - 2 Gordon
+- 殺傷力
 
-2. That gives 50% Defense + 50% Health.
+- 防禦力與生命值
 
-3. Put yourself back in Captain slot #1.
+- 敵軍減益效果 ×2
 
-Leaders: keep the troop ratio right and send back wrong marches when needed.
+- 出征部隊數量
+
+- 寵物
+
+### ⚔️ 集結參與者 — 英雄
+
+- 攻擊： 琴科
+
+- 防守： 霍華德 / 戈登
+
+❕ 請儲存兩種防守編組：一組使用霍華德，另一組使用戈登。
+
+TG1–TG3 參與者： 請開啟您的出征部隊數量增益。
 
 ---
 
-## 3. 🏰 CASTLE — IMPORTANT
+## 2. 🏰 佔領建築後
 
-⚠️ ONLY JOIN THE CENTRE WITH ALL TG TROOPS!
+所有人：請立即從「攻擊」切換為「防守」！
 
-- Troop priority: TG3 > TG2 > TG1
+1. 派出您的防守編組。
 
-- NO lower-tier troops in the castle.
+2. 當防守部隊距離到達還有 5 秒時，從駐守中召回您的攻擊部隊。
+
+3. 您的防守部隊將及時到達接管。
+
+4. 按照 60/20/20 的防守比例，持續使用新部隊補充傷兵。
+
+### 👑 駐守隊長輪替 — 隊長
+
+1. 輪替參與者擔任隊長，直到位置 2–5 擁有：
+
+ - 2 霍華德
+
+ - 2 戈登
+
+2. 這樣可提供 50% 防禦力 + 50% 生命值。
+
+3. 將您自己放回隊長位置 #1。
+
+隊長： 請保持正確的部隊比例，並在需要時遣回錯誤的部隊。
 
 ---
 
-## 4. 🎯 TURRETS
+## 3. 🏰 王城 — 重要事項
 
-Join ALL turret rallies called by our leaders!
+⚠️ 僅限使用全 TG 部隊加入中心！
+
+- 部隊優先順序：TG3 > TG2 > TG1
+
+- 王城內禁止進入低階部隊。
+
+---
+
+## 4. 🎯 砲台
+
+加入由我方隊長發起的所有砲台集結！
 
 (see guide #kvk)
 

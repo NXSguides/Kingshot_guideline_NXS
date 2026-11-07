@@ -1353,98 +1353,98 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-07 by Nia] ⚔️ KvK BATTLE GUIDE
-⏰ 10:00 UTC CITY ATTACKS START — come online before that to take part, OR shield up to protect yourself.
+[2026-11-07 by Nia] ⚔️ คำแนะนำการต่อสู้ KvK
+⏰ 10:00 UTC เริ่มการโจมตีค่ายอพยพ — โปรดออนไลน์ก่อนเวลานี้เพื่อเข้าร่วม หรือเปิดใช้โล่เพื่อปกป้องตัวเอง
 
-⏰ Aim to be online an hour before Castle Battle starts at 11:00 UTC. 🚨
+⏰ ตั้งเป้าออนไลน์ก่อนการต่อสู้ชิงปราสาทจะเริ่มในเวลา 11:00 UTC เป็นเวลา 1 ชั่วโมง 🚨
 
-- Top 100 kingdom players / players with all TG troops: join UNI when an R4 tells you.
+- ผู้เล่น 100 อันดับแรกของอาณาจักร / ผู้เล่นที่มีทหารทรูโกลด์ทั้งหมด: เข้าร่วม UNI เมื่อ R4 แจ้งให้ทราบ
 
-- 🔊 Join Discord voice chat for coordination: https://discord.gg/5RakbEK5RS
-
----
-
-## 1. BATTLE FORMATIONS
-
-Save your marches NOW!
-
-> ⚔️ ATTACK: 50/20/30
-
-> 🛡️ DEFENSE: 60/20/20
-
-### 👑 Rally leaders — heroes
-
-- Attack: Amadeus / Marlin / Petra (Hilde or Jabel as substitute)
-
-- Defense: Zoe / Hilde / Saul
-
-### 🔥 Required buffs
-
-- 20K Attack
-
-- Lethality
-
-- Defense & Health
-
-- Enemy Debuffs ×2
-
-- Deployment Capacity
-
-- Pet
-
-### ⚔️ Rally joiners — heroes
-
-- Attack: Chenko
-
-- Defense: Howard / Gordon
-
-❕ Save two defense formations: one with Howard and one with Gordon.
-
-TG1–TG3 joiners: turn on your Deployment Capacity buff.
+- 🔊 เข้าร่วมแชทเสียง Discord เพื่อการประสานงาน: https://discord.gg/5RakbEK5RS
 
 ---
 
-## 2. 🏰 ONCE WE CAPTURE A BUILDING
+## 1. รูปแบบการจัดวางทหาร
 
-EVERYONE: switch from ATTACK to DEFENSE right away!
+บันทึกคิวการเดินทัพของคุณตอนนี้!
 
-1. Send your defense formation.
+> ⚔️ โจมตี: 50/20/30
 
-2. When defense is 5 seconds from arrival, recall your attack march from the garrison.
+> 🛡️ ป้องกัน: 60/20/20
 
-3. Your defense troops arrive in time to take over.
+### 👑 หัวหน้าทีมระดมพล — ฮีโร่
 
-4. Keep refilling injured troops with new marches at the 60/20/20 defense ratio.
+- โจมตี: อมาดีอุส / มาร์ลิน / เพตรา (ใช้ฮิลเดอร์ หรือจาเบล เป็นตัวสำรอง)
 
-### 👑 Garrison captain rotation — leaders
+- ป้องกัน: โซอี้ / ฮิลเดอร์ / ซอล
 
-1. Rotate joiners into Captain until slots 2–5 have:
+### 🔥 บัฟที่จำเป็น
 
- - 2 Howard
+- พลังโจมตี 20K
 
- - 2 Gordon
+- ความแรงพลัง
 
-2. That gives 50% Defense + 50% Health.
+- พลังป้องกัน & พลังชีวิต
 
-3. Put yourself back in Captain slot #1.
+- ดีบัฟศัตรู ×2
 
-Leaders: keep the troop ratio right and send back wrong marches when needed.
+- ความจุการส่งออกทหาร
+
+- สัตว์เลี้ยง
+
+### ⚔️ ผู้เข้าร่วมทีมระดมพล — ฮีโร่
+
+- โจมตี: เชนโกะ
+
+- ป้องกัน: ฮาวเวิร์ด / กอร์ดอน
+
+❕ บันทึกรูปแบบการป้องกันสองรูปแบบ: แบบหนึ่งใช้ ฮาวเวิร์ด และอีกแบบใช้ กอร์ดอน
+
+ผู้เข้าร่วม TG1–TG3: เปิดใช้งาน บัฟความจุการส่งออกทหาร ของคุณ
 
 ---
 
-## 3. 🏰 CASTLE — IMPORTANT
+## 2. 🏰 เมื่อเรายึดสิ่งปลูกสร้างได้แล้ว
 
-⚠️ ONLY JOIN THE CENTRE WITH ALL TG TROOPS!
+ทุกคน: เปลี่ยนจากโจมตีเป็นป้องกันทันที!
 
-- Troop priority: TG3 > TG2 > TG1
+1. ส่ง รูปแบบการป้องกัน ของคุณออกไป
 
-- NO lower-tier troops in the castle.
+2. เมื่อทัพป้องกัน เหลือเวลาอีก 5 วินาทีก่อนจะถึง, ให้เรียกทีมโจมตีกลับจากกองกำลังคุ้มกัน
+
+3. กองกำลังป้องกันของคุณจะมาถึงทันเวลาเพื่อเข้าแทนที่
+
+4. คอยเติมทหารบาดเจ็บด้วยทีมใหม่ตามอัตราส่วนการป้องกัน 60/20/20
+
+### 👑 การหมุนเวียนกัปตันกองกำลังคุ้มกัน — ผู้นำ
+
+1. สลับผู้เข้าร่วมขึ้นเป็นกัปตันจนกว่าช่อง 2–5 จะมี:
+
+ - ฮาวเวิร์ด 2 คน
+
+ - กอร์ดอน 2 คน
+
+2. ซึ่งจะให้ พลังป้องกัน 50% + พลังชีวิต 50%
+
+3. ใส่ตัวคุณเองกลับเข้าไปใน ช่องกัปตัน #1
+
+ผู้นำ: รักษาอัตราส่วนทหารให้ถูกต้องและส่งทีมที่ไม่ถูกต้องกลับหากจำเป็น
 
 ---
 
-## 4. 🎯 TURRETS
+## 3. 🏰 ปราสาท — สำคัญ
 
-Join ALL turret rallies called by our leaders!
+⚠️ เข้าร่วมตรงกลางด้วยทหาร TG ทั้งหมดเท่านั้น!
+
+- ลำดับความสำคัญของทหาร: TG3 > TG2 > TG1
+
+- ห้ามใช้ทหารระดับต่ำกว่า ในปราสาท
+
+---
+
+## 4. 🎯 ป้อมปืน
+
+เข้าร่วมทีมระดมพลป้อมปืนทั้งหมดที่เรียกโดยผู้นำของเรา!
 
 (see guide #kvk)
 

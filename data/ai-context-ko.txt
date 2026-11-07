@@ -1380,98 +1380,98 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-07 by Nia] ⚔️ KvK BATTLE GUIDE
-⏰ 10:00 UTC CITY ATTACKS START — come online before that to take part, OR shield up to protect yourself.
+[2026-11-07 by Nia] ⚔️ KvK 전투 가이드
+⏰ 10:00 UTC 도시 공격 시작 — 이전에 접속하여 참전하거나, 보호막을 켜서 자신을 보호하세요.
 
-⏰ Aim to be online an hour before Castle Battle starts at 11:00 UTC. 🚨
+⏰ 11:00 UTC 캐슬 전투 시작 1시간 전에 접속하는 것을 목표로 하세요. 🚨
 
-- Top 100 kingdom players / players with all TG troops: join UNI when an R4 tells you.
+- 왕국 상위 100위 유저 / 전원 TG 부대 유저: R4의 안내에 따라 UNI에 가입하세요.
 
-- 🔊 Join Discord voice chat for coordination: https://discord.gg/5RakbEK5RS
-
----
-
-## 1. BATTLE FORMATIONS
-
-Save your marches NOW!
-
-> ⚔️ ATTACK: 50/20/30
-
-> 🛡️ DEFENSE: 60/20/20
-
-### 👑 Rally leaders — heroes
-
-- Attack: Amadeus / Marlin / Petra (Hilde or Jabel as substitute)
-
-- Defense: Zoe / Hilde / Saul
-
-### 🔥 Required buffs
-
-- 20K Attack
-
-- Lethality
-
-- Defense & Health
-
-- Enemy Debuffs ×2
-
-- Deployment Capacity
-
-- Pet
-
-### ⚔️ Rally joiners — heroes
-
-- Attack: Chenko
-
-- Defense: Howard / Gordon
-
-❕ Save two defense formations: one with Howard and one with Gordon.
-
-TG1–TG3 joiners: turn on your Deployment Capacity buff.
+- 🔊 조율을 위해 Discord 음성 채널에 참여하세요: https://discord.gg/5RakbEK5RS
 
 ---
 
-## 2. 🏰 ONCE WE CAPTURE A BUILDING
+## 1. 부대 편성
 
-EVERYONE: switch from ATTACK to DEFENSE right away!
+지금 즉시 행군 대열을 저장하세요!
 
-1. Send your defense formation.
+> ⚔️ 공격: 50/20/30
 
-2. When defense is 5 seconds from arrival, recall your attack march from the garrison.
+> 🛡️ 방어: 60/20/20
 
-3. Your defense troops arrive in time to take over.
+### 👑 집결 대장 — 영웅
 
-4. Keep refilling injured troops with new marches at the 60/20/20 defense ratio.
+- 공격: 아마데우스 / 마린 / 리틀 페라 (후보: 힐데 또는 제이벨)
 
-### 👑 Garrison captain rotation — leaders
+- 방어: 조이 / 힐데 / 살로
 
-1. Rotate joiners into Captain until slots 2–5 have:
+### 🔥 필수 버프
 
- - 2 Howard
+- 20K 공격력
 
- - 2 Gordon
+- 파괴력
 
-2. That gives 50% Defense + 50% Health.
+- 방어력 및 HP
 
-3. Put yourself back in Captain slot #1.
+- 적군 디버프 ×2
 
-Leaders: keep the troop ratio right and send back wrong marches when needed.
+- 출정 수용량
+
+- 펫
+
+### ⚔️ 집결 참여자 — 영웅
+
+- 공격: 첸코
+
+- 방어: 하워드 / 고든
+
+❕ 방어 편성을 두 개 저장하세요: 하나는 하워드, 다른 하나는 고든.
+
+TG1–TG3 참여자: 출정 수용량 버프를 켜세요.
 
 ---
 
-## 3. 🏰 CASTLE — IMPORTANT
+## 2. 🏰 건물 점령 후
 
-⚠️ ONLY JOIN THE CENTRE WITH ALL TG TROOPS!
+모두: 즉시 공격에서 방어로 전환하세요!
 
-- Troop priority: TG3 > TG2 > TG1
+1. 방어 편성을 파견하세요.
 
-- NO lower-tier troops in the castle.
+2. 방어 부대의 도착까지 5초 남았을 때, 주둔 중인 공격 부대를 소환하세요.
+
+3. 방어 부대가 제시간에 도착하여 교체됩니다.
+
+4. 60/20/20 방어 비율로 새 부대를 파견하여 부상병을 계속 채우세요.
+
+### 👑 수비대 지휘관 교대 — 리더
+
+1. 슬롯 2–5에 다음이 배치될 때까지 참여자를 지휘관으로 교대하세요:
+
+ - 2 하워드
+
+ - 2 고든
+
+2. 이렇게 하면 50% 방어력 + 50% HP 효과가 부여됩니다.
+
+3. 자신을 다시 지휘관 슬롯 #1에 배치하세요.
+
+리더: 부대 비율을 적절히 유지하고 필요할 때 잘못된 부대를 돌려보내세요.
 
 ---
 
-## 4. 🎯 TURRETS
+## 3. 🏰 캐슬 — 중요 사항
 
-Join ALL turret rallies called by our leaders!
+⚠️ 전원 TG 부대로만 중앙에 참여하세요!
+
+- 부대 우선순위: TG3 > TG2 > TG1
+
+- 캐슬에 하위 등급 부대 금지.
+
+---
+
+## 4. 🎯 포탑
+
+리더들이 수립한 모든 포탑 집결에 참여하세요!
 
 (see guide #kvk)
 

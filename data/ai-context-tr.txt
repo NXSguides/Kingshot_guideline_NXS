@@ -1354,98 +1354,98 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-07 by Nia] ⚔️ KvK BATTLE GUIDE
-⏰ 10:00 UTC CITY ATTACKS START — come online before that to take part, OR shield up to protect yourself.
+[2026-11-07 by Nia] ⚔️ KvK SAVAŞ REHBERİ
+⏰ 10:00 UTC ŞEHİR SALDIRILARI BAŞLIYOR — katılmak için önceden çevrim içi ol VEYA kendini korumak için kalkan aç.
 
-⏰ Aim to be online an hour before Castle Battle starts at 11:00 UTC. 🚨
+⏰ Şato Savaşı 11:00 UTC'de başlamadan bir saat önce çevrim içi olmayı hedefle. 🚨
 
-- Top 100 kingdom players / players with all TG troops: join UNI when an R4 tells you.
+- Krallıkta ilk 100'deki oyuncular / tüm birlikleri Hasaltın olan oyuncular: Bir R4 söylediğinde UNI'ye katılın.
 
-- 🔊 Join Discord voice chat for coordination: https://discord.gg/5RakbEK5RS
+- 🔊 Koordinasyon için Discord sesli sohbetine katılın: https://discord.gg/5RakbEK5RS
 
 ---
 
-## 1. BATTLE FORMATIONS
+## 1. BİRLİK DİZİLİŞLERİ
 
-Save your marches NOW!
+İntikallerini ŞİMDİ kaydet!
 
-> ⚔️ ATTACK: 50/20/30
+> ⚔️ SALDIRI: 50/20/30
 
-> 🛡️ DEFENSE: 60/20/20
+> 🛡️ SAVUNMA: 60/20/20
 
-### 👑 Rally leaders — heroes
+### 👑 Seferberlik önderleri — kahramanlar
 
-- Attack: Amadeus / Marlin / Petra (Hilde or Jabel as substitute)
+- Saldırı: Amadeus / Marlin / Petra (Yedek olarak Hilde veya Jabel)
 
-- Defense: Zoe / Hilde / Saul
+- Savunma: Zoe / Hilde / Saul
 
-### 🔥 Required buffs
+### 🔥 Gerekli güçlendirmeler
 
-- 20K Attack
+- 20K Saldırı
 
-- Lethality
+- Öldürücülük
 
-- Defense & Health
+- Savunma & Sağlık
 
-- Enemy Debuffs ×2
+- Düşman Zayıflatmaları ×2
 
-- Deployment Capacity
+- Konuşlanma kapasitesi
 
 - Pet
 
-### ⚔️ Rally joiners — heroes
+### ⚔️ Seferberliğe katılanlar — kahramanlar
 
-- Attack: Chenko
+- Saldırı: Chenko
 
-- Defense: Howard / Gordon
+- Savunma: Howard / Gordon
 
-❕ Save two defense formations: one with Howard and one with Gordon.
+❕ İki savunma dizilişi kaydet: biri Howard ile, diğeri Gordon ile.
 
-TG1–TG3 joiners: turn on your Deployment Capacity buff.
+TG1–TG3 katılanları: Konuşlanma kapasitesi güçlendirmenizi açın.
 
 ---
 
-## 2. 🏰 ONCE WE CAPTURE A BUILDING
+## 2. 🏰 BİR BİNAYI ELE GEÇİRDİĞİMİZDE
 
-EVERYONE: switch from ATTACK to DEFENSE right away!
+HERKES: Hemen SALDIRI'dan SAVUNMA'ya geçsin!
 
-1. Send your defense formation.
+1. Savunma dizilişinizi gönderin.
 
-2. When defense is 5 seconds from arrival, recall your attack march from the garrison.
+2. Savunmanın varışına 5 saniye kala, garnizondaki saldırı intikalinizi geri çağırın.
 
-3. Your defense troops arrive in time to take over.
+3. Savunma birlikleriniz devralmak için zamanında varacaktır.
 
-4. Keep refilling injured troops with new marches at the 60/20/20 defense ratio.
+4. Yaralı birlikleri 60/20/20 savunma oranında yeni intikallerle doldurmaya devam edin.
 
-### 👑 Garrison captain rotation — leaders
+### 👑 Garnizon önderi rotasyonu — liderler
 
-1. Rotate joiners into Captain until slots 2–5 have:
+1. Katılanları, 2–5 yuvalarında şunlar olana kadar Önder pozisyonuna döndürün:
 
  - 2 Howard
 
  - 2 Gordon
 
-2. That gives 50% Defense + 50% Health.
+2. Bu, %50 Savunma + %50 Sağlık sağlar.
 
-3. Put yourself back in Captain slot #1.
+3. Kendinizi tekrar #1 Önder yuvasına koyun.
 
-Leaders: keep the troop ratio right and send back wrong marches when needed.
-
----
-
-## 3. 🏰 CASTLE — IMPORTANT
-
-⚠️ ONLY JOIN THE CENTRE WITH ALL TG TROOPS!
-
-- Troop priority: TG3 > TG2 > TG1
-
-- NO lower-tier troops in the castle.
+Liderler: Birlik oranını doğru tutun ve gerektiğinde yanlış intikalleri geri gönderin.
 
 ---
 
-## 4. 🎯 TURRETS
+## 3. 🏰 ŞATO — ÖNEMLİ
 
-Join ALL turret rallies called by our leaders!
+⚠️ MERKEZE SADECE TAMAMI TG BİRLİKLERİ İLE KATILIN!
+
+- Birlik önceliği: TG3 > TG2 > TG1
+
+- Şatoda daha düşük kademeli birlik YASAKTIR.
+
+---
+
+## 4. 🎯 TARETLER
+
+Liderlerimiz tarafından başlatılan TÜM taret seferberliklerine katılın!
 
 (see guide #kvk)
 

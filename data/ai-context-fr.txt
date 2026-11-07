@@ -1355,98 +1355,98 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-07 by Nia] ⚔️ KvK BATTLE GUIDE
-⏰ 10:00 UTC CITY ATTACKS START — come online before that to take part, OR shield up to protect yourself.
+[2026-11-07 by Nia] ⚔️ GUIDE DE COMBAT KvK
+⏰ 10:00 UTC DÉBUT DES ATTAQUES DE VILLES — connecte-toi avant cela pour participer, OU active un bouclier pour te protéger.
 
-⏰ Aim to be online an hour before Castle Battle starts at 11:00 UTC. 🚨
+⏰ Vise à être en ligne une heure avant le début de la Bataille du Château à 11:00 UTC. 🚨
 
-- Top 100 kingdom players / players with all TG troops: join UNI when an R4 tells you.
+- Top 100 des joueurs du royaume / joueurs avec 100% de troupes Or Véritable : rejoins UNI quand un R4 te le demande.
 
-- 🔊 Join Discord voice chat for coordination: https://discord.gg/5RakbEK5RS
-
----
-
-## 1. BATTLE FORMATIONS
-
-Save your marches NOW!
-
-> ⚔️ ATTACK: 50/20/30
-
-> 🛡️ DEFENSE: 60/20/20
-
-### 👑 Rally leaders — heroes
-
-- Attack: Amadeus / Marlin / Petra (Hilde or Jabel as substitute)
-
-- Defense: Zoe / Hilde / Saul
-
-### 🔥 Required buffs
-
-- 20K Attack
-
-- Lethality
-
-- Defense & Health
-
-- Enemy Debuffs ×2
-
-- Deployment Capacity
-
-- Pet
-
-### ⚔️ Rally joiners — heroes
-
-- Attack: Chenko
-
-- Defense: Howard / Gordon
-
-❕ Save two defense formations: one with Howard and one with Gordon.
-
-TG1–TG3 joiners: turn on your Deployment Capacity buff.
+- 🔊 Rejoins le chat vocal Discord pour la coordination : https://discord.gg/5RakbEK5RS
 
 ---
 
-## 2. 🏰 ONCE WE CAPTURE A BUILDING
+## 1. FORMATIONS DE TROUPE
 
-EVERYONE: switch from ATTACK to DEFENSE right away!
+Sauvegarde tes marches MAINTENANT !
 
-1. Send your defense formation.
+> ⚔️ ATTAQUE : 50/20/30
 
-2. When defense is 5 seconds from arrival, recall your attack march from the garrison.
+> 🛡️ DÉFENSE : 60/20/20
 
-3. Your defense troops arrive in time to take over.
+### 👑 Capitaines de ralliement — Héros
 
-4. Keep refilling injured troops with new marches at the 60/20/20 defense ratio.
+- Attaque : Amadeus / Marlin / Petra (Hilde ou Jabel en remplaçants)
 
-### 👑 Garrison captain rotation — leaders
+- Défense : Zoé / Hilde / Saul
 
-1. Rotate joiners into Captain until slots 2–5 have:
+### 🔥 Bonus requis
+
+- 20K Attaque
+
+- Létalité
+
+- Défense & Santé
+
+- Malus ennemis ×2
+
+- Capacité de déploiement
+
+- Animaux
+
+### ⚔️ Participants au ralliement — Héros
+
+- Attaque : Chenko
+
+- Défense : Howard / Gordon
+
+❕ Sauvegarde deux formations défensives : une avec Howard et une avec Gordon.
+
+Participants TG1–TG3 : active ton bonus de capacité de déploiement.
+
+---
+
+## 2. 🏰 UNE FOIS UN BÂTIMENT CAPTURÉ
+
+TOUT LE MONDE : passez immédiatement de l'ATTAQUE à la DÉFENSE !
+
+1. Envoie ta formation défensive.
+
+2. Quand la défense est à 5 secondes de l'arrivée, rappelle ta marche d'attaque de la garnison.
+
+3. Tes troupes de défense arriveront à temps pour prendre le relais.
+
+4. Continue de réapprovisionner les troupes blessées avec de nouvelles marches selon le ratio de défense 60/20/20.
+
+### 👑 Rotation des capitaines de garnison — Chefs
+
+1. Fais tourner les participants au poste de Capitaine jusqu'à ce que les emplacements 2–5 contiennent :
 
  - 2 Howard
 
  - 2 Gordon
 
-2. That gives 50% Defense + 50% Health.
+2. Cela donne 50% Défense + 50% Santé.
 
-3. Put yourself back in Captain slot #1.
+3. Replace-toi dans l'emplacement de Capitaine n°1.
 
-Leaders: keep the troop ratio right and send back wrong marches when needed.
-
----
-
-## 3. 🏰 CASTLE — IMPORTANT
-
-⚠️ ONLY JOIN THE CENTRE WITH ALL TG TROOPS!
-
-- Troop priority: TG3 > TG2 > TG1
-
-- NO lower-tier troops in the castle.
+Chefs : maintenez le bon ratio de troupes et renvoyez les mauvaises marches si nécessaire.
 
 ---
 
-## 4. 🎯 TURRETS
+## 3. 🏰 CHÂTEAU — IMPORTANT
 
-Join ALL turret rallies called by our leaders!
+⚠️ REJOINS LE CENTRE UNIQUEMENT AVEC DES TROUPES TG !
+
+- Priorité des troupes : TG3 > TG2 > TG1
+
+- AUCUNE troupe de palier inférieur dans le château.
+
+---
+
+## 4. 🎯 TOURELLES
+
+Rejoins TOUS les ralliements de tourelles lancés par nos chefs !
 
 (see guide #kvk)
 

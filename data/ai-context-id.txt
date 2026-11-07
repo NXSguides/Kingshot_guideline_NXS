@@ -1354,32 +1354,32 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-07 by Nia] ⚔️ KvK BATTLE GUIDE
-⏰ 10:00 UTC CITY ATTACKS START — come online before that to take part, OR shield up to protect yourself.
+[2026-11-07 by Nia] ⚔️ PANDUAN PERTEMPURAN KvK
+⏰ 10:00 UTC SERANGAN KOTA DIMULAI — datanglah secara online sebelum itu untuk berpartisipasi, ATAU pasang perisai untuk melindungi diri Anda.
 
-⏰ Aim to be online an hour before Castle Battle starts at 11:00 UTC. 🚨
+⏰ Usahakan untuk online satu jam sebelum Pertempuran Istana dimulai pada pukul 11:00 UTC. 🚨
 
-- Top 100 kingdom players / players with all TG troops: join UNI when an R4 tells you.
+- Pemain 100 besar kerajaan / pemain dengan semua pasukan Truegold: bergabunglah dengan UNI ketika R4 memberi tahu Anda.
 
-- 🔊 Join Discord voice chat for coordination: https://discord.gg/5RakbEK5RS
+- 🔊 Bergabunglah dengan obrolan suara Discord untuk koordinasi: https://discord.gg/5RakbEK5RS
 
 ---
 
-## 1. BATTLE FORMATIONS
+## 1. FORMASI PASUKAN
 
-Save your marches NOW!
+Simpan barisan Anda SEKARANG!
 
 > ⚔️ ATTACK: 50/20/30
 
 > 🛡️ DEFENSE: 60/20/20
 
-### 👑 Rally leaders — heroes
+### 👑 Pemimpin reli — hero
 
-- Attack: Amadeus / Marlin / Petra (Hilde or Jabel as substitute)
+- Attack: Amadeus / Marlin / Petra (Hilde atau Jabel sebagai pengganti)
 
 - Defense: Zoe / Hilde / Saul
 
-### 🔥 Required buffs
+### 🔥 Buff yang dibutuhkan
 
 - 20K Attack
 
@@ -1387,65 +1387,65 @@ Save your marches NOW!
 
 - Defense & Health
 
-- Enemy Debuffs ×2
+- Debuff Musuh ×2
 
-- Deployment Capacity
+- Kapasitas pengerahan
 
-- Pet
+- Peliharaan
 
-### ⚔️ Rally joiners — heroes
+### ⚔️ Peserta reli — hero
 
 - Attack: Chenko
 
 - Defense: Howard / Gordon
 
-❕ Save two defense formations: one with Howard and one with Gordon.
+❕ Simpan dua formasi pertahanan: satu dengan Howard dan satu dengan Gordon.
 
-TG1–TG3 joiners: turn on your Deployment Capacity buff.
+Peserta TG1–TG3: aktifkan buff kapasitas pengerahan Anda.
 
 ---
 
-## 2. 🏰 ONCE WE CAPTURE A BUILDING
+## 2. 🏰 SETELAH KITA MENGUASAI BANGUNAN
 
-EVERYONE: switch from ATTACK to DEFENSE right away!
+SEMUA ORANG: segera beralih dari ATTACK ke DEFENSE!
 
-1. Send your defense formation.
+1. Kirim formasi pertahanan Anda.
 
-2. When defense is 5 seconds from arrival, recall your attack march from the garrison.
+2. Saat pertahanan berada 5 detik sebelum kedatangan, panggil kembali barisan serangan Anda dari garnisun.
 
-3. Your defense troops arrive in time to take over.
+3. Pasukan pertahanan Anda akan tiba tepat waktu untuk mengambil alih.
 
-4. Keep refilling injured troops with new marches at the 60/20/20 defense ratio.
+4. Terus isi ulang pasukan yang terluka dengan barisan baru pada rasio pertahanan 60/20/20.
 
-### 👑 Garrison captain rotation — leaders
+### 👑 Rotasi kapten garnisun — pemimpin
 
-1. Rotate joiners into Captain until slots 2–5 have:
+1. Putar peserta ke posisi Kapten sampai slot 2–5 memiliki:
 
  - 2 Howard
 
  - 2 Gordon
 
-2. That gives 50% Defense + 50% Health.
+2. Itu memberikan 50% Defense + 50% Health.
 
-3. Put yourself back in Captain slot #1.
+3. Tempatkan diri Anda kembali di slot Kapten #1.
 
-Leaders: keep the troop ratio right and send back wrong marches when needed.
-
----
-
-## 3. 🏰 CASTLE — IMPORTANT
-
-⚠️ ONLY JOIN THE CENTRE WITH ALL TG TROOPS!
-
-- Troop priority: TG3 > TG2 > TG1
-
-- NO lower-tier troops in the castle.
+Pemimpin: jaga agar rasio pasukan tetap benar dan kirim kembali barisan yang salah jika diperlukan.
 
 ---
 
-## 4. 🎯 TURRETS
+## 3. 🏰 ISTANA — PENTING
 
-Join ALL turret rallies called by our leaders!
+⚠️ HANYA BERGABUNG KE PUSAT DENGAN SEMUA PASUKAN TG!
+
+- Prioritas pasukan: TG3 > TG2 > TG1
+
+- TIDAK ADA pasukan tingkat rendah di istana.
+
+---
+
+## 4. 🎯 MERIAM
+
+Bergabunglah dengan SEMUA reli meriam yang dipanggil oleh pemimpin kita!
 
 (see guide #kvk)
 

@@ -1356,98 +1356,98 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-07 by Nia] ⚔️ KvK BATTLE GUIDE
-⏰ 10:00 UTC CITY ATTACKS START — come online before that to take part, OR shield up to protect yourself.
+[2026-11-07 by Nia] ⚔️ KvK-SCHLACHT-LEITFADEN
+⏰ 10:00 UTC STADTN-ANGRIFFE BEGINNEN — komm vorher online, um teilzunehmen, ODER aktiviere einen Schild, um dich zu schützen.
 
-⏰ Aim to be online an hour before Castle Battle starts at 11:00 UTC. 🚨
+⏰ Versuche eine Stunde vor Beginn der Schlacht um das Schloss um 11:00 UTC online zu sein. 🚨
 
-- Top 100 kingdom players / players with all TG troops: join UNI when an R4 tells you.
+- Top-100-Königreich-Spieler / Spieler mit reinen Echtgold-Truppen: Tritt UNI bei, wenn ein R4 es dir sagt.
 
-- 🔊 Join Discord voice chat for coordination: https://discord.gg/5RakbEK5RS
-
----
-
-## 1. BATTLE FORMATIONS
-
-Save your marches NOW!
-
-> ⚔️ ATTACK: 50/20/30
-
-> 🛡️ DEFENSE: 60/20/20
-
-### 👑 Rally leaders — heroes
-
-- Attack: Amadeus / Marlin / Petra (Hilde or Jabel as substitute)
-
-- Defense: Zoe / Hilde / Saul
-
-### 🔥 Required buffs
-
-- 20K Attack
-
-- Lethality
-
-- Defense & Health
-
-- Enemy Debuffs ×2
-
-- Deployment Capacity
-
-- Pet
-
-### ⚔️ Rally joiners — heroes
-
-- Attack: Chenko
-
-- Defense: Howard / Gordon
-
-❕ Save two defense formations: one with Howard and one with Gordon.
-
-TG1–TG3 joiners: turn on your Deployment Capacity buff.
+- 🔊 Tritt dem Discord-Sprachkanal zur Abstimmung bei: https://discord.gg/5RakbEK5RS
 
 ---
 
-## 2. 🏰 ONCE WE CAPTURE A BUILDING
+## 1. TRUPP FORMATIONEN
 
-EVERYONE: switch from ATTACK to DEFENSE right away!
+Speichere deine Märsche JETZT!
 
-1. Send your defense formation.
+> ⚔️ ANGRIFF: 50/20/30
 
-2. When defense is 5 seconds from arrival, recall your attack march from the garrison.
+> 🛡️ VERTEIDIGUNG: 60/20/20
 
-3. Your defense troops arrive in time to take over.
+### 👑 Rally-Kapitäne — Helden
 
-4. Keep refilling injured troops with new marches at the 60/20/20 defense ratio.
+- Angriff: Amadeus / Marlin / Petra (Hilde oder Jabel als Ersatzspieler)
 
-### 👑 Garrison captain rotation — leaders
+- Verteidigung: Zoe / Hilde / Saul
 
-1. Rotate joiners into Captain until slots 2–5 have:
+### 🔥 Erforderliche Boni
+
+- 20K Angriff
+
+- Tödlichkeit
+
+- Verteidigung & Gesundheit
+
+- Feindliche Debuffs ×2
+
+- Einsatzkapazität
+
+- Begleittier
+
+### ⚔️ Rally-Teilnehmer — Helden
+
+- Angriff: Chenko
+
+- Verteidigung: Howard / Gordon
+
+❕ Speichere zwei Verteidigungsformationen: eine mit Howard und eine mit Gordon.
+
+TG1–TG3-Teilnehmer: Aktiviere deinen Einsatzkapazität-Bonus.
+
+---
+
+## 2. 🏰 SOBALD WIR EIN GEBÄUDE EROBERT HABEN
+
+ALLE: Wechselt sofort von ANGRIFF auf VERTEIDIGUNG!
+
+1. Sende deine Verteidigungsformation.
+
+2. Wenn die Verteidigung 5 Sekunden vor Ankunft ist, rufe deinen Angriffsmarsch aus der Garnison zurück.
+
+3. Deine Verteidigungstruppen kommen rechtzeitig an, um zu übernehmen.
+
+4. Fülle verletzte Truppen weiterhin mit neuen Märschen im Verteidigungsverhältnis von 60/20/20 auf.
+
+### 👑 Garnisonskapitän-Rotation — Anführer
+
+1. Rotiere Teilnehmer auf den Kapitänsposten, bis die Plätze 2–5 Folgendes enthalten:
 
  - 2 Howard
 
  - 2 Gordon
 
-2. That gives 50% Defense + 50% Health.
+2. Das ergibt 50% Verteidigung + 50% Gesundheit.
 
-3. Put yourself back in Captain slot #1.
+3. Setze dich selbst wieder auf Kapitänsplatz #1.
 
-Leaders: keep the troop ratio right and send back wrong marches when needed.
-
----
-
-## 3. 🏰 CASTLE — IMPORTANT
-
-⚠️ ONLY JOIN THE CENTRE WITH ALL TG TROOPS!
-
-- Troop priority: TG3 > TG2 > TG1
-
-- NO lower-tier troops in the castle.
+Anführer: Halte das Truppenverhältnis korrekt und sende falsche Märsche zurück, wenn nötig.
 
 ---
 
-## 4. 🎯 TURRETS
+## 3. 🏰 SCHLOSS — WICHTIG
 
-Join ALL turret rallies called by our leaders!
+⚠️ TRITT DEM ZENTRUM NUR MIT REINEN TG-TRUPPEN BEI!
+
+- Truppenpriorität: TG3 > TG2 > TG1
+
+- KEINE Truppen niedrigerer Stufen im Schloss.
+
+---
+
+## 4. 🎯 GESCHÜTZTÜRME
+
+Tritt ALLEN Geschützturm-Rallys bei, die von unseren Anführern gestartet werden!
 
 (see guide #kvk)
 
