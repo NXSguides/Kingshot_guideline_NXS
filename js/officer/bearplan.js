@@ -33,9 +33,9 @@ let RV = null;
    correct old ideas instead of keeping them"). File shape: { review: 1, analysis: 1, date, data: {txt}, stats: [...],
    leaders: [{ title, note, rows: [[name, K, mailK, city, flag]] }], place: { text: [..], rows: [[where, value, note]] },
    coef: [[name, v]], coefNote, growth: [{ title, dates, rows }], detail: { cols, rows, num } (folded), unknowns } — all text {en, zh}. */
-const AT = { en: { lh: "👑 Leaders", lp: "K = leader strength: archer Attack × Lethality with City Bonus and rally Exclusive Gear in the same slot (bonus page), ASHISH 11/06 = 1.00. Mails = what the rally mails measured.", lc: ["Leader", "K", "Mails", "City Atk / Leth"],
+const AT = { en: { lh: "👑 Leaders", lp: "K = leader strength: archer Attack × Lethality with City Bonus and rally Exclusive Gear in the same slot (bonus page), ASHISH 11/06 = 1.00. Mails = what the rally mails measured.", lc: ["Leader", "K", "Mails", "City Atk / Leth"], role: { A: "A", B: "B", fill: "fill-in" }, rosterH: "📋 Official leader list", rosterP: "A team opens at 0:00, B team at +0:45; everyone else only with 6:30 left (fill-in rallies).", rcols: ["Trap", "A team (0:00)", "B team (+0:45)"],
     ph: "🚩 Where marches score most", ch: "🎯 Each player", cp: "Troop factor = troop tier × (1 + Valora's Hunter Instinct); reference player = 1.00.", gh: "📈 Totals, hunt by hunt", det: "📋 Full leader table (every input)", nx: "📸 Next hunt, please capture" },
-  zh: { lh: "👑 隊長", lp: "K = 隊長強度：加成頁的弓兵攻擊 × 殺傷，城鎮增益和集結專屬加在同一格，ASHISH 11/06 = 1.00。信件 = 集結信件實測。", lc: ["隊長", "K", "信件", "城鎮 攻／殺"],
+  zh: { lh: "👑 隊長", lp: "K = 隊長強度：加成頁的弓兵攻擊 × 殺傷，城鎮增益和集結專屬加在同一格，ASHISH 11/06 = 1.00。信件 = 集結信件實測。", lc: ["隊長", "K", "信件", "城鎮 攻／殺"], role: { A: "A", B: "B", fill: "補位" }, rosterH: "📋 正式隊長名單", rosterP: "A 隊 0:00 開、B 隊 +0:45 開；其他人剩 6:30 才能開（補位團）。", rcols: ["陷阱", "A 隊（0:00）", "B 隊（+0:45）"],
     ph: "🚩 部隊放哪裡最好", ch: "🎯 每個人", cp: "兵等係數 = 兵等 ×（1 + 維拉「狩獵本能」）；參考的人 = 1.00。", gh: "📈 每場總傷害", det: "📋 完整隊長表（所有數字）", nx: "📸 下次熊獵請拍" } };
 const at = (k) => (AT[lang] || AT.en)[k] ?? AT.en[k];
 function analysisHtml() {
@@ -44,13 +44,14 @@ function analysisHtml() {
   const kmax = Math.max(1.2, ...(r.leaders || []).flatMap((g) => g.rows.map((x) => +String(x[1]).replace(/[^\d.]/g, "") || 0)));
   const leaders = (r.leaders || []).map((g) => `<h4 style="margin:12px 0 6px">${esc(LL(g.title))}</h4>
     <div class="bp-tw"><table class="bp-t" style="min-width:0"><thead><tr>${at("lc").map((c, i) => `<th${i === 1 || i === 2 ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}<th></th></tr></thead>
-      <tbody>${g.rows.map((x) => `<tr><td><bdi>${esc(x[0])}</bdi></td><td class="n"><b>${esc(String(x[1]))}</b></td><td class="n">${esc(x[2] || "—")}</td><td style="white-space:nowrap" class="muted">${esc(LL(x[3]) || x[3] || "")}</td>
+      <tbody>${g.rows.map((x) => `<tr><td><bdi>${esc(x[0])}</bdi>${x[5] ? ` <span class="bp-pill ${x[5] === "fill" ? "weak" : x[5] === "B" ? "second" : "main"}" style="font-size:11px;padding:0 6px">${esc(at("role")[x[5]] || x[5])}</span>` : ""}</td><td class="n"><b>${esc(String(x[1]))}</b></td><td class="n">${esc(x[2] || "—")}</td><td style="white-space:nowrap" class="muted">${esc(LL(x[3]) || x[3] || "")}</td>
         <td style="width:22%;min-width:50px"><span class="bp-kt" style="display:block"><i class="bp-kf" style="width:${(Math.min(1, (+String(x[1]).replace(/[^\d.]/g, "") || 0) / kmax) * 100).toFixed(1)}%;background:var(--bp-main)"></i></span></td></tr>`).join("")}</tbody></table></div>
     ${LL(g.note) ? `<p class="muted bp-p" style="font-size:12.5px;margin-top:6px">${esc(LL(g.note))}</p>` : ""}`).join("");
   const pl = r.place || {};
   const cm = Math.max(...(r.coef || [[0, 1]]).map((x) => +x[1]));
   return `<div class="card bp-rv">${r.data ? `<div class="muted" style="font-size:12.5px">${esc(LL(r.data.txt))}</div>` : ""}
     ${r.stats ? `<div class="bp-stats" style="margin:6px 0 4px">${r.stats.map((x) => `<div class="bp-stat"><span class="k">${esc(LL(x.k))}</span><span class="v">${esc(x.v)}</span><span class="s">${esc(LL(x.s))}</span></div>`).join("")}</div>` : ""}</div>
+  ${(r.roster || []).length ? `<div class="card"><h3>${esc(at("rosterH"))}</h3><p class="bp-p">${esc(at("rosterP"))}</p><div class="bp-tw"><table class="bp-t" style="min-width:0"><thead><tr>${at("rcols").map((c, i) => `<th${i ? "" : ' style="white-space:nowrap"'}>${esc(c)}</th>`).join("")}</tr></thead><tbody>${r.roster.map((x) => `<tr><td style="white-space:nowrap"><b>${esc(LL(x[0]) || x[0])}</b></td><td>${esc(x[1])}</td><td>${esc(x[2])}</td></tr>`).join("")}</tbody></table></div>${LL(r.rosterNote) ? `<p class="muted bp-p" style="font-size:12.5px;margin-top:6px">${esc(LL(r.rosterNote))}</p>` : ""}</div>` : ""}
   <div class="card"><h3>${esc(at("lh"))}</h3><p class="bp-p">${esc(LL(r.kp) || at("lp"))}</p>${leaders}</div>
   <div class="card"><h3>${esc(at("ph"))}</h3>${(LL(pl.text) || []).length ? `<ul class="bp-ul">${LL(pl.text).map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
     ${(LL(pl.rows) || []).length ? `<div class="bp-tw" style="margin-top:8px"><table class="bp-t" style="min-width:0"><tbody>${LL(pl.rows).map((x) => `<tr><td>${esc(x[0])}</td><td class="n"><b>${esc(x[1])}</b></td><td class="muted">${esc(x[2] || "")}</td></tr>`).join("")}</tbody></table></div>` : ""}</div>
