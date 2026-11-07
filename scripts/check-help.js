@@ -32,6 +32,7 @@ const FEATURES = [
   ["Site: 🔰 New here? (onboarding page)", /🔰 New here\?: its own page/, /🔰 New here\? Read this page once/],
   ["Site: 📍 Where's my spot? (public hive map)", /📍 Where's my spot\?: its own page/, /📍 Where's my spot\?: type your name/],
   ["Site: 📅 This week short lines + 📝 to-do days", /📅 This week card on the home page \(short version/, /📝 = something to do today/],
+  ["Site: ⏰ KvK battle-day game reminders (10:00 / 11:00 UTC)", /KvK city attacks \(10:00 UTC\)/, /KvK city attacks \(10:00 UTC\)/],
   ["Site: 📍 wrong-spot lists (🤗 / 🙃 / 🫥)", /wrong-spot lists/, /🤗 sitting on someone's spot/],
   ["Site: 🤝 NAP rules page", /🤝 NAP rules: their own page/, /🤝 NAP Rules has its own button here/],
   ["Site: ⏸ Stay here on announcements", /⏸ Stay here \(next to the date\) stops that/, /⏸ Stay here \(next to the date\) stops it switching/],
