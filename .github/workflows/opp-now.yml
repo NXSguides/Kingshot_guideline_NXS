@@ -25,7 +25,7 @@ jobs:
       - run: |
           git config user.name "opp-bot"
           git config user.email "actions@github.com"
-          git add data/opp
+          mkdir -p data/opp; git add -A data/opp
           git diff --cached --quiet && exit 0
           git commit -m "Opponents now (encrypted)"
           for i in 1 2 3; do
