@@ -166,9 +166,9 @@
     { k: "tri-alliance-clash", kind: "event", def: 10 },
     { k: "viking-vengeance", kind: "event", def: 10 }, { k: "eternity-reach", kind: "event", def: 30 },
     { k: "cesares-fury", kind: "event", def: 10, emoji: "🗡️", name: "cesaresName" },
-    // ⚔️ KvK battle day (Sherry 2026-11-07): city attacks 10:00 UTC, Castle Battle 11:00 UTC (be online an hour before) — on by default
+    // ⚔️ KvK battle day (Sherry 2026-11-07): city attacks 10:00 UTC, Castle Battle 12:00–17:00 UTC (KvK agreement; the 60-min warning = 11:00, "be online an hour before") — on by default
     { k: "kvk", kind: "event", hours: [10], def: 30, emoji: "⚔️", name: "kvkCity", defOn: true },
-    { k: "kvk-castle", sk: "kvk", kind: "event", hours: [11], def: 60, emoji: "🏰", name: "kvkCastle", defOn: true },
+    { k: "kvk-castle", sk: "kvk", kind: "event", hours: [12], def: 60, emoji: "🏰", name: "kvkCastle", defOn: true },
   ];
   /* an event with defOn counts as switched on until the person changes it themselves */
   const alertOf = (d) => alerts[d.k] || (d.defOn ? { on: { "#0": true } } : undefined);
