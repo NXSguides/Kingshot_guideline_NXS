@@ -1,0 +1,36 @@
+name: Opponents now (MightPulse)
+# ⚡ battle-time fetch of other kingdoms' players — see scripts/opp-now.js. Started by the officer page (encrypted request file).
+on:
+  push:
+    paths: ["data/opp-request-x7k2p9.json"]
+    branches: [main]
+  workflow_dispatch:
+concurrency:
+  group: opp-now   # its own queue, so it never waits behind the 20-minute daily jobs (429s are waited out in the script)
+  cancel-in-progress: false
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/opp-now.js
+        env:
+          MIGHTPULSE_API_KEY: ${{ secrets.MIGHTPULSE_API_KEY }}
+          DATA_KEY: ${{ secrets.DATA_KEY }}
+      - run: |
+          git config user.name "opp-bot"
+          git config user.email "actions@github.com"
+          git add data/opp
+          git diff --cached --quiet && exit 0
+          git commit -m "Opponents now (encrypted)"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            git rebase --abort 2>/dev/null
+            sleep 5
+          done
+          exit 1

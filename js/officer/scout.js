@@ -180,7 +180,8 @@ async function init() {
   applyTexts();
   await Promise.all([loadConfig(), loadData()]);
   render();
+  if (window.OppNow) OppNow.init();   // ⚡ Opponents now card (js/officer/oppnow.js)
 }
-function setLang(l) { lang = l; applyTexts(); render(); }
+function setLang(l) { lang = l; applyTexts(); render(); if (window.OppNow) OppNow.setLang(); }
 OFFICER_PAGES.scout = { init, applyTexts, setLang };
 })();

@@ -790,6 +790,8 @@
   #pg-scout .sc-chip label { font-size: 13px; display: flex; align-items: center; gap: 4px; white-space: nowrap; }
   #pg-scout .sc-chip i { white-space: nowrap; }
   #pg-scout .btn.mini { padding: 2px 8px; font-size: 13px; }
+  #pg-scout .opp-g { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; margin-top: 8px; } #pg-scout .opp-g label { display: grid; gap: 4px; font-size: 13px; }
+  #pg-scout .opp-b { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 8px; font-size: 13px; } #pg-scout .opp-b label { display: inline-flex; gap: 4px; align-items: center; }
   #pg-scout .sc-h3 { margin: 10px 0 6px; font-size: 15px; }
   #pg-scout .tbl-wrap { overflow: auto; max-height: 70vh; }
   #pg-scout .sc-tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
@@ -1696,6 +1698,7 @@
       <div id="sc_list" class="sc-list"></div>
     </div>
     <div id="sc_kingdoms"></div>
+    <div id="opp_root"></div>
   </div>
 </div>
 </section>
@@ -1768,6 +1771,7 @@
 <script src="js/battle-table.js"></script>
 <script src="js/officer/post.js"></script>
 <script src="js/officer/watch.js"></script>
+<script src="js/officer/oppnow.js"></script>
 <script src="js/officer/scout.js"></script>
 <script src="js/officer/views.js"></script>
 <script src="js/officer/map.js"></script>

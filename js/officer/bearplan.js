@@ -33,9 +33,9 @@ let RV = null;
    correct old ideas instead of keeping them"). File shape: { review: 1, analysis: 1, date, data: {txt}, stats: [...],
    leaders: [{ title, note, rows: [[name, K, mailK, city, flag]] }], place: { text: [..], rows: [[where, value, note]] },
    coef: [[name, v]], coefNote, growth: [{ title, dates, rows }], detail: { cols, rows, num } (folded), unknowns } — all text {en, zh}. */
-const AT = { en: { lh: "👑 Leaders", lp: "K = leader strength: archer Attack × Lethality with City Bonus and rally Exclusive Gear in the same slot (bonus page), ASHISH 11/06 = 1.00. Mails = what the rally mails measured.", lc: ["Leader", "K", "Mails", "City Atk / Leth"], on: "turn on!",
+const AT = { en: { lh: "👑 Leaders", lp: "K = leader strength: archer Attack × Lethality with City Bonus and rally Exclusive Gear in the same slot (bonus page), ASHISH 11/06 = 1.00. Mails = what the rally mails measured.", lc: ["Leader", "K", "Mails", "City Atk / Leth"],
     ph: "🚩 Where marches score most", ch: "🎯 Each player", cp: "Troop factor = troop tier × (1 + Valora's Hunter Instinct); reference player = 1.00.", gh: "📈 Totals, hunt by hunt", det: "📋 Full leader table (every input)", nx: "📸 Next hunt, please capture" },
-  zh: { lh: "👑 隊長", lp: "K = 隊長強度：加成頁的弓兵攻擊 × 殺傷，城鎮增益和集結專屬加在同一格，ASHISH 11/06 = 1.00。信件 = 集結信件實測。", lc: ["隊長", "K", "信件", "城鎮 攻／殺"], on: "該開！",
+  zh: { lh: "👑 隊長", lp: "K = 隊長強度：加成頁的弓兵攻擊 × 殺傷，城鎮增益和集結專屬加在同一格，ASHISH 11/06 = 1.00。信件 = 集結信件實測。", lc: ["隊長", "K", "信件", "城鎮 攻／殺"],
     ph: "🚩 部隊放哪裡最好", ch: "🎯 每個人", cp: "兵等係數 = 兵等 ×（1 + 維拉「狩獵本能」）；參考的人 = 1.00。", gh: "📈 每場總傷害", det: "📋 完整隊長表（所有數字）", nx: "📸 下次熊獵請拍" } };
 const at = (k) => (AT[lang] || AT.en)[k] ?? AT.en[k];
 function analysisHtml() {
@@ -44,7 +44,7 @@ function analysisHtml() {
   const kmax = Math.max(1.2, ...(r.leaders || []).flatMap((g) => g.rows.map((x) => +String(x[1]).replace(/[^\d.]/g, "") || 0)));
   const leaders = (r.leaders || []).map((g) => `<h4 style="margin:12px 0 6px">${esc(LL(g.title))}</h4>
     <div class="bp-tw"><table class="bp-t" style="min-width:0"><thead><tr>${at("lc").map((c, i) => `<th${i === 1 || i === 2 ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}<th></th></tr></thead>
-      <tbody>${g.rows.map((x) => `<tr><td><bdi>${esc(x[0])}</bdi></td><td class="n"><b>${esc(String(x[1]))}</b></td><td class="n">${esc(x[2] || "—")}</td><td style="white-space:nowrap"${x[4] ? ' class="bp-no"' : ""}>${esc(LL(x[3]) || x[3] || "")}${x[4] ? `<br><b>${esc(at("on"))}</b>` : ""}</td>
+      <tbody>${g.rows.map((x) => `<tr><td><bdi>${esc(x[0])}</bdi></td><td class="n"><b>${esc(String(x[1]))}</b></td><td class="n">${esc(x[2] || "—")}</td><td style="white-space:nowrap" class="muted">${esc(LL(x[3]) || x[3] || "")}</td>
         <td style="width:22%;min-width:50px"><span class="bp-kt" style="display:block"><i class="bp-kf" style="width:${(Math.min(1, (+String(x[1]).replace(/[^\d.]/g, "") || 0) / kmax) * 100).toFixed(1)}%;background:var(--bp-main)"></i></span></td></tr>`).join("")}</tbody></table></div>
     ${LL(g.note) ? `<p class="muted bp-p" style="font-size:12.5px;margin-top:6px">${esc(LL(g.note))}</p>` : ""}`).join("");
   const pl = r.place || {};
