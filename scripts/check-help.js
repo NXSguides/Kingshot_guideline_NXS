@@ -19,7 +19,6 @@ const core = R("js/officer/core.js");
 const tabs = JSON.parse(core.match(/OFFICER\.PERM_TABS = (\[[^\]]*\])/)[1]).concat("perms");
 
 const FEATURES = [
-  ["Bear plan: 📋 latest hunt review (leader K side by side, where a march scores most)", /📋 LATEST HUNT REVIEW/, /📋 the latest hunt review/],
   ["Events: 👤 Only remind (to-do sent by the server to chosen officers only)", /"👤 Only remind" \(只提醒/, /👤 Only remind: tick officers/],
   ["Heroes: ⚖️ compare two heroes", /⚖️ Compare two heroes \(🦸 Heroes tab, card after/, /⚖️ Compare two heroes: pick a troop slot/],
   ["Heroes: 🎯 second uses (joiners & side jobs)", /🎯 Second uses \(🦸 Heroes tab, card after/, /🎯 Second uses: a joiner only uses/],
@@ -43,13 +42,12 @@ const FEATURES = [
   ["Ranking: 🎯 the plan's event (picked once, ③ and ④ follow)", /🎯 Event \(活動\) in the plan card/, /{ s: "#planEv", k: "rk01e" }/],
   ["Ranking: ④ battle table per event (Table for: Swordland / Tri-Alliance)", /④ Battle table follows the event/, /{ s: "#tbCard \.tb-ev", k: "rk17e" }/],
   ["Ranking: ④ 🔱 TAC plan draft (Teams A–D, 4 stages)", /"🔱 TAC plan draft \(all 4 stages\)" fills it/, /{ s: "#tbCard \[data-act=triDraft\]", k: "rk14t", e: 1 }/],
-  ["Bear plan tab (🐻 discussion draft)", /🐻 BEAR PLAN tab/, /bearplan: \[\{ s: "#bp_title", k: "bp01" \}\]/],
   ["Viking report tab (🪓 research)", /🪓 VIKING REPORT tab/, /vv: \[\{ s: "#vv_title", k: "vv01" \}\]/],
   ["Migrant Score report (🧳 research)", /🧳 MIGRANT SCORE report/, /ms: \[\{ s: "#ms_title", k: "ms01" \}\]/],
+  ["Bear analysis tab (🐻 measured, ex Bear plan)", /🐻 BEAR ANALYSIS tab/, /bearplan: \[\{ s: "#bp_title", k: "bp01" \}\]/],
+  ["Bear analysis: leaders per trap, where marches score most, each player", /🚩 Where marches score most/, /🐻 Bear analysis: measured from our Bear Hunts/],
   ["Bear Hunt report (🐻 research)", /🐻 BEAR HUNT report/, /bh: \[\{ s: "#bh_title", k: "bh01" \}\]/],
   ["Bear Hunt report: research ledger (✅/🟡, corrected list, alliance trend)", /ONE running research ledger/, /our research ledger for members/],
-  ["Bear plan: review shows the ledger's whole leader table (G, new K, both traps)", /whole leader table \(ledger G\)/, /the ledger's whole leader table/],
-  ["Bear plan: review fitted from mails (K per wave, troop factor, totals by hunt)", /review can be fitted from the rally mails/, /the review can take K fitted from the rally mails/],
   ["Investment report (💎 research)", /💎 INVESTMENT report/, /iv: \[\{ s: "#iv_title", k: "iv01" \}\]/],
   ["🔬 Research permission (one for all reports)", /🔬 RESEARCH \(研究報告\)/, /research: \[\{ s: "#researchTab", k: "rs01" \}\]/],
   ["🔬 Research main tab (reports as sub-tabs)", /🔬 Research \(研究報告/, /🔬 Research holds our reports/],

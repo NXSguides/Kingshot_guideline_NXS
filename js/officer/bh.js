@@ -7,7 +7,7 @@
 const $ = (id) => document.getElementById(id);
 const esc = OFFICER.util.esc;
 const UPDATED = "2026-11-07", HUNTS = 8, SPAN = "10/25–11/06";
-/* 2026-11-07: the analysis chat keeps ONE ledger now (Project docs claude/bear-findings.md + bear-mails.csv, bear-totals.csv,
+/* 2026-11-07: the analysis chat keeps ONE ledger now; 11/07 Sherry: correct old ideas in place — no "corrected earlier" list (Project docs claude/bear-findings.md + bear-mails.csv, bear-totals.csv,
    bear-rosters.csv — handoff claude/research-ledger-handoff.md). This page follows that ledger: every point carries its status
    (✅ sure / 🟡 likely), corrected points sit in the folded "corrected" list. Members' page: principles only (ledger A + C). */
 const WT = { inf: 0.12, cav: 0.63, arc: 1 }, EXP = 0.58;   // ledger A3 / A4 (11/07 fit: 8 rallies, 107 marches)
@@ -42,7 +42,7 @@ const T = {
     unkH: "🟡 Not known yet", unks: ["Joiner skills: whether skill level really comes first (check the top-right skill level of the people who were skipped).", "4 Chenko vs 2 Chenko + 2 Amane — same leader, 3–4 rallies each (test planned).", "Whether \"enemy Defense −\" bonuses work on the Bear.", "Whether Vivian's \"enemy damage taken +25%\" is a separate multiplier."],
     oldH: "🔁 Corrected earlier ({n})", old: ["Square root → n^0.58: very close, a bit more for big marches.", "Weights cavalry 0.58 / infantry 0.14 → 0.63 / 0.12; best mix 2 : 21 : 77 → 1 : 25 : 74.", "❌ \"Infantry and cavalry are worth more per troop\" — that was the slowdown above: small marches score more per troop.", "⚠️ \"Joiner skills = the first 4 on the list\" — on 11/06 several rallies skipped people higher on the list → new idea: skill level first, then list order.", "❌ \"A rally that only sets off in the last minute hits about ¼\" — misremembered (those two mails' leaders weren't checked).", "❌ \"The fist icon = Attack\" — it is Chenko's Lethality.", "❌ \"City Bonus multiplies on its own\" — it adds into the same slot as the rally Exclusive Gear bonus.", "City Bonus Attack +10% / Lethality +20% ≈ ×1.32 → Attack +10% / Lethality +10% ≈ ×1.21."],
     numH: "🔢 For those who want the formula", num: "Your score ≈ K × c × Σ (w × n^0.58). K = the rally leader's strength (the whole rally shares it); c = your own troops: troop tier × (1 + Valora's Hunter Instinct) — two players with the same tier and Hunter Instinct level get exactly the same; w = troop weight (archer 1, cavalry 0.63, infantry 0.12); n = how many of that type you sent. Fitted on 107 marches in 8 rallies (11/06, troop counts from the rally troop page): about 8.5% error (20% without c).",
-    more: "Officers: leader strength and rally plan → 🐻 Bear plan",
+    more: "Officers: leader strength and where marches score most → 🐻 Bear analysis",
     foot: "Source: our alliance's rally mails (1,123 + 5 from Bear Trap 1), final leaderboards (6: Trap 2 ×4, Trap 1 ×2), rally troop pages (8 rallies) and bonus pages, 10/25–11/06. Worked back from the numbers, not from the game." },
   zh: { title: "🐻 狩獵巨熊研究", intro: "我們自己研究的狩獵巨熊分數：該帶什麼兵、該進哪一團。不是官方說明——同一本帳，每次熊獵後累積更新。",
     badge: "🔬 研究帳本 · 資料：陷阱 1 2 場、陷阱 2 4 場（陷阱 1 信件只有一團 5 封）· 更新 {d}",
@@ -69,7 +69,7 @@ const T = {
     unkH: "🟡 還不知道的", unks: ["加入者技能：是不是真的先比技能等級（要看被跳過的人第一格英雄的右上技能等級）。", "4 琴科 vs 2 琴科 + 2 雨音——同一隊長各 3–4 團（準備實測）。", "「敵方防禦 −」的增益對熊有沒有效。", "薇薇安「敵方受到傷害 +25%」是不是另一個乘區。"],
     oldH: "🔁 之前更正過的（{n}）", old: ["開根號 → n 的 0.58 次方：很接近，大部隊會多一點點。", "兵種權重 騎 0.58／步 0.14 → 0.63／0.12；最佳比例 2：21：77 → 1：25：74。", "❌「步兵、騎兵每隻比較值」——那是上面的遞減：小部隊每隻分數本來就比較高。", "⚠️「加入者技能 = 名單前 4 個」——11/06 好幾團跳過了排在前面的人 → 新想法：先比技能等級，再照名單順序。", "❌「最後一分鐘才出發的團只打到約 1/4」——記錯了（那兩封信的隊長沒確認）。", "❌「拳頭圖示 = 攻擊」——它是琴科的殺傷。", "❌「城鎮增益另外相乘」——它和集結專屬裝備加成加在同一格。", "城鎮增益 攻 +10%／殺 +20% ≈ ×1.32 → 攻 +10%／殺 +10% ≈ ×1.21。"],
     numH: "🔢 給想看公式的人", num: "你的分數 ≈ K × c × Σ（w × n 的 0.58 次方）。K = 集結隊長的強度（全團共用）；c = 你自己的部隊：兵等 ×（1 + 維拉「狩獵本能」）——兵等和狩獵本能等級一樣的兩個人，分數完全一樣；w = 兵種權重（弓兵 1、騎兵 0.63、步兵 0.12）；n = 你那個兵種帶的數量。用 11/06 8 團、107 支部隊（兵數取自集結兵種頁）擬合：誤差約 8.5%（不算 c 時 20%）。",
-    more: "幹部：隊長強度和排團 → 🐻 熊獵規劃",
+    more: "幹部：隊長強度、部隊放哪裡最好 → 🐻 熊獵實測",
     foot: "來源：我們聯盟的集結信件（1,123 筆 + 陷阱 1 5 封）、最終排行（6 份：陷阱 2 四場、陷阱 1 兩場）、集結兵種頁（8 團）、加成頁，10/25–11/06。從數字反推，不是遊戲官方說明。" },
 };
 let lang = OFFICER.lang || "en";
@@ -126,7 +126,6 @@ function render() {
       <div class="muted bh-small" style="margin:4px 0 8px">Lv1 2% · Lv4 9% · Lv11 30%</div><p class="bh-p" style="margin:0">${esc(t("valSkill"))}</p></div>
   </div>
   <div class="card"><h3>${esc(t("unkH"))}</h3><ul class="bh-ul">${t("unks").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
-  <details class="card"><summary><b>${esc(fill(t("oldH"), { n: t("old").length }))}</b></summary><ul class="bh-ul" style="margin-top:8px">${t("old").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></details>
   <details class="card"><summary><b>${esc(t("numH"))}</b></summary><p class="bh-p" style="margin-top:8px">${esc(t("num"))}</p></details>
   <p class="bh-more"><a href="#bearplan">${esc(t("more"))}</a></p>
   <div class="muted bh-small">${esc(t("foot"))}</div>`;

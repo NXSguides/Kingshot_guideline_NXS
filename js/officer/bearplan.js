@@ -29,6 +29,41 @@ const RT = { en: { h: "📋 Latest hunt review · {d}", kh: "Leader strength, si
 const rt = (k) => (RT[lang] || RT.en)[k] ?? RT.en[k];
 const LL = (o) => o ? (o[lang] ?? o.en ?? o.zh ?? "") : "";
 let RV = null;
+/* 🐻 measured analysis (Sherry 2026-11-07: "the whole Bear plan should be a measured analysis — merge things, don't pile them up;
+   correct old ideas instead of keeping them"). File shape: { review: 1, analysis: 1, date, data: {txt}, stats: [...],
+   leaders: [{ title, note, rows: [[name, K, mailK, city, flag]] }], place: { text: [..], rows: [[where, value, note]] },
+   coef: [[name, v]], coefNote, growth: [{ title, dates, rows }], detail: { cols, rows, num } (folded), unknowns } — all text {en, zh}. */
+const AT = { en: { lh: "👑 Leaders", lp: "K = leader strength: archer Attack × Lethality with City Bonus and rally Exclusive Gear in the same slot (bonus page), ASHISH 11/06 = 1.00. Mails = what the rally mails measured.", lc: ["Leader", "K", "Mails", "City Atk / Leth"], on: "turn on!",
+    ph: "🚩 Where marches score most", ch: "🎯 Each player", cp: "Troop factor = troop tier × (1 + Valora's Hunter Instinct); reference player = 1.00.", gh: "📈 Totals, hunt by hunt", det: "📋 Full leader table (every input)", nx: "📸 Next hunt, please capture" },
+  zh: { lh: "👑 隊長", lp: "K = 隊長強度：加成頁的弓兵攻擊 × 殺傷，城鎮增益和集結專屬加在同一格，ASHISH 11/06 = 1.00。信件 = 集結信件實測。", lc: ["隊長", "K", "信件", "城鎮 攻／殺"], on: "該開！",
+    ph: "🚩 部隊放哪裡最好", ch: "🎯 每個人", cp: "兵等係數 = 兵等 ×（1 + 維拉「狩獵本能」）；參考的人 = 1.00。", gh: "📈 每場總傷害", det: "📋 完整隊長表（所有數字）", nx: "📸 下次熊獵請拍" } };
+const at = (k) => (AT[lang] || AT.en)[k] ?? AT.en[k];
+function analysisHtml() {
+  const r = RV, num = (v) => (v == null ? "—" : (+v).toFixed(0));
+  const bars = (rows, vi, max) => `<div class="bp-kb">${rows.map((x) => `<div class="bp-kr"><span class="bp-kn"><bdi>${esc(x[0])}</bdi></span><span class="bp-kt"><i class="bp-kf" style="width:${(Math.min(1, (+x[vi] || 0) / max) * 100).toFixed(1)}%;background:var(--bp-main)"></i></span><b>${esc(String(x[vi]))}</b></div>`).join("")}</div>`;
+  const kmax = Math.max(1.2, ...(r.leaders || []).flatMap((g) => g.rows.map((x) => +String(x[1]).replace(/[^\d.]/g, "") || 0)));
+  const leaders = (r.leaders || []).map((g) => `<h4 style="margin:12px 0 6px">${esc(LL(g.title))}</h4>
+    <div class="bp-tw"><table class="bp-t" style="min-width:0"><thead><tr>${at("lc").map((c, i) => `<th${i === 1 || i === 2 ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}<th></th></tr></thead>
+      <tbody>${g.rows.map((x) => `<tr><td><bdi>${esc(x[0])}</bdi></td><td class="n"><b>${esc(String(x[1]))}</b></td><td class="n">${esc(x[2] || "—")}</td><td style="white-space:nowrap"${x[4] ? ' class="bp-no"' : ""}>${esc(LL(x[3]) || x[3] || "")}${x[4] ? `<br><b>${esc(at("on"))}</b>` : ""}</td>
+        <td style="width:22%;min-width:50px"><span class="bp-kt" style="display:block"><i class="bp-kf" style="width:${(Math.min(1, (+String(x[1]).replace(/[^\d.]/g, "") || 0) / kmax) * 100).toFixed(1)}%;background:var(--bp-main)"></i></span></td></tr>`).join("")}</tbody></table></div>
+    ${LL(g.note) ? `<p class="muted bp-p" style="font-size:12.5px;margin-top:6px">${esc(LL(g.note))}</p>` : ""}`).join("");
+  const pl = r.place || {};
+  const cm = Math.max(...(r.coef || [[0, 1]]).map((x) => +x[1]));
+  return `<div class="card bp-rv">${r.data ? `<div class="muted" style="font-size:12.5px">${esc(LL(r.data.txt))}</div>` : ""}
+    ${r.stats ? `<div class="bp-stats" style="margin:6px 0 4px">${r.stats.map((x) => `<div class="bp-stat"><span class="k">${esc(LL(x.k))}</span><span class="v">${esc(x.v)}</span><span class="s">${esc(LL(x.s))}</span></div>`).join("")}</div>` : ""}</div>
+  <div class="card"><h3>${esc(at("lh"))}</h3><p class="bp-p">${esc(LL(r.kp) || at("lp"))}</p>${leaders}</div>
+  <div class="card"><h3>${esc(at("ph"))}</h3>${(LL(pl.text) || []).length ? `<ul class="bp-ul">${LL(pl.text).map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+    ${(LL(pl.rows) || []).length ? `<div class="bp-tw" style="margin-top:8px"><table class="bp-t" style="min-width:0"><tbody>${LL(pl.rows).map((x) => `<tr><td>${esc(x[0])}</td><td class="n"><b>${esc(x[1])}</b></td><td class="muted">${esc(x[2] || "")}</td></tr>`).join("")}</tbody></table></div>` : ""}</div>
+  <div class="card"><h3>${esc(at("ch"))}</h3><p class="bp-p">${esc(LL(r.coefNote) || at("cp"))}</p>
+    ${(r.coef || []).length ? `<div class="bp-kb">${r.coef.map((x) => `<div class="bp-kr"><span class="bp-kn"><bdi>${esc(x[0])}</bdi></span><span class="bp-kt"><i class="bp-kf" style="width:${(+x[1] / cm * 100).toFixed(1)}%;background:var(--bp-second)"></i></span><b>${(+x[1]).toFixed(2)}</b></div>`).join("")}</div>` : ""}
+    ${[].concat(r.growth || []).filter((g) => (g.rows || []).length).map((g) => `<details style="margin-top:10px"><summary><b>${esc(at("gh"))} · ${esc(LL(g.title))}</b></summary>
+      <div class="bp-tw" style="margin-top:6px"><table class="bp-t" style="min-width:0"><thead><tr><th></th>${g.dates.map((d) => `<th class="n">${esc(d)}</th>`).join("")}</tr></thead>
+      <tbody>${g.rows.map((x) => `<tr><td><bdi>${esc(x[0])}</bdi></td>${x.slice(1).map((v, i) => { const p = i ? x.slice(1, i + 1).reverse().find((y) => y != null) : null; return `<td class="n">${num(v)}${v != null && p != null ? ` <small class="${+v >= +p ? "bp-up" : "bp-no"}">${+v >= +p ? "▲" : "▼"}</small>` : ""}</td>`; }).join("")}</tr>`).join("")}</tbody></table></div></details>`).join("")}</div>
+  ${(LL(r.unknowns) || []).length ? `<div class="card"><h3>${esc(at("nx"))}</h3><ul class="bp-ul">${LL(r.unknowns).map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}
+  ${r.detail ? `<details class="card"><summary><b>${esc(at("det"))}</b></summary><div class="bp-tw" style="margin-top:8px"><table class="bp-t" style="min-width:1100px;white-space:nowrap"><thead><tr>${LL(r.detail.cols).map((c, i) => `<th${(r.detail.num || []).includes(i) ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
+    <tbody>${r.detail.rows.map((x) => `<tr>${x.map((v, i) => `<td${(r.detail.num || []).includes(i) ? ' class="n"' : ""}>${i === 0 ? `<bdi>${esc(v)}</bdi>` : esc(v)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+    ${LL(r.foot) ? `<div class="muted" style="font-size:12px;margin-top:8px">${esc(LL(r.foot))}</div>` : ""}</details>` : ""}`;
+}
 function reviewHtml() {
   const r = RV; if (!r) return "";
   const max = Math.max(1.2, ...r.rows.map((x) => +x[5] || +x[4] || 0)), pc = (v) => (v / max * 100).toFixed(1) + "%";
@@ -57,7 +92,7 @@ function reviewHtml() {
   ${D ? `<h3 class="bp-sec">${esc(rt("planH"))}</h3>` : ""}`;
 }
 const T = {
-  en: { title: "🐻 Bear plan", intro: "Discussion draft: one Bear wave now vs. fewer, stronger rallies. Nothing here is decided.",
+  en: { title: "🐻 Bear analysis", intro: "Measured from our Bear Hunts: rally mails, bonus pages, troop pages and leaderboards. ✅ sure · 🟡 likely.",
     s1k: "Rallies open at once", s1s: "follows turnout: about {cap} marches per rally", s2k: "Strongest rallies filled", s2s: "always; only the last rally changes with turnout",
     s3k: "Estimated damage per wave", s3s: "usual turnout ({n} marches), same people and troops",
     tlh: "One wave, side by side", tlp: "Each bar is one rally's 5-minute gather; the number is how full it was. Now: open times are rebuilt from screenshot countdowns (±10 s). Proposed: switch turnout to see what changes.",
@@ -87,7 +122,7 @@ const T = {
     foot: "Data: {src}", none: "No data yet. An admin adds it once with 📥 Update data below.", locked: "🔒 Log in first.",
     impT: "📥 Update data (admins)", impNote: "Paste a plan JSON or a hunt review JSON (from the analysis chat) — the page tells them apart. It is encrypted in this browser and saved for officers only.", impSave: "Encrypt & save",
     impOk: "✅ Saved — everyone with this tab sees it in a minute.", impBad: "⚠️ That isn't the plan JSON (needs now, order and rows).", impErr: "⚠️ Not saved: ", noTok: "⚠️ Saving needs the officer GitHub key (admin login)." },
-  zh: { title: "🐻 熊獵規劃", intro: "討論草稿：現在的一波 vs. 少一點、強一點的團。這裡什麼都還沒決定。",
+  zh: { title: "🐻 熊獵實測", intro: "從我們的熊獵實測整理：集結信件、加成頁、兵種頁、排行榜。✅ 確定 · 🟡 推測。",
     s1k: "同時開的團數", s1s: "跟著人數走：大約每 {cap} 支部隊一團", s2k: "最強的團填滿率", s2s: "一定滿；只有最後一團隨人數變",
     s3k: "每波傷害估計", s3s: "一般人數（{n} 支部隊），同樣的人和兵",
     tlh: "同一波，前後對照", tlp: "每條是一團 5 分鐘的集結時間，數字是填滿率。現況的開團時間是從截圖倒數推回來的（±10 秒）。建議版可以切換人數看看差別。",
@@ -173,6 +208,7 @@ function importBox() {
 function render() {
   const root = $("bp_root"); if (!root) return;
   $("bp_title").textContent = t("title"); $("bp_intro").textContent = t("intro");
+  if (RV && RV.analysis) { root.innerHTML = `${analysisHtml()}${importBox()}`; bind(); return; }   // the old rally-plan draft is no longer shown
   if (!D) { root.innerHTML = RV ? `${reviewHtml()}${importBox()}` : `<div class="card muted">${esc(t("none"))}</div>${importBox()}`; bind(); return; }
   const TO = D.turnout || [75, 94, 110]; if (N == null) N = TO[1];
   const counts = TO.map((n) => plan(n).length), P = {}; plan(N).forEach((p) => { P[p[0]] = p[4]; });
@@ -205,7 +241,7 @@ function bind() {
   sv.onclick = async () => {
     const m = $("bp_msg"); let d = null;
     try { d = JSON.parse($("bp_json").value); } catch (e) {}
-    const isRv = !!(d && d.review && Array.isArray(d.rows));
+    const isRv = !!(d && d.review && (Array.isArray(d.rows) || d.analysis));
     if (!d || (!isRv && (!Array.isArray(d.now) || !Array.isArray(d.order) || !Array.isArray(d.rows)))) { m.textContent = t("impBad"); return; }
     if (!OFFICER.token) { m.textContent = t("noTok"); return; }
     sv.disabled = true; m.textContent = "⏳";
@@ -222,7 +258,7 @@ async function init() {
   render();
   if (!(window.OfficerData && OfficerData.ready && OfficerData.ready())) { $("bp_root").innerHTML = `<div class="card muted">${esc(t("locked"))}</div>`; return; }
   try { const d = await OfficerData.fetchJson(PATH); if (d && Array.isArray(d.now)) D = d; } catch (e) {}
-  try { const r = await OfficerData.fetchJson(RPATH); if (r && r.review && Array.isArray(r.rows)) RV = r; } catch (e) {}
+  try { const r = await OfficerData.fetchJson(RPATH); if (r && r.review && (Array.isArray(r.rows) || r.analysis)) RV = r; } catch (e) {}
   render();
 }
 function applyTexts() { if ($("bp_title")) { $("bp_title").textContent = t("title"); $("bp_intro").textContent = t("intro"); } }
