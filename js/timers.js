@@ -195,7 +195,10 @@
   const hoursOf = (d) => d.hours || evHours(d.k);
   const beforeOf = (d) => { const a = alerts[d.k]; return a && a.before != null ? a.before : d.def; };
   const evName = (k) => { const d = defOf(k); if (d && d.name) return T(d.name); return nameFromGuide(k); };
-  const nameFromGuide = (k) => (!ON_MAIN && FB.names[k]) ? FB.names[k][1] : (typeof GUIDES !== "undefined" && GUIDES[k] ? GUIDES[k].name[lang()] || GUIDES[k].name.en : k);
+  /* official in-game name in the page language (data/event-names.js, loaded on both the main site and the officer page) — 2026-11-07: the officer page showed English names */
+  const EN_OF = { "bear-hunt": "Bear Hunt", "mystic-trial": "Mystic Trial", "swordland-showdown": "Swordland Showdown", "tri-alliance-clash": "Tri-Alliance Clash", "viking-vengeance": "Viking Vengeance", "eternity-reach": "Eternity's Reach", "cesares-fury": "Cesares Fury" };
+  const official = (k) => { const n = typeof EVENT_NAMES !== "undefined" && EN_OF[k] && EVENT_NAMES[EN_OF[k]]; const l = typeof currentLang !== "undefined" ? currentLang : typeof OFFICER !== "undefined" ? OFFICER.lang : "en"; return n ? n[l] || n.en : null; };
+  const nameFromGuide = (k) => official(k) || ((!ON_MAIN && FB.names[k]) ? FB.names[k][1] : (typeof GUIDES !== "undefined" && GUIDES[k] ? GUIDES[k].name[lang()] || GUIDES[k].name.en : k));
   const evEmoji = (k) => { const d = defOf(k); if (d && d.emoji) return d.emoji; if (!ON_MAIN && FB.names[k]) return FB.names[k][0]; return typeof GUIDES !== "undefined" && GUIDES[k] ? GUIDES[k].emoji : "📅"; };
   function evSched(k) {
     k = SK[k] || k;
