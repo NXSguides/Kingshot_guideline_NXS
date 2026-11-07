@@ -161,6 +161,9 @@ const TERMS = [
    ["Defender", "防守方", "방어 측", "Verteidiger", "défenseur", "defensor", "savunmacı", "—", "—", "ผู้ป้องกัน", "المدافع", "Defensor", "Battlefield side. Not the same as the alliance role 'Defenders' in the guides."],
    ["Occupier", "佔領方", "점령 측", "—", "—", "—", "—", "—", "—", "—", "—", "—"],
    ["Mercenaries", "傭兵", "용병", "Söldner", "mercenaires", "—", "—", "tentara bayaran", "наемники", "ทหารรับจ้าง", "المرتزقة", "—"],
+   ["Battle Details", "—", "전투 정보", "Schlachtdetails", "Détails du Combat", "Detalhes da Batalha", "Savaş Detayları", "Detail Pertempuran", "Подробности битвы", "รายละเอียดการต่อสู้", "تفاصيل المعركة", "Detalles de la batalla", "Battle report skill page title (2026-11-07 screenshots; EN/ZH not seen)."],
+   ["Triggered", "觸發", "발동", "Ausgelöst", "Déclenché", "Provocado", "Tetiklendi", "Diaktifkan", "Активировано", "ใช้งาน", "تم التنشيط", "Activadas", "Battle Details column: how many times a skill fired (2026-11-07)."],
+   ["Kills (battle report column)", "擊殺", "처치", "Kills", "Éliminés", "Abates", "Öldürme", "Bunuh", "Убито", "จำนวนสังหาร", "قتل", "Asesinatos", "Battle Details column header — differs from the in-sentence word in some langs (PT mortes, FR éliminations). 2026-11-07."],
    ["First King", "—", "—", "Erster König", "premier roi", "Primeiro Rei", "İlk Kral", "Raja Pertama", "первый король", "พระราชาองค์แรก", "الملك الأول", "—"]
   ]
  },
@@ -203,6 +206,7 @@ const TERMS = [
    ["Infantry", "步兵", "보병", "Infanterie", "Infanterie", "Infantaria", "Piyade", "Infanteri", "пехотинец", "ทหารราบ", "المشاة", "Infantería", "Portuguese confirmed from the Troops Preview button 'Infantaria do Ápice'. ES: from 'Infantería Definitiva'."],
    ["Cavalry", "騎兵", "기병", "Kavallerie", "Cavalerie", "Cavalaria", "Süvari", "Kavaleri", "кавалерист", "ทหารม้า", "الفرسان", "Caballería", "Portuguese confirmed from the Troops Preview buttons 'Cavalaria do Ápice' and 'Cavalaria Suprema'. ES: from 'Caballería Definitiva'."],
    ["Archer", "弓兵", "궁병", "Bogenschütze", "Archer", "Arquearia", "Okçu", "Pemanah", "стрелок", "พลธนู", "الرماة", "Arquero", "Portuguese: 'Arquearia' is confirmed (Troops Preview 'Arquearia do Ápice' and Governor Gear 'Ataque da Arquearia'), not 'Arqueiro'. ES: 'Arquero' (Arquero Definitivo / Ataque de Arquero)."]
+   ["Ambusher", "奇襲", "기습", "Hinterhalt", "Embuscade", "Emboscador", "Pusucu", "Ambusher", "Засада", "ดักซุ่ม", "المتربص", "Emboscador", "Cavalry troop skill (T7+): 20% chance to skip the Infantry and hit the Archers. Battle Details screenshots in all 11 langs 2026-11-07."],
   ]
  },
  {
@@ -1101,6 +1105,7 @@ const TERMS = [
    ["Leader By Example", "經驗傳承", "경험 전승", "Vorbildlicher Anführer", "Donner l'exemple", "Líder por Exemplo", "Örnek Lider", "Leader By Example", "Образцовый лидер", "ผู้นำตัวอย่าง", "القائد القدوة", "Liderazgo ejemplar", "Valora skill 2: +5 '100 Enhancement XP' parts per Bear Hunt."],
    ["Weapon Obsession", "武器專精", "무기 마스터리", "Waffenbesessenheit", "Attrait pour les armes", "Obsessão por Armas", "Silah Takıntısı", "Weapon Obsession", "Одержимость снаряжением", "ความหลงไหลในอาวุธ", "هوس السلاح", "Obsesión por las armas", "Valora skill 3: +5 Forgehammers per Bear Hunt. TR text calls the hammer 'Dövme Çekici' (Forgehammer row: 'Demirci Çekici')."],
    ["Dance of the Hunt", "狩獵之舞", "사냥의 춤", "Tanz der Jagd", "Danse de la chasse", "Dança da Caçada", "Av Dansı", "Dance of the Hunt", "Танец охоты", "ระบำแห่งการล่า", "رقصة الصيد", "Danza de la cacería", "Valora skill 1: whole rally squad capacity when launching the Raging Bear rally +30,000 per level (Lv.10: +300,000)."],
+   ["Hunter Instinct", "狩獵本能", "사냥 본능", "Jägerinstinkt", "Instinct de chasseuse", "Instinto de Caçador", "Avcı İçgüdüsü", "Hunter Instinct", "Инстинкт охотника", "สัญชาตญาณนักล่า", "غريزة الصياد", "Instinto de cazador", "Valora talent: extra Bear Hunt Damage Points for yourself only. Screenshots in all 11 langs 2026-11-07."],
    ["Falconer", "獵鷹偵查", "사냥용 매 정찰", "Falkner", "Fauconnier", "Falcoeiro", "Doğancı", "Falconer", "Сокольник", "ผู้ฝึกเหยี่ยว", "الصقار", "Cetrero", "Pan skill 1: +8 daily Watchtower Intel Missions."],
    ["Good Steward", "膳食管理", "식량 관리", "Guter Verwalter", "Bon intendant", "Boa Administração", "İyi Kâhya", "Good Steward", "Хороший стюард", "ผู้ดูแลที่ดี", "الوكيل الصالح", "Encargado eficaz", "Pan skill 2: Governor Stamina recovery from the Storehouse +40. FR text 'endurance du gouverneur' (Pet Adventure page: 'Endurance du Chef')."],
    ["Master Architect", "建築計畫", "건설 계획", "Meisterarchitekt", "Maître-architecte", "Mestre da Arquitetura", "Usta Mimar", "Master Architect", "Великий архитектор", "สถาปนิกชั้นครู", "كبير المهندسين", "Maestro arquitecto", "Pan skill 3: each new construction 8 hours faster."],
