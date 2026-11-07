@@ -44,6 +44,7 @@ const FEATURES = [
   ["Ranking: ④ battle table per event (Table for: Swordland / Tri-Alliance)", /④ Battle table follows the event/, /{ s: "#tbCard \.tb-ev", k: "rk17e" }/],
   ["Ranking: ④ 🔱 TAC plan draft (Teams A–D, 4 stages)", /"🔱 TAC plan draft \(all 4 stages\)" fills it/, /{ s: "#tbCard \[data-act=triDraft\]", k: "rk14t", e: 1 }/],
   ["Viking report tab (🪓 research)", /🪓 VIKING REPORT tab/, /vv: \[\{ s: "#vv_title", k: "vv01" \}\]/],
+  ["Rally & Garrison report (⚔️ research)", /⚔️ RALLY & GARRISON report/, /rg: \[\{ s: "#rg_title", k: "rg01" \}\]/],
   ["Migrant Score report (🧳 research)", /🧳 MIGRANT SCORE report/, /ms: \[\{ s: "#ms_title", k: "ms01" \}\]/],
   ["Bear analysis tab (🐻 measured, ex Bear plan)", /🐻 BEAR ANALYSIS tab/, /bearplan: \[\{ s: "#bp_title", k: "bp01" \}\]/],
   ["Bear analysis: leaders per trap, where marches score most, each player", /🚩 Where marches score most/, /🐻 Bear analysis: measured from our Bear Hunts/],

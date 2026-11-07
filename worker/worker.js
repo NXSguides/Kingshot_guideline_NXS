@@ -481,6 +481,16 @@ AI ASSISTANT
 - Do: Governor Charms, Governor Gear, pets, research and Hero Gear first (they count the same — pick the cheapest power), then master affinity, then stars of main heroes; training troops and exclusive gear (widgets) don't help; save for the next TC gold level; opponent's Migrant Score ÷ 317 ≈ their Swordland troop power (investment only). The page has a calculator (upgrade + power gained + account rate → Migrant Score and Swordland power; someone's score → Swordland power).
 - Not known yet: what sets each account's rate; why hero stars vary.
 
+@rg
+⚔️ RALLY & GARRISON report (🔬 Research sub-tab, officer-x7k2p9.html#rg, 集結與駐防) — Sherry's OWN RESEARCH (2026-11-07), NOT official; some points still being tested. Say so when you answer from it.
+- A rally fights with the rally leader's stats, 3 heroes, City Bonus and rally-type Exclusive Gear. A garrison fights with the stats and 3 heroes of the defender who has the STRONGEST stats — not always the garrison leader (the leader only sets the troop capacity). Garrison-type Exclusive Gear (Zoe, Saul, Jabel, Eric, Hilde, Jaeger) works only in a garrison; rally-type (Amadeus, Petra, Helga, Marlin) only when you launch the rally.
+- Joiners bring only troops (fighting with the leader's / strongest defender's stats) + their FIRST hero's top-right Expedition skill. 4 slots; the higher skill level wins first, same level → join order (a useless Lv5 pushes out a useful Lv4). Stars cap the skill: 1★ Lv2, 2★ Lv3, 3★ Lv4, 4★ Lv5 → joiner heroes need 4★. Heroes 2 and 3 only add march size.
+- Hero skills are NOT in the battle report stats %; they are a separate layer. Same type adds, different types multiply (tested 11/07: Attack 25 + Health 25 + Lethality 25 measured ×1.961 vs ×1.953 worked out; Attack 25 + Attack 25 + Health 25 measured ×1.891 vs ×1.875 adding). Health +X, Damage taken −X and enemy Attack −X each ≈ ×(1+X); troops last longer, so they kill more — defense skills count about as much as attack. Enemy Attack − works on monsters too.
+- Picks (Lv5): Bear Hunt → 2 Attack (Amane, Margot) + 2 Lethality (Chenko, Yeonwoo, Amadeus) ×2.25 (4 Chenko ×2.0); the Bear doesn't hit back so defense skills do nothing there. PvP rally and garrison → 4 different types, e.g. Amane + Chenko + Gordon + Howard ×2.34; Saul gives Defense + Health in one slot; all-defense Saul + Gordon + Howard + Fahd ≈ ×2.2.
+- City Bonus counts only for the leader / strongest defender; joiners only gain from march size. Battle report stats = (1 + troop % + squad %) × (1 + City Bonus + Exclusive Gear) ÷ (1 + enemy debuff) − 1.
+- After a capture the rally's survivors become the garrison. Several rallies on one target wear it down; put the rallies you can lose first, the strongest leader last (🟡). Infantry in front, cavalry rarely hit, archers can be hit early (Ambusher) (🟡). One big march beats two small ones (kills ≈ troops^1.6, 🟡).
+- Not known yet: whether Damage taken − and enemy Attack − are one type; Defense-only skills; whether PvP gives exactly the same multipliers as monsters; best garrison troop ratio.
+
 @vv
 🪓 VIKING REPORT tab (officer-x7k2p9.html#vv, 維京研究) — Sherry's OWN RESEARCH on Viking Vengeance (updated 2026-11-06), NOT official game rules; worked back from her screenshots and battle-report sums (11/03 difficulty 11, waves 1–20; 11/06 about 60 more reports) and it will keep changing as she tests more. Say so when you answer from it.
 - Each wave has a fixed number of Vikings; if the city holds, they all die. Kills are split by each person's troop count × troop tier (one troop's strength: VI 20, VII 27, T8 38, T9 50, IX TG1 54, T10 66, TG1 71, TG2 76, TG3 83 — 1 TG3 ≈ 1.17 TG1 ≈ 1.66 T9; same ratio for infantry and cavalry, checked on 41 infantry and 18 cavalry battles within 1%).
@@ -642,8 +652,8 @@ async function isOfficer(body, env) {
 
 /* 🔒 Officer AI = logged in with Discord AND on the 👥 table. Returns which tabs they may open (admins: all),
    so the AI only gets the handbook parts and data of those tabs. The old officer password / data-key proof no longer counts. */
-const RESEARCH_TABS = ["iv", "growth", "hr", "ms", "bh", "bearplan", "vv"];   // 🔬 all opened by the one "research" permission
-const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🐝 Hive", hunt: "🎯 Blacklist", attack: "⚖️ Compare", growth: "🧭 Growth", hr: "🦸 Heroes", bearplan: "🐻 Bear analysis", vv: "🪓 Viking report", ms: "🧳 Migrant Score", bh: "🐻 Bear Hunt report", iv: "💎 Investment", research: "🔬 Research", ranking: "📊 Roster", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watchlist", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
+const RESEARCH_TABS = ["iv", "growth", "hr", "ms", "bh", "bearplan", "vv", "rg"];   // 🔬 all opened by the one "research" permission
+const AI_TAB_NAMES = { events: "📅 Events", board: "💬 Board", map: "🗺️ Map", move: "🐝 Hive", hunt: "🎯 Blacklist", attack: "⚖️ Compare", growth: "🧭 Growth", hr: "🦸 Heroes", bearplan: "🐻 Bear analysis", vv: "🪓 Viking report", rg: "⚔️ Rally & Garrison", ms: "🧳 Migrant Score", bh: "🐻 Bear Hunt report", iv: "💎 Investment", research: "🔬 Research", ranking: "📊 Roster", attend: "📋 Attendance", post: "📢 Post", watch: "🕵️ Watchlist", scout: "🔭 Scout", views: "📈 Views", perms: "👥 Officers" };
 const AI_TAB_LINKS = {
   events: "[Events](officer-x7k2p9.html#events) (week calendar, officer to-dos, in-game guides to copy, add/edit events)",
   board: "[Board](officer-x7k2p9.html#board)", map: "[Map](officer-x7k2p9.html#map) (kingdom map, Outpost plan)",
@@ -657,6 +667,7 @@ const AI_TAB_LINKS = {
   bh: "[Bear Hunt report](officer-x7k2p9.html#bh) (our research for members: how Bear Hunt scores work, what to bring, which rally)",
   ms: "[Migrant Score](officer-x7k2p9.html#ms) (our research, still testing: what raises the hidden Migrant Score / Swordland power)",
   vv: "[Viking report](officer-x7k2p9.html#vv) (our research: how Viking Vengeance splits kills and points, what to send)",
+  rg: "[Rally & Garrison](officer-x7k2p9.html#rg) (our research: who counts in a rally / garrison, which joiner heroes to bring, how skills stack)",
   attack: "[Compare](officer-x7k2p9.html#attack) (⚖️ compare two players, today's strength list, KvK intel, scouting other kingdoms)",
   views: "[Views](officer-x7k2p9.html#views)", perms: "[Officers](officer-x7k2p9.html#perms)",
 };
