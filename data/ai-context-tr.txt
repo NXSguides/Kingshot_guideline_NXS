@@ -1354,101 +1354,80 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
-[2026-11-07 by Nia] ⚔️ KvK SAVAŞ REHBERİ
-⏰ 10:00 UTC ŞEHİR SALDIRILARI BAŞLIYOR — katılmak için önceden çevrim içi ol VEYA kendini korumak için kalkan aç.
+[2026-11-07 by Nia] ⚔️ KvK SAVAŞ KILAVUZU
+## ⏰ KvK ANLAŞMASI (#2189 × #2217)
+- 10:00–11:30 UTC — Serbest PvP: Şehir saldırıları serbest. Saldırıya uğramak istemiyorsanız kalkan açın.
+- 11:30–12:00 UTC — 🚫 Şehir saldırısı yasak
+- 12:00–17:00 UTC — 🏰 Şato Savaşı: 🚫 Şehir saldırısı yasak. Şato'ya odaklanın.
+- 17:00–17:30 UTC — 🚫 Şehir saldırısı yasak
+- 17:30 UTC → son — Serbest PvP: Şehir saldırıları serbest. Saldırıya uğramak istemiyorsanız kalkan açın.
 
-⏰ Şato Savaşı 11:00 UTC'de başlamadan bir saat önce çevrim içi olmayı hedefle. 🚨
-
-- Krallıkta ilk 100'deki oyuncular / tüm birlikleri Hasaltın olan oyuncular: Bir R4 söylediğinde UNI'ye katılın.
-
-- 🔊 Koordinasyon için Discord sesli sohbetine katılın: https://discord.gg/5RakbEK5RS
+⏰ Saat 11:00 UTC'de çevrimiçi olun — Şato Savaşı'ndan bir saat önce.
+- İlk 100 krallık oyuncusu / Tamamı TG birliklerine sahip oyuncular: Bir R4 bildirdiğinde UNI'ye katılın.
+- 🔊 Koordinasyon için Discord sesli kanalına katılın: https://discord.gg/5RakbEK5RS
 
 ---
+## 📍 NEREYE IŞINLANILACAK
+Savaş alanı 🏰 Şato etrafında ikiye bölünmüştür: 🔵 #2189 (biz) alt yarıyı, 🔴 #2217 üst yarıyı alır.
+Resimde: sol üst = Batı, sağ üst = Kuzey, sol alt = Güney, sağ alt = Doğu.
+Ön sıralar (Şato'ya en yakın yerler) en güçlü oyuncular içindir.
 
+
+
+---
 ## 1. BİRLİK DİZİLİŞLERİ
-
-İntikallerini ŞİMDİ kaydet!
+İntikallerinizi ŞİMDİ kaydedin!
 
 > ⚔️ SALDIRI: 50/20/30
-
 > 🛡️ SAVUNMA: 60/20/20
 
 ### 👑 Seferberlik önderleri — kahramanlar
-
 - Saldırı: Amadeus / Marlin / Petra (Yedek olarak Hilde veya Jabel)
-
 - Savunma: Zoe / Hilde / Saul
 
-### 🔥 Gerekli güçlendirmeler
-
+### 🔥 Gerekli bonuslar
 - 20K Saldırı
-
 - Öldürücülük
-
 - Savunma & Sağlık
-
 - Düşman Zayıflatmaları ×2
-
-- Konuşlanma kapasitesi
-
+- Konuşlandırma Kapasitesi
 - Pet
 
-### ⚔️ Seferberliğe katılanlar — kahramanlar
-
+### ⚔️ Seferberlik katılımcıları — kahramanlar
 - Saldırı: Chenko
-
 - Savunma: Howard / Gordon
 
-❕ İki savunma dizilişi kaydet: biri Howard ile, diğeri Gordon ile.
-
-TG1–TG3 katılanları: Konuşlanma kapasitesi güçlendirmenizi açın.
+❕ İki savunma dizilişi kaydedin: biri Howard ile, diğeri Gordon ile.
+TG1–TG3 katılımcıları: Konuşlandırma Kapasitesi bonusunuzu açın.
 
 ---
-
 ## 2. 🏰 BİR BİNAYI ELE GEÇİRDİĞİMİZDE
-
-HERKES: Hemen SALDIRI'dan SAVUNMA'ya geçsin!
-
+HERKES: Hemen SALDIRI durumundan SAVUNMA durumuna geçsin!
 1. Savunma dizilişinizi gönderin.
-
-2. Savunmanın varışına 5 saniye kala, garnizondaki saldırı intikalinizi geri çağırın.
-
+2. Savunma ekibinin varmasına 5 saniye kala, garnizondaki saldırı ekibinizi geri çağırın.
 3. Savunma birlikleriniz devralmak için zamanında varacaktır.
-
-4. Yaralı birlikleri 60/20/20 savunma oranında yeni intikallerle doldurmaya devam edin.
+4. Yaralıları 60/20/20 savunma oranında yeni intikallerle doldurmaya devam edin.
 
 ### 👑 Garnizon önderi rotasyonu — liderler
-
-1. Katılanları, 2–5 yuvalarında şunlar olana kadar Önder pozisyonuna döndürün:
-
- - 2 Howard
-
- - 2 Gordon
-
-2. Bu, %50 Savunma + %50 Sağlık sağlar.
-
-3. Kendinizi tekrar #1 Önder yuvasına koyun.
+1. Katılımcıları Önder konumuna rotasyona sokun, 2–5 arası yuvalar şunlara sahip olana kadar:
+  - 2 Howard
+  - 2 Gordon
+2. Bu %50 Savunma + %50 Sağlık sağlar.
+3. Kendinizi tekrar 1 Numaralı Önder Yuvasına koyun.
 
 Liderler: Birlik oranını doğru tutun ve gerektiğinde yanlış intikalleri geri gönderin.
 
 ---
-
 ## 3. 🏰 ŞATO — ÖNEMLİ
-
 ⚠️ MERKEZE SADECE TAMAMI TG BİRLİKLERİ İLE KATILIN!
-
 - Birlik önceliği: TG3 > TG2 > TG1
-
-- Şatoda daha düşük kademeli birlik YASAKTIR.
+- Şatoda düşük seviyeli birlik YASAKTIR.
 
 ---
-
 ## 4. 🎯 TARETLER
-
 Liderlerimiz tarafından başlatılan TÜM taret seferberliklerine katılın!
 
 (see guide #kvk)
-
 (see guide #formations-rally-tips)
 
 [2026-10-19 by ΔRMΔDΔ] Kılıçdiyarı Hesaplaşması Katılımsızlıkları

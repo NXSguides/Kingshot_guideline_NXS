@@ -1355,100 +1355,79 @@ The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-11-07 by Nia] ⚔️ GUÍA DE BATALLA KvK
-⏰ 10:00 UTC COMIENZAN LOS ATAQUES A CIUDADES — conéctate antes para participar O activa un escudo para protegerte.
+## ⏰ ACUERDO KvK (#2189 × #2217)
+- 10:00–11:30 UTC — PvP Libre: ataques a colonias permitidos. Activa un Escudo si no quieres ser atacado.
+- 11:30–12:00 UTC — 🚫 Sin ataques a colonias
+- 12:00–17:00 UTC — 🏰 Batalla del castillo: 🚫 Sin ataques a colonias. Concentración total en el Castillo.
+- 17:00–17:30 UTC — 🚫 Sin ataques a colonias
+- 17:30 UTC → fin — PvP Libre: ataques a colonias permitidos. Activa un Escudo si no quieres ser atacado.
 
-⏰ Procura estar en línea una hora antes de que comience la Batalla del Castillo a las 11:00 UTC. 🚨
-
-- Top 100 de jugadores del reino / jugadores con todas las tropas de Adamantina: únete a UNI cuando un R4 te lo indique.
-
-- 🔊 Únete al chat de voz de Discord para la coordinación: https://discord.gg/5RakbEK5RS
+⏰ Conéctate antes de las 11:00 UTC — una hora antes de la Batalla del castillo.
+- Top 100 jugadores del reino / jugadores con tropas 100% TG: únanse a UNI cuando un R4 lo indique.
+- 🔊 Únanse al chat de voz de Discord para coordinación: https://discord.gg/5RakbEK5RS
 
 ---
+## 📍 DÓNDE TELETRANSPORTARSE
+El campo de batalla está dividido a la mitad alrededor del 🏰 Castillo: 🔵 #2189 (nosotros) ocupa la mitad inferior, 🔴 #2217 la mitad superior.
+En la imagen: arriba-izquierda = Oeste, arriba-derecha = Norte, abajo-izquierda = Sur, abajo-derecha = Este.
+Las primeras filas (más cercanas al Castillo) son para los jugadores más fuertes.
 
+
+
+---
 ## 1. FORMACIONES DE TROPAS
-
-¡Guarda tus marchas AHORA!
+¡Guarda tus escuadrones AHORA!
 
 > ⚔️ ATAQUE: 50/20/30
-
 > 🛡️ DEFENSA: 60/20/20
 
 ### 👑 Líderes de Ataque Conjunto — héroes
-
 - Ataque: Amadeus / Marlin / Petra (Hilde o Jabel como sustitutos)
-
 - Defensa: Zoe / Hilde / Saul
 
-### 🔥 Potenciadores requeridos
-
+### 🔥 Bonificaciones requeridas
 - 20K Ataque
-
 - Letalidad
-
-- Defensa y Salud
-
+- Defensa & Salud
 - Debuffs enemigos ×2
-
 - Capacidad de despliegue
-
 - Mascota
 
-### ⚔️ Participantes de Ataque Conjunto — héroes
-
+### ⚔️ Participantes del Ataque Conjunto — héroes
 - Ataque: Chenko
-
 - Defensa: Howard / Gordon
 
 ❕ Guarda dos formaciones de defensa: una con Howard y otra con Gordon.
-
-Participantes TG1–TG3: activad vuestro potenciador de capacidad de despliegue.
+Participantes con TG1–TG3: activen su bonificación de Capacidad de despliegue.
 
 ---
-
 ## 2. 🏰 UNA VEZ CAPTURADO UN EDIFICIO
+¡TODOS: cambien de ATAQUE a DEFENSA de inmediato!
+1. Envía tu formación defensiva.
+2. Cuando la defensa esté a 5 segundos de llegar, retira tu escuadrón de ataque de la guarnición.
+3. Tus tropas defensivas llegarán a tiempo para tomar el control.
+4. Continúa rellenando los soldados heridos con nuevos escuadrones manteniendo la proporción defensiva de 60/20/20.
 
-¡TODOS: cambiad de ATAQUE a DEFENSA de inmediato!
-
-1. Envía tu formación de defensa.
-
-2. Cuando la defensa esté a 5 segundos de llegar, retira tu marcha de ataque de la guarnición.
-
-3. Tus tropas de defensa llegarán a tiempo para tomar el control.
-
-4. Continúa rellenando los soldados heridos con nuevas marchas en la proporción de defensa 60/20/20.
-
-### 👑 Rotación de capitán de guarnición — líderes
-
+### 👑 Rotación de Capitán de Guarnición — líderes
 1. Rota a los participantes al puesto de Capitán hasta que las casillas 2–5 tengan:
-
- - 2 Howard
-
- - 2 Gordon
-
+  - 2 Howard
+  - 2 Gordon
 2. Esto otorga 50% Defensa + 50% Salud.
-
 3. Vuelve a colocarte en la casilla de Capitán n.º 1.
 
-Líderes: mantened la proporción adecuada de tropas y devolved las marchas incorrectas cuando sea necesario.
+Líderes: mantengan la proporción correcta de tropas y devuelvan las marchas incorrectas cuando sea necesario.
 
 ---
-
 ## 3. 🏰 CASTILLO — IMPORTANTE
-
-⚠️ ¡ÚNETE AL CENTRO SOLO CON TROPAS TOTALMENTE TG!
-
+⚠️ ¡SOLO UNIRSE AL CENTRO CON TROPAS 100% TG!
 - Prioridad de tropas: TG3 > TG2 > TG1
-
-- NO se permiten tropas de nivel inferior en el castillo.
+- NINGUNA tropa de nivel inferior en el castillo.
 
 ---
-
 ## 4. 🎯 TORRETAS
-
-¡Únete a TODOS los ataques conjuntos a torretas convocados por nuestros líderes!
+¡Únanse a TODOS los Ataques Conjuntos a torretas iniciados por nuestros líderes!
 
 (see guide #kvk)
-
 (see guide #formations-rally-tips)
 
 [2026-10-19 by ΔRMΔDΔ] Ausencias en Enfrentamiento en Tierra de espadas

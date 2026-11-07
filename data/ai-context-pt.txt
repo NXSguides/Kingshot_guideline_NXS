@@ -1355,100 +1355,79 @@ The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-11-07 by Nia] ⚔️ GUIA DE BATALHA KvK
-⏰ 10:00 UTC INÍCIO DOS ATAQUES ÀS CIDADES — entre online antes disso para participar, OU ative um escudo para se proteger.
+## ⏰ ACORDO KvK (#2189 × #2217)
+- 10:00–11:30 UTC — PvP Livre: ataques à cidade permitidos. Ative o escudo se não quiser ser atacado.
+- 11:30–12:00 UTC — 🚫 sem ataques à cidade
+- 12:00–17:00 UTC — 🏰 Batalha do Castelo: 🚫 sem ataques à cidade. Foco total no Castelo.
+- 17:00–17:30 UTC — 🚫 sem ataques à cidade
+- 17:30 UTC → fim — PvP Livre: ataques à cidade permitidos. Ative o escudo se não quiser ser atacado.
 
-⏰ Tente estar online uma hora antes do início da Batalha do Castelo às 11:00 UTC. 🚨
-
-- Top 100 jogadores do reino / jogadores com todas as tropas de Adamante: entre na UNI quando um R4 avisar.
-
+⏰ Fique online às 11:00 UTC — uma hora antes da Batalha do Castelo.
+- Top 100 jogadores do reino / jogadores com tropas 100% TG: entrem na UNI quando um R4 avisar.
 - 🔊 Entre no chat de voz do Discord para coordenação: https://discord.gg/5RakbEK5RS
 
 ---
+## 📍 PARA ONDE TELETRANSPORTAR
+O campo de batalha é dividido ao meio ao redor do 🏰 Castelo: 🔵 #2189 (nós) fica com a metade inferior, 🔴 #2217 com a metade superior.
+Na imagem: superior esquerdo = Oeste, superior direito = Norte, inferior esquerdo = Sul, inferior direito = Leste.
+As primeiras fileiras (mais próximas do Castelo) são para os jogadores mais fortes.
 
+
+
+---
 ## 1. FORMAÇÕES DAS TROPAS
-
-Salve suas marchas AGORA!
+Salve seus esquadrões AGORA!
 
 > ⚔️ ATAQUE: 50/20/30
-
 > 🛡️ DEFESA: 60/20/20
 
-### 👑 Liderança de Rally — Heróis
-
+### 👑 Líderes de Rally — heróis
 - Ataque: Amadeus / Peixe Marlin / Petra (Hilde ou Jabel como substitutos)
-
 - Defesa: Zoe / Hilde / Saul
 
-### 🔥 Bônus necessários
-
+### 🔥 Bônus obrigatórios
 - 20K Ataque
-
 - Letalidade
-
 - Defesa & Vida
+- Debuffs Inimigos ×2
+- Capacidade de Envio
+- Pets
 
-- Penalidades de inimigo ×2
-
-- Capacidade de implantação
-
-- Mascote
-
-### ⚔️ Participantes de Rally — Heróis
-
+### ⚔️ Integrantes do Rally — heróis
 - Ataque: Chenko
-
 - Defesa: Howard / Gordon
 
-❕ Salve duas formações de defesa: uma com Howard e uma com Gordon.
-
-Participantes TG1–TG3: ative seu bônus de capacidade de implantação.
+❕ Salve duas formações de defesa: uma com Howard e outra com Gordon.
+Integrantes TG1–TG3: ativem seu bônus de Capacidade de Envio.
 
 ---
-
 ## 2. 🏰 ASSIM QUE CAPTURARMOS UMA CONSTRUÇÃO
-
-TODOS: mude de ATAQUE para DEFESA imediatamente!
-
+TODOS: mudem de ATAQUE para DEFESA imediatamente!
 1. Envie sua formação de defesa.
+2. Quando a defesa estiver a 5 segundos de chegar, revogue seu esquadrão de ataque da guarnição.
+3. Suas tropas de defesa chegarão a tempo de assumir a posição.
+4. Continue reabastecendo soldados feridos com novos esquadrões na proporção de defesa 60/20/20.
 
-2. Quando a defesa estiver a 5 segundos de chegar, revogue sua marcha de ataque da guarnição.
-
-3. Suas tropas de defesa chegarão a tempo de assumir o controle.
-
-4. Continue reabastecendo as tropas feridas com novas marchas na proporção de defesa 60/20/20.
-
-### 👑 Rotação de Capitão da guarnição — Líderes
-
-1. Alterne os participantes na função de Capitão até que os slots 2–5 tenham:
-
- - 2 Howard
-
- - 2 Gordon
-
+### 👑 Rotação de Capitão da Guarnição — líderes
+1. Alterne os integrantes no cargo de Capitão até que os slots 2–5 tenham:
+  - 2 Howard
+  - 2 Gordon
 2. Isso concede 50% Defesa + 50% Vida.
-
 3. Coloque-se de volta no slot de Capitão nº 1.
 
-Líderes: mantenham a proporção correta de tropas e mandem de volta marchas incorretas quando necessário.
+Líderes: mantenham a proporção correta de tropas e mandem de volta esquadrões incorretos quando necessário.
 
 ---
-
 ## 3. 🏰 CASTELO — IMPORTANTE
-
-⚠️ ENTRAM NO CENTRO APENAS COM TROPAS TOTALMENTE TG!
-
+⚠️ ENTRAM NO CENTRO APENAS TROPAS 100% TG!
 - Prioridade de tropas: TG3 > TG2 > TG1
-
 - SEM tropas de categoria inferior no castelo.
 
 ---
-
 ## 4. 🎯 TORREÕES
-
-Entre em TODOS os rallies de torreão iniciados pelos nossos líderes!
+Entrem em TODOS os rallies de torreões iniciados pelos nossos líderes!
 
 (see guide #kvk)
-
 (see guide #formations-rally-tips)
 
 [2026-10-19 by ΔRMΔDΔ] Ausências no Confronto entre Espadas

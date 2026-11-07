@@ -1355,100 +1355,79 @@ The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
 [2026-11-07 by Nia] ⚔️ PANDUAN PERTEMPURAN KvK
-⏰ 10:00 UTC SERANGAN KOTA DIMULAI — datanglah secara online sebelum itu untuk berpartisipasi, ATAU pasang perisai untuk melindungi diri Anda.
+## ⏰ KESEPAKATAN KvK (#2189 × #2217)
+- 10:00–11:30 UTC — PvP Bebas: serangan kota diizinkan. Pasang Perisai jika Anda tidak ingin diserang.
+- 11:30–12:00 UTC — 🚫 Dilarang menyerang kota
+- 12:00–17:00 UTC — 🏰 Pertempuran Istana: 🚫 Dilarang menyerang kota. Fokus pada Istana.
+- 17:00–17:30 UTC — 🚫 Dilarang menyerang kota
+- 17:30 UTC → selesai — PvP Bebas: serangan kota diizinkan. Pasang Perisai jika Anda tidak ingin diserang.
 
-⏰ Usahakan untuk online satu jam sebelum Pertempuran Istana dimulai pada pukul 11:00 UTC. 🚨
-
-- Pemain 100 besar kerajaan / pemain dengan semua pasukan Truegold: bergabunglah dengan UNI ketika R4 memberi tahu Anda.
-
-- 🔊 Bergabunglah dengan obrolan suara Discord untuk koordinasi: https://discord.gg/5RakbEK5RS
+⏰ Harap online pada 11:00 UTC — satu jam sebelum Pertempuran Istana.
+- Pemain 100 teratas kerajaan / Pemain dengan seluruh skuad TG: bergabunglah ke UNI saat instruksi R4 diberikan.
+- 🔊 Bergabunglah ke saluran suara Discord untuk koordinasi: https://discord.gg/5RakbEK5RS
 
 ---
+## 📍 LOKASI TELEPORT
+Medan perang dibagi dua di sekitar 🏰 Istana: 🔵 #2189 (kita) mengambil bagian bawah, 🔴 #2217 bagian atas.
+Pada gambar: atas-kiri = Barat, atas-kanan = Utara, bawah-kiri = Selatan, bawah-kanan = Timur.
+Barisan depan (terdekat dengan Istana) diperuntukkan bagi pemain terkuat.
 
+
+
+---
 ## 1. FORMASI PASUKAN
-
 Simpan barisan Anda SEKARANG!
 
-> ⚔️ ATTACK: 50/20/30
+> ⚔️ SERANGAN (ATTACK): 50/20/30
+> 🛡️ PERTAHANAN (DEFENSE): 60/20/20
 
-> 🛡️ DEFENSE: 60/20/20
+### 👑 Pemimpin Reli — hero
+- Serangan: Amadeus / Marlin / Petra (Hilde atau Jabel sebagai pengganti)
+- Pertahanan: Zoe / Hilde / Saul
 
-### 👑 Pemimpin reli — hero
-
-- Attack: Amadeus / Marlin / Petra (Hilde atau Jabel sebagai pengganti)
-
-- Defense: Zoe / Hilde / Saul
-
-### 🔥 Buff yang dibutuhkan
-
+### 🔥 Bonus yang diperlukan
 - 20K Attack
-
 - Lethality
-
 - Defense & Health
-
 - Debuff Musuh ×2
-
-- Kapasitas pengerahan
-
+- Kapasitas Pengerahan
 - Peliharaan
 
-### ⚔️ Peserta reli — hero
-
-- Attack: Chenko
-
-- Defense: Howard / Gordon
+### ⚔️ Pengikut Reli — hero
+- Serangan: Chenko
+- Pertahanan: Howard / Gordon
 
 ❕ Simpan dua formasi pertahanan: satu dengan Howard dan satu dengan Gordon.
-
-Peserta TG1–TG3: aktifkan buff kapasitas pengerahan Anda.
+Pengikut TG1–TG3: aktifkan bonus Kapasitas Pengerahan Anda.
 
 ---
-
 ## 2. 🏰 SETELAH KITA MENGUASAI BANGUNAN
-
-SEMUA ORANG: segera beralih dari ATTACK ke DEFENSE!
-
+SEMUA ORANG: segera beralih dari SERANGAN ke PERTAHANAN!
 1. Kirim formasi pertahanan Anda.
-
-2. Saat pertahanan berada 5 detik sebelum kedatangan, panggil kembali barisan serangan Anda dari garnisun.
-
-3. Pasukan pertahanan Anda akan tiba tepat waktu untuk mengambil alih.
-
-4. Terus isi ulang pasukan yang terluka dengan barisan baru pada rasio pertahanan 60/20/20.
+2. Saat pertahanan berada 5 detik dari kedatangan, panggil kembali skuad serangan Anda dari garnisun.
+3. Skuad pertahanan Anda akan tiba tepat waktu untuk mengambil alih.
+4. Terus isi kembali skuad yang terluka dengan barisan baru pada rasio pertahanan 60/20/20.
 
 ### 👑 Rotasi kapten garnisun — pemimpin
+1. Putar pengikut ke posisi Kapten hingga slot 2–5 memiliki:
+  - 2 Howard
+  - 2 Gordon
+2. Ini memberikan 50% Defense + 50% Health.
+3. Kembalikan diri Anda ke slot Kapten #1.
 
-1. Putar peserta ke posisi Kapten sampai slot 2–5 memiliki:
-
- - 2 Howard
-
- - 2 Gordon
-
-2. Itu memberikan 50% Defense + 50% Health.
-
-3. Tempatkan diri Anda kembali di slot Kapten #1.
-
-Pemimpin: jaga agar rasio pasukan tetap benar dan kirim kembali barisan yang salah jika diperlukan.
+Pemimpin: jaga agar rasio skuad tetap benar dan pulangkan barisan yang salah jika diperlukan.
 
 ---
-
 ## 3. 🏰 ISTANA — PENTING
-
-⚠️ HANYA BERGABUNG KE PUSAT DENGAN SEMUA PASUKAN TG!
-
-- Prioritas pasukan: TG3 > TG2 > TG1
-
-- TIDAK ADA pasukan tingkat rendah di istana.
+⚠️ HANYA BERGABUNG KE PUSAT DENGAN SELURUH SKUAD TG!
+- Prioritas skuad: TG3 > TG2 > TG1
+- TIDAK BOHLEH ada skuad tingkat rendah di dalam istana.
 
 ---
-
 ## 4. 🎯 MERIAM
-
-Bergabunglah dengan SEMUA reli meriam yang dipanggil oleh pemimpin kita!
+Bergabunglah dalam SEMUA reli meriam yang dipanggil oleh pemimpin kita!
 
 (see guide #kvk)
-
 (see guide #formations-rally-tips)
 
 [2026-10-19 by ΔRMΔDΔ] Ketidakhadiran di Swordland Showdown
