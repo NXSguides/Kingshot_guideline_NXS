@@ -26,3 +26,7 @@
   imports 0 (+0) · ID look-ups 45/49 · boards 0 · rosters 0
   name search 0: found 0, to pick 0, not found 0 · left 14 · 61 calls, 1818 s · HTTP {"200":45,"timeout":16}
   merged: +0 imported
+2026-11-08T17:41:19.647Z look-up: 77 on the list, group 2106–2234
+  imports 0 (+0) · ID look-ups 14/14 · boards 0 · rosters 0
+  name search 0: found 0, to pick 0, not found 0 · left 0 · 14 calls, 342 s · HTTP {"200":14}
+  merged: +0 imported
