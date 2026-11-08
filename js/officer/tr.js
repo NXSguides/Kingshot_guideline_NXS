@@ -390,66 +390,57 @@ function diffs(p) {
   if (mp.power && p.power && Math.abs(mp.power - p.power) / p.power > 0.05) out.push(2);
   return out;
 }
-/* ⬇️ Excel (Milk & Sherry 2026-11-08): like Milk's "Interested Roster" — every source (list) is its own table, side by side.
-   Each table always shows # · Name · TG · Power, plus ONE extra column chosen in a drop-down at the top (Migrant Score or Mystic Trial),
-   and a 2nd drop-down picks what the tables are ranked by (Power / Migrant Score / Mystic Trial). Only classic formulas
-   (IF, INDEX, MATCH, LARGE) so it works in Excel and after File → Import into Google Sheets. Raw values sit on a hidden "data" sheet.
-   ✖️ "no" rows are left out; a 🇰🇷 note gives a purple name cell (Milk's "Korean = confirmed by Boo"). ExcelJS is in js/vendor. */
+/* ⬇️ Excel (Milk's own layout, Sherry 2026-11-09): one table per list, side by side, English headers like Milk's sheet:
+   # · Player Name · TC · Mystic Trial · Power · Red Gear of Top 10 · Gov ID — sorted TG3 → TG2 → TG1 → TC, strongest first;
+   red gear is filled only for the 10 strongest of each list. Lists with fewer than 5 players go together into one "Others" table
+   (no #, name as [TAG]Name). Players MightPulse couldn't find show "Unlocatable". Plain values (no formulas), so copy / import
+   into Google Sheets just works. ExcelJS is in js/vendor, loaded only when tapped. */
 async function trExcel(btn) {
   const old = btn.textContent; btn.textContent = "…";
   try {
     await loadScripts(["js/vendor/exceljs-4.4.0.min.js"]);
-    const s = S(), wb = new ExcelJS.Workbook(); wb.calcProperties = { fullCalcOnLoad: true };
-    const ws = wb.addWorksheet(t("xP"), { views: [{ state: "frozen", ySplit: 4, showGridLines: false }] });
-    const ds = wb.addWorksheet("data", { state: "hidden" });
-    const lPow = t("c_pow"), lMig = t("c_red"), lMys = t("c_mys"), q = (x) => `"${String(x).replace(/"/g, '""')}"`;   // lMig slot now = 🔴 red gear (Milk 2026-11-08: no Migrant Score)
-    /* one drop-down (row 1): what to rank by. 🔴 red gear and Mystic Trial are both always shown (Sherry 2026-11-09) */
-    ws.getCell("B1").value = t("xRank"); ws.getCell("B1").font = { bold: true }; ws.getCell("B1").alignment = { horizontal: "right" };
-    ws.mergeCells("C1:D1"); const rk = ws.getCell("C1"); rk.value = lPow; rk.dataValidation = { type: "list", allowBlank: false, formulae: [q([lPow, lMig, lMys].join(","))] };
-    for (const c of [rk]) { c.font = { bold: true }; c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFFFF2CC" } }; c.border = { top: { style: "thin" }, left: { style: "thin" }, bottom: { style: "thin" }, right: { style: "thin" } }; }
-    ws.getCell("E1").value = t("xPick"); ws.getCell("E1").font = { italic: true, color: { argb: "FF777777" } };
-    const P = `'${t("xP").replace(/'/g, "''")}'`;
+    const s = S(), wb = new ExcelJS.Workbook(), ws = wb.addWorksheet("Interested Roster", { views: [{ state: "frozen", ySplit: 2 }] });
     const COLORS = ["FFC5CAE9", "FFA8DCC4", "FFF5D79E", "FFD7BDE2", "FFF2B8B5", "FFB3D4EC"];   // light fills + black text (white text vanished in Google Sheets)
     const groups = new Map();
     for (const p of shown()) { const k = p.src || "—"; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(p); }
-    const W = [5, 22, 9, 11, 10, 11, 4];
-    let c0 = 1, gi = 0, dr = 1;
-    /* table order: biggest list first, single players / small lists to the right; same size → the one added first (not the page's sort) */
     const first = (src) => (L.players || []).findIndex((p) => (p.src || "—") === src);
-    const order = [...groups.entries()].sort((a, b) => b[1].length - a[1].length || first(a[0]) - first(b[0]));
-    for (const [src, list] of order) {
-      const n = list.length, r1 = dr, r2 = dr + n - 1, color = COLORS[gi % COLORS.length];
-      /* data block: A src · B name · C TG · D power · E migrant · F mystic · G 🇰🇷 · H sort key · I order */
-      list.forEach((p, i) => { const mp = p.mp || {}, r = r1 + i;
-        ds.getRow(r).values = [src, mp.name || p.name || "", mp.tcLevel != null ? tcLabel(mp.tcLevel) : p.tc || "", powOf(p) || "", mp.red ?? "", mp.mystic ?? "", /🇰🇷/.test(String(p.note || "")) ? "🇰🇷" : ""];
-        const pw = `IF(ISNUMBER(D${r}),D${r},0)`;   // ties (or no score) → stronger first
-        ds.getCell(`H${r}`).value = { formula: `IF(${P}!$C$1=${q(lMig)},IF(ISNUMBER(E${r}),E${r},-1)+${pw}/1000000000000,IF(${P}!$C$1=${q(lMys)},IF(ISNUMBER(F${r}),F${r},-1)+${pw}/1000000000000,${pw}))+ROW()/10000000000000` };
-        ds.getCell(`I${r}`).value = { formula: `MATCH(LARGE($H$${r1}:$H$${r2},${i + 1}),$H$${r1}:$H$${r2},0)` };
+    const big = [...groups.entries()].filter(([, l]) => l.length >= 5).sort((a, b) => b[1].length - a[1].length || first(a[0]) - first(b[0]));
+    const others = [...groups.entries()].filter(([, l]) => l.length < 5).flatMap(([, l]) => l);
+    const tcN = (p) => +(p.mp && p.mp.tcLevel) || +String(p.tc || "").replace(/^TG(\d).*/i, (m, g) => 30 + 5 * g).replace(/\D/g, "") || 0;
+    const ord = (l) => [...l].sort((a, b) => tcN(b) - tcN(a) || (powOf(b) || 0) - (powOf(a) || 0));
+    /* title like Milk's: "Kingdom 2231 WIN" from the most common kingdom + alliance of the list (falls back to the source label) */
+    const titleOf = (src, l) => { const c = {}; for (const p of l) { const m = p.mp || {}; if (m.kid && m.alliance) { const k = `Kingdom ${m.kid} ${m.alliance}`; c[k] = (c[k] || 0) + 1; } }
+      const best = Object.entries(c).sort((a, b) => b[1] - a[1])[0]; return best ? best[0] : src; };
+    const tables = big.map(([src, l]) => ({ title: titleOf(src, l), list: ord(l), num: true }));
+    if (others.length) tables.push({ title: "OTHERS", list: ord(others), num: false, tag: true });
+    let c0 = 1;
+    tables.forEach((tb, gi) => {
+      const color = COLORS[gi % COLORS.length];
+      const head = [...(tb.num ? ["#"] : []), "Player Name", "TC", "Mystic Trial", "Power", "Red Gear of Top 10", "Gov ID"];
+      const W = [...(tb.num ? [5] : []), tb.tag ? 26 : 22, 9, 12, 10, 17, 12];
+      const last = c0 + head.length - 1;
+      ws.mergeCells(1, c0, 1, last);
+      const tt = ws.getCell(1, c0); tt.value = tb.title; tt.font = { bold: true, size: 12 }; tt.fill = { type: "pattern", pattern: "solid", fgColor: { argb: color } };
+      head.forEach((h, i) => { const c = ws.getCell(2, c0 + i); c.value = h; c.font = { bold: true }; c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: color } }; ws.getColumn(c0 + i).width = W[i]; });
+      const top10 = new Set([...tb.list].sort((a, b) => (powOf(b) || 0) - (powOf(a) || 0)).slice(0, 10).map((p) => p.key));
+      tb.list.forEach((p, i) => { const mp = p.mp || {}, found = !!(mp.pid || mp.name), pw = powOf(p);
+        const name = (tb.tag && mp.alliance ? `[${mp.alliance}]` : "") + (mp.name || p.name || "");
+        const row = [...(tb.num ? [i + 1] : []), name, mp.tcLevel != null ? tcLabel(mp.tcLevel) : p.tc || "",
+          found ? (mp.mystic ?? "") : "Unlocatable", pw ? +(pw / 1e6).toFixed(1) : "", top10.has(p.key) && mp.red != null ? mp.red : "", p.id ? String(p.id) : ""];
+        row.forEach((v, k) => { const c = ws.getCell(3 + i, c0 + k); c.value = v; if (i % 2) c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFF4F4F4" } }; });
+        const pc = ws.getCell(3 + i, c0 + head.indexOf("Power")); pc.numFmt = '0.0"M"';
+        if (pw > s.cap * 1e6) pc.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFF6D9A8" } };
+        if (/🇰🇷/.test(String(p.note || ""))) ws.getCell(3 + i, c0 + head.indexOf("Player Name")).fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFD9D2E9" } };
+        ws.getCell(3 + i, c0 + head.indexOf("Mystic Trial")).numFmt = "#,##0";
       });
-      /* the table on the main sheet */
-      const col = (i) => ws.getColumn(c0 + i).letter, last = c0 + 6;
-      W.forEach((w, i) => (ws.getColumn(c0 + i).width = w));
-      ws.mergeCells(3, c0, 3, last);
-      const tt = ws.getCell(3, c0); tt.value = `${src} (${n})`; tt.font = { bold: true, size: 12 }; tt.fill = { type: "pattern", pattern: "solid", fgColor: { argb: color } };
-      ["#", t("c_name"), "TG", lPow, lMig, lMys, ""].forEach((h, i) => { const c = ws.getCell(4, c0 + i); c.value = h; c.font = { bold: true }; c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: color } }; });
-      const R = (L, i) => `INDEX(data!$${L}$${r1}:$${L}$${r2},data!$I$${r1 + i})`;
-      for (let i = 0; i < n; i++) { const r = 5 + i;
-        ws.getCell(r, c0).value = i + 1;
-        ws.getCell(r, c0 + 1).value = { formula: R("B", i) };
-        ws.getCell(r, c0 + 2).value = { formula: R("C", i) };
-        ws.getCell(r, c0 + 3).value = { formula: R("D", i) }; ws.getCell(r, c0 + 3).numFmt = '0.0,,"M";;""';
-        ws.getCell(r, c0 + 4).value = { formula: R("E", i) }; ws.getCell(r, c0 + 4).numFmt = '#,##0;;"0"';
-        ws.getCell(r, c0 + 5).value = { formula: R("F", i) }; ws.getCell(r, c0 + 5).numFmt = '#,##0;;""';
-        ws.getCell(r, c0 + 6).value = { formula: `IF(${R("G", i)}="","",${R("G", i)})` };
-        if (i % 2) for (let k = 0; k < 7; k++) ws.getCell(r, c0 + k).fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFF4F4F4" } };
-      }
-      const e = 4 + n;
-      ws.addConditionalFormatting({ ref: `${col(1)}5:${col(1)}${e}`, rules: [{ type: "expression", formulae: [`$${col(6)}5<>""`], style: { fill: { type: "pattern", pattern: "solid", bgColor: { argb: "FFD9D2E9" } } } }] });
-      ws.addConditionalFormatting({ ref: `${col(3)}5:${col(3)}${e}`, rules: [{ type: "expression", formulae: [`$${col(3)}5>${s.cap * 1e6}`], style: { fill: { type: "pattern", pattern: "solid", bgColor: { argb: "FFF6D9A8" } } } }] });
       ws.getColumn(last + 1).width = 3;
-      c0 = last + 2; gi++; dr = r2 + 2;
+      c0 = last + 2;
+    });
+    if ((L.players || []).some((p) => /🇰🇷/.test(String(p.note || "")))) {
+      const r = 4 + Math.max(...tables.map((tb) => tb.list.length)), c = ws.getCell(r, 2);
+      c.value = "Korean = confirmed by Boo"; c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFD9D2E9" } };
     }
-    ws.getRow(3).height = 22;
+    ws.getRow(1).height = 22;
     const blob = new Blob([await wb.xlsx.writeBuffer()], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
     const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `transfer-${new Date().toISOString().slice(0, 10)}.xlsx`; document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 5000);
