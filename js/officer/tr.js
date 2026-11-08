@@ -401,7 +401,7 @@ async function trExcel(btn) {
     const s = S(), wb = new ExcelJS.Workbook(), ws = wb.addWorksheet(t("xP"), { views: [{ state: "frozen", ySplit: 2, showGridLines: false }] });
     const keys = ["#", "name", "tc", "id", "pow", "mig", "pass", "mys", "note"], head = keys.map((k) => k === "#" ? "#" : t("c_" + k));   // Milk's order first: # · Player Name · TC · Gov ID · Power
     const W = { "#": 5, name: 22, tc: 10, pow: 11, mig: 12, pass: 14, mys: 11, id: 12, note: 24 };
-    const COLORS = ["FF3F51B5", "FF2E9E7A", "FFB7791F", "FF8E44AD", "FFC0392B", "FF2C7FB8"];
+    const COLORS = ["FFC5CAE9", "FFA8DCC4", "FFF5D79E", "FFD7BDE2", "FFF2B8B5", "FFB3D4EC"];   // light fills + black text: Google Sheets drops some header fills, and white text then vanishes (Sherry 2026-11-08)
     const groups = new Map();
     for (const p of shown()) { if (p.status === "no") continue; const k = p.src || "—"; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(p); }
     const tcN = (p) => +(p.mp && p.mp.tcLevel) || +String(p.tc || "").replace(/^TG(\d).*/i, (m, g) => 30 + 5 * g).replace(/\D/g, "") || 0;
@@ -410,7 +410,7 @@ async function trExcel(btn) {
       list.sort((a, b) => tcN(b) - tcN(a) || (powOf(b) || 0) - (powOf(a) || 0));   // like Milk's: TG3 → TG2 → TG1 → TC, strongest first
       const color = COLORS[gi % COLORS.length], last = c0 + keys.length - 1;
       ws.mergeCells(1, c0, 1, last);
-      const tc = ws.getCell(1, c0); tc.value = `${src} (${list.length})`; tc.font = { bold: true, size: 12, color: { argb: "FFFFFFFF" } };
+      const tc = ws.getCell(1, c0); tc.value = `${src} (${list.length})`; tc.font = { bold: true, size: 12, color: { argb: "FF000000" } };
       tc.fill = { type: "pattern", pattern: "solid", fgColor: { argb: color } }; tc.alignment = { vertical: "middle" };
       keys.forEach((k, i) => (ws.getColumn(c0 + i).width = W[k]));
       const rows = list.map((p, i) => { const mp = p.mp || {}, mg = migOf(p);
@@ -423,7 +423,7 @@ async function trExcel(btn) {
         if (/🇰🇷/.test(String((list[r - 3] || {}).note || ""))) ws.getCell(`${L("name")}${r}`).fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFD9D2E9" } };   // 🇰🇷 note = purple name cell, like Milk's "Korean = confirmed by Boo"
         ws.getCell(`${L("pow")}${r}`).numFmt = '0.0,,"M"'; ws.getCell(`${L("mig")}${r}`).numFmt = "#,##0"; ws.getCell(`${L("mys")}${r}`).numFmt = "#,##0";
       }
-      for (let i = 0; i < keys.length; i++) { const h = ws.getCell(2, c0 + i); h.font = { bold: true, color: { argb: "FFFFFFFF" } }; h.fill = { type: "pattern", pattern: "solid", fgColor: { argb: color } }; }
+      for (let i = 0; i < keys.length; i++) { const h = ws.getCell(2, c0 + i); h.font = { bold: true, color: { argb: "FF000000" } }; h.fill = { type: "pattern", pattern: "solid", fgColor: { argb: color } }; }
       ws.addConditionalFormatting({ ref: `${L("pow")}3:${L("pow")}${end}`, rules: [{ type: "expression", formulae: [`${L("pow")}3>${s.cap * 1e6}`], style: { fill: { type: "pattern", pattern: "solid", bgColor: { argb: "FFF6D9A8" } } } }] });
       ws.getColumn(last + 1).width = 3;   // gap between tables
       c0 = last + 2; gi++;
