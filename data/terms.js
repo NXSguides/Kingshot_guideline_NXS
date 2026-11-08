@@ -709,7 +709,6 @@ const TERMS = [
  {
   "cat": "Finder's Fortune (event)",
   "rows": [
-   ["Finder's Fortune", "尋物奇緣", "기묘한 물건 탐색", "Des Finders Glück", "Fortune du Chercheur", "Sorte de Quem Procura", "Arayıcının Şansı", "Pencari Kekayaan", "Удача искателя", "โชคลาภนักค้นหา", "ثروة المكتشف", "Fortuna del buscador", "Event name (hidden-object event). Screenshots in all 12 langs 2026-11-08."],
    ["Finder's Fusion", "協作同行", "협동 동행", "Des Finders Fusion", "Fusion du Chercheur", "Fusão de Quem Procura", "Arayıcının Füzyonu", "Fusi Pencari", "Сплочение искателя", "การผสานพลังนักค้นหา", "دمج المكتشف", "Fusión del buscador", "Finder's Fortune tab: 2-player co-op hidden-object rounds (20 per day)."],
    ["Finder's Guide", "尋物手冊", "물건 탐색 수첩", "Finder-Leitfaden", "Guide du Chercheur", "O Guia de Quem Procura", "Arayıcının Kılavuzu", "Panduan Pencari", "Руководство искателя", "คู่มือนักค้นหา", "دليل المكتشف", "Guía del buscador", "Finder's Fortune tab."],
    ["Enlistment Office", "徵兵處", "징병소", "Musterungsamt", "Bureau d'Enrôlement", "Escritório de Alistamento", "Görevlendirme Ofisi", "Kantor Pendaftaran", "Призывной пункт", "ศูนย์เกณฑ์ทหาร", "مكتب التجنيد", "Oficina de Reclutamiento", "Finder's Fusion scene ('Today's Challenges: Enlistment Office')."],
