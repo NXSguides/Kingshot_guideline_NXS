@@ -34,7 +34,7 @@ const T = {
     sl: { "": "—", invite: "Ordinary Invite", open: "Transfer Opens", special: "Special Invite" },
     over: "🎟️ over cap", overTip: "Power is over the Transfer Power Cap — only a Special Invite can bring this player.",
     pick: "{n} possible — pick one", pickOk: "✓", nf: "🔎 not found — add the ID, or the kingdom (#2188) to the source", given: "listed: {v}", c_gName: "Listed name", c_gTc: "Listed TC", c_gPow: "Listed power", c_diff: "Differs from list", dW: ["name", "TC", "power"], mpName: "MightPulse: {v}",
-    del: "✕", delQ: "Remove {n} from the list?", selHint: "☑️ Tick rows on the left to change many at once.", selN: "☑️ {n} selected", bNotePh: "Note to add", bAdd: "➕ Add to note", bSt: "Set status…", bClr: "Clear ticks", bDone: "✅ Done for {n} — press 💾 Save", rf: "↻", rfTip: "Update this player from MightPulse (at the next 🔎)", rfAll: "↻ Update all shown ({n})", rfWait: "{n} waiting for update — press 🔎", rfOn: "↻ waiting", idPh: "ID", notePh: "note", copy: "📋 Copy", copied: "✅ Copied", csv: "⬇️ CSV",
+    del: "✕", delQ: "Remove {n} from the list?", selHint: "☑️ Tick rows on the left to change many at once.", selN: "☑️ {n} selected", bNotePh: "Note to add", bAdd: "➕ Add to note", bSt: "Set status…", bClr: "Clear ticks", bDone: "✅ Done for {n} — press 💾 Save", rf: "↻", rfTip: "Update this player from MightPulse (at the next 🔎)", rfAll: "↻ Update all shown ({n})", rfWait: "{n} waiting for update — press 🔎", rfOn: "↻ waiting", idPh: "ID", notePh: "note", copy: "📋 Copy", copied: "✅ Copied", csv: "⬇️ CSV", xlsx: "\u2b07\ufe0f Excel", xP: "Players", xQ: "Quota", xUsed: "Used", xMax: "Max", xLeft: "Left",
     passNote: "🔬 Research, 2026-11-08 — not confirmed. Transfer Pass ≈ Migrant Score ÷ 33,600, rounded (5 players checked: 94k→3, 236k→7, 306k→9, 311k→9, 397k→12). \"Round with ~33k\" and \"round up with ~35k\" both fit so far.",
     powNote: "Power = MightPulse power. The game's Transfer Power also counts injured troops and the Enlistment Office, so it can be a bit higher.",
     swNote: "Swordland ≈ Migrant Score ÷ 317 (Swordland Showdown troop power)." },
@@ -55,7 +55,7 @@ const T = {
     sl: { "": "—", invite: "普通邀請", open: "自由移民", special: "特殊邀請" },
     over: "🎟️ 超過限制", overTip: "戰力超過移民實力限制——只能用特殊邀請。",
     pick: "{n} 個可能——選一個", pickOk: "✓", nf: "🔎 找不到——補上 ID，或在來源寫王國號（#2188）", given: "名單上：{v}", c_gName: "名單上的名字", c_gTc: "名單上的 TC", c_gPow: "名單上的戰力", c_diff: "跟名單不同", dW: ["名字", "TC", "戰力"], mpName: "MightPulse：{v}",
-    del: "✕", delQ: "把 {n} 從名單移除？", selHint: "☑️ 勾左邊的方框，可以一次改很多人。", selN: "☑️ 已勾 {n} 人", bNotePh: "要加的備註", bAdd: "➕ 加到備註", bSt: "設定狀態…", bClr: "取消勾選", bDone: "✅ 已改 {n} 人——記得按 💾 儲存", rf: "↻", rfTip: "下次按 🔎 時重新抓這個人的資料", rfAll: "↻ 全部更新（目前顯示的 {n} 人）", rfWait: "{n} 人等著更新——按 🔎 開始", rfOn: "↻ 等更新", idPh: "ID", notePh: "備註", copy: "📋 複製", copied: "✅ 已複製", csv: "⬇️ CSV",
+    del: "✕", delQ: "把 {n} 從名單移除？", selHint: "☑️ 勾左邊的方框，可以一次改很多人。", selN: "☑️ 已勾 {n} 人", bNotePh: "要加的備註", bAdd: "➕ 加到備註", bSt: "設定狀態…", bClr: "取消勾選", bDone: "✅ 已改 {n} 人——記得按 💾 儲存", rf: "↻", rfTip: "下次按 🔎 時重新抓這個人的資料", rfAll: "↻ 全部更新（目前顯示的 {n} 人）", rfWait: "{n} 人等著更新——按 🔎 開始", rfOn: "↻ 等更新", idPh: "ID", notePh: "備註", copy: "📋 複製", copied: "✅ 已複製", csv: "⬇️ CSV", xlsx: "\u2b07\ufe0f Excel", xP: "名單", xQ: "名額", xUsed: "已用", xMax: "上限", xLeft: "剩下",
     passNote: "🔬 研究中，2026-11-08——還沒確認。移民授權書 ≈ 遷城分數 ÷ 33,600，四捨五入（查過 5 人：94k→3、236k→7、306k→9、311k→9、397k→12）。目前「約 33k 一張四捨五入」和「約 35k 一張無條件進位」都對得上。",
     powNote: "戰力 = MightPulse 的戰力。遊戲的移民實力還會加上傷兵和預備營的部隊，所以可能稍微高一點。",
     swNote: "聖劍 ≈ 遷城分數 ÷ 317（聖劍爭奪的部隊戰力）。" },
@@ -76,7 +76,7 @@ const T = {
     sl: { "": "—", invite: "Convites Comuns", open: "Abertura das Transferências", special: "Convite Especial" },
     over: "🎟️ acima do limite", overTip: "O poder passa do Limite de Poder de Transferência — só um Convite Especial traz este jogador.",
     pick: "{n} possíveis — escolha um", pickOk: "✓", nf: "🔎 não achado — coloque o ID, ou o reino (#2188) na origem", given: "na lista: {v}", c_gName: "Nome na lista", c_gTc: "TC na lista", c_gPow: "Poder na lista", c_diff: "Diferente da lista", dW: ["nome", "TC", "poder"], mpName: "MightPulse: {v}",
-    del: "✕", delQ: "Tirar {n} da lista?", selHint: "☑️ Marque as caixas à esquerda para mudar vários de uma vez.", selN: "☑️ {n} marcados", bNotePh: "Nota a adicionar", bAdd: "➕ Pôr na nota", bSt: "Mudar status…", bClr: "Desmarcar", bDone: "✅ Feito para {n} — aperte 💾 Salvar", rf: "↻", rfTip: "Atualizar este jogador na MightPulse (no próximo 🔎)", rfAll: "↻ Atualizar todos os mostrados ({n})", rfWait: "{n} esperando atualização — aperte 🔎", rfOn: "↻ esperando", idPh: "ID", notePh: "nota", copy: "📋 Copiar", copied: "✅ Copiado", csv: "⬇️ CSV",
+    del: "✕", delQ: "Tirar {n} da lista?", selHint: "☑️ Marque as caixas à esquerda para mudar vários de uma vez.", selN: "☑️ {n} marcados", bNotePh: "Nota a adicionar", bAdd: "➕ Pôr na nota", bSt: "Mudar status…", bClr: "Desmarcar", bDone: "✅ Feito para {n} — aperte 💾 Salvar", rf: "↻", rfTip: "Atualizar este jogador na MightPulse (no próximo 🔎)", rfAll: "↻ Atualizar todos os mostrados ({n})", rfWait: "{n} esperando atualização — aperte 🔎", rfOn: "↻ esperando", idPh: "ID", notePh: "nota", copy: "📋 Copiar", copied: "✅ Copiado", csv: "⬇️ CSV", xlsx: "\u2b07\ufe0f Excel", xP: "Jogadores", xQ: "Vagas", xUsed: "Usadas", xMax: "Máx.", xLeft: "Restam",
     passNote: "🔬 Pesquisa, 2026-11-08 — não confirmado. Passe de Transferência ≈ Pontuação de Migração ÷ 33.600, arredondado (5 jogadores conferidos: 94k→3, 236k→7, 306k→9, 311k→9, 397k→12). \"Arredondar com ~33k\" e \"arredondar para cima com ~35k\" batem até agora.",
     powNote: "Poder = poder da MightPulse. O Poder de Transferência do jogo também conta tropas feridas e o Escritório de Alistamento, então pode ser um pouco maior.",
     swNote: "Terra das Espadas ≈ Pontuação de Migração ÷ 317 (poder das tropas no Confronto entre Espadas)." },
@@ -97,7 +97,7 @@ const T = {
     sl: { "": "—", invite: "الدعوات العادية", open: "فتح باب الانتقال", special: "الدعوات الخاصة" },
     over: "🎟️ فوق الحد", overTip: "القوة فوق الحد الأقصى لقوة النقل — لا تجلبه إلا الدعوات الخاصة.",
     pick: "{n} محتملون — اختر واحدًا", pickOk: "✓", nf: "🔎 لم يوجد — أضف الـ ID، أو رقم المملكة (#2188) في المصدر", given: "في القائمة: {v}", c_gName: "الاسم في القائمة", c_gTc: "TC في القائمة", c_gPow: "القوة في القائمة", c_diff: "يختلف عن القائمة", dW: ["الاسم","TC","القوة"], mpName: "MightPulse: {v}",
-    del: "✕", delQ: "إزالة {n} من القائمة؟", selHint: "☑️ علّم المربعات على اليسار لتغيير كثيرين مرة واحدة.", selN: "☑️ {n} محدد", bNotePh: "الملاحظة المراد إضافتها", bAdd: "➕ أضف إلى الملاحظة", bSt: "حدد الحالة…", bClr: "إلغاء التحديد", bDone: "✅ تم لـ {n} — اضغط 💾 حفظ", rf: "↻", rfTip: "تحديث هذا اللاعب من MightPulse (عند 🔎 التالي)", rfAll: "↻ تحديث كل المعروضين ({n})", rfWait: "{n} بانتظار التحديث — اضغط 🔎", rfOn: "↻ بانتظار التحديث", idPh: "المعرّف", notePh: "ملاحظة", copy: "📋 نسخ", copied: "✅ تم النسخ", csv: "⬇️ CSV",
+    del: "✕", delQ: "إزالة {n} من القائمة؟", selHint: "☑️ علّم المربعات على اليسار لتغيير كثيرين مرة واحدة.", selN: "☑️ {n} محدد", bNotePh: "الملاحظة المراد إضافتها", bAdd: "➕ أضف إلى الملاحظة", bSt: "حدد الحالة…", bClr: "إلغاء التحديد", bDone: "✅ تم لـ {n} — اضغط 💾 حفظ", rf: "↻", rfTip: "تحديث هذا اللاعب من MightPulse (عند 🔎 التالي)", rfAll: "↻ تحديث كل المعروضين ({n})", rfWait: "{n} بانتظار التحديث — اضغط 🔎", rfOn: "↻ بانتظار التحديث", idPh: "المعرّف", notePh: "ملاحظة", copy: "📋 نسخ", copied: "✅ تم النسخ", csv: "⬇️ CSV", xlsx: "\u2b07\ufe0f Excel", xP: "اللاعبون", xQ: "المقاعد", xUsed: "المستخدم", xMax: "الحد", xLeft: "المتبقي",
     passNote: "🔬 بحث، 2026-11-08 — غير مؤكد. تذكرة الانتقال ≈ نقاط الهجرة ÷ 33,600، مقرّبة (فُحص 5 لاعبين: 94k→3، 236k→7، 306k→9، 311k→9، 397k→12). \"التقريب مع ~33k\" و\"التقريب للأعلى مع ~35k\" كلاهما يطابق حتى الآن.",
     powNote: "القوة = قوة MightPulse. قوة النقل في اللعبة تحسب أيضًا الجنود الجرحى ومكتب التجنيد، فقد تكون أعلى قليلًا.",
     swNote: "أرض السيوف ≈ نقاط الهجرة ÷ 317 (قوة القوات في مواجهة أرض السيوف)." },
@@ -118,7 +118,7 @@ const T = {
     sl: { "": "—", invite: "일반 초대", open: "자유 이민", special: "특별 초대" },
     over: "🎟️ 제한 초과", overTip: "전투력이 이민 전투력 제한을 넘어요 — 특별 초대로만 데려올 수 있어요.",
     pick: "후보 {n}명 — 하나 고르기", pickOk: "✓", nf: "🔎 못 찾음 — ID를 넣거나 출처에 왕국 번호(#2188)를 쓰세요", given: "명단: {v}", c_gName: "명단 이름", c_gTc: "명단 TC", c_gPow: "명단 전투력", c_diff: "명단과 다름", dW: ["이름", "TC", "전투력"], mpName: "MightPulse: {v}",
-    del: "✕", delQ: "{n}을(를) 명단에서 뺄까요?", selHint: "☑️ 왼쪽 칸을 체크하면 여러 명을 한 번에 바꿀 수 있어요.", selN: "☑️ {n}명 체크", bNotePh: "추가할 메모", bAdd: "➕ 메모에 추가", bSt: "상태 정하기…", bClr: "체크 해제", bDone: "✅ {n}명 변경 — 💾 저장을 누르세요", rf: "↻", rfTip: "다음 🔎 때 MightPulse에서 이 플레이어 다시 가져오기", rfAll: "↻ 보이는 사람 모두 업데이트 ({n})", rfWait: "업데이트 대기 {n}명 — 🔎를 누르세요", rfOn: "↻ 업데이트 대기", idPh: "ID", notePh: "메모", copy: "📋 복사", copied: "✅ 복사됨", csv: "⬇️ CSV",
+    del: "✕", delQ: "{n}을(를) 명단에서 뺄까요?", selHint: "☑️ 왼쪽 칸을 체크하면 여러 명을 한 번에 바꿀 수 있어요.", selN: "☑️ {n}명 체크", bNotePh: "추가할 메모", bAdd: "➕ 메모에 추가", bSt: "상태 정하기…", bClr: "체크 해제", bDone: "✅ {n}명 변경 — 💾 저장을 누르세요", rf: "↻", rfTip: "다음 🔎 때 MightPulse에서 이 플레이어 다시 가져오기", rfAll: "↻ 보이는 사람 모두 업데이트 ({n})", rfWait: "업데이트 대기 {n}명 — 🔎를 누르세요", rfOn: "↻ 업데이트 대기", idPh: "ID", notePh: "메모", copy: "📋 복사", copied: "✅ 복사됨", csv: "⬇️ CSV", xlsx: "\u2b07\ufe0f Excel", xP: "명단", xQ: "자리", xUsed: "사용", xMax: "최대", xLeft: "남음",
     passNote: "🔬 연구 중, 2026-11-08 — 확인 안 됨. 이민 허가증 ≈ 이주 점수 ÷ 33,600, 반올림 (5명 확인: 94k→3, 236k→7, 306k→9, 311k→9, 397k→12). \"약 33k마다 반올림\"과 \"약 35k마다 올림\" 둘 다 지금까지 맞아요.",
     powNote: "전투력 = MightPulse 전투력. 게임의 이민 전투력은 부상병과 징병소 병력도 더해서 조금 더 높을 수 있어요.",
     swNote: "성검 ≈ 이주 점수 ÷ 317 (성검 쟁탈 부대 전투력)." },
@@ -309,7 +309,7 @@ function draw(el) {
       <select class="inp" id="tr_fSort">${["pow", "mig", "mys", "tc", "kid", "name", "st"].map((k) => `<option value="${k}"${UI.sort === k ? " selected" : ""}>↕ ${esc(t("c_" + k))}</option>`).join("")}</select>
       <input type="search" class="inp" id="tr_q" placeholder="${esc(t("find"))}" value="${esc(UI.q || "")}">
       <span class="muted tr-sm" id="tr_cnt"></span>
-      <span class="tr-exp">${ed ? `<button type="button" class="btn small" id="tr_rfall">${esc(t("rfAll", { n: shown().filter((p) => p.id).length }))}</button>` : ""}<button type="button" class="btn small" id="tr_copy">${esc(t("copy"))}</button><button type="button" class="btn small" id="tr_csv">${esc(t("csv"))}</button></span></div>
+      <span class="tr-exp">${ed ? `<button type="button" class="btn small" id="tr_rfall">${esc(t("rfAll", { n: shown().filter((p) => p.id).length }))}</button>` : ""}<button type="button" class="btn small" id="tr_copy">${esc(t("copy"))}</button><button type="button" class="btn small" id="tr_csv">${esc(t("csv"))}</button><button type="button" class="btn small" id="tr_xlsx">${esc(t("xlsx"))}</button></span></div>
     <div id="tr_box"></div>
     <div class="muted tr-foot" id="tr_pass">${esc(t("passNote"))}<br>${esc(t("swNote"))}<br>${esc(t("powNote"))}</div>`;
   bind(el, ed);
@@ -331,6 +331,7 @@ function bind(el, ed) {
   $("tr_reload").onclick = () => reload(true);
   if ($("tr_rfall")) $("tr_rfall").onclick = () => { for (const p of shown()) if (p.id && !p.rf) { p.rf = 1; mark(p.key, "rf"); } render(); };
   $("tr_copy").onclick = async () => { try { await navigator.clipboard.writeText(rowsText("\t")); $("tr_copy").textContent = t("copied"); } catch (e) {} };
+  $("tr_xlsx").onclick = (e) => trExcel(e.currentTarget);
   $("tr_csv").onclick = () => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob(["﻿" + rowsText(",")], { type: "text/csv" })); a.download = `transfer-${new Date().toISOString().slice(0, 10)}.csv`; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500); };
   if (!ed) return;
   $("tr_addGo").onclick = () => {
@@ -388,6 +389,53 @@ function diffs(p) {
   if (mp.tcLevel != null && p.tc && tcLabel(mp.tcLevel).split("-")[0].toUpperCase() !== String(p.tc).split("-")[0].toUpperCase()) out.push(1);
   if (mp.power && p.power && Math.abs(mp.power - p.power) / p.power > 0.05) out.push(2);
   return out;
+}
+/* ⬇️ Excel (Sherry 2026-11-08): the shown rows as a real spreadsheet — Status / Slot are drop-down lists, the header has
+   filter + sort buttons, the top row stays put, numbers are numbers, over-cap power and ✖️ rows are coloured, and a 2nd sheet
+   counts the quota with formulas (so it updates when Status / Slot are changed in Excel or Google Sheets). ExcelJS is in js/vendor. */
+async function trExcel(btn) {
+  const old = btn.textContent; btn.textContent = "…";
+  try {
+    await loadScripts(["js/vendor/exceljs-4.4.0.min.js"]);
+    const s = S(), wb = new ExcelJS.Workbook(), ws = wb.addWorksheet(t("xP"), { views: [{ state: "frozen", ySplit: 1, xSplit: 2 }] });
+    const keys = ["#", ...COLS, "gName", "gTc", "gPow", "diff"], head = keys.map((k) => k === "#" ? "#" : t("c_" + k));
+    const stL = STS.map((v) => t("st")[v]), slL = SLOTS.filter(Boolean).map((v) => t("sl")[v]);
+    const W = { "#": 5, name: 22, st: 15, slot: 16, src: 16, kid: 9, al: 9, id: 13, tc: 10, pow: 14, mig: 13, pass: 9, sw: 11, mys: 10, note: 28, gName: 20, gTc: 10, gPow: 13, diff: 16 };
+    ws.columns = keys.map((k) => ({ width: W[k] || 12 }));
+    const h = ws.addRow(head); h.font = { bold: true }; h.eachCell((c) => { c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFE8E2D4" } }; c.alignment = { vertical: "middle", wrapText: true }; });
+    const rows = shown();
+    rows.forEach((p, i) => { const mp = p.mp || {}, mg = migOf(p), w = t("dW");
+      const v = { "#": i + 1, name: mp.name || p.name || "", st: t("st")[p.status || "interested"], slot: p.slot ? t("sl")[p.slot] : "", src: p.src || "", kid: +(mp.kid || p.kid) || null, al: mp.alliance || "",
+        id: p.id ? String(p.id) : "", tc: mp.tcLevel != null ? tcLabel(mp.tcLevel) : p.tc || "", pow: powOf(p) || null, mig: mg || null, pass: passes(mg) || null, sw: swOf(mg) || null, mys: mp.mystic ?? null, note: p.note || "",
+        gName: p.name || "", gTc: p.tc || "", gPow: p.power || null, diff: diffs(p).map((x) => w[x]).join(", ") };
+      ws.addRow(keys.map((k) => v[k])); });
+    const col = (k) => keys.indexOf(k) + 1, L_ = (k) => ws.getColumn(col(k)).letter, last = rows.length + 1;
+    for (const k of ["pow", "mig", "sw", "mys", "gPow"]) ws.getColumn(col(k)).numFmt = "#,##0";
+    /* drop-down lists from a hidden sheet (works in Excel and Google Sheets) */
+    const ls = wb.addWorksheet("lists", { state: "hidden" });
+    stL.forEach((x, i) => (ls.getCell(i + 1, 1).value = x)); slL.forEach((x, i) => (ls.getCell(i + 1, 2).value = x));
+    for (let r = 2; r <= Math.max(last, 2) + 200; r++) {
+      ws.getCell(`${L_("st")}${r}`).dataValidation = { type: "list", allowBlank: true, formulae: [`lists!$A$1:$A$${stL.length}`] };
+      ws.getCell(`${L_("slot")}${r}`).dataValidation = { type: "list", allowBlank: true, formulae: [`lists!$B$1:$B$${slL.length}`] };
+    }
+    ws.autoFilter = { from: { row: 1, column: 1 }, to: { row: Math.max(last, 2), column: keys.length } };
+    const ref = `A2:${ws.getColumn(keys.length).letter}${Math.max(last, 2) + 200}`;
+    ws.addConditionalFormatting({ ref, rules: [{ type: "expression", formulae: [`$${L_("st")}2="${stL[4]}"`], style: { font: { color: { argb: "FF9A9A9A" } } } }] });
+    ws.addConditionalFormatting({ ref: `${L_("pow")}2:${L_("pow")}${Math.max(last, 2) + 200}`, rules: [{ type: "expression", formulae: [`$${L_("pow")}2>${s.cap * 1e6}`], style: { fill: { type: "pattern", pattern: "solid", bgColor: { argb: "FFF6D9A8" } } } }] });
+    /* quota sheet: counted = invited + confirmed + moved, by slot */
+    const q = wb.addWorksheet(t("xQ")); q.columns = [{ width: 20 }, { width: 10 }, { width: 10 }, { width: 10 }];
+    const qh = q.addRow(["", t("xUsed"), t("xMax"), t("xLeft")]); qh.font = { bold: true };
+    const P = `'${t("xP").replace(/'/g, "''")}'`, stc = `${P}!$${L_("st")}:$${L_("st")}`, slc = `${P}!$${L_("slot")}:$${L_("slot")}`;
+    [["invite", s.invites], ["open", s.open], ["special", s.special]].forEach(([k, max], i) => { const r = i + 2, lab = t("sl")[k];
+      const used = ["invited", "confirmed", "moved"].map((x) => `COUNTIFS(${slc},"${lab}",${stc},"${t("st")[x]}")`).join("+");
+      q.addRow([lab, { formula: used }, max, { formula: `C${r}-B${r}` }]); });
+    q.addRow([]); q.addRow([t("qHint")]).font = { italic: true, color: { argb: "FF777777" } };
+    const blob = new Blob([await wb.xlsx.writeBuffer()], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `transfer-${new Date().toISOString().slice(0, 10)}.xlsx`; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+    btn.textContent = "✓";
+  } catch (e) { console.error(e); btn.textContent = "⚠️"; }
+  setTimeout(() => (btn.textContent = old), 1500);
 }
 function rowsText(sep) {
   const q = (v) => { const s = String(v ?? ""); return sep === "," && /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s.replace(/[\t\n]/g, " "); };
