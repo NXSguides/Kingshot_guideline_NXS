@@ -133,7 +133,9 @@ function when(v) {
   return `${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())} ${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())} UTC (${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())} ${loc})`;
 }
 const M = (v) => v == null || v === "" || !Number.isFinite(+v) ? "" : (+v >= 1e9 ? (+v / 1e9).toFixed(2) + "B" : +v >= 1e6 ? (+v / 1e6).toFixed(1) + "M" : +v >= 1e3 ? (+v / 1e3).toFixed(1) + "k" : String(Math.round(+v)));
-const tcLabel = (lv) => lv == null || lv === "" ? "" : +lv >= 35 ? "TG" + Math.floor((+lv - 30) / 5) : "TC" + lv;   // same mapping as OFFICER.tcText (MightPulse 35 = TG1)
+const tcLabel = (lv) => lv == null || lv === "" ? "" : +lv >= 35 ? "TG" + Math.floor((+lv - 30) / 5) + ((+lv - 30) % 5 ? "-" + ((+lv - 30) % 5) : "") : "TC" + lv;
+/* MightPulse wins (Sherry 2026-11-08): a row with a full MightPulse profile shows its name / TC / power instead of what was pasted (the look-up also writes them into the file) */
+function adopt(p) { const m = p && p.mp; if (!m || !m.full || !p.id || String(m.pid) !== String(p.id)) return p; if (m.name) p.name = String(m.name).slice(0, 40); if (m.power != null) p.power = m.power; if (m.tcLevel != null) { p.tc = tcLabel(m.tcLevel); p.tcLv = +m.tcLevel; } if (m.kid) p.kid = m.kid; return p; }   // same mapping as OFFICER.tcText (MightPulse 35 = TG1)
 const passes = (mg) => mg > 0 ? Math.min(50, Math.max(1, Math.round(mg / PASS_DIV))) : null;
 const swOf = (mg) => mg > 0 ? Math.round(OFFICER.squadPower ? OFFICER.squadPower({ migrant: mg }) : mg / 317) : null;
 const uniqImp = (a) => a.filter((x, i) => x && a.findIndex((y) => y && +y.kid === +x.kid && String(y.tag).toLowerCase() === String(x.tag).toLowerCase()) === i);
@@ -173,7 +175,7 @@ function absorb(srv) {
   for (const k of ADDED) { const lp = mine.get(k); if (lp && !srv.players.some((x) => x.key === k)) out.push(lp); }
   const settings = SETCH && L ? L.settings : srv.settings;
   BASE = JSON.stringify(srv);
-  L = { ...srv, settings: { ...DEF, ...(settings || {}) }, players: out };
+  L = { ...srv, settings: { ...DEF, ...(settings || {}) }, players: out.map(adopt) };
 }
 
 /* ---- paste parser: "1  Name  123456789  TG3  150.4M" in any order ---- */
