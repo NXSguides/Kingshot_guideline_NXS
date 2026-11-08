@@ -1356,6 +1356,47 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-08 by Sparrow] 🔍 Des Finders Fusion
+1. Heißluftballon
+2. Vogelschwarm
+3. Drachen
+4. Riss
+5. Smiley
+6. Vogelnest
+7. Luftballons
+8. Schornstein
+9. Vorratssack
+10. Bogen
+11. Ranke
+12. Sichelmond
+13. Pfeil
+14. Schild
+15. Bumerang
+16. Wegweiser
+17. Gerollter Teppich
+18. Flegel
+19. Dürrer Ast
+20. Holzkiste
+21. Schaufel
+22. Eichhörnchen
+23. Kaminholz
+24. Zahnrad
+25. Gießkanne
+26. Taube
+27. Eisenschwert
+28. Seil
+29. Schmetterling
+30. Pfütze
+31. Stiefel
+32. Spielzeugflugzeug
+33. Teleskop
+34. Klee
+35. Handschuh
+36. Pilz
+37. Schutzbrille
+
+⚠️ Es können Übersetzungsfehler vorliegen oder Gegenstände fehlen, die hier nicht aufgelistet sind.
+
 [2026-10-19 by ΔRMΔDΔ] Schwertland-Showdown Nicht-Erscheinen
 ⚠️ Wichtiges Regel-Update: Nicht-Erscheinen beim Schwertland-Showdown
 

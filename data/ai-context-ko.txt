@@ -1380,6 +1380,47 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-08 by Sparrow] 🔍 협동 동행
+1. 열기구
+2. 새떼
+3. 연
+4. 균열
+5. 스마일 얼굴
+6. 새둥지
+7. 풍선
+8. 굴뚝
+9. 보급 자루
+10. 활
+11. 덩굴
+12. 초승달
+13. 화살
+14. 방패
+15. 부메랑
+16. 표지판
+17. 말린 양탄자
+18. 도리깨
+19. 마른 나뭇가지
+20. 나무 상자
+21. 삽
+22. 다람쥐
+23. 장작
+24. 톱니바퀴
+25. 물뿌리개
+26. 비둘기
+27. 철검
+28. 밧줄
+29. 나비
+30. 물웅덩이
+31. 부츠
+32. 장난감 비행기
+33. 망원경
+34. 클로버
+35. 장갑
+36. 버섯
+37. 고글
+
+⚠️ 일부 번역 오류가 있거나 목록에 없는 항목이 있을 수 있습니다.
+
 [2026-10-19 by ΔRMΔDΔ] 성검 쟁탈 미참석 관련 안내
 ⚠️ 중요 규칙 업데이트: 성검 쟁탈 미참석 관련
 

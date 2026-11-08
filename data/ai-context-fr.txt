@@ -1355,6 +1355,47 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-08 by Sparrow] 🔍 Fusion du Chercheur
+1. Montgolfière
+2. Vol d'oiseaux
+3. Cerf-volant
+4. Fissure
+5. Émoticône sourire
+6. Nid d'oiseau
+7. Ballons
+8. Cheminée
+9. Sac de ravitaillement
+10. Arc
+11. Liane
+12. Croissant de lune
+13. Flèche
+14. Bouclier
+15. Boomerang
+16. Panneau de signalisation
+17. Tapis roulé
+18. Fléau
+19. Branche morte
+20. Caisse en bois
+21. Pelle
+22. Écureuil
+23. Bois de chauffage
+24. Engrenage
+25. Arrosoir
+26. Pigeon
+27. Épée en fer
+28. Corde
+29. Papillon
+30. Flaque d'eau
+31. Botte
+32. Avion en jouet
+33. Télescope
+34. Trèfle
+35. Gant
+36. Champignon
+37. Lunettes de protection
+
+⚠️ Il peut y avoir des erreurs de traduction ou des éléments non répertoriés ici.
+
 [2026-10-19 by ΔRMΔDΔ] Absences au Choc du Glaive
 ⚠️ Mise à jour importante des règles : Absences au Choc du Glaive
 

@@ -1354,6 +1354,47 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-08 by Sparrow] 🔍 Fusión del buscador
+1. Globo aerostático
+2. Bandada de pájaros
+3. Cometa
+4. Grieta
+5. Carita sonriente
+6. Nido de pájaro
+7. Globos
+8. Chimenea
+9. Saco de suministros
+10. Arco
+11. Enredadera
+12. Luna creciente
+13. Flecha
+14. Escudo
+15. Bumerán
+16. Señal
+17. Alfombra enrollada
+18. Mayal
+19. Rama seca
+20. Caja de madera
+21. Pala
+22. Ardilla
+23. Leña
+24. Engranaje
+25. Regadera
+26. Paloma
+27. Espada de hierro
+28. Cuerda
+29. Mariposa
+30. Charco
+31. Bota
+32. Avión de juguete
+33. Telescopio
+34. Trébol
+35. Guante
+36. Seta
+37. Gafas protectoras
+
+⚠️ Puede haber algunos errores de traducción o elementos que no estén listados aquí.
+
 [2026-10-19 by ΔRMΔDΔ] Ausencias en Enfrentamiento en Tierra de espadas
 ⚠️ Actualización importante de reglas: Ausencias en Enfrentamiento en Tierra de espadas
 

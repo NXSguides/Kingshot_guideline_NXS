@@ -1354,6 +1354,47 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 The language buttons at the top switch the whole site (12 languages).
 
 ### ANNOUNCEMENTS (newest first, see guide #recent-events)
+[2026-11-08 by Sparrow] 🔍 Arayıcının Füzyonu
+1. Sıcak Hava Balonu
+2. Kuş Sürüsü
+3. Uçurtma
+4. Çatlak
+5. Gülen Yüz
+6. Kuş Yuvası
+7. Balonlar
+8. Baca
+9. Erzak Çuvalı
+10. Yay
+11. Sarmaşık
+12. Hilal
+13. Ok
+14. Kalkan
+15. Bumerang
+16. Tabela
+17. Sarılmış Halı
+18. Gürz
+19. Kuru Dal
+20. Ahşap Sandık
+21. Kürek
+22. Sincap
+23. Odun
+24. Dişli
+25. Sulama Kovası
+26. Güvercin
+27. Demir Kılıç
+28. Halat
+29. Kelebek
+30. Su Birikintisi
+31. Çizme
+32. Oyuncak Uçak
+33. Teleskop
+34. Yonca
+35. Eldiven
+36. Mantar
+37. Koruyucu Gözlük
+
+⚠️ Çeviri hataları veya burada listelenmeyen öğeler olabilir.
+
 [2026-10-19 by ΔRMΔDΔ] Kılıçdiyarı Hesaplaşması Katılımsızlıkları
 ⚠️ Önemli Kural Güncellemesi: Kılıçdiyarı Hesaplaşması Katılımsızlıkları
 
