@@ -51,10 +51,12 @@ const isAlliance = (x) => x.abbr != null;
 const membersOf = (b) => (b && (b.members || (b.roster && b.roster.members) || (Array.isArray(b.roster) ? b.roster : null))) || findRows(b, isPlayer);
 
 /* names: case, width (NFKC), spaces and decorations like ᴺᵉˣᵘˢ, 亗, @@, ##, [TAG] don't matter */
+const SMALL = { "ᴀ":"a","ʙ":"b","ᴄ":"c","ᴅ":"d","ᴇ":"e","ꜰ":"f","ɢ":"g","ʜ":"h","ɪ":"i","ᴊ":"j","ᴋ":"k","ʟ":"l","ᴍ":"m","ɴ":"n","ᴏ":"o","ᴘ":"p","ǫ":"q","ʀ":"r","ꜱ":"s","ᴛ":"t","ᴜ":"u","ᴠ":"v","ᴡ":"w","ʏ":"y","ᴢ":"z" };   // small-caps "fonts" (NFKC doesn't map them)
+const unfont = (s) => String(s || "").normalize("NFKC").replace(/[ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀꜱᴛᴜᴠᴡʏᴢ]/g, (c) => SMALL[c]).replace(/[\u{1F130}-\u{1F189}]/gu, (c) => String.fromCharCode(97 + ((c.codePointAt(0) - 0x1F130) % 26)));
 const DECO = /[ʰ-˿ᴬ-ᶿ⁰-₟̀-ͯ​-‍︎️亗卍卐彡乂〆༒꧁꧂]/g;
-const strictKey = (s) => String(s || "").normalize("NFKC").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
+const strictKey = (s) => unfont(s).toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
 function looseKeys(s) {
-  const a = String(s || "").replace(DECO, "").normalize("NFKC").toLowerCase();
+  const a = unfont(String(s || "").replace(DECO, "")).toLowerCase();
   const b = a.replace(/[\[【(（<《{][^\]】)）>》}]{0,12}[\]】)）>》}]/g, "");
   return [...new Set([a, b].map((x) => x.replace(/[^\p{L}\p{N}]/gu, "")).filter((x) => x.length >= 2))];
 }
@@ -107,13 +109,13 @@ async function lookup() {
       added.push(p); byId.set(id, p); stat.members++; }
   }
   // 2. players with an ID (missing / partial / older than 20 h)
-  const needMp = [...players, ...added].filter((p) => p.id && (!p.mp || !p.mp.full || String(p.mp.pid) !== String(p.id) || old(p.mp.at, MP_FRESH)));
+  const needMp = [...players, ...added].filter((p) => p.id && (p.rf || !p.mp || !p.mp.full || String(p.mp.pid) !== String(p.id) || old(p.mp.at, MP_FRESH)));
   async function fill(p) {
     const r = await get(`/players/${encodeURIComponent(p.id)}?include=base,ranks`); stat.ids++;
     if (r.status === 200 && r.body && r.body.player) { const mp = mpFrom(r.body, p.id); stat.idOk++; seen(p.id, mp.name, mp.kid, mp.alliance, mp.power, mp.migrant); return mp; }
     return null;
   }
-  for (const p of needMp.filter((p) => !p.mp || !p.mp.full)) { if (!budget()) break; const mp = await fill(p); if (mp) (filled[p.key] = filled[p.key] || {}).mp = mp; }
+  for (const p of needMp.filter((p) => p.rf || !p.mp || !p.mp.full)) { if (!budget()) break; const mp = await fill(p); if (mp) { const f = filled[p.key] = filled[p.key] || {}; f.mp = mp; if (p.rf) f.rfDone = 1; } }
   // 3. name search for players with no ID
   const want = players.filter((p) => !p.id && p.name && p.status !== "no");
   const kidsAll = []; for (let k = from; k <= to; k++) kidsAll.push(k);
@@ -213,6 +215,7 @@ function merge() {
     const p = byKey.get(key); if (!p) continue;   // removed by an officer meanwhile
     if (f.id && !p.id) { p.id = f.id; ids.add(String(f.id)); }
     if (f.mp && p.id && String(p.id) === String(f.mp.pid)) { p.mp = f.mp; delete p.cands; delete p.nf; }
+    if (f.rfDone) delete p.rf;   // ↻ update done
     if (f.cands && !p.id) { p.cands = f.cands; delete p.nf; }
     if (f.nf && !p.id) { p.nf = f.nf; delete p.cands; }
   }
