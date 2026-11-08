@@ -114,6 +114,7 @@ const FEATURES = [
   ["Transfer: name search, pick one of several matches", /several → "N possible — pick one"/, /several show “pick one”/],
   ["Transfer: MightPulse shown first, pasted original kept + CSV difference columns", /MIGHTPULSE FIRST, ORIGINAL KEPT/, /what you pasted is kept/],
   ["Transfer: ⬇️ Excel — one table per list, pick extra column + rank by", /⬇️ EXCEL \(Milk & Sherry 2026-11-08\)/, /Excel is a real spreadsheet/],
+  ["Transfer: 🔴 red hero gear count", /🔴 RED GEAR \(Milk 2026-11-08/, /🔴 red gear \/ Mystic Trial/],
   ["Transfer: ☑️ tick rows → same note / status for all", /☑️ BATCH EDIT \(Sherry 2026-11-08\)/, /tr09:/],
   ["Transfer: ↻ update one player / all shown", /↻ UPDATE \(Sherry 2026-11-08\)/, /tr08:/],
   ["Transfer: 🔬 Transfer Pass estimate (unconfirmed research)", /Transfer Pass estimate \(移民授權書\) is RESEARCH, NOT CONFIRMED/, /tr06:/],

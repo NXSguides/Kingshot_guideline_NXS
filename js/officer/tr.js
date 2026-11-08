@@ -29,7 +29,7 @@ const T = {
     save: "💾 Save", saving: "Saving…", saved: "Saved ✅", unsaved: "Not saved yet.",
     errAuth: "The saved GitHub key doesn't work any more — ask Sherry.", errBusy: "Someone else saved at the same time — try again.", errNet: "Couldn't reach GitHub — try again.", noKey: "Saving needs the officers' GitHub key.",
     allSrc: "All sources", allSt: "All statuses", find: "Find name / ID", count: "{n} of {t} players", empty: "No players yet.",
-    c_st: "Status", c_slot: "Slot", c_name: "Name", c_src: "Source", c_kid: "Kingdom", c_al: "Alliance", c_id: "ID", c_tc: "Town Center", c_pow: "Power", c_mig: "Migrant Score", c_pass: "🔬 Transfer Pass ≈", c_sw: "Swordland ≈", c_mys: "Mystic Trial", c_note: "Note",
+    c_st: "Status", c_slot: "Slot", c_name: "Name", c_src: "Source", c_kid: "Kingdom", c_al: "Alliance", c_id: "ID", c_tc: "Town Center", c_pow: "Power", c_red: "🔴 Red gear", redTip: "Red (mythic) hero gear pieces on the heroes MightPulse shows — red / all pieces", c_mig: "Migrant Score", c_pass: "🔬 Transfer Pass ≈", c_sw: "Swordland ≈", c_mys: "Mystic Trial", c_note: "Note",
     st: { interested: "🙋 interested", invited: "✉️ invited", confirmed: "✅ confirmed", moved: "🏠 moved", no: "✖️ no" },
     sl: { "": "—", invite: "Ordinary Invite", open: "Transfer Opens", special: "Special Invite" },
     over: "🎟️ over cap", overTip: "Power is over the Transfer Power Cap — only a Special Invite can bring this player.",
@@ -50,7 +50,7 @@ const T = {
     save: "💾 儲存", saving: "儲存中…", saved: "已儲存 ✅", unsaved: "還沒儲存。",
     errAuth: "存著的 GitHub 金鑰不能用了——請找 Sherry。", errBusy: "有人同時儲存——再試一次。", errNet: "連不到 GitHub——請再試一次。", noKey: "儲存需要幹部的 GitHub 金鑰。",
     allSrc: "全部來源", allSt: "全部狀態", find: "找名字 / ID", count: "{n} / {t} 人", empty: "還沒有玩家。",
-    c_st: "狀態", c_slot: "名額", c_name: "名字", c_src: "來源", c_kid: "王國", c_al: "聯盟", c_id: "ID", c_tc: "城鎮中心", c_pow: "戰力", c_mig: "遷城分數", c_pass: "🔬 移民授權書 ≈", c_sw: "聖劍 ≈", c_mys: "秘境試煉", c_note: "備註",
+    c_st: "狀態", c_slot: "名額", c_name: "名字", c_src: "來源", c_kid: "王國", c_al: "聯盟", c_id: "ID", c_tc: "城鎮中心", c_pow: "戰力", c_red: "🔴 紅裝", redTip: "MightPulse 顯示的英雄身上的紅色（傳說）英雄裝備件數——紅裝／全部件數", c_mig: "遷城分數", c_pass: "🔬 移民授權書 ≈", c_sw: "聖劍 ≈", c_mys: "秘境試煉", c_note: "備註",
     st: { interested: "🙋 有興趣", invited: "✉️ 已邀請", confirmed: "✅ 已確認", moved: "🏠 已移民", no: "✖️ 不要" },
     sl: { "": "—", invite: "普通邀請", open: "自由移民", special: "特殊邀請" },
     over: "🎟️ 超過限制", overTip: "戰力超過移民實力限制——只能用特殊邀請。",
@@ -71,7 +71,7 @@ const T = {
     save: "💾 Salvar", saving: "Salvando…", saved: "Salvo ✅", unsaved: "Ainda não salvo.",
     errAuth: "A chave do GitHub salva não funciona mais — fale com a Sherry.", errBusy: "Outra pessoa salvou ao mesmo tempo — tente de novo.", errNet: "Não deu para acessar o GitHub — tente de novo.", noKey: "Salvar precisa da chave do GitHub dos oficiais.",
     allSrc: "Todas as origens", allSt: "Todos os status", find: "Achar nome / ID", count: "{n} de {t} jogadores", empty: "Nenhum jogador ainda.",
-    c_st: "Status", c_slot: "Vaga", c_name: "Nome", c_src: "Origem", c_kid: "Reino", c_al: "Aliança", c_id: "ID", c_tc: "Centro da Cidade", c_pow: "Poder", c_mig: "Pontuação de Migração", c_pass: "🔬 Passe de Transferência ≈", c_sw: "Terra das Espadas ≈", c_mys: "Prova Mística", c_note: "Nota",
+    c_st: "Status", c_slot: "Vaga", c_name: "Nome", c_src: "Origem", c_kid: "Reino", c_al: "Aliança", c_id: "ID", c_tc: "Centro da Cidade", c_pow: "Poder", c_red: "🔴 Equip. vermelho", redTip: "Peças vermelhas (míticas) de equipamento nos heróis que a MightPulse mostra — vermelhas / todas", c_mig: "Pontuação de Migração", c_pass: "🔬 Passe de Transferência ≈", c_sw: "Terra das Espadas ≈", c_mys: "Prova Mística", c_note: "Nota",
     st: { interested: "🙋 interessado", invited: "✉️ convidado", confirmed: "✅ confirmado", moved: "🏠 mudou", no: "✖️ não" },
     sl: { "": "—", invite: "Convites Comuns", open: "Abertura das Transferências", special: "Convite Especial" },
     over: "🎟️ acima do limite", overTip: "O poder passa do Limite de Poder de Transferência — só um Convite Especial traz este jogador.",
@@ -92,7 +92,7 @@ const T = {
     save: "💾 حفظ", saving: "جارٍ الحفظ…", saved: "تم الحفظ ✅", unsaved: "لم يُحفظ بعد.",
     errAuth: "مفتاح GitHub المحفوظ لم يعد يعمل — اسأل Sherry.", errBusy: "حفظ شخص آخر في الوقت نفسه — حاول مجددًا.", errNet: "تعذّر الوصول إلى GitHub — حاول مجددًا.", noKey: "الحفظ يحتاج مفتاح GitHub الخاص بالضباط.",
     allSrc: "كل المصادر", allSt: "كل الحالات", find: "ابحث عن اسم / معرّف", count: "{n} من {t} لاعب", empty: "لا يوجد لاعبون بعد.",
-    c_st: "الحالة", c_slot: "المقعد", c_name: "الاسم", c_src: "المصدر", c_kid: "المملكة", c_al: "التحالف", c_id: "المعرّف", c_tc: "مركز البلدة", c_pow: "القوة", c_mig: "نقاط الهجرة", c_pass: "🔬 تذكرة الانتقال ≈", c_sw: "أرض السيوف ≈", c_mys: "الاختبارات الغامضة", c_note: "ملاحظة",
+    c_st: "الحالة", c_slot: "المقعد", c_name: "الاسم", c_src: "المصدر", c_kid: "المملكة", c_al: "التحالف", c_id: "المعرّف", c_tc: "مركز البلدة", c_pow: "القوة", c_red: "🔴 العتاد الأحمر", redTip: "قطع عتاد البطل الحمراء (الخيالية) على الأبطال الظاهرين في MightPulse — الحمراء / الكل", c_mig: "نقاط الهجرة", c_pass: "🔬 تذكرة الانتقال ≈", c_sw: "أرض السيوف ≈", c_mys: "الاختبارات الغامضة", c_note: "ملاحظة",
     st: { interested: "🙋 مهتم", invited: "✉️ تمت دعوته", confirmed: "✅ مؤكد", moved: "🏠 انتقل", no: "✖️ لا" },
     sl: { "": "—", invite: "الدعوات العادية", open: "فتح باب الانتقال", special: "الدعوات الخاصة" },
     over: "🎟️ فوق الحد", overTip: "القوة فوق الحد الأقصى لقوة النقل — لا تجلبه إلا الدعوات الخاصة.",
@@ -113,7 +113,7 @@ const T = {
     save: "💾 저장", saving: "저장 중…", saved: "저장됨 ✅", unsaved: "아직 저장 안 됨.",
     errAuth: "저장된 GitHub 키가 더 이상 작동하지 않아요 — Sherry에게 물어보세요.", errBusy: "다른 사람이 동시에 저장했어요 — 다시 시도하세요.", errNet: "GitHub에 연결할 수 없어요 — 다시 시도하세요.", noKey: "저장하려면 간부 GitHub 키가 필요해요.",
     allSrc: "모든 출처", allSt: "모든 상태", find: "이름 / ID 찾기", count: "{t}명 중 {n}명", empty: "아직 플레이어가 없어요.",
-    c_st: "상태", c_slot: "자리", c_name: "이름", c_src: "출처", c_kid: "왕국", c_al: "연맹", c_id: "ID", c_tc: "도시 센터", c_pow: "전투력", c_mig: "이주 점수", c_pass: "🔬 이민 허가증 ≈", c_sw: "성검 ≈", c_mys: "신비한 시련", c_note: "메모",
+    c_st: "상태", c_slot: "자리", c_name: "이름", c_src: "출처", c_kid: "왕국", c_al: "연맹", c_id: "ID", c_tc: "도시 센터", c_pow: "전투력", c_red: "🔴 빨간 장비", redTip: "MightPulse에 보이는 영웅들의 빨간(레전드) 영웅 장비 개수 — 빨간 / 전체", c_mig: "이주 점수", c_pass: "🔬 이민 허가증 ≈", c_sw: "성검 ≈", c_mys: "신비한 시련", c_note: "메모",
     st: { interested: "🙋 관심", invited: "✉️ 초대함", confirmed: "✅ 확정", moved: "🏠 이민 완료", no: "✖️ 안 함" },
     sl: { "": "—", invite: "일반 초대", open: "자유 이민", special: "특별 초대" },
     over: "🎟️ 제한 초과", overTip: "전투력이 이민 전투력 제한을 넘어요 — 특별 초대로만 데려올 수 있어요.",
@@ -197,7 +197,7 @@ function parseLine(line) {
 }
 
 /* ---- table ---- */
-const COLS = ["name", "st", "slot", "src", "kid", "al", "id", "tc", "pow", "mig", "pass", "sw", "mys", "note"];
+const COLS = ["name", "st", "slot", "src", "kid", "al", "id", "tc", "pow", "red", "mig", "pass", "sw", "mys", "note"];
 function val(p, k) {
   const mp = p.mp || {};
   switch (k) {
@@ -212,6 +212,7 @@ function val(p, k) {
     case "pow": return powOf(p) || 0;
     case "mig": case "pass": case "sw": return migOf(p) || 0;
     case "mys": return mp.mystic || 0;
+    case "red": return mp.red ?? -1;
     case "note": return String(p.note || "").toLowerCase();
   }
   return 0;
@@ -246,6 +247,7 @@ function cell(p, k, ed) {
     case "pass": { const n = passes(migOf(p)); return n ? `<span class="tr-pass">≈${n}</span>` : ""; }
     case "sw": { const n = swOf(migOf(p)); return n ? "≈" + n.toLocaleString("en-US") : ""; }
     case "mys": return esc(mp.mystic != null ? M(mp.mystic) : "");
+    case "red": return mp.red != null ? `<span title="${esc(t("redTip"))}">${mp.red}<span class="muted">/${mp.pcs || 0}</span></span>` : "";
     case "note": return ed ? `<input class="inp tr-note" data-note="${esc(p.key)}" value="${esc(p.note || "")}" placeholder="${esc(t("notePh"))}" maxlength="80">` : `<bdi>${esc(p.note || "")}</bdi>`;
   }
   return "";
@@ -306,7 +308,7 @@ function draw(el) {
     ${msg ? `<div class="muted tr-msg">${esc(msg)}</div>` : ""}
     <div class="tr-flt"><select class="inp" id="tr_fSrc"><option value="">${esc(t("allSrc"))}</option>${srcs.map((x) => `<option${UI.src === x ? " selected" : ""}>${esc(x)}</option>`).join("")}</select>
       <select class="inp" id="tr_fSt"><option value="">${esc(t("allSt"))}</option>${STS.map((v) => `<option value="${v}"${UI.st === v ? " selected" : ""}>${esc(t("st")[v])}</option>`).join("")}</select>
-      <select class="inp" id="tr_fSort">${["pow", "mig", "mys", "tc", "kid", "name", "st"].map((k) => `<option value="${k}"${UI.sort === k ? " selected" : ""}>↕ ${esc(t("c_" + k))}</option>`).join("")}</select>
+      <select class="inp" id="tr_fSort">${["pow", "red", "mys", "mig", "tc", "kid", "name", "st"].map((k) => `<option value="${k}"${UI.sort === k ? " selected" : ""}>↕ ${esc(t("c_" + k))}</option>`).join("")}</select>
       <input type="search" class="inp" id="tr_q" placeholder="${esc(t("find"))}" value="${esc(UI.q || "")}">
       <span class="muted tr-sm" id="tr_cnt"></span>
       <span class="tr-exp">${ed ? `<button type="button" class="btn small" id="tr_rfall">${esc(t("rfAll", { n: shown().filter((p) => p.id).length }))}</button>` : ""}<button type="button" class="btn small" id="tr_copy">${esc(t("copy"))}</button><button type="button" class="btn small" id="tr_csv">${esc(t("csv"))}</button><button type="button" class="btn small" id="tr_xlsx">${esc(t("xlsx"))}</button></span></div>
@@ -402,7 +404,7 @@ async function trExcel(btn) {
     const s = S(), wb = new ExcelJS.Workbook(); wb.calcProperties = { fullCalcOnLoad: true };
     const ws = wb.addWorksheet(t("xP"), { views: [{ state: "frozen", ySplit: 4, showGridLines: false }] });
     const ds = wb.addWorksheet("data", { state: "hidden" });
-    const lPow = t("c_pow"), lMig = t("c_mig"), lMys = t("c_mys"), q = (x) => `"${String(x).replace(/"/g, '""')}"`;
+    const lPow = t("c_pow"), lMig = t("c_red"), lMys = t("c_mys"), q = (x) => `"${String(x).replace(/"/g, '""')}"`;   // lMig slot now = 🔴 red gear (Milk 2026-11-08: no Migrant Score)
     /* the two drop-downs (row 1) */
     ws.getCell("B1").value = t("xShow"); ws.getCell("B1").font = { bold: true }; ws.getCell("B1").alignment = { horizontal: "right" };
     ws.mergeCells("C1:D1"); const sh = ws.getCell("C1"); sh.value = lMig;
@@ -424,7 +426,7 @@ async function trExcel(btn) {
       const n = list.length, r1 = dr, r2 = dr + n - 1, color = COLORS[gi % COLORS.length];
       /* data block: A src · B name · C TG · D power · E migrant · F mystic · G 🇰🇷 · H sort key · I order */
       list.forEach((p, i) => { const mp = p.mp || {}, r = r1 + i;
-        ds.getRow(r).values = [src, mp.name || p.name || "", mp.tcLevel != null ? tcLabel(mp.tcLevel) : p.tc || "", powOf(p) || "", migOf(p) || "", mp.mystic ?? "", /🇰🇷/.test(String(p.note || "")) ? "🇰🇷" : ""];
+        ds.getRow(r).values = [src, mp.name || p.name || "", mp.tcLevel != null ? tcLabel(mp.tcLevel) : p.tc || "", powOf(p) || "", mp.red ?? "", mp.mystic ?? "", /🇰🇷/.test(String(p.note || "")) ? "🇰🇷" : ""];
         const pw = `IF(ISNUMBER(D${r}),D${r},0)`;   // ties (or no score) → stronger first
         ds.getCell(`H${r}`).value = { formula: `IF(${P}!$C$2=${q(lMig)},IF(ISNUMBER(E${r}),E${r},-1)+${pw}/1000000000000,IF(${P}!$C$2=${q(lMys)},IF(ISNUMBER(F${r}),F${r},-1)+${pw}/1000000000000,${pw}))+ROW()/10000000000000` };
         ds.getCell(`I${r}`).value = { formula: `MATCH(LARGE($H$${r1}:$H$${r2},${i + 1}),$H$${r1}:$H$${r2},0)` };
@@ -441,7 +443,7 @@ async function trExcel(btn) {
         ws.getCell(r, c0 + 1).value = { formula: R("B", i) };
         ws.getCell(r, c0 + 2).value = { formula: R("C", i) };
         ws.getCell(r, c0 + 3).value = { formula: R("D", i) }; ws.getCell(r, c0 + 3).numFmt = '0.0,,"M";;""';
-        ws.getCell(r, c0 + 4).value = { formula: `IF($C$1=${q(lMys)},${R("F", i)},${R("E", i)})` }; ws.getCell(r, c0 + 4).numFmt = '#,##0;;""';
+        ws.getCell(r, c0 + 4).value = { formula: `IF($C$1=${q(lMys)},${R("F", i)},${R("E", i)})` }; ws.getCell(r, c0 + 4).numFmt = '#,##0;;"0"';
         ws.getCell(r, c0 + 5).value = { formula: `IF(${R("G", i)}="","",${R("G", i)})` };
         if (i % 2) for (let k = 0; k < 6; k++) ws.getCell(r, c0 + k).fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFF4F4F4" } };
       }
@@ -464,7 +466,7 @@ function rowsText(sep) {
   const head = ["#", ...COLS.map((k) => t("c_" + k)), t("c_gName"), t("c_gTc"), t("c_gPow"), t("c_diff")];
   const rows = shown().map((p, i) => { const mp = p.mp || {}, mg = migOf(p);
     const v = { st: t("st")[p.status || "interested"], slot: t("sl")[p.slot || ""], name: mp.name || p.name || "", src: p.src || "", kid: mp.kid || p.kid || "", al: mp.alliance || "", id: p.id || "",
-      tc: mp.tcLevel != null ? tcLabel(mp.tcLevel) : p.tc || "", pow: powOf(p) || "", mig: mg || "", pass: passes(mg) || "", sw: swOf(mg) || "", mys: mp.mystic ?? "", note: p.note || "" };
+      tc: mp.tcLevel != null ? tcLabel(mp.tcLevel) : p.tc || "", pow: powOf(p) || "", red: mp.red != null ? `${mp.red}/${mp.pcs || 0}` : "", mig: mg || "", pass: passes(mg) || "", sw: swOf(mg) || "", mys: mp.mystic ?? "", note: p.note || "" };
     const dif = diffs(p), w = t("dW");
     return [i + 1, ...COLS.map((k) => v[k]), p.name || "", p.tc || "", p.power || "", dif.map((x) => w[x]).join(", ")]; });
   return [head, ...rows].map((r) => r.map(q).join(sep)).join("\n");

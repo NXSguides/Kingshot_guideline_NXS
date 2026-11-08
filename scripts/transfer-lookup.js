@@ -64,11 +64,18 @@ const now = () => new Date().toISOString();
 const old = (at, ms) => !at || Date.now() - Date.parse(at) > ms;
 const kidOf = (s) => { const m = String(s || "").match(/(?:#|\bK\s?)(\d{4})\b/i); return m ? +m[1] : null; };
 
+/* 🔴 red hero gear (Milk 2026-11-08: "how many pieces of red gear on their arena players") — the heroes MightPulse shows (usually 5) */
+function gearOf(body) {
+  const hs = Array.isArray(body && body.heroes) ? body.heroes : null; if (!hs) return {};
+  let red = 0, myth = 0, pcs = 0;
+  for (const h of hs) for (const g of Array.isArray(h.gear) ? h.gear : []) { pcs++; if (g.red === true) red++; if (g.quality_key === "mythic") myth++; }
+  return { red, myth, pcs, hn: hs.length };
+}
 function mpFrom(body, id) {
   const p = (body && body.player) || {}, rk = (body && body.ranks) || {};
   return { pid: String(id), uid: (body && body.uid) || null, name: p.nick_name ?? null, kid: p.kid ?? null, alliance: p.alliance?.abbr ?? null,
     tcLevel: p.town_center_level ?? null, power: p.power ?? null, migrant: rk.migrant_score ?? null, mystic: rk.mystic_trial ?? null,
-    vip: p.vip ?? null, kills: p.kills ?? null, at: (body && body.cached_at) || now(), full: 1 };
+    vip: p.vip ?? null, kills: p.kills ?? null, ...gearOf(body), at: (body && body.cached_at) || now(), full: 1 };
 }
 
 async function lookup() {
@@ -111,7 +118,7 @@ async function lookup() {
   // 2. players with an ID (missing / partial / older than 20 h)
   const needMp = [...players, ...added].filter((p) => p.id && (p.rf || !p.mp || !p.mp.full || String(p.mp.pid) !== String(p.id) || old(p.mp.at, MP_FRESH)));
   async function fill(p) {
-    const r = await get(`/players/${encodeURIComponent(p.id)}?include=base,ranks`); stat.ids++;
+    const r = await get(`/players/${encodeURIComponent(p.id)}?include=base,ranks,heroes`); stat.ids++;
     if (r.status === 200 && r.body && r.body.player) { const mp = mpFrom(r.body, p.id); stat.idOk++; seen(p.id, mp.name, mp.kid, mp.alliance, mp.power, mp.migrant); return mp; }
     return null;
   }
