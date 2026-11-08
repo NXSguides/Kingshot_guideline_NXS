@@ -403,19 +403,16 @@ async function trExcel(btn) {
     const ws = wb.addWorksheet(t("xP"), { views: [{ state: "frozen", ySplit: 4, showGridLines: false }] });
     const ds = wb.addWorksheet("data", { state: "hidden" });
     const lPow = t("c_pow"), lMig = t("c_red"), lMys = t("c_mys"), q = (x) => `"${String(x).replace(/"/g, '""')}"`;   // lMig slot now = 🔴 red gear (Milk 2026-11-08: no Migrant Score)
-    /* the two drop-downs (row 1) */
-    ws.getCell("B1").value = t("xShow"); ws.getCell("B1").font = { bold: true }; ws.getCell("B1").alignment = { horizontal: "right" };
-    ws.mergeCells("C1:D1"); const sh = ws.getCell("C1"); sh.value = lMig;
-    sh.dataValidation = { type: "list", allowBlank: false, formulae: [q([lMig, lMys].join(","))] };
-    ws.getCell("B2").value = t("xRank"); ws.getCell("B2").font = { bold: true }; ws.getCell("B2").alignment = { horizontal: "right" };
-    ws.mergeCells("C2:D2"); const rk = ws.getCell("C2"); rk.value = lPow; rk.dataValidation = { type: "list", allowBlank: false, formulae: [q([lPow, lMig, lMys].join(","))] };
-    for (const c of [sh, rk]) { c.font = { bold: true }; c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFFFF2CC" } }; c.border = { top: { style: "thin" }, left: { style: "thin" }, bottom: { style: "thin" }, right: { style: "thin" } }; }
+    /* one drop-down (row 1): what to rank by. 🔴 red gear and Mystic Trial are both always shown (Sherry 2026-11-09) */
+    ws.getCell("B1").value = t("xRank"); ws.getCell("B1").font = { bold: true }; ws.getCell("B1").alignment = { horizontal: "right" };
+    ws.mergeCells("C1:D1"); const rk = ws.getCell("C1"); rk.value = lPow; rk.dataValidation = { type: "list", allowBlank: false, formulae: [q([lPow, lMig, lMys].join(","))] };
+    for (const c of [rk]) { c.font = { bold: true }; c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFFFF2CC" } }; c.border = { top: { style: "thin" }, left: { style: "thin" }, bottom: { style: "thin" }, right: { style: "thin" } }; }
     ws.getCell("E1").value = t("xPick"); ws.getCell("E1").font = { italic: true, color: { argb: "FF777777" } };
     const P = `'${t("xP").replace(/'/g, "''")}'`;
     const COLORS = ["FFC5CAE9", "FFA8DCC4", "FFF5D79E", "FFD7BDE2", "FFF2B8B5", "FFB3D4EC"];   // light fills + black text (white text vanished in Google Sheets)
     const groups = new Map();
     for (const p of shown()) { const k = p.src || "—"; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(p); }
-    const W = [5, 22, 9, 11, 13, 4];
+    const W = [5, 22, 9, 11, 10, 11, 4];
     let c0 = 1, gi = 0, dr = 1;
     /* table order: biggest list first, single players / small lists to the right; same size → the one added first (not the page's sort) */
     const first = (src) => (L.players || []).findIndex((p) => (p.src || "—") === src);
@@ -426,27 +423,28 @@ async function trExcel(btn) {
       list.forEach((p, i) => { const mp = p.mp || {}, r = r1 + i;
         ds.getRow(r).values = [src, mp.name || p.name || "", mp.tcLevel != null ? tcLabel(mp.tcLevel) : p.tc || "", powOf(p) || "", mp.red ?? "", mp.mystic ?? "", /🇰🇷/.test(String(p.note || "")) ? "🇰🇷" : ""];
         const pw = `IF(ISNUMBER(D${r}),D${r},0)`;   // ties (or no score) → stronger first
-        ds.getCell(`H${r}`).value = { formula: `IF(${P}!$C$2=${q(lMig)},IF(ISNUMBER(E${r}),E${r},-1)+${pw}/1000000000000,IF(${P}!$C$2=${q(lMys)},IF(ISNUMBER(F${r}),F${r},-1)+${pw}/1000000000000,${pw}))+ROW()/10000000000000` };
+        ds.getCell(`H${r}`).value = { formula: `IF(${P}!$C$1=${q(lMig)},IF(ISNUMBER(E${r}),E${r},-1)+${pw}/1000000000000,IF(${P}!$C$1=${q(lMys)},IF(ISNUMBER(F${r}),F${r},-1)+${pw}/1000000000000,${pw}))+ROW()/10000000000000` };
         ds.getCell(`I${r}`).value = { formula: `MATCH(LARGE($H$${r1}:$H$${r2},${i + 1}),$H$${r1}:$H$${r2},0)` };
       });
       /* the table on the main sheet */
-      const col = (i) => ws.getColumn(c0 + i).letter, last = c0 + 5;
+      const col = (i) => ws.getColumn(c0 + i).letter, last = c0 + 6;
       W.forEach((w, i) => (ws.getColumn(c0 + i).width = w));
       ws.mergeCells(3, c0, 3, last);
       const tt = ws.getCell(3, c0); tt.value = `${src} (${n})`; tt.font = { bold: true, size: 12 }; tt.fill = { type: "pattern", pattern: "solid", fgColor: { argb: color } };
-      ["#", t("c_name"), "TG", lPow, { formula: "$C$1" }, ""].forEach((h, i) => { const c = ws.getCell(4, c0 + i); c.value = h; c.font = { bold: true }; c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: color } }; });
+      ["#", t("c_name"), "TG", lPow, lMig, lMys, ""].forEach((h, i) => { const c = ws.getCell(4, c0 + i); c.value = h; c.font = { bold: true }; c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: color } }; });
       const R = (L, i) => `INDEX(data!$${L}$${r1}:$${L}$${r2},data!$I$${r1 + i})`;
       for (let i = 0; i < n; i++) { const r = 5 + i;
         ws.getCell(r, c0).value = i + 1;
         ws.getCell(r, c0 + 1).value = { formula: R("B", i) };
         ws.getCell(r, c0 + 2).value = { formula: R("C", i) };
         ws.getCell(r, c0 + 3).value = { formula: R("D", i) }; ws.getCell(r, c0 + 3).numFmt = '0.0,,"M";;""';
-        ws.getCell(r, c0 + 4).value = { formula: `IF($C$1=${q(lMys)},${R("F", i)},${R("E", i)})` }; ws.getCell(r, c0 + 4).numFmt = '#,##0;;"0"';
-        ws.getCell(r, c0 + 5).value = { formula: `IF(${R("G", i)}="","",${R("G", i)})` };
-        if (i % 2) for (let k = 0; k < 6; k++) ws.getCell(r, c0 + k).fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFF4F4F4" } };
+        ws.getCell(r, c0 + 4).value = { formula: R("E", i) }; ws.getCell(r, c0 + 4).numFmt = '#,##0;;"0"';
+        ws.getCell(r, c0 + 5).value = { formula: R("F", i) }; ws.getCell(r, c0 + 5).numFmt = '#,##0;;""';
+        ws.getCell(r, c0 + 6).value = { formula: `IF(${R("G", i)}="","",${R("G", i)})` };
+        if (i % 2) for (let k = 0; k < 7; k++) ws.getCell(r, c0 + k).fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFF4F4F4" } };
       }
       const e = 4 + n;
-      ws.addConditionalFormatting({ ref: `${col(1)}5:${col(1)}${e}`, rules: [{ type: "expression", formulae: [`$${col(5)}5<>""`], style: { fill: { type: "pattern", pattern: "solid", bgColor: { argb: "FFD9D2E9" } } } }] });
+      ws.addConditionalFormatting({ ref: `${col(1)}5:${col(1)}${e}`, rules: [{ type: "expression", formulae: [`$${col(6)}5<>""`], style: { fill: { type: "pattern", pattern: "solid", bgColor: { argb: "FFD9D2E9" } } } }] });
       ws.addConditionalFormatting({ ref: `${col(3)}5:${col(3)}${e}`, rules: [{ type: "expression", formulae: [`$${col(3)}5>${s.cap * 1e6}`], style: { fill: { type: "pattern", pattern: "solid", bgColor: { argb: "FFF6D9A8" } } } }] });
       ws.getColumn(last + 1).width = 3;
       c0 = last + 2; gi++; dr = r2 + 2;
