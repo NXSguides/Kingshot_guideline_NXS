@@ -399,7 +399,7 @@ async function trExcel(btn) {
   try {
     await loadScripts(["js/vendor/exceljs-4.4.0.min.js"]);
     const s = S(), wb = new ExcelJS.Workbook(), ws = wb.addWorksheet(t("xP"), { views: [{ state: "frozen", ySplit: 2, showGridLines: false }] });
-    const keys = ["#", "name", "tc", "pow", "mig", "pass", "mys", "id", "note"], head = keys.map((k) => k === "#" ? "#" : t("c_" + k));
+    const keys = ["#", "name", "tc", "id", "pow", "mig", "pass", "mys", "note"]   // Milk's order first: # · Player Name · TC · Gov ID · Power, head = keys.map((k) => k === "#" ? "#" : t("c_" + k));
     const W = { "#": 5, name: 22, tc: 10, pow: 11, mig: 12, pass: 14, mys: 11, id: 12, note: 24 };
     const COLORS = ["FF3F51B5", "FF2E9E7A", "FFB7791F", "FF8E44AD", "FFC0392B", "FF2C7FB8"];
     const groups = new Map();
@@ -420,6 +420,7 @@ async function trExcel(btn) {
         columns: head.map((h, i) => ({ name: String(h), filterButton: i > 0 })), rows: rows.length ? rows : [keys.map(() => null)] });
       const L = (k) => ws.getColumn(c0 + keys.indexOf(k)).letter, end = 2 + Math.max(rows.length, 1);
       for (let r = 3; r <= end; r++) {
+        if (/🇰🇷/.test(String((list[r - 3] || {}).note || ""))) ws.getCell(`${L("name")}${r}`).fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFD9D2E9" } };   // 🇰🇷 note = purple name cell, like Milk's "Korean = confirmed by Boo"
         ws.getCell(`${L("pow")}${r}`).numFmt = '0.0,,"M"'; ws.getCell(`${L("mig")}${r}`).numFmt = "#,##0"; ws.getCell(`${L("mys")}${r}`).numFmt = "#,##0";
       }
       for (let i = 0; i < keys.length; i++) { const h = ws.getCell(2, c0 + i); h.font = { bold: true, color: { argb: "FFFFFFFF" } }; h.fill = { type: "pattern", pattern: "solid", fgColor: { argb: color } }; }
