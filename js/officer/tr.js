@@ -202,7 +202,7 @@ function val(p, k) {
   switch (k) {
     case "st": return STS.indexOf(p.status || "interested");
     case "slot": return SLOTS.indexOf(p.slot || "");
-    case "name": return norm(p.name || mp.name);
+    case "name": return norm(mp.name || p.name);
     case "src": return String(p.src || "").toLowerCase();
     case "kid": return mp.kid || p.kid || 0;
     case "al": return String(mp.alliance || "").toLowerCase();
@@ -300,6 +300,7 @@ function draw(el) {
     ${msg ? `<div class="muted tr-msg">${esc(msg)}</div>` : ""}
     <div class="tr-flt"><select class="inp" id="tr_fSrc"><option value="">${esc(t("allSrc"))}</option>${srcs.map((x) => `<option${UI.src === x ? " selected" : ""}>${esc(x)}</option>`).join("")}</select>
       <select class="inp" id="tr_fSt"><option value="">${esc(t("allSt"))}</option>${STS.map((v) => `<option value="${v}"${UI.st === v ? " selected" : ""}>${esc(t("st")[v])}</option>`).join("")}</select>
+      <select class="inp" id="tr_fSort">${["pow", "mig", "mys", "tc", "kid", "name", "st"].map((k) => `<option value="${k}"${UI.sort === k ? " selected" : ""}>↕ ${esc(t("c_" + k))}</option>`).join("")}</select>
       <input type="search" class="inp" id="tr_q" placeholder="${esc(t("find"))}" value="${esc(UI.q || "")}">
       <span class="muted tr-sm" id="tr_cnt"></span>
       <span class="tr-exp">${ed ? `<button type="button" class="btn small" id="tr_rfall">${esc(t("rfAll", { n: shown().filter((p) => p.id).length }))}</button>` : ""}<button type="button" class="btn small" id="tr_copy">${esc(t("copy"))}</button><button type="button" class="btn small" id="tr_csv">${esc(t("csv"))}</button></span></div>
@@ -319,6 +320,7 @@ function renderRows() {
 function bind(el, ed) {
   $("tr_fSrc").onchange = (e) => { UI.src = e.target.value; keepUI(); renderRows(); };
   $("tr_fSt").onchange = (e) => { UI.st = e.target.value; keepUI(); renderRows(); };
+  $("tr_fSort").onchange = (e) => { UI.sort = e.target.value; UI.dir = ["name", "st"].includes(UI.sort) ? 1 : -1; keepUI(); renderRows(); };   // phones: sort without scrolling to the header (Sherry 2026-11-08)
   $("tr_q").oninput = (e) => { UI.q = e.target.value; renderRows(); };
   $("tr_reload").onclick = () => reload(true);
   if ($("tr_rfall")) $("tr_rfall").onclick = () => { for (const p of shown()) if (p.id && !p.rf) { p.rf = 1; mark(p.key, "rf"); } render(); };
@@ -351,7 +353,7 @@ function bind(el, ed) {
     L.settings = { ...S(), ...st }; if (L.settings.to < L.settings.from) [L.settings.from, L.settings.to] = [L.settings.to, L.settings.from]; SETCH = true; msg = t("unsaved"); render(); };
 }
 function bindRows(el, ed) {
-  el.querySelectorAll("[data-sort]").forEach((b) => b.onclick = () => { const k = b.dataset.sort; if (UI.sort === k) UI.dir = -UI.dir; else { UI.sort = k; UI.dir = ["name", "src", "al", "note", "st", "slot"].includes(k) ? 1 : -1; } keepUI(); renderRows(); });
+  el.querySelectorAll("[data-sort]").forEach((b) => b.onclick = () => { const k = b.dataset.sort; if (UI.sort === k) UI.dir = -UI.dir; else { UI.sort = k; UI.dir = ["name", "src", "al", "note", "st", "slot"].includes(k) ? 1 : -1; } const fs = $("tr_fSort"); if (fs && [...fs.options].some((o) => o.value === k)) fs.value = k; keepUI(); renderRows(); });
   if (!ed) return;
   el.querySelectorAll("[data-st]").forEach((x) => x.onchange = () => { const p = P(x.dataset.st); if (!p) return; p.status = x.value; mark(p.key, "status"); render(); });
   el.querySelectorAll("[data-sl]").forEach((x) => x.onchange = () => { const p = P(x.dataset.sl); if (!p) return; p.slot = x.value || null; mark(p.key, "slot"); render(); });
