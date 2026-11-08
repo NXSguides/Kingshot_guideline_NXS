@@ -18,24 +18,28 @@ const { readData, writeData } = require("./officer-data");
 const KEY = process.env.MIGHTPULSE_API_KEY, BASE = "https://api.mightpulse.com/v1";
 const FILE = "data/transfer-x7k2p9.json", INDEX = "data/transfer-index-x7k2p9.json", LOG = "data/transfer-log.txt";
 const RES = process.env.TR_RESULTS || "/tmp/transfer-results.json";
-const GAP_MS = 1100, MAX_CALLS = +process.env.TR_MAX_CALLS || 600, MAX_MS = 25 * 60000, FRESH = 3 * 864e5, MP_FRESH = 20 * 36e5;
+const GAP_MS = 1100, MAX_CALLS = +process.env.TR_MAX_CALLS || 600, MAX_MS = 30 * 60000, FRESH = 3 * 864e5, MP_FRESH = 20 * 36e5;
 const DEF = { cap: 170, invites: 35, open: 20, special: 3, from: 2106, to: 2234 };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const logLines = []; const log = (m) => { console.log(m); logLines.push(m); };
 const T0 = Date.now();
 let calls = 0;
+const HTTP = {};   // counts only, for the public log
 const budget = () => calls < MAX_CALLS && Date.now() - T0 < MAX_MS;
 
 async function get(path) {
-  for (let i = 1; i <= 4; i++) {
+  for (let i = 1; i <= 3; i++) {
+    if (!budget()) break;
     try {
       calls++;
-      const res = await fetch(BASE + path, { headers: { Authorization: `Bearer ${KEY}` }, signal: AbortSignal.timeout(20000) });
-      if (res.status === 429) { console.log("429 — waiting 60 s"); await sleep(60000); continue; }
+      // 45 s: a profile with heroes can take MightPulse a while to refresh (2026-11-09: 20 s timed out on half the players)
+      const res = await fetch(BASE + path, { headers: { Authorization: `Bearer ${KEY}` }, signal: AbortSignal.timeout(45000) });
+      if (res.status === 429) { HTTP["429"] = (HTTP["429"] || 0) + 1; await sleep(60000); continue; }
+      HTTP[res.status] = (HTTP[res.status] || 0) + 1;
       const body = await res.json().catch(() => null);
       await sleep(GAP_MS);
       return { status: res.status, body };
-    } catch (e) { await sleep(5000); }
+    } catch (e) { HTTP.timeout = (HTTP.timeout || 0) + 1; await sleep(8000); }
   }
   return { status: 0, body: null };
 }
@@ -117,12 +121,16 @@ async function lookup() {
   }
   // 2. players with an ID (missing / partial / older than 20 h)
   const needMp = [...players, ...added].filter((p) => p.id && (p.rf || !p.mp || !p.mp.full || String(p.mp.pid) !== String(p.id) || old(p.mp.at, MP_FRESH)));
+  let lastSt = 0;   // 0 = timed out / no answer → worth another try; 4xx (wrong ID) → not
   async function fill(p) {
-    const r = await get(`/players/${encodeURIComponent(p.id)}?include=base,ranks,heroes`); stat.ids++;
+    const r = await get(`/players/${encodeURIComponent(p.id)}?include=base,ranks,heroes`); stat.ids++; lastSt = r.status;
     if (r.status === 200 && r.body && r.body.player) { const mp = mpFrom(r.body, p.id); stat.idOk++; seen(p.id, mp.name, mp.kid, mp.alliance, mp.power, mp.migrant); return mp; }
     return null;
   }
-  for (const p of needMp.filter((p) => p.rf || !p.mp || !p.mp.full)) { if (!budget()) break; const mp = await fill(p); if (mp) { const f = filled[p.key] = filled[p.key] || {}; f.mp = mp; if (p.rf) f.rfDone = 1; } }
+  for (const p of needMp.filter((p) => p.rf || !p.mp || !p.mp.full)) {
+    if (!budget()) { stat.left++; continue; }   // not reached this run → counted, and the run continues by itself (see merge)
+    const mp = await fill(p); if (mp) { const f = filled[p.key] = filled[p.key] || {}; f.mp = mp; if (p.rf) f.rfDone = 1; } else if (!(lastSt >= 400 && lastSt < 500)) stat.left++;
+  }
   // 3. name search for players with no ID
   const want = players.filter((p) => !p.id && p.name && p.status !== "no");
   const kidsAll = []; for (let k = from; k <= to; k++) kidsAll.push(k);
@@ -207,7 +215,7 @@ async function lookup() {
   for (const [id, e] of Object.entries(ix.p)) if (!(e[1] >= from && e[1] <= to) || e[5] < cut) delete ix.p[id];
   writeData(RES, { reqAt: d.requested.at, at: now(), filled, added, doneImports, stat, calls, index: ix });
   log(`  imports ${stat.imports} (+${stat.members}) · ID look-ups ${stat.idOk}/${stat.ids} · boards ${stat.boards} · rosters ${stat.rosters}`);
-  log(`  name search ${stat.search}: found ${stat.found}, to pick ${stat.multi}, not found ${stat.none} · left ${stat.left} · ${calls} calls, ${Math.round((Date.now() - T0) / 1000)} s`);
+  log(`  name search ${stat.search}: found ${stat.found}, to pick ${stat.multi}, not found ${stat.none} · left ${stat.left} · ${calls} calls, ${Math.round((Date.now() - T0) / 1000)} s · HTTP ${JSON.stringify(HTTP)}`);
   fs.writeFileSync(RES + ".log", logLines.join("\n") + "\n");
 }
 
@@ -230,8 +238,12 @@ function merge() {
   for (const p of R.added || []) { if (ids.has(String(p.id))) { const q = d.players.find((x) => String(x.id) === String(p.id)); if (q && !q.mp && p.mp) q.mp = p.mp; continue; } d.players.push(p); ids.add(String(p.id)); added++; }
   const done = (x) => (R.doneImports || []).some((y) => +y.kid === +x.kid && String(y.tag).toLowerCase() === String(x.tag).toLowerCase());
   if (d.pendingImports) { d.pendingImports = d.pendingImports.filter((x) => !done(x)); if (!d.pendingImports.length) delete d.pendingImports; }
+  const s0 = R.stat || {};
   if (d.requested) {
-    if (d.requested.at === R.reqAt) delete d.requested;   // a newer request (saved while this ran) stays for the next run
+    // work left (time limit / MightPulse too slow) → keep the request and start another run by itself, up to 5 rounds (Sherry 2026-11-09:
+    // "↻ update all" came back with only 8 players)
+    if (d.requested.at === R.reqAt && (s0.left || 0) > 0 && (d.requested.round || 1) < 5) { d.requested.round = (d.requested.round || 1) + 1; if (process.env.TR_AGAIN) fs.writeFileSync(process.env.TR_AGAIN, "1"); }
+    else if (d.requested.at === R.reqAt) delete d.requested;   // a newer request (saved while this ran) stays for the next run
     else { d.requested.imports = (d.requested.imports || []).filter((x) => !done(x)); }
   }
   const s = R.stat || {};

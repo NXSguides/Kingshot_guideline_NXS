@@ -15,9 +15,10 @@ concurrency:
 jobs:
   lookup:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 45
     permissions:
       contents: write
+      actions: write   # to start the next round by itself when MightPulse was too slow
     steps:
       - uses: actions/checkout@v4
         with: { ref: main }
@@ -32,6 +33,8 @@ jobs:
         env:
           DATA_KEY: ${{ secrets.DATA_KEY }}
           TR_RESULTS: ${{ runner.temp }}/transfer-results.json
+          TR_AGAIN: ${{ runner.temp }}/transfer-again
+          GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "transfer-bot"
           git config user.email "actions@github.com"
@@ -42,7 +45,12 @@ jobs:
             for f in data/transfer-x7k2p9.json data/transfer-index-x7k2p9.json data/transfer-log.txt data/ai-officer.json; do [ -f "$f" ] && git add "$f"; done
             git diff --cached --quiet && exit 0
             git commit -q -m "Transfer list update"
-            git push -q origin HEAD:main && exit 0
+            if git push -q origin HEAD:main; then
+              # work left (time limit / slow MightPulse) → next round by itself (the list keeps "requested", max 5 rounds)
+              if [ -f "$TR_AGAIN" ]; then gh workflow run transfer-lookup.yml --ref main -R "$GITHUB_REPOSITORY" && echo "next round started"; fi
+              exit 0
+            fi
+            rm -f "$TR_AGAIN"
             sleep 5
           done
           exit 1
