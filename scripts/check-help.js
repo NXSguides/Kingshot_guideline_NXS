@@ -112,7 +112,7 @@ const FEATURES = [
   ["Blacklist: ⭐ special mark (row lights up, on top)", /special mark/, /⭐ marks a player for everyone/],
   ["Transfer: 🧳 Kingdom Transfer list + MightPulse look-up", /🧳 TRANSFER \(officer-x7k2p9\.html#tr/, /tr01:/],
   ["Transfer: name search, pick one of several matches", /several → "N possible — pick one"/, /several show “pick one”/],
-  ["Transfer: MightPulse values replace pasted name / TC / power", /MIGHTPULSE WINS \(Sherry 2026-11-08\)/, /come from MightPulse once found/],
+  ["Transfer: MightPulse shown first, pasted original kept + CSV difference columns", /MIGHTPULSE FIRST, ORIGINAL KEPT/, /what you pasted is kept/],
   ["Transfer: ↻ update one player / all shown", /↻ UPDATE \(Sherry 2026-11-08\)/, /tr08:/],
   ["Transfer: 🔬 Transfer Pass estimate (unconfirmed research)", /Transfer Pass estimate \(移民授權書\) is RESEARCH, NOT CONFIRMED/, /tr06:/],
   ["Move: hive rules card", /Hive rules & tips/, /mv00:/],

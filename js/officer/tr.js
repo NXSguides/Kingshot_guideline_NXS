@@ -33,7 +33,7 @@ const T = {
     st: { interested: "🙋 interested", invited: "✉️ invited", confirmed: "✅ confirmed", moved: "🏠 moved", no: "✖️ no" },
     sl: { "": "—", invite: "Ordinary Invite", open: "Transfer Opens", special: "Special Invite" },
     over: "🎟️ over cap", overTip: "Power is over the Transfer Power Cap — only a Special Invite can bring this player.",
-    pick: "{n} possible — pick one", pickOk: "✓", nf: "🔎 not found — add the ID, or the kingdom (#2188) to the source", given: "listed: {v}", mpName: "MightPulse: {v}",
+    pick: "{n} possible — pick one", pickOk: "✓", nf: "🔎 not found — add the ID, or the kingdom (#2188) to the source", given: "listed: {v}", c_gName: "Listed name", c_gTc: "Listed TC", c_gPow: "Listed power", c_diff: "Differs from list", dW: ["name", "TC", "power"], mpName: "MightPulse: {v}",
     del: "✕", delQ: "Remove {n} from the list?", rf: "↻", rfTip: "Update this player from MightPulse (at the next 🔎)", rfAll: "↻ Update all shown ({n})", rfWait: "{n} waiting for update — press 🔎", rfOn: "↻ waiting", idPh: "ID", notePh: "note", copy: "📋 Copy", copied: "✅ Copied", csv: "⬇️ CSV",
     passNote: "🔬 Research, 2026-11-08 — not confirmed. Transfer Pass ≈ Migrant Score ÷ 33,600, rounded (5 players checked: 94k→3, 236k→7, 306k→9, 311k→9, 397k→12). \"Round with ~33k\" and \"round up with ~35k\" both fit so far.",
     powNote: "Power = MightPulse power. The game's Transfer Power also counts injured troops and the Enlistment Office, so it can be a bit higher.",
@@ -54,7 +54,7 @@ const T = {
     st: { interested: "🙋 有興趣", invited: "✉️ 已邀請", confirmed: "✅ 已確認", moved: "🏠 已移民", no: "✖️ 不要" },
     sl: { "": "—", invite: "普通邀請", open: "自由移民", special: "特殊邀請" },
     over: "🎟️ 超過限制", overTip: "戰力超過移民實力限制——只能用特殊邀請。",
-    pick: "{n} 個可能——選一個", pickOk: "✓", nf: "🔎 找不到——補上 ID，或在來源寫王國號（#2188）", given: "名單上：{v}", mpName: "MightPulse：{v}",
+    pick: "{n} 個可能——選一個", pickOk: "✓", nf: "🔎 找不到——補上 ID，或在來源寫王國號（#2188）", given: "名單上：{v}", c_gName: "名單上的名字", c_gTc: "名單上的 TC", c_gPow: "名單上的戰力", c_diff: "跟名單不同", dW: ["名字", "TC", "戰力"], mpName: "MightPulse：{v}",
     del: "✕", delQ: "把 {n} 從名單移除？", rf: "↻", rfTip: "下次按 🔎 時重新抓這個人的資料", rfAll: "↻ 全部更新（目前顯示的 {n} 人）", rfWait: "{n} 人等著更新——按 🔎 開始", rfOn: "↻ 等更新", idPh: "ID", notePh: "備註", copy: "📋 複製", copied: "✅ 已複製", csv: "⬇️ CSV",
     passNote: "🔬 研究中，2026-11-08——還沒確認。移民授權書 ≈ 遷城分數 ÷ 33,600，四捨五入（查過 5 人：94k→3、236k→7、306k→9、311k→9、397k→12）。目前「約 33k 一張四捨五入」和「約 35k 一張無條件進位」都對得上。",
     powNote: "戰力 = MightPulse 的戰力。遊戲的移民實力還會加上傷兵和預備營的部隊，所以可能稍微高一點。",
@@ -75,7 +75,7 @@ const T = {
     st: { interested: "🙋 interessado", invited: "✉️ convidado", confirmed: "✅ confirmado", moved: "🏠 mudou", no: "✖️ não" },
     sl: { "": "—", invite: "Convites Comuns", open: "Abertura das Transferências", special: "Convite Especial" },
     over: "🎟️ acima do limite", overTip: "O poder passa do Limite de Poder de Transferência — só um Convite Especial traz este jogador.",
-    pick: "{n} possíveis — escolha um", pickOk: "✓", nf: "🔎 não achado — coloque o ID, ou o reino (#2188) na origem", given: "na lista: {v}", mpName: "MightPulse: {v}",
+    pick: "{n} possíveis — escolha um", pickOk: "✓", nf: "🔎 não achado — coloque o ID, ou o reino (#2188) na origem", given: "na lista: {v}", c_gName: "Nome na lista", c_gTc: "TC na lista", c_gPow: "Poder na lista", c_diff: "Diferente da lista", dW: ["nome", "TC", "poder"], mpName: "MightPulse: {v}",
     del: "✕", delQ: "Tirar {n} da lista?", rf: "↻", rfTip: "Atualizar este jogador na MightPulse (no próximo 🔎)", rfAll: "↻ Atualizar todos os mostrados ({n})", rfWait: "{n} esperando atualização — aperte 🔎", rfOn: "↻ esperando", idPh: "ID", notePh: "nota", copy: "📋 Copiar", copied: "✅ Copiado", csv: "⬇️ CSV",
     passNote: "🔬 Pesquisa, 2026-11-08 — não confirmado. Passe de Transferência ≈ Pontuação de Migração ÷ 33.600, arredondado (5 jogadores conferidos: 94k→3, 236k→7, 306k→9, 311k→9, 397k→12). \"Arredondar com ~33k\" e \"arredondar para cima com ~35k\" batem até agora.",
     powNote: "Poder = poder da MightPulse. O Poder de Transferência do jogo também conta tropas feridas e o Escritório de Alistamento, então pode ser um pouco maior.",
@@ -96,7 +96,7 @@ const T = {
     st: { interested: "🙋 مهتم", invited: "✉️ تمت دعوته", confirmed: "✅ مؤكد", moved: "🏠 انتقل", no: "✖️ لا" },
     sl: { "": "—", invite: "الدعوات العادية", open: "فتح باب الانتقال", special: "الدعوات الخاصة" },
     over: "🎟️ فوق الحد", overTip: "القوة فوق الحد الأقصى لقوة النقل — لا تجلبه إلا الدعوات الخاصة.",
-    pick: "{n} محتملون — اختر واحدًا", pickOk: "✓", nf: "🔎 لم يوجد — أضف الـ ID، أو رقم المملكة (#2188) في المصدر", given: "في القائمة: {v}", mpName: "MightPulse: {v}",
+    pick: "{n} محتملون — اختر واحدًا", pickOk: "✓", nf: "🔎 لم يوجد — أضف الـ ID، أو رقم المملكة (#2188) في المصدر", given: "في القائمة: {v}", c_gName: "الاسم في القائمة", c_gTc: "TC في القائمة", c_gPow: "القوة في القائمة", c_diff: "يختلف عن القائمة", dW: ["الاسم","TC","القوة"], mpName: "MightPulse: {v}",
     del: "✕", delQ: "إزالة {n} من القائمة؟", rf: "↻", rfTip: "تحديث هذا اللاعب من MightPulse (عند 🔎 التالي)", rfAll: "↻ تحديث كل المعروضين ({n})", rfWait: "{n} بانتظار التحديث — اضغط 🔎", rfOn: "↻ بانتظار التحديث", idPh: "المعرّف", notePh: "ملاحظة", copy: "📋 نسخ", copied: "✅ تم النسخ", csv: "⬇️ CSV",
     passNote: "🔬 بحث، 2026-11-08 — غير مؤكد. تذكرة الانتقال ≈ نقاط الهجرة ÷ 33,600، مقرّبة (فُحص 5 لاعبين: 94k→3، 236k→7، 306k→9، 311k→9، 397k→12). \"التقريب مع ~33k\" و\"التقريب للأعلى مع ~35k\" كلاهما يطابق حتى الآن.",
     powNote: "القوة = قوة MightPulse. قوة النقل في اللعبة تحسب أيضًا الجنود الجرحى ومكتب التجنيد، فقد تكون أعلى قليلًا.",
@@ -117,7 +117,7 @@ const T = {
     st: { interested: "🙋 관심", invited: "✉️ 초대함", confirmed: "✅ 확정", moved: "🏠 이민 완료", no: "✖️ 안 함" },
     sl: { "": "—", invite: "일반 초대", open: "자유 이민", special: "특별 초대" },
     over: "🎟️ 제한 초과", overTip: "전투력이 이민 전투력 제한을 넘어요 — 특별 초대로만 데려올 수 있어요.",
-    pick: "후보 {n}명 — 하나 고르기", pickOk: "✓", nf: "🔎 못 찾음 — ID를 넣거나 출처에 왕국 번호(#2188)를 쓰세요", given: "명단: {v}", mpName: "MightPulse: {v}",
+    pick: "후보 {n}명 — 하나 고르기", pickOk: "✓", nf: "🔎 못 찾음 — ID를 넣거나 출처에 왕국 번호(#2188)를 쓰세요", given: "명단: {v}", c_gName: "명단 이름", c_gTc: "명단 TC", c_gPow: "명단 전투력", c_diff: "명단과 다름", dW: ["이름", "TC", "전투력"], mpName: "MightPulse: {v}",
     del: "✕", delQ: "{n}을(를) 명단에서 뺄까요?", rf: "↻", rfTip: "다음 🔎 때 MightPulse에서 이 플레이어 다시 가져오기", rfAll: "↻ 보이는 사람 모두 업데이트 ({n})", rfWait: "업데이트 대기 {n}명 — 🔎를 누르세요", rfOn: "↻ 업데이트 대기", idPh: "ID", notePh: "메모", copy: "📋 복사", copied: "✅ 복사됨", csv: "⬇️ CSV",
     passNote: "🔬 연구 중, 2026-11-08 — 확인 안 됨. 이민 허가증 ≈ 이주 점수 ÷ 33,600, 반올림 (5명 확인: 94k→3, 236k→7, 306k→9, 311k→9, 397k→12). \"약 33k마다 반올림\"과 \"약 35k마다 올림\" 둘 다 지금까지 맞아요.",
     powNote: "전투력 = MightPulse 전투력. 게임의 이민 전투력은 부상병과 징병소 병력도 더해서 조금 더 높을 수 있어요.",
@@ -134,8 +134,6 @@ function when(v) {
 }
 const M = (v) => v == null || v === "" || !Number.isFinite(+v) ? "" : (+v >= 1e9 ? (+v / 1e9).toFixed(2) + "B" : +v >= 1e6 ? (+v / 1e6).toFixed(1) + "M" : +v >= 1e3 ? (+v / 1e3).toFixed(1) + "k" : String(Math.round(+v)));
 const tcLabel = (lv) => lv == null || lv === "" ? "" : +lv >= 35 ? "TG" + Math.floor((+lv - 30) / 5) + ((+lv - 30) % 5 ? "-" + ((+lv - 30) % 5) : "") : "TC" + lv;
-/* MightPulse wins (Sherry 2026-11-08): a row with a full MightPulse profile shows its name / TC / power instead of what was pasted (the look-up also writes them into the file) */
-function adopt(p) { const m = p && p.mp; if (!m || !m.full || !p.id || String(m.pid) !== String(p.id)) return p; if (m.name) p.name = String(m.name).slice(0, 40); if (m.power != null) p.power = m.power; if (m.tcLevel != null) { p.tc = tcLabel(m.tcLevel); p.tcLv = +m.tcLevel; } if (m.kid) p.kid = m.kid; return p; }   // same mapping as OFFICER.tcText (MightPulse 35 = TG1)
 const passes = (mg) => mg > 0 ? Math.min(50, Math.max(1, Math.round(mg / PASS_DIV))) : null;
 const swOf = (mg) => mg > 0 ? Math.round(OFFICER.squadPower ? OFFICER.squadPower({ migrant: mg }) : mg / 317) : null;
 const uniqImp = (a) => a.filter((x, i) => x && a.findIndex((y) => y && +y.kid === +x.kid && String(y.tag).toLowerCase() === String(x.tag).toLowerCase()) === i);
@@ -175,7 +173,7 @@ function absorb(srv) {
   for (const k of ADDED) { const lp = mine.get(k); if (lp && !srv.players.some((x) => x.key === k)) out.push(lp); }
   const settings = SETCH && L ? L.settings : srv.settings;
   BASE = JSON.stringify(srv);
-  L = { ...srv, settings: { ...DEF, ...(settings || {}) }, players: out.map(adopt) };
+  L = { ...srv, settings: { ...DEF, ...(settings || {}) }, players: out };
 }
 
 /* ---- paste parser: "1  Name  123456789  TG3  150.4M" in any order ---- */
@@ -229,8 +227,8 @@ function cell(p, k, ed) {
     case "st": return ed ? `<select class="inp tr-sel" data-st="${esc(p.key)}">${STS.map((v) => `<option value="${v}"${(p.status || "interested") === v ? " selected" : ""}>${esc(t("st")[v])}</option>`).join("")}</select>` : esc(t("st")[p.status || "interested"]);
     case "slot": return ed ? `<select class="inp tr-sel" data-sl="${esc(p.key)}">${SLOTS.map((v) => `<option value="${v}"${(p.slot || "") === v ? " selected" : ""}>${esc(t("sl")[v])}</option>`).join("")}</select>` : esc(t("sl")[p.slot || ""]);
     case "name": {
-      let h = `<b><bdi>${esc(p.name || mp.name || "?")}</bdi></b>`;
-      if (mp.name && norm(mp.name) !== norm(p.name)) h += `<div class="muted tr-sm"><bdi>${esc(t("mpName", { v: mp.name }))}</bdi></div>`;
+      let h = `<b><bdi>${esc(mp.name || p.name || "?")}</bdi></b>`;   // MightPulse first; the pasted (original) name stays in the file and shows under it when different
+      if (mp.name && p.name && norm(mp.name) !== norm(p.name)) h += `<div class="muted tr-sm"><bdi>${esc(t("given", { v: p.name }))}</bdi></div>`;
       if (p.cands && p.cands.length && !p.id) h += ed ? `<div class="tr-pk"><select class="inp" data-pks="${esc(p.key)}"><option value="">${esc(t("pick", { n: p.cands.length }))}</option>${p.cands.map((c, i) => `<option value="${i}">#${esc(c.kid || "?")} [${esc(c.alliance || "")}] ${esc(c.name || "")} · ${esc(M(c.power) || "?")}</option>`).join("")}</select></div>`
         : `<div class="muted tr-sm">${esc(t("pick", { n: p.cands.length }))}</div>`;
       else if (p.nf && !p.id) h += `<div class="muted tr-sm">${esc(t("nf"))}</div>`;
@@ -366,13 +364,23 @@ function bindRows(el, ed) {
   el.querySelectorAll("[data-del]").forEach((b) => b.onclick = () => { const p = P(b.dataset.del); if (!p || !confirm(t("delQ", { n: p.name || p.id }))) return;
     L.players = L.players.filter((x) => x.key !== p.key); if (ADDED.has(p.key)) ADDED.delete(p.key); else REMOVED.add(p.key); CH.delete(p.key); render(); });
 }
+/* what the pasted list says differently from MightPulse: 0 name, 1 TC (main level only: TG1 = TG1-4), 2 power (> 5 %) */
+function diffs(p) {
+  const mp = p.mp || {}, out = [];
+  if (!mp.pid && !mp.name) return out;
+  if (mp.name && p.name && norm(mp.name) !== norm(p.name)) out.push(0);
+  if (mp.tcLevel != null && p.tc && tcLabel(mp.tcLevel).split("-")[0].toUpperCase() !== String(p.tc).split("-")[0].toUpperCase()) out.push(1);
+  if (mp.power && p.power && Math.abs(mp.power - p.power) / p.power > 0.05) out.push(2);
+  return out;
+}
 function rowsText(sep) {
   const q = (v) => { const s = String(v ?? ""); return sep === "," && /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s.replace(/[\t\n]/g, " "); };
-  const head = ["#", ...COLS.map((k) => t("c_" + k))];
+  const head = ["#", ...COLS.map((k) => t("c_" + k)), t("c_gName"), t("c_gTc"), t("c_gPow"), t("c_diff")];
   const rows = shown().map((p, i) => { const mp = p.mp || {}, mg = migOf(p);
-    const v = { st: t("st")[p.status || "interested"], slot: t("sl")[p.slot || ""], name: p.name || mp.name || "", src: p.src || "", kid: mp.kid || p.kid || "", al: mp.alliance || "", id: p.id || "",
+    const v = { st: t("st")[p.status || "interested"], slot: t("sl")[p.slot || ""], name: mp.name || p.name || "", src: p.src || "", kid: mp.kid || p.kid || "", al: mp.alliance || "", id: p.id || "",
       tc: mp.tcLevel != null ? tcLabel(mp.tcLevel) : p.tc || "", pow: powOf(p) || "", mig: mg || "", pass: passes(mg) || "", sw: swOf(mg) || "", mys: mp.mystic ?? "", note: p.note || "" };
-    return [i + 1, ...COLS.map((k) => v[k])]; });
+    const dif = diffs(p), w = t("dW");
+    return [i + 1, ...COLS.map((k) => v[k]), p.name || "", p.tc || "", p.power || "", dif.map((x) => w[x]).join(", ")]; });
   return [head, ...rows].map((r) => r.map(q).join(sep)).join("\n");
 }
 /* 💾 save (and 🔎 = save with "requested"): start from the newest server copy, put this officer's changes on top */

@@ -205,15 +205,6 @@ async function lookup() {
 }
 
 /* merge onto the newest list: officers' edits win; the job only adds id / mp / cands / nf and the imported players */
-/* MightPulse wins (Sherry 2026-11-08): once a row has a full MightPulse profile, its name, TC/TG and power replace what was pasted */
-const tcLabel = (lv) => lv == null || lv === "" ? "" : +lv >= 35 ? "TG" + Math.floor((+lv - 30) / 5) + ((+lv - 30) % 5 ? "-" + ((+lv - 30) % 5) : "") : "TC" + lv;
-function adopt(p) {
-  const m = p && p.mp; if (!m || !m.full || !p.id || String(m.pid) !== String(p.id)) return;
-  if (m.name) p.name = String(m.name).slice(0, 40);
-  if (m.power != null) p.power = m.power;
-  if (m.tcLevel != null) { p.tc = tcLabel(m.tcLevel); p.tcLv = +m.tcLevel; }
-  if (m.kid) p.kid = m.kid;
-}
 function merge() {
   if (!fs.existsSync(RES)) { console.log("nothing to merge"); return; }
   const R = readData(RES); let d = null; try { d = readData(FILE); } catch (e) { console.log("list not readable"); process.exit(1); }
@@ -236,7 +227,6 @@ function merge() {
     if (d.requested.at === R.reqAt) delete d.requested;   // a newer request (saved while this ran) stays for the next run
     else { d.requested.imports = (d.requested.imports || []).filter((x) => !done(x)); }
   }
-  for (const p of d.players) adopt(p);
   const s = R.stat || {};
   d.lastRun = { at: R.at, reqAt: R.reqAt, found: (s.found || 0) + (s.idOk || 0), multi: s.multi || 0, none: s.none || 0, left: s.left || 0, added, calls: R.calls || 0 };
   writeData(FILE, d);
