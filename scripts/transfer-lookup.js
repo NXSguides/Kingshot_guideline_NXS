@@ -57,7 +57,7 @@ const membersOf = (b) => (b && (b.members || (b.roster && b.roster.members) || (
 /* names: case, width (NFKC), spaces and decorations like ᴺᵉˣᵘˢ, 亗, @@, ##, [TAG] don't matter */
 const SMALL = { "ᴀ":"a","ʙ":"b","ᴄ":"c","ᴅ":"d","ᴇ":"e","ꜰ":"f","ɢ":"g","ʜ":"h","ɪ":"i","ᴊ":"j","ᴋ":"k","ʟ":"l","ᴍ":"m","ɴ":"n","ᴏ":"o","ᴘ":"p","ǫ":"q","ʀ":"r","ꜱ":"s","ᴛ":"t","ᴜ":"u","ᴠ":"v","ᴡ":"w","ʏ":"y","ᴢ":"z" };   // small-caps "fonts" (NFKC doesn't map them)
 const unfont = (s) => String(s || "").normalize("NFKC").replace(/[ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀꜱᴛᴜᴠᴡʏᴢ]/g, (c) => SMALL[c]).replace(/[\u{1F130}-\u{1F189}]/gu, (c) => String.fromCharCode(97 + ((c.codePointAt(0) - 0x1F130) % 26)));
-const DECO = /[ʰ-˿ᴬ-ᶿ⁰-₟̀-ͯ​-‍︎️亗卍卐彡乂〆༒꧁꧂]/g;
+const DECO = /[ʰ-˿ᴬ-ᶿ⁰-₟̀-ͯ​-‍︎️亗卍卐彡乂〆༒꧁꧂Ⓐ-ⓩ]/g;   // Ⓐ-ⓩ: tags like ᴺⓩᴿ / ᴸⓉᴱ (NFKC would turn ⓩ into "z" and break "Benimaruᴺⓩᴿ" = Benimaru, 2026-11-09)
 const strictKey = (s) => unfont(s).toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
 function looseKeys(s) {
   const a = unfont(String(s || "").replace(DECO, "")).toLowerCase();
