@@ -34,7 +34,7 @@ const T = {
     sl: { "": "—", invite: "Ordinary Invite", open: "Transfer Opens", special: "Special Invite" },
     over: "🎟️ over cap", overTip: "Power is over the Transfer Power Cap — only a Special Invite can bring this player.",
     pick: "{n} possible — pick one", pickOk: "✓", nf: "🔎 not found — add the ID, or the kingdom (#2188) to the source", given: "listed: {v}", c_gName: "Listed name", c_gTc: "Listed TC", c_gPow: "Listed power", c_diff: "Differs from list", dW: ["name", "TC", "power"], mpName: "MightPulse: {v}",
-    del: "✕", delQ: "Remove {n} from the list?", rf: "↻", rfTip: "Update this player from MightPulse (at the next 🔎)", rfAll: "↻ Update all shown ({n})", rfWait: "{n} waiting for update — press 🔎", rfOn: "↻ waiting", idPh: "ID", notePh: "note", copy: "📋 Copy", copied: "✅ Copied", csv: "⬇️ CSV",
+    del: "✕", delQ: "Remove {n} from the list?", selHint: "☑️ Tick rows on the left to change many at once.", selN: "☑️ {n} selected", bNotePh: "e.g. 🇰🇷 Boo", bAdd: "➕ Add to note", bSt: "Set status…", bClr: "Clear ticks", bDone: "✅ Done for {n} — press 💾 Save", rf: "↻", rfTip: "Update this player from MightPulse (at the next 🔎)", rfAll: "↻ Update all shown ({n})", rfWait: "{n} waiting for update — press 🔎", rfOn: "↻ waiting", idPh: "ID", notePh: "note", copy: "📋 Copy", copied: "✅ Copied", csv: "⬇️ CSV",
     passNote: "🔬 Research, 2026-11-08 — not confirmed. Transfer Pass ≈ Migrant Score ÷ 33,600, rounded (5 players checked: 94k→3, 236k→7, 306k→9, 311k→9, 397k→12). \"Round with ~33k\" and \"round up with ~35k\" both fit so far.",
     powNote: "Power = MightPulse power. The game's Transfer Power also counts injured troops and the Enlistment Office, so it can be a bit higher.",
     swNote: "Swordland ≈ Migrant Score ÷ 317 (Swordland Showdown troop power)." },
@@ -55,7 +55,7 @@ const T = {
     sl: { "": "—", invite: "普通邀請", open: "自由移民", special: "特殊邀請" },
     over: "🎟️ 超過限制", overTip: "戰力超過移民實力限制——只能用特殊邀請。",
     pick: "{n} 個可能——選一個", pickOk: "✓", nf: "🔎 找不到——補上 ID，或在來源寫王國號（#2188）", given: "名單上：{v}", c_gName: "名單上的名字", c_gTc: "名單上的 TC", c_gPow: "名單上的戰力", c_diff: "跟名單不同", dW: ["名字", "TC", "戰力"], mpName: "MightPulse：{v}",
-    del: "✕", delQ: "把 {n} 從名單移除？", rf: "↻", rfTip: "下次按 🔎 時重新抓這個人的資料", rfAll: "↻ 全部更新（目前顯示的 {n} 人）", rfWait: "{n} 人等著更新——按 🔎 開始", rfOn: "↻ 等更新", idPh: "ID", notePh: "備註", copy: "📋 複製", copied: "✅ 已複製", csv: "⬇️ CSV",
+    del: "✕", delQ: "把 {n} 從名單移除？", selHint: "☑️ 勾左邊的方框，可以一次改很多人。", selN: "☑️ 已勾 {n} 人", bNotePh: "例如 🇰🇷 Boo 確認", bAdd: "➕ 加到備註", bSt: "設定狀態…", bClr: "取消勾選", bDone: "✅ 已改 {n} 人——記得按 💾 儲存", rf: "↻", rfTip: "下次按 🔎 時重新抓這個人的資料", rfAll: "↻ 全部更新（目前顯示的 {n} 人）", rfWait: "{n} 人等著更新——按 🔎 開始", rfOn: "↻ 等更新", idPh: "ID", notePh: "備註", copy: "📋 複製", copied: "✅ 已複製", csv: "⬇️ CSV",
     passNote: "🔬 研究中，2026-11-08——還沒確認。移民授權書 ≈ 遷城分數 ÷ 33,600，四捨五入（查過 5 人：94k→3、236k→7、306k→9、311k→9、397k→12）。目前「約 33k 一張四捨五入」和「約 35k 一張無條件進位」都對得上。",
     powNote: "戰力 = MightPulse 的戰力。遊戲的移民實力還會加上傷兵和預備營的部隊，所以可能稍微高一點。",
     swNote: "聖劍 ≈ 遷城分數 ÷ 317（聖劍爭奪的部隊戰力）。" },
@@ -76,7 +76,7 @@ const T = {
     sl: { "": "—", invite: "Convites Comuns", open: "Abertura das Transferências", special: "Convite Especial" },
     over: "🎟️ acima do limite", overTip: "O poder passa do Limite de Poder de Transferência — só um Convite Especial traz este jogador.",
     pick: "{n} possíveis — escolha um", pickOk: "✓", nf: "🔎 não achado — coloque o ID, ou o reino (#2188) na origem", given: "na lista: {v}", c_gName: "Nome na lista", c_gTc: "TC na lista", c_gPow: "Poder na lista", c_diff: "Diferente da lista", dW: ["nome", "TC", "poder"], mpName: "MightPulse: {v}",
-    del: "✕", delQ: "Tirar {n} da lista?", rf: "↻", rfTip: "Atualizar este jogador na MightPulse (no próximo 🔎)", rfAll: "↻ Atualizar todos os mostrados ({n})", rfWait: "{n} esperando atualização — aperte 🔎", rfOn: "↻ esperando", idPh: "ID", notePh: "nota", copy: "📋 Copiar", copied: "✅ Copiado", csv: "⬇️ CSV",
+    del: "✕", delQ: "Tirar {n} da lista?", selHint: "☑️ Marque as caixas à esquerda para mudar vários de uma vez.", selN: "☑️ {n} marcados", bNotePh: "ex.: 🇰🇷 Boo", bAdd: "➕ Pôr na nota", bSt: "Mudar status…", bClr: "Desmarcar", bDone: "✅ Feito para {n} — aperte 💾 Salvar", rf: "↻", rfTip: "Atualizar este jogador na MightPulse (no próximo 🔎)", rfAll: "↻ Atualizar todos os mostrados ({n})", rfWait: "{n} esperando atualização — aperte 🔎", rfOn: "↻ esperando", idPh: "ID", notePh: "nota", copy: "📋 Copiar", copied: "✅ Copiado", csv: "⬇️ CSV",
     passNote: "🔬 Pesquisa, 2026-11-08 — não confirmado. Passe de Transferência ≈ Pontuação de Migração ÷ 33.600, arredondado (5 jogadores conferidos: 94k→3, 236k→7, 306k→9, 311k→9, 397k→12). \"Arredondar com ~33k\" e \"arredondar para cima com ~35k\" batem até agora.",
     powNote: "Poder = poder da MightPulse. O Poder de Transferência do jogo também conta tropas feridas e o Escritório de Alistamento, então pode ser um pouco maior.",
     swNote: "Terra das Espadas ≈ Pontuação de Migração ÷ 317 (poder das tropas no Confronto entre Espadas)." },
@@ -97,7 +97,7 @@ const T = {
     sl: { "": "—", invite: "الدعوات العادية", open: "فتح باب الانتقال", special: "الدعوات الخاصة" },
     over: "🎟️ فوق الحد", overTip: "القوة فوق الحد الأقصى لقوة النقل — لا تجلبه إلا الدعوات الخاصة.",
     pick: "{n} محتملون — اختر واحدًا", pickOk: "✓", nf: "🔎 لم يوجد — أضف الـ ID، أو رقم المملكة (#2188) في المصدر", given: "في القائمة: {v}", c_gName: "الاسم في القائمة", c_gTc: "TC في القائمة", c_gPow: "القوة في القائمة", c_diff: "يختلف عن القائمة", dW: ["الاسم","TC","القوة"], mpName: "MightPulse: {v}",
-    del: "✕", delQ: "إزالة {n} من القائمة؟", rf: "↻", rfTip: "تحديث هذا اللاعب من MightPulse (عند 🔎 التالي)", rfAll: "↻ تحديث كل المعروضين ({n})", rfWait: "{n} بانتظار التحديث — اضغط 🔎", rfOn: "↻ بانتظار التحديث", idPh: "المعرّف", notePh: "ملاحظة", copy: "📋 نسخ", copied: "✅ تم النسخ", csv: "⬇️ CSV",
+    del: "✕", delQ: "إزالة {n} من القائمة؟", selHint: "☑️ علّم المربعات على اليسار لتغيير كثيرين مرة واحدة.", selN: "☑️ {n} محدد", bNotePh: "مثال: 🇰🇷 Boo", bAdd: "➕ أضف إلى الملاحظة", bSt: "حدد الحالة…", bClr: "إلغاء التحديد", bDone: "✅ تم لـ {n} — اضغط 💾 حفظ", rf: "↻", rfTip: "تحديث هذا اللاعب من MightPulse (عند 🔎 التالي)", rfAll: "↻ تحديث كل المعروضين ({n})", rfWait: "{n} بانتظار التحديث — اضغط 🔎", rfOn: "↻ بانتظار التحديث", idPh: "المعرّف", notePh: "ملاحظة", copy: "📋 نسخ", copied: "✅ تم النسخ", csv: "⬇️ CSV",
     passNote: "🔬 بحث، 2026-11-08 — غير مؤكد. تذكرة الانتقال ≈ نقاط الهجرة ÷ 33,600، مقرّبة (فُحص 5 لاعبين: 94k→3، 236k→7، 306k→9، 311k→9، 397k→12). \"التقريب مع ~33k\" و\"التقريب للأعلى مع ~35k\" كلاهما يطابق حتى الآن.",
     powNote: "القوة = قوة MightPulse. قوة النقل في اللعبة تحسب أيضًا الجنود الجرحى ومكتب التجنيد، فقد تكون أعلى قليلًا.",
     swNote: "أرض السيوف ≈ نقاط الهجرة ÷ 317 (قوة القوات في مواجهة أرض السيوف)." },
@@ -118,7 +118,7 @@ const T = {
     sl: { "": "—", invite: "일반 초대", open: "자유 이민", special: "특별 초대" },
     over: "🎟️ 제한 초과", overTip: "전투력이 이민 전투력 제한을 넘어요 — 특별 초대로만 데려올 수 있어요.",
     pick: "후보 {n}명 — 하나 고르기", pickOk: "✓", nf: "🔎 못 찾음 — ID를 넣거나 출처에 왕국 번호(#2188)를 쓰세요", given: "명단: {v}", c_gName: "명단 이름", c_gTc: "명단 TC", c_gPow: "명단 전투력", c_diff: "명단과 다름", dW: ["이름", "TC", "전투력"], mpName: "MightPulse: {v}",
-    del: "✕", delQ: "{n}을(를) 명단에서 뺄까요?", rf: "↻", rfTip: "다음 🔎 때 MightPulse에서 이 플레이어 다시 가져오기", rfAll: "↻ 보이는 사람 모두 업데이트 ({n})", rfWait: "업데이트 대기 {n}명 — 🔎를 누르세요", rfOn: "↻ 업데이트 대기", idPh: "ID", notePh: "메모", copy: "📋 복사", copied: "✅ 복사됨", csv: "⬇️ CSV",
+    del: "✕", delQ: "{n}을(를) 명단에서 뺄까요?", selHint: "☑️ 왼쪽 칸을 체크하면 여러 명을 한 번에 바꿀 수 있어요.", selN: "☑️ {n}명 체크", bNotePh: "예: 🇰🇷 Boo 확인", bAdd: "➕ 메모에 추가", bSt: "상태 정하기…", bClr: "체크 해제", bDone: "✅ {n}명 변경 — 💾 저장을 누르세요", rf: "↻", rfTip: "다음 🔎 때 MightPulse에서 이 플레이어 다시 가져오기", rfAll: "↻ 보이는 사람 모두 업데이트 ({n})", rfWait: "업데이트 대기 {n}명 — 🔎를 누르세요", rfOn: "↻ 업데이트 대기", idPh: "ID", notePh: "메모", copy: "📋 복사", copied: "✅ 복사됨", csv: "⬇️ CSV",
     passNote: "🔬 연구 중, 2026-11-08 — 확인 안 됨. 이민 허가증 ≈ 이주 점수 ÷ 33,600, 반올림 (5명 확인: 94k→3, 236k→7, 306k→9, 311k→9, 397k→12). \"약 33k마다 반올림\"과 \"약 35k마다 올림\" 둘 다 지금까지 맞아요.",
     powNote: "전투력 = MightPulse 전투력. 게임의 이민 전투력은 부상병과 징병소 병력도 더해서 조금 더 높을 수 있어요.",
     swNote: "성검 ≈ 이주 점수 ÷ 317 (성검 쟁탈 부대 전투력)." },
@@ -144,6 +144,7 @@ const u8b64 = (s) => OFFICER.util.utf8ToB64(s);
 
 /* ---- state: L = what is shown; BASE = server copy as loaded; CH / ADDED / REMOVED / SETCH = this officer's unsaved changes ---- */
 let L = null, BASE = null, CH = new Map(), ADDED = new Set(), REMOVED = new Set(), SETCH = false, IMPQ = [], msg = "", polling = false;
+const SEL = new Set();   // ☑️ ticked rows for the batch bar (not saved)
 const UI = (() => { try { return JSON.parse(localStorage.getItem("nxs-tr-ui") || "{}"); } catch (e) { return {}; } })();
 const keepUI = () => { try { localStorage.setItem("nxs-tr-ui", JSON.stringify(UI)); } catch (e) {} };
 UI.sort = UI.sort || "pow"; UI.dir = UI.dir || -1;
@@ -252,8 +253,13 @@ function cell(p, k, ed) {
 function table(rows, ed) {
   if (!(L.players || []).length) return `<div class="muted">${esc(t("empty"))}</div>`;
   const th = COLS.map((k) => `<th${k === "pass" ? ` title="${esc(t("passNote"))}"` : k === "pow" ? ` title="${esc(t("powNote"))}"` : k === "sw" ? ` title="${esc(t("swNote"))}"` : ""}><button type="button" class="mm-sort${UI.sort === k ? " on" : ""}" data-sort="${k}">${esc(t("c_" + k))}${UI.sort === k ? (UI.dir > 0 ? " ▲" : " ▼") : ""}</button></th>`).join("");
-  return `<div class="mm-tw tr-tw" id="tr_tbl"><table class="mm-t tr-t"><thead><tr><th>#</th>${th}${ed ? "<th></th>" : ""}</tr></thead><tbody>`
-    + rows.map((p, i) => `<tr class="${p.status === "no" ? "tr-no" : USED.has(p.status) ? "tr-used" : ""}"><td class="muted">${i + 1}</td>${COLS.map((k) => `<td class="tr-${k}">${cell(p, k, ed)}</td>`).join("")}${ed ? `<td style="white-space:nowrap">${p.id ? `<button type="button" class="btn small${p.rf ? " on" : ""}" data-rf="${esc(p.key)}" title="${esc(t("rfTip"))}">${esc(t("rf"))}</button> ` : ""}<button type="button" class="btn small" data-del="${esc(p.key)}">${esc(t("del"))}</button></td>` : ""}</tr>`).join("")
+  const n = [...SEL].filter((k) => (L.players || []).some((p) => p.key === k)).length;
+  const bulk = !ed ? "" : `<div class="tr-row tr-bulk" id="tr_bulk">${n ? `<b>${esc(t("selN", { n }))}</b>
+      <input class="inp" id="tr_bNote" placeholder="${esc(t("bNotePh"))}" maxlength="40"><button type="button" class="btn small" id="tr_bAdd">${esc(t("bAdd"))}</button>
+      <select class="inp" id="tr_bSt"><option value="">${esc(t("bSt"))}</option>${STS.map((v) => `<option value="${v}">${esc(t("st")[v])}</option>`).join("")}</select>
+      <button type="button" class="btn small" id="tr_bClr">${esc(t("bClr"))}</button>` : `<span class="muted tr-sm">${esc(t("selHint"))}</span>`}</div>`;
+  return bulk + `<div class="mm-tw tr-tw" id="tr_tbl"><table class="mm-t tr-t"><thead><tr>${ed ? `<th><input type="checkbox" id="tr_selAll" aria-label="all"${rows.length && rows.every((p) => SEL.has(p.key)) ? " checked" : ""}></th>` : ""}<th>#</th>${th}${ed ? "<th></th>" : ""}</tr></thead><tbody>`
+    + rows.map((p, i) => `<tr class="${p.status === "no" ? "tr-no" : USED.has(p.status) ? "tr-used" : ""}">${ed ? `<td><input type="checkbox" data-sel="${esc(p.key)}"${SEL.has(p.key) ? " checked" : ""}></td>` : ""}<td class="muted">${i + 1}</td>${COLS.map((k) => `<td class="tr-${k}">${cell(p, k, ed)}</td>`).join("")}${ed ? `<td style="white-space:nowrap">${p.id ? `<button type="button" class="btn small${p.rf ? " on" : ""}" data-rf="${esc(p.key)}" title="${esc(t("rfTip"))}">${esc(t("rf"))}</button> ` : ""}<button type="button" class="btn small" data-del="${esc(p.key)}">${esc(t("del"))}</button></td>` : ""}</tr>`).join("")
     + `</tbody></table></div>`;
 }
 function quota() {
@@ -355,6 +361,14 @@ function bind(el, ed) {
 function bindRows(el, ed) {
   el.querySelectorAll("[data-sort]").forEach((b) => b.onclick = () => { const k = b.dataset.sort; if (UI.sort === k) UI.dir = -UI.dir; else { UI.sort = k; UI.dir = ["name", "src", "al", "note", "st", "slot"].includes(k) ? 1 : -1; } const fs = $("tr_fSort"); if (fs && [...fs.options].some((o) => o.value === k)) fs.value = k; keepUI(); renderRows(); });
   if (!ed) return;
+  el.querySelectorAll("[data-sel]").forEach((x) => x.onchange = () => { if (x.checked) SEL.add(x.dataset.sel); else SEL.delete(x.dataset.sel); renderRows(); });
+  const sa = el.querySelector("#tr_selAll"); if (sa) sa.onchange = () => { const rows = shown(); if (sa.checked) rows.forEach((p) => SEL.add(p.key)); else rows.forEach((p) => SEL.delete(p.key)); renderRows(); };
+  const picked = () => (L.players || []).filter((p) => SEL.has(p.key));
+  const done = (n) => { msg = t("bDone", { n }); render(); };
+  const ba = el.querySelector("#tr_bAdd"); if (ba) ba.onclick = () => { const txt = (el.querySelector("#tr_bNote").value || "").trim(); if (!txt) return; const ps = picked();
+    for (const p of ps) { const cur = String(p.note || ""); if (cur.includes(txt)) continue; p.note = (cur ? cur + " · " + txt : txt).slice(0, 80); mark(p.key, "note"); } done(ps.length); };
+  const bs = el.querySelector("#tr_bSt"); if (bs) bs.onchange = () => { if (!bs.value) return; const ps = picked(); for (const p of ps) { p.status = bs.value; mark(p.key, "status"); } done(ps.length); };
+  const bc = el.querySelector("#tr_bClr"); if (bc) bc.onclick = () => { SEL.clear(); renderRows(); };
   el.querySelectorAll("[data-st]").forEach((x) => x.onchange = () => { const p = P(x.dataset.st); if (!p) return; p.status = x.value; mark(p.key, "status"); render(); });
   el.querySelectorAll("[data-sl]").forEach((x) => x.onchange = () => { const p = P(x.dataset.sl); if (!p) return; p.slot = x.value || null; mark(p.key, "slot"); render(); });
   el.querySelectorAll("[data-note]").forEach((x) => x.onchange = () => { const p = P(x.dataset.note); if (!p) return; p.note = x.value.trim().slice(0, 80); mark(p.key, "note"); render(); });
