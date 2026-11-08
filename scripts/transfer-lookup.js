@@ -84,7 +84,10 @@ function mpFrom(body, id) {
 
 async function lookup() {
   let d = null; try { d = readData(FILE); } catch (e) { log("list not readable: " + e.code); process.exit(1); }
-  if (!d || !d.requested) { console.log("::notice title=transfer::no look-up requested"); return; }
+  // run by hand / by the previous round (workflow_dispatch → TR_FORCE): also go when nothing is "requested" but rows still wait (↻ marks, IDs not filled)
+  const waiting = d && (d.players || []).some((p) => p.rf || (p.id && !(p.mp && p.mp.full)));
+  if (!d || (!d.requested && !(process.env.TR_FORCE && waiting))) { console.log("::notice title=transfer::no look-up requested"); return; }
+  if (!d.requested) d.requested = { at: "auto", by: "auto", imports: [] };
   if (!KEY) { log("❌ MIGHTPULSE_API_KEY missing"); process.exit(1); }
   const S = { ...DEF, ...(d.settings || {}) };
   const from = Math.max(1, Math.min(+S.from || DEF.from, +S.to || DEF.to)), to = Math.min(from + 199, Math.max(+S.from || DEF.from, +S.to || DEF.to));
@@ -242,10 +245,11 @@ function merge() {
   if (d.requested) {
     // work left (time limit / MightPulse too slow) → keep the request and start another run by itself, up to 5 rounds (Sherry 2026-11-09:
     // "↻ update all" came back with only 8 players)
-    if (d.requested.at === R.reqAt && (s0.left || 0) > 0 && (d.requested.round || 1) < 5) { d.requested.round = (d.requested.round || 1) + 1; if (process.env.TR_AGAIN) fs.writeFileSync(process.env.TR_AGAIN, "1"); }
-    else if (d.requested.at === R.reqAt) delete d.requested;   // a newer request (saved while this ran) stays for the next run
+    if (d.requested.at === R.reqAt) delete d.requested;   // a newer request (saved while this ran) stays for the next run
     else { d.requested.imports = (d.requested.imports || []).filter((x) => !done(x)); }
   }
+  if ((s0.left || 0) > 0 && (d.autoRound || 0) < 5) { d.autoRound = (d.autoRound || 0) + 1; if (process.env.TR_AGAIN) fs.writeFileSync(process.env.TR_AGAIN, "1"); }
+  else delete d.autoRound;
   const s = R.stat || {};
   d.lastRun = { at: R.at, reqAt: R.reqAt, found: (s.found || 0) + (s.idOk || 0), multi: s.multi || 0, none: s.none || 0, left: s.left || 0, added, calls: R.calls || 0 };
   writeData(FILE, d);

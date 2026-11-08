@@ -29,6 +29,7 @@ jobs:
           MIGHTPULSE_API_KEY: ${{ secrets.MIGHTPULSE_API_KEY }}
           DATA_KEY: ${{ secrets.DATA_KEY }}
           TR_RESULTS: ${{ runner.temp }}/transfer-results.json
+          TR_FORCE: ${{ github.event_name == 'workflow_dispatch' && '1' || '' }}
       - name: merge onto the newest list and push
         env:
           DATA_KEY: ${{ secrets.DATA_KEY }}
