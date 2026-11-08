@@ -80,7 +80,7 @@ const T = {
     pickPvpP: "攻擊、殺傷、生命、受傷 − 每 1% 都差不多值錢——4 格分給 4 種不同類最好。薩洛一格同時給防禦＋生命。",
     calcH: "🧮 試試 4 個加入者", calcMode: "戰鬥", modeBear: "狩獵巨熊", modePvp: "PvP", calcRes: "×{x}", calcNote: "技能都算 Lv5。只是相對值——4 個技能在隊長之外多乘多少。受傷 −、敵方減益用 ×(1 + X) 算。",
     types: { atk: "攻擊", let: "殺傷", hp: "生命", def: "防禦", tk: "受傷 −", ea: "敵方攻擊 −", ed: "敵方傷害 −", nil: "沒有戰鬥技能" },
-    heroes: { amane: "雨音", margot: "瑪歌", chenko: "琴科", yeonwoo: "妍羽", amadeus: "阿瑪迪斯", gordon: "戈登", saul: "薩洛", hilde: "希爾德", howard: "霍華德", quinn: "奎恩", fahd: "法赫德", eric: "艾瑞克", diana: "狄安娜" },
+    heroes: { amane: "雨音", margot: "瑪爾戈", chenko: "琴科", yeonwoo: "妍羽", amadeus: "阿瑪迪斯", gordon: "戈登", saul: "薩洛", hilde: "希爾德", howard: "霍華德", quinn: "奎恩", fahd: "法赫德", eric: "艾瑞克", diana: "狄安娜" },
     ex: [["4 × 琴科", "×2.00"], ["2 琴科＋2 雨音", "×2.25"], ["薩洛＋戈登＋霍華德＋法赫德（全防守）", "PvP ×2.2"], ["雨音＋琴科＋戈登＋霍華德", "PvP ×2.34"]],
     exH: "例子（Lv5）",
     leadH: "👑 隊長／最強的守軍", lead: [["ok", "戰報屬性 = (1 + 兵種 % + 部隊 %) × (1 + 城鎮增益 + 集結／守城專屬) ÷ (1 + 敵方減益) − 1。"],

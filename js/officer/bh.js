@@ -176,7 +176,7 @@ const pic = (id) => `<img src="figures/heroes/hero_${id}.webp" alt="" loading="l
 const tag = (k) => `<span class="bh-st ${k}">${esc(t("st")[k])}</span>`;
 function render() {
   const root = $("bh_root"); if (!root) return;
-  const hn = (k) => ({ amane: ["Amane", "雨音"], margot: ["Margot", "瑪歌"], luna: ["Luna", "露娜"], chenko: ["Chenko", "琴科"], yeonwoo: ["Yeonwoo", "妍羽"], amadeus: ["Amadeus", "阿瑪迪斯"] }[k][lang === "zh" ? 1 : 0]);
+  const hn = (k) => ({ amane: ["Amane", "雨音"], margot: ["Margot", "瑪爾戈"], luna: ["Luna", "露娜"], chenko: ["Chenko", "琴科"], yeonwoo: ["Yeonwoo", "妍羽"], amadeus: ["Amadeus", "阿瑪迪斯"] }[k][lang === "zh" ? 1 : 0]);
   const h3 = (k, st) => `<h3>${esc(t(k))} ${tag(st)}</h3>`;
   root.innerHTML = `
   <div class="bh-hero"><div class="bh-hero-in"><span class="bh-badge">${esc(fill(t("badge"), { n: HUNTS, s: SPAN, d: UPDATED }))}</span><h2>${esc(t("heroH"))}</h2><p>${esc(t("heroP"))}</p></div></div>

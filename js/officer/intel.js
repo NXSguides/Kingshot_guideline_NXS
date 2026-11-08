@@ -99,8 +99,8 @@ const M = (n) => n == null ? "—" : (n / 1e6).toFixed(1);
 /* hero names → our picture (figures/heroes/hero_<id>.webp) and the official Chinese name */
 const HZH = { amadeus: "阿瑪迪斯", amane: "雨音", chenko: "琴科", diana: "狄安娜", edwin: "艾德溫", eric: "艾瑞克", fahd: "法赫德", forrest: "福斯特", gordon: "戈登", helga: "赫爾加",
   hilde: "希爾德", howard: "霍華德", jabel: "潔貝爾", jaeger: "耶格爾", marlin: "馬林", olive: "奧麗芙", petra: "小佩拉", quinn: "奎恩", saul: "薩洛", seth: "史密斯", yeonwoo: "妍羽",
-  zoe: "佐伊", alcar: "艾爾卡", longfei: "龍飛", margot: "瑪歌", rosa: "蘿莎", thrud: "索德", vivian: "薇薇安", triton: "崔頓", sophia: "蘇菲亞", yang: "楊", charles: "查爾斯",
-  ava: "艾娃", weewoo: "Wee & Woo", liz: "莉茲", diego: "迪亞哥", luna: "露娜" };
+  zoe: "佐伊", alcar: "阿爾卡", longfei: "龍飛", margot: "瑪爾戈", rosa: "羅莎", thrud: "斯露德", vivian: "薇薇安", triton: "崔頓", sophia: "索菲亞", yang: "楊", charles: "查爾斯",
+  ava: "艾瓦", weewoo: "Wee & Woo", liz: "麗茲", diego: "迪亞哥", luna: "露娜" };
 const HAVE = new Set(Object.keys(HZH));
 const hid = (n) => String(n || "").toLowerCase().replace(/[^a-z]/g, "");
 const hname = (n) => lang === "zh" && HZH[hid(n)] ? HZH[hid(n)] : String(n || "");
