@@ -20,7 +20,7 @@ const T = {
   en: { title: "🧳 Kingdom Transfer list", intro: "Players from other kingdoms who want to come to #2189. Add them, let MightPulse fill in their data, pick whom to invite.",
     locked: "Unlock the officer data to see the list.", group: "Transfer group", cap: "Transfer Power Cap", ordK: "Ordinary Kingdom",
     set: "⚙️ Settings", from: "from K", to: "to K", capM: "Transfer Power Cap (M)", setOk: "✓",
-    q_invite: "Ordinary Invite", q_open: "Transfer Opens", q_special: "Special Invite", qHint: "counted: invited, confirmed and moved",
+    q_invite: "Ordinary Invite", q_open: "Transfer Opens", q_special: "Special Invite", qHint: "counted: players with a slot chosen",
     addH: "➕ Add players", pastePh: "Paste a list: one player per line — name, ID, TC and power in any order", srcPh: "Source: which alliance or list (add #kingdom if known)", addBtn: "Add",
     added: "{n} added · {d} already on the list.", noneRead: "No player found in the text.",
     impH: "🏰 Import a whole alliance", impKid: "Kingdom", impTag: "Alliance tag", impBtn: "Add to the look-up", impBad: "Type the kingdom number and the alliance tag.", impQ: "Waiting for the look-up: {l}",
@@ -34,14 +34,14 @@ const T = {
     sl: { "": "—", invite: "Ordinary Invite", open: "Transfer Opens", special: "Special Invite" },
     over: "🎟️ over cap", overTip: "Power is over the Transfer Power Cap — only a Special Invite can bring this player.",
     pick: "{n} possible — pick one", pickOk: "✓", nf: "🔎 not found — add the ID, or the kingdom (#2188) to the source", given: "listed: {v}", c_gName: "Listed name", c_gTc: "Listed TC", c_gPow: "Listed power", c_diff: "Differs from list", dW: ["name", "TC", "power"], mpName: "MightPulse: {v}",
-    del: "✕", delQ: "Remove {n} from the list?", selHint: "☑️ Tick rows on the left to change many at once.", selN: "☑️ {n} selected", bNotePh: "Note to add", bAdd: "➕ Add to note", bSt: "Set status…", bClr: "Clear ticks", bDone: "✅ Done for {n} — press 💾 Save", rf: "↻", rfTip: "Update this player from MightPulse (at the next 🔎)", rfAll: "↻ Update all shown ({n})", rfWait: "{n} waiting for update — press 🔎", rfOn: "↻ waiting", idPh: "ID", notePh: "note", copy: "📋 Copy", copied: "✅ Copied", csv: "⬇️ CSV", xlsx: "\u2b07\ufe0f Excel", xP: "Players", xQ: "Quota", xUsed: "Used", xMax: "Max", xLeft: "Left", xShow: "Show", xRank: "Rank by", xPick: "Pick here ▼ — the tables re-sort by themselves (Excel / Google Sheets)",
+    del: "✕", delQ: "Remove {n} from the list?", selHint: "☑️ Tick rows on the left to change many at once.", selN: "☑️ {n} selected", bNotePh: "Note to add", bAdd: "➕ Add to note", bSt: "Set slot…", bClr: "Clear ticks", bDone: "✅ Done for {n} — press 💾 Save", rf: "↻", rfTip: "Update this player from MightPulse (at the next 🔎)", rfAll: "↻ Update all shown ({n})", rfWait: "{n} waiting for update — press 🔎", rfOn: "↻ waiting", idPh: "ID", notePh: "note", copy: "📋 Copy", copied: "✅ Copied", csv: "⬇️ CSV", xlsx: "\u2b07\ufe0f Excel", xP: "Players", xQ: "Quota", xUsed: "Used", xMax: "Max", xLeft: "Left", xShow: "Show", xRank: "Rank by", xPick: "Pick here ▼ — the tables re-sort by themselves (Excel / Google Sheets)",
     passNote: "🔬 Research, 2026-11-08 — not confirmed. Transfer Pass ≈ Migrant Score ÷ 33,600, rounded (5 players checked: 94k→3, 236k→7, 306k→9, 311k→9, 397k→12). \"Round with ~33k\" and \"round up with ~35k\" both fit so far.",
     powNote: "Power = MightPulse power. The game's Transfer Power also counts injured troops and the Enlistment Office, so it can be a bit higher.",
     swNote: "Swordland ≈ Migrant Score ÷ 317 (Swordland Showdown troop power)." },
   zh: { title: "🧳 王國移民名單", intro: "想從其他王國移民到 #2189 的玩家。加進來，讓 MightPulse 補資料，再決定邀請誰。",
     locked: "要先解鎖幹部資料才看得到名單。", group: "移民分組", cap: "移民實力限制", ordK: "普通王國",
     set: "⚙️ 設定", from: "從 K", to: "到 K", capM: "移民實力限制（M）", setOk: "✓",
-    q_invite: "普通邀請", q_open: "自由移民", q_special: "特殊邀請", qHint: "只算：已邀請、已確認、已移民",
+    q_invite: "普通邀請", q_open: "自由移民", q_special: "特殊邀請", qHint: "只算：已選名額的人",
     addH: "➕ 加入玩家", pastePh: "貼上名單：一行一個人，名字、ID、TC、戰力順序不拘", srcPh: "來源：哪個聯盟或名單（知道王國號就加 #王國號）", addBtn: "加入",
     added: "加入 {n} 人 · {d} 人已經在名單上。", noneRead: "這段文字裡找不到玩家。",
     impH: "🏰 匯入整個聯盟", impKid: "王國", impTag: "聯盟簡稱", impBtn: "加到查詢", impBad: "請輸入王國編號和聯盟簡稱。", impQ: "等待查詢：{l}",
@@ -55,14 +55,14 @@ const T = {
     sl: { "": "—", invite: "普通邀請", open: "自由移民", special: "特殊邀請" },
     over: "🎟️ 超過限制", overTip: "戰力超過移民實力限制——只能用特殊邀請。",
     pick: "{n} 個可能——選一個", pickOk: "✓", nf: "🔎 找不到——補上 ID，或在來源寫王國號（#2188）", given: "名單上：{v}", c_gName: "名單上的名字", c_gTc: "名單上的 TC", c_gPow: "名單上的戰力", c_diff: "跟名單不同", dW: ["名字", "TC", "戰力"], mpName: "MightPulse：{v}",
-    del: "✕", delQ: "把 {n} 從名單移除？", selHint: "☑️ 勾左邊的方框，可以一次改很多人。", selN: "☑️ 已勾 {n} 人", bNotePh: "要加的備註", bAdd: "➕ 加到備註", bSt: "設定狀態…", bClr: "取消勾選", bDone: "✅ 已改 {n} 人——記得按 💾 儲存", rf: "↻", rfTip: "下次按 🔎 時重新抓這個人的資料", rfAll: "↻ 全部更新（目前顯示的 {n} 人）", rfWait: "{n} 人等著更新——按 🔎 開始", rfOn: "↻ 等更新", idPh: "ID", notePh: "備註", copy: "📋 複製", copied: "✅ 已複製", csv: "⬇️ CSV", xlsx: "\u2b07\ufe0f Excel", xP: "名單", xQ: "名額", xUsed: "已用", xMax: "上限", xLeft: "剩下", xShow: "額外顯示", xRank: "排行依據", xPick: "在這裡選 ▼——表格會自己換欄、重新排行（Excel／Google 試算表）",
+    del: "✕", delQ: "把 {n} 從名單移除？", selHint: "☑️ 勾左邊的方框，可以一次改很多人。", selN: "☑️ 已勾 {n} 人", bNotePh: "要加的備註", bAdd: "➕ 加到備註", bSt: "設定名額…", bClr: "取消勾選", bDone: "✅ 已改 {n} 人——記得按 💾 儲存", rf: "↻", rfTip: "下次按 🔎 時重新抓這個人的資料", rfAll: "↻ 全部更新（目前顯示的 {n} 人）", rfWait: "{n} 人等著更新——按 🔎 開始", rfOn: "↻ 等更新", idPh: "ID", notePh: "備註", copy: "📋 複製", copied: "✅ 已複製", csv: "⬇️ CSV", xlsx: "\u2b07\ufe0f Excel", xP: "名單", xQ: "名額", xUsed: "已用", xMax: "上限", xLeft: "剩下", xShow: "額外顯示", xRank: "排行依據", xPick: "在這裡選 ▼——表格會自己換欄、重新排行（Excel／Google 試算表）",
     passNote: "🔬 研究中，2026-11-08——還沒確認。移民授權書 ≈ 遷城分數 ÷ 33,600，四捨五入（查過 5 人：94k→3、236k→7、306k→9、311k→9、397k→12）。目前「約 33k 一張四捨五入」和「約 35k 一張無條件進位」都對得上。",
     powNote: "戰力 = MightPulse 的戰力。遊戲的移民實力還會加上傷兵和預備營的部隊，所以可能稍微高一點。",
     swNote: "聖劍 ≈ 遷城分數 ÷ 317（聖劍爭奪的部隊戰力）。" },
   pt: { title: "🧳 Lista da Transferência de Reino", intro: "Jogadores de outros reinos que querem vir para o #2189. Adicione, deixe a MightPulse preencher os dados e escolha quem convidar.",
     locked: "Desbloqueie os dados dos oficiais para ver a lista.", group: "Grupo de transferência", cap: "Limite de Poder de Transferência", ordK: "Reinos Comuns",
     set: "⚙️ Ajustes", from: "de K", to: "até K", capM: "Limite de Poder de Transferência (M)", setOk: "✓",
-    q_invite: "Convites Comuns", q_open: "Abertura das Transferências", q_special: "Convite Especial", qHint: "conta: convidado, confirmado e mudou",
+    q_invite: "Convites Comuns", q_open: "Abertura das Transferências", q_special: "Convite Especial", qHint: "conta: jogadores com vaga escolhida",
     addH: "➕ Adicionar jogadores", pastePh: "Cole a lista: um jogador por linha — nome, ID, TC e poder em qualquer ordem", srcPh: "Origem: qual aliança ou lista (ponha #reino se souber)", addBtn: "Adicionar",
     added: "{n} adicionados · {d} já estavam na lista.", noneRead: "Nenhum jogador encontrado no texto.",
     impH: "🏰 Importar uma aliança inteira", impKid: "Reino", impTag: "Tag da aliança", impBtn: "Pôr na consulta", impBad: "Digite o número do reino e a tag da aliança.", impQ: "Esperando a consulta: {l}",
@@ -76,14 +76,14 @@ const T = {
     sl: { "": "—", invite: "Convites Comuns", open: "Abertura das Transferências", special: "Convite Especial" },
     over: "🎟️ acima do limite", overTip: "O poder passa do Limite de Poder de Transferência — só um Convite Especial traz este jogador.",
     pick: "{n} possíveis — escolha um", pickOk: "✓", nf: "🔎 não achado — coloque o ID, ou o reino (#2188) na origem", given: "na lista: {v}", c_gName: "Nome na lista", c_gTc: "TC na lista", c_gPow: "Poder na lista", c_diff: "Diferente da lista", dW: ["nome", "TC", "poder"], mpName: "MightPulse: {v}",
-    del: "✕", delQ: "Tirar {n} da lista?", selHint: "☑️ Marque as caixas à esquerda para mudar vários de uma vez.", selN: "☑️ {n} marcados", bNotePh: "Nota a adicionar", bAdd: "➕ Pôr na nota", bSt: "Mudar status…", bClr: "Desmarcar", bDone: "✅ Feito para {n} — aperte 💾 Salvar", rf: "↻", rfTip: "Atualizar este jogador na MightPulse (no próximo 🔎)", rfAll: "↻ Atualizar todos os mostrados ({n})", rfWait: "{n} esperando atualização — aperte 🔎", rfOn: "↻ esperando", idPh: "ID", notePh: "nota", copy: "📋 Copiar", copied: "✅ Copiado", csv: "⬇️ CSV", xlsx: "\u2b07\ufe0f Excel", xP: "Jogadores", xQ: "Vagas", xUsed: "Usadas", xMax: "Máx.", xLeft: "Restam", xShow: "Mostrar", xRank: "Ordenar por", xPick: "Escolha aqui ▼ — as tabelas se reordenam sozinhas (Excel / Google Planilhas)",
+    del: "✕", delQ: "Tirar {n} da lista?", selHint: "☑️ Marque as caixas à esquerda para mudar vários de uma vez.", selN: "☑️ {n} marcados", bNotePh: "Nota a adicionar", bAdd: "➕ Pôr na nota", bSt: "Definir vaga…", bClr: "Desmarcar", bDone: "✅ Feito para {n} — aperte 💾 Salvar", rf: "↻", rfTip: "Atualizar este jogador na MightPulse (no próximo 🔎)", rfAll: "↻ Atualizar todos os mostrados ({n})", rfWait: "{n} esperando atualização — aperte 🔎", rfOn: "↻ esperando", idPh: "ID", notePh: "nota", copy: "📋 Copiar", copied: "✅ Copiado", csv: "⬇️ CSV", xlsx: "\u2b07\ufe0f Excel", xP: "Jogadores", xQ: "Vagas", xUsed: "Usadas", xMax: "Máx.", xLeft: "Restam", xShow: "Mostrar", xRank: "Ordenar por", xPick: "Escolha aqui ▼ — as tabelas se reordenam sozinhas (Excel / Google Planilhas)",
     passNote: "🔬 Pesquisa, 2026-11-08 — não confirmado. Passe de Transferência ≈ Pontuação de Migração ÷ 33.600, arredondado (5 jogadores conferidos: 94k→3, 236k→7, 306k→9, 311k→9, 397k→12). \"Arredondar com ~33k\" e \"arredondar para cima com ~35k\" batem até agora.",
     powNote: "Poder = poder da MightPulse. O Poder de Transferência do jogo também conta tropas feridas e o Escritório de Alistamento, então pode ser um pouco maior.",
     swNote: "Terra das Espadas ≈ Pontuação de Migração ÷ 317 (poder das tropas no Confronto entre Espadas)." },
   ar: { title: "🧳 قائمة نقل المملكة", intro: "لاعبون من ممالك أخرى يريدون الانتقال إلى #2189. أضفهم، ودع MightPulse يملأ بياناتهم، ثم اختر من تدعو.",
     locked: "افتح بيانات الضباط لرؤية القائمة.", group: "مجموعة النقل", cap: "الحد الأقصى لقوة النقل", ordK: "الممالك العادية",
     set: "⚙️ الإعدادات", from: "من K", to: "إلى K", capM: "الحد الأقصى لقوة النقل (M)", setOk: "✓",
-    q_invite: "الدعوات العادية", q_open: "فتح باب الانتقال", q_special: "الدعوات الخاصة", qHint: "يُحسب: تمت دعوته، مؤكد، انتقل",
+    q_invite: "الدعوات العادية", q_open: "فتح باب الانتقال", q_special: "الدعوات الخاصة", qHint: "يُحسب: اللاعبون الذين اختير لهم مقعد",
     addH: "➕ إضافة لاعبين", pastePh: "الصق القائمة: لاعب في كل سطر — الاسم والمعرّف وTC والقوة بأي ترتيب", srcPh: "المصدر: أي تحالف أو قائمة (أضف #رقم المملكة إن عرفته)", addBtn: "إضافة",
     added: "أُضيف {n} · {d} موجودون في القائمة.", noneRead: "لم يُعثر على لاعب في النص.",
     impH: "🏰 استيراد تحالف كامل", impKid: "المملكة", impTag: "وسم التحالف", impBtn: "أضف إلى البحث", impBad: "اكتب رقم المملكة ووسم التحالف.", impQ: "بانتظار البحث: {l}",
@@ -97,14 +97,14 @@ const T = {
     sl: { "": "—", invite: "الدعوات العادية", open: "فتح باب الانتقال", special: "الدعوات الخاصة" },
     over: "🎟️ فوق الحد", overTip: "القوة فوق الحد الأقصى لقوة النقل — لا تجلبه إلا الدعوات الخاصة.",
     pick: "{n} محتملون — اختر واحدًا", pickOk: "✓", nf: "🔎 لم يوجد — أضف الـ ID، أو رقم المملكة (#2188) في المصدر", given: "في القائمة: {v}", c_gName: "الاسم في القائمة", c_gTc: "TC في القائمة", c_gPow: "القوة في القائمة", c_diff: "يختلف عن القائمة", dW: ["الاسم","TC","القوة"], mpName: "MightPulse: {v}",
-    del: "✕", delQ: "إزالة {n} من القائمة؟", selHint: "☑️ علّم المربعات على اليسار لتغيير كثيرين مرة واحدة.", selN: "☑️ {n} محدد", bNotePh: "الملاحظة المراد إضافتها", bAdd: "➕ أضف إلى الملاحظة", bSt: "حدد الحالة…", bClr: "إلغاء التحديد", bDone: "✅ تم لـ {n} — اضغط 💾 حفظ", rf: "↻", rfTip: "تحديث هذا اللاعب من MightPulse (عند 🔎 التالي)", rfAll: "↻ تحديث كل المعروضين ({n})", rfWait: "{n} بانتظار التحديث — اضغط 🔎", rfOn: "↻ بانتظار التحديث", idPh: "المعرّف", notePh: "ملاحظة", copy: "📋 نسخ", copied: "✅ تم النسخ", csv: "⬇️ CSV", xlsx: "\u2b07\ufe0f Excel", xP: "اللاعبون", xQ: "المقاعد", xUsed: "المستخدم", xMax: "الحد", xLeft: "المتبقي", xShow: "إظهار", xRank: "الترتيب حسب", xPick: "اختر هنا ▼ — تُعاد ترتيب الجداول وحدها (Excel / Google Sheets)",
+    del: "✕", delQ: "إزالة {n} من القائمة؟", selHint: "☑️ علّم المربعات على اليسار لتغيير كثيرين مرة واحدة.", selN: "☑️ {n} محدد", bNotePh: "الملاحظة المراد إضافتها", bAdd: "➕ أضف إلى الملاحظة", bSt: "حدد المقعد…", bClr: "إلغاء التحديد", bDone: "✅ تم لـ {n} — اضغط 💾 حفظ", rf: "↻", rfTip: "تحديث هذا اللاعب من MightPulse (عند 🔎 التالي)", rfAll: "↻ تحديث كل المعروضين ({n})", rfWait: "{n} بانتظار التحديث — اضغط 🔎", rfOn: "↻ بانتظار التحديث", idPh: "المعرّف", notePh: "ملاحظة", copy: "📋 نسخ", copied: "✅ تم النسخ", csv: "⬇️ CSV", xlsx: "\u2b07\ufe0f Excel", xP: "اللاعبون", xQ: "المقاعد", xUsed: "المستخدم", xMax: "الحد", xLeft: "المتبقي", xShow: "إظهار", xRank: "الترتيب حسب", xPick: "اختر هنا ▼ — تُعاد ترتيب الجداول وحدها (Excel / Google Sheets)",
     passNote: "🔬 بحث، 2026-11-08 — غير مؤكد. تذكرة الانتقال ≈ نقاط الهجرة ÷ 33,600، مقرّبة (فُحص 5 لاعبين: 94k→3، 236k→7، 306k→9، 311k→9، 397k→12). \"التقريب مع ~33k\" و\"التقريب للأعلى مع ~35k\" كلاهما يطابق حتى الآن.",
     powNote: "القوة = قوة MightPulse. قوة النقل في اللعبة تحسب أيضًا الجنود الجرحى ومكتب التجنيد، فقد تكون أعلى قليلًا.",
     swNote: "أرض السيوف ≈ نقاط الهجرة ÷ 317 (قوة القوات في مواجهة أرض السيوف)." },
   ko: { title: "🧳 왕국 이민 명단", intro: "다른 왕국에서 #2189로 오고 싶은 플레이어. 추가하고, MightPulse로 데이터를 채우고, 누구를 초대할지 정해요.",
     locked: "간부 데이터를 잠금 해제해야 명단이 보여요.", group: "이민 그룹", cap: "이민 전투력 제한", ordK: "일반 왕국",
     set: "⚙️ 설정", from: "K", to: "~ K", capM: "이민 전투력 제한 (M)", setOk: "✓",
-    q_invite: "일반 초대", q_open: "자유 이민", q_special: "특별 초대", qHint: "집계: 초대함, 확정, 이민 완료",
+    q_invite: "일반 초대", q_open: "자유 이민", q_special: "특별 초대", qHint: "집계: 자리를 정한 사람",
     addH: "➕ 플레이어 추가", pastePh: "명단 붙여넣기: 한 줄에 한 명 — 이름, ID, TC, 전투력 순서 상관없음", srcPh: "출처: 어느 연맹이나 명단인지 (알면 #왕국 번호 추가)", addBtn: "추가",
     added: "{n}명 추가 · {d}명은 이미 명단에 있어요.", noneRead: "텍스트에서 플레이어를 찾지 못했어요.",
     impH: "🏰 연맹 전체 가져오기", impKid: "왕국", impTag: "연맹 태그", impBtn: "조회에 추가", impBad: "왕국 번호와 연맹 태그를 입력하세요.", impQ: "조회 대기: {l}",
@@ -118,7 +118,7 @@ const T = {
     sl: { "": "—", invite: "일반 초대", open: "자유 이민", special: "특별 초대" },
     over: "🎟️ 제한 초과", overTip: "전투력이 이민 전투력 제한을 넘어요 — 특별 초대로만 데려올 수 있어요.",
     pick: "후보 {n}명 — 하나 고르기", pickOk: "✓", nf: "🔎 못 찾음 — ID를 넣거나 출처에 왕국 번호(#2188)를 쓰세요", given: "명단: {v}", c_gName: "명단 이름", c_gTc: "명단 TC", c_gPow: "명단 전투력", c_diff: "명단과 다름", dW: ["이름", "TC", "전투력"], mpName: "MightPulse: {v}",
-    del: "✕", delQ: "{n}을(를) 명단에서 뺄까요?", selHint: "☑️ 왼쪽 칸을 체크하면 여러 명을 한 번에 바꿀 수 있어요.", selN: "☑️ {n}명 체크", bNotePh: "추가할 메모", bAdd: "➕ 메모에 추가", bSt: "상태 정하기…", bClr: "체크 해제", bDone: "✅ {n}명 변경 — 💾 저장을 누르세요", rf: "↻", rfTip: "다음 🔎 때 MightPulse에서 이 플레이어 다시 가져오기", rfAll: "↻ 보이는 사람 모두 업데이트 ({n})", rfWait: "업데이트 대기 {n}명 — 🔎를 누르세요", rfOn: "↻ 업데이트 대기", idPh: "ID", notePh: "메모", copy: "📋 복사", copied: "✅ 복사됨", csv: "⬇️ CSV", xlsx: "\u2b07\ufe0f Excel", xP: "명단", xQ: "자리", xUsed: "사용", xMax: "최대", xLeft: "남음", xShow: "추가 표시", xRank: "순위 기준", xPick: "여기서 고르세요 ▼ — 표가 알아서 다시 정렬돼요 (Excel / Google 스프레드시트)",
+    del: "✕", delQ: "{n}을(를) 명단에서 뺄까요?", selHint: "☑️ 왼쪽 칸을 체크하면 여러 명을 한 번에 바꿀 수 있어요.", selN: "☑️ {n}명 체크", bNotePh: "추가할 메모", bAdd: "➕ 메모에 추가", bSt: "자리 정하기…", bClr: "체크 해제", bDone: "✅ {n}명 변경 — 💾 저장을 누르세요", rf: "↻", rfTip: "다음 🔎 때 MightPulse에서 이 플레이어 다시 가져오기", rfAll: "↻ 보이는 사람 모두 업데이트 ({n})", rfWait: "업데이트 대기 {n}명 — 🔎를 누르세요", rfOn: "↻ 업데이트 대기", idPh: "ID", notePh: "메모", copy: "📋 복사", copied: "✅ 복사됨", csv: "⬇️ CSV", xlsx: "\u2b07\ufe0f Excel", xP: "명단", xQ: "자리", xUsed: "사용", xMax: "최대", xLeft: "남음", xShow: "추가 표시", xRank: "순위 기준", xPick: "여기서 고르세요 ▼ — 표가 알아서 다시 정렬돼요 (Excel / Google 스프레드시트)",
     passNote: "🔬 연구 중, 2026-11-08 — 확인 안 됨. 이민 허가증 ≈ 이주 점수 ÷ 33,600, 반올림 (5명 확인: 94k→3, 236k→7, 306k→9, 311k→9, 397k→12). \"약 33k마다 반올림\"과 \"약 35k마다 올림\" 둘 다 지금까지 맞아요.",
     powNote: "전투력 = MightPulse 전투력. 게임의 이민 전투력은 부상병과 징병소 병력도 더해서 조금 더 높을 수 있어요.",
     swNote: "성검 ≈ 이주 점수 ÷ 317 (성검 쟁탈 부대 전투력)." },
@@ -197,7 +197,7 @@ function parseLine(line) {
 }
 
 /* ---- table ---- */
-const COLS = ["name", "st", "slot", "src", "kid", "al", "id", "tc", "pow", "red", "mig", "pass", "sw", "mys", "note"];
+const COLS = ["name", "slot", "src", "kid", "al", "id", "tc", "pow", "red", "mig", "mys", "note"];   // Sherry 2026-11-09: no Status (everyone here is interested) and nothing we compute ourselves — only what MightPulse gives (+ slot / note)
 function val(p, k) {
   const mp = p.mp || {};
   switch (k) {
@@ -219,7 +219,7 @@ function val(p, k) {
 }
 function shown() {
   const q = norm(UI.q || ""), qd = String(UI.q || "").replace(/\D/g, "");
-  return (L.players || []).filter((p) => (!UI.src || (p.src || "") === UI.src) && (!UI.st || (p.status || "interested") === UI.st)
+  return (L.players || []).filter((p) => (!UI.src || (p.src || "") === UI.src) && true
     && (!q || norm(p.name).includes(q) || norm(p.mp && p.mp.name).includes(q) || (qd && String(p.id || "").includes(qd))))
     .sort((a, b) => { const x = val(a, UI.sort), y = val(b, UI.sort); return (x < y ? -1 : x > y ? 1 : 0) * UI.dir || (powOf(b) || 0) - (powOf(a) || 0); });
 }
@@ -258,15 +258,15 @@ function table(rows, ed) {
   const n = [...SEL].filter((k) => (L.players || []).some((p) => p.key === k)).length;
   const bulk = !ed ? "" : `<div class="tr-row tr-bulk" id="tr_bulk">${n ? `<b>${esc(t("selN", { n }))}</b>
       <input class="inp" id="tr_bNote" placeholder="${esc(t("bNotePh"))}" maxlength="40"><button type="button" class="btn small" id="tr_bAdd">${esc(t("bAdd"))}</button>
-      <select class="inp" id="tr_bSt"><option value="">${esc(t("bSt"))}</option>${STS.map((v) => `<option value="${v}">${esc(t("st")[v])}</option>`).join("")}</select>
+      <select class="inp" id="tr_bSt"><option value="">${esc(t("bSt"))}</option>${SLOTS.map((v) => `<option value="${v || "-"}">${esc(t("sl")[v])}</option>`).join("")}</select>
       <button type="button" class="btn small" id="tr_bClr">${esc(t("bClr"))}</button>` : `<span class="muted tr-sm">${esc(t("selHint"))}</span>`}</div>`;
   return bulk + `<div class="mm-tw tr-tw" id="tr_tbl"><table class="mm-t tr-t"><thead><tr>${ed ? `<th><input type="checkbox" id="tr_selAll" aria-label="all"${rows.length && rows.every((p) => SEL.has(p.key)) ? " checked" : ""}></th>` : ""}<th>#</th>${th}${ed ? "<th></th>" : ""}</tr></thead><tbody>`
-    + rows.map((p, i) => `<tr class="${p.status === "no" ? "tr-no" : USED.has(p.status) ? "tr-used" : ""}">${ed ? `<td><input type="checkbox" data-sel="${esc(p.key)}"${SEL.has(p.key) ? " checked" : ""}></td>` : ""}<td class="muted">${i + 1}</td>${COLS.map((k) => `<td class="tr-${k}">${cell(p, k, ed)}</td>`).join("")}${ed ? `<td style="white-space:nowrap">${p.id ? `<button type="button" class="btn small${p.rf ? " on" : ""}" data-rf="${esc(p.key)}" title="${esc(t("rfTip"))}">${esc(t("rf"))}</button> ` : ""}<button type="button" class="btn small" data-del="${esc(p.key)}">${esc(t("del"))}</button></td>` : ""}</tr>`).join("")
+    + rows.map((p, i) => `<tr class="${p.slot ? "tr-used" : ""}">${ed ? `<td><input type="checkbox" data-sel="${esc(p.key)}"${SEL.has(p.key) ? " checked" : ""}></td>` : ""}<td class="muted">${i + 1}</td>${COLS.map((k) => `<td class="tr-${k}">${cell(p, k, ed)}</td>`).join("")}${ed ? `<td style="white-space:nowrap">${p.id ? `<button type="button" class="btn small${p.rf ? " on" : ""}" data-rf="${esc(p.key)}" title="${esc(t("rfTip"))}">${esc(t("rf"))}</button> ` : ""}<button type="button" class="btn small" data-del="${esc(p.key)}">${esc(t("del"))}</button></td>` : ""}</tr>`).join("")
     + `</tbody></table></div>`;
 }
 function quota() {
   const s = S(), used = { invite: 0, open: 0, special: 0 };
-  for (const p of L.players || []) if (USED.has(p.status) && used[p.slot] != null) used[p.slot]++;
+  for (const p of L.players || []) if (p.slot && used[p.slot] != null) used[p.slot]++;   // a chosen slot = counted (no status any more)
   const box = (k, max) => { const n = used[k], pc = max ? Math.min(100, Math.round(n / max * 100)) : 0;
     return `<div class="tr-q${n > max ? " full" : ""}"><div class="tr-ql">${esc(t("q_" + k))}</div><div class="tr-qn"><b>${n}</b> / ${max}</div><div class="tr-bar"><i style="width:${pc}%"></i></div></div>`; };
   return `<div class="tr-qs" id="tr_quota">${box("invite", s.invites)}${box("open", s.open)}${box("special", s.special)}</div>`;
@@ -307,13 +307,12 @@ function draw(el) {
     ${ed && dirty() ? `<div class="tr-dirty"><button type="button" class="btn primary" id="tr_save">${esc(t("save"))}</button> <span class="muted tr-sm">${esc(t("unsaved"))}</span></div>` : ""}
     ${msg ? `<div class="muted tr-msg">${esc(msg)}</div>` : ""}
     <div class="tr-flt"><select class="inp" id="tr_fSrc"><option value="">${esc(t("allSrc"))}</option>${srcs.map((x) => `<option${UI.src === x ? " selected" : ""}>${esc(x)}</option>`).join("")}</select>
-      <select class="inp" id="tr_fSt"><option value="">${esc(t("allSt"))}</option>${STS.map((v) => `<option value="${v}"${UI.st === v ? " selected" : ""}>${esc(t("st")[v])}</option>`).join("")}</select>
-      <select class="inp" id="tr_fSort">${["pow", "red", "mys", "mig", "tc", "kid", "name", "st"].map((k) => `<option value="${k}"${UI.sort === k ? " selected" : ""}>↕ ${esc(t("c_" + k))}</option>`).join("")}</select>
+      <select class="inp" id="tr_fSort">${["pow", "red", "mys", "mig", "tc", "kid", "name"].map((k) => `<option value="${k}"${UI.sort === k ? " selected" : ""}>↕ ${esc(t("c_" + k))}</option>`).join("")}</select>
       <input type="search" class="inp" id="tr_q" placeholder="${esc(t("find"))}" value="${esc(UI.q || "")}">
       <span class="muted tr-sm" id="tr_cnt"></span>
       <span class="tr-exp">${ed ? `<button type="button" class="btn small" id="tr_rfall">${esc(t("rfAll", { n: shown().filter((p) => p.id).length }))}</button>` : ""}<button type="button" class="btn small" id="tr_copy">${esc(t("copy"))}</button><button type="button" class="btn small" id="tr_csv">${esc(t("csv"))}</button><button type="button" class="btn small" id="tr_xlsx">${esc(t("xlsx"))}</button></span></div>
     <div id="tr_box"></div>
-    <div class="muted tr-foot" id="tr_pass">${esc(t("passNote"))}<br>${esc(t("swNote"))}<br>${esc(t("powNote"))}</div>`;
+    <div class="muted tr-foot" id="tr_pass">${esc(t("powNote"))}<br>🔴 ${esc(t("redTip"))}</div>`;
   bind(el, ed);
   renderRows();
 }
@@ -327,8 +326,7 @@ function renderRows() {
 }
 function bind(el, ed) {
   $("tr_fSrc").onchange = (e) => { UI.src = e.target.value; keepUI(); renderRows(); };
-  $("tr_fSt").onchange = (e) => { UI.st = e.target.value; keepUI(); renderRows(); };
-  $("tr_fSort").onchange = (e) => { UI.sort = e.target.value; UI.dir = ["name", "st"].includes(UI.sort) ? 1 : -1; keepUI(); renderRows(); };   // phones: sort without scrolling to the header (Sherry 2026-11-08)
+  $("tr_fSort").onchange = (e) => { UI.sort = e.target.value; UI.dir = ["name"].includes(UI.sort) ? 1 : -1; keepUI(); renderRows(); };   // phones: sort without scrolling to the header (Sherry 2026-11-08)
   $("tr_q").oninput = (e) => { UI.q = e.target.value; renderRows(); };
   $("tr_reload").onclick = () => reload(true);
   if ($("tr_rfall")) $("tr_rfall").onclick = () => { for (const p of shown()) if (p.id && !p.rf) { p.rf = 1; mark(p.key, "rf"); } render(); };
@@ -370,7 +368,7 @@ function bindRows(el, ed) {
   const done = (n) => { msg = t("bDone", { n }); render(); };
   const ba = el.querySelector("#tr_bAdd"); if (ba) ba.onclick = () => { const txt = (el.querySelector("#tr_bNote").value || "").trim(); if (!txt) return; const ps = picked();
     for (const p of ps) { const cur = String(p.note || ""); if (cur.includes(txt)) continue; p.note = (cur ? cur + " · " + txt : txt).slice(0, 80); mark(p.key, "note"); } done(ps.length); };
-  const bs = el.querySelector("#tr_bSt"); if (bs) bs.onchange = () => { if (!bs.value) return; const ps = picked(); for (const p of ps) { p.status = bs.value; mark(p.key, "status"); } done(ps.length); };
+  const bs = el.querySelector("#tr_bSt"); if (bs) bs.onchange = () => { if (!bs.value) return; const v = bs.value === "-" ? null : bs.value, ps = picked(); for (const p of ps) { p.slot = v; mark(p.key, "slot"); } done(ps.length); };
   const bc = el.querySelector("#tr_bClr"); if (bc) bc.onclick = () => { SEL.clear(); renderRows(); };
   el.querySelectorAll("[data-st]").forEach((x) => x.onchange = () => { const p = P(x.dataset.st); if (!p) return; p.status = x.value; mark(p.key, "status"); render(); });
   el.querySelectorAll("[data-sl]").forEach((x) => x.onchange = () => { const p = P(x.dataset.sl); if (!p) return; p.slot = x.value || null; mark(p.key, "slot"); render(); });
@@ -416,7 +414,7 @@ async function trExcel(btn) {
     const P = `'${t("xP").replace(/'/g, "''")}'`;
     const COLORS = ["FFC5CAE9", "FFA8DCC4", "FFF5D79E", "FFD7BDE2", "FFF2B8B5", "FFB3D4EC"];   // light fills + black text (white text vanished in Google Sheets)
     const groups = new Map();
-    for (const p of shown()) { if (p.status === "no") continue; const k = p.src || "—"; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(p); }
+    for (const p of shown()) { const k = p.src || "—"; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(p); }
     const W = [5, 22, 9, 11, 13, 4];
     let c0 = 1, gi = 0, dr = 1;
     /* table order: biggest list first, single players / small lists to the right; same size → the one added first (not the page's sort) */
@@ -465,8 +463,8 @@ function rowsText(sep) {
   const q = (v) => { const s = String(v ?? ""); return sep === "," && /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s.replace(/[\t\n]/g, " "); };
   const head = ["#", ...COLS.map((k) => t("c_" + k)), t("c_gName"), t("c_gTc"), t("c_gPow"), t("c_diff")];
   const rows = shown().map((p, i) => { const mp = p.mp || {}, mg = migOf(p);
-    const v = { st: t("st")[p.status || "interested"], slot: t("sl")[p.slot || ""], name: mp.name || p.name || "", src: p.src || "", kid: mp.kid || p.kid || "", al: mp.alliance || "", id: p.id || "",
-      tc: mp.tcLevel != null ? tcLabel(mp.tcLevel) : p.tc || "", pow: powOf(p) || "", red: mp.red != null ? `${mp.red}/${mp.pcs || 0}` : "", mig: mg || "", pass: passes(mg) || "", sw: swOf(mg) || "", mys: mp.mystic ?? "", note: p.note || "" };
+    const v = { slot: t("sl")[p.slot || ""], name: mp.name || p.name || "", src: p.src || "", kid: mp.kid || p.kid || "", al: mp.alliance || "", id: p.id || "",
+      tc: mp.tcLevel != null ? tcLabel(mp.tcLevel) : p.tc || "", pow: powOf(p) || "", red: mp.red != null ? `${mp.red}/${mp.pcs || 0}` : "", mig: mg || "", mys: mp.mystic ?? "", note: p.note || "" };
     const dif = diffs(p), w = t("dW");
     return [i + 1, ...COLS.map((k) => v[k]), p.name || "", p.tc || "", p.power || "", dif.map((x) => w[x]).join(", ")]; });
   return [head, ...rows].map((r) => r.map(q).join(sep)).join("\n");
