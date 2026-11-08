@@ -399,7 +399,7 @@ async function trExcel(btn) {
   try {
     await loadScripts(["js/vendor/exceljs-4.4.0.min.js"]);
     const s = S(), wb = new ExcelJS.Workbook(), ws = wb.addWorksheet(t("xP"), { views: [{ state: "frozen", ySplit: 2, showGridLines: false }] });
-    const keys = ["#", "name", "tc", "id", "pow", "mig", "pass", "mys", "note"]   // Milk's order first: # · Player Name · TC · Gov ID · Power, head = keys.map((k) => k === "#" ? "#" : t("c_" + k));
+    const keys = ["#", "name", "tc", "id", "pow", "mig", "pass", "mys", "note"], head = keys.map((k) => k === "#" ? "#" : t("c_" + k));   // Milk's order first: # · Player Name · TC · Gov ID · Power
     const W = { "#": 5, name: 22, tc: 10, pow: 11, mig: 12, pass: 14, mys: 11, id: 12, note: 24 };
     const COLORS = ["FF3F51B5", "FF2E9E7A", "FFB7791F", "FF8E44AD", "FFC0392B", "FF2C7FB8"];
     const groups = new Map();
