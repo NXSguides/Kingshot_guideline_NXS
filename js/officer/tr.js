@@ -417,7 +417,10 @@ async function trExcel(btn) {
     for (const p of shown()) { if (p.status === "no") continue; const k = p.src || "—"; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(p); }
     const W = [5, 22, 9, 11, 13, 4];
     let c0 = 1, gi = 0, dr = 1;
-    for (const [src, list] of groups) {
+    /* table order: biggest list first, single players / small lists to the right; same size → the one added first (not the page's sort) */
+    const first = (src) => (L.players || []).findIndex((p) => (p.src || "—") === src);
+    const order = [...groups.entries()].sort((a, b) => b[1].length - a[1].length || first(a[0]) - first(b[0]));
+    for (const [src, list] of order) {
       const n = list.length, r1 = dr, r2 = dr + n - 1, color = COLORS[gi % COLORS.length];
       /* data block: A src · B name · C TG · D power · E migrant · F mystic · G 🇰🇷 · H sort key · I order */
       list.forEach((p, i) => { const mp = p.mp || {}, r = r1 + i;
