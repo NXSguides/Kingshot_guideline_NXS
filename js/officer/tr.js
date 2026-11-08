@@ -390,46 +390,44 @@ function diffs(p) {
   if (mp.power && p.power && Math.abs(mp.power - p.power) / p.power > 0.05) out.push(2);
   return out;
 }
-/* ⬇️ Excel (Sherry 2026-11-08): the shown rows as a real spreadsheet — Status / Slot are drop-down lists, the header has
-   filter + sort buttons, the top row stays put, numbers are numbers, over-cap power and ✖️ rows are coloured, and a 2nd sheet
-   counts the quota with formulas (so it updates when Status / Slot are changed in Excel or Google Sheets). ExcelJS is in js/vendor. */
+/* ⬇️ Excel (Milk via Sherry 2026-11-08): laid out like Milk's "Interested Roster" sheet — every source (list) is its own table,
+   side by side, with its own coloured title, header row and Excel filter/sort buttons; no Status / Slot columns; ✖️ "no" rows left out.
+   Power stays a real number shown as 120.6M; over-cap power is shaded. Import into Google Sheets: File → Import → Insert new sheet(s).
+   ExcelJS is in js/vendor, loaded only when tapped. */
 async function trExcel(btn) {
   const old = btn.textContent; btn.textContent = "…";
   try {
     await loadScripts(["js/vendor/exceljs-4.4.0.min.js"]);
-    const s = S(), wb = new ExcelJS.Workbook(), ws = wb.addWorksheet(t("xP"), { views: [{ state: "frozen", ySplit: 1, xSplit: 2 }] });
-    const keys = ["#", ...COLS, "gName", "gTc", "gPow", "diff"], head = keys.map((k) => k === "#" ? "#" : t("c_" + k));
-    const stL = STS.map((v) => t("st")[v]), slL = SLOTS.filter(Boolean).map((v) => t("sl")[v]);
-    const W = { "#": 5, name: 22, st: 15, slot: 16, src: 16, kid: 9, al: 9, id: 13, tc: 10, pow: 14, mig: 13, pass: 9, sw: 11, mys: 10, note: 28, gName: 20, gTc: 10, gPow: 13, diff: 16 };
-    ws.columns = keys.map((k) => ({ width: W[k] || 12 }));
-    const h = ws.addRow(head); h.font = { bold: true }; h.eachCell((c) => { c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFE8E2D4" } }; c.alignment = { vertical: "middle", wrapText: true }; });
-    const rows = shown();
-    rows.forEach((p, i) => { const mp = p.mp || {}, mg = migOf(p), w = t("dW");
-      const v = { "#": i + 1, name: mp.name || p.name || "", st: t("st")[p.status || "interested"], slot: p.slot ? t("sl")[p.slot] : "", src: p.src || "", kid: +(mp.kid || p.kid) || null, al: mp.alliance || "",
-        id: p.id ? String(p.id) : "", tc: mp.tcLevel != null ? tcLabel(mp.tcLevel) : p.tc || "", pow: powOf(p) || null, mig: mg || null, pass: passes(mg) || null, sw: swOf(mg) || null, mys: mp.mystic ?? null, note: p.note || "",
-        gName: p.name || "", gTc: p.tc || "", gPow: p.power || null, diff: diffs(p).map((x) => w[x]).join(", ") };
-      ws.addRow(keys.map((k) => v[k])); });
-    const col = (k) => keys.indexOf(k) + 1, L_ = (k) => ws.getColumn(col(k)).letter, last = rows.length + 1;
-    for (const k of ["pow", "mig", "sw", "mys", "gPow"]) ws.getColumn(col(k)).numFmt = "#,##0";
-    /* drop-down lists from a hidden sheet (works in Excel and Google Sheets) */
-    const ls = wb.addWorksheet("lists", { state: "hidden" });
-    stL.forEach((x, i) => (ls.getCell(i + 1, 1).value = x)); slL.forEach((x, i) => (ls.getCell(i + 1, 2).value = x));
-    for (let r = 2; r <= Math.max(last, 2) + 200; r++) {
-      ws.getCell(`${L_("st")}${r}`).dataValidation = { type: "list", allowBlank: true, formulae: [`lists!$A$1:$A$${stL.length}`] };
-      ws.getCell(`${L_("slot")}${r}`).dataValidation = { type: "list", allowBlank: true, formulae: [`lists!$B$1:$B$${slL.length}`] };
+    const s = S(), wb = new ExcelJS.Workbook(), ws = wb.addWorksheet(t("xP"), { views: [{ state: "frozen", ySplit: 2, showGridLines: false }] });
+    const keys = ["#", "name", "tc", "pow", "mig", "pass", "mys", "id", "note"], head = keys.map((k) => k === "#" ? "#" : t("c_" + k));
+    const W = { "#": 5, name: 22, tc: 10, pow: 11, mig: 12, pass: 14, mys: 11, id: 12, note: 24 };
+    const COLORS = ["FF3F51B5", "FF2E9E7A", "FFB7791F", "FF8E44AD", "FFC0392B", "FF2C7FB8"];
+    const groups = new Map();
+    for (const p of shown()) { if (p.status === "no") continue; const k = p.src || "—"; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(p); }
+    const tcN = (p) => +(p.mp && p.mp.tcLevel) || +String(p.tc || "").replace(/^TG(\d).*/i, (m, g) => 30 + 5 * g).replace(/\D/g, "") || 0;
+    let c0 = 1, gi = 0;
+    for (const [src, list] of groups) {
+      list.sort((a, b) => tcN(b) - tcN(a) || (powOf(b) || 0) - (powOf(a) || 0));   // like Milk's: TG3 → TG2 → TG1 → TC, strongest first
+      const color = COLORS[gi % COLORS.length], last = c0 + keys.length - 1;
+      ws.mergeCells(1, c0, 1, last);
+      const tc = ws.getCell(1, c0); tc.value = `${src} (${list.length})`; tc.font = { bold: true, size: 12, color: { argb: "FFFFFFFF" } };
+      tc.fill = { type: "pattern", pattern: "solid", fgColor: { argb: color } }; tc.alignment = { vertical: "middle" };
+      keys.forEach((k, i) => (ws.getColumn(c0 + i).width = W[k]));
+      const rows = list.map((p, i) => { const mp = p.mp || {}, mg = migOf(p);
+        const v = { "#": i + 1, name: mp.name || p.name || "", tc: mp.tcLevel != null ? tcLabel(mp.tcLevel) : p.tc || "", pow: powOf(p) || null, mig: mg || null, pass: passes(mg) || null, mys: mp.mystic ?? null, id: p.id ? String(p.id) : "", note: p.note || "" };
+        return keys.map((k) => v[k]); });
+      ws.addTable({ name: `T${gi + 1}`, ref: ws.getCell(2, c0).address, headerRow: true, style: { theme: "TableStyleLight1", showRowStripes: true },
+        columns: head.map((h, i) => ({ name: String(h), filterButton: i > 0 })), rows: rows.length ? rows : [keys.map(() => null)] });
+      const L = (k) => ws.getColumn(c0 + keys.indexOf(k)).letter, end = 2 + Math.max(rows.length, 1);
+      for (let r = 3; r <= end; r++) {
+        ws.getCell(`${L("pow")}${r}`).numFmt = '0.0,,"M"'; ws.getCell(`${L("mig")}${r}`).numFmt = "#,##0"; ws.getCell(`${L("mys")}${r}`).numFmt = "#,##0";
+      }
+      for (let i = 0; i < keys.length; i++) { const h = ws.getCell(2, c0 + i); h.font = { bold: true, color: { argb: "FFFFFFFF" } }; h.fill = { type: "pattern", pattern: "solid", fgColor: { argb: color } }; }
+      ws.addConditionalFormatting({ ref: `${L("pow")}3:${L("pow")}${end}`, rules: [{ type: "expression", formulae: [`${L("pow")}3>${s.cap * 1e6}`], style: { fill: { type: "pattern", pattern: "solid", bgColor: { argb: "FFF6D9A8" } } } }] });
+      ws.getColumn(last + 1).width = 3;   // gap between tables
+      c0 = last + 2; gi++;
     }
-    ws.autoFilter = { from: { row: 1, column: 1 }, to: { row: Math.max(last, 2), column: keys.length } };
-    const ref = `A2:${ws.getColumn(keys.length).letter}${Math.max(last, 2) + 200}`;
-    ws.addConditionalFormatting({ ref, rules: [{ type: "expression", formulae: [`$${L_("st")}2="${stL[4]}"`], style: { font: { color: { argb: "FF9A9A9A" } } } }] });
-    ws.addConditionalFormatting({ ref: `${L_("pow")}2:${L_("pow")}${Math.max(last, 2) + 200}`, rules: [{ type: "expression", formulae: [`$${L_("pow")}2>${s.cap * 1e6}`], style: { fill: { type: "pattern", pattern: "solid", bgColor: { argb: "FFF6D9A8" } } } }] });
-    /* quota sheet: counted = invited + confirmed + moved, by slot */
-    const q = wb.addWorksheet(t("xQ")); q.columns = [{ width: 20 }, { width: 10 }, { width: 10 }, { width: 10 }];
-    const qh = q.addRow(["", t("xUsed"), t("xMax"), t("xLeft")]); qh.font = { bold: true };
-    const P = `'${t("xP").replace(/'/g, "''")}'`, stc = `${P}!$${L_("st")}:$${L_("st")}`, slc = `${P}!$${L_("slot")}:$${L_("slot")}`;
-    [["invite", s.invites], ["open", s.open], ["special", s.special]].forEach(([k, max], i) => { const r = i + 2, lab = t("sl")[k];
-      const used = ["invited", "confirmed", "moved"].map((x) => `COUNTIFS(${slc},"${lab}",${stc},"${t("st")[x]}")`).join("+");
-      q.addRow([lab, { formula: used }, max, { formula: `C${r}-B${r}` }]); });
-    q.addRow([]); q.addRow([t("qHint")]).font = { italic: true, color: { argb: "FF777777" } };
+    ws.getRow(1).height = 22;
     const blob = new Blob([await wb.xlsx.writeBuffer()], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
     const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `transfer-${new Date().toISOString().slice(0, 10)}.xlsx`; document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 5000);
