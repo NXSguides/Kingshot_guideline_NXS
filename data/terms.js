@@ -707,6 +707,20 @@ const TERMS = [
   ]
  },
  {
+  "cat": "Finder's Fortune (event)",
+  "rows": [
+   ["Finder's Fortune", "尋物奇緣", "기묘한 물건 탐색", "Des Finders Glück", "Fortune du Chercheur", "Sorte de Quem Procura", "Arayıcının Şansı", "Pencari Kekayaan", "Удача искателя", "โชคลาภนักค้นหา", "ثروة المكتشف", "Fortuna del buscador", "Event name (hidden-object event). Screenshots in all 12 langs 2026-11-08."],
+   ["Finder's Fusion", "協作同行", "협동 동행", "Des Finders Fusion", "Fusion du Chercheur", "Fusão de Quem Procura", "Arayıcının Füzyonu", "Fusi Pencari", "Сплочение искателя", "การผสานพลังนักค้นหา", "دمج المكتشف", "Fusión del buscador", "Finder's Fortune tab: 2-player co-op hidden-object rounds (20 per day)."],
+   ["Finder's Guide", "尋物手冊", "물건 탐색 수첩", "Finder-Leitfaden", "Guide du Chercheur", "O Guia de Quem Procura", "Arayıcının Kılavuzu", "Panduan Pencari", "Руководство искателя", "คู่มือนักค้นหา", "دليل المكتشف", "Guía del buscador", "Finder's Fortune tab."],
+   ["Enlistment Office", "徵兵處", "징병소", "Musterungsamt", "Bureau d'Enrôlement", "Escritório de Alistamento", "Görevlendirme Ofisi", "Kantor Pendaftaran", "Призывной пункт", "ศูนย์เกณฑ์ทหาร", "مكتب التجنيد", "Oficina de Reclutamiento", "Finder's Fusion scene ('Today's Challenges: Enlistment Office')."],
+   ["Today's Challenges", "今日挑戰", "오늘의 도전", "Heutige Herausforderungen", "Défis du Jour", "Desafios de Hoje", "Bugünün Mücadeleleri", "Tantangan Hari Ini", "Сегодняшние испытания", "การท้าทายวันนี้", "تحديات اليوم", "Desafíos de hoy", "Finder's Fusion: today's scene."],
+   ["Create Room", "定向組隊", "지정 팀", "Raum erstellen", "Créer Lobby", "Criar Sala", "Oda Oluştur", "Buat Ruangan", "Создать комнату", "สร้างห้อง", "إنشاء غرفة", "Crear sala", "Finder's Fusion button: play with a chosen partner."],
+   ["Random Room", "隨機配對", "랜덤 매칭", "Zufälliger Raum", "Lobby Aléatoire", "Sala Aleatória", "Rastgele Oda", "Ruangan Acak", "Случайная комната", "ห้องสุ่ม", "غرفة عشوائية", "Sala aleatoria", "Finder's Fusion button: random partner."],
+   ["Daily Challenges", "今日剩餘挑戰次數", "오늘의 남은 도전 횟수", "Tägliche Herausforderungen", "Défis Quotidiens", "Desafios Diários", "Günlük mücadeleler", "Tantangan harian", "Ежедневные испытания", "ท้าชิงประจำวัน", "التحديات اليومية", "Desafíos diarios", "Finder's Fusion: tries left today (20/20). ZH/KO say 'remaining challenges today'."],
+   ["Challenge History", "挑戰紀錄", "도전 기록", "Herausforderungsverlauf", "Historique", "Histórico do Desafio", "Mücadele Geçmişi", "Riwayat Tantangan", "История испытаний", "ประวัติ", "سجل التحدي", "Historial de desafíos", "Finder's Fusion side button (EN shows just 'History')."],
+  ]
+ },
+ {
   "cat": "Map",
   "rows": [
    ["Beasts", "野獸", "야수", "Bestien", "Bêtes", "Feras", "Hayvanlar", "binatang buas", "Звери", "สัตว์อสูร", "الوحوش", "Bestias", "Map hunting tab. Indonesian is lowercase in the game."],
