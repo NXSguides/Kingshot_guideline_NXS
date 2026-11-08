@@ -6,7 +6,7 @@
 // What the look-up does:
 //   1. alliance imports ({ kid, tag, src }) → /alliances/{kid}/{tag}?include=info,roster → every member added (status interested)
 //   2. players with an ID → /players/{id}?include=base,ranks → mp (name, kingdom, alliance, TC, power, Migrant Score, Mystic Trial, VIP, kills)
-//   3. players with NO ID → name search across the transfer group (settings.from..to): per kingdom the migrant_score and
+//   3. players with NO ID → name search ONLY in kingdoms named in the source (#2188) or row (not the whole group): the migrant_score and
 //      personal_power boards (top 100 each), plus alliance rosters (kingdoms named in the source, the alliance most of a
 //      source's matches came from, then the top alliances of more kingdoms while the budget lasts). Names + IDs seen are kept
 //      in data/transfer-index-x7k2p9.json (encrypted) and refetched only when older than 3 days, so a second run is cheap.
@@ -118,7 +118,7 @@ async function lookup() {
   const want = players.filter((p) => !p.id && p.name && p.status !== "no");
   const kidsAll = []; for (let k = from; k <= to; k++) kidsAll.push(k);
   const hinted = [...new Set(want.map((p) => p.kid || kidOf(p.src)).filter((k) => k >= from && k <= to))];
-  const order = [...hinted, ...kidsAll.filter((k) => !hinted.includes(k))];
+  const order = hinted;   // only kingdoms named in the source (#2188) or the row — a scan of the whole group costs ~260+ calls (Sherry 2026-11-08: find the kingdom by hand instead)
   function buildMaps() {
     const st = new Map(), lo = new Map();
     for (const [id, e] of Object.entries(ix.p)) { if (!(e[1] >= from && e[1] <= to)) continue;
