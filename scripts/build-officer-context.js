@@ -48,6 +48,20 @@ for (const [kid, k] of Object.entries((scout && scout.kingdoms) || {})) {
   for (const p of k.players) out.push(`${p.name} | ${p.alliance || "?"} | ${M(p.power)} | ${p.tc ?? "?"} | ${p.mystic != null ? M(p.mystic) + (p.mysticRank != null ? " (#" + p.mysticRank + ")" : "") : "?"} | ${M(p.kills)} | ${p.vip ?? "?"}`);
 }
 
+// 🧳 Transfer tab: the Kingdom Transfer list (data/transfer-x7k2p9.json) — only officers with the tab get this part (worker DATA_TABS)
+let tr = null;
+try { tr = readData("data/transfer-x7k2p9.json"); } catch (e) {}
+if (tr && Array.isArray(tr.players) && tr.players.length) {
+  const s = { cap: 170, invites: 35, open: 20, special: 3, from: 2106, to: 2234, ...(tr.settings || {}) };
+  const used = { invite: 0, open: 0, special: 0 };
+  for (const p of tr.players) if (["invited", "confirmed", "moved"].includes(p.status) && used[p.slot] != null) used[p.slot]++;
+  const tg = (lv) => lv == null ? "" : lv >= 35 ? "TG" + Math.floor((lv - 30) / 5) : "TC" + lv;
+  out.push(`### TRANSFER — Kingdom Transfer list (🧳 Transfer tab), saved ${String(tr.at || "").slice(0, 10)}; group K${s.from}–K${s.to}, Transfer Power Cap ${s.cap}M; used (invited/confirmed/moved): Ordinary Invite ${used.invite}/${s.invites}, Transfer Opens ${used.open}/${s.open}, Special Invite ${used.special}/${s.special}`,
+    "Transfer Pass ≈ is UNCONFIRMED research (Migrant Score ÷ 33,600, rounded). name | source | status | slot | kingdom | alliance | TC | power | Migrant Score | Transfer Pass ≈ | note");
+  for (const p of tr.players) { const m = p.mp || {}, mg = m.migrant || 0, pw = m.power || p.power;
+    out.push(`${p.name || m.name || "?"}${m.name && m.name !== p.name ? " (MightPulse: " + m.name + ")" : ""} | ${p.src || ""} | ${p.status || "interested"} | ${p.slot || "-"} | ${m.kid || p.kid || "?"} | ${m.alliance || "?"} | ${m.tcLevel != null ? tg(m.tcLevel) : p.tc || "?"} | ${M(pw)}${pw > s.cap * 1e6 ? " (over cap → Special Invite)" : ""} | ${mg ? Math.round(mg / 1000) + "k" : "?"} | ${mg ? Math.min(50, Math.max(1, Math.round(mg / 33600))) : "?"} | ${p.note || ""}${!p.id && p.cands ? " | " + p.cands.length + " possible matches, not picked" : ""}`); }
+}
+
 // Map tab: the officers' Outpost plan (data/outpost-plan-x7k2p9.json) with names/levels/buffs from data/kingdom-map.js
 let plan = null;
 try { plan = readData("data/outpost-plan-x7k2p9.json"); } catch (e) {}

@@ -1,0 +1,48 @@
+name: Transfer list look-up
+# 🧳 Transfer tab (officer page #tr): runs when an officer saves the list (data/transfer-x7k2p9.json).
+# Only a save with "🔎 Look up" (the file's "requested" is set) asks MightPulse; any other save just refreshes the officer AI context.
+# The list is merged onto the newest copy right before the push, so officers' edits made while this runs are kept.
+on:
+  push:
+    paths: ["data/transfer-x7k2p9.json"]
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: update-roster   # shares the MightPulse rate limit with the roster update and Scout
+  cancel-in-progress: false
+
+jobs:
+  lookup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/transfer-lookup.js lookup
+        env:
+          MIGHTPULSE_API_KEY: ${{ secrets.MIGHTPULSE_API_KEY }}
+          DATA_KEY: ${{ secrets.DATA_KEY }}
+          TR_RESULTS: ${{ runner.temp }}/transfer-results.json
+      - name: merge onto the newest list and push
+        env:
+          DATA_KEY: ${{ secrets.DATA_KEY }}
+          TR_RESULTS: ${{ runner.temp }}/transfer-results.json
+        run: |
+          git config user.name "transfer-bot"
+          git config user.email "actions@github.com"
+          for i in 1 2 3 4; do
+            git fetch -q origin main && git reset -q --hard origin/main || exit 1
+            node scripts/transfer-lookup.js merge || exit 1
+            node scripts/build-officer-context.js || true   # the AI assistant's officer summary includes the transfer list
+            for f in data/transfer-x7k2p9.json data/transfer-index-x7k2p9.json data/transfer-log.txt data/ai-officer.json; do [ -f "$f" ] && git add "$f"; done
+            git diff --cached --quiet && exit 0
+            git commit -q -m "Transfer list update"
+            git push -q origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1

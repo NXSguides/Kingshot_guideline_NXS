@@ -135,7 +135,7 @@ try { const v = localStorage.getItem("nxs-plan-by"); if (v && / · 📍/.test(v)
 OFFICER.OWNER = "1547403844374368327";   // Sparrow: always admin, can't be demoted or removed (so nobody can lock everyone out)
 OFFICER.ADMINS = [];                       // filled from the table (admin: true) by loadPerms
 OFFICER.PERMS_TRIAL = false;   // 2026-10-16: the login system is live — the 👥 table decides   // the 👥 table is kept and editable, but not enforced yet (set false when the login system goes live)
-OFFICER.PERM_TABS = ["events", "board", "map", "ranking", "attend", "post", "watch", "views", "move", "hunt", "attack", "research"];
+OFFICER.PERM_TABS = ["events", "board", "map", "ranking", "attend", "post", "watch", "views", "move", "hunt", "attack", "tr", "research"];   // 🧳 tr: Kingdom Transfer list (2026-11-08), nobody by default
 /* 🔬 one permission for all research reports (Sherry 2026-11-04). Older tables still have one key per report: until "research" is set, the best of those counts. */
 OFFICER.RESEARCH = ["iv", "growth", "hr", "ms", "bh", "bearplan", "vv", "rg"];
 const LVR = { none: 0, view: 1, edit: 2 };
@@ -235,7 +235,7 @@ OFFICER.applyPerms = () => {
 };
 const OFFICER_PAGES = {};
 const GROUPS = { research: OFFICER.RESEARCH };   // 🔬 one main tab, sub-tabs inside (Sherry 2026-11-04: too many tabs)
-const TABS = ["events", "ranking", "post", "watch", "views", "map", "move", "hunt", "attack", "growth", "hr", "bearplan", "vv", "rg", "ms", "bh", "iv", "bt", "board", "attend", "perms"];
+const TABS = ["events", "ranking", "post", "watch", "views", "map", "move", "hunt", "attack", "tr", "growth", "hr", "bearplan", "vv", "rg", "ms", "bh", "iv", "bt", "board", "attend", "perms"];
 const inited = {};
 /* start another tab's module without showing it (the 👥 tab uses the Post tab's owner tools) */
 OFFICER.ensure = async (k) => { const p = OFFICER_PAGES[k]; if (!p) return; if (!inited[k]) inited[k] = p.init() || true; try { await inited[k]; } catch (e) { inited[k] = null; console.error(e); } };
@@ -395,7 +395,7 @@ function loadScripts(list) {
   }))), Promise.resolve());
 }
 /* tabs: #events / #ranking / #post / #watch (the part after "?" is kept for the page) */
-function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|views|map|move|hunt|attack|growth|hr|bearplan|vv|rg|ms|bh|iv|bt|board|attend|perms)/); return m ? m[1] : "events"; }
+function currentTab() { const m = (location.hash || "").match(/^#(events|ranking|post|watch|views|map|move|hunt|attack|tr|growth|hr|bearplan|vv|rg|ms|bh|iv|bt|board|attend|perms)/); return m ? m[1] : "events"; }
 let lastTab = null, keepY = 0, tabClick = false;
 addEventListener("click", (e) => { if (e.target.closest && e.target.closest(".tabs a")) { keepY = window.scrollY; tabClick = true; } }, true);   // where we were before the hash changes
 async function showTab() {
