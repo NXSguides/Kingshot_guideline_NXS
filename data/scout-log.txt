@@ -1,6 +1,3 @@
-  kept 28 (top 20 by migrant: 20, by power: 20)
-  players read: 43/43
-home overview: HTTP 200
 ✅ saved
 2026-11-06T01:01:46.263Z mode=auto kingdoms=2189,2217
 Kingdom 2189
@@ -76,4 +73,7 @@ Kingdom 2217
   kept 29 (top 20 by migrant: 20, by power: 20)
   players read: 44/44
 home overview: HTTP 200
+✅ saved
+2026-11-08T05:21:48.067Z mode=requested kingdoms=-
+removed #2217
 ✅ saved
