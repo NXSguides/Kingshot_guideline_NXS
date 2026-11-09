@@ -73,53 +73,6 @@ content: |
 
   [[link:swordland-showdown]]
 ---
-author: "Sparrow"
-lang: en
-title: "🔍 Finder’s Fusion"
-images: []
-expires: "2026-11-09T00:00:00.000Z"
-content: |
-  [[img:figures/ann/20261108-013609-1.jpg]]
-  1. Hot Air Balloon
-  2. Flock of Birds
-  3. Kite
-  4. Crack
-  5. Smiley Face
-  6. Bird Nest
-  7. Balloons
-  8. Chimney
-  9. Supply Sack
-  10. Bow
-  11. Vine
-  12. Crescent Moon
-  13. Arrow
-  14. Shield
-  15. Boomerang
-  16. Signpost
-  17. Rolled Rug
-  18. Flail
-  19. Dead Branch
-  20. Wooden Crate
-  21. Shovel
-  22. Squirrel
-  23. Firewood
-  24. Gear
-  25. Watering Can
-  26. Pigeon
-  27. Iron Sword
-  28. Rope
-  29. Butterfly
-  30. Puddle
-  31. Boot
-  32. Toy Plane
-  33. Telescope
-  34. Clover
-  35. Glove
-  36. Mushroom
-  37. Goggles
-
-  ⚠️ There might be some translation errors, or things that aren't listed there.
----
 author: "Nia and Armada"
 lang: en
 title: "🚨 TG5 opens November 9 — DO NOT upgrade!"
