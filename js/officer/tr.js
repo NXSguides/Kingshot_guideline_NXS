@@ -404,7 +404,8 @@ async function trExcel(btn) {
     const groups = new Map();
     for (const p of shown()) { const k = p.src || "—"; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(p); }
     const first = (src) => (L.players || []).findIndex((p) => (p.src || "—") === src);
-    const big = [...groups.entries()].filter(([, l]) => l.length >= 5).sort((a, b) => b[1].length - a[1].length || first(a[0]) - first(b[0]));
+    const kidOf = (l) => Math.max(0, ...l.map((p) => +(p.mp && p.mp.kid) || 0));
+    const big = [...groups.entries()].filter(([, l]) => l.length >= 5).sort((a, b) => b[1].length - a[1].length || kidOf(b[1]) - kidOf(a[1]) || first(a[0]) - first(b[0]));   // like Milk's: WIN 2231 before SAQ 2188
     const others = [...groups.entries()].filter(([, l]) => l.length < 5).flatMap(([, l]) => l);
     const tcN = (p) => +(p.mp && p.mp.tcLevel) || +String(p.tc || "").replace(/^TG(\d).*/i, (m, g) => 30 + 5 * g).replace(/\D/g, "") || 0;
     const ord = (l) => [...l].sort((a, b) => tcN(b) - tcN(a) || (powOf(b) || 0) - (powOf(a) || 0));
@@ -413,6 +414,7 @@ async function trExcel(btn) {
       const best = Object.entries(c).sort((a, b) => b[1] - a[1])[0]; return best ? best[0] : src; };
     const tables = big.map(([src, l]) => ({ title: titleOf(src, l), list: ord(l), num: true }));
     if (others.length) tables.push({ title: "OTHERS", list: ord(others), num: false, tag: true });
+    const KOREAN = /🇰🇷|korean|韓|한국|\bboo\b/i;   // a note like "Korean", "🇰🇷 Boo 確認" → purple name cell
     let c0 = 1;
     tables.forEach((tb, gi) => {
       const color = COLORS[gi % COLORS.length];
@@ -422,21 +424,19 @@ async function trExcel(btn) {
       ws.mergeCells(1, c0, 1, last);
       const tt = ws.getCell(1, c0); tt.value = tb.title; tt.font = { bold: true, size: 12 }; tt.fill = { type: "pattern", pattern: "solid", fgColor: { argb: color } };
       head.forEach((h, i) => { const c = ws.getCell(2, c0 + i); c.value = h; c.font = { bold: true }; c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: color } }; ws.getColumn(c0 + i).width = W[i]; });
-      const top10 = new Set([...tb.list].sort((a, b) => (powOf(b) || 0) - (powOf(a) || 0)).slice(0, 10).map((p) => p.key));
-      tb.list.forEach((p, i) => { const mp = p.mp || {}, found = !!(mp.pid || mp.name), pw = powOf(p);
+            tb.list.forEach((p, i) => { const mp = p.mp || {}, found = !!(mp.pid || mp.name), pw = powOf(p);
         const name = (tb.tag && mp.alliance ? `[${mp.alliance}]` : "") + (mp.name || p.name || "");
-        const row = [...(tb.num ? [i + 1] : []), name, mp.tcLevel != null ? tcLabel(mp.tcLevel) : p.tc || "",
-          found ? (mp.mystic ?? "") : "Unlocatable", pw ? +(pw / 1e6).toFixed(1) : "", top10.has(p.key) && mp.red != null ? mp.red : "", p.id ? String(p.id) : ""];
-        row.forEach((v, k) => { const c = ws.getCell(3 + i, c0 + k); c.value = v; if (i % 2) c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFF4F4F4" } }; });
+        const row = [...(tb.num ? [i + 1] : []), name, mp.tcLevel != null ? tcLabel(mp.tcLevel).split("-")[0] : String(p.tc || "").split("-")[0],   // Milk writes TG2, not TG2-3
+          found ? (mp.mystic ?? "") : "Unlocatable", pw ? +(pw / 1e6).toFixed(1) : "", mp.red != null ? mp.red : ""   /* everyone (Sherry 2026-11-09), header text kept as Milk's */, p.id ? String(p.id) : ""];
+        row.forEach((v, k) => { ws.getCell(3 + i, c0 + k).value = v; });   // no own stripes: the Google table bands rows
         const pc = ws.getCell(3 + i, c0 + head.indexOf("Power")); pc.numFmt = '0.0"M"';
         if (pw > s.cap * 1e6) pc.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFF6D9A8" } };
-        if (/🇰🇷/.test(String(p.note || ""))) ws.getCell(3 + i, c0 + head.indexOf("Player Name")).fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFD9D2E9" } };
+        if (KOREAN.test(String(p.note || ""))) ws.getCell(3 + i, c0 + head.indexOf("Player Name")).fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFD9D2E9" } };
         ws.getCell(3 + i, c0 + head.indexOf("Mystic Trial")).numFmt = "#,##0";
       });
-      ws.getColumn(last + 1).width = 3;
-      c0 = last + 2;
+      c0 = last + 1;   // tables side by side with no gap column, like Milk's
     });
-    if ((L.players || []).some((p) => /🇰🇷/.test(String(p.note || "")))) {
+    if ((L.players || []).some((p) => KOREAN.test(String(p.note || "")))) {
       const r = 4 + Math.max(...tables.map((tb) => tb.list.length)), c = ws.getCell(r, 2);
       c.value = "Korean = confirmed by Boo"; c.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFD9D2E9" } };
     }
