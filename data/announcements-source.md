@@ -119,3 +119,33 @@ content: |
   37. Goggles
 
   ⚠️ There might be some translation errors, or things that aren't listed there.
+---
+author: "Nia and Armada"
+lang: en
+title: "🚨 TG5 opens November 9 — DO NOT upgrade!"
+images: []
+content: |
+  Upgrading to TG5 before our next KvK hurts our matchmaking and can put us against a **much stronger kingdom**.
+  We want the **best possible matchup**, not an unnecessarily hard one.
+
+  ## 📅 Next KvK
+  - **Prep starts:** <t:1795996800:F> (00:00 UTC)
+  - **Battle Day:** December 5
+
+  ## 🛑 What to do — start NOW
+  **1️⃣ Save resources**
+  Wood, Bread, Stone, Iron and **Truegold** — as much as you can.
+  - Gather all the time
+  - Use gathering boosts
+  - Use the **Productivity Day** + **Rush Job** decrees
+
+  **2️⃣ Save speedups**
+  Keep every speedup you have. Don't spend them now.
+
+  **3️⃣ Wait**
+  Keep your buildings at **TG3** until KvK Prep starts.
+
+  ## ✅ Quick check
+  ❌ No TG5 upgrade on November 9
+  ⏳ Save upgrades, resources and speedups for KvK Prep
+  🛡️ Ready to dominate the next KvK! 🚀
