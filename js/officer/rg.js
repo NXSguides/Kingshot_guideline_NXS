@@ -229,10 +229,6 @@ function render() {
   <div class="card"><h3>${esc(t("calcH"))}</h3><div id="rg_calc">${calcHtml()}</div></div>
   <div class="card"><h3>${esc(t("defH"))}</h3>${pts(t("def"))}</div>
   <div class="card"><h3>${esc(t("leadH"))}</h3>${pts(t("lead").slice(1, 3))}</div>
-  <div class="rg-two">
-    <div class="card"><h3>${esc(t("capH"))}</h3>${pts(t("cap"))}</div>
-    <div class="card"><h3>${esc(t("trH"))}</h3>${pts(t("tr"))}</div>
-  </div>
   <div class="card"><h3>${esc(t("unkH"))}</h3><ul class="rg-ul">${t("unks").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
   <details class="card rg-num"><summary><b>${esc(t("howH"))}</b></summary><h4 class="rg-h4">${esc(t("stackH"))}</h4><p class="rg-p">${esc(t("stackP"))}</p>
     <div class="rg-bars">${t("bars").map(([k, label, m, th]) => `<div class="rg-bar ${k}"><div class="rg-bl">${esc(label)}</div>
