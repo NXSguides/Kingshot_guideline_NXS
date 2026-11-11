@@ -10,3 +10,4 @@
 - Guide text: edit `data/content.js`, then `node scripts/split-content.js` and `node scripts/build-ai-context.js`.
 - Every change: bump `CACHE` in `sw.js`, run `node scripts/smoke.mjs` (and `bash scripts/worker-test.sh` if the Worker changed).
 - Never commit plaintext officer or member data; never put secrets (VAPID private key, DISCORD_CLIENT_SECRET, OFFICER_PASSWORD) anywhere but Cloudflare / GitHub secrets.
+- **Write for the page's reader.** Research reports and other pages are read by members / officers, not by Sherry: only results, how to use them, and open questions. Never put her to-dos, "please capture next time", data-collection requests or internal notes ("not yet in the fit") on a page — those go in the Project docs.
