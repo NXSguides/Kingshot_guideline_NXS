@@ -165,7 +165,7 @@ function render() {
   const hn = (k) => ({ amane: ["Amane", "雨音", "Amane", "أماني", "아마네"], margot: ["Margot", "瑪爾戈", "Margot", "مارغوت", "마르고"], luna: ["Luna", "露娜", "Luna", "لونا", "루나"], chenko: ["Chenko", "琴科", "Chenko", "تشينكو", "첸코"], yeonwoo: ["Yeonwoo", "妍羽", "Yeonwoo", "يونوو", "연우"], amadeus: ["Amadeus", "阿瑪迪斯", "Amadeus", "أماديوس", "아마데우스"] }[k][Math.max(0, ["en", "zh", "pt", "ar", "ko"].indexOf(lang))]);
   const h3 = (k, st) => `<h3>${esc(t(k))} ${tag(st)}</h3>`;
   root.innerHTML = `
-  <div class="bh-hero"><div class="bh-hero-in"><span class="bh-badge">${esc(fill(t("badge"), { d: UPDATED }))}</span><h2>${esc(t("heroH"))}</h2><p>${esc(t("heroP"))}</p></div></div>
+  <div class="bh-hero" style="background-image:url(figures/bh/bear.webp)"><div class="bh-hero-in"><span class="bh-badge">${esc(fill(t("badge"), { d: UPDATED }))}</span><h2>${esc(t("heroH"))}</h2><p>${esc(t("heroP"))}</p></div></div>
   <div class="card rs-do"><h3>${esc(t("doH"))}</h3><ol class="rs-dol">${t("do").map((x) => `<li>${esc(x)}</li>`).join("")}</ol></div>
   <div class="card"><h3>${esc(t("joinH"))}</h3><p class="bh-p">${esc(t("joinP"))}</p>
     <div class="bh-join"><div class="bh-jr"><span>${esc(t("weak"))}</span><div class="bh-jb"><i style="width:33%"></i></div><b>×1</b></div><div class="bh-jr"><span>${esc(t("strong"))}</span><div class="bh-jb"><i class="s" style="width:100%"></i></div><b>×3</b></div></div></div>
