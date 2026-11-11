@@ -1343,7 +1343,7 @@ function spotWarnHtml() {
     <ul>${tilt.map((w) => `<li><span dir="auto">${escapeHtml(spotFill("tilt", w))}</span> <button type="button" class="spot-go" data-go="${escapeHtml(w.n)}">${escapeHtml(t(SPOT_TXT.goBtn))}</button></li>`).join("")}</ul></details>` : "")
     + (wan.length ? `<details class="spot-warn"><summary>${escapeHtml(t(SPOT_TXT.wanderH).replace("{n}", wan.length))}</summary>
     <ul>${wan.map((w) => `<li><span dir="auto">${escapeHtml(spotFill("wander", w))}</span> <button type="button" class="spot-go" data-go="${escapeHtml(w.n)}">${escapeHtml(t(SPOT_TXT.goBtn))}</button></li>`).join("")}</ul></details>` : "")
-    + `<div class="spot-foot">${escapeHtml(t(SPOT_TXT.posNote).replace("{d}", when))}</div>`;
+    ;   // no "where the positions come from" line (Sherry 2026-11-11: not important)
 }
 /* 🔍 zoom: － / ＋, Ctrl / ⌘ + wheel, two-finger pinch — stays centred */
 let spotZ = (() => { try { return Math.min(3, Math.max(0.4, +localStorage.getItem("nxs-spot-zoom") || 1)); } catch (e) { return 1; } })();
