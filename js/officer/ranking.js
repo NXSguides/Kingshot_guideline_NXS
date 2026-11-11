@@ -208,7 +208,8 @@ const BTX = {
   ar: { btn: "🐻 مجموعات BT", note: "المربع الأيسر = فخ الدب 1، والأيمن = فخ الدب 2. الجميع يرى نفس العلامات (ليست جزءًا من خطة).", t1: "🐻 BT1", t2: "🐻 BT2", none: "لا أحد بعد", copy: "📋 نسخ", copied: "تم النسخ!", k1: "BT1", k2: "BT2", both: "{n} في الاثنين" },
   ko: { btn: "🐻 BT 그룹", note: "왼쪽 칸 = 곰 함정 1, 오른쪽 칸 = 곰 함정 2. 모두 같은 표시를 봐요 (계획과 별개).", t1: "🐻 BT1", t2: "🐻 BT2", none: "아직 없음", copy: "📋 복사", copied: "복사됨!", k1: "BT1", k2: "BT2", both: "{n}명은 둘 다" } };
 const bx = (k, v = {}) => String((BTX[lang] || BTX.en)[k] ?? BTX.en[k]).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
-let btOn = !!store.btOn;   // the marks themselves: OFFICER.BT (core.js), shared with 🐝 Hive
+let btOn = false;   // 🐻 BT groups taken off 📊 Roster (Sherry, 2026-11-11) — BT1 / BT2 are ticked in 🚚 Move only
+//   // the marks themselves: OFFICER.BT (core.js), shared with 🐝 Hive
 const btHas = (id, k) => OFFICER.BT.has(id, k);
 const btBoxes = (m) => !btOn ? "" : `<span class="rk-btk"><input type="checkbox" class="b1" data-bt="1" aria-label="BT1" title="BT1"${btHas(m.id, "1") ? " checked" : ""}><input type="checkbox" class="b2" data-bt="2" aria-label="BT2" title="BT2"${btHas(m.id, "2") ? " checked" : ""}></span>`;
 const btCls = (m) => !btOn ? "" : btHas(m.id, "1") && btHas(m.id, "2") ? " bt-12" : btHas(m.id, "1") ? " bt-1" : btHas(m.id, "2") ? " bt-2" : "";
@@ -376,7 +377,7 @@ $("rk_list").onclick = (e) => {
   else { picked.add(id); subs.delete(id); }
   persist(); renderResult();
 };
-$("rk_btBtn").onclick = () => { btOn = !btOn; store.btOn = btOn; saveLocal(); renderList(); };
+if ($("rk_btBtn")) $("rk_btBtn").onclick = () => { btOn = !btOn; store.btOn = btOn; saveLocal(); renderList(); };
 $("allBtn").onclick = () => { data.members.forEach((m) => picked.add(m.id)); persist(); renderResult(); };
 $("noneBtn").onclick = () => { picked.clear(); subs.clear(); persist(); renderResult(); };
 ROOT.querySelectorAll("th[data-sort]").forEach((th) => th.onclick = () => {

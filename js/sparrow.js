@@ -1415,7 +1415,7 @@
     ranking: [
       { s: "#planSel", k: "rk01" }, { s: "#planEv", k: "rk01e" }, { s: "#planSaveNow", k: "rk01s" }, { s: "#planUndo", k: "rk02" }, { s: "#planRec", k: "rk02r", e: 1 }, { s: "#planNew", k: "rk03", e: 1 }, { s: "#planSave", k: "rk03s" }, { s: "#planEd", k: "rk04", e: 1 },
       { s: "#rk_mode", k: "rk05" }, { s: "#rk_wRow", k: "rk06" }, { s: "#allBtn", k: "rk07" }, { s: "#rk_reg", k: "rk05r" }, { s: "#pasteBox", k: "rk08" }, { s: "#rk_q", k: "rk09" }, { s: "#rk_list", k: "rk10" },
-      { s: "#rk_topN", k: "rk11" }, { s: "#rk_copyBtn", k: "rk12" }, { s: "#rk_btBtn", k: "rk12b" },
+      { s: "#rk_topN", k: "rk11" }, { s: "#rk_copyBtn", k: "rk12" },
       { s: "#presetBtns [data-p]", k: "rk14", e: 1 }, { s: "#presetCounts", k: "rk15", e: 1, pre: () => { const b = Q("#presetBtns [data-p]"); if (b && !b.classList.contains("on")) b.click(); } }, { s: "#presetCopy", k: "rk16", e: 1 },
       { s: "#tbCard h2", k: "rk17" }, { s: "#tbCard .tb-ev", k: "rk17e" }, { s: "#tbCard details.tb-setup > summary", k: "rk18", e: 1 }, { s: "#tbCard [data-act=draft]", k: "rk19", e: 1 }, { s: "#tbCard .tb-tog", k: "rk19g" }, { s: "#tbCard [data-act=ssDraft]", k: "rk20", e: 1 }, { s: "#tbCard [data-act=triDraft]", k: "rk14t", e: 1 }, { s: "#tbCard [data-act=import]", k: "rk21", e: 1 }, { s: "#tbCard [data-act=clear]", k: "rk22", e: 1 },
       { s: "#tbCard .tb-counts", k: "rk23", e: 1 }, { s: "#tbCard .tb-pool", k: "rk24" }, { s: "#tbCard .tb-group", k: "rk25" }, { s: "#tbCard [data-set=rem]", k: "rk26", e: 1 },
