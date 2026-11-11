@@ -1068,14 +1068,13 @@ In der KvK-Vorbereitungsphase bringt an Tag 2 und 3 jede Helden-Roulette-Drehung
 
 ### GUIDE #fantasy-theater — Fantasy-Theater
 WANN
-Unregelmäßiges Event. 5 Tage: 11/11 00:00 UTC – 11/15 24:00 UTC.
+Unregelmäßiges Event. 6 Tage: 11/10 00:00 UTC – 11/15 24:00 UTC.
 SO FUNKTIONIERT'S
 Erledige jeden Tag die Theater-Notizen-Missionen (Reset 00:00 UTC). Sie geben Fantasy-Amulette.
 Erkunden: du zahlst Fantasy-Amulette und steigst 1–3 Etagen auf oder bleibst stehen. Du fällst nie zurück.
 Jeder Fehlversuch bringt dich näher an den sicheren Aufstieg: nach 4 Fehlversuchen in Folge geht der nächste sicher nach oben.
 Jede Etage zeigt eine 🪙 Fantasy Token-Belohnung. Einfordern = nehmen und wieder bei Etage 1 starten. Nicht einfordern = weiter klettern.
 Etage 7 gibt 1–5 Fan-Sterne. Mit 5 führt dein nächstes Erkunden in die Fantasy-Festung (größere Belohnungen); das verbraucht die 5.
-🪙 Fantasy Token gibst du im Theaterladen aus. Die Truhe oben rechts (z. B. 25/100) füllt sich beim Spielen — öffne sie auch.
 📊 CHANCEN (aus dem Spiel)
 Aufstiegschance bei Versuch 1 / 2 / 3 / 4 / 5: 10% / 30% / 60% / 80% / 100%
 Wenn du aufsteigst: +1 = 80% · +2 = 19.67% · +3 = 0.33%
@@ -1083,13 +1082,13 @@ Fan-Sterne auf Etage 7: 1 = 72% · 2 = 14% · 3 = 8% · 4 = 4% · 5 = 2%
 🪙 BELOHNUNG & KOSTEN JE ETAGE
 Etagenbelohnung (🪙 Fantasy Token): 2 → 140 · 3 → 300 · 4 → 850 · 5 → 1,600 · 6 → 3,000 · 7 → 6,800
 Kosten je Etage (Fantasy-Amulette): 1 → 5 · 2 → 8 · 3 → 20 · 4 → 30 · 5 → 60 · 6 → 100 (aus dem Guide eines anderen Spielers; Etage 3 = 20 im Spiel geprüft)
-Unsere Schätzung (Computertest mit den Chancen oben): du bekommst etwa 12–13 🪙 Fantasy Token pro Fantasy-Amulette, egal auf welcher Etage du einforderst — früh einfordern kostet also wenig. Etage 1 → 7 kostet im Schnitt etwa 530 Fantasy-Amulette.
+Unsere Schätzung (Computertest mit den Chancen oben): Etage 1 → 7 kostet im Schnitt etwa 530 Fantasy-Amulette — viel mehr als die Gratis-Missionen geben. Ohne Zahlen schaffst du Etage 7 nur mit viel Glück. Gute Nachricht: du bekommst etwa 12–13 🪙 Fantasy Token pro Fantasy-Amulette, egal wo du einforderst — früh einfordern kostet fast nichts.
 💡 SO SPIELST DU ES
-Alle: Theater-Notizen jeden Tag erledigen. Die Etage setzt sich nur beim Einfordern zurück, du kannst also über mehrere Tage klettern.
-F2P: weiter klettern und auf Etage 7 einfordern (etwas mehr Wert + Fan-Sterne). Am letzten Tag die aktuelle Etage einfordern.
+Alle: Theater-Notizen jeden Tag erledigen (eine Mission ist ein Kauf, F2P schafft nicht alle). Nicht benutzte Fantasy-Amulette bleiben für das nächste Fantasy-Theater — nicht alles jetzt ausgeben.
+F2P: Etage 1–3 klettern, dann auf Etage 4 einfordern (850) — oder auf Etage 5 (1.600), wenn ein Glückssprung dich dorthin bringt. Etage 5–6 kosten 60–100 pro Versuch: ohne Zahlen nicht lohnend.
 Wenigzahler: gleicher Plan. Fantasy-Amulette nur kaufen, wenn dir dann ein gewünschter Artikel im Theaterladen fehlt.
-Vielzahler: 5 Fan-Sterne sammeln und in die Fantasy-Festung.
-Vor Event-Ende: aktuelle Etage einfordern und alle 🪙 Fantasy Token ausgeben — Reste werden zu Lv.1-Ressourcentruhen (laut Guide eines anderen Spielers).
+Vielzahler: nur für Fan-Sterne und die Fantasy-Festung bis Etage 7 (andere Spieler schätzen etwa 100–300 US$).
+Öffne auch die Truhe oben rechts — sie zählt jedes benutzte Fantasy-Amulette. Vor Event-Ende alle 🪙 Fantasy Token ausgeben (Reste werden Lv.1-Ressourcentruhen, laut Guide eines anderen Spielers).
 
 ### GUIDE #wavebound-voyage — Wellenwärtsreise
 WANN

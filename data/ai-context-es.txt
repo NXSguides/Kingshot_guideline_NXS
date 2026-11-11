@@ -1066,14 +1066,13 @@ En la Fase de Preparación del KvK, los días 2 y 3 dan 8.000 puntos por giro de
 
 ### GUIDE #fantasy-theater — Teatro de fantasía
 CUÁNDO
-Evento irregular. 5 días: 11/11 00:00 UTC – 11/15 24:00 UTC.
+Evento irregular. 6 días: 11/10 00:00 UTC – 11/15 24:00 UTC.
 CÓMO FUNCIONA
 Haz las misiones de Notas del Teatro cada día (reinicio 00:00 UTC). Dan Amuletos de fantasía.
 Explorar: pagas Amuletos de fantasía y subes 1–3 pisos o te quedas. Nunca bajas.
 Cada fallo te acerca al ascenso garantizado: tras 4 fallos seguidos, la siguiente exploración siempre sube.
 Cada piso muestra una recompensa en 🪙 Fantasy Token. Reclamar = tomarla y volver a empezar en el piso 1. No reclamar = seguir subiendo.
 Llegar al piso 7 da 1–5 Estrellas de fantasía. Con 5, tu siguiente exploración entra a la Fortaleza de fantasía (mejores recompensas); consume las 5.
-Gasta los 🪙 Fantasy Token en la Tienda del teatro. El cofre arriba a la derecha (p. ej. 25/100) se llena al jugar — ábrelo también.
 📊 PROBABILIDADES (del juego)
 Probabilidad de subir en el intento 1 / 2 / 3 / 4 / 5: 10% / 30% / 60% / 80% / 100%
 Al subir: +1 = 80% · +2 = 19.67% · +3 = 0.33%
@@ -1081,13 +1080,13 @@ Estrellas de fantasía en el piso 7: 1 = 72% · 2 = 14% · 3 = 8% · 4 = 4% · 5
 🪙 RECOMPENSA Y COSTO POR PISO
 Recompensa por piso (🪙 Fantasy Token): 2 → 140 · 3 → 300 · 4 → 850 · 5 → 1,600 · 6 → 3,000 · 7 → 6,800
 Costo por piso (Amuletos de fantasía): 1 → 5 · 2 → 8 · 3 → 20 · 4 → 30 · 5 → 60 · 6 → 100 (de la guía de otro jugador; piso 3 = 20 comprobado en el juego)
-Nuestra estimación (prueba por computadora con las probabilidades de arriba): unos 12–13 🪙 Fantasy Token por Amuletos de fantasía, reclames en el piso que reclames — reclamar antes pierde poco. Del piso 1 al 7 cuesta en promedio unos 530 Amuletos de fantasía.
+Nuestra estimación (prueba por computadora con las probabilidades de arriba): del piso 1 al 7 cuesta en promedio unos 530 Amuletos de fantasía — mucho más de lo que dan las misiones gratis. Sin pagar, el piso 7 solo llega con mucha suerte. Buena noticia: unos 12–13 🪙 Fantasy Token por Amuletos de fantasía reclames donde reclames — reclamar antes casi no pierde nada.
 💡 CÓMO JUGARLO
-Todos: termina Notas del Teatro cada día. El piso solo se reinicia al reclamar, así que puedes subir durante varios días.
-F2P: sigue subiendo y reclama en el piso 7 (un poco más de valor + Estrellas de fantasía). El último día, reclama el piso en que estés.
+Todos: termina Notas del Teatro cada día (una misión es una compra, sin pagar no se completan todas). Los Amuletos de fantasía sin usar se guardan para el próximo Teatro de fantasía — no hace falta gastarlos todos ahora.
+F2P: sube los pisos 1–3 y reclama en el piso 4 (850) — o en el 5 (1.600) si un salto con suerte te lleva allí. Los pisos 5–6 cuestan 60–100 por intento: no vale la pena sin pagar.
 Gastan poco: mismo plan. Compra Amuletos de fantasía solo si te alcanza para un objeto que quieras en la Tienda del teatro.
-Gastan mucho: junta 5 Estrellas de fantasía y entra a la Fortaleza de fantasía.
-Antes de que termine: reclama tu piso y gasta todos los 🪙 Fantasy Token — lo que sobre se convierte en cofres de recursos Nv.1 (guía de otro jugador).
+Gastan mucho: sube al piso 7 solo por las Estrellas de fantasía y la Fortaleza de fantasía (otros jugadores estiman unos US$100–300).
+Abre también el cofre de arriba a la derecha — cuenta cada Amuletos de fantasía que usas. Antes de que termine, gasta todos los 🪙 Fantasy Token (lo que sobre se convierte en cofres de recursos Nv.1, guía de otro jugador).
 
 ### GUIDE #wavebound-voyage — Viaje Ligado a las Olas
 CUÁNDO

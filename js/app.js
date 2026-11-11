@@ -272,7 +272,7 @@ const EVENT_SCHEDULES = {
   "kvk": { anchor: Date.UTC(2026, 9, 5), periodDays: 28, activeDays: 8 },
   "hero-roulette": { anchor: Date.UTC(2026, 9, 6), periodDays: 14, activeDays: 3 },
   "cesares-fury": { anchor: Date.UTC(2026, 9, 10), periodDays: 21, activeDays: 3 }, // last one ~9/19, this one 10/10–10/12 → every 3 weeks (check 10/31)
-  "fantasy-theater": { anchor: Date.UTC(2026, 10, 11), periodDays: 100000, activeDays: 5 }, // one-off (irregular): 11/11 00:00 – 11/15 24:00 UTC (in-game timer 2026-11-11)
+  "fantasy-theater": { anchor: Date.UTC(2026, 10, 10), periodDays: 100000, activeDays: 6 }, // one-off (irregular): 11/10 00:00 – 11/15 24:00 UTC (Sherry 2026-11-11)
   "wavebound-voyage": { anchor: Date.UTC(2026, 9, 20), periodDays: 100000, activeDays: 5 }, // one-off (irregular): 10/20 00:00 – 10/24 24:00 UTC
   "sanctuary-battle": { anchor: Date.UTC(2026, 9, 6), periodDays: 7, activeDays: 4 } // in-game calendar: Tue 00:00 – Fri 24:00 UTC every week (sign-up first, contest phase at the voted time slot)
 };

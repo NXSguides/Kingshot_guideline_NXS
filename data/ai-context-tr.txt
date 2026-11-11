@@ -1066,14 +1066,13 @@ KvK Hazırlık Evresi'nin 2. ve 3. gününde Kahraman Ruleti'nde her çevirme 8.
 
 ### GUIDE #fantasy-theater — Rüya Tiyatrosu
 NE ZAMAN
-Düzensiz etkinlik. 5 gün: 11/11 00:00 UTC – 11/15 24:00 UTC.
+Düzensiz etkinlik. 6 gün: 11/10 00:00 UTC – 11/15 24:00 UTC.
 NASIL ÇALIŞIR
 Her gün Tiyatro Notları görevlerini yap (sıfırlama 00:00 UTC). Rüya Tılsımları verirler.
 Keşfet: Rüya Tılsımları harcarsın ve 1–3 kat çıkarsın ya da aynı katta kalırsın. Asla aşağı inmezsin.
 Her başarısızlık seni garanti yükselişe yaklaştırır: üst üste 4 başarısızlıktan sonra bir sonraki keşif mutlaka yükselir.
 Her katın bir 🪙 Fantasy Token ödülü var. Topla = ödülü al ve 1. Kattan yeniden başla. Toplamazsan = tırmanmaya devam.
 7. Kat 1–5 Rüya Yıldızı verir. 5 olunca bir sonraki keşif Rüya Kalesi'ne girer (daha büyük ödüller); 5'i harcar.
-🪙 Fantasy Token'leri Tiyatro Mağazası'nda harca. Sağ üstteki sandık (ör. 25/100) oynadıkça dolar — onu da aç.
 📊 OLASILIKLAR (oyundan)
 1 / 2 / 3 / 4 / 5. denemede yükselme şansı: 10% / 30% / 60% / 80% / 100%
 Yükseldiğinde: +1 = 80% · +2 = 19.67% · +3 = 0.33%
@@ -1081,13 +1080,13 @@ Yükseldiğinde: +1 = 80% · +2 = 19.67% · +3 = 0.33%
 🪙 KAT ÖDÜLÜ VE MALİYET
 Kat ödülü (🪙 Fantasy Token): 2 → 140 · 3 → 300 · 4 → 850 · 5 → 1,600 · 6 → 3,000 · 7 → 6,800
 Kata göre keşif maliyeti (Rüya Tılsımları): 1 → 5 · 2 → 8 · 3 → 20 · 4 → 30 · 5 → 60 · 6 → 100 (başka bir oyuncunun rehberinden; 3. Kat = 20 oyunda doğrulandı)
-Tahminimiz (yukarıdaki olasılıklarla bilgisayar testi): hangi katta toplarsan topla Rüya Tılsımları başına yaklaşık 12–13 🪙 Fantasy Token — yani erken toplamak az kaybettirir. 1. Kattan 7. Kata ortalama yaklaşık 530 Rüya Tılsımları.
+Tahminimiz (yukarıdaki olasılıklarla bilgisayar testi): 1. Kattan 7. Kata ortalama yaklaşık 530 Rüya Tılsımları — ücretsiz görevlerin verdiğinden çok daha fazla. Ödeme yapmadan 7. Kat ancak çok şansla olur. İyi haber: hangi katta toplarsan topla Rüya Tılsımları başına yaklaşık 12–13 🪙 Fantasy Token — erken toplamak neredeyse hiç kaybettirmez.
 💡 NASIL OYNANMALI
-Herkes: Tiyatro Notları'nı her gün bitir. Kat sadece Topla deyince sıfırlanır, yani birkaç gün boyunca tırmanabilirsin.
-F2P: tırmanmaya devam et ve 7. Katta topla (biraz daha fazla değer + Rüya Yıldızı). Son gün hangi kattaysan topla.
+Herkes: Tiyatro Notları'nı her gün bitir (bir görev satın alma, F2P hepsini bitiremez). Kullanılmayan Rüya Tılsımları bir sonraki Rüya Tiyatrosu'na kalır — hepsini şimdi harcamana gerek yok.
+F2P: 1–3. katları çık, 4. Katta topla (850) — şanslı bir sıçrama seni 5. Kata getirirse orada topla (1.600). 5–6. katlar deneme başına 60–100: ödeme yapmadan değmez.
 Az harcayanlar: aynı plan. Rüya Tılsımları'yı sadece Tiyatro Mağazası'nda istediğin bir eşyaya yetecekse al.
-Çok harcayanlar: 5 Rüya Yıldızı topla ve Rüya Kalesi'ne gir.
-Etkinlik bitmeden: katını topla ve tüm 🪙 Fantasy Token'leri harca — kalanlar Sv.1 kaynak sandığına dönüşür (başka bir oyuncunun rehberinden).
+Çok harcayanlar: 7. Kata yalnızca Rüya Yıldızı ve Rüya Kalesi için çık (diğer oyuncuların tahmini yaklaşık 100–300 US$).
+Sağ üstteki sandığı da aç — kullandığın her Rüya Tılsımları'yı sayar. Etkinlik bitmeden tüm 🪙 Fantasy Token'leri harca (kalanlar Sv.1 kaynak sandığına dönüşür, başka bir oyuncunun rehberinden).
 
 ### GUIDE #wavebound-voyage — Dalgalara Karşı Yolculuk
 NE ZAMAN
