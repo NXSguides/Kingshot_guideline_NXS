@@ -983,6 +983,11 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 .spot-map .swc polygon { fill: #ffffffdd; stroke: #ef4444; stroke-width: 3; }
 .spot-map .swc text { fill: #b91c1c; }
 .spot-map .sp.taken polygon { opacity: .35; }
+/* not on their spot yet = light; on it = full colour with a ✓ ring (Sherry 2026-11-10) */
+.spot-map .sp.away polygon { opacity: .38; }
+.spot-map .sp.away text { opacity: .7; }
+.spot-map .sp.here polygon { stroke: #2ecc71; stroke-width: 2.2; }
+.spot-map .sp.on polygon { opacity: 1; }
 .spot-occ { margin: 8px 0; border: 1px solid #ef4444; border-radius: 12px; padding: 8px 12px; background: color-mix(in srgb, #ef4444 12%, var(--panel)); font-weight: 700; font-size: 15px; }
 .spot-occ-h { margin-bottom: 4px; }
 .spot-occ-r { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin-top: 6px; font-weight: 600; }
@@ -1006,3 +1011,6 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 .guide-chip.guide-home { border-radius: 999px; padding: 9px 12px; position: relative; margin-inline-end: 10px; }
 .guide-chip.guide-home::after { content: ""; position: absolute; inset-inline-end: -9px; top: 6px; bottom: 6px; border-inline-end: 1px solid var(--rule); }
 .guide-chip.guide-home .emoji { font-size: 18px; }
+
+.spot-off { margin-top: 8px; padding: 8px 10px; border: 1px dashed var(--line, #8886); border-radius: 10px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.spot-off > div { flex-basis: 100%; }

@@ -1306,8 +1306,13 @@ const SPOT_TXT = {
   tiltH: { en:"🙃 Crooked ({n})", zh:"🙃 歪了（{n}）", ko:"🙃 삐뚤어요 ({n})", de:"🙃 Schief ({n})", fr:"🙃 De travers ({n})", pt:"🙃 Torto ({n})", es:"🙃 Torcido ({n})", tr:"🙃 Kaymış ({n})", id:"🙃 Miring ({n})", ru:"🙃 Криво ({n})", th:"🙃 เบี้ยว ({n})", ar:"🙃 مائل ({n})" },
   tilt: { en:"{a} you're crooked", zh:"{a} 你歪了", ko:"{a} 님 삐뚤어요", de:"{a} du stehst schief", fr:"{a} tu es de travers", pt:"{a} você tá torto", es:"{a} estás torcido", tr:"{a} kaymışsın", id:"{a} kamu miring", ru:"{a} ты стоишь криво", th:"{a} เบี้ยวแล้ว", ar:"{a} أنت مائل" },
   meTilt: { en:"🙃 You're crooked", zh:"🙃 你歪了", ko:"🙃 삐뚤어요", de:"🙃 Du stehst schief", fr:"🙃 Tu es de travers", pt:"🙃 Você tá torto", es:"🙃 Estás torcido", tr:"🙃 Kaymışsın", id:"🙃 Kamu miring", ru:"🙃 Ты стоишь криво", th:"🙃 เบี้ยวแล้ว", ar:"🙃 أنت مائل" },
-  posNote: { en:"Positions come from the alliance roster (MightPulse) and can be a few hours old{d}.", zh:"位置來自聯盟名冊（MightPulse），可能晚幾個小時{d}。", ko:"위치는 연맹 명단(MightPulse)에서 와서 몇 시간 늦을 수 있어요{d}.", de:"Positionen kommen aus der Allianzliste (MightPulse) und können ein paar Stunden alt sein{d}.", fr:"Les positions viennent de la liste de l'alliance (MightPulse) et peuvent dater de quelques heures{d}.", pt:"As posições vêm da lista da aliança (MightPulse) e podem estar algumas horas atrasadas{d}.", es:"Las posiciones vienen de la lista de la alianza (MightPulse) y pueden tener unas horas de retraso{d}.", tr:"Konumlar ittifak listesinden (MightPulse) gelir, birkaç saat eski olabilir{d}.", id:"Posisi diambil dari daftar aliansi (MightPulse), bisa terlambat beberapa jam{d}.", ru:"Позиции берутся из списка альянса (MightPulse) и могут отставать на несколько часов{d}.", th:"ตำแหน่งมาจากรายชื่อพันธมิตร (MightPulse) อาจช้าไม่กี่ชั่วโมง{d}", ar:"المواقع من قائمة التحالف (MightPulse) وقد تتأخر بضع ساعات{d}." },
+  posNote: { en:"Positions come from the alliance roster and can be a few hours old{d}.", zh:"位置來自聯盟名冊，可能晚幾個小時{d}。", ko:"위치는 연맹 명단에서 와서 몇 시간 늦을 수 있어요{d}.", de:"Positionen kommen aus der Allianzliste und können ein paar Stunden alt sein{d}.", fr:"Les positions viennent de la liste de l'alliance et peuvent dater de quelques heures{d}.", pt:"As posições vêm da lista da aliança e podem estar algumas horas atrasadas{d}.", es:"Las posiciones vienen de la lista de la alianza y pueden tener unas horas de retraso{d}.", tr:"Konumlar ittifak listesinden gelir, birkaç saat eski olabilir{d}.", id:"Posisi diambil dari daftar aliansi, bisa terlambat beberapa jam{d}.", ru:"Позиции берутся из списка альянса и могут отставать на несколько часов{d}.", th:"ตำแหน่งมาจากรายชื่อพันธมิตร อาจช้าไม่กี่ชั่วโมง{d}", ar:"المواقع من قائمة التحالف وقد تتأخر بضع ساعات{d}." },
   posAt: { en:" · checked {d}", zh:" · 檢查時間 {d}", ko:" · 확인 {d}", de:" · geprüft {d}", fr:" · vérifié {d}", pt:" · conferido {d}", es:" · revisado {d}", tr:" · kontrol {d}", id:" · dicek {d}", ru:" · проверено {d}", th:" · ตรวจเมื่อ {d}", ar:" · فُحص {d}" },
+  offMap: { en:"🗺️ Update the map", zh:"🗺️ 更新地圖", ko:"🗺️ 지도 업데이트", de:"🗺️ Karte aktualisieren", fr:"🗺️ Mettre la carte à jour", pt:"🗺️ Atualizar o mapa", es:"🗺️ Actualizar el mapa", tr:"🗺️ Haritayı güncelle", id:"🗺️ Perbarui peta", ru:"🗺️ Обновить карту", th:"🗺️ อัปเดตแผนที่", ar:"🗺️ تحديث الخريطة" },
+  offPos: { en:"📍 Update positions", zh:"📍 更新位置", ko:"📍 위치 업데이트", de:"📍 Positionen aktualisieren", fr:"📍 Mettre les positions à jour", pt:"📍 Atualizar posições", es:"📍 Actualizar posiciones", tr:"📍 Konumları güncelle", id:"📍 Perbarui posisi", ru:"📍 Обновить позиции", th:"📍 อัปเดตตำแหน่ง", ar:"📍 تحديث المواقع" },
+  offBusy: { en:"Looking up…", zh:"查詢中…", ko:"찾는 중…", de:"Suche…", fr:"Recherche…", pt:"Buscando…", es:"Buscando…", tr:"Aranıyor…", id:"Mencari…", ru:"Поиск…", th:"กำลังค้นหา…", ar:"جارٍ البحث…" },
+  offHint: { en:"Officers only: ① update the map ② then update positions (about 10 s).", zh:"幹部專用：① 先更新地圖 ② 再更新位置（大約 10 秒）。", ko:"운영진 전용: ① 지도 업데이트 ② 그다음 위치 업데이트 (약 10초).", de:"Nur für Offiziere: ① Karte aktualisieren ② dann Positionen aktualisieren (ca. 10 s).", fr:"Officiers seulement : ① mettre la carte à jour ② puis les positions (environ 10 s).", pt:"Só oficiais: ① atualize o mapa ② depois as posições (uns 10 s).", es:"Solo oficiales: ① actualiza el mapa ② luego las posiciones (unos 10 s).", tr:"Sadece subaylar: ① haritayı güncelle ② sonra konumları güncelle (yaklaşık 10 sn).", id:"Khusus pengurus: ① perbarui peta ② lalu perbarui posisi (sekitar 10 detik).", ru:"Только для офицеров: ① обновите карту ② затем позиции (около 10 с).", th:"เฉพาะเจ้าหน้าที่: ① อัปเดตแผนที่ ② แล้วอัปเดตตำแหน่ง (ราว 10 วินาที)", ar:"للضباط فقط: ① حدّث الخريطة ② ثم حدّث المواقع (نحو 10 ثوانٍ)." },
+  legend: { en:"Light = not on their spot yet · green edge = on their spot", zh:"淺色 = 還沒到自己的位置 · 綠邊 = 已經在位置上", ko:"옅은 색 = 아직 자리에 없음 · 초록 테두리 = 자리에 있음", de:"Hell = noch nicht auf dem Platz · grüner Rand = auf dem Platz", fr:"Clair = pas encore à sa place · bord vert = à sa place", pt:"Claro = ainda não está no lugar · borda verde = no lugar", es:"Claro = aún no está en su lugar · borde verde = en su lugar", tr:"Açık = henüz yerinde değil · yeşil kenar = yerinde", id:"Pucat = belum di tempatnya · tepi hijau = sudah di tempat", ru:"Светлое = ещё не на месте · зелёная рамка = на месте", th:"สีอ่อน = ยังไม่อยู่ที่ตำแหน่ง · ขอบเขียว = อยู่ที่ตำแหน่งแล้ว", ar:"فاتح = ليس في مكانه بعد · حافة خضراء = في مكانه" },
   empty: { en:"empty spot", zh:"空位", ko:"빈 자리", de:"freier Platz", fr:"place libre", pt:"lugar vazio", es:"lugar libre", tr:"boş yer", id:"tempat kosong", ru:"свободное место", th:"ที่ว่าง", ar:"مكان فارغ" },
 };
 let SPOT = null, spotSel = -1;
@@ -1377,12 +1382,28 @@ async function spotInit(el) {
     <div id="spotWarn">${spotWarnHtml()}</div>
     <div class="spot-zoom"><button type="button" data-sz="-1" aria-label="zoom out">－</button><button type="button" data-sz="0" aria-label="reset zoom">${Math.round(spotZ * 100)}%</button><button type="button" data-sz="1" aria-label="zoom in">＋</button></div>
     <div class="spot-map" id="spotMap"></div>
+    <div class="spot-foot">${escapeHtml(t(SPOT_TXT.legend))}</div>
+    <div id="spotOff" hidden></div>
     <div class="spot-foot">${escapeHtml(t(SPOT_TXT.tap))}${SPOT.at ? " · " + escapeHtml(t(SPOT_TXT.upd).replace("{d}", new Date(SPOT.at).toLocaleString(HTML_LANG[currentLang] || "en", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }))) : ""}</div>`;
-  spotDraw(); spotGoBind(el);
+  spotDraw(); spotGoBind(el); spotOfficer(el);
   el.querySelectorAll("[data-sz]").forEach((x) => x.onclick = () => spotZoom(+x.dataset.sz === 0 ? 1 : spotZ * (+x.dataset.sz > 0 ? 1.25 : 0.8)));
   const qi = el.querySelector("#spotQ");
   qi.oninput = () => { try { localStorage.setItem("nxs-spot-name", qi.value); } catch (e) {} spotFind(qi.value, true); };
   if (q) spotFind(q, true); else spotCenter(null);
+}
+/* 👮 officers only (Sherry 2026-11-10): "update the map" + "update positions" right here. Shown only when the Worker says this
+   Discord login is an officer with the Move / Hive / Map tab; the map link comes from the Worker, never from this public file. */
+async function spotOfficer(el) {
+  let tk = ""; try { tk = localStorage.getItem("nxs-discord-v1") || ""; } catch (e) {} if (!tk) return;
+  const ask = async (refresh) => { try { const r = await fetch(SPOT_API.replace(/\/hive$/, ""), { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ positions: 1, token: tk, refresh: refresh ? 1 : 0 }) });
+    const j = await r.json(); if (j && j.token) { try { localStorage.setItem("nxs-discord-v1", j.token); tk = j.token; } catch (e) {} } return r.ok && j && j.ok ? j : null; } catch (e) { return null; } };
+  const j = await ask(false), box = el.querySelector("#spotOff"); if (!j || !box || !el.isConnected) return;
+  box.hidden = false; box.className = "spot-off";
+  box.innerHTML = `<div class="muted" style="font-size:12.5px;margin-bottom:4px">${escapeHtml(t(SPOT_TXT.offHint))}</div>
+    ${j.mapUrl ? `<a class="btn small" href="${escapeHtml(j.mapUrl)}" target="_blank" rel="noopener">${escapeHtml(t(SPOT_TXT.offMap))}</a>` : ""}
+    <button type="button" class="btn small" id="spotPosBtn">${escapeHtml(t(SPOT_TXT.offPos))}</button>`;
+  const b = box.querySelector("#spotPosBtn");
+  b.onclick = async () => { b.disabled = true; b.textContent = t(SPOT_TXT.offBusy); await ask(true); spotInit(el); };
 }
 /* 📍 on a 🤗 row: show that member's own spot on the map; no spot → tell them to contact an R4 */
 function spotGoBind(el) {
@@ -1435,8 +1456,10 @@ function spotDraw() {
   (SPOT.traps || []).forEach(([x, y], i) => { const [cx, cy] = c(x, y, 3); o.push(`<polygon points="${poly(x, y, 3)}" class="st"/><text x="${cx}" y="${cy + 4}" class="sl">${escapeHtml(t(SPOT_TXT.bt).replace("{n}", i + 1))}</text><text x="${cx}" y="${cy + 17}" class="sc w">${x},${y}</text>`); });
   for (const [x, y] of SPOT.hq || []) { const [cx, cy] = c(x, y, 3); o.push(`<polygon points="${poly(x, y, 3)}" class="sh"/><text x="${cx}" y="${cy + 4}" class="sl">HQ</text><text x="${cx}" y="${cy + 17}" class="sc w">${x},${y}</text>`); }
   const taken = new Set(spotWarn().filter((w) => w.victim).map((w) => spotNorm(w.victim)));   // spots someone else sits on → drawn faded
+  /* ✅ who is exactly on their own spot (Sherry 2026-11-10: "the ones who aren't there yet should look lighter") */
+  const here = new Set((SPOT.cities || []).filter(([n, x, y]) => SPOT.spots.some(([m, sx, sy]) => m && spotNorm(m) === spotNorm(n) && sx === x && sy === y)).map(([n]) => spotNorm(n)));
   SPOT.spots.forEach(([n, x, y, bt], i) => { const [cx, cy] = c(x, y, 2), nm = n && !/^nxs$/i.test(n) ? n : "", sel = i === spotSel;
-    o.push(`<g class="sp${sel ? " on" : ""}${bt ? " b" + bt : ""}${nm ? "" : " free"}${nm && taken.has(spotNorm(nm)) ? " taken" : ""}" data-si="${i}"><polygon points="${poly(x, y, 2)}"/><text x="${cx}" y="${cy}" class="sn">${escapeHtml(nm.length > 11 ? nm.slice(0, 10) + "…" : nm || "·")}</text><text x="${cx}" y="${cy + 12}" class="sc">${x},${y}</text><title>${escapeHtml(nm || t(SPOT_TXT.empty))} X:${x} Y:${y}</title></g>`); });
+    o.push(`<g class="sp${sel ? " on" : ""}${bt ? " b" + bt : ""}${nm ? "" : " free"}${nm && taken.has(spotNorm(nm)) ? " taken" : ""}${nm && Array.isArray(SPOT.cities) ? (here.has(spotNorm(nm)) ? " here" : " away") : ""}" data-si="${i}"><polygon points="${poly(x, y, 2)}"/><text x="${cx}" y="${cy}" class="sn">${escapeHtml(nm.length > 11 ? nm.slice(0, 10) + "…" : nm || "·")}</text><text x="${cx}" y="${cy + 12}" class="sc">${x},${y}</text><title>${escapeHtml(nm || t(SPOT_TXT.empty))} X:${x} Y:${y}</title></g>`); });
   for (const w of spotWarn().filter((w) => w.victim)) {   /* 😡 castles sitting on someone's spot: red; a dashed line to their own spot */
     const [cx, cy] = c(w.x, w.y, 2);
     if (w.si >= 0) { const [tx, ty] = c(w.sx, w.sy, 2); o.push(`<line x1="${cx}" y1="${cy}" x2="${tx}" y2="${ty}" class="swl"/>`); }

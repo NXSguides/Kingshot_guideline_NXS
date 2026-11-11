@@ -33,6 +33,8 @@ const FEATURES = [
   ["Site: 📅 This week short lines + 📝 to-do days", /📅 This week card on the home page \(short version/, /📝 = something to do today/],
   ["Site: ⏰ KvK battle-day game reminders (10:00 / 12:00 UTC)", /KvK city attacks \(10:00 UTC\)/, /KvK city attacks \(10:00 UTC\)/],
   ["Scout: ⚡ Opponents now (battle-time fetch, batches, find by name, download)", /⚡ OPPONENTS NOW/, /ak08: "⚡ Opponents now/],
+  ["Move: 📍 Update positions (positions only, ~10 s)", /📍 Where everyone is now" \(2026-11-11\)/, /📍 Where everyone is now: after members move/],
+  ["Site: 📍 light = not on their spot yet; officer buttons", /map colours \(Sherry 2026-11-10\)/, /Light spots = that member isn't on their spot yet/],
   ["Site: 📍 wrong-spot lists (🤗 / 🙃 / 🫥)", /wrong-spot lists/, /🤗 sitting on someone's spot/],
   ["Site: 🤝 NAP rules page", /🤝 NAP rules: their own page/, /🤝 NAP Rules has its own button here/],
   ["Site: ⏸ Stay here on announcements", /⏸ Stay here \(next to the date\) stops that/, /⏸ Stay here \(next to the date\) stops it switching/],
@@ -108,7 +110,7 @@ const FEATURES = [
   ["Blacklist: shield timer (follow ⏰)", /shield timer/, /hn05:/],
   ["Blacklist: ✏️ manual position", /type a newer position by hand/, /✏️ next to X:Y/],
   ["Blacklist: 🛡️ manual shield + stale warning", /fix the shield by hand/, /k: "hn06"/],
-  ["Blacklist: MightPulse Update Map button", /presses "Update Map" on the MightPulse map/, /“Update Map” on the MightPulse map/],
+  ["Blacklist: MightPulse Update Map button", /presses "Update Map" on the MightPulse map/, /“Update Map” on the {MP} map/],
   ["Blacklist: ⭐ special mark (row lights up, on top)", /special mark/, /⭐ marks a player for everyone/],
   ["Transfer: 🧳 Kingdom Transfer list + MightPulse look-up", /🧳 TRANSFER \(officer-x7k2p9\.html#tr/, /tr01:/],
   ["Transfer: name search, pick one of several matches", /several → "N possible — pick one"/, /several show “pick one”/],
@@ -148,5 +150,8 @@ for (const [re, why] of STALE)
     const m = txt.match(re); if (m) fails.push(`📛 outdated text in ${f}: "${m[0]}" — ${why}`);
   }
 
+/* 🙈 the stats site's name never appears in public files (Sherry 2026-11-10: "never let this word show on public pages") */
+for (const f of ["js/app.js", "js/sparrow.js", "data/content.js", "data/terms.js", "css/styles.css", "index.html", ...require("fs").readdirSync("data").filter((x) => /^ai-context.*\.txt$/.test(x)).map((x) => "data/" + x)])
+  if (/mightpulse/i.test(require("fs").readFileSync(f, "utf8"))) fails.push(`🙈 "${f}" names the stats site (public file) — use {MP} in js/sparrow.js, or leave the name out`);
 if (fails.length) { console.error("❌ Little Sparrow / AI out of step:\n  " + fails.join("\n  ")); process.exit(1); }
 console.log(`✅ Little Sparrow and the AI match (${tabs.length} officer tabs, ${FEATURES.length} features, ${keys.size} tour steps)`);
