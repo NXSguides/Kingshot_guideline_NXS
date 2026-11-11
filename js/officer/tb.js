@@ -120,8 +120,8 @@ function render() {
   const POWS = [40, 60, 80, 100, 130, 170, 200];
   root.innerHTML = `
   <div class="muted tb-small" style="margin:2px 0 10px">${esc(t("badge").replace("{d}", UPDATED))}</div>
-  <div class="card rs-do"><h3>${esc(t("obsH"))}</h3><ul class="rs-dol">${t("obs").map((x) => `<li>${esc(x)}</li>`).join("")}</ul><h3 class="rs-h2">${esc(t("doH"))}</h3><ul class="rs-dol">${t("do").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
-  <div class="card"><h3>${esc(t("ratH"))}</h3><div class="tb-bands">${["easy", "win", "hard", "lose"].map((b) => `<div class="tb-band ${b}">${esc(t("rat")[b])}</div>`).join("")}</div>
+  <div class="card rs-do"><h3>${esc(t("doH"))}</h3><ul class="rs-dol">${t("do").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
+  <div class="card"><h3>${esc(t("ratH"))}</h3><div class="tb-bands">${["easy", "win", "hard", "lose"].map((b) => `<div class="tb-band ${b}">${esc(t("rat")[b])}</div>`).join("")}</div><p class="tb-p" style="margin:8px 0 0">${esc(t("obs")[2])}</p>
     <h4 class="tb-h4">${esc(t("calcH"))}</h4><p class="tb-eq">${esc(t("how"))}</p><p class="tb-p">${esc(t("howP"))}</p><div id="tb_calc">${calcHtml()}</div></div>
   <div class="card"><h3>${esc(t("needH"))}</h3><p class="tb-p">${esc(t("needP"))}</p><div style="overflow-x:auto"><table class="tb-t"><thead><tr><th>${esc(t("needCol"))}</th>${LV.slice(1).map(([lv, k]) => `<th class="n">${lv} ${esc(t("beasts")[k])}</th>`).join("")}</tr></thead>
     <tbody>${POWS.map((m) => `<tr><td><b>${m}M</b></td>${LV.slice(1).map(([, , , , , rp]) => { const v = rp / (m * 1e6); return `<td class="n${v > 7.5 ? " tb-far" : ""}">${v >= 10 ? v.toFixed(0) : v.toFixed(1)}×</td>`; }).join("")}</tr>`).join("")}</tbody></table></div></div>

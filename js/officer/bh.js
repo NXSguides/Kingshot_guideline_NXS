@@ -165,7 +165,7 @@ function render() {
   const h3 = (k, st) => `<h3>${esc(t(k))} ${tag(st)}</h3>`;
   root.innerHTML = `${OFFICER.bearChips("score", lang)}
   <div class="bh-hero" style="background-image:url(figures/bh/bear.webp)"><div class="bh-hero-in"><span class="bh-badge">${esc(fill(t("badge"), { d: UPDATED }))}</span></div></div>
-  <div class="card rs-do"><h3>${esc(t("obsH"))}</h3><ul class="rs-dol">${t("obs").map((x) => `<li>${esc(x)}</li>`).join("")}</ul><h3 class="rs-h2">${esc(t("doH"))}</h3><ul class="rs-dol">${t("do").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
+  <div class="card rs-do"><h3>${esc(t("doH"))}</h3><ul class="rs-dol">${t("do").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
   <div class="card"><h3>${esc(t("joinH"))}</h3><p class="bh-p">${esc(t("joinP"))}</p>
     <div class="bh-join"><div class="bh-jr"><span>${esc(t("weak"))}</span><div class="bh-jb"><i style="width:33%"></i></div><b>×1</b></div><div class="bh-jr"><span>${esc(t("strong"))}</span><div class="bh-jb"><i class="s" style="width:100%"></i></div><b>×3</b></div></div></div>
   <div class="card"><h3>${esc(t("wH"))}</h3>

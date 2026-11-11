@@ -65,6 +65,25 @@ const AT = { en: { obsH: "🔎 What we saw", sugH: "💡 Suggestions", lh: "👑
   ko: { obsH: "🔎 우리가 관찰한 것", sugH: "💡 제안", lh: "👑 대장", lp: "K = 대장 강도: 버프 화면의 궁병 공격력 × 파괴력, 도시 버프와 집결 전용 장비를 같은 칸에 합산, ASHISH 11/06 = 1.00. 메일 = 집결 메일 실측값.", lc: ["대장", "K", "메일", "도시 공격 / 파괴"], role: { A: "A", B: "B", fill: "보충" }, rosterH: "📋 공식 대장 명단", rosterP: "A팀은 0:00, B팀은 +0:45에 엽니다. 나머지는 6:30 남았을 때만 열 수 있습니다 (보충 집결).", rcols: ["함정", "A팀 (0:00)", "B팀 (+0:45)"],
     ph: "🚩 부대를 어디에 넣으면 좋은가", ch: "🎯 개인별", cp: "병력 계수 = 병력 티어 × (1 + 베라 「사냥 본능」); 기준 플레이어 = 1.00.", gh: "📈 사냥별 총점", det: "📋 전체 대장 표 (모든 수치)", nx: "📸 다음 사냥 때 찍어 주세요" } };
 const at = (k) => (AT[lang] || AT.en)[k] ?? AT.en[k];
+/* 🎲 the public Bear guide's recommended leader hero sets (Gen 1–4): average strength from Expedition skills only (all Lv5, joiners 2 Attack + 2 Lethality,
+   Amadeus / Petra / Marlin = 1.00) and how much one rally swings (simulated, 10 turns) — Project doc claude/bear-leader-luck-2026-11-11.md. No member data. */
+const LUCK = [[1, ["amadeus", "jabel", "quinn"], 0.90, 8.0], [1, ["helga", "jabel", "quinn"], 0.80, 7.5], [1, ["howard", "jabel", "quinn"], 0.60, 7.4],
+  [2, ["amadeus", "hilde", "marlin"], 0.96, 10.1], [2, ["helga", "jabel", "marlin"], 0.90, 8.0], [2, ["zoe", "jabel", "quinn"], 0.90, 8.8],
+  [3, ["amadeus", "petra", "marlin"], 1.00, 8.1], [3, ["helga", "petra", "marlin"], 0.91, 8.1], [3, ["zoe", "petra", "quinn"], 0.87, 8.6],
+  [4, ["amadeus", "petra", "rosa"], 1.04, 8.2], [4, ["zoe", "petra", "rosa"], 0.99, 8.8], [4, ["helga", "petra", "rosa"], 0.93, 8.0]];
+const LUCK_T = { en: { h: "🎲 Leader hero sets", gen: "Gen {n}", s: "Average strength", w: "Swing per rally", n: "Simulated from Expedition skills." },
+  zh: { h: "🎲 隊長英雄組合", gen: "第 {n} 代", s: "平均強度", w: "每團跳動", n: "用遠征技能模擬的。" },
+  pt: { h: "🎲 Conjuntos de heróis do líder", gen: "Gen {n}", s: "Força média", w: "Variação por rally", n: "Simulado com as habilidades de Expedição." },
+  ar: { h: "🎲 مجموعات أبطال القائد", gen: "الجيل {n}", s: "متوسط القوة", w: "التذبذب لكل حشد", n: "محاكاة من مهارات الحملة." },
+  ko: { h: "🎲 대장 영웅 조합", gen: "{n}세대", s: "평균 강도", w: "집결당 변동", n: "원정 스킬로 시뮬레이션한 값." } };
+function luckHtml() {
+  const L = LUCK_T[lang] || LUCK_T.en, max = Math.max(...LUCK.map((x) => x[2]));
+  const pic = (id) => `<img src="figures/heroes/hero_${id}.webp" alt="" loading="lazy">`;
+  return `<div class="card"><h3>${esc(L.h)}</h3><div class="bp-lk-h"><span></span><span>${esc(L.s)}</span><span>${esc(L.w)}</span></div>
+    ${[1, 2, 3, 4].map((g) => `<h4 class="bp-lk-g">${esc(L.gen.replace("{n}", g))}</h4>${LUCK.filter((x) => x[0] === g).map((x) => `<div class="bp-lk"><span class="bp-lk-p">${x[1].map(pic).join("")}</span>
+      <span class="bp-lk-b"><span class="bp-kt"><i class="bp-kf" style="width:${(x[2] / max * 100).toFixed(1)}%;background:var(--bp-main)"></i></span><b>${x[2].toFixed(2)}</b></span><span class="bp-lk-w">±${x[3].toFixed(0)}%</span></div>`).join("")}`).join("")}
+    <div class="muted" style="font-size:12px;margin-top:8px">${esc(L.n)}</div></div>`;
+}
 function analysisHtml() {
   const r = RV, num = (v) => (v == null ? "—" : (+v).toFixed(0));
   const kmax = Math.max(1.2, ...(r.leaders || []).flatMap((g) => (g.rows || (g.groups || []).flatMap((q) => q.rows)).map((x) => +String(x[1]).replace(/[^\d.]/g, "") || 0)));
@@ -85,6 +104,7 @@ function analysisHtml() {
     roster: () => (r.roster || []).length ? `<div class="card"><h3>${esc(at("rosterH"))}</h3><p class="bp-p">${esc(at("rosterP"))}</p><div class="bp-tw"><table class="bp-t" style="min-width:0"><thead><tr>${at("rcols").map((c, i) => `<th${i ? "" : ' style="white-space:nowrap"'}>${esc(c)}</th>`).join("")}</tr></thead><tbody>${r.roster.map((x) => `<tr><td style="white-space:nowrap"><b>${esc(LL(x[0]) || x[0])}</b></td><td>${esc(x[1])}</td><td>${esc(x[2])}</td></tr>`).join("")}</tbody></table></div>${LL(r.rosterNote) ? `<p class="muted bp-p" style="font-size:12.5px;margin-top:6px">${esc(LL(r.rosterNote))}</p>` : ""}</div>` : "",
     place: () => (LL(pl.rows) || []).length ? `<div class="card"><h3>${esc(LL(pl.title) || at("ph"))}</h3><div class="bp-tw"><table class="bp-t" style="min-width:0"><tbody>${LL(pl.rows).map((x) => `<tr><td>${esc(x[0])}</td><td class="n"><b>${esc(x[1])}</b></td><td class="muted">${esc(x[2] || "")}</td></tr>`).join("")}</tbody></table></div></div>` : "",
     coef: () => (r.coef || []).length ? `<div class="card"><h3>${esc(at("ch"))}</h3><p class="bp-p">${esc(LL(r.coefNote) || at("cp"))}</p><div class="bp-kb">${r.coef.map((x) => `<div class="bp-kr"><span class="bp-kn"><bdi>${esc(x[0])}</bdi></span><span class="bp-kt"><i class="bp-kf" style="width:${(+x[1] / cm * 100).toFixed(1)}%;background:var(--bp-second)"></i></span><b>${(+x[1]).toFixed(2)}</b></div>`).join("")}</div></div>` : "",
+    luck: () => luckHtml(),
     growth: () => [].concat(r.growth || []).filter((g) => (g.rows || []).length).map((g) => `<div class="card"><h3>${esc(at("gh"))} · ${esc(LL(g.title))}</h3>${growthT(g)}</div>`).join(""),
     detail: () => r.detail ? `<details class="card"><summary><b>${esc(at("det"))}</b></summary><div class="bp-tw" style="margin-top:8px"><table class="bp-t" style="min-width:1100px;white-space:nowrap"><thead><tr>${LL(r.detail.cols).map((c, i) => `<th${(r.detail.num || []).includes(i) ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
     <tbody>${r.detail.rows.map((x) => `<tr>${x.map((v, i) => `<td${(r.detail.num || []).includes(i) ? ' class="n"' : ""}>${i === 0 ? `<bdi>${esc(v)}</bdi>` : esc(v)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
@@ -95,7 +115,7 @@ function analysisHtml() {
     const cur = ((location.hash || "").match(/[?&]r=(\w+)/) || [])[1], rep = r.reports.find((x) => x.id === cur) || r.reports[0];
     const li = (arr) => (arr || []).map((x) => `<li>${esc(x)}</li>`).join("");
     return `${OFFICER.bearChips(rep.id, lang)}${data}
-  <div class="card rs-do"><h3>${esc(at("obsH"))}</h3><ul class="rs-dol">${li(LL(rep.obs))}</ul>${(LL(rep.sug) || []).length ? `<h3 class="rs-h2">${esc(at("sugH"))}</h3><ul class="rs-dol">${li(LL(rep.sug))}</ul>` : ""}</div>
+  <div class="card rs-do">${(LL(rep.obs) || []).length ? `<h3>${esc(at("obsH"))}</h3><ul class="rs-dol">${li(LL(rep.obs))}</ul>` : ""}${(LL(rep.sug) || []).length ? `<h3${(LL(rep.obs) || []).length ? ' class="rs-h2"' : ""}>${esc(at("sugH"))}</h3><ul class="rs-dol">${li(LL(rep.sug))}</ul>` : ""}</div>
   ${(rep.show || []).map((k) => (B[k] ? B[k]() : "")).join("\n  ")}`;
   }
   return `${OFFICER.bearChips("leaders", lang)}<div class="card bp-rv">${r.data ? `<div class="muted" style="font-size:12.5px">${esc(LL(r.data.txt))}</div>` : ""}

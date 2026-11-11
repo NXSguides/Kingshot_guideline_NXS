@@ -141,7 +141,7 @@ OFFICER.RESEARCH = ["iv", "growth", "hr", "ms", "bh", "bearplan", "vv", "rg", "t
 /* 🐻 one Bear page (Sherry 2026-11-11): the members' report (#bh) and the officers' reports (#bearplan?r=…) share this row of chips; the
    🐻 Bear analysis link in the research bar is hidden, 🐻 Bear Hunt stays lit for both. */
 OFFICER.BEAR_REPORTS = { score: ["🎯 Scoring", "🎯 怎麼拿分", "🎯 Pontuação", "🎯 النقاط", "🎯 점수"], leaders: ["👑 Leaders", "👑 隊長", "👑 Líderes", "👑 القادة", "👑 대장"],
-  send: ["🚩 Sending troops", "🚩 派兵", "🚩 Envio de tropas", "🚩 إرسال القوات", "🚩 병력 보내기"], heroes: ["🦸 Joiners & heroes", "🦸 加入者與英雄", "🦸 Participantes e heróis", "🦸 المنضمّون والأبطال", "🦸 집결원과 영웅"],
+  heroes: ["🦸 Joiners & heroes", "🦸 加入者與英雄", "🦸 Participantes e heróis", "🦸 المنضمّون والأبطال", "🦸 집결원과 영웅"],
   trend: ["📈 Trend", "📈 趨勢", "📈 Tendência", "📈 الاتجاه", "📈 추세"] };
 OFFICER.bearChips = (cur, lang) => { if (!(OFFICER.can && OFFICER.can("bearplan", "view") && OFFICER.can("bh", "view"))) return "";
   const i = Math.max(0, ["en", "zh", "pt", "ar", "ko"].indexOf(lang));

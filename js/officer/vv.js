@@ -210,7 +210,7 @@ function render() {
   <div class="vv-hero" style="background-image:url(figures/vv/viking.webp)"><div class="vv-hero-in">
     <span class="vv-badge">${esc(t("badge").replace("{d}", UPDATED))}</span>
     </div></div>
-  <div class="card rs-do"><h3>${esc(t("obsH"))}</h3><ul class="rs-dol">${t("obs").map((x) => `<li>${esc(x)}</li>`).join("")}</ul><h3 class="rs-h2">${esc(t("doH"))}</h3><ol class="vv-dos">${t("dos").map((d, i) => `<li><span class="vv-ic">${["<img src=\"figures/vv/inf.webp\" alt=\"\">", "<img src=\"figures/vv/arc.webp\" alt=\"\">", "🏰", "🗺️", "<img src=\"figures/vv/cav.webp\" alt=\"\">", "⚠️"][i]}</span><span>${esc(d)}</span></li>`).join("")}</ol></div>
+  <div class="card rs-do"><h3>${esc(t("doH"))}</h3><ol class="vv-dos">${t("dos").map((d, i) => `<li><span class="vv-ic">${["<img src=\"figures/vv/inf.webp\" alt=\"\">", "<img src=\"figures/vv/arc.webp\" alt=\"\">", "🏰", "🗺️", "<img src=\"figures/vv/cav.webp\" alt=\"\">", "⚠️"][i]}</span><span>${esc(d)}</span></li>`).join("")}</ol></div>
   <div class="card"><h3>${esc(t("whoH"))}</h3>
     <div class="vv-trs">${troop("inf", t("inf"), t("infS"), "on")}${troop("cav", t("cav"), t("cavS"), "off")}${troop("arc", t("arc"), t("arcS"), "off")}</div></div>
   <div class="card"><h3>${esc(t("cakeH"))}</h3><div id="vv_cake">${cakeHtml()}</div></div>
