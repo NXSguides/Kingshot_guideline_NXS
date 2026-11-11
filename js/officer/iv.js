@@ -29,8 +29,8 @@ const ROWS = [["c1", 889, 889, "cheap"], ["gg1", 513, 10165, "cheap"], ["res1", 
   ["mr", 4000, 40000, "mid"], ["ref", 5600, 20000, "mid"], ["mv", 8333, 83333, "mid"], ["res5", 6300, 15000, "mid"], ["hg1", 11100, 11100, "mid"], ["gg2", 12424, 44844, "mid"],
   ["c25", 14700, 20000, "mid"], ["adv", 4700, 67000, "mid"], ["en2", 15500, 55000, "mid"], ["hg2", 22200, 55600, "dear"], ["res6", 26000, 62000, "dear"], ["c6", 40000, 701000, "dear"], ["gg3", 40157, 840727, "dear"]];
 const T = {
-  en: { title: "💎 Investment", intro: "Our research: the same gems buy very different amounts of stat %. Where is it cheapest, and who should spend where? Still being tested.",
-    badge: "🧪 Still testing · from our own account and shop prices · updated {d}",
+  en: { title: "💎 Investment", intro: "Where the same gems buy the most stats, and what to upgrade next. Our own research, not official.",
+    badge: "🔬 Our research · updated {d}",
     heroH: "Same gems, very different results.", heroP: "The cheapest +1% (the first green Governor Gear step, Governor Charm Lv1) costs under 1,000 gems. Hero Gear Mastery Forging Lv5 costs about 56,000; red Governor Gear and the last charm levels cost 700,000–800,000 for the same 1%.",
     barH: "💰 Gems for +1%", barP: "Shorter bar = cheaper. Each bar is +1% to one stat of one troop type.",
     rows: { res1: "Research I–III", res4: "Research IV", res5: "Research V", res6: "Research VI", en1: "Hero Gear enhancement (XP) to +40", en2: "Hero Gear enhancement +60 → +100", mr: "Roman advancement 1st → 10th", mv: "Valora advancement 1st → 10th", c1: "Governor Charm 0 → Lv1", pet: "Pet level-up (Alliance Shop food, weekly limit)", res: "Research — first levels of each tier", hg1: "Hero Gear Mastery Forging 0 → 1", c25: "Governor Charm Lv2–3",
@@ -76,8 +76,8 @@ const T = {
     numH: "🔢 For those who want the numbers", numP: "Exchange rate: 1 Relic Coin ≈ 3.2 gems (1 h speedup = 800 gems in the Gem Shop or 250 Relic Coins in the Swordland Shop; finishing research instantly is also ≈ 800 gems per hour). Another rate changes the numbers, not the order. \"+1%\" = one stat of one troop type; a stat for all three troop types counts as 3.",
     numCols: ["Upgrade", "Gems per 1%", "Gives"],
     foot: "Source: Sparrow's main account (power ↔ %, shop prices, research times). Not from the game. Numbers will be corrected as we test more." },
-  zh: { title: "💎 投資效率", intro: "我們自己的研究：同樣的鑽石，換到的屬性 % 差非常多。哪裡最划算？什麼角色該花在哪？還在測試中。",
-    badge: "🧪 測試中 · 來自我們自己的帳號和商店價格 · 更新 {d}",
+  zh: { title: "💎 投資效率", intro: "同樣的鑽石花在哪裡最划算、下一步該升什麼。我們自己的研究，不是官方說明。",
+    badge: "🔬 我們的研究 · 更新 {d}",
     heroH: "同樣的鑽石，花在哪裡差很多。", heroP: "最便宜的 +1%（第一件綠色領主裝備、領主寶石 Lv1）不到 1,000 鑽；英雄裝備專精鍛造 Lv5 大約 56,000 鑽；紅色領主裝備、寶石最後幾級，同樣 1% 要 70–80 萬鑽。",
     barH: "💰 +1% 要多少鑽石", barP: "長條越短越划算。每一條都是「一個兵種、一種屬性 +1%」。",
     rows: { res1: "研究 I–III 階", res4: "研究 IV 階", res5: "研究 V 階", res6: "研究 VI 階", en1: "英雄裝備強化（經驗）到 +40", en2: "英雄裝備強化 +60 → +100", mr: "羅曼進階 第 1 → 10 次", mv: "維拉進階 第 1 → 10 次", c1: "領主寶石 0 → Lv1", pet: "寵物升級（聯盟商店口糧，每週限量）", res: "研究——每階的前幾級", hg1: "英雄裝備專精鍛造 0 → 1", c25: "領主寶石 Lv2–3",
@@ -123,8 +123,8 @@ const T = {
     numH: "🔢 給想看數字的人", numP: "換算：1 聖契幣 ≈ 3.2 鑽（1 小時加速：鑽石商店 800 鑽、聖劍商店 250 聖契幣；研究立即完成也是約 800 鑽／小時）。換別的換算方式，數字會變，排序不變。「+1%」= 一個兵種、一種屬性；三個兵種一起加的屬性算 3 個。",
     numCols: ["升級項目", "每 1%（鑽）", "給什麼"],
     foot: "來源：Sparrow 主帳實測（實力 ↔ %、商店價格、研究時間）。不是遊戲官方說明，數字會隨更多測試修正。" },
-  pt: { title: "💎 Eficiência de Investimento", intro: "Nossa pesquisa: as mesmas gemas compram quantidades bem diferentes de % de atributo. Onde é mais barato, e quem deve gastar onde? Ainda em teste.",
-    badge: "🧪 Ainda em teste · da nossa própria conta e dos preços das lojas · atualizado {d}",
+  pt: { title: "💎 Eficiência de Investimento", intro: "Onde as mesmas gemas compram mais atributos, e o que melhorar a seguir. Pesquisa nossa, não é oficial.",
+    badge: "🔬 Nossa pesquisa · atualizado {d}",
     heroH: "Mesmas gemas, resultados bem diferentes.", heroP: "O +1% mais barato (o primeiro passo verde do Equipamento do Chefe, Talismã do Governador Lv1) custa menos de 1,000 gemas. M. em Forja Lv5 do Equipamento do Herói custa cerca de 56,000; Equipamento do Chefe vermelho e os últimos níveis do Talismã custam 700,000–800,000 pelo mesmo 1%.",
     barH: "💰 Gemas por +1%", barP: "Barra mais curta = mais barato. Cada barra é +1% em um atributo de um tipo de tropa.",
     rows: { res1: "Pesquisa I–III", res4: "Pesquisa IV", res5: "Pesquisa V", res6: "Pesquisa VI", en1: "Aprimoramento do Equipamento do Herói (XP) até +40", en2: "Aprimoramento do Equipamento do Herói +60 → +100", mr: "Avanço de Roman 1º → 10º", mv: "Avanço de Valora 1º → 10º", c1: "Talismã do Governador 0 → Lv1", pet: "Subir nível do Pet (comida da Loja da Aliança, limite semanal)", res: "Pesquisa — primeiros níveis de cada tier", hg1: "M. em Forja do Equipamento do Herói 0 → 1", c25: "Talismã do Governador Lv2–3",
@@ -170,8 +170,8 @@ const T = {
     numH: "🔢 Para quem quer os números", numP: "Câmbio: 1 Moeda de Relíquia ≈ 3.2 gemas (1 h de aceleração = 800 gemas na loja de Gemas ou 250 Moedas de Relíquia na loja Terra das Espadas; terminar pesquisa na hora também é ≈ 800 gemas por hora). Outro câmbio muda os números, não a ordem. \"+1%\" = um atributo de um tipo de tropa; um atributo para os três tipos de tropa conta como 3.",
     numCols: ["Melhoria", "Gemas por 1%", "Dá"],
     foot: "Fonte: conta principal da Sparrow (poder ↔ %, preços das lojas, tempos de pesquisa). Não vem do jogo. Os números serão corrigidos conforme testarmos mais." },
-  ar: { title: "💎 كفاءة الاستثمار", intro: "بحثنا الخاص: نفس الجواهر تشتري نسبًا مختلفة جدًا من الإحصاءات. أين الأرخص؟ ومن يجب أن ينفق على ماذا؟ ما زال قيد الاختبار.",
-    badge: "🧪 قيد الاختبار · من حسابنا وأسعار المتاجر · تحديث {d}",
+  ar: { title: "💎 كفاءة الاستثمار", intro: "أين تشتري الجواهر نفسها أكثر إحصاءات، وماذا تطوّر بعد ذلك. بحثنا الخاص، ليس رسميًا.",
+    badge: "🔬 بحثنا · آخر تحديث {d}",
     heroH: "نفس الجواهر، نتائج مختلفة جدًا.", heroP: "أرخص +1% (أول خطوة خضراء في عتاد الحاكم، تميمة الحاكم Lv1) تكلف أقل من 1,000 جوهرة. صقل التخصص Lv5 لعتاد البطل يكلف حوالي 56,000؛ عتاد الحاكم الأحمر وآخر مستويات التميمة تكلف 700,000–800,000 لنفس 1%.",
     barH: "💰 الجواهر مقابل +1%", barP: "الشريط الأقصر = أرخص. كل شريط هو +1% لإحصائية واحدة لنوع قوات واحد.",
     rows: { res1: "البحث I–III", res4: "البحث IV", res5: "البحث V", res6: "البحث VI", en1: "تحسين عتاد البطل (خبرة) حتى +40", en2: "تحسين عتاد البطل +60 → +100", mr: "تقدم رومان من الأول → العاشر", mv: "تقدم فالورا من الأول → العاشر", c1: "تميمة الحاكم 0 → Lv1", pet: "رفع مستوى الحيوان الأليف (طعام من متجر التحالف، حد أسبوعي)", res: "البحث — أول مستويات كل مرحلة", hg1: "صقل التخصص لعتاد البطل 0 → 1", c25: "تميمة الحاكم Lv2–3",
@@ -217,8 +217,8 @@ const T = {
     numH: "🔢 لمن يريد الأرقام", numP: "سعر التحويل: 1 عملة آثار ≈ 3.2 جوهرة (تسريع ساعة واحدة = 800 جوهرة في متجر الجواهر أو 250 عملة آثار في متجر أرض السيوف؛ إنهاء البحث فورًا أيضًا ≈ 800 جوهرة للساعة). سعر آخر يغيّر الأرقام لا الترتيب. \"+1%\" = إحصائية واحدة لنوع قوات واحد؛ إحصائية لأنواع القوات الثلاثة تُحسب 3.",
     numCols: ["الترقية", "الجواهر لكل 1%", "يعطي"],
     foot: "المصدر: الحساب الرئيسي لـ Sparrow (القوة ↔ %، أسعار المتاجر، أوقات البحث). ليس من اللعبة. سنصحح الأرقام كلما اختبرنا أكثر." },
-  ko: { title: "💎 투자 효율", intro: "우리 자체 연구: 같은 다이아로 얻는 능력치 %가 크게 달라요. 어디가 가장 싸고, 누가 어디에 써야 할까요? 아직 테스트 중.",
-    badge: "🧪 테스트 중 · 우리 계정과 상점 가격 기준 · 업데이트 {d}",
+  ko: { title: "💎 투자 효율", intro: "같은 보석으로 어디에 쓰면 능력치를 가장 많이 얻는지, 다음에 뭘 올릴지. 우리 연구이고 공식은 아니야.",
+    badge: "🔬 우리 연구 · 업데이트 {d}",
     heroH: "같은 다이아, 결과는 크게 달라요.", heroP: "가장 싼 +1% (첫 녹색 영주 장비 단계, 영주 보석 Lv1)는 1,000 다이아 미만. 영웅 장비 마스터리 제작 Lv5는 약 56,000; 빨강 영주 장비와 보석 마지막 레벨은 같은 1%에 700,000–800,000.",
     barH: "💰 +1%에 필요한 다이아", barP: "막대가 짧을수록 저렴. 막대 하나 = 병종 하나, 능력치 하나 +1%.",
     rows: { res1: "연구 I–III", res4: "연구 IV", res5: "연구 V", res6: "연구 VI", en1: "영웅 장비 강화 (경험치) +40까지", en2: "영웅 장비 강화 +60 → +100", mr: "로만 진급 1회 → 10회", mv: "베라 진급 1회 → 10회", c1: "영주 보석 0 → Lv1", pet: "펫 레벨업 (연맹 상점 먹이, 주간 한정)", res: "연구 — 각 단계의 첫 레벨들", hg1: "영웅 장비 마스터리 제작 0 → 1", c25: "영주 보석 Lv2–3",
@@ -391,8 +391,8 @@ function render() {
     <div class="iv-tw"><table class="iv-t"><tr>${t("numCols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${ROWS.map(([k, lo, hi]) => `<tr><td>${esc(R[k])}</td><td class="n">${range(lo, hi)}</td><td>${esc(G[k])}</td></tr>`).join("")}</table>
     <table class="iv-t"><tr>${t("chCols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${CHARM.map((c, i) => `<tr><td>Lv${i + 1}</td><td class="n">${fmt(c[0])}</td><td class="n">+${c[1]}%</td><td class="n">${CHARM.slice(0, i + 1).reduce((a, x) => a + x[1], 0)}%</td><td class="n">${fmt(charmGems(i))}</td></tr>`).join("")}</table>
     <table class="iv-t"><tr>${t("ggCols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${GEAR.map((g, i) => `<tr><td>${esc(gearName(i))}</td><td class="n">${fmt(g[1])} / ${fmt(g[2])} / ${fmt(g[3])}</td><td class="n">${fmt(gearCoins(i))}</td><td class="n">+${gearPct(i).toFixed(2)}%</td><td class="n">${fmt(gearGems(i))}</td></tr>`).join("")}</table>
-    <div class="muted iv-small">${esc(t("ggNote"))}</div></div></details>
-  <div class="muted iv-small">${esc(t("foot"))}</div>`;
+    <div class="muted iv-small">${esc(t("ggNote"))}</div></div>
+    <div class="muted iv-small" style="margin-top:8px">${esc(t("foot"))}</div></details>`;
   bind();
 }
 function bindRuler() {

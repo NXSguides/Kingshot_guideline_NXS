@@ -12,8 +12,8 @@ const ELITE = [7, 14, 17];
 const CITY_WAVES = Array.from({ length: 19 }, (_, i) => i + 1).filter((w) => w !== 10);   // waves 10 and 20 only hit the HQ, not the cities (Sherry 2026-11-04)
 const hostPts = (w) => (ELITE.includes(w) ? 2 : 1) * (2700 + 1800 * w);
 const T = {
-  en: { title: "🪓 Viking report", intro: "Our research on how Viking Vengeance splits kills and points. Not official rules — it changes as we test more.",
-    badge: "🔬 Research report · from our battle reports (11/03, 11/06) · updated {d}",
+  en: { title: "🪓 Viking report", intro: "How kills and points are split in Viking Vengeance, and how to send your troops. Our own research, not official.", howH: "🔢 How we worked it out",
+    badge: "🔬 Our research · updated {d}",
     heroH: "Every wave has a fixed number of Vikings.", heroP: "If the city holds, they all die. So the question isn't how hard you hit — it's how much of the city's infantry is yours.",
     whoH: "⚔️ Who does the fighting",
     inf: "Infantry", infS: "Fights first and usually finishes the whole wave.",
@@ -30,7 +30,7 @@ const T = {
     calcNote: "Estimate: assumes infantry clears the wave and the owner's troops kill nothing (the usual case).",
     tierH: "📏 Higher tier = a bigger slice", tierP: "Kills are split by one troop's strength:",
     tierEx: "1 TG3 infantry ≈ 1.17 TG1 ≈ 1.66 T9", tierIX: "IX series (Supreme): T9 50 · TG1 54 · TG2 58 · TG3 62",
-    doH: "✅ So send them like this",
+    doH: "✅ Do this",
     dos: ["Reinforce with your highest-tier infantry. Cavalry and archers in a reinforcement get almost nothing.",
       "City owners: keep only archers at home. Send infantry and cavalry out.",
       "Every city needs at least one reinforcer.",
@@ -38,9 +38,7 @@ const T = {
       "Can't send everything? Send infantry first and leave cavalry at home — infantry left at home eats points every wave.",
       "A city short on infantry (it might not clear the wave): send infantry there first so it clears and gets full points. In such a city the owner's Attack / Lethality buffs do help."],
     noH: "🤷 Doesn't change your points",
-    nos: ["Attack / Lethality / Defense buffs and pet debuffs, in a city that clears the wave: tested on 11/06 — turned on from wave 16, everyone's share stayed exactly the same.",
-      "Which hero you send, how many heroes, or being the garrison captain: your share doesn't change (11/06 waves 13 and 20).",
-      "Gambling on cavalry: on 11/06, for the same power, cavalry earned only about ¼ of what infantry did."],
+    nos: ["Attack / Lethality / Defense buffs and pet debuffs, in a city that clears the wave: your share stays the same.", "Which hero you send, how many heroes, or being the garrison captain: your share doesn't change.", "Gambling on cavalry: for the same power, cavalry earns only about ¼ of what infantry does."],
     hqH: "🏯 Alliance HQ", hqP: "Waves 10 and 20 only attack the Alliance HQ, not the cities. Same idea: kills are split by infantry × tier. Points = kills × a fixed rate (wave 20: 0.5253 per kill). 11/06 wave 20: each X TG3 infantry killed about 0.83; Ambusher triggered, so each TG3 cavalry about 0.96.",
     unkH: "🟡 Not known yet",
     unks: ["How points are split when a city falls.", "Why a lone account holding its own city gets only ⅔ of the owner points.", "How much infantry a city needs to be sure to clear the wave.", "Which skill hero is best for the garrison.", "What decides how much cavalry gets after Ambusher triggers.", "When the owner's own archers get kills."],
@@ -51,8 +49,8 @@ const T = {
       "2 · Depends on the battle: infantry + cavalry + archer kills = share killed × number of Vikings. Enough infantry → wave cleared, cavalry only via Ambusher, archers 0. Little infantry → cavalry take part; very little → maybe not cleared. Needs a round-by-round simulation to predict.",
       "3 · Points: owner = base points × share killed; reinforcers share half of the base, split by layer 1."],
     foot: "Source: Sparrow's screenshots and battle-report sums (11/03 difficulty 11, 11/06 ~60 reports). The formulas are worked back from report numbers, not from the game. Re-check after a game update." },
-  zh: { title: "🪓 維京研究", intro: "我們自己研究的維京人的掠奪：擊殺和分數怎麼分。不是官方規則，會隨著測試持續更新。",
-    badge: "🔬 研究報告 · 來自我們的戰報（11/03、11/06）· 更新 {d}",
+  zh: { title: "🪓 維京研究", intro: "維京人的掠奪裡擊殺和分數怎麼分、兵該怎麼派。我們自己的研究，不是官方說明。", howH: "🔢 怎麼算的",
+    badge: "🔬 我們的研究 · 更新 {d}",
     heroH: "每一波的維京人數是固定的。", heroP: "守住了就全部死光。所以重點不是打得多猛，而是城裡的步兵有多少是你的。",
     whoH: "⚔️ 誰在打",
     inf: "步兵", infS: "第一個出手，通常整波就打完了。",
@@ -69,7 +67,7 @@ const T = {
     calcNote: "估算：假設步兵清得完、城主自己的兵 0 擊殺（大多數情況）。",
     tierH: "📏 兵等越高，切得越大", tierP: "擊殺照單兵實力的比例分：",
     tierEx: "1 隻 TG3 步兵 ≈ 1.17 隻 TG1 ≈ 1.66 隻 T9", tierIX: "IX 系列（Supreme）：T9 50 · TG1 54 · TG2 58 · TG3 62",
-    doH: "✅ 所以這樣派",
+    doH: "✅ 照這樣做",
     dos: ["增援帶兵等最高的步兵。騎兵、弓兵在增援裡幾乎拿不到分。",
       "城主家裡只留弓兵，步兵、騎兵都派出去。",
       "每座城都要有人增援。",
@@ -77,9 +75,7 @@ const T = {
       "派不完時先派步兵，騎兵留家——步兵留在家裡每一波都會吃掉分數。",
       "步兵不夠、可能殺不完的城：優先補步兵進去讓它全滅（城主才拿滿分）。這種城城主開攻擊力／殺傷力增益有用。"],
     noH: "🤷 不會改變你的分數",
-    nos: ["攻擊力／殺傷力／防禦力增益、寵物減益（會全滅的城）：11/06 實測——從第 16 波開始開，每個人的份額跟沒開時完全一樣。",
-      "帶什麼英雄、帶幾位、是不是駐守隊長：都不影響你分到多少（11/06 第 13、20 波）。",
-      "帶騎兵賭奇襲：11/06 這次，同樣的實力，騎兵平均只拿到步兵的約 1/4。"],
+    nos: ["會全滅的城：開攻擊力／殺傷力／防禦力增益、寵物減益，你分到的都一樣。", "帶什麼英雄、帶幾位、是不是駐守隊長：都不影響你分到多少。", "帶騎兵賭奇襲：同樣的實力，騎兵平均只拿到步兵的約 1/4。"],
     hqH: "🏯 聯盟總部", hqP: "第 10、20 波只打聯盟總部，不打城。一樣照「步兵數 × 兵等」分擊殺。分數 = 擊殺 × 固定係數（第 20 波每個擊殺 0.5253 分）。11/06 第 20 波：每隻 X TG3 步兵約殺 0.83 隻；那場奇襲有觸發，每隻 TG3 騎兵約 0.96 隻。",
     unkH: "🟡 還不知道的",
     unks: ["城守不住時分數怎麼算。", "小帳自己守城（沒有增援）為什麼基本分只有城主分的 2/3。", "城裡要多少步兵才保證全滅。", "駐防的技能英雄要怎麼選。", "奇襲觸發後騎兵分到多少由什麼決定。", "城主自己的弓兵什麼時候有分。"],
@@ -90,8 +86,8 @@ const T = {
       "2 · 看戰況：步＋騎＋弓總擊殺 = 殺掉的比例 × 維京人數。步兵夠 → 全滅、騎兵靠奇襲、弓兵 0；步兵偏少 → 騎兵分一部分；步兵很少 → 可能殺不完。要逐回合模擬才算得準。",
       "3 · 分數：城主 = 基本分 × 殺掉的比例；增援者分基本分的一半，照第 1 層的擊殺比例分。"],
     foot: "來源：Sparrow 的截圖和戰報加總（11/03 難度 11、11/06 約 60 份戰報）。公式是從戰報數字反推的，不是遊戲官方說明。遊戲改版後要重新確認。" },
-  pt: { title: "🪓 Estudo Viking", intro: "Nossa pesquisa sobre como a Vingança Viking divide abates e pontos. Não são regras oficiais — muda conforme testamos mais.",
-    badge: "🔬 Relatório de pesquisa · dos nossos relatórios de batalha (11/03, 11/06) · atualizado {d}",
+  pt: { title: "🪓 Estudo Viking", intro: "Como abates e pontos são divididos na Vingança Viking, e como enviar suas tropas. Pesquisa nossa, não é oficial.", howH: "🔢 Como calculamos",
+    badge: "🔬 Nossa pesquisa · atualizado {d}",
     heroH: "Cada onda tem um número fixo de vikings.", heroP: "Se a cidade aguenta, todos morrem. Então a questão não é o quanto você bate — é quanto da infantaria da cidade é sua.",
     whoH: "⚔️ Quem luta",
     inf: "Infantaria", infS: "Luta primeiro e quase sempre acaba com a onda inteira.",
@@ -108,7 +104,7 @@ const T = {
     calcNote: "Estimativa: supõe que a infantaria elimina a onda e que as tropas do dono não abatem nada (o caso normal).",
     tierH: "📏 Nível mais alto = fatia maior", tierP: "Os abates são divididos pela força de uma tropa:",
     tierEx: "1 infantaria TG3 ≈ 1.17 TG1 ≈ 1.66 T9", tierIX: "Série IX (Suprema): T9 50 · TG1 54 · TG2 58 · TG3 62",
-    doH: "✅ Então envie assim",
+    doH: "✅ Faça assim",
     dos: ["Reforce com sua infantaria de nível mais alto. Cavalaria e arquearia num reforço ganham quase nada.",
       "Donos de cidade: deixem só a arquearia em casa. Enviem infantaria e cavalaria.",
       "Toda cidade precisa de pelo menos um reforço.",
@@ -116,9 +112,7 @@ const T = {
       "Não dá para enviar tudo? Envie a infantaria primeiro e deixe a cavalaria em casa — infantaria em casa come pontos em toda onda.",
       "Cidade com pouca infantaria (pode não eliminar a onda): envie infantaria para lá primeiro, para ela eliminar a onda e ganhar todos os pontos. Numa cidade assim, os bônus de Ataque / Letalidade do dono ajudam."],
     noH: "🤷 Não muda seus pontos",
-    nos: ["Bônus de Ataque / Letalidade / Defesa e debuffs de pet, numa cidade que elimina a onda: testado em 11/06 — ligados a partir da onda 16, a parte de todos ficou exatamente igual.",
-      "Qual herói você envia, quantos heróis, ou ser o capitão da guarnição: sua parte não muda (11/06, ondas 13 e 20).",
-      "Apostar na cavalaria: em 11/06, com o mesmo poder, a cavalaria ganhou só cerca de ¼ do que a infantaria ganhou."],
+    nos: ["Bônus de Ataque / Letalidade / Defesa e debuffs de pet, numa cidade que elimina a onda: sua parte fica igual.", "Qual herói você envia, quantos heróis, ou ser o capitão da guarnição: sua parte não muda.", "Apostar na cavalaria: com o mesmo poder, a cavalaria ganha só cerca de ¼ do que a infantaria ganha."],
     hqH: "🏯 QG da Aliança", hqP: "As ondas 10 e 20 só atacam o QG, não as cidades. Mesma ideia: os abates são divididos por infantaria × nível. Pontos = abates × uma taxa fixa (onda 20: 0.5253 por abate). 11/06 onda 20: cada infantaria X TG3 abateu cerca de 0.83; o Emboscador ativou, então cada cavalaria TG3 cerca de 0.96.",
     unkH: "🟡 Ainda não sabemos",
     unks: ["Como os pontos são divididos quando uma cidade cai.", "Por que uma conta sozinha defendendo a própria cidade ganha só ⅔ dos pontos de dono.", "Quanta infantaria uma cidade precisa para ter certeza de eliminar a onda.", "Qual herói de habilidade é o melhor para a guarnição.", "O que decide quanto a cavalaria ganha depois que o Emboscador ativa.", "Quando a arquearia do próprio dono ganha abates."],
@@ -129,8 +123,8 @@ const T = {
       "2 · Depende da batalha: abates de infantaria + cavalaria + arquearia = parte abatida × número de vikings. Infantaria suficiente → onda eliminada, cavalaria só com Emboscador, arquearia 0. Pouca infantaria → a cavalaria participa; muito pouca → talvez não elimine. Para prever, precisa de uma simulação rodada a rodada.",
       "3 · Pontos: dono = pontos base × parte abatida; os reforços dividem metade da base, conforme a camada 1."],
     foot: "Fonte: capturas de tela do Sparrow e somas dos relatórios de batalha (11/03 dificuldade 11, 11/06 ~60 relatórios). As fórmulas foram deduzidas dos números dos relatórios, não do jogo. Confira de novo depois de uma atualização do jogo." },
-  ar: { title: "🪓 دراسة الفايكنغ", intro: "بحثنا عن كيف يوزّع انتقام الفايكنغ القتلى والنقاط. ليست قواعد رسمية — تتغير كلما اختبرنا أكثر.",
-    badge: "🔬 تقرير بحث · من تقارير معاركنا (11/03، 11/06) · تحديث {d}",
+  ar: { title: "🪓 دراسة الفايكنغ", intro: "كيف يُوزَّع القتلى والنقاط في انتقام الفايكنغ، وكيف ترسل قواتك. بحثنا الخاص، ليس رسميًا.", howH: "🔢 كيف حسبناها",
+    badge: "🔬 بحثنا · آخر تحديث {d}",
     heroH: "لكل موجة عدد ثابت من الفايكنغ.", heroP: "إذا صمدت المدينة يموتون كلهم. لذلك السؤال ليس كم تضرب بقوة — بل كم من مشاة المدينة لك.",
     whoH: "⚔️ من يقاتل",
     inf: "المشاة", infS: "يقاتلون أولاً، وغالباً ينهون الموجة كلها.",
@@ -147,7 +141,7 @@ const T = {
     calcNote: "تقدير: يفترض أن المشاة تنهي الموجة وأن قوات صاحب المدينة لا تقتل شيئاً (الحالة المعتادة).",
     tierH: "📏 مستوى أعلى = حصة أكبر", tierP: "تُقسم القتلى حسب قوة الجندي الواحد:",
     tierEx: "1 مشاة TG3 ≈ 1.17 TG1 ≈ 1.66 T9", tierIX: "سلسلة IX (Supreme): T9 50 · TG1 54 · TG2 58 · TG3 62",
-    doH: "✅ لذلك أرسلهم هكذا",
+    doH: "✅ افعل هكذا",
     dos: ["عزّز بمشاتك من أعلى مستوى. الفرسان والرماة في التعزيز لا يحصلون تقريباً على شيء.",
       "أصحاب المدن: أبقوا الرماة فقط في المدينة. أرسلوا المشاة والفرسان.",
       "كل مدينة تحتاج معززاً واحداً على الأقل.",
@@ -155,9 +149,7 @@ const T = {
       "لا تستطيع إرسال كل شيء؟ أرسل المشاة أولاً واترك الفرسان في المدينة — المشاة الباقية في المدينة تأكل النقاط في كل موجة.",
       "مدينة فيها مشاة قليلة (قد لا تنهي الموجة): أرسل المشاة إليها أولاً حتى تنهي الموجة وتأخذ كل النقاط. في مدينة كهذه، تعزيزات الهجوم / قوة الفتك لصاحب المدينة تفيد."],
     noH: "🤷 لا يغيّر نقاطك",
-    nos: ["تعزيزات الهجوم / قوة الفتك / الدفاع وإضعافات الحيوان الأليف، في مدينة تنهي الموجة: اختبرناها في 11/06 — شغّلناها من الموجة 16، وبقيت حصة الجميع كما هي تماماً.",
-      "أي بطل ترسل، أو كم بطلاً، أو أن تكون قائد الحامية: حصتك لا تتغير (11/06، الموجتان 13 و20).",
-      "المراهنة على الفرسان: في 11/06، بنفس القوة، حصل الفرسان على حوالي ¼ فقط مما حصل عليه المشاة."],
+    nos: ["تعزيزات الهجوم / قوة الفتك / الدفاع وإضعافات الحيوان الأليف، في مدينة تنهي الموجة: حصتك تبقى كما هي.", "أي بطل ترسل، أو كم بطلاً، أو أن تكون قائد الحامية: حصتك لا تتغير.", "المراهنة على الفرسان: بنفس القوة، يحصل الفرسان على حوالي ¼ فقط مما يحصل عليه المشاة."],
     hqH: "🏯 مقر التحالف", hqP: "الموجتان 10 و20 تهاجمان المقر فقط، لا المدن. نفس الفكرة: تُقسم القتلى حسب المشاة × المستوى. النقاط = القتلى × معدل ثابت (الموجة 20: 0.5253 لكل قتيل). 11/06 الموجة 20: كل جندي مشاة X TG3 قتل حوالي 0.83؛ تفعّل المتربص، فكل فارس TG3 قتل حوالي 0.96.",
     unkH: "🟡 لا نعرف بعد",
     unks: ["كيف تُقسم النقاط عندما تسقط مدينة.", "لماذا يأخذ حساب وحيد يدافع عن مدينته ⅔ فقط من نقاط صاحب المدينة.", "كم مشاة تحتاج المدينة لتنهي الموجة بالتأكيد.", "أي بطل مهارات هو الأفضل للحامية.", "ما الذي يحدد كم يأخذ الفرسان بعد تفعيل المتربص.", "متى يحصل رماة صاحب المدينة على قتلى."],
@@ -168,8 +160,8 @@ const T = {
       "2 · تعتمد على المعركة: قتلى المشاة + الفرسان + الرماة = نسبة القتلى × عدد الفايكنغ. مشاة كافية → تنتهي الموجة، الفرسان فقط عبر المتربص، الرماة 0. مشاة قليلة → يشارك الفرسان؛ قليلة جداً → ربما لا تنتهي. التوقع يحتاج محاكاة جولة بجولة.",
       "3 · النقاط: صاحب المدينة = النقاط الأساسية × نسبة القتلى؛ المعززون يتقاسمون نصف الأساس حسب الطبقة 1."],
     foot: "المصدر: لقطات شاشة Sparrow ومجاميع تقارير المعارك (11/03 الصعوبة 11، 11/06 ~60 تقريراً). استنتجنا الصيغ من أرقام التقارير، لا من اللعبة. تحقق مرة أخرى بعد تحديث اللعبة." },
-  ko: { title: "🪓 바이킹 연구", intro: "바이킹의 약탈에서 처치와 점수가 어떻게 나뉘는지 우리가 직접 연구한 내용. 공식 규칙 아님 — 테스트할수록 바뀜.",
-    badge: "🔬 연구 보고서 · 우리 전투 보고서 기준 (11/03, 11/06) · 업데이트 {d}",
+  ko: { title: "🪓 바이킹 연구", intro: "바이킹의 약탈에서 처치와 점수가 어떻게 나뉘는지, 병력을 어떻게 보낼지. 우리 연구이고 공식은 아니야.", howH: "🔢 어떻게 계산했는지",
+    badge: "🔬 우리 연구 · 업데이트 {d}",
     heroH: "웨이브마다 바이킹 수는 정해져 있음.", heroP: "도시가 버티면 전부 죽음. 그래서 중요한 건 얼마나 세게 때리느냐가 아니라 — 도시 보병 중 내 보병이 얼마나 되느냐.",
     whoH: "⚔️ 누가 싸우나",
     inf: "보병", infS: "제일 먼저 싸우고, 보통 웨이브 전체를 끝냄.",
@@ -186,7 +178,7 @@ const T = {
     calcNote: "추정: 보병이 웨이브를 다 처치하고 도시 주인 병력은 처치 0이라고 가정 (보통의 경우).",
     tierH: "📏 높은 등급 = 더 큰 몫", tierP: "처치는 병사 한 명의 힘에 따라 나눔:",
     tierEx: "TG3 보병 1 ≈ TG1 1.17 ≈ T9 1.66", tierIX: "IX 시리즈 (Supreme): T9 50 · TG1 54 · TG2 58 · TG3 62",
-    doH: "✅ 그래서 이렇게 보내기",
+    doH: "✅ 이렇게 해",
     dos: ["가장 높은 등급 보병으로 증원. 증원에 넣은 기병과 궁병은 거의 못 받음.",
       "도시 주인: 집에는 궁병만 남기기. 보병과 기병은 내보내기.",
       "모든 도시에 증원자가 최소 한 명 필요.",
@@ -194,9 +186,7 @@ const T = {
       "전부 못 보내면? 보병 먼저 보내고 기병은 집에 두기 — 집에 남은 보병은 웨이브마다 점수를 깎음.",
       "보병이 부족한 도시 (웨이브를 다 못 잡을 수 있음): 그 도시에 보병을 먼저 보내서 다 처치하고 점수를 전부 받게 하기. 이런 도시에서는 도시 주인의 공격력 / 파괴력 버프가 도움 됨."],
     noH: "🤷 점수에 영향 없음",
-    nos: ["웨이브를 다 처치하는 도시에서 공격력 / 파괴력 / 방어력 버프와 펫 디버프: 11/06 테스트 — 16웨이브부터 켰는데 모두의 몫이 완전히 그대로.",
-      "어떤 영웅을 보내는지, 영웅 몇 명인지, 주둔 대장인지: 내 몫은 안 바뀜 (11/06 13·20웨이브).",
-      "기병에 거는 것: 11/06, 같은 전투력이면 기병은 보병의 약 ¼만 받음."],
+    nos: ["웨이브를 다 처치하는 도시에서 공격력 / 파괴력 / 방어력 버프와 펫 디버프: 내 몫은 그대로.", "어떤 영웅을 보내는지, 영웅 몇 명인지, 주둔 대장인지: 내 몫은 안 바뀜.", "기병에 거는 것: 같은 전투력이면 기병은 보병의 약 ¼만 받음."],
     hqH: "🏯 연맹 본부", hqP: "10·20웨이브는 도시가 아니라 본부만 공격. 원리는 같음: 처치는 보병 × 등급으로 나눔. 점수 = 처치 × 고정 비율 (20웨이브: 처치당 0.5253). 11/06 20웨이브: X TG3 보병 하나당 약 0.83 처치; 기습이 발동해서 TG3 기병 하나당 약 0.96.",
     unkH: "🟡 아직 모름",
     unks: ["도시가 함락되면 점수를 어떻게 나누는지.", "혼자 자기 도시를 지키는 계정이 왜 도시 주인 점수의 ⅔만 받는지.", "웨이브를 확실히 다 처치하려면 도시에 보병이 얼마나 필요한지.", "주둔에 가장 좋은 스킬 영웅은 누구인지.", "기습 발동 후 기병 몫은 무엇이 정하는지.", "도시 주인 본인 궁병은 언제 처치를 받는지."],
@@ -246,6 +236,7 @@ function render() {
   <div class="vv-hero" style="background-image:url(figures/vv/viking.webp)"><div class="vv-hero-in">
     <span class="vv-badge">${esc(t("badge").replace("{d}", UPDATED))}</span>
     <h2>${esc(t("heroH"))}</h2><p>${esc(t("heroP"))}</p></div></div>
+  <div class="card rs-do"><h3>${esc(t("doH"))}</h3><ol class="vv-dos">${t("dos").map((d, i) => `<li><span class="vv-ic">${["<img src=\"figures/vv/inf.webp\" alt=\"\">", "<img src=\"figures/vv/arc.webp\" alt=\"\">", "🏰", "🗺️", "<img src=\"figures/vv/cav.webp\" alt=\"\">", "⚠️"][i]}</span><span>${esc(d)}</span></li>`).join("")}</ol></div>
   <div class="card"><h3>${esc(t("whoH"))}</h3>
     <div class="vv-trs">${troop("inf", t("inf"), t("infS"), "on")}${troop("cav", t("cav"), t("cavS"), "off")}${troop("arc", t("arc"), t("arcS"), "off")}</div>
     <p class="vv-note">${esc(t("heroNote"))}</p></div>
@@ -253,18 +244,18 @@ function render() {
   <div class="card"><h3>${esc(t("tierH"))}</h3><p class="vv-p">${esc(t("tierP"))}</p>
     <div class="vv-tiers">${Object.entries(P).map(([k, v]) => `<div class="vv-tier"><span>${k}</span><div class="vv-tb"><i style="width:${(v / max * 100).toFixed(1)}%"></i></div><b>${v}</b></div>`).join("")}</div>
     <p class="vv-ex">${esc(t("tierEx"))}</p><div class="muted vv-small">${esc(t("tierIX"))}</div></div>
-  <div class="card"><h3>${esc(t("doH"))}</h3><ol class="vv-dos">${t("dos").map((d, i) => `<li><span class="vv-ic">${["<img src=\"figures/vv/inf.webp\" alt=\"\">", "<img src=\"figures/vv/arc.webp\" alt=\"\">", "🏰", "🗺️", "<img src=\"figures/vv/cav.webp\" alt=\"\">", "⚠️"][i]}</span><span>${esc(d)}</span></li>`).join("")}</ol></div>
   <div class="vv-two">
     <div class="card"><h3>${esc(t("noH"))}</h3><ul class="vv-ul">${t("nos").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
     <div class="card"><h3>${esc(t("unkH"))}</h3><ul class="vv-ul">${t("unks").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
   </div>
-  <div class="card"><h3>${esc(t("hqH"))}</h3><p class="vv-p">${esc(t("hqP"))}</p></div>
-  <details class="card vv-num"><summary>${esc(t("numH"))}</summary>
+  <details class="card vv-num"><summary>${esc(t("howH"))}</summary>
+    <h4 style="margin:12px 0 4px">${esc(t("hqH"))}</h4><p class="vv-p">${esc(t("hqP"))}</p>
+    <h4 style="margin:12px 0 4px">${esc(t("numH"))}</h4>
     <table class="vv-t"><tr>${t("numCols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${CITY_WAVES.map((w) => `<tr${ELITE.includes(w) ? ' class="el"' : ""}><td>${w}${ELITE.includes(w) ? " ×2" : ""}</td><td class="n">${fmt(hostPts(w))}</td><td class="n">${fmt(hostPts(w) / 2)}</td></tr>`).join("")}</table>
     <p class="vv-p" style="margin-top:12px">${esc(t("perH"))}</p>
-    <table class="vv-t"><tr>${t("perCols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${PER1K.map(([w, k]) => `<tr><td>${w}</td><td class="n">${k}</td></tr>`).join("")}</table></details>
-  <details class="card vv-num"><summary>${esc(t("formH"))}</summary><ul class="vv-ul">${t("forms").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></details>
-  <div class="muted vv-small">${esc(t("foot"))}</div>`;
+    <table class="vv-t"><tr>${t("perCols").map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${PER1K.map(([w, k]) => `<tr><td>${w}</td><td class="n">${k}</td></tr>`).join("")}</table>
+    <h4 style="margin:12px 0 4px">${esc(t("formH"))}</h4><ul class="vv-ul">${t("forms").map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+    <div class="muted vv-small">${esc(t("foot"))}</div></details>`;
   bind();
 }
 function bind() {

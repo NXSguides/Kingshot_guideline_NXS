@@ -17,8 +17,8 @@ const HEROES = [
 const OFF = ["atk", "let"];   // what counts against the Bear (it doesn't hit back)
 const PRESET = { bear: ["amane", "amane", "chenko", "chenko"], pvp: ["amane", "chenko", "gordon", "howard"] };
 const T = {
-  en: { title: "⚔️ Rally & Garrison", intro: "Our research on who counts in a rally or a garrison, and which joiner heroes to bring. Not official — some points are still being tested.",
-    badge: "🔬 Research · tests on our own accounts + battle reports · updated {d}",
+  en: { title: "⚔️ Rally & Garrison", intro: "Who counts in a rally or a garrison, and which hero joiners should bring. Our own research, not official.", do: ["Joining a rally or a garrison: only your FIRST hero's skill counts. Bring a 4★ hero with the skill at Lv5.", "Bear Hunt: 2 Attack (Amane, Margot) + 2 Lethality (Chenko, Yeonwoo).", "PvP rally and garrison: 4 different types — Attack, Lethality, Health, Damage Taken Down (e.g. Amane + Chenko + Gordon + Howard).", "City Bonus only works when the rally leader, or the strongest defender in a garrison, turns it on.", "After you take a building, switch to garrison heroes and garrison Exclusive Gear."], howH: "🔢 How we worked it out", doH: "✅ Do this",
+    badge: "🔬 Our research · updated {d}",
     st: { ok: "✅ sure", mid: "🟡 likely" },
     heroH: "A rally fights with ONE player's stats.", heroP: "In a rally that is the leader. In a garrison it is the defender with the strongest stats. Everyone else brings troops — and up to 4 joiners also bring one hero skill.",
     whoH: "👥 Who counts", rally: "⚔️ Rally", gar: "🛡️ Garrison",
@@ -58,8 +58,8 @@ const T = {
     numFoot: "Each line = average of 2–6 solo marches that lost on purpose, so kills show how hard and how long they fought. Luck: about ±3% per march with infantry, ±10% with archers.",
     more: "Officers: full numbers in 🐻 Bear analysis and the battle rules",
     foot: "Source: tests on Sparrow's two accounts (11/07), our battle reports (B1–B29, 11/06 PvP), Viking reports, and outside guides checked against them. Worked back from the numbers, not from the game." },
-  zh: { title: "⚔️ 集結與駐防", intro: "我們自己研究的：集結和駐防到底算誰、加入者該帶哪個英雄。不是官方說明——有些還在測。",
-    badge: "🔬 研究中 · 自己帳號實測＋戰報 · 更新 {d}",
+  zh: { title: "⚔️ 集結與駐防", intro: "集結和駐防到底算誰、加入者該帶哪個英雄。我們自己的研究，不是官方說明。", do: ["加入集結或駐防：只算你「第一位」英雄的技能。帶 4★、技能 Lv5 的英雄。", "狩獵巨熊：2 個攻擊力（雨音、瑪爾戈）＋2 個殺傷力（琴科、妍羽）。", "PvP 集結和駐防：4 格帶 4 種不同類——攻擊力、殺傷力、生命值、承受傷害降低（例：雨音＋琴科＋戈登＋霍華德）。", "城鎮增益只有集結隊長、或駐防裡屬性最強的人開才有用。", "打下建築後，換成守城英雄和守城類專屬裝備。"], howH: "🔢 怎麼算的", doH: "✅ 照這樣做",
+    badge: "🔬 我們的研究 · 更新 {d}",
     st: { ok: "✅ 確定", mid: "🟡 推測" },
     heroH: "集結只用「一個人」的屬性打。", heroP: "集結是隊長；駐防是守軍裡屬性最強的那個人。其他人只出兵——另外最多 4 位加入者各帶一個英雄技能。",
     whoH: "👥 誰算數", rally: "⚔️ 集結", gar: "🛡️ 駐防",
@@ -99,8 +99,8 @@ const T = {
     numFoot: "每一行 = 2–6 次故意打輸的單人出征平均，所以擊殺數代表打得多痛、撐得多久。運氣：步兵每次約 ±3%，弓兵約 ±10%。",
     more: "幹部：完整數字在 🐻 熊獵實測和戰報規則表",
     foot: "來源：Sparrow 兩個帳號實測（11/07）、我們的戰報（B1–B29、11/06 PvP）、維京戰報，以及跟這些對照過的外部攻略。從數字反推，不是官方說明。" },
-  pt: { title: "⚔️ Rally e Guarnição", intro: "Nossa pesquisa sobre quem conta num rally ou numa guarnição, e quais heróis os participantes devem levar. Não é oficial — alguns pontos ainda estão em teste.",
-    badge: "🔬 Pesquisa · testes nas nossas contas + relatórios de batalha · atualizado {d}",
+  pt: { title: "⚔️ Rally e Guarnição", intro: "Quem conta num rally ou numa guarnição, e qual herói os participantes devem levar. Pesquisa nossa, não é oficial.", do: ["Ao entrar num rally ou guarnição: só conta a habilidade do seu PRIMEIRO herói. Leve um herói 4★ com a habilidade no Nv5.", "Caça ao Urso: 2 de Ataque (Amane, Margot) + 2 de Letalidade (Chenko, Yeonwoo).", "Rally PvP e guarnição: 4 tipos diferentes — Ataque, Letalidade, Vida, Dano recebido − (ex.: Amane + Chenko + Gordon + Howard).", "O Bônus da Cidade só funciona quando o líder do rally, ou o defensor mais forte da guarnição, liga.", "Depois de tomar uma construção, troque para heróis de guarnição e Equipamento Exclusivo de guarnição."], howH: "🔢 Como calculamos", doH: "✅ Faça assim",
+    badge: "🔬 Nossa pesquisa · atualizado {d}",
     st: { ok: "✅ certo", mid: "🟡 provável" },
     heroH: "Um rally luta com os atributos de UM jogador.", heroP: "Num rally, é o líder. Numa guarnição, é o defensor com os atributos mais fortes. Os outros só mandam tropas — e até 4 participantes também trazem uma habilidade de herói.",
     whoH: "👥 Quem conta", rally: "⚔️ Rally", gar: "🛡️ Guarnição",
@@ -140,8 +140,8 @@ const T = {
     numFoot: "Cada linha = média de 2–6 marchas solo que perderam de propósito, então os abates mostram o quanto e por quanto tempo lutaram. Sorte: cerca de ±3% por marcha com infantaria, ±10% com arquearia.",
     more: "Oficiais: números completos em 🐻 Análise do Urso e nas regras de batalha",
     foot: "Fonte: testes nas duas contas da Sparrow (11/07), nossos relatórios de batalha (B1–B29, PvP 11/06), relatórios dos vikings e guias externos conferidos com eles. Calculado a partir dos números, não tirado do jogo." },
-  ar: { title: "⚔️ الحشد والحامية", intro: "بحثنا عن من يُحتسب في الحشد أو الحامية، وأي أبطال يجلبهم المنضمّون. ليس رسميًا — بعض النقاط ما زالت قيد الاختبار.",
-    badge: "🔬 بحث · اختبارات على حساباتنا + تقارير المعارك · تحديث {d}",
+  ar: { title: "⚔️ الحشد والحامية", intro: "من يُحتسب في الحشد أو الحامية، وأي بطل يجلبه المنضمّون. بحثنا الخاص، ليس رسميًا.", do: ["عند الانضمام لحشد أو حامية: تُحتسب مهارة بطلك الأول فقط. اجلب بطلًا 4★ ومهارته في Lv5.", "صيد الدببة: 2 هجوم (أماني، مارغوت) + 2 قوة فتك (تشينكو، يونوو).", "حشد PvP والحامية: 4 أنواع مختلفة — هجوم، قوة فتك، صحة، الضرر المتجنب (مثال: أماني + تشينكو + جوردن + هاورد).", "مكافأة المدينة تعمل فقط إذا فعّلها قائد الحشد، أو أقوى مدافع في الحامية.", "بعد الاستيلاء على مبنى، بدّل إلى أبطال الحامية والعتاد الحصري الخاص بالحامية."], howH: "🔢 كيف حسبناها", doH: "✅ افعل هكذا",
+    badge: "🔬 بحثنا · آخر تحديث {d}",
     st: { ok: "✅ مؤكد", mid: "🟡 مرجّح" },
     heroH: "الحشد يقاتل بإحصاءات لاعب واحد فقط.", heroP: "في الحشد هو القائد. في الحامية هو المدافع صاحب أقوى إحصاءات. الباقون يرسلون القوات فقط — وحتى 4 منضمّين يجلب كل منهم أيضًا مهارة بطل واحدة.",
     whoH: "👥 من يُحتسب", rally: "⚔️ الحشد", gar: "🛡️ الحامية",
@@ -181,8 +181,8 @@ const T = {
     numFoot: "كل سطر = متوسط 2–6 زحوف فردية خسرت عمدًا، لذلك القتلى تُظهر مدى قوة وطول قتالها. الحظ: حوالي ±3% لكل زحف مع المشاة، و±10% مع الرماة.",
     more: "للضباط: الأرقام الكاملة في 🐻 تحليل الدب وقواعد المعارك",
     foot: "المصدر: اختبارات على حسابَي Sparrow (11/07)، وتقارير معاركنا (B1–B29، PvP 11/06)، وتقارير الفايكنغ، وأدلة خارجية تمت مقارنتها بها. مستنتج من الأرقام، وليس من اللعبة." },
-  ko: { title: "⚔️ 집결과 방어", intro: "집결이나 방어에서 누구 능력치가 적용되는지, 참여자는 어떤 영웅을 데려가야 하는지에 대한 우리 연구. 공식 아님 — 일부는 아직 테스트 중.",
-    badge: "🔬 연구 · 우리 계정 테스트 + 전투 보고서 · 업데이트 {d}",
+  ko: { title: "⚔️ 집결과 방어", intro: "집결과 방어에서 누가 계산되는지, 참여자는 어떤 영웅을 데려갈지. 우리 연구이고 공식은 아니야.", do: ["집결이나 방어에 참여할 때: 「첫 번째」 영웅 스킬만 계산돼. 4★에 스킬 Lv5인 영웅을 데려가.", "곰 사냥: 공격력 2 (아마네, 마르고) + 파괴력 2 (첸코, 연우).", "PvP 집결과 방어: 서로 다른 4종류 — 공격력, 파괴력, HP, 받는 피해 감소 (예: 아마네 + 첸코 + 고든 + 하워드).", "도시 버프는 집결 대장이나 방어에서 능력치가 가장 강한 사람이 켜야 효과가 있어.", "건물을 점령한 뒤에는 방어 영웅과 방어용 전용 장비로 바꿔."], howH: "🔢 어떻게 계산했는지", doH: "✅ 이렇게 해",
+    badge: "🔬 우리 연구 · 업데이트 {d}",
     st: { ok: "✅ 확실", mid: "🟡 추정" },
     heroH: "집결은 한 사람의 능력치로만 싸워.", heroP: "집결에서는 대장, 방어에서는 능력치가 가장 강한 방어자야. 나머지는 병력만 보내 — 그리고 최대 4명의 참여자가 영웅 스킬 1개씩도 가져와.",
     whoH: "👥 누가 적용되나", rally: "⚔️ 집결", gar: "🛡️ 방어",
@@ -238,7 +238,7 @@ function mult(picks, mode) {   // same type adds, different types multiply
   for (const [k, v] of Object.entries(sum)) { if (mode === "bear" && !OFF.includes(k)) continue; x *= 1 + v / 100; }
   return { x, sum };
 }
-const st = (c) => `<span class="rg-st ${c}">${esc(t("st")[c])}</span>`;
+const st = (c) => c === "mid" ? `<span class="rg-st ${c}">${esc(t("st")[c])}</span>` : "";
 const pts = (arr) => `<ul class="rg-ul">${arr.map(([c, x]) => `<li>${st(c)} ${esc(x)}</li>`).join("")}</ul>`;
 const chip = (k) => `<span class="rg-chip ${k}">${esc(t("types")[k])}</span>`;
 const heroChips = (h) => { const s = Object.keys(HM[h] || {}); return s.length ? s.map(chip).join("") : chip("nil"); };
@@ -257,36 +257,37 @@ function render() {
   const max = 2.1;
   root.innerHTML = `
   <div class="rg-hero"><span class="rg-badge">${esc(t("badge").replace("{d}", UPDATED))}</span><h2>${esc(t("heroH"))}</h2><p>${esc(t("heroP"))}</p></div>
-  <div class="card"><h3>${esc(t("whoH"))}</h3>
-    <div class="rg-two"><div class="rg-side r"><b>${esc(t("rally"))}</b>${pts(t("whoR"))}</div><div class="rg-side g"><b>${esc(t("gar"))}</b>${pts(t("whoG"))}</div></div>
-    <p class="muted rg-small" style="margin:8px 0 0">${esc(t("whoNote"))}</p></div>
-  <div class="card"><h3>${esc(t("slotH"))}</h3>
-    <div class="rg-four">${[0, 1, 2, 3].map((i) => `<div class="rg-box"><span class="rg-n">${i + 1}</span><span class="rg-hero1">🦸</span><span class="rg-dim">🦸 🦸</span></div>`).join("")}</div>
-    ${pts(t("slot"))}</div>
-  <div class="card"><h3>${esc(t("stackH"))}</h3><p class="rg-p">${esc(t("stackP"))}</p>
-    <div class="rg-bars">${t("bars").map(([k, label, m, th]) => `<div class="rg-bar ${k}"><div class="rg-bl">${esc(label)}</div>
-      <div class="rg-bt"><i style="width:${(m / max * 100).toFixed(1)}%"></i><s style="left:${(th / max * 100).toFixed(1)}%"></s></div>
-      <div class="rg-bv"><b>×${m.toFixed(2)}</b> <span>${esc(t("barMeas"))} · ${esc(t("barTh"))} ×${th.toFixed(2)}</span></div></div>`).join("")}</div>
-    <p class="muted rg-small" style="margin-top:8px">${st("ok")} ${esc(t("stackFoot"))}</p></div>
-  <div class="card"><h3>${esc(t("defH"))}</h3>${pts(t("def"))}</div>
+  <div class="card rs-do"><h3>${esc(t("doH"))}</h3><ol class="rs-dol">${t("do").map((x) => `<li>${esc(x)}</li>`).join("")}</ol></div>
   <div class="card"><h3>${esc(t("pickH"))}</h3>
     <div class="rg-two">
       <div class="rg-side b"><b>${esc(t("pickBear"))}</b><div class="rg-pick">${PRESET.bear.map((h) => `<span class="rg-ph">${esc(t("heroes")[h])}${heroChips(h)}</span>`).join("")}</div><p class="rg-small">${esc(t("pickBearP"))}</p></div>
       <div class="rg-side g"><b>${esc(t("pickPvp"))}</b><div class="rg-pick">${PRESET.pvp.map((h) => `<span class="rg-ph">${esc(t("heroes")[h])}${heroChips(h)}</span>`).join("")}</div><p class="rg-small">${esc(t("pickPvpP"))}</p></div>
     </div>
     <h4 class="rg-h4">${esc(t("exH"))}</h4><table class="rg-t"><tbody>${t("ex").map(([a, b]) => `<tr><td>${esc(a)}</td><td class="n">${esc(b)}</td></tr>`).join("")}</tbody></table></div>
+  <div class="card"><h3>${esc(t("whoH"))}</h3>
+    <div class="rg-two"><div class="rg-side r"><b>${esc(t("rally"))}</b>${pts(t("whoR"))}</div><div class="rg-side g"><b>${esc(t("gar"))}</b>${pts(t("whoG"))}</div></div></div>
+  <div class="card"><h3>${esc(t("slotH"))}</h3>
+    <div class="rg-four">${[0, 1, 2, 3].map((i) => `<div class="rg-box"><span class="rg-n">${i + 1}</span><span class="rg-hero1">🦸</span><span class="rg-dim">🦸 🦸</span></div>`).join("")}</div>
+    ${pts(t("slot"))}</div>
   <div class="card"><h3>${esc(t("calcH"))}</h3><div id="rg_calc">${calcHtml()}</div></div>
-  <div class="card"><h3>${esc(t("leadH"))}</h3>${pts(t("lead"))}</div>
+  <div class="card"><h3>${esc(t("defH"))}</h3>${pts(t("def"))}</div>
+  <div class="card"><h3>${esc(t("leadH"))}</h3>${pts(t("lead").slice(1))}</div>
   <div class="rg-two">
     <div class="card"><h3>${esc(t("capH"))}</h3>${pts(t("cap"))}</div>
     <div class="card"><h3>${esc(t("trH"))}</h3>${pts(t("tr"))}</div>
   </div>
   <div class="card"><h3>${esc(t("unkH"))}</h3><ul class="rg-ul">${t("unks").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
-  <details class="card rg-num"><summary>${esc(t("numH"))}</summary><div style="overflow-x:auto"><table class="rg-t"><thead><tr>${t("numCols").map((c, i) => `<th${i > 1 ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
+  <details class="card rg-num"><summary><b>${esc(t("howH"))}</b></summary><h4 class="rg-h4">${esc(t("stackH"))}</h4><p class="rg-p">${esc(t("stackP"))}</p>
+    <div class="rg-bars">${t("bars").map(([k, label, m, th]) => `<div class="rg-bar ${k}"><div class="rg-bl">${esc(label)}</div>
+      <div class="rg-bt"><i style="width:${(m / max * 100).toFixed(1)}%"></i><s style="left:${(th / max * 100).toFixed(1)}%"></s></div>
+      <div class="rg-bv"><b>×${m.toFixed(2)}</b> <span>${esc(t("barMeas"))} · ${esc(t("barTh"))} ×${th.toFixed(2)}</span></div></div>`).join("")}</div>
+    <p class="muted rg-small" style="margin-top:8px">${st("ok")} ${esc(t("stackFoot"))}</p>
+    <p class="rg-p" style="margin-top:10px">${esc(t("lead")[0][1])}</p>
+    <h4 class="rg-h4">${esc(t("numH"))}</h4><div style="overflow-x:auto"><table class="rg-t"><thead><tr>${t("numCols").map((c, i) => `<th${i > 1 ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
     <tbody>${t("num").map((r) => `<tr${r[0] ? ' class="grp"' : ""}>${r.map((c, i) => `<td${i > 1 ? ' class="n"' : ""}>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
-    <p class="muted rg-small">${esc(t("numFoot"))}</p></details>
-  <p class="muted rg-small"><a href="#bearplan">${esc(t("more"))}</a></p>
-  <div class="muted rg-small">${esc(t("foot"))}</div>`;
+    <p class="muted rg-small">${esc(t("numFoot"))}</p>
+    <div class="muted rg-small">${esc(t("foot"))}</div></details>
+  <p class="muted rg-small"><a href="#bearplan">${esc(t("more"))}</a></p>`;
   bind();
 }
 function bind() {

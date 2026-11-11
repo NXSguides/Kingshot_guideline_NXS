@@ -58,6 +58,7 @@ const FEATURES = [
   ["Investment report (💎 research)", /💎 INVESTMENT report/, /iv: \[\{ s: "#iv_title", k: "iv01" \}\]/],
   ["🔬 Research permission (one for all reports)", /🔬 RESEARCH \(研究報告\)/, /research: \[\{ s: "#researchTab", k: "rs01" \}\]/],
   ["🔬 Research main tab (reports as sub-tabs)", /🔬 Research \(研究報告/, /🔬 Research holds our reports/],
+  ["🔬 Research reports open with ✅ Do this (working-out folded)", /opens with a ✅ Do this card/, /Each report starts with ✅ Do this/],
   ["Battle: 🎯 KvK opponent intel", /🎯 KvK opponent intel \(KvK 對手情報/, /{ s: "#ak_intel", k: "ak05" }/],
   ["Ranking: 💾 Save now (plan)", /💾 Save now \(立即儲存/, /{ s: "#planSaveNow", k: "rk01s" }/],
   ["Ranking: ④ 🔗 Keep together (same building / team in drafts)", /🔗 Keep together \(排在一起/, /{ s: "#tbCard \.tb-tog", k: "rk19g" }/],
