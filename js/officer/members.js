@@ -45,20 +45,20 @@ for (const [l, o] of Object.entries({"en": {"asAuto": "🤖 Placing members auto
 /* 🧭 tap a city on a planned spot = the planned person; 📌 keep where they are (Nia, 2026-11-11); HQ follows the move */
 for (const [l, o] of Object.entries({
   en: { psPlan: "🧭 Planned here: {n}", psFree: "🧭 Planned spot (nobody yet)", psNow: "Sitting here now: {n}", psEdit: "👤 Edit {n}'s position",
-    adT: "📌 Keep where they are", adHow: "Everyone who has a planned city spot and whose castle is now on the hive gets the spot they sit on — only names change; the spots (X:Y, number) never move. People without a spot are ignored; people outside the hive keep their spot.",
-    adBtn: "📌 Use where they sit now ({n})", adNone: "Everyone with a spot inside the hive is already on it.", adQ: "These {n} spots get a new name:\n{l}{lost}\n\nOK?", adLost: "\n\nNo spot now (someone else sits on theirs) — give them one:\n{l}", adDone: "📌 {n} spots changed.", adCnt: "With a spot and inside the hive now: {n} · to change: {c}", adSpots: "The plan has {n} city spots ({f} with a name, {e} empty).", adWas: "was {n}", adBt: "🐻 BT follows the side of their spot:\n{l}", adBtDone: "🐻 {n} BT marks changed." },
+    adT: "📌 Keep where they are", adHow: "Every member of ours whose castle now sits on one of the hive's city spots gets that spot (planned before or not) — only names change; the spots (X:Y, number) never move. Places that are not a planned city spot don't count; people there keep their old spot.",
+    adBtn: "📌 Use where they sit now ({n})", adNone: "Every hive city spot already has the name of who sits on it.", adQ: "These {n} spots get a new name:\n{l}{lost}\n\nOK?", adLost: "\n\nNo spot now (someone else sits on theirs) — give them one:\n{l}", adDone: "📌 {n} spots changed.", adCnt: "On a hive city spot now: {n} · spots to rename: {c}", adSpots: "The plan has {n} city spots ({f} with a name, {e} empty).", adWas: "was {n}", adBt: "🐻 BT follows the side of their spot:\n{l}", adBtDone: "🐻 {n} BT marks changed." },
   zh: { psPlan: "🧭 原本規劃在這裡：{n}", psFree: "🧭 規劃的空位（還沒安排人）", psNow: "現在坐在這裡：{n}", psEdit: "👤 改 {n} 的現在位置",
-    adT: "📌 將錯就錯", adHow: "計畫裡有安排位置、而且現在城坐在 Hive 格子上的人：他坐的那一格就換成他的名字。只換名字，格子的位置和數量都不會變。沒被安排位置的人不算；Hive 外面的人維持原本的位置。",
-    adBtn: "📌 用現在的位置當新位置（{n} 人）", adNone: "有位置、在 Hive 內的人都已經在自己的位置上了。", adQ: "這 {n} 格會換名字：\n{l}{lost}\n\n確定嗎？", adLost: "\n\n這些人的格子被別人坐了、自己也沒坐在格子上，會變成沒位置，要再幫他們安排：\n{l}", adDone: "📌 改了 {n} 個位置。", adCnt: "有安排位置、現在在 Hive 內：{n} 人 · 要改：{c} 人", adSpots: "計畫裡共有 {n} 個城堡位置（有名字 {f}、空位 {e}）。", adWas: "原本是 {n}", adBt: "🐻 BT 照他位置在哪一邊改：\n{l}", adBtDone: "🐻 改了 {n} 人的 BT。" },
+    adT: "📌 將錯就錯", adHow: "只要是我們聯盟的人，現在城坐在 Hive 的城堡格子上，那一格就換成他的名字（不管他原本有沒有被安排）。只換名字，格子的位置和數量都不會變。不是計畫城堡格子的地方不算，坐在那裡的人維持原本的位置。",
+    adBtn: "📌 用現在的位置當新位置（{n} 人）", adNone: "Hive 每一格的名字都已經是坐在上面的人了。", adQ: "這 {n} 格會換名字：\n{l}{lost}\n\n確定嗎？", adLost: "\n\n這些人的格子被別人坐了、自己也沒坐在格子上，會變成沒位置，要再幫他們安排：\n{l}", adDone: "📌 改了 {n} 個位置。", adCnt: "現在坐在 Hive 城堡格子上：{n} 人 · 要換名字：{c} 格", adSpots: "計畫裡共有 {n} 個城堡位置（有名字 {f}、空位 {e}）。", adWas: "原本是 {n}", adBt: "🐻 BT 照他位置在哪一邊改：\n{l}", adBtDone: "🐻 改了 {n} 人的 BT。" },
   pt: { psPlan: "🧭 Planejado aqui: {n}", psFree: "🧭 Lugar planejado (ninguém ainda)", psNow: "Aqui agora: {n}", psEdit: "👤 Editar a posição de {n}",
-    adT: "📌 Ficar onde estão", adHow: "Quem tem lugar no plano e está agora sobre a colmeia fica com o lugar onde está — só os nomes mudam; os lugares (X:Y, quantidade) nunca mudam. Quem não tem lugar é ignorado; quem está fora mantém o seu.",
-    adBtn: "📌 Usar onde estão agora ({n})", adNone: "Todos com lugar dentro da colmeia já estão nele.", adQ: "Estes {n} lugares mudam de nome:\n{l}{lost}\n\nOK?", adLost: "\n\nSem lugar agora (outro está no deles) — dê um:\n{l}", adDone: "📌 {n} lugares mudados.", adCnt: "Com lugar e dentro da colmeia: {n} · a mudar: {c}", adSpots: "O plano tem {n} lugares de cidade ({f} com nome, {e} vazios).", adWas: "era {n}", adBt: "🐻 BT segue o lado do lugar:\n{l}", adBtDone: "🐻 {n} marcas BT mudadas." },
+    adT: "📌 Ficar onde estão", adHow: "Todo membro nosso cuja cidade está num lugar de cidade da colmeia fica com esse lugar (planejado antes ou não) — só os nomes mudam; os lugares (X:Y, quantidade) nunca mudam. Lugares fora dos planejados não contam; quem está lá mantém o lugar antigo.",
+    adBtn: "📌 Usar onde estão agora ({n})", adNone: "Cada lugar da colmeia já tem o nome de quem está nele.", adQ: "Estes {n} lugares mudam de nome:\n{l}{lost}\n\nOK?", adLost: "\n\nSem lugar agora (outro está no deles) — dê um:\n{l}", adDone: "📌 {n} lugares mudados.", adCnt: "Num lugar da colmeia agora: {n} · a renomear: {c}", adSpots: "O plano tem {n} lugares de cidade ({f} com nome, {e} vazios).", adWas: "era {n}", adBt: "🐻 BT segue o lado do lugar:\n{l}", adBtDone: "🐻 {n} marcas BT mudadas." },
   ar: { psPlan: "🧭 المخطط هنا: {n}", psFree: "🧭 مكان مخطط (لا أحد بعد)", psNow: "هنا الآن: {n}", psEdit: "👤 تعديل موقع {n}",
-    adT: "📌 ابقوا حيث أنتم", adHow: "كل من له مكان في الخطة ومدينته الآن على الخلية يأخذ المكان الذي هو فيه — تتغير الأسماء فقط؛ الأماكن (X:Y والعدد) لا تتغير. من ليس له مكان يُتجاهل؛ ومن هو خارج الخلية يبقى مكانه.",
-    adBtn: "📌 استخدم مواقعهم الحالية ({n})", adNone: "كل من له مكان داخل الخلية موجود فيه بالفعل.", adQ: "هذه الأماكن الـ {n} تأخذ اسمًا جديدًا:\n{l}{lost}\n\nموافق؟", adLost: "\n\nبلا مكان الآن (شخص آخر في مكانهم) — أعطهم مكانًا:\n{l}", adDone: "📌 تم تغيير {n} أماكن.", adCnt: "لهم مكان وداخل الخلية الآن: {n} · للتغيير: {c}", adSpots: "في الخطة {n} مكان مدينة ({f} باسم، {e} فارغ).", adWas: "كان {n}", adBt: "🐻 يتبع BT جهة المكان:\n{l}", adBtDone: "🐻 تم تغيير {n} علامات BT." },
+    adT: "📌 ابقوا حيث أنتم", adHow: "كل عضو منا مدينته الآن على أحد أماكن المدن في الخلية يأخذ ذلك المكان (سواء كان مخططًا له أم لا) — تتغير الأسماء فقط؛ الأماكن (X:Y والعدد) لا تتغير. الأماكن غير المخططة لا تُحسب؛ ومن فيها يبقى مكانه القديم.",
+    adBtn: "📌 استخدم مواقعهم الحالية ({n})", adNone: "كل مكان في الخلية يحمل بالفعل اسم من يجلس فيه.", adQ: "هذه الأماكن الـ {n} تأخذ اسمًا جديدًا:\n{l}{lost}\n\nموافق؟", adLost: "\n\nبلا مكان الآن (شخص آخر في مكانهم) — أعطهم مكانًا:\n{l}", adDone: "📌 تم تغيير {n} أماكن.", adCnt: "على مكان في الخلية الآن: {n} · لإعادة التسمية: {c}", adSpots: "في الخطة {n} مكان مدينة ({f} باسم، {e} فارغ).", adWas: "كان {n}", adBt: "🐻 يتبع BT جهة المكان:\n{l}", adBtDone: "🐻 تم تغيير {n} علامات BT." },
   ko: { psPlan: "🧭 원래 계획: {n}", psFree: "🧭 계획된 빈자리 (아직 없음)", psNow: "지금 여기: {n}", psEdit: "👤 {n}의 위치 수정",
-    adT: "📌 지금 자리 그대로", adHow: "계획에 자리가 있고 지금 하이브 위에 있는 사람은 앉아 있는 자리를 가져가요 — 이름만 바뀌고 자리(X:Y, 개수)는 그대로예요. 자리 없는 사람은 무시, 하이브 밖은 그대로.",
-    adBtn: "📌 지금 자리로 정하기 ({n}명)", adNone: "자리가 있고 하이브 안에 있는 사람은 모두 이미 자기 자리에 있어요.", adQ: "이 {n}개 자리의 이름이 바뀌어요:\n{l}{lost}\n\n괜찮아요?", adLost: "\n\n지금 자리 없음 (다른 사람이 앉음) — 자리를 주세요:\n{l}", adDone: "📌 {n}개 자리를 바꿨어요.", adCnt: "자리 있고 지금 하이브 안: {n}명 · 바꿀 것: {c}명", adSpots: "계획의 성 자리: {n}개 (이름 있음 {f}, 빈자리 {e}).", adWas: "원래 {n}", adBt: "🐻 BT는 자리 쪽을 따라가요:\n{l}", adBtDone: "🐻 BT {n}명 바꿨어요." },
+    adT: "📌 지금 자리 그대로", adHow: "우리 연맹원 누구든 지금 성이 하이브의 성 자리 위에 있으면 그 자리를 가져가요(원래 배치 여부 상관없음) — 이름만 바뀌고 자리(X:Y, 개수)는 그대로예요. 계획된 성 자리가 아닌 곳은 안 쳐요; 거기 있는 사람은 원래 자리 그대로.",
+    adBtn: "📌 지금 자리로 정하기 ({n}명)", adNone: "하이브의 모든 자리가 이미 앉은 사람 이름이에요.", adQ: "이 {n}개 자리의 이름이 바뀌어요:\n{l}{lost}\n\n괜찮아요?", adLost: "\n\n지금 자리 없음 (다른 사람이 앉음) — 자리를 주세요:\n{l}", adDone: "📌 {n}개 자리를 바꿨어요.", adCnt: "지금 하이브 성 자리 위: {n}명 · 이름 바꿀 자리: {c}", adSpots: "계획의 성 자리: {n}개 (이름 있음 {f}, 빈자리 {e}).", adWas: "원래 {n}", adBt: "🐻 BT는 자리 쪽을 따라가요:\n{l}", adBtDone: "🐻 BT {n}명 바꿨어요." },
 })) Object.assign(T[l], o);
 /* 🐻 BT1 / BT2 + TC / Power in the 🚚 moving table (Sherry & Nia, 2026-11-05) — the marks are OFFICER.BT, the same list as 📊 Roster */
 for (const [l, o] of Object.entries({
@@ -789,10 +789,13 @@ function adoptList() {
   const ov = (r, x, y) => { const dx = Math.abs(r[1] - x), dy = Math.abs(r[2] - y); return dx <= 1 && dy <= 1 ? (2 - dx) * (2 - dy) : 0; };
   const now = {}; cur.forEach((c) => { if (c && c.n) now[who(c.n)] = [c.x, c.y]; });
   const sit = {}; let inside = 0;
-  c0.forEach(([n], pj) => { const h = n && now[who(n)]; if (!h) return;
-    let best = -1, bo = 0; c0.forEach((r, pi) => { const o = ov(r, h[0], h[1]); if (o > bo) { bo = o; best = pi; } });
+  /* EVERY member of ours whose castle sits on one of the hive's city spots counts — planned before or not (Sherry, 2026-11-11);
+     only places that are not a planned city spot don't count */
+  const seen = new Set();
+  cur.forEach((c) => { if (!c || !c.n || seen.has(who(c.n))) return; seen.add(who(c.n));
+    let best = -1, bo = 0; c0.forEach((r, pi) => { const o = ov(r, c.x, c.y); if (o > bo) { bo = o; best = pi; } });
     if (best < 0) return; inside++;
-    if (!sit[best] || sit[best].o < bo) sit[best] = { n, o: bo, pj }; });
+    if (!sit[best] || sit[best].o < bo) sit[best] = { n: c.n, o: bo }; });
   const got = new Set(Object.values(sit).map((v) => who(v.n)));
   const next = c0.map(([n, x, y], pi) => [sit[pi] ? sit[pi].n : n && got.has(who(n)) ? "" : n, x, y]);
   const lost = [];
