@@ -76,7 +76,7 @@ function renderList() {
     <label><input type="checkbox" data-auto="${esc(k.kid)}" ${k.auto ? "checked" : ""}> ${esc(tr("auto"))}</label>
     <button class="btn mini" data-refetch="${esc(k.kid)}" title="${esc(tr("fetch"))}">⟳</button><button class="btn mini" data-rm="${esc(k.kid)}" title="${esc(tr("remove"))}">✕</button></span>`).join("");
 }
-const COLS = [["rank", "colRank", 1], ["name", "colName"], ["alliance", "colAlliance"], ["power", "colPower", 1], ["tc", "colTc", 1], ["mystic", "colMystic", 1], ["kills", "colKills", 1], ["vip", "colVip", 1], ["sp", "colSp", 1], ["migrant", "colMigrant", 1]];
+const COLS = [["rank", "colRank", 1], ["name", "colName"], ["alliance", "colAlliance"], ["power", "colPower", 1], ["tc", "colTc", 1], ["mystic", "colMystic", 1], ["kills", "colKills", 1], ["vip", "colVip", 1], ["migrant", "colMigrant", 1]];   // no Squad Power here: our own Swordland estimate belongs with the Swordland plan only (Sherry 2026-11-11)
 function rowsAll() {
   const ks = data && data.kingdoms ? Object.entries(data.kingdoms) : [];
   const rows = [];

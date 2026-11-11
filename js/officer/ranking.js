@@ -124,6 +124,8 @@ function applyTexts() {
   $("rk_noData").textContent = tr("noData");
 }
 
+/* the Squad Power column is our own estimate for Swordland Showdown → shown only while the plan's event is Swordland (Sherry 2026-11-11) */
+const spOn = () => { try { return !!TB && TB.ev === "swordland"; } catch (e) { return false; } };
 function renderList() {
   const q = norm($("rk_q").value), only = $("rk_onlyTicked").checked, byRank = $("rk_byRank").checked;
   // 🏆 the ranking (was its own card ③ until 2026-10-30): ticked starters numbered by score; "Sort by ranking" puts them in that order, everyone else after them
@@ -159,7 +161,7 @@ function renderList() {
       <td class="num">${tcText(m.tc)}</td>
       <td class="num">${big(m.power)}</td>
       <td class="num">${big(m.mystic)}</td>
-      <td class="num">${fmtStat(m, "sp")}</td>
+      ${spOn() ? `<td class="num">${fmtStat(m, "sp")}</td>` : ""}
       <td class="num">${migrantOf(m) ? big(migrantOf(m)) : '<span class="muted">—</span>'}</td>
     </tr>`;
   }).join("");
@@ -167,6 +169,7 @@ function renderList() {
   $("pickCount").textContent = tr("selected", { n: picked.size, t: data.members.length }) + (k ? " " + tr("subN", { k }) : "");
   renderReg(); renderBt();
   ROOT.querySelectorAll("th[data-sort]").forEach((th) => {
+    if (th.dataset.sort === "sp") th.hidden = !spOn();
     th.textContent = tr(th.dataset.t) + (th.dataset.sort === sortKey ? (sortDir < 0 ? " ▼" : " ▲") : "");
   });
   renderWeights();
@@ -403,7 +406,7 @@ const CP = {"zh": {"title": "📋 複製名單", "who": "要複製誰", "whoAll"
 const cp = (k, v = {}) => String((CP[lang] || CP.en)[k] ?? CP.en[k]).replace(/\{(\w+)\}/g, (m, x) => v[x] ?? m);
 const CP_FIELDS = ["no", "name", "id", "rep", "rank", "tc", "power", "mystic", "sp", "migrant", "score", "sub"];
 function cpLabel(f) { return { no: cp("fNo"), name: tr("colName"), id: "ID", rep: cp("fRep"), rank: tr("colRank"), tc: tr("colTc"), power: tr("power"), mystic: tr("mystic"), sp: tr("colSp"), migrant: tr("colMigrant"), score: tr(mode === "w" ? "colScoreW" : "colScore"), sub: tr("sub") }[f]; }
-const cpFields = () => CP_FIELDS.filter((f) => mode === "w" || f !== "sp");   // Squad Power mode: the score IS the Squad Power
+const cpFields = () => CP_FIELDS.filter((f) => f !== "sp" || (mode === "w" && spOn()));   // Squad Power mode: the score IS the Squad Power
 function cpRows(o) {
   /* everyone ticked: the confirmed in ranking order with their place, then ⏳ / ❌ (no place) — before, an all-⏳ list copied nothing (Sherry 2026-11-02) */
   const r = ranking(true, true, true), ok = (m) => confirmed(m.id); let n = 0;
@@ -478,7 +481,7 @@ $("presetBtns").onclick = (e) => {
    ③ groups and ④ battle table follow it. Switching a plan whose table is filled asks first (↩️ Undo brings it back). */
 function setEvent(ev) {
   if (ev !== TB.ev) { if (TB.groups.length && !window.confirm(tt("confirmEv").replace("{ev}", EVN(ev)))) return; tbSetEv(ev); tbSave(); }
-  activePreset = ev; renderPresets(); planRenderBar();
+  activePreset = ev; renderPresets(); planRenderBar(); renderList();
 }
 function planEvBar() {
   const el = $("planEv"); if (!el) return;
