@@ -980,7 +980,9 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 .spot-me.bad { background: color-mix(in srgb, #f59e0b 18%, var(--panel)); border: 1px solid #e0a23a; }
 .spot-me.occ { background: color-mix(in srgb, #ef4444 14%, var(--panel)); border: 1px solid #ef4444; }
 .spot-me.ok { background: color-mix(in srgb, #22c55e 14%, var(--panel)); border: 1px solid #22c55e; }
-.spot-map .swc polygon { fill: #ffffffdd; stroke: #ef4444; stroke-width: 3; }
+.spot-map .swc { pointer-events: none; }
+.spot-map .swc polygon { fill: none; stroke: #ef4444; stroke-width: 2.5; stroke-dasharray: 5 3; }
+.spot-map .so { font-size: 9.5px; font-weight: 800; fill: #ef4444; paint-order: stroke; stroke: #fff; stroke-width: 2.5px; }
 .spot-map .swc text { fill: #b91c1c; }
 .spot-map .sp.taken polygon { opacity: .35; }
 /* not on their spot yet = light; on it = full colour with a ✓ ring (Sherry 2026-11-10) */

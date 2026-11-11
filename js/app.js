@@ -1458,12 +1458,16 @@ function spotDraw() {
   const taken = new Set(spotWarn().filter((w) => w.victim).map((w) => spotNorm(w.victim)));   // spots someone else sits on → drawn faded
   /* ✅ who is exactly on their own spot (Sherry 2026-11-10: "the ones who aren't there yet should look lighter") */
   const here = new Set((SPOT.cities || []).filter(([n, x, y]) => SPOT.spots.some(([m, sx, sy]) => m && spotNorm(m) === spotNorm(n) && sx === x && sy === y)).map(([n]) => spotNorm(n)));
-  SPOT.spots.forEach(([n, x, y, bt], i) => { const [cx, cy] = c(x, y, 2), nm = n && !/^nxs$/i.test(n) ? n : "", sel = i === spotSel;
-    o.push(`<g class="sp${sel ? " on" : ""}${bt ? " b" + bt : ""}${nm ? "" : " free"}${nm && taken.has(spotNorm(nm)) ? " taken" : ""}${nm && Array.isArray(SPOT.cities) ? (here.has(spotNorm(nm)) ? " here" : " away") : ""}" data-si="${i}"><polygon points="${poly(x, y, 2)}"/><text x="${cx}" y="${cy}" class="sn">${escapeHtml(nm.length > 11 ? nm.slice(0, 10) + "…" : nm || "·")}</text><text x="${cx}" y="${cy + 12}" class="sc">${x},${y}</text><title>${escapeHtml(nm || t(SPOT_TXT.empty))} X:${x} Y:${y}</title></g>`); });
+  /* 🤗 someone sits on this spot: the spot keeps its owner on top and gets a 2nd red line "🤗 who sits there" (Sherry 2026-11-11:
+     the sitter's castle used to cover the owner's name) */
+  const occBy = {}; for (const w of spotWarn().filter((w) => w.victim)) (occBy[spotNorm(w.victim)] = occBy[spotNorm(w.victim)] || []).push(w.n);
+  const cut = (q) => q.length > 11 ? q.slice(0, 10) + "…" : q;
+  SPOT.spots.forEach(([n, x, y, bt], i) => { const [cx, cy0] = c(x, y, 2), nm = n && !/^nxs$/i.test(n) ? n : "", sel = i === spotSel, oc = nm && occBy[spotNorm(nm)], cy = oc ? cy0 - 5 : cy0;
+    o.push(`<g class="sp${sel ? " on" : ""}${bt ? " b" + bt : ""}${nm ? "" : " free"}${nm && taken.has(spotNorm(nm)) ? " taken" : ""}${nm && Array.isArray(SPOT.cities) ? (here.has(spotNorm(nm)) ? " here" : " away") : ""}" data-si="${i}"><polygon points="${poly(x, y, 2)}"/><text x="${cx}" y="${cy}" class="sn">${escapeHtml(nm.length > 11 ? nm.slice(0, 10) + "…" : nm || "·")}</text>${oc ? `<text x="${cx}" y="${cy + 11}" class="so">🤗 ${escapeHtml(cut(oc[0]))}${oc.length > 1 ? " +" + (oc.length - 1) : ""}</text>` : ""}<text x="${cx}" y="${cy + (oc ? 21 : 12)}" class="sc">${x},${y}</text><title>${escapeHtml(nm || t(SPOT_TXT.empty))} X:${x} Y:${y}</title></g>`); });
   for (const w of spotWarn().filter((w) => w.victim)) {   /* 😡 castles sitting on someone's spot: red; a dashed line to their own spot */
     const [cx, cy] = c(w.x, w.y, 2);
     if (w.si >= 0) { const [tx, ty] = c(w.sx, w.sy, 2); o.push(`<line x1="${cx}" y1="${cy}" x2="${tx}" y2="${ty}" class="swl"/>`); }
-    o.push(`<g class="swc"><polygon points="${poly(w.x, w.y, 2)}"/><text x="${cx}" y="${cy}" class="sn">${escapeHtml(w.n.length > 11 ? w.n.slice(0, 10) + "…" : w.n)}</text><text x="${cx}" y="${cy + 12}" class="sc">${w.x},${w.y}</text><title>${escapeHtml(spotFill("naughty", w))}</title></g>`);
+    o.push(`<g class="swc"><polygon points="${poly(w.x, w.y, 2)}"/><title>${escapeHtml(spotFill("naughty", w))}</title></g>`);   // only a red outline: the names are on the spot itself
   }
   box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${Math.round(W * spotZ)}">${o.join("")}</svg>`; box._w0 = W; spotZoomBind(box);
   box.querySelectorAll("g[data-si]").forEach((g) => g.onclick = () => { const r = SPOT.spots[+g.dataset.si]; if (r && r[0] && !/^nxs$/i.test(r[0])) spotPick(+g.dataset.si, false); else { spotSel = +g.dataset.si; spotDraw(); const res = document.getElementById("spotRes"); if (res && r) res.innerHTML = `<div class="spot-msg">${escapeHtml(t(SPOT_TXT.empty))} · X:${r[1]} Y:${r[2]}</div>`; } });
