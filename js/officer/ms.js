@@ -13,7 +13,7 @@ const ROWS = [["charm", 1, "", "hi"], ["lgear", 1, "", "hi"], ["pet", 1, "", "hi
 const RATES = [["big", 9110], ["small", 5935]];
 const sp = (m) => m / 317;
 const T = {
-  en: { title: "🧳 Migrant Score", intro: "What raises the hidden Migrant Score, and what to upgrade for it. Our own research, not official.", howH: "🔢 How we worked it out",
+  en: { title: "🧳 Migrant Score", intro: "What raises the hidden Migrant Score, and what to upgrade for it. Our own research, not official.", obs: ["The Migrant Score only counts long-term investment: Governor Charms, Governor Gear, pets, research and Hero Gear count in full.", "Master affinity counts half and hero stars only a little; troops, buildings and exclusive gear don't count.", "Divided by 317 it is almost exactly the Swordland troop power."], obsH: "🔎 What we saw", howH: "🔢 How we worked it out",
     badge: "🔬 Our research · updated {d}",
     heroH: "A hidden score that counts what you've built for good.", heroP: "Governor Charms, Governor Gear, pets, research and Hero Gear count fully. Master affinity counts half, hero stars a little. Troops, buildings and exclusive gear don't count. It is almost exactly your Swordland Showdown troop power × 317.",
     whatH: "🔎 What it is",
@@ -34,12 +34,12 @@ const T = {
     calcH: "🧮 Try it", calcItem: "I upgrade", calcPow: "Power gained", calcRate: "My account", calcRes: "≈ +{m} Migrant Score · ≈ +{s} Swordland power",
     calcOpp: "Someone's Migrant Score", calcOppRes: "≈ {s} Swordland troop power",
     calcNote: "Estimate from our tests so far. It shows investment, not stats.",
-    doH: "✅ Do this",
+    doH: "💡 Suggestions",
     dos: ["To climb in Swordland Showdown, upgrade these first: Governor Charms, Governor Gear, pets, research, Hero Gear. They count the same — pick the cheapest.", "Next master affinity, and last the stars of your main heroes. Training troops and exclusive gear (Widgets) add nothing.", "Save for the Town Center's next gold (TG) level — that's the big jump.", "Sizing up an opponent: their Migrant Score ÷ 317 ≈ their Swordland troop power. It only shows investment, not stats."],
     unkH: "🟡 Not known yet",
     unks: ["What sets each account's rate (the Town Center?).", "Why hero stars give different results."],
     foot: "Source: Sparrow's two accounts, item-by-item before/after tests (11/02–11/06), and the 10/14 Swordland check of 98 players. Not from the game. Numbers will be corrected as we test more." },
-  zh: { title: "🧳 遷城分數", intro: "隱藏的「遷城分數」什麼會讓它變高、該升什麼。我們自己的研究，不是官方說明。", howH: "🔢 怎麼算的",
+  zh: { title: "🧳 遷城分數", intro: "隱藏的「遷城分數」什麼會讓它變高、該升什麼。我們自己的研究，不是官方說明。", obs: ["遷城分數只算長期投資：領主寶石、領主裝備、寵物、科技、英雄裝備全算。", "大師好感度算一半、英雄升星只算一點；兵、建築、英雄專屬裝備不算。", "它除以 317，幾乎就是聖劍爭奪的部隊戰力。"], obsH: "🔎 我們觀察到", howH: "🔢 怎麼算的",
     badge: "🔬 我們的研究 · 更新 {d}",
     heroH: "一個隱藏分數，只算你長期投資的東西。", heroP: "領主寶石、領主裝備、寵物、科技實力、英雄裝備全算；大師好感度算一半；英雄升星只算一點；兵、建築、英雄專屬裝備不算。它幾乎剛好等於聖劍爭奪的部隊戰力 × 317。",
     whatH: "🔎 它是什麼",
@@ -60,12 +60,12 @@ const T = {
     calcH: "🧮 算算看", calcItem: "我升級", calcPow: "加了多少實力", calcRate: "我的帳號", calcRes: "≈ 遷城分數 +{m} · ≈ 聖劍部隊戰力 +{s}",
     calcOpp: "某人的遷城分數", calcOppRes: "≈ 聖劍部隊戰力 {s}",
     calcNote: "用目前測試結果估的。只代表投資量，不代表屬性。",
-    doH: "✅ 照這樣做",
+    doH: "💡 建議",
     dos: ["想拉高聖劍爭奪排名，先升：領主寶石、領主裝備、寵物、科技、英雄裝備。五個算一樣，挑最便宜的升。", "其次大師好感度，最後才是主力英雄升星。收兵、英雄專屬裝備（零件）不加分。", "存資源衝城鎮中心下一個黃金等級（TG）——那是大跳。", "看對手：他的遷城分數 ÷ 317 ≈ 他的聖劍部隊戰力。但這只代表投資量，不代表屬性。"],
     unkH: "🟡 還不知道的",
     unks: ["每個帳號的倍率由什麼決定（城鎮中心？）。", "英雄升星為什麼結果不一致。"],
     foot: "來源：Sparrow 兩個帳號逐項前後測試（11/02–11/06）、10/14 聖劍 98 人對照。不是遊戲官方說明，數字會隨更多測試修正。" },
-  pt: { title: "🧳 Pontuação de Migração", intro: "O que aumenta a Pontuação de Migrante oculta, e o que melhorar para ela. Pesquisa nossa, não é oficial.", howH: "🔢 Como calculamos",
+  pt: { title: "🧳 Pontuação de Migração", intro: "O que aumenta a Pontuação de Migrante oculta, e o que melhorar para ela. Pesquisa nossa, não é oficial.", obs: ["A Pontuação de Migrante só conta investimento de longo prazo: Talismãs do Governador, Equipamento do Chefe, mascotes, pesquisa e Equipamento do Herói contam por inteiro.", "Afinidade de Mestre conta metade e estrelas de herói só um pouco; tropas, construções e equipamento exclusivo não contam.", "Dividida por 317, é quase exatamente o poder das tropas na Terra das Espadas."], obsH: "🔎 O que observamos", howH: "🔢 Como calculamos",
     badge: "🔬 Nossa pesquisa · atualizado {d}",
     heroH: "Uma pontuação oculta que conta o que você construiu para sempre.", heroP: "Talismãs do Governador, Equipamento do Chefe, mascotes, pesquisa e Equipamento do Herói contam inteiros. A Afinidade de Mestre conta metade; estrelas de herói, um pouco. Tropas, construções e equipamento exclusivo não contam. É quase exatamente o seu poder das tropas no Confronto entre Espadas × 317.",
     whatH: "🔎 O que é",
@@ -86,12 +86,12 @@ const T = {
     calcH: "🧮 Teste", calcItem: "Eu melhoro", calcPow: "Poder ganho", calcRate: "Minha conta", calcRes: "≈ +{m} de Pontuação de Migração · ≈ +{s} de poder na Terra das Espadas",
     calcOpp: "Pontuação de Migração de alguém", calcOppRes: "≈ {s} de poder das tropas na Terra das Espadas",
     calcNote: "Estimativa pelos nossos testes até agora. Mostra investimento, não atributos.",
-    doH: "✅ Faça assim",
+    doH: "💡 Sugestões",
     dos: ["Para subir no Confronto entre Espadas, melhore primeiro: Talismãs do Governador, Equipamento do Chefe, mascotes, pesquisa, Equipamento do Herói. Contam igual — escolha o mais barato.", "Depois Afinidade de Mestre, e por último as estrelas dos seus heróis principais. Treinar tropas e equipamento exclusivo (Ferramentas) não somam nada.", "Guarde recursos para o próximo nível de Adamante (TG) do Centro da Cidade — esse é o grande salto.", "Para avaliar um oponente: a Pontuação de Migração dele ÷ 317 ≈ o poder das tropas dele na Terra das Espadas. Só mostra investimento, não atributos."],
     unkH: "🟡 Ainda não sabemos",
     unks: ["O que define a taxa de cada conta (o Centro da Cidade?).", "Por que as estrelas de herói dão resultados diferentes."],
     foot: "Fonte: as duas contas da Sparrow, testes de antes/depois item por item (11/02–11/06), e a conferência de 98 jogadores na Terra das Espadas em 10/14. Não vem do jogo. Os números serão corrigidos conforme testarmos mais." },
-  ar: { title: "🧳 نقاط الهجرة", intro: "ما الذي يرفع نقاط المهاجر المخفية، وماذا تطوّر لأجلها. بحثنا الخاص، ليس رسميًا.", howH: "🔢 كيف حسبناها",
+  ar: { title: "🧳 نقاط الهجرة", intro: "ما الذي يرفع نقاط المهاجر المخفية، وماذا تطوّر لأجلها. بحثنا الخاص، ليس رسميًا.", obs: ["نقاط المهاجر تحسب الاستثمار طويل الأمد فقط: تميمة الحاكم، عتاد الحاكم، الحيوانات الأليفة، البحث وعتاد البطل تُحسب كاملة.", "تقارب المتخصص يُحسب بالنصف ونجوم الأبطال قليلًا فقط؛ القوات والمباني والعتاد الحصري لا تُحسب.", "عند قسمتها على 317 تساوي تقريبًا قوة القوات في أرض السيوف."], obsH: "🔎 ما لاحظناه", howH: "🔢 كيف حسبناها",
     badge: "🔬 بحثنا · آخر تحديث {d}",
     heroH: "نقاط مخفية تحسب ما بنيته بشكل دائم.", heroP: "تميمة الحاكم وعتاد الحاكم والحيوانات الأليفة والبحث وعتاد البطل تُحسب كاملة. تقارب المتخصص يُحسب نصفه، ونجوم الأبطال قليلًا. القوات والمباني والعتاد الحصري لا تُحسب. إنها تقريبًا بالضبط قوة قواتك في مواجهة أرض السيوف × 317.",
     whatH: "🔎 ما هي",
@@ -112,12 +112,12 @@ const T = {
     calcH: "🧮 جرّب", calcItem: "أرقّي", calcPow: "القوة المكتسبة", calcRate: "حسابي", calcRes: "≈ +{m} نقاط هجرة · ≈ +{s} قوة في أرض السيوف",
     calcOpp: "نقاط هجرة لاعب ما", calcOppRes: "≈ {s} قوة القوات في أرض السيوف",
     calcNote: "تقدير من اختباراتنا حتى الآن. تُظهر الاستثمار، لا الخصائص.",
-    doH: "✅ افعل هكذا",
+    doH: "💡 اقتراحات",
     dos: ["للصعود في مواجهة أرض السيوف، طوّر أولًا: تميمة الحاكم، عتاد الحاكم، الحيوانات الأليفة، البحث، عتاد البطل. تُحسب بالتساوي — اختر الأرخص.", "ثم تقارب المتخصص، وأخيرًا نجوم أبطالك الرئيسيين. تدريب القوات والعتاد الحصري (الأجزاء) لا يضيفان شيئًا.", "ادّخر لمستوى الذهب الخالص (TG) التالي لمركز البلدة — هذه هي القفزة الكبيرة.", "لتقدير خصم: نقاط هجرته ÷ 317 ≈ قوة قواته في أرض السيوف. تُظهر الاستثمار فقط، لا الخصائص."],
     unkH: "🟡 غير معروف بعد",
     unks: ["ما الذي يحدد معدل كل حساب (مركز البلدة؟).", "لماذا تعطي نجوم الأبطال نتائج مختلفة."],
     foot: "المصدر: حسابا Sparrow، اختبارات قبل/بعد عنصرًا بعنصر (11/02–11/06)، وفحص 98 لاعبًا في أرض السيوف في 10/14. ليست من اللعبة. ستُصحَّح الأرقام كلما اختبرنا أكثر." },
-  ko: { title: "🧳 이주 점수", intro: "숨겨진 이주 점수를 올리는 것과 그걸 위해 뭘 올릴지. 우리 연구이고 공식은 아니야.", howH: "🔢 어떻게 계산했는지",
+  ko: { title: "🧳 이주 점수", intro: "숨겨진 이주 점수를 올리는 것과 그걸 위해 뭘 올릴지. 우리 연구이고 공식은 아니야.", obs: ["이주 점수는 장기 투자만 계산해: 영주 보석, 영주 장비, 펫, 연구, 영웅 장비는 전부 계산돼.", "거장 호감도는 절반, 영웅 성급은 조금만 계산돼. 병력, 건물, 전용 장비는 계산 안 돼.", "317로 나누면 성검 쟁탈 부대 전투력과 거의 같아."], obsH: "🔎 우리가 관찰한 것", howH: "🔢 어떻게 계산했는지",
     badge: "🔬 우리 연구 · 업데이트 {d}",
     heroH: "오래 남는 투자만 세는 숨겨진 점수.", heroP: "영주 보석, 영주 장비, 펫, 연구, 영웅 장비는 전부 계산돼. 거장 호감도는 절반, 영웅 성급은 조금. 병력, 건물, 전용 장비는 안 들어가. 성검 쟁탈 부대 전투력 × 317과 거의 똑같아.",
     whatH: "🔎 이게 뭐야",
@@ -138,7 +138,7 @@ const T = {
     calcH: "🧮 계산해 보기", calcItem: "업그레이드할 것", calcPow: "오른 전투력", calcRate: "내 계정", calcRes: "≈ 이주 점수 +{m} · ≈ 성검 전투력 +{s}",
     calcOpp: "누군가의 이주 점수", calcOppRes: "≈ 성검 부대 전투력 {s}",
     calcNote: "지금까지 테스트로 낸 추정치. 투자량을 보여줄 뿐, 스탯은 아님.",
-    doH: "✅ 이렇게 해",
+    doH: "💡 제안",
     dos: ["성검 쟁탈에서 올라가려면 먼저: 영주 보석, 영주 장비, 펫, 연구, 영웅 장비. 똑같이 계산되니까 제일 싼 걸 골라.", "그다음 거장 호감도, 마지막이 주력 영웅 성급. 병력 훈련과 전용 장비 (부속품)는 점수가 안 올라.", "도시 센터 다음 순금 (TG) 레벨을 위해 모아 둬 — 그게 큰 점프야.", "상대 평가: 상대 이주 점수 ÷ 317 ≈ 상대 성검 부대 전투력. 투자량만 보여주고, 스탯은 아님."],
     unkH: "🟡 아직 모르는 것",
     unks: ["계정 배율을 정하는 게 뭔지 (도시 센터?).", "영웅 성급 결과가 왜 들쭉날쭉한지."],
@@ -167,7 +167,7 @@ function render() {
   const root = $("ms_root"); if (!root) return;
   root.innerHTML = `
   <div class="ms-hero"><span class="ms-badge">${esc(t("badge").replace("{d}", UPDATED))}</span><h2>${esc(t("heroH"))}</h2><p>${esc(t("heroP"))}</p></div>
-  <div class="card rs-do"><h3>${esc(t("doH"))}</h3><ol class="rs-dol">${t("dos").map((x) => `<li>${esc(x)}</li>`).join("")}</ol></div>
+  <div class="card rs-do"><h3>${esc(t("obsH"))}</h3><ul class="rs-dol">${t("obs").map((x) => `<li>${esc(x)}</li>`).join("")}</ul><h3 class="rs-h2">${esc(t("doH"))}</h3><ul class="rs-dol">${t("dos").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
   <div class="card"><h3>${esc(t("tblH"))}</h3><div class="ms-eq"><div class="ms-eqb sw"><b>${esc(t("fH"))}</b></div></div><p class="ms-p">${esc(t("tblP"))}</p>
     <div class="ms-bars">${ROWS.map(([k, v, txt, c]) => `<div class="ms-row${v ? "" : " zero"}"><div class="ms-k">${esc(t("items")[k])}</div>
       <div class="ms-b"><i style="width:${(v * 100).toFixed(1)}%"></i></div>

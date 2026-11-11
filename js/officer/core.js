@@ -138,6 +138,14 @@ OFFICER.PERMS_TRIAL = false;   // 2026-10-16: the login system is live — the �
 OFFICER.PERM_TABS = ["events", "board", "map", "ranking", "attend", "post", "watch", "views", "move", "hunt", "attack", "tr", "research"];   // 🧳 tr: Kingdom Transfer list (2026-11-08), nobody by default
 /* 🔬 one permission for all research reports (Sherry 2026-11-04). Older tables still have one key per report: until "research" is set, the best of those counts. */
 OFFICER.RESEARCH = ["iv", "growth", "hr", "ms", "bh", "bearplan", "vv", "rg", "tb"];
+/* 🐻 one Bear page (Sherry 2026-11-11): the members' report (#bh) and the officers' reports (#bearplan?r=…) share this row of chips; the
+   🐻 Bear analysis link in the research bar is hidden, 🐻 Bear Hunt stays lit for both. */
+OFFICER.BEAR_REPORTS = { score: ["🎯 Scoring", "🎯 怎麼拿分", "🎯 Pontuação", "🎯 النقاط", "🎯 점수"], leaders: ["👑 Leaders", "👑 隊長", "👑 Líderes", "👑 القادة", "👑 대장"],
+  send: ["🚩 Sending troops", "🚩 派兵", "🚩 Envio de tropas", "🚩 إرسال القوات", "🚩 병력 보내기"], heroes: ["🦸 Joiners & heroes", "🦸 加入者與英雄", "🦸 Participantes e heróis", "🦸 المنضمّون والأبطال", "🦸 집결원과 영웅"],
+  trend: ["📈 Trend", "📈 趨勢", "📈 Tendência", "📈 الاتجاه", "📈 추세"] };
+OFFICER.bearChips = (cur, lang) => { if (!(OFFICER.can && OFFICER.can("bearplan", "view") && OFFICER.can("bh", "view"))) return "";
+  const i = Math.max(0, ["en", "zh", "pt", "ar", "ko"].indexOf(lang));
+  return `<nav class="rs-chips">${Object.entries(OFFICER.BEAR_REPORTS).map(([k, n]) => `<a href="#${k === "score" ? "bh" : "bearplan?r=" + k}"${k === cur ? ' class="on"' : ""}>${n[i]}</a>`).join("")}</nav>`; };
 const LVR = { none: 0, view: 1, edit: 2 };
 OFFICER.researchLevel = (p) => { if (!p) return "none"; if (p.research) return p.research; let b = "none"; for (const k of OFFICER.RESEARCH) if ((LVR[p[k]] || 0) > LVR[b]) b = p[k]; return b; };   // 🚚 move: nobody by default (admins always)
 OFFICER.VIEW_TABS = ["events", "board", "map"];
@@ -404,7 +412,7 @@ async function showTab() {
   const k = currentTab();
   if (k === "bt") { location.replace("bear-calculator.html"); return; }   // 🐻 the bear calculator moved to its own public page
   OFFICER.applyPerms();
-  document.querySelectorAll(".tabs a").forEach((a) => a.classList.toggle("on", a.dataset.tab === k || (!!a.dataset.group && GROUPS[a.dataset.group].includes(k))));
+  document.querySelectorAll(".tabs a").forEach((a) => a.classList.toggle("on", a.dataset.tab === k || (a.dataset.tab === "bh" && k === "bearplan") || (!!a.dataset.group && GROUPS[a.dataset.group].includes(k))));
   const rs = document.getElementById("researchSub"); if (rs) rs.hidden = !GROUPS.research.includes(k);
   for (const t of TABS) document.getElementById("pg-" + t).hidden = t !== k;
   const p = OFFICER_PAGES[k];

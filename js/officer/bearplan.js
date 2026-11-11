@@ -54,20 +54,19 @@ let RV = null;
    correct old ideas instead of keeping them"). File shape: { review: 1, analysis: 1, date, data: {txt}, stats: [...],
    leaders: [{ title, note, rows: [[name, K, mailK, city, flag]] }], place: { text: [..], rows: [[where, value, note]] },
    coef: [[name, v]], coefNote, growth: [{ title, dates, rows }], detail: { cols, rows, num } (folded), unknowns } — all text {en, zh}. */
-const AT = { en: { lh: "👑 Leaders", lp: "K = leader strength: archer Attack × Lethality with City Bonus and rally Exclusive Gear in the same slot (bonus page), ASHISH 11/06 = 1.00. Mails = what the rally mails measured.", lc: ["Leader", "K", "Mails", "City Atk / Leth"], role: { A: "A", B: "B", fill: "fill-in" }, rosterH: "📋 Official leader list", rosterP: "A team opens at 0:00, B team at +0:45; everyone else only with 6:30 left (fill-in rallies).", rcols: ["Trap", "A team (0:00)", "B team (+0:45)"],
+const AT = { en: { obsH: "🔎 What we saw", sugH: "💡 Suggestions", lh: "👑 Leaders", lp: "K = leader strength: archer Attack × Lethality with City Bonus and rally Exclusive Gear in the same slot (bonus page), ASHISH 11/06 = 1.00. Mails = what the rally mails measured.", lc: ["Leader", "K", "Mails", "City Atk / Leth"], role: { A: "A", B: "B", fill: "fill-in" }, rosterH: "📋 Official leader list", rosterP: "A team opens at 0:00, B team at +0:45; everyone else only with 6:30 left (fill-in rallies).", rcols: ["Trap", "A team (0:00)", "B team (+0:45)"],
     ph: "🚩 Where marches score most", ch: "🎯 Each player", cp: "Troop factor = troop tier × (1 + Valora's Hunter Instinct); reference player = 1.00.", gh: "📈 Totals, hunt by hunt", det: "📋 Full leader table (every input)", nx: "📸 Next hunt, please capture" },
-  zh: { lh: "👑 隊長", lp: "K = 隊長強度：加成頁的弓兵攻擊力 × 殺傷力，城鎮增益和集結專屬加在同一格，ASHISH 11/06 = 1.00。信件 = 集結信件實測。", lc: ["隊長", "K", "信件", "城鎮 攻／殺"], role: { A: "A", B: "B", fill: "補位" }, rosterH: "📋 正式隊長名單", rosterP: "A 隊 0:00 開、B 隊 +0:45 開；其他人剩 6:30 才能開（補位團）。", rcols: ["陷阱", "A 隊（0:00）", "B 隊（+0:45）"],
+  zh: { obsH: "🔎 我們觀察到", sugH: "💡 建議", lh: "👑 隊長", lp: "K = 隊長強度：加成頁的弓兵攻擊力 × 殺傷力，城鎮增益和集結專屬加在同一格，ASHISH 11/06 = 1.00。信件 = 集結信件實測。", lc: ["隊長", "K", "信件", "城鎮 攻／殺"], role: { A: "A", B: "B", fill: "補位" }, rosterH: "📋 正式隊長名單", rosterP: "A 隊 0:00 開、B 隊 +0:45 開；其他人剩 6:30 才能開（補位團）。", rcols: ["陷阱", "A 隊（0:00）", "B 隊（+0:45）"],
     ph: "🚩 部隊放哪裡最好", ch: "🎯 每個人", cp: "兵等係數 = 兵等 ×（1 + 維拉「狩獵本能」）；參考的人 = 1.00。", gh: "📈 每場總傷害", det: "📋 完整隊長表（所有數字）", nx: "📸 下次熊獵請拍" },
-  pt: { lh: "👑 Líderes", lp: "K = força do líder: Ataque × Letalidade da Arquearia, com Bônus da Cidade e Equipamento Exclusivo de rally na mesma conta (página de bônus), ASHISH 11/06 = 1.00. Relatórios = o que os relatórios do rally mediram.", lc: ["Líder", "K", "Relatórios", "Cidade Atq / Let"], role: { A: "A", B: "B", fill: "extra" }, rosterH: "📋 Lista oficial de líderes", rosterP: "O time A abre em 0:00, o time B em +0:45; os outros só com 6:30 restantes (rallies extras).", rcols: ["Armadilha", "Time A (0:00)", "Time B (+0:45)"],
+  pt: { obsH: "🔎 O que observamos", sugH: "💡 Sugestões", lh: "👑 Líderes", lp: "K = força do líder: Ataque × Letalidade da Arquearia, com Bônus da Cidade e Equipamento Exclusivo de rally na mesma conta (página de bônus), ASHISH 11/06 = 1.00. Relatórios = o que os relatórios do rally mediram.", lc: ["Líder", "K", "Relatórios", "Cidade Atq / Let"], role: { A: "A", B: "B", fill: "extra" }, rosterH: "📋 Lista oficial de líderes", rosterP: "O time A abre em 0:00, o time B em +0:45; os outros só com 6:30 restantes (rallies extras).", rcols: ["Armadilha", "Time A (0:00)", "Time B (+0:45)"],
     ph: "🚩 Onde as marchas pontuam mais", ch: "🎯 Cada jogador", cp: "Fator de tropa = nível da tropa × (1 + Instinto de Caçador da Valora); jogador de referência = 1.00.", gh: "📈 Totais, caçada por caçada", det: "📋 Tabela completa dos líderes (todos os dados)", nx: "📸 Na próxima caçada, por favor capture" },
-  ar: { lh: "👑 القادة", lp: "K = قوة القائد: هجوم × قوة فتك الرماة، مع مكافأة المدينة والعتاد الحصري للحشد في نفس الخانة (صفحة المكافآت)، ASHISH 11/06 = 1.00. الرسائل = ما قاسته رسائل الحشد.", lc: ["القائد", "K", "الرسائل", "المدينة هجوم / فتك"], role: { A: "A", B: "B", fill: "إضافي" }, rosterH: "📋 قائمة القادة الرسمية", rosterP: "الفريق A يفتح عند 0:00، والفريق B عند +0:45؛ الباقون فقط عندما يتبقى 6:30 (حشود إضافية).", rcols: ["الفخ", "الفريق A (0:00)", "الفريق B (+0:45)"],
+  ar: { obsH: "🔎 ما لاحظناه", sugH: "💡 اقتراحات", lh: "👑 القادة", lp: "K = قوة القائد: هجوم × قوة فتك الرماة، مع مكافأة المدينة والعتاد الحصري للحشد في نفس الخانة (صفحة المكافآت)، ASHISH 11/06 = 1.00. الرسائل = ما قاسته رسائل الحشد.", lc: ["القائد", "K", "الرسائل", "المدينة هجوم / فتك"], role: { A: "A", B: "B", fill: "إضافي" }, rosterH: "📋 قائمة القادة الرسمية", rosterP: "الفريق A يفتح عند 0:00، والفريق B عند +0:45؛ الباقون فقط عندما يتبقى 6:30 (حشود إضافية).", rcols: ["الفخ", "الفريق A (0:00)", "الفريق B (+0:45)"],
     ph: "🚩 أين تسجّل الزحوف أكثر", ch: "🎯 كل لاعب", cp: "عامل القوات = مستوى القوات × (1 + غريزة الصياد لدى فالورا)؛ اللاعب المرجعي = 1.00.", gh: "📈 المجموع، صيدًا بعد صيد", det: "📋 جدول القادة الكامل (كل المدخلات)", nx: "📸 في الصيد القادم، صوّروا من فضلكم" },
-  ko: { lh: "👑 대장", lp: "K = 대장 강도: 버프 화면의 궁병 공격력 × 파괴력, 도시 버프와 집결 전용 장비를 같은 칸에 합산, ASHISH 11/06 = 1.00. 메일 = 집결 메일 실측값.", lc: ["대장", "K", "메일", "도시 공격 / 파괴"], role: { A: "A", B: "B", fill: "보충" }, rosterH: "📋 공식 대장 명단", rosterP: "A팀은 0:00, B팀은 +0:45에 엽니다. 나머지는 6:30 남았을 때만 열 수 있습니다 (보충 집결).", rcols: ["함정", "A팀 (0:00)", "B팀 (+0:45)"],
+  ko: { obsH: "🔎 우리가 관찰한 것", sugH: "💡 제안", lh: "👑 대장", lp: "K = 대장 강도: 버프 화면의 궁병 공격력 × 파괴력, 도시 버프와 집결 전용 장비를 같은 칸에 합산, ASHISH 11/06 = 1.00. 메일 = 집결 메일 실측값.", lc: ["대장", "K", "메일", "도시 공격 / 파괴"], role: { A: "A", B: "B", fill: "보충" }, rosterH: "📋 공식 대장 명단", rosterP: "A팀은 0:00, B팀은 +0:45에 엽니다. 나머지는 6:30 남았을 때만 열 수 있습니다 (보충 집결).", rcols: ["함정", "A팀 (0:00)", "B팀 (+0:45)"],
     ph: "🚩 부대를 어디에 넣으면 좋은가", ch: "🎯 개인별", cp: "병력 계수 = 병력 티어 × (1 + 베라 「사냥 본능」); 기준 플레이어 = 1.00.", gh: "📈 사냥별 총점", det: "📋 전체 대장 표 (모든 수치)", nx: "📸 다음 사냥 때 찍어 주세요" } };
 const at = (k) => (AT[lang] || AT.en)[k] ?? AT.en[k];
 function analysisHtml() {
   const r = RV, num = (v) => (v == null ? "—" : (+v).toFixed(0));
-  const bars = (rows, vi, max) => `<div class="bp-kb">${rows.map((x) => `<div class="bp-kr"><span class="bp-kn"><bdi>${esc(x[0])}</bdi></span><span class="bp-kt"><i class="bp-kf" style="width:${(Math.min(1, (+x[vi] || 0) / max) * 100).toFixed(1)}%;background:var(--bp-main)"></i></span><b>${esc(String(x[vi]))}</b></div>`).join("")}</div>`;
   const kmax = Math.max(1.2, ...(r.leaders || []).flatMap((g) => g.rows.map((x) => +String(x[1]).replace(/[^\d.]/g, "") || 0)));
   const leaders = (r.leaders || []).map((g) => `<h4 style="margin:12px 0 6px">${esc(LL(g.title))}</h4>
     <div class="bp-tw"><table class="bp-t" style="min-width:0"><thead><tr>${at("lc").map((c, i) => `<th${i === 1 || i === 2 ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}<th></th></tr></thead>
@@ -76,21 +75,30 @@ function analysisHtml() {
     ${LL(g.note) ? `<p class="muted bp-p" style="font-size:12.5px;margin-top:6px">${esc(LL(g.note))}</p>` : ""}`).join("");
   const pl = r.place || {};
   const cm = Math.max(...(r.coef || [[0, 1]]).map((x) => +x[1]));
-  return `<div class="card bp-rv">${r.data ? `<div class="muted" style="font-size:12.5px">${esc(LL(r.data.txt))}</div>` : ""}
-    ${r.stats ? `<div class="bp-stats" style="margin:6px 0 4px">${r.stats.map((x) => `<div class="bp-stat"><span class="k">${esc(LL(x.k))}</span><span class="v">${esc(x.v)}</span><span class="s">${esc(LL(x.s))}</span></div>`).join("")}</div>` : ""}</div>
-  <div class="card rs-do"><h3>${esc(at("ph"))}</h3>${(LL(pl.text) || []).length ? `<ol class="rs-dol">${LL(pl.text).map((x) => `<li>${esc(x)}</li>`).join("")}</ol>` : ""}
-    ${(LL(pl.rows) || []).length ? `<div class="bp-tw" style="margin-top:8px"><table class="bp-t" style="min-width:0"><tbody>${LL(pl.rows).map((x) => `<tr><td>${esc(x[0])}</td><td class="n"><b>${esc(x[1])}</b></td><td class="muted">${esc(x[2] || "")}</td></tr>`).join("")}</tbody></table></div>` : ""}</div>
-  <div class="card"><h3>${esc(at("lh"))}</h3><p class="bp-p">${esc(LL(r.kp) || at("lp"))}</p>${leaders}</div>
-  ${(r.roster || []).length ? `<div class="card"><h3>${esc(at("rosterH"))}</h3><p class="bp-p">${esc(at("rosterP"))}</p><div class="bp-tw"><table class="bp-t" style="min-width:0"><thead><tr>${at("rcols").map((c, i) => `<th${i ? "" : ' style="white-space:nowrap"'}>${esc(c)}</th>`).join("")}</tr></thead><tbody>${r.roster.map((x) => `<tr><td style="white-space:nowrap"><b>${esc(LL(x[0]) || x[0])}</b></td><td>${esc(x[1])}</td><td>${esc(x[2])}</td></tr>`).join("")}</tbody></table></div>${LL(r.rosterNote) ? `<p class="muted bp-p" style="font-size:12.5px;margin-top:6px">${esc(LL(r.rosterNote))}</p>` : ""}</div>` : ""}
-  <div class="card"><h3>${esc(at("ch"))}</h3><p class="bp-p">${esc(LL(r.coefNote) || at("cp"))}</p>
-    ${(r.coef || []).length ? `<div class="bp-kb">${r.coef.map((x) => `<div class="bp-kr"><span class="bp-kn"><bdi>${esc(x[0])}</bdi></span><span class="bp-kt"><i class="bp-kf" style="width:${(+x[1] / cm * 100).toFixed(1)}%;background:var(--bp-second)"></i></span><b>${(+x[1]).toFixed(2)}</b></div>`).join("")}</div>` : ""}
-    ${[].concat(r.growth || []).filter((g) => (g.rows || []).length).map((g) => `<details style="margin-top:10px"><summary><b>${esc(at("gh"))} · ${esc(LL(g.title))}</b></summary>
-      <div class="bp-tw" style="margin-top:6px"><table class="bp-t" style="min-width:0"><thead><tr><th></th>${g.dates.map((d) => `<th class="n">${esc(d)}</th>`).join("")}</tr></thead>
-      <tbody>${g.rows.map((x) => `<tr><td><bdi>${esc(x[0])}</bdi></td>${x.slice(1).map((v, i) => { const p = i ? x.slice(1, i + 1).reverse().find((y) => y != null) : null; return `<td class="n">${num(v)}${v != null && p != null ? ` <small class="${+v >= +p ? "bp-up" : "bp-no"}">${+v >= +p ? "▲" : "▼"}</small>` : ""}</td>`; }).join("")}</tr>`).join("")}</tbody></table></div></details>`).join("")}</div>
-  ${(LL(r.unknowns) || []).length ? `<div class="card"><h3>${esc(at("nx"))}</h3><ul class="bp-ul">${LL(r.unknowns).map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}
-  ${r.detail ? `<details class="card"><summary><b>${esc(at("det"))}</b></summary><div class="bp-tw" style="margin-top:8px"><table class="bp-t" style="min-width:1100px;white-space:nowrap"><thead><tr>${LL(r.detail.cols).map((c, i) => `<th${(r.detail.num || []).includes(i) ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
+  const growthT = (g) => `<div class="bp-tw" style="margin-top:6px"><table class="bp-t" style="min-width:0"><thead><tr><th></th>${g.dates.map((d) => `<th class="n">${esc(d)}</th>`).join("")}</tr></thead>
+      <tbody>${g.rows.map((x) => `<tr><td><bdi>${esc(x[0])}</bdi></td>${x.slice(1).map((v, i) => { const p = i ? x.slice(1, i + 1).reverse().find((y) => y != null) : null; return `<td class="n">${num(v)}${v != null && p != null ? ` <small class="${+v >= +p ? "bp-up" : "bp-no"}">${+v >= +p ? "▲" : "▼"}</small>` : ""}</td>`; }).join("")}</tr>`).join("")}</tbody></table></div>`;
+  const B = {   // the blocks a report can show (data stays in the same top-level keys of the file)
+    leaders: () => `<div class="card"><h3>${esc(at("lh"))}</h3><p class="bp-p">${esc(LL(r.kp) || at("lp"))}</p>${leaders}</div>`,
+    roster: () => (r.roster || []).length ? `<div class="card"><h3>${esc(at("rosterH"))}</h3><p class="bp-p">${esc(at("rosterP"))}</p><div class="bp-tw"><table class="bp-t" style="min-width:0"><thead><tr>${at("rcols").map((c, i) => `<th${i ? "" : ' style="white-space:nowrap"'}>${esc(c)}</th>`).join("")}</tr></thead><tbody>${r.roster.map((x) => `<tr><td style="white-space:nowrap"><b>${esc(LL(x[0]) || x[0])}</b></td><td>${esc(x[1])}</td><td>${esc(x[2])}</td></tr>`).join("")}</tbody></table></div>${LL(r.rosterNote) ? `<p class="muted bp-p" style="font-size:12.5px;margin-top:6px">${esc(LL(r.rosterNote))}</p>` : ""}</div>` : "",
+    place: () => (LL(pl.rows) || []).length ? `<div class="card"><h3>${esc(LL(pl.title) || at("ph"))}</h3><div class="bp-tw"><table class="bp-t" style="min-width:0"><tbody>${LL(pl.rows).map((x) => `<tr><td>${esc(x[0])}</td><td class="n"><b>${esc(x[1])}</b></td><td class="muted">${esc(x[2] || "")}</td></tr>`).join("")}</tbody></table></div></div>` : "",
+    coef: () => (r.coef || []).length ? `<div class="card"><h3>${esc(at("ch"))}</h3><p class="bp-p">${esc(LL(r.coefNote) || at("cp"))}</p><div class="bp-kb">${r.coef.map((x) => `<div class="bp-kr"><span class="bp-kn"><bdi>${esc(x[0])}</bdi></span><span class="bp-kt"><i class="bp-kf" style="width:${(+x[1] / cm * 100).toFixed(1)}%;background:var(--bp-second)"></i></span><b>${(+x[1]).toFixed(2)}</b></div>`).join("")}</div></div>` : "",
+    growth: () => [].concat(r.growth || []).filter((g) => (g.rows || []).length).map((g) => `<div class="card"><h3>${esc(at("gh"))} · ${esc(LL(g.title))}</h3>${growthT(g)}</div>`).join(""),
+    detail: () => r.detail ? `<details class="card"><summary><b>${esc(at("det"))}</b></summary><div class="bp-tw" style="margin-top:8px"><table class="bp-t" style="min-width:1100px;white-space:nowrap"><thead><tr>${LL(r.detail.cols).map((c, i) => `<th${(r.detail.num || []).includes(i) ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
     <tbody>${r.detail.rows.map((x) => `<tr>${x.map((v, i) => `<td${(r.detail.num || []).includes(i) ? ' class="n"' : ""}>${i === 0 ? `<bdi>${esc(v)}</bdi>` : esc(v)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
-    ${LL(r.foot) ? `<div class="muted" style="font-size:12px;margin-top:8px">${esc(LL(r.foot))}</div>` : ""}</details>` : ""}`;
+    ${LL(r.foot) ? `<div class="muted" style="font-size:12px;margin-top:8px">${esc(LL(r.foot))}</div>` : ""}</details>` : "",
+  };
+  const data = r.data ? `<div class="muted" style="font-size:12.5px;margin:2px 0 8px">${esc(LL(r.data.txt))}</div>` : "";
+  if (Array.isArray(r.reports) && r.reports.length) {   // 🐻 one Bear page, several short reports: 🔎 what we saw → 💡 suggestions → the numbers behind it (Sherry 2026-11-11)
+    const cur = ((location.hash || "").match(/[?&]r=(\w+)/) || [])[1], rep = r.reports.find((x) => x.id === cur) || r.reports[0];
+    const li = (arr) => (arr || []).map((x) => `<li>${esc(x)}</li>`).join("");
+    return `${OFFICER.bearChips(rep.id, lang)}${data}
+  <div class="card rs-do"><h3>${esc(at("obsH"))}</h3><ul class="rs-dol">${li(LL(rep.obs))}</ul>${(LL(rep.sug) || []).length ? `<h3 class="rs-h2">${esc(at("sugH"))}</h3><ul class="rs-dol">${li(LL(rep.sug))}</ul>` : ""}</div>
+  ${(rep.show || []).map((k) => (B[k] ? B[k]() : "")).join("\n  ")}`;
+  }
+  return `${OFFICER.bearChips("leaders", lang)}<div class="card bp-rv">${r.data ? `<div class="muted" style="font-size:12.5px">${esc(LL(r.data.txt))}</div>` : ""}
+    ${r.stats ? `<div class="bp-stats" style="margin:6px 0 4px">${r.stats.map((x) => `<div class="bp-stat"><span class="k">${esc(LL(x.k))}</span><span class="v">${esc(x.v)}</span><span class="s">${esc(LL(x.s))}</span></div>`).join("")}</div>` : ""}</div>
+  <div class="card rs-do"><h3>${esc(at("ph"))}</h3>${(LL(pl.text) || []).length ? `<ul class="rs-dol">${LL(pl.text).map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}</div>
+  ${B.place()}${B.leaders()}${B.roster()}${B.coef()}${B.growth()}${B.detail()}`;
 }
 function reviewHtml() {
   const r = RV; if (!r) return "";
@@ -120,7 +128,7 @@ function reviewHtml() {
   ${D ? `<h3 class="bp-sec">${esc(rt("planH"))}</h3>` : ""}`;
 }
 const T = {
-  en: { title: "🐻 Bear analysis", intro: "Measured from our Bear Hunts: rally mails, bonus pages, troop pages and leaderboards. ✅ sure · 🟡 likely.",
+  en: { title: "🐻 Bear analysis", intro: "Bear Hunt reports for officers: leaders, sending troops, joiners and heroes, trend. Our own research, not official.",
     s1k: "Rallies open at once", s1s: "follows turnout: about {cap} marches per rally", s2k: "Strongest rallies filled", s2s: "always; only the last rally changes with turnout",
     s3k: "Estimated damage per wave", s3s: "usual turnout ({n} marches), same people and troops",
     tlh: "One wave, side by side", tlp: "Each bar is one rally's 5-minute gather; the number is how full it was. Now: open times are rebuilt from screenshot countdowns (±10 s). Proposed: switch turnout to see what changes.",
@@ -150,7 +158,7 @@ const T = {
     foot: "Data: {src}", none: "No data yet. An admin adds it once with 📥 Update data below.", locked: "🔒 Log in first.",
     impT: "📥 Update data (admins)", impNote: "Paste a plan JSON or a hunt review JSON (from the analysis chat) — the page tells them apart. It is encrypted in this browser and saved for officers only.", impSave: "Encrypt & save",
     impOk: "✅ Saved — everyone with this tab sees it in a minute.", impBad: "⚠️ That isn't the plan JSON (needs now, order and rows).", impErr: "⚠️ Not saved: ", noTok: "⚠️ Saving needs the officer GitHub key (admin login)." },
-  zh: { title: "🐻 熊獵實測", intro: "從我們的熊獵實測整理：集結信件、加成頁、兵種頁、排行榜。✅ 確定 · 🟡 推測。",
+  zh: { title: "🐻 熊獵實測", intro: "給幹部的熊獵報告：隊長、派兵、加入者與英雄、趨勢。我們自己的研究，不是官方說明。",
     s1k: "同時開的團數", s1s: "跟著人數走：大約每 {cap} 支部隊一團", s2k: "最強的團填滿率", s2s: "一定滿；只有最後一團隨人數變",
     s3k: "每波傷害估計", s3s: "一般人數（{n} 支部隊），同樣的人和兵",
     tlh: "同一波，前後對照", tlp: "每條是一團 5 分鐘的集結時間，數字是填滿率。現況的開團時間是從截圖倒數推回來的（±10 秒）。建議版可以切換人數看看差別。",
@@ -180,7 +188,7 @@ const T = {
     foot: "資料：{src}", none: "還沒有資料。管理員在下面的 📥 更新資料 加一次就好。", locked: "🔒 請先登入。",
     impT: "📥 更新資料（管理員）", impNote: "貼上排團草稿或熊獵復盤的 JSON（分析聊天給的）——頁面會自己分辨。會在這個瀏覽器加密，只有幹部看得到。", impSave: "加密並儲存",
     impOk: "✅ 已儲存——有這個分頁的人大約一分鐘後就看得到。", impBad: "⚠️ 這不是規劃的 JSON（需要 now、order、rows）。", impErr: "⚠️ 沒有存到：", noTok: "⚠️ 儲存需要幹部的 GitHub 金鑰（管理員登入）。" },
-  pt: { title: "🐻 Análise do Urso", intro: "Medido nas nossas Caças ao Urso: relatórios de rally, páginas de bônus, páginas de tropas e rankings. ✅ certo · 🟡 provável.",
+  pt: { title: "🐻 Análise do Urso", intro: "Relatórios da Caça ao Urso para oficiais: líderes, envio de tropas, participantes e heróis, tendência. Pesquisa nossa, não é oficial.",
     s1k: "Rallies abertos ao mesmo tempo", s1s: "segue o número de pessoas: cerca de {cap} marchas por rally", s2k: "Rallies mais fortes cheios", s2s: "sempre; só o último rally muda com o número de pessoas",
     s3k: "Dano estimado por onda", s3s: "número normal de pessoas ({n} marchas), mesmas pessoas e tropas",
     tlh: "Uma onda, lado a lado", tlp: "Cada barra é a reunião de 5 minutos de um rally; o número mostra o quanto ficou cheio. Agora: os horários de abertura vêm das contagens regressivas nas capturas de tela (±10 s). Proposta: troque o número de pessoas para ver o que muda.",
@@ -210,7 +218,7 @@ const T = {
     foot: "Dados: {src}", none: "Ainda sem dados. Um admin adiciona uma vez com 📥 Atualizar dados abaixo.", locked: "🔒 Faça login primeiro.",
     impT: "📥 Atualizar dados (admins)", impNote: "Cole um JSON de plano ou um JSON de revisão de caçada (do chat de análise) — a página reconhece qual é. Ele é criptografado neste navegador e salvo só para oficiais.", impSave: "Criptografar e salvar",
     impOk: "✅ Salvo — todos com esta aba veem em um minuto.", impBad: "⚠️ Isso não é o JSON do plano (precisa de now, order e rows).", impErr: "⚠️ Não salvo: ", noTok: "⚠️ Para salvar, precisa da chave do GitHub dos oficiais (login de admin)." },
-  ar: { title: "🐻 تحليل الدب", intro: "مقاس من صيد الدببة لدينا: رسائل الحشد، صفحات المكافآت، صفحات القوات ولوحات الصدارة. ✅ مؤكد · 🟡 مرجّح.",
+  ar: { title: "🐻 تحليل الدب", intro: "تقارير صيد الدببة للضباط: القادة، إرسال القوات، المنضمّون والأبطال، الاتجاه. بحثنا الخاص، ليس رسميًا.",
     s1k: "الحشود المفتوحة معًا", s1s: "حسب عدد الحضور: نحو {cap} زحفًا لكل حشد", s2k: "امتلاء أقوى الحشود", s2s: "دائمًا؛ فقط الحشد الأخير يتغيّر مع عدد الحضور",
     s3k: "الضرر المقدّر لكل موجة", s3s: "حضور عادي ({n} زحفًا)، نفس الأشخاص والقوات",
     tlh: "موجة واحدة، جنبًا إلى جنب", tlp: "كل شريط هو تجمّع حشد واحد لمدة 5 دقائق؛ الرقم يبيّن نسبة امتلائه. الآن: أوقات الفتح مأخوذة من العدّ التنازلي في لقطات الشاشة (±10 s). المقترح: غيّر عدد الحضور لترى ما يتغيّر.",
@@ -240,7 +248,7 @@ const T = {
     foot: "البيانات: {src}", none: "لا توجد بيانات بعد. يضيفها مشرف مرة واحدة عبر 📥 تحديث البيانات في الأسفل.", locked: "🔒 سجّل الدخول أولًا.",
     impT: "📥 تحديث البيانات (المشرفون)", impNote: "الصق JSON الخطة أو JSON مراجعة الصيد (من محادثة التحليل) — الصفحة تميّز بينهما. يُشفَّر في هذا المتصفح ويُحفظ للضباط فقط.", impSave: "تشفير وحفظ",
     impOk: "✅ تم الحفظ — كل من لديه هذا التبويب يراه خلال دقيقة.", impBad: "⚠️ هذا ليس JSON الخطة (يحتاج now وorder وrows).", impErr: "⚠️ لم يُحفظ: ", noTok: "⚠️ الحفظ يحتاج مفتاح GitHub الخاص بالضباط (دخول المشرف)." },
-  ko: { title: "🐻 곰 분석", intro: "우리 자이언트 베어 사냥 실측: 집결 메일, 버프 화면, 병력 화면, 랭킹. ✅ 확실 · 🟡 추정.",
+  ko: { title: "🐻 곰 분석", intro: "간부용 곰 사냥 보고서: 대장, 병력 보내기, 집결원과 영웅, 추세. 우리 연구이고 공식은 아니야.",
     s1k: "동시에 여는 집결 수", s1s: "참여 인원에 따라: 집결 1개당 약 {cap}개 부대", s2k: "가장 강한 집결 채움률", s2s: "항상 가득; 마지막 집결만 인원에 따라 바뀝니다",
     s3k: "웨이브당 예상 피해", s3s: "보통 인원 ({n}개 부대), 같은 사람과 병력",
     tlh: "같은 웨이브, 비교", tlp: "막대 하나 = 집결 하나의 5분 집결 시간, 숫자 = 채움률. 현재: 여는 시간은 스크린샷 카운트다운으로 다시 계산했습니다 (±10 s). 제안: 인원을 바꿔서 무엇이 달라지는지 보세요.",

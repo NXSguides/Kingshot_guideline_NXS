@@ -378,9 +378,13 @@
   #pg-ms .ms-calc { padding: 12px; border-radius: 12px; background: var(--panel-2); } #pg-ms .ms-in { display: flex; gap: 10px; flex-wrap: wrap; margin: 6px 0; } #pg-ms .ms-in label { display: grid; gap: 3px; font-size: 12.5px; color: var(--text-muted); } #pg-ms .ms-in input { width: 170px; }
   #pg-ms .ms-res { font-size: 16px; font-weight: 800; color: var(--ms-a); margin: 2px 0 10px; }
   #pg-ms .ms-dos { margin: 0; padding-inline-start: 1.3em; font-size: 14px; line-height: 1.55; } #pg-ms .ms-dos li { margin: 6px 0; }
-  /* 🔬 every research report opens with the same "do this" card: short actions a reader can pass on (Sherry 2026-11-11) */
-  .pg .rs-do { border: 2px solid var(--accent); } .pg .rs-do h3 { margin: 0 0 8px; }
-  .pg .rs-dol { margin: 0; padding-inline-start: 1.5em; font-size: 15px; line-height: 1.55; } .pg .rs-dol li { margin: 7px 0; } .pg .rs-dol li::marker { font-weight: 800; color: var(--accent); }
+  /* 🔬 every research report opens with the same card: 🔎 what we saw, then 💡 suggestions — findings and advice, not orders (Sherry 2026-11-11) */
+  .pg .rs-do { border: 1px solid var(--accent); } .pg .rs-do h3 { margin: 0 0 6px; } .pg .rs-do .rs-h2 { margin-top: 16px; }
+  .pg .rs-dol { margin: 0; padding-inline-start: 1.3em; font-size: 15px; line-height: 1.55; } .pg .rs-dol li { margin: 6px 0; } .pg .rs-dol li::marker { color: var(--accent); }
+  #researchSub a[data-tab="bearplan"] { display: none !important; }   /* 🐻 one Bear page: its reports are the chips inside (OFFICER.bearChips) */
+  .pg .rs-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 12px; }
+  .pg .rs-chips a { padding: 5px 12px; border-radius: 99px; border: 1px solid var(--rule); background: var(--panel); color: var(--text); text-decoration: none; font-size: 13.5px; font-weight: 600; white-space: nowrap; }
+  .pg .rs-chips a.on { background: var(--accent); border-color: var(--accent); color: #fff; }
   /* 🦣 Terror rallies report */
   #pg-tb { --tb-a: #8a5a2b; --tb-easy: #2f8a4f; --tb-win: #3a6fb0; --tb-hard: #c9862b; --tb-lose: #c4473a; }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #pg-tb { --tb-a: #d49a5e; --tb-easy: #5dbb72; --tb-win: #6a9be0; --tb-hard: #e8a04a; --tb-lose: #e0675a; } }
