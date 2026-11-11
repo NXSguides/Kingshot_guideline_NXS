@@ -45,19 +45,19 @@ for (const [l, o] of Object.entries({"en": {"asAuto": "🤖 Placing members auto
 /* 🧭 tap a city on a planned spot = the planned person; 📌 keep where they are (Nia, 2026-11-11); HQ follows the move */
 for (const [l, o] of Object.entries({
   en: { psPlan: "🧭 Planned here: {n}", psFree: "🧭 Planned spot (nobody yet)", psNow: "Sitting here now: {n}", psEdit: "👤 Edit {n}'s position",
-    adT: "📌 Keep where they are", adHow: "Members of the plan who are inside the new hive but not on their spot: their spot becomes where they sit now. Members outside the hive are not touched.",
-    adBtn: "📌 Use where they sit now ({n})", adNone: "Everyone inside the hive is on their spot.", adQ: "These {n} members get the spot they sit on now:\n{l}{lost}\n\nOK?", adLost: "\n\nThese lose their spot (someone sits on it now) — give them a new one:\n{l}", adDone: "📌 {n} spots changed." },
+    adT: "📌 Keep where they are", adHow: "Every member of ours whose city is inside the new hive: the plan becomes where they sit now (members not in the plan yet get a spot too). Members outside the hive are not touched.",
+    adBtn: "📌 Use where they sit now ({n})", adNone: "The plan already matches where everyone inside the hive sits.", adQ: "The plan changes for these {n} members to where they sit now:\n{l}{lost}\n\nOK?", adLost: "\n\nThese lose their spot (someone sits on it now) — give them a new one:\n{l}", adDone: "📌 {n} spots changed." },
   zh: { psPlan: "🧭 原本規劃在這裡：{n}", psFree: "🧭 規劃的空位（還沒安排人）", psNow: "現在坐在這裡：{n}", psEdit: "👤 改 {n} 的現在位置",
-    adT: "📌 將錯就錯", adHow: "計畫裡的人，已經在新的 Hive 範圍內但不在自己位置上：直接把他現在的位置當成他的位置。不在 Hive 範圍內的人不會動。",
-    adBtn: "📌 用現在的位置當新位置（{n} 人）", adNone: "Hive 範圍內的人都在自己的位置上。", adQ: "這 {n} 人會改成他們現在坐的位置：\n{l}{lost}\n\n確定嗎？", adLost: "\n\n這些人的位置被別人坐了，會變成沒位置，要再幫他們安排：\n{l}", adDone: "📌 改了 {n} 個位置。" },
+    adT: "📌 將錯就錯", adHow: "只要是我們聯盟、城在新 Hive 範圍內的人：計畫直接改成他們現在的位置（還不在計畫裡的人也會加進去）。不在 Hive 範圍內的人不會動。",
+    adBtn: "📌 用現在的位置當新位置（{n} 人）", adNone: "計畫已經跟 Hive 範圍內每個人現在的位置一樣了。", adQ: "計畫裡這 {n} 人會改成他們現在的位置：\n{l}{lost}\n\n確定嗎？", adLost: "\n\n這些人的位置被別人坐了，會變成沒位置，要再幫他們安排：\n{l}", adDone: "📌 改了 {n} 個位置。" },
   pt: { psPlan: "🧭 Planejado aqui: {n}", psFree: "🧭 Lugar planejado (ninguém ainda)", psNow: "Aqui agora: {n}", psEdit: "👤 Editar a posição de {n}",
-    adT: "📌 Ficar onde estão", adHow: "Membros do plano que estão dentro da nova colmeia mas fora do seu lugar: o lugar passa a ser onde estão agora. Quem está fora da colmeia não muda.",
+    adT: "📌 Ficar onde estão", adHow: "Todo membro nosso com a cidade dentro da nova colmeia: o plano passa a ser onde está agora (quem ainda não está no plano também entra). Quem está fora da colmeia não muda.",
     adBtn: "📌 Usar onde estão agora ({n})", adNone: "Todos dentro da colmeia estão no seu lugar.", adQ: "Estes {n} membros ficam com o lugar onde estão agora:\n{l}{lost}\n\nOK?", adLost: "\n\nEstes perdem o lugar (alguém está nele) — dê um novo:\n{l}", adDone: "📌 {n} lugares mudados." },
   ar: { psPlan: "🧭 المخطط هنا: {n}", psFree: "🧭 مكان مخطط (لا أحد بعد)", psNow: "هنا الآن: {n}", psEdit: "👤 تعديل موقع {n}",
-    adT: "📌 ابقوا حيث أنتم", adHow: "أعضاء الخطة داخل الخلية الجديدة لكن ليسوا في مكانهم: يصبح مكانهم حيث هم الآن. من هم خارج الخلية لا يتغيرون.",
+    adT: "📌 ابقوا حيث أنتم", adHow: "كل عضو منا مدينته داخل الخلية الجديدة: تصبح الخطة حيث هو الآن (ومن ليس في الخطة بعد يُضاف أيضًا). من هم خارج الخلية لا يتغيرون.",
     adBtn: "📌 استخدم مواقعهم الحالية ({n})", adNone: "كل من داخل الخلية في مكانه.", adQ: "هؤلاء الـ {n} يأخذون المكان الذي هم فيه الآن:\n{l}{lost}\n\nموافق؟", adLost: "\n\nهؤلاء يفقدون مكانهم (شخص آخر فيه) — أعطهم مكانًا جديدًا:\n{l}", adDone: "📌 تم تغيير {n} أماكن." },
   ko: { psPlan: "🧭 원래 계획: {n}", psFree: "🧭 계획된 빈자리 (아직 없음)", psNow: "지금 여기: {n}", psEdit: "👤 {n}의 위치 수정",
-    adT: "📌 지금 자리 그대로", adHow: "새 하이브 안에 있지만 자기 자리가 아닌 계획 인원: 지금 있는 자리를 그 사람의 자리로 바꿔요. 하이브 밖의 사람은 그대로예요.",
+    adT: "📌 지금 자리 그대로", adHow: "성이 새 하이브 안에 있는 우리 연맹원 모두: 계획을 지금 있는 자리로 바꿔요 (아직 계획에 없는 사람도 추가). 하이브 밖의 사람은 그대로예요.",
     adBtn: "📌 지금 자리로 정하기 ({n}명)", adNone: "하이브 안의 모두가 자기 자리에 있어요.", adQ: "이 {n}명은 지금 있는 자리로 바뀌어요:\n{l}{lost}\n\n괜찮아요?", adLost: "\n\n이 사람들은 자리를 잃어요 (다른 사람이 있음) — 새 자리를 주세요:\n{l}", adDone: "📌 {n}개 자리를 바꿨어요." },
 })) Object.assign(T[l], o);
 /* 🐻 BT1 / BT2 + TC / Power in the 🚚 moving table (Sherry & Nia, 2026-11-05) — the marks are OFFICER.BT, the same list as 📊 Roster */
@@ -775,28 +775,34 @@ function bindSteps(el) {
    their spot get the spot they sit on now; members outside the hive are never touched. A planned spot someone now sits on
    is dropped, and its owner (if any) is listed so officers give them a new spot. */
 function adoptList() {
-  const PL = MV && MV.plan; if (!PL || !D) return { ch: [], lost: [] };
-  const T = planTerr(PL), here = {}, done = new Set((MV.done || []).map(norm)); D.m.forEach(([n, x, y]) => { here[norm(n)] = [x, y]; });
+  const PL = MV && MV.plan; if (!PL || !D) return { ch: [], add: [], drop: new Set(), lost: [] };
+  const T = planTerr(PL), idx = rosterIndex(), gone = new Set(goneList());
   const inHive = (x, y) => [[0, 0], [1, 0], [0, 1], [1, 1]].some(([a, b]) => T.has((x + a) + "," + (y + b)));
-  const ch = [];
-  (PL.c || []).forEach((e, pi) => { const [n, x, y] = e, h = n && here[norm(n)]; if (!h || done.has(norm(n)) || (h[0] === x && h[1] === y) || !inHive(h[0], h[1])) return; ch.push({ pi, n, to: h }); });
-  const mv = new Set(ch.map((c) => c.pi)), drop = new Set(), lost = [];
-  (PL.c || []).forEach(([n, x, y], pi) => { if (mv.has(pi)) return; if (ch.some((c) => Math.abs(c.to[0] - x) <= 1 && Math.abs(c.to[1] - y) <= 1)) { drop.add(pi); if (n) lost.push(n); } });
-  return { ch, drop, lost };
+  const who = (n) => { const m = n && idx[norm(n)]; return m ? "id:" + m.id : "n:" + norm(n); };   // same roster member = same person, even if the name is written a bit differently
+  const planOf = {}; (PL.c || []).forEach(([n], pi) => { if (n && planOf[who(n)] == null) planOf[who(n)] = pi; });
+  const ch = [], add = [], used = new Set();
+  D.m.forEach(([n, x, y], i) => { if (!n || gone.has(i) || !inHive(x, y)) return;   // every member of ours sitting inside the hive; nobody outside
+    const pi = planOf[who(n)];
+    if (pi == null) { add.push({ n, to: [x, y] }); return; }
+    used.add(pi); const e = PL.c[pi]; if (e[1] !== x || e[2] !== y) ch.push({ pi, n: e[0], to: [x, y] });
+  });
+  const pos = ch.map((c) => c.to).concat(add.map((c) => c.to)), drop = new Set(), lost = [];
+  (PL.c || []).forEach(([n, x, y], pi) => { if (used.has(pi)) return; if (pos.some((p) => Math.abs(p[0] - x) <= 1 && Math.abs(p[1] - y) <= 1)) { drop.add(pi); if (n) lost.push(n); } });
+  return { ch, add, drop, lost };
 }
 function adoptCard() {
   if (!MED() || !(MV && MV.plan)) return "";
   const a = adoptList();
   return `<div class="mm-add" style="margin:12px 0"><b>${esc(t("adT"))}</b> <span class="muted" style="font-size:12.5px">${esc(t("adHow"))}</span>
-    <div style="margin-top:6px">${a.ch.length ? `<button type="button" class="btn small primary" id="mv_adopt">${esc(t("adBtn").replace("{n}", a.ch.length))}</button>` : `<span class="muted" style="font-size:12.5px">${esc(t("adNone"))}</span>`}</div></div>`;
+    <div style="margin-top:6px">${a.ch.length + a.add.length ? `<button type="button" class="btn small primary" id="mv_adopt">${esc(t("adBtn").replace("{n}", a.ch.length + a.add.length))}</button>` : `<span class="muted" style="font-size:12.5px">${esc(t("adNone"))}</span>`}</div></div>`;
 }
 function adoptGo() {
-  if (!MED()) return; const a = adoptList(); if (!a.ch.length) return;
-  const l = a.ch.map((c) => `${c.n}: X:${MV.plan.c[c.pi][1]} Y:${MV.plan.c[c.pi][2]} → X:${c.to[0]} Y:${c.to[1]}`).join("\n");
-  if (!window.confirm(t("adQ").replace("{n}", a.ch.length).replace("{l}", l).replace("{lost}", a.lost.length ? t("adLost").replace("{l}", a.lost.join(", ")) : ""))) return;
+  if (!MED()) return; const a = adoptList(), n = a.ch.length + a.add.length; if (!n) return;
+  const l = a.ch.map((c) => `${c.n}: X:${MV.plan.c[c.pi][1]} Y:${MV.plan.c[c.pi][2]} → X:${c.to[0]} Y:${c.to[1]}`).concat(a.add.map((c) => `${c.n}: ➕ X:${c.to[0]} Y:${c.to[1]}`)).join("\n");
+  if (!window.confirm(t("adQ").replace("{n}", n).replace("{l}", l).replace("{lost}", a.lost.length ? t("adLost").replace("{l}", a.lost.join(", ")) : ""))) return;
   for (const c of a.ch) { MV.plan.c[c.pi][1] = c.to[0]; MV.plan.c[c.pi][2] = c.to[1]; }
-  MV.plan.c = MV.plan.c.filter((e, pi) => !a.drop.has(pi)); SPOT = null; NOWAT = null;
-  mvMsg = t("adDone").replace("{n}", a.ch.length) + " " + t("unsaved"); render(); renderMove();
+  MV.plan.c = MV.plan.c.filter((e, pi) => !a.drop.has(pi)).concat(a.add.map((c) => [c.n, c.to[0], c.to[1]])); SPOT = null; NOWAT = null;
+  mvMsg = t("adDone").replace("{n}", n) + " " + t("unsaved"); render(); renderMove();
 }
 /* 🏠 our HQ follows the move (Sherry, 2026-11-11): once the plan's HQ step is ticked, the plan's new HQ is our HQ on
    🗺️ Map and here (data/kingdom-map.js keeps the old one; unticking puts it back) */
