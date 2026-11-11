@@ -378,6 +378,25 @@
   #pg-ms .ms-calc { padding: 12px; border-radius: 12px; background: var(--panel-2); } #pg-ms .ms-in { display: flex; gap: 10px; flex-wrap: wrap; margin: 6px 0; } #pg-ms .ms-in label { display: grid; gap: 3px; font-size: 12.5px; color: var(--text-muted); } #pg-ms .ms-in input { width: 170px; }
   #pg-ms .ms-res { font-size: 16px; font-weight: 800; color: var(--ms-a); margin: 2px 0 10px; }
   #pg-ms .ms-dos { margin: 0; padding-inline-start: 1.3em; font-size: 14px; line-height: 1.55; } #pg-ms .ms-dos li { margin: 6px 0; }
+  /* 🦣 Terror rallies report */
+  #pg-tb { --tb-a: #8a5a2b; --tb-easy: #2f8a4f; --tb-win: #3a6fb0; --tb-hard: #c9862b; --tb-lose: #c4473a; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #pg-tb { --tb-a: #d49a5e; --tb-easy: #5dbb72; --tb-win: #6a9be0; --tb-hard: #e8a04a; --tb-lose: #e0675a; } }
+  :root[data-theme="dark"] #pg-tb { --tb-a: #d49a5e; --tb-easy: #5dbb72; --tb-win: #6a9be0; --tb-hard: #e8a04a; --tb-lose: #e0675a; }
+  #pg-tb .card h3 { margin: 0 0 8px; } #pg-tb .tb-p { margin: 0 0 10px; font-size: 14px; line-height: 1.55; } #pg-tb .tb-small { font-size: 12.5px; line-height: 1.5; }
+  #pg-tb .tb-hero { margin: 14px 0; padding: 18px 16px; border-radius: 14px; color: #f4efe6; background: linear-gradient(135deg, #4a3220, #2c3d33); box-shadow: 0 4px 14px var(--shadow); }
+  #pg-tb .tb-hero h2 { margin: 8px 0 4px; font-size: 21px; line-height: 1.3; text-wrap: balance; } #pg-tb .tb-hero p { margin: 0; font-size: 14.5px; line-height: 1.5; max-width: 62ch; }
+  #pg-tb .tb-badge { display: inline-block; font-size: 12px; padding: 3px 10px; border-radius: 99px; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3); }
+  #pg-tb .tb-st { display: inline-block; font-size: 11px; padding: 0 7px; border-radius: 99px; border: 1px solid var(--rule); white-space: nowrap; margin-inline-end: 3px; } #pg-tb .tb-st.mid { border-style: dashed; }
+  #pg-tb .tb-eq { margin: 0 0 8px; padding: 10px 12px; border-radius: 10px; font-weight: 700; font-size: 14.5px; background: color-mix(in srgb, var(--tb-a) 14%, var(--panel)); border: 1px solid var(--tb-a); }
+  #pg-tb .tb-h4 { margin: 12px 0 6px; } #pg-tb .tb-bands { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; } @media (max-width: 640px) { #pg-tb .tb-bands { grid-template-columns: 1fr 1fr; } }
+  #pg-tb .tb-band { padding: 8px 10px; border-radius: 10px; font-size: 13px; line-height: 1.45; background: var(--panel-2); border-inline-start: 4px solid var(--tb-win); }
+  #pg-tb .tb-band.easy { border-color: var(--tb-easy); } #pg-tb .tb-band.hard { border-color: var(--tb-hard); } #pg-tb .tb-band.lose { border-color: var(--tb-lose); }
+  #pg-tb .tb-t { border-collapse: collapse; font-size: 13px; min-width: 280px; } #pg-tb .tb-t th, #pg-tb .tb-t td { padding: 5px 10px; border-bottom: 1px solid var(--rule); text-align: start; white-space: nowrap; }
+  #pg-tb .tb-t .n { text-align: end; font-variant-numeric: tabular-nums; } #pg-tb .tb-far { color: var(--text-muted); }
+  #pg-tb .tb-pl { display: inline-block; font-size: 11.5px; padding: 1px 8px; border-radius: 99px; color: #fff; background: var(--tb-win); } #pg-tb .tb-pl.easy { background: var(--tb-easy); } #pg-tb .tb-pl.hard { background: var(--tb-hard); } #pg-tb .tb-pl.lose { background: var(--tb-lose); }
+  #pg-tb .tb-in { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; } #pg-tb .tb-in label { display: grid; gap: 3px; font-size: 12.5px; color: var(--text-muted); } #pg-tb .tb-in input { width: 150px; }
+  #pg-tb .tb-res { font-size: 16px; font-weight: 800; color: var(--tb-a); margin: 2px 0 8px; }
+  #pg-tb .tb-ul { margin: 0; padding: 0; list-style: none; font-size: 13.5px; line-height: 1.55; } #pg-tb .tb-ul li { margin: 6px 0; }
   /* ⚔️ Rally & Garrison report */
   #pg-rg { --rg-atk: #c4473a; --rg-let: #d0802a; --rg-hp: #3c8f4f; --rg-def: #3a6fb0; --rg-r: #b5523f; --rg-g: #3a6fb0; }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #pg-rg { --rg-atk: #e0675a; --rg-let: #e8a04a; --rg-hp: #5dbb72; --rg-def: #6a9be0; --rg-r: #e07a66; --rg-g: #6a9be0; } }
@@ -879,7 +898,7 @@
   .pg.readonly [data-edit], .pg.readonly [data-edtodo], .pg.readonly [data-igedit], .pg.readonly a[href^="#post"],
   .pg.readonly [data-v], .pg.readonly [data-p], .pg.readonly [data-tmset] { display: none !important; }
   /* no way into a tab they can't open: every link to it inside the pages is hidden (the nav entry is hidden by applyPerms) */
-  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-attack .pg a[href^="#attack"], body.no-growth .pg a[href^="#growth"], body.no-bearplan .pg a[href^="#bearplan"], body.no-vv .pg a[href^="#vv"], body.no-rg .pg a[href^="#rg"], body.no-ms .pg a[href^="#ms"], body.no-bh .pg a[href^="#bh"], body.no-iv .pg a[href^="#iv"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
+  body.no-events .pg a[href^="#events"], body.no-ranking .pg a[href^="#ranking"], body.no-post .pg a[href^="#post"], body.no-watch .pg a[href^="#watch"], body.no-scout .pg a[href^="#scout"], body.no-views .pg a[href^="#views"], body.no-map .pg a[href^="#map"], body.no-board .pg a[href^="#board"], body.no-attend .pg a[href^="#attend"], body.no-attack .pg a[href^="#attack"], body.no-growth .pg a[href^="#growth"], body.no-bearplan .pg a[href^="#bearplan"], body.no-vv .pg a[href^="#vv"], body.no-rg .pg a[href^="#rg"], body.no-tb .pg a[href^="#tb"], body.no-ms .pg a[href^="#ms"], body.no-bh .pg a[href^="#bh"], body.no-iv .pg a[href^="#iv"], body.no-perms .pg a[href^="#perms"] { display: none !important; }
   .pg.readonly::before { display: none !important; }   /* no "view only" banner on top: the missing buttons say enough */
   .pg-unused-ro-banner { content: attr(data-ro); display: block; margin: 0 0 10px; padding: 8px 12px; border-radius: 10px; font-size: 13px; background: color-mix(in srgb, var(--accent) 12%, var(--panel)); border: 1px solid var(--accent); }
   /* 👁️ view only: buttons they can't use are not there at all, and fields look written in stone (plain text, nothing to tap) */
@@ -1233,6 +1252,7 @@
     <a href="#vv" data-tab="vv" hidden>🪓 Viking report</a>
     <span class="sub-sep" aria-hidden="true"></span>
     <a href="#rg" data-tab="rg" hidden>⚔️ Rally &amp; Garrison</a>
+    <a href="#tb" data-tab="tb" hidden>🦣 Terror rallies</a>
   </nav>
   <div id="gate" class="card" hidden style="max-width:360px;margin:24px auto">
     <a class="btn" id="gateDiscord" href="#" style="display:block;text-align:center;width:100%;box-sizing:border-box;padding:12px;background:#5865F2;border-color:#5865F2;color:#fff;font-weight:700;text-decoration:none"></a>
@@ -1740,6 +1760,10 @@
   <div class="top"><div><h1 id="ms_title">🧳</h1><div class="muted" id="ms_intro"></div></div></div>
   <div id="ms_root"></div>
 </section>
+<section class="pg" id="pg-tb" hidden>
+  <div class="top"><div><h1 id="tb_title">🦣</h1><div class="muted" id="tb_intro"></div></div></div>
+  <div id="tb_root"></div>
+</section>
 <section class="pg" id="pg-rg" hidden>
   <div class="top"><div><h1 id="rg_title">⚔️</h1><div class="muted" id="rg_intro"></div></div></div>
   <div id="rg_root"></div>
@@ -1859,6 +1883,7 @@
 <script src="js/officer/bearplan.js"></script>
 <script src="js/officer/vv.js"></script>
 <script src="js/officer/rg.js"></script>
+<script src="js/officer/tb.js"></script>
 <script src="js/officer/ms.js"></script>
 <script src="js/officer/bh.js"></script>
 <script src="js/officer/iv.js"></script>

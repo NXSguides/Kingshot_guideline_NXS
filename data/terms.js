@@ -814,6 +814,12 @@ const TERMS = [
   "rows": [
    ["Beasts", "野獸", "야수", "Bestien", "Bêtes", "Feras", "Hayvanlar", "binatang buas", "Звери", "สัตว์อสูร", "الوحوش", "Bestias", "Map hunting tab. Indonesian is lowercase in the game."],
    ["Terror", "巨獸", "괴수", "Terror", "Terreur", "Terror", "Dehşet", "Terror", "Ужас", "อสูรร้าย", "وحش عملاق", "Terror", "Map hunting tab (the second monster type)."],
+   ["Great Moose", "巨型駝鹿", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Terror Lv3. EN + ZH from Sparrow's Terror reports 11/11; other languages not seen yet."],
+   ["Alpha Black Panther", "巨型黑豹", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Terror Lv4. EN + ZH from Sparrow's Terror reports 11/11; other languages not seen yet."],
+   ["Regal White Lion", "巨型白獅", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Terror Lv5. EN + ZH from Sparrow's Terror reports 11/11; other languages not seen yet."],
+   ["Ironclad War Elephant", "巨型戰象", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Terror Lv6. EN + ZH from Sparrow's Terror reports 11/11; other languages not seen yet."],
+   ["Ironclad War Bear", "巨型戰熊", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Terror Lv7. EN + ZH from Sparrow's Terror reports 11/11; other languages not seen yet."],
+   ["Titan Roc", "泰坦巨鳥", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Terror Lv8. EN + ZH from Sparrow's Terror reports 11/11; other languages not seen yet."],
    ["Bread", "麵包", "빵", "Brot", "Pain", "Pão", "Ekmek", "Roti", "Хлеб", "ขนมปัง", "الخبز", "Pan", "Map gathering tab."],
    ["Search", "搜索", "검색하기", "Suche", "Rechercher", "Procurar", "Ara", "Cari", "Поиск", "ค้นหา", "بحث", "Buscar", "Button on the map."],
    ["Auto Hunting", "自動狩獵", "자동 사냥", "Auto-Jagd", "Chasse Auto.", "Caçada Automática", "Otomatik Av", "Berburu Otomatis", "Автоохота", "การล่าอัตโนมัติ", "الصيد التلقائي", "Cacería automática", "Button on the map."],
