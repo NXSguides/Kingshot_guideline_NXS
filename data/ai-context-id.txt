@@ -1064,6 +1064,31 @@ Setelah 3 putaran gratis, tiap event butuh 159.000 Permata — sekitar 954.000 P
 ⚔️ TIPS KVK
 Di Fase Persiapan KvK, hari ke-2 dan ke-3 memberi 8.000 poin per putaran Rolet Hero — jadi Chip Keberuntungan dan Permata untuk memutar sebaiknya disimpan untuk dua hari itu.
 
+### GUIDE #fantasy-theater — Teater Fantasi
+KAPAN
+Event tidak rutin. 5 hari: 11/11 00:00 UTC – 11/15 24:00 UTC.
+CARA KERJA
+Selesaikan misi Catatan Teater setiap hari (reset 00:00 UTC). Misi memberi Jimat Fantasi.
+Jelajah: kamu bayar Jimat Fantasi lalu naik 1–3 lantai atau tetap. Kamu tidak pernah turun.
+Setiap gagal mendekatkanmu ke jaminan naik: setelah 4 kali gagal berturut-turut, jelajah berikutnya pasti naik.
+Setiap lantai punya hadiah 🪙 Fantasy Token. Klaim = ambil dan mulai lagi dari Lantai 1. Tidak klaim = terus naik.
+Mencapai Lantai 7 memberi 1–5 Fanstar. Dengan 5, jelajah berikutnya masuk Benteng Fantasi (hadiah lebih besar); 5 itu terpakai.
+Pakai 🪙 Fantasy Token di Toko Teater. Peti di kanan atas (mis. 25/100) terisi saat bermain — buka juga.
+📊 PELUANG (dari game)
+Peluang naik di percobaan 1 / 2 / 3 / 4 / 5: 10% / 30% / 60% / 80% / 100%
+Saat naik: +1 = 80% · +2 = 19.67% · +3 = 0.33%
+Fanstar di Lantai 7: 1 = 72% · 2 = 14% · 3 = 8% · 4 = 4% · 5 = 2%
+🪙 HADIAH & BIAYA PER LANTAI
+Hadiah lantai (🪙 Fantasy Token): 2 → 140 · 3 → 300 · 4 → 850 · 5 → 1,600 · 6 → 3,000 · 7 → 6,800
+Biaya per lantai (Jimat Fantasi): 1 → 5 · 2 → 8 · 3 → 20 · 4 → 30 · 5 → 60 · 6 → 100 (dari panduan pemain lain; Lantai 3 = 20 sudah dicek di game)
+Perkiraan kami (uji komputer dengan peluang di atas): sekitar 12–13 🪙 Fantasy Token per Jimat Fantasi di lantai mana pun kamu klaim — jadi klaim lebih awal hanya sedikit rugi. Lantai 1 → 7 rata-rata sekitar 530 Jimat Fantasi.
+💡 CARA MAIN
+Semua: selesaikan Catatan Teater setiap hari. Lantai hanya reset saat kamu Klaim, jadi kamu bisa naik selama beberapa hari.
+F2P: terus naik dan klaim di Lantai 7 (sedikit lebih untung + Fanstar). Di hari terakhir, klaim lantai tempatmu berada.
+Sedikit belanja: rencana sama. Beli Jimat Fantasi hanya kalau cukup untuk item yang kamu mau di Toko Teater.
+Banyak belanja: kumpulkan 5 Fanstar dan masuk Benteng Fantasi.
+Sebelum event berakhir: klaim lantaimu dan habiskan semua 🪙 Fantasy Token — sisanya jadi peti sumber daya Lv.1 (dari panduan pemain lain).
+
 ### GUIDE #wavebound-voyage — Pelayaran Ombak
 KAPAN
 Event tidak rutin (tanpa siklus tetap). 5 hari: 10/20 00:00 UTC – 10/24 24:00 UTC, lalu 1 hari lagi untuk membuka atau menggabungkan harta karun (tanpa pelayaran baru).
@@ -1348,7 +1373,7 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 🐦 Little Sparrow (the bird by the Ask AI button): tap it and it first asks "Want a quick tour of this page?" — 👀 Yes walks top to bottom through the page you are on: first the top buttons (🔗, ↻, 📋 officers only, light/dark, the announcement ticker, languages, guide menus), then the page (home page: this week, daily checklist, calendar, announcements, guide menus, language, Ask AI; a guide: its headings, hero cards, rule boxes, switching guides). After the tour, or after "No thanks", it shows its help menu: 🔎 Find a page, or 🎓 "How do I use…" → pick a tour: 🧭 What the buttons on the site do (language, 🔗, ↻, light/dark, Ask AI), ⏰ timers, 🔔 game reminders, or installing the app. The same tours are listed at the top of the Ask AI panel.
 📍 Where's my spot?: its own page — the 📍 button next to 🤝 NAP Rules at the top (guide #my-spot), for hive moves. Members type their in-game name and get their new X:Y (📋 copy) and their Bear Trap group (🐻 BT1 / BT2); a map like Kingshot Mapper shows every planned city with the member's name and each spot's X,Y, the Bear Traps and HQ (tap a city to see who is there, drag / swipe to move around, 🔍 － / ＋ above the map to zoom, or Ctrl + wheel / pinch). It is the officers' live 🐝 Hive plan, so it always shows the newest plan; names follow the daily roster. Not on the plan = no spot yet → ask an officer. The officers open this page only when a new hive is ready; while it is hidden the 📍 button is not shown and the page says it is not open yet.
 📅 This week card on the home page (short version, Sherry 2026-11-06): Now = full rows only for events with a guide, battle days (⚔️), repair days and days with something to do (📝); events that are just running sit on one "Also on:" line with their day (e.g. 🏆 Alliance Championship 5/7). Coming up = one line per day (tomorrow / in N days) with that day's events side by side; tap a guide's name to open it. 📝 = something to do today — Alliance Championship days 1–2 (Mon–Tue UTC): sign up & update your teams. The 📆 Calendar below no longer repeats today's list (it says today's events are in 📅 This week above); tap another day to see that day. ⚔️ only marks real battle days (Sanctuary Battle: day 4 = Friday; Tue–Thu are sign-up days).
-📍 Where's my spot? — map colours (Sherry 2026-11-10): a planned spot is drawn light while that member isn't on it yet, full colour with a green edge once they are. 📍 Where's my spot? — wrong-spot lists (Sherry 2026-11-06): above the map, from each member's castle on the map vs. their spot on the plan: 🤗 Naughty = castle sits on someone else's spot ("Mimi that's Amber's spot"; that spot keeps its owner's name on top and gets a second red line "🤗 who sits there" (2026-11-11), the sitter's castle is only a red dashed outline with a dashed line to their own spot); 🙃 Crooked = overlaps their own spot a little but nobody else's; 🫥 Where are you? = not on their spot at all ("remember to come home"). Each row has a 📍 Spot button that lights up their own spot on the map (no spot on the plan → "No spot was assigned to you please contact an R4"). Members without a spot are left out on purpose unless they sit on someone's spot. Searching your own name shows your line on top (you're on someone's spot → "you'll keep them from coming home 😡😡"; ✅ when you're on your spot).
+📚 Guide list — a small “Irregular” tag next to a guide name (Sherry 2026-11-11) = a one-off event with no fixed cycle (e.g. Wavebound Voyage, Fantasy Theater). 📍 Where's my spot? — map colours (Sherry 2026-11-10): a planned spot is drawn light while that member isn't on it yet, full colour with a green edge once they are. 📍 Where's my spot? — wrong-spot lists (Sherry 2026-11-06): above the map, from each member's castle on the map vs. their spot on the plan: 🤗 Naughty = castle sits on someone else's spot ("Mimi that's Amber's spot"; that spot keeps its owner's name on top and gets a second red line "🤗 who sits there" (2026-11-11), the sitter's castle is only a red dashed outline with a dashed line to their own spot); 🙃 Crooked = overlaps their own spot a little but nobody else's; 🫥 Where are you? = not on their spot at all ("remember to come home"). Each row has a 📍 Spot button that lights up their own spot on the map (no spot on the plan → "No spot was assigned to you please contact an R4"). Members without a spot are left out on purpose unless they sit on someone's spot. Searching your own name shows your line on top (you're on someone's spot → "you'll keep them from coming home 😡😡"; ✅ when you're on your spot).
 🔰 New here?: its own page — the 🔰 button right after 🏠 Home at the top (the home page: 📅 This week, ✅ daily checklist, 📆 calendar, then the 📢 Announcements board; the tab was called Recent Events before 2026-11-06) (guide #new-here), for new members (e.g. people joining from TTT), in the order of Nia's Onboarding chat: translating messages in the game (tap ⇄ next to a message in the game); Nia's 5 core rules (stay active, respect NAP 6 and report instead of hitting back, follow event rules — check alliance chat, private messages, our website and Discord, team play, keep World Chat civil); NAP 6 and the 3 steps for violations; Sanctuaries & Fortresses — assigned to the top 6 NAP alliances, a battle every Friday, never fight for one assigned to another alliance (a big NAP break): NXS 1, 6 + Fortress 2, NBD 10, 11 + Fortress 4, RED 2, 3 + Fortress 3, ESA 5, 12 + Fortress 1, IDN 4, KGb 8, 7 and 9 are fought for and each alliance can hold only one of them; the Sanctuary & Fortress rules (no solo attacks, exact troops and heroes, wait for R4/R5 before teleporting); Bear Trap — strict rules on heroes, troop numbers and ratio (wrong heroes lower the total damage; link to the 🐻 Bear Hunt guide), don't teleport before an R4 gives you a spot, BT1 22:00 / BT2 13:00 UTC; a link to 🛡️ Formations & Rally Tips for other events' ratios and troop numbers; optional name change — the format is 亗 ᴺᵉˣᵘˢ亗 with your name typed right after the first 亗 (e.g. 亗Sparrow ᴺᵉˣᵘˢ亗), with a 📋 Copy button; gift codes — Android in game (Governor picture → Settings → Gift Code), iOS on ks-giftcode.centurygame.com; where we share information; Discord and site links.
 🤝 NAP rules: their own page — the 🤝 NAP Rules button at the top, after 🔰 New here? (guide #nap-rules): the NAP 6 tags, checking nodes before gathering, the All Out exception, outposts, Sanctuaries / Fortresses, and the 3 steps for violations. (The home page has no NAP card any more — removed 2026-11-06; use the 🤝 button.)
 The language buttons at the top switch the whole site (12 languages).
@@ -1441,6 +1466,22 @@ Mulai mengumpulkan dan menyimpan sekarang agar kita siap untuk mendominasi KvK b
 (see guide #kvk)
 
 ### GAME TERMS (English = official id name)
+Fantasy Theater = Teater Fantasi
+Theater = Teater
+Theater Notes = Catatan Teater
+Theater Shop = Toko Teater
+Fantasy Amulets = Jimat Fantasi
+Fanstars = Fanstar
+Fantasy Fortress = Benteng Fantasi
+Floor = Lantai
+Current Floor = Lantai Sekarang
+Explore = Jelajah
+Claim = Klaim
+guaranteed ascent = jaminan naik
+Overview = Ringkasan
+Basics = Dasar
+Probabilities = Probabilitas
+Rewards History = Riwayat Hadiah
 Wavebound Voyage = Pelayaran Ombak
 Voyager Team = Tim Pelayaran
 Compass = Kompas
@@ -1592,7 +1633,6 @@ My Ranking = Peringkatku
 Unranked = Tidak Ada Peringkat
 My Points = Poin Saya
 Target Points = Poin Sasaran
-Claim = Klaim
 Strongest Governor = Gubernur Terkuat
 Stage = stage
 Challenge Medal = Medali Tantangan
@@ -2121,6 +2161,7 @@ use = gunakan
 okay if needed = boleh jika perlu
 don't use = jangan digunakan
 need to do daily = perlu dilakukan setiap hari
+Fantasy Tokens = 🪙 Fantasy Token
 Conscript = wajib militer
 neutral buildings = bangunan netral
 Deploy = Mengerahkan

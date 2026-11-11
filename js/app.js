@@ -272,6 +272,7 @@ const EVENT_SCHEDULES = {
   "kvk": { anchor: Date.UTC(2026, 9, 5), periodDays: 28, activeDays: 8 },
   "hero-roulette": { anchor: Date.UTC(2026, 9, 6), periodDays: 14, activeDays: 3 },
   "cesares-fury": { anchor: Date.UTC(2026, 9, 10), periodDays: 21, activeDays: 3 }, // last one ~9/19, this one 10/10–10/12 → every 3 weeks (check 10/31)
+  "fantasy-theater": { anchor: Date.UTC(2026, 10, 11), periodDays: 100000, activeDays: 5 }, // one-off (irregular): 11/11 00:00 – 11/15 24:00 UTC (in-game timer 2026-11-11)
   "wavebound-voyage": { anchor: Date.UTC(2026, 9, 20), periodDays: 100000, activeDays: 5 }, // one-off (irregular): 10/20 00:00 – 10/24 24:00 UTC
   "sanctuary-battle": { anchor: Date.UTC(2026, 9, 6), periodDays: 7, activeDays: 4 } // in-game calendar: Tue 00:00 – Fri 24:00 UTC every week (sign-up first, contest phase at the voted time slot)
 };
@@ -315,7 +316,7 @@ const REPAIR_DAYS = { "kvk": [7, 8] }, REPAIR_EMOJI = "💊";
 /* events whose prep days matter as much as the battle: prep keeps the guide emoji at full strength, the battle day gets its own */
 const PHASED = { "kvk": { fight: "💥" } };
 /* events with a guide but no battle: the calendar shows them without ⚔️ and without "not the battle day" (Sherry 2026-11-06) */
-const NO_FIGHT = new Set(["fishing-tournament", "hero-roulette", "wavebound-voyage"]);
+const NO_FIGHT = new Set(["fishing-tournament", "hero-roulette", "wavebound-voyage", "fantasy-theater"]);
 const isRepairDay = (k, dayIdx) => (REPAIR_DAYS[k] || []).includes(dayIdx + 1);
 /* times on different days of the run (event-times.json "timeDays": the n-th time → that day of the run, e.g. Viking: 13:00 on day 3, 22:00 on day 1) */
 const TIME_DAY = {};
@@ -796,10 +797,13 @@ function guideGroupOf(key) {
   return GUIDE_GROUPS.growth.guides.includes(key) ? "growth" : "events";
 }
 
+/* one-off events (no fixed cycle) get a small "irregular" tag next to their name (Sherry 2026-11-11) */
+const IRREG_TXT = { en:"Irregular", zh:"不定期", ko:"비정기", de:"Unregelmäßig", fr:"Ponctuel", pt:"Irregular", tr:"Düzensiz", id:"Tidak rutin", ru:"Нерегулярно", th:"ไม่ประจำ", ar:"غير منتظم", es:"Irregular" };
+const isIrregular = (key) => !!(EVENT_SCHEDULES[key] && EVENT_SCHEDULES[key].periodDays >= 1000);
 function guideChipHtml(key) {
   const g = GUIDES[key];
   return `<button type="button" class="guide-chip${key === currentGuide ? " active" : ""}" onclick="pickGuideChip('${key}')">
-    <span class="emoji">${g.emoji}</span><span dir="auto">${escapeHtml(t(g.name) || key)}</span></button>`;
+    <span class="emoji">${g.emoji}</span><span dir="auto">${escapeHtml(t(g.name) || key)}</span>${isIrregular(key) ? `<span class="irreg">${escapeHtml(t(IRREG_TXT))}</span>` : ""}</button>`;
 }
 
 function renderGuideRow() {

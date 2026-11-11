@@ -1063,6 +1063,31 @@ EXP ฮีโร่ 10K x1: 18.27%
 ⚔️ เกี่ยวกับ KvK
 ในช่วงการเตรียมตัวของ KvK วันที่ 2 และ 3 รูเล็ตฮีโร่ให้ 8,000 แต้มต่อการหมุน จึงควรเก็บชิปนำโชคและเพชรที่จะใช้หมุนไว้ใช้ในสองวันนั้น
 
+### GUIDE #fantasy-theater — โรงละครแฟนตาซี
+ช่วงเวลา
+อีเวนต์ไม่ประจำ 5 วัน: 11/11 00:00 UTC – 11/15 24:00 UTC
+วิธีเล่น
+ทำภารกิจบันทึกโรงละครทุกวัน (รีเซ็ต 00:00 UTC) จะได้เครื่องรางแฟนตาซี
+กดสำรวจ: จ่ายเครื่องรางแฟนตาซี แล้วขึ้น 1–3 ชั้น หรืออยู่ที่เดิม ไม่มีการตกลงไป
+ทุกครั้งที่ไม่ขึ้นจะใกล้การขึ้นแบบรับประกัน: ไม่ขึ้น 4 ครั้งติด ครั้งต่อไปขึ้นแน่นอน
+แต่ละชั้นมีรางวัล🪙 Fantasy Token กดรับ = รับรางวัลแล้วเริ่มใหม่ที่ชั้น 1 ไม่รับ = ปีนต่อ
+ถึงชั้น 7 ได้ดาวแฟนตาซี 1–5 ดวง ครบ 5 ดวง การสำรวจครั้งถัดไปจะเข้าป้อมปราการแฟนตาซี (รางวัลดีกว่า) และใช้ 5 ดวงนั้น
+ใช้🪙 Fantasy Tokenที่ร้านค้าโรงละคร หีบมุมขวาบน (เช่น 25/100) จะเพิ่มขึ้นเมื่อเล่น — อย่าลืมเปิด
+📊 โอกาส (จากในเกม)
+โอกาสขึ้นในครั้งที่ 1 / 2 / 3 / 4 / 5: 10% / 30% / 60% / 80% / 100%
+เมื่อขึ้น: +1 = 80% · +2 = 19.67% · +3 = 0.33%
+ดาวแฟนตาซี ที่ชั้น 7: 1 = 72% · 2 = 14% · 3 = 8% · 4 = 4% · 5 = 2%
+🪙 รางวัลและค่าใช้จ่ายแต่ละชั้น
+รางวัลชั้น (🪙 Fantasy Token): 2 → 140 · 3 → 300 · 4 → 850 · 5 → 1,600 · 6 → 3,000 · 7 → 6,800
+ค่าสำรวจแต่ละชั้น (เครื่องรางแฟนตาซี): 1 → 5 · 2 → 8 · 3 → 20 · 4 → 30 · 5 → 60 · 6 → 100 (จากคู่มือของผู้เล่นอื่น ชั้น 3 = 20 ตรวจในเกมแล้ว)
+ประมาณการของเรา (จำลองด้วยคอมพิวเตอร์ตามโอกาสด้านบน): ได้ประมาณ 12–13 🪙 Fantasy Token ต่อเครื่องรางแฟนตาซี 1 อัน ไม่ว่าจะรับที่ชั้นไหน — รับเร็วก็เสียไม่มาก ชั้น 1 → 7 ใช้เฉลี่ยประมาณ 530 เครื่องรางแฟนตาซี
+💡 เล่นยังไงดี
+ทุกคน: ทำบันทึกโรงละครให้ครบทุกวัน ชั้นจะรีเซ็ตเมื่อกดรับเท่านั้น จึงปีนต่อได้หลายวัน
+F2P: ปีนต่อไปแล้วรับที่ชั้น 7 (คุ้มกว่าเล็กน้อย + ได้ดาวแฟนตาซี) วันสุดท้ายให้รับชั้นที่อยู่
+เติมน้อย: แผนเดียวกัน ซื้อเครื่องรางแฟนตาซีเฉพาะเมื่อพอแลกของที่อยากได้ในร้านค้าโรงละคร
+เติมหนัก: สะสมดาวแฟนตาซีให้ครบ 5 แล้วเข้าป้อมปราการแฟนตาซี
+ก่อนอีเวนต์จบ: รับชั้นที่อยู่และใช้🪙 Fantasy Tokenให้หมด — ที่เหลือจะกลายเป็นหีบทรัพยากร Lv.1 (จากคู่มือของผู้เล่นอื่น)
+
 ### GUIDE #wavebound-voyage — การเดินทางคลื่น
 ช่วงเวลา
 อีเวนต์ไม่ประจำ (ไม่มีรอบตายตัว) 5 วัน: 10/20 00:00 UTC – 10/24 24:00 UTC จากนั้นมีอีก 1 วันให้เปิดหรือรวมหีบสมบัติ (ส่งทีมใหม่ไม่ได้)
@@ -1347,7 +1372,7 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 🐦 Little Sparrow (the bird by the Ask AI button): tap it and it first asks "Want a quick tour of this page?" — 👀 Yes walks top to bottom through the page you are on: first the top buttons (🔗, ↻, 📋 officers only, light/dark, the announcement ticker, languages, guide menus), then the page (home page: this week, daily checklist, calendar, announcements, guide menus, language, Ask AI; a guide: its headings, hero cards, rule boxes, switching guides). After the tour, or after "No thanks", it shows its help menu: 🔎 Find a page, or 🎓 "How do I use…" → pick a tour: 🧭 What the buttons on the site do (language, 🔗, ↻, light/dark, Ask AI), ⏰ timers, 🔔 game reminders, or installing the app. The same tours are listed at the top of the Ask AI panel.
 📍 Where's my spot?: its own page — the 📍 button next to 🤝 NAP Rules at the top (guide #my-spot), for hive moves. Members type their in-game name and get their new X:Y (📋 copy) and their Bear Trap group (🐻 BT1 / BT2); a map like Kingshot Mapper shows every planned city with the member's name and each spot's X,Y, the Bear Traps and HQ (tap a city to see who is there, drag / swipe to move around, 🔍 － / ＋ above the map to zoom, or Ctrl + wheel / pinch). It is the officers' live 🐝 Hive plan, so it always shows the newest plan; names follow the daily roster. Not on the plan = no spot yet → ask an officer. The officers open this page only when a new hive is ready; while it is hidden the 📍 button is not shown and the page says it is not open yet.
 📅 This week card on the home page (short version, Sherry 2026-11-06): Now = full rows only for events with a guide, battle days (⚔️), repair days and days with something to do (📝); events that are just running sit on one "Also on:" line with their day (e.g. 🏆 Alliance Championship 5/7). Coming up = one line per day (tomorrow / in N days) with that day's events side by side; tap a guide's name to open it. 📝 = something to do today — Alliance Championship days 1–2 (Mon–Tue UTC): sign up & update your teams. The 📆 Calendar below no longer repeats today's list (it says today's events are in 📅 This week above); tap another day to see that day. ⚔️ only marks real battle days (Sanctuary Battle: day 4 = Friday; Tue–Thu are sign-up days).
-📍 Where's my spot? — map colours (Sherry 2026-11-10): a planned spot is drawn light while that member isn't on it yet, full colour with a green edge once they are. 📍 Where's my spot? — wrong-spot lists (Sherry 2026-11-06): above the map, from each member's castle on the map vs. their spot on the plan: 🤗 Naughty = castle sits on someone else's spot ("Mimi that's Amber's spot"; that spot keeps its owner's name on top and gets a second red line "🤗 who sits there" (2026-11-11), the sitter's castle is only a red dashed outline with a dashed line to their own spot); 🙃 Crooked = overlaps their own spot a little but nobody else's; 🫥 Where are you? = not on their spot at all ("remember to come home"). Each row has a 📍 Spot button that lights up their own spot on the map (no spot on the plan → "No spot was assigned to you please contact an R4"). Members without a spot are left out on purpose unless they sit on someone's spot. Searching your own name shows your line on top (you're on someone's spot → "you'll keep them from coming home 😡😡"; ✅ when you're on your spot).
+📚 Guide list — a small “Irregular” tag next to a guide name (Sherry 2026-11-11) = a one-off event with no fixed cycle (e.g. Wavebound Voyage, Fantasy Theater). 📍 Where's my spot? — map colours (Sherry 2026-11-10): a planned spot is drawn light while that member isn't on it yet, full colour with a green edge once they are. 📍 Where's my spot? — wrong-spot lists (Sherry 2026-11-06): above the map, from each member's castle on the map vs. their spot on the plan: 🤗 Naughty = castle sits on someone else's spot ("Mimi that's Amber's spot"; that spot keeps its owner's name on top and gets a second red line "🤗 who sits there" (2026-11-11), the sitter's castle is only a red dashed outline with a dashed line to their own spot); 🙃 Crooked = overlaps their own spot a little but nobody else's; 🫥 Where are you? = not on their spot at all ("remember to come home"). Each row has a 📍 Spot button that lights up their own spot on the map (no spot on the plan → "No spot was assigned to you please contact an R4"). Members without a spot are left out on purpose unless they sit on someone's spot. Searching your own name shows your line on top (you're on someone's spot → "you'll keep them from coming home 😡😡"; ✅ when you're on your spot).
 🔰 New here?: its own page — the 🔰 button right after 🏠 Home at the top (the home page: 📅 This week, ✅ daily checklist, 📆 calendar, then the 📢 Announcements board; the tab was called Recent Events before 2026-11-06) (guide #new-here), for new members (e.g. people joining from TTT), in the order of Nia's Onboarding chat: translating messages in the game (tap ⇄ next to a message in the game); Nia's 5 core rules (stay active, respect NAP 6 and report instead of hitting back, follow event rules — check alliance chat, private messages, our website and Discord, team play, keep World Chat civil); NAP 6 and the 3 steps for violations; Sanctuaries & Fortresses — assigned to the top 6 NAP alliances, a battle every Friday, never fight for one assigned to another alliance (a big NAP break): NXS 1, 6 + Fortress 2, NBD 10, 11 + Fortress 4, RED 2, 3 + Fortress 3, ESA 5, 12 + Fortress 1, IDN 4, KGb 8, 7 and 9 are fought for and each alliance can hold only one of them; the Sanctuary & Fortress rules (no solo attacks, exact troops and heroes, wait for R4/R5 before teleporting); Bear Trap — strict rules on heroes, troop numbers and ratio (wrong heroes lower the total damage; link to the 🐻 Bear Hunt guide), don't teleport before an R4 gives you a spot, BT1 22:00 / BT2 13:00 UTC; a link to 🛡️ Formations & Rally Tips for other events' ratios and troop numbers; optional name change — the format is 亗 ᴺᵉˣᵘˢ亗 with your name typed right after the first 亗 (e.g. 亗Sparrow ᴺᵉˣᵘˢ亗), with a 📋 Copy button; gift codes — Android in game (Governor picture → Settings → Gift Code), iOS on ks-giftcode.centurygame.com; where we share information; Discord and site links.
 🤝 NAP rules: their own page — the 🤝 NAP Rules button at the top, after 🔰 New here? (guide #nap-rules): the NAP 6 tags, checking nodes before gathering, the All Out exception, outposts, Sanctuaries / Fortresses, and the 3 steps for violations. (The home page has no NAP card any more — removed 2026-11-06; use the 🤝 button.)
 The language buttons at the top switch the whole site (12 languages).
@@ -1440,6 +1465,22 @@ The language buttons at the top switch the whole site (12 languages).
 (see guide #kvk)
 
 ### GAME TERMS (English = official th name)
+Fantasy Theater = โรงละครแฟนตาซี
+Theater = โรงละคร
+Theater Notes = บันทึกโรงละคร
+Theater Shop = ร้านค้าโรงละคร
+Fantasy Amulets = เครื่องรางแฟนตาซี
+Fanstars = ดาวแฟนตาซี
+Fantasy Fortress = ป้อมปราการแฟนตาซี
+Floor = ชั้น
+Current Floor = ชั้นปัจจุบัน
+Explore = สำรวจ
+Claim = รับ
+guaranteed ascent = เพิ่มชั้นแบบรับประกัน
+Overview = รายละเอียด
+Basics = พื้นฐาน
+Probabilities = ความน่าจะเป็น
+Rewards History = ประวัติรางวัล
 Wavebound Voyage = การเดินทางคลื่น
 Voyager Team = ทีมนักเดินทาง
 Compass = เข็มทิศ
@@ -1648,7 +1689,6 @@ My Ranking = อันดับของฉัน
 Unranked = ไม่มีอันดับ
 My Points = คะแนนของฉัน
 Target Points = คะแนนเป้าหมาย
-Claim = รับ
 Strongest Governor = เจ้าเมืองสุดแข็งแกร่ง
 Stage = ด่าน
 Challenge Medal = เหรียญท้าทาย
@@ -2483,6 +2523,7 @@ use = ใช้
 okay if needed = ใช้ได้หากจำเป็น
 don't use = ห้ามใช้
 need to do daily = ต้องทำทุกวัน
+Fantasy Tokens = 🪙 Fantasy Token
 Conscript = เกณฑ์
 neutral buildings = สิ่งปลูกสร้างที่เป็นกลาง
 Deploy = การส่งออก

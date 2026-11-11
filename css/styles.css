@@ -1016,3 +1016,6 @@ button:active:not(:disabled), .btn:active, .guide-chip:active { transform: scale
 
 .spot-off { margin-top: 8px; padding: 8px 10px; border: 1px dashed var(--line, #8886); border-radius: 10px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .spot-off > div { flex-basis: 100%; }
+
+/* one-off event tag next to the guide name */
+.guide-chip .irreg { margin-inline-start: 6px; font-size: 10.5px; font-weight: 700; padding: 1px 6px; border-radius: 999px; border: 1px solid currentColor; opacity: .75; white-space: nowrap; }

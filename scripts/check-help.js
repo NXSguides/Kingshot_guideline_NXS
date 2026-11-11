@@ -35,6 +35,7 @@ const FEATURES = [
   ["Scout: ⚡ Opponents now (battle-time fetch, batches, find by name, download)", /⚡ OPPONENTS NOW/, /ak08: "⚡ Opponents now/],
   ["Move: 👆 city on a planned spot = planned person; 📌 keep where they are; 🏠 HQ follows", /TAP A CITY ON A PLANNED SPOT \(2026-11-11/, /mv12: "📌 Keep where they are/],
   ["Move: 📍 Update positions (positions only, ~10 s)", /📍 Where everyone is now" \(2026-11-11\)/, /📍 Where everyone is now: after members move/],
+  ["Site: Irregular tag on one-off guides", /Guide list — a small “Irregular” tag/, /“Irregular” tag = a one-off event/],
   ["Site: 📍 light = not on their spot yet", /map colours \(Sherry 2026-11-10\)/, /Light spots = that member isn't on their spot yet/],
   ["Site: 📍 wrong-spot lists (🤗 / 🙃 / 🫥)", /wrong-spot lists/, /🤗 sitting on someone's spot/],
   ["Site: 🤝 NAP rules page", /🤝 NAP rules: their own page/, /🤝 NAP Rules has its own button here/],

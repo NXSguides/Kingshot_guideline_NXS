@@ -1064,6 +1064,31 @@ KGb
 ⚔️ СОВЕТ ДЛЯ KVK
 На стадии подготовки KvK во 2-й и 3-й день каждое вращение Геройской рулетки даёт 8 000 очков — фишки удачи и алмазы для вращений стоит приберечь на эти два дня.
 
+### GUIDE #fantasy-theater — Театр фантазии
+КОГДА
+Нерегулярное событие. 5 дней: 11/11 00:00 UTC – 11/15 24:00 UTC.
+КАК ЭТО РАБОТАЕТ
+Каждый день выполняйте задания Заметки театра (сброс 00:00 UTC). Они дают амулеты фантазии.
+Освоить: вы платите амулеты фантазии и поднимаетесь на 1–3 этажа или остаётесь. Вниз не падаете никогда.
+Каждая неудача приближает гарантированный подъём: после 4 неудач подряд следующее освоение точно поднимет.
+На каждом этаже есть награда в 🪙 Fantasy Token. Получить = забрать и начать снова с 1-го этажа. Не забирать = подниматься дальше.
+7-й этаж даёт 1–5 звезды фантазии. С 5 следующее освоение ведёт в Форт фантазии (награды больше); все 5 тратятся.
+Тратьте 🪙 Fantasy Token в «Магазин театра». Сундук справа вверху (напр. 25/100) заполняется по ходу игры — открывайте и его.
+📊 ШАНСЫ (из игры)
+Шанс подняться с 1 / 2 / 3 / 4 / 5 попытки: 10% / 30% / 60% / 80% / 100%
+При подъёме: +1 = 80% · +2 = 19.67% · +3 = 0.33%
+звезды фантазии на 7-м этаже: 1 = 72% · 2 = 14% · 3 = 8% · 4 = 4% · 5 = 2%
+🪙 НАГРАДА И ЦЕНА ЭТАЖЕЙ
+Награда этажа (🪙 Fantasy Token): 2 → 140 · 3 → 300 · 4 → 850 · 5 → 1,600 · 6 → 3,000 · 7 → 6,800
+Цена освоения по этажам (амулеты фантазии): 1 → 5 · 2 → 8 · 3 → 20 · 4 → 30 · 5 → 60 · 6 → 100 (из гайда другого игрока; 3-й этаж = 20 проверено в игре)
+Наша оценка (компьютерный тест с шансами выше): около 12–13 🪙 Fantasy Token за 1 амулеты фантазии, на каком бы этаже вы ни забрали — забрать раньше почти не убыточно. С 1-го до 7-го этажа в среднем около 530 амулеты фантазии.
+💡 КАК ИГРАТЬ
+Всем: выполняйте Заметки театра каждый день. Этаж сбрасывается только когда вы забираете награду, так что можно подниматься несколько дней.
+F2P: поднимайтесь и забирайте на 7-м этаже (чуть выгоднее + звезды фантазии). В последний день заберите награду того этажа, где вы есть.
+Мало тратят: тот же план. Покупайте амулеты фантазии только если хватит на нужный предмет в «Магазин театра».
+Много тратят: соберите 5 звезды фантазии и идите в Форт фантазии.
+До конца события: заберите свой этаж и потратьте все 🪙 Fantasy Token — остаток превратится в сундуки ресурсов ур. 1 (из гайда другого игрока).
+
 ### GUIDE #wavebound-voyage — Вояж по волнам
 КОГДА
 Нерегулярное событие (без фиксированного цикла). 5 дней: 10/20 00:00 UTC – 10/24 24:00 UTC, затем ещё 1 день, чтобы открыть или синтезировать сокровища (новые путешествия недоступны).
@@ -1348,7 +1373,7 @@ Top-right buttons (installed app): 🔗 copy the link of this page (briefly show
 🐦 Little Sparrow (the bird by the Ask AI button): tap it and it first asks "Want a quick tour of this page?" — 👀 Yes walks top to bottom through the page you are on: first the top buttons (🔗, ↻, 📋 officers only, light/dark, the announcement ticker, languages, guide menus), then the page (home page: this week, daily checklist, calendar, announcements, guide menus, language, Ask AI; a guide: its headings, hero cards, rule boxes, switching guides). After the tour, or after "No thanks", it shows its help menu: 🔎 Find a page, or 🎓 "How do I use…" → pick a tour: 🧭 What the buttons on the site do (language, 🔗, ↻, light/dark, Ask AI), ⏰ timers, 🔔 game reminders, or installing the app. The same tours are listed at the top of the Ask AI panel.
 📍 Where's my spot?: its own page — the 📍 button next to 🤝 NAP Rules at the top (guide #my-spot), for hive moves. Members type their in-game name and get their new X:Y (📋 copy) and their Bear Trap group (🐻 BT1 / BT2); a map like Kingshot Mapper shows every planned city with the member's name and each spot's X,Y, the Bear Traps and HQ (tap a city to see who is there, drag / swipe to move around, 🔍 － / ＋ above the map to zoom, or Ctrl + wheel / pinch). It is the officers' live 🐝 Hive plan, so it always shows the newest plan; names follow the daily roster. Not on the plan = no spot yet → ask an officer. The officers open this page only when a new hive is ready; while it is hidden the 📍 button is not shown and the page says it is not open yet.
 📅 This week card on the home page (short version, Sherry 2026-11-06): Now = full rows only for events with a guide, battle days (⚔️), repair days and days with something to do (📝); events that are just running sit on one "Also on:" line with their day (e.g. 🏆 Alliance Championship 5/7). Coming up = one line per day (tomorrow / in N days) with that day's events side by side; tap a guide's name to open it. 📝 = something to do today — Alliance Championship days 1–2 (Mon–Tue UTC): sign up & update your teams. The 📆 Calendar below no longer repeats today's list (it says today's events are in 📅 This week above); tap another day to see that day. ⚔️ only marks real battle days (Sanctuary Battle: day 4 = Friday; Tue–Thu are sign-up days).
-📍 Where's my spot? — map colours (Sherry 2026-11-10): a planned spot is drawn light while that member isn't on it yet, full colour with a green edge once they are. 📍 Where's my spot? — wrong-spot lists (Sherry 2026-11-06): above the map, from each member's castle on the map vs. their spot on the plan: 🤗 Naughty = castle sits on someone else's spot ("Mimi that's Amber's spot"; that spot keeps its owner's name on top and gets a second red line "🤗 who sits there" (2026-11-11), the sitter's castle is only a red dashed outline with a dashed line to their own spot); 🙃 Crooked = overlaps their own spot a little but nobody else's; 🫥 Where are you? = not on their spot at all ("remember to come home"). Each row has a 📍 Spot button that lights up their own spot on the map (no spot on the plan → "No spot was assigned to you please contact an R4"). Members without a spot are left out on purpose unless they sit on someone's spot. Searching your own name shows your line on top (you're on someone's spot → "you'll keep them from coming home 😡😡"; ✅ when you're on your spot).
+📚 Guide list — a small “Irregular” tag next to a guide name (Sherry 2026-11-11) = a one-off event with no fixed cycle (e.g. Wavebound Voyage, Fantasy Theater). 📍 Where's my spot? — map colours (Sherry 2026-11-10): a planned spot is drawn light while that member isn't on it yet, full colour with a green edge once they are. 📍 Where's my spot? — wrong-spot lists (Sherry 2026-11-06): above the map, from each member's castle on the map vs. their spot on the plan: 🤗 Naughty = castle sits on someone else's spot ("Mimi that's Amber's spot"; that spot keeps its owner's name on top and gets a second red line "🤗 who sits there" (2026-11-11), the sitter's castle is only a red dashed outline with a dashed line to their own spot); 🙃 Crooked = overlaps their own spot a little but nobody else's; 🫥 Where are you? = not on their spot at all ("remember to come home"). Each row has a 📍 Spot button that lights up their own spot on the map (no spot on the plan → "No spot was assigned to you please contact an R4"). Members without a spot are left out on purpose unless they sit on someone's spot. Searching your own name shows your line on top (you're on someone's spot → "you'll keep them from coming home 😡😡"; ✅ when you're on your spot).
 🔰 New here?: its own page — the 🔰 button right after 🏠 Home at the top (the home page: 📅 This week, ✅ daily checklist, 📆 calendar, then the 📢 Announcements board; the tab was called Recent Events before 2026-11-06) (guide #new-here), for new members (e.g. people joining from TTT), in the order of Nia's Onboarding chat: translating messages in the game (tap ⇄ next to a message in the game); Nia's 5 core rules (stay active, respect NAP 6 and report instead of hitting back, follow event rules — check alliance chat, private messages, our website and Discord, team play, keep World Chat civil); NAP 6 and the 3 steps for violations; Sanctuaries & Fortresses — assigned to the top 6 NAP alliances, a battle every Friday, never fight for one assigned to another alliance (a big NAP break): NXS 1, 6 + Fortress 2, NBD 10, 11 + Fortress 4, RED 2, 3 + Fortress 3, ESA 5, 12 + Fortress 1, IDN 4, KGb 8, 7 and 9 are fought for and each alliance can hold only one of them; the Sanctuary & Fortress rules (no solo attacks, exact troops and heroes, wait for R4/R5 before teleporting); Bear Trap — strict rules on heroes, troop numbers and ratio (wrong heroes lower the total damage; link to the 🐻 Bear Hunt guide), don't teleport before an R4 gives you a spot, BT1 22:00 / BT2 13:00 UTC; a link to 🛡️ Formations & Rally Tips for other events' ratios and troop numbers; optional name change — the format is 亗 ᴺᵉˣᵘˢ亗 with your name typed right after the first 亗 (e.g. 亗Sparrow ᴺᵉˣᵘˢ亗), with a 📋 Copy button; gift codes — Android in game (Governor picture → Settings → Gift Code), iOS on ks-giftcode.centurygame.com; where we share information; Discord and site links.
 🤝 NAP rules: their own page — the 🤝 NAP Rules button at the top, after 🔰 New here? (guide #nap-rules): the NAP 6 tags, checking nodes before gathering, the All Out exception, outposts, Sanctuaries / Fortresses, and the 3 steps for violations. (The home page has no NAP card any more — removed 2026-11-06; use the 🤝 button.)
 The language buttons at the top switch the whole site (12 languages).
@@ -1441,6 +1466,22 @@ The language buttons at the top switch the whole site (12 languages).
 (see guide #kvk)
 
 ### GAME TERMS (English = official ru name)
+Fantasy Theater = Театр фантазии
+Theater = Театр
+Theater Notes = Заметки театра
+Theater Shop = Магазин театра
+Fantasy Amulets = амулеты фантазии
+Fanstars = звезды фантазии
+Fantasy Fortress = Форт фантазии
+Floor = этаж
+Current Floor = Текущий этаж
+Explore = Освоить
+Claim = Получить
+guaranteed ascent = гарантированный подъем
+Overview = Обзор
+Basics = Основы
+Probabilities = Вероятности
+Rewards History = История наград
 Wavebound Voyage = Вояж по волнам
 Voyager Team = отряд путешественников
 Compass = компас
@@ -1647,7 +1688,6 @@ My Ranking = Мой рейтинг
 Unranked = Без рейтинга
 My Points = Мои очки
 Target Points = Цель по очкам
-Claim = Получить
 Strongest Governor = Сильнейший губернатор
 Stage = этап
 Challenge Medal = медаль испытаний
@@ -2497,6 +2537,7 @@ use = использовать
 okay if needed = допустимо при необходимости
 don't use = не использовать
 need to do daily = нужно делать ежедневно
+Fantasy Tokens = 🪙 Fantasy Token
 Conscript = пополнение
 neutral buildings = нейтральные здания
 Deploy = Отправление
