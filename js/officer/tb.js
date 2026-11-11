@@ -127,7 +127,6 @@ function render() {
     <tbody>${POWS.map((m) => `<tr><td><b>${m}M</b></td>${LV.slice(1).map(([, , , , , rp]) => { const v = rp / (m * 1e6); return `<td class="n${v > 7.5 ? " tb-far" : ""}">${v >= 10 ? v.toFixed(0) : v.toFixed(1)}×</td>`; }).join("")}</tr>`).join("")}</tbody></table></div></div>
   <div class="card"><h3>${esc(t("lvH"))}</h3><div style="overflow-x:auto"><table class="tb-t"><thead><tr>${t("lvCols").map((c, i) => `<th${i > 3 ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
     <tbody>${LV.map(([lv, k, tr, tier, b, rp]) => `<tr><td>${lv}</td><td>${esc(t("beasts")[k])}</td><td>${esc(tr)}</td><td>${tier}</td><td class="n">+${b}%</td><td class="n"><b>${nf(rp)}</b></td></tr>`).join("")}</tbody></table></div></div>
-  <div class="card"><h3>${esc(t("factH"))}</h3><ul class="tb-ul">${t("facts").filter(([c]) => c === "ok").map(([c, x]) => `<li>${esc(x)}</li>`).join("")}</ul></div>
   <div class="card"><h3>${esc(t("unkH"))}</h3><ul class="tb-ul">${t("unks").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
   <details class="card"><summary><b>${esc(t("howH"))}</b></summary><p class="tb-p" style="margin-top:8px">${esc(t("facts").filter(([c]) => c === "mid").map(([c, x]) => x).join(" "))}</p>
     <h4 class="tb-h4">${esc(t("repH"))}</h4><div style="overflow-x:auto;margin-top:8px"><table class="tb-t"><thead><tr>${t("repCols").map((c, i) => `<th${i > 1 && i < 5 ? ' class="n"' : ""}>${esc(c)}</th>`).join("")}</tr></thead>
