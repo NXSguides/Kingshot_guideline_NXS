@@ -13,7 +13,7 @@ const ROWS = [["charm", 1, "", "hi"], ["lgear", 1, "", "hi"], ["pet", 1, "", "hi
 const RATES = [["big", 9110], ["small", 5935]];
 const sp = (m) => m / 317;
 const T = {
-  en: { title: "🧳 Migrant Score", intro: "What raises the hidden Migrant Score, and what to upgrade for it. Our own research, not official.", obs: ["The Migrant Score only counts long-term investment: Governor Charms, Governor Gear, pets, research and Hero Gear count in full.", "Master affinity counts half and hero stars only a little; troops, buildings and exclusive gear don't count.", "Divided by 317 it is almost exactly the Swordland troop power."], obsH: "🔎 What we saw", howH: "🔢 How we worked it out",
+  en: { title: "🧳 Migrant Score", intro: "", obs: ["The Migrant Score only counts long-term investment: Governor Charms, Governor Gear, pets, research and Hero Gear count in full.", "Master affinity counts half and hero stars only a little; troops, buildings and exclusive gear don't count.", "Divided by 317 it is almost exactly the Swordland troop power."], obsH: "🔎 What we saw", howH: "🔢 How we worked it out",
     badge: "🔬 Our research · updated {d}",
     heroH: "A hidden score that counts what you've built for good.", heroP: "Governor Charms, Governor Gear, pets, research and Hero Gear count fully. Master affinity counts half, hero stars a little. Troops, buildings and exclusive gear don't count. It is almost exactly your Swordland Showdown troop power × 317.",
     whatH: "🔎 What it is",
@@ -26,20 +26,20 @@ const T = {
     rateH: "📈 Your account's rate", rateP: "The same upgrade gives a different number of points on each account. The more developed the account, the more points.",
     rates: { big: "Town Center 40, TG2", small: "Town Center 25" }, rateU: "points per 1M power", rateSw: "≈ +{n} Swordland power",
     rateGuess: "The more built-up the account, the more points the same upgrade gives. Maybe the Town Center sets it — not known yet.",
-    tcH: "🏰 Town Center", tcP: "When the Town Center reaches a new Gold level (TG), the score jumps (about +5% on the main account at TG2). Normal Town Center levels add almost nothing; other buildings add nothing.",
+    tcH: "🏰 Town Center", tcP: "A new gold (TG) level is a big jump (about +5% at TG2 on the main account). Normal levels and other buildings add nothing.",
     tcGuess: "Our guess: building power itself doesn't count. The Town Center's gold (TG) level gives the jump — maybe by raising the account's rate (+5% fits). To be confirmed at the next TG upgrade.",
     downH: "🔒 Never goes down",
-    down: ["Losing troops doesn't lower it.", "Taking off Hero Gear doesn't either (770k gear power removed, same score two hours later) → it only goes up, or it counts what you own, not what you wear.", "Stat % don't count: a research level that gives +2% Attack adds only that level's research power. So the score shows how much you invested, not how strong your stats are."],
-    updH: "⏱️ When it updates", upd: "Not instant. It is recalculated about every 15–60 minutes, at a different time for each account. Wait a bit before checking MightPulse.",
+    down: ["Losing troops.", "Taking off Hero Gear.", "It has no stat %: it shows investment, not strength."],
+    updH: "⏱️ When it updates", upd: "About every 15–60 minutes.",
     calcH: "🧮 Try it", calcItem: "I upgrade", calcPow: "Power gained", calcRate: "My account", calcRes: "≈ +{m} Migrant Score · ≈ +{s} Swordland power",
     calcOpp: "Someone's Migrant Score", calcOppRes: "≈ {s} Swordland troop power",
     calcNote: "Estimate from our tests so far. It shows investment, not stats.",
     doH: "💡 Suggestions",
-    dos: ["To climb in Swordland Showdown, upgrade these first: Governor Charms, Governor Gear, pets, research, Hero Gear. They count the same — pick the cheapest.", "Next master affinity, and last the stars of your main heroes. Training troops and exclusive gear (Widgets) add nothing.", "Save for the Town Center's next gold (TG) level — that's the big jump.", "Sizing up an opponent: their Migrant Score ÷ 317 ≈ their Swordland troop power. It only shows investment, not stats."],
+    dos: ["To climb in Swordland Showdown: Governor Charms, Governor Gear, pets, research, Hero Gear first (pick the cheapest).", "Then master affinity; hero stars last.", "A new Town Center gold (TG) level is a big jump.", "An opponent's Migrant Score ÷ 317 ≈ their Swordland troop power."],
     unkH: "🟡 Not known yet",
     unks: ["What sets each account's rate (the Town Center?).", "Why hero stars give different results."],
     foot: "Source: Sparrow's two accounts, item-by-item before/after tests (11/02–11/06), and the 10/14 Swordland check of 98 players. Not from the game. Numbers will be corrected as we test more." },
-  zh: { title: "🧳 遷城分數", intro: "隱藏的「遷城分數」什麼會讓它變高、該升什麼。我們自己的研究，不是官方說明。", obs: ["遷城分數只算長期投資：領主寶石、領主裝備、寵物、科技、英雄裝備全算。", "大師好感度算一半、英雄升星只算一點；兵、建築、英雄專屬裝備不算。", "它除以 317，幾乎就是聖劍爭奪的部隊戰力。"], obsH: "🔎 我們觀察到", howH: "🔢 怎麼算的",
+  zh: { title: "🧳 遷城分數", intro: "", obs: ["遷城分數只算長期投資：領主寶石、領主裝備、寵物、科技、英雄裝備全算。", "大師好感度算一半、英雄升星只算一點；兵、建築、英雄專屬裝備不算。", "它除以 317，幾乎就是聖劍爭奪的部隊戰力。"], obsH: "🔎 我們觀察到", howH: "🔢 怎麼算的",
     badge: "🔬 我們的研究 · 更新 {d}",
     heroH: "一個隱藏分數，只算你長期投資的東西。", heroP: "領主寶石、領主裝備、寵物、科技實力、英雄裝備全算；大師好感度算一半；英雄升星只算一點；兵、建築、英雄專屬裝備不算。它幾乎剛好等於聖劍爭奪的部隊戰力 × 317。",
     whatH: "🔎 它是什麼",
@@ -52,20 +52,20 @@ const T = {
     rateH: "📈 每個帳號的倍率", rateP: "同樣的升級，每個帳號換到的分數不一樣。帳號越發展，換到越多。",
     rates: { big: "城鎮中心 40、TG2", small: "城鎮中心 25" }, rateU: "分／1M 實力", rateSw: "≈ 聖劍 +{n}",
     rateGuess: "帳號越發展，同樣的升級換越多分。可能跟城鎮中心有關——還不知道。",
-    tcH: "🏰 城鎮中心", tcP: "城鎮中心升到新的黃金等級（TG）時，分數會大跳（主帳升 TG2 時約 +5%）。一般等級幾乎不加分；其他建築不加分。",
+    tcH: "🏰 城鎮中心", tcP: "升到新的黃金等級（TG）時大跳（主帳 TG2 約 +5%）。一般等級、其他建築不加分。",
     tcGuess: "推測：建築實力本身不算，城鎮中心的黃金等級（TG）才會大跳——可能是讓帳號倍率變大（+5% 對得上）。等下一次 TG 升級再確認。",
     downH: "🔒 不會扣分",
-    down: ["損兵不扣。", "卸下英雄裝備也不扣（卸了 77 萬裝備實力，兩小時後一樣）→ 分數只升不降，或算的是「擁有的」不是「穿著的」。", "不含屬性 %：研究攻擊力 +2% 只照那一級的科技實力加分。所以遷城分數看得出投資量，看不出屬性強弱。"],
-    updH: "⏱️ 多久更新", upd: "不是即時。大約每 15–60 分鐘重算一次，每個帳號時間不一樣。升完等一下再去看 MightPulse。",
+    down: ["損兵不扣。", "卸下英雄裝備不扣。", "不含屬性 %，只看得出投資量。"],
+    updH: "⏱️ 多久更新", upd: "約每 15–60 分鐘更新一次。",
     calcH: "🧮 算算看", calcItem: "我升級", calcPow: "加了多少實力", calcRate: "我的帳號", calcRes: "≈ 遷城分數 +{m} · ≈ 聖劍部隊戰力 +{s}",
     calcOpp: "某人的遷城分數", calcOppRes: "≈ 聖劍部隊戰力 {s}",
     calcNote: "用目前測試結果估的。只代表投資量，不代表屬性。",
     doH: "💡 建議",
-    dos: ["想拉高聖劍爭奪排名，先升：領主寶石、領主裝備、寵物、科技、英雄裝備。五個算一樣，挑最便宜的升。", "其次大師好感度，最後才是主力英雄升星。收兵、英雄專屬裝備（零件）不加分。", "存資源衝城鎮中心下一個黃金等級（TG）——那是大跳。", "看對手：他的遷城分數 ÷ 317 ≈ 他的聖劍部隊戰力。但這只代表投資量，不代表屬性。"],
+    dos: ["想拉高聖劍爭奪排名：先升領主寶石、領主裝備、寵物、科技、英雄裝備（挑最便宜的）。", "其次大師好感度，最後英雄升星。", "城鎮中心升黃金等級（TG）會大跳。", "對手的遷城分數 ÷ 317 ≈ 他的聖劍部隊戰力。"],
     unkH: "🟡 還不知道的",
     unks: ["每個帳號的倍率由什麼決定（城鎮中心？）。", "英雄升星為什麼結果不一致。"],
     foot: "來源：Sparrow 兩個帳號逐項前後測試（11/02–11/06）、10/14 聖劍 98 人對照。不是遊戲官方說明，數字會隨更多測試修正。" },
-  pt: { title: "🧳 Pontuação de Migração", intro: "O que aumenta a Pontuação de Migrante oculta, e o que melhorar para ela. Pesquisa nossa, não é oficial.", obs: ["A Pontuação de Migrante só conta investimento de longo prazo: Talismãs do Governador, Equipamento do Chefe, mascotes, pesquisa e Equipamento do Herói contam por inteiro.", "Afinidade de Mestre conta metade e estrelas de herói só um pouco; tropas, construções e equipamento exclusivo não contam.", "Dividida por 317, é quase exatamente o poder das tropas na Terra das Espadas."], obsH: "🔎 O que observamos", howH: "🔢 Como calculamos",
+  pt: { title: "🧳 Pontuação de Migração", intro: "", obs: ["A Pontuação de Migrante só conta investimento de longo prazo: Talismãs do Governador, Equipamento do Chefe, mascotes, pesquisa e Equipamento do Herói contam por inteiro.", "Afinidade de Mestre conta metade e estrelas de herói só um pouco; tropas, construções e equipamento exclusivo não contam.", "Dividida por 317, é quase exatamente o poder das tropas na Terra das Espadas."], obsH: "🔎 O que observamos", howH: "🔢 Como calculamos",
     badge: "🔬 Nossa pesquisa · atualizado {d}",
     heroH: "Uma pontuação oculta que conta o que você construiu para sempre.", heroP: "Talismãs do Governador, Equipamento do Chefe, mascotes, pesquisa e Equipamento do Herói contam inteiros. A Afinidade de Mestre conta metade; estrelas de herói, um pouco. Tropas, construções e equipamento exclusivo não contam. É quase exatamente o seu poder das tropas no Confronto entre Espadas × 317.",
     whatH: "🔎 O que é",
@@ -78,20 +78,20 @@ const T = {
     rateH: "📈 A taxa da sua conta", rateP: "A mesma melhoria dá pontos diferentes em cada conta. Quanto mais desenvolvida a conta, mais pontos.",
     rates: { big: "Centro da Cidade 40, TG2", small: "Centro da Cidade 25" }, rateU: "pontos por 1M de poder", rateSw: "≈ +{n} de poder na Terra das Espadas",
     rateGuess: "Quanto mais desenvolvida a conta, mais pontos a mesma melhoria dá. Talvez o Centro da Cidade defina isso — ainda não sabemos.",
-    tcH: "🏰 Centro da Cidade", tcP: "Quando o Centro da Cidade chega a um novo nível de Ouro (TG), a pontuação dá um salto (cerca de +5% na conta principal no TG2). Níveis normais quase não somam; outras construções não somam nada.",
+    tcH: "🏰 Centro da Cidade", tcP: "Um novo nível de Adamante (TG) é um grande salto (cerca de +5% no TG2 da conta principal). Níveis normais e outras construções não somam.",
     tcGuess: "Nosso palpite: o poder de construção em si não conta. O nível de Adamante (TG) do Centro da Cidade dá o salto — talvez aumentando a taxa da conta (+5% bate). A confirmar no próximo nível TG.",
     downH: "🔒 Nunca diminui",
-    down: ["Perder tropas não diminui.", "Tirar o Equipamento do Herói também não (770k de poder de equipamento removidos, mesma pontuação duas horas depois) → só sobe, ou conta o que você tem, não o que está usando.", "% de atributos não contam: um nível de pesquisa que dá +2% de Ataque soma só o poder de pesquisa daquele nível. Então a pontuação mostra quanto você investiu, não quão fortes são seus atributos."],
-    updH: "⏱️ Quando atualiza", upd: "Não é na hora. É recalculada mais ou menos a cada 15–60 minutos, em horários diferentes para cada conta. Espere um pouco antes de olhar o MightPulse.",
+    down: ["Perder tropas.", "Tirar o Equipamento do Herói.", "Não tem % de atributos: mostra investimento, não força."],
+    updH: "⏱️ Quando atualiza", upd: "A cada 15–60 minutos, mais ou menos.",
     calcH: "🧮 Teste", calcItem: "Eu melhoro", calcPow: "Poder ganho", calcRate: "Minha conta", calcRes: "≈ +{m} de Pontuação de Migração · ≈ +{s} de poder na Terra das Espadas",
     calcOpp: "Pontuação de Migração de alguém", calcOppRes: "≈ {s} de poder das tropas na Terra das Espadas",
     calcNote: "Estimativa pelos nossos testes até agora. Mostra investimento, não atributos.",
     doH: "💡 Sugestões",
-    dos: ["Para subir no Confronto entre Espadas, melhore primeiro: Talismãs do Governador, Equipamento do Chefe, mascotes, pesquisa, Equipamento do Herói. Contam igual — escolha o mais barato.", "Depois Afinidade de Mestre, e por último as estrelas dos seus heróis principais. Treinar tropas e equipamento exclusivo (Ferramentas) não somam nada.", "Guarde recursos para o próximo nível de Adamante (TG) do Centro da Cidade — esse é o grande salto.", "Para avaliar um oponente: a Pontuação de Migração dele ÷ 317 ≈ o poder das tropas dele na Terra das Espadas. Só mostra investimento, não atributos."],
+    dos: ["Para subir no Confronto entre Espadas: primeiro Talismãs do Governador, Equipamento do Chefe, mascotes, pesquisa, Equipamento do Herói (escolha o mais barato).", "Depois Afinidade de Mestre; estrelas de herói por último.", "Um novo nível de Adamante (TG) do Centro da Cidade é um grande salto.", "Pontuação de Migração do oponente ÷ 317 ≈ o poder das tropas dele na Terra das Espadas."],
     unkH: "🟡 Ainda não sabemos",
     unks: ["O que define a taxa de cada conta (o Centro da Cidade?).", "Por que as estrelas de herói dão resultados diferentes."],
     foot: "Fonte: as duas contas da Sparrow, testes de antes/depois item por item (11/02–11/06), e a conferência de 98 jogadores na Terra das Espadas em 10/14. Não vem do jogo. Os números serão corrigidos conforme testarmos mais." },
-  ar: { title: "🧳 نقاط الهجرة", intro: "ما الذي يرفع نقاط المهاجر المخفية، وماذا تطوّر لأجلها. بحثنا الخاص، ليس رسميًا.", obs: ["نقاط المهاجر تحسب الاستثمار طويل الأمد فقط: تميمة الحاكم، عتاد الحاكم، الحيوانات الأليفة، البحث وعتاد البطل تُحسب كاملة.", "تقارب المتخصص يُحسب بالنصف ونجوم الأبطال قليلًا فقط؛ القوات والمباني والعتاد الحصري لا تُحسب.", "عند قسمتها على 317 تساوي تقريبًا قوة القوات في أرض السيوف."], obsH: "🔎 ما لاحظناه", howH: "🔢 كيف حسبناها",
+  ar: { title: "🧳 نقاط الهجرة", intro: "", obs: ["نقاط المهاجر تحسب الاستثمار طويل الأمد فقط: تميمة الحاكم، عتاد الحاكم، الحيوانات الأليفة، البحث وعتاد البطل تُحسب كاملة.", "تقارب المتخصص يُحسب بالنصف ونجوم الأبطال قليلًا فقط؛ القوات والمباني والعتاد الحصري لا تُحسب.", "عند قسمتها على 317 تساوي تقريبًا قوة القوات في أرض السيوف."], obsH: "🔎 ما لاحظناه", howH: "🔢 كيف حسبناها",
     badge: "🔬 بحثنا · آخر تحديث {d}",
     heroH: "نقاط مخفية تحسب ما بنيته بشكل دائم.", heroP: "تميمة الحاكم وعتاد الحاكم والحيوانات الأليفة والبحث وعتاد البطل تُحسب كاملة. تقارب المتخصص يُحسب نصفه، ونجوم الأبطال قليلًا. القوات والمباني والعتاد الحصري لا تُحسب. إنها تقريبًا بالضبط قوة قواتك في مواجهة أرض السيوف × 317.",
     whatH: "🔎 ما هي",
@@ -104,20 +104,20 @@ const T = {
     rateH: "📈 معدل حسابك", rateP: "الترقية نفسها تعطي نقاطًا مختلفة في كل حساب. كلما كان الحساب أكثر تطورًا، زادت النقاط.",
     rates: { big: "مركز البلدة 40، TG2", small: "مركز البلدة 25" }, rateU: "نقطة لكل 1M قوة", rateSw: "≈ +{n} قوة في أرض السيوف",
     rateGuess: "كلما كان الحساب أكثر تطورًا، أعطت نفس الترقية نقاطًا أكثر. ربما مركز البلدة هو الذي يحدده — غير معروف بعد.",
-    tcH: "🏰 مركز البلدة", tcP: "عندما يصل مركز المدينة إلى مستوى ذهبي جديد (TG)، تقفز النقاط (نحو +5% في الحساب الرئيسي عند TG2). المستويات العادية لا تضيف شيئًا تقريبًا؛ والمباني الأخرى لا تضيف شيئًا.",
+    tcH: "🏰 مركز البلدة", tcP: "مستوى ذهب خالص (TG) جديد قفزة كبيرة (نحو +5% عند TG2 في الحساب الرئيسي). المستويات العادية والمباني الأخرى لا تضيف شيئًا.",
     tcGuess: "تخميننا: قوة المباني نفسها لا تُحسب. مستوى الذهب الخالص (TG) لمركز البلدة هو الذي يعطي القفزة — ربما برفع معدل الحساب (+5% يتطابق). سنتأكد عند ترقية TG القادمة.",
     downH: "🔒 لا تنخفض أبدًا",
-    down: ["خسارة القوات لا تخفضها.", "نزع عتاد البطل أيضًا لا يخفضها (أُزيلت 770k من قوة العتاد، ونفس النقاط بعد ساعتين) → إنها ترتفع فقط، أو تحسب ما تملكه، لا ما ترتديه.", "نسب الخصائص % لا تُحسب: مستوى بحث يعطي +2% هجوم يضيف فقط قوة البحث لذلك المستوى. لذلك النقاط تُظهر كم استثمرت، لا مدى قوة خصائصك."],
-    updH: "⏱️ متى تتحدث", upd: "ليست فورية. يُعاد حسابها تقريبًا كل 15–60 دقيقة، في وقت مختلف لكل حساب. انتظر قليلًا قبل أن تتحقق من MightPulse.",
+    down: ["خسارة القوات.", "خلع عتاد البطل.", "لا تتضمن نسب الإحصاءات: تُظهر الاستثمار لا القوة."],
+    updH: "⏱️ متى تتحدث", upd: "كل 15–60 دقيقة تقريبًا.",
     calcH: "🧮 جرّب", calcItem: "أرقّي", calcPow: "القوة المكتسبة", calcRate: "حسابي", calcRes: "≈ +{m} نقاط هجرة · ≈ +{s} قوة في أرض السيوف",
     calcOpp: "نقاط هجرة لاعب ما", calcOppRes: "≈ {s} قوة القوات في أرض السيوف",
     calcNote: "تقدير من اختباراتنا حتى الآن. تُظهر الاستثمار، لا الخصائص.",
     doH: "💡 اقتراحات",
-    dos: ["للصعود في مواجهة أرض السيوف، طوّر أولًا: تميمة الحاكم، عتاد الحاكم، الحيوانات الأليفة، البحث، عتاد البطل. تُحسب بالتساوي — اختر الأرخص.", "ثم تقارب المتخصص، وأخيرًا نجوم أبطالك الرئيسيين. تدريب القوات والعتاد الحصري (الأجزاء) لا يضيفان شيئًا.", "ادّخر لمستوى الذهب الخالص (TG) التالي لمركز البلدة — هذه هي القفزة الكبيرة.", "لتقدير خصم: نقاط هجرته ÷ 317 ≈ قوة قواته في أرض السيوف. تُظهر الاستثمار فقط، لا الخصائص."],
+    dos: ["للصعود في مواجهة أرض السيوف: أولًا تميمة الحاكم، عتاد الحاكم، الحيوانات الأليفة، البحث، عتاد البطل (اختر الأرخص).", "ثم تقارب المتخصص؛ ونجوم الأبطال أخيرًا.", "مستوى ذهب خالص (TG) جديد لمركز البلدة قفزة كبيرة.", "نقاط هجرة الخصم ÷ 317 ≈ قوة قواته في أرض السيوف."],
     unkH: "🟡 غير معروف بعد",
     unks: ["ما الذي يحدد معدل كل حساب (مركز البلدة؟).", "لماذا تعطي نجوم الأبطال نتائج مختلفة."],
     foot: "المصدر: حسابا Sparrow، اختبارات قبل/بعد عنصرًا بعنصر (11/02–11/06)، وفحص 98 لاعبًا في أرض السيوف في 10/14. ليست من اللعبة. ستُصحَّح الأرقام كلما اختبرنا أكثر." },
-  ko: { title: "🧳 이주 점수", intro: "숨겨진 이주 점수를 올리는 것과 그걸 위해 뭘 올릴지. 우리 연구이고 공식은 아니야.", obs: ["이주 점수는 장기 투자만 계산해: 영주 보석, 영주 장비, 펫, 연구, 영웅 장비는 전부 계산돼.", "거장 호감도는 절반, 영웅 성급은 조금만 계산돼. 병력, 건물, 전용 장비는 계산 안 돼.", "317로 나누면 성검 쟁탈 부대 전투력과 거의 같아."], obsH: "🔎 우리가 관찰한 것", howH: "🔢 어떻게 계산했는지",
+  ko: { title: "🧳 이주 점수", intro: "", obs: ["이주 점수는 장기 투자만 계산해: 영주 보석, 영주 장비, 펫, 연구, 영웅 장비는 전부 계산돼.", "거장 호감도는 절반, 영웅 성급은 조금만 계산돼. 병력, 건물, 전용 장비는 계산 안 돼.", "317로 나누면 성검 쟁탈 부대 전투력과 거의 같아."], obsH: "🔎 우리가 관찰한 것", howH: "🔢 어떻게 계산했는지",
     badge: "🔬 우리 연구 · 업데이트 {d}",
     heroH: "오래 남는 투자만 세는 숨겨진 점수.", heroP: "영주 보석, 영주 장비, 펫, 연구, 영웅 장비는 전부 계산돼. 거장 호감도는 절반, 영웅 성급은 조금. 병력, 건물, 전용 장비는 안 들어가. 성검 쟁탈 부대 전투력 × 317과 거의 똑같아.",
     whatH: "🔎 이게 뭐야",
@@ -130,16 +130,16 @@ const T = {
     rateH: "📈 계정 배율", rateP: "같은 업그레이드라도 계정마다 받는 점수가 달라. 계정이 발전할수록 더 많이 받아.",
     rates: { big: "도시 센터 40, TG2", small: "도시 센터 25" }, rateU: "1M 전투력당 점수", rateSw: "≈ 성검 전투력 +{n}",
     rateGuess: "계정이 더 성장할수록 같은 업그레이드로 더 많은 점수를 받아. 도시 센터가 정하는 걸 수도 — 아직 몰라.",
-    tcH: "🏰 도시 센터", tcP: "도시 센터가 새 황금 레벨 (TG)에 오르면 점수가 크게 뛰어 (본계정 TG2 때 약 +5%). 일반 레벨은 거의 안 오르고, 다른 건물은 안 올라.",
+    tcH: "🏰 도시 센터", tcP: "새 순금 (TG) 레벨은 큰 점프야 (본계정 TG2 때 약 +5%). 일반 레벨과 다른 건물은 안 올라.",
     tcGuess: "추측: 건물 전투력 자체는 안 들어가. 도시 센터의 순금 (TG) 레벨이 점프를 만들어 — 아마 계정 배율을 올려서 (+5%가 맞아). 다음 TG 업그레이드 때 확인 예정.",
     downH: "🔒 절대 안 내려가",
-    down: ["병력을 잃어도 안 내려가.", "영웅 장비를 벗겨도 안 내려가 (장비 전투력 770k를 뺐는데 2시간 뒤에도 같은 점수) → 오르기만 하거나, 장착한 게 아니라 가진 걸 세는 것.", "스탯 %는 안 들어가: 공격력 +2%를 주는 연구 레벨은 그 레벨의 연구 전투력만 더해. 그래서 점수는 얼마나 투자했는지를 보여주지, 스탯이 얼마나 센지는 안 보여줘."],
-    updH: "⏱️ 언제 갱신되나", upd: "즉시 아님. 약 15–60분마다 다시 계산되고, 계정마다 시간이 달라. MightPulse 보기 전에 조금 기다려.",
+    down: ["병력 손실.", "영웅 장비 해제.", "능력치 %는 없음: 투자량만 보여 줘."],
+    updH: "⏱️ 언제 갱신되나", upd: "약 15–60분마다.",
     calcH: "🧮 계산해 보기", calcItem: "업그레이드할 것", calcPow: "오른 전투력", calcRate: "내 계정", calcRes: "≈ 이주 점수 +{m} · ≈ 성검 전투력 +{s}",
     calcOpp: "누군가의 이주 점수", calcOppRes: "≈ 성검 부대 전투력 {s}",
     calcNote: "지금까지 테스트로 낸 추정치. 투자량을 보여줄 뿐, 스탯은 아님.",
     doH: "💡 제안",
-    dos: ["성검 쟁탈에서 올라가려면 먼저: 영주 보석, 영주 장비, 펫, 연구, 영웅 장비. 똑같이 계산되니까 제일 싼 걸 골라.", "그다음 거장 호감도, 마지막이 주력 영웅 성급. 병력 훈련과 전용 장비 (부속품)는 점수가 안 올라.", "도시 센터 다음 순금 (TG) 레벨을 위해 모아 둬 — 그게 큰 점프야.", "상대 평가: 상대 이주 점수 ÷ 317 ≈ 상대 성검 부대 전투력. 투자량만 보여주고, 스탯은 아님."],
+    dos: ["성검 쟁탈에서 올라가려면: 먼저 영주 보석, 영주 장비, 펫, 연구, 영웅 장비 (제일 싼 것부터).", "그다음 거장 호감도, 영웅 성급은 마지막.", "도시 센터 새 순금 (TG) 레벨은 큰 점프야.", "상대 이주 점수 ÷ 317 ≈ 상대 성검 부대 전투력."],
     unkH: "🟡 아직 모르는 것",
     unks: ["계정 배율을 정하는 게 뭔지 (도시 센터?).", "영웅 성급 결과가 왜 들쭉날쭉한지."],
     foot: "출처: Sparrow의 두 계정, 항목별 전후 테스트 (11/02–11/06), 10/14 성검 98명 확인. 게임 공식 아님. 테스트가 늘면 숫자도 고칠 거야." },
@@ -160,26 +160,23 @@ function calcHtml() {
       <label>${esc(t("calcRate"))}<select class="inp" id="ms_rate">${RATES.map(([k, v]) => `<option value="${k}"${k === S.rate ? " selected" : ""}>${esc(t("rates")[k])} (${fmt(v)})</option>`).join("")}</select></label></div>
     <div class="ms-res">${esc(t("calcRes").replace("{m}", fmt(m)).replace("{s}", sp(m).toFixed(1)))}</div>
     <div class="ms-in"><label>${esc(t("calcOpp"))}<input class="inp" id="ms_opp" type="number" min="0" step="100000" value="${S.opp}"></label></div>
-    <div class="ms-res">${esc(t("calcOppRes").replace("{s}", fmt(sp(S.opp))))}</div>
-    <div class="muted ms-small">${esc(t("calcNote"))}</div>`;
+    <div class="ms-res">${esc(t("calcOppRes").replace("{s}", fmt(sp(S.opp))))}</div>`;
 }
 function render() {
   const root = $("ms_root"); if (!root) return;
   root.innerHTML = `
-  <div class="ms-hero"><span class="ms-badge">${esc(t("badge").replace("{d}", UPDATED))}</span><h2>${esc(t("heroH"))}</h2><p>${esc(t("heroP"))}</p></div>
+  <div class="muted ms-small" style="margin:2px 0 10px">${esc(t("badge").replace("{d}", UPDATED))}</div>
   <div class="card rs-do"><h3>${esc(t("obsH"))}</h3><ul class="rs-dol">${t("obs").map((x) => `<li>${esc(x)}</li>`).join("")}</ul><h3 class="rs-h2">${esc(t("doH"))}</h3><ul class="rs-dol">${t("dos").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
   <div class="card"><h3>${esc(t("tblH"))}</h3><div class="ms-eq"><div class="ms-eqb sw"><b>${esc(t("fH"))}</b></div></div><p class="ms-p">${esc(t("tblP"))}</p>
     <div class="ms-bars">${ROWS.map(([k, v, txt, c]) => `<div class="ms-row${v ? "" : " zero"}"><div class="ms-k">${esc(t("items")[k])}</div>
       <div class="ms-b"><i style="width:${(v * 100).toFixed(1)}%"></i></div>
       <div class="ms-v"><b>${esc(txt || String(v))}</b></div>
-      ${c === "mid" ? `<span class="ms-c ${c}">${esc(t("conf")[c])}</span>` : "<span></span>"}</div>`).join("")}</div>
-    <p class="muted ms-small" style="margin-top:10px">${esc(t("tblFoot"))}</p></div>
+      ${c === "mid" ? `<span class="ms-c ${c}">${esc(t("conf")[c])}</span>` : "<span></span>"}</div>`).join("")}</div></div>
   <div class="card"><h3>${esc(t("whatH"))}</h3>
     <div class="ms-eq"><div class="ms-eqb"><b>${esc(t("eqA"))}</b></div><span class="ms-op">÷ 317 ≈</span><div class="ms-eqb sw"><b>${esc(t("eqB"))}</b></div></div>
     <ul class="ms-ul">${t("what").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
   <div class="card"><h3>${esc(t("rateH"))}</h3><p class="ms-p">${esc(t("rateP"))}</p>
-    <div class="ms-two">${RATES.map(([k, v]) => `<div class="ms-eqb${k === "big" ? " sw" : ""}"><b>${esc(t("rates")[k])}</b><div>≈ ${fmt(v)} ${esc(t("rateU"))}</div><div class="ms-sw">${esc(t("rateSw").replace("{n}", Math.round(sp(v))))}</div></div>`).join("")}</div>
-    <p class="ms-guess">💭 ${esc(t("rateGuess"))}</p></div>
+    <div class="ms-two">${RATES.map(([k, v]) => `<div class="ms-eqb${k === "big" ? " sw" : ""}"><b>${esc(t("rates")[k])}</b><div>≈ ${fmt(v)} ${esc(t("rateU"))}</div><div class="ms-sw">${esc(t("rateSw").replace("{n}", Math.round(sp(v))))}</div></div>`).join("")}</div></div>
   <div class="card"><h3>${esc(t("tcH"))}</h3><p class="ms-p">${esc(t("tcP"))}</p></div>
   <div class="ms-two">
     <div class="card"><h3>${esc(t("downH"))}</h3><ul class="ms-ul">${t("down").map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>

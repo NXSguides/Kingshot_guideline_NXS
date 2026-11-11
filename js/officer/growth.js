@@ -26,7 +26,7 @@ const T = {
     src: [["Governor Charms", "That troop's Lethality + Health", "Lv2 12%, Lv3 16% each"], ["Hero Gear", "Helmet, boots = Lethality · Gloves, chest = Health", "Enhance first, then mastery"], ["Widget stats", "That hero's troop Lethality + Health", "First levels need 5, 10, 15 parts — the cheapest 1%"], ["Hero talent", "e.g. all troops Lethality, Health", "Max level and stars"], ["Pets", "Enemy Lethality / Health −", "Weakens the other side"]],
     src2T: "Attack + Defense (second)", src2: ["Governor Gear", "Hero level & stars (+200% to +444%)", "Research", "Master"],
     gearNote: "Hero Gear and Widget stats only count when that hero marches — build the 3 heroes you lead with.",
-    whoT: "Who fits which side (a suggestion, not a rule)", whoA: ["Highest board strength (Governor Gear + Hero Gear + Master)", "Offensive-Widget heroes in hand: Amadeus, Petra, Marlin / Rosa"], whoD: ["Big garrison capacity", "Often in our garrisons — and the strongest there", "Defensive-Widget heroes: Jabel, Zoe / Eric, Jaeger"], whoB: "Both: go to the side your already-built Widgets belong to.",
+    whoT: "Who fits which side", whoA: ["Highest board strength (Governor Gear + Hero Gear + Master)", "Offensive-Widget heroes in hand: Amadeus, Petra, Marlin / Rosa"], whoD: ["Big garrison capacity", "Often in our garrisons — and the strongest there", "Defensive-Widget heroes: Jabel, Zoe / Eric, Jaeger"], whoB: "Both: go to the side your already-built Widgets belong to.",
     cards: "🃏 Every hero, rated for each role → Hero Cards", src0: "From our battle reports, Bear analysis, simulations and hero skills (2026-10-31)." },
   zh: { title: "🧭 進攻 vs 防守", intro: "參考用：進攻（集結隊長）和防守（駐防帶頭）各自需要什麼，第 1–5 代，根據我們的戰報和模擬。",
     cmpT: "左右對照", cmpH: ["", "⚔️ 進攻——集結隊長", "🛡️ 防守——駐防帶頭"],
@@ -48,7 +48,7 @@ const T = {
     src: [["領主寶石", "該兵種殺傷力＋生命值", "每顆 Lv2 12%、Lv3 16%"], ["英雄裝備", "頭盔、靴子＝殺傷力・手套、胸甲＝生命值", "先強化、再專精鍛造"], ["零件屬性", "該英雄兵種殺傷力＋生命值", "前幾級只要 5、10、15 個零件——每 1% 最便宜"], ["英雄天賦", "例：全體殺傷力、生命值", "滿級滿星"], ["寵物", "對方殺傷力、生命值 −", "讓對方變弱"]],
     src2T: "攻擊力、防禦力（其次）", src2: ["領主裝備", "英雄等級和星級（+200%～+444%）", "研究", "大師"],
     gearNote: "英雄裝備和零件屬性只在那位英雄出戰時才算——練自己當隊長時會帶的 3 位。",
-    whoT: "誰適合哪邊（建議，不是規則）", whoA: ["排行榜強度最高（領主裝備＋英雄裝備＋大師）", "手上有集結派英雄：阿瑪迪斯、小佩拉、馬林／羅莎"], whoD: ["駐防容量大", "常在駐防裡，而且是最強的", "手上有守城派英雄：潔貝爾、佐伊／艾瑞克、耶格爾"], whoB: "兩邊都一樣：零件已經練了哪一派，就往那一邊走。",
+    whoT: "誰適合哪邊", whoA: ["排行榜強度最高（領主裝備＋英雄裝備＋大師）", "手上有集結派英雄：阿瑪迪斯、小佩拉、馬林／羅莎"], whoD: ["駐防容量大", "常在駐防裡，而且是最強的", "手上有守城派英雄：潔貝爾、佐伊／艾瑞克、耶格爾"], whoB: "兩邊都一樣：零件已經練了哪一派，就往那一邊走。",
     cards: "🃏 每位英雄在各角色的評分 → 英雄卡", src0: "來自我們的戰報、熊獵分析、模擬和英雄技能（2026-10-31）。" },
   pt: { title: "🧭 Ataque vs Defesa", intro: "Para consulta: do que um líder de ataque (rally) e um de defesa (guarnição) precisam, Gen 1–5, pelos nossos relatórios e simulações.",
     cmpT: "Lado a lado", cmpH: ["", "⚔️ Ataque — líder de rally", "🛡️ Defesa — líder de guarnição"],
@@ -70,7 +70,7 @@ const T = {
     src: [["Talismã do Governador", "Letalidade + Vida da tropa", "Nv2 12%, Nv3 16% cada"], ["Equip. de Herói", "Elmo, botas = Letalidade · Luvas, peitoral = Vida", "Aprimore primeiro, depois maestria"], ["Atributos da Ferramenta", "Letalidade + Vida da tropa do herói", "Primeiros níveis pedem 5, 10, 15 peças — o 1% mais barato"], ["Talento do herói", "ex.: Letalidade, Vida de todas as tropas", "Nível e estrelas máximos"], ["Mascotes", "Letalidade / Vida do inimigo −", "Enfraquece o outro lado"]],
     src2T: "Ataque + Defesa (depois)", src2: ["Equipamento do Chefe", "Nível e estrelas do herói (+200% a +444%)", "Pesquisa", "Mestre"],
     gearNote: "Equip. de Herói e atributos da Ferramenta só contam quando o herói marcha — evolua os 3 com que você lidera.",
-    whoT: "Quem combina com cada lado (sugestão, não regra)", whoA: ["Maior força nos rankings (Equipamento do Chefe + Equip. de Herói + Mestre)", "Heróis de Ferramenta ofensiva: Amadeus, Petra, Peixe Marlin / Rosa"], whoD: ["Grande capacidade de guarnição", "Costuma estar nas guarnições — e ser o mais forte lá", "Heróis de Ferramenta defensiva: Jabel, Zoe / Eric, Jaeger"], whoB: "Os dois: vá para o lado das Ferramentas que você já evoluiu.",
+    whoT: "Quem combina com cada lado", whoA: ["Maior força nos rankings (Equipamento do Chefe + Equip. de Herói + Mestre)", "Heróis de Ferramenta ofensiva: Amadeus, Petra, Peixe Marlin / Rosa"], whoD: ["Grande capacidade de guarnição", "Costuma estar nas guarnições — e ser o mais forte lá", "Heróis de Ferramenta defensiva: Jabel, Zoe / Eric, Jaeger"], whoB: "Os dois: vá para o lado das Ferramentas que você já evoluiu.",
     cards: "🃏 Cada herói avaliado por função → Cartas de Heróis", src0: "Dos nossos relatórios de batalha, análise do Urso, simulações e habilidades (31/10/2026)." },
   ar: { title: "🧭 الهجوم مقابل الدفاع", intro: "للرجوع إليه: ما يحتاجه قائد الهجوم (الحشد) وقائد الدفاع (الحامية)، الأجيال 1–5، من تقارير معاركنا ومحاكاتنا.",
     cmpT: "جنبًا إلى جنب", cmpH: ["", "⚔️ الهجوم — قائد الحشد", "🛡️ الدفاع — قائد الحامية"],
@@ -92,7 +92,7 @@ const T = {
     src: [["تميمة الحاكم", "فتك + صحة ذلك النوع", "المستوى 2 ‏12%، المستوى 3 ‏16% لكل تميمة"], ["عتاد البطل", "الخوذة والحذاء = فتك · القفازات والدرع = صحة", "التحسين أولًا ثم صقل التخصص"], ["إحصاءات الأجزاء", "فتك + صحة لقوات البطل", "المستويات الأولى تحتاج 5 و10 و15 جزءًا — أرخص 1%"], ["موهبة البطل", "مثل: فتك وصحة كل القوات", "أعلى مستوى ونجوم"], ["الحيوانات الأليفة", "فتك / صحة العدو −", "تُضعف الطرف الآخر"]],
     src2T: "هجوم + دفاع (ثانيًا)", src2: ["عتاد الحاكم", "مستوى البطل ونجومه (+200% إلى +444%)", "البحث", "المتخصص"],
     gearNote: "عتاد البطل وإحصاءات الأجزاء تُحتسب فقط عندما يسير ذلك البطل — طوّر الأبطال الثلاثة الذين تقود بهم.",
-    whoT: "من يناسب أي جهة (اقتراح وليس قاعدة)", whoA: ["أعلى قوة في لوحات الترتيب (عتاد الحاكم + عتاد البطل + المتخصص)", "أبطال أجزاء هجومية: أماديوس وبيترا ومارلين / روزا"], whoD: ["سعة حامية كبيرة", "يكون غالبًا في حامياتنا — والأقوى فيها", "أبطال أجزاء دفاعية: جبل وزوي / إيريك وييجر"], whoB: "للجهتين: اذهب إلى جهة الأجزاء التي طوّرتها بالفعل.",
+    whoT: "من يناسب أي جهة", whoA: ["أعلى قوة في لوحات الترتيب (عتاد الحاكم + عتاد البطل + المتخصص)", "أبطال أجزاء هجومية: أماديوس وبيترا ومارلين / روزا"], whoD: ["سعة حامية كبيرة", "يكون غالبًا في حامياتنا — والأقوى فيها", "أبطال أجزاء دفاعية: جبل وزوي / إيريك وييجر"], whoB: "للجهتين: اذهب إلى جهة الأجزاء التي طوّرتها بالفعل.",
     cards: "🃏 تقييم كل بطل لكل دور ← بطاقات الأبطال", src0: "من تقارير معاركنا وتحليل الدب والمحاكاة ومهارات الأبطال (31/10/2026)." },
   ko: { title: "🧭 공격 vs 방어", intro: "참고용: 공격 (집결 대장)과 방어 (방어 대장)에 각각 필요한 것, 1–5세대, 우리 전투 보고서와 시뮬레이션 기준.",
     cmpT: "나란히 비교", cmpH: ["", "⚔️ 공격 — 집결 대장", "🛡️ 방어 — 방어 대장"],
@@ -114,7 +114,7 @@ const T = {
     src: [["영주 보석", "해당 병종 파괴력 + HP", "Lv2 12%, Lv3 16%씩"], ["영웅 장비", "투구·신발 = 파괴력 · 장갑·갑옷 = HP", "강화 먼저, 그다음 마스터리 제작"], ["부속품 능력치", "영웅 병종 파괴력 + HP", "초반 레벨은 5, 10, 15개 — 1%당 가장 저렴"], ["영웅 재능", "예: 전 병종 파괴력, HP", "만렙·만성"], ["펫", "상대 파괴력 / HP −", "상대를 약하게"]],
     src2T: "공격력 + 방어력 (그다음)", src2: ["영주 장비", "영웅 레벨·성급 (+200%~+444%)", "연구", "거장"],
     gearNote: "영웅 장비와 부속품 능력치는 그 영웅이 출전할 때만 계산돼요 — 대장으로 데려갈 3명만 키우세요.",
-    whoT: "누가 어느 쪽에 맞나 (제안, 규칙 아님)", whoA: ["순위표 강도 최고 (영주 장비 + 영웅 장비 + 거장)", "공격형 부속품 영웅: 아마데우스, 리틀 페라, 마린 / 로사"], whoD: ["방어 용량이 큼", "우리 방어에 자주 들어가고 그 안에서 가장 강함", "방어형 부속품 영웅: 제이벨, 조이 / 에릭, 예거"], whoB: "공통: 이미 키운 부속품이 속한 쪽으로 가세요.",
+    whoT: "누가 어느 쪽에 맞나", whoA: ["순위표 강도 최고 (영주 장비 + 영웅 장비 + 거장)", "공격형 부속품 영웅: 아마데우스, 리틀 페라, 마린 / 로사"], whoD: ["방어 용량이 큼", "우리 방어에 자주 들어가고 그 안에서 가장 강함", "방어형 부속품 영웅: 제이벨, 조이 / 에릭, 예거"], whoB: "공통: 이미 키운 부속품이 속한 쪽으로 가세요.",
     cards: "🃏 역할별 영웅 평가 → 영웅 카드", src0: "우리 전투 보고서, 곰 사냥 분석, 시뮬레이션, 영웅 스킬 (2026-10-31)." },
 };
 let lang = OFFICER.lang || "en";
@@ -219,10 +219,9 @@ function cmpHtml(L) {
     const sa = hcScore(cmpS.a, r, cmpS.wa), sb = hcScore(cmpS.b, r, cmpS.wb), d = Math.round((Math.max(sa, sb) / Math.min(sa, sb) - 1) * 100);
     const win = sa >= sb ? "a" : "b", pa = Math.round(100 * sa / (sa + sb));
     return `<div class="gr-crow"><b>${esc(L.hcR[r])}</b><div class="gr-cbar"><span style="width:${pa}%"></span></div><span class="gr-cres">${d < 3 ? esc(L.hvEq) : esc(L.hvBetter.replace("{h}", hname(cmpS[win]) + (cmpS.a === cmpS.b ? ` Lv${cmpS["w" + win]}` : "")).replace("{n}", d))}</span></div>`; }).join("");
-  return `<div class="card" id="gr_cmp"><h3>${esc(L.hvT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(L.hvNote)}</div>
+  return `<div class="card" id="gr_cmp"><h3>${esc(L.hvT)}</h3>
     <div class="row gr-ctr">${HC_T.map((t) => `<button type="button" class="btn small${t === cmpS.t ? " primary" : ""}" data-ct="${t}">${esc(L.hcS[t])}</button>`).join("")}</div>
-    <div class="gr-cvs">${side("a")}<em>vs</em>${side("b")}</div>${rows}
-    <div class="muted" style="font-size:12.5px;margin-top:8px">💡 ${esc(L.hvWhy)}</div><div class="gr-warn"><div>⚠️ ${esc(L.hvWarn)}</div></div></div>`;
+    <div class="gr-cvs">${side("a")}<em>vs</em>${side("b")}</div>${rows}</div>`;
 }
 function cmpWire() {
   const root = $("gr_cmp"); if (!root) return;
@@ -237,14 +236,13 @@ function hcHtml(L) {
   const pic = (id) => `<span class="gr-pic"><img src="figures/heroes/hero_${id}.webp" alt="" loading="lazy" onerror="this.style.visibility='hidden'"><b class="gr-gen"><i>S</i>${GEN[id] || ""}</b></span>`;
   const slot = (role, s) => `<div class="gr-slot"><div class="gr-slab">${esc(L.hcS[s])}</div><div class="gr-heroes">${RANK[role][s].map(([id, d]) =>
     `<div class="gr-hero${d ? "" : " top"}">${pic(id)}<b dir="auto">${esc(hname(id))}</b><span class="gr-gap">${d ? "−" + d + "%" : "👑 " + esc(L.best)}</span></div>`).join("")}</div></div>`;
-  return `<div class="card gr-hc"><h3>${esc(L.hcT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(L.hcNote)}</div>
+  return `<div class="card gr-hc"><h3>${esc(L.hcT)}</h3>
     ${["pvp", "gar", "bear"].map((r) => `<h4 class="gr-h4">${esc(L.hcR[r])}</h4>${["inf", "cav", "arc"].map((s) => slot(r, s)).join("")}`).join("")}
     <h4 class="gr-h4">${esc(L.h2hT)}</h4>
     ${H2H.map((ids, i) => { const it = L.h2h.items[i], lab = (k) => k === "why" ? L.h2h.why : L.hcR[k];
       return `<div class="gr-vs"><div class="gr-vsp">${ids.map((id) => `<span>${pic(id)}<i dir="auto">${esc(hname(id))}</i></span>`).join('<em>vs</em>')}</div>
       <div class="gr-vsr">${it.rows.map(([k, v]) => `<div class="${k === "why" ? "why" : ""}"><b>${esc(lab(k))}</b><span dir="auto">${esc(v)}</span></div>`).join("")}</div>
-      <div class="gr-vsv">✅ ${esc(L.h2h.verdict)}${lang === "zh" ? "：" : ": "}${esc(it.v)}</div></div>`; }).join("")}
-    <div class="gr-warn">${L.hcWarn.map((w) => `<div>⚠️ ${esc(w)}</div>`).join("")}</div></div>`;
+      <div class="gr-vsv">✅ ${esc(L.h2h.verdict)}${lang === "zh" ? "：" : ": "}${esc(it.v)}</div></div>`; }).join("")}</div>`;
 }
 const ul = (a) => `<ul class="gr-ul">${a.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>`;
 /* 🎯 Second uses (Sherry, 2026-11-03 — "weaker heroes can do other jobs, e.g. Saul"; Project doc claude/kingshot-hero-guide-gen1-5.md,
@@ -361,7 +359,7 @@ for (const [l, o] of Object.entries(SU)) Object.assign(T[l], o);
 function suHtml(L) {
   const tag = (parts) => parts.map(([k, v]) => k === "extra" ? L.suS.extra : `${L.suS[k]} ${v > 0 ? "+" : "−"}${Math.abs(v)}%`).join(" · ");
   const c = (id, parts, warn) => `<span class="gr-chip gr-su"><span class="gr-pic"><img src="figures/heroes/hero_${id}.webp" alt="" loading="lazy" onerror="this.style.visibility='hidden'"></span><b dir="auto">${esc(hname(id))}</b>${parts && parts.length ? `<small dir="auto">${esc(tag(parts))}${warn ? " ⚠️" : ""}</small>` : ""}</span>`;
-  return `<div class="card" id="gr_su"><h3>${esc(L.suT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(L.suNote)}</div>
+  return `<div class="card" id="gr_su"><h3>${esc(L.suT)}</h3>
     ${SU_ROWS.map(([k, fixed, chance]) => `<div class="gr-sub"><h4 class="gr-h4">${esc(L.suR[k])}</h4>${chance.length ? `<div class="gr-sul">${esc(L.suH[1])}</div>` : ""}<div class="gr-chips">${fixed.map(([id, p, w]) => c(id, p, w)).join("")}</div>${chance.length ? `<div class="gr-sul">${esc(L.suH[2])}</div><div class="gr-chips">${chance.map((id) => c(id)).join("")}</div>` : ""}</div>`).join("")}
     ${ul(L.suRules)}
     <h4 class="gr-h4">${esc(L.spT)}</h4>
@@ -378,7 +376,7 @@ const GJ = [[[["howard", 1], ["saul", 1], ["hilde", 1], ["chenko", 1]], 0], [[["
 /* 🌳 When to pick a direction (Sherry 2026-11-04): milestones from the Investment price ruler (≈ 20,000 gems per +1% line),
    master and pet skills from the main-site guides (#master-academy, #pet). Rows: [icon, system, milestone, why]. */
 const RD = {
-  en: { t: "🌳 When to pick a direction", p: "Before these milestones, everything helps attack, defense and Bear alike — raising a bit of everything is the best deal. Once all are done, each further +1% costs about 20,000 gems or more anywhere, so it pays to focus on one direction.",
+  en: { t: "🌳 When to pick a direction", p: "Before these milestones, upgrade everything in turn. After them, pick a direction.",
     trunk: [["💎", "Governor Charms", "all Lv3", "from Lv4 every +1% costs 2× or more"], ["🔬", "Research", "first levels of each tier, up to tier V", "tier VI is far dearer"], ["👑", "Governor Gear", "Epic 3★", "Epic T1 and up are far dearer"], ["🐾", "Pets", "advancement to Lv50", "stats help everyone"], ["🎓", "Pan", "Lv60", "economy: Reserve Chests, Intel Missions, +4 Mystery Shop refreshes (Widgets)"], ["🎓", "Valora", "Lv30", "Leader By Example, Weapon Obsession: +5 × 100 Enhancement XP and +5 Forgehammers every Bear Hunt"], ["🦸", "Your 3 main heroes", "Hero Gear +60, Mastery Forging Lv1", "cheap — the heroes you march with anyway"]],
     fork: "All done → pick one", br: [["⚔️", "PvP rally leader", ["Offensive-Widget heroes and their Widgets", "Rally capacity", "Stats: infantry Health > cavalry / archer Lethality", "🎓 Roman next (the guide's order for big spenders and rally leaders: Valora → Roman → Pan)"]],
       ["🛡️", "Garrison lead", ["Defensive-Widget heroes and their Widgets", "Garrison capacity", "Stats: same order as attack", "Defensive Widgets also work when your own city is hit"]],
@@ -387,7 +385,7 @@ const RD = {
     pet: "🐾 Battle pet skills (Moose: enemy Health ↓, Grizzly Bear: enemy Lethality ↓): the guide only lists Beasts, Rebels, Terror rallies and Dreadwolf; in a rally only the leader's count. Whether they work in PvP rallies or garrisons — not known.",
     unk: "🟡 Not known yet: whether rally leaders should still raise Pan first before the split; whether pet battle skills work in garrisons.",
     note: "Milestones are worked out from the gems per +1% on the 💎 Investment page — our estimate, not from the game.", iv: "💎 Gems per level → Investment" },
-  zh: { t: "🌳 什麼時候該選方向", p: "在這些里程碑之前，升什麼對進攻、防守、熊獵都有用——全部輪流升最划算。全部過了以後，不管升哪個，每 +1% 都要約 2 萬鑽以上，這時才值得集中在一個方向。",
+  zh: { t: "🌳 什麼時候該選方向", p: "到這些里程碑之前全部輪流升；都過了再選方向。",
     trunk: [["💎", "領主寶石", "全部 Lv3", "Lv4 起每 +1% 貴 2 倍以上"], ["🔬", "研究", "每階的前幾級，到 V 階", "VI 階貴很多"], ["👑", "領主裝備", "史詩 3★", "史詩 T1 起貴很多"], ["🐾", "寵物", "突破到 Lv50", "屬性人人有用"], ["🎓", "潘", "Lv60", "經濟：儲備寶箱、情報事件、神秘商店多更新 4 次（零件）"], ["🎓", "維拉", "Lv30", "經驗傳承、武器專精：每次狩獵巨熊多 5 個 100點強化經驗部件、5 個鍛造錘"], ["🦸", "自己的 3 位主力英雄", "英雄裝備 +60、專精鍛造 Lv1", "便宜，反正都會帶他們出征"]],
     fork: "全部過了 → 選一條", br: [["⚔️", "PvP 集結隊長", ["集結派英雄和他們的專屬裝備", "集結容量", "屬性：步兵生命值 > 騎弓殺傷力", "🎓 接著升羅曼（攻略「大課與集結指揮」的順序：維拉 → 羅曼 → 潘）"]],
       ["🛡️", "駐防帶頭", ["守城派英雄和他們的專屬裝備", "駐防容量", "屬性：順序跟進攻一樣", "守城派專屬在自己城被打時也有用"]],
@@ -396,7 +394,7 @@ const RD = {
     pet: "🐾 戰鬥寵物技能（駝鹿：敵方生命值 ↓；棕熊：敵方殺傷力 ↓）：攻略只寫野獸、叛軍、巨獸集結、恐狼有效；集結只算發起人的。PvP 集結、駐防有沒有效——還不知道。",
     unk: "🟡 還不知道：集結隊長在分岔前要不要也先練潘；駐防時寵物戰鬥技能有沒有效。",
     note: "里程碑是用 💎 投資效率的「每 +1% 幾鑽」換算的——我們的推算，不是遊戲說明。", iv: "💎 每一級多少鑽 → 投資效率" },
-  pt: { t: "🌳 Quando escolher uma direção", p: "Antes destes marcos, tudo ajuda ataque, defesa e Urso igualmente — subir um pouco de tudo é o melhor negócio. Depois de todos, cada +1% custa cerca de 20.000 gemas ou mais em qualquer lugar, então vale focar em uma direção.",
+  pt: { t: "🌳 Quando escolher uma direção", p: "Antes destes marcos, melhore tudo em rodízio. Depois deles, escolha uma direção.",
     trunk: [["💎", "Talismã do Governador", "todos Nv3", "a partir do Nv4 cada +1% custa 2× ou mais"], ["🔬", "Pesquisa", "primeiros níveis de cada fase, até a fase V", "a fase VI é bem mais cara"], ["👑", "Equipamento do Chefe", "Épico 3★", "Épico T1 em diante é bem mais caro"], ["🐾", "Mascotes", "avanço até Nv50", "os atributos ajudam todos"], ["🎓", "Pan", "Nv60", "economia: Baús de Reserva, Missão de Informação, +4 atualizações na loja Mistério (Ferramentas)"], ["🎓", "Valora", "Nv30", "Líder por Exemplo, Obsessão por Armas: +5 × 100 XP de Aprimoramento e +5 Martelos de Forja por Caça ao Urso"], ["🦸", "Seus 3 heróis principais", "Equipamento do Herói +60, M. em Forja Nv1", "barato — são os heróis que você já usa"]],
     fork: "Tudo feito → escolha um", br: [["⚔️", "Líder de rally PvP", ["Heróis com Ferramenta de rally e suas Ferramentas", "Capacidade de rally", "Atributos: Vida da infantaria > Letalidade de cavalaria / arqueiros", "🎓 Depois Roman (ordem do guia para quem gasta muito e líderes de rally: Valora → Roman → Pan)"]],
       ["🛡️", "Líder de guarnição", ["Heróis com Ferramenta de guarnição e suas Ferramentas", "Capacidade de guarnição", "Atributos: mesma ordem do ataque", "Ferramentas de guarnição também valem quando sua cidade é atacada"]],
@@ -405,7 +403,7 @@ const RD = {
     pet: "🐾 Habilidades de batalha (Alce: Vida inimiga ↓, Urso Pardo: Letalidade inimiga ↓): o guia só lista Feras, Rebeldes, Rally de Terror e Lobo Medonho; num rally só contam as do líder. Se valem em rallies PvP ou guarnições — não sabemos.",
     unk: "🟡 Ainda não sabemos: se líderes de rally também devem subir o Pan antes da divisão; se as habilidades de batalha dos mascotes valem em guarnições.",
     note: "Marcos calculados pelas gemas por +1% da página 💎 Investimento — nossa estimativa, não do jogo.", iv: "💎 Gemas por nível → Investimento" },
-  ar: { t: "🌳 متى تختار اتجاهًا", p: "قبل هذه المراحل، كل شيء يفيد الهجوم والدفاع والدب معًا — رفع القليل من كل شيء هو الأفضل. بعد إنهائها كلها، كل +1% إضافي يكلف نحو 20,000 جوهرة أو أكثر في أي مكان، فيصبح التركيز على اتجاه واحد أجدى.",
+  ar: { t: "🌳 متى تختار اتجاهًا", p: "قبل هذه المحطات طوّر كل شيء بالتناوب. بعدها اختر اتجاهًا.",
     trunk: [["💎", "تميمة الحاكم", "الكل Lv3", "من Lv4 كل +1% يكلف الضعف أو أكثر"], ["🔬", "البحث", "أول مستويات كل مرحلة حتى المرحلة V", "المرحلة VI أغلى بكثير"], ["👑", "عتاد الحاكم", "الملحمي 3★", "الملحمي T1 وما فوقه أغلى بكثير"], ["🐾", "الحيوانات الأليفة", "التقدم حتى Lv50", "الخصائص تفيد الجميع"], ["🎓", "بان", "Lv60", "الاقتصاد: صناديق الاحتياطي، مهمة المعلومات، +4 تحديثات في متجر الغموض (الأجزاء)"], ["🎓", "فالورا", "Lv30", "القائد القدوة، هوس السلاح: +5 × 100 خبرة تحسين و+5 مطرقة الحدادة في كل صيد الدببة"], ["🦸", "أبطالك الثلاثة الرئيسيون", "عتاد البطل +60، صقل التخصص Lv1", "رخيص — هم من تخرج بهم أصلًا"]],
     fork: "انتهى كل شيء ← اختر واحدًا", br: [["⚔️", "قائد حشد PvP", ["أبطال أجزاء الحشد وأجزاؤهم", "سعة الحشد", "الخصائص: صحة المشاة > فتك الفرسان / الرماة", "🎓 ثم رومان (ترتيب الدليل لكبار المنفقين وقادة الحشد: فالورا ← رومان ← بان)"]],
       ["🛡️", "قائد الحامية", ["أبطال أجزاء الحامية وأجزاؤهم", "سعة الحامية", "الخصائص: نفس ترتيب الهجوم", "أجزاء الحامية تعمل أيضًا عندما تُهاجَم مدينتك"]],
@@ -414,7 +412,7 @@ const RD = {
     pet: "🐾 مهارات المعركة (الأيل: صحة العدو ↓، الدب الأشيب: فتك العدو ↓): الدليل يذكر فقط الوحوش والمتمردين وحشد الوحش العملاق والذئب المخيف؛ في الحشد تُحتسب مهارات القائد فقط. هل تعمل في حشود PvP أو الحاميات — غير معروف.",
     unk: "🟡 غير معروف بعد: هل يرفع قادة الحشد بان أولًا قبل الانقسام؛ هل تعمل مهارات المعركة للحيوانات في الحاميات.",
     note: "المراحل محسوبة من الجواهر لكل +1% في صفحة 💎 الاستثمار — تقديرنا، وليست من اللعبة.", iv: "💎 الجواهر لكل مستوى ← الاستثمار" },
-  ko: { t: "🌳 언제 방향을 정할까", p: "이 단계 전까지는 뭘 올려도 공격·방어·곰 사냥 모두에 도움이 돼 — 골고루 올리는 게 제일 이득이야. 전부 넘기면 어디를 올려도 +1%당 약 2만 다이아 이상이 들어서, 그때부터 한 방향에 집중하는 게 좋아.",
+  ko: { t: "🌳 언제 방향을 정할까", p: "이 지점들 전까지는 전부 돌아가며 올려. 다 지나면 방향을 골라.",
     trunk: [["💎", "영주 보석", "전부 Lv3", "Lv4부터 +1%당 2배 이상 비쌈"], ["🔬", "연구", "단계별 첫 몇 레벨, V단계까지", "VI단계는 훨씬 비쌈"], ["👑", "영주 장비", "에픽 3★", "에픽 T1부터 훨씬 비쌈"], ["🐾", "펫", "돌파 Lv50까지", "스탯은 누구에게나 도움"], ["🎓", "판", "Lv60", "경제: 예비 보물상자, 정보 이벤트, 신비한 상점 새로고침 +4 (부속품)"], ["🎓", "베라", "Lv30", "경험 전승, 무기 마스터리: 자이언트 베어 사냥마다 경험치 강화 부품 100점 +5, 제작 망치 +5"], ["🦸", "주력 영웅 3명", "영웅 장비 +60, 마스터리 제작 Lv1", "싸고, 어차피 데리고 나가는 영웅"]],
     fork: "전부 끝 → 하나 고르기", br: [["⚔️", "PvP 집결 대장", ["집결형 부속품 영웅과 그 부속품", "집결 수용량", "스탯: 보병 HP > 기병·궁병 파괴력", "🎓 다음은 로만 (가이드의 핵과금·집결 지휘 순서: 베라 → 로만 → 판)"]],
       ["🛡️", "방어 대장", ["방어형 부속품 영웅과 그 부속품", "방어 수용량", "스탯: 공격과 같은 순서", "방어형 부속품은 내 도시가 맞을 때도 적용"]],
@@ -432,7 +430,7 @@ function rdHtml() {
     <div class="gr-brs">${R.br.map(([i, h, l], k) => `<div class="gr-br b${k}"><h4>${i} ${esc(h)}</h4>${ul(l)}</div>`).join("")}</div>
     <div class="gr-vsv" style="margin-top:10px">${esc(R.pet)}</div>
     <p class="muted" style="font-size:12.5px;margin:8px 0 4px">${esc(R.unk)}</p>
-    <p class="muted" style="font-size:12.5px;margin:0">${esc(R.note)} <a href="#iv">${esc(R.iv)}</a></p></div>`;
+    <p class="muted" style="font-size:12.5px;margin:0"><a href="#iv">${esc(R.iv)}</a></p></div>`;
 }
 function render() {
   const L = t(), root = $("gr_root"); if (!root) return;
@@ -445,19 +443,17 @@ function render() {
     ${rdHtml()}
     <div class="card"><h3>${esc(L.cmpT)}</h3><div class="gr-tw"><table class="gr-cmp"><thead><tr>${L.cmpH.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
       <tbody>${L.cmp.map(([k, a, d]) => `<tr><th>${esc(k)}</th><td>${esc(a)}</td><td>${esc(d)}</td></tr>`).join("")}</tbody></table></div></div>
-    <div class="card"><h3>${esc(L.heroT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:8px">${esc(L.heroNote)}</div>
+    <div class="card"><h3>${esc(L.heroT)}</h3>
       <div class="gr-tw"><table class="gr-cmp gr-heroes-t"><thead><tr><th></th><th>${esc(L.cmpH[1])}</th><th>${esc(L.cmpH[2])}</th></tr></thead>
       <tbody>${["inf", "cav", "arc"].map((tr) => `<tr><th>${esc(L.trp[tr])}</th><td>${side("atk", tr)}</td><td>${side("def", tr)}</td></tr>`).join("")}</tbody></table></div></div>
     <p><a class="btn" href="#hr">${esc(HR().link)}</a></p>
-    <div class="card"><h3>${esc(L.gearT)}</h3><p class="gr-rule">${esc(L.rule)}</p>
+    <div class="card"><h3>${esc(L.gearT)}</h3>
       <h4 class="gr-h4">${esc(L.ordT)}</h4><div class="gr-two"><div><b>${esc(L.ordADl)}</b>${ol(L.ordAD)}</div><div><b>${esc(L.ordBearl)}</b>${ol(L.ordBear)}</div></div>
       <h4 class="gr-h4">${esc(L.srcT)}</h4><div class="gr-tw"><table class="gr-cmp"><thead><tr>${L.srcH.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
       <tbody>${L.src.map(([a, b, c]) => `<tr><th>${esc(a)}</th><td>${esc(b)}</td><td class="muted">${esc(c)}</td></tr>`).join("")}</tbody></table></div>
-      <h4 class="gr-h4">${esc(L.src2T)}</h4><div class="gr-tags">${L.src2.map((x) => `<span>${esc(x)}</span>`).join("")}</div>
-      <div class="muted" style="font-size:12.5px;margin-top:8px">💡 ${esc(L.gearNote)}</div></div>
+      <h4 class="gr-h4">${esc(L.src2T)}</h4><div class="gr-tags">${L.src2.map((x) => `<span>${esc(x)}</span>`).join("")}</div></div>
     <div class="card"><h3>${esc(L.whoT)}</h3><div class="gr-two"><div class="gr-who"><b>${esc(L.cmpH[1])}</b>${ul(L.whoA)}</div><div class="gr-who"><b>${esc(L.cmpH[2])}</b>${ul(L.whoD)}</div></div>
-      <div class="gr-vsv" style="margin-top:8px">✅ ${esc(L.whoB)}</div></div>
-    <p class="muted" style="font-size:12.5px">${esc(L.src0)}</p>`;
+      <div class="gr-vsv" style="margin-top:8px">✅ ${esc(L.whoB)}</div></div>`;
   renderHr();
 }
 /* 🦸 Heroes — its own research tab since 2026-11-05 (Sherry: "Growth got too long, some of it is off topic"): 🛡️ Garrison joiners,
@@ -477,16 +473,15 @@ function renderHr() {
   root.innerHTML = `
     ${hcHtml(L)}
     ${cmpHtml(L)}
-    <div class="card"><h3>${esc(L.gjT)}</h3><div class="muted" style="font-size:12.5px;margin-bottom:6px">${esc(L.gjNote)}</div>${ul(L.gjRules)}
+    <div class="card"><h3>${esc(L.gjT)}</h3>${ul(L.gjRules)}
       <div class="gr-tw"><table class="gr-cmp gr-gj"><thead><tr>${L.gjH.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead>
       <tbody>${GJ.map(([c, d]) => `<tr><td><div class="gr-chips">${c.map(([id, n]) => chip([id, "", ""]).replace('<span class="gr-pic">', `<span class="gr-pic">${n > 1 ? `<b class="gr-n">×${n}</b>` : ""}`)).join("")}</div></td><td class="gr-gjv">${d ? `−${d}%` : `✅ ${esc(L.gjBest)}`}</td></tr>`).join("")}</tbody></table></div></div>
     ${suHtml(L)}
-    <p><a class="btn" href="./#/${site}/hero-cards" target="_blank" rel="noopener">${esc(L.cards)}</a></p>
-    <p class="muted" style="font-size:12.5px">${esc(L.src0)}</p>`;
+    <p><a class="btn" href="./#/${site}/hero-cards" target="_blank" rel="noopener">${esc(L.cards)}</a></p>`;
   cmpWire();
 }
-function applyTexts() { if ($("gr_title")) { $("gr_title").textContent = t().title; $("gr_intro").textContent = t().intro; }
-  if ($("hr_title")) { $("hr_title").textContent = HR().title; $("hr_intro").textContent = HR().intro; } }
+function applyTexts() { if ($("gr_title")) { $("gr_title").textContent = t().title; $("gr_intro").textContent = ""; }
+  if ($("hr_title")) { $("hr_title").textContent = HR().title; $("hr_intro").textContent = ""; } }
 function init() { applyTexts(); render(); }
 function setLang(l) { lang = l; applyTexts(); render(); }
 OFFICER_PAGES.growth = { init, applyTexts, setLang };

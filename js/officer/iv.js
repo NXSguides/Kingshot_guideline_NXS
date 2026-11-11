@@ -29,7 +29,7 @@ const ROWS = [["c1", 889, 889, "cheap"], ["gg1", 513, 10165, "cheap"], ["res1", 
   ["mr", 4000, 40000, "mid"], ["ref", 5600, 20000, "mid"], ["mv", 8333, 83333, "mid"], ["res5", 6300, 15000, "mid"], ["hg1", 11100, 11100, "mid"], ["gg2", 12424, 44844, "mid"],
   ["c25", 14700, 20000, "mid"], ["adv", 4700, 67000, "mid"], ["en2", 15500, 55000, "mid"], ["hg2", 22200, 55600, "dear"], ["res6", 26000, 62000, "dear"], ["c6", 40000, 701000, "dear"], ["gg3", 40157, 840727, "dear"]];
 const T = {
-  en: { title: "💎 Investment", intro: "Where the same gems buy the most stats, and what to upgrade next. Our own research, not official.",
+  en: { title: "💎 Investment", intro: "",
     badge: "🔬 Our research · updated {d}",
     heroH: "Same gems, very different results.", heroP: "The cheapest +1% (the first green Governor Gear step, Governor Charm Lv1) costs under 1,000 gems. Hero Gear Mastery Forging Lv5 costs about 56,000; red Governor Gear and the last charm levels cost 700,000–800,000 for the same 1%.",
     barH: "💰 Gems for +1%", barP: "Shorter bar = cheaper. Each bar is +1% to one stat of one troop type.",
@@ -47,10 +47,10 @@ const T = {
     ggTier: { g: "Green", b: "Blue", p: "Purple", p1: "Purple T1", o: "Gold", o1: "Gold T1", o2: "Gold T2", o3: "Gold T3", r: "Red", r1: "Red T1", r2: "Red T2", r3: "Red T3", r4: "Red T4" },
     ggCols: ["Step", "Satin / Gilded Threads / Artisan's Vision", "Relic Coins", "% gained", "Gems per 1%"],
     ru1: "Every system is cheapest at its first levels.", ru2: "Keep upgrading whatever is cheapest right now — don't push one system to the top.", ru3: "Joiners: don't spend on combat stats — only the rally leader's count.",
-    ruH: "📏 Price ruler", ruP: "Each dot is one level, placed by how many gems +1% costs (left = cheap, right = dear; ×10 per mark). Numbered dots are your next steps from the tool below; faded dots are red gear, not open on our server yet. Tap a dot for its price.",
-    rdTap: "Tap a dot to see what it is and what it costs.", moreH: "📖 More: why, by role, pets, what we don't know", petH: "Pets",
+    ruH: "📏 Price ruler", ruP: "Each dot is one level: cheap on the left, costly on the right (each step ×10).",
+    rdTap: "Tap a dot for its price.", moreH: "📖 More: why, by role, pets, what we don't know", petH: "Pets",
     nxRes: "Research tier I'm on", nxMr: "Roman advancements done", nxMv: "Valora advancements done", roman: "Roman", valora: "Valora", nth: "#{n}",
-    dirTip: "Done with the cheap levels everywhere (Charms Lv3, research tier V, Governor Gear Epic 3★, pets Lv50)? Then it's time to pick a direction.", dirLink: "🧭 When to pick a direction →", nxH: "🎯 My next step", nxP: "Pick where you are now, per troop type. The list shows your 8 cheapest next upgrades (gems per +1%), all systems and troop types mixed.",
+    dirTip: "Done with the cheap levels everywhere (Charms Lv3, research tier V, Governor Gear Epic 3★, pets Lv50)? Then it's time to pick a direction.", dirLink: "🧭 When to pick a direction →", nxH: "🎯 My next step", nxP: "Pick where you are now:",
     nxCharm: "My Governor Charms (most pieces of each troop type)", troops: ["Infantry", "Cavalry", "Archers"], nxGear: "My Governor Gear (most pieces of each troop type)", nxPet: "My next pet advancement", nxMast: "Main heroes' Mastery Forging", nxEnh: "Enhancement of those main pieces", nxPetTip: "Pet level-ups: Pet Food is easy to get (Cheetah skill 200–500 a day, events, Alliance Shop), so level up whenever you can. Rarer pets give more troop Attack / Defense per level but also eat more food, so the food per +1% is about the same for every pet (Lynx / Bison are the thriftiest, ~0.8× a Lion). The real limit is the advancement every 10 levels (in the list) — and an N, R or SR pet at the same advancement is about equally good value. Pet Refinement is the biggest room left on a pet and it is all Lethality / Health: the pet's level caps the quality you can roll (Lv10 grey, Lv20 green, Lv30 blue, Lv40 purple, Lv50 mythic). Use Common Taming Marks up to blue, Advanced Taming Marks from blue → purple.",
     nxNone: "none yet", nxLv: "Lv{n}", nxPetDone: "already past Lv60", nxMax: "maxed", nxGo: "Do these first:", nxNote: "Same gems, most %. Lethality / Health (Governor Charms) are worth a bit more than they look, Attack / Defense (pets) a bit less.",
     sys: { pet: "🐾 Pets", ma: "🎓 Master advancement", en: "⚒️ Hero Gear enhancement", c: "💠 Governor Charm", g: "🛡️ Governor Gear", pu: "🐾 Pet level-up", pa: "🐾 Pet advancement", pr: "🐾 Pet Refinement", r: "🔬 Research", m: "🔨 Mastery Forging" },
@@ -76,7 +76,7 @@ const T = {
     numH: "🔢 For those who want the numbers", numP: "Exchange rate: 1 Relic Coin ≈ 3.2 gems (1 h speedup = 800 gems in the Gem Shop or 250 Relic Coins in the Swordland Shop; finishing research instantly is also ≈ 800 gems per hour). Another rate changes the numbers, not the order. \"+1%\" = one stat of one troop type; a stat for all three troop types counts as 3.",
     numCols: ["Upgrade", "Gems per 1%", "Gives"],
     foot: "Source: Sparrow's main account (power ↔ %, shop prices, research times). Not from the game. Numbers will be corrected as we test more." },
-  zh: { title: "💎 投資效率", intro: "同樣的鑽石花在哪裡最划算、下一步該升什麼。我們自己的研究，不是官方說明。",
+  zh: { title: "💎 投資效率", intro: "",
     badge: "🔬 我們的研究 · 更新 {d}",
     heroH: "同樣的鑽石，花在哪裡差很多。", heroP: "最便宜的 +1%（第一件綠色領主裝備、領主寶石 Lv1）不到 1,000 鑽；英雄裝備專精鍛造 Lv5 大約 56,000 鑽；紅色領主裝備、寶石最後幾級，同樣 1% 要 70–80 萬鑽。",
     barH: "💰 +1% 要多少鑽石", barP: "長條越短越划算。每一條都是「一個兵種、一種屬性 +1%」。",
@@ -94,10 +94,10 @@ const T = {
     ggTier: { g: "綠", b: "藍", p: "紫", p1: "紫 T1", o: "金", o1: "金 T1", o2: "金 T2", o3: "金 T3", r: "紅", r1: "紅 T1", r2: "紅 T2", r3: "紅 T3", r4: "紅 T4" },
     ggCols: ["階", "進貢綢緞／金絲線／設計圖紙", "聖契幣", "加多少 %", "每 1%（鑽）"],
     ru1: "每個系統都是前幾級最便宜。", ru2: "輪流升「現在最便宜的那一級」，不要一個系統衝到底。", ru3: "加入者不要把錢花在戰鬥屬性——集結只看隊長的。",
-    ruH: "📏 價格尺", ruP: "每個點是一個等級，照「+1% 要幾鑽」排（左邊便宜、右邊貴，每格 ×10）。有數字的點是下面工具算出的你的下一步；淡色的是我們伺服器還沒開放的紅色裝備。點一下看價格。",
-    rdTap: "點任何一個點，看它是什麼、要多少鑽。", moreH: "📖 更多：原因、依角色、寵物、還不知道的", petH: "寵物",
+    ruH: "📏 價格尺", ruP: "每個點是一級：左邊便宜、右邊貴（每格 ×10）。",
+    rdTap: "點一個點看價格。", moreH: "📖 更多：原因、依角色、寵物、還不知道的", petH: "寵物",
     nxRes: "我的研究在哪一階", nxMr: "羅曼已進階幾次", nxMv: "維拉已進階幾次", roman: "羅曼", valora: "維拉", nth: "第 {n} 次",
-    dirTip: "便宜的都升完了嗎（寶石 Lv3、研究 V 階、領主裝備史詩 3★、寵物 Lv50）？那就該開始選方向了。", dirLink: "🧭 什麼時候該選方向 →", nxH: "🎯 我的下一步", nxP: "照兵種選你現在的進度，下面列出你最划算的 8 個下一步（每 +1% 幾鑽），所有系統、兵種混在一起比。",
+    dirTip: "便宜的都升完了嗎（寶石 Lv3、研究 V 階、領主裝備史詩 3★、寵物 Lv50）？那就該開始選方向了。", dirLink: "🧭 什麼時候該選方向 →", nxH: "🎯 我的下一步", nxP: "選你現在的進度：",
     nxCharm: "我的領主寶石（每個兵種大多在幾級）", troops: ["步兵", "騎兵", "弓兵"], nxGear: "我的領主裝備（每個兵種大多在哪一階）", nxPet: "我下一次寵物突破", nxMast: "主力英雄的專精鍛造", nxEnh: "那些主力裝備的強化等級", nxPetTip: "寵物升級：寵物口糧不難拿（獵豹技能每天 200–500、活動、聯盟商店），能升就升。稀有度越高，每級加的部隊攻防越多，但吃的口糧也越多，所以每 +1% 用的口糧每隻寵物都差不多（猞猁／野牛最省，約獅子的 0.8 倍）。真正卡住的是每 10 級一次的突破（有在上面排名）——同一級突破，N、R、SR 寵物的划算程度幾乎一樣。寵物洗練是寵物剩下最大的空間，而且全是殺傷力／生命值：寵物等級決定能洗到的最高品質（Lv10 灰、Lv20 綠、Lv30 藍、Lv40 紫、Lv50 傳說）。藍色以前用普通馴化印記，藍升紫以上用高級馴化印記。",
     nxNone: "還沒有", nxLv: "Lv{n}", nxPetDone: "已經超過 Lv60", nxMax: "已滿", nxGo: "先做這些：", nxNote: "同樣的鑽石換到最多 %。殺傷力、生命值（領主寶石）實際上比看起來更值錢一點，攻擊力、防禦力（寵物）稍微少一點。",
     sys: { pet: "🐾 寵物", ma: "🎓 大師進階", en: "⚒️ 英雄裝備強化", c: "💠 領主寶石", g: "🛡️ 領主裝備", pu: "🐾 寵物升級", pa: "🐾 寵物突破", pr: "🐾 寵物洗練", r: "🔬 研究", m: "🔨 專精鍛造" },
@@ -123,7 +123,7 @@ const T = {
     numH: "🔢 給想看數字的人", numP: "換算：1 聖契幣 ≈ 3.2 鑽（1 小時加速：鑽石商店 800 鑽、聖劍商店 250 聖契幣；研究立即完成也是約 800 鑽／小時）。換別的換算方式，數字會變，排序不變。「+1%」= 一個兵種、一種屬性；三個兵種一起加的屬性算 3 個。",
     numCols: ["升級項目", "每 1%（鑽）", "給什麼"],
     foot: "來源：Sparrow 主帳實測（實力 ↔ %、商店價格、研究時間）。不是遊戲官方說明，數字會隨更多測試修正。" },
-  pt: { title: "💎 Eficiência de Investimento", intro: "Onde as mesmas gemas compram mais atributos, e o que melhorar a seguir. Pesquisa nossa, não é oficial.",
+  pt: { title: "💎 Eficiência de Investimento", intro: "",
     badge: "🔬 Nossa pesquisa · atualizado {d}",
     heroH: "Mesmas gemas, resultados bem diferentes.", heroP: "O +1% mais barato (o primeiro passo verde do Equipamento do Chefe, Talismã do Governador Lv1) custa menos de 1,000 gemas. M. em Forja Lv5 do Equipamento do Herói custa cerca de 56,000; Equipamento do Chefe vermelho e os últimos níveis do Talismã custam 700,000–800,000 pelo mesmo 1%.",
     barH: "💰 Gemas por +1%", barP: "Barra mais curta = mais barato. Cada barra é +1% em um atributo de um tipo de tropa.",
@@ -141,10 +141,10 @@ const T = {
     ggTier: { g: "Verde", b: "Azul", p: "Roxo", p1: "Roxo T1", o: "Dourado", o1: "Dourado T1", o2: "Dourado T2", o3: "Dourado T3", r: "Vermelho", r1: "Vermelho T1", r2: "Vermelho T2", r3: "Vermelho T3", r4: "Vermelho T4" },
     ggCols: ["Passo", "Cetim / Fios Dourados / Visão do Artesão", "Moedas de Relíquia", "% ganho", "Gemas por 1%"],
     ru1: "Todo sistema é mais barato nos primeiros níveis.", ru2: "Continue melhorando o que estiver mais barato agora — não leve um só sistema até o topo.", ru3: "Participantes: não gastem em atributos de combate — só os do líder do rally contam.",
-    ruH: "📏 Régua de preços", ruP: "Cada ponto é um nível, colocado pelo custo em gemas de +1% (esquerda = barato, direita = caro; ×10 por marca). Pontos com número são seus próximos passos da ferramenta abaixo; pontos apagados são equipamento vermelho, ainda fechado no nosso servidor. Toque num ponto para ver o preço.",
-    rdTap: "Toque num ponto para ver o que é e quanto custa.", moreH: "📖 Mais: por quê, por função, mascotes, o que não sabemos", petH: "Mascotes",
+    ruH: "📏 Régua de preços", ruP: "Cada ponto é um nível: barato à esquerda, caro à direita (cada passo ×10).",
+    rdTap: "Toque num ponto para ver o preço.", moreH: "📖 Mais: por quê, por função, mascotes, o que não sabemos", petH: "Mascotes",
     nxRes: "Tier de pesquisa em que estou", nxMr: "Avanços de Roman feitos", nxMv: "Avanços de Valora feitos", roman: "Roman", valora: "Valora", nth: "{n}º",
-    dirTip: "Já terminou os níveis baratos em tudo (Talismãs Lv3, pesquisa tier V, Equipamento do Chefe Épico 3★, mascotes Lv50)? Então é hora de escolher uma direção.", dirLink: "🧭 Quando escolher uma direção →", nxH: "🎯 Meu próximo passo", nxP: "Escolha onde você está agora, por tipo de tropa. A lista mostra suas 8 próximas melhorias mais baratas (gemas por +1%), com todos os sistemas e tropas misturados.",
+    dirTip: "Já terminou os níveis baratos em tudo (Talismãs Lv3, pesquisa tier V, Equipamento do Chefe Épico 3★, mascotes Lv50)? Então é hora de escolher uma direção.", dirLink: "🧭 Quando escolher uma direção →", nxH: "🎯 Meu próximo passo", nxP: "Escolha onde você está agora:",
     nxCharm: "Meus Talismãs do Governador (a maioria das peças de cada tropa)", troops: ["Infantaria", "Cavalaria", "Arquearia"], nxGear: "Meu Equipamento do Chefe (a maioria das peças de cada tropa)", nxPet: "Meu próximo Avanço do Pet", nxMast: "M. em Forja dos heróis principais", nxEnh: "Aprimoramento dessas peças principais", nxPetTip: "Subir nível do Pet: Alimento para Pets é fácil de conseguir (habilidade da Chita 200–500 por dia, eventos, Loja da Aliança), então suba sempre que puder. Mascotes mais raros dão mais Ataque / Defesa das tropas por nível, mas também comem mais, então o alimento por +1% é quase o mesmo para todo mascote (Lince / Bisão são os mais econômicos, ~0.8× um Leão). O limite real é o avanço a cada 10 níveis (está na lista) — e um mascote N, R ou SR no mesmo avanço vale quase o mesmo. O Refinamento do Pet é o maior espaço que sobra num mascote, e é tudo Letalidade / Vida: o nível do mascote limita a qualidade que você pode tirar (Lv10 cinza, Lv20 verde, Lv30 azul, Lv40 roxo, Lv50 mítico). Use Marca de Domesticação Comum até azul, e Marca de Domesticação Avançada de azul → roxo.",
     nxNone: "nenhum ainda", nxLv: "Lv{n}", nxPetDone: "já passou do Lv60", nxMax: "no máximo", nxGo: "Faça isto primeiro:", nxNote: "Mesmas gemas, mais %. Letalidade / Vida (Talismãs do Governador) valem um pouco mais do que parecem, Ataque / Defesa (mascotes) um pouco menos.",
     sys: { pet: "🐾 Mascotes", ma: "🎓 Avanço do Mestre", en: "⚒️ Aprimoramento do Equip. de Herói", c: "💠 Talismã do Governador", g: "🛡️ Equipamento do Chefe", pu: "🐾 Subir nível do Pet", pa: "🐾 Avanço do Pet", pr: "🐾 Refinamento do Pet", r: "🔬 Pesquisa", m: "🔨 M. em Forja" },
@@ -170,7 +170,7 @@ const T = {
     numH: "🔢 Para quem quer os números", numP: "Câmbio: 1 Moeda de Relíquia ≈ 3.2 gemas (1 h de aceleração = 800 gemas na loja de Gemas ou 250 Moedas de Relíquia na loja Terra das Espadas; terminar pesquisa na hora também é ≈ 800 gemas por hora). Outro câmbio muda os números, não a ordem. \"+1%\" = um atributo de um tipo de tropa; um atributo para os três tipos de tropa conta como 3.",
     numCols: ["Melhoria", "Gemas por 1%", "Dá"],
     foot: "Fonte: conta principal da Sparrow (poder ↔ %, preços das lojas, tempos de pesquisa). Não vem do jogo. Os números serão corrigidos conforme testarmos mais." },
-  ar: { title: "💎 كفاءة الاستثمار", intro: "أين تشتري الجواهر نفسها أكثر إحصاءات، وماذا تطوّر بعد ذلك. بحثنا الخاص، ليس رسميًا.",
+  ar: { title: "💎 كفاءة الاستثمار", intro: "",
     badge: "🔬 بحثنا · آخر تحديث {d}",
     heroH: "نفس الجواهر، نتائج مختلفة جدًا.", heroP: "أرخص +1% (أول خطوة خضراء في عتاد الحاكم، تميمة الحاكم Lv1) تكلف أقل من 1,000 جوهرة. صقل التخصص Lv5 لعتاد البطل يكلف حوالي 56,000؛ عتاد الحاكم الأحمر وآخر مستويات التميمة تكلف 700,000–800,000 لنفس 1%.",
     barH: "💰 الجواهر مقابل +1%", barP: "الشريط الأقصر = أرخص. كل شريط هو +1% لإحصائية واحدة لنوع قوات واحد.",
@@ -188,10 +188,10 @@ const T = {
     ggTier: { g: "أخضر", b: "أزرق", p: "بنفسجي", p1: "بنفسجي T1", o: "ذهبي", o1: "ذهبي T1", o2: "ذهبي T2", o3: "ذهبي T3", r: "أحمر", r1: "أحمر T1", r2: "أحمر T2", r3: "أحمر T3", r4: "أحمر T4" },
     ggCols: ["الخطوة", "نسيج أطلس / خيوط مذهبة / رؤية الحرفي", "عملات الآثار", "% المكتسبة", "الجواهر لكل 1%"],
     ru1: "كل نظام أرخص في مستوياته الأولى.", ru2: "استمر في ترقية الأرخص الآن — لا ترفع نظامًا واحدًا إلى القمة.", ru3: "المنضمون: لا تنفقوا على إحصاءات القتال — فقط إحصاءات قائد الحشد تُحسب.",
-    ruH: "📏 مسطرة الأسعار", ruP: "كل نقطة مستوى واحد، موضوعة حسب عدد الجواهر لكل +1% (اليسار = رخيص، اليمين = غالٍ؛ ×10 لكل علامة). النقاط المرقمة هي خطواتك التالية من الأداة بالأسفل؛ النقاط الباهتة هي العتاد الأحمر، غير مفتوح بعد في خادمنا. اضغط على نقطة لترى سعرها.",
-    rdTap: "اضغط على نقطة لترى ما هي وكم تكلف.", moreH: "📖 المزيد: لماذا، حسب الدور، الحيوانات الأليفة، ما لا نعرفه", petH: "الحيوانات الأليفة",
+    ruH: "📏 مسطرة الأسعار", ruP: "كل نقطة مستوى: الرخيص يسارًا والغالي يمينًا (كل خطوة ×10).",
+    rdTap: "اضغط على نقطة لمعرفة سعرها.", moreH: "📖 المزيد: لماذا، حسب الدور، الحيوانات الأليفة، ما لا نعرفه", petH: "الحيوانات الأليفة",
     nxRes: "مرحلة البحث التي وصلت إليها", nxMr: "عدد تقدمات رومان المنجزة", nxMv: "عدد تقدمات فالورا المنجزة", roman: "رومان", valora: "فالورا", nth: "#{n}",
-    dirTip: "أنهيت المستويات الرخيصة في كل شيء (التمائم Lv3، البحث المرحلة V، عتاد الحاكم ملحمي 3★، الحيوانات الأليفة Lv50)؟ إذن حان وقت اختيار اتجاه.", dirLink: "🧭 متى تختار اتجاهًا ←", nxH: "🎯 خطوتي التالية", nxP: "اختر أين أنت الآن، لكل نوع قوات. القائمة تعرض أرخص 8 ترقيات تالية لك (الجواهر لكل +1%)، كل الأنظمة وأنواع القوات معًا.",
+    dirTip: "أنهيت المستويات الرخيصة في كل شيء (التمائم Lv3، البحث المرحلة V، عتاد الحاكم ملحمي 3★، الحيوانات الأليفة Lv50)؟ إذن حان وقت اختيار اتجاه.", dirLink: "🧭 متى تختار اتجاهًا ←", nxH: "🎯 خطوتي التالية", nxP: "اختر أين أنت الآن:",
     nxCharm: "تمائم الحاكم عندي (معظم القطع لكل نوع قوات)", troops: ["المشاة", "الفرسان", "الرماة"], nxGear: "عتاد الحاكم عندي (معظم القطع لكل نوع قوات)", nxPet: "تقدم الحيوان الأليف التالي", nxMast: "صقل التخصص لأبطالي الرئيسيين", nxEnh: "مستوى تحسين تلك القطع الرئيسية", nxPetTip: "رفع مستوى الحيوان الأليف: طعام الحيوان الأليف سهل الحصول (مهارة النمر الصيّاد 200–500 يوميًا، الفعاليات، متجر التحالف)، لذا ارفع المستوى كلما استطعت. الحيوانات الأندر تعطي هجوم / دفاع قوات أكثر لكل مستوى لكنها تأكل أكثر، لذا الطعام لكل +1% متقارب لكل الحيوانات (الوشق / الثور الأوفر، ~0.8× الأسد). الحد الحقيقي هو التقدم كل 10 مستويات (في القائمة) — وحيوان N أو R أو SR في نفس التقدم قيمته متقاربة. تحسين الحيوان الأليف هو أكبر مساحة متبقية في الحيوان، وكله فتك / صحة: مستوى الحيوان يحدد أعلى جودة ممكنة (Lv10 رمادي، Lv20 أخضر، Lv30 أزرق، Lv40 بنفسجي، Lv50 خيالي). استخدم علامة ترويض شائعة حتى الأزرق، وعلامة ترويض متقدمة من الأزرق ← البنفسجي.",
     nxNone: "لا شيء بعد", nxLv: "Lv{n}", nxPetDone: "تجاوز Lv60 بالفعل", nxMax: "الحد الأقصى", nxGo: "افعل هذه أولًا:", nxNote: "نفس الجواهر، أكبر نسبة. الفتك / الصحة (تمائم الحاكم) قيمتهما أعلى قليلًا مما تبدو، والهجوم / الدفاع (الحيوانات الأليفة) أقل قليلًا.",
     sys: { pet: "🐾 الحيوانات الأليفة", ma: "🎓 تقدم المتخصص", en: "⚒️ تحسين عتاد البطل", c: "💠 تميمة الحاكم", g: "🛡️ عتاد الحاكم", pu: "🐾 رفع مستوى الحيوان الأليف", pa: "🐾 تقدم الحيوان الأليف", pr: "🐾 تحسين الحيوان الأليف", r: "🔬 البحث", m: "🔨 صقل التخصص" },
@@ -217,7 +217,7 @@ const T = {
     numH: "🔢 لمن يريد الأرقام", numP: "سعر التحويل: 1 عملة آثار ≈ 3.2 جوهرة (تسريع ساعة واحدة = 800 جوهرة في متجر الجواهر أو 250 عملة آثار في متجر أرض السيوف؛ إنهاء البحث فورًا أيضًا ≈ 800 جوهرة للساعة). سعر آخر يغيّر الأرقام لا الترتيب. \"+1%\" = إحصائية واحدة لنوع قوات واحد؛ إحصائية لأنواع القوات الثلاثة تُحسب 3.",
     numCols: ["الترقية", "الجواهر لكل 1%", "يعطي"],
     foot: "المصدر: الحساب الرئيسي لـ Sparrow (القوة ↔ %، أسعار المتاجر، أوقات البحث). ليس من اللعبة. سنصحح الأرقام كلما اختبرنا أكثر." },
-  ko: { title: "💎 투자 효율", intro: "같은 보석으로 어디에 쓰면 능력치를 가장 많이 얻는지, 다음에 뭘 올릴지. 우리 연구이고 공식은 아니야.",
+  ko: { title: "💎 투자 효율", intro: "",
     badge: "🔬 우리 연구 · 업데이트 {d}",
     heroH: "같은 다이아, 결과는 크게 달라요.", heroP: "가장 싼 +1% (첫 녹색 영주 장비 단계, 영주 보석 Lv1)는 1,000 다이아 미만. 영웅 장비 마스터리 제작 Lv5는 약 56,000; 빨강 영주 장비와 보석 마지막 레벨은 같은 1%에 700,000–800,000.",
     barH: "💰 +1%에 필요한 다이아", barP: "막대가 짧을수록 저렴. 막대 하나 = 병종 하나, 능력치 하나 +1%.",
@@ -235,10 +235,10 @@ const T = {
     ggTier: { g: "녹색", b: "파랑", p: "보라", p1: "보라 T1", o: "금색", o1: "금색 T1", o2: "금색 T2", o3: "금색 T3", r: "빨강", r1: "빨강 T1", r2: "빨강 T2", r3: "빨강 T3", r4: "빨강 T4" },
     ggCols: ["단계", "비단 / 금사 / 설계 스케치", "성스러운 계약 코인", "증가 %", "1%당 다이아"],
     ru1: "모든 시스템은 첫 레벨들이 가장 저렴해요.", ru2: "지금 가장 싼 것을 계속 올리세요 — 한 시스템만 끝까지 올리지 마세요.", ru3: "집결원: 전투 능력치에 쓰지 마세요 — 집결 대장 것만 적용돼요.",
-    ruH: "📏 가격 자", ruP: "점 하나 = 레벨 하나, +1%에 드는 다이아 기준으로 배치 (왼쪽 = 저렴, 오른쪽 = 비쌈; 눈금마다 ×10). 숫자 점은 아래 도구가 고른 내 다음 단계; 흐린 점은 우리 서버에 아직 안 열린 빨강 장비. 점을 누르면 가격이 보여요.",
-    rdTap: "점을 누르면 무엇인지, 얼마인지 보여요.", moreH: "📖 더 보기: 이유, 역할별, 펫, 아직 모르는 것", petH: "펫",
+    ruH: "📏 가격 자", ruP: "점 하나가 한 레벨: 왼쪽이 싸고 오른쪽이 비싸 (한 칸 ×10).",
+    rdTap: "점을 누르면 가격이 보여.", moreH: "📖 더 보기: 이유, 역할별, 펫, 아직 모르는 것", petH: "펫",
     nxRes: "내 연구 단계", nxMr: "로만 진급 횟수", nxMv: "베라 진급 횟수", roman: "로만", valora: "베라", nth: "{n}회",
-    dirTip: "저렴한 레벨은 다 끝냈나요 (보석 Lv3, 연구 V단계, 영주 장비 에픽 3★, 펫 Lv50)? 그럼 방향을 정할 때예요.", dirLink: "🧭 언제 방향을 정할까 →", nxH: "🎯 내 다음 단계", nxP: "병종별로 지금 진행도를 고르세요. 아래 목록은 가장 저렴한 다음 업그레이드 8개 (+1%당 다이아), 모든 시스템·병종을 섞어서 비교.",
+    dirTip: "저렴한 레벨은 다 끝냈나요 (보석 Lv3, 연구 V단계, 영주 장비 에픽 3★, 펫 Lv50)? 그럼 방향을 정할 때예요.", dirLink: "🧭 언제 방향을 정할까 →", nxH: "🎯 내 다음 단계", nxP: "지금 진행 상황을 골라:",
     nxCharm: "내 영주 보석 (병종별 대부분 부위의 레벨)", troops: ["보병", "기병", "궁병"], nxGear: "내 영주 장비 (병종별 대부분 부위의 단계)", nxPet: "내 다음 펫 돌파", nxMast: "주력 영웅의 마스터리 제작", nxEnh: "그 주력 장비의 강화 레벨", nxPetTip: "펫 레벨업: 펫 먹이는 구하기 쉬워요 (치타 스킬 하루 200–500, 이벤트, 연맹 상점) — 올릴 수 있으면 올리세요. 희귀한 펫일수록 레벨당 부대 공격력 / 방어력이 더 크지만 먹이도 더 먹어서, +1%당 먹이는 모든 펫이 거의 같아요 (스라소니 / 들소가 가장 절약, 사자의 약 0.8배). 진짜 한계는 10레벨마다 있는 돌파 (목록에 있음) — 같은 돌파라면 N, R, SR 펫의 가치는 거의 같아요. 펫 단련은 펫에 남은 가장 큰 성장 공간이고 전부 파괴력 / HP: 펫 레벨이 나올 수 있는 최고 품질을 정해요 (Lv10 회색, Lv20 녹색, Lv30 파랑, Lv40 보라, Lv50 레전드). 파랑까지는 일반 훈련 기록, 파랑 → 보라부터는 고급 훈련 기록.",
     nxNone: "아직 없음", nxLv: "Lv{n}", nxPetDone: "이미 Lv60 넘음", nxMax: "최대", nxGo: "이것부터:", nxNote: "같은 다이아로 가장 많은 %. 파괴력 / HP (영주 보석)는 보기보다 조금 더 가치 있고, 공격력 / 방어력 (펫)은 조금 덜해요.",
     sys: { pet: "🐾 펫", ma: "🎓 거장 진급", en: "⚒️ 영웅 장비 강화", c: "💠 영주 보석", g: "🛡️ 영주 장비", pu: "🐾 펫 레벨업", pa: "🐾 펫 돌파", pr: "🐾 펫 단련", r: "🔬 연구", m: "🔨 마스터리 제작" },
@@ -327,8 +327,7 @@ function nextHtml() {
       <label>${esc(t("nxRes"))}<select class="inp" id="iv_rt">${RES.map((r, i) => opt(NX.rt, i, r[0])).join("")}</select></label>
       <label>${esc(t("nxMr"))}<select class="inp" id="iv_mr">${Array.from({ length: 11 }, (_, n) => opt(NX.mr, n, n === 10 ? t("nxMax") : String(n))).join("")}</select></label>
       <label>${esc(t("nxMv"))}<select class="inp" id="iv_mv">${Array.from({ length: 11 }, (_, n) => opt(NX.mv, n, n === 10 ? t("nxMax") : String(n))).join("")}</select></label></div>
-    <div class="iv-nxl"><b>${esc(t("nxGo"))}</b><ol>${cand.map((c) => `<li class="b${band(c.gems)}"><span class="iv-sys">${esc(S[c.sys])}${c.tr ? " · " + esc(c.tr) : ""}</span><span class="iv-lab">${esc(c.label)}</span><span class="iv-gem">${c.hi ? range(c.gems, c.hi) : fmt(c.gems)}</span></li>`).join("")}</ol></div>
-    <div class="muted iv-small">${esc(t("nxNote"))}</div>`;
+    <div class="iv-nxl"><b>${esc(t("nxGo"))}</b><ol>${cand.map((c) => `<li class="b${band(c.gems)}"><span class="iv-sys">${esc(S[c.sys])}${c.tr ? " · " + esc(c.tr) : ""}</span><span class="iv-lab">${esc(c.label)}</span><span class="iv-gem">${c.hi ? range(c.gems, c.hi) : fmt(c.gems)}</span></li>`).join("")}</ol></div>`;
 }
 function bandsHtml() {
   const S = t("sys"), steps = allSteps(), rows = BANDS.map(() => []);
@@ -367,11 +366,11 @@ function render() {
   const R = t("rows"), G = t("gives");
   const gain = (s) => (1 / (100 + s) * 100);   // how much +1% adds at a given stat, in % of total
   root.innerHTML = `
-  <div class="iv-hero"><span class="iv-badge">${esc(t("badge").replace("{d}", UPDATED))}</span><h2>${esc(t("heroH"))}</h2><p>${esc(t("heroP"))}</p></div>
+  <div class="muted iv-small" style="margin:2px 0 10px">${esc(t("badge").replace("{d}", UPDATED))}</div>
   <div class="iv-rules">${["ru1", "ru2", "ru3"].map((k, i) => `<div class="iv-rule"><span>${["🪜", "🔄", "🤝"][i]}</span><p>${esc(t(k))}</p></div>`).join("")}</div>
   <div class="card"><h3>${esc(t("ruH"))}</h3><p class="iv-p">${esc(t("ruP"))}</p><div id="iv_ruler">${rulerHtml()}</div>
     <div class="iv-key">${t("bands").map((b, i) => `<span><i class="zk b${i}"></i>${esc(b)}</span>`).join("")}</div></div>
-  <div class="card"><h3>${esc(t("nxH"))}</h3><p class="iv-p">${esc(t("nxP"))}</p><div id="iv_nx">${nextHtml()}</div><p class="iv-p" style="margin:10px 0 0">🌳 ${esc(t("dirTip"))} <a href="#growth">${esc(t("dirLink"))}</a></p></div>
+  <div class="card"><h3>${esc(t("nxH"))}</h3><p class="iv-p">${esc(t("nxP"))}</p><div id="iv_nx">${nextHtml()}</div><p class="iv-p" style="margin:10px 0 0"><a href="#growth">${esc(t("dirLink"))}</a></p></div>
   <details class="card iv-det"><summary><b>${esc(t("moreH"))}</b></summary>
   <div class="card"><h3>${esc(t("lowH"))}</h3><p class="iv-p">${esc(t("lowP"))}</p>
     <div class="iv-low">${[[50, "lowA"], [300, "lowB"]].map(([s, k]) => `<div class="iv-lc"><b>${esc(t(k))}</b><div class="iv-lb"><i style="width:${(gain(s) / gain(50) * 100).toFixed(0)}%"></i></div><span>${esc(t("lowS"))} ${gain(s).toFixed(2)}%</span></div>`).join("")}</div>
