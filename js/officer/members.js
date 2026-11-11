@@ -46,19 +46,19 @@ for (const [l, o] of Object.entries({"en": {"asAuto": "🤖 Placing members auto
 for (const [l, o] of Object.entries({
   en: { psPlan: "🧭 Planned here: {n}", psFree: "🧭 Planned spot (nobody yet)", psNow: "Sitting here now: {n}", psEdit: "👤 Edit {n}'s position",
     adT: "📌 Keep where they are", adHow: "Members whose city sits on a planned city spot (on it or overlapping it): that spot becomes theirs, at their real X:Y; their old spot becomes free. Members not on a planned spot are not touched.",
-    adBtn: "📌 Use where they sit now ({n})", adNone: "Everyone on a planned spot already matches the plan.", adQ: "The plan changes for these {n} members to where they sit now:\n{l}{lost}\n\nOK?", adLost: "\n\nThese lose their spot (someone else sits on it) — give them a new one:\n{l}", adDone: "📌 {n} spots changed.", adCnt: "On a planned city spot now: {n} · to change: {c}" },
+    adBtn: "📌 Use where they sit now ({n})", adNone: "Everyone on a planned spot already matches the plan.", adQ: "The plan changes for these {n} members to where they sit now:\n{l}{lost}\n\nOK?", adLost: "\n\nThese lose their spot (someone else sits on it) — give them a new one:\n{l}", adDone: "📌 {n} spots changed.", adCnt: "On a planned city spot now: {n} · to change: {c}", adSpots: "The plan has {n} city spots ({f} with a name, {e} empty)." },
   zh: { psPlan: "🧭 原本規劃在這裡：{n}", psFree: "🧭 規劃的空位（還沒安排人）", psNow: "現在坐在這裡：{n}", psEdit: "👤 改 {n} 的現在位置",
     adT: "📌 將錯就錯", adHow: "城坐在計畫的城堡位置上（剛好在上面或壓到一部分）的人：那一格就改成他的，座標用他現在的；他原本的格子變空位。沒坐在計畫城堡位置上的人不會動。",
-    adBtn: "📌 用現在的位置當新位置（{n} 人）", adNone: "坐在計畫城堡位置上的人都已經跟計畫一樣了。", adQ: "計畫裡這 {n} 人會改成他們現在的位置：\n{l}{lost}\n\n確定嗎？", adLost: "\n\n這些人的位置被別人坐了，會變成沒位置，要再幫他們安排：\n{l}", adDone: "📌 改了 {n} 個位置。", adCnt: "現在坐在計畫城堡位置上：{n} 人 · 要改：{c} 格" },
+    adBtn: "📌 用現在的位置當新位置（{n} 人）", adNone: "坐在計畫城堡位置上的人都已經跟計畫一樣了。", adQ: "計畫裡這 {n} 人會改成他們現在的位置：\n{l}{lost}\n\n確定嗎？", adLost: "\n\n這些人的位置被別人坐了，會變成沒位置，要再幫他們安排：\n{l}", adDone: "📌 改了 {n} 個位置。", adCnt: "現在坐在計畫城堡位置上：{n} 人 · 要改：{c} 格", adSpots: "計畫裡共有 {n} 個城堡位置（有名字 {f}、空位 {e}）。" },
   pt: { psPlan: "🧭 Planejado aqui: {n}", psFree: "🧭 Lugar planejado (ninguém ainda)", psNow: "Aqui agora: {n}", psEdit: "👤 Editar a posição de {n}",
     adT: "📌 Ficar onde estão", adHow: "Membros com a cidade num lugar planejado (em cima ou sobrepondo): esse lugar passa a ser deles, no X:Y real; o lugar antigo fica livre. Quem não está num lugar planejado não muda.",
-    adBtn: "📌 Usar onde estão agora ({n})", adNone: "Todos dentro da colmeia estão no seu lugar.", adQ: "Estes {n} membros ficam com o lugar onde estão agora:\n{l}{lost}\n\nOK?", adLost: "\n\nEstes perdem o lugar (alguém está nele) — dê um novo:\n{l}", adDone: "📌 {n} lugares mudados.", adCnt: "Num lugar planejado agora: {n} · a mudar: {c}" },
+    adBtn: "📌 Usar onde estão agora ({n})", adNone: "Todos dentro da colmeia estão no seu lugar.", adQ: "Estes {n} membros ficam com o lugar onde estão agora:\n{l}{lost}\n\nOK?", adLost: "\n\nEstes perdem o lugar (alguém está nele) — dê um novo:\n{l}", adDone: "📌 {n} lugares mudados.", adCnt: "Num lugar planejado agora: {n} · a mudar: {c}", adSpots: "O plano tem {n} lugares de cidade ({f} com nome, {e} vazios)." },
   ar: { psPlan: "🧭 المخطط هنا: {n}", psFree: "🧭 مكان مخطط (لا أحد بعد)", psNow: "هنا الآن: {n}", psEdit: "👤 تعديل موقع {n}",
     adT: "📌 ابقوا حيث أنتم", adHow: "الأعضاء الذين مدينتهم على مكان مدينة مخطط (فوقه أو متداخلة معه): يصبح ذلك المكان لهم بموقعهم الحقيقي، ومكانهم القديم يصبح فارغًا. من ليسوا على مكان مخطط لا يتغيرون.",
-    adBtn: "📌 استخدم مواقعهم الحالية ({n})", adNone: "كل من داخل الخلية في مكانه.", adQ: "هؤلاء الـ {n} يأخذون المكان الذي هم فيه الآن:\n{l}{lost}\n\nموافق؟", adLost: "\n\nهؤلاء يفقدون مكانهم (شخص آخر فيه) — أعطهم مكانًا جديدًا:\n{l}", adDone: "📌 تم تغيير {n} أماكن.", adCnt: "على مكان مخطط الآن: {n} · للتغيير: {c}" },
+    adBtn: "📌 استخدم مواقعهم الحالية ({n})", adNone: "كل من داخل الخلية في مكانه.", adQ: "هؤلاء الـ {n} يأخذون المكان الذي هم فيه الآن:\n{l}{lost}\n\nموافق؟", adLost: "\n\nهؤلاء يفقدون مكانهم (شخص آخر فيه) — أعطهم مكانًا جديدًا:\n{l}", adDone: "📌 تم تغيير {n} أماكن.", adCnt: "على مكان مخطط الآن: {n} · للتغيير: {c}", adSpots: "في الخطة {n} مكان مدينة ({f} باسم، {e} فارغ)." },
   ko: { psPlan: "🧭 원래 계획: {n}", psFree: "🧭 계획된 빈자리 (아직 없음)", psNow: "지금 여기: {n}", psEdit: "👤 {n}의 위치 수정",
     adT: "📌 지금 자리 그대로", adHow: "성이 계획된 성 자리 위에 있는(겹치는) 사람: 그 자리를 그 사람 것으로, 실제 X:Y로 바꿔요. 원래 자리는 빈자리가 돼요. 계획된 자리 위에 없는 사람은 그대로예요.",
-    adBtn: "📌 지금 자리로 정하기 ({n}명)", adNone: "하이브 안의 모두가 자기 자리에 있어요.", adQ: "이 {n}명은 지금 있는 자리로 바뀌어요:\n{l}{lost}\n\n괜찮아요?", adLost: "\n\n이 사람들은 자리를 잃어요 (다른 사람이 있음) — 새 자리를 주세요:\n{l}", adDone: "📌 {n}개 자리를 바꿨어요.", adCnt: "지금 계획된 자리 위: {n}명 · 바꿀 것: {c}" },
+    adBtn: "📌 지금 자리로 정하기 ({n}명)", adNone: "하이브 안의 모두가 자기 자리에 있어요.", adQ: "이 {n}명은 지금 있는 자리로 바뀌어요:\n{l}{lost}\n\n괜찮아요?", adLost: "\n\n이 사람들은 자리를 잃어요 (다른 사람이 있음) — 새 자리를 주세요:\n{l}", adDone: "📌 {n}개 자리를 바꿨어요.", adCnt: "지금 계획된 자리 위: {n}명 · 바꿀 것: {c}", adSpots: "계획의 성 자리: {n}개 (이름 있음 {f}, 빈자리 {e})." },
 })) Object.assign(T[l], o);
 /* 🐻 BT1 / BT2 + TC / Power in the 🚚 moving table (Sherry & Nia, 2026-11-05) — the marks are OFFICER.BT, the same list as 📊 Roster */
 for (const [l, o] of Object.entries({
@@ -801,7 +801,8 @@ function adoptCard() {
   if (!MED() || !(MV && MV.plan)) return "";
   const a = adoptList();
   return `<div class="mm-add" style="margin:12px 0"><b>${esc(t("adT"))}</b> <span class="muted" style="font-size:12.5px">${esc(t("adHow"))}</span>
-    <div style="margin-top:6px">${a.ch.length ? `<button type="button" class="btn small primary" id="mv_adopt">${esc(t("adBtn").replace("{n}", a.ch.length))}</button>` : `<span class="muted" style="font-size:12.5px">${esc(t("adNone"))}</span>`} <span class="muted" style="font-size:12.5px">${esc(t("adCnt").replace("{n}", a.inside || 0).replace("{c}", a.ch.length))}</span></div></div>`;
+    <div style="margin-top:6px">${a.ch.length ? `<button type="button" class="btn small primary" id="mv_adopt">${esc(t("adBtn").replace("{n}", a.ch.length))}</button>` : `<span class="muted" style="font-size:12.5px">${esc(t("adNone"))}</span>`} <span class="muted" style="font-size:12.5px">${esc(t("adCnt").replace("{n}", a.inside || 0).replace("{c}", a.ch.length))}</span></div>
+    <div class="muted" style="font-size:12.5px;margin-top:4px">${esc(t("adSpots").replace("{n}", MV.plan.c.length).replace("{f}", MV.plan.c.filter(([q]) => q).length).replace("{e}", MV.plan.c.filter(([q]) => !q).length))}</div></div>`;
 }
 function adoptGo() {
   if (!MED()) return; const a = adoptList(); if (!a.ch.length) return;
