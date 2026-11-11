@@ -578,8 +578,8 @@ KVK CHECKLIST (main site, for everyone)
 - From the day before KvK until the last day, a 📋 button at the bottom right of the main site shows that day's KvK checklist (KvK Prep Day 1–5, then Battle Day). Members tick items; ticks are saved on their own device.
 `;
 
-async function getText(file) {
-  const r = await fetch(SITE_BASE + file, { cf: { cacheTtl: 300 } });
+async function getText(file, fresh) {   // fresh: skip Cloudflare's 5-minute copy (a plan just saved shows within ~1 min = the site's publish time)
+  const r = await fetch(SITE_BASE + file + (fresh ? "?t=" + Date.now() : ""), fresh ? { cf: { cacheTtl: 0 } } : { cf: { cacheTtl: 300 } });
   if (!r.ok) throw new Error(file + " " + r.status);
   return r.text();
 }
@@ -828,12 +828,12 @@ async function positionsRoute(req, env, body) {
 }
 let hiveCache = { at: 0, body: null };
 async function hiveRoute(env) {
-  if (hiveCache.body && Date.now() - hiveCache.at < 120000) return json(hiveCache.body);
+  if (hiveCache.body && Date.now() - hiveCache.at < 30000) return json(hiveCache.body);
   /* officers open / hide the page with 🌐 on 🐝 Hive (data/hive-public.json { on }); hidden = nothing of the plan leaves the Worker */
-  let pub = null; try { pub = JSON.parse(await getText("data/hive-public.json")); } catch (e) {}
+  let pub = null; try { pub = JSON.parse(await getText("data/hive-public.json", 1)); } catch (e) {}
   if (!pub || !pub.on) { hiveCache = { at: Date.now(), body: { ok: true, hidden: true } }; return json(hiveCache.body); }
   let mv = null, roster = null;
-  try { mv = await openData(JSON.parse(await getText("data/move-plan-x7k2p9.json")), env); } catch (e) { return json({ ok: true, none: true }); }
+  try { mv = await openData(JSON.parse(await getText("data/move-plan-x7k2p9.json", 1)), env); } catch (e) { return json({ ok: true, none: true }); }
   try { roster = await openData(JSON.parse(await getText("data/roster-x7k2p9.json")), env); } catch (e) {}
   const P = mv && mv.plan; if (!P || !Array.isArray(P.c)) return json({ ok: true, none: true });
   const norm = (x) => String(x || "").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
