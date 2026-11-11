@@ -1467,6 +1467,22 @@ KvK 준비 단계가 시작될 때까지 건물을 TG3 단계로 유지하세요
 (see guide #kvk)
 
 ### GAME TERMS (English = official ko name)
+Fantasy Theater = 몽환 극장
+Theater = 극장
+Theater Notes = 극장 일지
+Theater Shop = 몽환 상점
+Fantasy Amulets = 몽환 부적
+Fanstars = 몽환의 별
+Fantasy Fortress = 몽환 캐슬
+Floor = 층
+Current Floor = 현재 층수
+Explore = 탐색
+Claim = 수령
+guaranteed ascent = 확정 상승
+Overview = 이벤트 설명
+Basics = 기본 설명
+Probabilities = 확률 상세정보
+Rewards History = 보상 기록
 Wavebound Voyage = 파도 위를 가르는 여행
 Voyager Team = 탐사대
 Compass = 항해 나침반
@@ -1740,7 +1756,6 @@ My Ranking = 나의 랭킹
 Unranked = 랭킹 없음
 My Points = 나의 포인트
 Target Points = 목표 포인트
-Claim = 수령
 Strongest Governor = 지고의 영주
 Stage = 단계
 Challenge Medal = 도전 훈장

@@ -1440,6 +1440,22 @@ The language buttons at the top switch the whole site (12 languages).
 (see guide #kvk)
 
 ### GAME TERMS (English = official ar name)
+Fantasy Theater = مسرح الخيال
+Theater = المسرح
+Theater Notes = مذكرات المسرح
+Theater Shop = متجر المسرح
+Fantasy Amulets = تمائم الخيال
+Fanstars = نجوم الخيال
+Fantasy Fortress = حصن الخيال
+Floor = الطابق
+Current Floor = الطابق الحالي
+Explore = استكشف
+Claim = تحصيل
+guaranteed ascent = صعود مضمون
+Overview = نظرة عامة
+Basics = أساسيات
+Probabilities = الاحتمالات
+Rewards History = سجل المكافآت
 Wavebound Voyage = رحلة الأمواج
 Voyager Team = فريق الرحلة
 Compass = بوصلة
@@ -1714,7 +1730,6 @@ My Ranking = تصنيفي
 Unranked = غير مصنف
 My Points = نقاطي
 Target Points = النقاط المستهدفة
-Claim = تحصيل
 Strongest Governor = الحاكم الأقوى
 Stage = مرحلة
 Challenge Medal = ميدالية التحدي

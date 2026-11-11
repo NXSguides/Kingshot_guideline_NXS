@@ -1443,6 +1443,21 @@ Beginne jetzt mit dem Sammeln und Sparen, damit wir bereit sind, das nächste Kv
 (see guide #kvk)
 
 ### GAME TERMS (English = official de name)
+Fantasy Theater = Fantasy-Theater
+Theater Notes = Theater-Notizen
+Theater Shop = Theaterladen
+Fantasy Amulets = Fantasy-Amulette
+Fanstars = Fan-Sterne
+Fantasy Fortress = Fantasy-Festung
+Floor = Etage
+Current Floor = Aktuelle Ebene
+Explore = Erkunden
+Claim = Einfordern
+guaranteed ascent = garantierter Aufstieg
+Overview = Übersicht
+Basics = Grundlagen
+Probabilities = Wahrscheinlichkeiten
+Rewards History = Belohnungsverlauf
 Wavebound Voyage = Wellenwärtsreise
 Voyager Team = Seefahrer-Team
 Compass = Kompass
@@ -1606,7 +1621,6 @@ My Ranking = Mein Rang
 Unranked = Kein Rang
 My Points = Meine Punkte
 Target Points = Zielpunkte
-Claim = Einfordern
 Strongest Governor = Stärkster Gouverneur
 Stage = Stufe
 Challenge Medal = Herausforderungsmedaille

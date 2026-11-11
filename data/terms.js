@@ -3,6 +3,28 @@
 const TERM_LANGS = ["en", "zh", "ko", "de", "fr", "pt", "tr", "id", "ru", "th", "ar", "es"];
 const TERMS = [
  {
+  "cat": "Fantasy Theater (event)",
+  "rows": [
+   ["Fantasy Theater", "—", "몽환 극장", "Fantasy-Theater", "Théâtre Fantaisie", "—", "—", "—", "—", "—", "مسرح الخيال", "—", "Fantasy Theater (event 2026-11), in-game screens 2026-11-11 (zh/en/ko/de/fr/ar); zh rules just say 劇場 (main screen not seen in zh)"],
+   ["Theater", "劇場", "극장", "Theater", "Théâtre", "—", "—", "—", "—", "—", "المسرح", "—", "Fantasy Theater (event 2026-11), in-game screens 2026-11-11 (zh/en/ko/de/fr/ar)"],
+   ["Theater Notes", "—", "극장 일지", "Theater-Notizen", "Notes Théâtrales", "—", "—", "—", "—", "—", "مذكرات المسرح", "—", "Fantasy Theater (event 2026-11), in-game screens 2026-11-11 (zh/en/ko/de/fr/ar)"],
+   ["Theater Shop", "—", "몽환 상점", "Theaterladen", "Magasin du Théâtre", "—", "—", "—", "—", "—", "متجر المسرح", "—", "Fantasy Theater (event 2026-11), in-game screens 2026-11-11 (zh/en/ko/de/fr/ar)"],
+   ["Fantasy Amulets", "夢幻護符", "몽환 부적", "Fantasy-Amulette", "Amulettes Fantaisies", "—", "—", "—", "—", "—", "تمائم الخيال", "—", "Fantasy Theater (event 2026-11), in-game screens 2026-11-11 (zh/en/ko/de/fr/ar); paid per Explore (20 on Floor 3)"],
+   ["Fanstars", "夢幻之星", "몽환의 별", "Fan-Sterne", "Étoiles Fantaisies", "—", "—", "—", "—", "—", "نجوم الخيال", "—", "Fantasy Theater (event 2026-11), in-game screens 2026-11-11 (zh/en/ko/de/fr/ar); 1–5 for reaching Floor 7, 5 = next Explore enters the Fantasy Fortress"],
+   ["Fantasy Fortress", "夢幻城堡", "몽환 캐슬", "Fantasy-Festung", "Fort Fantaisie", "—", "—", "—", "—", "—", "حصن الخيال", "—", "Fantasy Theater (event 2026-11), in-game screens 2026-11-11 (zh/en/ko/de/fr/ar)"],
+   ["Floor", "層", "층", "Etage", "Étage", "—", "—", "—", "—", "—", "الطابق", "—", "Fantasy Theater (event 2026-11), in-game screens 2026-11-11 (zh/en/ko/de/fr/ar)"],
+   ["Current Floor", "—", "현재 층수", "Aktuelle Ebene", "Étage Actuel", "—", "—", "—", "—", "—", "الطابق الحالي", "—", "Fantasy Theater (event 2026-11), in-game screens 2026-11-11 (zh/en/ko/de/fr/ar)"],
+   ["Explore", "探索", "탐색", "Erkunden", "Explorer", "—", "—", "—", "—", "—", "استكشف", "—", "Fantasy Theater (event 2026-11), in-game screens 2026-11-11 (zh/en/ko/de/fr/ar)"],
+   ["Claim", "領取", "수령", "Einfordern", "Récupérer", "—", "—", "—", "—", "—", "تحصيل", "—", "Fantasy Theater (event 2026-11), in-game screens 2026-11-11 (zh/en/ko/de/fr/ar); zh from the rules text (領取該層的獎勵), button not seen"],
+   ["guaranteed ascent", "必定上升", "확정 상승", "garantierter Aufstieg", "montée garantie", "—", "—", "—", "—", "—", "صعود مضمون", "—", "Fantasy Theater (event 2026-11), in-game screens 2026-11-11 (zh/en/ko/de/fr/ar)"],
+   ["—", "夢幻幣", "—", "—", "—", "—", "—", "—", "—", "—", "—", "—", "Fantasy Theater (event 2026-11), in-game screens 2026-11-11 (zh/en/ko/de/fr/ar); floor reward currency (140 / 300 / 850 / 1600 / 3000 / 6800 / 13000 for floors 2–8); English name not seen yet"],
+   ["Overview", "活動說明", "이벤트 설명", "Übersicht", "Aperçu", "—", "—", "—", "—", "—", "نظرة عامة", "—", "Fantasy Theater (event 2026-11), in-game screens 2026-11-11 (zh/en/ko/de/fr/ar)"],
+   ["Basics", "基礎說明", "기본 설명", "Grundlagen", "Les bases", "—", "—", "—", "—", "—", "أساسيات", "—", "Fantasy Theater (event 2026-11), in-game screens 2026-11-11 (zh/en/ko/de/fr/ar)"],
+   ["Probabilities", "機率詳情", "확률 상세정보", "Wahrscheinlichkeiten", "Probabilités", "—", "—", "—", "—", "—", "الاحتمالات", "—", "Fantasy Theater (event 2026-11), in-game screens 2026-11-11 (zh/en/ko/de/fr/ar)"],
+   ["Rewards History", "獎勵紀錄", "보상 기록", "Belohnungsverlauf", "Historique des Récompenses", "—", "—", "—", "—", "—", "سجل المكافآت", "—", "Fantasy Theater (event 2026-11), in-game screens 2026-11-11 (zh/en/ko/de/fr/ar)"]
+  ]
+ },
+ {
   "cat": "Wavebound Voyage",
   "rows": [
    ["Wavebound Voyage", "踏浪之旅", "파도 위를 가르는 여행", "Wellenwärtsreise", "Voyage au Fil des Vagues", "Viagem das Ondas", "Dalgalara Karşı Yolculuk", "Pelayaran Ombak", "Вояж по волнам", "การเดินทางคลื่น", "رحلة الأمواج", "Viaje Ligado a las Olas", "Wavebound Voyage (event 2026-10-20), in-game screens 2026-10-19"],

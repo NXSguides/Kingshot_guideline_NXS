@@ -1440,6 +1440,19 @@ The language buttons at the top switch the whole site (12 languages).
 (see guide #kvk)
 
 ### GAME TERMS (English = official zh name)
+Theater = 劇場
+Fantasy Amulets = 夢幻護符
+Fanstars = 夢幻之星
+Fantasy Fortress = 夢幻城堡
+Floor = 層
+Explore = 探索
+Claim = 領取
+guaranteed ascent = 必定上升
+— = 夢幻幣
+Overview = 活動說明
+Basics = 基礎說明
+Probabilities = 機率詳情
+Rewards History = 獎勵紀錄
 Wavebound Voyage = 踏浪之旅
 Voyager Team = 探索隊
 Compass = 航海羅盤
@@ -1705,7 +1718,6 @@ My Ranking = 我的排名
 Unranked = 未上榜
 My Points = 我的積分
 Target Points = 目標積分
-Claim = 領取
 Strongest Governor = 至高領主
 Stage = 階段
 Challenge Medal = 挑戰勳章

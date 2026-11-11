@@ -1442,6 +1442,22 @@ Commencez à récolter et à économiser dès maintenant afin d'être prêts à 
 (see guide #kvk)
 
 ### GAME TERMS (English = official fr name)
+Fantasy Theater = Théâtre Fantaisie
+Theater = Théâtre
+Theater Notes = Notes Théâtrales
+Theater Shop = Magasin du Théâtre
+Fantasy Amulets = Amulettes Fantaisies
+Fanstars = Étoiles Fantaisies
+Fantasy Fortress = Fort Fantaisie
+Floor = Étage
+Current Floor = Étage Actuel
+Explore = Explorer
+Claim = Récupérer
+guaranteed ascent = montée garantie
+Overview = Aperçu
+Basics = Les bases
+Probabilities = Probabilités
+Rewards History = Historique des Récompenses
 Wavebound Voyage = Voyage au Fil des Vagues
 Voyager Team = Équipage
 Compass = Boussole
@@ -1613,7 +1629,6 @@ My Ranking = Mon Classement
 Unranked = Non classé
 My Points = Mes Points
 Target Points = Points Cibles
-Claim = Récupérer
 Strongest Governor = Haut Gouverneur
 Stage = étape
 Challenge Medal = Médaille de Défi
