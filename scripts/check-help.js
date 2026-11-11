@@ -33,6 +33,7 @@ const FEATURES = [
   ["Site: 📅 This week short lines + 📝 to-do days", /📅 This week card on the home page \(short version/, /📝 = something to do today/],
   ["Site: ⏰ KvK battle-day game reminders (10:00 / 12:00 UTC)", /KvK city attacks \(10:00 UTC\)/, /KvK city attacks \(10:00 UTC\)/],
   ["Scout: ⚡ Opponents now (battle-time fetch, batches, find by name, download)", /⚡ OPPONENTS NOW/, /ak08: "⚡ Opponents now/],
+  ["Move: 👆 city on a planned spot = planned person; 📌 keep where they are; 🏠 HQ follows", /TAP A CITY ON A PLANNED SPOT \(2026-11-11/, /mv12: "📌 Keep where they are/],
   ["Move: 📍 Update positions (positions only, ~10 s)", /📍 Where everyone is now" \(2026-11-11\)/, /📍 Where everyone is now: after members move/],
   ["Site: 📍 light = not on their spot yet; officer buttons", /map colours \(Sherry 2026-11-10\)/, /Light spots = that member isn't on their spot yet/],
   ["Site: 📍 wrong-spot lists (🤗 / 🙃 / 🫥)", /wrong-spot lists/, /🤗 sitting on someone's spot/],

@@ -42,6 +42,24 @@ for (const [l, o] of Object.entries({"en": {"mpFail": "⚠️ {n} players couldn
 for (const [l, o] of Object.entries({"en": {"mpT": "📍 Positions from the roster", "mpHow": "Every member's castle X:Y comes with the roster (MightPulse, every day at 20:13 UTC). MightPulse only knows new positions after someone presses “Update Map” on its map. After members move: ① open the MightPulse map and press Update Map ② 🔄 Update roster now (about 5 minutes — the same button as on 🕵️ Watch) ③ check the changes ④ ✅ Use these positions (it saves 👥 Member positions).", "mpFail": "⚠️ {n} members have no position on MightPulse — they are left as they are.", "mpStep": "When they have moved: press Update Map on MightPulse, then 🔄 Update roster now (📍 card above).", "mpLast": "📍 Roster {t}"}, "zh": {"mpT": "📍 從名單更新座標", "mpHow": "每個人的城堡座標都在名單裡（MightPulse，每天 20:13 UTC 自動更新）。MightPulse 要有人在它的地圖按「Update Map」才會知道新座標。成員搬完之後：① 打開 MightPulse 地圖按 Update Map ② 按 🔄 立即更新名單（大約 5 分鐘，跟 🕵️ 觀察頁是同一個按鈕）③ 確認變動 ④ 按 ✅ 套用這些座標（會存進 👥 成員位置）。", "mpFail": "⚠️ 有 {n} 個人在 MightPulse 上沒有座標，先不動。", "mpStep": "搬完之後：去 MightPulse 按 Update Map，再按 🔄 立即更新名單（上面的 📍 卡片）。", "mpLast": "📍 名單 {t}"}, "pt": {"mpT": "📍 Posições do roster", "mpHow": "O X:Y do castelo de cada membro vem com o roster (MightPulse, todo dia às 20:13 UTC). O MightPulse só sabe as posições novas depois que alguém aperta “Update Map” no mapa dele. Depois que os membros mudarem: ① abra o mapa do MightPulse e aperte Update Map ② 🔄 Atualizar o roster agora (uns 5 minutos — o mesmo botão do 🕵️ Vigilância) ③ confira as mudanças ④ ✅ Usar estas posições (salva 👥 Posições dos membros).", "mpFail": "⚠️ {n} membros não têm posição no MightPulse — ficam como estão.", "mpStep": "Depois que mudarem: aperte Update Map no MightPulse e depois 🔄 Atualizar o roster agora (cartão 📍 acima).", "mpLast": "📍 Roster {t}"}, "ar": {"mpT": "📍 المواقع من القائمة", "mpHow": "إحداثيات قلعة كل عضو تأتي مع القائمة (MightPulse، كل يوم 20:13 UTC). لا يعرف MightPulse المواقع الجديدة إلا بعد أن يضغط أحد “Update Map” على خريطته. بعد انتقال الأعضاء: ① افتح خريطة MightPulse واضغط Update Map ② 🔄 حدّث القائمة الآن (نحو 5 دقائق — نفس زر 🕵️ المراقبة) ③ راجع التغييرات ④ ✅ استخدم هذه المواقع (تُحفظ في 👥 مواقع الأعضاء).", "mpFail": "⚠️ {n} أعضاء بلا موقع في MightPulse — تبقى كما هي.", "mpStep": "بعد انتقالهم: اضغط Update Map في MightPulse ثم 🔄 حدّث القائمة الآن (بطاقة 📍 أعلاه).", "mpLast": "📍 القائمة {t}"}, "ko": {"mpT": "📍 명단에서 위치 가져오기", "mpHow": "연맹원마다 성 X:Y가 명단에 들어 있어요 (MightPulse, 매일 20:13 UTC). MightPulse는 누군가 지도에서 “Update Map”을 눌러야 새 위치를 알아요. 연맹원이 이사한 뒤: ① MightPulse 지도를 열고 Update Map 누르기 ② 🔄 명단 지금 업데이트 (약 5분 — 🕵️ 관찰 탭과 같은 버튼) ③ 변경 확인 ④ ✅ 이 위치 사용 (👥 연맹원 위치에 저장돼요).", "mpFail": "⚠️ {n}명은 MightPulse에 위치가 없어요 — 그대로 둬요.", "mpStep": "이사한 뒤: MightPulse에서 Update Map을 누르고 🔄 명단 지금 업데이트 (위의 📍 카드).", "mpLast": "📍 명단 {t}"}})) Object.assign(T[l], o);
 for (const [l, o] of Object.entries({"en": {"mpT": "📍 Where everyone is now", "mpHow": "After members move: ① open the MightPulse map and press Update Map ② press 📍 Update positions (about 10 seconds — only positions, not the whole roster) ③ check the changes ④ ✅ Use these positions.", "mpBtn": "📍 Update positions", "mpBusy": "Looking up…", "mpGot": "📍 Positions {t} · {n} members", "mpErr": "⚠️ Couldn't get positions — try again in a minute."}, "zh": {"mpT": "📍 大家現在的位置", "mpHow": "成員搬完之後：① 打開 MightPulse 地圖按 Update Map ② 按 📍 更新位置（大約 10 秒，只抓位置，不更新整份名單）③ 確認變動 ④ 按 ✅ 套用這些座標。", "mpBtn": "📍 更新位置", "mpBusy": "查詢中…", "mpGot": "📍 位置 {t} · {n} 人", "mpErr": "⚠️ 位置抓不到——過一分鐘再試。"}, "pt": {"mpT": "📍 Onde cada um está agora", "mpHow": "Depois que os membros mudarem: ① abra o mapa da MightPulse e aperte Update Map ② aperte 📍 Atualizar posições (uns 10 segundos — só as posições, não o roster todo) ③ confira as mudanças ④ ✅ Usar estas posições.", "mpBtn": "📍 Atualizar posições", "mpBusy": "Buscando…", "mpGot": "📍 Posições {t} · {n} membros", "mpErr": "⚠️ Não deu para buscar as posições — tente de novo em um minuto."}, "ar": {"mpT": "📍 أين الجميع الآن", "mpHow": "بعد انتقال الأعضاء: ① افتح خريطة MightPulse واضغط Update Map ② اضغط 📍 تحديث المواقع (نحو 10 ثوانٍ — المواقع فقط، لا القائمة كلها) ③ راجع التغييرات ④ ✅ استخدم هذه المواقع.", "mpBtn": "📍 تحديث المواقع", "mpBusy": "جارٍ البحث…", "mpGot": "📍 المواقع {t} · {n} عضوًا", "mpErr": "⚠️ تعذّر جلب المواقع — حاول بعد دقيقة."}, "ko": {"mpT": "📍 지금 모두의 위치", "mpHow": "연맹원이 이사한 뒤: ① MightPulse 지도를 열고 Update Map을 누르세요 ② 📍 위치 업데이트 (약 10초 — 위치만, 명단 전체는 아님) ③ 변경 확인 ④ ✅ 이 위치 사용.", "mpBtn": "📍 위치 업데이트", "mpBusy": "찾는 중…", "mpGot": "📍 위치 {t} · {n}명", "mpErr": "⚠️ 위치를 못 가져왔어요 — 1분 뒤 다시 해 보세요."}})) Object.assign(T[l] = T[l] || {}, o);   // 📍 positions only, through the Worker (Sherry 2026-11-11)
 for (const [l, o] of Object.entries({"en": {"asAuto": "🤖 Placing members automatically isn't set up yet — for now, put them on the spots by hand. Want it automatic? Ask Sparrow."}, "zh": {"asAuto": "🤖 自動分配成員還沒有做——目前請手動把成員放到位置上。想要自動分配的話，請找 Sparrow。"}, "pt": {"asAuto": "🤖 A distribuição automática dos membros ainda não existe — por enquanto, coloque-os nos lugares à mão. Quer automático? Fale com a Sparrow."}, "ar": {"asAuto": "🤖 توزيع الأعضاء تلقائيًا غير متوفر بعد — ضعهم في الأماكن يدويًا الآن. تريده تلقائيًا؟ اسأل Sparrow."}, "ko": {"asAuto": "🤖 연맹원 자동 배치는 아직 없어요 — 지금은 직접 자리에 배치하세요. 자동으로 하고 싶으면 Sparrow에게 물어보세요."}})) Object.assign(T[l], o);
+/* 🧭 tap a city on a planned spot = the planned person; 📌 keep where they are (Nia, 2026-11-11); HQ follows the move */
+for (const [l, o] of Object.entries({
+  en: { psPlan: "🧭 Planned here: {n}", psFree: "🧭 Planned spot (nobody yet)", psNow: "Sitting here now: {n}", psEdit: "👤 Edit {n}'s position",
+    adT: "📌 Keep where they are", adHow: "Members of the plan who are inside the new hive but not on their spot: their spot becomes where they sit now. Members outside the hive are not touched.",
+    adBtn: "📌 Use where they sit now ({n})", adNone: "Everyone inside the hive is on their spot.", adQ: "These {n} members get the spot they sit on now:\n{l}{lost}\n\nOK?", adLost: "\n\nThese lose their spot (someone sits on it now) — give them a new one:\n{l}", adDone: "📌 {n} spots changed." },
+  zh: { psPlan: "🧭 原本規劃在這裡：{n}", psFree: "🧭 規劃的空位（還沒安排人）", psNow: "現在坐在這裡：{n}", psEdit: "👤 改 {n} 的現在位置",
+    adT: "📌 將錯就錯", adHow: "計畫裡的人，已經在新的 Hive 範圍內但不在自己位置上：直接把他現在的位置當成他的位置。不在 Hive 範圍內的人不會動。",
+    adBtn: "📌 用現在的位置當新位置（{n} 人）", adNone: "Hive 範圍內的人都在自己的位置上。", adQ: "這 {n} 人會改成他們現在坐的位置：\n{l}{lost}\n\n確定嗎？", adLost: "\n\n這些人的位置被別人坐了，會變成沒位置，要再幫他們安排：\n{l}", adDone: "📌 改了 {n} 個位置。" },
+  pt: { psPlan: "🧭 Planejado aqui: {n}", psFree: "🧭 Lugar planejado (ninguém ainda)", psNow: "Aqui agora: {n}", psEdit: "👤 Editar a posição de {n}",
+    adT: "📌 Ficar onde estão", adHow: "Membros do plano que estão dentro da nova colmeia mas fora do seu lugar: o lugar passa a ser onde estão agora. Quem está fora da colmeia não muda.",
+    adBtn: "📌 Usar onde estão agora ({n})", adNone: "Todos dentro da colmeia estão no seu lugar.", adQ: "Estes {n} membros ficam com o lugar onde estão agora:\n{l}{lost}\n\nOK?", adLost: "\n\nEstes perdem o lugar (alguém está nele) — dê um novo:\n{l}", adDone: "📌 {n} lugares mudados." },
+  ar: { psPlan: "🧭 المخطط هنا: {n}", psFree: "🧭 مكان مخطط (لا أحد بعد)", psNow: "هنا الآن: {n}", psEdit: "👤 تعديل موقع {n}",
+    adT: "📌 ابقوا حيث أنتم", adHow: "أعضاء الخطة داخل الخلية الجديدة لكن ليسوا في مكانهم: يصبح مكانهم حيث هم الآن. من هم خارج الخلية لا يتغيرون.",
+    adBtn: "📌 استخدم مواقعهم الحالية ({n})", adNone: "كل من داخل الخلية في مكانه.", adQ: "هؤلاء الـ {n} يأخذون المكان الذي هم فيه الآن:\n{l}{lost}\n\nموافق؟", adLost: "\n\nهؤلاء يفقدون مكانهم (شخص آخر فيه) — أعطهم مكانًا جديدًا:\n{l}", adDone: "📌 تم تغيير {n} أماكن." },
+  ko: { psPlan: "🧭 원래 계획: {n}", psFree: "🧭 계획된 빈자리 (아직 없음)", psNow: "지금 여기: {n}", psEdit: "👤 {n}의 위치 수정",
+    adT: "📌 지금 자리 그대로", adHow: "새 하이브 안에 있지만 자기 자리가 아닌 계획 인원: 지금 있는 자리를 그 사람의 자리로 바꿔요. 하이브 밖의 사람은 그대로예요.",
+    adBtn: "📌 지금 자리로 정하기 ({n}명)", adNone: "하이브 안의 모두가 자기 자리에 있어요.", adQ: "이 {n}명은 지금 있는 자리로 바뀌어요:\n{l}{lost}\n\n괜찮아요?", adLost: "\n\n이 사람들은 자리를 잃어요 (다른 사람이 있음) — 새 자리를 주세요:\n{l}", adDone: "📌 {n}개 자리를 바꿨어요." },
+})) Object.assign(T[l], o);
 /* 🐻 BT1 / BT2 + TC / Power in the 🚚 moving table (Sherry & Nia, 2026-11-05) — the marks are OFFICER.BT, the same list as 📊 Roster */
 for (const [l, o] of Object.entries({
   en: { rsb: "Bread", rsq: "Stone", rsi: "Iron", rsw: "Wood", rsSum: "🌾 Resources inside the plan's territory: {n} ({l}) — a node counts when ≥ 75% (3 of its 4 tiles) is our territory.", rsYes: "ours", rsNo: "not ours", rsCov: "{c}/4 tiles in the plan's territory", pngB: "🖼️ Save as image (PNG)", pngWait: "Making the image…", pubOn: "🌐 Show the public page", pubOff: "🙈 Hide the public page", pubT: "📍 Public page “Where's my spot?”: {s}", pubYes: "shown", pubNo: "hidden", pubN: "Members see their new spot there. Opening / hiding takes a few minutes to reach everyone.", pubSaving: "Saving…", swapB: "⇄ Swap BT1 / BT2", swapOk: "Bear Trap 1 and 2 swapped on the plan.", expB: "📤 Export CSV (Kingshot Mapper)", expN: "The plan with the members on their spots, as a Kingshot Mapper CSV — open it in ksmapper.pages.dev for the next move, or load it here again.", tipFree: "empty spot", tipBt: "Bear Trap", btNo: "No BT mark", colTc: "TC", colPw: "Power", colBt: "BT1 · BT2", btNote: "Tick the left box for Bear Trap 1, the right box for Bear Trap 2 — the same marks as 📊 Roster → 🐻 BT groups.", bt1: "🐻 BT1", bt2: "🐻 BT2", btNone: "nobody yet", btCopy: "📋 Copy", btCopied: "Copied!", btBoth: "{n} in both", noSpot: "No new spot yet ({n}):" },
@@ -62,6 +80,7 @@ function mcmp(a, b, ma, mb) {   // a, b = names; ma, mb = roster members (or nul
   return MSORT.d < 0 ? y - x || (+(mb && mb.power) || 0) - (+(ma && ma.power) || 0) : x - y || (+(ma && ma.power) || 0) - (+(mb && mb.power) || 0);
 }
 const BTC = { "1": "#3b82f6", "2": "#f59e0b", "12": "#a855f7" };   // BT1 blue · BT2 orange · both purple (same as 📊 Roster)
+let NOWAT = null;   // the city sitting on the tapped planned spot (index in D.m)
 let SPOT = null;   // 🧭 the planned spot tapped on the map (index in MV.plan.c), to put a member there
 let lang = "en", G = null, D = null, SAVED = "", SEL = null, msg = "", roster = null, banners = [], pasteOpen = false, onlyLeft = false;
 /* 🚚 moving plan — its own officer tab (#move), admins only unless the 👥 table gives it; saved apart from the positions */
@@ -159,7 +178,7 @@ async function mpApply() {
 }
 /* 🚩 banners ticked by hand in 🧭 Move steps count as standing on 🗺️ Map too (and Map's own ✅ Built shows here by itself) */
 function ticked() { const set = new Set(((MV && MV.st) || {}).b || []); return ((MV && MV.plan && MV.plan.b) || []).filter(([x, y]) => set.has(x + "," + y)).map(([x, y]) => [x, y]); }
-const mapSync = () => { try { if (window.KM_SHARED && KM_SHARED.moveChanged) KM_SHARED.moveChanged(); } catch (e) {} };
+const mapSync = () => { try { hqFollow(); } catch (e) {} try { if (window.KM_SHARED && KM_SHARED.moveChanged) KM_SHARED.moveChanged(); } catch (e) {} };
 const t = (k) => (T[lang] || T.en)[k] || T.en[k];
 const ED = () => OFFICER.can("map", "edit");
 const norm = (s) => String(s || "").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
@@ -293,9 +312,9 @@ function draw(boxId = "mm_map") {
     + (farI.size ? `<div class="muted" style="font-size:12.5px;margin-top:4px">${esc(t("far"))} ${[...farI].map((i) => `${esc(cities[i][0])} X:${cities[i][1]} Y:${cities[i][2]}`).join(" · ")}</div>` : "");
   if (jb) jb.querySelectorAll("[data-z]").forEach((x) => x.onclick = () => zoomTo(box, +x.dataset.z === 0 ? 1 : ZOOM * (+x.dataset.z > 0 ? 1.25 : 0.8)));
   if (jb) jb.querySelectorAll("[data-j]").forEach((b) => b.onclick = () => JUMP[b.dataset.j] && JUMP[b.dataset.j]());
-  box.querySelectorAll(".mm-c").forEach((g) => { g.onclick = () => select(+g.dataset.i, false); g.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(+g.dataset.i, false); } }; });
+  box.querySelectorAll(".mm-c").forEach((g) => { g.onclick = () => tapCity(+g.dataset.i); g.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); tapCity(+g.dataset.i); } }; });
   box.querySelectorAll(".mm-b").forEach((g) => g.onclick = () => { const k = g.dataset.k; SEL = null; info(k); draw(); });
-  if (MED()) box.querySelectorAll(".mm-ps").forEach((g) => g.onclick = () => { SPOT = +g.dataset.p; SEL = null; draw(); info(); const i = $("mm_asn"); if (i) i.focus({ preventScroll: true }); });
+  box.querySelectorAll(".mm-ps").forEach((g) => g.onclick = () => { SPOT = +g.dataset.p; SEL = null; NOWAT = null; draw(); info(); const i = $("mm_asn"); if (i) i.focus({ preventScroll: true }); });
 }
 /* 🖱️ drag the map with the mouse (touch already scrolls by itself); a drag doesn't count as a tap on a city / spot */
 /* 🌾 resource nodes (data/resources-2189.json, from Kingshot Mapper's built-in map): 2×2, X,Y = corner like a city. A node is the
@@ -357,7 +376,7 @@ function dragPan(box) {
 function assign(i, name) {
   const c = MV.plan && MV.plan.c, r = c && c[i]; if (!r) return;
   if (name) c.forEach((q) => { if (norm(q[0]) === norm(name)) q[0] = ""; });
-  r[0] = name || ""; mvMsg = (name ? t("asDone").replace("{n}", name).replace("{x}", r[1]).replace("{y}", r[2]) + " · " : "") + t("unsaved");
+  r[0] = name || ""; NOWAT = null; mvMsg = (name ? t("asDone").replace("{n}", name).replace("{x}", r[1]).replace("{y}", r[2]) + " · " : "") + t("unsaved");
   // jump to the next empty spot close by, so a row of spots can be filled one tap after another
   if (name) { const fr = c.map((q, j) => [j, q]).filter(([, q]) => !q[0]).sort((a, b) => Math.hypot(a[1][1] - r[1], a[1][2] - r[2]) - Math.hypot(b[1][1] - r[1], b[1][2] - r[2]))[0]; SPOT = fr ? fr[0] : null; }
   render(); renderMove();
@@ -371,8 +390,17 @@ function legend0() {
   const sw = (c, txt, dash) => `<span class="mm-lg"><i style="background:${c};${dash ? "border:1.5px dashed #fff;" : ""}"></i>${esc(txt)}</span>`;
   return (MED() ? `<div class="muted" style="font-size:12.5px;margin:4px 0">${esc(t("asTip"))}</div><div class="mv-auto" style="font-size:12.5px;margin:4px 0;padding:6px 10px;border-radius:10px;background:var(--panel-2)">${esc(t("asAuto"))}</div>` : "") + `<div class="mm-legend">${sw("#9ec3f0", t("lgNow"))}${sw("#ffffff33", t("lgSpot"), 1)}${sw("#8fd19e", t("lgThere"))}${sw(TAGC.R, t("lgRoad"))}${sw(TAGC.P, t("lgEarly"))}${sw(TAGC.S1, t("lgS1"))}${sw(TAGC.S2, t("lgS2"))}${sw("#0b3d91", t("lgBuilt"))}${sw("#8e6bbf88", t("lgHq"), 1)}<span class="mm-lg"><b style="color:#ff6b6b">✖</b> ${esc(t("lgKill"))}</span></div>`;
 }
+/* a city drawn over a planned spot: the tap shows who was PLANNED there (Sherry, 2026-11-11 — that is what you change);
+   "👤 Edit …" under it opens the person sitting there */
+function tapCity(i) {
+  const pc = (MV && MV.plan && MV.plan.c) || [], c = D.m[i]; if (!c) return;
+  let best = -1, bd = 9;
+  pc.forEach(([, x, y], pi) => { const d = Math.abs(x - c[1]) + Math.abs(y - c[2]); if (Math.abs(x - c[1]) <= 1 && Math.abs(y - c[2]) <= 1 && d < bd) { bd = d; best = pi; } });
+  if (best < 0) return select(i, false);
+  SPOT = best; SEL = null; NOWAT = i; draw(); info();
+}
 function select(i, scroll) {
-  SEL = i; SPOT = null; draw(); info();
+  SEL = i; SPOT = null; NOWAT = null; draw(); info();
   if (scroll) { const g = $("mm_map").querySelector(`.mm-c[data-i="${i}"]`), box = $("mm_map"); if (g) { const r = g.getBoundingClientRect(), b = box.getBoundingClientRect(); box.scrollLeft += r.left - b.left - b.width / 2 + r.width / 2; box.scrollTop += r.top - b.top - b.height / 2; } }
 }
 /* 🧭 "Not placed yet" names, grouped by 🐻 BT1 / BT2 (Sherry, 2026-11-05) — the same marks as the moving table and 📊 Roster */
@@ -392,10 +420,14 @@ function info(k) {
     el.innerHTML = `<b>${esc(bt ? `${t("bt")} ${+k[2] + 1}` : `[NXS] ${t("hq")}`)}</b> · X:${x} Y:${y}` + (bt && ED() ? ` <span class="mm-ed"><input class="inp" id="mm_bx" type="number" value="${x}"> <input class="inp" id="mm_by" type="number" value="${y}"> <button class="btn small" id="mm_bok">${esc(t("edit"))}</button></span>` : "");
     if ($("mm_bok")) $("mm_bok").onclick = () => { D.bt[+k[2]] = [+$("mm_bx").value, +$("mm_by").value]; msg = t("unsaved"); render(); };
     return; }
-  if (SEL == null && SPOT != null && MV.plan && MV.plan.c[SPOT] && MED()) {
+  if (SEL == null && SPOT != null && MV.plan && MV.plan.c[SPOT]) {
     const [n, x, y] = MV.plan.c[SPOT], placed = new Set(MV.plan.c.map(([q]) => norm(q)).filter(Boolean));
+    const nw = NOWAT != null && D.m[NOWAT] && norm(D.m[NOWAT][0]) !== norm(n) ? D.m[NOWAT][0] : "";
+    const nowL = nw ? `<div style="margin-top:4px">${esc(t("psNow").replace("{n}", nw))} <button type="button" class="btn small" id="mm_nowed">${esc(t("psEdit").replace("{n}", nw))}</button></div>` : "";
+    const bindNow = () => { if ($("mm_nowed")) $("mm_nowed").onclick = () => select(NOWAT, false); };
+    if (!MED()) { el.innerHTML = `<b>${esc(n ? t("psPlan").replace("{n}", n) : t("psFree"))}</b> · X:${x} Y:${y}${nowL}`; bindNow(); return; }
     const left = [...new Set(D.m.map(([q]) => q))].filter((q) => !placed.has(norm(q))).sort((a, b) => a.localeCompare(b));
-    el.innerHTML = `<b>${esc(t("asT").replace("{x}", x).replace("{y}", y))}</b>${n ? ` · <span><bdi>${esc(n)}</bdi></span>` : ""}
+    el.innerHTML = `<b>${esc(t("asT").replace("{x}", x).replace("{y}", y))}</b> · <b>${esc(n ? t("psPlan").replace("{n}", n) : t("psFree"))}</b>${nowL}
       <div class="mm-ed" style="margin-top:6px"><input class="inp" id="mm_asn" list="mm_asl" value="${esc(n || "")}" placeholder="${esc(t("asName"))}" style="width:160px"><datalist id="mm_asl">${left.map((q) => `<option value="${esc(q)}">`).join("")}</datalist>
       <button class="btn small primary" id="mm_asok">${esc(t("asOk"))}</button>${n ? ` <button class="btn small" id="mm_asclr">${esc(t("asClr"))}</button>` : ""}</div>
       ${left.length ? `<div class="muted" style="font-size:12.5px;margin-top:6px">${esc(t("asLeft").replace("{n}", left.length))}</div><div class="mm-asl">${asGroups(left)}</div>` : ""}`;
@@ -403,7 +435,7 @@ function info(k) {
     $("mm_asn").onkeydown = (e) => { if (e.key === "Enter") assign(SPOT, $("mm_asn").value.trim()); };
     if ($("mm_asclr")) $("mm_asclr").onclick = () => assign(SPOT, "");
     el.querySelectorAll("[data-as]").forEach((b) => b.onclick = () => assign(SPOT, b.dataset.as));
-    return; }
+    bindNow(); return; }
   if (SEL == null || !D.m[SEL]) { el.innerHTML = ""; return; }
   const [n, x, y] = D.m[SEL], m = rosterIndex()[norm(n)];
   el.innerHTML = `<b><bdi>${esc(n)}</bdi></b>${m && norm(m.name) !== norm(n) ? ` <span class="muted">(≈ ${esc(m.name)})</span>` : ""} · X:${x} Y:${y}${m && m.power ? ` · ${esc(t("pw"))} ${fmtPw(+m.power)}` : ""} <button class="btn small" id="mm_copy">${esc(t("copy"))}</button>`
@@ -703,7 +735,7 @@ function steps() {
   const ico = (d) => d ? "✅" : "⬜";
   const chip = (b) => { const d = bState(b); return `<button type="button" class="btn small mv-chip${d ? " ok" : ""}" data-b="${b[0]},${b[1]}"${d === 2 || !ed ? " disabled" : ""}${d === 2 ? ` title="${esc(t("autoB"))}"` : ""}>${ico(d)} ${b[2] ? `<b>${esc(b[2])}</b> ` : ""}${b[0]},${b[1]}</button>`; };
   const kchip = ([x, y, n]) => { const d = gone.has(x + "," + y); return `<button type="button" class="btn small mv-chip${d ? " ok" : ""}" data-k="${x},${y}"${ed ? "" : " disabled"}>${ico(d)} ✖ ${esc(n || "")} ${x},${y}</button>`; };
-  const hq = (PL.hq || [])[0], hqAuto = hq && G && G.hq && G.hq[0] && G.hq[0][0] === hq[0] && G.hq[0][1] === hq[1], hqD = hqAuto ? 2 : st.hq ? 1 : 0;
+  const hq = (PL.hq || [])[0], h0 = HQ0 || (G && G.hq && G.hq[0]), hqAuto = hq && h0 && h0[0] === hq[0] && h0[1] === hq[1], hqD = hqAuto ? 2 : st.hq ? 1 : 0;
   const pt = PL.bt || [], btD = pt.map(([x, y], i) => D.bt[i] && D.bt[i][0] === x && D.bt[i][1] === y ? 2 : (st.bt || [])[i] ? 1 : 0);
   /* members: each planned spot belongs to the Bear Trap it is closest to */
   const here = {}; D.m.forEach(([n, x, y]) => here[norm(n)] = [x, y]); const doneSet = new Set((MV.done || []).map(norm));
@@ -735,15 +767,51 @@ function bindSteps(el) {
   const tog = (key, v) => { const st = MV.st = MV.st || {}, set = new Set(st[key] || []); if (set.has(v)) set.delete(v); else set.add(v); st[key] = [...set]; mvMsg = t("unsaved"); render(); renderMove(); if (key === "b") mapSync(); };
   el.querySelectorAll(".mv-chip[data-b]").forEach((b) => b.onclick = () => MED() && tog("b", b.dataset.b));
   el.querySelectorAll(".mv-chip[data-k]").forEach((b) => b.onclick = () => MED() && tog("k", b.dataset.k));
-  el.querySelectorAll(".mv-chip[data-hq]").forEach((b) => b.onclick = () => { if (!MED()) return; MV.st = MV.st || {}; MV.st.hq = !MV.st.hq; mvMsg = t("unsaved"); renderMove(); });
+  el.querySelectorAll(".mv-chip[data-hq]").forEach((b) => b.onclick = () => { if (!MED()) return; MV.st = MV.st || {}; MV.st.hq = !MV.st.hq; mvMsg = t("unsaved"); mapSync(); render(); renderMove(); });
   el.querySelectorAll(".mv-chip[data-bt]").forEach((b) => b.onclick = () => { if (!MED()) return; const st = MV.st = MV.st || {}, i = +b.dataset.bt; st.bt = st.bt || []; st.bt[i] = !st.bt[i]; mvMsg = t("unsaved"); renderMove(); });
+}
+/* 📌 keep where they are (Nia, 2026-11-11): plan members who sit inside the new hive (HQ 15×15 + banners 7×7) but not on
+   their spot get the spot they sit on now; members outside the hive are never touched. A planned spot someone now sits on
+   is dropped, and its owner (if any) is listed so officers give them a new spot. */
+function adoptList() {
+  const PL = MV && MV.plan; if (!PL || !D) return { ch: [], lost: [] };
+  const T = planTerr(PL), here = {}, done = new Set((MV.done || []).map(norm)); D.m.forEach(([n, x, y]) => { here[norm(n)] = [x, y]; });
+  const inHive = (x, y) => [[0, 0], [1, 0], [0, 1], [1, 1]].some(([a, b]) => T.has((x + a) + "," + (y + b)));
+  const ch = [];
+  (PL.c || []).forEach((e, pi) => { const [n, x, y] = e, h = n && here[norm(n)]; if (!h || done.has(norm(n)) || (h[0] === x && h[1] === y) || !inHive(h[0], h[1])) return; ch.push({ pi, n, to: h }); });
+  const mv = new Set(ch.map((c) => c.pi)), drop = new Set(), lost = [];
+  (PL.c || []).forEach(([n, x, y], pi) => { if (mv.has(pi)) return; if (ch.some((c) => Math.abs(c.to[0] - x) <= 1 && Math.abs(c.to[1] - y) <= 1)) { drop.add(pi); if (n) lost.push(n); } });
+  return { ch, drop, lost };
+}
+function adoptCard() {
+  if (!MED() || !(MV && MV.plan)) return "";
+  const a = adoptList();
+  return `<div class="mm-add" style="margin:12px 0"><b>${esc(t("adT"))}</b> <span class="muted" style="font-size:12.5px">${esc(t("adHow"))}</span>
+    <div style="margin-top:6px">${a.ch.length ? `<button type="button" class="btn small primary" id="mv_adopt">${esc(t("adBtn").replace("{n}", a.ch.length))}</button>` : `<span class="muted" style="font-size:12.5px">${esc(t("adNone"))}</span>`}</div></div>`;
+}
+function adoptGo() {
+  if (!MED()) return; const a = adoptList(); if (!a.ch.length) return;
+  const l = a.ch.map((c) => `${c.n}: X:${MV.plan.c[c.pi][1]} Y:${MV.plan.c[c.pi][2]} → X:${c.to[0]} Y:${c.to[1]}`).join("\n");
+  if (!window.confirm(t("adQ").replace("{n}", a.ch.length).replace("{l}", l).replace("{lost}", a.lost.length ? t("adLost").replace("{l}", a.lost.join(", ")) : ""))) return;
+  for (const c of a.ch) { MV.plan.c[c.pi][1] = c.to[0]; MV.plan.c[c.pi][2] = c.to[1]; }
+  MV.plan.c = MV.plan.c.filter((e, pi) => !a.drop.has(pi)); SPOT = null; NOWAT = null;
+  mvMsg = t("adDone").replace("{n}", a.ch.length) + " " + t("unsaved"); render(); renderMove();
+}
+/* 🏠 our HQ follows the move (Sherry, 2026-11-11): once the plan's HQ step is ticked, the plan's new HQ is our HQ on
+   🗺️ Map and here (data/kingdom-map.js keeps the old one; unticking puts it back) */
+let HQ0 = null;
+function hqFollow() {
+  if (!G || !G.hq || !G.hq[0]) return; if (!HQ0) HQ0 = G.hq[0].slice();
+  const h = MV && MV.plan && MV.st && MV.st.hq && (MV.plan.hq || [])[0], to = h ? [h[0], h[1]] : HQ0;
+  if (G.hq[0][0] === to[0] && G.hq[0][1] === to[1]) return;
+  G.hq[0] = to.slice(); try { if (window.KM_SHARED && KM_SHARED.hqMoved) KM_SHARED.hqMoved(); } catch (e) {}
 }
 function renderMove() {
   const el = $("mv_root"); if (!el || !D) return;
   const ed = MED(), dirty = mvSnap() !== MV_SAVED;
   let by = ""; try { by = localStorage.getItem("nxs-plan-by") || ""; } catch (e) {}
   el.innerHTML = `${mpCard()}${MV.plan ? `<div id="mv_steps">${steps()}</div>` : `<div class="muted" style="margin-bottom:8px">${esc(t("noPlan"))}</div>`}
-    ${moveTable()}
+    ${adoptCard()}${moveTable()}
     ${ed && MV.plan ? `<div class="mm-add" style="margin-top:12px"><b>${esc(t("addT"))}</b> <span class="muted" style="font-size:12.5px">${esc(t("addNote"))}</span>
       <div class="row" style="gap:6px;flex-wrap:wrap;margin-top:6px;align-items:center"><input class="inp" id="mv_an" list="mv_names" placeholder="${esc(t("name"))}" style="width:150px">
       <datalist id="mv_names">${[...new Set(D.m.map(([n]) => n).concat(MV.plan.c.map(([n]) => n).filter(Boolean)))].map((n) => `<option value="${esc(n)}">`).join("")}</datalist>
@@ -764,6 +832,7 @@ function renderMove() {
   if ($("mv_exp")) $("mv_exp").onclick = exportCsv;
   if ($("mv_png")) $("mv_png").onclick = (e) => exportPng(e.currentTarget);
   if ($("mv_pubB")) $("mv_pubB").onclick = () => pubSet(!PUB);
+  if ($("mv_adopt")) $("mv_adopt").onclick = adoptGo;
   /* ⇄ the plan's Bear Trap 1 / 2 the other way round (the Mapper file had them swapped) — only the plan's traps; members' 🐻 BT marks stay */
   if ($("mv_swap")) $("mv_swap").onclick = () => { if (!MED() || !MV.plan || (MV.plan.bt || []).length !== 2) return;
     MV.plan.bt = [MV.plan.bt[1], MV.plan.bt[0]]; const st = MV.st = MV.st || {}; if (Array.isArray(st.bt)) st.bt = [st.bt[1], st.bt[0]];

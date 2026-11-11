@@ -1019,7 +1019,14 @@ async function init() {
 /* 👥 the member map (js/officer/members.js) draws the same banners and obstacles as this map, with the officers' edits */
 window.KM_SHARED = {
   banners: () => exList(true),                  // [x, y, 1 = checked in game / 0 = estimated] (without 🚚 Move ticks)
-  moveChanged: () => { rebuildOwn(); drawEx(); drawFlags(); renderFlags(); },   // 🚚 Move steps ticked / unticked a banner
+  moveChanged: () => { rebuildOwn(); drawEx(); drawFlags(); renderFlags(); },
+  /* 🚚 Move's HQ step ticked: our HQ is the plan's new HQ (G.hq[0] already changed by members.js) — move the marker + territory */
+  hqMoved: () => { const h = G && G.hq && G.hq[0], b = BY.h0; if (!h || !b) return;
+    const m = $("km_svg") && $("km_svg").querySelector('.mk[data-id="h0"]');
+    if (m) { if (m.dataset.x0 == null) { m.dataset.x0 = b.x; m.dataset.y0 = b.y; }
+      let w = m.parentNode; if (!(w.getAttribute && w.getAttribute("class") === "hqmv")) { w = document.createElementNS("http://www.w3.org/2000/svg", "g"); w.setAttribute("class", "hqmv"); m.parentNode.insertBefore(w, m); w.appendChild(m); }
+      const a = P(+m.dataset.x0, +m.dataset.y0), c = P(h[0], h[1]); w.setAttribute("transform", `translate(${(c[0] - a[0]).toFixed(1)},${(c[1] - a[1]).toFixed(1)})`); }
+    b.x = h[0]; b.y = h[1]; rebuildOwn(); drawEx(); renderList(); },   // 🚚 Move steps ticked / unticked a banner
   planned: () => (PLAN && PLAN.fl) || [],      // 🚩 planned banners [x, y]
   others: () => otList().map(([n, x, y]) => [n, x, y, otCol(n)]),
   othersHq: () => otHq().map(([n, x, y]) => [n, x, y, otCol(n)]),   // other alliances' HQs (15×15)
