@@ -446,7 +446,7 @@ function optCheck(maxAdd, now) {   // now = the kingdom as it stands (our HQs, s
   const ok = (x, y) => free(x, y) && !used.has(x + "," + y);
   /* 1b) small moves (Sherry 2026-11-12: "which ones could move a little and improve the layout"): shift one banner up to 3 tiles when that
      completes more resource nodes and loses nothing (city / Bear Trap tiles, nodes, Outposts, links). Quick local screen, then a full check. */
-  const moves = [], nodes0 = base.nodes.length;
+  const moves = [], nodes0 = base.nodes.length, byType = (l) => { const c = { b: 0, w: 0, q: 0, i: 0 }; l.forEach((n) => { c[RESN[n][0]] = (c[RESN[n][0]] || 0) + 1; }); return c; }, types0 = byType(base.nodes);   // what kinds of nodes we hold (bread / wood / stone / iron)
   { const K = new Uint8Array(OPT_N * OPT_N), C = new Uint8Array(OPT_N * OPT_N);
     for (const [, x, y] of PL.c || []) fill(K, [x, y, x + 1, y + 1], 1); for (const [x, y] of PL.bt || []) fill(K, [x, y, x + 2, y + 2], 1);
     const count = () => { C.fill(0); const a1 = ([x0, y0, x1, y1]) => { for (let j = Math.max(0, y0); j <= Math.min(OPT_N - 1, y1); j++) for (let i = Math.max(0, x0); i <= Math.min(OPT_N - 1, x1); i++) { const k = oK(i, j); if (!oth[k] && C[k] < 250) C[k]++; } };
@@ -488,7 +488,7 @@ function optCheck(maxAdd, now) {   // now = the kingdom as it stands (our HQs, s
     if (!best || bg < 1) break;
     for (const [x, y] of best) { place(x, y); for (const n of near(x - 20, y - 20, x + 20, y + 20)) cand.add(n); }
   }
-  return { now: !!now, nP, city0, cityAll, n0: (PL.b || []).length + stand.length, nS: stand.length, waste, cut, add, moves, nodes0, nodesM: base.nodes.length, opT: base.op.reduce((a, b, i) => a + (ops[i].big ? 0 : b), 0),
+  return { now: !!now, nP, city0, cityAll, n0: (PL.b || []).length + stand.length, nS: stand.length, waste, cut, add, moves, nodes0, types0, nodesM: base.nodes.length, opT: base.op.reduce((a, b, i) => a + (ops[i].big ? 0 : b), 0),
     oMiss: ops.filter((o, i) => !o.big && !base.op[i] && (o.st === "held" || o.st === "vuln" || o.st === "conflict")).map((o) => `${o.n} X:${o.x} Y:${o.y}`) };
 }
 function optCard(now) {
@@ -498,6 +498,7 @@ function optCard(now) {
     <div class="row" style="gap:8px;flex-wrap:wrap;align-items:center"><label style="font-size:13px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">${esc(ot("max"))} <input class="inp" id="${P}_omax" type="number" min="0" max="80" value="${optMax}" style="width:70px"></label><button type="button" class="btn primary" id="${P}_orun">${esc(ot("run"))}</button></div>`;
   if (o) { const keep = o.n0 - o.waste.length - o.cut.length;
     h += `<div class="mm-rs" style="margin-top:10px">${esc(ot(now ? "nowN" : "now").replace("{b}", o.n0).replace("{p}", now ? o.nP : o.n0 - o.nS).replace("{s}", o.nS).replace("{r}", o.nodes0).replace("{o}", o.opT))}</div>`;
+    h += `<div class="mm-rs" style="margin-top:6px">🍞 ${o.types0.b} · 🪵 ${o.types0.w} · 🪨 ${o.types0.q} · ⛏️ ${o.types0.i}</div>`;
     const wP = o.waste.filter((b) => !b[3]), wS = o.waste.filter((b) => b[3]), chips = (l) => `<div>${l.map((b) => `<span class="mm-chip">${b[2] ? `<b>${esc(b[2])}</b> ` : ""}${b[0]},${b[1]}</span>`).join(" ")}</div>`;
     if (o.cut.length) h += `<div class="mm-rs" style="background:#c0473a22">${esc(ot(now ? "cutN" : "cut").replace("{n}", o.cut.length).replace("{l}", o.cut.map(xy).join(" · ")))}</div>`;
     if (o.oMiss.length) h += `<div class="mm-rs" style="background:#c0473a22">${esc(ot(now ? "oMissN" : "oMiss").replace("{l}", o.oMiss.join(" · ")))}</div>`;
