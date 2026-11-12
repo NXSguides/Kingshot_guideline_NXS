@@ -56,7 +56,7 @@ const FEATURES = [
   ["Bear analysis tab (🐻 measured, ex Bear plan)", /🐻 BEAR ANALYSIS tab/, /bearplan: \[\{ s: "#bp_title", k: "bp01" \}\]/],
   ["Bear analysis: leaders per trap, where marches score most, each player", /🚩 Where marches score most/, /🐻 Bear analysis: the officers' Bear reports/],
   ["Bear page: report chips (Scoring / Leaders / Sending troops / Joiners & heroes / Trend)", /one Bear page with 🐻 Bear Hunt report: chips at the top/, /The chips at the top switch between 👑 Leaders/],
-  ["Bear page: 🎲 leader hero sets (average strength + swing per rally)", /🎲 Leader hero sets: the public Bear guide's recommended leader hero sets/, /the 🎲 leader hero sets: the guide's recommended sets/],
+  ["Bear page: 🦸 leader hero sets (strength with the same stats, × K)", /🦸 Leader hero sets \(updated 2026-11-12, ledger A14\)/, /the 🦸 leader hero sets: how hard a rally hits with the same stats/],
   ["Bear Hunt report (🐻 research)", /🐻 BEAR HUNT report/, /bh: \[\{ s: "#bh_title", k: "bh01" \}\]/],
   ["Bear Hunt report: research ledger (✅/🟡, corrected list, alliance trend)", /ONE running research ledger/, /our research ledger for members/],
   ["Investment report (💎 research)", /💎 INVESTMENT report/, /iv: \[\{ s: "#iv_title", k: "iv01" \}\]/],

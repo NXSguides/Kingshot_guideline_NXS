@@ -65,24 +65,21 @@ const AT = { en: { obsH: "🔎 What we saw", sugH: "💡 Suggestions", lh: "👑
   ko: { obsH: "🔎 우리가 관찰한 것", sugH: "💡 제안", lh: "👑 대장", lp: "K = 대장 강도: 버프 화면의 궁병 공격력 × 파괴력, 도시 버프와 집결 전용 장비를 같은 칸에 합산, ASHISH 11/06 = 1.00. 메일 = 집결 메일 실측값.", lc: ["대장", "K", "메일", "도시 공격 / 파괴"], role: { A: "A", B: "B", fill: "보충" }, rosterH: "📋 공식 대장 명단", rosterP: "A팀은 0:00, B팀은 +0:45에 엽니다. 나머지는 6:30 남았을 때만 열 수 있습니다 (보충 집결).", rcols: ["함정", "A팀 (0:00)", "B팀 (+0:45)"],
     ph: "🚩 부대를 어디에 넣으면 좋은가", ch: "🎯 개인별", cp: "병력 계수 = 병력 티어 × (1 + 베라 「사냥 본능」); 기준 플레이어 = 1.00.", gh: "📈 사냥별 총점", det: "📋 전체 대장 표 (모든 수치)", nx: "📸 다음 사냥 때 찍어 주세요" } };
 const at = (k) => (AT[lang] || AT.en)[k] ?? AT.en[k];
-/* 🎲 the public Bear guide's recommended leader hero sets (Gen 1–4): average strength from Expedition skills only (all Lv5, joiners 2 Attack + 2 Lethality,
-   Amadeus / Petra / Marlin = 1.00) and how much one rally swings (simulated, 10 turns) — Project doc claude/bear-leader-luck-2026-11-11.md. No member data. */
-const LUCK = [[1, ["amadeus", "jabel", "quinn"], 0.90, 8.0], [1, ["helga", "jabel", "quinn"], 0.80, 7.5], [1, ["howard", "jabel", "quinn"], 0.60, 7.4],
-  [2, ["amadeus", "hilde", "marlin"], 0.96, 10.1], [2, ["helga", "jabel", "marlin"], 0.90, 8.0], [2, ["zoe", "jabel", "quinn"], 0.90, 8.8],
-  [3, ["amadeus", "petra", "marlin"], 1.00, 8.1], [3, ["helga", "petra", "marlin"], 0.91, 8.1], [3, ["zoe", "petra", "quinn"], 0.87, 8.6],
-  [4, ["amadeus", "petra", "rosa"], 1.04, 8.2], [4, ["zoe", "petra", "rosa"], 0.99, 8.8], [4, ["helga", "petra", "rosa"], 0.93, 8.0]];
-const LUCK_T = { en: { h: "🎲 Leader hero sets", gen: "Gen {n}", s: "Average strength", w: "Swing per rally", n: "Simulated from Expedition skills." },
-  zh: { h: "🎲 隊長英雄組合", gen: "第 {n} 代", s: "平均強度", w: "每團跳動", n: "用遠征技能模擬的。" },
-  pt: { h: "🎲 Conjuntos de heróis do líder", gen: "Gen {n}", s: "Força média", w: "Variação por rally", n: "Simulado com as habilidades de Expedição." },
-  ar: { h: "🎲 مجموعات أبطال القائد", gen: "الجيل {n}", s: "متوسط القوة", w: "التذبذب لكل حشد", n: "محاكاة من مهارات الحملة." },
-  ko: { h: "🎲 대장 영웅 조합", gen: "{n}세대", s: "평균 강도", w: "집결당 변동", n: "원정 스킬로 시뮬레이션한 값." } };
+/* 🦸 leader hero sets: how hard the rally hits with the same bonus-page stats (Amadeus / Petra / Marlin = 1.00) — Project doc claude/bear-findings.md A14 / B13
+   (rally mails ÷ K, plus the outside simulations in claude/video-sloth-bear-heroes-2026-11-12.md). Multiply a leader's K by it. No member data. */
+const LUCK = [[["amadeus", "petra", "marlin"], 1.00], [["amadeus", "jabel", "marlin"], 0.82], [["zoe", "petra", "marlin"], 0.79], [["zoe", "petra", "quinn"], 0.70]];
+const LUCK_T = { en: { h: "🦸 Leader hero sets", s: "Strength with the same stats", n: ["Rally strength ≈ K × this number × joiner slots filled.", "With Petra, Zoe only adds Attack +25%: her Sundering Wound does nothing on the Bear and her Infinite Arsenal doesn't stack with Petra's Evil Eye.", "Each rally still swings about ±8% by luck."] },
+  zh: { h: "🦸 隊長英雄組合", s: "同樣屬性下的強度", n: ["整團強度 ≈ K × 這個數字 × 加入者格數。", "跟小佩拉一起帶時，佐伊只剩攻擊 +25%：撕裂傷口打熊沒效果，無下限技巧和小佩拉的厄運不會疊加。", "每團還是有約 ±8% 的運氣。"] },
+  pt: { h: "🦸 Conjuntos de heróis do líder", s: "Força com os mesmos atributos", n: ["Força do rally ≈ K × este número × vagas de participante preenchidas.", "Com a Petra, a Zoe só acrescenta Ataque +25%: a Ferida de Ruptura não faz nada no Urso e o Arsenal Infinito não acumula com o Olho Maligno da Petra.", "Cada rally ainda varia cerca de ±8% por sorte."] },
+  ar: { h: "🦸 مجموعات أبطال القائد", s: "القوة بنفس الإحصاءات", n: ["قوة الحشد ≈ K × هذا الرقم × خانات المنضمّين الممتلئة.", "مع بيترا، لا تضيف زوي إلا الهجوم +25%: تمزيق الجرح لا يفعل شيئًا على الدب، والترسانة اللانهائية لا تتراكم مع عين الشر عند بيترا.", "كل حشد ما زال يتذبذب نحو ±8% بالحظ."] },
+  ko: { h: "🦸 대장 영웅 조합", s: "같은 능력치에서의 강도", n: ["집결 강도 ≈ K × 이 숫자 × 채워진 집결원 칸.", "리틀 페라와 함께면 조이는 공격력 +25%만 남아: 상처 찢기는 곰에게 효과가 없고, 끝없는 기술은 리틀 페라의 불운과 중첩되지 않아.", "집결마다 여전히 약 ±8% 운 차이가 있어."] } };
 function luckHtml() {
-  const L = LUCK_T[lang] || LUCK_T.en, max = Math.max(...LUCK.map((x) => x[2]));
+  const L = LUCK_T[lang] || LUCK_T.en;
   const pic = (id) => `<img src="figures/heroes/hero_${id}.webp" alt="" loading="lazy">`;
-  return `<div class="card"><h3>${esc(L.h)}</h3><div class="bp-lk-h"><span></span><span>${esc(L.s)}</span><span>${esc(L.w)}</span></div>
-    ${[1, 2, 3, 4].map((g) => `<h4 class="bp-lk-g">${esc(L.gen.replace("{n}", g))}</h4>${LUCK.filter((x) => x[0] === g).map((x) => `<div class="bp-lk"><span class="bp-lk-p">${x[1].map(pic).join("")}</span>
-      <span class="bp-lk-b"><span class="bp-kt"><i class="bp-kf" style="width:${(x[2] / max * 100).toFixed(1)}%;background:var(--bp-main)"></i></span><b>${x[2].toFixed(2)}</b></span><span class="bp-lk-w">±${x[3].toFixed(0)}%</span></div>`).join("")}`).join("")}
-    <div class="muted" style="font-size:12px;margin-top:8px">${esc(L.n)}</div></div>`;
+  return `<div class="card"><h3>${esc(L.h)}</h3><div class="bp-lk-h"><span></span><span>${esc(L.s)}</span><span></span></div>
+    ${LUCK.map((x) => `<div class="bp-lk"><span class="bp-lk-p">${x[0].map(pic).join("")}</span>
+      <span class="bp-lk-b"><span class="bp-kt"><i class="bp-kf" style="width:${(x[1] * 100).toFixed(1)}%;background:var(--bp-main)"></i></span><b>${x[1].toFixed(2)}</b></span><span class="bp-lk-w"></span></div>`).join("")}
+    <ul class="bp-ul" style="margin-top:10px">${L.n.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>`;
 }
 function analysisHtml() {
   const r = RV, num = (v) => (v == null ? "—" : (+v).toFixed(0));
