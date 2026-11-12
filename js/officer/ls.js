@@ -15,7 +15,7 @@ const TYPES = [
   { k: "op2", a: [0, 20, 80], d: [0, 20, 80], both: 1 },
   { k: "op3", a: [0, 30, 70], d: [0, 30, 70], both: 1 },
   { k: "op4", a: [10, 30, 60], d: [10, 30, 60], both: 1 },
-  { k: "sanct", a: [0, 30, 70], d: [0, 30, 70], fa: 1, mid: 1 },
+  { k: "sanct", a: [0, 30, 70], d: [0, 30, 70], fa: 1 },
   { k: "terror", a: [0, 0, 100], d: null },
 ];
 const T = {
@@ -29,7 +29,7 @@ const T = {
     full: "Infirmary full → the rest are lost", mid: "one report", none: "—",
     cH: "🧮 If this many of my troops fall", cType: "Battle", cSide: "I am the", cN: "Troops that fall", cRoom: "Room left in my Infirmary", cTerror: "Almost all lightly injured.",
     oH: "Also", o: ["Outposts: the higher the level, the more injured (10%, 20%, 30%); only Lv. 4 also loses troops.", "Kills = the other side's lost + injured. Lightly injured don't count.", "Injured troops enter the Infirmary from the highest tier down.", "A Town with no troops inside: no battle, nobody is hurt.", "In a rally or garrison, each person's share of the fallen follows their share of that troop type.", "Infantry fall first; cavalry almost never fall; archers sometimes fall before the infantry are gone."],
-    unkH: "🟡 Not known yet", unks: ["Sanctuary Battle: only one report so far.", "In a building, are injured troops also lost when the Infirmary is full?"],
+    unkH: "🟡 Not known yet", unks: ["In a building, are injured troops also lost when the Infirmary is full?"],
     howH: "🔢 How we worked it out", how: "From our own battle reports since October: the lost, injured and lightly injured counts of each side, divided by the troops that fell. The same split showed up for every troop type and tier." },
   zh: { title: "🩹 戰鬥與損兵", badge: "🔬 我們的研究 · 更新 {d}",
     obsH: "🔎 我們觀察到", obs: ["倒下的兵有三種去向：輕傷（這場打不了，但留在部隊裡，還能再用）、受傷（進野戰醫院，治得回來）、損失（沒了）。",
@@ -41,7 +41,7 @@ const T = {
     full: "野戰醫院滿了 → 進不去的變損失", mid: "只有一場", none: "—",
     cH: "🧮 如果我倒下這麼多兵", cType: "戰鬥", cSide: "我是", cN: "倒下的兵數", cRoom: "野戰醫院還有幾個空位", cTerror: "幾乎全部是輕傷。",
     oH: "其他", o: ["據點看等級，跟是哪一種據點無關：等級越高受傷越多（10%、20%、30%），只有 4 級還會損失。", "擊殺 ＝ 對方的損失＋受傷，輕傷不算。", "受傷的兵從最高兵等開始進野戰醫院。", "城裡沒有兵：不會開打，雙方都沒有傷亡。", "集結和駐防裡，同兵種的傷亡照每個人的兵數比例分。", "步兵先倒；騎兵幾乎不會倒；弓兵有時比步兵先倒光。"],
-    unkH: "🟡 還不知道的", unks: ["遺跡爭奪目前只有一場戰報。", "在建築裡，野戰醫院滿了會不會也變損失？"],
+    unkH: "🟡 還不知道的", unks: ["在建築裡，野戰醫院滿了會不會也變損失？"],
     howH: "🔢 怎麼算的", how: "用我們自己十月以來的戰報：雙方的損失、受傷、輕傷數字，除以倒下的兵數。每個兵種、每個兵等都是同樣的比例。" },
   pt: { title: "🩹 Perdas em batalha", badge: "🔬 Nossa pesquisa · atualizado {d}",
     obsH: "🔎 O que observamos", obs: ["As tropas que caem têm três destinos: levemente feridas (fora desta luta, mas ficam na marcha e podem lutar de novo), feridas (vão para a Enfermaria, dá para curar) ou perdidas (somem).",
@@ -53,7 +53,7 @@ const T = {
     full: "Enfermaria cheia → o resto é perdido", mid: "um relatório", none: "—",
     cH: "🧮 Se caírem tantas tropas minhas", cType: "Batalha", cSide: "Eu sou o", cN: "Tropas que caem", cRoom: "Vagas na minha Enfermaria", cTerror: "Quase todas levemente feridas.",
     oH: "Também", o: ["Postos Avançados: quanto maior o nível, mais feridos (10%, 20%, 30%); só o Nv. 4 também perde tropas.", "Mortes = perdidas + feridas do outro lado. Levemente feridas não contam.", "As feridas entram na Enfermaria a partir do nível mais alto.", "Cidade sem tropas dentro: não há batalha, ninguém se fere.", "Em rally ou guarnição, a parte de cada um nas baixas segue a parte dele naquele tipo de tropa.", "A infantaria cai primeiro; a cavalaria quase nunca cai; os arqueiros às vezes caem antes de a infantaria acabar."],
-    unkH: "🟡 Ainda não sabemos", unks: ["Batalha do Santuário: só um relatório até agora.", "Numa construção, as feridas também são perdidas quando a Enfermaria está cheia?"],
+    unkH: "🟡 Ainda não sabemos", unks: ["Numa construção, as feridas também são perdidas quando a Enfermaria está cheia?"],
     howH: "🔢 Como calculamos", how: "Com nossos relatórios de batalha desde outubro: perdidas, feridas e levemente feridas de cada lado, divididas pelas tropas que caíram. A mesma divisão apareceu em todo tipo e nível de tropa." },
   ar: { title: "🩹 خسائر المعارك", badge: "🔬 بحثنا · آخر تحديث {d}",
     obsH: "🔎 ما لاحظناه", obs: ["القوات التي تسقط لها ثلاثة مصائر: إصابة طفيفة (خارج هذا القتال لكنها تبقى مع القوات ويمكن استخدامها مجددًا)، مصابة (تدخل المستوصف ويمكن علاجها)، أو مفقودة (ذهبت).",
@@ -65,7 +65,7 @@ const T = {
     full: "المستوصف ممتلئ ← الباقي يُفقد", mid: "تقرير واحد", none: "—",
     cH: "🧮 إذا سقط هذا العدد من قواتي", cType: "المعركة", cSide: "أنا", cN: "القوات التي تسقط", cRoom: "الأماكن الفارغة في مستوصفي", cTerror: "كلها تقريبًا إصابات طفيفة.",
     oH: "أيضًا", o: ["المستوطنات: كلما ارتفع المستوى زاد المصابون (10%، 20%، 30%)؛ المستوى 4 فقط يخسر قوات أيضًا.", "القتلى = مفقودو الطرف الآخر + مصابوه. الإصابات الطفيفة لا تُحسب.", "المصابون يدخلون المستوصف من أعلى مستوى أولًا.", "مدينة بلا قوات: لا معركة ولا إصابات لأحد.", "في الحشد أو الحامية، نصيب كل شخص من الساقطين بحسب نصيبه من ذلك النوع من القوات.", "المشاة يسقطون أولًا؛ الفرسان لا يسقطون تقريبًا؛ الرماة أحيانًا يسقطون قبل انتهاء المشاة."],
-    unkH: "🟡 غير معروف بعد", unks: ["معركة المأوى: تقرير واحد فقط حتى الآن.", "في المبنى، هل يُفقد المصابون أيضًا إذا امتلأ المستوصف؟"],
+    unkH: "🟡 غير معروف بعد", unks: ["في المبنى، هل يُفقد المصابون أيضًا إذا امتلأ المستوصف؟"],
     howH: "🔢 كيف حسبناها", how: "من تقارير معاركنا منذ أكتوبر: أعداد المفقودين والمصابين والإصابات الطفيفة لكل طرف، مقسومة على القوات التي سقطت. النسبة نفسها ظهرت لكل نوع ومستوى." },
   ko: { title: "🩹 전투와 손실", badge: "🔬 우리 연구 · 업데이트 {d}",
     obsH: "🔎 우리가 관찰한 것", obs: ["쓰러진 병력은 세 갈래야: 경상(이번 싸움에서는 빠지지만 부대에 남아서 다시 쓸 수 있음), 부상(야전 병원에 들어가고 치료 가능), 손실(사라짐).",
@@ -77,7 +77,7 @@ const T = {
     full: "야전 병원이 꽉 차면 → 나머지는 손실", mid: "보고서 1건", none: "—",
     cH: "🧮 내 병력이 이만큼 쓰러지면", cType: "전투", cSide: "나는", cN: "쓰러지는 병력", cRoom: "내 야전 병원 남은 자리", cTerror: "거의 전부 경상이야.",
     oH: "그 밖에", o: ["거점은 종류와 상관없이 레벨로 정해져: 레벨이 높을수록 부상이 많아(10%, 20%, 30%); Lv.4만 손실도 있어.", "처치 = 상대의 손실 + 부상. 경상은 안 세.", "부상병은 높은 등급부터 야전 병원에 들어가.", "병력이 없는 도시: 전투가 안 일어나고 아무도 안 다쳐.", "집결이나 수비에서는 같은 병종의 피해를 각자 병력 비율대로 나눠.", "보병이 먼저 쓰러져; 기병은 거의 안 쓰러져; 궁병은 가끔 보병보다 먼저 다 쓰러져."],
-    unkH: "🟡 아직 모르는 것", unks: ["유적 쟁탈: 아직 보고서 1건뿐이야.", "건물 안에서도 야전 병원이 꽉 차면 부상병이 손실이 될까?"],
+    unkH: "🟡 아직 모르는 것", unks: ["건물 안에서도 야전 병원이 꽉 차면 부상병이 손실이 될까?"],
     howH: "🔢 어떻게 계산했는지", how: "10월부터 우리 전투 보고서로: 양쪽의 손실, 부상, 경상 수를 쓰러진 병력으로 나눴어. 모든 병종, 모든 등급에서 같은 비율이었어." },
 };
 let lang = OFFICER.lang || "en";
