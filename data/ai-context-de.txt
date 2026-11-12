@@ -1678,6 +1678,7 @@ Auto Registration = Automat. anmelden
 Cancel Auto Registration = Automat. anmelden aufheben
 Fortress Battle = Fortkampf
 Rebel Cesares = Rebellen
+Sanctuary Teleport = Heiligtum-Umsiedlung
 Hero of the Season = Held der Saison
 Honor Ranking = Ehrenrang
 Stage 1: City Construction = Stufe 1: Stadtsbau
