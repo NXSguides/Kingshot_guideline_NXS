@@ -458,7 +458,7 @@ function optCard(now) {
   if (now ? !(D && window.KM_SHARED) : !(MV && MV.plan)) return ""; if (!RESN.length) return "";
   const ed = now ? OFFICER.can("map", "edit") : MED(), o = now ? OPTN : OPT, xy = (b) => `X:${b[0]} Y:${b[1]}`, P = now ? "kn" : "mv";
   let h = `<div class="card" id="${P}_opt" style="margin-top:${now ? 14 : 12}px"><h3 style="margin:0 0 6px">${esc(ot(now ? "hN" : "h"))}</h3><p class="muted" style="font-size:12.5px;margin:0 0 8px">${esc(ot(now ? "pN" : "p"))}</p>
-    <div class="row" style="gap:8px;flex-wrap:wrap;align-items:center"><label style="font-size:13px">${esc(ot("max"))} <input class="inp" id="${P}_omax" type="number" min="0" max="80" value="${optMax}" style="width:70px"></label><button type="button" class="btn primary" id="${P}_orun">${esc(ot("run"))}</button></div>`;
+    <div class="row" style="gap:8px;flex-wrap:wrap;align-items:center"><label style="font-size:13px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap">${esc(ot("max"))} <input class="inp" id="${P}_omax" type="number" min="0" max="80" value="${optMax}" style="width:70px"></label><button type="button" class="btn primary" id="${P}_orun">${esc(ot("run"))}</button></div>`;
   if (o) { const keep = o.n0 - o.waste.length - o.cut.length;
     h += `<div class="mm-rs" style="margin-top:10px">${esc(ot(now ? "nowN" : "now").replace("{b}", o.n0).replace("{p}", o.n0 - o.nS).replace("{s}", o.nS).replace("{r}", o.nodes0).replace("{o}", o.opT))}</div>`;
     const wP = o.waste.filter((b) => !b[3]), wS = o.waste.filter((b) => b[3]), chips = (l) => `<div>${l.map((b) => `<span class="mm-chip">${b[2] ? `<b>${esc(b[2])}</b> ` : ""}${b[0]},${b[1]}</span>`).join(" ")}</div>`;
