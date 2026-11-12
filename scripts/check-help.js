@@ -81,6 +81,7 @@ const FEATURES = [
   ["Ranking: shared plans", /New shared plan/, /shared plan/i],
   ["Move: member positions + blueprint on one map", /\[move\] - 🚚 Move → "👥 Member positions"[^\n]*blueprint/, /{ s: "#mm_map", k: "mv01" }, { s: "#km_members > h3", k: "mp40" }/],
   ["Move: move steps checklist", /Move steps/, /{ s: "#mv_steps", k: "mv02" }/],
+  ["Hive: ✏️ renamed members (Watchlist name history)", /✏️ RENAMED \(2026-11-12\)/, /{ s: "#mm_rn", k: "mp45", e: 1 }/],
   ["Move: 📍 positions from the roster (Update Map → 🔄 Update roster now → ✅ Use)", /Positions from the roster/, /{ s: "#mp_card", k: "mv09" }/],
   ["Watch / Move: 🔄 Update roster now (one shared request)", /\[watch\] - 🕵️ Watch → "🔄 Update roster now"/, /{ s: "#wa_rnb", k: "wa07" }/],
   ["Move: tap a planned spot to put a member there", /putting members on the plan by tapping/, /{ s: "#mm_map .mm-ps.ed", k: "mv08", e: 1 }/],
