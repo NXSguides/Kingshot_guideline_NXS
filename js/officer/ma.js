@@ -11,7 +11,7 @@ const USE = { cassia: [2, 2, 2, 1, 0, 1], roman: [1, 1, 1, 0, 2, 1], valora: [1,
 /* who raises whom: role, first, then, no hurry */
 const ROLES = [["lead", ["cassia"], ["roman"], ["pan"]], ["bear", ["valora"], ["cassia"], ["pan"]], ["join", ["valora"], ["roman"], ["cassia"]], ["arena", ["roman"], [], []], ["dev", ["pan"], ["valora"], []]];
 /* gems per 1% at the k-th Relationship Advancement: k, Roman, Valora / Pan, Cassia */
-const COST = [[1, 3200, 8300, 11100], [2, 5900, 7400, 11100], [3, 8900, 11100, 22200], [5, 14800, 18500, 44400], [10, 29600, 37000, 69200]];
+const COST = [[1, 3200, 3900, 11100], [2, 5900, 7400, 11100], [3, 8900, 11100, 22200], [5, 14800, 18500, 44400], [10, 29600, 37000, 69200]];
 /* Cassia's skills in Master's Manuscripts: skill key, total to max, per 1% at Lv2, at Lv20 */
 const SK = [["commando", 150000, "267 → 5,000"], ["firepower", 100000, "167 → 3,333"], ["mobil", 150000, "800 → 15,000 / +5,000"], ["recruit", 13500, "—"]];
 const T = {
